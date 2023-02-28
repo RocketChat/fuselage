@@ -8,8 +8,15 @@ import {
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React, { Fragment } from 'react';
 
-import { Table, TableBody, TableCell, TableHead, TableRow } from '..';
-import { Grid, Tile } from '../..';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableRow,
+  Grid,
+  Tile,
+} from '../..';
 
 export default {
   title: 'Layout/Grid',

@@ -28,6 +28,9 @@ export default {
       ),
     },
   },
+  args: {
+    'aria-label': 'Slider',
+  },
 } as ComponentMeta<typeof Slider>;
 
 const Template: ComponentStory<typeof Slider> = (args) => (
@@ -40,8 +43,7 @@ export const SliderPlayExample: ComponentStory<typeof Slider> = Template.bind(
   {}
 );
 SliderPlayExample.args = {
-  'aria-label': 'aria-range-label',
-  'maxValue': 50,
+  maxValue: 50,
 } as const;
 SliderPlayExample.play = async () => {
   const slider = screen.getByRole<HTMLFormElement>('slider');
@@ -59,72 +61,64 @@ Disabled.args = {
 
 export const Default: ComponentStory<typeof Slider> = Template.bind({});
 Default.args = {
-  'aria-label': 'aria-range-label',
-  'maxValue': 500,
+  maxValue: 500,
 } as const;
 
 export const Small: ComponentStory<typeof Slider> = Template.bind({});
 Small.args = {
-  'aria-label': 'aria-range-label',
-  'small': true,
+  small: true,
 } as const;
 
 export const Large: ComponentStory<typeof Slider> = Template.bind({});
 Large.args = {
-  'aria-label': 'aria-range-label',
-  'large': true,
+  large: true,
 } as const;
 
 export const NoOutput: ComponentStory<typeof Slider> = Template.bind({});
 NoOutput.args = {
-  'showOutput': false,
-  'aria-label': 'range',
+  showOutput: false,
 } as const;
 
 export const WithLabel: ComponentStory<typeof Slider> = Template.bind({});
 WithLabel.args = {
-  'label': 'Range',
-  'aria-label': 'range',
+  label: 'Range',
 } as const;
 
 export const Vertical: ComponentStory<typeof Slider> = Template.bind({});
 Vertical.args = {
-  'label': 'Range',
-  'aria-label': 'range',
-  'orientation': 'vertical',
+  label: 'Range',
+
+  orientation: 'vertical',
 } as const;
 
 export const VerticalMultiThumb: ComponentStory<typeof Slider> = Template.bind(
   {}
 );
 VerticalMultiThumb.args = {
-  'label': 'Range',
-  'aria-label': 'range',
-  'orientation': 'vertical',
-  'multiThumb': true,
+  label: 'Range',
+
+  orientation: 'vertical',
+  multiThumb: true,
 } as const;
 
 export const VerticalSmall: ComponentStory<typeof Slider> = Template.bind({});
 VerticalSmall.args = {
-  'aria-label': 'aria-range-label',
-  'small': true,
-  'orientation': 'vertical',
+  small: true,
+  orientation: 'vertical',
 } as const;
 
 export const WithDefaultValue: ComponentStory<typeof Slider> = Template.bind(
   {}
 );
 WithDefaultValue.args = {
-  'defaultValue': 25,
-  'aria-label': 'range',
+  defaultValue: 25,
 } as const;
 
 export const MultiThumb: ComponentStory<typeof Slider> = Template.bind({});
 MultiThumb.args = {
-  'aria-label': 'range',
-  'multiThumb': true,
-  'maxValue': 500,
-  'step': 10,
+  multiThumb: true,
+  maxValue: 500,
+  step: 10,
 } as const;
 
 export const ControlledValue: ComponentStory<typeof Slider> = () => {

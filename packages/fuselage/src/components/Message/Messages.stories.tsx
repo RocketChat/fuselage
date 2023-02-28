@@ -827,8 +827,12 @@ export const LotsOfReactions: ComponentStory<typeof Message> = () => (
           veniam...
         </Message.Body>
         <MessageReactions>
-          {Array.from({ length: 100 }).map((_, index) => (
-            <MessageReactions.Reaction counter={index} mine={!(index % 3)} />
+          {Array.from({ length: 100 }, (_, index) => (
+            <MessageReactions.Reaction
+              key={index}
+              counter={index}
+              mine={!(index % 3)}
+            />
           ))}
           <MessageReactions.Action />
         </MessageReactions>

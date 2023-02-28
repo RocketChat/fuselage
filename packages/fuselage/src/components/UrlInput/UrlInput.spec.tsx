@@ -1,10 +1,4 @@
-import { render } from '@testing-library/react';
-import React from 'react';
+import { testsFromStories } from '../../helpers/tests';
+import * as stories from './UrlInput.stories';
 
-import UrlInput from '.';
-
-describe('[UrlInput Component]', () => {
-  it('renders without crashing', () => {
-    render(<UrlInput />);
-  });
-});
+testsFromStories(stories);

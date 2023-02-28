@@ -1,10 +1,4 @@
-import { render } from '@testing-library/react';
-import React from 'react';
+import { testsFromStories } from '../../helpers/tests';
+import * as stories from './Modal.stories';
 
-import Modal from '.';
-
-describe('[Modal Component]', () => {
-  it('renders without crashing', () => {
-    render(<Modal />);
-  });
-});
+testsFromStories(stories);

@@ -1,10 +1,4 @@
-import { render } from '@testing-library/react';
-import React from 'react';
+import { testsFromStories } from '../../helpers/tests';
+import * as stories from './StatusBullet.stories';
 
-import { StatusBullet } from '.';
-
-describe('[StatusBullet Component]', () => {
-  it('renders without crashing', () => {
-    render(<StatusBullet />);
-  });
-});
+testsFromStories(stories);

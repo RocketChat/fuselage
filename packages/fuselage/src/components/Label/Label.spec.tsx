@@ -1,10 +1,4 @@
-import { render } from '@testing-library/react';
-import React from 'react';
+import { testsFromStories } from '../../helpers/tests';
+import * as stories from './Label.stories';
 
-import { Label } from '.';
-
-describe('[Label Component]', () => {
-  it('renders without crashing', () => {
-    render(<Label />);
-  });
-});
+testsFromStories(stories);

@@ -1,10 +1,4 @@
-import { render } from '@testing-library/react';
-import React from 'react';
+import { testsFromStories } from '../../helpers/tests';
+import * as stories from './Tile.stories';
 
-import Tile from '.';
-
-describe('[Tile Component]', () => {
-  it('renders without crashing', () => {
-    render(<Tile />);
-  });
-});
+testsFromStories(stories);

@@ -1,10 +1,4 @@
-import { render } from '@testing-library/react';
-import React from 'react';
+import { testsFromStories } from '../../helpers/tests';
+import * as stories from './ToggleSwitch.stories';
 
-import { ToggleSwitch } from '.';
-
-describe('[ToggleSwitch Component]', () => {
-  it('renders without crashing', () => {
-    render(<ToggleSwitch />);
-  });
-});
+testsFromStories(stories);

@@ -1,10 +1,4 @@
-import { render } from '@testing-library/react';
-import React from 'react';
+import { testsFromStories } from '../../helpers/tests';
+import * as stories from './Skeleton.stories';
 
-import { Skeleton } from '.';
-
-describe('[Skeleton Component]', () => {
-  it('renders without crashing', () => {
-    render(<Skeleton />);
-  });
-});
+testsFromStories(stories);

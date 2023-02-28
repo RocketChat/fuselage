@@ -1,10 +1,4 @@
-import { render } from '@testing-library/react';
-import React from 'react';
+import { testsFromStories } from '../../helpers/tests';
+import * as stories from './ProgressBar.stories';
 
-import { ProgressBar } from '../..';
-
-describe('[ProgressBar Component]', () => {
-  it('renders without crashing', () => {
-    render(<ProgressBar percentage={0} />);
-  });
-});
+testsFromStories(stories);

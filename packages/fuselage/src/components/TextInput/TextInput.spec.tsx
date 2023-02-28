@@ -1,10 +1,4 @@
-import { render } from '@testing-library/react';
-import React from 'react';
+import { testsFromStories } from '../../helpers/tests';
+import * as stories from './TextInput.stories';
 
-import { TextInput } from '.';
-
-describe('[TextInput]', () => {
-  it('renders without crashing', () => {
-    render(<TextInput />);
-  });
-});
+testsFromStories(stories);

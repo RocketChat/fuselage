@@ -25,9 +25,15 @@ export default {
   },
 } as ComponentMeta<typeof Tabs>;
 
-const Template: ComponentStory<typeof Tabs> = (args) => (
+const Template: ComponentStory<typeof Tabs> = ({
+  selected,
+  disabled,
+  ...args
+}) => (
   <Tabs {...args}>
-    <Tabs.Item {...args}>Tab text 1</Tabs.Item>
+    <Tabs.Item selected={selected} disabled={disabled}>
+      Tab text 1
+    </Tabs.Item>
     <Tabs.Item>Tab text 2</Tabs.Item>
     <Tabs.Item>Tab text 3</Tabs.Item>
     <Tabs.Item>Tab text 4</Tabs.Item>

@@ -1,10 +1,4 @@
-import { render } from '@testing-library/react';
-import React from 'react';
+import { testsFromStories } from '../../helpers/tests';
+import * as stories from './States.stories';
 
-import { States } from '.';
-
-describe('[States Component]', () => {
-  it('renders without crashing', () => {
-    render(<States />);
-  });
-});
+testsFromStories(stories);

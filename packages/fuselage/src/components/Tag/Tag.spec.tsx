@@ -1,10 +1,4 @@
-import { render } from '@testing-library/react';
-import React from 'react';
+import { testsFromStories } from '../../helpers/tests';
+import * as stories from './Tag.stories';
 
-import { Tag } from '.';
-
-describe('[Tag Component]', () => {
-  it('renders without crashing', () => {
-    render(<Tag />);
-  });
-});
+testsFromStories(stories);

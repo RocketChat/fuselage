@@ -1,10 +1,4 @@
-import { render } from '@testing-library/react';
-import React from 'react';
+import { testsFromStories } from '../../helpers/tests';
+import * as stories from './PasswordInput.stories';
 
-import PasswordInput from '.';
-
-describe('[PasswordInput Component]', () => {
-  it('renders without crashing', () => {
-    render(<PasswordInput />);
-  });
-});
+testsFromStories(stories);

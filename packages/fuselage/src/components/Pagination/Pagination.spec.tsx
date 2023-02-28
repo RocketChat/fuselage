@@ -1,10 +1,4 @@
-import { render } from '@testing-library/react';
-import React from 'react';
+import { testsFromStories } from '../../helpers/tests';
+import * as stories from './Pagination.stories';
 
-import { Pagination } from '.';
-
-describe('[Pagination Component]', () => {
-  it('renders without crashing', () => {
-    render(<Pagination count={0} />);
-  });
-});
+testsFromStories(stories);
