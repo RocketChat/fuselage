@@ -24,7 +24,9 @@ type OptionsPaginatedProps = Omit<ComponentProps<typeof Box>, 'onSelect'> & {
   endReached?: (index: number) => void;
 };
 
-export const Empty = memo(() => <Option label='Empty' />);
+export const Empty = memo(function Empty() {
+  return <Option label='Empty' />;
+});
 
 type CheckOptionProps = ComponentProps<typeof Option>;
 
@@ -40,70 +42,68 @@ export const CheckOption = memo(function CheckOption({
   );
 });
 
-export const OptionsPaginated = forwardRef(
-  (
-    {
-      title,
-      multiple,
-      renderEmpty: EmptyComponent = Empty,
-      options,
-      cursor,
-      renderItem: OptionComponent = Option,
-      onSelect,
-      endReached,
-      ...props
-    }: OptionsPaginatedProps,
-    ref: Ref<Element>
-  ) => {
-    const OptionsComponentWithData = ({
-      index,
-      data,
-    }: {
-      index: number;
-      data: OptionsPaginatedProps['options'][0];
-    }) => {
-      const { value, label, selected } = data;
-      return (
-        <OptionComponent
-          {...(title && { title: label })}
-          role='option'
-          label={label}
-          onMouseDown={(e: SyntheticEvent) => {
-            prevent(e);
-            onSelect([value, label]);
-            return false;
-          }}
-          key={value}
-          value={value}
-          selected={selected || (multiple !== true && null)}
-          focus={cursor === index || null}
-        />
-      );
-    };
-
+export const OptionsPaginated = forwardRef(function OptionsPaginated(
+  {
+    title,
+    multiple,
+    renderEmpty: EmptyComponent = Empty,
+    options,
+    cursor,
+    renderItem: OptionComponent = Option,
+    onSelect,
+    endReached,
+    ...props
+  }: OptionsPaginatedProps,
+  ref: Ref<Element>
+) {
+  const OptionsComponentWithData = ({
+    index,
+    data,
+  }: {
+    index: number;
+    data: OptionsPaginatedProps['options'][0];
+  }) => {
+    const { value, label, selected } = data;
     return (
-      <Box rcx-options {...props} ref={ref}>
-        <Tile padding={0} paddingBlock={'x12'} paddingInline={0} elevation='2'>
-          {!options.length ? (
-            <EmptyComponent />
-          ) : (
-            <Virtuoso
-              endReached={endReached}
-              style={{ height: '144px' }}
-              totalCount={options.length}
-              data={options}
-              // TODO Add a scroller element
-              // components={{ Scroller: ScrollableContentWrapper }}
-              itemContent={(index, data) => (
-                <OptionsComponentWithData index={index} data={data} />
-              )}
-            />
-          )}
-        </Tile>
-      </Box>
+      <OptionComponent
+        {...(title && { title: label })}
+        role='option'
+        label={label}
+        onMouseDown={(e: SyntheticEvent) => {
+          prevent(e);
+          onSelect([value, label]);
+          return false;
+        }}
+        key={value}
+        value={value}
+        selected={selected || (multiple !== true && null)}
+        focus={cursor === index || null}
+      />
     );
-  }
-);
+  };
+
+  return (
+    <Box rcx-options {...props} ref={ref}>
+      <Tile padding={0} paddingBlock={'x12'} paddingInline={0} elevation='2'>
+        {!options.length ? (
+          <EmptyComponent />
+        ) : (
+          <Virtuoso
+            endReached={endReached}
+            style={{ height: '144px' }}
+            totalCount={options.length}
+            data={options}
+            // TODO Add a scroller element
+            // components={{ Scroller: ScrollableContentWrapper }}
+            itemContent={(index, data) => (
+              <OptionsComponentWithData index={index} data={data} />
+            )}
+          />
+        )}
+      </Tile>
+    </Box>
+  );
+});
 
 export const useVisible = (initialVisibility = AnimatedVisibility.HIDDEN) => {
   const [visible, setVisible] = useDebouncedState<VisibilityType>(

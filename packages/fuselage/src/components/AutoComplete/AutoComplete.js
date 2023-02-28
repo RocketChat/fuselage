@@ -2,7 +2,7 @@ import {
   useMutableCallback,
   useResizeObserver,
 } from '@rocket.chat/fuselage-hooks';
-import React, { useEffect, useRef, useMemo, useState } from 'react';
+import React, { useEffect, useRef, useMemo, useState, memo } from 'react';
 
 import AnimatedVisibility from '../AnimatedVisibility';
 import Box from '../Box';
@@ -15,7 +15,10 @@ import PositionAnimated from '../PositionAnimated';
 
 const Addon = (props) => <Box rcx-autocomplete__addon {...props} />;
 
-const SelectedOptions = React.memo((props) => <Chip {...props} />);
+const SelectedOptions = memo(function SelectedOptions(props) {
+  return <Chip {...props} />;
+});
+
 export function AutoComplete({
   value,
   filter,

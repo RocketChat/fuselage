@@ -1,11 +1,12 @@
-export * from './Accordion';
+export { CompoundedAccordion as Accordion } from './Accordion';
+export * from './ActionButton';
 export { default as AnimatedVisibility } from './AnimatedVisibility';
 export * from './AutoComplete';
 export * from './Avatar';
 export * from './Badge';
 export { default as Banner } from './Banner';
 export { default as Box } from './Box';
-export { default as Button, ActionButton, IconButton } from './Button';
+export { default as Button, IconButton } from './Button';
 export * from './ButtonGroup';
 export * from './Callout';
 export * from './CheckBox';

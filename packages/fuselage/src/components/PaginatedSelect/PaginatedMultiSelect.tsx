@@ -20,9 +20,9 @@ import Position from '../Position';
 import SelectAddon from '../Select/SelectAddon';
 import SelectFocus from '../Select/SelectFocus';
 
-const SelectedOptions = memo((props) => (
-  <Chip maxWidth='150px' withTruncatedText {...props} />
-));
+const SelectedOptions = memo(function SelectedOptions(props) {
+  return <Chip maxWidth='150px' withTruncatedText {...props} />;
+});
 
 type PaginatedMultiSelectOption = {
   value?: string | number;
@@ -206,15 +206,15 @@ export const PaginatedMultiSelectFiltered = ({
   ...props
 }: PaginatedMultiSelectFilteredProps) => {
   const anchor = useCallback(
-    forwardRef(
-      (
-        {
-          children: _children,
-          filter,
-          ...props
-        }: ComponentProps<typeof InputBox>,
-        ref: Ref<HTMLInputElement>
-      ) => (
+    forwardRef(function AnchorComponent(
+      {
+        children: _children,
+        filter,
+        ...props
+      }: ComponentProps<typeof InputBox>,
+      ref: Ref<HTMLInputElement>
+    ) {
+      return (
         <Flex.Item grow={1}>
           <InputBox.Input
             ref={ref}
@@ -228,8 +228,8 @@ export const PaginatedMultiSelectFiltered = ({
             rcx-input-box--undecorated
           />
         </Flex.Item>
-      )
-    ),
+      );
+    }),
     []
   );
   return (

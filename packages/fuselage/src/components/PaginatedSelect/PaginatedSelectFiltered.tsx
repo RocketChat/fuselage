@@ -19,15 +19,11 @@ export const PaginatedSelectFiltered = ({
 }: PaginatedSelectFilteredProps) => {
   const anchor = useMemo(
     () =>
-      forwardRef(
-        (
-          {
-            filter,
-            onChange: _onChange,
-            ...props
-          }: PaginatedSelectFilteredProps,
-          ref: Ref<HTMLInputElement>
-        ) => (
+      forwardRef(function AnchorComponent(
+        { filter, onChange: _onChange, ...props }: PaginatedSelectFilteredProps,
+        ref: Ref<HTMLInputElement>
+      ) {
+        return (
           <InputBox.Input
             mi='x4'
             flexGrow={1}
@@ -41,8 +37,8 @@ export const PaginatedSelectFiltered = ({
             {...props}
             rcx-input-box--undecorated
           />
-        )
-      ),
+        );
+      }),
     [placeholder, setFilter]
   );
 

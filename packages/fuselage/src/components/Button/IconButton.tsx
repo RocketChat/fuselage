@@ -24,62 +24,60 @@ type IconButtonProps = {
 
 const getSize = ({ mini }: ButtonSize) => (mini ? 'x16' : 'x20');
 
-export const IconButton = forwardRef(
-  (
-    {
-      icon,
-      children,
-      primary,
-      info,
-      secondary,
-      danger,
-      warning,
-      success,
-      small,
-      tiny,
-      mini,
-      ...props
-    }: IconButtonProps,
-    ref: Ref<HTMLElement>
-  ) => {
-    const kindAndVariantProps = useMemo(() => {
-      const variant =
-        (secondary && info && 'secondary-info') ||
-        (secondary && danger && 'secondary-danger') ||
-        (secondary && warning && 'secondary-warning') ||
-        (secondary && success && 'secondary-success') ||
-        ((primary || info) && 'info') ||
-        (success && 'success') ||
-        (warning && 'warning') ||
-        (danger && 'danger') ||
-        (secondary && 'secondary');
+export const IconButton = forwardRef(function IconButton(
+  {
+    icon,
+    children,
+    primary,
+    info,
+    secondary,
+    danger,
+    warning,
+    success,
+    small,
+    tiny,
+    mini,
+    ...props
+  }: IconButtonProps,
+  ref: Ref<HTMLElement>
+) {
+  const kindAndVariantProps = useMemo(() => {
+    const variant =
+      (secondary && info && 'secondary-info') ||
+      (secondary && danger && 'secondary-danger') ||
+      (secondary && warning && 'secondary-warning') ||
+      (secondary && success && 'secondary-success') ||
+      ((primary || info) && 'info') ||
+      (success && 'success') ||
+      (warning && 'warning') ||
+      (danger && 'danger') ||
+      (secondary && 'secondary');
 
-      if (variant) {
-        return {
-          [`rcx-button--icon-${[variant].filter(Boolean).join('-')}`]: true,
-        };
-      }
+    if (variant) {
+      return {
+        [`rcx-button--icon-${[variant].filter(Boolean).join('-')}`]: true,
+      };
+    }
 
-      return {};
-    }, [primary, info, secondary, danger, warning, success]);
+    return {};
+  }, [primary, info, secondary, danger, warning, success]);
 
-    return (
-      <Box
-        is='button'
-        type='button'
-        rcx-button
-        rcx-button--icon
-        rcx-button--square
-        {...kindAndVariantProps}
-        rcx-button--small-square={small}
-        rcx-button--tiny-square={tiny}
-        rcx-button--mini-square={mini}
-        ref={ref}
-        {...props}
-      >
-        {children}
-        <Icon name={icon} size={getSize({ mini })} />
-      </Box>
-    );
-  }
-);
+  return (
+    <Box
+      is='button'
+      type='button'
+      rcx-button
+      rcx-button--icon
+      rcx-button--square
+      {...kindAndVariantProps}
+      rcx-button--small-square={small}
+      rcx-button--tiny-square={tiny}
+      rcx-button--mini-square={mini}
+      ref={ref}
+      {...props}
+    >
+      {children}
+      <Icon name={icon} size={getSize({ mini })} />
+    </Box>
+  );
+});

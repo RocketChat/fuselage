@@ -1,5 +1,11 @@
 import { useToggle, useUniqueId } from '@rocket.chat/fuselage-hooks';
-import type { FormEvent, KeyboardEvent, MouseEvent, ReactNode } from 'react';
+import type {
+  FormEventHandler,
+  KeyboardEvent,
+  MouseEvent,
+  ReactNode,
+  UIEventHandler,
+} from 'react';
 import React from 'react';
 
 import Box from '../Box';
@@ -15,11 +21,11 @@ type AccordionItemProps = {
   tabIndex?: number;
   title: ReactNode;
   noncollapsible?: boolean;
-  onToggle?: (e: MouseEvent | KeyboardEvent) => void;
-  onToggleEnabled?: (e: FormEvent) => void;
+  onToggle?: UIEventHandler;
+  onToggleEnabled?: FormEventHandler;
 };
 
-export const AccordionItem = function Item({
+const AccordionItem = function AccordionItem({
   children,
   className,
   defaultExpanded,
@@ -132,3 +138,5 @@ export const AccordionItem = function Item({
     </Box>
   );
 };
+
+export default AccordionItem;

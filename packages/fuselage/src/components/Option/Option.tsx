@@ -32,24 +32,24 @@ type OptionProps = {
   onClick?: (event: MouseEvent<HTMLDivElement>) => void;
 } & AllHTMLAttributes<HTMLElement>;
 
-const Option = memo(
-  ({
-    is: Tag = 'li',
-    id,
-    children,
-    label,
-    focus,
-    selected,
-    className,
-    ref,
-    icon,
-    avatar,
-    title,
-    disabled,
-    onClick,
-    variant,
-    ...options
-  }: OptionProps) => (
+const Option = memo(function Option({
+  is: Tag = 'li',
+  id,
+  children,
+  label,
+  focus,
+  selected,
+  className,
+  ref,
+  icon,
+  avatar,
+  title,
+  disabled,
+  onClick,
+  variant,
+  ...options
+}: OptionProps) {
+  return (
     <Tag
       key={id}
       id={id}
@@ -83,7 +83,7 @@ const Option = memo(
         {label !== children && children}
       </div>
     </Tag>
-  )
-);
+  );
+});
 
 export default Option;

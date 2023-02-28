@@ -15,23 +15,21 @@ type ModalProps = {
   >;
 } & ComponentProps<typeof Box>;
 
-export const Modal = forwardRef(
-  (
-    { children, wrapper = Box, wrapperFunction, ...props }: ModalProps,
-    ref: Ref<Element>
-  ) => {
-    const wrapperProps = {
-      children,
-      className: 'rcx-modal__inner',
-      elevation: '2',
-    } as const;
+export const Modal = forwardRef(function Modal(
+  { children, wrapper = Box, wrapperFunction, ...props }: ModalProps,
+  ref: Ref<Element>
+) {
+  const wrapperProps = {
+    children,
+    className: 'rcx-modal__inner',
+    elevation: '2',
+  } as const;
 
-    return (
-      <Box is='dialog' rcx-modal ref={ref} {...props}>
-        {wrapperFunction
-          ? wrapperFunction(wrapperProps)
-          : createElement(wrapper, wrapperProps)}
-      </Box>
-    );
-  }
-);
+  return (
+    <Box is='dialog' rcx-modal ref={ref} {...props}>
+      {wrapperFunction
+        ? wrapperFunction(wrapperProps)
+        : createElement(wrapper, wrapperProps)}
+    </Box>
+  );
+});
