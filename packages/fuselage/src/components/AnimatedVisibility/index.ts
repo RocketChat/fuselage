@@ -1,9 +1,3 @@
-import type { VisibilityType } from './AnimatedVisibility';
-import AnimatedVisibility from './AnimatedVisibility';
+import AnimatedVisibility, { Visibility } from './AnimatedVisibility';
 
-export default Object.assign(AnimatedVisibility, {
-  HIDDEN: 'hidden' as VisibilityType,
-  VISIBLE: 'visible' as VisibilityType,
-  HIDING: 'hiding' as VisibilityType,
-  UNHIDING: 'unhiding' as VisibilityType,
-});
+export default Object.assign(AnimatedVisibility, Visibility);

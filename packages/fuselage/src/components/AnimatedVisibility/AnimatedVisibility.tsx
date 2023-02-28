@@ -6,23 +6,20 @@ import { appendClassName } from '../../helpers/appendClassName';
 import { useStyle } from '../../hooks/useStyle';
 import { BoxTransforms, useComposedBoxTransform } from '../Box/BoxTransforms';
 
+export const Visibility = {
+  HIDDEN: 'hidden',
+  VISIBLE: 'visible',
+  HIDING: 'hiding',
+  UNHIDING: 'unhiding',
+} as const;
+
 export type VisibilityType =
-  | 'hidden'
-  | 'visible'
-  | 'hiding'
-  | 'unhiding'
+  | typeof Visibility[keyof typeof Visibility]
   | undefined;
 
 type AnimatedVisibilityProps = {
   children: ReactNode;
   visibility?: VisibilityType;
-};
-
-const Visibility = {
-  HIDDEN: 'hidden' as VisibilityType,
-  VISIBLE: 'visible' as VisibilityType,
-  HIDING: 'hiding' as VisibilityType,
-  UNHIDING: 'unhiding' as VisibilityType,
 };
 
 const AnimatedVisibility = (props: AnimatedVisibilityProps) => {

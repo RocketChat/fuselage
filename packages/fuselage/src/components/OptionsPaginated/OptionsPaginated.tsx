@@ -8,6 +8,7 @@ import { Virtuoso } from 'react-virtuoso';
 
 import { prevent } from '../../helpers/prevent';
 import AnimatedVisibility from '../AnimatedVisibility';
+import type { VisibilityType } from '../AnimatedVisibility/AnimatedVisibility';
 import Box from '../Box';
 import { CheckBox } from '../CheckBox';
 import Option from '../Option';
@@ -105,7 +106,10 @@ export const OptionsPaginated = forwardRef(
 );
 
 export const useVisible = (initialVisibility = AnimatedVisibility.HIDDEN) => {
-  const [visible, setVisible] = useDebouncedState(initialVisibility, 10);
+  const [visible, setVisible] = useDebouncedState<VisibilityType>(
+    initialVisibility,
+    10
+  );
   const hide = useMutableCallback(() => setVisible(AnimatedVisibility.HIDDEN));
   const show = useMutableCallback(() => setVisible(AnimatedVisibility.VISIBLE));
 
