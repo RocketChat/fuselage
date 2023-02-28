@@ -6,7 +6,6 @@ import PropsVariation from '../../.storybook/PropsVariation';
 export default {
   title: 'Inputs/PasswordInput',
   component: PasswordInput,
-  parameters: { jest: ['PasswordInput.spec.tsx'] },
 };
 
 export const Default = () => <PasswordInput />;

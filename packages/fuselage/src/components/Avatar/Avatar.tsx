@@ -1,6 +1,5 @@
-import type { DetailedHTMLProps, HTMLAttributes } from 'react';
+import type { HTMLAttributes } from 'react';
 import React from 'react';
-import flattenChildren from 'react-keyed-flatten-children';
 
 import { prependClassName } from '../../helpers/prependClassName';
 
@@ -23,7 +22,7 @@ export type AvatarProps = {
   url: string;
 } & HTMLAttributes<HTMLElement>;
 
-export const Avatar = ({
+const Avatar = ({
   title,
   size = 'x36',
   rounded = false,
@@ -53,14 +52,4 @@ export const Avatar = ({
   );
 };
 
-type AvatarStackProps = DetailedHTMLProps<
-  HTMLAttributes<HTMLDivElement>,
-  HTMLDivElement
->;
-
-const AvatarStack = ({ children, ...props }: AvatarStackProps) => {
-  props.className = prependClassName(props.className, 'rcx-avatar-stack');
-  return <div {...props}>{flattenChildren(children).reverse()}</div>;
-};
-
-Avatar.Stack = AvatarStack;
+export default Avatar;

@@ -37,8 +37,8 @@ const Items = ({ label, children, layer, payload }: ItemProps) => {
           {children && children.length > 0 && (
             <Box
               size={16}
-              display={'flex'}
-              alignItems={'center'}
+              display='flex'
+              alignItems='center'
               className={css`
                 transform: rotate(${!isOpen ? '-90deg' : '0deg'});
                 transition: var(--animation-very-fast);

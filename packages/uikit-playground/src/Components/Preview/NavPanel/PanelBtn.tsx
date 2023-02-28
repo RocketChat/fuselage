@@ -26,7 +26,7 @@ const PanelBtn: FC<{ icon: ReactNode; name: string; isSmall: boolean }> = ({
       >
         {icon}
       </Button>
-      <Label overflow={'hidden'} className={style} fontSize='x10'>
+      <Label overflow='hidden' className={style} fontSize='x10'>
         {name}
       </Label>
     </>

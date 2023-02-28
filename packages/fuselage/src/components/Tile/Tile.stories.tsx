@@ -5,9 +5,6 @@ import { Tile } from '../..';
 export default {
   title: 'Containers/Tile',
   component: Tile,
-  parameters: {
-    jest: ['Tile.spec.tsx'],
-  },
 };
 
 export const Default = () => <Tile>Content</Tile>;

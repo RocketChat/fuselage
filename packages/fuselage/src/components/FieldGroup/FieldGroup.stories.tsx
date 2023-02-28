@@ -19,7 +19,7 @@ export default {
           <Title />
           <Description />
           <Primary />
-          <Stories title={'Label positioning for selection buttons'} />
+          <Stories title='Label positioning for selection buttons' />
         </>
       ),
     },

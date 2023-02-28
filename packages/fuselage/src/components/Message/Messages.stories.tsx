@@ -13,9 +13,6 @@ import ThreadMessage, { ThreadMessageEmoji } from './ThreadMessage';
 export default {
   title: 'Message/Message',
   component: Message,
-  parameters: {
-    jest: ['Message.spec.tsx'],
-  },
 };
 
 const avatarUrl =
@@ -26,7 +23,7 @@ export const Default: ComponentStory<typeof Message> = () => (
     <MessageDivider>May, 24, 2020</MessageDivider>
     <Message className='customclass' clickable>
       <Message.LeftContainer>
-        <Avatar url={avatarUrl} size={'x36'} />
+        <Avatar url={avatarUrl} size='x36' />
       </Message.LeftContainer>
       <Message.Container>
         <Message.Header>
@@ -72,7 +69,7 @@ export const WithSequential: ComponentStory<typeof Message> = () => (
     <MessageDivider>May, 24, 2020</MessageDivider>
     <Message className='customclass' clickable>
       <Message.LeftContainer>
-        <Avatar url={avatarUrl} size={'x36'} />
+        <Avatar url={avatarUrl} size='x36' />
       </Message.LeftContainer>
       <Message.Container>
         <Message.Header>
@@ -187,7 +184,7 @@ export const MessageWithThread: ComponentStory<typeof Message> = () => (
     <MessageDivider unreadLabel='Unread'>May, 24, 2020</MessageDivider>
     <Message className='customclass' clickable>
       <Message.LeftContainer>
-        <Avatar url={avatarUrl} size={'x36'} />
+        <Avatar url={avatarUrl} size='x36' />
       </Message.LeftContainer>
       <Message.Container>
         <Message.Header>
@@ -323,7 +320,7 @@ export const MessageSelected: ComponentStory<typeof Message> = () => {
                   6hY+0yM88TzeNZY4luYwpVYyduOfrvhPTnr0pXSX9y5mCsyJMdyxxvwq599em+taItqCSNc90ChvZRUruUcT0JiO18Elpk7t8v41LWzacxkB
                   SuvjQ/FFJayjDWrCTepAQ2vUH0oo/Jk3ovpwJJeVCP5CN+lFFaaMqy+nAyuChvrTI2kN9JAsi2ZOy4IBHMnkSCP+iqBexSWdxLazoUljJVlP
                   UH2oorkV10pRc7b1zXb/hZOzuJvM86QWEXeELxOzHSIPcmiiiunVlF2RNTpRkrs//Z'
-            size={'x36'}
+            size='x36'
           />
         </Message.LeftContainer>
         <Message.Container>
@@ -364,7 +361,7 @@ export const MessageEditing: ComponentStory<typeof Message> = () => (
     <MessageDivider>May, 24, 2020</MessageDivider>
     <Message className='customclass' clickable>
       <Message.LeftContainer>
-        <Avatar url={avatarUrl} size={'x36'} />
+        <Avatar url={avatarUrl} size='x36' />
       </Message.LeftContainer>
       <Message.Container>
         <Message.Header>
@@ -448,7 +445,7 @@ export const MessageUnorderedList: ComponentStory<typeof Message> = () => (
     <MessageDivider>May, 24, 2020</MessageDivider>
     <Message className='customclass' clickable>
       <Message.LeftContainer>
-        <Avatar url={avatarUrl} size={'x36'} />
+        <Avatar url={avatarUrl} size='x36' />
       </Message.LeftContainer>
       <Message.Container>
         <Message.Header>
@@ -494,7 +491,7 @@ export const MessageOrderedList: ComponentStory<typeof Message> = () => (
     <MessageDivider>May, 24, 2020</MessageDivider>
     <Message className='customclass' clickable>
       <Message.LeftContainer>
-        <Avatar url={avatarUrl} size={'x36'} />
+        <Avatar url={avatarUrl} size='x36' />
       </Message.LeftContainer>
       <Message.Container>
         <Message.Header>
@@ -540,7 +537,7 @@ export const MessageHighlighted: ComponentStory<typeof Message> = () => (
     <MessageDivider>May, 24, 2020</MessageDivider>
     <Message className='customclass' highlight>
       <Message.LeftContainer>
-        <Avatar url={avatarUrl} size={'x36'} />
+        <Avatar url={avatarUrl} size='x36' />
       </Message.LeftContainer>
       <Message.Container>
         <Message.Header>
@@ -624,7 +621,7 @@ export const MessagePending: ComponentStory<typeof Message> = () => (
     <MessageDivider>May, 24, 2020</MessageDivider>
     <Message className='customclass' isPending>
       <Message.LeftContainer>
-        <Avatar url={avatarUrl} size={'x36'} />
+        <Avatar url={avatarUrl} size='x36' />
       </Message.LeftContainer>
       <Message.Container>
         <Message.Header>
@@ -702,7 +699,7 @@ export const MessageWithMetrics: ComponentStory<typeof Message> = () => (
     <MessageDivider>May, 24, 2020</MessageDivider>
     <Message className='customclass'>
       <Message.LeftContainer>
-        <Avatar url={avatarUrl} size={'x36'} />
+        <Avatar url={avatarUrl} size='x36' />
       </Message.LeftContainer>
       <Message.Container>
         <Message.Header>
@@ -755,7 +752,7 @@ export const MessageWithHeadings: ComponentStory<typeof Message> = () => (
     <MessageDivider>May, 24, 2020</MessageDivider>
     <Message className='customclass' clickable>
       <Message.LeftContainer>
-        <Avatar url={avatarUrl} size={'x36'} />
+        <Avatar url={avatarUrl} size='x36' />
       </Message.LeftContainer>
       <Message.Container>
         <Message.Header>
@@ -803,7 +800,7 @@ export const LotsOfReactions: ComponentStory<typeof Message> = () => (
     <MessageDivider>May, 24, 2020</MessageDivider>
     <Message className='customclass' clickable>
       <Message.LeftContainer>
-        <Avatar url={avatarUrl} size={'x36'} />
+        <Avatar url={avatarUrl} size='x36' />
       </Message.LeftContainer>
       <Message.Container>
         <Message.Header>

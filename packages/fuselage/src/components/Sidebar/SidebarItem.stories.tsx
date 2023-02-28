@@ -8,19 +8,19 @@ import {
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
-import { Avatar } from '../..';
 import {
+  Avatar,
+  SidebarItemContainer,
+  SidebarItemContent,
+  SidebarItemTitle,
+  SidebarItemSubtitle,
+  SidebarItemWrapper,
+  SidebarItemIcon,
   SidebarItem,
   SidebarItemAvatar,
-  SidebarItemContent,
   SidebarItemAction,
   SidebarItemActions,
-  SidebarItemContainer,
-  SidebarItemIcon,
-  SidebarItemSubtitle,
-  SidebarItemTitle,
-  SidebarItemWrapper,
-} from './Item';
+} from '../..';
 
 export default {
   title: 'Sidebar/Item',
@@ -36,7 +36,7 @@ export default {
           <Description />
           <Primary />
           <ArgsTable />
-          <Stories title={''} />
+          <Stories title='' />
         </>
       ),
     },

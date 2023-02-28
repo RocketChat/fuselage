@@ -3,7 +3,8 @@ import { Title, Description, Primary, Stories } from '@storybook/addon-docs';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
-import Sidebar, {
+import {
+  Sidebar,
   SidebarItemContainer,
   SidebarItemActions,
   SidebarItemAction,
@@ -19,8 +20,13 @@ import Sidebar, {
   TopBarAction,
   SidebarFooterHighlight,
   SidebarItemIcon,
-} from '.';
-import { Avatar, Icon, Box, Tag, Divider, SidebarBanner } from '../..';
+  Avatar,
+  Icon,
+  Box,
+  Tag,
+  Divider,
+  SidebarBanner,
+} from '../..';
 
 export default {
   title: 'Sidebar/Sidebar',
@@ -32,7 +38,7 @@ export default {
           <Title />
           <Description />
           <Primary />
-          <Stories title={''} />
+          <Stories title='' />
         </>
       ),
     },

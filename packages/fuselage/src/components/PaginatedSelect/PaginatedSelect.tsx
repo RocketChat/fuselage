@@ -22,6 +22,7 @@ type PaginatedOptionType = {
   value: string | number;
   label: string;
 };
+
 export type PaginatedSelectProps = Omit<SelectProps, 'options'> & {
   anchor?: ElementType;
   options: PaginatedOptionType[];
@@ -48,7 +49,7 @@ const useDidUpdate = (func: string[]) => {
   }, [fn]);
 };
 
-export const PaginatedSelect = ({
+const PaginatedSelect = ({
   value,
   withTitle,
   filter,
@@ -165,3 +166,5 @@ export const PaginatedSelect = ({
     </Box>
   );
 };
+
+export default PaginatedSelect;

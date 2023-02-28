@@ -7,9 +7,6 @@ import { FieldGroup, Field, TextInput, Button, Modal, Box } from '../..';
 export default {
   title: 'Containers/Modal',
   component: Modal,
-  parameters: {
-    jest: ['Modal/Modal.spec.tsx'],
-  },
 };
 
 export const Default = () => (

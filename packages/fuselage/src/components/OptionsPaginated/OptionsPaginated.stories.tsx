@@ -3,10 +3,8 @@ import type { ComponentMeta, ComponentStory } from '@storybook/react';
 import type { ComponentProps } from 'react';
 import React, { createRef } from 'react';
 
-import { OptionsPaginated, CheckOption } from '.';
-import { Box } from '..';
-import Option from '../Option';
-// ComponentProps<typeof Option.Icon>['name']
+import { Box, OptionsPaginated, CheckOption, Option } from '../..';
+
 const options: ComponentProps<typeof OptionsPaginated>['options'] = Array.from({
   length: 90,
 }).map((_: unknown, i: number) => ({
@@ -27,7 +25,7 @@ export default {
           <Title />
           <Description />
           <Primary />
-          <Stories title={''} />
+          <Stories title='' />
         </>
       ),
     },

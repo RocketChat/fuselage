@@ -9,5 +9,5 @@ type MessageGenericPreviewFooterProps = {
 export const MessageGenericPreviewFooter = ({
   children,
 }: MessageGenericPreviewFooterProps) => (
-  <div className={'rcx-message-generic-preview__footer'}>{children}</div>
+  <div className='rcx-message-generic-preview__footer'>{children}</div>
 );

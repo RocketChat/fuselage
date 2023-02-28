@@ -19,12 +19,12 @@ const Preview: FC = () => {
 
   return (
     <Box
-      display={'flex'}
+      display='flex'
       flexGrow={1}
       bg='#fff'
       zIndex={3}
-      height={'100%'}
-      flexDirection={'column'}
+      height='100%'
+      flexDirection='column'
       pis={isMobile ? '' : 'var(--sidebar-width)'}
       className={css`
         transition: 0.5s ease;

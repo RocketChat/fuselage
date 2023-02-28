@@ -4,14 +4,8 @@ import {
   useResizeObserver,
   useOutsideClick,
 } from '@rocket.chat/fuselage-hooks';
-import type {
-  ComponentProps,
-  DependencyList,
-  Ref,
-  ElementType,
-  ReactNode,
-} from 'react';
-import React, { useState, useRef, useEffect, forwardRef, useMemo } from 'react';
+import type { ComponentProps, Ref, ElementType, ReactNode } from 'react';
+import React, { useState, useRef, forwardRef, useMemo } from 'react';
 
 import { isForwardRefType } from '../../helpers/isForwardRefType';
 import AnimatedVisibility from '../AnimatedVisibility';
@@ -24,33 +18,14 @@ import PositionAnimated from '../PositionAnimated';
 import SelectAddon from './SelectAddon';
 import type { SelectAnchorParams } from './SelectAnchorParams';
 import SelectFocus from './SelectFocus';
+import Wrapper from './Wrapper';
+import { useDidUpdate } from './useDidUpdate';
 
 export type SelectOption = readonly [
   value: string,
   label: string,
   selected?: boolean
 ];
-
-type WrapperProps = ComponentProps<typeof Box>;
-
-const Wrapper = forwardRef(function Wrapper(
-  props: WrapperProps,
-  ref: Ref<HTMLDivElement>
-) {
-  return <Box is='div' rcx-select__wrapper ref={ref} {...props} />;
-});
-
-const useDidUpdate = (func: () => void, deps: DependencyList | undefined) => {
-  const didMount = useRef(false);
-  const fn = useMutableCallback(func);
-
-  useEffect(() => {
-    if (didMount.current) {
-      fn();
-    }
-    didMount.current = true;
-  }, deps || []);
-};
 
 export type SelectProps = Omit<ComponentProps<typeof Box>, 'onChange'> & {
   anchor?: ElementType;

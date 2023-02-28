@@ -7,9 +7,6 @@ import { ThreadMessageEmoji } from './ThreadMessageEmoji';
 export default {
   title: 'Message/ThreadMessage',
   component: ThreadMessage,
-  parameters: {
-    jest: ['ThreadMessage.spec.tsx'],
-  },
 };
 
 const avatarUrl =

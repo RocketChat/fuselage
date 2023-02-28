@@ -18,7 +18,7 @@ export default {
           <Title />
           <Description />
           <Primary />
-          <Stories title={'Props from InputBox'} />
+          <Stories title='Props from InputBox' />
         </>
       ),
     },

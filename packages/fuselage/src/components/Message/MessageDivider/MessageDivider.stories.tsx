@@ -12,7 +12,7 @@ export default {
 export const Default: ComponentStory<typeof MessageDivider> = () => (
   <Box>
     <MessageDivider>Text</MessageDivider>
-    <MessageDivider unreadLabel={'Unread'}>Text</MessageDivider>
-    <MessageDivider unreadLabel={'Unread'} />
+    <MessageDivider unreadLabel='Unread'>Text</MessageDivider>
+    <MessageDivider unreadLabel='Unread' />
   </Box>
 );

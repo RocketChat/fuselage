@@ -24,7 +24,7 @@ export default {
           <Description />
           <Primary />
           <ArgsTable />
-          <Stories title={'Input component state'} />
+          <Stories title='Input component state' />
         </>
       ),
     },

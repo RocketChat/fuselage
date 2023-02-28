@@ -60,7 +60,7 @@ const CodeEditor = ({ extensions }: CodeMirrorProps) => {
 
   return (
     <>
-      <Box display='grid' height='100%' width={'100%'} ref={editor} />
+      <Box display='grid' height='100%' width='100%' ref={editor} />
     </>
   );
 };

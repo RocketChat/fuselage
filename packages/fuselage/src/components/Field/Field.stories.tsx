@@ -18,7 +18,7 @@ export default {
           <Title />
           <Description />
           <Primary />
-          <Stories title={'Field Patterns'} />
+          <Stories title='Field Patterns' />
         </>
       ),
     },

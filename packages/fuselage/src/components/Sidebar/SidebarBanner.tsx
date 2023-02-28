@@ -14,7 +14,7 @@ type SidebarBannerProps = {
   children?: ReactNode;
 };
 
-export const SidebarBanner = ({
+const SidebarBanner = ({
   text,
   description,
   onClick,
@@ -45,3 +45,5 @@ export const SidebarBanner = ({
     {onClose && <IconButton onClick={onClose} tiny icon='cross' />}
   </div>
 );
+
+export default SidebarBanner;

@@ -26,7 +26,7 @@ export default {
           <Description />
           <Primary />
           <ArgsTable />
-          <Stories title={'Props from InputBox'} />
+          <Stories title='Props from InputBox' />
         </>
       ),
     },

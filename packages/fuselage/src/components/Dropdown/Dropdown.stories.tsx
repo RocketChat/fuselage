@@ -9,9 +9,6 @@ import { Dropdown } from './Dropdown';
 export default {
   title: 'Navigation/Dropdown',
   component: Dropdown,
-  parameters: {
-    jest: ['Dropdown.spec.tsx'],
-  },
 };
 
 export const Default: ComponentStory<typeof Dropdown> = () => {

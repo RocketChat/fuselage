@@ -19,9 +19,6 @@ import { Avatar, Box } from '../..';
 export default {
   title: 'Message/MessageSystem',
   component: MessageSystem,
-  parameters: {
-    jest: ['Message.spec.tsx'],
-  },
 };
 
 export const Default = () => (

@@ -11,12 +11,12 @@ const NabBar: FC = () => (
   <Flex.Container alignItems='center'>
     <Box
       position='relative'
-      width={'100%'}
-      height={'min(60px, 25vw)'}
+      width='100%'
+      height='min(60px, 25vw)'
       is={Tile}
       padding={0}
       zIndex={3}
-      elevation={'2'}
+      elevation='2'
       className={css`
         user-select: none;
       `}

@@ -27,7 +27,7 @@ export default {
           <Description />
           <Primary />
           <ArgsTable />
-          <Stories title={''} />
+          <Stories title='' />
         </>
       ),
     },

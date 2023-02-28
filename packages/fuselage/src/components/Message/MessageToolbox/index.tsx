@@ -3,10 +3,17 @@ import { MessageToolbox } from './MessageToolbox';
 import { MessageToolboxItem } from './MessageToolboxItem';
 import { MessageToolboxWrapper } from './MessageToolboxWrapper';
 
-export default Object.assign(MessageToolbox, {
+const CompoundedMessageToolbox = Object.assign(MessageToolbox.bind({}), {
   Item: MessageToolboxItem,
   Wrapper: MessageToolboxWrapper,
   Menu,
 });
 
-export { MessageToolbox, MessageToolboxItem, MessageToolboxWrapper, Menu };
+export default CompoundedMessageToolbox;
+
+export {
+  CompoundedMessageToolbox as MessageToolbox,
+  MessageToolboxItem,
+  MessageToolboxWrapper,
+  Menu,
+};

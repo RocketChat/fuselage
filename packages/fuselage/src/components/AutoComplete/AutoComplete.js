@@ -2,22 +2,17 @@ import {
   useMutableCallback,
   useResizeObserver,
 } from '@rocket.chat/fuselage-hooks';
-import React, { useEffect, useRef, useMemo, useState, memo } from 'react';
+import React, { useEffect, useRef, useMemo, useState } from 'react';
 
 import AnimatedVisibility from '../AnimatedVisibility';
 import Box from '../Box';
-import Chip from '../Chip';
 import { Icon } from '../Icon';
 import { InputBox } from '../InputBox';
 import Margins from '../Margins';
 import { useCursor, Options } from '../Options';
 import PositionAnimated from '../PositionAnimated';
-
-const Addon = (props) => <Box rcx-autocomplete__addon {...props} />;
-
-const SelectedOptions = memo(function SelectedOptions(props) {
-  return <Chip {...props} />;
-});
+import Addon from './Addon';
+import SelectedOptions from './SelectedOptions';
 
 export function AutoComplete({
   value,
@@ -112,18 +107,16 @@ export function AutoComplete({
           )}
         </Margins>
       </Box>
-      <Addon
-        children={
-          <Icon
-            name={
-              optionsAreVisible === AnimatedVisibility.VISIBLE
-                ? 'cross'
-                : 'magnifier'
-            }
-            size='x20'
-          />
-        }
-      />
+      <Addon>
+        <Icon
+          name={
+            optionsAreVisible === AnimatedVisibility.VISIBLE
+              ? 'cross'
+              : 'magnifier'
+          }
+          size='x20'
+        />
+      </Addon>
       <PositionAnimated visible={optionsAreVisible} anchor={containerRef}>
         <Options
           role='option'

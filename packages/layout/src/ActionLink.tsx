@@ -34,7 +34,7 @@ const ActionLink = ({
     <Box
       {...props}
       is='a'
-      fontScale={'p2'}
+      fontScale='p2'
       href={href}
       color='primary-600'
       mi='x4'

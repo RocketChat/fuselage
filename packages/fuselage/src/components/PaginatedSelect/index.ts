@@ -1,2 +1,2 @@
-export { PaginatedSelectFiltered } from './PaginatedSelectFiltered';
-export { PaginatedMultiSelectFiltered } from './PaginatedMultiSelect';
+export { default as PaginatedSelectFiltered } from './PaginatedSelectFiltered';
+export { default as PaginatedMultiSelectFiltered } from './PaginatedMultiSelectFiltered';

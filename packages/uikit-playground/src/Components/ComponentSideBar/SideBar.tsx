@@ -29,9 +29,9 @@ const SideBar: FC = () => {
 
   return (
     <Box
-      position={'absolute'}
-      height={'100%'}
-      display={'flex'}
+      position='absolute'
+      height='100%'
+      display='flex'
       zIndex={4}
       bg='#fff'
       className={[slide]}

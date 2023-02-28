@@ -4,13 +4,13 @@ import React, { useMemo, forwardRef } from 'react';
 
 import { InputBox } from '../InputBox';
 import type { PaginatedSelectProps } from './PaginatedSelect';
-import { PaginatedSelect } from './PaginatedSelect';
+import PaginatedSelect from './PaginatedSelect';
 
 type PaginatedSelectFilteredProps = Omit<PaginatedSelectProps, 'setFilter'> & {
   setFilter: (value: string | undefined | number) => void;
 };
 
-export const PaginatedSelectFiltered = ({
+const PaginatedSelectFiltered = ({
   filter,
   setFilter,
   options,
@@ -19,6 +19,7 @@ export const PaginatedSelectFiltered = ({
 }: PaginatedSelectFilteredProps) => {
   const anchor = useMemo(
     () =>
+      // eslint-disable-next-line react/no-multi-comp
       forwardRef(function AnchorComponent(
         { filter, onChange: _onChange, ...props }: PaginatedSelectFilteredProps,
         ref: Ref<HTMLInputElement>
@@ -52,3 +53,5 @@ export const PaginatedSelectFiltered = ({
     />
   );
 };
+
+export default PaginatedSelectFiltered;

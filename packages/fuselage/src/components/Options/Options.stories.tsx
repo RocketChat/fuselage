@@ -8,12 +8,8 @@ import {
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React, { createRef } from 'react';
 
-import type { OptionType } from '.';
-import { Options } from '.';
-import type { Menu } from '..';
-import { Box } from '..';
-import Option from '../Option';
-import { CheckOption } from '../Option/CheckOption';
+import type { Menu, OptionType } from '../..';
+import { Box, Options, Option, CheckOption } from '../..';
 
 const options: OptionType[] = [
   [1, 'a teste 1'],
@@ -39,7 +35,7 @@ export default {
           <Description />
           <Primary />
           <ArgsTable />
-          <Stories title={''} />
+          <Stories title='' />
         </>
       ),
     },

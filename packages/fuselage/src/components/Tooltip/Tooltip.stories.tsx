@@ -6,9 +6,6 @@ import { Box, Margins, Tooltip } from '../..';
 export default {
   title: 'Data Display/Tooltip',
   component: Tooltip,
-  parameters: {
-    jest: ['Tooltip.spec.tsx'],
-  },
 } as ComponentMeta<typeof Tooltip>;
 
 export const Default: ComponentStory<typeof Tooltip> = () => (

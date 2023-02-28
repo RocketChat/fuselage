@@ -17,8 +17,8 @@ const NavPanel: FC = () => {
   return (
     <Box
       borderBlockEnd='var(--default-border)'
-      display={'flex'}
-      alignItems={'center'}
+      display='flex'
+      alignItems='center'
       zIndex={1}
       justifyContent={isMobile ? 'flex-end' : 'space-between'}
       bg='light'
@@ -30,21 +30,21 @@ const NavPanel: FC = () => {
       <Box flexGrow={0}>
         <SurfaceSelect />
       </Box>
-      <Box display='flex' height='100%' alignContent={'center'}>
+      <Box display='flex' height='100%' alignContent='center'>
         <ButtonGroup
-          pis={'20px'}
+          pis='20px'
           className={css`
             column-gap: 10px;
           `}
         >
           <PanelBtn
             icon={<Icon name='file' width={16} />}
-            name={'Clear Blocks'}
+            name='Clear Blocks'
             isSmall={isTablet}
           />
           <PanelBtn
             icon={<Icon name='copy' width={16} />}
-            name={'Copy Payload'}
+            name='Copy Payload'
             isSmall={isTablet}
           />
         </ButtonGroup>

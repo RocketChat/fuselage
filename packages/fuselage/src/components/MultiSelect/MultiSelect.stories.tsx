@@ -29,7 +29,7 @@ export default {
           <Description />
           <Primary />
           <ArgsTable story={PRIMARY_STORY} />
-          <Stories title={''} />
+          <Stories title='' />
         </>
       ),
     },

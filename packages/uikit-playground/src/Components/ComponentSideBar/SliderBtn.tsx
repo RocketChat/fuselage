@@ -67,13 +67,13 @@ const SliderBtn: FC = () => {
 
   return (
     <Box
-      position={'absolute'}
+      position='absolute'
       width={sideBarToggle ? '100%' : '130px'}
-      paddingInlineStart={'20px'}
-      height={'40px'}
+      paddingInlineStart='20px'
+      height='40px'
       display='flex'
       alignItems='center'
-      justifyContent={'space-between'}
+      justifyContent='space-between'
       onClick={() =>
         !sideBarToggle && dispatch(sidebarToggleAction(!sideBarToggle))
       }

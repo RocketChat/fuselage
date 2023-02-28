@@ -3,26 +3,21 @@ import {
   useMutableCallback,
   useResizeObserver,
 } from '@rocket.chat/fuselage-hooks';
-import type { SyntheticEvent, ComponentProps, Ref } from 'react';
-import React, { useState, useRef, useCallback, forwardRef, memo } from 'react';
+import type { SyntheticEvent, ComponentProps, ElementType } from 'react';
+import React, { useState, useRef } from 'react';
 
 import { prevent } from '../../helpers/prevent';
 import AnimatedVisibility from '../AnimatedVisibility';
 import Box from '../Box';
-import Chip from '../Chip';
 import Flex from '../Flex';
 import { Icon } from '../Icon';
-import { InputBox } from '../InputBox';
 import Margins from '../Margins';
 import { useVisible } from '../Options/useVisible';
 import { OptionsPaginated } from '../OptionsPaginated';
 import Position from '../Position';
 import SelectAddon from '../Select/SelectAddon';
 import SelectFocus from '../Select/SelectFocus';
-
-const SelectedOptions = memo(function SelectedOptions(props) {
-  return <Chip maxWidth='150px' withTruncatedText {...props} />;
-});
+import SelectedOptions from './SelectedOptions';
 
 type PaginatedMultiSelectOption = {
   value?: string | number;
@@ -36,9 +31,10 @@ type PaginatedMultiSelectProps = ComponentProps<typeof Box> & {
   placeholder: string;
   endReached?: (start?: number, end?: number) => void;
   value?: PaginatedMultiSelectOption['value'];
+  anchor?: ElementType;
 };
 
-export const PaginatedMultiSelect = ({
+const PaginatedMultiSelect = ({
   withTitle,
   value,
   filter,
@@ -193,51 +189,4 @@ export const PaginatedMultiSelect = ({
   );
 };
 
-type PaginatedMultiSelectFilteredProps = PaginatedMultiSelectProps & {
-  setFilter?: (value: PaginatedMultiSelectOption['value']) => void;
-  filter?: string;
-};
-
-export const PaginatedMultiSelectFiltered = ({
-  filter,
-  setFilter,
-  options,
-  placeholder,
-  ...props
-}: PaginatedMultiSelectFilteredProps) => {
-  const anchor = useCallback(
-    forwardRef(function AnchorComponent(
-      {
-        children: _children,
-        filter,
-        ...props
-      }: ComponentProps<typeof InputBox>,
-      ref: Ref<HTMLInputElement>
-    ) {
-      return (
-        <Flex.Item grow={1}>
-          <InputBox.Input
-            ref={ref}
-            placeholder={placeholder}
-            value={filter}
-            onInput={(e: SyntheticEvent) =>
-              setFilter &&
-              setFilter((e.currentTarget as HTMLInputElement).value)
-            }
-            {...props}
-            rcx-input-box--undecorated
-          />
-        </Flex.Item>
-      );
-    }),
-    []
-  );
-  return (
-    <PaginatedMultiSelect
-      filter={filter}
-      options={options}
-      {...props}
-      anchor={anchor}
-    />
-  );
-};
+export default PaginatedMultiSelect;

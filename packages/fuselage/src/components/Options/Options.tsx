@@ -5,22 +5,14 @@ import type {
   Ref,
   SyntheticEvent,
 } from 'react';
-import React, {
-  forwardRef,
-  memo,
-  useLayoutEffect,
-  useMemo,
-  useRef,
-} from 'react';
+import React, { forwardRef, useLayoutEffect, useMemo, useRef } from 'react';
 
 import { prevent } from '../../helpers/prevent';
 import Box from '../Box';
 import Option, { OptionHeader, OptionDivider } from '../Option';
 import Scrollable from '../Scrollable';
 import Tile from '../Tile';
-import { useCursor } from './useCursor';
-
-export { useCursor };
+import Empty from './Empty';
 
 export type OptionType = [
   value: string | number,
@@ -41,15 +33,7 @@ type OptionsProps = Omit<ComponentProps<typeof Box>, 'onSelect'> & {
   customEmpty?: string;
 };
 
-export const Empty = memo(function Empty({
-  customEmpty,
-}: {
-  customEmpty: string;
-}) {
-  return <Option label={customEmpty || 'Empty'} />;
-});
-
-export const Options = forwardRef(function Options(
+const Options = forwardRef(function Options(
   {
     maxHeight = '144px',
     multiple,
@@ -118,7 +102,7 @@ export const Options = forwardRef(function Options(
 
   return (
     <Box rcx-options {...props} ref={ref}>
-      <Tile padding={0} paddingBlock={'x12'} paddingInline={0} elevation='2'>
+      <Tile padding={0} paddingBlock='x12' paddingInline={0} elevation='2'>
         <Scrollable vertical smooth>
           <Tile
             ref={liRef}
@@ -144,3 +128,5 @@ export const Options = forwardRef(function Options(
     </Box>
   );
 });
+
+export default Options;

@@ -32,7 +32,7 @@ const Display = ({ elementIndex }: { elementIndex: number }) => {
         display: 'grid',
         placeItems: 'center',
       }}
-      className={'closeBtn'}
+      className='closeBtn'
       onClick={deleteElement}
     >
       <Icon name='cross' size='x20' />

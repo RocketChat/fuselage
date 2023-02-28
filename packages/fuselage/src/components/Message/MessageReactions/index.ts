@@ -4,15 +4,17 @@ import { MessageReactionCounter } from './MessageReactionCounter';
 import { MessageReactionEmoji } from './MessageReactionEmoji';
 import { MessageReactions } from './MessageReactions';
 
-export default Object.assign(MessageReactions, {
+const CompoundedMessageReactions = Object.assign(MessageReactions.bind({}), {
   Reaction: MessageReaction,
   Action: MessageReactionAction,
 });
 
+export default CompoundedMessageReactions;
+
 export {
+  CompoundedMessageReactions as MessageReactions,
   MessageReaction,
   MessageReactionAction,
-  MessageReactions,
   MessageReactionCounter,
   MessageReactionEmoji,
 };

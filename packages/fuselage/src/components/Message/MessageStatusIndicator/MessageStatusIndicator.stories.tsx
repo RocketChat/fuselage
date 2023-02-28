@@ -1,19 +1,20 @@
 import React from 'react';
 
-import { MessageStatusIndicator, MessageStatusIndicatorItem } from '.';
-import Message from '..';
-import { Box, Avatar } from '../..';
-import { MessageDivider } from '../MessageDivider';
-import MessageReactions from '../MessageReactions';
-import MessageToolbox from '../MessageToolbox';
-import { MessageStatusIndicatorText } from './MessageStatusIndicatorText';
+import {
+  MessageStatusIndicator,
+  MessageStatusIndicatorItem,
+  Message,
+  Box,
+  Avatar,
+  MessageDivider,
+  MessageReactions,
+  MessageToolbox,
+  MessageStatusIndicatorText,
+} from '../..';
 
 export default {
   title: 'Message/MessageStatusIndicator',
   component: Message,
-  // parameters: {
-  //   jest: ['Message.spec.tsx'],
-  // },
 };
 
 export const Default = () => (
@@ -33,7 +34,7 @@ export const Default = () => (
                 6hY+0yM88TzeNZY4luYwpVYyduOfrvhPTnr0pXSX9y5mCsyJMdyxxvwq599em+taItqCSNc90ChvZRUruUcT0JiO18Elpk7t8v41LWzacxkB
                 SuvjQ/FFJayjDWrCTepAQ2vUH0oo/Jk3ovpwJJeVCP5CN+lFFaaMqy+nAyuChvrTI2kN9JAsi2ZOy4IBHMnkSCP+iqBexSWdxLazoUljJVlP
                 UH2oorkV10pRc7b1zXb/hZOzuJvM86QWEXeELxOzHSIPcmiiiunVlF2RNTpRkrs//Z'
-          size={'x36'}
+          size='x36'
         />
       </Message.LeftContainer>
       <Message.Container>
@@ -53,7 +54,7 @@ export const Default = () => (
             <MessageStatusIndicatorItem name='star' variant='primary' />
             <MessageStatusIndicatorItem
               name='star-filled'
-              data-title={'starred'}
+              data-title='starred'
             />
           </MessageStatusIndicator>
         </Message.Header>
@@ -87,10 +88,7 @@ export const Default = () => (
           <MessageStatusIndicatorItem name='star-filled' />
           <MessageStatusIndicatorItem name='star-filled' />
           <MessageStatusIndicatorItem name='star-filled' />
-          <MessageStatusIndicatorItem
-            name='star-filled'
-            data-title={'starred'}
-          />
+          <MessageStatusIndicatorItem name='star-filled' data-title='starred' />
         </MessageStatusIndicator>
       </Message.LeftContainer>
       <Message.Container>

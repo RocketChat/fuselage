@@ -6,9 +6,6 @@ import PropsVariation from '../../.storybook/PropsVariation';
 export default {
   title: 'Inputs/UrlInput',
   component: UrlInput,
-  parameters: {
-    jest: ['UrlInput.spec.tsx'],
-  },
 };
 
 export const Default = () => <UrlInput />;

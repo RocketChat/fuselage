@@ -35,12 +35,12 @@ const Menu: FC<{ isOpen: boolean }> = ({ isOpen }) => {
       }}
     >
       <Wrapper>
-        <Box alignSelf={'flex-start'}>
+        <Box alignSelf='flex-start'>
           <SurfaceSelect />
         </Box>
-        <MenuItem name={'Clear Blocks'} />
-        <MenuItem name={'Copy Payload'} />
-        <MenuItem name={'Send to RocketChat'} />
+        <MenuItem name='Clear Blocks' />
+        <MenuItem name='Copy Payload' />
+        <MenuItem name='Send to RocketChat' />
       </Wrapper>
     </Box>
   );

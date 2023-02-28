@@ -28,12 +28,12 @@ const Wrapper = () => {
   };
 
   return (
-    <Box position='relative' width={'100%'} flexGrow={1}>
+    <Box position='relative' width='100%' flexGrow={1}>
       <Box
         position='absolute'
         width={isTablet ? '200%' : '100%'}
-        height={'100%'}
-        display={'flex'}
+        height='100%'
+        display='flex'
         ref={ref}
         className={tabChangeStyle()}
       >

@@ -26,7 +26,7 @@ const MenuItem: FC<{ name: string }> = ({ name }) => {
       alignItems='center'
       className={[pointer, style]}
     >
-      <Label className={pointer} color='hint' fontSize={'x14'}>
+      <Label className={pointer} color='hint' fontSize='x14'>
         {name}
       </Label>
     </Box>

@@ -30,16 +30,16 @@ const Playground: FC = () => {
 
   return (
     <Box
-      display={'flex'}
-      width={'100%'}
-      height={'100%'}
-      flexDirection={'column'}
+      display='flex'
+      width='100%'
+      height='100%'
+      flexDirection='column'
       overflow='hidden'
-      bg={'var(--primaryBackgroundColor)'}
+      bg='var(--primaryBackgroundColor)'
     >
       <NavBar />
       {navMenuToggle && <NavMenu />}
-      <Box width={'100%'} flexGrow={1} position={'relative'} zIndex={0}>
+      <Box width='100%' flexGrow={1} position='relative' zIndex={0}>
         <ComponentSideBar />
         <Preview />
       </Box>
