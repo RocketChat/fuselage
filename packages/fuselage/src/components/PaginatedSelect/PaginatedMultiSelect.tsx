@@ -2,7 +2,13 @@ import {
   useMutableCallback,
   useResizeObserver,
 } from '@rocket.chat/fuselage-hooks';
-import type { SyntheticEvent, ComponentProps, Ref, ReactElement } from 'react';
+import type {
+  SyntheticEvent,
+  ComponentProps,
+  Ref,
+  ReactElement,
+  FormEvent,
+} from 'react';
 import React, { useState, useRef, useCallback, forwardRef, memo } from 'react';
 
 import { prevent } from '../../helpers/prevent';
@@ -193,9 +199,12 @@ export const PaginatedMultiSelect = ({
   );
 };
 
-type PaginatedMultiSelectFilteredProps = PaginatedMultiSelectProps & {
-  setFilter?: (value: PaginatedMultiSelectOption['value']) => void;
+type PaginatedMultiSelectFilteredProps = Omit<
+  PaginatedMultiSelectProps,
+  'filter'
+> & {
   filter?: string;
+  setFilter?: (value: string) => void;
 };
 
 export const PaginatedMultiSelectFiltered = ({
@@ -221,9 +230,8 @@ export const PaginatedMultiSelectFiltered = ({
             ref={ref}
             placeholder={placeholder}
             value={filter}
-            onInput={(e: SyntheticEvent) =>
-              setFilter &&
-              setFilter((e.currentTarget as HTMLInputElement).value)
+            onInput={(e: FormEvent<HTMLInputElement>) =>
+              setFilter?.(e.currentTarget.value)
             }
             {...props}
             rcx-input-box--undecorated
