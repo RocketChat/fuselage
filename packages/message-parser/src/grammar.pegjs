@@ -1,5 +1,7 @@
 {
   const {
+    autoEmail,
+    autoLink,
     bigEmoji,
     bold,
     code,
@@ -21,6 +23,7 @@
     mentionUser,
     orderedList,
     paragraph,
+    phoneChecker,
     plain,
     quote,
     reducePlainTexts,
@@ -28,7 +31,6 @@
     task,
     tasks,
     unorderedList,
-    phoneChecker,
   } = require('./utils');
 }
 
@@ -263,7 +265,7 @@ InlineCode = "`" text:$InlineCode__+ "`" { return inlineCode(plain(text)); }
 
 InlineCode__ = $(!"`" !"\n" $:.)
 
-FilePath = $(urlScheme urlBody+)
+FilePath = $(URL_scheme URL_body+)
 
 LinkTitle = text:(Emphasis / Line / Whitespace) { return text; }
 
@@ -307,9 +309,9 @@ unicode
 
 AutolinkedPhone = p:Phone { return phoneChecker(p.text, p.number); }
 
-AutolinkedURL = u:URL { return link(u); }
+AutolinkedURL = u:URL { return autoLink(u); }
 
-AutolinkedEmail = e:Email { return link('mailto:' + e, [plain(e)]); }
+AutolinkedEmail = e:Email { return autoEmail(e); }
 
 alpha = [a-zA-Z]
 
@@ -405,12 +407,12 @@ phonePrefix
  */
 
 URL
-  = $(urlScheme urlAuthority urlBody*)
-  / $(urlAuthorityHost urlBody*)
+  = $(URL_scheme URL_authority URL_body*)
+  / $(URL_authorityHost URL_body*)
 
-urlScheme
+URL_scheme
   = $(
-    [[A-Za-z0-9+-]
+    [A-Za-z0-9+-]
       [A-Za-z0-9+-]?
       [A-Za-z0-9+-]?
       [A-Za-z0-9+-]?
@@ -445,7 +447,7 @@ urlScheme
       ":"
   )
 
-urlBody
+URL_body
   = (
     !(extra+ (Whitespace / EndOfLine) / Whitespace)
       (
@@ -464,21 +466,21 @@ urlBody
       )
   )+
 
-urlAuthority = $("//" urlAuthorityUserInfo? urlAuthorityHost)
+URL_authority = $("//" URL_authorityUserInfo? URL_authorityHost)
 
-urlAuthorityUserInfo = $(urlAuthorityUser (":" urlAuthorityPassword)? "@")
+URL_authorityUserInfo = $(URL_authorityUser (":" URL_authorityPassword)? "@")
 
-urlAuthorityUser = $(alpha_digit / !"@" !"/" safe)+
+URL_authorityUser = $(alpha_digit / !"@" !"/" safe)+
 
-urlAuthorityPassword = $(alpha_digit / !"@" !"/" safe)+
+URL_authorityPassword = $(alpha_digit / !"@" !"/" safe)+
 
-urlAuthorityHost = t:urlAuthorityHostName (":" urlAuthorityPort)?
+URL_authorityHost = t:URL_authorityHostName (":" URL_authorityPort)?
 
-urlAuthorityHostName
+URL_authorityHostName
   = domainName
   / $(digits "." digits "." digits "." digits) // TODO: IPv4 and IPv6
 
-urlAuthorityPort
+URL_authorityPort
   = digits // TODO: from "0" to "65535"
 
 /**

@@ -1,5 +1,5 @@
 import { parse } from '../src';
-import { lineBreak, link, paragraph, plain } from '../src/utils';
+import { lineBreak, link, autoLink, paragraph, plain } from '../src/utils';
 
 test.each([
   [
@@ -65,9 +65,12 @@ test.each([
     'ftp://user:pass@localhost:21/etc/hosts',
     [paragraph([link('ftp://user:pass@localhost:21/etc/hosts')])],
   ],
-  ['ssh://test@test.test', [paragraph([link('ssh://test@test.test')])]],
-  ['custom://test@test.test', [paragraph([link('custom://test@test.test')])]],
-  ['ftp://test.com', [paragraph([link('ftp://test.com')])]],
+  ['ssh://test@example.com', [paragraph([link('ssh://test@example.com')])]],
+  [
+    'custom://test@example.com',
+    [paragraph([link('custom://test@example.com')])],
+  ],
+  ['ftp://example.com', [paragraph([link('ftp://example.com')])]],
   [
     'https://www.thingiverse.com/thing:5451684',
     [paragraph([link('https://www.thingiverse.com/thing:5451684')])],
@@ -193,21 +196,45 @@ test.each([
     'https://en.m.wikipedia.org/wiki/Main_Page',
     [paragraph([link('https://en.m.wikipedia.org/wiki/Main_Page')])],
   ],
-  ['test.1test.com', [paragraph([link('test.1test.com')])]],
+  ['test.1test.com', [paragraph([autoLink('test.1test.com')])]],
   ['http://test.e-xample.com', [paragraph([link('http://test.e-xample.com')])]],
-  ['www.n-tv.de', [paragraph([link('www.n-tv.de')])]],
+  ['www.n-tv.de', [paragraph([link('//www.n-tv.de', [plain('www.n-tv.de')])])]],
   [
     'www.n-tv.de/test, test',
-    [paragraph([link('www.n-tv.de/test'), plain(', test')])],
+    [
+      paragraph([
+        link('//www.n-tv.de/test', [plain('www.n-tv.de/test')]),
+        plain(', test'),
+      ]),
+    ],
   ],
-  ['www.n-tv.de/, test', [paragraph([link('www.n-tv.de/'), plain(', test')])]],
-  ['www.n-tv.de, test', [paragraph([link('www.n-tv.de'), plain(', test')])]],
+  [
+    'www.n-tv.de/, test',
+    [
+      paragraph([
+        link('//www.n-tv.de/', [plain('www.n-tv.de/')]),
+        plain(', test'),
+      ]),
+    ],
+  ],
+  [
+    'www.n-tv.de, test',
+    [
+      paragraph([
+        link('//www.n-tv.de', [plain('www.n-tv.de')]),
+        plain(', test'),
+      ]),
+    ],
+  ],
   [
     'https://www.n-tv.de, test',
     [paragraph([link('https://www.n-tv.de'), plain(', test')])],
   ],
   ['http://te_st.com', [paragraph([link('http://te_st.com')])]],
-  ['www.te_st.com', [paragraph([link('www.te_st.com')])]],
+  [
+    'www.te_st.com',
+    [paragraph([link('//www.te_st.com', [plain('www.te_st.com')])])],
+  ],
   [
     '[google_search](http://google.com)',
     [paragraph([link('http://google.com', [plain('google_search')])])],
@@ -235,69 +262,60 @@ test.each([
     'This is a normal phrase.This in another phrase.',
     [paragraph([plain('This is a normal phrase.This in another phrase.')])],
   ],
+  [
+    'https://github.com/RocketChat/Rocket.Chat/releases/tag/6.0.0-rc.3',
+    [
+      paragraph([
+        link(
+          'https://github.com/RocketChat/Rocket.Chat/releases/tag/6.0.0-rc.3'
+        ),
+      ]),
+    ],
+  ],
 ])('parses %p', (input, output) => {
   expect(parse(input)).toMatchObject(output);
 });
 
-describe('link helper function', () => {
+describe('autoLink helper function', () => {
   it('should preserve the original protocol if the protocol is http or https', () => {
-    expect(link('https://rocket.chat/test')).toMatchObject({
-      type: 'LINK',
-      value: {
-        src: plain('https://rocket.chat/test'),
-        label: [plain('https://rocket.chat/test')],
-      },
-    });
-    expect(link('http://rocket.chat/test')).toMatchObject({
-      type: 'LINK',
-      value: {
-        src: plain('http://rocket.chat/test'),
-        label: [plain('http://rocket.chat/test')],
-      },
-    });
+    expect(autoLink('https://rocket.chat/test')).toMatchObject(
+      link('https://rocket.chat/test')
+    );
+
+    expect(autoLink('http://rocket.chat/test')).toMatchObject(
+      link('http://rocket.chat/test')
+    );
   });
 
   it('should preserve the original protocol even if for custom protocols', () => {
-    expect(link('custom://rocket.chat/test')).toMatchObject({
-      type: 'LINK',
-      value: {
-        src: plain('custom://rocket.chat/test'),
-        label: [plain('custom://rocket.chat/test')],
-      },
-    });
+    expect(autoLink('custom://rocket.chat/test')).toMatchObject(
+      link('custom://rocket.chat/test')
+    );
   });
 
   it('should return // as the protocol if // is the protocol specified', () => {
-    expect(link('//rocket.chat/test')).toMatchObject({
-      type: 'LINK',
-      value: {
-        src: plain('//rocket.chat/test'),
-        label: [plain('//rocket.chat/test')],
-      },
-    });
+    expect(autoLink('//rocket.chat/test')).toMatchObject(
+      link('//rocket.chat/test')
+    );
   });
+
   it("should return an url concatenated '//' if the url has no protocol", () => {
-    expect(link('rocket.chat/test')).toMatchObject({
-      type: 'LINK',
-      value: {
-        src: plain('//rocket.chat/test'),
-        label: [plain('rocket.chat/test')],
-      },
-    });
+    expect(autoLink('rocket.chat/test')).toMatchObject(
+      link('//rocket.chat/test', [plain('rocket.chat/test')])
+    );
   });
+
   it("should return an url concatenated '//' if the url has no protocol and has sub-domain", () => {
-    expect(link('spark-public.s3.amazonaws.com')).toMatchObject({
-      type: 'LINK',
-      value: {
-        src: plain('//spark-public.s3.amazonaws.com'),
-        label: [plain('spark-public.s3.amazonaws.com')],
-      },
-    });
+    expect(autoLink('spark-public.s3.amazonaws.com')).toMatchObject(
+      link('//spark-public.s3.amazonaws.com', [
+        plain('spark-public.s3.amazonaws.com'),
+      ])
+    );
   });
+
   it("should return an plain text url due to invalid TLD that's validate with the external library TLDTS", () => {
-    expect(link('rocket.chattt/url_path')).toMatchObject({
-      type: 'PLAIN_TEXT',
-      value: 'rocket.chattt/url_path',
-    });
+    expect(autoLink('rocket.chattt/url_path')).toMatchObject(
+      plain('rocket.chattt/url_path')
+    );
   });
 });
