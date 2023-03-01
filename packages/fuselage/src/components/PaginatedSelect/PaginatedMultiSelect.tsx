@@ -23,7 +23,7 @@ const SelectedOptions = memo<ComponentProps<typeof Chip>>((props) => (
   <Chip maxWidth='150px' withTruncatedText {...props} />
 ));
 
-type PaginatedMultiSelectOption = {
+export type PaginatedMultiSelectOption = {
   value: string | number;
   label: string;
 };
@@ -39,10 +39,10 @@ type PaginatedMultiSelectProps = Omit<
   endReached?: (start?: number, end?: number) => void;
   value?: PaginatedMultiSelectOption[];
   onChange: (values: PaginatedMultiSelectOption[]) => void;
-  renderOptions: (
+  renderOptions?: (
     props: ComponentProps<typeof OptionsPaginated>
   ) => ReactElement | null;
-  anchor: any;
+  anchor?: any;
 };
 
 export const PaginatedMultiSelect = ({
