@@ -26,6 +26,55 @@ import {
   toCSSValue,
 } from './helpers/toCSSValue';
 
+const xRegExp = /^(neg-|-)?x(\d+)$/;
+
+const matchX = (value: string) => {
+  const matches = xRegExp.exec(value);
+  if (matches) {
+    const [, negativeMark, absoluteValue] = matches;
+    return `${negativeMark ? '-' : ''}${absoluteValue}`;
+  }
+};
+
+export const spacing = {
+  getCSSValue: (value: unknown) => {
+    if (typeof value === 'number') {
+      return `${value}px`;
+    }
+
+    if (value === 'none') {
+      return '0';
+    }
+
+    value = String(value);
+    invariant(typeof value === 'string', 'Expected a string');
+
+    const x = matchX(value);
+    if (x) {
+      return `${x}px`;
+    }
+
+    return value;
+  },
+  getClassNameSuffix: (value: unknown) => {
+    if (value === 'none' || value === 0) {
+      return 'none';
+    }
+
+    if (typeof value === 'number') {
+      return value < 0 ? `(${value})` : `${value}`;
+    }
+
+    value = String(value);
+    invariant(typeof value === 'string', 'Expected a string');
+
+    const x = matchX(value);
+    if (x) {
+      return x[0] === '-' ? `(${x})` : x;
+    }
+  },
+};
+
 const measure = (
   computeSpecialValue?: (value: string) => null | undefined | string
 ) =>
@@ -38,7 +87,6 @@ const measure = (
       return undefined;
     }
 
-    const xRegExp = /^(neg-|-)?x(\d+)$/;
     const matches = xRegExp.exec(value);
     if (matches) {
       const [, negativeMark, measureInPixelsAsString] = matches;

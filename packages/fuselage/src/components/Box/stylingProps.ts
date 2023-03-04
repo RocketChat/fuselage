@@ -1,9 +1,16 @@
 import type { cssFn } from '@rocket.chat/css-in-js';
-import { css } from '@rocket.chat/css-in-js';
+import {
+  createClassName,
+  transpile,
+  attachRules,
+  escapeName,
+  css,
+} from '@rocket.chat/css-in-js';
 import type { CSSProperties } from 'react';
 
 import type { Var } from '../../Theme';
 import { Palette } from '../../Theme';
+import { appendClassName } from '../../helpers/appendClassName';
 import { fromCamelToKebab } from '../../helpers/fromCamelToKebab';
 import {
   borderRadius,
@@ -13,10 +20,9 @@ import {
   fontFamily,
   fontScale,
   inset,
-  margin,
-  padding,
   size,
   strokeColor,
+  spacing,
 } from '../../styleTokens';
 
 type FontScale =
@@ -162,6 +168,17 @@ export type StylingProps = {
   fontScale: FontScale;
 };
 
+type ExtractionOptions = {
+  encapsulatingSelector?: string;
+};
+
+type PropConsumer = (
+  value: unknown,
+  stylingProps: Map<keyof StylingProps, cssFn>,
+  props: Record<string, unknown>,
+  options: ExtractionOptions
+) => void;
+
 type PropDefinition =
   | {
       toCSSValue: (value: unknown) => string | undefined;
@@ -169,7 +186,13 @@ type PropDefinition =
   | { aliasOf: keyof StylingProps }
   | {
       toStyle: (value: unknown) => cssFn | undefined;
-    };
+    }
+  | ((
+      propName: string,
+      value: unknown,
+      props: { className?: string; [x: string]: unknown },
+      options: ExtractionOptions
+    ) => void);
 
 const stringProp: PropDefinition = {
   toCSSValue: (value) => (typeof value === 'string' ? value : undefined),
@@ -213,14 +236,6 @@ const insetProp: PropDefinition = {
   toCSSValue: inset,
 };
 
-const marginProp: PropDefinition = {
-  toCSSValue: margin,
-};
-
-const paddingProp: PropDefinition = {
-  toCSSValue: padding,
-};
-
 const fontFamilyProp: PropDefinition = {
   toCSSValue: fontFamily,
 };
@@ -247,7 +262,51 @@ const aliasOf = (propName: keyof StylingProps): PropDefinition => ({
   aliasOf: propName,
 });
 
+const spacingProp = (property: string, prefix: string): PropDefinition => {
+  const parseValue = spacing.getCSSValue;
+  const getValueSuffix = spacing.getClassNameSuffix;
+
+  const attachedSelectors = new Set<string>();
+  const attachUtilityClass = (selector: string, declarationBlock: string) => {
+    if (attachedSelectors.has(selector)) {
+      return;
+    }
+
+    const rules = transpile(selector, declarationBlock);
+    attachRules(rules);
+    attachedSelectors.add(selector);
+  };
+
+  return (_, value, props, { encapsulatingSelector }) => {
+    const declarationBlock = `${property}:${parseValue(value)}!important;`;
+
+    const valueSuffix = getValueSuffix(value);
+    const className = valueSuffix
+      ? `${prefix}-${valueSuffix}!`
+      : createClassName(declarationBlock);
+    const selector = `${encapsulatingSelector ?? ''}.${escapeName(className)}`;
+    attachUtilityClass(selector, declarationBlock);
+    props.className = appendClassName(props.className, className);
+  };
+};
+
 export const propDefs: Record<keyof StylingProps, PropDefinition> = {
+  /* spacing */
+  margin: spacingProp('margin', 'm'),
+  marginBlock: spacingProp('margin-block', 'mb'),
+  marginBlockStart: spacingProp('margin-block-start', 'mbs'),
+  marginBlockEnd: spacingProp('margin-block-end', 'mbe'),
+  marginInline: spacingProp('margin-inline', 'mi'),
+  marginInlineStart: spacingProp('margin-inline-start', 'mis'),
+  marginInlineEnd: spacingProp('margin-inline-end', 'mie'),
+  padding: spacingProp('padding', 'p'),
+  paddingBlock: spacingProp('padding-block', 'pb'),
+  paddingBlockStart: spacingProp('padding-block-start', 'pbs'),
+  paddingBlockEnd: spacingProp('padding-block-end', 'pbe'),
+  paddingInline: spacingProp('padding-inline', 'pi'),
+  paddingInlineStart: spacingProp('padding-inline-start', 'pis'),
+  paddingInlineEnd: spacingProp('padding-inline-end', 'pie'),
+
   border: stringProp,
   borderBlock: stringProp,
   borderBlockStart: stringProp,
@@ -325,33 +384,19 @@ export const propDefs: Record<keyof StylingProps, PropDefinition> = {
   insetInlineEnd: insetProp,
 
   m: aliasOf('margin'),
-  margin: marginProp,
   mb: aliasOf('marginBlock'),
-  marginBlock: marginProp,
   mbs: aliasOf('marginBlockStart'),
-  marginBlockStart: marginProp,
   mbe: aliasOf('marginBlockEnd'),
-  marginBlockEnd: marginProp,
   mi: aliasOf('marginInline'),
-  marginInline: marginProp,
   mis: aliasOf('marginInlineStart'),
-  marginInlineStart: marginProp,
   mie: aliasOf('marginInlineEnd'),
-  marginInlineEnd: marginProp,
   p: aliasOf('padding'),
-  padding: paddingProp,
   pb: aliasOf('paddingBlock'),
-  paddingBlock: paddingProp,
   pbs: aliasOf('paddingBlockStart'),
-  paddingBlockStart: paddingProp,
   pbe: aliasOf('paddingBlockEnd'),
-  paddingBlockEnd: paddingProp,
   pi: aliasOf('paddingInline'),
-  paddingInline: paddingProp,
   pis: aliasOf('paddingInlineStart'),
-  paddingInlineStart: paddingProp,
   pie: aliasOf('paddingInlineEnd'),
-  paddingInlineEnd: paddingProp,
 
   fontFamily: fontFamilyProp,
   fontSize: fontSizeProp,
@@ -457,91 +502,119 @@ export const propDefs: Record<keyof StylingProps, PropDefinition> = {
   },
 };
 
-const compiledPropDefs = new Map(
-  (Object.entries(propDefs) as [keyof StylingProps, PropDefinition][]).map(
-    ([propName, propDef]): [
-      propName: string,
-      inject: (
-        value: unknown,
-        stylingProps: Map<keyof StylingProps, cssFn>
-      ) => void
-    ] => {
-      if ('aliasOf' in propDef) {
-        const { aliasOf: effectivePropName } = propDef;
+const createPropConsumer = (
+  propName: keyof StylingProps,
+  propDef: PropDefinition
+): PropConsumer => {
+  if ('aliasOf' in propDef) {
+    const { aliasOf: effectivePropName } = propDef;
 
-        return [
-          propName,
-          (value, stylingProps) => {
-            if (stylingProps.has(effectivePropName)) {
-              return;
-            }
-
-            const inject = compiledPropDefs.get(effectivePropName);
-
-            inject?.(value, stylingProps);
-          },
-        ];
+    return (value, stylingProps, props, options) => {
+      if (stylingProps.has(effectivePropName)) {
+        return;
       }
 
-      if ('toCSSValue' in propDef) {
-        const cssProperty = fromCamelToKebab(propName);
-        const { toCSSValue } = propDef;
-        return [
-          propName,
-          (value, stylingProps) => {
-            const cssValue = toCSSValue(value);
+      const consume = matchProp(effectivePropName);
 
-            if (cssValue === undefined) {
-              return;
-            }
+      consume?.(value, stylingProps, props, options);
+    };
+  }
 
-            stylingProps.set(
-              propName,
-              css`
-                ${cssProperty}: ${cssValue} !important;
-              `
-            );
-          },
-        ];
+  if ('toCSSValue' in propDef) {
+    const cssProperty = fromCamelToKebab(propName);
+    const { toCSSValue } = propDef;
+
+    return (value, stylingProps) => {
+      const cssValue = toCSSValue(value);
+
+      if (cssValue === undefined) {
+        return;
       }
 
-      const { toStyle } = propDef;
-
-      return [
+      stylingProps.set(
         propName,
-        (value, stylingProps) => {
-          const style = toStyle(value);
+        css`
+          ${cssProperty}: ${cssValue} !important;
+        `
+      );
+    };
+  }
 
-          if (style === undefined) {
-            return;
-          }
+  if ('toStyle' in propDef) {
+    const { toStyle } = propDef;
 
-          stylingProps.set(propName, style);
-        },
-      ];
-    }
-  )
-);
+    return (value, stylingProps) => {
+      const style = toStyle(value);
 
-export const extractStylingProps = <TProps extends Record<string, unknown>>(
-  props: TProps & Partial<StylingProps>
+      if (style === undefined) {
+        return;
+      }
+
+      stylingProps.set(propName, style);
+    };
+  }
+
+  return (value, _, props, options) => {
+    propDef(propName, value, props, options);
+  };
+};
+
+const consumers = new Map<string, PropConsumer>();
+
+const isStylingProp = (propName: string): propName is keyof StylingProps =>
+  propName in propDefs;
+
+const matchProp = (propName: string | undefined) => {
+  const modifiers = propName?.split(':');
+  propName = modifiers?.pop();
+
+  if (!propName || !isStylingProp(propName)) {
+    return undefined;
+  }
+
+  if (consumers.has(propName)) {
+    return consumers.get(propName);
+  }
+
+  const consumer = createPropConsumer(propName, propDefs[propName]);
+  consumers.set(propName, consumer);
+  return consumer;
+};
+
+/**
+ * Extracts styling props from a given props object.
+ *
+ * @param props The props object to extract styling props from.
+ * @returns A tuple containing the props object without styling props and the styles.
+ */
+export const extractStylingProps = <
+  TProps extends Readonly<{ className?: string; [x: string]: unknown }>
+>(
+  props: TProps & Readonly<Partial<StylingProps>>,
+  options: ExtractionOptions = {}
 ): [props: TProps, styles: cssFn | undefined] => {
   const stylingProps = new Map<keyof StylingProps, cssFn>();
-  const newProps: Record<string, unknown> = {};
+  const newProps: Record<string, unknown> = props.className
+    ? { className: props.className }
+    : {};
 
-  for (const [propName, value] of Object.entries(props)) {
-    const inject = compiledPropDefs.get(propName);
-
-    if (!inject) {
-      newProps[propName] = value;
+  for (const propName of Object.keys(props)) {
+    if (propName === 'className') {
       continue;
     }
 
-    if (value === undefined) {
+    const consumeProp = matchProp(propName);
+
+    if (!consumeProp) {
+      newProps[propName] = props[propName];
       continue;
     }
 
-    inject(value, stylingProps);
+    if (props[propName] === undefined) {
+      continue;
+    }
+
+    consumeProp(props[propName], stylingProps, newProps, options);
   }
 
   const styles = stylingProps.size

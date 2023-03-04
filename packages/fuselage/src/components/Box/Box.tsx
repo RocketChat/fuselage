@@ -32,7 +32,7 @@ type BoxProps = {
     keyof AllHTMLAttributes<HTMLElement> | 'elevation'
   >;
 
-export const Box = forwardRef(function Box(
+const Box = forwardRef(function Box(
   { is = 'div', children, ...props }: BoxProps,
   ref: Ref<any>
 ) {

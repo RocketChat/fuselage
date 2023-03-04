@@ -7,4 +7,4 @@ export const createClassName = (content: string): string =>
   `rcx-css-${hash(content)}`;
 
 export const escapeName = (animationOrClassName: string): string =>
-  animationOrClassName.replace(/@|#|:/g, (char) => `\\${char}`);
+  animationOrClassName.replace(/@|#|:|!/g, (char) => `\\${char}`);
