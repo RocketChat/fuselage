@@ -36,10 +36,28 @@ export const holdContext = (): [EvaluationContext, () => string] => {
   ];
 };
 
+type EvaluablePrimitiveValue =
+  | string
+  | number
+  | bigint
+  | boolean
+  | null
+  | undefined
+  | { toString(): string };
+
+type EvaluableValue<TArgs extends readonly unknown[]> = readonly (
+  | EvaluablePrimitiveValue
+  | ((...args: TArgs) => EvaluablePrimitiveValue | Evaluable<TArgs>)
+  | Evaluable<TArgs>
+  | EvaluableValue<TArgs>
+)[];
+
 /**
  * A function that lazily evaluates a special string interpolation.
  */
-type Evaluable = <T extends readonly unknown[]>(...args: T) => string;
+type Evaluable<TArgs extends readonly unknown[] = readonly any[]> = (
+  ...args: TArgs
+) => string;
 
 const isEvaluable = (x: unknown): x is Evaluable => typeof x === 'function';
 
@@ -47,8 +65,11 @@ const staticEvaluable = memoize(
   <T extends Evaluable>(content: string): T => Object.freeze(() => content) as T
 );
 
-export type cssFn = Evaluable;
-export type keyframesFn = Evaluable;
+export type cssFn<TArgs extends readonly unknown[] = readonly any[]> =
+  Evaluable<TArgs>;
+
+export type keyframesFn<TArgs extends readonly unknown[] = readonly any[]> =
+  Evaluable<TArgs>;
 
 const evaluateValue = (value: unknown, args: readonly unknown[]): string => {
   if (isEvaluable(value) || typeof value === 'function') {
@@ -83,10 +104,10 @@ const reduceEvaluable = (
  *
  * @returns a callback to render the CSS content
  */
-export const css = (
+export const css = <TArgs extends readonly unknown[]>(
   slices: TemplateStringsArray,
-  ...values: readonly unknown[]
-): cssFn => {
+  ...values: EvaluableValue<TArgs>
+): cssFn<TArgs> => {
   if (
     !slices ||
     slices.length === 0 ||
@@ -101,7 +122,7 @@ export const css = (
     return staticEvaluable(content);
   }
 
-  return <T extends readonly unknown[]>(...args: T): string => {
+  return (...args: TArgs): string => {
     const [, freeContext] = holdContext();
 
     const content = reduceEvaluable(slices, values, args);
@@ -115,10 +136,10 @@ export const css = (
  *
  * @returns a callback to render the CSS at-rule content
  */
-export const keyframes = (
+export const keyframes = <TArgs extends readonly unknown[]>(
   slices: TemplateStringsArray,
-  ...values: unknown[]
-): keyframesFn => {
+  ...values: EvaluableValue<TArgs>
+): keyframesFn<TArgs> => {
   if (
     !slices ||
     slices.length === 0 ||

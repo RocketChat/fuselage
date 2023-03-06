@@ -1,46 +1,29 @@
 import type { cssFn } from '@rocket.chat/css-in-js';
-import {
-  createClassName,
-  transpile,
-  attachRules,
-  escapeName,
-  css,
-} from '@rocket.chat/css-in-js';
+import { css } from '@rocket.chat/css-in-js';
+import invariant from 'invariant';
 import type { CSSProperties } from 'react';
 
 import type { Var } from '../../Theme';
 import { Palette } from '../../Theme';
-import { appendClassName } from '../../helpers/appendClassName';
 import { fromCamelToKebab } from '../../helpers/fromCamelToKebab';
+import type { FontScale } from '../../styleTokens';
 import {
   borderRadius,
   borderWidth,
   backgroundColor,
   fontColor,
   fontFamily,
-  fontScale,
   inset,
   size,
   strokeColor,
   spacing,
+  fraction,
+  nonNegativeInteger,
+  integer,
 } from '../../styleTokens';
-
-type FontScale =
-  | 'hero'
-  | 'h1'
-  | 'h2'
-  | 'h3'
-  | 'h4'
-  | 'h5'
-  | 'p1'
-  | 'p1m'
-  | 'p1b'
-  | 'p2'
-  | 'p2m'
-  | 'p2b'
-  | 'c1'
-  | 'c2'
-  | 'micro';
+import * as tokens from '../../styleTokens';
+import { fontScale } from '../../styles/utilities/fontScale';
+import { withTruncatedText } from '../../styles/utilities/withTruncatedText';
 
 export type StylingProps = {
   border: CSSProperties['border'];
@@ -168,15 +151,10 @@ export type StylingProps = {
   fontScale: FontScale;
 };
 
-type ExtractionOptions = {
-  encapsulatingSelector?: string;
-};
-
 type PropConsumer = (
   value: unknown,
   stylingProps: Map<keyof StylingProps, cssFn>,
-  props: Record<string, unknown>,
-  options: ExtractionOptions
+  props: Record<string, unknown>
 ) => void;
 
 type PropDefinition =
@@ -191,41 +169,56 @@ type PropDefinition =
       propName: string,
       value: unknown,
       props: { className?: string; [x: string]: unknown },
-      options: ExtractionOptions
+      stylingProps: Map<keyof StylingProps, cssFn>
     ) => void);
 
-const stringProp: PropDefinition = {
-  toCSSValue: (value) => (typeof value === 'string' ? value : undefined),
-};
-
-const numberOrStringProp: PropDefinition = {
+const enumProp: PropDefinition = {
   toCSSValue: (value) => {
-    if (typeof value === 'number' || typeof value === 'string') {
-      return String(value);
-    }
-
-    return undefined;
+    value = String(value);
+    invariant(typeof value === 'string', 'Expected a string');
+    return value;
   },
 };
 
+const shorthandProp = (): PropDefinition => ({
+  toCSSValue: (value: unknown) => {
+    value = String(value);
+    invariant(typeof value === 'string', 'Expected a string');
+
+    return value;
+  },
+});
+
 const borderWidthProp: PropDefinition = {
   toCSSValue: borderWidth,
+};
+
+const borderColorProp: PropDefinition = {
+  toCSSValue: strokeColor,
 };
 
 const borderRadiusProp: PropDefinition = {
   toCSSValue: borderRadius,
 };
 
-const backgroundColorProp: PropDefinition = {
-  toCSSValue: backgroundColor,
-};
-
 const fontColorProp: PropDefinition = {
   toCSSValue: fontColor,
 };
 
-const strokeColorProp: PropDefinition = {
-  toCSSValue: strokeColor,
+const backgroundColorProp: PropDefinition = {
+  toCSSValue: backgroundColor,
+};
+
+const fractionProp: PropDefinition = {
+  toCSSValue: fraction,
+};
+
+const nonNegativeIntegerProp: PropDefinition = {
+  toCSSValue: nonNegativeInteger,
+};
+
+const integerProp: PropDefinition = {
+  toCSSValue: integer,
 };
 
 const sizeProp: PropDefinition = {
@@ -241,79 +234,39 @@ const fontFamilyProp: PropDefinition = {
 };
 
 const fontSizeProp: PropDefinition = {
-  toCSSValue: (value) => fontScale(value)?.fontSize || size(value),
+  toCSSValue: (value) => tokens.fontScale(value)?.fontSize || size(value),
 };
 
 const fontWeightProp: PropDefinition = {
   toCSSValue: (value) =>
-    value ? String(fontScale(value)?.fontWeight || value) : undefined,
+    value ? String(tokens.fontScale(value)?.fontWeight || value) : undefined,
 };
 
 const lineHeightProp: PropDefinition = {
-  toCSSValue: (value) => fontScale(value)?.lineHeight || size(value),
+  toCSSValue: (value) => tokens.fontScale(value)?.lineHeight || size(value),
 };
 
 const letterSpacingProp: PropDefinition = {
   toCSSValue: (value) =>
-    value ? String(fontScale(value)?.letterSpacing || value) : undefined,
+    value ? String(tokens.fontScale(value)?.letterSpacing || value) : undefined,
 };
 
 const aliasOf = (propName: keyof StylingProps): PropDefinition => ({
   aliasOf: propName,
 });
 
-const spacingProp = (property: string, prefix: string): PropDefinition => {
-  const parseValue = spacing.getCSSValue;
-  const getValueSuffix = spacing.getClassNameSuffix;
-
-  const attachedSelectors = new Set<string>();
-  const attachUtilityClass = (selector: string, declarationBlock: string) => {
-    if (attachedSelectors.has(selector)) {
-      return;
-    }
-
-    const rules = transpile(selector, declarationBlock);
-    attachRules(rules);
-    attachedSelectors.add(selector);
-  };
-
-  return (_, value, props, { encapsulatingSelector }) => {
-    const declarationBlock = `${property}:${parseValue(value)}!important;`;
-
-    const valueSuffix = getValueSuffix(value);
-    const className = valueSuffix
-      ? `${prefix}-${valueSuffix}!`
-      : createClassName(declarationBlock);
-    const selector = `${encapsulatingSelector ?? ''}.${escapeName(className)}`;
-    attachUtilityClass(selector, declarationBlock);
-    props.className = appendClassName(props.className, className);
-  };
+const spacingProp = {
+  toCSSValue: spacing,
 };
 
 export const propDefs: Record<keyof StylingProps, PropDefinition> = {
-  /* spacing */
-  margin: spacingProp('margin', 'm'),
-  marginBlock: spacingProp('margin-block', 'mb'),
-  marginBlockStart: spacingProp('margin-block-start', 'mbs'),
-  marginBlockEnd: spacingProp('margin-block-end', 'mbe'),
-  marginInline: spacingProp('margin-inline', 'mi'),
-  marginInlineStart: spacingProp('margin-inline-start', 'mis'),
-  marginInlineEnd: spacingProp('margin-inline-end', 'mie'),
-  padding: spacingProp('padding', 'p'),
-  paddingBlock: spacingProp('padding-block', 'pb'),
-  paddingBlockStart: spacingProp('padding-block-start', 'pbs'),
-  paddingBlockEnd: spacingProp('padding-block-end', 'pbe'),
-  paddingInline: spacingProp('padding-inline', 'pi'),
-  paddingInlineStart: spacingProp('padding-inline-start', 'pis'),
-  paddingInlineEnd: spacingProp('padding-inline-end', 'pie'),
-
-  border: stringProp,
-  borderBlock: stringProp,
-  borderBlockStart: stringProp,
-  borderBlockEnd: stringProp,
-  borderInline: stringProp,
-  borderInlineStart: stringProp,
-  borderInlineEnd: stringProp,
+  border: shorthandProp(),
+  borderBlock: shorthandProp(),
+  borderBlockStart: shorthandProp(),
+  borderBlockEnd: shorthandProp(),
+  borderInline: shorthandProp(),
+  borderInlineStart: shorthandProp(),
+  borderInlineEnd: shorthandProp(),
   borderWidth: borderWidthProp,
   borderBlockWidth: borderWidthProp,
   borderBlockStartWidth: borderWidthProp,
@@ -321,20 +274,20 @@ export const propDefs: Record<keyof StylingProps, PropDefinition> = {
   borderInlineWidth: borderWidthProp,
   borderInlineStartWidth: borderWidthProp,
   borderInlineEndWidth: borderWidthProp,
-  borderStyle: stringProp,
-  borderBlockStyle: stringProp,
-  borderBlockStartStyle: stringProp,
-  borderBlockEndStyle: stringProp,
-  borderInlineStyle: stringProp,
-  borderInlineStartStyle: stringProp,
-  borderInlineEndStyle: stringProp,
-  borderColor: strokeColorProp,
-  borderBlockColor: strokeColorProp,
-  borderBlockStartColor: strokeColorProp,
-  borderBlockEndColor: strokeColorProp,
-  borderInlineColor: strokeColorProp,
-  borderInlineStartColor: strokeColorProp,
-  borderInlineEndColor: strokeColorProp,
+  borderStyle: enumProp,
+  borderBlockStyle: enumProp,
+  borderBlockStartStyle: enumProp,
+  borderBlockEndStyle: enumProp,
+  borderInlineStyle: enumProp,
+  borderInlineStartStyle: enumProp,
+  borderInlineEndStyle: enumProp,
+  borderColor: borderColorProp,
+  borderBlockColor: borderColorProp,
+  borderBlockStartColor: borderColorProp,
+  borderBlockEndColor: borderColorProp,
+  borderInlineColor: borderColorProp,
+  borderInlineStartColor: borderColorProp,
+  borderInlineEndColor: borderColorProp,
   borderRadius: borderRadiusProp,
   borderStartStartRadius: borderRadiusProp,
   borderStartEndRadius: borderRadiusProp,
@@ -343,38 +296,50 @@ export const propDefs: Record<keyof StylingProps, PropDefinition> = {
 
   color: fontColorProp,
   backgroundColor: backgroundColorProp,
-  bg: aliasOf('backgroundColor'),
-  opacity: numberOrStringProp,
+  opacity: fractionProp,
 
-  alignItems: stringProp,
-  alignContent: stringProp,
-  justifyItems: stringProp,
-  justifyContent: stringProp,
-  flexWrap: stringProp,
-  flexDirection: stringProp,
-  flexGrow: numberOrStringProp,
-  flexShrink: numberOrStringProp,
-  flexBasis: stringProp,
-  justifySelf: stringProp,
-  alignSelf: stringProp,
-  order: numberOrStringProp,
+  alignItems: enumProp,
+  alignContent: enumProp,
+  justifyItems: enumProp,
+  justifyContent: enumProp,
+  flexWrap: enumProp,
+  flexDirection: enumProp,
+  flexGrow: nonNegativeIntegerProp,
+  flexShrink: nonNegativeIntegerProp,
+  flexBasis: sizeProp,
+  justifySelf: enumProp,
+  alignSelf: enumProp,
+  order: integerProp,
 
-  w: aliasOf('width'),
   width: sizeProp,
   minWidth: sizeProp,
   maxWidth: sizeProp,
-  h: aliasOf('height'),
   height: sizeProp,
   minHeight: sizeProp,
   maxHeight: sizeProp,
-  display: stringProp,
-  verticalAlign: stringProp,
-  overflow: stringProp,
-  overflowX: stringProp,
-  overflowY: stringProp,
+  display: enumProp,
+  verticalAlign: insetProp,
+  overflow: enumProp,
+  overflowX: enumProp,
+  overflowY: enumProp,
 
-  position: stringProp,
-  zIndex: numberOrStringProp,
+  margin: spacingProp,
+  marginBlock: spacingProp,
+  marginBlockStart: spacingProp,
+  marginBlockEnd: spacingProp,
+  marginInline: spacingProp,
+  marginInlineStart: spacingProp,
+  marginInlineEnd: spacingProp,
+  padding: spacingProp,
+  paddingBlock: spacingProp,
+  paddingBlockStart: spacingProp,
+  paddingBlockEnd: spacingProp,
+  paddingInline: spacingProp,
+  paddingInlineStart: spacingProp,
+  paddingInlineEnd: spacingProp,
+
+  position: enumProp,
+  zIndex: integerProp,
   inset: insetProp,
   insetBlock: insetProp,
   insetBlockStart: insetProp,
@@ -383,6 +348,9 @@ export const propDefs: Record<keyof StylingProps, PropDefinition> = {
   insetInlineStart: insetProp,
   insetInlineEnd: insetProp,
 
+  bg: aliasOf('backgroundColor'),
+  w: aliasOf('width'),
+  h: aliasOf('height'),
   m: aliasOf('margin'),
   mb: aliasOf('marginBlock'),
   mbs: aliasOf('marginBlockStart'),
@@ -400,14 +368,14 @@ export const propDefs: Record<keyof StylingProps, PropDefinition> = {
 
   fontFamily: fontFamilyProp,
   fontSize: fontSizeProp,
-  fontStyle: stringProp,
+  fontStyle: enumProp,
   fontWeight: fontWeightProp,
   letterSpacing: letterSpacingProp,
   lineHeight: lineHeightProp,
-  textAlign: stringProp,
-  textTransform: stringProp,
-  textDecorationLine: stringProp,
-  wordBreak: stringProp,
+  textAlign: enumProp,
+  textTransform: enumProp,
+  textDecorationLine: enumProp,
+  wordBreak: enumProp,
 
   elevation: {
     toStyle: (value) => {
@@ -456,14 +424,7 @@ export const propDefs: Record<keyof StylingProps, PropDefinition> = {
         : undefined,
   },
   withTruncatedText: {
-    toStyle: (value) =>
-      value
-        ? css`
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-          `
-        : undefined,
+    toStyle: (value) => () => withTruncatedText(Boolean(value)),
   },
   size: {
     toStyle: (value) =>
@@ -493,12 +454,10 @@ export const propDefs: Record<keyof StylingProps, PropDefinition> = {
         : undefined,
   },
   fontScale: {
-    toStyle: (value) => css`
-      font-size: ${fontScale(value)?.fontSize} !important;
-      font-weight: ${fontScale(value)?.fontWeight} !important;
-      letter-spacing: ${fontScale(value)?.letterSpacing} !important;
-      line-height: ${fontScale(value)?.lineHeight} !important;
-    `,
+    toStyle: (value) =>
+      tokens.isFontScale(value)
+        ? () => fontScale({ value, important: true })
+        : undefined,
   },
 };
 
@@ -509,14 +468,14 @@ const createPropConsumer = (
   if ('aliasOf' in propDef) {
     const { aliasOf: effectivePropName } = propDef;
 
-    return (value, stylingProps, props, options) => {
+    return (value, stylingProps, props) => {
       if (stylingProps.has(effectivePropName)) {
         return;
       }
 
       const consume = matchProp(effectivePropName);
 
-      consume?.(value, stylingProps, props, options);
+      consume?.(value, stylingProps, props);
     };
   }
 
@@ -554,8 +513,8 @@ const createPropConsumer = (
     };
   }
 
-  return (value, _, props, options) => {
-    propDef(propName, value, props, options);
+  return (value, stylingProps, props) => {
+    propDef(propName, value, props, stylingProps);
   };
 };
 
@@ -564,9 +523,9 @@ const consumers = new Map<string, PropConsumer>();
 const isStylingProp = (propName: string): propName is keyof StylingProps =>
   propName in propDefs;
 
-const matchProp = (propName: string | undefined) => {
-  const modifiers = propName?.split(':');
-  propName = modifiers?.pop();
+function matchProp(propName: string | undefined) {
+  const variants = propName?.split(':');
+  propName = variants?.pop();
 
   if (!propName || !isStylingProp(propName)) {
     return undefined;
@@ -579,7 +538,7 @@ const matchProp = (propName: string | undefined) => {
   const consumer = createPropConsumer(propName, propDefs[propName]);
   consumers.set(propName, consumer);
   return consumer;
-};
+}
 
 /**
  * Extracts styling props from a given props object.
@@ -587,12 +546,11 @@ const matchProp = (propName: string | undefined) => {
  * @param props The props object to extract styling props from.
  * @returns A tuple containing the props object without styling props and the styles.
  */
-export const extractStylingProps = <
+export function extractStylingProps<
   TProps extends Readonly<{ className?: string; [x: string]: unknown }>
 >(
-  props: TProps & Readonly<Partial<StylingProps>>,
-  options: ExtractionOptions = {}
-): [props: TProps, styles: cssFn | undefined] => {
+  props: TProps & Readonly<Partial<StylingProps>>
+): [props: TProps, styles: cssFn | undefined] {
   const stylingProps = new Map<keyof StylingProps, cssFn>();
   const newProps: Record<string, unknown> = props.className
     ? { className: props.className }
@@ -614,7 +572,7 @@ export const extractStylingProps = <
       continue;
     }
 
-    consumeProp(props[propName], stylingProps, newProps, options);
+    consumeProp(props[propName], stylingProps, newProps);
   }
 
   const styles = stylingProps.size
@@ -624,4 +582,4 @@ export const extractStylingProps = <
     : undefined;
 
   return [newProps as TProps, styles];
-};
+}

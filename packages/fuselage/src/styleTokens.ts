@@ -28,98 +28,79 @@ import {
 
 const xRegExp = /^(neg-|-)?x(\d+)$/;
 
-const matchX = (value: string) => {
-  const matches = xRegExp.exec(value);
-  if (matches) {
-    const [, negativeMark, absoluteValue] = matches;
-    return `${negativeMark ? '-' : ''}${absoluteValue}`;
-  }
-};
-
-export const spacing = {
-  getCSSValue: (value: unknown) => {
-    if (typeof value === 'number') {
-      return `${value}px`;
-    }
-
-    if (value === 'none') {
-      return '0';
-    }
-
-    value = String(value);
-    invariant(typeof value === 'string', 'Expected a string');
-
-    const x = matchX(value);
-    if (x) {
-      return `${x}px`;
-    }
-
-    return value;
-  },
-  getClassNameSuffix: (value: unknown) => {
-    if (value === 'none' || value === 0) {
-      return 'none';
-    }
-
-    if (typeof value === 'number') {
-      return value < 0 ? `(${value})` : `${value}`;
-    }
-
-    value = String(value);
-    invariant(typeof value === 'string', 'Expected a string');
-
-    const x = matchX(value);
-    if (x) {
-      return x[0] === '-' ? `(${x})` : x;
-    }
-  },
-};
-
-const measure = (
-  computeSpecialValue?: (value: string) => null | undefined | string
-) =>
+const length = (fn?: (value: string) => string | undefined) =>
   memoize((value) => {
     if (typeof value === 'number') {
-      return `${value}px`;
+      return value === 0 ? '0' : `${value}px`;
     }
 
-    if (typeof value !== 'string') {
-      return undefined;
-    }
+    value = String(value);
+    invariant(typeof value === 'string', 'Expected a string');
 
     const matches = xRegExp.exec(value);
     if (matches) {
-      const [, negativeMark, measureInPixelsAsString] = matches;
-      const measureInPixels =
-        (negativeMark ? -1 : 1) * parseInt(measureInPixelsAsString, 10);
-      return `${measureInPixels / 16}rem`;
+      const [, negativeMark, absoluteValue] = matches;
+      return absoluteValue === '0'
+        ? '0'
+        : `${negativeMark ? '-' : ''}${absoluteValue}px`;
     }
 
-    if (computeSpecialValue) {
-      return computeSpecialValue(value) || value;
-    }
-
-    return value;
+    return fn?.(value) ?? value;
   });
 
-export const borderWidth = measure((value: unknown) => {
+export const borderWidth = length((value: string) => {
   if (value === 'none') {
-    return '0px';
+    return '0';
   }
+
   if (value === 'default') {
-    return borderWidth('x1');
+    return '1px';
   }
 });
 
-export const borderRadius = measure((value: unknown) => {
+export const borderRadius = length((value: string) => {
   if (value === 'none') {
-    return '0px';
+    return '0';
   }
 
   if (value === 'full') {
     return '9999px';
   }
 });
+
+export const fraction = (value: unknown) => {
+  value = String(value);
+  invariant(typeof value === 'string', 'Expected a string');
+
+  if (value === '1') {
+    return '100%';
+  }
+
+  const match = value.match(/^0?\.(\d{1,2})(\d*)$/);
+  if (match) {
+    const [, integer, decimal] = match;
+
+    if (!decimal) {
+      return `${integer.padEnd(2, '0')}%`;
+    }
+
+    return `${integer.padEnd(2, '0')}.${decimal}%`;
+  }
+
+  return value;
+};
+
+export const nonNegativeInteger = (value: unknown) => {
+  value = String(value);
+  invariant(typeof value === 'string', 'Expected a string');
+  return value;
+};
+
+export const integer = (value: unknown) => {
+  value = String(value);
+  invariant(typeof value === 'string', 'Expected a string');
+  return value;
+};
 
 const mapTypeToPrefix = {
   neutral: 'n',
@@ -179,27 +160,30 @@ const getForegroundColor = (
 const paletteColorRegex =
   /^(neutral|primary|info|success|warning|danger)-(\d+)(-(\d+))?$/;
 
-export const strokeColor = memoize((value) => {
+export const strokeColor = memoize((value: unknown) => {
   const colorName = `stroke-${value}`;
   if (isStrokeColor(colorName)) {
-    return strokeColors[colorName].toString();
+    return String(strokeColors[colorName]);
   }
   return color(value);
 });
 
-export const backgroundColor = memoize((value) => {
+export const backgroundColor = memoize((value: unknown) => {
+  value = String(value);
+  invariant(typeof value === 'string', 'Expected a string');
+
   const colorName = `surface-${value}`;
 
   if (isSurfaceColor(value)) {
-    return surfaceColors[value].toString();
+    return String(surfaceColors[value]);
   }
 
   if (isSurfaceColor(colorName)) {
-    return surfaceColors[colorName].toString();
+    return String(surfaceColors[colorName]);
   }
 
   if (isStatusBackgroundColor(value)) {
-    return statusBackgroundColors[value].toString();
+    return String(statusBackgroundColors[value]);
   }
 
   if (isStatusColor(value)) {
@@ -209,29 +193,32 @@ export const backgroundColor = memoize((value) => {
     ) {
       console.warn(`${value} shouldn't be used as a backgroundColor.`);
     }
-    return statusColors[value].toString();
+    return String(statusColors[value]);
   }
 
   if (isBadgeColor(value)) {
-    return badgeBackgroundColors[value].toString();
+    return String(badgeBackgroundColors[value]);
   }
 
   return color(value);
 });
 
-export const fontColor = memoize((value) => {
+export const fontColor = memoize((value: unknown) => {
+  value = String(value);
+  invariant(typeof value === 'string', 'Expected a string');
+
   const colorName = `font-${value}`;
   if (isTextIconColor(colorName)) {
-    return textIconColors[colorName].toString();
+    return String(textIconColors[colorName]);
   }
   if (isStatusColor(value)) {
-    return statusColors[value].toString();
+    return String(statusColors[value]);
   }
   return color(value);
 });
 
 /** @deprecated **/
-export const color = memoize((value) => {
+const color = memoize((value: unknown) => {
   if (typeof value !== 'string') {
     return;
   }
@@ -313,9 +300,9 @@ export const color = memoize((value) => {
   return value;
 });
 
-export const size = measure((value: unknown) => {
+export const size = length((value: string) => {
   if (value === 'none') {
-    return '0px';
+    return '0';
   }
 
   if (value === 'full') {
@@ -331,21 +318,15 @@ export const size = measure((value: unknown) => {
   }
 });
 
-export const inset = measure((value: unknown) => {
+export const inset = length((value: string) => {
   if (value === 'none') {
-    return '0px';
+    return '0';
   }
 });
 
-export const margin = measure((value: unknown) => {
+export const spacing = length((value: string) => {
   if (value === 'none') {
-    return '0px';
-  }
-});
-
-export const padding = measure((value: unknown) => {
-  if (value === 'none') {
-    return '0px';
+    return '0';
   }
 });
 
@@ -366,10 +347,15 @@ export const fontFamily = memoize((value: unknown): string | undefined => {
   return toCSSFontValue(value, fontFamily);
 });
 
-type FontScale = keyof typeof tokenTypography.fontScales;
+export type FontScale = keyof typeof tokenTypography.fontScales;
 
-const isFontScale = (value: unknown): value is FontScale =>
+export const isFontScale = (value: unknown): value is FontScale =>
   typeof value === 'string' && value in tokenTypography.fontScales;
+
+const toREM = (value: number) => {
+  value /= 16;
+  return value ? `${value}rem` : '0';
+};
 
 export const fontScale = memoize(
   (
@@ -390,10 +376,10 @@ export const fontScale = memoize(
       tokenTypography.fontScales[value];
 
     return {
-      fontSize: `${fontSize / 16}rem`,
+      fontSize: toREM(fontSize),
       fontWeight,
-      lineHeight: `${lineHeight / 16}rem`,
-      letterSpacing: `${letterSpacing / 16}rem`,
+      lineHeight: toREM(lineHeight),
+      letterSpacing: toREM(letterSpacing),
     };
   }
 );
