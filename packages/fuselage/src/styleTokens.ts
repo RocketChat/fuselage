@@ -1,7 +1,6 @@
 import tokenColors from '@rocket.chat/fuselage-tokens/colors.json';
 import tokenTypography from '@rocket.chat/fuselage-tokens/dist/typography.json';
 import { memoize } from '@rocket.chat/memo';
-import invariant from 'invariant';
 
 import {
   isStatusBackgroundColor,
@@ -20,18 +19,497 @@ import {
   badgeBackgroundColors,
 } from './Theme';
 import { getPaletteColor } from './getPaletteColor';
+import { invariant } from './helpers/invariant';
 import {
   toCSSColorValue,
   toCSSFontValue,
   toCSSValue,
 } from './helpers/toCSSValue';
+import { warning } from './helpers/warning';
 
 const xRegExp = /^(neg-|-)?x(\d+)$/;
+
+const matchX = (value: string): number | undefined => {
+  const matches = xRegExp.exec(value);
+  if (matches) {
+    const [, negativeMark, absoluteValueString] = matches;
+    const absoluteValue = parseInt(absoluteValueString, 10);
+    return (negativeMark ? -1 : 1) * absoluteValue;
+  }
+
+  return undefined;
+};
+
+const percentageRegExp = /^(\d+)(\.\d+)?%$/;
+
+const matchPercentage = (value: string): `${number}%` | undefined => {
+  const matches = percentageRegExp.exec(value);
+  if (matches) {
+    return matches[0] as `${number}%`;
+  }
+
+  return undefined;
+};
+
+const toREM = (value: number) => {
+  value /= 16;
+  return value ? `${value}rem` : '0';
+};
+
+const toPixels = (value: number) => (value ? `${value}px` : '0');
+
+const toPixelsOrPercentage = (value: number | `${number}%`) => {
+  if (typeof value === 'number') {
+    return toPixels(value);
+  }
+
+  return value;
+};
+
+export type Size = number | `${number}%` | 'auto' | 'full' | 'sw' | 'sh';
+
+export type Padding = number | `${number}%`;
+
+export type Margin = number | `${number}%` | 'auto';
+
+export type FontScale = keyof typeof tokenTypography.fontScales;
+
+export type FontFamily = keyof typeof tokenTypography.fontFamilies;
+
+export type FontSize = FontScale | number;
+
+export type FontWeight =
+  | FontScale
+  | 100
+  | 200
+  | 300
+  | 400
+  | 500
+  | 600
+  | 700
+  | 800
+  | 900;
+
+export type LetterSpacing = FontScale | number;
+
+export type LineHeight = FontScale | number | `${number}%`;
+
+export type BorderWidth = number;
+
+export type BorderRadius = number | 'full';
+
+export type BorderColor = keyof typeof strokeColors;
+
+export const normalizeSize = memoize((value: unknown): Size => {
+  invariant(value !== undefined && value !== null, 'Expected a value');
+
+  if (typeof value === 'number') {
+    invariant(!Number.isNaN(value), 'Expected a number');
+    invariant(Number.isFinite(value), 'Expected a finite number');
+    invariant(value >= 0, 'Expected a non-negative number');
+    warning(Number.isSafeInteger(value), 'Expected a safe integer');
+    return value;
+  }
+
+  value = String(value);
+  invariant(typeof value === 'string', 'Expected a string');
+
+  switch (value) {
+    case 'none':
+      warning.always('The value "none" is deprecated, use "0" instead');
+      return 0;
+
+    case 'auto':
+    case 'full':
+    case 'sw':
+    case 'sh':
+      return value;
+  }
+
+  const x = matchX(value);
+  if (x !== undefined) {
+    return normalizeSize(x);
+  }
+
+  const percentage = matchPercentage(value);
+  if (percentage !== undefined) {
+    return percentage;
+  }
+
+  return normalizeSize(parseFloat(value));
+});
+
+export const formatSize = memoize((value: Size): string => {
+  switch (value) {
+    case 'full':
+      return '100%';
+
+    case 'sw':
+      return '100vw';
+
+    case 'sh':
+      return '100vh';
+
+    case 'auto':
+      return 'auto';
+
+    default:
+      return toPixelsOrPercentage(value);
+  }
+});
+
+export const normalizePadding = memoize((value: unknown): Padding => {
+  invariant(value !== undefined && value !== null, 'Expected a value');
+
+  if (typeof value === 'number') {
+    invariant(!Number.isNaN(value), 'Expected a number');
+    invariant(Number.isFinite(value), 'Expected a finite number');
+    invariant(value >= 0, 'Expected a non-negative number');
+    warning(Number.isSafeInteger(value), 'Expected a safe integer');
+    return value;
+  }
+
+  value = String(value);
+  invariant(typeof value === 'string', 'Expected a string');
+
+  switch (value) {
+    case 'none':
+      warning.always('The value "none" is deprecated, use "0" instead');
+      return 0;
+  }
+
+  const x = matchX(value);
+  if (x !== undefined) {
+    return normalizePadding(x);
+  }
+
+  const percentage = matchPercentage(value);
+  if (percentage !== undefined) {
+    return percentage;
+  }
+
+  return normalizePadding(parseFloat(value));
+});
+
+export const formatPadding = memoize((value: Padding): string =>
+  toPixelsOrPercentage(value)
+);
+
+export const normalizeMargin = memoize((value: unknown): Margin => {
+  invariant(value !== undefined && value !== null, 'Expected a value');
+
+  if (typeof value === 'number') {
+    invariant(!Number.isNaN(value), 'Expected a number');
+    invariant(Number.isFinite(value), 'Expected a finite number');
+    warning(Number.isSafeInteger(value), 'Expected a safe integer');
+    return value;
+  }
+
+  value = String(value);
+  invariant(typeof value === 'string', 'Expected a string');
+
+  switch (value) {
+    case 'none':
+      warning.always('The value "none" is deprecated, use "0" instead');
+      return 0;
+
+    case 'auto':
+      return 'auto';
+  }
+
+  const x = matchX(value);
+  if (x !== undefined) {
+    return normalizeMargin(x);
+  }
+
+  const percentage = matchPercentage(value);
+  if (percentage !== undefined) {
+    return percentage;
+  }
+
+  return normalizeMargin(parseFloat(value));
+});
+
+export const formatMargin = memoize((value: Margin): string => {
+  switch (value) {
+    case 'auto':
+      return 'auto';
+
+    default:
+      return toPixelsOrPercentage(value);
+  }
+});
+
+export const normalizeFontSize = memoize((value: unknown): FontSize => {
+  invariant(value !== undefined && value !== null, 'Expected a value');
+
+  if (typeof value === 'number') {
+    invariant(!Number.isNaN(value), 'Expected a number');
+    invariant(Number.isFinite(value), 'Expected a finite number');
+    invariant(value >= 0, 'Expected a non-negative number');
+    warning(Number.isSafeInteger(value), 'Expected a safe integer');
+    return value;
+  }
+
+  value = String(value);
+  invariant(typeof value === 'string', 'Expected a string');
+
+  const x = matchX(value);
+  if (x !== undefined) {
+    return normalizeFontSize(x);
+  }
+
+  invariant(isFontScale(value), 'Expected a valid font scale');
+  return value;
+});
+
+export const formatFontSize = memoize((value: FontSize): string => {
+  if (isFontScale(value)) {
+    const fontScale = tokenTypography.fontScales[value];
+    return toREM(fontScale.fontSize);
+  }
+
+  return toPixels(value);
+});
+
+export const normalizeFontWeight = memoize((value: unknown): FontWeight => {
+  invariant(value !== undefined && value !== null, 'Expected a value');
+
+  if (typeof value === 'number') {
+    invariant(
+      value === 100 ||
+        value === 200 ||
+        value === 300 ||
+        value === 400 ||
+        value === 500 ||
+        value === 600 ||
+        value === 700 ||
+        value === 800 ||
+        value === 900,
+      'Expected a valid font weight'
+    );
+    return value;
+  }
+
+  invariant(isFontScale(value), 'Expected a valid font scale');
+  return value;
+});
+
+export const formatFontWeight = memoize((value: FontWeight): string => {
+  if (isFontScale(value)) {
+    const fontScale = tokenTypography.fontScales[value];
+    return String(fontScale.fontWeight);
+  }
+
+  return String(value);
+});
+
+export const normalizeLetterSpacing = memoize(
+  (value: unknown): LetterSpacing => {
+    invariant(value !== undefined && value !== null, 'Expected a value');
+
+    if (typeof value === 'number') {
+      invariant(!Number.isNaN(value), 'Expected a number');
+      invariant(Number.isFinite(value), 'Expected a finite number');
+      warning(Number.isSafeInteger(value), 'Expected a safe integer');
+      return value;
+    }
+
+    value = String(value);
+    invariant(typeof value === 'string', 'Expected a string');
+
+    const x = matchX(value);
+    if (x !== undefined) {
+      return normalizeLetterSpacing(x);
+    }
+
+    invariant(isFontScale(value), 'Expected a valid font scale');
+    return value;
+  }
+);
+
+export const formatLetterSpacing = memoize((value: LetterSpacing): string => {
+  if (isFontScale(value)) {
+    const fontScale = tokenTypography.fontScales[value];
+    return toREM(fontScale.letterSpacing);
+  }
+
+  return toPixels(value);
+});
+
+export const normalizeLineHeight = memoize((value: unknown): LineHeight => {
+  invariant(value !== undefined && value !== null, 'Expected a value');
+
+  if (typeof value === 'number') {
+    invariant(!Number.isNaN(value), 'Expected a number');
+    invariant(Number.isFinite(value), 'Expected a finite number');
+    invariant(value >= 0, 'Expected a non-negative number');
+    warning(Number.isSafeInteger(value), 'Expected a safe integer');
+    return value;
+  }
+
+  value = String(value);
+  invariant(typeof value === 'string', 'Expected a string');
+
+  const x = matchX(value);
+  if (x !== undefined) {
+    return normalizeLineHeight(x);
+  }
+
+  const percentage = matchPercentage(value);
+  if (percentage !== undefined) {
+    return percentage;
+  }
+
+  invariant(isFontScale(value), 'Expected a valid font scale');
+  return value;
+});
+
+export const formatLineHeight = memoize((value: LineHeight): string => {
+  if (isFontScale(value)) {
+    const fontScale = tokenTypography.fontScales[value];
+    return toREM(fontScale.lineHeight);
+  }
+
+  return toPixelsOrPercentage(value);
+});
+
+export const normalizeFontScale = memoize((value: unknown): FontScale => {
+  value = String(value);
+  invariant(isFontScale(value), 'Invalid font scale');
+  return value as FontScale;
+});
+
+export const normalizeFontFamily = memoize((value: unknown): FontFamily => {
+  value = String(value);
+  invariant(isFontFamily(value), 'Invalid font family');
+  return value as FontFamily;
+});
+
+export const formatFontFamily = memoize((value: FontFamily): string => {
+  const fontFamily = tokenTypography.fontFamilies[value]
+    .map((fontFace) => (fontFace.includes(' ') ? `'${fontFace}'` : fontFace))
+    .join(', ');
+
+  return toCSSFontValue(value, fontFamily);
+});
+
+export function normalizeEnum<TAltertives extends readonly string[]>(
+  alternatives: TAltertives,
+  value: unknown
+): TAltertives[number] {
+  value = String(value);
+  invariant(typeof value === 'string', 'Expected a string');
+  assertEnum(alternatives, value);
+
+  return value;
+}
+
+export function assertEnum<TAltertives extends readonly string[]>(
+  alternatives: TAltertives,
+  value: string
+): asserts value is TAltertives[number] {
+  invariant(
+    alternatives.includes(value as TAltertives[number]),
+    () =>
+      `Expected one of ${alternatives
+        .map((alternative) => `"${alternative}"`)
+        .join(', ')}, got "${value}"`
+  );
+}
+
+export const normalizeBorderWidth = memoize((value: unknown): BorderWidth => {
+  invariant(value !== undefined && value !== null, 'Expected a value');
+
+  if (typeof value === 'number') {
+    invariant(!Number.isNaN(value), 'Expected a number');
+    invariant(Number.isFinite(value), 'Expected a finite number');
+    invariant(value >= 0, 'Expected a non-negative number');
+    warning(Number.isSafeInteger(value), 'Expected a safe integer');
+    return value;
+  }
+
+  value = String(value);
+  invariant(typeof value === 'string', 'Expected a string');
+
+  switch (value) {
+    case 'none':
+      return 0;
+
+    case 'default':
+      return 1;
+  }
+
+  const x = matchX(value);
+  if (x !== undefined) {
+    return normalizeBorderWidth(x);
+  }
+
+  throw new Error('Expected a valid border width');
+});
+
+export const formatBorderWidth = memoize((value: BorderWidth): string =>
+  toPixels(value)
+);
+
+export const normalizeBorderRadius = memoize((value: unknown): BorderRadius => {
+  invariant(value !== undefined && value !== null, 'Expected a value');
+
+  if (typeof value === 'number') {
+    invariant(!Number.isNaN(value), 'Expected a number');
+    invariant(Number.isFinite(value), 'Expected a finite number');
+    invariant(value >= 0, 'Expected a non-negative number');
+    warning(Number.isSafeInteger(value), 'Expected a safe integer');
+    return value;
+  }
+
+  value = String(value);
+  invariant(typeof value === 'string', 'Expected a string');
+
+  switch (value) {
+    case 'none':
+      return 0;
+
+    case 'full':
+      return 9999;
+  }
+
+  const x = matchX(value);
+  if (x !== undefined) {
+    return normalizeBorderWidth(x);
+  }
+
+  throw new Error('Expected a valid border width');
+});
+
+export const formatBorderRadius = memoize((value: BorderRadius): string => {
+  if (value === 'full') {
+    return '9999px';
+  }
+
+  return toPixels(value);
+});
+
+export const normalizeBorderColor = memoize((value: unknown): BorderColor => {
+  invariant(value !== undefined && value !== null, 'Expected a value');
+
+  if (isStrokeColor(value)) {
+    return value;
+  }
+
+  const colorName = `stroke-${value}`;
+  invariant(isStrokeColor(colorName), 'Expected a valid stroke color');
+  return colorName;
+});
+
+export const formatBorderColor = memoize((value: BorderColor): string =>
+  String(strokeColors[value])
+);
 
 const length = (fn?: (value: string) => string | undefined) =>
   memoize((value) => {
     if (typeof value === 'number') {
-      return value === 0 ? '0' : `${value}px`;
+      return toPixels(value);
     }
 
     value = String(value);
@@ -47,26 +525,6 @@ const length = (fn?: (value: string) => string | undefined) =>
 
     return fn?.(value) ?? value;
   });
-
-export const borderWidth = length((value: string) => {
-  if (value === 'none') {
-    return '0';
-  }
-
-  if (value === 'default') {
-    return '1px';
-  }
-});
-
-export const borderRadius = length((value: string) => {
-  if (value === 'none') {
-    return '0';
-  }
-
-  if (value === 'full') {
-    return '9999px';
-  }
-});
 
 export const fraction = (value: unknown) => {
   value = String(value);
@@ -300,86 +758,14 @@ const color = memoize((value: unknown) => {
   return value;
 });
 
-export const size = length((value: string) => {
-  if (value === 'none') {
-    return '0';
-  }
-
-  if (value === 'full') {
-    return '100%';
-  }
-
-  if (value === 'sw') {
-    return '100vw';
-  }
-
-  if (value === 'sh') {
-    return '100vh';
-  }
-});
-
 export const inset = length((value: string) => {
   if (value === 'none') {
     return '0';
   }
 });
 
-export const spacing = length((value: string) => {
-  if (value === 'none') {
-    return '0';
-  }
-});
-
-type FontFamily = keyof typeof tokenTypography.fontFamilies;
-
 const isFontFamily = (value: unknown): value is FontFamily =>
   typeof value === 'string' && value in tokenTypography.fontFamilies;
 
-export const fontFamily = memoize((value: unknown): string | undefined => {
-  if (!isFontFamily(value)) {
-    return undefined;
-  }
-
-  const fontFamily = tokenTypography.fontFamilies[value]
-    .map((fontFace) => (fontFace.includes(' ') ? `'${fontFace}'` : fontFace))
-    .join(', ');
-
-  return toCSSFontValue(value, fontFamily);
-});
-
-export type FontScale = keyof typeof tokenTypography.fontScales;
-
-export const isFontScale = (value: unknown): value is FontScale =>
+const isFontScale = (value: unknown): value is FontScale =>
   typeof value === 'string' && value in tokenTypography.fontScales;
-
-const toREM = (value: number) => {
-  value /= 16;
-  return value ? `${value}rem` : '0';
-};
-
-export const fontScale = memoize(
-  (
-    value: unknown
-  ):
-    | {
-        fontSize: string;
-        fontWeight: number;
-        lineHeight: string;
-        letterSpacing: string;
-      }
-    | undefined => {
-    if (!isFontScale(value)) {
-      return undefined;
-    }
-
-    const { fontSize, fontWeight, lineHeight, letterSpacing } =
-      tokenTypography.fontScales[value];
-
-    return {
-      fontSize: toREM(fontSize),
-      fontWeight,
-      lineHeight: toREM(lineHeight),
-      letterSpacing: toREM(letterSpacing),
-    };
-  }
-);

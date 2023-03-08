@@ -42,15 +42,14 @@ type EvaluablePrimitiveValue =
   | bigint
   | boolean
   | null
-  | undefined
-  | { toString(): string };
+  | undefined;
 
-type EvaluableValue<TArgs extends readonly unknown[]> = readonly (
+type EvaluableValue<TArgs extends readonly unknown[]> =
   | EvaluablePrimitiveValue
-  | ((...args: TArgs) => EvaluablePrimitiveValue | Evaluable<TArgs>)
+  | { toString(): string }
+  | ((...args: TArgs) => Evaluable<TArgs> | EvaluablePrimitiveValue)
   | Evaluable<TArgs>
-  | EvaluableValue<TArgs>
-)[];
+  | EvaluableValue<TArgs>[];
 
 /**
  * A function that lazily evaluates a special string interpolation.
@@ -59,10 +58,13 @@ type Evaluable<TArgs extends readonly unknown[] = readonly any[]> = (
   ...args: TArgs
 ) => string;
 
-const isEvaluable = (x: unknown): x is Evaluable => typeof x === 'function';
+const isEvaluable = <TArgs extends readonly unknown[]>(
+  x: unknown
+): x is Evaluable<TArgs> => typeof x === 'function';
 
 const staticEvaluable = memoize(
-  <T extends Evaluable>(content: string): T => Object.freeze(() => content) as T
+  <TArgs extends readonly unknown[]>(content: string) =>
+    Object.freeze(() => content) as Evaluable<TArgs>
 );
 
 export type cssFn<TArgs extends readonly unknown[] = readonly any[]> =
@@ -71,7 +73,10 @@ export type cssFn<TArgs extends readonly unknown[] = readonly any[]> =
 export type keyframesFn<TArgs extends readonly unknown[] = readonly any[]> =
   Evaluable<TArgs>;
 
-const evaluateValue = (value: unknown, args: readonly unknown[]): string => {
+const evaluateValue = <TArgs extends readonly unknown[]>(
+  value: EvaluableValue<TArgs>,
+  args: TArgs
+): string => {
   if (isEvaluable(value) || typeof value === 'function') {
     return evaluateValue(value(...args), args);
   }
@@ -87,10 +92,10 @@ const evaluateValue = (value: unknown, args: readonly unknown[]): string => {
   return String(value);
 };
 
-const reduceEvaluable = (
+const reduceEvaluable = <TArgs extends readonly unknown[]>(
   [first, ...rest]: readonly string[],
-  values: readonly unknown[],
-  args: readonly unknown[]
+  values: EvaluableValue<TArgs>[],
+  args: TArgs
 ): string =>
   values
     .reduce<string>(
@@ -99,6 +104,11 @@ const reduceEvaluable = (
     )
     .trim();
 
+const isEachOneStatic = <TArgs extends readonly unknown[]>(
+  values: EvaluableValue<TArgs>[]
+): values is EvaluablePrimitiveValue[] =>
+  values.every((value) => typeof value !== 'function');
+
 /**
  * Template string tag to declare CSS content chunks.
  *
@@ -106,7 +116,7 @@ const reduceEvaluable = (
  */
 export const css = <TArgs extends readonly unknown[]>(
   slices: TemplateStringsArray,
-  ...values: EvaluableValue<TArgs>
+  ...values: EvaluableValue<TArgs>[]
 ): cssFn<TArgs> => {
   if (
     !slices ||
@@ -116,7 +126,7 @@ export const css = <TArgs extends readonly unknown[]>(
     return staticEvaluable('');
   }
 
-  if (!values.some((value) => typeof value === 'function')) {
+  if (isEachOneStatic(values)) {
     const content = reduceEvaluable(slices, values, []);
 
     return staticEvaluable(content);
@@ -138,7 +148,7 @@ export const css = <TArgs extends readonly unknown[]>(
  */
 export const keyframes = <TArgs extends readonly unknown[]>(
   slices: TemplateStringsArray,
-  ...values: EvaluableValue<TArgs>
+  ...values: EvaluableValue<TArgs>[]
 ): keyframesFn<TArgs> => {
   if (
     !slices ||
@@ -148,9 +158,7 @@ export const keyframes = <TArgs extends readonly unknown[]>(
     return staticEvaluable('none');
   }
 
-  const fn: keyframesFn = <T extends readonly unknown[]>(
-    ...args: T
-  ): string => {
+  const fn: keyframesFn = (...args: TArgs): string => {
     const [context, freeContext] = holdContext();
 
     const content = reduceEvaluable(slices, values, args);
@@ -167,3 +175,15 @@ export const keyframes = <TArgs extends readonly unknown[]>(
 
   return fn;
 };
+
+css<[123]>`
+  ${(p) =>
+    p
+      ? css`
+          ${(p) => {
+            const x: 123 = p;
+            return x;
+          }}
+        `
+      : false}
+`;

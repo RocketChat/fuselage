@@ -5612,7 +5612,6 @@ __metadata:
     "@storybook/theming": ~6.5.15
     "@testing-library/jest-dom": ~5.16.5
     "@testing-library/react": ^12.1.5
-    "@types/invariant": ^2.2.35
     "@types/jest": ~27.4.1
     autoprefixer: ~10.4.13
     babel-loader: ~8.2.5
@@ -5625,7 +5624,6 @@ __metadata:
     es-check: ~7.0.1
     eslint: ~8.26.0
     eslint-plugin-mdx: ~1.17.1
-    invariant: ^2.2.4
     jest: ~27.5.1
     lint-all: "workspace:~"
     lint-staged: ~12.3.8
@@ -5655,6 +5653,7 @@ __metadata:
     stylelint-prettier: ~2.0.0
     stylelint-scss: ~4.3.0
     testing-utils: "workspace:~"
+    tiny-invariant: ~1.3.1
     ts-jest: ~27.1.5
     ts-loader: ~9.2.9
     typescript: ~4.9.4
@@ -8075,13 +8074,6 @@ __metadata:
   dependencies:
     "@types/node": "*"
   checksum: 7a6746d00729b2a9fe9f9dd3453430b099931df879ec8f7a7b5f07b1795f6d99b0512640c45a67390b1e4bacb9401e36824952aeeaf089feba8627a063cf8e00
-  languageName: node
-  linkType: hard
-
-"@types/invariant@npm:^2.2.35":
-  version: 2.2.35
-  resolution: "@types/invariant@npm:2.2.35"
-  checksum: af1b624057c89789ed0917838fea3d42bb0c101cc22b829a24d8777c678be3bc79d6ae05992a13bdf607b94731262467a2e62a809602ea1f7eea5e8c2242660d
   languageName: node
   linkType: hard
 
@@ -16971,15 +16963,6 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"invariant@npm:^2.2.4":
-  version: 2.2.4
-  resolution: "invariant@npm:2.2.4"
-  dependencies:
-    loose-envify: ^1.0.0
-  checksum: cc3182d793aad82a8d1f0af697b462939cb46066ec48bbf1707c150ad5fad6406137e91a262022c269702e01621f35ef60269f6c0d7fd178487959809acdfb14
-  languageName: node
-  linkType: hard
-
 "ip@npm:^2.0.0":
   version: 2.0.0
   resolution: "ip@npm:2.0.0"
@@ -19302,7 +19285,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"loose-envify@npm:^1.0.0, loose-envify@npm:^1.1.0, loose-envify@npm:^1.4.0":
+"loose-envify@npm:^1.1.0, loose-envify@npm:^1.4.0":
   version: 1.4.0
   resolution: "loose-envify@npm:1.4.0"
   dependencies:
@@ -27026,6 +27009,13 @@ resolve@^2.0.0-next.3:
   version: 1.2.0
   resolution: "tiny-invariant@npm:1.2.0"
   checksum: e09a718a7c4a499ba592cdac61f015d87427a0867ca07f50c11fd9b623f90cdba18937b515d4a5e4f43dac92370498d7bdaee0d0e7a377a61095e02c4a92eade
+  languageName: node
+  linkType: hard
+
+"tiny-invariant@npm:~1.3.1":
+  version: 1.3.1
+  resolution: "tiny-invariant@npm:1.3.1"
+  checksum: 872dbd1ff20a21303a2fd20ce3a15602cfa7fcf9b228bd694a52e2938224313b5385a1078cb667ed7375d1612194feaca81c4ecbe93121ca1baebe344de4f84c
   languageName: node
   linkType: hard
 

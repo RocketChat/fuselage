@@ -5,7 +5,7 @@ import React, { useCallback } from 'react';
 import { appendClassName } from '../../helpers/appendClassName';
 import { patchChildren } from '../../helpers/patchChildren';
 import { useStyle } from '../../hooks/useStyle';
-import { margin } from '../../styleTokens';
+import { formatMargin, normalizeMargin } from '../../styleTokens';
 import type Box from '../Box';
 import { BoxTransforms, useComposedBoxTransform } from '../Box/BoxTransforms';
 
@@ -67,6 +67,8 @@ export const Margins = (props: MarginsProps) => {
     },
     [all, block, blockEnd, blockStart, inline, inlineEnd, inlineStart]
   );
+
+  const margin = (x: unknown) => formatMargin(normalizeMargin(x));
 
   const marginsClassName = useStyle(
     css`
