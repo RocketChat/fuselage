@@ -34,7 +34,7 @@ export default {
 
 export const Default = () => (
   <Scrollable>
-    <Tile padding='none' maxWidth='full' h={100}>
+    <Tile padding={0} maxWidth='full' h={100}>
       <Box w='200%' h='1000%' />
     </Tile>
   </Scrollable>
@@ -42,7 +42,7 @@ export const Default = () => (
 
 export const HorizontalScrolling = () => (
   <Scrollable horizontal>
-    <Tile padding='none' maxWidth='full'>
+    <Tile padding={0} maxWidth='full'>
       <Box width='200%' height={100} />
     </Tile>
   </Scrollable>
@@ -50,7 +50,7 @@ export const HorizontalScrolling = () => (
 
 export const VerticalScrolling = () => (
   <Scrollable vertical>
-    <Tile padding='none' height={100}>
+    <Tile padding={0} height={100}>
       <Box height='1000%' />
     </Tile>
   </Scrollable>
@@ -58,7 +58,7 @@ export const VerticalScrolling = () => (
 
 export const SmoothScrolling = () => (
   <Scrollable smooth>
-    <Tile padding='none' height={100}>
+    <Tile padding={0} height={100}>
       <Box height='1000%' />
     </Tile>
   </Scrollable>
@@ -66,7 +66,7 @@ export const SmoothScrolling = () => (
 
 export const OnScrollContentEvent = () => (
   <Scrollable onScrollContent={action('scrollContent')}>
-    <Tile padding='none' height={100}>
+    <Tile padding={0} height={100}>
       <Box height='1000%' />
     </Tile>
   </Scrollable>
