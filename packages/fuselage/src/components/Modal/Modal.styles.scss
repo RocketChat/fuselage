@@ -92,7 +92,7 @@ $modal-margin: theme('modal-margin', auto);
     display: flex;
     flex-direction: column;
 
-    background-color: colors.neutral(800, $alpha: 0.5);
+    background-color: colors.surface(overlay);
   }
 
   &__footer {
@@ -105,10 +105,6 @@ $modal-margin: theme('modal-margin', auto);
       color: colors.font(annotation);
       @include typography.use-font-scale(c1);
     }
-  }
-
-  &__content-wrapper {
-    margin-inline: $modal-container-margin;
   }
 
   @include on-breakpoint(sm) {

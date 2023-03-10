@@ -311,7 +311,10 @@ $sidebar-banner-color-danger: theme(
 
     &:hover &__menu-wrapper,
     &.focus-within &__menu-wrapper {
+      position: static;
+
       width: lengths.size(20);
+
       margin-inline: lengths.margin(4);
 
       opacity: 1;
@@ -332,7 +335,7 @@ $sidebar-banner-color-danger: theme(
     }
 
     &__menu-wrapper {
-      position: static;
+      position: relative;
 
       flex-shrink: 0;
 

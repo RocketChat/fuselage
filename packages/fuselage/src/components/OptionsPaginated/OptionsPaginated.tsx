@@ -17,6 +17,7 @@ type OptionsPaginatedProps = Omit<ComponentProps<typeof Box>, 'onSelect'> & {
   multiple?: boolean;
   options: { value: unknown; label: string; selected?: boolean }[];
   cursor: number;
+  withTitle?: boolean;
   renderItem?: ElementType;
   renderEmpty?: ElementType;
   onSelect: (option: [unknown, string]) => void;
@@ -42,7 +43,7 @@ export const CheckOption = memo(function CheckOption({
 export const OptionsPaginated = forwardRef(
   (
     {
-      title,
+      withTitle,
       multiple,
       renderEmpty: EmptyComponent = Empty,
       options,
@@ -64,7 +65,7 @@ export const OptionsPaginated = forwardRef(
       const { value, label, selected } = data;
       return (
         <OptionComponent
-          {...(title && { title: label })}
+          {...(withTitle && { title: label })}
           role='option'
           label={label}
           onMouseDown={(e: SyntheticEvent) => {

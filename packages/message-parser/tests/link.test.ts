@@ -222,7 +222,10 @@ test.each([
     ],
   ],
   ['google.com', [paragraph([link('//google.com', [plain('google.com')])])]],
-  ['www.google.com', [paragraph([link('www.google.com')])]],
+  [
+    'www.google.com',
+    [paragraph([link('//www.google.com', [plain('www.google.com')])])],
+  ],
   ['rocket.chat:8080', [paragraph([link('rocket.chat:8080')])]],
   ['ShouldNotBeALink', [paragraph([plain('ShouldNotBeALink')])]],
   [
@@ -400,11 +403,11 @@ Text after line break`,
   ],
   [
     '[9gag](https://9gag.com/)',
-    [paragraph([link('https://9gag.com/', [plain(`9gag`)])])],
+    [paragraph([link('https://9gag.com/', [plain('9gag')])])],
   ],
-  ['[9gag](9gag.com)', [paragraph([link('9gag.com', [plain(`9gag`)])])]],
-  ['<9gag.com|9gag>', [paragraph([link('9gag.com', [plain(`9gag`)])])]],
-  ['9gag.com', [paragraph([link('9gag.com')])]],
+  ['[9gag](9gag.com)', [paragraph([link('9gag.com', [plain('9gag')])])]],
+  ['<9gag.com|9gag>', [paragraph([link('9gag.com', [plain('9gag')])])]],
+  ['9gag.com', [paragraph([link('//9gag.com', [plain('9gag.com')])])]],
   [
     '[notes link](notes://Server/C3257116002CAD60/0/CCAF6BE2824A1F49432588D2001FA73E)',
     [
@@ -500,6 +503,17 @@ Text after line break`,
   ['77.77', [paragraph([plain('77.77')])]],
   ['https://77.77', [paragraph([plain('https://77.77')])]],
   ['test.9gag', [paragraph([plain('test.9gag')])]],
+  [
+    '[here](https://github.com/RocketChat/Rocket.Chat/releases/tag/6.0.0-rc.3)',
+    [
+      paragraph([
+        link(
+          'https://github.com/RocketChat/Rocket.Chat/releases/tag/6.0.0-rc.3',
+          [plain('here')]
+        ),
+      ]),
+    ],
+  ],
 ])('parses %p', (input, output) => {
   expect(parse(input)).toMatchObject(output);
 });

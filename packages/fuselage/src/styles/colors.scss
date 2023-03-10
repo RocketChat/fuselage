@@ -102,6 +102,7 @@ $-surfaces: (
   dark: neutral(900),
   featured: service-2(700),
   featured-hover: service-2(800),
+  overlay: neutral(850),
 );
 
 @function surface($type) {

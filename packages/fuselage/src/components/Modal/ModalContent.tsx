@@ -15,7 +15,7 @@ export const ModalContent = ({
 }: ModalContentProps) => (
   <Scrollable vertical onScrollContent={onScrollContent}>
     <Box rcx-modal__content>
-      <Box rcx-modal__content-wrapper {...props}>
+      <Box rcx-modal__content-wrapper mi={24} {...props}>
         {children}
       </Box>
     </Box>

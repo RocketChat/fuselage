@@ -15,6 +15,7 @@ import type {
   Emoji,
   KaTeX,
   InlineKaTeX,
+  Link,
 } from './definitions';
 
 const generate =
@@ -78,29 +79,41 @@ const isValidLink = (link: string) => {
   }
 };
 
-export const link = (() => {
-  const fn = generate('LINK');
+export const link = (src: string, label?: Markup[]): Link => ({
+  type: 'LINK',
+  value: { src: plain(src), label: label ?? [plain(src)] },
+});
 
-  return (src: string, label?: Markup[]) => {
-    const { isIcann, isIp, isPrivate } = tldParse(src, {
-      detectIp: false,
-      allowPrivateDomains: true,
-    });
+export const autoLink = (src: string) => {
+  const { isIcann, isIp, isPrivate, domain } = tldParse(src, {
+    detectIp: false,
+    allowPrivateDomains: true,
+    validHosts: ['localhost'],
+  });
 
-    if (!(isIcann || isIp || isPrivate || label)) {
-      return plain(src);
-    }
+  if (!(isIcann || isIp || isPrivate || domain === 'localhost')) {
+    return plain(src);
+  }
 
-    const tldLengthChecker = src.split('.');
-    if (tldLengthChecker[tldLengthChecker.length - 1].length < 2) {
-      return plain(src.replace('mailto:', ''));
-    }
+  const href = isValidLink(src) || src.startsWith('//') ? src : `//${src}`;
 
-    const href = isValidLink(src) || src.startsWith('//') ? src : `//${src}`;
+  return link(href, [plain(src)]);
+};
 
-    return fn({ src: plain(href), label: label || [plain(src)] });
-  };
-})();
+export const autoEmail = (src: string) => {
+  const href = `mailto:${src}`;
+
+  const { isIcann, isIp, isPrivate } = tldParse(href, {
+    detectIp: false,
+    allowPrivateDomains: true,
+  });
+
+  if (!(isIcann || isIp || isPrivate)) {
+    return plain(src);
+  }
+
+  return link(href, [plain(src)]);
+};
 
 export const image = (() => {
   const fn = generate('IMAGE');

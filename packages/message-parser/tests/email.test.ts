@@ -135,10 +135,10 @@ test.each([
     'My email is fake@gmail.c',
     [paragraph([plain('My email is fake@gmail.c')])],
   ],
-  // [
-  //   'My email is fake@gmail.comf',
-  //   [paragraph([plain('My email is fake@gmail.comf')])],
-  // ],
+  [
+    'My email is fake@gmail.comf',
+    [paragraph([plain('My email is fake@gmail.comf')])],
+  ],
 ])('parses %p', (input, output) => {
   expect(parse(input)).toMatchObject(output);
 });

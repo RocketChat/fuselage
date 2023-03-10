@@ -1,9 +1,14 @@
-// @ts-nocheck
 import {
   useMutableCallback,
   useResizeObserver,
 } from '@rocket.chat/fuselage-hooks';
-import type { SyntheticEvent, ComponentProps, Ref } from 'react';
+import type {
+  SyntheticEvent,
+  ComponentProps,
+  Ref,
+  ReactElement,
+  FormEvent,
+} from 'react';
 import React, { useState, useRef, useCallback, forwardRef, memo } from 'react';
 
 import { prevent } from '../../helpers/prevent';
@@ -20,18 +25,30 @@ import Position from '../Position';
 import SelectAddon from '../Select/SelectAddon';
 import SelectFocus from '../Select/SelectFocus';
 
-const SelectedOptions = memo((props) => (
+const SelectedOptions = memo<ComponentProps<typeof Chip>>((props) => (
   <Chip maxWidth='150px' withTruncatedText {...props} />
 ));
 
-type PaginatedMultiSelecOption = {
-  value?: string | number;
-  label?: string | number;
+export type PaginatedMultiSelectOption = {
+  value: string | number;
+  label: string;
 };
-type PaginatedMultiSelectProps = ComponentProps<typeof Box> & {
+
+type PaginatedMultiSelectProps = Omit<
+  ComponentProps<typeof Box>,
+  'onChange' | 'value'
+> & {
   error?: boolean;
-  options: PaginatedMultiSelecOption[];
+  options: PaginatedMultiSelectOption[];
   withTitle?: boolean;
+  placeholder?: string;
+  endReached?: (start?: number, end?: number) => void;
+  value?: PaginatedMultiSelectOption[];
+  onChange: (values: PaginatedMultiSelectOption[]) => void;
+  renderOptions?: (
+    props: ComponentProps<typeof OptionsPaginated>
+  ) => ReactElement | null;
+  anchor?: any;
 };
 
 export const PaginatedMultiSelect = ({
@@ -51,23 +68,20 @@ export const PaginatedMultiSelect = ({
   const [internalValue, setInternalValue] = useState(value || []);
 
   const currentValue = value !== undefined ? value : internalValue;
-  const option = options.find(
-    (option: PaginatedMultiSelecOption) => option.value === currentValue
+
+  const selectedOptions = options.filter((option) =>
+    currentValue.some((opt) => opt.value === option.value)
   );
 
-  const internalChanged = ([value]: PaginatedMultiSelecOption[]) => {
-    if (
-      currentValue.some(
-        (item: PaginatedMultiSelecOption) => item.value === value.value
-      )
-    ) {
-      const newValue = currentValue.filter(
-        (item: PaginatedMultiSelecOption) => item.value !== value.value
-      );
+  const internalChanged = (option: PaginatedMultiSelectOption) => {
+    if (currentValue.some((opt) => opt.value === option.value)) {
+      const newValue = currentValue.filter((opt) => opt.value !== option.value);
+
       setInternalValue(newValue);
       return onChange(newValue);
     }
-    const newValue = [...currentValue, value];
+
+    const newValue = [...currentValue, option];
     setInternalValue(newValue);
     return onChange(newValue);
   };
@@ -86,6 +100,15 @@ export const PaginatedMultiSelect = ({
       return show();
     }
   });
+
+  const handleMouseDown = useMutableCallback(
+    (option: PaginatedMultiSelectOption) => (e: SyntheticEvent) => {
+      prevent(e);
+      internalChanged(option);
+      return false;
+    }
+  );
+
   return (
     <Box
       is='div'
@@ -117,37 +140,21 @@ export const PaginatedMultiSelect = ({
                     onBlur={hide}
                     order={1}
                     rcx-input-box--undecorated
-                    children={!value ? option || placeholder : null}
+                    children={placeholder ?? null}
                   />
-                  {currentValue.map(
-                    (value: PaginatedMultiSelecOption, index: number) => (
-                      <SelectedOptions
-                        {...(withTitle && {
-                          title:
-                            value.label ||
-                            options.find(
-                              (val: PaginatedMultiSelecOption) =>
-                                val.value === value
-                            )?.label,
-                        })}
-                        tabIndex={-1}
-                        role='option'
-                        key={index}
-                        onMouseDown={(e: SyntheticEvent) => {
-                          prevent(e);
-                          internalChanged([value]);
-                          return false;
-                        }}
-                        children={
-                          value.label ||
-                          options.find(
-                            (val: PaginatedMultiSelecOption) =>
-                              val.value === value
-                          )?.label
-                        }
-                      />
-                    )
-                  )}
+
+                  {selectedOptions.map((option, index: number) => (
+                    <SelectedOptions
+                      {...(withTitle && {
+                        title: option.label,
+                      })}
+                      tabIndex={-1}
+                      role='option'
+                      key={index}
+                      onMouseDown={handleMouseDown(option)}
+                      children={option.label}
+                    />
+                  ))}
                 </Margins>
               </Box>
             </Box>
@@ -173,15 +180,18 @@ export const PaginatedMultiSelect = ({
       <AnimatedVisibility visibility={visible}>
         <Position anchor={containerRef}>
           <_Options
-            {...(withTitle && { title: withTitle })}
+            withTitle={withTitle}
             width={borderBoxSize.inlineSize}
             onMouseDown={prevent}
             multiple
             filter={filter}
             role='listbox'
             options={options}
-            onSelect={internalChanged}
+            cursor={-1}
             endReached={endReached}
+            onSelect={([value, label]) =>
+              internalChanged({ value: value as string, label })
+            }
           />
         </Position>
       </AnimatedVisibility>
@@ -189,13 +199,12 @@ export const PaginatedMultiSelect = ({
   );
 };
 
-type PaginatedMultiSelectFilteredProps = ComponentProps<typeof Box> & {
-  setFilter?: (value: PaginatedMultiSelecOption['value']) => void;
-  placeholder: string;
-  error?: boolean;
-  options: PaginatedMultiSelecOption[];
+type PaginatedMultiSelectFilteredProps = Omit<
+  PaginatedMultiSelectProps,
+  'filter'
+> & {
   filter?: string;
-  value?: PaginatedMultiSelecOption['value'];
+  setFilter?: (value: string) => void;
 };
 
 export const PaginatedMultiSelectFiltered = ({
@@ -205,6 +214,7 @@ export const PaginatedMultiSelectFiltered = ({
   placeholder,
   ...props
 }: PaginatedMultiSelectFilteredProps) => {
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const anchor = useCallback(
     forwardRef(
       (
@@ -220,9 +230,8 @@ export const PaginatedMultiSelectFiltered = ({
             ref={ref}
             placeholder={placeholder}
             value={filter}
-            onInput={(e: SyntheticEvent) =>
-              setFilter &&
-              setFilter((e.currentTarget as HTMLInputElement).value)
+            onInput={(e: FormEvent<HTMLInputElement>) =>
+              setFilter?.(e.currentTarget.value)
             }
             {...props}
             rcx-input-box--undecorated
@@ -232,6 +241,7 @@ export const PaginatedMultiSelectFiltered = ({
     ),
     []
   );
+
   return (
     <PaginatedMultiSelect
       filter={filter}
