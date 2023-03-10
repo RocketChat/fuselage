@@ -514,6 +514,18 @@ Text after line break`,
       ]),
     ],
   ],
+  [
+    'the [audio_url and video_url for post message attachments](https://developer.rocket.chat/reference/api/rest-api/endpoints/core-endpoints/chat-endpoints/postmessage)',
+    [
+      paragraph([
+        plain('the '),
+        link(
+          'https://developer.rocket.chat/reference/api/rest-api/endpoints/core-endpoints/chat-endpoints/postmessage',
+          [plain('audio_url and video_url for post message attachments')]
+        ),
+      ]),
+    ],
+  ],
 ])('parses %p', (input, output) => {
   expect(parse(input)).toMatchObject(output);
 });
