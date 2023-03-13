@@ -23,6 +23,7 @@ export type AvatarProps = {
   url: string;
   children?: ReactNode;
   image?: string;
+  emojiClassname?: string;
 } & HTMLAttributes<HTMLElement>;
 
 export const Avatar = ({
@@ -33,26 +34,26 @@ export const Avatar = ({
   url,
   children,
   image,
+  emojiClassname,
   ...props
 }: AvatarProps) => {
   props.className = prependClassName(
     props.className,
+    ['rcx-box rcx-box--full rcx-avatar', size && `rcx-avatar--${size}`]
+      .filter(Boolean)
+      .join(' ')
+  );
+  const innerClass = prependClassName(
+    emojiClassname,
     [
-      'rcx-box rcx-box--full rcx-avatar',
-      size && `rcx-avatar--${size}`,
-      children && 'rcx-avatar__element--emoji',
+      'rcx-avatar__element',
+      objectFit && 'rcx-avatar__element--object-fit',
+      size && `rcx-avatar__element--${size}`,
+      rounded && 'rcx-avatar__element--rounded',
     ]
       .filter(Boolean)
       .join(' ')
   );
-  const innerClass = [
-    'rcx-avatar__element',
-    objectFit && 'rcx-avatar__element--object-fit',
-    size && `rcx-avatar__element--${size}`,
-    rounded && 'rcx-avatar__element--rounded',
-  ]
-    .filter(Boolean)
-    .join(' ');
 
   return (
     <figure aria-label={title} {...props}>
