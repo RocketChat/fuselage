@@ -23,11 +23,19 @@ const sizes: (
   | 'x332'
 )[] = ['x16', 'x18', 'x28', 'x32', 'x36', 'x48', 'x124', 'x200', 'x332'];
 
+const wrapChildren = (children: React.ReactNode, size: number) =>
+  children ? <div style={{ fontSize: `${size}px` }}>{children}</div> : null;
+
 const Template: ComponentStory<typeof Avatar> = (args) => (
   <Margins all='x16'>
     {sizes.map((size, i) => (
       <Box display='inline-flex' verticalAlign='middle' key={i}>
-        <Avatar url={args.url} size={size} rounded={args.rounded} />
+        <Avatar
+          url={args.url}
+          size={size}
+          rounded={args.rounded}
+          children={wrapChildren(args.children, Number(size.substring(1)))}
+        />
       </Box>
     ))}
   </Margins>
@@ -47,14 +55,35 @@ Rounded.args = {
   rounded: true,
 };
 
+export const Emoji = Template.bind({});
+Emoji.args = {
+  children: '😀',
+  rounded: true,
+};
+
 const StackTemplate: ComponentStory<typeof Avatar> = (args) => (
   <Margins all='x16'>
     {sizes.map((size, i) => (
       <Box key={i}>
         <Avatar.Stack className={args.className}>
-          <Avatar url={args.url} size={size} rounded={args.rounded} />
-          <Avatar url={args.url} size={size} rounded={args.rounded} />
-          <Avatar url={args.url} size={size} rounded={args.rounded} />
+          <Avatar
+            url={args.url}
+            size={size}
+            rounded={args.rounded}
+            children={wrapChildren(args.children, Number(size.substring(1)))}
+          />
+          <Avatar
+            url={args.url}
+            size={size}
+            rounded={args.rounded}
+            children={wrapChildren(args.children, Number(size.substring(1)))}
+          />
+          <Avatar
+            url={args.url}
+            size={size}
+            rounded={args.rounded}
+            children={wrapChildren(args.children, Number(size.substring(1)))}
+          />
         </Avatar.Stack>
       </Box>
     ))}
@@ -69,5 +98,12 @@ Stack.args = {
 export const StackRounded = StackTemplate.bind({});
 StackRounded.args = {
   url: imgUrl,
+  rounded: true,
+};
+
+export const StackWithEmoji = StackTemplate.bind({});
+StackWithEmoji.args = {
+  children: '😀',
+
   rounded: true,
 };
