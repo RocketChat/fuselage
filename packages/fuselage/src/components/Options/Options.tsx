@@ -142,3 +142,31 @@ export const Options = forwardRef(
     );
   }
 );
+export const OptionContainer = forwardRef<
+  HTMLElement,
+  ComponentProps<typeof Box>
+>(({ children, ...props }, ref) => (
+  <Box rcx-options>
+    <Tile padding={0} paddingBlock={'x12'} paddingInline={0} elevation='2'>
+      <Scrollable vertical smooth>
+        <Tile
+          ref={ref}
+          elevation='0'
+          padding='none'
+          // maxHeight={maxHeight}
+          // onMouseDown={prevent}
+          // onClick={prevent}
+          // is='ol'
+          // aria-multiselectable={multiple || true}
+          // role='listbox'
+          // aria-activedescendant={
+          //   options?.[cursor]?.[0] ? String(options?.[cursor]?.[0]) : undefined
+          // }
+          {...props}
+        >
+          {children}
+        </Tile>
+      </Scrollable>
+    </Tile>
+  </Box>
+));

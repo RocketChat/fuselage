@@ -5,7 +5,7 @@ import type {
   MouseEvent,
   AllHTMLAttributes,
 } from 'react';
-import React, { memo } from 'react';
+import React, { forwardRef, memo } from 'react';
 
 import type { Icon } from '../..';
 import { prevent } from '../../helpers/prevent';
@@ -33,56 +33,60 @@ type OptionProps = {
 } & AllHTMLAttributes<HTMLElement>;
 
 const Option = memo(
-  ({
-    is: Tag = 'li',
-    id,
-    children,
-    label,
-    focus,
-    selected,
-    className,
-    ref,
-    icon,
-    avatar,
-    title,
-    disabled,
-    onClick,
-    variant,
-    ...options
-  }: OptionProps) => (
-    <Tag
-      key={id}
-      id={id}
-      ref={ref}
-      aria-selected={selected}
-      aria-disabled={String(disabled)}
-      title={title}
-      onClick={(e: React.MouseEvent<HTMLDivElement>) => {
-        if (disabled) {
-          prevent(e);
-          return;
-        }
-        onClick?.(e);
-      }}
-      {...options}
-      className={[
-        'rcx-option',
+  forwardRef(
+    (
+      {
+        is: Tag = 'li',
+        id,
+        children,
+        label,
+        focus,
+        selected,
         className,
-        focus && 'rcx-option--focus',
-        selected && 'rcx-option--selected',
-        disabled && 'rcx-option--disabled',
-        variant && `rcx-option--${variant}`,
-      ]
-        .filter(Boolean)
-        .join(' ')}
-    >
-      <div className='rcx-option__wrapper'>
-        {avatar && <OptionAvatar>{avatar}</OptionAvatar>}
-        {icon && <OptionIcon name={icon} />}
-        {label && <OptionContent>{label}</OptionContent>}
-        {label !== children && children}
-      </div>
-    </Tag>
+        icon,
+        avatar,
+        title,
+        disabled,
+        onClick,
+        variant,
+        ...options
+      }: OptionProps,
+      ref
+    ) => (
+      <Tag
+        key={id}
+        id={id}
+        ref={ref}
+        aria-selected={selected}
+        aria-disabled={String(disabled)}
+        title={title}
+        onClick={(e: React.MouseEvent<HTMLDivElement>) => {
+          if (disabled) {
+            prevent(e);
+            return;
+          }
+          onClick?.(e);
+        }}
+        {...options}
+        className={[
+          'rcx-option',
+          className,
+          focus && 'rcx-option--focus',
+          selected && 'rcx-option--selected',
+          disabled && 'rcx-option--disabled',
+          variant && `rcx-option--${variant}`,
+        ]
+          .filter(Boolean)
+          .join(' ')}
+      >
+        <div className='rcx-option__wrapper'>
+          {avatar && <OptionAvatar>{avatar}</OptionAvatar>}
+          {icon && <OptionIcon name={icon} />}
+          {label && <OptionContent>{label}</OptionContent>}
+          {label !== children && children}
+        </div>
+      </Tag>
+    )
   )
 );
 
