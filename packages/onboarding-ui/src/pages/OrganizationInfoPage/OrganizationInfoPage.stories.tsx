@@ -17,12 +17,6 @@ export default {
   args: {
     currentStep: 1,
     stepCount: 1,
-    organizationTypeOptions: [
-      ['community', 'Community'],
-      ['enterprise', 'Enterprise'],
-      ['government', 'Government'],
-      ['nonprofit', 'Nonprofit'],
-    ],
     organizationIndustryOptions: [
       ['aerospaceDefense', 'Aerospace and Defense'],
       ['blockchain', 'Blockchain'],
