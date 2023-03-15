@@ -15,7 +15,6 @@ type OrganizationInfoPageProps = {
   description?: ReactNode;
   currentStep: number;
   stepCount: number;
-  organizationTypeOptions: SelectOption[];
   organizationIndustryOptions: SelectOption[];
   organizationSizeOptions: SelectOption[];
   countryOptions: SelectOption[];
