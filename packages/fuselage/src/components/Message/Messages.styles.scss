@@ -72,6 +72,12 @@ $message-background-color-highlight: functions.theme(
 
   &--selected {
     background: $message-background-color-selected !important;
+
+    .rcx-message-header__name,
+    .rcx-message-header__time,
+    .rcx-message-body {
+      color: colors.font(pure-black);
+    }
   }
 
   &--editing {
