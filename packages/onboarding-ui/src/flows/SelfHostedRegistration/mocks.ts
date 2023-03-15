@@ -48,13 +48,6 @@ export const validatePassword: Validate<string> = (password: string) => {
   return true;
 };
 
-export const organizationTypes: [string, string][] = [
-  ['community', 'Community'],
-  ['enterprise', 'Enterprise'],
-  ['government', 'Government'],
-  ['nonprofit', 'Nonprofit'],
-];
-
 export const organizationIndustryOptions: [string, string][] = [
   ['aerospaceDefense', 'Aerospace and Defense'],
   ['blockchain', 'Blockchain'],
