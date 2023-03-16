@@ -19,7 +19,7 @@ $variants: (
   @include clickable;
   @include typography.use-font-scale(p2);
 
-  display: block;
+  display: list-item;
 
   padding: lengths.padding(4) lengths.padding(12);
 
