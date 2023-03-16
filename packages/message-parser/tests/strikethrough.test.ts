@@ -1,5 +1,5 @@
 import { parse } from '../src';
-import { strike, paragraph, plain, link } from '../src/utils';
+import { link, paragraph, plain, strike } from '../src/utils';
 
 test.each([
   [
