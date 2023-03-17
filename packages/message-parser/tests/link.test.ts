@@ -65,6 +65,10 @@ test.each([
     [paragraph([link('http://localhost', [plain('title')])])],
   ],
   [
+    '[title](http://gitlab.local)',
+    [paragraph([link('http://gitlab.local', [plain('title')])])],
+  ],
+  [
     '[title](http://localhost?testing=true)',
     [paragraph([link('http://localhost?testing=true', [plain('title')])])],
   ],
@@ -226,6 +230,7 @@ test.each([
     'www.google.com',
     [paragraph([link('//www.google.com', [plain('www.google.com')])])],
   ],
+  ['gitlab.local', [paragraph([link('//gitlab.local', [plain('gitlab.local')])])]],
   ['rocket.chat:8080', [paragraph([link('rocket.chat:8080')])]],
   ['ShouldNotBeALink', [paragraph([plain('ShouldNotBeALink')])]],
   [
