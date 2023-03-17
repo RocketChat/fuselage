@@ -23,6 +23,10 @@
       content: '\00a0';
     }
   }
+
+  &--circle {
+    border-radius: lengths.border-radius(full);
+  }
 }
 
 @keyframes rcx-skeleton__animation {

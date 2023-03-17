@@ -17,7 +17,6 @@ import {
   logSubmit,
   organizationIndustryOptions,
   organizationSizeOptions,
-  organizationTypes,
   validateEmail,
   validatePassword,
   validateUsername,
@@ -103,7 +102,6 @@ export const SelfHostedRegistration: Story = ({ offline }) => {
       <OrganizationInfoPage
         currentStep={2}
         stepCount={4}
-        organizationTypeOptions={organizationTypes}
         organizationIndustryOptions={organizationIndustryOptions}
         organizationSizeOptions={organizationSizeOptions}
         countryOptions={countryOptions}
