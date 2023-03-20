@@ -1,4 +1,4 @@
-{
+{{
   const {
     autoEmail,
     autoLink,
@@ -32,7 +32,7 @@
     tasks,
     unorderedList,
   } = require('./utils');
-}
+}}
 
 start
   = b:BigEmoji !. { return b; }
@@ -309,7 +309,7 @@ unicode
 
 AutolinkedPhone = p:Phone { return phoneChecker(p.text, p.number); }
 
-AutolinkedURL = u:URL { return autoLink(u); }
+AutolinkedURL = u:URL { return autoLink(u, options.customDomains); }
 
 AutolinkedEmail = e:Email { return autoEmail(e); }
 
