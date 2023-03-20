@@ -96,7 +96,6 @@
     "babel-loader": "~8.2.5",
     "bump": "workspace:~",
     "caniuse-lite": "~1.0.30001446",
-    "copy-webpack-plugin": "~10.2.4",
     "cross-env": "^7.0.3",
     "css-loader": "~6.6.0",
     "cssnano": "~5.0.17",
