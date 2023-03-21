@@ -35,7 +35,7 @@
 }
 
 start
-  = b:BigEmoji !. { return b; }
+  = @BigEmoji !.
   / (Blocks / Paragraph / EndOfLine { return paragraph([plain('')]); })+
 
 BigEmoji
@@ -61,7 +61,7 @@ Blocks
 
 Blockquote = b:Blockquote_line+ { return quote(b); }
 
-Blockquote_line = ">" [ \t]* p:Paragraph { return p; }
+Blockquote_line = ">" [ \t]* @Paragraph
 
 Code
   = "```" language:Code_language? EndOfLine lines:Code_line+ EndOfLine "```" {
@@ -115,7 +115,7 @@ UnorderedList_itemContent
       / emoticon
       / UserMention
       / ChannelMention
-      / !"*" a:Any { return a; }
+      / !"*" @Any
     )+
     !"*"
     EndOfLine? { return reducePlainTexts(value); }
@@ -171,7 +171,7 @@ EndOfLine
 
 Space
   = " "+
-  / "\t"
+  / "\t"+
 
 anyText
   = [\x20-\x27] //     ! " # $ % & '
@@ -223,8 +223,8 @@ Italic
   / [\x5F] i:italic_Content [\x5F] t:$[a-zA-Z]+ {
       return reducePlainTexts([plain('_'), ...i, plain('_'), plain(t)])[0];
     }
-  / [\x5F] [\x5F] i:Italic_Content [\x5F] [\x5F] { return i; }
-  / [\x5F] i:Italic_Content [\x5F] { return i; }
+  / [\x5F] [\x5F] @Italic_Content [\x5F] [\x5F]
+  / [\x5F] @Italic_Content [\x5F]
 
 Italic_Content = text:italic_Content { return italic(text); }
 
@@ -236,8 +236,8 @@ italic_Content
 /* **Bold** */
 /* *Bold* */
 Bold
-  = [\x2A] [\x2A] b:Bold_Content [\x2A] [\x2A] { return b; }
-  / [\x2A] b:Bold_Content [\x2A] { return b; }
+  = [\x2A] [\x2A] @Bold_Content [\x2A] [\x2A]
+  / [\x2A] @Bold_Content [\x2A]
 
 Bold_Content
   = text:(References / Italic / Strikethrough / Line / AnyBold)+ {
@@ -247,8 +247,8 @@ Bold_Content
 /* ~~Mistaken text.~~ */
 /* ~Mistaken text.~ */
 Strikethrough
-  = [\x7E] [\x7E] s:Strikethrough_Content [\x7E] [\x7E] { return s; }
-  / [\x7E] s:Strikethrough_Content [\x7E] { return s; }
+  = [\x7E] [\x7E] @Strikethrough_Content [\x7E] [\x7E]
+  / [\x7E] @Strikethrough_Content [\x7E]
 
 Strikethrough_Content
   = text:(References / Italic / Bold / Line / AnyStrike)+ {
@@ -267,12 +267,9 @@ InlineCode__ = $(!"`" !"\n" $.)
 
 FilePath = $(URL_scheme URL_body+)
 
-LinkTitle = text:(Emphasis / Line / Whitespace) { return text; }
+LinkTitle = @(Emphasis / Line / Whitespace)
 
-LinkRef
-  = text:(URL / FilePath / p:Phone { return 'tel:' + p.number; }) {
-      return text;
-    }
+LinkRef = @(URL / FilePath / p:Phone { return 'tel:' + p.number; })
 
 Image
   = "![](" href:LinkRef ")" { return image(href); }
@@ -411,41 +408,7 @@ URL
   / $(URL_authorityHost URL_body*)
 
 URL_scheme
-  = $(
-    [A-Za-z0-9+-]
-      [A-Za-z0-9+-]?
-      [A-Za-z0-9+-]?
-      [A-Za-z0-9+-]?
-      [A-Za-z0-9+-]?
-      [A-Za-z0-9+-]?
-      [A-Za-z0-9+-]?
-      [A-Za-z0-9+-]?
-      [A-Za-z0-9+-]?
-      [A-Za-z0-9+-]?
-      [A-Za-z0-9+-]?
-      [A-Za-z0-9+-]?
-      [A-Za-z0-9+-]?
-      [A-Za-z0-9+-]?
-      [A-Za-z0-9+-]?
-      [A-Za-z0-9+-]?
-      [A-Za-z0-9+-]?
-      [A-Za-z0-9+-]?
-      [A-Za-z0-9+-]?
-      [A-Za-z0-9+-]?
-      [A-Za-z0-9+-]?
-      [A-Za-z0-9+-]?
-      [A-Za-z0-9+-]?
-      [A-Za-z0-9+-]?
-      [A-Za-z0-9+-]?
-      [A-Za-z0-9+-]?
-      [A-Za-z0-9+-]?
-      [A-Za-z0-9+-]?
-      [A-Za-z0-9+-]?
-      [A-Za-z0-9+-]?
-      [A-Za-z0-9+-]?
-      [A-Za-z0-9+-]? // up to 32 characters
-      ":"
-  )
+  = $([A-Za-z0-9+-]|1..32| ":")
 
 URL_body
   = (
@@ -490,7 +453,7 @@ URL_authorityPort
  */
 
 Email
-  = "mailto:" e:$(localPart "@" domainName) { return e; }
+  = "mailto:" @$(localPart "@" domainName)
   / $(localPart "@" domainName)
 
 localPart = $(localPartChar+ $("." localPartChar+)*)
@@ -546,7 +509,7 @@ inlineKatexEnd
   / & { return options.katex?.dollarSyntax; } "$"
 
 /* Emoticons */
-emoticon = & { return options.emoticons; } e:emoticonPattern { return e; }
+emoticon = & { return options.emoticons; } @emoticonPattern
 
 emoticonPattern
   = e:$"<3" { return emoticon(e, 'heart'); }
