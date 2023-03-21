@@ -1,7 +1,9 @@
+// @ts-nocheck
 import {
   useMutableCallback,
   useResizeObserver,
 } from '@rocket.chat/fuselage-hooks';
+import type { ElementType, ReactElement } from 'react';
 import React, { useEffect, useRef, useMemo, useState } from 'react';
 
 import AnimatedVisibility from '../AnimatedVisibility';
@@ -16,6 +18,26 @@ import PositionAnimated from '../PositionAnimated';
 const Addon = (props) => <Box rcx-autocomplete__addon {...props} />;
 
 const SelectedOptions = React.memo((props) => <Chip {...props} />);
+
+type AutoCompleteProps = {
+  value: unknown[];
+  filter: string;
+  setFilter?: (filter: string) => void;
+  options?: { label: string; value: unknown }[];
+  renderItem?: ElementType;
+  renderSelected?: ElementType;
+  onChange: (value: unknown, action: 'remove' | undefined) => void;
+  getLabel?: (option: { label: string; value: unknown }) => string;
+  getValue?: (option: { label: string; value: unknown }) => unknown;
+  renderEmpty?: ElementType;
+  placeholder?: string;
+  error?: boolean;
+  disabled?: boolean;
+};
+
+/**
+ * @deprecated in favor of Select and MultiSelect
+ */
 export function AutoComplete({
   value,
   filter,
@@ -30,7 +52,7 @@ export function AutoComplete({
   placeholder,
   error,
   disabled,
-}) {
+}: AutoCompleteProps): ReactElement {
   const { ref: containerRef, borderBoxSize } = useResizeObserver();
 
   const ref = useRef();
