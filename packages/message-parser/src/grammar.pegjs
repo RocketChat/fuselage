@@ -263,7 +263,7 @@ AnyItalic = t:[^\x0a\_ ] { return plain(t); }
 
 InlineCode = "`" text:$InlineCode__+ "`" { return inlineCode(plain(text)); }
 
-InlineCode__ = $(!"`" !"\n" $:.)
+InlineCode__ = $(!"`" !"\n" $.)
 
 FilePath = $(URL_scheme URL_body+)
 
