@@ -146,7 +146,7 @@ export const Select = forwardRef(
     useDidUpdate(reset, [filter, internalValue]);
     useOutsideClick([containerRef], removeFocusClass);
 
-    const valueLabel = getLabel(option);
+    const valueLabel = getLabel(option) || value;
 
     const visibleText =
       (filter === undefined || visible === AnimatedVisibility.HIDDEN) &&

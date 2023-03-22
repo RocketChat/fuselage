@@ -49,6 +49,13 @@ Default.args = {
   placeholder: 'Placeholder here...',
   options,
 };
+export const WithValue: ComponentStory<typeof Select> = Template.bind({});
+WithValue.args = {
+  width: '250px',
+  placeholder: 'Placeholder here...',
+  options,
+  value: 'a teste 3',
+};
 
 export const Error: ComponentStory<typeof Select> = Template.bind({});
 Error.args = {
