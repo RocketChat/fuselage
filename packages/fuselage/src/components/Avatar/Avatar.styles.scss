@@ -14,13 +14,17 @@ $sizes: 16, 18, 20, 24, 28, 32, 36, 40, 48, 124, 200, 332;
 
   vertical-align: middle;
 
+  @each $size in $sizes {
+    &--x#{$size} {
+      @include square(functions.to-rem($size));
+    }
+  }
+
   &__element {
     position: relative;
 
     @each $size in $sizes {
       &--x#{$size} {
-        @include square(functions.to-rem($size));
-
         @if $size <= 18 {
           border-radius: theme(
             'avatar-border-radius-#{$size}',
