@@ -44,15 +44,15 @@ const options = [
 
 export const AutoCompleteDefault = () => {
   const [filter, setFilter] = useState('');
-  const [value, setValue] = useState();
+  const [value, setValue] = useState<string | string[]>('');
 
-  const handleChangeRooms = (value: any) => {
+  const handleChangeRooms = (value: string | string[]) => {
     setValue(value);
   };
 
   return (
     <AutoComplete
-      value={value as any}
+      value={value}
       filter={filter}
       setFilter={setFilter}
       options={options as any}
@@ -66,9 +66,9 @@ export const AutoCompleteDefault = () => {
 
 export const AutoCompleteCustomSelected = () => {
   const [filter, setFilter] = useState('');
-  const [value, setValue] = useState('1');
+  const [value, setValue] = useState<string | string[]>('1');
 
-  const handleChangeRooms = (value: any) => {
+  const handleChangeRooms = (value: string | string[]) => {
     setValue(value);
   };
 
@@ -97,9 +97,9 @@ export const AutoCompleteCustomSelected = () => {
 
 export const AutoCompleteMultiple = () => {
   const [filter, setFilter] = useState('');
-  const [value, setValue] = useState<unknown[]>(['1', '3']);
+  const [value, setValue] = useState<string | string[]>(['1', '3']);
 
-  const handleChangeRooms = (value) => {
+  const handleChangeRooms = (value: string | string[]) => {
     setValue(value);
   };
 
@@ -119,9 +119,9 @@ export const AutoCompleteMultiple = () => {
 };
 export const AutoCompleteMultipleCustomSelected = () => {
   const [filter, setFilter] = useState('');
-  const [value, setValue] = useState<unknown[]>(['1', '3']);
+  const [value, setValue] = useState<string | string[]>(['1', '3']);
 
-  const handleChangeRooms = (value) => {
+  const handleChangeRooms = (value: string | string[]) => {
     setValue(value);
   };
 
