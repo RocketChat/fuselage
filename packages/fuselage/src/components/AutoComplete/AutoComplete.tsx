@@ -3,7 +3,7 @@ import {
   useMutableCallback,
   useResizeObserver,
 } from '@rocket.chat/fuselage-hooks';
-import type { ElementType, ReactElement } from 'react';
+import type { ComponentProps, ElementType, ReactElement } from 'react';
 import React, { useEffect, useRef, useMemo, useState } from 'react';
 
 import AnimatedVisibility from '../AnimatedVisibility';
@@ -15,56 +15,84 @@ import Margins from '../Margins';
 import { useCursor, Options } from '../Options';
 import PositionAnimated from '../PositionAnimated';
 
-const Addon = (props) => <Box rcx-autocomplete__addon {...props} />;
+const Addon = (props: ComponentProps<typeof Box>) => (
+  <Box rcx-autocomplete__addon {...props} />
+);
 
-const SelectedOptions = React.memo((props) => <Chip {...props} />);
-
+type AutoCompleteOption = {
+  value: string;
+  label: unknown;
+};
 type AutoCompleteProps = {
-  value: unknown[];
+  value: string | string[];
   filter: string;
   setFilter?: (filter: string) => void;
-  options?: { label: string; value: unknown }[];
+  options?: AutoCompleteOption[];
   renderItem?: ElementType;
   renderSelected?: ElementType;
-  onChange: (value: unknown, action: 'remove' | undefined) => void;
-  getLabel?: (option: { label: string; value: unknown }) => string;
-  getValue?: (option: { label: string; value: unknown }) => unknown;
+  onChange: (value: string | string[]) => void;
   renderEmpty?: ElementType;
   placeholder?: string;
   error?: boolean;
   disabled?: boolean;
+  multiple?: boolean;
 };
 
-/**
- * @deprecated in favor of Select and MultiSelect
- */
+const getSelected = (
+  value: string | string[],
+  options: AutoCompleteOption[]
+) => {
+  if (!value) {
+    return [];
+  }
+  return typeof value === 'string'
+    ? options.filter((option) => option.value === value)
+    : options?.filter((option) => value.includes(option.value));
+};
+
 export function AutoComplete({
   value,
   filter,
   setFilter = () => {},
   options = [],
   renderItem,
-  renderSelected: RenderSelected = SelectedOptions,
+  renderSelected: RenderSelected,
   onChange = () => {},
-  getLabel = ({ label } = {}) => label,
-  getValue = ({ value }) => value,
   renderEmpty,
   placeholder,
   error,
   disabled,
+  multiple,
 }: AutoCompleteProps): ReactElement {
   const { ref: containerRef, borderBoxSize } = useResizeObserver();
 
   const ref = useRef();
-
-  const [selected, setSelected] = useState(() =>
-    options.find((option) => getValue(option) === value)
+  const [selected, setSelected] = useState(
+    () => getSelected(value, options) || []
   );
 
-  const selectByKeyboard = useMutableCallback(([value]) => {
-    setSelected(options.find((option) => getValue(option) === value));
+  const handleSelect = useMutableCallback(([value]) => {
+    if (selected?.some((item) => item.value === value)) {
+      hide();
+      return;
+    }
+    multiple
+      ? setSelected([...selected, ...getSelected(value, options)])
+      : setSelected(getSelected(value, options));
     onChange(value);
     setFilter('');
+    hide();
+  });
+
+  const handleRemove = useMutableCallback((event) => {
+    event.stopPropagation();
+    event.preventDefault();
+
+    const filtered = selected.filter(
+      (item) => item.value !== event.currentTarget.value
+    );
+    setSelected(filtered);
+    hide();
   });
 
   const memoizedOptions = useMemo(
@@ -73,14 +101,7 @@ export function AutoComplete({
   );
 
   const [cursor, handleKeyDown, , reset, [optionsAreVisible, hide, show]] =
-    useCursor(value, memoizedOptions, selectByKeyboard);
-
-  const onSelect = useMutableCallback(([value]) => {
-    setSelected(options.find((option) => getValue(option) === value));
-    onChange(value);
-    setFilter('');
-    hide();
-  });
+    useCursor(value, memoizedOptions, handleSelect);
 
   useEffect(reset, [filter]);
 
@@ -121,14 +142,24 @@ export function AutoComplete({
             rcx-input-box--undecorated
             value={filter}
           />
-          {selected && optionsAreVisible === AnimatedVisibility.HIDDEN && (
-            <RenderSelected
-              role='option'
-              value={value}
-              label={getLabel(selected)}
-              children={getLabel(selected)}
-            />
-          )}
+          {selected &&
+            selected.map((itemSelected) =>
+              RenderSelected ? (
+                <RenderSelected
+                  selected={itemSelected}
+                  onRemove={handleRemove}
+                />
+              ) : (
+                <Chip
+                  role='option'
+                  value={itemSelected.value}
+                  label={itemSelected.label.name}
+                  children={itemSelected.label.name}
+                  onClick={handleRemove}
+                  selected={selected}
+                />
+              )
+            )}
         </Margins>
       </Box>
       <Addon
@@ -147,7 +178,7 @@ export function AutoComplete({
         <Options
           role='option'
           width={borderBoxSize.inlineSize}
-          onSelect={onSelect}
+          onSelect={handleSelect}
           renderItem={renderItem}
           renderEmpty={renderEmpty}
           cursor={cursor}
