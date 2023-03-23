@@ -10,7 +10,7 @@ import {
 import type { ComponentMeta } from '@storybook/react';
 import React, { useState } from 'react';
 
-import { AutoComplete, Box, Chip, Avatar } from '../..';
+import { AutoComplete, Box, Chip, Avatar, Option } from '../..';
 import { exampleAvatar } from '../../../.storybook/helpers';
 
 export default {
@@ -36,10 +36,10 @@ export default {
 } as ComponentMeta<typeof AutoComplete>;
 
 const options = [
-  { value: '1', label: { name: 'test1', someProp: 'dasdad' } },
-  { value: '2', label: { name: 'test2', someProp: 'dasdad' } },
-  { value: '3', label: { name: 'test3', someProp: 'dasdad' } },
-  { value: '4', label: { name: 'test4', someProp: 'dasdad' } },
+  { value: '1', label: 'test1' },
+  { value: '2', label: 'test2' },
+  { value: '3', label: 'test3' },
+  { value: '4', label: 'test4' },
 ];
 
 export const AutoCompleteDefault = () => {
@@ -78,7 +78,7 @@ export const AutoCompleteCustomSelected = () => {
       onChange={handleChangeRooms}
       renderSelected={({ selected: { label } }) => (
         <Box>
-          <Avatar size='x20' url={exampleAvatar} /> {label.name}
+          <Avatar size='x20' url={exampleAvatar} /> {label}
         </Box>
       )}
     />
@@ -131,9 +131,12 @@ export const AutoCompleteMultipleCustomSelected = () => {
           <Box is='span' margin='none' mis='x4'>
             <Avatar size='x20' url={exampleAvatar} />
             {'  '}
-            {label.name}
+            {label}
           </Box>
         </Chip>
+      )}
+      renderItem={({ value, label, ...props }) => (
+        <Option {...props} key={value} label={label} />
       )}
     />
   );

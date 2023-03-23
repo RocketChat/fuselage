@@ -12,7 +12,6 @@ import Chip from '../Chip';
 import { Icon } from '../Icon';
 import { InputBox } from '../InputBox';
 import Margins from '../Margins';
-import Option from '../Option';
 import { useCursor, Options } from '../Options';
 import PositionAnimated from '../PositionAnimated';
 
@@ -55,33 +54,38 @@ const getSelected = (
 export function AutoComplete({
   value,
   filter,
-  setFilter = () => {},
+  setFilter,
   options = [],
-  renderItem: RenderItem,
+  renderItem,
   renderSelected: RenderSelected,
-  onChange = () => {},
+  onChange,
   renderEmpty,
   placeholder,
   error,
   disabled,
   multiple,
 }: AutoCompleteProps): ReactElement {
+  const ref = useRef();
   const { ref: containerRef, borderBoxSize } = useResizeObserver();
 
-  const ref = useRef();
   const [selected, setSelected] = useState(
     () => getSelected(value, options) || []
   );
 
-  const handleSelect = useMutableCallback(([value]) => {
-    if (selected?.some((item) => item.value === value)) {
+  const handleSelect = useMutableCallback(([currentValue]) => {
+    if (selected?.some((item) => item.value === currentValue)) {
       hide();
       return;
     }
-    multiple
-      ? setSelected([...selected, ...getSelected(value, options)])
-      : setSelected(getSelected(value, options));
-    onChange(value);
+
+    if (multiple) {
+      setSelected([...selected, ...getSelected(currentValue, options)]);
+      onChange([...value, currentValue]);
+    } else {
+      setSelected(getSelected(currentValue, options));
+      onChange(currentValue);
+    }
+
     setFilter('');
     hide();
   });
@@ -93,12 +97,18 @@ export function AutoComplete({
     const filtered = selected.filter(
       (item) => item.value !== event.currentTarget.value
     );
+
+    const filteredValue = value.filter(
+      (item) => item !== event.currentTarget.value
+    );
+
     setSelected(filtered);
+    onChange(filteredValue);
     hide();
   });
 
   const memoizedOptions = useMemo(
-    () => options.map(({ label, value }) => [value, label]),
+    () => options.map(({ value, label }) => [value, label]),
     [options]
   );
 
@@ -148,15 +158,17 @@ export function AutoComplete({
             selected.map((itemSelected) =>
               RenderSelected ? (
                 <RenderSelected
+                  key={itemSelected.value}
                   selected={itemSelected}
                   onRemove={handleRemove}
                 />
               ) : (
                 <Chip
                   role='option'
+                  key={itemSelected.value}
                   value={itemSelected.value}
-                  label={itemSelected.label.name}
-                  children={itemSelected.label.name}
+                  label={itemSelected.label}
+                  children={itemSelected.label}
                   onClick={handleRemove}
                   selected={selected}
                 />
@@ -181,15 +193,7 @@ export function AutoComplete({
           role='option'
           width={borderBoxSize.inlineSize}
           onSelect={handleSelect}
-          renderItem={
-            RenderItem ? (
-              <RenderItem />
-            ) : (
-              ({ value, label, ...props }): ReactElement => (
-                <Option {...props} key={value} label={label.name} />
-              )
-            )
-          }
+          renderItem={renderItem}
           renderEmpty={renderEmpty}
           cursor={cursor}
           value={value}
