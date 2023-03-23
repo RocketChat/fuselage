@@ -266,7 +266,7 @@ URL_authorityUser = $(alpha_digit / ![@/] safe)+
 
 URL_authorityPassword = $(alpha_digit / ![@/] safe)+
 
-URL_authorityHost = t:URL_authorityHostName (":" URL_authorityPort)?
+URL_authorityHost = URL_authorityHostName (":" URL_authorityPort)?
 
 URL_authorityHostName
   = domainName
