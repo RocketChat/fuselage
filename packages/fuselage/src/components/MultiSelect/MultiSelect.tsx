@@ -76,6 +76,9 @@ export const MultiSelect = forwardRef(
     const [internalValue, setInternalValue] = useState<SelectOption[0][]>(
       value || []
     );
+
+    useEffect((): void => setInternalValue(value || []), [value]);
+
     const [currentOptionValue, setCurrentOption] = useState<SelectOption[0]>();
 
     const index = options.findIndex(
