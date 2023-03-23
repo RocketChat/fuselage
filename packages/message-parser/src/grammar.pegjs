@@ -59,9 +59,9 @@ Blocks
  * e.g: > This is a blockquote
  *
  */
-Blockquote = b:Blockquote_line+ { return quote(b); }
+Blockquote = b:BlockquoteLine+ { return quote(b); }
 
-Blockquote_line = ">" [ \t]* @Paragraph
+BlockquoteLine = ">" [ \t]* @Paragraph
 
 /**
  *
