@@ -8,10 +8,9 @@ import {
   PRIMARY_STORY,
 } from '@storybook/addon-docs';
 import type { ComponentMeta } from '@storybook/react';
-import type { ReactElement } from 'react';
 import React, { useState } from 'react';
 
-import { AutoComplete, Box, Option, Chip, Avatar } from '../..';
+import { AutoComplete, Box, Chip, Avatar } from '../..';
 
 export default {
   title: 'Inputs/AutoComplete',
@@ -36,10 +35,10 @@ export default {
 } as ComponentMeta<typeof AutoComplete>;
 
 const options = [
-  { value: '1', label: { name: 'test1', bla: 'dasdad' } },
-  { value: '2', label: { name: 'test2', bla: 'dasdad' } },
-  { value: '3', label: { name: 'test3', bla: 'dasdad' } },
-  { value: '4', label: { name: 'test4', bla: 'dasdad' } },
+  { value: '1', label: { name: 'test1', someProp: 'dasdad' } },
+  { value: '2', label: { name: 'test2', someProp: 'dasdad' } },
+  { value: '3', label: { name: 'test3', someProp: 'dasdad' } },
+  { value: '4', label: { name: 'test4', someProp: 'dasdad' } },
 ];
 
 export const AutoCompleteDefault = () => {
@@ -57,9 +56,6 @@ export const AutoCompleteDefault = () => {
       setFilter={setFilter}
       options={options as any}
       onChange={handleChangeRooms}
-      renderItem={({ value, label, ...props }): ReactElement => (
-        <Option key={value} {...props} label={label.name} />
-      )}
     />
   );
 };
@@ -88,9 +84,6 @@ export const AutoCompleteCustomSelected = () => {
           {label.name}
         </>
       )}
-      renderItem={({ value, label, ...props }): ReactElement => (
-        <Option key={value} {...props} label={label.name} />
-      )}
     />
   );
 };
@@ -111,9 +104,6 @@ export const AutoCompleteMultiple = () => {
       setFilter={setFilter}
       options={options}
       onChange={handleChangeRooms}
-      renderItem={({ value, label, ...props }): ReactElement => (
-        <Option key={value} {...props} label={label.name} />
-      )}
     />
   );
 };
@@ -144,9 +134,6 @@ export const AutoCompleteMultipleCustomSelected = () => {
             {label.name}
           </Box>
         </Chip>
-      )}
-      renderItem={({ value, label, ...props }): ReactElement => (
-        <Option key={value} {...props} label={label.name} />
       )}
     />
   );

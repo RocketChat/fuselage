@@ -12,6 +12,7 @@ import Chip from '../Chip';
 import { Icon } from '../Icon';
 import { InputBox } from '../InputBox';
 import Margins from '../Margins';
+import Option from '../Option';
 import { useCursor, Options } from '../Options';
 import PositionAnimated from '../PositionAnimated';
 
@@ -23,6 +24,7 @@ type AutoCompleteOption = {
   value: string;
   label: unknown;
 };
+
 type AutoCompleteProps = {
   value: string | string[];
   filter: string;
@@ -55,7 +57,7 @@ export function AutoComplete({
   filter,
   setFilter = () => {},
   options = [],
-  renderItem,
+  renderItem: RenderItem,
   renderSelected: RenderSelected,
   onChange = () => {},
   renderEmpty,
@@ -179,7 +181,15 @@ export function AutoComplete({
           role='option'
           width={borderBoxSize.inlineSize}
           onSelect={handleSelect}
-          renderItem={renderItem}
+          renderItem={
+            RenderItem ? (
+              <RenderItem />
+            ) : (
+              ({ value, label, ...props }): ReactElement => (
+                <Option {...props} key={value} label={label.name} />
+              )
+            )
+          }
           renderEmpty={renderEmpty}
           cursor={cursor}
           value={value}
