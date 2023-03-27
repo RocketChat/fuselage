@@ -122,9 +122,9 @@ TaskFlag = "x" { return true; } / " " { return false; }
  *  3. Item Three
  *
  */
-OrderedList = items:OrderedList_item+ { return orderedList(items); }
+OrderedList = items:OrderedListItem+ { return orderedList(items); }
 
-OrderedList_item = number:Digits "." [ \t]+ text:Inline { return listItem(text, parseInt(number, 10)); }
+OrderedListItem = number:Digits "." [ \t]+ text:Inline { return listItem(text, parseInt(number, 10)); }
 
 /**
  *
@@ -136,15 +136,15 @@ OrderedList_item = number:Digits "." [ \t]+ text:Inline { return listItem(text, 
  *  * Item Four
  *
  */
-UnorderedList = items:(UnorderedList_hyphenItem+ / UnorderedList_asteriskItem+) { return unorderedList(items); }
+UnorderedList = items:(UnorderedListHyphenItem+ / UnorderedListAsteriskItem+) { return unorderedList(items); }
 
-UnorderedList_hyphenItem = "-" [ \t]+ text:Inline { return listItem(text); }
+UnorderedListHyphenItem = "-" [ \t]+ text:Inline { return listItem(text); }
 
-UnorderedList_asteriskItem = "*" [ \t]+ text:UnorderedList_itemContent { return listItem(text); }
+UnorderedListAsteriskItem = "*" [ \t]+ text:UnorderedListItemContent { return listItem(text); }
 
-UnorderedList_itemContent = value:UnorderedList_itemContent_item+ !"*" EndOfLine? { return reducePlainTexts(value); }
+UnorderedListItemContent = value:UnorderedListItemContentItem+ !"*" EndOfLine? { return reducePlainTexts(value); }
 
-UnorderedList_itemContent_item = InlineItem / !"*" @Any
+UnorderedListItemContentItem = InlineItem / !"*" @Any
 
 /**
  *
@@ -422,9 +422,9 @@ BigEmoji = (EndOfLine / Space)* es:(@(Emoji / Emoticon) (EndOfLine / Space)*) |1
 
 Emoji = EmojiShortCode / ch:UnicodeEmoji { return emojiUnicode(ch); }
 
-EmojiShortCode = ":" shortCode:EmojiShortCode_name ":" { return emoji(shortCode); }
+EmojiShortCode = ":" shortCode:EmojiShortCodeName ":" { return emoji(shortCode); }
 
-EmojiShortCode_name = $[0-9a-zA-Z-_+.]+
+EmojiShortCodeName = $[0-9a-zA-Z-_+.]+
 
 /* Emoticons */
 Emoticon = & { return options.emoticons; } @EmoticonPattern
