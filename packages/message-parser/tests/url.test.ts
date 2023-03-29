@@ -272,6 +272,24 @@ test.each([
       ]),
     ],
   ],
+  [
+    'https://www.rocket.chat/(W(601))/Main?ScreenId=GI000027',
+    [
+      paragraph([
+        autoLink('https://www.rocket.chat/(W(601))/Main?ScreenId=GI000027'),
+      ]),
+    ],
+  ],
+  [
+    'https://rocketchat.atlassian.net/browse/OC-718?filter=10078&jql=%22Defect%20from%5BVersion%20Picker%20(multiple%20versions)%5D%22%20%3D%206.0.0%20AND%20%22Defect%20from%5BVersion%20Picker%20(multiple%20versions)%5D%22%20%3D%206.0.0%20AND%20created%20%3E%3D%20-48h%20ORDER%20BY%20cf%5B10070%5D%20ASC%2C%20status%20ASC%2C%20created%20DESC',
+    [
+      paragraph([
+        link(
+          'https://rocketchat.atlassian.net/browse/OC-718?filter=10078&jql=%22Defect%20from%5BVersion%20Picker%20(multiple%20versions)%5D%22%20%3D%206.0.0%20AND%20%22Defect%20from%5BVersion%20Picker%20(multiple%20versions)%5D%22%20%3D%206.0.0%20AND%20created%20%3E%3D%20-48h%20ORDER%20BY%20cf%5B10070%5D%20ASC%2C%20status%20ASC%2C%20created%20DESC'
+        ),
+      ]),
+    ],
+  ],
 ])('parses %p', (input, output) => {
   expect(parse(input)).toMatchObject(output);
 });
