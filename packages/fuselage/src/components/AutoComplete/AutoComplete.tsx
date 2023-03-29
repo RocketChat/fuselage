@@ -25,7 +25,7 @@ type AutoCompleteOption = {
 };
 
 type AutoCompleteProps = {
-  value: string | string[];
+  value?: string | string[];
   filter: string;
   setFilter?: (filter: string) => void;
   options?: AutoCompleteOption[];
