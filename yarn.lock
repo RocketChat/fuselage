@@ -5801,7 +5801,7 @@ __metadata:
     lint-all: "workspace:~"
     lint-staged: ~12.3.8
     npm-run-all: ^4.1.5
-    peggy: ^2.0.1
+    peggy: 3.0.2
     prettier: ~2.7.1
     prettier-plugin-pegjs: ~0.5.3
     rimraf: ^3.0.2
@@ -5910,7 +5910,7 @@ __metadata:
     lint-all: "workspace:~"
     lint-staged: ~12.3.8
     npm-run-all: ^4.1.5
-    peggy: ^2.0.1
+    peggy: 3.0.2
     prettier: ~2.7.1
     rimraf: ^3.0.2
     ts-jest: ~27.1.5
@@ -11752,6 +11752,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"commander@npm:^10.0.0":
+  version: 10.0.0
+  resolution: "commander@npm:10.0.0"
+  checksum: 9f6495651f878213005ac744dd87a85fa3d9f2b8b90d1c19d0866d666bda7f735adfd7c2f10dfff345782e2f80ea258f98bb4efcef58e4e502f25f883940acfd
+  languageName: node
+  linkType: hard
+
 "commander@npm:^2.18.0, commander@npm:^2.19.0, commander@npm:^2.20.0":
   version: 2.20.3
   resolution: "commander@npm:2.20.3"
@@ -11787,7 +11794,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commander@npm:^9.3.0, commander@npm:^9.4.0":
+"commander@npm:^9.4.0":
   version: 9.4.1
   resolution: "commander@npm:9.4.1"
   checksum: bfb18e325a5bdf772763c2213d5c7d9e77144d944124e988bcd8e5e65fb6d45d5d4e86b09155d0f2556c9a59c31e428720e57968bcd050b2306e910a0bf3cf13
@@ -21722,15 +21729,15 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"peggy@npm:^2.0.1":
-  version: 2.0.1
-  resolution: "peggy@npm:2.0.1"
+"peggy@npm:3.0.2":
+  version: 3.0.2
+  resolution: "peggy@npm:3.0.2"
   dependencies:
-    commander: ^9.3.0
+    commander: ^10.0.0
     source-map-generator: 0.8.0
   bin:
     peggy: bin/peggy.js
-  checksum: 0ce0ee8f9f872bc96183bfcb7ce9ccabcad6d1df1e4ff9b1b7ebaf57f3996dcb1016b7610013f6a8a1bd8b135a8b3b15ccff914bdd88ab2264bdcbca5b36f2f1
+  checksum: bdca2291a2453e35fb9499bd414f25d44093aecaeb992ef90151ab126514c053c30d4bf5b54f68cbce22a4420eef75219a6deb1209b300630bff38e7640115d9
   languageName: node
   linkType: hard
 
