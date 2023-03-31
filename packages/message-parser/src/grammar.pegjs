@@ -323,7 +323,7 @@ AutolinkedEmail = e:Email { return autoEmail(e); }
  * with customDomains options as intranet: protocol://internaltool.intranet
  *
  */
-AutolinkedURL = u:AutoLinkURL { return autoLink(u); }
+AutolinkedURL = u:AutoLinkURL { return autoLink(u, options.customDomains); }
 
 AutoLinkURL
   = $(URLScheme URLAuthority AutoLinkURLBody*)
