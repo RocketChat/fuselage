@@ -9,7 +9,7 @@ import type { ReactElement } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 
 type OauthAuthorizationPageProps = {
-  clientName?: string;
+  clientName?: string | undefined;
   onClickAuthorizeOAuth: () => void;
   error: {
     message?: string;
@@ -24,8 +24,6 @@ const OauthAuthorizationPage = ({
 }: OauthAuthorizationPageProps): ReactElement => {
   const { t } = useTranslation();
 
-  const name = clientName || '...loading...';
-
   return (
     <VerticalWizardLayout>
       <VerticalWizardLayoutTitle>
@@ -33,7 +31,7 @@ const OauthAuthorizationPage = ({
       </VerticalWizardLayoutTitle>
       <VerticalWizardLayoutForm>
         <Box fontScale='p1' p='x40' textAlign='start' color={colors.n900}>
-          {error.message ? (
+          {!clientName || error.message ? (
             <>
               <Box fontScale='h1' mbe='x18'>
                 Error
@@ -49,10 +47,10 @@ const OauthAuthorizationPage = ({
             <>
               <Trans
                 i18nKey='page.oauthAuthorizationPage.allowLogin'
-                name={name}
+                name={clientName}
               >
                 Do you wish to allow
-                <strong>{{ name }}</strong>
+                <strong>{{ clientName }}</strong>
                 to login with your Rocket.Chat Cloud Account?
               </Trans>
 

@@ -498,6 +498,52 @@ Text after line break`,
       ]),
     ],
   ],
+  [
+    'the [audio_url and video_url for post message attachments](https://developer.rocket.chat/reference/api/rest-api/endpoints/core-endpoints/chat-endpoints/postmessage)',
+    [
+      paragraph([
+        plain('the '),
+        link(
+          'https://developer.rocket.chat/reference/api/rest-api/endpoints/core-endpoints/chat-endpoints/postmessage',
+          [plain('audio_url and video_url for post message attachments')]
+        ),
+      ]),
+    ],
+  ],
+  [
+    'the [Jira [Task] parentheses not working](rocket.chat)',
+    [
+      paragraph([
+        plain('the '),
+        link('rocket.chat', [plain('Jira [Task] parentheses not working')]),
+      ]),
+    ],
+  ],
+  [
+    'the [Jira (Task) parentheses not working](rocket.chat)',
+    [
+      paragraph([
+        plain('the '),
+        link('rocket.chat', [plain('Jira (Task) parentheses not working')]),
+      ]),
+    ],
+  ],
+  [
+    '[Jira [Task] parentheses not working](rocket.chat)',
+    [
+      paragraph([
+        link('rocket.chat', [plain('Jira [Task] parentheses not working')]),
+      ]),
+    ],
+  ],
+  [
+    '[Jira (Task) parentheses not working](rocket.chat)',
+    [
+      paragraph([
+        link('rocket.chat', [plain('Jira (Task) parentheses not working')]),
+      ]),
+    ],
+  ],
   // Should not parse as link
   ['77.77%', [paragraph([plain('77.77%')])]],
   ['77.77', [paragraph([plain('77.77')])]],

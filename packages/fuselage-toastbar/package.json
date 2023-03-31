@@ -104,5 +104,8 @@
         }
       }
     }
+  },
+  "volta": {
+    "extends": "../../package.json"
   }
 }

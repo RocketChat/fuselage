@@ -14,7 +14,7 @@
     "lint-staged": "~12.3.8",
     "turbo": "~1.1.10",
     "update-readme": "workspace:~",
-    "webpack": "~5.74.0"
+    "webpack": "~5.76.0"
   },
   "scripts": {
     "postinstall": "husky install",
@@ -36,8 +36,8 @@
     "node": "~14.17.6"
   },
   "volta": {
-    "node": "14.17.6",
-    "yarn": "1.22.11"
+    "node": "14.21.2",
+    "yarn": "1.22.19"
   },
-  "packageManager": "yarn@3.2.4"
+  "packageManager": "yarn@3.5.0"
 }
