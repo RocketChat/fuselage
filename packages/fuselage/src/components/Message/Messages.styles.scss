@@ -185,6 +185,8 @@ $message-background-color-highlight: functions.theme(
 
     transition: opacity 0.3s linear;
 
+    word-break: break-all;
+
     opacity: 1;
 
     color: colors.font(default);
