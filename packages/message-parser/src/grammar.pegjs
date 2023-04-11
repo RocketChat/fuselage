@@ -312,7 +312,9 @@ Email = "mailto:"? @$(LocalPart "@" DomainName)
 
 LocalPart = $(LocalPartChar+ ("." LocalPartChar+)*)
 
-LocalPartChar = AlphaNumericOrMarkChar / [!#$%&'*+/=?^_\`{|}~-]
+LocalPartChar = AlphaNumericOrMarkChar+ LocalPartSpecialChars*
+
+LocalPartSpecialChars = [!#$%&'*+/=?^_\`{|}~-]
 
 AutolinkedEmail = e:Email { return autoEmail(e); }
 
