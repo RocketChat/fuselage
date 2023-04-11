@@ -47,7 +47,7 @@
   "devDependencies": {
     "@rocket.chat/eslint-config-alt": "workspace:~",
     "@rocket.chat/prettier-config": "workspace:~",
-    "@types/node": "~15.14.9",
+    "@types/node": "~14.18.42",
     "bump": "workspace:~",
     "eslint": "~8.26.0",
     "lint-all": "workspace:~",

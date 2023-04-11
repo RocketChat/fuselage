@@ -5792,7 +5792,7 @@ __metadata:
     "@rocket.chat/peggy-loader": "workspace:~"
     "@rocket.chat/prettier-config": "workspace:~"
     "@types/jest": ~27.4.1
-    "@types/node": ~15.14.9
+    "@types/node": ~14.18.42
     "@typescript-eslint/parser": ~5.11.0
     babel-loader: ~8.2.5
     bump: "workspace:~"
@@ -5904,7 +5904,7 @@ __metadata:
   dependencies:
     "@rocket.chat/eslint-config-alt": "workspace:~"
     "@rocket.chat/prettier-config": "workspace:~"
-    "@types/node": ~15.14.9
+    "@types/node": ~14.18.42
     bump: "workspace:~"
     eslint: ~8.26.0
     lint-all: "workspace:~"
@@ -6060,7 +6060,7 @@ __metadata:
     "@rocket.chat/logo": "workspace:~"
     "@rocket.chat/styled": "workspace:~"
     "@types/jest": ^27.5.2
-    "@types/node": ^16.11.36
+    "@types/node": ~14.18.42
     "@types/react": ^17.0.53
     "@types/react-beautiful-dnd": ^13.1.2
     "@types/react-dom": ^17.0.18
@@ -8226,17 +8226,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^14.0.10 || ^16.0.0, @types/node@npm:^14.14.20 || ^16.0.0, @types/node@npm:^16.11.36, @types/node@npm:^16.6":
+"@types/node@npm:^14.0.10 || ^16.0.0, @types/node@npm:^14.14.20 || ^16.0.0, @types/node@npm:^16.6":
   version: 16.11.56
   resolution: "@types/node@npm:16.11.56"
   checksum: b4efade16eb08a39810921c54a1637e69c8f3184a20d87e8fe74d557d9bda73f0829ac318e2a30a32b1903e4b099812defd1dfe438be70b98dbfbea5b0d99a53
   languageName: node
   linkType: hard
 
-"@types/node@npm:~15.14.9":
-  version: 15.14.9
-  resolution: "@types/node@npm:15.14.9"
-  checksum: 49f7f0522a3af4b8389aee660e88426490cd54b86356672a1fedb49919a8797c00d090ec2dcc4a5df34edc2099d57fc2203d796c4e7fbd382f2022ccd789eee7
+"@types/node@npm:~14.18.42":
+  version: 14.18.42
+  resolution: "@types/node@npm:14.18.42"
+  checksum: 1c92f04a482ab54a21342b3911fc6f0093f04d3314197bc0e2f20012e9efc929c44e2ea41990b9b3cde420d7859c9ed716733f3e65c0cd6c2910a55799465f6b
   languageName: node
   linkType: hard
 
@@ -24955,7 +24955,7 @@ resolve@^2.0.0-next.3:
   dependencies:
     "@rocket.chat/eslint-config-alt": "workspace:~"
     "@rocket.chat/prettier-config": "workspace:~"
-    "@types/node": ~15.14.9
+    "@types/node": ~14.18.42
     "@typescript-eslint/parser": ~5.11.0
     cross-env: ^7.0.3
     endent: ^2.1.0

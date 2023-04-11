@@ -33,10 +33,10 @@
     "release-next": "yarn workspaces foreach --no-private -v npm publish --tag next --tolerate-republish"
   },
   "devEngines": {
-    "node": "~14.17.6"
+    "node": "~14.21.3"
   },
   "volta": {
-    "node": "14.21.2",
+    "node": "14.21.3",
     "yarn": "1.22.19"
   },
   "packageManager": "yarn@3.5.0"
