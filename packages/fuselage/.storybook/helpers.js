@@ -35,7 +35,7 @@ export function PropsVariationSection({
               <Box
                 key={x}
                 is='td'
-                margin='none'
+                margin={0}
                 paddingBlock='x8'
                 paddingInline='x16'
               >

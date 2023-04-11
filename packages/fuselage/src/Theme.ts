@@ -145,7 +145,7 @@ export const surfaceColors = {
   'surface-transparent': 'transparent',
 };
 
-type SurfaceColors = keyof typeof surfaceColors;
+type SurfaceColor = keyof typeof surfaceColors;
 
 export const strokeColors = {
   'stroke-extra-light': neutral.n250.theme('stroke-extra-light'),
@@ -161,7 +161,7 @@ export const strokeColors = {
   'stroke-error': danger.d500.theme('stroke-error'),
 };
 
-type StrokeColor = keyof typeof strokeColors;
+export type StrokeColor = keyof typeof strokeColors;
 
 export const textIconColors = {
   'font-white': white.theme('font-white'),
@@ -177,7 +177,7 @@ export const textIconColors = {
   'font-pure-white': white.theme('font-pure-white'),
 };
 
-type TextIconColors = keyof typeof textIconColors;
+export type TextIconColor = keyof typeof textIconColors;
 
 export const statusBackgroundColors = {
   'status-background-info': info.i200.theme('status-background-info'),
@@ -195,7 +195,7 @@ export const statusBackgroundColors = {
   ),
 };
 
-type StatusBackgroundColors = keyof typeof statusBackgroundColors;
+type StatusBackgroundColor = keyof typeof statusBackgroundColors;
 
 export const statusColors = {
   'status-font-on-info': info.i600.theme('status-font-on-info'),
@@ -207,7 +207,7 @@ export const statusColors = {
   'status-font-on-service-2': service2[600].theme('status-font-on-service-2'),
 };
 
-type StatusColors = keyof typeof statusColors;
+export type StatusColor = keyof typeof statusColors;
 
 export const badgeBackgroundColors = {
   'badge-background-level-1': neutral.n600.theme('badge-background-level-1'),
@@ -216,7 +216,7 @@ export const badgeBackgroundColors = {
   'badge-background-level-4': danger.d550.theme('badge-background-level-4'),
 };
 
-type BadgeBackgroundColors = keyof typeof badgeBackgroundColors;
+type BadgeBackgroundColor = keyof typeof badgeBackgroundColors;
 
 export const shadowColors = {
   'shadow-elevation-border': strokeColors['stroke-extra-light'].theme(
@@ -238,29 +238,29 @@ export const shadowColors = {
   'shadow-danger': danger.d100.theme('shadow-danger'),
 };
 
-type ShadowColors = keyof typeof shadowColors;
+type ShadowColor = keyof typeof shadowColors;
 
-export const isSurfaceColor = (color: unknown): color is SurfaceColors =>
+export const isSurfaceColor = (color: unknown): color is SurfaceColor =>
   typeof color === 'string' && color in surfaceColors;
 
 export const isStrokeColor = (color: unknown): color is StrokeColor =>
   typeof color === 'string' && color in strokeColors;
 
-export const isTextIconColor = (color: unknown): color is TextIconColors =>
+export const isTextIconColor = (color: unknown): color is TextIconColor =>
   typeof color === 'string' && color in textIconColors;
 
-export const isBadgeColor = (color: unknown): color is BadgeBackgroundColors =>
+export const isBadgeColor = (color: unknown): color is BadgeBackgroundColor =>
   typeof color === 'string' && color in badgeBackgroundColors;
 
 export const isStatusBackgroundColor = (
   color: unknown
-): color is StatusBackgroundColors =>
+): color is StatusBackgroundColor =>
   typeof color === 'string' && color in statusBackgroundColors;
 
-export const isStatusColor = (color: unknown): color is StatusColors =>
+export const isStatusColor = (color: unknown): color is StatusColor =>
   typeof color === 'string' && color in statusColors;
 
-export const isShadowColor = (color: unknown): color is ShadowColors =>
+export const isShadowColor = (color: unknown): color is ShadowColor =>
   typeof color === 'string' && color in shadowColors;
 
 export const Palette = {

@@ -120,7 +120,7 @@ export const Options = forwardRef(
             <Tile
               ref={liRef}
               elevation='0'
-              padding='none'
+              padding={0}
               maxHeight={maxHeight}
               onMouseDown={prevent}
               onClick={prevent}

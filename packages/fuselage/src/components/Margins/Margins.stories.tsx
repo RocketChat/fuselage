@@ -50,32 +50,32 @@ Example.args = {
 export const AllProp = () => (
   <Box display='flex' alignItems='center'>
     <Margins all='x8'>
-      <Tile display='flex' padding='none'>
+      <Tile display='flex' padding={0}>
         <Margins all='x4'>
           <Tile>x4</Tile>
         </Margins>
       </Tile>
-      <Tile display='flex' padding='none'>
+      <Tile display='flex' padding={0}>
         <Margins all='x8'>
           <Tile>x8</Tile>
         </Margins>
       </Tile>
-      <Tile display='flex' padding='none'>
+      <Tile display='flex' padding={0}>
         <Margins all='x16'>
           <Tile>x16</Tile>
         </Margins>
       </Tile>
-      <Tile display='flex' padding='none'>
+      <Tile display='flex' padding={0}>
         <Margins all='x24'>
           <Tile>x24</Tile>
         </Margins>
       </Tile>
-      <Tile display='flex' padding='none'>
+      <Tile display='flex' padding={0}>
         <Margins all='x32'>
           <Tile>x32</Tile>
         </Margins>
       </Tile>
-      <Tile display='flex' padding='none'>
+      <Tile display='flex' padding={0}>
         <Margins all='x40'>
           <Tile>x40</Tile>
         </Margins>
@@ -88,32 +88,32 @@ AllProp.storyName = 'all prop';
 export const BlockProp = () => (
   <Box display='flex' alignItems='center'>
     <Margins all='x8'>
-      <Tile display='flex' padding='none'>
+      <Tile display='flex' padding={0}>
         <Margins block='x4'>
           <Tile>x4</Tile>
         </Margins>
       </Tile>
-      <Tile display='flex' padding='none'>
+      <Tile display='flex' padding={0}>
         <Margins block='x8'>
           <Tile>x8</Tile>
         </Margins>
       </Tile>
-      <Tile display='flex' padding='none'>
+      <Tile display='flex' padding={0}>
         <Margins block='x16'>
           <Tile>x16</Tile>
         </Margins>
       </Tile>
-      <Tile display='flex' padding='none'>
+      <Tile display='flex' padding={0}>
         <Margins block='x24'>
           <Tile>x24</Tile>
         </Margins>
       </Tile>
-      <Tile display='flex' padding='none'>
+      <Tile display='flex' padding={0}>
         <Margins block='x32'>
           <Tile>x32</Tile>
         </Margins>
       </Tile>
-      <Tile display='flex' padding='none'>
+      <Tile display='flex' padding={0}>
         <Margins block='x40'>
           <Tile>x40</Tile>
         </Margins>
@@ -126,32 +126,32 @@ BlockProp.storyName = 'block prop';
 export const BlockStartProp = () => (
   <Box display='flex' alignItems='center'>
     <Margins all='x8'>
-      <Tile display='flex' padding='none'>
+      <Tile display='flex' padding={0}>
         <Margins blockStart='x4'>
           <Tile>x4</Tile>
         </Margins>
       </Tile>
-      <Tile display='flex' padding='none'>
+      <Tile display='flex' padding={0}>
         <Margins blockStart='x8'>
           <Tile>x8</Tile>
         </Margins>
       </Tile>
-      <Tile display='flex' padding='none'>
+      <Tile display='flex' padding={0}>
         <Margins blockStart='x16'>
           <Tile>x16</Tile>
         </Margins>
       </Tile>
-      <Tile display='flex' padding='none'>
+      <Tile display='flex' padding={0}>
         <Margins blockStart='x24'>
           <Tile>x24</Tile>
         </Margins>
       </Tile>
-      <Tile display='flex' padding='none'>
+      <Tile display='flex' padding={0}>
         <Margins blockStart='x32'>
           <Tile>x32</Tile>
         </Margins>
       </Tile>
-      <Tile display='flex' padding='none'>
+      <Tile display='flex' padding={0}>
         <Margins blockStart='x40'>
           <Tile>x40</Tile>
         </Margins>
@@ -164,32 +164,32 @@ BlockStartProp.storyName = 'blockStart prop';
 export const BlockEndProp = () => (
   <Box display='flex' alignItems='center'>
     <Margins all='x8'>
-      <Tile display='flex' padding='none'>
+      <Tile display='flex' padding={0}>
         <Margins blockEnd='x4'>
           <Tile>x4</Tile>
         </Margins>
       </Tile>
-      <Tile display='flex' padding='none'>
+      <Tile display='flex' padding={0}>
         <Margins blockEnd='x8'>
           <Tile>x8</Tile>
         </Margins>
       </Tile>
-      <Tile display='flex' padding='none'>
+      <Tile display='flex' padding={0}>
         <Margins blockEnd='x16'>
           <Tile>x16</Tile>
         </Margins>
       </Tile>
-      <Tile display='flex' padding='none'>
+      <Tile display='flex' padding={0}>
         <Margins blockEnd='x24'>
           <Tile>x24</Tile>
         </Margins>
       </Tile>
-      <Tile display='flex' padding='none'>
+      <Tile display='flex' padding={0}>
         <Margins blockEnd='x32'>
           <Tile>x32</Tile>
         </Margins>
       </Tile>
-      <Tile display='flex' padding='none'>
+      <Tile display='flex' padding={0}>
         <Margins blockEnd='x40'>
           <Tile>x40</Tile>
         </Margins>
@@ -202,32 +202,32 @@ BlockEndProp.storyName = 'blockEnd prop';
 export const InlineProp = () => (
   <Box display='flex' alignItems='center'>
     <Margins all='x8'>
-      <Tile display='flex' padding='none'>
+      <Tile display='flex' padding={0}>
         <Margins inline='x4'>
           <Tile>x4</Tile>
         </Margins>
       </Tile>
-      <Tile display='flex' padding='none'>
+      <Tile display='flex' padding={0}>
         <Margins inline='x8'>
           <Tile>x8</Tile>
         </Margins>
       </Tile>
-      <Tile display='flex' padding='none'>
+      <Tile display='flex' padding={0}>
         <Margins inline='x16'>
           <Tile>x16</Tile>
         </Margins>
       </Tile>
-      <Tile display='flex' padding='none'>
+      <Tile display='flex' padding={0}>
         <Margins inline='x24'>
           <Tile>x24</Tile>
         </Margins>
       </Tile>
-      <Tile display='flex' padding='none'>
+      <Tile display='flex' padding={0}>
         <Margins inline='x32'>
           <Tile>x32</Tile>
         </Margins>
       </Tile>
-      <Tile display='flex' padding='none'>
+      <Tile display='flex' padding={0}>
         <Margins inline='x40'>
           <Tile>x40</Tile>
         </Margins>
@@ -240,32 +240,32 @@ InlineProp.storyName = 'inline prop';
 export const InlineStartProp = () => (
   <Box display='flex' alignItems='center'>
     <Margins all='x8'>
-      <Tile display='flex' padding='none'>
+      <Tile display='flex' padding={0}>
         <Margins inlineStart='x4'>
           <Tile>x4</Tile>
         </Margins>
       </Tile>
-      <Tile display='flex' padding='none'>
+      <Tile display='flex' padding={0}>
         <Margins inlineStart='x8'>
           <Tile>x8</Tile>
         </Margins>
       </Tile>
-      <Tile display='flex' padding='none'>
+      <Tile display='flex' padding={0}>
         <Margins inlineStart='x16'>
           <Tile>x16</Tile>
         </Margins>
       </Tile>
-      <Tile display='flex' padding='none'>
+      <Tile display='flex' padding={0}>
         <Margins inlineStart='x24'>
           <Tile>x24</Tile>
         </Margins>
       </Tile>
-      <Tile display='flex' padding='none'>
+      <Tile display='flex' padding={0}>
         <Margins inlineStart='x32'>
           <Tile>x32</Tile>
         </Margins>
       </Tile>
-      <Tile display='flex' padding='none'>
+      <Tile display='flex' padding={0}>
         <Margins inlineStart='x40'>
           <Tile>x40</Tile>
         </Margins>
@@ -278,32 +278,32 @@ InlineStartProp.storyName = 'inlineStart prop';
 export const InlineEndProp = () => (
   <Box display='flex' alignItems='center'>
     <Margins all='x8'>
-      <Tile display='flex' padding='none'>
+      <Tile display='flex' padding={0}>
         <Margins inlineEnd='x4'>
           <Tile>x4</Tile>
         </Margins>
       </Tile>
-      <Tile display='flex' padding='none'>
+      <Tile display='flex' padding={0}>
         <Margins inlineEnd='x8'>
           <Tile>x8</Tile>
         </Margins>
       </Tile>
-      <Tile display='flex' padding='none'>
+      <Tile display='flex' padding={0}>
         <Margins inlineEnd='x16'>
           <Tile>x16</Tile>
         </Margins>
       </Tile>
-      <Tile display='flex' padding='none'>
+      <Tile display='flex' padding={0}>
         <Margins inlineEnd='x24'>
           <Tile>x24</Tile>
         </Margins>
       </Tile>
-      <Tile display='flex' padding='none'>
+      <Tile display='flex' padding={0}>
         <Margins inlineEnd='x32'>
           <Tile>x32</Tile>
         </Margins>
       </Tile>
-      <Tile display='flex' padding='none'>
+      <Tile display='flex' padding={0}>
         <Margins inlineEnd='x40'>
           <Tile>x40</Tile>
         </Margins>
@@ -318,7 +318,7 @@ export const WithNegativeValues = () => (
     <Margins all='x20'>
       <Tile>
         <Margins inline='-x40'>
-          <Tile display='flex' padding='none'>
+          <Tile display='flex' padding={0}>
             <Margins inline='x40'>
               <Tile padding='x40' />
               <Tile padding='x40' />
@@ -330,7 +330,7 @@ export const WithNegativeValues = () => (
       </Tile>
       <Tile>
         <Margins block='-x40'>
-          <Tile display='flex' padding='none'>
+          <Tile display='flex' padding={0}>
             <Margins block='x40'>
               <Tile padding='x40' />
               <Tile padding='x40' />

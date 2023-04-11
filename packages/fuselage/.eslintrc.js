@@ -9,6 +9,7 @@ module.exports = {
     '@typescript-eslint/no-use-before-define': 'off',
     'react/display-name': 'off',
     'react/no-multi-comp': 'off',
+    'generator-star-spacing': 'off',
   },
   env: {
     jest: true,

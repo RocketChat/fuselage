@@ -5,12 +5,10 @@ import { appendClassName } from '../helpers/appendClassName';
 import type { Falsy } from '../types/Falsy';
 import { useStyle } from './useStyle';
 
-export const useArrayLikeClassNameProp = <
-  T extends {
+export const useArrayLikeClassNameProp = <T>(
+  props: T & {
     className?: string | cssFn | (string | cssFn | Falsy)[];
   }
->(
-  props: T
 ): T & { className: string } => {
   const classNames = props.className
     ? ([] as (string | cssFn | Falsy)[]).concat(props.className)
