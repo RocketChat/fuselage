@@ -80,5 +80,8 @@
   },
   "dependencies": {
     "tldts": "~5.7.104"
+  },
+  "volta": {
+    "extends": "../../package.json"
   }
 }
