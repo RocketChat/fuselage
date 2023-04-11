@@ -30,6 +30,7 @@
     ".:build:clean": "rimraf dist",
     ".:build:esm": "tsc -p tsconfig-esm.json",
     ".:build:cjs": "tsc -p tsconfig-cjs.json",
+    "typecheck": "tsc --noEmit",
     "lint": "lint",
     "lint-and-fix": "lint-and-fix",
     "lint-staged": "lint-staged",
@@ -77,13 +78,12 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "rimraf": "^3.0.2",
-    "typescript": "~4.9.4",
+    "typescript": "~5.0.4",
     "webpack": "~5.76.0",
     "write-version-module": "workspace:~"
   },
   "dependencies": {
-    "@rocket.chat/ui-kit": "workspace:~",
-    "tslib": "^2.3.1"
+    "@rocket.chat/ui-kit": "workspace:~"
   },
   "volta": {
     "extends": "../../package.json"

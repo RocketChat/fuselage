@@ -28,6 +28,7 @@
   "scripts": {
     "clean": "rimraf dist",
     "build": "tsc -p tsconfig-esm.json && tsc -p tsconfig-cjs.json",
+    "typecheck": "tsc -p tsconfig-esm.json --noEmit",
     "lint": "lint",
     "lint-and-fix": "lint-and-fix",
     "lint-staged": "lint-staged",
@@ -44,7 +45,7 @@
     "prettier": "~2.7.1",
     "rimraf": "~3.0.2",
     "typedoc": "~0.22.18",
-    "typescript": "~4.9.4"
+    "typescript": "~5.0.4"
   },
   "dependencies": {
     "@rocket.chat/memo": "workspace:~"

@@ -16,8 +16,7 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "allowJs": true,
-    "jsx": "react",
-    "importsNotUsedAsValues": "error"
+    "jsx": "react"
   },
   "include": ["./src/", "./.jest/**/*.d.ts"],
   "exclude": [

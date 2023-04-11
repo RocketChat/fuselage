@@ -35,6 +35,7 @@
   },
   "scripts": {
     "build": "rollup -c",
+    "typecheck": "tsc --noEmit",
     "lint": "lint",
     "lint-and-fix": "lint-and-fix",
     "lint-staged": "lint-staged",
@@ -69,7 +70,7 @@
     "testing-utils": "workspace:~",
     "ts-jest": "~27.1.5",
     "typedoc": "~0.22.18",
-    "typescript": "~4.9.4"
+    "typescript": "~5.0.4"
   },
   "peerDependencies": {
     "@rocket.chat/fuselage-tokens": "*",

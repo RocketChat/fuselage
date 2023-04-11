@@ -5317,7 +5317,7 @@ __metadata:
     stylis: ~4.1.3
     ts-jest: ~27.1.5
     typedoc: ~0.22.18
-    typescript: ~4.9.4
+    typescript: ~5.0.4
   languageName: unknown
   linkType: soft
 
@@ -5335,7 +5335,7 @@ __metadata:
     prettier: ~2.7.1
     rimraf: ~3.0.2
     typedoc: ~0.22.18
-    typescript: ~4.9.4
+    typescript: ~5.0.4
   languageName: unknown
   linkType: soft
 
@@ -5360,9 +5360,8 @@ __metadata:
     rollup: ~2.67.3
     rollup-plugin-terser: ~7.0.2
     ts-jest: ~27.1.5
-    tslib: ^2.3.1
     typedoc: ~0.22.18
-    typescript: ~4.9.4
+    typescript: ~5.0.4
   languageName: unknown
   linkType: soft
 
@@ -5422,7 +5421,7 @@ __metadata:
     testing-utils: "workspace:~"
     ts-jest: ~27.1.5
     typedoc: ~0.22.18
-    typescript: ~4.9.4
+    typescript: ~5.0.4
     use-sync-external-store: ~1.2.0
   peerDependencies:
     "@rocket.chat/fuselage-tokens": "*"
@@ -5494,7 +5493,7 @@ __metadata:
     storybook-dark-mode: ~1.1.2
     ts-jest: ~27.1.5
     typedoc: ~0.22.18
-    typescript: ~4.9.4
+    typescript: ~5.0.4
   peerDependencies:
     "@rocket.chat/fuselage": "*"
     "@rocket.chat/fuselage-hooks": "*"
@@ -5528,7 +5527,6 @@ __metadata:
     stylelint-order: ~5.0.0
     stylelint-prettier: ~2.0.0
     stylelint-scss: ~4.3.0
-    typescript: ~4.9.4
   languageName: unknown
   linkType: soft
 
@@ -5566,8 +5564,7 @@ __metadata:
     react: ^17.0.2
     react-dom: ^17.0.2
     rimraf: ^3.0.2
-    tslib: ^2.3.1
-    typescript: ~4.9.4
+    typescript: ~5.0.4
     webpack: ~5.76.0
     write-version-module: "workspace:~"
   peerDependencies:
@@ -5659,7 +5656,7 @@ __metadata:
     testing-utils: "workspace:~"
     ts-jest: ~27.1.5
     ts-loader: ~9.4.2
-    typescript: ~4.9.4
+    typescript: ~5.0.4
     webpack: ~5.76.0
     webpack-bundle-analyzer: ~4.7.0
     webpack-cli: ~4.10.0
@@ -5719,7 +5716,7 @@ __metadata:
     storybook-dark-mode: ^1.1.2
     ts-jest: ~27.1.5
     typedoc: ~0.22.18
-    typescript: ~4.9.4
+    typescript: ~5.0.4
   peerDependencies:
     "@rocket.chat/fuselage": "*"
     react: 17.0.2
@@ -5752,9 +5749,8 @@ __metadata:
     react-dom: ^17.0.2
     rimraf: ^3.0.2
     ts-jest: ~27.1.5
-    tslib: ^2.3.1
     typedoc: ~0.22.18
-    typescript: ~4.9.4
+    typescript: ~5.0.4
   peerDependencies:
     react: 17.0.2
     react-dom: 17.0.2
@@ -5777,7 +5773,7 @@ __metadata:
     rimraf: ~3.0.2
     ts-jest: ~27.1.5
     typedoc: ~0.22.18
-    typescript: ~4.9.4
+    typescript: ~5.0.4
   languageName: unknown
   linkType: soft
 
@@ -5809,7 +5805,7 @@ __metadata:
     ts-jest: ~27.1.5
     ts-loader: ~9.4.2
     typedoc: ~0.22.18
-    typescript: ~4.9.4
+    typescript: ~5.0.4
     webpack: ~5.76.0
     webpack-cli: ~4.10.0
   languageName: unknown
@@ -5839,7 +5835,7 @@ __metadata:
     rollup: ~2.67.3
     ts-jest: ~27.1.5
     typedoc: ~0.22.18
-    typescript: ~4.9.4
+    typescript: ~5.0.4
   languageName: unknown
   linkType: soft
 
@@ -5881,9 +5877,8 @@ __metadata:
     rimraf: ^3.0.2
     storybook-dark-mode: ^1.1.2
     ts-jest: ~27.1.5
-    tslib: ~2.3.1
     typedoc: ~0.22.18
-    typescript: ~4.9.4
+    typescript: ~5.0.4
   peerDependencies:
     "@rocket.chat/fuselage": "*"
     "@rocket.chat/fuselage-hooks": "*"
@@ -5914,8 +5909,7 @@ __metadata:
     prettier: ~2.7.1
     rimraf: ^3.0.2
     ts-jest: ~27.1.5
-    tslib: ^2.3.1
-    typescript: ~4.9.4
+    typescript: ~5.0.4
     webpack: ~5.76.0
   peerDependencies:
     peggy: "*"
@@ -5956,9 +5950,8 @@ __metadata:
     prettier: ~2.7.1
     rimraf: ^3.0.2
     ts-jest: ~27.1.5
-    tslib: ^2.3.1
     typedoc: ~0.22.18
-    typescript: ~4.9.4
+    typescript: ~5.0.4
   languageName: unknown
   linkType: soft
 
@@ -5979,9 +5972,8 @@ __metadata:
     prettier: ~2.7.1
     rimraf: ^3.0.2
     ts-jest: ~27.1.5
-    tslib: ^2.3.1
     typedoc: ~0.22.18
-    typescript: ~4.9.4
+    typescript: ~5.0.4
   languageName: unknown
   linkType: soft
 
@@ -6003,9 +5995,8 @@ __metadata:
     rimraf: ^3.0.2
     stylis: 4.1.3
     ts-jest: ~27.1.5
-    tslib: ^2.3.1
     typedoc: ~0.22.18
-    typescript: ~4.9.4
+    typescript: ~5.0.4
   peerDependencies:
     stylis: 4.0.10
   languageName: unknown
@@ -6034,7 +6025,7 @@ __metadata:
     ts-jest: ~27.1.5
     ts-loader: ~9.4.2
     typedoc: ~0.22.18
-    typescript: ~4.9.4
+    typescript: ~5.0.4
     webpack: ~5.76.0
     webpack-cli: ~4.10.0
   languageName: unknown
@@ -6080,7 +6071,7 @@ __metadata:
     react-scripts: 5.0.1
     react-split-pane: ^0.1.92
     react-virtuoso: ~3.1.5
-    typescript: ~4.9.4
+    typescript: ~5.0.4
     use-subscription: ^1.7.0
     web-vitals: ^2.1.4
     webpack: ^5.74.0
@@ -24964,7 +24955,7 @@ resolve@^2.0.0-next.3:
     npm-run-all: ^4.1.5
     prettier: ~2.7.1
     ts-node: ~10.9.1
-    typescript: ~4.9.4
+    typescript: ~5.0.4
   languageName: unknown
   linkType: soft
 
@@ -27388,13 +27379,6 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"tslib@npm:~2.3.1":
-  version: 2.3.1
-  resolution: "tslib@npm:2.3.1"
-  checksum: de17a98d4614481f7fcb5cd53ffc1aaf8654313be0291e1bfaee4b4bb31a20494b7d218ff2e15017883e8ea9626599b3b0e0229c18383ba9dce89da2adf15cb9
-  languageName: node
-  linkType: hard
-
 "tsutils@npm:^3.21.0":
   version: 3.21.0
   resolution: "tsutils@npm:3.21.0"
@@ -27725,23 +27709,23 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"typescript@npm:~4.9.4":
-  version: 4.9.4
-  resolution: "typescript@npm:4.9.4"
+"typescript@npm:~5.0.4":
+  version: 5.0.4
+  resolution: "typescript@npm:5.0.4"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: e782fb9e0031cb258a80000f6c13530288c6d63f1177ed43f770533fdc15740d271554cdae86701c1dd2c83b082cea808b07e97fd68b38a172a83dbf9e0d0ef9
+  checksum: 82b94da3f4604a8946da585f7d6c3025fff8410779e5bde2855ab130d05e4fd08938b9e593b6ebed165bda6ad9292b230984f10952cf82f0a0ca07bbeaa08172
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@~4.9.4#~builtin<compat/typescript>":
-  version: 4.9.4
-  resolution: "typescript@patch:typescript@npm%3A4.9.4#~builtin<compat/typescript>::version=4.9.4&hash=23ec76"
+"typescript@patch:typescript@~5.0.4#~builtin<compat/typescript>":
+  version: 5.0.4
+  resolution: "typescript@patch:typescript@npm%3A5.0.4#~builtin<compat/typescript>::version=5.0.4&hash=85af82"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 3e2ab0772908676d9b9cb83398c70003a3b08e1c6b3b122409df9f4b520f2fdaefa20c3d7d57dce283fed760ac94b3ce94d4a7fa875127b67852904425a1f0dc
+  checksum: bb309d320c59a26565fb3793dba550576ab861018ff3fd1b7fccabbe46ae4a35546bc45f342c0a0b6f265c801ccdf64ffd68f548f117ceb7f0eac4b805cd52a9
   languageName: node
   linkType: hard
 
