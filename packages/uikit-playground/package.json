@@ -68,12 +68,12 @@
     "@babel/eslint-parser": "^7.19.1",
     "@rocket.chat/eslint-config-alt": "workspace:~",
     "@types/react-beautiful-dnd": "^13.1.2",
-    "eslint": "~8.26.0",
-    "eslint-plugin-import": "^2.26.0",
+    "eslint": "~8.38.0",
+    "eslint-plugin-import": "~2.26.0",
     "gh-pages": "^4.0.0",
     "lint-all": "workspace:~",
     "lint-staged": "~12.3.8",
-    "prettier": "~2.7.1"
+    "prettier": "~2.8.7"
   },
   "postcss": {
     "plugins": {
