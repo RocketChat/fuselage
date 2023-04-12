@@ -65,7 +65,7 @@
     ]
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.19.1",
+    "@babel/eslint-parser": "~7.21.3",
     "@rocket.chat/eslint-config-alt": "workspace:~",
     "@types/react-beautiful-dnd": "^13.1.4",
     "eslint": "~8.38.0",

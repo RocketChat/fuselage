@@ -51,9 +51,9 @@
     "bump-next": "bump-next"
   },
   "devDependencies": {
-    "@babel/core": "~7.19.6",
-    "@babel/eslint-parser": "~7.19.1",
-    "@babel/preset-env": "~7.19.4",
+    "@babel/core": "~7.21.4",
+    "@babel/eslint-parser": "~7.21.3",
+    "@babel/preset-env": "~7.21.4",
     "@rocket.chat/eslint-config-alt": "workspace:~",
     "@rocket.chat/peggy-loader": "workspace:~",
     "@rocket.chat/prettier-config": "workspace:~",

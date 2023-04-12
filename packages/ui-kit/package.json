@@ -38,10 +38,10 @@
     "bump-next": "bump-next"
   },
   "devDependencies": {
-    "@babel/core": "~7.19.6",
-    "@babel/eslint-parser": "~7.19.1",
-    "@babel/plugin-transform-runtime": "~7.19.6",
-    "@babel/preset-env": "~7.19.4",
+    "@babel/core": "~7.21.4",
+    "@babel/eslint-parser": "~7.21.3",
+    "@babel/plugin-transform-runtime": "~7.21.4",
+    "@babel/preset-env": "~7.21.4",
     "@rocket.chat/eslint-config-alt": "workspace:~",
     "@rocket.chat/prettier-config": "workspace:~",
     "@types/jest": "~27.4.1",

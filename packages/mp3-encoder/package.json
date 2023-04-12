@@ -44,10 +44,10 @@
     "lamejs": "git+https://github.com/zhuker/lamejs.git#commit=582bbba6a12f981b984d8fb9e1874499fed85675"
   },
   "devDependencies": {
-    "@babel/core": "~7.19.6",
-    "@babel/plugin-transform-runtime": "~7.19.6",
-    "@babel/preset-env": "~7.19.4",
-    "@babel/preset-typescript": "^7.18.6",
+    "@babel/core": "~7.21.4",
+    "@babel/plugin-transform-runtime": "~7.21.4",
+    "@babel/preset-env": "~7.21.4",
+    "@babel/preset-typescript": "~7.21.4",
     "@rocket.chat/eslint-config-alt": "workspace:~",
     "@rocket.chat/prettier-config": "workspace:~",
     "@rollup/plugin-commonjs": "~21.0.3",
