@@ -56,9 +56,9 @@
     "prettier": "~2.8.7",
     "rimraf": "^3.0.2",
     "style-dictionary": "~3.7.2",
-    "stylelint": "~14.14.1",
-    "stylelint-order": "~5.0.0",
-    "stylelint-prettier": "~2.0.0",
-    "stylelint-scss": "~4.3.0"
+    "stylelint": "~15.4.0",
+    "stylelint-order": "~6.0.3",
+    "stylelint-prettier": "~3.0.0",
+    "stylelint-scss": "~4.6.0"
   }
 }
