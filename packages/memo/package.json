@@ -48,7 +48,7 @@
     "eslint": "~8.38.0",
     "jest": "~29.5.0",
     "lint-all": "workspace:~",
-    "lint-staged": "~12.3.8",
+    "lint-staged": "~13.2.1",
     "prettier": "~2.8.7",
     "rimraf": "~3.0.2",
     "ts-jest": "~29.1.0",

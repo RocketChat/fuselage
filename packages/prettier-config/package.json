@@ -44,7 +44,7 @@
     "eslint-plugin-import": "~2.26.0",
     "eslint-plugin-prettier": "~4.2.1",
     "lint-all": "workspace:~",
-    "lint-staged": "~12.3.8",
+    "lint-staged": "~13.2.1",
     "prettier": "~2.8.7"
   }
 }
