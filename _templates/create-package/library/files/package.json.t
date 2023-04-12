@@ -50,7 +50,7 @@ to: packages/<%=package%>/package.json
     "prettier": "~2.5.1",
     "rimraf": "~3.0.2",
     "ts-jest": "~27.1.3",
-    "typedoc": "~0.22.11",
+    "typedoc": "~0.24.1",
     "typescript": "~4.3.5"
   },
   "eslintConfig": {
