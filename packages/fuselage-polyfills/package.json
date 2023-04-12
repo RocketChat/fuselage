@@ -15,6 +15,7 @@
     "url": "https://github.com/RocketChat/fuselage/issues"
   },
   "main": "index.js",
+  "types": "index.d.ts",
   "publishConfig": {
     "access": "public"
   },
