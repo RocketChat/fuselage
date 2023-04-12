@@ -35,7 +35,6 @@
   },
   "scripts": {
     "build": "rollup -c",
-    "typecheck": "tsc --noEmit",
     "lint": "lint",
     "lint-and-fix": "lint-and-fix",
     "lint-staged": "lint-staged",

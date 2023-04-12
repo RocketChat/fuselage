@@ -28,7 +28,6 @@
   "scripts": {
     "clean": "rimraf dist",
     "build": "tsc -p tsconfig-esm.json && tsc -p tsconfig-cjs.json",
-    "typecheck": "tsc -p tsconfig-esm.json --noEmit",
     "lint": "lint",
     "lint-and-fix": "lint-and-fix",
     "lint-staged": "lint-staged",

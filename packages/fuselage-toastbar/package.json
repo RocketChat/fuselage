@@ -34,7 +34,6 @@
   ],
   "scripts": {
     "build": "run-s .:build:clean .:build:esm .:build:cjs",
-    "typecheck": "tsc --noEmit",
     ".:build:clean": "rimraf dist",
     ".:build:esm": "tsc -p tsconfig-esm.json",
     ".:build:cjs": "tsc -p tsconfig-cjs.json",
