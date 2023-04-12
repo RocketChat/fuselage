@@ -17,7 +17,7 @@
     "@rocket.chat/icons": "workspace:~",
     "@rocket.chat/logo": "workspace:~",
     "@rocket.chat/styled": "workspace:~",
-    "@types/jest": "^27.5.2",
+    "@types/jest": "^29.5.0",
     "@types/node": "~14.18.42",
     "@types/react": "^17.0.57",
     "@types/react-dom": "^17.0.19",

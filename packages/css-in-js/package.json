@@ -48,7 +48,7 @@
     "@rollup/plugin-json": "~4.1.0",
     "@rollup/plugin-node-resolve": "~13.1.3",
     "@rollup/plugin-typescript": "~8.3.4",
-    "@types/jest": "~27.4.1",
+    "@types/jest": "~29.5.0",
     "@types/stylis": "^4.0.2",
     "bump": "workspace:~",
     "eslint": "~8.38.0",

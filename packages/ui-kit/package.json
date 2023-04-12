@@ -43,7 +43,7 @@
     "@babel/preset-env": "~7.21.4",
     "@rocket.chat/eslint-config-alt": "workspace:~",
     "@rocket.chat/prettier-config": "workspace:~",
-    "@types/jest": "~27.4.1",
+    "@types/jest": "~29.5.0",
     "babel-loader": "~9.1.2",
     "bump": "workspace:~",
     "eslint": "~8.38.0",

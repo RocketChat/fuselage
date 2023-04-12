@@ -46,7 +46,7 @@
     "@rocket.chat/eslint-config-alt": "workspace:~",
     "@rocket.chat/fuselage-tokens": "workspace:~",
     "@rocket.chat/prettier-config": "workspace:~",
-    "@types/jest": "~27.4.1",
+    "@types/jest": "~29.5.0",
     "@types/react": "~17.0.57",
     "@types/react-dom": "^17.0.19",
     "build-logo": "workspace:~",
