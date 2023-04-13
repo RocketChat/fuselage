@@ -1,4 +1,4 @@
-import type { Placements } from '@rocket.chat/fuselage-hooks';
+import type { UsePositionOptions } from '@rocket.chat/fuselage-hooks';
 import type { ComponentProps, ElementType, ReactNode } from 'react';
 import React, { useRef, useCallback, useEffect } from 'react';
 
@@ -17,7 +17,7 @@ type MenuProps = Omit<ComponentProps<typeof IconButton>, 'icon'> & {
     };
   };
   optionWidth?: ComponentProps<typeof Box>['width'];
-  placement?: Placements;
+  placement?: UsePositionOptions['placement'];
   renderItem?: ElementType;
   icon?: ComponentProps<typeof IconButton>['icon'];
   maxHeight?: string | number;
