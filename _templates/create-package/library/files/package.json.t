@@ -31,8 +31,8 @@ to: packages/<%=package%>/package.json
   "scripts": {
     "clean": "rimraf dist",
     "build": "run .:build:esm && run .:build:cjs",
-    ".:build:esm": "tsc -p tsconfig-esm.json",
-    ".:build:cjs": "tsc -p tsconfig-cjs.json",
+    ".:build:esm": "tsc -p tsconfig.esm.json",
+    ".:build:cjs": "tsc -p tsconfig.cjs.json",
     "lint": "lint",
     "lint-and-fix": "lint-and-fix",
     "lint-staged": "lint-staged",
