@@ -25,22 +25,14 @@
     "declaration-block-no-redundant-longhand-properties": true,
     "declaration-block-no-shorthand-property-overrides": true,
     "declaration-block-single-line-max-declarations": 1,
-    "declaration-block-trailing-semicolon": "always",
     "font-family-no-duplicate-names": true,
     "function-linear-gradient-no-nonstandard-direction": true,
-    "function-max-empty-lines": 0,
     "function-name-case": "lower",
     "keyframe-declaration-no-important": true,
     "length-zero-no-unit": true,
-    "max-empty-lines": 1,
-    "media-feature-name-case": "lower",
     "media-feature-name-no-unknown": true,
     "no-duplicate-selectors": true,
     "no-empty-source": true,
-    "no-extra-semicolons": true,
-    "number-leading-zero": "always",
-    "number-no-trailing-zeros": true,
-    "property-case": "lower",
     "property-no-unknown": true,
     "rule-empty-line-before": [
       "always",
@@ -56,8 +48,6 @@
     "scss/at-mixin-pattern": "^-?([a-z][a-z0-9]+-)*[a-z][a-z0-9]+$",
     "scss/dollar-variable-pattern": "^-?([a-z][a-z0-9]+-)*[a-z][a-z0-9]+$",
     "scss/no-duplicate-mixins": true,
-    "selector-max-empty-lines": 0,
-    "selector-pseudo-class-case": "lower",
     "selector-pseudo-class-no-unknown": [
       true,
       {
@@ -66,15 +56,12 @@
         ]
       }
     ],
-    "selector-pseudo-element-case": "lower",
     "selector-pseudo-element-colon-notation": "double",
     "selector-pseudo-element-no-unknown": true,
     "selector-type-case": "lower",
     "selector-type-no-unknown": true,
     "shorthand-property-no-redundant-values": true,
-    "unit-case": "lower",
     "unit-no-unknown": true,
-    "value-list-max-empty-lines": 1,
     "order/properties-order": [
       [
         {

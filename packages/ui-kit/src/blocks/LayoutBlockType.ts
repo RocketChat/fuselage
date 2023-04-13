@@ -14,7 +14,7 @@ export enum LayoutBlockType {
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 type AssertEnumKeysFromBlockUnionTypes = {
-  [B in LayoutBlock as Uppercase<B['type']>]: typeof LayoutBlockType[Uppercase<
+  [B in LayoutBlock as Uppercase<
     B['type']
-  >];
+  >]: (typeof LayoutBlockType)[Uppercase<B['type']>];
 };

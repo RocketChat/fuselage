@@ -38,13 +38,13 @@
     "@rocket.chat/eslint-config-alt": "workspace:~",
     "@rocket.chat/prettier-config": "workspace:~",
     "bump": "workspace:~",
-    "eslint": "~8.26.0",
+    "eslint": "~8.38.0",
     "lint-all": "workspace:~",
-    "lint-staged": "~12.3.8",
-    "prettier": "~2.7.1",
+    "lint-staged": "~13.2.1",
+    "prettier": "~2.8.7",
     "rimraf": "~3.0.2",
-    "typedoc": "~0.22.18",
-    "typescript": "~4.9.4"
+    "typedoc": "~0.24.1",
+    "typescript": "~5.0.4"
   },
   "dependencies": {
     "@rocket.chat/memo": "workspace:~"

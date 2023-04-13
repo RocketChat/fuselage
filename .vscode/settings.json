@@ -10,11 +10,20 @@
     }
   ],
   "eslint.onIgnoredFiles": "warn",
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
-  },
   "eslint.options": {
     "extensions": [".js", ".jsx", ".md", ".mdx", ".ts", ".tsx", ".pegjs"]
+  },
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "markdown",
+    "mdx",
+    "pegjs"
+  ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
   },
   "editor.formatOnSave": true,
   "[typescript]": {

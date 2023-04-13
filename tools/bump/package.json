@@ -10,9 +10,9 @@
     "conventional-recommended-bump": "~6.1.0",
     "latest-version": "~6.0.0",
     "pkg-versions": "~2.1.0",
-    "prettier": "~2.7.1",
+    "prettier": "~2.8.7",
     "semver": "~7.3.8",
-    "standard-version": "^9.3.2",
-    "zx": "~4.3.0"
+    "standard-version": "^9.5.0",
+    "zx": "~7.2.1"
   }
 }
