@@ -1,3 +1,4 @@
+// @ts-nocheck TODO: wait for https://github.com/RocketChat/fuselage/pull/1027
 import type { AllHTMLAttributes, RefObject } from 'react';
 import { useState, useEffect, useRef } from 'react';
 
