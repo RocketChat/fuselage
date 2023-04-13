@@ -79,6 +79,8 @@ export function Slider<T extends number | [min: number, max: number]>(
       }
       return [0, 100] as T;
     }
+
+    return undefined;
   };
 
   const { defaultValue = getMultiThumbDefaultValue() } = props;

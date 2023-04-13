@@ -399,6 +399,8 @@ export const propDefs: Record<keyof StylingProps, PropDefinition> = {
             0px 0px 12px 0px ${Palette.shadow['shadow-elevation-2y']};
         `;
       }
+
+      return undefined;
     },
   },
   invisible: {
