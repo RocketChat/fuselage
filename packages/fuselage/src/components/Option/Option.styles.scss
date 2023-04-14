@@ -21,7 +21,9 @@ $variants: (
 
   display: list-item;
 
-  padding: lengths.padding(4) lengths.padding(12);
+  padding-block: lengths.padding(4);
+  padding-inline-start: lengths.padding(12);
+  padding-inline-end: lengths.padding(24);
 
   list-style: none;
 
@@ -32,7 +34,8 @@ $variants: (
 
     padding-block-start: lengths.padding(8);
     padding-block-end: lengths.padding(4);
-    padding-inline: lengths.padding(12);
+    padding-inline-start: lengths.padding(12);
+    padding-inline-end: lengths.padding(24);
 
     color: colors.font(default);
   }
