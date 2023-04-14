@@ -178,10 +178,6 @@ $sidebar-banner-color-danger: theme(
 
     color: $sidebar-item-color;
 
-    &--section {
-      padding-block-start: lengths.padding(4);
-    }
-
     &--toolbox {
       height: $sidebar-section-height;
     }
