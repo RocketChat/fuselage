@@ -8,6 +8,6 @@ module.exports = {
     'dist',
     'node_modules',
     'src/lame/*.js',
-    '!src/lame/Reservoir.js',
+    '!src/lame/Tables.js',
   ],
 };
