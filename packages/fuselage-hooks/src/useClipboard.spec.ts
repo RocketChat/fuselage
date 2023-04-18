@@ -3,7 +3,7 @@ import { withClipboardMock } from 'testing-utils/mocks/withClipboardMock';
 
 import { useClipboard } from './useClipboard';
 
-let container: Element;
+let container: Element | undefined;
 
 beforeAll(() => {
   jest.useFakeTimers();
@@ -15,8 +15,8 @@ beforeEach(() => {
 });
 
 afterEach(() => {
-  container.remove();
-  container = null;
+  container?.remove();
+  container = undefined;
 });
 
 const withWriteText = withClipboardMock();

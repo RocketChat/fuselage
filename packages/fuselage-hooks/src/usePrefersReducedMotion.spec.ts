@@ -5,7 +5,7 @@ import { usePrefersReducedMotion } from './usePrefersReducedMotion';
 
 const setViewport = withMatchMediaMock();
 
-let container: HTMLDivElement;
+let container: HTMLDivElement | undefined;
 
 beforeEach(() => {
   container = document.createElement('div');
@@ -13,8 +13,8 @@ beforeEach(() => {
 });
 
 afterEach(() => {
-  container.remove();
-  container = null;
+  container?.remove();
+  container = undefined;
 });
 
 it('returns false on the initial call', () => {

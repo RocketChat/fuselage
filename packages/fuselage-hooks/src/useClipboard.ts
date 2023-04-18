@@ -5,7 +5,7 @@ import { useMutableCallback } from './useMutableCallback';
 type UseClipboardParams = {
   clearTime?: number;
   onCopySuccess?: (e?: Event) => void;
-  onCopyError?: (e?: Event) => void;
+  onCopyError?: (e?: Error) => void;
 };
 
 export type UseClipboardReturn = {
@@ -36,7 +36,12 @@ export const useClipboard = (
       onCopySuccess(e);
       setHasCopied(true);
     } catch (e) {
-      onCopyError(e);
+      if (e instanceof Error) {
+        onCopyError(e);
+        return;
+      }
+
+      throw e;
     }
   });
 
