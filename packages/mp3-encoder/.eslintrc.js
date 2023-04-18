@@ -4,5 +4,10 @@ module.exports = {
   env: {
     jest: true,
   },
-  ignorePatterns: ['dist', 'node_modules', 'src/lame/*.js'],
+  ignorePatterns: [
+    'dist',
+    'node_modules',
+    'src/lame/*.js',
+    '!src/lame/common.js',
+  ],
 };
