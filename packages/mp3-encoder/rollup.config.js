@@ -2,10 +2,11 @@ const path = require('path');
 
 const commonjs = require('@rollup/plugin-commonjs');
 const resolve = require('@rollup/plugin-node-resolve');
-const typescript = require('@rollup/plugin-typescript');
+const typescript = require('@rollup/plugin-typescript').default;
 
 const pkg = require('./package.json');
 
+/** @type {import('rollup').RollupOptions[]} */
 module.exports = [
   {
     input: 'src/index.ts',
@@ -17,7 +18,9 @@ module.exports = [
       strict: false,
     },
     plugins: [
-      typescript({ declaration: true, declarationDir: 'dist/' }),
+      typescript({
+        tsconfig: 'tsconfig.build.json',
+      }),
       resolve(),
       commonjs(),
     ],
@@ -29,6 +32,12 @@ module.exports = [
       format: 'esm',
       sourcemap: true,
     },
-    plugins: [typescript(), resolve(), commonjs()],
+    plugins: [
+      typescript({
+        tsconfig: 'tsconfig.build.json',
+      }),
+      resolve(),
+      commonjs(),
+    ],
   },
 ];

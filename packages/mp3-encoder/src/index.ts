@@ -1,7 +1,5 @@
 import { Mp3Encoder } from 'lamejs';
 
-declare const self: any;
-
 type Config = {
   numChannels?: number;
   sampleRate?: number;
