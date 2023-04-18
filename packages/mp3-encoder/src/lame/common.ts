@@ -1,3 +1,5 @@
+import type { ArrayOf } from './ArrayOf';
+
 export function new_byte(count: number) {
   return new Int8Array(count);
 }
@@ -20,7 +22,7 @@ export function new_double(count: number) {
 
 type MultidimensionalTypedArray<
   N extends readonly number[],
-  T extends { [index: number]: any }
+  T extends ArrayOf<any>
 > = N extends readonly []
   ? []
   : N extends readonly [number]
@@ -94,14 +96,19 @@ export function new_array_n<T>(args: number[]) {
 }
 
 export class Arrays {
-  static fill<T>(a: T[], val: T): void;
+  static fill<T>(a: ArrayOf<T>, val: T): void;
 
-  static fill<T>(a: T[], fromIndex: number, toIndex: number, val: T): void;
+  static fill<T>(
+    a: ArrayOf<T>,
+    fromIndex: number,
+    toIndex: number,
+    val: T
+  ): void;
 
   static fill<T>(
     ...args:
-      | [a: T[], val: T]
-      | [a: T[], fromIndex: number, toIndex: number, val: T]
+      | [a: ArrayOf<T>, val: T]
+      | [a: ArrayOf<T>, fromIndex: number, toIndex: number, val: T]
   ) {
     if (args.length === 2) {
       const [a, val] = args;
