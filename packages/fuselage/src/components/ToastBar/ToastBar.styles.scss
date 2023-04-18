@@ -2,6 +2,8 @@
 @use '../../styles/lengths.scss';
 @use '../../styles/typography.scss';
 
+$toastbar-color: theme('toastbar-color', colors.font(default));
+
 $toastbar-border-radius: theme(
   'toastbar-border-radius',
   lengths.border-radius(medium)
@@ -22,11 +24,18 @@ $toastbar-background-color: theme(
   colors.surface(tint)
 );
 
+$toastbar-progressbar-background-color: theme(
+  'toastbar-progressbar-background-color',
+  colors.surface(neutral)
+);
+
 .rcx-toastbar {
   position: relative;
 
   min-width: lengths.size(232);
   max-width: lengths.size(416);
+
+  color: $toastbar-color;
 
   border-radius: $toastbar-border-radius;
 
@@ -100,7 +109,7 @@ $toastbar-background-color: theme(
 
       content: '';
 
-      background-color: colors.surface-neutral-alpha(10);
+      background-color: $toastbar-progressbar-background-color;
     }
   }
 }
