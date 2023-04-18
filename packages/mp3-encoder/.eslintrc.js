@@ -8,6 +8,6 @@ module.exports = {
     'dist',
     'node_modules',
     'src/lame/*.js',
-    '!src/lame/ID3TagSpec.js',
+    '!src/lame/MeanBits.js',
   ],
 };
