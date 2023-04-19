@@ -1,11 +1,14 @@
+import type QuantizePVT from './QuantizePVT';
+import type Takehiro from './Takehiro';
+
 class VBRQuantize {
-  private qupvt: unknown;
+  private qupvt: QuantizePVT = null as unknown as QuantizePVT;
 
-  private tak: unknown;
+  private tak: Takehiro = null as unknown as Takehiro;
 
-  setModules(_qupvt: unknown, _tk: unknown) {
-    this.qupvt = _qupvt;
-    this.tak = _tk;
+  setModules(qupvt: QuantizePVT, tk: Takehiro) {
+    this.qupvt = qupvt;
+    this.tak = tk;
   }
 }
 

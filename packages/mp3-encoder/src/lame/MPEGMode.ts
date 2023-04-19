@@ -1,10 +1,6 @@
 /* MPEG modes */
 class MPEGMode {
-  private constructor(private _ordinal: number) {}
-
-  ordinal() {
-    return this._ordinal;
-  }
+  private constructor(public readonly ordinal: number) {}
 
   static readonly STEREO = new MPEGMode(0);
 

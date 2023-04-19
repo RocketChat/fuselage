@@ -27,7 +27,7 @@ class VBRSeekInfo {
   /**
    * Pointer to our bag.
    */
-  bag = null;
+  bag: number[] = null as unknown as number[]; // TODO: fix this
 
   nVbrNumFrames = 0;
 

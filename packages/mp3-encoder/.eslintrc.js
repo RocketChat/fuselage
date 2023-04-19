@@ -4,10 +4,8 @@ module.exports = {
   env: {
     jest: true,
   },
-  ignorePatterns: [
-    'dist',
-    'node_modules',
-    'src/lame/*.js',
-    '!src/lame/Tables.js',
-  ],
+  rules: {
+    'new-cap': 'off',
+  },
+  ignorePatterns: ['dist', 'node_modules', 'src/lame/*.js'],
 };

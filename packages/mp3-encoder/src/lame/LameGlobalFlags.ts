@@ -1,4 +1,7 @@
+import type LameInternalFlags from './LameInternalFlags';
 import MPEGMode from './MPEGMode';
+import type { ShortBlock } from './ShortBlock';
+import type { VbrMode } from './VbrMode';
 
 class LameGlobalFlags {
   class_id = 0;
@@ -160,7 +163,7 @@ class LameGlobalFlags {
   preset = 0;
 
   /* VBR control */
-  VBR = null;
+  VBR: VbrMode | null = null;
 
   /**
    * Range [0,...,1[
@@ -260,7 +263,7 @@ class LameGlobalFlags {
    */
   athaa_sensitivity = 0;
 
-  short_blocks = null;
+  short_blocks: ShortBlock | null = null;
 
   /**
    * use temporal masking effect
@@ -316,7 +319,7 @@ class LameGlobalFlags {
   /** ************************************************************************/
   /* more internal variables are stored in this structure: */
   /** ************************************************************************/
-  internal_flags = null;
+  internal_flags: LameInternalFlags | null = null;
 }
 
 export default LameGlobalFlags;

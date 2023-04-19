@@ -1,29 +1,15 @@
+import type BitStream from './BitStream';
+import type GrInfo from './GrInfo';
+import type LameGlobalFlags from './LameGlobalFlags';
+import type LameInternalFlags from './LameInternalFlags';
 import type MeanBits from './MeanBits';
-
-type GFP = {
-  internal_flags: any;
-  brate: number;
-  out_samplerate: number;
-  strict_ISO: any;
-  disable_reservoir: any;
-};
-
-type GFC = { ResvSize: number; mode_gr?: any; ResvMax?: any; l3_side?: any };
-
-type GI = { part2_3_length: any; part2_length: any };
-
-type BitStream = {
-  __BitStream: never;
-  getframebits: (gfp: GFP) => number;
-};
-
-const int = (x: number) => 0 | x;
+import { int } from './int';
 
 class Reservoir {
   private bs: BitStream | undefined;
 
-  setModules(_bs: BitStream) {
-    this.bs = _bs;
+  setModules(bs: BitStream) {
+    this.bs = bs;
   }
 
   /**
@@ -66,8 +52,8 @@ class Reservoir {
    *     [, i.e. there is no buffering at all].
    * </PRE>
    */
-  ResvFrameBegin(gfp: GFP, mean_bits: MeanBits) {
-    const gfc = gfp.internal_flags;
+  ResvFrameBegin(gfp: LameGlobalFlags, mean_bits: MeanBits) {
+    const gfc = gfp.internal_flags!;
     let maxmp3buf;
     const { l3_side } = gfc;
 
@@ -159,7 +145,7 @@ class Reservoir {
     l3_side.resvDrain_pre = 0;
 
     // frame analyzer code
-    if (gfc.pinfo != null) {
+    if (gfc.pinfo !== null) {
       /*
        * expected bits per channel per granule [is this also right for
        * mono/stereo, MPEG-1/2 ?]
@@ -176,8 +162,13 @@ class Reservoir {
    * extra_bits: amount extra available from reservoir<BR>
    * Mark Taylor 4/99
    */
-  ResvMaxBits(gfp: GFP, mean_bits: number, targ_bits: MeanBits, cbr: number) {
-    const gfc = gfp.internal_flags;
+  ResvMaxBits(
+    gfp: LameGlobalFlags,
+    mean_bits: number,
+    targ_bits: MeanBits,
+    cbr: number
+  ) {
+    const gfc = gfp.internal_flags!;
     let add_bits;
     let { ResvSize } = gfc;
     let { ResvMax } = gfc;
@@ -219,7 +210,7 @@ class Reservoir {
    * Called after a granule's bit allocation. Readjusts the size of the
    * reservoir to reflect the granule's usage.
    */
-  ResvAdjust(gfc: GFC, gi: GI) {
+  ResvAdjust(gfc: LameInternalFlags, gi: GrInfo) {
     gfc.ResvSize -= gi.part2_3_length + gi.part2_length;
   }
 
@@ -227,7 +218,7 @@ class Reservoir {
    * Called after all granules in a frame have been allocated. Makes sure that
    * the reservoir size is within limits, possibly by adding stuffing bits.
    */
-  ResvFrameEnd(gfc: GFC, mean_bits: number) {
+  ResvFrameEnd(gfc: LameInternalFlags, mean_bits: number) {
     let over_bits;
     const { l3_side } = gfc;
 

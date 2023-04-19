@@ -61,9 +61,9 @@ class ReplayGain {
 
   first = 0;
 
-  A = new Int32Array(0 | (GainAnalysis.STEPS_per_dB * GainAnalysis.MAX_dB));
+  A = new Int32Array(GainAnalysis.STEPS_per_dB * GainAnalysis.MAX_dB);
 
-  B = new Int32Array(0 | (GainAnalysis.STEPS_per_dB * GainAnalysis.MAX_dB));
+  B = new Int32Array(GainAnalysis.STEPS_per_dB * GainAnalysis.MAX_dB);
 
   reqindex: number | undefined;
 }

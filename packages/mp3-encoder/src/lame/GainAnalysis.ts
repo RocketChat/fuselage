@@ -87,8 +87,9 @@
  *
  *  Optimization/clarity suggestions are welcome.
  */
+import { Arrays } from './Arrays';
 import type ReplayGain from './ReplayGain';
-import { System, Arrays } from './common';
+import { System } from './System';
 
 class GainAnalysis {
   /**

@@ -1,0 +1,28 @@
+export type PlottingData = {
+  over_SSD: any;
+  tot_noise: any;
+  over_noise: any;
+  max_noise: any;
+  over: any;
+  LAMEsfbits: any;
+  LAMEmainbits: any;
+  LAMEqss: any;
+  LAMEsfb_s: any;
+  thr_s: any;
+  xfsf_s: any;
+  en_s: any;
+  thr: any;
+  LAMEsfb: any;
+  xfsf: any;
+  en: any;
+  pcmdata: any;
+  energy: any;
+  ers: any;
+  xr: any;
+  ms_ener_ratio: any;
+  blocktype: any;
+  ms_ratio: any;
+  pe: any;
+  mean_bits: number;
+  resvsize: number;
+};
