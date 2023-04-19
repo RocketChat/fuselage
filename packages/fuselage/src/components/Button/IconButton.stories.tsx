@@ -38,6 +38,20 @@ export const _IconButton: ComponentStory<typeof IconButton> = () => (
 export const _IconButtonDisabled: ComponentStory<typeof IconButton> = () => (
   <IconButton icon='balloon' disabled />
 );
+export const _IconButtonWithEmoji: ComponentStory<typeof IconButton> = () => (
+  <IconButton
+    icon={
+      <div className='rcx-box rcx-box--full'>
+        <span
+          className='emojione emojione-diversity _1f918-1f3fe'
+          title=':metal_tone4:'
+        >
+          🤘🏾
+        </span>
+      </div>
+    }
+  />
+);
 
 export const Variants = () => (
   <>
