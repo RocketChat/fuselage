@@ -23,14 +23,9 @@ $sidebar-color-font-default: theme(
   colors.font(default)
 );
 
-$sidebar-color-font-primary: theme(
-  'sidebar-color-font-primary',
-  colors.font(annotation)
-);
-
-$sidebar-color-font-secondary: theme(
-  'sidebar-color-font-secondary',
-  colors.font(secondary-info)
+$sidebar-color-font-title: theme(
+  'sidebar-color-font-title',
+  colors.font(titles-labels)
 );
 
 $sidebar-color-stroke-default: theme(
@@ -163,7 +158,7 @@ $sidebar-banner-color-danger: theme(
 }
 
 .rcx-sidebar {
-  color: $sidebar-color-font-secondary;
+  color: $sidebar-color-font-default;
   background: $sidebar-color-surface-default;
 
   &--divider {
@@ -204,7 +199,7 @@ $sidebar-banner-color-danger: theme(
 
     &__title {
       @include typography.use-font-scale(p2m);
-      color: $sidebar-color-font-default;
+      color: $sidebar-color-font-title;
     }
   }
 
@@ -215,7 +210,7 @@ $sidebar-banner-color-danger: theme(
     padding-block: lengths.padding(4);
     padding-inline: lengths.padding(16);
 
-    color: $sidebar-color-font-secondary;
+    color: $sidebar-color-font-default;
 
     &__wrapper {
       @extend %sidebar-base;
@@ -351,7 +346,7 @@ $sidebar-banner-color-danger: theme(
     @include typography.use-font-scale(c2);
     @include typography.use-with-truncated-text();
 
-    color: $sidebar-color-font-secondary;
+    color: $sidebar-color-font-default;
   }
 
   &-section {

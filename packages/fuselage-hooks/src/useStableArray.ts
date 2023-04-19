@@ -47,6 +47,6 @@ export const useStableArray = <T extends unknown[]>(
   array: T,
   compare: <T>(a: T, b: T) => boolean = Object.is
 ): T => {
-  const ref = useRef(Array.isArray(array) ? array : ([] as T));
+  const ref = useRef(array);
   return getCurrentArray<T>(ref, array, compare);
 };

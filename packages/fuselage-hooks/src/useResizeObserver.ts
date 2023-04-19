@@ -22,16 +22,17 @@ type UseResizeObserverOptions = {
  * @public
  */
 export const useResizeObserver = <T extends Element>({
-  debounceDelay,
+  debounceDelay = 0,
 }: UseResizeObserverOptions = {}): {
   ref: RefObject<T>;
-  contentBoxSize: ResizeObserverSize;
-  borderBoxSize: ResizeObserverSize;
+  contentBoxSize: Partial<ResizeObserverSize>;
+  borderBoxSize: Partial<ResizeObserverSize>;
 } => {
-  const ref = useRef<T>();
+  const ref = useRef<T>(null);
+
   const [{ borderBoxSize, contentBoxSize }, setSizes] = useDebouncedState<{
-    borderBoxSize: ResizeObserverSize;
-    contentBoxSize: ResizeObserverSize;
+    borderBoxSize: Partial<ResizeObserverSize>;
+    contentBoxSize: Partial<ResizeObserverSize>;
   }>(
     {
       borderBoxSize: {
