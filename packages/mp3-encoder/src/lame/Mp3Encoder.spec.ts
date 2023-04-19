@@ -1,79 +1,102 @@
-import { readFile, open } from 'fs/promises';
+import { createHash } from 'crypto';
+import { readFile } from 'fs/promises';
 import { join } from 'path';
 
 import { Mp3Encoder } from './Mp3Encoder';
 import { WavHeader } from './WavHeader';
 
-const leftPath = join('testdata', 'Left44100.wav');
-const rightPath = join('testdata', 'Right44100.wav');
+let leftSampleBuffer: ArrayBufferLike;
+let rightSampleBuffer: ArrayBufferLike;
 
-test('stereo 44100 kHz', async () => {
-  const r1 = await readFile(leftPath);
-  const r2 = await readFile(rightPath);
-  const fd = await open(join('testdata', 'stereo.mp3'), 'w');
+beforeAll(async () => {
+  const leftPath = join('testdata', 'Left44100.wav');
+  const rightPath = join('testdata', 'Right44100.wav');
 
-  const sampleBuf1 = new Uint8Array(r1).buffer;
-  const sampleBuf2 = new Uint8Array(r2).buffer;
-  const w1 = WavHeader.readHeader(new DataView(sampleBuf1));
-  const w2 = WavHeader.readHeader(new DataView(sampleBuf2));
-
-  const samples1 = new Int16Array(sampleBuf1, w1.dataOffset, w1.dataLen / 2);
-  const samples2 = new Int16Array(sampleBuf2, w2.dataOffset, w2.dataLen / 2);
-  let remaining1 = samples1.length;
-  const remaining2 = samples2.length;
-  expect(remaining1).toBe(remaining2);
-  expect(w1.sampleRate).toBe(w2.sampleRate);
-
-  const lameEnc = new Mp3Encoder(2, w1.sampleRate, 128);
-  const maxSamples = 1152;
-
-  let time = new Date().getTime();
-  for (let i = 0; remaining1 >= maxSamples; i += maxSamples) {
-    const left = samples1.subarray(i, i + maxSamples);
-    const right = samples2.subarray(i, i + maxSamples);
-
-    const mp3buf = lameEnc.encodeBuffer(left, right);
-    if (mp3buf.length > 0) {
-      // eslint-disable-next-line no-await-in-loop
-      await fd.write(Buffer.from(mp3buf), 0, mp3buf.length);
-    }
-    remaining1 -= maxSamples;
-  }
-  const mp3buf = lameEnc.flush();
-  if (mp3buf.length > 0) {
-    await fd.write(Buffer.from(mp3buf), 0, mp3buf.length);
-  }
-  await fd.close();
-  time = new Date().getTime() - time;
-  console.log(`done in ${time}msec`);
+  leftSampleBuffer = new Uint8Array(await readFile(leftPath)).buffer;
+  rightSampleBuffer = new Uint8Array(await readFile(rightPath)).buffer;
 });
 
-test('full length', async () => {
-  const r = await readFile(leftPath);
-  const sampleBuf = new Uint8Array(r).buffer;
-  const w = WavHeader.readHeader(new DataView(sampleBuf));
-  const samples = new Int16Array(sampleBuf, w.dataOffset, w.dataLen / 2);
-  let remaining = samples.length;
-  const lameEnc = new Mp3Encoder();
+test('mono', async () => {
+  const waveHeader = WavHeader.readHeader(new DataView(leftSampleBuffer));
+  const samples = new Int16Array(
+    leftSampleBuffer,
+    waveHeader.dataOffset,
+    waveHeader.dataLen / 2
+  );
+
+  const hash = createHash('sha1');
+  hash.setEncoding('hex');
+
+  let remainingSamples = samples.length;
+
+  const encoder = new Mp3Encoder();
   const maxSamples = 1152;
 
-  const fd = await open(join('testdata', 'testjs2.mp3'), 'w');
-  let time = new Date().getTime();
-  for (let i = 0; remaining >= maxSamples; i += maxSamples) {
+  for (let i = 0; remainingSamples >= maxSamples; i += maxSamples) {
     const left = samples.subarray(i, i + maxSamples);
     const right = samples.subarray(i, i + maxSamples);
 
-    const mp3buf = lameEnc.encodeBuffer(left, right);
+    const mp3buf = encoder.encodeBuffer(left, right);
     if (mp3buf.length > 0) {
-      fd.write(Buffer.from(mp3buf), 0, mp3buf.length);
+      hash.write(Buffer.from(mp3buf));
     }
-    remaining -= maxSamples;
+    remainingSamples -= maxSamples;
   }
-  const mp3buf = lameEnc.flush();
+
+  const mp3buf = encoder.flush();
   if (mp3buf.length > 0) {
-    fd.write(Buffer.from(mp3buf), 0, mp3buf.length);
+    hash.write(Buffer.from(mp3buf));
   }
-  fd.close();
-  time = new Date().getTime() - time;
-  console.log(`done in ${time}msec`);
+
+  hash.end();
+
+  expect(hash.read()).toBe('ca9292fc5fea3ba4cb07c4a0ba60cf0c267b783b');
+});
+
+test('stereo', async () => {
+  const leftWaveHeader = WavHeader.readHeader(new DataView(leftSampleBuffer));
+  const rightWaveHeader = WavHeader.readHeader(new DataView(rightSampleBuffer));
+
+  expect(leftWaveHeader.sampleRate).toBe(rightWaveHeader.sampleRate);
+
+  const leftSamples = new Int16Array(
+    leftSampleBuffer,
+    leftWaveHeader.dataOffset,
+    leftWaveHeader.dataLen / 2
+  );
+  const rightSamples = new Int16Array(
+    rightSampleBuffer,
+    rightWaveHeader.dataOffset,
+    rightWaveHeader.dataLen / 2
+  );
+
+  expect(leftSamples.length).toBe(rightSamples.length);
+
+  const hash = createHash('sha1');
+  hash.setEncoding('hex');
+
+  let remainingSamples = leftSamples.length;
+
+  const encoder = new Mp3Encoder(2, leftWaveHeader.sampleRate, 128);
+  const maxSamples = 1152;
+
+  for (let i = 0; remainingSamples >= maxSamples; i += maxSamples) {
+    const left = leftSamples.subarray(i, i + maxSamples);
+    const right = rightSamples.subarray(i, i + maxSamples);
+
+    const mp3buf = encoder.encodeBuffer(left, right);
+    if (mp3buf.length > 0) {
+      hash.write(Buffer.from(mp3buf));
+    }
+    remainingSamples -= maxSamples;
+  }
+
+  const mp3buf = encoder.flush();
+  if (mp3buf.length > 0) {
+    hash.write(Buffer.from(mp3buf));
+  }
+
+  hash.end();
+
+  expect(hash.read()).toBe('ab6daeb1c563389cafacc0ec4ed963ee8ae8e8d7');
 });
