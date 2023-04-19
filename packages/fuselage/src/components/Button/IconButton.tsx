@@ -1,5 +1,5 @@
-import type { ComponentProps, ReactNode, Ref } from 'react';
-import React, { useMemo, forwardRef } from 'react';
+import type { ComponentProps, ReactElement, Ref } from 'react';
+import React, { isValidElement, useMemo, forwardRef } from 'react';
 
 import Box from '../Box';
 import { Icon } from '../Icon';
@@ -11,8 +11,7 @@ type ButtonSize = {
 };
 
 type IconButtonProps = {
-  icon: ComponentProps<typeof Icon>['name'];
-  children?: ReactNode;
+  icon: ComponentProps<typeof Icon>['name'] | ReactElement;
   primary?: boolean;
   secondary?: boolean;
   info?: boolean;
@@ -28,7 +27,6 @@ export const IconButton = forwardRef(
   (
     {
       icon,
-      children,
       primary,
       info,
       secondary,
@@ -77,8 +75,14 @@ export const IconButton = forwardRef(
         ref={ref}
         {...props}
       >
-        {children}
-        <Icon name={icon} size={getSize({ mini })} />
+        {isValidElement(icon) ? (
+          icon
+        ) : (
+          <Icon
+            name={icon as ComponentProps<typeof Icon>['name']}
+            size={getSize({ mini })}
+          />
+        )}
       </Box>
     );
   }
