@@ -7,8 +7,8 @@ import { VbrMode } from './VbrMode';
 export class Presets {
   private lame: Lame | null = null;
 
-  setModules(_lame: Lame) {
-    this.lame = _lame;
+  setModules(lame: Lame) {
+    this.lame = lame;
   }
 
   /**

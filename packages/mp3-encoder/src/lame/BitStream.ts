@@ -1,4 +1,3 @@
-import type { ArrayOf } from './ArrayOf';
 import { copyArray, fillArray } from './Arrays';
 import { GainAnalysis } from './GainAnalysis';
 import type { GrInfo } from './GrInfo';
@@ -9,13 +8,13 @@ import { Tables } from './Tables';
 import { Takehiro } from './Takehiro';
 import { TotalBytes } from './TotalBytes';
 import type { VBRTag } from './VBRTag';
-import type { Version } from './Version';
 import {
   CRC16_POLYNOMIAL,
   LAME_MAXMP3BUFFER,
   NORM_TYPE,
   SHORT_TYPE,
 } from './constants';
+import { getLameShortVersion } from './getLameShortVersion';
 import { isCloseToEachOther } from './isCloseToEachOther';
 
 export class BitStream {
@@ -29,21 +28,18 @@ export class BitStream {
 
   private mpg: MPGLib | null = null;
 
-  private ver: Version | null = null;
-
   private vbr: VBRTag | null = null;
 
-  setModules(ga: GainAnalysis, mpg: MPGLib, ver: Version, vbr: VBRTag) {
+  setModules(ga: GainAnalysis, mpg: MPGLib, vbr: VBRTag) {
     this.ga = ga;
     this.mpg = mpg;
-    this.ver = ver;
     this.vbr = vbr;
   }
 
   /**
    * Bit stream buffer.
    */
-  private buf: ArrayOf<number> | null = null;
+  private buf: Uint8Array | null = null;
 
   /**
    * Bit counter of bit stream.
@@ -184,7 +180,7 @@ export class BitStream {
     }
 
     if (remainingBits >= 32) {
-      const version = this.ver!.getLameShortVersion();
+      const version = getLameShortVersion();
       if (remainingBits >= 32)
         for (i = 0; i < version.length && remainingBits >= 8; ++i) {
           remainingBits -= 8;
@@ -229,7 +225,7 @@ export class BitStream {
     return crc;
   }
 
-  CRC_writeheader(gfc: LameInternalFlags, header: ArrayOf<number>) {
+  CRC_writeheader(gfc: LameInternalFlags, header: Uint8Array) {
     let crc = 0xffff;
     /* (jo) init crc16 for error_protection */
 
@@ -896,7 +892,7 @@ export class BitStream {
    */
   copy_buffer(
     gfc: LameInternalFlags,
-    buffer: ArrayOf<number>,
+    buffer: Uint8Array,
     bufferPos: number,
     size: number,
     mp3data: number
@@ -989,7 +985,7 @@ export class BitStream {
 
             if (gfc.findReplayGain)
               if (
-                this.ga!.AnalyzeSamples(
+                this.ga!.analyzeSamples(
                   gfc.rgdata!,
                   pcm_buf[0],
                   0,
@@ -1012,7 +1008,7 @@ export class BitStream {
   }
 
   init_bit_stream_w(gfc: LameInternalFlags) {
-    this.buf = new Int8Array(LAME_MAXMP3BUFFER);
+    this.buf = new Uint8Array(LAME_MAXMP3BUFFER);
 
     gfc.w_ptr = 0;
     gfc.h_ptr = 0;
@@ -1020,9 +1016,5 @@ export class BitStream {
     this.bufByteIdx = -1;
     this.bufBitIdx = 0;
     this.totbit = 0;
-  }
-
-  static NEQ(a: number, b: number) {
-    return !isCloseToEachOther(a, b);
   }
 }

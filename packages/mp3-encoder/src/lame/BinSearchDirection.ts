@@ -1,9 +1,7 @@
-export class BinSearchDirection {
-  constructor(public readonly ordinal: number) {}
+export const enum BinSearchDirection {
+  BINSEARCH_NONE,
 
-  static readonly BINSEARCH_NONE = new BinSearchDirection(0);
+  BINSEARCH_UP,
 
-  static readonly BINSEARCH_UP = new BinSearchDirection(1);
-
-  static readonly BINSEARCH_DOWN = new BinSearchDirection(2);
+  BINSEARCH_DOWN,
 }

@@ -22,7 +22,6 @@
  * Boston, MA 02111-1307, USA.
  */
 
-import type { ArrayOf } from './ArrayOf';
 import { copyArray } from './Arrays';
 import type { CalcNoiseData } from './CalcNoiseData';
 import { CalcNoiseResult } from './CalcNoiseResult';
@@ -503,8 +502,8 @@ export class QuantizePVT {
    */
   on_pe(
     gfp: LameGlobalFlags,
-    pe: ArrayOf<number>[],
-    targ_bits: ArrayOf<number>,
+    pe: number[][],
+    targ_bits: Int32Array,
     mean_bits: number,
     gr: number,
     cbr: number
@@ -579,7 +578,7 @@ export class QuantizePVT {
   }
 
   reduce_side(
-    targ_bits: ArrayOf<number>,
+    targ_bits: Int32Array,
     ms_ener_ratio: number,
     mean_bits: number,
     max_bits: number
@@ -668,7 +667,7 @@ export class QuantizePVT {
     gfp: LameGlobalFlags,
     ratio: III_psy_ratio,
     cod_info: GrInfo,
-    pxmin: ArrayOf<number>
+    pxmin: Float32Array
   ) {
     let pxminPos = 0;
     const gfc = gfp.internal_flags!;
@@ -879,8 +878,8 @@ export class QuantizePVT {
    */
   calc_noise(
     cod_info: GrInfo,
-    l3_xmin: ArrayOf<number>,
-    distort: ArrayOf<number>,
+    l3_xmin: Float32Array,
+    distort: Float32Array,
     res: CalcNoiseResult,
     prev_noise: CalcNoiseData | null
   ) {
@@ -983,21 +982,12 @@ export class QuantizePVT {
    *
    * Robert Hegemann: moved noise/distortion calc into it
    */
-  set_pinfo(
-    gfp: LameGlobalFlags,
-    cod_info: GrInfo,
-    ratio: III_psy_ratio,
-    gr: number,
-    ch: number
-  ) {
+  set_pinfo(gfp: LameGlobalFlags, cod_info: GrInfo, ratio: III_psy_ratio) {
     const gfc = gfp.internal_flags!;
     let sfb;
     let sfb2;
     let l;
     let en0;
-    let en1;
-    const ifqstep = cod_info.scalefac_scale === 0 ? 0.5 : 1.0;
-    const { scalefac } = cod_info;
 
     const l3_xmin = new Float32Array(SFBMAX);
     const xfsf = new Float32Array(SFBMAX);
@@ -1018,26 +1008,9 @@ export class QuantizePVT {
       en0 /= bw;
       /* convert to MDCT units */
       /* scaling so it shows up on FFT plot */
-      en1 = 1e15;
-      gfc.pinfo!.en[gr][ch][sfb] = en1 * en0;
-      gfc.pinfo!.xfsf[gr][ch][sfb] = (en1 * l3_xmin[sfb] * xfsf[sfb]) / bw;
 
       if (ratio.en.l[sfb] > 0 && !gfp.ATHonly) en0 /= ratio.en.l[sfb];
       else en0 = 0.0;
-
-      gfc.pinfo!.thr[gr][ch][sfb] =
-        en1 * Math.max(en0 * ratio.thm.l[sfb], gfc.ATH!.l[sfb]);
-
-      /* there is no scalefactor bands >= SBPSY_l */
-      gfc.pinfo!.LAMEsfb[gr][ch][sfb] = 0;
-      if (cod_info.preflag !== 0 && sfb >= 11)
-        gfc.pinfo!.LAMEsfb[gr][ch][sfb] = -ifqstep * this.pretab[sfb];
-
-      if (sfb < SBPSY_l) {
-        /* scfsi should be decoded by caller side */
-        console.assert(scalefac[sfb] >= 0);
-        gfc.pinfo!.LAMEsfb[gr][ch][sfb] -= ifqstep * scalefac[sfb];
-      }
     }
     /* for sfb */
 
@@ -1055,40 +1028,15 @@ export class QuantizePVT {
           en0 = Math.max(en0 / bw, 1e-20);
           /* convert to MDCT units */
           /* scaling so it shows up on FFT plot */
-          en1 = 1e15;
 
-          gfc.pinfo!.en_s[gr][ch][3 * sfb + i] = en1 * en0;
-          gfc.pinfo!.xfsf_s[gr][ch][3 * sfb + i] =
-            (en1 * l3_xmin[sfb2] * xfsf[sfb2]) / bw;
           if (ratio.en.s[sfb][i] > 0) en0 /= ratio.en.s[sfb][i];
           else en0 = 0.0;
           if (gfp.ATHonly || gfp.ATHshort) en0 = 0;
 
-          gfc.pinfo!.thr_s[gr][ch][3 * sfb + i] =
-            en1 * Math.max(en0 * ratio.thm.s[sfb][i], gfc.ATH!.s[sfb]);
-
-          /* there is no scalefactor bands >= SBPSY_s */
-          gfc.pinfo!.LAMEsfb_s[gr][ch][3 * sfb + i] =
-            -2.0 * cod_info.subblock_gain[i];
-          if (sfb < SBPSY_s) {
-            gfc.pinfo!.LAMEsfb_s[gr][ch][3 * sfb + i] -=
-              ifqstep * scalefac[sfb2];
-          }
           sfb2++;
         }
       }
     }
-    /* block type short */
-    gfc.pinfo!.LAMEqss[gr][ch] = cod_info.global_gain;
-    gfc.pinfo!.LAMEmainbits[gr][ch] =
-      cod_info.part2_3_length + cod_info.part2_length;
-    gfc.pinfo!.LAMEsfbits[gr][ch] = cod_info.part2_length;
-
-    gfc.pinfo!.over[gr][ch] = noise.over_count;
-    gfc.pinfo!.max_noise[gr][ch] = noise.max_noise * 10.0;
-    gfc.pinfo!.over_noise[gr][ch] = noise.over_noise * 10.0;
-    gfc.pinfo!.tot_noise[gr][ch] = noise.tot_noise * 10.0;
-    gfc.pinfo!.over_SSD[gr][ch] = noise.over_SSD;
   }
 
   /**
@@ -1122,7 +1070,7 @@ export class QuantizePVT {
           }
         }
 
-        this.set_pinfo(gfp, cod_info, ratio[gr][ch], gr, ch);
+        this.set_pinfo(gfp, cod_info, ratio[gr][ch]);
         copyArray(scalefac_sav, 0, cod_info.scalefac, 0, scalefac_sav.length);
       }
       /* for ch */

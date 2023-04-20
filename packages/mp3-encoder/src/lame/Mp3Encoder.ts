@@ -1,24 +1,19 @@
 import { BitStream } from './BitStream';
 import { GainAnalysis } from './GainAnalysis';
-import { GetAudio } from './GetAudio';
 import { ID3Tag } from './ID3Tag';
 import { Lame } from './Lame';
 import type { LameGlobalFlags } from './LameGlobalFlags';
 import { MPEGMode } from './MPEGMode';
 import { MPGLib } from './MPGLib';
-import { Parse } from './Parse';
 import { Presets } from './Presets';
 import { Quantize } from './Quantize';
 import { QuantizePVT } from './QuantizePVT';
 import { Reservoir } from './Reservoir';
 import { Takehiro } from './Takehiro';
 import { VBRTag } from './VBRTag';
-import { Version } from './Version';
 
 export class Mp3Encoder {
   private readonly lame: Lame;
-
-  private readonly gaud: GetAudio;
 
   private readonly ga: GainAnalysis;
 
@@ -32,15 +27,11 @@ export class Mp3Encoder {
 
   private readonly vbr: VBRTag;
 
-  private readonly ver: Version;
-
   private readonly id3: ID3Tag;
 
   private readonly rv: Reservoir;
 
   private readonly tak: Takehiro;
-
-  private readonly parse: Parse;
 
   private readonly mpg: MPGLib;
 
@@ -54,18 +45,15 @@ export class Mp3Encoder {
 
   constructor(channels = 1, samplerate = 44100, kbps = 128) {
     this.lame = new Lame();
-    this.gaud = new GetAudio();
     this.ga = new GainAnalysis();
     this.bs = new BitStream();
     this.p = new Presets();
     this.qupvt = new QuantizePVT();
     this.qu = new Quantize();
     this.vbr = new VBRTag();
-    this.ver = new Version();
     this.id3 = new ID3Tag();
     this.rv = new Reservoir();
     this.tak = new Takehiro();
-    this.parse = new Parse();
     this.mpg = new MPGLib();
 
     this.lame.setModules(
@@ -75,20 +63,16 @@ export class Mp3Encoder {
       this.qupvt,
       this.qu,
       this.vbr,
-      this.ver,
       this.id3,
       this.mpg
     );
-    this.bs.setModules(this.ga, this.mpg, this.ver, this.vbr);
-    this.id3.setModules(this.bs, this.ver);
+    this.bs.setModules(this.ga, this.mpg, this.vbr);
     this.p.setModules(this.lame);
-    this.qu.setModules(this.bs, this.rv, this.qupvt, this.tak);
+    this.qu.setModules(this.rv, this.qupvt, this.tak);
     this.qupvt.setModules(this.tak, this.rv, this.lame.enc.psy!);
     this.rv.setModules(this.bs);
     this.tak.setModules(this.qupvt);
-    this.vbr.setModules(this.lame, this.bs, this.ver);
-    this.gaud.setModules(this.parse, this.mpg);
-    this.parse.setModules(this.ver, this.id3, this.p);
+    this.vbr.setModules(this.lame, this.bs);
 
     this.gfp = this.lame.lame_init();
 

@@ -1,5 +1,3 @@
-import type { ArrayOf } from './ArrayOf';
-
 type TypedArray =
   | Int8Array
   | Uint8Array
@@ -38,28 +36,24 @@ export function copyArray<T>(
   while (srcPos < srcEnd) dest[destPos++] = src[srcPos++];
 }
 
-export function sortArray<T extends ArrayOf<any>>(
-  a: T,
-  fromIndex: number,
-  toIndex: number
-) {
+export function sortArray(a: TypedArray, fromIndex: number, toIndex: number) {
   const sorted = Array.from(a).slice(fromIndex, toIndex).sort();
   for (let i = fromIndex; i < toIndex; i++) {
     a[i] = sorted[i - fromIndex];
   }
 }
 
-export function fillArray<T>(a: ArrayOf<T>, val: T): void;
-export function fillArray<T>(
-  a: ArrayOf<T>,
+export function fillArray(a: TypedArray, val: number): void;
+export function fillArray(
+  a: TypedArray,
   fromIndex: number,
   toIndex: number,
-  val: T
+  val: number
 ): void;
-export function fillArray<T>(
+export function fillArray(
   ...args:
-    | [a: ArrayOf<T>, val: T]
-    | [a: ArrayOf<T>, fromIndex: number, toIndex: number, val: T]
+    | [a: TypedArray, val: number]
+    | [a: TypedArray, fromIndex: number, toIndex: number, val: number]
 ) {
   if (args.length === 2) {
     const [a, val] = args;

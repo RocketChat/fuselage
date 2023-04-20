@@ -1,4 +1,3 @@
-import type { ArrayOf } from './ArrayOf';
 import { SFBMAX } from './constants';
 
 export class GrInfo {
@@ -64,7 +63,7 @@ export class GrInfo {
   /**
    * added for LSF
    */
-  sfb_partition_table: ArrayOf<number> | null = null;
+  sfb_partition_table: number[] | null = null;
 
   slen = new Int32Array(4);
 

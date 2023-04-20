@@ -1,5 +1,3 @@
-import type { ArrayOf } from './ArrayOf';
-
 export class VBRSeekInfo {
   /**
    * What we have seen so far.
@@ -29,7 +27,7 @@ export class VBRSeekInfo {
   /**
    * Pointer to our bag.
    */
-  bag: ArrayOf<number> | null = null;
+  bag: number[] | null = null;
 
   nVbrNumFrames = 0;
 

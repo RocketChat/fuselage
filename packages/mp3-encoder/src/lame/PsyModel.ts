@@ -1,30 +1,4 @@
 /*
- *      psymodel.c
- *
- *      Copyright (c) 1999-2000 Mark Taylor
- *      Copyright (c) 2001-2002 Naoki Shibata
- *      Copyright (c) 2000-2003 Takehiro Tominaga
- *      Copyright (c) 2000-2008 Robert Hegemann
- *      Copyright (c) 2000-2005 Gabriel Bouvigne
- *      Copyright (c) 2000-2005 Alexander Leidinger
- *
- * This library is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 2 of the License, or (at your option) any later version.
- *
- * This library is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Library General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public
- * License along with this library; if not, write to the
- * Free Software Foundation, Inc., 59 Temple Place - Suite 330,
- * Boston, MA 02111-1307, USA.
- */
-
-/*
  PSYCHO ACOUSTICS
 
 
@@ -134,7 +108,6 @@
  blocktype_d[2]        block type to use for previous granule
  */
 
-import type { ArrayOf } from './ArrayOf';
 import { fillArray } from './Arrays';
 import { FFT } from './FFT';
 import type { III_psy_ratio } from './III_psy_ratio';
@@ -149,6 +122,7 @@ import {
   CBANDS,
   HBLKSIZE,
   HBLKSIZE_s,
+  LOG10,
   MAX_FLOAT32_VALUE,
   NORM_TYPE,
   SBMAX_l,
@@ -160,8 +134,6 @@ import {
 
 export class PsyModel {
   private readonly fft = new FFT();
-
-  private static readonly LOG10 = 2.302585092994046;
 
   private readonly rpelev = 2;
 
@@ -239,10 +211,7 @@ export class PsyModel {
    *             However, the potential gain may not be enough to justify an effort.
    * </PRE>
    */
-  private psycho_loudness_approx(
-    energy: ArrayOf<number>,
-    gfc: LameInternalFlags
-  ) {
+  private psycho_loudness_approx(energy: Float32Array, gfc: LameInternalFlags) {
     let loudness_power = 0.0;
     /* apply weights to power in freq. bands */
     for (let i = 0; i < BLKSIZE / 2; ++i)
@@ -254,15 +223,15 @@ export class PsyModel {
 
   private compute_ffts(
     gfp: LameGlobalFlags,
-    fftenergy: ArrayOf<number>,
-    fftenergy_s: ArrayOf<number>[],
-    wsamp_l: ArrayOf<number>[],
+    fftenergy: Float32Array,
+    fftenergy_s: Float32Array[],
+    wsamp_l: Float32Array[],
     wsamp_lPos: number,
-    wsamp_s: ArrayOf<number>[][],
+    wsamp_s: Float32Array[][],
     wsamp_sPos: number,
     gr_out: number,
     chn: number,
-    buffer: ArrayOf<number>[],
+    buffer: Float32Array[],
     bufPos: number
   ) {
     const gfc = gfp.internal_flags!;
@@ -313,14 +282,6 @@ export class PsyModel {
       for (let j = 11; j < HBLKSIZE; j++) totalenergy += fftenergy[j];
 
       gfc.tot_ener[chn] = totalenergy;
-    }
-
-    if (gfp.analysis) {
-      for (let j = 0; j < HBLKSIZE; j++) {
-        gfc.pinfo!.energy[gr_out][chn][j] = gfc.pinfo!.energy_save[chn][j];
-        gfc.pinfo!.energy_save[chn][j] = fftenergy[j];
-      }
-      gfc.pinfo!.pe[gr_out][chn] = gfc.pe[chn];
     }
 
     /** *******************************************************************
@@ -712,8 +673,8 @@ export class PsyModel {
    */
   private convert_partition2scalefac_s(
     gfc: LameInternalFlags,
-    eb: ArrayOf<number>,
-    thr: ArrayOf<number>,
+    eb: Float32Array,
+    thr: Float32Array,
     chn: number,
     sblock: number
   ) {
@@ -767,8 +728,8 @@ export class PsyModel {
    */
   private convert_partition2scalefac_l(
     gfc: LameInternalFlags,
-    eb: ArrayOf<number>,
-    thr: ArrayOf<number>,
+    eb: Float32Array,
+    thr: Float32Array,
     chn: number
   ) {
     let sb = 0;
@@ -817,9 +778,9 @@ export class PsyModel {
 
   private compute_masking_s(
     gfp: LameGlobalFlags,
-    fftenergy_s: ArrayOf<number>[],
-    eb: ArrayOf<number>,
-    thr: ArrayOf<number>,
+    fftenergy_s: Float32Array[],
+    eb: Float32Array,
+    thr: Float32Array,
     chn: number,
     sblock: number
   ) {
@@ -875,9 +836,9 @@ export class PsyModel {
 
   private block_type_set(
     gfp: LameGlobalFlags,
-    uselongblock: ArrayOf<number>,
-    blocktype_d: ArrayOf<number>,
-    blocktype: ArrayOf<number>
+    uselongblock: Int32Array,
+    blocktype_d: Int32Array,
+    blocktype: Int32Array
   ) {
     const gfc = gfp.internal_flags!;
 
@@ -959,7 +920,7 @@ export class PsyModel {
           const en = mr.en.s[sb][sblock];
           if (en > x) {
             if (en > x * 1e10) {
-              pe_s += this.regcoef_s[sb] * (10.0 * PsyModel.LOG10);
+              pe_s += this.regcoef_s[sb] * (10.0 * LOG10);
             } else {
               console.assert(x > 0);
               pe_s += this.regcoef_s[sb] * Math.log10(en / x);
@@ -991,7 +952,7 @@ export class PsyModel {
         const en = mr.en.l[sb];
         if (en > x) {
           if (en > x * 1e10) {
-            pe_l += this.regcoef_l[sb] * (10.0 * PsyModel.LOG10);
+            pe_l += this.regcoef_l[sb] * (10.0 * LOG10);
           } else {
             console.assert(x > 0);
             pe_l += this.regcoef_l[sb] * Math.log10(en / x);
@@ -1004,10 +965,10 @@ export class PsyModel {
 
   private calc_energy(
     gfc: LameInternalFlags,
-    fftenergy: ArrayOf<number>,
-    eb: ArrayOf<number>,
-    max: ArrayOf<number>,
-    avg: ArrayOf<number>
+    fftenergy: Float32Array,
+    eb: Float32Array,
+    max: Float32Array,
+    avg: Float32Array
   ) {
     let b = 0;
     let j = 0;
@@ -1035,9 +996,9 @@ export class PsyModel {
 
   private calc_mask_index_l(
     gfc: LameInternalFlags,
-    max: ArrayOf<number>,
-    avg: ArrayOf<number>,
-    mask_idx: ArrayOf<number>
+    max: Float32Array,
+    avg: Float32Array,
+    mask_idx: Int32Array
   ) {
     const last_tab_entry = this.tab.length - 1;
     let b = 0;
@@ -1122,15 +1083,15 @@ export class PsyModel {
   // eslint-disable-next-line complexity
   L3psycho_anal_ns(
     gfp: LameGlobalFlags,
-    buffer: ArrayOf<number>[],
+    buffer: Float32Array[],
     bufPos: number,
     gr_out: number,
     masking_ratio: III_psy_ratio[][],
     masking_MS_ratio: III_psy_ratio[][],
-    percep_entropy: ArrayOf<number>,
-    percep_MS_entropy: ArrayOf<number>,
-    energy: ArrayOf<number>,
-    blocktype_d: ArrayOf<number>
+    percep_entropy: number[],
+    percep_MS_entropy: number[],
+    energy: Float32Array,
+    blocktype_d: Int32Array
   ) {
     /*
      * to get a good cache performance, one has to think about the sequence,
@@ -1292,8 +1253,6 @@ export class PsyModel {
         let x = attack_intensity[0];
         for (i = 1; i < 12; i++)
           if (x < attack_intensity[i]) x = attack_intensity[i];
-        gfc.pinfo!.ers[gr_out][chn] = gfc.pinfo!.ers_save[chn];
-        gfc.pinfo!.ers_save[chn] = x;
       }
 
       /* compare energies between sub-shortblocks */
@@ -1539,20 +1498,18 @@ export class PsyModel {
       if (type === SHORT_TYPE)
         ppe[ppePos + chn] = this.pecalc_s(mr, gfc.masking_lower);
       else ppe[ppePos + chn] = this.pecalc_l(mr, gfc.masking_lower);
-
-      if (gfp.analysis) gfc.pinfo!.pe[gr_out][chn] = ppe[ppePos + chn];
     }
     return 0;
   }
 
   private vbrpsy_compute_fft_l(
     gfp: LameGlobalFlags,
-    buffer: ArrayOf<number>[],
+    buffer: Float32Array[],
     bufPos: number,
     chn: number,
     gr_out: number,
-    fftenergy: ArrayOf<number>,
-    wsamp_l: ArrayOf<number>[],
+    fftenergy: Float32Array,
+    wsamp_l: Float32Array[],
     wsamp_lPos: number
   ) {
     const gfc = gfp.internal_flags!;
@@ -1586,24 +1543,16 @@ export class PsyModel {
 
       gfc.tot_ener[chn] = totalenergy;
     }
-
-    if (gfp.analysis) {
-      for (let j = 0; j < HBLKSIZE; j++) {
-        gfc.pinfo!.energy[gr_out][chn][j] = gfc.pinfo!.energy_save[chn][j];
-        gfc.pinfo!.energy_save[chn][j] = fftenergy[j];
-      }
-      gfc.pinfo!.pe[gr_out][chn] = gfc.pe[chn];
-    }
   }
 
   private vbrpsy_compute_fft_s(
     gfp: LameGlobalFlags,
-    buffer: ArrayOf<number>[],
+    buffer: Float32Array[],
     bufPos: number,
     chn: number,
     sblock: number,
-    fftenergy_s: ArrayOf<number>[],
-    wsamp_s: ArrayOf<number>[][],
+    fftenergy_s: Float32Array[],
+    wsamp_s: Float32Array[][],
     wsamp_sPos: number
   ) {
     const gfc = gfp.internal_flags!;
@@ -1640,7 +1589,7 @@ export class PsyModel {
     gfp: LameGlobalFlags,
     gr_out: number,
     chn: number,
-    fftenergy: ArrayOf<number>
+    fftenergy: Float32Array
   ) {
     const gfc = gfp.internal_flags!;
     if (gfp.athaa_loudapprox === 2 && chn < 2) {
@@ -1670,15 +1619,15 @@ export class PsyModel {
   // eslint-disable-next-line complexity
   private vbrpsy_attack_detection(
     gfp: LameGlobalFlags,
-    buffer: ArrayOf<number>[],
+    buffer: Float32Array[],
     bufPos: number,
     gr_out: number,
     masking_ratio: III_psy_ratio[][],
     masking_MS_ratio: III_psy_ratio[][],
-    energy: ArrayOf<number>,
-    sub_short_factor: ArrayOf<number>[],
-    ns_attacks: ArrayOf<number>[],
-    uselongblock: ArrayOf<number>
+    energy: Float32Array,
+    sub_short_factor: Float32Array[],
+    ns_attacks: number[][],
+    uselongblock: Int32Array
   ) {
     const ns_hpfsmpl = Array.from({ length: 2 }, () => new Float32Array(576));
     const gfc = gfp.internal_flags!;
@@ -1791,8 +1740,6 @@ export class PsyModel {
             x = attack_intensity[i];
           }
         }
-        gfc.pinfo!.ers[gr_out][chn] = gfc.pinfo!.ers_save[chn];
-        gfc.pinfo!.ers_save[chn] = x;
       }
 
       /* compare energies between sub-shortblocks */
@@ -1895,9 +1842,9 @@ export class PsyModel {
 
   private psyvbr_calc_mask_index_s(
     gfc: LameInternalFlags,
-    max: ArrayOf<number>,
-    avg: ArrayOf<number>,
-    mask_idx: ArrayOf<number>
+    max: number[],
+    avg: Float32Array,
+    mask_idx: number[]
   ) {
     const last_tab_entry = this.tab.length - 1;
     let b = 0;
@@ -1969,19 +1916,19 @@ export class PsyModel {
 
   private vbrpsy_compute_masking_s(
     gfp: LameGlobalFlags,
-    fftenergy_s: ArrayOf<number>[],
-    eb: ArrayOf<number>,
-    thr: ArrayOf<number>,
+    fftenergy_s: Float32Array[],
+    eb: Float32Array,
+    thr: Float32Array,
     chn: number,
     sblock: number
   ) {
     const gfc = gfp.internal_flags!;
-    const max = new Array(CBANDS);
+    const max = new Array<number>(CBANDS);
     const avg = new Float32Array(CBANDS);
     let i;
     let j = 0;
     let b = 0;
-    const mask_idx_s = new Array(CBANDS);
+    const mask_idx_s = new Array<number>(CBANDS);
 
     for (; b < gfc.npart_s; ++b) {
       let ebb = 0;
@@ -2068,9 +2015,9 @@ export class PsyModel {
 
   private vbrpsy_compute_masking_l(
     gfc: LameInternalFlags,
-    fftenergy: ArrayOf<number>,
-    eb_l: ArrayOf<number>,
-    thr: ArrayOf<number>,
+    fftenergy: Float32Array,
+    eb_l: Float32Array,
+    thr: Float32Array,
     chn: number
   ) {
     const max = new Float32Array(CBANDS);
@@ -2200,7 +2147,7 @@ export class PsyModel {
 
   private vbrpsy_compute_block_type(
     gfp: LameGlobalFlags,
-    uselongblock: ArrayOf<number>
+    uselongblock: Int32Array
   ) {
     const gfc = gfp.internal_flags!;
 
@@ -2228,8 +2175,8 @@ export class PsyModel {
 
   private vbrpsy_apply_block_type(
     gfp: LameGlobalFlags,
-    uselongblock: ArrayOf<number>,
-    blocktype_d: ArrayOf<number>
+    uselongblock: Int32Array,
+    blocktype_d: Int32Array
   ) {
     const gfc = gfp.internal_flags!;
 
@@ -2266,10 +2213,10 @@ export class PsyModel {
    * compute M/S thresholds from Johnston & Ferreira 1992 ICASSP paper
    */
   private vbrpsy_compute_MS_thresholds(
-    eb: ArrayOf<number>[],
-    thr: ArrayOf<number>[],
-    cb_mld: ArrayOf<number>,
-    ath_cb: ArrayOf<number>,
+    eb: Float32Array[],
+    thr: Float32Array[],
+    cb_mld: Float32Array,
+    ath_cb: Float32Array,
     athadjust: number,
     msfix: number,
     n: number
@@ -2329,15 +2276,15 @@ export class PsyModel {
   // eslint-disable-next-line complexity
   L3psycho_anal_vbr(
     gfp: LameGlobalFlags,
-    buffer: ArrayOf<number>[],
+    buffer: Float32Array[],
     bufPos: number,
     gr_out: number,
     masking_ratio: III_psy_ratio[][],
     masking_MS_ratio: III_psy_ratio[][],
-    percep_entropy: ArrayOf<number>,
-    percep_MS_entropy: ArrayOf<number>,
+    percep_entropy: number[],
+    percep_MS_entropy: number[],
     energy: Float32Array,
-    blocktype_d: ArrayOf<number>
+    blocktype_d: Int32Array
   ) {
     const gfc = gfp.internal_flags!;
 
@@ -2590,10 +2537,6 @@ export class PsyModel {
       } else {
         ppe[ppePos + chn] = this.pecalc_l(mr, gfc.masking_lower);
       }
-
-      if (gfp.analysis) {
-        gfc.pinfo!.pe[gr_out][chn] = ppe[ppePos + chn];
-      }
     }
     return 0;
   }
@@ -2711,16 +2654,16 @@ export class PsyModel {
   }
 
   private init_numline(
-    numlines: ArrayOf<number>,
-    bo: ArrayOf<number>,
-    bm: ArrayOf<number>,
-    bval: ArrayOf<number>,
-    bval_width: ArrayOf<number>,
-    mld: ArrayOf<number>,
-    bo_w: ArrayOf<number>,
+    numlines: Int32Array,
+    bo: Int32Array,
+    bm: Int32Array,
+    bval: Float32Array,
+    bval_width: Float32Array,
+    mld: Float32Array,
+    bo_w: Float32Array,
     sfreq: number,
     blksize: number,
-    scalepos: ArrayOf<number>,
+    scalepos: Int32Array,
     deltafreq: number,
     sbmax: number
   ) {
@@ -2818,11 +2761,11 @@ export class PsyModel {
   }
 
   private init_s3_values(
-    s3ind: ArrayOf<number>[],
+    s3ind: Int32Array[],
     npart: number,
-    bval: ArrayOf<number>,
-    bval_width: ArrayOf<number>,
-    norm: ArrayOf<any>,
+    bval: Float32Array,
+    bval_width: Float32Array,
+    norm: Float32Array,
     use_old_s3: boolean
   ) {
     const s3 = Array.from({ length: CBANDS }, () => new Float32Array(CBANDS));
@@ -3131,12 +3074,11 @@ export class PsyModel {
     );
 
     this.init_mask_add_max_values();
-    this.fft.init_fft(gfc);
+    this.fft.init();
 
     /* setup temporal masking */
     gfc.decay = Math.exp(
-      (-1.0 * PsyModel.LOG10) /
-        ((this.temporalmask_sustain_sec * sfreq) / 192.0)
+      (-1.0 * LOG10) / ((this.temporalmask_sustain_sec * sfreq) / 192.0)
     );
 
     {

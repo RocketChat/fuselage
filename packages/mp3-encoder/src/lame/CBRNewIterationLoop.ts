@@ -1,4 +1,3 @@
-import type { ArrayOf } from './ArrayOf';
 import type { III_psy_ratio } from './III_psy_ratio';
 import type { LameGlobalFlags } from './LameGlobalFlags';
 import { LameInternalFlags } from './LameInternalFlags';
@@ -11,8 +10,8 @@ export class CBRNewIterationLoop {
 
   iteration_loop(
     gfp: LameGlobalFlags,
-    pe: ArrayOf<number>[],
-    ms_ener_ratio: ArrayOf<number>,
+    pe: number[][],
+    ms_ener_ratio: number[],
     ratio: III_psy_ratio[][]
   ) {
     const gfc = gfp.internal_flags!;

@@ -145,16 +145,6 @@ export class Reservoir {
 
     l3_side.resvDrain_pre = 0;
 
-    // frame analyzer code
-    if (gfc.pinfo !== null) {
-      /*
-       * expected bits per channel per granule [is this also right for
-       * mono/stereo, MPEG-1/2 ?]
-       */
-      gfc.pinfo.mean_bits = mean_bits.bits / 2;
-      gfc.pinfo.resvsize = gfc.ResvSize;
-    }
-
     return fullFrameBits;
   }
 

@@ -1,26 +1,3 @@
-/*
- *	MP3 huffman table selecting and bit counting
- *
- *	Copyright (c) 1999-2005 Takehiro TOMINAGA
- *	Copyright (c) 2002-2005 Gabriel Bouvigne
- *
- * This library is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 2 of the License, or (at your option) any later version.
- *
- * This library is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.	 See the GNU
- * Library General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public
- * License along with this library; if not, write to the
- * Free Software Foundation, Inc., 59 Temple Place - Suite 330,
- * Boston, MA 02111-1307, USA.
- */
-
-import type { ArrayOf } from './ArrayOf';
 import { fillArray } from './Arrays';
 import { Bits } from './Bits';
 import type { CalcNoiseData } from './CalcNoiseData';
@@ -80,9 +57,9 @@ export class Takehiro {
   private quantize_lines_xrpow_01(
     l: number,
     istep: number,
-    xr: ArrayOf<number>,
+    xr: Float32Array,
     xrPos: number,
-    ix: ArrayOf<number>,
+    ix: Int32Array,
     ixPos: number
   ) {
     const compareval0 = (1.0 - 0.4054) / istep;
@@ -110,9 +87,9 @@ export class Takehiro {
   private quantize_lines_xrpow(
     l: number,
     istep: number,
-    xr: ArrayOf<number>,
+    xr: Float32Array,
     xrPos: number,
-    ix: ArrayOf<number>,
+    ix: Int32Array,
     ixPos: number
   ) {
     console.assert(l > 0);
@@ -155,8 +132,8 @@ export class Takehiro {
    * and call the proper quantization function
    */
   private quantize_xrpow(
-    xp: ArrayOf<number>,
-    pi: ArrayOf<number>,
+    xp: Float32Array,
+    pi: Int32Array,
     istep: number,
     codInfo: GrInfo,
     prevNoise: CalcNoiseData | null
@@ -359,7 +336,7 @@ export class Takehiro {
   /**
    * ix_max
    */
-  private ix_max(ix: ArrayOf<number>, ixPos: number, endPos: number) {
+  private ix_max(ix: Int32Array, ixPos: number, endPos: number) {
     let max1 = 0;
     let max2 = 0;
 
@@ -375,7 +352,7 @@ export class Takehiro {
   }
 
   private count_bit_ESC(
-    ix: ArrayOf<number>,
+    ix: Int32Array,
     ixPos: number,
     end: number,
     t1: number,
@@ -420,12 +397,7 @@ export class Takehiro {
     return t1;
   }
 
-  private count_bit_noESC(
-    ix: ArrayOf<number>,
-    ixPos: number,
-    end: number,
-    s: Bits
-  ) {
+  private count_bit_noESC(ix: Int32Array, ixPos: number, end: number, s: Bits) {
     /* No ESC-words */
     let sum1 = 0;
     const hlen1 = Tables.ht[1].hlen!;
@@ -441,7 +413,7 @@ export class Takehiro {
   }
 
   private count_bit_noESC_from2(
-    ix: ArrayOf<number>,
+    ix: Int32Array,
     ixPos: number,
     end: number,
     t1: number,
@@ -473,7 +445,7 @@ export class Takehiro {
   }
 
   private count_bit_noESC_from3(
-    ix: ArrayOf<number>,
+    ix: Int32Array,
     ixPos: number,
     end: number,
     t1: number,
@@ -525,12 +497,7 @@ export class Takehiro {
    * the Huffman tables as defined in the IS (Table B.7), and will not work
    * with any arbitrary tables.
    */
-  private choose_table(
-    ix: ArrayOf<number>,
-    ixPos: number,
-    endPos: number,
-    s: Bits
-  ) {
+  private choose_table(ix: Int32Array, ixPos: number, endPos: number, s: Bits) {
     let max = this.ix_max(ix, ixPos, endPos);
 
     switch (max) {
@@ -706,7 +673,7 @@ export class Takehiro {
 
   count_bits(
     gfc: LameInternalFlags,
-    xr: ArrayOf<number>,
+    xr: Float32Array,
     gi: GrInfo,
     prev_noise: CalcNoiseData | null
   ) {
@@ -753,11 +720,11 @@ export class Takehiro {
   private recalc_divide_init(
     gfc: LameInternalFlags,
     cod_info: GrInfo,
-    ix: ArrayOf<number>,
-    r01_bits: ArrayOf<number>,
-    r01_div: ArrayOf<number>,
-    r0_tbl: ArrayOf<number>,
-    r1_tbl: ArrayOf<number>
+    ix: Int32Array,
+    r01_bits: Int32Array,
+    r01_div: Int32Array,
+    r0_tbl: Int32Array,
+    r1_tbl: Int32Array
   ) {
     const bigv = cod_info.big_values;
 
@@ -794,11 +761,11 @@ export class Takehiro {
     gfc: LameInternalFlags,
     cod_info2: GrInfo,
     gi: GrInfo,
-    ix: ArrayOf<number>,
-    r01_bits: ArrayOf<number>,
-    r01_div: ArrayOf<number>,
-    r0_tbl: ArrayOf<number>,
-    r1_tbl: ArrayOf<number>
+    ix: Int32Array,
+    r01_bits: Int32Array,
+    r01_div: Int32Array,
+    r0_tbl: Int32Array,
+    r1_tbl: Int32Array
   ) {
     const bigv = cod_info2.big_values;
 
@@ -1071,7 +1038,7 @@ export class Takehiro {
     }
   }
 
-  private all_scalefactors_not_negative(scalefac: ArrayOf<number>, n: number) {
+  private all_scalefactors_not_negative(scalefac: Int32Array, n: number) {
     for (let i = 0; i < n; ++i) {
       if (scalefac[i] < 0) return false;
     }

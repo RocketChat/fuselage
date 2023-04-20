@@ -1,5 +1,3 @@
-import type { ArrayOf } from './ArrayOf';
-import { copyArray } from './Arrays';
 import type { BitStream } from './BitStream';
 import { III_psy_ratio } from './III_psy_ratio';
 import type { LameGlobalFlags } from './LameGlobalFlags';
@@ -7,7 +5,6 @@ import type { LameInternalFlags } from './LameInternalFlags';
 import { MPEGMode } from './MPEGMode';
 import { NewMDCT } from './NewMDCT';
 import type { PsyModel } from './PsyModel';
-import type { QuantizePVT } from './QuantizePVT';
 import type { VBRTag } from './VBRTag';
 import { VbrMode } from './VbrMode';
 import {
@@ -28,14 +25,11 @@ export class Encoder {
 
   private vbr: VBRTag | null = null;
 
-  private qupvt: QuantizePVT | null = null;
-
-  setModules(bs: BitStream, psy: PsyModel, qupvt: QuantizePVT, vbr: VBRTag) {
+  setModules(bs: BitStream, psy: PsyModel, vbr: VBRTag) {
     this.bs = bs;
     this.psy = psy;
     this.__psy = psy;
     this.vbr = vbr;
-    this.qupvt = qupvt;
   }
 
   private newMDCT = new NewMDCT();
@@ -189,7 +183,7 @@ export class Encoder {
 
   private lame_encode_frame_init(
     gfp: LameGlobalFlags,
-    inbuf: ArrayOf<number>[]
+    inbuf: [Float32Array, Float32Array]
   ) {
     const gfc = gfp.internal_flags!;
 
@@ -292,9 +286,9 @@ export class Encoder {
   // eslint-disable-next-line complexity
   lame_encode_mp3_frame(
     gfp: LameGlobalFlags,
-    inbuf_l: ArrayOf<number>,
-    inbuf_r: ArrayOf<number>,
-    mp3buf: ArrayOf<number>,
+    inbuf_l: Float32Array,
+    inbuf_r: Float32Array,
+    mp3buf: Uint8Array,
     mp3bufPos: number,
     mp3buf_size: number
   ) {
@@ -317,7 +311,6 @@ export class Encoder {
     // III_psy_ratio masking[][];
     let masking;
     /* pointer to selected maskings */
-    const inbuf: ArrayOf<number>[] = [];
     const gfc = gfp.internal_flags!;
 
     const tot_ener = Array.from({ length: 2 }, () => new Float32Array(4));
@@ -337,8 +330,7 @@ export class Encoder {
     let ch;
     let gr;
 
-    inbuf[0] = inbuf_l;
-    inbuf[1] = inbuf_r;
+    const inbuf: [Float32Array, Float32Array] = [inbuf_l, inbuf_r];
 
     if (gfc.lame_encode_frame_init === 0) {
       /* first run? */
@@ -373,11 +365,12 @@ export class Encoder {
        * we must compensate for (mt 6/99).
        */
       let ret;
-      const bufp: ArrayOf<number>[] = [];
       /* address of beginning of left & right granule */
       let bufpPos = 0;
       /* address of beginning of left & right granule */
       const blocktype = new Int32Array(2);
+
+      const bufp: Float32Array[] = [];
 
       for (gr = 0; gr < gfc.mode_gr; gr++) {
         for (ch = 0; ch < gfc.channels_out; ch++) {
@@ -506,33 +499,6 @@ export class Encoder {
       pe_use = pe;
     }
 
-    /* copy data for MP3 frame analyzer */
-    if (gfp.analysis && gfc.pinfo !== null) {
-      for (gr = 0; gr < gfc.mode_gr; gr++) {
-        for (ch = 0; ch < gfc.channels_out; ch++) {
-          gfc.pinfo.ms_ratio[gr] = gfc.ms_ratio[gr];
-          gfc.pinfo.ms_ener_ratio[gr] = ms_ener_ratio[gr];
-          gfc.pinfo.blocktype[gr][ch] = gfc.l3_side.tt[gr][ch].block_type;
-          gfc.pinfo.pe[gr][ch] = pe_use[gr][ch];
-          copyArray(gfc.l3_side.tt[gr][ch].xr, 0, gfc.pinfo.xr[gr][ch], 0, 576);
-          /*
-           * in psymodel, LR and MS data was stored in pinfo. switch
-           * to MS data:
-           */
-          if (gfc.mode_ext === MPG_MD_MS_LR) {
-            gfc.pinfo.ers[gr][ch] = gfc.pinfo.ers[gr][ch + 2];
-            copyArray(
-              gfc.pinfo.energy[gr][ch + 2],
-              0,
-              gfc.pinfo.energy[gr][ch],
-              0,
-              gfc.pinfo.energy[gr][ch].length
-            );
-          }
-        }
-      }
-    }
-
     /** **************************************
      * Stage 4: quantization loop *
      ****************************************/
@@ -581,18 +547,6 @@ export class Encoder {
     );
 
     if (gfp.bWriteVbrTag) this.vbr!.addVbrFrame(gfp);
-
-    if (gfp.analysis && gfc.pinfo !== null) {
-      for (ch = 0; ch < gfc.channels_out; ch++) {
-        let j;
-        for (j = 0; j < FFTOFFSET; j++)
-          gfc.pinfo.pcmdata[ch][j] = gfc.pinfo.pcmdata[ch][j + gfp.framesize];
-        for (j = FFTOFFSET; j < 1600; j++) {
-          gfc.pinfo.pcmdata[ch][j] = inbuf[ch][j - FFTOFFSET];
-        }
-      }
-      this.qupvt!.set_frame_pinfo(gfp, masking);
-    }
 
     this.updateStats(gfc);
 

@@ -1,5 +1,7 @@
 export const MAX_FLOAT32_VALUE = 3.4028235e38;
 
+export const LOG10 = 2.302585092994046;
+
 /**
  * total number of scalefactor bands encoded
  */
@@ -111,3 +113,5 @@ export const MDCTDELAY = 48;
 export const FFTOFFSET = 224 + MDCTDELAY;
 
 export const NUMTOCENTRIES = 100;
+
+export const LAME_ID = 0xfff88e3b;

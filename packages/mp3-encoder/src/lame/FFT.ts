@@ -1,4 +1,3 @@
-import type { ArrayOf } from './ArrayOf';
 import type { LameInternalFlags } from './LameInternalFlags';
 import { BLKSIZE, BLKSIZE_s } from './constants';
 
@@ -13,7 +12,7 @@ export class FFT {
     9.999811752826011e-1, 6.135884649154475e-3,
   ] as const;
 
-  private fht(fz: ArrayOf<number>, fzPos: number, n: number) {
+  private fht(fz: Float32Array, fzPos: number, n: number) {
     let tri = 0;
     let k4: number;
     let fi: number;
@@ -119,9 +118,9 @@ export class FFT {
 
   fft_short(
     _gfc: LameInternalFlags,
-    x_real: ArrayOf<number>[],
+    x_real: Float32Array[],
     chn: number,
-    buffer: ArrayOf<number>[],
+    buffer: Float32Array[],
     bufPos: number
   ) {
     for (let b = 0; b < 3; b++) {
@@ -174,9 +173,9 @@ export class FFT {
 
   fft_long(
     _gfc: LameInternalFlags,
-    y: ArrayOf<number>,
+    y: Float32Array,
     chn: number,
-    buffer: ArrayOf<number>[],
+    buffer: Float32Array[],
     bufPos: number
   ) {
     let jj = BLKSIZE / 8 - 1;
@@ -223,7 +222,7 @@ export class FFT {
     /* BLKSIZE/2 because of 3DNow! ASM routine */
   }
 
-  init_fft(_gfc: LameInternalFlags) {
+  init() {
     /* The type of window used here will make no real difference, but */
     /*
      * in the interest of merging nspsytune stuff - switch to blackman

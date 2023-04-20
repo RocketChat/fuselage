@@ -4,18 +4,17 @@
  * @author Ken
  *
  */
-import type { ArrayOf } from './ArrayOf';
 import { copyArray } from './Arrays';
 import { PSFB12, PSFB21, SBMAX_l, SBMAX_s } from './constants';
 
 export class ScaleFac {
-  private arrL: ArrayOf<number> | undefined;
+  private arrL: number[] | undefined;
 
-  private arrS: ArrayOf<number> | undefined;
+  private arrS: number[] | undefined;
 
-  private arr21: ArrayOf<number> | undefined;
+  private arr21: number[] | undefined;
 
-  private arr12: ArrayOf<number> | undefined;
+  private arr12: number[] | undefined;
 
   l: Int32Array;
 
@@ -27,22 +26,12 @@ export class ScaleFac {
 
   constructor();
 
-  constructor(
-    arrL: ArrayOf<number>,
-    arrS: ArrayOf<number>,
-    arr21: ArrayOf<number>,
-    arr12: ArrayOf<number>
-  );
+  constructor(arrL: number[], arrS: number[], arr21: number[], arr12: number[]);
 
   constructor(
     ...args:
       | []
-      | [
-          arrL: ArrayOf<number>,
-          arrS: ArrayOf<number>,
-          arr21: ArrayOf<number>,
-          arr12: ArrayOf<number>
-        ]
+      | [arrL: number[], arrS: number[], arr21: number[], arr12: number[]]
   ) {
     this.l = new Int32Array(1 + SBMAX_l);
     this.s = new Int32Array(1 + SBMAX_s);

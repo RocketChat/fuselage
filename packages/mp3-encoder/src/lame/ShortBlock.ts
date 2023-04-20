@@ -1,23 +1,21 @@
-export class ShortBlock {
-  private constructor(public ordinal: number) {}
-
+export const enum ShortBlock {
   /**
    * LAME may use them, even different block types for L/R.
    */
-  static readonly short_block_allowed = new ShortBlock(0);
+  short_block_allowed,
 
   /**
    * LAME may use them, but always same block types in L/R.
    */
-  static readonly short_block_coupled = new ShortBlock(1);
+  short_block_coupled,
 
   /**
    * LAME will not use short blocks, long blocks only.
    */
-  static readonly short_block_dispensed = new ShortBlock(2);
+  short_block_dispensed,
 
   /**
    * LAME will not use long blocks, short blocks only.
    */
-  static readonly short_block_forced = new ShortBlock(3);
+  short_block_forced,
 }

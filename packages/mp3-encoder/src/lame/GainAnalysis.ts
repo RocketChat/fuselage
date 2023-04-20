@@ -87,7 +87,6 @@
  *
  *  Optimization/clarity suggestions are welcome.
  */
-import type { ArrayOf } from './ArrayOf';
 import { copyArray, fillArray } from './Arrays';
 import type { ReplayGain } from './ReplayGain';
 
@@ -267,12 +266,12 @@ export class GainAnalysis {
   // private void filterYule(final float[] input, int inputPos, float[] output,
   // int outputPos, int nSamples, final float[] kernel) {
   private filterYule(
-    input: ArrayOf<number>,
+    input: Float32Array,
     inputPos: number,
-    output: ArrayOf<number>,
+    output: Float32Array,
     outputPos: number,
     nSamples: number,
-    kernel: ArrayOf<number>
+    kernel: number[]
   ): void {
     while (nSamples-- !== 0) {
       /* 1e-10 is a hack to avoid slowdown because of denormals */
@@ -307,12 +306,12 @@ export class GainAnalysis {
   // private void filterButter(final float[] input, int inputPos,
   //    float[] output, int outputPos, int nSamples, final float[] kernel) {
   private filterButter(
-    input: ArrayOf<number>,
+    input: Float32Array,
     inputPos: number,
-    output: ArrayOf<number>,
+    output: Float32Array,
     outputPos: number,
     nSamples: number,
-    kernel: ArrayOf<number>
+    kernel: number[]
   ) {
     while (nSamples-- !== 0) {
       output[outputPos] =
@@ -416,11 +415,11 @@ export class GainAnalysis {
     return d * d;
   }
 
-  AnalyzeSamples(
+  analyzeSamples(
     rgData: ReplayGain,
-    left_samples: ArrayOf<number>,
+    left_samples: Float32Array,
     left_samplesPos: number,
-    right_samples: ArrayOf<number>,
+    right_samples: Float32Array,
     right_samplesPos: number,
     num_samples: number,
     num_channels: number

@@ -1,17 +1,10 @@
-import type { ArrayOf } from './ArrayOf';
-import { copyArray, fillArray } from './Arrays';
 import type { BitStream } from './BitStream';
-import { Lame } from './Lame';
+import type { Lame } from './Lame';
 import type { LameGlobalFlags } from './LameGlobalFlags';
-import { MPEGMode } from './MPEGMode';
-import { ShortBlock } from './ShortBlock';
 import { Tables } from './Tables';
 import type { VBRSeekInfo } from './VBRSeekInfo';
-import { VBRTagData } from './VBRTagData';
 import { VbrMode } from './VbrMode';
-import type { Version } from './Version';
 import { NUMTOCENTRIES } from './constants';
-import { newString } from './newString';
 
 /**
  * A Vbr header may be present in the ancillary data field of the first frame of
@@ -40,21 +33,10 @@ export class VBRTag {
 
   private bs: BitStream | null = null;
 
-  private v: Version | null = null;
-
-  setModules(_lame: Lame, _bs: BitStream, _v: Version) {
-    this.lame = _lame;
-    this.bs = _bs;
-    this.v = _v;
+  setModules(lame: Lame, bs: BitStream) {
+    this.lame = lame;
+    this.bs = bs;
   }
-
-  private static readonly FRAMES_FLAG = 0x0001;
-
-  private static readonly BYTES_FLAG = 0x0002;
-
-  private static readonly TOC_FLAG = 0x0004;
-
-  private static readonly VBR_SCALE_FLAG = 0x0008;
 
   /**
    * <PRE>
@@ -88,21 +70,6 @@ export class VBRTag {
    * The size of the Xing header MPEG-2.5, bit rate in kbps.
    */
   private static readonly XING_BITRATE25 = 32;
-
-  /**
-   * ISO-8859-1 charset for byte to string operations.
-   */
-  private static readonly ISO_8859_1 = null; // Charset.forName("ISO-8859-1");
-
-  /**
-   * VBR header magic string.
-   */
-  private static readonly VBRTag0 = 'Xing';
-
-  /**
-   * VBR header magic string (VBR == VBRMode.vbr_off).
-   */
-  private static readonly VBRTag1 = 'Info';
 
   /**
    * Lookup table for fast CRC-16 computation. Uses the polynomial
@@ -163,21 +130,6 @@ export class VBRTag {
     }
   }
 
-  private xingSeekTable(v: VBRSeekInfo, t: ArrayOf<number>) {
-    if (v.pos <= 0) return;
-
-    for (let i = 1; i < NUMTOCENTRIES; ++i) {
-      const j = i / NUMTOCENTRIES;
-      let indx = Math.floor(j * v.pos);
-      if (indx > v.pos - 1) indx = v.pos - 1;
-      const act = v.bag![indx];
-      const { sum } = v;
-      let seek_point = Math.trunc((256 * act) / sum);
-      if (seek_point > 255) seek_point = 255;
-      t[i] = 0xff & seek_point;
-    }
-  }
-
   /**
    * Add VBR entry, used to fill the VBR TOC entries.
    *
@@ -189,76 +141,6 @@ export class VBRTag {
     const kbps = Tables.bitrate_table[gfp.version][gfc.bitrate_index];
     console.assert(gfc.VBR_seek_table.bag !== null);
     this.addVbr(gfc.VBR_seek_table, kbps);
-  }
-
-  /**
-   * Read big endian integer (4-bytes) from header.
-   *
-   * @param buf
-   *            header containing the integer
-   * @param bufPos
-   *            offset into the header
-   * @return extracted integer
-   */
-  private extractInteger(buf: ArrayOf<number>, bufPos: number) {
-    let x = buf[bufPos + 0] & 0xff;
-    x <<= 8;
-    x |= buf[bufPos + 1] & 0xff;
-    x <<= 8;
-    x |= buf[bufPos + 2] & 0xff;
-    x <<= 8;
-    x |= buf[bufPos + 3] & 0xff;
-    return x;
-  }
-
-  /**
-   * Write big endian integer (4-bytes) in the header.
-   *
-   * @param buf
-   *            header to write the integer into
-   * @param bufPos
-   *            offset into the header
-   * @param value
-   *            integer value to write
-   */
-  private createInteger(buf: ArrayOf<number>, bufPos: number, value: number) {
-    buf[bufPos + 0] = 0xff & ((value >> 24) & 0xff);
-    buf[bufPos + 1] = 0xff & ((value >> 16) & 0xff);
-    buf[bufPos + 2] = 0xff & ((value >> 8) & 0xff);
-    buf[bufPos + 3] = 0xff & (value & 0xff);
-  }
-
-  /**
-   * Write big endian short (2-bytes) in the header.
-   *
-   * @param buf
-   *            header to write the integer into
-   * @param bufPos
-   *            offset into the header
-   * @param value
-   *            integer value to write
-   */
-  private createShort(buf: ArrayOf<number>, bufPos: number, value: number) {
-    buf[bufPos + 0] = 0xff & ((value >> 8) & 0xff);
-    buf[bufPos + 1] = 0xff & (value & 0xff);
-  }
-
-  /**
-   * Check for magic strings (Xing/Info).
-   *
-   * @param buf
-   *            header to check
-   * @param bufPos
-   *            header offset to check
-   * @return magic string found
-   */
-  private isVbrTag(buf: ArrayOf<number>, bufPos: number) {
-    return (
-      newString(buf, bufPos, VBRTag.VBRTag0.length, VBRTag.ISO_8859_1) ===
-        VBRTag.VBRTag0 ||
-      newString(buf, bufPos, VBRTag.VBRTag1.length, VBRTag.ISO_8859_1) ===
-        VBRTag.VBRTag1
-    );
   }
 
   private shiftInBitsValue(x: number, n: number, v: number) {
@@ -275,7 +157,7 @@ export class VBRTag {
    * @param buffer
    *            header
    */
-  private setLameTagFrameHeader(gfp: LameGlobalFlags, buffer: ArrayOf<number>) {
+  private setLameTagFrameHeader(gfp: LameGlobalFlags, buffer: Uint8Array) {
     const gfc = gfp.internal_flags!;
 
     // MP3 Sync Word
@@ -337,7 +219,7 @@ export class VBRTag {
       bbyte =
         0xff &
         (16 *
-          this.lame!.BitrateIndex(bitrate, gfp.version, gfp.out_samplerate));
+          this.lame!.bitrateIndex(bitrate, gfp.version, gfp.out_samplerate));
 
     /*
      * Use as much of the info from the real frames in the Xing header:
@@ -363,107 +245,12 @@ export class VBRTag {
   }
 
   /**
-   * Get VBR tag information
-   *
-   * @param buf
-   *            header to analyze
-   * @param bufPos
-   *            offset into the header
-   * @return VBR tag data
-   */
-  getVbrTag(buf: ArrayOf<number>) {
-    const pTagData = new VBRTagData();
-    let bufPos = 0;
-
-    /* get Vbr header data */
-    pTagData.flags = 0;
-
-    /* get selected MPEG header data */
-    const hId = (buf[bufPos + 1] >> 3) & 1;
-    const hSrIndex = (buf[bufPos + 2] >> 2) & 3;
-    const hMode = (buf[bufPos + 3] >> 6) & 3;
-    let hBitrate = (buf[bufPos + 2] >> 4) & 0xf;
-    hBitrate = Tables.bitrate_table[hId][hBitrate];
-
-    /* check for FFE syncword */
-    if (buf[bufPos + 1] >> 4 === 0xe)
-      pTagData.samprate = Tables.samplerate_table[2][hSrIndex];
-    else pTagData.samprate = Tables.samplerate_table[hId][hSrIndex];
-
-    /* determine offset of header */
-    if (hId !== 0) {
-      /* mpeg1 */
-      if (hMode !== 3) bufPos += 32 + 4;
-      else bufPos += 17 + 4;
-    } else if (hMode !== 3) {
-      /* mpeg2 */
-      bufPos += 17 + 4;
-    } else {
-      bufPos += 9 + 4;
-    }
-
-    if (!this.isVbrTag(buf, bufPos)) return null;
-
-    bufPos += 4;
-
-    pTagData.hId = hId;
-
-    /* get flags */
-    const head_flags = this.extractInteger(buf, bufPos);
-    pTagData.flags = head_flags;
-    bufPos += 4;
-
-    if ((head_flags & VBRTag.FRAMES_FLAG) !== 0) {
-      pTagData.frames = this.extractInteger(buf, bufPos);
-      bufPos += 4;
-    }
-
-    if ((head_flags & VBRTag.BYTES_FLAG) !== 0) {
-      pTagData.bytes = this.extractInteger(buf, bufPos);
-      bufPos += 4;
-    }
-
-    if ((head_flags & VBRTag.TOC_FLAG) !== 0) {
-      if (pTagData.toc !== null) {
-        for (let i = 0; i < NUMTOCENTRIES; i++)
-          pTagData.toc[i] = buf[bufPos + i];
-      }
-      bufPos += NUMTOCENTRIES;
-    }
-
-    pTagData.vbrScale = -1;
-
-    if ((head_flags & VBRTag.VBR_SCALE_FLAG) !== 0) {
-      pTagData.vbrScale = this.extractInteger(buf, bufPos);
-      bufPos += 4;
-    }
-
-    pTagData.headersize = ((hId + 1) * 72000 * hBitrate) / pTagData.samprate;
-
-    bufPos += 21;
-    let encDelay = buf[bufPos + 0] << 4;
-    encDelay += buf[bufPos + 1] >> 4;
-    let encPadding = (buf[bufPos + 1] & 0x0f) << 8;
-    encPadding += buf[bufPos + 2] & 0xff;
-    /* check for reasonable values (this may be an old Xing header, */
-    /* not a INFO tag) */
-    if (encDelay < 0 || encDelay > 3000) encDelay = -1;
-    if (encPadding < 0 || encPadding > 3000) encPadding = -1;
-
-    pTagData.encDelay = encDelay;
-    pTagData.encPadding = encPadding;
-
-    /* success */
-    return pTagData;
-  }
-
-  /**
    * Initializes the header
    *
    * @param gfp
    *            global flags
    */
-  InitVbrTag(gfp: LameGlobalFlags) {
+  init(gfp: LameGlobalFlags) {
     const gfc = gfp.internal_flags!;
 
     /**
@@ -510,12 +297,12 @@ export class VBRTag {
     gfc.VBR_seek_table.pos = 0;
 
     if (gfc.VBR_seek_table.bag === null) {
-      gfc.VBR_seek_table.bag = new Array(400);
+      gfc.VBR_seek_table.bag = new Array<number>(400);
       gfc.VBR_seek_table.size = 400;
     }
 
     // write dummy VBR tag of all 0's into bitstream
-    const buffer = new Int8Array(VBRTag.MAXFRAMESIZE);
+    const buffer = new Uint8Array(VBRTag.MAXFRAMESIZE);
 
     this.setLameTagFrameHeader(gfp, buffer);
     const n = gfc.VBR_seek_table.TotalFrameSize;
@@ -538,462 +325,12 @@ export class VBRTag {
   }
 
   updateMusicCRC(
-    crc: ArrayOf<number>,
-    buffer: ArrayOf<number>,
+    crc: Int32Array,
+    buffer: Uint8Array,
     bufferPos: number,
     size: number
   ) {
     for (let i = 0; i < size; ++i)
       crc[0] = this.crcUpdateLookup(buffer[bufferPos + i], crc[0]);
-  }
-
-  /**
-   * Write LAME info: mini version + info on various switches used (Jonathan
-   * Dee 2001/08/31).
-   *
-   * @param gfp
-   *            global flags
-   * @param musicLength
-   *            music length
-   * @param streamBuffer
-   *            pointer to output buffer
-   * @param streamBufferPos
-   *            offset into the output buffer
-   * @param crc
-   *            computation of CRC-16 of Lame Tag so far (starting at frame
-   *            sync)
-   * @return number of bytes written to the stream
-   */
-  // eslint-disable-next-line complexity
-  private putLameVBR(
-    gfp: LameGlobalFlags,
-    musicLength: number,
-    streamBuffer: ArrayOf<number>,
-    streamBufferPos: number,
-    crc: number
-  ) {
-    const gfc = gfp.internal_flags!;
-    let bytesWritten = 0;
-
-    /* encoder delay */
-    const encDelay = gfp.encoder_delay;
-    /* encoder padding */
-    const encPadding = gfp.encoder_padding;
-
-    /* recall: gfp.VBR_q is for example set by the switch -V */
-    /* gfp.quality by -q, -h, -f, etc */
-    let quality = 100 - 10 * gfp.VBR_q - gfp.quality;
-
-    const version = this.v!.getLameVeryShortVersion();
-    let vbr;
-    const revision = 0x00;
-
-    // numbering different in vbr_mode vs. Lame tag
-    const vbrTypeTranslator = [1, 5, 3, 2, 4, 0, 3];
-    const lowpass =
-      0 |
-      (gfp.lowpassfreq / 100.0 + 0.5 > 255
-        ? 255
-        : gfp.lowpassfreq / 100.0 + 0.5);
-    let peakSignalAmplitude = 0;
-    let radioReplayGain = 0;
-    const audiophileReplayGain = 0;
-    const noiseShaping = gfp.internal_flags!.noise_shaping;
-    let stereoMode = 0;
-    let nonOptimal = 0;
-    let sourceFreq = 0;
-    let misc = 0;
-    let musicCRC = 0;
-
-    // psy model type: Gpsycho or NsPsytune
-    const expNPsyTune = (gfp.exp_nspsytune & 1) !== 0;
-    const safeJoint = (gfp.exp_nspsytune & 2) !== 0;
-    let noGapMore = false;
-    let noGapPrevious = false;
-    const noGapCount = gfp.internal_flags!.nogap_total;
-    const noGapCurr = gfp.internal_flags!.nogap_current;
-
-    // 4 bits
-    const athType = gfp.ATHtype;
-    let flags = 0;
-
-    // vbr modes
-    let abrBitrate;
-    switch (gfp.VBR) {
-      case VbrMode.vbr_abr:
-        abrBitrate = gfp.VBR_mean_bitrate_kbps;
-        break;
-      case VbrMode.vbr_off:
-        abrBitrate = gfp.brate;
-        break;
-      default:
-        abrBitrate = gfp.VBR_min_bitrate_kbps;
-    }
-
-    // revision and vbr method
-    if (gfp.VBR!.ordinal < vbrTypeTranslator.length)
-      vbr = vbrTypeTranslator[gfp.VBR!.ordinal];
-    else vbr = 0x00; // unknown
-
-    const revMethod = 0x10 * revision + vbr;
-
-    // ReplayGain
-    if (gfc.findReplayGain) {
-      if (gfc.RadioGain > 0x1fe) gfc.RadioGain = 0x1fe;
-      if (gfc.RadioGain < -0x1fe) gfc.RadioGain = -0x1fe;
-
-      // set name code
-      radioReplayGain = 0x2000;
-      // set originator code to `determined automatically'
-      radioReplayGain |= 0xc00;
-
-      if (gfc.RadioGain >= 0) {
-        // set gain adjustment
-        radioReplayGain |= gfc.RadioGain;
-      } else {
-        // set the sign bit
-        radioReplayGain |= 0x200;
-        // set gain adjustment
-        radioReplayGain |= -gfc.RadioGain;
-      }
-    }
-
-    // peak sample
-    if (gfc.findPeakSample)
-      peakSignalAmplitude = Math.abs(
-        Math.trunc((gfc.PeakSample / 32767.0) * Math.pow(2, 23) + 0.5)
-      );
-
-    // nogap
-    if (noGapCount !== -1) {
-      if (noGapCurr > 0) noGapPrevious = true;
-
-      if (noGapCurr < noGapCount - 1) noGapMore = true;
-    }
-
-    // flags
-    flags =
-      athType +
-      ((expNPsyTune ? 1 : 0) << 4) +
-      ((safeJoint ? 1 : 0) << 5) +
-      ((noGapMore ? 1 : 0) << 6) +
-      ((noGapPrevious ? 1 : 0) << 7);
-
-    if (quality < 0) quality = 0;
-
-    // stereo mode field (Intensity stereo is not implemented)
-    switch (gfp.mode) {
-      case MPEGMode.MONO:
-        stereoMode = 0;
-        break;
-      case MPEGMode.STEREO:
-        stereoMode = 1;
-        break;
-      case MPEGMode.DUAL_CHANNEL:
-        stereoMode = 2;
-        break;
-      case MPEGMode.JOINT_STEREO:
-        if (gfp.force_ms) stereoMode = 4;
-        else stereoMode = 3;
-        break;
-      case MPEGMode.NOT_SET:
-      // $FALL-THROUGH$
-      // eslint-disable-next-line no-fallthrough
-      default:
-        stereoMode = 7;
-        break;
-    }
-
-    if (gfp.in_samplerate <= 32000) sourceFreq = 0x00;
-    else if (gfp.in_samplerate === 48000) sourceFreq = 0x02;
-    else if (gfp.in_samplerate > 48000) sourceFreq = 0x03;
-    else {
-      // default is 44100Hz
-      sourceFreq = 0x01;
-    }
-
-    // Check if the user overrided the default LAME behavior with some
-    // nasty options
-    if (
-      gfp.short_blocks === ShortBlock.short_block_forced ||
-      gfp.short_blocks === ShortBlock.short_block_dispensed ||
-      (gfp.lowpassfreq === -1 && gfp.highpassfreq === -1) /* "-k" */ ||
-      gfp.scale_left < gfp.scale_right ||
-      gfp.scale_left > gfp.scale_right ||
-      (gfp.disable_reservoir && gfp.brate < 320) ||
-      gfp.noATH ||
-      gfp.ATHonly ||
-      athType === 0 ||
-      gfp.in_samplerate <= 32000
-    )
-      nonOptimal = 1;
-
-    misc =
-      noiseShaping + (stereoMode << 2) + (nonOptimal << 5) + (sourceFreq << 6);
-
-    musicCRC = gfc.nMusicCRC;
-
-    // Write all this information into the stream
-
-    this.createInteger(streamBuffer, streamBufferPos + bytesWritten, quality);
-    bytesWritten += 4;
-
-    for (let j = 0; j < 9; j++) {
-      streamBuffer[streamBufferPos + bytesWritten + j] =
-        0xff & version.charCodeAt(j);
-    }
-    bytesWritten += 9;
-
-    streamBuffer[streamBufferPos + bytesWritten] = 0xff & revMethod;
-    bytesWritten++;
-
-    streamBuffer[streamBufferPos + bytesWritten] = 0xff & lowpass;
-    bytesWritten++;
-
-    this.createInteger(
-      streamBuffer,
-      streamBufferPos + bytesWritten,
-      peakSignalAmplitude
-    );
-    bytesWritten += 4;
-
-    this.createShort(
-      streamBuffer,
-      streamBufferPos + bytesWritten,
-      radioReplayGain
-    );
-    bytesWritten += 2;
-
-    this.createShort(
-      streamBuffer,
-      streamBufferPos + bytesWritten,
-      audiophileReplayGain
-    );
-    bytesWritten += 2;
-
-    streamBuffer[streamBufferPos + bytesWritten] = 0xff & flags;
-    bytesWritten++;
-
-    if (abrBitrate >= 255) streamBuffer[streamBufferPos + bytesWritten] = 0xff;
-    else streamBuffer[streamBufferPos + bytesWritten] = 0xff & abrBitrate;
-    bytesWritten++;
-
-    streamBuffer[streamBufferPos + bytesWritten] = 0xff & (encDelay >> 4);
-    streamBuffer[streamBufferPos + bytesWritten + 1] =
-      0xff & ((encDelay << 4) + (encPadding >> 8));
-    streamBuffer[streamBufferPos + bytesWritten + 2] = 0xff & encPadding;
-
-    bytesWritten += 3;
-
-    streamBuffer[streamBufferPos + bytesWritten] = 0xff & misc;
-    bytesWritten++;
-
-    // unused in rev0
-    streamBuffer[streamBufferPos + bytesWritten++] = 0;
-
-    this.createShort(streamBuffer, streamBufferPos + bytesWritten, gfp.preset);
-    bytesWritten += 2;
-
-    this.createInteger(
-      streamBuffer,
-      streamBufferPos + bytesWritten,
-      musicLength
-    );
-    bytesWritten += 4;
-
-    this.createShort(streamBuffer, streamBufferPos + bytesWritten, musicCRC);
-    bytesWritten += 2;
-
-    // Calculate tag CRC.... must be done here, since it includes previous
-    // information
-
-    for (let i = 0; i < bytesWritten; i++)
-      crc = this.crcUpdateLookup(streamBuffer[streamBufferPos + i], crc);
-
-    this.createShort(streamBuffer, streamBufferPos + bytesWritten, crc);
-    bytesWritten += 2;
-
-    return bytesWritten;
-  }
-
-  private skipId3v2(fpStream: {
-    readFully(arg0: Int8Array): void;
-    seek(arg0: number): void;
-  }) {
-    // seek to the beginning of the stream
-    fpStream.seek(0);
-    // read 10 bytes in case there's an ID3 version 2 header here
-    const id3v2Header = new Int8Array(10);
-    fpStream.readFully(id3v2Header);
-    /* does the stream begin with the ID3 version 2 file identifier? */
-    let id3v2TagSize;
-    if (
-      !newString(id3v2Header, 0, id3v2Header.length, 'ISO-8859-1').startsWith(
-        'ID3'
-      )
-    ) {
-      /*
-       * the tag size (minus the 10-byte header) is encoded into four
-       * bytes where the most significant bit is clear in each byte
-       */
-      id3v2TagSize =
-        (((id3v2Header[6] & 0x7f) << 21) |
-          ((id3v2Header[7] & 0x7f) << 14) |
-          ((id3v2Header[8] & 0x7f) << 7) |
-          (id3v2Header[9] & 0x7f)) +
-        id3v2Header.length;
-    } else {
-      /* no ID3 version 2 tag in this stream */
-      id3v2TagSize = 0;
-    }
-    return id3v2TagSize;
-  }
-
-  getLameTagFrame(gfp: LameGlobalFlags, buffer: ArrayOf<number>) {
-    const gfc = gfp.internal_flags!;
-
-    if (!gfp.bWriteVbrTag) {
-      return 0;
-    }
-    if (gfc.Class_ID !== Lame.LAME_ID) {
-      return 0;
-    }
-    if (gfc.VBR_seek_table.pos <= 0) {
-      return 0;
-    }
-    if (buffer.length < gfc.VBR_seek_table.TotalFrameSize) {
-      return gfc.VBR_seek_table.TotalFrameSize;
-    }
-
-    fillArray(buffer, 0, gfc.VBR_seek_table.TotalFrameSize, 0);
-
-    // 4 bytes frame header
-    this.setLameTagFrameHeader(gfp, buffer);
-
-    // Create TOC entries
-    const toc = new Int8Array(NUMTOCENTRIES);
-
-    if (gfp.free_format) {
-      for (let i = 1; i < NUMTOCENTRIES; ++i) toc[i] = 0xff & ((255 * i) / 100);
-    } else {
-      this.xingSeekTable(gfc.VBR_seek_table, toc);
-    }
-
-    // Start writing the tag after the zero frame
-    let streamIndex = gfc.sideinfo_len;
-    /**
-     * Note: Xing header specifies that Xing data goes in the ancillary data
-     * with NO ERROR PROTECTION. If error protecton in enabled, the Xing
-     * data still starts at the same offset, and now it is in sideinfo data
-     * block, and thus will not decode correctly by non-Xing tag aware
-     * players
-     */
-    if (gfp.error_protection) streamIndex -= 2;
-
-    // Put Vbr tag
-    if (gfp.VBR === VbrMode.vbr_off) {
-      buffer[streamIndex++] = 0xff & VBRTag.VBRTag1.charCodeAt(0);
-      buffer[streamIndex++] = 0xff & VBRTag.VBRTag1.charCodeAt(1);
-      buffer[streamIndex++] = 0xff & VBRTag.VBRTag1.charCodeAt(2);
-      buffer[streamIndex++] = 0xff & VBRTag.VBRTag1.charCodeAt(3);
-    } else {
-      buffer[streamIndex++] = 0xff & VBRTag.VBRTag0.charCodeAt(0);
-      buffer[streamIndex++] = 0xff & VBRTag.VBRTag0.charCodeAt(1);
-      buffer[streamIndex++] = 0xff & VBRTag.VBRTag0.charCodeAt(2);
-      buffer[streamIndex++] = 0xff & VBRTag.VBRTag0.charCodeAt(3);
-    }
-
-    // Put header flags
-    this.createInteger(
-      buffer,
-      streamIndex,
-      VBRTag.FRAMES_FLAG +
-        VBRTag.BYTES_FLAG +
-        VBRTag.TOC_FLAG +
-        VBRTag.VBR_SCALE_FLAG
-    );
-    streamIndex += 4;
-
-    // Put Total Number of frames
-    this.createInteger(buffer, streamIndex, gfc.VBR_seek_table.nVbrNumFrames);
-    streamIndex += 4;
-
-    // Put total audio stream size, including Xing/LAME Header
-    const streamSize =
-      gfc.VBR_seek_table.nBytesWritten + gfc.VBR_seek_table.TotalFrameSize;
-    this.createInteger(buffer, streamIndex, Math.trunc(streamSize));
-    streamIndex += 4;
-
-    /* Put TOC */
-    copyArray(toc, 0, buffer, streamIndex, toc.length);
-    streamIndex += toc.length;
-
-    if (gfp.error_protection) {
-      // (jo) error_protection: add crc16 information to header
-      this.bs!.CRC_writeheader(gfc, buffer);
-    }
-
-    // work out CRC so far: initially crc = 0
-    let crc = 0x00;
-    for (let i = 0; i < streamIndex; i++)
-      crc = this.crcUpdateLookup(buffer[i], crc);
-    // Put LAME VBR info
-    streamIndex += this.putLameVBR(gfp, streamSize, buffer, streamIndex, crc);
-
-    return gfc.VBR_seek_table.TotalFrameSize;
-  }
-
-  /**
-   * Write final VBR tag to the file.
-   *
-   * @param gfp
-   *            global flags
-   * @param stream
-   *            stream to add the VBR tag to
-   * @return 0 (OK), -1 else
-   * @throws IOException
-   *             I/O error
-   */
-  putVbrTag(
-    gfp: LameGlobalFlags,
-    stream: {
-      readFully(arg0: Int8Array): void;
-      seek(arg0: number): void;
-      length(): number;
-      write(arg0: Int8Array, arg1: number, arg2: number): void;
-    }
-  ) {
-    const gfc = gfp.internal_flags!;
-
-    if (gfc.VBR_seek_table.pos <= 0) return -1;
-
-    // Seek to end of file
-    stream.seek(stream.length());
-
-    // Get file size, abort if file has zero length.
-    if (stream.length() === 0) return -1;
-
-    // The VBR tag may NOT be located at the beginning of the stream. If an
-    // ID3 version 2 tag was added, then it must be skipped to write the VBR
-    // tag data.
-    const id3v2TagSize = this.skipId3v2(stream);
-
-    // Seek to the beginning of the stream
-    stream.seek(id3v2TagSize);
-
-    const buffer = new Int8Array(VBRTag.MAXFRAMESIZE);
-    const bytes = this.getLameTagFrame(gfp, buffer);
-    if (bytes > buffer.length) {
-      return -1;
-    }
-
-    if (bytes < 1) {
-      return 0;
-    }
-
-    // Put it all to disk again
-    stream.write(buffer, 0, bytes);
-    // success
-    return 0;
   }
 }

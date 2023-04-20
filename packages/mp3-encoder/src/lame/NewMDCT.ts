@@ -23,7 +23,6 @@
  *         Special Thanks to Patrick De Smet for your advices.
  */
 
-import type { ArrayOf } from './ArrayOf';
 import { copyArray, fillArray } from './Arrays';
 import type { LameInternalFlags } from './LameInternalFlags';
 import { SHORT_TYPE } from './constants';
@@ -436,11 +435,7 @@ export class NewMDCT {
   /**
    * returns sum_j=0^31 a[j]*cos(PI*j*(k+1/2)/32), 0<=k<32
    */
-  private window_subband(
-    x1: ArrayOf<number>,
-    x1Pos: number,
-    a: ArrayOf<number>
-  ) {
+  private window_subband(x1: Float32Array, x1Pos: number, a: Float32Array) {
     let wp = 10;
 
     let x2 = x1Pos + 238 - 14 - 286;
@@ -836,7 +831,7 @@ export class NewMDCT {
    *
    * New layer3
    */
-  private mdct_short(inout: ArrayOf<number>, inoutPos: number) {
+  private mdct_short(inout: Float32Array, inoutPos: number) {
     for (let l = 0; l < 3; l++) {
       let tc0;
       let tc1;
@@ -905,11 +900,7 @@ export class NewMDCT {
     }
   }
 
-  private mdct_long(
-    out: ArrayOf<number>,
-    outPos: number,
-    _in: ArrayOf<number>
-  ) {
+  private mdct_long(out: Float32Array, outPos: number, _in: Float32Array) {
     let ct;
     let st;
     {
@@ -1027,7 +1018,7 @@ export class NewMDCT {
     }
   }
 
-  mdct_sub48(gfc: LameInternalFlags, w0: ArrayOf<number>, w1: ArrayOf<number>) {
+  mdct_sub48(gfc: LameInternalFlags, w0: Float32Array, w1: Float32Array) {
     let wk = w0;
     let wkPos = 286;
     /* thinking cache performance, ch->gr loop is better than gr->ch loop */

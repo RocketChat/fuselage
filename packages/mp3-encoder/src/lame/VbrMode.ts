@@ -1,15 +1,13 @@
-export class VbrMode {
-  private constructor(public readonly ordinal: number) {}
+export const enum VbrMode {
+  vbr_off,
 
-  static readonly vbr_off = new VbrMode(0);
+  vbr_mt,
 
-  static readonly vbr_mt = new VbrMode(1);
+  vbr_rh,
 
-  static readonly vbr_rh = new VbrMode(2);
+  vbr_abr,
 
-  static readonly vbr_abr = new VbrMode(3);
+  vbr_mtrh,
 
-  static readonly vbr_mtrh = new VbrMode(4);
-
-  static readonly vbr_default = VbrMode.vbr_mtrh;
+  vbr_default = VbrMode.vbr_mtrh,
 }

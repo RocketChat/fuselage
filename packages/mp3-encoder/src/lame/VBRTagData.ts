@@ -34,7 +34,7 @@ export class VBRTagData {
   /**
    * May be null if toc not desired.
    */
-  public toc = new Int8Array(NUMTOCENTRIES);
+  public toc = new Uint8Array(NUMTOCENTRIES);
 
   /**
    * Size of VBR header, in bytes.

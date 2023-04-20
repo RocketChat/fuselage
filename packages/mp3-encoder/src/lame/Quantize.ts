@@ -22,25 +22,19 @@
  * Boston, MA 02111-1307, USA.
  */
 
-import type { ArrayOf } from './ArrayOf';
 import { copyArray, fillArray, sortArray } from './Arrays';
 import { BinSearchDirection } from './BinSearchDirection';
-import type { BitStream } from './BitStream';
 import { CalcNoiseData } from './CalcNoiseData';
 import { CalcNoiseResult } from './CalcNoiseResult';
 import { GrInfo } from './GrInfo';
 import type { IIISideInfo } from './IIISideInfo';
-import type { III_psy_ratio } from './III_psy_ratio';
 import type { LameGlobalFlags } from './LameGlobalFlags';
-import { LameInternalFlags } from './LameInternalFlags';
-import { MeanBits } from './MeanBits';
+import type { LameInternalFlags } from './LameInternalFlags';
 import type { QuantizePVT } from './QuantizePVT';
 import type { Reservoir } from './Reservoir';
 import type { Takehiro } from './Takehiro';
-import { VBRQuantize } from './VBRQuantize';
 import { VbrMode } from './VbrMode';
 import {
-  MPG_MD_MS_LR,
   PSFB12,
   PSFB21,
   SBMAX_l,
@@ -53,8 +47,6 @@ import {
 import { isCloseToEachOther } from './isCloseToEachOther';
 
 export class Quantize {
-  private bs: BitStream | null = null;
-
   private __rv: Reservoir | null = null;
 
   rv: Reservoir | null = null;
@@ -63,18 +55,14 @@ export class Quantize {
 
   private __qupvt: QuantizePVT | null = null;
 
-  readonly vbr = new VBRQuantize();
-
   private tk: Takehiro | null = null;
 
-  setModules(bs: BitStream, rv: Reservoir, qupvt: QuantizePVT, tk: Takehiro) {
-    this.bs! = bs;
-    this.__rv! = rv;
+  setModules(rv: Reservoir, qupvt: QuantizePVT, tk: Takehiro) {
+    this.__rv = rv;
     this.rv = rv;
-    this.__qupvt! = qupvt;
+    this.__qupvt = qupvt;
     this.qupvt = qupvt;
-    this.tk! = tk;
-    this.vbr.setModules(this.__qupvt!, this.tk!);
+    this.tk = tk;
   }
 
   /**
@@ -98,7 +86,7 @@ export class Quantize {
    */
   private init_xrpow_core(
     cod_info: GrInfo,
-    xrpow: ArrayOf<number>,
+    xrpow: Float32Array,
     upper: number,
     sum: number
   ) {
@@ -113,7 +101,7 @@ export class Quantize {
     return sum;
   }
 
-  init_xrpow(gfc: LameInternalFlags, cod_info: GrInfo, xrpow: ArrayOf<number>) {
+  init_xrpow(gfc: LameInternalFlags, cod_info: GrInfo, xrpow: Float32Array) {
     let sum = 0;
     const upper = Math.trunc(cod_info.max_nonzero_coeff);
 
@@ -328,7 +316,7 @@ export class Quantize {
     cod_info: GrInfo,
     desired_rate: number,
     ch: number,
-    xrpow: ArrayOf<number>
+    xrpow: Float32Array
   ) {
     let nBits;
     let CurrentStep = gfc.CurrentStep[ch];
@@ -389,8 +377,8 @@ export class Quantize {
   trancate_smallspectrums(
     gfc: LameInternalFlags,
     gi: GrInfo,
-    l3_xmin: ArrayOf<number>,
-    work: ArrayOf<number>
+    l3_xmin: Float32Array,
+    work: Float32Array
   ) {
     const distort = new Float32Array(SFBMAX);
 
@@ -484,7 +472,7 @@ export class Quantize {
    *
    * several different codes to decide which quantization is better
    */
-  private get_klemm_noise(distort: ArrayOf<number>, gi: GrInfo) {
+  private get_klemm_noise(distort: Float32Array, gi: GrInfo) {
     let klemm_noise = 1e-37;
     for (let sfb = 0; sfb < gi.psymax; sfb++)
       klemm_noise += this.penalties(distort[sfb]);
@@ -498,7 +486,7 @@ export class Quantize {
     best: CalcNoiseResult,
     calc: CalcNoiseResult,
     gi: GrInfo,
-    distort: ArrayOf<number>
+    distort: Float32Array
   ) {
     /**
      * noise is given in decibels (dB) relative to masking thesholds.<BR>
@@ -634,8 +622,8 @@ export class Quantize {
   private amp_scalefac_bands(
     gfp: LameGlobalFlags,
     cod_info: GrInfo,
-    distort: ArrayOf<number>,
-    xrpow: ArrayOf<number>,
+    distort: Float32Array,
+    xrpow: Float32Array,
     bRefine: boolean
   ) {
     const gfc = gfp.internal_flags!;
@@ -706,7 +694,7 @@ export class Quantize {
    *
    * turns on scalefac scale and adjusts scalefactors
    */
-  private inc_scalefac_scale(cod_info: GrInfo, xrpow: ArrayOf<number>) {
+  private inc_scalefac_scale(cod_info: GrInfo, xrpow: Float32Array) {
     const ifqstep34 = 1.29683955465100964055;
 
     let j = 0;
@@ -737,7 +725,7 @@ export class Quantize {
   private inc_subblock_gain(
     gfc: LameInternalFlags,
     cod_info: GrInfo,
-    xrpow: ArrayOf<number>
+    xrpow: Float32Array
   ) {
     let sfb;
     const { scalefac } = cod_info;
@@ -828,8 +816,8 @@ export class Quantize {
   private balance_noise(
     gfp: LameGlobalFlags,
     cod_info: GrInfo,
-    distort: ArrayOf<number>,
-    xrpow: ArrayOf<number>,
+    distort: Float32Array,
+    xrpow: Float32Array,
     bRefine: boolean
   ) {
     const gfc = gfp.internal_flags!;
@@ -906,8 +894,8 @@ export class Quantize {
   outer_loop(
     gfp: LameGlobalFlags,
     cod_info: GrInfo,
-    l3_xmin: ArrayOf<number>,
-    xrpow: ArrayOf<number>,
+    l3_xmin: Float32Array,
+    xrpow: Float32Array,
     ch: number,
     targ_bits: number
   ) {
@@ -1136,458 +1124,5 @@ export class Quantize {
      * update reservoir status after FINAL quantization/bitrate
      */
     this.__rv!.ResvAdjust(gfc, cod_info);
-  }
-
-  /**
-   *
-   * 2000-09-04 Robert Hegemann
-   *
-   * @param l3_xmin
-   *            allowed distortion of the scalefactor
-   * @param xrpow
-   *            coloured magnitudes of spectral values
-   */
-  VBR_encode_granule(
-    gfp: LameGlobalFlags,
-    cod_info: GrInfo,
-    l3_xmin: ArrayOf<number>,
-    xrpow: ArrayOf<number>,
-    ch: number,
-    min_bits: number,
-    max_bits: number
-  ) {
-    const gfc = gfp.internal_flags!;
-    const bst_cod_info = new GrInfo();
-    const bst_xrpow = new Float32Array(576);
-    const Max_bits = max_bits;
-    let real_bits = max_bits + 1;
-    let this_bits = (max_bits + min_bits) / 2;
-    let dbits;
-    let over;
-    let found = 0;
-    const { sfb21_extra } = gfc;
-
-    console.assert(Max_bits <= LameInternalFlags.MAX_BITS_PER_CHANNEL);
-    fillArray(bst_cod_info.l3_enc, 0);
-
-    /*
-     * search within round about 40 bits of optimal
-     */
-    do {
-      console.assert(this_bits >= min_bits);
-      console.assert(this_bits <= max_bits);
-      console.assert(min_bits <= max_bits);
-
-      if (this_bits > Max_bits - 42) gfc.sfb21_extra = false;
-      else gfc.sfb21_extra = sfb21_extra;
-
-      over = this.outer_loop(gfp, cod_info, l3_xmin, xrpow, ch, this_bits);
-
-      /*
-       * is quantization as good as we are looking for ? in this case: is
-       * no scalefactor band distorted?
-       */
-      if (over <= 0) {
-        found = 1;
-        /*
-         * now we know it can be done with "real_bits" and maybe we can
-         * skip some iterations
-         */
-        real_bits = cod_info.part2_3_length;
-
-        /*
-         * store best quantization so far
-         */
-        bst_cod_info.assign(cod_info);
-        copyArray(xrpow, 0, bst_xrpow, 0, 576);
-
-        /*
-         * try with fewer bits
-         */
-        max_bits = real_bits - 32;
-        dbits = max_bits - min_bits;
-        this_bits = (max_bits + min_bits) / 2;
-      } else {
-        /*
-         * try with more bits
-         */
-        min_bits = this_bits + 32;
-        dbits = max_bits - min_bits;
-        this_bits = (max_bits + min_bits) / 2;
-
-        if (found !== 0) {
-          found = 2;
-          /*
-           * start again with best quantization so far
-           */
-          cod_info.assign(bst_cod_info);
-          copyArray(bst_xrpow, 0, xrpow, 0, 576);
-        }
-      }
-    } while (dbits > 12);
-
-    gfc.sfb21_extra = sfb21_extra;
-
-    /*
-     * found=0 => nothing found, use last one found=1 => we just found the
-     * best and left the loop found=2 => we restored a good one and have now
-     * l3_enc to restore too
-     */
-    if (found === 2) {
-      copyArray(bst_cod_info.l3_enc, 0, cod_info.l3_enc, 0, 576);
-    }
-    console.assert(cod_info.part2_3_length <= Max_bits);
-  }
-
-  /**
-   * Robert Hegemann 2000-09-05
-   *
-   * calculates * how many bits are available for analog silent granules * how
-   * many bits to use for the lowest allowed bitrate * how many bits each
-   * bitrate would provide
-   */
-  get_framebits(gfp: LameGlobalFlags, frameBits: ArrayOf<number>) {
-    const gfc = gfp.internal_flags!;
-
-    /*
-     * always use at least this many bits per granule per channel unless we
-     * detect analog silence, see below
-     */
-    gfc.bitrate_index = gfc.VBR_min_bitrate;
-    let bitsPerFrame = this.bs!.getframebits(gfp);
-
-    /*
-     * bits for analog silence
-     */
-    gfc.bitrate_index = 1;
-    bitsPerFrame = this.bs!.getframebits(gfp);
-
-    for (let i = 1; i <= gfc.VBR_max_bitrate; i++) {
-      gfc.bitrate_index = i;
-      const mb = new MeanBits(bitsPerFrame);
-      frameBits[i] = this.__rv!.ResvFrameBegin(gfp, mb);
-      bitsPerFrame = mb.bits;
-    }
-  }
-
-  /* RH: this one needs to be overhauled sometime */
-
-  /**
-   * <PRE>
-   *  2000-09-04 Robert Hegemann
-   *
-   *  * converts LR to MS coding when necessary
-   *  * calculates allowed/adjusted quantization noise amounts
-   *  * detects analog silent frames
-   *
-   *  some remarks:
-   *  - lower masking depending on Quality setting
-   *  - quality control together with adjusted ATH MDCT scaling
-   *    on lower quality setting allocate more noise from
-   *    ATH masking, and on higher quality setting allocate
-   *    less noise from ATH masking.
-   *  - experiments show that going more than 2dB over GPSYCHO's
-   *    limits ends up in very annoying artefacts
-   * </PRE>
-   */
-  VBR_old_prepare(
-    gfp: LameGlobalFlags,
-    pe: ArrayOf<number>[],
-    ms_ener_ratio: ArrayOf<number>,
-    ratio: III_psy_ratio[][],
-    l3_xmin: ArrayOf<number>[][],
-    frameBits: ArrayOf<number>,
-    min_bits: ArrayOf<number>[],
-    max_bits: ArrayOf<number>[],
-    bands: ArrayOf<number>[]
-  ) {
-    const gfc = gfp.internal_flags!;
-
-    let masking_lower_db;
-    let adjust = 0.0;
-    let analog_silence = 1;
-    let bits = 0;
-
-    gfc.bitrate_index = gfc.VBR_max_bitrate;
-    const avg = this.__rv!.ResvFrameBegin(gfp, new MeanBits(0)) / gfc.mode_gr;
-
-    this.get_framebits(gfp, frameBits);
-
-    for (let gr = 0; gr < gfc.mode_gr; gr++) {
-      const mxb = this.__qupvt!.on_pe(gfp, pe, max_bits[gr], avg, gr, 0);
-      if (gfc.mode_ext === MPG_MD_MS_LR) {
-        this.ms_convert(gfc.l3_side, gr);
-        this.__qupvt!.reduce_side(max_bits[gr], ms_ener_ratio[gr], avg, mxb);
-      }
-      for (let ch = 0; ch < gfc.channels_out; ++ch) {
-        const cod_info = gfc.l3_side.tt[gr][ch];
-
-        if (cod_info.block_type !== SHORT_TYPE) {
-          // NORM, START or STOP type
-          adjust = 1.28 / (1 + Math.exp(3.5 - pe[gr][ch] / 300)) - 0.05;
-          masking_lower_db = gfc.PSY!.mask_adjust - adjust;
-        } else {
-          adjust = 2.56 / (1 + Math.exp(3.5 - pe[gr][ch] / 300)) - 0.14;
-          masking_lower_db = gfc.PSY!.mask_adjust_short - adjust;
-        }
-        gfc.masking_lower = Math.pow(10.0, masking_lower_db * 0.1);
-
-        this.init_outer_loop(gfc, cod_info);
-        bands[gr][ch] = this.__qupvt!.calc_xmin(
-          gfp,
-          ratio[gr][ch],
-          cod_info,
-          l3_xmin[gr][ch]
-        );
-        if (bands[gr][ch] !== 0) analog_silence = 0;
-
-        min_bits[gr][ch] = 126;
-
-        bits += max_bits[gr][ch];
-      }
-    }
-    for (let gr = 0; gr < gfc.mode_gr; gr++) {
-      for (let ch = 0; ch < gfc.channels_out; ch++) {
-        if (bits > frameBits[gfc.VBR_max_bitrate]) {
-          max_bits[gr][ch] *= frameBits[gfc.VBR_max_bitrate];
-          max_bits[gr][ch] /= bits;
-        }
-        if (min_bits[gr][ch] > max_bits[gr][ch])
-          min_bits[gr][ch] = max_bits[gr][ch];
-      }
-      /* for ch */
-    }
-    /* for gr */
-
-    return analog_silence;
-  }
-
-  bitpressure_strategy(
-    gfc: LameInternalFlags,
-    l3_xmin: ArrayOf<number>[][],
-    min_bits: ArrayOf<number>[],
-    max_bits: ArrayOf<number>[]
-  ) {
-    for (let gr = 0; gr < gfc.mode_gr; gr++) {
-      for (let ch = 0; ch < gfc.channels_out; ch++) {
-        const gi = gfc.l3_side.tt[gr][ch];
-        const pxmin = l3_xmin[gr][ch];
-        let pxminPos = 0;
-        for (let sfb = 0; sfb < gi.psy_lmax; sfb++)
-          pxmin[pxminPos++] *= 1 + (0.029 * sfb * sfb) / SBMAX_l / SBMAX_l;
-
-        if (gi.block_type === SHORT_TYPE) {
-          for (let sfb = gi.sfb_smin; sfb < SBMAX_s; sfb++) {
-            pxmin[pxminPos++] *= 1 + (0.029 * sfb * sfb) / SBMAX_s / SBMAX_s;
-            pxmin[pxminPos++] *= 1 + (0.029 * sfb * sfb) / SBMAX_s / SBMAX_s;
-            pxmin[pxminPos++] *= 1 + (0.029 * sfb * sfb) / SBMAX_s / SBMAX_s;
-          }
-        }
-        max_bits[gr][ch] = Math.trunc(
-          Math.max(min_bits[gr][ch], 0.9 * max_bits[gr][ch])
-        );
-      }
-    }
-  }
-
-  VBR_new_prepare(
-    gfp: LameGlobalFlags,
-    pe: ArrayOf<number>[],
-    ratio: III_psy_ratio[][],
-    l3_xmin: ArrayOf<number>[][],
-    frameBits: ArrayOf<number>,
-    max_bits: ArrayOf<number>[]
-  ) {
-    const gfc = gfp.internal_flags!;
-
-    let analog_silence = 1;
-    let avg = 0;
-    let bits = 0;
-    let maximum_framebits;
-
-    if (!gfp.free_format) {
-      gfc.bitrate_index = gfc.VBR_max_bitrate;
-
-      const mb = new MeanBits(avg);
-      this.__rv!.ResvFrameBegin(gfp, mb);
-      avg = mb.bits;
-
-      this.get_framebits(gfp, frameBits);
-      maximum_framebits = frameBits[gfc.VBR_max_bitrate];
-    } else {
-      gfc.bitrate_index = 0;
-      const mb = new MeanBits(avg);
-      maximum_framebits = this.__rv!.ResvFrameBegin(gfp, mb);
-      avg = mb.bits;
-      frameBits[0] = maximum_framebits;
-    }
-
-    for (let gr = 0; gr < gfc.mode_gr; gr++) {
-      this.__qupvt!.on_pe(gfp, pe, max_bits[gr], avg, gr, 0);
-      if (gfc.mode_ext === MPG_MD_MS_LR) {
-        this.ms_convert(gfc.l3_side, gr);
-      }
-      for (let ch = 0; ch < gfc.channels_out; ++ch) {
-        const cod_info = gfc.l3_side.tt[gr][ch];
-
-        gfc.masking_lower = Math.pow(10.0, gfc.PSY!.mask_adjust * 0.1);
-
-        this.init_outer_loop(gfc, cod_info);
-        if (
-          this.__qupvt!.calc_xmin(
-            gfp,
-            ratio[gr][ch],
-            cod_info,
-            l3_xmin[gr][ch]
-          ) !== 0
-        )
-          analog_silence = 0;
-
-        bits += max_bits[gr][ch];
-      }
-    }
-    for (let gr = 0; gr < gfc.mode_gr; gr++) {
-      for (let ch = 0; ch < gfc.channels_out; ch++) {
-        if (bits > maximum_framebits) {
-          max_bits[gr][ch] *= maximum_framebits;
-          max_bits[gr][ch] /= bits;
-        }
-      }
-      /* for ch */
-    }
-    /* for gr */
-
-    return analog_silence;
-  }
-
-  /**
-   * calculates target bits for ABR encoding
-   *
-   * mt 2000/05/31
-   */
-  calc_target_bits(
-    gfp: LameGlobalFlags,
-    pe: ArrayOf<number>[],
-    ms_ener_ratio: ArrayOf<number>,
-    targ_bits: ArrayOf<number>[],
-    analog_silence_bits: ArrayOf<number>,
-    max_frame_bits: ArrayOf<number>
-  ) {
-    const gfc = gfp.internal_flags!;
-    const { l3_side } = gfc;
-    let res_factor;
-    let gr;
-    let ch;
-    let totbits;
-    let mean_bits = 0;
-
-    gfc.bitrate_index = gfc.VBR_max_bitrate;
-    const mb = new MeanBits(mean_bits);
-    max_frame_bits[0] = this.__rv!.ResvFrameBegin(gfp, mb);
-    mean_bits = mb.bits;
-
-    gfc.bitrate_index = 1;
-    mean_bits = this.bs!.getframebits(gfp) - gfc.sideinfo_len * 8;
-    analog_silence_bits[0] = mean_bits / (gfc.mode_gr * gfc.channels_out);
-
-    mean_bits = gfp.VBR_mean_bitrate_kbps * gfp.framesize * 1000;
-    if ((gfc.substep_shaping & 1) !== 0) mean_bits *= 1.09;
-    mean_bits /= gfp.out_samplerate;
-    mean_bits -= gfc.sideinfo_len * 8;
-    mean_bits /= gfc.mode_gr * gfc.channels_out;
-
-    /**
-     * <PRE>
-     *           res_factor is the percentage of the target bitrate that should
-     *           be used on average.  the remaining bits are added to the
-     *           bitreservoir and used for difficult to encode frames.
-     *
-     *           Since we are tracking the average bitrate, we should adjust
-     *           res_factor "on the fly", increasing it if the average bitrate
-     *           is greater than the requested bitrate, and decreasing it
-     *           otherwise.  Reasonable ranges are from .9 to 1.0
-     *
-     *           Until we get the above suggestion working, we use the following
-     *           tuning:
-     *           compression ratio    res_factor
-     *           5.5  (256kbps)         1.0      no need for bitreservoir
-     *           11   (128kbps)         .93      7% held for reservoir
-     *
-     *           with linear interpolation for other values.
-     * </PRE>
-     */
-    res_factor = 0.93 + (0.07 * (11.0 - gfp.compression_ratio)) / (11.0 - 5.5);
-    if (res_factor < 0.9) res_factor = 0.9;
-    if (res_factor > 1.0) res_factor = 1.0;
-
-    for (gr = 0; gr < gfc.mode_gr; gr++) {
-      let sum = 0;
-      for (ch = 0; ch < gfc.channels_out; ch++) {
-        targ_bits[gr][ch] = Math.trunc(res_factor * mean_bits);
-
-        if (pe[gr][ch] > 700) {
-          let add_bits = Math.trunc((pe[gr][ch] - 700) / 1.4);
-
-          const cod_info = l3_side.tt[gr][ch];
-          targ_bits[gr][ch] = Math.trunc(res_factor * mean_bits);
-
-          /* short blocks use a little extra, no matter what the pe */
-          if (cod_info.block_type === SHORT_TYPE) {
-            if (add_bits < mean_bits / 2) add_bits = mean_bits / 2;
-          }
-          /* at most increase bits by 1.5*average */
-          if (add_bits > (mean_bits * 3) / 2) add_bits = (mean_bits * 3) / 2;
-          else if (add_bits < 0) add_bits = 0;
-
-          targ_bits[gr][ch] += add_bits;
-        }
-        if (targ_bits[gr][ch] > LameInternalFlags.MAX_BITS_PER_CHANNEL) {
-          targ_bits[gr][ch] = LameInternalFlags.MAX_BITS_PER_CHANNEL;
-        }
-        sum += targ_bits[gr][ch];
-      }
-      /* for ch */
-      if (sum > LameInternalFlags.MAX_BITS_PER_GRANULE) {
-        for (ch = 0; ch < gfc.channels_out; ++ch) {
-          targ_bits[gr][ch] *= LameInternalFlags.MAX_BITS_PER_GRANULE;
-          targ_bits[gr][ch] /= sum;
-        }
-      }
-    }
-    /* for gr */
-
-    if (gfc.mode_ext === MPG_MD_MS_LR)
-      for (gr = 0; gr < gfc.mode_gr; gr++) {
-        this.__qupvt!.reduce_side(
-          targ_bits[gr],
-          ms_ener_ratio[gr],
-          mean_bits * gfc.channels_out,
-          LameInternalFlags.MAX_BITS_PER_GRANULE
-        );
-      }
-
-    /*
-     * sum target bits
-     */
-    totbits = 0;
-    for (gr = 0; gr < gfc.mode_gr; gr++) {
-      for (ch = 0; ch < gfc.channels_out; ch++) {
-        if (targ_bits[gr][ch] > LameInternalFlags.MAX_BITS_PER_CHANNEL)
-          targ_bits[gr][ch] = LameInternalFlags.MAX_BITS_PER_CHANNEL;
-        totbits += targ_bits[gr][ch];
-      }
-    }
-
-    /*
-     * repartion target bits if needed
-     */
-    if (totbits > max_frame_bits[0]) {
-      for (gr = 0; gr < gfc.mode_gr; gr++) {
-        for (ch = 0; ch < gfc.channels_out; ch++) {
-          targ_bits[gr][ch] *= max_frame_bits[0];
-          targ_bits[gr][ch] /= totbits;
-        }
-      }
-    }
   }
 }

@@ -1,12 +1,10 @@
 import type { ATH } from './ATH';
-import type { ArrayOf } from './ArrayOf';
 import type { CBRNewIterationLoop } from './CBRNewIterationLoop';
 import { Header } from './Header';
 import { IIISideInfo } from './IIISideInfo';
 import { III_psy_xmin } from './III_psy_xmin';
 import { NsPsy } from './NsPsy';
 import type { PSY } from './PSY';
-import type { PlottingData } from './PlottingData';
 import type { ReplayGain } from './ReplayGain';
 import { ScaleFac } from './ScaleFac';
 import { VBRSeekInfo } from './VBRSeekInfo';
@@ -203,10 +201,13 @@ export class LameInternalFlags {
 
   /* BPC = maximum number of filter convolution windows to precompute */
   // public float[][] inbuf_old = new float[2][];
-  inbuf_old = new Array(2);
+  inbuf_old = Array.from({ length: 2 }, () => new Float32Array());
 
   // public float[][] blackfilt = new float[2 * BPC + 1][];
-  blackfilt = new Array(2 * LameInternalFlags.BPC + 1);
+  blackfilt = Array.from(
+    { length: 2 * LameInternalFlags.BPC + 1 },
+    () => new Float32Array()
+  );
 
   // public double itime[] = new double[2];
   itime = new Float64Array(2);
@@ -241,7 +242,7 @@ export class LameInternalFlags {
   /**
    * max size of header is 38
    */
-  header = new Array(LameInternalFlags.MAX_HEADER_BUF);
+  header = new Array<Header>(LameInternalFlags.MAX_HEADER_BUF);
 
   h_ptr = 0;
 
@@ -288,9 +289,9 @@ export class LameInternalFlags {
 
   // public III_psy_xmin[] thm = new III_psy_xmin[4];
   // public III_psy_xmin[] en = new III_psy_xmin[4];
-  thm = new Array(4);
+  thm = new Array<III_psy_xmin>(4);
 
-  en = new Array(4);
+  en = new Array<III_psy_xmin>(4);
 
   /**
    * fft and energy calculation
@@ -421,17 +422,14 @@ export class LameInternalFlags {
     () => new Int32Array(4 + 1 + 1)
   );
 
-  // public PlottingData pinfo;
   // public MPGLib.mpstr_tag hip;
-  pinfo: PlottingData | null = null;
-
   hip = null;
 
   in_buffer_nsamples = 0;
 
-  in_buffer_0: ArrayOf<number> | null = null;
+  in_buffer_0: Float32Array | null = null;
 
-  in_buffer_1: ArrayOf<number> | null = null;
+  in_buffer_1: Float32Array | null = null;
 
   // public IIterationLoop iteration_loop;
   iteration_loop: CBRNewIterationLoop | null = null;
