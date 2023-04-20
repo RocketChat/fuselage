@@ -1,9 +1,11 @@
+import type { ArrayOf } from './ArrayOf';
+
 class HuffCodeTab {
   constructor(
     public xlen: number,
     public linmax: number,
-    public table: readonly number[] | null,
-    public hlen: readonly number[] | null
+    public table: ArrayOf<number> | null,
+    public hlen: ArrayOf<number> | null
   ) {}
 }
 

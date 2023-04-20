@@ -1,10 +1,13 @@
+import type { MPGLib } from './MPGLib';
+import type { Parse } from './Parse';
+
 export class GetAudio {
-  private parse: unknown;
+  // private parse: Parse | null = null;
 
-  private mpg: unknown;
+  // private mpg: MPGLib | null = null;
 
-  setModules(parse: unknown, mpg: unknown) {
-    this.parse = parse;
-    this.mpg = mpg;
+  setModules(_parse: Parse, _mpg: MPGLib) {
+    // this.parse = parse;
+    // this.mpg = mpg;
   }
 }

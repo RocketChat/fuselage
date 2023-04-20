@@ -1,10 +1,22 @@
+import type BitStream from './BitStream';
+import type LameGlobalFlags from './LameGlobalFlags';
+import type Version from './Version';
+
 export class ID3Tag {
-  private bits: unknown;
+  id3tag_write_v1(_gfp: LameGlobalFlags) {
+    throw new Error('Method not implemented.');
+  }
 
-  private ver: unknown;
+  id3tag_write_v2(_gfp: LameGlobalFlags) {
+    throw new Error('Method not implemented.');
+  }
 
-  setModules(bits: unknown, ver: unknown) {
-    this.bits = bits;
-    this.ver = ver;
+  // private bits: BitStream | null = null;
+
+  // private ver: Version | null = null;
+
+  setModules(_bits: BitStream, _ver: Version) {
+    // this.bits = bits;
+    // this.ver = ver;
   }
 }

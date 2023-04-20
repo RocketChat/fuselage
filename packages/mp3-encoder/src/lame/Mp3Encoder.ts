@@ -1,4 +1,3 @@
-import type { ArrayOf } from './ArrayOf';
 import BitStream from './BitStream';
 import GainAnalysis from './GainAnalysis';
 import { GetAudio } from './GetAudio';
@@ -53,11 +52,7 @@ export class Mp3Encoder {
 
   private maxSamples: number;
 
-  constructor(
-    private readonly channels = 1,
-    private readonly samplerate = 44100,
-    private readonly kbps = 128
-  ) {
+  constructor(channels = 1, samplerate = 44100, kbps = 128) {
     this.lame.setModules(
       this.ga,
       this.bs,
@@ -80,7 +75,7 @@ export class Mp3Encoder {
     this.gaud.setModules(this.parse, this.mpg);
     this.parse.setModules(this.ver, this.id3, this.p);
 
-    this.gfp = this.lame.lame_init()!;
+    this.gfp = this.lame.lame_init();
 
     this.gfp.num_channels = channels;
     this.gfp.in_samplerate = samplerate;
@@ -92,17 +87,22 @@ export class Mp3Encoder {
     this.gfp.write_id3tag_automatic = false;
 
     const retcode = this.lame.lame_init_params(this.gfp);
-    console.assert(retcode === 0);
+    if (retcode !== 0) {
+      throw new Error(`lame_init_params() failed: ${retcode}`);
+    }
     this.maxSamples = 1152;
-    this.mp3buf_size = 0 | (1.25 * this.maxSamples + 7200);
+    this.mp3buf_size = Math.trunc(1.25 * this.maxSamples + 7200);
     this.mp3buf = new Int8Array(this.mp3buf_size);
   }
 
-  encodeBuffer(left: ArrayOf<number>, right: ArrayOf<number> = left) {
-    console.assert(left.length === right.length);
+  encodeBuffer(left: Int16Array, right: Int16Array = left) {
+    if (left.length !== right.length) {
+      throw new Error('left and right channel buffers must be the same length');
+    }
+
     if (left.length > this.maxSamples) {
       this.maxSamples = left.length;
-      this.mp3buf_size = 0 | (1.25 * this.maxSamples + 7200);
+      this.mp3buf_size = Math.trunc(1.25 * this.maxSamples + 7200);
       this.mp3buf = new Int8Array(this.mp3buf_size);
     }
 

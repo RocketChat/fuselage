@@ -501,7 +501,7 @@ class Encoder {
     }
 
     /* copy data for MP3 frame analyzer */
-    if (gfp.analysis && gfc.pinfo != null) {
+    if (gfp.analysis && gfc.pinfo !== null) {
       for (gr = 0; gr < gfc.mode_gr; gr++) {
         for (ch = 0; ch < gfc.channels_out; ch++) {
           gfc.pinfo.ms_ratio[gr] = gfc.ms_ratio[gr];
@@ -582,7 +582,7 @@ class Encoder {
 
     if (gfp.bWriteVbrTag) this.vbr!.addVbrFrame(gfp);
 
-    if (gfp.analysis && gfc.pinfo != null) {
+    if (gfp.analysis && gfc.pinfo !== null) {
       for (ch = 0; ch < gfc.channels_out; ch++) {
         let j;
         for (j = 0; j < Encoder.FFTOFFSET; j++)

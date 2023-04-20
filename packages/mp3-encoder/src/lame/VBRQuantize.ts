@@ -2,13 +2,13 @@ import type QuantizePVT from './QuantizePVT';
 import type Takehiro from './Takehiro';
 
 class VBRQuantize {
-  private qupvt: QuantizePVT = null as unknown as QuantizePVT;
+  // private qupvt: QuantizePVT | null = null;
 
-  private tak: Takehiro = null as unknown as Takehiro;
+  // private tak: Takehiro | null = null;
 
-  setModules(qupvt: QuantizePVT, tk: Takehiro) {
-    this.qupvt = qupvt;
-    this.tak = tk;
+  setModules(_qupvt: QuantizePVT, _tk: Takehiro) {
+    // this.qupvt = qupvt;
+    // this.tak = tk;
   }
 }
 

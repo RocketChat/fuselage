@@ -65,7 +65,7 @@ class ReplayGain {
 
   B = new Int32Array(GainAnalysis.STEPS_per_dB * GainAnalysis.MAX_dB);
 
-  reqindex: number | undefined;
+  reqindex = 0;
 }
 
 export default ReplayGain;

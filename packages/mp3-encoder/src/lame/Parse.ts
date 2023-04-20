@@ -1,13 +1,17 @@
+import type { ID3Tag } from './ID3Tag';
+import type Presets from './Presets';
+import type Version from './Version';
+
 export class Parse {
-  private ver: unknown;
+  // private ver: Version | null = null;
 
-  private id3: unknown;
+  // private id3: ID3Tag | null = null;
 
-  private pre: unknown;
+  // private pre: Presets | null = null;
 
-  setModules(ver: unknown, id3: unknown, pre: unknown) {
-    this.ver = ver;
-    this.id3 = id3;
-    this.pre = pre;
+  setModules(_ver: Version, _id3: ID3Tag, _pre: Presets) {
+    // this.ver = ver;
+    // this.id3 = id3;
+    // this.pre = pre;
   }
 }

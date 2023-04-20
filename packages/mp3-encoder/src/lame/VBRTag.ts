@@ -151,27 +151,27 @@ class VBRTag {
     }
 
     if (v.pos < v.size) {
-      v.bag[v.pos] = v.sum;
+      v.bag![v.pos] = v.sum;
       v.pos++;
       v.seen = 0;
     }
     if (v.pos === v.size) {
       for (let i = 1; i < v.size; i += 2) {
-        v.bag[i / 2] = v.bag[i];
+        v.bag![i / 2] = v.bag![i];
       }
       v.want *= 2;
       v.pos /= 2;
     }
   }
 
-  private xingSeekTable(v: VBRSeekInfo, t: any) {
+  private xingSeekTable(v: VBRSeekInfo, t: ArrayOf<number>) {
     if (v.pos <= 0) return;
 
     for (let i = 1; i < VBRTag.NUMTOCENTRIES; ++i) {
       const j = i / VBRTag.NUMTOCENTRIES;
       let indx = 0 | Math.floor(j * v.pos);
       if (indx > v.pos - 1) indx = v.pos - 1;
-      const act = v.bag[indx];
+      const act = v.bag![indx];
       const { sum } = v;
       let seek_point = 0 | ((256 * act) / sum);
       if (seek_point > 255) seek_point = 255;
@@ -425,7 +425,7 @@ class VBRTag {
     }
 
     if ((head_flags & VBRTag.TOC_FLAG) !== 0) {
-      if (pTagData.toc != null) {
+      if (pTagData.toc !== null) {
         for (let i = 0; i < VBRTag.NUMTOCENTRIES; i++)
           pTagData.toc[i] = buf[bufPos + i];
       }
@@ -510,7 +510,7 @@ class VBRTag {
     gfc.VBR_seek_table.want = 1;
     gfc.VBR_seek_table.pos = 0;
 
-    if (gfc.VBR_seek_table.bag == null) {
+    if (gfc.VBR_seek_table.bag === null) {
       gfc.VBR_seek_table.bag = new Array(400);
       gfc.VBR_seek_table.size = 400;
     }

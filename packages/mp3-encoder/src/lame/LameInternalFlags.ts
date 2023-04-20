@@ -2,10 +2,12 @@ import type ATH from './ATH';
 import type { ArrayOf } from './ArrayOf';
 import type CBRNewIterationLoop from './CBRNewIterationLoop';
 import Encoder from './Encoder';
+import { Header } from './Header';
 import IIISideInfo from './IIISideInfo';
 import III_psy_xmin from './III_psy_xmin';
 import L3Side from './L3Side';
 import NsPsy from './NsPsy';
+import type { PSY } from './PSY';
 import type { PlottingData } from './PlottingData';
 import type ReplayGain from './ReplayGain';
 import ScaleFac from './ScaleFac';
@@ -360,7 +362,7 @@ class LameInternalFlags {
   // public ATH ATH;
   ATH: ATH | null = null;
 
-  PSY: any = null;
+  PSY: PSY | null = null;
 
   nogap_total = 0;
 
@@ -437,17 +439,6 @@ class LameInternalFlags {
   static MAX_BITS_PER_GRANULE = 7680;
 
   static BPC = 320;
-}
-
-class Header {
-  private static readonly MAX_HEADER_LEN = 40;
-
-  write_timing = 0;
-
-  ptr = 0;
-
-  // public byte buf[] = new byte[MAX_HEADER_LEN];
-  buf = new Int8Array(Header.MAX_HEADER_LEN);
 }
 
 export default LameInternalFlags;

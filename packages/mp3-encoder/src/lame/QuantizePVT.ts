@@ -29,6 +29,7 @@ import CalcNoiseResult from './CalcNoiseResult';
 import Encoder from './Encoder';
 import { Float } from './Float';
 import type GrInfo from './GrInfo';
+import type III_psy_ratio from './III_psy_ratio';
 import L3Side from './L3Side';
 import type LameGlobalFlags from './LameGlobalFlags';
 import LameInternalFlags from './LameInternalFlags';
@@ -656,7 +657,7 @@ class QuantizePVT {
   // eslint-disable-next-line complexity
   calc_xmin(
     gfp: LameGlobalFlags,
-    ratio: any,
+    ratio: III_psy_ratio,
     cod_info: GrInfo,
     pxmin: ArrayOf<number>
   ) {
@@ -976,7 +977,7 @@ class QuantizePVT {
   set_pinfo(
     gfp: LameGlobalFlags,
     cod_info: GrInfo,
-    ratio: any,
+    ratio: III_psy_ratio,
     gr: number,
     ch: number
   ) {
@@ -1089,7 +1090,7 @@ class QuantizePVT {
    *
    * Robert Hegemann 2000-10-21
    */
-  set_frame_pinfo(gfp: LameGlobalFlags, ratio: any) {
+  set_frame_pinfo(gfp: LameGlobalFlags, ratio: III_psy_ratio[][]) {
     const gfc = gfp.internal_flags!;
 
     gfc.masking_lower = 1.0;

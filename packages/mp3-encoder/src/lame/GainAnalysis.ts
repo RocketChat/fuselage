@@ -87,6 +87,7 @@
  *
  *  Optimization/clarity suggestions are welcome.
  */
+import type { ArrayOf } from './ArrayOf';
 import { Arrays } from './Arrays';
 import type ReplayGain from './ReplayGain';
 import { System } from './System';
@@ -267,12 +268,12 @@ class GainAnalysis {
   // private void filterYule(final float[] input, int inputPos, float[] output,
   // int outputPos, int nSamples, final float[] kernel) {
   private filterYule(
-    input: readonly number[],
+    input: ArrayOf<number>,
     inputPos: number,
-    output: number[],
+    output: ArrayOf<number>,
     outputPos: number,
     nSamples: number,
-    kernel: readonly number[]
+    kernel: ArrayOf<number>
   ): void {
     while (nSamples-- !== 0) {
       /* 1e-10 is a hack to avoid slowdown because of denormals */
@@ -307,12 +308,12 @@ class GainAnalysis {
   // private void filterButter(final float[] input, int inputPos,
   //    float[] output, int outputPos, int nSamples, final float[] kernel) {
   private filterButter(
-    input: readonly number[],
+    input: ArrayOf<number>,
     inputPos: number,
-    output: number[],
+    output: ArrayOf<number>,
     outputPos: number,
     nSamples: number,
-    kernel: readonly number[]
+    kernel: ArrayOf<number>
   ) {
     while (nSamples-- !== 0) {
       output[outputPos] =
@@ -389,7 +390,7 @@ class GainAnalysis {
     return GainAnalysis.INIT_GAIN_ANALYSIS_OK;
   }
 
-  InitGainAnalysis(rgData: any, samplefreq: number) {
+  InitGainAnalysis(rgData: ReplayGain, samplefreq: number) {
     if (
       this.resetSampleFrequency(rgData, samplefreq) !==
       GainAnalysis.INIT_GAIN_ANALYSIS_OK
@@ -417,13 +418,13 @@ class GainAnalysis {
   }
 
   AnalyzeSamples(
-    rgData: any,
-    left_samples: any,
+    rgData: ReplayGain,
+    left_samples: ArrayOf<number>,
     left_samplesPos: number,
-    right_samples: any,
+    right_samples: ArrayOf<number>,
     right_samplesPos: number,
     num_samples: number,
-    num_channels: any
+    num_channels: number
   ) {
     let curleft;
     let curleftBase;

@@ -1,4 +1,12 @@
 export class MPGLib {
+  hip_decode_init(): null {
+    throw new Error('Method not implemented.');
+  }
+
+  hip_decode_exit(_hip: never) {
+    throw new Error('Method not implemented.');
+  }
+
   hip_decode1_unclipped(
     _hip: unknown,
     _buffer: unknown,

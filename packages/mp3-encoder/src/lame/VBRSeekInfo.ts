@@ -1,3 +1,5 @@
+import type { ArrayOf } from './ArrayOf';
+
 class VBRSeekInfo {
   /**
    * What we have seen so far.
@@ -27,7 +29,7 @@ class VBRSeekInfo {
   /**
    * Pointer to our bag.
    */
-  bag: number[] = null as unknown as number[]; // TODO: fix this
+  bag: ArrayOf<number> | null = null;
 
   nVbrNumFrames = 0;
 

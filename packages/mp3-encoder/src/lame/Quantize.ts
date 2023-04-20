@@ -31,6 +31,7 @@ import CalcNoiseResult from './CalcNoiseResult';
 import Encoder from './Encoder';
 import GrInfo from './GrInfo';
 import type IIISideInfo from './IIISideInfo';
+import type III_psy_ratio from './III_psy_ratio';
 import L3Side from './L3Side';
 import type LameGlobalFlags from './LameGlobalFlags';
 import LameInternalFlags from './LameInternalFlags';
@@ -45,28 +46,28 @@ import { VbrMode } from './VbrMode';
 import { int } from './int';
 
 class Quantize {
-  private bs: BitStream = null as unknown as BitStream;
+  private bs: BitStream | null = null;
 
-  private __rv: Reservoir = null as unknown as Reservoir;
+  private __rv: Reservoir | null = null;
 
-  rv: Reservoir = null as unknown as Reservoir;
+  rv: Reservoir | null = null;
 
-  qupvt: QuantizePVT = null as unknown as QuantizePVT;
+  qupvt: QuantizePVT | null = null;
 
-  private __qupvt: QuantizePVT = null as unknown as QuantizePVT;
+  private __qupvt: QuantizePVT | null = null;
 
   readonly vbr = new VBRQuantize();
 
-  private tk: Takehiro = null as unknown as Takehiro;
+  private tk: Takehiro | null = null;
 
   setModules(bs: BitStream, rv: Reservoir, qupvt: QuantizePVT, tk: Takehiro) {
-    this.bs = bs;
-    this.__rv = rv;
+    this.bs! = bs;
+    this.__rv! = rv;
     this.rv = rv;
-    this.__qupvt = qupvt;
+    this.__qupvt! = qupvt;
     this.qupvt = qupvt;
-    this.tk = tk;
-    this.vbr.setModules(this.__qupvt, this.tk);
+    this.tk! = tk;
+    this.vbr.setModules(this.__qupvt!, this.tk!);
   }
 
   /**
@@ -155,7 +156,7 @@ class Quantize {
       for (let gsfb = Encoder.PSFB21 - 1; gsfb >= 0 && !stop; gsfb--) {
         const start = gfc.scalefac_band.psfb21[gsfb];
         const end = gfc.scalefac_band.psfb21[gsfb + 1];
-        let ath21 = this.__qupvt.athAdjust(
+        let ath21 = this.__qupvt!.athAdjust(
           ath.adjust,
           ath.psfb21[gsfb],
           ath.floor
@@ -184,7 +185,7 @@ class Quantize {
             start +
             (gfc.scalefac_band.psfb12[gsfb + 1] -
               gfc.scalefac_band.psfb12[gsfb]);
-          let ath12 = this.__qupvt.athAdjust(
+          let ath12 = this.__qupvt!.athAdjust(
             ath.adjust,
             ath.psfb12[gsfb],
             ath.floor
@@ -296,7 +297,7 @@ class Quantize {
     }
 
     cod_info.count1bits = 0;
-    cod_info.sfb_partition_table = this.__qupvt.nr_of_sfb_block[0][0];
+    cod_info.sfb_partition_table = this.__qupvt!.nr_of_sfb_block[0][0];
     cod_info.slen[0] = 0;
     cod_info.slen[1] = 0;
     cod_info.slen[2] = 0;
@@ -336,7 +337,7 @@ class Quantize {
     console.assert(CurrentStep !== 0);
     for (;;) {
       let step;
-      nBits = this.tk.count_bits(gfc, xrpow, cod_info, null);
+      nBits = this.tk!.count_bits(gfc, xrpow, cod_info, null);
 
       if (CurrentStep === 1 || nBits === desired_rate) break;
       /* nothing to adjust anymore */
@@ -373,7 +374,7 @@ class Quantize {
 
     while (nBits > desired_rate && cod_info.global_gain < 255) {
       cod_info.global_gain++;
-      nBits = this.tk.count_bits(gfc, xrpow, cod_info, null);
+      nBits = this.tk!.count_bits(gfc, xrpow, cod_info, null);
     }
     gfc.CurrentStep[ch] = start - cod_info.global_gain >= 4 ? 4 : 2;
     gfc.OldValue[ch] = cod_info.global_gain;
@@ -395,7 +396,7 @@ class Quantize {
       (gfc.substep_shaping & 0x80) !== 0
     )
       return;
-    this.__qupvt.calc_noise(gi, l3_xmin, distort, new CalcNoiseResult(), null);
+    this.__qupvt!.calc_noise(gi, l3_xmin, distort, new CalcNoiseResult(), null);
     for (let j = 0; j < 576; j++) {
       let xr = 0.0;
       if (gi.l3_enc[j] !== 0) xr = Math.abs(gi.xr[j]);
@@ -448,7 +449,7 @@ class Quantize {
       } while (--width > 0);
     } while (++sfb < gi.psymax);
 
-    gi.part2_3_length = this.tk.noquant_count_bits(gfc, gi, null);
+    gi.part2_3_length = this.tk!.noquant_count_bits(gfc, gi, null);
   }
 
   /**
@@ -709,7 +710,7 @@ class Quantize {
     for (let sfb = 0; sfb < cod_info.sfbmax; sfb++) {
       const width = cod_info.width[sfb];
       let s = cod_info.scalefac[sfb];
-      if (cod_info.preflag !== 0) s += this.__qupvt.pretab[sfb];
+      if (cod_info.preflag !== 0) s += this.__qupvt!.pretab[sfb];
       j += width;
       if ((s & 1) !== 0) {
         s++;
@@ -784,7 +785,7 @@ class Quantize {
         scalefac[sfb] = 0;
         {
           const gain = 210 + (s << (cod_info.scalefac_scale + 1));
-          amp = this.__qupvt.IPOW20(gain);
+          amp = this.__qupvt!.IPOW20(gain);
         }
         j += width * (window + 1);
         for (let l = -width; l < 0; l++) {
@@ -796,7 +797,7 @@ class Quantize {
       }
 
       {
-        const amp = this.__qupvt.IPOW20(202);
+        const amp = this.__qupvt!.IPOW20(202);
         j += cod_info.width[sfb] * (window + 1);
         for (let l = -cod_info.width[sfb]; l < 0; l++) {
           xrpow[j + l] *= amp;
@@ -847,8 +848,8 @@ class Quantize {
      * not all scalefactors have been amplified. so these scalefacs are
      * possibly valid. encode them:
      */
-    if (gfc.mode_gr === 2) status = this.tk.scale_bitcount(cod_info);
-    else status = this.tk.scale_bitcount_lsf(gfc, cod_info);
+    if (gfc.mode_gr === 2) status = this.tk!.scale_bitcount(cod_info);
+    else status = this.tk!.scale_bitcount_lsf(gfc, cod_info);
 
     if (!status) return true;
     /* amplified some bands not exceeding limits */
@@ -872,8 +873,8 @@ class Quantize {
     }
 
     if (!status) {
-      if (gfc.mode_gr === 2) status = this.tk.scale_bitcount(cod_info);
-      else status = this.tk.scale_bitcount_lsf(gfc, cod_info);
+      if (gfc.mode_gr === 2) status = this.tk!.scale_bitcount(cod_info);
+      else status = this.tk!.scale_bitcount_lsf(gfc, cod_info);
     }
     return !status;
   }
@@ -931,7 +932,7 @@ class Quantize {
 
     /* compute the distortion in this quantization */
     /* coefficients and thresholds both l/r (or both mid/side) */
-    this.__qupvt.calc_noise(
+    this.__qupvt!.calc_noise(
       cod_info,
       l3_xmin,
       distort,
@@ -1001,7 +1002,7 @@ class Quantize {
          * maximum
          */
         while (
-          (cod_info_w.part2_3_length = this.tk.count_bits(
+          (cod_info_w.part2_3_length = this.tk!.count_bits(
             gfc,
             xrpow,
             cod_info_w,
@@ -1015,7 +1016,7 @@ class Quantize {
 
         if (best_noise_info.over_count === 0) {
           while (
-            (cod_info_w.part2_3_length = this.tk.count_bits(
+            (cod_info_w.part2_3_length = this.tk!.count_bits(
               gfc,
               xrpow,
               cod_info_w,
@@ -1029,7 +1030,7 @@ class Quantize {
         }
 
         /* compute the distortion in this quantization */
-        this.__qupvt.calc_noise(
+        this.__qupvt!.calc_noise(
           cod_info_w,
           l3_xmin,
           distort,
@@ -1124,17 +1125,17 @@ class Quantize {
     /*
      * try some better scalefac storage
      */
-    this.tk.best_scalefac_store(gfc, gr, ch, l3_side);
+    this.tk!.best_scalefac_store(gfc, gr, ch, l3_side);
 
     /*
      * best huffman_divide may save some bits too
      */
-    if (gfc.use_best_huffman === 1) this.tk.best_huffman_divide(gfc, cod_info);
+    if (gfc.use_best_huffman === 1) this.tk!.best_huffman_divide(gfc, cod_info);
 
     /*
      * update reservoir status after FINAL quantization/bitrate
      */
-    this.__rv.ResvAdjust(gfc, cod_info);
+    this.__rv!.ResvAdjust(gfc, cod_info);
   }
 
   /**
@@ -1253,18 +1254,18 @@ class Quantize {
      * detect analog silence, see below
      */
     gfc.bitrate_index = gfc.VBR_min_bitrate;
-    let bitsPerFrame = this.bs.getframebits(gfp);
+    let bitsPerFrame = this.bs!.getframebits(gfp);
 
     /*
      * bits for analog silence
      */
     gfc.bitrate_index = 1;
-    bitsPerFrame = this.bs.getframebits(gfp);
+    bitsPerFrame = this.bs!.getframebits(gfp);
 
     for (let i = 1; i <= gfc.VBR_max_bitrate; i++) {
       gfc.bitrate_index = i;
       const mb = new MeanBits(bitsPerFrame);
-      frameBits[i] = this.__rv.ResvFrameBegin(gfp, mb);
+      frameBits[i] = this.__rv!.ResvFrameBegin(gfp, mb);
       bitsPerFrame = mb.bits;
     }
   }
@@ -1293,7 +1294,7 @@ class Quantize {
     gfp: LameGlobalFlags,
     pe: ArrayOf<number>[],
     ms_ener_ratio: ArrayOf<number>,
-    ratio: ArrayOf<number>[],
+    ratio: III_psy_ratio[][],
     l3_xmin: ArrayOf<number>[][],
     frameBits: ArrayOf<number>,
     min_bits: ArrayOf<number>[],
@@ -1308,15 +1309,15 @@ class Quantize {
     let bits = 0;
 
     gfc.bitrate_index = gfc.VBR_max_bitrate;
-    const avg = this.__rv.ResvFrameBegin(gfp, new MeanBits(0)) / gfc.mode_gr;
+    const avg = this.__rv!.ResvFrameBegin(gfp, new MeanBits(0)) / gfc.mode_gr;
 
     this.get_framebits(gfp, frameBits);
 
     for (let gr = 0; gr < gfc.mode_gr; gr++) {
-      const mxb = this.__qupvt.on_pe(gfp, pe, max_bits[gr], avg, gr, 0);
+      const mxb = this.__qupvt!.on_pe(gfp, pe, max_bits[gr], avg, gr, 0);
       if (gfc.mode_ext === Encoder.MPG_MD_MS_LR) {
         this.ms_convert(gfc.l3_side, gr);
-        this.__qupvt.reduce_side(max_bits[gr], ms_ener_ratio[gr], avg, mxb);
+        this.__qupvt!.reduce_side(max_bits[gr], ms_ener_ratio[gr], avg, mxb);
       }
       for (let ch = 0; ch < gfc.channels_out; ++ch) {
         const cod_info = gfc.l3_side.tt[gr][ch];
@@ -1324,15 +1325,15 @@ class Quantize {
         if (cod_info.block_type !== Encoder.SHORT_TYPE) {
           // NORM, START or STOP type
           adjust = 1.28 / (1 + Math.exp(3.5 - pe[gr][ch] / 300)) - 0.05;
-          masking_lower_db = gfc.PSY.mask_adjust - adjust;
+          masking_lower_db = gfc.PSY!.mask_adjust - adjust;
         } else {
           adjust = 2.56 / (1 + Math.exp(3.5 - pe[gr][ch] / 300)) - 0.14;
-          masking_lower_db = gfc.PSY.mask_adjust_short - adjust;
+          masking_lower_db = gfc.PSY!.mask_adjust_short - adjust;
         }
         gfc.masking_lower = Math.pow(10.0, masking_lower_db * 0.1);
 
         this.init_outer_loop(gfc, cod_info);
-        bands[gr][ch] = this.__qupvt.calc_xmin(
+        bands[gr][ch] = this.__qupvt!.calc_xmin(
           gfp,
           ratio[gr][ch],
           cod_info,
@@ -1395,7 +1396,7 @@ class Quantize {
   VBR_new_prepare(
     gfp: LameGlobalFlags,
     pe: ArrayOf<number>[],
-    ratio: ArrayOf<number>[],
+    ratio: III_psy_ratio[][],
     l3_xmin: ArrayOf<number>[][],
     frameBits: ArrayOf<number>,
     max_bits: ArrayOf<number>[]
@@ -1411,7 +1412,7 @@ class Quantize {
       gfc.bitrate_index = gfc.VBR_max_bitrate;
 
       const mb = new MeanBits(avg);
-      this.__rv.ResvFrameBegin(gfp, mb);
+      this.__rv!.ResvFrameBegin(gfp, mb);
       avg = mb.bits;
 
       this.get_framebits(gfp, frameBits);
@@ -1419,24 +1420,24 @@ class Quantize {
     } else {
       gfc.bitrate_index = 0;
       const mb = new MeanBits(avg);
-      maximum_framebits = this.__rv.ResvFrameBegin(gfp, mb);
+      maximum_framebits = this.__rv!.ResvFrameBegin(gfp, mb);
       avg = mb.bits;
       frameBits[0] = maximum_framebits;
     }
 
     for (let gr = 0; gr < gfc.mode_gr; gr++) {
-      this.__qupvt.on_pe(gfp, pe, max_bits[gr], avg, gr, 0);
+      this.__qupvt!.on_pe(gfp, pe, max_bits[gr], avg, gr, 0);
       if (gfc.mode_ext === Encoder.MPG_MD_MS_LR) {
         this.ms_convert(gfc.l3_side, gr);
       }
       for (let ch = 0; ch < gfc.channels_out; ++ch) {
         const cod_info = gfc.l3_side.tt[gr][ch];
 
-        gfc.masking_lower = Math.pow(10.0, gfc.PSY.mask_adjust * 0.1);
+        gfc.masking_lower = Math.pow(10.0, gfc.PSY!.mask_adjust * 0.1);
 
         this.init_outer_loop(gfc, cod_info);
         if (
-          this.__qupvt.calc_xmin(
+          this.__qupvt!.calc_xmin(
             gfp,
             ratio[gr][ch],
             cod_info,
@@ -1485,11 +1486,11 @@ class Quantize {
 
     gfc.bitrate_index = gfc.VBR_max_bitrate;
     const mb = new MeanBits(mean_bits);
-    max_frame_bits[0] = this.__rv.ResvFrameBegin(gfp, mb);
+    max_frame_bits[0] = this.__rv!.ResvFrameBegin(gfp, mb);
     mean_bits = mb.bits;
 
     gfc.bitrate_index = 1;
-    mean_bits = this.bs.getframebits(gfp) - gfc.sideinfo_len * 8;
+    mean_bits = this.bs!.getframebits(gfp) - gfc.sideinfo_len * 8;
     analog_silence_bits[0] = mean_bits / (gfc.mode_gr * gfc.channels_out);
 
     mean_bits = gfp.VBR_mean_bitrate_kbps * gfp.framesize * 1000;
@@ -1560,7 +1561,7 @@ class Quantize {
 
     if (gfc.mode_ext === Encoder.MPG_MD_MS_LR)
       for (gr = 0; gr < gfc.mode_gr; gr++) {
-        this.__qupvt.reduce_side(
+        this.__qupvt!.reduce_side(
           targ_bits[gr],
           ms_ener_ratio[gr],
           mean_bits * gfc.channels_out,

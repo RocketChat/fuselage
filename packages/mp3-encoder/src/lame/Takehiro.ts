@@ -156,7 +156,7 @@ class Takehiro {
    * and call the proper quantization function
    */
   private quantize_xrpow(
-    xp: any,
+    xp: ArrayOf<number>,
     pi: ArrayOf<number>,
     istep: number,
     codInfo: GrInfo,
@@ -1284,7 +1284,7 @@ class Takehiro {
       cod_info.part2_length = 0;
       for (partition = 0; partition < 4; partition++)
         cod_info.part2_length +=
-          cod_info.slen[partition] * cod_info.sfb_partition_table[partition];
+          cod_info.slen[partition] * cod_info.sfb_partition_table![partition];
     }
     return over;
   }

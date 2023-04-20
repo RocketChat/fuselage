@@ -1,19 +1,12 @@
 {
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "rootDir": "./src",
     "module": "ESNext",
-    "target": "ES5",
     "lib": ["ES2015", "WebWorker"],
-    "declaration": true,
-    "declarationMap": true,
-    "sourceMap": true,
     "outDir": "./dist",
-    "strict": true,
-    "strictNullChecks": true,
-    "allowJs": true,
     "esModuleInterop": true,
     "moduleResolution": "node",
-    "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true
   },
   "include": ["src"]

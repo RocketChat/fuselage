@@ -1,12 +1,19 @@
 import ATH from './ATH';
 import type { ArrayOf } from './ArrayOf';
+import { BandPass } from './BandPass';
 import BitStream from './BitStream';
 import CBRNewIterationLoop from './CBRNewIterationLoop';
 import Encoder from './Encoder';
 import GainAnalysis from './GainAnalysis';
+import type { ID3Tag } from './ID3Tag';
+import { InOut } from './InOut';
 import LameGlobalFlags from './LameGlobalFlags';
 import LameInternalFlags from './LameInternalFlags';
+import { LowPassHighPass } from './LowPassHighPass';
 import MPEGMode from './MPEGMode';
+import type { MPGLib } from './MPGLib';
+import { NumUsed } from './NumUsed';
+import { PSY } from './PSY';
 import type Presets from './Presets';
 import PsyModel from './PsyModel';
 import type Quantize from './Quantize';
@@ -20,50 +27,6 @@ import { VbrMode } from './VbrMode';
 import type Version from './Version';
 import { new_int_n, new_short_n } from './common';
 import { int } from './int';
-
-/**
- * PSY Model related stuff
- */
-class PSY {
-  /**
-   * The dbQ stuff.
-   */
-  mask_adjust = 0;
-
-  /**
-   * The dbQ stuff.
-   */
-  mask_adjust_short = 0;
-
-  /* at transition from one scalefactor band to next */
-  /**
-   * Band weight long scalefactor bands.
-   */
-  bo_l_weight = new Float32Array(Encoder.SBMAX_l);
-
-  /**
-   * Band weight short scalefactor bands.
-   */
-  bo_s_weight = new Float32Array(Encoder.SBMAX_s);
-}
-
-class LowPassHighPass {
-  lowerlimit = 0;
-}
-
-class BandPass {
-  constructor(_bitrate: number, public readonly lowpass: number) {}
-}
-
-class InOut {
-  n_in = 0;
-
-  n_out = 0;
-}
-
-class NumUsed {
-  num_used = 0;
-}
 
 class Lame {
   private static readonly LAME_MAXALBUMART = 128 * 1024;
@@ -89,34 +52,34 @@ class Lame {
 
   private vbr: VBRTag | null = null;
 
-  private ver: Version | null = null;
+  // private ver: Version | null = null;
 
-  private id3: any;
+  private id3: ID3Tag | null = null;
 
-  private mpglib: any;
+  private mpglib: MPGLib | null = null;
 
   enc = new Encoder();
 
   setModules(
-    _ga: GainAnalysis,
-    _bs: BitStream,
-    _p: Presets,
-    _qupvt: QuantizePVT,
-    _qu: Quantize,
-    _vbr: VBRTag,
+    ga: GainAnalysis,
+    bs: BitStream,
+    p: Presets,
+    qupvt: QuantizePVT,
+    qu: Quantize,
+    vbr: VBRTag,
     _ver: Version,
-    _id3: any,
-    _mpglib: any
+    id3: ID3Tag,
+    mpglib: MPGLib
   ) {
-    this.ga = _ga;
-    this.bs = _bs;
-    this.p = _p;
-    this.qupvt = _qupvt;
-    this.qu = _qu;
-    this.vbr = _vbr;
-    this.ver = _ver;
-    this.id3 = _id3;
-    this.mpglib = _mpglib;
+    this.ga = ga;
+    this.bs = bs;
+    this.p = p;
+    this.qupvt = qupvt;
+    this.qu = qu;
+    this.vbr = vbr;
+    // this.ver = ver;
+    this.id3 = id3;
+    this.mpglib = mpglib;
     this.enc.setModules(this.bs, this.psy, this.qupvt, this.vbr);
   }
 
@@ -232,7 +195,7 @@ class Lame {
 
     const ret = this.lame_init_old(gfp);
     if (ret !== 0) {
-      return null;
+      throw new Error('lame_init_old failed');
     }
 
     gfp.lame_allocated_gfp = 1;
@@ -683,7 +646,7 @@ class Lame {
     gfp.frameNum = 0;
 
     if (gfp.write_id3tag_automatic) {
-      this.id3.id3tag_write_v2(gfp);
+      this.id3!.id3tag_write_v2(gfp);
     }
     /* initialize histogram data optionally used by frontend */
 
@@ -955,9 +918,9 @@ class Lame {
 
     if (gfc.decode_on_the_fly && !gfp.decode_only) {
       if (gfc.hip !== null) {
-        this.mpglib.hip_decode_exit(gfc.hip);
+        this.mpglib!.hip_decode_exit(gfc.hip);
       }
-      gfc.hip = this.mpglib.hip_decode_init();
+      gfc.hip = this.mpglib!.hip_decode_init();
     }
 
     gfc.mode_gr = gfp.out_samplerate <= 24000 ? 1 : 2;
@@ -1505,7 +1468,7 @@ class Lame {
 
     if (gfp.write_id3tag_automatic) {
       /* write a id3 tag to the bitstream */
-      this.id3.id3tag_write_v1(gfp);
+      this.id3!.id3tag_write_v1(gfp);
 
       imp3 = this.bs!.copy_buffer(
         gfc,
@@ -1674,7 +1637,7 @@ class Lame {
       if (gfc.findReplayGain && !gfc.decode_on_the_fly)
         if (
           this.ga!.AnalyzeSamples(
-            gfc.rgdata,
+            gfc.rgdata!,
             mfbuf[0],
             gfc.mf_size,
             mfbuf[1],

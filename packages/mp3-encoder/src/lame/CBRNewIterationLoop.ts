@@ -1,3 +1,4 @@
+import type { ArrayOf } from './ArrayOf';
 import Encoder from './Encoder';
 import type III_psy_ratio from './III_psy_ratio';
 import L3Side from './L3Side';
@@ -11,8 +12,8 @@ class CBRNewIterationLoop {
 
   iteration_loop(
     gfp: LameGlobalFlags,
-    pe: number[][],
-    ms_ener_ratio: number[],
+    pe: ArrayOf<number>[],
+    ms_ener_ratio: ArrayOf<number>,
     ratio: III_psy_ratio[][]
   ) {
     const gfc = gfp.internal_flags!;
@@ -24,7 +25,7 @@ class CBRNewIterationLoop {
     const { l3_side } = gfc;
 
     const mb = new MeanBits(mean_bits);
-    this.quantize.rv.ResvFrameBegin(gfp, mb);
+    this.quantize.rv!.ResvFrameBegin(gfp, mb);
     mean_bits = mb.bits;
 
     /* quantize! */
@@ -32,7 +33,7 @@ class CBRNewIterationLoop {
       /*
        * calculate needed bits
        */
-      max_bits = this.quantize.qupvt.on_pe(
+      max_bits = this.quantize.qupvt!.on_pe(
         gfp,
         pe,
         targ_bits,
@@ -43,7 +44,7 @@ class CBRNewIterationLoop {
 
       if (gfc.mode_ext === Encoder.MPG_MD_MS_LR) {
         this.quantize.ms_convert(gfc.l3_side, gr);
-        this.quantize.qupvt.reduce_side(
+        this.quantize.qupvt!.reduce_side(
           targ_bits,
           ms_ener_ratio[gr],
           mean_bits,
@@ -59,10 +60,10 @@ class CBRNewIterationLoop {
         if (cod_info.block_type !== Encoder.SHORT_TYPE) {
           // NORM, START or STOP type
           adjust = 0;
-          masking_lower_db = gfc.PSY.mask_adjust - adjust;
+          masking_lower_db = gfc.PSY!.mask_adjust - adjust;
         } else {
           adjust = 0;
-          masking_lower_db = gfc.PSY.mask_adjust_short - adjust;
+          masking_lower_db = gfc.PSY!.mask_adjust_short - adjust;
         }
         gfc.masking_lower = Math.pow(10.0, masking_lower_db * 0.1);
 
@@ -76,7 +77,7 @@ class CBRNewIterationLoop {
            * masking abilities find some good quantization in
            * outer_loop
            */
-          this.quantize.qupvt.calc_xmin(gfp, ratio[gr][ch], cod_info, l3_xmin);
+          this.quantize.qupvt!.calc_xmin(gfp, ratio[gr][ch], cod_info, l3_xmin);
           this.quantize.outer_loop(
             gfp,
             cod_info,
@@ -95,7 +96,7 @@ class CBRNewIterationLoop {
       } /* for ch */
     } /* for gr */
 
-    this.quantize.rv.ResvFrameEnd(gfc, mean_bits);
+    this.quantize.rv!.ResvFrameEnd(gfc, mean_bits);
   }
 }
 

@@ -130,7 +130,7 @@ class BitStream {
   /**
    * write j bits into the bit stream, ignoring frame headers
    */
-  private putbits_noheaders(gfc: LameInternalFlags, val: number, j: number) {
+  private putbits_noheaders(_gfc: LameInternalFlags, val: number, j: number) {
     console.assert(j < BitStream.MAX_LENGTH - 2);
 
     while (j > 0) {
@@ -641,7 +641,7 @@ class BitStream {
 
         if (gi.block_type === Encoder.SHORT_TYPE) {
           for (; sfb_partition < 4; sfb_partition++) {
-            const sfbs = gi.sfb_partition_table[sfb_partition] / 3;
+            const sfbs = gi.sfb_partition_table![sfb_partition] / 3;
             const slen = gi.slen[sfb_partition];
             for (i = 0; i < sfbs; i++, sfb++) {
               this.putbits2(gfc, Math.max(gi.scalefac[sfb * 3 + 0], 0), slen);
@@ -653,7 +653,7 @@ class BitStream {
           data_bits += this.ShortHuffmancodebits(gfc, gi);
         } else {
           for (; sfb_partition < 4; sfb_partition++) {
-            const sfbs = gi.sfb_partition_table[sfb_partition];
+            const sfbs = gi.sfb_partition_table![sfb_partition];
             const slen = gi.slen[sfb_partition];
             for (i = 0; i < sfbs; i++, sfb++) {
               this.putbits2(gfc, Math.max(gi.scalefac[sfb], 0), slen);
@@ -998,7 +998,7 @@ class BitStream {
             if (gfc.findReplayGain)
               if (
                 this.ga!.AnalyzeSamples(
-                  gfc.rgdata,
+                  gfc.rgdata!,
                   pcm_buf[0],
                   0,
                   pcm_buf[1],

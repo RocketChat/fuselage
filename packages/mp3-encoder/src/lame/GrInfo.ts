@@ -1,3 +1,4 @@
+import type { ArrayOf } from './ArrayOf';
 import L3Side from './L3Side';
 
 class GrInfo {
@@ -63,7 +64,7 @@ class GrInfo {
   /**
    * added for LSF
    */
-  sfb_partition_table = null as unknown as number[];
+  sfb_partition_table: ArrayOf<number> | null = null;
 
   slen = new Int32Array(4);
 
@@ -101,7 +102,7 @@ class GrInfo {
     this.window = new Int32Array(other.window); // .slice(0); //.clone();
     this.count1bits = other.count1bits;
 
-    this.sfb_partition_table = other.sfb_partition_table.slice(0); // .clone();
+    this.sfb_partition_table = Array.from(other.sfb_partition_table!); // .clone();
     this.slen = new Int32Array(other.slen); // .slice(0); //.clone();
     this.max_nonzero_coeff = other.max_nonzero_coeff;
   }
