@@ -117,13 +117,13 @@ export class VBRTag {
     }
 
     if (v.pos < v.size) {
-      v.bag![v.pos] = v.sum;
+      v.bag[v.pos] = v.sum;
       v.pos++;
       v.seen = 0;
     }
     if (v.pos === v.size) {
       for (let i = 1; i < v.size; i += 2) {
-        v.bag![i / 2] = v.bag![i];
+        v.bag[i / 2] = v.bag[i];
       }
       v.want *= 2;
       v.pos /= 2;
@@ -139,7 +139,6 @@ export class VBRTag {
   addVbrFrame(gfp: LameGlobalFlags) {
     const gfc = gfp.internal_flags!;
     const kbps = Tables.bitrate_table[gfp.version][gfc.bitrate_index];
-    console.assert(gfc.VBR_seek_table.bag !== null);
     this.addVbr(gfc.VBR_seek_table, kbps);
   }
 
@@ -281,7 +280,7 @@ export class VBRTag {
     const totalFrameSize =
       ((gfp.version + 1) * 72000 * kbps_header) / gfp.out_samplerate;
     const headerSize = gfc.sideinfo_len + VBRTag.LAMEHEADERSIZE;
-    gfc.VBR_seek_table.TotalFrameSize = totalFrameSize;
+    gfc.VBR_seek_table.totalFrameSize = totalFrameSize;
     if (totalFrameSize < headerSize || totalFrameSize > VBRTag.MAXFRAMESIZE) {
       /* disable tag, it wont fit */
       gfp.bWriteVbrTag = false;
@@ -296,16 +295,11 @@ export class VBRTag {
     gfc.VBR_seek_table.want = 1;
     gfc.VBR_seek_table.pos = 0;
 
-    if (gfc.VBR_seek_table.bag === null) {
-      gfc.VBR_seek_table.bag = new Array<number>(400);
-      gfc.VBR_seek_table.size = 400;
-    }
-
     // write dummy VBR tag of all 0's into bitstream
     const buffer = new Uint8Array(VBRTag.MAXFRAMESIZE);
 
     this.setLameTagFrameHeader(gfp, buffer);
-    const n = gfc.VBR_seek_table.TotalFrameSize;
+    const n = gfc.VBR_seek_table.totalFrameSize;
     for (let i = 0; i < n; ++i) {
       this.bs!.add_dummy_byte(gfp, buffer[i] & 0xff, 1);
     }

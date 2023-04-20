@@ -1,5 +1,5 @@
 import { ATH } from './ATH';
-import { BandPass } from './BandPass';
+import type { BandPass } from './BandPass';
 import type { BitStream } from './BitStream';
 import { CBRNewIterationLoop } from './CBRNewIterationLoop';
 import { Encoder } from './Encoder';
@@ -402,24 +402,24 @@ export class Lame {
      * </PRE>
      */
     const freq_map = [
-      new BandPass(8, 2000),
-      new BandPass(16, 3700),
-      new BandPass(24, 3900),
-      new BandPass(32, 5500),
-      new BandPass(40, 7000),
-      new BandPass(48, 7500),
-      new BandPass(56, 10000),
-      new BandPass(64, 11000),
-      new BandPass(80, 13500),
-      new BandPass(96, 15100),
-      new BandPass(112, 15600),
-      new BandPass(128, 17000),
-      new BandPass(160, 17500),
-      new BandPass(192, 18600),
-      new BandPass(224, 19400),
-      new BandPass(256, 19700),
-      new BandPass(320, 20500),
-    ];
+      { bitrate: 8, lowpass: 2000 },
+      { bitrate: 16, lowpass: 3700 },
+      { bitrate: 24, lowpass: 3900 },
+      { bitrate: 32, lowpass: 5500 },
+      { bitrate: 40, lowpass: 7000 },
+      { bitrate: 48, lowpass: 7500 },
+      { bitrate: 56, lowpass: 10000 },
+      { bitrate: 64, lowpass: 11000 },
+      { bitrate: 80, lowpass: 13500 },
+      { bitrate: 96, lowpass: 15100 },
+      { bitrate: 112, lowpass: 15600 },
+      { bitrate: 128, lowpass: 17000 },
+      { bitrate: 160, lowpass: 17500 },
+      { bitrate: 192, lowpass: 18600 },
+      { bitrate: 224, lowpass: 19400 },
+      { bitrate: 256, lowpass: 19700 },
+      { bitrate: 320, lowpass: 20500 },
+    ] satisfies BandPass[];
 
     const table_index = this.nearestBitrateFullIndex(bitrate);
     lh.lowerlimit = freq_map[table_index].lowpass;
@@ -815,7 +815,7 @@ export class Lame {
     /* if a filter has not been enabled, see if we should add one: */
     /** **************************************************************/
     if (gfp.lowpassfreq === 0) {
-      let lowpass = 16000;
+      let lowpass: number;
 
       switch (gfp.VBR) {
         case VbrMode.vbr_off: {

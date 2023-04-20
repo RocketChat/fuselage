@@ -1507,7 +1507,6 @@ export class PsyModel {
     buffer: Float32Array[],
     bufPos: number,
     chn: number,
-    gr_out: number,
     fftenergy: Float32Array,
     wsamp_l: Float32Array[],
     wsamp_lPos: number
@@ -2347,7 +2346,6 @@ export class PsyModel {
         buffer,
         bufPos,
         chn,
-        gr_out,
         fftenergy,
         wsamp_l,
         ch01

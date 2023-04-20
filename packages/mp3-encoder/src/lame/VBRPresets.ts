@@ -1,19 +1,17 @@
-export class VBRPresets {
-  constructor(
-    public vbr_q: number,
-    public quant_comp: number,
-    public quant_comp_s: number,
-    public expY: number,
-    public st_lrm: number,
-    public st_s: number,
-    public masking_adj: number,
-    public masking_adj_short: number,
-    public ath_lower: number,
-    public ath_curve: number,
-    public ath_sensitivity: number,
-    public interch: number,
-    public safejoint: number,
-    public sfb21mod: number,
-    public msfix: number
-  ) {}
+export interface VBRPresets {
+  vbr_q: number;
+  quant_comp: number;
+  quant_comp_s: number;
+  expY: number;
+  st_lrm: number;
+  st_s: number;
+  masking_adj: number;
+  masking_adj_short: number;
+  ath_lower: number;
+  ath_curve: number;
+  ath_sensitivity: number;
+  interch: number;
+  safejoint: number;
+  sfb21mod: number;
+  msfix: number;
 }

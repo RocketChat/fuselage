@@ -7,7 +7,7 @@ import { NsPsy } from './NsPsy';
 import type { PSY } from './PSY';
 import type { ReplayGain } from './ReplayGain';
 import { ScaleFac } from './ScaleFac';
-import { VBRSeekInfo } from './VBRSeekInfo';
+import type { VBRSeekInfo } from './VBRSeekInfo';
 import {
   CBANDS,
   ENCDELAY,
@@ -368,7 +368,17 @@ export class LameInternalFlags {
   /**
    * used for Xing VBR header
    */
-  VBR_seek_table = new VBRSeekInfo();
+  VBR_seek_table: VBRSeekInfo = {
+    sum: 0,
+    seen: 0,
+    want: 0,
+    pos: 0,
+    size: 400,
+    bag: Array.from({ length: 400 }),
+    nVbrNumFrames: 0,
+    nBytesWritten: 0,
+    totalFrameSize: 0,
+  };
 
   /**
    * all ATH related stuff

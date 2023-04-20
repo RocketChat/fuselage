@@ -1,3 +1,5 @@
-export class BandPass {
-  constructor(_bitrate: number, public readonly lowpass: number) {}
+export interface BandPass {
+  readonly bitrate: number;
+
+  readonly lowpass: number;
 }

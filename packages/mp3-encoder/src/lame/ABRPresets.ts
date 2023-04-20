@@ -1,18 +1,16 @@
-export class ABRPresets {
-  constructor(
-    _kbps: number,
-    public quant_comp: number,
-    public quant_comp_s: number,
-    public safejoint: number,
-    public nsmsfix: number,
-    public st_lrm: number,
-    public st_s: number,
-    public nsbass: number,
-    public scale: number,
-    public masking_adj: number,
-    public ath_lower: number,
-    public ath_curve: number,
-    public interch: number,
-    public sfscale: number
-  ) {}
+export interface ABRPresets {
+  readonly kbps: number;
+  readonly quant_comp: number;
+  readonly quant_comp_s: number;
+  readonly safejoint: number;
+  readonly nsmsfix: number;
+  readonly st_lrm: number;
+  readonly st_s: number;
+  readonly nsbass: number;
+  readonly scale: number;
+  readonly masking_adj: number;
+  readonly ath_lower: number;
+  readonly ath_curve: number;
+  readonly interch: number;
+  readonly sfscale: number;
 }

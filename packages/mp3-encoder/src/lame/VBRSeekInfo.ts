@@ -1,38 +1,38 @@
-export class VBRSeekInfo {
+export interface VBRSeekInfo {
   /**
    * What we have seen so far.
    */
-  sum = 0;
+  sum: number;
 
   /**
    * How many frames we have seen in this chunk.
    */
-  seen = 0;
+  seen: number;
 
   /**
    * How many frames we want to collect into one chunk.
    */
-  want = 0;
+  want: number;
 
   /**
    * Actual position in our bag.
    */
-  pos = 0;
+  pos: number;
 
   /**
    * Size of our bag.
    */
-  size = 0;
+  size: number;
 
   /**
    * Pointer to our bag.
    */
-  bag: number[] | null = null;
+  bag: number[];
 
-  nVbrNumFrames = 0;
+  nVbrNumFrames: number;
 
-  nBytesWritten = 0;
+  nBytesWritten: number;
 
   /* VBR tag data */
-  TotalFrameSize = 0;
+  totalFrameSize: number;
 }
