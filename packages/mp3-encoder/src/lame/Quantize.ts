@@ -23,7 +23,7 @@
  */
 
 import type { ArrayOf } from './ArrayOf';
-import { Arrays } from './Arrays';
+import { copyArray, fillArray, sortArray } from './Arrays';
 import { BinSearchDirection } from './BinSearchDirection';
 import { BitStream } from './BitStream';
 import { CalcNoiseData } from './CalcNoiseData';
@@ -38,12 +38,10 @@ import { LameInternalFlags } from './LameInternalFlags';
 import { MeanBits } from './MeanBits';
 import type { QuantizePVT } from './QuantizePVT';
 import type { Reservoir } from './Reservoir';
-import { System } from './System';
 import type { Takehiro } from './Takehiro';
 import { Util } from './Util';
 import { VBRQuantize } from './VBRQuantize';
 import { VbrMode } from './VbrMode';
-import { int } from './int';
 
 export class Quantize {
   private bs: BitStream | null = null;
@@ -108,7 +106,7 @@ export class Quantize {
 
   init_xrpow(gfc: LameInternalFlags, cod_info: GrInfo, xrpow: ArrayOf<number>) {
     let sum = 0;
-    const upper = 0 | cod_info.max_nonzero_coeff;
+    const upper = Math.trunc(cod_info.max_nonzero_coeff);
 
     console.assert(xrpow !== null);
     cod_info.xrpow_max = 0;
@@ -119,7 +117,7 @@ export class Quantize {
      */
     console.assert(upper >= 0 && upper <= 575);
 
-    Arrays.fill(xrpow, upper, 576, 0);
+    fillArray(xrpow, upper, 576, 0);
 
     sum = this.init_xrpow_core(cod_info, xrpow, upper, sum);
 
@@ -135,7 +133,7 @@ export class Quantize {
       return true;
     }
 
-    Arrays.fill(cod_info.l3_enc, 0, 576, 0);
+    fillArray(cod_info.l3_enc, 0, 576, 0);
     return false;
   }
 
@@ -272,7 +270,7 @@ export class Quantize {
        * increasing frequency...
        */
       let ix = gfc.scalefac_band.l[cod_info.sfb_lmax];
-      System.arraycopy(cod_info.xr, 0, ixwork, 0, 576);
+      copyArray(cod_info.xr, 0, ixwork, 0, 576);
       for (let sfb = cod_info.sfb_smin; sfb < Encoder.SBMAX_s; sfb++) {
         const start = gfc.scalefac_band.s[sfb];
         const end = gfc.scalefac_band.s[sfb + 1];
@@ -308,7 +306,7 @@ export class Quantize {
     /*
      * fresh scalefactors are all zero
      */
-    Arrays.fill(cod_info.scalefac, 0);
+    fillArray(cod_info.scalefac, 0);
 
     this.psfb21_analogsilence(gfc, cod_info);
   }
@@ -416,7 +414,7 @@ export class Quantize {
       j += width;
       if (distort[sfb] >= 1.0) continue;
 
-      Arrays.sort(work, j - width, width);
+      sortArray(work, j - width, width);
       if (BitStream.EQ(work[j - 1], 0.0)) continue;
       /* all zero sfb */
 
@@ -858,7 +856,7 @@ export class Quantize {
      * some scalefactors are too large. lets try setting scalefac_scale=1
      */
     if (gfc.noise_shaping > 1) {
-      Arrays.fill(gfc.pseudohalf, 0);
+      fillArray(gfc.pseudohalf, 0);
       if (cod_info.scalefac_scale === 0) {
         this.inc_scalefac_scale(cod_info, xrpow);
         status = false;
@@ -943,7 +941,7 @@ export class Quantize {
 
     cod_info_w.assign(cod_info);
     let age = 0;
-    System.arraycopy(xrpow, 0, save_xrpow, 0, 576);
+    copyArray(xrpow, 0, save_xrpow, 0, 576);
 
     while (!bEndOfSearch) {
       /* BEGIN MAIN LOOP */
@@ -1066,7 +1064,7 @@ export class Quantize {
           age = 0;
           /* save data so we can restore this quantization later */
           /* store for later reuse */
-          System.arraycopy(xrpow, 0, save_xrpow, 0, 576);
+          copyArray(xrpow, 0, save_xrpow, 0, 576);
         } else if (gfc.full_outer_loop === 0) {
           /* early stop? */
           if (++age > search_limit && best_noise_info.over_count === 0) break;
@@ -1084,7 +1082,7 @@ export class Quantize {
         if (!bRefine) {
           /* refine search */
           cod_info_w.assign(cod_info);
-          System.arraycopy(save_xrpow, 0, xrpow, 0, 576);
+          copyArray(save_xrpow, 0, xrpow, 0, 576);
           age = 0;
           best_ggain_pass1 = cod_info_w.global_gain;
 
@@ -1104,7 +1102,7 @@ export class Quantize {
      */
     if (gfp.VBR === VbrMode.vbr_rh || gfp.VBR === VbrMode.vbr_mtrh)
       /* restore for reuse on next try */
-      System.arraycopy(save_xrpow, 0, xrpow, 0, 576);
+      copyArray(save_xrpow, 0, xrpow, 0, 576);
     /*
      * do the 'substep shaping'
      */ else if ((gfc.substep_shaping & 1) !== 0)
@@ -1168,7 +1166,7 @@ export class Quantize {
     const { sfb21_extra } = gfc;
 
     console.assert(Max_bits <= LameInternalFlags.MAX_BITS_PER_CHANNEL);
-    Arrays.fill(bst_cod_info.l3_enc, 0);
+    fillArray(bst_cod_info.l3_enc, 0);
 
     /*
      * search within round about 40 bits of optimal
@@ -1199,7 +1197,7 @@ export class Quantize {
          * store best quantization so far
          */
         bst_cod_info.assign(cod_info);
-        System.arraycopy(xrpow, 0, bst_xrpow, 0, 576);
+        copyArray(xrpow, 0, bst_xrpow, 0, 576);
 
         /*
          * try with fewer bits
@@ -1221,7 +1219,7 @@ export class Quantize {
            * start again with best quantization so far
            */
           cod_info.assign(bst_cod_info);
-          System.arraycopy(bst_xrpow, 0, xrpow, 0, 576);
+          copyArray(bst_xrpow, 0, xrpow, 0, 576);
         }
       }
     } while (dbits > 12);
@@ -1234,7 +1232,7 @@ export class Quantize {
      * l3_enc to restore too
      */
     if (found === 2) {
-      System.arraycopy(bst_cod_info.l3_enc, 0, cod_info.l3_enc, 0, 576);
+      copyArray(bst_cod_info.l3_enc, 0, cod_info.l3_enc, 0, 576);
     }
     console.assert(cod_info.part2_3_length <= Max_bits);
   }
@@ -1387,8 +1385,9 @@ export class Quantize {
               1 + (0.029 * sfb * sfb) / Encoder.SBMAX_s / Encoder.SBMAX_s;
           }
         }
-        max_bits[gr][ch] =
-          0 | Math.max(min_bits[gr][ch], 0.9 * max_bits[gr][ch]);
+        max_bits[gr][ch] = Math.trunc(
+          Math.max(min_bits[gr][ch], 0.9 * max_bits[gr][ch])
+        );
       }
     }
   }
@@ -1526,13 +1525,13 @@ export class Quantize {
     for (gr = 0; gr < gfc.mode_gr; gr++) {
       let sum = 0;
       for (ch = 0; ch < gfc.channels_out; ch++) {
-        targ_bits[gr][ch] = int(res_factor * mean_bits);
+        targ_bits[gr][ch] = Math.trunc(res_factor * mean_bits);
 
         if (pe[gr][ch] > 700) {
-          let add_bits = int((pe[gr][ch] - 700) / 1.4);
+          let add_bits = Math.trunc((pe[gr][ch] - 700) / 1.4);
 
           const cod_info = l3_side.tt[gr][ch];
-          targ_bits[gr][ch] = int(res_factor * mean_bits);
+          targ_bits[gr][ch] = Math.trunc(res_factor * mean_bits);
 
           /* short blocks use a little extra, no matter what the pe */
           if (cod_info.block_type === Encoder.SHORT_TYPE) {

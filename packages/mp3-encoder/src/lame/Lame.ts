@@ -20,23 +20,19 @@ import type { Quantize } from './Quantize';
 import type { QuantizePVT } from './QuantizePVT';
 import { ReplayGain } from './ReplayGain';
 import { ShortBlock } from './ShortBlock';
-import { System } from './System';
 import { Tables } from './Tables';
 import type { VBRTag } from './VBRTag';
 import { VbrMode } from './VbrMode';
 import type { Version } from './Version';
-import { new_int_n, new_short_n } from './common';
-import { int } from './int';
+import { LAME_MAXMP3BUFFER } from './constants';
 
 export class Lame {
-  private static readonly LAME_MAXALBUMART = 128 * 1024;
-
   /**
    * maximum size of mp3buffer needed if you encode at most 1152 samples for
    * each call to lame_encode_buffer. see lame_encode_buffer() below
    * (LAME_MAXMP3BUFFER is now obsolete)
    */
-  static readonly LAME_MAXMP3BUFFER = 16384 + Lame.LAME_MAXALBUMART;
+  static readonly LAME_MAXMP3BUFFER = LAME_MAXMP3BUFFER;
 
   private ga: GainAnalysis | null = null;
 
@@ -473,9 +469,8 @@ export class Lame {
       if (gfc.highpass2 < 0.9 * (0.75 / 31.0)) {
         gfc.highpass1 = 0;
         gfc.highpass2 = 0;
-        System.err.println(
-          'Warning: highpass filter disabled.  ' +
-            'highpass frequency too small\n'
+        console.warn(
+          'Warning: highpass filter disabled. highpass frequency too small'
         );
       }
     }
@@ -650,8 +645,15 @@ export class Lame {
     }
     /* initialize histogram data optionally used by frontend */
 
-    gfc.bitrate_stereoMode_Hist = new_int_n([16, 4 + 1]);
-    gfc.bitrate_blockType_Hist = new_int_n([16, 4 + 1 + 1]);
+    gfc.bitrate_stereoMode_Hist = Array.from(
+      { length: 16 },
+      () => new Int32Array(4 + 1)
+    );
+    // new_int_n([16, 4 + 1]);
+    gfc.bitrate_blockType_Hist = Array.from(
+      { length: 16 },
+      () => new Int32Array(4 + 1 + 1)
+    );
 
     gfc.PeakSample = 0.0;
 
@@ -768,7 +770,7 @@ export class Lame {
     if (gfp.VBR === VbrMode.vbr_off && gfp.compression_ratio > 0) {
       if (gfp.out_samplerate === 0)
         gfp.out_samplerate = this.map2MP3Frequency(
-          int(0.97 * gfp.in_samplerate)
+          Math.trunc(0.97 * gfp.in_samplerate)
         );
       /*
        * round up with a margin of 3 %
@@ -1361,12 +1363,12 @@ export class Lame {
 
   lame_encode_flush(
     gfp: LameGlobalFlags,
-    mp3buffer: ArrayOf<number>,
+    mp3buffer: Uint8Array,
     mp3bufferPos: number,
     mp3buffer_size: number
   ) {
     const gfc = gfp.internal_flags!;
-    const buffer = new_short_n([2, 1152] as const);
+    const buffer = Array.from({ length: 2 }, () => new Int16Array(1152));
     let imp3 = 0;
     let mp3count;
     let mp3buffer_size_remaining;
@@ -1488,10 +1490,10 @@ export class Lame {
 
   lame_encode_buffer(
     gfp: LameGlobalFlags,
-    buffer_l: ArrayOf<number>,
-    buffer_r: ArrayOf<number>,
+    buffer_l: Int16Array,
+    buffer_r: Int16Array,
     nsamples: number,
-    mp3buf: ArrayOf<number>,
+    mp3buf: Uint8Array,
     mp3bufPos: number,
     mp3buf_size: number
   ) {
@@ -1820,7 +1822,7 @@ export class Lame {
     for (k = 0; k < desired_len; k++) {
       const time0 = k * gfc.resample_ratio;
       /* time of k'th output sample */
-      j = 0 | Math.floor(time0 - gfc.itime[ch]);
+      j = Math.floor(time0 - gfc.itime[ch]);
 
       /* check if we need more input data */
       if (filter_l + j - filter_l / 2 >= len) break;
@@ -1831,11 +1833,11 @@ export class Lame {
       console.assert(Math.abs(offset) <= 0.501);
 
       /* find the closest precomputed window for this offset: */
-      const joff = 0 | Math.floor(offset * 2 * bpc + bpc + 0.5);
+      const joff = Math.floor(offset * 2 * bpc + bpc + 0.5);
       let xvalue = 0;
       for (i = 0; i <= filter_l; ++i) {
         /* force integer index */
-        const j2 = 0 | (i + j - filter_l / 2);
+        const j2 = Math.trunc(i + j - filter_l / 2);
         console.assert(j2 < len);
         console.assert(j2 + BLACKSIZE >= 0);
         const y = j2 < 0 ? inbuf_old[BLACKSIZE + j2] : inbuf[in_bufferPos + j2];

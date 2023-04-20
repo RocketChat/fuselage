@@ -1,4 +1,5 @@
 import type { ArrayOf } from './ArrayOf';
+import { copyArray } from './Arrays';
 import type { BitStream } from './BitStream';
 import { III_psy_ratio } from './III_psy_ratio';
 import type { LameGlobalFlags } from './LameGlobalFlags';
@@ -7,10 +8,16 @@ import { MPEGMode } from './MPEGMode';
 import { NewMDCT } from './NewMDCT';
 import type { PsyModel } from './PsyModel';
 import type { QuantizePVT } from './QuantizePVT';
-import { System } from './System';
 import type { VBRTag } from './VBRTag';
 import { VbrMode } from './VbrMode';
-import { new_array_n, new_float_n } from './common';
+import {
+  NORM_TYPE,
+  SBMAX_l,
+  SBMAX_s,
+  SHORT_TYPE,
+  START_TYPE,
+  STOP_TYPE,
+} from './constants';
 
 export class Encoder {
   private bs: BitStream | null = null;
@@ -293,16 +300,17 @@ export class Encoder {
     mp3bufPos: number,
     mp3buf_size: number
   ) {
-    const masking_LR = new_array_n<III_psy_ratio, readonly [2, 2]>([2, 2]);
+    const masking_LR = Array.from({ length: 2 }, () =>
+      Array.from({ length: 2 }, () => new III_psy_ratio())
+    );
+
     /*
      * LR masking &
      * energy
      */
-    masking_LR[0][0] = new III_psy_ratio();
-    masking_LR[0][1] = new III_psy_ratio();
-    masking_LR[1][0] = new III_psy_ratio();
-    masking_LR[1][1] = new III_psy_ratio();
-    const masking_MS = new_array_n<III_psy_ratio, readonly [2, 2]>([2, 2]);
+    const masking_MS = Array.from({ length: 2 }, () =>
+      Array.from({ length: 2 }, () => new III_psy_ratio())
+    );
     /* MS masking & energy */
     masking_MS[0][0] = new III_psy_ratio();
     masking_MS[0][1] = new III_psy_ratio();
@@ -314,7 +322,7 @@ export class Encoder {
     const inbuf: ArrayOf<number>[] = [];
     const gfc = gfp.internal_flags!;
 
-    const tot_ener = new_float_n([2, 4]);
+    const tot_ener = Array.from({ length: 2 }, () => new Float32Array(4));
     const ms_ener_ratio = [0.5, 0.5];
     const pe = [
       [0, 0],
@@ -508,20 +516,14 @@ export class Encoder {
           gfc.pinfo.ms_ener_ratio[gr] = ms_ener_ratio[gr];
           gfc.pinfo.blocktype[gr][ch] = gfc.l3_side.tt[gr][ch].block_type;
           gfc.pinfo.pe[gr][ch] = pe_use[gr][ch];
-          System.arraycopy(
-            gfc.l3_side.tt[gr][ch].xr,
-            0,
-            gfc.pinfo.xr[gr][ch],
-            0,
-            576
-          );
+          copyArray(gfc.l3_side.tt[gr][ch].xr, 0, gfc.pinfo.xr[gr][ch], 0, 576);
           /*
            * in psymodel, LR and MS data was stored in pinfo. switch
            * to MS data:
            */
           if (gfc.mode_ext === Encoder.MPG_MD_MS_LR) {
             gfc.pinfo.ers[gr][ch] = gfc.pinfo.ers[gr][ch + 2];
-            System.arraycopy(
+            copyArray(
               gfc.pinfo.energy[gr][ch + 2],
               0,
               gfc.pinfo.energy[gr][ch],
@@ -655,9 +657,9 @@ export class Encoder {
   /**
    * total number of scalefactor bands encoded
    */
-  static SBMAX_l = 22;
+  static SBMAX_l = SBMAX_l;
 
-  static SBMAX_s = 13;
+  static SBMAX_s = SBMAX_s;
 
   static PSFB21 = 6;
 
@@ -674,13 +676,13 @@ export class Encoder {
 
   static HBLKSIZE_s = Encoder.BLKSIZE_s / 2 + 1;
 
-  static NORM_TYPE = 0;
+  static NORM_TYPE = NORM_TYPE;
 
-  static START_TYPE = 1;
+  static START_TYPE = START_TYPE;
 
-  static SHORT_TYPE = 2;
+  static SHORT_TYPE = SHORT_TYPE;
 
-  static STOP_TYPE = 3;
+  static STOP_TYPE = STOP_TYPE;
 
   /**
    * <PRE>

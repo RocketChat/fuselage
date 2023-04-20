@@ -24,11 +24,10 @@
  */
 
 import type { ArrayOf } from './ArrayOf';
-import { Arrays } from './Arrays';
-import { Encoder } from './Encoder';
+import { copyArray, fillArray } from './Arrays';
 import type { LameInternalFlags } from './LameInternalFlags';
-import { System } from './System';
 import { Util } from './Util';
+import { SHORT_TYPE } from './constants';
 
 export class NewMDCT {
   private readonly enwindow = [
@@ -411,13 +410,13 @@ export class NewMDCT {
     ],
   ] as const;
 
-  private readonly tantab_l = this.win[Encoder.SHORT_TYPE];
+  private readonly tantab_l = this.win[SHORT_TYPE];
 
-  private readonly cx = this.win[Encoder.SHORT_TYPE];
+  private readonly cx = this.win[SHORT_TYPE];
 
-  private readonly ca = this.win[Encoder.SHORT_TYPE];
+  private readonly ca = this.win[SHORT_TYPE];
 
-  private readonly cs = this.win[Encoder.SHORT_TYPE];
+  private readonly cs = this.win[SHORT_TYPE];
 
   /**
    * new IDCT routine written by Takehiro TOMINAGA
@@ -848,32 +847,32 @@ export class NewMDCT {
       let ts2;
 
       ts0 =
-        inout[inoutPos + 2 * 3] * this.win[Encoder.SHORT_TYPE][0] -
+        inout[inoutPos + 2 * 3] * this.win[SHORT_TYPE][0] -
         inout[inoutPos + 5 * 3];
       tc0 =
-        inout[inoutPos + 0 * 3] * this.win[Encoder.SHORT_TYPE][2] -
+        inout[inoutPos + 0 * 3] * this.win[SHORT_TYPE][2] -
         inout[inoutPos + 3 * 3];
       tc1 = ts0 + tc0;
       tc2 = ts0 - tc0;
 
       ts0 =
-        inout[inoutPos + 5 * 3] * this.win[Encoder.SHORT_TYPE][0] +
+        inout[inoutPos + 5 * 3] * this.win[SHORT_TYPE][0] +
         inout[inoutPos + 2 * 3];
       tc0 =
-        inout[inoutPos + 3 * 3] * this.win[Encoder.SHORT_TYPE][2] +
+        inout[inoutPos + 3 * 3] * this.win[SHORT_TYPE][2] +
         inout[inoutPos + 0 * 3];
       ts1 = ts0 + tc0;
       ts2 = -ts0 + tc0;
 
       tc0 =
-        (inout[inoutPos + 1 * 3] * this.win[Encoder.SHORT_TYPE][1] -
+        (inout[inoutPos + 1 * 3] * this.win[SHORT_TYPE][1] -
           inout[inoutPos + 4 * 3]) *
         2.069978111953089e-11;
       /*
        * tritab_s [ 1 ]
        */
       ts0 =
-        (inout[inoutPos + 4 * 3] * this.win[Encoder.SHORT_TYPE][1] +
+        (inout[inoutPos + 4 * 3] * this.win[SHORT_TYPE][1] +
           inout[inoutPos + 1 * 3]) *
         2.069978111953089e-11;
       /*
@@ -1065,15 +1064,15 @@ export class NewMDCT {
           const band1 = gfc.sb_sample[ch][1 - gr];
           if (gi.mixed_block_flag !== 0 && band < 2) type = 0;
           if (gfc.amp_filter[band] < 1e-12) {
-            Arrays.fill(mdct_enc, mdct_encPos + 0, mdct_encPos + 18, 0);
+            fillArray(mdct_enc, mdct_encPos + 0, mdct_encPos + 18, 0);
           } else {
             if (gfc.amp_filter[band] < 1.0) {
               for (let k = 0; k < 18; k++)
                 band1[k][this.order[band]] *= gfc.amp_filter[band];
             }
-            if (type === Encoder.SHORT_TYPE) {
+            if (type === SHORT_TYPE) {
               for (let k = -NewMDCT.NS / 4; k < 0; k++) {
-                const w = this.win[Encoder.SHORT_TYPE][k + 3];
+                const w = this.win[SHORT_TYPE][k + 3];
                 mdct_enc[mdct_encPos + k * 3 + 9] =
                   band0[9 + k][this.order[band]] * w -
                   band0[8 - k][this.order[band]];
@@ -1113,7 +1112,7 @@ export class NewMDCT {
           /*
            * Perform aliasing reduction butterfly
            */
-          if (type !== Encoder.SHORT_TYPE && band !== 0) {
+          if (type !== SHORT_TYPE && band !== 0) {
             for (let k = 7; k >= 0; --k) {
               const bu =
                 mdct_enc[mdct_encPos + k] * this.ca[20 + k] +
@@ -1132,13 +1131,7 @@ export class NewMDCT {
       wkPos = 286;
       if (gfc.mode_gr === 1) {
         for (let i = 0; i < 18; i++) {
-          System.arraycopy(
-            gfc.sb_sample[ch][1][i],
-            0,
-            gfc.sb_sample[ch][0][i],
-            0,
-            32
-          );
+          copyArray(gfc.sb_sample[ch][1][i], 0, gfc.sb_sample[ch][0][i], 0, 32);
         }
       }
     }

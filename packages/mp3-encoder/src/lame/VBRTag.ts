@@ -1,11 +1,10 @@
 import type { ArrayOf } from './ArrayOf';
-import { Arrays } from './Arrays';
+import { copyArray, fillArray } from './Arrays';
 import type { BitStream } from './BitStream';
 import { Lame } from './Lame';
 import type { LameGlobalFlags } from './LameGlobalFlags';
 import { MPEGMode } from './MPEGMode';
 import { ShortBlock } from './ShortBlock';
-import { System } from './System';
 import { Tables } from './Tables';
 import type { VBRSeekInfo } from './VBRSeekInfo';
 import { VBRTagData } from './VBRTagData';
@@ -169,11 +168,11 @@ export class VBRTag {
 
     for (let i = 1; i < VBRTag.NUMTOCENTRIES; ++i) {
       const j = i / VBRTag.NUMTOCENTRIES;
-      let indx = 0 | Math.floor(j * v.pos);
+      let indx = Math.floor(j * v.pos);
       if (indx > v.pos - 1) indx = v.pos - 1;
       const act = v.bag![indx];
       const { sum } = v;
-      let seek_point = 0 | ((256 * act) / sum);
+      let seek_point = Math.trunc((256 * act) / sum);
       if (seek_point > 255) seek_point = 255;
       t[i] = 0xff & seek_point;
     }
@@ -662,7 +661,7 @@ export class VBRTag {
     // peak sample
     if (gfc.findPeakSample)
       peakSignalAmplitude = Math.abs(
-        0 | ((gfc.PeakSample / 32767.0) * Math.pow(2, 23) + 0.5)
+        Math.trunc((gfc.PeakSample / 32767.0) * Math.pow(2, 23) + 0.5)
       );
 
     // nogap
@@ -866,7 +865,7 @@ export class VBRTag {
       return gfc.VBR_seek_table.TotalFrameSize;
     }
 
-    Arrays.fill(buffer, 0, gfc.VBR_seek_table.TotalFrameSize, 0);
+    fillArray(buffer, 0, gfc.VBR_seek_table.TotalFrameSize, 0);
 
     // 4 bytes frame header
     this.setLameTagFrameHeader(gfp, buffer);
@@ -923,11 +922,11 @@ export class VBRTag {
     // Put total audio stream size, including Xing/LAME Header
     const streamSize =
       gfc.VBR_seek_table.nBytesWritten + gfc.VBR_seek_table.TotalFrameSize;
-    this.createInteger(buffer, streamIndex, 0 | streamSize);
+    this.createInteger(buffer, streamIndex, Math.trunc(streamSize));
     streamIndex += 4;
 
     /* Put TOC */
-    System.arraycopy(toc, 0, buffer, streamIndex, toc.length);
+    copyArray(toc, 0, buffer, streamIndex, toc.length);
     streamIndex += toc.length;
 
     if (gfp.error_protection) {

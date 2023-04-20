@@ -3,7 +3,6 @@ import { Lame } from './Lame';
 import type { LameGlobalFlags } from './LameGlobalFlags';
 import { VBRPresets } from './VBRPresets';
 import { VbrMode } from './VbrMode';
-import { int } from './int';
 
 export class Presets {
   private lame: Lame | null = null;
@@ -806,7 +805,7 @@ export class Presets {
     }
     /* ns-bass tweaks */
     if (Math.abs(Presets.abr_switch_map[r].nsbass) > 0) {
-      let k = int(Presets.abr_switch_map[r].nsbass * 4);
+      let k = Math.trunc(Presets.abr_switch_map[r].nsbass * 4);
       if (k < 0) k += 64;
       gfp.exp_nspsytune |= k << 2;
     }

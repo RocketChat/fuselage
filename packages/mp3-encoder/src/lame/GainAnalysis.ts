@@ -88,9 +88,8 @@
  *  Optimization/clarity suggestions are welcome.
  */
 import type { ArrayOf } from './ArrayOf';
-import { Arrays } from './Arrays';
+import { copyArray, fillArray } from './Arrays';
 import type { ReplayGain } from './ReplayGain';
-import { System } from './System';
 
 export class GainAnalysis {
   /**
@@ -342,7 +341,7 @@ export class GainAnalysis {
       rgData.routbuf[i] = 0;
     }
 
-    switch (0 | samplefreq) {
+    switch (Math.trunc(samplefreq)) {
       case 48000:
         rgData.reqindex = 0;
         break;
@@ -385,7 +384,7 @@ export class GainAnalysis {
     rgData.rsum = 0;
     rgData.totsamp = 0;
 
-    Arrays.fill(rgData.A, 0);
+    fillArray(rgData.A, 0);
 
     return GainAnalysis.INIT_GAIN_ANALYSIS_OK;
   }
@@ -405,7 +404,7 @@ export class GainAnalysis {
     rgData.lout = GainAnalysis.MAX_ORDER;
     rgData.rout = GainAnalysis.MAX_ORDER;
 
-    Arrays.fill(rgData.B, 0);
+    fillArray(rgData.B, 0);
 
     return GainAnalysis.INIT_GAIN_ANALYSIS_OK;
   }
@@ -451,14 +450,14 @@ export class GainAnalysis {
     }
 
     if (num_samples < GainAnalysis.MAX_ORDER) {
-      System.arraycopy(
+      copyArray(
         left_samples,
         left_samplesPos,
         rgData.linprebuf,
         GainAnalysis.MAX_ORDER,
         num_samples
       );
-      System.arraycopy(
+      copyArray(
         right_samples,
         right_samplesPos,
         rgData.rinprebuf,
@@ -466,14 +465,14 @@ export class GainAnalysis {
         num_samples
       );
     } else {
-      System.arraycopy(
+      copyArray(
         left_samples,
         left_samplesPos,
         rgData.linprebuf,
         GainAnalysis.MAX_ORDER,
         GainAnalysis.MAX_ORDER
       );
-      System.arraycopy(
+      copyArray(
         right_samples,
         right_samplesPos,
         rgData.rinprebuf,
@@ -581,34 +580,34 @@ export class GainAnalysis {
           Math.log10(
             ((rgData.lsum + rgData.rsum) / rgData.totsamp) * 0.5 + 1e-37
           );
-        let ival = val <= 0 ? 0 : 0 | val;
+        let ival = val <= 0 ? 0 : Math.trunc(val);
         if (ival >= rgData.A.length) ival = rgData.A.length - 1;
         rgData.A[ival]++;
         rgData.lsum = 0;
         rgData.rsum = 0;
 
-        System.arraycopy(
+        copyArray(
           rgData.loutbuf,
           rgData.totsamp,
           rgData.loutbuf,
           0,
           GainAnalysis.MAX_ORDER
         );
-        System.arraycopy(
+        copyArray(
           rgData.routbuf,
           rgData.totsamp,
           rgData.routbuf,
           0,
           GainAnalysis.MAX_ORDER
         );
-        System.arraycopy(
+        copyArray(
           rgData.lstepbuf,
           rgData.totsamp,
           rgData.lstepbuf,
           0,
           GainAnalysis.MAX_ORDER
         );
-        System.arraycopy(
+        copyArray(
           rgData.rstepbuf,
           rgData.totsamp,
           rgData.rstepbuf,
@@ -626,28 +625,28 @@ export class GainAnalysis {
       }
     }
     if (num_samples < GainAnalysis.MAX_ORDER) {
-      System.arraycopy(
+      copyArray(
         rgData.linprebuf,
         num_samples,
         rgData.linprebuf,
         0,
         GainAnalysis.MAX_ORDER - num_samples
       );
-      System.arraycopy(
+      copyArray(
         rgData.rinprebuf,
         num_samples,
         rgData.rinprebuf,
         0,
         GainAnalysis.MAX_ORDER - num_samples
       );
-      System.arraycopy(
+      copyArray(
         left_samples,
         left_samplesPos,
         rgData.linprebuf,
         GainAnalysis.MAX_ORDER - num_samples,
         num_samples
       );
-      System.arraycopy(
+      copyArray(
         right_samples,
         right_samplesPos,
         rgData.rinprebuf,
@@ -655,14 +654,14 @@ export class GainAnalysis {
         num_samples
       );
     } else {
-      System.arraycopy(
+      copyArray(
         left_samples,
         left_samplesPos + num_samples - GainAnalysis.MAX_ORDER,
         rgData.linprebuf,
         0,
         GainAnalysis.MAX_ORDER
       );
-      System.arraycopy(
+      copyArray(
         right_samples,
         right_samplesPos + num_samples - GainAnalysis.MAX_ORDER,
         rgData.rinprebuf,
@@ -681,7 +680,7 @@ export class GainAnalysis {
     for (i = 0; i < len; i++) elems += Array[i];
     if (elems === 0) return GainAnalysis.GAIN_NOT_ENOUGH_SAMPLES;
 
-    let upper = 0 | Math.ceil(elems * (1 - GainAnalysis.RMS_PERCENTILE));
+    let upper = Math.ceil(elems * (1 - GainAnalysis.RMS_PERCENTILE));
     for (i = len; i-- > 0; ) {
       if ((upper -= Array[i]) <= 0) break;
     }

@@ -1,15 +1,14 @@
-import { Encoder } from './Encoder';
-import { System } from './System';
-import { new_float_n } from './common';
+import { copyArray } from './Arrays';
+import { SBMAX_l, SBMAX_s } from './constants';
 
 export class III_psy_xmin {
-  l = new Float32Array(Encoder.SBMAX_l);
+  l = new Float32Array(SBMAX_l);
 
-  s = new_float_n([Encoder.SBMAX_s, 3] as const);
+  s = Array.from({ length: SBMAX_s }, () => new Float32Array(3));
 
   assign(iii_psy_xmin: Readonly<III_psy_xmin>) {
-    System.arraycopy(iii_psy_xmin.l, 0, this.l, 0, Encoder.SBMAX_l);
-    for (let i = 0; i < Encoder.SBMAX_s; i++) {
+    copyArray(iii_psy_xmin.l, 0, this.l, 0, SBMAX_l);
+    for (let i = 0; i < SBMAX_s; i++) {
       for (let j = 0; j < 3; j++) {
         this.s[i][j] = iii_psy_xmin.s[i][j];
       }

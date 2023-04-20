@@ -21,7 +21,7 @@
  */
 
 import type { ArrayOf } from './ArrayOf';
-import { Arrays } from './Arrays';
+import { fillArray } from './Arrays';
 import { Bits } from './Bits';
 import type { CalcNoiseData } from './CalcNoiseData';
 import { Encoder } from './Encoder';
@@ -29,7 +29,6 @@ import { GrInfo } from './GrInfo';
 import type { IIISideInfo } from './IIISideInfo';
 import type { LameInternalFlags } from './LameInternalFlags';
 import { QuantizePVT } from './QuantizePVT';
-import { System } from './System';
 import { Tables } from './Tables';
 
 export class Takehiro {
@@ -124,30 +123,30 @@ export class Takehiro {
     while (l-- !== 0) {
       let x0 = xr[xrPos++] * istep;
       let x1 = xr[xrPos++] * istep;
-      const rx0 = 0 | x0;
+      const rx0 = Math.trunc(x0);
       let x2 = xr[xrPos++] * istep;
-      const rx1 = 0 | x1;
+      const rx1 = Math.trunc(x1);
       let x3 = xr[xrPos++] * istep;
-      const rx2 = 0 | x2;
+      const rx2 = Math.trunc(x2);
       x0 += this.qupvt!.adj43[rx0];
-      const rx3 = 0 | x3;
+      const rx3 = Math.trunc(x3);
       x1 += this.qupvt!.adj43[rx1];
-      ix[ixPos++] = 0 | x0;
+      ix[ixPos++] = Math.trunc(x0);
       x2 += this.qupvt!.adj43[rx2];
-      ix[ixPos++] = 0 | x1;
+      ix[ixPos++] = Math.trunc(x1);
       x3 += this.qupvt!.adj43[rx3];
-      ix[ixPos++] = 0 | x2;
-      ix[ixPos++] = 0 | x3;
+      ix[ixPos++] = Math.trunc(x2);
+      ix[ixPos++] = Math.trunc(x3);
     }
     if (remaining !== 0) {
       let x0 = xr[xrPos++] * istep;
       let x1 = xr[xrPos++] * istep;
-      const rx0 = 0 | x0;
-      const rx1 = 0 | x1;
+      const rx0 = Math.trunc(x0);
+      const rx1 = Math.trunc(x1);
       x0 += this.qupvt!.adj43[rx0];
       x1 += this.qupvt!.adj43[rx1];
-      ix[ixPos++] = 0 | x0;
-      ix[ixPos++] = 0 | x1;
+      ix[ixPos++] = Math.trunc(x0);
+      ix[ixPos++] = Math.trunc(x1);
     }
   }
 
@@ -233,7 +232,7 @@ export class Takehiro {
         if (j + codInfo.width[sfb] > codInfo.max_nonzero_coeff) {
           /* do not compute upper zero part */
           const usefullsize = codInfo.max_nonzero_coeff - j + 1;
-          Arrays.fill(pi, codInfo.max_nonzero_coeff, 576, 0);
+          fillArray(pi, codInfo.max_nonzero_coeff, 576, 0);
           l = usefullsize;
 
           if (l < 0) {
@@ -1275,7 +1274,7 @@ export class Takehiro {
           break;
 
         default:
-          System.err.printf('intensity stereo not implemented yet\n');
+          console.warn('intensity stereo not implemented yet');
           break;
       }
     }

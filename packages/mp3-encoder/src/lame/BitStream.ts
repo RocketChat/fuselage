@@ -1,23 +1,20 @@
 import type { ArrayOf } from './ArrayOf';
-import { Arrays } from './Arrays';
+import { copyArray, fillArray } from './Arrays';
 import { Encoder } from './Encoder';
 import { GainAnalysis } from './GainAnalysis';
 import type { GrInfo } from './GrInfo';
-import { Lame } from './Lame';
 import type { LameGlobalFlags } from './LameGlobalFlags';
 import { LameInternalFlags } from './LameInternalFlags';
 import type { MPGLib } from './MPGLib';
-import { System } from './System';
 import { Tables } from './Tables';
 import { Takehiro } from './Takehiro';
 import { TotalBytes } from './TotalBytes';
 import type { VBRTag } from './VBRTag';
 import type { Version } from './Version';
-import { byte } from './byte';
-import { new_float_n } from './common';
+import { CRC16_POLYNOMIAL, LAME_MAXMP3BUFFER } from './constants';
 
 export class BitStream {
-  private static readonly CRC16_POLYNOMIAL = 0x8005;
+  private static readonly CRC16_POLYNOMIAL = CRC16_POLYNOMIAL;
 
   /*
    * we work with ints, so when doing bit manipulation, we limit ourselves to
@@ -83,10 +80,10 @@ export class BitStream {
   }
 
   private putheader_bits(gfc: LameInternalFlags) {
-    System.arraycopy(
+    copyArray(
       gfc.header[gfc.w_ptr].buf,
       0,
-      this.buf,
+      this.buf!,
       this.bufByteIdx,
       gfc.sideinfo_len
     );
@@ -105,7 +102,7 @@ export class BitStream {
       if (this.bufBitIdx === 0) {
         this.bufBitIdx = 8;
         this.bufByteIdx++;
-        console.assert(this.bufByteIdx < Lame.LAME_MAXMP3BUFFER);
+        console.assert(this.bufByteIdx < LAME_MAXMP3BUFFER);
         console.assert(gfc.header[gfc.w_ptr].write_timing >= this.totbit);
         if (gfc.header[gfc.w_ptr].write_timing === this.totbit) {
           this.putheader_bits(gfc);
@@ -137,7 +134,7 @@ export class BitStream {
       if (this.bufBitIdx === 0) {
         this.bufBitIdx = 8;
         this.bufByteIdx++;
-        console.assert(this.bufByteIdx < Lame.LAME_MAXMP3BUFFER);
+        console.assert(this.bufByteIdx < LAME_MAXMP3BUFFER);
         this.buf![this.bufByteIdx] = 0;
       }
 
@@ -239,8 +236,8 @@ export class BitStream {
       crc = this.CRC_update(header[i] & 0xff, crc);
     }
 
-    header[4] = byte(crc >> 8);
-    header[5] = byte(crc & 255);
+    header[4] = Math.trunc(crc >> 8);
+    header[5] = Math.trunc(crc & 255);
   }
 
   private encodeSideInfo2(gfp: LameGlobalFlags, bitsPerFrame: number) {
@@ -250,7 +247,7 @@ export class BitStream {
 
     const { l3_side } = gfc;
     gfc.header[gfc.h_ptr].ptr = 0;
-    Arrays.fill(gfc.header[gfc.h_ptr].buf, 0, gfc.sideinfo_len, 0);
+    fillArray(gfc.header[gfc.h_ptr].buf, 0, gfc.sideinfo_len, 0);
     if (gfp.out_samplerate < 16000) this.writeheader(gfc, 0xffe, 12);
     else this.writeheader(gfc, 0xfff, 12);
     this.writeheader(gfc, gfp.version, 1);
@@ -391,7 +388,7 @@ export class BitStream {
 
       if (gfc.h_ptr === gfc.w_ptr) {
         /* yikes! we are out of header buffer space */
-        System.err.println('Error: MAX_HEADER_BUF too small in bitstream.c \n');
+        console.warn('MAX_HEADER_BUF too small in bitstream.');
       }
     }
   }
@@ -730,7 +727,7 @@ export class BitStream {
     total_bytes_output.total += this.bufByteIdx + 1;
 
     if (flushbits < 0) {
-      System.err.println('strange error flushing buffer ... \n');
+      console.warn('strange error flushing buffer ... ');
     }
     return flushbits;
   }
@@ -834,9 +831,7 @@ export class BitStream {
      * what we think the resvsize is:
      */
     if (this.compute_flushbits(gfp, new TotalBytes()) !== gfc.ResvSize) {
-      System.err.println(
-        'Internal buffer inconsistency. flushbits <> ResvSize'
-      );
+      console.warn('Internal buffer inconsistency. flushbits <> ResvSize');
     }
 
     /*
@@ -844,35 +839,26 @@ export class BitStream {
      * resvsize is:
      */
     if (l3_side.main_data_begin * 8 !== gfc.ResvSize) {
-      System.err.printf(
-        'bit reservoir error: \n' +
-          'l3_side.main_data_begin: %d \n' +
-          'Resvoir size:             %d \n' +
-          'resv drain (post)         %d \n' +
-          'resv drain (pre)          %d \n' +
-          'header and sideinfo:      %d \n' +
-          'data bits:                %d \n' +
-          'total bits:               %d (remainder: %d) \n' +
-          'bitsperframe:             %d \n',
-        8 * l3_side.main_data_begin,
-        gfc.ResvSize,
-        l3_side.resvDrain_post,
-        l3_side.resvDrain_pre,
-        8 * gfc.sideinfo_len,
-        bits - l3_side.resvDrain_post - 8 * gfc.sideinfo_len,
-        bits,
-        bits % 8,
-        bitsPerFrame
+      console.warn(
+        `bit reservoir error: \n` +
+          `l3_side.main_data_begin: ${8 * l3_side.main_data_begin} \n` +
+          `Resvoir size:             ${gfc.ResvSize} \n` +
+          `resv drain (post)         ${l3_side.resvDrain_post} \n` +
+          `resv drain (pre)          ${l3_side.resvDrain_pre} \n` +
+          `header and sideinfo:      ${8 * gfc.sideinfo_len} \n` +
+          `data bits:                ${
+            bits - l3_side.resvDrain_post - 8 * gfc.sideinfo_len
+          } \n` +
+          `total bits:               ${bits} (remainder: ${bits % 8}) \n` +
+          `bitsperframe:             ${bitsPerFrame}`
       );
 
-      System.err.println(
-        'This is a fatal error.  It has several possible causes:'
-      );
-      System.err.println(
+      console.warn('This is a fatal error.  It has several possible causes:');
+      console.warn(
         '90%%  LAME compiled with buggy version of gcc using advanced optimizations'
       );
-      System.err.println(' 9%%  Your system is overclocked');
-      System.err.println(' 1%%  bug in LAME encoding library');
+      console.warn(' 9%%  Your system is overclocked');
+      console.warn(' 1%%  bug in LAME encoding library');
 
       gfc.ResvSize = l3_side.main_data_begin * 8;
     }
@@ -915,7 +901,7 @@ export class BitStream {
       /* buffer is too small */
       return -1;
     }
-    System.arraycopy(this.buf!, 0, buffer, bufferPos, minimum);
+    copyArray(this.buf!, 0, buffer, bufferPos, minimum);
     this.bufByteIdx = -1;
     this.bufBitIdx = 0;
 
@@ -935,7 +921,7 @@ export class BitStream {
 
       if (gfc.decode_on_the_fly) {
         /* decode the frame */
-        const pcm_buf = new_float_n([2, 1152]);
+        const pcm_buf = Array.from({ length: 2 }, () => new Float32Array(1152));
         let mp3_in = minimum;
         let samples_out = -1;
         let i;
@@ -1020,7 +1006,7 @@ export class BitStream {
   }
 
   init_bit_stream_w(gfc: LameInternalFlags) {
-    this.buf = new Int8Array(Lame.LAME_MAXMP3BUFFER);
+    this.buf = new Int8Array(LAME_MAXMP3BUFFER);
 
     gfc.w_ptr = 0;
     gfc.h_ptr = 0;

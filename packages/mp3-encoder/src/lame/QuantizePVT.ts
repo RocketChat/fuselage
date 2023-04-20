@@ -23,11 +23,11 @@
  */
 
 import type { ArrayOf } from './ArrayOf';
+import { copyArray } from './Arrays';
 import { BitStream } from './BitStream';
 import type { CalcNoiseData } from './CalcNoiseData';
 import { CalcNoiseResult } from './CalcNoiseResult';
 import { Encoder } from './Encoder';
-import { Float } from './Float';
 import type { GrInfo } from './GrInfo';
 import type { III_psy_ratio } from './III_psy_ratio';
 import { L3Side } from './L3Side';
@@ -38,10 +38,10 @@ import type { PsyModel } from './PsyModel';
 import type { Reservoir } from './Reservoir';
 import { ScaleFac } from './ScaleFac';
 import { StartLine } from './StartLine';
-import { System } from './System';
 import type { Takehiro } from './Takehiro';
 import { Util } from './Util';
 import { VbrMode } from './VbrMode';
+import { MAX_FLOAT32_VALUE } from './constants';
 
 export class QuantizePVT {
   static Q_MAX = 256 + 1;
@@ -345,7 +345,7 @@ export class QuantizePVT {
     for (let sfb = 0; sfb < Encoder.SBMAX_l; sfb++) {
       const start = gfc.scalefac_band.l[sfb];
       const end = gfc.scalefac_band.l[sfb + 1];
-      ATH_l[sfb] = Float.MAX_VALUE;
+      ATH_l[sfb] = MAX_FLOAT32_VALUE;
       for (let i = start; i < end; i++) {
         const freq = (i * samp_freq) / (2 * 576);
         const ATH_f = this.ATHmdct(gfp, freq);
@@ -357,7 +357,7 @@ export class QuantizePVT {
     for (let sfb = 0; sfb < Encoder.PSFB21; sfb++) {
       const start = gfc.scalefac_band.psfb21[sfb];
       const end = gfc.scalefac_band.psfb21[sfb + 1];
-      ATH_psfb21[sfb] = Float.MAX_VALUE;
+      ATH_psfb21[sfb] = MAX_FLOAT32_VALUE;
       for (let i = start; i < end; i++) {
         const freq = (i * samp_freq) / (2 * 576);
         const ATH_f = this.ATHmdct(gfp, freq);
@@ -369,7 +369,7 @@ export class QuantizePVT {
     for (let sfb = 0; sfb < Encoder.SBMAX_s; sfb++) {
       const start = gfc.scalefac_band.s[sfb];
       const end = gfc.scalefac_band.s[sfb + 1];
-      ATH_s[sfb] = Float.MAX_VALUE;
+      ATH_s[sfb] = MAX_FLOAT32_VALUE;
       for (let i = start; i < end; i++) {
         const freq = (i * samp_freq) / (2 * 192);
         const ATH_f = this.ATHmdct(gfp, freq);
@@ -382,7 +382,7 @@ export class QuantizePVT {
     for (let sfb = 0; sfb < Encoder.PSFB12; sfb++) {
       const start = gfc.scalefac_band.psfb12[sfb];
       const end = gfc.scalefac_band.psfb12[sfb + 1];
-      ATH_psfb12[sfb] = Float.MAX_VALUE;
+      ATH_psfb12[sfb] = MAX_FLOAT32_VALUE;
       for (let i = start; i < end; i++) {
         const freq = (i * samp_freq) / (2 * 192);
         const ATH_f = this.ATHmdct(gfp, freq);
@@ -527,7 +527,9 @@ export class QuantizePVT {
         tbits / gfc.channels_out
       );
 
-      add_bits[ch] = 0 | ((targ_bits[ch] * pe[gr][ch]) / 700.0 - targ_bits[ch]);
+      add_bits[ch] = Math.trunc(
+        (targ_bits[ch] * pe[gr][ch]) / 700.0 - targ_bits[ch]
+      );
 
       /* at most increase bits by 1.5*average */
       if (add_bits[ch] > (mean_bits * 3) / 4)
@@ -591,7 +593,7 @@ export class QuantizePVT {
 
     /* number of bits to move from side channel to mid channel */
     /* move_bits = fac*targ_bits[1]; */
-    let move_bits = 0 | (fac * 0.5 * (targ_bits[0] + targ_bits[1]));
+    let move_bits = Math.trunc(fac * 0.5 * (targ_bits[0] + targ_bits[1]));
 
     if (move_bits > LameInternalFlags.MAX_BITS_PER_CHANNEL - targ_bits[0]) {
       move_bits = LameInternalFlags.MAX_BITS_PER_CHANNEL - targ_bits[0];
@@ -948,7 +950,7 @@ export class QuantizePVT {
       tot_noise_db += noise;
 
       if (noise > 0.0) {
-        const tmp = Math.max(0 | (noise * 10 + 0.5), 1);
+        const tmp = Math.max(Math.trunc(noise * 10 + 0.5), 1);
         res.over_SSD += tmp * tmp;
 
         over++;
@@ -1102,13 +1104,7 @@ export class QuantizePVT {
       for (let ch = 0; ch < gfc.channels_out; ch++) {
         const cod_info = gfc.l3_side.tt[gr][ch];
         const scalefac_sav = new Int32Array(L3Side.SFBMAX);
-        System.arraycopy(
-          cod_info.scalefac,
-          0,
-          scalefac_sav,
-          0,
-          scalefac_sav.length
-        );
+        copyArray(cod_info.scalefac, 0, scalefac_sav, 0, scalefac_sav.length);
 
         /*
          * reconstruct the scalefactors in case SCFSI was used
@@ -1123,13 +1119,7 @@ export class QuantizePVT {
         }
 
         this.set_pinfo(gfp, cod_info, ratio[gr][ch], gr, ch);
-        System.arraycopy(
-          scalefac_sav,
-          0,
-          cod_info.scalefac,
-          0,
-          scalefac_sav.length
-        );
+        copyArray(scalefac_sav, 0, cod_info.scalefac, 0, scalefac_sav.length);
       }
       /* for ch */
     }

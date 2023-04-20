@@ -12,7 +12,6 @@ import type { PlottingData } from './PlottingData';
 import type { ReplayGain } from './ReplayGain';
 import { ScaleFac } from './ScaleFac';
 import { VBRSeekInfo } from './VBRSeekInfo';
-import { new_float_n, new_int_n } from './common';
 
 export class LameInternalFlags {
   /** ******************************************************************
@@ -41,7 +40,10 @@ export class LameInternalFlags {
   fill_buffer_resample_init = 0;
 
   // public float mfbuf[][] = new float[2][MFSIZE];
-  mfbuf = new_float_n([2, LameInternalFlags.MFSIZE] as const);
+  mfbuf = Array.from(
+    { length: 2 },
+    () => new Float32Array(LameInternalFlags.MFSIZE)
+  );
 
   /**
    * granules per frame
@@ -206,7 +208,11 @@ export class LameInternalFlags {
 
   /* variables for newmdct.c */
   // public float sb_sample[][][][] = new float[2][2][18][Encoder.SBLIMIT];
-  sb_sample = new_float_n([2, 2, 18, Encoder.SBLIMIT] as const);
+  sb_sample = Array.from({ length: 2 }, () =>
+    Array.from({ length: 2 }, () =>
+      Array.from({ length: 18 }, () => new Float32Array(Encoder.SBLIMIT))
+    )
+  );
 
   amp_filter = new Float32Array(32);
 
@@ -259,13 +265,13 @@ export class LameInternalFlags {
 
   minval_s = new Float32Array(Encoder.CBANDS);
 
-  nb_1 = new_float_n([4, Encoder.CBANDS] as const);
+  nb_1 = Array.from({ length: 4 }, () => new Float32Array(Encoder.CBANDS));
 
-  nb_2 = new_float_n([4, Encoder.CBANDS] as const);
+  nb_2 = Array.from({ length: 4 }, () => new Float32Array(Encoder.CBANDS));
 
-  nb_s1 = new_float_n([4, Encoder.CBANDS] as const);
+  nb_s1 = Array.from({ length: 4 }, () => new Float32Array(Encoder.CBANDS));
 
-  nb_s2 = new_float_n([4, Encoder.CBANDS] as const);
+  nb_s2 = Array.from({ length: 4 }, () => new Float32Array(Encoder.CBANDS));
 
   s3_ss: Float32Array | null = null;
 
@@ -288,7 +294,7 @@ export class LameInternalFlags {
   /**
    * loudness^2 approx. per granule and channel
    */
-  loudness_sq = new_float_n([2, 2] as const);
+  loudness_sq = Array.from({ length: 2 }, () => new Float32Array(2));
 
   /**
    * account for granule delay of L3psycho_anal
@@ -314,9 +320,9 @@ export class LameInternalFlags {
 
   npart_s = 0;
 
-  s3ind = new_int_n([Encoder.CBANDS, 2] as const);
+  s3ind = Array.from({ length: Encoder.CBANDS }, () => new Int32Array(2));
 
-  s3ind_s = new_int_n([Encoder.CBANDS, 2] as const);
+  s3ind_s = Array.from({ length: Encoder.CBANDS }, () => new Int32Array(2));
 
   numlines_s = new Int32Array(Encoder.CBANDS);
 
@@ -395,12 +401,18 @@ export class LameInternalFlags {
   noclipScale = 0;
 
   /* simple statistics */
-  bitrate_stereoMode_Hist = new_int_n([16, 4 + 1] as const);
+  bitrate_stereoMode_Hist = Array.from(
+    { length: 16 },
+    () => new Int32Array(4 + 1)
+  );
 
   /**
    * norm/start/short/stop/mixed(short)/sum
    */
-  bitrate_blockType_Hist = new_int_n([16, 4 + 1 + 1] as const);
+  bitrate_blockType_Hist = Array.from(
+    { length: 16 },
+    () => new Int32Array(4 + 1 + 1)
+  );
 
   // public PlottingData pinfo;
   // public MPGLib.mpstr_tag hip;

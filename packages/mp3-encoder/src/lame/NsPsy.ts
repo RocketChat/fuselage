@@ -1,5 +1,4 @@
 import { Encoder } from './Encoder';
-import { new_float_n } from './common';
 
 /**
  * Variables used for --nspsytune
@@ -8,7 +7,7 @@ import { new_float_n } from './common';
  *
  */
 export class NsPsy {
-  last_en_subshort = new_float_n([4, 9] as const);
+  last_en_subshort = Array.from({ length: 4 }, () => new Float32Array(9));
 
   lastAttacks = new Int32Array(4);
 

@@ -1,11 +1,10 @@
 export class WavHeader {
-  dataOffset = 0;
-
-  dataLen = 0;
-
-  channels = 0;
-
-  sampleRate = 0;
+  private constructor(
+    public readonly dataOffset: number,
+    public readonly dataLen: number,
+    public readonly channels: number,
+    public readonly sampleRate: number
+  ) {}
 
   private static fourccToInt(fourcc: string) {
     return (
@@ -16,17 +15,15 @@ export class WavHeader {
     );
   }
 
-  static RIFF = WavHeader.fourccToInt('RIFF');
+  private static readonly RIFF = WavHeader.fourccToInt('RIFF');
 
-  static WAVE = WavHeader.fourccToInt('WAVE');
+  private static readonly WAVE = WavHeader.fourccToInt('WAVE');
 
-  static fmt_ = WavHeader.fourccToInt('fmt ');
+  private static readonly fmt_ = WavHeader.fourccToInt('fmt ');
 
-  static data = WavHeader.fourccToInt('data');
+  private static readonly data = WavHeader.fourccToInt('data');
 
   static readHeader(dataView: DataView) {
-    const w = new WavHeader();
-
     let header = dataView.getUint32(0, false);
     if (WavHeader.RIFF !== header) {
       throw new Error('Invalid WAV file');
@@ -40,28 +37,28 @@ export class WavHeader {
     }
     const fmtLen = dataView.getUint32(16, true);
     let pos = 16 + 4;
+    let channels = 0;
+    let sampleRate = 0;
     switch (fmtLen) {
       case 16:
       case 18:
-        w.channels = dataView.getUint16(pos + 2, true);
-        w.sampleRate = dataView.getUint32(pos + 4, true);
+        channels = dataView.getUint16(pos + 2, true);
+        sampleRate = dataView.getUint32(pos + 4, true);
         break;
       default:
         throw new Error('extended fmt chunk not implemented');
     }
     pos += fmtLen;
-    const { data } = WavHeader;
     let len = 0;
-    while (data !== header) {
+    while (WavHeader.data !== header) {
       header = dataView.getUint32(pos, false);
       len = dataView.getUint32(pos + 4, true);
-      if (data === header) {
+      if (WavHeader.data === header) {
         break;
       }
       pos += len + 8;
     }
-    w.dataLen = len;
-    w.dataOffset = pos + 8;
-    return w;
+
+    return new WavHeader(pos + 8, len, channels, sampleRate);
   }
 }

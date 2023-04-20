@@ -16,43 +16,58 @@ import { VBRTag } from './VBRTag';
 import { Version } from './Version';
 
 export class Mp3Encoder {
-  private readonly lame = new Lame();
+  private readonly lame: Lame;
 
-  private readonly gaud = new GetAudio();
+  private readonly gaud: GetAudio;
 
-  private readonly ga = new GainAnalysis();
+  private readonly ga: GainAnalysis;
 
-  private readonly bs = new BitStream();
+  private readonly bs: BitStream;
 
-  private readonly p = new Presets();
+  private readonly p: Presets;
 
-  private readonly qupvt = new QuantizePVT();
+  private readonly qupvt: QuantizePVT;
 
-  private readonly qu = new Quantize();
+  private readonly qu: Quantize;
 
-  private readonly vbr = new VBRTag();
+  private readonly vbr: VBRTag;
 
-  private readonly ver = new Version();
+  private readonly ver: Version;
 
-  private readonly id3 = new ID3Tag();
+  private readonly id3: ID3Tag;
 
-  private readonly rv = new Reservoir();
+  private readonly rv: Reservoir;
 
-  private readonly tak = new Takehiro();
+  private readonly tak: Takehiro;
 
-  private readonly parse = new Parse();
+  private readonly parse: Parse;
 
-  private readonly mpg = new MPGLib();
+  private readonly mpg: MPGLib;
 
   private readonly gfp: LameGlobalFlags;
 
-  private mp3buf: Int8Array;
+  private mp3buf: Uint8Array;
 
   private mp3buf_size: number;
 
   private maxSamples: number;
 
   constructor(channels = 1, samplerate = 44100, kbps = 128) {
+    this.lame = new Lame();
+    this.gaud = new GetAudio();
+    this.ga = new GainAnalysis();
+    this.bs = new BitStream();
+    this.p = new Presets();
+    this.qupvt = new QuantizePVT();
+    this.qu = new Quantize();
+    this.vbr = new VBRTag();
+    this.ver = new Version();
+    this.id3 = new ID3Tag();
+    this.rv = new Reservoir();
+    this.tak = new Takehiro();
+    this.parse = new Parse();
+    this.mpg = new MPGLib();
+
     this.lame.setModules(
       this.ga,
       this.bs,
@@ -92,7 +107,7 @@ export class Mp3Encoder {
     }
     this.maxSamples = 1152;
     this.mp3buf_size = Math.trunc(1.25 * this.maxSamples + 7200);
-    this.mp3buf = new Int8Array(this.mp3buf_size);
+    this.mp3buf = new Uint8Array(this.mp3buf_size);
   }
 
   encodeBuffer(left: Int16Array, right: Int16Array = left) {
@@ -103,7 +118,7 @@ export class Mp3Encoder {
     if (left.length > this.maxSamples) {
       this.maxSamples = left.length;
       this.mp3buf_size = Math.trunc(1.25 * this.maxSamples + 7200);
-      this.mp3buf = new Int8Array(this.mp3buf_size);
+      this.mp3buf = new Uint8Array(this.mp3buf_size);
     }
 
     const _sz = this.lame.lame_encode_buffer(
@@ -115,7 +130,7 @@ export class Mp3Encoder {
       0,
       this.mp3buf_size
     );
-    return new Int8Array(this.mp3buf.subarray(0, _sz));
+    return new Uint8Array(this.mp3buf.subarray(0, _sz));
   }
 
   flush() {
@@ -125,6 +140,6 @@ export class Mp3Encoder {
       0,
       this.mp3buf_size
     );
-    return new Int8Array(this.mp3buf.subarray(0, _sz));
+    return new Uint8Array(this.mp3buf.subarray(0, _sz));
   }
 }

@@ -135,10 +135,9 @@
  */
 
 import type { ArrayOf } from './ArrayOf';
-import { Arrays } from './Arrays';
+import { fillArray } from './Arrays';
 import { Encoder } from './Encoder';
 import { FFT } from './FFT';
-import { Float } from './Float';
 import type { III_psy_ratio } from './III_psy_ratio';
 import type { LameGlobalFlags } from './LameGlobalFlags';
 import type { LameInternalFlags } from './LameInternalFlags';
@@ -146,7 +145,7 @@ import { MPEGMode } from './MPEGMode';
 import { ShortBlock } from './ShortBlock';
 import { Util } from './Util';
 import { VbrMode } from './VbrMode';
-import { new_float_n } from './common';
+import { MAX_FLOAT32_VALUE } from './constants';
 
 export class PsyModel {
   private readonly fft = new FFT();
@@ -476,7 +475,7 @@ export class PsyModel {
       }
 
       /* 22% of the total */
-      const i = 0 | Util.log10_X(ratio, 16.0);
+      const i = Math.trunc(Util.log10_X(ratio, 16.0));
       return m1 * this.table2[i];
     }
 
@@ -487,7 +486,7 @@ export class PsyModel {
      * equ (m1+m2)<10^1.5 * gfc.ATH!.cb[k]
      * </PRE>
      */
-    const i = 0 | Util.log10_X(ratio, 16.0);
+    const i = Math.trunc(Util.log10_X(ratio, 16.0));
     if (shortblock !== 0) {
       m2 = gfc.ATH!.cb_s[kk] * gfc.ATH!.adjust;
     } else {
@@ -557,7 +556,7 @@ export class PsyModel {
       if (ratio >= this.ma_max_i1) {
         return m1 + m2;
       }
-      const i = 0 | Util.log10_X(ratio, 16.0);
+      const i = Math.trunc(Util.log10_X(ratio, 16.0));
       return (m1 + m2) * this.table2_[i];
     }
     if (ratio < this.ma_max_i2) {
@@ -1042,7 +1041,7 @@ export class PsyModel {
       a =
         (20.0 * (m * 2.0 - a)) /
         (a * (gfc.numlines_l[b] + gfc.numlines_l[b + 1] - 1));
-      let k = 0 | a;
+      let k = Math.trunc(a);
       if (k > last_tab_entry) k = last_tab_entry;
       mask_idx[b] = k;
     } else {
@@ -1070,7 +1069,7 @@ export class PsyModel {
               gfc.numlines_l[b] +
               gfc.numlines_l[b + 1] -
               1));
-        let k = 0 | a;
+        let k = Math.trunc(a);
         if (k > last_tab_entry) k = last_tab_entry;
         mask_idx[b] = k;
       } else {
@@ -1089,7 +1088,7 @@ export class PsyModel {
       a =
         (20.0 * (m * 2.0 - a)) /
         (a * (gfc.numlines_l[b - 1] + gfc.numlines_l[b] - 1));
-      let k = 0 | a;
+      let k = Math.trunc(a);
       if (k > last_tab_entry) k = last_tab_entry;
       mask_idx[b] = k;
     } else {
@@ -1131,8 +1130,13 @@ export class PsyModel {
     const gfc = gfp.internal_flags!;
 
     /* fft and energy calculation */
-    const wsamp_L = new_float_n([2, Encoder.BLKSIZE] as const);
-    const wsamp_S = new_float_n([2, 3, Encoder.BLKSIZE_s] as const);
+    const wsamp_L = Array.from(
+      { length: 2 },
+      () => new Float32Array(Encoder.BLKSIZE)
+    );
+    const wsamp_S = Array.from({ length: 2 }, () =>
+      Array.from({ length: 3 }, () => new Float32Array(Encoder.BLKSIZE_s))
+    );
 
     /* convolution */
     const eb_l = new Float32Array(Encoder.CBANDS + 1);
@@ -1154,12 +1158,12 @@ export class PsyModel {
     let sblock;
 
     /* variables used for --nspsytune */
-    const ns_hpfsmpl = new_float_n([2, 576] as const);
+    const ns_hpfsmpl = Array.from({ length: 2 }, () => new Float32Array(576));
     let pcfact;
     const mask_idx_l = new Int32Array(Encoder.CBANDS + 2);
     const mask_idx_s = new Int32Array(Encoder.CBANDS + 2);
 
-    Arrays.fill(mask_idx_s, 0);
+    fillArray(mask_idx_s, 0);
 
     numchn = gfc.channels_out;
     /* chn=2 and 3 = Mid and Side channels */
@@ -1222,7 +1226,10 @@ export class PsyModel {
       const avg = new Float32Array(Encoder.CBANDS);
       const ns_attacks = [0, 0, 0, 0];
       const fftenergy = new Float32Array(Encoder.HBLKSIZE);
-      const fftenergy_s = new_float_n([3, Encoder.HBLKSIZE_s]);
+      const fftenergy_s = Array.from(
+        { length: 3 },
+        () => new Float32Array(Encoder.HBLKSIZE_s)
+      );
 
       /*
        * rh 20040301: the following loops do access one off the limits so
@@ -1671,7 +1678,7 @@ export class PsyModel {
     ns_attacks: ArrayOf<number>[],
     uselongblock: ArrayOf<number>
   ) {
-    const ns_hpfsmpl = new_float_n([2, 576] as const);
+    const ns_hpfsmpl = Array.from({ length: 2 }, () => new Float32Array(576));
     const gfc = gfp.internal_flags!;
     const n_chn_out = gfc.channels_out;
     /* chn=2 and 3 = Mid and Side channels */
@@ -1901,7 +1908,7 @@ export class PsyModel {
       a =
         (20.0 * (m * 2.0 - a)) /
         (a * (gfc.numlines_s[b] + gfc.numlines_s[b + 1] - 1));
-      let k = 0 | a;
+      let k = Math.trunc(a);
       if (k > last_tab_entry) k = last_tab_entry;
       mask_idx[b] = k;
     } else {
@@ -1930,7 +1937,7 @@ export class PsyModel {
               gfc.numlines_s[b] +
               gfc.numlines_s[b + 1] -
               1));
-        let k = 0 | a;
+        let k = Math.trunc(a);
         if (k > last_tab_entry) k = last_tab_entry;
         mask_idx[b] = k;
       } else {
@@ -1949,7 +1956,7 @@ export class PsyModel {
       a =
         (20.0 * (m * 2.0 - a)) /
         (a * (gfc.numlines_s[b - 1] + gfc.numlines_s[b] - 1));
-      let k = 0 | a;
+      let k = Math.trunc(a);
       if (k > last_tab_entry) k = last_tab_entry;
       mask_idx[b] = k;
     } else {
@@ -2328,7 +2335,7 @@ export class PsyModel {
     masking_MS_ratio: III_psy_ratio[][],
     percep_entropy: ArrayOf<number>,
     percep_MS_entropy: ArrayOf<number>,
-    energy: never,
+    energy: Float32Array,
     blocktype_d: ArrayOf<number>
   ) {
     const gfc = gfp.internal_flags!;
@@ -2337,12 +2344,29 @@ export class PsyModel {
     let wsamp_l;
     let wsamp_s;
     const fftenergy = new Float32Array(Encoder.HBLKSIZE);
-    const fftenergy_s = new_float_n([3, Encoder.HBLKSIZE_s]);
-    const wsamp_L = new_float_n([2, Encoder.BLKSIZE]);
-    const wsamp_S = new_float_n([2, 3, Encoder.BLKSIZE_s]);
-    const eb = new_float_n([4, Encoder.CBANDS]);
-    const thr = new_float_n([4, Encoder.CBANDS]);
-    const sub_short_factor = new_float_n([4, 3]);
+    const fftenergy_s = Array.from(
+      { length: 3 },
+      () => new Float32Array(Encoder.HBLKSIZE_s)
+    );
+    const wsamp_L = Array.from(
+      { length: 2 },
+      () => new Float32Array(Encoder.BLKSIZE)
+    );
+    const wsamp_S = Array.from({ length: 2 }, () =>
+      Array.from({ length: 3 }, () => new Float32Array(Encoder.BLKSIZE_s))
+    );
+    const eb = Array.from(
+      { length: 4 },
+      () => new Float32Array(Encoder.CBANDS)
+    );
+    const thr = Array.from(
+      { length: 4 },
+      () => new Float32Array(Encoder.CBANDS)
+    );
+    const sub_short_factor = Array.from(
+      { length: 4 },
+      () => new Float32Array(3)
+    );
     const pcfact = 0.6;
 
     /* block type */
@@ -2756,9 +2780,9 @@ export class PsyModel {
       const start = scalepos[sfb];
       const end = scalepos[sfb + 1];
 
-      i1 = 0 | Math.floor(0.5 + deltafreq * (start - 0.5));
+      i1 = Math.floor(0.5 + deltafreq * (start - 0.5));
       if (i1 < 0) i1 = 0;
-      i2 = 0 | Math.floor(0.5 + deltafreq * (end - 0.5));
+      i2 = Math.floor(0.5 + deltafreq * (end - 0.5));
 
       if (i2 > blksize / 2) i2 = blksize / 2;
 
@@ -2812,7 +2836,10 @@ export class PsyModel {
     norm: ArrayOf<any>,
     use_old_s3: boolean
   ) {
-    const s3 = new_float_n([Encoder.CBANDS, Encoder.CBANDS] as const);
+    const s3 = Array.from(
+      { length: Encoder.CBANDS },
+      () => new Float32Array(Encoder.CBANDS)
+    );
     /*
      * The s3 array is not linear in the bark scale.
      *
@@ -3002,7 +3029,7 @@ export class PsyModel {
       let x;
 
       /* ATH */
-      x = Float.MAX_VALUE;
+      x = MAX_FLOAT32_VALUE;
       for (let k = 0; k < gfc.numlines_l[i]; k++, j++) {
         const freq = (sfreq * j) / (1000.0 * Encoder.BLKSIZE);
         let level;
@@ -3071,7 +3098,7 @@ export class PsyModel {
       norm[i] = Math.pow(10.0, snr / 10.0);
 
       /* ATH */
-      x = Float.MAX_VALUE;
+      x = MAX_FLOAT32_VALUE;
       for (let k = 0; k < gfc.numlines_s[i]; k++, j++) {
         const freq = (sfreq * j) / (1000.0 * Encoder.BLKSIZE_s);
         let level;

@@ -3,7 +3,6 @@ import type { GrInfo } from './GrInfo';
 import type { LameGlobalFlags } from './LameGlobalFlags';
 import type { LameInternalFlags } from './LameInternalFlags';
 import type { MeanBits } from './MeanBits';
-import { int } from './int';
 
 export class Reservoir {
   private bs: BitStream | undefined;
@@ -112,7 +111,8 @@ export class Reservoir {
     if (gfp.brate > 320) {
       /* in freeformat the buffer is constant */
       maxmp3buf =
-        8 * int((gfp.brate * 1000) / (gfp.out_samplerate / 1152) / 8 + 0.5);
+        8 *
+        Math.trunc((gfp.brate * 1000) / (gfp.out_samplerate / 1152) / 8 + 0.5);
     } else {
       /*
        * all mp3 decoders should have enough buffer to handle this value:
@@ -126,7 +126,8 @@ export class Reservoir {
        */
 
       if (gfp.strict_ISO) {
-        maxmp3buf = 8 * int(320000 / (gfp.out_samplerate / 1152) / 8 + 0.5);
+        maxmp3buf =
+          8 * Math.trunc(320000 / (gfp.out_samplerate / 1152) / 8 + 0.5);
       }
     }
 
