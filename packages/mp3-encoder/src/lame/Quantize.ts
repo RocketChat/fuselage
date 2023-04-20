@@ -25,23 +25,32 @@
 import type { ArrayOf } from './ArrayOf';
 import { copyArray, fillArray, sortArray } from './Arrays';
 import { BinSearchDirection } from './BinSearchDirection';
-import { BitStream } from './BitStream';
+import type { BitStream } from './BitStream';
 import { CalcNoiseData } from './CalcNoiseData';
 import { CalcNoiseResult } from './CalcNoiseResult';
-import { Encoder } from './Encoder';
 import { GrInfo } from './GrInfo';
 import type { IIISideInfo } from './IIISideInfo';
 import type { III_psy_ratio } from './III_psy_ratio';
-import { L3Side } from './L3Side';
 import type { LameGlobalFlags } from './LameGlobalFlags';
 import { LameInternalFlags } from './LameInternalFlags';
 import { MeanBits } from './MeanBits';
 import type { QuantizePVT } from './QuantizePVT';
 import type { Reservoir } from './Reservoir';
 import type { Takehiro } from './Takehiro';
-import { Util } from './Util';
 import { VBRQuantize } from './VBRQuantize';
 import { VbrMode } from './VbrMode';
+import {
+  MPG_MD_MS_LR,
+  PSFB12,
+  PSFB21,
+  SBMAX_l,
+  SBMAX_s,
+  SBPSY_l,
+  SBPSY_s,
+  SFBMAX,
+  SHORT_TYPE,
+} from './constants';
+import { isCloseToEachOther } from './isCloseToEachOther';
 
 export class Quantize {
   private bs: BitStream | null = null;
@@ -75,8 +84,8 @@ export class Quantize {
     for (let i = 0; i < 576; ++i) {
       const l = l3_side.tt[gr][0].xr[i];
       const r = l3_side.tt[gr][1].xr[i];
-      l3_side.tt[gr][0].xr[i] = (l + r) * (Util.SQRT2 * 0.5);
-      l3_side.tt[gr][1].xr[i] = (l - r) * (Util.SQRT2 * 0.5);
+      l3_side.tt[gr][0].xr[i] = (l + r) * (Math.SQRT2 * 0.5);
+      l3_side.tt[gr][1].xr[i] = (l - r) * (Math.SQRT2 * 0.5);
     }
   }
 
@@ -148,10 +157,10 @@ export class Quantize {
     const ath = gfc.ATH!;
     const { xr } = cod_info;
 
-    if (cod_info.block_type !== Encoder.SHORT_TYPE) {
+    if (cod_info.block_type !== SHORT_TYPE) {
       /* NORM, START or STOP type, but not SHORT blocks */
       let stop = false;
-      for (let gsfb = Encoder.PSFB21 - 1; gsfb >= 0 && !stop; gsfb--) {
+      for (let gsfb = PSFB21 - 1; gsfb >= 0 && !stop; gsfb--) {
         const start = gfc.scalefac_band.psfb21[gsfb];
         const end = gfc.scalefac_band.psfb21[gsfb + 1];
         let ath21 = this.__qupvt!.athAdjust(
@@ -174,7 +183,7 @@ export class Quantize {
       /* note: short blocks coeffs are reordered */
       for (let block = 0; block < 3; block++) {
         let stop = false;
-        for (let gsfb = Encoder.PSFB12 - 1; gsfb >= 0 && !stop; gsfb--) {
+        for (let gsfb = PSFB12 - 1; gsfb >= 0 && !stop; gsfb--) {
           const start =
             gfc.scalefac_band.s[12] * 3 +
             (gfc.scalefac_band.s[13] - gfc.scalefac_band.s[12]) * block +
@@ -227,19 +236,19 @@ export class Quantize {
     cod_info.scalefac_scale = 0;
     cod_info.count1table_select = 0;
     cod_info.part2_length = 0;
-    cod_info.sfb_lmax = Encoder.SBPSY_l;
-    cod_info.sfb_smin = Encoder.SBPSY_s;
-    cod_info.psy_lmax = gfc.sfb21_extra ? Encoder.SBMAX_l : Encoder.SBPSY_l;
+    cod_info.sfb_lmax = SBPSY_l;
+    cod_info.sfb_smin = SBPSY_s;
+    cod_info.psy_lmax = gfc.sfb21_extra ? SBMAX_l : SBPSY_l;
     cod_info.psymax = cod_info.psy_lmax;
     cod_info.sfbmax = cod_info.sfb_lmax;
     cod_info.sfbdivide = 11;
-    for (let sfb = 0; sfb < Encoder.SBMAX_l; sfb++) {
+    for (let sfb = 0; sfb < SBMAX_l; sfb++) {
       cod_info.width[sfb] =
         gfc.scalefac_band.l[sfb + 1] - gfc.scalefac_band.l[sfb];
       /* which is always 0. */
       cod_info.window[sfb] = 3;
     }
-    if (cod_info.block_type === Encoder.SHORT_TYPE) {
+    if (cod_info.block_type === SHORT_TYPE) {
       const ixwork = new Float32Array(576);
 
       cod_info.sfb_smin = 0;
@@ -254,11 +263,8 @@ export class Quantize {
       }
       cod_info.psymax =
         cod_info.sfb_lmax +
-        3 *
-          ((gfc.sfb21_extra ? Encoder.SBMAX_s : Encoder.SBPSY_s) -
-            cod_info.sfb_smin);
-      cod_info.sfbmax =
-        cod_info.sfb_lmax + 3 * (Encoder.SBPSY_s - cod_info.sfb_smin);
+        3 * ((gfc.sfb21_extra ? SBMAX_s : SBPSY_s) - cod_info.sfb_smin);
+      cod_info.sfbmax = cod_info.sfb_lmax + 3 * (SBPSY_s - cod_info.sfb_smin);
       cod_info.sfbdivide = cod_info.sfbmax - 18;
       cod_info.psy_lmax = cod_info.sfb_lmax;
       /* re-order the short blocks, for more efficient encoding below */
@@ -271,7 +277,7 @@ export class Quantize {
        */
       let ix = gfc.scalefac_band.l[cod_info.sfb_lmax];
       copyArray(cod_info.xr, 0, ixwork, 0, 576);
-      for (let sfb = cod_info.sfb_smin; sfb < Encoder.SBMAX_s; sfb++) {
+      for (let sfb = cod_info.sfb_smin; sfb < SBMAX_s; sfb++) {
         const start = gfc.scalefac_band.s[sfb];
         const end = gfc.scalefac_band.s[sfb + 1];
         for (let window = 0; window < 3; window++) {
@@ -282,7 +288,7 @@ export class Quantize {
       }
 
       let j = cod_info.sfb_lmax;
-      for (let sfb = cod_info.sfb_smin; sfb < Encoder.SBMAX_s; sfb++) {
+      for (let sfb = cod_info.sfb_smin; sfb < SBMAX_s; sfb++) {
         const y = gfc.scalefac_band.s[sfb + 1] - gfc.scalefac_band.s[sfb];
         cod_info.width[j] = y;
         cod_info.width[j + 1] = y;
@@ -386,11 +392,10 @@ export class Quantize {
     l3_xmin: ArrayOf<number>,
     work: ArrayOf<number>
   ) {
-    const distort = new Float32Array(L3Side.SFBMAX);
+    const distort = new Float32Array(SFBMAX);
 
     if (
-      ((gfc.substep_shaping & 4) === 0 &&
-        gi.block_type === Encoder.SHORT_TYPE) ||
+      ((gfc.substep_shaping & 4) === 0 && gi.block_type === SHORT_TYPE) ||
       (gfc.substep_shaping & 0x80) !== 0
     )
       return;
@@ -403,7 +408,7 @@ export class Quantize {
 
     let j = 0;
     let sfb = 8;
-    if (gi.block_type === Encoder.SHORT_TYPE) sfb = 6;
+    if (gi.block_type === SHORT_TYPE) sfb = 6;
     do {
       let allowedNoise;
       let trancateThreshold;
@@ -415,7 +420,7 @@ export class Quantize {
       if (distort[sfb] >= 1.0) continue;
 
       sortArray(work, j - width, width);
-      if (BitStream.EQ(work[j - 1], 0.0)) continue;
+      if (isCloseToEachOther(work[j - 1], 0.0)) continue;
       /* all zero sfb */
 
       allowedNoise = (1.0 - distort[sfb]) * l3_xmin[sfb];
@@ -424,7 +429,7 @@ export class Quantize {
       do {
         for (nsame = 1; start + nsame < width; nsame++)
           if (
-            BitStream.NEQ(
+            !isCloseToEachOther(
               work[start + j - width],
               work[start + j + nsame - width]
             )
@@ -439,7 +444,7 @@ export class Quantize {
         allowedNoise -= noise;
         start += nsame;
       } while (start < width);
-      if (BitStream.EQ(trancateThreshold, 0.0)) continue;
+      if (isCloseToEachOther(trancateThreshold, 0.0)) continue;
 
       do {
         if (Math.abs(gi.xr[j - width]) <= trancateThreshold)
@@ -471,7 +476,7 @@ export class Quantize {
   /* mt 5/99: Function: Improved calc_noise for a single channel */
 
   private penalties(noise: number) {
-    return Util.log10(0.368 + 0.632 * noise * noise * noise);
+    return Math.log10(0.368 + 0.632 * noise * noise * noise);
   }
 
   /**
@@ -526,7 +531,7 @@ export class Quantize {
           (calc.over_count === best.over_count &&
             calc.over_noise < best.over_noise) ||
           (calc.over_count === best.over_count &&
-            BitStream.EQ(calc.over_noise, best.over_noise) &&
+            isCloseToEachOther(calc.over_noise, best.over_noise) &&
             calc.tot_noise < best.tot_noise);
         break;
 
@@ -569,15 +574,15 @@ export class Quantize {
       case 5:
         better =
           calc.over_noise < best.over_noise ||
-          (BitStream.EQ(calc.over_noise, best.over_noise) &&
+          (isCloseToEachOther(calc.over_noise, best.over_noise) &&
             calc.tot_noise < best.tot_noise);
         break;
       case 6:
         better =
           calc.over_noise < best.over_noise ||
-          (BitStream.EQ(calc.over_noise, best.over_noise) &&
+          (isCloseToEachOther(calc.over_noise, best.over_noise) &&
             (calc.max_noise < best.max_noise ||
-              (BitStream.EQ(calc.max_noise, best.max_noise) &&
+              (isCloseToEachOther(calc.max_noise, best.max_noise) &&
                 calc.tot_noise <= best.tot_noise)));
         break;
       case 7:
@@ -860,10 +865,7 @@ export class Quantize {
       if (cod_info.scalefac_scale === 0) {
         this.inc_scalefac_scale(cod_info, xrpow);
         status = false;
-      } else if (
-        cod_info.block_type === Encoder.SHORT_TYPE &&
-        gfc.subblock_gain > 0
-      ) {
+      } else if (cod_info.block_type === SHORT_TYPE && gfc.subblock_gain > 0) {
         status =
           this.inc_subblock_gain(gfc, cod_info, xrpow) ||
           this.loop_break(cod_info);
@@ -912,7 +914,7 @@ export class Quantize {
     const gfc = gfp.internal_flags!;
     const cod_info_w = new GrInfo();
     const save_xrpow = new Float32Array(576);
-    const distort = new Float32Array(L3Side.SFBMAX);
+    const distort = new Float32Array(SFBMAX);
     let best_noise_info = new CalcNoiseResult();
     let better;
     const prev_noise = new CalcNoiseData();
@@ -973,7 +975,7 @@ export class Quantize {
         if (gfc.sfb21_extra) {
           if (distort[cod_info_w.sfbmax] > 1.0) break;
           if (
-            cod_info_w.block_type === Encoder.SHORT_TYPE &&
+            cod_info_w.block_type === SHORT_TYPE &&
             (distort[cod_info_w.sfbmax + 1] > 1.0 ||
               distort[cod_info_w.sfbmax + 2] > 1.0)
           )
@@ -1041,7 +1043,7 @@ export class Quantize {
          * check if this quantization is better than our saved
          * quantization
          */
-        if (cod_info.block_type !== Encoder.SHORT_TYPE) {
+        if (cod_info.block_type !== SHORT_TYPE) {
           // NORM, START or STOP type
           better = gfp.quant_comp;
         } else better = gfp.quant_comp_short;
@@ -1313,14 +1315,14 @@ export class Quantize {
 
     for (let gr = 0; gr < gfc.mode_gr; gr++) {
       const mxb = this.__qupvt!.on_pe(gfp, pe, max_bits[gr], avg, gr, 0);
-      if (gfc.mode_ext === Encoder.MPG_MD_MS_LR) {
+      if (gfc.mode_ext === MPG_MD_MS_LR) {
         this.ms_convert(gfc.l3_side, gr);
         this.__qupvt!.reduce_side(max_bits[gr], ms_ener_ratio[gr], avg, mxb);
       }
       for (let ch = 0; ch < gfc.channels_out; ++ch) {
         const cod_info = gfc.l3_side.tt[gr][ch];
 
-        if (cod_info.block_type !== Encoder.SHORT_TYPE) {
+        if (cod_info.block_type !== SHORT_TYPE) {
           // NORM, START or STOP type
           adjust = 1.28 / (1 + Math.exp(3.5 - pe[gr][ch] / 300)) - 0.05;
           masking_lower_db = gfc.PSY!.mask_adjust - adjust;
@@ -1372,17 +1374,13 @@ export class Quantize {
         const pxmin = l3_xmin[gr][ch];
         let pxminPos = 0;
         for (let sfb = 0; sfb < gi.psy_lmax; sfb++)
-          pxmin[pxminPos++] *=
-            1 + (0.029 * sfb * sfb) / Encoder.SBMAX_l / Encoder.SBMAX_l;
+          pxmin[pxminPos++] *= 1 + (0.029 * sfb * sfb) / SBMAX_l / SBMAX_l;
 
-        if (gi.block_type === Encoder.SHORT_TYPE) {
-          for (let sfb = gi.sfb_smin; sfb < Encoder.SBMAX_s; sfb++) {
-            pxmin[pxminPos++] *=
-              1 + (0.029 * sfb * sfb) / Encoder.SBMAX_s / Encoder.SBMAX_s;
-            pxmin[pxminPos++] *=
-              1 + (0.029 * sfb * sfb) / Encoder.SBMAX_s / Encoder.SBMAX_s;
-            pxmin[pxminPos++] *=
-              1 + (0.029 * sfb * sfb) / Encoder.SBMAX_s / Encoder.SBMAX_s;
+        if (gi.block_type === SHORT_TYPE) {
+          for (let sfb = gi.sfb_smin; sfb < SBMAX_s; sfb++) {
+            pxmin[pxminPos++] *= 1 + (0.029 * sfb * sfb) / SBMAX_s / SBMAX_s;
+            pxmin[pxminPos++] *= 1 + (0.029 * sfb * sfb) / SBMAX_s / SBMAX_s;
+            pxmin[pxminPos++] *= 1 + (0.029 * sfb * sfb) / SBMAX_s / SBMAX_s;
           }
         }
         max_bits[gr][ch] = Math.trunc(
@@ -1426,7 +1424,7 @@ export class Quantize {
 
     for (let gr = 0; gr < gfc.mode_gr; gr++) {
       this.__qupvt!.on_pe(gfp, pe, max_bits[gr], avg, gr, 0);
-      if (gfc.mode_ext === Encoder.MPG_MD_MS_LR) {
+      if (gfc.mode_ext === MPG_MD_MS_LR) {
         this.ms_convert(gfc.l3_side, gr);
       }
       for (let ch = 0; ch < gfc.channels_out; ++ch) {
@@ -1534,7 +1532,7 @@ export class Quantize {
           targ_bits[gr][ch] = Math.trunc(res_factor * mean_bits);
 
           /* short blocks use a little extra, no matter what the pe */
-          if (cod_info.block_type === Encoder.SHORT_TYPE) {
+          if (cod_info.block_type === SHORT_TYPE) {
             if (add_bits < mean_bits / 2) add_bits = mean_bits / 2;
           }
           /* at most increase bits by 1.5*average */
@@ -1558,7 +1556,7 @@ export class Quantize {
     }
     /* for gr */
 
-    if (gfc.mode_ext === Encoder.MPG_MD_MS_LR)
+    if (gfc.mode_ext === MPG_MD_MS_LR)
       for (gr = 0; gr < gfc.mode_gr; gr++) {
         this.__qupvt!.reduce_side(
           targ_bits[gr],

@@ -1,11 +1,10 @@
 import type { ArrayOf } from './ArrayOf';
-import { Encoder } from './Encoder';
 import type { III_psy_ratio } from './III_psy_ratio';
-import { L3Side } from './L3Side';
 import type { LameGlobalFlags } from './LameGlobalFlags';
 import { LameInternalFlags } from './LameInternalFlags';
 import { MeanBits } from './MeanBits';
 import type { Quantize } from './Quantize';
+import { MPG_MD_MS_LR, SFBMAX, SHORT_TYPE } from './constants';
 
 export class CBRNewIterationLoop {
   constructor(public quantize: Quantize) {}
@@ -17,7 +16,7 @@ export class CBRNewIterationLoop {
     ratio: III_psy_ratio[][]
   ) {
     const gfc = gfp.internal_flags!;
-    const l3_xmin = new Float32Array(L3Side.SFBMAX);
+    const l3_xmin = new Float32Array(SFBMAX);
     const xrpow = new Float32Array(576);
     const targ_bits = new Int32Array(2);
     let mean_bits = 0;
@@ -42,7 +41,7 @@ export class CBRNewIterationLoop {
         gr
       );
 
-      if (gfc.mode_ext === Encoder.MPG_MD_MS_LR) {
+      if (gfc.mode_ext === MPG_MD_MS_LR) {
         this.quantize.ms_convert(gfc.l3_side, gr);
         this.quantize.qupvt!.reduce_side(
           targ_bits,
@@ -57,7 +56,7 @@ export class CBRNewIterationLoop {
         let masking_lower_db;
         const cod_info = l3_side.tt[gr][ch];
 
-        if (cod_info.block_type !== Encoder.SHORT_TYPE) {
+        if (cod_info.block_type !== SHORT_TYPE) {
           // NORM, START or STOP type
           adjust = 0;
           masking_lower_db = gfc.PSY!.mask_adjust - adjust;

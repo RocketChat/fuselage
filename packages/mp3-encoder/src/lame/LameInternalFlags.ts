@@ -1,17 +1,24 @@
 import type { ATH } from './ATH';
 import type { ArrayOf } from './ArrayOf';
 import type { CBRNewIterationLoop } from './CBRNewIterationLoop';
-import { Encoder } from './Encoder';
 import { Header } from './Header';
 import { IIISideInfo } from './IIISideInfo';
 import { III_psy_xmin } from './III_psy_xmin';
-import { L3Side } from './L3Side';
 import { NsPsy } from './NsPsy';
 import type { PSY } from './PSY';
 import type { PlottingData } from './PlottingData';
 import type { ReplayGain } from './ReplayGain';
 import { ScaleFac } from './ScaleFac';
 import { VBRSeekInfo } from './VBRSeekInfo';
+import {
+  CBANDS,
+  ENCDELAY,
+  MDCTDELAY,
+  SBLIMIT,
+  SBMAX_l,
+  SBMAX_s,
+  SFBMAX,
+} from './constants';
 
 export class LameInternalFlags {
   /** ******************************************************************
@@ -187,7 +194,7 @@ export class LameInternalFlags {
   bv_scf = new Int32Array(576);
 
   // public int pseudohalf[] = new int[L3Side.SFBMAX];
-  pseudohalf = new Int32Array(L3Side.SFBMAX);
+  pseudohalf = new Int32Array(SFBMAX);
 
   /**
    * will be set in lame_init_params
@@ -210,7 +217,7 @@ export class LameInternalFlags {
   // public float sb_sample[][][][] = new float[2][2][18][Encoder.SBLIMIT];
   sb_sample = Array.from({ length: 2 }, () =>
     Array.from({ length: 2 }, () =>
-      Array.from({ length: 18 }, () => new Float32Array(Encoder.SBLIMIT))
+      Array.from({ length: 18 }, () => new Float32Array(SBLIMIT))
     )
   );
 
@@ -261,17 +268,17 @@ export class LameInternalFlags {
   /* to be remembered for the unpredictability measure. For "r" and */
   /* "phi_sav", the first index from the left is the channel select and */
   /* the second index is the "age" of the data. */
-  minval_l = new Float32Array(Encoder.CBANDS);
+  minval_l = new Float32Array(CBANDS);
 
-  minval_s = new Float32Array(Encoder.CBANDS);
+  minval_s = new Float32Array(CBANDS);
 
-  nb_1 = Array.from({ length: 4 }, () => new Float32Array(Encoder.CBANDS));
+  nb_1 = Array.from({ length: 4 }, () => new Float32Array(CBANDS));
 
-  nb_2 = Array.from({ length: 4 }, () => new Float32Array(Encoder.CBANDS));
+  nb_2 = Array.from({ length: 4 }, () => new Float32Array(CBANDS));
 
-  nb_s1 = Array.from({ length: 4 }, () => new Float32Array(Encoder.CBANDS));
+  nb_s1 = Array.from({ length: 4 }, () => new Float32Array(CBANDS));
 
-  nb_s2 = Array.from({ length: 4 }, () => new Float32Array(Encoder.CBANDS));
+  nb_s2 = Array.from({ length: 4 }, () => new Float32Array(CBANDS));
 
   s3_ss: Float32Array | null = null;
 
@@ -304,35 +311,35 @@ export class LameInternalFlags {
   /**
    * Scale Factor Bands
    */
-  mld_l = new Float32Array(Encoder.SBMAX_l);
+  mld_l = new Float32Array(SBMAX_l);
 
-  mld_s = new Float32Array(Encoder.SBMAX_s);
+  mld_s = new Float32Array(SBMAX_s);
 
-  bm_l = new Int32Array(Encoder.SBMAX_l);
+  bm_l = new Int32Array(SBMAX_l);
 
-  bo_l = new Int32Array(Encoder.SBMAX_l);
+  bo_l = new Int32Array(SBMAX_l);
 
-  bm_s = new Int32Array(Encoder.SBMAX_s);
+  bm_s = new Int32Array(SBMAX_s);
 
-  bo_s = new Int32Array(Encoder.SBMAX_s);
+  bo_s = new Int32Array(SBMAX_s);
 
   npart_l = 0;
 
   npart_s = 0;
 
-  s3ind = Array.from({ length: Encoder.CBANDS }, () => new Int32Array(2));
+  s3ind = Array.from({ length: CBANDS }, () => new Int32Array(2));
 
-  s3ind_s = Array.from({ length: Encoder.CBANDS }, () => new Int32Array(2));
+  s3ind_s = Array.from({ length: CBANDS }, () => new Int32Array(2));
 
-  numlines_s = new Int32Array(Encoder.CBANDS);
+  numlines_s = new Int32Array(CBANDS);
 
-  numlines_l = new Int32Array(Encoder.CBANDS);
+  numlines_l = new Int32Array(CBANDS);
 
-  rnumlines_l = new Float32Array(Encoder.CBANDS);
+  rnumlines_l = new Float32Array(CBANDS);
 
-  mld_cb_l = new Float32Array(Encoder.CBANDS);
+  mld_cb_l = new Float32Array(CBANDS);
 
-  mld_cb_s = new Float32Array(Encoder.CBANDS);
+  mld_cb_s = new Float32Array(CBANDS);
 
   numlines_s_num1 = 0;
 
@@ -442,7 +449,7 @@ export class LameInternalFlags {
     }
   }
 
-  static MFSIZE = 3 * 1152 + Encoder.ENCDELAY - Encoder.MDCTDELAY;
+  static MFSIZE = 3 * 1152 + ENCDELAY - MDCTDELAY;
 
   static MAX_HEADER_BUF = 256;
 

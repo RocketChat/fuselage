@@ -136,16 +136,27 @@
 
 import type { ArrayOf } from './ArrayOf';
 import { fillArray } from './Arrays';
-import { Encoder } from './Encoder';
 import { FFT } from './FFT';
 import type { III_psy_ratio } from './III_psy_ratio';
 import type { LameGlobalFlags } from './LameGlobalFlags';
 import type { LameInternalFlags } from './LameInternalFlags';
 import { MPEGMode } from './MPEGMode';
 import { ShortBlock } from './ShortBlock';
-import { Util } from './Util';
 import { VbrMode } from './VbrMode';
-import { MAX_FLOAT32_VALUE } from './constants';
+import {
+  BLKSIZE,
+  BLKSIZE_s,
+  CBANDS,
+  HBLKSIZE,
+  HBLKSIZE_s,
+  MAX_FLOAT32_VALUE,
+  NORM_TYPE,
+  SBMAX_l,
+  SBMAX_s,
+  SHORT_TYPE,
+  START_TYPE,
+  STOP_TYPE,
+} from './constants';
 
 export class PsyModel {
   private readonly fft = new FFT();
@@ -164,8 +175,7 @@ export class PsyModel {
   private static readonly DELBARK = 0.34;
 
   /* tuned for output level (sensitive to energy scale) */
-  private static readonly VO_SCALE =
-    1 / (14752 * 14752) / (Encoder.BLKSIZE / 2);
+  private static readonly VO_SCALE = 1 / (14752 * 14752) / (BLKSIZE / 2);
 
   private readonly temporalmask_sustain_sec = 0.01;
 
@@ -235,7 +245,7 @@ export class PsyModel {
   ) {
     let loudness_power = 0.0;
     /* apply weights to power in freq. bands */
-    for (let i = 0; i < Encoder.BLKSIZE / 2; ++i)
+    for (let i = 0; i < BLKSIZE / 2; ++i)
       loudness_power += energy[i] * gfc.ATH!.eql_w[i];
     loudness_power *= PsyModel.VO_SCALE;
 
@@ -261,18 +271,18 @@ export class PsyModel {
       this.fft.fft_short(gfc, wsamp_s[wsamp_sPos], chn, buffer, bufPos);
     } else if (chn === 2) {
       /* FFT data for mid and side channel is derived from L & R */
-      for (let j = Encoder.BLKSIZE - 1; j >= 0; --j) {
+      for (let j = BLKSIZE - 1; j >= 0; --j) {
         const l = wsamp_l[wsamp_lPos + 0][j];
         const r = wsamp_l[wsamp_lPos + 1][j];
-        wsamp_l[wsamp_lPos + 0][j] = (l + r) * Util.SQRT2 * 0.5;
-        wsamp_l[wsamp_lPos + 1][j] = (l - r) * Util.SQRT2 * 0.5;
+        wsamp_l[wsamp_lPos + 0][j] = (l + r) * Math.SQRT2 * 0.5;
+        wsamp_l[wsamp_lPos + 1][j] = (l - r) * Math.SQRT2 * 0.5;
       }
       for (let b = 2; b >= 0; --b) {
-        for (let j = Encoder.BLKSIZE_s - 1; j >= 0; --j) {
+        for (let j = BLKSIZE_s - 1; j >= 0; --j) {
           const l = wsamp_s[wsamp_sPos + 0][b][j];
           const r = wsamp_s[wsamp_sPos + 1][b][j];
-          wsamp_s[wsamp_sPos + 0][b][j] = (l + r) * Util.SQRT2 * 0.5;
-          wsamp_s[wsamp_sPos + 1][b][j] = (l - r) * Util.SQRT2 * 0.5;
+          wsamp_s[wsamp_sPos + 0][b][j] = (l + r) * Math.SQRT2 * 0.5;
+          wsamp_s[wsamp_sPos + 1][b][j] = (l - r) * Math.SQRT2 * 0.5;
         }
       }
     }
@@ -283,30 +293,30 @@ export class PsyModel {
     fftenergy[0] = wsamp_l[wsamp_lPos + 0][0];
     fftenergy[0] *= fftenergy[0];
 
-    for (let j = Encoder.BLKSIZE / 2 - 1; j >= 0; --j) {
-      const re = wsamp_l[wsamp_lPos + 0][Encoder.BLKSIZE / 2 - j];
-      const im = wsamp_l[wsamp_lPos + 0][Encoder.BLKSIZE / 2 + j];
-      fftenergy[Encoder.BLKSIZE / 2 - j] = (re * re + im * im) * 0.5;
+    for (let j = BLKSIZE / 2 - 1; j >= 0; --j) {
+      const re = wsamp_l[wsamp_lPos + 0][BLKSIZE / 2 - j];
+      const im = wsamp_l[wsamp_lPos + 0][BLKSIZE / 2 + j];
+      fftenergy[BLKSIZE / 2 - j] = (re * re + im * im) * 0.5;
     }
     for (let b = 2; b >= 0; --b) {
       fftenergy_s[b][0] = wsamp_s[wsamp_sPos + 0][b][0];
       fftenergy_s[b][0] *= fftenergy_s[b][0];
-      for (let j = Encoder.BLKSIZE_s / 2 - 1; j >= 0; --j) {
-        const re = wsamp_s[wsamp_sPos + 0][b][Encoder.BLKSIZE_s / 2 - j];
-        const im = wsamp_s[wsamp_sPos + 0][b][Encoder.BLKSIZE_s / 2 + j];
-        fftenergy_s[b][Encoder.BLKSIZE_s / 2 - j] = (re * re + im * im) * 0.5;
+      for (let j = BLKSIZE_s / 2 - 1; j >= 0; --j) {
+        const re = wsamp_s[wsamp_sPos + 0][b][BLKSIZE_s / 2 - j];
+        const im = wsamp_s[wsamp_sPos + 0][b][BLKSIZE_s / 2 + j];
+        fftenergy_s[b][BLKSIZE_s / 2 - j] = (re * re + im * im) * 0.5;
       }
     }
     /* total energy */
     {
       let totalenergy = 0.0;
-      for (let j = 11; j < Encoder.HBLKSIZE; j++) totalenergy += fftenergy[j];
+      for (let j = 11; j < HBLKSIZE; j++) totalenergy += fftenergy[j];
 
       gfc.tot_ener[chn] = totalenergy;
     }
 
     if (gfp.analysis) {
-      for (let j = 0; j < Encoder.HBLKSIZE; j++) {
+      for (let j = 0; j < HBLKSIZE; j++) {
         gfc.pinfo!.energy[gr_out][chn][j] = gfc.pinfo!.energy_save[chn][j];
         gfc.pinfo!.energy_save[chn][j] = fftenergy[j];
       }
@@ -475,7 +485,7 @@ export class PsyModel {
       }
 
       /* 22% of the total */
-      const i = Math.trunc(Util.log10_X(ratio, 16.0));
+      const i = Math.trunc(Math.log10(ratio) * 16.0);
       return m1 * this.table2[i];
     }
 
@@ -486,7 +496,7 @@ export class PsyModel {
      * equ (m1+m2)<10^1.5 * gfc.ATH!.cb[k]
      * </PRE>
      */
-    const i = Math.trunc(Util.log10_X(ratio, 16.0));
+    const i = Math.trunc(Math.log10(ratio) * 16.0);
     if (shortblock !== 0) {
       m2 = gfc.ATH!.cb_s[kk] * gfc.ATH!.adjust;
     } else {
@@ -501,7 +511,7 @@ export class PsyModel {
         f = 1.0;
         if (i <= 13) f = this.table3[i];
 
-        const r = Util.log10_X(m1 / m2, 10.0 / 15.0);
+        const r = Math.log10(m1 / m2) * (10.0 / 15.0);
         return m1 * ((this.table1[i] - f) * r + f);
       }
 
@@ -556,7 +566,7 @@ export class PsyModel {
       if (ratio >= this.ma_max_i1) {
         return m1 + m2;
       }
-      const i = Math.trunc(Util.log10_X(ratio, 16.0));
+      const i = Math.trunc(Math.log10(ratio) * 16.0);
       return (m1 + m2) * this.table2_[i];
     }
     if (ratio < this.ma_max_i2) {
@@ -574,13 +584,13 @@ export class PsyModel {
   private calc_interchannel_masking(gfp: LameGlobalFlags, ratio: number) {
     const gfc = gfp.internal_flags!;
     if (gfc.channels_out > 1) {
-      for (let sb = 0; sb < Encoder.SBMAX_l; sb++) {
+      for (let sb = 0; sb < SBMAX_l; sb++) {
         const l = gfc.thm[0].l[sb];
         const r = gfc.thm[1].l[sb];
         gfc.thm[0].l[sb] += r * ratio;
         gfc.thm[1].l[sb] += l * ratio;
       }
-      for (let sb = 0; sb < Encoder.SBMAX_s; sb++) {
+      for (let sb = 0; sb < SBMAX_s; sb++) {
         for (let sblock = 0; sblock < 3; sblock++) {
           const l = gfc.thm[0].s[sb][sblock];
           const r = gfc.thm[1].s[sb][sblock];
@@ -595,7 +605,7 @@ export class PsyModel {
    * compute M/S thresholds from Johnston & Ferreira 1992 ICASSP paper
    */
   private msfix1(gfc: LameInternalFlags) {
-    for (let sb = 0; sb < Encoder.SBMAX_l; sb++) {
+    for (let sb = 0; sb < SBMAX_l; sb++) {
       /* use this fix if L & R masking differs by 2db or less */
       /* if db = 10*log10(x2/x1) < 2 */
       /* if (x2 < 1.58*x1) { */
@@ -613,7 +623,7 @@ export class PsyModel {
       gfc.thm[3].l[sb] = rside;
     }
 
-    for (let sb = 0; sb < Encoder.SBMAX_s; sb++) {
+    for (let sb = 0; sb < SBMAX_s; sb++) {
       for (let sblock = 0; sblock < 3; sblock++) {
         if (
           gfc.thm[0].s[sb][sblock] > 1.58 * gfc.thm[1].s[sb][sblock] ||
@@ -649,7 +659,7 @@ export class PsyModel {
 
     msfix *= 2.0;
     msfix2 *= 2.0;
-    for (let sb = 0; sb < Encoder.SBMAX_l; sb++) {
+    for (let sb = 0; sb < SBMAX_l; sb++) {
       let thmM;
       let thmS;
       const ath = gfc.ATH!.cb_l[gfc.bm_l[sb]] * athlower;
@@ -669,8 +679,8 @@ export class PsyModel {
       gfc.thm[3].l[sb] = Math.min(thmS, gfc.thm[3].l[sb]);
     }
 
-    athlower *= Encoder.BLKSIZE_s / Encoder.BLKSIZE;
-    for (let sb = 0; sb < Encoder.SBMAX_s; sb++) {
+    athlower *= BLKSIZE_s / BLKSIZE;
+    for (let sb = 0; sb < SBMAX_s; sb++) {
       for (let sblock = 0; sblock < 3; sblock++) {
         let thmM;
         let thmS;
@@ -711,7 +721,7 @@ export class PsyModel {
     let b = 0;
     let enn = 0.0;
     let thmm = 0.0;
-    for (; sb < Encoder.SBMAX_s; ++b, ++sb) {
+    for (; sb < SBMAX_s; ++b, ++sb) {
       const bo_s_sb = gfc.bo_s[sb];
       const { npart_s } = gfc;
       const b_lim = bo_s_sb < npart_s ? bo_s_sb : npart_s;
@@ -746,7 +756,7 @@ export class PsyModel {
       }
     }
     /* zero initialize the rest */
-    for (; sb < Encoder.SBMAX_s; ++sb) {
+    for (; sb < SBMAX_s; ++sb) {
       gfc.en[chn].s[sb][sblock] = 0;
       gfc.thm[chn].s[sb][sblock] = 0;
     }
@@ -765,7 +775,7 @@ export class PsyModel {
     let b = 0;
     let enn = 0.0;
     let thmm = 0.0;
-    for (; sb < Encoder.SBMAX_l; ++b, ++sb) {
+    for (; sb < SBMAX_l; ++b, ++sb) {
       const bo_l_sb = gfc.bo_l[sb];
       const { npart_l } = gfc;
       const b_lim = bo_l_sb < npart_l ? bo_l_sb : npart_l;
@@ -799,7 +809,7 @@ export class PsyModel {
       }
     }
     /* zero initialize the rest */
-    for (; sb < Encoder.SBMAX_l; ++sb) {
+    for (; sb < SBMAX_l; ++sb) {
       gfc.en[chn].l[sb] = 0;
       gfc.thm[chn].l[sb] = 0;
     }
@@ -846,7 +856,7 @@ export class PsyModel {
       const x = this.rpelev_s * gfc.nb_s1[chn][b];
       thr[b] = Math.min(ecb, x);
 
-      if (gfc.blocktype_old[chn & 1] === Encoder.SHORT_TYPE) {
+      if (gfc.blocktype_old[chn & 1] === SHORT_TYPE) {
         /* limit calculated threshold by even older granule */
         const x = this.rpelev2_s * gfc.nb_s2[chn][b];
         const y = thr[b];
@@ -857,7 +867,7 @@ export class PsyModel {
       gfc.nb_s1[chn][b] = ecb;
       console.assert(thr[b] >= 0);
     }
-    for (; b <= Encoder.CBANDS; ++b) {
+    for (; b <= CBANDS; ++b) {
       eb[b] = 0;
       thr[b] = 0;
     }
@@ -887,7 +897,7 @@ export class PsyModel {
      * what happend in this granule
      */
     for (let chn = 0; chn < gfc.channels_out; chn++) {
-      blocktype[chn] = Encoder.NORM_TYPE;
+      blocktype[chn] = NORM_TYPE;
       /* disable short blocks */
       if (gfp.short_blocks === ShortBlock.short_block_dispensed)
         uselongblock[chn] = 1;
@@ -896,17 +906,16 @@ export class PsyModel {
 
       if (uselongblock[chn] !== 0) {
         /* no attack : use long blocks */
-        console.assert(gfc.blocktype_old[chn] !== Encoder.START_TYPE);
-        if (gfc.blocktype_old[chn] === Encoder.SHORT_TYPE)
-          blocktype[chn] = Encoder.STOP_TYPE;
+        console.assert(gfc.blocktype_old[chn] !== START_TYPE);
+        if (gfc.blocktype_old[chn] === SHORT_TYPE) blocktype[chn] = STOP_TYPE;
       } else {
         /* attack : use short blocks */
-        blocktype[chn] = Encoder.SHORT_TYPE;
-        if (gfc.blocktype_old[chn] === Encoder.NORM_TYPE) {
-          gfc.blocktype_old[chn] = Encoder.START_TYPE;
+        blocktype[chn] = SHORT_TYPE;
+        if (gfc.blocktype_old[chn] === NORM_TYPE) {
+          gfc.blocktype_old[chn] = START_TYPE;
         }
-        if (gfc.blocktype_old[chn] === Encoder.STOP_TYPE)
-          gfc.blocktype_old[chn] = Encoder.SHORT_TYPE;
+        if (gfc.blocktype_old[chn] === STOP_TYPE)
+          gfc.blocktype_old[chn] = SHORT_TYPE;
       }
 
       blocktype_d[chn] = gfc.blocktype_old[chn];
@@ -941,7 +950,7 @@ export class PsyModel {
 
   private pecalc_s(mr: III_psy_ratio, masking_lower: number) {
     let pe_s = 1236.28 / 4;
-    for (let sb = 0; sb < Encoder.SBMAX_s - 1; sb++) {
+    for (let sb = 0; sb < SBMAX_s - 1; sb++) {
       for (let sblock = 0; sblock < 3; sblock++) {
         const thm = mr.thm.s[sb][sblock];
         console.assert(sb < this.regcoef_s.length);
@@ -953,7 +962,7 @@ export class PsyModel {
               pe_s += this.regcoef_s[sb] * (10.0 * PsyModel.LOG10);
             } else {
               console.assert(x > 0);
-              pe_s += this.regcoef_s[sb] * Util.log10(en / x);
+              pe_s += this.regcoef_s[sb] * Math.log10(en / x);
             }
           }
         }
@@ -974,7 +983,7 @@ export class PsyModel {
 
   private pecalc_l(mr: III_psy_ratio, masking_lower: number) {
     let pe_l = 1124.23 / 4;
-    for (let sb = 0; sb < Encoder.SBMAX_l - 1; sb++) {
+    for (let sb = 0; sb < SBMAX_l - 1; sb++) {
       const thm = mr.thm.l[sb];
       console.assert(sb < this.regcoef_l.length);
       if (thm > 0.0) {
@@ -985,7 +994,7 @@ export class PsyModel {
             pe_l += this.regcoef_l[sb] * (10.0 * PsyModel.LOG10);
           } else {
             console.assert(x > 0);
-            pe_l += this.regcoef_l[sb] * Util.log10(en / x);
+            pe_l += this.regcoef_l[sb] * Math.log10(en / x);
           }
         }
       }
@@ -1130,18 +1139,15 @@ export class PsyModel {
     const gfc = gfp.internal_flags!;
 
     /* fft and energy calculation */
-    const wsamp_L = Array.from(
-      { length: 2 },
-      () => new Float32Array(Encoder.BLKSIZE)
-    );
+    const wsamp_L = Array.from({ length: 2 }, () => new Float32Array(BLKSIZE));
     const wsamp_S = Array.from({ length: 2 }, () =>
-      Array.from({ length: 3 }, () => new Float32Array(Encoder.BLKSIZE_s))
+      Array.from({ length: 3 }, () => new Float32Array(BLKSIZE_s))
     );
 
     /* convolution */
-    const eb_l = new Float32Array(Encoder.CBANDS + 1);
-    const eb_s = new Float32Array(Encoder.CBANDS + 1);
-    const thr = new Float32Array(Encoder.CBANDS + 2);
+    const eb_l = new Float32Array(CBANDS + 1);
+    const eb_s = new Float32Array(CBANDS + 1);
+    const thr = new Float32Array(CBANDS + 2);
 
     /* block type */
     const blocktype = new Int32Array(2);
@@ -1160,8 +1166,8 @@ export class PsyModel {
     /* variables used for --nspsytune */
     const ns_hpfsmpl = Array.from({ length: 2 }, () => new Float32Array(576));
     let pcfact;
-    const mask_idx_l = new Int32Array(Encoder.CBANDS + 2);
-    const mask_idx_s = new Int32Array(Encoder.CBANDS + 2);
+    const mask_idx_l = new Int32Array(CBANDS + 2);
+    const mask_idx_s = new Int32Array(CBANDS + 2);
 
     fillArray(mask_idx_s, 0);
 
@@ -1222,13 +1228,13 @@ export class PsyModel {
       const en_short = [0, 0, 0, 0];
       const attack_intensity = new Float32Array(12);
       let ns_uselongblock = 1;
-      const max = new Float32Array(Encoder.CBANDS);
-      const avg = new Float32Array(Encoder.CBANDS);
+      const max = new Float32Array(CBANDS);
+      const avg = new Float32Array(CBANDS);
       const ns_attacks = [0, 0, 0, 0];
-      const fftenergy = new Float32Array(Encoder.HBLKSIZE);
+      const fftenergy = new Float32Array(HBLKSIZE);
       const fftenergy_s = Array.from(
         { length: 3 },
-        () => new Float32Array(Encoder.HBLKSIZE_s)
+        () => new Float32Array(HBLKSIZE_s)
       );
 
       /*
@@ -1236,8 +1242,8 @@ export class PsyModel {
        * I increase the array dimensions by one and initialize the
        * accessed values to zero
        */
-      console.assert(gfc.npart_s <= Encoder.CBANDS);
-      console.assert(gfc.npart_l <= Encoder.CBANDS);
+      console.assert(gfc.npart_s <= CBANDS);
+      console.assert(gfc.npart_l <= CBANDS);
 
       /** *************************************************************
        * determine the block type (window type)
@@ -1374,7 +1380,7 @@ export class PsyModel {
         this.compute_masking_s(gfp, fftenergy_s, eb_s, thr, chn, sblock);
         this.convert_partition2scalefac_s(gfc, eb_s, thr, chn, sblock);
         /** ** short block pre-echo control ****/
-        for (sb = 0; sb < Encoder.SBMAX_s; sb++) {
+        for (sb = 0; sb < SBMAX_s; sb++) {
           thmm = gfc.thm[chn].s[sb][sblock];
 
           thmm *= PsyModel.NS_PREECHO_ATT0;
@@ -1462,7 +1468,7 @@ export class PsyModel {
          * chn=2,3 S and M channels.
          */
 
-        if (gfc.blocktype_old[chn & 1] === Encoder.SHORT_TYPE) thr[b] = ecb;
+        if (gfc.blocktype_old[chn & 1] === SHORT_TYPE) thr[b] = ecb;
         else
           thr[b] = this.nsInterp(
             Math.min(
@@ -1480,7 +1486,7 @@ export class PsyModel {
         gfc.nb_1[chn][b] = ecb;
       }
 
-      for (; b <= Encoder.CBANDS; ++b) {
+      for (; b <= CBANDS; ++b) {
         eb_l[b] = 0;
         thr[b] = 0;
       }
@@ -1519,12 +1525,9 @@ export class PsyModel {
       if (chn > 1) {
         ppe = percep_MS_entropy;
         ppePos = -2;
-        type = Encoder.NORM_TYPE;
-        if (
-          blocktype_d[0] === Encoder.SHORT_TYPE ||
-          blocktype_d[1] === Encoder.SHORT_TYPE
-        )
-          type = Encoder.SHORT_TYPE;
+        type = NORM_TYPE;
+        if (blocktype_d[0] === SHORT_TYPE || blocktype_d[1] === SHORT_TYPE)
+          type = SHORT_TYPE;
         mr = masking_MS_ratio[gr_out][chn - 2];
       } else {
         ppe = percep_entropy;
@@ -1533,7 +1536,7 @@ export class PsyModel {
         mr = masking_ratio[gr_out][chn];
       }
 
-      if (type === Encoder.SHORT_TYPE)
+      if (type === SHORT_TYPE)
         ppe[ppePos + chn] = this.pecalc_s(mr, gfc.masking_lower);
       else ppe[ppePos + chn] = this.pecalc_l(mr, gfc.masking_lower);
 
@@ -1557,11 +1560,11 @@ export class PsyModel {
       this.fft.fft_long(gfc, wsamp_l[wsamp_lPos], chn, buffer, bufPos);
     } else if (chn === 2) {
       /* FFT data for mid and side channel is derived from L & R */
-      for (let j = Encoder.BLKSIZE - 1; j >= 0; --j) {
+      for (let j = BLKSIZE - 1; j >= 0; --j) {
         const l = wsamp_l[wsamp_lPos + 0][j];
         const r = wsamp_l[wsamp_lPos + 1][j];
-        wsamp_l[wsamp_lPos + 0][j] = (l + r) * Util.SQRT2 * 0.5;
-        wsamp_l[wsamp_lPos + 1][j] = (l - r) * Util.SQRT2 * 0.5;
+        wsamp_l[wsamp_lPos + 0][j] = (l + r) * Math.SQRT2 * 0.5;
+        wsamp_l[wsamp_lPos + 1][j] = (l - r) * Math.SQRT2 * 0.5;
       }
     }
 
@@ -1571,21 +1574,21 @@ export class PsyModel {
     fftenergy[0] = wsamp_l[wsamp_lPos + 0][0];
     fftenergy[0] *= fftenergy[0];
 
-    for (let j = Encoder.BLKSIZE / 2 - 1; j >= 0; --j) {
-      const re = wsamp_l[wsamp_lPos + 0][Encoder.BLKSIZE / 2 - j];
-      const im = wsamp_l[wsamp_lPos + 0][Encoder.BLKSIZE / 2 + j];
-      fftenergy[Encoder.BLKSIZE / 2 - j] = (re * re + im * im) * 0.5;
+    for (let j = BLKSIZE / 2 - 1; j >= 0; --j) {
+      const re = wsamp_l[wsamp_lPos + 0][BLKSIZE / 2 - j];
+      const im = wsamp_l[wsamp_lPos + 0][BLKSIZE / 2 + j];
+      fftenergy[BLKSIZE / 2 - j] = (re * re + im * im) * 0.5;
     }
     /* total energy */
     {
       let totalenergy = 0.0;
-      for (let j = 11; j < Encoder.HBLKSIZE; j++) totalenergy += fftenergy[j];
+      for (let j = 11; j < HBLKSIZE; j++) totalenergy += fftenergy[j];
 
       gfc.tot_ener[chn] = totalenergy;
     }
 
     if (gfp.analysis) {
-      for (let j = 0; j < Encoder.HBLKSIZE; j++) {
+      for (let j = 0; j < HBLKSIZE; j++) {
         gfc.pinfo!.energy[gr_out][chn][j] = gfc.pinfo!.energy_save[chn][j];
         gfc.pinfo!.energy_save[chn][j] = fftenergy[j];
       }
@@ -1610,11 +1613,11 @@ export class PsyModel {
     }
     if (chn === 2) {
       /* FFT data for mid and side channel is derived from L & R */
-      for (let j = Encoder.BLKSIZE_s - 1; j >= 0; --j) {
+      for (let j = BLKSIZE_s - 1; j >= 0; --j) {
         const l = wsamp_s[wsamp_sPos + 0][sblock][j];
         const r = wsamp_s[wsamp_sPos + 1][sblock][j];
-        wsamp_s[wsamp_sPos + 0][sblock][j] = (l + r) * Util.SQRT2 * 0.5;
-        wsamp_s[wsamp_sPos + 1][sblock][j] = (l - r) * Util.SQRT2 * 0.5;
+        wsamp_s[wsamp_sPos + 0][sblock][j] = (l + r) * Math.SQRT2 * 0.5;
+        wsamp_s[wsamp_sPos + 1][sblock][j] = (l - r) * Math.SQRT2 * 0.5;
       }
     }
 
@@ -1623,11 +1626,10 @@ export class PsyModel {
      *********************************************************************/
     fftenergy_s[sblock][0] = wsamp_s[wsamp_sPos + 0][sblock][0];
     fftenergy_s[sblock][0] *= fftenergy_s[sblock][0];
-    for (let j = Encoder.BLKSIZE_s / 2 - 1; j >= 0; --j) {
-      const re = wsamp_s[wsamp_sPos + 0][sblock][Encoder.BLKSIZE_s / 2 - j];
-      const im = wsamp_s[wsamp_sPos + 0][sblock][Encoder.BLKSIZE_s / 2 + j];
-      fftenergy_s[sblock][Encoder.BLKSIZE_s / 2 - j] =
-        (re * re + im * im) * 0.5;
+    for (let j = BLKSIZE_s / 2 - 1; j >= 0; --j) {
+      const re = wsamp_s[wsamp_sPos + 0][sblock][BLKSIZE_s / 2 - j];
+      const im = wsamp_s[wsamp_sPos + 0][sblock][BLKSIZE_s / 2 + j];
+      fftenergy_s[sblock][BLKSIZE_s / 2 - j] = (re * re + im * im) * 0.5;
     }
   }
 
@@ -1974,12 +1976,12 @@ export class PsyModel {
     sblock: number
   ) {
     const gfc = gfp.internal_flags!;
-    const max = new Array(Encoder.CBANDS);
-    const avg = new Float32Array(Encoder.CBANDS);
+    const max = new Array(CBANDS);
+    const avg = new Float32Array(CBANDS);
     let i;
     let j = 0;
     let b = 0;
-    const mask_idx_s = new Array(Encoder.CBANDS);
+    const mask_idx_s = new Array(CBANDS);
 
     for (; b < gfc.npart_s; ++b) {
       let ebb = 0;
@@ -1999,7 +2001,7 @@ export class PsyModel {
     }
     console.assert(b === gfc.npart_s);
     console.assert(j === 129);
-    for (; b < Encoder.CBANDS; ++b) {
+    for (; b < CBANDS; ++b) {
       max[b] = 0;
       avg[b] = 0;
     }
@@ -2058,7 +2060,7 @@ export class PsyModel {
 
       console.assert(thr[b] >= 0);
     }
-    for (; b < Encoder.CBANDS; ++b) {
+    for (; b < CBANDS; ++b) {
       eb[b] = 0;
       thr[b] = 0;
     }
@@ -2071,9 +2073,9 @@ export class PsyModel {
     thr: ArrayOf<number>,
     chn: number
   ) {
-    const max = new Float32Array(Encoder.CBANDS);
-    const avg = new Float32Array(Encoder.CBANDS);
-    const mask_idx_l = new Int32Array(Encoder.CBANDS + 2);
+    const max = new Float32Array(CBANDS);
+    const avg = new Float32Array(CBANDS);
+    const mask_idx_l = new Int32Array(CBANDS + 2);
     let b;
 
     /** *******************************************************************
@@ -2128,7 +2130,7 @@ export class PsyModel {
       /*
        * chn=0,1 L and R channels chn=2,3 S and M channels.
        */
-      if (gfc.blocktype_old[chn & 0x01] === Encoder.SHORT_TYPE) {
+      if (gfc.blocktype_old[chn & 0x01] === SHORT_TYPE) {
         const ecb_limit = this.rpelev * gfc.nb_1[chn][b];
         if (ecb_limit > 0) {
           thr[b] = Math.min(ecb, ecb_limit);
@@ -2156,7 +2158,7 @@ export class PsyModel {
         if (ecb_limit_1 <= 0) {
           ecb_limit_1 = ecb;
         }
-        if (gfc.blocktype_old[chn & 0x01] === Encoder.NORM_TYPE) {
+        if (gfc.blocktype_old[chn & 0x01] === NORM_TYPE) {
           ecb_limit = Math.min(ecb_limit_1, ecb_limit_2);
         } else {
           ecb_limit = ecb_limit_1;
@@ -2190,7 +2192,7 @@ export class PsyModel {
       }
       console.assert(thr[b] >= 0);
     }
-    for (; b < Encoder.CBANDS; ++b) {
+    for (; b < CBANDS; ++b) {
       eb_l[b] = 0;
       thr[b] = 0;
     }
@@ -2236,22 +2238,21 @@ export class PsyModel {
      * what happend in this granule
      */
     for (let chn = 0; chn < gfc.channels_out; chn++) {
-      let blocktype = Encoder.NORM_TYPE;
+      let blocktype = NORM_TYPE;
       /* disable short blocks */
 
       if (uselongblock[chn] !== 0) {
         /* no attack : use long blocks */
-        console.assert(gfc.blocktype_old[chn] !== Encoder.START_TYPE);
-        if (gfc.blocktype_old[chn] === Encoder.SHORT_TYPE)
-          blocktype = Encoder.STOP_TYPE;
+        console.assert(gfc.blocktype_old[chn] !== START_TYPE);
+        if (gfc.blocktype_old[chn] === SHORT_TYPE) blocktype = STOP_TYPE;
       } else {
         /* attack : use short blocks */
-        blocktype = Encoder.SHORT_TYPE;
-        if (gfc.blocktype_old[chn] === Encoder.NORM_TYPE) {
-          gfc.blocktype_old[chn] = Encoder.START_TYPE;
+        blocktype = SHORT_TYPE;
+        if (gfc.blocktype_old[chn] === NORM_TYPE) {
+          gfc.blocktype_old[chn] = START_TYPE;
         }
-        if (gfc.blocktype_old[chn] === Encoder.STOP_TYPE)
-          gfc.blocktype_old[chn] = Encoder.SHORT_TYPE;
+        if (gfc.blocktype_old[chn] === STOP_TYPE)
+          gfc.blocktype_old[chn] = SHORT_TYPE;
       }
 
       blocktype_d[chn] = gfc.blocktype_old[chn];
@@ -2343,26 +2344,17 @@ export class PsyModel {
     /* fft and energy calculation */
     let wsamp_l;
     let wsamp_s;
-    const fftenergy = new Float32Array(Encoder.HBLKSIZE);
+    const fftenergy = new Float32Array(HBLKSIZE);
     const fftenergy_s = Array.from(
       { length: 3 },
-      () => new Float32Array(Encoder.HBLKSIZE_s)
+      () => new Float32Array(HBLKSIZE_s)
     );
-    const wsamp_L = Array.from(
-      { length: 2 },
-      () => new Float32Array(Encoder.BLKSIZE)
-    );
+    const wsamp_L = Array.from({ length: 2 }, () => new Float32Array(BLKSIZE));
     const wsamp_S = Array.from({ length: 2 }, () =>
-      Array.from({ length: 3 }, () => new Float32Array(Encoder.BLKSIZE_s))
+      Array.from({ length: 3 }, () => new Float32Array(BLKSIZE_s))
     );
-    const eb = Array.from(
-      { length: 4 },
-      () => new Float32Array(Encoder.CBANDS)
-    );
-    const thr = Array.from(
-      { length: 4 },
-      () => new Float32Array(Encoder.CBANDS)
-    );
+    const eb = Array.from({ length: 4 }, () => new Float32Array(CBANDS));
+    const thr = Array.from({ length: 4 }, () => new Float32Array(CBANDS));
     const sub_short_factor = Array.from(
       { length: 4 },
       () => new Float32Array(3)
@@ -2512,7 +2504,7 @@ export class PsyModel {
       if (uselongblock[ch01] !== 0) {
         continue;
       }
-      for (let sb = 0; sb < Encoder.SBMAX_s; sb++) {
+      for (let sb = 0; sb < SBMAX_s; sb++) {
         const new_thmm = new Float32Array(3);
         for (let sblock = 0; sblock < 3; sblock++) {
           let thmm = gfc.thm[chn].s[sb][sblock];
@@ -2582,12 +2574,9 @@ export class PsyModel {
       if (chn > 1) {
         ppe = percep_MS_entropy;
         ppePos = -2;
-        type = Encoder.NORM_TYPE;
-        if (
-          blocktype_d[0] === Encoder.SHORT_TYPE ||
-          blocktype_d[1] === Encoder.SHORT_TYPE
-        )
-          type = Encoder.SHORT_TYPE;
+        type = NORM_TYPE;
+        if (blocktype_d[0] === SHORT_TYPE || blocktype_d[1] === SHORT_TYPE)
+          type = SHORT_TYPE;
         mr = masking_MS_ratio[gr_out][chn - 2];
       } else {
         ppe = percep_entropy;
@@ -2596,7 +2585,7 @@ export class PsyModel {
         mr = masking_ratio[gr_out][chn];
       }
 
-      if (type === Encoder.SHORT_TYPE) {
+      if (type === SHORT_TYPE) {
         ppe[ppePos + chn] = this.pecalc_s(mr, gfc.masking_lower);
       } else {
         ppe[ppePos + chn] = this.pecalc_l(mr, gfc.masking_lower);
@@ -2735,16 +2724,16 @@ export class PsyModel {
     deltafreq: number,
     sbmax: number
   ) {
-    const b_frq = new Float32Array(Encoder.CBANDS + 1);
+    const b_frq = new Float32Array(CBANDS + 1);
     const sample_freq_frac = sfreq / (sbmax > 15 ? 2 * 576 : 2 * 192);
-    const partition = new Int32Array(Encoder.HBLKSIZE);
+    const partition = new Int32Array(HBLKSIZE);
     let i;
     sfreq /= blksize;
     let j = 0;
     let ni = 0;
     /* compute numlines, the number of spectral lines in each partition band */
     /* each partition band should be about DELBARK wide. */
-    for (i = 0; i < Encoder.CBANDS; i++) {
+    for (i = 0; i < CBANDS; i++) {
       let j2;
       const bark1 = this.freq2bark(sfreq * j);
 
@@ -2761,7 +2750,7 @@ export class PsyModel {
       ni = i + 1;
 
       while (j < j2) {
-        console.assert(j < Encoder.HBLKSIZE);
+        console.assert(j < HBLKSIZE);
         partition[j++] = i;
       }
       if (j > blksize / 2) {
@@ -2770,7 +2759,7 @@ export class PsyModel {
         break;
       }
     }
-    console.assert(i < Encoder.CBANDS);
+    console.assert(i < CBANDS);
     b_frq[i] = sfreq * j;
 
     for (let sfb = 0; sfb < sbmax; sfb++) {
@@ -2836,10 +2825,7 @@ export class PsyModel {
     norm: ArrayOf<any>,
     use_old_s3: boolean
   ) {
-    const s3 = Array.from(
-      { length: Encoder.CBANDS },
-      () => new Float32Array(Encoder.CBANDS)
-    );
+    const s3 = Array.from({ length: CBANDS }, () => new Float32Array(CBANDS));
     /*
      * The s3 array is not linear in the bark scale.
      *
@@ -2923,9 +2909,9 @@ export class PsyModel {
     let snr_l_b = 0;
     let snr_s_a = -8.25;
     let snr_s_b = -4.5;
-    const bval = new Float32Array(Encoder.CBANDS);
-    const bval_width = new Float32Array(Encoder.CBANDS);
-    const norm = new Float32Array(Encoder.CBANDS);
+    const bval = new Float32Array(CBANDS);
+    const bval_width = new Float32Array(CBANDS);
+    const norm = new Float32Array(CBANDS);
     const sfreq = gfp.out_samplerate;
 
     switch (gfp.experimentalZ) {
@@ -2950,23 +2936,23 @@ export class PsyModel {
         break;
     }
     gfc.ms_ener_ratio_old = 0.25;
-    gfc.blocktype_old[0] = Encoder.NORM_TYPE;
-    gfc.blocktype_old[1] = Encoder.NORM_TYPE;
+    gfc.blocktype_old[0] = NORM_TYPE;
+    gfc.blocktype_old[1] = NORM_TYPE;
     // the vbr header is long blocks
 
     for (i = 0; i < 4; ++i) {
-      for (let j = 0; j < Encoder.CBANDS; ++j) {
+      for (let j = 0; j < CBANDS; ++j) {
         gfc.nb_1[i][j] = 1e20;
         gfc.nb_2[i][j] = 1e20;
         gfc.nb_s1[i][j] = 1.0;
         gfc.nb_s2[i][j] = 1.0;
       }
-      for (let sb = 0; sb < Encoder.SBMAX_l; sb++) {
+      for (let sb = 0; sb < SBMAX_l; sb++) {
         gfc.en[i].l[sb] = 1e20;
         gfc.thm[i].l[sb] = 1e20;
       }
       for (let j = 0; j < 3; ++j) {
-        for (let sb = 0; sb < Encoder.SBMAX_s; sb++) {
+        for (let sb = 0; sb < SBMAX_s; sb++) {
           gfc.en[i].s[sb][j] = 1e20;
           gfc.thm[i].s[sb][j] = 1e20;
         }
@@ -2993,12 +2979,12 @@ export class PsyModel {
       gfc.mld_l,
       gfc.PSY!.bo_l_weight,
       sfreq,
-      Encoder.BLKSIZE,
+      BLKSIZE,
       gfc.scalefac_band.l,
-      Encoder.BLKSIZE / (2.0 * 576),
-      Encoder.SBMAX_l
+      BLKSIZE / (2.0 * 576),
+      SBMAX_l
     );
-    console.assert(gfc.npart_l < Encoder.CBANDS);
+    console.assert(gfc.npart_l < CBANDS);
     /* compute the spreading function */
     for (i = 0; i < gfc.npart_l; i++) {
       let snr = snr_l_a;
@@ -3031,7 +3017,7 @@ export class PsyModel {
       /* ATH */
       x = MAX_FLOAT32_VALUE;
       for (let k = 0; k < gfc.numlines_l[i]; k++, j++) {
-        const freq = (sfreq * j) / (1000.0 * Encoder.BLKSIZE);
+        const freq = (sfreq * j) / (1000.0 * BLKSIZE);
         let level;
         /*
          * ATH below 100 Hz constant, not further climbing
@@ -3078,12 +3064,12 @@ export class PsyModel {
       gfc.mld_s,
       gfc.PSY!.bo_s_weight,
       sfreq,
-      Encoder.BLKSIZE_s,
+      BLKSIZE_s,
       gfc.scalefac_band.s,
-      Encoder.BLKSIZE_s / (2.0 * 192),
-      Encoder.SBMAX_s
+      BLKSIZE_s / (2.0 * 192),
+      SBMAX_s
     );
-    console.assert(gfc.npart_s < Encoder.CBANDS);
+    console.assert(gfc.npart_s < CBANDS);
 
     /* SNR formula. short block is normalized by SNR. is it still right ? */
     j = 0;
@@ -3100,7 +3086,7 @@ export class PsyModel {
       /* ATH */
       x = MAX_FLOAT32_VALUE;
       for (let k = 0; k < gfc.numlines_s[i]; k++, j++) {
-        const freq = (sfreq * j) / (1000.0 * Encoder.BLKSIZE_s);
+        const freq = (sfreq * j) / (1000.0 * BLKSIZE_s);
         let level;
         /* freq = Min(.1,freq); */
         /*
@@ -3180,16 +3166,16 @@ export class PsyModel {
     gfc.ATH!.adjustLimit = 1.0;
     /* on lead, allow adjust up to maximum */
 
-    console.assert(gfc.bo_l[Encoder.SBMAX_l - 1] <= gfc.npart_l);
-    console.assert(gfc.bo_s[Encoder.SBMAX_s - 1] <= gfc.npart_s);
+    console.assert(gfc.bo_l[SBMAX_l - 1] <= gfc.npart_l);
+    console.assert(gfc.bo_s[SBMAX_s - 1] <= gfc.npart_s);
 
     if (gfp.ATHtype !== -1) {
       /* compute equal loudness weights (eql_w) */
       let freq;
-      const freq_inc = gfp.out_samplerate / Encoder.BLKSIZE;
+      const freq_inc = gfp.out_samplerate / BLKSIZE;
       let eql_balance = 0.0;
       freq = 0.0;
-      for (i = 0; i < Encoder.BLKSIZE / 2; ++i) {
+      for (i = 0; i < BLKSIZE / 2; ++i) {
         /* convert ATH dB to relative power (not dB) */
         /* to determine eql_w */
         freq += freq_inc;
@@ -3197,7 +3183,7 @@ export class PsyModel {
         eql_balance += gfc.ATH!.eql_w[i];
       }
       eql_balance = 1.0 / eql_balance;
-      for (i = Encoder.BLKSIZE / 2; --i >= 0; ) {
+      for (i = BLKSIZE / 2; --i >= 0; ) {
         /* scale weights */
         gfc.ATH!.eql_w[i] *= eql_balance;
       }
@@ -3222,22 +3208,20 @@ export class PsyModel {
     }
     j = 0;
     for (i = 0; i < gfc.npart_l; i++) {
-      const freq =
-        (sfreq * (j + gfc.numlines_l[i] / 2)) / (1.0 * Encoder.BLKSIZE);
+      const freq = (sfreq * (j + gfc.numlines_l[i] / 2)) / (1.0 * BLKSIZE);
       gfc.mld_cb_l[i] = this.stereo_demask(freq);
       j += gfc.numlines_l[i];
     }
-    for (; i < Encoder.CBANDS; ++i) {
+    for (; i < CBANDS; ++i) {
       gfc.mld_cb_l[i] = 1;
     }
     j = 0;
     for (i = 0; i < gfc.npart_s; i++) {
-      const freq =
-        (sfreq * (j + gfc.numlines_s[i] / 2)) / (1.0 * Encoder.BLKSIZE_s);
+      const freq = (sfreq * (j + gfc.numlines_s[i] / 2)) / (1.0 * BLKSIZE_s);
       gfc.mld_cb_s[i] = this.stereo_demask(freq);
       j += gfc.numlines_s[i];
     }
-    for (; i < Encoder.CBANDS; ++i) {
+    for (; i < CBANDS; ++i) {
       gfc.mld_cb_s[i] = 1;
     }
     return 0;

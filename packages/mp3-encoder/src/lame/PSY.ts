@@ -1,4 +1,4 @@
-import { Encoder } from './Encoder';
+import { SBMAX_l, SBMAX_s } from './constants';
 
 /**
  * PSY Model related stuff
@@ -18,10 +18,10 @@ export class PSY {
   /**
    * Band weight long scalefactor bands.
    */
-  bo_l_weight = new Float32Array(Encoder.SBMAX_l);
+  bo_l_weight = new Float32Array(SBMAX_l);
 
   /**
    * Band weight short scalefactor bands.
    */
-  bo_s_weight = new Float32Array(Encoder.SBMAX_s);
+  bo_s_weight = new Float32Array(SBMAX_s);
 }

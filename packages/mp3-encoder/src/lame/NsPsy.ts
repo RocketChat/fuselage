@@ -1,4 +1,4 @@
-import { Encoder } from './Encoder';
+import { SBMAX_l, SBMAX_s } from './constants';
 
 /**
  * Variables used for --nspsytune
@@ -13,9 +13,9 @@ export class NsPsy {
 
   pefirbuf = new Float32Array(19);
 
-  longfact = new Float32Array(Encoder.SBMAX_l);
+  longfact = new Float32Array(SBMAX_l);
 
-  shortfact = new Float32Array(Encoder.SBMAX_s);
+  shortfact = new Float32Array(SBMAX_s);
 
   /**
    * short block tuning

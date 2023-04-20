@@ -6,7 +6,7 @@
  */
 import type { ArrayOf } from './ArrayOf';
 import { copyArray } from './Arrays';
-import { Encoder } from './Encoder';
+import { PSFB12, PSFB21, SBMAX_l, SBMAX_s } from './constants';
 
 export class ScaleFac {
   private arrL: ArrayOf<number> | undefined;
@@ -44,10 +44,10 @@ export class ScaleFac {
           arr12: ArrayOf<number>
         ]
   ) {
-    this.l = new Int32Array(1 + Encoder.SBMAX_l);
-    this.s = new Int32Array(1 + Encoder.SBMAX_s);
-    this.psfb21 = new Int32Array(1 + Encoder.PSFB21);
-    this.psfb12 = new Int32Array(1 + Encoder.PSFB12);
+    this.l = new Int32Array(1 + SBMAX_l);
+    this.s = new Int32Array(1 + SBMAX_s);
+    this.psfb21 = new Int32Array(1 + PSFB21);
+    this.psfb12 = new Int32Array(1 + PSFB12);
     const { l } = this;
     const { s } = this;
 

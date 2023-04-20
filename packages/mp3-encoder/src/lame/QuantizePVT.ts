@@ -24,13 +24,10 @@
 
 import type { ArrayOf } from './ArrayOf';
 import { copyArray } from './Arrays';
-import { BitStream } from './BitStream';
 import type { CalcNoiseData } from './CalcNoiseData';
 import { CalcNoiseResult } from './CalcNoiseResult';
-import { Encoder } from './Encoder';
 import type { GrInfo } from './GrInfo';
 import type { III_psy_ratio } from './III_psy_ratio';
-import { L3Side } from './L3Side';
 import type { LameGlobalFlags } from './LameGlobalFlags';
 import { LameInternalFlags } from './LameInternalFlags';
 import { MeanBits } from './MeanBits';
@@ -39,9 +36,19 @@ import type { Reservoir } from './Reservoir';
 import { ScaleFac } from './ScaleFac';
 import { StartLine } from './StartLine';
 import type { Takehiro } from './Takehiro';
-import { Util } from './Util';
 import { VbrMode } from './VbrMode';
-import { MAX_FLOAT32_VALUE } from './constants';
+import {
+  MAX_FLOAT32_VALUE,
+  PSFB12,
+  PSFB21,
+  SBMAX_l,
+  SBMAX_s,
+  SBPSY_l,
+  SBPSY_s,
+  SFBMAX,
+  SHORT_TYPE,
+} from './constants';
+import { isCloseToEachOther } from './isCloseToEachOther';
 
 export class QuantizePVT {
   static Q_MAX = 256 + 1;
@@ -342,7 +349,7 @@ export class QuantizePVT {
     const gfc = gfp.internal_flags!;
     const samp_freq = gfp.out_samplerate;
 
-    for (let sfb = 0; sfb < Encoder.SBMAX_l; sfb++) {
+    for (let sfb = 0; sfb < SBMAX_l; sfb++) {
       const start = gfc.scalefac_band.l[sfb];
       const end = gfc.scalefac_band.l[sfb + 1];
       ATH_l[sfb] = MAX_FLOAT32_VALUE;
@@ -354,7 +361,7 @@ export class QuantizePVT {
       }
     }
 
-    for (let sfb = 0; sfb < Encoder.PSFB21; sfb++) {
+    for (let sfb = 0; sfb < PSFB21; sfb++) {
       const start = gfc.scalefac_band.psfb21[sfb];
       const end = gfc.scalefac_band.psfb21[sfb + 1];
       ATH_psfb21[sfb] = MAX_FLOAT32_VALUE;
@@ -366,7 +373,7 @@ export class QuantizePVT {
       }
     }
 
-    for (let sfb = 0; sfb < Encoder.SBMAX_s; sfb++) {
+    for (let sfb = 0; sfb < SBMAX_s; sfb++) {
       const start = gfc.scalefac_band.s[sfb];
       const end = gfc.scalefac_band.s[sfb + 1];
       ATH_s[sfb] = MAX_FLOAT32_VALUE;
@@ -379,7 +386,7 @@ export class QuantizePVT {
       ATH_s[sfb] *= gfc.scalefac_band.s[sfb + 1] - gfc.scalefac_band.s[sfb];
     }
 
-    for (let sfb = 0; sfb < Encoder.PSFB12; sfb++) {
+    for (let sfb = 0; sfb < PSFB12; sfb++) {
       const start = gfc.scalefac_band.psfb12[sfb];
       const end = gfc.scalefac_band.psfb12[sfb + 1];
       ATH_psfb12[sfb] = MAX_FLOAT32_VALUE;
@@ -397,16 +404,16 @@ export class QuantizePVT {
      * no-ATH mode: reduce ATH to -200 dB
      */
     if (gfp.noATH) {
-      for (let sfb = 0; sfb < Encoder.SBMAX_l; sfb++) {
+      for (let sfb = 0; sfb < SBMAX_l; sfb++) {
         ATH_l[sfb] = 1e-20;
       }
-      for (let sfb = 0; sfb < Encoder.PSFB21; sfb++) {
+      for (let sfb = 0; sfb < PSFB21; sfb++) {
         ATH_psfb21[sfb] = 1e-20;
       }
-      for (let sfb = 0; sfb < Encoder.SBMAX_s; sfb++) {
+      for (let sfb = 0; sfb < SBMAX_s; sfb++) {
         ATH_s[sfb] = 1e-20;
       }
-      for (let sfb = 0; sfb < Encoder.PSFB12; sfb++) {
+      for (let sfb = 0; sfb < PSFB12; sfb++) {
         ATH_psfb12[sfb] = 1e-20;
       }
     }
@@ -467,7 +474,7 @@ export class QuantizePVT {
         i = (gfp.exp_nspsytune >> 20) & 63;
         if (i >= 32) i -= 64;
         const sfb21 = treble * Math.pow(10, i / 4.0 / 10.0);
-        for (i = 0; i < Encoder.SBMAX_l; i++) {
+        for (i = 0; i < SBMAX_l; i++) {
           let f;
           if (i <= 6) f = bass;
           else if (i <= 13) f = alto;
@@ -476,7 +483,7 @@ export class QuantizePVT {
 
           gfc.nsPsy.longfact[i] = f;
         }
-        for (i = 0; i < Encoder.SBMAX_s; i++) {
+        for (i = 0; i < SBMAX_s; i++) {
           let f;
           if (i <= 5) f = bass;
           else if (i <= 10) f = alto;
@@ -636,12 +643,12 @@ export class QuantizePVT {
      */
     const o = 90.30873362;
     const p = 94.82444863;
-    let u = Util.log10_X(x, 10.0);
+    let u = Math.log10(x) * 10.0;
     const v = a * a;
     let w = 0.0;
     u -= athFloor;
     /* undo scaling */
-    if (v > 1e-20) w = 1 + Util.log10_X(v, 10.0 / o);
+    if (v > 1e-20) w = 1 + Math.log10(v) * (10.0 / o);
     if (w < 0) w = 0;
     u *= w;
     u += athFloor + o - p;
@@ -705,7 +712,7 @@ export class QuantizePVT {
       } while (--l > 0);
       if (en0 > xmin) ath_over++;
 
-      if (gsfb === Encoder.SBPSY_l) {
+      if (gsfb === SBPSY_l) {
         const x = xmin * gfc.nsPsy.longfact[gsfb];
         if (rh2 < x) {
           rh2 = x;
@@ -730,10 +737,10 @@ export class QuantizePVT {
 
     /* use this function to determine the highest non-zero coeff */
     let max_nonzero = 575;
-    if (cod_info.block_type !== Encoder.SHORT_TYPE) {
+    if (cod_info.block_type !== SHORT_TYPE) {
       // NORM, START or STOP type, but not SHORT
       let k = 576;
-      while (k-- !== 0 && BitStream.EQ(xr[k], 0)) {
+      while (k-- !== 0 && isCloseToEachOther(xr[k], 0)) {
         max_nonzero = k;
       }
     }
@@ -770,7 +777,7 @@ export class QuantizePVT {
           j++;
         } while (--l > 0);
         if (en0 > tmpATH) ath_over++;
-        if (sfb === Encoder.SBPSY_s) {
+        if (sfb === SBPSY_s) {
           const x = tmpATH * gfc.nsPsy.shortfact[sfb];
           if (rh2 < x) {
             rh2 = x;
@@ -934,7 +941,7 @@ export class QuantizePVT {
         distort[distortPos++] = noise;
 
         /* multiplying here is adding in dB, but can overflow */
-        noise = Util.log10(Math.max(noise, 1e-20));
+        noise = Math.log10(Math.max(noise, 1e-20));
 
         if (prev_noise !== null) {
           /* save noise values */
@@ -992,8 +999,8 @@ export class QuantizePVT {
     const ifqstep = cod_info.scalefac_scale === 0 ? 0.5 : 1.0;
     const { scalefac } = cod_info;
 
-    const l3_xmin = new Float32Array(L3Side.SFBMAX);
-    const xfsf = new Float32Array(L3Side.SFBMAX);
+    const l3_xmin = new Float32Array(SFBMAX);
+    const xfsf = new Float32Array(SFBMAX);
     const noise = new CalcNoiseResult();
 
     this.calc_xmin(gfp, ratio, cod_info, l3_xmin);
@@ -1001,10 +1008,7 @@ export class QuantizePVT {
 
     let j = 0;
     sfb2 = cod_info.sfb_lmax;
-    if (
-      cod_info.block_type !== Encoder.SHORT_TYPE &&
-      cod_info.mixed_block_flag === 0
-    )
+    if (cod_info.block_type !== SHORT_TYPE && cod_info.mixed_block_flag === 0)
       sfb2 = 22;
     for (sfb = 0; sfb < sfb2; sfb++) {
       const start = gfc.scalefac_band.l[sfb];
@@ -1029,7 +1033,7 @@ export class QuantizePVT {
       if (cod_info.preflag !== 0 && sfb >= 11)
         gfc.pinfo!.LAMEsfb[gr][ch][sfb] = -ifqstep * this.pretab[sfb];
 
-      if (sfb < Encoder.SBPSY_l) {
+      if (sfb < SBPSY_l) {
         /* scfsi should be decoded by caller side */
         console.assert(scalefac[sfb] >= 0);
         gfc.pinfo!.LAMEsfb[gr][ch][sfb] -= ifqstep * scalefac[sfb];
@@ -1037,9 +1041,9 @@ export class QuantizePVT {
     }
     /* for sfb */
 
-    if (cod_info.block_type === Encoder.SHORT_TYPE) {
+    if (cod_info.block_type === SHORT_TYPE) {
       sfb2 = sfb;
-      for (sfb = cod_info.sfb_smin; sfb < Encoder.SBMAX_s; sfb++) {
+      for (sfb = cod_info.sfb_smin; sfb < SBMAX_s; sfb++) {
         const start = gfc.scalefac_band.s[sfb];
         const end = gfc.scalefac_band.s[sfb + 1];
         const bw = end - start;
@@ -1066,7 +1070,7 @@ export class QuantizePVT {
           /* there is no scalefactor bands >= SBPSY_s */
           gfc.pinfo!.LAMEsfb_s[gr][ch][3 * sfb + i] =
             -2.0 * cod_info.subblock_gain[i];
-          if (sfb < Encoder.SBPSY_s) {
+          if (sfb < SBPSY_s) {
             gfc.pinfo!.LAMEsfb_s[gr][ch][3 * sfb + i] -=
               ifqstep * scalefac[sfb2];
           }
@@ -1103,7 +1107,7 @@ export class QuantizePVT {
     for (let gr = 0; gr < gfc.mode_gr; gr++) {
       for (let ch = 0; ch < gfc.channels_out; ch++) {
         const cod_info = gfc.l3_side.tt[gr][ch];
-        const scalefac_sav = new Int32Array(L3Side.SFBMAX);
+        const scalefac_sav = new Int32Array(SFBMAX);
         copyArray(cod_info.scalefac, 0, scalefac_sav, 0, scalefac_sav.length);
 
         /*

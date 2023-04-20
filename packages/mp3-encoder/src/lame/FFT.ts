@@ -1,12 +1,11 @@
 import type { ArrayOf } from './ArrayOf';
-import { Encoder } from './Encoder';
 import type { LameInternalFlags } from './LameInternalFlags';
-import { Util } from './Util';
+import { BLKSIZE, BLKSIZE_s } from './constants';
 
 export class FFT {
-  private window: Float32Array = new Float32Array(Encoder.BLKSIZE);
+  private window: Float32Array = new Float32Array(BLKSIZE);
 
-  private window_s: Float32Array = new Float32Array(Encoder.BLKSIZE_s / 2);
+  private window_s: Float32Array = new Float32Array(BLKSIZE_s / 2);
 
   private readonly costab = [
     9.238795325112867e-1, 3.826834323650898e-1, 9.951847266721969e-1,
@@ -50,8 +49,8 @@ export class FFT {
         fz[fi + k1] = f1 + f3;
         f1 = fz[gi + 0] - fz[gi + k1];
         f0 = fz[gi + 0] + fz[gi + k1];
-        f3 = Util.SQRT2 * fz[gi + k3];
-        f2 = Util.SQRT2 * fz[gi + k2];
+        f3 = Math.SQRT2 * fz[gi + k3];
+        f2 = Math.SQRT2 * fz[gi + k2];
         fz[gi + k2] = f0 - f2;
         fz[gi + 0] = f0 + f2;
         fz[gi + k3] = f1 - f3;
@@ -126,9 +125,9 @@ export class FFT {
     bufPos: number
   ) {
     for (let b = 0; b < 3; b++) {
-      let x = Encoder.BLKSIZE_s / 2;
+      let x = BLKSIZE_s / 2;
       const k = 0xffff & ((576 / 3) * (b + 1));
-      let j = Encoder.BLKSIZE_s / 8 - 1;
+      let j = BLKSIZE_s / 8 - 1;
       do {
         let f0;
         let f1;
@@ -161,13 +160,13 @@ export class FFT {
         f3 = f2 - w;
         f2 += w;
 
-        x_real[b][x + Encoder.BLKSIZE_s / 2 + 0] = f0 + f2;
-        x_real[b][x + Encoder.BLKSIZE_s / 2 + 2] = f0 - f2;
-        x_real[b][x + Encoder.BLKSIZE_s / 2 + 1] = f1 + f3;
-        x_real[b][x + Encoder.BLKSIZE_s / 2 + 3] = f1 - f3;
+        x_real[b][x + BLKSIZE_s / 2 + 0] = f0 + f2;
+        x_real[b][x + BLKSIZE_s / 2 + 2] = f0 - f2;
+        x_real[b][x + BLKSIZE_s / 2 + 1] = f1 + f3;
+        x_real[b][x + BLKSIZE_s / 2 + 3] = f1 - f3;
       } while (--j >= 0);
 
-      this.fht(x_real[b], x, Encoder.BLKSIZE_s / 2);
+      this.fht(x_real[b], x, BLKSIZE_s / 2);
       /* BLKSIZE_s/2 because of 3DNow! ASM routine */
       /* BLKSIZE/2 because of 3DNow! ASM routine */
     }
@@ -180,8 +179,8 @@ export class FFT {
     buffer: ArrayOf<number>[],
     bufPos: number
   ) {
-    let jj = Encoder.BLKSIZE / 8 - 1;
-    let x = Encoder.BLKSIZE / 2;
+    let jj = BLKSIZE / 8 - 1;
+    let x = BLKSIZE / 2;
 
     do {
       let f0;
@@ -214,13 +213,13 @@ export class FFT {
       f3 = f2 - w;
       f2 += w;
 
-      y[x + Encoder.BLKSIZE / 2 + 0] = f0 + f2;
-      y[x + Encoder.BLKSIZE / 2 + 2] = f0 - f2;
-      y[x + Encoder.BLKSIZE / 2 + 1] = f1 + f3;
-      y[x + Encoder.BLKSIZE / 2 + 3] = f1 - f3;
+      y[x + BLKSIZE / 2 + 0] = f0 + f2;
+      y[x + BLKSIZE / 2 + 2] = f0 - f2;
+      y[x + BLKSIZE / 2 + 1] = f1 + f3;
+      y[x + BLKSIZE / 2 + 3] = f1 - f3;
     } while (--jj >= 0);
 
-    this.fht(y, x, Encoder.BLKSIZE / 2);
+    this.fht(y, x, BLKSIZE / 2);
     /* BLKSIZE/2 because of 3DNow! ASM routine */
   }
 
@@ -230,15 +229,15 @@ export class FFT {
      * in the interest of merging nspsytune stuff - switch to blackman
      * window
      */
-    for (let i = 0; i < Encoder.BLKSIZE; i++)
+    for (let i = 0; i < BLKSIZE; i++)
       /* blackman window */
       this.window[i] =
         0.42 -
-        0.5 * Math.cos((2 * Math.PI * (i + 0.5)) / Encoder.BLKSIZE) +
-        0.08 * Math.cos((4 * Math.PI * (i + 0.5)) / Encoder.BLKSIZE);
+        0.5 * Math.cos((2 * Math.PI * (i + 0.5)) / BLKSIZE) +
+        0.08 * Math.cos((4 * Math.PI * (i + 0.5)) / BLKSIZE);
 
-    for (let i = 0; i < Encoder.BLKSIZE_s / 2; i++)
+    for (let i = 0; i < BLKSIZE_s / 2; i++)
       this.window_s[i] =
-        0.5 * (1.0 - Math.cos((2.0 * Math.PI * (i + 0.5)) / Encoder.BLKSIZE_s));
+        0.5 * (1.0 - Math.cos((2.0 * Math.PI * (i + 0.5)) / BLKSIZE_s));
   }
 }

@@ -10,6 +10,7 @@ import type { VBRSeekInfo } from './VBRSeekInfo';
 import { VBRTagData } from './VBRTagData';
 import { VbrMode } from './VbrMode';
 import type { Version } from './Version';
+import { NUMTOCENTRIES } from './constants';
 import { newString } from './newString';
 
 /**
@@ -68,8 +69,7 @@ export class VBRTag {
    *  140 bytes
    * </PRE>
    */
-  private static readonly VBRHEADERSIZE =
-    VBRTag.NUMTOCENTRIES + 4 + 4 + 4 + 4 + 4;
+  private static readonly VBRHEADERSIZE = NUMTOCENTRIES + 4 + 4 + 4 + 4 + 4;
 
   private static readonly LAMEHEADERSIZE =
     VBRTag.VBRHEADERSIZE + 9 + 1 + 1 + 8 + 1 + 1 + 3 + 1 + 1 + 2 + 4 + 2 + 2;
@@ -166,8 +166,8 @@ export class VBRTag {
   private xingSeekTable(v: VBRSeekInfo, t: ArrayOf<number>) {
     if (v.pos <= 0) return;
 
-    for (let i = 1; i < VBRTag.NUMTOCENTRIES; ++i) {
-      const j = i / VBRTag.NUMTOCENTRIES;
+    for (let i = 1; i < NUMTOCENTRIES; ++i) {
+      const j = i / NUMTOCENTRIES;
       let indx = Math.floor(j * v.pos);
       if (indx > v.pos - 1) indx = v.pos - 1;
       const act = v.bag![indx];
@@ -425,10 +425,10 @@ export class VBRTag {
 
     if ((head_flags & VBRTag.TOC_FLAG) !== 0) {
       if (pTagData.toc !== null) {
-        for (let i = 0; i < VBRTag.NUMTOCENTRIES; i++)
+        for (let i = 0; i < NUMTOCENTRIES; i++)
           pTagData.toc[i] = buf[bufPos + i];
       }
-      bufPos += VBRTag.NUMTOCENTRIES;
+      bufPos += NUMTOCENTRIES;
     }
 
     pTagData.vbrScale = -1;
@@ -871,11 +871,10 @@ export class VBRTag {
     this.setLameTagFrameHeader(gfp, buffer);
 
     // Create TOC entries
-    const toc = new Int8Array(VBRTag.NUMTOCENTRIES);
+    const toc = new Int8Array(NUMTOCENTRIES);
 
     if (gfp.free_format) {
-      for (let i = 1; i < VBRTag.NUMTOCENTRIES; ++i)
-        toc[i] = 0xff & ((255 * i) / 100);
+      for (let i = 1; i < NUMTOCENTRIES; ++i) toc[i] = 0xff & ((255 * i) / 100);
     } else {
       this.xingSeekTable(gfc.VBR_seek_table, toc);
     }

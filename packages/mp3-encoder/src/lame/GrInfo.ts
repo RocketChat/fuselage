@@ -1,5 +1,5 @@
 import type { ArrayOf } from './ArrayOf';
-import { L3Side } from './L3Side';
+import { SFBMAX } from './constants';
 
 export class GrInfo {
   // float xr[] = new float[576];
@@ -9,7 +9,7 @@ export class GrInfo {
   l3_enc = new Int32Array(576);
 
   // int scalefac[] = new int[L3Side.SFBMAX];
-  scalefac = new Int32Array(L3Side.SFBMAX);
+  scalefac = new Int32Array(SFBMAX);
 
   xrpow_max = 0;
 
@@ -55,9 +55,9 @@ export class GrInfo {
 
   sfbdivide = 0;
 
-  width = new Int32Array(L3Side.SFBMAX);
+  width = new Int32Array(SFBMAX);
 
-  window = new Int32Array(L3Side.SFBMAX);
+  window = new Int32Array(SFBMAX);
 
   count1bits = 0;
 

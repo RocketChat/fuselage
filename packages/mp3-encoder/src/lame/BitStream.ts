@@ -1,6 +1,5 @@
 import type { ArrayOf } from './ArrayOf';
 import { copyArray, fillArray } from './Arrays';
-import { Encoder } from './Encoder';
 import { GainAnalysis } from './GainAnalysis';
 import type { GrInfo } from './GrInfo';
 import type { LameGlobalFlags } from './LameGlobalFlags';
@@ -11,11 +10,15 @@ import { Takehiro } from './Takehiro';
 import { TotalBytes } from './TotalBytes';
 import type { VBRTag } from './VBRTag';
 import type { Version } from './Version';
-import { CRC16_POLYNOMIAL, LAME_MAXMP3BUFFER } from './constants';
+import {
+  CRC16_POLYNOMIAL,
+  LAME_MAXMP3BUFFER,
+  NORM_TYPE,
+  SHORT_TYPE,
+} from './constants';
+import { isCloseToEachOther } from './isCloseToEachOther';
 
 export class BitStream {
-  private static readonly CRC16_POLYNOMIAL = CRC16_POLYNOMIAL;
-
   /*
    * we work with ints, so when doing bit manipulation, we limit ourselves to
    * MAX_LENGTH-2 just to be on the safe side
@@ -221,7 +224,7 @@ export class BitStream {
       value <<= 1;
       crc <<= 1;
 
-      if (((crc ^ value) & 0x10000) !== 0) crc ^= BitStream.CRC16_POLYNOMIAL;
+      if (((crc ^ value) & 0x10000) !== 0) crc ^= CRC16_POLYNOMIAL;
     }
     return crc;
   }
@@ -290,7 +293,7 @@ export class BitStream {
           this.writeheader(gfc, gi.global_gain, 8);
           this.writeheader(gfc, gi.scalefac_compress, 4);
 
-          if (gi.block_type !== Encoder.NORM_TYPE) {
+          if (gi.block_type !== NORM_TYPE) {
             this.writeheader(gfc, 1, 1);
             /* window_switching_flag */
             this.writeheader(gfc, gi.block_type, 2);
@@ -338,7 +341,7 @@ export class BitStream {
         this.writeheader(gfc, gi.global_gain, 8);
         this.writeheader(gfc, gi.scalefac_compress, 9);
 
-        if (gi.block_type !== Encoder.NORM_TYPE) {
+        if (gi.block_type !== NORM_TYPE) {
           this.writeheader(gfc, 1, 1);
           /* window_switching_flag */
           this.writeheader(gfc, gi.block_type, 2);
@@ -610,7 +613,7 @@ export class BitStream {
           }
           console.assert(data_bits === gi.part2_length);
 
-          if (gi.block_type === Encoder.SHORT_TYPE) {
+          if (gi.block_type === SHORT_TYPE) {
             data_bits += this.ShortHuffmancodebits(gfc, gi);
           } else {
             data_bits += this.LongHuffmancodebits(gfc, gi);
@@ -636,7 +639,7 @@ export class BitStream {
         sfb = 0;
         sfb_partition = 0;
 
-        if (gi.block_type === Encoder.SHORT_TYPE) {
+        if (gi.block_type === SHORT_TYPE) {
           for (; sfb_partition < 4; sfb_partition++) {
             const sfbs = gi.sfb_partition_table![sfb_partition] / 3;
             const slen = gi.slen[sfb_partition];
@@ -759,7 +762,7 @@ export class BitStream {
     if (gfc.findReplayGain) {
       const RadioGain = this.ga!.GetTitleGain(gfc.rgdata!);
       console.assert(
-        BitStream.NEQ(RadioGain, GainAnalysis.GAIN_NOT_ENOUGH_SAMPLES)
+        !isCloseToEachOther(RadioGain, GainAnalysis.GAIN_NOT_ENOUGH_SAMPLES)
       );
       gfc.RadioGain = Math.floor(RadioGain * 10.0 + 0.5) | 0;
       /* round to nearest */
@@ -773,7 +776,10 @@ export class BitStream {
 
       if (gfc.noclipGainChange > 0) {
         /* clipping occurs */
-        if (BitStream.EQ(gfp.scale, 1.0) || BitStream.EQ(gfp.scale, 0.0))
+        if (
+          isCloseToEachOther(gfp.scale, 1.0) ||
+          isCloseToEachOther(gfp.scale, 0.0)
+        )
           gfc.noclipScale =
             Math.floor((32767.0 / gfc.PeakSample) * 100.0) / 100.0;
         /* round down */ else {
@@ -1016,13 +1022,7 @@ export class BitStream {
     this.totbit = 0;
   }
 
-  static EQ(a: number, b: number) {
-    return Math.abs(a) > Math.abs(b)
-      ? Math.abs(a - b) <= Math.abs(a) * 1e-6
-      : Math.abs(a - b) <= Math.abs(b) * 1e-6;
-  }
-
   static NEQ(a: number, b: number) {
-    return !BitStream.EQ(a, b);
+    return !isCloseToEachOther(a, b);
   }
 }

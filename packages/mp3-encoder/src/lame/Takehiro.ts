@@ -24,12 +24,12 @@ import type { ArrayOf } from './ArrayOf';
 import { fillArray } from './Arrays';
 import { Bits } from './Bits';
 import type { CalcNoiseData } from './CalcNoiseData';
-import { Encoder } from './Encoder';
 import { GrInfo } from './GrInfo';
 import type { IIISideInfo } from './IIISideInfo';
 import type { LameInternalFlags } from './LameInternalFlags';
 import { QuantizePVT } from './QuantizePVT';
 import { Tables } from './Tables';
+import { NORM_TYPE, SBMAX_l, SBPSY_l, SHORT_TYPE } from './constants';
 
 export class Takehiro {
   qupvt: QuantizePVT | null = null;
@@ -184,13 +184,13 @@ export class Takehiro {
     const prev_data_use =
       prevNoise !== null && codInfo.global_gain === prevNoise.global_gain;
 
-    if (codInfo.block_type === Encoder.SHORT_TYPE) sfbmax = 38;
+    if (codInfo.block_type === SHORT_TYPE) sfbmax = 38;
     else sfbmax = 21;
 
     for (sfb = 0; sfb <= sfbmax; sfb++) {
       let step = -1;
 
-      if (prev_data_use || codInfo.block_type === Encoder.NORM_TYPE) {
+      if (prev_data_use || codInfo.block_type === NORM_TYPE) {
         step =
           codInfo.global_gain -
           ((codInfo.scalefac[sfb] +
@@ -635,11 +635,11 @@ export class Takehiro {
     gi.big_values = i;
     if (i === 0) return bits;
 
-    if (gi.block_type === Encoder.SHORT_TYPE) {
+    if (gi.block_type === SHORT_TYPE) {
       a1 = 3 * gfc.scalefac_band.s[3];
       if (a1 > gi.big_values) a1 = gi.big_values;
       a2 = gi.big_values;
-    } else if (gi.block_type === Encoder.NORM_TYPE) {
+    } else if (gi.block_type === NORM_TYPE) {
       console.assert(i <= 576);
       /* bv_scf has 576 entries (0..575) */
       a1 = gfc.bv_scf[i - 2];
@@ -647,7 +647,7 @@ export class Takehiro {
       a2 = gfc.bv_scf[i - 1];
       gi.region1_count = gfc.bv_scf[i - 1];
 
-      console.assert(a1 + a2 + 2 < Encoder.SBPSY_l);
+      console.assert(a1 + a2 + 2 < SBPSY_l);
       a2 = gfc.scalefac_band.l[a1 + a2 + 2];
       a1 = gfc.scalefac_band.l[a1 + 1];
       if (a2 < i) {
@@ -658,7 +658,7 @@ export class Takehiro {
     } else {
       gi.region0_count = 7;
       /* gi.region1_count = SBPSY_l - 7 - 1; */
-      gi.region1_count = Encoder.SBMAX_l - 1 - 7 - 1;
+      gi.region1_count = SBMAX_l - 1 - 7 - 1;
       a1 = gfc.scalefac_band.l[7 + 1];
       a2 = i;
       if (a1 > a2) {
@@ -692,7 +692,7 @@ export class Takehiro {
     }
 
     if (prev_noise !== null) {
-      if (gi.block_type === Encoder.NORM_TYPE) {
+      if (gi.block_type === NORM_TYPE) {
         let sfb = 0;
         while (gfc.scalefac_band.l[sfb] < gi.big_values) {
           sfb++;
@@ -802,7 +802,7 @@ export class Takehiro {
   ) {
     const bigv = cod_info2.big_values;
 
-    for (let r2 = 2; r2 < Encoder.SBMAX_l + 1; r2++) {
+    for (let r2 = 2; r2 < SBMAX_l + 1; r2++) {
       const a2 = gfc.scalefac_band.l[r2];
       if (a2 >= bigv) break;
       let bits = r01_bits[r2 - 2] + cod_info2.count1bits;
@@ -832,10 +832,10 @@ export class Takehiro {
     const r1_tbl = new Int32Array(7 + 15 + 1);
 
     /* SHORT BLOCK stuff fails for MPEG2 */
-    if (gi.block_type === Encoder.SHORT_TYPE && gfc.mode_gr === 1) return;
+    if (gi.block_type === SHORT_TYPE && gfc.mode_gr === 1) return;
 
     cod_info2.assign(gi);
-    if (gi.block_type === Encoder.NORM_TYPE) {
+    if (gi.block_type === NORM_TYPE) {
       this.recalc_divide_init(gfc, gi, ix, r01_bits, r01_div, r0_tbl, r1_tbl);
       this.recalc_divide_sub(
         gfc,
@@ -877,7 +877,7 @@ export class Takehiro {
 
     cod_info2.count1bits = a1;
 
-    if (cod_info2.block_type === Encoder.NORM_TYPE)
+    if (cod_info2.block_type === NORM_TYPE)
       this.recalc_divide_sub(
         gfc,
         cod_info2,
@@ -955,7 +955,7 @@ export class Takehiro {
     }
     let s2 = 0;
     let c2 = 0;
-    for (; sfb < Encoder.SBPSY_l; sfb++) {
+    for (; sfb < SBPSY_l; sfb++) {
       if (gi.scalefac[sfb] === -1) continue;
       c2++;
       if (s2 < gi.scalefac[sfb]) s2 = gi.scalefac[sfb];
@@ -1029,19 +1029,15 @@ export class Takehiro {
       }
     }
 
-    if (
-      gi.preflag === 0 &&
-      gi.block_type !== Encoder.SHORT_TYPE &&
-      gfc.mode_gr === 2
-    ) {
-      for (sfb = 11; sfb < Encoder.SBPSY_l; sfb++)
+    if (gi.preflag === 0 && gi.block_type !== SHORT_TYPE && gfc.mode_gr === 2) {
+      for (sfb = 11; sfb < SBPSY_l; sfb++)
         if (
           gi.scalefac[sfb] < this.qupvt!.pretab[sfb] &&
           gi.scalefac[sfb] !== -2
         )
           break;
-      if (sfb === Encoder.SBPSY_l) {
-        for (sfb = 11; sfb < Encoder.SBPSY_l; sfb++)
+      if (sfb === SBPSY_l) {
+        for (sfb = 11; sfb < SBPSY_l; sfb++)
           if (gi.scalefac[sfb] > 0) gi.scalefac[sfb] -= this.qupvt!.pretab[sfb];
 
         gi.preflag = 1;
@@ -1054,8 +1050,8 @@ export class Takehiro {
     if (
       gfc.mode_gr === 2 &&
       gr === 1 &&
-      l3_side.tt[0][ch].block_type !== Encoder.SHORT_TYPE &&
-      l3_side.tt[1][ch].block_type !== Encoder.SHORT_TYPE
+      l3_side.tt[0][ch].block_type !== SHORT_TYPE &&
+      l3_side.tt[1][ch].block_type !== SHORT_TYPE
     ) {
       this.scfsi_calc(ch, l3_side);
       recalc = 0;
@@ -1126,19 +1122,19 @@ export class Takehiro {
       this.all_scalefactors_not_negative(scalefac, cod_info.sfbmax)
     );
 
-    if (cod_info.block_type === Encoder.SHORT_TYPE) {
+    if (cod_info.block_type === SHORT_TYPE) {
       tab = this.scale_short;
       if (cod_info.mixed_block_flag !== 0) tab = this.scale_mixed;
     } else {
       /* block_type === 1,2,or 3 */
       tab = this.scale_long;
       if (cod_info.preflag === 0) {
-        for (sfb = 11; sfb < Encoder.SBPSY_l; sfb++)
+        for (sfb = 11; sfb < SBPSY_l; sfb++)
           if (scalefac[sfb] < this.qupvt!.pretab[sfb]) break;
 
-        if (sfb === Encoder.SBPSY_l) {
+        if (sfb === SBPSY_l) {
           cod_info.preflag = 1;
-          for (sfb = 11; sfb < Encoder.SBPSY_l; sfb++)
+          for (sfb = 11; sfb < SBPSY_l; sfb++)
             scalefac[sfb] -= this.qupvt!.pretab[sfb];
         }
       }
@@ -1218,7 +1214,7 @@ export class Takehiro {
 
     for (i = 0; i < 4; i++) max_sfac[i] = 0;
 
-    if (cod_info.block_type === Encoder.SHORT_TYPE) {
+    if (cod_info.block_type === SHORT_TYPE) {
       row_in_table = 1;
       const partition_table =
         this.qupvt!.nr_of_sfb_block[table_number][row_in_table];

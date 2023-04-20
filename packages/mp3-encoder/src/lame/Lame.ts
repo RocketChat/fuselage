@@ -1,7 +1,7 @@
 import { ATH } from './ATH';
 import type { ArrayOf } from './ArrayOf';
 import { BandPass } from './BandPass';
-import { BitStream } from './BitStream';
+import type { BitStream } from './BitStream';
 import { CBRNewIterationLoop } from './CBRNewIterationLoop';
 import { Encoder } from './Encoder';
 import { GainAnalysis } from './GainAnalysis';
@@ -24,16 +24,21 @@ import { Tables } from './Tables';
 import type { VBRTag } from './VBRTag';
 import { VbrMode } from './VbrMode';
 import type { Version } from './Version';
-import { LAME_MAXMP3BUFFER } from './constants';
+import {
+  BLKSIZE,
+  ENCDELAY,
+  FFTOFFSET,
+  MDCTDELAY,
+  MPG_MD_MS_LR,
+  POSTDELAY,
+  PSFB12,
+  PSFB21,
+  SBMAX_l,
+  SBMAX_s,
+} from './constants';
+import { isCloseToEachOther } from './isCloseToEachOther';
 
 export class Lame {
-  /**
-   * maximum size of mp3buffer needed if you encode at most 1152 samples for
-   * each call to lame_encode_buffer. see lame_encode_buffer() below
-   * (LAME_MAXMP3BUFFER is now obsolete)
-   */
-  static readonly LAME_MAXMP3BUFFER = LAME_MAXMP3BUFFER;
-
   private ga: GainAnalysis | null = null;
 
   private bs: BitStream | null = null;
@@ -161,9 +166,9 @@ export class Lame {
      * possible if this is last granule). So we need to pad with 288 samples
      * to make sure we can encode the 576 samples we are interested in.
      */
-    gfc.mf_samples_to_encode = Encoder.ENCDELAY + Encoder.POSTDELAY;
+    gfc.mf_samples_to_encode = ENCDELAY + POSTDELAY;
     gfp.encoder_padding = 0;
-    gfc.mf_size = Encoder.ENCDELAY - Encoder.MDCTDELAY;
+    gfc.mf_size = ENCDELAY - MDCTDELAY;
     /*
      * we pad input with this many 0's
      */
@@ -733,7 +738,7 @@ export class Lame {
     gfc.channels_in = gfp.num_channels;
     if (gfc.channels_in === 1) gfp.mode = MPEGMode.MONO;
     gfc.channels_out = gfp.mode === MPEGMode.MONO ? 1 : 2;
-    gfc.mode_ext = Encoder.MPG_MD_MS_LR;
+    gfc.mode_ext = MPG_MD_MS_LR;
     if (gfp.mode === MPEGMode.MONO) gfp.force_ms = false;
     /*
      * don't allow forced mid/side stereo for mono output
@@ -759,7 +764,7 @@ export class Lame {
 
     if (gfp.VBR === VbrMode.vbr_off && gfp.brate === 0) {
       /* no bitrate or compression ratio specified, use 11.025 */
-      if (BitStream.EQ(gfp.compression_ratio, 0))
+      if (isCloseToEachOther(gfp.compression_ratio, 0))
         gfp.compression_ratio = 11.025;
       /*
        * rate to compress a CD down to exactly 128000 bps
@@ -930,7 +935,7 @@ export class Lame {
      * Number of granules per frame
      */
     gfp.framesize = 576 * gfc.mode_gr;
-    gfp.encoder_delay = Encoder.ENCDELAY;
+    gfp.encoder_delay = ENCDELAY;
 
     gfc.resample_ratio = gfp.in_samplerate / gfp.out_samplerate;
 
@@ -1075,27 +1080,25 @@ export class Lame {
       gfc.samplerate_index +
       3 * gfp.version +
       6 * (gfp.out_samplerate < 16000 ? 1 : 0);
-    for (let i = 0; i < Encoder.SBMAX_l + 1; i++)
+    for (let i = 0; i < SBMAX_l + 1; i++)
       gfc.scalefac_band.l[i] = this.qupvt!.sfBandIndex[j].l[i];
 
-    for (let i = 0; i < Encoder.PSFB21 + 1; i++) {
-      const size =
-        (gfc.scalefac_band.l[22] - gfc.scalefac_band.l[21]) / Encoder.PSFB21;
+    for (let i = 0; i < PSFB21 + 1; i++) {
+      const size = (gfc.scalefac_band.l[22] - gfc.scalefac_band.l[21]) / PSFB21;
       const start = gfc.scalefac_band.l[21] + i * size;
       gfc.scalefac_band.psfb21[i] = start;
     }
-    gfc.scalefac_band.psfb21[Encoder.PSFB21] = 576;
+    gfc.scalefac_band.psfb21[PSFB21] = 576;
 
-    for (let i = 0; i < Encoder.SBMAX_s + 1; i++)
+    for (let i = 0; i < SBMAX_s + 1; i++)
       gfc.scalefac_band.s[i] = this.qupvt!.sfBandIndex[j].s[i];
 
-    for (let i = 0; i < Encoder.PSFB12 + 1; i++) {
-      const size =
-        (gfc.scalefac_band.s[13] - gfc.scalefac_band.s[12]) / Encoder.PSFB12;
+    for (let i = 0; i < PSFB12 + 1; i++) {
+      const size = (gfc.scalefac_band.s[13] - gfc.scalefac_band.s[12]) / PSFB12;
       const start = gfc.scalefac_band.s[12] + i * size;
       gfc.scalefac_band.psfb12[i] = start;
     }
-    gfc.scalefac_band.psfb12[Encoder.PSFB12] = 192;
+    gfc.scalefac_band.psfb12[PSFB12] = 192;
     /* determine the mean bitrate for main data */
     if (gfp.version === 1)
       /* MPEG 1 */
@@ -1380,7 +1383,7 @@ export class Lame {
      */
     let end_padding;
     let frames_left;
-    let samples_to_encode = gfc.mf_samples_to_encode - Encoder.POSTDELAY;
+    let samples_to_encode = gfc.mf_samples_to_encode - POSTDELAY;
     const mf_needed = this.calcNeeded(gfp);
 
     /* Was flush already called? */
@@ -1527,7 +1530,7 @@ export class Lame {
   }
 
   private calcNeeded(gfp: LameGlobalFlags) {
-    let mf_needed = Encoder.BLKSIZE + gfp.framesize - Encoder.FFTOFFSET;
+    let mf_needed = BLKSIZE + gfp.framesize - FFTOFFSET;
     /*
      * amount needed for FFT
      */
@@ -1571,7 +1574,10 @@ export class Lame {
     /* Apply user defined re-scaling */
 
     /* user selected scaling of the samples */
-    if (BitStream.NEQ(gfp.scale, 0) && BitStream.NEQ(gfp.scale, 1.0)) {
+    if (
+      !isCloseToEachOther(gfp.scale, 0) &&
+      !isCloseToEachOther(gfp.scale, 1.0)
+    ) {
       for (i = 0; i < nsamples; ++i) {
         in_buffer[0][i] *= gfp.scale;
         if (gfc.channels_out === 2) in_buffer[1][i] *= gfp.scale;
@@ -1580,8 +1586,8 @@ export class Lame {
 
     /* user selected scaling of the channel 0 (left) samples */
     if (
-      BitStream.NEQ(gfp.scale_left, 0) &&
-      BitStream.NEQ(gfp.scale_left, 1.0)
+      !isCloseToEachOther(gfp.scale_left, 0) &&
+      !isCloseToEachOther(gfp.scale_left, 1.0)
     ) {
       for (i = 0; i < nsamples; ++i) {
         in_buffer[0][i] *= gfp.scale_left;
@@ -1590,8 +1596,8 @@ export class Lame {
 
     /* user selected scaling of the channel 1 (right) samples */
     if (
-      BitStream.NEQ(gfp.scale_right, 0) &&
-      BitStream.NEQ(gfp.scale_right, 1.0)
+      !isCloseToEachOther(gfp.scale_right, 0) &&
+      !isCloseToEachOther(gfp.scale_right, 1.0)
     ) {
       for (i = 0; i < nsamples; ++i) {
         in_buffer[1][i] *= gfp.scale_right;
@@ -1664,7 +1670,7 @@ export class Lame {
        * have to reinitialize it here when that happened.
        */
       if (gfc.mf_samples_to_encode < 1) {
-        gfc.mf_samples_to_encode = Encoder.ENCDELAY + Encoder.POSTDELAY;
+        gfc.mf_samples_to_encode = ENCDELAY + POSTDELAY;
       }
       gfc.mf_samples_to_encode += n_out;
 

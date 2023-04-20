@@ -11,12 +11,12 @@ import type { QuantizePVT } from './QuantizePVT';
 import type { VBRTag } from './VBRTag';
 import { VbrMode } from './VbrMode';
 import {
+  BLKSIZE,
+  FFTOFFSET,
+  MPG_MD_LR_LR,
+  MPG_MD_MS_LR,
   NORM_TYPE,
-  SBMAX_l,
-  SBMAX_s,
   SHORT_TYPE,
-  START_TYPE,
-  STOP_TYPE,
 } from './constants';
 
 export class Encoder {
@@ -216,17 +216,15 @@ export class Encoder {
       /* polyphase filtering / mdct */
       for (gr = 0; gr < gfc.mode_gr; gr++) {
         for (ch = 0; ch < gfc.channels_out; ch++) {
-          gfc.l3_side.tt[gr][ch].block_type = Encoder.SHORT_TYPE;
+          gfc.l3_side.tt[gr][ch].block_type = SHORT_TYPE;
         }
       }
       this.newMDCT.mdct_sub48(gfc, primebuff0, primebuff1);
 
       /* check FFT will not use a negative starting offset */
-      console.assert(Encoder.FFTOFFSET <= 576);
+      console.assert(FFTOFFSET <= 576);
       /* check if we have enough data for FFT */
-      console.assert(
-        gfc.mf_size >= Encoder.BLKSIZE + gfp.framesize - Encoder.FFTOFFSET
-      );
+      console.assert(gfc.mf_size >= BLKSIZE + gfp.framesize - FFTOFFSET);
       /* check if we have enough data for polyphase filterbank */
       console.assert(gfc.mf_size >= 512 + gfp.framesize - 32);
     }
@@ -384,7 +382,7 @@ export class Encoder {
       for (gr = 0; gr < gfc.mode_gr; gr++) {
         for (ch = 0; ch < gfc.channels_out; ch++) {
           bufp[ch] = inbuf[ch];
-          bufpPos = 576 + gr * 576 - Encoder.FFTOFFSET;
+          bufpPos = 576 + gr * 576 - FFTOFFSET;
         }
         if (gfp.VBR === VbrMode.vbr_mtrh || gfp.VBR === VbrMode.vbr_mt) {
           ret = this.__psy!.L3psycho_anal_vbr(
@@ -432,7 +430,7 @@ export class Encoder {
       /* no psy model */
       for (gr = 0; gr < gfc.mode_gr; gr++)
         for (ch = 0; ch < gfc.channels_out; ch++) {
-          gfc.l3_side.tt[gr][ch].block_type = Encoder.NORM_TYPE;
+          gfc.l3_side.tt[gr][ch].block_type = NORM_TYPE;
           gfc.l3_side.tt[gr][ch].mixed_block_flag = 0;
           pe_MS[gr][ch] = 700;
           pe[gr][ch] = 700;
@@ -454,10 +452,10 @@ export class Encoder {
      ****************************************/
 
     /* Here will be selected MS or LR coding of the 2 stereo channels */
-    gfc.mode_ext = Encoder.MPG_MD_LR_LR;
+    gfc.mode_ext = MPG_MD_LR_LR;
 
     if (gfp.force_ms) {
-      gfc.mode_ext = Encoder.MPG_MD_MS_LR;
+      gfc.mode_ext = MPG_MD_MS_LR;
     } else if (gfp.mode === MPEGMode.JOINT_STEREO) {
       /*
        * ms_ratio = is scaled, for historical reasons, to look like a
@@ -492,13 +490,13 @@ export class Encoder {
           gi0[0].block_type === gi0[1].block_type &&
           gi1[0].block_type === gi1[1].block_type
         ) {
-          gfc.mode_ext = Encoder.MPG_MD_MS_LR;
+          gfc.mode_ext = MPG_MD_MS_LR;
         }
       }
     }
 
     /* bit and noise allocation */
-    if (gfc.mode_ext === Encoder.MPG_MD_MS_LR) {
+    if (gfc.mode_ext === MPG_MD_MS_LR) {
       masking = masking_MS;
       /* use MS masking */
       pe_use = pe_MS;
@@ -521,7 +519,7 @@ export class Encoder {
            * in psymodel, LR and MS data was stored in pinfo. switch
            * to MS data:
            */
-          if (gfc.mode_ext === Encoder.MPG_MD_MS_LR) {
+          if (gfc.mode_ext === MPG_MD_MS_LR) {
             gfc.pinfo.ers[gr][ch] = gfc.pinfo.ers[gr][ch + 2];
             copyArray(
               gfc.pinfo.energy[gr][ch + 2],
@@ -587,10 +585,10 @@ export class Encoder {
     if (gfp.analysis && gfc.pinfo !== null) {
       for (ch = 0; ch < gfc.channels_out; ch++) {
         let j;
-        for (j = 0; j < Encoder.FFTOFFSET; j++)
+        for (j = 0; j < FFTOFFSET; j++)
           gfc.pinfo.pcmdata[ch][j] = gfc.pinfo.pcmdata[ch][j + gfp.framesize];
-        for (j = Encoder.FFTOFFSET; j < 1600; j++) {
-          gfc.pinfo.pcmdata[ch][j] = inbuf[ch][j - Encoder.FFTOFFSET];
+        for (j = FFTOFFSET; j < 1600; j++) {
+          gfc.pinfo.pcmdata[ch][j] = inbuf[ch][j - FFTOFFSET];
         }
       }
       this.qupvt!.set_frame_pinfo(gfp, masking);
@@ -600,109 +598,6 @@ export class Encoder {
 
     return mp3count;
   }
-
-  /**
-   * ENCDELAY The encoder delay.
-   *
-   * Minimum allowed is MDCTDELAY (see below)
-   *
-   * The first 96 samples will be attenuated, so using a value less than 96
-   * will result in corrupt data for the first 96-ENCDELAY samples.
-   *
-   * suggested: 576 set to 1160 to sync with FhG.
-   */
-  static ENCDELAY = 576;
-
-  /**
-   * make sure there is at least one complete frame after the last frame
-   * containing real data
-   *
-   * Using a value of 288 would be sufficient for a a very sophisticated
-   * decoder that can decode granule-by-granule instead of frame by frame. But
-   * lets not assume this, and assume the decoder will not decode frame N
-   * unless it also has data for frame N+1
-   */
-  static POSTDELAY = 1152;
-
-  /**
-   * delay of the MDCT used in mdct.c original ISO routines had a delay of
-   * 528! Takehiro's routines:
-   */
-  static MDCTDELAY = 48;
-
-  static FFTOFFSET = 224 + Encoder.MDCTDELAY;
-
-  /**
-   * Most decoders, including the one we use, have a delay of 528 samples.
-   */
-  static DECDELAY = 528;
-
-  /**
-   * number of subbands
-   */
-  static SBLIMIT = 32;
-
-  /**
-   * parition bands bands
-   */
-  static CBANDS = 64;
-
-  /**
-   * number of critical bands/scale factor bands where masking is computed
-   */
-  static SBPSY_l = 21;
-
-  static SBPSY_s = 12;
-
-  /**
-   * total number of scalefactor bands encoded
-   */
-  static SBMAX_l = SBMAX_l;
-
-  static SBMAX_s = SBMAX_s;
-
-  static PSFB21 = 6;
-
-  static PSFB12 = 6;
-
-  /**
-   * FFT sizes
-   */
-  static BLKSIZE = 1024;
-
-  static HBLKSIZE = Encoder.BLKSIZE / 2 + 1;
-
-  static BLKSIZE_s = 256;
-
-  static HBLKSIZE_s = Encoder.BLKSIZE_s / 2 + 1;
-
-  static NORM_TYPE = NORM_TYPE;
-
-  static START_TYPE = START_TYPE;
-
-  static SHORT_TYPE = SHORT_TYPE;
-
-  static STOP_TYPE = STOP_TYPE;
-
-  /**
-   * <PRE>
-   * Mode Extention:
-   * When we are in stereo mode, there are 4 possible methods to store these
-   * two channels. The stereo modes -m? are using a subset of them.
-   *
-   *  -ms: MPG_MD_LR_LR
-   *  -mj: MPG_MD_LR_LR and MPG_MD_MS_LR
-   *  -mf: MPG_MD_MS_LR
-   *  -mi: all
-   * </PRE>
-   */
-  static MPG_MD_LR_LR = 0;
-
-  static MPG_MD_LR_I = 1;
-
-  static MPG_MD_MS_LR = 2;
-
-  static MPG_MD_MS_I = 3;
 
   static fircoef = [
     -0.0207887 * 5,
@@ -714,5 +609,5 @@ export class Encoder {
     0.10091 * 5,
     0.151365 * 5,
     0.187098 * 5,
-  ];
+  ] as const;
 }

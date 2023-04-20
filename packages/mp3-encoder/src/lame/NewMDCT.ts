@@ -26,7 +26,6 @@
 import type { ArrayOf } from './ArrayOf';
 import { copyArray, fillArray } from './Arrays';
 import type { LameInternalFlags } from './LameInternalFlags';
-import { Util } from './Util';
 import { SHORT_TYPE } from './constants';
 
 export class NewMDCT {
@@ -316,14 +315,14 @@ export class NewMDCT {
     4.912684976946725e-2,
     1.990369453344394,
 
-    (3.5780907e-2 * Util.SQRT2 * 0.5) / 2.384e-6,
-    (1.7876148e-2 * Util.SQRT2 * 0.5) / 2.384e-6,
-    (3.134727e-3 * Util.SQRT2 * 0.5) / 2.384e-6,
-    (2.457142e-3 * Util.SQRT2 * 0.5) / 2.384e-6,
-    (9.71317e-4 * Util.SQRT2 * 0.5) / 2.384e-6,
-    (2.18868e-4 * Util.SQRT2 * 0.5) / 2.384e-6,
-    (1.01566e-4 * Util.SQRT2 * 0.5) / 2.384e-6,
-    (1.3828e-5 * Util.SQRT2 * 0.5) / 2.384e-6,
+    (3.5780907e-2 * Math.SQRT2 * 0.5) / 2.384e-6,
+    (1.7876148e-2 * Math.SQRT2 * 0.5) / 2.384e-6,
+    (3.134727e-3 * Math.SQRT2 * 0.5) / 2.384e-6,
+    (2.457142e-3 * Math.SQRT2 * 0.5) / 2.384e-6,
+    (9.71317e-4 * Math.SQRT2 * 0.5) / 2.384e-6,
+    (2.18868e-4 * Math.SQRT2 * 0.5) / 2.384e-6,
+    (1.01566e-4 * Math.SQRT2 * 0.5) / 2.384e-6,
+    (1.3828e-5 * Math.SQRT2 * 0.5) / 2.384e-6,
 
     3.0526638e-2 / 2.384e-6,
     4.638195e-3 / 2.384e-6,
@@ -570,10 +569,10 @@ export class NewMDCT {
 
       xr = a[22] - a[6];
       a[6] += a[22];
-      a[22] = xr * Util.SQRT2;
+      a[22] = xr * Math.SQRT2;
       xr = a[23] - a[7];
       a[7] += a[23];
-      a[23] = xr * Util.SQRT2 - a[7];
+      a[23] = xr * Math.SQRT2 - a[7];
       a[7] -= a[6];
       a[22] -= a[7];
       a[23] -= a[22];
@@ -639,16 +638,16 @@ export class NewMDCT {
       a[17] += a[29];
       a[29] = xr * this.enwindow[wp + -4 * 18 + 7];
 
-      xr = Util.SQRT2 * (a[2] - a[10]);
+      xr = Math.SQRT2 * (a[2] - a[10]);
       a[2] += a[10];
       a[10] = xr;
-      xr = Util.SQRT2 * (a[3] - a[11]);
+      xr = Math.SQRT2 * (a[3] - a[11]);
       a[3] += a[11];
       a[11] = xr;
-      xr = Util.SQRT2 * (-a[18] + a[26]);
+      xr = Math.SQRT2 * (-a[18] + a[26]);
       a[18] += a[26];
       a[26] = xr - a[18];
-      xr = Util.SQRT2 * (-a[19] + a[27]);
+      xr = Math.SQRT2 * (-a[19] + a[27]);
       a[19] += a[27];
       a[27] = xr - a[19];
 
@@ -689,29 +688,29 @@ export class NewMDCT {
       a[27] = a[6] - xr;
       a[6] += xr;
 
-      xr = Util.SQRT2 * (a[0] - a[4]);
+      xr = Math.SQRT2 * (a[0] - a[4]);
       a[0] += a[4];
       a[4] = xr;
-      xr = Util.SQRT2 * (a[1] - a[5]);
+      xr = Math.SQRT2 * (a[1] - a[5]);
       a[1] += a[5];
       a[5] = xr;
-      xr = Util.SQRT2 * (a[16] - a[20]);
+      xr = Math.SQRT2 * (a[16] - a[20]);
       a[16] += a[20];
       a[20] = xr;
-      xr = Util.SQRT2 * (a[17] - a[21]);
+      xr = Math.SQRT2 * (a[17] - a[21]);
       a[17] += a[21];
       a[21] = xr;
 
-      xr = -Util.SQRT2 * (a[8] - a[12]);
+      xr = -Math.SQRT2 * (a[8] - a[12]);
       a[8] += a[12];
       a[12] = xr - a[8];
-      xr = -Util.SQRT2 * (a[9] - a[13]);
+      xr = -Math.SQRT2 * (a[9] - a[13]);
       a[9] += a[13];
       a[13] = xr - a[9];
-      xr = -Util.SQRT2 * (a[25] - a[29]);
+      xr = -Math.SQRT2 * (a[25] - a[29]);
       a[25] += a[29];
       a[29] = xr - a[25];
-      xr = -Util.SQRT2 * (a[24] + a[28]);
+      xr = -Math.SQRT2 * (a[24] + a[28]);
       a[24] -= a[28];
       a[28] = xr - a[24];
 

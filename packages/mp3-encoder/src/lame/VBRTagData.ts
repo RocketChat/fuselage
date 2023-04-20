@@ -1,4 +1,4 @@
-import { VBRTag } from './VBRTag';
+import { NUMTOCENTRIES } from './constants';
 
 export class VBRTagData {
   /**
@@ -34,7 +34,7 @@ export class VBRTagData {
   /**
    * May be null if toc not desired.
    */
-  public toc = new Int8Array(VBRTag.NUMTOCENTRIES);
+  public toc = new Int8Array(NUMTOCENTRIES);
 
   /**
    * Size of VBR header, in bytes.
