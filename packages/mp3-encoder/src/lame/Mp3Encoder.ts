@@ -1,19 +1,19 @@
-import BitStream from './BitStream';
-import GainAnalysis from './GainAnalysis';
+import { BitStream } from './BitStream';
+import { GainAnalysis } from './GainAnalysis';
 import { GetAudio } from './GetAudio';
 import { ID3Tag } from './ID3Tag';
-import Lame from './Lame';
-import type LameGlobalFlags from './LameGlobalFlags';
-import MPEGMode from './MPEGMode';
+import { Lame } from './Lame';
+import type { LameGlobalFlags } from './LameGlobalFlags';
+import { MPEGMode } from './MPEGMode';
 import { MPGLib } from './MPGLib';
 import { Parse } from './Parse';
-import Presets from './Presets';
-import Quantize from './Quantize';
-import QuantizePVT from './QuantizePVT';
-import Reservoir from './Reservoir';
-import Takehiro from './Takehiro';
-import VBRTag from './VBRTag';
-import Version from './Version';
+import { Presets } from './Presets';
+import { Quantize } from './Quantize';
+import { QuantizePVT } from './QuantizePVT';
+import { Reservoir } from './Reservoir';
+import { Takehiro } from './Takehiro';
+import { VBRTag } from './VBRTag';
+import { Version } from './Version';
 
 export class Mp3Encoder {
   private readonly lame = new Lame();

@@ -1,5 +1,5 @@
 /* MPEG modes */
-class MPEGMode {
+export class MPEGMode {
   private constructor(public readonly ordinal: number) {}
 
   static readonly STEREO = new MPEGMode(0);
@@ -12,5 +12,3 @@ class MPEGMode {
 
   static readonly NOT_SET = new MPEGMode(4);
 }
-
-export default MPEGMode;

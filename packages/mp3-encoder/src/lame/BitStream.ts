@@ -1,22 +1,22 @@
 import type { ArrayOf } from './ArrayOf';
 import { Arrays } from './Arrays';
-import Encoder from './Encoder';
-import GainAnalysis from './GainAnalysis';
-import type GrInfo from './GrInfo';
-import Lame from './Lame';
-import type LameGlobalFlags from './LameGlobalFlags';
-import LameInternalFlags from './LameInternalFlags';
+import { Encoder } from './Encoder';
+import { GainAnalysis } from './GainAnalysis';
+import type { GrInfo } from './GrInfo';
+import { Lame } from './Lame';
+import type { LameGlobalFlags } from './LameGlobalFlags';
+import { LameInternalFlags } from './LameInternalFlags';
 import type { MPGLib } from './MPGLib';
 import { System } from './System';
-import Tables from './Tables';
-import Takehiro from './Takehiro';
+import { Tables } from './Tables';
+import { Takehiro } from './Takehiro';
 import { TotalBytes } from './TotalBytes';
-import type VBRTag from './VBRTag';
-import type Version from './Version';
+import type { VBRTag } from './VBRTag';
+import type { Version } from './Version';
 import { byte } from './byte';
 import { new_float_n } from './common';
 
-class BitStream {
+export class BitStream {
   private static readonly CRC16_POLYNOMIAL = 0x8005;
 
   /*
@@ -1040,5 +1040,3 @@ class BitStream {
     return !BitStream.EQ(a, b);
   }
 }
-
-export default BitStream;

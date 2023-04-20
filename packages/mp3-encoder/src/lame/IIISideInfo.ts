@@ -1,6 +1,6 @@
-import GrInfo from './GrInfo';
+import { GrInfo } from './GrInfo';
 
-class IIISideInfo {
+export class IIISideInfo {
   tt: GrInfo[][] = [
     [new GrInfo(), new GrInfo()],
     [new GrInfo(), new GrInfo()],
@@ -16,5 +16,3 @@ class IIISideInfo {
 
   scfsi = [new Int32Array(4), new Int32Array(4)];
 }
-
-export default IIISideInfo;

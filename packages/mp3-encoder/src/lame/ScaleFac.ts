@@ -5,10 +5,10 @@
  *
  */
 import type { ArrayOf } from './ArrayOf';
-import Encoder from './Encoder';
+import { Encoder } from './Encoder';
 import { System } from './System';
 
-class ScaleFac {
+export class ScaleFac {
   private arrL: ArrayOf<number> | undefined;
 
   private arrS: ArrayOf<number> | undefined;
@@ -87,5 +87,3 @@ class ScaleFac {
     }
   }
 }
-
-export default ScaleFac;

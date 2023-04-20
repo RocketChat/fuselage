@@ -25,27 +25,27 @@
 import type { ArrayOf } from './ArrayOf';
 import { Arrays } from './Arrays';
 import { BinSearchDirection } from './BinSearchDirection';
-import BitStream from './BitStream';
-import CalcNoiseData from './CalcNoiseData';
-import CalcNoiseResult from './CalcNoiseResult';
-import Encoder from './Encoder';
-import GrInfo from './GrInfo';
-import type IIISideInfo from './IIISideInfo';
-import type III_psy_ratio from './III_psy_ratio';
-import L3Side from './L3Side';
-import type LameGlobalFlags from './LameGlobalFlags';
-import LameInternalFlags from './LameInternalFlags';
-import MeanBits from './MeanBits';
-import type QuantizePVT from './QuantizePVT';
-import type Reservoir from './Reservoir';
+import { BitStream } from './BitStream';
+import { CalcNoiseData } from './CalcNoiseData';
+import { CalcNoiseResult } from './CalcNoiseResult';
+import { Encoder } from './Encoder';
+import { GrInfo } from './GrInfo';
+import type { IIISideInfo } from './IIISideInfo';
+import type { III_psy_ratio } from './III_psy_ratio';
+import { L3Side } from './L3Side';
+import type { LameGlobalFlags } from './LameGlobalFlags';
+import { LameInternalFlags } from './LameInternalFlags';
+import { MeanBits } from './MeanBits';
+import type { QuantizePVT } from './QuantizePVT';
+import type { Reservoir } from './Reservoir';
 import { System } from './System';
-import type Takehiro from './Takehiro';
+import type { Takehiro } from './Takehiro';
 import { Util } from './Util';
-import VBRQuantize from './VBRQuantize';
+import { VBRQuantize } from './VBRQuantize';
 import { VbrMode } from './VbrMode';
 import { int } from './int';
 
-class Quantize {
+export class Quantize {
   private bs: BitStream | null = null;
 
   private __rv: Reservoir | null = null;
@@ -1594,5 +1594,3 @@ class Quantize {
     }
   }
 }
-
-export default Quantize;

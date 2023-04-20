@@ -1,34 +1,34 @@
-import ATH from './ATH';
+import { ATH } from './ATH';
 import type { ArrayOf } from './ArrayOf';
 import { BandPass } from './BandPass';
-import BitStream from './BitStream';
-import CBRNewIterationLoop from './CBRNewIterationLoop';
-import Encoder from './Encoder';
-import GainAnalysis from './GainAnalysis';
+import { BitStream } from './BitStream';
+import { CBRNewIterationLoop } from './CBRNewIterationLoop';
+import { Encoder } from './Encoder';
+import { GainAnalysis } from './GainAnalysis';
 import type { ID3Tag } from './ID3Tag';
 import { InOut } from './InOut';
-import LameGlobalFlags from './LameGlobalFlags';
-import LameInternalFlags from './LameInternalFlags';
+import { LameGlobalFlags } from './LameGlobalFlags';
+import { LameInternalFlags } from './LameInternalFlags';
 import { LowPassHighPass } from './LowPassHighPass';
-import MPEGMode from './MPEGMode';
+import { MPEGMode } from './MPEGMode';
 import type { MPGLib } from './MPGLib';
 import { NumUsed } from './NumUsed';
 import { PSY } from './PSY';
-import type Presets from './Presets';
-import PsyModel from './PsyModel';
-import type Quantize from './Quantize';
-import type QuantizePVT from './QuantizePVT';
-import ReplayGain from './ReplayGain';
+import type { Presets } from './Presets';
+import { PsyModel } from './PsyModel';
+import type { Quantize } from './Quantize';
+import type { QuantizePVT } from './QuantizePVT';
+import { ReplayGain } from './ReplayGain';
 import { ShortBlock } from './ShortBlock';
 import { System } from './System';
-import Tables from './Tables';
-import type VBRTag from './VBRTag';
+import { Tables } from './Tables';
+import type { VBRTag } from './VBRTag';
 import { VbrMode } from './VbrMode';
-import type Version from './Version';
+import type { Version } from './Version';
 import { new_int_n, new_short_n } from './common';
 import { int } from './int';
 
-class Lame {
+export class Lame {
   private static readonly LAME_MAXALBUMART = 128 * 1024;
 
   /**
@@ -1962,5 +1962,3 @@ class Lame {
 
   static MEDIUM_FAST = 1007;
 }
-
-export default Lame;

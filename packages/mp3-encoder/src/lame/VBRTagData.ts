@@ -1,4 +1,4 @@
-import VBRTag from './VBRTag';
+import { VBRTag } from './VBRTag';
 
 export class VBRTagData {
   /**

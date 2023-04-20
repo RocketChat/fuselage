@@ -1,18 +1,18 @@
 import type { ArrayOf } from './ArrayOf';
-import type BitStream from './BitStream';
-import III_psy_ratio from './III_psy_ratio';
-import type LameGlobalFlags from './LameGlobalFlags';
-import type LameInternalFlags from './LameInternalFlags';
-import MPEGMode from './MPEGMode';
-import NewMDCT from './NewMDCT';
-import type PsyModel from './PsyModel';
-import type QuantizePVT from './QuantizePVT';
+import type { BitStream } from './BitStream';
+import { III_psy_ratio } from './III_psy_ratio';
+import type { LameGlobalFlags } from './LameGlobalFlags';
+import type { LameInternalFlags } from './LameInternalFlags';
+import { MPEGMode } from './MPEGMode';
+import { NewMDCT } from './NewMDCT';
+import type { PsyModel } from './PsyModel';
+import type { QuantizePVT } from './QuantizePVT';
 import { System } from './System';
-import type VBRTag from './VBRTag';
+import type { VBRTag } from './VBRTag';
 import { VbrMode } from './VbrMode';
 import { new_array_n, new_float_n } from './common';
 
-class Encoder {
+export class Encoder {
   private bs: BitStream | null = null;
 
   psy: PsyModel | null = null;
@@ -714,5 +714,3 @@ class Encoder {
     0.187098 * 5,
   ];
 }
-
-export default Encoder;

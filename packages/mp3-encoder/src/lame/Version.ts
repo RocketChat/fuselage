@@ -1,4 +1,4 @@
-class Version {
+export class Version {
   /**
    * URL for the LAME website.
    */
@@ -87,5 +87,3 @@ class Version {
     return '32bits' as const;
   }
 }
-
-export default Version;

@@ -1,7 +1,7 @@
 import type { ArrayOf } from './ArrayOf';
-import L3Side from './L3Side';
+import { L3Side } from './L3Side';
 
-class GrInfo {
+export class GrInfo {
   // float xr[] = new float[576];
   xr = new Float32Array(576);
 
@@ -107,5 +107,3 @@ class GrInfo {
     this.max_nonzero_coeff = other.max_nonzero_coeff;
   }
 }
-
-export default GrInfo;

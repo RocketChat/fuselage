@@ -1,9 +1,9 @@
 import type { ArrayOf } from './ArrayOf';
-import Encoder from './Encoder';
-import type LameInternalFlags from './LameInternalFlags';
+import { Encoder } from './Encoder';
+import type { LameInternalFlags } from './LameInternalFlags';
 import { Util } from './Util';
 
-class FFT {
+export class FFT {
   private window: Float32Array = new Float32Array(Encoder.BLKSIZE);
 
   private window_s: Float32Array = new Float32Array(Encoder.BLKSIZE_s / 2);
@@ -242,5 +242,3 @@ class FFT {
         0.5 * (1.0 - Math.cos((2.0 * Math.PI * (i + 0.5)) / Encoder.BLKSIZE_s));
   }
 }
-
-export default FFT;

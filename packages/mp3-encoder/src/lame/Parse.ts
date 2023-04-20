@@ -1,6 +1,6 @@
 import type { ID3Tag } from './ID3Tag';
-import type Presets from './Presets';
-import type Version from './Version';
+import type { Presets } from './Presets';
+import type { Version } from './Version';
 
 export class Parse {
   // private ver: Version | null = null;

@@ -1,8 +1,8 @@
-import Encoder from './Encoder';
+import { Encoder } from './Encoder';
 import { System } from './System';
 import { new_float_n } from './common';
 
-class III_psy_xmin {
+export class III_psy_xmin {
   l = new Float32Array(Encoder.SBMAX_l);
 
   s = new_float_n([Encoder.SBMAX_s, 3] as const);
@@ -16,5 +16,3 @@ class III_psy_xmin {
     }
   }
 }
-
-export default III_psy_xmin;

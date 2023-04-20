@@ -469,7 +469,7 @@ const samplerate_table = [
  */
 const scfsi_band = [0, 6, 11, 16, 21] as const;
 
-const Tables = {
+export const Tables = {
   t1HB,
   t2HB,
   t3HB,
@@ -513,5 +513,3 @@ const Tables = {
   samplerate_table,
   scfsi_band,
 };
-
-export default Tables;

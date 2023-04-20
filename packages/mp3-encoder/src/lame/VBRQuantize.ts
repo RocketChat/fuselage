@@ -1,7 +1,7 @@
-import type QuantizePVT from './QuantizePVT';
-import type Takehiro from './Takehiro';
+import type { QuantizePVT } from './QuantizePVT';
+import type { Takehiro } from './Takehiro';
 
-class VBRQuantize {
+export class VBRQuantize {
   // private qupvt: QuantizePVT | null = null;
 
   // private tak: Takehiro | null = null;
@@ -11,5 +11,3 @@ class VBRQuantize {
     // this.tak = tk;
   }
 }
-
-export default VBRQuantize;

@@ -1,10 +1,10 @@
-import Encoder from './Encoder';
+import { Encoder } from './Encoder';
 
 /**
  * ATH related stuff, if something new ATH related has to be added, please plug
  * it here into the ATH.
  */
-class ATH {
+export class ATH {
   /**
    * Method for the auto adjustment.
    */
@@ -71,5 +71,3 @@ class ATH {
    */
   eql_w = new Float32Array(Encoder.BLKSIZE / 2);
 }
-
-export default ATH;

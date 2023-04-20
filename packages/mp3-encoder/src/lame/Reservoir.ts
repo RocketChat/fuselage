@@ -1,11 +1,11 @@
-import type BitStream from './BitStream';
-import type GrInfo from './GrInfo';
-import type LameGlobalFlags from './LameGlobalFlags';
-import type LameInternalFlags from './LameInternalFlags';
-import type MeanBits from './MeanBits';
+import type { BitStream } from './BitStream';
+import type { GrInfo } from './GrInfo';
+import type { LameGlobalFlags } from './LameGlobalFlags';
+import type { LameInternalFlags } from './LameInternalFlags';
+import type { MeanBits } from './MeanBits';
 import { int } from './int';
 
-class Reservoir {
+export class Reservoir {
   private bs: BitStream | undefined;
 
   setModules(bs: BitStream) {
@@ -271,5 +271,3 @@ class Reservoir {
     gfc.ResvSize -= stuffingBits;
   }
 }
-
-export default Reservoir;

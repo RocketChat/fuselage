@@ -1,6 +1,6 @@
-import GainAnalysis from './GainAnalysis';
+import { GainAnalysis } from './GainAnalysis';
 
-class ReplayGain {
+export class ReplayGain {
   linprebuf = new Float32Array(GainAnalysis.MAX_ORDER * 2);
 
   /**
@@ -67,5 +67,3 @@ class ReplayGain {
 
   reqindex = 0;
 }
-
-export default ReplayGain;

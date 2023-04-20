@@ -1,4 +1,4 @@
-class CalcNoiseData {
+export class CalcNoiseData {
   global_gain = 0;
 
   sfb_count1 = 0;
@@ -9,5 +9,3 @@ class CalcNoiseData {
 
   noise_log = new Float32Array(39);
 }
-
-export default CalcNoiseData;

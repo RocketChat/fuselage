@@ -1,20 +1,20 @@
-import type ATH from './ATH';
+import type { ATH } from './ATH';
 import type { ArrayOf } from './ArrayOf';
-import type CBRNewIterationLoop from './CBRNewIterationLoop';
-import Encoder from './Encoder';
+import type { CBRNewIterationLoop } from './CBRNewIterationLoop';
+import { Encoder } from './Encoder';
 import { Header } from './Header';
-import IIISideInfo from './IIISideInfo';
-import III_psy_xmin from './III_psy_xmin';
-import L3Side from './L3Side';
-import NsPsy from './NsPsy';
+import { IIISideInfo } from './IIISideInfo';
+import { III_psy_xmin } from './III_psy_xmin';
+import { L3Side } from './L3Side';
+import { NsPsy } from './NsPsy';
 import type { PSY } from './PSY';
 import type { PlottingData } from './PlottingData';
-import type ReplayGain from './ReplayGain';
-import ScaleFac from './ScaleFac';
-import VBRSeekInfo from './VBRSeekInfo';
+import type { ReplayGain } from './ReplayGain';
+import { ScaleFac } from './ScaleFac';
+import { VBRSeekInfo } from './VBRSeekInfo';
 import { new_float_n, new_int_n } from './common';
 
-class LameInternalFlags {
+export class LameInternalFlags {
   /** ******************************************************************
    * internal variables NOT set by calling program, and should not be *
    * modified by the calling program *
@@ -440,5 +440,3 @@ class LameInternalFlags {
 
   static BPC = 320;
 }
-
-export default LameInternalFlags;

@@ -1,9 +1,9 @@
-import type LameInternalFlags from './LameInternalFlags';
-import MPEGMode from './MPEGMode';
+import type { LameInternalFlags } from './LameInternalFlags';
+import { MPEGMode } from './MPEGMode';
 import type { ShortBlock } from './ShortBlock';
 import type { VbrMode } from './VbrMode';
 
-class LameGlobalFlags {
+export class LameGlobalFlags {
   class_id = 0;
 
   /* input description */
@@ -321,5 +321,3 @@ class LameGlobalFlags {
   /** ************************************************************************/
   internal_flags: LameInternalFlags | null = null;
 }
-
-export default LameGlobalFlags;

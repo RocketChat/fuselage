@@ -1,16 +1,16 @@
 import type { ArrayOf } from './ArrayOf';
 import { Arrays } from './Arrays';
-import type BitStream from './BitStream';
-import Lame from './Lame';
-import type LameGlobalFlags from './LameGlobalFlags';
-import MPEGMode from './MPEGMode';
+import type { BitStream } from './BitStream';
+import { Lame } from './Lame';
+import type { LameGlobalFlags } from './LameGlobalFlags';
+import { MPEGMode } from './MPEGMode';
 import { ShortBlock } from './ShortBlock';
 import { System } from './System';
-import Tables from './Tables';
-import type VBRSeekInfo from './VBRSeekInfo';
+import { Tables } from './Tables';
+import type { VBRSeekInfo } from './VBRSeekInfo';
 import { VBRTagData } from './VBRTagData';
 import { VbrMode } from './VbrMode';
-import type Version from './Version';
+import type { Version } from './Version';
 import { newString } from './newString';
 
 /**
@@ -28,7 +28,7 @@ import { newString } from './newString';
  * seek point in bytes = (toc[i]/256.0) * total_bitstream_bytes<BR>
  * e.g. half duration seek point = (toc[50]/256.0) * total_bitstream_bytes
  */
-class VBRTag {
+export class VBRTag {
   static readonly NUMTOCENTRIES = 100;
 
   /**
@@ -999,5 +999,3 @@ class VBRTag {
     return 0;
   }
 }
-
-export default VBRTag;

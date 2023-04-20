@@ -136,19 +136,19 @@
 
 import type { ArrayOf } from './ArrayOf';
 import { Arrays } from './Arrays';
-import Encoder from './Encoder';
-import FFT from './FFT';
+import { Encoder } from './Encoder';
+import { FFT } from './FFT';
 import { Float } from './Float';
-import type III_psy_ratio from './III_psy_ratio';
-import type LameGlobalFlags from './LameGlobalFlags';
-import type LameInternalFlags from './LameInternalFlags';
-import MPEGMode from './MPEGMode';
+import type { III_psy_ratio } from './III_psy_ratio';
+import type { LameGlobalFlags } from './LameGlobalFlags';
+import type { LameInternalFlags } from './LameInternalFlags';
+import { MPEGMode } from './MPEGMode';
 import { ShortBlock } from './ShortBlock';
 import { Util } from './Util';
 import { VbrMode } from './VbrMode';
 import { new_float_n } from './common';
 
-class PsyModel {
+export class PsyModel {
   private readonly fft = new FFT();
 
   private static readonly LOG10 = 2.302585092994046;
@@ -3288,5 +3288,3 @@ class PsyModel {
     return ath;
   }
 }
-
-export default PsyModel;

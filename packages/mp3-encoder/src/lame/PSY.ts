@@ -1,4 +1,4 @@
-import Encoder from './Encoder';
+import { Encoder } from './Encoder';
 
 /**
  * PSY Model related stuff

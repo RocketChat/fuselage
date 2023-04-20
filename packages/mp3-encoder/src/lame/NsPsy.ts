@@ -1,4 +1,4 @@
-import Encoder from './Encoder';
+import { Encoder } from './Encoder';
 import { new_float_n } from './common';
 
 /**
@@ -7,7 +7,7 @@ import { new_float_n } from './common';
  * @author Ken
  *
  */
-class NsPsy {
+export class NsPsy {
   last_en_subshort = new_float_n([4, 9] as const);
 
   lastAttacks = new Int32Array(4);
@@ -25,5 +25,3 @@ class NsPsy {
 
   attackthre_s = 0;
 }
-
-export default NsPsy;

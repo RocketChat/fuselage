@@ -1,11 +1,11 @@
 import { ABRPresets } from './ABRPresets';
-import Lame from './Lame';
-import type LameGlobalFlags from './LameGlobalFlags';
+import { Lame } from './Lame';
+import type { LameGlobalFlags } from './LameGlobalFlags';
 import { VBRPresets } from './VBRPresets';
 import { VbrMode } from './VbrMode';
 import { int } from './int';
 
-class Presets {
+export class Presets {
   private lame: Lame | null = null;
 
   setModules(_lame: Lame) {
@@ -979,5 +979,3 @@ class Presets {
     return preset;
   }
 }
-
-export default Presets;

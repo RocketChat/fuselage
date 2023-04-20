@@ -1,6 +1,6 @@
 import type { ArrayOf } from './ArrayOf';
 
-class VBRSeekInfo {
+export class VBRSeekInfo {
   /**
    * What we have seen so far.
    */
@@ -38,5 +38,3 @@ class VBRSeekInfo {
   /* VBR tag data */
   TotalFrameSize = 0;
 }
-
-export default VBRSeekInfo;

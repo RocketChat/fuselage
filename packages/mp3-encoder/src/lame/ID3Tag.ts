@@ -1,6 +1,6 @@
-import type BitStream from './BitStream';
-import type LameGlobalFlags from './LameGlobalFlags';
-import type Version from './Version';
+import type { BitStream } from './BitStream';
+import type { LameGlobalFlags } from './LameGlobalFlags';
+import type { Version } from './Version';
 
 export class ID3Tag {
   id3tag_write_v1(_gfp: LameGlobalFlags) {

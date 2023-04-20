@@ -1,4 +1,4 @@
-class CalcNoiseResult {
+export class CalcNoiseResult {
   /**
    * sum of quantization noise > masking
    */
@@ -26,5 +26,3 @@ class CalcNoiseResult {
 
   bits = 0;
 }
-
-export default CalcNoiseResult;

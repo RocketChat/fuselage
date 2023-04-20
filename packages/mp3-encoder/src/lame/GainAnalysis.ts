@@ -89,10 +89,10 @@
  */
 import type { ArrayOf } from './ArrayOf';
 import { Arrays } from './Arrays';
-import type ReplayGain from './ReplayGain';
+import type { ReplayGain } from './ReplayGain';
 import { System } from './System';
 
-class GainAnalysis {
+export class GainAnalysis {
   /**
    * Table entries per dB
    */
@@ -713,5 +713,3 @@ class GainAnalysis {
     return retval;
   }
 }
-
-export default GainAnalysis;

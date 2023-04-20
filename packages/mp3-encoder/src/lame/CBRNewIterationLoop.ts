@@ -1,13 +1,13 @@
 import type { ArrayOf } from './ArrayOf';
-import Encoder from './Encoder';
-import type III_psy_ratio from './III_psy_ratio';
-import L3Side from './L3Side';
-import type LameGlobalFlags from './LameGlobalFlags';
-import LameInternalFlags from './LameInternalFlags';
-import MeanBits from './MeanBits';
-import type Quantize from './Quantize';
+import { Encoder } from './Encoder';
+import type { III_psy_ratio } from './III_psy_ratio';
+import { L3Side } from './L3Side';
+import type { LameGlobalFlags } from './LameGlobalFlags';
+import { LameInternalFlags } from './LameInternalFlags';
+import { MeanBits } from './MeanBits';
+import type { Quantize } from './Quantize';
 
-class CBRNewIterationLoop {
+export class CBRNewIterationLoop {
   constructor(public quantize: Quantize) {}
 
   iteration_loop(
@@ -99,5 +99,3 @@ class CBRNewIterationLoop {
     this.quantize.rv!.ResvFrameEnd(gfc, mean_bits);
   }
 }
-
-export default CBRNewIterationLoop;

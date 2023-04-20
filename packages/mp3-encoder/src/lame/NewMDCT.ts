@@ -25,12 +25,12 @@
 
 import type { ArrayOf } from './ArrayOf';
 import { Arrays } from './Arrays';
-import Encoder from './Encoder';
-import type LameInternalFlags from './LameInternalFlags';
+import { Encoder } from './Encoder';
+import type { LameInternalFlags } from './LameInternalFlags';
 import { System } from './System';
 import { Util } from './Util';
 
-class NewMDCT {
+export class NewMDCT {
   private readonly enwindow = [
     (-4.77e-7 * 0.740951125354959) / 2.384e-6,
     (1.03951e-4 * 0.740951125354959) / 2.384e-6,
@@ -1144,5 +1144,3 @@ class NewMDCT {
     }
   }
 }
-
-export default NewMDCT;

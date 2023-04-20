@@ -23,27 +23,27 @@
  */
 
 import type { ArrayOf } from './ArrayOf';
-import BitStream from './BitStream';
-import type CalcNoiseData from './CalcNoiseData';
-import CalcNoiseResult from './CalcNoiseResult';
-import Encoder from './Encoder';
+import { BitStream } from './BitStream';
+import type { CalcNoiseData } from './CalcNoiseData';
+import { CalcNoiseResult } from './CalcNoiseResult';
+import { Encoder } from './Encoder';
 import { Float } from './Float';
-import type GrInfo from './GrInfo';
-import type III_psy_ratio from './III_psy_ratio';
-import L3Side from './L3Side';
-import type LameGlobalFlags from './LameGlobalFlags';
-import LameInternalFlags from './LameInternalFlags';
-import MeanBits from './MeanBits';
-import type PsyModel from './PsyModel';
-import type Reservoir from './Reservoir';
-import ScaleFac from './ScaleFac';
+import type { GrInfo } from './GrInfo';
+import type { III_psy_ratio } from './III_psy_ratio';
+import { L3Side } from './L3Side';
+import type { LameGlobalFlags } from './LameGlobalFlags';
+import { LameInternalFlags } from './LameInternalFlags';
+import { MeanBits } from './MeanBits';
+import type { PsyModel } from './PsyModel';
+import type { Reservoir } from './Reservoir';
+import { ScaleFac } from './ScaleFac';
 import { StartLine } from './StartLine';
 import { System } from './System';
-import type Takehiro from './Takehiro';
+import type { Takehiro } from './Takehiro';
 import { Util } from './Util';
 import { VbrMode } from './VbrMode';
 
-class QuantizePVT {
+export class QuantizePVT {
   static Q_MAX = 256 + 1;
 
   /**
@@ -1136,5 +1136,3 @@ class QuantizePVT {
     /* for gr */
   }
 }
-
-export default QuantizePVT;

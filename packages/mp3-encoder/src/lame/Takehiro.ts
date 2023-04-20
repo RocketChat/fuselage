@@ -23,16 +23,16 @@
 import type { ArrayOf } from './ArrayOf';
 import { Arrays } from './Arrays';
 import { Bits } from './Bits';
-import type CalcNoiseData from './CalcNoiseData';
-import Encoder from './Encoder';
-import GrInfo from './GrInfo';
-import type IIISideInfo from './IIISideInfo';
-import type LameInternalFlags from './LameInternalFlags';
-import QuantizePVT from './QuantizePVT';
+import type { CalcNoiseData } from './CalcNoiseData';
+import { Encoder } from './Encoder';
+import { GrInfo } from './GrInfo';
+import type { IIISideInfo } from './IIISideInfo';
+import type { LameInternalFlags } from './LameInternalFlags';
+import { QuantizePVT } from './QuantizePVT';
 import { System } from './System';
-import Tables from './Tables';
+import { Tables } from './Tables';
 
-class Takehiro {
+export class Takehiro {
   qupvt: QuantizePVT | null = null;
 
   setModules(qupvt: QuantizePVT) {
@@ -1321,5 +1321,3 @@ class Takehiro {
     }
   }
 }
-
-export default Takehiro;
