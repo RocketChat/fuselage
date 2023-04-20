@@ -171,7 +171,7 @@ export class Encoder {
     }
     for (gr = 0; gr < gfc.mode_gr; ++gr) {
       for (ch = 0; ch < gfc.channels_out; ++ch) {
-        let bt = gfc.l3_side.tt[gr][ch].block_type | 0;
+        let bt = Math.trunc(gfc.l3_side.tt[gr][ch].block_type);
         if (gfc.l3_side.tt[gr][ch].mixed_block_flag !== 0) bt = 4;
         gfc.bitrate_blockType_Hist[gfc.bitrate_index][bt]++;
         gfc.bitrate_blockType_Hist[gfc.bitrate_index][5]++;

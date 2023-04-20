@@ -372,12 +372,12 @@ export class GainAnalysis {
         return GainAnalysis.INIT_GAIN_ANALYSIS_ERROR;
     }
 
-    rgData.sampleWindow =
-      0 |
-      ((samplefreq * GainAnalysis.RMS_WINDOW_TIME_NUMERATOR +
+    rgData.sampleWindow = Math.trunc(
+      (samplefreq * GainAnalysis.RMS_WINDOW_TIME_NUMERATOR +
         GainAnalysis.RMS_WINDOW_TIME_DENOMINATOR -
         1) /
-        GainAnalysis.RMS_WINDOW_TIME_DENOMINATOR);
+        GainAnalysis.RMS_WINDOW_TIME_DENOMINATOR
+    );
 
     rgData.lsum = 0;
     rgData.rsum = 0;

@@ -778,10 +778,10 @@ export class Lame {
        * choose a bitrate for the output samplerate which achieves
        * specified compression ratio
        */
-      gfp.brate =
-        0 |
-        ((gfp.out_samplerate * 16 * gfc.channels_out) /
-          (1e3 * gfp.compression_ratio));
+      gfp.brate = Math.trunc(
+        (gfp.out_samplerate * 16 * gfc.channels_out) /
+          (1e3 * gfp.compression_ratio)
+      );
 
       /* we need the version for the bitrate table look up */
       gfc.samplerate_index = this.smpFrqIndex(gfp.out_samplerate, gfp);
@@ -866,7 +866,7 @@ export class Lame {
       )
         lowpass *= 1.5;
 
-      gfp.lowpassfreq = lowpass | 0;
+      gfp.lowpassfreq = Math.trunc(lowpass);
     }
 
     if (gfp.out_samplerate === 0) {
@@ -874,7 +874,7 @@ export class Lame {
         gfp.lowpassfreq = gfp.in_samplerate / 2;
       }
       gfp.out_samplerate = this.optimum_samplefreq(
-        gfp.lowpassfreq | 0,
+        Math.trunc(gfp.lowpassfreq),
         gfp.in_samplerate
       );
     }
@@ -1335,7 +1335,8 @@ export class Lame {
     gfc.frac_SpF = 0;
     if (gfp.VBR === VbrMode.vbr_off) {
       gfc.frac_SpF =
-        ((gfp.version + 1) * 72000 * gfp.brate) % gfp.out_samplerate | 0;
+        ((gfp.version + 1) * 72000 * gfp.brate) %
+        Math.trunc(gfp.out_samplerate);
       gfc.slot_lag = gfc.frac_SpF;
     }
 

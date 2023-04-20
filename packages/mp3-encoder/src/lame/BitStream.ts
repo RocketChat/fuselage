@@ -71,10 +71,9 @@ export class BitStream {
 
     /* main encoding routine toggles padding on and off */
     /* one Layer3 Slot consists of 8 bits */
-    const bytes =
-      0 |
-      (((gfp.version + 1) * 72000 * bit_rate) / gfp.out_samplerate +
-        gfc.padding);
+    const bytes = Math.trunc(
+      ((gfp.version + 1) * 72000 * bit_rate) / gfp.out_samplerate + gfc.padding
+    );
     return 8 * bytes;
   }
 
@@ -760,14 +759,15 @@ export class BitStream {
       console.assert(
         !isCloseToEachOther(RadioGain, GainAnalysis.GAIN_NOT_ENOUGH_SAMPLES)
       );
-      gfc.RadioGain = Math.floor(RadioGain * 10.0 + 0.5) | 0;
+      gfc.RadioGain = Math.floor(RadioGain * 10.0 + 0.5);
       /* round to nearest */
     }
 
     /* find the gain and scale change required for no clipping */
     if (gfc.findPeakSample) {
-      gfc.noclipGainChange =
-        Math.ceil(Math.log10(gfc.PeakSample / 32767.0) * 20.0 * 10.0) | 0;
+      gfc.noclipGainChange = Math.ceil(
+        Math.log10(gfc.PeakSample / 32767.0) * 20.0 * 10.0
+      );
       /* round up */
 
       if (gfc.noclipGainChange > 0) {
