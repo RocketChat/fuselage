@@ -1,7 +1,41 @@
 import { parse } from '../src';
-import { link, paragraph, plain, strike } from '../src/utils';
+import {
+  emoji,
+  emojiUnicode,
+  emoticon,
+  link,
+  mentionChannel,
+  mentionUser,
+  paragraph,
+  plain,
+  strike,
+} from '../src/utils';
 
 test.each([
+  ['~:smile:~', [paragraph([strike([emoji('smile')])])]],
+  [
+    '~test :smile: test~',
+    [paragraph([strike([plain('test '), emoji('smile'), plain(' test')])])],
+  ],
+  [
+    '~:) asd~',
+    [paragraph([strike([emoticon(':)', 'slight_smile'), plain(' asd')])])],
+  ],
+  ['~😀~', [paragraph([strike([emojiUnicode('😀')])])]],
+  ['~test 😀~', [paragraph([strike([plain('test '), emojiUnicode('😀')])])]],
+  [
+    '~@guilherme.gazzo~',
+    [paragraph([strike([mentionUser('guilherme.gazzo')])])],
+  ],
+  ['~#GENERAL~', [paragraph([strike([mentionChannel('GENERAL')])])]],
+  [
+    '~test @guilherme.gazzo~',
+    [paragraph([strike([plain('test '), mentionUser('guilherme.gazzo')])])],
+  ],
+  [
+    '~test #GENERAL~',
+    [paragraph([strike([plain('test '), mentionChannel('GENERAL')])])],
+  ],
   [
     '~~[A brand new Gist](https://gist.github.com/24dddfa97bef58f46ac2ce0f80c58ba4)~~',
     [
