@@ -25,8 +25,8 @@ export function ToastBar({
   onClose,
 }: ToastBarProps) {
   const iconName =
-    (variant === 'success' && 'check') ||
-    (variant === 'error' && 'warning') ||
+    (variant === 'success' && 'circle-check') ||
+    (variant === 'error' && 'ban') ||
     'info';
 
   const sideOpen = keyframes`
@@ -73,26 +73,22 @@ export function ToastBar({
         elevation='2nb'
         borderRadius='x4'
       >
-        <div className='rcx-toastbar-inner'>
-          <Icon size='x20' name={iconName} />
-          <div className='rcx-toastbar-content' id={toastId}>
+        <div className='rcx-toastbar_inner'>
+          <Icon
+            className={`rcx-toastbar_icon--${variant}`}
+            size='x20'
+            name={iconName}
+          />
+          <div className='rcx-toastbar_content' id={toastId}>
             {children}
           </div>
           {onClose && (
             <div className='rcx-toastbar-close'>
-              <IconButton
-                tiny
-                {...{
-                  success: variant === 'success',
-                  danger: variant === 'error',
-                }}
-                onClick={() => onClose(toastId)}
-                icon='cross'
-              />
+              <IconButton tiny onClick={() => onClose(toastId)} icon='cross' />
             </div>
           )}
         </div>
-        <Box className={[progressBarAnimation, 'rcx-toastbar-progressbar']} />
+        <Box className={[progressBarAnimation, 'rcx-toastbar_progressbar']} />
       </Box>
     </Box>
   );
