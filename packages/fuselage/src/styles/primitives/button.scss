@@ -34,6 +34,11 @@
     @include use-no-shadow;
   }
 
+  @include on-pressed {
+    color: map.get($colors, pressed-color);
+    border-color: map.get($colors, pressed-border-color);
+    background-color: map.get($colors, pressed-background-color);
+  }
   @include on-disabled {
     color: map.get($colors, disabled-color);
     border-color: map.get($colors, disabled-border-color);

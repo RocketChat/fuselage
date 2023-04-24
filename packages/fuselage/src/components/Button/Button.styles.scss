@@ -109,16 +109,20 @@
     }
   }
 
-  &--tiny-square {
-    @include with-squared-size($size: 24px);
-  }
-
   &--mini-square {
     @include with-squared-size($size: 20px);
   }
 
+  &--tiny-square {
+    @include with-squared-size($size: 24px);
+  }
+
   &--small-square {
     @include with-squared-size($size: 28px);
+  }
+
+  &--medium-square {
+    @include with-squared-size($size: 32px);
   }
 
   &--primary {
