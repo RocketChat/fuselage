@@ -7,7 +7,9 @@ import { useIsomorphicLayoutEffect } from './useIsomorphicLayoutEffect';
 
 export const useContentBoxSize = (
   ref: RefObject<HTMLElement>,
-  options: {
+  {
+    debounceDelay = 0,
+  }: {
     debounceDelay?: number;
   } = {}
 ): Readonly<{
@@ -19,10 +21,7 @@ export const useContentBoxSize = (
     blockSize: ref.current?.clientHeight ?? 0,
   });
 
-  const setSizeWithDebounce = useDebouncedCallback(
-    setSize,
-    options.debounceDelay
-  );
+  const setSizeWithDebounce = useDebouncedCallback(setSize, debounceDelay);
 
   useIsomorphicLayoutEffect(() => {
     const element = ref.current;
