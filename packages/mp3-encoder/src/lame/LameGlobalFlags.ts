@@ -1,5 +1,6 @@
 import { LameInternalFlags } from './LameInternalFlags';
 import { MPEGMode } from './MPEGMode';
+import type { Quality } from './Quality';
 import type { ShortBlock } from './ShortBlock';
 import { VbrMode } from './VbrMode';
 
@@ -29,7 +30,7 @@ export class LameGlobalFlags {
   /**
    * quality setting 0=best, 9=worst default=5
    */
-  quality = 3;
+  quality: Quality = 3;
 
   /**
    * see enum default = LAME picks best value
@@ -72,7 +73,7 @@ export class LameGlobalFlags {
   /**
    * Range [0,...,9]
    */
-  VBR_q = 4;
+  VBR_q: Quality = 4;
 
   VBR_mean_bitrate_kbps = 128;
 
@@ -169,7 +170,7 @@ export class LameGlobalFlags {
   /**
    * 0=MPEG-2/2.5 1=MPEG-1
    */
-  version = 0;
+  version: 0 | 1 = 0;
 
   /**
    * number of samples of padding appended to input

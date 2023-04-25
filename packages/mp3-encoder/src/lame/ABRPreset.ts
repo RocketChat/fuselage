@@ -1,4 +1,4 @@
-export interface ABRPresets {
+export interface ABRPreset {
   readonly kbps: number;
   readonly quant_comp: number;
   readonly quant_comp_s: number;

@@ -359,9 +359,6 @@ export class LameInternalFlags {
 
   PSY: PSY | null = null;
 
-  /* ReplayGain */
-  decode_on_the_fly = false;
-
   findReplayGain = false;
 
   findPeakSample = false;

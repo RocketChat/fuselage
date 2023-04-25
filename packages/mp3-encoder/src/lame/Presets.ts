@@ -1,17 +1,41 @@
-import type { ABRPresets } from './ABRPresets';
+import type { ABRPreset } from './ABRPreset';
 import { Lame } from './Lame';
 import type { LameGlobalFlags } from './LameGlobalFlags';
-import type { VBRPresets } from './VBRPresets';
+import type { Quality } from './Quality';
+import type { VBRPreset } from './VBRPreset';
 import { VbrMode } from './VbrMode';
+import { linearInterpolation } from './math';
+
+const enum Preset {
+  V9 = 410,
+  V8 = 420,
+  V7 = 430,
+  V6 = 440,
+  V5 = 450,
+  V4 = 460,
+  V3 = 470,
+  V2 = 480,
+  V1 = 490,
+  V0 = 500,
+  R3MIX = 1000,
+  STANDARD = 1001,
+  EXTREME = 1002,
+  INSANE = 1003,
+  STANDARD_FAST = 1004,
+  EXTREME_FAST = 1005,
+  MEDIUM = 1006,
+  MEDIUM_FAST = 1007,
+}
 
 export class Presets {
   /**
-   * <PRE>
    * Switch mappings for VBR mode VBR_RH
-   *             vbr_q  qcomp_l  qcomp_s  expY  st_lrm   st_s  mask adj_l  adj_s  ath_lower  ath_curve  ath_sens  interChR  safejoint sfb21mod  msfix
-   * </PRE>
    */
-  private static readonly vbr_old_switch_map: VBRPresets[] = [
+  private readonly vbr_old_switch_map: Readonly<
+    Record<Quality, VBRPreset> & {
+      10: Omit<VBRPreset, 'vbr_q'> & { vbr_q: 10 };
+    }
+  > = [
     {
       vbr_q: 0,
       quant_comp: 9,
@@ -201,12 +225,11 @@ export class Presets {
     },
   ];
 
-  /**
-   * <PRE>
-   *                 vbr_q  qcomp_l  qcomp_s  expY  st_lrm   st_s  mask adj_l  adj_s  ath_lower  ath_curve  ath_sens  interChR  safejoint sfb21mod  msfix
-   * </PRE>
-   */
-  private static readonly vbr_psy_switch_map = [
+  private readonly vbr_psy_switch_map: Readonly<
+    Record<Quality, VBRPreset> & {
+      10: Omit<VBRPreset, 'vbr_q'> & { vbr_q: 10 };
+    }
+  > = [
     {
       vbr_q: 0,
       quant_comp: 9,
@@ -394,16 +417,14 @@ export class Presets {
       sfb21mod: 0,
       msfix: 2,
     },
-  ] satisfies VBRPresets[];
-
-  // Rest from getset.c:
+  ];
 
   /**
    * VBR quality level.<BR>
    * 0 = highest<BR>
    * 9 = lowest
    */
-  private lame_set_VBR_q(gfp: LameGlobalFlags, VBR_q: number) {
+  private lame_set_VBR_q(gfp: LameGlobalFlags, VBR_q: Quality) {
     let ret = 0;
 
     if (VBR_q < 0) {
@@ -421,114 +442,105 @@ export class Presets {
     return ret;
   }
 
-  private apply_vbr_preset(gfp: LameGlobalFlags, a: number, enforce: number) {
-    const vbr_preset =
+  private apply_vbr_preset(gfp: LameGlobalFlags, a: Quality) {
+    const vbr_presets_map =
       gfp.VBR === VbrMode.vbr_rh
-        ? Presets.vbr_old_switch_map
-        : Presets.vbr_psy_switch_map;
+        ? this.vbr_old_switch_map
+        : this.vbr_psy_switch_map;
 
     const x = gfp.VBR_q_frac;
-    const p = vbr_preset[a];
-    const q = vbr_preset[a + 1];
-    const set = p;
+    const p = vbr_presets_map[a];
+    const q = vbr_presets_map[(a + 1) as Quality | 10];
 
-    // NOOP(vbr_q);
-    // NOOP(quant_comp);
-    // NOOP(quant_comp_s);
-    // NOOP(expY);
-    p.st_lrm += x * (q.st_lrm - p.st_lrm);
-    // LERP(st_lrm);
-    p.st_s += x * (q.st_s - p.st_s);
-    // LERP(st_s);
-    p.masking_adj += x * (q.masking_adj - p.masking_adj);
-    // LERP(masking_adj);
-    p.masking_adj_short += x * (q.masking_adj_short - p.masking_adj_short);
-    // LERP(masking_adj_short);
-    p.ath_lower += x * (q.ath_lower - p.ath_lower);
-    // LERP(ath_lower);
-    p.ath_curve += x * (q.ath_curve - p.ath_curve);
-    // LERP(ath_curve);
-    p.ath_sensitivity += x * (q.ath_sensitivity - p.ath_sensitivity);
-    // LERP(ath_sensitivity);
-    p.interch += x * (q.interch - p.interch);
-    // LERP(interch);
-    // NOOP(safejoint);
-    // NOOP(sfb21mod);
-    p.msfix += x * (q.msfix - p.msfix);
-    // LERP(msfix);
+    const set: VBRPreset = {
+      vbr_q: p.vbr_q,
+      quant_comp: p.quant_comp,
+      quant_comp_s: p.quant_comp_s,
+      expY: p.expY,
+      st_lrm: linearInterpolation(p.st_lrm, q.st_lrm, x),
+      st_s: linearInterpolation(p.st_s, q.st_s, x),
+      masking_adj: linearInterpolation(p.masking_adj, q.masking_adj, x),
+      masking_adj_short: linearInterpolation(
+        p.masking_adj_short,
+        q.masking_adj_short,
+        x
+      ),
+      ath_lower: linearInterpolation(p.ath_lower, q.ath_lower, x),
+      ath_curve: linearInterpolation(p.ath_curve, q.ath_curve, x),
+      ath_sensitivity: p.ath_sensitivity,
+      interch: linearInterpolation(p.ath_sensitivity, q.ath_sensitivity, x),
+      safejoint: p.safejoint,
+      sfb21mod: p.sfb21mod,
+      msfix: linearInterpolation(p.msfix, q.msfix, x),
+    };
 
     this.lame_set_VBR_q(gfp, set.vbr_q);
 
-    if (enforce !== 0) gfp.quant_comp = set.quant_comp;
-    else if (!(Math.abs(gfp.quant_comp - -1) > 0))
+    if (!(Math.abs(gfp.quant_comp - -1) > 0)) {
       gfp.quant_comp = set.quant_comp;
-    // SET_OPTION(quant_comp, set.quant_comp, -1);
-    if (enforce !== 0) gfp.quant_comp_short = set.quant_comp_s;
-    else if (!(Math.abs(gfp.quant_comp_short - -1) > 0))
-      gfp.quant_comp_short = set.quant_comp_s;
-    // SET_OPTION(quant_comp_short, set.quant_comp_s, -1);
-    if (set.expY !== 0) {
-      gfp.experimentalY = set.expY !== 0;
     }
-    if (enforce !== 0) gfp.internal_flags.nsPsy.attackthre = set.st_lrm;
-    else if (!(Math.abs(gfp.internal_flags.nsPsy.attackthre - -1) > 0))
+
+    if (!(Math.abs(gfp.quant_comp_short - -1) > 0)) {
+      gfp.quant_comp_short = set.quant_comp_s;
+    }
+
+    if (set.expY !== 0) {
+      gfp.experimentalY = true;
+    }
+
+    if (!(Math.abs(gfp.internal_flags.nsPsy.attackthre - -1) > 0)) {
       gfp.internal_flags.nsPsy.attackthre = set.st_lrm;
-    // SET_OPTION(short_threshold_lrm, set.st_lrm, -1);
-    if (enforce !== 0) gfp.internal_flags.nsPsy.attackthre_s = set.st_s;
-    else if (!(Math.abs(gfp.internal_flags.nsPsy.attackthre_s - -1) > 0))
+    }
+
+    if (!(Math.abs(gfp.internal_flags.nsPsy.attackthre_s - -1) > 0)) {
       gfp.internal_flags.nsPsy.attackthre_s = set.st_s;
-    // SET_OPTION(short_threshold_s, set.st_s, -1);
-    if (enforce !== 0) gfp.maskingadjust = set.masking_adj;
-    else if (!(Math.abs(gfp.maskingadjust - 0) > 0))
+    }
+
+    if (!(Math.abs(gfp.maskingadjust - 0) > 0)) {
       gfp.maskingadjust = set.masking_adj;
-    // SET_OPTION(maskingadjust, set.masking_adj, 0);
-    if (enforce !== 0) gfp.maskingadjust_short = set.masking_adj_short;
-    else if (!(Math.abs(gfp.maskingadjust_short - 0) > 0))
+    }
+
+    if (!(Math.abs(gfp.maskingadjust_short - 0) > 0)) {
       gfp.maskingadjust_short = set.masking_adj_short;
-    // SET_OPTION(maskingadjust_short, set.masking_adj_short, 0);
-    if (enforce !== 0) gfp.ATHlower = -set.ath_lower / 10.0;
-    else if (!(Math.abs(-gfp.ATHlower * 10.0 - 0) > 0))
+    }
+
+    if (!(Math.abs(-gfp.ATHlower * 10.0 - 0) > 0)) {
       gfp.ATHlower = -set.ath_lower / 10.0;
-    // SET_OPTION(ATHlower, set.ath_lower, 0);
-    if (enforce !== 0) gfp.ATHcurve = set.ath_curve;
-    else if (!(Math.abs(gfp.ATHcurve - -1) > 0)) gfp.ATHcurve = set.ath_curve;
-    // SET_OPTION(ATHcurve, set.ath_curve, -1);
-    if (enforce !== 0) gfp.athaa_sensitivity = set.ath_sensitivity;
-    else if (!(Math.abs(gfp.athaa_sensitivity - -1) > 0))
+    }
+
+    if (!(Math.abs(gfp.ATHcurve - -1) > 0)) {
+      gfp.ATHcurve = set.ath_curve;
+    }
+
+    if (!(Math.abs(gfp.athaa_sensitivity - -1) > 0)) {
       gfp.athaa_sensitivity = set.ath_sensitivity;
-    // SET_OPTION(athaa_sensitivity, set.ath_sensitivity, 0);
-    if (set.interch > 0) {
-      if (enforce !== 0) gfp.interChRatio = set.interch;
-      else if (!(Math.abs(gfp.interChRatio - -1) > 0))
-        gfp.interChRatio = set.interch;
-      // SET_OPTION(interChRatio, set.interch, -1);
+    }
+
+    if (set.interch > 0 && !(Math.abs(gfp.interChRatio - -1) > 0)) {
+      gfp.interChRatio = set.interch;
     }
 
     /* parameters for which there is no proper set/get interface */
     if (set.safejoint > 0) {
       gfp.exp_nspsytune |= set.safejoint;
     }
+
     if (set.sfb21mod > 0) {
       gfp.exp_nspsytune |= set.sfb21mod << 20;
     }
-    if (enforce !== 0) gfp.msfix = set.msfix;
-    else if (!(Math.abs(gfp.msfix - -1) > 0)) gfp.msfix = set.msfix;
-    // SET_OPTION(msfix, set.msfix, -1);
 
-    if (enforce === 0) {
-      gfp.VBR_q = a;
-      gfp.VBR_q_frac = x;
+    if (!(Math.abs(gfp.msfix - -1) > 0)) {
+      gfp.msfix = set.msfix;
     }
+
+    gfp.VBR_q = a;
+    gfp.VBR_q_frac = x;
   }
 
   /**
-   * <PRE>
    *  Switch mappings for ABR mode
-   *
-   *              kbps  quant q_s safejoint nsmsfix st_lrm  st_s  ns-bass scale   msk ath_lwr ath_curve  interch , sfscale
-   * </PRE>
    */
-  private static readonly abr_switch_map: ABRPresets[] = [
+  private static readonly abr_switch_map: ABRPreset[] = [
     {
       kbps: 8,
       quant_comp: 9,
@@ -801,13 +813,9 @@ export class Presets {
       interch: 0,
       sfscale: 0,
     } /* 320 */,
-  ] satisfies ABRPresets[];
+  ];
 
-  private apply_abr_preset(
-    gfp: LameGlobalFlags,
-    preset: number,
-    enforce: number
-  ) {
+  private apply_abr_preset(gfp: LameGlobalFlags, preset: number) {
     /* Variables for the ABR stuff */
     const actual_bitrate = preset;
 
@@ -833,29 +841,21 @@ export class Presets {
       gfp.exp_nspsytune |= k << 2;
     }
 
-    if (enforce !== 0) gfp.quant_comp = Presets.abr_switch_map[r].quant_comp;
-    else if (!(Math.abs(gfp.quant_comp - -1) > 0))
+    if (!(Math.abs(gfp.quant_comp - -1) > 0))
       gfp.quant_comp = Presets.abr_switch_map[r].quant_comp;
     // SET_OPTION(quant_comp, abr_switch_map[r].quant_comp, -1);
-    if (enforce !== 0)
-      gfp.quant_comp_short = Presets.abr_switch_map[r].quant_comp_s;
-    else if (!(Math.abs(gfp.quant_comp_short - -1) > 0))
+    if (!(Math.abs(gfp.quant_comp_short - -1) > 0))
       gfp.quant_comp_short = Presets.abr_switch_map[r].quant_comp_s;
     // SET_OPTION(quant_comp_short, abr_switch_map[r].quant_comp_s, -1);
 
-    if (enforce !== 0) gfp.msfix = Presets.abr_switch_map[r].nsmsfix;
-    else if (!(Math.abs(gfp.msfix - -1) > 0))
+    if (!(Math.abs(gfp.msfix - -1) > 0))
       gfp.msfix = Presets.abr_switch_map[r].nsmsfix;
     // SET_OPTION(msfix, abr_switch_map[r].nsmsfix, -1);
 
-    if (enforce !== 0)
-      gfp.internal_flags.nsPsy.attackthre = Presets.abr_switch_map[r].st_lrm;
-    else if (!(Math.abs(gfp.internal_flags.nsPsy.attackthre - -1) > 0))
+    if (!(Math.abs(gfp.internal_flags.nsPsy.attackthre - -1) > 0))
       gfp.internal_flags.nsPsy.attackthre = Presets.abr_switch_map[r].st_lrm;
     // SET_OPTION(short_threshold_lrm, abr_switch_map[r].st_lrm, -1);
-    if (enforce !== 0)
-      gfp.internal_flags.nsPsy.attackthre_s = Presets.abr_switch_map[r].st_s;
-    else if (!(Math.abs(gfp.internal_flags.nsPsy.attackthre_s - -1) > 0))
+    if (!(Math.abs(gfp.internal_flags.nsPsy.attackthre_s - -1) > 0))
       gfp.internal_flags.nsPsy.attackthre_s = Presets.abr_switch_map[r].st_s;
     // SET_OPTION(short_threshold_s, abr_switch_map[r].st_s, -1);
 
@@ -867,137 +867,130 @@ export class Presets {
      * so we compensate for that here by using a scale value depending on
      * bitrate
      */
-    if (enforce !== 0) gfp.scale = Presets.abr_switch_map[r].scale;
-    else if (!(Math.abs(gfp.scale - -1) > 0))
+    if (!(Math.abs(gfp.scale - -1) > 0))
       gfp.scale = Presets.abr_switch_map[r].scale;
     // SET_OPTION(scale, abr_switch_map[r].scale, -1);
 
-    if (enforce !== 0)
-      gfp.maskingadjust = Presets.abr_switch_map[r].masking_adj;
-    else if (!(Math.abs(gfp.maskingadjust - 0) > 0))
+    if (!(Math.abs(gfp.maskingadjust - 0) > 0))
       gfp.maskingadjust = Presets.abr_switch_map[r].masking_adj;
     // SET_OPTION(maskingadjust, abr_switch_map[r].masking_adj, 0);
     if (Presets.abr_switch_map[r].masking_adj > 0) {
-      if (enforce !== 0)
-        gfp.maskingadjust_short = Presets.abr_switch_map[r].masking_adj * 0.9;
-      else if (!(Math.abs(gfp.maskingadjust_short - 0) > 0))
+      if (!(Math.abs(gfp.maskingadjust_short - 0) > 0))
         gfp.maskingadjust_short = Presets.abr_switch_map[r].masking_adj * 0.9;
       // SET_OPTION(maskingadjust_short, abr_switch_map[r].masking_adj *
       // .9, 0);
-    } else if (enforce !== 0)
-      gfp.maskingadjust_short = Presets.abr_switch_map[r].masking_adj * 1.1;
-    else if (!(Math.abs(gfp.maskingadjust_short - 0) > 0))
+    } else if (!(Math.abs(gfp.maskingadjust_short - 0) > 0))
       gfp.maskingadjust_short = Presets.abr_switch_map[r].masking_adj * 1.1;
     // SET_OPTION(maskingadjust_short, abr_switch_map[r].masking_adj *
     // 1.1, 0);
 
-    if (enforce !== 0) gfp.ATHlower = -Presets.abr_switch_map[r].ath_lower / 10;
-    else if (!(Math.abs(-gfp.ATHlower * 10 - 0) > 0))
+    if (!(Math.abs(-gfp.ATHlower * 10 - 0) > 0))
       gfp.ATHlower = -Presets.abr_switch_map[r].ath_lower / 10;
     // SET_OPTION(ATHlower, abr_switch_map[r].ath_lower, 0);
-    if (enforce !== 0) gfp.ATHcurve = Presets.abr_switch_map[r].ath_curve;
-    else if (!(Math.abs(gfp.ATHcurve - -1) > 0))
+    if (!(Math.abs(gfp.ATHcurve - -1) > 0))
       gfp.ATHcurve = Presets.abr_switch_map[r].ath_curve;
     // SET_OPTION(ATHcurve, abr_switch_map[r].ath_curve, -1);
 
-    if (enforce !== 0) gfp.interChRatio = Presets.abr_switch_map[r].interch;
-    else if (!(Math.abs(gfp.interChRatio - -1) > 0))
+    if (!(Math.abs(gfp.interChRatio - -1) > 0))
       gfp.interChRatio = Presets.abr_switch_map[r].interch;
     // SET_OPTION(interChRatio, abr_switch_map[r].interch, -1);
 
     return preset;
   }
 
-  apply_preset(gfp: LameGlobalFlags, preset: number, enforce: number) {
+  apply_preset(gfp: LameGlobalFlags, preset: Preset) {
     /* translate legacy presets */
     switch (preset) {
-      case Lame.R3MIX: {
-        preset = Lame.V3;
+      case Preset.R3MIX: {
+        preset = Preset.V3;
         gfp.VBR = VbrMode.vbr_mtrh;
         break;
       }
-      case Lame.MEDIUM: {
-        preset = Lame.V4;
+      case Preset.MEDIUM: {
+        preset = Preset.V4;
         gfp.VBR = VbrMode.vbr_rh;
         break;
       }
-      case Lame.MEDIUM_FAST: {
-        preset = Lame.V4;
+      case Preset.MEDIUM_FAST: {
+        preset = Preset.V4;
         gfp.VBR = VbrMode.vbr_mtrh;
         break;
       }
-      case Lame.STANDARD: {
-        preset = Lame.V2;
+      case Preset.STANDARD: {
+        preset = Preset.V2;
         gfp.VBR = VbrMode.vbr_rh;
         break;
       }
-      case Lame.STANDARD_FAST: {
-        preset = Lame.V2;
+      case Preset.STANDARD_FAST: {
+        preset = Preset.V2;
         gfp.VBR = VbrMode.vbr_mtrh;
         break;
       }
-      case Lame.EXTREME: {
-        preset = Lame.V0;
+      case Preset.EXTREME: {
+        preset = Preset.V0;
         gfp.VBR = VbrMode.vbr_rh;
         break;
       }
-      case Lame.EXTREME_FAST: {
-        preset = Lame.V0;
+      case Preset.EXTREME_FAST: {
+        preset = Preset.V0;
         gfp.VBR = VbrMode.vbr_mtrh;
         break;
       }
-      case Lame.INSANE: {
-        preset = 320;
-        gfp.preset = preset;
-        this.apply_abr_preset(gfp, preset, enforce);
+      case Preset.INSANE: {
+        gfp.preset = 320;
         gfp.VBR = VbrMode.vbr_off;
-        return preset;
+        this.apply_abr_preset(gfp, 320);
+        return 320;
       }
     }
 
     gfp.preset = preset;
 
     switch (preset) {
-      case Lame.V9:
-        this.apply_vbr_preset(gfp, 9, enforce);
+      case Preset.V9:
+        this.apply_vbr_preset(gfp, 9);
         return preset;
-      case Lame.V8:
-        this.apply_vbr_preset(gfp, 8, enforce);
+      case Preset.V8:
+        this.apply_vbr_preset(gfp, 8);
         return preset;
-      case Lame.V7:
-        this.apply_vbr_preset(gfp, 7, enforce);
+      case Preset.V7:
+        this.apply_vbr_preset(gfp, 7);
         return preset;
-      case Lame.V6:
-        this.apply_vbr_preset(gfp, 6, enforce);
+      case Preset.V6:
+        this.apply_vbr_preset(gfp, 6);
         return preset;
-      case Lame.V5:
-        this.apply_vbr_preset(gfp, 5, enforce);
+      case Preset.V5:
+        this.apply_vbr_preset(gfp, 5);
         return preset;
-      case Lame.V4:
-        this.apply_vbr_preset(gfp, 4, enforce);
+      case Preset.V4:
+        this.apply_vbr_preset(gfp, 4);
         return preset;
-      case Lame.V3:
-        this.apply_vbr_preset(gfp, 3, enforce);
+      case Preset.V3:
+        this.apply_vbr_preset(gfp, 3);
         return preset;
-      case Lame.V2:
-        this.apply_vbr_preset(gfp, 2, enforce);
+      case Preset.V2:
+        this.apply_vbr_preset(gfp, 2);
         return preset;
-      case Lame.V1:
-        this.apply_vbr_preset(gfp, 1, enforce);
+      case Preset.V1:
+        this.apply_vbr_preset(gfp, 1);
         return preset;
-      case Lame.V0:
-        this.apply_vbr_preset(gfp, 0, enforce);
+      case Preset.V0:
+        this.apply_vbr_preset(gfp, 0);
         return preset;
       default:
         break;
     }
 
     if (preset >= 8 && preset <= 320) {
-      return this.apply_abr_preset(gfp, preset, enforce);
+      return this.apply_abr_preset(gfp, preset);
     }
 
     /* no corresponding preset found */
     gfp.preset = 0;
     return preset;
+  }
+
+  applyPresetFromQuality(gfp: LameGlobalFlags, quality: Quality) {
+    return this.apply_preset(gfp, 500 - 10 * quality);
   }
 }

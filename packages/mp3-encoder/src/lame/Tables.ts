@@ -357,14 +357,4 @@ const ht: readonly HuffCodeTab[] = [
   { xlen: 0, linmax: 0, table: t33HB, hlen: t33l },
 ];
 
-const bitrate_table = [
-  [
-    0, 8, 16, 24, 32, 40, 48, 56, 64, 80, 96, 112, 128, 144, 160, -1,
-  ] /* MPEG 2 */,
-  [
-    0, 32, 40, 48, 56, 64, 80, 96, 112, 128, 160, 192, 224, 256, 320, -1,
-  ] /* MPEG 1 */,
-  [0, 8, 16, 24, 32, 40, 48, 56, 64, -1, -1, -1, -1, -1, -1, -1] /* MPEG 2.5 */,
-] as const;
-
-export { t32l, t33l, ht, bitrate_table };
+export { t32l, t33l, ht };

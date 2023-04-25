@@ -11,13 +11,14 @@ import { LowPassHighPass } from './LowPassHighPass';
 import { MPEGMode } from './MPEGMode';
 import { NumUsed } from './NumUsed';
 import { PSY } from './PSY';
-import type { Presets } from './Presets';
+import { Presets } from './Presets';
 import { PsyModel } from './PsyModel';
 import type { Quantize } from './Quantize';
 import type { QuantizePVT } from './QuantizePVT';
+import type { SamplingFrequency } from './SamplingFrequency';
 import { ShortBlock } from './ShortBlock';
-import * as tables from './Tables';
 import { VbrMode } from './VbrMode';
+import { bitrateIndex, findNearestBitrate, getBitrate } from './bitrates';
 import {
   BLKSIZE,
   BPC,
@@ -44,7 +45,7 @@ export class Lame {
 
   private bs: BitStream | null = null;
 
-  private p: Presets | null = null;
+  private p: Presets = new Presets();
 
   private qupvt: QuantizePVT | null = null;
 
@@ -57,7 +58,6 @@ export class Lame {
   setModules(
     ga: GainAnalysis,
     bs: BitStream,
-    p: Presets,
     qupvt: QuantizePVT,
     qu: Quantize,
     psy: PsyModel,
@@ -65,7 +65,6 @@ export class Lame {
   ) {
     this.ga = ga;
     this.bs = bs;
-    this.p = p;
     this.qupvt = qupvt;
     this.qu = qu;
     this.psy = psy;
@@ -134,13 +133,13 @@ export class Lame {
   private static optimum_samplefreq(
     lowpassfreq: number,
     input_samplefreq: number
-  ) {
+  ): SamplingFrequency {
     /*
      * Rules:
      *
      * - if possible, sfb21 should NOT be used
      */
-    let suggested_samplefreq = 44100;
+    let suggested_samplefreq: SamplingFrequency = 44100;
 
     if (input_samplefreq >= 48000) suggested_samplefreq = 48000;
     else if (input_samplefreq >= 44100) suggested_samplefreq = 44100;
@@ -233,55 +232,6 @@ export class Lame {
         gpf.version = 0;
         return -1;
     }
-  }
-
-  /**
-   * @param bRate
-   *            legal rates from 8 to 320
-   */
-  private static findNearestBitrate(
-    bRate: number,
-    version: number,
-    samplerate: number
-  ) {
-    /* MPEG-1 or MPEG-2 LSF */
-    if (samplerate < 16000) version = 2;
-
-    let bitrate: number = tables.bitrate_table[version][1];
-
-    for (let i = 2; i <= 14; i++) {
-      if (tables.bitrate_table[version][i] > 0) {
-        if (
-          Math.abs(tables.bitrate_table[version][i] - bRate) <
-          Math.abs(bitrate - bRate)
-        )
-          bitrate = tables.bitrate_table[version][i];
-      }
-    }
-    return bitrate;
-  }
-
-  /**
-   * @param bRate
-   *            legal rates from 32 to 448 kbps
-   * @param version
-   *            MPEG-1 or MPEG-2/2.5 LSF
-   */
-  private static bitrateIndex(
-    bRate: number,
-    version: number,
-    samplerate: number
-  ) {
-    /* convert bitrate in kbps to index */
-    if (samplerate < 16000) version = 2;
-    for (let i = 0; i <= 14; i++) {
-      if (tables.bitrate_table[version][i] > 0) {
-        if (tables.bitrate_table[version][i] === bRate) {
-          return i;
-        }
-      }
-    }
-    return -1;
   }
 
   private static optimum_bandwidth(lh: LowPassHighPass, bitrate: number) {
@@ -539,7 +489,7 @@ export class Lame {
    *
    * Robert Hegemann 2000-07-01
    */
-  private static map2MP3Frequency(freq: number): number {
+  private static map2MP3Frequency(freq: number): SamplingFrequency {
     if (freq <= 8000) return 8000;
     if (freq <= 11025) return 11025;
     if (freq <= 12000) return 12000;
@@ -646,7 +596,7 @@ export class Lame {
        * for non Free Format find the nearest allowed
        * bitrate
        */
-      gfp.brate = Lame.findNearestBitrate(
+      gfp.brate = findNearestBitrate(
         gfp.brate,
         gfp.version,
         gfp.out_samplerate
@@ -754,9 +704,6 @@ export class Lame {
     gfc.findPeakSample = false;
 
     gfc.findReplayGain = false;
-    gfc.decode_on_the_fly = false;
-
-    if (gfc.decode_on_the_fly) gfc.findPeakSample = true;
 
     if (gfc.findReplayGain) {
       if (
@@ -879,12 +826,12 @@ export class Lame {
     }
 
     if (gfp.VBR === VbrMode.vbr_off) {
-      gfp.brate = Lame.findNearestBitrate(
+      gfp.brate = findNearestBitrate(
         gfp.brate,
         gfp.version,
         gfp.out_samplerate
       );
-      gfc.bitrate_index = Lame.bitrateIndex(
+      gfc.bitrate_index = bitrateIndex(
         gfp.brate,
         gfp.version,
         gfp.out_samplerate
@@ -954,7 +901,7 @@ export class Lame {
           /* off by default for this VBR mode */
         }
 
-        this.p!.apply_preset(gfp, 500 - gfp.VBR_q * 10, 0);
+        this.p.applyPresetFromQuality(gfp, gfp.VBR_q);
         /**
          * <PRE>
          *   The newer VBR code supports only a limited
@@ -980,7 +927,7 @@ export class Lame {
         break;
       }
       case VbrMode.vbr_rh: {
-        this.p!.apply_preset(gfp, 500 - gfp.VBR_q * 10, 0);
+        this.p.applyPresetFromQuality(gfp, gfp.VBR_q);
 
         gfc.PSY.mask_adjust = gfp.maskingadjust;
         gfc.PSY.mask_adjust_short = gfp.maskingadjust_short;
@@ -1015,7 +962,7 @@ export class Lame {
         const vbrmode = gfp.VBR;
         if (vbrmode === VbrMode.vbr_off) gfp.VBR_mean_bitrate_kbps = gfp.brate;
         /* second, set parameters depending on bitrate */
-        this.p!.apply_preset(gfp, gfp.VBR_mean_bitrate_kbps, 0);
+        this.p.apply_preset(gfp, gfp.VBR_mean_bitrate_kbps);
         gfp.VBR = vbrmode;
 
         gfc.PSY.mask_adjust = gfp.maskingadjust;
@@ -1046,12 +993,12 @@ export class Lame {
       if (gfp.out_samplerate < 16000) gfc.VBR_max_bitrate = 8;
       /* default: allow 64 kbps (MPEG-2.5) */
       if (gfp.VBR_min_bitrate_kbps !== 0) {
-        gfp.VBR_min_bitrate_kbps = Lame.findNearestBitrate(
+        gfp.VBR_min_bitrate_kbps = findNearestBitrate(
           gfp.VBR_min_bitrate_kbps,
           gfp.version,
           gfp.out_samplerate
         );
-        gfc.VBR_min_bitrate = Lame.bitrateIndex(
+        gfc.VBR_min_bitrate = bitrateIndex(
           gfp.VBR_min_bitrate_kbps,
           gfp.version,
           gfp.out_samplerate
@@ -1059,28 +1006,26 @@ export class Lame {
         if (gfc.VBR_min_bitrate < 0) return -1;
       }
       if (gfp.VBR_max_bitrate_kbps !== 0) {
-        gfp.VBR_max_bitrate_kbps = Lame.findNearestBitrate(
+        gfp.VBR_max_bitrate_kbps = findNearestBitrate(
           gfp.VBR_max_bitrate_kbps,
           gfp.version,
           gfp.out_samplerate
         );
-        gfc.VBR_max_bitrate = Lame.bitrateIndex(
+        gfc.VBR_max_bitrate = bitrateIndex(
           gfp.VBR_max_bitrate_kbps,
           gfp.version,
           gfp.out_samplerate
         );
         if (gfc.VBR_max_bitrate < 0) return -1;
       }
-      gfp.VBR_min_bitrate_kbps =
-        tables.bitrate_table[gfp.version][gfc.VBR_min_bitrate];
-      gfp.VBR_max_bitrate_kbps =
-        tables.bitrate_table[gfp.version][gfc.VBR_max_bitrate];
+      gfp.VBR_min_bitrate_kbps = getBitrate(gfp.version, gfc.VBR_min_bitrate);
+      gfp.VBR_max_bitrate_kbps = getBitrate(gfp.version, gfc.VBR_max_bitrate);
       gfp.VBR_mean_bitrate_kbps = Math.min(
-        tables.bitrate_table[gfp.version][gfc.VBR_max_bitrate],
+        getBitrate(gfp.version, gfc.VBR_max_bitrate),
         gfp.VBR_mean_bitrate_kbps
       );
       gfp.VBR_mean_bitrate_kbps = Math.max(
-        tables.bitrate_table[gfp.version][gfc.VBR_min_bitrate],
+        getBitrate(gfp.version, gfc.VBR_min_bitrate),
         gfp.VBR_mean_bitrate_kbps
       );
     }
@@ -1417,7 +1362,7 @@ export class Lame {
       n_out = inOut.n_out;
 
       /* compute ReplayGain of resampled input if requested */
-      if (gfc.findReplayGain && !gfc.decode_on_the_fly)
+      if (gfc.findReplayGain)
         if (
           this.ga!.analyzeSamples(
             gfc.rgdata,
@@ -1675,42 +1620,4 @@ export class Lame {
       }
     }
   }
-
-  static readonly V9 = 410;
-
-  static readonly V8 = 420;
-
-  static readonly V7 = 430;
-
-  static readonly V6 = 440;
-
-  static readonly V5 = 450;
-
-  static readonly V4 = 460;
-
-  static readonly V3 = 470;
-
-  static readonly V2 = 480;
-
-  static readonly V1 = 490;
-
-  static readonly V0 = 500;
-
-  /* still there for compatibility */
-
-  static readonly R3MIX = 1000;
-
-  static readonly STANDARD = 1001;
-
-  static readonly EXTREME = 1002;
-
-  static readonly INSANE = 1003;
-
-  static readonly STANDARD_FAST = 1004;
-
-  static readonly EXTREME_FAST = 1005;
-
-  static readonly MEDIUM = 1006;
-
-  static readonly MEDIUM_FAST = 1007;
 }

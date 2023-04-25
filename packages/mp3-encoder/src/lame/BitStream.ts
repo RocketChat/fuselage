@@ -3,11 +3,11 @@ import { GainAnalysis } from './GainAnalysis';
 import type { GrInfo } from './GrInfo';
 import type { LameGlobalFlags } from './LameGlobalFlags';
 import type { LameInternalFlags } from './LameInternalFlags';
-import type { MPGLib } from './MPGLib';
 import * as tables from './Tables';
 import { Takehiro } from './Takehiro';
 import { TotalBytes } from './TotalBytes';
-import type { VBRTag } from './VBRTag';
+import { VBRTag } from './VBRTag';
+import { getBitrate } from './bitrates';
 import {
   LAME_MAXMP3BUFFER,
   MAX_HEADER_BUF,
@@ -26,14 +26,10 @@ export class BitStream {
 
   private ga: GainAnalysis | null = null;
 
-  private mpg: MPGLib | null = null;
+  private readonly vbr = new VBRTag();
 
-  private vbr: VBRTag | null = null;
-
-  setModules(ga: GainAnalysis, mpg: MPGLib, vbr: VBRTag) {
+  setModules(ga: GainAnalysis) {
     this.ga = ga;
-    this.mpg = mpg;
-    this.vbr = vbr;
   }
 
   /**
@@ -65,7 +61,7 @@ export class BitStream {
 
     /* get bitrate in kbps [?] */
     if (gfc.bitrate_index !== 0)
-      bit_rate = tables.bitrate_table[gfp.version][gfc.bitrate_index];
+      bit_rate = getBitrate(gfp.version, gfc.bitrate_index);
     else bit_rate = gfp.brate;
     console.assert(bit_rate >= 8 && bit_rate <= 640);
 
@@ -886,7 +882,7 @@ export class BitStream {
     if (mp3data !== 0) {
       const crc = new Int32Array(1);
       crc[0] = gfc.nMusicCRC;
-      this.vbr!.updateMusicCRC(crc, buffer, bufferPos, minimum);
+      this.vbr.updateMusicCRC(crc, buffer, bufferPos, minimum);
       gfc.nMusicCRC = crc[0];
 
       /**
@@ -896,87 +892,6 @@ export class BitStream {
       if (minimum > 0) {
         gfc.VBR_seek_table.nBytesWritten += minimum;
       }
-
-      if (gfc.decode_on_the_fly) {
-        /* decode the frame */
-        const pcm_buf = Array.from({ length: 2 }, () => new Float32Array(1152));
-        let mp3_in = minimum;
-        let samples_out = -1;
-        let i;
-
-        /* re-synthesis to pcm. Repeat until we get a samples_out=0 */
-        while (samples_out !== 0) {
-          samples_out = this.mpg!.hip_decode1_unclipped(
-            buffer,
-            bufferPos,
-            mp3_in,
-            pcm_buf[0],
-            pcm_buf[1]
-          );
-          /*
-           * samples_out = 0: need more data to decode samples_out =
-           * -1: error. Lets assume 0 pcm output samples_out = number
-           * of samples output
-           */
-
-          /*
-           * set the lenght of the mp3 input buffer to zero, so that
-           * in the next iteration of the loop we will be querying
-           * mpglib about buffered data
-           */
-          mp3_in = 0;
-
-          if (samples_out === -1) {
-            /*
-             * error decoding. Not fatal, but might screw up the
-             * ReplayGain tag. What should we do? Ignore for now
-             */
-            samples_out = 0;
-          }
-          if (samples_out > 0) {
-            /* process the PCM data */
-
-            /*
-             * this should not be possible, and indicates we have
-             * overflown the pcm_buf buffer
-             */
-            console.assert(samples_out <= 1152);
-
-            if (gfc.findPeakSample) {
-              for (i = 0; i < samples_out; i++) {
-                if (pcm_buf[0][i] > gfc.PeakSample)
-                  gfc.PeakSample = pcm_buf[0][i];
-                else if (-pcm_buf[0][i] > gfc.PeakSample)
-                  gfc.PeakSample = -pcm_buf[0][i];
-              }
-              if (gfc.channels_out > 1)
-                for (i = 0; i < samples_out; i++) {
-                  if (pcm_buf[1][i] > gfc.PeakSample)
-                    gfc.PeakSample = pcm_buf[1][i];
-                  else if (-pcm_buf[1][i] > gfc.PeakSample)
-                    gfc.PeakSample = -pcm_buf[1][i];
-                }
-            }
-
-            if (gfc.findReplayGain)
-              if (
-                this.ga!.analyzeSamples(
-                  gfc.rgdata,
-                  pcm_buf[0],
-                  0,
-                  pcm_buf[1],
-                  0,
-                  samples_out,
-                  gfc.channels_out
-                ) === GainAnalysis.GAIN_ANALYSIS_ERROR
-              )
-                return -6;
-          }
-          /* if (samples_out>0) */
-        }
-        /* while (samples_out!=0) */
-      }
-      /* if (gfc.decode_on_the_fly) */
     }
     /* if (mp3data) */
     return minimum;
