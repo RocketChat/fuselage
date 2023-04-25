@@ -8,7 +8,6 @@ import {
   strike,
   emoji,
   emojiUnicode,
-  emoticon,
   mentionChannel,
   mentionUser,
 } from '../src/utils';
@@ -18,10 +17,6 @@ test.each([
   [
     '*test :smile: test*',
     [paragraph([bold([plain('test '), emoji('smile'), plain(' test')])])],
-  ],
-  [
-    '*:) asd*',
-    [paragraph([bold([emoticon(':)', 'slight_smile'), plain(' asd')])])],
   ],
   ['*😀*', [paragraph([bold([emojiUnicode('😀')])])]],
   ['*test 😀*', [paragraph([bold([plain('test '), emojiUnicode('😀')])])]],

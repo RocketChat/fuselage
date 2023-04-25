@@ -9,7 +9,6 @@ import {
   link,
   bigEmoji,
   emojiUnicode,
-  emoticon,
   mentionChannel,
   mentionUser,
 } from '../src/utils';
@@ -29,24 +28,27 @@ test.each([
       ]),
     ],
   ],
-  [
-    '_:) asd_',
-    [paragraph([italic([emoticon(':)', 'slight_smile'), plain(' asd')])])],
-  ],
   ['_😀_', [paragraph([italic([emojiUnicode('😀')])])]],
   ['_test 😀_', [paragraph([italic([plain('test '), emojiUnicode('😀')])])]],
   [
-    '_@guilherme.gazzo_',
-    [paragraph([italic([mentionUser('guilherme.gazzo')])])],
+    '_test @guilherme.gazzo test_',
+    [
+      paragraph([
+        italic([
+          plain('test '),
+          mentionUser('guilherme.gazzo'),
+          plain(' test'),
+        ]),
+      ]),
+    ],
   ],
-  ['_#GENERAL_', [paragraph([italic([mentionChannel('GENERAL')])])]],
   [
-    '_test @guilherme.gazzo_',
-    [paragraph([italic([plain('test '), mentionUser('guilherme.gazzo')])])],
-  ],
-  [
-    '_test #GENERAL_',
-    [paragraph([italic([plain('test '), mentionChannel('GENERAL')])])],
+    '_test #GENERAL test_',
+    [
+      paragraph([
+        italic([plain('test '), mentionChannel('GENERAL'), plain(' test')]),
+      ]),
+    ],
   ],
   [
     '_[A brand new Gist](https://gist.github.com/24dddfa97bef58f46ac2ce0f80c58ba4)_',

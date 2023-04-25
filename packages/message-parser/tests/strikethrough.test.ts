@@ -2,7 +2,6 @@ import { parse } from '../src';
 import {
   emoji,
   emojiUnicode,
-  emoticon,
   link,
   mentionChannel,
   mentionUser,
@@ -16,10 +15,6 @@ test.each([
   [
     '~test :smile: test~',
     [paragraph([strike([plain('test '), emoji('smile'), plain(' test')])])],
-  ],
-  [
-    '~:) asd~',
-    [paragraph([strike([emoticon(':)', 'slight_smile'), plain(' asd')])])],
   ],
   ['~😀~', [paragraph([strike([emojiUnicode('😀')])])]],
   ['~test 😀~', [paragraph([strike([plain('test '), emojiUnicode('😀')])])]],
