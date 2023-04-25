@@ -20,7 +20,7 @@ export class NsPsy {
   /**
    * short block tuning
    */
-  attackthre = 0;
+  attackthre = -1;
 
-  attackthre_s = 0;
+  attackthre_s = -1;
 }

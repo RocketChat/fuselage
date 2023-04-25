@@ -44,7 +44,7 @@ import {
   SFBMAX,
   SHORT_TYPE,
 } from './constants';
-import { isCloseToEachOther } from './isCloseToEachOther';
+import { isCloseToEachOther } from './math';
 
 export class Quantize {
   private __rv: Reservoir | null = null;
@@ -319,9 +319,9 @@ export class Quantize {
     xrpow: Float32Array
   ) {
     let nBits;
-    let CurrentStep = gfc.CurrentStep[ch];
+    let CurrentStep = gfc.currentStep[ch];
     let flagGoneOver = false;
-    const start = gfc.OldValue[ch];
+    const start = gfc.oldValue[ch];
     let Direction = BinSearchDirection.BINSEARCH_NONE;
     cod_info.global_gain = start;
     desired_rate -= cod_info.part2_length;
@@ -368,8 +368,8 @@ export class Quantize {
       cod_info.global_gain++;
       nBits = this.tk!.count_bits(gfc, xrpow, cod_info, null);
     }
-    gfc.CurrentStep[ch] = start - cod_info.global_gain >= 4 ? 4 : 2;
-    gfc.OldValue[ch] = cod_info.global_gain;
+    gfc.currentStep[ch] = start - cod_info.global_gain >= 4 ? 4 : 2;
+    gfc.oldValue[ch] = cod_info.global_gain;
     cod_info.part2_3_length = nBits;
     return nBits;
   }
@@ -626,7 +626,7 @@ export class Quantize {
     xrpow: Float32Array,
     bRefine: boolean
   ) {
-    const gfc = gfp.internal_flags!;
+    const gfc = gfp.internal_flags;
     let ifqstep34;
 
     if (cod_info.scalefac_scale === 0) {
@@ -820,7 +820,7 @@ export class Quantize {
     xrpow: Float32Array,
     bRefine: boolean
   ) {
-    const gfc = gfp.internal_flags!;
+    const gfc = gfp.internal_flags;
 
     this.amp_scalefac_bands(gfp, cod_info, distort, xrpow, bRefine);
 
@@ -899,7 +899,7 @@ export class Quantize {
     ch: number,
     targ_bits: number
   ) {
-    const gfc = gfp.internal_flags!;
+    const gfc = gfp.internal_flags;
     const cod_info_w = new GrInfo();
     const save_xrpow = new Float32Array(576);
     const distort = new Float32Array(SFBMAX);

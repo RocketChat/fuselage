@@ -1,11 +1,3 @@
-import type { BitStream } from './BitStream';
-import type { Lame } from './Lame';
-import type { LameGlobalFlags } from './LameGlobalFlags';
-import { Tables } from './Tables';
-import type { VBRSeekInfo } from './VBRSeekInfo';
-import { VbrMode } from './VbrMode';
-import { NUMTOCENTRIES } from './constants';
-
 /**
  * A Vbr header may be present in the ancillary data field of the first frame of
  * an mp3 bitstream<BR>
@@ -22,60 +14,16 @@ import { NUMTOCENTRIES } from './constants';
  * e.g. half duration seek point = (toc[50]/256.0) * total_bitstream_bytes
  */
 export class VBRTag {
-  static readonly NUMTOCENTRIES = 100;
-
   /**
    * (0xB40) the max freeformat 640 32kHz framesize.
    */
   static readonly MAXFRAMESIZE = 2880;
 
-  private lame: Lame | null = null;
-
-  private bs: BitStream | null = null;
-
-  setModules(lame: Lame, bs: BitStream) {
-    this.lame = lame;
-    this.bs = bs;
-  }
-
-  /**
-   * <PRE>
-   *    4 bytes for Header Tag
-   *    4 bytes for Header Flags
-   *  100 bytes for entry (toc)
-   *    4 bytes for frame size
-   *    4 bytes for stream size
-   *    4 bytes for VBR scale. a VBR quality indicator: 0=best 100=worst
-   *   20 bytes for LAME tag.  for example, "LAME3.12 (beta 6)"
-   * ___________
-   *  140 bytes
-   * </PRE>
-   */
-  private static readonly VBRHEADERSIZE = NUMTOCENTRIES + 4 + 4 + 4 + 4 + 4;
-
-  private static readonly LAMEHEADERSIZE =
-    VBRTag.VBRHEADERSIZE + 9 + 1 + 1 + 8 + 1 + 1 + 3 + 1 + 1 + 2 + 4 + 2 + 2;
-
-  /**
-   * The size of the Xing header MPEG-1, bit rate in kbps.
-   */
-  private static readonly XING_BITRATE1 = 128;
-
-  /**
-   * The size of the Xing header MPEG-2, bit rate in kbps.
-   */
-  private static readonly XING_BITRATE2 = 64;
-
-  /**
-   * The size of the Xing header MPEG-2.5, bit rate in kbps.
-   */
-  private static readonly XING_BITRATE25 = 32;
-
   /**
    * Lookup table for fast CRC-16 computation. Uses the polynomial
    * x^16+x^15+x^2+1
    */
-  private static readonly crc16Lookup = [
+  private readonly crc16Lookup = [
     0x0000, 0xc0c1, 0xc181, 0x0140, 0xc301, 0x03c0, 0x0280, 0xc241, 0xc601,
     0x06c0, 0x0780, 0xc741, 0x0500, 0xc5c1, 0xc481, 0x0440, 0xcc01, 0x0cc0,
     0x0d80, 0xcd41, 0x0f00, 0xcfc1, 0xce81, 0x0e40, 0x0a00, 0xcac1, 0xcb81,
@@ -107,204 +55,6 @@ export class VBRTag {
     0x4100, 0x81c1, 0x8081, 0x4040,
   ] as const;
 
-  private addVbr(v: VBRSeekInfo, bitrate: number) {
-    v.nVbrNumFrames++;
-    v.sum += bitrate;
-    v.seen++;
-
-    if (v.seen < v.want) {
-      return;
-    }
-
-    if (v.pos < v.size) {
-      v.bag[v.pos] = v.sum;
-      v.pos++;
-      v.seen = 0;
-    }
-    if (v.pos === v.size) {
-      for (let i = 1; i < v.size; i += 2) {
-        v.bag[i / 2] = v.bag[i];
-      }
-      v.want *= 2;
-      v.pos /= 2;
-    }
-  }
-
-  /**
-   * Add VBR entry, used to fill the VBR TOC entries.
-   *
-   * @param gfp
-   *            global flags
-   */
-  addVbrFrame(gfp: LameGlobalFlags) {
-    const gfc = gfp.internal_flags!;
-    const kbps = Tables.bitrate_table[gfp.version][gfc.bitrate_index];
-    this.addVbr(gfc.VBR_seek_table, kbps);
-  }
-
-  private shiftInBitsValue(x: number, n: number, v: number) {
-    return 0xff & ((x << n) | (v & ~(-1 << n)));
-  }
-
-  /**
-   * Construct the MP3 header using the settings of the global flags.
-   *
-   * <img src="1000px-Mp3filestructure.svg.png">
-   *
-   * @param gfp
-   *            global flags
-   * @param buffer
-   *            header
-   */
-  private setLameTagFrameHeader(gfp: LameGlobalFlags, buffer: Uint8Array) {
-    const gfc = gfp.internal_flags!;
-
-    // MP3 Sync Word
-    buffer[0] = this.shiftInBitsValue(buffer[0], 8, 0xff);
-
-    buffer[1] = this.shiftInBitsValue(buffer[1], 3, 7);
-    buffer[1] = this.shiftInBitsValue(
-      buffer[1],
-      1,
-      gfp.out_samplerate < 16000 ? 0 : 1
-    );
-    // Version
-    buffer[1] = this.shiftInBitsValue(buffer[1], 1, gfp.version);
-    // 01 == Layer 3
-    buffer[1] = this.shiftInBitsValue(buffer[1], 2, 4 - 3);
-    // Error protection
-    buffer[1] = this.shiftInBitsValue(
-      buffer[1],
-      1,
-      !gfp.error_protection ? 1 : 0
-    );
-
-    // Bit rate
-    buffer[2] = this.shiftInBitsValue(buffer[2], 4, gfc.bitrate_index);
-    // Frequency
-    buffer[2] = this.shiftInBitsValue(buffer[2], 2, gfc.samplerate_index);
-    // Pad. Bit
-    buffer[2] = this.shiftInBitsValue(buffer[2], 1, 0);
-    // Priv. Bit
-    buffer[2] = this.shiftInBitsValue(buffer[2], 1, gfp.extension);
-
-    // Mode
-    buffer[3] = this.shiftInBitsValue(buffer[3], 2, gfp.mode.ordinal);
-    // Mode extension (Used with Joint Stereo)
-    buffer[3] = this.shiftInBitsValue(buffer[3], 2, gfc.mode_ext);
-    // Copy
-    buffer[3] = this.shiftInBitsValue(buffer[3], 1, gfp.copyright);
-    // Original
-    buffer[3] = this.shiftInBitsValue(buffer[3], 1, gfp.original);
-    // Emphasis
-    buffer[3] = this.shiftInBitsValue(buffer[3], 2, gfp.emphasis);
-
-    /* the default VBR header. 48 kbps layer III, no padding, no crc */
-    /* but sampling freq, mode and copyright/copy protection taken */
-    /* from first valid frame */
-    buffer[0] = 0xff;
-    let abyte = 0xff & (buffer[1] & 0xf1);
-    let bitrate;
-    if (gfp.version === 1) {
-      bitrate = VBRTag.XING_BITRATE1;
-    } else if (gfp.out_samplerate < 16000) bitrate = VBRTag.XING_BITRATE25;
-    else bitrate = VBRTag.XING_BITRATE2;
-
-    if (gfp.VBR === VbrMode.vbr_off) bitrate = gfp.brate;
-
-    let bbyte;
-    if (gfp.free_format) bbyte = 0x00;
-    else
-      bbyte =
-        0xff &
-        (16 *
-          this.lame!.bitrateIndex(bitrate, gfp.version, gfp.out_samplerate));
-
-    /*
-     * Use as much of the info from the real frames in the Xing header:
-     * samplerate, channels, crc, etc...
-     */
-    if (gfp.version === 1) {
-      /* MPEG1 */
-      buffer[1] = 0xff & (abyte | 0x0a);
-      /* was 0x0b; */
-      abyte = 0xff & (buffer[2] & 0x0d);
-      /* AF keep also private bit */
-      buffer[2] = 0xff & (bbyte | abyte);
-      /* 64kbs MPEG1 frame */
-    } else {
-      /* MPEG2 */
-      buffer[1] = 0xff & (abyte | 0x02);
-      /* was 0x03; */
-      abyte = 0xff & (buffer[2] & 0x0d);
-      /* AF keep also private bit */
-      buffer[2] = 0xff & (bbyte | abyte);
-      /* 64kbs MPEG2 frame */
-    }
-  }
-
-  /**
-   * Initializes the header
-   *
-   * @param gfp
-   *            global flags
-   */
-  init(gfp: LameGlobalFlags) {
-    const gfc = gfp.internal_flags!;
-
-    /**
-     * <PRE>
-     * Xing VBR pretends to be a 48kbs layer III frame.  (at 44.1kHz).
-     * (at 48kHz they use 56kbs since 48kbs frame not big enough for
-     * table of contents)
-     * let's always embed Xing header inside a 64kbs layer III frame.
-     * this gives us enough room for a LAME version string too.
-     * size determined by sampling frequency (MPEG1)
-     * 32kHz:    216 bytes@48kbs    288bytes@ 64kbs
-     * 44.1kHz:  156 bytes          208bytes@64kbs     (+1 if padding = 1)
-     * 48kHz:    144 bytes          192
-     *
-     * MPEG 2 values are the same since the framesize and samplerate
-     * are each reduced by a factor of 2.
-     * </PRE>
-     */
-    let kbps_header;
-    if (gfp.version === 1) {
-      kbps_header = VBRTag.XING_BITRATE1;
-    } else if (gfp.out_samplerate < 16000) kbps_header = VBRTag.XING_BITRATE25;
-    else kbps_header = VBRTag.XING_BITRATE2;
-
-    if (gfp.VBR === VbrMode.vbr_off) kbps_header = gfp.brate;
-
-    // make sure LAME Header fits into Frame
-    const totalFrameSize =
-      ((gfp.version + 1) * 72000 * kbps_header) / gfp.out_samplerate;
-    const headerSize = gfc.sideinfo_len + VBRTag.LAMEHEADERSIZE;
-    gfc.VBR_seek_table.totalFrameSize = totalFrameSize;
-    if (totalFrameSize < headerSize || totalFrameSize > VBRTag.MAXFRAMESIZE) {
-      /* disable tag, it wont fit */
-      gfp.bWriteVbrTag = false;
-      return;
-    }
-
-    gfc.VBR_seek_table.nVbrNumFrames = 0;
-    gfc.VBR_seek_table.nBytesWritten = 0;
-    gfc.VBR_seek_table.sum = 0;
-
-    gfc.VBR_seek_table.seen = 0;
-    gfc.VBR_seek_table.want = 1;
-    gfc.VBR_seek_table.pos = 0;
-
-    // write dummy VBR tag of all 0's into bitstream
-    const buffer = new Uint8Array(VBRTag.MAXFRAMESIZE);
-
-    this.setLameTagFrameHeader(gfp, buffer);
-    const n = gfc.VBR_seek_table.totalFrameSize;
-    for (let i = 0; i < n; ++i) {
-      this.bs!.add_dummy_byte(gfp, buffer[i] & 0xff, 1);
-    }
-  }
-
   /**
    * Fast CRC-16 computation (uses table crc16Lookup).
    *
@@ -314,7 +64,7 @@ export class VBRTag {
    */
   private crcUpdateLookup(value: number, crc: number) {
     const tmp = crc ^ value;
-    crc = (crc >> 8) ^ VBRTag.crc16Lookup[tmp & 0xff];
+    crc = (crc >> 8) ^ this.crc16Lookup[tmp & 0xff];
     return crc;
   }
 

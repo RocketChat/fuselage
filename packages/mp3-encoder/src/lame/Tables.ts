@@ -1,11 +1,4 @@
-class HuffCodeTab {
-  constructor(
-    public xlen: number,
-    public linmax: number,
-    public table: readonly number[] | null,
-    public hlen: readonly number[] | null
-  ) {}
-}
+import type { HuffCodeTab } from './HuffCodeTab';
 
 const t1HB = [1, 1, 1, 0] as const;
 
@@ -327,121 +320,42 @@ const t33l = [
   4 + 4,
 ] as const;
 
-const ht = [
-  /* xlen, linmax, table, hlen */
-  new HuffCodeTab(0, 0, null, null),
-  new HuffCodeTab(2, 0, t1HB, t1l),
-  new HuffCodeTab(3, 0, t2HB, t2l),
-  new HuffCodeTab(3, 0, t3HB, t3l),
-  new HuffCodeTab(0, 0, null, null) /* Apparently not used */,
-  new HuffCodeTab(4, 0, t5HB, t5l),
-  new HuffCodeTab(4, 0, t6HB, t6l),
-  new HuffCodeTab(6, 0, t7HB, t7l),
-  new HuffCodeTab(6, 0, t8HB, t8l),
-  new HuffCodeTab(6, 0, t9HB, t9l),
-  new HuffCodeTab(8, 0, t10HB, t10l),
-  new HuffCodeTab(8, 0, t11HB, t11l),
-  new HuffCodeTab(8, 0, t12HB, t12l),
-  new HuffCodeTab(16, 0, t13HB, t13l),
-  new HuffCodeTab(0, 0, null, t16_5l) /* Apparently not used */,
-  new HuffCodeTab(16, 0, t15HB, t15l),
-
-  new HuffCodeTab(1, 1, t16HB, t16l),
-  new HuffCodeTab(2, 3, t16HB, t16l),
-  new HuffCodeTab(3, 7, t16HB, t16l),
-  new HuffCodeTab(4, 15, t16HB, t16l),
-  new HuffCodeTab(6, 63, t16HB, t16l),
-  new HuffCodeTab(8, 255, t16HB, t16l),
-  new HuffCodeTab(10, 1023, t16HB, t16l),
-  new HuffCodeTab(13, 8191, t16HB, t16l),
-
-  new HuffCodeTab(4, 15, t24HB, t24l),
-  new HuffCodeTab(5, 31, t24HB, t24l),
-  new HuffCodeTab(6, 63, t24HB, t24l),
-  new HuffCodeTab(7, 127, t24HB, t24l),
-  new HuffCodeTab(8, 255, t24HB, t24l),
-  new HuffCodeTab(9, 511, t24HB, t24l),
-  new HuffCodeTab(11, 2047, t24HB, t24l),
-  new HuffCodeTab(13, 8191, t24HB, t24l),
-
-  new HuffCodeTab(0, 0, t32HB, t32l),
-  new HuffCodeTab(0, 0, t33HB, t33l),
-] as const;
-
-/**
- * <CODE>
- *  for (i = 0; i < 16*16; i++) [
- *      largetbl[i] = ((ht[16].hlen[i]) << 16) + ht[24].hlen[i];
- *  ]
- * </CODE>
- *
- */
-const largetbl = [
-  0x010004, 0x050005, 0x070007, 0x090008, 0x0a0009, 0x0a000a, 0x0b000a,
-  0x0b000b, 0x0c000b, 0x0c000c, 0x0c000c, 0x0d000c, 0x0d000c, 0x0d000c,
-  0x0e000d, 0x0a000a, 0x040005, 0x060006, 0x080007, 0x090008, 0x0a0009,
-  0x0b000a, 0x0b000a, 0x0b000b, 0x0c000b, 0x0c000b, 0x0c000c, 0x0d000c,
-  0x0e000c, 0x0d000c, 0x0e000c, 0x0a000a, 0x070007, 0x080007, 0x090008,
-  0x0a0009, 0x0b0009, 0x0b000a, 0x0c000a, 0x0c000b, 0x0d000b, 0x0c000b,
-  0x0d000b, 0x0d000c, 0x0d000c, 0x0e000c, 0x0e000d, 0x0b0009, 0x090008,
-  0x090008, 0x0a0009, 0x0b0009, 0x0b000a, 0x0c000a, 0x0c000a, 0x0c000b,
-  0x0d000b, 0x0d000b, 0x0e000b, 0x0e000c, 0x0e000c, 0x0f000c, 0x0f000c,
-  0x0c0009, 0x0a0009, 0x0a0009, 0x0b0009, 0x0b000a, 0x0c000a, 0x0c000a,
-  0x0d000a, 0x0d000b, 0x0d000b, 0x0e000b, 0x0e000c, 0x0e000c, 0x0f000c,
-  0x0f000c, 0x0f000d, 0x0b0009, 0x0a000a, 0x0a0009, 0x0b000a, 0x0b000a,
-  0x0c000a, 0x0d000a, 0x0d000b, 0x0e000b, 0x0d000b, 0x0e000b, 0x0e000c,
-  0x0f000c, 0x0f000c, 0x0f000c, 0x10000c, 0x0c0009, 0x0b000a, 0x0b000a,
-  0x0b000a, 0x0c000a, 0x0d000a, 0x0d000b, 0x0d000b, 0x0d000b, 0x0e000b,
-  0x0e000c, 0x0e000c, 0x0e000c, 0x0f000c, 0x0f000c, 0x10000d, 0x0c0009,
-  0x0b000b, 0x0b000a, 0x0c000a, 0x0c000a, 0x0d000b, 0x0d000b, 0x0d000b,
-  0x0e000b, 0x0e000c, 0x0f000c, 0x0f000c, 0x0f000c, 0x0f000c, 0x11000d,
-  0x11000d, 0x0c000a, 0x0b000b, 0x0c000b, 0x0c000b, 0x0d000b, 0x0d000b,
-  0x0d000b, 0x0e000b, 0x0e000b, 0x0f000b, 0x0f000c, 0x0f000c, 0x0f000c,
-  0x10000c, 0x10000d, 0x10000d, 0x0c000a, 0x0c000b, 0x0c000b, 0x0c000b,
-  0x0d000b, 0x0d000b, 0x0e000b, 0x0e000b, 0x0f000c, 0x0f000c, 0x0f000c,
-  0x0f000c, 0x10000c, 0x0f000d, 0x10000d, 0x0f000d, 0x0d000a, 0x0c000c,
-  0x0d000b, 0x0c000b, 0x0d000b, 0x0e000b, 0x0e000c, 0x0e000c, 0x0e000c,
-  0x0f000c, 0x10000c, 0x10000c, 0x10000d, 0x11000d, 0x11000d, 0x10000d,
-  0x0c000a, 0x0d000c, 0x0d000c, 0x0d000b, 0x0d000b, 0x0e000b, 0x0e000c,
-  0x0f000c, 0x10000c, 0x10000c, 0x10000c, 0x10000c, 0x10000d, 0x10000d,
-  0x0f000d, 0x10000d, 0x0d000a, 0x0d000c, 0x0e000c, 0x0e000c, 0x0e000c,
-  0x0e000c, 0x0f000c, 0x0f000c, 0x0f000c, 0x0f000c, 0x11000c, 0x10000d,
-  0x10000d, 0x10000d, 0x10000d, 0x12000d, 0x0d000a, 0x0f000c, 0x0e000c,
-  0x0e000c, 0x0e000c, 0x0f000c, 0x0f000c, 0x10000c, 0x10000c, 0x10000d,
-  0x12000d, 0x11000d, 0x11000d, 0x11000d, 0x13000d, 0x11000d, 0x0d000a,
-  0x0e000d, 0x0f000c, 0x0d000c, 0x0e000c, 0x10000c, 0x10000c, 0x0f000c,
-  0x10000d, 0x10000d, 0x11000d, 0x12000d, 0x11000d, 0x13000d, 0x11000d,
-  0x10000d, 0x0d000a, 0x0a0009, 0x0a0009, 0x0a0009, 0x0b0009, 0x0b0009,
-  0x0c0009, 0x0c0009, 0x0c0009, 0x0d0009, 0x0d0009, 0x0d0009, 0x0d000a,
-  0x0d000a, 0x0d000a, 0x0d000a, 0x0a0006,
-] as const;
-
-/**
- * <CODE>
- *  for (i = 0; i < 3*3; i++) [
- *      table23[i] = ((ht[2].hlen[i]) << 16) + ht[3].hlen[i];
- *  ]
- * </CODE>
- *
- */
-const table23 = [
-  0x010002, 0x040003, 0x070007, 0x040004, 0x050004, 0x070007, 0x060006,
-  0x070007, 0x080008,
-] as const;
-
-/**
- * <CODE>
- *  for (i = 0; i < 4*4; i++) [
- *       table56[i] = ((ht[5].hlen[i]) << 16) + ht[6].hlen[i];
- *   ]
- * </CODE>
- *
- */
-const table56 = [
-  0x010003, 0x040004, 0x070006, 0x080008, 0x040004, 0x050004, 0x080006,
-  0x090007, 0x070005, 0x080006, 0x090007, 0x0a0008, 0x080007, 0x080007,
-  0x090008, 0x0a0009,
-] as const;
+const ht: readonly HuffCodeTab[] = [
+  { xlen: 0, linmax: 0 },
+  { xlen: 2, linmax: 0, table: t1HB, hlen: t1l },
+  { xlen: 3, linmax: 0, table: t2HB, hlen: t2l },
+  { xlen: 3, linmax: 0, table: t3HB, hlen: t3l },
+  { xlen: 0, linmax: 0 } /* Apparently not used */,
+  { xlen: 4, linmax: 0, table: t5HB, hlen: t5l },
+  { xlen: 4, linmax: 0, table: t6HB, hlen: t6l },
+  { xlen: 6, linmax: 0, table: t7HB, hlen: t7l },
+  { xlen: 6, linmax: 0, table: t8HB, hlen: t8l },
+  { xlen: 6, linmax: 0, table: t9HB, hlen: t9l },
+  { xlen: 8, linmax: 0, table: t10HB, hlen: t10l },
+  { xlen: 8, linmax: 0, table: t11HB, hlen: t11l },
+  { xlen: 8, linmax: 0, table: t12HB, hlen: t12l },
+  { xlen: 16, linmax: 0, table: t13HB, hlen: t13l },
+  { xlen: 0, linmax: 0, hlen: t16_5l } /* Apparently not used */,
+  { xlen: 16, linmax: 0, table: t15HB, hlen: t15l },
+  { xlen: 1, linmax: 1, table: t16HB, hlen: t16l },
+  { xlen: 2, linmax: 3, table: t16HB, hlen: t16l },
+  { xlen: 3, linmax: 7, table: t16HB, hlen: t16l },
+  { xlen: 4, linmax: 15, table: t16HB, hlen: t16l },
+  { xlen: 6, linmax: 63, table: t16HB, hlen: t16l },
+  { xlen: 8, linmax: 255, table: t16HB, hlen: t16l },
+  { xlen: 10, linmax: 1023, table: t16HB, hlen: t16l },
+  { xlen: 13, linmax: 8191, table: t16HB, hlen: t16l },
+  { xlen: 4, linmax: 15, table: t24HB, hlen: t24l },
+  { xlen: 5, linmax: 31, table: t24HB, hlen: t24l },
+  { xlen: 6, linmax: 63, table: t24HB, hlen: t24l },
+  { xlen: 7, linmax: 127, table: t24HB, hlen: t24l },
+  { xlen: 8, linmax: 255, table: t24HB, hlen: t24l },
+  { xlen: 9, linmax: 511, table: t24HB, hlen: t24l },
+  { xlen: 11, linmax: 2047, table: t24HB, hlen: t24l },
+  { xlen: 13, linmax: 8191, table: t24HB, hlen: t24l },
+  { xlen: 0, linmax: 0, table: t32HB, hlen: t32l },
+  { xlen: 0, linmax: 0, table: t33HB, hlen: t33l },
+];
 
 const bitrate_table = [
   [
@@ -453,61 +367,4 @@ const bitrate_table = [
   [0, 8, 16, 24, 32, 40, 48, 56, 64, -1, -1, -1, -1, -1, -1, -1] /* MPEG 2.5 */,
 ] as const;
 
-/**
- * MPEG 2, MPEG 1, MPEG 2.5.
- */
-const samplerate_table = [
-  [22050, 24000, 16000, -1],
-  [44100, 48000, 32000, -1],
-  [11025, 12000, 8000, -1],
-] as const;
-
-/**
- * This is the scfsi_band table from 2.4.2.7 of the IS.
- */
-const scfsi_band = [0, 6, 11, 16, 21] as const;
-
-export const Tables = {
-  t1HB,
-  t2HB,
-  t3HB,
-  t5HB,
-  t6HB,
-  t7HB,
-  t8HB,
-  t9HB,
-  t10HB,
-  t11HB,
-  t12HB,
-  t13HB,
-  t15HB,
-  t16HB,
-  t24HB,
-  t32HB,
-  t33HB,
-  t1l,
-  t2l,
-  t3l,
-  t5l,
-  t6l,
-  t7l,
-  t8l,
-  t9l,
-  t10l,
-  t11l,
-  t12l,
-  t13l,
-  t15l,
-  t16_5l,
-  t16l,
-  t24l,
-  t32l,
-  t33l,
-  ht,
-  largetbl,
-  table23,
-  table56,
-  bitrate_table,
-  samplerate_table,
-  scfsi_band,
-};
+export { t32l, t33l, ht, bitrate_table };

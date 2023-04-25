@@ -5,15 +5,95 @@ import { GrInfo } from './GrInfo';
 import type { IIISideInfo } from './IIISideInfo';
 import type { LameInternalFlags } from './LameInternalFlags';
 import { QuantizePVT } from './QuantizePVT';
-import { Tables } from './Tables';
+import * as tables from './Tables';
 import { NORM_TYPE, SBMAX_l, SBPSY_l, SHORT_TYPE } from './constants';
 
 export class Takehiro {
-  qupvt: QuantizePVT | null = null;
+  private readonly qupvt: QuantizePVT;
 
-  setModules(qupvt: QuantizePVT) {
+  constructor(qupvt: QuantizePVT) {
     this.qupvt = qupvt;
   }
+
+  /**
+   * <CODE>
+   *  for (i = 0; i < 16*16; i++) [
+   *      largetbl[i] = ((ht[16].hlen[i]) << 16) + ht[24].hlen[i];
+   *  ]
+   * </CODE>
+   *
+   */
+  private readonly largetbl = [
+    0x010004, 0x050005, 0x070007, 0x090008, 0x0a0009, 0x0a000a, 0x0b000a,
+    0x0b000b, 0x0c000b, 0x0c000c, 0x0c000c, 0x0d000c, 0x0d000c, 0x0d000c,
+    0x0e000d, 0x0a000a, 0x040005, 0x060006, 0x080007, 0x090008, 0x0a0009,
+    0x0b000a, 0x0b000a, 0x0b000b, 0x0c000b, 0x0c000b, 0x0c000c, 0x0d000c,
+    0x0e000c, 0x0d000c, 0x0e000c, 0x0a000a, 0x070007, 0x080007, 0x090008,
+    0x0a0009, 0x0b0009, 0x0b000a, 0x0c000a, 0x0c000b, 0x0d000b, 0x0c000b,
+    0x0d000b, 0x0d000c, 0x0d000c, 0x0e000c, 0x0e000d, 0x0b0009, 0x090008,
+    0x090008, 0x0a0009, 0x0b0009, 0x0b000a, 0x0c000a, 0x0c000a, 0x0c000b,
+    0x0d000b, 0x0d000b, 0x0e000b, 0x0e000c, 0x0e000c, 0x0f000c, 0x0f000c,
+    0x0c0009, 0x0a0009, 0x0a0009, 0x0b0009, 0x0b000a, 0x0c000a, 0x0c000a,
+    0x0d000a, 0x0d000b, 0x0d000b, 0x0e000b, 0x0e000c, 0x0e000c, 0x0f000c,
+    0x0f000c, 0x0f000d, 0x0b0009, 0x0a000a, 0x0a0009, 0x0b000a, 0x0b000a,
+    0x0c000a, 0x0d000a, 0x0d000b, 0x0e000b, 0x0d000b, 0x0e000b, 0x0e000c,
+    0x0f000c, 0x0f000c, 0x0f000c, 0x10000c, 0x0c0009, 0x0b000a, 0x0b000a,
+    0x0b000a, 0x0c000a, 0x0d000a, 0x0d000b, 0x0d000b, 0x0d000b, 0x0e000b,
+    0x0e000c, 0x0e000c, 0x0e000c, 0x0f000c, 0x0f000c, 0x10000d, 0x0c0009,
+    0x0b000b, 0x0b000a, 0x0c000a, 0x0c000a, 0x0d000b, 0x0d000b, 0x0d000b,
+    0x0e000b, 0x0e000c, 0x0f000c, 0x0f000c, 0x0f000c, 0x0f000c, 0x11000d,
+    0x11000d, 0x0c000a, 0x0b000b, 0x0c000b, 0x0c000b, 0x0d000b, 0x0d000b,
+    0x0d000b, 0x0e000b, 0x0e000b, 0x0f000b, 0x0f000c, 0x0f000c, 0x0f000c,
+    0x10000c, 0x10000d, 0x10000d, 0x0c000a, 0x0c000b, 0x0c000b, 0x0c000b,
+    0x0d000b, 0x0d000b, 0x0e000b, 0x0e000b, 0x0f000c, 0x0f000c, 0x0f000c,
+    0x0f000c, 0x10000c, 0x0f000d, 0x10000d, 0x0f000d, 0x0d000a, 0x0c000c,
+    0x0d000b, 0x0c000b, 0x0d000b, 0x0e000b, 0x0e000c, 0x0e000c, 0x0e000c,
+    0x0f000c, 0x10000c, 0x10000c, 0x10000d, 0x11000d, 0x11000d, 0x10000d,
+    0x0c000a, 0x0d000c, 0x0d000c, 0x0d000b, 0x0d000b, 0x0e000b, 0x0e000c,
+    0x0f000c, 0x10000c, 0x10000c, 0x10000c, 0x10000c, 0x10000d, 0x10000d,
+    0x0f000d, 0x10000d, 0x0d000a, 0x0d000c, 0x0e000c, 0x0e000c, 0x0e000c,
+    0x0e000c, 0x0f000c, 0x0f000c, 0x0f000c, 0x0f000c, 0x11000c, 0x10000d,
+    0x10000d, 0x10000d, 0x10000d, 0x12000d, 0x0d000a, 0x0f000c, 0x0e000c,
+    0x0e000c, 0x0e000c, 0x0f000c, 0x0f000c, 0x10000c, 0x10000c, 0x10000d,
+    0x12000d, 0x11000d, 0x11000d, 0x11000d, 0x13000d, 0x11000d, 0x0d000a,
+    0x0e000d, 0x0f000c, 0x0d000c, 0x0e000c, 0x10000c, 0x10000c, 0x0f000c,
+    0x10000d, 0x10000d, 0x11000d, 0x12000d, 0x11000d, 0x13000d, 0x11000d,
+    0x10000d, 0x0d000a, 0x0a0009, 0x0a0009, 0x0a0009, 0x0b0009, 0x0b0009,
+    0x0c0009, 0x0c0009, 0x0c0009, 0x0d0009, 0x0d0009, 0x0d0009, 0x0d000a,
+    0x0d000a, 0x0d000a, 0x0d000a, 0x0a0006,
+  ] as const;
+
+  /**
+   * <CODE>
+   *  for (i = 0; i < 3*3; i++) [
+   *      table23[i] = ((ht[2].hlen[i]) << 16) + ht[3].hlen[i];
+   *  ]
+   * </CODE>
+   *
+   */
+  private readonly table23 = [
+    0x010002, 0x040003, 0x070007, 0x040004, 0x050004, 0x070007, 0x060006,
+    0x070007, 0x080008,
+  ] as const;
+
+  /**
+   * <CODE>
+   *  for (i = 0; i < 4*4; i++) [
+   *       table56[i] = ((ht[5].hlen[i]) << 16) + ht[6].hlen[i];
+   *   ]
+   * </CODE>
+   *
+   */
+  private readonly table56 = [
+    0x010003, 0x040004, 0x070006, 0x080008, 0x040004, 0x050004, 0x080006,
+    0x090007, 0x070005, 0x080006, 0x090007, 0x0a0008, 0x080007, 0x080007,
+    0x090008, 0x0a0009,
+  ] as const;
+
+  /**
+   * This is the scfsi_band table from 2.4.2.7 of the IS.
+   */
+  private readonly scfsi_band = [0, 6, 11, 16, 21] as const;
 
   private readonly subdv_table = [
     [0, 0] /* 0 bands */,
@@ -105,13 +185,13 @@ export class Takehiro {
       const rx1 = Math.trunc(x1);
       let x3 = xr[xrPos++] * istep;
       const rx2 = Math.trunc(x2);
-      x0 += this.qupvt!.adj43[rx0];
+      x0 += this.qupvt.adj43[rx0];
       const rx3 = Math.trunc(x3);
-      x1 += this.qupvt!.adj43[rx1];
+      x1 += this.qupvt.adj43[rx1];
       ix[ixPos++] = Math.trunc(x0);
-      x2 += this.qupvt!.adj43[rx2];
+      x2 += this.qupvt.adj43[rx2];
       ix[ixPos++] = Math.trunc(x1);
-      x3 += this.qupvt!.adj43[rx3];
+      x3 += this.qupvt.adj43[rx3];
       ix[ixPos++] = Math.trunc(x2);
       ix[ixPos++] = Math.trunc(x3);
     }
@@ -120,8 +200,8 @@ export class Takehiro {
       let x1 = xr[xrPos++] * istep;
       const rx0 = Math.trunc(x0);
       const rx1 = Math.trunc(x1);
-      x0 += this.qupvt!.adj43[rx0];
-      x1 += this.qupvt!.adj43[rx1];
+      x0 += this.qupvt.adj43[rx0];
+      x1 += this.qupvt.adj43[rx1];
       ix[ixPos++] = Math.trunc(x0);
       ix[ixPos++] = Math.trunc(x1);
     }
@@ -171,7 +251,7 @@ export class Takehiro {
         step =
           codInfo.global_gain -
           ((codInfo.scalefac[sfb] +
-            (codInfo.preflag !== 0 ? this.qupvt!.pretab[sfb] : 0)) <<
+            (codInfo.preflag !== 0 ? this.qupvt.pretab[sfb] : 0)) <<
             (codInfo.scalefac_scale + 1)) -
           codInfo.subblock_gain[codInfo.window[sfb]] * 8;
       }
@@ -360,7 +440,7 @@ export class Takehiro {
     s: Bits
   ) {
     /* ESC-table is used */
-    const linbits = Tables.ht[t1].xlen * 65536 + Tables.ht[t2].xlen;
+    const linbits = tables.ht[t1].xlen * 65536 + tables.ht[t2].xlen;
     let sum = 0;
     do {
       let x = ix[ixPos++];
@@ -382,7 +462,7 @@ export class Takehiro {
         x += y;
       }
 
-      sum += Tables.largetbl[x];
+      sum += this.largetbl[x];
     } while (ixPos < end);
 
     const sum2 = sum & 0xffff;
@@ -400,7 +480,7 @@ export class Takehiro {
   private count_bit_noESC(ix: Int32Array, ixPos: number, end: number, s: Bits) {
     /* No ESC-words */
     let sum1 = 0;
-    const hlen1 = Tables.ht[1].hlen!;
+    const hlen1 = tables.ht[1].hlen!;
 
     do {
       const x = ix[ixPos + 0] * 2 + ix[ixPos + 1];
@@ -421,10 +501,10 @@ export class Takehiro {
   ) {
     /* No ESC-words */
     let sum = 0;
-    const { xlen } = Tables.ht[t1];
+    const { xlen } = tables.ht[t1];
     let hlen;
-    if (t1 === 2) hlen = Tables.table23;
-    else hlen = Tables.table56;
+    if (t1 === 2) hlen = this.table23;
+    else hlen = this.table56;
 
     do {
       const x = ix[ixPos + 0] * xlen + ix[ixPos + 1];
@@ -455,10 +535,10 @@ export class Takehiro {
     let sum1 = 0;
     let sum2 = 0;
     let sum3 = 0;
-    const { xlen } = Tables.ht[t1];
-    const hlen1 = Tables.ht[t1].hlen!;
-    const hlen2 = Tables.ht[t1 + 1].hlen!;
-    const hlen3 = Tables.ht[t1 + 2].hlen!;
+    const { xlen } = tables.ht[t1];
+    const hlen1 = tables.ht[t1].hlen!;
+    const hlen2 = tables.ht[t1 + 1].hlen!;
+    const hlen3 = tables.ht[t1 + 2].hlen!;
 
     do {
       const x = ix[ixPos + 0] * xlen + ix[ixPos + 1];
@@ -546,13 +626,13 @@ export class Takehiro {
         max -= 15;
         let choice2;
         for (choice2 = 24; choice2 < 32; choice2++) {
-          if (Tables.ht[choice2].linmax >= max) {
+          if (tables.ht[choice2].linmax >= max) {
             break;
           }
         }
         let choice;
         for (choice = choice2 - 8; choice < 24; choice++) {
-          if (Tables.ht[choice].linmax >= max) {
+          if (tables.ht[choice].linmax >= max) {
             break;
           }
         }
@@ -588,8 +668,8 @@ export class Takehiro {
         break;
       }
       const p = ((ix[i - 4] * 2 + ix[i - 3]) * 2 + ix[i - 2]) * 2 + ix[i - 1];
-      a1 += Tables.t32l[p];
-      a2 += Tables.t33l[p];
+      a1 += tables.t32l[p];
+      a2 += tables.t33l[p];
     }
     let bits = a1;
     gi.count1table_select = 0;
@@ -680,14 +760,14 @@ export class Takehiro {
     const ix = gi.l3_enc;
 
     /* since quantize_xrpow uses table lookup, we need to check this first: */
-    const w = QuantizePVT.IXMAX_VAL / this.qupvt!.IPOW20(gi.global_gain);
+    const w = QuantizePVT.IXMAX_VAL / this.qupvt.IPOW20(gi.global_gain);
 
     if (gi.xrpow_max > w) return QuantizePVT.LARGE_BITS;
 
     this.quantize_xrpow(
       xr,
       ix,
-      this.qupvt!.IPOW20(gi.global_gain),
+      this.qupvt.IPOW20(gi.global_gain),
       gi,
       prev_noise
     );
@@ -696,7 +776,7 @@ export class Takehiro {
       let j = 0;
       /* 0.634521682242439 = 0.5946*2**(.5*0.1875) */
       const gain = gi.global_gain + gi.scalefac_scale;
-      const roundfac = 0.634521682242439 / this.qupvt!.IPOW20(gain);
+      const roundfac = 0.634521682242439 / this.qupvt.IPOW20(gain);
       for (let sfb = 0; sfb < gi.sfbmax; sfb++) {
         const width = gi.width[sfb];
         console.assert(width >= 0);
@@ -831,8 +911,8 @@ export class Takehiro {
 
     for (; i > cod_info2.big_values; i -= 4) {
       const p = ((ix[i - 4] * 2 + ix[i - 3]) * 2 + ix[i - 2]) * 2 + ix[i - 1];
-      a1 += Tables.t32l[p];
-      a2 += Tables.t33l[p];
+      a1 += tables.t32l[p];
+      a2 += tables.t33l[p];
     }
     cod_info2.big_values = i;
 
@@ -897,17 +977,13 @@ export class Takehiro {
     const gi = l3_side.tt[1][ch];
     const g0 = l3_side.tt[0][ch];
 
-    for (let i = 0; i < Tables.scfsi_band.length - 1; i++) {
-      for (sfb = Tables.scfsi_band[i]; sfb < Tables.scfsi_band[i + 1]; sfb++) {
+    for (let i = 0; i < this.scfsi_band.length - 1; i++) {
+      for (sfb = this.scfsi_band[i]; sfb < this.scfsi_band[i + 1]; sfb++) {
         if (g0.scalefac[sfb] !== gi.scalefac[sfb] && gi.scalefac[sfb] >= 0)
           break;
       }
-      if (sfb === Tables.scfsi_band[i + 1]) {
-        for (
-          sfb = Tables.scfsi_band[i];
-          sfb < Tables.scfsi_band[i + 1];
-          sfb++
-        ) {
+      if (sfb === this.scfsi_band[i + 1]) {
+        for (sfb = this.scfsi_band[i]; sfb < this.scfsi_band[i + 1]; sfb++) {
           gi.scalefac[sfb] = -1;
         }
         l3_side.scfsi[ch][i] = 1;
@@ -999,13 +1075,13 @@ export class Takehiro {
     if (gi.preflag === 0 && gi.block_type !== SHORT_TYPE && gfc.mode_gr === 2) {
       for (sfb = 11; sfb < SBPSY_l; sfb++)
         if (
-          gi.scalefac[sfb] < this.qupvt!.pretab[sfb] &&
+          gi.scalefac[sfb] < this.qupvt.pretab[sfb] &&
           gi.scalefac[sfb] !== -2
         )
           break;
       if (sfb === SBPSY_l) {
         for (sfb = 11; sfb < SBPSY_l; sfb++)
-          if (gi.scalefac[sfb] > 0) gi.scalefac[sfb] -= this.qupvt!.pretab[sfb];
+          if (gi.scalefac[sfb] > 0) gi.scalefac[sfb] -= this.qupvt.pretab[sfb];
 
         gi.preflag = 1;
         recalc = 1;
@@ -1097,12 +1173,12 @@ export class Takehiro {
       tab = this.scale_long;
       if (cod_info.preflag === 0) {
         for (sfb = 11; sfb < SBPSY_l; sfb++)
-          if (scalefac[sfb] < this.qupvt!.pretab[sfb]) break;
+          if (scalefac[sfb] < this.qupvt.pretab[sfb]) break;
 
         if (sfb === SBPSY_l) {
           cod_info.preflag = 1;
           for (sfb = 11; sfb < SBPSY_l; sfb++)
-            scalefac[sfb] -= this.qupvt!.pretab[sfb];
+            scalefac[sfb] -= this.qupvt.pretab[sfb];
         }
       }
     }
@@ -1184,7 +1260,7 @@ export class Takehiro {
     if (cod_info.block_type === SHORT_TYPE) {
       row_in_table = 1;
       const partition_table =
-        this.qupvt!.nr_of_sfb_block[table_number][row_in_table];
+        this.qupvt.nr_of_sfb_block[table_number][row_in_table];
       for (sfb = 0, partition = 0; partition < 4; partition++) {
         nr_sfb = partition_table[partition] / 3;
         for (i = 0; i < nr_sfb; i++, sfb++)
@@ -1195,7 +1271,7 @@ export class Takehiro {
     } else {
       row_in_table = 0;
       const partition_table =
-        this.qupvt!.nr_of_sfb_block[table_number][row_in_table];
+        this.qupvt.nr_of_sfb_block[table_number][row_in_table];
       for (sfb = 0, partition = 0; partition < 4; partition++) {
         nr_sfb = partition_table[partition];
         for (i = 0; i < nr_sfb; i++, sfb++)
@@ -1212,7 +1288,7 @@ export class Takehiro {
     }
     if (!over) {
       cod_info.sfb_partition_table =
-        this.qupvt!.nr_of_sfb_block[table_number][row_in_table];
+        this.qupvt.nr_of_sfb_block[table_number][row_in_table];
       for (partition = 0; partition < 4; partition++)
         cod_info.slen[partition] = this.log2tab[max_sfac[partition]];
 

@@ -1,9 +1,13 @@
 import type { III_psy_ratio } from './III_psy_ratio';
 import type { LameGlobalFlags } from './LameGlobalFlags';
-import { LameInternalFlags } from './LameInternalFlags';
 import { MeanBits } from './MeanBits';
 import type { Quantize } from './Quantize';
-import { MPG_MD_MS_LR, SFBMAX, SHORT_TYPE } from './constants';
+import {
+  MAX_BITS_PER_CHANNEL,
+  MPG_MD_MS_LR,
+  SFBMAX,
+  SHORT_TYPE,
+} from './constants';
 
 export class CBRNewIterationLoop {
   constructor(public quantize: Quantize) {}
@@ -14,7 +18,7 @@ export class CBRNewIterationLoop {
     ms_ener_ratio: number[],
     ratio: III_psy_ratio[][]
   ) {
-    const gfc = gfp.internal_flags!;
+    const gfc = gfp.internal_flags;
     const l3_xmin = new Float32Array(SFBMAX);
     const xrpow = new Float32Array(576);
     const targ_bits = new Int32Array(2);
@@ -87,9 +91,7 @@ export class CBRNewIterationLoop {
         }
 
         this.quantize.iteration_finish_one(gfc, gr, ch);
-        console.assert(
-          cod_info.part2_3_length <= LameInternalFlags.MAX_BITS_PER_CHANNEL
-        );
+        console.assert(cod_info.part2_3_length <= MAX_BITS_PER_CHANNEL);
         console.assert(cod_info.part2_3_length <= targ_bits[ch]);
       } /* for ch */
     } /* for gr */

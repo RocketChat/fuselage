@@ -18,10 +18,10 @@ export class PSY {
   /**
    * Band weight long scalefactor bands.
    */
-  bo_l_weight = new Float32Array(SBMAX_l);
+  readonly bo_l_weight = new Float32Array(SBMAX_l);
 
   /**
    * Band weight short scalefactor bands.
    */
-  bo_s_weight = new Float32Array(SBMAX_s);
+  readonly bo_s_weight = new Float32Array(SBMAX_s);
 }

@@ -5,13 +5,16 @@ import { IIISideInfo } from './IIISideInfo';
 import { III_psy_xmin } from './III_psy_xmin';
 import { NsPsy } from './NsPsy';
 import type { PSY } from './PSY';
-import type { ReplayGain } from './ReplayGain';
+import { ReplayGain } from './ReplayGain';
 import { ScaleFac } from './ScaleFac';
-import type { VBRSeekInfo } from './VBRSeekInfo';
 import {
+  BPC,
   CBANDS,
   ENCDELAY,
+  MAX_HEADER_BUF,
   MDCTDELAY,
+  MFSIZE,
+  POSTDELAY,
   SBLIMIT,
   SBMAX_l,
   SBMAX_s,
@@ -38,17 +41,13 @@ export class LameInternalFlags {
    */
   Class_ID = 0;
 
-  lame_encode_frame_init = 0;
+  lame_encode_frame_init = false;
 
-  iteration_init_init = 0;
+  iteration_init_init = false;
 
-  fill_buffer_resample_init = 0;
+  fill_buffer_resample_init = false;
 
-  // public float mfbuf[][] = new float[2][MFSIZE];
-  mfbuf = Array.from(
-    { length: 2 },
-    () => new Float32Array(LameInternalFlags.MFSIZE)
-  );
+  readonly mfbuf = Array.from({ length: 2 }, () => new Float32Array(MFSIZE));
 
   /**
    * granules per frame
@@ -68,22 +67,31 @@ export class LameInternalFlags {
   /**
    * input_samp_rate/output_samp_rate
    */
-  // public double resample_ratio;
-  resample_ratio = 0;
+  resample_ratio = 1;
 
-  mf_samples_to_encode = 0;
+  mf_samples_to_encode = ENCDELAY + POSTDELAY;
 
-  mf_size = 0;
+  /*
+   * The reason for int mf_samples_to_encode = ENCDELAY + POSTDELAY;
+   * ENCDELAY = internal encoder delay. And then we have to add
+   * POSTDELAY=288 because of the 50% MDCT overlap. A 576 MDCT granule
+   * decodes to 1152 samples. To synthesize the 576 samples centered under
+   * this granule we need the previous granule for the first 288 samples
+   * (no problem), and the next granule for the next 288 samples (not
+   * possible if this is last granule). So we need to pad with 288 samples
+   * to make sure we can encode the 576 samples we are interested in.
+   */
+  mf_size = ENCDELAY - MDCTDELAY;
 
   /**
    * min bitrate index
    */
-  VBR_min_bitrate = 0;
+  VBR_min_bitrate = 1;
 
   /**
    * max bitrate index
    */
-  VBR_max_bitrate = 0;
+  VBR_max_bitrate = 13;
 
   bitrate_index = 0;
 
@@ -144,7 +152,7 @@ export class LameInternalFlags {
   /**
    * 0 = no, 1 = yes
    */
-  subblock_gain = 0;
+  subblock_gain = -1;
 
   /**
    * 0 = no. 1=outside loop 2=inside loop(slow)
@@ -157,9 +165,7 @@ export class LameInternalFlags {
   full_outer_loop = 0;
 
   // public IIISideInfo l3_side = new IIISideInfo();
-  l3_side = new IIISideInfo();
-
-  ms_ratio = new Float32Array(2);
+  readonly l3_side = new IIISideInfo();
 
   /* used for padding */
   /**
@@ -171,58 +177,44 @@ export class LameInternalFlags {
 
   slot_lag = 0;
 
-  /**
-   * optional ID3 tags
-   */
-  // public ID3TagSpec tag_spec;
-  tag_spec = null;
-
   nMusicCRC = 0;
 
   /* variables used by Quantize */
-  // public int OldValue[] = new int[2];
-  OldValue = new Int32Array(2);
+  oldValue = new Int32Array([180, 180]);
 
-  // public int CurrentStep[] = new int[2];
-  CurrentStep = new Int32Array(2);
+  currentStep = new Int32Array([4, 4]);
 
-  masking_lower = 0;
+  masking_lower = 1;
 
   // public int bv_scf[] = new int[576];
-  bv_scf = new Int32Array(576);
+  readonly bv_scf = new Int32Array(576);
 
   // public int pseudohalf[] = new int[L3Side.SFBMAX];
-  pseudohalf = new Int32Array(SFBMAX);
+  readonly pseudohalf = new Int32Array(SFBMAX);
 
   /**
    * will be set in lame_init_params
    */
   sfb21_extra = false;
 
-  /* BPC = maximum number of filter convolution windows to precompute */
-  // public float[][] inbuf_old = new float[2][];
-  inbuf_old = Array.from({ length: 2 }, () => new Float32Array());
+  readonly inbuf_old = Array.from({ length: 2 }, () => new Float32Array());
 
-  // public float[][] blackfilt = new float[2 * BPC + 1][];
-  blackfilt = Array.from(
-    { length: 2 * LameInternalFlags.BPC + 1 },
+  readonly blackfilt = Array.from(
+    { length: 2 * BPC + 1 },
     () => new Float32Array()
   );
 
-  // public double itime[] = new double[2];
-  itime = new Float64Array(2);
+  readonly itime = new Float64Array(2);
 
   sideinfo_len = 0;
 
-  /* variables for newmdct.c */
-  // public float sb_sample[][][][] = new float[2][2][18][Encoder.SBLIMIT];
-  sb_sample = Array.from({ length: 2 }, () =>
+  readonly sb_sample = Array.from({ length: 2 }, () =>
     Array.from({ length: 2 }, () =>
       Array.from({ length: 18 }, () => new Float32Array(SBLIMIT))
     )
   );
 
-  amp_filter = new Float32Array(32);
+  readonly amp_filter = new Float32Array(32);
 
   /* variables for BitStream */
 
@@ -242,7 +234,7 @@ export class LameInternalFlags {
   /**
    * max size of header is 38
    */
-  header = new Array<Header>(LameInternalFlags.MAX_HEADER_BUF);
+  readonly header = Array.from({ length: MAX_HEADER_BUF }, () => new Header());
 
   h_ptr = 0;
 
@@ -262,24 +254,24 @@ export class LameInternalFlags {
   ResvMax = 0;
 
   // public ScaleFac scalefac_band = new ScaleFac();
-  scalefac_band = new ScaleFac();
+  readonly scalefac_band = new ScaleFac();
 
   /* daa from PsyModel */
   /* The static variables "r", "phi_sav", "new", "old" and "oldest" have */
   /* to be remembered for the unpredictability measure. For "r" and */
   /* "phi_sav", the first index from the left is the channel select and */
   /* the second index is the "age" of the data. */
-  minval_l = new Float32Array(CBANDS);
+  readonly minval_l = new Float32Array(CBANDS);
 
-  minval_s = new Float32Array(CBANDS);
+  readonly minval_s = new Float32Array(CBANDS);
 
-  nb_1 = Array.from({ length: 4 }, () => new Float32Array(CBANDS));
+  readonly nb_1 = Array.from({ length: 4 }, () => new Float32Array(CBANDS));
 
-  nb_2 = Array.from({ length: 4 }, () => new Float32Array(CBANDS));
+  readonly nb_2 = Array.from({ length: 4 }, () => new Float32Array(CBANDS));
 
-  nb_s1 = Array.from({ length: 4 }, () => new Float32Array(CBANDS));
+  readonly nb_s1 = Array.from({ length: 4 }, () => new Float32Array(CBANDS));
 
-  nb_s2 = Array.from({ length: 4 }, () => new Float32Array(CBANDS));
+  readonly nb_s2 = Array.from({ length: 4 }, () => new Float32Array(CBANDS));
 
   s3_ss: Float32Array | null = null;
 
@@ -287,97 +279,76 @@ export class LameInternalFlags {
 
   decay = 0;
 
-  // public III_psy_xmin[] thm = new III_psy_xmin[4];
-  // public III_psy_xmin[] en = new III_psy_xmin[4];
-  thm = new Array<III_psy_xmin>(4);
+  readonly thm = Array.from({ length: 4 }, () => new III_psy_xmin());
 
-  en = new Array<III_psy_xmin>(4);
+  readonly en = Array.from({ length: 4 }, () => new III_psy_xmin());
 
   /**
    * fft and energy calculation
    */
-  tot_ener = new Float32Array(4);
+  readonly tot_ener = new Float32Array(4);
 
   /* loudness calculation (for adaptive threshold of hearing) */
   /**
    * loudness^2 approx. per granule and channel
    */
-  loudness_sq = Array.from({ length: 2 }, () => new Float32Array(2));
+  readonly loudness_sq = Array.from({ length: 2 }, () => new Float32Array(2));
 
   /**
    * account for granule delay of L3psycho_anal
    */
-  loudness_sq_save = new Float32Array(2);
+  readonly loudness_sq_save = new Float32Array(2);
 
   /**
    * Scale Factor Bands
    */
-  mld_l = new Float32Array(SBMAX_l);
+  readonly mld_l = new Float32Array(SBMAX_l);
 
-  mld_s = new Float32Array(SBMAX_s);
+  readonly mld_s = new Float32Array(SBMAX_s);
 
-  bm_l = new Int32Array(SBMAX_l);
+  readonly bm_l = new Int32Array(SBMAX_l);
 
-  bo_l = new Int32Array(SBMAX_l);
+  readonly bo_l = new Int32Array(SBMAX_l);
 
-  bm_s = new Int32Array(SBMAX_s);
+  readonly bm_s = new Int32Array(SBMAX_s);
 
-  bo_s = new Int32Array(SBMAX_s);
+  readonly bo_s = new Int32Array(SBMAX_s);
 
   npart_l = 0;
 
   npart_s = 0;
 
-  s3ind = Array.from({ length: CBANDS }, () => new Int32Array(2));
+  readonly s3ind = Array.from({ length: CBANDS }, () => new Int32Array(2));
 
-  s3ind_s = Array.from({ length: CBANDS }, () => new Int32Array(2));
+  readonly s3ind_s = Array.from({ length: CBANDS }, () => new Int32Array(2));
 
-  numlines_s = new Int32Array(CBANDS);
+  readonly numlines_s = new Int32Array(CBANDS);
 
-  numlines_l = new Int32Array(CBANDS);
+  readonly numlines_l = new Int32Array(CBANDS);
 
-  rnumlines_l = new Float32Array(CBANDS);
+  readonly rnumlines_l = new Float32Array(CBANDS);
 
-  mld_cb_l = new Float32Array(CBANDS);
+  readonly mld_cb_l = new Float32Array(CBANDS);
 
-  mld_cb_s = new Float32Array(CBANDS);
-
-  numlines_s_num1 = 0;
-
-  numlines_l_num1 = 0;
-
-  /* ratios */
-  pe = new Float32Array(4);
-
-  ms_ratio_s_old = 0;
-
-  ms_ratio_l_old = 0;
+  readonly mld_cb_s = new Float32Array(CBANDS);
 
   ms_ener_ratio_old = 0;
 
   /**
    * block type
    */
-  blocktype_old = new Int32Array(2);
+  readonly blocktype_old = new Int32Array(2);
 
   /**
    * variables used for --nspsytune
    */
-  nsPsy = new NsPsy();
+  readonly nsPsy = new NsPsy();
 
   /**
    * used for Xing VBR header
    */
-  VBR_seek_table: VBRSeekInfo = {
-    sum: 0,
-    seen: 0,
-    want: 0,
-    pos: 0,
-    size: 400,
-    bag: Array.from({ length: 400 }),
-    nVbrNumFrames: 0,
+  readonly VBR_seek_table = {
     nBytesWritten: 0,
-    totalFrameSize: 0,
   };
 
   /**
@@ -388,16 +359,12 @@ export class LameInternalFlags {
 
   PSY: PSY | null = null;
 
-  nogap_total = 0;
-
-  nogap_current = 0;
-
   /* ReplayGain */
-  decode_on_the_fly = true;
+  decode_on_the_fly = false;
 
-  findReplayGain = true;
+  findReplayGain = false;
 
-  findPeakSample = true;
+  findPeakSample = false;
 
   PeakSample = 0;
 
@@ -405,8 +372,7 @@ export class LameInternalFlags {
 
   AudiophileGain = 0;
 
-  // public ReplayGain rgdata;
-  rgdata: ReplayGain | null = null;
+  readonly rgdata = new ReplayGain();
 
   /**
    * gain change required for preventing clipping
@@ -416,10 +382,10 @@ export class LameInternalFlags {
   /**
    * user-specified scale factor required for preventing clipping
    */
-  noclipScale = 0;
+  noclipScale = -1.0;
 
   /* simple statistics */
-  bitrate_stereoMode_Hist = Array.from(
+  readonly bitrate_stereoMode_Hist = Array.from(
     { length: 16 },
     () => new Int32Array(4 + 1)
   );
@@ -427,13 +393,10 @@ export class LameInternalFlags {
   /**
    * norm/start/short/stop/mixed(short)/sum
    */
-  bitrate_blockType_Hist = Array.from(
+  readonly bitrate_blockType_Hist = Array.from(
     { length: 16 },
     () => new Int32Array(4 + 1 + 1)
   );
-
-  // public MPGLib.mpstr_tag hip;
-  hip = null;
 
   in_buffer_nsamples = 0;
 
@@ -443,27 +406,4 @@ export class LameInternalFlags {
 
   // public IIterationLoop iteration_loop;
   iteration_loop: CBRNewIterationLoop | null = null;
-
-  constructor() {
-    for (let i = 0; i < this.en.length; i++) {
-      this.en[i] = new III_psy_xmin();
-    }
-    for (let i = 0; i < this.thm.length; i++) {
-      this.thm[i] = new III_psy_xmin();
-    }
-    for (let i = 0; i < this.header.length; i++) {
-      // eslint-disable-next-line @typescript-eslint/no-use-before-define
-      this.header[i] = new Header();
-    }
-  }
-
-  static MFSIZE = 3 * 1152 + ENCDELAY - MDCTDELAY;
-
-  static MAX_HEADER_BUF = 256;
-
-  static MAX_BITS_PER_CHANNEL = 4095;
-
-  static MAX_BITS_PER_GRANULE = 7680;
-
-  static BPC = 320;
 }

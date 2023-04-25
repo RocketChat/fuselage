@@ -1,28 +1,22 @@
-/**
- * Layer III side information.
- *
- * @author Ken
- *
- */
 import { copyArray } from './Arrays';
 import { PSFB12, PSFB21, SBMAX_l, SBMAX_s } from './constants';
 
 export class ScaleFac {
-  private arrL: number[] | undefined;
+  private readonly arrL: number[] | undefined;
 
-  private arrS: number[] | undefined;
+  private readonly arrS: number[] | undefined;
 
-  private arr21: number[] | undefined;
+  private readonly arr21: number[] | undefined;
 
-  private arr12: number[] | undefined;
+  private readonly arr12: number[] | undefined;
 
-  l: Int32Array;
+  readonly l: Int32Array;
 
-  s: Int32Array;
+  readonly s: Int32Array;
 
-  psfb21: Int32Array;
+  readonly psfb21: Int32Array;
 
-  psfb12: Int32Array;
+  readonly psfb12: Int32Array;
 
   constructor();
 

@@ -1,11 +1,11 @@
 import { BitStream } from './BitStream';
+import { Encoder } from './Encoder';
 import { GainAnalysis } from './GainAnalysis';
-import { ID3Tag } from './ID3Tag';
 import { Lame } from './Lame';
 import type { LameGlobalFlags } from './LameGlobalFlags';
-import { MPEGMode } from './MPEGMode';
 import { MPGLib } from './MPGLib';
 import { Presets } from './Presets';
+import { PsyModel } from './PsyModel';
 import { Quantize } from './Quantize';
 import { QuantizePVT } from './QuantizePVT';
 import { Reservoir } from './Reservoir';
@@ -14,26 +14,6 @@ import { VBRTag } from './VBRTag';
 
 export class Mp3Encoder {
   private readonly lame: Lame;
-
-  private readonly ga: GainAnalysis;
-
-  private readonly bs: BitStream;
-
-  private readonly p: Presets;
-
-  private readonly qupvt: QuantizePVT;
-
-  private readonly qu: Quantize;
-
-  private readonly vbr: VBRTag;
-
-  private readonly id3: ID3Tag;
-
-  private readonly rv: Reservoir;
-
-  private readonly tak: Takehiro;
-
-  private readonly mpg: MPGLib;
 
   private readonly gfp: LameGlobalFlags;
 
@@ -44,51 +24,28 @@ export class Mp3Encoder {
   private maxSamples: number;
 
   constructor(channels = 1, samplerate = 44100, kbps = 128) {
+    const ga = new GainAnalysis();
+    const bs = new BitStream();
+    const qupvt = new QuantizePVT();
+    const qu = new Quantize();
+    const vbr = new VBRTag();
+    const rv = new Reservoir();
+    const tak = new Takehiro(qupvt);
+    const mpg = new MPGLib();
+    const psy = new PsyModel();
+    const enc = new Encoder();
+
     this.lame = new Lame();
-    this.ga = new GainAnalysis();
-    this.bs = new BitStream();
-    this.p = new Presets();
-    this.qupvt = new QuantizePVT();
-    this.qu = new Quantize();
-    this.vbr = new VBRTag();
-    this.id3 = new ID3Tag();
-    this.rv = new Reservoir();
-    this.tak = new Takehiro();
-    this.mpg = new MPGLib();
 
-    this.lame.setModules(
-      this.ga,
-      this.bs,
-      this.p,
-      this.qupvt,
-      this.qu,
-      this.vbr,
-      this.id3,
-      this.mpg
-    );
-    this.bs.setModules(this.ga, this.mpg, this.vbr);
-    this.p.setModules(this.lame);
-    this.qu.setModules(this.rv, this.qupvt, this.tak);
-    this.qupvt.setModules(this.tak, this.rv, this.lame.enc.psy!);
-    this.rv.setModules(this.bs);
-    this.tak.setModules(this.qupvt);
-    this.vbr.setModules(this.lame, this.bs);
+    this.lame.setModules(ga, bs, new Presets(), qupvt, qu, psy, enc);
+    bs.setModules(ga, mpg, vbr);
+    qu.setModules(rv, qupvt, tak);
+    qupvt.setModules(tak, rv, psy);
+    rv.setModules(bs);
+    enc.setModules(bs, psy);
 
-    this.gfp = this.lame.lame_init();
+    this.gfp = this.lame.lame_init(channels, samplerate, kbps);
 
-    this.gfp.num_channels = channels;
-    this.gfp.in_samplerate = samplerate;
-    this.gfp.brate = kbps;
-    this.gfp.mode = MPEGMode.STEREO;
-    this.gfp.quality = 3;
-    this.gfp.bWriteVbrTag = false;
-    this.gfp.disable_reservoir = true;
-    this.gfp.write_id3tag_automatic = false;
-
-    const retcode = this.lame.lame_init_params(this.gfp);
-    if (retcode !== 0) {
-      throw new Error(`lame_init_params() failed: ${retcode}`);
-    }
     this.maxSamples = 1152;
     this.mp3buf_size = Math.trunc(1.25 * this.maxSamples + 7200);
     this.mp3buf = new Uint8Array(this.mp3buf_size);
@@ -105,7 +62,7 @@ export class Mp3Encoder {
       this.mp3buf = new Uint8Array(this.mp3buf_size);
     }
 
-    const _sz = this.lame.lame_encode_buffer(
+    const size = this.lame.lame_encode_buffer(
       this.gfp,
       left,
       right,
@@ -114,16 +71,16 @@ export class Mp3Encoder {
       0,
       this.mp3buf_size
     );
-    return new Uint8Array(this.mp3buf.subarray(0, _sz));
+    return new Uint8Array(this.mp3buf.subarray(0, size));
   }
 
   flush() {
-    const _sz = this.lame.lame_encode_flush(
+    const size = this.lame.lame_encode_flush(
       this.gfp,
       this.mp3buf,
       0,
       this.mp3buf_size
     );
-    return new Uint8Array(this.mp3buf.subarray(0, _sz));
+    return new Uint8Array(this.mp3buf.subarray(0, size));
   }
 }

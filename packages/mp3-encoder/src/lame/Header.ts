@@ -3,5 +3,5 @@ export class Header {
 
   ptr = 0;
 
-  buf = new Uint8Array(40);
+  readonly buf = new Uint8Array(40);
 }

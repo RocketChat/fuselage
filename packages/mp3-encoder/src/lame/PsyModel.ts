@@ -234,7 +234,7 @@ export class PsyModel {
     buffer: Float32Array[],
     bufPos: number
   ) {
-    const gfc = gfp.internal_flags!;
+    const gfc = gfp.internal_flags;
     if (chn < 2) {
       this.fft.fft_long(gfc, wsamp_l[wsamp_lPos], chn, buffer, bufPos);
       this.fft.fft_short(gfc, wsamp_s[wsamp_sPos], chn, buffer, bufPos);
@@ -543,7 +543,7 @@ export class PsyModel {
    * compute interchannel masking effects
    */
   private calc_interchannel_masking(gfp: LameGlobalFlags, ratio: number) {
-    const gfc = gfp.internal_flags!;
+    const gfc = gfp.internal_flags;
     if (gfc.channels_out > 1) {
       for (let sb = 0; sb < SBMAX_l; sb++) {
         const l = gfc.thm[0].l[sb];
@@ -784,7 +784,7 @@ export class PsyModel {
     chn: number,
     sblock: number
   ) {
-    const gfc = gfp.internal_flags!;
+    const gfc = gfp.internal_flags;
     let j = 0;
     let b = 0;
 
@@ -840,7 +840,7 @@ export class PsyModel {
     blocktype_d: Int32Array,
     blocktype: Int32Array
   ) {
-    const gfc = gfp.internal_flags!;
+    const gfc = gfp.internal_flags;
 
     if (
       gfp.short_blocks === ShortBlock.short_block_coupled &&
@@ -1097,7 +1097,7 @@ export class PsyModel {
      * to get a good cache performance, one has to think about the sequence,
      * in which the variables are used.
      */
-    const gfc = gfp.internal_flags!;
+    const gfc = gfp.internal_flags;
 
     /* fft and energy calculation */
     const wsamp_L = Array.from({ length: 2 }, () => new Float32Array(BLKSIZE));
@@ -1247,12 +1247,6 @@ export class PsyModel {
           } else p = 0.0;
           attack_intensity[i + 3] = p;
         }
-      }
-
-      if (gfp.analysis) {
-        let x = attack_intensity[0];
-        for (i = 1; i < 12; i++)
-          if (x < attack_intensity[i]) x = attack_intensity[i];
       }
 
       /* compare energies between sub-shortblocks */
@@ -1511,7 +1505,7 @@ export class PsyModel {
     wsamp_l: Float32Array[],
     wsamp_lPos: number
   ) {
-    const gfc = gfp.internal_flags!;
+    const gfc = gfp.internal_flags;
     if (chn < 2) {
       this.fft.fft_long(gfc, wsamp_l[wsamp_lPos], chn, buffer, bufPos);
     } else if (chn === 2) {
@@ -1554,7 +1548,7 @@ export class PsyModel {
     wsamp_s: Float32Array[][],
     wsamp_sPos: number
   ) {
-    const gfc = gfp.internal_flags!;
+    const gfc = gfp.internal_flags;
 
     if (sblock === 0 && chn < 2) {
       this.fft.fft_short(gfc, wsamp_s[wsamp_sPos], chn, buffer, bufPos);
@@ -1590,7 +1584,7 @@ export class PsyModel {
     chn: number,
     fftenergy: Float32Array
   ) {
-    const gfc = gfp.internal_flags!;
+    const gfc = gfp.internal_flags;
     if (gfp.athaa_loudapprox === 2 && chn < 2) {
       // no loudness for mid/side ch
       gfc.loudness_sq[gr_out][chn] = gfc.loudness_sq_save[chn];
@@ -1629,7 +1623,7 @@ export class PsyModel {
     uselongblock: Int32Array
   ) {
     const ns_hpfsmpl = Array.from({ length: 2 }, () => new Float32Array(576));
-    const gfc = gfp.internal_flags!;
+    const gfc = gfp.internal_flags;
     const n_chn_out = gfc.channels_out;
     /* chn=2 and 3 = Mid and Side channels */
     const n_chn_psy = gfp.mode === MPEGMode.JOINT_STEREO ? 4 : n_chn_out;
@@ -1730,15 +1724,6 @@ export class PsyModel {
           }
         }
         sub_short_factor[chn][i] = factor;
-      }
-
-      if (gfp.analysis) {
-        let x = attack_intensity[0];
-        for (let i = 1; i < 12; i++) {
-          if (x < attack_intensity[i]) {
-            x = attack_intensity[i];
-          }
-        }
       }
 
       /* compare energies between sub-shortblocks */
@@ -1921,7 +1906,7 @@ export class PsyModel {
     chn: number,
     sblock: number
   ) {
-    const gfc = gfp.internal_flags!;
+    const gfc = gfp.internal_flags;
     const max = new Array<number>(CBANDS);
     const avg = new Float32Array(CBANDS);
     let i;
@@ -2148,7 +2133,7 @@ export class PsyModel {
     gfp: LameGlobalFlags,
     uselongblock: Int32Array
   ) {
-    const gfc = gfp.internal_flags!;
+    const gfc = gfp.internal_flags;
 
     if (
       gfp.short_blocks === ShortBlock.short_block_coupled &&
@@ -2177,7 +2162,7 @@ export class PsyModel {
     uselongblock: Int32Array,
     blocktype_d: Int32Array
   ) {
-    const gfc = gfp.internal_flags!;
+    const gfc = gfp.internal_flags;
 
     /*
      * update the blocktype of the previous granule, since it depends on
@@ -2285,7 +2270,7 @@ export class PsyModel {
     energy: Float32Array,
     blocktype_d: Int32Array
   ) {
-    const gfc = gfp.internal_flags!;
+    const gfc = gfp.internal_flags;
 
     /* fft and energy calculation */
     let wsamp_l;
@@ -2841,41 +2826,20 @@ export class PsyModel {
    */
   // eslint-disable-next-line complexity
   psymodel_init(gfp: LameGlobalFlags) {
-    const gfc = gfp.internal_flags!;
+    const gfc = gfp.internal_flags;
     let i;
-    let useOldS3 = true;
-    let bvl_a = 13;
+    const useOldS3 = true;
+    const bvl_a = 13;
     const bvl_b = 24;
-    let snr_l_a = 0;
-    let snr_l_b = 0;
-    let snr_s_a = -8.25;
-    let snr_s_b = -4.5;
+    const snr_l_a = 0;
+    const snr_l_b = 0;
+    const snr_s_a = -8.25;
+    const snr_s_b = -4.5;
     const bval = new Float32Array(CBANDS);
     const bval_width = new Float32Array(CBANDS);
     const norm = new Float32Array(CBANDS);
     const sfreq = gfp.out_samplerate;
 
-    switch (gfp.experimentalZ) {
-      default:
-      case 0:
-        useOldS3 = true;
-        break;
-      case 1:
-        useOldS3 = !(
-          gfp.VBR === VbrMode.vbr_mtrh || gfp.VBR === VbrMode.vbr_mt
-        );
-        break;
-      case 2:
-        useOldS3 = false;
-        break;
-      case 3:
-        bvl_a = 8;
-        snr_l_a = -1.75;
-        snr_l_b = -0.0125;
-        snr_s_a = -8.25;
-        snr_s_b = -2.25;
-        break;
-    }
     gfc.ms_ener_ratio_old = 0.25;
     gfc.blocktype_old[0] = NORM_TYPE;
     gfc.blocktype_old[1] = NORM_TYPE;

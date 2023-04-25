@@ -2,20 +2,20 @@ import { copyArray, fillArray } from './Arrays';
 import { GainAnalysis } from './GainAnalysis';
 import type { GrInfo } from './GrInfo';
 import type { LameGlobalFlags } from './LameGlobalFlags';
-import { LameInternalFlags } from './LameInternalFlags';
+import type { LameInternalFlags } from './LameInternalFlags';
 import type { MPGLib } from './MPGLib';
-import { Tables } from './Tables';
+import * as tables from './Tables';
 import { Takehiro } from './Takehiro';
 import { TotalBytes } from './TotalBytes';
 import type { VBRTag } from './VBRTag';
 import {
-  CRC16_POLYNOMIAL,
   LAME_MAXMP3BUFFER,
+  MAX_HEADER_BUF,
   NORM_TYPE,
   SHORT_TYPE,
 } from './constants';
 import { getLameShortVersion } from './getLameShortVersion';
-import { isCloseToEachOther } from './isCloseToEachOther';
+import { isCloseToEachOther, CRC_update } from './math';
 
 export class BitStream {
   /*
@@ -60,12 +60,12 @@ export class BitStream {
    * compute bitsperframe and mean_bits for a layer III frame
    */
   getframebits(gfp: LameGlobalFlags) {
-    const gfc = gfp.internal_flags!;
+    const gfc = gfp.internal_flags;
     let bit_rate;
 
     /* get bitrate in kbps [?] */
     if (gfc.bitrate_index !== 0)
-      bit_rate = Tables.bitrate_table[gfp.version][gfc.bitrate_index];
+      bit_rate = tables.bitrate_table[gfp.version][gfc.bitrate_index];
     else bit_rate = gfp.brate;
     console.assert(bit_rate >= 8 && bit_rate <= 640);
 
@@ -87,7 +87,7 @@ export class BitStream {
     );
     this.bufByteIdx += gfc.sideinfo_len;
     this.totbit += gfc.sideinfo_len * 8;
-    gfc.w_ptr = (gfc.w_ptr + 1) & (LameInternalFlags.MAX_HEADER_BUF - 1);
+    gfc.w_ptr = (gfc.w_ptr + 1) & (MAX_HEADER_BUF - 1);
   }
 
   /**
@@ -157,7 +157,7 @@ export class BitStream {
    * the ancillary data...
    */
   private drain_into_ancillary(gfp: LameGlobalFlags, remainingBits: number) {
-    const gfc = gfp.internal_flags!;
+    const gfc = gfp.internal_flags;
     let i;
     console.assert(remainingBits >= 0);
 
@@ -189,7 +189,7 @@ export class BitStream {
 
     for (; remainingBits >= 1; remainingBits -= 1) {
       this.putbits2(gfc, gfc.ancillary_flag, 1);
-      gfc.ancillary_flag ^= !gfp.disable_reservoir ? 1 : 0;
+      gfc.ancillary_flag ^= 0;
     }
 
     console.assert(remainingBits === 0);
@@ -213,25 +213,14 @@ export class BitStream {
     gfc.header[gfc.h_ptr].ptr = ptr;
   }
 
-  private CRC_update(value: number, crc: number) {
-    value <<= 8;
-    for (let i = 0; i < 8; i++) {
-      value <<= 1;
-      crc <<= 1;
-
-      if (((crc ^ value) & 0x10000) !== 0) crc ^= CRC16_POLYNOMIAL;
-    }
-    return crc;
-  }
-
   CRC_writeheader(gfc: LameInternalFlags, header: Uint8Array) {
     let crc = 0xffff;
     /* (jo) init crc16 for error_protection */
 
-    crc = this.CRC_update(header[2] & 0xff, crc);
-    crc = this.CRC_update(header[3] & 0xff, crc);
+    crc = CRC_update(header[2] & 0xff, crc);
+    crc = CRC_update(header[3] & 0xff, crc);
     for (let i = 6; i < gfc.sideinfo_len; i++) {
-      crc = this.CRC_update(header[i] & 0xff, crc);
+      crc = CRC_update(header[i] & 0xff, crc);
     }
 
     header[4] = Math.trunc(crc >> 8);
@@ -239,7 +228,7 @@ export class BitStream {
   }
 
   private encodeSideInfo2(gfp: LameGlobalFlags, bitsPerFrame: number) {
-    const gfc = gfp.internal_flags!;
+    const gfc = gfp.internal_flags;
     let gr;
     let ch;
 
@@ -250,20 +239,16 @@ export class BitStream {
     else this.writeheader(gfc, 0xfff, 12);
     this.writeheader(gfc, gfp.version, 1);
     this.writeheader(gfc, 4 - 3, 2);
-    this.writeheader(gfc, !gfp.error_protection ? 1 : 0, 1);
+    this.writeheader(gfc, 1, 1);
     this.writeheader(gfc, gfc.bitrate_index, 4);
     this.writeheader(gfc, gfc.samplerate_index, 2);
     this.writeheader(gfc, gfc.padding, 1);
-    this.writeheader(gfc, gfp.extension, 1);
+    this.writeheader(gfc, 0, 1);
     this.writeheader(gfc, gfp.mode.ordinal, 2);
     this.writeheader(gfc, gfc.mode_ext, 2);
-    this.writeheader(gfc, gfp.copyright, 1);
-    this.writeheader(gfc, gfp.original, 1);
-    this.writeheader(gfc, gfp.emphasis, 2);
-    if (gfp.error_protection) {
-      this.writeheader(gfc, 0, 16);
-      /* dummy */
-    }
+    this.writeheader(gfc, 0, 1);
+    this.writeheader(gfc, 1, 1);
+    this.writeheader(gfc, 0, 2);
 
     if (gfp.version === 1) {
       /* MPEG1 */
@@ -371,29 +356,22 @@ export class BitStream {
       }
     }
 
-    if (gfp.error_protection) {
-      /* (jo) error_protection: add crc16 information to header */
-      this.CRC_writeheader(gfc, gfc.header[gfc.h_ptr].buf);
-    }
+    const old = gfc.h_ptr;
+    console.assert(gfc.header[old].ptr === gfc.sideinfo_len * 8);
 
-    {
-      const old = gfc.h_ptr;
-      console.assert(gfc.header[old].ptr === gfc.sideinfo_len * 8);
+    gfc.h_ptr = (old + 1) & (MAX_HEADER_BUF - 1);
+    gfc.header[gfc.h_ptr].write_timing =
+      gfc.header[old].write_timing + bitsPerFrame;
 
-      gfc.h_ptr = (old + 1) & (LameInternalFlags.MAX_HEADER_BUF - 1);
-      gfc.header[gfc.h_ptr].write_timing =
-        gfc.header[old].write_timing + bitsPerFrame;
-
-      if (gfc.h_ptr === gfc.w_ptr) {
-        /* yikes! we are out of header buffer space */
-        console.warn('MAX_HEADER_BUF too small in bitstream.');
-      }
+    if (gfc.h_ptr === gfc.w_ptr) {
+      /* yikes! we are out of header buffer space */
+      console.warn('MAX_HEADER_BUF too small in bitstream.');
     }
   }
 
   private huffman_coder_count1(gfc: LameInternalFlags, gi: GrInfo) {
     /* Write count1 area */
-    const h = Tables.ht[gi.count1table_select + 32];
+    const h = tables.ht[gi.count1table_select + 32];
     let i;
     let bits = 0;
 
@@ -455,7 +433,7 @@ export class BitStream {
     end: number,
     gi: GrInfo
   ) {
-    const h = Tables.ht[tableindex];
+    const h = tables.ht[tableindex];
     let bits = 0;
 
     console.assert(tableindex < 32);
@@ -583,7 +561,7 @@ export class BitStream {
     let sfb;
     let data_bits;
     let tot_bits = 0;
-    const gfc = gfp.internal_flags!;
+    const gfc = gfp.internal_flags;
     const { l3_side } = gfc;
 
     if (gfp.version === 1) {
@@ -686,7 +664,7 @@ export class BitStream {
     gfp: LameGlobalFlags,
     total_bytes_output: TotalBytes
   ) {
-    const gfc = gfp.internal_flags!;
+    const gfc = gfp.internal_flags;
     let flushbits;
     let remaining_headers;
     let last_ptr;
@@ -694,7 +672,7 @@ export class BitStream {
     /* first header to add to bitstream */
     last_ptr = gfc.h_ptr - 1;
     /* last header to add to bitstream */
-    if (last_ptr === -1) last_ptr = LameInternalFlags.MAX_HEADER_BUF - 1;
+    if (last_ptr === -1) last_ptr = MAX_HEADER_BUF - 1;
 
     /* add this many bits to bitstream so we can flush all headers */
     flushbits = gfc.header[last_ptr].write_timing - this.totbit;
@@ -705,8 +683,7 @@ export class BitStream {
       /* reduce flushbits by the size of the headers */
       remaining_headers = 1 + last_ptr - first_ptr;
       if (last_ptr < first_ptr)
-        remaining_headers =
-          1 + last_ptr - first_ptr + LameInternalFlags.MAX_HEADER_BUF;
+        remaining_headers = 1 + last_ptr - first_ptr + MAX_HEADER_BUF;
       flushbits -= remaining_headers * 8 * gfc.sideinfo_len;
     }
 
@@ -731,11 +708,11 @@ export class BitStream {
   }
 
   flush_bitstream(gfp: LameGlobalFlags) {
-    const gfc = gfp.internal_flags!;
+    const gfc = gfp.internal_flags;
     let flushbits;
     let last_ptr = gfc.h_ptr - 1;
     /* last header to add to bitstream */
-    if (last_ptr === -1) last_ptr = LameInternalFlags.MAX_HEADER_BUF - 1;
+    if (last_ptr === -1) last_ptr = MAX_HEADER_BUF - 1;
     const { l3_side } = gfc;
 
     if ((flushbits = this.compute_flushbits(gfp, new TotalBytes())) < 0) return;
@@ -755,7 +732,7 @@ export class BitStream {
 
     /* save the ReplayGain value */
     if (gfc.findReplayGain) {
-      const RadioGain = this.ga!.GetTitleGain(gfc.rgdata!);
+      const RadioGain = this.ga!.GetTitleGain(gfc.rgdata);
       console.assert(
         !isCloseToEachOther(RadioGain, GainAnalysis.GAIN_NOT_ENOUGH_SAMPLES)
       );
@@ -795,14 +772,13 @@ export class BitStream {
   }
 
   add_dummy_byte(gfp: LameGlobalFlags, val: number, n: number) {
-    const gfc = gfp.internal_flags!;
+    const gfc = gfp.internal_flags;
     let i;
 
     while (n-- > 0) {
       this.putbits_noheaders(gfc, val, 8);
 
-      for (i = 0; i < LameInternalFlags.MAX_HEADER_BUF; ++i)
-        gfc.header[i].write_timing += 8;
+      for (i = 0; i < MAX_HEADER_BUF; ++i) gfc.header[i].write_timing += 8;
     }
   }
 
@@ -814,7 +790,7 @@ export class BitStream {
    * to maintain framing. (See Figure A.7 in the IS).
    */
   format_bitstream(gfp: LameGlobalFlags) {
-    const gfc = gfp.internal_flags!;
+    const gfc = gfp.internal_flags;
     const { l3_side } = gfc;
 
     const bitsPerFrame = this.getframebits(gfp);
@@ -873,7 +849,7 @@ export class BitStream {
        * bit counter
        */
       let i;
-      for (i = 0; i < LameInternalFlags.MAX_HEADER_BUF; ++i)
+      for (i = 0; i < MAX_HEADER_BUF; ++i)
         gfc.header[i].write_timing -= this.totbit;
       this.totbit = 0;
     }
@@ -931,7 +907,6 @@ export class BitStream {
         /* re-synthesis to pcm. Repeat until we get a samples_out=0 */
         while (samples_out !== 0) {
           samples_out = this.mpg!.hip_decode1_unclipped(
-            gfc.hip,
             buffer,
             bufferPos,
             mp3_in,
@@ -986,7 +961,7 @@ export class BitStream {
             if (gfc.findReplayGain)
               if (
                 this.ga!.analyzeSamples(
-                  gfc.rgdata!,
+                  gfc.rgdata,
                   pcm_buf[0],
                   0,
                   pcm_buf[1],

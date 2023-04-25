@@ -112,6 +112,15 @@ export const MDCTDELAY = 48;
 
 export const FFTOFFSET = 224 + MDCTDELAY;
 
-export const NUMTOCENTRIES = 100;
-
 export const LAME_ID = 0xfff88e3b;
+
+/* BPC = maximum number of filter convolution windows to precompute */
+export const BPC = 320;
+
+export const MAX_BITS_PER_GRANULE = 7680;
+
+export const MAX_BITS_PER_CHANNEL = 4095;
+
+export const MAX_HEADER_BUF = 256;
+
+export const MFSIZE = 3 * 1152 + ENCDELAY - MDCTDELAY;

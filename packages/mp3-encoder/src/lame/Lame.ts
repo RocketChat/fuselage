@@ -2,32 +2,29 @@ import { ATH } from './ATH';
 import type { BandPass } from './BandPass';
 import type { BitStream } from './BitStream';
 import { CBRNewIterationLoop } from './CBRNewIterationLoop';
-import { Encoder } from './Encoder';
+import type { Encoder } from './Encoder';
 import { GainAnalysis } from './GainAnalysis';
-import type { ID3Tag } from './ID3Tag';
 import { InOut } from './InOut';
 import { LameGlobalFlags } from './LameGlobalFlags';
-import { LameInternalFlags } from './LameInternalFlags';
+import type { LameInternalFlags } from './LameInternalFlags';
 import { LowPassHighPass } from './LowPassHighPass';
 import { MPEGMode } from './MPEGMode';
-import type { MPGLib } from './MPGLib';
 import { NumUsed } from './NumUsed';
 import { PSY } from './PSY';
 import type { Presets } from './Presets';
 import { PsyModel } from './PsyModel';
 import type { Quantize } from './Quantize';
 import type { QuantizePVT } from './QuantizePVT';
-import { ReplayGain } from './ReplayGain';
 import { ShortBlock } from './ShortBlock';
-import { Tables } from './Tables';
-import type { VBRTag } from './VBRTag';
+import * as tables from './Tables';
 import { VbrMode } from './VbrMode';
 import {
   BLKSIZE,
+  BPC,
   ENCDELAY,
   FFTOFFSET,
   LAME_ID,
-  MDCTDELAY,
+  MFSIZE,
   MPG_MD_MS_LR,
   POSTDELAY,
   PSFB12,
@@ -35,7 +32,12 @@ import {
   SBMAX_l,
   SBMAX_s,
 } from './constants';
-import { isCloseToEachOther } from './isCloseToEachOther';
+import {
+  isCloseToEachOther,
+  blackmanWindow,
+  gcd,
+  linearInterpolation,
+} from './math';
 
 export class Lame {
   private ga: GainAnalysis | null = null;
@@ -48,15 +50,9 @@ export class Lame {
 
   private qu: Quantize | null = null;
 
-  private readonly psy = new PsyModel();
+  public psy: PsyModel | null = null;
 
-  private vbr: VBRTag | null = null;
-
-  private id3: ID3Tag | null = null;
-
-  private mpglib: MPGLib | null = null;
-
-  enc = new Encoder();
+  private enc: Encoder | null = null;
 
   setModules(
     ga: GainAnalysis,
@@ -64,146 +60,37 @@ export class Lame {
     p: Presets,
     qupvt: QuantizePVT,
     qu: Quantize,
-    vbr: VBRTag,
-    id3: ID3Tag,
-    mpglib: MPGLib
+    psy: PsyModel,
+    enc: Encoder
   ) {
     this.ga = ga;
     this.bs = bs;
     this.p = p;
     this.qupvt = qupvt;
     this.qu = qu;
-    this.vbr = vbr;
-    this.id3 = id3;
-    this.mpglib = mpglib;
-    this.enc.setModules(this.bs, this.psy, this.vbr);
+    this.psy = psy;
+    this.enc = enc;
   }
 
-  private lame_init_old(gfp: LameGlobalFlags) {
-    gfp.class_id = LAME_ID;
+  lame_init(channels: number, samplerate: number, kbps: number) {
+    const gfp = new LameGlobalFlags(channels, samplerate, kbps);
 
-    gfp.internal_flags = new LameInternalFlags();
-    const gfc = gfp.internal_flags!;
-
-    /* Global flags. set defaults here for non-zero values */
-    /* see lame.h for description */
-    /*
-     * set integer values to -1 to mean that LAME will compute the best
-     * value, UNLESS the calling program as set it (and the value is no
-     * longer -1)
-     */
-
-    gfp.mode = MPEGMode.NOT_SET;
-    gfp.original = 1;
-    gfp.in_samplerate = 44100;
-    gfp.num_channels = 2;
-    gfp.num_samples = -1;
-
-    gfp.bWriteVbrTag = true;
-    gfp.quality = -1;
-    gfp.short_blocks = null;
-    gfc.subblock_gain = -1;
-
-    gfp.lowpassfreq = 0;
-    gfp.highpassfreq = 0;
-    gfp.lowpasswidth = -1;
-    gfp.highpasswidth = -1;
-
-    gfp.VBR = VbrMode.vbr_off;
-    gfp.VBR_q = 4;
-    gfp.ATHcurve = -1;
-    gfp.VBR_mean_bitrate_kbps = 128;
-    gfp.VBR_min_bitrate_kbps = 0;
-    gfp.VBR_max_bitrate_kbps = 0;
-    gfp.VBR_hard_min = 0;
-    gfc.VBR_min_bitrate = 1;
-    /* not 0 ????? */
-    gfc.VBR_max_bitrate = 13;
-    /* not 14 ????? */
-
-    gfp.quant_comp = -1;
-    gfp.quant_comp_short = -1;
-
-    gfp.msfix = -1;
-
-    gfc.resample_ratio = 1;
-
-    gfc.OldValue[0] = 180;
-    gfc.OldValue[1] = 180;
-    gfc.CurrentStep[0] = 4;
-    gfc.CurrentStep[1] = 4;
-    gfc.masking_lower = 1;
-    gfc.nsPsy.attackthre = -1;
-    gfc.nsPsy.attackthre_s = -1;
-
-    gfp.scale = -1;
-
-    gfp.athaa_type = -1;
-    gfp.ATHtype = -1;
-    /* default = -1 = set in lame_init_params */
-    gfp.athaa_loudapprox = -1;
-    /* 1 = flat loudness approx. (total energy) */
-    /* 2 = equal loudness curve */
-    gfp.athaa_sensitivity = 0.0;
-    /* no offset */
-    gfp.useTemporal = false;
-    gfp.interChRatio = -1;
-
-    /*
-     * The reason for int mf_samples_to_encode = ENCDELAY + POSTDELAY;
-     * ENCDELAY = internal encoder delay. And then we have to add
-     * POSTDELAY=288 because of the 50% MDCT overlap. A 576 MDCT granule
-     * decodes to 1152 samples. To synthesize the 576 samples centered under
-     * this granule we need the previous granule for the first 288 samples
-     * (no problem), and the next granule for the next 288 samples (not
-     * possible if this is last granule). So we need to pad with 288 samples
-     * to make sure we can encode the 576 samples we are interested in.
-     */
-    gfc.mf_samples_to_encode = ENCDELAY + POSTDELAY;
-    gfp.encoder_padding = 0;
-    gfc.mf_size = ENCDELAY - MDCTDELAY;
-    /*
-     * we pad input with this many 0's
-     */
-
-    gfp.findReplayGain = false;
-    gfp.decode_on_the_fly = false;
-
-    gfc.decode_on_the_fly = false;
-    gfc.findReplayGain = false;
-    gfc.findPeakSample = false;
-
-    gfc.RadioGain = 0;
-    gfc.AudiophileGain = 0;
-    gfc.noclipGainChange = 0;
-    gfc.noclipScale = -1.0;
-
-    gfp.preset = 0;
-
-    gfp.write_id3tag_automatic = true;
-    return 0;
-  }
-
-  lame_init() {
-    const gfp = new LameGlobalFlags();
-
-    const ret = this.lame_init_old(gfp);
-    if (ret !== 0) {
-      throw new Error('lame_init_old failed');
+    const retcode = this.lame_init_params(gfp);
+    if (retcode !== 0) {
+      throw new Error(`lame_init_params() failed: ${retcode}`);
     }
 
-    gfp.lame_allocated_gfp = 1;
     return gfp;
   }
 
-  private filter_coef(x: number) {
+  private static filterCoeficient(x: number) {
     if (x > 1.0) return 0.0;
     if (x <= 0.0) return 1.0;
 
     return Math.cos((Math.PI / 2) * x);
   }
 
-  nearestBitrateFullIndex(bitrate: number) {
+  static nearestBitrateFullIndex(bitrate: number) {
     /* borrowed from DM abr presets */
 
     const full_bitrate_table = [
@@ -244,7 +131,10 @@ export class Lame {
     return upper_range;
   }
 
-  private optimum_samplefreq(lowpassfreq: number, input_samplefreq: number) {
+  private static optimum_samplefreq(
+    lowpassfreq: number,
+    input_samplefreq: number
+  ) {
     /*
      * Rules:
      *
@@ -310,7 +200,7 @@ export class Lame {
   /**
    * convert samp freq in Hz to index
    */
-  private smpFrqIndex(sample_freq: number, gpf: LameGlobalFlags) {
+  private static smpFrqIndex(sample_freq: number, gpf: LameGlobalFlags) {
     switch (sample_freq) {
       case 44100:
         gpf.version = 1;
@@ -349,7 +239,7 @@ export class Lame {
    * @param bRate
    *            legal rates from 8 to 320
    */
-  private findNearestBitrate(
+  private static findNearestBitrate(
     bRate: number,
     version: number,
     samplerate: number
@@ -357,15 +247,15 @@ export class Lame {
     /* MPEG-1 or MPEG-2 LSF */
     if (samplerate < 16000) version = 2;
 
-    let bitrate: number = Tables.bitrate_table[version][1];
+    let bitrate: number = tables.bitrate_table[version][1];
 
     for (let i = 2; i <= 14; i++) {
-      if (Tables.bitrate_table[version][i] > 0) {
+      if (tables.bitrate_table[version][i] > 0) {
         if (
-          Math.abs(Tables.bitrate_table[version][i] - bRate) <
+          Math.abs(tables.bitrate_table[version][i] - bRate) <
           Math.abs(bitrate - bRate)
         )
-          bitrate = Tables.bitrate_table[version][i];
+          bitrate = tables.bitrate_table[version][i];
       }
     }
     return bitrate;
@@ -377,12 +267,16 @@ export class Lame {
    * @param version
    *            MPEG-1 or MPEG-2/2.5 LSF
    */
-  bitrateIndex(bRate: number, version: number, samplerate: number) {
+  private static bitrateIndex(
+    bRate: number,
+    version: number,
+    samplerate: number
+  ) {
     /* convert bitrate in kbps to index */
     if (samplerate < 16000) version = 2;
     for (let i = 0; i <= 14; i++) {
-      if (Tables.bitrate_table[version][i] > 0) {
-        if (Tables.bitrate_table[version][i] === bRate) {
+      if (tables.bitrate_table[version][i] > 0) {
+        if (tables.bitrate_table[version][i] === bRate) {
           return i;
         }
       }
@@ -390,7 +284,7 @@ export class Lame {
     return -1;
   }
 
-  private optimum_bandwidth(lh: LowPassHighPass, bitrate: number) {
+  private static optimum_bandwidth(lh: LowPassHighPass, bitrate: number) {
     /**
      * <PRE>
      *  Input:
@@ -421,12 +315,12 @@ export class Lame {
       { bitrate: 320, lowpass: 20500 },
     ] satisfies BandPass[];
 
-    const table_index = this.nearestBitrateFullIndex(bitrate);
+    const table_index = Lame.nearestBitrateFullIndex(bitrate);
     lh.lowerlimit = freq_map[table_index].lowpass;
   }
 
-  private lame_init_params_ppflt(gfp: LameGlobalFlags) {
-    const gfc = gfp.internal_flags!;
+  private static lame_init_params_ppflt(gfp: LameGlobalFlags) {
+    const gfc = gfp.internal_flags;
     /** *************************************************************/
     /* compute info needed for polyphase filter (filter type==0, default) */
     /** *************************************************************/
@@ -502,14 +396,14 @@ export class Lame {
       let fc2;
       const freq = band / 31.0;
       if (gfc.highpass2 > gfc.highpass1) {
-        fc1 = this.filter_coef(
+        fc1 = Lame.filterCoeficient(
           (gfc.highpass2 - freq) / (gfc.highpass2 - gfc.highpass1 + 1e-20)
         );
       } else {
         fc1 = 1.0;
       }
       if (gfc.lowpass2 > gfc.lowpass1) {
-        fc2 = this.filter_coef(
+        fc2 = Lame.filterCoeficient(
           (freq - gfc.lowpass1) / (gfc.lowpass2 - gfc.lowpass1 + 1e-20)
         );
       } else {
@@ -519,8 +413,8 @@ export class Lame {
     }
   }
 
-  private lame_init_qval(gfp: LameGlobalFlags) {
-    const gfc = gfp.internal_flags!;
+  private static lame_init_qval(gfp: LameGlobalFlags) {
+    const gfc = gfp.internal_flags;
 
     switch (gfp.quality) {
       default:
@@ -635,28 +529,9 @@ export class Lame {
   }
 
   private lame_init_bitstream(gfp: LameGlobalFlags) {
-    const gfc = gfp.internal_flags!;
+    const gfc = gfp.internal_flags;
     gfp.frameNum = 0;
-
-    if (gfp.write_id3tag_automatic) {
-      this.id3!.id3tag_write_v2(gfp);
-    }
-    /* initialize histogram data optionally used by frontend */
-
-    gfc.bitrate_stereoMode_Hist = Array.from(
-      { length: 16 },
-      () => new Int32Array(4 + 1)
-    );
-    // new_int_n([16, 4 + 1]);
-    gfc.bitrate_blockType_Hist = Array.from(
-      { length: 16 },
-      () => new Int32Array(4 + 1 + 1)
-    );
-
     gfc.PeakSample = 0.0;
-
-    /* Write initial VBR Header to bitstream and init VBR data */
-    if (gfp.bWriteVbrTag) this.vbr!.init(gfp);
   }
 
   /**
@@ -664,7 +539,7 @@ export class Lame {
    *
    * Robert Hegemann 2000-07-01
    */
-  private map2MP3Frequency(freq: number): number {
+  private static map2MP3Frequency(freq: number): number {
     if (freq <= 8000) return 8000;
     if (freq <= 11025) return 11025;
     if (freq <= 12000) return 12000;
@@ -675,10 +550,6 @@ export class Lame {
     if (freq <= 44100) return 44100;
 
     return 48000;
-  }
-
-  private linear_int(a: number, b: number, m: number): number {
-    return a + m * (b - a);
   }
 
   private static readonly LAME_DEFAULT_QUALITY = 3;
@@ -720,39 +591,24 @@ export class Lame {
    *
    ********************************************************************/
   // eslint-disable-next-line complexity
-  lame_init_params(gfp: LameGlobalFlags) {
-    const gfc = gfp.internal_flags!;
+  private lame_init_params(gfp: LameGlobalFlags) {
+    const gfc = gfp.internal_flags;
 
     gfc.Class_ID = 0;
     if (gfc.ATH === null) gfc.ATH = new ATH();
     if (gfc.PSY === null) gfc.PSY = new PSY();
-    if (gfc.rgdata === null) gfc.rgdata = new ReplayGain();
 
     gfc.channels_in = gfp.num_channels;
     if (gfc.channels_in === 1) gfp.mode = MPEGMode.MONO;
     gfc.channels_out = gfp.mode === MPEGMode.MONO ? 1 : 2;
     gfc.mode_ext = MPG_MD_MS_LR;
-    if (gfp.mode === MPEGMode.MONO) gfp.force_ms = false;
-    /*
-     * don't allow forced mid/side stereo for mono output
-     */
 
     if (
       gfp.VBR === VbrMode.vbr_off &&
       gfp.VBR_mean_bitrate_kbps !== 128 &&
       gfp.brate === 0
-    )
-      gfp.brate = gfp.VBR_mean_bitrate_kbps;
-
-    if (
-      gfp.VBR === VbrMode.vbr_off ||
-      gfp.VBR === VbrMode.vbr_mtrh ||
-      gfp.VBR === VbrMode.vbr_mt
     ) {
-      /* these modes can handle free format condition */
-    } else {
-      gfp.free_format = false;
-      /* mode can't be mixed with free format */
+      gfp.brate = gfp.VBR_mean_bitrate_kbps;
     }
 
     if (gfp.VBR === VbrMode.vbr_off && gfp.brate === 0) {
@@ -767,7 +623,7 @@ export class Lame {
     /* find bitrate if user specify a compression ratio */
     if (gfp.VBR === VbrMode.vbr_off && gfp.compression_ratio > 0) {
       if (gfp.out_samplerate === 0)
-        gfp.out_samplerate = this.map2MP3Frequency(
+        gfp.out_samplerate = Lame.map2MP3Frequency(
           Math.trunc(0.97 * gfp.in_samplerate)
         );
       /*
@@ -784,18 +640,17 @@ export class Lame {
       );
 
       /* we need the version for the bitrate table look up */
-      gfc.samplerate_index = this.smpFrqIndex(gfp.out_samplerate, gfp);
+      gfc.samplerate_index = Lame.smpFrqIndex(gfp.out_samplerate, gfp);
 
-      if (!gfp.free_format)
-        /*
-         * for non Free Format find the nearest allowed
-         * bitrate
-         */
-        gfp.brate = this.findNearestBitrate(
-          gfp.brate,
-          gfp.version,
-          gfp.out_samplerate
-        );
+      /*
+       * for non Free Format find the nearest allowed
+       * bitrate
+       */
+      gfp.brate = Lame.findNearestBitrate(
+        gfp.brate,
+        gfp.version,
+        gfp.out_samplerate
+      );
     }
 
     if (gfp.out_samplerate !== 0) {
@@ -820,13 +675,13 @@ export class Lame {
       switch (gfp.VBR) {
         case VbrMode.vbr_off: {
           const lh = new LowPassHighPass();
-          this.optimum_bandwidth(lh, gfp.brate);
+          Lame.optimum_bandwidth(lh, gfp.brate);
           lowpass = lh.lowerlimit;
           break;
         }
         case VbrMode.vbr_abr: {
           const lh = new LowPassHighPass();
-          this.optimum_bandwidth(lh, gfp.VBR_mean_bitrate_kbps);
+          Lame.optimum_bandwidth(lh, gfp.VBR_mean_bitrate_kbps);
           lowpass = lh.lowerlimit;
           break;
         }
@@ -839,7 +694,7 @@ export class Lame {
             const a = x[gfp.VBR_q];
             const b = x[gfp.VBR_q + 1];
             const m = gfp.VBR_q_frac;
-            lowpass = this.linear_int(a, b, m);
+            lowpass = linearInterpolation(a, b, m);
           } else {
             lowpass = 19500;
           }
@@ -854,7 +709,7 @@ export class Lame {
             const a = x[gfp.VBR_q];
             const b = x[gfp.VBR_q + 1];
             const m = gfp.VBR_q_frac;
-            lowpass = this.linear_int(a, b, m);
+            lowpass = linearInterpolation(a, b, m);
           } else {
             lowpass = 19500;
           }
@@ -873,7 +728,7 @@ export class Lame {
       if (2 * gfp.lowpassfreq > gfp.in_samplerate) {
         gfp.lowpassfreq = gfp.in_samplerate / 2;
       }
-      gfp.out_samplerate = this.optimum_samplefreq(
+      gfp.out_samplerate = Lame.optimum_samplefreq(
         Math.trunc(gfp.lowpassfreq),
         gfp.in_samplerate
       );
@@ -896,13 +751,10 @@ export class Lame {
      * do not compute ReplayGain values and do not find the peak sample if
      * we can't store them
      */
-    if (!gfp.bWriteVbrTag) {
-      gfp.findReplayGain = false;
-      gfp.decode_on_the_fly = false;
-      gfc.findPeakSample = false;
-    }
-    gfc.findReplayGain = gfp.findReplayGain;
-    gfc.decode_on_the_fly = gfp.decode_on_the_fly;
+    gfc.findPeakSample = false;
+
+    gfc.findReplayGain = false;
+    gfc.decode_on_the_fly = false;
 
     if (gfc.decode_on_the_fly) gfc.findPeakSample = true;
 
@@ -911,16 +763,8 @@ export class Lame {
         this.ga!.InitGainAnalysis(gfc.rgdata, gfp.out_samplerate) ===
         GainAnalysis.INIT_GAIN_ANALYSIS_ERROR
       ) {
-        gfp.internal_flags = null;
-        return -6;
+        throw new Error('INIT_GAIN_ANALYSIS_ERROR');
       }
-    }
-
-    if (gfc.decode_on_the_fly && !gfp.decode_only) {
-      if (gfc.hip !== null) {
-        this.mpglib!.hip_decode_exit(gfc.hip);
-      }
-      gfc.hip = this.mpglib!.hip_decode_init();
     }
 
     gfc.mode_gr = gfp.out_samplerate <= 24000 ? 1 : 2;
@@ -928,7 +772,6 @@ export class Lame {
      * Number of granules per frame
      */
     gfp.framesize = 576 * gfc.mode_gr;
-    gfp.encoder_delay = ENCDELAY;
 
     gfc.resample_ratio = gfp.in_samplerate / gfp.out_samplerate;
 
@@ -1026,42 +869,32 @@ export class Lame {
     /** ********************************************************************/
     /* compute info needed for polyphase filter (filter type==0, default) */
     /** ********************************************************************/
-    this.lame_init_params_ppflt(gfp);
+    Lame.lame_init_params_ppflt(gfp);
     /** *****************************************************
      * samplerate and bitrate index
      *******************************************************/
-    gfc.samplerate_index = this.smpFrqIndex(gfp.out_samplerate, gfp);
+    gfc.samplerate_index = Lame.smpFrqIndex(gfp.out_samplerate, gfp);
     if (gfc.samplerate_index < 0) {
-      gfp.internal_flags = null;
-      return -1;
+      throw new Error('Invalid sample rate');
     }
 
     if (gfp.VBR === VbrMode.vbr_off) {
-      if (gfp.free_format) {
-        gfc.bitrate_index = 0;
-      } else {
-        gfp.brate = this.findNearestBitrate(
-          gfp.brate,
-          gfp.version,
-          gfp.out_samplerate
-        );
-        gfc.bitrate_index = this.bitrateIndex(
-          gfp.brate,
-          gfp.version,
-          gfp.out_samplerate
-        );
-        if (gfc.bitrate_index <= 0) {
-          gfp.internal_flags = null;
-          return -1;
-        }
+      gfp.brate = Lame.findNearestBitrate(
+        gfp.brate,
+        gfp.version,
+        gfp.out_samplerate
+      );
+      gfc.bitrate_index = Lame.bitrateIndex(
+        gfp.brate,
+        gfp.version,
+        gfp.out_samplerate
+      );
+      if (gfc.bitrate_index <= 0) {
+        throw new Error('Invalid bitrate/samplerate combination');
       }
     } else {
       gfc.bitrate_index = 1;
     }
-
-    /* for CBR, we will write an "info" tag. */
-
-    if (gfp.analysis) gfp.bWriteVbrTag = false;
 
     this.bs!.init_bit_stream_w(gfc);
 
@@ -1094,8 +927,6 @@ export class Lame {
       gfc.sideinfo_len = gfc.channels_out === 1 ? 4 + 17 : 4 + 32;
     /* MPEG 2 */ else
       gfc.sideinfo_len = gfc.channels_out === 1 ? 4 + 9 : 4 + 17;
-
-    if (gfp.error_protection) gfc.sideinfo_len += 2;
 
     this.lame_init_bitstream(gfp);
 
@@ -1215,12 +1046,12 @@ export class Lame {
       if (gfp.out_samplerate < 16000) gfc.VBR_max_bitrate = 8;
       /* default: allow 64 kbps (MPEG-2.5) */
       if (gfp.VBR_min_bitrate_kbps !== 0) {
-        gfp.VBR_min_bitrate_kbps = this.findNearestBitrate(
+        gfp.VBR_min_bitrate_kbps = Lame.findNearestBitrate(
           gfp.VBR_min_bitrate_kbps,
           gfp.version,
           gfp.out_samplerate
         );
-        gfc.VBR_min_bitrate = this.bitrateIndex(
+        gfc.VBR_min_bitrate = Lame.bitrateIndex(
           gfp.VBR_min_bitrate_kbps,
           gfp.version,
           gfp.out_samplerate
@@ -1228,12 +1059,12 @@ export class Lame {
         if (gfc.VBR_min_bitrate < 0) return -1;
       }
       if (gfp.VBR_max_bitrate_kbps !== 0) {
-        gfp.VBR_max_bitrate_kbps = this.findNearestBitrate(
+        gfp.VBR_max_bitrate_kbps = Lame.findNearestBitrate(
           gfp.VBR_max_bitrate_kbps,
           gfp.version,
           gfp.out_samplerate
         );
-        gfc.VBR_max_bitrate = this.bitrateIndex(
+        gfc.VBR_max_bitrate = Lame.bitrateIndex(
           gfp.VBR_max_bitrate_kbps,
           gfp.version,
           gfp.out_samplerate
@@ -1241,27 +1072,21 @@ export class Lame {
         if (gfc.VBR_max_bitrate < 0) return -1;
       }
       gfp.VBR_min_bitrate_kbps =
-        Tables.bitrate_table[gfp.version][gfc.VBR_min_bitrate];
+        tables.bitrate_table[gfp.version][gfc.VBR_min_bitrate];
       gfp.VBR_max_bitrate_kbps =
-        Tables.bitrate_table[gfp.version][gfc.VBR_max_bitrate];
+        tables.bitrate_table[gfp.version][gfc.VBR_max_bitrate];
       gfp.VBR_mean_bitrate_kbps = Math.min(
-        Tables.bitrate_table[gfp.version][gfc.VBR_max_bitrate],
+        tables.bitrate_table[gfp.version][gfc.VBR_max_bitrate],
         gfp.VBR_mean_bitrate_kbps
       );
       gfp.VBR_mean_bitrate_kbps = Math.max(
-        Tables.bitrate_table[gfp.version][gfc.VBR_min_bitrate],
+        tables.bitrate_table[gfp.version][gfc.VBR_min_bitrate],
         gfp.VBR_mean_bitrate_kbps
       );
     }
 
-    /* just another daily changing developer switch */
-    if (gfp.tune) {
-      gfc.PSY.mask_adjust += gfp.tune_value_a;
-      gfc.PSY.mask_adjust_short += gfp.tune_value_a;
-    }
-
     /* initialize internal qval settings */
-    this.lame_init_qval(gfp);
+    Lame.lame_init_qval(gfp);
     console.assert(gfp.scale >= 0);
     /*
      * automatic ATH adjustment on
@@ -1302,10 +1127,10 @@ export class Lame {
     /* select psychoacoustic model */
     gfp.exp_nspsytune |= 1;
 
-    if (gfp.internal_flags!.nsPsy.attackthre < 0)
-      gfp.internal_flags!.nsPsy.attackthre = PsyModel.NSATTACKTHRE;
-    if (gfp.internal_flags!.nsPsy.attackthre_s < 0)
-      gfp.internal_flags!.nsPsy.attackthre_s = PsyModel.NSATTACKTHRE_S;
+    if (gfp.internal_flags.nsPsy.attackthre < 0)
+      gfp.internal_flags.nsPsy.attackthre = PsyModel.NSATTACKTHRE;
+    if (gfp.internal_flags.nsPsy.attackthre_s < 0)
+      gfp.internal_flags.nsPsy.attackthre_s = PsyModel.NSATTACKTHRE_S;
 
     console.assert(gfp.scale >= 0);
 
@@ -1341,12 +1166,15 @@ export class Lame {
     }
 
     this.qupvt!.iteration_init(gfp);
-    this.psy.psymodel_init(gfp);
+    this.psy!.psymodel_init(gfp);
     console.assert(gfp.scale >= 0);
     return 0;
   }
 
-  private update_inbuffer_size(gfc: LameInternalFlags, nsamples: number) {
+  private static update_inbuffer_size(
+    gfc: LameInternalFlags,
+    nsamples: number
+  ) {
     if (gfc.in_buffer_0 === null || gfc.in_buffer_nsamples < nsamples) {
       gfc.in_buffer_0 = new Float32Array(nsamples);
       gfc.in_buffer_1 = new Float32Array(nsamples);
@@ -1360,7 +1188,7 @@ export class Lame {
     mp3bufferPos: number,
     mp3buffer_size: number
   ) {
-    const gfc = gfp.internal_flags!;
+    const gfc = gfp.internal_flags;
     const buffer = Array.from({ length: 2 }, () => new Int16Array(1152));
     let imp3 = 0;
     let mp3count;
@@ -1374,7 +1202,7 @@ export class Lame {
     let end_padding;
     let frames_left;
     let samples_to_encode = gfc.mf_samples_to_encode - POSTDELAY;
-    const mf_needed = this.calcNeeded(gfp);
+    const mf_needed = Lame.calcNeeded(gfp);
 
     /* Was flush already called? */
     if (gfc.mf_samples_to_encode < 1) {
@@ -1461,23 +1289,6 @@ export class Lame {
     /* if user specifed buffer size = 0, dont check size */
     if (mp3buffer_size === 0) mp3buffer_size_remaining = 0;
 
-    if (gfp.write_id3tag_automatic) {
-      /* write a id3 tag to the bitstream */
-      this.id3!.id3tag_write_v1(gfp);
-
-      imp3 = this.bs!.copy_buffer(
-        gfc,
-        mp3buffer,
-        mp3bufferPos,
-        mp3buffer_size_remaining,
-        0
-      );
-
-      if (imp3 < 0) {
-        return imp3;
-      }
-      mp3count += imp3;
-    }
     return mp3count;
   }
 
@@ -1490,13 +1301,13 @@ export class Lame {
     mp3bufPos: number,
     mp3buf_size: number
   ) {
-    const gfc = gfp.internal_flags!;
+    const gfc = gfp.internal_flags;
 
     if (gfc.Class_ID !== LAME_ID) return -3;
 
     if (nsamples === 0) return 0;
 
-    this.update_inbuffer_size(gfc, nsamples);
+    Lame.update_inbuffer_size(gfc, nsamples);
 
     const in_buffer = [gfc.in_buffer_0!, gfc.in_buffer_1!] as const;
 
@@ -1517,13 +1328,13 @@ export class Lame {
     );
   }
 
-  private calcNeeded(gfp: LameGlobalFlags) {
+  private static calcNeeded(gfp: LameGlobalFlags) {
     let mf_needed = BLKSIZE + gfp.framesize - FFTOFFSET;
     /*
      * amount needed for FFT
      */
     mf_needed = Math.max(mf_needed, 512 + gfp.framesize - 32);
-    console.assert(LameInternalFlags.MFSIZE >= mf_needed);
+    console.assert(MFSIZE >= mf_needed);
 
     return mf_needed;
   }
@@ -1537,7 +1348,7 @@ export class Lame {
     mp3bufPos: number,
     mp3buf_size: number
   ) {
-    const gfc = gfp.internal_flags!;
+    const gfc = gfp.internal_flags;
     let mp3size = 0;
     let ret;
     let i;
@@ -1568,26 +1379,6 @@ export class Lame {
       }
     }
 
-    /* user selected scaling of the channel 0 (left) samples */
-    if (
-      !isCloseToEachOther(gfp.scale_left, 0) &&
-      !isCloseToEachOther(gfp.scale_left, 1.0)
-    ) {
-      for (i = 0; i < nsamples; ++i) {
-        in_buffer[0][i] *= gfp.scale_left;
-      }
-    }
-
-    /* user selected scaling of the channel 1 (right) samples */
-    if (
-      !isCloseToEachOther(gfp.scale_right, 0) &&
-      !isCloseToEachOther(gfp.scale_right, 1.0)
-    ) {
-      for (i = 0; i < nsamples; ++i) {
-        in_buffer[1][i] *= gfp.scale_right;
-      }
-    }
-
     /* Downsample to Mono if 2 channels in and 1 channel out */
     if (gfp.num_channels === 2 && gfc.channels_out === 1) {
       for (i = 0; i < nsamples; ++i) {
@@ -1596,7 +1387,7 @@ export class Lame {
       }
     }
 
-    const mf_needed = this.calcNeeded(gfp);
+    const mf_needed = Lame.calcNeeded(gfp);
 
     const mfbuf: [Float32Array, Float32Array] = [gfc.mfbuf[0], gfc.mfbuf[1]];
 
@@ -1614,7 +1405,7 @@ export class Lame {
       ];
       /* copy in new samples into mfbuf, with resampling */
       const inOut = new InOut();
-      this.fill_buffer(
+      Lame.fill_buffer(
         gfp,
         mfbuf,
         in_buffer_ptr,
@@ -1629,7 +1420,7 @@ export class Lame {
       if (gfc.findReplayGain && !gfc.decode_on_the_fly)
         if (
           this.ga!.analyzeSamples(
-            gfc.rgdata!,
+            gfc.rgdata,
             mfbuf[0],
             gfc.mf_size,
             mfbuf[1],
@@ -1647,7 +1438,7 @@ export class Lame {
 
       /* update mfbuf[] counters */
       gfc.mf_size += n_out;
-      console.assert(gfc.mf_size <= LameInternalFlags.MFSIZE);
+      console.assert(gfc.mf_size <= MFSIZE);
 
       /*
        * lame_encode_flush may have set gfc.mf_sample_to_encode to 0 so we
@@ -1705,7 +1496,7 @@ export class Lame {
     mp3bufPos: number,
     mp3buf_size: number
   ) {
-    const ret = this.enc.lame_encode_mp3_frame(
+    const ret = this.enc!.lame_encode_mp3_frame(
       gfp,
       inbuf_l,
       inbuf_r,
@@ -1717,37 +1508,7 @@ export class Lame {
     return ret;
   }
 
-  /**
-   * Greatest common divisor.
-   * <p>
-   * Joint work of Euclid and M. Hendry
-   */
-  private gcd(i: number, j: number): number {
-    return j !== 0 ? this.gcd(j, i % j) : i;
-  }
-
-  /**
-   * Resampling via FIR filter, blackman window.
-   */
-  private blackman(x: number, fcn: number, l: number) {
-    /*
-     * This algorithm from: SIGNAL PROCESSING ALGORITHMS IN FORTRAN AND C
-     * S.D. Stearns and R.A. David, Prentice-Hall, 1992
-     */
-    const wcn = Math.PI * fcn;
-
-    x /= l;
-    if (x < 0) x = 0;
-    if (x > 1) x = 1;
-    const x2 = x - 0.5;
-
-    const bkwn =
-      0.42 - 0.5 * Math.cos(2 * x * Math.PI) + 0.08 * Math.cos(4 * x * Math.PI);
-    if (Math.abs(x2) < 1e-9) return wcn / Math.PI;
-    return (bkwn * Math.sin(l * wcn * x2)) / (Math.PI * l * x2);
-  }
-
-  private fill_buffer_resample(
+  private static fill_buffer_resample(
     gfp: LameGlobalFlags,
     outbuf: Float32Array,
     outbufPos: number,
@@ -1758,14 +1519,13 @@ export class Lame {
     num_used: NumUsed,
     ch: number
   ) {
-    const gfc = gfp.internal_flags!;
+    const gfc = gfp.internal_flags;
     let i;
     let j = 0;
     let k;
     /* number of convolution functions to pre-compute */
-    let bpc =
-      gfp.out_samplerate / this.gcd(gfp.out_samplerate, gfp.in_samplerate);
-    if (bpc > LameInternalFlags.BPC) bpc = LameInternalFlags.BPC;
+    let bpc = gfp.out_samplerate / gcd(gfp.out_samplerate, gfp.in_samplerate);
+    if (bpc > BPC) bpc = BPC;
 
     const intratio =
       Math.abs(gfc.resample_ratio - Math.floor(0.5 + gfc.resample_ratio)) <
@@ -1783,7 +1543,7 @@ export class Lame {
     const BLACKSIZE = filter_l + 1;
     /* size of data needed for FIR */
 
-    if (gfc.fill_buffer_resample_init === 0) {
+    if (!gfc.fill_buffer_resample_init) {
       gfc.inbuf_old[0] = new Float32Array(BLACKSIZE);
       gfc.inbuf_old[1] = new Float32Array(BLACKSIZE);
       for (i = 0; i <= 2 * bpc; ++i)
@@ -1797,12 +1557,12 @@ export class Lame {
         let sum = 0;
         const offset = (j - bpc) / (2 * bpc);
         for (i = 0; i <= filter_l; i++) {
-          gfc.blackfilt[j][i] = this.blackman(i - offset, fcn, filter_l);
+          gfc.blackfilt[j][i] = blackmanWindow(i - offset, fcn, filter_l);
           sum += gfc.blackfilt[j][i];
         }
         for (i = 0; i <= filter_l; i++) gfc.blackfilt[j][i] /= sum;
       }
-      gfc.fill_buffer_resample_init = 1;
+      gfc.fill_buffer_resample_init = true;
     }
 
     const inbuf_old = gfc.inbuf_old[ch];
@@ -1878,7 +1638,7 @@ export class Lame {
     /* return the number samples created at the new samplerate */
   }
 
-  private fill_buffer(
+  private static fill_buffer(
     gfp: LameGlobalFlags,
     mfbuf: [Float32Array, Float32Array],
     in_buffer: Float32Array[],
@@ -1886,13 +1646,13 @@ export class Lame {
     nsamples: number,
     io: InOut
   ) {
-    const gfc = gfp.internal_flags!;
+    const gfc = gfp.internal_flags;
 
     /* copy in new samples into mfbuf, with resampling if necessary */
     if (gfc.resample_ratio < 0.9999 || gfc.resample_ratio > 1.0001) {
       for (let ch = 0; ch < gfc.channels_out; ch++) {
         const numUsed = new NumUsed();
-        io.n_out = this.fill_buffer_resample(
+        io.n_out = Lame.fill_buffer_resample(
           gfp,
           mfbuf[ch],
           gfc.mf_size,
@@ -1916,41 +1676,41 @@ export class Lame {
     }
   }
 
-  static V9 = 410;
+  static readonly V9 = 410;
 
-  static V8 = 420;
+  static readonly V8 = 420;
 
-  static V7 = 430;
+  static readonly V7 = 430;
 
-  static V6 = 440;
+  static readonly V6 = 440;
 
-  static V5 = 450;
+  static readonly V5 = 450;
 
-  static V4 = 460;
+  static readonly V4 = 460;
 
-  static V3 = 470;
+  static readonly V3 = 470;
 
-  static V2 = 480;
+  static readonly V2 = 480;
 
-  static V1 = 490;
+  static readonly V1 = 490;
 
-  static V0 = 500;
+  static readonly V0 = 500;
 
   /* still there for compatibility */
 
-  static R3MIX = 1000;
+  static readonly R3MIX = 1000;
 
-  static STANDARD = 1001;
+  static readonly STANDARD = 1001;
 
-  static EXTREME = 1002;
+  static readonly EXTREME = 1002;
 
-  static INSANE = 1003;
+  static readonly INSANE = 1003;
 
-  static STANDARD_FAST = 1004;
+  static readonly STANDARD_FAST = 1004;
 
-  static EXTREME_FAST = 1005;
+  static readonly EXTREME_FAST = 1005;
 
-  static MEDIUM = 1006;
+  static readonly MEDIUM = 1006;
 
-  static MEDIUM_FAST = 1007;
+  static readonly MEDIUM_FAST = 1007;
 }

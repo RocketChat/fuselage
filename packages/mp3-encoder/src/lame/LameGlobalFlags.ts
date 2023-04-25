@@ -1,27 +1,18 @@
-import type { LameInternalFlags } from './LameInternalFlags';
+import { LameInternalFlags } from './LameInternalFlags';
 import { MPEGMode } from './MPEGMode';
 import type { ShortBlock } from './ShortBlock';
-import type { VbrMode } from './VbrMode';
+import { VbrMode } from './VbrMode';
 
 export class LameGlobalFlags {
-  class_id = 0;
-
-  /* input description */
-
-  /**
-   * number of samples. default=-1
-   */
-  num_samples = 0;
-
   /**
    * input number of channels. default=2
    */
-  num_channels = 0;
+  num_channels: number;
 
   /**
    * input_samp_rate in Hz. default=44.1 kHz
    */
-  in_samplerate = 0;
+  in_samplerate: number;
 
   /**
    * output_samp_rate. default: LAME picks best value at least not used for
@@ -33,68 +24,17 @@ export class LameGlobalFlags {
    * scale input by this amount before encoding at least not used for MP3
    * decoding
    */
-  scale = 0;
-
-  /**
-   * scale input of channel 0 (left) by this amount before encoding
-   */
-  scale_left = 0;
-
-  /**
-   * scale input of channel 1 (right) by this amount before encoding
-   */
-  scale_right = 0;
-
-  /* general control params */
-  /**
-   * collect data for a MP3 frame analyzer?
-   */
-  analysis = false;
-
-  /**
-   * add Xing VBR tag?
-   */
-  bWriteVbrTag = false;
-
-  /**
-   * use lame/mpglib to convert mp3 to wav
-   */
-  decode_only = false;
+  scale = -1;
 
   /**
    * quality setting 0=best, 9=worst default=5
    */
-  quality = 0;
+  quality = 3;
 
   /**
    * see enum default = LAME picks best value
    */
   mode = MPEGMode.STEREO;
-
-  /**
-   * force M/S mode. requires mode=1
-   */
-  force_ms = false;
-
-  /**
-   * use free format? default=0
-   */
-  free_format = false;
-
-  /**
-   * find the RG value? default=0
-   */
-  findReplayGain = false;
-
-  /**
-   * decode on the fly? default=0
-   */
-  decode_on_the_fly = false;
-
-  /**
-   * 1 (default) writes ID3 tags, 0 not
-   */
-  write_id3tag_automatic = false;
 
   /*
    * set either brate>0 or compression_ratio>0, LAME will compute the value of
@@ -103,67 +43,26 @@ export class LameGlobalFlags {
   /**
    * bitrate
    */
-  brate = 0;
+  brate: number;
 
   /**
    * sizeof(wav file)/sizeof(mp3 file)
    */
   compression_ratio = 0;
 
-  /* frame params */
-  /**
-   * mark as copyright. default=0
-   */
-  copyright = 0;
-
-  /**
-   * mark as original. default=1
-   */
-  original = 0;
-
-  /**
-   * the MP3 'private extension' bit. Meaningless
-   */
-  extension = 0;
-
-  /**
-   * Input PCM is emphased PCM (for instance from one of the rarely emphased
-   * CDs), it is STRONGLY not recommended to use this, because psycho does not
-   * take it into account, and last but not least many decoders don't care
-   * about these bits
-   */
-  emphasis = 0;
-
-  /**
-   * use 2 bytes per frame for a CRC checksum. default=0
-   */
-  error_protection = 0;
-
-  /**
-   * enforce ISO spec as much as possible
-   */
-  strict_ISO = false;
-
-  /**
-   * use bit reservoir?
-   */
-  disable_reservoir = false;
-
   /* quantization/noise shaping */
-  quant_comp = 0;
+  quant_comp = -1;
 
-  quant_comp_short = 0;
+  quant_comp_short = -1;
 
   experimentalY = false;
-
-  experimentalZ = 0;
 
   exp_nspsytune = 0;
 
   preset = 0;
 
   /* VBR control */
-  VBR: VbrMode | null = null;
+  VBR = VbrMode.vbr_off;
 
   /**
    * Range [0,...,1[
@@ -173,9 +72,9 @@ export class LameGlobalFlags {
   /**
    * Range [0,...,9]
    */
-  VBR_q = 0;
+  VBR_q = 4;
 
-  VBR_mean_bitrate_kbps = 0;
+  VBR_mean_bitrate_kbps = 128;
 
   VBR_min_bitrate_kbps = 0;
 
@@ -202,12 +101,12 @@ export class LameGlobalFlags {
   /**
    * freq width of filter, in Hz (default=15%)
    */
-  lowpasswidth = 0;
+  lowpasswidth = -1;
 
   /**
    * freq width of filter, in Hz (default=15%)
    */
-  highpasswidth = 0;
+  highpasswidth = -1;
 
   /*
    * psycho acoustics and other arguments which you should not change unless
@@ -219,29 +118,14 @@ export class LameGlobalFlags {
   maskingadjust_short = 0;
 
   /**
-   * only use ATH
-   */
-  ATHonly = false;
-
-  /**
-   * only use ATH for short blocks
-   */
-  ATHshort = false;
-
-  /**
-   * disable ATH
-   */
-  noATH = false;
-
-  /**
    * select ATH formula
    */
-  ATHtype = 0;
+  ATHtype = -1;
 
   /**
    * change ATH formula 4 shape
    */
-  ATHcurve = 0;
+  ATHcurve = -1;
 
   /**
    * lower ATH by this many db
@@ -251,12 +135,12 @@ export class LameGlobalFlags {
   /**
    * select ATH auto-adjust scheme
    */
-  athaa_type = 0;
+  athaa_type = -1;
 
   /**
    * select ATH auto-adjust loudness calc
    */
-  athaa_loudapprox = 0;
+  athaa_loudapprox = -1;
 
   /**
    * dB, tune active region of auto-level
@@ -270,22 +154,12 @@ export class LameGlobalFlags {
    */
   useTemporal = false;
 
-  interChRatio = 0;
+  interChRatio = -1;
 
   /**
    * Naoki's adjustment of Mid/Side maskings
    */
-  msfix = 0;
-
-  /**
-   * 0 off, 1 on
-   */
-  tune = false;
-
-  /**
-   * used to pass values for debugging and stuff
-   */
-  tune_value_a = 0;
+  msfix = -1;
 
   /** **********************************************************************/
   /* internal variables, do not set... */
@@ -296,8 +170,6 @@ export class LameGlobalFlags {
    * 0=MPEG-2/2.5 1=MPEG-1
    */
   version = 0;
-
-  encoder_delay = 0;
 
   /**
    * number of samples of padding appended to input
@@ -311,13 +183,14 @@ export class LameGlobalFlags {
    */
   frameNum = 0;
 
-  /**
-   * is this struct owned by calling program or lame?
-   */
-  lame_allocated_gfp = 0;
-
   /** ************************************************************************/
   /* more internal variables are stored in this structure: */
   /** ************************************************************************/
-  internal_flags: LameInternalFlags | null = null;
+  readonly internal_flags = new LameInternalFlags();
+
+  constructor(channels: number, samplerate: number, kbps: number) {
+    this.num_channels = channels;
+    this.in_samplerate = samplerate;
+    this.brate = kbps;
+  }
 }

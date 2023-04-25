@@ -5,7 +5,6 @@ import type { LameInternalFlags } from './LameInternalFlags';
 import { MPEGMode } from './MPEGMode';
 import { NewMDCT } from './NewMDCT';
 import type { PsyModel } from './PsyModel';
-import type { VBRTag } from './VBRTag';
 import { VbrMode } from './VbrMode';
 import {
   BLKSIZE,
@@ -21,15 +20,9 @@ export class Encoder {
 
   psy: PsyModel | null = null;
 
-  private __psy: PsyModel | null = null;
-
-  private vbr: VBRTag | null = null;
-
-  setModules(bs: BitStream, psy: PsyModel, vbr: VBRTag) {
+  setModules(bs: BitStream, psy: PsyModel) {
     this.bs = bs;
     this.psy = psy;
-    this.__psy = psy;
-    this.vbr = vbr;
   }
 
   private newMDCT = new NewMDCT();
@@ -58,7 +51,7 @@ export class Encoder {
   /**
    * auto-adjust of ATH, useful for low volume Gabriel Bouvigne 3 feb 2001
    *
-   * modifies some values in gfp.internal_flags!.ATH (gfc.ATH)
+   * modifies some values in gfp.internal_flags.ATH (gfc.ATH)
    */
   // private void adjust_ATH(final LameInternalFlags gfc) {
   private adjust_ATH(gfc: LameInternalFlags) {
@@ -185,18 +178,18 @@ export class Encoder {
     gfp: LameGlobalFlags,
     inbuf: [Float32Array, Float32Array]
   ) {
-    const gfc = gfp.internal_flags!;
+    const gfc = gfp.internal_flags;
 
     let ch;
     let gr;
 
-    if (gfc.lame_encode_frame_init === 0) {
+    if (!gfc.lame_encode_frame_init) {
       /* prime the MDCT/polyphase filterbank with a short block */
       let i;
       let j;
       const primebuff0 = new Float32Array(286 + 1152 + 576);
       const primebuff1 = new Float32Array(286 + 1152 + 576);
-      gfc.lame_encode_frame_init = 1;
+      gfc.lame_encode_frame_init = true;
       for (i = 0, j = 0; i < 286 + 576 * (1 + gfc.mode_gr); ++i) {
         if (i < 576 * gfc.mode_gr) {
           primebuff0[i] = 0;
@@ -311,7 +304,7 @@ export class Encoder {
     // III_psy_ratio masking[][];
     let masking;
     /* pointer to selected maskings */
-    const gfc = gfp.internal_flags!;
+    const gfc = gfp.internal_flags;
 
     const tot_ener = Array.from({ length: 2 }, () => new Float32Array(4));
     const ms_ener_ratio = [0.5, 0.5];
@@ -332,7 +325,7 @@ export class Encoder {
 
     const inbuf: [Float32Array, Float32Array] = [inbuf_l, inbuf_r];
 
-    if (gfc.lame_encode_frame_init === 0) {
+    if (!gfc.lame_encode_frame_init) {
       /* first run? */
       this.lame_encode_frame_init(gfp, inbuf);
     }
@@ -378,7 +371,7 @@ export class Encoder {
           bufpPos = 576 + gr * 576 - FFTOFFSET;
         }
         if (gfp.VBR === VbrMode.vbr_mtrh || gfp.VBR === VbrMode.vbr_mt) {
-          ret = this.__psy!.L3psycho_anal_vbr(
+          ret = this.psy!.L3psycho_anal_vbr(
             gfp,
             bufp,
             bufpPos,
@@ -391,7 +384,7 @@ export class Encoder {
             blocktype
           );
         } else {
-          ret = this.__psy!.L3psycho_anal_ns(
+          ret = this.psy!.L3psycho_anal_ns(
             gfp,
             bufp,
             bufpPos,
@@ -447,9 +440,7 @@ export class Encoder {
     /* Here will be selected MS or LR coding of the 2 stereo channels */
     gfc.mode_ext = MPG_MD_LR_LR;
 
-    if (gfp.force_ms) {
-      gfc.mode_ext = MPG_MD_MS_LR;
-    } else if (gfp.mode === MPEGMode.JOINT_STEREO) {
+    if (gfp.mode === MPEGMode.JOINT_STEREO) {
       /*
        * ms_ratio = is scaled, for historical reasons, to look like a
        * ratio of side_channel / total. 0 = signal is 100% mono .5 = L & R
@@ -545,8 +536,6 @@ export class Encoder {
       mp3buf_size,
       1
     );
-
-    if (gfp.bWriteVbrTag) this.vbr!.addVbrFrame(gfp);
 
     this.updateStats(gfc);
 

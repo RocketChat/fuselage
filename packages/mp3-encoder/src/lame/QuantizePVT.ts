@@ -28,7 +28,6 @@ import { CalcNoiseResult } from './CalcNoiseResult';
 import type { GrInfo } from './GrInfo';
 import type { III_psy_ratio } from './III_psy_ratio';
 import type { LameGlobalFlags } from './LameGlobalFlags';
-import { LameInternalFlags } from './LameInternalFlags';
 import { MeanBits } from './MeanBits';
 import type { PsyModel } from './PsyModel';
 import type { Reservoir } from './Reservoir';
@@ -37,6 +36,8 @@ import { StartLine } from './StartLine';
 import type { Takehiro } from './Takehiro';
 import { VbrMode } from './VbrMode';
 import {
+  MAX_BITS_PER_CHANNEL,
+  MAX_BITS_PER_GRANULE,
   MAX_FLOAT32_VALUE,
   PSFB12,
   PSFB21,
@@ -47,7 +48,7 @@ import {
   SFBMAX,
   SHORT_TYPE,
 } from './constants';
-import { isCloseToEachOther } from './isCloseToEachOther';
+import { isCloseToEachOther } from './math';
 
 export class QuantizePVT {
   static Q_MAX = 256 + 1;
@@ -341,11 +342,11 @@ export class QuantizePVT {
   }
 
   private compute_ath(gfp: LameGlobalFlags) {
-    const ATH_l = gfp.internal_flags!.ATH!.l;
-    const ATH_psfb21 = gfp.internal_flags!.ATH!.psfb21;
-    const ATH_s = gfp.internal_flags!.ATH!.s;
-    const ATH_psfb12 = gfp.internal_flags!.ATH!.psfb12;
-    const gfc = gfp.internal_flags!;
+    const ATH_l = gfp.internal_flags.ATH!.l;
+    const ATH_psfb21 = gfp.internal_flags.ATH!.psfb21;
+    const ATH_s = gfp.internal_flags.ATH!.s;
+    const ATH_psfb12 = gfp.internal_flags.ATH!.psfb12;
+    const gfc = gfp.internal_flags;
     const samp_freq = gfp.out_samplerate;
 
     for (let sfb = 0; sfb < SBMAX_l; sfb++) {
@@ -400,24 +401,6 @@ export class QuantizePVT {
     }
 
     /*
-     * no-ATH mode: reduce ATH to -200 dB
-     */
-    if (gfp.noATH) {
-      for (let sfb = 0; sfb < SBMAX_l; sfb++) {
-        ATH_l[sfb] = 1e-20;
-      }
-      for (let sfb = 0; sfb < PSFB21; sfb++) {
-        ATH_psfb21[sfb] = 1e-20;
-      }
-      for (let sfb = 0; sfb < SBMAX_s; sfb++) {
-        ATH_s[sfb] = 1e-20;
-      }
-      for (let sfb = 0; sfb < PSFB12; sfb++) {
-        ATH_psfb12[sfb] = 1e-20;
-      }
-    }
-
-    /*
      * work in progress, don't rely on it too much
      */
     gfc.ATH!.floor = 10 * Math.log10(this.ATHmdct(gfp, -1));
@@ -427,12 +410,12 @@ export class QuantizePVT {
    * initialization for iteration_loop
    */
   iteration_init(gfp: LameGlobalFlags) {
-    const gfc = gfp.internal_flags!;
+    const gfc = gfp.internal_flags;
     const { l3_side } = gfc;
     let i;
 
-    if (gfc.iteration_init_init === 0) {
-      gfc.iteration_init_init = 1;
+    if (!gfc.iteration_init_init) {
+      gfc.iteration_init_init = true;
 
       l3_side.main_data_begin = 0;
       this.compute_ath(gfp);
@@ -508,7 +491,7 @@ export class QuantizePVT {
     gr: number,
     cbr: number
   ) {
-    const gfc = gfp.internal_flags!;
+    const gfc = gfp.internal_flags;
     let tbits = 0;
     let bits;
     const add_bits = new Int32Array(2);
@@ -520,18 +503,15 @@ export class QuantizePVT {
     tbits = mb.bits;
     /* maximum allowed bits for this granule */
     let max_bits = tbits + extra_bits;
-    if (max_bits > LameInternalFlags.MAX_BITS_PER_GRANULE) {
+    if (max_bits > MAX_BITS_PER_GRANULE) {
       // hard limit per granule
-      max_bits = LameInternalFlags.MAX_BITS_PER_GRANULE;
+      max_bits = MAX_BITS_PER_GRANULE;
     }
     for (bits = 0, ch = 0; ch < gfc.channels_out; ++ch) {
       /** ****************************************************************
        * allocate bits for each channel
        ******************************************************************/
-      targ_bits[ch] = Math.min(
-        LameInternalFlags.MAX_BITS_PER_CHANNEL,
-        tbits / gfc.channels_out
-      );
+      targ_bits[ch] = Math.min(MAX_BITS_PER_CHANNEL, tbits / gfc.channels_out);
 
       add_bits[ch] = Math.trunc(
         (targ_bits[ch] * pe[gr][ch]) / 700.0 - targ_bits[ch]
@@ -542,11 +522,8 @@ export class QuantizePVT {
         add_bits[ch] = (mean_bits * 3) / 4;
       if (add_bits[ch] < 0) add_bits[ch] = 0;
 
-      if (add_bits[ch] + targ_bits[ch] > LameInternalFlags.MAX_BITS_PER_CHANNEL)
-        add_bits[ch] = Math.max(
-          0,
-          LameInternalFlags.MAX_BITS_PER_CHANNEL - targ_bits[ch]
-        );
+      if (add_bits[ch] + targ_bits[ch] > MAX_BITS_PER_CHANNEL)
+        add_bits[ch] = Math.max(0, MAX_BITS_PER_CHANNEL - targ_bits[ch]);
 
       bits += add_bits[ch];
     }
@@ -564,14 +541,14 @@ export class QuantizePVT {
     for (bits = 0, ch = 0; ch < gfc.channels_out; ++ch) {
       bits += targ_bits[ch];
     }
-    if (bits > LameInternalFlags.MAX_BITS_PER_GRANULE) {
+    if (bits > MAX_BITS_PER_GRANULE) {
       let sum = 0;
       for (ch = 0; ch < gfc.channels_out; ++ch) {
-        targ_bits[ch] *= LameInternalFlags.MAX_BITS_PER_GRANULE;
+        targ_bits[ch] *= MAX_BITS_PER_GRANULE;
         targ_bits[ch] /= bits;
         sum += targ_bits[ch];
       }
-      console.assert(sum <= LameInternalFlags.MAX_BITS_PER_GRANULE);
+      console.assert(sum <= MAX_BITS_PER_GRANULE);
     }
 
     return max_bits;
@@ -583,10 +560,8 @@ export class QuantizePVT {
     mean_bits: number,
     max_bits: number
   ) {
-    console.assert(max_bits <= LameInternalFlags.MAX_BITS_PER_GRANULE);
-    console.assert(
-      targ_bits[0] + targ_bits[1] <= LameInternalFlags.MAX_BITS_PER_GRANULE
-    );
+    console.assert(max_bits <= MAX_BITS_PER_GRANULE);
+    console.assert(targ_bits[0] + targ_bits[1] <= MAX_BITS_PER_GRANULE);
 
     /*
      * ms_ener_ratio = 0: allocate 66/33 mid/side fac=.33 ms_ener_ratio =.5:
@@ -601,8 +576,8 @@ export class QuantizePVT {
     /* move_bits = fac*targ_bits[1]; */
     let move_bits = Math.trunc(fac * 0.5 * (targ_bits[0] + targ_bits[1]));
 
-    if (move_bits > LameInternalFlags.MAX_BITS_PER_CHANNEL - targ_bits[0]) {
-      move_bits = LameInternalFlags.MAX_BITS_PER_CHANNEL - targ_bits[0];
+    if (move_bits > MAX_BITS_PER_CHANNEL - targ_bits[0]) {
+      move_bits = MAX_BITS_PER_CHANNEL - targ_bits[0];
     }
     if (move_bits < 0) move_bits = 0;
 
@@ -624,11 +599,9 @@ export class QuantizePVT {
       targ_bits[0] = (max_bits * targ_bits[0]) / move_bits;
       targ_bits[1] = (max_bits * targ_bits[1]) / move_bits;
     }
-    console.assert(targ_bits[0] <= LameInternalFlags.MAX_BITS_PER_CHANNEL);
-    console.assert(targ_bits[1] <= LameInternalFlags.MAX_BITS_PER_CHANNEL);
-    console.assert(
-      targ_bits[0] + targ_bits[1] <= LameInternalFlags.MAX_BITS_PER_GRANULE
-    );
+    console.assert(targ_bits[0] <= MAX_BITS_PER_CHANNEL);
+    console.assert(targ_bits[1] <= MAX_BITS_PER_CHANNEL);
+    console.assert(targ_bits[0] + targ_bits[1] <= MAX_BITS_PER_GRANULE);
   }
 
   /**
@@ -670,7 +643,7 @@ export class QuantizePVT {
     pxmin: Float32Array
   ) {
     let pxminPos = 0;
-    const gfc = gfp.internal_flags!;
+    const gfc = gfp.internal_flags;
     let gsfb;
     let j = 0;
     let ath_over = 0;
@@ -720,15 +693,15 @@ export class QuantizePVT {
       if (enable_athaa_fix !== 0) {
         xmin = rh2;
       }
-      if (!gfp.ATHonly) {
-        const e = ratio.en.l[gsfb];
-        if (e > 0.0) {
-          let x;
-          x = (en0 * ratio.thm.l[gsfb] * masking_lower) / e;
-          if (enable_athaa_fix !== 0) x *= gfc.nsPsy.longfact[gsfb];
-          if (xmin < x) xmin = x;
-        }
+
+      const e = ratio.en.l[gsfb];
+      if (e > 0.0) {
+        let x;
+        x = (en0 * ratio.thm.l[gsfb] * masking_lower) / e;
+        if (enable_athaa_fix !== 0) x *= gfc.nsPsy.longfact[gsfb];
+        if (xmin < x) xmin = x;
       }
+
       if (enable_athaa_fix !== 0) pxmin[pxminPos++] = xmin;
       else pxmin[pxminPos++] = xmin * gfc.nsPsy.longfact[gsfb];
     }
@@ -785,15 +758,14 @@ export class QuantizePVT {
         if (enable_athaa_fix !== 0) xmin = rh2;
         else xmin = tmpATH;
 
-        if (!gfp.ATHonly && !gfp.ATHshort) {
-          const e = ratio.en.s[sfb][b];
-          if (e > 0.0) {
-            let x;
-            x = (en0 * ratio.thm.s[sfb][b] * masking_lower) / e;
-            if (enable_athaa_fix !== 0) x *= gfc.nsPsy.shortfact[sfb];
-            if (xmin < x) xmin = x;
-          }
+        const e = ratio.en.s[sfb][b];
+        if (e > 0.0) {
+          let x;
+          x = (en0 * ratio.thm.s[sfb][b] * masking_lower) / e;
+          if (enable_athaa_fix !== 0) x *= gfc.nsPsy.shortfact[sfb];
+          if (xmin < x) xmin = x;
         }
+
         if (enable_athaa_fix !== 0) pxmin[pxminPos++] = xmin;
         else pxmin[pxminPos++] = xmin * gfc.nsPsy.shortfact[sfb];
       }
@@ -983,7 +955,7 @@ export class QuantizePVT {
    * Robert Hegemann: moved noise/distortion calc into it
    */
   set_pinfo(gfp: LameGlobalFlags, cod_info: GrInfo, ratio: III_psy_ratio) {
-    const gfc = gfp.internal_flags!;
+    const gfc = gfp.internal_flags;
     let sfb;
     let sfb2;
     let l;
@@ -1009,7 +981,7 @@ export class QuantizePVT {
       /* convert to MDCT units */
       /* scaling so it shows up on FFT plot */
 
-      if (ratio.en.l[sfb] > 0 && !gfp.ATHonly) en0 /= ratio.en.l[sfb];
+      if (ratio.en.l[sfb] > 0) en0 /= ratio.en.l[sfb];
       else en0 = 0.0;
     }
     /* for sfb */
@@ -1031,7 +1003,6 @@ export class QuantizePVT {
 
           if (ratio.en.s[sfb][i] > 0) en0 /= ratio.en.s[sfb][i];
           else en0 = 0.0;
-          if (gfp.ATHonly || gfp.ATHshort) en0 = 0;
 
           sfb2++;
         }
@@ -1045,7 +1016,7 @@ export class QuantizePVT {
    * Robert Hegemann 2000-10-21
    */
   set_frame_pinfo(gfp: LameGlobalFlags, ratio: III_psy_ratio[][]) {
-    const gfc = gfp.internal_flags!;
+    const gfc = gfp.internal_flags;
 
     gfc.masking_lower = 1.0;
 

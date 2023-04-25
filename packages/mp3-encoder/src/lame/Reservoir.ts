@@ -52,7 +52,7 @@ export class Reservoir {
    * </PRE>
    */
   ResvFrameBegin(gfp: LameGlobalFlags, mean_bits: MeanBits) {
-    const gfc = gfp.internal_flags!;
+    const gfc = gfp.internal_flags;
     let maxmp3buf;
     const { l3_side } = gfc;
 
@@ -119,21 +119,11 @@ export class Reservoir {
        * size of a 320kbps 32kHz frame
        */
       maxmp3buf = 8 * 1440;
-
-      /*
-       * Bouvigne suggests this more lax interpretation of the ISO doc
-       * instead of using 8*960.
-       */
-
-      if (gfp.strict_ISO) {
-        maxmp3buf =
-          8 * Math.trunc(320000 / (gfp.out_samplerate / 1152) / 8 + 0.5);
-      }
     }
 
     gfc.ResvMax = maxmp3buf - frameLength;
     if (gfc.ResvMax > resvLimit) gfc.ResvMax = resvLimit;
-    if (gfc.ResvMax < 0 || gfp.disable_reservoir) gfc.ResvMax = 0;
+    gfc.ResvMax = 0;
 
     let fullFrameBits =
       mean_bits.bits * gfc.mode_gr + Math.min(gfc.ResvSize, gfc.ResvMax);
@@ -159,7 +149,7 @@ export class Reservoir {
     targ_bits: MeanBits,
     cbr: number
   ) {
-    const gfc = gfp.internal_flags!;
+    const gfc = gfp.internal_flags;
     let add_bits;
     let { ResvSize } = gfc;
     let { ResvMax } = gfc;
@@ -179,13 +169,6 @@ export class Reservoir {
     } else {
       add_bits = 0;
       gfc.substep_shaping &= 0x7f;
-      /*
-       * build up reservoir. this builds the reservoir a little slower
-       * than FhG. It could simple be mean_bits/15, but this was rigged to
-       * always produce 100 (the old value) at 128kbs
-       */
-      if (!gfp.disable_reservoir && (gfc.substep_shaping & 1) === 0)
-        targ_bits.bits -= 0.1 * mean_bits;
     }
 
     /* amount from the reservoir we are allowed to use. ISO says 6/10 */

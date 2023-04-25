@@ -5,19 +5,13 @@ import type { VBRPresets } from './VBRPresets';
 import { VbrMode } from './VbrMode';
 
 export class Presets {
-  private lame: Lame | null = null;
-
-  setModules(lame: Lame) {
-    this.lame = lame;
-  }
-
   /**
    * <PRE>
    * Switch mappings for VBR mode VBR_RH
    *             vbr_q  qcomp_l  qcomp_s  expY  st_lrm   st_s  mask adj_l  adj_s  ath_lower  ath_curve  ath_sens  interChR  safejoint sfb21mod  msfix
    * </PRE>
    */
-  private static readonly vbr_old_switch_map = [
+  private static readonly vbr_old_switch_map: VBRPresets[] = [
     {
       vbr_q: 0,
       quant_comp: 9,
@@ -205,7 +199,7 @@ export class Presets {
       sfb21mod: 0,
       msfix: 0,
     },
-  ] satisfies VBRPresets[];
+  ];
 
   /**
    * <PRE>
@@ -476,13 +470,13 @@ export class Presets {
     if (set.expY !== 0) {
       gfp.experimentalY = set.expY !== 0;
     }
-    if (enforce !== 0) gfp.internal_flags!.nsPsy.attackthre = set.st_lrm;
-    else if (!(Math.abs(gfp.internal_flags!.nsPsy.attackthre - -1) > 0))
-      gfp.internal_flags!.nsPsy.attackthre = set.st_lrm;
+    if (enforce !== 0) gfp.internal_flags.nsPsy.attackthre = set.st_lrm;
+    else if (!(Math.abs(gfp.internal_flags.nsPsy.attackthre - -1) > 0))
+      gfp.internal_flags.nsPsy.attackthre = set.st_lrm;
     // SET_OPTION(short_threshold_lrm, set.st_lrm, -1);
-    if (enforce !== 0) gfp.internal_flags!.nsPsy.attackthre_s = set.st_s;
-    else if (!(Math.abs(gfp.internal_flags!.nsPsy.attackthre_s - -1) > 0))
-      gfp.internal_flags!.nsPsy.attackthre_s = set.st_s;
+    if (enforce !== 0) gfp.internal_flags.nsPsy.attackthre_s = set.st_s;
+    else if (!(Math.abs(gfp.internal_flags.nsPsy.attackthre_s - -1) > 0))
+      gfp.internal_flags.nsPsy.attackthre_s = set.st_s;
     // SET_OPTION(short_threshold_s, set.st_s, -1);
     if (enforce !== 0) gfp.maskingadjust = set.masking_adj;
     else if (!(Math.abs(gfp.maskingadjust - 0) > 0))
@@ -534,7 +528,7 @@ export class Presets {
    *              kbps  quant q_s safejoint nsmsfix st_lrm  st_s  ns-bass scale   msk ath_lwr ath_curve  interch , sfscale
    * </PRE>
    */
-  private static readonly abr_switch_map = [
+  private static readonly abr_switch_map: ABRPresets[] = [
     {
       kbps: 8,
       quant_comp: 9,
@@ -817,23 +811,20 @@ export class Presets {
     /* Variables for the ABR stuff */
     const actual_bitrate = preset;
 
-    const r = this.lame!.nearestBitrateFullIndex(preset);
+    const r = Lame.nearestBitrateFullIndex(preset);
 
     gfp.VBR = VbrMode.vbr_abr;
     gfp.VBR_mean_bitrate_kbps = actual_bitrate;
     gfp.VBR_mean_bitrate_kbps = Math.min(gfp.VBR_mean_bitrate_kbps, 320);
     gfp.VBR_mean_bitrate_kbps = Math.max(gfp.VBR_mean_bitrate_kbps, 8);
     gfp.brate = gfp.VBR_mean_bitrate_kbps;
-    if (gfp.VBR_mean_bitrate_kbps > 320) {
-      gfp.disable_reservoir = true;
-    }
 
     /* parameters for which there is no proper set/get interface */
     if (Presets.abr_switch_map[r].safejoint > 0) gfp.exp_nspsytune |= 2;
     /* safejoint */
 
     if (Presets.abr_switch_map[r].sfscale > 0) {
-      gfp.internal_flags!.noise_shaping = 2;
+      gfp.internal_flags.noise_shaping = 2;
     }
     /* ns-bass tweaks */
     if (Math.abs(Presets.abr_switch_map[r].nsbass) > 0) {
@@ -858,14 +849,14 @@ export class Presets {
     // SET_OPTION(msfix, abr_switch_map[r].nsmsfix, -1);
 
     if (enforce !== 0)
-      gfp.internal_flags!.nsPsy.attackthre = Presets.abr_switch_map[r].st_lrm;
-    else if (!(Math.abs(gfp.internal_flags!.nsPsy.attackthre - -1) > 0))
-      gfp.internal_flags!.nsPsy.attackthre = Presets.abr_switch_map[r].st_lrm;
+      gfp.internal_flags.nsPsy.attackthre = Presets.abr_switch_map[r].st_lrm;
+    else if (!(Math.abs(gfp.internal_flags.nsPsy.attackthre - -1) > 0))
+      gfp.internal_flags.nsPsy.attackthre = Presets.abr_switch_map[r].st_lrm;
     // SET_OPTION(short_threshold_lrm, abr_switch_map[r].st_lrm, -1);
     if (enforce !== 0)
-      gfp.internal_flags!.nsPsy.attackthre_s = Presets.abr_switch_map[r].st_s;
-    else if (!(Math.abs(gfp.internal_flags!.nsPsy.attackthre_s - -1) > 0))
-      gfp.internal_flags!.nsPsy.attackthre_s = Presets.abr_switch_map[r].st_s;
+      gfp.internal_flags.nsPsy.attackthre_s = Presets.abr_switch_map[r].st_s;
+    else if (!(Math.abs(gfp.internal_flags.nsPsy.attackthre_s - -1) > 0))
+      gfp.internal_flags.nsPsy.attackthre_s = Presets.abr_switch_map[r].st_s;
     // SET_OPTION(short_threshold_s, abr_switch_map[r].st_s, -1);
 
     /*
