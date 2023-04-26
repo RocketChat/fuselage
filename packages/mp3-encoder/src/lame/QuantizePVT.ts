@@ -2,7 +2,7 @@ import type { GrInfo } from './GrInfo';
 import type { III_psy_ratio } from './III_psy_ratio';
 import type { LameGlobalFlags } from './LameGlobalFlags';
 import type { PsyModel } from './PsyModel';
-import { Takehiro } from './Takehiro';
+import type { Takehiro } from './Takehiro';
 import { VbrMode } from './VbrMode';
 import { assert } from './assert';
 import {
@@ -26,12 +26,9 @@ export class QuantizePVT {
 
   static IXMAX_VAL = 8206;
 
-  readonly tak: Takehiro;
-
   readonly psy: PsyModel;
 
   constructor(psy: PsyModel) {
-    this.tak = new Takehiro(this);
     this.psy = psy;
   }
 
@@ -190,7 +187,7 @@ export class QuantizePVT {
     gfc.ATH.floor = 10 * Math.log10(this.ATHmdct(gfp, -1));
   }
 
-  iteration_init(gfp: LameGlobalFlags) {
+  iteration_init(gfp: LameGlobalFlags, tak: Takehiro) {
     const gfc = gfp.internal_flags;
     const { l3_side } = gfc;
     let i;
@@ -201,7 +198,7 @@ export class QuantizePVT {
       l3_side.main_data_begin = 0;
       this.compute_ath(gfp);
 
-      this.tak.huffman_init(gfc);
+      tak.huffman_init(gfc);
 
       i = (gfp.exp_nspsytune >> 2) & 63;
       if (i >= 32) i -= 64;

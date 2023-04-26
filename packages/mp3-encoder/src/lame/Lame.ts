@@ -500,7 +500,7 @@ export class Lame {
       gfc.slot_lag = gfc.frac_SpF;
     }
 
-    this.qu.qupvt.iteration_init(gfp);
+    this.qu.qupvt.iteration_init(gfp, this.qu.tak);
     this.qu.qupvt.psy.psymodel_init(gfp);
     assert(gfp.scale >= 0);
   }

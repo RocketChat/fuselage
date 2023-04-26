@@ -9,6 +9,7 @@ import { PsyModel } from './PsyModel';
 import { QuantizePVT } from './QuantizePVT';
 import { Reservoir } from './Reservoir';
 import { StartLine } from './StartLine';
+import { Takehiro } from './Takehiro';
 import { VbrMode } from './VbrMode';
 import { copyArray, fillArray, sortArray } from './arrays';
 import { assert } from './assert';
@@ -29,9 +30,12 @@ export class Quantize {
 
   readonly qupvt: QuantizePVT;
 
+  readonly tak: Takehiro;
+
   constructor(bs: BitStream) {
     this.rv = new Reservoir(bs);
     this.qupvt = new QuantizePVT(new PsyModel());
+    this.tak = new Takehiro(this.qupvt);
   }
 
   ms_convert(l3_side: IIISideInfo, gr: number) {
@@ -255,7 +259,7 @@ export class Quantize {
     assert(CurrentStep !== 0);
     for (;;) {
       let step;
-      nBits = this.qupvt.tak.count_bits(gfc, xrpow, cod_info, null);
+      nBits = this.tak.count_bits(gfc, xrpow, cod_info, null);
 
       if (CurrentStep === 1 || nBits === desired_rate) break;
 
@@ -289,7 +293,7 @@ export class Quantize {
 
     while (nBits > desired_rate && cod_info.global_gain < 255) {
       cod_info.global_gain++;
-      nBits = this.qupvt.tak.count_bits(gfc, xrpow, cod_info, null);
+      nBits = this.tak.count_bits(gfc, xrpow, cod_info, null);
     }
     gfc.currentStep[ch] = start - cod_info.global_gain >= 4 ? 4 : 2;
     gfc.oldValue[ch] = cod_info.global_gain;
@@ -362,7 +366,7 @@ export class Quantize {
       } while (--width > 0);
     } while (++sfb < gi.psymax);
 
-    gi.part2_3_length = this.qupvt.tak.noquant_count_bits(gfc, gi, null);
+    gi.part2_3_length = this.tak.noquant_count_bits(gfc, gi, null);
   }
 
   private loop_break(cod_info: GrInfo) {
@@ -659,8 +663,8 @@ export class Quantize {
 
     if (status) return false;
 
-    if (gfc.mode_gr === 2) status = this.qupvt.tak.scale_bitcount(cod_info);
-    else status = this.qupvt.tak.scale_bitcount_lsf(gfc, cod_info);
+    if (gfc.mode_gr === 2) status = this.tak.scale_bitcount(cod_info);
+    else status = this.tak.scale_bitcount_lsf(gfc, cod_info);
 
     if (!status) return true;
 
@@ -677,8 +681,8 @@ export class Quantize {
     }
 
     if (!status) {
-      if (gfc.mode_gr === 2) status = this.qupvt.tak.scale_bitcount(cod_info);
-      else status = this.qupvt.tak.scale_bitcount_lsf(gfc, cod_info);
+      if (gfc.mode_gr === 2) status = this.tak.scale_bitcount(cod_info);
+      else status = this.tak.scale_bitcount_lsf(gfc, cod_info);
     }
     return !status;
   }
@@ -747,7 +751,7 @@ export class Quantize {
         if (huff_bits <= 0) break;
 
         while (
-          (cod_info_w.part2_3_length = this.qupvt.tak.count_bits(
+          (cod_info_w.part2_3_length = this.tak.count_bits(
             gfc,
             xrpow,
             cod_info_w,
@@ -761,7 +765,7 @@ export class Quantize {
 
         if (best_noise_info.over_count === 0) {
           while (
-            (cod_info_w.part2_3_length = this.qupvt.tak.count_bits(
+            (cod_info_w.part2_3_length = this.tak.count_bits(
               gfc,
               xrpow,
               cod_info_w,
@@ -841,10 +845,9 @@ export class Quantize {
     const { l3_side } = gfc;
     const cod_info = l3_side.tt[gr][ch];
 
-    this.qupvt.tak.best_scalefac_store(gfc, gr, ch, l3_side);
+    this.tak.best_scalefac_store(gfc, gr, ch, l3_side);
 
-    if (gfc.use_best_huffman === 1)
-      this.qupvt.tak.best_huffman_divide(gfc, cod_info);
+    if (gfc.use_best_huffman === 1) this.tak.best_huffman_divide(gfc, cod_info);
 
     this.rv.ResvAdjust(gfc, cod_info);
   }
