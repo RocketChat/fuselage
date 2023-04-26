@@ -89,6 +89,7 @@
  */
 import { copyArray, fillArray } from './Arrays';
 import type { ReplayGain } from './ReplayGain';
+import { fsqr } from './math';
 
 export class GainAnalysis {
   /**
@@ -388,7 +389,7 @@ export class GainAnalysis {
     return GainAnalysis.INIT_GAIN_ANALYSIS_OK;
   }
 
-  InitGainAnalysis(rgData: ReplayGain, samplefreq: number) {
+  initGainAnalysis(rgData: ReplayGain, samplefreq: number) {
     if (
       this.resetSampleFrequency(rgData, samplefreq) !==
       GainAnalysis.INIT_GAIN_ANALYSIS_OK
@@ -406,13 +407,6 @@ export class GainAnalysis {
     fillArray(rgData.B, 0);
 
     return GainAnalysis.INIT_GAIN_ANALYSIS_OK;
-  }
-
-  /**
-   * square
-   */
-  private fsqr(d: number) {
-    return d * d;
   }
 
   analyzeSamples(
@@ -541,30 +535,30 @@ export class GainAnalysis {
 
       let i = cursamples % 8;
       while (i-- !== 0) {
-        rgData.lsum += this.fsqr(curleftBase[curleft++]);
-        rgData.rsum += this.fsqr(currightBase[curright++]);
+        rgData.lsum += fsqr(curleftBase[curleft++]);
+        rgData.rsum += fsqr(currightBase[curright++]);
       }
       i = cursamples / 8;
       while (i-- !== 0) {
         rgData.lsum +=
-          this.fsqr(curleftBase[curleft + 0]) +
-          this.fsqr(curleftBase[curleft + 1]) +
-          this.fsqr(curleftBase[curleft + 2]) +
-          this.fsqr(curleftBase[curleft + 3]) +
-          this.fsqr(curleftBase[curleft + 4]) +
-          this.fsqr(curleftBase[curleft + 5]) +
-          this.fsqr(curleftBase[curleft + 6]) +
-          this.fsqr(curleftBase[curleft + 7]);
+          fsqr(curleftBase[curleft + 0]) +
+          fsqr(curleftBase[curleft + 1]) +
+          fsqr(curleftBase[curleft + 2]) +
+          fsqr(curleftBase[curleft + 3]) +
+          fsqr(curleftBase[curleft + 4]) +
+          fsqr(curleftBase[curleft + 5]) +
+          fsqr(curleftBase[curleft + 6]) +
+          fsqr(curleftBase[curleft + 7]);
         curleft += 8;
         rgData.rsum +=
-          this.fsqr(currightBase[curright + 0]) +
-          this.fsqr(currightBase[curright + 1]) +
-          this.fsqr(currightBase[curright + 2]) +
-          this.fsqr(currightBase[curright + 3]) +
-          this.fsqr(currightBase[curright + 4]) +
-          this.fsqr(currightBase[curright + 5]) +
-          this.fsqr(currightBase[curright + 6]) +
-          this.fsqr(currightBase[curright + 7]);
+          fsqr(currightBase[curright + 0]) +
+          fsqr(currightBase[curright + 1]) +
+          fsqr(currightBase[curright + 2]) +
+          fsqr(currightBase[curright + 3]) +
+          fsqr(currightBase[curright + 4]) +
+          fsqr(currightBase[curright + 5]) +
+          fsqr(currightBase[curright + 6]) +
+          fsqr(currightBase[curright + 7]);
         curright += 8;
       }
 
@@ -688,7 +682,7 @@ export class GainAnalysis {
     return GainAnalysis.PINK_REF - i / GainAnalysis.STEPS_per_dB;
   }
 
-  GetTitleGain(rgData: ReplayGain) {
+  getTitleGain(rgData: ReplayGain) {
     const retval = this.analyzeResult(rgData.A, rgData.A.length);
 
     for (let i = 0; i < rgData.A.length; i++) {

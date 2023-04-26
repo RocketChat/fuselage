@@ -15,7 +15,7 @@ import {
   SHORT_TYPE,
 } from './constants';
 import { getLameShortVersion } from './getLameShortVersion';
-import { isCloseToEachOther, CRC_update } from './math';
+import { isCloseToEachOther } from './math';
 
 export class BitStream {
   /*
@@ -24,18 +24,14 @@ export class BitStream {
    */
   private static readonly MAX_LENGTH = 32;
 
-  private ga: GainAnalysis | null = null;
+  private readonly ga: GainAnalysis;
 
   private readonly vbr = new VBRTag();
-
-  setModules(ga: GainAnalysis) {
-    this.ga = ga;
-  }
 
   /**
    * Bit stream buffer.
    */
-  private buf: Uint8Array | null = null;
+  private readonly buf = new Uint8Array(LAME_MAXMP3BUFFER);
 
   /**
    * Bit counter of bit stream.
@@ -45,12 +41,22 @@ export class BitStream {
   /**
    * Pointer to top byte in buffer.
    */
-  private bufByteIdx = 0;
+  private bufByteIdx = -1;
 
   /**
    * Pointer to top bit of top byte in buffer.
    */
   private bufBitIdx = 0;
+
+  constructor(ga: GainAnalysis) {
+    this.ga = ga;
+  }
+
+  resetPointers(gfc: LameInternalFlags) {
+    gfc.w_ptr = 0;
+    gfc.h_ptr = 0;
+    gfc.header[gfc.h_ptr].write_timing = 0;
+  }
 
   /**
    * compute bitsperframe and mean_bits for a layer III frame
@@ -60,9 +66,11 @@ export class BitStream {
     let bit_rate;
 
     /* get bitrate in kbps [?] */
-    if (gfc.bitrate_index !== 0)
+    if (gfc.bitrate_index !== 0) {
       bit_rate = getBitrate(gfp.version, gfc.bitrate_index);
-    else bit_rate = gfp.brate;
+    } else {
+      bit_rate = gfp.brate;
+    }
     console.assert(bit_rate >= 8 && bit_rate <= 640);
 
     /* main encoding routine toggles padding on and off */
@@ -77,7 +85,7 @@ export class BitStream {
     copyArray(
       gfc.header[gfc.w_ptr].buf,
       0,
-      this.buf!,
+      this.buf,
       this.bufByteIdx,
       gfc.sideinfo_len
     );
@@ -101,7 +109,7 @@ export class BitStream {
         if (gfc.header[gfc.w_ptr].write_timing === this.totbit) {
           this.putheader_bits(gfc);
         }
-        this.buf![this.bufByteIdx] = 0;
+        this.buf[this.bufByteIdx] = 0;
       }
 
       const k = Math.min(j, this.bufBitIdx);
@@ -113,35 +121,7 @@ export class BitStream {
       /* 32 too large on 32 bit machines */
       console.assert(this.bufBitIdx < BitStream.MAX_LENGTH);
 
-      this.buf![this.bufByteIdx] |= (val >> j) << this.bufBitIdx;
-      this.totbit += k;
-    }
-  }
-
-  /**
-   * write j bits into the bit stream, ignoring frame headers
-   */
-  private putbits_noheaders(_gfc: LameInternalFlags, val: number, j: number) {
-    console.assert(j < BitStream.MAX_LENGTH - 2);
-
-    while (j > 0) {
-      if (this.bufBitIdx === 0) {
-        this.bufBitIdx = 8;
-        this.bufByteIdx++;
-        console.assert(this.bufByteIdx < LAME_MAXMP3BUFFER);
-        this.buf![this.bufByteIdx] = 0;
-      }
-
-      const k = Math.min(j, this.bufBitIdx);
-      j -= k;
-
-      this.bufBitIdx -= k;
-
-      console.assert(j < BitStream.MAX_LENGTH);
-      /* 32 too large on 32 bit machines */
-      console.assert(this.bufBitIdx < BitStream.MAX_LENGTH);
-
-      this.buf![this.bufByteIdx] |= (val >> j) << this.bufBitIdx;
+      this.buf[this.bufByteIdx] |= (val >> j) << this.bufBitIdx;
       this.totbit += k;
     }
   }
@@ -184,8 +164,7 @@ export class BitStream {
     }
 
     for (; remainingBits >= 1; remainingBits -= 1) {
-      this.putbits2(gfc, gfc.ancillary_flag, 1);
-      gfc.ancillary_flag ^= 0;
+      this.putbits2(gfc, 0, 1);
     }
 
     console.assert(remainingBits === 0);
@@ -209,20 +188,6 @@ export class BitStream {
     gfc.header[gfc.h_ptr].ptr = ptr;
   }
 
-  CRC_writeheader(gfc: LameInternalFlags, header: Uint8Array) {
-    let crc = 0xffff;
-    /* (jo) init crc16 for error_protection */
-
-    crc = CRC_update(header[2] & 0xff, crc);
-    crc = CRC_update(header[3] & 0xff, crc);
-    for (let i = 6; i < gfc.sideinfo_len; i++) {
-      crc = CRC_update(header[i] & 0xff, crc);
-    }
-
-    header[4] = Math.trunc(crc >> 8);
-    header[5] = Math.trunc(crc & 255);
-  }
-
   private encodeSideInfo2(gfp: LameGlobalFlags, bitsPerFrame: number) {
     const gfc = gfp.internal_flags;
     let gr;
@@ -231,8 +196,11 @@ export class BitStream {
     const { l3_side } = gfc;
     gfc.header[gfc.h_ptr].ptr = 0;
     fillArray(gfc.header[gfc.h_ptr].buf, 0, gfc.sideinfo_len, 0);
-    if (gfp.out_samplerate < 16000) this.writeheader(gfc, 0xffe, 12);
-    else this.writeheader(gfc, 0xfff, 12);
+    if (gfp.out_samplerate < 16000) {
+      this.writeheader(gfc, 0xffe, 12);
+    } else {
+      this.writeheader(gfc, 0xfff, 12);
+    }
     this.writeheader(gfc, gfp.version, 1);
     this.writeheader(gfc, 4 - 3, 2);
     this.writeheader(gfc, 1, 1);
@@ -422,7 +390,7 @@ export class BitStream {
   /**
    * Implements the pseudocode of page 98 of the IS
    */
-  private Huffmancode(
+  private huffmancode(
     gfc: LameInternalFlags,
     tableindex: number,
     start: number,
@@ -496,13 +464,13 @@ export class BitStream {
    * Note the discussion of huffmancodebits() on pages 28 and 29 of the IS, as
    * well as the definitions of the side information on pages 26 and 27.
    */
-  private ShortHuffmancodebits(gfc: LameInternalFlags, gi: GrInfo) {
+  private shortHuffmancodebits(gfc: LameInternalFlags, gi: GrInfo) {
     let region1Start = 3 * gfc.scalefac_band.s[3];
     if (region1Start > gi.big_values) region1Start = gi.big_values;
 
     /* short blocks do not have a region2 */
-    let bits = this.Huffmancode(gfc, gi.table_select[0], 0, region1Start, gi);
-    bits += this.Huffmancode(
+    let bits = this.huffmancode(gfc, gi.table_select[0], 0, region1Start, gi);
+    bits += this.huffmancode(
       gfc,
       gi.table_select[1],
       region1Start,
@@ -512,7 +480,7 @@ export class BitStream {
     return bits;
   }
 
-  private LongHuffmancodebits(gfc: LameInternalFlags, gi: GrInfo) {
+  private longHuffmancodebits(gfc: LameInternalFlags, gi: GrInfo) {
     let bits;
     let region1Start;
     let region2Start;
@@ -533,15 +501,15 @@ export class BitStream {
 
     if (region2Start > bigvalues) region2Start = bigvalues;
 
-    bits = this.Huffmancode(gfc, gi.table_select[0], 0, region1Start, gi);
-    bits += this.Huffmancode(
+    bits = this.huffmancode(gfc, gi.table_select[0], 0, region1Start, gi);
+    bits += this.huffmancode(
       gfc,
       gi.table_select[1],
       region1Start,
       region2Start,
       gi
     );
-    bits += this.Huffmancode(
+    bits += this.huffmancode(
       gfc,
       gi.table_select[2],
       region2Start,
@@ -583,9 +551,9 @@ export class BitStream {
           console.assert(data_bits === gi.part2_length);
 
           if (gi.block_type === SHORT_TYPE) {
-            data_bits += this.ShortHuffmancodebits(gfc, gi);
+            data_bits += this.shortHuffmancodebits(gfc, gi);
           } else {
-            data_bits += this.LongHuffmancodebits(gfc, gi);
+            data_bits += this.longHuffmancodebits(gfc, gi);
           }
           data_bits += this.huffman_coder_count1(gfc, gi);
           /* does bitcount in quantize.c agree with actual bit count? */
@@ -619,7 +587,7 @@ export class BitStream {
               scale_bits += 3 * slen;
             }
           }
-          data_bits += this.ShortHuffmancodebits(gfc, gi);
+          data_bits += this.shortHuffmancodebits(gfc, gi);
         } else {
           for (; sfb_partition < 4; sfb_partition++) {
             const sfbs = gi.sfb_partition_table![sfb_partition];
@@ -629,7 +597,7 @@ export class BitStream {
               scale_bits += slen;
             }
           }
-          data_bits += this.LongHuffmancodebits(gfc, gi);
+          data_bits += this.longHuffmancodebits(gfc, gi);
         }
         data_bits += this.huffman_coder_count1(gfc, gi);
         /* does bitcount in quantize.c agree with actual bit count? */
@@ -728,11 +696,11 @@ export class BitStream {
 
     /* save the ReplayGain value */
     if (gfc.findReplayGain) {
-      const RadioGain = this.ga!.GetTitleGain(gfc.rgdata);
+      const radioGain = this.ga.getTitleGain(gfc.rgdata);
       console.assert(
-        !isCloseToEachOther(RadioGain, GainAnalysis.GAIN_NOT_ENOUGH_SAMPLES)
+        !isCloseToEachOther(radioGain, GainAnalysis.GAIN_NOT_ENOUGH_SAMPLES)
       );
-      gfc.RadioGain = Math.floor(RadioGain * 10.0 + 0.5);
+      gfc.RadioGain = Math.floor(radioGain * 10.0 + 0.5);
       /* round to nearest */
     }
 
@@ -764,17 +732,6 @@ export class BitStream {
       } else
       /* no clipping */
         gfc.noclipScale = -1;
-    }
-  }
-
-  add_dummy_byte(gfp: LameGlobalFlags, val: number, n: number) {
-    const gfc = gfp.internal_flags;
-    let i;
-
-    while (n-- > 0) {
-      this.putbits_noheaders(gfc, val, 8);
-
-      for (i = 0; i < MAX_HEADER_BUF; ++i) gfc.header[i].write_timing += 8;
     }
   }
 
@@ -844,42 +801,55 @@ export class BitStream {
        * to avoid totbit overflow, (at 8h encoding at 128kbs) lets reset
        * bit counter
        */
-      let i;
-      for (i = 0; i < MAX_HEADER_BUF; ++i)
+      for (let i = 0; i < MAX_HEADER_BUF; ++i) {
         gfc.header[i].write_timing -= this.totbit;
+      }
       this.totbit = 0;
     }
 
     return 0;
   }
 
-  /**
-   * <PRE>
-   * copy data out of the internal MP3 bit buffer into a user supplied
-   *       unsigned char buffer.
-   *
-   *       mp3data=0      indicates data in buffer is an id3tags and VBR tags
-   *       mp3data=1      data is real mp3 frame data.
-   * </PRE>
-   */
-  copy_buffer(
+  copyMetadata(
+    gfc: LameInternalFlags,
+    buffer: Uint8Array,
+    bufferPos: number,
+    size: number
+  ) {
+    return this.copyBuffer(gfc, buffer, bufferPos, size, false);
+  }
+
+  copyFrameData(
+    gfc: LameInternalFlags,
+    buffer: Uint8Array,
+    bufferPos: number,
+    size: number
+  ) {
+    return this.copyBuffer(gfc, buffer, bufferPos, size, true);
+  }
+
+  private copyBuffer(
     gfc: LameInternalFlags,
     buffer: Uint8Array,
     bufferPos: number,
     size: number,
-    mp3data: number
+    mp3data: boolean
   ) {
     const minimum = this.bufByteIdx + 1;
-    if (minimum <= 0) return 0;
+    if (minimum <= 0) {
+      return 0;
+    }
+
     if (size !== 0 && minimum > size) {
       /* buffer is too small */
       return -1;
     }
-    copyArray(this.buf!, 0, buffer, bufferPos, minimum);
+
+    copyArray(this.buf, 0, buffer, bufferPos, minimum);
     this.bufByteIdx = -1;
     this.bufBitIdx = 0;
 
-    if (mp3data !== 0) {
+    if (mp3data) {
       const crc = new Int32Array(1);
       crc[0] = gfc.nMusicCRC;
       this.vbr.updateMusicCRC(crc, buffer, bufferPos, minimum);
@@ -893,18 +863,7 @@ export class BitStream {
         gfc.VBR_seek_table.nBytesWritten += minimum;
       }
     }
-    /* if (mp3data) */
+
     return minimum;
-  }
-
-  init_bit_stream_w(gfc: LameInternalFlags) {
-    this.buf = new Uint8Array(LAME_MAXMP3BUFFER);
-
-    gfc.w_ptr = 0;
-    gfc.h_ptr = 0;
-    gfc.header[gfc.h_ptr].write_timing = 0;
-    this.bufByteIdx = -1;
-    this.bufBitIdx = 0;
-    this.totbit = 0;
   }
 }

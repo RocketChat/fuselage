@@ -7,7 +7,7 @@ import type { MeanBits } from './MeanBits';
 export class Reservoir {
   private bs: BitStream | undefined;
 
-  setModules(bs: BitStream) {
+  constructor(bs: BitStream) {
     this.bs = bs;
   }
 
@@ -101,9 +101,6 @@ export class Reservoir {
      * </PRE>
      */
 
-    /* main_data_begin has 9 bits in MPEG-1, 8 bits MPEG-2 */
-    const resvLimit = 8 * 256 * gfc.mode_gr - 8;
-
     /*
      * maximum allowed frame size. dont use more than this number of bits,
      * even if the frame has the space for them:
@@ -121,17 +118,10 @@ export class Reservoir {
       maxmp3buf = 8 * 1440;
     }
 
-    gfc.ResvMax = maxmp3buf - frameLength;
-    if (gfc.ResvMax > resvLimit) gfc.ResvMax = resvLimit;
-    gfc.ResvMax = 0;
-
     let fullFrameBits =
-      mean_bits.bits * gfc.mode_gr + Math.min(gfc.ResvSize, gfc.ResvMax);
+      mean_bits.bits * gfc.mode_gr + Math.min(gfc.ResvSize, 0);
 
     if (fullFrameBits > maxmp3buf) fullFrameBits = maxmp3buf;
-
-    console.assert(gfc.ResvMax % 8 === 0);
-    console.assert(gfc.ResvMax >= 0);
 
     l3_side.resvDrain_pre = 0;
 
@@ -152,18 +142,15 @@ export class Reservoir {
     const gfc = gfp.internal_flags;
     let add_bits;
     let { ResvSize } = gfc;
-    let { ResvMax } = gfc;
 
     /* compensate the saved bits used in the 1st granule */
     if (cbr !== 0) ResvSize += mean_bits;
 
-    if ((gfc.substep_shaping & 1) !== 0) ResvMax *= 0.9;
-
     targ_bits.bits = mean_bits;
 
     /* extra bits if the reservoir is almost full */
-    if (ResvSize * 10 > ResvMax * 9) {
-      add_bits = ResvSize - (ResvMax * 9) / 10;
+    if (ResvSize * 10 > 0) {
+      add_bits = ResvSize;
       targ_bits.bits += add_bits;
       gfc.substep_shaping |= 0x80;
     } else {
@@ -172,8 +159,7 @@ export class Reservoir {
     }
 
     /* amount from the reservoir we are allowed to use. ISO says 6/10 */
-    let extra_bits =
-      ResvSize < (gfc.ResvMax * 6) / 10 ? ResvSize : (gfc.ResvMax * 6) / 10;
+    let extra_bits = ResvSize < 0 ? ResvSize : 0;
     extra_bits -= add_bits;
 
     if (extra_bits < 0) extra_bits = 0;
@@ -204,7 +190,7 @@ export class Reservoir {
     /* we must be byte aligned */
     if ((over_bits = gfc.ResvSize % 8) !== 0) stuffingBits += over_bits;
 
-    over_bits = gfc.ResvSize - stuffingBits - gfc.ResvMax;
+    over_bits = gfc.ResvSize - stuffingBits;
     if (over_bits > 0) {
       console.assert(over_bits % 8 === 0);
       console.assert(over_bits >= 0);

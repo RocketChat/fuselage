@@ -215,7 +215,7 @@ export class PsyModel {
     let loudness_power = 0.0;
     /* apply weights to power in freq. bands */
     for (let i = 0; i < BLKSIZE / 2; ++i)
-      loudness_power += energy[i] * gfc.ATH!.eql_w[i];
+      loudness_power += energy[i] * gfc.ATH.eql_w[i];
     loudness_power *= PsyModel.VO_SCALE;
 
     return loudness_power;
@@ -452,16 +452,16 @@ export class PsyModel {
 
     /**
      * <PRE>
-     * m<15 equ log10((m1+m2)/gfc.ATH!.cb[k])<1.5
-     * equ (m1+m2)/gfc.ATH!.cb[k]<10^1.5
-     * equ (m1+m2)<10^1.5 * gfc.ATH!.cb[k]
+     * m<15 equ log10((m1+m2)/gfc.ATH.cb[k])<1.5
+     * equ (m1+m2)/gfc.ATH.cb[k]<10^1.5
+     * equ (m1+m2)<10^1.5 * gfc.ATH.cb[k]
      * </PRE>
      */
     const i = Math.trunc(Math.log10(ratio) * 16.0);
     if (shortblock !== 0) {
-      m2 = gfc.ATH!.cb_s[kk] * gfc.ATH!.adjust;
+      m2 = gfc.ATH.cb_s[kk] * gfc.ATH.adjust;
     } else {
-      m2 = gfc.ATH!.cb_l[kk] * gfc.ATH!.adjust;
+      m2 = gfc.ATH.cb_l[kk] * gfc.ATH.adjust;
     }
     console.assert(m2 >= 0);
     if (m1 < this.ma_max_m * m2) {
@@ -623,7 +623,7 @@ export class PsyModel {
     for (let sb = 0; sb < SBMAX_l; sb++) {
       let thmM;
       let thmS;
-      const ath = gfc.ATH!.cb_l[gfc.bm_l[sb]] * athlower;
+      const ath = gfc.ATH.cb_l[gfc.bm_l[sb]] * athlower;
       const thmLR = Math.min(
         Math.max(gfc.thm[0].l[sb], ath),
         Math.max(gfc.thm[1].l[sb], ath)
@@ -645,7 +645,7 @@ export class PsyModel {
       for (let sblock = 0; sblock < 3; sblock++) {
         let thmM;
         let thmS;
-        const ath = gfc.ATH!.cb_s[gfc.bm_s[sb]] * athlower;
+        const ath = gfc.ATH.cb_s[gfc.bm_s[sb]] * athlower;
         const thmLR = Math.min(
           Math.max(gfc.thm[0].s[sb][sblock], ath),
           Math.max(gfc.thm[1].s[sb][sblock], ath)
@@ -706,7 +706,7 @@ export class PsyModel {
       console.assert(thr[b] >= 0);
       {
         /* at transition sfb . sfb+1 */
-        const w_curr = gfc.PSY!.bo_s_weight[sb];
+        const w_curr = gfc.PSY.bo_s_weight[sb];
         const w_next = 1.0 - w_curr;
         enn = w_curr * eb[b];
         thmm = w_curr * thr[b];
@@ -759,7 +759,7 @@ export class PsyModel {
       console.assert(thr[b] >= 0);
       {
         /* at transition sfb . sfb+1 */
-        const w_curr = gfc.PSY!.bo_l_weight[sb];
+        const w_curr = gfc.PSY.bo_l_weight[sb];
         const w_next = 1.0 - w_curr;
         enn = w_curr * eb[b];
         thmm = w_curr * thr[b];
@@ -1134,11 +1134,13 @@ export class PsyModel {
 
     numchn = gfc.channels_out;
     /* chn=2 and 3 = Mid and Side channels */
-    if (gfp.mode === MPEGMode.JOINT_STEREO) numchn = 4;
+    if (gfp.mode === MPEGMode.JOINT_STEREO) {
+      numchn = 4;
+    }
 
-    if (gfp.VBR === VbrMode.vbr_off)
-      pcfact = gfc.ResvMax === 0 ? 0 : (gfc.ResvSize / gfc.ResvMax) * 0.5;
-    else if (
+    if (gfp.VBR === VbrMode.vbr_off) {
+      pcfact = 0;
+    } else if (
       gfp.VBR === VbrMode.vbr_rh ||
       gfp.VBR === VbrMode.vbr_mtrh ||
       gfp.VBR === VbrMode.vbr_mt
@@ -1458,7 +1460,7 @@ export class PsyModel {
       this.msfix1(gfc);
       const { msfix } = gfp;
       if (Math.abs(msfix) > 0.0)
-        this.ns_msfix(gfc, msfix, gfp.ATHlower * gfc.ATH!.adjust);
+        this.ns_msfix(gfc, msfix, gfp.ATHlower * gfc.ATH.adjust);
     }
 
     /** *************************************************************
@@ -2351,8 +2353,8 @@ export class PsyModel {
           eb,
           thr,
           gfc.mld_cb_l,
-          gfc.ATH!.cb_l,
-          gfp.ATHlower * gfc.ATH!.adjust,
+          gfc.ATH.cb_l,
+          gfp.ATHlower * gfc.ATH.adjust,
           gfp.msfix,
           gfc.npart_l
         );
@@ -2404,8 +2406,8 @@ export class PsyModel {
             eb,
             thr,
             gfc.mld_cb_s,
-            gfc.ATH!.cb_s,
-            gfp.ATHlower * gfc.ATH!.adjust,
+            gfc.ATH.cb_s,
+            gfp.ATHlower * gfc.ATH.adjust,
             gfp.msfix,
             gfc.npart_s
           );
@@ -2882,7 +2884,7 @@ export class PsyModel {
       bval,
       bval_width,
       gfc.mld_l,
-      gfc.PSY!.bo_l_weight,
+      gfc.PSY.bo_l_weight,
       sfreq,
       BLKSIZE,
       gfc.scalefac_band.l,
@@ -2934,7 +2936,7 @@ export class PsyModel {
         level *= gfc.numlines_l[i];
         if (x > level) x = level;
       }
-      gfc.ATH!.cb_l[i] = x;
+      gfc.ATH.cb_l[i] = x;
 
       /*
        * MINVAL. For low freq, the strength of the masking is limited by
@@ -2967,7 +2969,7 @@ export class PsyModel {
       bval,
       bval_width,
       gfc.mld_s,
-      gfc.PSY!.bo_s_weight,
+      gfc.PSY.bo_s_weight,
       sfreq,
       BLKSIZE_s,
       gfc.scalefac_band.s,
@@ -3005,7 +3007,7 @@ export class PsyModel {
         level *= gfc.numlines_s[i];
         if (x > level) x = level;
       }
-      gfc.ATH!.cb_s[i] = x;
+      gfc.ATH.cb_s[i] = x;
 
       /*
        * MINVAL. For low freq, the strength of the masking is limited by
@@ -3064,10 +3066,10 @@ export class PsyModel {
      * per second
      */
     const frame_duration = (576 * gfc.mode_gr) / sfreq;
-    gfc.ATH!.decay = Math.pow(10, (-12 / 10) * frame_duration);
-    gfc.ATH!.adjust = 0.01;
+    gfc.ATH.decay = Math.pow(10, (-12 / 10) * frame_duration);
+    gfc.ATH.adjust = 0.01;
     /* minimum, for leading low loudness */
-    gfc.ATH!.adjustLimit = 1.0;
+    gfc.ATH.adjustLimit = 1.0;
     /* on lead, allow adjust up to maximum */
 
     console.assert(gfc.bo_l[SBMAX_l - 1] <= gfc.npart_l);
@@ -3083,13 +3085,13 @@ export class PsyModel {
         /* convert ATH dB to relative power (not dB) */
         /* to determine eql_w */
         freq += freq_inc;
-        gfc.ATH!.eql_w[i] = 1 / Math.pow(10, this.ATHformula(freq, gfp) / 10);
-        eql_balance += gfc.ATH!.eql_w[i];
+        gfc.ATH.eql_w[i] = 1 / Math.pow(10, this.ATHformula(freq, gfp) / 10);
+        eql_balance += gfc.ATH.eql_w[i];
       }
       eql_balance = 1.0 / eql_balance;
       for (i = BLKSIZE / 2; --i >= 0; ) {
         /* scale weights */
-        gfc.ATH!.eql_w[i] *= eql_balance;
+        gfc.ATH.eql_w[i] *= eql_balance;
       }
     }
     {

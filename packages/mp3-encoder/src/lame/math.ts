@@ -1,5 +1,3 @@
-import { CRC16_POLYNOMIAL } from './constants';
-
 /**
  * Resampling via FIR filter, blackman window.
  */
@@ -30,23 +28,19 @@ export function gcd(i: number, j: number): number {
   return j !== 0 ? gcd(j, i % j) : i;
 }
 
-export function linearInterpolation(a: number, b: number, m: number): number {
-  return a + m * (b - a);
-}
-
-export function CRC_update(value: number, crc: number) {
-  value <<= 8;
-  for (let i = 0; i < 8; i++) {
-    value <<= 1;
-    crc <<= 1;
-
-    if (((crc ^ value) & 0x10000) !== 0) crc ^= CRC16_POLYNOMIAL;
-  }
-  return crc;
-}
-
 export function isCloseToEachOther(a: number, b: number) {
   return Math.abs(a) > Math.abs(b)
     ? Math.abs(a - b) <= Math.abs(a) * 1e-6
     : Math.abs(a - b) <= Math.abs(b) * 1e-6;
+}
+
+/**
+ * square
+ */
+export function fsqr(d: number) {
+  return d * d;
+}
+
+export function equals(a: number, b: number) {
+  return !(Math.abs(a - b) > 0);
 }

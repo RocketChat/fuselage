@@ -55,8 +55,8 @@ export class Encoder {
    */
   // private void adjust_ATH(final LameInternalFlags gfc) {
   private adjust_ATH(gfc: LameInternalFlags) {
-    if (gfc.ATH!.useAdjust === 0) {
-      gfc.ATH!.adjust = 1.0;
+    if (gfc.ATH.useAdjust === 0) {
+      gfc.ATH.adjust = 1.0;
       /* no adjustment */
       return;
     }
@@ -81,7 +81,7 @@ export class Encoder {
 
     /* jd - 2001 mar 31, jun 30 */
     /* user tuning of ATH adjustment region */
-    max_pow *= gfc.ATH!.aaSensitivityP;
+    max_pow *= gfc.ATH.aaSensitivityP;
 
     /*
      * adjust ATH depending on range of maximum value
@@ -98,37 +98,37 @@ export class Encoder {
     /* max_pow is a loudness squared or a power. */
     if (max_pow > 0.03125) {
       /* ((1 - 0.000625)/ 31.98) from curve below */
-      if (gfc.ATH!.adjust >= 1.0) {
-        gfc.ATH!.adjust = 1.0;
-      } else if (gfc.ATH!.adjust < gfc.ATH!.adjustLimit) {
+      if (gfc.ATH.adjust >= 1.0) {
+        gfc.ATH.adjust = 1.0;
+      } else if (gfc.ATH.adjust < gfc.ATH.adjustLimit) {
         /* preceding frame has lower ATH adjust; */
         /* ascend only to the preceding adjust_limit */
         /* in case there is leading low volume */
-        gfc.ATH!.adjust = gfc.ATH!.adjustLimit;
+        gfc.ATH.adjust = gfc.ATH.adjustLimit;
       }
 
-      gfc.ATH!.adjustLimit = 1.0;
+      gfc.ATH.adjustLimit = 1.0;
     } else {
       /* adjustment curve */
       /* about 32 dB maximum adjust (0.000625) */
       const adj_lim_new = 31.98 * max_pow + 0.000625;
-      if (gfc.ATH!.adjust >= adj_lim_new) {
+      if (gfc.ATH.adjust >= adj_lim_new) {
         /* descend gradually */
-        gfc.ATH!.adjust *= adj_lim_new * 0.075 + 0.925;
-        if (gfc.ATH!.adjust < adj_lim_new) {
+        gfc.ATH.adjust *= adj_lim_new * 0.075 + 0.925;
+        if (gfc.ATH.adjust < adj_lim_new) {
           /* stop descent */
-          gfc.ATH!.adjust = adj_lim_new;
+          gfc.ATH.adjust = adj_lim_new;
         }
-      } else if (gfc.ATH!.adjustLimit >= adj_lim_new) {
+      } else if (gfc.ATH.adjustLimit >= adj_lim_new) {
         /* ascend */
-        gfc.ATH!.adjust = adj_lim_new;
-      } else if (gfc.ATH!.adjust < gfc.ATH!.adjustLimit) {
+        gfc.ATH.adjust = adj_lim_new;
+      } else if (gfc.ATH.adjust < gfc.ATH.adjustLimit) {
         /* preceding frame has lower ATH adjust; */
         /* ascend only to the preceding adjust_limit */
-        gfc.ATH!.adjust = gfc.ATH!.adjustLimit;
+        gfc.ATH.adjust = gfc.ATH.adjustLimit;
       }
 
-      gfc.ATH!.adjustLimit = adj_lim_new;
+      gfc.ATH.adjustLimit = adj_lim_new;
     }
   }
 
@@ -529,12 +529,11 @@ export class Encoder {
     this.bs!.format_bitstream(gfp);
 
     /* copy mp3 bit buffer into array */
-    const mp3count = this.bs!.copy_buffer(
+    const mp3count = this.bs!.copyFrameData(
       gfc,
       mp3buf,
       mp3bufPos,
-      mp3buf_size,
-      1
+      mp3buf_size
     );
 
     this.updateStats(gfc);

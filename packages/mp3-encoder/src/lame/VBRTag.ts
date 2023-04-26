@@ -1,27 +1,6 @@
-/**
- * A Vbr header may be present in the ancillary data field of the first frame of
- * an mp3 bitstream<BR>
- * The Vbr header (optionally) contains
- * <UL>
- * <LI>frames total number of audio frames in the bitstream
- * <LI>bytes total number of bytes in the bitstream
- * <LI>toc table of contents
- * </UL>
- *
- * toc (table of contents) gives seek points for random access.<BR>
- * The ith entry determines the seek point for i-percent duration.<BR>
- * seek point in bytes = (toc[i]/256.0) * total_bitstream_bytes<BR>
- * e.g. half duration seek point = (toc[50]/256.0) * total_bitstream_bytes
- */
 export class VBRTag {
   /**
-   * (0xB40) the max freeformat 640 32kHz framesize.
-   */
-  static readonly MAXFRAMESIZE = 2880;
-
-  /**
-   * Lookup table for fast CRC-16 computation. Uses the polynomial
-   * x^16+x^15+x^2+1
+   * Lookup table for fast CRC-16 computation. Uses the polynomial x^16+x^15+x^2+1
    */
   private readonly crc16Lookup = [
     0x0000, 0xc0c1, 0xc181, 0x0140, 0xc301, 0x03c0, 0x0280, 0xc241, 0xc601,
@@ -74,7 +53,8 @@ export class VBRTag {
     bufferPos: number,
     size: number
   ) {
-    for (let i = 0; i < size; ++i)
+    for (let i = 0; i < size; ++i) {
       crc[0] = this.crcUpdateLookup(buffer[bufferPos + i], crc[0]);
+    }
   }
 }

@@ -342,10 +342,10 @@ export class QuantizePVT {
   }
 
   private compute_ath(gfp: LameGlobalFlags) {
-    const ATH_l = gfp.internal_flags.ATH!.l;
-    const ATH_psfb21 = gfp.internal_flags.ATH!.psfb21;
-    const ATH_s = gfp.internal_flags.ATH!.s;
-    const ATH_psfb12 = gfp.internal_flags.ATH!.psfb12;
+    const ATH_l = gfp.internal_flags.ATH.l;
+    const ATH_psfb21 = gfp.internal_flags.ATH.psfb21;
+    const ATH_s = gfp.internal_flags.ATH.s;
+    const ATH_psfb12 = gfp.internal_flags.ATH.psfb12;
     const gfc = gfp.internal_flags;
     const samp_freq = gfp.out_samplerate;
 
@@ -403,7 +403,7 @@ export class QuantizePVT {
     /*
      * work in progress, don't rely on it too much
      */
-    gfc.ATH!.floor = 10 * Math.log10(this.ATHmdct(gfp, -1));
+    gfc.ATH.floor = 10 * Math.log10(this.ATHmdct(gfp, -1));
   }
 
   /**
@@ -647,7 +647,7 @@ export class QuantizePVT {
     let gsfb;
     let j = 0;
     let ath_over = 0;
-    const ATH = gfc.ATH!;
+    const { ATH } = gfc;
     const { xr } = cod_info;
     const enable_athaa_fix = gfp.VBR === VbrMode.vbr_mtrh ? 1 : 0;
     let { masking_lower } = gfc;

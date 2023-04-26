@@ -22,10 +22,10 @@ export class Mp3Encoder {
 
   constructor(channels = 1, samplerate = 44100, kbps = 128) {
     const ga = new GainAnalysis();
-    const bs = new BitStream();
+    const bs = new BitStream(ga);
     const qupvt = new QuantizePVT();
     const qu = new Quantize();
-    const rv = new Reservoir();
+    const rv = new Reservoir(bs);
     const tak = new Takehiro(qupvt);
     const psy = new PsyModel();
     const enc = new Encoder();
@@ -33,10 +33,8 @@ export class Mp3Encoder {
     this.lame = new Lame();
 
     this.lame.setModules(ga, bs, qupvt, qu, psy, enc);
-    bs.setModules(ga);
     qu.setModules(rv, qupvt, tak);
     qupvt.setModules(tak, rv, psy);
-    rv.setModules(bs);
     enc.setModules(bs, psy);
 
     this.gfp = this.lame.lame_init(channels, samplerate, kbps);

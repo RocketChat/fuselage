@@ -18,15 +18,28 @@ export type Bitrate =
   | 256
   | 320;
 
-const bitrate_table = [
-  [
-    0, 8, 16, 24, 32, 40, 48, 56, 64, 80, 96, 112, 128, 144, 160, -1,
-  ] /* MPEG 2 */,
-  [
-    0, 32, 40, 48, 56, 64, 80, 96, 112, 128, 160, 192, 224, 256, 320, -1,
-  ] /* MPEG 1 */,
-  [0, 8, 16, 24, 32, 40, 48, 56, 64, -1, -1, -1, -1, -1, -1, -1] /* MPEG 2.5 */,
-] as const;
+const bitratesMap = {
+  mpeg2: [0, 8, 16, 24, 32, 40, 48, 56, 64, 80, 96, 112, 128, 144, 160, -1],
+  mpeg1: [0, 32, 40, 48, 56, 64, 80, 96, 112, 128, 160, 192, 224, 256, 320, -1],
+  mpeg2_5: [0, 8, 16, 24, 32, 40, 48, 56, 64, -1, -1, -1, -1, -1, -1, -1],
+} as const satisfies Record<string, readonly (Bitrate | 0 | -1)[]>;
+
+const LOW_SAMPLE_RATE_THRESHOLD = 16000;
+
+const getBitrates = (
+  version: 0 | 1,
+  samplerate = LOW_SAMPLE_RATE_THRESHOLD
+) => {
+  if (samplerate < 16000) {
+    return bitratesMap.mpeg2_5;
+  }
+
+  if (version === 0) {
+    return bitratesMap.mpeg2;
+  }
+
+  return bitratesMap.mpeg1;
+};
 
 /**
  * @param bRate
@@ -37,7 +50,7 @@ export function findNearestBitrate(
   version: 0 | 1,
   samplerate: number
 ): Bitrate {
-  const bitrates = bitrate_table[samplerate < 16000 ? 2 : version];
+  const bitrates = getBitrates(version, samplerate);
 
   let matchingBitrate: Bitrate = bitrates[1];
 
@@ -52,30 +65,34 @@ export function findNearestBitrate(
   return matchingBitrate;
 }
 
+export type BitrateIndex = number & { __brand: 'BitrateIndex' };
+
 /**
  * @param bRate
  *            legal rates from 32 to 448 kbps
  * @param version
  *            MPEG-1 or MPEG-2/2.5 LSF
  */
-export function bitrateIndex(
+export function findBitrateIndex(
   bRate: number,
   version: 0 | 1,
   samplerate: number
-) {
-  const bitrates = bitrate_table[samplerate < 16000 ? 2 : version];
+): BitrateIndex {
+  const bitrates = getBitrates(version, samplerate);
 
   for (let i = 1; i <= 14; i++) {
     const bitrate = bitrates[i];
     if (bitrate > 0) {
       if (bitrate === bRate) {
-        return i;
+        return i as BitrateIndex;
       }
     }
   }
-  return -1;
+
+  throw new Error(`Invalid bitrate ${bRate}`);
 }
 
-export function getBitrate(version: 0 | 1, index: number) {
-  return bitrate_table[version][index];
+export function getBitrate(version: 0 | 1, index: number): Bitrate | 0 | -1 {
+  const bitrates = getBitrates(version);
+  return bitrates[index];
 }

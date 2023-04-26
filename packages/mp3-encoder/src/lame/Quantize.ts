@@ -47,20 +47,14 @@ import {
 import { isCloseToEachOther } from './math';
 
 export class Quantize {
-  private __rv: Reservoir | null = null;
-
   rv: Reservoir | null = null;
 
   qupvt: QuantizePVT | null = null;
 
-  private __qupvt: QuantizePVT | null = null;
-
   private tk: Takehiro | null = null;
 
   setModules(rv: Reservoir, qupvt: QuantizePVT, tk: Takehiro) {
-    this.__rv = rv;
     this.rv = rv;
-    this.__qupvt = qupvt;
     this.qupvt = qupvt;
     this.tk = tk;
   }
@@ -142,7 +136,7 @@ export class Quantize {
    * stops on the first coeff higher than ath.
    */
   private psfb21_analogsilence(gfc: LameInternalFlags, cod_info: GrInfo) {
-    const ath = gfc.ATH!;
+    const ath = gfc.ATH;
     const { xr } = cod_info;
 
     if (cod_info.block_type !== SHORT_TYPE) {
@@ -151,7 +145,7 @@ export class Quantize {
       for (let gsfb = PSFB21 - 1; gsfb >= 0 && !stop; gsfb--) {
         const start = gfc.scalefac_band.psfb21[gsfb];
         const end = gfc.scalefac_band.psfb21[gsfb + 1];
-        let ath21 = this.__qupvt!.athAdjust(
+        let ath21 = this.qupvt!.athAdjust(
           ath.adjust,
           ath.psfb21[gsfb],
           ath.floor
@@ -180,7 +174,7 @@ export class Quantize {
             start +
             (gfc.scalefac_band.psfb12[gsfb + 1] -
               gfc.scalefac_band.psfb12[gsfb]);
-          let ath12 = this.__qupvt!.athAdjust(
+          let ath12 = this.qupvt!.athAdjust(
             ath.adjust,
             ath.psfb12[gsfb],
             ath.floor
@@ -289,7 +283,7 @@ export class Quantize {
     }
 
     cod_info.count1bits = 0;
-    cod_info.sfb_partition_table = this.__qupvt!.nr_of_sfb_block[0][0];
+    cod_info.sfb_partition_table = this.qupvt!.nr_of_sfb_block[0][0];
     cod_info.slen[0] = 0;
     cod_info.slen[1] = 0;
     cod_info.slen[2] = 0;
@@ -387,7 +381,7 @@ export class Quantize {
       (gfc.substep_shaping & 0x80) !== 0
     )
       return;
-    this.__qupvt!.calc_noise(gi, l3_xmin, distort, new CalcNoiseResult(), null);
+    this.qupvt!.calc_noise(gi, l3_xmin, distort, new CalcNoiseResult(), null);
     for (let j = 0; j < 576; j++) {
       let xr = 0.0;
       if (gi.l3_enc[j] !== 0) xr = Math.abs(gi.xr[j]);
@@ -701,7 +695,7 @@ export class Quantize {
     for (let sfb = 0; sfb < cod_info.sfbmax; sfb++) {
       const width = cod_info.width[sfb];
       let s = cod_info.scalefac[sfb];
-      if (cod_info.preflag !== 0) s += this.__qupvt!.pretab[sfb];
+      if (cod_info.preflag !== 0) s += this.qupvt!.pretab[sfb];
       j += width;
       if ((s & 1) !== 0) {
         s++;
@@ -776,7 +770,7 @@ export class Quantize {
         scalefac[sfb] = 0;
         {
           const gain = 210 + (s << (cod_info.scalefac_scale + 1));
-          amp = this.__qupvt!.IPOW20(gain);
+          amp = this.qupvt!.IPOW20(gain);
         }
         j += width * (window + 1);
         for (let l = -width; l < 0; l++) {
@@ -788,7 +782,7 @@ export class Quantize {
       }
 
       {
-        const amp = this.__qupvt!.IPOW20(202);
+        const amp = this.qupvt!.IPOW20(202);
         j += cod_info.width[sfb] * (window + 1);
         for (let l = -cod_info.width[sfb]; l < 0; l++) {
           xrpow[j + l] *= amp;
@@ -920,7 +914,7 @@ export class Quantize {
 
     /* compute the distortion in this quantization */
     /* coefficients and thresholds both l/r (or both mid/side) */
-    this.__qupvt!.calc_noise(
+    this.qupvt!.calc_noise(
       cod_info,
       l3_xmin,
       distort,
@@ -1018,7 +1012,7 @@ export class Quantize {
         }
 
         /* compute the distortion in this quantization */
-        this.__qupvt!.calc_noise(
+        this.qupvt!.calc_noise(
           cod_info_w,
           l3_xmin,
           distort,
@@ -1123,6 +1117,6 @@ export class Quantize {
     /*
      * update reservoir status after FINAL quantization/bitrate
      */
-    this.__rv!.ResvAdjust(gfc, cod_info);
+    this.rv!.ResvAdjust(gfc, cod_info);
   }
 }

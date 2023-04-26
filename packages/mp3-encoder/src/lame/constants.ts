@@ -26,8 +26,6 @@ export const SHORT_TYPE = 2;
 
 export const STOP_TYPE = 3;
 
-export const CRC16_POLYNOMIAL = 0x8005;
-
 export const LAME_MAXALBUMART = 128 * 1024;
 
 /**

@@ -3,6 +3,7 @@ import { MPEGMode } from './MPEGMode';
 import type { Quality } from './Quality';
 import type { ShortBlock } from './ShortBlock';
 import { VbrMode } from './VbrMode';
+import type { SampleRate } from './sampleRates';
 
 export class LameGlobalFlags {
   /**
@@ -19,7 +20,7 @@ export class LameGlobalFlags {
    * output_samp_rate. default: LAME picks best value at least not used for
    * MP3 decoding: Remember 44.1 kHz MP3s and AC97
    */
-  out_samplerate = 0;
+  out_samplerate: SampleRate | 0 = 0;
 
   /**
    * scale input by this amount before encoding at least not used for MP3
@@ -64,11 +65,6 @@ export class LameGlobalFlags {
 
   /* VBR control */
   VBR = VbrMode.vbr_off;
-
-  /**
-   * Range [0,...,1[
-   */
-  VBR_q_frac = 0;
 
   /**
    * Range [0,...,9]
@@ -171,11 +167,6 @@ export class LameGlobalFlags {
    * 0=MPEG-2/2.5 1=MPEG-1
    */
   version: 0 | 1 = 0;
-
-  /**
-   * number of samples of padding appended to input
-   */
-  encoder_padding = 0;
 
   framesize = 0;
 

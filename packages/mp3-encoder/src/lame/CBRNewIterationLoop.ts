@@ -62,10 +62,10 @@ export class CBRNewIterationLoop {
         if (cod_info.block_type !== SHORT_TYPE) {
           // NORM, START or STOP type
           adjust = 0;
-          masking_lower_db = gfc.PSY!.mask_adjust - adjust;
+          masking_lower_db = gfc.PSY.mask_adjust - adjust;
         } else {
           adjust = 0;
-          masking_lower_db = gfc.PSY!.mask_adjust_short - adjust;
+          masking_lower_db = gfc.PSY.mask_adjust_short - adjust;
         }
         gfc.masking_lower = Math.pow(10.0, masking_lower_db * 0.1);
 

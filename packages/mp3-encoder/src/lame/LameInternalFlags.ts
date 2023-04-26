@@ -1,10 +1,10 @@
-import type { ATH } from './ATH';
+import { ATH } from './ATH';
 import type { CBRNewIterationLoop } from './CBRNewIterationLoop';
 import { Header } from './Header';
 import { IIISideInfo } from './IIISideInfo';
 import { III_psy_xmin } from './III_psy_xmin';
 import { NsPsy } from './NsPsy';
-import type { PSY } from './PSY';
+import { PSY } from './PSY';
 import { ReplayGain } from './ReplayGain';
 import { ScaleFac } from './ScaleFac';
 import {
@@ -240,18 +240,11 @@ export class LameInternalFlags {
 
   w_ptr = 0;
 
-  ancillary_flag = 0;
-
   /* variables for Reservoir */
   /**
    * in bits
    */
   ResvSize = 0;
-
-  /**
-   * in bits
-   */
-  ResvMax = 0;
 
   // public ScaleFac scalefac_band = new ScaleFac();
   readonly scalefac_band = new ScaleFac();
@@ -354,10 +347,9 @@ export class LameInternalFlags {
   /**
    * all ATH related stuff
    */
-  // public ATH ATH;
-  ATH: ATH | null = null;
+  readonly ATH = new ATH();
 
-  PSY: PSY | null = null;
+  readonly PSY = new PSY();
 
   findReplayGain = false;
 
