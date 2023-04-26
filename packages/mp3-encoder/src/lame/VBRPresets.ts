@@ -24,9 +24,6 @@ interface VBRPreset {
 type PresetMap = Record<Quality, VBRPreset>;
 
 export class VBRPresets {
-  /**
-   * Switch mappings for VBR mode VBR_RH
-   */
   private readonly oldSwitchMap = [
     {
       vbr_q: 0,
@@ -373,14 +370,8 @@ export class VBRPresets {
     },
   ] as const satisfies PresetMap;
 
-  /**
-   * VBR quality level.<BR>
-   * 0 = highest<BR>
-   * 9 = lowest
-   */
   private setVBRQuality(gfp: LameGlobalFlags, VBR_q: Quality): void {
     if (VBR_q < 0) {
-      /* Unknown VBR quality level! */
       VBR_q = 0;
     }
 
@@ -443,7 +434,6 @@ export class VBRPresets {
       gfp.interChRatio = set.interch;
     }
 
-    /* parameters for which there is no proper set/get interface */
     if (set.safejoint > 0) {
       gfp.exp_nspsytune |= set.safejoint;
     }

@@ -1,4 +1,3 @@
-import { copyArray, fillArray } from './Arrays';
 import { GainAnalysis } from './GainAnalysis';
 import type { GrInfo } from './GrInfo';
 import type { LameGlobalFlags } from './LameGlobalFlags';
@@ -7,6 +6,8 @@ import * as tables from './Tables';
 import { Takehiro } from './Takehiro';
 import { TotalBytes } from './TotalBytes';
 import { VBRTag } from './VBRTag';
+import { copyArray, fillArray } from './arrays';
+import { assert } from './assert';
 import { getBitrate } from './bitrates';
 import {
   LAME_MAXMP3BUFFER,
@@ -18,39 +19,19 @@ import { getLameShortVersion } from './getLameShortVersion';
 import { isCloseToEachOther } from './math';
 
 export class BitStream {
-  /*
-   * we work with ints, so when doing bit manipulation, we limit ourselves to
-   * MAX_LENGTH-2 just to be on the safe side
-   */
   private static readonly MAX_LENGTH = 32;
 
-  private readonly ga: GainAnalysis;
+  readonly ga = new GainAnalysis();
 
   private readonly vbr = new VBRTag();
 
-  /**
-   * Bit stream buffer.
-   */
   private readonly buf = new Uint8Array(LAME_MAXMP3BUFFER);
 
-  /**
-   * Bit counter of bit stream.
-   */
   private totbit = 0;
 
-  /**
-   * Pointer to top byte in buffer.
-   */
   private bufByteIdx = -1;
 
-  /**
-   * Pointer to top bit of top byte in buffer.
-   */
   private bufBitIdx = 0;
-
-  constructor(ga: GainAnalysis) {
-    this.ga = ga;
-  }
 
   resetPointers(gfc: LameInternalFlags) {
     gfc.w_ptr = 0;
@@ -58,23 +39,17 @@ export class BitStream {
     gfc.header[gfc.h_ptr].write_timing = 0;
   }
 
-  /**
-   * compute bitsperframe and mean_bits for a layer III frame
-   */
   getframebits(gfp: LameGlobalFlags) {
     const gfc = gfp.internal_flags;
     let bit_rate;
 
-    /* get bitrate in kbps [?] */
     if (gfc.bitrate_index !== 0) {
       bit_rate = getBitrate(gfp.version, gfc.bitrate_index);
     } else {
       bit_rate = gfp.brate;
     }
-    console.assert(bit_rate >= 8 && bit_rate <= 640);
+    assert(bit_rate >= 8 && bit_rate <= 640);
 
-    /* main encoding routine toggles padding on and off */
-    /* one Layer3 Slot consists of 8 bits */
     const bytes = Math.trunc(
       ((gfp.version + 1) * 72000 * bit_rate) / gfp.out_samplerate + gfc.padding
     );
@@ -94,18 +69,15 @@ export class BitStream {
     gfc.w_ptr = (gfc.w_ptr + 1) & (MAX_HEADER_BUF - 1);
   }
 
-  /**
-   * write j bits into the bit stream
-   */
   private putbits2(gfc: LameInternalFlags, val: number, j: number) {
-    console.assert(j < BitStream.MAX_LENGTH - 2);
+    assert(j < BitStream.MAX_LENGTH - 2);
 
     while (j > 0) {
       if (this.bufBitIdx === 0) {
         this.bufBitIdx = 8;
         this.bufByteIdx++;
-        console.assert(this.bufByteIdx < LAME_MAXMP3BUFFER);
-        console.assert(gfc.header[gfc.w_ptr].write_timing >= this.totbit);
+        assert(this.bufByteIdx < LAME_MAXMP3BUFFER);
+        assert(gfc.header[gfc.w_ptr].write_timing >= this.totbit);
         if (gfc.header[gfc.w_ptr].write_timing === this.totbit) {
           this.putheader_bits(gfc);
         }
@@ -117,25 +89,19 @@ export class BitStream {
 
       this.bufBitIdx -= k;
 
-      console.assert(j < BitStream.MAX_LENGTH);
-      /* 32 too large on 32 bit machines */
-      console.assert(this.bufBitIdx < BitStream.MAX_LENGTH);
+      assert(j < BitStream.MAX_LENGTH);
+
+      assert(this.bufBitIdx < BitStream.MAX_LENGTH);
 
       this.buf[this.bufByteIdx] |= (val >> j) << this.bufBitIdx;
       this.totbit += k;
     }
   }
 
-  /**
-   * Some combinations of bitrate, Fs, and stereo make it impossible to stuff
-   * out a frame using just main_data, due to the limited number of bits to
-   * indicate main_data_length. In these situations, we put stuffing bits into
-   * the ancillary data...
-   */
   private drain_into_ancillary(gfp: LameGlobalFlags, remainingBits: number) {
     const gfc = gfp.internal_flags;
     let i;
-    console.assert(remainingBits >= 0);
+    assert(remainingBits >= 0);
 
     if (remainingBits >= 8) {
       this.putbits2(gfc, 0x4c, 8);
@@ -167,20 +133,16 @@ export class BitStream {
       this.putbits2(gfc, 0, 1);
     }
 
-    console.assert(remainingBits === 0);
+    assert(remainingBits === 0);
   }
 
-  /**
-   * write N bits into the header
-   */
   private writeheader(gfc: LameInternalFlags, val: number, j: number) {
     let { ptr } = gfc.header[gfc.h_ptr];
 
     while (j > 0) {
       const k = Math.min(j, 8 - (ptr & 7));
       j -= k;
-      console.assert(j < BitStream.MAX_LENGTH);
-      /* >> 32 too large for 32 bit machines */
+      assert(j < BitStream.MAX_LENGTH);
 
       gfc.header[gfc.h_ptr].buf[ptr >> 3] |= (val >> j) << (8 - (ptr & 7) - k);
       ptr += k;
@@ -215,8 +177,7 @@ export class BitStream {
     this.writeheader(gfc, 0, 2);
 
     if (gfp.version === 1) {
-      /* MPEG1 */
-      console.assert(l3_side.main_data_begin >= 0);
+      assert(l3_side.main_data_begin >= 0);
       this.writeheader(gfc, l3_side.main_data_begin, 9);
 
       if (gfc.channels_out === 2)
@@ -239,7 +200,7 @@ export class BitStream {
 
           if (gi.block_type !== NORM_TYPE) {
             this.writeheader(gfc, 1, 1);
-            /* window_switching_flag */
+
             this.writeheader(gfc, gi.block_type, 2);
             this.writeheader(gfc, gi.mixed_block_flag, 1);
 
@@ -253,7 +214,7 @@ export class BitStream {
             this.writeheader(gfc, gi.subblock_gain[2], 3);
           } else {
             this.writeheader(gfc, 0, 1);
-            /* window_switching_flag */
+
             if (gi.table_select[0] === 14) gi.table_select[0] = 16;
             this.writeheader(gfc, gi.table_select[0], 5);
             if (gi.table_select[1] === 14) gi.table_select[1] = 16;
@@ -261,8 +222,8 @@ export class BitStream {
             if (gi.table_select[2] === 14) gi.table_select[2] = 16;
             this.writeheader(gfc, gi.table_select[2], 5);
 
-            console.assert(gi.region0_count >= 0 && gi.region0_count < 16);
-            console.assert(gi.region1_count >= 0 && gi.region1_count < 8);
+            assert(gi.region0_count >= 0 && gi.region0_count < 16);
+            assert(gi.region1_count >= 0 && gi.region1_count < 8);
             this.writeheader(gfc, gi.region0_count, 4);
             this.writeheader(gfc, gi.region1_count, 3);
           }
@@ -272,8 +233,7 @@ export class BitStream {
         }
       }
     } else {
-      /* MPEG2 */
-      console.assert(l3_side.main_data_begin >= 0);
+      assert(l3_side.main_data_begin >= 0);
       this.writeheader(gfc, l3_side.main_data_begin, 8);
       this.writeheader(gfc, l3_side.private_bits, gfc.channels_out);
 
@@ -287,7 +247,7 @@ export class BitStream {
 
         if (gi.block_type !== NORM_TYPE) {
           this.writeheader(gfc, 1, 1);
-          /* window_switching_flag */
+
           this.writeheader(gfc, gi.block_type, 2);
           this.writeheader(gfc, gi.mixed_block_flag, 1);
 
@@ -301,7 +261,7 @@ export class BitStream {
           this.writeheader(gfc, gi.subblock_gain[2], 3);
         } else {
           this.writeheader(gfc, 0, 1);
-          /* window_switching_flag */
+
           if (gi.table_select[0] === 14) gi.table_select[0] = 16;
           this.writeheader(gfc, gi.table_select[0], 5);
           if (gi.table_select[1] === 14) gi.table_select[1] = 16;
@@ -309,8 +269,8 @@ export class BitStream {
           if (gi.table_select[2] === 14) gi.table_select[2] = 16;
           this.writeheader(gfc, gi.table_select[2], 5);
 
-          console.assert(gi.region0_count >= 0 && gi.region0_count < 16);
-          console.assert(gi.region1_count >= 0 && gi.region1_count < 8);
+          assert(gi.region0_count >= 0 && gi.region0_count < 16);
+          assert(gi.region1_count >= 0 && gi.region1_count < 8);
           this.writeheader(gfc, gi.region0_count, 4);
           this.writeheader(gfc, gi.region1_count, 3);
         }
@@ -321,27 +281,25 @@ export class BitStream {
     }
 
     const old = gfc.h_ptr;
-    console.assert(gfc.header[old].ptr === gfc.sideinfo_len * 8);
+    assert(gfc.header[old].ptr === gfc.sideinfo_len * 8);
 
     gfc.h_ptr = (old + 1) & (MAX_HEADER_BUF - 1);
     gfc.header[gfc.h_ptr].write_timing =
       gfc.header[old].write_timing + bitsPerFrame;
 
     if (gfc.h_ptr === gfc.w_ptr) {
-      /* yikes! we are out of header buffer space */
       console.warn('MAX_HEADER_BUF too small in bitstream.');
     }
   }
 
   private huffman_coder_count1(gfc: LameInternalFlags, gi: GrInfo) {
-    /* Write count1 area */
     const h = tables.ht[gi.count1table_select + 32];
     let i;
     let bits = 0;
 
     let ix = gi.big_values;
     let xr = gi.big_values;
-    console.assert(gi.count1table_select < 2);
+    assert(gi.count1table_select < 2);
 
     for (i = (gi.count1 - gi.big_values) / 4; i > 0; --i) {
       let huffbits = 0;
@@ -352,7 +310,7 @@ export class BitStream {
       if (v !== 0) {
         p += 8;
         if (gi.xr[xr + 0] < 0) huffbits++;
-        console.assert(v <= 1);
+        assert(v <= 1);
       }
 
       v = gi.l3_enc[ix + 1];
@@ -360,7 +318,7 @@ export class BitStream {
         p += 4;
         huffbits *= 2;
         if (gi.xr[xr + 1] < 0) huffbits++;
-        console.assert(v <= 1);
+        assert(v <= 1);
       }
 
       v = gi.l3_enc[ix + 2];
@@ -368,7 +326,7 @@ export class BitStream {
         p += 2;
         huffbits *= 2;
         if (gi.xr[xr + 2] < 0) huffbits++;
-        console.assert(v <= 1);
+        assert(v <= 1);
       }
 
       v = gi.l3_enc[ix + 3];
@@ -376,20 +334,20 @@ export class BitStream {
         p++;
         huffbits *= 2;
         if (gi.xr[xr + 3] < 0) huffbits++;
-        console.assert(v <= 1);
+        assert(v <= 1);
       }
+
+      assert(h.table !== undefined);
+      assert(h.hlen !== undefined);
 
       ix += 4;
       xr += 4;
-      this.putbits2(gfc, huffbits + h.table![p], h.hlen![p]);
-      bits += h.hlen![p];
+      this.putbits2(gfc, huffbits + h.table[p], h.hlen[p]);
+      bits += h.hlen[p];
     }
     return bits;
   }
 
-  /**
-   * Implements the pseudocode of page 98 of the IS
-   */
   private huffmancode(
     gfc: LameInternalFlags,
     tableindex: number,
@@ -400,7 +358,7 @@ export class BitStream {
     const h = tables.ht[tableindex];
     let bits = 0;
 
-    console.assert(tableindex < 32);
+    assert(tableindex < 32);
     if (tableindex === 0) return bits;
 
     for (let i = start; i < end; i += 2) {
@@ -418,10 +376,9 @@ export class BitStream {
       }
 
       if (tableindex > 15) {
-        /* use ESC-words */
         if (x1 > 14) {
           const linbits_x1 = x1 - 15;
-          console.assert(linbits_x1 <= h.linmax);
+          assert(linbits_x1 <= h.linmax);
           ext |= linbits_x1 << 1;
           xbits = linbits;
           x1 = 15;
@@ -429,7 +386,7 @@ export class BitStream {
 
         if (x2 > 14) {
           const linbits_x2 = x2 - 15;
-          console.assert(linbits_x2 <= h.linmax);
+          assert(linbits_x2 <= h.linmax);
           ext <<= linbits;
           ext |= linbits_x2;
           xbits += linbits;
@@ -444,31 +401,29 @@ export class BitStream {
         cbits--;
       }
 
-      console.assert((x1 | x2) < 16);
+      assert((x1 | x2) < 16);
+      assert(h.hlen !== undefined);
+      assert(h.table !== undefined);
 
       x1 = x1 * xlen + x2;
       xbits -= cbits;
-      cbits += h.hlen![x1];
+      cbits += h.hlen[x1];
 
-      console.assert(cbits <= BitStream.MAX_LENGTH);
-      console.assert(xbits <= BitStream.MAX_LENGTH);
+      assert(cbits <= BitStream.MAX_LENGTH);
+      assert(xbits <= BitStream.MAX_LENGTH);
+      assert(h.table !== undefined);
 
-      this.putbits2(gfc, h.table![x1], cbits);
+      this.putbits2(gfc, h.table[x1], cbits);
       this.putbits2(gfc, ext, xbits);
       bits += cbits + xbits;
     }
     return bits;
   }
 
-  /**
-   * Note the discussion of huffmancodebits() on pages 28 and 29 of the IS, as
-   * well as the definitions of the side information on pages 26 and 27.
-   */
   private shortHuffmancodebits(gfc: LameInternalFlags, gi: GrInfo) {
     let region1Start = 3 * gfc.scalefac_band.s[3];
     if (region1Start > gi.big_values) region1Start = gi.big_values;
 
-    /* short blocks do not have a region2 */
     let bits = this.huffmancode(gfc, gi.table_select[0], 0, region1Start, gi);
     bits += this.huffmancode(
       gfc,
@@ -486,20 +441,24 @@ export class BitStream {
     let region2Start;
 
     const bigvalues = gi.big_values;
-    console.assert(bigvalues >= 0 && bigvalues <= 576);
+    assert(bigvalues >= 0 && bigvalues <= 576);
 
     let i = gi.region0_count + 1;
-    console.assert(i >= 0);
-    console.assert(i < gfc.scalefac_band.l.length);
+    assert(i >= 0);
+    assert(i < gfc.scalefac_band.l.length);
     region1Start = gfc.scalefac_band.l[i];
     i += gi.region1_count + 1;
-    console.assert(i >= 0);
-    console.assert(i < gfc.scalefac_band.l.length);
+    assert(i >= 0);
+    assert(i < gfc.scalefac_band.l.length);
     region2Start = gfc.scalefac_band.l[i];
 
-    if (region1Start > bigvalues) region1Start = bigvalues;
+    if (region1Start > bigvalues) {
+      region1Start = bigvalues;
+    }
 
-    if (region2Start > bigvalues) region2Start = bigvalues;
+    if (region2Start > bigvalues) {
+      region2Start = bigvalues;
+    }
 
     bits = this.huffmancode(gfc, gi.table_select[0], 0, region1Start, gi);
     bits += this.huffmancode(
@@ -529,7 +488,6 @@ export class BitStream {
     const { l3_side } = gfc;
 
     if (gfp.version === 1) {
-      /* MPEG 1 */
       for (gr = 0; gr < 2; gr++) {
         for (ch = 0; ch < gfc.channels_out; ch++) {
           const gi = l3_side.tt[gr][ch];
@@ -537,18 +495,22 @@ export class BitStream {
           const slen2 = Takehiro.slen2_tab[gi.scalefac_compress];
           data_bits = 0;
           for (sfb = 0; sfb < gi.sfbdivide; sfb++) {
-            if (gi.scalefac[sfb] === -1) continue;
-            /* scfsi is used */
+            if (gi.scalefac[sfb] === -1) {
+              continue;
+            }
+
             this.putbits2(gfc, gi.scalefac[sfb], slen1);
             data_bits += slen1;
           }
           for (; sfb < gi.sfbmax; sfb++) {
-            if (gi.scalefac[sfb] === -1) continue;
-            /* scfsi is used */
+            if (gi.scalefac[sfb] === -1) {
+              continue;
+            }
+
             this.putbits2(gfc, gi.scalefac[sfb], slen2);
             data_bits += slen2;
           }
-          console.assert(data_bits === gi.part2_length);
+          assert(data_bits === gi.part2_length);
 
           if (gi.block_type === SHORT_TYPE) {
             data_bits += this.shortHuffmancodebits(gfc, gi);
@@ -556,74 +518,58 @@ export class BitStream {
             data_bits += this.longHuffmancodebits(gfc, gi);
           }
           data_bits += this.huffman_coder_count1(gfc, gi);
-          /* does bitcount in quantize.c agree with actual bit count? */
-          console.assert(data_bits === gi.part2_3_length + gi.part2_length);
+
+          assert(data_bits === gi.part2_3_length + gi.part2_length);
           tot_bits += data_bits;
         }
-        /* for ch */
       }
-      /* for gr */
-    } else {
-      /* MPEG 2 */
-      gr = 0;
-      for (ch = 0; ch < gfc.channels_out; ch++) {
-        const gi = l3_side.tt[gr][ch];
-        let i;
-        let sfb_partition;
-        let scale_bits = 0;
-        console.assert(gi.sfb_partition_table !== null);
-        data_bits = 0;
-        sfb = 0;
-        sfb_partition = 0;
-
-        if (gi.block_type === SHORT_TYPE) {
-          for (; sfb_partition < 4; sfb_partition++) {
-            const sfbs = gi.sfb_partition_table![sfb_partition] / 3;
-            const slen = gi.slen[sfb_partition];
-            for (i = 0; i < sfbs; i++, sfb++) {
-              this.putbits2(gfc, Math.max(gi.scalefac[sfb * 3 + 0], 0), slen);
-              this.putbits2(gfc, Math.max(gi.scalefac[sfb * 3 + 1], 0), slen);
-              this.putbits2(gfc, Math.max(gi.scalefac[sfb * 3 + 2], 0), slen);
-              scale_bits += 3 * slen;
-            }
-          }
-          data_bits += this.shortHuffmancodebits(gfc, gi);
-        } else {
-          for (; sfb_partition < 4; sfb_partition++) {
-            const sfbs = gi.sfb_partition_table![sfb_partition];
-            const slen = gi.slen[sfb_partition];
-            for (i = 0; i < sfbs; i++, sfb++) {
-              this.putbits2(gfc, Math.max(gi.scalefac[sfb], 0), slen);
-              scale_bits += slen;
-            }
-          }
-          data_bits += this.longHuffmancodebits(gfc, gi);
-        }
-        data_bits += this.huffman_coder_count1(gfc, gi);
-        /* does bitcount in quantize.c agree with actual bit count? */
-        console.assert(data_bits === gi.part2_3_length);
-        console.assert(scale_bits === gi.part2_length);
-        tot_bits += scale_bits + data_bits;
-      }
-      /* for ch */
+      return tot_bits;
     }
-    /* for gf */
+
+    gr = 0;
+    for (ch = 0; ch < gfc.channels_out; ch++) {
+      const gi = l3_side.tt[gr][ch];
+      let i;
+      let sfb_partition;
+      let scale_bits = 0;
+      assert(gi.sfb_partition_table !== null);
+      data_bits = 0;
+      sfb = 0;
+      sfb_partition = 0;
+
+      if (gi.block_type === SHORT_TYPE) {
+        for (; sfb_partition < 4; sfb_partition++) {
+          const sfbs = gi.sfb_partition_table[sfb_partition] / 3;
+          const slen = gi.slen[sfb_partition];
+          for (i = 0; i < sfbs; i++, sfb++) {
+            this.putbits2(gfc, Math.max(gi.scalefac[sfb * 3 + 0], 0), slen);
+            this.putbits2(gfc, Math.max(gi.scalefac[sfb * 3 + 1], 0), slen);
+            this.putbits2(gfc, Math.max(gi.scalefac[sfb * 3 + 2], 0), slen);
+            scale_bits += 3 * slen;
+          }
+        }
+        data_bits += this.shortHuffmancodebits(gfc, gi);
+      } else {
+        for (; sfb_partition < 4; sfb_partition++) {
+          const sfbs = gi.sfb_partition_table[sfb_partition];
+          const slen = gi.slen[sfb_partition];
+          for (i = 0; i < sfbs; i++, sfb++) {
+            this.putbits2(gfc, Math.max(gi.scalefac[sfb], 0), slen);
+            scale_bits += slen;
+          }
+        }
+        data_bits += this.longHuffmancodebits(gfc, gi);
+      }
+      data_bits += this.huffman_coder_count1(gfc, gi);
+
+      assert(data_bits === gi.part2_3_length);
+      assert(scale_bits === gi.part2_length);
+      tot_bits += scale_bits + data_bits;
+    }
+
     return tot_bits;
   }
 
-  /*
-   * compute the number of bits required to flush all mp3 frames currently in
-   * the buffer. This should be the same as the reservoir size. Only call this
-   * routine between frames - i.e. only after all headers and data have been
-   * added to the buffer by format_bitstream().
-   *
-   * Also compute total_bits_output = size of mp3 buffer (including frame
-   * headers which may not have yet been send to the mp3 buffer) + number of
-   * bits needed to flush all mp3 frames.
-   *
-   * total_bytes_output is the size of the mp3 output buffer if
-   * lame_encode_flush_nogap() was called right now.
-   */
   private compute_flushbits(
     gfp: LameGlobalFlags,
     total_bytes_output: TotalBytes
@@ -633,33 +579,26 @@ export class BitStream {
     let remaining_headers;
     let last_ptr;
     const first_ptr = gfc.w_ptr;
-    /* first header to add to bitstream */
+
     last_ptr = gfc.h_ptr - 1;
-    /* last header to add to bitstream */
+
     if (last_ptr === -1) last_ptr = MAX_HEADER_BUF - 1;
 
-    /* add this many bits to bitstream so we can flush all headers */
     flushbits = gfc.header[last_ptr].write_timing - this.totbit;
     total_bytes_output.total = flushbits;
 
     if (flushbits >= 0) {
-      /* if flushbits >= 0, some headers have not yet been written */
-      /* reduce flushbits by the size of the headers */
       remaining_headers = 1 + last_ptr - first_ptr;
-      if (last_ptr < first_ptr)
+      if (last_ptr < first_ptr) {
         remaining_headers = 1 + last_ptr - first_ptr + MAX_HEADER_BUF;
+      }
       flushbits -= remaining_headers * 8 * gfc.sideinfo_len;
     }
 
-    /*
-     * finally, add some bits so that the last frame is complete these bits
-     * are not necessary to decode the last frame, but some decoders will
-     * ignore last frame if these bits are missing
-     */
     const bitsPerFrame = this.getframebits(gfp);
     flushbits += bitsPerFrame;
     total_bytes_output.total += bitsPerFrame;
-    /* round up: */
+
     if (total_bytes_output.total % 8 !== 0)
       total_bytes_output.total = 1 + total_bytes_output.total / 8;
     else total_bytes_output.total /= 8;
@@ -675,73 +614,49 @@ export class BitStream {
     const gfc = gfp.internal_flags;
     let flushbits;
     let last_ptr = gfc.h_ptr - 1;
-    /* last header to add to bitstream */
+
     if (last_ptr === -1) last_ptr = MAX_HEADER_BUF - 1;
     const { l3_side } = gfc;
 
     if ((flushbits = this.compute_flushbits(gfp, new TotalBytes())) < 0) return;
     this.drain_into_ancillary(gfp, flushbits);
 
-    /* check that the 100% of the last frame has been written to bitstream */
-    console.assert(
+    assert(
       gfc.header[last_ptr].write_timing + this.getframebits(gfp) === this.totbit
     );
 
-    /*
-     * we have padded out all frames with ancillary data, which is the same
-     * as filling the bitreservoir with ancillary data, so :
-     */
     gfc.ResvSize = 0;
     l3_side.main_data_begin = 0;
 
-    /* save the ReplayGain value */
     if (gfc.findReplayGain) {
       const radioGain = this.ga.getTitleGain(gfc.rgdata);
-      console.assert(
+      assert(
         !isCloseToEachOther(radioGain, GainAnalysis.GAIN_NOT_ENOUGH_SAMPLES)
       );
       gfc.RadioGain = Math.floor(radioGain * 10.0 + 0.5);
-      /* round to nearest */
     }
 
-    /* find the gain and scale change required for no clipping */
     if (gfc.findPeakSample) {
       gfc.noclipGainChange = Math.ceil(
         Math.log10(gfc.PeakSample / 32767.0) * 20.0 * 10.0
       );
-      /* round up */
 
       if (gfc.noclipGainChange > 0) {
-        /* clipping occurs */
         if (
           isCloseToEachOther(gfp.scale, 1.0) ||
           isCloseToEachOther(gfp.scale, 0.0)
-        )
+        ) {
           gfc.noclipScale =
             Math.floor((32767.0 / gfc.PeakSample) * 100.0) / 100.0;
-        /* round down */ else {
-          /*
-           * the user specified his own scaling factor. We could
-           * suggest the scaling factor of
-           * (32767.0/gfp.PeakSample)*(gfp.scale) but it's usually
-           * very inaccurate. So we'd rather not advice him on the
-           * scaling factor.
-           */
+        } else {
           gfc.noclipScale = -1;
         }
-      } else
-      /* no clipping */
+      } else {
         gfc.noclipScale = -1;
+      }
     }
   }
 
-  /**
-   * This is called after a frame of audio has been quantized and coded. It
-   * will write the encoded audio to the bitstream. Note that from a layer3
-   * encoder's perspective the bit stream is primarily a series of main_data()
-   * blocks, with header and side information inserted at the proper locations
-   * to maintain framing. (See Figure A.7 in the IS).
-   */
   format_bitstream(gfp: LameGlobalFlags) {
     const gfc = gfp.internal_flags;
     const { l3_side } = gfc;
@@ -757,18 +672,10 @@ export class BitStream {
 
     l3_side.main_data_begin += (bitsPerFrame - bits) / 8;
 
-    /*
-     * compare number of bits needed to clear all buffered mp3 frames with
-     * what we think the resvsize is:
-     */
     if (this.compute_flushbits(gfp, new TotalBytes()) !== gfc.ResvSize) {
       console.warn('Internal buffer inconsistency. flushbits <> ResvSize');
     }
 
-    /*
-     * compare main_data_begin for the next frame with what we think the
-     * resvsize is:
-     */
     if (l3_side.main_data_begin * 8 !== gfc.ResvSize) {
       console.warn(
         `bit reservoir error: \n` +
@@ -793,14 +700,9 @@ export class BitStream {
 
       gfc.ResvSize = l3_side.main_data_begin * 8;
     }
-    // ;
-    console.assert(this.totbit % 8 === 0);
+    assert(this.totbit % 8 === 0);
 
     if (this.totbit > 1000000000) {
-      /*
-       * to avoid totbit overflow, (at 8h encoding at 128kbs) lets reset
-       * bit counter
-       */
       for (let i = 0; i < MAX_HEADER_BUF; ++i) {
         gfc.header[i].write_timing -= this.totbit;
       }
@@ -841,7 +743,6 @@ export class BitStream {
     }
 
     if (size !== 0 && minimum > size) {
-      /* buffer is too small */
       return -1;
     }
 
@@ -855,10 +756,6 @@ export class BitStream {
       this.vbr.updateMusicCRC(crc, buffer, bufferPos, minimum);
       gfc.nMusicCRC = crc[0];
 
-      /**
-       * sum number of bytes belonging to the mp3 stream this info will be
-       * written into the Xing/LAME header for seeking
-       */
       if (minimum > 0) {
         gfc.VBR_seek_table.nBytesWritten += minimum;
       }

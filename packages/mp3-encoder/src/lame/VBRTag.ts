@@ -1,7 +1,4 @@
 export class VBRTag {
-  /**
-   * Lookup table for fast CRC-16 computation. Uses the polynomial x^16+x^15+x^2+1
-   */
   private readonly crc16Lookup = [
     0x0000, 0xc0c1, 0xc181, 0x0140, 0xc301, 0x03c0, 0x0280, 0xc241, 0xc601,
     0x06c0, 0x0780, 0xc741, 0x0500, 0xc5c1, 0xc481, 0x0440, 0xcc01, 0x0cc0,
@@ -34,13 +31,6 @@ export class VBRTag {
     0x4100, 0x81c1, 0x8081, 0x4040,
   ] as const;
 
-  /**
-   * Fast CRC-16 computation (uses table crc16Lookup).
-   *
-   * @param value
-   * @param crc
-   * @return
-   */
   private crcUpdateLookup(value: number, crc: number) {
     const tmp = crc ^ value;
     crc = (crc >> 8) ^ this.crc16Lookup[tmp & 0xff];

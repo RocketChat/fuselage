@@ -19,7 +19,7 @@ export class FFT {
     let gi: number;
 
     n <<= 1;
-    /* to get BLKSIZE, because of 3DNow! ASM routine */
+
     const fn = fzPos + n;
     k4 = 4;
     do {
@@ -166,8 +166,6 @@ export class FFT {
       } while (--j >= 0);
 
       this.fht(x_real[b], x, BLKSIZE_s / 2);
-      /* BLKSIZE_s/2 because of 3DNow! ASM routine */
-      /* BLKSIZE/2 because of 3DNow! ASM routine */
     }
   }
 
@@ -219,24 +217,19 @@ export class FFT {
     } while (--jj >= 0);
 
     this.fht(y, x, BLKSIZE / 2);
-    /* BLKSIZE/2 because of 3DNow! ASM routine */
   }
 
   init() {
-    /* The type of window used here will make no real difference, but */
-    /*
-     * in the interest of merging nspsytune stuff - switch to blackman
-     * window
-     */
-    for (let i = 0; i < BLKSIZE; i++)
-      /* blackman window */
+    for (let i = 0; i < BLKSIZE; i++) {
       this.window[i] =
         0.42 -
         0.5 * Math.cos((2 * Math.PI * (i + 0.5)) / BLKSIZE) +
         0.08 * Math.cos((4 * Math.PI * (i + 0.5)) / BLKSIZE);
+    }
 
-    for (let i = 0; i < BLKSIZE_s / 2; i++)
+    for (let i = 0; i < BLKSIZE_s / 2; i++) {
       this.window_s[i] =
         0.5 * (1.0 - Math.cos((2.0 * Math.PI * (i + 0.5)) / BLKSIZE_s));
+    }
   }
 }

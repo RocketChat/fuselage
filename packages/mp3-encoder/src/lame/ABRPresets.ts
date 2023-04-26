@@ -17,7 +17,7 @@ interface ABRPreset {
   readonly ath_lower: number;
   readonly ath_curve: number;
   readonly interch: number;
-  readonly sfscale: number;
+  readonly sfscale: 0 | 1;
 }
 
 interface BandPass {
@@ -35,15 +35,9 @@ export class ABRPresets {
   ] as const satisfies readonly Bitrate[];
 
   private findNearestFullBitrateIndex(bitrate: number): FullBitrateIndex {
-    /* We assume specified bitrate will be 320kbps */
     let lowerRange = this.fullBitrates.length - 1;
     let upperRange = this.fullBitrates.length - 1;
 
-    /*
-     * Determine which significant bitrates the value specified falls
-     * between, if loop ends without breaking then we were correct above
-     * that the value was 320
-     */
     for (
       let maybeLowerRange = 0;
       maybeLowerRange < this.fullBitrates.length - 1;
@@ -64,9 +58,6 @@ export class ABRPresets {
       : (upperRange as FullBitrateIndex);
   }
 
-  /**
-   *  Switch mappings for ABR mode
-   */
   private readonly presetMap = [
     {
       kbps: 8,
@@ -83,7 +74,7 @@ export class ABRPresets {
       ath_curve: 11,
       interch: 0.0012,
       sfscale: 1,
-    } /*   8, impossible to use in stereo */,
+    },
     {
       kbps: 16,
       quant_comp: 9,
@@ -99,7 +90,7 @@ export class ABRPresets {
       ath_curve: 11,
       interch: 0.001,
       sfscale: 1,
-    } /*  16 */,
+    },
     {
       kbps: 24,
       quant_comp: 9,
@@ -115,7 +106,7 @@ export class ABRPresets {
       ath_curve: 11,
       interch: 0.001,
       sfscale: 1,
-    } /*  24 */,
+    },
     {
       kbps: 32,
       quant_comp: 9,
@@ -131,7 +122,7 @@ export class ABRPresets {
       ath_curve: 11,
       interch: 0.001,
       sfscale: 1,
-    } /*  32 */,
+    },
     {
       kbps: 40,
       quant_comp: 9,
@@ -147,7 +138,7 @@ export class ABRPresets {
       ath_curve: 11,
       interch: 0.0009,
       sfscale: 1,
-    } /*  40 */,
+    },
     {
       kbps: 48,
       quant_comp: 9,
@@ -163,7 +154,7 @@ export class ABRPresets {
       ath_curve: 11,
       interch: 0.0009,
       sfscale: 1,
-    } /*  48 */,
+    },
     {
       kbps: 56,
       quant_comp: 9,
@@ -179,7 +170,7 @@ export class ABRPresets {
       ath_curve: 11,
       interch: 0.0008,
       sfscale: 1,
-    } /*  56 */,
+    },
     {
       kbps: 64,
       quant_comp: 9,
@@ -195,7 +186,7 @@ export class ABRPresets {
       ath_curve: 11,
       interch: 0.0008,
       sfscale: 1,
-    } /*  64 */,
+    },
     {
       kbps: 80,
       quant_comp: 9,
@@ -211,7 +202,7 @@ export class ABRPresets {
       ath_curve: 8,
       interch: 0.0007,
       sfscale: 1,
-    } /*  80 */,
+    },
     {
       kbps: 96,
       quant_comp: 9,
@@ -227,7 +218,7 @@ export class ABRPresets {
       ath_curve: 5.5,
       interch: 0.0006,
       sfscale: 1,
-    } /*  96 */,
+    },
     {
       kbps: 112,
       quant_comp: 9,
@@ -243,7 +234,7 @@ export class ABRPresets {
       ath_curve: 4.5,
       interch: 0.0005,
       sfscale: 1,
-    } /* 112 */,
+    },
     {
       kbps: 128,
       quant_comp: 9,
@@ -259,7 +250,7 @@ export class ABRPresets {
       ath_curve: 4,
       interch: 0.0002,
       sfscale: 1,
-    } /* 128 */,
+    },
     {
       kbps: 160,
       quant_comp: 9,
@@ -275,7 +266,7 @@ export class ABRPresets {
       ath_curve: 3.5,
       interch: 0,
       sfscale: 1,
-    } /* 160 */,
+    },
     {
       kbps: 192,
       quant_comp: 9,
@@ -291,7 +282,7 @@ export class ABRPresets {
       ath_curve: 3,
       interch: 0,
       sfscale: 0,
-    } /* 192 */,
+    },
     {
       kbps: 224,
       quant_comp: 9,
@@ -307,7 +298,7 @@ export class ABRPresets {
       ath_curve: 2,
       interch: 0,
       sfscale: 0,
-    } /* 224 */,
+    },
     {
       kbps: 256,
       quant_comp: 9,
@@ -323,7 +314,7 @@ export class ABRPresets {
       ath_curve: 1,
       interch: 0,
       sfscale: 0,
-    } /* 256 */,
+    },
     {
       kbps: 320,
       quant_comp: 9,
@@ -339,7 +330,7 @@ export class ABRPresets {
       ath_curve: 0,
       interch: 0,
       sfscale: 0,
-    } /* 320 */,
+    },
   ] as const satisfies PresetMap;
 
   public apply(gfp: LameGlobalFlags, bitrate: number) {
@@ -351,16 +342,19 @@ export class ABRPresets {
     gfp.VBR_mean_bitrate_kbps = Math.max(gfp.VBR_mean_bitrate_kbps, 8);
     gfp.brate = gfp.VBR_mean_bitrate_kbps;
 
-    /* parameters for which there is no proper set/get interface */
-    if (preset.safejoint > 0) gfp.exp_nspsytune |= 2;
-    /* safejoint */
+    if (preset.safejoint > 0) {
+      gfp.exp_nspsytune |= 2;
+    }
+
     if (preset.sfscale > 0) {
       gfp.internal_flags.noise_shaping = 2;
     }
-    /* ns-bass tweaks */
+
     if (Math.abs(preset.nsbass) > 0) {
       let k = Math.trunc(preset.nsbass * 4);
-      if (k < 0) k += 64;
+      if (k < 0) {
+        k += 64;
+      }
       gfp.exp_nspsytune |= k << 2;
     }
 
@@ -384,14 +378,6 @@ export class ABRPresets {
       gfp.internal_flags.nsPsy.attackthre_s = preset.st_s;
     }
 
-    /*
-     * ABR seems to have big problems with clipping, especially at low
-     * bitrates
-     */
-    /*
-     * so we compensate for that here by using a scale value depending on
-     * bitrate
-     */
     if (equals(gfp.scale, -1)) {
       gfp.scale = preset.scale;
     }
@@ -443,9 +429,6 @@ export class ABRPresets {
     { bitrate: 320, lowpass: 20500 },
   ] as const satisfies Record<FullBitrateIndex, BandPass>;
 
-  /**
-   * @param bitrate total bitrate in kbps
-   */
   public getOptimumBandwidth(bitrate: number) {
     const table_index = this.findNearestFullBitrateIndex(bitrate);
     return this.optimumBandwidths[table_index].lowpass;

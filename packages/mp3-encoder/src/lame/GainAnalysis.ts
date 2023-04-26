@@ -1,105 +1,10 @@
-/*
- *  ReplayGainAnalysis - analyzes input samples and give the recommended dB change
- *  Copyright (C) 2001 David Robinson and Glen Sawyer
- *  Improvements and optimizations added by Frank Klemm, and by Marcel Muller
- *
- *  This library is free software; you can redistribute it and/or
- *  modify it under the terms of the GNU Lesser General Public
- *  License as published by the Free Software Foundation; either
- *  version 2.1 of the License, or (at your option) any later version.
- *
- *  This library is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- *  Lesser General Public License for more details.
- *
- *  You should have received a copy of the GNU Lesser General Public
- *  License along with this library; if not, write to the Free Software
- *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
- *
- *  concept and filter values by David Robinson (David@Robinson.org)
- *    -- blame him if you think the idea is flawed
- *  original coding by Glen Sawyer (mp3gain@hotmail.com)
- *    -- blame him if you think this runs too slowly, or the coding is otherwise flawed
- *
- *  lots of code improvements by Frank Klemm ( http://www.uni-jena.de/~pfk/mpp/ )
- *    -- credit him for all the _good_ programming ;)
- *
- *
- *  For an explanation of the concepts and the basic algorithms involved, go to:
- *    http://www.replaygain.org/
- */
-
-/*
- *  Here's the deal. Call
- *
- *    InitGainAnalysis ( long samplefreq );
- *
- *  to initialize everything. Call
- *
- *    AnalyzeSamples ( var Float_t*  left_samples,
- *                     var Float_t*  right_samples,
- *                     size_t          num_samples,
- *                     int             num_channels );
- *
- *  as many times as you want, with as many or as few samples as you want.
- *  If mono, pass the sample buffer in through left_samples, leave
- *  right_samples NULL, and make sure num_channels = 1.
- *
- *    GetTitleGain()
- *
- *  will return the recommended dB level change for all samples analyzed
- *  SINCE THE LAST TIME you called GetTitleGain() OR InitGainAnalysis().
- *
- *    GetAlbumGain()
- *
- *  will return the recommended dB level change for all samples analyzed
- *  since InitGainAnalysis() was called and finalized with GetTitleGain().
- *
- *  Pseudo-code to process an album:
- *
- *    Float_t       l_samples [4096];
- *    Float_t       r_samples [4096];
- *    size_t        num_samples;
- *    unsigned int  num_songs;
- *    unsigned int  i;
- *
- *    InitGainAnalysis ( 44100 );
- *    for ( i = 1; i <= num_songs; i++ ) {
- *        while ( ( num_samples = getSongSamples ( song[i], left_samples, right_samples ) ) > 0 )
- *            AnalyzeSamples ( left_samples, right_samples, num_samples, 2 );
- *        fprintf ("Recommended dB change for song %2d: %+6.2 dB\n", i, GetTitleGain() );
- *    }
- *    fprintf ("Recommended dB change for whole album: %+6.2 dB\n", GetAlbumGain() );
- */
-
-/*
- *  So here's the main source of potential code confusion:
- *
- *  The filters applied to the incoming samples are IIR filters,
- *  meaning they rely on up to <filter order> number of previous samples
- *  AND up to <filter order> number of previous filtered samples.
- *
- *  I set up the AnalyzeSamples routine to minimize memory usage and interface
- *  complexity. The speed isn't compromised too much (I don't think), but the
- *  internal complexity is higher than it should be for such a relatively
- *  simple routine.
- *
- *  Optimization/clarity suggestions are welcome.
- */
-import { copyArray, fillArray } from './Arrays';
 import type { ReplayGain } from './ReplayGain';
+import { copyArray, fillArray } from './arrays';
 import { fsqr } from './math';
 
 export class GainAnalysis {
-  /**
-   * Table entries per dB
-   */
   static readonly STEPS_per_dB = 100;
 
-  /**
-   * Table entries for 0...MAX_dB (normal max. values are 70...80 dB)
-   */
   static readonly MAX_dB = 120;
 
   static readonly GAIN_NOT_ENOUGH_SAMPLES = -24601;
@@ -118,32 +23,17 @@ export class GainAnalysis {
 
   static readonly MAX_SAMP_FREQ = 48000;
 
-  /**
-   * maximum allowed sample frequency [Hz]
-   */
   static readonly RMS_WINDOW_TIME_NUMERATOR = 1;
 
-  /**
-   * numerator / denominator = time slice size [s]
-   */
   static readonly RMS_WINDOW_TIME_DENOMINATOR = 20;
 
-  /**
-   * max. Samples per Time slice
-   */
   static readonly MAX_SAMPLES_PER_WINDOW =
     (GainAnalysis.MAX_SAMP_FREQ * GainAnalysis.RMS_WINDOW_TIME_NUMERATOR) /
       GainAnalysis.RMS_WINDOW_TIME_DENOMINATOR +
     1;
 
-  /**
-   * calibration value for 89dB
-   */
   private static readonly PINK_REF = 64.82;
 
-  /**
-   * percentile which is louder than the proposed level
-   */
   private static readonly RMS_PERCENTILE = 0.95;
 
   private ABYule = [
@@ -260,12 +150,6 @@ export class GainAnalysis {
     ],
   ];
 
-  /**
-   * When calling this procedure, make sure that ip[-order] and op[-order]
-   * point to real data
-   */
-  // private void filterYule(final float[] input, int inputPos, float[] output,
-  // int outputPos, int nSamples, final float[] kernel) {
   private filterYule(
     input: Float32Array,
     inputPos: number,
@@ -275,7 +159,6 @@ export class GainAnalysis {
     kernel: number[]
   ): void {
     while (nSamples-- !== 0) {
-      /* 1e-10 is a hack to avoid slowdown because of denormals */
       output[outputPos] =
         1e-10 +
         input[inputPos + 0] * kernel[0] -
@@ -304,8 +187,6 @@ export class GainAnalysis {
     }
   }
 
-  // private void filterButter(final float[] input, int inputPos,
-  //    float[] output, int outputPos, int nSamples, final float[] kernel) {
   private filterButter(
     input: Float32Array,
     inputPos: number,
@@ -326,12 +207,7 @@ export class GainAnalysis {
     }
   }
 
-  /**
-   * @return INIT_GAIN_ANALYSIS_OK if successful, INIT_GAIN_ANALYSIS_ERROR if
-   *         not
-   */
   private resetSampleFrequency(rgData: ReplayGain, samplefreq: number) {
-    /* zero out initial values */
     for (let i = 0; i < GainAnalysis.MAX_ORDER; i++) {
       rgData.linprebuf[i] = 0;
       rgData.lstepbuf[i] = 0;
@@ -528,7 +404,7 @@ export class GainAnalysis {
       );
 
       curleft = rgData.lout + rgData.totsamp;
-      /* Get the squared values */
+
       curleftBase = rgData.loutbuf;
       curright = rgData.rout + rgData.totsamp;
       currightBase = rgData.routbuf;
@@ -566,7 +442,6 @@ export class GainAnalysis {
       cursamplepos += cursamples;
       rgData.totsamp += cursamples;
       if (rgData.totsamp === rgData.sampleWindow) {
-        /* Get the Root Mean Square (RMS) for this set of samples */
         const val =
           GainAnalysis.STEPS_per_dB *
           10 *
@@ -610,10 +485,6 @@ export class GainAnalysis {
         rgData.totsamp = 0;
       }
       if (rgData.totsamp > rgData.sampleWindow) {
-        /*
-         * somehow I really screwed up: Error in programming! Contact
-         * author about totsamp > sampleWindow
-         */
         return GainAnalysis.GAIN_ANALYSIS_ERROR;
       }
     }
@@ -678,7 +549,6 @@ export class GainAnalysis {
       if ((upper -= Array[i]) <= 0) break;
     }
 
-    // return (float) ((float) PINK_REF - (float) i / (float) STEPS_per_dB);
     return GainAnalysis.PINK_REF - i / GainAnalysis.STEPS_per_dB;
   }
 

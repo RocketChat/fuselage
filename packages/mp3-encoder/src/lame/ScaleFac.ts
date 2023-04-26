@@ -1,4 +1,4 @@
-import { copyArray } from './Arrays';
+import { copyArray } from './arrays';
 import { PSFB12, PSFB21, SBMAX_l, SBMAX_s } from './constants';
 
 export class ScaleFac {
@@ -35,8 +35,6 @@ export class ScaleFac {
     const { s } = this;
 
     if (args.length === 4) {
-      // public ScaleFac(final int[] arrL, final int[] arrS, final int[] arr21,
-      //    final int[] arr12) {
       [this.arrL, this.arrS, this.arr21, this.arr12] = args;
 
       copyArray(this.arrL, 0, l, 0, Math.min(this.arrL.length, this.l.length));

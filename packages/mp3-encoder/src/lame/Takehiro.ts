@@ -1,4 +1,3 @@
-import { fillArray } from './Arrays';
 import { Bits } from './Bits';
 import type { CalcNoiseData } from './CalcNoiseData';
 import { GrInfo } from './GrInfo';
@@ -6,23 +5,19 @@ import type { IIISideInfo } from './IIISideInfo';
 import type { LameInternalFlags } from './LameInternalFlags';
 import { QuantizePVT } from './QuantizePVT';
 import * as tables from './Tables';
+import { fillArray } from './arrays';
+import { assert } from './assert';
 import { NORM_TYPE, SBMAX_l, SBPSY_l, SHORT_TYPE } from './constants';
 
 export class Takehiro {
+  private static readonly LARGE_BITS = 100000;
+
   private readonly qupvt: QuantizePVT;
 
   constructor(qupvt: QuantizePVT) {
     this.qupvt = qupvt;
   }
 
-  /**
-   * <CODE>
-   *  for (i = 0; i < 16*16; i++) [
-   *      largetbl[i] = ((ht[16].hlen[i]) << 16) + ht[24].hlen[i];
-   *  ]
-   * </CODE>
-   *
-   */
   private readonly largetbl = [
     0x010004, 0x050005, 0x070007, 0x090008, 0x0a0009, 0x0a000a, 0x0b000a,
     0x0b000b, 0x0c000b, 0x0c000c, 0x0c000c, 0x0d000c, 0x0d000c, 0x0d000c,
@@ -63,77 +58,45 @@ export class Takehiro {
     0x0d000a, 0x0d000a, 0x0d000a, 0x0a0006,
   ] as const;
 
-  /**
-   * <CODE>
-   *  for (i = 0; i < 3*3; i++) [
-   *      table23[i] = ((ht[2].hlen[i]) << 16) + ht[3].hlen[i];
-   *  ]
-   * </CODE>
-   *
-   */
   private readonly table23 = [
     0x010002, 0x040003, 0x070007, 0x040004, 0x050004, 0x070007, 0x060006,
     0x070007, 0x080008,
   ] as const;
 
-  /**
-   * <CODE>
-   *  for (i = 0; i < 4*4; i++) [
-   *       table56[i] = ((ht[5].hlen[i]) << 16) + ht[6].hlen[i];
-   *   ]
-   * </CODE>
-   *
-   */
   private readonly table56 = [
     0x010003, 0x040004, 0x070006, 0x080008, 0x040004, 0x050004, 0x080006,
     0x090007, 0x070005, 0x080006, 0x090007, 0x0a0008, 0x080007, 0x080007,
     0x090008, 0x0a0009,
   ] as const;
 
-  /**
-   * This is the scfsi_band table from 2.4.2.7 of the IS.
-   */
   private readonly scfsi_band = [0, 6, 11, 16, 21] as const;
 
   private readonly subdv_table = [
-    [0, 0] /* 0 bands */,
-    [0, 0] /* 1 bands */,
-    [0, 0] /* 2 bands */,
-    [0, 0] /* 3 bands */,
-    [0, 0] /* 4 bands */,
-    [0, 1] /* 5 bands */,
-    [1, 1] /* 6 bands */,
-    [1, 1] /* 7 bands */,
-    [1, 2] /* 8 bands */,
-    [2, 2] /* 9 bands */,
-    [2, 3] /* 10 bands */,
-    [2, 3] /* 11 bands */,
-    [3, 4] /* 12 bands */,
-    [3, 4] /* 13 bands */,
-    [3, 4] /* 14 bands */,
-    [4, 5] /* 15 bands */,
-    [4, 5] /* 16 bands */,
-    [4, 6] /* 17 bands */,
-    [5, 6] /* 18 bands */,
-    [5, 6] /* 19 bands */,
-    [5, 7] /* 20 bands */,
-    [6, 7] /* 21 bands */,
-    [6, 7] /* 22 bands */,
+    [0, 0],
+    [0, 0],
+    [0, 0],
+    [0, 0],
+    [0, 0],
+    [0, 1],
+    [1, 1],
+    [1, 1],
+    [1, 2],
+    [2, 2],
+    [2, 3],
+    [2, 3],
+    [3, 4],
+    [3, 4],
+    [3, 4],
+    [4, 5],
+    [4, 5],
+    [4, 6],
+    [5, 6],
+    [5, 6],
+    [5, 7],
+    [6, 7],
+    [6, 7],
   ] as const;
 
-  /**
-   * nonlinear quantization of xr More accurate formula than the ISO formula.
-   * Takes into account the fact that we are quantizing xr . ix, but we want
-   * ix^4/3 to be as close as possible to x^4/3. (taking the nearest int would
-   * mean ix is as close as possible to xr, which is different.)
-   *
-   * From Segher Boessenkool <segher@eastsite.nl> 11/1999
-   *
-   * 09/2000: ASM code removed in favor of IEEE754 hack by Takehiro Tominaga.
-   * If you need the ASM code, check CVS circa Aug 2000.
-   *
-   * 01/2004: Optimizations by Gabriel Bouvigne
-   */
   private quantize_lines_xrpow_01(
     l: number,
     istep: number,
@@ -144,7 +107,7 @@ export class Takehiro {
   ) {
     const compareval0 = (1.0 - 0.4054) / istep;
 
-    console.assert(l > 0);
+    assert(l > 0);
     l >>= 1;
     while (l-- !== 0) {
       ix[ixPos++] = compareval0 > xr[xrPos++] ? 0 : 1;
@@ -152,18 +115,6 @@ export class Takehiro {
     }
   }
 
-  /**
-   * XRPOW_FTOI is a macro to convert floats to ints.<BR>
-   * if XRPOW_FTOI(x) = nearest_int(x), then QUANTFAC(x)=adj43asm[x]<BR>
-   * ROUNDFAC= -0.0946<BR>
-   *
-   * if XRPOW_FTOI(x) = floor(x), then QUANTFAC(x)=asj43[x]<BR>
-   * ROUNDFAC=0.4054<BR>
-   *
-   * Note: using floor() or 0| is extremely slow. On machines where the
-   * TAKEHIRO_IEEE754_HACK code above does not work, it is worthwile to write
-   * some ASM for XRPOW_FTOI().
-   */
   private quantize_lines_xrpow(
     l: number,
     istep: number,
@@ -172,7 +123,7 @@ export class Takehiro {
     ix: Int32Array,
     ixPos: number
   ) {
-    console.assert(l > 0);
+    assert(l > 0);
 
     l >>= 1;
     const remaining = l % 2;
@@ -185,13 +136,13 @@ export class Takehiro {
       const rx1 = Math.trunc(x1);
       let x3 = xr[xrPos++] * istep;
       const rx2 = Math.trunc(x2);
-      x0 += this.qupvt.adj43[rx0];
+      x0 += this.qupvt.adj43(rx0);
       const rx3 = Math.trunc(x3);
-      x1 += this.qupvt.adj43[rx1];
+      x1 += this.qupvt.adj43(rx1);
       ix[ixPos++] = Math.trunc(x0);
-      x2 += this.qupvt.adj43[rx2];
+      x2 += this.qupvt.adj43(rx2);
       ix[ixPos++] = Math.trunc(x1);
-      x3 += this.qupvt.adj43[rx3];
+      x3 += this.qupvt.adj43(rx3);
       ix[ixPos++] = Math.trunc(x2);
       ix[ixPos++] = Math.trunc(x3);
     }
@@ -200,17 +151,13 @@ export class Takehiro {
       let x1 = xr[xrPos++] * istep;
       const rx0 = Math.trunc(x0);
       const rx1 = Math.trunc(x1);
-      x0 += this.qupvt.adj43[rx0];
-      x1 += this.qupvt.adj43[rx1];
+      x0 += this.qupvt.adj43(rx0);
+      x1 += this.qupvt.adj43(rx1);
       ix[ixPos++] = Math.trunc(x0);
       ix[ixPos++] = Math.trunc(x1);
     }
   }
 
-  /**
-   * Quantization function This function will select which lines to quantize
-   * and call the proper quantization function
-   */
   private quantize_xrpow(
     xp: Float32Array,
     pi: Int32Array,
@@ -218,7 +165,6 @@ export class Takehiro {
     codInfo: GrInfo,
     prevNoise: CalcNoiseData | null
   ) {
-    /* quantize on xr^(3/4) instead of xr */
     let sfb;
     let sfbmax;
     let j = 0;
@@ -232,12 +178,6 @@ export class Takehiro {
     let acc_xp = xp;
     let acc_xpPos = 0;
 
-    /*
-     * Reusing previously computed data does not seems to work if global
-     * gain is changed. Finding why it behaves this way would allow to use a
-     * cache of previously computed values (let's 10 cached values per sfb)
-     * that would probably provide a noticeable speedup
-     */
     const prev_data_use =
       prevNoise !== null && codInfo.global_gain === prevNoise.global_gain;
 
@@ -255,11 +195,8 @@ export class Takehiro {
             (codInfo.scalefac_scale + 1)) -
           codInfo.subblock_gain[codInfo.window[sfb]] * 8;
       }
-      console.assert(codInfo.width[sfb] >= 0);
+      assert(codInfo.width[sfb] >= 0);
       if (prev_data_use && prevNoise.step[sfb] === step) {
-        /*
-         * do not recompute this part, but compute accumulated lines
-         */
         if (accumulate !== 0) {
           this.quantize_lines_xrpow(
             accumulate,
@@ -283,11 +220,9 @@ export class Takehiro {
           accumulate01 = 0;
         }
       } else {
-        /* should compute this part */
         let l = codInfo.width[sfb];
 
         if (j + codInfo.width[sfb] > codInfo.max_nonzero_coeff) {
-          /* do not compute upper zero part */
           const usefullsize = codInfo.max_nonzero_coeff - j + 1;
           fillArray(pi, codInfo.max_nonzero_coeff, 576, 0);
           l = usefullsize;
@@ -296,11 +231,9 @@ export class Takehiro {
             l = 0;
           }
 
-          /* no need to compute higher sfb values */
           sfb = sfbmax + 1;
         }
 
-        /* accumulate lines to quantize */
         if (accumulate === 0 && accumulate01 === 0) {
           acc_iData = iData;
           acc_iDataPos = iDataPos;
@@ -350,10 +283,6 @@ export class Takehiro {
         }
 
         if (l <= 0) {
-          /*
-           * rh: 20040215 may happen due to "prev_data_use"
-           * optimization
-           */
           if (accumulate01 !== 0) {
             this.quantize_lines_xrpow_01(
               accumulate01,
@@ -378,7 +307,6 @@ export class Takehiro {
           }
 
           break;
-          /* ends for-loop */
         }
       }
       if (sfb <= sfbmax) {
@@ -388,7 +316,6 @@ export class Takehiro {
       }
     }
     if (accumulate !== 0) {
-      /* last data part */
       this.quantize_lines_xrpow(
         accumulate,
         istep,
@@ -400,7 +327,6 @@ export class Takehiro {
       accumulate = 0;
     }
     if (accumulate01 !== 0) {
-      /* last data part */
       this.quantize_lines_xrpow_01(
         accumulate01,
         istep,
@@ -413,9 +339,6 @@ export class Takehiro {
     }
   }
 
-  /**
-   * ix_max
-   */
   private ix_max(ix: Int32Array, ixPos: number, endPos: number) {
     let max1 = 0;
     let max2 = 0;
@@ -439,7 +362,6 @@ export class Takehiro {
     t2: number,
     s: Bits
   ) {
-    /* ESC-table is used */
     const linbits = tables.ht[t1].xlen * 65536 + tables.ht[t2].xlen;
     let sum = 0;
     do {
@@ -478,9 +400,9 @@ export class Takehiro {
   }
 
   private count_bit_noESC(ix: Int32Array, ixPos: number, end: number, s: Bits) {
-    /* No ESC-words */
     let sum1 = 0;
-    const hlen1 = tables.ht[1].hlen!;
+    const hlen1 = tables.ht[1].hlen;
+    assert(hlen1 !== undefined);
 
     do {
       const x = ix[ixPos + 0] * 2 + ix[ixPos + 1];
@@ -499,7 +421,6 @@ export class Takehiro {
     t1: number,
     s: Bits
   ) {
-    /* No ESC-words */
     let sum = 0;
     const { xlen } = tables.ht[t1];
     let hlen;
@@ -531,14 +452,17 @@ export class Takehiro {
     t1: number,
     s: Bits
   ) {
-    /* No ESC-words */
     let sum1 = 0;
     let sum2 = 0;
     let sum3 = 0;
     const { xlen } = tables.ht[t1];
-    const hlen1 = tables.ht[t1].hlen!;
-    const hlen2 = tables.ht[t1 + 1].hlen!;
-    const hlen3 = tables.ht[t1 + 2].hlen!;
+    const hlen1 = tables.ht[t1].hlen;
+    const hlen2 = tables.ht[t1 + 1].hlen;
+    const hlen3 = tables.ht[t1 + 2].hlen;
+
+    assert(hlen1 !== undefined);
+    assert(hlen2 !== undefined);
+    assert(hlen3 !== undefined);
 
     do {
       const x = ix[ixPos + 0] * xlen + ix[ixPos + 1];
@@ -561,22 +485,10 @@ export class Takehiro {
     return t;
   }
 
-  /** ***********************************************************************/
-  /* choose table */
-  /** ***********************************************************************/
-
   private readonly huf_tbl_noESC = [
     1, 2, 5, 7, 7, 10, 10, 13, 13, 13, 13, 13, 13, 13, 13,
   ] as const;
 
-  /**
-   * Choose the Huffman table that will encode ix[begin..end] with the fewest
-   * bits.
-   *
-   * Note: This code contains knowledge about the sizes and characteristics of
-   * the Huffman tables as defined in the IS (Table B.7), and will not work
-   * with any arbitrary tables.
-   */
   private choose_table(ix: Int32Array, ixPos: number, endPos: number, s: Bits) {
     let max = this.ix_max(ix, ixPos, endPos);
 
@@ -618,9 +530,8 @@ export class Takehiro {
         );
 
       default:
-        /* try tables with linbits */
         if (max > QuantizePVT.IXMAX_VAL) {
-          s.bits = QuantizePVT.LARGE_BITS;
+          s.bits = Takehiro.LARGE_BITS;
           return -1;
         }
         max -= 15;
@@ -640,9 +551,6 @@ export class Takehiro {
     }
   }
 
-  /**
-   * count_bit
-   */
   noquant_count_bits(
     gfc: LameInternalFlags,
     gi: GrInfo,
@@ -653,17 +561,12 @@ export class Takehiro {
 
     if (prev_noise !== null) prev_noise.sfb_count1 = 0;
 
-    /* Determine count1 region */
     for (; i > 1; i -= 2) if ((ix[i - 1] | ix[i - 2]) !== 0) break;
     gi.count1 = i;
 
-    /* Determines the number of bits to encode the quadruples. */
     let a1 = 0;
     let a2 = 0;
     for (; i > 3; i -= 4) {
-      /* hack to check if all values <= 1 */
-      // throw "TODO: HACK         if ((((long) ix[i - 1] | (long) ix[i - 2] | (long) ix[i - 3] | (long) ix[i - 4]) & 0xffffffffL) > 1L        "
-      // if (true) {
       if (((ix[i - 1] | ix[i - 2] | ix[i - 3] | ix[i - 4]) & 0x7fffffff) > 1) {
         break;
       }
@@ -687,14 +590,14 @@ export class Takehiro {
       if (a1 > gi.big_values) a1 = gi.big_values;
       a2 = gi.big_values;
     } else if (gi.block_type === NORM_TYPE) {
-      console.assert(i <= 576);
-      /* bv_scf has 576 entries (0..575) */
+      assert(i <= 576);
+
       a1 = gfc.bv_scf[i - 2];
       gi.region0_count = gfc.bv_scf[i - 2];
       a2 = gfc.bv_scf[i - 1];
       gi.region1_count = gfc.bv_scf[i - 1];
 
-      console.assert(a1 + a2 + 2 < SBPSY_l);
+      assert(a1 + a2 + 2 < SBPSY_l);
       a2 = gfc.scalefac_band.l[a1 + a2 + 2];
       a1 = gfc.scalefac_band.l[a1 + 1];
       if (a2 < i) {
@@ -704,7 +607,7 @@ export class Takehiro {
       }
     } else {
       gi.region0_count = 7;
-      /* gi.region1_count = SBPSY_l - 7 - 1; */
+
       gi.region1_count = SBMAX_l - 1 - 7 - 1;
       a1 = gfc.scalefac_band.l[7 + 1];
       a2 = i;
@@ -713,15 +616,12 @@ export class Takehiro {
       }
     }
 
-    /* have to allow for the case when bigvalues < region0 < region1 */
-    /* (and region0, region1 are ignored) */
     a1 = Math.min(a1, i);
     a2 = Math.min(a2, i);
 
-    console.assert(a1 >= 0);
-    console.assert(a2 >= 0);
+    assert(a1 >= 0);
+    assert(a2 >= 0);
 
-    /* Count the number of bits necessary to code the bigvalues region. */
     if (a1 > 0) {
       const bi = new Bits(bits);
       gi.table_select[0] = this.choose_table(ix, 0, a1, bi);
@@ -759,27 +659,26 @@ export class Takehiro {
   ) {
     const ix = gi.l3_enc;
 
-    /* since quantize_xrpow uses table lookup, we need to check this first: */
-    const w = QuantizePVT.IXMAX_VAL / this.qupvt.IPOW20(gi.global_gain);
+    const w = QuantizePVT.IXMAX_VAL / this.qupvt.ipow20(gi.global_gain);
 
-    if (gi.xrpow_max > w) return QuantizePVT.LARGE_BITS;
+    if (gi.xrpow_max > w) return Takehiro.LARGE_BITS;
 
     this.quantize_xrpow(
       xr,
       ix,
-      this.qupvt.IPOW20(gi.global_gain),
+      this.qupvt.ipow20(gi.global_gain),
       gi,
       prev_noise
     );
 
     if ((gfc.substep_shaping & 2) !== 0) {
       let j = 0;
-      /* 0.634521682242439 = 0.5946*2**(.5*0.1875) */
+
       const gain = gi.global_gain + gi.scalefac_scale;
-      const roundfac = 0.634521682242439 / this.qupvt.IPOW20(gain);
+      const roundfac = 0.634521682242439 / this.qupvt.ipow20(gain);
       for (let sfb = 0; sfb < gi.sfbmax; sfb++) {
         const width = gi.width[sfb];
-        console.assert(width >= 0);
+        assert(width >= 0);
         if (gfc.pseudohalf[sfb] === 0) {
           j += width;
         } else {
@@ -793,10 +692,6 @@ export class Takehiro {
     return this.noquant_count_bits(gfc, gi, prev_noise);
   }
 
-  /**
-   * re-calculate the best scalefac_compress using scfsi the saved bits are
-   * kept in the bit reservoir.
-   */
   private recalc_divide_init(
     gfc: LameInternalFlags,
     cod_info: GrInfo,
@@ -809,7 +704,7 @@ export class Takehiro {
     const bigv = cod_info.big_values;
 
     for (let r0 = 0; r0 <= 7 + 15; r0++) {
-      r01_bits[r0] = QuantizePVT.LARGE_BITS;
+      r01_bits[r0] = Takehiro.LARGE_BITS;
     }
 
     for (let r0 = 0; r0 < 16; r0++) {
@@ -878,7 +773,6 @@ export class Takehiro {
     const r0_tbl = new Int32Array(7 + 15 + 1);
     const r1_tbl = new Int32Array(7 + 15 + 1);
 
-    /* SHORT BLOCK stuff fails for MPEG2 */
     if (gi.block_type === SHORT_TYPE && gfc.mode_gr === 1) return;
 
     cod_info2.assign(gi);
@@ -901,13 +795,12 @@ export class Takehiro {
     i = gi.count1 + 2;
     if (i > 576) return;
 
-    /* Determines the number of bits to encode the quadruples. */
     cod_info2.assign(gi);
     cod_info2.count1 = i;
     let a1 = 0;
     let a2 = 0;
 
-    console.assert(i <= 576);
+    assert(i <= 576);
 
     for (; i > cod_info2.big_values; i -= 4) {
       const p = ((ix[i - 4] * 2 + ix[i - 3]) * 2 + ix[i - 2]) * 2 + ix[i - 1];
@@ -924,7 +817,7 @@ export class Takehiro {
 
     cod_info2.count1bits = a1;
 
-    if (cod_info2.block_type === NORM_TYPE)
+    if (cod_info2.block_type === NORM_TYPE) {
       this.recalc_divide_sub(
         gfc,
         cod_info2,
@@ -935,8 +828,7 @@ export class Takehiro {
         r0_tbl,
         r1_tbl
       );
-    else {
-      /* Count the number of bits necessary to code the bigvalues region. */
+    } else {
       cod_info2.part2_3_length = a1;
       a1 = gfc.scalefac_band.l[7 + 1];
       if (a1 > i) {
@@ -1015,18 +907,12 @@ export class Takehiro {
     }
   }
 
-  /**
-   * Find the optimal way to store the scalefactors. Only call this routine
-   * after final scalefactors have been chosen and the channel/granule will
-   * not be re-encoded.
-   */
   best_scalefac_store(
     gfc: LameInternalFlags,
     gr: number,
     ch: number,
     l3_side: IIISideInfo
   ) {
-    /* use scalefac_scale if we can */
     const gi = l3_side.tt[gr][ch];
     let sfb;
     let i;
@@ -1034,15 +920,10 @@ export class Takehiro {
     let l;
     let recalc = 0;
 
-    /*
-     * remove scalefacs from bands with ix=0. This idea comes from the AAC
-     * ISO docs. added mt 3/00
-     */
-    /* check if l3_enc=0 */
     j = 0;
     for (sfb = 0; sfb < gi.sfbmax; sfb++) {
       const width = gi.width[sfb];
-      console.assert(width >= 0);
+      assert(width >= 0);
       j += width;
       for (l = -width; l < 0; l++) {
         if (gi.l3_enc[l + j] !== 0) break;
@@ -1051,11 +932,6 @@ export class Takehiro {
         gi.scalefac[sfb] = -2;
         recalc = -2;
       }
-      /* anything goes. */
-      /*
-       * only best_scalefac_store and calc_scfsi know--and only they
-       * should know--about the magic number -2.
-       */
     }
 
     if (gi.scalefac_scale === 0 && gi.preflag === 0) {
@@ -1064,8 +940,11 @@ export class Takehiro {
         if (gi.scalefac[sfb] > 0) s |= gi.scalefac[sfb];
 
       if ((s & 1) === 0 && s !== 0) {
-        for (sfb = 0; sfb < gi.sfbmax; sfb++)
-          if (gi.scalefac[sfb] > 0) gi.scalefac[sfb] >>= 1;
+        for (sfb = 0; sfb < gi.sfbmax; sfb++) {
+          if (gi.scalefac[sfb] > 0) {
+            gi.scalefac[sfb] >>= 1;
+          }
+        }
 
         gi.scalefac_scale = 1;
         recalc = 1;
@@ -1088,7 +967,9 @@ export class Takehiro {
       }
     }
 
-    for (i = 0; i < 4; i++) l3_side.scfsi[ch][i] = 0;
+    for (i = 0; i < 4; i++) {
+      l3_side.scfsi[ch][i] = 0;
+    }
 
     if (
       gfc.mode_gr === 2 &&
@@ -1102,7 +983,6 @@ export class Takehiro {
     for (sfb = 0; sfb < gi.sfbmax; sfb++) {
       if (gi.scalefac[sfb] === -2) {
         gi.scalefac[sfb] = 0;
-        /* if anything goes, then 0 is a good choice */
       }
     }
     if (recalc !== 0) {
@@ -1121,55 +1001,33 @@ export class Takehiro {
     return true;
   }
 
-  /**
-   * number of bits used to encode scalefacs.
-   *
-   * 18*slen1_tab[i] + 18*slen2_tab[i]
-   */
   private readonly scale_short = [
     0, 18, 36, 54, 54, 36, 54, 72, 54, 72, 90, 72, 90, 108, 108, 126,
   ] as const;
 
-  /**
-   * number of bits used to encode scalefacs.
-   *
-   * 17*slen1_tab[i] + 18*slen2_tab[i]
-   */
   private readonly scale_mixed = [
     0, 18, 36, 54, 51, 35, 53, 71, 52, 70, 88, 69, 87, 105, 104, 122,
   ] as const;
 
-  /**
-   * number of bits used to encode scalefacs.
-   *
-   * 11*slen1_tab[i] + 10*slen2_tab[i]
-   */
   private readonly scale_long = [
     0, 10, 20, 30, 33, 21, 31, 41, 32, 42, 52, 43, 53, 63, 64, 74,
   ] as const;
 
-  /**
-   * Also calculates the number of bits necessary to code the scalefactors.
-   */
   scale_bitcount(cod_info: GrInfo) {
     let k;
     let sfb;
     let max_slen1 = 0;
     let max_slen2 = 0;
 
-    /* maximum values */
     let tab;
     const { scalefac } = cod_info;
 
-    console.assert(
-      this.all_scalefactors_not_negative(scalefac, cod_info.sfbmax)
-    );
+    assert(this.all_scalefactors_not_negative(scalefac, cod_info.sfbmax));
 
     if (cod_info.block_type === SHORT_TYPE) {
       tab = this.scale_short;
       if (cod_info.mixed_block_flag !== 0) tab = this.scale_mixed;
     } else {
-      /* block_type === 1,2,or 3 */
       tab = this.scale_long;
       if (cod_info.preflag === 0) {
         for (sfb = 11; sfb < SBPSY_l; sfb++)
@@ -1183,18 +1041,19 @@ export class Takehiro {
       }
     }
 
-    for (sfb = 0; sfb < cod_info.sfbdivide; sfb++)
-      if (max_slen1 < scalefac[sfb]) max_slen1 = scalefac[sfb];
+    for (sfb = 0; sfb < cod_info.sfbdivide; sfb++) {
+      if (max_slen1 < scalefac[sfb]) {
+        max_slen1 = scalefac[sfb];
+      }
+    }
 
-    for (; sfb < cod_info.sfbmax; sfb++)
-      if (max_slen2 < scalefac[sfb]) max_slen2 = scalefac[sfb];
+    for (; sfb < cod_info.sfbmax; sfb++) {
+      if (max_slen2 < scalefac[sfb]) {
+        max_slen2 = scalefac[sfb];
+      }
+    }
 
-    /*
-     * from Takehiro TOMINAGA <tominaga@isoternet.org> 10/99 loop over *all*
-     * posible values of scalefac_compress to find the one which uses the
-     * smallest number of bits. ISO would stop at first valid index
-     */
-    cod_info.part2_length = QuantizePVT.LARGE_BITS;
+    cod_info.part2_length = Takehiro.LARGE_BITS;
     for (k = 0; k < 16; k++) {
       if (
         max_slen1 < this.slen1_n[k] &&
@@ -1205,12 +1064,9 @@ export class Takehiro {
         cod_info.scalefac_compress = k;
       }
     }
-    return cod_info.part2_length === QuantizePVT.LARGE_BITS;
+    return cod_info.part2_length === Takehiro.LARGE_BITS;
   }
 
-  /**
-   * table of largest scalefactor values for MPEG2
-   */
   private readonly max_range_sfac_tab = [
     [15, 15, 7, 7],
     [15, 15, 7, 0],
@@ -1220,21 +1076,10 @@ export class Takehiro {
     [3, 3, 0, 0],
   ] as const;
 
-  /*
-   * Since no bands have been over-amplified, we can set scalefac_compress and
-   * slen[] for the formatter
-   */
   private readonly log2tab = [
     0, 1, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4,
   ] as const;
 
-  /**
-   * Also counts the number of bits to encode the scalefacs but for MPEG 2
-   * Lower sampling frequencies (24, 22.05 and 16 kHz.)
-   *
-   * This is reverse-engineered from section 2.4.3.2 of the MPEG2 IS,
-   * "Audio Decoding Layer III"
-   */
   scale_bitcount_lsf(_gfc: LameInternalFlags, cod_info: GrInfo) {
     let table_number;
     let row_in_table;
@@ -1245,17 +1090,18 @@ export class Takehiro {
     let i;
     let sfb;
     const max_sfac = new Int32Array(4);
-    // let partition_table;
+
     const { scalefac } = cod_info;
 
-    /*
-     * Set partition table. Note that should try to use table one, but do
-     * not yet...
-     */
-    if (cod_info.preflag !== 0) table_number = 2;
-    else table_number = 0;
+    if (cod_info.preflag !== 0) {
+      table_number = 2;
+    } else {
+      table_number = 0;
+    }
 
-    for (i = 0; i < 4; i++) max_sfac[i] = 0;
+    for (i = 0; i < 4; i++) {
+      max_sfac[i] = 0;
+    }
 
     if (cod_info.block_type === SHORT_TYPE) {
       row_in_table = 1;
@@ -1263,10 +1109,13 @@ export class Takehiro {
         this.qupvt.nr_of_sfb_block[table_number][row_in_table];
       for (sfb = 0, partition = 0; partition < 4; partition++) {
         nr_sfb = partition_table[partition] / 3;
-        for (i = 0; i < nr_sfb; i++, sfb++)
-          for (window = 0; window < 3; window++)
-            if (scalefac[sfb * 3 + window] > max_sfac[partition])
+        for (i = 0; i < nr_sfb; i++, sfb++) {
+          for (window = 0; window < 3; window++) {
+            if (scalefac[sfb * 3 + window] > max_sfac[partition]) {
               max_sfac[partition] = scalefac[sfb * 3 + window];
+            }
+          }
+        }
       }
     } else {
       row_in_table = 0;
@@ -1274,25 +1123,28 @@ export class Takehiro {
         this.qupvt.nr_of_sfb_block[table_number][row_in_table];
       for (sfb = 0, partition = 0; partition < 4; partition++) {
         nr_sfb = partition_table[partition];
-        for (i = 0; i < nr_sfb; i++, sfb++)
-          if (scalefac[sfb] > max_sfac[partition])
+        for (i = 0; i < nr_sfb; i++, sfb++) {
+          if (scalefac[sfb] > max_sfac[partition]) {
             max_sfac[partition] = scalefac[sfb];
+          }
+        }
       }
     }
 
     for (over = false, partition = 0; partition < 4; partition++) {
       if (
         max_sfac[partition] > this.max_range_sfac_tab[table_number][partition]
-      )
+      ) {
         over = true;
+      }
     }
     if (!over) {
       cod_info.sfb_partition_table =
         this.qupvt.nr_of_sfb_block[table_number][row_in_table];
-      for (partition = 0; partition < 4; partition++)
+      for (partition = 0; partition < 4; partition++) {
         cod_info.slen[partition] = this.log2tab[max_sfac[partition]];
+      }
 
-      /* set scalefac_compress */
       const slen1 = cod_info.slen[0];
       const slen2 = cod_info.slen[1];
       const slen3 = cod_info.slen[2];
@@ -1318,11 +1170,11 @@ export class Takehiro {
       }
     }
     if (!over) {
-      console.assert(cod_info.sfb_partition_table !== null);
+      assert(cod_info.sfb_partition_table !== null);
       cod_info.part2_length = 0;
       for (partition = 0; partition < 4; partition++)
         cod_info.part2_length +=
-          cod_info.slen[partition] * cod_info.sfb_partition_table![partition];
+          cod_info.slen[partition] * cod_info.sfb_partition_table[partition];
     }
     return over;
   }
@@ -1333,26 +1185,21 @@ export class Takehiro {
       let bv_index;
       while (gfc.scalefac_band.l[++scfb_anz] < i);
 
-      bv_index = this.subdv_table[scfb_anz][0]; // .region0_count
+      bv_index = this.subdv_table[scfb_anz][0];
       while (gfc.scalefac_band.l[bv_index + 1] > i) bv_index--;
 
       if (bv_index < 0) {
-        /*
-         * this is an indication that everything is going to be encoded
-         * as region0: bigvalues < region0 < region1 so lets set
-         * region0, region1 to some value larger than bigvalues
-         */
-        bv_index = this.subdv_table[scfb_anz][0]; // .region0_count
+        bv_index = this.subdv_table[scfb_anz][0];
       }
 
       gfc.bv_scf[i - 2] = bv_index;
 
-      bv_index = this.subdv_table[scfb_anz][1]; // .region1_count
+      bv_index = this.subdv_table[scfb_anz][1];
       while (gfc.scalefac_band.l[bv_index + gfc.bv_scf[i - 2] + 2] > i)
         bv_index--;
 
       if (bv_index < 0) {
-        bv_index = this.subdv_table[scfb_anz][1]; // .region1_count
+        bv_index = this.subdv_table[scfb_anz][1];
       }
 
       gfc.bv_scf[i - 1] = bv_index;

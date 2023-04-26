@@ -28,7 +28,8 @@ export class WavHeader {
     if (WavHeader.RIFF !== header) {
       throw new Error('Invalid WAV file');
     }
-    /* const fileLen = */ dataView.getUint32(4, true);
+
+    dataView.getUint32(4, true);
     if (WavHeader.WAVE !== dataView.getUint32(8, false)) {
       throw new Error('Invalid WAV file');
     }

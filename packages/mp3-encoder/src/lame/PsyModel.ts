@@ -1,114 +1,3 @@
-/*
- PSYCHO ACOUSTICS
-
-
- This routine computes the psycho acoustics, delayed by one granule.
-
- Input: buffer of PCM data (1024 samples).
-
- This window should be centered over the 576 sample granule window.
- The routine will compute the psycho acoustics for
- this granule, but return the psycho acoustics computed
- for the *previous* granule.  This is because the block
- type of the previous granule can only be determined
- after we have computed the psycho acoustics for the following
- granule.
-
- Output:  maskings and energies for each scalefactor band.
- block type, PE, and some correlation measures.
- The PE is used by CBR modes to determine if extra bits
- from the bit reservoir should be used.  The correlation
- measures are used to determine mid/side or regular stereo.
- */
-/*
- Notation:
-
- barks:  a non-linear frequency scale.  Mapping from frequency to
- barks is given by freq2bark()
-
- scalefactor bands: The spectrum (frequencies) are broken into
- SBMAX "scalefactor bands".  Thes bands
- are determined by the MPEG ISO spec.  In
- the noise shaping/quantization code, we allocate
- bits among the partition bands to achieve the
- best possible quality
-
- partition bands:   The spectrum is also broken into about
- 64 "partition bands".  Each partition
- band is about .34 barks wide.  There are about 2-5
- partition bands for each scalefactor band.
-
- LAME computes all psycho acoustic information for each partition
- band.  Then at the end of the computations, this information
- is mapped to scalefactor bands.  The energy in each scalefactor
- band is taken as the sum of the energy in all partition bands
- which overlap the scalefactor band.  The maskings can be computed
- in the same way (and thus represent the average masking in that band)
- or by taking the minmum value multiplied by the number of
- partition bands used (which represents a minimum masking in that band).
- */
-/*
- The general outline is as follows:
-
- 1. compute the energy in each partition band
- 2. compute the tonality in each partition band
- 3. compute the strength of each partion band "masker"
- 4. compute the masking (via the spreading function applied to each masker)
- 5. Modifications for mid/side masking.
-
- Each partition band is considiered a "masker".  The strength
- of the i'th masker in band j is given by:
-
- s3(bark(i)-bark(j))*strength(i)
-
- The strength of the masker is a function of the energy and tonality.
- The more tonal, the less masking.  LAME uses a simple linear formula
- (controlled by NMT and TMN) which says the strength is given by the
- energy divided by a linear function of the tonality.
- */
-/*
- s3() is the "spreading function".  It is given by a formula
- determined via listening tests.
-
- The total masking in the j'th partition band is the sum over
- all maskings i.  It is thus given by the convolution of
- the strength with s3(), the "spreading function."
-
- masking(j) = sum_over_i  s3(i-j)*strength(i)  = s3 o strength
-
- where "o" = convolution operator.  s3 is given by a formula determined
- via listening tests.  It is normalized so that s3 o 1 = 1.
-
- Note: instead of a simple convolution, LAME also has the
- option of using "additive masking"
-
- The most critical part is step 2, computing the tonality of each
- partition band.  LAME has two tonality estimators.  The first
- is based on the ISO spec, and measures how predictiable the
- signal is over time.  The more predictable, the more tonal.
- The second measure is based on looking at the spectrum of
- a single granule.  The more peaky the spectrum, the more
- tonal.  By most indications, the latter approach is better.
-
- Finally, in step 5, the maskings for the mid and side
- channel are possibly increased.  Under certain circumstances,
- noise in the mid & side channels is assumed to also
- be masked by strong maskers in the L or R channels.
-
-
- Other data computed by the psy-model:
-
- ms_ratio        side-channel / mid-channel masking ratio (for previous granule)
- ms_ratio_next   side-channel / mid-channel masking ratio for this granule
-
- percep_entropy[2]     L and R values (prev granule) of PE - A measure of how
- much pre-echo is in the previous granule
- percep_entropy_MS[2]  mid and side channel values (prev granule) of percep_entropy
- energy[4]             L,R,M,S energy in each channel, prev granule
- blocktype_d[2]        block type to use for previous granule
- */
-
-import { fillArray } from './Arrays';
 import { FFT } from './FFT';
 import type { III_psy_ratio } from './III_psy_ratio';
 import type { LameGlobalFlags } from './LameGlobalFlags';
@@ -116,6 +5,8 @@ import type { LameInternalFlags } from './LameInternalFlags';
 import { MPEGMode } from './MPEGMode';
 import { ShortBlock } from './ShortBlock';
 import { VbrMode } from './VbrMode';
+import { fillArray } from './arrays';
+import { assert } from './assert';
 import {
   BLKSIZE,
   BLKSIZE_s,
@@ -143,10 +34,8 @@ export class PsyModel {
 
   private readonly rpelev2_s = 16;
 
-  /* size of each partition band, in barks: */
   private static readonly DELBARK = 0.34;
 
-  /* tuned for output level (sensitive to energy scale) */
   private static readonly VO_SCALE = 1 / (14752 * 14752) / (BLKSIZE / 2);
 
   private readonly temporalmask_sustain_sec = 0.01;
@@ -165,57 +54,14 @@ export class PsyModel {
 
   private static readonly NSFIRLEN = 21;
 
-  /* size of each partition band, in barks: */
   private static readonly LN_TO_LOG10 = 0.2302585093;
 
-  /**
-   * <PRE>
-   *       L3psycho_anal.  Compute psycho acoustics.
-   *
-   *       Data returned to the calling program must be delayed by one
-   *       granule.
-   *
-   *       This is done in two places.
-   *       If we do not need to know the blocktype, the copying
-   *       can be done here at the top of the program: we copy the data for
-   *       the last granule (computed during the last call) before it is
-   *       overwritten with the new data.  It looks like this:
-   *
-   *       0. static psymodel_data
-   *       1. calling_program_data = psymodel_data
-   *       2. compute psymodel_data
-   *
-   *       For data which needs to know the blocktype, the copying must be
-   *       done at the end of this loop, and the old values must be saved:
-   *
-   *       0. static psymodel_data_old
-   *       1. compute psymodel_data
-   *       2. compute possible block type of this granule
-   *       3. compute final block type of previous granule based on #2.
-   *       4. calling_program_data = psymodel_data_old
-   *       5. psymodel_data_old = psymodel_data
-   *     psycho_loudness_approx
-   *       jd - 2001 mar 12
-   *    in:  energy   - BLKSIZE/2 elements of frequency magnitudes ^ 2
-   *         gfp      - uses out_samplerate, ATHtype (also needed for ATHformula)
-   *    returns: loudness^2 approximation, a positive value roughly tuned for a value
-   *             of 1.0 for signals near clipping.
-   *    notes:   When calibrated, feeding this function binary white noise at sample
-   *             values +32767 or -32768 should return values that approach 3.
-   *             ATHformula is used to approximate an equal loudness curve.
-   *    future:  Data indicates that the shape of the equal loudness curve varies
-   *             with intensity.  This function might be improved by using an equal
-   *             loudness curve shaped for typical playback levels (instead of the
-   *             ATH, that is shaped for the threshold).  A flexible realization might
-   *             simply bend the existing ATH curve to achieve the desired shape.
-   *             However, the potential gain may not be enough to justify an effort.
-   * </PRE>
-   */
   private psycho_loudness_approx(energy: Float32Array, gfc: LameInternalFlags) {
     let loudness_power = 0.0;
-    /* apply weights to power in freq. bands */
-    for (let i = 0; i < BLKSIZE / 2; ++i)
+
+    for (let i = 0; i < BLKSIZE / 2; ++i) {
       loudness_power += energy[i] * gfc.ATH.eql_w[i];
+    }
     loudness_power *= PsyModel.VO_SCALE;
 
     return loudness_power;
@@ -239,7 +85,6 @@ export class PsyModel {
       this.fft.fft_long(gfc, wsamp_l[wsamp_lPos], chn, buffer, bufPos);
       this.fft.fft_short(gfc, wsamp_s[wsamp_sPos], chn, buffer, bufPos);
     } else if (chn === 2) {
-      /* FFT data for mid and side channel is derived from L & R */
       for (let j = BLKSIZE - 1; j >= 0; --j) {
         const l = wsamp_l[wsamp_lPos + 0][j];
         const r = wsamp_l[wsamp_lPos + 1][j];
@@ -256,9 +101,6 @@ export class PsyModel {
       }
     }
 
-    /** *******************************************************************
-     * compute energies
-     *********************************************************************/
     fftenergy[0] = wsamp_l[wsamp_lPos + 0][0];
     fftenergy[0] *= fftenergy[0];
 
@@ -276,55 +118,24 @@ export class PsyModel {
         fftenergy_s[b][BLKSIZE_s / 2 - j] = (re * re + im * im) * 0.5;
       }
     }
-    /* total energy */
-    {
-      let totalenergy = 0.0;
-      for (let j = 11; j < HBLKSIZE; j++) totalenergy += fftenergy[j];
 
-      gfc.tot_ener[chn] = totalenergy;
+    let totalenergy = 0.0;
+    for (let j = 11; j < HBLKSIZE; j++) {
+      totalenergy += fftenergy[j];
     }
 
-    /** *******************************************************************
-     * compute loudness approximation (used for ATH auto-level adjustment)
-     *********************************************************************/
+    gfc.tot_ener[chn] = totalenergy;
+
     if (gfp.athaa_loudapprox === 2 && chn < 2) {
-      // no loudness for mid/side ch
       gfc.loudness_sq[gr_out][chn] = gfc.loudness_sq_save[chn];
       gfc.loudness_sq_save[chn] = this.psycho_loudness_approx(fftenergy, gfc);
     }
   }
 
-  /* mask_add optimization */
-  /* init the limit values used to avoid computing log in mask_add when it is not necessary */
-
-  /**
-   * <PRE>
-   *  For example, with i = 10*log10(m2/m1)/10*16         (= log10(m2/m1)*16)
-   *
-   * abs(i)>8 is equivalent (as i is an integer) to
-   * abs(i)>=9
-   * i>=9 || i<=-9
-   * equivalent to (as i is the biggest integer smaller than log10(m2/m1)*16
-   * or the smallest integer bigger than log10(m2/m1)*16 depending on the sign of log10(m2/m1)*16)
-   * log10(m2/m1)>=9/16 || log10(m2/m1)<=-9/16
-   * exp10 is strictly increasing thus this is equivalent to
-   * m2/m1 >= 10^(9/16) || m2/m1<=10^(-9/16) which are comparisons to constants
-   * </PRE>
-   */
-
-  /**
-   * as in if(i>8)
-   */
   private static readonly I1LIMIT = 8;
 
-  /**
-   * as in if(i>24) . changed 23
-   */
   private static readonly I2LIMIT = 23;
 
-  /**
-   * as in if(m<15)
-   */
   private static readonly MLIMIT = 15;
 
   private ma_max_i1 = 0;
@@ -333,14 +144,6 @@ export class PsyModel {
 
   private ma_max_m = 0;
 
-  /**
-   * This is the masking table:<BR>
-   * According to tonality, values are going from 0dB (TMN) to 9.3dB (NMT).<BR>
-   * After additive masking computation, 8dB are added, so final values are
-   * going from 8dB to 17.3dB
-   *
-   * pow(10, -0.0..-0.6)
-   */
   private readonly tab = [
     1.0, 0.79433, 0.63096, 0.63096, 0.63096, 0.63096, 0.63096, 0.25119, 0.11749,
   ] as const;
@@ -409,9 +212,6 @@ export class PsyModel {
     1.03826 * 1.03826,
   ] as const;
 
-  /**
-   * addition of simultaneous masking Naoki Shibata 2000/7
-   */
   private mask_add(
     m1: number,
     m2: number,
@@ -430,43 +230,28 @@ export class PsyModel {
       ratio = m1 / m2;
     }
 
-    /* Should always be true, just checking */
-    console.assert(m1 >= 0);
-    console.assert(m2 >= 0);
+    assert(m1 >= 0);
+    assert(m2 >= 0);
 
     m1 += m2;
-    // if (((long)(b + 3) & 0xffffffff) <= 3 + 3) {
+
     if (b + 3 <= 3 + 3) {
-      /* approximately, 1 bark = 3 partitions */
-      /* 65% of the cases */
-      /* originally 'if(i > 8)' */
       if (ratio >= this.ma_max_i1) {
-        /* 43% of the total */
         return m1;
       }
 
-      /* 22% of the total */
       const i = Math.trunc(Math.log10(ratio) * 16.0);
       return m1 * this.table2[i];
     }
 
-    /**
-     * <PRE>
-     * m<15 equ log10((m1+m2)/gfc.ATH.cb[k])<1.5
-     * equ (m1+m2)/gfc.ATH.cb[k]<10^1.5
-     * equ (m1+m2)<10^1.5 * gfc.ATH.cb[k]
-     * </PRE>
-     */
     const i = Math.trunc(Math.log10(ratio) * 16.0);
     if (shortblock !== 0) {
       m2 = gfc.ATH.cb_s[kk] * gfc.ATH.adjust;
     } else {
       m2 = gfc.ATH.cb_l[kk] * gfc.ATH.adjust;
     }
-    console.assert(m2 >= 0);
+    assert(m2 >= 0);
     if (m1 < this.ma_max_m * m2) {
-      /* 3% of the total */
-      /* Originally if (m > 0) { */
       if (m1 > m2) {
         let f;
         f = 1.0;
@@ -476,12 +261,13 @@ export class PsyModel {
         return m1 * ((this.table1[i] - f) * r + f);
       }
 
-      if (i > 13) return m1;
+      if (i > 13) {
+        return m1;
+      }
 
       return m1 * this.table3[i];
     }
 
-    /* 10% of total */
     return m1 * this.table1[i];
   }
 
@@ -498,9 +284,6 @@ export class PsyModel {
     1,
   ] as const;
 
-  /**
-   * addition of simultaneous masking Naoki Shibata 2000/7
-   */
   private vbrpsy_mask_add(m1: number, m2: number, b: number) {
     let ratio;
 
@@ -522,8 +305,6 @@ export class PsyModel {
       ratio = m1 / m2;
     }
     if (b >= -2 && b <= 2) {
-      /* approximately, 1 bark = 3 partitions */
-      /* originally 'if(i > 8)' */
       if (ratio >= this.ma_max_i1) {
         return m1 + m2;
       }
@@ -539,9 +320,6 @@ export class PsyModel {
     return m1;
   }
 
-  /**
-   * compute interchannel masking effects
-   */
   private calc_interchannel_masking(gfp: LameGlobalFlags, ratio: number) {
     const gfc = gfp.internal_flags;
     if (gfc.channels_out > 1) {
@@ -562,14 +340,8 @@ export class PsyModel {
     }
   }
 
-  /**
-   * compute M/S thresholds from Johnston & Ferreira 1992 ICASSP paper
-   */
   private msfix1(gfc: LameInternalFlags) {
     for (let sb = 0; sb < SBMAX_l; sb++) {
-      /* use this fix if L & R masking differs by 2db or less */
-      /* if db = 10*log10(x2/x1) < 2 */
-      /* if (x2 < 1.58*x1) { */
       if (
         gfc.thm[0].l[sb] > 1.58 * gfc.thm[1].l[sb] ||
         gfc.thm[1].l[sb] > 1.58 * gfc.thm[0].l[sb]
@@ -609,11 +381,6 @@ export class PsyModel {
     }
   }
 
-  /**
-   * Adjust M/S maskings if user set "msfix"
-   *
-   * Naoki Shibata 2000
-   */
   private ns_msfix(gfc: LameInternalFlags, msfix: number, athadjust: number) {
     let msfix2 = msfix;
     let athlower = Math.pow(10, athadjust);
@@ -634,7 +401,7 @@ export class PsyModel {
         const f = (thmLR * msfix2) / (thmM + thmS);
         thmM *= f;
         thmS *= f;
-        console.assert(thmM + thmS > 0);
+        assert(thmM + thmS > 0);
       }
       gfc.thm[2].l[sb] = Math.min(thmM, gfc.thm[2].l[sb]);
       gfc.thm[3].l[sb] = Math.min(thmS, gfc.thm[3].l[sb]);
@@ -657,7 +424,7 @@ export class PsyModel {
           const f = (thmLR * msfix) / (thmM + thmS);
           thmM *= f;
           thmS *= f;
-          console.assert(thmM + thmS > 0);
+          assert(thmM + thmS > 0);
         }
         gfc.thm[2].s[sb][sblock] = Math.min(gfc.thm[2].s[sb][sblock], thmM);
         gfc.thm[3].s[sb][sblock] = Math.min(gfc.thm[3].s[sb][sblock], thmS);
@@ -665,12 +432,6 @@ export class PsyModel {
     }
   }
 
-  /**
-   * short block threshold calculation (part 2)
-   *
-   * partition band bo_s[sfb] is at the transition from scalefactor band sfb
-   * to the next one sfb+1; enn and thmm have to be split between them
-   */
   private convert_partition2scalefac_s(
     gfc: LameInternalFlags,
     eb: Float32Array,
@@ -687,9 +448,9 @@ export class PsyModel {
       const { npart_s } = gfc;
       const b_lim = bo_s_sb < npart_s ? bo_s_sb : npart_s;
       while (b < b_lim) {
-        console.assert(eb[b] >= 0);
-        // iff failed, it may indicate some index error elsewhere
-        console.assert(thr[b] >= 0);
+        assert(eb[b] >= 0);
+
+        assert(thr[b] >= 0);
         enn += eb[b];
         thmm += thr[b];
         b++;
@@ -701,31 +462,26 @@ export class PsyModel {
         ++sb;
         break;
       }
-      console.assert(eb[b] >= 0);
-      // iff failed, it may indicate some index error elsewhere
-      console.assert(thr[b] >= 0);
-      {
-        /* at transition sfb . sfb+1 */
-        const w_curr = gfc.PSY.bo_s_weight[sb];
-        const w_next = 1.0 - w_curr;
-        enn = w_curr * eb[b];
-        thmm = w_curr * thr[b];
-        gfc.en[chn].s[sb][sblock] += enn;
-        gfc.thm[chn].s[sb][sblock] += thmm;
-        enn = w_next * eb[b];
-        thmm = w_next * thr[b];
-      }
+      assert(eb[b] >= 0);
+
+      assert(thr[b] >= 0);
+
+      const w_curr = gfc.PSY.bo_s_weight[sb];
+      const w_next = 1.0 - w_curr;
+      enn = w_curr * eb[b];
+      thmm = w_curr * thr[b];
+      gfc.en[chn].s[sb][sblock] += enn;
+      gfc.thm[chn].s[sb][sblock] += thmm;
+      enn = w_next * eb[b];
+      thmm = w_next * thr[b];
     }
-    /* zero initialize the rest */
+
     for (; sb < SBMAX_s; ++sb) {
       gfc.en[chn].s[sb][sblock] = 0;
       gfc.thm[chn].s[sb][sblock] = 0;
     }
   }
 
-  /**
-   * longblock threshold calculation (part 2)
-   */
   private convert_partition2scalefac_l(
     gfc: LameInternalFlags,
     eb: Float32Array,
@@ -741,9 +497,9 @@ export class PsyModel {
       const { npart_l } = gfc;
       const b_lim = bo_l_sb < npart_l ? bo_l_sb : npart_l;
       while (b < b_lim) {
-        console.assert(eb[b] >= 0);
-        // iff failed, it may indicate some index error elsewhere
-        console.assert(thr[b] >= 0);
+        assert(eb[b] >= 0);
+
+        assert(thr[b] >= 0);
         enn += eb[b];
         thmm += thr[b];
         b++;
@@ -755,21 +511,19 @@ export class PsyModel {
         ++sb;
         break;
       }
-      console.assert(eb[b] >= 0);
-      console.assert(thr[b] >= 0);
-      {
-        /* at transition sfb . sfb+1 */
-        const w_curr = gfc.PSY.bo_l_weight[sb];
-        const w_next = 1.0 - w_curr;
-        enn = w_curr * eb[b];
-        thmm = w_curr * thr[b];
-        gfc.en[chn].l[sb] += enn;
-        gfc.thm[chn].l[sb] += thmm;
-        enn = w_next * eb[b];
-        thmm = w_next * thr[b];
-      }
+      assert(eb[b] >= 0);
+      assert(thr[b] >= 0);
+
+      const w_curr = gfc.PSY.bo_l_weight[sb];
+      const w_next = 1.0 - w_curr;
+      enn = w_curr * eb[b];
+      thmm = w_curr * thr[b];
+      gfc.en[chn].l[sb] += enn;
+      gfc.thm[chn].l[sb] += thmm;
+      enn = w_next * eb[b];
+      thmm = w_next * thr[b];
     }
-    /* zero initialize the rest */
+
     for (; sb < SBMAX_l; ++sb) {
       gfc.en[chn].l[sb] = 0;
       gfc.thm[chn].l[sb] = 0;
@@ -799,26 +553,25 @@ export class PsyModel {
       }
       eb[b] = ebb;
     }
-    console.assert(b === gfc.npart_s);
-    console.assert(j === 129);
+    assert(b === gfc.npart_s);
+    assert(j === 129);
     j = 0;
     b = 0;
+    assert(gfc.s3_ss !== null);
     for (; b < gfc.npart_s; b++) {
       let kk = gfc.s3ind_s[b][0];
-      let ecb = gfc.s3_ss![j++] * eb[kk];
+      let ecb = gfc.s3_ss[j++] * eb[kk];
       ++kk;
       while (kk <= gfc.s3ind_s[b][1]) {
-        ecb += gfc.s3_ss![j] * eb[kk];
+        ecb += gfc.s3_ss[j] * eb[kk];
         ++j;
         ++kk;
       }
 
-      /* limit calculated threshold by previous granule */
       const x = this.rpelev_s * gfc.nb_s1[chn][b];
       thr[b] = Math.min(ecb, x);
 
       if (gfc.blocktype_old[chn & 1] === SHORT_TYPE) {
-        /* limit calculated threshold by even older granule */
         const x = this.rpelev2_s * gfc.nb_s2[chn][b];
         const y = thr[b];
         thr[b] = Math.min(x, y);
@@ -826,7 +579,7 @@ export class PsyModel {
 
       gfc.nb_s2[chn][b] = gfc.nb_s1[chn][b];
       gfc.nb_s1[chn][b] = ecb;
-      console.assert(thr[b] >= 0);
+      assert(thr[b] >= 0);
     }
     for (; b <= CBANDS; ++b) {
       eb[b] = 0;
@@ -844,33 +597,24 @@ export class PsyModel {
 
     if (
       gfp.short_blocks === ShortBlock.short_block_coupled &&
-      /* force both channels to use the same block type */
-      /* this is necessary if the frame is to be encoded in ms_stereo. */
-      /* But even without ms_stereo, FhG does this */
       !(uselongblock[0] !== 0 && uselongblock[1] !== 0)
     ) {
       uselongblock[0] = 0;
       uselongblock[1] = 0;
     }
 
-    /*
-     * update the blocktype of the previous granule, since it depends on
-     * what happend in this granule
-     */
     for (let chn = 0; chn < gfc.channels_out; chn++) {
       blocktype[chn] = NORM_TYPE;
-      /* disable short blocks */
+
       if (gfp.short_blocks === ShortBlock.short_block_dispensed)
         uselongblock[chn] = 1;
       if (gfp.short_blocks === ShortBlock.short_block_forced)
         uselongblock[chn] = 0;
 
       if (uselongblock[chn] !== 0) {
-        /* no attack : use long blocks */
-        console.assert(gfc.blocktype_old[chn] !== START_TYPE);
+        assert(gfc.blocktype_old[chn] !== START_TYPE);
         if (gfc.blocktype_old[chn] === SHORT_TYPE) blocktype[chn] = STOP_TYPE;
       } else {
-        /* attack : use short blocks */
         blocktype[chn] = SHORT_TYPE;
         if (gfc.blocktype_old[chn] === NORM_TYPE) {
           gfc.blocktype_old[chn] = START_TYPE;
@@ -880,33 +624,25 @@ export class PsyModel {
       }
 
       blocktype_d[chn] = gfc.blocktype_old[chn];
-      // value returned to calling program
+
       gfc.blocktype_old[chn] = blocktype[chn];
-      // save for next call to l3psy_anal
     }
   }
 
   private nsInterp(x: number, y: number, r: number) {
-    /* was pow((x),(r))*pow((y),1-(r)) */
     if (r >= 1.0) {
-      /* 99.7% of the time */
       return x;
     }
     if (r <= 0.0) return y;
     if (y > 0.0) {
-      /* rest of the time */
       return Math.pow(x / y, r) * y;
     }
-    /* never happens */
+
     return 0.0;
   }
 
-  /**
-   * these values are tuned only for 44.1kHz...
-   */
   private readonly regcoef_s = [
     11.8, 13.6, 17.2, 32, 46.5, 51.3, 57.5, 67.1, 71.5, 84.6, 97.6, 130,
-    /* 255.8 */
   ] as const;
 
   private pecalc_s(mr: III_psy_ratio, masking_lower: number) {
@@ -914,7 +650,7 @@ export class PsyModel {
     for (let sb = 0; sb < SBMAX_s - 1; sb++) {
       for (let sblock = 0; sblock < 3; sblock++) {
         const thm = mr.thm.s[sb][sblock];
-        console.assert(sb < this.regcoef_s.length);
+        assert(sb < this.regcoef_s.length);
         if (thm > 0.0) {
           const x = thm * masking_lower;
           const en = mr.en.s[sb][sblock];
@@ -922,7 +658,7 @@ export class PsyModel {
             if (en > x * 1e10) {
               pe_s += this.regcoef_s[sb] * (10.0 * LOG10);
             } else {
-              console.assert(x > 0);
+              assert(x > 0);
               pe_s += this.regcoef_s[sb] * Math.log10(en / x);
             }
           }
@@ -933,20 +669,16 @@ export class PsyModel {
     return pe_s;
   }
 
-  /**
-   * these values are tuned only for 44.1kHz...
-   */
   private readonly regcoef_l = [
     6.8, 5.8, 5.8, 6.4, 6.5, 9.9, 12.1, 14.4, 15, 18.9, 21.6, 26.9, 34.2, 40.2,
     46.8, 56.5, 60.7, 73.9, 85.7, 93.4, 126.1,
-    /* 241.3 */
   ] as const;
 
   private pecalc_l(mr: III_psy_ratio, masking_lower: number) {
     let pe_l = 1124.23 / 4;
     for (let sb = 0; sb < SBMAX_l - 1; sb++) {
       const thm = mr.thm.l[sb];
-      console.assert(sb < this.regcoef_l.length);
+      assert(sb < this.regcoef_l.length);
       if (thm > 0.0) {
         const x = thm * masking_lower;
         const en = mr.en.l[sb];
@@ -954,7 +686,7 @@ export class PsyModel {
           if (en > x * 1e10) {
             pe_l += this.regcoef_l[sb] * (10.0 * LOG10);
           } else {
-            console.assert(x > 0);
+            assert(x > 0);
             pe_l += this.regcoef_l[sb] * Math.log10(en / x);
           }
         }
@@ -979,18 +711,18 @@ export class PsyModel {
       let i;
       for (i = 0; i < gfc.numlines_l[b]; ++i, ++j) {
         const el = fftenergy[j];
-        console.assert(el >= 0);
+        assert(el >= 0);
         ebb += el;
         if (m < el) m = el;
       }
       eb[b] = ebb;
       max[b] = m;
       avg[b] = ebb * gfc.rnumlines_l[b];
-      console.assert(gfc.rnumlines_l[b] >= 0);
-      console.assert(ebb >= 0);
-      console.assert(eb[b] >= 0);
-      console.assert(max[b] >= 0);
-      console.assert(avg[b] >= 0);
+      assert(gfc.rnumlines_l[b] >= 0);
+      assert(ebb >= 0);
+      assert(eb[b] >= 0);
+      assert(max[b] >= 0);
+      assert(avg[b] >= 0);
     }
   }
 
@@ -1003,11 +735,11 @@ export class PsyModel {
     const last_tab_entry = this.tab.length - 1;
     let b = 0;
     let a = avg[b] + avg[b + 1];
-    console.assert(a >= 0);
+    assert(a >= 0);
     if (a > 0.0) {
       let m = max[b];
       if (m < max[b + 1]) m = max[b + 1];
-      console.assert(gfc.numlines_l[b] + gfc.numlines_l[b + 1] - 1 > 0);
+      assert(gfc.numlines_l[b] + gfc.numlines_l[b + 1] - 1 > 0);
       a =
         (20.0 * (m * 2.0 - a)) /
         (a * (gfc.numlines_l[b] + gfc.numlines_l[b + 1] - 1));
@@ -1020,12 +752,12 @@ export class PsyModel {
 
     for (b = 1; b < gfc.npart_l - 1; b++) {
       a = avg[b - 1] + avg[b] + avg[b + 1];
-      console.assert(a >= 0);
+      assert(a >= 0);
       if (a > 0.0) {
         let m = max[b - 1];
         if (m < max[b]) m = max[b];
         if (m < max[b + 1]) m = max[b + 1];
-        console.assert(
+        assert(
           gfc.numlines_l[b - 1] +
             gfc.numlines_l[b] +
             gfc.numlines_l[b + 1] -
@@ -1046,15 +778,15 @@ export class PsyModel {
         mask_idx[b] = 0;
       }
     }
-    console.assert(b > 0);
-    console.assert(b === gfc.npart_l - 1);
+    assert(b > 0);
+    assert(b === gfc.npart_l - 1);
 
     a = avg[b - 1] + avg[b];
-    console.assert(a >= 0);
+    assert(a >= 0);
     if (a > 0.0) {
       let m = max[b - 1];
       if (m < max[b]) m = max[b];
-      console.assert(gfc.numlines_l[b - 1] + gfc.numlines_l[b] - 1 > 0);
+      assert(gfc.numlines_l[b - 1] + gfc.numlines_l[b] - 1 > 0);
       a =
         (20.0 * (m * 2.0 - a)) /
         (a * (gfc.numlines_l[b - 1] + gfc.numlines_l[b] - 1));
@@ -1064,7 +796,7 @@ export class PsyModel {
     } else {
       mask_idx[b] = 0;
     }
-    console.assert(b === gfc.npart_l - 1);
+    assert(b === gfc.npart_l - 1);
   }
 
   private readonly fircoef = [
@@ -1093,28 +825,20 @@ export class PsyModel {
     energy: Float32Array,
     blocktype_d: Int32Array
   ) {
-    /*
-     * to get a good cache performance, one has to think about the sequence,
-     * in which the variables are used.
-     */
     const gfc = gfp.internal_flags;
 
-    /* fft and energy calculation */
     const wsamp_L = Array.from({ length: 2 }, () => new Float32Array(BLKSIZE));
     const wsamp_S = Array.from({ length: 2 }, () =>
       Array.from({ length: 3 }, () => new Float32Array(BLKSIZE_s))
     );
 
-    /* convolution */
     const eb_l = new Float32Array(CBANDS + 1);
     const eb_s = new Float32Array(CBANDS + 1);
     const thr = new Float32Array(CBANDS + 2);
 
-    /* block type */
     const blocktype = new Int32Array(2);
     const uselongblock = new Int32Array(2);
 
-    /* usual variables like loop indices, etc.. */
     let numchn;
     let chn;
     let b;
@@ -1124,7 +848,6 @@ export class PsyModel {
     let sb;
     let sblock;
 
-    /* variables used for --nspsytune */
     const ns_hpfsmpl = Array.from({ length: 2 }, () => new Float32Array(576));
     let pcfact;
     const mask_idx_l = new Int32Array(CBANDS + 2);
@@ -1133,7 +856,7 @@ export class PsyModel {
     fillArray(mask_idx_s, 0);
 
     numchn = gfc.channels_out;
-    /* chn=2 and 3 = Mid and Side channels */
+
     if (gfp.mode === MPEGMode.JOINT_STEREO) {
       numchn = 4;
     }
@@ -1148,17 +871,10 @@ export class PsyModel {
       pcfact = 0.6;
     } else pcfact = 1.0;
 
-    /** ********************************************************************
-     * Apply HPF of fs/4 to the input signal. This is used for attack
-     * detection / handling.
-     **********************************************************************/
-    /* Don't copy the input buffer into a temporary buffer */
-    /* unroll the loop 2 times */
     for (chn = 0; chn < gfc.channels_out; chn++) {
-      /* apply high pass filter of fs/4 */
       const firbuf = buffer[chn];
       const firbufPos = bufPos + 576 - 350 - PsyModel.NSFIRLEN + 192;
-      console.assert(this.fircoef.length === (PsyModel.NSFIRLEN - 1) / 2);
+      assert(this.fircoef.length === (PsyModel.NSFIRLEN - 1) / 2);
       for (i = 0; i < 576; i++) {
         let sum1;
         let sum2;
@@ -1179,8 +895,6 @@ export class PsyModel {
       masking_ratio[gr_out][chn].en.assign(gfc.en[chn]);
       masking_ratio[gr_out][chn].thm.assign(gfc.thm[chn]);
       if (numchn > 2) {
-        /* MS maskings */
-        /* percep_MS_entropy [chn-2] = gfc . pe [chn]; */
         masking_MS_ratio[gr_out][chn].en.assign(gfc.en[chn + 2]);
         masking_MS_ratio[gr_out][chn].thm.assign(gfc.thm[chn + 2]);
       }
@@ -1200,21 +914,12 @@ export class PsyModel {
         () => new Float32Array(HBLKSIZE_s)
       );
 
-      /*
-       * rh 20040301: the following loops do access one off the limits so
-       * I increase the array dimensions by one and initialize the
-       * accessed values to zero
-       */
-      console.assert(gfc.npart_s <= CBANDS);
-      console.assert(gfc.npart_l <= CBANDS);
+      assert(gfc.npart_s <= CBANDS);
+      assert(gfc.npart_l <= CBANDS);
 
-      /** *************************************************************
-       * determine the block type (window type)
-       ***************************************************************/
-      /* calculate energies of each sub-shortblocks */
       for (i = 0; i < 3; i++) {
         en_subshort[i] = gfc.nsPsy.last_en_subshort[chn][i + 6];
-        console.assert(gfc.nsPsy.last_en_subshort[chn][i + 4] > 0);
+        assert(gfc.nsPsy.last_en_subshort[chn][i + 4] > 0);
         attack_intensity[i] =
           en_subshort[i] / gfc.nsPsy.last_en_subshort[chn][i + 4];
         en_short[0] += en_subshort[i];
@@ -1228,47 +933,43 @@ export class PsyModel {
           ns_hpfsmpl[1][i] = l - r;
         }
       }
-      {
-        const pf = ns_hpfsmpl[chn & 1];
-        let pfPos = 0;
-        for (i = 0; i < 9; i++) {
-          const pfe = pfPos + 576 / 9;
-          let p = 1;
-          for (; pfPos < pfe; pfPos++)
-            if (p < Math.abs(pf[pfPos])) p = Math.abs(pf[pfPos]);
 
-          gfc.nsPsy.last_en_subshort[chn][i] = p;
-          en_subshort[i + 3] = p;
-          en_short[1 + i / 3] += p;
-          if (p > en_subshort[i + 3 - 2]) {
-            console.assert(en_subshort[i + 3 - 2] > 0);
-            p /= en_subshort[i + 3 - 2];
-          } else if (en_subshort[i + 3 - 2] > p * 10.0) {
-            console.assert(p > 0);
-            p = en_subshort[i + 3 - 2] / (p * 10.0);
-          } else p = 0.0;
-          attack_intensity[i + 3] = p;
+      const pf = ns_hpfsmpl[chn & 1];
+      let pfPos = 0;
+      for (i = 0; i < 9; i++) {
+        const pfe = pfPos + 576 / 9;
+        let p = 1;
+        for (; pfPos < pfe; pfPos++)
+          if (p < Math.abs(pf[pfPos])) p = Math.abs(pf[pfPos]);
+
+        gfc.nsPsy.last_en_subshort[chn][i] = p;
+        en_subshort[i + 3] = p;
+        en_short[1 + i / 3] += p;
+        if (p > en_subshort[i + 3 - 2]) {
+          assert(en_subshort[i + 3 - 2] > 0);
+          p /= en_subshort[i + 3 - 2];
+        } else if (en_subshort[i + 3 - 2] > p * 10.0) {
+          assert(p > 0);
+          p = en_subshort[i + 3 - 2] / (p * 10.0);
+        } else p = 0.0;
+        attack_intensity[i + 3] = p;
+      }
+
+      const attackThreshold =
+        chn === 3 ? gfc.nsPsy.attackthre_s : gfc.nsPsy.attackthre;
+      for (i = 0; i < 12; i++) {
+        if (ns_attacks[i / 3] === 0 && attack_intensity[i] > attackThreshold) {
+          ns_attacks[i / 3] = (i % 3) + 1;
         }
       }
 
-      /* compare energies between sub-shortblocks */
-      const attackThreshold =
-        chn === 3 ? gfc.nsPsy.attackthre_s : gfc.nsPsy.attackthre;
-      for (i = 0; i < 12; i++)
-        if (ns_attacks[i / 3] === 0 && attack_intensity[i] > attackThreshold)
-          ns_attacks[i / 3] = (i % 3) + 1;
-
-      /*
-       * should have energy change between short blocks, in order to avoid
-       * periodic signals
-       */
       for (i = 1; i < 4; i++) {
         let ratio;
         if (en_short[i - 1] > en_short[i]) {
-          console.assert(en_short[i] > 0);
+          assert(en_short[i] > 0);
           ratio = en_short[i - 1] / en_short[i];
         } else {
-          console.assert(en_short[i - 1] > 0);
+          assert(en_short[i - 1] > 0);
           ratio = en_short[i] / en_short[i - 1];
         }
         if (ratio < 1.7) {
@@ -1298,15 +999,8 @@ export class PsyModel {
         uselongblock[1] = 0;
       }
 
-      /*
-       * there is a one granule delay. Copy maskings computed last call
-       * into masking_ratio to return to calling program.
-       */
       energy[chn] = gfc.tot_ener[chn];
 
-      /** *******************************************************************
-       * compute FFTs
-       *********************************************************************/
       const wsamp_s = wsamp_S;
       const wsamp_l = wsamp_L;
       this.compute_ffts(
@@ -1323,18 +1017,15 @@ export class PsyModel {
         bufPos
       );
 
-      /** *******************************************************************
-       * Calculate the energy and the tonality of each partition.
-       *********************************************************************/
       this.calc_energy(gfc, fftenergy, eb_l, max, avg);
       this.calc_mask_index_l(gfc, max, avg, mask_idx_l);
-      /* compute masking thresholds for short blocks */
+
       for (sblock = 0; sblock < 3; sblock++) {
         let enn;
         let thmm;
         this.compute_masking_s(gfp, fftenergy_s, eb_s, thr, chn, sblock);
         this.convert_partition2scalefac_s(gfc, eb_s, thr, chn, sblock);
-        /** ** short block pre-echo control ****/
+
         for (sb = 0; sb < SBMAX_s; sb++) {
           thmm = gfc.thm[chn].s[sb][sblock];
 
@@ -1370,7 +1061,6 @@ export class PsyModel {
             thmm = Math.min(thmm, p);
           }
 
-          /* pulse like signal detection for fatboy.wav and so on */
           enn =
             en_subshort[sblock * 3 + 3] +
             en_subshort[sblock * 3 + 4] +
@@ -1385,43 +1075,18 @@ export class PsyModel {
       }
       gfc.nsPsy.lastAttacks[chn] = ns_attacks[2];
 
-      /** *******************************************************************
-       * convolve the partitioned energy and unpredictability with the
-       * spreading function, s3_l[b][k]
-       ********************************************************************/
       k = 0;
 
+      assert(gfc.s3_ll !== null);
       for (b = 0; b < gfc.npart_l; b++) {
-        /*
-         * convolve the partitioned energy with the spreading
-         * function
-         */
         let kk = gfc.s3ind[b][0];
         let eb2 = eb_l[kk] * this.tab[mask_idx_l[kk]];
-        let ecb = gfc.s3_ll![k++] * eb2;
+        let ecb = gfc.s3_ll[k++] * eb2;
         while (++kk <= gfc.s3ind[b][1]) {
           eb2 = eb_l[kk] * this.tab[mask_idx_l[kk]];
-          ecb = this.mask_add(ecb, gfc.s3_ll![k++] * eb2, kk, kk - b, gfc, 0);
+          ecb = this.mask_add(ecb, gfc.s3_ll[k++] * eb2, kk, kk - b, gfc, 0);
         }
         ecb *= 0.158489319246111;
-        /* pow(10,-0.8) */
-
-        /** ** long block pre-echo control ****/
-        /**
-         * <PRE>
-         * dont use long block pre-echo control if previous granule was
-         * a short block.  This is to avoid the situation:
-         * frame0:  quiet (very low masking)
-         * frame1:  surge  (triggers short blocks)
-         * frame2:  regular frame.  looks like pre-echo when compared to
-         *          frame0, but all pre-echo was in frame1.
-         * </PRE>
-         */
-        /*
-         * chn=0,1 L and R channels
-         *
-         * chn=2,3 S and M channels.
-         */
 
         if (gfc.blocktype_old[chn & 1] === SHORT_TYPE) thr[b] = ecb;
         else
@@ -1445,10 +1110,9 @@ export class PsyModel {
         eb_l[b] = 0;
         thr[b] = 0;
       }
-      /* compute masking thresholds for long blocks */
+
       this.convert_partition2scalefac_l(gfc, eb_l, thr, chn);
     }
-    /* end loop over chn */
 
     if (gfp.mode === MPEGMode.STEREO || gfp.mode === MPEGMode.JOINT_STEREO) {
       if (gfp.interChRatio > 0.0) {
@@ -1463,14 +1127,8 @@ export class PsyModel {
         this.ns_msfix(gfc, msfix, gfp.ATHlower * gfc.ATH.adjust);
     }
 
-    /** *************************************************************
-     * determine final block type
-     ***************************************************************/
     this.block_type_set(gfp, uselongblock, blocktype_d, blocktype);
 
-    /** *******************************************************************
-     * compute the value of PE to return ... no delay and advance
-     *********************************************************************/
     for (chn = 0; chn < numchn; chn++) {
       let ppe;
       let ppePos = 0;
@@ -1511,7 +1169,6 @@ export class PsyModel {
     if (chn < 2) {
       this.fft.fft_long(gfc, wsamp_l[wsamp_lPos], chn, buffer, bufPos);
     } else if (chn === 2) {
-      /* FFT data for mid and side channel is derived from L & R */
       for (let j = BLKSIZE - 1; j >= 0; --j) {
         const l = wsamp_l[wsamp_lPos + 0][j];
         const r = wsamp_l[wsamp_lPos + 1][j];
@@ -1520,9 +1177,6 @@ export class PsyModel {
       }
     }
 
-    /** *******************************************************************
-     * compute energies
-     *********************************************************************/
     fftenergy[0] = wsamp_l[wsamp_lPos + 0][0];
     fftenergy[0] *= fftenergy[0];
 
@@ -1531,13 +1185,11 @@ export class PsyModel {
       const im = wsamp_l[wsamp_lPos + 0][BLKSIZE / 2 + j];
       fftenergy[BLKSIZE / 2 - j] = (re * re + im * im) * 0.5;
     }
-    /* total energy */
-    {
-      let totalenergy = 0.0;
-      for (let j = 11; j < HBLKSIZE; j++) totalenergy += fftenergy[j];
 
-      gfc.tot_ener[chn] = totalenergy;
-    }
+    let totalenergy = 0.0;
+    for (let j = 11; j < HBLKSIZE; j++) totalenergy += fftenergy[j];
+
+    gfc.tot_ener[chn] = totalenergy;
   }
 
   private vbrpsy_compute_fft_s(
@@ -1556,7 +1208,6 @@ export class PsyModel {
       this.fft.fft_short(gfc, wsamp_s[wsamp_sPos], chn, buffer, bufPos);
     }
     if (chn === 2) {
-      /* FFT data for mid and side channel is derived from L & R */
       for (let j = BLKSIZE_s - 1; j >= 0; --j) {
         const l = wsamp_s[wsamp_sPos + 0][sblock][j];
         const r = wsamp_s[wsamp_sPos + 1][sblock][j];
@@ -1565,9 +1216,6 @@ export class PsyModel {
       }
     }
 
-    /** *******************************************************************
-     * compute energies
-     *********************************************************************/
     fftenergy_s[sblock][0] = wsamp_s[wsamp_sPos + 0][sblock][0];
     fftenergy_s[sblock][0] *= fftenergy_s[sblock][0];
     for (let j = BLKSIZE_s / 2 - 1; j >= 0; --j) {
@@ -1577,9 +1225,6 @@ export class PsyModel {
     }
   }
 
-  /**
-   * compute loudness approximation (used for ATH auto-level adjustment)
-   */
   private vbrpsy_compute_loudness_approximation_l(
     gfp: LameGlobalFlags,
     gr_out: number,
@@ -1588,7 +1233,6 @@ export class PsyModel {
   ) {
     const gfc = gfp.internal_flags;
     if (gfp.athaa_loudapprox === 2 && chn < 2) {
-      // no loudness for mid/side ch
       gfc.loudness_sq[gr_out][chn] = gfc.loudness_sq_save[chn];
       gfc.loudness_sq_save[chn] = this.psycho_loudness_approx(fftenergy, gfc);
     }
@@ -1607,10 +1251,6 @@ export class PsyModel {
     -0.313819 * 2,
   ] as const;
 
-  /**
-   * Apply HPF of fs/4 to the input signal. This is used for attack detection
-   * / handling.
-   */
   // eslint-disable-next-line complexity
   private vbrpsy_attack_detection(
     gfp: LameGlobalFlags,
@@ -1627,15 +1267,13 @@ export class PsyModel {
     const ns_hpfsmpl = Array.from({ length: 2 }, () => new Float32Array(576));
     const gfc = gfp.internal_flags;
     const n_chn_out = gfc.channels_out;
-    /* chn=2 and 3 = Mid and Side channels */
+
     const n_chn_psy = gfp.mode === MPEGMode.JOINT_STEREO ? 4 : n_chn_out;
-    /* Don't copy the input buffer into a temporary buffer */
-    /* unroll the loop 2 times */
+
     for (let chn = 0; chn < n_chn_out; chn++) {
-      /* apply high pass filter of fs/4 */
       const firbuf = buffer[chn];
       const firbufPos = bufPos + 576 - 350 - PsyModel.NSFIRLEN + 192;
-      console.assert(this.fircoef_.length === (PsyModel.NSFIRLEN - 1) / 2);
+      assert(this.fircoef_.length === (PsyModel.NSFIRLEN - 1) / 2);
       for (let i = 0; i < 576; i++) {
         let sum1;
         let sum2;
@@ -1656,8 +1294,6 @@ export class PsyModel {
       masking_ratio[gr_out][chn].en.assign(gfc.en[chn]);
       masking_ratio[gr_out][chn].thm.assign(gfc.thm[chn]);
       if (n_chn_psy > 2) {
-        /* MS maskings */
-        /* percep_MS_entropy [chn-2] = gfc . pe [chn]; */
         masking_MS_ratio[gr_out][chn].en.assign(gfc.en[chn + 2]);
         masking_MS_ratio[gr_out][chn].thm.assign(gfc.thm[chn + 2]);
       }
@@ -1680,13 +1316,10 @@ export class PsyModel {
           ns_hpfsmpl[1][i] = l - r;
         }
       }
-      /** *************************************************************
-       * determine the block type (window type)
-       ***************************************************************/
-      /* calculate energies of each sub-shortblocks */
+
       for (let i = 0; i < 3; i++) {
         en_subshort[i] = gfc.nsPsy.last_en_subshort[chn][i + 6];
-        console.assert(gfc.nsPsy.last_en_subshort[chn][i + 4] > 0);
+        assert(gfc.nsPsy.last_en_subshort[chn][i + 4] > 0);
         attack_intensity[i] =
           en_subshort[i] / gfc.nsPsy.last_en_subshort[chn][i + 4];
         en_short[0] += en_subshort[i];
@@ -1702,17 +1335,17 @@ export class PsyModel {
         en_subshort[i + 3] = p;
         en_short[1 + i / 3] += p;
         if (p > en_subshort[i + 3 - 2]) {
-          console.assert(en_subshort[i + 3 - 2] > 0);
+          assert(en_subshort[i + 3 - 2] > 0);
           p /= en_subshort[i + 3 - 2];
         } else if (en_subshort[i + 3 - 2] > p * 10.0) {
-          console.assert(p > 0);
+          assert(p > 0);
           p = en_subshort[i + 3 - 2] / (p * 10.0);
         } else {
           p = 0.0;
         }
         attack_intensity[i + 3] = p;
       }
-      /* pulse like signal detection for fatboy.wav and so on */
+
       for (let i = 0; i < 3; ++i) {
         const enn =
           en_subshort[i * 3 + 3] +
@@ -1728,7 +1361,6 @@ export class PsyModel {
         sub_short_factor[chn][i] = factor;
       }
 
-      /* compare energies between sub-shortblocks */
       for (let i = 0; i < 12; i++) {
         if (
           ns_attacks[chn][i / 3] === 0 &&
@@ -1738,27 +1370,12 @@ export class PsyModel {
         }
       }
 
-      /*
-       * should have energy change between short blocks, in order to avoid
-       * periodic signals
-       */
-      /* Good samples to show the effect are Trumpet test songs */
-      /*
-       * GB: tuned (1) to avoid too many short blocks for test sample
-       * TRUMPET
-       */
-      /*
-       * RH: tuned (2) to let enough short blocks through for test sample
-       * FSOL and SNAPS
-       */
       for (let i = 1; i < 4; i++) {
         const u = en_short[i - 1];
         const v = en_short[i];
         const m = Math.max(u, v);
         if (m < 40000) {
-          /* (2) */
           if (u < 1.7 * v && v < 1.7 * u) {
-            /* (1) */
             if (i === 1 && ns_attacks[chn][0] <= ns_attacks[chn][i]) {
               ns_attacks[chn][0] = 0;
             }
@@ -1798,10 +1415,6 @@ export class PsyModel {
         uselongblock[1] = 0;
       }
 
-      /*
-       * there is a one granule delay. Copy maskings computed last call
-       * into masking_ratio to return to calling program.
-       */
       energy[chn] = gfc.tot_ener[chn];
     }
   }
@@ -1835,11 +1448,11 @@ export class PsyModel {
     const last_tab_entry = this.tab.length - 1;
     let b = 0;
     let a = avg[b] + avg[b + 1];
-    console.assert(a >= 0);
+    assert(a >= 0);
     if (a > 0.0) {
       let m = max[b];
       if (m < max[b + 1]) m = max[b + 1];
-      console.assert(gfc.numlines_s[b] + gfc.numlines_s[b + 1] - 1 > 0);
+      assert(gfc.numlines_s[b] + gfc.numlines_s[b + 1] - 1 > 0);
       a =
         (20.0 * (m * 2.0 - a)) /
         (a * (gfc.numlines_s[b] + gfc.numlines_s[b + 1] - 1));
@@ -1852,13 +1465,13 @@ export class PsyModel {
 
     for (b = 1; b < gfc.npart_s - 1; b++) {
       a = avg[b - 1] + avg[b] + avg[b + 1];
-      console.assert(b + 1 < gfc.npart_s);
-      console.assert(a >= 0);
+      assert(b + 1 < gfc.npart_s);
+      assert(a >= 0);
       if (a > 0.0) {
         let m = max[b - 1];
         if (m < max[b]) m = max[b];
         if (m < max[b + 1]) m = max[b + 1];
-        console.assert(
+        assert(
           gfc.numlines_s[b - 1] +
             gfc.numlines_s[b] +
             gfc.numlines_s[b + 1] -
@@ -1879,15 +1492,15 @@ export class PsyModel {
         mask_idx[b] = 0;
       }
     }
-    console.assert(b > 0);
-    console.assert(b === gfc.npart_s - 1);
+    assert(b > 0);
+    assert(b === gfc.npart_s - 1);
 
     a = avg[b - 1] + avg[b];
-    console.assert(a >= 0);
+    assert(a >= 0);
     if (a > 0.0) {
       let m = max[b - 1];
       if (m < max[b]) m = max[b];
-      console.assert(gfc.numlines_s[b - 1] + gfc.numlines_s[b] - 1 > 0);
+      assert(gfc.numlines_s[b - 1] + gfc.numlines_s[b] - 1 > 0);
       a =
         (20.0 * (m * 2.0 - a)) /
         (a * (gfc.numlines_s[b - 1] + gfc.numlines_s[b] - 1));
@@ -1897,7 +1510,7 @@ export class PsyModel {
     } else {
       mask_idx[b] = 0;
     }
-    console.assert(b === gfc.npart_s - 1);
+    assert(b === gfc.npart_s - 1);
   }
 
   private vbrpsy_compute_masking_s(
@@ -1926,14 +1539,14 @@ export class PsyModel {
         if (m < el) m = el;
       }
       eb[b] = ebb;
-      console.assert(ebb >= 0);
+      assert(ebb >= 0);
       max[b] = m;
-      console.assert(n > 0);
+      assert(n > 0);
       avg[b] = ebb / n;
-      console.assert(avg[b] >= 0);
+      assert(avg[b] >= 0);
     }
-    console.assert(b === gfc.npart_s);
-    console.assert(j === 129);
+    assert(b === gfc.npart_s);
+    assert(j === 129);
     for (; b < CBANDS; ++b) {
       max[b] = 0;
       avg[b] = 0;
@@ -1941,6 +1554,7 @@ export class PsyModel {
     j = 0;
     b = 0;
     this.psyvbr_calc_mask_index_s(gfc, max, avg, mask_idx_s);
+    assert(gfc.s3_ss !== null);
     for (; b < gfc.npart_s; b++) {
       let kk = gfc.s3ind_s[b][0];
       const last = gfc.s3ind_s[b][1];
@@ -1950,13 +1564,13 @@ export class PsyModel {
       let ecb;
       dd = mask_idx_s[kk];
       dd_n = 1;
-      ecb = gfc.s3_ss![j] * eb[kk] * this.tab[mask_idx_s[kk]];
+      ecb = gfc.s3_ss[j] * eb[kk] * this.tab[mask_idx_s[kk]];
       ++j;
       ++kk;
       while (kk <= last) {
         dd += mask_idx_s[kk];
         dd_n += 1;
-        x = gfc.s3_ss![j] * eb[kk] * this.tab[mask_idx_s[kk]];
+        x = gfc.s3_ss[j] * eb[kk] * this.tab[mask_idx_s[kk]];
         ecb = this.vbrpsy_mask_add(ecb, x, kk - b);
         ++j;
         ++kk;
@@ -1968,12 +1582,6 @@ export class PsyModel {
       gfc.nb_s2[chn][b] = gfc.nb_s1[chn][b];
       gfc.nb_s1[chn][b] = ecb;
 
-      /*
-       * if THR exceeds EB, the quantization routines will take the
-       * difference from other bands. in case of strong tonal samples
-       * (tonaltest.wav) this leads to heavy distortions. that's why
-       * we limit THR here.
-       */
       x = max[b];
       x *= gfc.minval_s[b];
       x *= avg_mask;
@@ -1991,7 +1599,7 @@ export class PsyModel {
         thr[b] *= gfc.masking_lower;
       }
 
-      console.assert(thr[b] >= 0);
+      assert(thr[b] >= 0);
     }
     for (; b < CBANDS; ++b) {
       eb[b] = 0;
@@ -2011,35 +1619,29 @@ export class PsyModel {
     const mask_idx_l = new Int32Array(CBANDS + 2);
     let b;
 
-    /** *******************************************************************
-     * Calculate the energy and the tonality of each partition.
-     *********************************************************************/
     this.calc_energy(gfc, fftenergy, eb_l, max, avg);
     this.calc_mask_index_l(gfc, max, avg, mask_idx_l);
 
-    /** *******************************************************************
-     * convolve the partitioned energy and unpredictability with the
-     * spreading function, s3_l[b][k]
-     ********************************************************************/
     let k = 0;
+    assert(gfc.s3_ll !== null);
     for (b = 0; b < gfc.npart_l; b++) {
       let x;
       let ecb;
       let t;
-      /* convolve the partitioned energy with the spreading function */
+
       let kk = gfc.s3ind[b][0];
       const last = gfc.s3ind[b][1];
       let dd = 0;
       let dd_n = 0;
       dd = mask_idx_l[kk];
       dd_n += 1;
-      ecb = gfc.s3_ll![k] * eb_l[kk] * this.tab[mask_idx_l[kk]];
+      ecb = gfc.s3_ll[k] * eb_l[kk] * this.tab[mask_idx_l[kk]];
       ++k;
       ++kk;
       while (kk <= last) {
         dd += mask_idx_l[kk];
         dd_n += 1;
-        x = gfc.s3_ll![k] * eb_l[kk] * this.tab[mask_idx_l[kk]];
+        x = gfc.s3_ll[k] * eb_l[kk] * this.tab[mask_idx_l[kk]];
         t = this.vbrpsy_mask_add(ecb, x, kk - b);
         ecb = t;
         ++k;
@@ -2049,36 +1651,11 @@ export class PsyModel {
       const avg_mask = this.tab[dd] * 0.5;
       ecb *= avg_mask;
 
-      /** ** long block pre-echo control ****/
-      /**
-       * <PRE>
-       * dont use long block pre-echo control if previous granule was
-       * a short block.  This is to avoid the situation:
-       * frame0:  quiet (very low masking)
-       * frame1:  surge  (triggers short blocks)
-       * frame2:  regular frame.  looks like pre-echo when compared to
-       *          frame0, but all pre-echo was in frame1.
-       * </PRE>
-       */
-      /*
-       * chn=0,1 L and R channels chn=2,3 S and M channels.
-       */
       if (gfc.blocktype_old[chn & 0x01] === SHORT_TYPE) {
         const ecb_limit = this.rpelev * gfc.nb_1[chn][b];
         if (ecb_limit > 0) {
           thr[b] = Math.min(ecb, ecb_limit);
         } else {
-          /**
-           * <PRE>
-           * Robert 071209:
-           * Because we don't calculate long block psy when we know a granule
-           * should be of short blocks, we don't have any clue how the granule
-           * before would have looked like as a long block. So we have to guess
-           * a little bit for this END_TYPE block.
-           * Most of the time we get away with this sloppyness. (fingers crossed :)
-           * The speed increase is worth it.
-           * </PRE>
-           */
           thr[b] = Math.min(ecb, eb_l[b] * PsyModel.NS_PREECHO_ATT2);
         }
       } else {
@@ -2101,12 +1678,6 @@ export class PsyModel {
       gfc.nb_2[chn][b] = gfc.nb_1[chn][b];
       gfc.nb_1[chn][b] = ecb;
 
-      /*
-       * if THR exceeds EB, the quantization routines will take the
-       * difference from other bands. in case of strong tonal samples
-       * (tonaltest.wav) this leads to heavy distortions. that's why
-       * we limit THR here.
-       */
       x = max[b];
       x *= gfc.minval_l[b];
       x *= avg_mask;
@@ -2123,7 +1694,7 @@ export class PsyModel {
       if (gfc.masking_lower < 1) {
         thr[b] *= gfc.masking_lower;
       }
-      console.assert(thr[b] >= 0);
+      assert(thr[b] >= 0);
     }
     for (; b < CBANDS; ++b) {
       eb_l[b] = 0;
@@ -2139,9 +1710,6 @@ export class PsyModel {
 
     if (
       gfp.short_blocks === ShortBlock.short_block_coupled &&
-      /* force both channels to use the same block type */
-      /* this is necessary if the frame is to be encoded in ms_stereo. */
-      /* But even without ms_stereo, FhG does this */
       !(uselongblock[0] !== 0 && uselongblock[1] !== 0)
     ) {
       uselongblock[0] = 0;
@@ -2149,7 +1717,6 @@ export class PsyModel {
     }
 
     for (let chn = 0; chn < gfc.channels_out; chn++) {
-      /* disable short blocks */
       if (gfp.short_blocks === ShortBlock.short_block_dispensed) {
         uselongblock[chn] = 1;
       }
@@ -2166,20 +1733,13 @@ export class PsyModel {
   ) {
     const gfc = gfp.internal_flags;
 
-    /*
-     * update the blocktype of the previous granule, since it depends on
-     * what happend in this granule
-     */
     for (let chn = 0; chn < gfc.channels_out; chn++) {
       let blocktype = NORM_TYPE;
-      /* disable short blocks */
 
       if (uselongblock[chn] !== 0) {
-        /* no attack : use long blocks */
-        console.assert(gfc.blocktype_old[chn] !== START_TYPE);
+        assert(gfc.blocktype_old[chn] !== START_TYPE);
         if (gfc.blocktype_old[chn] === SHORT_TYPE) blocktype = STOP_TYPE;
       } else {
-        /* attack : use short blocks */
         blocktype = SHORT_TYPE;
         if (gfc.blocktype_old[chn] === NORM_TYPE) {
           gfc.blocktype_old[chn] = START_TYPE;
@@ -2189,15 +1749,11 @@ export class PsyModel {
       }
 
       blocktype_d[chn] = gfc.blocktype_old[chn];
-      // value returned to calling program
+
       gfc.blocktype_old[chn] = blocktype;
-      // save for next call to l3psy_anal
     }
   }
 
-  /**
-   * compute M/S thresholds from Johnston & Ferreira 1992 ICASSP paper
-   */
   private vbrpsy_compute_MS_thresholds(
     eb: Float32Array[],
     thr: Float32Array[],
@@ -2219,7 +1775,6 @@ export class PsyModel {
       let thmM = thr[2][b];
       let thmS = thr[3][b];
 
-      /* use this fix if L & R masking differs by 2db or less */
       if (thmL <= 1.58 * thmR && thmR <= 1.58 * thmL) {
         const mld_m = cb_mld[b] * ebS;
         const mld_s = cb_mld[b] * ebM;
@@ -2230,10 +1785,6 @@ export class PsyModel {
         rside = thmS;
       }
       if (msfix > 0) {
-        /** *************************************************************/
-        /* Adjust M/S maskings if user set "msfix" */
-        /** *************************************************************/
-        /* Naoki Shibata 2000 */
         const ath = ath_cb[b] * athlower;
         const thmLR = Math.min(Math.max(thmL, ath), Math.max(thmR, ath));
         thmM = Math.max(rmid, ath);
@@ -2243,7 +1794,7 @@ export class PsyModel {
           const f = (thmLR * msfix2) / thmMS;
           thmM *= f;
           thmS *= f;
-          console.assert(thmMS > 0);
+          assert(thmMS > 0);
         }
         rmid = Math.min(thmM, rmid);
         rside = Math.min(thmS, rside);
@@ -2274,7 +1825,6 @@ export class PsyModel {
   ) {
     const gfc = gfp.internal_flags;
 
-    /* fft and energy calculation */
     let wsamp_l;
     let wsamp_s;
     const fftenergy = new Float32Array(HBLKSIZE);
@@ -2294,7 +1844,6 @@ export class PsyModel {
     );
     const pcfact = 0.6;
 
-    /* block type */
     const ns_attacks = [
       [0, 0, 0, 0],
       [0, 0, 0, 0],
@@ -2303,9 +1852,6 @@ export class PsyModel {
     ];
     const uselongblock = new Int32Array(2);
 
-    /* usual variables like loop indices, etc.. */
-
-    /* chn=2 and 3 = Mid and Side channels */
     const n_chn_psy = gfp.mode === MPEGMode.JOINT_STEREO ? 4 : gfc.channels_out;
 
     this.vbrpsy_attack_detection(
@@ -2322,8 +1868,6 @@ export class PsyModel {
     );
 
     this.vbrpsy_compute_block_type(gfp, uselongblock);
-
-    /* LONG BLOCK CASE */
 
     for (let chn = 0; chn < n_chn_psy; chn++) {
       const ch01 = chn & 0x01;
@@ -2347,7 +1891,6 @@ export class PsyModel {
       }
     }
     if (uselongblock[0] + uselongblock[1] === 2) {
-      /* M/S channel */
       if (gfp.mode === MPEGMode.JOINT_STEREO) {
         this.vbrpsy_compute_MS_thresholds(
           eb,
@@ -2360,15 +1903,13 @@ export class PsyModel {
         );
       }
     }
-    /* TODO: apply adaptive ATH masking here ?? */
+
     for (let chn = 0; chn < n_chn_psy; chn++) {
       const ch01 = chn & 0x01;
       if (uselongblock[ch01] !== 0) {
         this.convert_partition2scalefac_l(gfc, eb[chn], thr[chn], chn);
       }
     }
-
-    /* SHORT BLOCKS CASE */
 
     for (let sblock = 0; sblock < 3; sblock++) {
       for (let chn = 0; chn < n_chn_psy; ++chn) {
@@ -2377,7 +1918,6 @@ export class PsyModel {
         if (uselongblock[ch01] !== 0) {
           this.vbrpsy_skip_masking_s(gfc, chn, sblock);
         } else {
-          /* compute masking thresholds for short blocks */
           wsamp_s = wsamp_S;
           this.vbrpsy_compute_fft_s(
             gfp,
@@ -2400,7 +1940,6 @@ export class PsyModel {
         }
       }
       if (uselongblock[0] + uselongblock[1] === 0) {
-        /* M/S channel */
         if (gfp.mode === MPEGMode.JOINT_STEREO) {
           this.vbrpsy_compute_MS_thresholds(
             eb,
@@ -2412,9 +1951,8 @@ export class PsyModel {
             gfc.npart_s
           );
         }
-        /* L/R channel */
       }
-      /* TODO: apply adaptive ATH masking here ?? */
+
       for (let chn = 0; chn < n_chn_psy; ++chn) {
         const ch01 = chn & 0x01;
         if (uselongblock[ch01] === 0) {
@@ -2429,7 +1967,6 @@ export class PsyModel {
       }
     }
 
-    /** ** short block pre-echo control ****/
     for (let chn = 0; chn < n_chn_psy; chn++) {
       const ch01 = chn & 0x01;
 
@@ -2474,7 +2011,6 @@ export class PsyModel {
             thmm = Math.min(thmm, p);
           }
 
-          /* pulse like signal detection for fatboy.wav and so on */
           thmm *= sub_short_factor[chn][sblock];
 
           new_thmm[sblock] = thmm;
@@ -2489,14 +2025,8 @@ export class PsyModel {
       gfc.nsPsy.lastAttacks[chn] = ns_attacks[chn][2];
     }
 
-    /** *************************************************************
-     * determine final block type
-     ***************************************************************/
     this.vbrpsy_apply_block_type(gfp, uselongblock, blocktype_d);
 
-    /** *******************************************************************
-     * compute the value of PE to return ... no delay and advance
-     *********************************************************************/
     for (let chn = 0; chn < n_chn_psy; chn++) {
       let ppe;
       let ppePos;
@@ -2584,13 +2114,10 @@ export class PsyModel {
     }
 
     const norm = (m + 1) / (sum * (lim_b - lim_a));
-    /* printf( "norm = %lf\n",norm); */
+
     return norm;
   }
 
-  /**
-   *   The spreading function.  Values returned in units of energy
-   */
   private s3_func(bark: number) {
     let tempx;
     let x;
@@ -2611,25 +2138,11 @@ export class PsyModel {
 
     tempx = Math.exp((x + tempy) * PsyModel.LN_TO_LOG10);
 
-    /**
-     * <PRE>
-     * Normalization.  The spreading function should be normalized so that:
-     * +inf
-     * /
-     * |  s3 [ bark ]  d(bark)   =  1
-     * /
-     * -inf
-     * </PRE>
-     */
     tempx /= 0.6609193;
     return tempx;
   }
 
-  /**
-   * see for example "Zwicker: Psychoakustik, 1982; ISBN 3-540-11401-7
-   */
   private freq2bark(freq: number) {
-    /* input: freq in hz output: barks */
     if (freq < 0) freq = 0;
     freq *= 0.001;
     return (
@@ -2659,8 +2172,7 @@ export class PsyModel {
     sfreq /= blksize;
     let j = 0;
     let ni = 0;
-    /* compute numlines, the number of spectral lines in each partition band */
-    /* each partition band should be about DELBARK wide. */
+
     for (i = 0; i < CBANDS; i++) {
       let j2;
       const bark1 = this.freq2bark(sfreq * j);
@@ -2678,7 +2190,7 @@ export class PsyModel {
       ni = i + 1;
 
       while (j < j2) {
-        console.assert(j < HBLKSIZE);
+        assert(j < HBLKSIZE);
         partition[j++] = i;
       }
       if (j > blksize / 2) {
@@ -2687,7 +2199,7 @@ export class PsyModel {
         break;
       }
     }
-    console.assert(i < CBANDS);
+    assert(i < CBANDS);
     b_frq[i] = sfreq * j;
 
     for (let sfb = 0; sfb < sbmax; sfb++) {
@@ -2706,10 +2218,7 @@ export class PsyModel {
       bm[sfb] = (partition[i1] + partition[i2]) / 2;
       bo[sfb] = partition[i2];
       const f_tmp = sample_freq_frac * end;
-      /*
-       * calculate how much of this band belongs to current scalefactor
-       * band
-       */
+
       bo_w[sfb] =
         (f_tmp - b_frq[bo[sfb]]) / (b_frq[bo[sfb] + 1] - b_frq[bo[sfb]]);
       if (bo_w[sfb] < 0) {
@@ -2717,15 +2226,13 @@ export class PsyModel {
       } else if (bo_w[sfb] > 1) {
         bo_w[sfb] = 1;
       }
-      /* setup stereo demasking thresholds */
-      /* formula reverse enginerred from plot in paper */
+
       arg = this.freq2bark(sfreq * scalepos[sfb] * deltafreq);
       arg = Math.min(arg, 15.5) / 15.5;
 
       mld[sfb] = Math.pow(10.0, 1.25 * (1 - Math.cos(Math.PI * arg)) - 2.5);
     }
 
-    /* compute bark values of each critical band */
     j = 0;
     for (let k = 0; k < ni; k++) {
       const w = numlines[k];
@@ -2754,23 +2261,10 @@ export class PsyModel {
     use_old_s3: boolean
   ) {
     const s3 = Array.from({ length: CBANDS }, () => new Float32Array(CBANDS));
-    /*
-     * The s3 array is not linear in the bark scale.
-     *
-     * bval[x] should be used to get the bark value.
-     */
+
     let j;
     let numberOfNoneZero = 0;
 
-    /**
-     * <PRE>
-     * s[i][j], the value of the spreading function,
-     * centered at band j (masker), for band i (maskee)
-     *
-     * i.e.: sum over j to spread into signal barkval=i
-     * NOTE: i and j are used opposite as in the ISO docs
-     * </PRE>
-     */
     if (use_old_s3) {
       for (let i = 0; i < npart; i++) {
         for (j = 0; j < npart; j++) {
@@ -2813,19 +2307,12 @@ export class PsyModel {
   }
 
   private stereo_demask(f: number) {
-    /* setup stereo demasking thresholds */
-    /* formula reverse enginerred from plot in paper */
     let arg = this.freq2bark(f);
     arg = Math.min(arg, 15.5) / 15.5;
 
     return Math.pow(10.0, 1.25 * (1 - Math.cos(Math.PI * arg)) - 2.5);
   }
 
-  /**
-   * NOTE: the bitrate reduction from the inter-channel masking effect is low
-   * compared to the chance of getting annyoing artefacts. L3psycho_anal_vbr
-   * does not use this feature. (Robert 071216)
-   */
   // eslint-disable-next-line complexity
   psymodel_init(gfp: LameGlobalFlags) {
     const gfc = gfp.internal_flags;
@@ -2845,7 +2332,6 @@ export class PsyModel {
     gfc.ms_ener_ratio_old = 0.25;
     gfc.blocktype_old[0] = NORM_TYPE;
     gfc.blocktype_old[1] = NORM_TYPE;
-    // the vbr header is long blocks
 
     for (i = 0; i < 4; ++i) {
       for (let j = 0; j < CBANDS; ++j) {
@@ -2868,14 +2354,8 @@ export class PsyModel {
       for (let j = 0; j < 9; j++) gfc.nsPsy.last_en_subshort[i][j] = 10;
     }
 
-    /* init. for loudness approx. -jd 2001 mar 27 */
     gfc.loudness_sq_save[0] = 0.0;
     gfc.loudness_sq_save[1] = 0.0;
-
-    /** ***********************************************************************
-     * now compute the psychoacoustic model specific constants
-     ************************************************************************/
-    /* compute numlines, bo, bm, bval, bval_width, mld */
 
     gfc.npart_l = this.init_numline(
       gfc.numlines_l,
@@ -2891,8 +2371,8 @@ export class PsyModel {
       BLKSIZE / (2.0 * 576),
       SBMAX_l
     );
-    console.assert(gfc.npart_l < CBANDS);
-    /* compute the spreading function */
+    assert(gfc.npart_l < CBANDS);
+
     for (i = 0; i < gfc.npart_l; i++) {
       let snr = snr_l_a;
       if (bval[i] >= bvl_a) {
@@ -2916,38 +2396,24 @@ export class PsyModel {
       useOldS3
     );
 
-    /* compute long block specific values, ATH and MINVAL */
     let j = 0;
     for (i = 0; i < gfc.npart_l; i++) {
       let x;
 
-      /* ATH */
       x = MAX_FLOAT32_VALUE;
       for (let k = 0; k < gfc.numlines_l[i]; k++, j++) {
         const freq = (sfreq * j) / (1000.0 * BLKSIZE);
         let level;
-        /*
-         * ATH below 100 Hz constant, not further climbing
-         */
+
         level = this.ATHformula(freq * 1000, gfp) - 20;
-        // scale to FFT units; returned value is in dB
+
         level = Math.pow(10, 0.1 * level);
-        // convert from dB . energy
+
         level *= gfc.numlines_l[i];
         if (x > level) x = level;
       }
       gfc.ATH.cb_l[i] = x;
 
-      /*
-       * MINVAL. For low freq, the strength of the masking is limited by
-       * minval this is an ISO MPEG1 thing, dont know if it is really
-       * needed
-       */
-      /*
-       * FIXME: it does work to reduce low-freq problems in S53-Wind-Sax
-       * and lead-voice samples, but introduces some 3 kbps bit bloat too.
-       * TODO: Further refinement of the shape of this hack.
-       */
       x = -20 + (bval[i] * 20) / 10;
       if (x > 6) {
         x = 100;
@@ -2959,9 +2425,6 @@ export class PsyModel {
       gfc.minval_l[i] = Math.pow(10.0, x / 10) * gfc.numlines_l[i];
     }
 
-    /** **********************************************************************
-     * do the same things for short blocks
-     ************************************************************************/
     gfc.npart_s = this.init_numline(
       gfc.numlines_s,
       gfc.bo_s,
@@ -2976,9 +2439,8 @@ export class PsyModel {
       BLKSIZE_s / (2.0 * 192),
       SBMAX_s
     );
-    console.assert(gfc.npart_s < CBANDS);
+    assert(gfc.npart_s < CBANDS);
 
-    /* SNR formula. short block is normalized by SNR. is it still right ? */
     j = 0;
     for (i = 0; i < gfc.npart_s; i++) {
       let x;
@@ -2990,30 +2452,20 @@ export class PsyModel {
       }
       norm[i] = Math.pow(10.0, snr / 10.0);
 
-      /* ATH */
       x = MAX_FLOAT32_VALUE;
       for (let k = 0; k < gfc.numlines_s[i]; k++, j++) {
         const freq = (sfreq * j) / (1000.0 * BLKSIZE_s);
         let level;
-        /* freq = Min(.1,freq); */
-        /*
-         * ATH below 100 Hz constant, not
-         * further climbing
-         */
+
         level = this.ATHformula(freq * 1000, gfp) - 20;
-        // scale to FFT units; returned value is in dB
+
         level = Math.pow(10, 0.1 * level);
-        // convert from dB . energy
+
         level *= gfc.numlines_s[i];
         if (x > level) x = level;
       }
       gfc.ATH.cb_s[i] = x;
 
-      /*
-       * MINVAL. For low freq, the strength of the masking is limited by
-       * minval this is an ISO MPEG1 thing, dont know if it is really
-       * needed
-       */
       x = -7.0 + (bval[i] * 7.0) / 12.0;
       if (bval[i] > 12) {
         x *= 1 + Math.log(1 + x) * 3.1;
@@ -3040,7 +2492,6 @@ export class PsyModel {
     this.init_mask_add_max_values();
     this.fft.init();
 
-    /* setup temporal masking */
     gfc.decay = Math.exp(
       (-1.0 * LOG10) / ((this.temporalmask_sustain_sec * sfreq) / 192.0)
     );
@@ -3052,45 +2503,32 @@ export class PsyModel {
       if (Math.abs(gfp.msfix) > 0.0) msfix = gfp.msfix;
       gfp.msfix = msfix;
 
-      /*
-       * spread only from npart_l bands. Normally, we use the spreading
-       * function to convolve from npart_l down to npart_l bands
-       */
       for (let b = 0; b < gfc.npart_l; b++)
         if (gfc.s3ind[b][1] > gfc.npart_l - 1)
           gfc.s3ind[b][1] = gfc.npart_l - 1;
     }
 
-    /*
-     * prepare for ATH auto adjustment: we want to decrease the ATH by 12 dB
-     * per second
-     */
     const frame_duration = (576 * gfc.mode_gr) / sfreq;
     gfc.ATH.decay = Math.pow(10, (-12 / 10) * frame_duration);
     gfc.ATH.adjust = 0.01;
-    /* minimum, for leading low loudness */
-    gfc.ATH.adjustLimit = 1.0;
-    /* on lead, allow adjust up to maximum */
 
-    console.assert(gfc.bo_l[SBMAX_l - 1] <= gfc.npart_l);
-    console.assert(gfc.bo_s[SBMAX_s - 1] <= gfc.npart_s);
+    gfc.ATH.adjustLimit = 1.0;
+
+    assert(gfc.bo_l[SBMAX_l - 1] <= gfc.npart_l);
+    assert(gfc.bo_s[SBMAX_s - 1] <= gfc.npart_s);
 
     if (gfp.ATHtype !== -1) {
-      /* compute equal loudness weights (eql_w) */
       let freq;
       const freq_inc = gfp.out_samplerate / BLKSIZE;
       let eql_balance = 0.0;
       freq = 0.0;
       for (i = 0; i < BLKSIZE / 2; ++i) {
-        /* convert ATH dB to relative power (not dB) */
-        /* to determine eql_w */
         freq += freq_inc;
         gfc.ATH.eql_w[i] = 1 / Math.pow(10, this.ATHformula(freq, gfp) / 10);
         eql_balance += gfc.ATH.eql_w[i];
       }
       eql_balance = 1.0 / eql_balance;
       for (i = BLKSIZE / 2; --i >= 0; ) {
-        /* scale weights */
         gfc.ATH.eql_w[i] *= eql_balance;
       }
     }
@@ -3102,7 +2540,7 @@ export class PsyModel {
           ++j;
         }
       }
-      console.assert(j === 129);
+      assert(j === 129);
       b = 0;
       j = 0;
       for (; b < gfc.npart_l; ++b) {
@@ -3110,7 +2548,7 @@ export class PsyModel {
           ++j;
         }
       }
-      console.assert(j === 513);
+      assert(j === 513);
     }
     j = 0;
     for (i = 0; i < gfc.npart_l; i++) {
@@ -3133,41 +2571,9 @@ export class PsyModel {
     return 0;
   }
 
-  /**
-   * Those ATH formulas are returning their minimum value for input = -1
-   */
   private ATHformula_GB(f: number, value: number) {
-    /**
-     * <PRE>
-     *  from Painter & Spanias
-     *           modified by Gabriel Bouvigne to better fit the reality
-     *           ath =    3.640 * pow(f,-0.8)
-     *           - 6.800 * exp(-0.6*pow(f-3.4,2.0))
-     *           + 6.000 * exp(-0.15*pow(f-8.7,2.0))
-     *           + 0.6* 0.001 * pow(f,4.0);
-     *
-     *
-     *           In the past LAME was using the Painter &Spanias formula.
-     *           But we had some recurrent problems with HF content.
-     *           We measured real ATH values, and found the older formula
-     *           to be inaccurate in the higher part. So we made this new
-     *           formula and this solved most of HF problematic test cases.
-     *           The tradeoff is that in VBR mode it increases a lot the
-     *           bitrate.
-     * </PRE>
-     */
-
-    /*
-     * This curve can be adjusted according to the VBR scale: it adjusts
-     * from something close to Painter & Spanias on V9 up to Bouvigne's
-     * formula for V0. This way the VBR bitrate is more balanced according
-     * to the -V value.
-     */
-
-    // the following Hack allows to ask for the lowest value
     if (f < -0.3) f = 3410;
 
-    // convert to khz
     f /= 1000;
     f = Math.max(0.1, f);
     const ath =
@@ -3185,14 +2591,12 @@ export class PsyModel {
         ath = this.ATHformula_GB(f, 9);
         break;
       case 1:
-        // over sensitive, should probably be removed
         ath = this.ATHformula_GB(f, -1);
         break;
       case 2:
         ath = this.ATHformula_GB(f, 0);
         break;
       case 3:
-        // modification of GB formula by Roel
         ath = this.ATHformula_GB(f, 1) + 6;
         break;
       case 4:

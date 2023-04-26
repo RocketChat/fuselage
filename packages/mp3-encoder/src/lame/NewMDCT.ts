@@ -1,30 +1,5 @@
-/*
- *      MP3 window subband -> subband filtering -> mdct routine
- *
- *      Copyright (c) 1999-2000 Takehiro Tominaga
- *
- *
- * This library is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 2 of the License, or (at your option) any later version.
- *
- * This library is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Library General Public License for more details.
- *
- * You should have received a copy of the GNU Library General Public
- * License along with this library; if not, write to the
- * Free Software Foundation, Inc., 59 Temple Place - Suite 330,
- * Boston, MA 02111-1307, USA.
- */
-/*
- *         Special Thanks to Patrick De Smet for your advices.
- */
-
-import { copyArray, fillArray } from './Arrays';
 import type { LameInternalFlags } from './LameInternalFlags';
+import { copyArray, fillArray } from './arrays';
 import { SHORT_TYPE } from './constants';
 
 export class NewMDCT {
@@ -36,7 +11,7 @@ export class NewMDCT {
     (3.5758972e-2 * 0.740951125354959) / 2.384e-6,
     (3.401756e-3 * 0.740951125354959) / 2.384e-6,
     (9.83715e-4 * 0.740951125354959) / 2.384e-6,
-    (9.9182e-5 * 0.740951125354959) / 2.384e-6 /* 15 */,
+    (9.9182e-5 * 0.740951125354959) / 2.384e-6,
     (1.2398e-5 * 0.740951125354959) / 2.384e-6,
     (1.91212e-4 * 0.740951125354959) / 2.384e-6,
     (2.283096e-3 * 0.740951125354959) / 2.384e-6,
@@ -55,7 +30,7 @@ export class NewMDCT {
     (3.5694122e-2 * 0.773010453362737) / 2.384e-6,
     (3.643036e-3 * 0.773010453362737) / 2.384e-6,
     (9.91821e-4 * 0.773010453362737) / 2.384e-6,
-    (9.6321e-5 * 0.773010453362737) / 2.384e-6 /* 14 */,
+    (9.6321e-5 * 0.773010453362737) / 2.384e-6,
     (1.1444e-5 * 0.773010453362737) / 2.384e-6,
     (1.65462e-4 * 0.773010453362737) / 2.384e-6,
     (2.110004e-3 * 0.773010453362737) / 2.384e-6,
@@ -74,7 +49,7 @@ export class NewMDCT {
     (3.5586357e-2 * 0.803207531480645) / 2.384e-6,
     (3.858566e-3 * 0.803207531480645) / 2.384e-6,
     (9.95159e-4 * 0.803207531480645) / 2.384e-6,
-    (9.346e-5 * 0.803207531480645) / 2.384e-6 /* 13 */,
+    (9.346e-5 * 0.803207531480645) / 2.384e-6,
     (1.0014e-5 * 0.803207531480645) / 2.384e-6,
     (1.4019e-4 * 0.803207531480645) / 2.384e-6,
     (1.937389e-3 * 0.803207531480645) / 2.384e-6,
@@ -93,7 +68,7 @@ export class NewMDCT {
     (3.54352e-2 * 0.831469612302545) / 2.384e-6,
     (4.049301e-3 * 0.831469612302545) / 2.384e-6,
     (9.94205e-4 * 0.831469612302545) / 2.384e-6,
-    (9.0599e-5 * 0.831469612302545) / 2.384e-6 /* 12 */,
+    (9.0599e-5 * 0.831469612302545) / 2.384e-6,
     (9.06e-6 * 0.831469612302545) / 2.384e-6,
     (1.16348e-4 * 0.831469612302545) / 2.384e-6,
     (1.766682e-3 * 0.831469612302545) / 2.384e-6,
@@ -112,7 +87,7 @@ export class NewMDCT {
     (3.5242081e-2 * 0.857728610000272) / 2.384e-6,
     (4.21524e-3 * 0.857728610000272) / 2.384e-6,
     (9.89437e-4 * 0.857728610000272) / 2.384e-6,
-    (8.7261e-5 * 0.857728610000272) / 2.384e-6 /* 11 */,
+    (8.7261e-5 * 0.857728610000272) / 2.384e-6,
     (8.106e-6 * 0.857728610000272) / 2.384e-6,
     (9.3937e-5 * 0.857728610000272) / 2.384e-6,
     (1.597881e-3 * 0.857728610000272) / 2.384e-6,
@@ -131,7 +106,7 @@ export class NewMDCT {
     (3.5007e-2 * 0.881921264348355) / 2.384e-6,
     (4.357815e-3 * 0.881921264348355) / 2.384e-6,
     (9.80854e-4 * 0.881921264348355) / 2.384e-6,
-    (8.3923e-5 * 0.881921264348355) / 2.384e-6 /* 10 */,
+    (8.3923e-5 * 0.881921264348355) / 2.384e-6,
     (7.629e-6 * 0.881921264348355) / 2.384e-6,
     (7.2956e-5 * 0.881921264348355) / 2.384e-6,
     (1.432419e-3 * 0.881921264348355) / 2.384e-6,
@@ -150,7 +125,7 @@ export class NewMDCT {
     (3.4730434e-2 * 0.903989293123443) / 2.384e-6,
     (4.477024e-3 * 0.903989293123443) / 2.384e-6,
     (9.68933e-4 * 0.903989293123443) / 2.384e-6,
-    (8.0585e-5 * 0.903989293123443) / 2.384e-6 /* 9 */,
+    (8.0585e-5 * 0.903989293123443) / 2.384e-6,
     (6.676e-6 * 0.903989293123443) / 2.384e-6,
     (5.2929e-5 * 0.903989293123443) / 2.384e-6,
     (1.269817e-3 * 0.903989293123443) / 2.384e-6,
@@ -178,7 +153,7 @@ export class NewMDCT {
     (-3.771782e-3 * 0.9238795325112867) / 2.384e-6,
     (-4.72546e-4 * 0.9238795325112867) / 2.384e-6,
     (-2.7657e-5 * 0.9238795325112867) / 2.384e-6,
-    0.41421356237309503 /* tan(PI/8) */,
+    0.41421356237309503,
     1.414213562373095,
 
     (-9.54e-7 * 0.941544065183021) / 2.384e-6,
@@ -188,7 +163,7 @@ export class NewMDCT {
     (3.405571e-2 * 0.941544065183021) / 2.384e-6,
     (4.649162e-3 * 0.941544065183021) / 2.384e-6,
     (9.35555e-4 * 0.941544065183021) / 2.384e-6,
-    (7.3433e-5 * 0.941544065183021) / 2.384e-6 /* 7 */,
+    (7.3433e-5 * 0.941544065183021) / 2.384e-6,
     (5.245e-6 * 0.941544065183021) / 2.384e-6,
     (1.7166e-5 * 0.941544065183021) / 2.384e-6,
     (9.56535e-4 * 0.941544065183021) / 2.384e-6,
@@ -207,7 +182,7 @@ export class NewMDCT {
     (3.3659935e-2 * 0.956940335732209) / 2.384e-6,
     (4.703045e-3 * 0.956940335732209) / 2.384e-6,
     (9.15051e-4 * 0.956940335732209) / 2.384e-6,
-    (7.0095e-5 * 0.956940335732209) / 2.384e-6 /* 6 */,
+    (7.0095e-5 * 0.956940335732209) / 2.384e-6,
     (4.768e-6 * 0.956940335732209) / 2.384e-6,
     (9.54e-7 * 0.956940335732209) / 2.384e-6,
     (8.06808e-4 * 0.956940335732209) / 2.384e-6,
@@ -226,7 +201,7 @@ export class NewMDCT {
     (3.3225536e-2 * 0.970031253194544) / 2.384e-6,
     (4.737377e-3 * 0.970031253194544) / 2.384e-6,
     (8.91685e-4 * 0.970031253194544) / 2.384e-6,
-    (6.628e-5 * 0.970031253194544) / 2.384e-6 /* 5 */,
+    (6.628e-5 * 0.970031253194544) / 2.384e-6,
     (4.292e-6 * 0.970031253194544) / 2.384e-6,
     (-1.3828e-5 * 0.970031253194544) / 2.384e-6,
     (6.6185e-4 * 0.970031253194544) / 2.384e-6,
@@ -245,7 +220,7 @@ export class NewMDCT {
     (3.2754898e-2 * 0.98078528040323) / 2.384e-6,
     (4.752159e-3 * 0.98078528040323) / 2.384e-6,
     (8.66413e-4 * 0.98078528040323) / 2.384e-6,
-    (6.2943e-5 * 0.98078528040323) / 2.384e-6 /* 4 */,
+    (6.2943e-5 * 0.98078528040323) / 2.384e-6,
     (3.815e-6 * 0.98078528040323) / 2.384e-6,
     (-2.718e-5 * 0.98078528040323) / 2.384e-6,
     (5.22137e-4 * 0.98078528040323) / 2.384e-6,
@@ -264,7 +239,7 @@ export class NewMDCT {
     (3.224802e-2 * 0.989176509964781) / 2.384e-6,
     (4.748821e-3 * 0.989176509964781) / 2.384e-6,
     (8.38757e-4 * 0.989176509964781) / 2.384e-6,
-    (5.9605e-5 * 0.989176509964781) / 2.384e-6 /* 3 */,
+    (5.9605e-5 * 0.989176509964781) / 2.384e-6,
     (3.338e-6 * 0.989176509964781) / 2.384e-6,
     (-3.9577e-5 * 0.989176509964781) / 2.384e-6,
     (3.88145e-4 * 0.989176509964781) / 2.384e-6,
@@ -329,7 +304,7 @@ export class NewMDCT {
     4.9591e-5 / 2.384e-6,
     4.756451e-3 / 2.384e-6,
     2.1458e-5 / 2.384e-6,
-    -6.9618e-5 / 2.384e-6 /* 2.384e-06/2.384e-06 */,
+    -6.9618e-5 / 2.384e-6,
   ] as const;
 
   private static readonly NS = 12;
@@ -371,22 +346,21 @@ export class NewMDCT {
       -4.037858874020686e-13, -2.146547464825323e-13,
     ],
     [
-      1.316524975873958e-1 /* win[SHORT_TYPE] */, 4.14213562373095e-1,
-      7.673269879789602e-1,
+      1.316524975873958e-1, 4.14213562373095e-1, 7.673269879789602e-1,
 
-      1.091308501069271 /* tantab_l */, 1.303225372841206, 1.56968557711749,
-      1.920982126971166, 2.414213562373094, 3.171594802363212,
-      4.510708503662055, 7.595754112725146, 2.290376554843115e1,
+      1.091308501069271, 1.303225372841206, 1.56968557711749, 1.920982126971166,
+      2.414213562373094, 3.171594802363212, 4.510708503662055,
+      7.595754112725146, 2.290376554843115e1,
 
-      0.98480775301220802032 /* cx */, 0.64278760968653936292,
-      0.34202014332566882393, 0.93969262078590842791, -0.17364817766693030343,
-      -0.76604444311897790243, 0.86602540378443870761, 0.5,
+      0.98480775301220802032, 0.64278760968653936292, 0.34202014332566882393,
+      0.93969262078590842791, -0.17364817766693030343, -0.76604444311897790243,
+      0.86602540378443870761, 0.5,
 
-      -5.144957554275265e-1 /* ca */, -4.717319685649723e-1,
-      -3.133774542039019e-1, -1.819131996109812e-1, -9.457419252642064e-2,
-      -4.096558288530405e-2, -1.419856857247115e-2, -3.699974673760037e-3,
+      -5.144957554275265e-1, -4.717319685649723e-1, -3.133774542039019e-1,
+      -1.819131996109812e-1, -9.457419252642064e-2, -4.096558288530405e-2,
+      -1.419856857247115e-2, -3.699974673760037e-3,
 
-      8.574929257125442e-1 /* cs */, 8.817419973177052e-1, 9.496286491027329e-1,
+      8.574929257125442e-1, 8.817419973177052e-1, 9.496286491027329e-1,
       9.833145924917901e-1, 9.955178160675857e-1, 9.991605581781475e-1,
       9.99899195244447e-1, 9.999931550702802e-1,
     ],
@@ -416,25 +390,11 @@ export class NewMDCT {
 
   private readonly cs = this.win[SHORT_TYPE];
 
-  /**
-   * new IDCT routine written by Takehiro TOMINAGA
-   *
-   * PURPOSE: Overlapping window on PCM samples<BR>
-   *
-   * SEMANTICS:<BR>
-   * 32 16-bit pcm samples are scaled to fractional 2's complement and
-   * concatenated to the end of the window buffer #x#. The updated window
-   * buffer #x# is then windowed by the analysis window #c# to produce the
-   * windowed sample #z#
-   */
   private readonly order = [
     0, 1, 16, 17, 8, 9, 24, 25, 4, 5, 20, 21, 12, 13, 28, 29, 2, 3, 18, 19, 10,
     11, 26, 27, 6, 7, 22, 23, 14, 15, 30, 31,
   ] as const;
 
-  /**
-   * returns sum_j=0^31 a[j]*cos(PI*j*(k+1/2)/32), 0<=k<32
-   */
   private window_subband(x1: Float32Array, x1Pos: number, a: Float32Array) {
     let wp = 10;
 
@@ -495,11 +455,6 @@ export class NewMDCT {
       s += x1[x1Pos + 192] * w;
       t -= x1[x2 + -192] * w;
 
-      /*
-       * this multiplyer could be removed, but it needs more 256 FLOAT
-       * data. thinking about the data cache performance, I think we
-       * should not use such a huge table. tt 2000/Oct/25
-       */
       s *= this.enwindow[wp + 6];
       w = t - s;
       a[30 + i * 2] = t + s;
@@ -508,329 +463,316 @@ export class NewMDCT {
       x1Pos--;
       x2++;
     }
-    {
-      let s;
-      let t;
-      t = x1[x1Pos + -16] * this.enwindow[wp + -10];
-      s = x1[x1Pos + -32] * this.enwindow[wp + -2];
-      t += (x1[x1Pos + -48] - x1[x1Pos + 16]) * this.enwindow[wp + -9];
-      s += x1[x1Pos + -96] * this.enwindow[wp + -1];
-      t += (x1[x1Pos + -80] + x1[x1Pos + 48]) * this.enwindow[wp + -8];
-      s += x1[x1Pos + -160] * this.enwindow[wp + 0];
-      t += (x1[x1Pos + -112] - x1[x1Pos + 80]) * this.enwindow[wp + -7];
-      s += x1[x1Pos + -224] * this.enwindow[wp + 1];
-      t += (x1[x1Pos + -144] + x1[x1Pos + 112]) * this.enwindow[wp + -6];
-      s -= x1[x1Pos + 32] * this.enwindow[wp + 2];
-      t += (x1[x1Pos + -176] - x1[x1Pos + 144]) * this.enwindow[wp + -5];
-      s -= x1[x1Pos + 96] * this.enwindow[wp + 3];
-      t += (x1[x1Pos + -208] + x1[x1Pos + 176]) * this.enwindow[wp + -4];
-      s -= x1[x1Pos + 160] * this.enwindow[wp + 4];
-      t += (x1[x1Pos + -240] - x1[x1Pos + 208]) * this.enwindow[wp + -3];
-      s -= x1[x1Pos + 224];
 
-      const u = s - t;
-      const v = s + t;
+    let s;
+    let t;
+    t = x1[x1Pos + -16] * this.enwindow[wp + -10];
+    s = x1[x1Pos + -32] * this.enwindow[wp + -2];
+    t += (x1[x1Pos + -48] - x1[x1Pos + 16]) * this.enwindow[wp + -9];
+    s += x1[x1Pos + -96] * this.enwindow[wp + -1];
+    t += (x1[x1Pos + -80] + x1[x1Pos + 48]) * this.enwindow[wp + -8];
+    s += x1[x1Pos + -160] * this.enwindow[wp + 0];
+    t += (x1[x1Pos + -112] - x1[x1Pos + 80]) * this.enwindow[wp + -7];
+    s += x1[x1Pos + -224] * this.enwindow[wp + 1];
+    t += (x1[x1Pos + -144] + x1[x1Pos + 112]) * this.enwindow[wp + -6];
+    s -= x1[x1Pos + 32] * this.enwindow[wp + 2];
+    t += (x1[x1Pos + -176] - x1[x1Pos + 144]) * this.enwindow[wp + -5];
+    s -= x1[x1Pos + 96] * this.enwindow[wp + 3];
+    t += (x1[x1Pos + -208] + x1[x1Pos + 176]) * this.enwindow[wp + -4];
+    s -= x1[x1Pos + 160] * this.enwindow[wp + 4];
+    t += (x1[x1Pos + -240] - x1[x1Pos + 208]) * this.enwindow[wp + -3];
+    s -= x1[x1Pos + 224];
 
-      t = a[14];
-      s = a[15] - t;
+    const u = s - t;
+    const v = s + t;
 
-      a[31] = v + t; /* A0 */
-      a[30] = u + s; /* A1 */
-      a[15] = u - s; /* A2 */
-      a[14] = v - t; /* A3 */
-    }
-    {
-      let xr;
-      xr = a[28] - a[0];
-      a[0] += a[28];
-      a[28] = xr * this.enwindow[wp + -2 * 18 + 7];
-      xr = a[29] - a[1];
-      a[1] += a[29];
-      a[29] = xr * this.enwindow[wp + -2 * 18 + 7];
+    t = a[14];
+    s = a[15] - t;
 
-      xr = a[26] - a[2];
-      a[2] += a[26];
-      a[26] = xr * this.enwindow[wp + -4 * 18 + 7];
-      xr = a[27] - a[3];
-      a[3] += a[27];
-      a[27] = xr * this.enwindow[wp + -4 * 18 + 7];
+    a[31] = v + t;
+    a[30] = u + s;
+    a[15] = u - s;
+    a[14] = v - t;
 
-      xr = a[24] - a[4];
-      a[4] += a[24];
-      a[24] = xr * this.enwindow[wp + -6 * 18 + 7];
-      xr = a[25] - a[5];
-      a[5] += a[25];
-      a[25] = xr * this.enwindow[wp + -6 * 18 + 7];
+    let xr;
+    xr = a[28] - a[0];
+    a[0] += a[28];
+    a[28] = xr * this.enwindow[wp + -2 * 18 + 7];
+    xr = a[29] - a[1];
+    a[1] += a[29];
+    a[29] = xr * this.enwindow[wp + -2 * 18 + 7];
 
-      xr = a[22] - a[6];
-      a[6] += a[22];
-      a[22] = xr * Math.SQRT2;
-      xr = a[23] - a[7];
-      a[7] += a[23];
-      a[23] = xr * Math.SQRT2 - a[7];
-      a[7] -= a[6];
-      a[22] -= a[7];
-      a[23] -= a[22];
+    xr = a[26] - a[2];
+    a[2] += a[26];
+    a[26] = xr * this.enwindow[wp + -4 * 18 + 7];
+    xr = a[27] - a[3];
+    a[3] += a[27];
+    a[27] = xr * this.enwindow[wp + -4 * 18 + 7];
 
-      xr = a[6];
-      a[6] = a[31] - xr;
-      a[31] += xr;
-      xr = a[7];
-      a[7] = a[30] - xr;
-      a[30] += xr;
-      xr = a[22];
-      a[22] = a[15] - xr;
-      a[15] += xr;
-      xr = a[23];
-      a[23] = a[14] - xr;
-      a[14] += xr;
+    xr = a[24] - a[4];
+    a[4] += a[24];
+    a[24] = xr * this.enwindow[wp + -6 * 18 + 7];
+    xr = a[25] - a[5];
+    a[5] += a[25];
+    a[25] = xr * this.enwindow[wp + -6 * 18 + 7];
 
-      xr = a[20] - a[8];
-      a[8] += a[20];
-      a[20] = xr * this.enwindow[wp + -10 * 18 + 7];
-      xr = a[21] - a[9];
-      a[9] += a[21];
-      a[21] = xr * this.enwindow[wp + -10 * 18 + 7];
+    xr = a[22] - a[6];
+    a[6] += a[22];
+    a[22] = xr * Math.SQRT2;
+    xr = a[23] - a[7];
+    a[7] += a[23];
+    a[23] = xr * Math.SQRT2 - a[7];
+    a[7] -= a[6];
+    a[22] -= a[7];
+    a[23] -= a[22];
 
-      xr = a[18] - a[10];
-      a[10] += a[18];
-      a[18] = xr * this.enwindow[wp + -12 * 18 + 7];
-      xr = a[19] - a[11];
-      a[11] += a[19];
-      a[19] = xr * this.enwindow[wp + -12 * 18 + 7];
+    xr = a[6];
+    a[6] = a[31] - xr;
+    a[31] += xr;
+    xr = a[7];
+    a[7] = a[30] - xr;
+    a[30] += xr;
+    xr = a[22];
+    a[22] = a[15] - xr;
+    a[15] += xr;
+    xr = a[23];
+    a[23] = a[14] - xr;
+    a[14] += xr;
 
-      xr = a[16] - a[12];
-      a[12] += a[16];
-      a[16] = xr * this.enwindow[wp + -14 * 18 + 7];
-      xr = a[17] - a[13];
-      a[13] += a[17];
-      a[17] = xr * this.enwindow[wp + -14 * 18 + 7];
+    xr = a[20] - a[8];
+    a[8] += a[20];
+    a[20] = xr * this.enwindow[wp + -10 * 18 + 7];
+    xr = a[21] - a[9];
+    a[9] += a[21];
+    a[21] = xr * this.enwindow[wp + -10 * 18 + 7];
 
-      xr = -a[20] + a[24];
-      a[20] += a[24];
-      a[24] = xr * this.enwindow[wp + -12 * 18 + 7];
-      xr = -a[21] + a[25];
-      a[21] += a[25];
-      a[25] = xr * this.enwindow[wp + -12 * 18 + 7];
+    xr = a[18] - a[10];
+    a[10] += a[18];
+    a[18] = xr * this.enwindow[wp + -12 * 18 + 7];
+    xr = a[19] - a[11];
+    a[11] += a[19];
+    a[19] = xr * this.enwindow[wp + -12 * 18 + 7];
 
-      xr = a[4] - a[8];
-      a[4] += a[8];
-      a[8] = xr * this.enwindow[wp + -12 * 18 + 7];
-      xr = a[5] - a[9];
-      a[5] += a[9];
-      a[9] = xr * this.enwindow[wp + -12 * 18 + 7];
+    xr = a[16] - a[12];
+    a[12] += a[16];
+    a[16] = xr * this.enwindow[wp + -14 * 18 + 7];
+    xr = a[17] - a[13];
+    a[13] += a[17];
+    a[17] = xr * this.enwindow[wp + -14 * 18 + 7];
 
-      xr = a[0] - a[12];
-      a[0] += a[12];
-      a[12] = xr * this.enwindow[wp + -4 * 18 + 7];
-      xr = a[1] - a[13];
-      a[1] += a[13];
-      a[13] = xr * this.enwindow[wp + -4 * 18 + 7];
-      xr = a[16] - a[28];
-      a[16] += a[28];
-      a[28] = xr * this.enwindow[wp + -4 * 18 + 7];
-      xr = -a[17] + a[29];
-      a[17] += a[29];
-      a[29] = xr * this.enwindow[wp + -4 * 18 + 7];
+    xr = -a[20] + a[24];
+    a[20] += a[24];
+    a[24] = xr * this.enwindow[wp + -12 * 18 + 7];
+    xr = -a[21] + a[25];
+    a[21] += a[25];
+    a[25] = xr * this.enwindow[wp + -12 * 18 + 7];
 
-      xr = Math.SQRT2 * (a[2] - a[10]);
-      a[2] += a[10];
-      a[10] = xr;
-      xr = Math.SQRT2 * (a[3] - a[11]);
-      a[3] += a[11];
-      a[11] = xr;
-      xr = Math.SQRT2 * (-a[18] + a[26]);
-      a[18] += a[26];
-      a[26] = xr - a[18];
-      xr = Math.SQRT2 * (-a[19] + a[27]);
-      a[19] += a[27];
-      a[27] = xr - a[19];
+    xr = a[4] - a[8];
+    a[4] += a[8];
+    a[8] = xr * this.enwindow[wp + -12 * 18 + 7];
+    xr = a[5] - a[9];
+    a[5] += a[9];
+    a[9] = xr * this.enwindow[wp + -12 * 18 + 7];
 
-      xr = a[2];
-      a[19] -= a[3];
-      a[3] -= xr;
-      a[2] = a[31] - xr;
-      a[31] += xr;
-      xr = a[3];
-      a[11] -= a[19];
-      a[18] -= xr;
-      a[3] = a[30] - xr;
-      a[30] += xr;
-      xr = a[18];
-      a[27] -= a[11];
-      a[19] -= xr;
-      a[18] = a[15] - xr;
-      a[15] += xr;
+    xr = a[0] - a[12];
+    a[0] += a[12];
+    a[12] = xr * this.enwindow[wp + -4 * 18 + 7];
+    xr = a[1] - a[13];
+    a[1] += a[13];
+    a[13] = xr * this.enwindow[wp + -4 * 18 + 7];
+    xr = a[16] - a[28];
+    a[16] += a[28];
+    a[28] = xr * this.enwindow[wp + -4 * 18 + 7];
+    xr = -a[17] + a[29];
+    a[17] += a[29];
+    a[29] = xr * this.enwindow[wp + -4 * 18 + 7];
 
-      xr = a[19];
-      a[10] -= xr;
-      a[19] = a[14] - xr;
-      a[14] += xr;
-      xr = a[10];
-      a[11] -= xr;
-      a[10] = a[23] - xr;
-      a[23] += xr;
-      xr = a[11];
-      a[26] -= xr;
-      a[11] = a[22] - xr;
-      a[22] += xr;
-      xr = a[26];
-      a[27] -= xr;
-      a[26] = a[7] - xr;
-      a[7] += xr;
+    xr = Math.SQRT2 * (a[2] - a[10]);
+    a[2] += a[10];
+    a[10] = xr;
+    xr = Math.SQRT2 * (a[3] - a[11]);
+    a[3] += a[11];
+    a[11] = xr;
+    xr = Math.SQRT2 * (-a[18] + a[26]);
+    a[18] += a[26];
+    a[26] = xr - a[18];
+    xr = Math.SQRT2 * (-a[19] + a[27]);
+    a[19] += a[27];
+    a[27] = xr - a[19];
 
-      xr = a[27];
-      a[27] = a[6] - xr;
-      a[6] += xr;
+    xr = a[2];
+    a[19] -= a[3];
+    a[3] -= xr;
+    a[2] = a[31] - xr;
+    a[31] += xr;
+    xr = a[3];
+    a[11] -= a[19];
+    a[18] -= xr;
+    a[3] = a[30] - xr;
+    a[30] += xr;
+    xr = a[18];
+    a[27] -= a[11];
+    a[19] -= xr;
+    a[18] = a[15] - xr;
+    a[15] += xr;
 
-      xr = Math.SQRT2 * (a[0] - a[4]);
-      a[0] += a[4];
-      a[4] = xr;
-      xr = Math.SQRT2 * (a[1] - a[5]);
-      a[1] += a[5];
-      a[5] = xr;
-      xr = Math.SQRT2 * (a[16] - a[20]);
-      a[16] += a[20];
-      a[20] = xr;
-      xr = Math.SQRT2 * (a[17] - a[21]);
-      a[17] += a[21];
-      a[21] = xr;
+    xr = a[19];
+    a[10] -= xr;
+    a[19] = a[14] - xr;
+    a[14] += xr;
+    xr = a[10];
+    a[11] -= xr;
+    a[10] = a[23] - xr;
+    a[23] += xr;
+    xr = a[11];
+    a[26] -= xr;
+    a[11] = a[22] - xr;
+    a[22] += xr;
+    xr = a[26];
+    a[27] -= xr;
+    a[26] = a[7] - xr;
+    a[7] += xr;
 
-      xr = -Math.SQRT2 * (a[8] - a[12]);
-      a[8] += a[12];
-      a[12] = xr - a[8];
-      xr = -Math.SQRT2 * (a[9] - a[13]);
-      a[9] += a[13];
-      a[13] = xr - a[9];
-      xr = -Math.SQRT2 * (a[25] - a[29]);
-      a[25] += a[29];
-      a[29] = xr - a[25];
-      xr = -Math.SQRT2 * (a[24] + a[28]);
-      a[24] -= a[28];
-      a[28] = xr - a[24];
+    xr = a[27];
+    a[27] = a[6] - xr;
+    a[6] += xr;
 
-      xr = a[24] - a[16];
-      a[24] = xr;
-      xr = a[20] - xr;
-      a[20] = xr;
-      xr = a[28] - xr;
-      a[28] = xr;
+    xr = Math.SQRT2 * (a[0] - a[4]);
+    a[0] += a[4];
+    a[4] = xr;
+    xr = Math.SQRT2 * (a[1] - a[5]);
+    a[1] += a[5];
+    a[5] = xr;
+    xr = Math.SQRT2 * (a[16] - a[20]);
+    a[16] += a[20];
+    a[20] = xr;
+    xr = Math.SQRT2 * (a[17] - a[21]);
+    a[17] += a[21];
+    a[21] = xr;
 
-      xr = a[25] - a[17];
-      a[25] = xr;
-      xr = a[21] - xr;
-      a[21] = xr;
-      xr = a[29] - xr;
-      a[29] = xr;
+    xr = -Math.SQRT2 * (a[8] - a[12]);
+    a[8] += a[12];
+    a[12] = xr - a[8];
+    xr = -Math.SQRT2 * (a[9] - a[13]);
+    a[9] += a[13];
+    a[13] = xr - a[9];
+    xr = -Math.SQRT2 * (a[25] - a[29]);
+    a[25] += a[29];
+    a[29] = xr - a[25];
+    xr = -Math.SQRT2 * (a[24] + a[28]);
+    a[24] -= a[28];
+    a[28] = xr - a[24];
 
-      xr = a[17] - a[1];
-      a[17] = xr;
-      xr = a[9] - xr;
-      a[9] = xr;
-      xr = a[25] - xr;
-      a[25] = xr;
-      xr = a[5] - xr;
-      a[5] = xr;
-      xr = a[21] - xr;
-      a[21] = xr;
-      xr = a[13] - xr;
-      a[13] = xr;
-      xr = a[29] - xr;
-      a[29] = xr;
+    xr = a[24] - a[16];
+    a[24] = xr;
+    xr = a[20] - xr;
+    a[20] = xr;
+    xr = a[28] - xr;
+    a[28] = xr;
 
-      xr = a[1] - a[0];
-      a[1] = xr;
-      xr = a[16] - xr;
-      a[16] = xr;
-      xr = a[17] - xr;
-      a[17] = xr;
-      xr = a[8] - xr;
-      a[8] = xr;
-      xr = a[9] - xr;
-      a[9] = xr;
-      xr = a[24] - xr;
-      a[24] = xr;
-      xr = a[25] - xr;
-      a[25] = xr;
-      xr = a[4] - xr;
-      a[4] = xr;
-      xr = a[5] - xr;
-      a[5] = xr;
-      xr = a[20] - xr;
-      a[20] = xr;
-      xr = a[21] - xr;
-      a[21] = xr;
-      xr = a[12] - xr;
-      a[12] = xr;
-      xr = a[13] - xr;
-      a[13] = xr;
-      xr = a[28] - xr;
-      a[28] = xr;
-      xr = a[29] - xr;
-      a[29] = xr;
+    xr = a[25] - a[17];
+    a[25] = xr;
+    xr = a[21] - xr;
+    a[21] = xr;
+    xr = a[29] - xr;
+    a[29] = xr;
 
-      xr = a[0];
-      a[0] += a[31];
-      a[31] -= xr;
-      xr = a[1];
-      a[1] += a[30];
-      a[30] -= xr;
-      xr = a[16];
-      a[16] += a[15];
-      a[15] -= xr;
-      xr = a[17];
-      a[17] += a[14];
-      a[14] -= xr;
-      xr = a[8];
-      a[8] += a[23];
-      a[23] -= xr;
-      xr = a[9];
-      a[9] += a[22];
-      a[22] -= xr;
-      xr = a[24];
-      a[24] += a[7];
-      a[7] -= xr;
-      xr = a[25];
-      a[25] += a[6];
-      a[6] -= xr;
-      xr = a[4];
-      a[4] += a[27];
-      a[27] -= xr;
-      xr = a[5];
-      a[5] += a[26];
-      a[26] -= xr;
-      xr = a[20];
-      a[20] += a[11];
-      a[11] -= xr;
-      xr = a[21];
-      a[21] += a[10];
-      a[10] -= xr;
-      xr = a[12];
-      a[12] += a[19];
-      a[19] -= xr;
-      xr = a[13];
-      a[13] += a[18];
-      a[18] -= xr;
-      xr = a[28];
-      a[28] += a[3];
-      a[3] -= xr;
-      xr = a[29];
-      a[29] += a[2];
-      a[2] -= xr;
-    }
+    xr = a[17] - a[1];
+    a[17] = xr;
+    xr = a[9] - xr;
+    a[9] = xr;
+    xr = a[25] - xr;
+    a[25] = xr;
+    xr = a[5] - xr;
+    a[5] = xr;
+    xr = a[21] - xr;
+    a[21] = xr;
+    xr = a[13] - xr;
+    a[13] = xr;
+    xr = a[29] - xr;
+    a[29] = xr;
+
+    xr = a[1] - a[0];
+    a[1] = xr;
+    xr = a[16] - xr;
+    a[16] = xr;
+    xr = a[17] - xr;
+    a[17] = xr;
+    xr = a[8] - xr;
+    a[8] = xr;
+    xr = a[9] - xr;
+    a[9] = xr;
+    xr = a[24] - xr;
+    a[24] = xr;
+    xr = a[25] - xr;
+    a[25] = xr;
+    xr = a[4] - xr;
+    a[4] = xr;
+    xr = a[5] - xr;
+    a[5] = xr;
+    xr = a[20] - xr;
+    a[20] = xr;
+    xr = a[21] - xr;
+    a[21] = xr;
+    xr = a[12] - xr;
+    a[12] = xr;
+    xr = a[13] - xr;
+    a[13] = xr;
+    xr = a[28] - xr;
+    a[28] = xr;
+    xr = a[29] - xr;
+    a[29] = xr;
+
+    xr = a[0];
+    a[0] += a[31];
+    a[31] -= xr;
+    xr = a[1];
+    a[1] += a[30];
+    a[30] -= xr;
+    xr = a[16];
+    a[16] += a[15];
+    a[15] -= xr;
+    xr = a[17];
+    a[17] += a[14];
+    a[14] -= xr;
+    xr = a[8];
+    a[8] += a[23];
+    a[23] -= xr;
+    xr = a[9];
+    a[9] += a[22];
+    a[22] -= xr;
+    xr = a[24];
+    a[24] += a[7];
+    a[7] -= xr;
+    xr = a[25];
+    a[25] += a[6];
+    a[6] -= xr;
+    xr = a[4];
+    a[4] += a[27];
+    a[27] -= xr;
+    xr = a[5];
+    a[5] += a[26];
+    a[26] -= xr;
+    xr = a[20];
+    a[20] += a[11];
+    a[11] -= xr;
+    xr = a[21];
+    a[21] += a[10];
+    a[10] -= xr;
+    xr = a[12];
+    a[12] += a[19];
+    a[19] -= xr;
+    xr = a[13];
+    a[13] += a[18];
+    a[18] -= xr;
+    xr = a[28];
+    a[28] += a[3];
+    a[3] -= xr;
+    xr = a[29];
+    a[29] += a[2];
+    a[2] -= xr;
   }
 
-  /**
-   * Function: Calculation of the MDCT In the case of long blocks (type 0,1,3)
-   * there are 36 coefficents in the time domain and 18 in the frequency
-   * domain.<BR>
-   * In the case of short blocks (type 2) there are 3 transformations with
-   * short length. This leads to 12 coefficents in the time and 6 in the
-   * frequency domain. In this case the results are stored side by side in the
-   * vector out[].
-   *
-   * New layer3
-   */
   private mdct_short(inout: Float32Array, inoutPos: number) {
     for (let l = 0; l < 3; l++) {
       let tc0;
@@ -862,37 +804,25 @@ export class NewMDCT {
         (inout[inoutPos + 1 * 3] * this.win[SHORT_TYPE][1] -
           inout[inoutPos + 4 * 3]) *
         2.069978111953089e-11;
-      /*
-       * tritab_s [ 1 ]
-       */
+
       ts0 =
         (inout[inoutPos + 4 * 3] * this.win[SHORT_TYPE][1] +
           inout[inoutPos + 1 * 3]) *
         2.069978111953089e-11;
-      /*
-       * tritab_s [ 1 ]
-       */
+
       inout[inoutPos + 3 * 0] = tc1 * 1.90752519173728e-11 + tc0;
-      /*
-       * tritab_s[ 2 ]
-       */
+
       inout[inoutPos + 3 * 5] = -ts1 * 1.90752519173728e-11 + ts0;
-      /*
-       * tritab_s[0 ]
-       */
+
       tc2 = tc2 * 0.86602540378443870761 * 1.907525191737281e-11;
-      /*
-       * tritab_s[ 2]
-       */
+
       ts1 = ts1 * 0.5 * 1.907525191737281e-11 + ts0;
       inout[inoutPos + 3 * 1] = tc2 - ts1;
       inout[inoutPos + 3 * 2] = tc2 + ts1;
 
       tc1 = tc1 * 0.5 * 1.907525191737281e-11 - tc0;
       ts2 = ts2 * 0.86602540378443870761 * 1.907525191737281e-11;
-      /*
-       * tritab_s[ 0]
-       */
+
       inout[inoutPos + 3 * 3] = tc1 + ts2;
       inout[inoutPos + 3 * 4] = tc1 - ts2;
 
@@ -904,7 +834,6 @@ export class NewMDCT {
     let ct;
     let st;
     {
-      /* 1,2, 5,6, 9,10, 13,14, 17 */
       const tc1 = _in[17] - _in[9];
       const tc3 = _in[15] - _in[11];
       const tc4 = _in[14] - _in[12];
@@ -1021,7 +950,7 @@ export class NewMDCT {
   mdct_sub48(gfc: LameInternalFlags, w0: Float32Array, w1: Float32Array) {
     let wk = w0;
     let wkPos = 286;
-    /* thinking cache performance, ch->gr loop is better than gr->ch loop */
+
     for (let ch = 0; ch < gfc.channels_out; ch++) {
       for (let gr = 0; gr < gfc.mode_gr; gr++) {
         let band;
@@ -1036,18 +965,12 @@ export class NewMDCT {
           this.window_subband(wk, wkPos + 32, samp[sampPos + 1]);
           sampPos += 2;
           wkPos += 64;
-          /*
-           * Compensate for inversion in the analysis filter
-           */
+
           for (band = 1; band < 32; band += 2) {
             samp[sampPos - 1][band] *= -1;
           }
         }
 
-        /*
-         * Perform imdct of 18 previous subband samples + 18 current
-         * subband samples
-         */
         for (band = 0; band < 32; band++, mdct_encPos += 18) {
           let type = gi.block_type;
           const band0 = gfc.sb_sample[ch][gr];
@@ -1099,9 +1022,7 @@ export class NewMDCT {
               this.mdct_long(mdct_enc, mdct_encPos, work);
             }
           }
-          /*
-           * Perform aliasing reduction butterfly
-           */
+
           if (type !== SHORT_TYPE && band !== 0) {
             for (let k = 7; k >= 0; --k) {
               const bu =

@@ -1,4 +1,4 @@
-import { copyArray } from './Arrays';
+import { copyArray } from './arrays';
 import { SBMAX_l, SBMAX_s } from './constants';
 
 export class III_psy_xmin {

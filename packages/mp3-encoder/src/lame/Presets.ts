@@ -31,7 +31,6 @@ export class Presets {
   public readonly abrPresets = new ABRPresets();
 
   apply(gfp: LameGlobalFlags, preset: Preset) {
-    /* translate legacy presets */
     switch (preset) {
       case Preset.R3MIX: {
         preset = Preset.V3;
@@ -117,7 +116,6 @@ export class Presets {
       return this.abrPresets.apply(gfp, preset);
     }
 
-    /* no corresponding preset found */
     gfp.preset = 0;
     return preset;
   }

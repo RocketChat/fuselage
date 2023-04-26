@@ -1,4 +1,3 @@
-/* MPEG modes */
 export class MPEGMode {
   private constructor(public readonly ordinal: number) {}
 

@@ -41,10 +41,6 @@ const getBitrates = (
   return bitratesMap.mpeg1;
 };
 
-/**
- * @param bRate
- *            legal rates from 8 to 320
- */
 export function findNearestBitrate(
   bRate: number,
   version: 0 | 1,
@@ -67,12 +63,6 @@ export function findNearestBitrate(
 
 export type BitrateIndex = number & { __brand: 'BitrateIndex' };
 
-/**
- * @param bRate
- *            legal rates from 32 to 448 kbps
- * @param version
- *            MPEG-1 or MPEG-2/2.5 LSF
- */
 export function findBitrateIndex(
   bRate: number,
   version: 0 | 1,

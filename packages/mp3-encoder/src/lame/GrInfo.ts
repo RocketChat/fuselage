@@ -1,13 +1,10 @@
 import { SFBMAX } from './constants';
 
 export class GrInfo {
-  // float xr[] = new float[576];
   xr = new Float32Array(576);
 
-  // int l3_enc[] = new int[576];
   l3_enc = new Int32Array(576);
 
-  // int scalefac[] = new int[L3Side.SFBMAX];
   scalefac = new Int32Array(SFBMAX);
 
   xrpow_max = 0;
@@ -60,19 +57,16 @@ export class GrInfo {
 
   count1bits = 0;
 
-  /**
-   * added for LSF
-   */
-  sfb_partition_table: number[] | null = null;
+  sfb_partition_table: readonly number[] | null = null;
 
   slen = new Int32Array(4);
 
   max_nonzero_coeff = 0;
 
   assign(other: GrInfo) {
-    this.xr = new Float32Array(other.xr); // .slice(0); //clone();
-    this.l3_enc = new Int32Array(other.l3_enc); // .slice(0); //clone();
-    this.scalefac = new Int32Array(other.scalefac); // .slice(0); //clone();
+    this.xr = new Float32Array(other.xr);
+    this.l3_enc = new Int32Array(other.l3_enc);
+    this.scalefac = new Int32Array(other.scalefac);
     this.xrpow_max = other.xrpow_max;
 
     this.part2_3_length = other.part2_3_length;
@@ -82,8 +76,8 @@ export class GrInfo {
     this.scalefac_compress = other.scalefac_compress;
     this.block_type = other.block_type;
     this.mixed_block_flag = other.mixed_block_flag;
-    this.table_select = new Int32Array(other.table_select); // .slice(0); //clone();
-    this.subblock_gain = new Int32Array(other.subblock_gain); // .slice(0); //.clone();
+    this.table_select = new Int32Array(other.table_select);
+    this.subblock_gain = new Int32Array(other.subblock_gain);
     this.region0_count = other.region0_count;
     this.region1_count = other.region1_count;
     this.preflag = other.preflag;
@@ -97,12 +91,15 @@ export class GrInfo {
     this.sfbmax = other.sfbmax;
     this.psymax = other.psymax;
     this.sfbdivide = other.sfbdivide;
-    this.width = new Int32Array(other.width); // .slice(0); //.clone();
-    this.window = new Int32Array(other.window); // .slice(0); //.clone();
+    this.width = new Int32Array(other.width);
+    this.window = new Int32Array(other.window);
     this.count1bits = other.count1bits;
 
-    this.sfb_partition_table = Array.from(other.sfb_partition_table!); // .clone();
-    this.slen = new Int32Array(other.slen); // .slice(0); //.clone();
+    this.sfb_partition_table =
+      other.sfb_partition_table !== null
+        ? Array.from(other.sfb_partition_table)
+        : null;
+    this.slen = new Int32Array(other.slen);
     this.max_nonzero_coeff = other.max_nonzero_coeff;
   }
 }

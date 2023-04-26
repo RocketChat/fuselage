@@ -1,11 +1,4 @@
-/**
- * Resampling via FIR filter, blackman window.
- */
 export function blackmanWindow(x: number, fcn: number, l: number) {
-  /*
-   * This algorithm from: SIGNAL PROCESSING ALGORITHMS IN FORTRAN AND C
-   * S.D. Stearns and R.A. David, Prentice-Hall, 1992
-   */
   const wcn = Math.PI * fcn;
 
   x /= l;
@@ -19,11 +12,6 @@ export function blackmanWindow(x: number, fcn: number, l: number) {
   return (bkwn * Math.sin(l * wcn * x2)) / (Math.PI * l * x2);
 }
 
-/**
- * Greatest common divisor.
- * <p>
- * Joint work of Euclid and M. Hendry
- */
 export function gcd(i: number, j: number): number {
   return j !== 0 ? gcd(j, i % j) : i;
 }
@@ -34,9 +22,6 @@ export function isCloseToEachOther(a: number, b: number) {
     : Math.abs(a - b) <= Math.abs(b) * 1e-6;
 }
 
-/**
- * square
- */
 export function fsqr(d: number) {
   return d * d;
 }
