@@ -872,9 +872,6 @@ export class Lame {
     }
     mp3bufferPos += imp3;
     mp3count += imp3;
-    mp3buffer_size_remaining = mp3buffer_size - mp3count;
-
-    if (mp3buffer_size === 0) mp3buffer_size_remaining = 0;
 
     return mp3count;
   }
