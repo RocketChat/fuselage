@@ -315,6 +315,7 @@ export class Takehiro {
         j += codInfo.width[sfb];
       }
     }
+
     if (accumulate !== 0) {
       this.quantize_lines_xrpow(
         accumulate,
@@ -324,8 +325,8 @@ export class Takehiro {
         acc_iData,
         acc_iDataPos
       );
-      accumulate = 0;
     }
+
     if (accumulate01 !== 0) {
       this.quantize_lines_xrpow_01(
         accumulate01,
@@ -335,7 +336,6 @@ export class Takehiro {
         acc_iData,
         acc_iDataPos
       );
-      accumulate01 = 0;
     }
   }
 
