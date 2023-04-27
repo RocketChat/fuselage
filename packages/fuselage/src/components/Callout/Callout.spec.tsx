@@ -17,7 +17,7 @@ describe('[Callout Component]', () => {
       ['Success', Success],
       ['Warning', Warning],
       ['Danger', Danger],
-    ])('renders %p story without crashing', (storyName, Story) => {
+    ])('renders %p story without crashing', (_storyName, Story) => {
       render(<Story />);
     });
 
@@ -26,10 +26,13 @@ describe('[Callout Component]', () => {
       ['.rcx-callout--type-success', 'success', Success],
       ['.rcx-callout--type-warning', 'warning', Warning],
       ['.rcx-callout--type-danger', 'danger', Danger],
-    ])('should have class %p when type is %p', (className, typeName, Story) => {
-      const { container } = render(<Story />);
-      expect(container.querySelector(className)).toBeInTheDocument();
-    });
+    ])(
+      'should have class %p when type is %p',
+      (className, _typeName, Story) => {
+        const { container } = render(<Story />);
+        expect(container.querySelector(className)).toBeInTheDocument();
+      }
+    );
   });
 
   it('should show title when this property is passed', () => {
