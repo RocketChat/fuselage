@@ -97,6 +97,17 @@ $variants: (
     min-height: lengths.size(20);
   }
 
+  .rcx-option__input {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    min-width: lengths.size(20);
+    min-height: lengths.size(20);
+    margin-inline-end: lengths.margin(-12);
+  }
+
   .rcx-option__description {
     @include typography.use-font-scale(p2);
     @extend %column;
