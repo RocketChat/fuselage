@@ -134,6 +134,20 @@ $-font: (
   @return var(--rcx-color-font-#{$type}, $color);
 }
 
+$-status-bullet: (
+  online: success(500),
+  away: warning(600),
+  busy: danger(550),
+  disabled: service-1(500),
+  offline: neutral(700),
+  loading: neutral(600),
+);
+
+@function status-bullet($type) {
+  $color: map.get($-status-bullet, $type);
+  @return var(--rcx-color-status-bullet-#{$type}, $color);
+}
+
 $-status-backgrounds: (
   success: success(200),
   warning: warning(200),
