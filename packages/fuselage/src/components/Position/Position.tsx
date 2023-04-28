@@ -39,12 +39,13 @@ const Position = ({
     [positionStyle]
   );
   const [portalContainer] = useState(() => {
-    const prev = document.body.querySelector('#position-container');
+    const prev = document.getElementById('position-container');
     if (prev) {
       return prev;
     }
     const element = document.createElement('div');
-    element.className = 'position-container';
+
+    element.id = 'position-container';
 
     document.body.appendChild(element);
     return element;
