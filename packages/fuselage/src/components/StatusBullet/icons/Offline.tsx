@@ -25,7 +25,7 @@ const Offline = ({ size, className, ...props }: StatusBulletProps) => {
         cy='6'
         r='5'
         className={`rcx-status-bullet rcx-status-bullet--offline`}
-        stroke-width='2'
+        strokeWidth='2'
       />
     </svg>
   );
