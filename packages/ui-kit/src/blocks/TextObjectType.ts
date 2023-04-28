@@ -11,7 +11,7 @@ export enum TextObjectType {
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 type AssertEnumKeysFromBlockUnionTypes = {
-  [B in TextObject as Uppercase<B['type']>]: typeof TextObjectType[Uppercase<
+  [B in TextObject as Uppercase<B['type']>]: (typeof TextObjectType)[Uppercase<
     B['type']
   >];
 };

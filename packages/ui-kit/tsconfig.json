@@ -12,8 +12,7 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "importsNotUsedAsValues": "error"
+    "resolveJsonModule": true
   },
   "exclude": ["dist/", "src/**/*.spec.ts"]
 }

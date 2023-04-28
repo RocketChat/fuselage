@@ -1,4 +1,4 @@
-import type { Placements } from '@rocket.chat/fuselage-hooks';
+import type { UsePositionOptions } from '@rocket.chat/fuselage-hooks';
 import { usePosition } from '@rocket.chat/fuselage-hooks';
 import type {
   RefObject,
@@ -15,7 +15,7 @@ type PositionProps = {
   anchor: RefObject<Element>;
   children: ReactElement;
   margin?: number;
-  placement?: Placements;
+  placement?: UsePositionOptions['placement'];
 } & Omit<ComponentProps<typeof Box>, 'children' | 'margin'>;
 
 const Position = ({

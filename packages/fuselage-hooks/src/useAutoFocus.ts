@@ -16,7 +16,7 @@ export const useAutoFocus = <
   isFocused = true,
   options?: FocusOptions
 ): Ref<T> => {
-  const elementRef = useRef<T>();
+  const elementRef = useRef<T>(null);
 
   const { preventScroll } = options || {};
 

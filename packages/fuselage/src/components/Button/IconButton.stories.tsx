@@ -10,8 +10,20 @@ import {
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
+import { PropsVariationSection } from '../../../.storybook/helpers';
 import { ButtonGroup } from '../ButtonGroup';
 import { IconButton } from './IconButton';
+
+const EmojiElement = (
+  <div className='rcx-box rcx-box--full'>
+    <span
+      className='emojione emojione-diversity _1f918-1f3fe'
+      title=':metal_tone4:'
+    >
+      🤘🏾
+    </span>
+  </div>
+);
 
 export default {
   title: 'Inputs/IconButton',
@@ -35,99 +47,186 @@ export default {
 export const _IconButton: ComponentStory<typeof IconButton> = () => (
   <IconButton icon='balloon' />
 );
-export const _IconButtonDisabled: ComponentStory<typeof IconButton> = () => (
-  <IconButton icon='balloon' disabled />
+
+export const States = () => (
+  <>
+    <PropsVariationSection
+      component={IconButton}
+      common={{
+        icon: 'doner',
+        medium: true,
+      }}
+      xAxis={{
+        default: {},
+        hover: { className: 'hover' },
+        active: { className: 'active' },
+        focus: { className: 'focus focus-visible' },
+        pressed: { pressed: true },
+        disabled: { disabled: true },
+      }}
+      yAxis={{
+        default: {
+          children: 'IconButton',
+        },
+        info: {
+          children: 'IconButton',
+          info: true,
+        },
+        danger: {
+          children: 'IconButton',
+          danger: true,
+        },
+        emoji: {
+          children: 'IconButton',
+          icon: EmojiElement,
+        },
+      }}
+    />
+    {/* <Divider />
+    <PropsVariationSection
+      component={IconButton}
+      common={{
+        icon: 'doner',
+        large: true,
+      }}
+      xAxis={{
+        large: {},
+        hover: { className: 'hover' },
+        active: { className: 'active' },
+        focus: { className: 'focus focus-visible' },
+        pressed: { pressed: true },
+        disabled: { disabled: true },
+      }}
+      yAxis={{
+        default: {
+          children: 'IconButton',
+        },
+        info: {
+          children: 'IconButton',
+          info: true,
+        },
+        danger: {
+          children: 'IconButton',
+          danger: true,
+        },
+        emoji: {
+          children: 'IconButton',
+          icon: EmojiElement,
+        },
+      }}
+    /> */}
+  </>
 );
 
 export const Variants = () => (
   <>
-    <ButtonGroup>
-      <IconButton icon='balloon' small />
-      <IconButton icon='balloon' secondary small />
-      <IconButton icon='balloon' info small />
-      <IconButton icon='balloon' secondary info small />
-      <IconButton icon='balloon' success small />
-      <IconButton icon='balloon' secondary success small />
-      <IconButton icon='balloon' warning small />
-      <IconButton icon='balloon' secondary warning small />
-      <IconButton icon='balloon' danger small />
-      <IconButton icon='balloon' secondary danger small />
-    </ButtonGroup>
-    <ButtonGroup>
-      <IconButton icon='balloon' disabled small />
-      <IconButton icon='balloon' disabled secondary small />
-      <IconButton icon='balloon' disabled info small />
-      <IconButton icon='balloon' disabled secondary info small />
-      <IconButton icon='balloon' disabled success small />
-      <IconButton icon='balloon' disabled secondary success small />
-      <IconButton icon='balloon' disabled warning small />
-      <IconButton icon='balloon' disabled secondary warning small />
-      <IconButton icon='balloon' disabled danger small />
-      <IconButton icon='balloon' disabled secondary danger small />
-    </ButtonGroup>
+    <PropsVariationSection
+      component={IconButton}
+      common={{
+        icon: 'doner',
+        medium: true,
+      }}
+      xAxis={{
+        default: {},
+        hover: { className: 'hover' },
+        active: { className: 'active' },
+        focus: { className: 'focus focus-visible' },
+        disabled: { disabled: true },
+      }}
+      yAxis={{
+        'default': {
+          children: 'IconButton',
+        },
+        'info': {
+          children: 'IconButton',
+          info: true,
+        },
+        'danger': {
+          children: 'IconButton',
+          danger: true,
+        },
+        'success': {
+          children: 'IconButton',
+          success: true,
+        },
+        'warning': {
+          children: 'IconButton',
+          warning: true,
+        },
+        'secondary': {
+          children: 'IconButton',
+          secondary: true,
+        },
+        'secondary-info | primary': {
+          children: 'IconButton',
+          info: true,
+          secondary: true,
+        },
+        'secondary-danger': {
+          children: 'IconButton',
+          danger: true,
+          secondary: true,
+        },
+        'secondary-success': {
+          children: 'IconButton',
+          success: true,
+          secondary: true,
+        },
+        'secondary-warning': {
+          children: 'IconButton',
+          warning: true,
+          secondary: true,
+        },
+      }}
+    />
   </>
 );
 
 export const Sizes = () => (
   <ButtonGroup>
-    <IconButton icon='balloon' secondary info small />
-    <IconButton icon='balloon' secondary info tiny />
-    <IconButton icon='balloon' secondary info mini />
+    <IconButton icon='balloon' secondary />
+    <IconButton icon='balloon' secondary medium />
+    <IconButton icon='balloon' secondary small />
+    <IconButton icon='balloon' secondary tiny />
+    <IconButton icon='balloon' secondary mini />
   </ButtonGroup>
+);
+export const _IconButtonDisabled: ComponentStory<typeof IconButton> = () => (
+  <IconButton icon='balloon' disabled />
+);
+
+export const _IconButtonWithEmoji: ComponentStory<typeof IconButton> = () => (
+  <IconButton icon={EmojiElement} />
 );
 
 export const _IconButtonInfo: ComponentStory<typeof IconButton> = () => (
   <IconButton icon='balloon' info />
 );
-export const _IconButtonInfoDisabled: ComponentStory<
-  typeof IconButton
-> = () => <IconButton icon='balloon' info disabled />;
 
 export const _IconButtonSecondaryInfo: ComponentStory<
   typeof IconButton
 > = () => <IconButton icon='balloon' secondary info />;
-export const _IconButtonSecondaryInfoDisabled: ComponentStory<
-  typeof IconButton
-> = () => <IconButton icon='balloon' secondary info disabled />;
 
 export const _IconButtonSuccess: ComponentStory<typeof IconButton> = () => (
   <IconButton icon='balloon' success />
 );
-export const _IconButtonSuccessDisabled: ComponentStory<
-  typeof IconButton
-> = () => <IconButton icon='balloon' success disabled />;
 
 export const _IconButtonSecondarySuccess: ComponentStory<
   typeof IconButton
 > = () => <IconButton icon='balloon' secondary success />;
-export const _IconButtonSecondarySuccessDisabled: ComponentStory<
-  typeof IconButton
-> = () => <IconButton icon='balloon' secondary success disabled />;
 
 export const _IconButtonWarning: ComponentStory<typeof IconButton> = () => (
   <IconButton icon='balloon' warning />
 );
-export const _IconButtonWarningDisabled: ComponentStory<
-  typeof IconButton
-> = () => <IconButton icon='balloon' warning disabled />;
 
 export const _IconButtonSecondaryWarning: ComponentStory<
   typeof IconButton
 > = () => <IconButton icon='balloon' secondary warning />;
-export const _IconButtonSecondaryWarningDisabled: ComponentStory<
-  typeof IconButton
-> = () => <IconButton icon='balloon' secondary warning disabled />;
 
 export const _IconButtonDanger: ComponentStory<typeof IconButton> = () => (
   <IconButton icon='balloon' danger />
 );
-export const _IconButtonDangerDisabled: ComponentStory<
-  typeof IconButton
-> = () => <IconButton icon='balloon' danger disabled />;
 
 export const _IconButtonSecondaryDanger: ComponentStory<
   typeof IconButton
 > = () => <IconButton icon='balloon' secondary danger />;
-export const _IconButtonSecondaryDangerDisabled: ComponentStory<
-  typeof IconButton
-> = () => <IconButton icon='balloon' secondary danger disabled />;
