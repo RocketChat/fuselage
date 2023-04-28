@@ -6,7 +6,7 @@ import type {
   ReactPortal,
   ReactElement,
 } from 'react';
-import { useRef, useMemo, useEffect, cloneElement } from 'react';
+import { useRef, useMemo, useEffect, cloneElement, useState } from 'react';
 import { createPortal } from 'react-dom';
 
 import type Box from '../Box';
@@ -38,11 +38,18 @@ const Position = ({
     () => ({ position: 'fixed', ...positionStyle }),
     [positionStyle]
   );
-  const portalContainer = useMemo(() => {
+  const [portalContainer] = useState(() => {
+    const prev = document.getElementById('position-container');
+    if (prev) {
+      return prev;
+    }
     const element = document.createElement('div');
+
+    element.id = 'position-container';
+
     document.body.appendChild(element);
     return element;
-  }, []);
+  });
 
   useEffect(
     () =>
