@@ -50,6 +50,8 @@ $message-background-color-highlight: functions.theme(
   colors.status-background(warning-2)
 );
 
+$message-link-color: functions.theme('message-link-color', colors.font(info));
+
 .rcx-message {
   @include mixins.container();
   position: relative;
@@ -190,6 +192,10 @@ $message-background-color-highlight: functions.theme(
     opacity: 1;
 
     color: colors.font(default);
+
+    & a {
+      color: $message-link-color;
+    }
 
     & h1 {
       @include typography.use-font-scale(h1);
