@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+    "allowJs": false,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "strictNullChecks": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true
+  }
+}

@@ -8,8 +8,8 @@ import Display from '../Display';
 import Editor from '../Editor';
 
 type PreviewSizeType = {
-  blockSize: number;
-  inlineSize: number;
+  blockSize?: number;
+  inlineSize?: number;
 };
 const SplitPlaneContainer: FC<{ PreviewSize: PreviewSizeType }> = ({
   PreviewSize,
@@ -24,9 +24,9 @@ const SplitPlaneContainer: FC<{ PreviewSize: PreviewSizeType }> = ({
   }, [isTablet, dispatch]);
 
   const splitPaneProps = {
-    defaultSize: PreviewSize.inlineSize * 0.5,
+    defaultSize: (PreviewSize.inlineSize ?? 0) * 0.5,
     minSize: 500,
-    maxSize: PreviewSize.inlineSize - 300,
+    maxSize: (PreviewSize.inlineSize ?? 0) - 300,
     allowResize: !isTablet,
   };
 

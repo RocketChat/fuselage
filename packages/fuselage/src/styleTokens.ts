@@ -1,5 +1,5 @@
 import tokenColors from '@rocket.chat/fuselage-tokens/colors.json';
-import tokenTypography from '@rocket.chat/fuselage-tokens/dist/typography.json';
+import tokenTypography from '@rocket.chat/fuselage-tokens/typography.json';
 import { memoize } from '@rocket.chat/memo';
 import invariant from 'invariant';
 
@@ -61,6 +61,8 @@ export const borderWidth = measure((value: unknown) => {
   if (value === 'default') {
     return borderWidth('x1');
   }
+
+  return undefined;
 });
 
 export const borderRadius = measure((value: unknown) => {
@@ -71,6 +73,8 @@ export const borderRadius = measure((value: unknown) => {
   if (value === 'full') {
     return '9999px';
   }
+
+  return undefined;
 });
 
 const mapTypeToPrefix = {
@@ -281,24 +285,32 @@ export const size = measure((value: unknown) => {
   if (value === 'sh') {
     return '100vh';
   }
+
+  return undefined;
 });
 
 export const inset = measure((value: unknown) => {
   if (value === 'none') {
     return '0px';
   }
+
+  return undefined;
 });
 
 export const margin = measure((value: unknown) => {
   if (value === 'none') {
     return '0px';
   }
+
+  return undefined;
 });
 
 export const padding = measure((value: unknown) => {
   if (value === 'none') {
     return '0px';
   }
+
+  return undefined;
 });
 
 type FontFamily = keyof typeof tokenTypography.fontFamilies;

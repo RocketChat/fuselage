@@ -19,7 +19,7 @@ export const useDebouncedCallback = <P extends unknown[]>(
   cancel: () => void;
 } => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  const effectiveCallback = useCallback(callback, deps);
+  const effectiveCallback = useMemo(() => callback, deps);
 
   const timerCallbackRef = useRef<() => void>();
   const timerRef = useRef<ReturnType<typeof setTimeout>>();
@@ -37,7 +37,7 @@ export const useDebouncedCallback = <P extends unknown[]>(
 
   const flush = useCallback(() => {
     clearTimeout(timerRef.current);
-    timerCallbackRef.current();
+    timerCallbackRef.current?.();
   }, []);
 
   const cancel = useCallback(() => {

@@ -39,12 +39,12 @@
   },
   "devDependencies": {
     "bump": "workspace:~",
-    "eslint": "~8.26.0",
-    "eslint-config-prettier": "~8.5.0",
+    "eslint": "~8.38.0",
+    "eslint-config-prettier": "~8.8.0",
     "eslint-plugin-import": "~2.26.0",
     "eslint-plugin-prettier": "~4.2.1",
     "lint-all": "workspace:~",
-    "lint-staged": "~12.3.8",
-    "prettier": "~2.7.1"
+    "lint-staged": "~13.2.1",
+    "prettier": "~2.8.7"
   }
 }

@@ -62,7 +62,10 @@ export const SliderTrack = ({
             state.values[0]
           )}%, transparent 0%`;
     }
+
+    return undefined;
   };
+
   const track = useStyle(
     css`
       &::before {

@@ -41,7 +41,7 @@ module.exports = (env, { mode = 'production' }) => ({
         use: {
           loader: 'ts-loader',
           options: {
-            configFile: path.resolve(__dirname, './tsconfig-bundle.json'),
+            configFile: path.resolve(__dirname, './tsconfig.build.json'),
           },
         },
       },

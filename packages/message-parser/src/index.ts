@@ -12,6 +12,7 @@ export type Options = {
     dollarSyntax?: boolean;
     parenthesisSyntax?: boolean;
   };
+  customDomains?: string[];
 };
 
 export const parse = (input: string, options?: Options): Root =>
