@@ -135,9 +135,9 @@ $-font: (
 }
 
 $-status-bullet: (
-  online: success(500),
-  away: warning(600),
-  busy: danger(550),
+  online: success(650),
+  away: warning(650),
+  busy: danger(650),
   disabled: service-1(500),
   offline: neutral(700),
   loading: neutral(600),
