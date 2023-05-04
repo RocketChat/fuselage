@@ -910,5 +910,23 @@
   },
   "desktop-text": {
     "start": "\ue125"
+  },
+  "rocket": {
+    "start": "\ue127"
+  },
+  "burger-menu": {
+    "start": "\ue129"
+  },
+  "airplane": {
+    "start": "\ue12b"
+  },
+  "lamp-bulb": {
+    "start": "\ue12d"
+  },
+  "percentage": {
+    "start": "\ue12f"
+  },
+  "leaf": {
+    "start": "\ue131"
   }
 }
