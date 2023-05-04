@@ -19,7 +19,7 @@ $message-divider-color-unread: theme(
 );
 $message-divider-background-color-unread: theme(
   'message-divider-background-color-unread',
-  colors.stroke(extra-light-error)
+  colors.stroke(error)
 );
 
 $message-divider-size: theme(
