@@ -122,24 +122,33 @@ The `is` prop allows `Box` to render any component capable of handling common DO
           overflow='hidden'
         >
           {flattenChildren(fn().props.children).map((child) =>
-            React.cloneElement(child, { m: 'x4', size: 'x122' }, child.props.bg)
+            React.cloneElement(
+              child,
+              {
+                m: 'x4',
+                size: 'x122',
+                color: 'annotation',
+                textAlign: 'center',
+              },
+              child.props.bg
+            )
           )}
         </Box>
       ),
     ]}
   >
     <>
-      <Box bg='surface-light' />
-      <Box bg='surface-tint' />
-      <Box bg='surface-neutral' />
-      <Box bg='surface-disabled' />
-      <Box bg='surface-hover' />
-      <Box bg='surface-info' />
-      <Box bg='surface-success' />
-      <Box bg='surface-warning' />
-      <Box bg='surface-danger' />
-      <Box bg='surface-service-1' />
-      <Box bg='surface-service-2' />
+      <Box bg='light' />
+      <Box bg='tint' />
+      <Box bg='room' />
+      <Box bg='neutral' />
+      <Box bg='disabled' />
+      <Box bg='hover' />
+      <Box bg='selected' />
+      <Box bg='dark' />
+      <Box bg='featured' />
+      <Box bg='featured-hover' />
+      <Box bg='transparent' />
     </>
   </Story>
 </Canvas>
@@ -158,7 +167,11 @@ The `is` prop allows `Box` to render any component capable of handling common DO
           overflow='hidden'
         >
           {flattenChildren(fn().props.children).map((child) =>
-            React.cloneElement(child, { m: 'x4', size: 'x122' }, child.props.bg)
+            React.cloneElement(
+              child,
+              { m: 'x4', size: 'x122', textAlign: 'center' },
+              child.props.bg
+            )
           )}
         </Box>
       ),
@@ -189,22 +202,32 @@ The `is` prop allows `Box` to render any component capable of handling common DO
           overflow='hidden'
         >
           {flattenChildren(fn().props.children).map((child) =>
-            React.cloneElement(child, { m: 'x4', size: 'x122' }, child.props.bg)
+            React.cloneElement(
+              child,
+              {
+                m: 'x4',
+                textAlign: 'center',
+                size: 'x122',
+                color: 'annotation',
+                borderWidth: 'x8',
+              },
+              child.props.borderColor
+            )
           )}
         </Box>
       ),
     ]}
   >
     <>
-      <Box bg='stroke-extra-light' />
-      <Box bg='stroke-light' />
-      <Box bg='stroke-medium' />
-      <Box bg='stroke-dark' />
-      <Box bg='stroke-extra-dark' />
-      <Box bg='stroke-extra-light-highlight' />
-      <Box bg='stroke-highlight' />
-      <Box bg='stroke-extra-light-error' />
-      <Box bg='stroke-error' />
+      <Box borderColor='stroke-extra-light' />
+      <Box borderColor='stroke-light' />
+      <Box borderColor='stroke-medium' />
+      <Box borderColor='stroke-dark' />
+      <Box borderColor='stroke-extra-dark' />
+      <Box borderColor='stroke-extra-light-highlight' />
+      <Box borderColor='stroke-highlight' />
+      <Box borderColor='stroke-extra-light-error' />
+      <Box borderColor='stroke-error' />
     </>
   </Story>
 </Canvas>
@@ -237,71 +260,12 @@ The `is` prop allows `Box` to render any component capable of handling common DO
       <Box color='font-white' />
       <Box color='font-disabled' />
       <Box color='font-annotation' />
+      <Box color='font-secondary-info' />
       <Box color='font-hint' />
       <Box color='font-text' />
-      <Box color='font-title-labels' />
+      <Box color='font-titles-labels' />
+      <Box color='font-info' />
       <Box color='font-danger' />
-      <Box color='font-secondary-info' />
-      <Box color='font-on-info' />
-      <Box color='font-on-success' />
-      <Box color='font-on-warning' />
-      <Box color='font-on-danger' />
-      <Box color='font-on-service-1' />
-      <Box color='font-on-service-2' />
-    </>
-  </Story>
-</Canvas>
-
-#### Background colors
-
-<Canvas>
-  <Story
-    name='Background colors'
-    decorators={[
-      (fn) => (
-        <Box
-          display='flex'
-          flexWrap='wrap'
-          alignItems='center'
-          overflow='hidden'
-        >
-          {flattenChildren(fn().props.children).map((child) =>
-            React.cloneElement(child, { m: 'x4', size: 'x32' })
-          )}
-        </Box>
-      ),
-    ]}
-  >
-    <>
-      <Box bg='neutral-500' />
-      <Box bg='neutral-500-50' />
-      <Box bg='primary-500' />
-      <Box bg='primary-500-50' />
-      <Box bg='info-500' />
-      <Box bg='info-500-50' />
-      <Box bg='success-500' />
-      <Box bg='success-500-50' />
-      <Box bg='warning-500' />
-      <Box bg='warning-500-50' />
-      <Box bg='danger-500' />
-      <Box bg='danger-500-50' />
-      <Box bg='surface' />
-      <Box bg='surface-light' />
-      <Box bg='surface-tint' />
-      <Box bg='surface-neutral' />
-      <Box bg='default' />
-      <Box bg='info' />
-      <Box bg='hint' />
-      <Box bg='disabled' />
-      <Box bg='alternative' />
-      <Box bg='primary' />
-      <Box bg='success' />
-      <Box bg='danger' />
-      <Box bg='warning' />
-      <Box bg='link' />
-      <Box bg='visited-link' />
-      <Box bg='active-link' />
-      <Box bg='rebeccapurple' />
     </>
   </Story>
 </Canvas>

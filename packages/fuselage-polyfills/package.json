@@ -15,6 +15,7 @@
     "url": "https://github.com/RocketChat/fuselage/issues"
   },
   "main": "index.js",
+  "types": "index.d.ts",
   "publishConfig": {
     "access": "public"
   },
@@ -27,7 +28,7 @@
   "dependencies": {
     "@juggle/resize-observer": "^3.4.0",
     "clipboard-polyfill": "^3.0.3",
-    "element-closest-polyfill": "^1.0.5",
+    "element-closest-polyfill": "^1.0.6",
     "focus-visible": "^5.2.0",
     "focus-within-polyfill": "^5.2.1",
     "new-event-polyfill": "^1.0.1"
@@ -36,9 +37,9 @@
     "@rocket.chat/eslint-config-alt": "workspace:~",
     "@rocket.chat/prettier-config": "workspace:~",
     "bump": "workspace:~",
-    "eslint": "~8.26.0",
+    "eslint": "~8.38.0",
     "lint-all": "workspace:~",
-    "lint-staged": "~12.3.8",
-    "prettier": "~2.7.1"
+    "lint-staged": "~13.2.1",
+    "prettier": "~2.8.7"
   }
 }

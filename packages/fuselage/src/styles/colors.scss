@@ -94,11 +94,15 @@ $-map-type-to-prefix: (
 $-surfaces: (
   light: white,
   tint: neutral(100),
+  room: white,
   neutral: neutral(400),
   disabled: neutral(100),
-  selected: neutral(500),
+  selected: neutral(450),
   hover: neutral(200),
   dark: neutral(900),
+  featured: service-2(700),
+  featured-hover: service-2(800),
+  overlay: neutral(850),
 );
 
 @function surface($type) {
@@ -137,7 +141,6 @@ $-status-backgrounds: (
   danger: danger(200),
   service-1: service-1(200),
   service-2: service-2(200),
-  service-3: service-2(700),
   info: primary(200),
 );
 
@@ -148,12 +151,11 @@ $-status-backgrounds: (
 
 $-status-font: (
   on-success: success(800),
-  on-warning: warning(900),
+  on-warning: warning(800),
   on-warning-2: neutral(800),
   on-danger: danger(800),
   on-service-1: service-1(800),
   on-service-2: service-2(600),
-  on-service-3: white,
   on-info: primary(600),
 );
 
@@ -189,6 +191,19 @@ $-badge-backgrounds: (
 @function badge($type) {
   $color: map.get($-badge-backgrounds, $type);
   @return var(--rcx-color-badge-background-#{$type}, $color);
+}
+
+$shadow-colors: (
+  highlight: primary(200),
+  danger: danger(100),
+  elevation-1: neutral(800, 0.1),
+  elevation-2x: neutral(800, 0.08),
+  elevation-2y: neutral(800, 0.12),
+  elevation-border: stroke(extra-light),
+);
+@function shadow($type) {
+  $color: map.get($shadow-colors, $type);
+  @return var(--rcx-color-shadow-#{$type}, $color);
 }
 
 $-button-backgrounds: (

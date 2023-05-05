@@ -4,20 +4,19 @@ import { useState } from 'react';
 
 import type { AdminInfoPayload } from '../../forms/AdminInfoForm/AdminInfoForm';
 import type { OrganizationInfoPayload } from '../../forms/OrganizationInfoForm/OrganizationInfoForm';
-import type { RegisteredServerPayload } from '../../forms/RegisteredServerForm/RegisteredServerForm';
+import type { RegisterServerPayload } from '../../forms/RegisterServerForm/RegisterServerForm';
 import AdminInfoPage from '../../pages/AdminInfoPage';
 import AwaitingConfirmationPage from '../../pages/AwaitingConfirmationPage';
 import ConfirmationProcessPage from '../../pages/ConfirmationProcessPage';
 import EmailConfirmedPage from '../../pages/EmailConfirmedPage';
 import OrganizationInfoPage from '../../pages/OrganizationInfoPage';
-import RegisteredServerPage from '../../pages/RegisteredServerPage';
+import RegisteredServerPage from '../../pages/RegisterServerPage';
 import StandaloneServerPage from '../../pages/StandaloneServerPage';
 import {
   countryOptions,
   logSubmit,
   organizationIndustryOptions,
   organizationSizeOptions,
-  organizationTypes,
   validateEmail,
   validatePassword,
   validateUsername,
@@ -31,7 +30,7 @@ export default {
   },
 } as Meta;
 
-export const SelfHostedRegistration: Story = () => {
+export const SelfHostedRegistration: Story = ({ offline }) => {
   const [path, navigateTo] =
     useState<`/${
       | 'admin-info'
@@ -71,7 +70,7 @@ export const SelfHostedRegistration: Story = () => {
   );
 
   const handleRegisterServerSubmit = logSubmit(
-    (data: RegisteredServerPayload) => {
+    (data: RegisterServerPayload) => {
       setServerRegistration((serverRegistration) => ({
         ...serverRegistration,
         updates: data.updates,
@@ -103,7 +102,6 @@ export const SelfHostedRegistration: Story = () => {
       <OrganizationInfoPage
         currentStep={2}
         stepCount={4}
-        organizationTypeOptions={organizationTypes}
         organizationIndustryOptions={organizationIndustryOptions}
         organizationSizeOptions={organizationSizeOptions}
         countryOptions={countryOptions}
@@ -129,7 +127,8 @@ export const SelfHostedRegistration: Story = () => {
         }}
         onBackButtonClick={() => navigateTo('/org-info')}
         onSubmit={handleRegisterServerSubmit}
-        onClickContinue={() => navigateTo('/standalone-confirmation')}
+        offline={offline}
+        onClickRegisterLater={() => navigateTo('/standalone-confirmation')}
       />
     );
   }
@@ -198,3 +197,9 @@ export const SelfHostedRegistration: Story = () => {
   throw new Error('invalid path');
 };
 SelfHostedRegistration.storyName = 'Self-Hosted Registration';
+
+export const SelfHostedRegistrationOffline: Story = () => (
+  <SelfHostedRegistration offline />
+);
+
+SelfHostedRegistrationOffline.storyName = 'Airgapped Self-Hosted Registration';

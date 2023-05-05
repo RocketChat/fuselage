@@ -24,8 +24,8 @@ export default {
           <Title />
           <Description />
           <Primary />
-          <ArgsTable />
           <Stories title={''} />
+          <ArgsTable />
         </>
       ),
     },
@@ -44,10 +44,71 @@ Default.args = {
 export const Success: ComponentStory<typeof ProgressBar> = Template.bind({});
 Success.args = {
   percentage: 100,
+  variant: 'success',
+};
+
+export const Warning: ComponentStory<typeof ProgressBar> = Template.bind({});
+Warning.args = {
+  percentage: 60,
+  variant: 'warning',
+};
+
+export const Danger: ComponentStory<typeof ProgressBar> = Template.bind({});
+Danger.args = {
+  percentage: 100,
+  variant: 'danger',
+};
+
+export const Animated: ComponentStory<typeof ProgressBar> = Template.bind({});
+Animated.args = {
+  percentage: 80,
+  animated: true,
 };
 
 export const Error: ComponentStory<typeof ProgressBar> = Template.bind({});
 Error.args = {
-  percentage: 51,
+  percentage: 21,
   error: 'Error Downloading File',
+};
+
+export const DefaultLight: ComponentStory<typeof ProgressBar> = Template.bind(
+  {}
+);
+DefaultLight.args = {
+  percentage: 70,
+  light: true,
+};
+
+export const SuccessLight: ComponentStory<typeof ProgressBar> = Template.bind(
+  {}
+);
+SuccessLight.args = {
+  percentage: 100,
+  variant: 'success',
+  light: true,
+};
+
+export const WarningLight: ComponentStory<typeof ProgressBar> = Template.bind(
+  {}
+);
+WarningLight.args = {
+  percentage: 60,
+  variant: 'warning',
+  light: true,
+};
+
+export const DangerLight: ComponentStory<typeof ProgressBar> = Template.bind(
+  {}
+);
+DangerLight.args = {
+  percentage: 100,
+  variant: 'danger',
+  light: true,
+};
+
+export const ErrorLight: ComponentStory<typeof ProgressBar> = Template.bind({});
+ErrorLight.args = {
+  percentage: 20,
+  error: 'Error downloading file',
+  light: true,
 };

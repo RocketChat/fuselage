@@ -8,16 +8,18 @@ $progress-bar-color-shine: theme(
 );
 $progress-bar-color-background: theme(
   'progress-bar-color-background',
-  colors.neutral(400, 1)
+  colors.surface(neutral)
 );
 
 $progress-bar-border-radius: theme(
   'progress-bar-border-radius',
-  lengths.border-radius(small)
+  lengths.border-radius(large)
 );
 
 .rcx-progress-bar {
   display: block;
+
+  overflow: hidden;
 
   width: 100%;
 
@@ -34,12 +36,9 @@ $progress-bar-border-radius: theme(
 
   border-radius: $progress-bar-border-radius;
 
-  &-complete::before {
+  &--animated::before {
     position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    inset: 0;
 
     width: inherit;
 

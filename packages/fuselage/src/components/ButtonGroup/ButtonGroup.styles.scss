@@ -37,24 +37,22 @@
 }
 
 .rcx-button-group__item {
-  .rcx-button-group > & {
-    margin-inline: lengths.margin(8);
+  margin-inline: lengths.margin(4);
 
-    &:first-child {
-      margin-inline-start: lengths.margin(none);
-    }
-
-    &:last-child {
-      margin-inline-end: lengths.margin(none);
-    }
+  &:first-child {
+    margin-inline-start: lengths.margin(none);
   }
 
-  .rcx-button-group.rcx-button-group--small > & {
+  &:last-child {
+    margin-inline-end: lengths.margin(none);
+  }
+
+  .rcx-button-group--small & {
     margin-inline: lengths.margin(2);
   }
 
-  .rcx-button-group.rcx-button-group--medium > & {
-    margin-inline: lengths.margin(4);
+  .rcx-button-group--large & {
+    margin-inline: lengths.margin(8);
   }
 
   .rcx-button-group--wrap > & {
@@ -67,9 +65,33 @@
     flex-grow: 1;
   }
 
-  .rcx-button-group--vertical > & {
-    margin-block: lengths.margin(8);
+  .rcx-button-group--vertical & {
+    margin-block: lengths.margin(4);
     margin-inline: lengths.margin(none);
+
+    &:first-child {
+      margin-block-start: lengths.margin(none);
+    }
+
+    &:last-child {
+      margin-block-end: lengths.margin(none);
+    }
+  }
+
+  .rcx-button-group--vertical.rcx-button-group--large > & {
+    margin-block: lengths.margin(8);
+
+    &:first-child {
+      margin-block-start: lengths.margin(none);
+    }
+
+    &:last-child {
+      margin-block-end: lengths.margin(none);
+    }
+  }
+
+  .rcx-button-group--vertical.rcx-button-group--small > & {
+    margin-block: lengths.margin(2);
 
     &:first-child {
       margin-block-start: lengths.margin(none);

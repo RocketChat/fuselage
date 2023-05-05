@@ -1,7 +1,7 @@
-import type { RefObject } from 'react';
-import { useEffect, useRef } from 'react';
+import type { AllHTMLAttributes, RefObject } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
-import { useDebouncedState } from './useDebouncedState';
+import { useDebouncedCallback } from './useDebouncedCallback';
 import { useMutableCallback } from './useMutableCallback';
 
 export type Positions = 'top' | 'left' | 'bottom' | 'right';
@@ -51,26 +51,8 @@ type VariantBoundaries = {
   hm: number;
 };
 
-type PositionStyle = {
-  top: string;
-  left: string;
-  position?: 'fixed';
-  ZIndex: '9999';
-  transition: 'none !important';
-  bottom?: '0px';
-  overflowY?: 'auto';
-};
-
-type PositionEmptyResult = {
-  visibility: 'hidden';
-  top: '-9999px';
-  left: '-9999px';
-  position: 'fixed';
-  overflowY?: 'initial';
-};
-
 type PositionResult = {
-  style: PositionStyle | PositionEmptyResult;
+  style: AllHTMLAttributes<HTMLElement>['style'];
   placement?: Placements;
 };
 
@@ -101,8 +83,6 @@ const emptyStyle: PositionResult = {
   style: {
     position: 'fixed',
     visibility: 'hidden',
-    top: '-9999px',
-    left: '-9999px',
   },
 };
 
@@ -247,7 +227,7 @@ export const getPositionStyle = ({
         bottom: `${margin}px`,
         overflowY: 'auto',
       }),
-      ZIndex: '9999',
+      ...({ zIndex: '9999' } as any),
     },
     placement: `${PlacementMap[placementAttempt]}-${
       PlacementMap[variantsAttempts[0]]
@@ -311,30 +291,41 @@ export const usePosition = <T extends Element, R extends Element>(
   } = options;
   const container = useRef(containerElement);
 
-  const [style, setStyle] = useDebouncedState<PositionResult>(emptyStyle, 10);
+  const [style, setStyle] = useState<PositionResult>(emptyStyle);
 
-  const callback = useMutableCallback(() => {
-    const boundaries = target.current.getBoundingClientRect();
-    const targetBoundaries = getTargetBoundaries({
-      referenceBox: reference.current.getBoundingClientRect(),
-      target: boundaries,
-      margin,
-    });
-    const variantStore = getVariantBoundaries({
-      referenceBox: reference.current.getBoundingClientRect(),
-      target: boundaries,
-    });
-    setStyle(
-      getPositionStyle({
-        placement,
-        container: container.current.getBoundingClientRect(),
-        targetBoundaries,
-        variantStore,
+  const callback = useDebouncedCallback(
+    useMutableCallback(() => {
+      const clone = target.current.cloneNode(true) as HTMLElement;
+
+      clone.style.bottom = '';
+      clone.id = 'clone';
+      target.current.parentElement.appendChild(clone);
+      const boundaries = clone.getBoundingClientRect();
+      target.current.parentElement.removeChild(clone);
+
+      const targetBoundaries = getTargetBoundaries({
+        referenceBox: reference.current.getBoundingClientRect(),
         target: boundaries,
         margin,
-      })
-    );
-  });
+      });
+      const variantStore = getVariantBoundaries({
+        referenceBox: reference.current.getBoundingClientRect(),
+        target: boundaries,
+      });
+
+      setStyle(
+        getPositionStyle({
+          placement,
+          container: container.current.getBoundingClientRect(),
+          targetBoundaries,
+          variantStore,
+          target: boundaries,
+          margin,
+        })
+      );
+    }),
+    10
+  );
 
   useBoundingClientRect(target, watch, callback);
   useBoundingClientRect(reference, watch, callback);

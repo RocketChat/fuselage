@@ -1,2 +1,5 @@
 export { PaginatedSelectFiltered } from './PaginatedSelectFiltered';
-export { PaginatedMultiSelectFiltered } from './PaginatedMultiSelect';
+export {
+  PaginatedMultiSelectFiltered,
+  PaginatedMultiSelectOption,
+} from './PaginatedMultiSelect';

@@ -48,13 +48,6 @@ export const validatePassword: Validate<string> = (password: string) => {
   return true;
 };
 
-export const organizationTypes: [string, string][] = [
-  ['community', 'Community'],
-  ['enterprise', 'Enterprise'],
-  ['government', 'Government'],
-  ['nonprofit', 'Nonprofit'],
-];
-
 export const organizationIndustryOptions: [string, string][] = [
   ['aerospaceDefense', 'Aerospace and Defense'],
   ['blockchain', 'Blockchain'],
@@ -85,14 +78,11 @@ export const organizationIndustryOptions: [string, string][] = [
 ];
 
 export const organizationSizeOptions: [string, string][] = [
-  ['0', '1-10 people'],
-  ['1', '11-50 people'],
-  ['2', '51-100 people'],
-  ['3', '101-250 people'],
-  ['4', '251-500 people'],
-  ['5', '501-1000 people'],
-  ['6', '1001-4000 people'],
-  ['7', '4000 or more people'],
+  ['0', '1-250 people'],
+  ['1', '251-500 people'],
+  ['2', '501-1000 people'],
+  ['3', '1001-4000 people'],
+  ['4', '4001 or more people'],
 ];
 
 export const countryOptions: [string, string][] = [

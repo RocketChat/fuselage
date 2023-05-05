@@ -13,6 +13,7 @@ type MenuProps = Omit<ComponentProps<typeof IconButton>, 'icon'> & {
       type?: 'option' | 'heading' | 'divider';
       label?: ReactNode;
       action?: () => void;
+      disabled?: boolean;
     };
   };
   optionWidth?: ComponentProps<typeof Box>['width'];
@@ -27,12 +28,15 @@ const menuAction = ([selected]: OptionType, options: MenuProps['options']) => {
 };
 
 const mapOptions = (options: MenuProps['options']): OptionType[] =>
-  Object.entries(options).map(([value, { type = 'option', label }]) => [
-    value,
-    label,
-    undefined,
-    type,
-  ]);
+  Object.entries(options).map(
+    ([value, { type = 'option', label, disabled }]) => [
+      value,
+      label,
+      undefined,
+      disabled,
+      type,
+    ]
+  );
 
 export const Menu = ({
   tiny,

@@ -35,10 +35,12 @@ export const neutral = {
   n250: new Var('neutral-250', tokenColors.n250),
   n300: new Var('neutral-300', tokenColors.n300),
   n400: new Var('neutral-400', tokenColors.n400),
+  n450: new Var('neutral-450', tokenColors.n450),
   n500: new Var('neutral-500', tokenColors.n500),
   n600: new Var('neutral-600', tokenColors.n600),
   n700: new Var('neutral-700', tokenColors.n700),
   n800: new Var('neutral-800', tokenColors.n800),
+  n850: new Var('neutral-850', tokenColors.n850),
   n900: new Var('neutral-900', tokenColors.n900),
 };
 
@@ -131,15 +133,16 @@ const service2 = {
 export const surfaceColors = {
   'surface-light': white.theme('surface-light'),
   'surface-tint': neutral.n100.theme('surface-tint'),
+  'surface-room': white.theme('surface-room'),
   'surface-neutral': neutral.n400.theme('surface-neutral'),
   'surface-disabled': neutral.n100.theme('surface-disabled'),
   'surface-hover': neutral.n200.theme('surface-hover'),
-  'surface-info': info.i200.theme('surface-info'),
-  'surface-success': success.s200.theme('surface-success'),
-  'surface-warning': warning.w200.theme('surface-warning'),
-  'surface-danger': danger.d200.theme('surface-danger'),
-  'surface-service-1': service1['200'].theme('surface-service-1'),
-  'surface-service-2': service2['200'].theme('surface-service-2'),
+  'surface-selected': neutral.n450.theme('surface-selected'),
+  'surface-dark': neutral.n800.theme('surface-dark'),
+  'surface-featured': service2['700'].theme('surface-featured'),
+  'surface-featured-hover': service2['800'].theme('surface-featured-hover'),
+  'surface-overlay': neutral.n850.theme('surface-overlay'),
+  'surface-transparent': 'transparent',
 };
 
 type SurfaceColors = keyof typeof surfaceColors;
@@ -165,16 +168,11 @@ export const textIconColors = {
   'font-disabled': neutral.n500.theme('font-disabled'),
   'font-annotation': neutral.n600.theme('font-annotation'),
   'font-hint': neutral.n700.theme('font-hint'),
-  'font-default': neutral.n800.theme('font-default'),
-  'font-title-labels': neutral.n900.theme('font-title-labels'),
-  'font-danger': danger.d600.theme('font-danger'),
   'font-secondary-info': neutral.n700.theme('font-secondary-info'),
-  'font-on-info': info.i600.theme('font-on-info'),
-  'font-on-success': success.s800.theme('font-on-success'),
-  'font-on-warning': warning.w900.theme('font-on-warning'),
-  'font-on-danger': danger.d800.theme('font-on-danger'),
-  'font-on-service-1': service1[800].theme('font-on-service-1'),
-  'font-on-service-2': service2[600].theme('font-on-service-2'),
+  'font-default': neutral.n800.theme('font-default'),
+  'font-titles-labels': neutral.n900.theme('font-titles-labels'),
+  'font-info': primary.p600.theme('font-info'),
+  'font-danger': danger.d600.theme('font-danger'),
   'font-pure-black': neutral.n800.theme('font-pure-black'),
   'font-pure-white': white.theme('font-pure-white'),
 };
@@ -195,9 +193,6 @@ export const statusBackgroundColors = {
   'status-background-service-2': service2['200'].theme(
     'status-background-service-2'
   ),
-  'status-background-service-3': service2['700'].theme(
-    'status-background-service-3'
-  ),
 };
 
 type StatusBackgroundColors = keyof typeof statusBackgroundColors;
@@ -205,12 +200,11 @@ type StatusBackgroundColors = keyof typeof statusBackgroundColors;
 export const statusColors = {
   'status-font-on-info': info.i600.theme('status-font-on-info'),
   'status-font-on-success': success.s800.theme('status-font-on-success'),
-  'status-font-on-warning': warning.w900.theme('status-font-on-warning'),
+  'status-font-on-warning': warning.w800.theme('status-font-on-warning'),
   'status-font-on-warning-2': neutral.n800.theme('status-font-on-warning-2'),
   'status-font-on-danger': danger.d800.theme('status-font-on-danger'),
   'status-font-on-service-1': service1[800].theme('status-font-on-service-1'),
   'status-font-on-service-2': service2[600].theme('status-font-on-service-2'),
-  'status-font-on-service-3': white.theme('status-font-on-service-3'),
 };
 
 type StatusColors = keyof typeof statusColors;
@@ -240,6 +234,8 @@ export const shadowColors = {
     'shadow-elevation-2y',
     getPaletteColor('neutral', 800, 0.12)[1]
   ),
+  'shadow-highlight': primary.p200.theme('shadow-highlight'),
+  'shadow-danger': danger.d100.theme('shadow-danger'),
 };
 
 type ShadowColors = keyof typeof shadowColors;

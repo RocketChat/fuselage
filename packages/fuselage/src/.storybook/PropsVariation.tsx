@@ -9,8 +9,8 @@ function PropsVariation({
 }: {
   component: ComponentType;
   common?: Record<string, unknown>;
-  xAxis?: Record<string, unknown>;
-  yAxis?: Record<string, unknown>;
+  xAxis?: Record<string, Record<string, unknown>>;
+  yAxis?: Record<string, Record<string, unknown>>;
 }) {
   return (
     <Box

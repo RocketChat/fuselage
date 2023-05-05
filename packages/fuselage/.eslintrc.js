@@ -16,19 +16,9 @@ module.exports = {
   overrides: [
     {
       files: ['*.mdx'],
-      extends: [
-        '@rocket.chat/eslint-config-alt/react',
-        'plugin:mdx/recommended',
-      ],
-      parserOptions: {
-        ecmaFeatures: {
-          jsx: true,
-        },
-      },
+      extends: ['plugin:mdx/recommended'],
       rules: {
-        'new-cap': 'off',
-        'prefer-arrow-callback': 'off',
-        'semi': 'off',
+        'react/self-closing-comp': 'off',
       },
     },
   ],

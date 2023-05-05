@@ -1,5 +1,5 @@
 import tokenColors from '@rocket.chat/fuselage-tokens/colors.json';
-import tokenTypography from '@rocket.chat/fuselage-tokens/dist/typography.json';
+import tokenTypography from '@rocket.chat/fuselage-tokens/typography.json';
 import { memoize } from '@rocket.chat/memo';
 import invariant from 'invariant';
 
@@ -16,6 +16,8 @@ import {
   textIconColors,
   statusColors,
   throwErrorOnInvalidToken,
+  isBadgeColor,
+  badgeBackgroundColors,
 } from './Theme';
 import { getPaletteColor } from './getPaletteColor';
 import {
@@ -55,6 +57,9 @@ const measure = (
 export const borderWidth = measure((value: unknown) => {
   if (value === 'none') {
     return '0px';
+  }
+  if (value === 'default') {
+    return borderWidth('x1');
   }
 });
 
@@ -147,6 +152,20 @@ export const backgroundColor = memoize((value) => {
 
   if (isStatusBackgroundColor(value)) {
     return statusBackgroundColors[value].toString();
+  }
+
+  if (isStatusColor(value)) {
+    if (
+      process.env.NODE_ENV !== 'production' &&
+      process.env.NODE_ENV !== 'test'
+    ) {
+      console.warn(`${value} shouldn't be used as a backgroundColor.`);
+    }
+    return statusColors[value].toString();
+  }
+
+  if (isBadgeColor(value)) {
+    return badgeBackgroundColors[value].toString();
   }
 
   return color(value);

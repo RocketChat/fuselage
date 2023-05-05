@@ -7,8 +7,6 @@
     "name": "Rocket.Chat",
     "url": "https://rocket.chat/"
   },
-  "module": "dist/esm/index.js",
-  "types": "dist/esm/index.d.ts",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -40,8 +38,6 @@
     ".:build": "node ./build --config ./config.js",
     ".:build:legacy": "build-design-tokens",
     ".:build:clean": "rimraf dist",
-    ".:build:esm": "tsc -p tsconfig.json",
-    ".:build:cjs": "tsc -p tsconfig-cjs.json",
     "bump-next": "bump-next"
   },
   "devDependencies": {
@@ -49,21 +45,20 @@
     "@rocket.chat/prettier-config": "workspace:~",
     "build-design-tokens": "workspace:~",
     "bump": "workspace:~",
-    "eslint": "~8.26.0",
-    "eslint-config-prettier": "~8.5.0",
+    "eslint": "~8.38.0",
+    "eslint-config-prettier": "~8.8.0",
     "eslint-plugin-import": "~2.26.0",
     "eslint-plugin-prettier": "~4.2.1",
     "lint-all": "workspace:~",
-    "lint-staged": "~12.3.8",
+    "lint-staged": "~13.2.1",
     "npm-run-all": "^4.1.5",
-    "postcss-scss": "~4.0.5",
-    "prettier": "~2.7.1",
+    "postcss-scss": "~4.0.6",
+    "prettier": "~2.8.7",
     "rimraf": "^3.0.2",
-    "style-dictionary": "~3.7.1",
-    "stylelint": "~14.14.0",
-    "stylelint-order": "~5.0.0",
-    "stylelint-prettier": "~2.0.0",
-    "stylelint-scss": "~4.3.0",
-    "typescript": "~4.3.5"
+    "style-dictionary": "~3.7.2",
+    "stylelint": "~15.4.0",
+    "stylelint-order": "~6.0.3",
+    "stylelint-prettier": "~3.0.0",
+    "stylelint-scss": "~4.6.0"
   }
 }

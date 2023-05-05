@@ -21,7 +21,7 @@ const NavPanel: FC = () => {
       alignItems={'center'}
       zIndex={1}
       justifyContent={isMobile ? 'flex-end' : 'space-between'}
-      bg='alternative'
+      bg='light'
       className={css`
         user-select: none;
       `}

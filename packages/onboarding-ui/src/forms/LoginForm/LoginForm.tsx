@@ -41,7 +41,7 @@ const LoginForm = ({
   const {
     register,
     handleSubmit,
-    formState: { errors, isValidating, isSubmitting },
+    formState: { errors, isValidating, isSubmitting, isDirty },
   } = useForm<LoginFormPayload>({
     defaultValues: {
       ...initialValues,
@@ -94,7 +94,11 @@ const LoginForm = ({
       </Form.Container>
       <Form.Footer>
         <LoginActionsWrapper>
-          <Button type='submit' disabled={isValidating || isSubmitting} primary>
+          <Button
+            type='submit'
+            disabled={!isDirty || isValidating || isSubmitting}
+            primary
+          >
             {isPasswordLess
               ? t('form.loginForm.sendLoginLink')
               : t('form.loginForm.button.text')}

@@ -23,7 +23,7 @@
 
 $message-background-color: functions.theme(
   'message-background-color',
-  colors.surface(light)
+  colors.surface(room)
 );
 
 $message-background-color-focus: functions.theme(
@@ -63,7 +63,7 @@ $message-background-color-highlight: functions.theme(
 
   padding-inline: lengths.padding(20);
 
-  background-color: $message-background-color;
+  // background-color: $message-background-color;
 
   &:hover,
   &:focus {
@@ -72,6 +72,12 @@ $message-background-color-highlight: functions.theme(
 
   &--selected {
     background: $message-background-color-selected !important;
+
+    .rcx-message-header__name,
+    .rcx-message-header__time,
+    .rcx-message-body {
+      color: colors.font(pure-black);
+    }
   }
 
   &--editing {
@@ -178,6 +184,8 @@ $message-background-color-highlight: functions.theme(
     flex-shrink: 1;
 
     transition: opacity 0.3s linear;
+
+    word-break: break-word;
 
     opacity: 1;
 

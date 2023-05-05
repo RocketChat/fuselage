@@ -40,3 +40,10 @@ RectVariant.args = {
   width: '50%',
   height: 100,
 };
+
+export const CircleVariant: ComponentStory<typeof Skeleton> = Template.bind({});
+CircleVariant.args = {
+  variant: 'circle',
+  width: 16,
+  height: 16,
+};

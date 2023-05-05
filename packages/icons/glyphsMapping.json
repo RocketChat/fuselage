@@ -877,5 +877,38 @@
   },
   "spanner": {
     "start": "\ue109"
+  },
+  "attachment-file": {
+    "start": "\ue111"
+  },
+  "cloud-arrow-down": {
+    "start": "\ue113"
+  },
+  "code-block": {
+    "start": "\ue115"
+  },
+  "formula": {
+    "start": "\ue117"
+  },
+  "katex": {
+    "start": "\ue119"
+  },
+  "compass": {
+    "start": "\ue11b"
+  },
+  "palette": {
+    "start": "\ue11d"
+  },
+  "play-unfilled": {
+    "start": "\ue11f"
+  },
+  "stop-unfilled": {
+    "start": "\ue121"
+  },
+  "stop": {
+    "start": "\ue123"
+  },
+  "desktop-text": {
+    "start": "\ue125"
   }
 }
