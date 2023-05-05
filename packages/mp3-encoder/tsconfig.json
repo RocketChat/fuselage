@@ -1,11 +1,13 @@
 {
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "target": "es5",
-    "lib": ["es2015", "webworker"],
-    "strict": false,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
     "rootDir": "./src",
+    "module": "ESNext",
+    "lib": ["ES2015", "WebWorker"],
+    "outDir": "./dist",
+    "esModuleInterop": true,
+    "moduleResolution": "node",
     "skipLibCheck": true
-  }
+  },
+  "include": ["src"]
 }
