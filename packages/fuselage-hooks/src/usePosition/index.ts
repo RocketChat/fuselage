@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import type { RefObject, CSSProperties } from 'react';
 
 import { useDebouncedCallback } from '../useDebouncedCallback';
@@ -171,7 +171,7 @@ export function getPositionStyle({
   } as UsePositionResult;
 }
 
-const UPDATE_DEBOUNCE_DELAY = 10;
+const UPDATE_DEBOUNCE_DELAY = 30;
 
 /**
  * Hook to deal and position an element using an anchor
@@ -191,6 +191,12 @@ export function usePosition<TTarget extends Element, TAnchor extends Element>(
   }: UsePositionOptions = {}
 ): UsePositionResult {
   const [style, setStyle] = useSafely(useState<UsePositionResult>(emptyStyle));
+
+  const containerRef = useRef(container);
+
+  useEffect(() => {
+    containerRef.current = container;
+  }, [container]);
 
   const handleBoundingClientRectChange = useDebouncedCallback(
     useMutableCallback(() => {
@@ -238,9 +244,6 @@ export function usePosition<TTarget extends Element, TAnchor extends Element>(
 
   useBoundingClientRectChanges(targetRef, handleBoundingClientRectChange);
   useBoundingClientRectChanges(anchorRef, handleBoundingClientRectChange);
-  useBoundingClientRectChanges(
-    { current: container },
-    handleBoundingClientRectChange
-  );
+  useBoundingClientRectChanges(containerRef, handleBoundingClientRectChange);
   return style;
 }

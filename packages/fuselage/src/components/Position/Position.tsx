@@ -6,7 +6,7 @@ import type {
   ReactPortal,
   ReactElement,
 } from 'react';
-import { useRef, useMemo, useEffect, cloneElement, useState } from 'react';
+import { useRef, useMemo, cloneElement, useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 
 import type Box from '../Box';
@@ -52,10 +52,11 @@ const Position = ({
   });
 
   useEffect(
-    () =>
-      function () {
+    () => () => {
+      if (portalContainer.childNodes.length === 0) {
         document.body.removeChild(portalContainer);
-      },
+      }
+    },
     [portalContainer]
   );
 
