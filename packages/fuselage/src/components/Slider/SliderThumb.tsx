@@ -25,13 +25,12 @@ export const SliderThumb = (props: any) => {
 
   const thumb = useStyle(
     css`
-      width: 16px;
-      height: 16px;
+      width: 12px;
+      height: 12px;
 
       cursor: ${state.isDisabled ? 'not-allowed' : 'pointer'};
-      border: 1px solid #095ad2;
       border-radius: 50%;
-      background: ${isFocusVisible || isDragging ? '#76B7FC' : '#156ff5'};
+      background: ${isFocusVisible || isDragging ? '#76B7FC' : '#1D74F5'};
       ${state.orientation === 'horizontal'
         ? css`
             top: 50%;

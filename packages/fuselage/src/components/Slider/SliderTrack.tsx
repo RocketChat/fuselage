@@ -41,26 +41,24 @@ export const SliderTrack = ({
   const getTrackGradient = () => {
     if (isHorizontal) {
       return multiThumb
-        ? `to right, transparent ${getThumbPosition(
+        ? `to right, #CBCED1 ${getThumbPosition(
             state.values[0]
-          )}%, #156ff5 0, #156ff5 ${getThumbPosition(
+          )}%, #1D74F5 0, #1D74F5 ${getThumbPosition(
             state.values[1]
-          )}%, transparent 0`
-        : `to right, #156ff5  ${getThumbPosition(
+          )}%, #CBCED1 0`
+        : `to right, #1D74F5  ${getThumbPosition(
             state.values[0]
-          )}%, transparent 0%`;
+          )}%, #CBCED1 0%`;
     }
 
     if (isVertical) {
       return multiThumb
-        ? `to top, transparent ${getThumbPosition(
+        ? `to top, #CBCED1 ${getThumbPosition(
             state.values[0]
-          )}%, #156ff5 0, #156ff5 ${getThumbPosition(
+          )}%, #1D74F5 0, #1D74F5 ${getThumbPosition(
             state.values[1]
-          )}%, transparent 0`
-        : `to top, #156ff5  ${getThumbPosition(
-            state.values[0]
-          )}%, transparent 0%`;
+          )}%, #CBCED1 0`
+        : `to top, #1D74F5  ${getThumbPosition(state.values[0])}%, #CBCED1 0%`;
     }
 
     return undefined;
@@ -76,7 +74,6 @@ export const SliderTrack = ({
         background: linear-gradient(${getTrackGradient()});
         transform: translateX(-50%);
         border-radius: 1rem;
-        border: 1px solid #095ad2;
       }
       ${isHorizontal &&
       css`
@@ -85,7 +82,7 @@ export const SliderTrack = ({
         &::before {
           top: 50%;
           width: 100%;
-          height: 8px;
+          height: 4px;
           transform: translateY(-50%);
         }
       `};
