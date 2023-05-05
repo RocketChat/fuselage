@@ -7,6 +7,7 @@ import {
   VisuallyHidden,
 } from 'react-aria';
 
+import { Palette } from '../../Theme';
 import { useStyle } from '../../hooks/useStyle';
 
 export const SliderThumb = (props: any) => {
@@ -30,7 +31,9 @@ export const SliderThumb = (props: any) => {
 
       cursor: ${state.isDisabled ? 'not-allowed' : 'pointer'};
       border-radius: 50%;
-      background: ${isFocusVisible || isDragging ? '#76B7FC' : '#1D74F5'};
+      background: ${isFocusVisible || isDragging
+        ? Palette.text['font-info']
+        : Palette.stroke['stroke-highlight']};
       ${state.orientation === 'horizontal'
         ? css`
             top: 50%;

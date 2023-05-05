@@ -3,6 +3,7 @@ import type { DOMAttributes, MutableRefObject, ReactNode } from 'react';
 import React, { useMemo } from 'react';
 import type { SliderState } from 'react-stately';
 
+import { Palette } from '../../Theme';
 import { useStyle } from '../../hooks/useStyle';
 
 type SliderTrackProps = {
@@ -12,6 +13,9 @@ type SliderTrackProps = {
   children: ReactNode;
   multiThumb?: boolean;
 };
+
+const highlight = Palette.stroke['stroke-highlight'];
+const light = Palette.stroke['stroke-light'];
 
 export const SliderTrack = ({
   trackProps,
@@ -41,24 +45,26 @@ export const SliderTrack = ({
   const getTrackGradient = () => {
     if (isHorizontal) {
       return multiThumb
-        ? `to right, #CBCED1 ${getThumbPosition(
+        ? `to right, ${light}} ${getThumbPosition(
             state.values[0]
-          )}%, #1D74F5 0, #1D74F5 ${getThumbPosition(
+          )}%, ${highlight} 0, ${highlight} ${getThumbPosition(
             state.values[1]
-          )}%, #CBCED1 0`
-        : `to right, #1D74F5  ${getThumbPosition(
+          )}%, ${light} 0`
+        : `to right, ${highlight}  ${getThumbPosition(
             state.values[0]
-          )}%, #CBCED1 0%`;
+          )}%, ${light} 0%`;
     }
 
     if (isVertical) {
       return multiThumb
-        ? `to top, #CBCED1 ${getThumbPosition(
+        ? `to top, ${light} ${getThumbPosition(
             state.values[0]
-          )}%, #1D74F5 0, #1D74F5 ${getThumbPosition(
+          )}%, ${highlight} 0, ${highlight} ${getThumbPosition(
             state.values[1]
-          )}%, #CBCED1 0`
-        : `to top, #1D74F5  ${getThumbPosition(state.values[0])}%, #CBCED1 0%`;
+          )}%, ${light} 0`
+        : `to top, ${highlight}  ${getThumbPosition(
+            state.values[0]
+          )}%, ${light} 0%`;
     }
 
     return undefined;
