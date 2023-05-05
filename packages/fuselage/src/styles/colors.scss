@@ -2,7 +2,7 @@
 @use 'sass:list';
 @use 'sass:map';
 @use 'sass:math';
-@use '~@rocket.chat/fuselage-tokens/dist/colors.scss' as token-colors;
+@use '~@rocket.chat/fuselage-tokens/colors.scss' as token-colors;
 
 $-map-type-to-prefix: (
   neutral: 'n',
@@ -33,7 +33,7 @@ $-map-type-to-prefix: (
   $base-color: map.get(token-colors.$colors, #{$prefix}#{$grade});
 
   @if not $base-color {
-    @error 'invalid color reference';
+    @error 'invalid color reference: #{$prefix}#{$grade}';
   }
 
   @if ($alpha != null) {

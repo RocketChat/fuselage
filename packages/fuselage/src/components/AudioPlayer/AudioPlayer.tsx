@@ -1,188 +1,189 @@
-import { css } from '@rocket.chat/css-in-js';
-import React, { useState, useRef } from 'react';
+import { useMergedRefs } from '@rocket.chat/fuselage-hooks';
+import React, { useState, useRef, forwardRef } from 'react';
 
 import { Box, IconButton, Slider } from '../..';
 
-const AUDIO_URL =
-  'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-17.mp3';
+const getMaskTime = (durationTime: number) =>
+  new Date(durationTime * 1000)
+    .toISOString()
+    .slice(durationTime > 60 * 60 ? 11 : 14, 19);
 
-const getDurationTime = (durationTime: number) => {
-  if (durationTime === 0) {
-    return `00:00`;
-  }
-
-  let mins = Math.floor(durationTime / 60);
-  if (mins < 10) {
-    mins = `0${String(mins)}`;
-  }
-  let secs = Math.floor(durationTime % 60);
-  if (secs < 10) {
-    secs = `0${String(secs)}`;
-  }
-
-  return `${mins}:${secs}`;
-};
-
-const getPassedTime = (currentTime: 0) => {
-  if (currentTime === 0) {
-    return `00:00`;
-  }
-
-  let mins = Math.floor(currentTime / 60);
-  if (mins < 10) {
-    mins = `0${String(mins)}`;
-  }
-  let secs = Math.floor(currentTime % 60);
-  if (secs < 10) {
-    secs = `0${String(secs)}`;
-  }
-
-  return `${mins}:${secs}`;
-};
-
-export const AudioPlayer = () => {
-  const audioRef = useRef<HTMLAudioElement>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [currentTime, setCurrentTime] = useState(0);
-  const [durationTime, setDurantionTime] = useState(0);
-  const [playbackSpeed, setPlaybackspeed] = useState(1);
-
-  const handleInit = (e) => {
-    setDurantionTime(e.target.duration);
+function forceDownload(url: string, fileName?: string) {
+  const xhr = new XMLHttpRequest();
+  xhr.open('GET', url, true);
+  xhr.responseType = 'blob';
+  xhr.onload = function () {
+    const urlCreator = window.URL || window.webkitURL;
+    const imageUrl = urlCreator.createObjectURL(this.response);
+    const tag = document.createElement('a');
+    tag.href = imageUrl;
+    if (fileName) {
+      tag.download = fileName;
+    }
+    document.body.appendChild(tag);
+    tag.click();
+    document.body.removeChild(tag);
   };
+  xhr.send();
+}
 
-  const handleTimeUpdate = (e) => {
-    setCurrentTime(e.target.currentTime);
-  };
+export const AudioPlayer = forwardRef<
+  HTMLAudioElement,
+  {
+    src: string;
+    maxPlaybackSpeed?: number;
+    minPlaybackSpeed?: number;
+    playbackSpeedStep?: number;
+  }
+>(
+  (
+    {
+      src,
+      maxPlaybackSpeed = 2,
+      minPlaybackSpeed = 0.5,
+      playbackSpeedStep = 0.5,
+    },
+    ref
+  ) => {
+    const audioRef = useRef<HTMLAudioElement>(null);
+    const refs = useMergedRefs(ref, audioRef);
+    const [isPlaying, setIsPlaying] = useState(false);
+    const [currentTime, setCurrentTime] = useState(0);
+    const [durationTime, setDurationTime] = useState(0);
+    const [playbackSpeed, setPlaybackSpeed] = useState(1);
 
-  const handlePlay = () => {
-    if (audioRef.current) {
+    const handlePlay = () => {
+      const isPlaying = audioRef.current?.paused;
+
       if (isPlaying) {
-        audioRef.current.pause();
-        return setIsPlaying(false);
+        audioRef.current?.play();
+      } else {
+        audioRef.current?.pause();
       }
+    };
 
-      audioRef.current.play();
-      setIsPlaying(true);
-    }
-  };
-
-  const handleChange = (value) => {
-    if (audioRef.current) {
-      audioRef.current.currentTime = value;
-      setCurrentTime(value);
-    }
-  };
-
-  const handleDownload = () => {
-    console.log('download');
-  };
-
-  const handleIncresePlayBackSpeed = () => {
-    if (audioRef.current) {
-      if (audioRef.current.playbackRate < 2) {
-        audioRef.current.playbackRate += 0.5;
-        return setPlaybackspeed(audioRef.current.playbackRate);
+    const handlePlaybackSpeed = (mod: 1 | -1) => {
+      if (audioRef.current) {
+        audioRef.current.playbackRate = Math.max(
+          Math.min(
+            audioRef.current.playbackRate + playbackSpeedStep * mod,
+            maxPlaybackSpeed
+          ),
+          minPlaybackSpeed
+        );
       }
-    }
-  };
+    };
 
-  const handleDecresePlayBackSpeed = () => {
-    if (audioRef.current) {
-      if (audioRef.current.playbackRate === 0.5) {
-        return;
-      }
+    const handleIncreasePlayBackSpeed = () => handlePlaybackSpeed(1);
 
-      audioRef.current.playbackRate -= 0.5;
-      return setPlaybackspeed(audioRef.current.playbackRate);
-    }
-  };
+    const handleDecreasePlayBackSpeed = () => handlePlaybackSpeed(-1);
 
-  const customFooter = css`
-    position: relative;
-    bottom: 0.5rem;
-    margin-bottom: -0.5rem;
-  `;
-
-  return (
-    <>
+    return (
       <Box
-        position='relative'
-        borderWidth={1}
+        borderWidth='default'
         borderColor='extra-light'
-        p='x12'
+        p='x16'
         width='fit-content'
         borderRadius='x4'
       >
         <Box display='flex' alignItems='center'>
-          <Box>
-            <IconButton
-              onClick={handlePlay}
-              icon={isPlaying ? 'pause-unfilled' : 'play-unfilled'}
-            />
-          </Box>
-          <Box mi='x12'>
+          <IconButton
+            large
+            onClick={handlePlay}
+            icon={isPlaying ? 'pause-unfilled' : 'play-unfilled'}
+          />
+          <Box mi='x12' position='relative'>
             <Slider
               showOutput={false}
               value={currentTime}
               maxValue={durationTime}
-              onChange={handleChange}
+              onChange={(value) => {
+                if (audioRef.current) {
+                  audioRef.current.currentTime = value;
+                }
+              }}
             />
-          </Box>
-          <Box>
-            <IconButton onClick={handleDownload} icon='download' />
-          </Box>
-        </Box>
-        <Box
-          className={customFooter}
-          mi='x52'
-          display='flex'
-          alignItems='center'
-          justifyContent='space-between'
-          color='secondary-info'
-        >
-          <Box fontScale='micro'>{getPassedTime(currentTime)}</Box>
-          <Box
-            fontScale='micro'
-            display='flex'
-            justifyContent='space-around'
-            id='controlers'
-          >
             <Box
-              mi='x8'
               display='flex'
               alignItems='center'
               justifyContent='space-between'
+              color='secondary-info'
+              fontScale='micro'
+              position='absolute'
+              width='100%'
+              mb={'neg-x8'}
             >
-              <IconButton
-                disabled={playbackSpeed === 0.5}
-                icon='h-bar'
-                mini
-                onClick={handleDecresePlayBackSpeed}
-              />
-              <Box mi='x8'>{playbackSpeed.toFixed(1)}x</Box>
-              <IconButton
-                disabled={playbackSpeed === 2}
-                icon='plus'
-                mini
-                onClick={handleIncresePlayBackSpeed}
-              />
+              {getMaskTime(currentTime)}
+              <Box
+                fontScale='micro'
+                display='flex'
+                justifyContent='space-around'
+                id='controllers'
+              >
+                <Box
+                  mi='x8'
+                  display='flex'
+                  alignItems='center'
+                  justifyContent='space-between'
+                >
+                  <IconButton
+                    disabled={playbackSpeed <= minPlaybackSpeed}
+                    icon='h-bar'
+                    mini
+                    onClick={handleDecreasePlayBackSpeed}
+                  />
+                  <Box mi='x8'>{playbackSpeed.toFixed(1)}x</Box>
+                  <IconButton
+                    disabled={playbackSpeed >= maxPlaybackSpeed}
+                    icon='plus'
+                    mini
+                    onClick={handleIncreasePlayBackSpeed}
+                  />
+                </Box>
+              </Box>
+              {getMaskTime(durationTime)}
             </Box>
           </Box>
-          <Box fontScale='micro'>{getDurationTime(durationTime)}</Box>
+          <IconButton
+            is='a'
+            href={src}
+            download
+            icon='download'
+            large
+            onClick={(e) => {
+              const { host } = new URL(src);
+              if (host !== window.location.host) {
+                e.preventDefault();
+                forceDownload(src);
+              }
+            }}
+          />
         </Box>
+        <audio
+          style={{ display: 'none' }}
+          onTimeUpdate={(e) => {
+            setCurrentTime((e.target as HTMLAudioElement).currentTime);
+          }}
+          onLoadedData={(e) => {
+            setDurationTime((e.target as HTMLAudioElement).duration);
+          }}
+          onEnded={() => setIsPlaying(false)}
+          ref={refs}
+          preload='metadata'
+          onRateChange={(e) => {
+            setPlaybackSpeed((e.target as HTMLAudioElement).playbackRate);
+          }}
+          onPlay={() => {
+            setIsPlaying(true);
+          }}
+          onPause={() => {
+            setIsPlaying(false);
+          }}
+          controls
+        >
+          <source src={src} type='audio/mpeg' />
+        </audio>
       </Box>
-
-      <audio
-        style={{ display: 'none' }}
-        onTimeUpdate={handleTimeUpdate}
-        onLoadedData={handleInit}
-        onEnded={() => setIsPlaying(false)}
-        ref={audioRef}
-        controls
-      >
-        <source src={AUDIO_URL} type='audio/mpeg' />
-      </audio>
-    </>
-  );
-};
+    );
+  }
+);
