@@ -2,6 +2,51 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.31.23](https://github.com/RocketChat/fuselage/compare/v0.31.22...v0.31.23) (2023-05-05)
+
+### Features
+
+- (icons) Add compass icon ([#950](https://github.com/RocketChat/fuselage/issues/950)) ([fd52af7](https://github.com/RocketChat/fuselage/commit/fd52af79b4cbfa42528e46a1f2c53e719948d149))
+- Attachment File new design ([#932](https://github.com/RocketChat/fuselage/issues/932)) ([f61bd08](https://github.com/RocketChat/fuselage/commit/f61bd08e5f424bb7fe5e94de3bdd6722bee45860)), closes [#927](https://github.com/RocketChat/fuselage/issues/927)
+- **fuselage:** `Modal` wrapper & wrapperFunction prop ([#959](https://github.com/RocketChat/fuselage/issues/959)) ([4493328](https://github.com/RocketChat/fuselage/commit/4493328f08f2467929a48537efd459584f7b26e1))
+- **fuselage:** Add `linkTarget` prop for `Banner` component ([#971](https://github.com/RocketChat/fuselage/issues/971)) ([f4e9645](https://github.com/RocketChat/fuselage/commit/f4e9645084a9d033d730ea529fe32bacd7cefa77))
+- **fuselage:** add aria-disabled prop to Option component ([#942](https://github.com/RocketChat/fuselage/issues/942)) ([e7366fb](https://github.com/RocketChat/fuselage/commit/e7366fbc1a16242939d43186c017126b99c4cb6d))
+- **fuselage:** add disabled variant to option ([#939](https://github.com/RocketChat/fuselage/issues/939)) ([052c1b4](https://github.com/RocketChat/fuselage/commit/052c1b4417d50485e124954867476138a71e87a2))
+- **fuselage:** Avatar Emoji ([#930](https://github.com/RocketChat/fuselage/issues/930)) ([8f9fae1](https://github.com/RocketChat/fuselage/commit/8f9fae14c80abd1fc0015681d1f2a08e833b2310))
+- **fuselage:** Sidebar theme ([#923](https://github.com/RocketChat/fuselage/issues/923)) ([410befb](https://github.com/RocketChat/fuselage/commit/410befbedd198d18334b0a32acbe632cde26b4ee))
+- **fuselage:** SidebarBanner component ([#975](https://github.com/RocketChat/fuselage/issues/975)) ([377000b](https://github.com/RocketChat/fuselage/commit/377000baf3b502c035a70498240bf431f7231fa7))
+- **fuselage:** Skeleton Circle Variant ([#1006](https://github.com/RocketChat/fuselage/issues/1006)) ([bad19d5](https://github.com/RocketChat/fuselage/commit/bad19d59e54b51f56534c508b08104a1e3401bda))
+- **fuselage:** Tag Featured Variant ([#935](https://github.com/RocketChat/fuselage/issues/935)) ([634a97d](https://github.com/RocketChat/fuselage/commit/634a97de12e2c1305815f0c8b8a8b9bcb5cd9d52))
+- **icons:** Add `desktop-text` icon ([#972](https://github.com/RocketChat/fuselage/issues/972)) ([0183bbd](https://github.com/RocketChat/fuselage/commit/0183bbd46e8a99b0848e0ae38961acc617239cb8))
+- Loading state on creating first member form ([0d0f4ef](https://github.com/RocketChat/fuselage/commit/0d0f4ef2886b8f1281de33b468485e2e6b22106d))
+- **message-parser:** custom domains whitelist ([#1010](https://github.com/RocketChat/fuselage/issues/1010)) ([dcd05f0](https://github.com/RocketChat/fuselage/commit/dcd05f0aa27c990e9f190f5d33c42c62fc2b7050))
+- **onboarding-ui:** remove type field in company data section ([#1002](https://github.com/RocketChat/fuselage/issues/1002)) ([8dad809](https://github.com/RocketChat/fuselage/commit/8dad8099d992cf5c3a3dc24c1bc073a9635bce68))
+
+### Bug Fixes
+
+- enabling emphasis inside link label ([b1fece0](https://github.com/RocketChat/fuselage/commit/b1fece08341bf3ec3aafc6112706fa71c1198a3c))
+- **fuselage-hooks:** Fix `usePosition` ([#967](https://github.com/RocketChat/fuselage/issues/967)) ([6098687](https://github.com/RocketChat/fuselage/commit/6098687a12d0896e06440c336bca806f16eda441))
+- **fuselage:** `SidebarItem` menu glitch on hover ([#991](https://github.com/RocketChat/fuselage/issues/991)) ([c92cfad](https://github.com/RocketChat/fuselage/commit/c92cfade34434f5ebfd05ccb65dd80a439e07305))
+- **fuselage:** Add missing types to PaginatedMultiselect / Filtered ([#988](https://github.com/RocketChat/fuselage/issues/988)) ([102d97e](https://github.com/RocketChat/fuselage/commit/102d97ee7d42078bf903f09c63fd7ba74dfbaee9))
+- **fuselage:** Adjusted PaginatedMultiSelect to keep received/returned values consistent ([#994](https://github.com/RocketChat/fuselage/issues/994)) ([057b036](https://github.com/RocketChat/fuselage/commit/057b036c21491696722013d892c40d504088e61d))
+- **fuselage:** Avatar element excending container width ([#1017](https://github.com/RocketChat/fuselage/issues/1017)) ([94fbb72](https://github.com/RocketChat/fuselage/commit/94fbb727a880f0d586abe04eb56f143515afa618))
+- **fuselage:** Badge bg token colors ([#945](https://github.com/RocketChat/fuselage/issues/945)) ([461ecf6](https://github.com/RocketChat/fuselage/commit/461ecf661d9ff4a46390957c915e4352fa942a7c))
+- **fuselage:** button var prefix ([#938](https://github.com/RocketChat/fuselage/issues/938)) ([2181514](https://github.com/RocketChat/fuselage/commit/2181514f62914a58edd64e383ddc55384564590b))
+- **fuselage:** Chevron vertical position ([#910](https://github.com/RocketChat/fuselage/issues/910)) ([f086df2](https://github.com/RocketChat/fuselage/commit/f086df24e06c9069603ff0977b05196a0baeec74))
+- **fuselage:** colors ([#980](https://github.com/RocketChat/fuselage/issues/980)) ([cf26af6](https://github.com/RocketChat/fuselage/commit/cf26af6337d2d84d08b8b71d9c5481a95d67f3b5))
+- **fuselage:** Correct tokens usage ([#940](https://github.com/RocketChat/fuselage/issues/940)) ([b1292b5](https://github.com/RocketChat/fuselage/commit/b1292b5ce06ffb0ae8ec91f6b2b5713685d4862f))
+- **fuselage:** Fix scrolling issues due menu button wrapper ([#987](https://github.com/RocketChat/fuselage/issues/987)) ([4e0bcff](https://github.com/RocketChat/fuselage/commit/4e0bcffd3d3c543c312e9ec317b56addaac66620))
+- **fuselage:** InputBox addon click ([#982](https://github.com/RocketChat/fuselage/issues/982)) ([d00d0ea](https://github.com/RocketChat/fuselage/commit/d00d0ea50350db5331b6356a41ef404ebf0d8e2f))
+- **fuselage:** MessageBody word break ([#1018](https://github.com/RocketChat/fuselage/issues/1018)) ([59fee60](https://github.com/RocketChat/fuselage/commit/59fee600a84dfb2094697ae00ba466631ff2f7a7))
+- **fuselage:** Multiselect won't update if value changes ([#983](https://github.com/RocketChat/fuselage/issues/983)) ([77a3b9c](https://github.com/RocketChat/fuselage/commit/77a3b9c641b84c3b2dd850e0954552413e1c58ed))
+- **fuselage:** Pagination number ([#936](https://github.com/RocketChat/fuselage/issues/936)) ([e421970](https://github.com/RocketChat/fuselage/commit/e4219703c849ae406d42ff90acfafef4fce07b16))
+- **fuselage:** selected-messages color ([#1004](https://github.com/RocketChat/fuselage/issues/1004)) ([83ef093](https://github.com/RocketChat/fuselage/commit/83ef0936227ab169d34b43702d141e981ab542de))
+- **fuselage:** token refactor ([#943](https://github.com/RocketChat/fuselage/issues/943)) ([5bead65](https://github.com/RocketChat/fuselage/commit/5bead652d1c78fe5fbe9a966a22ab76d0843d1fa))
+- **fuselage:** word break in rcx-message-body ([#1028](https://github.com/RocketChat/fuselage/issues/1028)) ([0c70a1d](https://github.com/RocketChat/fuselage/commit/0c70a1def7da671b1326969536b06351f90692a6))
+- **message-parser:** Differ `link`, `autoLink`, and `autoEmail` helpers ([#993](https://github.com/RocketChat/fuselage/issues/993)) ([db343e0](https://github.com/RocketChat/fuselage/commit/db343e0b42e50095e5c238fe8e9fee4b1b521fed))
+- **message-parser:** Inline Code with mention and/or mail pattern ([#1021](https://github.com/RocketChat/fuselage/issues/1021)) ([00fb041](https://github.com/RocketChat/fuselage/commit/00fb041e08a18d2ced9c367baa4228ac6277ff6c))
+- **message-parser:** Link parser issues ([#962](https://github.com/RocketChat/fuselage/issues/962)) ([3377d6b](https://github.com/RocketChat/fuselage/commit/3377d6b8994b24e5067d5d61f8e6aeb32e6ce616))
+
 ### [0.31.22](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.31.21...v0.31.22) (2022-12-02)
 
 ### Features
