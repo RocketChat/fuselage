@@ -13,6 +13,7 @@ export type ButtonProps = ComponentProps<typeof Box> & {
   small?: boolean;
   mini?: boolean;
   tiny?: boolean;
+  large?: boolean;
   square?: boolean;
   external?: boolean;
 };
@@ -30,6 +31,7 @@ export const Button = forwardRef(function Button(
     small,
     tiny,
     mini,
+    large,
     square,
     ...props
   }: ButtonProps,
@@ -73,10 +75,12 @@ export const Button = forwardRef(function Button(
       rcx-button
       {...kindAndVariantProps}
       rcx-button--small={small}
+      rcx-button--large={large}
       rcx-button--square={square}
       rcx-button--small-square={small && square}
       rcx-button--tiny-square={tiny && square}
       rcx-button--mini-square={mini && square}
+      rcx-button--large-square={large && square}
       ref={ref}
       {...extraProps}
       {...props}

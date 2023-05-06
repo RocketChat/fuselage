@@ -33,7 +33,7 @@ $-map-type-to-prefix: (
   $base-color: map.get(token-colors.$colors, #{$prefix}#{$grade});
 
   @if not $base-color {
-    @error 'invalid color reference';
+    @error 'invalid color reference: #{$prefix}#{$grade}';
   }
 
   @if ($alpha != null) {
