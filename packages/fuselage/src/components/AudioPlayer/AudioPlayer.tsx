@@ -1,7 +1,8 @@
 import { useMergedRefs } from '@rocket.chat/fuselage-hooks';
 import React, { useState, useRef, forwardRef } from 'react';
 
-import { Box, IconButton, Slider } from '../..';
+import { Box, IconButton } from '../..';
+import { Slider } from '../Slider';
 
 const getMaskTime = (durationTime: number) =>
   new Date(durationTime * 1000)

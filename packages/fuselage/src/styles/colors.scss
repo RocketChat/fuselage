@@ -2,7 +2,7 @@
 @use 'sass:list';
 @use 'sass:map';
 @use 'sass:math';
-@use '~@rocket.chat/fuselage-tokens/colors.scss' as token-colors;
+@use '~@rocket.chat/fuselage-tokens/dist/colors.scss' as token-colors;
 
 $-map-type-to-prefix: (
   neutral: 'n',

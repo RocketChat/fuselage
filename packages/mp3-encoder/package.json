@@ -40,9 +40,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "dependencies": {
-    "lamejs": "git+https://github.com/zhuker/lamejs.git#commit=582bbba6a12f981b984d8fb9e1874499fed85675"
-  },
   "devDependencies": {
     "@babel/core": "~7.21.4",
     "@babel/plugin-transform-runtime": "~7.21.4",
@@ -50,9 +47,9 @@
     "@babel/preset-typescript": "~7.21.4",
     "@rocket.chat/eslint-config-alt": "workspace:~",
     "@rocket.chat/prettier-config": "workspace:~",
-    "@rollup/plugin-commonjs": "~21.0.3",
-    "@rollup/plugin-node-resolve": "~13.1.3",
-    "@rollup/plugin-typescript": "~8.3.4",
+    "@rollup/plugin-commonjs": "~24.1.0",
+    "@rollup/plugin-node-resolve": "~15.0.2",
+    "@rollup/plugin-typescript": "~11.1.0",
     "@types/jest": "~29.5.0",
     "bump": "workspace:~",
     "eslint": "~8.38.0",
@@ -61,7 +58,7 @@
     "lint-all": "workspace:~",
     "lint-staged": "~13.2.1",
     "prettier": "~2.8.7",
-    "rollup": "~2.67.3",
+    "rollup": "~3.20.4",
     "ts-jest": "~29.1.0",
     "typedoc": "~0.24.1",
     "typescript": "~5.0.4"
