@@ -99,6 +99,13 @@ module.exports = (env, { mode = 'production' }) => ({
     'react-dom',
     '@rocket.chat/icons',
     '@rocket.chat/fuselage-hooks',
+    'react-aria',
+    'react-stately',
+    '@rocket.chat/css-in-js',
+    '@rocket.chat/css-supports',
+    '@rocket.chat/fuselage-tokens',
+    '@rocket.chat/memo',
+    '@rocket.chat/styled',
   ],
   plugins: [
     new webpack.DefinePlugin({

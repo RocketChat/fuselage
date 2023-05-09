@@ -62,7 +62,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['*.ts', '*.tsx'],
+      files: ['*.+(ts|tsx|cts|ctsx|mts|mtsx)'],
       rules: {
         '@typescript-eslint/no-dupe-class-members': 'error',
         'no-dupe-class-members': 'off',

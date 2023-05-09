@@ -58,6 +58,16 @@
     );
   }
 
+  &--large {
+    @include typography.use-font-scale(p1);
+
+    @include with-rectangular-size(
+      $height: 48px,
+      $padding-x: 24px,
+      $line-height: typography.line-height(p1)
+    );
+  }
+
   &--square {
     @include with-squared-size($size: 40px);
     display: flex;
@@ -123,6 +133,10 @@
 
   &--medium-square {
     @include with-squared-size($size: 32px);
+  }
+
+  &--large-square {
+    @include with-squared-size($size: 48px);
   }
 
   &--primary {

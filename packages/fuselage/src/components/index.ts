@@ -1,5 +1,6 @@
 export * from './Accordion';
 export { default as AnimatedVisibility } from './AnimatedVisibility';
+export * from './AudioPlayer';
 export * from './AutoComplete';
 export * from './Avatar';
 export * from './Badge';
@@ -45,6 +46,7 @@ export * from './RadioButton';
 export { default as Scrollable } from './Scrollable';
 export * from './SearchInput';
 export * from './Select';
+export * from './Slider';
 export * from './PaginatedSelect';
 export * from './SelectInput';
 export { default as Sidebar } from './Sidebar';
