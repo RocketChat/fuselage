@@ -8,6 +8,6 @@ export type ModalThumbProps = ComponentProps<typeof Avatar>;
 
 export const ModalThumb = (props: ModalThumbProps) => (
   <Box>
-    <Avatar size='x32' {...props} />
+    <Avatar size='x28' {...props} />
   </Box>
 );
