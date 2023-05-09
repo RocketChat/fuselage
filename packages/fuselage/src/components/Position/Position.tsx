@@ -6,7 +6,7 @@ import type {
   ReactPortal,
   ReactElement,
 } from 'react';
-import { useRef, useMemo, cloneElement, useState } from 'react';
+import { useRef, useMemo, cloneElement, useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 
 import type Box from '../Box';
@@ -50,6 +50,15 @@ const Position = ({
     document.body.appendChild(element);
     return element;
   });
+
+  useEffect(
+    () => () => {
+      if (portalContainer.childNodes.length === 0) {
+        document.body.removeChild(portalContainer);
+      }
+    },
+    [portalContainer]
+  );
 
   return createPortal(
     cloneElement(children, {
