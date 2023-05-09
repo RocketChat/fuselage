@@ -32,17 +32,21 @@ export const AudioPlayer = forwardRef<
   HTMLAudioElement,
   {
     src: string;
+    type?: string;
     maxPlaybackSpeed?: number;
     minPlaybackSpeed?: number;
     playbackSpeedStep?: number;
+    download?: boolean;
   }
 >(
   (
     {
       src,
+      type = 'audio/mpeg',
       maxPlaybackSpeed = 2,
       minPlaybackSpeed = 0.5,
       playbackSpeedStep = 0.5,
+      download = false,
     },
     ref
   ) => {
@@ -82,6 +86,7 @@ export const AudioPlayer = forwardRef<
     return (
       <Box
         borderWidth='default'
+        bg='light'
         borderColor='extra-light'
         p='x16'
         width='fit-content'
@@ -145,20 +150,22 @@ export const AudioPlayer = forwardRef<
               {getMaskTime(durationTime)}
             </Box>
           </Box>
-          <IconButton
-            is='a'
-            href={src}
-            download
-            icon='download'
-            large
-            onClick={(e) => {
-              const { host } = new URL(src);
-              if (host !== window.location.host) {
-                e.preventDefault();
-                forceDownload(src);
-              }
-            }}
-          />
+          {download && (
+            <IconButton
+              is='a'
+              href={src}
+              download
+              icon='download'
+              large
+              onClick={(e) => {
+                const { host } = new URL(src);
+                if (host !== window.location.host) {
+                  e.preventDefault();
+                  forceDownload(src);
+                }
+              }}
+            />
+          )}
         </Box>
         <audio
           style={{ display: 'none' }}
@@ -182,7 +189,7 @@ export const AudioPlayer = forwardRef<
           }}
           controls
         >
-          <source src={src} type='audio/mpeg' />
+          <source src={src} type={type} />
         </audio>
       </Box>
     );
