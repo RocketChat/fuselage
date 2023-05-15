@@ -96,10 +96,12 @@ export const AudioPlayer = forwardRef<
           <IconButton
             large
             onClick={handlePlay}
+            aria-label={isPlaying ? 'Pause' : 'Play'}
             icon={isPlaying ? 'pause-unfilled' : 'play-unfilled'}
           />
           <Box mi='x12' position='relative'>
             <Slider
+              aria-label='Audio Playback Range'
               showOutput={false}
               value={currentTime}
               maxValue={durationTime}
@@ -133,6 +135,7 @@ export const AudioPlayer = forwardRef<
                   justifyContent='space-between'
                 >
                   <IconButton
+                    aria-label='Reduce Playback Speed'
                     disabled={playbackSpeed <= minPlaybackSpeed}
                     icon='h-bar'
                     mini
@@ -140,6 +143,7 @@ export const AudioPlayer = forwardRef<
                   />
                   <Box mi='x8'>{playbackSpeed.toFixed(1)}x</Box>
                   <IconButton
+                    aria-label='Increase Playback Speed'
                     disabled={playbackSpeed >= maxPlaybackSpeed}
                     icon='plus'
                     mini
@@ -152,6 +156,7 @@ export const AudioPlayer = forwardRef<
           </Box>
           {download && (
             <IconButton
+              aria-label='Download Audio File'
               is='a'
               href={src}
               download
