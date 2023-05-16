@@ -37,6 +37,12 @@ export const AudioPlayer = forwardRef<
     minPlaybackSpeed?: number;
     playbackSpeedStep?: number;
     download?: boolean;
+    playLabel?: string;
+    pauseLabel?: string;
+    audioPlaybackRangeLabel?: string;
+    reducePlaybackSpeedLabel?: string;
+    increasePlaybackSpeedLabel?: string;
+    downloadAudioFileLabel?: string;
   }
 >(
   (
@@ -47,6 +53,12 @@ export const AudioPlayer = forwardRef<
       minPlaybackSpeed = 0.5,
       playbackSpeedStep = 0.5,
       download = false,
+      playLabel = 'Play',
+      pauseLabel = 'Pause',
+      audioPlaybackRangeLabel = 'Audio Playback Range',
+      reducePlaybackSpeedLabel = 'Reduce Playback Speed',
+      increasePlaybackSpeedLabel = 'Increase Playback Speed',
+      downloadAudioFileLabel = 'Download Audio File',
     },
     ref
   ) => {
@@ -96,10 +108,12 @@ export const AudioPlayer = forwardRef<
           <IconButton
             large
             onClick={handlePlay}
+            aria-label={isPlaying ? pauseLabel : playLabel}
             icon={isPlaying ? 'pause-unfilled' : 'play-unfilled'}
           />
           <Box mi='x12' position='relative'>
             <Slider
+              aria-label={audioPlaybackRangeLabel}
               showOutput={false}
               value={currentTime}
               maxValue={durationTime}
@@ -133,6 +147,7 @@ export const AudioPlayer = forwardRef<
                   justifyContent='space-between'
                 >
                   <IconButton
+                    aria-label={reducePlaybackSpeedLabel}
                     disabled={playbackSpeed <= minPlaybackSpeed}
                     icon='h-bar'
                     mini
@@ -140,6 +155,7 @@ export const AudioPlayer = forwardRef<
                   />
                   <Box mi='x8'>{playbackSpeed.toFixed(1)}x</Box>
                   <IconButton
+                    aria-label={increasePlaybackSpeedLabel}
                     disabled={playbackSpeed >= maxPlaybackSpeed}
                     icon='plus'
                     mini
@@ -152,6 +168,7 @@ export const AudioPlayer = forwardRef<
           </Box>
           {download && (
             <IconButton
+              aria-label={downloadAudioFileLabel}
               is='a'
               href={src}
               download
