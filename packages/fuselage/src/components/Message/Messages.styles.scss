@@ -52,6 +52,33 @@ $message-background-color-highlight: functions.theme(
 
 $message-link-color: functions.theme('message-link-color', colors.font(info));
 
+$message-highlight-colors-critical-color: theme(
+  'message-highlight-colors-critical-color',
+  colors.font(pure-white)
+);
+$message-highlight-colors-background-critical-color: theme(
+  'message-highlight-colors-background-critical-color',
+  colors.badge('level-4')
+);
+
+$message-highlight-colors-relevant-color: theme(
+  'message-highlight-colors-relevant-color',
+  colors.font(pure-white)
+);
+$message-highlight-colors-background-relevant-color: theme(
+  'message-highlight-colors-background-relevant-color',
+  colors.badge('level-3')
+);
+
+$message-highlight-colors-other-color: theme(
+  'message-highlight-colors-other-color',
+  colors.font(info)
+);
+$message-highlight-colors-background-other-color: theme(
+  'message-highlight-colors-background-other-color',
+  colors.badge('level-0')
+);
+
 .rcx-message {
   @include mixins.container();
   position: relative;
@@ -285,6 +312,74 @@ $message-link-color: functions.theme('message-link-color', colors.font(info));
 
     &--big {
       @include size.square(lengths.size(44));
+    }
+  }
+
+  &__mention {
+    white-space: nowrap;
+    word-break: keep-all;
+  }
+
+  &__highlight {
+    position: relative;
+
+    z-index: 1;
+
+    display: inline-block;
+
+    padding-inline-start: lengths.padding(2);
+
+    white-space: nowrap;
+
+    word-break: keep-all;
+
+    font-weight: 500;
+
+    &--clickable {
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    &::before {
+      position: absolute;
+
+      z-index: -1;
+
+      width: calc(100% + lengths.padding(2));
+      height: 18px;
+
+      content: '';
+
+      transform: translateY(lengths.margin(2)) translateX(lengths.margin(-2));
+
+      border-radius: theme(
+        'message-highlight-border-radius',
+        lengths.border-radius(medium)
+      );
+    }
+
+    &--critical {
+      &::before {
+        background-color: $message-highlight-colors-background-critical-color;
+      }
+      color: $message-highlight-colors-critical-color;
+    }
+
+    &--relevant {
+      &::before {
+        background-color: $message-highlight-colors-background-relevant-color;
+      }
+      color: $message-highlight-colors-relevant-color;
+    }
+
+    &--other {
+      &::before {
+        background-color: $message-highlight-colors-background-other-color;
+      }
+      color: $message-highlight-colors-other-color;
     }
   }
 }
