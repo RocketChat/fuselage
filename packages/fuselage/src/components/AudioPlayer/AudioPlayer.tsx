@@ -1,7 +1,9 @@
-import { useMergedRefs } from '@rocket.chat/fuselage-hooks';
+import { css } from '@rocket.chat/css-in-js';
+import { useMergedRefs, useResizeObserver } from '@rocket.chat/fuselage-hooks';
 import React, { useState, useRef, forwardRef } from 'react';
 
 import { Box, IconButton } from '../..';
+import { Palette } from '../../Theme';
 import { Slider } from '../Slider';
 
 const getMaskTime = (durationTime: number) =>
@@ -27,6 +29,12 @@ function forceDownload(url: string, fileName?: string) {
   };
   xhr.send();
 }
+const SpeedControlStyle = css`
+  cursor: pointer;
+  &:hover {
+    background-color: ${Palette.surface['surface-hover']};
+  }
+`;
 
 export const AudioPlayer = forwardRef<
   HTMLAudioElement,
@@ -68,6 +76,12 @@ export const AudioPlayer = forwardRef<
     const [currentTime, setCurrentTime] = useState(0);
     const [durationTime, setDurationTime] = useState(0);
     const [playbackSpeed, setPlaybackSpeed] = useState(1);
+    const { ref: containerRef, borderBoxSize } = useResizeObserver();
+
+    const showTimes =
+      borderBoxSize.inlineSize && borderBoxSize.inlineSize > 280;
+    const collapseControls =
+      borderBoxSize.inlineSize && borderBoxSize.inlineSize < 200;
 
     const handlePlay = () => {
       const isPlaying = audioRef.current?.paused;
@@ -81,13 +95,7 @@ export const AudioPlayer = forwardRef<
 
     const handlePlaybackSpeed = (mod: 1 | -1) => {
       if (audioRef.current) {
-        audioRef.current.playbackRate = Math.max(
-          Math.min(
-            audioRef.current.playbackRate + playbackSpeedStep * mod,
-            maxPlaybackSpeed
-          ),
-          minPlaybackSpeed
-        );
+        audioRef.current.playbackRate += playbackSpeedStep * mod;
       }
     };
 
@@ -95,14 +103,27 @@ export const AudioPlayer = forwardRef<
 
     const handleDecreasePlayBackSpeed = () => handlePlaybackSpeed(-1);
 
+    const handlePlaybackSpeedSingleControl = () => {
+      const reachedMaxPlaybackSpeed =
+        maxPlaybackSpeed === audioRef?.current?.playbackRate;
+
+      if (reachedMaxPlaybackSpeed) {
+        audioRef.current.playbackRate = minPlaybackSpeed;
+        return;
+      }
+      handleIncreasePlayBackSpeed();
+    };
+
     return (
       <Box
         borderWidth='default'
         bg='light'
         borderColor='extra-light'
-        p='x16'
-        width='fit-content'
+        p='x8'
         borderRadius='x4'
+        w='100%'
+        maxWidth='x300'
+        ref={containerRef}
       >
         <Box display='flex' alignItems='center'>
           <IconButton
@@ -111,7 +132,7 @@ export const AudioPlayer = forwardRef<
             aria-label={isPlaying ? pauseLabel : playLabel}
             icon={isPlaying ? 'pause-unfilled' : 'play-unfilled'}
           />
-          <Box mi='x12' position='relative'>
+          <Box mi='x12' position='relative' w='100%'>
             <Slider
               aria-label={audioPlaybackRangeLabel}
               showOutput={false}
@@ -133,37 +154,51 @@ export const AudioPlayer = forwardRef<
               width='100%'
               mb={'neg-x8'}
             >
-              {getMaskTime(currentTime)}
-              <Box
-                fontScale='micro'
-                display='flex'
-                justifyContent='space-around'
-                id='controllers'
-              >
-                <Box
-                  mi='x8'
-                  display='flex'
-                  alignItems='center'
-                  justifyContent='space-between'
-                >
-                  <IconButton
-                    aria-label={reducePlaybackSpeedLabel}
-                    disabled={playbackSpeed <= minPlaybackSpeed}
-                    icon='h-bar'
-                    mini
-                    onClick={handleDecreasePlayBackSpeed}
-                  />
-                  <Box mi='x8'>{playbackSpeed.toFixed(1)}x</Box>
-                  <IconButton
-                    aria-label={increasePlaybackSpeedLabel}
-                    disabled={playbackSpeed >= maxPlaybackSpeed}
-                    icon='plus'
-                    mini
-                    onClick={handleIncreasePlayBackSpeed}
-                  />
+              {showTimes && getMaskTime(currentTime)}
+              {collapseControls ? (
+                <Box width='100%' display='flex' justifyContent='space-around'>
+                  <Box
+                    p='x4'
+                    onClick={handlePlaybackSpeedSingleControl}
+                    borderRadius='x4'
+                    className={SpeedControlStyle}
+                  >
+                    {playbackSpeed.toFixed(1)}x
+                  </Box>
                 </Box>
-              </Box>
-              {getMaskTime(durationTime)}
+              ) : (
+                <Box
+                  fontScale='micro'
+                  display='flex'
+                  justifyContent='space-around'
+                  id='controllers'
+                  {...(!showTimes && { width: '100%' })}
+                >
+                  <Box
+                    mi='x8'
+                    display='flex'
+                    alignItems='center'
+                    justifyContent='space-between'
+                  >
+                    <IconButton
+                      aria-label={reducePlaybackSpeedLabel}
+                      disabled={playbackSpeed <= minPlaybackSpeed}
+                      icon='h-bar'
+                      mini
+                      onClick={handleDecreasePlayBackSpeed}
+                    />
+                    <Box mi='x8'>{playbackSpeed.toFixed(1)}x</Box>
+                    <IconButton
+                      aria-label={increasePlaybackSpeedLabel}
+                      disabled={playbackSpeed >= maxPlaybackSpeed}
+                      icon='plus'
+                      mini
+                      onClick={handleIncreasePlayBackSpeed}
+                    />
+                  </Box>
+                </Box>
+              )}
+              {showTimes && getMaskTime(durationTime)}
             </Box>
           </Box>
           {download && (
