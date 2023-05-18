@@ -29,10 +29,10 @@ jobs:
         # id: cpr
         uses: peter-evans/create-pull-request@v5
         with:
-          # token: ${{ secrets.PAT }}
+          token: ${{ github.token }}
           commit-message: Update report
           # committer: GitHub <noreply@github.com>
-          # author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+          author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
           # signoff: false
           branch: example-patches
           delete-branch: true
