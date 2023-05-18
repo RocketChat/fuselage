@@ -3,7 +3,7 @@ name: Continuous Delivery Test
 on:
   pull_request:
     branches:
-      - ci/autoBump
+      - "ci/autoBump"
 
 jobs:
   bump-packages:
