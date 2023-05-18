@@ -30,7 +30,7 @@ jobs:
         # id: cpr
         uses: peter-evans/create-pull-request@v4
         with:
-          token: ${{ secrets.GH_TOKEN }}
+          token: ${{ secrets.GH_TOKEN_FUSELAGE_BUMPER }}
           commit-message: Update report
           committer: GitHub <noreply@github.com>
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
