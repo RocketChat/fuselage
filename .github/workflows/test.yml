@@ -24,7 +24,7 @@ jobs:
         with:
           node-version: "14.21.3"
       - name: Upgrade packages
-        run: yarn up @rocket.chat/fuselage@0.31.0
+        run: yarn fuselage -a next
 
       - name: Create Pull Request
         # id: cpr
