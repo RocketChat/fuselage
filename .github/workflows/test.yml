@@ -2,8 +2,10 @@ name: Continuous Delivery Test
 
 on:
   pull_request:
-    branches:
-      - "ci/autoBump"
+    types:
+      - opened
+      - reopened
+      - synchronize
 
 jobs:
   bump-packages:
