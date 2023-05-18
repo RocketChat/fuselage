@@ -45,7 +45,7 @@ export const SliderTrack = ({
   const getTrackGradient = () => {
     if (isHorizontal) {
       return multiThumb
-        ? `to right, ${light}} ${getThumbPosition(
+        ? `to right, ${light} ${getThumbPosition(
             state.values[0]
           )}%, ${highlight} 0, ${highlight} ${getThumbPosition(
             state.values[1]
@@ -98,7 +98,7 @@ export const SliderTrack = ({
         height: 100%;
         &::before {
           left: 50%;
-          width: 8px;
+          width: 4px;
           height: 100%;
         }
       `};
