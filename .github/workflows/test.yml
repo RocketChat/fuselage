@@ -9,17 +9,14 @@ jobs:
   bump-packages:
     name: Bump packages on Rocket.Chat
     runs-on: ubuntu-latest
-    permissions:
-      pull-requests: write
-      contents: write
     # needs:
     #   - publish-to-npm
     steps:
       - uses: actions/checkout@v3
         with:
           repository: "RocketChat/Rocket.Chat"
-          persist-credentials: false
-          fetch-depth: 0
+          # persist-credentials: false
+          # fetch-depth: 0
 
       - uses: actions/setup-node@v2
         with:
@@ -31,8 +28,9 @@ jobs:
         # id: cpr
         uses: peter-evans/create-pull-request@v4
         with:
+          token: ${{ secrets.GH_TOKEN }}
           commit-message: Update report
-          # committer: GitHub <noreply@github.com>
+          committer: GitHub <noreply@github.com>
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
           # signoff: false
           branch: example-patches
