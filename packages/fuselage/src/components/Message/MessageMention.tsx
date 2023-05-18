@@ -1,14 +1,14 @@
 import type { ComponentProps } from 'react';
 import React from 'react';
 
-import MessageHighlight from './MessageHighlight';
+import { MessageHighlight } from './MessageHighlight';
 
 type MessageMentionProps = {
   tag?: '#' | '@';
   innerClassName?: string;
 } & ComponentProps<typeof MessageHighlight>;
 
-function MessageMention({
+export function MessageMention({
   tag,
   className = '',
   innerClassName,
@@ -21,5 +21,3 @@ function MessageMention({
     </span>
   );
 }
-
-export default MessageMention;
