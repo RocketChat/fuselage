@@ -4,15 +4,14 @@ import React from 'react';
 import { Icon } from '../Icon';
 
 type StatesIconProps = {
-  name: ComponentProps<typeof Icon>['name'];
   variation?: 'danger' | 'success' | 'warning' | 'primary';
-};
+} & ComponentProps<typeof Icon>;
 
-const StatesIcon = ({ name, variation }: StatesIconProps) => (
+const StatesIcon = ({ variation, ...props }: StatesIconProps) => (
   <Icon
+    {...props}
     rcx-states__icon
     className={variation && `rcx-states__icon--${variation}`}
-    name={name}
     size='x32'
   />
 );

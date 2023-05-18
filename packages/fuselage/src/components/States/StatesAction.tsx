@@ -5,8 +5,8 @@ import { Button } from '..';
 
 type StatesActionProps = ComponentProps<typeof Button>;
 
-const StatesAction = ({ ...props }: StatesActionProps) => (
-  <Button primary {...props} />
+const StatesAction = (props: StatesActionProps) => (
+  <Button {...props} primary />
 );
 
 export default StatesAction;
