@@ -1,4 +1,4 @@
-import type { ElementType } from 'react';
+import type { ElementType, HTMLAttributes } from 'react';
 import React from 'react';
 
 import { prependClassName } from '../../helpers/prependClassName';
@@ -10,9 +10,9 @@ export type MessageHighlightProps = {
   className?: string;
   children: any;
   title?: string;
-};
+} & HTMLAttributes<HTMLElement>;
 
-function MessageHighlight({
+export function MessageHighlight({
   is: Tag = 'span',
   variant = 'other',
   className,
@@ -34,5 +34,3 @@ function MessageHighlight({
     />
   );
 }
-
-export default MessageHighlight;
