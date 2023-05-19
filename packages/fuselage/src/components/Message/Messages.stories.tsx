@@ -70,15 +70,16 @@ export const Default: ComponentStory<typeof Message> = () => (
           pariatur. Consectetur adipiscing{' '}
           <Message.Highlight variant='critical'>
             highlighted text
-          </Message.Highlight>{' '}
+          </Message.Highlight>
+          touching text.{' '}
           <Message.Mention clickable tag='@' variant='relevant'>
             all
-          </Message.Mention>{' '}
-          elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+          </Message.Mention>
+          . elit, sed do eiusmod tempor incididunt ut labore et dolore magna
           <Message.Mention clickable tag='@' variant='other'>
             Gabriel.Henriques
-          </Message.Mention>{' '}
-          aliqua. Ut enim ad minim veniam...
+          </Message.Mention>
+          . aliqua. Ut enim ad minim veniam...
         </Message.Body>
         <MessageReactions>
           <MessageReactions.Reaction mine counter={1} />
