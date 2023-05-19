@@ -78,10 +78,8 @@ export const AudioPlayer = forwardRef<
     const [playbackSpeed, setPlaybackSpeed] = useState(1);
     const { ref: containerRef, borderBoxSize } = useResizeObserver();
 
-    const showTimes =
-      borderBoxSize.inlineSize && borderBoxSize.inlineSize > 280;
     const collapseControls =
-      borderBoxSize.inlineSize && borderBoxSize.inlineSize < 200;
+      borderBoxSize.inlineSize && borderBoxSize.inlineSize < 240;
 
     const handlePlay = () => {
       const isPlaying = audioRef.current?.paused;
@@ -154,7 +152,7 @@ export const AudioPlayer = forwardRef<
               width='100%'
               mb={'neg-x8'}
             >
-              {showTimes && getMaskTime(currentTime)}
+              {getMaskTime(currentTime)}
               {collapseControls ? (
                 <Box width='100%' display='flex' justifyContent='space-around'>
                   <Box
@@ -172,7 +170,6 @@ export const AudioPlayer = forwardRef<
                   display='flex'
                   justifyContent='space-around'
                   id='controllers'
-                  {...(!showTimes && { width: '100%' })}
                 >
                   <Box
                     mi='x8'
@@ -198,7 +195,7 @@ export const AudioPlayer = forwardRef<
                   </Box>
                 </Box>
               )}
-              {showTimes && getMaskTime(durationTime)}
+              {getMaskTime(durationTime)}
             </Box>
           </Box>
           {download && (
