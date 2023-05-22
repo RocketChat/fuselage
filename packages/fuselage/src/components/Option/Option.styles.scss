@@ -45,6 +45,10 @@ $variants: (
     align-items: center;
 
     margin-inline: lengths.margin(-2);
+
+    &--spacedColumn {
+      justify-content: space-between;
+    }
   }
 
   &__icon {
@@ -86,7 +90,7 @@ $variants: (
     opacity: 0;
   }
 
-  .rcx-option__column {
+  &__column {
     @extend %column;
     display: flex;
 
@@ -97,7 +101,7 @@ $variants: (
     min-height: lengths.size(20);
   }
 
-  .rcx-option__input {
+  &__input {
     display: flex;
 
     justify-content: center;
@@ -108,7 +112,7 @@ $variants: (
     margin-inline-end: lengths.margin(-12);
   }
 
-  .rcx-option__description {
+  &__description {
     @include typography.use-font-scale(p2);
     @extend %column;
     display: inline;
