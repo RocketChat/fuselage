@@ -83,6 +83,7 @@ const success = {
 
 const warning = {
   w100: new Var('warning-100', tokenColors.w100),
+  w150: new Var('warning-150', tokenColors.w150),
   w200: new Var('warning-200', tokenColors.w200),
   w300: new Var('warning-300', tokenColors.w300),
   w400: new Var('warning-400', tokenColors.w400),
@@ -184,7 +185,7 @@ export const statusBackgroundColors = {
   'status-background-success': success.s200.theme('status-background-success'),
   'status-background-danger': danger.d200.theme('status-background-danger'),
   'status-background-warning': warning.w200.theme('status-background-warning'),
-  'status-background-warning-2': warning.w100.theme(
+  'status-background-warning-2': warning.w150.theme(
     'status-background-warning-2'
   ),
   'status-background-service-1': service1['200'].theme(
