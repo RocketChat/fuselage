@@ -79,9 +79,12 @@ const Option = memo(
         .join(' ')}
     >
       <div
-        className={`rcx-option__wrapper ${
-          spacedColumn ? 'rcx-option__wrapper--spacedColumn' : ''
-        }`}
+        className={[
+          'rcx-option__wrapper',
+          spacedColumn && 'rcx-option__wrapper--spacedColumn',
+        ]
+          .filter(Boolean)
+          .join(' ')}
       >
         {avatar && <OptionAvatar>{avatar}</OptionAvatar>}
         {icon && <OptionIcon name={icon} />}
