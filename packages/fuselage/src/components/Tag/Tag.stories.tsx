@@ -50,15 +50,6 @@ Secondary.args = {
   variant: 'secondary',
 };
 
-export const WithIcon = Template.bind({});
-WithIcon.args = {
-  children: (
-    <>
-      <Icon size='x12' mie='x4' name='team-lock' /> Team
-    </>
-  ),
-};
-
 export const _Danger = Template.bind({});
 _Danger.args = {
   variant: 'danger',
@@ -73,6 +64,17 @@ Warning.args = {
   variant: 'warning',
 };
 
+export const Featured = Template.bind({});
+Featured.args = {
+  variant: 'featured',
+};
+
+export const WithIcon = Template.bind({});
+WithIcon.args = {
+  icon: <Icon size='x12' mie='x4' name='team-lock' />,
+  children: 'Team',
+};
+
 export const Disabled = Template.bind({});
 Disabled.args = {
   disabled: true,
@@ -83,12 +85,12 @@ Clickable.args = {
   onClick: action('click'),
 };
 
-export const Small = Template.bind({});
-Small.args = {
-  small: true,
-};
-
 export const Medium = Template.bind({});
 Medium.args = {
   medium: true,
+};
+
+export const Large = Template.bind({});
+Large.args = {
+  large: true,
 };

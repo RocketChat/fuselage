@@ -1,3 +1,4 @@
+/** @type {import('eslint').Linter.Config} */
 module.exports = {
   extends: [
     'plugin:@typescript-eslint/recommended',
@@ -59,4 +60,13 @@ module.exports = {
       typescript: {},
     },
   },
+  overrides: [
+    {
+      files: ['*.+(ts|tsx|cts|ctsx|mts|mtsx)'],
+      rules: {
+        '@typescript-eslint/no-dupe-class-members': 'error',
+        'no-dupe-class-members': 'off',
+      },
+    },
+  ],
 };

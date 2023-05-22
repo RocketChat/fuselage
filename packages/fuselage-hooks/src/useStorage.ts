@@ -1,11 +1,12 @@
+import { Emitter } from '@rocket.chat/emitter';
 import type { Dispatch, SetStateAction } from 'react';
-import { useState, useEffect, useCallback } from 'react';
+import { useRef, useState, useEffect, useCallback } from 'react';
 
-const makeStorage = (
+function makeStorageHook(
   storageFactory: Storage | (() => Storage),
   name: string
-): (<T>(key: string, initialValue: T) => [T, Dispatch<SetStateAction<T>>]) => {
-  let storage: Storage = null;
+): <T>(key: string, initialValue: T) => [T, Dispatch<SetStateAction<T>>] {
+  let storage: Storage | undefined = undefined;
 
   if (typeof window !== 'undefined') {
     storage =
@@ -14,10 +15,15 @@ const makeStorage = (
 
   const getKey = (key: string): string => `fuselage-${name}-${key}`;
 
-  return function useGenericStorage<T>(
+  const ee = new Emitter();
+
+  return <T>(
     key: string,
     initialValue: T
-  ): [T, Dispatch<SetStateAction<T>>] {
+  ): [T, Dispatch<SetStateAction<T>>] => {
+    const initialValueRef = useRef(initialValue);
+    initialValueRef.current = initialValue;
+
     const [storedValue, setStoredValue] = useState<T>(() => {
       if (!storage) {
         return initialValue;
@@ -28,11 +34,12 @@ const makeStorage = (
     });
 
     const setValue: Dispatch<SetStateAction<T>> = useCallback(
-      (value: T extends unknown ? SetStateAction<T> : never): void => {
+      (value) => {
         setStoredValue((prevValue: T) => {
           const valueToStore: T =
-            typeof value === 'function' ? value(prevValue) : value;
-          storage.setItem(getKey(key), JSON.stringify(valueToStore));
+            value instanceof Function ? value(prevValue) : value;
+          storage?.setItem(getKey(key), JSON.stringify(valueToStore));
+          ee.emit(key, valueToStore);
           return valueToStore;
         });
       },
@@ -45,18 +52,25 @@ const makeStorage = (
           return;
         }
 
-        setStoredValue(JSON.parse(event.newValue));
+        setStoredValue(
+          event.newValue ? JSON.parse(event.newValue) : initialValueRef.current
+        );
       };
 
+      const handleSyntheticEvent = (value: T): void => {
+        setStoredValue(value);
+      };
+      ee.on(key, handleSyntheticEvent);
       window.addEventListener('storage', handleEvent);
       return () => {
+        ee.off(key, handleSyntheticEvent);
         window.removeEventListener('storage', handleEvent);
       };
     }, [key]);
 
     return [storedValue, setValue];
   };
-};
+}
 
 /**
  * Hook to deal with localStorage
@@ -65,7 +79,7 @@ const makeStorage = (
  * @returns a state and a setter function
  * @public
  */
-export const useLocalStorage = makeStorage(
+export const useLocalStorage = makeStorageHook(
   () => window.localStorage,
   'localStorage'
 );
@@ -77,7 +91,7 @@ export const useLocalStorage = makeStorage(
  * @returns a state and a setter function
  * @public
  */
-export const useSessionStorage = makeStorage(
+export const useSessionStorage = makeStorageHook(
   () => window.sessionStorage,
   'sessionStorage'
 );

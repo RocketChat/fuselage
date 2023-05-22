@@ -428,7 +428,7 @@ $button-empty-background-color: theme(
 );
 $button-empty-border-color: theme(
   'button-empty-border-color',
-  colors.neutral(400)
+  colors.stroke(dark)
 );
 $button-empty-color: theme('button-empty-color', colors.font(white));
 $button-empty-hover-background-color: theme(
@@ -437,7 +437,7 @@ $button-empty-hover-background-color: theme(
 );
 $button-empty-hover-border-color: theme(
   'button-empty-hover-border-color',
-  colors.neutral(500)
+  colors.stroke(extra-dark)
 );
 $button-empty-active-background-color: theme(
   'button-empty-active-background-color',
@@ -445,7 +445,7 @@ $button-empty-active-background-color: theme(
 );
 $button-empty-active-border-color: theme(
   'button-empty-active-border-color',
-  colors.neutral(600)
+  colors.stroke(extra-dark)
 );
 $button-empty-focus-background-color: theme(
   'button-empty-focus-background-color',
@@ -453,19 +453,19 @@ $button-empty-focus-background-color: theme(
 );
 $button-empty-focus-border-color: theme(
   'button-empty-focus-border-color',
-  colors.primary(500)
+  colors.stroke(extra-dark)
 );
 $button-empty-focus-shadow-color: theme(
   'button-empty-focus-shadow-color',
-  colors.primary(100)
+  colors.stroke(light)
 );
 $button-empty-disabled-background-color: theme(
   'button-empty-disabled-background-color',
-  colors.neutral(200)
+  colors.button(secondary-disabled)
 );
 $button-empty-disabled-border-color: theme(
   'button-empty-disabled-border-color',
-  colors.neutral(200)
+  colors.stroke(light)
 );
 $button-empty-disabled-color: theme(
   'button-empty-disabled-color',
@@ -475,47 +475,50 @@ $button-empty-disabled-color: theme(
 // off
 $button-off-background-color: theme(
   'button-off-background-color',
-  colors.neutral(400)
+  colors.stroke(medium)
 );
-$button-off-border-color: theme('button-off-border-color', colors.neutral(400));
+$button-off-border-color: theme(
+  'button-off-border-color',
+  colors.stroke(medium)
+);
 $button-off-color: theme('button-off-color', colors.font(white));
 $button-off-hover-background-color: theme(
   'button-off-hover-background-color',
-  colors.neutral(500)
+  colors.font(hint)
 );
 $button-off-hover-border-color: theme(
   'button-off-hover-border-color',
-  colors.neutral(500)
+  colors.font(hint)
 );
 $button-off-active-background-color: theme(
   'button-off-active-background-color',
-  colors.neutral(600)
+  colors.stroke(dark)
 );
 $button-off-active-border-color: theme(
   'button-off-active-border-color',
-  colors.neutral(600)
+  colors.stroke(dark)
 );
 $button-off-focus-background-color: theme(
   'button-off-focus-background-color',
-  colors.neutral(500)
+  colors.stroke(medium)
 );
 $button-off-focus-border-color: theme(
   'button-off-focus-border-color',
-  colors.primary(500)
+  colors.stroke(extra-dark)
 );
 $button-off-focus-shadow-color: theme(
   'button-off-focus-shadow-color',
-  colors.primary(100)
+  colors.shadow(highlight)
 );
 $button-off-disabled-background-color: theme(
   'button-off-disabled-background-color',
-  colors.neutral(400)
+  colors.button(secondary-disabled)
 );
 $button-off-disabled-border-color: theme(
   'button-off-disabled-border-color',
-  colors.neutral(400)
+  colors.button(secondary-disabled)
 );
 $button-off-disabled-color: theme(
   'button-off-disabled-color',
-  colors.neutral(200)
+  colors.button(on-secondary-disabled)
 );

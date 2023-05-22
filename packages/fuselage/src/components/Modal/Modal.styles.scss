@@ -64,17 +64,23 @@ $modal-margin: theme('modal-margin', auto);
   }
 
   &__tagline {
-    color: colors.neutral(600);
+    color: colors.font(annotation);
 
     @include typography.use-font-scale(c2);
   }
 
   &__hero-image {
+    display: block;
+
     width: 100%;
     height: auto;
-    max-height: lengths.size(256);
-    margin-bottom: lengths.size(24);
     object-fit: contain;
+
+    &-wrapper {
+      margin: 0;
+      margin-bottom: lengths.size(24);
+      margin-inline: -(lengths.size(24));
+    }
   }
 
   &__backdrop {
@@ -86,7 +92,7 @@ $modal-margin: theme('modal-margin', auto);
     display: flex;
     flex-direction: column;
 
-    background-color: colors.neutral(800, $alpha: 0.5);
+    background-color: colors.surface(overlay);
   }
 
   &__footer {
@@ -96,13 +102,9 @@ $modal-margin: theme('modal-margin', auto);
     margin: $modal-container-margin;
 
     &-annotation {
-      color: colors.neutral(600);
+      color: colors.font(annotation);
       @include typography.use-font-scale(c1);
     }
-  }
-
-  &__content-wrapper {
-    margin-inline: $modal-container-margin;
   }
 
   @include on-breakpoint(sm) {

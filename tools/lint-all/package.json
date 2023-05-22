@@ -5,12 +5,12 @@
     "lint": "./lint.mjs",
     "lint-and-fix": "./lint-and-fix.mjs"
   },
-  "version": "0.31.19",
+  "version": "0.31.22",
   "dependencies": {
-    "@prettier/plugin-xml": "~1.2.0",
-    "eslint": "~8.8.0",
-    "prettier": "~2.5.1",
-    "stylelint": "~14.5.0",
-    "zx": "~4.3.0"
+    "@prettier/plugin-xml": "~2.2.0",
+    "eslint": "~8.38.0",
+    "prettier": "~2.8.7",
+    "stylelint": "~15.4.0",
+    "zx": "~7.2.1"
   }
 }

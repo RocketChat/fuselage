@@ -41,6 +41,7 @@ const defaultShowingResultsLabel = ({
     count
   )} of ${count}`;
 
+const itemsPerPageOptions = [25, 50, 100] as ItemsPerPage[];
 export const Pagination = ({
   count,
   current = 0,
@@ -52,9 +53,6 @@ export const Pagination = ({
   divider,
   ...props
 }: PaginationProps) => {
-  const itemsPerPageOptions = ([25, 50, 100] as ItemsPerPage[]).filter(
-    (i) => i <= count
-  );
   const hasItemsPerPageSelection = itemsPerPageOptions.length > 1;
   const currentPage = Math.floor(current / itemsPerPage);
   const pages = Math.ceil(count / itemsPerPage);

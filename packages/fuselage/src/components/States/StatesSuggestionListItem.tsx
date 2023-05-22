@@ -1,14 +1,15 @@
-import type { ReactNode } from 'react';
+import type { AllHTMLAttributes, ReactNode } from 'react';
 import React from 'react';
 
 type StatesSuggestionListItemProps = {
   children?: ReactNode;
-};
+} & AllHTMLAttributes<HTMLLIElement>;
 
 const StatesSuggestionListItem = ({
   children,
+  ...props
 }: StatesSuggestionListItemProps) => (
-  <li className='rcx-states__list-item'>
+  <li {...props} className='rcx-states__list-item'>
     <span className='rcx-states__list-item-wrapper'>{children}</span>
   </li>
 );

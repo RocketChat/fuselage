@@ -6,21 +6,18 @@ import type { ComponentProps, ElementType, Ref, SyntheticEvent } from 'react';
 import React, { forwardRef, memo } from 'react';
 import { Virtuoso } from 'react-virtuoso';
 
+import { prevent } from '../../helpers/prevent';
 import AnimatedVisibility from '../AnimatedVisibility';
 import Box from '../Box';
 import { CheckBox } from '../CheckBox';
 import Option from '../Option';
 import Tile from '../Tile';
 
-const prevent = (e: SyntheticEvent) => {
-  e.preventDefault();
-  e.stopPropagation();
-};
-
 type OptionsPaginatedProps = Omit<ComponentProps<typeof Box>, 'onSelect'> & {
   multiple?: boolean;
   options: { value: unknown; label: string; selected?: boolean }[];
   cursor: number;
+  withTitle?: boolean;
   renderItem?: ElementType;
   renderEmpty?: ElementType;
   onSelect: (option: [unknown, string]) => void;
@@ -46,7 +43,7 @@ export const CheckOption = memo(function CheckOption({
 export const OptionsPaginated = forwardRef(
   (
     {
-      title,
+      withTitle,
       multiple,
       renderEmpty: EmptyComponent = Empty,
       options,
@@ -68,7 +65,7 @@ export const OptionsPaginated = forwardRef(
       const { value, label, selected } = data;
       return (
         <OptionComponent
-          {...(title && { title: label })}
+          {...(withTitle && { title: label })}
           role='option'
           label={label}
           onMouseDown={(e: SyntheticEvent) => {

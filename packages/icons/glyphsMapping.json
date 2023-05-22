@@ -55,6 +55,12 @@
   "chevron-down": {
     "start": "\ue010"
   },
+  "chevron-double-down": {
+    "start": "\ue10b"
+  },
+  "chevron-double-up": {
+    "start": "\ue10d"
+  },
   "chevron-left": {
     "start": "{",
     "end": "}"
@@ -134,6 +140,9 @@
   },
   "emoji": {
     "start": "\ue028"
+  },
+  "equal": {
+    "start": "\ue10f"
   },
   "eraser": {
     "start": "\ue029"
@@ -862,5 +871,62 @@
   },
   "store": {
     "start": "\ue105"
+  },
+  "lightning": {
+    "start": "\ue107"
+  },
+  "spanner": {
+    "start": "\ue109"
+  },
+  "attachment-file": {
+    "start": "\ue111"
+  },
+  "cloud-arrow-down": {
+    "start": "\ue113"
+  },
+  "code-block": {
+    "start": "\ue115"
+  },
+  "formula": {
+    "start": "\ue117"
+  },
+  "katex": {
+    "start": "\ue119"
+  },
+  "compass": {
+    "start": "\ue11b"
+  },
+  "palette": {
+    "start": "\ue11d"
+  },
+  "play-unfilled": {
+    "start": "\ue11f"
+  },
+  "stop-unfilled": {
+    "start": "\ue121"
+  },
+  "stop": {
+    "start": "\ue123"
+  },
+  "desktop-text": {
+    "start": "\ue125"
+  },
+  "rocket": {
+    "start": "\ue127"
+  },
+  "burger-menu": {
+    "start": "\ue129"
+  },
+  "airplane": {
+    "start": "\ue12b"
+  },
+  "lamp-bulb": {
+    "start": "\ue12d"
+  },
+  "percentage": {
+    "start": "\ue12f"
+  },
+  "leaf": {
+    "start": "\ue131"
   }
 }

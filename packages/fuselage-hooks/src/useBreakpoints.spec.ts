@@ -17,7 +17,9 @@ it('returns matching breakpoint names', async () => {
   const finalBreakpoints = breakpoints.slice(0, -2);
 
   setViewport({
-    width: initialBreakpoints[initialBreakpoints.length - 1].minViewportWidth,
+    width:
+      initialBreakpoints[initialBreakpoints.length - 1].minViewportWidth ??
+      undefined,
   });
 
   const { result } = renderHook(() => useBreakpoints());
@@ -28,7 +30,9 @@ it('returns matching breakpoint names', async () => {
 
   await act(async () => {
     setViewport({
-      width: finalBreakpoints[finalBreakpoints.length - 1].minViewportWidth,
+      width:
+        finalBreakpoints[finalBreakpoints.length - 1].minViewportWidth ??
+        undefined,
     });
   });
 

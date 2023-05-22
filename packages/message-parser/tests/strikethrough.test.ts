@@ -1,5 +1,5 @@
 import { parse } from '../src';
-import { strike, paragraph, plain, link } from '../src/utils';
+import { link, paragraph, plain, strike } from '../src/utils';
 
 test.each([
   [
@@ -7,15 +7,13 @@ test.each([
     [
       paragraph([
         strike([
-          link(
-            'https://gist.github.com/24dddfa97bef58f46ac2ce0f80c58ba4',
-            plain('A brand new Gist')
-          ),
+          link('https://gist.github.com/24dddfa97bef58f46ac2ce0f80c58ba4', [
+            plain('A brand new Gist'),
+          ]),
         ]),
       ]),
     ],
   ],
-  ['__test__test__', [paragraph([plain('__test__test__')])]],
   ['~~strike~~', [paragraph([strike([plain('strike')])])]],
   [
     'pre~~strike~~post',

@@ -62,13 +62,24 @@
   }
 }
 
-@function border-width($value) {
+$border-width-sizes: (
+  'default': 1,
+  'medium': 2,
+  'large': 4,
+);
+
+@function border-width($value, $scape: px) {
   @if $value == 'none' {
     @return 0;
   } @else if $value == 1 or $value == 2 or $value == 4 {
-    @return functions.to-rem($value);
+    @return $value * 1px;
+  } @else if map.get($border-width-sizes, $value) {
+    @if $scape == px {
+      @return map.get($border-width-sizes, $value) * 1px;
+    }
+    @return functions.to-rem(map.get($border-width-sizes, $value));
   } @else {
-    @error 'value must be none, 1, 2, or 4';
+    @error 'value must be none, default, medium, large, 1, 2, or 4';
   }
 }
 

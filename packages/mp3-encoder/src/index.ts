@@ -1,6 +1,4 @@
-import { Mp3Encoder } from 'lamejs';
-
-declare const self: any;
+import { Mp3Encoder } from './lame';
 
 type Config = {
   numChannels?: number;

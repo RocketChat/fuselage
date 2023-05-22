@@ -1,17 +1,17 @@
-import type { ReactNode } from 'react';
+import type { ReactNode, Attributes } from 'react';
 import { cloneElement, isValidElement } from 'react';
 
 import { flattenChildren } from './flattenChildren';
 import { shallowEqual } from './shallowEqual';
 
-export const patchChildren = <Props>(
+export const patchChildren = <TProps>(
   children: ReactNode,
-  patch: (props: Props) => Props
+  patch: (props: TProps) => TProps & Attributes
 ) => {
   let dirty = false;
 
   const newChildren = flattenChildren(children).map((child) => {
-    if (!isValidElement(child)) {
+    if (!isValidElement<TProps>(child)) {
       return child;
     }
 

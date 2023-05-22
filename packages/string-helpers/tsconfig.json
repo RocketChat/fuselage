@@ -11,8 +11,7 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "importsNotUsedAsValues": "error"
+    "resolveJsonModule": true
   },
   "typedocOptions": {
     "entryPoints": ["src/index.ts"],

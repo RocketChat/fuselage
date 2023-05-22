@@ -41,7 +41,7 @@ const LoginForm = ({
   const {
     register,
     handleSubmit,
-    formState: { errors, isValidating, isSubmitting },
+    formState: { errors, isValidating, isSubmitting, isDirty },
   } = useForm<LoginFormPayload>({
     defaultValues: {
       ...initialValues,
@@ -94,7 +94,11 @@ const LoginForm = ({
       </Form.Container>
       <Form.Footer>
         <LoginActionsWrapper>
-          <Button type='submit' disabled={isValidating || isSubmitting} primary>
+          <Button
+            type='submit'
+            disabled={!isDirty || isValidating || isSubmitting}
+            primary
+          >
             {isPasswordLess
               ? t('form.loginForm.sendLoginLink')
               : t('form.loginForm.button.text')}
@@ -115,11 +119,7 @@ const LoginForm = ({
           <Box mbs='x24' fontScale='p2' textAlign='left'>
             <Trans i18nKey='form.loginForm.resetPassword'>
               Forgot your password?
-              <ActionLink
-                fontWeight={400}
-                fontScale='p2'
-                onClick={onResetPassword}
-              >
+              <ActionLink fontScale='p2' onClick={onResetPassword}>
                 Reset password
               </ActionLink>
             </Trans>

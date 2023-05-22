@@ -10,9 +10,9 @@
     "stylelint": "*"
   },
   "dependencies": {
-    "fast-glob": "~3.2.11",
-    "json5": "^2.2.0",
+    "fast-glob": "~3.2.12",
+    "json5": "^2.2.3",
     "rimraf": "^3.0.2"
   },
-  "version": "0.31.19"
+  "version": "0.31.22"
 }

@@ -168,6 +168,17 @@ export const WithIcon: ComponentStory<typeof Option> = () => (
   </Box>
 );
 
+export const Disabled: ComponentStory<typeof Option> = () => (
+  <Box position='relative' maxWidth={330}>
+    <Option onClick={action('click')}>
+      <OptionContent>Enabled</OptionContent>
+    </Option>
+    <Option disabled={true}>
+      <OptionContent>Disabled</OptionContent>
+    </Option>
+  </Box>
+);
+
 export const AsUserItem: ComponentStory<typeof Option> = () => (
   <Box position='relative' maxWidth={330}>
     <Option onClick={action('click')}>
@@ -195,5 +206,14 @@ export const AsUserItem: ComponentStory<typeof Option> = () => (
 export const AsSkeleton: ComponentStory<typeof Option> = () => (
   <Box position='relative' maxWidth={330}>
     <OptionSkeleton />
+  </Box>
+);
+
+export const SpacedColumn: ComponentStory<typeof Option> = () => (
+  <Box position='relative'>
+    <Option spacedColumn>
+      <OptionColumn>Lorem Ipsum</OptionColumn>
+      <OptionColumn>Lorem Ipsum</OptionColumn>
+    </Option>
   </Box>
 );

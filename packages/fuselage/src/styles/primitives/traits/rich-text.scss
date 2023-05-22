@@ -145,10 +145,10 @@
     word-wrap: break-word;
 
     color: colors.font(default);
-    border-width: lengths.border-width(1);
-    border-color: colors.neutral(500);
+    border-width: lengths.border-width(default);
+    border-color: colors.stroke(light);
     border-radius: lengths.border-radius(medium);
-    background-color: colors.neutral(100);
+    background-color: colors.surface(tint);
 
     font: inherit;
 
@@ -226,7 +226,7 @@
 
     letter-spacing: inherit;
 
-    border-width: lengths.border-width(1);
+    border-width: lengths.border-width(default);
     border-style: solid;
     border-color: currentColor;
     border-radius: lengths.border-radius(small);

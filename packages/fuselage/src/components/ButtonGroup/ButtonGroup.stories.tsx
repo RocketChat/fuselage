@@ -70,9 +70,9 @@ const TemplateMultiple: ComponentStory<typeof ButtonGroup> = (args) => (
 
 export const Default: ComponentStory<typeof ButtonGroup> = Template.bind({});
 
-export const Medium: ComponentStory<typeof ButtonGroup> = Template.bind({});
-Medium.args = {
-  medium: true,
+export const Large: ComponentStory<typeof ButtonGroup> = Template.bind({});
+Large.args = {
+  large: true,
 };
 
 export const Small: ComponentStory<typeof ButtonGroup> = Template.bind({});
@@ -95,6 +95,22 @@ Stretch.args = {
 export const Vertical: ComponentStory<typeof ButtonGroup> = Template.bind({});
 Vertical.args = {
   vertical: true,
+};
+
+export const VerticalLarge: ComponentStory<typeof ButtonGroup> = Template.bind(
+  {}
+);
+VerticalLarge.args = {
+  vertical: true,
+  large: true,
+};
+
+export const VerticalSmall: ComponentStory<typeof ButtonGroup> = Template.bind(
+  {}
+);
+VerticalSmall.args = {
+  vertical: true,
+  small: true,
 };
 
 export const VerticalStretch: ComponentStory<typeof ButtonGroup> =

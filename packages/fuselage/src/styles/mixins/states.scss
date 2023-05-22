@@ -58,3 +58,9 @@
     @content;
   }
 }
+
+@mixin on-pressed {
+  &-pressed {
+    @content;
+  }
+}

@@ -2,17 +2,21 @@ import type { cssFn } from '@rocket.chat/css-in-js';
 import { css } from '@rocket.chat/css-in-js';
 import type { CSSProperties } from 'react';
 
+import type { Var } from '../../Theme';
+import { Palette } from '../../Theme';
 import { fromCamelToKebab } from '../../helpers/fromCamelToKebab';
 import {
   borderRadius,
   borderWidth,
-  color,
+  backgroundColor,
+  fontColor,
   fontFamily,
   fontScale,
   inset,
   margin,
   padding,
   size,
+  strokeColor,
 } from '../../styleTokens';
 
 type FontScale =
@@ -67,9 +71,9 @@ export type StylingProps = {
   borderEndStartRadius: CSSProperties['borderEndStartRadius'];
   borderEndEndRadius: CSSProperties['borderEndEndRadius'];
 
-  color: CSSProperties['color'];
-  backgroundColor: CSSProperties['backgroundColor'];
-  bg: CSSProperties['backgroundColor'];
+  color: CSSProperties['color'] | Var;
+  backgroundColor: CSSProperties['backgroundColor'] | Var;
+  bg: CSSProperties['backgroundColor'] | Var;
   opacity: CSSProperties['opacity'];
 
   alignItems: CSSProperties['alignItems'];
@@ -149,7 +153,7 @@ export type StylingProps = {
   textDecorationLine: CSSProperties['textDecorationLine'];
   wordBreak: CSSProperties['wordBreak'];
 
-  elevation: '0' | '1' | '2';
+  elevation: '0' | '1' | '2' | '1nb' | '2nb';
   invisible: boolean;
   withTruncatedText: boolean;
   size: CSSProperties['blockSize'];
@@ -189,8 +193,16 @@ const borderRadiusProp: PropDefinition = {
   toCSSValue: borderRadius,
 };
 
-const colorProp: PropDefinition = {
-  toCSSValue: color,
+const backgroundColorProp: PropDefinition = {
+  toCSSValue: backgroundColor,
+};
+
+const fontColorProp: PropDefinition = {
+  toCSSValue: fontColor,
+};
+
+const strokeColorProp: PropDefinition = {
+  toCSSValue: strokeColor,
 };
 
 const sizeProp: PropDefinition = {
@@ -257,21 +269,21 @@ export const propDefs: Record<keyof StylingProps, PropDefinition> = {
   borderInlineStyle: stringProp,
   borderInlineStartStyle: stringProp,
   borderInlineEndStyle: stringProp,
-  borderColor: colorProp,
-  borderBlockColor: colorProp,
-  borderBlockStartColor: colorProp,
-  borderBlockEndColor: colorProp,
-  borderInlineColor: colorProp,
-  borderInlineStartColor: colorProp,
-  borderInlineEndColor: colorProp,
+  borderColor: strokeColorProp,
+  borderBlockColor: strokeColorProp,
+  borderBlockStartColor: strokeColorProp,
+  borderBlockEndColor: strokeColorProp,
+  borderInlineColor: strokeColorProp,
+  borderInlineStartColor: strokeColorProp,
+  borderInlineEndColor: strokeColorProp,
   borderRadius: borderRadiusProp,
   borderStartStartRadius: borderRadiusProp,
   borderStartEndRadius: borderRadiusProp,
   borderEndStartRadius: borderRadiusProp,
   borderEndEndRadius: borderRadiusProp,
 
-  color: colorProp,
-  backgroundColor: colorProp,
+  color: fontColorProp,
+  backgroundColor: backgroundColorProp,
   bg: aliasOf('backgroundColor'),
   opacity: numberOrStringProp,
 
@@ -362,16 +374,33 @@ export const propDefs: Record<keyof StylingProps, PropDefinition> = {
 
       if (value === '1') {
         return css`
-          box-shadow: 0px 0px 12px 0px ${color('neutral-800-10')};
+          box-shadow: 0px 0px 12px 0px ${Palette.shadow['shadow-elevation-1']};
+          border: 1px solid ${Palette.shadow['shadow-elevation-border']};
+        `;
+      }
+
+      if (value === '1nb') {
+        return css`
+          box-shadow: 0px 0px 12px 0px ${Palette.shadow['shadow-elevation-1']};
         `;
       }
 
       if (value === '2') {
         return css`
-          box-shadow: 0px 0px 2px 0px ${color('neutral-800-8')},
-            0px 0px 12px 0px ${color('neutral-800-12')};
+          box-shadow: 0px 0px 2px 0px ${Palette.shadow['shadow-elevation-2x']},
+            0px 0px 12px 0px ${Palette.shadow['shadow-elevation-2y']};
+          border: 1px solid ${Palette.shadow['shadow-elevation-border']};
         `;
       }
+
+      if (value === '2nb') {
+        return css`
+          box-shadow: 0px 0px 2px 0px ${Palette.shadow['shadow-elevation-2x']},
+            0px 0px 12px 0px ${Palette.shadow['shadow-elevation-2y']};
+        `;
+      }
+
+      return undefined;
     },
   },
   invisible: {

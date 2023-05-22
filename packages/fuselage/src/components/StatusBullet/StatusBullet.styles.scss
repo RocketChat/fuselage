@@ -4,27 +4,6 @@
 @use '../../styles/functions.scss';
 @use '../../styles/mixins/size.scss';
 
-$status-bullet-online-background-color: functions.theme(
-  'status-bullet-online-background-color',
-  colors.success(500)
-);
-$status-bullet-away-background: functions.theme(
-  'status-bullet-away-background',
-  url('./icons/away.svg') top left / contain no-repeat
-);
-$status-bullet-busy-background: functions.theme(
-  'status-bullet-busy-background',
-  url('./icons/busy.svg') top left / contain no-repeat
-);
-$status-bullet-offline-background: functions.theme(
-  'status-bullet-offline-background',
-  url('./icons/offline.svg') top left / contain no-repeat
-);
-$status-bullet-loading-background: functions.theme(
-  'status-bullet-loading-background',
-  url('./icons/loading.svg') top left / contain no-repeat
-);
-
 .rcx-status-bullet {
   display: inline-block;
 
@@ -33,7 +12,6 @@ $status-bullet-loading-background: functions.theme(
 
   border-radius: lengths.border-radius(full);
 
-  background: $status-bullet-loading-background;
   background-size: contain;
 
   @include size.square(lengths.size(12));
@@ -43,18 +21,26 @@ $status-bullet-loading-background: functions.theme(
   }
 
   &--online {
-    background: $status-bullet-online-background-color;
+    fill: colors.status-bullet(online);
   }
 
   &--away {
-    background: $status-bullet-away-background;
+    fill: colors.status-bullet(away);
   }
 
   &--busy {
-    background: $status-bullet-busy-background;
+    fill: colors.status-bullet(busy);
+  }
+
+  &--disabled {
+    fill: colors.status-bullet(disabled);
   }
 
   &--offline {
-    background: $status-bullet-offline-background;
+    stroke: colors.status-bullet(offline);
+  }
+
+  &--loading {
+    stroke: colors.status-bullet(loading);
   }
 }

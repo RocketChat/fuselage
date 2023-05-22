@@ -74,7 +74,7 @@ const attachRulesIntoStyleSheet: RuleAttacher = (rules) => {
 };
 
 const wrapReferenceCounting = (attacher: RuleAttacher): RuleAttacher => {
-  const refs = {};
+  const refs: Record<string, { ref(): void; unref(): void }> = {};
 
   const queueMicrotask = (fn: () => void): void => {
     if (

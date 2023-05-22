@@ -31,8 +31,8 @@ to: packages/<%=package%>/package.json
   "scripts": {
     "clean": "rimraf dist",
     "build": "run .:build:esm && run .:build:cjs",
-    ".:build:esm": "tsc -p tsconfig-esm.json",
-    ".:build:cjs": "tsc -p tsconfig-cjs.json",
+    ".:build:esm": "tsc -p tsconfig.esm.json",
+    ".:build:cjs": "tsc -p tsconfig.cjs.json",
     "lint": "lint",
     "lint-and-fix": "lint-and-fix",
     "lint-staged": "lint-staged",
@@ -50,7 +50,7 @@ to: packages/<%=package%>/package.json
     "prettier": "~2.5.1",
     "rimraf": "~3.0.2",
     "ts-jest": "~27.1.3",
-    "typedoc": "~0.22.11",
+    "typedoc": "~0.24.1",
     "typescript": "~4.3.5"
   },
   "eslintConfig": {
@@ -65,14 +65,6 @@ to: packages/<%=package%>/package.json
     "errorOnDeprecated": true,
     "testMatch": [
       "<rootDir>/src/**/*.spec.[jt]s?(x)"
-    ],
-    "globals": {
-      "ts-jest": {
-        "tsconfig": {
-          "noUnusedLocals": false,
-          "noUnusedParameters": false
-        }
-      }
-    }
+    ]
   }
 }

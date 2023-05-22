@@ -12,7 +12,7 @@
 
   padding-block: 0;
 
-  color: colors.primary(500);
+  color: colors.font(info);
 }
 
 .rcx-message-thread {
@@ -33,6 +33,8 @@
     flex-shrink: 1;
 
     width: 100%;
+
+    cursor: pointer;
   }
 
   &__message {
@@ -47,11 +49,19 @@
 
     cursor: pointer;
 
-    color: colors.primary(500);
+    color: colors.font(info);
+
+    &--system {
+      color: colors.font(annotation);
+
+      &::first-letter {
+        text-transform: uppercase;
+      }
+    }
   }
 
   &__icon {
-    color: colors.primary(500);
+    color: colors.font(info);
 
     &--unfollow,
     &--follow {

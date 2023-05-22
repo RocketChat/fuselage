@@ -1,7 +1,5 @@
 import type { Dispatch, DispatchWithoutAction } from 'react';
-import { useEffect, useRef } from 'react';
-
-import { useMutableCallback } from './useMutableCallback';
+import { useCallback, useEffect, useRef } from 'react';
 
 /**
  * Hook that wraps pairs of state and dispatcher to provide a new dispatcher
@@ -11,23 +9,30 @@ import { useMutableCallback } from './useMutableCallback';
  * @returns a state value and safe dispatcher pair
  * @public
  */
-export const useSafely = <S, A, D extends DispatchWithoutAction | Dispatch<A>>([
+export function useSafely<S, D extends DispatchWithoutAction | Dispatch<any>>([
   state,
   dispatcher,
-]: [S, Dispatch<A> | DispatchWithoutAction]): [S, D] => {
-  const dispatcherRef = useRef(dispatcher);
+]: [state: S, dispatch: D]): [state: S, dispatch: D];
+
+export function useSafely([state, dispatcher]: [
+  state: unknown,
+  dispatch: (action?: unknown) => void
+]) {
+  const dispatcherRef = useRef<((action?: unknown) => void) | undefined>(
+    dispatcher
+  );
 
   useEffect(
     () => () => {
-      dispatcherRef.current = () => undefined;
+      dispatcherRef.current = undefined;
     },
     []
   );
 
-  const safeDispatcher = useMutableCallback((action?: A) => {
+  const safeDispatcher = useCallback((action) => {
     const dispatcher = dispatcherRef.current;
-    dispatcher(action);
-  }) as D;
+    dispatcher?.(action);
+  }, []);
 
   return [state, safeDispatcher];
-};
+}
