@@ -1,6 +1,6 @@
-import type { AriaPopoverProps } from '@react-aria/overlays';
-import { usePopover, DismissButton, Overlay } from '@react-aria/overlays';
 import * as React from 'react';
+import type { AriaPopoverProps } from 'react-aria';
+import { usePopover, DismissButton, Overlay } from 'react-aria';
 import type { OverlayTriggerState } from 'react-stately';
 
 interface PopoverProps extends Omit<AriaPopoverProps, 'popoverRef'> {

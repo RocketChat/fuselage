@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-use-before-define */
-import type { AriaListBoxOptions } from '@react-aria/listbox';
 import type { Node } from '@react-types/shared';
 import React, { useRef } from 'react';
+import type { AriaListBoxOptions } from 'react-aria';
 import { useListBox, useListBoxSection, useOption } from 'react-aria';
 import type { ListState } from 'react-stately';
 
