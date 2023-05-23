@@ -1,22 +1,24 @@
-import type { FC, ReactNode, ComponentProps } from 'react';
+import type { ComponentProps } from 'react';
 import React, { memo } from 'react';
 
 import Box from '../Box';
 import Margins from '../Margins';
 
-const ContextualBarHeader: FC<{
-  children: ReactNode;
-  props?: ComponentProps<typeof Box>;
-}> = ({ children, ...props }) => (
+type ContextualbarHeaderProps = ComponentProps<typeof Box>;
+
+const ContextualbarHeader = ({
+  children,
+  ...props
+}: ContextualbarHeaderProps) => (
   <Box
     display='flex'
     alignItems='center'
-    minHeight='56px'
-    maxHeight='56px'
+    height='56px'
     is='h3'
     pi='x24'
-    borderBlockEndWidth='x2'
-    borderBlockColor='neutral-200'
+    borderBlockEndWidth='default'
+    borderBlockColor='extra-light'
+    flexShrink={0}
     {...props}
   >
     <Box
@@ -27,11 +29,11 @@ const ContextualBarHeader: FC<{
       fontScale='h4'
       flexGrow={1}
       overflow='hidden'
-      color='neutral-800'
+      color='default'
     >
       <Margins inline='x4'>{children}</Margins>
     </Box>
   </Box>
 );
 
-export default memo(ContextualBarHeader);
+export default memo(ContextualbarHeader);

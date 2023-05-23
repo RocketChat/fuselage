@@ -1,24 +1,24 @@
 import type { ComponentProps } from 'react';
 import React, { forwardRef, memo } from 'react';
 
-import Box from '../Box';
+import { Box } from '..';
 
-const ContextualBarContent = forwardRef<
+const ContextualbarContent = forwardRef<
   HTMLElement,
   ComponentProps<typeof Box>
->(function PageContent(props, ref) {
+>(function ContextualbarContent(props, ref) {
   return (
     <Box
       ref={ref}
+      rcx-vertical-bar__content
       paddingInline='x24'
       display='flex'
       flexDirection='column'
       overflowY='hidden'
       height='full'
-      // rcx-vertical-bar__content
       {...props}
     />
   );
 });
 
-export default memo(ContextualBarContent);
+export default memo(ContextualbarContent);
