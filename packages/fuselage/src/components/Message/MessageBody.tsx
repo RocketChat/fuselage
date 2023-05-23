@@ -25,5 +25,6 @@ export const MessageBody = ({
       ) as string
     }
     {...props}
+    dir='auto'
   />
 );
