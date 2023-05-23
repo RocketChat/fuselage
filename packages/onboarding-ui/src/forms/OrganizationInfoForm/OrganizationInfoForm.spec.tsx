@@ -8,7 +8,6 @@ it('renders without crashing', () => {
     <OrganizationInfoForm
       currentStep={1}
       stepCount={1}
-      organizationTypeOptions={[]}
       organizationIndustryOptions={[]}
       organizationSizeOptions={[]}
       countryOptions={[]}

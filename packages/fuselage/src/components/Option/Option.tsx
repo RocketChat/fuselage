@@ -28,8 +28,9 @@ type OptionProps = {
   title?: string;
   disabled?: boolean;
   value?: string;
+  spacedColumn?: boolean;
   variant?: 'danger' | 'success' | 'warning' | 'primary';
-  onClick?: (event: MouseEvent<HTMLDivElement>) => void;
+  onClick?: (event: MouseEvent<HTMLElement>) => void;
 } & AllHTMLAttributes<HTMLElement>;
 
 const Option = memo(
@@ -47,18 +48,20 @@ const Option = memo(
         avatar,
         title,
         disabled,
-        onClick,
+        spacedColumn,
         variant,
-        ...options
+        onClick,
+        ...props
       }: OptionProps,
       ref
     ) => (
       <Tag
+        {...props}
         key={id}
         id={id}
         ref={ref}
-        aria-selected={selected}
-        aria-disabled={String(disabled)}
+        aria-selected={!!selected}
+        aria-disabled={!!disabled}
         title={title}
         onClick={(e: React.MouseEvent<HTMLDivElement>) => {
           if (disabled) {
@@ -67,7 +70,6 @@ const Option = memo(
           }
           onClick?.(e);
         }}
-        {...options}
         className={[
           'rcx-option',
           className,
@@ -79,7 +81,14 @@ const Option = memo(
           .filter(Boolean)
           .join(' ')}
       >
-        <div className='rcx-option__wrapper'>
+        <div
+          className={[
+            'rcx-option__wrapper',
+            spacedColumn && 'rcx-option__wrapper--spacedColumn',
+          ]
+            .filter(Boolean)
+            .join(' ')}
+        >
           {avatar && <OptionAvatar>{avatar}</OptionAvatar>}
           {icon && <OptionIcon name={icon} />}
           {label && <OptionContent>{label}</OptionContent>}

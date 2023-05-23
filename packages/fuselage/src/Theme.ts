@@ -210,6 +210,7 @@ export const statusColors = {
 type StatusColors = keyof typeof statusColors;
 
 export const badgeBackgroundColors = {
+  'badge-background-level-0': neutral.n400.theme('badge-background-level-0'),
   'badge-background-level-1': neutral.n600.theme('badge-background-level-1'),
   'badge-background-level-2': primary.p550.theme('badge-background-level-2'),
   'badge-background-level-3': service1[500].theme('badge-background-level-3'),

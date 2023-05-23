@@ -5,6 +5,7 @@
 
 .rcx-button {
   @mixin with-rectangular-size($height, $padding-x, $line-height) {
+    min-width: calc(#{$height} * 2);
     padding: calc((#{$height} - #{$line-height}) / 2 - 2px)
       calc(#{$padding-x} - 2px);
     padding-block: calc((#{$height} - #{$line-height}) / 2 - 2px);
@@ -13,6 +14,7 @@
 
   @mixin with-squared-size($size) {
     width: $size;
+    min-width: $size;
     height: $size;
     padding: 0;
 
@@ -51,6 +53,16 @@
       $height: 28px,
       $padding-x: 8px,
       $line-height: typography.line-height(c1)
+    );
+  }
+
+  &--large {
+    @include typography.use-font-scale(p1);
+
+    @include with-rectangular-size(
+      $height: 48px,
+      $padding-x: 24px,
+      $line-height: typography.line-height(p1)
     );
   }
 
@@ -105,16 +117,24 @@
     }
   }
 
-  &--tiny-square {
-    @include with-squared-size($size: 24px);
-  }
-
   &--mini-square {
     @include with-squared-size($size: 20px);
   }
 
+  &--tiny-square {
+    @include with-squared-size($size: 24px);
+  }
+
   &--small-square {
     @include with-squared-size($size: 28px);
+  }
+
+  &--medium-square {
+    @include with-squared-size($size: 32px);
+  }
+
+  &--large-square {
+    @include with-squared-size($size: 48px);
   }
 
   &--primary {

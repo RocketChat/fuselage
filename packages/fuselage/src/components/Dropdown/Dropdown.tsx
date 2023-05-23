@@ -1,4 +1,4 @@
-import type { usePosition } from '@rocket.chat/fuselage-hooks';
+import type { UsePositionOptions } from '@rocket.chat/fuselage-hooks';
 import { useMediaQuery } from '@rocket.chat/fuselage-hooks';
 import type { ReactNode, Ref, RefObject } from 'react';
 import React, { forwardRef } from 'react';
@@ -16,7 +16,7 @@ export const Dropdown = forwardRef(function Dropdown<
     placement = 'bottom-start',
   }: {
     reference: RefObject<T>;
-    placement?: Parameters<typeof usePosition>[2]['placement'];
+    placement?: UsePositionOptions['placement'];
     children: ReactNode;
   },
   ref: Ref<R>

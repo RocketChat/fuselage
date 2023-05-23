@@ -5,13 +5,13 @@ import { useDebouncedCallback } from './useDebouncedCallback';
 /**
  * Hook to debounce the state dispatcher function returned by hooks like `useState()` and `useReducer()`.
  *
- * @param pair - the state and dispatcher pair which will be debounced
- * @param delay - the number of milliseconds to delay the dispatcher
+ * @param pair the state value and dispatcher function pair
+ * @param delay the number of milliseconds to delay the dispatcher
  * @returns a state value and debounced dispatcher pair
  * @public
  */
 export function useDebouncedUpdates<S>(
-  [state, dispatch]: [S, DispatchWithoutAction],
+  pair: [state: S, dispatch: DispatchWithoutAction],
   delay: number
 ): [
   S,
@@ -20,8 +20,17 @@ export function useDebouncedUpdates<S>(
     cancel: () => void;
   }
 ];
+
+/**
+ * Hook to debounce the state dispatcher function returned by hooks like `useState()` and `useReducer()`.
+ *
+ * @param pair the state value and dispatcher function pair
+ * @param delay the number of milliseconds to delay the dispatcher
+ * @returns a state value and debounced dispatcher pair
+ * @public
+ */
 export function useDebouncedUpdates<S, A>(
-  [state, dispatch]: [S, Dispatch<A>],
+  pair: [state: S, dispatch: Dispatch<A>],
   delay: number
 ): [
   S,
@@ -30,9 +39,10 @@ export function useDebouncedUpdates<S, A>(
     cancel: () => void;
   }
 ];
+
 export function useDebouncedUpdates(
-  [state, dispatch]: [unknown, () => unknown],
+  [state, dispatch]: [state: unknown, dispatch: (action?: unknown) => void],
   delay: number
-): [unknown, unknown] {
+) {
   return [state, useDebouncedCallback(dispatch, delay, [])];
 }

@@ -5,6 +5,6 @@
   "version": "0.31.22",
   "dependencies": {
     "outdent": "^0.8.0",
-    "zx": "~4.3.0"
+    "zx": "~7.2.1"
   }
 }
