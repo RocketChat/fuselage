@@ -8,6 +8,7 @@ export const inputWithMultilinePlainTextInput: readonly UiKit.LayoutBlock[] = [
       blockId: 'dummy-block-id',
       type: 'plain_text_input',
       multiline: true,
+      multilineSize: 'small',
       actionId: 'input-0',
     },
     label: {
@@ -17,6 +18,46 @@ export const inputWithMultilinePlainTextInput: readonly UiKit.LayoutBlock[] = [
     },
   },
 ] as const;
+
+export const inputWithMediumMultilinePlainTextInput: readonly UiKit.LayoutBlock[] =
+  [
+    {
+      type: 'input',
+      element: {
+        appId: 'dummy-app-id',
+        blockId: 'dummy-block-id',
+        type: 'plain_text_input',
+        multiline: true,
+        multilineSize: 'medium',
+        actionId: 'input-0',
+      },
+      label: {
+        type: 'plain_text',
+        text: 'Label',
+        emoji: true,
+      },
+    },
+  ] as const;
+
+export const inputWithLargeMultilinePlainTextInput: readonly UiKit.LayoutBlock[] =
+  [
+    {
+      type: 'input',
+      element: {
+        appId: 'dummy-app-id',
+        blockId: 'dummy-block-id',
+        type: 'plain_text_input',
+        multiline: true,
+        multilineSize: 'large',
+        actionId: 'input-0',
+      },
+      label: {
+        type: 'plain_text',
+        text: 'Label',
+        emoji: true,
+      },
+    },
+  ] as const;
 
 export const inputWithPlainTextInput: readonly UiKit.LayoutBlock[] = [
   {
