@@ -13,6 +13,7 @@ export * from './Callout';
 export * from './CheckBox';
 export * from './Chevron';
 export { default as CodeSnippet } from './CodeSnippet';
+export * from './Contextualbar';
 export { default as Chip } from './Chip';
 export * from './Divider';
 export * from './Dropdown';
