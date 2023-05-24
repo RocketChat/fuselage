@@ -17,6 +17,9 @@ const getBlockElementRenderer = <T>(
     case 'datepicker':
       return renderers.datePicker as BlockElementRenderer<T> | undefined;
 
+    case 'datetimepicker':
+      return renderers.dateTimePicker as BlockElementRenderer<T> | undefined;
+
     case 'static_select':
       return renderers.staticSelect as BlockElementRenderer<T> | undefined;
 

@@ -19,6 +19,7 @@ export enum BlockElementType {
   CHANNELS_SELECT = 'channels_select',
   USERS_SELECT = 'users_select',
   DATEPICKER = 'datepicker',
+  DATETIMEPICKER = 'datetimepicker',
   LINEAR_SCALE = 'linear_scale',
   MULTI_CHANNELS_SELECT = 'multi_channels_select',
   MULTI_CONVERSATIONS_SELECT = 'multi_conversations_select',

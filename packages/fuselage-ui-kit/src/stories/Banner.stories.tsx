@@ -80,6 +80,10 @@ export const SectionWithDatePickerAccessory = createStory(
   payloads.sectionWithDatePickerAccessory
 );
 
+export const SectionWithDateTimePickerAccessory = createStory(
+  payloads.sectionWithDateTimePickerAccessory
+);
+
 export const ImageWithTitle = createStory(payloads.imageWithTitle);
 
 export const ImageWithoutTitle = createStory(payloads.imageWithoutTitle);
@@ -104,6 +108,10 @@ export const ActionsWithButtonAsLink = createStory(
 
 export const ActionsWithDatePicker = createStory(
   payloads.actionsWithDatePicker
+);
+
+export const ActionsWithDateTimePicker = createStory(
+  payloads.actionsWithDateTimePicker
 );
 
 export const ContextWithPlainText = createStory(payloads.contextWithPlainText);
@@ -145,6 +153,13 @@ export const InputWithStaticSelect = createStory(
 export const InputWithDatePicker = createStory(payloads.inputWithDatePicker, {
   'input-0': 'Error',
 });
+
+export const InputWithDateTimePicker = createStory(
+  payloads.inputWithDateTimePicker,
+  {
+    'input-0': 'Error',
+  }
+);
 
 export const InputWithLinearScale = createStory(payloads.inputWithLinearScale, {
   'input-0': 'Error',

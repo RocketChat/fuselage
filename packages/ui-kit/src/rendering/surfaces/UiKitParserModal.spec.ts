@@ -181,6 +181,18 @@ class TestParser extends UiKitParserModal<unknown> {
     },
   });
 
+  dateTimePicker = (element: any, _context: any, index: any): any => ({
+    component: 'input',
+    props: {
+      key: index,
+      type: 'datetime-local',
+      ...(element.placeholder && {
+        placeholder: this.text(element.placeholder, -1, 0),
+      }),
+      ...(element.initialDateTime && { defaultValue: element.initialDateTime }),
+    },
+  });
+
   staticSelect = (element: any, _context: any, index: any): any => ({
     component: 'select',
     props: {

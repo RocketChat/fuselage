@@ -8,6 +8,7 @@ export const isActionsBlockElement = (
   switch (block.type as ActionsBlock['elements'][number]['type']) {
     case BlockElementType.BUTTON:
     case BlockElementType.DATEPICKER:
+    case BlockElementType.DATETIMEPICKER:
     case BlockElementType.LINEAR_SCALE:
     case BlockElementType.MULTI_STATIC_SELECT:
     case BlockElementType.OVERFLOW:

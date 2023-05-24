@@ -11,6 +11,7 @@ import PreviewBlock from '../blocks/PreviewBlock';
 import SectionBlock from '../blocks/SectionBlock';
 import ButtonElement from '../elements/ButtonElement';
 import DatePickerElement from '../elements/DatePickerElement';
+import DateTimePickerElement from '../elements/DateTimePickerElement';
 import ImageElement from '../elements/ImageElement';
 import LinearScaleElement from '../elements/LinearScaleElement';
 import MultiStaticSelectElement from '../elements/MultiStaticSelectElement';
@@ -233,6 +234,26 @@ export class FuselageSurfaceRenderer extends UiKit.SurfaceRenderer<ReactElement>
 
     return (
       <DatePickerElement
+        key={block.actionId || index}
+        block={block}
+        context={context}
+        index={index}
+        surfaceRenderer={this}
+      />
+    );
+  }
+
+  datetimepicker(
+    block: UiKit.DateTimePickerElement,
+    context: UiKit.BlockContext,
+    index: number
+  ): ReactElement | null {
+    if (context === UiKit.BlockContext.BLOCK) {
+      return null;
+    }
+
+    return (
+      <DateTimePickerElement
         key={block.actionId || index}
         block={block}
         context={context}

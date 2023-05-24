@@ -171,3 +171,26 @@ export const sectionWithDatePickerAccessory: readonly UiKit.LayoutBlock[] = [
     },
   },
 ] as const;
+
+export const sectionWithDateTimePickerAccessory: readonly UiKit.LayoutBlock[] =
+  [
+    {
+      type: 'section',
+      text: {
+        type: 'mrkdwn',
+        text: 'Pick date and time for the deadline.',
+      },
+      accessory: {
+        appId: 'dummy-app-id',
+        blockId: 'dummy-block-id',
+        actionId: 'dummy-action-id',
+        type: 'datetimepicker',
+        initialDateTime: '2022-07-22T00:00',
+        placeholder: {
+          type: 'plain_text',
+          text: 'Select date-time',
+          emoji: true,
+        },
+      },
+    },
+  ] as const;

@@ -8,6 +8,7 @@ export const isSectionBlockAccessoryElement = (
   switch (block.type as Exclude<SectionBlock['accessory'], undefined>['type']) {
     case BlockElementType.BUTTON:
     case BlockElementType.DATEPICKER:
+    case BlockElementType.DATETIMEPICKER:
     case BlockElementType.IMAGE:
     case BlockElementType.MULTI_STATIC_SELECT:
     case BlockElementType.OVERFLOW:

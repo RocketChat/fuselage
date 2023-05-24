@@ -217,3 +217,35 @@ export const actionsWithDatePicker: readonly UiKit.LayoutBlock[] = [
     ],
   },
 ] as const;
+
+export const actionsWithDateTimePicker: readonly UiKit.LayoutBlock[] = [
+  {
+    type: 'actions',
+    elements: [
+      {
+        appId: 'dummy-app-id',
+        blockId: 'dummy-block-id',
+        actionId: 'dummy-action-id',
+        type: 'datetimepicker',
+        initialDateTime: '2022-07-22T00:00',
+        placeholder: {
+          type: 'plain_text',
+          text: 'Select date-time',
+          emoji: true,
+        },
+      },
+      {
+        appId: 'dummy-app-id',
+        blockId: 'dummy-block-id',
+        actionId: 'dummy-action-id',
+        type: 'datetimepicker',
+        initialDateTime: '2022-07-22T00:00',
+        placeholder: {
+          type: 'plain_text',
+          text: 'Select date-time',
+          emoji: true,
+        },
+      },
+    ],
+  },
+] as const;

@@ -3,6 +3,7 @@ import type { ButtonElement } from '../blocks/elements/ButtonElement';
 import type { ChannelsSelectElement } from '../blocks/elements/ChannelsSelectElement';
 import type { ConversationsSelectElement } from '../blocks/elements/ConversationsSelectElement';
 import type { DatePickerElement } from '../blocks/elements/DatePickerElement';
+import type { DateTimePickerElement } from '../blocks/elements/DateTimePickerElement';
 import type { LinearScaleElement } from '../blocks/elements/LinearScaleElement';
 import type { MultiChannelsSelectElement } from '../blocks/elements/MultiChannelsSelectElement';
 import type { MultiConversationsSelectElement } from '../blocks/elements/MultiConversationsSelectElement';
@@ -22,6 +23,8 @@ export type ActionOf<TElement extends ActionableElement> =
     ? unknown
     : TElement extends DatePickerElement
     ? DatePickerElement['initialDate']
+    : TElement extends DateTimePickerElement
+    ? DateTimePickerElement['initialDateTime']
     : TElement extends LinearScaleElement
     ? LinearScaleElement['initialValue']
     : TElement extends MultiChannelsSelectElement

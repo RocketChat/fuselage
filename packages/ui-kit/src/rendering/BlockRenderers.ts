@@ -2,6 +2,7 @@ import type { BlockElement } from '../blocks/BlockElement';
 import type { RenderableLayoutBlock } from '../blocks/RenderableLayoutBlock';
 import type { TextObject } from '../blocks/TextObject';
 import type { DatePickerElement } from '../blocks/elements/DatePickerElement';
+import type { DateTimePickerElement } from '../blocks/elements/DateTimePickerElement';
 import type { LinearScaleElement } from '../blocks/elements/LinearScaleElement';
 import type { MultiStaticSelectElement } from '../blocks/elements/MultiStaticSelectElement';
 import type { PlainTextInputElement } from '../blocks/elements/PlainTextInputElement';
@@ -26,6 +27,9 @@ export type BlockRenderers<T> = {
 
   /** @deprecated */
   datePicker?: BlockElementRenderer<T, DatePickerElement>;
+
+  /** @deprecated */
+  dateTimePicker?: BlockElementRenderer<T, DateTimePickerElement>;
 
   /** @deprecated */
   staticSelect?: BlockElementRenderer<T, StaticSelectElement>;
