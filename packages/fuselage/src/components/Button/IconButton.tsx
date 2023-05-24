@@ -57,6 +57,7 @@ export const IconButton = forwardRef(
       small,
       medium,
       pressed,
+      children,
       ...props
     }: IconButtonProps,
     ref: Ref<HTMLElement>
@@ -131,6 +132,7 @@ export const IconButton = forwardRef(
         ref={ref}
         {...props}
       >
+        {children}
         {isValidElement(icon) ? (
           icon
         ) : (
