@@ -72,6 +72,7 @@
     "s2-800": { "value": "#4A105D", "group": "colors" },
     "s2-900": { "value": "#350B42", "group": "colors" },
     "w100": { "value": "#FFF6D6", "group": "colors" },
+    "w150": { "value": "#FFF8E0", "group": "colors" },
     "w200": { "value": "#FFECAD", "group": "colors" },
     "w300": { "value": "#FFE383", "group": "colors" },
     "w400": { "value": "#FFD95A", "group": "colors" },
