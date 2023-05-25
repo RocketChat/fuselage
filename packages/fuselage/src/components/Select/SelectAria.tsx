@@ -1,6 +1,7 @@
 import type { AriaSelectProps } from '@react-types/select';
 import { useResizeObserver } from '@rocket.chat/fuselage-hooks';
-import * as React from 'react';
+import type { Key } from 'react';
+import React from 'react';
 import {
   useSelect,
   HiddenSelect,
@@ -22,12 +23,21 @@ export const SelectAria = function SelectAria<T extends object>({
   disabled,
   error,
   placeholder,
+  value,
+  onChange,
   ...props
-}: AriaSelectProps<T> & {
+}: Omit<AriaSelectProps<T>, 'value'> & {
   error?: string;
   placeholder?: string;
+  value?: Key | null;
+  onChange?: ((key: Key) => any) | undefined;
 } & React.AllHTMLAttributes<HTMLElement>) {
-  const state = useSelectState({ isDisabled: disabled, ...props });
+  const state = useSelectState({
+    isDisabled: disabled,
+    selectedKey: value,
+    onSelectionChange: onChange,
+    ...props,
+  });
 
   const { ref, borderBoxSize } = useResizeObserver<any>();
 

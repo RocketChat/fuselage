@@ -9,10 +9,10 @@ import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
 import type { SelectOption } from '../..';
-import { SelectV2, Select } from '../..';
+import { Select } from '../..';
 
 const options: SelectOption[] = Array.from({
-  length: 25,
+  length: 12,
 }).map((_, i) => [`${i + 1}`, `a test ${i + 1}`]);
 
 export default {
@@ -37,25 +37,11 @@ export default {
 } as ComponentMeta<typeof Select>;
 
 const Template: ComponentStory<typeof Select> = (args) => <Select {...args} />;
-const Template_V2: ComponentStory<typeof SelectV2> = (args) => (
-  <SelectV2 {...args} />
-);
 
-const TemplateControlled: ComponentStory<typeof SelectV2> = (args) => {
-  const [selectedKey, setSelectedKey] = React.useState<React.Key>('3');
+const TemplateControlled: ComponentStory<typeof Select> = (args) => {
+  const [value, setValue] = React.useState<React.Key>('3');
 
-  return (
-    <SelectV2
-      {...args}
-      selectedKey={selectedKey}
-      onSelectionChange={setSelectedKey}
-    />
-  );
-};
-
-export const Controlled = TemplateControlled.bind({});
-Controlled.args = {
-  options,
+  return <Select {...args} value={value} onChange={setValue as any} />;
 };
 
 export const Default: ComponentStory<typeof Select> = Template.bind({});
@@ -63,14 +49,9 @@ Default.args = {
   placeholder: 'Placeholder here...',
   options,
 };
-export const Select_V2 = Template_V2.bind({});
-Select_V2.args = {
-  placeholder: 'Placeholder here...',
-  options,
-};
-export const Select_V2_WithValue = Template_V2.bind({});
-Select_V2_WithValue.args = {
-  selectedKey: '3',
+
+export const Controlled = TemplateControlled.bind({});
+Controlled.args = {
   options,
 };
 
