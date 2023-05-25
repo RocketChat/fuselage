@@ -38,7 +38,7 @@ export const SelectAria = function SelectAria<T extends object>({
   const { focusProps, isFocusVisible } = useFocusRing();
 
   return (
-    <Box>
+    <Box w='100%'>
       <HiddenSelect
         state={state}
         triggerRef={ref}
@@ -79,7 +79,7 @@ export const SelectAria = function SelectAria<T extends object>({
         />
       </Box>
       {state.isOpen && (
-        <Popover state={state} triggerRef={ref} placement='bottom' offset={16}>
+        <Popover state={state} triggerRef={ref} placement='bottom' offset={4}>
           <OptionContainer
             style={{
               width: borderBoxSize?.inlineSize,
