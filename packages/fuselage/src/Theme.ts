@@ -83,6 +83,7 @@ const success = {
 
 const warning = {
   w100: new Var('warning-100', tokenColors.w100),
+  w150: new Var('warning-150', tokenColors.w150),
   w200: new Var('warning-200', tokenColors.w200),
   w300: new Var('warning-300', tokenColors.w300),
   w400: new Var('warning-400', tokenColors.w400),
@@ -184,7 +185,7 @@ export const statusBackgroundColors = {
   'status-background-success': success.s200.theme('status-background-success'),
   'status-background-danger': danger.d200.theme('status-background-danger'),
   'status-background-warning': warning.w200.theme('status-background-warning'),
-  'status-background-warning-2': warning.w100.theme(
+  'status-background-warning-2': warning.w150.theme(
     'status-background-warning-2'
   ),
   'status-background-service-1': service1['200'].theme(
@@ -210,6 +211,7 @@ export const statusColors = {
 type StatusColors = keyof typeof statusColors;
 
 export const badgeBackgroundColors = {
+  'badge-background-level-0': neutral.n400.theme('badge-background-level-0'),
   'badge-background-level-1': neutral.n600.theme('badge-background-level-1'),
   'badge-background-level-2': primary.p550.theme('badge-background-level-2'),
   'badge-background-level-3': service1[500].theme('badge-background-level-3'),

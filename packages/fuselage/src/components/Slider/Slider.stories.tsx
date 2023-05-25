@@ -31,7 +31,12 @@ export default {
 } as ComponentMeta<typeof Slider>;
 
 const Template: ComponentStory<typeof Slider> = (args) => (
-  <Box width='500px' minHeight='100%' display='flex' alignItems='center'>
+  <Box width='x300' display='flex' alignItems='center'>
+    <Slider {...args} />
+  </Box>
+);
+const TemplateVertical: ComponentStory<typeof Slider> = (args) => (
+  <Box h='x200' display='flex' alignItems='center'>
     <Slider {...args} />
   </Box>
 );
@@ -63,18 +68,6 @@ Default.args = {
   'maxValue': 500,
 } as const;
 
-export const Small: ComponentStory<typeof Slider> = Template.bind({});
-Small.args = {
-  'aria-label': 'aria-range-label',
-  'small': true,
-} as const;
-
-export const Large: ComponentStory<typeof Slider> = Template.bind({});
-Large.args = {
-  'aria-label': 'aria-range-label',
-  'large': true,
-} as const;
-
 export const NoOutput: ComponentStory<typeof Slider> = Template.bind({});
 NoOutput.args = {
   'showOutput': false,
@@ -87,28 +80,22 @@ WithLabel.args = {
   'aria-label': 'range',
 } as const;
 
-export const Vertical: ComponentStory<typeof Slider> = Template.bind({});
+export const Vertical: ComponentStory<typeof Slider> = TemplateVertical.bind(
+  {}
+);
 Vertical.args = {
   'label': 'Range',
   'aria-label': 'range',
   'orientation': 'vertical',
 } as const;
 
-export const VerticalMultiThumb: ComponentStory<typeof Slider> = Template.bind(
-  {}
-);
+export const VerticalMultiThumb: ComponentStory<typeof Slider> =
+  TemplateVertical.bind({});
 VerticalMultiThumb.args = {
   'label': 'Range',
   'aria-label': 'range',
   'orientation': 'vertical',
   'multiThumb': true,
-} as const;
-
-export const VerticalSmall: ComponentStory<typeof Slider> = Template.bind({});
-VerticalSmall.args = {
-  'aria-label': 'aria-range-label',
-  'small': true,
-  'orientation': 'vertical',
 } as const;
 
 export const WithDefaultValue: ComponentStory<typeof Slider> = Template.bind(

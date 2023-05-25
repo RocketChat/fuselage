@@ -5,6 +5,7 @@ import Box from '../Box';
 import { Icon } from '../Icon';
 
 type ButtonSize = {
+  large?: boolean;
   medium?: boolean;
   small?: boolean;
   tiny?: boolean;
@@ -51,10 +52,12 @@ export const IconButton = forwardRef(
       warning,
       success,
       mini,
+      large,
       tiny,
       small,
       medium,
       pressed,
+      children,
       ...props
     }: IconButtonProps,
     ref: Ref<HTMLElement>
@@ -91,8 +94,9 @@ export const IconButton = forwardRef(
         (mini && 'mini') ||
         (tiny && 'tiny') ||
         (small && 'small') ||
-        (medium && 'medium'),
-      [medium, mini, small, tiny]
+        (medium && 'medium') ||
+        (large && 'large'),
+      [medium, mini, small, tiny, large]
     );
 
     const getSizeClass = () => ({ [`rcx-button--${size}-square`]: true });
@@ -107,6 +111,11 @@ export const IconButton = forwardRef(
       if (medium) {
         return 'x20';
       }
+
+      if (large) {
+        return 'x32';
+      }
+
       return 'x24';
     };
 
@@ -123,6 +132,7 @@ export const IconButton = forwardRef(
         ref={ref}
         {...props}
       >
+        {children}
         {isValidElement(icon) ? (
           icon
         ) : (

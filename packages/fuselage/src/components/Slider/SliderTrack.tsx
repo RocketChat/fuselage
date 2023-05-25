@@ -3,6 +3,7 @@ import type { DOMAttributes, MutableRefObject, ReactNode } from 'react';
 import React, { useMemo } from 'react';
 import type { SliderState } from 'react-stately';
 
+import { Palette } from '../../Theme';
 import { useStyle } from '../../hooks/useStyle';
 
 type SliderTrackProps = {
@@ -12,6 +13,9 @@ type SliderTrackProps = {
   children: ReactNode;
   multiThumb?: boolean;
 };
+
+const highlight = Palette.stroke['stroke-highlight'];
+const light = Palette.stroke['stroke-light'];
 
 export const SliderTrack = ({
   trackProps,
@@ -41,26 +45,26 @@ export const SliderTrack = ({
   const getTrackGradient = () => {
     if (isHorizontal) {
       return multiThumb
-        ? `to right, transparent ${getThumbPosition(
+        ? `to right, ${light} ${getThumbPosition(
             state.values[0]
-          )}%, #156ff5 0, #156ff5 ${getThumbPosition(
+          )}%, ${highlight} 0, ${highlight} ${getThumbPosition(
             state.values[1]
-          )}%, transparent 0`
-        : `to right, #156ff5  ${getThumbPosition(
+          )}%, ${light} 0`
+        : `to right, ${highlight}  ${getThumbPosition(
             state.values[0]
-          )}%, transparent 0%`;
+          )}%, ${light} 0%`;
     }
 
     if (isVertical) {
       return multiThumb
-        ? `to top, transparent ${getThumbPosition(
+        ? `to top, ${light} ${getThumbPosition(
             state.values[0]
-          )}%, #156ff5 0, #156ff5 ${getThumbPosition(
+          )}%, ${highlight} 0, ${highlight} ${getThumbPosition(
             state.values[1]
-          )}%, transparent 0`
-        : `to top, #156ff5  ${getThumbPosition(
+          )}%, ${light} 0`
+        : `to top, ${highlight}  ${getThumbPosition(
             state.values[0]
-          )}%, transparent 0%`;
+          )}%, ${light} 0%`;
     }
 
     return undefined;
@@ -76,7 +80,6 @@ export const SliderTrack = ({
         background: linear-gradient(${getTrackGradient()});
         transform: translateX(-50%);
         border-radius: 1rem;
-        border: 1px solid #095ad2;
       }
       ${isHorizontal &&
       css`
@@ -85,7 +88,7 @@ export const SliderTrack = ({
         &::before {
           top: 50%;
           width: 100%;
-          height: 8px;
+          height: 4px;
           transform: translateY(-50%);
         }
       `};
@@ -95,7 +98,7 @@ export const SliderTrack = ({
         height: 100%;
         &::before {
           left: 50%;
-          width: 8px;
+          width: 4px;
           height: 100%;
         }
       `};

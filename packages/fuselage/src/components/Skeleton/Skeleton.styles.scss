@@ -8,6 +8,8 @@
 
   animation: rcx-skeleton__animation 1s linear 0s infinite running;
 
+  border-radius: lengths.border-radius(medium);
+
   background-color: colors.stroke(extra-dark);
 
   &--text {
@@ -16,8 +18,6 @@
 
     transform: scale(1, 0.6);
     transform-origin: 0 60%;
-
-    border-radius: lengths.border-radius(medium);
 
     &:empty::before {
       content: '\00a0';
