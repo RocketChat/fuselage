@@ -9,11 +9,17 @@ type SelectOption = readonly [value: string, label: string, selected?: boolean];
 export const SelectV2 = function Select({
   options,
   ...props
-}: ComponentProps<typeof SelectAria> & { options: SelectOption[] }) {
+}: Omit<ComponentProps<typeof SelectAria>, 'children'> & {
+  options: SelectOption[];
+}) {
   return (
     <SelectAria {...props}>
-      {options.map((option, index) => (
-        <Item title={option[1] ?? option[0]} textValue={option[0]} key={index}>
+      {options.map((option) => (
+        <Item
+          title={option[1] ?? option[0]}
+          textValue={option[0]}
+          key={option[0]}
+        >
           {option[1] ?? option[0]}
         </Item>
       ))}
