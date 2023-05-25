@@ -17,7 +17,6 @@ export function Popover(props: PopoverProps) {
   const { popoverProps, underlayProps } = usePopover(
     {
       ...props,
-      isKeyboardDismissDisabled: true,
       containerPadding: 8,
       popoverRef,
     },

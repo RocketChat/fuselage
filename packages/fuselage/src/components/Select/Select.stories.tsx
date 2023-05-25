@@ -41,6 +41,23 @@ const Template_V2: ComponentStory<typeof SelectV2> = (args) => (
   <SelectV2 {...args} />
 );
 
+const TemplateControlled: ComponentStory<typeof SelectV2> = (args) => {
+  const [selectedKey, setSelectedKey] = React.useState<React.Key>('3');
+
+  return (
+    <SelectV2
+      {...args}
+      selectedKey={selectedKey}
+      onSelectionChange={setSelectedKey}
+    />
+  );
+};
+
+export const Controlled = TemplateControlled.bind({});
+Controlled.args = {
+  options,
+};
+
 export const Default: ComponentStory<typeof Select> = Template.bind({});
 Default.args = {
   placeholder: 'Placeholder here...',
@@ -49,6 +66,11 @@ Default.args = {
 export const Select_V2 = Template_V2.bind({});
 Select_V2.args = {
   placeholder: 'Placeholder here...',
+  options,
+};
+export const Select_V2_WithValue = Template_V2.bind({});
+Select_V2_WithValue.args = {
+  selectedKey: '3',
   options,
 };
 
