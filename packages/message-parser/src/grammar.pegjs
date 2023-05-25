@@ -206,6 +206,7 @@ InlineItem = Whitespace
   / AutolinkedPhone
   / AutolinkedEmail
   / AutolinkedURL
+  / EmphasisWithWhitespace
   / Emphasis
   / UserMention
   / ChannelMention
@@ -394,6 +395,31 @@ AnyBold = t:[^\x0a\* ] { return plain(t); }
 AnyStrike = t:[^\x0a\~ ] { return plain(t); }
 
 AnyItalic = t:[^\x0a\_ ] { return plain(t); }
+
+/**
+ * Emphasis with only whitespaces return plain text
+ * e.g: 
+*/
+EmphasisWithWhitespace = AsteriskWithWhitespace / UnderscoreWithWhitespace / TildeWithWhitespace
+
+AsteriskWithWhitespace = first:Asterisk second:Whitespace third:Asterisk
+{
+  return reducePlainTexts([first,second,third])[0];
+}
+
+UnderscoreWithWhitespace = first:Underscore second:Whitespace third:Underscore
+{
+  return reducePlainTexts([first,second,third])[0];
+}
+
+TildeWithWhitespace = first:Tilde second:Whitespace third:Tilde
+{
+  return reducePlainTexts([first,second,third])[0];
+}
+
+Asterisk = t:"*"+ {return plain(t.join(""))}
+Underscore = t:"_"+ {return plain(t.join(""))}
+Tilde = t:"~"+ {return plain(t.join(""))}
 
 /**
  *
