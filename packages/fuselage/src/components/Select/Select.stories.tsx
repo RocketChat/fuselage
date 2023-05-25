@@ -46,30 +46,35 @@ const TemplateControlled: ComponentStory<typeof Select> = (args) => {
 
 export const Default: ComponentStory<typeof Select> = Template.bind({});
 Default.args = {
-  placeholder: 'Placeholder here...',
+  'placeholder': 'Placeholder here...',
   options,
+  'aria-label': 'Select',
 };
 
 export const Controlled = TemplateControlled.bind({});
 Controlled.args = {
+  'aria-label': 'Controlled select',
   options,
 };
 
 export const Error: ComponentStory<typeof Select> = Template.bind({});
 Error.args = {
-  error: 'Error',
-  placeholder: 'Placeholder here...',
+  'aria-label': 'Error select',
+  'error': 'Error',
+  'placeholder': 'Placeholder here...',
   options,
 };
 
 export const Disabled: ComponentStory<typeof Select> = Template.bind({});
 Disabled.args = {
-  disabled: true,
-  placeholder: 'Placeholder here...',
+  'aria-label': 'Disabled select',
+  'disabled': true,
+  'placeholder': 'Placeholder here...',
   options,
 };
 
 export const NoPlaceholder: ComponentStory<typeof Select> = Template.bind({});
 NoPlaceholder.args = {
+  'aria-label': 'No placeholder select',
   options,
 };
