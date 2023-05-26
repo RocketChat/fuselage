@@ -398,7 +398,7 @@ AnyItalic = t:[^\x0a\_ ] { return plain(t); }
 
 /**
  * Emphasis with only whitespaces return plain text
- * e.g: 
+ * e.g: __ __, _ _, ** **, * *, ** *, ~~ ~~
 */
 EmphasisWithWhitespace = AsteriskWithWhitespace / UnderscoreWithWhitespace / TildeWithWhitespace
 
