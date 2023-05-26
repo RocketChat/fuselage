@@ -24,6 +24,8 @@ const Contextualbar = ({
     borderInlineStartStyle='solid'
     height='full'
     position={position}
+    insetInlineEnd='none'
+    insetBlockStart='none'
     zIndex={5}
     {...props}
   >
