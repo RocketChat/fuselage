@@ -13,10 +13,10 @@
 
   flex-grow: 1;
 
-  min-width: 8rem;
+  min-width: lengths.size(144);
 
   padding-block: lengths.padding(8);
-  padding-inline: lengths.padding(16) - lengths.border-width(2);
+  padding-inline: lengths.padding(16) - lengths.border-width(default, rem);
 
   vertical-align: baseline;
 
@@ -42,7 +42,6 @@
 .rcx-input-box__addon {
   @include clickable;
 
-  display: flex;
   flex-flow: row nowrap;
 
   align-items: flex-start;
@@ -150,6 +149,24 @@
     white-space: initial;
   }
 
+  &--type-date,
+  &--type-time {
+    &::-webkit-inner-spin-button,
+    &::-webkit-calendar-picker-indicator {
+      position: absolute;
+      inset: 0;
+
+      width: auto;
+      height: auto;
+
+      cursor: pointer;
+
+      color: transparent;
+      background: transparent;
+    }
+    -webkit-text-fill-color: $input-colors-color;
+  }
+
   &--type-select {
     @extend %--with-scrollbars;
 
@@ -165,7 +182,8 @@
     min-width: lengths.size(128);
     min-height: lengths.size(40);
 
-    padding: lengths.padding(8) (lengths.padding(16) - lengths.border-width(2));
+    padding: lengths.padding(8)
+      (lengths.padding(16) - lengths.border-width(default, rem));
 
     @extend %input;
 
@@ -250,14 +268,14 @@
   min-width: lengths.size(128);
   min-height: lengths.size(40);
 
-  padding: (lengths.padding(12) - lengths.border-width(2))
-    (lengths.padding(16) - lengths.border-width(2));
+  padding: (lengths.padding(12) - lengths.border-width(default, rem))
+    (lengths.padding(16) - lengths.border-width(default, rem));
 
   vertical-align: baseline;
 
   color: #{$input-colors-color};
 
-  border-width: lengths.border-width(2);
+  border-width: lengths.border-width(default);
   border-color: #{$input-colors-border-color};
   border-radius: theme('input-border-radius', lengths.border-radius(medium));
   background-color: #{$input-colors-background-color};

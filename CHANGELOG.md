@@ -2,6 +2,107 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.31.22](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.31.21...v0.31.22) (2022-12-02)
+
+### Features
+
+- **fuselage:** add message names wrapper and update system message ([#889](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/889)) ([97dd401](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/97dd401f566fc497d7e759d70cc34a77409af527))
+- **fuselage:** Featured Tag variant ([#922](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/922)) ([0bb5c90](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/0bb5c90b910bc0d1fe7657001041cf530b4bc89c))
+- **fuselage:** Update Banner Component style ([#905](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/905)) ([15b4f96](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/15b4f96844464716b7dff1265ca67862cea31861))
+
+### Bug Fixes
+
+- **fuselage-hooks:** fix storage not reacting if there are multiple in same page ([#911](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/911)) ([e1d0a4a](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/e1d0a4a911bc88eb788b5598d9852c6ea0e59c1a))
+- **fuselage:** Adding heading tag styles to messages ([#904](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/904)) ([ade27ba](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/ade27baad3c02dcefc8aaddce1cbe9a40b31357c))
+- **fuselage:** Avatar border and Tag alignment ([#892](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/892)) ([02975fc](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/02975fca7ab5432b8eec82031c70e0fbd770ca6d))
+- **fuselage:** Elevation token ([#920](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/920)) ([47a63d4](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/47a63d48b96776425326635ac06f82ba74708737))
+- **fuselage:** Message palette colors ([#896](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/896)) ([5a22d8b](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/5a22d8b2d8828cdc631c5a15218fb36cb51b67fd))
+- **fuselage:** Revert Banner Elevation ([#926](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/926)) ([3c0d7f9](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/3c0d7f928da14f1efd8533726a23f76c48d99947))
+- **fuselage:** Update Banner Styles ([#912](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/912)) ([4858258](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/48582580addd3f65117064fbc2a0a345ede9b6e2))
+- **message-parser:** Add file path structure to URL reference markdown ([#901](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/901)) ([91239b6](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/91239b6cd381d62a37ae6d80819aaabec50bdc25))
+- **message-parser:** Escaping only necessary characters ([#899](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/899)) ([29dd497](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/29dd4970f73ab8f14467864f778cbb5d311c1fea))
+- **message-parser:** Phone pattern ([#900](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/900)) ([6062700](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/6062700bcd42b1fd2bc41aca5dc496923cc509e5))
+- **message-parser:** User mention with @ character ([#894](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/894)) ([aa9bc06](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/aa9bc06e06b2fc1a5335896078e9b51ae2382c96))
+
+### [0.31.21](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.31.20...v0.31.21) (2022-10-31)
+
+### Features
+
+- **fuselage:** Empty `Badge` and small variants ([#876](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/876)) ([16bff6d](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/16bff6d4a89dede5284c0c8dbf3706fddae682e8))
+- **icons:** Add spanner icon ([#880](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/880)) ([a16a786](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/a16a78648d18d91192f08ffeb0f6bac5a27db111))
+- **message-parser:** Enabling Emphasis elements (bold, strike and italic) inside link label ([#864](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/864)) ([7e521bb](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/7e521bbc4a257fac3bea292f40220419c411fdc6))
+
+### [0.31.20](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.31.19...v0.31.20) (2022-10-21)
+
+### Features
+
+- **fuselage:** Callout Custom Icon [#881](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/881) ([3dadd68](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/3dadd6878eef22eb496c4054b6a0af5c5ad2222d))
+
+### Bug Fixes
+
+- **fuselage:** add message generic preview cover image ([#863](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/863)) ([f1f19f0](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/f1f19f0980854e5eeb39903551873fc7d1e6a331))
+- **fuselage:** Message Toolbox margin [#882](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/882) ([c7516c1](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/c7516c18d968394eba747bab828e397f97123509))
+- **fuselage:** Palette classes ([#873](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/873)) ([6a3f3ff](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/6a3f3ff8557b4463481516c7128dee924007ea70))
+- **fuselage:** Tag not receiving props properly ([#865](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/865)) ([5e5f25d](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/5e5f25d6f5decca320a1f24b8dcb6b10adc0f18e))
+- **fuselage:** Token colors usage ([#875](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/875)) ([b7527f4](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/b7527f472e79f8783e8c595f8cf77d8368fb56cb))
+- **layout:** Design adjustments ([#867](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/867)) ([99eabc9](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/99eabc9a8e41d5877cac17c9a591f41d350590e1))
+
+### [0.31.19](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.31.18...v0.31.19) (2022-10-07)
+
+### Features
+
+- Add link property to banner component ([#849](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/849)) ([dc71a45](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/dc71a45cf8c5d9945a54e765c3c8632c7feb8c5d))
+- **fuselage:** Adds wordbreak in Box Component ([#853](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/853)) ([21b298c](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/21b298c62490ef065847552ef9b2d5c4bd6dd624))
+- **fuselage:** Modal Hero Image ([#860](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/860)) ([ce85b97](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/ce85b97cd8bf8a3afd61f37116de30d9ca31df71))
+- **fuselage:** Vertical Divider ([#840](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/840)) ([d418221](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/d418221570008dd24e14ce5c142268fe5ff9f309))
+- **message-parser:** Add Matrix Protocol username pattern to User Mention ([#847](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/847)) ([702c1ee](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/702c1ee55f5988ff0955f68871fece34e1346bf2))
+- Slider component ([#826](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/826)) ([4828145](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/482814527d4245137fa73bc8c332b857cd52bbd4))
+
+### Bug Fixes
+
+- build-storybook layout ([83c7e4b](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/83c7e4bdfe447f94a3ecbecadb5275c995074e11))
+- **fuselage:** Callout Component Style Update ([#862](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/862)) ([50c7d94](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/50c7d94f8ff2c176608db1cc10b3851886c91de9))
+- **fuselage:** Reaction list not wrapping ([#843](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/843)) ([609bf2d](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/609bf2d6f3a81f000ad42860a49af20a411abe58))
+- **fuselage:** Sidebar spacings ([#837](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/837)) ([39d8028](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/39d80282e795722847dd2a56752b9fe2af73b80b))
+- **fuselage:** Tabs divider and state colors ([8d72150](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/8d72150b9aa07a838ff9e14c8783efae7f5fca75))
+- **message-parser:** Link broken ([#807](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/807)) ([62a1582](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/62a1582e86226c2633d7a2d6deb030ec72483829))
+- **message-parser:** Message parser issues ([#852](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/852)) ([7ece520](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/7ece520410913a633f95cbdf13a2bdde62ae3b6c)), closes [#858](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/858) [#855](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/855) [#853](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/853) [#861](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/861)
+- **message-parser:** tests for urls followed by a line break and spaces ([#848](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/848)) ([228d42f](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/228d42f842d41fc453e929279a970803129e7c8e))
+- **message-parser:** Update emoticon to output :fearful: emoji ([#851](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/851)) ([6089b25](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/6089b25f24eda6675df6e3f5528e37cb498ee31c))
+
+### [0.31.18](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.31.17...v0.31.18) (2022-09-01)
+
+### Bug Fixes
+
+- **fuselage:** `StatusBullet` styles ([#841](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/841)) ([1963f2e](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/1963f2e0c79758e9e260fbde7a2ece78083f20d9))
+
+### [0.31.17](https://github.com/RocketChat/Rocket.Chat.Fuselage/compare/v0.31.16...v0.31.17) (2022-08-31)
+
+### Features
+
+- **monorepo:** Layout package ([#802](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/802)) ([fc1efc0](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/fc1efc0c957fa5e735f175dd3c59c62461841d53))
+- **ui-kit:** video_conf block ([#831](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/831)) ([70080e2](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/70080e2ae2d32da7c2dac91062808e2239de861f))
+- **uikit-playground:** Uikit Playground ([#793](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/793)) ([8cf78e7](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/8cf78e7861dc4009e5cd14216db6467df07c7fc7))
+
+### Bug Fixes
+
+- bump-next ([5a52dc6](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/5a52dc6ad460cf42f29c8a6775ecae34c3190806))
+- **fuselage:** `StatusBullet` not using the stylesheets ([#833](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/833)) ([b927cbe](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/b927cbe3471e09327340ba027319c929c3e96535))
+- **fuselage:** Message roles size ([#788](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/788)) ([ce6273b](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/ce6273be1a9b47421ff9362919ff0e75bb7bf0ce))
+- **fuselage:** misaligned sidebar image ([#798](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/798)) ([d5d552c](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/d5d552c5570ddec2979d1d26e9c91cef45527aa3))
+- **fuselage:** Modal improves ([#776](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/776)) ([7660993](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/7660993f0575961afcae023b0daf5b556da6dc1a))
+- **fuselage:** Sidebar colors ([#810](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/810)) ([112f9e2](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/112f9e25dcb99d1dccb904d045aab5bac7f7cd47))
+- **fuselage:** Tooltip border-radius ([37610c1](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/37610c1934e2772e3faa6a8001496166db0f81e7))
+- **fuselage:** update optionTitle component styles ([#790](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/790)) ([3a2cbb3](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/3a2cbb3e0ab6d28888c2186a5723d3d20f08d04b))
+- Layout imports ([b52cc67](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/b52cc671ac8166fb09738ea5d7a61159c517878d))
+- **layout:** Layout peerDependencies ([b6b5bdc](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/b6b5bdcac20b9fb211d870ce92c356975809f560))
+- **message-parser:** Fix payload generation for custom protocols ([#799](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/799)) ([7451b58](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/7451b584d36726b447eee1513394ee1d70564735))
+- **message-rewrite:** Remove emojis inside links ([#800](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/800)) ([670a5f2](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/670a5f2def524d81b213d4b4e06dfe9685392fd8))
+- onboarding ui imports ([3322b10](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/3322b1022dc4d4962a2687f8ed0d0defef92e55b))
+- Privacy policy broken link on New Account Form ([#834](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/834)) ([530d056](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/530d056ba19eded027f6218407211aeae73c17ac))
+- Remove italic style from system messages ([#830](https://github.com/RocketChat/Rocket.Chat.Fuselage/issues/830)) ([96df38b](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/96df38b5a1e1c5a8ef8a2a5e43cb979195b06180))
+- **ui-kit:** export VideoConferenceBlock ([66b247d](https://github.com/RocketChat/Rocket.Chat.Fuselage/commit/66b247d2c748156bad0c0f43e189c48efb5d21b1))
+
 ### [0.31.16](https://github.com/RocketChat/fuselage/compare/v0.31.15...v0.31.16) (2022-07-21)
 
 ### Bug Fixes

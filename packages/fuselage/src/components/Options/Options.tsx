@@ -13,6 +13,7 @@ import React, {
   useRef,
 } from 'react';
 
+import { prevent } from '../../helpers/prevent';
 import Box from '../Box';
 import Option, { OptionHeader, OptionDivider } from '../Option';
 import Scrollable from '../Scrollable';
@@ -21,15 +22,11 @@ import { useCursor } from './useCursor';
 
 export { useCursor };
 
-const prevent = (e: SyntheticEvent) => {
-  e.preventDefault();
-  e.stopPropagation();
-};
-
 export type OptionType = [
   value: string | number,
   label: ReactNode,
   selected?: boolean,
+  disabled?: boolean,
   type?: 'heading' | 'divider' | 'option',
   url?: string
 ];
@@ -85,7 +82,7 @@ export const Options = forwardRef(
 
     const optionsMemoized = useMemo(
       () =>
-        options?.map(([value, label, selected, type, url], i) => {
+        options?.map(([value, label, selected, disabled, type, url], i) => {
           switch (type) {
             case 'heading':
               return <OptionHeader key={value}>{label}</OptionHeader>;
@@ -97,13 +94,17 @@ export const Options = forwardRef(
                   role='option'
                   label={label}
                   onMouseDown={(e: SyntheticEvent) => {
+                    if (disabled) {
+                      return;
+                    }
                     prevent(e);
-                    onSelect([value, label, selected, type, url]);
+                    onSelect([value, label, selected, disabled, type, url]);
                     return false;
                   }}
                   key={value}
                   value={value}
                   selected={selected || (multiple !== true && null)}
+                  disabled={disabled}
                   focus={cursor === i || null}
                 />
               );

@@ -108,11 +108,135 @@ The `is` prop allows `Box` to render any component capable of handling common DO
 
 ### Color
 
-#### Colors
+#### Surface Colors
 
 <Canvas>
   <Story
-    name='Colors'
+    name='Surface Colors'
+    decorators={[
+      (fn) => (
+        <Box
+          display='flex'
+          flexWrap='wrap'
+          alignItems='center'
+          overflow='hidden'
+        >
+          {flattenChildren(fn().props.children).map((child) =>
+            React.cloneElement(
+              child,
+              {
+                m: 'x4',
+                size: 'x122',
+                color: 'annotation',
+                textAlign: 'center',
+              },
+              child.props.bg
+            )
+          )}
+        </Box>
+      ),
+    ]}
+  >
+    <>
+      <Box bg='light' />
+      <Box bg='tint' />
+      <Box bg='room' />
+      <Box bg='neutral' />
+      <Box bg='disabled' />
+      <Box bg='hover' />
+      <Box bg='selected' />
+      <Box bg='dark' />
+      <Box bg='featured' />
+      <Box bg='featured-hover' />
+      <Box bg='transparent' />
+    </>
+  </Story>
+</Canvas>
+
+#### Status Colors
+
+<Canvas>
+  <Story
+    name='Status Colors'
+    decorators={[
+      (fn) => (
+        <Box
+          display='flex'
+          flexWrap='wrap'
+          alignItems='center'
+          overflow='hidden'
+        >
+          {flattenChildren(fn().props.children).map((child) =>
+            React.cloneElement(
+              child,
+              { m: 'x4', size: 'x122', textAlign: 'center' },
+              child.props.bg
+            )
+          )}
+        </Box>
+      ),
+    ]}
+  >
+    <>
+      <Box bg='status-background-info' color='status-font-on-info' />
+      <Box bg='status-background-success' color='status-font-on-success' />
+      <Box bg='status-background-danger' color='status-font-on-danger' />
+      <Box bg='status-background-warning' color='status-font-on-warning' />
+      <Box bg='status-background-service-1' color='status-font-on-service-1' />
+      <Box bg='status-background-service-2' color='status-font-on-service-2' />
+    </>
+  </Story>
+</Canvas>
+
+#### Stroke Colors
+
+<Canvas>
+  <Story
+    name='Stroke Colors'
+    decorators={[
+      (fn) => (
+        <Box
+          display='flex'
+          flexWrap='wrap'
+          alignItems='center'
+          overflow='hidden'
+        >
+          {flattenChildren(fn().props.children).map((child) =>
+            React.cloneElement(
+              child,
+              {
+                m: 'x4',
+                textAlign: 'center',
+                size: 'x122',
+                color: 'annotation',
+                borderWidth: 'x8',
+              },
+              child.props.borderColor
+            )
+          )}
+        </Box>
+      ),
+    ]}
+  >
+    <>
+      <Box borderColor='stroke-extra-light' />
+      <Box borderColor='stroke-light' />
+      <Box borderColor='stroke-medium' />
+      <Box borderColor='stroke-dark' />
+      <Box borderColor='stroke-extra-dark' />
+      <Box borderColor='stroke-extra-light-highlight' />
+      <Box borderColor='stroke-highlight' />
+      <Box borderColor='stroke-extra-light-error' />
+      <Box borderColor='stroke-error' />
+    </>
+  </Story>
+</Canvas>
+
+#### Font Colors
+
+<Canvas>
+  <Story
+    name='Font Colors'
     decorators={[
       (fn) => (
         <Box
@@ -133,83 +257,15 @@ The `is` prop allows `Box` to render any component capable of handling common DO
     ]}
   >
     <>
-      <Box color='neutral-500' />
-      <Box color='neutral-500-50' />
-      <Box color='primary-500' />
-      <Box color='primary-500-50' />
-      <Box color='info-500' />
-      <Box color='info-500-50' />
-      <Box color='success-500' />
-      <Box color='success-500-50' />
-      <Box color='warning-500' />
-      <Box color='warning-500-50' />
-      <Box color='danger-500' />
-      <Box color='danger-500-50' />
-      <Box color='surface' />
-      <Box color='default' />
-      <Box color='info' />
-      <Box color='hint' />
-      <Box color='disabled' />
-      <Box color='alternative' />
-      <Box color='primary' />
-      <Box color='success' />
-      <Box color='danger' />
-      <Box color='warning' />
-      <Box color='link' />
-      <Box color='visited-link' />
-      <Box color='active-link' />
-      <Box color='rebeccapurple' />
-    </>
-  </Story>
-</Canvas>
-
-#### Background colors
-
-<Canvas>
-  <Story
-    name='Background colors'
-    decorators={[
-      (fn) => (
-        <Box
-          display='flex'
-          flexWrap='wrap'
-          alignItems='center'
-          overflow='hidden'
-        >
-          {flattenChildren(fn().props.children).map((child) =>
-            React.cloneElement(child, { m: 'x4', size: 'x32' })
-          )}
-        </Box>
-      ),
-    ]}
-  >
-    <>
-      <Box bg='neutral-500' />
-      <Box bg='neutral-500-50' />
-      <Box bg='primary-500' />
-      <Box bg='primary-500-50' />
-      <Box bg='info-500' />
-      <Box bg='info-500-50' />
-      <Box bg='success-500' />
-      <Box bg='success-500-50' />
-      <Box bg='warning-500' />
-      <Box bg='warning-500-50' />
-      <Box bg='danger-500' />
-      <Box bg='danger-500-50' />
-      <Box bg='surface' />
-      <Box bg='default' />
-      <Box bg='info' />
-      <Box bg='hint' />
-      <Box bg='disabled' />
-      <Box bg='alternative' />
-      <Box bg='primary' />
-      <Box bg='success' />
-      <Box bg='danger' />
-      <Box bg='warning' />
-      <Box bg='link' />
-      <Box bg='visited-link' />
-      <Box bg='active-link' />
-      <Box bg='rebeccapurple' />
+      <Box color='font-white' />
+      <Box color='font-disabled' />
+      <Box color='font-annotation' />
+      <Box color='font-secondary-info' />
+      <Box color='font-hint' />
+      <Box color='font-text' />
+      <Box color='font-titles-labels' />
+      <Box color='font-info' />
+      <Box color='font-danger' />
     </>
   </Story>
 </Canvas>
@@ -426,6 +482,21 @@ The `is` prop allows `Box` to render any component capable of handling common DO
       <Box textDecorationLine='underline'>underline</Box>
       <Box textDecorationLine='overline'>overline</Box>
       <Box textDecorationLine='line-through'>line-through</Box>
+    </>
+  </Story>
+</Canvas>
+
+#### Word Break
+
+<Canvas>
+  <Story name='Word break'>
+    <>
+      <Box wordBreak='break-word'>
+        Breakwoooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooord
+      </Box>
+      <Box wordBreak='break-all'>
+        Breakaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaall
+      </Box>
     </>
   </Story>
 </Canvas>
@@ -771,6 +842,8 @@ The `is` prop allows `Box` to render any component capable of handling common DO
       <Box elevation='0' />
       <Box elevation='1' />
       <Box elevation='2' />
+      <Box elevation='1nb' />
+      <Box elevation='2nb' />
     </>
   </Story>
 </Canvas>

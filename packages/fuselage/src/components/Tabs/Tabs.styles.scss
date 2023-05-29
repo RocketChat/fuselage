@@ -4,8 +4,10 @@
 
 $tabs-background-color: theme('tabs-background-color', transparent);
 $tabs-border-color: theme('tabs-border-color', transparent);
-$tabs-color: theme('tabs-color', colors.font(secondary-info));
-$tabs-hover-color: theme('tabs-hover-border-color', colors.font(titles-labels));
+$tabs-color: theme('tabs-color', colors.font(annotation));
+
+$tabs-hover-color: theme('tabs-hover-border-color', colors.font(hint));
+
 $tabs-selected-color: theme(
   'tabs-selected-color',
   colors.button(primary-default)
@@ -23,6 +25,7 @@ $tabs-hover-selected-border-color: theme(
   colors.button(primary-hover)
 );
 $tabs-active-color: theme('tabs-active-color', colors.font(titles-labels));
+
 $tabs-active-selected-color: theme(
   'tabs-active-selected-color',
   colors.button(primary-press)
@@ -39,22 +42,15 @@ $tabs-focus-shadow-color: theme(
   'tabs-focus-shadow-color',
   colors.stroke(extra-light-highlight)
 );
-$tabs-disabled-color: theme('tabs-disabled-color', colors.neutral(500));
+$tabs-disabled-color: theme('tabs-disabled-color', colors.font(disabled));
 $tabs-disabled-selected-color: theme(
   'tabs-disabled-selected-color',
-  colors.primary(200)
+  colors.status-background(info)
 );
 $tabs-disabled-selected-border-color: theme(
   'tabs-disabled-selected-border-color',
-  colors.primary(200)
+  colors.status-background(info)
 );
-
-// TODO: Indication that there are more tab__items left to scroll (some sort of shadow maybe)
-.rcx-tabs {
-  position: relative;
-
-  display: flex;
-}
 
 .rcx-tabs__scroll-box {
   position: relative;
@@ -89,10 +85,11 @@ $tabs-disabled-selected-border-color: theme(
   min-height: lengths.size(40);
 
   margin: lengths.margin(none) lengths.margin(12);
-  padding: (lengths.padding(4) + lengths.border-width(2)) lengths.padding(none);
+  padding: (lengths.padding(4) + lengths.border-width(default, rem))
+    lengths.padding(none);
 
   color: $tabs-color;
-  border-width: lengths.border-width(2);
+  border-width: lengths.border-width(default);
 
   border-style: solid;
   border-color: transparent;
@@ -104,11 +101,15 @@ $tabs-disabled-selected-border-color: theme(
   &.hover,
   &:hover {
     color: $tabs-hover-color;
+    border-block-end-color: $tabs-hover-color;
+    border-block-end-width: lengths.border-width(4);
   }
 
   &.active,
   &:active {
     color: $tabs-active-color;
+    border-block-end-color: $tabs-active-color;
+    border-block-end-width: lengths.border-width(4);
   }
 
   @include on-focus-visible {
@@ -128,21 +129,22 @@ $tabs-disabled-selected-border-color: theme(
     }
   }
 
-  &--selected {
+  &--selected.rcx-tabs__item {
     padding: lengths.padding(4) lengths.padding(none);
 
     color: $tabs-selected-color;
     border-block-end-color: $tabs-selected-border-color;
-    border-block-end-width: lengths.border-width(4);
-    border-inline-width: lengths.border-width(2);
+    border-block-end-width: lengths.border-width(default);
+    border-inline-width: lengths.border-width(default);
 
-    &:hover {
+    &:hover:not(.rcx-tabs__item--selected--disabled),
+    &.hover:not(.rcx-tabs__item--selected--disabled) {
       color: $tabs-hover-selected-color;
       border-block-end-color: $tabs-hover-selected-border-color;
     }
 
-    &.active,
-    &:active {
+    &.active:not(.rcx-tabs__item--selected--disabled),
+    &:active:not(.rcx-tabs__item--selected--disabled) {
       color: $tabs-active-selected-color;
       border-block-end-color: $tabs-active-selected-border-color;
     }
@@ -157,6 +159,22 @@ $tabs-disabled-selected-border-color: theme(
         color: $tabs-disabled-selected-color;
         border-block-end-color: $tabs-disabled-selected-border-color;
       }
+    }
+  }
+}
+
+// TODO: Indication that there are more tab__items left to scroll (some sort of shadow maybe)
+.rcx-tabs {
+  position: relative;
+
+  display: flex;
+
+  &--with-divider {
+    border-block-end: lengths.border-width(default) solid colors.stroke(light);
+
+    .rcx-tabs__item {
+      margin-block-end: lengths.margin(-1);
+      border-block-width: lengths.border-width(default);
     }
   }
 }

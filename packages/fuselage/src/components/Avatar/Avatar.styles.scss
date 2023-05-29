@@ -14,13 +14,19 @@ $sizes: 16, 18, 20, 24, 28, 32, 36, 40, 48, 124, 200, 332;
 
   vertical-align: middle;
 
+  @each $size in $sizes {
+    &--x#{$size} {
+      @include square(functions.to-rem($size));
+    }
+  }
+
   &__element {
     position: relative;
 
+    width: 100%;
+    height: 100%;
     @each $size in $sizes {
       &--x#{$size} {
-        @include square(functions.to-rem($size));
-
         @if $size <= 18 {
           border-radius: theme(
             'avatar-border-radius-#{$size}',
@@ -57,13 +63,13 @@ $sizes: 16, 18, 20, 24, 28, 32, 36, 40, 48, 124, 200, 332;
     flex-direction: row-reverse;
     justify-content: center;
 
-    color: #{$avatar-stack-background-color};
+    background-color: #{$avatar-stack-background-color};
 
     & > .rcx-avatar {
       margin: auto lengths.margin(-2);
 
       & > .rcx-avatar__element {
-        border: lengths.border-width(2) solid currentColor;
+        border: lengths.border-width(default) solid transparent;
       }
     }
   }

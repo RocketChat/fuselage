@@ -13,7 +13,6 @@
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node",
     "noImplicitThis": true,
-    "alwaysStrict": true,
-    "importsNotUsedAsValues": "error"
+    "alwaysStrict": true
   }
 }

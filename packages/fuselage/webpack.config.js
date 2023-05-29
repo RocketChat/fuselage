@@ -2,7 +2,6 @@
 
 const path = require('path');
 
-const CopyPlugin = require('copy-webpack-plugin');
 const webpack = require('webpack');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
@@ -42,7 +41,7 @@ module.exports = (env, { mode = 'production' }) => ({
         use: {
           loader: 'ts-loader',
           options: {
-            configFile: path.resolve(__dirname, './tsconfig-bundle.json'),
+            configFile: path.resolve(__dirname, './tsconfig.build.json'),
           },
         },
       },
@@ -100,17 +99,15 @@ module.exports = (env, { mode = 'production' }) => ({
     'react-dom',
     '@rocket.chat/icons',
     '@rocket.chat/fuselage-hooks',
+    'react-aria',
+    'react-stately',
+    '@rocket.chat/css-in-js',
+    '@rocket.chat/css-supports',
+    '@rocket.chat/fuselage-tokens',
+    '@rocket.chat/memo',
+    '@rocket.chat/styled',
   ],
   plugins: [
-    new CopyPlugin({
-      patterns: [
-        {
-          context: 'src/',
-          from: '**/!(scss).d.ts',
-          to: '../dist',
-        },
-      ],
-    }),
     new webpack.DefinePlugin({
       'process.env.VERSION': JSON.stringify(pkg.version),
     }),

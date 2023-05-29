@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 
+/** @type {import('@storybook/react/types').StorybookConfig} */
 module.exports = {
   core: {
     builder: 'webpack5',
@@ -7,7 +8,10 @@ module.exports = {
   features: {
     postcss: false,
   },
-  addons: ['@storybook/addon-essentials'],
+  typescript: {
+    reactDocgen: 'react-docgen-typescript-plugin',
+  },
+  addons: ['@storybook/addon-essentials', '@storybook/addon-interactions'],
   stories: ['../src/**/*.stories.{mdx,js,tsx}'],
   webpackFinal: (config) => {
     config.module.rules.push({

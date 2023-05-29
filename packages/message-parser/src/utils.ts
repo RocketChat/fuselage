@@ -1,3 +1,5 @@
+import { parse as tldParse } from 'tldts';
+
 import type {
   BigEmoji,
   Code,
@@ -13,6 +15,7 @@ import type {
   Emoji,
   KaTeX,
   InlineKaTeX,
+  Link,
 } from './definitions';
 
 const generate =
@@ -75,15 +78,45 @@ const isValidLink = (link: string) => {
     return false;
   }
 };
-export const link = (() => {
-  const fn = generate('LINK');
 
-  return (src: string, label?: Markup) => {
-    const href = isValidLink(src) || src.startsWith('//') ? src : `//${src}`;
+export const link = (src: string, label?: Markup[]): Link => ({
+  type: 'LINK',
+  value: { src: plain(src), label: label ?? [plain(src)] },
+});
 
-    return fn({ src: plain(href), label: label || plain(src) });
-  };
-})();
+export const autoLink = (src: string, customDomains?: string[]) => {
+  const validHosts = ['localhost', ...(customDomains ?? [])];
+  const { isIcann, isIp, isPrivate, domain } = tldParse(src, {
+    detectIp: false,
+    allowPrivateDomains: true,
+    validHosts,
+  });
+
+  if (
+    !(isIcann || isIp || isPrivate || (domain && validHosts.includes(domain)))
+  ) {
+    return plain(src);
+  }
+
+  const href = isValidLink(src) || src.startsWith('//') ? src : `//${src}`;
+
+  return link(href, [plain(src)]);
+};
+
+export const autoEmail = (src: string) => {
+  const href = `mailto:${src}`;
+
+  const { isIcann, isIp, isPrivate } = tldParse(href, {
+    detectIp: false,
+    allowPrivateDomains: true,
+  });
+
+  if (!(isIcann || isIp || isPrivate)) {
+    return plain(src);
+  }
+
+  return link(href, [plain(src)]);
+};
 
 export const image = (() => {
   const fn = generate('IMAGE');
@@ -145,9 +178,17 @@ const joinEmoji = (
   const hasPlainAsNeighbor =
     (previous?.type === 'PLAIN_TEXT' && previous.value.trim() !== '') ||
     (next?.type === 'PLAIN_TEXT' && next.value.trim() !== '');
+  const isEmoticon = current.shortCode !== current.value.value;
 
   if (current.value && (hasEmojiAsNeighbor || hasPlainAsNeighbor)) {
-    return current.value;
+    if (isEmoticon) {
+      return current.value;
+    }
+
+    return {
+      ...current.value,
+      value: `:${current.value.value}:`,
+    };
   }
 
   return current;
@@ -184,3 +225,11 @@ export const inlineKatex = (content: string): InlineKaTeX => ({
   type: 'INLINE_KATEX',
   value: content,
 });
+
+export const phoneChecker = (text: string, number: string) => {
+  if (number.length < 5) {
+    return plain(text);
+  }
+
+  return link(`tel:${number}`, [plain(text)]);
+};

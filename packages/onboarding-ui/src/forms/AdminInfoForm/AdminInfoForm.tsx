@@ -73,9 +73,11 @@ const AdminInfoForm = ({
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
-      <Form.Steps currentStep={currentStep} stepCount={stepCount} />
-      <Form.Title>{t('form.adminInfoForm.title')}</Form.Title>
-      <Form.Subtitle>{t('form.adminInfoForm.subtitle')}</Form.Subtitle>
+      <Form.Header>
+        <Form.Steps currentStep={currentStep} stepCount={stepCount} />
+        <Form.Title>{t('form.adminInfoForm.title')}</Form.Title>
+        <Form.Subtitle>{t('form.adminInfoForm.subtitle')}</Form.Subtitle>
+      </Form.Header>
       <Form.Container>
         <FieldGroup>
           <Field>

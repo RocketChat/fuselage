@@ -15,6 +15,7 @@ export const _Banner = () => (
     icon={<Icon name='info' size={24} />}
     title='Sed ut perspiciatis unde'
     onClose={action('close')}
+    link='https://rocket.chat/'
   >
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
     tempor
@@ -22,7 +23,7 @@ export const _Banner = () => (
 );
 _Banner.storyName = 'Banner';
 
-export const Normal = () => (
+export const Variations = () => (
   <>
     <Banner
       closeable
@@ -40,17 +41,6 @@ export const Normal = () => (
       icon={<Icon name='info' size={24} />}
       title='Sed ut perspiciatis unde'
       variant='info'
-      onClose={action('close')}
-    >
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor
-    </Banner>
-    <br />
-    <Banner
-      closeable
-      icon={<Icon name='circle-check' size={24} />}
-      title='Sed ut perspiciatis unde'
-      variant='success'
       onClose={action('close')}
     >
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
@@ -79,6 +69,16 @@ export const Normal = () => (
       tempor
     </Banner>
     <br />
+    <Banner
+      closeable
+      icon={<Icon name='circle-check' size={24} />}
+      title='Sed ut perspiciatis unde'
+      variant='success'
+      onClose={action('close')}
+    >
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor
+    </Banner>
   </>
 );
 

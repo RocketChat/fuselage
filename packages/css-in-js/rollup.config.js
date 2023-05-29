@@ -28,7 +28,9 @@ const plugins = [
   json(),
   nodeResolve(),
   commonjs(),
-  typescript(),
+  typescript({
+    tsconfig: './tsconfig.build.json',
+  }),
 ];
 
 export default [

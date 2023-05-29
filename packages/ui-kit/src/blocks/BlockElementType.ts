@@ -29,5 +29,5 @@ export enum BlockElementType {
 type AssertEnumKeysFromBlockUnionTypes = {
   [B in BlockElement as Uppercase<
     B['type']
-  >]: typeof BlockElementType[Uppercase<B['type']>];
+  >]: (typeof BlockElementType)[Uppercase<B['type']>];
 };

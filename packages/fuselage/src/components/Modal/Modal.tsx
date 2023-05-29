@@ -1,16 +1,37 @@
-import type { ComponentProps, Ref } from 'react';
-import React, { forwardRef } from 'react';
+import type { ComponentProps, Ref, ElementType, ReactNode } from 'react';
+import React, { createElement, forwardRef } from 'react';
 
 import Box from '../Box';
 
-type ModalProps = ComponentProps<typeof Box>;
+type ModalProps = {
+  wrapperFunction?: (
+    props: Pick<
+      ComponentProps<typeof Box>,
+      'elevation' | 'className' | 'children'
+    >
+  ) => ReactNode;
+  wrapper?: ElementType<
+    Pick<ComponentProps<typeof Box>, 'elevation' | 'className' | 'children'>
+  >;
+} & ComponentProps<typeof Box>;
 
 export const Modal = forwardRef(
-  ({ children, ...props }: ModalProps, ref: Ref<HTMLDivElement>) => (
-    <Box is='dialog' rcx-modal {...props}>
-      <Box ref={ref} rcx-modal__inner elevation='2'>
-        {children}
+  (
+    { children, wrapper = Box, wrapperFunction, ...props }: ModalProps,
+    ref: Ref<Element>
+  ) => {
+    const wrapperProps = {
+      children,
+      className: 'rcx-modal__inner',
+      elevation: '2',
+    } as const;
+
+    return (
+      <Box is='dialog' rcx-modal ref={ref} {...props}>
+        {wrapperFunction
+          ? wrapperFunction(wrapperProps)
+          : createElement(wrapper, wrapperProps)}
       </Box>
-    </Box>
-  )
+    );
+  }
 );

@@ -7,6 +7,7 @@
         "next": "Next",
         "skip": "Skip this step",
         "register": "Register",
+        "registerNow": "Register now",
         "confirm": "Confirm"
       },
       "requiredField": "This field is required",
@@ -189,7 +190,8 @@
         }
       },
       "keepInformed": "Keep me informed about news and events",
-      "continueStandalone": "Continue as standalone",
+      "registerLater": "Register later",
+      "notConnectedToInternet": "The server is not connected to the internet, so you’ll have to do an offline registration for this workspace.",
       "agreeToReceiveUpdates": "By registering I agree to receive relevant product and security updates"
     },
     "standaloneServerForm": {
@@ -254,6 +256,7 @@
     "loginForm": {
       "content": {
         "default": "Enter your password to continue.",
+        "logIn": "Log in",
         "passwordLess": "If you’re already registered we’ll email you a link to log in."
       },
       "fields": {

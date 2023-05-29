@@ -1,5 +1,5 @@
 import { renderHook, act } from '@testing-library/react-hooks';
-import type { DispatchWithoutAction, Dispatch } from 'react';
+import type { Dispatch } from 'react';
 import { useState } from 'react';
 
 import { useSafely } from './useSafely';
@@ -8,9 +8,7 @@ it('returns a new dispatcher that invokes the previous one', () => {
   const state = Symbol();
   const dispatcher = jest.fn();
 
-  const { result } = renderHook(() =>
-    useSafely<typeof state, never, DispatchWithoutAction>([state, dispatcher])
-  );
+  const { result } = renderHook(() => useSafely([state, dispatcher]));
   const [, newDispatcher] = result.current;
 
   act(() => {
@@ -24,9 +22,7 @@ it('returns a new dispatcher that can be called after unmount', () => {
   const state = Symbol();
   const dispatcher = jest.fn();
 
-  const { result, unmount } = renderHook(() =>
-    useSafely<typeof state, never, DispatchWithoutAction>([state, dispatcher])
-  );
+  const { result, unmount } = renderHook(() => useSafely([state, dispatcher]));
   const [, newDispatcher] = result.current;
 
   unmount();

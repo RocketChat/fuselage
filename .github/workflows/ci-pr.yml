@@ -17,7 +17,7 @@ jobs:
     steps:
       - uses: actions/setup-node@v2
         with:
-          node-version: "14.17.6"
+          node-version: "14.21.3"
       - uses: actions/checkout@v2
       - uses: actions/cache@v2
         id: yarn-cache
@@ -42,6 +42,5 @@ jobs:
           name: "storybooks-${{ github.event.number }}"
           path: |
             packages/fuselage/storybook-static
-            packages/uikit-playground/build
-            packages/fuselage-ui-kit/storybook-static
             packages/onboarding-ui/storybook-static
+            packages/layout/storybook-static

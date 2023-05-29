@@ -8,11 +8,13 @@
 
 # `@rocket.chat/fuselage`
 
+> Rocket.Chat's React Components Library
+
 ---
 
-[![npm@latest](https://img.shields.io/npm/v/@rocket.chat/fuselage/latest?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/icons/v/latest) [![npm@next](https://img.shields.io/npm/v/@rocket.chat/fuselage/next?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/icons/v/next) ![react version](https://img.shields.io/npm/dependency-version/@rocket.chat/fuselage/peer/react?style=flat-square) [![Storybook](https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg)](https://rocketchat.github.io/Rocket.Chat.Fuselage/fuselage) ![npm downloads](https://img.shields.io/npm/dw/@rocket.chat/fuselage?style=flat-square) ![License: MIT](https://img.shields.io/npm/l/@rocket.chat/fuselage?style=flat-square)
+[![npm@latest](https://img.shields.io/npm/v/@rocket.chat/fuselage/latest?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/fuselage/v/latest) [![npm@next](https://img.shields.io/npm/v/@rocket.chat/fuselage/next?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/fuselage/v/next) ![react version](https://img.shields.io/npm/dependency-version/@rocket.chat/fuselage/peer/react?style=flat-square) [![Storybook](https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg)](https://rocketchat.github.io/fuselage/fuselage) ![npm downloads](https://img.shields.io/npm/dw/@rocket.chat/fuselage?style=flat-square) ![License: MIT](https://img.shields.io/npm/l/@rocket.chat/fuselage?style=flat-square)
 
-![deps](https://img.shields.io/david/RocketChat/fuselage?path=packages%2Ffuselage&style=flat-square) ![peer deps](https://img.shields.io/david/peer/RocketChat/fuselage?path=packages%2Ffuselage&style=flat-square) ![dev deps](https://img.shields.io/david/dev/RocketChat/fuselage?path=packages%2Ffuselage&style=flat-square) ![npm bundle size](https://img.shields.io/bundlephobia/min/@rocket.chat/fuselage?style=flat-square)
+![deps](https://img.shields.io/librariesio/release/npm/@rocket.chat/fuselage?style=flat-square) ![npm bundle size](https://img.shields.io/bundlephobia/min/@rocket.chat/fuselage?style=flat-square)
 
 <!--/header-->
 
@@ -110,3 +112,18 @@ yarn storybook
 ```
 
 <!--/yarn(storybook)-->
+
+### Usage
+
+Note: If you are using Next.js for development and wish to use Rocket.Chat Fuselage components, you need to dynamically import the component. More on this can be found [here](https://dev.to/vvo/how-to-solve-window-is-not-defined-errors-in-react-and-next-js-5f97#3-third-solution-dynamic-loading).
+
+Usage Example:
+
+```javascript
+import dynamic from 'next/dynamic';
+
+export const TextInput = dynamic(
+  () => import('@rocket.chat/fuselage').then((module) => module.TextInput),
+  { ssr: false }
+);
+```

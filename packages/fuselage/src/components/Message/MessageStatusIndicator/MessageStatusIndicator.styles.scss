@@ -4,10 +4,10 @@
 @use '../../../styles/typography.scss';
 
 $variants: (
-  'success': colors.success(700),
-  'danger': colors.danger(700),
-  'warning': colors.warning(700),
-  'primary': colors.primary(700),
+  'success': colors.status-font(on-success),
+  'danger': colors.status-font(on-danger),
+  'warning': colors.status-font(on-warning),
+  'primary': colors.status-font(on-primary),
 );
 
 .rcx-message-status-indicator {

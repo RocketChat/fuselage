@@ -9,11 +9,12 @@ export enum LayoutBlockType {
   INPUT = 'input',
   CONDITIONAL = 'conditional',
   PREVIEW = 'preview',
+  VIDEO_CONF = 'video_conf',
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 type AssertEnumKeysFromBlockUnionTypes = {
-  [B in LayoutBlock as Uppercase<B['type']>]: typeof LayoutBlockType[Uppercase<
+  [B in LayoutBlock as Uppercase<
     B['type']
-  >];
+  >]: (typeof LayoutBlockType)[Uppercase<B['type']>];
 };

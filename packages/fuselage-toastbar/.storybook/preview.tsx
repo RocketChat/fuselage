@@ -1,13 +1,14 @@
+import { DarkModeProvider } from '@rocket.chat/layout';
 import { DocsPage, DocsContainer } from '@storybook/addon-docs';
 import type { DecoratorFunction } from '@storybook/addons';
 import { addParameters } from '@storybook/react';
 import '@rocket.chat/icons/dist/rocketchat.css';
 import '@rocket.chat/fuselage-polyfills';
 import type { ElementType, ReactElement } from 'react';
-import { Suspense } from 'react';
+import React, { Suspense } from 'react';
 import { useDarkMode } from 'storybook-dark-mode';
+
 import ToastBarProvider from '../src/ToastBarProvider';
-import { DarkModeProvider } from '@rocket.chat/onboarding-ui';
 
 addParameters({
   backgrounds: {
@@ -32,11 +33,11 @@ export const decorators: DecoratorFunction<ReactElement>[] = [
 
     return (
       <Suspense fallback={null}>
-        <DarkModeProvider forcedDarkMode={dark}>
+        <DarkModeProvider.default forcedDarkMode={dark}>
           <ToastBarProvider>
             <Story />
           </ToastBarProvider>
-        </DarkModeProvider>
+        </DarkModeProvider.default>
       </Suspense>
     );
   },
