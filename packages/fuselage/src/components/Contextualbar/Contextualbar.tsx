@@ -19,6 +19,7 @@ const Contextualbar = ({
     flexDirection='column'
     flexShrink={0}
     width={width}
+    maxWidth='x380'
     borderInlineStartWidth='default'
     borderInlineStartColor='extra-light'
     borderInlineStartStyle='solid'
