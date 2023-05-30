@@ -88,17 +88,23 @@ export type MarkupExcluding<T extends Markup> = Exclude<Markup, T>;
 
 export type Bold = {
   type: 'BOLD';
-  value: Array<MarkupExcluding<Bold> | Link>;
+  value: Array<
+    MarkupExcluding<Bold> | Link | Emoji | UserMention | ChannelMention
+  >;
 };
 
 export type Italic = {
   type: 'ITALIC';
-  value: Array<MarkupExcluding<Italic> | Link>;
+  value: Array<
+    MarkupExcluding<Italic> | Link | Emoji | UserMention | ChannelMention
+  >;
 };
 
 export type Strike = {
   type: 'STRIKE';
-  value: Array<MarkupExcluding<Strike> | Link>;
+  value: Array<
+    MarkupExcluding<Strike> | Link | Emoji | UserMention | ChannelMention
+  >;
 };
 
 export type Plain = {
