@@ -19,11 +19,14 @@ const Contextualbar = ({
     flexDirection='column'
     flexShrink={0}
     width={width}
+    maxWidth='x380'
     borderInlineStartWidth='default'
     borderInlineStartColor='extra-light'
     borderInlineStartStyle='solid'
     height='full'
     position={position}
+    insetInlineEnd='none'
+    insetBlockStart='none'
     zIndex={5}
     {...props}
   >
