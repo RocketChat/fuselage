@@ -10,7 +10,7 @@ import {
   DismissButton,
   useOverlay,
 } from 'react-aria';
-import { Item, useMenuTriggerState, useTreeState } from 'react-stately';
+import { useMenuTriggerState, useTreeState } from 'react-stately';
 
 import { IconButton } from '../../Button';
 import { Dropdown } from '../../Dropdown';
@@ -103,15 +103,18 @@ function MenuDropDown(props) {
 
 function MenuItem({ item, state }) {
   const ref = useRef(null);
-  const { menuItemProps, isFocused, isSelected, isDisabled, isPressed } =
-    useMenuItem({ key: item.key }, state, ref);
+  const { menuItemProps, isFocused, isSelected, isDisabled } = useMenuItem(
+    { key: item.key },
+    state,
+    ref
+  );
 
   return (
     <Option
       {...menuItemProps}
       ref={ref}
       focus={isFocused}
-      // disabled={isDisabled}
+      disabled={isDisabled}
       selected={isSelected}
     >
       {item.rendered}

@@ -1,4 +1,3 @@
-import { action } from '@storybook/addon-actions';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 import { Item } from 'react-stately';
@@ -28,13 +27,7 @@ const Template: ComponentStory<typeof Menu> = (args) => (
     minWidth={100}
     height='full'
     width={'full'}
-    bg='#cecece'
   >
-    <Menu {...args}>
-      <Item key='1'>teste 1</Item>
-      <Item key='2'>teste 2</Item>
-      <Item key='3'>teste 3</Item>
-    </Menu>
     <Menu {...args}>
       <Item key='1'>teste 1</Item>
       <Item key='2'>teste 2</Item>
