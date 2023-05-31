@@ -31,7 +31,7 @@ type OptionProps = {
   spacedColumn?: boolean;
   variant?: 'danger' | 'success' | 'warning' | 'primary';
   onClick?: (event: MouseEvent<HTMLElement>) => void;
-} & AllHTMLAttributes<HTMLElement>;
+} & Omit<AllHTMLAttributes<HTMLElement>, 'label'>;
 
 const Option = memo(
   forwardRef(

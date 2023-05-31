@@ -84,6 +84,7 @@ function OptionAria({ item, state }: OptionProps) {
       selected={isSelected}
       focus={isFocused}
       key={item.key}
+      label={item.rendered}
       {...optionProps}
     >
       {item.rendered}

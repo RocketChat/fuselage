@@ -1,3 +1,4 @@
+@use '../../styles/lengths.scss';
 @use '../../styles/typography.scss';
 
 .rcx-select {
@@ -5,6 +6,8 @@
   position: relative;
 
   align-items: center;
+
+  min-height: lengths.size(40);
 
   // TODO move to .rcx-input-box
   &__item {
