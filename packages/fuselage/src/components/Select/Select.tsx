@@ -1,4 +1,5 @@
-import type { ComponentProps } from 'react';
+import type { AriaSelectProps } from '@react-types/select';
+import type { ComponentProps, Key } from 'react';
 import React from 'react';
 import { Item } from 'react-stately';
 
@@ -6,14 +7,23 @@ import { SelectAria } from './SelectAria';
 
 type SelectOption = readonly [value: string, label: string, selected?: boolean];
 
-export const Select = function Select({
+type SelectProps<T, V extends Key> = Omit<
+  AriaSelectProps<T>,
+  'value' | 'onChange' | 'children'
+> & {
+  error?: string;
+  placeholder?: string;
+  value?: V | null;
+  onChange?: ((key: V) => any) | undefined;
+  options: SelectOption[];
+} & Omit<React.AllHTMLAttributes<HTMLElement>, 'onChange'>;
+
+export const Select = function Select<T extends object, V extends Key>({
   options,
   ...props
-}: Omit<ComponentProps<typeof SelectAria>, 'children'> & {
-  options: SelectOption[];
-}) {
+}: SelectProps<T, V>) {
   return (
-    <SelectAria {...props}>
+    <SelectAria {...(props as ComponentProps<typeof SelectAria>)}>
       {options.map((option) => (
         <Item
           title={option[1] ?? option[0]}

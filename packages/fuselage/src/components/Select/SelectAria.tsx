@@ -26,7 +26,7 @@ export const SelectAria = function SelectAria<T extends object>({
   value,
   onChange,
   ...props
-}: Omit<AriaSelectProps<T>, 'value'> & {
+}: Omit<AriaSelectProps<T>, 'value' | 'onChange'> & {
   error?: string;
   placeholder?: string;
   value?: Key | null;
