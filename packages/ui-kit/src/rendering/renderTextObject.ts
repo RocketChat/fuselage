@@ -21,6 +21,8 @@ const getTextObjectRenderer = <T>(
 
     case 'mrkdwn':
       return renderers.text as TextObjectRenderer<T> | undefined;
+    case 'i18n':
+      return renderers.i18n as TextObjectRenderer<T> | undefined;
   }
 };
 

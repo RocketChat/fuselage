@@ -4,6 +4,7 @@ export { OptionGroup } from './blocks/OptionGroup';
 
 export { PlainText } from './blocks/text/PlainText';
 export { Markdown } from './blocks/text/Markdown';
+export { I18n } from './blocks/text/I18n';
 export { TextObject } from './blocks/TextObject';
 
 export { Conditions } from './rendering/Conditions';
