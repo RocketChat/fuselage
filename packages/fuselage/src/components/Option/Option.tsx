@@ -5,7 +5,7 @@ import type {
   MouseEvent,
   AllHTMLAttributes,
 } from 'react';
-import React, { memo } from 'react';
+import React, { forwardRef, memo } from 'react';
 
 import type { Icon } from '../..';
 import { prevent } from '../../helpers/prevent';
@@ -34,64 +34,68 @@ type OptionProps = {
 } & AllHTMLAttributes<HTMLElement>;
 
 const Option = memo(
-  ({
-    is: Tag = 'li',
-    id,
-    children,
-    label,
-    focus,
-    selected,
-    className,
-    ref,
-    icon,
-    avatar,
-    title,
-    disabled,
-    spacedColumn,
-    variant,
-    onClick,
-    ...props
-  }: OptionProps) => (
-    <Tag
-      {...props}
-      key={id}
-      id={id}
-      ref={ref}
-      aria-selected={!!selected}
-      aria-disabled={!!disabled}
-      title={title}
-      onClick={(e: React.MouseEvent<HTMLDivElement>) => {
-        if (disabled) {
-          prevent(e);
-          return;
-        }
-        onClick?.(e);
-      }}
-      className={[
-        'rcx-option',
+  forwardRef(
+    (
+      {
+        is: Tag = 'li',
+        id,
+        children,
+        label,
+        focus,
+        selected,
         className,
-        focus && 'rcx-option--focus',
-        selected && 'rcx-option--selected',
-        disabled && 'rcx-option--disabled',
-        variant && `rcx-option--${variant}`,
-      ]
-        .filter(Boolean)
-        .join(' ')}
-    >
-      <div
+        icon,
+        avatar,
+        title,
+        disabled,
+        spacedColumn,
+        variant,
+        onClick,
+        ...props
+      }: OptionProps,
+      ref
+    ) => (
+      <Tag
+        {...props}
+        key={id}
+        id={id}
+        ref={ref}
+        aria-selected={!!selected}
+        aria-disabled={!!disabled}
+        title={title}
+        onClick={(e: React.MouseEvent<HTMLDivElement>) => {
+          if (disabled) {
+            prevent(e);
+            return;
+          }
+          onClick?.(e);
+        }}
         className={[
-          'rcx-option__wrapper',
-          spacedColumn && 'rcx-option__wrapper--spacedColumn',
+          'rcx-option',
+          className,
+          focus && 'rcx-option--focus',
+          selected && 'rcx-option--selected',
+          disabled && 'rcx-option--disabled',
+          variant && `rcx-option--${variant}`,
         ]
           .filter(Boolean)
           .join(' ')}
       >
-        {avatar && <OptionAvatar>{avatar}</OptionAvatar>}
-        {icon && <OptionIcon name={icon} />}
-        {label && <OptionContent>{label}</OptionContent>}
-        {label !== children && children}
-      </div>
-    </Tag>
+        <div
+          className={[
+            'rcx-option__wrapper',
+            spacedColumn && 'rcx-option__wrapper--spacedColumn',
+          ]
+            .filter(Boolean)
+            .join(' ')}
+        >
+          {avatar && <OptionAvatar>{avatar}</OptionAvatar>}
+          {icon && <OptionIcon name={icon} />}
+          {label && <OptionContent>{label}</OptionContent>}
+          {label !== children && children}
+        </div>
+      </Tag>
+    )
   )
 );
 
