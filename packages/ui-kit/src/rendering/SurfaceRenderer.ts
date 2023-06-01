@@ -170,8 +170,7 @@ export abstract class SurfaceRenderer<
   public text(
     textObject: TextObject,
     context: BlockContext = BlockContext.NONE,
-    index = 0,
-    appId?: string
+    index = 0
   ): T | null {
     switch (textObject.type) {
       case TextObjectType.PLAIN_TEXT:
@@ -181,7 +180,7 @@ export abstract class SurfaceRenderer<
         return this.mrkdwn(textObject, context, index);
 
       case TextObjectType.I18N:
-        return this.i18n(textObject, context, index, appId);
+        return this.i18n(textObject, context, index);
 
       default:
         return null;
@@ -203,7 +202,6 @@ export abstract class SurfaceRenderer<
   public abstract i18n(
     textObject: I18n,
     context: BlockContext,
-    index: number,
-    appId?: string
+    index: number
   ): T | null;
 }
