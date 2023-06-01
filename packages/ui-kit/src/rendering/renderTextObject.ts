@@ -28,12 +28,12 @@ const getTextObjectRenderer = <T>(
 
 export const renderTextObject =
   <T>(renderers: BlockRenderers<T>, context: BlockContext) =>
-  (textObject: TextObject, index: number): T | null => {
+  (textObject: TextObject, index: number, appId?: string): T | null => {
     const renderer = getTextObjectRenderer(renderers, textObject.type);
 
     if (!renderer) {
       return null;
     }
 
-    return renderer.call(renderers, textObject, context, index);
+    return renderer.call(renderers, textObject, context, index, appId);
   };

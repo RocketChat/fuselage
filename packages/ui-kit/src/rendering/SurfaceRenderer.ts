@@ -54,9 +54,10 @@ export abstract class SurfaceRenderer<
   public renderTextObject(
     textObject: TextObject,
     index: number,
-    context: BlockContext
+    context: BlockContext,
+    appId?: string
   ): T | null {
-    return renderTextObject(this, context)(textObject, index);
+    return renderTextObject(this, context)(textObject, index, appId);
   }
 
   public renderActionsBlockElement(
