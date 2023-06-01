@@ -72,7 +72,7 @@ $message-highlight-colors-background-relevant-color: theme(
 
 $message-highlight-colors-other-color: theme(
   'message-highlight-colors-other-color',
-  colors.font(info)
+  colors.font(default)
 );
 $message-highlight-colors-background-other-color: theme(
   'message-highlight-colors-background-other-color',
@@ -313,11 +313,6 @@ $message-highlight-colors-background-other-color: theme(
     &--big {
       @include size.square(lengths.size(44));
     }
-  }
-
-  &__mention {
-    white-space: nowrap;
-    word-break: keep-all;
   }
 
   &__highlight {
