@@ -6,7 +6,7 @@ import { prependClassName } from '../../helpers/prependClassName';
 export type MessageHighlightProps = {
   is?: ElementType;
   clickable?: boolean;
-  variant?: 'critical' | 'relevant' | 'other';
+  variant?: 'critical' | 'relevant' | 'other' | 'link';
   className?: string;
   children: any;
   title?: string;
