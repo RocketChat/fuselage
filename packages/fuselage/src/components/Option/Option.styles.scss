@@ -45,10 +45,6 @@ $variants: (
     align-items: center;
 
     margin-inline: lengths.margin(-2);
-
-    &--spacedColumn {
-      justify-content: space-between;
-    }
   }
 
   &__icon {
