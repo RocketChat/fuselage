@@ -75,7 +75,11 @@ export const Default: ComponentStory<typeof Message> = () => (
           <Message.Highlight clickable variant='relevant'>
             all
           </Message.Highlight>
-          . elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+          . elit, sed do eiusmod tempor incididunt
+          <Message.Highlight clickable variant='link'>
+            Room Name
+          </Message.Highlight>
+          ut labore et dolore magna
           <Message.Highlight clickable variant='other'>
             Gabriel.Henriques
           </Message.Highlight>
