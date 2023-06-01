@@ -7,6 +7,5 @@ export type TextObjectRenderer<
 > = (
   textObject: Block,
   context: BlockContext,
-  index: number,
-  appId?: string
+  index: number
 ) => OutputElement | null;
