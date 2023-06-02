@@ -1,5 +1,11 @@
-import type { I18n } from './text/I18n';
 import type { Markdown } from './text/Markdown';
 import type { PlainText } from './text/PlainText';
 
-export type TextObject = PlainText | Markdown | I18n;
+type I18n = {
+  i18n?: {
+    key: string;
+    args?: { [key: string]: string | number };
+  };
+};
+
+export type TextObject = (PlainText | Markdown) & I18n;

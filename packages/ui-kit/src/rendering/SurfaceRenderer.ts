@@ -13,7 +13,6 @@ import type { ActionsBlock } from '../blocks/layout/ActionsBlock';
 import type { ContextBlock } from '../blocks/layout/ContextBlock';
 import type { InputBlock } from '../blocks/layout/InputBlock';
 import type { SectionBlock } from '../blocks/layout/SectionBlock';
-import type { I18n } from '../blocks/text/I18n';
 import type { Markdown } from '../blocks/text/Markdown';
 import type { PlainText } from '../blocks/text/PlainText';
 import { isNotNull } from '../isNotNull';
@@ -178,9 +177,6 @@ export abstract class SurfaceRenderer<
       case TextObjectType.MRKDWN:
         return this.mrkdwn(textObject, context, index);
 
-      case TextObjectType.I18N:
-        return this.i18n(textObject, context, index);
-
       default:
         return null;
     }
@@ -194,12 +190,6 @@ export abstract class SurfaceRenderer<
 
   public abstract mrkdwn(
     textObject: Markdown,
-    context: BlockContext,
-    index: number
-  ): T | null;
-
-  public abstract i18n(
-    textObject: I18n,
     context: BlockContext,
     index: number
   ): T | null;

@@ -2,7 +2,6 @@
 export enum ElementType {
   PLAIN_TEXT = 'plain_text',
   MARKDOWN = 'mrkdwn',
-  I18N = 'i18n',
   DIVIDER = 'divider',
   SECTION = 'section',
   INPUT = 'input',

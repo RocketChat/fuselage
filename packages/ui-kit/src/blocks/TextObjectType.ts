@@ -7,7 +7,6 @@ export enum TextObjectType {
   /** @deprecated */
   MARKDOWN = 'mrkdwn',
   MRKDWN = 'mrkdwn',
-  I18N = 'i18n',
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
