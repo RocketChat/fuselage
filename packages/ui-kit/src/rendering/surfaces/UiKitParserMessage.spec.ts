@@ -22,15 +22,6 @@ class TestParser extends UiKitParserMessage<unknown> {
     },
   });
 
-  i18n = (element: any, context: any, index: any): any => ({
-    component: 'i18n',
-    props: {
-      key: index,
-      children: element.key,
-      block: context === BlockContext.BLOCK,
-    },
-  });
-
   divider = (_element: any, context: any, index: any): any => ({
     component: 'divider',
     props: {
