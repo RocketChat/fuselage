@@ -11898,7 +11898,7 @@ __metadata:
     import-fresh: ^3.1.0
     parse-json: ^5.0.0
     path-type: ^4.0.0
-    yaml: ^1.7.2
+    yaml: ^2.2.2
   checksum: 8eed7c854b91643ecb820767d0deb038b50780ecc3d53b0b19e03ed8aabed4ae77271198d1ae3d49c3b110867edf679f5faad924820a8d1774144a87cb6f98fc
   languageName: node
   linkType: hard
@@ -11911,7 +11911,7 @@ __metadata:
     import-fresh: ^3.2.1
     parse-json: ^5.0.0
     path-type: ^4.0.0
-    yaml: ^1.10.0
+    yaml: ^2.2.2
   checksum: 4be63e7117955fd88333d7460e4c466a90f556df6ef34efd59034d2463484e339666c41f02b523d574a797ec61f4a91918c5b89a316db2ea2f834e0d2d09465b
   languageName: node
   linkType: hard
@@ -12312,7 +12312,7 @@ __metadata:
   dependencies:
     cssnano-preset-default: ^5.1.12
     lilconfig: ^2.0.3
-    yaml: ^1.10.2
+    yaml: ^2.2.2
   peerDependencies:
     postcss: ^8.2.15
   checksum: dfdde9cecd7b4a7b7842c758458595670101c55a1a9d733feec078a76618060f468e412d0c1b18900770992588cc9d50b2d1a4ada32c380376409331c2228d67
@@ -18031,7 +18031,7 @@ fsevents@^1.2.7:
     object-inspect: ^1.12.3
     pidtree: ^0.6.0
     string-argv: ^0.3.1
-    yaml: ^2.2.1
+    yaml: ^2.2.2
   bin:
     lint-staged: bin/lint-staged.js
   checksum: 5788d3fe38e69b7f7b7f700284d4e10738978a0916bc77d3f6253c43a030fc4f01f89c09da349fb658f929f3393d8b1e3eaabaac5b604416ebc33476640b51ce
@@ -27822,17 +27822,10 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"yaml@npm:^1.10.0, yaml@npm:^1.10.2, yaml@npm:^1.7.2":
-  version: 1.10.2
-  resolution: "yaml@npm:1.10.2"
-  checksum: ce4ada136e8a78a0b08dc10b4b900936912d15de59905b2bf415b4d33c63df1d555d23acb2a41b23cf9fb5da41c256441afca3d6509de7247daa062fd2c5ea5f
-  languageName: node
-  linkType: hard
-
-"yaml@npm:^2.2.1":
-  version: 2.2.1
-  resolution: "yaml@npm:2.2.1"
-  checksum: 84f68cbe462d5da4e7ded4a8bded949ffa912bc264472e5a684c3d45b22d8f73a3019963a32164023bdf3d83cfb6f5b58ff7b2b10ef5b717c630f40bd6369a23
+"yaml@npm:^2.2.2":
+  version: 2.3.1
+  resolution: "yaml@npm:2.3.1"
+  checksum: 2c7bc9a7cd4c9f40d3b0b0a98e370781b68b8b7c4515720869aced2b00d92f5da1762b4ffa947f9e795d6cd6b19f410bd4d15fdd38aca7bd96df59bd9486fb54
   languageName: node
   linkType: hard
 
@@ -27932,7 +27925,7 @@ fsevents@^1.2.7:
     ps-tree: ^1.2.0
     webpod: ^0
     which: ^3.0.0
-    yaml: ^2.2.1
+    yaml: ^2.2.2
   bin:
     zx: build/cli.js
   checksum: fbd9d2534ff87594d6d35632b14c2585ce67b347cab7beb9f898d64255675aa2597bbce8d4f4762f4933d1e399bb5cd7a5e5835131afdb7850e177588ec2ba2f

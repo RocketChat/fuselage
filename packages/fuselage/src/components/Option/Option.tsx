@@ -28,10 +28,9 @@ type OptionProps = {
   title?: string;
   disabled?: boolean;
   value?: string;
-  spacedColumn?: boolean;
   variant?: 'danger' | 'success' | 'warning' | 'primary';
   onClick?: (event: MouseEvent<HTMLElement>) => void;
-} & AllHTMLAttributes<HTMLElement>;
+} & Omit<AllHTMLAttributes<HTMLElement>, 'label'>;
 
 const Option = memo(
   forwardRef(
@@ -48,7 +47,6 @@ const Option = memo(
         avatar,
         title,
         disabled,
-        spacedColumn,
         variant,
         onClick,
         ...props
@@ -81,14 +79,7 @@ const Option = memo(
           .filter(Boolean)
           .join(' ')}
       >
-        <div
-          className={[
-            'rcx-option__wrapper',
-            spacedColumn && 'rcx-option__wrapper--spacedColumn',
-          ]
-            .filter(Boolean)
-            .join(' ')}
-        >
+        <div className='rcx-option__wrapper'>
           {avatar && <OptionAvatar>{avatar}</OptionAvatar>}
           {icon && <OptionIcon name={icon} />}
           {label && <OptionContent>{label}</OptionContent>}
