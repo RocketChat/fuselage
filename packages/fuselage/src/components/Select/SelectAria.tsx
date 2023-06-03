@@ -48,7 +48,7 @@ export const SelectAria = function SelectAria<T extends object>({
   const { focusProps, isFocusVisible } = useFocusRing();
 
   return (
-    <Box w='100%'>
+    <>
       <HiddenSelect
         state={state}
         triggerRef={ref}
@@ -65,7 +65,6 @@ export const SelectAria = function SelectAria<T extends object>({
         fontScale='p2'
         ref={ref}
         justifyContent='space-between'
-        w='100%'
         className={[
           error && 'invalid',
           disabled && 'disabled',
@@ -99,6 +98,6 @@ export const SelectAria = function SelectAria<T extends object>({
           </OptionContainer>
         </Popover>
       )}
-    </Box>
+    </>
   );
 };
