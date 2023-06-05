@@ -72,8 +72,14 @@ $message-highlight-colors-background-relevant-color: theme(
 
 $message-highlight-colors-other-color: theme(
   'message-highlight-colors-other-color',
+  colors.font(default)
+);
+
+$message-highlight-colors-other-link-color: theme(
+  'message-highlight-colors-other-color',
   colors.font(info)
 );
+
 $message-highlight-colors-background-other-color: theme(
   'message-highlight-colors-background-other-color',
   colors.badge('level-0')
@@ -315,11 +321,6 @@ $message-highlight-colors-background-other-color: theme(
     }
   }
 
-  &__mention {
-    white-space: nowrap;
-    word-break: keep-all;
-  }
-
   &__highlight {
     position: relative;
 
@@ -375,10 +376,18 @@ $message-highlight-colors-background-other-color: theme(
       color: $message-highlight-colors-relevant-color;
     }
 
-    &--other {
+    &--other,
+    &--link {
       &::before {
         background-color: $message-highlight-colors-background-other-color;
       }
+    }
+
+    &--link {
+      color: $message-highlight-colors-other-link-color;
+    }
+
+    &--other {
       color: $message-highlight-colors-other-color;
     }
   }

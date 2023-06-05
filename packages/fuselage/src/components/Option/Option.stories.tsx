@@ -208,12 +208,3 @@ export const AsSkeleton: ComponentStory<typeof Option> = () => (
     <OptionSkeleton />
   </Box>
 );
-
-export const SpacedColumn: ComponentStory<typeof Option> = () => (
-  <Box position='relative'>
-    <Option spacedColumn>
-      <OptionColumn>Lorem Ipsum</OptionColumn>
-      <OptionColumn>Lorem Ipsum</OptionColumn>
-    </Option>
-  </Box>
-);
