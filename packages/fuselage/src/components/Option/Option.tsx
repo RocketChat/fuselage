@@ -8,6 +8,7 @@ import type {
 import React, { forwardRef, memo } from 'react';
 
 import type { Icon } from '../..';
+import { OptionColumn } from '../..';
 import { prevent } from '../../helpers/prevent';
 import type Box from '../Box';
 import OptionAvatar from './OptionAvatar';
@@ -24,6 +25,7 @@ type OptionProps = {
   className?: ComponentProps<typeof Box>['className'];
   ref?: Ref<Element>;
   icon?: ComponentProps<typeof Icon>['name'];
+  gap?: boolean;
   avatar?: ReactNode;
   title?: string;
   disabled?: boolean;
@@ -44,6 +46,7 @@ const Option = memo(
         selected,
         className,
         icon,
+        gap,
         avatar,
         title,
         disabled,
@@ -82,6 +85,7 @@ const Option = memo(
         <div className='rcx-option__wrapper'>
           {avatar && <OptionAvatar>{avatar}</OptionAvatar>}
           {icon && <OptionIcon name={icon} />}
+          {gap && <OptionColumn />}
           {label && <OptionContent>{label}</OptionContent>}
           {label !== children && children}
         </div>
