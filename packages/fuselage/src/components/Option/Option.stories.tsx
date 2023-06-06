@@ -179,6 +179,14 @@ export const WithAndWithoutIcon: ComponentStory<typeof Option> = () => (
     <Option onClick={action('click')} gap label='Lorem Ipsum Lorem' />
   </Tile>
 );
+WithAndWithoutIcon.parameters = {
+  docs: {
+    description: {
+      story:
+        " When using `Option`, you can also use the `gap` prop to add spacing to the left. If the list is mixed with items **with and without** icons, it's recommended to add the gap.",
+    },
+  },
+};
 
 export const Disabled: ComponentStory<typeof Option> = () => (
   <Tile position='relative' maxWidth={250}>
