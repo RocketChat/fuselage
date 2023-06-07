@@ -1,32 +1,31 @@
 import type { ComponentProps } from 'react';
 import React, { useRef } from 'react';
+import type { AriaMenuProps } from 'react-aria';
 import {
   mergeProps,
   useMenuTrigger,
-  useMenuItem,
-  useMenu,
   FocusScope,
   usePress,
   DismissButton,
   useOverlay,
 } from 'react-aria';
-import { useMenuTriggerState, useTreeState } from 'react-stately';
+import type { MenuTriggerProps } from 'react-stately';
+import { useMenuTriggerState } from 'react-stately';
 
 import { IconButton } from '../../Button';
 import { Dropdown } from '../../Dropdown';
-import Option from '../../Option';
+import MenuDropDown from './MenuDropdown';
 
-type MenuTriggerProps = {
+interface MenuButtonProps<T> extends AriaMenuProps<T>, MenuTriggerProps {
   icon?: ComponentProps<typeof IconButton>['icon'];
   small?: boolean;
   tiny?: boolean;
   mini?: boolean;
-};
-
-export const Menu = <T extends MenuTriggerProps>({
+}
+const Menu = <T extends object>({
   icon = 'kebab',
   ...props
-}: T) => {
+}: MenuButtonProps<T>) => {
   const state = useMenuTriggerState(props);
 
   const trigger = useRef(null);
@@ -41,7 +40,7 @@ export const Menu = <T extends MenuTriggerProps>({
     target
   );
 
-  const { menuTriggerProps, menuProps } = useMenuTrigger({}, state, trigger);
+  const { menuTriggerProps, menuProps } = useMenuTrigger<T>({}, state, trigger);
 
   const { pressProps, isPressed } = usePress(menuTriggerProps);
 
@@ -69,55 +68,4 @@ export const Menu = <T extends MenuTriggerProps>({
     </>
   );
 };
-
-function MenuDropDown(props) {
-  // Create menu state based on the incoming props
-  const state = useTreeState(props);
-
-  // Get props for the menu element
-  const ref = useRef(null);
-  const { menuProps } = useMenu(props, state, ref);
-
-  return (
-    <ul
-      {...menuProps}
-      ref={ref}
-      style={{
-        margin: 0,
-        padding: 0,
-        listStyle: 'none',
-        width: 150,
-      }}
-    >
-      {[...state.collection].map((item) =>
-        item.type === 'section' ? (
-          // <MenuSection key={item.key} section={item} state={state} />
-          <></>
-        ) : (
-          <MenuItem key={item.key} item={item} state={state} />
-        )
-      )}
-    </ul>
-  );
-}
-
-function MenuItem({ item, state }) {
-  const ref = useRef(null);
-  const { menuItemProps, isFocused, isSelected, isDisabled } = useMenuItem(
-    { key: item.key },
-    state,
-    ref
-  );
-
-  return (
-    <Option
-      {...menuItemProps}
-      ref={ref}
-      focus={isFocused}
-      disabled={isDisabled}
-      selected={isSelected}
-    >
-      {item.rendered}
-    </Option>
-  );
-}
+export default Menu;
