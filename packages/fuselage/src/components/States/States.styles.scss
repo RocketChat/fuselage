@@ -28,7 +28,7 @@ $variants: (
 
     border-radius: lengths.border-radius(full);
 
-    background-color: colors.surface(tint);
+    background-color: colors.surface(neutral);
 
     @each $name, $color in $variants {
       &--#{$name} {
