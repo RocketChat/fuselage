@@ -65,19 +65,14 @@ export const States = () => (
         disabled: { disabled: true },
       }}
       yAxis={{
-        default: {
-          children: 'IconButton',
-        },
+        default: {},
         info: {
-          children: 'IconButton',
           info: true,
         },
         danger: {
-          children: 'IconButton',
           danger: true,
         },
         emoji: {
-          children: 'IconButton',
           icon: EmojiElement,
         },
       }}
@@ -99,18 +94,14 @@ export const States = () => (
       }}
       yAxis={{
         default: {
-          children: 'IconButton',
         },
         info: {
-          children: 'IconButton',
           info: true,
         },
         danger: {
-          children: 'IconButton',
           danger: true,
         },
         emoji: {
-          children: 'IconButton',
           icon: EmojiElement,
         },
       }}
@@ -134,46 +125,35 @@ export const Variants = () => (
         disabled: { disabled: true },
       }}
       yAxis={{
-        'default': {
-          children: 'IconButton',
-        },
+        'default': {},
         'info': {
-          children: 'IconButton',
           info: true,
         },
         'danger': {
-          children: 'IconButton',
           danger: true,
         },
         'success': {
-          children: 'IconButton',
           success: true,
         },
         'warning': {
-          children: 'IconButton',
           warning: true,
         },
         'secondary': {
-          children: 'IconButton',
           secondary: true,
         },
         'secondary-info | primary': {
-          children: 'IconButton',
           info: true,
           secondary: true,
         },
         'secondary-danger': {
-          children: 'IconButton',
           danger: true,
           secondary: true,
         },
         'secondary-success': {
-          children: 'IconButton',
           success: true,
           secondary: true,
         },
         'secondary-warning': {
-          children: 'IconButton',
           warning: true,
           secondary: true,
         },

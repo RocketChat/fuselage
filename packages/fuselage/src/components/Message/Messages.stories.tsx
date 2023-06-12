@@ -43,26 +43,26 @@ export const Default: ComponentStory<typeof Message> = () => (
         </Message.Header>
         <Message.Body>
           Ut enim ad minim veniam,{' '}
-          <Message.Mention clickable tag='#' variant='other'>
+          <Message.Highlight clickable variant='other'>
             channel
-          </Message.Mention>{' '}
+          </Message.Highlight>{' '}
           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
           commodo consequat a duis aute irure dolor in{' '}
-          <Message.Mention clickable tag='@' variant='critical'>
+          <Message.Highlight clickable variant='critical'>
             Haylie George
-          </Message.Mention>{' '}
-          <Message.Mention clickable tag='@' variant='critical'>
+          </Message.Highlight>{' '}
+          <Message.Highlight clickable variant='critical'>
             Haylie George
-          </Message.Mention>{' '}
-          <Message.Mention clickable tag='@' variant='critical'>
+          </Message.Highlight>{' '}
+          <Message.Highlight clickable variant='critical'>
             Haylie George
-          </Message.Mention>{' '}
-          <Message.Mention clickable tag='@' variant='critical'>
+          </Message.Highlight>{' '}
+          <Message.Highlight clickable variant='critical'>
             Haylie George
-          </Message.Mention>{' '}
-          <Message.Mention clickable tag='@' variant='critical'>
+          </Message.Highlight>{' '}
+          <Message.Highlight clickable variant='critical'>
             Haylie George
-          </Message.Mention>{' '}
+          </Message.Highlight>{' '}
           commodo consequat a duis aute irure dolor in reprehenderit in
           voluptate velit esse cillum dolore eu fugiat nulla pariatur.
           Consectetur adipiscing commodo consequat a duis aute irure dolor in
@@ -70,15 +70,20 @@ export const Default: ComponentStory<typeof Message> = () => (
           pariatur. Consectetur adipiscing{' '}
           <Message.Highlight variant='critical'>
             highlighted text
-          </Message.Highlight>{' '}
-          <Message.Mention clickable tag='@' variant='relevant'>
+          </Message.Highlight>
+          touching text.{' '}
+          <Message.Highlight clickable variant='relevant'>
             all
-          </Message.Mention>{' '}
-          elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-          <Message.Mention clickable tag='@' variant='other'>
+          </Message.Highlight>
+          . elit, sed do eiusmod tempor incididunt
+          <Message.Highlight clickable variant='link'>
+            Room Name
+          </Message.Highlight>
+          ut labore et dolore magna
+          <Message.Highlight clickable variant='other'>
             Gabriel.Henriques
-          </Message.Mention>{' '}
-          aliqua. Ut enim ad minim veniam...
+          </Message.Highlight>
+          . aliqua. Ut enim ad minim veniam...
         </Message.Body>
         <MessageReactions>
           <MessageReactions.Reaction mine counter={1} />
