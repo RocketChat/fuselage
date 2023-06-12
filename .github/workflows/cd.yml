@@ -117,7 +117,7 @@ jobs:
         with:
           node-version: "14.21.3"
       - name: Upgrade packages
-        run: yarn up @rocket.chat/emitter@latest @rocket.chat/fuselage-polyfills@latest @rocket.chat/fuselage-toastbar@latest @rocket.chat/fuselage-tokens@latest @rocket.chat/css-in-js@latest @rocket.chat/styled@latest @rocket.chat/fuselage@latest @rocket.chat/fuselage-hooks@latest @rocket.chat/icons@latest @rocket.chat/logo@latest @rocket.chat/memo@latest @rocket.chat/message-parser@latest @rocket.chat/onboarding-ui@latest @rocket.chat/string-helpers@latest @rocket.chat/ui-kit@latest
+        run: yarn up @rocket.chat/emitter@latest @rocket.chat/fuselage-polyfills@latest @rocket.chat/fuselage-toastbar@latest @rocket.chat/fuselage-tokens@latest @rocket.chat/css-in-js@latest @rocket.chat/styled@latest @rocket.chat/fuselage@latest @rocket.chat/fuselage-hooks@latest @rocket.chat/icons@latest @rocket.chat/logo@latest @rocket.chat/memo@latest @rocket.chat/message-parser@latest @rocket.chat/onboarding-ui@latest @rocket.chat/string-helpers@latest
 
       - name: Create Bump Pull Request
         uses: peter-evans/create-pull-request@v4
