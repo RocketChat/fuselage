@@ -13,16 +13,7 @@ function MenuDropDown<T extends object>(props: AriaMenuProps<T>) {
   const { menuProps } = useMenu(props, state, ref);
 
   return (
-    <ul
-      {...menuProps}
-      ref={ref}
-      style={{
-        margin: 0,
-        padding: 0,
-        listStyle: 'none',
-        width: 150,
-      }}
-    >
+    <div {...menuProps} ref={ref}>
       {[...state.collection].map((item) =>
         item.type === 'section' ? (
           <MenuSection key={item.key} section={item} state={state} />
@@ -30,7 +21,7 @@ function MenuDropDown<T extends object>(props: AriaMenuProps<T>) {
           <MenuItem key={item.key} item={item} state={state} />
         )
       )}
-    </ul>
+    </div>
   );
 }
 
