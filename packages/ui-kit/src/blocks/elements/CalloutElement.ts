@@ -1,5 +1,5 @@
 import type { Actionable } from '../Actionable';
-import { PlainText } from '../text/PlainText';
+import type { PlainText } from '../text/PlainText';
 
 export type CalloutElement = Actionable<{
   type: 'callout';

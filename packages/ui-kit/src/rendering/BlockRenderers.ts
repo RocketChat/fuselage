@@ -1,21 +1,21 @@
 import type { BlockElement } from '../blocks/BlockElement';
 import type { RenderableLayoutBlock } from '../blocks/RenderableLayoutBlock';
 import type { TextObject } from '../blocks/TextObject';
+import type { CalloutElement } from '../blocks/elements/CalloutElement';
+import type { CheckboxElement } from '../blocks/elements/CheckboxElement';
 import type { DatePickerElement } from '../blocks/elements/DatePickerElement';
 import type { LinearScaleElement } from '../blocks/elements/LinearScaleElement';
 import type { MultiStaticSelectElement } from '../blocks/elements/MultiStaticSelectElement';
 import type { PlainTextInputElement } from '../blocks/elements/PlainTextInputElement';
-import type { StaticSelectElement } from '../blocks/elements/StaticSelectElement';
-import type { ToggleSwitchElement } from '../blocks/elements/ToggleSwitchElement';
 import type { RadioButtonElement } from '../blocks/elements/RadioButtonElement';
-import type { CheckboxElement } from '../blocks/elements/CheckboxElement';
+import type { StaticSelectElement } from '../blocks/elements/StaticSelectElement';
+import type { TimePickerElement } from '../blocks/elements/TimePickerElement';
+import type { ToastBarElement } from '../blocks/elements/ToastBarElement';
+import type { ToggleSwitchElement } from '../blocks/elements/ToggleSwitchElement';
 import type { PlainText } from '../blocks/text/PlainText';
 import type { BlockElementRenderer } from './BlockElementRenderer';
 import type { LayoutBlockRenderer } from './LayoutBlockRenderer';
 import type { TextObjectRenderer } from './TextObjectRenderer';
-import type { CalloutElement } from '../blocks/elements/CalloutElement';
-import type { ToastBarElement } from '../blocks/elements/ToastBarElement';
-import type { TimePickerElement } from '../blocks/elements/TimePickerElement';
 
 export type BlockRenderers<T> = {
   [B in RenderableLayoutBlock as B['type']]?: LayoutBlockRenderer<T, B>;

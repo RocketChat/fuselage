@@ -1,6 +1,8 @@
 import type { LayoutBlockish } from '../LayoutBlockish';
 import type { ButtonElement } from '../elements/ButtonElement';
+import type { CalloutElement } from '../elements/CalloutElement';
 import type { ChannelsSelectElement } from '../elements/ChannelsSelectElement';
+import type { CheckboxElement } from '../elements/CheckboxElement';
 import type { ConversationsSelectElement } from '../elements/ConversationsSelectElement';
 import type { DatePickerElement } from '../elements/DatePickerElement';
 import type { LinearScaleElement } from '../elements/LinearScaleElement';
@@ -9,14 +11,12 @@ import type { MultiConversationsSelectElement } from '../elements/MultiConversat
 import type { MultiStaticSelectElement } from '../elements/MultiStaticSelectElement';
 import type { MultiUsersSelectElement } from '../elements/MultiUsersSelectElement';
 import type { OverflowElement } from '../elements/OverflowElement';
-import type { StaticSelectElement } from '../elements/StaticSelectElement';
-import type { UsersSelectElement } from '../elements/UsersSelectElement';
-import type { ToggleSwitchElement } from '../elements/ToggleSwitchElement';
-import type { CheckboxElement } from '../elements/CheckboxElement';
 import type { RadioButtonElement } from '../elements/RadioButtonElement';
-import type { CalloutElement } from '../elements/CalloutElement';
-import type { ToastBarElement } from '../elements/ToastBarElement';
+import type { StaticSelectElement } from '../elements/StaticSelectElement';
 import type { TimePickerElement } from '../elements/TimePickerElement';
+import type { ToastBarElement } from '../elements/ToastBarElement';
+import type { ToggleSwitchElement } from '../elements/ToggleSwitchElement';
+import type { UsersSelectElement } from '../elements/UsersSelectElement';
 
 export type ActionsBlock = LayoutBlockish<{
   type: 'actions';
