@@ -11,6 +11,12 @@ import type { MultiUsersSelectElement } from '../elements/MultiUsersSelectElemen
 import type { OverflowElement } from '../elements/OverflowElement';
 import type { StaticSelectElement } from '../elements/StaticSelectElement';
 import type { UsersSelectElement } from '../elements/UsersSelectElement';
+import type { ToggleSwitchElement } from '../elements/ToggleSwitchElement';
+import type { CheckboxElement } from '../elements/CheckboxElement';
+import type { RadioButtonElement } from '../elements/RadioButtonElement';
+import type { CalloutElement } from '../elements/CalloutElement';
+import type { ToastBarElement } from '../elements/ToastBarElement';
+import type { TimePickerElement } from '../elements/TimePickerElement';
 
 export type ActionsBlock = LayoutBlockish<{
   type: 'actions';
@@ -27,5 +33,11 @@ export type ActionsBlock = LayoutBlockish<{
     | OverflowElement
     | StaticSelectElement
     | UsersSelectElement
+    | ToggleSwitchElement
+    | CheckboxElement
+    | RadioButtonElement
+    | CalloutElement
+    | ToastBarElement
+    | TimePickerElement
   )[];
 }>;

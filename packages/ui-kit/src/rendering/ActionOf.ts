@@ -12,6 +12,12 @@ import type { OverflowElement } from '../blocks/elements/OverflowElement';
 import type { PlainTextInputElement } from '../blocks/elements/PlainTextInputElement';
 import type { StaticSelectElement } from '../blocks/elements/StaticSelectElement';
 import type { UsersSelectElement } from '../blocks/elements/UsersSelectElement';
+import type { ToggleSwitchElement } from '../blocks/elements/ToggleSwitchElement';
+import type { RadioButtonElement } from '../blocks/elements/RadioButtonElement';
+import type { CheckboxElement } from '../blocks/elements/CheckboxElement';
+import type { CalloutElement } from '../blocks/elements/CalloutElement';
+import type { ToastBarElement } from '../blocks/elements/ToastBarElement';
+import type { TimePickerElement } from '../blocks/elements/TimePickerElement';
 
 export type ActionOf<TElement extends ActionableElement> =
   TElement extends ButtonElement
@@ -40,4 +46,16 @@ export type ActionOf<TElement extends ActionableElement> =
     ? StaticSelectElement['initialValue']
     : TElement extends UsersSelectElement
     ? unknown
+    : TElement extends ToggleSwitchElement
+    ? unknown
+    : TElement extends RadioButtonElement
+    ? unknown
+    : TElement extends CheckboxElement
+    ? unknown
+    : TElement extends CalloutElement
+    ? unknown
+    : TElement extends ToastBarElement
+    ? unknown
+    : TElement extends TimePickerElement
+    ? TimePickerElement['initialTime']
     : never;

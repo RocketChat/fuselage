@@ -22,6 +22,12 @@ export { OverflowElement } from './blocks/elements/OverflowElement';
 export { PlainTextInputElement } from './blocks/elements/PlainTextInputElement';
 export { StaticSelectElement } from './blocks/elements/StaticSelectElement';
 export { UsersSelectElement } from './blocks/elements/UsersSelectElement';
+export { ToggleSwitchElement } from './blocks/elements/ToggleSwitchElement';
+export { CheckboxElement } from './blocks/elements/CheckboxElement';
+export { RadioButtonElement } from './blocks/elements/RadioButtonElement';
+export { CalloutElement } from './blocks/elements/CalloutElement';
+export { ToastBarElement } from './blocks/elements/ToastBarElement';
+export { TimePickerElement } from './blocks/elements/TimePickerElement';
 export { BlockElement } from './blocks/BlockElement';
 
 export { ActionsBlock } from './blocks/layout/ActionsBlock';

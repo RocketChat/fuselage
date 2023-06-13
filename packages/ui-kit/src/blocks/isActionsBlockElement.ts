@@ -12,6 +12,12 @@ export const isActionsBlockElement = (
     case BlockElementType.MULTI_STATIC_SELECT:
     case BlockElementType.OVERFLOW:
     case BlockElementType.STATIC_SELECT:
+    case BlockElementType.TOGGLE_SWITCH:
+    case BlockElementType.CHECKBOX:
+    case BlockElementType.RADIO_BUTTON:
+    case BlockElementType.CALLOUT:
+    case BlockElementType.TOAST_BAR:
+    case BlockElementType.TIME_PICKER:
       return true;
 
     default:

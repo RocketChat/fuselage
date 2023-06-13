@@ -28,6 +28,24 @@ const getBlockElementRenderer = <T>(
 
     case 'linear_scale':
       return renderers.linearScale as BlockElementRenderer<T> | undefined;
+
+    case 'toggle_switch':
+      return renderers.toggleSwitch as BlockElementRenderer<T> | undefined;
+
+    case 'radio_button':
+      return renderers.radioButton as BlockElementRenderer<T> | undefined;
+
+    case 'checkbox':
+      return renderers.checkbox as BlockElementRenderer<T> | undefined;
+
+    case 'callout':
+      return renderers.callout as BlockElementRenderer<T> | undefined;
+
+    case 'toast_bar':
+      return renderers.toastBar as BlockElementRenderer<T> | undefined;
+
+    case 'time_picker':
+      return renderers.timePicker as BlockElementRenderer<T> | undefined;
   }
 };
 

@@ -11,6 +11,12 @@ import type { OverflowElement } from './elements/OverflowElement';
 import type { PlainTextInputElement } from './elements/PlainTextInputElement';
 import type { StaticSelectElement } from './elements/StaticSelectElement';
 import type { UsersSelectElement } from './elements/UsersSelectElement';
+import type { ToggleSwitchElement } from './elements/ToggleSwitchElement';
+import type { RadioButtonElement } from './elements/RadioButtonElement';
+import type { CheckboxElement } from './elements/CheckboxElement';
+import type { CalloutElement } from './elements/CalloutElement';
+import type { ToastBarElement } from './elements/ToastBarElement';
+import type { TimePickerElement } from './elements/TimePickerElement';
 
 export type ActionableElement =
   | ButtonElement
@@ -25,4 +31,10 @@ export type ActionableElement =
   | OverflowElement
   | PlainTextInputElement
   | StaticSelectElement
-  | UsersSelectElement;
+  | UsersSelectElement
+  | ToggleSwitchElement
+  | RadioButtonElement
+  | CheckboxElement
+  | CalloutElement
+  | ToastBarElement
+  | TimePickerElement;
