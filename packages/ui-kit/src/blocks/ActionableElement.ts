@@ -13,6 +13,7 @@ import type { OverflowElement } from './elements/OverflowElement';
 import type { PlainTextInputElement } from './elements/PlainTextInputElement';
 import type { RadioButtonElement } from './elements/RadioButtonElement';
 import type { StaticSelectElement } from './elements/StaticSelectElement';
+import type { TabNavigationElement } from './elements/TabNavigationElement';
 import type { TimePickerElement } from './elements/TimePickerElement';
 import type { ToastBarElement } from './elements/ToastBarElement';
 import type { ToggleSwitchElement } from './elements/ToggleSwitchElement';
@@ -37,4 +38,5 @@ export type ActionableElement =
   | CheckboxElement
   | CalloutElement
   | ToastBarElement
-  | TimePickerElement;
+  | TimePickerElement
+  | TabNavigationElement;

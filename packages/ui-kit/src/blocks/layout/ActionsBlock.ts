@@ -13,6 +13,7 @@ import type { MultiUsersSelectElement } from '../elements/MultiUsersSelectElemen
 import type { OverflowElement } from '../elements/OverflowElement';
 import type { RadioButtonElement } from '../elements/RadioButtonElement';
 import type { StaticSelectElement } from '../elements/StaticSelectElement';
+import type { TabNavigationElement } from '../elements/TabNavigationElement';
 import type { TimePickerElement } from '../elements/TimePickerElement';
 import type { ToastBarElement } from '../elements/ToastBarElement';
 import type { ToggleSwitchElement } from '../elements/ToggleSwitchElement';
@@ -39,5 +40,6 @@ export type ActionsBlock = LayoutBlockish<{
     | CalloutElement
     | ToastBarElement
     | TimePickerElement
+    | TabNavigationElement
   )[];
 }>;

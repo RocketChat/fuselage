@@ -46,6 +46,11 @@ const getBlockElementRenderer = <T>(
 
     case 'time_picker':
       return renderers.timePicker as BlockElementRenderer<T> | undefined;
+
+    case 'tab_navigation':
+      return renderers.tabNavigationElement as
+        | BlockElementRenderer<T>
+        | undefined;
   }
 };
 

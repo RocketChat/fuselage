@@ -14,6 +14,7 @@ import type { OverflowElement } from '../blocks/elements/OverflowElement';
 import type { PlainTextInputElement } from '../blocks/elements/PlainTextInputElement';
 import type { RadioButtonElement } from '../blocks/elements/RadioButtonElement';
 import type { StaticSelectElement } from '../blocks/elements/StaticSelectElement';
+import type { TabNavigationElement } from '../blocks/elements/TabNavigationElement';
 import type { TimePickerElement } from '../blocks/elements/TimePickerElement';
 import type { ToastBarElement } from '../blocks/elements/ToastBarElement';
 import type { ToggleSwitchElement } from '../blocks/elements/ToggleSwitchElement';
@@ -58,4 +59,6 @@ export type ActionOf<TElement extends ActionableElement> =
     ? unknown
     : TElement extends TimePickerElement
     ? TimePickerElement['initialTime']
+    : TElement extends TabNavigationElement
+    ? unknown
     : never;

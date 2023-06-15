@@ -29,6 +29,7 @@ export enum BlockElementType {
   TOAST_BAR = 'toast_bar',
   CALLOUT = 'callout',
   TIME_PICKER = 'time_picker',
+  TAB_NAVIGATION = 'tab_navigation',
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars

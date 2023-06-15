@@ -18,6 +18,7 @@ export const isActionsBlockElement = (
     case BlockElementType.CALLOUT:
     case BlockElementType.TOAST_BAR:
     case BlockElementType.TIME_PICKER:
+    case BlockElementType.TAB_NAVIGATION:
       return true;
 
     default:

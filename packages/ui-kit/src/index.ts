@@ -28,6 +28,7 @@ export { RadioButtonElement } from './blocks/elements/RadioButtonElement';
 export { CalloutElement } from './blocks/elements/CalloutElement';
 export { ToastBarElement } from './blocks/elements/ToastBarElement';
 export { TimePickerElement } from './blocks/elements/TimePickerElement';
+export { TabNavigationElement } from './blocks/elements/TabNavigationElement';
 export { BlockElement } from './blocks/BlockElement';
 
 export { ActionsBlock } from './blocks/layout/ActionsBlock';
