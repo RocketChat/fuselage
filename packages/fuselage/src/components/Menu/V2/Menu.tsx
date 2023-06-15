@@ -1,3 +1,4 @@
+import type { UsePositionOptions } from '@rocket.chat/fuselage-hooks';
 import type { ComponentProps } from 'react';
 import React, { useRef } from 'react';
 import type { AriaMenuProps } from 'react-aria';
@@ -21,9 +22,11 @@ interface MenuButtonProps<T> extends AriaMenuProps<T>, MenuTriggerProps {
   small?: boolean;
   tiny?: boolean;
   mini?: boolean;
+  placement?: UsePositionOptions['placement'];
 }
 const Menu = <T extends object>({
   icon = 'kebab',
+  placement = 'bottom-start',
   ...props
 }: MenuButtonProps<T>) => {
   const state = useMenuTriggerState(props);
@@ -40,24 +43,19 @@ const Menu = <T extends object>({
     target
   );
 
-  const { menuTriggerProps, menuProps } = useMenuTrigger<T>({}, state, trigger);
+  const { menuProps, menuTriggerProps } = useMenuTrigger<T>({}, state, trigger);
 
-  const { pressProps, isPressed } = usePress(menuTriggerProps);
+  const { pressProps } = usePress(menuTriggerProps);
 
   return (
     <>
-      <IconButton
-        className={state.isOpen || isPressed ? 'is-focused' : undefined}
-        icon={icon}
-        ref={trigger}
-        {...mergeProps(pressProps)}
-      />
+      <IconButton icon={icon} ref={trigger} small {...mergeProps(pressProps)} />
       {state.isOpen && (
         <Dropdown
           {...overlayProps}
           ref={target}
           reference={trigger}
-          placement='bottom-end'
+          placement={placement}
         >
           <FocusScope restoreFocus>
             <MenuDropDown {...props} {...menuProps} />

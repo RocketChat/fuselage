@@ -1,4 +1,3 @@
-import { css } from '@rocket.chat/css-in-js';
 import React from 'react';
 import { useMenuSection, useSeparator } from 'react-aria';
 import type { TreeState } from 'react-stately';
@@ -9,9 +8,6 @@ import { OptionTitle } from '../../Option';
 import MenuItem from './MenuItem';
 import type { Node } from './types';
 
-const SectionStyle = css`
-  list-style: none;
-`;
 type MenuSectionProps = {
   section: Node<unknown>;
   state: TreeState<unknown>;
@@ -24,7 +20,7 @@ function MenuSection({ section, state }: MenuSectionProps) {
   });
 
   const { separatorProps } = useSeparator({
-    elementType: 'li',
+    elementType: 'span',
   });
 
   // If the section is not the first, add a separator element.
@@ -37,7 +33,7 @@ function MenuSection({ section, state }: MenuSectionProps) {
         {section.rendered && (
           <OptionTitle {...headingProps}>{section.rendered}</OptionTitle>
         )}
-        <Box {...groupProps} className={SectionStyle} p='0'>
+        <Box {...groupProps} p='0'>
           {[...section.childNodes].map((node) => (
             <MenuItem key={node.key} item={node} state={state} />
           ))}

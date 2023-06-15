@@ -2,12 +2,13 @@ import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React, { useState } from 'react';
 
 import {
-  Menu,
+  MenuV2 as Menu,
   MenuItem,
   MenuSection,
   MenuItemContent,
   MenuItemIcon,
   MenuItemInput,
+  MenuItemSkeleton,
 } from '.';
 import Box from '../../Box/Box';
 import { CheckBox } from '../../CheckBox';
@@ -222,3 +223,23 @@ export const MenuDisplayExample: ComponentStory<typeof Menu> = (args) => {
     </Menu>
   );
 };
+
+export const MenuLoadingItem = () => (
+  <Menu>
+    <MenuItem key='1'>
+      <Box w='x100'>
+        <MenuItemSkeleton />
+      </Box>
+    </MenuItem>
+    <MenuItem key='2'>
+      <Box w='x100'>
+        <MenuItemSkeleton />
+      </Box>
+    </MenuItem>
+    <MenuItem key='3'>
+      <Box w='x100'>
+        <MenuItemSkeleton />
+      </Box>
+    </MenuItem>
+  </Menu>
+);

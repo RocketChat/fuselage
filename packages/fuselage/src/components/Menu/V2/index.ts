@@ -10,7 +10,7 @@ import {
   OptionTitle,
 } from '../../Option';
 
-export { default as Menu } from './Menu';
+export { default as MenuV2 } from './Menu';
 
 export { Item as MenuItem, Section as MenuSection };
 export {
