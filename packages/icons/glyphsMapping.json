@@ -928,5 +928,11 @@
   },
   "leaf": {
     "start": "\ue131"
+  },
+  "play-shape-filled": {
+    "start": "\ue133"
+  },
+  "pause-shape-filled": {
+    "start": "\ue135"
   }
 }
