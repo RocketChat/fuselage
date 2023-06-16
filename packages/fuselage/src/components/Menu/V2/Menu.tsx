@@ -23,10 +23,12 @@ interface MenuButtonProps<T> extends AriaMenuProps<T>, MenuTriggerProps {
   tiny?: boolean;
   mini?: boolean;
   placement?: UsePositionOptions['placement'];
+  title?: string;
 }
 const Menu = <T extends object>({
   icon = 'kebab',
   placement = 'bottom-start',
+  title,
   ...props
 }: MenuButtonProps<T>) => {
   const state = useMenuTriggerState(props);
@@ -49,7 +51,13 @@ const Menu = <T extends object>({
 
   return (
     <>
-      <IconButton icon={icon} ref={trigger} small {...mergeProps(pressProps)} />
+      <IconButton
+        icon={icon}
+        ref={trigger}
+        small
+        title={title}
+        {...mergeProps(pressProps)}
+      />
       {state.isOpen && (
         <Dropdown
           {...overlayProps}
