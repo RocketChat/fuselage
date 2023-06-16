@@ -119,7 +119,9 @@ export const AudioPlayer = forwardRef<
         />
         <Margins inline='x8'>
           <Box fontScale='p2' color='secondary-info' pie='x8'>
-            {isPlaying ? getMaskTime(currentTime) : getMaskTime(durationTime)}
+            {isPlaying || currentTime > 0
+              ? getMaskTime(currentTime)
+              : getMaskTime(durationTime)}
           </Box>
           <Slider
             aria-label={audioPlaybackRangeLabel}
