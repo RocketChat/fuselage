@@ -1,4 +1,5 @@
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { ComponentProps, ReactNode } from 'react';
 import React, { useState } from 'react';
 
 import {
@@ -243,3 +244,102 @@ export const MenuLoadingItem = () => (
     </MenuItem>
   </Menu>
 );
+
+type Item = {
+  name: string;
+  icon: ComponentProps<typeof MenuItemIcon>['name'];
+  input: ReactNode;
+};
+const GenericMenuItem = ({ item }: { item: Item }) => (
+  <>
+    {item.icon && <MenuItemIcon name={item.icon} />}
+    <MenuItemContent>{item.name}</MenuItemContent>
+    {item.input && <MenuItemInput>{item.input}</MenuItemInput>}
+  </>
+);
+export const MenuFunctionChildren = () => {
+  const [sortBy, setSortBy] = useState('name');
+
+  const [groupByUnread, setGroupByUnread] = useState(false);
+  const [groupByFav, setGroupByFav] = useState(false);
+  const [groupByTypes, setGroupByTypes] = useState(false);
+
+  const groupByItems: Item[] = [
+    {
+      name: 'Unread',
+      icon: 'flag',
+      input: (
+        <CheckBox
+          mi='x16'
+          checked={groupByUnread}
+          onChange={() => setGroupByUnread(!groupByUnread)}
+        />
+      ),
+    },
+    {
+      name: 'favorites',
+      icon: 'star',
+      input: (
+        <CheckBox
+          mi='x16'
+          checked={groupByFav}
+          onChange={() => setGroupByFav(!groupByFav)}
+        />
+      ),
+    },
+    {
+      name: 'Types',
+      icon: 'group-by-type',
+      input: (
+        <CheckBox
+          mi='x16'
+          checked={groupByTypes}
+          onChange={() => setGroupByTypes(!groupByTypes)}
+        />
+      ),
+    },
+  ];
+  const sortByItems: Item[] = [
+    {
+      name: 'Activities',
+      icon: 'clock',
+      input: (
+        <CheckBox
+          mi='x16'
+          onChange={() => setSortBy('activity')}
+          checked={sortBy === 'activity'}
+        />
+      ),
+    },
+    {
+      name: 'Name',
+      icon: 'sort-az',
+      input: (
+        <CheckBox
+          mi='x16'
+          onChange={() => setSortBy('alphabetical')}
+          checked={sortBy === 'alphabetical'}
+        />
+      ),
+    },
+  ];
+
+  return (
+    <Menu selectionMode='multiple'>
+      <MenuSection title='Sort by' items={sortByItems}>
+        {(item) => (
+          <MenuItem key={item.name}>
+            <GenericMenuItem item={item} />
+          </MenuItem>
+        )}
+      </MenuSection>
+      <MenuSection title='Group By' items={groupByItems}>
+        {(item) => (
+          <MenuItem key={item.name}>
+            <GenericMenuItem item={item} />
+          </MenuItem>
+        )}
+      </MenuSection>
+    </Menu>
+  );
+};
