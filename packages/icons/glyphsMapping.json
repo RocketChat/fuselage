@@ -929,10 +929,10 @@
   "leaf": {
     "start": "\ue131"
   },
-  "permissions": {
-    "start": "\ue133"
-  },
   "dashboard": {
     "start": "\ue135"
+  },
+  "user-lock": {
+    "start": "\ue137"
   }
 }
