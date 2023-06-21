@@ -5649,7 +5649,6 @@ __metadata:
     turbo: ~1.1.10
     update-readme: "workspace:~"
     webpack: ~5.78.0
-    wrapper-webpack-plugin: ~2.2.2
   languageName: unknown
   linkType: soft
 
