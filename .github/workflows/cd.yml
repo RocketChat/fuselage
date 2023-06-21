@@ -101,6 +101,36 @@ jobs:
         env:
           YARN_NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
+  bump-packages:
+    name: Bump packages on Rocket.Chat
+    runs-on: ubuntu-latest
+    needs:
+      - publish-to-npm
+    if: github.ref == 'refs/heads/master'
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          repository: "RocketChat/Rocket.Chat"
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "14.21.3"
+      - name: Upgrade packages
+        run: yarn up @rocket.chat/emitter@latest @rocket.chat/fuselage-polyfills@latest @rocket.chat/fuselage-toastbar@latest @rocket.chat/fuselage-tokens@latest @rocket.chat/css-in-js@latest @rocket.chat/styled@latest @rocket.chat/fuselage@latest @rocket.chat/fuselage-hooks@latest @rocket.chat/icons@latest @rocket.chat/logo@latest @rocket.chat/memo@latest @rocket.chat/message-parser@latest @rocket.chat/onboarding-ui@latest @rocket.chat/string-helpers@latest
+
+      - name: Create Bump Pull Request
+        uses: peter-evans/create-pull-request@v4
+        env:
+          HUSKY: 0
+        with:
+          token: ${{ secrets.GH_TOKEN_FUSELAGE_BUMPER }}
+          commit-message: bump packages
+          author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+          branch: bump-fuselage-packages
+          delete-branch: true
+          title: "chore: Bump Fuselage Packages"
+          body: "Automated bump of the fuselage packages - [check what changed](https://github.com/RocketChat/fuselage/blob/develop/CHANGELOG.md)"
+
   publish-to-gh-pages:
     name: Publish to GitHub Pages
     runs-on: ubuntu-latest

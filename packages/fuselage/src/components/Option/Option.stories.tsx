@@ -9,7 +9,7 @@ import {
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
-import { Box, Menu, StatusBullet } from '../..';
+import { Box, Menu, StatusBullet, Tile } from '../..';
 import { exampleAvatar, menuOptions } from '../../../.storybook/helpers.js';
 import { Avatar } from '../Avatar';
 import Option from './Option';
@@ -24,6 +24,13 @@ import OptionSkeleton from './OptionSkeleton';
 export default {
   title: 'Navigation/Option',
   component: Option,
+  decorators: [
+    (Story) => (
+      <Tile position='relative' maxWidth={250} pi='0'>
+        <Story />
+      </Tile>
+    ),
+  ],
   parameters: {
     docs: {
       description: {
@@ -44,7 +51,7 @@ export default {
 } as ComponentMeta<typeof Menu>;
 
 export const Default: ComponentStory<typeof Option> = () => (
-  <Box position='relative' maxWidth={250}>
+  <>
     <Option onClick={action('click')}>
       <OptionContent>Lorem Ipsum Lorem</OptionContent>
     </Option>
@@ -61,11 +68,11 @@ export const Default: ComponentStory<typeof Option> = () => (
         </OptionDescription>
       </OptionContent>
     </Option>
-  </Box>
+  </>
 );
 
 export const WithAvatar: ComponentStory<typeof Option> = () => (
-  <Box position='relative' maxWidth={250}>
+  <>
     <Option onClick={action('click')}>
       <OptionAvatar>
         <Avatar url={exampleAvatar} size='x28' />
@@ -91,11 +98,11 @@ export const WithAvatar: ComponentStory<typeof Option> = () => (
         </OptionDescription>
       </OptionContent>
     </Option>
-  </Box>
+  </>
 );
 
 export const WithPresence: ComponentStory<typeof Option> = () => (
-  <Box position='relative' maxWidth={250}>
+  <>
     <Option onClick={action('click')}>
       <OptionColumn>
         <StatusBullet />
@@ -113,11 +120,11 @@ export const WithPresence: ComponentStory<typeof Option> = () => (
         Lorem Ipsum Lorem Lorem Ipsum Lorem Lorem Ipsum Lorem Lorem Ipsum Lorem
       </OptionContent>
     </Option>
-  </Box>
+  </>
 );
 
 export const WithMenu: ComponentStory<typeof Option> = () => (
-  <Box position='relative' maxWidth={250}>
+  <>
     <Option onClick={action('click')}>
       <OptionContent>Lorem Ipsum Lorem</OptionContent>
       <OptionMenu>
@@ -138,11 +145,11 @@ export const WithMenu: ComponentStory<typeof Option> = () => (
         <Menu options={menuOptions} />
       </OptionMenu>
     </Option>
-  </Box>
+  </>
 );
 
 export const WithIcon: ComponentStory<typeof Option> = () => (
-  <Box position='relative' maxWidth={250}>
+  <>
     <Option onClick={action('click')}>
       <OptionIcon name='bell' />
       <OptionContent>Lorem Ipsum Lorem</OptionContent>
@@ -165,22 +172,42 @@ export const WithIcon: ComponentStory<typeof Option> = () => (
         <Menu options={menuOptions} />
       </OptionMenu>
     </Option>
-  </Box>
+  </>
 );
+export const WithAndWithoutIcon: ComponentStory<typeof Option> = () => (
+  <>
+    <Option onClick={action('click')} icon='star' label='Lorem Ipsum Lorem' />
+    <Option onClick={action('click')} icon='user' label='Lorem Ipsum Lorem' />
+    <Option
+      onClick={action('click')}
+      icon='hashtag'
+      label='Lorem Ipsum Lorem'
+    />
+    <Option onClick={action('click')} gap label='Lorem Ipsum Lorem' />
+  </>
+);
+WithAndWithoutIcon.parameters = {
+  docs: {
+    description: {
+      story:
+        " When using `Option`, you can also use the `gap` prop to add spacing to the left. If the list is mixed with items **with and without** icons, it's recommended to add the gap.",
+    },
+  },
+};
 
 export const Disabled: ComponentStory<typeof Option> = () => (
-  <Box position='relative' maxWidth={330}>
+  <>
     <Option onClick={action('click')}>
       <OptionContent>Enabled</OptionContent>
     </Option>
     <Option disabled={true}>
       <OptionContent>Disabled</OptionContent>
     </Option>
-  </Box>
+  </>
 );
 
 export const AsUserItem: ComponentStory<typeof Option> = () => (
-  <Box position='relative' maxWidth={330}>
+  <>
     <Option onClick={action('click')}>
       <OptionAvatar>
         <Avatar url={exampleAvatar} size='x28' />
@@ -189,22 +216,17 @@ export const AsUserItem: ComponentStory<typeof Option> = () => (
         <StatusBullet />
       </OptionColumn>
       <OptionContent>
-        <Box withTruncatedText fontScale='p2'>
-          carla.culhane{' '}
-          <Box is='span' color='neutral-500'>
-            (carla hune)
-          </Box>
+        <Box>
+          carla.culhane <Box>(carla hune)</Box>
         </Box>
       </OptionContent>
       <OptionMenu>
         <Menu options={menuOptions} />
       </OptionMenu>
     </Option>
-  </Box>
+  </>
 );
 
 export const AsSkeleton: ComponentStory<typeof Option> = () => (
-  <Box position='relative' maxWidth={330}>
-    <OptionSkeleton />
-  </Box>
+  <OptionSkeleton />
 );

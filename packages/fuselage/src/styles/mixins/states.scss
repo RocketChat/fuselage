@@ -30,7 +30,8 @@
   // }
 
   @at-root .js-focus-visible &:focus.focus-visible,
-    .js-focus-visible &.focus.focus-visible {
+    .js-focus-visible &.focus.focus-visible,
+    &.is-focused {
     @content;
   }
 

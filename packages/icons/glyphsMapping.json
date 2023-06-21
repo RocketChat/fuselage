@@ -928,5 +928,11 @@
   },
   "leaf": {
     "start": "\ue131"
+  },
+  "dashboard": {
+    "start": "\ue135"
+  },
+  "user-lock": {
+    "start": "\ue137"
   }
 }

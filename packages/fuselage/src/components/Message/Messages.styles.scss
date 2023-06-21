@@ -354,7 +354,7 @@ $message-highlight-colors-background-other-color: theme(
 
       content: '';
 
-      transform: translateY(lengths.margin(2)) translateX(lengths.margin(-2));
+      transform: translateY(lengths.margin(1)) translateX(lengths.margin(-2));
 
       border-radius: theme(
         'message-highlight-border-radius',
