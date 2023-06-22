@@ -5804,6 +5804,7 @@ __metadata:
     webpack: ~5.78.0
     webpack-bundle-analyzer: ~4.8.0
     webpack-cli: ~5.0.1
+    wrapper-webpack-plugin: ~2.2.2
   peerDependencies:
     "@rocket.chat/fuselage-hooks": "*"
     "@rocket.chat/fuselage-polyfills": "*"
@@ -27603,6 +27604,15 @@ fsevents@^1.2.7:
     string-width: ^4.1.0
     strip-ansi: ^6.0.0
   checksum: a790b846fd4505de962ba728a21aaeda189b8ee1c7568ca5e817d85930e06ef8d1689d49dbf0e881e8ef84436af3a88bc49115c2e2788d841ff1b8b5b51a608b
+  languageName: node
+  linkType: hard
+
+"wrapper-webpack-plugin@npm:~2.2.2":
+  version: 2.2.2
+  resolution: "wrapper-webpack-plugin@npm:2.2.2"
+  peerDependencies:
+    webpack: ">=2"
+  checksum: 1125a86c0cc0a043bbf9b51d340272b58aa5fc61758ba84faee9f05fe5024840ffda568d733ce4efc8b8523282a46cde3119e796823aa2047e45eafae4d5cc29
   languageName: node
   linkType: hard
 

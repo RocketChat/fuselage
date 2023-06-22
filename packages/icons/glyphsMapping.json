@@ -934,5 +934,8 @@
   },
   "pause-shape-filled": {
     "start": "\ue135"
+  },
+  "user-lock": {
+    "start": "\ue137"
   }
 }
