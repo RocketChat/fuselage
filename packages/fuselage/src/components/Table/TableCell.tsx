@@ -18,9 +18,10 @@ export const TableCell = ({
   const isInsideHead = useContext(TableHeadContext);
 
   const innerElement =
-    children ?? !isInsideHead ? (
-      <Box is='hr' width='x14' borderWidth={1} />
-    ) : undefined;
+    children ??
+    (!isInsideHead ? (
+      <Box display='inline-block' is='hr' width='x14' borderWidth={1} />
+    ) : undefined);
 
   return (
     <Box
