@@ -4,6 +4,7 @@ const path = require('path');
 
 const webpack = require('webpack');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const WrapperPlugin = require('wrapper-webpack-plugin');
 
 const pkg = require('./package.json');
 
@@ -117,5 +118,17 @@ module.exports = (env, { mode = 'production' }) => ({
       reportFilename: '../bundle-report.html',
       openAnalyzer: false,
     }),
-  ],
+
+    mode !== 'production' &&
+      new WrapperPlugin({
+        test: /development\.js$/, // only wrap output of bundle files with '.js' extension
+        header: `'use strict';
+
+if (process.env.NODE_ENV !== "production") {
+(function() {
+`,
+        footer: `\n})();
+}`,
+      }),
+  ].filter(Boolean),
 });
