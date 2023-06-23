@@ -17,13 +17,10 @@ export const TableCell = ({
 }: TableCellProps) => {
   const isInsideHead = useContext(TableHeadContext);
 
-  const renderChildren = () => {
-    if (!isInsideHead && !children) {
-      return <Box is='hr' width='x14' borderWidth={1} />;
-    }
-
-    return children;
-  };
+  const innerElement =
+    children ?? !isInsideHead ? (
+      <Box is='hr' width='x14' borderWidth={1} />
+    ) : undefined;
 
   return (
     <Box
@@ -32,7 +29,7 @@ export const TableCell = ({
       rcx-table__cell--align={align}
       rcx-table__cell--header={isInsideHead}
       rcx-table__cell--clickable={clickable}
-      children={renderChildren()}
+      children={innerElement}
       {...props}
     />
   );
