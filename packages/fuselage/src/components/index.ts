@@ -54,16 +54,7 @@ export { default as Sidebar } from './Sidebar';
 export * from './Sidebar';
 export * from './Skeleton';
 export * from './States';
-export {
-  default as Table,
-  TableBody,
-  TableCell,
-  TableFoot,
-  TableHead,
-  TableRow,
-  TableSelection,
-  TableSelectionButton,
-} from './Table';
+export * from './Table';
 export * from './Tabs';
 export * from './Tag';
 export * from './TelephoneInput';

@@ -9,8 +9,19 @@ type TableCellProps = TableProps & {
   clickable?: boolean;
 };
 
-export const TableCell = ({ align, clickable, ...props }: TableCellProps) => {
+export const TableCell = ({
+  align,
+  clickable,
+  children,
+  ...props
+}: TableCellProps) => {
   const isInsideHead = useContext(TableHeadContext);
+
+  const innerElement =
+    children ?? !isInsideHead ? (
+      <Box is='hr' width='x14' borderWidth={1} />
+    ) : undefined;
+
   return (
     <Box
       is={isInsideHead ? 'th' : 'td'}
@@ -18,6 +29,7 @@ export const TableCell = ({ align, clickable, ...props }: TableCellProps) => {
       rcx-table__cell--align={align}
       rcx-table__cell--header={isInsideHead}
       rcx-table__cell--clickable={clickable}
+      children={innerElement}
       {...props}
     />
   );
