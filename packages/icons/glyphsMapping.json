@@ -929,16 +929,16 @@
   "leaf": {
     "start": "\ue131"
   },
-  "play-shape-filled": {
-    "start": "\ue133"
-  },
-  "pause-shape-filled": {
-    "start": "\ue135"
-  },
   "user-lock": {
     "start": "\ue137"
   },
   "dashboard": {
     "start": "\ue139"
+  },
+  "pause-shape-filled": {
+    "start": "\ue13b"
+  },
+  "play-shape-filled": {
+    "start": "\ue13d"
   }
 }
