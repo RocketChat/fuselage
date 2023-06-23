@@ -1,9 +1,7 @@
-import { css } from '@rocket.chat/css-in-js';
 import { useMergedRefs, useResizeObserver } from '@rocket.chat/fuselage-hooks';
 import React, { useState, useRef, forwardRef } from 'react';
 
-import { Box, IconButton } from '../..';
-import { Palette } from '../../Theme';
+import { Box, Button, IconButton, Margins } from '../..';
 import { Slider } from '../Slider';
 
 const getMaskTime = (durationTime: number) =>
@@ -29,12 +27,6 @@ function forceDownload(url: string, fileName?: string) {
   };
   xhr.send();
 }
-const SpeedControlStyle = css`
-  cursor: pointer;
-  &:hover {
-    background-color: ${Palette.surface['surface-hover']};
-  }
-`;
 
 export const AudioPlayer = forwardRef<
   HTMLAudioElement,
@@ -48,8 +40,7 @@ export const AudioPlayer = forwardRef<
     playLabel?: string;
     pauseLabel?: string;
     audioPlaybackRangeLabel?: string;
-    reducePlaybackSpeedLabel?: string;
-    increasePlaybackSpeedLabel?: string;
+    changePlaybackSpeedLabel?: string;
     downloadAudioFileLabel?: string;
   }
 >(
@@ -59,13 +50,12 @@ export const AudioPlayer = forwardRef<
       type = 'audio/mpeg',
       maxPlaybackSpeed = 2,
       minPlaybackSpeed = 0.5,
-      playbackSpeedStep = 0.5,
+      playbackSpeedStep = 0.25,
       download = false,
       playLabel = 'Play',
       pauseLabel = 'Pause',
       audioPlaybackRangeLabel = 'Audio Playback Range',
-      reducePlaybackSpeedLabel = 'Reduce Playback Speed',
-      increasePlaybackSpeedLabel = 'Increase Playback Speed',
+      changePlaybackSpeedLabel = 'Change Playback Speed',
       downloadAudioFileLabel = 'Download Audio File',
     },
     ref
@@ -76,10 +66,7 @@ export const AudioPlayer = forwardRef<
     const [currentTime, setCurrentTime] = useState(0);
     const [durationTime, setDurationTime] = useState(0);
     const [playbackSpeed, setPlaybackSpeed] = useState(1);
-    const { ref: containerRef, borderBoxSize } = useResizeObserver();
-
-    const collapseControls =
-      borderBoxSize.inlineSize && borderBoxSize.inlineSize < 240;
+    const { ref: containerRef } = useResizeObserver();
 
     const handlePlay = () => {
       const isPlaying = audioRef.current?.paused;
@@ -97,10 +84,6 @@ export const AudioPlayer = forwardRef<
       }
     };
 
-    const handleIncreasePlayBackSpeed = () => handlePlaybackSpeed(1);
-
-    const handleDecreasePlayBackSpeed = () => handlePlaybackSpeed(-1);
-
     const handlePlaybackSpeedSingleControl = () => {
       const reachedMaxPlaybackSpeed =
         maxPlaybackSpeed === audioRef?.current?.playbackRate;
@@ -109,7 +92,7 @@ export const AudioPlayer = forwardRef<
         audioRef.current.playbackRate = minPlaybackSpeed;
         return;
       }
-      handleIncreasePlayBackSpeed();
+      handlePlaybackSpeed(1);
     };
 
     return (
@@ -117,105 +100,67 @@ export const AudioPlayer = forwardRef<
         borderWidth='default'
         bg='light'
         borderColor='extra-light'
-        p='x8'
+        pb='x12'
+        pie='x8'
+        pis='x16'
         borderRadius='x4'
         w='100%'
         maxWidth='x300'
         ref={containerRef}
+        display='flex'
+        alignItems='center'
       >
-        <Box display='flex' alignItems='center'>
-          <IconButton
-            large
-            onClick={handlePlay}
-            aria-label={isPlaying ? pauseLabel : playLabel}
-            icon={isPlaying ? 'pause-unfilled' : 'play-unfilled'}
-          />
-          <Box mi='x12' position='relative' w='100%'>
-            <Slider
-              aria-label={audioPlaybackRangeLabel}
-              showOutput={false}
-              value={currentTime}
-              maxValue={durationTime}
-              onChange={(value) => {
-                if (audioRef.current) {
-                  audioRef.current.currentTime = value;
-                }
-              }}
-            />
-            <Box
-              display='flex'
-              alignItems='center'
-              justifyContent='space-between'
-              color='secondary-info'
-              fontScale='micro'
-              position='absolute'
-              width='100%'
-              mb={'neg-x8'}
-            >
-              {getMaskTime(currentTime)}
-              {collapseControls ? (
-                <Box width='100%' display='flex' justifyContent='space-around'>
-                  <Box
-                    p='x4'
-                    onClick={handlePlaybackSpeedSingleControl}
-                    borderRadius='x4'
-                    className={SpeedControlStyle}
-                  >
-                    {playbackSpeed.toFixed(1)}x
-                  </Box>
-                </Box>
-              ) : (
-                <Box
-                  fontScale='micro'
-                  display='flex'
-                  justifyContent='space-around'
-                  id='controllers'
-                >
-                  <Box
-                    mi='x8'
-                    display='flex'
-                    alignItems='center'
-                    justifyContent='space-between'
-                  >
-                    <IconButton
-                      aria-label={reducePlaybackSpeedLabel}
-                      disabled={playbackSpeed <= minPlaybackSpeed}
-                      icon='h-bar'
-                      mini
-                      onClick={handleDecreasePlayBackSpeed}
-                    />
-                    <Box mi='x8'>{playbackSpeed.toFixed(1)}x</Box>
-                    <IconButton
-                      aria-label={increasePlaybackSpeedLabel}
-                      disabled={playbackSpeed >= maxPlaybackSpeed}
-                      icon='plus'
-                      mini
-                      onClick={handleIncreasePlayBackSpeed}
-                    />
-                  </Box>
-                </Box>
-              )}
-              {getMaskTime(durationTime)}
-            </Box>
+        <IconButton
+          primary
+          medium
+          onClick={handlePlay}
+          aria-label={isPlaying ? pauseLabel : playLabel}
+          icon={isPlaying ? 'pause-shape-filled' : 'play-shape-filled'}
+        />
+        <Margins inline='x8'>
+          <Box fontScale='p2' color='secondary-info' pie='x8'>
+            {isPlaying || currentTime > 0
+              ? getMaskTime(currentTime)
+              : getMaskTime(durationTime)}
           </Box>
-          {download && (
-            <IconButton
-              aria-label={downloadAudioFileLabel}
-              is='a'
-              href={src}
-              download
-              icon='download'
-              large
-              onClick={(e) => {
-                const { host } = new URL(src);
-                if (host !== window.location.host) {
-                  e.preventDefault();
-                  forceDownload(src);
-                }
-              }}
-            />
-          )}
-        </Box>
+          <Slider
+            aria-label={audioPlaybackRangeLabel}
+            showOutput={false}
+            value={currentTime}
+            maxValue={durationTime}
+            onChange={(value) => {
+              if (audioRef.current) {
+                audioRef.current.currentTime = value;
+              }
+            }}
+          />
+          <Button
+            secondary
+            small
+            onClick={handlePlaybackSpeedSingleControl}
+            aria-label={changePlaybackSpeedLabel}
+          >
+            {playbackSpeed}x
+          </Button>
+        </Margins>
+        {download && (
+          <IconButton
+            primary
+            aria-label={downloadAudioFileLabel}
+            is='a'
+            href={src}
+            download
+            icon='download'
+            medium
+            onClick={(e) => {
+              const { host } = new URL(src);
+              if (host !== window.location.host) {
+                e.preventDefault();
+                forceDownload(src);
+              }
+            }}
+          />
+        )}
         <audio
           style={{ display: 'none' }}
           onTimeUpdate={(e) => {
