@@ -937,5 +937,8 @@
   },
   "user-lock": {
     "start": "\ue137"
+  },
+  "dashboard": {
+    "start": "\ue139"
   }
 }
