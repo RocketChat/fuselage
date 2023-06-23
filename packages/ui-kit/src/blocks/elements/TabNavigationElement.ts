@@ -1,5 +1,5 @@
 import type { Actionable } from '../Actionable';
-import { TextObject } from '../TextObject';
+import type { TextObject } from '../TextObject';
 
 export type TabItem = {
   value: string;
