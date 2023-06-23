@@ -14,6 +14,7 @@ import {
 import Box from '../../Box/Box';
 import { CheckBox } from '../../CheckBox';
 import { RadioButton } from '../../RadioButton';
+import Sidebar from '../../Sidebar';
 import { ToggleSwitch } from '../../ToggleSwitch';
 
 type MenuStories = ComponentMeta<typeof Menu>;
@@ -343,3 +344,22 @@ export const MenuFunctionChildren = () => {
     </Menu>
   );
 };
+
+export const AsSidebarTopbarActions = () => (
+  <Sidebar.TopBar.Actions>
+    <Sidebar.TopBar.Action icon='user' title='user' />
+    <Sidebar.TopBar.Action icon='book' title='book' />
+    <Menu title='test' is={Sidebar.TopBar.Action}>
+      <MenuItem>test</MenuItem>
+      <MenuItem>test</MenuItem>
+      <MenuItem>test</MenuItem>
+      <MenuItem>test</MenuItem>
+    </Menu>
+    <Menu icon='sort' title='sort'>
+      <MenuItem>test</MenuItem>
+      <MenuItem>test</MenuItem>
+      <MenuItem>test</MenuItem>
+      <MenuItem>test</MenuItem>
+    </Menu>
+  </Sidebar.TopBar.Actions>
+);
