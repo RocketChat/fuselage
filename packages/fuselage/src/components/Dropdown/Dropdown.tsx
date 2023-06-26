@@ -1,5 +1,5 @@
 import type { UsePositionOptions } from '@rocket.chat/fuselage-hooks';
-import { useMediaQuery } from '@rocket.chat/fuselage-hooks';
+import { useBreakpoints } from '@rocket.chat/fuselage-hooks';
 import type { ReactNode, Ref, RefObject } from 'react';
 import React, { forwardRef } from 'react';
 
@@ -21,16 +21,20 @@ export const Dropdown = forwardRef(function Dropdown<
   },
   ref: Ref<R>
 ) {
-  const notSmall = useMediaQuery('(min-width: 500px)');
+  const breakpoints = useBreakpoints();
 
-  return notSmall ? (
+  const isMobile = !breakpoints.includes('md');
+
+  if (isMobile) {
+    return <DropdownMobile children={children} ref={ref} />;
+  }
+
+  return (
     <DropdownDesktop
       reference={reference}
       children={children}
       placement={placement}
       ref={ref}
     />
-  ) : (
-    <DropdownMobile children={children} ref={ref} />
   );
 });
