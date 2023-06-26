@@ -1,8 +1,8 @@
+/* eslint-disable @typescript-eslint/no-use-before-define */
 import { useEffect, useRef, useState } from 'react';
 import type { RefObject, CSSProperties } from 'react';
 
-import { useDebouncedCallback } from '../useDebouncedCallback';
-import { useMutableCallback } from '../useMutableCallback';
+import { useMergedRefs } from '../useMergedRefs';
 import { useSafely } from '../useSafely';
 import type { Placement } from './Placement';
 import type { PlacementVariant } from './PlacementVariant';
@@ -11,7 +11,7 @@ import type { TargetBoundaries } from './getTargetBoundaries';
 import { getTargetBoundaries } from './getTargetBoundaries';
 import type { VariantBoundaries } from './getVariantBoundaries';
 import { getVariantBoundaries } from './getVariantBoundaries';
-import { useBoundingClientRectChanges } from './useBoundingClientRectChanges';
+import { getOffsetRect, useBoundingClientRect } from './useBoundingClientRect';
 
 export type UsePositionOptions = {
   margin?: number;
@@ -78,6 +78,7 @@ export function getPositionStyle({
   containerRect,
   targetBoundaries,
   variantBoundaries,
+  offset,
   margin = 0,
 }: {
   placement: Placement;
@@ -85,6 +86,10 @@ export function getPositionStyle({
   containerRect: DOMRect;
   targetBoundaries: TargetBoundaries;
   variantBoundaries: VariantBoundaries;
+  offset: {
+    left: number;
+    top: number;
+  };
   margin?: number;
 }): UsePositionResult {
   if (!targetBoundaries) {
@@ -156,8 +161,8 @@ export function getPositionStyle({
 
   return {
     style: {
-      top: `${point}px`,
-      left: `${variantPoint}px`,
+      top: `${point - offset.top}px`,
+      left: `${variantPoint - offset.left}px`,
       position: 'fixed',
       ...(bottom < targetRect.height + point && {
         bottom: `${margin}px`,
@@ -171,8 +176,6 @@ export function getPositionStyle({
   } as UsePositionResult;
 }
 
-const UPDATE_DEBOUNCE_DELAY = 30;
-
 /**
  * Hook to deal and position an element using an anchor
  * @param anchorRef - the anchor
@@ -181,7 +184,10 @@ const UPDATE_DEBOUNCE_DELAY = 30;
  * @returns The style containing top and left position
  * @public
  */
-export function usePosition<TTarget extends Element, TAnchor extends Element>(
+export function usePosition<
+  TTarget extends HTMLElement,
+  TAnchor extends HTMLElement
+>(
   anchorRef: RefObject<TAnchor>,
   targetRef: RefObject<TTarget>,
   {
@@ -191,6 +197,11 @@ export function usePosition<TTarget extends Element, TAnchor extends Element>(
   }: UsePositionOptions = {}
 ): UsePositionResult {
   const [style, setStyle] = useSafely(useState<UsePositionResult>(emptyStyle));
+  // Get the bounding client rect of the target, anchor and container
+
+  const [targetRectRef] = useBoundingClientRect();
+  const [anchorRectRef] = useBoundingClientRect();
+  const [containerRectRef] = useBoundingClientRect();
 
   const containerRef = useRef(container);
 
@@ -198,52 +209,83 @@ export function usePosition<TTarget extends Element, TAnchor extends Element>(
     containerRef.current = container;
   }, [container]);
 
-  const handleBoundingClientRectChange = useDebouncedCallback(
-    useMutableCallback(() => {
-      const target = targetRef.current;
-      const anchor = anchorRef.current;
-      const targetParent = target?.parentElement;
+  useMergedRefs(anchorRef, anchorRectRef);
+  useMergedRefs(targetRef, targetRectRef);
+  useMergedRefs(containerRef, containerRectRef);
 
-      if (!target || !anchor || !targetParent) {
-        return;
-      }
+  useEffect(() => {
+    const target = targetRef.current;
+    const anchor = anchorRef.current;
+    const targetParent = target?.parentElement;
 
-      const clone = target.cloneNode(true) as HTMLElement;
-      clone.style.bottom = '';
-      clone.id = 'clone';
-      targetParent.appendChild(clone);
-      const targetRect = clone.getBoundingClientRect();
-      targetParent.removeChild(clone);
+    if (!target || !anchor || !targetParent) {
+      return;
+    }
 
-      const anchorRect = anchor.getBoundingClientRect();
+    const targetRect = getOffsetRect(target);
 
-      const targetBoundaries = getTargetBoundaries({
-        anchorRect,
+    const anchorRect = anchor.getBoundingClientRect();
+
+    const targetBoundaries = getTargetBoundaries({
+      anchorRect,
+      targetRect,
+      margin,
+    });
+
+    const variantBoundaries = getVariantBoundaries({
+      anchorRect,
+      targetRect,
+    });
+
+    const offset = getOffsetRecFromBody(target);
+
+    return setStyle(
+      getPositionStyle({
+        placement,
+        containerRect: container.getBoundingClientRect(),
+        targetBoundaries,
+        variantBoundaries,
         targetRect,
         margin,
-      });
-
-      const variantBoundaries = getVariantBoundaries({
-        anchorRect,
-        targetRect,
-      });
-
-      setStyle(
-        getPositionStyle({
-          placement,
-          containerRect: container.getBoundingClientRect(),
-          targetBoundaries,
-          variantBoundaries,
-          targetRect,
-          margin,
-        })
-      );
-    }),
-    UPDATE_DEBOUNCE_DELAY
-  );
-
-  useBoundingClientRectChanges(targetRef, handleBoundingClientRectChange);
-  useBoundingClientRectChanges(anchorRef, handleBoundingClientRectChange);
-  useBoundingClientRectChanges(containerRef, handleBoundingClientRectChange);
+        offset,
+      })
+    );
+  }, [anchorRef, container, margin, placement, setStyle, targetRef]);
   return style;
+}
+
+const getContainer = (descendant: HTMLElement | null) => {
+  for (
+    let element = descendant ?? document.body;
+    element !== document.body;
+    element = element.parentElement ?? document.body
+  ) {
+    if (
+      getComputedStyle(element).transform !== 'none' ||
+      getComputedStyle(element).position === 'fixed' ||
+      getComputedStyle(element).willChange === 'transform'
+    ) {
+      return element;
+    }
+  }
+
+  return document.body;
+};
+
+// calculate the offset of an element relative to the document
+function getOffsetRecFromBody(target: HTMLElement) {
+  const container = getContainer(target);
+
+  if (container === document.body) {
+    return {
+      top: 0,
+      left: 0,
+    };
+  }
+
+  const rect = container.getBoundingClientRect();
+  return {
+    top: rect.top,
+    left: rect.left,
+  };
 }
