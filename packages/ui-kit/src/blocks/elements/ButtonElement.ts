@@ -6,5 +6,6 @@ export type ButtonElement = Actionable<{
   text: PlainText;
   url?: string;
   value?: string;
-  style?: 'primary' | 'danger';
+  style?: 'primary' | 'secondary' | 'danger' | 'warning' | 'success';
+  secondary?: boolean;
 }>;
