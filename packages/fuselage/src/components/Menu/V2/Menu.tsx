@@ -10,6 +10,7 @@ import {
   DismissButton,
   useOverlay,
 } from 'react-aria';
+import { createPortal } from 'react-dom';
 import type { MenuTriggerProps } from 'react-stately';
 import { useMenuTriggerState } from 'react-stately';
 
@@ -24,6 +25,7 @@ interface MenuButtonProps<T> extends AriaMenuProps<T>, MenuTriggerProps {
   mini?: boolean;
   placement?: UsePositionOptions['placement'];
   title?: string;
+  detached?: boolean;
   /**
    * A component that renders an IconButton
    */
@@ -36,6 +38,7 @@ const Menu = <T extends object>({
   title,
   is: MenuButton = IconButton,
   className,
+  detached = true,
   ...props
 }: MenuButtonProps<T>) => {
   const state = useMenuTriggerState(props);
@@ -55,6 +58,19 @@ const Menu = <T extends object>({
   const { menuProps, menuTriggerProps } = useMenuTrigger<T>({}, state, trigger);
 
   const { pressProps } = usePress(menuTriggerProps);
+  const dropdown = state.isOpen && (
+    <Dropdown
+      {...overlayProps}
+      ref={target}
+      reference={trigger}
+      placement={placement}
+    >
+      <FocusScope restoreFocus>
+        <MenuDropDown {...props} {...menuProps} />
+        <DismissButton onDismiss={state.close} />
+      </FocusScope>
+    </Dropdown>
+  );
 
   return (
     <>
@@ -65,20 +81,10 @@ const Menu = <T extends object>({
         title={title}
         className={className}
         {...mergeProps(pressProps)}
+        pressed={state.isOpen}
       />
-      {state.isOpen && (
-        <Dropdown
-          {...overlayProps}
-          ref={target}
-          reference={trigger}
-          placement={placement}
-        >
-          <FocusScope restoreFocus>
-            <MenuDropDown {...props} {...menuProps} />
-            <DismissButton onDismiss={state.close} />
-          </FocusScope>
-        </Dropdown>
-      )}
+      {state.isOpen &&
+        (detached ? createPortal(dropdown, document.body) : dropdown)}
     </>
   );
 };
