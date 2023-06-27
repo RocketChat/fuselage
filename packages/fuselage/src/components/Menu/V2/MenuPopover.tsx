@@ -28,7 +28,8 @@ function MenuPopover({ children, state, offset = 4, ...props }: PopoverProps) {
   const isMobile = !breakpoints.includes('sm');
 
   if (isMobile) {
-    return <DropdownMobile children={children} />;
+    const mobileProps = { ...popoverProps, style: { bottom: 0, left: 0 } };
+    return <DropdownMobile children={children} {...mobileProps} />;
   }
 
   return (
