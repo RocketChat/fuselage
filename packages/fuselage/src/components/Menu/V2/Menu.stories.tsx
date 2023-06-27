@@ -25,14 +25,11 @@ export default {
   decorators: [
     (story) => (
       <Box
-        position='relative'
         minHeight={50}
         height='full'
         minWidth={100}
         maxWidth={250}
         width={'full'}
-        display='flex'
-        alignItems='center'
       >
         {story()}
       </Box>
@@ -116,7 +113,7 @@ export const MenuDisplayExample: ComponentStory<typeof Menu> = (args) => {
   const [groupByTypes, setGroupByTypes] = useState(false);
 
   return (
-    <Menu selectionMode='multiple' {...args}>
+    <Menu selectionMode='multiple' placement='top-start' {...args}>
       <MenuSection title='Display'>
         <MenuItem key='extended'>
           <MenuItemIcon name='extended-view' />
