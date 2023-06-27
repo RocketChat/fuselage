@@ -1,5 +1,5 @@
 import type { UsePositionOptions } from '@rocket.chat/fuselage-hooks';
-import { useMediaQuery } from '@rocket.chat/fuselage-hooks';
+import { usePosition, useMediaQuery } from '@rocket.chat/fuselage-hooks';
 import type { ReactNode, Ref, RefObject } from 'react';
 import React, { forwardRef } from 'react';
 
@@ -23,13 +23,10 @@ export const Dropdown = forwardRef(function Dropdown<
 ) {
   const notSmall = useMediaQuery('(min-width: 500px)');
 
+  const { style } = usePosition(reference, ref as RefObject<R>, { placement });
+
   return notSmall ? (
-    <DropdownDesktop
-      reference={reference}
-      children={children}
-      placement={placement}
-      ref={ref}
-    />
+    <DropdownDesktop children={children} ref={ref} style={style} />
   ) : (
     <DropdownMobile children={children} ref={ref} />
   );

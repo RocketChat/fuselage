@@ -4,9 +4,8 @@ import { usePopover } from 'react-aria';
 import type { AriaPopoverProps } from 'react-aria';
 import type { OverlayTriggerState } from 'react-stately';
 
-import Box from '../../Box/Box';
+import { DropdownDesktop } from '../../Dropdown/DropdownDesktop';
 import { DropdownMobile } from '../../Dropdown/DropdownMobile';
-import Tile from '../../Tile/Tile';
 
 interface PopoverProps extends Omit<AriaPopoverProps, 'popoverRef'> {
   children: React.ReactNode;
@@ -33,20 +32,7 @@ function MenuPopover({ children, state, offset = 4, ...props }: PopoverProps) {
   }
 
   return (
-    <Tile
-      {...popoverProps}
-      ref={popoverRef}
-      elevation='2'
-      pi='0'
-      pb='0'
-      display='flex'
-      flexDirection='column'
-      overflow='auto'
-    >
-      <Box flexShrink={1} pb='x12'>
-        {children}
-      </Box>
-    </Tile>
+    <DropdownDesktop children={children} ref={popoverRef} {...popoverProps} />
   );
 }
 export default MenuPopover;

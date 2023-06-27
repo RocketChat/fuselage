@@ -1,30 +1,22 @@
-import type { UsePositionOptions } from '@rocket.chat/fuselage-hooks';
-import { usePosition } from '@rocket.chat/fuselage-hooks';
-import type { ReactNode, Ref, RefObject } from 'react';
+import type { CSSProperties, ReactNode, Ref } from 'react';
 import React, { forwardRef } from 'react';
 
 import { Box, Tile } from '..';
 
 export const DropdownDesktop = forwardRef(function DropdownDesktop<
-  T extends HTMLElement,
   R extends HTMLElement
 >(
   {
     children,
-    reference,
-    placement = 'bottom-start',
+    ...props
   }: {
-    reference: RefObject<T>;
-    placement?: UsePositionOptions['placement'];
+    style?: CSSProperties;
     children: ReactNode;
   },
   ref: Ref<R>
 ) {
-  const { style } = usePosition(reference, ref as RefObject<R>, { placement });
-
   return (
     <Tile
-      style={style}
       ref={ref}
       elevation='2'
       pi='0'
@@ -33,9 +25,10 @@ export const DropdownDesktop = forwardRef(function DropdownDesktop<
       flexDirection='column'
       overflow='auto'
       data-testid='dropdown'
+      {...props}
     >
       <Box flexShrink={1} pb='x12'>
-        {(style as any).visibility === 'hidden' ? null : children}
+        {props.style?.visibility === 'hidden' ? null : children}
       </Box>
     </Tile>
   );
