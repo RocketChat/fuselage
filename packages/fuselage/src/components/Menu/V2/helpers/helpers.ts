@@ -59,21 +59,3 @@ export const getPlacement = (
       return 'bottom start';
   }
 };
-// case 'bottom-left': same as bottom-start
-//   return 'bottom left';
-// case 'bottom-right': same as bottom-end
-//   return 'bottom right';
-// case 'top-left': same as top-start
-//   return 'top left';
-// case 'top-right': same as top-end
-//   return 'top right';
-// case 'start': same as left
-//   return 'start';
-// case 'start-top': same as left-start
-//   return 'start top';
-// case 'start-bottom': same as left-end
-//   return 'start bottom';
-// case 'end': same as right
-//   return 'end';
-// case 'end-top': same as right-start
-//   return 'end top';
