@@ -50,7 +50,7 @@ export default {
 } as MenuStories;
 
 export const Simple: ComponentStory<typeof Menu> = (args) => (
-  <Menu {...args}>
+  <Menu {...args} placement='right-start'>
     <MenuItem key='1'>Profile</MenuItem>
     <MenuItem key='2'>Chats</MenuItem>
     <MenuItem key='3'>Settings</MenuItem>
