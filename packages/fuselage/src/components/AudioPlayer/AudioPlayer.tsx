@@ -98,7 +98,7 @@ export const AudioPlayer = forwardRef<
     return (
       <Box
         borderWidth='default'
-        bg='light'
+        bg='tint'
         borderColor='extra-light'
         pb='x12'
         pie='x8'
