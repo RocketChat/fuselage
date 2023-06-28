@@ -47,6 +47,7 @@ const Menu = <T extends object>({
         icon={icon}
         className={className}
         title={title}
+        pressed={state.isOpen}
         small
       />
       {state.isOpen && (
