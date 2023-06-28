@@ -360,3 +360,15 @@ export const AsSidebarTopbarActions = () => (
     </Menu>
   </Sidebar.TopBar.Actions>
 );
+
+export const ControlledOpenState = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <Menu isOpen={isOpen} onOpenChange={setIsOpen}>
+      <MenuItem key='1'>Profile</MenuItem>
+      <MenuItem key='2'>Chats</MenuItem>
+      <MenuItem key='3'>Settings</MenuItem>
+    </Menu>
+  );
+};
