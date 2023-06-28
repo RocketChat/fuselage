@@ -8,15 +8,17 @@ export const DropdownDesktop = forwardRef(function DropdownDesktop<
 >(
   {
     children,
+    style,
     ...props
   }: {
-    style?: CSSProperties;
     children: ReactNode;
+    style?: CSSProperties;
   },
   ref: Ref<R>
 ) {
   return (
     <Tile
+      style={style}
       ref={ref}
       elevation='2'
       pi='0'
@@ -28,7 +30,7 @@ export const DropdownDesktop = forwardRef(function DropdownDesktop<
       {...props}
     >
       <Box flexShrink={1} pb='x12'>
-        {props.style?.visibility === 'hidden' ? null : children}
+        {(style as any).visibility === 'hidden' ? null : children}
       </Box>
     </Tile>
   );
