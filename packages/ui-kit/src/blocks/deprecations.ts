@@ -13,14 +13,14 @@ import type { OverflowElement } from './elements/OverflowElement';
 import type { PlainTextInputElement } from './elements/PlainTextInputElement';
 import type { StaticSelectElement } from './elements/StaticSelectElement';
 import type { ActionsBlock } from './layout/ActionsBlock';
+import type { CalloutBlock } from './layout/CalloutBlock';
 import type { ConditionalBlock } from './layout/ConditionalBlock';
 import type { ContextBlock } from './layout/ContextBlock';
 import type { DividerBlock } from './layout/DividerBlock';
-import type { CalloutBlock } from './layout/CalloutBlock';
-import type { TabNavigationBlock } from './layout/TabNavigationBlock';
 import type { ImageBlock } from './layout/ImageBlock';
 import type { InputBlock } from './layout/InputBlock';
 import type { SectionBlock } from './layout/SectionBlock';
+import type { TabNavigationBlock } from './layout/TabNavigationBlock';
 import type { Markdown } from './text/Markdown';
 import type { PlainText } from './text/PlainText';
 
