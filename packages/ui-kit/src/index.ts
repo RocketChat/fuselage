@@ -26,7 +26,6 @@ export { ToggleSwitchElement } from './blocks/elements/ToggleSwitchElement';
 export { CheckboxElement } from './blocks/elements/CheckboxElement';
 export { RadioButtonElement } from './blocks/elements/RadioButtonElement';
 export { CalloutElement } from './blocks/elements/CalloutElement';
-export { ToastBarElement } from './blocks/elements/ToastBarElement';
 export { TimePickerElement } from './blocks/elements/TimePickerElement';
 export { TabNavigationElement } from './blocks/elements/TabNavigationElement';
 export { BlockElement } from './blocks/BlockElement';

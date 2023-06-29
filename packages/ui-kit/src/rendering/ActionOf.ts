@@ -16,7 +16,6 @@ import type { RadioButtonElement } from '../blocks/elements/RadioButtonElement';
 import type { StaticSelectElement } from '../blocks/elements/StaticSelectElement';
 import type { TabNavigationElement } from '../blocks/elements/TabNavigationElement';
 import type { TimePickerElement } from '../blocks/elements/TimePickerElement';
-import type { ToastBarElement } from '../blocks/elements/ToastBarElement';
 import type { ToggleSwitchElement } from '../blocks/elements/ToggleSwitchElement';
 import type { UsersSelectElement } from '../blocks/elements/UsersSelectElement';
 
@@ -54,8 +53,6 @@ export type ActionOf<TElement extends ActionableElement> =
     : TElement extends CheckboxElement
     ? unknown
     : TElement extends CalloutElement
-    ? unknown
-    : TElement extends ToastBarElement
     ? unknown
     : TElement extends TimePickerElement
     ? TimePickerElement['initialTime']

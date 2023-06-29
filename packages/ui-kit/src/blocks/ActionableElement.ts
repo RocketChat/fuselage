@@ -15,7 +15,6 @@ import type { RadioButtonElement } from './elements/RadioButtonElement';
 import type { StaticSelectElement } from './elements/StaticSelectElement';
 import type { TabNavigationElement } from './elements/TabNavigationElement';
 import type { TimePickerElement } from './elements/TimePickerElement';
-import type { ToastBarElement } from './elements/ToastBarElement';
 import type { ToggleSwitchElement } from './elements/ToggleSwitchElement';
 import type { UsersSelectElement } from './elements/UsersSelectElement';
 
@@ -37,6 +36,5 @@ export type ActionableElement =
   | RadioButtonElement
   | CheckboxElement
   | CalloutElement
-  | ToastBarElement
   | TimePickerElement
   | TabNavigationElement;

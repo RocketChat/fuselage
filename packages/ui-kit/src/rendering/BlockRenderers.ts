@@ -11,7 +11,6 @@ import type { RadioButtonElement } from '../blocks/elements/RadioButtonElement';
 import type { StaticSelectElement } from '../blocks/elements/StaticSelectElement';
 import type { TabNavigationElement } from '../blocks/elements/TabNavigationElement';
 import type { TimePickerElement } from '../blocks/elements/TimePickerElement';
-import type { ToastBarElement } from '../blocks/elements/ToastBarElement';
 import type { ToggleSwitchElement } from '../blocks/elements/ToggleSwitchElement';
 import type { PlainText } from '../blocks/text/PlainText';
 import type { BlockElementRenderer } from './BlockElementRenderer';
@@ -57,9 +56,6 @@ export type BlockRenderers<T> = {
 
   /** @deprecated */
   callout?: BlockElementRenderer<T, CalloutElement>;
-
-  /** @deprecated */
-  toastBar?: BlockElementRenderer<T, ToastBarElement>;
 
   /** @deprecated */
   timePicker?: BlockElementRenderer<T, TimePickerElement>;

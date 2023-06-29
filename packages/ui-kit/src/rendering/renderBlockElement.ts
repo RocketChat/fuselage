@@ -41,9 +41,6 @@ const getBlockElementRenderer = <T>(
     case 'callout':
       return renderers.callout as BlockElementRenderer<T> | undefined;
 
-    case 'toast_bar':
-      return renderers.toastBar as BlockElementRenderer<T> | undefined;
-
     case 'time_picker':
       return renderers.timePicker as BlockElementRenderer<T> | undefined;
 

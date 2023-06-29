@@ -26,7 +26,6 @@ export enum BlockElementType {
   TOGGLE_SWITCH = 'toggle_switch',
   RADIO_BUTTON = 'radio_button',
   CHECKBOX = 'checkbox',
-  TOAST_BAR = 'toast_bar',
   CALLOUT = 'callout',
   TIME_PICKER = 'time_picker',
   TAB_NAVIGATION = 'tab_navigation',
