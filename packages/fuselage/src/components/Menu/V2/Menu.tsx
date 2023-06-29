@@ -1,21 +1,15 @@
 import type { UsePositionOptions } from '@rocket.chat/fuselage-hooks';
-import type { ComponentProps } from 'react';
+import type { ComponentProps, ElementType } from 'react';
 import React, { useRef } from 'react';
 import type { AriaMenuProps } from 'react-aria';
-import {
-  mergeProps,
-  useMenuTrigger,
-  FocusScope,
-  usePress,
-  DismissButton,
-  useOverlay,
-} from 'react-aria';
+import { useButton, useMenuTrigger } from 'react-aria';
 import type { MenuTriggerProps } from 'react-stately';
 import { useMenuTriggerState } from 'react-stately';
 
 import { IconButton } from '../../Button';
-import { Dropdown } from '../../Dropdown';
 import MenuDropDown from './MenuDropdown';
+import MenuPopover from './MenuPopover';
+import { getPlacement } from './helpers/helpers';
 
 interface MenuButtonProps<T> extends AriaMenuProps<T>, MenuTriggerProps {
   icon?: ComponentProps<typeof IconButton>['icon'];
@@ -24,52 +18,48 @@ interface MenuButtonProps<T> extends AriaMenuProps<T>, MenuTriggerProps {
   mini?: boolean;
   placement?: UsePositionOptions['placement'];
   title?: string;
+  /**
+   * A component that renders an IconButton
+   */
+  is?: ElementType;
+  className?: string;
+  pressed?: boolean;
 }
 const Menu = <T extends object>({
   icon = 'kebab',
   placement = 'bottom-start',
   title,
+  is: MenuButton = IconButton,
+  className,
+  pressed,
   ...props
 }: MenuButtonProps<T>) => {
   const state = useMenuTriggerState(props);
 
-  const trigger = useRef(null);
-  const target = useRef(null);
-  const { overlayProps } = useOverlay(
-    {
-      isOpen: state.isOpen,
-      onClose: state.close,
-      shouldCloseOnBlur: true,
-      isDismissable: true,
-    },
-    target
-  );
+  const ref = useRef(null);
+  const { menuTriggerProps, menuProps } = useMenuTrigger<T>({}, state, ref);
 
-  const { menuProps, menuTriggerProps } = useMenuTrigger<T>({}, state, trigger);
-
-  const { pressProps } = usePress(menuTriggerProps);
+  const { buttonProps } = useButton(menuTriggerProps, ref);
 
   return (
     <>
-      <IconButton
+      <MenuButton
+        {...buttonProps}
+        ref={ref}
         icon={icon}
-        ref={trigger}
-        small
+        className={className}
         title={title}
-        {...mergeProps(pressProps)}
+        pressed={pressed || state.isOpen}
+        small
       />
       {state.isOpen && (
-        <Dropdown
-          {...overlayProps}
-          ref={target}
-          reference={trigger}
-          placement={placement}
+        <MenuPopover
+          state={state}
+          triggerRef={ref}
+          placement={getPlacement(placement)}
         >
-          <FocusScope restoreFocus>
-            <MenuDropDown {...props} {...menuProps} />
-            <DismissButton onDismiss={state.close} />
-          </FocusScope>
-        </Dropdown>
+          <MenuDropDown {...props} {...menuProps} />
+        </MenuPopover>
       )}
     </>
   );

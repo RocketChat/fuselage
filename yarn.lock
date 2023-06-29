@@ -5804,6 +5804,7 @@ __metadata:
     webpack: ~5.78.0
     webpack-bundle-analyzer: ~4.8.0
     webpack-cli: ~5.0.1
+    wrapper-webpack-plugin: ~2.2.2
   peerDependencies:
     "@rocket.chat/fuselage-hooks": "*"
     "@rocket.chat/fuselage-polyfills": "*"
@@ -10472,7 +10473,7 @@ __metadata:
     latest-version: ~6.0.0
     pkg-versions: ~2.1.0
     prettier: ~2.8.7
-    semver: ~7.3.8
+    semver: ~7.5.2
     standard-version: ^9.5.0
     zx: ~7.2.1
   bin:
@@ -23779,14 +23780,14 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"semver@npm:~7.3.8":
-  version: 7.3.8
-  resolution: "semver@npm:7.3.8"
+"semver@npm:~7.5.2":
+  version: 7.5.3
+  resolution: "semver@npm:7.5.3"
   dependencies:
     lru-cache: ^6.0.0
   bin:
     semver: bin/semver.js
-  checksum: ba9c7cbbf2b7884696523450a61fee1a09930d888b7a8d7579025ad93d459b2d1949ee5bbfeb188b2be5f4ac163544c5e98491ad6152df34154feebc2cc337c1
+  checksum: 9d58db16525e9f749ad0a696a1f27deabaa51f66e91d2fa2b0db3de3e9644e8677de3b7d7a03f4c15bc81521e0c3916d7369e0572dbde250d9bedf5194e2a8a7
   languageName: node
   linkType: hard
 
@@ -27603,6 +27604,15 @@ fsevents@^1.2.7:
     string-width: ^4.1.0
     strip-ansi: ^6.0.0
   checksum: a790b846fd4505de962ba728a21aaeda189b8ee1c7568ca5e817d85930e06ef8d1689d49dbf0e881e8ef84436af3a88bc49115c2e2788d841ff1b8b5b51a608b
+  languageName: node
+  linkType: hard
+
+"wrapper-webpack-plugin@npm:~2.2.2":
+  version: 2.2.2
+  resolution: "wrapper-webpack-plugin@npm:2.2.2"
+  peerDependencies:
+    webpack: ">=2"
+  checksum: 1125a86c0cc0a043bbf9b51d340272b58aa5fc61758ba84faee9f05fe5024840ffda568d733ce4efc8b8523282a46cde3119e796823aa2047e45eafae4d5cc29
   languageName: node
   linkType: hard
 
