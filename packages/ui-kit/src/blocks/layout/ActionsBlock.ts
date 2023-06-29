@@ -1,6 +1,5 @@
 import type { LayoutBlockish } from '../LayoutBlockish';
 import type { ButtonElement } from '../elements/ButtonElement';
-import type { CalloutElement } from '../elements/CalloutElement';
 import type { ChannelsSelectElement } from '../elements/ChannelsSelectElement';
 import type { CheckboxElement } from '../elements/CheckboxElement';
 import type { ConversationsSelectElement } from '../elements/ConversationsSelectElement';
@@ -13,7 +12,6 @@ import type { MultiUsersSelectElement } from '../elements/MultiUsersSelectElemen
 import type { OverflowElement } from '../elements/OverflowElement';
 import type { RadioButtonElement } from '../elements/RadioButtonElement';
 import type { StaticSelectElement } from '../elements/StaticSelectElement';
-import type { TabNavigationElement } from '../elements/TabNavigationElement';
 import type { TimePickerElement } from '../elements/TimePickerElement';
 import type { ToggleSwitchElement } from '../elements/ToggleSwitchElement';
 import type { UsersSelectElement } from '../elements/UsersSelectElement';
@@ -36,8 +34,6 @@ export type ActionsBlock = LayoutBlockish<{
     | ToggleSwitchElement
     | CheckboxElement
     | RadioButtonElement
-    | CalloutElement
     | TimePickerElement
-    | TabNavigationElement
   )[];
 }>;

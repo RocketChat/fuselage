@@ -16,6 +16,8 @@ import type { ActionsBlock } from './layout/ActionsBlock';
 import type { ConditionalBlock } from './layout/ConditionalBlock';
 import type { ContextBlock } from './layout/ContextBlock';
 import type { DividerBlock } from './layout/DividerBlock';
+import type { CalloutBlock } from './layout/CalloutBlock';
+import type { TabNavigationBlock } from './layout/TabNavigationBlock';
 import type { ImageBlock } from './layout/ImageBlock';
 import type { InputBlock } from './layout/InputBlock';
 import type { SectionBlock } from './layout/SectionBlock';
@@ -61,6 +63,10 @@ export type AccessoryElements = InterfaceOf<
 export type IImageBlock = InterfaceOf<ImageBlock>;
 /** @deprecated */
 export type IDividerBlock = InterfaceOf<DividerBlock>;
+/** @deprecated */
+export type ICalloutBlock = InterfaceOf<CalloutBlock>;
+/** @deprecated */
+export type ITabNavigationBlock = InterfaceOf<TabNavigationBlock>;
 /** @deprecated */
 export type IInputBlock = InterfaceOf<InputBlock>;
 /** @deprecated */

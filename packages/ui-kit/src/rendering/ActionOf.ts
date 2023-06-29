@@ -1,6 +1,5 @@
 import type { ActionableElement } from '../blocks/ActionableElement';
 import type { ButtonElement } from '../blocks/elements/ButtonElement';
-import type { CalloutElement } from '../blocks/elements/CalloutElement';
 import type { ChannelsSelectElement } from '../blocks/elements/ChannelsSelectElement';
 import type { CheckboxElement } from '../blocks/elements/CheckboxElement';
 import type { ConversationsSelectElement } from '../blocks/elements/ConversationsSelectElement';
@@ -14,7 +13,6 @@ import type { OverflowElement } from '../blocks/elements/OverflowElement';
 import type { PlainTextInputElement } from '../blocks/elements/PlainTextInputElement';
 import type { RadioButtonElement } from '../blocks/elements/RadioButtonElement';
 import type { StaticSelectElement } from '../blocks/elements/StaticSelectElement';
-import type { TabNavigationElement } from '../blocks/elements/TabNavigationElement';
 import type { TimePickerElement } from '../blocks/elements/TimePickerElement';
 import type { ToggleSwitchElement } from '../blocks/elements/ToggleSwitchElement';
 import type { UsersSelectElement } from '../blocks/elements/UsersSelectElement';
@@ -52,10 +50,6 @@ export type ActionOf<TElement extends ActionableElement> =
     ? unknown
     : TElement extends CheckboxElement
     ? unknown
-    : TElement extends CalloutElement
-    ? unknown
     : TElement extends TimePickerElement
     ? TimePickerElement['initialTime']
-    : TElement extends TabNavigationElement
-    ? unknown
     : never;

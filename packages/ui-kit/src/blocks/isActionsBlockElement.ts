@@ -15,9 +15,7 @@ export const isActionsBlockElement = (
     case BlockElementType.TOGGLE_SWITCH:
     case BlockElementType.CHECKBOX:
     case BlockElementType.RADIO_BUTTON:
-    case BlockElementType.CALLOUT:
     case BlockElementType.TIME_PICKER:
-    case BlockElementType.TAB_NAVIGATION:
       return true;
 
     default:

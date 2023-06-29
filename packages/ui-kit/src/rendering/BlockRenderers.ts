@@ -1,7 +1,6 @@
 import type { BlockElement } from '../blocks/BlockElement';
 import type { RenderableLayoutBlock } from '../blocks/RenderableLayoutBlock';
 import type { TextObject } from '../blocks/TextObject';
-import type { CalloutElement } from '../blocks/elements/CalloutElement';
 import type { CheckboxElement } from '../blocks/elements/CheckboxElement';
 import type { DatePickerElement } from '../blocks/elements/DatePickerElement';
 import type { LinearScaleElement } from '../blocks/elements/LinearScaleElement';
@@ -9,7 +8,6 @@ import type { MultiStaticSelectElement } from '../blocks/elements/MultiStaticSel
 import type { PlainTextInputElement } from '../blocks/elements/PlainTextInputElement';
 import type { RadioButtonElement } from '../blocks/elements/RadioButtonElement';
 import type { StaticSelectElement } from '../blocks/elements/StaticSelectElement';
-import type { TabNavigationElement } from '../blocks/elements/TabNavigationElement';
 import type { TimePickerElement } from '../blocks/elements/TimePickerElement';
 import type { ToggleSwitchElement } from '../blocks/elements/ToggleSwitchElement';
 import type { PlainText } from '../blocks/text/PlainText';
@@ -55,11 +53,5 @@ export type BlockRenderers<T> = {
   checkbox?: BlockElementRenderer<T, CheckboxElement>;
 
   /** @deprecated */
-  callout?: BlockElementRenderer<T, CalloutElement>;
-
-  /** @deprecated */
   timePicker?: BlockElementRenderer<T, TimePickerElement>;
-
-  /** @deprecated */
-  tabNavigationElement?: BlockElementRenderer<T, TabNavigationElement>;
 };

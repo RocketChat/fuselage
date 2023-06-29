@@ -1,4 +1,5 @@
 import type { ActionsBlock } from '../../blocks/layout/ActionsBlock';
+import type { CalloutBlock } from '../../blocks/layout/CalloutBlock';
 import type { ContextBlock } from '../../blocks/layout/ContextBlock';
 import type { DividerBlock } from '../../blocks/layout/DividerBlock';
 import type { ImageBlock } from '../../blocks/layout/ImageBlock';
@@ -12,14 +13,23 @@ type ModalSurfaceLayoutBlock =
   | DividerBlock
   | ImageBlock
   | InputBlock
-  | SectionBlock;
+  | SectionBlock
+  | CalloutBlock;
 
 export abstract class UiKitParserModal<OutputElement> extends SurfaceRenderer<
   OutputElement,
   ModalSurfaceLayoutBlock
 > {
   public constructor() {
-    super(['actions', 'context', 'divider', 'image', 'input', 'section']);
+    super([
+      'actions',
+      'context',
+      'divider',
+      'image',
+      'input',
+      'section',
+      'callout',
+    ]);
   }
 }
 

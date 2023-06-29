@@ -38,16 +38,8 @@ const getBlockElementRenderer = <T>(
     case 'checkbox':
       return renderers.checkbox as BlockElementRenderer<T> | undefined;
 
-    case 'callout':
-      return renderers.callout as BlockElementRenderer<T> | undefined;
-
     case 'time_picker':
       return renderers.timePicker as BlockElementRenderer<T> | undefined;
-
-    case 'tab_navigation':
-      return renderers.tabNavigationElement as
-        | BlockElementRenderer<T>
-        | undefined;
   }
 };
 

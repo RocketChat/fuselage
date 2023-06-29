@@ -5,21 +5,22 @@ import type { DividerBlock } from '../../blocks/layout/DividerBlock';
 import type { ImageBlock } from '../../blocks/layout/ImageBlock';
 import type { InputBlock } from '../../blocks/layout/InputBlock';
 import type { SectionBlock } from '../../blocks/layout/SectionBlock';
+import type { TabNavigationBlock } from '../../blocks/layout/TabNavigationBlock';
 import { SurfaceRenderer } from '../SurfaceRenderer';
 
-type BannerSurfaceLayoutBlock =
+type ContextualBarSurfaceLayoutBlock =
   | ActionsBlock
   | ContextBlock
   | DividerBlock
   | ImageBlock
   | InputBlock
   | SectionBlock
-  | CalloutBlock;
+  | CalloutBlock
+  | TabNavigationBlock;
 
-export abstract class UiKitParserBanner<T> extends SurfaceRenderer<
-  T,
-  BannerSurfaceLayoutBlock
-> {
+export abstract class UiKitParserContextualBar<
+  OutputElement
+> extends SurfaceRenderer<OutputElement, ContextualBarSurfaceLayoutBlock> {
   public constructor() {
     super([
       'actions',
@@ -29,8 +30,9 @@ export abstract class UiKitParserBanner<T> extends SurfaceRenderer<
       'input',
       'section',
       'callout',
+      'tab_navigation',
     ]);
   }
 }
 
-export type BannerSurfaceLayout = BannerSurfaceLayoutBlock[];
+export type ContextualBarSurfaceLayout = ContextualBarSurfaceLayoutBlock[];

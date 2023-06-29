@@ -25,9 +25,7 @@ export { UsersSelectElement } from './blocks/elements/UsersSelectElement';
 export { ToggleSwitchElement } from './blocks/elements/ToggleSwitchElement';
 export { CheckboxElement } from './blocks/elements/CheckboxElement';
 export { RadioButtonElement } from './blocks/elements/RadioButtonElement';
-export { CalloutElement } from './blocks/elements/CalloutElement';
 export { TimePickerElement } from './blocks/elements/TimePickerElement';
-export { TabNavigationElement } from './blocks/elements/TabNavigationElement';
 export { BlockElement } from './blocks/BlockElement';
 
 export { ActionsBlock } from './blocks/layout/ActionsBlock';
@@ -40,6 +38,8 @@ export { InputBlock } from './blocks/layout/InputBlock';
 export { SectionBlock } from './blocks/layout/SectionBlock';
 export { VideoConferenceBlock } from './blocks/layout/VideoConferenceBlock';
 export { LayoutBlock } from './blocks/LayoutBlock';
+export { CalloutBlock } from './blocks/layout/CalloutBlock';
+export { TabNavigationBlock } from './blocks/layout/TabNavigationBlock';
 
 export { InputElementDispatchAction } from './blocks/InputElementDispatchAction';
 
@@ -74,6 +74,10 @@ export {
   UiKitParserModal,
   ModalSurfaceLayout,
 } from './rendering/surfaces/UiKitParserModal';
+export {
+  UiKitParserContextualBar,
+  ContextualBarSurfaceLayout,
+} from './rendering/surfaces/UiKitParserContextualBar';
 
 export { SurfaceRenderer } from './rendering/SurfaceRenderer';
 export { ActionableElement } from './blocks/ActionableElement';

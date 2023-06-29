@@ -26,9 +26,7 @@ export enum BlockElementType {
   TOGGLE_SWITCH = 'toggle_switch',
   RADIO_BUTTON = 'radio_button',
   CHECKBOX = 'checkbox',
-  CALLOUT = 'callout',
   TIME_PICKER = 'time_picker',
-  TAB_NAVIGATION = 'tab_navigation',
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
