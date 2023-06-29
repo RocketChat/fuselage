@@ -23,6 +23,7 @@ interface MenuButtonProps<T> extends AriaMenuProps<T>, MenuTriggerProps {
    */
   is?: ElementType;
   className?: string;
+  pressed?: boolean;
 }
 const Menu = <T extends object>({
   icon = 'kebab',
@@ -30,6 +31,7 @@ const Menu = <T extends object>({
   title,
   is: MenuButton = IconButton,
   className,
+  pressed,
   ...props
 }: MenuButtonProps<T>) => {
   const state = useMenuTriggerState(props);
@@ -47,7 +49,7 @@ const Menu = <T extends object>({
         icon={icon}
         className={className}
         title={title}
-        pressed={state.isOpen}
+        pressed={pressed || state.isOpen}
         small
       />
       {state.isOpen && (
