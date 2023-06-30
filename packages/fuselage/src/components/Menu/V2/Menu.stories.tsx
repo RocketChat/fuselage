@@ -247,11 +247,23 @@ type Item = {
   name: string;
   icon: ComponentProps<typeof MenuItemIcon>['name'];
   input: ReactNode;
+  description?: string;
 };
 const GenericMenuItem = ({ item }: { item: Item }) => (
   <>
     {item.icon && <MenuItemIcon name={item.icon} />}
-    <MenuItemContent>{item.name}</MenuItemContent>
+    <MenuItemContent>
+      {item.name}
+      {item.description && (
+        <Box
+          wordBreak='break-word'
+          style={{ whiteSpace: 'normal' }}
+          fontScale='micro'
+        >
+          {item.description}
+        </Box>
+      )}
+    </MenuItemContent>
     {item.input && <MenuItemInput>{item.input}</MenuItemInput>}
   </>
 );
@@ -277,6 +289,7 @@ export const MenuFunctionChildren = () => {
     {
       name: 'favorites',
       icon: 'star',
+      description: 'Group by favorites',
       input: (
         <CheckBox
           mi='x16'

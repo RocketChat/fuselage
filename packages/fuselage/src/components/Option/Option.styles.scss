@@ -42,7 +42,7 @@ $variants: (
 
   &__wrapper {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
 
     margin-inline: lengths.margin(-2);
   }
