@@ -51,6 +51,7 @@ export { uiKitAttachment } from './rendering/surfaces/uiKitAttachment';
 export { uiKitBanner } from './rendering/surfaces/uiKitBanner';
 export { uiKitMessage } from './rendering/surfaces/uiKitMessage';
 export { uiKitModal } from './rendering/surfaces/uiKitModal';
+export { uiKitContextualBar } from './rendering/surfaces/uiKitContextualBar';
 
 export {
   UiKitParserAttachment,
@@ -68,6 +69,10 @@ export {
   UiKitParserModal,
   ModalSurfaceLayout,
 } from './rendering/surfaces/UiKitParserModal';
+export {
+  UiKitParserContextualBar,
+  ContextualBarSurfaceLayout,
+} from './rendering/surfaces/UiKitParserContextualBar';
 
 export { SurfaceRenderer } from './rendering/SurfaceRenderer';
 export { ActionableElement } from './blocks/ActionableElement';
