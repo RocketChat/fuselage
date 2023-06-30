@@ -1,7 +1,8 @@
 import type { Actionable } from '../Actionable';
+import type { Option } from '../Option';
 
 export type CheckboxElement = Actionable<{
   type: 'checkbox';
-  value?: boolean;
-  checked?: boolean;
+  options: Option[];
+  initialOptions: Option[];
 }>;

@@ -1,7 +1,8 @@
 import type { Actionable } from '../Actionable';
+import type { Option } from '../Option';
 
 export type RadioButtonElement = Actionable<{
   type: 'radio_button';
-  value?: boolean;
-  checked?: boolean;
+  options: Option[];
+  initialOption: Option;
 }>;
