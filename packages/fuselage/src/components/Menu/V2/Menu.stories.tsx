@@ -10,6 +10,7 @@ import {
   MenuItemIcon,
   MenuItemInput,
   MenuItemSkeleton,
+  MenuItemDescription,
 } from '.';
 import Box from '../../Box/Box';
 import { CheckBox } from '../../CheckBox';
@@ -257,21 +258,12 @@ const GenericMenuItem = ({
     {icon && <MenuItemIcon name={icon} />}
     <MenuItemContent>
       {name}
-      {description && (
-        <Box
-          wordBreak='break-word'
-          style={{ whiteSpace: 'normal' }}
-          fontScale='p2'
-          color='secondary-info'
-        >
-          {description}
-        </Box>
-      )}
+      {description && <MenuItemDescription>{description}</MenuItemDescription>}
     </MenuItemContent>
     {input && <MenuItemInput>{input}</MenuItemInput>}
   </>
 );
-export const MenuFunctionChildren = () => {
+export const MenuMapGenericItem = () => {
   const [sortBy, setSortBy] = useState('name');
 
   const [groupByUnread, setGroupByUnread] = useState(false);

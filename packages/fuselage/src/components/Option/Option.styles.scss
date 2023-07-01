@@ -120,6 +120,14 @@ $variants: (
     color: colors.font(secondary-info);
   }
 
+  &__description-block {
+    @include typography.use-font-scale(p2);
+    white-space: normal;
+    word-break: break-word;
+
+    color: colors.font(secondary-info);
+  }
+
   &:hover,
   &--focus {
     background: colors.surface(hover);
