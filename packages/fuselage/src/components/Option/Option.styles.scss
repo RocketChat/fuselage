@@ -42,9 +42,13 @@ $variants: (
 
   &__wrapper {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
 
     margin-inline: lengths.margin(-2);
+
+    &--align-top {
+      align-items: flex-start !important;
+    }
   }
 
   &__icon {

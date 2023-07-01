@@ -25,6 +25,7 @@ function MenuItem({ item, state }: MenuItemProps) {
       focus={isFocused}
       disabled={isDisabled}
       is='label'
+      description={(item.value as any)?.description}
     >
       {item.rendered}
     </Option>
