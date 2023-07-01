@@ -10,7 +10,6 @@ import {
   MenuItemIcon,
   MenuItemInput,
   MenuItemSkeleton,
-  MenuItemDescription,
 } from '.';
 import Box from '../../Box/Box';
 import { CheckBox } from '../../CheckBox';
@@ -249,17 +248,10 @@ type Item = {
   input: ReactNode;
   description?: string;
 };
-const GenericMenuItem = ({
-  item: { icon, name, description, input },
-}: {
-  item: Item;
-}) => (
+const GenericMenuItem = ({ item: { icon, name, input } }: { item: Item }) => (
   <>
     {icon && <MenuItemIcon name={icon} />}
-    <MenuItemContent>
-      {name}
-      {description && <MenuItemDescription>{description}</MenuItemDescription>}
-    </MenuItemContent>
+    <MenuItemContent>{name}</MenuItemContent>
     {input && <MenuItemInput>{input}</MenuItemInput>}
   </>
 );

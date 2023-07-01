@@ -122,6 +122,9 @@ $variants: (
 
   &__description-block {
     @include typography.use-font-scale(p2);
+
+    padding: lengths.margin(4);
+
     white-space: normal;
     word-break: break-word;
 

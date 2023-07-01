@@ -2,7 +2,8 @@ import React, { useRef } from 'react';
 import { useMenuItem } from 'react-aria';
 import type { TreeState } from 'react-stately';
 
-import Option from '../../Option';
+import { MenuItemDescription } from '.';
+import MenuOption from './MenuOption';
 import type { Node } from './types';
 
 type MenuItemProps = {
@@ -19,16 +20,20 @@ function MenuItem({ item, state }: MenuItemProps) {
   );
 
   return (
-    <Option
+    <MenuOption
       {...menuItemProps}
       ref={ref}
       focus={isFocused}
       disabled={isDisabled}
       is='label'
-      description={(item.value as any)?.description}
     >
-      {item.rendered}
-    </Option>
+      <div className='rcx-option__wrapper'>{item.rendered}</div>
+      {item.value && item.value.description && (
+        <MenuItemDescription>
+          {(item.value as any)?.description}
+        </MenuItemDescription>
+      )}
+    </MenuOption>
   );
 }
 
