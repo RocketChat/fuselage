@@ -940,5 +940,8 @@
   },
   "play-shape-filled": {
     "start": "\ue13d"
+  },
+  "flask": {
+    "start": "\ue13f"
   }
 }
