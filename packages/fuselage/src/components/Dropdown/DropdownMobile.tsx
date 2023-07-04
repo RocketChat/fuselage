@@ -31,7 +31,7 @@ export const DropdownMobile = forwardRef(function DropdownMobile<
       data-testid='dropdown'
       {...props}
     >
-      <Box flexShrink={1} pb='x16'>
+      <Box flexShrink={1} pb={16}>
         {children}
       </Box>
     </Tile>

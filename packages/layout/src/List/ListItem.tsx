@@ -13,7 +13,7 @@ const ListItem = ({
   fontScale?: ComponentProps<typeof Box>['fontScale'];
 }): ReactElement => (
   <Box display='flex' is='li' fontScale={fontScale} color='inherit'>
-    {icon && <Icon name={icon} color={iconColor} size='x16' mie='x4' />}
+    {icon && <Icon name={icon} color={iconColor} size='x16' mie={4} />}
     {children}
   </Box>
 );

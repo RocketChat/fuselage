@@ -25,7 +25,7 @@ export const example: ComponentStory<typeof AnimatedVisibility> = ({
   visibility,
 }) => (
   <AnimatedVisibility visibility={visibility}>
-    <Tile padding='x40'>Visible</Tile>
+    <Tile padding={40}>Visible</Tile>
   </AnimatedVisibility>
 );
 example.args = {

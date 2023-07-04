@@ -120,7 +120,7 @@ export const MenuDisplayExample: ComponentStory<typeof Menu> = (args) => {
           <MenuItemContent>Extended</MenuItemContent>
           <MenuItemInput>
             <RadioButton
-              mi='x16'
+              mi={16}
               onChange={() => setDisplay('extended')}
               checked={display === 'extended'}
             />
@@ -131,7 +131,7 @@ export const MenuDisplayExample: ComponentStory<typeof Menu> = (args) => {
           <MenuItemContent>Medium</MenuItemContent>
           <MenuItemInput>
             <RadioButton
-              mi='x16'
+              mi={16}
               onChange={() => setDisplay('medium')}
               checked={display === 'medium'}
             />
@@ -142,7 +142,7 @@ export const MenuDisplayExample: ComponentStory<typeof Menu> = (args) => {
           <MenuItemContent>Condensed</MenuItemContent>
           <MenuItemInput>
             <RadioButton
-              mi='x16'
+              mi={16}
               onChange={() => setDisplay('condensed')}
               checked={display === 'condensed'}
             />
@@ -153,7 +153,7 @@ export const MenuDisplayExample: ComponentStory<typeof Menu> = (args) => {
           <MenuItemContent>Avatars</MenuItemContent>
           <MenuItemInput>
             <ToggleSwitch
-              mie='x16'
+              mie={16}
               onChange={() => setAvatarDisplay(!avatarDisplay)}
               checked={avatarDisplay}
             />
@@ -166,7 +166,7 @@ export const MenuDisplayExample: ComponentStory<typeof Menu> = (args) => {
           <MenuItemContent>Activities</MenuItemContent>
           <MenuItemInput>
             <RadioButton
-              mi='x16'
+              mi={16}
               onChange={() => setSortBy('activity')}
               checked={sortBy === 'activity'}
             />
@@ -177,7 +177,7 @@ export const MenuDisplayExample: ComponentStory<typeof Menu> = (args) => {
           <MenuItemContent>Name</MenuItemContent>
           <MenuItemInput>
             <RadioButton
-              mi='x16'
+              mi={16}
               onChange={() => setSortBy('alphabetical')}
               checked={sortBy === 'alphabetical'}
             />
@@ -190,7 +190,7 @@ export const MenuDisplayExample: ComponentStory<typeof Menu> = (args) => {
           <MenuItemContent>Unread</MenuItemContent>
           <MenuItemInput>
             <CheckBox
-              mi='x16'
+              mi={16}
               checked={groupByUnread}
               onChange={() => setGroupByUnread(!groupByUnread)}
             />
@@ -201,7 +201,7 @@ export const MenuDisplayExample: ComponentStory<typeof Menu> = (args) => {
           <MenuItemContent>Favorites</MenuItemContent>
           <MenuItemInput>
             <CheckBox
-              mi='x16'
+              mi={16}
               checked={groupByFav}
               onChange={() => setGroupByFav(!groupByFav)}
             />
@@ -212,7 +212,7 @@ export const MenuDisplayExample: ComponentStory<typeof Menu> = (args) => {
           <MenuItemContent>Types</MenuItemContent>
           <MenuItemInput>
             <CheckBox
-              mi='x16'
+              mi={16}
               checked={groupByTypes}
               onChange={() => setGroupByTypes(!groupByTypes)}
             />
@@ -250,7 +250,7 @@ export const MenuMapGenericItem = () => {
       icon: 'flag',
       input: (
         <CheckBox
-          mi='x16'
+          mi={16}
           checked={groupByUnread}
           onChange={() => setGroupByUnread(!groupByUnread)}
         />
@@ -263,7 +263,7 @@ export const MenuMapGenericItem = () => {
         'Group by favorites and unread bla bla balaisudhf ioioasdhoaisdf asdifh oaisdhf aosidhf aisdhf aosdihf',
       input: (
         <CheckBox
-          mi='x16'
+          mi={16}
           checked={groupByFav}
           onChange={() => setGroupByFav(!groupByFav)}
         />
@@ -274,7 +274,7 @@ export const MenuMapGenericItem = () => {
       icon: 'group-by-type',
       input: (
         <CheckBox
-          mi='x16'
+          mi={16}
           checked={groupByTypes}
           onChange={() => setGroupByTypes(!groupByTypes)}
         />
@@ -287,7 +287,7 @@ export const MenuMapGenericItem = () => {
       icon: 'clock',
       input: (
         <CheckBox
-          mi='x16'
+          mi={16}
           onChange={() => setSortBy('activity')}
           checked={sortBy === 'activity'}
         />
@@ -298,7 +298,7 @@ export const MenuMapGenericItem = () => {
       icon: 'sort-az',
       input: (
         <CheckBox
-          mi='x16'
+          mi={16}
           onChange={() => setSortBy('alphabetical')}
           checked={sortBy === 'alphabetical'}
         />

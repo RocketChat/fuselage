@@ -7,6 +7,6 @@ const FormHeader = forwardRef<
   Omit<FormHTMLAttributes<HTMLElement>, 'is'> & {
     children: ReactNode;
   }
->((props, ref) => <Box is='header' mbe='x24' {...props} ref={ref} />);
+>((props, ref) => <Box is='header' mbe={24} {...props} ref={ref} />);
 
 export default FormHeader;

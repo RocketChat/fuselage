@@ -4,7 +4,7 @@
     "rootDirs": ["./src/", "./.storybook/"],
     "target": "ES5",
     "module": "ESNext",
-    "lib": ["ES2020", "DOM"],
+    "lib": ["ES2020"],
     "downlevelIteration": true,
     "outDir": "./dist/",
     "esModuleInterop": true,

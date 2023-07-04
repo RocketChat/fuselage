@@ -20,9 +20,9 @@ export const TableSelection = ({
     alignItems='center'
     justifyContent='space-between'
     {...props}
-    pi='x24'
+    pi={24}
   >
-    <Box fontScale='p2m' mb='x16' flexShrink={1} style={style}>
+    <Box fontScale='p2m' mb={16} flexShrink={1} style={style}>
       {text}
     </Box>
     {children && (

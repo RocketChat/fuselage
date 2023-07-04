@@ -56,10 +56,10 @@ const CreateFirstMemberForm = ({
         {t('form.createFirstMemberForm.subtitle', { organizationName })}
       </Form.Subtitle>
 
-      <FieldGroup mbs='x16'>
+      <FieldGroup mbs={16}>
         <Field>
           <Field.Label>
-            <Box display='inline' mie='x8'>
+            <Box display='inline' mie={8}>
               {t('form.createFirstMemberForm.fields.username.label')}
             </Box>
           </Field.Label>

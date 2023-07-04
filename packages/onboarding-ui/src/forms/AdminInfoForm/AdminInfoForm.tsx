@@ -157,8 +157,8 @@ const AdminInfoForm = ({
             )}
           </Field>
           {keepPosted && (
-            <Box mbe='x8' display='block' color='info' fontScale='c1'>
-              <CheckBox id='keepPosted' mie='x8' {...register('keepPosted')} />
+            <Box mbe={8} display='block' color='info' fontScale='c1'>
+              <CheckBox id='keepPosted' mie={8} {...register('keepPosted')} />
               <label htmlFor='keepPosted'>
                 {t('form.adminInfoForm.fields.keepPosted.label')}
               </label>

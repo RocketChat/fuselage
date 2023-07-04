@@ -349,36 +349,36 @@ export const WithFooter: ComponentStory<typeof Sidebar> = () => (
 
 export const Admin: ComponentStory<typeof Sidebar> = () => (
   <div className='rcx-sidebar'>
-    <Box display='flex' is='header' pbs='x16' pbe='x8' pi='x24'>
+    <Box display='flex' is='header' pbs={16} pbe={8} pi={24}>
       <Box fontSize='p2' fontWeight='p2'>
         Administration
       </Box>
-      <Box mi='x8'>
+      <Box mi={8}>
         <Tag variant='featured'>Development</Tag>
       </Box>
     </Box>
     <Divider />
     <SidebarItem clickable>
-      <Box display='flex' justifyContent='center' pb='x8'>
-        <Icon name='import' mi='x4' size='x20' />
+      <Box display='flex' justifyContent='center' pb={8}>
+        <Icon name='import' mi={4} size='x20' />
         Import
       </Box>
     </SidebarItem>
     <SidebarItem clickable>
-      <Box display='flex' justifyContent='center' pb='x8'>
-        <Icon name='user' mi='x4' size='x20' />
+      <Box display='flex' justifyContent='center' pb={8}>
+        <Icon name='user' mi={4} size='x20' />
         Users
       </Box>
     </SidebarItem>
     <SidebarItem clickable>
-      <Box display='flex' justifyContent='center' pb='x8'>
-        <Icon name='hashtag' mi='x4' size='x20' />
+      <Box display='flex' justifyContent='center' pb={8}>
+        <Icon name='hashtag' mi={4} size='x20' />
         Rooms
       </Box>
     </SidebarItem>
     <SidebarItem clickable>
-      <Box display='flex' justifyContent='center' pb='x8'>
-        <Icon name='cube' mi='x4' size='x20' />
+      <Box display='flex' justifyContent='center' pb={8}>
+        <Icon name='cube' mi={4} size='x20' />
         Apps
       </Box>
     </SidebarItem>
@@ -387,11 +387,11 @@ export const Admin: ComponentStory<typeof Sidebar> = () => (
 
 export const WithBanner: ComponentStory<typeof Sidebar> = () => (
   <div className='rcx-sidebar'>
-    <Box display='flex' is='header' pbs='x16' pbe='x8' pi='x24'>
+    <Box display='flex' is='header' pbs={16} pbe={8} pi={24}>
       <Box fontSize='p2' fontWeight='p2'>
         Administration
       </Box>
-      <Box mi='x8'>
+      <Box mi={8}>
         <Tag variant='featured'>Development</Tag>
       </Box>
     </Box>
@@ -403,26 +403,26 @@ export const WithBanner: ComponentStory<typeof Sidebar> = () => (
       onClose={action('click')}
     />
     <SidebarItem clickable>
-      <Box display='flex' justifyContent='center' pb='x8'>
-        <Icon name='import' mi='x4' size='x20' />
+      <Box display='flex' justifyContent='center' pb={8}>
+        <Icon name='import' mi={4} size='x20' />
         Import
       </Box>
     </SidebarItem>
     <SidebarItem clickable>
-      <Box display='flex' justifyContent='center' pb='x8'>
-        <Icon name='user' mi='x4' size='x20' />
+      <Box display='flex' justifyContent='center' pb={8}>
+        <Icon name='user' mi={4} size='x20' />
         Users
       </Box>
     </SidebarItem>
     <SidebarItem clickable>
-      <Box display='flex' justifyContent='center' pb='x8'>
-        <Icon name='hashtag' mi='x4' size='x20' />
+      <Box display='flex' justifyContent='center' pb={8}>
+        <Icon name='hashtag' mi={4} size='x20' />
         Rooms
       </Box>
     </SidebarItem>
     <SidebarItem clickable>
-      <Box display='flex' justifyContent='center' pb='x8'>
-        <Icon name='cube' mi='x4' size='x20' />
+      <Box display='flex' justifyContent='center' pb={8}>
+        <Icon name='cube' mi={4} size='x20' />
         Apps
       </Box>
     </SidebarItem>
@@ -432,7 +432,7 @@ export const WithBanner: ComponentStory<typeof Sidebar> = () => (
 export const CustomBannerContent: ComponentStory<typeof SidebarBanner> = () => (
   <SidebarBanner>
     <Box display='flex' justifyContent='space-between'>
-      <Icon name='modal-warning' size='x20' mi='x8' />
+      <Icon name='modal-warning' size='x20' mi={8} />
       <div>This is a customized banner content</div>
     </Box>
   </SidebarBanner>

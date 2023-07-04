@@ -11,7 +11,7 @@ export function PropsVariationSection({
   return (
     <Box
       is='table'
-      marginBlock='x16'
+      marginBlock={16}
       marginInline='auto'
       style={{ borderCollapse: 'collapse' }}
     >
@@ -36,8 +36,8 @@ export function PropsVariationSection({
                 key={x}
                 is='td'
                 margin='none'
-                paddingBlock='x8'
-                paddingInline='x16'
+                paddingBlock={8}
+                paddingInline={16}
               >
                 <Box display='flex' alignItems='center' justifyContent='center'>
                   <Component {...common} {...xProps} {...yProps} />
@@ -112,7 +112,7 @@ export const menuOptions = {
   makeAdmin: {
     label: (
       <Box display='flex' alignItems='center'>
-        <Icon mie='x4' name='key' size='x16' />
+        <Icon mie={4} name='key' size='x16' />
         Make Admin
       </Box>
     ),
@@ -121,7 +121,7 @@ export const menuOptions = {
   delete: {
     label: (
       <Box display='flex' alignItems='center' color='danger'>
-        <Icon mie='x4' name='trash' size='x16' />
+        <Icon mie={4} name='trash' size='x16' />
         Delete
       </Box>
     ),

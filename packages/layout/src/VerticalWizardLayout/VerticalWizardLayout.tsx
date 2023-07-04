@@ -15,7 +15,7 @@ export const VerticalWizardLayoutTitle = ({
   <Box
     fontWeight={500}
     width='100%'
-    mbe='x18'
+    mbe={18}
     fontSize='x42'
     lineHeight='x62'
     fontFamily='sans'
@@ -44,7 +44,7 @@ export const VerticalWizardLayoutFooter = ({
     fontScale='p2'
     flexDirection='column'
     justifyContent='flex-end'
-    pb='x32'
+    pb={32}
   >
     {children}
   </Box>
@@ -70,7 +70,7 @@ export const VerticalWizardLayout = ({
           pb={32}
           pi={16}
         >
-          <Box mb='x12'>
+          <Box mb={12}>
             <LayoutLogo />
           </Box>
           {children}

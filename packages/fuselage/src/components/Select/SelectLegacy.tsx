@@ -193,7 +193,7 @@ export const SelectLegacy = forwardRef(
               <Box
                 flexGrow={1}
                 is='span'
-                mi='x4'
+                mi={4}
                 rcx-select__item
                 fontScale='p2'
                 color={valueLabel ? 'default' : 'hint'}
