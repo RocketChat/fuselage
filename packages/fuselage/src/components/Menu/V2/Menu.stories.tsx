@@ -25,14 +25,11 @@ export default {
   decorators: [
     (story) => (
       <Box
-        position='relative'
         minHeight={50}
         height='full'
         minWidth={100}
         maxWidth={250}
         width={'full'}
-        display='flex'
-        alignItems='center'
       >
         {story()}
       </Box>
@@ -48,12 +45,11 @@ export default {
         component: 'Kebab Menu. Use `<MenuItem>` to render the menu items.',
       },
     },
-    layout: 'centered',
   },
 } as MenuStories;
 
 export const Simple: ComponentStory<typeof Menu> = (args) => (
-  <Menu {...args}>
+  <Menu {...args} placement='right-start'>
     <MenuItem key='1'>Profile</MenuItem>
     <MenuItem key='2'>Chats</MenuItem>
     <MenuItem key='3'>Settings</MenuItem>
@@ -116,7 +112,7 @@ export const MenuDisplayExample: ComponentStory<typeof Menu> = (args) => {
   const [groupByTypes, setGroupByTypes] = useState(false);
 
   return (
-    <Menu selectionMode='multiple' {...args}>
+    <Menu selectionMode='multiple' placement='top-start' {...args}>
       <MenuSection title='Display'>
         <MenuItem key='extended'>
           <MenuItemIcon name='extended-view' />
@@ -250,15 +246,16 @@ type Item = {
   name: string;
   icon: ComponentProps<typeof MenuItemIcon>['name'];
   input: ReactNode;
+  description?: string;
 };
-const GenericMenuItem = ({ item }: { item: Item }) => (
+const GenericMenuItem = ({ item: { icon, name, input } }: { item: Item }) => (
   <>
-    {item.icon && <MenuItemIcon name={item.icon} />}
-    <MenuItemContent>{item.name}</MenuItemContent>
-    {item.input && <MenuItemInput>{item.input}</MenuItemInput>}
+    {icon && <MenuItemIcon name={icon} />}
+    <MenuItemContent>{name}</MenuItemContent>
+    {input && <MenuItemInput>{input}</MenuItemInput>}
   </>
 );
-export const MenuFunctionChildren = () => {
+export const MenuMapGenericItem = () => {
   const [sortBy, setSortBy] = useState('name');
 
   const [groupByUnread, setGroupByUnread] = useState(false);
@@ -280,6 +277,8 @@ export const MenuFunctionChildren = () => {
     {
       name: 'favorites',
       icon: 'star',
+      description:
+        'Group by favorites and unread bla bla balaisudhf ioioasdhoaisdf asdifh oaisdhf aosidhf aisdhf aosdihf',
       input: (
         <CheckBox
           mi='x16'
@@ -363,3 +362,15 @@ export const AsSidebarTopbarActions = () => (
     </Menu>
   </Sidebar.TopBar.Actions>
 );
+
+export const ControlledOpenState = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <Menu isOpen={isOpen} onOpenChange={setIsOpen}>
+      <MenuItem key='1'>Profile</MenuItem>
+      <MenuItem key='2'>Chats</MenuItem>
+      <MenuItem key='3'>Settings</MenuItem>
+    </Menu>
+  );
+};

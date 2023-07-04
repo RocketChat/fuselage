@@ -49,12 +49,6 @@ export const SelectAria = function SelectAria<T extends object>({
 
   return (
     <>
-      <HiddenSelect
-        state={state}
-        triggerRef={ref}
-        label={props.label}
-        name={props.name}
-      />
       <Box
         disabled={disabled}
         rcx-select
@@ -73,6 +67,12 @@ export const SelectAria = function SelectAria<T extends object>({
           .filter(Boolean)
           .join(' ')}
       >
+        <HiddenSelect
+          state={state}
+          triggerRef={ref}
+          label={props.label}
+          name={props.name}
+        />
         <Box
           is='span'
           {...valueProps}

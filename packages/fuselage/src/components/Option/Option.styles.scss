@@ -45,6 +45,10 @@ $variants: (
     align-items: center;
 
     margin-inline: lengths.margin(-2);
+
+    &--align-top {
+      align-items: flex-start !important;
+    }
   }
 
   &__icon {
@@ -112,6 +116,17 @@ $variants: (
     @include typography.use-font-scale(p2);
     @extend %column;
     display: inline;
+
+    color: colors.font(secondary-info);
+  }
+
+  &__description-block {
+    @include typography.use-font-scale(p2);
+
+    padding: lengths.margin(4);
+
+    white-space: normal;
+    word-break: break-word;
 
     color: colors.font(secondary-info);
   }
