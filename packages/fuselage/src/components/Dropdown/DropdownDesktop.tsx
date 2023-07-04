@@ -12,6 +12,7 @@ export const DropdownDesktop = forwardRef(function DropdownDesktop<
     ...props
   }: {
     children: ReactNode;
+    maxWidth?: string;
     style?: CSSProperties;
   },
   ref: Ref<R>

@@ -45,7 +45,6 @@ export default {
         component: 'Kebab Menu. Use `<MenuItem>` to render the menu items.',
       },
     },
-    layout: 'centered',
   },
 } as MenuStories;
 
@@ -247,15 +246,16 @@ type Item = {
   name: string;
   icon: ComponentProps<typeof MenuItemIcon>['name'];
   input: ReactNode;
+  description?: string;
 };
-const GenericMenuItem = ({ item }: { item: Item }) => (
+const GenericMenuItem = ({ item: { icon, name, input } }: { item: Item }) => (
   <>
-    {item.icon && <MenuItemIcon name={item.icon} />}
-    <MenuItemContent>{item.name}</MenuItemContent>
-    {item.input && <MenuItemInput>{item.input}</MenuItemInput>}
+    {icon && <MenuItemIcon name={icon} />}
+    <MenuItemContent>{name}</MenuItemContent>
+    {input && <MenuItemInput>{input}</MenuItemInput>}
   </>
 );
-export const MenuFunctionChildren = () => {
+export const MenuMapGenericItem = () => {
   const [sortBy, setSortBy] = useState('name');
 
   const [groupByUnread, setGroupByUnread] = useState(false);
@@ -277,6 +277,8 @@ export const MenuFunctionChildren = () => {
     {
       name: 'favorites',
       icon: 'star',
+      description:
+        'Group by favorites and unread bla bla balaisudhf ioioasdhoaisdf asdifh oaisdhf aosidhf aisdhf aosdihf',
       input: (
         <CheckBox
           mi='x16'
