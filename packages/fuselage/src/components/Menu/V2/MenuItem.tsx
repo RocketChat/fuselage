@@ -8,7 +8,7 @@ import MenuOption from './MenuOption';
 import type { Node } from './types';
 
 type MenuItemProps = {
-  item: Node<{ description?: ReactNode }>;
+  item: Node<{ description?: ReactNode; header?: ReactNode }>;
   state: TreeState<unknown>;
 };
 
@@ -19,6 +19,14 @@ function MenuItem({ item, state }: MenuItemProps) {
     state,
     ref
   );
+
+  if (item.value.header) {
+    return (
+      <label ref={ref} {...menuItemProps} className=''>
+        {item.rendered}
+      </label>
+    );
+  }
 
   return (
     <MenuOption

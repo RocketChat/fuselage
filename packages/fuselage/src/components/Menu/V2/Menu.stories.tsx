@@ -11,10 +11,13 @@ import {
   MenuItemInput,
   MenuItemSkeleton,
 } from '.';
+import { Avatar } from '../../Avatar';
 import Box from '../../Box/Box';
 import { CheckBox } from '../../CheckBox';
+import Margins from '../../Margins';
 import { RadioButton } from '../../RadioButton';
 import Sidebar from '../../Sidebar';
+import { StatusBullet } from '../../StatusBullet';
 import { ToggleSwitch } from '../../ToggleSwitch';
 
 type MenuStories = ComponentMeta<typeof Menu>;
@@ -243,13 +246,20 @@ export const MenuLoadingItem = () => (
 );
 
 type Item = {
-  name: string;
-  icon: ComponentProps<typeof MenuItemIcon>['name'];
-  input: ReactNode;
+  id?: string;
+  name?: string;
+  icon?: ComponentProps<typeof MenuItemIcon>['name'];
+  input?: ReactNode;
   description?: string;
+  header?: ReactNode;
 };
-const GenericMenuItem = ({ item: { icon, name, input } }: { item: Item }) => (
+const GenericMenuItem = ({
+  item: { icon, name, input, header },
+}: {
+  item: Item;
+}) => (
   <>
+    {header && <Box>{header}</Box>}
     {icon && <MenuItemIcon name={icon} />}
     <MenuItemContent>{name}</MenuItemContent>
     {input && <MenuItemInput>{input}</MenuItemInput>}
@@ -371,6 +381,97 @@ export const ControlledOpenState = () => {
       <MenuItem key='1'>Profile</MenuItem>
       <MenuItem key='2'>Chats</MenuItem>
       <MenuItem key='3'>Settings</MenuItem>
+    </Menu>
+  );
+};
+
+const userUrl =
+  'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAoACgDASIAAhEBAxEB/8QAGwAAAgIDAQAAAAAAAAAAAAAAAAcEBgIDBQj/xAAuEAACAQQAAwcEAQUAAAAAAAABAgMABAUREiExBhMUIkFRYQcWcYGhFTJSgpH/xAAYAQADAQEAAAAAAAAAAAAAAAACAwQBAP/EAB4RAAIBBQEBAQAAAAAAAAAAAAABAgMREiExE0HR/9oADAMBAAIRAxEAPwBuXuIkhBuMe5ib/AHQP49q4L3mLitryTLTSpOiHQI5k/HzXa/qbFOEudVTu1dumWvcTaNCZYZ7vU6g6LxqjOU/24dfs1Ouh9FnkMpd3Reeyx83hAxZZEhkdV9/MBrX71WGPvJcqrJBGveKATtuXXqNU0pu02bTHXD/AGvJAluyxxRd6F4x00o+NdKoVrjbzJdvVe1t5cVLc2ck8qjnohgpPtz2v7G6JtPQ2VJwjlcw+37mchpnK6GtIuv5NFWeTsLNPvxWTvpfjvOEfwKKzEVkSct2vscS/BIzSN0YRkeX81UpPqO8masJETu7OOccY4dswYFQeftv096XV5knuJGdm2T1+agvMXj8jEaHX905QihabvcbuS7X566mLWLwSY8PuRnk/u4eZ0deTl71Ef6hY+0yM88TzeNZY4luYwpVYyduOfrvhPTnr0pXSX9y5mCsyJMdyxxvwq599em+taItqCSNc90ChvZRUruUcT0JiO18Elpk7t8v41LWzacxkBSuvjQ/FFJayjDWrCTepAQ2vUH0oo/Jk3ovpwJJeVCP5CN+lFFaaMqy+nAyuChvrTI2kN9JAsi2ZOy4IBHMnkSCP+iqBexSWdxLazoUljJVlPUH2oorkV10pRc7b1zXb/hZOzuJvM86QWEXeELxOzHSIPcmiiiunVlF2RNTpRkrs//Z';
+
+const UserStatusHeader = () => (
+  <Box
+    display='flex'
+    flexDirection='row'
+    alignItems='center'
+    minWidth='x200'
+    mi='x12'
+  >
+    <Box mie='x4'>
+      <Avatar aria-hidden size='x36' url={userUrl} />
+    </Box>
+    <Box
+      mis='x4'
+      display='flex'
+      overflow='hidden'
+      flexDirection='column'
+      fontScale='p2'
+      mb='neg-x4'
+      flexGrow={1}
+      flexShrink={1}
+    >
+      <Box
+        withTruncatedText
+        w='full'
+        display='flex'
+        alignItems='center'
+        flexDirection='row'
+      >
+        <Margins inline='x4'>
+          <StatusBullet status='online' title='Online' />
+          <Box
+            is='span'
+            withTruncatedText
+            display='inline-block'
+            fontWeight='h1'
+          >
+            Fulano
+          </Box>
+        </Margins>
+      </Box>
+      <Box color='hint'>Online</Box>
+    </Box>
+  </Box>
+);
+export const Header = () => {
+  const header: Item[] = [
+    {
+      id: 'header',
+      header: <UserStatusHeader />,
+    },
+  ];
+
+  const items = [
+    {
+      id: 'light',
+      icon: 'sun',
+      name: 'Light',
+      input: <RadioButton />,
+    },
+    {
+      id: 'dark',
+      icon: 'moon',
+      name: 'Dark',
+      input: <RadioButton />,
+    },
+  ];
+
+  return (
+    <Menu selectionMode='multiple'>
+      <MenuSection items={header}>
+        {(item) => (
+          <MenuItem key={item.id}>
+            <Box>{item.header}</Box>
+            {/* <GenericMenuItem item={item} /> */}
+          </MenuItem>
+        )}
+      </MenuSection>
+      <MenuSection items={items}>
+        {(item) => (
+          <MenuItem key={item.id}>
+            <GenericMenuItem item={item} />
+          </MenuItem>
+        )}
+      </MenuSection>
     </Menu>
   );
 };
