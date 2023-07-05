@@ -1,4 +1,5 @@
 import type { ActionableElement } from '../blocks/ActionableElement';
+import type { Option } from '../blocks/Option';
 import type { ButtonElement } from '../blocks/elements/ButtonElement';
 import type { ChannelsSelectElement } from '../blocks/elements/ChannelsSelectElement';
 import type { CheckboxElement } from '../blocks/elements/CheckboxElement';
@@ -45,11 +46,11 @@ export type ActionOf<TElement extends ActionableElement> =
     : TElement extends UsersSelectElement
     ? unknown
     : TElement extends ToggleSwitchElement
-    ? unknown
+    ? Option['value'][]
     : TElement extends RadioButtonElement
-    ? unknown
+    ? Option['value'][]
     : TElement extends CheckboxElement
-    ? unknown
+    ? Option['value'][]
     : TElement extends TimePickerElement
     ? TimePickerElement['initialTime']
     : never;

@@ -1,15 +1,11 @@
 import type { BlockElement } from '../blocks/BlockElement';
 import type { RenderableLayoutBlock } from '../blocks/RenderableLayoutBlock';
 import type { TextObject } from '../blocks/TextObject';
-import type { CheckboxElement } from '../blocks/elements/CheckboxElement';
 import type { DatePickerElement } from '../blocks/elements/DatePickerElement';
 import type { LinearScaleElement } from '../blocks/elements/LinearScaleElement';
 import type { MultiStaticSelectElement } from '../blocks/elements/MultiStaticSelectElement';
 import type { PlainTextInputElement } from '../blocks/elements/PlainTextInputElement';
-import type { RadioButtonElement } from '../blocks/elements/RadioButtonElement';
 import type { StaticSelectElement } from '../blocks/elements/StaticSelectElement';
-import type { TimePickerElement } from '../blocks/elements/TimePickerElement';
-import type { ToggleSwitchElement } from '../blocks/elements/ToggleSwitchElement';
 import type { PlainText } from '../blocks/text/PlainText';
 import type { BlockElementRenderer } from './BlockElementRenderer';
 import type { LayoutBlockRenderer } from './LayoutBlockRenderer';
@@ -42,16 +38,4 @@ export type BlockRenderers<T> = {
 
   /** @deprecated */
   linearScale?: BlockElementRenderer<T, LinearScaleElement>;
-
-  /** @deprecated */
-  toggleSwitch?: BlockElementRenderer<T, ToggleSwitchElement>;
-
-  /** @deprecated */
-  radioButton?: BlockElementRenderer<T, RadioButtonElement>;
-
-  /** @deprecated */
-  checkbox?: BlockElementRenderer<T, CheckboxElement>;
-
-  /** @deprecated */
-  timePicker?: BlockElementRenderer<T, TimePickerElement>;
 };

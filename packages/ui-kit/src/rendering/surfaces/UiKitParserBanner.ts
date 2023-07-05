@@ -21,15 +21,7 @@ export abstract class UiKitParserBanner<T> extends SurfaceRenderer<
   BannerSurfaceLayoutBlock
 > {
   public constructor() {
-    super([
-      'actions',
-      'context',
-      'divider',
-      'image',
-      'input',
-      'section',
-      'callout',
-    ]);
+    super(['actions', 'context', 'divider', 'image', 'input', 'section']);
   }
 }
 

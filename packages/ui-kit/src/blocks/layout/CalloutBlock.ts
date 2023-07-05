@@ -5,7 +5,7 @@ import type { TextObject } from '../TextObject';
 
 export type CalloutBlock = LayoutBlockish<{
   type: 'callout';
-  title: TextObject;
+  title?: TextObject;
   icon?: Keys;
   text: TextObject;
   variant?: 'info' | 'danger' | 'warning' | 'success';

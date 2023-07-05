@@ -4,5 +4,5 @@ import type { Option } from '../Option';
 export type CheckboxElement = Actionable<{
   type: 'checkbox';
   options: Option[];
-  initialOptions: Option[];
+  initialOptions?: Option[];
 }>;
