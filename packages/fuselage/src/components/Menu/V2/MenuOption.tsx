@@ -7,26 +7,17 @@ import type {
 } from 'react';
 import React, { forwardRef, memo } from 'react';
 
-import type { Icon } from '../..';
-import { OptionColumn } from '../..';
-import { prevent } from '../../helpers/prevent';
-import type Box from '../Box';
-import OptionAvatar from './OptionAvatar';
-import OptionContent from './OptionContent';
-import OptionIcon from './OptionIcon';
+import { prevent } from '../../../helpers/prevent';
+import type Box from '../../Box/Box';
 
 type OptionProps = {
   is?: ComponentProps<typeof Box>['is'];
   id?: string;
   children?: ReactNode;
-  label?: ReactNode;
   focus?: boolean;
   selected?: boolean;
   className?: ComponentProps<typeof Box>['className'];
   ref?: Ref<Element>;
-  icon?: ComponentProps<typeof Icon>['name'];
-  gap?: boolean;
-  avatar?: ReactNode;
   title?: string;
   disabled?: boolean;
   value?: string;
@@ -35,25 +26,20 @@ type OptionProps = {
   description?: ReactNode;
 } & Omit<AllHTMLAttributes<HTMLElement>, 'label'>;
 
-const Option = memo(
+const MenuOption = memo(
   forwardRef(
     (
       {
         is: Tag = 'li',
         id,
         children,
-        label,
         focus,
         selected,
         className,
-        icon,
-        gap,
-        avatar,
         title,
         disabled,
         variant,
         onClick,
-        description,
         ...props
       }: OptionProps,
       ref
@@ -84,23 +70,10 @@ const Option = memo(
           .filter(Boolean)
           .join(' ')}
       >
-        <div
-          className={[
-            'rcx-option__wrapper',
-            !!description && 'rcx-option__wrapper--align-top',
-          ]
-            .filter(Boolean)
-            .join(' ')}
-        >
-          {avatar && <OptionAvatar>{avatar}</OptionAvatar>}
-          {icon && <OptionIcon name={icon} />}
-          {gap && <OptionColumn />}
-          {label && <OptionContent>{label}</OptionContent>}
-          {label !== children && children}
-        </div>
+        {children}
       </Tag>
     )
   )
 );
 
-export default Option;
+export default MenuOption;

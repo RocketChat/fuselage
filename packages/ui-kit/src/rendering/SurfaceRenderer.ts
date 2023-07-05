@@ -25,20 +25,23 @@ import { renderTextObject } from './renderTextObject';
 import { resolveConditionalBlocks } from './resolveConditionalBlocks';
 
 export abstract class SurfaceRenderer<
-  T,
-  B extends RenderableLayoutBlock = RenderableLayoutBlock
-> implements BlockRenderers<T>
+  TOutputObject,
+  TAllowedLayoutBlock extends RenderableLayoutBlock = RenderableLayoutBlock
+> implements BlockRenderers<TOutputObject>
 {
-  protected readonly allowedLayoutBlockTypes: Set<B['type']>;
+  protected readonly allowedLayoutBlockTypes: Set<TAllowedLayoutBlock['type']>;
 
-  public constructor(allowedLayoutBlockTypes: B['type'][]) {
+  public constructor(allowedLayoutBlockTypes: TAllowedLayoutBlock['type'][]) {
     this.allowedLayoutBlockTypes = new Set(allowedLayoutBlockTypes);
   }
 
-  private isAllowedLayoutBlock = (block: Block): block is B =>
-    this.allowedLayoutBlockTypes.has(block.type as B['type']);
+  private isAllowedLayoutBlock = (block: Block): block is TAllowedLayoutBlock =>
+    this.allowedLayoutBlockTypes.has(block.type as TAllowedLayoutBlock['type']);
 
-  public render(blocks: readonly Block[], conditions?: Conditions): T[] {
+  public render(
+    blocks: readonly Block[],
+    conditions?: Conditions
+  ): TOutputObject[] {
     if (!Array.isArray(blocks)) {
       return [];
     }
@@ -54,14 +57,14 @@ export abstract class SurfaceRenderer<
     textObject: TextObject,
     index: number,
     context: BlockContext
-  ): T | null {
+  ): TOutputObject | null {
     return renderTextObject(this, context)(textObject, index);
   }
 
   public renderActionsBlockElement(
     block: BlockElement,
     index: number
-  ): T | null {
+  ): TOutputObject | null {
     if (
       this.allowedLayoutBlockTypes.has(LayoutBlockType.ACTIONS) === false &&
       !isActionsBlockElement(block)
@@ -78,14 +81,14 @@ export abstract class SurfaceRenderer<
     _context: BlockContext,
     _: undefined,
     index: number
-  ): T | null {
+  ): TOutputObject | null {
     return this.renderActionsBlockElement(element, index);
   }
 
   public renderContextBlockElement(
     block: TextObject | BlockElement,
     index: number
-  ): T | null {
+  ): TOutputObject | null {
     if (
       this.allowedLayoutBlockTypes.has(LayoutBlockType.CONTEXT) === false &&
       !isContextBlockElement(block)
@@ -106,11 +109,14 @@ export abstract class SurfaceRenderer<
     _context: BlockContext,
     _: undefined,
     index: number
-  ): T | null {
+  ): TOutputObject | null {
     return this.renderContextBlockElement(element, index);
   }
 
-  public renderInputBlockElement(block: BlockElement, index: number): T | null {
+  public renderInputBlockElement(
+    block: BlockElement,
+    index: number
+  ): TOutputObject | null {
     if (
       this.allowedLayoutBlockTypes.has(LayoutBlockType.INPUT) === false &&
       !isInputBlockElement(block)
@@ -127,14 +133,14 @@ export abstract class SurfaceRenderer<
     _context: BlockContext,
     _: undefined,
     index: number
-  ): T | null {
+  ): TOutputObject | null {
     return this.renderInputBlockElement(element, index);
   }
 
   public renderSectionAccessoryBlockElement(
     block: BlockElement,
     index: number
-  ): T | null {
+  ): TOutputObject | null {
     if (
       this.allowedLayoutBlockTypes.has(LayoutBlockType.SECTION) === false &&
       !isSectionBlockAccessoryElement(block)
@@ -151,7 +157,7 @@ export abstract class SurfaceRenderer<
     _context: BlockContext,
     _: undefined,
     index: number
-  ): T | null {
+  ): TOutputObject | null {
     return this.renderSectionAccessoryBlockElement(element, index);
   }
 
@@ -160,7 +166,7 @@ export abstract class SurfaceRenderer<
     element: PlainText,
     context: BlockContext = BlockContext.NONE,
     index = 0
-  ): T | null {
+  ): TOutputObject | null {
     return this[TextObjectType.PLAIN_TEXT](element, context, index);
   }
 
@@ -169,7 +175,7 @@ export abstract class SurfaceRenderer<
     textObject: TextObject,
     context: BlockContext = BlockContext.NONE,
     index = 0
-  ): T | null {
+  ): TOutputObject | null {
     switch (textObject.type) {
       case TextObjectType.PLAIN_TEXT:
         return this.plain_text(textObject, context, index);
@@ -186,11 +192,11 @@ export abstract class SurfaceRenderer<
     textObject: PlainText,
     context: BlockContext,
     index: number
-  ): T | null;
+  ): TOutputObject | null;
 
   public abstract mrkdwn(
     textObject: Markdown,
     context: BlockContext,
     index: number
-  ): T | null;
+  ): TOutputObject | null;
 }

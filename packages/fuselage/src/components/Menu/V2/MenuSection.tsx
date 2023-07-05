@@ -35,7 +35,7 @@ function MenuSection({ section, state }: MenuSectionProps) {
         )}
         <Box {...groupProps} p='0'>
           {[...section.childNodes].map((node) => (
-            <MenuItem key={node.key} item={node} state={state} />
+            <MenuItem key={node.key} item={node as any} state={state} />
           ))}
         </Box>
       </div>
