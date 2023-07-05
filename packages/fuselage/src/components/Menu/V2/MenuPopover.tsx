@@ -10,9 +10,16 @@ import { DropdownMobile } from '../../Dropdown/DropdownMobile';
 interface PopoverProps extends Omit<AriaPopoverProps, 'popoverRef'> {
   children: React.ReactNode;
   state: OverlayTriggerState;
+  maxWidth?: string;
 }
 
-function MenuPopover({ children, state, offset = 4, ...props }: PopoverProps) {
+function MenuPopover({
+  children,
+  state,
+  offset = 4,
+  maxWidth,
+  ...props
+}: PopoverProps) {
   const popoverRef = React.useRef(null);
   const { popoverProps } = usePopover(
     {
@@ -32,7 +39,12 @@ function MenuPopover({ children, state, offset = 4, ...props }: PopoverProps) {
   }
 
   return (
-    <DropdownDesktop children={children} ref={popoverRef} {...popoverProps} />
+    <DropdownDesktop
+      children={children}
+      ref={popoverRef}
+      maxWidth={maxWidth}
+      {...popoverProps}
+    />
   );
 }
 export default MenuPopover;

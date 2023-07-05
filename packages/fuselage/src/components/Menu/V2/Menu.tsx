@@ -24,6 +24,7 @@ interface MenuButtonProps<T> extends AriaMenuProps<T>, MenuTriggerProps {
   is?: ElementType;
   className?: string;
   pressed?: boolean;
+  maxWidth?: string;
 }
 const Menu = <T extends object>({
   icon = 'kebab',
@@ -32,6 +33,7 @@ const Menu = <T extends object>({
   is: MenuButton = IconButton,
   className,
   pressed,
+  maxWidth = 'x250',
   ...props
 }: MenuButtonProps<T>) => {
   const state = useMenuTriggerState(props);
@@ -57,6 +59,7 @@ const Menu = <T extends object>({
           state={state}
           triggerRef={ref}
           placement={getPlacement(placement)}
+          maxWidth={maxWidth}
         >
           <MenuDropDown {...props} {...menuProps} />
         </MenuPopover>
