@@ -6,6 +6,7 @@ import { useButton, useMenuTrigger } from 'react-aria';
 import type { MenuTriggerProps } from 'react-stately';
 import { useMenuTriggerState } from 'react-stately';
 
+import type Box from '../../Box/Box';
 import { IconButton } from '../../Button';
 import MenuDropDown from './MenuDropdown';
 import MenuPopover from './MenuPopover';
@@ -22,7 +23,7 @@ interface MenuButtonProps<T> extends AriaMenuProps<T>, MenuTriggerProps {
    * A component that renders an IconButton
    */
   is?: ElementType;
-  className?: string;
+  className?: ComponentProps<typeof Box>['className'];
   pressed?: boolean;
   maxWidth?: string;
 }
