@@ -48,7 +48,7 @@ export type ActionOf<TElement extends ActionableElement> =
     : TElement extends ToggleSwitchElement
     ? Option['value'][]
     : TElement extends RadioButtonElement
-    ? Option['value'][] | undefined
+    ? Option['value'] | undefined
     : TElement extends CheckboxElement
     ? Option['value'][] | undefined
     : TElement extends TimePickerElement
