@@ -1,4 +1,5 @@
 import type { ActionsBlock } from './layout/ActionsBlock';
+import type { CalloutBlock } from './layout/CalloutBlock';
 import type { ConditionalBlock } from './layout/ConditionalBlock';
 import type { ContextBlock } from './layout/ContextBlock';
 import type { DividerBlock } from './layout/DividerBlock';
@@ -20,4 +21,5 @@ export type LayoutBlock =
   | SectionBlock
   | VideoConferenceBlock
   | PreviewBlock
+  | CalloutBlock
   | TabNavigationBlock;

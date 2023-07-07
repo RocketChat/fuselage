@@ -43,6 +43,7 @@
     "@babel/preset-env": "~7.21.4",
     "@rocket.chat/eslint-config-alt": "workspace:~",
     "@rocket.chat/prettier-config": "workspace:~",
+    "@rocket.chat/icons": "workspace:~",
     "@types/jest": "~29.5.0",
     "babel-loader": "~9.1.2",
     "bump": "workspace:~",
@@ -59,5 +60,8 @@
     "typescript": "~5.0.4",
     "webpack": "~5.78.0",
     "webpack-cli": "~5.0.1"
+  },
+  "peerDependencies": {
+    "@rocket.chat/icons": "*"
   }
 }

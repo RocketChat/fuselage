@@ -1,4 +1,5 @@
 import type { ActionsBlock } from '../../blocks/layout/ActionsBlock';
+import type { CalloutBlock } from '../../blocks/layout/CalloutBlock';
 import type { ContextBlock } from '../../blocks/layout/ContextBlock';
 import type { DividerBlock } from '../../blocks/layout/DividerBlock';
 import type { ImageBlock } from '../../blocks/layout/ImageBlock';
@@ -14,7 +15,8 @@ type MessageSurfaceLayoutBlock =
   | ImageBlock
   | SectionBlock
   | VideoConferenceBlock
-  | PreviewBlock;
+  | PreviewBlock
+  | CalloutBlock;
 
 export abstract class UiKitParserMessage<OutputElement> extends SurfaceRenderer<
   OutputElement,
@@ -29,6 +31,7 @@ export abstract class UiKitParserMessage<OutputElement> extends SurfaceRenderer<
       'section',
       'preview',
       'video_conf',
+      'callout',
     ]);
   }
 }
