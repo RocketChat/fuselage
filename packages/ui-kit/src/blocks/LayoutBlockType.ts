@@ -9,6 +9,7 @@ export enum LayoutBlockType {
   INPUT = 'input',
   CONDITIONAL = 'conditional',
   PREVIEW = 'preview',
+  TAB_NAVIGATION = 'tab_navigation',
   VIDEO_CONF = 'video_conf',
 }
 

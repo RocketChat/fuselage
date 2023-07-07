@@ -34,6 +34,7 @@ export { InputBlock } from './blocks/layout/InputBlock';
 export { SectionBlock } from './blocks/layout/SectionBlock';
 export { VideoConferenceBlock } from './blocks/layout/VideoConferenceBlock';
 export { LayoutBlock } from './blocks/LayoutBlock';
+export { TabNavigationBlock } from './blocks/layout/TabNavigationBlock';
 
 export { InputElementDispatchAction } from './blocks/InputElementDispatchAction';
 
