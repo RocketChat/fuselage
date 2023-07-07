@@ -7,7 +7,7 @@
     "prettier": "*"
   },
   "dependencies": {
-    "stylelint": "~15.4.0",
+    "stylelint": "~15.10.1",
     "tools-utils": "workspace:~"
   },
   "version": "0.31.22"

@@ -125,7 +125,7 @@
     "sass": "~1.62.0",
     "sass-loader": "~13.2.2",
     "style-loader": "~3.3.2",
-    "stylelint": "~15.4.0",
+    "stylelint": "~15.10.1",
     "stylelint-order": "~6.0.3",
     "stylelint-prettier": "~3.0.0",
     "stylelint-scss": "~4.6.0",
