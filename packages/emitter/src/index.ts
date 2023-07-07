@@ -167,14 +167,14 @@ export class Emitter<EventMap extends DefaultEventMap = DefaultEventMap>
       this[once].delete(handler);
     }
 
-    if (handlers.length === 1) {
-      this[evts].delete(type);
-      return;
-    }
     handlers.splice(
       handlers.findIndex((callback) => callback === handler) >>> 0,
       1
     );
+
+    if (handlers.length === 0) {
+      this[evts].delete(type);
+    }
   }
 
   /**
