@@ -11,6 +11,7 @@ import {
   MenuItemInput,
 } from '.';
 import Box from '../../Box/Box';
+import { ButtonGroup } from '../../ButtonGroup';
 import { CheckBox } from '../../CheckBox';
 import { RadioButton } from '../../RadioButton';
 import Sidebar from '../../Sidebar';
@@ -402,4 +403,34 @@ export const ItemVariants = () => (
       )}
     </MenuSection>
   </Menu>
+);
+
+export const Sizes = () => (
+  <ButtonGroup>
+    <Menu large>
+      <MenuItem key='1'>Profile</MenuItem>
+      <MenuItem key='2'>Chats</MenuItem>
+      <MenuItem key='3'>Settings</MenuItem>
+    </Menu>
+    <Menu medium>
+      <MenuItem key='1'>Profile</MenuItem>
+      <MenuItem key='2'>Chats</MenuItem>
+      <MenuItem key='3'>Settings</MenuItem>
+    </Menu>
+    <Menu small>
+      <MenuItem key='1'>Profile</MenuItem>
+      <MenuItem key='2'>Chats</MenuItem>
+      <MenuItem key='3'>Settings</MenuItem>
+    </Menu>
+    <Menu tiny>
+      <MenuItem key='1'>Profile</MenuItem>
+      <MenuItem key='2'>Chats</MenuItem>
+      <MenuItem key='3'>Settings</MenuItem>
+    </Menu>
+    <Menu mini>
+      <MenuItem key='1'>Profile</MenuItem>
+      <MenuItem key='2'>Chats</MenuItem>
+      <MenuItem key='3'>Settings</MenuItem>
+    </Menu>
+  </ButtonGroup>
 );
