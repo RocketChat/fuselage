@@ -9,7 +9,6 @@ import {
   MenuItemContent,
   MenuItemIcon,
   MenuItemInput,
-  MenuItemSkeleton,
 } from '.';
 import Box from '../../Box/Box';
 import { CheckBox } from '../../CheckBox';
@@ -222,31 +221,12 @@ export const MenuDisplayExample: ComponentStory<typeof Menu> = (args) => {
   );
 };
 
-export const MenuLoadingItem = () => (
-  <Menu>
-    <MenuItem key='1'>
-      <Box w='x100'>
-        <MenuItemSkeleton />
-      </Box>
-    </MenuItem>
-    <MenuItem key='2'>
-      <Box w='x100'>
-        <MenuItemSkeleton />
-      </Box>
-    </MenuItem>
-    <MenuItem key='3'>
-      <Box w='x100'>
-        <MenuItemSkeleton />
-      </Box>
-    </MenuItem>
-  </Menu>
-);
-
 type Item = {
   name: string;
   icon: ComponentProps<typeof MenuItemIcon>['name'];
-  input: ReactNode;
+  input?: ReactNode;
   description?: string;
+  variant?: string;
 };
 const GenericMenuItem = ({ item: { icon, name, input } }: { item: Item }) => (
   <>
@@ -340,6 +320,17 @@ export const MenuMapGenericItem = () => {
           </MenuItem>
         )}
       </MenuSection>
+      <MenuSection
+        items={[
+          { id: 'delete', name: 'Delete', icon: 'trash', variant: 'danger' },
+        ]}
+      >
+        {(item) => (
+          <MenuItem key={item.id}>
+            <GenericMenuItem item={item as any} />
+          </MenuItem>
+        )}
+      </MenuSection>
     </Menu>
   );
 };
@@ -374,3 +365,41 @@ export const ControlledOpenState = () => {
     </Menu>
   );
 };
+
+export const ItemVariants = () => (
+  <Menu>
+    <MenuSection
+      items={[
+        {
+          id: 'default',
+          name: 'Default',
+          icon: 'info-circled',
+        },
+        {
+          id: 'success',
+          name: 'Success',
+          icon: 'circle-check',
+          variant: 'success',
+        },
+        {
+          id: 'warning',
+          name: 'Warning',
+          icon: 'modal-warning',
+          variant: 'warning',
+        },
+        {
+          id: 'danger',
+          name: 'Danger',
+          icon: 'circle-cross',
+          variant: 'danger',
+        },
+      ]}
+    >
+      {(item) => (
+        <MenuItem key={item.id}>
+          <GenericMenuItem item={item as any} />
+        </MenuItem>
+      )}
+    </MenuSection>
+  </Menu>
+);
