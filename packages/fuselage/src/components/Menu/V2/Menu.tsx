@@ -14,6 +14,8 @@ import { getPlacement } from './helpers/helpers';
 
 interface MenuButtonProps<T> extends AriaMenuProps<T>, MenuTriggerProps {
   icon?: ComponentProps<typeof IconButton>['icon'];
+  large?: boolean;
+  medium?: boolean;
   small?: boolean;
   tiny?: boolean;
   mini?: boolean;
@@ -44,6 +46,10 @@ const Menu = <T extends object>({
 
   const { buttonProps } = useButton(menuTriggerProps, ref);
 
+  const { large, medium, tiny, mini } = props;
+  const sizes = { large, medium, tiny, mini };
+  const defaultSmall = !large && !medium && !tiny && !mini;
+
   return (
     <>
       <MenuButton
@@ -53,7 +59,8 @@ const Menu = <T extends object>({
         className={className}
         title={title}
         pressed={pressed || state.isOpen}
-        small
+        small={defaultSmall}
+        {...sizes}
       />
       {state.isOpen && (
         <MenuPopover
