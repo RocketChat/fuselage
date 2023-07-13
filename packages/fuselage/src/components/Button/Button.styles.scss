@@ -82,6 +82,11 @@
 
   &--icon {
     @include button.kind-variant(colors.$icon);
+
+    @include on-pressed {
+      @include size.resize(0.975);
+    }
+
     padding: 0;
 
     line-height: 0;
