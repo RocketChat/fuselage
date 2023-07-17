@@ -118,22 +118,25 @@ export const AudioPlayer = forwardRef<
           icon={isPlaying ? 'pause-shape-filled' : 'play-shape-filled'}
         />
         <Margins inline='x8'>
-          <Box fontScale='p2' color='secondary-info' pie='x8'>
+          <Box fontScale='p2' color='secondary-info'>
             {isPlaying || currentTime > 0
               ? getMaskTime(currentTime)
               : getMaskTime(durationTime)}
           </Box>
-          <Slider
-            aria-label={audioPlaybackRangeLabel}
-            showOutput={false}
-            value={currentTime}
-            maxValue={durationTime}
-            onChange={(value) => {
-              if (audioRef.current) {
-                audioRef.current.currentTime = value;
-              }
-            }}
-          />
+          <Box mi='x16' w='full'>
+            <Slider
+              aria-label={audioPlaybackRangeLabel}
+              showOutput={false}
+              value={currentTime}
+              maxValue={durationTime}
+              onChange={(value) => {
+                if (audioRef.current) {
+                  audioRef.current.currentTime = value;
+                }
+              }}
+            />
+          </Box>
+
           <Button
             secondary
             small
