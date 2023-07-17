@@ -95,29 +95,20 @@ export const IconButton = forwardRef(
         (tiny && 'tiny') ||
         (small && 'small') ||
         (medium && 'medium') ||
-        (large && 'large'),
+        (large && 'large') ||
+        'large',
       [medium, mini, small, tiny, large]
     );
 
     const getSizeClass = () => ({ [`rcx-button--${size}-square`]: true });
 
-    const getIconSize = () => {
-      if (mini) {
-        return 'x16';
-      }
-      if (small || tiny) {
-        return 'x18';
-      }
-      if (medium) {
-        return 'x20';
-      }
-
-      if (large) {
-        return 'x32';
-      }
-
-      return 'x24';
-    };
+    const getIconSize = () =>
+      (large && 'x28') ||
+      (medium && 'x24') ||
+      (small && 'x20') ||
+      (tiny && 'x16') ||
+      (mini && 'x12') ||
+      'x28';
 
     return (
       <Box

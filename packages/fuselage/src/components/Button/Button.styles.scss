@@ -56,13 +56,23 @@
     );
   }
 
-  &--large {
-    @include typography.use-font-scale(p1);
+  &--medium {
+    @include typography.use-font-scale(c2);
 
     @include with-rectangular-size(
-      $height: 48px,
+      $height: 32px,
+      $padding-x: 14px,
+      $line-height: typography.line-height(c1)
+    );
+  }
+
+  &--large {
+    @include typography.use-font-scale(p2);
+
+    @include with-rectangular-size(
+      $height: 40px,
       $padding-x: 24px,
-      $line-height: typography.line-height(p1)
+      $line-height: typography.line-height(p2)
     );
   }
 
@@ -134,7 +144,7 @@
   }
 
   &--large-square {
-    @include with-squared-size($size: 48px);
+    @include with-squared-size($size: 40px);
   }
 
   &--primary {
