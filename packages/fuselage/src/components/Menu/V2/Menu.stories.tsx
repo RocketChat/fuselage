@@ -1,6 +1,6 @@
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import type { ComponentProps, ReactNode } from 'react';
-import React, { useState } from 'react';
+import type { ComponentProps, ReactNode, Ref } from 'react';
+import React, { forwardRef, useState } from 'react';
 
 import {
   MenuV2 as Menu,
@@ -11,6 +11,7 @@ import {
   MenuItemInput,
 } from '.';
 import Box from '../../Box/Box';
+import { IconButton } from '../../Button';
 import { ButtonGroup } from '../../ButtonGroup';
 import { CheckBox } from '../../CheckBox';
 import { RadioButton } from '../../RadioButton';
@@ -428,6 +429,28 @@ export const Sizes = () => (
       <MenuItem key='3'>Settings</MenuItem>
     </Menu>
     <Menu mini>
+      <MenuItem key='1'>Profile</MenuItem>
+      <MenuItem key='2'>Chats</MenuItem>
+      <MenuItem key='3'>Settings</MenuItem>
+    </Menu>
+  </ButtonGroup>
+);
+
+const CustomButton = forwardRef((props, ref: Ref<HTMLElement>) => (
+  <IconButton ref={ref} {...props} icon='kebab' secondary small={false} />
+));
+
+export const WithCustomButton = () => (
+  <ButtonGroup>
+    <Menu
+      title='using prop customButton'
+      customButton={<IconButton icon='kebab' secondary />}
+    >
+      <MenuItem key='1'>Profile</MenuItem>
+      <MenuItem key='2'>Chats</MenuItem>
+      <MenuItem key='3'>Settings</MenuItem>
+    </Menu>
+    <Menu title='using prop is' is={CustomButton}>
       <MenuItem key='1'>Profile</MenuItem>
       <MenuItem key='2'>Chats</MenuItem>
       <MenuItem key='3'>Settings</MenuItem>
