@@ -444,7 +444,7 @@ export const WithCustomButton = () => (
   <ButtonGroup>
     <Menu
       title='using prop customButton'
-      customButton={<IconButton icon='kebab' secondary />}
+      button={<IconButton icon='kebab' secondary />}
     >
       <MenuItem key='1'>Profile</MenuItem>
       <MenuItem key='2'>Chats</MenuItem>

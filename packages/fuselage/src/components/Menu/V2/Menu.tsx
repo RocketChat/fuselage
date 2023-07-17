@@ -28,7 +28,7 @@ interface MenuButtonProps<T> extends AriaMenuProps<T>, MenuTriggerProps {
   className?: ComponentProps<typeof Box>['className'];
   pressed?: boolean;
   maxWidth?: string;
-  customButton?: React.ReactElement;
+  button?: React.ReactElement;
 }
 const Menu = <T extends object>({
   icon = 'kebab',
@@ -38,7 +38,7 @@ const Menu = <T extends object>({
   className,
   pressed,
   maxWidth = 'x250',
-  customButton,
+  button,
   ...props
 }: MenuButtonProps<T>) => {
   const state = useMenuTriggerState(props);
@@ -57,8 +57,8 @@ const Menu = <T extends object>({
 
   return (
     <>
-      {customButton ? (
-        cloneElement(customButton, {
+      {button ? (
+        cloneElement(button, {
           ...buttonProps,
           ref,
           icon,
