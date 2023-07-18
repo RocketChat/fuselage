@@ -2,6 +2,8 @@
 @use '../../styles/typography.scss';
 @use '../../styles/variables/buttons.scss' as colors;
 @use '../../styles/primitives/button.scss';
+@use '../../styles/mixins/size.scss';
+@import '../../styles/mixins/states.scss';
 
 .rcx-button {
   @mixin with-rectangular-size($height, $padding-x, $line-height) {
@@ -10,6 +12,10 @@
       calc(#{$padding-x} - 2px);
     padding-block: calc((#{$height} - #{$line-height}) / 2 - 2px);
     padding-inline: calc(#{$padding-x} - 2px);
+
+    @include on-active {
+      @include size.resize(0.975);
+    }
   }
 
   @mixin with-squared-size($size) {
@@ -86,6 +92,11 @@
 
   &--icon {
     @include button.kind-variant(colors.$icon);
+
+    @include on-pressed {
+      @include size.resize(0.975);
+    }
+
     padding: 0;
 
     line-height: 0;
