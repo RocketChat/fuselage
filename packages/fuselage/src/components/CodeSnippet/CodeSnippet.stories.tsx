@@ -57,6 +57,6 @@ CustomButtonName.args = {
 
 export const LoadingCode = Template.bind({});
 LoadingCode.args = {
-  children: '',
+  isLoading: true,
   onClick: action('click'),
 };
