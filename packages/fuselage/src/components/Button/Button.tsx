@@ -2,6 +2,7 @@ import type { ComponentProps, Ref } from 'react';
 import React, { forwardRef, useMemo } from 'react';
 
 import Box from '../Box';
+import { Icon } from '../Icon';
 
 export type ButtonProps = ComponentProps<typeof Box> & {
   primary?: boolean;
@@ -17,6 +18,7 @@ export type ButtonProps = ComponentProps<typeof Box> & {
   large?: boolean;
   square?: boolean;
   external?: boolean;
+  icon?: ComponentProps<typeof Icon>['name'];
 };
 
 export const Button = forwardRef(function Button(
@@ -27,6 +29,7 @@ export const Button = forwardRef(function Button(
     warning,
     success,
     external,
+    icon,
     is = 'button',
     rel: _rel,
     tiny,
@@ -35,6 +38,7 @@ export const Button = forwardRef(function Button(
     medium,
     large,
     square,
+    children,
     ...props
   }: ButtonProps,
   ref: Ref<HTMLElement>
@@ -88,7 +92,10 @@ export const Button = forwardRef(function Button(
       ref={ref}
       {...extraProps}
       {...props}
-    />
+    >
+      {icon && <Icon size='x16' name={icon} mie='x4' />}
+      {children}
+    </Box>
   );
 });
 
