@@ -16,5 +16,5 @@ export function Tabs({ children, divider = true, ...props }: TabsProps) {
   );
 }
 
-/** @deprecated dropping dot notation */
+/** @deprecated use named export TabsItem instead */
 Tabs.Item = TabsItem;
