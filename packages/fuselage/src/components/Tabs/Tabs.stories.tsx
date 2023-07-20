@@ -60,3 +60,5 @@ NoUnderline.args = {
   selected: true,
   divider: false,
 };
+
+Tabs.Item.displayName = 'Tabs.Item';
