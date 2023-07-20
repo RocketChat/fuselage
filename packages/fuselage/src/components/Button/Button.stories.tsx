@@ -125,11 +125,8 @@ export const States = () => (
           children: <Icon name='circled-arrow-down' size='x20' />,
         },
         'icon + text': {
-          children: (
-            <>
-              <Icon name='baloon-text' size='x16' /> Button
-            </>
-          ),
+          children: 'Button',
+          icon: 'baloon-text',
         },
         'text': {
           children: 'Button',
@@ -190,11 +187,8 @@ export const States = () => (
           children: <Icon name='circled-arrow-down' size='x20' />,
         },
         'icon + text': {
-          children: (
-            <>
-              <Icon name='baloon-text' size='x16' /> Button
-            </>
-          ),
+          children: 'Button',
+          icon: 'baloon-text',
         },
         'text': {
           children: 'Button',
