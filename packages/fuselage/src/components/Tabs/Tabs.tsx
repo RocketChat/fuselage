@@ -2,6 +2,7 @@ import type { ComponentProps } from 'react';
 import React from 'react';
 
 import Box from '../Box';
+import { TabsItem } from './TabsItem';
 
 type TabsProps = ComponentProps<typeof Box> & { divider?: boolean };
 
@@ -14,3 +15,6 @@ export function Tabs({ children, divider = true, ...props }: TabsProps) {
     </Box>
   );
 }
+
+/** @deprecated dropping dot notation */
+Tabs.Item = TabsItem;
