@@ -2,7 +2,7 @@ import { Title, Description, Primary, Stories } from '@storybook/addon-docs';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
-import { Tabs } from '../..';
+import { Tabs, TabsItem } from '../..';
 
 export default {
   title: 'Navigation/Tabs',
@@ -27,11 +27,11 @@ export default {
 
 const Template: ComponentStory<typeof Tabs> = (args) => (
   <Tabs {...args}>
-    <Tabs.Item {...args}>Tab text 1</Tabs.Item>
-    <Tabs.Item>Tab text 2</Tabs.Item>
-    <Tabs.Item>Tab text 3</Tabs.Item>
-    <Tabs.Item>Tab text 4</Tabs.Item>
-    <Tabs.Item>Tab text 5</Tabs.Item>
+    <TabsItem {...args}>Tab text 1</TabsItem>
+    <TabsItem>Tab text 2</TabsItem>
+    <TabsItem>Tab text 3</TabsItem>
+    <TabsItem>Tab text 4</TabsItem>
+    <TabsItem>Tab text 5</TabsItem>
   </Tabs>
 );
 
