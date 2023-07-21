@@ -2,6 +2,49 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.31.24](https://github.com/RocketChat/fuselage/compare/v0.31.23...v0.31.24) (2023-07-21)
+
+### Features
+
+- `AudioPlayer` Component ([#1046](https://github.com/RocketChat/fuselage/issues/1046)) ([279bc86](https://github.com/RocketChat/fuselage/commit/279bc867f1e2e8054ec799b1833b7a1d61d7978b))
+- **fuselage:** `Contextualbar` component ([#749](https://github.com/RocketChat/fuselage/issues/749)) ([e2f7453](https://github.com/RocketChat/fuselage/commit/e2f74539bce690f7ec335e07d2cefcf26cfb8c42))
+- **fuselage:** `TableCell` empty fallback ([#1080](https://github.com/RocketChat/fuselage/issues/1080)) ([4d491be](https://github.com/RocketChat/fuselage/commit/4d491be49675f168b01919f37909423fa3f56375))
+- **fuselage:** `ToastBar` visual improvements ([#1025](https://github.com/RocketChat/fuselage/issues/1025)) ([031c4a5](https://github.com/RocketChat/fuselage/commit/031c4a559e9d849f1b219a8f3e486bee4348d95d))
+- **fuselage:** Add `spacedColumn` prop to `Option` component ([#1057](https://github.com/RocketChat/fuselage/issues/1057)) ([f7c5854](https://github.com/RocketChat/fuselage/commit/f7c5854168c07c3b0da8c91c93651668f8cf74ce))
+- Message Highlight and Mention components ([#1050](https://github.com/RocketChat/fuselage/issues/1050)) ([6c38740](https://github.com/RocketChat/fuselage/commit/6c3874003be3d0fc4c636607428f64528add897d))
+- **ui-kit:** Add new UIKit components ([#1074](https://github.com/RocketChat/fuselage/issues/1074)) ([84fb125](https://github.com/RocketChat/fuselage/commit/84fb125981a4cc065b4f0eb878606b52c3a716e1))
+- **ui-kit:** Add variants to UIKit button ([#1088](https://github.com/RocketChat/fuselage/issues/1088)) ([b736c6d](https://github.com/RocketChat/fuselage/commit/b736c6d447e8aeb4df13407a870758b45b9e6f5e))
+- **ui-kit:** Introduce `contextualBar` surface definitions ([#1096](https://github.com/RocketChat/fuselage/issues/1096)) ([b0cf8fb](https://github.com/RocketChat/fuselage/commit/b0cf8fba315baea034d13e14abb0a4df1cc5c9a4))
+- **UiKit:** Add `I18N` structure to `TextObject` ([#1065](https://github.com/RocketChat/fuselage/issues/1065)) ([d928da9](https://github.com/RocketChat/fuselage/commit/d928da95784298e65f15c954ced55030ef17ef81))
+- **UiKit:** Tab Navigation Block ([#1095](https://github.com/RocketChat/fuselage/issues/1095)) ([00d08d1](https://github.com/RocketChat/fuselage/commit/00d08d1c821ecf96bf54d59940271bec70884fce))
+
+### Bug Fixes
+
+- add pressed state on MenuButton ([#1091](https://github.com/RocketChat/fuselage/issues/1091)) ([a608c8f](https://github.com/RocketChat/fuselage/commit/a608c8fe95e36dfb0dc51f22bc8b27e7829d4546))
+- **emitter:** `off()` ignoring handler check when one listener remains ([#1099](https://github.com/RocketChat/fuselage/issues/1099)) ([b0a603c](https://github.com/RocketChat/fuselage/commit/b0a603ca8d53c6de5d274b21ca4292df60b5db96))
+- **fuselage-hooks:** `usePosition` internals ([#1027](https://github.com/RocketChat/fuselage/issues/1027)) ([5b17dac](https://github.com/RocketChat/fuselage/commit/5b17daceeb5d13d154e5eb1e8328539b47c7f147))
+- **fuselage, fuselage-hooks:** `Position` ([#1045](https://github.com/RocketChat/fuselage/issues/1045)) ([9ba3fac](https://github.com/RocketChat/fuselage/commit/9ba3fac64aa3548afa501fa1f90fbba238bfc3a7))
+- **fuselage:** `AudioPlayer` responsiveness ([#1052](https://github.com/RocketChat/fuselage/issues/1052)) ([75bdb4e](https://github.com/RocketChat/fuselage/commit/75bdb4e6e57f4e64e29a0ba4798237005282e69c))
+- **fuselage:** `MenuV2` behavior ([#1089](https://github.com/RocketChat/fuselage/issues/1089)) ([a0e4bb9](https://github.com/RocketChat/fuselage/commit/a0e4bb957311542209bd24b9187f22fa1eb88af9))
+- **fuselage:** `MenuV2` behavior on touch press ([#1106](https://github.com/RocketChat/fuselage/issues/1106)) ([0ce66df](https://github.com/RocketChat/fuselage/commit/0ce66dfbab41121e9945f1c0f8a4e13f23b748a3))
+- **fuselage:** `ModalThumb` size ([#1048](https://github.com/RocketChat/fuselage/issues/1048)) ([3812ee3](https://github.com/RocketChat/fuselage/commit/3812ee3822b0ba4ee76f4223f48d4b026a54b25c))
+- **fuselage:** `TableCell` children render ([#1082](https://github.com/RocketChat/fuselage/issues/1082)) ([53a7116](https://github.com/RocketChat/fuselage/commit/53a7116f69608ec7adedf39c02ee4bdfd4d6a57e))
+- **fuselage:** button min-width ([#1029](https://github.com/RocketChat/fuselage/issues/1029)) ([cde9a42](https://github.com/RocketChat/fuselage/commit/cde9a421316de2b4a32671ff5fa3915cd5e69ef0))
+- **fuselage:** change `$message-divider-color-unread` ([#1042](https://github.com/RocketChat/fuselage/issues/1042)) ([b5f270d](https://github.com/RocketChat/fuselage/commit/b5f270d0d8d1cf440ba30786c52b1e834faf2cbd))
+- **fuselage:** development mode not being pruned ([#1078](https://github.com/RocketChat/fuselage/issues/1078)) ([76e8bd5](https://github.com/RocketChat/fuselage/commit/76e8bd5c400fc136818519dceb2f7624ba76bf6d))
+- **fuselage:** icon alignment ([#1026](https://github.com/RocketChat/fuselage/issues/1026)) ([96870d1](https://github.com/RocketChat/fuselage/commit/96870d1c3015ebeeff1d088ae8773b58306ac8e0))
+- **fuselage:** Message Highlight touching text ([#1056](https://github.com/RocketChat/fuselage/issues/1056)) ([5d64e33](https://github.com/RocketChat/fuselage/commit/5d64e33dca05a5ebaa60a169b65456cd8002e311))
+- **fuselage:** message link color ([#1038](https://github.com/RocketChat/fuselage/issues/1038)) ([d94260e](https://github.com/RocketChat/fuselage/commit/d94260eca090e852af89401d85bd08bda9f3fe8b))
+- **fuselage:** Message Mention and Highlight types and export ([#1053](https://github.com/RocketChat/fuselage/issues/1053)) ([9aa087a](https://github.com/RocketChat/fuselage/commit/9aa087ae245096ffde5a3467c31fe6715b180fdc))
+- **fuselage:** multiple div being added with Position ([#1039](https://github.com/RocketChat/fuselage/issues/1039)) ([9dcf01a](https://github.com/RocketChat/fuselage/commit/9dcf01afbf9124e47eaf353bd1a6a0efee415fa9))
+- **fuselage:** Reintroduce children to IconButton ([#1061](https://github.com/RocketChat/fuselage/issues/1061)) ([ff016cc](https://github.com/RocketChat/fuselage/commit/ff016cc05889f641b3a8166f8e0fa8b822655ded))
+- **fuselage:** SelectAria position causing side effects ([#1094](https://github.com/RocketChat/fuselage/issues/1094)) ([924697c](https://github.com/RocketChat/fuselage/commit/924697c0822cce809b20de9c5d5e22abffeb91dd))
+- **fuselage:** sidebar header alignment ([#1031](https://github.com/RocketChat/fuselage/issues/1031)) ([c41a022](https://github.com/RocketChat/fuselage/commit/c41a0222775477288202da29315d19138de5d2e6))
+- **fuselage:** use label on `Select` ([#1066](https://github.com/RocketChat/fuselage/issues/1066)) ([5489b7a](https://github.com/RocketChat/fuselage/commit/5489b7a9fa87725f49b2157f6e7cbf78955adf44))
+- **message-parser:** mentions and emojis inside bold, italic and strikethrough ([#1035](https://github.com/RocketChat/fuselage/issues/1035)) ([036f70a](https://github.com/RocketChat/fuselage/commit/036f70abf4e4def7655f22b41060de7b366d9c65))
+- **mp3-encoder:** Fork LAME implementation ([#1032](https://github.com/RocketChat/fuselage/issues/1032)) ([6bae1cf](https://github.com/RocketChat/fuselage/commit/6bae1cfe2d3127ebb61c0820defb9672521e4f53))
+- select width ([25e50b8](https://github.com/RocketChat/fuselage/commit/25e50b8e28c4d9b41ac933570d1bf7a8da93032c))
+
 ### [0.31.23](https://github.com/RocketChat/fuselage/compare/v0.31.22...v0.31.23) (2023-05-05)
 
 ### Features
