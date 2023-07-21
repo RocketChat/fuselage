@@ -117,11 +117,10 @@ export class Emitter<EventMap extends DefaultEventMap = DefaultEventMap>
    */
   on<
     T extends AnyEventOf<EventMap>,
-    EventType extends AnyEventTypeOf<EventMap> = EventTypeOf<EventMap, T>
-  >(
-    type: EventType,
-    handler: EventHandlerOf<EventMap, EventType>
-  ): OffCallbackHandler {
+    TType extends AnyEventTypeOf<EventMap> = EventTypeOf<EventMap, T>
+  >(type: TType, handler: EventHandlerOf<EventMap, TType>): OffCallbackHandler;
+
+  on(type: keyof EventMap, handler: (...args: any[]) => void) {
     const handlers = this[evts].get(type) ?? [];
     handlers.push(handler);
     this[evts].set(type, handlers);
@@ -139,7 +138,9 @@ export class Emitter<EventMap extends DefaultEventMap = DefaultEventMap>
   >(
     type: EventType,
     handler: EventHandlerOf<EventMap, EventType>
-  ): OffCallbackHandler {
+  ): OffCallbackHandler;
+
+  once(type: keyof EventMap, handler: (...args: any[]) => void) {
     const counter = this[once].get(handler) || 0;
     this[once].set(handler, counter + 1);
     return this.on(type, handler);
@@ -151,27 +152,29 @@ export class Emitter<EventMap extends DefaultEventMap = DefaultEventMap>
   off<
     T extends AnyEventOf<EventMap>,
     EventType extends AnyEventTypeOf<EventMap> = EventTypeOf<EventMap, T>
-  >(type: EventType, handler: EventHandlerOf<EventMap, EventType>): void {
+  >(type: EventType, handler: EventHandlerOf<EventMap, EventType>): void;
+
+  off(type: keyof EventMap, handler: (...args: any[]) => void) {
     const handlers = this[evts].get(type);
     if (!handlers) {
       return;
     }
 
-    const counter = this[once].get(handler);
+    const counter = this[once].get(handler) ?? 0;
     if (counter > 1) {
       this[once].set(handler, counter - 1);
     } else {
       this[once].delete(handler);
     }
 
-    if (handlers.length === 1) {
-      this[evts].delete(type);
-      return;
-    }
     handlers.splice(
       handlers.findIndex((callback) => callback === handler) >>> 0,
       1
     );
+
+    if (handlers.length === 0) {
+      this[evts].delete(type);
+    }
   }
 
   /**
@@ -186,15 +189,15 @@ export class Emitter<EventMap extends DefaultEventMap = DefaultEventMap>
     ...[event]: EventOf<EventMap, EventType> extends void
       ? [undefined?]
       : [EventOf<EventMap, EventType>]
-  ): void {
-    [...(this[evts].get(type) ?? [])].forEach(
-      (handler: EventHandlerOf<EventMap, EventType>) => {
-        handler(event);
+  ): void;
 
-        if (this[once].get(handler)) {
-          this.off(type, handler);
-        }
+  emit(type: keyof EventMap, ...[event]: any[]) {
+    [...(this[evts].get(type) ?? [])].forEach((handler) => {
+      handler(event);
+
+      if (this[once].get(handler)) {
+        this.off(type, handler);
       }
-    );
+    });
   }
 }

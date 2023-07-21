@@ -30,7 +30,8 @@
   // }
 
   @at-root .js-focus-visible &:focus.focus-visible,
-    .js-focus-visible &.focus.focus-visible {
+    .js-focus-visible &.focus.focus-visible,
+    &.is-focused {
     @content;
   }
 
@@ -55,6 +56,12 @@
   &:invalid,
   &.invalid,
   &.is-invalid {
+    @content;
+  }
+}
+
+@mixin on-pressed {
+  &-pressed {
     @content;
   }
 }

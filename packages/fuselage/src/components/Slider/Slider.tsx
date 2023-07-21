@@ -35,11 +35,6 @@ type SliderProps<T extends number | number[]> = AriaAttributes & {
   orientation?: 'horizontal' | 'vertical';
   disabled?: boolean;
   defaultValue?: T;
-  small?: boolean;
-  /**
-   * 100% of parent's dimention
-   */
-  large?: boolean;
 } & (
     | {
         value: T;
@@ -61,8 +56,6 @@ export function Slider<T extends number | [min: number, max: number]>(
     multiThumb,
     maxValue,
     minValue,
-    small,
-    large,
   } = props;
 
   // Get a defaultValue in the range for multiThumb
@@ -79,6 +72,8 @@ export function Slider<T extends number | [min: number, max: number]>(
       }
       return [0, 100] as T;
     }
+
+    return undefined;
   };
 
   const { defaultValue = getMultiThumbDefaultValue() } = props;
@@ -117,12 +112,12 @@ export function Slider<T extends number | [min: number, max: number]>(
       ${isHorizontal &&
       css`
         flex-direction: column;
-        width: ${small ? '150px' : large ? '100%' : '300px'};
+        width: 100%;
       `};
       ${isVertical &&
       css`
         flex-direction: row-reverse;
-        height: ${small ? '50px' : large ? '100%' : '100px'};
+        height: 100%;
       `}
     `,
     sliderState

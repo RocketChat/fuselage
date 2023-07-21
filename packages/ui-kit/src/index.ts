@@ -22,6 +22,10 @@ export { OverflowElement } from './blocks/elements/OverflowElement';
 export { PlainTextInputElement } from './blocks/elements/PlainTextInputElement';
 export { StaticSelectElement } from './blocks/elements/StaticSelectElement';
 export { UsersSelectElement } from './blocks/elements/UsersSelectElement';
+export { ToggleSwitchElement } from './blocks/elements/ToggleSwitchElement';
+export { CheckboxElement } from './blocks/elements/CheckboxElement';
+export { RadioButtonElement } from './blocks/elements/RadioButtonElement';
+export { TimePickerElement } from './blocks/elements/TimePickerElement';
 export { BlockElement } from './blocks/BlockElement';
 
 export { ActionsBlock } from './blocks/layout/ActionsBlock';
@@ -34,6 +38,8 @@ export { InputBlock } from './blocks/layout/InputBlock';
 export { SectionBlock } from './blocks/layout/SectionBlock';
 export { VideoConferenceBlock } from './blocks/layout/VideoConferenceBlock';
 export { LayoutBlock } from './blocks/LayoutBlock';
+export { CalloutBlock } from './blocks/layout/CalloutBlock';
+export { TabNavigationBlock } from './blocks/layout/TabNavigationBlock';
 
 export { InputElementDispatchAction } from './blocks/InputElementDispatchAction';
 
@@ -51,6 +57,7 @@ export { uiKitAttachment } from './rendering/surfaces/uiKitAttachment';
 export { uiKitBanner } from './rendering/surfaces/uiKitBanner';
 export { uiKitMessage } from './rendering/surfaces/uiKitMessage';
 export { uiKitModal } from './rendering/surfaces/uiKitModal';
+export { uiKitContextualBar } from './rendering/surfaces/uiKitContextualBar';
 
 export {
   UiKitParserAttachment,
@@ -68,6 +75,10 @@ export {
   UiKitParserModal,
   ModalSurfaceLayout,
 } from './rendering/surfaces/UiKitParserModal';
+export {
+  UiKitParserContextualBar,
+  ContextualBarSurfaceLayout,
+} from './rendering/surfaces/UiKitParserContextualBar';
 
 export { SurfaceRenderer } from './rendering/SurfaceRenderer';
 export { ActionableElement } from './blocks/ActionableElement';

@@ -34,7 +34,9 @@
     "access": "public"
   },
   "scripts": {
-    "build": "rollup -c",
+    "build": "run-s .:build:clean .:build:rollup",
+    ".:build:clean": "rimraf dist",
+    ".:build:rollup": "rollup -c",
     "lint": "lint",
     "lint-and-fix": "lint-and-fix",
     "lint-staged": "lint-staged",
@@ -64,6 +66,7 @@
     "npm-run-all": "^4.1.5",
     "prettier": "~2.8.7",
     "react": "^17.0.2",
+    "rimraf": "~5.0.0",
     "rollup": "~2.67.3",
     "rollup-plugin-terser": "~7.0.2",
     "testing-utils": "workspace:~",

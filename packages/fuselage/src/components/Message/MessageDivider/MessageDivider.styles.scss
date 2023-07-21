@@ -15,11 +15,11 @@ $message-divider-color: theme('message-divider-color', colors.font(default));
 
 $message-divider-color-unread: theme(
   'message-divider-color-unread',
-  colors.stroke(error)
+  colors.font(danger)
 );
 $message-divider-background-color-unread: theme(
   'message-divider-background-color-unread',
-  colors.stroke(extra-light-error)
+  colors.stroke(error)
 );
 
 $message-divider-size: theme(

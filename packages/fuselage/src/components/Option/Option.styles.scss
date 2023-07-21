@@ -21,7 +21,9 @@ $variants: (
 
   display: list-item;
 
-  padding: lengths.padding(4) lengths.padding(12);
+  padding-block: lengths.padding(4);
+  padding-inline-start: lengths.padding(12);
+  padding-inline-end: lengths.padding(24);
 
   list-style: none;
 
@@ -32,7 +34,8 @@ $variants: (
 
     padding-block-start: lengths.padding(8);
     padding-block-end: lengths.padding(4);
-    padding-inline: lengths.padding(12);
+    padding-inline-start: lengths.padding(12);
+    padding-inline-end: lengths.padding(24);
 
     color: colors.font(default);
   }
@@ -42,6 +45,10 @@ $variants: (
     align-items: center;
 
     margin-inline: lengths.margin(-2);
+
+    &--align-top {
+      align-items: flex-start !important;
+    }
   }
 
   &__icon {
@@ -83,7 +90,7 @@ $variants: (
     opacity: 0;
   }
 
-  .rcx-option__column {
+  &__column {
     @extend %column;
     display: flex;
 
@@ -94,10 +101,32 @@ $variants: (
     min-height: lengths.size(20);
   }
 
-  .rcx-option__description {
+  &__input {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    min-width: lengths.size(20);
+    min-height: lengths.size(20);
+    margin-inline-end: lengths.margin(-12);
+  }
+
+  &__description {
     @include typography.use-font-scale(p2);
     @extend %column;
     display: inline;
+
+    color: colors.font(secondary-info);
+  }
+
+  &__description-block {
+    @include typography.use-font-scale(p2);
+
+    padding: lengths.margin(4);
+
+    white-space: normal;
+    word-break: break-word;
 
     color: colors.font(secondary-info);
   }

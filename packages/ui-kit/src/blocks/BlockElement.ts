@@ -1,5 +1,6 @@
 import type { ButtonElement } from './elements/ButtonElement';
 import type { ChannelsSelectElement } from './elements/ChannelsSelectElement';
+import type { CheckboxElement } from './elements/CheckboxElement';
 import type { ConversationsSelectElement } from './elements/ConversationsSelectElement';
 import type { DatePickerElement } from './elements/DatePickerElement';
 import type { ImageElement } from './elements/ImageElement';
@@ -10,7 +11,10 @@ import type { MultiStaticSelectElement } from './elements/MultiStaticSelectEleme
 import type { MultiUsersSelectElement } from './elements/MultiUsersSelectElement';
 import type { OverflowElement } from './elements/OverflowElement';
 import type { PlainTextInputElement } from './elements/PlainTextInputElement';
+import type { RadioButtonElement } from './elements/RadioButtonElement';
 import type { StaticSelectElement } from './elements/StaticSelectElement';
+import type { TimePickerElement } from './elements/TimePickerElement';
+import type { ToggleSwitchElement } from './elements/ToggleSwitchElement';
 import type { UsersSelectElement } from './elements/UsersSelectElement';
 
 export type BlockElement =
@@ -27,4 +31,8 @@ export type BlockElement =
   | OverflowElement
   | PlainTextInputElement
   | StaticSelectElement
-  | UsersSelectElement;
+  | UsersSelectElement
+  | ToggleSwitchElement
+  | RadioButtonElement
+  | CheckboxElement
+  | TimePickerElement;

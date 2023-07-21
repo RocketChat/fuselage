@@ -1,4 +1,4 @@
-import type { Placements } from '@rocket.chat/fuselage-hooks';
+import type { UsePositionOptions } from '@rocket.chat/fuselage-hooks';
 import { usePosition } from '@rocket.chat/fuselage-hooks';
 import type {
   RefObject,
@@ -6,7 +6,7 @@ import type {
   ReactPortal,
   ReactElement,
 } from 'react';
-import { useRef, useMemo, useEffect, cloneElement } from 'react';
+import { useRef, useMemo, cloneElement, useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 
 import type Box from '../Box';
@@ -15,7 +15,7 @@ type PositionProps = {
   anchor: RefObject<Element>;
   children: ReactElement;
   margin?: number;
-  placement?: Placements;
+  placement?: UsePositionOptions['placement'];
 } & Omit<ComponentProps<typeof Box>, 'children' | 'margin'>;
 
 const Position = ({
@@ -38,17 +38,25 @@ const Position = ({
     () => ({ position: 'fixed', ...positionStyle }),
     [positionStyle]
   );
-  const portalContainer = useMemo(() => {
+  const [portalContainer] = useState(() => {
+    const prev = document.getElementById('position-container');
+    if (prev) {
+      return prev;
+    }
     const element = document.createElement('div');
+
+    element.id = 'position-container';
+
     document.body.appendChild(element);
     return element;
-  }, []);
+  });
 
   useEffect(
-    () =>
-      function () {
+    () => () => {
+      if (portalContainer.childNodes.length === 0) {
         document.body.removeChild(portalContainer);
-      },
+      }
+    },
     [portalContainer]
   );
 

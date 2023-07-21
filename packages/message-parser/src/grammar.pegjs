@@ -206,6 +206,7 @@ InlineItem = Whitespace
   / AutolinkedPhone
   / AutolinkedEmail
   / AutolinkedURL
+  / EmphasisWithWhitespace
   / Emphasis
   / UserMention
   / ChannelMention
@@ -364,23 +365,28 @@ ItalicContent = text:ItalicContentItems { return italic(text); }
 ItalicContentItems = text:ItalicContentItem+ { return reducePlainTexts(text); }
 
 ItalicContentItem
-  = References
+  = Whitespace
+  / References
+  / UserMention
+  / ChannelMention
   / Bold
   / Strikethrough
-  / Line
+  / Emoji
+  / Emoticon
   / AnyItalic
+  / Line
 
 /* Bold */
 Bold = [\x2A] [\x2A] @BoldContent [\x2A] [\x2A] / [\x2A] @BoldContent [\x2A]
 
 BoldContent = text:BoldContentItem+ { return bold(reducePlainTexts(text)); }
 
-BoldContentItem = References / Italic / Strikethrough / Line / AnyBold
+BoldContentItem = Whitespace / References / UserMention / ChannelMention / Italic / Strikethrough / Emoji / Emoticon / AnyBold / Line
 
 /* Strike */
 Strikethrough = [\x7E] [\x7E] @StrikethroughContent [\x7E] [\x7E] / [\x7E] @StrikethroughContent [\x7E]
 
-StrikethroughContent = text:(References / Italic / Bold / Line / AnyStrike)+ {
+StrikethroughContent = text:(Whitespace / References / UserMention / ChannelMention / Italic / Bold / Emoji / Emoticon / AnyStrike / Line)+ {
       return strike(reducePlainTexts(text));
     }
 
@@ -389,6 +395,31 @@ AnyBold = t:[^\x0a\* ] { return plain(t); }
 AnyStrike = t:[^\x0a\~ ] { return plain(t); }
 
 AnyItalic = t:[^\x0a\_ ] { return plain(t); }
+
+/**
+ * Emphasis with only whitespaces return plain text
+ * e.g: __ __, _ _, ** **, * *, ** *, ~~ ~~
+*/
+EmphasisWithWhitespace = AsteriskWithWhitespace / UnderscoreWithWhitespace / TildeWithWhitespace
+
+AsteriskWithWhitespace = first:Asterisk second:Whitespace third:Asterisk
+{
+  return reducePlainTexts([first,second,third])[0];
+}
+
+UnderscoreWithWhitespace = first:Underscore second:Whitespace third:Underscore
+{
+  return reducePlainTexts([first,second,third])[0];
+}
+
+TildeWithWhitespace = first:Tilde second:Whitespace third:Tilde
+{
+  return reducePlainTexts([first,second,third])[0];
+}
+
+Asterisk = t:"*"+ {return plain(t.join(""))}
+Underscore = t:"_"+ {return plain(t.join(""))}
+Tilde = t:"~"+ {return plain(t.join(""))}
 
 /**
  *

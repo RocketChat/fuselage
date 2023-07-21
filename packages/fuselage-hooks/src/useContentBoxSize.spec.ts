@@ -31,14 +31,14 @@ const wrapRef = (ref: RefObject<HTMLElement>) => {
 };
 
 it('immediately returns size', async () => {
-  const { result } = renderHook(() => useContentBoxSize(wrapRef(useRef())));
+  const { result } = renderHook(() => useContentBoxSize(wrapRef(useRef(null))));
 
   expect(result.current.inlineSize).toStrictEqual(40);
   expect(result.current.blockSize).toStrictEqual(30);
 });
 
 it('gets the observed element size after resize', async () => {
-  const { result } = renderHook(() => useContentBoxSize(wrapRef(useRef())));
+  const { result } = renderHook(() => useContentBoxSize(wrapRef(useRef(null))));
 
   // triggers MutationObserver
   await act(async () => {
@@ -74,7 +74,7 @@ it('debounces the observed element size', async () => {
   const delay = 2 * halfDelay;
 
   const { result } = renderHook(() =>
-    useContentBoxSize(wrapRef(useRef()), { debounceDelay: delay })
+    useContentBoxSize(wrapRef(useRef(null)), { debounceDelay: delay })
   );
 
   // triggers MutationObserver

@@ -910,5 +910,38 @@
   },
   "desktop-text": {
     "start": "\ue125"
+  },
+  "rocket": {
+    "start": "\ue127"
+  },
+  "burger-menu": {
+    "start": "\ue129"
+  },
+  "airplane": {
+    "start": "\ue12b"
+  },
+  "lamp-bulb": {
+    "start": "\ue12d"
+  },
+  "percentage": {
+    "start": "\ue12f"
+  },
+  "leaf": {
+    "start": "\ue131"
+  },
+  "user-lock": {
+    "start": "\ue137"
+  },
+  "dashboard": {
+    "start": "\ue139"
+  },
+  "pause-shape-filled": {
+    "start": "\ue13b"
+  },
+  "play-shape-filled": {
+    "start": "\ue13d"
+  },
+  "flask": {
+    "start": "\ue13f"
   }
 }

@@ -28,7 +28,7 @@ $variants: (
 
     border-radius: lengths.border-radius(full);
 
-    background-color: colors.surface(tint);
+    background-color: colors.surface(neutral);
 
     @each $name, $color in $variants {
       &--#{$name} {
@@ -38,12 +38,13 @@ $variants: (
   }
 
   &__title {
+    margin-block-start: lengths.margin(0);
     margin-block-end: lengths.margin(8);
 
     text-align: center;
 
     color: colors.font(default);
-    @include typography.use-font-scale(h2);
+    @include typography.use-font-scale(h3);
   }
 
   &__list,

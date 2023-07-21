@@ -39,11 +39,11 @@
 .rcx-button-group__item {
   margin-inline: lengths.margin(4);
 
-  &:first-child {
+  &:first-of-type {
     margin-inline-start: lengths.margin(none);
   }
 
-  &:last-child {
+  &:last-of-type {
     margin-inline-end: lengths.margin(none);
   }
 

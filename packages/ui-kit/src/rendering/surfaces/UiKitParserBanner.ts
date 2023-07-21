@@ -1,4 +1,5 @@
 import type { ActionsBlock } from '../../blocks/layout/ActionsBlock';
+import type { CalloutBlock } from '../../blocks/layout/CalloutBlock';
 import type { ContextBlock } from '../../blocks/layout/ContextBlock';
 import type { DividerBlock } from '../../blocks/layout/DividerBlock';
 import type { ImageBlock } from '../../blocks/layout/ImageBlock';
@@ -12,7 +13,8 @@ type BannerSurfaceLayoutBlock =
   | DividerBlock
   | ImageBlock
   | InputBlock
-  | SectionBlock;
+  | SectionBlock
+  | CalloutBlock;
 
 export abstract class UiKitParserBanner<T> extends SurfaceRenderer<
   T,
