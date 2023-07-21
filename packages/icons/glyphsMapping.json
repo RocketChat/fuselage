@@ -943,5 +943,11 @@
   },
   "flask": {
     "start": "\ue13f"
+  },
+  "tag": {
+    "start": "\ue141"
+  },
+  "smart": {
+    "start": "\ue143"
   }
 }
