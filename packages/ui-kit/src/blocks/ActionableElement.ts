@@ -14,6 +14,7 @@ import type { RadioButtonElement } from './elements/RadioButtonElement';
 import type { StaticSelectElement } from './elements/StaticSelectElement';
 import type { TimePickerElement } from './elements/TimePickerElement';
 import type { ToggleSwitchElement } from './elements/ToggleSwitchElement';
+import type { ExperimentalTabElement } from './elements/UnstableTabElement';
 import type { UsersSelectElement } from './elements/UsersSelectElement';
 
 export type ActionableElement =
@@ -33,4 +34,5 @@ export type ActionableElement =
   | ToggleSwitchElement
   | RadioButtonElement
   | CheckboxElement
-  | TimePickerElement;
+  | TimePickerElement
+  | ExperimentalTabElement;

@@ -7,7 +7,7 @@ import type { ImageBlock } from './layout/ImageBlock';
 import type { InputBlock } from './layout/InputBlock';
 import type { PreviewBlock } from './layout/PreviewBlock';
 import type { SectionBlock } from './layout/SectionBlock';
-import type { TabNavigationBlock } from './layout/TabNavigationBlock';
+import type { ExperimentalTabNavigationBlock } from './layout/UnstableTabNavigationBlock';
 import type { VideoConferenceBlock } from './layout/VideoConferenceBlock';
 
 export type LayoutBlock =
@@ -22,4 +22,4 @@ export type LayoutBlock =
   | VideoConferenceBlock
   | PreviewBlock
   | CalloutBlock
-  | TabNavigationBlock;
+  | ExperimentalTabNavigationBlock;
