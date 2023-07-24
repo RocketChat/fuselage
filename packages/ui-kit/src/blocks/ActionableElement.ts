@@ -3,6 +3,7 @@ import type { ChannelsSelectElement } from './elements/ChannelsSelectElement';
 import type { CheckboxElement } from './elements/CheckboxElement';
 import type { ConversationsSelectElement } from './elements/ConversationsSelectElement';
 import type { DatePickerElement } from './elements/DatePickerElement';
+import type { ExperimentalTabElement } from './elements/ExperimentalTabElement';
 import type { LinearScaleElement } from './elements/LinearScaleElement';
 import type { MultiChannelsSelectElement } from './elements/MultiChannelsSelectElement';
 import type { MultiConversationsSelectElement } from './elements/MultiConversationsSelectElement';
@@ -14,7 +15,6 @@ import type { RadioButtonElement } from './elements/RadioButtonElement';
 import type { StaticSelectElement } from './elements/StaticSelectElement';
 import type { TimePickerElement } from './elements/TimePickerElement';
 import type { ToggleSwitchElement } from './elements/ToggleSwitchElement';
-import type { ExperimentalTabElement } from './elements/UnstableTabElement';
 import type { UsersSelectElement } from './elements/UsersSelectElement';
 
 export type ActionableElement =
