@@ -27,6 +27,7 @@ export { CheckboxElement } from './blocks/elements/CheckboxElement';
 export { RadioButtonElement } from './blocks/elements/RadioButtonElement';
 export { TimePickerElement } from './blocks/elements/TimePickerElement';
 export { BlockElement } from './blocks/BlockElement';
+export { ExperimentalTabElement } from './blocks/elements/UnstableTabElement';
 
 export { ActionsBlock } from './blocks/layout/ActionsBlock';
 export { ConditionalBlock } from './blocks/layout/ConditionalBlock';
