@@ -75,7 +75,6 @@ export const Button = forwardRef(function Button(
 
   return (
     <Box
-      animated
       is={is}
       type='button'
       rcx-button
