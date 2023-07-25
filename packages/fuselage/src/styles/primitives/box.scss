@@ -14,7 +14,7 @@
 }
 
 %box--animated {
-  transition: all 230ms;
+  transition: all 0.18s;
 
   @media (prefers-reduced-motion) {
     transition: none;
