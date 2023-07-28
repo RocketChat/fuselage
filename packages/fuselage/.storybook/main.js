@@ -11,7 +11,11 @@ module.exports = {
   typescript: {
     reactDocgen: 'react-docgen-typescript-plugin',
   },
-  addons: ['@storybook/addon-essentials', '@storybook/addon-interactions'],
+  addons: [
+    '@storybook/addon-a11y',
+    '@storybook/addon-essentials',
+    '@storybook/addon-interactions',
+  ],
   stories: ['../src/**/*.stories.{mdx,js,tsx}'],
   webpackFinal: (config) => {
     config.module.rules.push({
