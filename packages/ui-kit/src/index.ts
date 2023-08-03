@@ -27,6 +27,7 @@ export { CheckboxElement } from './blocks/elements/CheckboxElement';
 export { RadioButtonElement } from './blocks/elements/RadioButtonElement';
 export { TimePickerElement } from './blocks/elements/TimePickerElement';
 export { BlockElement } from './blocks/BlockElement';
+export { ExperimentalTabElement } from './blocks/elements/ExperimentalTabElement';
 
 export { ActionsBlock } from './blocks/layout/ActionsBlock';
 export { ConditionalBlock } from './blocks/layout/ConditionalBlock';
@@ -39,7 +40,7 @@ export { SectionBlock } from './blocks/layout/SectionBlock';
 export { VideoConferenceBlock } from './blocks/layout/VideoConferenceBlock';
 export { LayoutBlock } from './blocks/LayoutBlock';
 export { CalloutBlock } from './blocks/layout/CalloutBlock';
-export { TabNavigationBlock } from './blocks/layout/TabNavigationBlock';
+export { ExperimentalTabNavigationBlock } from './blocks/layout/ExperimentalTabNavigationBlock';
 
 export { InputElementDispatchAction } from './blocks/InputElementDispatchAction';
 

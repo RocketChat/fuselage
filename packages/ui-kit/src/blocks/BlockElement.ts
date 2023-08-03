@@ -3,6 +3,7 @@ import type { ChannelsSelectElement } from './elements/ChannelsSelectElement';
 import type { CheckboxElement } from './elements/CheckboxElement';
 import type { ConversationsSelectElement } from './elements/ConversationsSelectElement';
 import type { DatePickerElement } from './elements/DatePickerElement';
+import type { ExperimentalTabElement } from './elements/ExperimentalTabElement';
 import type { ImageElement } from './elements/ImageElement';
 import type { LinearScaleElement } from './elements/LinearScaleElement';
 import type { MultiChannelsSelectElement } from './elements/MultiChannelsSelectElement';
@@ -35,4 +36,5 @@ export type BlockElement =
   | ToggleSwitchElement
   | RadioButtonElement
   | CheckboxElement
-  | TimePickerElement;
+  | TimePickerElement
+  | ExperimentalTabElement;
