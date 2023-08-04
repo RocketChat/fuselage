@@ -1,10 +1,12 @@
 import { Readable } from 'stream';
+
 import svg2ttf from 'svg2ttf';
 import SVGIcons2SVGFontStream from 'svgicons2svgfont';
+import { readSource, readJson } from 'tools-utils/files';
 import ttf2eot from 'ttf2eot';
 import ttf2woff from 'ttf2woff';
 import ttf2woff2 from 'ttf2woff2';
-import { readSource, readJson } from 'tools-utils/files';
+
 import { nextCharactersFor } from './glyphs.mjs';
 import { mirrorSvg } from './svg.mjs';
 
@@ -20,7 +22,7 @@ export const createSvgBuffer = async (icons) => {
     fontName: 'RocketChat',
     fontHeight: 1024,
     normalize: true,
-    log: () => {},
+    log: () => undefined,
   });
 
   await Promise.all(
