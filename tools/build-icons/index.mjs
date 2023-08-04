@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 
 import { basename, dirname } from 'path';
+
 import { removeFile, listFiles } from 'tools-utils/files';
+
 import {
   buildCss,
   buildCommonJsModule,
