@@ -11,6 +11,7 @@ import {
   StatesSuggestionText,
   StatesActions,
   StatesAction,
+  StatesLink,
 } from '.';
 import { Box, Icon } from '..';
 
@@ -90,6 +91,25 @@ export const ActionButtonWithNoSuggestions = () => (
       <StatesActions>
         <StatesAction>Reload</StatesAction>
       </StatesActions>
+    </States>
+  </Box>
+);
+
+export const Link = () => (
+  <Box>
+    <States>
+      <StatesIcon name='magnifier' />
+      <StatesTitle>No app matches</StatesTitle>
+      <StatesSubtitle>
+        No app matches for ”search term here” Try searching in the Marketplace
+        instead.
+      </StatesSubtitle>
+      <StatesActions>
+        <StatesAction>Reload</StatesAction>
+      </StatesActions>
+      <StatesLink target='_blank' href='https://go.rocket.chat'>
+        Link to another page
+      </StatesLink>
     </States>
   </Box>
 );
