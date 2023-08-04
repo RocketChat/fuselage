@@ -1,8 +1,8 @@
 import { readJson, writeJson } from 'tools-utils/files';
-import punctuationStartCharacters from 'unicode/category/Ps.js';
 import punctuationEndCharacters from 'unicode/category/Pe.js';
-import initialPunctuationCharacters from 'unicode/category/Pi.js';
 import finalPunctuationCharacters from 'unicode/category/Pf.js';
+import initialPunctuationCharacters from 'unicode/category/Pi.js';
+import punctuationStartCharacters from 'unicode/category/Ps.js';
 
 const filterMirroredCharacters = (charCategory) =>
   Object.values(charCategory)
