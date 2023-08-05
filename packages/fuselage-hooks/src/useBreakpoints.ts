@@ -5,7 +5,12 @@ import { useMediaQueries } from './useMediaQueries';
 
 const mediaQueries = breakpointsDefinitions
   .slice(1)
-  .map((breakpoint) => `(min-width: ${breakpoint.minViewportWidth}px)`);
+  .map(
+    (breakpoint) =>
+      `(min-width: ${
+        breakpoint.minViewportWidth ? breakpoint.minViewportWidth / 16 : null
+      }em)`
+  );
 
 /**
  * Hook to catch which responsive design' breakpoints are active.
