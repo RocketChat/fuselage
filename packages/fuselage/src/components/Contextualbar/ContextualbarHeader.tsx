@@ -13,7 +13,7 @@ const ContextualbarHeader = ({
   <Box
     display='flex'
     alignItems='center'
-    height='56px'
+    height='x56'
     is='h3'
     pi={24}
     borderBlockEndWidth='default'

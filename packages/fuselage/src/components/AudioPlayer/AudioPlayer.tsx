@@ -117,13 +117,13 @@ export const AudioPlayer = forwardRef<
           aria-label={isPlaying ? pauseLabel : playLabel}
           icon={isPlaying ? 'pause-shape-filled' : 'play-shape-filled'}
         />
-        <Margins inline='x8'>
+        <Margins inline={8}>
           <Box fontScale='p2' color='secondary-info'>
             {isPlaying || currentTime > 0
               ? getMaskTime(currentTime)
               : getMaskTime(durationTime)}
           </Box>
-          <Box mi='x16' w='full'>
+          <Box mi={16} w='full'>
             <Slider
               aria-label={audioPlaybackRangeLabel}
               showOutput={false}

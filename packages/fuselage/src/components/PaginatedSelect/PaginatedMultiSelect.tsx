@@ -26,7 +26,7 @@ import SelectAddon from '../Select/SelectAddon';
 import SelectFocus from '../Select/SelectFocus';
 
 const SelectedOptions = memo<ComponentProps<typeof Chip>>((props) => (
-  <Chip maxWidth='150px' withTruncatedText {...props} />
+  <Chip maxWidth='x150' withTruncatedText {...props} />
 ));
 
 export type PaginatedMultiSelectOption = {
