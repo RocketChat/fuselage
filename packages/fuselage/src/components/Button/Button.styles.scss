@@ -70,8 +70,8 @@
     @include typography.use-font-scale(c2);
 
     @include with-rectangular-size(
-      $height: 32px,
-      $padding-x: 14px,
+      $height: 32,
+      $padding-x: 12,
       $line-height: typography.line-height(c1)
     );
   }
