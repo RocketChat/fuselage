@@ -10,7 +10,6 @@ import type {
 
 import { useArrayLikeClassNameProp } from '../../hooks/useArrayLikeClassNameProp';
 import { useBoxOnlyProps } from '../../hooks/useBoxOnlyProps';
-import { useStyleSheet } from '../../hooks/useStyleSheet';
 import type { Falsy } from '../../types/Falsy';
 import { useBoxTransform, BoxTransforms } from './BoxTransforms';
 import type { StylingProps } from './stylingProps';
@@ -36,8 +35,6 @@ export const Box = forwardRef(function Box(
   { is = 'div', children, ...props }: BoxProps,
   ref: Ref<any>
 ) {
-  useStyleSheet();
-
   const propsWithRef: BoxProps & RefAttributes<any> = props;
 
   if (ref) {
