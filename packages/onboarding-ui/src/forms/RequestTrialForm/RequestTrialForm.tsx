@@ -1,4 +1,4 @@
-import type { SelectOption } from '@rocket.chat/fuselage';
+import type { SelectOptions } from '@rocket.chat/fuselage';
 import {
   Button,
   Field,
@@ -27,8 +27,8 @@ type RequestTrialPayload = {
 
 type RequestTrialFormProps = {
   defaultValues?: RequestTrialPayload;
-  organizationSizeOptions: SelectOption[];
-  countryOptions: SelectOption[];
+  organizationSizeOptions: SelectOptions;
+  countryOptions: SelectOptions;
   onSubmit: SubmitHandler<RequestTrialPayload>;
   onManageWorkspaceClick: () => void;
   validateEmail: Validate<string>;
@@ -52,7 +52,12 @@ const RequestTrialForm = ({
     register,
     control,
     formState: { isValidating, isSubmitting, isValid, errors },
-  } = useForm<RequestTrialPayload>({ mode: 'onChange' });
+  } = useForm<RequestTrialPayload>({
+    mode: 'onChange',
+    defaultValues: {
+      ...defaultValues,
+    },
+  });
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
@@ -72,6 +77,7 @@ const RequestTrialForm = ({
               )}
               defaultValue={defaultValues?.email}
               error={errors?.email?.message || undefined}
+              data-testid='emailInput'
             />
           </Field.Row>
           {errors?.email && <Field.Error>{errors.email.message}</Field.Error>}
@@ -87,6 +93,7 @@ const RequestTrialForm = ({
                 'form.requestTrialForm.fields.organizationName.placeholder'
               )}
               defaultValue={defaultValues?.organizationName}
+              data-testid='request-trial-form-name'
             />
           </Field.Row>
           {errors?.organizationName && (
@@ -149,7 +156,11 @@ const RequestTrialForm = ({
               fontScale='c1'
               lineHeight={20}
             >
-              <CheckBox mie='x8' {...register('updates')} />{' '}
+              <CheckBox
+                mie='x8'
+                data-testid='request-trial-form-checkbox-updates'
+                {...register('updates')}
+              />{' '}
               <Box is='label' htmlFor='updates'>
                 {t('form.registeredServerForm.keepInformed')}
               </Box>
@@ -164,6 +175,7 @@ const RequestTrialForm = ({
             >
               <CheckBox
                 mie='x8'
+                data-testid='request-trial-form-checkbox-agreement'
                 {...register('agreement', { required: true })}
               />{' '}
               <Box is='label' htmlFor='agreement' withRichContent>
@@ -199,6 +211,7 @@ const RequestTrialForm = ({
         <Button
           type='submit'
           primary
+          data-testid='submit'
           disabled={isValidating || isSubmitting || !isValid}
         >
           {t('form.requestTrialForm.button.text')}
