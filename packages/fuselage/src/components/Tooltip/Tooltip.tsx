@@ -1,9 +1,7 @@
 import type { ComponentProps, Ref } from 'react';
 import React, { forwardRef } from 'react';
 
-import { useStyleSheet } from '../../hooks/useStyleSheet';
 import Box from '../Box';
-import tooltipStyleSheet from './Tooltip.styles.scss';
 
 const parsePlacement = (placement: string | null | undefined) => {
   const [direction, position] = placement
@@ -37,9 +35,6 @@ const Tooltip = forwardRef(function Tooltip(
   { variation = 'dark', placement, ...props }: TooltipProps,
   ref: Ref<HTMLElement>
 ) {
-  useStyleSheet();
-  useStyleSheet(tooltipStyleSheet);
-
   const [direction, position] = parsePlacement(placement);
 
   return (

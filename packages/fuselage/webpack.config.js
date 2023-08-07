@@ -2,6 +2,7 @@
 
 const path = require('path');
 
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require('webpack');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const WrapperPlugin = require('wrapper-webpack-plugin');
@@ -49,16 +50,17 @@ module.exports = (env, { mode = 'production' }) => ({
       {
         test: /\.scss$/,
         use: [
+          MiniCssExtractPlugin.loader,
           'babel-loader',
-          {
-            loader: 'style-loader',
-            options: {
-              attributes: {
-                id: 'fuselage-style',
-              },
-              injectType: 'lazySingletonStyleTag',
-            },
-          },
+          // {
+          //   loader: 'style-loader',
+          //   options: {
+          //     attributes: {
+          //       id: 'fuselage-style',
+          //     },
+          //     injectType: 'lazySingletonStyleTag',
+          //   },
+          // },
           {
             loader: 'css-loader',
             options: {
@@ -97,6 +99,7 @@ module.exports = (env, { mode = 'production' }) => ({
         root: 'React',
       },
     },
+    'react-virtuoso',
     'react-dom',
     '@rocket.chat/icons',
     '@rocket.chat/fuselage-hooks',
@@ -109,13 +112,17 @@ module.exports = (env, { mode = 'production' }) => ({
     '@rocket.chat/styled',
   ],
   plugins: [
+    new MiniCssExtractPlugin(),
     new webpack.DefinePlugin({
       'process.env.VERSION': JSON.stringify(pkg.version),
     }),
     new BundleAnalyzerPlugin({
       analyzerMode: 'static',
       generateStatsFile: false,
-      reportFilename: '../bundle-report.html',
+      reportFilename:
+        mode !== 'production'
+          ? '../bundle-report-dev.html'
+          : '../bundle-report.html',
       openAnalyzer: false,
     }),
 
