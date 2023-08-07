@@ -34,7 +34,7 @@ const AwaitingConfirmationPage = ({
 
       <Box
         maxWidth={498}
-        padding='x18'
+        padding={18}
         width='full'
         fontSize='x22'
         lineHeight='x32'

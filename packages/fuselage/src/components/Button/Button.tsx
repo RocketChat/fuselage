@@ -92,7 +92,7 @@ export const Button = forwardRef(function Button(
       {...extraProps}
       {...props}
     >
-      {icon && <Icon size='x16' name={icon} mie='x4' />}
+      {icon && <Icon size='x16' name={icon} mie={4} />}
       {children}
     </Box>
   );

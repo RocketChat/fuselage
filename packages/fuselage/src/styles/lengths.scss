@@ -36,7 +36,7 @@
   {
     @return functions.to-rem($value);
   } @else {
-    @error 'value must be none, or a multiple of 4';
+    @error 'value must be none, or a multiple of 4. You passed `#{$value}`';
   }
 }
 
@@ -58,7 +58,7 @@
   {
     @return functions.to-rem($value);
   } @else {
-    @error 'value must be none, full, sw, sh, a percentage, or a multiple of 4';
+    @error 'value must be none, full, sw, sh, a percentage, or a multiple of 4. You passed `#{$value}`';
   }
 }
 

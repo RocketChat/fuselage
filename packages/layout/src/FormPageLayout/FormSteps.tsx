@@ -14,7 +14,7 @@ const FormSteps = ({
   const { t } = useTranslation();
 
   return (
-    <Box mbe='x8' fontScale='c2' color='neutral-600'>
+    <Box mbe={8} fontScale='c2' color='neutral-600'>
       {t('component.form.steps', { currentStep, stepCount })}
     </Box>
   );

@@ -23,10 +23,10 @@ const WorkspaceUrlInput = forwardRef(function TextInput(
         <Box
           borderInlineStart='2px solid'
           mb='neg-x8'
-          pb='x8'
+          pb={8}
           borderColor='neutral-500'
           color='info'
-          pis='x12'
+          pis={12}
         >
           {domain}
         </Box>

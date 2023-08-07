@@ -48,7 +48,7 @@ export const Empty = memo(({ customEmpty }: { customEmpty: string }) => (
 export const Options = forwardRef(
   (
     {
-      maxHeight = '144px',
+      maxHeight = 'x144',
       multiple,
       renderEmpty: EmptyComponent = Empty,
       options,
