@@ -4,6 +4,7 @@ import { addParameters } from '@storybook/react';
 
 import 'normalize.css/normalize.css';
 import '@rocket.chat/icons/dist/rocketchat.css';
+import '../src/index.scss';
 import '@rocket.chat/fuselage-polyfills';
 
 addParameters({

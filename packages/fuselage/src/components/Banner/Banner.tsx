@@ -7,9 +7,7 @@ import type {
 import React, { useRef, useCallback, useMemo } from 'react';
 
 import { composeClassNames as cx } from '../../helpers/composeClassNames';
-import { useStyleSheet } from '../../hooks/useStyleSheet';
 import { IconButton } from '../Button';
-import styleSheet from './Banner.styles.scss';
 
 type VariantType = 'neutral' | 'info' | 'success' | 'warning' | 'danger';
 
@@ -51,9 +49,6 @@ const Banner = ({
   variant = 'neutral',
   ...props
 }: BannerProps) => {
-  useStyleSheet();
-  useStyleSheet(styleSheet);
-
   const ref = useRef(null);
   const { inlineSize } = useBorderBoxSize(ref, {
     debounceDelay: 70,

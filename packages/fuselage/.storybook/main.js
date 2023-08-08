@@ -1,3 +1,4 @@
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require('webpack');
 
 /** @type {import('@storybook/react/types').StorybookConfig} */
@@ -21,12 +22,7 @@ module.exports = {
     config.module.rules.push({
       test: /\.scss$/,
       use: [
-        {
-          loader: 'style-loader',
-          options: {
-            injectType: 'lazySingletonStyleTag',
-          },
-        },
+        MiniCssExtractPlugin.loader,
         {
           loader: 'css-loader',
           options: {
@@ -52,6 +48,7 @@ module.exports = {
     });
 
     config.plugins.push(new webpack.EnvironmentPlugin(['NODE_ENV']));
+    config.plugins.push(new MiniCssExtractPlugin());
 
     // Workaround for @storybook/addon-jest on Webpack 5
     config.resolve = {
