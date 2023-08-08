@@ -1,13 +1,12 @@
 import breakpointTokens from '@rocket.chat/fuselage-tokens/breakpoints.json';
 import { DocsPage, DocsContainer } from '@storybook/addon-docs';
-import { addParameters } from '@storybook/react';
 
 import 'normalize.css/normalize.css';
 import '@rocket.chat/icons/dist/rocketchat.css';
 import '../src/index.scss';
 import '@rocket.chat/fuselage-polyfills';
 
-addParameters({
+export const parameters = {
   backgrounds: {
     grid: {
       cellSize: 4,
@@ -49,4 +48,4 @@ addParameters({
       {}
     ),
   },
-});
+};
