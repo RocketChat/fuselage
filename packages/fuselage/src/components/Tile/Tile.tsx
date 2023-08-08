@@ -6,7 +6,7 @@ import Box from '../Box';
 type TileProps = ComponentProps<typeof Box>;
 
 const Tile = forwardRef(function Tile(
-  { elevation = '1', padding = 'x16', ...props }: TileProps,
+  { elevation = '1', padding = 16, ...props }: TileProps,
   ref: Ref<HTMLElement>
 ) {
   return (

@@ -120,7 +120,7 @@ export const PaginatedSelect = ({
           <Box
             flexGrow={1}
             is='span'
-            mi='x4'
+            mi={4}
             rcx-select__item
             fontScale='p2m'
             color={valueLabel ? 'default' : 'hint'}

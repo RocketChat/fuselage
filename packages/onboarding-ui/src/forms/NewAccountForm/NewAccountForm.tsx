@@ -118,7 +118,7 @@ const NewAccountForm = ({
             <Field.Row justifyContent='flex-start'>
               <CheckBox
                 {...register('agreement', { required: true })}
-                mie='x8'
+                mie={8}
               />
               <Box
                 is='label'

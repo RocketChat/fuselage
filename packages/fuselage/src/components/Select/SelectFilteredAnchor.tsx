@@ -34,7 +34,7 @@ const SelectFilteredAnchor = forwardRef(function SelectFilteredAnchor(
 ) {
   return (
     <InputBox.Input
-      mi='x4'
+      mi={4}
       flexGrow={1}
       className='rcx-select__focus'
       ref={ref}

@@ -11,7 +11,7 @@ const ContextualbarContent = forwardRef<
     <Box
       ref={ref}
       rcx-vertical-bar__content
-      paddingInline='x24'
+      paddingInline={24}
       display='flex'
       flexDirection='column'
       overflowY='hidden'

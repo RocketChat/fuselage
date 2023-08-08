@@ -33,7 +33,7 @@ const Description = (): ReactElement => {
 
   const listItem = (text: string, id: number) => (
     <List.Item key={id} fontScale='p1'>
-      <Icon name='check' size='x24' mie='x12' />
+      <Icon name='check' size='x24' mie={12} />
       {text}
     </List.Item>
   );

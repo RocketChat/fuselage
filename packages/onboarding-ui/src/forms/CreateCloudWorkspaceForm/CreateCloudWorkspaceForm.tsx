@@ -74,7 +74,7 @@ const CreateCloudWorkspaceForm = ({
         <Form.Title>{t('form.createCloudWorkspace.title')}</Form.Title>
       </Form.Header>
 
-      <FieldGroup mbs='x16'>
+      <FieldGroup mbs={16}>
         <Field>
           <Field.Label>
             {t('form.createCloudWorkspace.fields.orgEmail.label')}
@@ -96,7 +96,7 @@ const CreateCloudWorkspaceForm = ({
 
         <Field>
           <Field.Label>
-            <Box display='inline' mie='x8'>
+            <Box display='inline' mie={8}>
               {t('form.createCloudWorkspace.fields.workspaceName.label')}
             </Box>
           </Field.Label>
@@ -115,7 +115,7 @@ const CreateCloudWorkspaceForm = ({
 
         <Field>
           <Field.Label>
-            <Box display='inline' mie='x8'>
+            <Box display='inline' mie={8}>
               {t('form.createCloudWorkspace.fields.workspaceUrl.label')}
             </Box>
           </Field.Label>
@@ -134,11 +134,11 @@ const CreateCloudWorkspaceForm = ({
           )}
         </Field>
 
-        <Grid mb='x16'>
+        <Grid mb={16}>
           <Grid.Item>
             <Field>
               <Field.Label>
-                <Box display='inline' mie='x8'>
+                <Box display='inline' mie={8}>
                   {t('form.createCloudWorkspace.fields.serverRegion.label')}
                 </Box>
                 <Tooltip
@@ -170,7 +170,7 @@ const CreateCloudWorkspaceForm = ({
           <Grid.Item>
             <Field>
               <Field.Label>
-                <Box display='inline' mie='x8'>
+                <Box display='inline' mie={8}>
                   {t('form.createCloudWorkspace.fields.language.label')}
                 </Box>
                 <Tooltip
@@ -198,11 +198,11 @@ const CreateCloudWorkspaceForm = ({
           </Grid.Item>
         </Grid>
 
-        <Divider mb='x0' />
+        <Divider mb={0} />
 
         <Field>
           <Field.Row justifyContent='flex-start'>
-            <CheckBox {...register('agreement', { required: true })} mie='x8' />
+            <CheckBox {...register('agreement', { required: true })} mie={8} />
             <Box is='label' htmlFor='agreement' withRichContent fontScale='c1'>
               <Trans i18nKey='component.form.termsAndConditions'>
                 I agree with
@@ -231,7 +231,7 @@ const CreateCloudWorkspaceForm = ({
 
         <Field>
           <Field.Row justifyContent='flex-start'>
-            <CheckBox {...register('updates')} mie='x8' />
+            <CheckBox {...register('updates')} mie={8} />
             <Box fontScale='c1'>
               {t('form.createCloudWorkspace.fields.keepMeInformed')}
             </Box>
