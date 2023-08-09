@@ -1,13 +1,21 @@
+import type { ComponentProps, ComponentType } from 'react';
 import React from 'react';
 
 import { Box, Icon } from '../src';
 
-export function PropsVariationSection({
+type PropsVariationSectionProps<TComponent extends ComponentType<any>> = {
+  component: TComponent;
+  common: ComponentProps<TComponent>;
+  xAxis?: Record<string, Partial<ComponentProps<TComponent>>>;
+  yAxis?: Record<string, Partial<ComponentProps<TComponent>>>;
+};
+
+export function PropsVariationSection<TComponent extends ComponentType<any>>({
   component: Component,
-  common = {},
+  common,
   xAxis = {},
   yAxis = {},
-}) {
+}: PropsVariationSectionProps<TComponent>) {
   return (
     <Box
       is='table'
@@ -40,7 +48,11 @@ export function PropsVariationSection({
                 paddingInline={16}
               >
                 <Box display='flex' alignItems='center' justifyContent='center'>
-                  <Component {...common} {...xProps} {...yProps} />
+                  <Component
+                    {...common}
+                    {...(xProps as typeof common)}
+                    {...(yProps as typeof common)}
+                  />
                 </Box>
               </Box>
             ))}
