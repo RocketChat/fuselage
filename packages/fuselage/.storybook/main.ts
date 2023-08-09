@@ -6,7 +6,6 @@ const config: StorybookConfig = {
   },
   features: {
     postcss: false,
-    storyStoreV7: true,
   },
   addons: [
     '@storybook/addon-a11y',
@@ -20,6 +19,7 @@ const config: StorybookConfig = {
         },
       },
     },
+    'storybook-dark-mode',
   ],
   framework: '@storybook/react',
   stories: ['../src/**/*.stories.{mdx,js,tsx}'],
