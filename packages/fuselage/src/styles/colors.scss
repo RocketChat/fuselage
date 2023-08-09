@@ -6,14 +6,18 @@
 
 $-map-type-to-prefix: (
   neutral: 'n',
-  primary: 'p',
-  info: 'i',
-  success: 's',
-  warning: 'w',
-  warning-alternative: 'o',
-  danger: 'd',
-  service-1: 's1-',
-  service-2: 's2-',
+  blue: 'b',
+  red: 'r',
+  yellow: 'y',
+  green: 'g',
+  purple: 'p',
+  orange: 'o',
+  // primary: 'b',
+  // danger: 'r',
+  // warning: 'y',
+  // success: 'g',
+  // service-1: 'p',
+  // service-2: 'o,,,
 );
 
 @function _get-palette-color($type, $grade, $alpha) {
@@ -51,43 +55,33 @@ $-map-type-to-prefix: (
   @return var(list.nth($pair, 1), list.nth($pair, 2));
 }
 
-@function primary($grade, $alpha: null) {
-  $pair: _get-palette-color(primary, $grade, $alpha);
+@function blue($grade, $alpha: null) {
+  $pair: _get-palette-color(blue, $grade, $alpha);
   @return var(list.nth($pair, 1), list.nth($pair, 2));
 }
 
-@function info($grade, $alpha: null) {
-  $pair: _get-palette-color(info, $grade, $alpha);
+@function green($grade, $alpha: null) {
+  $pair: _get-palette-color(green, $grade, $alpha);
   @return var(list.nth($pair, 1), list.nth($pair, 2));
 }
 
-@function success($grade, $alpha: null) {
-  $pair: _get-palette-color(success, $grade, $alpha);
+@function yellow($grade, $alpha: null) {
+  $pair: _get-palette-color(yellow, $grade, $alpha);
   @return var(list.nth($pair, 1), list.nth($pair, 2));
 }
 
-@function warning($grade, $alpha: null) {
-  $pair: _get-palette-color(warning, $grade, $alpha);
+@function red($grade, $alpha: null) {
+  $pair: _get-palette-color(red, $grade, $alpha);
   @return var(list.nth($pair, 1), list.nth($pair, 2));
 }
 
-@function warning-alternative($grade, $alpha: null) {
-  $pair: _get-palette-color(warning-alternative, $grade, $alpha);
+@function orange($grade, $alpha: null) {
+  $pair: _get-palette-color(orange, $grade, $alpha);
   @return var(list.nth($pair, 1), list.nth($pair, 2));
 }
 
-@function danger($grade, $alpha: null) {
-  $pair: _get-palette-color(danger, $grade, $alpha);
-  @return var(list.nth($pair, 1), list.nth($pair, 2));
-}
-
-@function service-1($grade, $alpha: null) {
-  $pair: _get-palette-color(service-1, $grade, $alpha);
-  @return var(list.nth($pair, 1), list.nth($pair, 2));
-}
-
-@function service-2($grade, $alpha: null) {
-  $pair: _get-palette-color(service-2, $grade, $alpha);
+@function purple($grade, $alpha: null) {
+  $pair: _get-palette-color(purple, $grade, $alpha);
   @return var(list.nth($pair, 1), list.nth($pair, 2));
 }
 
@@ -100,9 +94,9 @@ $-surfaces: (
   selected: neutral(450),
   hover: neutral(200),
   dark: neutral(900),
-  featured: service-2(700),
-  featured-hover: service-2(800),
-  overlay: neutral(850),
+  featured: purple(700),
+  featured-hover: purple(800),
+  overlay: neutral(800),
 );
 
 @function surface($type) {
@@ -118,8 +112,8 @@ $-font: (
   secondary-info: neutral(700),
   default: neutral(800),
   titles-labels: neutral(900),
-  info: primary(600),
-  danger: danger(600),
+  info: blue(600),
+  danger: red(600),
   pure-black: neutral(800),
   pure-white: white,
 );
@@ -135,10 +129,10 @@ $-font: (
 }
 
 $-status-bullet: (
-  online: success(650),
-  away: warning(650),
-  busy: danger(650),
-  disabled: service-1(500),
+  online: green(800),
+  away: yellow(800),
+  busy: red(600),
+  disabled: orange(500),
   offline: neutral(700),
   loading: neutral(600),
 );
@@ -149,13 +143,13 @@ $-status-bullet: (
 }
 
 $-status-backgrounds: (
-  success: success(200),
-  warning: warning(200),
-  warning-2: warning(150),
-  danger: danger(200),
-  service-1: service-1(200),
-  service-2: service-2(200),
-  info: primary(200),
+  success: green(200),
+  warning: yellow(200),
+  warning-2: yellow(100),
+  danger: red(200),
+  service-1: orange(200),
+  service-2: purple(200),
+  info: blue(200),
 );
 
 @function status-background($type) {
@@ -164,13 +158,13 @@ $-status-backgrounds: (
 }
 
 $-status-font: (
-  on-success: success(800),
-  on-warning: warning(800),
+  on-success: green(800),
+  on-warning: yellow(800),
   on-warning-2: neutral(800),
-  on-danger: danger(800),
-  on-service-1: service-1(800),
-  on-service-2: service-2(600),
-  on-info: primary(600),
+  on-danger: red(800),
+  on-service-1: orange(800),
+  on-service-2: purple(600),
+  on-info: blue(600),
 );
 
 @function status-font($type) {
@@ -184,10 +178,10 @@ $-strokes: (
   medium: neutral(600),
   dark: neutral(700),
   extra-dark: neutral(800),
-  extra-light-highlight: primary(200),
-  highlight: primary(500),
-  extra-light-error: danger(200),
-  error: danger(500),
+  extra-light-highlight: blue(200),
+  highlight: blue(500),
+  extra-light-error: red(200),
+  error: red(500),
 );
 
 @function stroke($type) {
@@ -198,9 +192,9 @@ $-strokes: (
 $-badge-backgrounds: (
   level-0: neutral(400),
   level-1: neutral(600),
-  level-2: primary(550),
-  level-3: service-1(500),
-  level-4: danger(550),
+  level-2: blue(500),
+  level-3: orange(500),
+  level-4: red(500),
 );
 
 @function badge($type) {
@@ -209,8 +203,8 @@ $-badge-backgrounds: (
 }
 
 $shadow-colors: (
-  highlight: primary(200),
-  danger: danger(100),
+  highlight: blue(200),
+  danger: red(100),
   elevation-1: neutral(800, 0.1),
   elevation-2x: neutral(800, 0.08),
   elevation-2y: neutral(800, 0.12),
@@ -223,12 +217,12 @@ $shadow-colors: (
 
 $-button-backgrounds: (
   // primary
-  primary-default: primary(500),
-  primary-hover: primary(600),
-  primary-press: primary(700),
-  primary-focus: primary(500),
-  primary-keyfocus: primary(500),
-  primary-disabled: primary(200),
+  primary-default: blue(500),
+  primary-hover: blue(600),
+  primary-press: blue(700),
+  primary-focus: blue(500),
+  primary-keyfocus: blue(500),
+  primary-disabled: blue(200),
   // secondary
   secondary-default: neutral(400),
   secondary-hover: neutral(500),
@@ -237,12 +231,12 @@ $-button-backgrounds: (
   secondary-keyfocus: neutral(400),
   secondary-disabled: neutral(300),
   // danger
-  danger-default: danger(500),
-  danger-hover: danger(600),
-  danger-press: danger(700),
-  danger-focus: danger(500),
-  danger-keyfocus: danger(500),
-  danger-disabled: danger(200),
+  danger-default: red(500),
+  danger-hover: red(600),
+  danger-press: red(700),
+  danger-focus: red(500),
+  danger-keyfocus: red(500),
+  danger-disabled: red(200),
   // secondary-danger
   secondary-danger-default: neutral(400),
   secondary-danger-hover: neutral(500),
@@ -251,12 +245,12 @@ $-button-backgrounds: (
   secondary-danger-keyfocus: neutral(400),
   secondary-danger-disabled: neutral(300),
   // warning
-  warning-default: warning(400),
-  warning-hover: warning(500),
-  warning-press: warning(600),
-  warning-focus: warning(400),
-  warning-keyfocus: warning(400),
-  warning-disabled: warning(200),
+  warning-default: yellow(400),
+  warning-hover: yellow(500),
+  warning-press: yellow(600),
+  warning-focus: yellow(400),
+  warning-keyfocus: yellow(400),
+  warning-disabled: yellow(200),
   // secondary-warning
   secondary-warning-default: neutral(400),
   secondary-warning-hover: neutral(500),
@@ -265,12 +259,12 @@ $-button-backgrounds: (
   secondary-warning-keyfocus: neutral(400),
   secondary-warning-disabled: neutral(300),
   // success
-  success-default: success(800),
-  success-hover: success(900),
-  success-press: success(1000),
-  success-focus: success(800),
-  success-keyfocus: success(800),
-  success-disabled: success(200),
+  success-default: green(800),
+  success-hover: green(900),
+  success-press: green(1000),
+  success-focus: green(800),
+  success-keyfocus: green(800),
+  success-disabled: green(200),
   // secondary-success
   secondary-success-default: neutral(400),
   secondary-success-hover: neutral(500),
@@ -291,20 +285,20 @@ $-button-fonts: (
   on-danger: white,
   on-danger-disabled: white,
   // secondary-danger
-  on-secondary-danger: danger(700),
-  on-secondary-danger-disabled: danger(300),
+  on-secondary-danger: red(700),
+  on-secondary-danger-disabled: red(300),
   // warning
   on-warning: neutral(900),
   on-warning-disabled: neutral(600),
   // secondary-warning
-  on-secondary-warning: warning(900),
-  on-secondary-warning-disabled: warning(600),
+  on-secondary-warning: yellow(900),
+  on-secondary-warning-disabled: yellow(600),
   // success
   on-success: white,
   on-success-disabled: white,
   // secondary-success
-  on-secondary-success: success(800),
-  on-secondary-success-disabled: success(400),
+  on-secondary-success: green(800),
+  on-secondary-success-disabled: green(400),
   // disabled
   on-disabled: neutral(600)
 );
