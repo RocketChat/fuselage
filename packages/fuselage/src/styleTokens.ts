@@ -78,11 +78,12 @@ export const borderRadius = measure((value: unknown) => {
 
 const mapTypeToPrefix = {
   neutral: 'n',
-  primary: 'b',
-  info: 'b',
-  success: 'g',
-  warning: 'y',
-  danger: 'r',
+  blue: 'b',
+  green: 'g',
+  yellow: 'y',
+  red: 'r',
+  orange: 'o',
+  purple: 'p',
 } as const;
 
 const isPaletteColorType = (
@@ -103,7 +104,7 @@ const isPaletteColorAlpha = (alpha: unknown): alpha is number | undefined =>
   (typeof alpha === 'number' && alpha >= 0 && alpha <= 1);
 
 const paletteColorRegex =
-  /^(neutral|primary|info|success|warning|danger)-(\d+)(-(\d+))?$/;
+  /^(neutral|blue|green|yellow|red|orange|purple)-(\d+)(-(\d+))?$/;
 
 export const strokeColor = memoize((value) => {
   const colorName = `stroke-${value}`;
