@@ -1,17 +1,21 @@
 import { DarkModeProvider } from '@rocket.chat/layout';
 import { DocsPage, DocsContainer } from '@storybook/addon-docs';
-import type { DecoratorFunction } from '@storybook/addons';
-import { addParameters } from '@storybook/react';
-import '@rocket.chat/icons/dist/rocketchat.css';
-import '@rocket.chat/fuselage/dist/fuselage.css';
-import '@rocket.chat/fuselage-polyfills';
+import type { Parameters } from '@storybook/addons';
+import type { DecoratorFn } from '@storybook/react';
+import { themes } from '@storybook/theming';
 import i18next from 'i18next';
-import type { ElementType, ReactElement } from 'react';
 import { Suspense } from 'react';
 import { I18nextProvider, initReactI18next } from 'react-i18next';
 import { useDarkMode } from 'storybook-dark-mode';
 
-addParameters({
+import manifest from '../package.json';
+import logo from './logo.svg';
+
+import '@rocket.chat/fuselage/dist/fuselage.css';
+import '@rocket.chat/icons/dist/rocketchat.css';
+import '@rocket.chat/fuselage-polyfills';
+
+export const parameters: Parameters = {
   backgrounds: {
     grid: {
       cellSize: 4,
@@ -26,7 +30,21 @@ addParameters({
   options: {
     storySort: ([, a], [, b]) => a.kind.localeCompare(b.kind),
   },
-});
+  darkMode: {
+    dark: {
+      ...themes.dark,
+      brandTitle: manifest.name,
+      brandImage: logo,
+      brandUrl: manifest.homepage,
+    },
+    light: {
+      ...themes.normal,
+      brandTitle: manifest.name,
+      brandImage: logo,
+      brandUrl: manifest.homepage,
+    },
+  },
+};
 
 const getI18n = () => {
   const i18n = i18next.createInstance().use(initReactI18next);
@@ -46,9 +64,10 @@ const getI18n = () => {
   return i18n;
 };
 
-export const decorators: DecoratorFunction<ReactElement>[] = [
-  (Story: ElementType): ReactElement => {
+export const decorators: DecoratorFn[] = [
+  (Story) => {
     const dark = useDarkMode();
+
     return (
       <Suspense fallback={null}>
         <I18nextProvider i18n={getI18n()}>
