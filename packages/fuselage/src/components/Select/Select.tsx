@@ -1,6 +1,6 @@
 import type { AriaSelectProps } from '@react-types/select';
-import type { ComponentProps, Key } from 'react';
-import React from 'react';
+import type { ComponentProps, Key, Ref } from 'react';
+import React, { forwardRef } from 'react';
 import { Item } from 'react-stately';
 
 import { SelectAria } from './SelectAria';
@@ -18,12 +18,12 @@ type SelectProps<T, V extends Key> = Omit<
   options: SelectOption[];
 } & Omit<React.AllHTMLAttributes<HTMLElement>, 'onChange'>;
 
-export const Select = function Select<T extends object, V extends Key>({
-  options,
-  ...props
-}: SelectProps<T, V>) {
+export const Select = forwardRef(function Select<
+  T extends object,
+  V extends Key
+>({ options, ...props }: SelectProps<T, V>, ref: Ref<HTMLElement>) {
   return (
-    <SelectAria {...(props as ComponentProps<typeof SelectAria>)}>
+    <SelectAria ref={ref} {...(props as ComponentProps<typeof SelectAria>)}>
       {options.map((option) => (
         <Item
           title={option[1] ?? option[0]}
@@ -35,4 +35,4 @@ export const Select = function Select<T extends object, V extends Key>({
       ))}
     </SelectAria>
   );
-};
+});
