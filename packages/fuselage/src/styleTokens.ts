@@ -1,4 +1,3 @@
-import tokenColors from '@rocket.chat/fuselage-tokens/colors.json';
 import tokenTypography from '@rocket.chat/fuselage-tokens/typography.json';
 import { memoize } from '@rocket.chat/memo';
 import invariant from 'invariant';
@@ -103,35 +102,6 @@ const isPaletteColorAlpha = (alpha: unknown): alpha is number | undefined =>
   alpha === undefined ||
   (typeof alpha === 'number' && alpha >= 0 && alpha <= 1);
 
-const foregroundColors = {
-  'default': tokenColors.n800,
-  'info': tokenColors.n700,
-  'hint': tokenColors.n600,
-  'disabled': tokenColors.n400,
-  'alternative': 'white',
-  'primary': tokenColors.b500,
-  'success': tokenColors.g500,
-  'danger': tokenColors.r500,
-  'warning': tokenColors.y700,
-  'link': tokenColors.b500,
-  'visited-link': tokenColors.p500,
-  'active-link': tokenColors.r500,
-} as const;
-
-const isForegroundColorRef = (
-  ref: unknown
-): ref is keyof typeof foregroundColors =>
-  typeof ref === 'string' && ref in foregroundColors;
-
-const getForegroundColor = (
-  type: keyof typeof foregroundColors
-): [customPropertyName: string, value: string] => {
-  invariant(isForegroundColorRef(type), 'invalid foreground color');
-
-  const color = foregroundColors[type];
-  return [`--rcx-color-foreground-${type}`, color];
-};
-
 const paletteColorRegex =
   /^(neutral|primary|info|success|warning|danger)-(\d+)(-(\d+))?$/;
 
@@ -232,16 +202,6 @@ export const color = memoize((value) => {
 
   if (value === 'surface-neutral') {
     return toCSSColorValue(value, neutral.n400);
-  }
-
-  if (isForegroundColorRef(value)) {
-    const [customProperty, color] = getForegroundColor(value);
-
-    if (customProperty) {
-      return toCSSValue(customProperty, color);
-    }
-
-    return color;
   }
 
   const paletteMatches = paletteColorRegex.exec(String(value));
