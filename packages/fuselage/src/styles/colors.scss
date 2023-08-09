@@ -12,12 +12,6 @@ $-map-type-to-prefix: (
   green: 'g',
   purple: 'p',
   orange: 'o',
-  // primary: 'b',
-  // danger: 'r',
-  // warning: 'y',
-  // success: 'g',
-  // service-1: 'p',
-  // service-2: 'o,,,
 );
 
 @function _get-palette-color($type, $grade, $alpha) {
