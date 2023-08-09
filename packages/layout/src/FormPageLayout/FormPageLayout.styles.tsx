@@ -114,7 +114,7 @@ export const Subtitle = styled('h2', SubTitleFormPageProps)`
   }
 `;
 
-export const Description = styled('p')`
+export const Description = styled('div')`
   font-family: ${sans};
 
   // p2
