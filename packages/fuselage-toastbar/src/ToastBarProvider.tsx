@@ -1,5 +1,5 @@
 import type { ReactNode, ReactElement } from 'react';
-import React, { useState, memo } from 'react';
+import { useState, memo } from 'react';
 
 import type { ToastBarPayload } from './ToastBarContext';
 import { ToastBarContext } from './ToastBarContext';
