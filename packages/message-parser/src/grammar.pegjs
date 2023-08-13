@@ -31,6 +31,7 @@
     task,
     tasks,
     unorderedList,
+    flatten,
   } = require('./utils');
 }}
 
@@ -227,10 +228,12 @@ InlineItem = Whitespace
  *
  */
 References
-  = "[" title:LinkTitle* "](" href:LinkRef ")" { return title.length ? link(href, reducePlainTexts(title)) : link(href); }
+  = "[" title:LinkTitle* "](" href:LinkRef ")" { return title.length ? link(href, reducePlainTexts(flatten(title))) : link(href); }
   / "<" href:LinkRef "|" title:LinkTitle2 ">" { return link(href, [plain(title)]); }
 
-LinkTitle = (Whitespace / Emphasis) / anyTitle:$(!("](" .) .) { return plain(anyTitle) }
+LinkTitle = (Whitespace / Emphasis) / balanced / anyTitle:$[^\[\]] { return plain(anyTitle) }
+
+balanced = "[" t:LinkTitle* "]" { return reducePlainTexts([plain("["), ...(t || []), plain("]")]) }
 
 LinkTitle2 = $([\x20-\x3B\x3D\x3F-\x60\x61-\x7B\x7D-\xFF] / NonASCII)+
 
