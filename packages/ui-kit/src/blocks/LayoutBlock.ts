@@ -20,6 +20,5 @@ export type LayoutBlock =
   | InputBlock
   | SectionBlock
   | VideoConferenceBlock
-  | PreviewBlock
   | CalloutBlock
   | ExperimentalTabNavigationBlock;
