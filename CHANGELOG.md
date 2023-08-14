@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.31.25](https://github.com/RocketChat/fuselage/compare/v0.31.24...v0.31.25) (2023-08-14)
+
+### Features
+
+- **fuselage:** `StatesLink` Component ([#1122](https://github.com/RocketChat/fuselage/issues/1122)) ([61397f8](https://github.com/RocketChat/fuselage/commit/61397f889525baf505155c188620413388e27d0a))
+
+### Bug Fixes
+
+- **icons:** Build definition for `icons` package ([#1123](https://github.com/RocketChat/fuselage/issues/1123)) ([13a2bef](https://github.com/RocketChat/fuselage/commit/13a2bef78701a377b0fd242bea2a765974fc5007))
+- Turn `TabNavigationBlock` into `ExperimentalTabNavigationBlock` ([#1117](https://github.com/RocketChat/fuselage/issues/1117)) ([1b1d627](https://github.com/RocketChat/fuselage/commit/1b1d627030d37ac0840a22b1fc3564f11196e787))
+- **uikit:** `initialTime` prop time in `TimePicker` component ([#1115](https://github.com/RocketChat/fuselage/issues/1115)) ([124cd3c](https://github.com/RocketChat/fuselage/commit/124cd3ca241f35b2c1afb989628c45c6266140e9))
+
 ### [0.31.24](https://github.com/RocketChat/fuselage/compare/v0.31.23...v0.31.24) (2023-07-21)
 
 ### Features
