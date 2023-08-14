@@ -35,7 +35,7 @@
     "lint-staged": "lint-staged",
     "test": "jest --runInBand",
     "docs": "typedoc",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -p 6006 --no-version-updates",
     "build-storybook": "build-storybook",
     "bump-next": "bump-next"
   },
@@ -71,7 +71,6 @@
     "npm-run-all": "^4.1.5",
     "prettier": "~2.8.7",
     "react": "^17.0.2",
-    "react-docgen-typescript-plugin": "~1.0.5",
     "react-dom": "^17.0.2",
     "react-i18next": "~11.15.7",
     "rimraf": "^3.0.2",

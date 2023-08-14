@@ -1,6 +1,6 @@
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import type { ComponentProps, ReactNode } from 'react';
-import React, { useState } from 'react';
+import type { ComponentProps, ReactNode, Ref } from 'react';
+import React, { forwardRef, useState } from 'react';
 
 import {
   MenuV2 as Menu,
@@ -11,6 +11,7 @@ import {
   MenuItemInput,
 } from '.';
 import Box from '../../Box/Box';
+import { IconButton } from '../../Button';
 import { ButtonGroup } from '../../ButtonGroup';
 import { CheckBox } from '../../CheckBox';
 import { RadioButton } from '../../RadioButton';
@@ -119,7 +120,7 @@ export const MenuDisplayExample: ComponentStory<typeof Menu> = (args) => {
           <MenuItemContent>Extended</MenuItemContent>
           <MenuItemInput>
             <RadioButton
-              mi='x16'
+              mi={16}
               onChange={() => setDisplay('extended')}
               checked={display === 'extended'}
             />
@@ -130,7 +131,7 @@ export const MenuDisplayExample: ComponentStory<typeof Menu> = (args) => {
           <MenuItemContent>Medium</MenuItemContent>
           <MenuItemInput>
             <RadioButton
-              mi='x16'
+              mi={16}
               onChange={() => setDisplay('medium')}
               checked={display === 'medium'}
             />
@@ -141,7 +142,7 @@ export const MenuDisplayExample: ComponentStory<typeof Menu> = (args) => {
           <MenuItemContent>Condensed</MenuItemContent>
           <MenuItemInput>
             <RadioButton
-              mi='x16'
+              mi={16}
               onChange={() => setDisplay('condensed')}
               checked={display === 'condensed'}
             />
@@ -152,7 +153,7 @@ export const MenuDisplayExample: ComponentStory<typeof Menu> = (args) => {
           <MenuItemContent>Avatars</MenuItemContent>
           <MenuItemInput>
             <ToggleSwitch
-              mie='x16'
+              mie={16}
               onChange={() => setAvatarDisplay(!avatarDisplay)}
               checked={avatarDisplay}
             />
@@ -165,7 +166,7 @@ export const MenuDisplayExample: ComponentStory<typeof Menu> = (args) => {
           <MenuItemContent>Activities</MenuItemContent>
           <MenuItemInput>
             <RadioButton
-              mi='x16'
+              mi={16}
               onChange={() => setSortBy('activity')}
               checked={sortBy === 'activity'}
             />
@@ -176,7 +177,7 @@ export const MenuDisplayExample: ComponentStory<typeof Menu> = (args) => {
           <MenuItemContent>Name</MenuItemContent>
           <MenuItemInput>
             <RadioButton
-              mi='x16'
+              mi={16}
               onChange={() => setSortBy('alphabetical')}
               checked={sortBy === 'alphabetical'}
             />
@@ -189,7 +190,7 @@ export const MenuDisplayExample: ComponentStory<typeof Menu> = (args) => {
           <MenuItemContent>Unread</MenuItemContent>
           <MenuItemInput>
             <CheckBox
-              mi='x16'
+              mi={16}
               checked={groupByUnread}
               onChange={() => setGroupByUnread(!groupByUnread)}
             />
@@ -200,7 +201,7 @@ export const MenuDisplayExample: ComponentStory<typeof Menu> = (args) => {
           <MenuItemContent>Favorites</MenuItemContent>
           <MenuItemInput>
             <CheckBox
-              mi='x16'
+              mi={16}
               checked={groupByFav}
               onChange={() => setGroupByFav(!groupByFav)}
             />
@@ -211,7 +212,7 @@ export const MenuDisplayExample: ComponentStory<typeof Menu> = (args) => {
           <MenuItemContent>Types</MenuItemContent>
           <MenuItemInput>
             <CheckBox
-              mi='x16'
+              mi={16}
               checked={groupByTypes}
               onChange={() => setGroupByTypes(!groupByTypes)}
             />
@@ -249,7 +250,7 @@ export const MenuMapGenericItem = () => {
       icon: 'flag',
       input: (
         <CheckBox
-          mi='x16'
+          mi={16}
           checked={groupByUnread}
           onChange={() => setGroupByUnread(!groupByUnread)}
         />
@@ -262,7 +263,7 @@ export const MenuMapGenericItem = () => {
         'Group by favorites and unread bla bla balaisudhf ioioasdhoaisdf asdifh oaisdhf aosidhf aisdhf aosdihf',
       input: (
         <CheckBox
-          mi='x16'
+          mi={16}
           checked={groupByFav}
           onChange={() => setGroupByFav(!groupByFav)}
         />
@@ -273,7 +274,7 @@ export const MenuMapGenericItem = () => {
       icon: 'group-by-type',
       input: (
         <CheckBox
-          mi='x16'
+          mi={16}
           checked={groupByTypes}
           onChange={() => setGroupByTypes(!groupByTypes)}
         />
@@ -286,7 +287,7 @@ export const MenuMapGenericItem = () => {
       icon: 'clock',
       input: (
         <CheckBox
-          mi='x16'
+          mi={16}
           onChange={() => setSortBy('activity')}
           checked={sortBy === 'activity'}
         />
@@ -297,7 +298,7 @@ export const MenuMapGenericItem = () => {
       icon: 'sort-az',
       input: (
         <CheckBox
-          mi='x16'
+          mi={16}
           onChange={() => setSortBy('alphabetical')}
           checked={sortBy === 'alphabetical'}
         />
@@ -428,6 +429,28 @@ export const Sizes = () => (
       <MenuItem key='3'>Settings</MenuItem>
     </Menu>
     <Menu mini>
+      <MenuItem key='1'>Profile</MenuItem>
+      <MenuItem key='2'>Chats</MenuItem>
+      <MenuItem key='3'>Settings</MenuItem>
+    </Menu>
+  </ButtonGroup>
+);
+
+const CustomButton = forwardRef((props, ref: Ref<HTMLElement>) => (
+  <IconButton ref={ref} {...props} icon='kebab' secondary small={false} />
+));
+
+export const WithCustomButton = () => (
+  <ButtonGroup>
+    <Menu
+      title='using prop customButton'
+      button={<IconButton icon='kebab' secondary />}
+    >
+      <MenuItem key='1'>Profile</MenuItem>
+      <MenuItem key='2'>Chats</MenuItem>
+      <MenuItem key='3'>Settings</MenuItem>
+    </Menu>
+    <Menu title='using prop is' is={CustomButton}>
       <MenuItem key='1'>Profile</MenuItem>
       <MenuItem key='2'>Chats</MenuItem>
       <MenuItem key='3'>Settings</MenuItem>

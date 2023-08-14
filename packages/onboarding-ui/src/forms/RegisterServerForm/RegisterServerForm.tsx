@@ -76,7 +76,7 @@ const RegisterServerForm = ({
           <Form.Steps currentStep={currentStep} stepCount={stepCount} />
           <Form.Title>{t('form.registeredServerForm.title')}</Form.Title>
         </Form.Header>
-        <Box mbe='x24' mbs='x16'>
+        <Box mbe={24} mbs={16}>
           <List>
             <List.Item fontScale='p2' icon='check'>
               {t('form.registeredServerForm.included.push')}
@@ -102,7 +102,7 @@ const RegisterServerForm = ({
                   title={t(
                     'form.registeredServerForm.fields.accountEmail.tooltipLabel'
                   )}
-                  mis='x4'
+                  mis={4}
                   size='x16'
                   name='info'
                 />
@@ -123,16 +123,16 @@ const RegisterServerForm = ({
                 <Field.Error>{t('component.form.requiredField')}</Field.Error>
               )}
             </Field>
-            <Box mbs='x24'>
+            <Box mbs={24}>
               <Box
-                mbe='x8'
+                mbe={8}
                 display='flex'
                 flexDirection='row'
                 alignItems='flex-start'
                 fontScale='c1'
                 lineHeight={20}
               >
-                <CheckBox mie='x8' {...register('updates')} />{' '}
+                <CheckBox mie={8} {...register('updates')} />{' '}
                 <Box is='label' htmlFor='updates'>
                   {t('form.registeredServerForm.keepInformed')}
                 </Box>
@@ -146,7 +146,7 @@ const RegisterServerForm = ({
                 lineHeight={20}
               >
                 <CheckBox
-                  mie='x8'
+                  mie={8}
                   {...register('agreement', { required: true })}
                 />{' '}
                 <Box is='label' htmlFor='agreement' withRichContent>
@@ -171,7 +171,7 @@ const RegisterServerForm = ({
                 </Box>
               </Box>
 
-              <Box mbs='x32' fontScale='c1' htmlFor='agreement' withRichContent>
+              <Box mbs={32} fontScale='c1' htmlFor='agreement' withRichContent>
                 {t('form.registeredServerForm.agreeToReceiveUpdates')}
               </Box>
             </Box>
@@ -179,7 +179,7 @@ const RegisterServerForm = ({
         )}
         {offline && (
           <Form.Container>
-            <Box mbs='x32' fontScale='c1' withRichContent>
+            <Box mbs={32} fontScale='c1' withRichContent>
               {t('form.registeredServerForm.notConnectedToInternet')}
             </Box>
           </Form.Container>

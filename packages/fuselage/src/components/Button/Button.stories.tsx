@@ -80,8 +80,9 @@ export const Variants: ComponentStory<typeof Button> = () => (
 export const Sizes: ComponentStory<typeof ButtonGroup> = () => (
   <>
     <ButtonGroup marginBlockEnd={12}>
-      <Button small>Button</Button>
-      <Button>Button</Button>
+      <Button small>Small</Button>
+      <Button medium>Medium</Button>
+      <Button>Default</Button>
     </ButtonGroup>
     <ButtonGroup>
       <Button mini square>
@@ -94,7 +95,7 @@ export const Sizes: ComponentStory<typeof ButtonGroup> = () => (
         <Icon name='circled-arrow-down' size='x24' />
       </Button>
       <Button square>
-        <Icon name='circled-arrow-down' size='x20' />
+        <Icon name='circled-arrow-down' size='x32' />
       </Button>
     </ButtonGroup>
   </>
@@ -124,11 +125,8 @@ export const States = () => (
           children: <Icon name='circled-arrow-down' size='x20' />,
         },
         'icon + text': {
-          children: (
-            <>
-              <Icon name='baloon-text' size='x16' /> Button
-            </>
-          ),
+          children: 'Button',
+          icon: 'baloon-text',
         },
         'text': {
           children: 'Button',
@@ -189,11 +187,8 @@ export const States = () => (
           children: <Icon name='circled-arrow-down' size='x20' />,
         },
         'icon + text': {
-          children: (
-            <>
-              <Icon name='baloon-text' size='x16' /> Button
-            </>
-          ),
+          children: 'Button',
+          icon: 'baloon-text',
         },
         'text': {
           children: 'Button',

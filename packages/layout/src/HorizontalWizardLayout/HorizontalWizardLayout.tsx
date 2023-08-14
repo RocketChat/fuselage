@@ -84,7 +84,7 @@ export const HorizontalWizardLayoutCaption = ({
       flexDirection='row'
       fontScale='c1'
       color={isDark ? 'white' : 'secondary-info'}
-      mb='x16'
+      mb={16}
       alignItems='center'
     >
       {children}

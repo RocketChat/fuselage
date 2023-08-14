@@ -320,10 +320,10 @@ export const WithNegativeValues = () => (
         <Margins inline='-x40'>
           <Tile display='flex' padding='none'>
             <Margins inline='x40'>
-              <Tile padding='x40' />
-              <Tile padding='x40' />
-              <Tile padding='x40' />
-              <Tile padding='x40' />
+              <Tile padding={40} />
+              <Tile padding={40} />
+              <Tile padding={40} />
+              <Tile padding={40} />
             </Margins>
           </Tile>
         </Margins>
@@ -332,10 +332,10 @@ export const WithNegativeValues = () => (
         <Margins block='-x40'>
           <Tile display='flex' padding='none'>
             <Margins block='x40'>
-              <Tile padding='x40' />
-              <Tile padding='x40' />
-              <Tile padding='x40' />
-              <Tile padding='x40' />
+              <Tile padding={40} />
+              <Tile padding={40} />
+              <Tile padding={40} />
+              <Tile padding={40} />
             </Margins>
           </Tile>
         </Margins>
@@ -347,11 +347,11 @@ WithNegativeValues.storyName = 'With negative values';
 
 export const WithAutoValue = () => (
   <Tile display='flex'>
-    <Tile padding='x40' />
+    <Tile padding={40} />
     <Margins inline='auto'>
-      <Tile padding='x40' />
+      <Tile padding={40} />
     </Margins>
-    <Tile padding='x40' />
+    <Tile padding={40} />
   </Tile>
 );
 WithAutoValue.storyName = 'With auto value';
@@ -359,14 +359,14 @@ WithAutoValue.storyName = 'With auto value';
 export const WithNoneValue = () => (
   <Tile display='flex'>
     <Margins inline='x16'>
-      <Tile padding='x40' />
+      <Tile padding={40} />
     </Margins>
     <Margins inline='none'>
-      <Tile padding='x40' />
-      <Tile padding='x40' />
+      <Tile padding={40} />
+      <Tile padding={40} />
     </Margins>
     <Margins inline='x16'>
-      <Tile padding='x40' />
+      <Tile padding={40} />
     </Margins>
   </Tile>
 );

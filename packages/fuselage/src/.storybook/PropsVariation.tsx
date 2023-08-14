@@ -15,7 +15,7 @@ function PropsVariation({
   return (
     <Box
       is='table'
-      marginBlock='x16'
+      marginBlock={16}
       marginInline='auto'
       style={{ borderCollapse: 'collapse' }}
     >
@@ -40,8 +40,8 @@ function PropsVariation({
                 key={x}
                 is='td'
                 margin='none'
-                paddingBlock='x8'
-                paddingInline='x16'
+                paddingBlock={8}
+                paddingInline={16}
               >
                 <Box display='flex' alignItems='center' justifyContent='center'>
                   <Component {...common} {...xProps} {...yProps} />

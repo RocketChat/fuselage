@@ -1,6 +1,7 @@
 import { writeBinary, writeSource } from 'tools-utils/files';
 import { encodeJson } from 'tools-utils/json';
 import { runEslint, runStylelint } from 'tools-utils/source';
+
 import {
   createSvgBuffer,
   createTtfBuffer,
@@ -8,8 +9,8 @@ import {
   createWoff2Buffer,
   createEotBuffer,
 } from './font.mjs';
-import { createSvgSprite, createSvgIcons } from './svg.mjs';
 import { getMappedGlyphs } from './glyphs.mjs';
+import { createSvgSprite, createSvgIcons } from './svg.mjs';
 
 const filterOtherIconsOut = (icons) =>
   icons.filter(({ type }) => type !== 'other');
@@ -93,11 +94,11 @@ export const buildFont = (icons) =>
 export const buildDefinition = (icons) => {
   Promise.resolve(icons)
     .then(fromIconDescriptorsToCharacters)
-    .then((characters) => {
-      return `declare const Icons= ${encodeJson(characters)};
+    .then(
+      (characters) => `declare const Icons: ${encodeJson(characters)};
 export default Icons;
-export type Keys = keyof typeof Icons;`;
-    })
+export type Keys = keyof typeof Icons;`
+    )
     // .then(runEslint('index.d.ts'))
     .then(writeSource('dist/index.d.ts'))
     .catch(console.log);

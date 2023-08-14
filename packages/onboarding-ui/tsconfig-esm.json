@@ -1,4 +1,10 @@
 {
   "extends": "./tsconfig.json",
-  "exclude": ["./**/*.stories.tsx", "./**/*.spec.tsx"]
+  "compilerOptions": {
+    "module": "ESNext",
+    "rootDir": "./src",
+    "outDir": "./dist/esm"
+  },
+  "include": ["./src"],
+  "exclude": ["**/*.spec.ts"]
 }

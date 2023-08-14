@@ -140,16 +140,16 @@ const RequestTrialForm = ({
           </Field.Row>
         </Field>
         <Field>
-          <Box mbs='x24'>
+          <Box mbs={24}>
             <Box
-              mbe='x8'
+              mbe={8}
               display='flex'
               flexDirection='row'
               alignItems='flex-start'
               fontScale='c1'
               lineHeight={20}
             >
-              <CheckBox mie='x8' {...register('updates')} />{' '}
+              <CheckBox mie={8} {...register('updates')} />{' '}
               <Box is='label' htmlFor='updates'>
                 {t('form.registeredServerForm.keepInformed')}
               </Box>
@@ -163,7 +163,7 @@ const RequestTrialForm = ({
               lineHeight={20}
             >
               <CheckBox
-                mie='x8'
+                mie={8}
                 {...register('agreement', { required: true })}
               />{' '}
               <Box is='label' htmlFor='agreement' withRichContent>

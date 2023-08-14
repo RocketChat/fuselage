@@ -10,7 +10,7 @@ const FormFooter = forwardRef<
 >((props, ref) => (
   <Box
     is='footer'
-    mbs='x24'
+    mbs={24}
     display='flex'
     alignItems='center'
     justifyContent='space-between'

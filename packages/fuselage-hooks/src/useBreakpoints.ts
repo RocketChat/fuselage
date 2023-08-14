@@ -3,18 +3,29 @@ import { useMemo } from 'react';
 
 import { useMediaQueries } from './useMediaQueries';
 
-const mediaQueries = breakpointsDefinitions
-  .slice(1)
-  .map((breakpoint) => `(min-width: ${breakpoint.minViewportWidth}px)`);
-
 /**
  * Hook to catch which responsive design' breakpoints are active.
  *
  * @returns an array of the active breakpoint names
  * @public
  */
-export const useBreakpoints = (): string[] => {
-  const matches = useMediaQueries(...mediaQueries);
+export const useBreakpoints = (unit: 'px' | 'em' = 'em'): string[] => {
+  const matches = useMediaQueries(
+    ...useMemo(
+      () =>
+        breakpointsDefinitions
+          .slice(1)
+          .map(
+            (breakpoint) =>
+              `(min-width: ${
+                unit === 'px'
+                  ? `${breakpoint.minViewportWidth}px`
+                  : `${breakpoint.minViewportWidth! / 16}em`
+              })`
+          ),
+      [unit]
+    )
+  );
 
   return useMemo(
     () =>
