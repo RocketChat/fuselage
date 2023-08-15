@@ -5,32 +5,32 @@
 @use '../../../styles/mixins/size.scss';
 @use '../../../styles/primitives/traits/rich-text.scss';
 
-$message-generic-preview-border-color: theme(
+$message-generic-preview-border-color: functions.theme(
   'message-generic-preview-border-color',
   colors.stroke(extra-light)
 );
 
-$message-generic-preview-title-color: theme(
+$message-generic-preview-title-color: functions.theme(
   'message-generic-preview-title-color',
   colors.font(default)
 );
 
-$message-generic-preview-context-color: theme(
+$message-generic-preview-context-color: functions.theme(
   'message-generic-preview-context-color',
   colors.font(secondary-info)
 );
 
-$message-generic-preview-description-color: theme(
+$message-generic-preview-description-color: functions.theme(
   'message-generic-preview-description-color',
   colors.font(annotation)
 );
 
-$message-generic-preview-content-background-color: theme(
+$message-generic-preview-content-background-color: functions.theme(
   'message-generic-preview-content-background-color',
   colors.surface(tint)
 );
 
-$message-generic-preview-icon-background-color: theme(
+$message-generic-preview-icon-background-color: functions.theme(
   'message-generic-preview-icon-background-color',
   colors.surface(neutral)
 );
