@@ -11,7 +11,7 @@
 
   border-collapse: collapse;
 
-  background-color: colors.surface(light);
+  background-color: transparent;
 
   &--fixed {
     table-layout: fixed;
@@ -61,7 +61,7 @@
   &__row {
     display: table-row;
 
-    background-color: colors.surface(light);
+    background-color: transparent;
 
     &--selected {
       background-color: colors.surface(tint);
