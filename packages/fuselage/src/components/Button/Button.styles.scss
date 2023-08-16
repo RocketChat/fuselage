@@ -33,8 +33,6 @@
   }
 
   @mixin click-animation() {
-    transition: all 0.18s ease-out;
-
     @include on-active {
       transform: translateY(1px);
     }
