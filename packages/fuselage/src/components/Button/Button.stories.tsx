@@ -11,7 +11,7 @@ import {
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
-import { Box, Button, ButtonGroup, Icon, IconButton } from '../..';
+import { Button, ButtonGroup, Icon, IconButton, Margins } from '../..';
 import { PropsVariationSection } from '../../../.storybook/helpers';
 
 export default {
@@ -47,34 +47,30 @@ export const Square: ComponentStory<typeof Button> = () => (
 );
 
 export const Variants: ComponentStory<typeof Button> = () => (
-  <ButtonGroup>
-    <Button primary>Primary</Button>
-    <Button secondary>Secondary</Button>
-    <Box display='flex' flexDirection='column'>
-      <Button m='2px' danger>
-        Danger
-      </Button>
-      <Button m='2px' secondary danger>
+  <Margins all='x8'>
+    <ButtonGroup>
+      <Button primary>Primary</Button>
+      <Button secondary>Secondary</Button>
+    </ButtonGroup>
+    <ButtonGroup>
+      <Button danger>Danger</Button>
+      <Button secondary danger>
         Secondary Danger
       </Button>
-    </Box>
-    <Box display='flex' flexDirection='column'>
-      <Button m='2px' warning>
-        Warning
-      </Button>
-      <Button m='2px' secondary warning>
+    </ButtonGroup>
+    <ButtonGroup>
+      <Button warning>Warning</Button>
+      <Button secondary warning>
         Secondary Warning
       </Button>
-    </Box>
-    <Box display='flex' flexDirection='column'>
-      <Button m='2px' success>
-        Success
-      </Button>
-      <Button m='2px' secondary success>
+    </ButtonGroup>
+    <ButtonGroup>
+      <Button success>Success</Button>
+      <Button secondary success>
         Secondary Success
       </Button>
-    </Box>
-  </ButtonGroup>
+    </ButtonGroup>
+  </Margins>
 );
 
 export const Sizes: ComponentStory<typeof ButtonGroup> = () => (
