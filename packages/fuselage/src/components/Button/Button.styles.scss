@@ -107,7 +107,7 @@
   &--icon {
     @include button.kind-variant(colors.$icon);
 
-    i {
+    :only-child {
       @include click-animation();
     }
     padding: 0;
