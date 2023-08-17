@@ -92,10 +92,10 @@ export const Button = forwardRef(function Button(
       {...extraProps}
       {...props}
     >
-      <Box is='span' rcx-button--content>
+      <span className='rcx-button--content'>
         {icon && <Icon size='x16' name={icon} mie={4} />}
         {children}
-      </Box>
+      </span>
     </Box>
   );
 });

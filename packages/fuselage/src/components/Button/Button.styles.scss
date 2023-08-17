@@ -34,10 +34,14 @@
 
   @mixin click-animation() {
     @include on-active {
-      transform: translateY(1px);
+      > * {
+        transform: translateY(1px);
+      }
     }
     @include on-pressed {
-      transform: translateY(1px);
+      > * {
+        transform: translateY(1px);
+      }
     }
   }
 
@@ -47,9 +51,10 @@
   white-space: nowrap;
   text-decoration: none;
 
+  @include click-animation();
+
   .rcx-button--content {
     display: inline-block;
-    @include click-animation();
   }
 
   @include clickable;
@@ -104,10 +109,8 @@
 
   &--icon {
     @include button.kind-variant(colors.$icon);
+    @include click-animation();
 
-    :only-child {
-      @include click-animation();
-    }
     padding: 0;
 
     line-height: 0;
