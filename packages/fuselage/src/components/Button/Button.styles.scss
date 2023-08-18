@@ -14,10 +14,6 @@
     padding-block: calc((lengths.padding($height) - $line-height) / 2 - 2px);
 
     padding-inline: calc(lengths.padding($padding-x) - 2px);
-
-    @include on-active {
-      @include size.resize(0.975);
-    }
   }
 
   @mixin with-squared-size($size) {
@@ -36,13 +32,30 @@
     }
   }
 
-  display: inline-block;
+  @mixin click-animation() {
+    @include on-active {
+      > * {
+        transform: translateY(1px);
+      }
+    }
+    @include on-pressed {
+      > * {
+        transform: translateY(1px);
+      }
+    }
+  }
 
-  transition: all 0.18s ease-out;
+  display: inline-block;
 
   text-align: center;
   white-space: nowrap;
   text-decoration: none;
+
+  @include click-animation();
+
+  .rcx-button--content {
+    display: inline-block;
+  }
 
   @include clickable;
   @include typography.use-font-scale(p2m);
@@ -96,10 +109,7 @@
 
   &--icon {
     @include button.kind-variant(colors.$icon);
-
-    @include on-pressed {
-      @include size.resize(0.975);
-    }
+    @include click-animation();
 
     padding: 0;
 
