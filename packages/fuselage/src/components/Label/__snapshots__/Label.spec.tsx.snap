@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[Label Component] renders Default without crashing 1`] = `
+<body>
+  <div>
+    <label
+      class="rcx-box rcx-box--full rcx-label"
+    >
+      Label
+    </label>
+  </div>
+</body>
+`;
+
+exports[`[Label Component] renders Disabled without crashing 1`] = `
+<body>
+  <div>
+    <label
+      class="rcx-box rcx-box--full rcx-label--disabled rcx-label"
+    >
+      Label
+    </label>
+  </div>
+</body>
+`;
+
+exports[`[Label Component] renders Required without crashing 1`] = `
+<body>
+  <div>
+    <label
+      class="rcx-box rcx-box--full rcx-label--required rcx-label"
+    >
+      Label
+    </label>
+  </div>
+</body>
+`;

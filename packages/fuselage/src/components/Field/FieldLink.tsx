@@ -1,12 +1,18 @@
-import type { ComponentProps, ReactElement } from 'react';
-import React from 'react';
+import type { ComponentPropsWithoutRef } from 'react';
+import React, { useContext } from 'react';
 
 import Box from '../Box';
+import { FieldContext } from './Field';
 
-type FieldLinkProps = ComponentProps<typeof Box>;
+type FieldLinkProps = ComponentPropsWithoutRef<typeof Box>;
 
-const FieldLink = (props: FieldLinkProps): ReactElement => (
-  <Box is='a' target='_blank' rcx-field__link {...props} />
-);
+export const FieldLink = (props: FieldLinkProps) => {
+  const isInsideField = useContext(FieldContext);
+  if (process.env.NODE_ENV === 'development' && !isInsideField) {
+    console.error(
+      `${FieldLink.name} should be used as children of Field Component`
+    );
+  }
 
-export default FieldLink;
+  return <Box is='a' target='_blank' rcx-field__link {...props} />;
+};
