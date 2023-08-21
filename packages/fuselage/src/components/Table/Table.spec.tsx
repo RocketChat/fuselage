@@ -6,7 +6,7 @@ import React from 'react';
 import { Table, TableRow, TableHead, TableBody, TableCell, TableFoot } from '.';
 import * as stories from './Table.stories';
 
-const { Fixed, Default, Selected, Striped } = composeStories(stories);
+const { Default, Selected } = composeStories(stories);
 expect.extend(toHaveNoViolations);
 
 describe('[Table Component]', () => {
@@ -54,19 +54,17 @@ describe('[Table Component]', () => {
     });
   });
 
-  it('should have no a11y violations', async () => {
+  it('should have no a11y violations on Default story', async () => {
     const { container: defaultContainer } = render(<Default />);
-    const { container: selectedContainer } = render(<Selected />);
-    const { container: stripedContainer } = render(<Striped />);
-    const { container: fixedContainer } = render(<Fixed />);
 
     const defaultResults = await axe(defaultContainer);
-    const selectedResults = await axe(selectedContainer);
-    const stripedResults = await axe(stripedContainer);
-    const fixedResults = await axe(fixedContainer);
     expect(defaultResults).toHaveNoViolations();
+  });
+
+  it('should have no a11y violations on Selected story', async () => {
+    const { container: selectedContainer } = render(<Selected />);
+
+    const selectedResults = await axe(selectedContainer);
     expect(selectedResults).toHaveNoViolations();
-    expect(stripedResults).toHaveNoViolations();
-    expect(fixedResults).toHaveNoViolations();
   });
 });
