@@ -1,7 +1,13 @@
+import { composeStories } from '@storybook/testing-react';
 import { render } from '@testing-library/react';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import React from 'react';
 
 import { Table, TableRow, TableHead, TableBody, TableCell, TableFoot } from '.';
+import * as stories from './Table.stories';
+
+const { Fixed, Default, Selected, Striped } = composeStories(stories);
+expect.extend(toHaveNoViolations);
 
 describe('[Table Component]', () => {
   it('renders Table without crashing', () => {
@@ -46,5 +52,21 @@ describe('[Table Component]', () => {
         </table>
       ),
     });
+  });
+
+  it('should have no a11y violations', async () => {
+    const { container: defaultContainer } = render(<Default />);
+    const { container: selectedContainer } = render(<Selected />);
+    const { container: stripedContainer } = render(<Striped />);
+    const { container: fixedContainer } = render(<Fixed />);
+
+    const defaultResults = await axe(defaultContainer);
+    const selectedResults = await axe(selectedContainer);
+    const stripedResults = await axe(stripedContainer);
+    const fixedResults = await axe(fixedContainer);
+    expect(defaultResults).toHaveNoViolations();
+    expect(selectedResults).toHaveNoViolations();
+    expect(stripedResults).toHaveNoViolations();
+    expect(fixedResults).toHaveNoViolations();
   });
 });
