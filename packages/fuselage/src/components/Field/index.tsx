@@ -17,7 +17,7 @@ export {
 };
 
 /**
- * @deprecated Use named imports instead
+ * @deprecated Avoid default usage, use named imports instead
  */
 export default Object.assign(Field, {
   Label: FieldLabel,
