@@ -55,6 +55,7 @@ export { BlockContext } from './rendering/BlockContext';
 export * from './blocks/deprecations';
 
 export { type BlockRenderers } from './rendering/BlockRenderers';
+export { type RenderableLayoutBlock } from './blocks/RenderableLayoutBlock';
 
 export { uiKitAttachment } from './rendering/surfaces/uiKitAttachment';
 export { uiKitBanner } from './rendering/surfaces/uiKitBanner';
