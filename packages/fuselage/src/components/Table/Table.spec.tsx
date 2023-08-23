@@ -1,7 +1,13 @@
+import { composeStories } from '@storybook/testing-react';
 import { render } from '@testing-library/react';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import React from 'react';
 
 import { Table, TableRow, TableHead, TableBody, TableCell, TableFoot } from '.';
+import * as stories from './Table.stories';
+
+const { Default, Selected } = composeStories(stories);
+expect.extend(toHaveNoViolations);
 
 describe('[Table Component]', () => {
   it('renders Table without crashing', () => {
@@ -46,5 +52,19 @@ describe('[Table Component]', () => {
         </table>
       ),
     });
+  });
+
+  it('should have no a11y violations on Default story', async () => {
+    const { container: defaultContainer } = render(<Default />);
+
+    const defaultResults = await axe(defaultContainer);
+    expect(defaultResults).toHaveNoViolations();
+  });
+
+  it('should have no a11y violations on Selected story', async () => {
+    const { container: selectedContainer } = render(<Selected />);
+
+    const selectedResults = await axe(selectedContainer);
+    expect(selectedResults).toHaveNoViolations();
   });
 });
