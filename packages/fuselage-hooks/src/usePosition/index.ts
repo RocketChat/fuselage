@@ -150,9 +150,16 @@ export function getPositionStyle({
 
   const directionVertical = ['t', 'b'].includes(placementAttempt);
 
-  const point = targetBoundaries[placementAttempt];
   const variantPoint =
     variantBoundaries[`${directionVertical ? 'v' : 'h'}${variantsAttempts[0]}`];
+
+  const [containerHeight, targetHeight] = directionVertical
+    ? [containerRect.height, targetRect.height]
+    : [containerRect.width, targetRect.width];
+
+  const referencePoint = directionVertical ? top : left;
+
+  const point = (containerHeight - targetHeight) / 2 + referencePoint;
 
   return {
     style: {
