@@ -37,7 +37,7 @@ export default {
   },
 };
 
-export const Default = () => (
+export const Default: ComponentStory<typeof Table> = () => (
   <>
     <Table>
       <TableHead>
@@ -82,7 +82,7 @@ export const Selected: ComponentStory<typeof Table> = () => (
       <TableHead>
         <TableRow>
           <TableCell>
-            <CheckBox checked={false} />
+            <CheckBox aria-label='select all' checked={false} />
           </TableCell>
           <TableCell>Dessert (100g serving)</TableCell>
           <TableCell align='end'>Calories</TableCell>
@@ -94,7 +94,7 @@ export const Selected: ComponentStory<typeof Table> = () => (
       <TableBody>
         <TableRow selected>
           <TableCell>
-            <CheckBox checked />
+            <CheckBox aria-label='select frozen yoghurt' checked />
           </TableCell>
           <TableCell is='th' scope='row'>
             Frozen yoghurt
@@ -106,7 +106,7 @@ export const Selected: ComponentStory<typeof Table> = () => (
         </TableRow>
         <TableRow selected>
           <TableCell>
-            <CheckBox checked />
+            <CheckBox aria-label='select frozen yoghurt' checked />
           </TableCell>
           <TableCell is='th' scope='row'>
             Frozen yoghurt
@@ -118,7 +118,7 @@ export const Selected: ComponentStory<typeof Table> = () => (
         </TableRow>
         <TableRow>
           <TableCell>
-            <CheckBox checked={false} />
+            <CheckBox aria-label='select frozen yoghurt' checked={false} />
           </TableCell>
           <TableCell is='th' scope='row'>
             Frozen yoghurt
@@ -130,7 +130,7 @@ export const Selected: ComponentStory<typeof Table> = () => (
         </TableRow>
         <TableRow selected>
           <TableCell>
-            <CheckBox checked />
+            <CheckBox aria-label='select frozen yoghurt' checked />
           </TableCell>
           <TableCell is='th' scope='row'>
             Frozen yoghurt
@@ -142,7 +142,7 @@ export const Selected: ComponentStory<typeof Table> = () => (
         </TableRow>
         <TableRow selected>
           <TableCell>
-            <CheckBox checked />
+            <CheckBox aria-label='select frozen yoghurt' checked />
           </TableCell>
           <TableCell is='th' scope='row'>
             Frozen yoghurt

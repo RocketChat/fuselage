@@ -19,6 +19,7 @@ export * from './Divider';
 export * from './Dropdown';
 export * from './EmailInput';
 export { default as Field } from './Field';
+export * from './Field';
 export * from './FieldGroup';
 export { default as Flex } from './Flex';
 export * from './Grid';

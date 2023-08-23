@@ -12,8 +12,8 @@
   }
 
   &--required {
-    &::before {
-      content: '*\0a0';
+    &::after {
+      content: '\0a0*';
 
       color: colors.font(danger);
     }
