@@ -121,6 +121,7 @@ export const IconButton = forwardRef(
         {...getSizeClass()}
         rcx-button--icon-pressed={pressed}
         ref={ref}
+        aria-label={props['aria-label'] || icon}
         {...props}
       >
         {children}
