@@ -11,7 +11,7 @@
   width: 100%;
 
   &__label {
-    @include typography.use-font-scale(p2m);
+    @include typography.use-font-scale(p2b);
     flex: 1 1 0;
     align-self: flex-start;
 
