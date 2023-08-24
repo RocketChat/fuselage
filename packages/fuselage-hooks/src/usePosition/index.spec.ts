@@ -354,6 +354,6 @@ describe('getPositionStyle function', () => {
     });
     expect(result.style.overflowY).toEqual('auto');
     expect(result.style.left).toEqual('50px');
-    expect(result.style.top).toEqual('0px');
+    expect(result.style.top).toEqual('-5px');
   });
 });
