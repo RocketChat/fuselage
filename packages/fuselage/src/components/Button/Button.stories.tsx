@@ -11,7 +11,7 @@ import {
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
-import { Button, ButtonGroup, Icon, IconButton, Margins } from '../..';
+import { Button, ButtonGroup, IconButton, Margins } from '../..';
 import { PropsVariationSection } from '../../../.storybook/helpers';
 
 export default {
@@ -38,12 +38,6 @@ export default {
 
 export const Default: ComponentStory<typeof Button> = () => (
   <Button onClick={action('click')}>Button</Button>
-);
-
-export const Square: ComponentStory<typeof Button> = () => (
-  <Button square>
-    <Icon name='plus' size='x20' />
-  </Button>
 );
 
 export const Variants: ComponentStory<typeof Button> = () => (
@@ -74,27 +68,11 @@ export const Variants: ComponentStory<typeof Button> = () => (
 );
 
 export const Sizes: ComponentStory<typeof ButtonGroup> = () => (
-  <>
-    <ButtonGroup marginBlockEnd={12}>
-      <Button small>Small</Button>
-      <Button medium>Medium</Button>
-      <Button>Default</Button>
-    </ButtonGroup>
-    <ButtonGroup>
-      <Button mini square>
-        <Icon name='circled-arrow-down' size='x16' />
-      </Button>
-      <Button tiny square>
-        <Icon name='circled-arrow-down' size='x20' />
-      </Button>
-      <Button small square>
-        <Icon name='circled-arrow-down' size='x24' />
-      </Button>
-      <Button square>
-        <Icon name='circled-arrow-down' size='x32' />
-      </Button>
-    </ButtonGroup>
-  </>
+  <ButtonGroup marginBlockEnd={12}>
+    <Button small>Small</Button>
+    <Button medium>Medium</Button>
+    <Button>Default</Button>
+  </ButtonGroup>
 );
 
 export const AsLink: ComponentStory<typeof Button> = () => (
@@ -116,10 +94,6 @@ export const States = () => (
         disabled: { disabled: true },
       }}
       yAxis={{
-        'square + icon': {
-          square: true,
-          children: <Icon name='circled-arrow-down' size='x20' />,
-        },
         'icon + text': {
           children: 'Button',
           icon: 'baloon-text',
@@ -178,10 +152,6 @@ export const States = () => (
         disabled: { disabled: true },
       }}
       yAxis={{
-        'square + icon': {
-          square: true,
-          children: <Icon name='circled-arrow-down' size='x20' />,
-        },
         'icon + text': {
           children: 'Button',
           icon: 'baloon-text',
@@ -232,3 +202,11 @@ export const States = () => (
 export const AsIconButton: ComponentStory<typeof IconButton> = (args) => (
   <IconButton {...args} icon='arrow-back' onClick={action('click')} />
 );
+
+AsIconButton.parameters = {
+  docs: {
+    description: {
+      story: 'See full documentation on Inputs/IconButton.',
+    },
+  },
+};
