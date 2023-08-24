@@ -16,6 +16,6 @@ export const MessageReactionAction = ({
       .join(' ')}
     {...props}
   >
-    <Icon name='emoji-plus' size={16} />
+    <Icon name='emoji-plus' size='x16' />
   </div>
 );
