@@ -206,7 +206,8 @@ export const AsIconButton: ComponentStory<typeof IconButton> = (args) => (
 AsIconButton.parameters = {
   docs: {
     description: {
-      story: 'See full documentation on Inputs/IconButton.',
+      story:
+        'See full IconButton documentation [here](../?path=/docs/inputs-iconbutton)',
     },
   },
 };

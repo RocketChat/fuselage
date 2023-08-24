@@ -1,4 +1,4 @@
-import type { ComponentProps, Ref } from 'react';
+import type { AllHTMLAttributes, ComponentProps, Ref } from 'react';
 import React, { forwardRef, useMemo } from 'react';
 
 import Box from '../Box';
@@ -19,7 +19,7 @@ export type ButtonProps = ComponentProps<typeof Box> & {
   square?: boolean;
   external?: boolean;
   icon?: ComponentProps<typeof Icon>['name'];
-};
+} & Omit<AllHTMLAttributes<HTMLButtonElement>, 'is' | 'className' | 'size'>;
 
 export const Button = forwardRef(function Button(
   {
@@ -41,7 +41,7 @@ export const Button = forwardRef(function Button(
     children,
     ...props
   }: ButtonProps,
-  ref: Ref<HTMLElement>
+  ref: Ref<HTMLButtonElement>
 ) {
   const extraProps =
     (is === 'a' && {
