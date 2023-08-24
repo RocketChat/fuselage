@@ -308,7 +308,7 @@ describe('getPositionStyle function', () => {
     expect(result.style.top).toEqual('110px');
   });
 
-  it('returns a style for placement bottom-end if the element height does not fit container height', () => {
+  it('returns a style for placement bottom-end if the element height does not fit container height aligning vertically middle of container', () => {
     const targetBoundaries = getTargetBoundaries({
       anchorRect: referenceBox,
       targetRect: target,
@@ -321,8 +321,32 @@ describe('getPositionStyle function', () => {
       placement: 'bottom-end',
       containerRect: {
         ...container,
-        bottom: 50,
-        height: 50,
+        bottom: 80,
+        height: 80,
+      },
+      targetBoundaries,
+      variantBoundaries: variantStore,
+      targetRect: target,
+    });
+    expect(result.style.left).toEqual('50px');
+    expect(result.style.top).toEqual('15px');
+  });
+
+  it('returns a style for placement bottom-end if the element height does not fit container height with overflow', () => {
+    const targetBoundaries = getTargetBoundaries({
+      anchorRect: referenceBox,
+      targetRect: target,
+    });
+    const variantStore = getVariantBoundaries({
+      anchorRect: referenceBox,
+      targetRect: target,
+    });
+    const result = getPositionStyle({
+      placement: 'bottom-end',
+      containerRect: {
+        ...container,
+        bottom: 40,
+        height: 40,
       },
       targetBoundaries,
       variantBoundaries: variantStore,
@@ -330,6 +354,6 @@ describe('getPositionStyle function', () => {
     });
     expect(result.style.overflowY).toEqual('auto');
     expect(result.style.left).toEqual('50px');
-    expect(result.style.top).toEqual('300px');
+    expect(result.style.top).toEqual('0px');
   });
 });

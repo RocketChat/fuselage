@@ -163,7 +163,7 @@ export function getPositionStyle({
 
   return {
     style: {
-      top: `${point}px`,
+      top: `${point < 0 ? 0 : point}px`,
       left: `${variantPoint}px`,
       position: 'fixed',
       ...(bottom < targetRect.height + point && {
