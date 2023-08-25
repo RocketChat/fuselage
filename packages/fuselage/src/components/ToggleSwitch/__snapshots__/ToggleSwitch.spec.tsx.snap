@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[ToggleSwitch Rendering] renders Checked without crashing 1`] = `
+<body>
+  <div>
+    <label
+      class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-toggle-switch"
+    >
+      <input
+        checked=""
+        class="rcx-box rcx-box--full rcx-toggle-switch__input"
+        id="decoratorId"
+        type="checkbox"
+      />
+      <i
+        aria-hidden="true"
+        class="rcx-box rcx-box--full rcx-toggle-switch__fake"
+      />
+    </label>
+    <label
+      class="rcx-box rcx-box--full rcx-label rcx-css-b7g1a9"
+      for="decoratorId"
+    >
+      Decorator Label
+    </label>
+  </div>
+</body>
+`;
+
+exports[`[ToggleSwitch Rendering] renders Default without crashing 1`] = `
+<body>
+  <div>
+    <label
+      class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-toggle-switch"
+    >
+      <input
+        class="rcx-box rcx-box--full rcx-toggle-switch__input"
+        id="decoratorId"
+        type="checkbox"
+      />
+      <i
+        aria-hidden="true"
+        class="rcx-box rcx-box--full rcx-toggle-switch__fake"
+      />
+    </label>
+    <label
+      class="rcx-box rcx-box--full rcx-label rcx-css-b7g1a9"
+      for="decoratorId"
+    >
+      Decorator Label
+    </label>
+  </div>
+</body>
+`;
+
+exports[`[ToggleSwitch Rendering] renders Disabled without crashing 1`] = `
+<body>
+  <div>
+    <label
+      class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-toggle-switch"
+    >
+      <input
+        class="rcx-box rcx-box--full rcx-toggle-switch__input"
+        disabled=""
+        id="decoratorId"
+        type="checkbox"
+      />
+      <i
+        aria-hidden="true"
+        class="rcx-box rcx-box--full rcx-toggle-switch__fake"
+      />
+    </label>
+    <label
+      class="rcx-box rcx-box--full rcx-label rcx-css-b7g1a9"
+      for="decoratorId"
+    >
+      Decorator Label
+    </label>
+  </div>
+</body>
+`;
