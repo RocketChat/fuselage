@@ -19,14 +19,16 @@ const RedirectPage = ({
 
   const [seconds, setSeconds] = useState(countDownSeconds);
 
-  const countDown = () => {
-    setInterval(() => {
-      setSeconds((prev) => (prev === 0 ? 0 : prev - 1));
-    }, 1000);
-  };
-
   useEffect(() => {
-    countDown();
+    if (seconds === 0) return;
+
+    const timer = setInterval(() => {
+      setSeconds((prev) => Math.max(0, prev - 1));
+    }, 1000);
+
+    return () => {
+      clearInterval(timer);
+    };
   }, []);
 
   useEffect(() => {
