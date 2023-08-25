@@ -135,8 +135,8 @@ export function getPositionStyle({
       }
       return {
         style: {
-          [positionKey]: `${point}px`,
-          [variantKey]: `${variantPoint}px`,
+          [positionKey]: point,
+          [variantKey]: variantPoint,
           position: 'fixed',
           zIndex: 9999,
           opacity: 1,
@@ -163,11 +163,11 @@ export function getPositionStyle({
 
   return {
     style: {
-      top: `${point}px`,
-      left: `${variantPoint}px`,
+      top: point,
+      left: variantPoint,
       position: 'fixed',
       ...(bottom < targetRect.height + point && {
-        bottom: `${margin}px`,
+        bottom: margin,
         overflowY: 'auto',
       }),
       ...({ zIndex: '9999' } as any),
