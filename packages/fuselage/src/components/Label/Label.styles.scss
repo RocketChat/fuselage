@@ -11,11 +11,7 @@
     color: colors.font(secondary-info);
   }
 
-  &--required {
-    &::after {
-      content: '\0a0*';
-
-      color: colors.font(danger);
-    }
+  &__required {
+    color: colors.font(danger);
   }
 }

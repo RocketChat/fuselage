@@ -15,6 +15,7 @@ export function Label({
   disabled,
   is,
   required,
+  children,
   ...props
 }: LabelProps): ReactElement {
   const isInsideLabel = useContext(LabelContext);
@@ -22,13 +23,14 @@ export function Label({
 
   return (
     <LabelContext.Provider value={true}>
-      <Box
-        is={component}
-        rcx-label
-        rcx-label--disabled={disabled}
-        rcx-label--required={required}
-        {...props}
-      />
+      <Box is={component} rcx-label rcx-label--disabled={disabled} {...props}>
+        {children}
+        {required && (
+          <Box is='span' rcx-label__required mis='x4' aria-hidden='true'>
+            *
+          </Box>
+        )}
+      </Box>
     </LabelContext.Provider>
   );
 }
