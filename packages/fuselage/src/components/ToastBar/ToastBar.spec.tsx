@@ -1,10 +1,8 @@
 import { render } from '@testing-library/react';
-import { axe, toHaveNoViolations } from 'jest-axe';
+import { axe } from 'jest-axe';
 import React from 'react';
 
 import { ToastBar } from '.';
-
-expect.extend(toHaveNoViolations);
 
 describe('[ToastBar Component]', () => {
   it('renders without crashing', () => {

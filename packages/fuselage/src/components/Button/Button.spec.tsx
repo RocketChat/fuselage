@@ -1,6 +1,6 @@
 import { composeStories } from '@storybook/testing-react';
 import { render } from '@testing-library/react';
-import { axe, toHaveNoViolations } from 'jest-axe';
+import { axe } from 'jest-axe';
 import React from 'react';
 
 import * as stories from './Button.stories';
@@ -9,7 +9,6 @@ import * as iconButtonStories from './IconButton.stories';
 const { Default, AsIconButton } = composeStories(stories);
 const { _IconButton, _IconButtonInfo, _IconButtonSuccess } =
   composeStories(iconButtonStories);
-expect.extend(toHaveNoViolations);
 
 describe('[Button Component]', () => {
   it('renders Button without crashing', () => {
