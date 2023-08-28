@@ -29,13 +29,11 @@ const StandaloneServerPage = (
   <BackgroundLayer>
     <FormPageLayout
       title={
-        <FormLayout.Title>
-          <Trans i18nKey='page.form.title'>
-            Let's
-            <FormLayout.TitleHighlight>Launch</FormLayout.TitleHighlight>
-            Your Workspace
-          </Trans>
-        </FormLayout.Title>
+        <Trans i18nKey='page.form.title'>
+          Let's
+          <FormLayout.TitleHighlight>Launch</FormLayout.TitleHighlight>
+          Your Workspace
+        </Trans>
       }
       styleProps={pageLayoutStyleProps}
     >

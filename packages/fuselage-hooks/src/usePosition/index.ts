@@ -135,8 +135,8 @@ export function getPositionStyle({
       }
       return {
         style: {
-          [positionKey]: `${point}px`,
-          [variantKey]: `${variantPoint}px`,
+          [positionKey]: point,
+          [variantKey]: variantPoint,
           position: 'fixed',
           zIndex: 9999,
           opacity: 1,
@@ -150,17 +150,24 @@ export function getPositionStyle({
 
   const directionVertical = ['t', 'b'].includes(placementAttempt);
 
-  const point = targetBoundaries[placementAttempt];
   const variantPoint =
     variantBoundaries[`${directionVertical ? 'v' : 'h'}${variantsAttempts[0]}`];
 
+  const [containerHeight, targetHeight] = directionVertical
+    ? [containerRect.height, targetRect.height]
+    : [containerRect.width, targetRect.width];
+
+  const referencePoint = directionVertical ? top : left;
+
+  const point = (containerHeight - targetHeight) / 2 + referencePoint;
+
   return {
     style: {
-      top: `${point}px`,
-      left: `${variantPoint}px`,
+      top: point,
+      left: variantPoint,
       position: 'fixed',
       ...(bottom < targetRect.height + point && {
-        bottom: `${margin}px`,
+        bottom: margin,
         overflowY: 'auto',
       }),
       ...({ zIndex: '9999' } as any),

@@ -3,8 +3,7 @@ import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
 import { CheckBox, Label } from '../..';
-
-const decoratorId = 'decoratorId';
+import { DECORATOR_ID, DECORATOR_LABEL } from '../../../.storybook/helpers';
 
 export default {
   title: 'Inputs/CheckBox',
@@ -13,8 +12,8 @@ export default {
     (Story) => (
       <>
         <Story />
-        <Label mis='x4' htmlFor={decoratorId}>
-          Decorator Label
+        <Label mis='x4' htmlFor={DECORATOR_ID}>
+          {DECORATOR_LABEL}
         </Label>
       </>
     ),
@@ -22,7 +21,7 @@ export default {
 } as ComponentMeta<typeof CheckBox>;
 
 const Template: ComponentStory<typeof CheckBox> = (args) => (
-  <CheckBox {...args} id={decoratorId} onChange={action('change')} />
+  <CheckBox {...args} id={DECORATOR_ID} onChange={action('change')} />
 );
 
 export const Default = Template.bind({});

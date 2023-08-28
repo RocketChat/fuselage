@@ -120,6 +120,9 @@ v/L21v8BT/ZVoe1UItsAAAAASUVORK5CYII=`;
 export const blankAvatar = `data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BA
 AAAAAALAAAAAABAAEAAAICRAEAOw==`;
 
+export const DECORATOR_ID = 'decoratorId';
+export const DECORATOR_LABEL = 'Decorator Label';
+
 export const menuOptions = {
   makeAdmin: {
     label: (
