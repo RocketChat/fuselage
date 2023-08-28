@@ -1,14 +1,12 @@
 import { composeStories } from '@storybook/testing-react';
 import { fireEvent, getByRole, render } from '@testing-library/react';
-import { axe, toHaveNoViolations } from 'jest-axe';
+import { axe } from 'jest-axe';
 import React from 'react';
 
 import * as stories from './CheckBox.stories';
 
 const { Default, Indeterminate, Disabled, DefaultChecked } =
   composeStories(stories);
-
-expect.extend(toHaveNoViolations);
 
 const testCases = Object.values(composeStories(stories)).map((Story) => [
   Story.storyName || 'Story',
