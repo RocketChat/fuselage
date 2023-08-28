@@ -19,7 +19,10 @@ export type ButtonProps = ComponentProps<typeof Box> & {
   square?: boolean;
   external?: boolean;
   icon?: ComponentProps<typeof Icon>['name'];
-} & Omit<AllHTMLAttributes<HTMLButtonElement>, 'is' | 'className' | 'size'>;
+} & Omit<
+    AllHTMLAttributes<HTMLButtonElement | HTMLAnchorElement>,
+    'is' | 'className' | 'size'
+  >;
 
 export const Button = forwardRef(function Button(
   {
@@ -41,7 +44,7 @@ export const Button = forwardRef(function Button(
     children,
     ...props
   }: ButtonProps,
-  ref: Ref<HTMLButtonElement>
+  ref: Ref<HTMLButtonElement | HTMLAnchorElement>
 ) {
   const extraProps =
     (is === 'a' && {
