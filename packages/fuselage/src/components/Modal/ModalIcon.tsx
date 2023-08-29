@@ -15,6 +15,6 @@ export const ModalIcon = ({
   ...props
 }: ModalIconProps) => (
   <Box {...props} display='flex' alignItems={alignItems}>
-    <Icon mb='x4' name={name} size={size} />
+    <Icon mb={4} name={name} size={size} />
   </Box>
 );

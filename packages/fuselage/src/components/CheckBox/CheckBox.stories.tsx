@@ -2,16 +2,26 @@ import { action } from '@storybook/addon-actions';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
-import { CheckBox } from '../..';
-import { PropsVariationSection } from '../../../.storybook/helpers';
+import { CheckBox, Label } from '../..';
+import { DECORATOR_ID, DECORATOR_LABEL } from '../../../.storybook/helpers';
 
 export default {
   title: 'Inputs/CheckBox',
   component: CheckBox,
+  decorators: [
+    (Story) => (
+      <>
+        <Story />
+        <Label mis='x4' htmlFor={DECORATOR_ID}>
+          {DECORATOR_LABEL}
+        </Label>
+      </>
+    ),
+  ],
 } as ComponentMeta<typeof CheckBox>;
 
 const Template: ComponentStory<typeof CheckBox> = (args) => (
-  <CheckBox {...args} onChange={action('change')} />
+  <CheckBox {...args} id={DECORATOR_ID} onChange={action('change')} />
 );
 
 export const Default = Template.bind({});
@@ -34,22 +44,3 @@ export const DefaultChecked = Template.bind({});
 DefaultChecked.args = {
   defaultChecked: true,
 };
-
-export const States = () => (
-  <PropsVariationSection
-    component={CheckBox}
-    common={{ onChange: action('change') }}
-    xAxis={{
-      checked: { checked: true },
-      unchecked: { checked: false },
-      indeterminate: { indeterminate: true },
-    }}
-    yAxis={{
-      default: {},
-      hover: { className: 'is-hovered' },
-      active: { className: 'is-active' },
-      focus: { className: 'is-focused' },
-      disabled: { disabled: true },
-    }}
-  />
-);

@@ -18,26 +18,25 @@ const LoaderPage = ({
 }: LoaderPageProps): ReactElement => {
   const timeFraction = 100 / subtitles.length;
 
-  const [percentage, setPercentage] = useState(0);
-  const [subtitleIndex, setSubtitleIndex] = useState(0);
+  const [percentage, setPercentage] = useState(() => (isReady ? 100 : 0));
 
-  const progressHandler = () => {
+  useEffect(() => {
+    if (isReady) {
+      setPercentage(100);
+      return;
+    }
+
     const interval = (loadingSeconds * 1000) / 100;
-    setInterval(() => {
+    const timer = setInterval(() => {
       setPercentage((prev) => (prev === 99 ? 99 : prev + 1));
     }, interval);
-  };
 
-  useEffect(() => {
-    if (isReady) setPercentage(100);
-    else progressHandler();
+    return () => {
+      clearInterval(timer);
+    };
   }, [isReady]);
 
-  useEffect(() => {
-    // Change subtitle according to percentage
-    const index = Math.floor(percentage / timeFraction);
-    if (index !== subtitleIndex) setSubtitleIndex(index);
-  }, [percentage]);
+  const subtitleIndex = Math.floor(percentage / timeFraction);
 
   return (
     <BackgroundLayer>

@@ -1,12 +1,17 @@
 import breakpointTokens from '@rocket.chat/fuselage-tokens/breakpoints.json';
 import { DocsPage, DocsContainer } from '@storybook/addon-docs';
-import { addParameters } from '@storybook/react';
+import type { Parameters } from '@storybook/addons';
+import { themes } from '@storybook/theming';
+
+import manifest from '../package.json';
+import logo from './logo.svg';
 
 import 'normalize.css/normalize.css';
 import '@rocket.chat/icons/dist/rocketchat.css';
+import '../src/index.scss';
 import '@rocket.chat/fuselage-polyfills';
 
-addParameters({
+export const parameters: Parameters = {
   backgrounds: {
     grid: {
       cellSize: 4,
@@ -48,4 +53,18 @@ addParameters({
       {}
     ),
   },
-});
+  darkMode: {
+    dark: {
+      ...themes.dark,
+      brandTitle: manifest.name,
+      brandImage: logo,
+      brandUrl: manifest.homepage,
+    },
+    light: {
+      ...themes.normal,
+      brandTitle: manifest.name,
+      brandImage: logo,
+      brandUrl: manifest.homepage,
+    },
+  },
+};

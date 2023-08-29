@@ -2,7 +2,18 @@ import { Title, Description, Primary, Stories } from '@storybook/addon-docs';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
-import { CheckBox, Field, InputBox, ToggleSwitch } from '../..';
+import {
+  CheckBox,
+  Field,
+  FieldDescription,
+  FieldError,
+  FieldHint,
+  FieldRow,
+  FieldLabel,
+  InputBox,
+  ToggleSwitch,
+  FieldLink,
+} from '../..';
 
 export default {
   title: 'Inputs/Field',
@@ -27,109 +38,109 @@ export default {
 
 export const Default: ComponentStory<typeof Field> = () => (
   <Field>
-    <Field.Label>Label</Field.Label>
-    <Field.Description>Description</Field.Description>
-    <Field.Row>
+    <FieldLabel>Label</FieldLabel>
+    <FieldDescription>Description</FieldDescription>
+    <FieldRow>
       <InputBox.Skeleton />
-    </Field.Row>
-    <Field.Error>Error</Field.Error>
-    <Field.Hint>Hint</Field.Hint>
+    </FieldRow>
+    <FieldError>Error</FieldError>
+    <FieldHint>Hint</FieldHint>
   </Field>
 );
 
 export const WithCheckBox: ComponentStory<typeof Field> = () => (
   <Field>
-    <Field.Row>
+    <FieldRow>
       <CheckBox id='check-box' />
-      <Field.Label htmlFor='check-box'>Label</Field.Label>
-    </Field.Row>
+      <FieldLabel htmlFor='check-box'>Label</FieldLabel>
+    </FieldRow>
   </Field>
 );
 
 export const WithToggleSwitch: ComponentStory<typeof Field> = () => (
   <Field>
-    <Field.Row>
+    <FieldRow>
       <ToggleSwitch id='toggle-switch' />
-      <Field.Label htmlFor='toggle-switch'>Label</Field.Label>
-    </Field.Row>
+      <FieldLabel htmlFor='toggle-switch'>Label</FieldLabel>
+    </FieldRow>
   </Field>
 );
 
 export const WithDescription: ComponentStory<typeof Field> = () => (
   <Field>
-    <Field.Label>Label</Field.Label>
-    <Field.Description>
+    <FieldLabel>Label</FieldLabel>
+    <FieldDescription>
       Descriptions should add useful and relevant additional information about
       what is required of the user for the related input. Its content is
       strictly composed by plain text.
-    </Field.Description>
-    <Field.Row>
+    </FieldDescription>
+    <FieldRow>
       <InputBox.Skeleton />
-    </Field.Row>
+    </FieldRow>
   </Field>
 );
 
 export const WithError: ComponentStory<typeof Field> = () => (
   <Field>
-    <Field.Label>Label</Field.Label>
-    <Field.Row>
+    <FieldLabel>Label</FieldLabel>
+    <FieldRow>
       <InputBox.Skeleton />
-    </Field.Row>
-    <Field.Error>
+    </FieldRow>
+    <FieldError>
       Error text appears when the user has inputted an invalid response to a
       field and let's the user know exactly what the issue is, so as to let them
       remedy the error as easily as possible.
-    </Field.Error>
+    </FieldError>
   </Field>
 );
 
 export const WithHint: ComponentStory<typeof Field> = () => (
   <Field>
-    <Field.Label>Label</Field.Label>
-    <Field.Row>
+    <FieldLabel>Label</FieldLabel>
+    <FieldRow>
       <InputBox.Skeleton />
-    </Field.Row>
-    <Field.Hint>
+    </FieldRow>
+    <FieldHint>
       Hint fields help by explaining technical terms or concepts related to
       third-party apps and integrations.
-    </Field.Hint>
+    </FieldHint>
   </Field>
 );
 
 export const WithHintAndError: ComponentStory<typeof Field> = () => (
   <Field>
-    <Field.Label>Label</Field.Label>
-    <Field.Row>
+    <FieldLabel>Label</FieldLabel>
+    <FieldRow>
       <InputBox.Skeleton />
-    </Field.Row>
-    <Field.Error>Error must be above.</Field.Error>
-    <Field.Hint>Hint must be below.</Field.Hint>
+    </FieldRow>
+    <FieldError>Error must be above.</FieldError>
+    <FieldHint>Hint must be below.</FieldHint>
   </Field>
 );
 
 export const WithLink: ComponentStory<typeof Field> = () => (
   <Field>
-    <Field.Label>Label</Field.Label>
-    <Field.Row>
+    <FieldLabel>Label</FieldLabel>
+    <FieldRow>
       <InputBox.Skeleton />
-    </Field.Row>
-    <Field.Row justifyContent='end'>
-      <Field.Link href='#'>
+    </FieldRow>
+    <FieldRow justifyContent='end'>
+      <FieldLink href='#'>
         Link is used for external resources or documentation.
-      </Field.Link>
-    </Field.Row>
+      </FieldLink>
+    </FieldRow>
   </Field>
 );
 
 export const WithHintAndLink: ComponentStory<typeof Field> = () => (
   <Field>
-    <Field.Label>Label</Field.Label>
-    <Field.Row>
+    <FieldLabel>Label</FieldLabel>
+    <FieldRow>
       <InputBox.Skeleton />
-    </Field.Row>
-    <Field.Row justifyContent='space-between'>
-      <Field.Hint>Same line as Link in the left</Field.Hint>
-      <Field.Link href='#'>Same line as Hint in the right</Field.Link>
-    </Field.Row>
+    </FieldRow>
+    <FieldRow justifyContent='space-between'>
+      <FieldHint>Same line as Link in the left</FieldHint>
+      <FieldLink href='#'>Same line as Hint in the right</FieldLink>
+    </FieldRow>
   </Field>
 );

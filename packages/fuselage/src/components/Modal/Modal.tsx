@@ -27,7 +27,7 @@ export const Modal = forwardRef(
     } as const;
 
     return (
-      <Box is='dialog' rcx-modal ref={ref} {...props}>
+      <Box is='dialog' aria-modal='true' rcx-modal ref={ref} {...props}>
         {wrapperFunction
           ? wrapperFunction(wrapperProps)
           : createElement(wrapper, wrapperProps)}

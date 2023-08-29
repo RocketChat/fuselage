@@ -1,0 +1,134 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[CheckBox Rendering] renders Checked without crashing 1`] = `
+<body>
+  <div>
+    <label
+      class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-check-box"
+    >
+      <input
+        checked=""
+        class="rcx-box rcx-box--full rcx-check-box__input"
+        id="decoratorId"
+        type="checkbox"
+      />
+      <i
+        aria-hidden="true"
+        class="rcx-box rcx-box--full rcx-check-box__fake"
+      />
+    </label>
+    <label
+      class="rcx-box rcx-box--full rcx-label rcx-css-b7g1a9"
+      for="decoratorId"
+    >
+      Decorator Label
+    </label>
+  </div>
+</body>
+`;
+
+exports[`[CheckBox Rendering] renders Default without crashing 1`] = `
+<body>
+  <div>
+    <label
+      class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-check-box"
+    >
+      <input
+        class="rcx-box rcx-box--full rcx-check-box__input"
+        id="decoratorId"
+        type="checkbox"
+      />
+      <i
+        aria-hidden="true"
+        class="rcx-box rcx-box--full rcx-check-box__fake"
+      />
+    </label>
+    <label
+      class="rcx-box rcx-box--full rcx-label rcx-css-b7g1a9"
+      for="decoratorId"
+    >
+      Decorator Label
+    </label>
+  </div>
+</body>
+`;
+
+exports[`[CheckBox Rendering] renders DefaultChecked without crashing 1`] = `
+<body>
+  <div>
+    <label
+      class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-check-box"
+    >
+      <input
+        checked=""
+        class="rcx-box rcx-box--full rcx-check-box__input"
+        id="decoratorId"
+        type="checkbox"
+      />
+      <i
+        aria-hidden="true"
+        class="rcx-box rcx-box--full rcx-check-box__fake"
+      />
+    </label>
+    <label
+      class="rcx-box rcx-box--full rcx-label rcx-css-b7g1a9"
+      for="decoratorId"
+    >
+      Decorator Label
+    </label>
+  </div>
+</body>
+`;
+
+exports[`[CheckBox Rendering] renders Disabled without crashing 1`] = `
+<body>
+  <div>
+    <label
+      class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-check-box"
+    >
+      <input
+        class="rcx-box rcx-box--full rcx-check-box__input"
+        disabled=""
+        id="decoratorId"
+        type="checkbox"
+      />
+      <i
+        aria-hidden="true"
+        class="rcx-box rcx-box--full rcx-check-box__fake"
+      />
+    </label>
+    <label
+      class="rcx-box rcx-box--full rcx-label rcx-css-b7g1a9"
+      for="decoratorId"
+    >
+      Decorator Label
+    </label>
+  </div>
+</body>
+`;
+
+exports[`[CheckBox Rendering] renders Indeterminate without crashing 1`] = `
+<body>
+  <div>
+    <label
+      class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-check-box"
+    >
+      <input
+        class="rcx-box rcx-box--full rcx-check-box__input"
+        id="decoratorId"
+        type="checkbox"
+      />
+      <i
+        aria-hidden="true"
+        class="rcx-box rcx-box--full rcx-check-box__fake"
+      />
+    </label>
+    <label
+      class="rcx-box rcx-box--full rcx-label rcx-css-b7g1a9"
+      for="decoratorId"
+    >
+      Decorator Label
+    </label>
+  </div>
+</body>
+`;

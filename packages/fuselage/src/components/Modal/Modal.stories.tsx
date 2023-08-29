@@ -1,4 +1,5 @@
 import { action } from '@storybook/addon-actions';
+import type { ComponentStory } from '@storybook/react';
 import type { ComponentProps } from 'react';
 import React from 'react';
 
@@ -12,7 +13,7 @@ export default {
   },
 };
 
-export const Default = () => (
+export const Default: ComponentStory<typeof Modal> = () => (
   <Modal>
     <Modal.Header>
       <Modal.HeaderText>
@@ -32,7 +33,7 @@ export const Default = () => (
   </Modal>
 );
 
-export const _WithThumb = () => (
+export const _WithThumb: ComponentStory<typeof Modal> = () => (
   <Modal>
     <Modal.Header>
       <Modal.Thumb url='data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==' />
@@ -53,7 +54,7 @@ export const _WithThumb = () => (
   </Modal>
 );
 
-export const _WithIcon = () => (
+export const _WithIcon: ComponentStory<typeof Modal> = () => (
   <Modal>
     <Modal.Header>
       <Modal.Icon name='info' />
@@ -74,7 +75,7 @@ export const _WithIcon = () => (
   </Modal>
 );
 
-export const _WithTagline = () => (
+export const _WithTagline: ComponentStory<typeof Modal> = () => (
   <Modal>
     <Modal.Header>
       <Modal.HeaderText>
@@ -95,7 +96,7 @@ export const _WithTagline = () => (
   </Modal>
 );
 
-export const _WithIconAndTagline = () => (
+export const _WithIconAndTagline: ComponentStory<typeof Modal> = () => (
   <Modal>
     <Modal.Header>
       <Modal.Icon alignItems='end' name='info' />
@@ -117,7 +118,7 @@ export const _WithIconAndTagline = () => (
   </Modal>
 );
 
-export const _WithAnnotation = () => (
+export const _WithAnnotation: ComponentStory<typeof Modal> = () => (
   <Modal>
     <Modal.Header>
       <Modal.HeaderText>
@@ -138,7 +139,7 @@ export const _WithAnnotation = () => (
   </Modal>
 );
 
-export const _WithHeroImage = () => (
+export const _WithHeroImage: ComponentStory<typeof Modal> = () => (
   <Modal>
     <Modal.Header>
       <Modal.HeaderText>
@@ -181,7 +182,7 @@ const FormContainer = (props: ComponentProps<typeof Box>) => (
   />
 );
 
-export const WithForm = () => (
+export const _WithForm: ComponentStory<typeof Modal> = () => (
   <Modal wrapper={FormContainer}>
     <Modal.Header>
       <Modal.HeaderText>

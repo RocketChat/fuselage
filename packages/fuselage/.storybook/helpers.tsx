@@ -1,17 +1,25 @@
+import type { ComponentProps, ComponentType } from 'react';
 import React from 'react';
 
 import { Box, Icon } from '../src';
 
-export function PropsVariationSection({
+type PropsVariationSectionProps<TComponent extends ComponentType<any>> = {
+  component: TComponent;
+  common: ComponentProps<TComponent>;
+  xAxis?: Record<string, Partial<ComponentProps<TComponent>>>;
+  yAxis?: Record<string, Partial<ComponentProps<TComponent>>>;
+};
+
+export function PropsVariationSection<TComponent extends ComponentType<any>>({
   component: Component,
-  common = {},
+  common,
   xAxis = {},
   yAxis = {},
-}) {
+}: PropsVariationSectionProps<TComponent>) {
   return (
     <Box
       is='table'
-      marginBlock='x16'
+      marginBlock={16}
       marginInline='auto'
       style={{ borderCollapse: 'collapse' }}
     >
@@ -36,11 +44,15 @@ export function PropsVariationSection({
                 key={x}
                 is='td'
                 margin='none'
-                paddingBlock='x8'
-                paddingInline='x16'
+                paddingBlock={8}
+                paddingInline={16}
               >
                 <Box display='flex' alignItems='center' justifyContent='center'>
-                  <Component {...common} {...xProps} {...yProps} />
+                  <Component
+                    {...common}
+                    {...(xProps as typeof common)}
+                    {...(yProps as typeof common)}
+                  />
                 </Box>
               </Box>
             ))}
@@ -108,11 +120,14 @@ v/L21v8BT/ZVoe1UItsAAAAASUVORK5CYII=`;
 export const blankAvatar = `data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BA
 AAAAAALAAAAAABAAEAAAICRAEAOw==`;
 
+export const DECORATOR_ID = 'decoratorId';
+export const DECORATOR_LABEL = 'Decorator Label';
+
 export const menuOptions = {
   makeAdmin: {
     label: (
       <Box display='flex' alignItems='center'>
-        <Icon mie='x4' name='key' size='x16' />
+        <Icon mie={4} name='key' size='x16' />
         Make Admin
       </Box>
     ),
@@ -121,7 +136,7 @@ export const menuOptions = {
   delete: {
     label: (
       <Box display='flex' alignItems='center' color='danger'>
-        <Icon mie='x4' name='trash' size='x16' />
+        <Icon mie={4} name='trash' size='x16' />
         Delete
       </Box>
     ),

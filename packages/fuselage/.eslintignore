@@ -1,6 +1,6 @@
 /dist
 /node_modules
 /storybook-static
+!/.babelrc.js
 !/.jest
 !/.storybook
-/.storybook/jest-results.json

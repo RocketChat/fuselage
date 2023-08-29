@@ -45,10 +45,7 @@ const FormPageLayoutOnboard = ({
           )}
         </HorizontalWizardLayoutTitle>
         {subtitle && (
-          <HorizontalWizardLayoutSubtitle
-          // fontWeight={styleProps?.subTitleProps?.fontWeight}
-          // fontColor={styleProps?.subTitleProps?.color}
-          >
+          <HorizontalWizardLayoutSubtitle>
             {subtitle}
           </HorizontalWizardLayoutSubtitle>
         )}

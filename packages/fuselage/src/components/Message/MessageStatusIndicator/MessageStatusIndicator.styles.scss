@@ -30,7 +30,7 @@ $variants: (
     color: colors.font(secondary-info);
     @each $name, $color in $variants {
       &--#{$name} {
-        color: theme('message-status-variant-color-#{$name}', $color);
+        color: functions.theme('message-status-variant-color-#{$name}', $color);
       }
     }
   }

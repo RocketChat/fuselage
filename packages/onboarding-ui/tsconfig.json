@@ -1,18 +1,16 @@
 {
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "rootDir": "./src",
-    "target": "es5",
-    "module": "ESNext",
-    "declaration": true,
-    "declarationMap": true,
-    "sourceMap": true,
-    "outDir": "./dist/esm",
-    "strict": true,
+    "rootDirs": ["./src", "./.storybook"],
+    "target": "ES5",
+    "module": "CommonJS",
+    "outDir": "./dist",
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "jsx": "react-jsx"
-  }
+  },
+  "include": ["./src", "./.jest/**/*", "./.storybook/**/*"],
+  "exclude": ["./dist"]
 }

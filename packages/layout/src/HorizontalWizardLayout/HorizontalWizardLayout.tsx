@@ -1,5 +1,5 @@
 import { Box } from '@rocket.chat/fuselage';
-import type { ReactElement, ReactNode } from 'react';
+import type { ComponentProps, ReactElement, ReactNode } from 'react';
 
 import BackgroundLayer from '../BackgroundLayer';
 import DarkModeProvider, { useDarkMode } from '../DarkModeProvider';
@@ -37,27 +37,17 @@ export const HorizontalWizardLayoutAside = ({
   </FormPageLayout.Aside>
 );
 
-export const HorizontalWizardLayoutTitle = ({
-  children,
-}: {
-  children: ReactNode;
-}): ReactElement => <FormPageLayout.Title>{children}</FormPageLayout.Title>;
+export const HorizontalWizardLayoutTitle = (
+  props: ComponentProps<typeof FormPageLayout.Title>
+): ReactElement => <FormPageLayout.Title {...props} />;
 
-export const HorizontalWizardLayoutSubtitle = ({
-  children,
-}: {
-  children: ReactNode;
-}): ReactElement => (
-  <FormPageLayout.Subtitle>{children}</FormPageLayout.Subtitle>
-);
+export const HorizontalWizardLayoutSubtitle = (
+  props: ComponentProps<typeof FormPageLayout.Subtitle>
+): ReactElement => <FormPageLayout.Subtitle {...props} />;
 
-export const HorizontalWizardLayoutDescription = ({
-  children,
-}: {
-  children: ReactNode;
-}): ReactElement => (
-  <FormPageLayout.Description>{children}</FormPageLayout.Description>
-);
+export const HorizontalWizardLayoutDescription = (
+  props: ComponentProps<typeof FormPageLayout.Description>
+): ReactElement => <FormPageLayout.Description {...props} />;
 
 export const HorizontalWizardTextHighlight = (props: {
   children: ReactNode;
@@ -84,7 +74,7 @@ export const HorizontalWizardLayoutCaption = ({
       flexDirection='row'
       fontScale='c1'
       color={isDark ? 'white' : 'secondary-info'}
-      mb='x16'
+      mb={16}
       alignItems='center'
     >
       {children}

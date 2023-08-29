@@ -1,6 +1,6 @@
 import { css, keyframes } from '@rocket.chat/css-in-js';
 import { useUniqueId } from '@rocket.chat/fuselage-hooks';
-import type { ReactNode } from 'react';
+import type { ReactNode, AllHTMLAttributes } from 'react';
 import React from 'react';
 
 import Box from '../Box';
@@ -14,7 +14,8 @@ export type ToastBarProps = {
   time?: number;
   id?: string;
   onClose?: (id: string) => void;
-};
+  buttonLabel?: string;
+} & Omit<AllHTMLAttributes<HTMLElement>, 'is'>;
 
 export function ToastBar({
   children,
@@ -23,6 +24,8 @@ export function ToastBar({
   time = 5,
   id,
   onClose,
+  buttonLabel = 'Close',
+  ...props
 }: ToastBarProps) {
   const iconName =
     (variant === 'success' && 'circle-check') ||
@@ -64,32 +67,36 @@ export function ToastBar({
 
   return (
     <Box
-      className={['rcx-toastbar-wrapper', toastBarAnimation]}
+      className={[
+        `rcx-toastbar rcx-toastbar--${variant} ${className}`,
+        toastBarAnimation,
+      ]}
+      elevation='2nb'
+      borderRadius='x4'
       role='alert'
-      aria-labelledby={toastId}
+      {...props}
     >
-      <Box
-        className={`rcx-toastbar rcx-toastbar--${variant} ${className}`}
-        elevation='2nb'
-        borderRadius='x4'
-      >
-        <div className='rcx-toastbar_inner'>
-          <Icon
-            className={`rcx-toastbar_icon--${variant}`}
-            size='x20'
-            name={iconName}
-          />
-          <div className='rcx-toastbar_content' id={toastId}>
-            {children}
-          </div>
-          {onClose && (
-            <div className='rcx-toastbar-close'>
-              <IconButton tiny onClick={() => onClose(toastId)} icon='cross' />
-            </div>
-          )}
+      <div className='rcx-toastbar_inner'>
+        <Icon
+          className={`rcx-toastbar_icon--${variant}`}
+          size='x20'
+          name={iconName}
+        />
+        <div className='rcx-toastbar_content' id={toastId}>
+          {children}
         </div>
-        <Box className={[progressBarAnimation, 'rcx-toastbar_progressbar']} />
-      </Box>
+        {onClose && (
+          <div className='rcx-toastbar-close'>
+            <IconButton
+              tiny
+              onClick={() => onClose(toastId)}
+              icon='cross'
+              aria-label={buttonLabel}
+            />
+          </div>
+        )}
+      </div>
+      <Box className={[progressBarAnimation, 'rcx-toastbar_progressbar']} />
     </Box>
   );
 }

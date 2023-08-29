@@ -8,9 +8,9 @@ type SelectInputOptions = readonly (readonly [string, string])[];
 
 type SelectInputProps = Omit<ComponentProps<typeof InputBox>, 'type'> & {
   error?: string;
-  options: SelectInputOptions;
+  options?: SelectInputOptions;
   htmlSize?: number;
-  addon: ReactNode;
+  addon?: ReactNode;
 };
 
 export const SelectInput = forwardRef(function SelectInput(

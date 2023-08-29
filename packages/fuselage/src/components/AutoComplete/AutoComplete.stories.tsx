@@ -121,14 +121,8 @@ export const AutoCompleteMultipleCustomSelected = () => {
       options={options}
       onChange={handleChangeRooms}
       renderSelected={({ selected: { value, label }, onRemove }) => (
-        <Chip
-          key={value}
-          height='x20'
-          value={value}
-          onClick={onRemove}
-          mie='x4'
-        >
-          <Box is='span' margin='none' mis='x4'>
+        <Chip key={value} height='x20' value={value} onClick={onRemove} mie={4}>
+          <Box is='span' margin='none' mis={4}>
             <Avatar size='x20' url={exampleAvatar} />
             {'  '}
             {label}
