@@ -45,7 +45,7 @@ export default {
 } as ComponentMeta<typeof ButtonGroup>;
 
 export const _IconButton: ComponentStory<typeof IconButton> = () => (
-  <IconButton icon='balloon' />
+  <IconButton icon='balloon' aria-label='balloon' />
 );
 
 export const States = () => (
@@ -53,8 +53,9 @@ export const States = () => (
     <PropsVariationSection
       component={IconButton}
       common={{
-        icon: 'doner',
-        medium: true,
+        'icon': 'doner',
+        'medium': true,
+        'aria-label': 'balloon',
       }}
       xAxis={{
         default: {},
@@ -114,8 +115,9 @@ export const Variants = () => (
     <PropsVariationSection
       component={IconButton}
       common={{
-        icon: 'doner',
-        medium: true,
+        'icon': 'doner',
+        'medium': true,
+        'aria-label': 'balloon',
       }}
       xAxis={{
         default: {},
@@ -164,49 +166,49 @@ export const Variants = () => (
 
 export const Sizes = () => (
   <ButtonGroup>
-    <IconButton icon='balloon' secondary />
-    <IconButton icon='balloon' secondary medium />
-    <IconButton icon='balloon' secondary small />
-    <IconButton icon='balloon' secondary tiny />
-    <IconButton icon='balloon' secondary mini />
+    <IconButton icon='balloon' aria-label='balloon' secondary />
+    <IconButton icon='balloon' aria-label='balloon' secondary medium />
+    <IconButton icon='balloon' aria-label='balloon' secondary small />
+    <IconButton icon='balloon' aria-label='balloon' secondary tiny />
+    <IconButton icon='balloon' aria-label='balloon' secondary mini />
   </ButtonGroup>
 );
 export const _IconButtonDisabled: ComponentStory<typeof IconButton> = () => (
-  <IconButton icon='balloon' disabled />
+  <IconButton icon='balloon' aria-label='balloon' disabled />
 );
 
 export const _IconButtonWithEmoji: ComponentStory<typeof IconButton> = () => (
-  <IconButton icon={EmojiElement} />
+  <IconButton icon={EmojiElement} aria-label='emoji' />
 );
 
 export const _IconButtonInfo: ComponentStory<typeof IconButton> = () => (
-  <IconButton icon='balloon' info />
+  <IconButton icon='balloon' aria-label='balloon' info />
 );
 
 export const _IconButtonSecondaryInfo: ComponentStory<
   typeof IconButton
-> = () => <IconButton icon='balloon' secondary info />;
+> = () => <IconButton icon='balloon' aria-label='balloon' secondary info />;
 
 export const _IconButtonSuccess: ComponentStory<typeof IconButton> = () => (
-  <IconButton icon='balloon' success />
+  <IconButton icon='balloon' aria-label='balloon' success />
 );
 
 export const _IconButtonSecondarySuccess: ComponentStory<
   typeof IconButton
-> = () => <IconButton icon='balloon' secondary success />;
+> = () => <IconButton icon='balloon' aria-label='balloon' secondary success />;
 
 export const _IconButtonWarning: ComponentStory<typeof IconButton> = () => (
-  <IconButton icon='balloon' warning />
+  <IconButton icon='balloon' aria-label='balloon' warning />
 );
 
 export const _IconButtonSecondaryWarning: ComponentStory<
   typeof IconButton
-> = () => <IconButton icon='balloon' secondary warning />;
+> = () => <IconButton icon='balloon' aria-label='balloon' secondary warning />;
 
 export const _IconButtonDanger: ComponentStory<typeof IconButton> = () => (
-  <IconButton icon='balloon' danger />
+  <IconButton icon='balloon' aria-label='balloon' danger />
 );
 
 export const _IconButtonSecondaryDanger: ComponentStory<
   typeof IconButton
-> = () => <IconButton icon='balloon' secondary danger />;
+> = () => <IconButton icon='balloon' aria-label='balloon' secondary danger />;
