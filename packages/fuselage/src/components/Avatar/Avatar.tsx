@@ -1,15 +1,14 @@
-import type { DetailedHTMLProps, HTMLAttributes, ComponentProps } from 'react';
+import type { AllHTMLAttributes, ComponentProps } from 'react';
 import React from 'react';
-import flattenChildren from 'react-keyed-flatten-children';
 
-import { prependClassName } from '../../helpers/prependClassName';
 import { AvatarContainer } from './AvatarContainer';
+import { AvatarStack } from './AvatarStack';
 
 export type AvatarProps = ComponentProps<typeof AvatarContainer> & {
   rounded?: boolean;
   objectFit?: boolean;
   url: string;
-};
+} & Omit<AllHTMLAttributes<HTMLImageElement>, 'size'>;
 
 export const Avatar = ({
   size = 'x36',
@@ -28,20 +27,13 @@ export const Avatar = ({
     .join(' ');
 
   return (
-    <AvatarContainer size={size} {...props}>
-      <img src={`${url}`} className={`${innerClass}`} />
+    <AvatarContainer size={size}>
+      <img src={`${url}`} className={`${innerClass}`} {...props} />
     </AvatarContainer>
   );
 };
 
-type AvatarStackProps = DetailedHTMLProps<
-  HTMLAttributes<HTMLDivElement>,
-  HTMLDivElement
->;
-
-const AvatarStack = ({ children, ...props }: AvatarStackProps) => {
-  props.className = prependClassName(props.className, 'rcx-avatar-stack');
-  return <div {...props}>{flattenChildren(children).reverse()}</div>;
-};
-
+/**
+ * @deprecated Use named import instead
+ */
 Avatar.Stack = AvatarStack;
