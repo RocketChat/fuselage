@@ -1,12 +1,11 @@
 import { composeStories } from '@storybook/testing-react';
 import { render } from '@testing-library/react';
-import { axe, toHaveNoViolations } from 'jest-axe';
+import { axe } from 'jest-axe';
 import React from 'react';
 
 import * as stories from './Accordion.stories';
 
 const { Default } = composeStories(stories);
-expect.extend(toHaveNoViolations);
 
 describe('[Accordion Component]', () => {
   it('renders without crashing', () => {

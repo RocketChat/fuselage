@@ -1,3 +1,5 @@
+import { toHaveNoViolations } from 'jest-axe';
+
 const cssInJsClassRegex = /^rcx-css-[a-z0-9]+$/;
 
 expect.extend({
@@ -28,3 +30,5 @@ expect.extend({
     };
   },
 });
+
+expect.extend(toHaveNoViolations);
