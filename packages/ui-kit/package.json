@@ -34,6 +34,7 @@
     "lint-staged": "lint-staged",
     "test": "jest --runInBand",
     "docs": "typedoc",
+    "update-readme": "node update-readme.mjs",
     "bump-next": "bump-next"
   },
   "devDependencies": {
@@ -56,6 +57,7 @@
     "rimraf": "^3.0.2",
     "ts-jest": "~29.1.0",
     "ts-loader": "~9.4.2",
+    "ts-morph": "~19.0.0",
     "typedoc": "~0.24.1",
     "typescript": "~5.0.4",
     "webpack": "~5.78.0",
