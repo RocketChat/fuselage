@@ -35,12 +35,7 @@
 
   @mixin click-animation() {
     @include on-active {
-      > * {
-        transform: translateY(1px);
-      }
-    }
-    @include on-pressed {
-      > * {
+      > *:not(div[role='status']) {
         transform: translateY(1px);
       }
     }
