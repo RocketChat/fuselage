@@ -1,3 +1,4 @@
+import { css } from '@rocket.chat/css-in-js';
 import {
   Title,
   Subtitle,
@@ -11,6 +12,8 @@ import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
 import { PropsVariationSection } from '../../../.storybook/helpers';
+import { Badge } from '../Badge';
+import Box from '../Box/Box';
 import { ButtonGroup } from '../ButtonGroup';
 import { IconButton } from './IconButton';
 
@@ -212,3 +215,21 @@ export const _IconButtonDanger: ComponentStory<typeof IconButton> = () => (
 export const _IconButtonSecondaryDanger: ComponentStory<
   typeof IconButton
 > = () => <IconButton icon='balloon' aria-label='balloon' secondary danger />;
+
+export const _IconButtonWithBadge: ComponentStory<typeof IconButton> = () => (
+  <ButtonGroup>
+    <IconButton icon='balloon' small position='relative' overflow='visible'>
+      <Box
+        position='absolute'
+        role='status'
+        className={css`
+          top: 0;
+          right: 0;
+          transform: translate(30%, -30%);
+        `}
+      >
+        <Badge variant='danger'>2</Badge>
+      </Box>
+    </IconButton>
+  </ButtonGroup>
+);
