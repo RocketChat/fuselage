@@ -73,18 +73,22 @@ export const PaginatedMultiSelect = ({
     currentValue.some((opt) => opt.value === option.value)
   );
 
-  const internalChanged = (option: PaginatedMultiSelectOption) => {
-    if (currentValue.some((opt) => opt.value === option.value)) {
-      const newValue = currentValue.filter((opt) => opt.value !== option.value);
+  const internalChanged = useMutableCallback(
+    (option: PaginatedMultiSelectOption) => {
+      if (currentValue.some((opt) => opt.value === option.value)) {
+        const newValue = currentValue.filter(
+          (opt) => opt.value !== option.value
+        );
 
+        setInternalValue(newValue);
+        return onChange(newValue);
+      }
+
+      const newValue = [...currentValue, option];
       setInternalValue(newValue);
       return onChange(newValue);
     }
-
-    const newValue = [...currentValue, option];
-    setInternalValue(newValue);
-    return onChange(newValue);
-  };
+  );
 
   const [visible, hide, show] = useVisible();
 
