@@ -52,7 +52,7 @@
     color: colors.font(info);
 
     &--system {
-      color: colors.font(annotation);
+      color: colors.font(default);
 
       &::first-letter {
         text-transform: uppercase;

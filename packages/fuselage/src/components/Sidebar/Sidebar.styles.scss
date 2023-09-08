@@ -49,7 +49,7 @@ $sidebar-item-background-color-hover: theme(
 );
 $sidebar-item-color-hover: theme(
   'sidebar-item-color-hover',
-  colors.font(annotation)
+  colors.font(hover)
 );
 $sidebar-item-color-focus: theme(
   'sidebar-item-color-focus',

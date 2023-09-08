@@ -22,7 +22,7 @@ $message-generic-preview-context-color: functions.theme(
 
 $message-generic-preview-description-color: functions.theme(
   'message-generic-preview-description-color',
-  colors.font(annotation)
+  colors.font(default)
 );
 
 $message-generic-preview-content-background-color: functions.theme(
