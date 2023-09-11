@@ -28,6 +28,32 @@ function forceDownload(url: string, fileName?: string) {
   xhr.send();
 }
 
+const getDurationForInfinityDurationAudioFile = (
+  src: string,
+  callback: (duration: number) => void
+) => {
+  const audioElement = new Audio();
+  audioElement.src = src;
+
+  audioElement.addEventListener('loadedmetadata', () => {
+    const { duration } = audioElement;
+    if (duration === Infinity) {
+      audioElement.currentTime = 1e101;
+      return;
+    }
+
+    return callback(duration);
+  });
+
+  audioElement.addEventListener('durationchange', () => {
+    if (audioElement.duration === Infinity) {
+      return;
+    }
+    callback(audioElement.duration);
+    audioElement.remove();
+  });
+};
+
 export const AudioPlayer = forwardRef<
   HTMLAudioElement,
   {
@@ -169,8 +195,14 @@ export const AudioPlayer = forwardRef<
           onTimeUpdate={(e) => {
             setCurrentTime((e.target as HTMLAudioElement).currentTime);
           }}
-          onLoadedData={(e) => {
-            setDurationTime((e.target as HTMLAudioElement).duration);
+          onLoadedMetadata={(e) => {
+            const { duration } = e.target as HTMLAudioElement;
+
+            if (duration !== Infinity) {
+              return setDurationTime(duration);
+            }
+
+            getDurationForInfinityDurationAudioFile(src, setDurationTime);
           }}
           onEnded={() => setIsPlaying(false)}
           ref={refs}
