@@ -8,7 +8,7 @@ type RadioButtonProps = ComponentProps<typeof Box> &
   AllHTMLAttributes<HTMLInputElement>;
 
 export const RadioButton = forwardRef(function RadioButton(
-  { ...props }: RadioButtonProps,
+  props: RadioButtonProps,
   ref: Ref<HTMLInputElement>
 ) {
   return (
