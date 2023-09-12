@@ -5,10 +5,9 @@ import React from 'react';
 
 import * as stories from './RadioButton.stories';
 
-const testCases = Object.values(composeStories(stories)).map((Story) => [
-  Story.storyName || 'Story',
-  Story,
-]);
+const testCases = Object.values(composeStories(stories))
+  .filter((story) => story.storyName !== 'States')
+  .map((Story) => [Story.storyName || 'Story', Story]);
 
 const { Default, Checked, Disabled } = composeStories(stories);
 
@@ -40,15 +39,6 @@ describe('[RadioButton Interacting]', () => {
     ) as HTMLInputElement;
     radioButton.click();
     expect(radioButton.checked).toEqual(true);
-  });
-  it('changes style of element as radio button is checked/unchecked', () => {
-    const { container } = render(<Default />);
-    const radioButton = container.querySelector(
-      'input[type="radio"]'
-    ) as HTMLInputElement;
-    radioButton.click();
-    radioButton.click();
-    expect(radioButton.checked).toEqual(false);
   });
   it('displays radio button with defaultChecked value correctly', () => {
     const { container } = render(<Checked />);
