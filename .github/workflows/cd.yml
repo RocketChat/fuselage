@@ -90,10 +90,13 @@ jobs:
         if: steps.yarn-cache.outputs.cache-hit != 'true'
       - run: yarn resolve-workspace-deps
         if: github.ref == 'refs/heads/master'
-      - run: yarn lerna publish from-package --yes --no-verify-access
+      - uses: changesets/action@v1
+        with:
+          publish: yarn release
         if: github.ref == 'refs/heads/master'
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - run: yarn bump-next
         if: github.ref == 'refs/heads/develop'
       - run: yarn release-next
