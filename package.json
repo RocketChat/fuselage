@@ -7,6 +7,7 @@
     "tools/*"
   ],
   "devDependencies": {
+    "@changesets/cli": "~2.26.2",
     "bump": "workspace:~",
     "husky": "~7.0.4",
     "hygen": "~6.1.5",
@@ -30,6 +31,7 @@
     "resolve-workspace-deps": "yarn workspace scripts run resolve-workspace-deps",
     "create-package": "hygen create-package",
     "bump-next": "yarn workspaces foreach --no-private -v run bump-next",
+    "release": "yarn changesets publish",
     "release-next": "yarn workspaces foreach --no-private -v npm publish --tag next --tolerate-republish"
   },
   "devEngines": {
