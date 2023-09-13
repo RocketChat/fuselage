@@ -95,7 +95,7 @@ jobs:
           publish: yarn release
         if: github.ref == 'refs/heads/master'
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - run: yarn bump-next
         if: github.ref == 'refs/heads/develop'
