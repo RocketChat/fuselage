@@ -1,5 +1,12 @@
 # Change Log
 
+## 0.32.0
+
+### Minor Changes
+
+- c1b7f2456: fix(ui-kit): Remove icons package dependency in ui-kit package
+- c1b7f2456: refactor(ui-kit): Review some types
+
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 

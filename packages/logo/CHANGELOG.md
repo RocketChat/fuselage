@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.31.26
+
+### Patch Changes
+
+- Updated dependencies [c1b7f2456]
+- Updated dependencies [c1b7f2456]
+  - @rocket.chat/fuselage-hooks@0.32.0
+
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 

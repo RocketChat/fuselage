@@ -1,5 +1,40 @@
 # Change Log
 
+## 1.0.0
+
+### Minor Changes
+
+- c1b7f2456: fix(onboarding-ui): Development warnings
+
+### Patch Changes
+
+- Updated dependencies [c1b7f2456]
+- Updated dependencies [c1b7f2456]
+- Updated dependencies [c1b7f2456]
+- Updated dependencies [c1b7f2456]
+- Updated dependencies [c1b7f2456]
+- Updated dependencies [c1b7f2456]
+- Updated dependencies [c1b7f2456]
+- Updated dependencies [c1b7f2456]
+- Updated dependencies [c1b7f2456]
+- Updated dependencies [c1b7f2456]
+- Updated dependencies [c1b7f2456]
+- Updated dependencies [c1b7f2456]
+- Updated dependencies [c1b7f2456]
+- Updated dependencies [c1b7f2456]
+- Updated dependencies [c1b7f2456]
+- Updated dependencies [c1b7f2456]
+- Updated dependencies [c1b7f2456]
+- Updated dependencies [c1b7f2456]
+- Updated dependencies [c1b7f2456]
+- Updated dependencies [c1b7f2456]
+- Updated dependencies [c1b7f2456]
+- Updated dependencies [c1b7f2456]
+  - @rocket.chat/fuselage-hooks@0.32.0
+  - @rocket.chat/fuselage@1.0.0
+  - @rocket.chat/logo@0.31.26
+  - @rocket.chat/layout@1.0.0
+
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 

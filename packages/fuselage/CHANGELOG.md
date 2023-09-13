@@ -1,5 +1,36 @@
 # Change Log
 
+## 1.0.0
+
+### Minor Changes
+
+- c1b7f2456: fix(fuselage): Field deprecation message
+- c1b7f2456: chore(fuselage): Button size
+- c1b7f2456: fix(fuselage): OptionInput margins and alignment
+- c1b7f2456: fix(fuselage): AudioPlayer: Infinity duration audio files crashing
+- c1b7f2456: fix(fuselage): css theme
+- c1b7f2456: fix(fuselage): MessageReactionAction icon size
+- c1b7f2456: fix(fuselage): prevent button-disabled click animation
+- c1b7f2456: fix(fuselage): IconButton with badge click-animation
+- c1b7f2456: chore(fuselage): change FieldLabel typography
+- c1b7f2456: fix(fuselage): Remove unnecessary aria-label fallback in `IconButton
+- c1b7f2456: chore(fuselage): ToggleSwitch best practices adjustments
+- c1b7f2456: chore(fuselage): Modal a11y improvements
+- c1b7f2456: chore(fuselage): Table background-color
+- c1b7f2456: chore(fuselage): color a11y report changes
+- c1b7f2456: chore(fuselage): button click animation
+- c1b7f2456: chore(fuselage): Checkbox best practices adjustments
+- c1b7f2456: chore(fuselage): Fix Accordion a11y
+- c1b7f2456: chore(fuselage): Avatar a11y improvements
+- c1b7f2456: chore(fuselage): Prop to keep MessageToolbox visible.
+- c1b7f2456: chore(fuselage): Field & Label best practices adjustments
+
+### Patch Changes
+
+- Updated dependencies [c1b7f2456]
+- Updated dependencies [c1b7f2456]
+  - @rocket.chat/fuselage-hooks@0.32.0
+
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 

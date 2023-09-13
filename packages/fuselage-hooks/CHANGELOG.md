@@ -1,5 +1,12 @@
 # Change Log
 
+## 0.32.0
+
+### Minor Changes
+
+- c1b7f2456: feat: create useElementIsVisible
+- c1b7f2456: fix(fuselage-hooks): usePosition fallback positioning
+
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
