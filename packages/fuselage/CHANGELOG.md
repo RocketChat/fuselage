@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.31.26
+
+### Patch Changes
+
+- 37a56b3cf: fix(fuselage): AudioPlayer: Infinity duration audio files crashing
+
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
