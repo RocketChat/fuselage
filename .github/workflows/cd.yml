@@ -3,8 +3,7 @@ name: Continuous Delivery
 on:
   push:
     branches:
-      - master
-      - develop
+      - main
 
 jobs:
   build-and-test:
@@ -46,8 +45,8 @@ jobs:
             packages/fuselage/storybook-static
             packages/onboarding-ui/storybook-static
             packages/layout/storybook-static
-      - if: github.ref == 'refs/heads/master'
-        uses: actions/upload-artifact@v2
+
+      - uses: actions/upload-artifact@v2
         with:
           name: docs
           path: |
@@ -88,21 +87,14 @@ jobs:
           path: packages
       - run: yarn install
         if: steps.yarn-cache.outputs.cache-hit != 'true'
-      - run: yarn resolve-workspace-deps
-        if: github.ref == 'refs/heads/master'
+
       - uses: changesets/action@v1
         with:
           publish: yarn release
-        if: github.ref == 'refs/heads/master'
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - run: yarn bump-next
-        if: github.ref == 'refs/heads/develop'
-      - run: yarn release-next
-        if: github.ref == 'refs/heads/develop'
-        env:
-          YARN_NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
   publish-to-gh-pages:
     name: Publish to GitHub Pages
@@ -120,8 +112,8 @@ jobs:
         with:
           name: storybooks
           path: packages
-      - if: github.ref == 'refs/heads/master'
-        uses: actions/download-artifact@v2
+
+      - uses: actions/download-artifact@v2
         with:
           name: docs
           path: .
