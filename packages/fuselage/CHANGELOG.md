@@ -1,5 +1,49 @@
 # Change Log
 
+## 0.32.0
+
+### Minor Changes
+
+- [`a04f9089d`](https://github.com/RocketChat/fuselage/commit/a04f9089d19ba32d2b2e80738d2d5f4dac0d3e0c) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): Field deprecation message
+
+- [`a04f9089d`](https://github.com/RocketChat/fuselage/commit/a04f9089d19ba32d2b2e80738d2d5f4dac0d3e0c) Thanks [@dougfabris](https://github.com/dougfabris)! - chore(fuselage): Button size
+
+- [`a04f9089d`](https://github.com/RocketChat/fuselage/commit/a04f9089d19ba32d2b2e80738d2d5f4dac0d3e0c) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): OptionInput margins and alignment
+
+- [`a04f9089d`](https://github.com/RocketChat/fuselage/commit/a04f9089d19ba32d2b2e80738d2d5f4dac0d3e0c) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): AudioPlayer: Infinity duration audio files crashing
+
+- [`a04f9089d`](https://github.com/RocketChat/fuselage/commit/a04f9089d19ba32d2b2e80738d2d5f4dac0d3e0c) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): css theme
+
+- [`a04f9089d`](https://github.com/RocketChat/fuselage/commit/a04f9089d19ba32d2b2e80738d2d5f4dac0d3e0c) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): MessageReactionAction icon size
+
+- [`a04f9089d`](https://github.com/RocketChat/fuselage/commit/a04f9089d19ba32d2b2e80738d2d5f4dac0d3e0c) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): prevent button-disabled click animation
+
+- [`a04f9089d`](https://github.com/RocketChat/fuselage/commit/a04f9089d19ba32d2b2e80738d2d5f4dac0d3e0c) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): IconButton with badge click-animation
+
+- [`a04f9089d`](https://github.com/RocketChat/fuselage/commit/a04f9089d19ba32d2b2e80738d2d5f4dac0d3e0c) Thanks [@dougfabris](https://github.com/dougfabris)! - chore(fuselage): change FieldLabel typography
+
+- [`a04f9089d`](https://github.com/RocketChat/fuselage/commit/a04f9089d19ba32d2b2e80738d2d5f4dac0d3e0c) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): Remove unnecessary aria-label fallback in `IconButton
+
+- [`a04f9089d`](https://github.com/RocketChat/fuselage/commit/a04f9089d19ba32d2b2e80738d2d5f4dac0d3e0c) Thanks [@dougfabris](https://github.com/dougfabris)! - chore(fuselage): ToggleSwitch best practices adjustments
+
+- [`a04f9089d`](https://github.com/RocketChat/fuselage/commit/a04f9089d19ba32d2b2e80738d2d5f4dac0d3e0c) Thanks [@dougfabris](https://github.com/dougfabris)! - chore(fuselage): Modal a11y improvements
+
+- [`a04f9089d`](https://github.com/RocketChat/fuselage/commit/a04f9089d19ba32d2b2e80738d2d5f4dac0d3e0c) Thanks [@dougfabris](https://github.com/dougfabris)! - chore(fuselage): Table background-color
+
+- [`a04f9089d`](https://github.com/RocketChat/fuselage/commit/a04f9089d19ba32d2b2e80738d2d5f4dac0d3e0c) Thanks [@dougfabris](https://github.com/dougfabris)! - chore(fuselage): color a11y report changes
+
+- [`a04f9089d`](https://github.com/RocketChat/fuselage/commit/a04f9089d19ba32d2b2e80738d2d5f4dac0d3e0c) Thanks [@dougfabris](https://github.com/dougfabris)! - chore(fuselage): button click animation
+
+- [`a04f9089d`](https://github.com/RocketChat/fuselage/commit/a04f9089d19ba32d2b2e80738d2d5f4dac0d3e0c) Thanks [@dougfabris](https://github.com/dougfabris)! - chore(fuselage): Checkbox best practices adjustments
+
+- [`a04f9089d`](https://github.com/RocketChat/fuselage/commit/a04f9089d19ba32d2b2e80738d2d5f4dac0d3e0c) Thanks [@dougfabris](https://github.com/dougfabris)! - chore(fuselage): Fix Accordion a11y
+
+- [`a04f9089d`](https://github.com/RocketChat/fuselage/commit/a04f9089d19ba32d2b2e80738d2d5f4dac0d3e0c) Thanks [@dougfabris](https://github.com/dougfabris)! - chore(fuselage): Avatar a11y improvements
+
+- [`a04f9089d`](https://github.com/RocketChat/fuselage/commit/a04f9089d19ba32d2b2e80738d2d5f4dac0d3e0c) Thanks [@dougfabris](https://github.com/dougfabris)! - chore(fuselage): Prop to keep MessageToolbox visible.
+
+- [`a04f9089d`](https://github.com/RocketChat/fuselage/commit/a04f9089d19ba32d2b2e80738d2d5f4dac0d3e0c) Thanks [@dougfabris](https://github.com/dougfabris)! - chore(fuselage): Field & Label best practices adjustments
+
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
