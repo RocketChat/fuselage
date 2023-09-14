@@ -9,10 +9,9 @@ import {
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
-import { Label, RadioButton } from '../..';
+import { RadioButton } from '../..';
 import {
   PropsVariationSection,
-  DECORATOR_ID,
   DECORATOR_LABEL,
 } from '../../../.storybook/helpers';
 
@@ -36,20 +35,10 @@ export default {
       ),
     },
   },
-  decorators: [
-    (Story) => (
-      <>
-        <Story />
-        <Label mis='x4' htmlFor={DECORATOR_ID}>
-          {DECORATOR_LABEL}
-        </Label>
-      </>
-    ),
-  ],
 } as ComponentMeta<typeof RadioButton>;
 
 const Template: ComponentStory<typeof RadioButton> = (args) => (
-  <RadioButton {...args} id={DECORATOR_ID} />
+  <RadioButton {...args} aria-label={DECORATOR_LABEL} />
 );
 
 export const Default: ComponentStory<typeof RadioButton> = Template.bind({});
@@ -71,7 +60,7 @@ Disabled.args = {
 export const States: ComponentStory<typeof RadioButton> = () => (
   <PropsVariationSection
     component={RadioButton}
-    common={{ onChange: action('change'), id: DECORATOR_ID }}
+    common={{ 'onChange': action('change'), 'aria-label': DECORATOR_LABEL }}
     xAxis={{
       checked: { checked: true },
       unchecked: { checked: false },

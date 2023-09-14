@@ -7,21 +7,15 @@ exports[`[RadioButton Rendering] renders Checked without crashing 1`] = `
       class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-radio-button"
     >
       <input
+        aria-label="Decorator Label"
         checked=""
         class="rcx-box rcx-box--full rcx-radio-button__input"
-        id="decoratorId"
         type="radio"
       />
       <i
         aria-hidden="true"
         class="rcx-box rcx-box--full rcx-radio-button__fake"
       />
-    </label>
-    <label
-      class="rcx-box rcx-box--full rcx-label rcx-css-b7g1a9"
-      for="decoratorId"
-    >
-      Decorator Label
     </label>
   </div>
 </body>
@@ -34,20 +28,14 @@ exports[`[RadioButton Rendering] renders Default without crashing 1`] = `
       class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-radio-button"
     >
       <input
+        aria-label="Decorator Label"
         class="rcx-box rcx-box--full rcx-radio-button__input"
-        id="decoratorId"
         type="radio"
       />
       <i
         aria-hidden="true"
         class="rcx-box rcx-box--full rcx-radio-button__fake"
       />
-    </label>
-    <label
-      class="rcx-box rcx-box--full rcx-label rcx-css-b7g1a9"
-      for="decoratorId"
-    >
-      Decorator Label
     </label>
   </div>
 </body>
@@ -60,21 +48,15 @@ exports[`[RadioButton Rendering] renders Disabled without crashing 1`] = `
       class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-radio-button"
     >
       <input
+        aria-label="Decorator Label"
         class="rcx-box rcx-box--full rcx-radio-button__input"
         disabled=""
-        id="decoratorId"
         type="radio"
       />
       <i
         aria-hidden="true"
         class="rcx-box rcx-box--full rcx-radio-button__fake"
       />
-    </label>
-    <label
-      class="rcx-box rcx-box--full rcx-label rcx-css-b7g1a9"
-      for="decoratorId"
-    >
-      Decorator Label
     </label>
   </div>
 </body>

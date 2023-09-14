@@ -2,4 +2,4 @@
 "@rocket.chat/fuselage": minor
 ---
 
-fix(fuselage): RadioButton best practices improvement
+fix(fuselage): RadioButton a11y best practices improvement
