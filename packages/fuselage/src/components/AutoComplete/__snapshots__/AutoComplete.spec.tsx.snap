@@ -7,7 +7,7 @@ exports[`[AutoComplete Rendering] renders CustomItem without crashing 1`] = `
       class="rcx-box rcx-box--full rcx-autocomplete rcx-css-t3n91h"
     >
       <div
-        class="rcx-box rcx-box--full rcx-css-1hobyj4"
+        class="rcx-box rcx-box--full rcx-css-6d871f"
         role="group"
       >
         <input
@@ -38,7 +38,7 @@ exports[`[AutoComplete Rendering] renders CustomSelected without crashing 1`] = 
       class="rcx-box rcx-box--full rcx-autocomplete rcx-css-t3n91h"
     >
       <div
-        class="rcx-box rcx-box--full rcx-css-1hobyj4"
+        class="rcx-box rcx-box--full rcx-css-6d871f"
         role="group"
       >
         <input
@@ -136,7 +136,7 @@ exports[`[AutoComplete Rendering] renders Default without crashing 1`] = `
       class="rcx-box rcx-box--full rcx-autocomplete rcx-css-t3n91h"
     >
       <div
-        class="rcx-box rcx-box--full rcx-css-1hobyj4"
+        class="rcx-box rcx-box--full rcx-css-6d871f"
         role="group"
       >
         <input
@@ -167,7 +167,7 @@ exports[`[AutoComplete Rendering] renders Multiple without crashing 1`] = `
       class="rcx-box rcx-box--full rcx-autocomplete rcx-css-t3n91h"
     >
       <div
-        class="rcx-box rcx-box--full rcx-css-1hobyj4"
+        class="rcx-box rcx-box--full rcx-css-6d871f"
         role="group"
       >
         <input
@@ -234,7 +234,7 @@ exports[`[AutoComplete Rendering] renders MultipleCustomSelected without crashin
       class="rcx-box rcx-box--full rcx-autocomplete rcx-css-t3n91h"
     >
       <div
-        class="rcx-box rcx-box--full rcx-css-1hobyj4"
+        class="rcx-box rcx-box--full rcx-css-6d871f"
         role="group"
       >
         <input
