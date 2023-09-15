@@ -1,7 +1,6 @@
 {
-  "name": "@rocket.chat/fuselage-root",
+  "name": "@rocket.chat/fuselage-monorepo",
   "private": true,
-  "version": "0.31.25",
   "workspaces": [
     "packages/*",
     "tools/*"

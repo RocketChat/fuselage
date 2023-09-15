@@ -18,20 +18,20 @@ export default {
     actions: { argTypesRegex: '^on.*' },
     layout: 'centered',
   },
-} as ComponentMeta<typeof PaginatedSelectFiltered>;
+} satisfies ComponentMeta<typeof PaginatedSelectFiltered>;
 
 const Template: ComponentStory<typeof PaginatedSelectFiltered> = (args) => (
   <PaginatedSelectFiltered {...args} />
 );
 
-export const normal = Template.bind({});
+export const Normal = Template.bind({});
 
-export const errored = Template.bind({});
-errored.args = {
+export const Errored = Template.bind({});
+Errored.args = {
   error: 'Error',
 };
 
-export const disabled = Template.bind({});
-disabled.args = {
+export const Disabled = Template.bind({});
+Disabled.args = {
   disabled: true,
 };
