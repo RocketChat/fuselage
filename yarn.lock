@@ -6420,6 +6420,23 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@rocket.chat/fuselage-monorepo@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "@rocket.chat/fuselage-monorepo@workspace:."
+  dependencies:
+    "@changesets/changelog-github": ~0.4.8
+    "@changesets/cli": ~2.26.2
+    bump: "workspace:~"
+    husky: ~7.0.4
+    hygen: ~6.1.5
+    lerna: ~4.0.0
+    lint-staged: ~13.2.1
+    turbo: ~1.1.10
+    update-readme: "workspace:~"
+    webpack: ~5.78.0
+  languageName: unknown
+  linkType: soft
+
 "@rocket.chat/fuselage-polyfills@workspace:packages/fuselage-polyfills, @rocket.chat/fuselage-polyfills@workspace:~":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/fuselage-polyfills@workspace:packages/fuselage-polyfills"
@@ -6437,23 +6454,6 @@ __metadata:
     lint-staged: ~13.2.1
     new-event-polyfill: ^1.0.1
     prettier: ~2.8.7
-  languageName: unknown
-  linkType: soft
-
-"@rocket.chat/fuselage-root@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "@rocket.chat/fuselage-root@workspace:."
-  dependencies:
-    "@changesets/changelog-github": ~0.4.8
-    "@changesets/cli": ~2.26.2
-    bump: "workspace:~"
-    husky: ~7.0.4
-    hygen: ~6.1.5
-    lerna: ~4.0.0
-    lint-staged: ~13.2.1
-    turbo: ~1.1.10
-    update-readme: "workspace:~"
-    webpack: ~5.78.0
   languageName: unknown
   linkType: soft
 
@@ -8482,9 +8482,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/react-docgen-typescript-plugin@patch:@storybook/react-docgen-typescript-plugin@npm%3A1.0.2-canary.6.9d540b91e815f8fc2f8829189deb00553559ff63.0#./.yarn/patches/@storybook-react-docgen-typescript-plugin-npm-1.0.2-canary.6.9d540b91e815f8fc2f8829189deb00553559ff63.0-b31cc57c40.patch::locator=%40rocket.chat%2Ffuselage-root%40workspace%3A.":
+"@storybook/react-docgen-typescript-plugin@patch:@storybook/react-docgen-typescript-plugin@npm%3A1.0.2-canary.6.9d540b91e815f8fc2f8829189deb00553559ff63.0#./.yarn/patches/@storybook-react-docgen-typescript-plugin-npm-1.0.2-canary.6.9d540b91e815f8fc2f8829189deb00553559ff63.0-b31cc57c40.patch::locator=%40rocket.chat%2Ffuselage-monorepo%40workspace%3A.":
   version: 1.0.2-canary.6.9d540b91e815f8fc2f8829189deb00553559ff63.0
-  resolution: "@storybook/react-docgen-typescript-plugin@patch:@storybook/react-docgen-typescript-plugin@npm%3A1.0.2-canary.6.9d540b91e815f8fc2f8829189deb00553559ff63.0#./.yarn/patches/@storybook-react-docgen-typescript-plugin-npm-1.0.2-canary.6.9d540b91e815f8fc2f8829189deb00553559ff63.0-b31cc57c40.patch::version=1.0.2-canary.6.9d540b91e815f8fc2f8829189deb00553559ff63.0&hash=0878d5&locator=%40rocket.chat%2Ffuselage-root%40workspace%3A."
+  resolution: "@storybook/react-docgen-typescript-plugin@patch:@storybook/react-docgen-typescript-plugin@npm%3A1.0.2-canary.6.9d540b91e815f8fc2f8829189deb00553559ff63.0#./.yarn/patches/@storybook-react-docgen-typescript-plugin-npm-1.0.2-canary.6.9d540b91e815f8fc2f8829189deb00553559ff63.0-b31cc57c40.patch::version=1.0.2-canary.6.9d540b91e815f8fc2f8829189deb00553559ff63.0&hash=0878d5&locator=%40rocket.chat%2Ffuselage-monorepo%40workspace%3A."
   dependencies:
     debug: ^4.1.1
     endent: ^2.0.1
