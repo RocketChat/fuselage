@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-unresolved
 import { readFile, writeFile } from 'fs/promises';
 import { join } from 'path';
 
@@ -11,6 +10,7 @@ type PackageList = {
 };
 
 type PackageManifest = {
+  name: string;
   version?: string;
   dependencies?: PackageList;
   devDependencies?: PackageList;
@@ -19,7 +19,7 @@ type PackageManifest = {
 
 const patchPackageList = (
   packageList: PackageList | undefined,
-  version: string
+  packagesRefObj: Map<string, string | undefined>
 ) => {
   if (!packageList) {
     return;
@@ -30,22 +30,24 @@ const patchPackageList = (
       continue;
     }
 
-    packageList[packageName] = `^${version}`;
+    packageList[packageName] = `^${packagesRefObj.get(packageName)}`;
   }
 };
 
-const patchPackageManifest = async (
-  packageManifestsPath: string,
-  version: string
-) => {
-  const packageManifest = JSON.parse(
+const getPackageManifest = async (packageManifestsPath: string) =>
+  JSON.parse(
     await readFile(packageManifestsPath, { encoding: 'utf-8' })
   ) as PackageManifest;
 
-  packageManifest.version = version;
-  patchPackageList(packageManifest.dependencies, version);
-  patchPackageList(packageManifest.devDependencies, version);
-  patchPackageList(packageManifest.peerDependencies, version);
+const patchPackageManifest = async (
+  packageManifestsPath: string,
+  packagesRefObj: Map<string, string | undefined>
+) => {
+  const packageManifest = await getPackageManifest(packageManifestsPath);
+
+  patchPackageList(packageManifest.dependencies, packagesRefObj);
+  patchPackageList(packageManifest.devDependencies, packagesRefObj);
+  patchPackageList(packageManifest.peerDependencies, packagesRefObj);
 
   await writeFile(
     packageManifestsPath,
@@ -57,10 +59,6 @@ const patchPackageManifest = async (
 };
 
 const start = async () => {
-  const { version } = JSON.parse(
-    await readFile(join(rootDir, 'lerna.json'), { encoding: 'utf-8' })
-  ) as { version: string };
-
   const packageManifestsPaths = await fg(
     ['**/package.json', '!**/node_modules/**/package.json', '!./package.json'],
     {
@@ -68,8 +66,19 @@ const start = async () => {
     }
   );
 
-  for (const packageManifestsPath of packageManifestsPaths) {
-    patchPackageManifest(join(rootDir, packageManifestsPath), version);
+  const packagesRefObj = new Map(
+    await Promise.all(
+      packageManifestsPaths.map(async (packageManifestsPath) => {
+        const packageManifest = await getPackageManifest(
+          join(rootDir, packageManifestsPath)
+        );
+        return [packageManifest.name, packageManifest.version] as const;
+      })
+    )
+  );
+
+  for await (const packageManifestsPath of packageManifestsPaths) {
+    patchPackageManifest(join(rootDir, packageManifestsPath), packagesRefObj);
   }
 };
 
