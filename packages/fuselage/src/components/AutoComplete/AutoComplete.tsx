@@ -3,7 +3,12 @@ import {
   useMutableCallback,
   useResizeObserver,
 } from '@rocket.chat/fuselage-hooks';
-import type { ComponentProps, ElementType, ReactElement } from 'react';
+import type {
+  AllHTMLAttributes,
+  ComponentProps,
+  ElementType,
+  ReactElement,
+} from 'react';
 import React, { useEffect, useRef, useMemo, useState } from 'react';
 
 import AnimatedVisibility from '../AnimatedVisibility';
@@ -37,7 +42,7 @@ type AutoCompleteProps = {
   error?: boolean;
   disabled?: boolean;
   multiple?: boolean;
-};
+} & Omit<AllHTMLAttributes<HTMLInputElement>, 'onChange'>;
 
 const getSelected = (
   value: string | string[],
@@ -64,6 +69,7 @@ export function AutoComplete({
   error,
   disabled,
   multiple,
+  ...props
 }: AutoCompleteProps): ReactElement {
   const ref = useRef();
   const { ref: containerRef, borderBoxSize } = useResizeObserver();
@@ -134,7 +140,7 @@ export function AutoComplete({
         alignItems='center'
         flexWrap='wrap'
         margin='neg-x4'
-        role='listbox'
+        role='group'
       >
         <Margins all='x4'>
           <InputBox.Input
@@ -153,8 +159,9 @@ export function AutoComplete({
             order={1}
             rcx-input-box--undecorated
             value={filter}
+            {...props}
           />
-          {selected &&
+          {selected?.length > 0 &&
             selected.map((itemSelected) =>
               RenderSelected ? (
                 <RenderSelected
@@ -164,7 +171,6 @@ export function AutoComplete({
                 />
               ) : (
                 <Chip
-                  role='option'
                   key={itemSelected.value}
                   value={itemSelected.value}
                   label={itemSelected.label}
