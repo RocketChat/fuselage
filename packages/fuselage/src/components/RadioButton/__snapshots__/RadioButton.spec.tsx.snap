@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[RadioButton Rendering] renders Checked without crashing 1`] = `
+<body>
+  <div>
+    <label
+      class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-radio-button"
+    >
+      <input
+        aria-label="Decorator Label"
+        checked=""
+        class="rcx-box rcx-box--full rcx-radio-button__input"
+        type="radio"
+      />
+      <i
+        aria-hidden="true"
+        class="rcx-box rcx-box--full rcx-radio-button__fake"
+      />
+    </label>
+  </div>
+</body>
+`;
+
+exports[`[RadioButton Rendering] renders Default without crashing 1`] = `
+<body>
+  <div>
+    <label
+      class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-radio-button"
+    >
+      <input
+        aria-label="Decorator Label"
+        class="rcx-box rcx-box--full rcx-radio-button__input"
+        type="radio"
+      />
+      <i
+        aria-hidden="true"
+        class="rcx-box rcx-box--full rcx-radio-button__fake"
+      />
+    </label>
+  </div>
+</body>
+`;
+
+exports[`[RadioButton Rendering] renders Disabled without crashing 1`] = `
+<body>
+  <div>
+    <label
+      class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-radio-button"
+    >
+      <input
+        aria-label="Decorator Label"
+        class="rcx-box rcx-box--full rcx-radio-button__input"
+        disabled=""
+        type="radio"
+      />
+      <i
+        aria-hidden="true"
+        class="rcx-box rcx-box--full rcx-radio-button__fake"
+      />
+    </label>
+  </div>
+</body>
+`;
