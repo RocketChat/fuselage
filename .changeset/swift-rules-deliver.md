@@ -1,5 +1,5 @@
 ---
-"@rocket.chat/fuselage": minor
+"@rocket.chat/fuselage": patch
 ---
 
-fix: `AutoComplete` a11y best practices improvement
+fix(fuselage): AutoComplete a11y best practices improvement
