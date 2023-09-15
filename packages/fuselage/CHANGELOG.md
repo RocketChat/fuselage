@@ -1,5 +1,17 @@
 # Change Log
 
+## 0.32.1
+
+### Patch Changes
+
+- [#1169](https://github.com/RocketChat/fuselage/pull/1169) [`2c25e7575`](https://github.com/RocketChat/fuselage/commit/2c25e7575c76c44db33a63c17c437b09ab286d19) Thanks [@tassoevan](https://github.com/tassoevan)! - Memory leak in `PaginatedMultiSelect`
+
+- [`a97c7f086`](https://github.com/RocketChat/fuselage/commit/a97c7f08633e6e36a39c8933b530f9acacb83af0) Thanks [@dougfabris](https://github.com/dougfabris)! - chore: resolve-workspace-deps to publish pkg versions
+
+- [`387c4016c`](https://github.com/RocketChat/fuselage/commit/387c4016cd91163da3e8add47aeca34f4e17f3c3) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): RadioButton a11y best practices improvement
+
+- [#1168](https://github.com/RocketChat/fuselage/pull/1168) [`0ce79189d`](https://github.com/RocketChat/fuselage/commit/0ce79189d4e112d963f0d7650f7864f26539c063) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): AutoComplete a11y best practices improvement
+
 ## 0.32.0
 
 ### Minor Changes

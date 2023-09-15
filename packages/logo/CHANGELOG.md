@@ -1,5 +1,14 @@
 # Change Log
 
+## 0.31.27
+
+### Patch Changes
+
+- [`a97c7f086`](https://github.com/RocketChat/fuselage/commit/a97c7f08633e6e36a39c8933b530f9acacb83af0) Thanks [@dougfabris](https://github.com/dougfabris)! - chore: resolve-workspace-deps to publish pkg versions
+
+- Updated dependencies [[`a97c7f086`](https://github.com/RocketChat/fuselage/commit/a97c7f08633e6e36a39c8933b530f9acacb83af0)]:
+  - @rocket.chat/fuselage-hooks@0.32.1
+
 ## 0.31.26
 
 ### Patch Changes
