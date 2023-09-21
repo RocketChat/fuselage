@@ -457,7 +457,7 @@ $button-empty-focus-border-color: theme(
 );
 $button-empty-focus-shadow-color: theme(
   'button-empty-focus-shadow-color',
-  colors.stroke(light)
+  colors.stroke(extra-light-highlight)
 );
 $button-empty-disabled-background-color: theme(
   'button-empty-disabled-background-color',
@@ -508,7 +508,7 @@ $button-off-focus-border-color: theme(
 );
 $button-off-focus-shadow-color: theme(
   'button-off-focus-shadow-color',
-  colors.shadow(highlight)
+  colors.shadow(extra-light-highlight)
 );
 $button-off-disabled-background-color: theme(
   'button-off-disabled-background-color',
