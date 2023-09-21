@@ -161,6 +161,10 @@ $sidebar-banner-color-danger: theme(
   color: $sidebar-color-font-default;
   background: $sidebar-color-surface-default;
 
+  a {
+    text-decoration: none;
+  }
+
   &--divider {
     border-color: theme(
       'sidebar-color-stroke-extra-light',
