@@ -16,7 +16,6 @@ type RegisterServerPageProps = {
   stepCount: number;
   initialValues?: Partial<RegisterServerPayload>;
   onSubmit: SubmitHandler<RegisterServerPayload>;
-  onBackButtonClick: () => void;
   onClickRegisterLater: () => void;
   offline?: boolean;
   validateEmail?: Validate<string>;
