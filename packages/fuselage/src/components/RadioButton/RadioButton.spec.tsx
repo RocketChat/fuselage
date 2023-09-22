@@ -5,9 +5,10 @@ import React from 'react';
 
 import * as stories from './RadioButton.stories';
 
-const testCases = Object.values(composeStories(stories))
-  .filter((story) => story.storyName !== 'States')
-  .map((Story) => [Story.storyName || 'Story', Story]);
+const testCases = Object.values(composeStories(stories)).map((Story) => [
+  Story.storyName || 'Story',
+  Story,
+]);
 
 const { Default, Checked, Disabled } = composeStories(stories);
 
