@@ -8,13 +8,10 @@ $tabs-color: theme('tabs-color', colors.font(hint));
 
 $tabs-hover-color: theme('tabs-hover-border-color', colors.font(default));
 
-$tabs-selected-color: theme(
-  'tabs-selected-color',
-  colors.button(primary-default)
-);
+$tabs-selected-color: theme('tabs-selected-color', colors.font(info));
 $tabs-selected-border-color: theme(
   'tabs-selected-border-color',
-  colors.button(primary-default)
+  colors.font(info)
 );
 $tabs-hover-selected-color: theme(
   'tabs-hover-selected-color',
