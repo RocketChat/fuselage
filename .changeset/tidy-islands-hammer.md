@@ -2,4 +2,4 @@
 "@rocket.chat/fuselage-hooks": minor
 ---
 
-feat: `useDocumentTitle` hook
+feat(fuselage-hooks): useDocumentTitle hook
