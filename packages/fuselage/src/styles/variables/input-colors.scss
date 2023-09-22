@@ -27,7 +27,7 @@ $input-colors-focus-border-color: theme(
 );
 $input-colors-focus-shadow-color: theme(
   'input-colors-focus-shadow-color',
-  colors.shadow(highlight)
+  colors.shadow(extra-light-highlight)
 );
 
 $input-colors-focus-icon-color: theme(
