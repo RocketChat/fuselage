@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.32.2
+
+### Patch Changes
+
+- [#1173](https://github.com/RocketChat/fuselage/pull/1173) [`dfe36764d`](https://github.com/RocketChat/fuselage/commit/dfe36764decaa54a6044102d7e0df18f4b343b7c) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): improve focus state color
+
+- [#1178](https://github.com/RocketChat/fuselage/pull/1178) [`0a104a02e`](https://github.com/RocketChat/fuselage/commit/0a104a02e50a4bb3218b1c54c74ac38ae9489498) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): className prop drilling improvements on `CheckBox`, `ToggleSwitch` and `RadioButton`
+
 ## 0.32.1
 
 ### Patch Changes
