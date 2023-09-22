@@ -2,4 +2,4 @@
 "@rocket.chat/fuselage": patch
 ---
 
-fix(fuselage): `CheckBox`, `ToggleSwitch` and `RadioButton` improvements
+fix(fuselage): className prop drilling improvements on `CheckBox`, `ToggleSwitch` and `RadioButton`
