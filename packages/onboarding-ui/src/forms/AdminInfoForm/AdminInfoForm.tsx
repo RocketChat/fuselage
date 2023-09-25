@@ -8,6 +8,10 @@ import {
   TextInput,
   Box,
   CheckBox,
+  FieldLabel,
+  FieldRow,
+  FieldError,
+  FieldHint,
 } from '@rocket.chat/fuselage';
 import { useUniqueId } from '@rocket.chat/fuselage-hooks';
 import { Form } from '@rocket.chat/layout';
@@ -81,10 +85,10 @@ const AdminInfoForm = ({
       <Form.Container>
         <FieldGroup>
           <Field>
-            <Field.Label htmlFor={fullnameField}>
+            <FieldLabel htmlFor={fullnameField}>
               {t('form.adminInfoForm.fields.fullName.label')}
-            </Field.Label>
-            <Field.Row>
+            </FieldLabel>
+            <FieldRow>
               <TextInput
                 {...register('fullname', {
                   required: String(t('component.form.requiredField')),
@@ -94,16 +98,16 @@ const AdminInfoForm = ({
                 )}
                 id={fullnameField}
               />
-            </Field.Row>
+            </FieldRow>
             {errors.fullname && (
-              <Field.Error>{errors.fullname.message}</Field.Error>
+              <FieldError>{errors.fullname.message}</FieldError>
             )}
           </Field>
           <Field>
-            <Field.Label htmlFor={usernameField}>
+            <FieldLabel htmlFor={usernameField}>
               {t('form.adminInfoForm.fields.username.label')}
-            </Field.Label>
-            <Field.Row>
+            </FieldLabel>
+            <FieldRow>
               <TextInput
                 {...register('username', {
                   required: String(t('component.form.requiredField')),
@@ -114,16 +118,16 @@ const AdminInfoForm = ({
                 )}
                 id={usernameField}
               />
-            </Field.Row>
+            </FieldRow>
             {errors.username && (
-              <Field.Error>{errors.username.message}</Field.Error>
+              <FieldError>{errors.username.message}</FieldError>
             )}
           </Field>
           <Field>
-            <Field.Label htmlFor={emailField}>
+            <FieldLabel htmlFor={emailField}>
               {t('form.adminInfoForm.fields.email.label')}
-            </Field.Label>
-            <Field.Row>
+            </FieldLabel>
+            <FieldRow>
               <EmailInput
                 {...register('email', {
                   required: String(t('component.form.requiredField')),
@@ -132,14 +136,14 @@ const AdminInfoForm = ({
                 placeholder={t('form.adminInfoForm.fields.email.placeholder')}
                 id={emailField}
               />
-            </Field.Row>
-            {errors.email && <Field.Error>{errors.email.message}</Field.Error>}
+            </FieldRow>
+            {errors.email && <FieldError>{errors.email.message}</FieldError>}
           </Field>
           <Field>
-            <Field.Label htmlFor={passwordField}>
+            <FieldLabel htmlFor={passwordField}>
               {t('form.adminInfoForm.fields.password.label')}
-            </Field.Label>
-            <Field.Row>
+            </FieldLabel>
+            <FieldRow>
               <PasswordInput
                 {...register('password', {
                   required: String(t('component.form.requiredField')),
@@ -150,10 +154,10 @@ const AdminInfoForm = ({
                 )}
                 id={passwordField}
               />
-            </Field.Row>
-            <Field.Hint>{passwordRulesHint}</Field.Hint>
+            </FieldRow>
+            <FieldHint>{passwordRulesHint}</FieldHint>
             {errors.password && (
-              <Field.Error>{errors.password.message}</Field.Error>
+              <FieldError>{errors.password.message}</FieldError>
             )}
           </Field>
           {keepPosted && (

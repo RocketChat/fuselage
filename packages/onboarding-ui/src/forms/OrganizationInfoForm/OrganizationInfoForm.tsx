@@ -1,5 +1,8 @@
 import type { SelectOption } from '@rocket.chat/fuselage';
 import {
+  FieldError,
+  FieldLabel,
+  FieldRow,
   FieldGroup,
   Field,
   ButtonGroup,
@@ -82,10 +85,10 @@ const OrganizationInfoForm = ({
       <Form.Container>
         <FieldGroup>
           <Field>
-            <Field.Label htmlFor={organizationNameField}>
+            <FieldLabel htmlFor={organizationNameField}>
               {t('form.organizationInfoForm.fields.organizationName.label')}
-            </Field.Label>
-            <Field.Row>
+            </FieldLabel>
+            <FieldRow>
               <TextInput
                 {...register('organizationName', { required: true })}
                 placeholder={t(
@@ -93,16 +96,16 @@ const OrganizationInfoForm = ({
                 )}
                 id={organizationNameField}
               />
-            </Field.Row>
+            </FieldRow>
             {errors.organizationName && (
-              <Field.Error>{t('component.form.requiredField')}</Field.Error>
+              <FieldError>{t('component.form.requiredField')}</FieldError>
             )}
           </Field>
           <Field>
-            <Field.Label htmlFor={organizationIndustryField}>
+            <FieldLabel htmlFor={organizationIndustryField}>
               {t('form.organizationInfoForm.fields.organizationIndustry.label')}
-            </Field.Label>
-            <Field.Row>
+            </FieldLabel>
+            <FieldRow>
               <Controller
                 name='organizationIndustry'
                 control={control}
@@ -118,16 +121,16 @@ const OrganizationInfoForm = ({
                   />
                 )}
               />
-            </Field.Row>
+            </FieldRow>
             {errors.organizationIndustry && (
-              <Field.Error>{t('component.form.requiredField')}</Field.Error>
+              <FieldError>{t('component.form.requiredField')}</FieldError>
             )}
           </Field>
           <Field>
-            <Field.Label htmlFor={organizationSizeField}>
+            <FieldLabel htmlFor={organizationSizeField}>
               {t('form.organizationInfoForm.fields.organizationSize.label')}
-            </Field.Label>
-            <Field.Row>
+            </FieldLabel>
+            <FieldRow>
               <Controller
                 name='organizationSize'
                 control={control}
@@ -143,16 +146,16 @@ const OrganizationInfoForm = ({
                   />
                 )}
               />
-            </Field.Row>
+            </FieldRow>
             {errors.organizationSize && (
-              <Field.Error>{t('component.form.requiredField')}</Field.Error>
+              <FieldError>{t('component.form.requiredField')}</FieldError>
             )}
           </Field>
           <Field>
-            <Field.Label htmlFor={countryField}>
+            <FieldLabel htmlFor={countryField}>
               {t('form.organizationInfoForm.fields.country.label')}
-            </Field.Label>
-            <Field.Row>
+            </FieldLabel>
+            <FieldRow>
               <Controller
                 name='country'
                 control={control}
@@ -168,9 +171,9 @@ const OrganizationInfoForm = ({
                   />
                 )}
               />
-            </Field.Row>
+            </FieldRow>
             {errors.country && (
-              <Field.Error>{t('component.form.requiredField')}</Field.Error>
+              <FieldError>{t('component.form.requiredField')}</FieldError>
             )}
           </Field>
         </FieldGroup>

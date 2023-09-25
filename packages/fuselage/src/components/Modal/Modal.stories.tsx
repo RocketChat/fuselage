@@ -3,7 +3,16 @@ import type { ComponentStory } from '@storybook/react';
 import type { ComponentProps } from 'react';
 import React from 'react';
 
-import { FieldGroup, Field, TextInput, Button, Modal, Box } from '../..';
+import {
+  FieldGroup,
+  Field,
+  TextInput,
+  Button,
+  Modal,
+  Box,
+  FieldLabel,
+  FieldRow,
+} from '../..';
 
 export default {
   title: 'Containers/Modal',
@@ -193,10 +202,10 @@ export const _WithForm: ComponentStory<typeof Modal> = () => (
     <Modal.Content>
       <FieldGroup>
         <Field>
-          <Field.Label>Label</Field.Label>
-          <Field.Row>
+          <FieldLabel>Label</FieldLabel>
+          <FieldRow>
             <TextInput placeholder='Placeholder' />
-          </Field.Row>
+          </FieldRow>
         </Field>
       </FieldGroup>
     </Modal.Content>

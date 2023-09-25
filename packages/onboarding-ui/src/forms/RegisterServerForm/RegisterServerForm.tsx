@@ -6,6 +6,9 @@ import {
   EmailInput,
   CheckBox,
   Icon,
+  FieldLabel,
+  FieldRow,
+  FieldError,
 } from '@rocket.chat/fuselage';
 import { useUniqueId, useBreakpoints } from '@rocket.chat/fuselage-hooks';
 import { Form, List, ActionLink } from '@rocket.chat/layout';
@@ -92,7 +95,7 @@ const RegisterServerForm = ({
         {!offline && (
           <Form.Container>
             <Field>
-              <Field.Label
+              <FieldLabel
                 display='flex'
                 alignItems='center'
                 htmlFor={emailField}
@@ -106,8 +109,8 @@ const RegisterServerForm = ({
                   size='x16'
                   name='info'
                 />
-              </Field.Label>
-              <Field.Row>
+              </FieldLabel>
+              <FieldRow>
                 <EmailInput
                   {...register('email', {
                     required: true,
@@ -118,9 +121,9 @@ const RegisterServerForm = ({
                   )}
                   id={emailField}
                 />
-              </Field.Row>
+              </FieldRow>
               {errors.email && (
-                <Field.Error>{t('component.form.requiredField')}</Field.Error>
+                <FieldError>{t('component.form.requiredField')}</FieldError>
               )}
             </Field>
             <Box mbs={24}>
