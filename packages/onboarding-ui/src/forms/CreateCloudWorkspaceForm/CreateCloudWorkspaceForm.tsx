@@ -4,6 +4,7 @@ import {
   FieldRow,
   FieldGroup,
   Field,
+  FieldError,
   ButtonGroup,
   Button,
   Box,
@@ -92,7 +93,7 @@ const CreateCloudWorkspaceForm = ({
             />
           </FieldRow>
           {errors?.organizationEmail && (
-            <Field.Error>{errors.organizationEmail.message}</Field.Error>
+            <FieldError>{errors.organizationEmail.message}</FieldError>
           )}
         </Field>
 
@@ -111,7 +112,7 @@ const CreateCloudWorkspaceForm = ({
             />
           </FieldRow>
           {errors.workspaceName && (
-            <Field.Error>{t('component.form.requiredField')}</Field.Error>
+            <FieldError>{t('component.form.requiredField')}</FieldError>
           )}
         </Field>
 
@@ -132,7 +133,7 @@ const CreateCloudWorkspaceForm = ({
             />
           </FieldRow>
           {errors?.workspaceURL && (
-            <Field.Error>{errors.workspaceURL.message}</Field.Error>
+            <FieldError>{errors.workspaceURL.message}</FieldError>
           )}
         </Field>
 
@@ -227,7 +228,7 @@ const CreateCloudWorkspaceForm = ({
             </Box>
           </FieldRow>
           {errors.agreement?.type === 'required' && (
-            <Field.Error>{t('component.form.requiredField')}</Field.Error>
+            <FieldError>{t('component.form.requiredField')}</FieldError>
           )}
         </Field>
 
