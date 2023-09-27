@@ -5,7 +5,6 @@ import {
   Field,
   EmailInput,
   CheckBox,
-  Icon,
   Label,
 } from '@rocket.chat/fuselage';
 import { useUniqueId, useBreakpoints } from '@rocket.chat/fuselage-hooks';
