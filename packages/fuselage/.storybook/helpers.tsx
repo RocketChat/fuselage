@@ -25,7 +25,7 @@ export function PropsVariationSection<TComponent extends ComponentType<any>>({
     >
       <Box is='thead'>
         <Box is='tr'>
-          <Box is='th' />
+          <Box is='td' aria-hidden />
           {Object.keys(xAxis).map((xVariation, key) => (
             <Box key={key} is='th' color='hint' fontScale='c1'>
               {xVariation}
