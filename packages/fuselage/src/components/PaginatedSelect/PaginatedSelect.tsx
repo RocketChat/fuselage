@@ -131,7 +131,7 @@ export const PaginatedSelect = ({
       </PaginatedSelectWrapper>
       <PositionAnimated visible={visible} anchor={containerRef}>
         <_Options
-          {...(withTitle && { title: withTitle })}
+          withTitle={withTitle}
           width={borderBoxSize.inlineSize}
           role='listbox'
           filter={filter}
