@@ -130,7 +130,7 @@ const RegisterServerForm = ({
                 <Box mie={8}>
                   <CheckBox {...register('agreement', { required: true })} />{' '}
                 </Box>
-                <Box is={Label} htmlFor='agreement' withRichContent required>
+                <Label htmlFor='agreement' withRichContent required>
                   <Trans i18nKey='component.form.termsAndConditions'>
                     I agree with
                     <a
