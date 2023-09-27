@@ -10,7 +10,6 @@
         "registerNow": "Register now",
         "confirm": "Confirm"
       },
-      "requiredField": "This field is required",
       "termsAndConditions": "I agree with <1>Terms and Conditions</1> and <3>Privacy Policy</3>"
     },
     "emailCodeFallback": "Didn’t receive email? <1>Resend</1> or <3>Change email</3>",

@@ -6,6 +6,7 @@ import {
   EmailInput,
   CheckBox,
   Icon,
+  Label,
 } from '@rocket.chat/fuselage';
 import { useUniqueId, useBreakpoints } from '@rocket.chat/fuselage-hooks';
 import { Form, List, ActionLink } from '@rocket.chat/layout';
@@ -65,7 +66,7 @@ const RegisterServerForm = ({
 
   const {
     register,
-    formState: { isValidating, isSubmitting, isValid, errors },
+    formState: { isSubmitting, isValid, errors },
     handleSubmit,
   } = form;
 
@@ -93,6 +94,7 @@ const RegisterServerForm = ({
           <Form.Container>
             <Field>
               <Field.Label
+                required
                 display='flex'
                 alignItems='center'
                 htmlFor={emailField}
@@ -149,7 +151,7 @@ const RegisterServerForm = ({
                   mie={8}
                   {...register('agreement', { required: true })}
                 />{' '}
-                <Box is='label' htmlFor='agreement' withRichContent>
+                <Box is={Label} htmlFor='agreement' withRichContent required>
                   <Trans i18nKey='component.form.termsAndConditions'>
                     I agree with
                     <a
@@ -189,11 +191,7 @@ const RegisterServerForm = ({
             <Button onClick={onBackButtonClick}>
               {t('component.form.action.back')}
             </Button>
-            <Button
-              type='submit'
-              primary
-              disabled={isValidating || isSubmitting || !isValid}
-            >
+            <Button type='submit' primary disabled={isSubmitting || !isValid}>
               {offline
                 ? t('component.form.action.registerNow')
                 : t('component.form.action.register')}
