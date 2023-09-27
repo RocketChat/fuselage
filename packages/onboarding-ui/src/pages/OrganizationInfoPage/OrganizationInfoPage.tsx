@@ -2,7 +2,6 @@ import type { SelectOption } from '@rocket.chat/fuselage';
 import { BackgroundLayer } from '@rocket.chat/layout';
 import type { ReactElement, ReactNode } from 'react';
 import type { SubmitHandler } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 
 import type { FormPageLayoutStyleProps } from '../../Types';
 import FormPageLayout from '../../common/FormPageLayout';
@@ -27,12 +26,9 @@ type OrganizationInfoPageProps = {
 
 const OrganizationInfoPage = ({
   title,
-  subtitle,
   description,
   ...props
 }: OrganizationInfoPageProps): ReactElement => {
-  const { t } = useTranslation();
-
   const pageLayoutStyleProps: FormPageLayoutStyleProps = {
     justifyContent: 'center',
     subTitleProps: {
@@ -44,9 +40,8 @@ const OrganizationInfoPage = ({
     <BackgroundLayer>
       <FormPageLayout
         styleProps={pageLayoutStyleProps}
-        title={title || t('page.organizationInfoPage.title')}
+        title={title}
         description={description}
-        subtitle={subtitle || t('page.organizationInfoPage.subtitle')}
       >
         <OrganizationInfoForm {...props} />
       </FormPageLayout>
