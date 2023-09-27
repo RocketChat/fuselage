@@ -125,7 +125,6 @@ export const SelfHostedRegistration: Story = ({ offline }) => {
             agreement: serverRegistration?.agreement,
           }),
         }}
-        onBackButtonClick={() => navigateTo('/org-info')}
         onSubmit={handleRegisterServerSubmit}
         offline={offline}
         onClickRegisterLater={() => navigateTo('/standalone-confirmation')}

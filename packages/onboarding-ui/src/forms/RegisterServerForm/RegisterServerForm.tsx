@@ -26,7 +26,6 @@ type RegisterServerFormProps = {
   initialValues?: Partial<RegisterServerPayload>;
   validateEmail?: Validate<string>;
   onSubmit: SubmitHandler<RegisterServerPayload>;
-  onBackButtonClick: () => void;
   onClickRegisterLater: () => void;
   termsHref?: string;
   policyHref?: string;
@@ -40,7 +39,6 @@ const RegisterServerForm = ({
   validateEmail,
   offline,
   onSubmit,
-  onBackButtonClick,
   onClickRegisterLater,
   termsHref = 'https://rocket.chat/terms',
   policyHref = 'https://rocket.chat/privacy',
@@ -162,9 +160,6 @@ const RegisterServerForm = ({
         <Form.Footer>
           <Box display='flex' flexDirection='column'>
             <ButtonGroup vertical={isMobile} flexGrow={1}>
-              <Button onClick={onBackButtonClick}>
-                {t('component.form.action.back')}
-              </Button>
               <Button
                 type='submit'
                 primary
