@@ -19,7 +19,7 @@
   },
   "page": {
     "form": {
-      "title": "Let's <1>Launch</1> Your Workspace"
+      "title": "Let's launch your workspace"
     },
     "awaitingConfirmation": {
       "title": "Awaiting confirmation",
@@ -64,10 +64,6 @@
     "magicLinkEmail": {
       "title": "We emailed you a login link",
       "subtitle": "Click the link in the email we just sent you to sign in to your workspace. <1>The link will expire in 30 minutes.</1>"
-    },
-    "organizationInfoPage": {
-      "title": "A few more details...",
-      "subtitle": "These will help us to personalize your workspace."
     },
     "loginPage": {
       "title": {
@@ -125,7 +121,7 @@
   "form": {
     "adminInfoForm": {
       "title": "Admin Info",
-      "subtitle": "We need this to create an admin profile inside your workspace",
+      "subtitle": "We need this information to create an admin profile for your workspace.",
       "fields": {
         "fullName": {
           "label": "Full name",
@@ -150,7 +146,7 @@
     },
     "organizationInfoForm": {
       "title": "Organization Info",
-      "subtitle": "Please, bear with us. This info will help us personalize your workspace",
+      "subtitle": "We need to know who you are.",
       "fields": {
         "organizationName": {
           "label": "Organization name",
@@ -175,7 +171,7 @@
       }
     },
     "registeredServerForm": {
-      "title": "Register Your Server",
+      "title": "Register your workspace",
       "included": {
         "push": "Mobile push notifications",
         "externalProviders": "Integration with external providers (WhatsApp, Facebook, Telegram, Twitter)",
@@ -183,15 +179,14 @@
       },
       "fields": {
         "accountEmail": {
-          "inputLabel": "Cloud account email",
-          "tooltipLabel": "To register your server, we need to connect it to your cloud account. If you already have one - we wll link it automatically. Otherwise, a new account will be created",
-          "inputPlaceholder": "Please enter your Email"
+          "inputLabel": "Admin email",
+          "inputPlaceholder": "Insert your email to continue"
         }
       },
       "keepInformed": "Keep me informed about news and events",
       "registerLater": "Register later",
       "notConnectedToInternet": "The server is not connected to the internet, so you’ll have to do an offline registration for this workspace.",
-      "agreeToReceiveUpdates": "By registering I agree to receive relevant product and security updates"
+      "registrationEngagement": "Registration allows automatic license updates, notifications of critical vulnerabilities and access to Rocket.Chat Cloud services. No sensitive workspace data is shared; statistics sent to Rocket.Chat are made visible to you within the administration area."
     },
     "standaloneServerForm": {
       "title": "Standalone Server Confirmation",
