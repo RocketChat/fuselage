@@ -147,7 +147,7 @@ const RegisterServerForm = ({
                       Privacy Policy
                     </a>
                   </Trans>
-                </Box>
+                </Label>
               </Box>
             </Box>
           </Form.Container>
