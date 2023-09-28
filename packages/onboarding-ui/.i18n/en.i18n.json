@@ -6,8 +6,9 @@
         "back": "Back",
         "next": "Next",
         "skip": "Skip this step",
+        "registerWorkspace": "Register workspace",
         "register": "Register",
-        "registerNow": "Register now",
+        "registerOffline": "Register offline",
         "confirm": "Confirm"
       },
       "requiredField": "This field is required",
@@ -189,12 +190,6 @@
       "notConnectedToInternet": "The server is not connected to the internet, so you’ll have to do an offline registration for this workspace.",
       "registrationEngagement": "Registration allows automatic license updates, notifications of critical vulnerabilities and access to Rocket.Chat Cloud services. No sensitive workspace data is shared; statistics sent to Rocket.Chat are made visible to you within the administration area."
     },
-    "standaloneServerForm": {
-      "title": "Standalone Server Confirmation",
-      "servicesUnavailable": "Some of the services will be unavailable or will require manual setup",
-      "publishOwnApp": "In order to send push notitications you need to compile and publish your own app to Google Play and App Store",
-      "manuallyIntegrate": "Need to manually integrate with external services"
-    },
     "createCloudWorkspace": {
       "title": "New Cloud Workspace",
       "fields": {
@@ -219,6 +214,15 @@
           "tooltip": "The language used on your workspace's interface"
         },
         "keepMeInformed": "Keep me informed about news and events"
+      }
+    },
+    "registerOfflineForm": {
+      "title": "Register Offline",
+      "description": "If for any reason your workspace can’t be connected to the internet, follow these steps:<1></1>1. Go to: <2>cloud.rocket.chat > Workspaces</2> and click “<3>Register self-managed</3>”<4></4>2. Copy the token and paste it below",
+      "fields": {
+        "registrationToken": {
+          "inputLabel": "Registration token"
+        }
       }
     },
     "requestTrialForm": {

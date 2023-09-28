@@ -7,7 +7,7 @@ import {
   CheckBox,
 } from '@rocket.chat/fuselage';
 import { useUniqueId, useBreakpoints } from '@rocket.chat/fuselage-hooks';
-import { Form, ActionLink } from '@rocket.chat/layout';
+import { Form } from '@rocket.chat/layout';
 import type { ReactElement } from 'react';
 import type { SubmitHandler, Validate } from 'react-hook-form';
 import { useForm, FormProvider } from 'react-hook-form';
@@ -15,7 +15,6 @@ import { useTranslation, Trans } from 'react-i18next';
 
 export type RegisterServerPayload = {
   email: string;
-  registerType: 'registered' | 'standalone';
   agreement: boolean;
   updates: boolean;
 };
@@ -26,7 +25,7 @@ type RegisterServerFormProps = {
   initialValues?: Partial<RegisterServerPayload>;
   validateEmail?: Validate<string>;
   onSubmit: SubmitHandler<RegisterServerPayload>;
-  onClickRegisterLater: () => void;
+  onClickRegisterOffline: () => void;
   termsHref?: string;
   policyHref?: string;
   offline?: boolean;
@@ -39,9 +38,9 @@ const RegisterServerForm = ({
   validateEmail,
   offline,
   onSubmit,
-  onClickRegisterLater,
   termsHref = 'https://rocket.chat/terms',
   policyHref = 'https://rocket.chat/privacy',
+  onClickRegisterOffline,
 }: RegisterServerFormProps): ReactElement => {
   const { t } = useTranslation();
   const emailField = useUniqueId();
@@ -53,7 +52,6 @@ const RegisterServerForm = ({
     mode: 'onChange',
     defaultValues: {
       email: '',
-      registerType: 'registered',
       agreement: false,
       updates: true,
       ...initialValues,
@@ -73,7 +71,7 @@ const RegisterServerForm = ({
           <Form.Steps currentStep={currentStep} stepCount={stepCount} />
           <Form.Title>{t('form.registeredServerForm.title')}</Form.Title>
         </Form.Header>
-        {!offline && (
+        {
           <Form.Container>
             <Field>
               <Field.Label
@@ -149,14 +147,7 @@ const RegisterServerForm = ({
               </Box>
             </Box>
           </Form.Container>
-        )}
-        {offline && (
-          <Form.Container>
-            <Box mbs={32} fontScale='c1' withRichContent>
-              {t('form.registeredServerForm.notConnectedToInternet')}
-            </Box>
-          </Form.Container>
-        )}
+        }
         <Form.Footer>
           <Box display='flex' flexDirection='column'>
             <ButtonGroup vertical={isMobile} flexGrow={1}>
@@ -165,17 +156,17 @@ const RegisterServerForm = ({
                 primary
                 disabled={isValidating || isSubmitting || !isValid}
               >
-                {offline
-                  ? t('component.form.action.registerNow')
-                  : t('component.form.action.register')}
+                {t('component.form.action.registerWorkspace')}
               </Button>
 
               {offline && (
-                <ButtonGroup flexGrow={1} align='end' withTruncatedText>
-                  <ActionLink onClick={onClickRegisterLater}>
-                    {t('form.registeredServerForm.registerLater')}
-                  </ActionLink>
-                </ButtonGroup>
+                <Button
+                  type='button'
+                  disabled={!offline}
+                  onClick={onClickRegisterOffline}
+                >
+                  {t('component.form.action.registerOffline')}
+                </Button>
               )}
             </ButtonGroup>
             <Box mbs={24} fontScale='c1'>

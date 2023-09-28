@@ -1,15 +1,15 @@
 import ReactDOM from 'react-dom';
 
-import StandaloneServerPage from './StandaloneServerPage';
+import RegisterOfflineForm from './RegisterOfflineForm';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(
-    <StandaloneServerPage
-      currentStep={1}
-      stepCount={1}
-      onSubmit={() => undefined}
+    <RegisterOfflineForm
+      termsHref=''
+      policyHref=''
       onBackButtonClick={() => undefined}
+      onSubmit={() => undefined}
     />,
     div
   );
