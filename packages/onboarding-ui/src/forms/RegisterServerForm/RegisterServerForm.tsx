@@ -5,6 +5,7 @@ import {
   Field,
   EmailInput,
   CheckBox,
+  Label,
 } from '@rocket.chat/fuselage';
 import { useUniqueId, useBreakpoints } from '@rocket.chat/fuselage-hooks';
 import { Form, ActionLink } from '@rocket.chat/layout';
@@ -62,7 +63,7 @@ const RegisterServerForm = ({
 
   const {
     register,
-    formState: { isValidating, isSubmitting, isValid, errors },
+    formState: { isSubmitting, isValid, errors },
     handleSubmit,
   } = form;
 
@@ -77,6 +78,7 @@ const RegisterServerForm = ({
           <Form.Container>
             <Field>
               <Field.Label
+                required
                 display='flex'
                 alignItems='center'
                 htmlFor={emailField}
@@ -126,7 +128,7 @@ const RegisterServerForm = ({
                 <Box mie={8}>
                   <CheckBox {...register('agreement', { required: true })} />{' '}
                 </Box>
-                <Box is='label' htmlFor='agreement' withRichContent>
+                <Label htmlFor='agreement' withRichContent required>
                   <Trans i18nKey='component.form.termsAndConditions'>
                     I agree with
                     <a
@@ -145,7 +147,7 @@ const RegisterServerForm = ({
                       Privacy Policy
                     </a>
                   </Trans>
-                </Box>
+                </Label>
               </Box>
             </Box>
           </Form.Container>
@@ -160,16 +162,11 @@ const RegisterServerForm = ({
         <Form.Footer>
           <Box display='flex' flexDirection='column'>
             <ButtonGroup vertical={isMobile} flexGrow={1}>
-              <Button
-                type='submit'
-                primary
-                disabled={isValidating || isSubmitting || !isValid}
-              >
+              <Button type='submit' primary disabled={isSubmitting || !isValid}>
                 {offline
                   ? t('component.form.action.registerNow')
                   : t('component.form.action.register')}
               </Button>
-
               {offline && (
                 <ButtonGroup flexGrow={1} align='end' withTruncatedText>
                   <ActionLink onClick={onClickRegisterLater}>

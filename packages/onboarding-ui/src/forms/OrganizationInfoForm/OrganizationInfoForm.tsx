@@ -62,7 +62,7 @@ const OrganizationInfoForm = ({
     register,
     control,
     handleSubmit,
-    formState: { isValidating, isSubmitting, errors },
+    formState: { isValid, isSubmitting, errors },
     setFocus,
   } = useForm<OrganizationInfoPayload>({
     defaultValues: initialValues,
@@ -82,7 +82,7 @@ const OrganizationInfoForm = ({
       <Form.Container>
         <FieldGroup>
           <Field>
-            <Field.Label htmlFor={organizationNameField}>
+            <Field.Label required htmlFor={organizationNameField}>
               {t('form.organizationInfoForm.fields.organizationName.label')}
             </Field.Label>
             <Field.Row>
@@ -99,7 +99,7 @@ const OrganizationInfoForm = ({
             )}
           </Field>
           <Field>
-            <Field.Label htmlFor={organizationIndustryField}>
+            <Field.Label required htmlFor={organizationIndustryField}>
               {t('form.organizationInfoForm.fields.organizationIndustry.label')}
             </Field.Label>
             <Field.Row>
@@ -124,7 +124,7 @@ const OrganizationInfoForm = ({
             )}
           </Field>
           <Field>
-            <Field.Label htmlFor={organizationSizeField}>
+            <Field.Label required htmlFor={organizationSizeField}>
               {t('form.organizationInfoForm.fields.organizationSize.label')}
             </Field.Label>
             <Field.Row>
@@ -149,7 +149,7 @@ const OrganizationInfoForm = ({
             )}
           </Field>
           <Field>
-            <Field.Label htmlFor={countryField}>
+            <Field.Label required htmlFor={countryField}>
               {t('form.organizationInfoForm.fields.country.label')}
             </Field.Label>
             <Field.Row>
@@ -183,7 +183,7 @@ const OrganizationInfoForm = ({
             </Button>
           )}
 
-          <Button type='submit' primary disabled={isValidating || isSubmitting}>
+          <Button type='submit' primary disabled={!isValid || isSubmitting}>
             {nextStep ?? t('component.form.action.next')}
           </Button>
 
