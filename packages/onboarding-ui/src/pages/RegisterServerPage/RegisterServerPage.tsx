@@ -1,10 +1,6 @@
-import {
-  BackgroundLayer,
-  FormPageLayout as FormLayout,
-} from '@rocket.chat/layout';
+import { BackgroundLayer } from '@rocket.chat/layout';
 import type { ReactElement } from 'react';
 import type { SubmitHandler, Validate } from 'react-hook-form';
-import { Trans } from 'react-i18next';
 
 import type { FormPageLayoutStyleProps } from '../../Types';
 import FormPageLayout from '../../common/FormPageLayout';
@@ -16,7 +12,6 @@ type RegisterServerPageProps = {
   stepCount: number;
   initialValues?: Partial<RegisterServerPayload>;
   onSubmit: SubmitHandler<RegisterServerPayload>;
-  onBackButtonClick: () => void;
   onClickRegisterLater: () => void;
   offline?: boolean;
   validateEmail?: Validate<string>;
@@ -30,16 +25,7 @@ const pageLayoutStyleProps: FormPageLayoutStyleProps = {
 
 const RegisterServerPage = (props: RegisterServerPageProps): ReactElement => (
   <BackgroundLayer>
-    <FormPageLayout
-      title={
-        <Trans i18nKey='page.form.title'>
-          Let's
-          <FormLayout.TitleHighlight>Launch</FormLayout.TitleHighlight>
-          Your Workspace
-        </Trans>
-      }
-      styleProps={pageLayoutStyleProps}
-    >
+    <FormPageLayout styleProps={pageLayoutStyleProps}>
       <RegisterServerForm {...props} />
     </FormPageLayout>
   </BackgroundLayer>

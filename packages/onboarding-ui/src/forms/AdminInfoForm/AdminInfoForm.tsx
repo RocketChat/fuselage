@@ -62,7 +62,7 @@ const AdminInfoForm = ({
   const {
     register,
     handleSubmit,
-    formState: { isValidating, isSubmitting, errors },
+    formState: { isValid, isSubmitting, errors },
     setFocus,
   } = useForm<AdminInfoPayload>({
     defaultValues: {
@@ -85,13 +85,13 @@ const AdminInfoForm = ({
       <Form.Container>
         <FieldGroup>
           <Field>
-            <FieldLabel htmlFor={fullnameField}>
+            <FieldLabel required htmlFor={fullnameField}>
               {t('form.adminInfoForm.fields.fullName.label')}
             </FieldLabel>
             <FieldRow>
               <TextInput
                 {...register('fullname', {
-                  required: String(t('component.form.requiredField')),
+                  required: true,
                 })}
                 placeholder={t(
                   'form.adminInfoForm.fields.fullName.placeholder'
@@ -104,13 +104,13 @@ const AdminInfoForm = ({
             )}
           </Field>
           <Field>
-            <FieldLabel htmlFor={usernameField}>
+            <FieldLabel required htmlFor={usernameField}>
               {t('form.adminInfoForm.fields.username.label')}
             </FieldLabel>
             <FieldRow>
               <TextInput
                 {...register('username', {
-                  required: String(t('component.form.requiredField')),
+                  required: true,
                   validate: validateUsername,
                 })}
                 placeholder={t(
@@ -124,13 +124,13 @@ const AdminInfoForm = ({
             )}
           </Field>
           <Field>
-            <FieldLabel htmlFor={emailField}>
+            <FieldLabel required htmlFor={emailField}>
               {t('form.adminInfoForm.fields.email.label')}
             </FieldLabel>
             <FieldRow>
               <EmailInput
                 {...register('email', {
-                  required: String(t('component.form.requiredField')),
+                  required: true,
                   validate: validateEmail,
                 })}
                 placeholder={t('form.adminInfoForm.fields.email.placeholder')}
@@ -140,13 +140,13 @@ const AdminInfoForm = ({
             {errors.email && <FieldError>{errors.email.message}</FieldError>}
           </Field>
           <Field>
-            <FieldLabel htmlFor={passwordField}>
+            <FieldLabel required htmlFor={passwordField}>
               {t('form.adminInfoForm.fields.password.label')}
             </FieldLabel>
             <FieldRow>
               <PasswordInput
                 {...register('password', {
-                  required: String(t('component.form.requiredField')),
+                  required: true,
                   validate: validatePassword,
                 })}
                 placeholder={t(
@@ -172,7 +172,7 @@ const AdminInfoForm = ({
       </Form.Container>
       <Form.Footer>
         <ButtonGroup flexGrow={1}>
-          <Button type='submit' primary disabled={isValidating || isSubmitting}>
+          <Button type='submit' primary disabled={!isValid || isSubmitting}>
             {t('component.form.action.next')}
           </Button>
         </ButtonGroup>
