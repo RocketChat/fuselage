@@ -1,16 +1,16 @@
 import type { Story, Meta } from '@storybook/react';
 import type { ComponentProps } from 'react';
 
-import AwaitingConfirmationPage from './AwaitingConfirmationPage';
+import AwaitConfirmationForm from './AwaitConfirmationForm';
 
-type Args = ComponentProps<typeof AwaitingConfirmationPage>;
+type Args = ComponentProps<typeof AwaitConfirmationForm>;
 
 export default {
-  title: 'pages/AwaitingConfirmationPage',
-  component: AwaitingConfirmationPage,
+  title: 'forms/AwaitConfirmationForm',
+  component: AwaitConfirmationForm,
   parameters: {
     actions: { argTypesRegex: '^on.*' },
-    layout: 'fullscreen',
+    layout: 'centered',
   },
   argTypes: {
     onResendEmailRequest: { action: 'resetEmailRequest' },
@@ -24,7 +24,7 @@ export default {
   },
 } as Meta<Args>;
 
-export const _AwaitingConfirmationPage: Story<Args> = (args) => (
-  <AwaitingConfirmationPage {...args} />
+export const _AwaitConfirmationForm: Story<Args> = (args) => (
+  <AwaitConfirmationForm {...args} />
 );
-_AwaitingConfirmationPage.storyName = 'AwaitingConfirmationPage';
+_AwaitConfirmationForm.storyName = 'AwaitConfirmationForm';

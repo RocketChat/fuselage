@@ -159,6 +159,8 @@ export const SelfHostedRegistration: Story = ({ offline }) => {
 
     return (
       <AwaitingConfirmationPage
+        currentStep={4}
+        stepCount={4}
         emailAddress={serverRegistration.cloudAccountEmail}
         securityCode={serverRegistration.securityCode}
         onChangeEmailRequest={() => navigateTo('/admin-info')}
