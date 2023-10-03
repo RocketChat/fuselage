@@ -5,6 +5,10 @@ import {
   Field,
   EmailInput,
   CheckBox,
+  Icon,
+  FieldLabel,
+  FieldRow,
+  FieldError,
 } from '@rocket.chat/fuselage';
 import { useUniqueId, useBreakpoints } from '@rocket.chat/fuselage-hooks';
 import { Form } from '@rocket.chat/layout';
@@ -60,7 +64,7 @@ const RegisterServerForm = ({
 
   const {
     register,
-    formState: { isValidating, isSubmitting, isValid, errors },
+    formState: { isSubmitting, isValid, errors },
     handleSubmit,
   } = form;
 
@@ -74,14 +78,23 @@ const RegisterServerForm = ({
         {
           <Form.Container>
             <Field>
-              <Field.Label
+              <FieldLabel
+                required
                 display='flex'
                 alignItems='center'
                 htmlFor={emailField}
               >
                 {t('form.registeredServerForm.fields.accountEmail.inputLabel')}
-              </Field.Label>
-              <Field.Row>
+                <Icon
+                  title={t(
+                    'form.registeredServerForm.fields.accountEmail.tooltipLabel'
+                  )}
+                  mis={4}
+                  size='x16'
+                  name='info'
+                />
+              </FieldLabel>
+              <FieldRow>
                 <EmailInput
                   {...register('email', {
                     required: true,
@@ -92,9 +105,9 @@ const RegisterServerForm = ({
                   )}
                   id={emailField}
                 />
-              </Field.Row>
+              </FieldRow>
               {errors.email && (
-                <Field.Error>{t('component.form.requiredField')}</Field.Error>
+                <FieldError>{t('component.form.requiredField')}</FieldError>
               )}
             </Field>
             <Box mbs={24}>
@@ -113,7 +126,7 @@ const RegisterServerForm = ({
                   {t('form.registeredServerForm.keepInformed')}
                 </Box>
               </Box>
-              <Box
+              <Field
                 display='flex'
                 flexDirection='row'
                 alignItems='flex-start'
@@ -124,7 +137,7 @@ const RegisterServerForm = ({
                 <Box mie={8}>
                   <CheckBox {...register('agreement', { required: true })} />{' '}
                 </Box>
-                <Box is='label' htmlFor='agreement' withRichContent>
+                <FieldLabel htmlFor='agreement' withRichContent required>
                   <Trans i18nKey='component.form.termsAndConditions'>
                     I agree with
                     <a
@@ -143,22 +156,17 @@ const RegisterServerForm = ({
                       Privacy Policy
                     </a>
                   </Trans>
-                </Box>
-              </Box>
+                </FieldLabel>
+              </Field>
             </Box>
           </Form.Container>
         }
         <Form.Footer>
           <Box display='flex' flexDirection='column'>
             <ButtonGroup vertical={isMobile} flexGrow={1}>
-              <Button
-                type='submit'
-                primary
-                disabled={isValidating || isSubmitting || !isValid}
-              >
+              <Button type='submit' primary disabled={isSubmitting || !isValid}>
                 {t('component.form.action.registerWorkspace')}
               </Button>
-
               {offline && (
                 <Button
                   type='button'

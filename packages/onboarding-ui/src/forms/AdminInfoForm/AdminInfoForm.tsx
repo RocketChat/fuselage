@@ -8,6 +8,10 @@ import {
   TextInput,
   Box,
   CheckBox,
+  FieldLabel,
+  FieldRow,
+  FieldError,
+  FieldHint,
 } from '@rocket.chat/fuselage';
 import { useUniqueId } from '@rocket.chat/fuselage-hooks';
 import { Form } from '@rocket.chat/layout';
@@ -58,7 +62,7 @@ const AdminInfoForm = ({
   const {
     register,
     handleSubmit,
-    formState: { isValidating, isSubmitting, errors },
+    formState: { isValid, isSubmitting, errors },
     setFocus,
   } = useForm<AdminInfoPayload>({
     defaultValues: {
@@ -81,32 +85,32 @@ const AdminInfoForm = ({
       <Form.Container>
         <FieldGroup>
           <Field>
-            <Field.Label htmlFor={fullnameField}>
+            <FieldLabel required htmlFor={fullnameField}>
               {t('form.adminInfoForm.fields.fullName.label')}
-            </Field.Label>
-            <Field.Row>
+            </FieldLabel>
+            <FieldRow>
               <TextInput
                 {...register('fullname', {
-                  required: String(t('component.form.requiredField')),
+                  required: true,
                 })}
                 placeholder={t(
                   'form.adminInfoForm.fields.fullName.placeholder'
                 )}
                 id={fullnameField}
               />
-            </Field.Row>
+            </FieldRow>
             {errors.fullname && (
-              <Field.Error>{errors.fullname.message}</Field.Error>
+              <FieldError>{errors.fullname.message}</FieldError>
             )}
           </Field>
           <Field>
-            <Field.Label htmlFor={usernameField}>
+            <FieldLabel required htmlFor={usernameField}>
               {t('form.adminInfoForm.fields.username.label')}
-            </Field.Label>
-            <Field.Row>
+            </FieldLabel>
+            <FieldRow>
               <TextInput
                 {...register('username', {
-                  required: String(t('component.form.requiredField')),
+                  required: true,
                   validate: validateUsername,
                 })}
                 placeholder={t(
@@ -114,35 +118,35 @@ const AdminInfoForm = ({
                 )}
                 id={usernameField}
               />
-            </Field.Row>
+            </FieldRow>
             {errors.username && (
-              <Field.Error>{errors.username.message}</Field.Error>
+              <FieldError>{errors.username.message}</FieldError>
             )}
           </Field>
           <Field>
-            <Field.Label htmlFor={emailField}>
+            <FieldLabel required htmlFor={emailField}>
               {t('form.adminInfoForm.fields.email.label')}
-            </Field.Label>
-            <Field.Row>
+            </FieldLabel>
+            <FieldRow>
               <EmailInput
                 {...register('email', {
-                  required: String(t('component.form.requiredField')),
+                  required: true,
                   validate: validateEmail,
                 })}
                 placeholder={t('form.adminInfoForm.fields.email.placeholder')}
                 id={emailField}
               />
-            </Field.Row>
-            {errors.email && <Field.Error>{errors.email.message}</Field.Error>}
+            </FieldRow>
+            {errors.email && <FieldError>{errors.email.message}</FieldError>}
           </Field>
           <Field>
-            <Field.Label htmlFor={passwordField}>
+            <FieldLabel required htmlFor={passwordField}>
               {t('form.adminInfoForm.fields.password.label')}
-            </Field.Label>
-            <Field.Row>
+            </FieldLabel>
+            <FieldRow>
               <PasswordInput
                 {...register('password', {
-                  required: String(t('component.form.requiredField')),
+                  required: true,
                   validate: validatePassword,
                 })}
                 placeholder={t(
@@ -150,10 +154,10 @@ const AdminInfoForm = ({
                 )}
                 id={passwordField}
               />
-            </Field.Row>
-            <Field.Hint>{passwordRulesHint}</Field.Hint>
+            </FieldRow>
+            <FieldHint>{passwordRulesHint}</FieldHint>
             {errors.password && (
-              <Field.Error>{errors.password.message}</Field.Error>
+              <FieldError>{errors.password.message}</FieldError>
             )}
           </Field>
           {keepPosted && (
@@ -168,7 +172,7 @@ const AdminInfoForm = ({
       </Form.Container>
       <Form.Footer>
         <ButtonGroup flexGrow={1}>
-          <Button type='submit' primary disabled={isValidating || isSubmitting}>
+          <Button type='submit' primary disabled={!isValid || isSubmitting}>
             {t('component.form.action.next')}
           </Button>
         </ButtonGroup>
