@@ -154,6 +154,7 @@ export const SelfHostedRegistration: Story = ({ offline }) => {
       <RegisterOfflinePage
         termsHref=''
         policyHref=''
+        clientKey=''
         onBackButtonClick={() => navigateTo('/register-server')}
         onSubmit={handleRegisterOfflineSubmit}
       />

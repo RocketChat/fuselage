@@ -8,6 +8,7 @@ it('renders without crashing', () => {
     <RegisterOfflinePage
       termsHref=''
       policyHref=''
+      clientKey=''
       onSubmit={() => undefined}
       onBackButtonClick={() => undefined}
     />,
