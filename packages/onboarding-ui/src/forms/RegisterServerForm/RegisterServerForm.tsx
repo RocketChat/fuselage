@@ -5,7 +5,10 @@ import {
   Field,
   EmailInput,
   CheckBox,
-  Label,
+  Icon,
+  FieldLabel,
+  FieldRow,
+  FieldError,
 } from '@rocket.chat/fuselage';
 import { useUniqueId, useBreakpoints } from '@rocket.chat/fuselage-hooks';
 import { Form, ActionLink } from '@rocket.chat/layout';
@@ -77,15 +80,23 @@ const RegisterServerForm = ({
         {!offline && (
           <Form.Container>
             <Field>
-              <Field.Label
+              <FieldLabel
                 required
                 display='flex'
                 alignItems='center'
                 htmlFor={emailField}
               >
                 {t('form.registeredServerForm.fields.accountEmail.inputLabel')}
-              </Field.Label>
-              <Field.Row>
+                <Icon
+                  title={t(
+                    'form.registeredServerForm.fields.accountEmail.tooltipLabel'
+                  )}
+                  mis={4}
+                  size='x16'
+                  name='info'
+                />
+              </FieldLabel>
+              <FieldRow>
                 <EmailInput
                   {...register('email', {
                     required: true,
@@ -96,9 +107,9 @@ const RegisterServerForm = ({
                   )}
                   id={emailField}
                 />
-              </Field.Row>
+              </FieldRow>
               {errors.email && (
-                <Field.Error>{t('component.form.requiredField')}</Field.Error>
+                <FieldError>{t('component.form.requiredField')}</FieldError>
               )}
             </Field>
             <Box mbs={24}>
@@ -117,7 +128,7 @@ const RegisterServerForm = ({
                   {t('form.registeredServerForm.keepInformed')}
                 </Box>
               </Box>
-              <Box
+              <Field
                 display='flex'
                 flexDirection='row'
                 alignItems='flex-start'
@@ -128,7 +139,7 @@ const RegisterServerForm = ({
                 <Box mie={8}>
                   <CheckBox {...register('agreement', { required: true })} />{' '}
                 </Box>
-                <Label htmlFor='agreement' withRichContent required>
+                <FieldLabel htmlFor='agreement' withRichContent required>
                   <Trans i18nKey='component.form.termsAndConditions'>
                     I agree with
                     <a
@@ -147,8 +158,8 @@ const RegisterServerForm = ({
                       Privacy Policy
                     </a>
                   </Trans>
-                </Label>
-              </Box>
+                </FieldLabel>
+              </Field>
             </Box>
           </Form.Container>
         )}

@@ -2,7 +2,14 @@ import { Title, Description, Primary, Stories } from '@storybook/addon-docs';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
-import { Field, FieldGroup, InputBox } from '../..';
+import {
+  Field,
+  FieldGroup,
+  FieldHint,
+  FieldLabel,
+  FieldRow,
+  InputBox,
+} from '../..';
 
 export default {
   title: 'Inputs/FieldGroup',
@@ -29,23 +36,23 @@ export default {
 export const Default: ComponentStory<typeof FieldGroup> = () => (
   <FieldGroup>
     <Field>
-      <Field.Label>Field #1</Field.Label>
-      <Field.Row>
+      <FieldLabel>Field #1</FieldLabel>
+      <FieldRow>
         <InputBox.Skeleton />
-      </Field.Row>
+      </FieldRow>
     </Field>
     <Field>
-      <Field.Label>Field #2</Field.Label>
-      <Field.Row>
+      <FieldLabel>Field #2</FieldLabel>
+      <FieldRow>
         <InputBox.Skeleton />
-      </Field.Row>
-      <Field.Hint>Help text</Field.Hint>
+      </FieldRow>
+      <FieldHint>Help text</FieldHint>
     </Field>
     <Field>
-      <Field.Label>Field #3</Field.Label>
-      <Field.Row>
+      <FieldLabel>Field #3</FieldLabel>
+      <FieldRow>
         <InputBox.Skeleton />
-      </Field.Row>
+      </FieldRow>
     </Field>
   </FieldGroup>
 );
