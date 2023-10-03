@@ -80,6 +80,7 @@
     "typescript": "~5.0.4"
   },
   "dependencies": {
+    "clipboard": "~2.0.11",
     "i18next": "~21.6.16",
     "react-hook-form": "~7.27.1"
   },

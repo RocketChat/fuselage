@@ -9,7 +9,9 @@
         "registerWorkspace": "Register workspace",
         "register": "Register",
         "registerOffline": "Register offline",
-        "confirm": "Confirm"
+        "confirm": "Confirm",
+        "pasteHere": "Paste here...",
+        "completeRegistration": "Complete registration"
       },
       "termsAndConditions": "I agree with <1>Terms and Conditions</1> and <3>Privacy Policy</3>"
     },
@@ -213,7 +215,12 @@
     },
     "registerOfflineForm": {
       "title": "Register Offline",
-      "description": "If for any reason your workspace can’t be connected to the internet, follow these steps:<1></1>1. Go to: <2>cloud.rocket.chat > Workspaces</2> and click “<3>Register self-managed</3>”<4></4>2. Copy the token and paste it below",
+      "copyStep": {
+        "description": "If for any reason your workspace can’t be connected to the internet, follow these steps:<1></1>1. Go to: <2>cloud.rocket.chat > Workspaces</2> and click “<3>Register self-managed</3>”<4></4>2. Click “<5>Continue offline</5>”<6></6>3. In the <7>Register offline workspace</7> dialog in cloud.rocket.chat, paste the token in the box below"
+      },
+      "pasteStep": {
+        "description": "1. In <1>cloud.rocket.chat</1> get the generated text and paste below to complete your registration process"
+      },
       "fields": {
         "registrationToken": {
           "inputLabel": "Registration token"

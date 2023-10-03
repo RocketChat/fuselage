@@ -10,6 +10,7 @@ import type { RegisterOfflinePayload } from '../../forms/RegisterOfflineForm/Reg
 type RegisterOfflinePageProps = {
   termsHref: string;
   policyHref: string;
+  clientKey: string;
   onSubmit: SubmitHandler<RegisterOfflinePayload>;
   onBackButtonClick: () => void;
 };
