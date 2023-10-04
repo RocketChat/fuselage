@@ -113,7 +113,7 @@ const RegisterServerForm = ({
             <Box mbs={24}>
               <Box
                 mbe={8}
-                display='flex'
+                display='none'
                 flexDirection='row'
                 alignItems='flex-start'
                 fontScale='c1'
@@ -179,6 +179,16 @@ const RegisterServerForm = ({
             </ButtonGroup>
             <Box mbs={24} fontScale='c1'>
               {t('form.registeredServerForm.registrationEngagement')}
+            </Box>
+            <Box mbs={24} fontScale='c1'>
+              <Trans i18nKey='form.registeredServerForm.registrationKeepInformed'>
+                By submitting this form you consent to receive more information
+                about Rocket.Chat products, events and updates, according to our
+                <a href={policyHref} target='_blank' rel='noopener noreferrer'>
+                  Privacy Policy
+                </a>
+                . You may unsubscribe at any time.
+              </Trans>
             </Box>
           </Box>
         </Form.Footer>

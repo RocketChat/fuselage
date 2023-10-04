@@ -185,7 +185,8 @@
       "keepInformed": "Keep me informed about news and events",
       "registerLater": "Register later",
       "notConnectedToInternet": "The server is not connected to the internet, so you’ll have to do an offline registration for this workspace.",
-      "registrationEngagement": "Registration allows automatic license updates, notifications of critical vulnerabilities and access to Rocket.Chat Cloud services. No sensitive workspace data is shared; statistics sent to Rocket.Chat are made visible to you within the administration area."
+      "registrationEngagement": "Registration allows automatic license updates, notifications of critical vulnerabilities and access to Rocket.Chat Cloud services. No sensitive workspace data is shared; statistics sent to Rocket.Chat are made visible to you within the administration area.",
+      "registrationKeepInformed": "By submitting this form you consent to receive more information about Rocket.Chat products, events and updates, according to our <1>privacy policy</1>. You may unsubscribe at any time."
     },
     "createCloudWorkspace": {
       "title": "New Cloud Workspace",
