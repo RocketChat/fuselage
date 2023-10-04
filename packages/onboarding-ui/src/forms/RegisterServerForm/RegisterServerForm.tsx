@@ -48,12 +48,14 @@ const RegisterServerForm = ({
 }: RegisterServerFormProps): ReactElement => {
   const { t } = useTranslation();
   const emailField = useUniqueId();
+  const agreementField = useUniqueId();
+  const updatesField = useUniqueId();
 
   const breakpoints = useBreakpoints();
   const isMobile = !breakpoints.includes('md');
 
   const form = useForm<RegisterServerPayload>({
-    mode: 'onChange',
+    mode: 'onBlur',
     defaultValues: {
       email: '',
       agreement: false,
@@ -64,7 +66,7 @@ const RegisterServerForm = ({
 
   const {
     register,
-    formState: { isSubmitting, isValid, errors },
+    formState: { isSubmitting, isValidating, errors },
     handleSubmit,
   } = form;
 
@@ -97,9 +99,10 @@ const RegisterServerForm = ({
               <FieldRow>
                 <EmailInput
                   {...register('email', {
-                    required: true,
+                    required: String(t('component.form.requiredField')),
                     validate: validateEmail,
                   })}
+                  aria-describedby={`${emailField}-error`}
                   placeholder={t(
                     'form.registeredServerForm.fields.accountEmail.inputPlaceholder'
                   )}
@@ -107,64 +110,75 @@ const RegisterServerForm = ({
                 />
               </FieldRow>
               {errors.email && (
-                <FieldError>{t('component.form.requiredField')}</FieldError>
+                <FieldError aria-live='assertive' id={`${emailField}-error`}>
+                  {t('component.form.requiredField')}
+                </FieldError>
               )}
             </Field>
             <Box mbs={24}>
-              <Box
-                mbe={8}
-                display='flex'
-                flexDirection='row'
-                alignItems='flex-start'
-                fontScale='c1'
-                lineHeight={20}
-              >
-                <Box mie={8}>
-                  <CheckBox {...register('updates')} />{' '}
-                </Box>
-                <Box is='label' htmlFor='updates'>
-                  {t('form.registeredServerForm.keepInformed')}
-                </Box>
-              </Box>
-              <Field
-                display='flex'
-                flexDirection='row'
-                alignItems='flex-start'
-                color='default'
-                fontScale='c1'
-                lineHeight={20}
-              >
-                <Box mie={8}>
-                  <CheckBox {...register('agreement', { required: true })} />{' '}
-                </Box>
-                <FieldLabel htmlFor='agreement' withRichContent required>
-                  <Trans i18nKey='component.form.termsAndConditions'>
-                    I agree with
-                    <a
-                      href={termsHref}
-                      target='_blank'
-                      rel='noopener noreferrer'
-                    >
-                      Terms and Conditions
-                    </a>
-                    and
-                    <a
-                      href={policyHref}
-                      target='_blank'
-                      rel='noopener noreferrer'
-                    >
-                      Privacy Policy
-                    </a>
-                  </Trans>
-                </FieldLabel>
+              <Field fontScale='c1'>
+                <FieldRow>
+                  <CheckBox id={updatesField} {...register('updates')} />
+                  <FieldLabel htmlFor={updatesField} fontScale='c1'>
+                    {t('form.registeredServerForm.keepInformed')}
+                  </FieldLabel>
+                </FieldRow>
+              </Field>
+              <Field>
+                <FieldRow>
+                  <CheckBox
+                    id={agreementField}
+                    {...register('agreement', {
+                      required: String(t('component.form.requiredField')),
+                    })}
+                  />
+                  <FieldLabel
+                    htmlFor={agreementField}
+                    aria-describedby={`${agreementField}-error`}
+                    withRichContent
+                    required
+                    fontScale='c1'
+                  >
+                    <Trans i18nKey='component.form.termsAndConditions'>
+                      I agree with
+                      <a
+                        href={termsHref}
+                        target='_blank'
+                        rel='noopener noreferrer'
+                      >
+                        Terms and Conditions
+                      </a>
+                      and
+                      <a
+                        href={policyHref}
+                        target='_blank'
+                        rel='noopener noreferrer'
+                      >
+                        Privacy Policy
+                      </a>
+                    </Trans>
+                  </FieldLabel>
+                </FieldRow>
+                {errors.agreement && (
+                  <FieldError
+                    aria-live='assertive'
+                    id={`${agreementField}-error`}
+                  >
+                    {t('component.form.requiredField')}
+                  </FieldError>
+                )}
               </Field>
             </Box>
           </Form.Container>
         }
         <Form.Footer>
-          <Box display='flex' flexDirection='column'>
+          <Box display='flex' flexDirection='column' alignItems='flex-start'>
             <ButtonGroup vertical={isMobile} flexGrow={1}>
-              <Button type='submit' primary disabled={isSubmitting || !isValid}>
+              <Button
+                type='submit'
+                primary
+                disabled={isSubmitting || isValidating}
+              >
                 {t('component.form.action.registerWorkspace')}
               </Button>
               {offline && (
