@@ -211,6 +211,7 @@ $-badge-backgrounds: (
 $shadow-colors: (
   highlight: primary(200),
   extra-light-highlight: stroke(extra-light-highlight),
+  extra-light-error: danger(200),
   danger: danger(100),
   elevation-1: neutral(800, 0.1),
   elevation-2x: neutral(800, 0.08),
