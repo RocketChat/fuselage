@@ -12,7 +12,7 @@ type RegisterServerPageProps = {
   stepCount: number;
   initialValues?: Partial<RegisterServerPayload>;
   onSubmit: SubmitHandler<RegisterServerPayload>;
-  onClickRegisterLater: () => void;
+  onClickRegisterOffline: () => void;
   offline?: boolean;
   validateEmail?: Validate<string>;
   termsHref?: string;

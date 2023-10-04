@@ -6,9 +6,12 @@
         "back": "Back",
         "next": "Next",
         "skip": "Skip this step",
+        "registerWorkspace": "Register workspace",
         "register": "Register",
-        "registerNow": "Register now",
-        "confirm": "Confirm"
+        "registerOffline": "Register offline",
+        "confirm": "Confirm",
+        "pasteHere": "Paste here...",
+        "completeRegistration": "Complete registration"
       },
       "termsAndConditions": "I agree with <1>Terms and Conditions</1> and <3>Privacy Policy</3>"
     },
@@ -184,12 +187,6 @@
       "notConnectedToInternet": "The server is not connected to the internet, so you’ll have to do an offline registration for this workspace.",
       "registrationEngagement": "Registration allows automatic license updates, notifications of critical vulnerabilities and access to Rocket.Chat Cloud services. No sensitive workspace data is shared; statistics sent to Rocket.Chat are made visible to you within the administration area."
     },
-    "standaloneServerForm": {
-      "title": "Standalone Server Confirmation",
-      "servicesUnavailable": "Some of the services will be unavailable or will require manual setup",
-      "publishOwnApp": "In order to send push notitications you need to compile and publish your own app to Google Play and App Store",
-      "manuallyIntegrate": "Need to manually integrate with external services"
-    },
     "createCloudWorkspace": {
       "title": "New Cloud Workspace",
       "fields": {
@@ -214,6 +211,20 @@
           "tooltip": "The language used on your workspace's interface"
         },
         "keepMeInformed": "Keep me informed about news and events"
+      }
+    },
+    "registerOfflineForm": {
+      "title": "Register Offline",
+      "copyStep": {
+        "description": "If for any reason your workspace can’t be connected to the internet, follow these steps:<1></1>1. Go to: <2>cloud.rocket.chat > Workspaces</2> and click “<3>Register self-managed</3>”<4></4>2. Click “<5>Continue offline</5>”<6></6>3. In the <7>Register offline workspace</7> dialog in cloud.rocket.chat, paste the token in the box below"
+      },
+      "pasteStep": {
+        "description": "1. In <1>cloud.rocket.chat</1> get the generated text and paste below to complete your registration process"
+      },
+      "fields": {
+        "registrationToken": {
+          "inputLabel": "Registration token"
+        }
       }
     },
     "requestTrialForm": {
