@@ -62,13 +62,14 @@ const AdminInfoForm = ({
   const {
     register,
     handleSubmit,
-    formState: { isValid, isSubmitting, errors },
+    formState: { isValidating, isSubmitting, errors },
     setFocus,
   } = useForm<AdminInfoPayload>({
     defaultValues: {
       ...initialValues,
       password: '',
     },
+    mode: 'onBlur',
   });
 
   useEffect(() => {
@@ -91,8 +92,9 @@ const AdminInfoForm = ({
             <FieldRow>
               <TextInput
                 {...register('fullname', {
-                  required: true,
+                  required: String(t('component.form.requiredField')),
                 })}
+                aria-describedby={`${fullnameField}-error}`}
                 placeholder={t(
                   'form.adminInfoForm.fields.fullName.placeholder'
                 )}
@@ -100,7 +102,9 @@ const AdminInfoForm = ({
               />
             </FieldRow>
             {errors.fullname && (
-              <FieldError>{errors.fullname.message}</FieldError>
+              <FieldError aria-live='assertive' id={`${fullnameField}-error}`}>
+                {errors.fullname.message}
+              </FieldError>
             )}
           </Field>
           <Field>
@@ -110,9 +114,10 @@ const AdminInfoForm = ({
             <FieldRow>
               <TextInput
                 {...register('username', {
-                  required: true,
+                  required: String(t('component.form.requiredField')),
                   validate: validateUsername,
                 })}
+                aria-describedby={`${usernameField}-error}`}
                 placeholder={t(
                   'form.adminInfoForm.fields.username.placeholder'
                 )}
@@ -120,7 +125,9 @@ const AdminInfoForm = ({
               />
             </FieldRow>
             {errors.username && (
-              <FieldError>{errors.username.message}</FieldError>
+              <FieldError aria-live='assertive' id={`${usernameField}-error}`}>
+                {errors.username.message}
+              </FieldError>
             )}
           </Field>
           <Field>
@@ -130,14 +137,19 @@ const AdminInfoForm = ({
             <FieldRow>
               <EmailInput
                 {...register('email', {
-                  required: true,
+                  required: String(t('component.form.requiredField')),
                   validate: validateEmail,
                 })}
+                aria-describedby={`${emailField}-error}`}
                 placeholder={t('form.adminInfoForm.fields.email.placeholder')}
                 id={emailField}
               />
             </FieldRow>
-            {errors.email && <FieldError>{errors.email.message}</FieldError>}
+            {errors.email && (
+              <FieldError aria-live='assertive' id={`${emailField}-error}`}>
+                {errors.email.message}
+              </FieldError>
+            )}
           </Field>
           <Field>
             <FieldLabel required htmlFor={passwordField}>
@@ -146,9 +158,10 @@ const AdminInfoForm = ({
             <FieldRow>
               <PasswordInput
                 {...register('password', {
-                  required: true,
+                  required: String(t('component.form.requiredField')),
                   validate: validatePassword,
                 })}
+                aria-describedby={`${passwordField}-error}`}
                 placeholder={t(
                   'form.adminInfoForm.fields.password.placeholder'
                 )}
@@ -157,7 +170,9 @@ const AdminInfoForm = ({
             </FieldRow>
             <FieldHint>{passwordRulesHint}</FieldHint>
             {errors.password && (
-              <FieldError>{errors.password.message}</FieldError>
+              <FieldError aria-live='assertive' id={`${passwordField}-error}`}>
+                {errors.password.message}
+              </FieldError>
             )}
           </Field>
           {keepPosted && (
@@ -172,7 +187,7 @@ const AdminInfoForm = ({
       </Form.Container>
       <Form.Footer>
         <ButtonGroup flexGrow={1}>
-          <Button type='submit' primary disabled={!isValid || isSubmitting}>
+          <Button type='submit' primary disabled={isValidating || isSubmitting}>
             {t('component.form.action.next')}
           </Button>
         </ButtonGroup>
