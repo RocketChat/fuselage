@@ -6,10 +6,9 @@ import {
   Label,
   Scrollable,
 } from '@rocket.chat/fuselage';
-import { useBreakpoints } from '@rocket.chat/fuselage-hooks';
+import { useBreakpoints, useClipboard } from '@rocket.chat/fuselage-hooks';
 import { Form } from '@rocket.chat/layout';
-import Clipboard from 'clipboard';
-import { useRef, type ReactElement, useEffect } from 'react';
+import { type ReactElement } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { Trans, useTranslation } from 'react-i18next';
 
@@ -33,23 +32,13 @@ const CopyStep = ({
   const { t } = useTranslation();
   const breakpoints = useBreakpoints();
   const isMobile = !breakpoints.includes('md');
-  const copyRef = useRef<HTMLButtonElement>(null);
+
   const {
     register,
     formState: { isValid },
   } = useFormContext();
 
-  useEffect(() => {
-    if (!copyRef.current) {
-      return;
-    }
-
-    const clipboard = new Clipboard(copyRef.current);
-
-    return (): void => {
-      clipboard.destroy();
-    };
-  }, []);
+  const clipboard = useClipboard(clientKey);
 
   return (
     <>
@@ -86,12 +75,7 @@ const CopyStep = ({
               {clientKey}
             </Box>
           </Scrollable>
-          <Button
-            icon='copy'
-            ref={copyRef}
-            primary
-            data-clipboard-text={clientKey}
-          />
+          <Button icon='copy' primary onClick={() => clipboard.copy()} />
         </Box>
         <Box mbs={24}>
           <Box
