@@ -65,10 +65,11 @@ const OrganizationInfoForm = ({
     register,
     control,
     handleSubmit,
-    formState: { isValid, isSubmitting, errors },
+    formState: { isValidating, isSubmitting, errors },
     setFocus,
   } = useForm<OrganizationInfoPayload>({
     defaultValues: initialValues,
+    mode: 'onBlur',
   });
 
   useEffect(() => {
@@ -90,15 +91,23 @@ const OrganizationInfoForm = ({
             </FieldLabel>
             <FieldRow>
               <TextInput
-                {...register('organizationName', { required: true })}
+                {...register('organizationName', {
+                  required: String(t('component.form.requiredField')),
+                })}
                 placeholder={t(
                   'form.organizationInfoForm.fields.organizationName.placeholder'
                 )}
+                aria-describedby={`${organizationNameField}-error}`}
                 id={organizationNameField}
               />
             </FieldRow>
             {errors.organizationName && (
-              <FieldError>{t('component.form.requiredField')}</FieldError>
+              <FieldError
+                aria-live='assertive'
+                id={`${organizationNameField}-error}`}
+              >
+                {t('component.form.requiredField')}
+              </FieldError>
             )}
           </Field>
           <Field>
@@ -109,7 +118,7 @@ const OrganizationInfoForm = ({
               <Controller
                 name='organizationIndustry'
                 control={control}
-                rules={{ required: true }}
+                rules={{ required: String(t('component.form.requiredField')) }}
                 render={({ field }) => (
                   <Select
                     {...field}
@@ -117,13 +126,19 @@ const OrganizationInfoForm = ({
                     placeholder={t(
                       'form.organizationInfoForm.fields.organizationIndustry.placeholder'
                     )}
+                    aria-describedby={`${organizationIndustryField}-error}`}
                     id={organizationIndustryField}
                   />
                 )}
               />
             </FieldRow>
             {errors.organizationIndustry && (
-              <FieldError>{t('component.form.requiredField')}</FieldError>
+              <FieldError
+                aria-live='assertive'
+                id={`${organizationIndustryField}-error}`}
+              >
+                {t('component.form.requiredField')}
+              </FieldError>
             )}
           </Field>
           <Field>
@@ -134,7 +149,7 @@ const OrganizationInfoForm = ({
               <Controller
                 name='organizationSize'
                 control={control}
-                rules={{ required: true }}
+                rules={{ required: String(t('component.form.requiredField')) }}
                 render={({ field }) => (
                   <Select
                     {...field}
@@ -142,13 +157,19 @@ const OrganizationInfoForm = ({
                     placeholder={t(
                       'form.organizationInfoForm.fields.organizationSize.placeholder'
                     )}
+                    aria-describedby={`${organizationSizeField}-error}`}
                     id={organizationSizeField}
                   />
                 )}
               />
             </FieldRow>
             {errors.organizationSize && (
-              <FieldError>{t('component.form.requiredField')}</FieldError>
+              <FieldError
+                aria-live='assertive'
+                id={`${organizationSizeField}-error}`}
+              >
+                {t('component.form.requiredField')}
+              </FieldError>
             )}
           </Field>
           <Field>
@@ -159,7 +180,7 @@ const OrganizationInfoForm = ({
               <Controller
                 name='country'
                 control={control}
-                rules={{ required: true }}
+                rules={{ required: String(t('component.form.requiredField')) }}
                 render={({ field }) => (
                   <SelectFiltered
                     {...field}
@@ -167,13 +188,16 @@ const OrganizationInfoForm = ({
                     placeholder={t(
                       'form.organizationInfoForm.fields.country.placeholder'
                     )}
+                    aria-describedby={`${countryField}-error}`}
                     id={countryField}
                   />
                 )}
               />
             </FieldRow>
             {errors.country && (
-              <FieldError>{t('component.form.requiredField')}</FieldError>
+              <FieldError aria-live='assertive' id={`${countryField}-error}`}>
+                {t('component.form.requiredField')}
+              </FieldError>
             )}
           </Field>
         </FieldGroup>
@@ -186,7 +210,7 @@ const OrganizationInfoForm = ({
             </Button>
           )}
 
-          <Button type='submit' primary disabled={!isValid || isSubmitting}>
+          <Button type='submit' primary disabled={isValidating || isSubmitting}>
             {nextStep ?? t('component.form.action.next')}
           </Button>
 
