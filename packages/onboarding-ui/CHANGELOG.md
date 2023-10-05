@@ -1,5 +1,19 @@
 # Change Log
 
+## 0.33.0
+
+### Minor Changes
+
+- [#1187](https://github.com/RocketChat/fuselage/pull/1187) [`088591304`](https://github.com/RocketChat/fuselage/commit/088591304de15a20f77e84335054e8469c21e2e8) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(onboarding-ui): a11y forms improvements
+
+- [#1185](https://github.com/RocketChat/fuselage/pull/1185) [`e092a3c7a`](https://github.com/RocketChat/fuselage/commit/e092a3c7a839b001ab646283174c2b99ff74997d) Thanks [@tiagoevanp](https://github.com/tiagoevanp)! - feat(onboarding-ui): Update agreements message on `RegisterServerForm`
+
+- [#1182](https://github.com/RocketChat/fuselage/pull/1182) [`d5b269439`](https://github.com/RocketChat/fuselage/commit/d5b26943965d4d9a6d499968d933ead76a705ed3) Thanks [@tiagoevanp](https://github.com/tiagoevanp)! - feat(onboarding-ui): Required fields adjustments
+
+- [#1184](https://github.com/RocketChat/fuselage/pull/1184) [`695d42a03`](https://github.com/RocketChat/fuselage/commit/695d42a03968c7477c0a5569ec2d6b6119407e5a) Thanks [@tiagoevanp](https://github.com/tiagoevanp)! - feat(onboarding-ui): Remove standalone and introduce offline server registration
+
+- [#1183](https://github.com/RocketChat/fuselage/pull/1183) [`c3835a6a6`](https://github.com/RocketChat/fuselage/commit/c3835a6a6a48b8ba3a2e2b53950afe1c862bb709) Thanks [@tiagoevanp](https://github.com/tiagoevanp)! - feat(onboarding-ui): Modify AwaitingConfirmationPage page
+
 ## 0.32.1
 
 ### Patch Changes
