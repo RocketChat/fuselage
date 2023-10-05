@@ -1,5 +1,15 @@
 # Change Log
 
+## 0.33.0
+
+### Minor Changes
+
+- [#1186](https://github.com/RocketChat/fuselage/pull/1186) [`8f2c2adeb`](https://github.com/RocketChat/fuselage/commit/8f2c2adebc54a7a211cacae9fdbbb3d28d75ece0) Thanks [@juliajforesti](https://github.com/juliajforesti)! - chore(fuselage): change button focus shadow colors
+
+### Patch Changes
+
+- [#1179](https://github.com/RocketChat/fuselage/pull/1179) [`5f60cfd3c`](https://github.com/RocketChat/fuselage/commit/5f60cfd3c67e5c3d77cfc54c9b4f1e273ca2a135) Thanks [@aleksandernsilva](https://github.com/aleksandernsilva)! - Fixed tooltip not being displayed on `PaginatedSelect` options
+
 ## 0.32.2
 
 ### Patch Changes
