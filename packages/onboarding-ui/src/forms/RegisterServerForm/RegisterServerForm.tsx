@@ -9,6 +9,7 @@ import {
   FieldLabel,
   FieldRow,
   FieldError,
+  FieldGroup,
 } from '@rocket.chat/fuselage';
 import { useUniqueId, useBreakpoints } from '@rocket.chat/fuselage-hooks';
 import { Form } from '@rocket.chat/layout';
@@ -52,7 +53,6 @@ const RegisterServerForm = ({
   const formId = useUniqueId();
   const emailField = useUniqueId();
   const agreementField = useUniqueId();
-  const updatesField = useUniqueId();
 
   const registerServerFormRef = useRef<HTMLElement>(null);
 
@@ -71,6 +71,7 @@ const RegisterServerForm = ({
 
   const {
     control,
+    register,
     formState: { isSubmitting, isValidating, errors },
     handleSubmit,
   } = form;
@@ -87,7 +88,7 @@ const RegisterServerForm = ({
         ref={registerServerFormRef}
         tabIndex={-1}
         aria-labelledby={`${formId}-title`}
-        aria-describedby={`${formId}-disclaimer`}
+        aria-describedby={`${formId}-informed-disclaimer ${formId}-engagement-disclaimer`}
         onSubmit={handleSubmit(onSubmit)}
       >
         <Form.Header>
@@ -97,74 +98,51 @@ const RegisterServerForm = ({
           </Form.Title>
         </Form.Header>
         <Form.Container>
-          <Field>
-            <FieldLabel
-              required
-              display='flex'
-              alignItems='center'
-              htmlFor={emailField}
-            >
-              {t('form.registeredServerForm.fields.accountEmail.inputLabel')}
-              <Icon
-                title={t(
-                  'form.registeredServerForm.fields.accountEmail.tooltipLabel'
-                )}
-                mis={4}
-                size='x16'
-                name='info'
-              />
-            </FieldLabel>
-            <FieldRow>
-              <Controller
-                name='email'
-                control={control}
-                rules={{
-                  required: String(t('component.form.requiredField')),
-                  validate: validateEmail,
-                }}
-                render={({ field }) => (
-                  <EmailInput
-                    {...field}
-                    aria-invalid={Boolean(errors.email)}
-                    aria-required='true'
-                    aria-describedby={`${emailField}-error`}
-                    placeholder={t(
-                      'form.registeredServerForm.fields.accountEmail.inputPlaceholder'
-                    )}
-                    id={emailField}
-                  />
-                )}
-              />
-            </FieldRow>
-            {errors.email && (
-              <FieldError aria-live='assertive' id={`${emailField}-error`}>
-                {t('component.form.requiredField')}
-              </FieldError>
-            )}
-          </Field>
-          <Box mbs={24}>
-            <Field fontScale='c1'>
+          <FieldGroup>
+            <Field>
+              <FieldLabel
+                required
+                display='flex'
+                alignItems='center'
+                htmlFor={emailField}
+              >
+                {t('form.registeredServerForm.fields.accountEmail.inputLabel')}
+                <Icon
+                  title={t(
+                    'form.registeredServerForm.fields.accountEmail.tooltipLabel'
+                  )}
+                  mis={4}
+                  size='x16'
+                  name='info'
+                />
+              </FieldLabel>
               <FieldRow>
                 <Controller
-                  name='updates'
+                  name='email'
                   control={control}
-                  render={({
-                    field: { ref, name, onBlur, onChange, value },
-                  }) => (
-                    <CheckBox
-                      ref={ref}
-                      id={updatesField}
-                      onChange={onChange}
-                      onBlur={onBlur}
-                      name={name}
-                      checked={value}
+                  rules={{
+                    required: String(t('component.form.requiredField')),
+                    validate: validateEmail,
+                  }}
+                  render={({ field }) => (
+                    <EmailInput
+                      {...field}
+                      aria-invalid={Boolean(errors.email)}
+                      aria-required='true'
+                      aria-describedby={`${emailField}-error`}
+                      placeholder={t(
+                        'form.registeredServerForm.fields.accountEmail.inputPlaceholder'
+                      )}
+                      id={emailField}
                     />
                   )}
                 />
-                <FieldLabel htmlFor={updatesField} fontScale='c1'>
-                  {t('form.registeredServerForm.keepInformed')}
-                </FieldLabel>
               </FieldRow>
+              {errors.email && (
+                <FieldError aria-live='assertive' id={`${emailField}-error`}>
+                  {t('component.form.requiredField')}
+                </FieldError>
+              )}
             </Field>
             <Field>
               <FieldRow>
@@ -225,7 +203,8 @@ const RegisterServerForm = ({
                 </FieldError>
               )}
             </Field>
-          </Box>
+            <input type='hidden' {...register('updates')} />
+          </FieldGroup>
         </Form.Container>
         <Form.Footer>
           <Box display='flex' flexDirection='column' alignItems='flex-start'>
@@ -247,10 +226,10 @@ const RegisterServerForm = ({
                 </Button>
               )}
             </ButtonGroup>
-            <Box id={`${formId}-disclaimer`} mbs={24} fontScale='c1'>
+            <Box id={`${formId}-engagement-disclaimer`} mbs={24} fontScale='c1'>
               {t('form.registeredServerForm.registrationEngagement')}
             </Box>
-            <Box mbs={24} fontScale='c1'>
+            <Box id={`${formId}-informed-disclaimer`} mbs={24} fontScale='c1'>
               <Trans i18nKey='form.registeredServerForm.registrationKeepInformed'>
                 By submitting this form you consent to receive more information
                 about Rocket.Chat products, events and updates, according to our
