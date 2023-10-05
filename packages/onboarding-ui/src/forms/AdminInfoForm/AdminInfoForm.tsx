@@ -66,7 +66,6 @@ const AdminInfoForm = ({
     register,
     handleSubmit,
     formState: { isValidating, isSubmitting, errors },
-    setFocus,
     control,
   } = useForm<AdminInfoPayload>({
     defaultValues: {
@@ -80,7 +79,7 @@ const AdminInfoForm = ({
     if (adminInfoFormRef.current) {
       adminInfoFormRef.current.focus();
     }
-  }, [setFocus]);
+  }, []);
 
   return (
     <Form

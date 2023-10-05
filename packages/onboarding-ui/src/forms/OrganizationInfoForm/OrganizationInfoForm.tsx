@@ -15,7 +15,7 @@ import {
 import { useBreakpoints, useUniqueId } from '@rocket.chat/fuselage-hooks';
 import { ActionLink, Form } from '@rocket.chat/layout';
 import type { ReactElement, ReactNode } from 'react';
-import { useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import type { SubmitHandler } from 'react-hook-form';
 import { useForm, Controller } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
@@ -56,32 +56,45 @@ const OrganizationInfoForm = ({
   const breakpoints = useBreakpoints();
   const isMobile = !breakpoints.includes('md');
 
+  const formId = useUniqueId();
   const organizationNameField = useUniqueId();
   const organizationIndustryField = useUniqueId();
   const organizationSizeField = useUniqueId();
   const countryField = useUniqueId();
 
+  const organizationInfoFormRef = useRef<HTMLElement>(null);
+
   const {
-    register,
     control,
     handleSubmit,
     formState: { isValidating, isSubmitting, errors },
-    setFocus,
   } = useForm<OrganizationInfoPayload>({
     defaultValues: initialValues,
     mode: 'onBlur',
   });
 
   useEffect(() => {
-    setFocus('organizationName');
-  }, [setFocus]);
+    if (organizationInfoFormRef.current) {
+      organizationInfoFormRef.current.focus();
+    }
+  }, []);
 
   return (
-    <Form onSubmit={handleSubmit(onSubmit)}>
+    <Form
+      ref={organizationInfoFormRef}
+      tabIndex={-1}
+      aria-labelledby={`${formId}-title`}
+      aria-describedby={`${formId}-description`}
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <Form.Header>
         <Form.Steps currentStep={currentStep} stepCount={stepCount} />
-        <Form.Title>{t('form.organizationInfoForm.title')}</Form.Title>
-        <Form.Subtitle>{t('form.organizationInfoForm.subtitle')}</Form.Subtitle>
+        <Form.Title id={`${formId}-title`}>
+          {t('form.organizationInfoForm.title')}
+        </Form.Title>
+        <Form.Subtitle id={`${formId}-description`}>
+          {t('form.organizationInfoForm.subtitle')}
+        </Form.Subtitle>
       </Form.Header>
       <Form.Container>
         <FieldGroup>
@@ -90,15 +103,24 @@ const OrganizationInfoForm = ({
               {t('form.organizationInfoForm.fields.organizationName.label')}
             </FieldLabel>
             <FieldRow>
-              <TextInput
-                {...register('organizationName', {
+              <Controller
+                name='organizationName'
+                control={control}
+                rules={{
                   required: String(t('component.form.requiredField')),
-                })}
-                placeholder={t(
-                  'form.organizationInfoForm.fields.organizationName.placeholder'
+                }}
+                render={({ field }) => (
+                  <TextInput
+                    {...field}
+                    placeholder={t(
+                      'form.organizationInfoForm.fields.organizationName.placeholder'
+                    )}
+                    aria-describedby={`${organizationNameField}-error}`}
+                    aria-required='true'
+                    aria-invalid={Boolean(errors.organizationName)}
+                    id={organizationNameField}
+                  />
                 )}
-                aria-describedby={`${organizationNameField}-error}`}
-                id={organizationNameField}
               />
             </FieldRow>
             {errors.organizationName && (
@@ -126,6 +148,8 @@ const OrganizationInfoForm = ({
                     placeholder={t(
                       'form.organizationInfoForm.fields.organizationIndustry.placeholder'
                     )}
+                    aria-required='true'
+                    aria-invalid={Boolean(errors.organizationIndustry)}
                     aria-describedby={`${organizationIndustryField}-error}`}
                     id={organizationIndustryField}
                   />
@@ -157,6 +181,8 @@ const OrganizationInfoForm = ({
                     placeholder={t(
                       'form.organizationInfoForm.fields.organizationSize.placeholder'
                     )}
+                    aria-required='true'
+                    aria-invalid={Boolean(errors.organizationSize)}
                     aria-describedby={`${organizationSizeField}-error}`}
                     id={organizationSizeField}
                   />
@@ -188,6 +214,8 @@ const OrganizationInfoForm = ({
                     placeholder={t(
                       'form.organizationInfoForm.fields.country.placeholder'
                     )}
+                    aria-required='true'
+                    aria-invalid={Boolean(errors.country)}
                     aria-describedby={`${countryField}-error}`}
                     id={countryField}
                   />
@@ -209,11 +237,9 @@ const OrganizationInfoForm = ({
               {t('component.form.action.back')}
             </Button>
           )}
-
           <Button type='submit' primary disabled={isValidating || isSubmitting}>
             {nextStep ?? t('component.form.action.next')}
           </Button>
-
           {onClickSkip && (
             <Box withTruncatedText flexGrow={1}>
               <ButtonGroup flexGrow={1} align='end'>
