@@ -53,6 +53,7 @@
     "@rocket.chat/logo": "workspace:~",
     "@rocket.chat/prettier-config": "workspace:~",
     "@rocket.chat/styled": "workspace:~",
+    "@storybook/addon-a11y": "~7.4.6",
     "@storybook/addon-essentials": "~6.5.16",
     "@storybook/addons": "~6.5.16",
     "@storybook/builder-webpack5": "~6.5.16",

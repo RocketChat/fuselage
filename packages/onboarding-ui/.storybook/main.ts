@@ -7,7 +7,11 @@ const config: StorybookConfig = {
   features: {
     postcss: false,
   },
-  addons: ['@storybook/addon-essentials', 'storybook-dark-mode'],
+  addons: [
+    '@storybook/addon-a11y',
+    '@storybook/addon-essentials',
+    'storybook-dark-mode',
+  ],
   stories: ['../src/**/*.stories.tsx', '../src/**/stories.tsx'],
 };
 
