@@ -215,21 +215,20 @@ $sidebar-banner-color-danger: theme(
       @include typography.use-with-truncated-text();
       flex: 1 0;
 
-      margin-inline: lengths.margin(-2);
+      margin-inline: lengths.margin(-4);
     }
 
     &--clickable {
       @include clickable;
+      border: 2px solid transparent;
 
       @include on-hover {
         @include use-no-shadow;
-        // color: $sidebar-item-color-hover;
         background-color: $sidebar-color-surface-hover;
       }
 
       @include on-focus-visible {
-        border: 1px solid $sidebar-color-stroke-focus;
-        // @include use-focus-shadow-inset($sidebar-item-color-focus);
+        border: 2px solid $sidebar-color-stroke-focus;
       }
     }
 
