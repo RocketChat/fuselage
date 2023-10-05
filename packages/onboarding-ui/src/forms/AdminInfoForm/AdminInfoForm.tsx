@@ -16,9 +16,9 @@ import {
 import { useUniqueId } from '@rocket.chat/fuselage-hooks';
 import { Form } from '@rocket.chat/layout';
 import type { ReactElement } from 'react';
-import { useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import type { SubmitHandler, Validate } from 'react-hook-form';
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
 export type AdminInfoPayload = {
@@ -54,16 +54,20 @@ const AdminInfoForm = ({
 }: AdminInfoFormProps): ReactElement => {
   const { t } = useTranslation();
 
+  const formId = useUniqueId();
   const fullnameField = useUniqueId();
   const usernameField = useUniqueId(); // lgtm [js/insecure-randomness]
   const emailField = useUniqueId();
   const passwordField = useUniqueId(); // lgtm [js/insecure-randomness]
+
+  const adminInfoFormRef = useRef<HTMLElement>(null);
 
   const {
     register,
     handleSubmit,
     formState: { isValidating, isSubmitting, errors },
     setFocus,
+    control,
   } = useForm<AdminInfoPayload>({
     defaultValues: {
       ...initialValues,
@@ -73,15 +77,27 @@ const AdminInfoForm = ({
   });
 
   useEffect(() => {
-    setFocus('fullname');
+    if (adminInfoFormRef.current) {
+      adminInfoFormRef.current.focus();
+    }
   }, [setFocus]);
 
   return (
-    <Form onSubmit={handleSubmit(onSubmit)}>
+    <Form
+      ref={adminInfoFormRef}
+      tabIndex={-1}
+      aria-labelledby={`${formId}-title`}
+      aria-describedby={`${formId}-description`}
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <Form.Header>
         <Form.Steps currentStep={currentStep} stepCount={stepCount} />
-        <Form.Title>{t('form.adminInfoForm.title')}</Form.Title>
-        <Form.Subtitle>{t('form.adminInfoForm.subtitle')}</Form.Subtitle>
+        <Form.Title id={`${formId}-title`}>
+          {t('form.adminInfoForm.title')}
+        </Form.Title>
+        <Form.Subtitle id={`${formId}-description`}>
+          {t('form.adminInfoForm.subtitle')}
+        </Form.Subtitle>
       </Form.Header>
       <Form.Container>
         <FieldGroup>
@@ -90,15 +106,22 @@ const AdminInfoForm = ({
               {t('form.adminInfoForm.fields.fullName.label')}
             </FieldLabel>
             <FieldRow>
-              <TextInput
-                {...register('fullname', {
-                  required: String(t('component.form.requiredField')),
-                })}
-                aria-describedby={`${fullnameField}-error}`}
-                placeholder={t(
-                  'form.adminInfoForm.fields.fullName.placeholder'
+              <Controller
+                name='fullname'
+                control={control}
+                rules={{ required: String(t('component.form.requiredField')) }}
+                render={({ field }) => (
+                  <TextInput
+                    {...field}
+                    aria-describedby={`${fullnameField}-error}`}
+                    aria-required='true'
+                    aria-invalid={Boolean(errors.fullname)}
+                    placeholder={t(
+                      'form.adminInfoForm.fields.fullName.placeholder'
+                    )}
+                    id={fullnameField}
+                  />
                 )}
-                id={fullnameField}
               />
             </FieldRow>
             {errors.fullname && (
@@ -112,16 +135,25 @@ const AdminInfoForm = ({
               {t('form.adminInfoForm.fields.username.label')}
             </FieldLabel>
             <FieldRow>
-              <TextInput
-                {...register('username', {
+              <Controller
+                name='username'
+                control={control}
+                rules={{
                   required: String(t('component.form.requiredField')),
                   validate: validateUsername,
-                })}
-                aria-describedby={`${usernameField}-error}`}
-                placeholder={t(
-                  'form.adminInfoForm.fields.username.placeholder'
+                }}
+                render={({ field }) => (
+                  <TextInput
+                    {...field}
+                    aria-describedby={`${usernameField}-error}`}
+                    aria-required='true'
+                    aria-invalid={Boolean(errors.username)}
+                    placeholder={t(
+                      'form.adminInfoForm.fields.username.placeholder'
+                    )}
+                    id={usernameField}
+                  />
                 )}
-                id={usernameField}
               />
             </FieldRow>
             {errors.username && (
@@ -135,14 +167,25 @@ const AdminInfoForm = ({
               {t('form.adminInfoForm.fields.email.label')}
             </FieldLabel>
             <FieldRow>
-              <EmailInput
-                {...register('email', {
+              <Controller
+                name='email'
+                control={control}
+                rules={{
                   required: String(t('component.form.requiredField')),
                   validate: validateEmail,
-                })}
-                aria-describedby={`${emailField}-error}`}
-                placeholder={t('form.adminInfoForm.fields.email.placeholder')}
-                id={emailField}
+                }}
+                render={({ field }) => (
+                  <EmailInput
+                    {...field}
+                    aria-required='true'
+                    aria-invalid={Boolean(errors.email)}
+                    aria-describedby={`${emailField}-error}`}
+                    placeholder={t(
+                      'form.adminInfoForm.fields.email.placeholder'
+                    )}
+                    id={emailField}
+                  />
+                )}
               />
             </FieldRow>
             {errors.email && (
@@ -156,19 +199,30 @@ const AdminInfoForm = ({
               {t('form.adminInfoForm.fields.password.label')}
             </FieldLabel>
             <FieldRow>
-              <PasswordInput
-                {...register('password', {
+              <Controller
+                name='password'
+                control={control}
+                rules={{
                   required: String(t('component.form.requiredField')),
                   validate: validatePassword,
-                })}
-                aria-describedby={`${passwordField}-error}`}
-                placeholder={t(
-                  'form.adminInfoForm.fields.password.placeholder'
+                }}
+                render={({ field }) => (
+                  <PasswordInput
+                    {...field}
+                    aria-required='true'
+                    aria-invalid={Boolean(errors.password)}
+                    aria-describedby={`${passwordField}-hint ${passwordField}-error}`}
+                    placeholder={t(
+                      'form.adminInfoForm.fields.password.placeholder'
+                    )}
+                    id={passwordField}
+                  />
                 )}
-                id={passwordField}
               />
             </FieldRow>
-            <FieldHint>{passwordRulesHint}</FieldHint>
+            <FieldHint id={`${passwordField}-hint`}>
+              {passwordRulesHint}
+            </FieldHint>
             {errors.password && (
               <FieldError aria-live='assertive' id={`${passwordField}-error}`}>
                 {errors.password.message}
