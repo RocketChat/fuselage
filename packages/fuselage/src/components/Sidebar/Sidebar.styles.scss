@@ -210,6 +210,8 @@ $sidebar-banner-color-danger: theme(
 
     color: $sidebar-color-font-default;
 
+    border: 2px solid transparent;
+
     &__wrapper {
       @extend %sidebar-base;
       @include typography.use-with-truncated-text();
@@ -220,7 +222,6 @@ $sidebar-banner-color-danger: theme(
 
     &--clickable {
       @include clickable;
-      border: 2px solid transparent;
 
       @include on-hover {
         @include use-no-shadow;
