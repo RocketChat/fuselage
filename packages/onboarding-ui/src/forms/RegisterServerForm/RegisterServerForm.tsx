@@ -13,8 +13,9 @@ import {
 import { useUniqueId, useBreakpoints } from '@rocket.chat/fuselage-hooks';
 import { Form } from '@rocket.chat/layout';
 import type { ReactElement } from 'react';
+import { useEffect, useRef } from 'react';
 import type { SubmitHandler, Validate } from 'react-hook-form';
-import { useForm, FormProvider } from 'react-hook-form';
+import { Controller, useForm, FormProvider } from 'react-hook-form';
 import { useTranslation, Trans } from 'react-i18next';
 
 export type RegisterServerPayload = {
@@ -47,13 +48,19 @@ const RegisterServerForm = ({
   onClickRegisterOffline,
 }: RegisterServerFormProps): ReactElement => {
   const { t } = useTranslation();
+
+  const formId = useUniqueId();
   const emailField = useUniqueId();
+  const agreementField = useUniqueId();
+  const updatesField = useUniqueId();
+
+  const registerServerFormRef = useRef<HTMLElement>(null);
 
   const breakpoints = useBreakpoints();
   const isMobile = !breakpoints.includes('md');
 
   const form = useForm<RegisterServerPayload>({
-    mode: 'onChange',
+    mode: 'onBlur',
     defaultValues: {
       email: '',
       agreement: false,
@@ -63,81 +70,132 @@ const RegisterServerForm = ({
   });
 
   const {
-    register,
-    formState: { isSubmitting, isValid, errors },
+    control,
+    formState: { isSubmitting, isValidating, errors },
     handleSubmit,
   } = form;
 
+  useEffect(() => {
+    if (registerServerFormRef.current) {
+      registerServerFormRef.current.focus();
+    }
+  }, []);
+
   return (
     <FormProvider {...form}>
-      <Form onSubmit={handleSubmit(onSubmit)}>
+      <Form
+        ref={registerServerFormRef}
+        tabIndex={-1}
+        aria-labelledby={`${formId}-title`}
+        aria-describedby={`${formId}-disclaimer`}
+        onSubmit={handleSubmit(onSubmit)}
+      >
         <Form.Header>
           <Form.Steps currentStep={currentStep} stepCount={stepCount} />
-          <Form.Title>{t('form.registeredServerForm.title')}</Form.Title>
+          <Form.Title id={`${formId}-title`}>
+            {t('form.registeredServerForm.title')}
+          </Form.Title>
         </Form.Header>
-        {
-          <Form.Container>
-            <Field>
-              <FieldLabel
-                required
-                display='flex'
-                alignItems='center'
-                htmlFor={emailField}
-              >
-                {t('form.registeredServerForm.fields.accountEmail.inputLabel')}
-                <Icon
-                  title={t(
-                    'form.registeredServerForm.fields.accountEmail.tooltipLabel'
-                  )}
-                  mis={4}
-                  size='x16'
-                  name='info'
-                />
-              </FieldLabel>
+        <Form.Container>
+          <Field>
+            <FieldLabel
+              required
+              display='flex'
+              alignItems='center'
+              htmlFor={emailField}
+            >
+              {t('form.registeredServerForm.fields.accountEmail.inputLabel')}
+              <Icon
+                title={t(
+                  'form.registeredServerForm.fields.accountEmail.tooltipLabel'
+                )}
+                mis={4}
+                size='x16'
+                name='info'
+              />
+            </FieldLabel>
+            <FieldRow>
+              <Controller
+                name='email'
+                control={control}
+                rules={{
+                  required: String(t('component.form.requiredField')),
+                  validate: validateEmail,
+                }}
+                render={({ field }) => (
+                  <EmailInput
+                    {...field}
+                    aria-invalid={Boolean(errors.email)}
+                    aria-required='true'
+                    aria-describedby={`${emailField}-error`}
+                    placeholder={t(
+                      'form.registeredServerForm.fields.accountEmail.inputPlaceholder'
+                    )}
+                    id={emailField}
+                  />
+                )}
+              />
+            </FieldRow>
+            {errors.email && (
+              <FieldError aria-live='assertive' id={`${emailField}-error`}>
+                {t('component.form.requiredField')}
+              </FieldError>
+            )}
+          </Field>
+          <Box mbs={24}>
+            <Field fontScale='c1'>
               <FieldRow>
-                <EmailInput
-                  {...register('email', {
-                    required: true,
-                    validate: validateEmail,
-                  })}
-                  placeholder={t(
-                    'form.registeredServerForm.fields.accountEmail.inputPlaceholder'
+                <Controller
+                  name='updates'
+                  control={control}
+                  render={({
+                    field: { ref, name, onBlur, onChange, value },
+                  }) => (
+                    <CheckBox
+                      ref={ref}
+                      id={updatesField}
+                      onChange={onChange}
+                      onBlur={onBlur}
+                      name={name}
+                      checked={value}
+                    />
                   )}
-                  id={emailField}
                 />
-              </FieldRow>
-              {errors.email && (
-                <FieldError>{t('component.form.requiredField')}</FieldError>
-              )}
-            </Field>
-            <Box mbs={24}>
-              <Box
-                mbe={8}
-                display='flex'
-                flexDirection='row'
-                alignItems='flex-start'
-                fontScale='c1'
-                lineHeight={20}
-              >
-                <Box mie={8}>
-                  <CheckBox {...register('updates')} />{' '}
-                </Box>
-                <Box is='label' htmlFor='updates'>
+                <FieldLabel htmlFor={updatesField} fontScale='c1'>
                   {t('form.registeredServerForm.keepInformed')}
-                </Box>
-              </Box>
-              <Field
-                display='flex'
-                flexDirection='row'
-                alignItems='flex-start'
-                color='default'
-                fontScale='c1'
-                lineHeight={20}
-              >
-                <Box mie={8}>
-                  <CheckBox {...register('agreement', { required: true })} />{' '}
-                </Box>
-                <FieldLabel htmlFor='agreement' withRichContent required>
+                </FieldLabel>
+              </FieldRow>
+            </Field>
+            <Field>
+              <FieldRow>
+                <Controller
+                  name='agreement'
+                  control={control}
+                  rules={{
+                    required: String(t('component.form.requiredField')),
+                  }}
+                  render={({
+                    field: { ref, name, onBlur, onChange, value },
+                  }) => (
+                    <CheckBox
+                      ref={ref}
+                      id={agreementField}
+                      onChange={onChange}
+                      onBlur={onBlur}
+                      name={name}
+                      checked={value}
+                      aria-describedby={`${agreementField}-error`}
+                      aria-invalid={Boolean(errors.agreement)}
+                      aria-required='true'
+                    />
+                  )}
+                />
+                <FieldLabel
+                  htmlFor={agreementField}
+                  withRichContent
+                  required
+                  fontScale='c1'
+                >
                   <Trans i18nKey='component.form.termsAndConditions'>
                     I agree with
                     <a
@@ -157,14 +215,26 @@ const RegisterServerForm = ({
                     </a>
                   </Trans>
                 </FieldLabel>
-              </Field>
-            </Box>
-          </Form.Container>
-        }
+              </FieldRow>
+              {errors.agreement && (
+                <FieldError
+                  aria-live='assertive'
+                  id={`${agreementField}-error`}
+                >
+                  {t('component.form.requiredField')}
+                </FieldError>
+              )}
+            </Field>
+          </Box>
+        </Form.Container>
         <Form.Footer>
-          <Box display='flex' flexDirection='column'>
+          <Box display='flex' flexDirection='column' alignItems='flex-start'>
             <ButtonGroup vertical={isMobile} flexGrow={1}>
-              <Button type='submit' primary disabled={isSubmitting || !isValid}>
+              <Button
+                type='submit'
+                primary
+                disabled={isSubmitting || isValidating}
+              >
                 {t('component.form.action.registerWorkspace')}
               </Button>
               {offline && (
@@ -177,7 +247,7 @@ const RegisterServerForm = ({
                 </Button>
               )}
             </ButtonGroup>
-            <Box mbs={24} fontScale='c1'>
+            <Box id={`${formId}-disclaimer`} mbs={24} fontScale='c1'>
               {t('form.registeredServerForm.registrationEngagement')}
             </Box>
           </Box>
