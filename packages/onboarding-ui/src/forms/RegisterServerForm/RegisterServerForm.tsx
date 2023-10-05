@@ -13,8 +13,9 @@ import {
 import { useUniqueId, useBreakpoints } from '@rocket.chat/fuselage-hooks';
 import { Form } from '@rocket.chat/layout';
 import type { ReactElement } from 'react';
+import { useEffect, useRef } from 'react';
 import type { SubmitHandler, Validate } from 'react-hook-form';
-import { useForm, FormProvider } from 'react-hook-form';
+import { Controller, useForm, FormProvider } from 'react-hook-form';
 import { useTranslation, Trans } from 'react-i18next';
 
 export type RegisterServerPayload = {
@@ -47,9 +48,13 @@ const RegisterServerForm = ({
   onClickRegisterOffline,
 }: RegisterServerFormProps): ReactElement => {
   const { t } = useTranslation();
+
+  const formId = useUniqueId();
   const emailField = useUniqueId();
   const agreementField = useUniqueId();
   const updatesField = useUniqueId();
+
+  const registerServerFormRef = useRef<HTMLElement>(null);
 
   const breakpoints = useBreakpoints();
   const isMobile = !breakpoints.includes('md');
@@ -65,112 +70,163 @@ const RegisterServerForm = ({
   });
 
   const {
-    register,
+    control,
     formState: { isSubmitting, isValidating, errors },
     handleSubmit,
   } = form;
 
+  useEffect(() => {
+    if (registerServerFormRef.current) {
+      registerServerFormRef.current.focus();
+    }
+  }, []);
+
   return (
     <FormProvider {...form}>
-      <Form onSubmit={handleSubmit(onSubmit)}>
+      <Form
+        ref={registerServerFormRef}
+        tabIndex={-1}
+        aria-labelledby={`${formId}-title`}
+        aria-describedby={`${formId}-disclaimer`}
+        onSubmit={handleSubmit(onSubmit)}
+      >
         <Form.Header>
           <Form.Steps currentStep={currentStep} stepCount={stepCount} />
-          <Form.Title>{t('form.registeredServerForm.title')}</Form.Title>
+          <Form.Title id={`${formId}-title`}>
+            {t('form.registeredServerForm.title')}
+          </Form.Title>
         </Form.Header>
-        {
-          <Form.Container>
-            <Field>
-              <FieldLabel
-                required
-                display='flex'
-                alignItems='center'
-                htmlFor={emailField}
-              >
-                {t('form.registeredServerForm.fields.accountEmail.inputLabel')}
-                <Icon
-                  title={t(
-                    'form.registeredServerForm.fields.accountEmail.tooltipLabel'
-                  )}
-                  mis={4}
-                  size='x16'
-                  name='info'
-                />
-              </FieldLabel>
+        <Form.Container>
+          <Field>
+            <FieldLabel
+              required
+              display='flex'
+              alignItems='center'
+              htmlFor={emailField}
+            >
+              {t('form.registeredServerForm.fields.accountEmail.inputLabel')}
+              <Icon
+                title={t(
+                  'form.registeredServerForm.fields.accountEmail.tooltipLabel'
+                )}
+                mis={4}
+                size='x16'
+                name='info'
+              />
+            </FieldLabel>
+            <FieldRow>
+              <Controller
+                name='email'
+                control={control}
+                rules={{
+                  required: String(t('component.form.requiredField')),
+                  validate: validateEmail,
+                }}
+                render={({ field }) => (
+                  <EmailInput
+                    {...field}
+                    aria-invalid={Boolean(errors.email)}
+                    aria-required='true'
+                    aria-describedby={`${emailField}-error`}
+                    placeholder={t(
+                      'form.registeredServerForm.fields.accountEmail.inputPlaceholder'
+                    )}
+                    id={emailField}
+                  />
+                )}
+              />
+            </FieldRow>
+            {errors.email && (
+              <FieldError aria-live='assertive' id={`${emailField}-error`}>
+                {t('component.form.requiredField')}
+              </FieldError>
+            )}
+          </Field>
+          <Box mbs={24}>
+            <Field fontScale='c1'>
               <FieldRow>
-                <EmailInput
-                  {...register('email', {
-                    required: String(t('component.form.requiredField')),
-                    validate: validateEmail,
-                  })}
-                  aria-describedby={`${emailField}-error`}
-                  placeholder={t(
-                    'form.registeredServerForm.fields.accountEmail.inputPlaceholder'
+                <Controller
+                  name='updates'
+                  control={control}
+                  render={({
+                    field: { ref, name, onBlur, onChange, value },
+                  }) => (
+                    <CheckBox
+                      ref={ref}
+                      id={updatesField}
+                      onChange={onChange}
+                      onBlur={onBlur}
+                      name={name}
+                      checked={value}
+                    />
                   )}
-                  id={emailField}
                 />
+                <FieldLabel htmlFor={updatesField} fontScale='c1'>
+                  {t('form.registeredServerForm.keepInformed')}
+                </FieldLabel>
               </FieldRow>
-              {errors.email && (
-                <FieldError aria-live='assertive' id={`${emailField}-error`}>
+            </Field>
+            <Field>
+              <FieldRow>
+                <Controller
+                  name='agreement'
+                  control={control}
+                  rules={{
+                    required: String(t('component.form.requiredField')),
+                  }}
+                  render={({
+                    field: { ref, name, onBlur, onChange, value },
+                  }) => (
+                    <CheckBox
+                      ref={ref}
+                      id={agreementField}
+                      onChange={onChange}
+                      onBlur={onBlur}
+                      name={name}
+                      checked={value}
+                      aria-describedby={`${agreementField}-error`}
+                      aria-invalid={Boolean(errors.agreement)}
+                      aria-required='true'
+                    />
+                  )}
+                />
+                <FieldLabel
+                  htmlFor={agreementField}
+                  withRichContent
+                  required
+                  fontScale='c1'
+                >
+                  <Trans i18nKey='component.form.termsAndConditions'>
+                    I agree with
+                    <a
+                      href={termsHref}
+                      target='_blank'
+                      rel='noopener noreferrer'
+                    >
+                      Terms and Conditions
+                    </a>
+                    and
+                    <a
+                      href={policyHref}
+                      target='_blank'
+                      rel='noopener noreferrer'
+                    >
+                      Privacy Policy
+                    </a>
+                  </Trans>
+                </FieldLabel>
+              </FieldRow>
+              {errors.agreement && (
+                <FieldError
+                  aria-live='assertive'
+                  id={`${agreementField}-error`}
+                >
                   {t('component.form.requiredField')}
                 </FieldError>
               )}
             </Field>
-            <Box mbs={24}>
-              <Field fontScale='c1'>
-                <FieldRow>
-                  <CheckBox id={updatesField} {...register('updates')} />
-                  <FieldLabel htmlFor={updatesField} fontScale='c1'>
-                    {t('form.registeredServerForm.keepInformed')}
-                  </FieldLabel>
-                </FieldRow>
-              </Field>
-              <Field>
-                <FieldRow>
-                  <CheckBox
-                    id={agreementField}
-                    {...register('agreement', {
-                      required: String(t('component.form.requiredField')),
-                    })}
-                  />
-                  <FieldLabel
-                    htmlFor={agreementField}
-                    aria-describedby={`${agreementField}-error`}
-                    withRichContent
-                    required
-                    fontScale='c1'
-                  >
-                    <Trans i18nKey='component.form.termsAndConditions'>
-                      I agree with
-                      <a
-                        href={termsHref}
-                        target='_blank'
-                        rel='noopener noreferrer'
-                      >
-                        Terms and Conditions
-                      </a>
-                      and
-                      <a
-                        href={policyHref}
-                        target='_blank'
-                        rel='noopener noreferrer'
-                      >
-                        Privacy Policy
-                      </a>
-                    </Trans>
-                  </FieldLabel>
-                </FieldRow>
-                {errors.agreement && (
-                  <FieldError
-                    aria-live='assertive'
-                    id={`${agreementField}-error`}
-                  >
-                    {t('component.form.requiredField')}
-                  </FieldError>
-                )}
-              </Field>
-            </Box>
-          </Form.Container>
-        }
+          </Box>
+        </Form.Container>
         <Form.Footer>
           <Box display='flex' flexDirection='column' alignItems='flex-start'>
             <ButtonGroup vertical={isMobile} flexGrow={1}>
@@ -191,7 +247,7 @@ const RegisterServerForm = ({
                 </Button>
               )}
             </ButtonGroup>
-            <Box mbs={24} fontScale='c1'>
+            <Box id={`${formId}-disclaimer`} mbs={24} fontScale='c1'>
               {t('form.registeredServerForm.registrationEngagement')}
             </Box>
           </Box>
