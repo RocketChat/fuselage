@@ -1,5 +1,5 @@
 ---
-"@rocket.chat/onboarding-ui": patch
+"@rocket.chat/onboarding-ui": minor
 ---
 
-refactor(onboarding-ui): Rewrite `AwaitingConfirmationPage` page
+feat(onboarding-ui): Modify AwaitingConfirmationPage page

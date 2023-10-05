@@ -1,5 +1,5 @@
 ---
-"@rocket.chat/onboarding-ui": patch
+"@rocket.chat/onboarding-ui": minor
 ---
 
 feat(onboarding-ui): Required fields adjustments
