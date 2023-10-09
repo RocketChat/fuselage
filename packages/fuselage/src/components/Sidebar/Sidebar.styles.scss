@@ -99,7 +99,7 @@ $sidebar-banner-background-default: theme(
 );
 $sidebar-banner-color-default: theme(
   'sidebar-banner-color-default',
-  colors.font(default)
+  colors.font(pure-white)
 );
 
 $sidebar-banner-background-info: theme(
@@ -367,6 +367,7 @@ $sidebar-banner-color-danger: theme(
 
     color: $sidebar-banner-color-default;
     background-color: $sidebar-banner-background-default;
+    column-gap: 0.25rem;
 
     &--text {
       @include typography.use-font-scale(h5);
@@ -374,10 +375,13 @@ $sidebar-banner-color-danger: theme(
 
     &--description {
       @include typography.use-font-scale(p2m);
+      display: inline-block;
+
       color: currentColor;
 
       &--clickable {
         cursor: pointer;
+        border-block-end: 1px solid;
       }
     }
 
