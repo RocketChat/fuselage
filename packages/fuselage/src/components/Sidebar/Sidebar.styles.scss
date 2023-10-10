@@ -99,7 +99,7 @@ $sidebar-banner-background-default: theme(
 );
 $sidebar-banner-color-default: theme(
   'sidebar-banner-color-default',
-  colors.font(pure-white)
+  colors.font(titles-labels)
 );
 
 $sidebar-banner-background-info: theme(
@@ -381,7 +381,7 @@ $sidebar-banner-color-danger: theme(
 
       &--clickable {
         cursor: pointer;
-        border-block-end: 1px solid;
+        border-block-end: lengths.border-width(default) solid;
       }
     }
 
