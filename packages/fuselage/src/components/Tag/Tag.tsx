@@ -2,6 +2,7 @@ import type { AllHTMLAttributes, ReactNode } from 'react';
 import React from 'react';
 
 import { prependClassName } from '../../helpers/prependClassName';
+import Box from '../Box/Box';
 
 type TagProps = {
   medium?: boolean;
@@ -15,7 +16,7 @@ type TagProps = {
     | 'featured';
   disabled?: boolean;
   icon?: ReactNode;
-} & AllHTMLAttributes<HTMLSpanElement>;
+} & Omit<AllHTMLAttributes<HTMLSpanElement | HTMLAnchorElement>, 'is'>;
 
 export const Tag = ({
   large,
@@ -26,6 +27,7 @@ export const Tag = ({
   variant,
   children,
   icon,
+  href,
   ...props
 }: TagProps) => {
   const modifiers = [
@@ -34,19 +36,22 @@ export const Tag = ({
     large && 'large',
     disabled && 'disabled',
     onClick && 'clickable',
+    href && 'clickable',
   ]
     .filter(Boolean)
     .map((modifier) => `rcx-tag--${modifier}`)
     .join(' ');
 
   return (
-    <span
+    <Box
+      is={href ? 'a' : 'span'}
       className={prependClassName(className as string, `rcx-tag ${modifiers}`)}
       onClick={onClick}
+      href={href}
       {...props}
     >
       {icon}
       <span className='rcx-tag__inner'>{children}</span>
-    </span>
+    </Box>
   );
 };

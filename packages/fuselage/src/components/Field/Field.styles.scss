@@ -64,8 +64,6 @@
     @include typography.use-font-scale(p2);
     margin-block: lengths.margin(2);
 
-    text-decoration: none;
-
     color: colors.font(info);
     @extend %--with-inline-elements;
   }
