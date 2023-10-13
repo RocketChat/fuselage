@@ -1,5 +1,23 @@
 # Change Log
 
+## 0.34.0
+
+### Minor Changes
+
+- [#1196](https://github.com/RocketChat/fuselage/pull/1196) [`a1c679732`](https://github.com/RocketChat/fuselage/commit/a1c67973288a3383332639a5d49c7fce12c94b5e) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage): change `SidebarItem` focus color
+
+- [#1194](https://github.com/RocketChat/fuselage/pull/1194) [`34e442115`](https://github.com/RocketChat/fuselage/commit/34e442115f34da3f5843d48ffe711766074f707c) Thanks [@dougfabris](https://github.com/dougfabris)! - feat(fuselage): `Callout` visual changes
+
+- [#1190](https://github.com/RocketChat/fuselage/pull/1190) [`c2afab784`](https://github.com/RocketChat/fuselage/commit/c2afab78473f2068d695a3d7f018531b5b7fb058) Thanks [@aleksandernsilva](https://github.com/aleksandernsilva)! - Added a new property "addon" and updated colors from grey to white.
+
+- [#1195](https://github.com/RocketChat/fuselage/pull/1195) [`9ce0dd4fb`](https://github.com/RocketChat/fuselage/commit/9ce0dd4fb871812673efac7f7bd29395f6e4ef70) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage): option to use `Tag` as link
+
+### Patch Changes
+
+- [#1191](https://github.com/RocketChat/fuselage/pull/1191) [`44f851599`](https://github.com/RocketChat/fuselage/commit/44f85159922eb514e3c9a5400c22071b7d8ed5e8) Thanks [@dougfabris](https://github.com/dougfabris)! - feat(fuselage): `ContextualbarAction` size
+
+- [#1193](https://github.com/RocketChat/fuselage/pull/1193) [`6df7d7abf`](https://github.com/RocketChat/fuselage/commit/6df7d7abf63e522c92bd4004f05d49135aa09b33) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): Remove underline prevention on anchor elements
+
 ## 0.33.0
 
 ### Minor Changes
