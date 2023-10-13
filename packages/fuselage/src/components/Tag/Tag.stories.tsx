@@ -94,3 +94,8 @@ export const Large = Template.bind({});
 Large.args = {
   large: true,
 };
+
+export const AsLink = Template.bind({});
+AsLink.args = {
+  href: '#',
+};
