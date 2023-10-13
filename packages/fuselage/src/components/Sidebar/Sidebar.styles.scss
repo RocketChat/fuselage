@@ -369,6 +369,11 @@ $sidebar-banner-color-danger: theme(
     background-color: $sidebar-banner-background-default;
     column-gap: 0.25rem;
 
+    &__actions {
+      display: flex;
+      align-items: center;
+    }
+
     &--text {
       @include typography.use-font-scale(h5);
     }

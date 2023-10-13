@@ -44,7 +44,9 @@ export const SidebarBanner = ({
       )}
       {children}
     </div>
-    {addon}
-    {onClose && <IconButton onClick={onClose} tiny icon='cross' />}
+    <div className='rcx-sidebar-banner__actions'>
+      {addon}
+      {onClose && <IconButton onClick={onClose} tiny icon='cross' />}
+    </div>
   </div>
 );
