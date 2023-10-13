@@ -456,5 +456,15 @@ export const BannerVariations: ComponentStory<typeof SidebarBanner> = () => (
     <Divider />
     <SidebarBanner text='This is a danger banner variation' variant='danger' />
     <Divider />
+    <SidebarBanner
+      text='This is a banner with addon'
+      addon={<Icon name='warning' color='danger' size='x24' />}
+    />
+    <Divider />
+    <SidebarBanner
+      text='This is a banner with addon and onClose'
+      addon={<Icon name='warning' color='danger' size='x24' />}
+      onClose={action('click')}
+    />
   </>
 );
