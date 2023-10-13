@@ -35,7 +35,7 @@ $sidebar-color-stroke-default: theme(
 
 $sidebar-color-stroke-focus: theme(
   'sidebar-color-stroke-focus',
-  colors.stroke(medium)
+  colors.stroke(highlight)
 );
 
 $sidebar-item-color: theme('sidebar-item-color', colors.font(secondary-info));
