@@ -128,6 +128,7 @@ export const surfaceColors = {
   'surface-featured-hover': purple['800'].theme('surface-featured-hover'),
   'surface-overlay': neutral[800].theme('surface-overlay'),
   'surface-transparent': 'transparent',
+  'surface-sidebar': neutral[400].theme('surface-sidebar'),
 };
 
 type SurfaceColors = keyof typeof surfaceColors;

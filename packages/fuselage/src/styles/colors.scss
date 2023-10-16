@@ -91,6 +91,7 @@ $-surfaces: (
   featured: purple(700),
   featured-hover: purple(800),
   overlay: neutral(800),
+  sidebar: neutral(400),
 );
 
 @function surface($type) {
