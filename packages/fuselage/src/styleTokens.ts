@@ -194,15 +194,15 @@ export const color = memoize((value) => {
   }
 
   if (value === 'surface-tint') {
-    return toCSSColorValue(value, neutral.n100);
+    return toCSSColorValue(value, neutral[100]);
   }
 
   if (value === 'secondary-info') {
-    return toCSSColorValue(value, neutral.n700);
+    return toCSSColorValue(value, neutral[700]);
   }
 
   if (value === 'surface-neutral') {
-    return toCSSColorValue(value, neutral.n400);
+    return toCSSColorValue(value, neutral[400]);
   }
 
   const paletteMatches = paletteColorRegex.exec(String(value));
