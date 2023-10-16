@@ -55,18 +55,6 @@ const blue = {
   900: new Var('primary-900', tokenColors.b900),
 };
 
-// const info = {
-//   i100: new Var('info-100', tokenColors.i100),
-//   i200: new Var('info-200', tokenColors.i200),
-//   i300: new Var('info-300', tokenColors.i300),
-//   i400: new Var('info-400', tokenColors.i400),
-//   i500: new Var('info-500', tokenColors.i500),
-//   i600: new Var('info-600', tokenColors.i600),
-//   i700: new Var('info-700', tokenColors.i700),
-//   i800: new Var('info-800', tokenColors.i800),
-//   i900: new Var('info-900', tokenColors.i900),
-// };
-
 const green = {
   100: new Var('success-100', tokenColors.g100),
   200: new Var('success-200', tokenColors.g200),
