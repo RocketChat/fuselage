@@ -7,7 +7,7 @@ type RocketChatLogoProps = {
 };
 
 const RocketChatLogo = ({
-  color = colors.d400,
+  color = colors.r400,
 }: RocketChatLogoProps): ReactElement => {
   const titleId = useUniqueId();
 

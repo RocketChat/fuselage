@@ -80,12 +80,12 @@ exports[`[ToggleSwitch Rendering] renders States without crashing 1`] = `
             class="rcx-box rcx-box--full"
           />
           <th
-            class="rcx-box rcx-box--full rcx-css-3x4vxb"
+            class="rcx-box rcx-box--full rcx-css-11in3rj"
           >
             checked
           </th>
           <th
-            class="rcx-box rcx-box--full rcx-css-3x4vxb"
+            class="rcx-box rcx-box--full rcx-css-11in3rj"
           >
             unchecked
           </th>
@@ -98,7 +98,7 @@ exports[`[ToggleSwitch Rendering] renders States without crashing 1`] = `
           class="rcx-box rcx-box--full"
         >
           <th
-            class="rcx-box rcx-box--full rcx-css-3x4vxb"
+            class="rcx-box rcx-box--full rcx-css-11in3rj"
           >
             default
           </th>
@@ -150,7 +150,7 @@ exports[`[ToggleSwitch Rendering] renders States without crashing 1`] = `
           class="rcx-box rcx-box--full"
         >
           <th
-            class="rcx-box rcx-box--full rcx-css-3x4vxb"
+            class="rcx-box rcx-box--full rcx-css-11in3rj"
           >
             hover
           </th>
@@ -202,7 +202,7 @@ exports[`[ToggleSwitch Rendering] renders States without crashing 1`] = `
           class="rcx-box rcx-box--full"
         >
           <th
-            class="rcx-box rcx-box--full rcx-css-3x4vxb"
+            class="rcx-box rcx-box--full rcx-css-11in3rj"
           >
             active
           </th>
@@ -254,7 +254,7 @@ exports[`[ToggleSwitch Rendering] renders States without crashing 1`] = `
           class="rcx-box rcx-box--full"
         >
           <th
-            class="rcx-box rcx-box--full rcx-css-3x4vxb"
+            class="rcx-box rcx-box--full rcx-css-11in3rj"
           >
             focus
           </th>
@@ -306,7 +306,7 @@ exports[`[ToggleSwitch Rendering] renders States without crashing 1`] = `
           class="rcx-box rcx-box--full"
         >
           <th
-            class="rcx-box rcx-box--full rcx-css-3x4vxb"
+            class="rcx-box rcx-box--full rcx-css-11in3rj"
           >
             disabled
           </th>
