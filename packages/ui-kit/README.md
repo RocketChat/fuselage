@@ -22,16 +22,6 @@
 
 <!--install-->
 
-Firstly, install the peer dependencies (prerequisites):
-
-```sh
-npm i @rocket.chat/icons
-
-# or, if you are using yarn:
-
-yarn add @rocket.chat/icons
-```
-
 Add `@rocket.chat/ui-kit` as a dependency:
 
 ```sh

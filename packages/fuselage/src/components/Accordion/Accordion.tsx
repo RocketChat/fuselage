@@ -13,4 +13,7 @@ export function Accordion(props: AccordionProps): ReactElement<AccordionProps> {
   return <Box animated rcx-accordion {...props} />;
 }
 
+/**
+ * @deprecated use named import instead
+ */
 Accordion.Item = AccordionItem;

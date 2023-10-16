@@ -176,7 +176,7 @@ $message-highlight-colors-background-other-color: theme(
       @include typography.use-font-scale(c1);
       flex-shrink: 0;
 
-      color: colors.font(annotation);
+      color: colors.font(default);
     }
 
     &__name-container {
@@ -198,7 +198,7 @@ $message-highlight-colors-background-other-color: theme(
       @include typography.use-with-truncated-text();
       flex-shrink: 1;
 
-      color: colors.font(secondary-info);
+      color: colors.font(default);
     }
 
     &__roles {

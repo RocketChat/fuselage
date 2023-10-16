@@ -5,6 +5,9 @@ import {
   PasswordInput,
   Button,
   Box,
+  FieldLabel,
+  FieldRow,
+  FieldError,
 } from '@rocket.chat/fuselage';
 import { Form, ActionLink } from '@rocket.chat/layout';
 import type { ReactElement } from 'react';
@@ -61,32 +64,32 @@ const LoginForm = ({
       <Form.Container>
         <FieldGroup>
           <Field>
-            <Field.Label>{t('form.loginForm.fields.email.label')}</Field.Label>
-            <Field.Row>
+            <FieldLabel>{t('form.loginForm.fields.email.label')}</FieldLabel>
+            <FieldRow>
               <EmailInput
                 {...register('email', {
                   required: String(t('component.form.requiredField')),
                 })}
                 placeholder={t('form.loginForm.fields.email.placeholder')}
               />
-            </Field.Row>
-            {errors.email && <Field.Error>{errors.email.message}</Field.Error>}
+            </FieldRow>
+            {errors.email && <FieldError>{errors.email.message}</FieldError>}
           </Field>
           {!isPasswordLess && (
             <Field>
-              <Field.Label>
+              <FieldLabel>
                 {t('form.loginForm.fields.password.label')}
-              </Field.Label>
-              <Field.Row>
+              </FieldLabel>
+              <FieldRow>
                 <PasswordInput
                   {...register('password', { required: true })}
                   placeholder={t('form.loginForm.fields.password.placeholder')}
                 />
-              </Field.Row>
+              </FieldRow>
               {(formError || errors.password) && (
-                <Field.Error>
+                <FieldError>
                   {t('form.loginForm.fields.password.error')}
-                </Field.Error>
+                </FieldError>
               )}
             </Field>
           )}

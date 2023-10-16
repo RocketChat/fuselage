@@ -1,4 +1,12 @@
-import { Field, InputBox } from '@rocket.chat/fuselage';
+import {
+  Field,
+  FieldDescription,
+  FieldError,
+  FieldHint,
+  FieldLabel,
+  FieldRow,
+  InputBox,
+} from '@rocket.chat/fuselage';
 import type { Meta, Story } from '@storybook/react';
 
 import Form from '../FormPageLayout';
@@ -25,13 +33,13 @@ export const Default: Story = () => (
         </Form.Header>
         <Form.Container>
           <Field>
-            <Field.Label>Label</Field.Label>
-            <Field.Description>Description</Field.Description>
-            <Field.Row>
+            <FieldLabel>Label</FieldLabel>
+            <FieldDescription>Description</FieldDescription>
+            <FieldRow>
               <InputBox.Skeleton />
-            </Field.Row>
-            <Field.Error>Error</Field.Error>
-            <Field.Hint>Hint</Field.Hint>
+            </FieldRow>
+            <FieldError>Error</FieldError>
+            <FieldHint>Hint</FieldHint>
           </Field>
         </Form.Container>
         <Form.Footer>footer</Form.Footer>
@@ -54,121 +62,121 @@ export const WithScroll: Story = () => (
         </Form.Header>
         <Form.Container>
           <Field>
-            <Field.Label>Label</Field.Label>
-            <Field.Description>Description</Field.Description>
-            <Field.Row>
+            <FieldLabel>Label</FieldLabel>
+            <FieldDescription>Description</FieldDescription>
+            <FieldRow>
               <InputBox.Skeleton />
-            </Field.Row>
-            <Field.Error>Error</Field.Error>
-            <Field.Hint>Hint</Field.Hint>
+            </FieldRow>
+            <FieldError>Error</FieldError>
+            <FieldHint>Hint</FieldHint>
           </Field>{' '}
           <Field>
-            <Field.Label>Label</Field.Label>
-            <Field.Description>Description</Field.Description>
-            <Field.Row>
+            <FieldLabel>Label</FieldLabel>
+            <FieldDescription>Description</FieldDescription>
+            <FieldRow>
               <InputBox.Skeleton />
-            </Field.Row>
-            <Field.Error>Error</Field.Error>
-            <Field.Hint>Hint</Field.Hint>
+            </FieldRow>
+            <FieldError>Error</FieldError>
+            <FieldHint>Hint</FieldHint>
           </Field>{' '}
           <Field>
-            <Field.Label>Label</Field.Label>
-            <Field.Description>Description</Field.Description>
-            <Field.Row>
+            <FieldLabel>Label</FieldLabel>
+            <FieldDescription>Description</FieldDescription>
+            <FieldRow>
               <InputBox.Skeleton />
-            </Field.Row>
-            <Field.Error>Error</Field.Error>
-            <Field.Hint>Hint</Field.Hint>
+            </FieldRow>
+            <FieldError>Error</FieldError>
+            <FieldHint>Hint</FieldHint>
           </Field>{' '}
           <Field>
-            <Field.Label>Label</Field.Label>
-            <Field.Description>Description</Field.Description>
-            <Field.Row>
+            <FieldLabel>Label</FieldLabel>
+            <FieldDescription>Description</FieldDescription>
+            <FieldRow>
               <InputBox.Skeleton />
-            </Field.Row>
-            <Field.Error>Error</Field.Error>
-            <Field.Hint>Hint</Field.Hint>
+            </FieldRow>
+            <FieldError>Error</FieldError>
+            <FieldHint>Hint</FieldHint>
           </Field>{' '}
           <Field>
-            <Field.Label>Label</Field.Label>
-            <Field.Description>Description</Field.Description>
-            <Field.Row>
+            <FieldLabel>Label</FieldLabel>
+            <FieldDescription>Description</FieldDescription>
+            <FieldRow>
               <InputBox.Skeleton />
-            </Field.Row>
-            <Field.Error>Error</Field.Error>
-            <Field.Hint>Hint</Field.Hint>
+            </FieldRow>
+            <FieldError>Error</FieldError>
+            <FieldHint>Hint</FieldHint>
           </Field>{' '}
           <Field>
-            <Field.Label>Label</Field.Label>
-            <Field.Description>Description</Field.Description>
-            <Field.Row>
+            <FieldLabel>Label</FieldLabel>
+            <FieldDescription>Description</FieldDescription>
+            <FieldRow>
               <InputBox.Skeleton />
-            </Field.Row>
-            <Field.Error>Error</Field.Error>
-            <Field.Hint>Hint</Field.Hint>
+            </FieldRow>
+            <FieldError>Error</FieldError>
+            <FieldHint>Hint</FieldHint>
           </Field>{' '}
           <Field>
-            <Field.Label>Label</Field.Label>
-            <Field.Description>Description</Field.Description>
-            <Field.Row>
+            <FieldLabel>Label</FieldLabel>
+            <FieldDescription>Description</FieldDescription>
+            <FieldRow>
               <InputBox.Skeleton />
-            </Field.Row>
-            <Field.Error>Error</Field.Error>
-            <Field.Hint>Hint</Field.Hint>
+            </FieldRow>
+            <FieldError>Error</FieldError>
+            <FieldHint>Hint</FieldHint>
           </Field>{' '}
           <Field>
-            <Field.Label>Label</Field.Label>
-            <Field.Description>Description</Field.Description>
-            <Field.Row>
+            <FieldLabel>Label</FieldLabel>
+            <FieldDescription>Description</FieldDescription>
+            <FieldRow>
               <InputBox.Skeleton />
-            </Field.Row>
-            <Field.Error>Error</Field.Error>
-            <Field.Hint>Hint</Field.Hint>
+            </FieldRow>
+            <FieldError>Error</FieldError>
+            <FieldHint>Hint</FieldHint>
           </Field>{' '}
           <Field>
-            <Field.Label>Label</Field.Label>
-            <Field.Description>Description</Field.Description>
-            <Field.Row>
+            <FieldLabel>Label</FieldLabel>
+            <FieldDescription>Description</FieldDescription>
+            <FieldRow>
               <InputBox.Skeleton />
-            </Field.Row>
-            <Field.Error>Error</Field.Error>
-            <Field.Hint>Hint</Field.Hint>
+            </FieldRow>
+            <FieldError>Error</FieldError>
+            <FieldHint>Hint</FieldHint>
           </Field>{' '}
           <Field>
-            <Field.Label>Label</Field.Label>
-            <Field.Description>Description</Field.Description>
-            <Field.Row>
+            <FieldLabel>Label</FieldLabel>
+            <FieldDescription>Description</FieldDescription>
+            <FieldRow>
               <InputBox.Skeleton />
-            </Field.Row>
-            <Field.Error>Error</Field.Error>
-            <Field.Hint>Hint</Field.Hint>
+            </FieldRow>
+            <FieldError>Error</FieldError>
+            <FieldHint>Hint</FieldHint>
           </Field>{' '}
           <Field>
-            <Field.Label>Label</Field.Label>
-            <Field.Description>Description</Field.Description>
-            <Field.Row>
+            <FieldLabel>Label</FieldLabel>
+            <FieldDescription>Description</FieldDescription>
+            <FieldRow>
               <InputBox.Skeleton />
-            </Field.Row>
-            <Field.Error>Error</Field.Error>
-            <Field.Hint>Hint</Field.Hint>
+            </FieldRow>
+            <FieldError>Error</FieldError>
+            <FieldHint>Hint</FieldHint>
           </Field>{' '}
           <Field>
-            <Field.Label>Label</Field.Label>
-            <Field.Description>Description</Field.Description>
-            <Field.Row>
+            <FieldLabel>Label</FieldLabel>
+            <FieldDescription>Description</FieldDescription>
+            <FieldRow>
               <InputBox.Skeleton />
-            </Field.Row>
-            <Field.Error>Error</Field.Error>
-            <Field.Hint>Hint</Field.Hint>
+            </FieldRow>
+            <FieldError>Error</FieldError>
+            <FieldHint>Hint</FieldHint>
           </Field>{' '}
           <Field>
-            <Field.Label>Label</Field.Label>
-            <Field.Description>Description</Field.Description>
-            <Field.Row>
+            <FieldLabel>Label</FieldLabel>
+            <FieldDescription>Description</FieldDescription>
+            <FieldRow>
               <InputBox.Skeleton />
-            </Field.Row>
-            <Field.Error>Error</Field.Error>
-            <Field.Hint>Hint</Field.Hint>
+            </FieldRow>
+            <FieldError>Error</FieldError>
+            <FieldHint>Hint</FieldHint>
           </Field>
         </Form.Container>
         <Form.Footer>footer</Form.Footer>

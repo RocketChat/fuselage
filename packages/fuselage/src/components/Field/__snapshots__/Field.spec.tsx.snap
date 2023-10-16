@@ -1,0 +1,325 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[Field Component] renders Default without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-field"
+    >
+      <label
+        class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-field__label"
+      >
+        Label
+      </label>
+      <span
+        class="rcx-box rcx-box--full rcx-field__description"
+      >
+        Description
+      </span>
+      <span
+        class="rcx-box rcx-box--full rcx-field__row"
+      >
+        <div
+          class="rcx-box rcx-box--full rcx-skeleton__input"
+        >
+          <span
+            class="rcx-box rcx-box--full rcx-skeleton--text rcx-skeleton rcx-css-1qcz93u"
+          />
+        </div>
+      </span>
+      <span
+        class="rcx-box rcx-box--full rcx-field__error"
+      >
+        Error
+      </span>
+      <span
+        class="rcx-box rcx-box--full rcx-field__hint"
+      >
+        Hint
+      </span>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`[Field Component] renders WithCheckBox without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-field"
+    >
+      <span
+        class="rcx-box rcx-box--full rcx-field__row"
+      >
+        <label
+          class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-check-box"
+        >
+          <input
+            class="rcx-box rcx-box--full rcx-check-box__input"
+            id="check-box"
+            type="checkbox"
+          />
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-check-box__fake"
+          />
+        </label>
+        <label
+          class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-field__label"
+          for="check-box"
+        >
+          Label
+        </label>
+      </span>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`[Field Component] renders WithDescription without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-field"
+    >
+      <label
+        class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-field__label"
+      >
+        Label
+      </label>
+      <span
+        class="rcx-box rcx-box--full rcx-field__description"
+      >
+        Descriptions should add useful and relevant additional information about what is required of the user for the related input. Its content is strictly composed by plain text.
+      </span>
+      <span
+        class="rcx-box rcx-box--full rcx-field__row"
+      >
+        <div
+          class="rcx-box rcx-box--full rcx-skeleton__input"
+        >
+          <span
+            class="rcx-box rcx-box--full rcx-skeleton--text rcx-skeleton rcx-css-1qcz93u"
+          />
+        </div>
+      </span>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`[Field Component] renders WithError without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-field"
+    >
+      <label
+        class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-field__label"
+      >
+        Label
+      </label>
+      <span
+        class="rcx-box rcx-box--full rcx-field__row"
+      >
+        <div
+          class="rcx-box rcx-box--full rcx-skeleton__input"
+        >
+          <span
+            class="rcx-box rcx-box--full rcx-skeleton--text rcx-skeleton rcx-css-1qcz93u"
+          />
+        </div>
+      </span>
+      <span
+        class="rcx-box rcx-box--full rcx-field__error"
+      >
+        Error text appears when the user has inputted an invalid response to a field and let's the user know exactly what the issue is, so as to let them remedy the error as easily as possible.
+      </span>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`[Field Component] renders WithHint without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-field"
+    >
+      <label
+        class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-field__label"
+      >
+        Label
+      </label>
+      <span
+        class="rcx-box rcx-box--full rcx-field__row"
+      >
+        <div
+          class="rcx-box rcx-box--full rcx-skeleton__input"
+        >
+          <span
+            class="rcx-box rcx-box--full rcx-skeleton--text rcx-skeleton rcx-css-1qcz93u"
+          />
+        </div>
+      </span>
+      <span
+        class="rcx-box rcx-box--full rcx-field__hint"
+      >
+        Hint fields help by explaining technical terms or concepts related to third-party apps and integrations.
+      </span>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`[Field Component] renders WithHintAndError without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-field"
+    >
+      <label
+        class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-field__label"
+      >
+        Label
+      </label>
+      <span
+        class="rcx-box rcx-box--full rcx-field__row"
+      >
+        <div
+          class="rcx-box rcx-box--full rcx-skeleton__input"
+        >
+          <span
+            class="rcx-box rcx-box--full rcx-skeleton--text rcx-skeleton rcx-css-1qcz93u"
+          />
+        </div>
+      </span>
+      <span
+        class="rcx-box rcx-box--full rcx-field__error"
+      >
+        Error must be above.
+      </span>
+      <span
+        class="rcx-box rcx-box--full rcx-field__hint"
+      >
+        Hint must be below.
+      </span>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`[Field Component] renders WithHintAndLink without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-field"
+    >
+      <label
+        class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-field__label"
+      >
+        Label
+      </label>
+      <span
+        class="rcx-box rcx-box--full rcx-field__row"
+      >
+        <div
+          class="rcx-box rcx-box--full rcx-skeleton__input"
+        >
+          <span
+            class="rcx-box rcx-box--full rcx-skeleton--text rcx-skeleton rcx-css-1qcz93u"
+          />
+        </div>
+      </span>
+      <span
+        class="rcx-box rcx-box--full rcx-field__row rcx-css-rzpqmp"
+      >
+        <span
+          class="rcx-box rcx-box--full rcx-field__hint"
+        >
+          Same line as Link in the left
+        </span>
+        <a
+          class="rcx-box rcx-box--full rcx-field__link"
+          href="#"
+          target="_blank"
+        >
+          Same line as Hint in the right
+        </a>
+      </span>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`[Field Component] renders WithLink without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-field"
+    >
+      <label
+        class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-field__label"
+      >
+        Label
+      </label>
+      <span
+        class="rcx-box rcx-box--full rcx-field__row"
+      >
+        <div
+          class="rcx-box rcx-box--full rcx-skeleton__input"
+        >
+          <span
+            class="rcx-box rcx-box--full rcx-skeleton--text rcx-skeleton rcx-css-1qcz93u"
+          />
+        </div>
+      </span>
+      <span
+        class="rcx-box rcx-box--full rcx-field__row rcx-css-17mu816"
+      >
+        <a
+          class="rcx-box rcx-box--full rcx-field__link"
+          href="#"
+          target="_blank"
+        >
+          Link is used for external resources or documentation.
+        </a>
+      </span>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`[Field Component] renders WithToggleSwitch without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-field"
+    >
+      <span
+        class="rcx-box rcx-box--full rcx-field__row"
+      >
+        <label
+          class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-toggle-switch"
+        >
+          <input
+            class="rcx-box rcx-box--full rcx-toggle-switch__input"
+            id="toggle-switch"
+            type="checkbox"
+          />
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-toggle-switch__fake"
+          />
+        </label>
+        <label
+          class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-field__label"
+          for="toggle-switch"
+        >
+          Label
+        </label>
+      </span>
+    </div>
+  </div>
+</body>
+`;

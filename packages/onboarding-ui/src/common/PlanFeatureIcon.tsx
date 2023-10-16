@@ -8,7 +8,7 @@ const PlanFeatureIcon = ({ color }: { color: string }): ReactElement => (
     fill='none'
     xmlns='http://www.w3.org/2000/svg'
   >
-    <path d='M1 7L5 11L15 1' stroke={color} stroke-width='2' />
+    <path d='M1 7L5 11L15 1' stroke={color} strokeWidth='2' />
   </svg>
 );
 

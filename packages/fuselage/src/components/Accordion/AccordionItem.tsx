@@ -126,7 +126,6 @@ export const AccordionItem = function Item({
         rcx-accordion-item__panel
         rcx-accordion-item__panel--expanded={panelExpanded}
         id={panelId}
-        role='region'
       >
         {children}
       </Box>

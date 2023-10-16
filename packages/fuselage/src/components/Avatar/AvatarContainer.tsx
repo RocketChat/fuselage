@@ -20,7 +20,6 @@ export type AvatarContainerProps = {
 } & HTMLAttributes<HTMLElement>;
 
 export const AvatarContainer = ({
-  title,
   size = 'x36',
   children,
   ...props
@@ -32,9 +31,5 @@ export const AvatarContainer = ({
       .join(' ')
   );
 
-  return (
-    <figure aria-label={title} {...props}>
-      {children}
-    </figure>
-  );
+  return <figure {...props}>{children}</figure>;
 };

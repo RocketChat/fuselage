@@ -4,17 +4,14 @@
 
 $tabs-background-color: theme('tabs-background-color', transparent);
 $tabs-border-color: theme('tabs-border-color', transparent);
-$tabs-color: theme('tabs-color', colors.font(annotation));
+$tabs-color: theme('tabs-color', colors.font(hint));
 
-$tabs-hover-color: theme('tabs-hover-border-color', colors.font(hint));
+$tabs-hover-color: theme('tabs-hover-border-color', colors.font(default));
 
-$tabs-selected-color: theme(
-  'tabs-selected-color',
-  colors.button(primary-default)
-);
+$tabs-selected-color: theme('tabs-selected-color', colors.font(info));
 $tabs-selected-border-color: theme(
   'tabs-selected-border-color',
-  colors.stroke(highlight)
+  colors.font(info)
 );
 $tabs-hover-selected-color: theme(
   'tabs-hover-selected-color',

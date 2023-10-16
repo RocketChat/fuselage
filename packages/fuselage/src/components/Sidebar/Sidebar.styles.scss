@@ -35,7 +35,7 @@ $sidebar-color-stroke-default: theme(
 
 $sidebar-color-stroke-focus: theme(
   'sidebar-color-stroke-focus',
-  colors.stroke(medium)
+  colors.stroke(highlight)
 );
 
 $sidebar-item-color: theme('sidebar-item-color', colors.font(secondary-info));
@@ -49,7 +49,7 @@ $sidebar-item-background-color-hover: theme(
 );
 $sidebar-item-color-hover: theme(
   'sidebar-item-color-hover',
-  colors.font(annotation)
+  colors.font(hover)
 );
 $sidebar-item-color-focus: theme(
   'sidebar-item-color-focus',
@@ -99,7 +99,7 @@ $sidebar-banner-background-default: theme(
 );
 $sidebar-banner-color-default: theme(
   'sidebar-banner-color-default',
-  colors.font(default)
+  colors.font(titles-labels)
 );
 
 $sidebar-banner-background-info: theme(
@@ -206,14 +206,18 @@ $sidebar-banner-color-danger: theme(
     padding-block: lengths.padding(4);
     padding-inline: lengths.padding(16);
 
+    text-decoration: none;
+
     color: $sidebar-color-font-default;
+
+    border: 2px solid transparent;
 
     &__wrapper {
       @extend %sidebar-base;
       @include typography.use-with-truncated-text();
       flex: 1 0;
 
-      margin-inline: lengths.margin(-2);
+      margin-inline: lengths.margin(-4);
     }
 
     &--clickable {
@@ -221,13 +225,11 @@ $sidebar-banner-color-danger: theme(
 
       @include on-hover {
         @include use-no-shadow;
-        // color: $sidebar-item-color-hover;
         background-color: $sidebar-color-surface-hover;
       }
 
       @include on-focus-visible {
-        border: 1px solid $sidebar-color-stroke-focus;
-        // @include use-focus-shadow-inset($sidebar-item-color-focus);
+        border: 2px solid $sidebar-color-stroke-focus;
       }
     }
 
@@ -365,6 +367,12 @@ $sidebar-banner-color-danger: theme(
 
     color: $sidebar-banner-color-default;
     background-color: $sidebar-banner-background-default;
+    column-gap: 0.25rem;
+
+    &__actions {
+      display: flex;
+      align-items: center;
+    }
 
     &--text {
       @include typography.use-font-scale(h5);
@@ -372,10 +380,13 @@ $sidebar-banner-color-danger: theme(
 
     &--description {
       @include typography.use-font-scale(p2m);
+      display: inline-block;
+
       color: currentColor;
 
       &--clickable {
         cursor: pointer;
+        border-block-end: lengths.border-width(default) solid;
       }
     }
 

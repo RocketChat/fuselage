@@ -25,7 +25,7 @@ export function PropsVariationSection<TComponent extends ComponentType<any>>({
     >
       <Box is='thead'>
         <Box is='tr'>
-          <Box is='th' />
+          <Box is='td' aria-hidden />
           {Object.keys(xAxis).map((xVariation, key) => (
             <Box key={key} is='th' color='hint' fontScale='c1'>
               {xVariation}
@@ -119,6 +119,9 @@ v/L21v8BT/ZVoe1UItsAAAAASUVORK5CYII=`;
 
 export const blankAvatar = `data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BA
 AAAAAALAAAAAABAAEAAAICRAEAOw==`;
+
+export const DECORATOR_ID = 'decoratorId';
+export const DECORATOR_LABEL = 'Decorator Label';
 
 export const menuOptions = {
   makeAdmin: {

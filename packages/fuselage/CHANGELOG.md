@@ -1,5 +1,97 @@
 # Change Log
 
+## 0.34.0
+
+### Minor Changes
+
+- [#1196](https://github.com/RocketChat/fuselage/pull/1196) [`a1c679732`](https://github.com/RocketChat/fuselage/commit/a1c67973288a3383332639a5d49c7fce12c94b5e) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage): change `SidebarItem` focus color
+
+- [#1194](https://github.com/RocketChat/fuselage/pull/1194) [`34e442115`](https://github.com/RocketChat/fuselage/commit/34e442115f34da3f5843d48ffe711766074f707c) Thanks [@dougfabris](https://github.com/dougfabris)! - feat(fuselage): `Callout` visual changes
+
+- [#1190](https://github.com/RocketChat/fuselage/pull/1190) [`c2afab784`](https://github.com/RocketChat/fuselage/commit/c2afab78473f2068d695a3d7f018531b5b7fb058) Thanks [@aleksandernsilva](https://github.com/aleksandernsilva)! - Added a new property "addon" and updated colors from grey to white.
+
+- [#1195](https://github.com/RocketChat/fuselage/pull/1195) [`9ce0dd4fb`](https://github.com/RocketChat/fuselage/commit/9ce0dd4fb871812673efac7f7bd29395f6e4ef70) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage): option to use `Tag` as link
+
+### Patch Changes
+
+- [#1191](https://github.com/RocketChat/fuselage/pull/1191) [`44f851599`](https://github.com/RocketChat/fuselage/commit/44f85159922eb514e3c9a5400c22071b7d8ed5e8) Thanks [@dougfabris](https://github.com/dougfabris)! - feat(fuselage): `ContextualbarAction` size
+
+- [#1193](https://github.com/RocketChat/fuselage/pull/1193) [`6df7d7abf`](https://github.com/RocketChat/fuselage/commit/6df7d7abf63e522c92bd4004f05d49135aa09b33) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): Remove underline prevention on anchor elements
+
+## 0.33.0
+
+### Minor Changes
+
+- [#1186](https://github.com/RocketChat/fuselage/pull/1186) [`8f2c2adeb`](https://github.com/RocketChat/fuselage/commit/8f2c2adebc54a7a211cacae9fdbbb3d28d75ece0) Thanks [@juliajforesti](https://github.com/juliajforesti)! - chore(fuselage): change button focus shadow colors
+
+### Patch Changes
+
+- [#1179](https://github.com/RocketChat/fuselage/pull/1179) [`5f60cfd3c`](https://github.com/RocketChat/fuselage/commit/5f60cfd3c67e5c3d77cfc54c9b4f1e273ca2a135) Thanks [@aleksandernsilva](https://github.com/aleksandernsilva)! - Fixed tooltip not being displayed on `PaginatedSelect` options
+
+## 0.32.2
+
+### Patch Changes
+
+- [#1173](https://github.com/RocketChat/fuselage/pull/1173) [`dfe36764d`](https://github.com/RocketChat/fuselage/commit/dfe36764decaa54a6044102d7e0df18f4b343b7c) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): improve focus state color
+
+- [#1178](https://github.com/RocketChat/fuselage/pull/1178) [`0a104a02e`](https://github.com/RocketChat/fuselage/commit/0a104a02e50a4bb3218b1c54c74ac38ae9489498) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): className prop drilling improvements on `CheckBox`, `ToggleSwitch` and `RadioButton`
+
+## 0.32.1
+
+### Patch Changes
+
+- [#1169](https://github.com/RocketChat/fuselage/pull/1169) [`2c25e7575`](https://github.com/RocketChat/fuselage/commit/2c25e7575c76c44db33a63c17c437b09ab286d19) Thanks [@tassoevan](https://github.com/tassoevan)! - Memory leak in `PaginatedMultiSelect`
+
+- [`a97c7f086`](https://github.com/RocketChat/fuselage/commit/a97c7f08633e6e36a39c8933b530f9acacb83af0) Thanks [@dougfabris](https://github.com/dougfabris)! - chore: resolve-workspace-deps to publish pkg versions
+
+- [`387c4016c`](https://github.com/RocketChat/fuselage/commit/387c4016cd91163da3e8add47aeca34f4e17f3c3) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): RadioButton a11y best practices improvement
+
+- [#1168](https://github.com/RocketChat/fuselage/pull/1168) [`0ce79189d`](https://github.com/RocketChat/fuselage/commit/0ce79189d4e112d963f0d7650f7864f26539c063) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): AutoComplete a11y best practices improvement
+
+## 0.32.0
+
+### Minor Changes
+
+- [`a04f9089d`](https://github.com/RocketChat/fuselage/commit/a04f9089d19ba32d2b2e80738d2d5f4dac0d3e0c) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): Field deprecation message
+
+- [`a04f9089d`](https://github.com/RocketChat/fuselage/commit/a04f9089d19ba32d2b2e80738d2d5f4dac0d3e0c) Thanks [@dougfabris](https://github.com/dougfabris)! - chore(fuselage): Button size
+
+- [`a04f9089d`](https://github.com/RocketChat/fuselage/commit/a04f9089d19ba32d2b2e80738d2d5f4dac0d3e0c) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): OptionInput margins and alignment
+
+- [`a04f9089d`](https://github.com/RocketChat/fuselage/commit/a04f9089d19ba32d2b2e80738d2d5f4dac0d3e0c) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): AudioPlayer: Infinity duration audio files crashing
+
+- [`a04f9089d`](https://github.com/RocketChat/fuselage/commit/a04f9089d19ba32d2b2e80738d2d5f4dac0d3e0c) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): css theme
+
+- [`a04f9089d`](https://github.com/RocketChat/fuselage/commit/a04f9089d19ba32d2b2e80738d2d5f4dac0d3e0c) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): MessageReactionAction icon size
+
+- [`a04f9089d`](https://github.com/RocketChat/fuselage/commit/a04f9089d19ba32d2b2e80738d2d5f4dac0d3e0c) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): prevent button-disabled click animation
+
+- [`a04f9089d`](https://github.com/RocketChat/fuselage/commit/a04f9089d19ba32d2b2e80738d2d5f4dac0d3e0c) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): IconButton with badge click-animation
+
+- [`a04f9089d`](https://github.com/RocketChat/fuselage/commit/a04f9089d19ba32d2b2e80738d2d5f4dac0d3e0c) Thanks [@dougfabris](https://github.com/dougfabris)! - chore(fuselage): change FieldLabel typography
+
+- [`a04f9089d`](https://github.com/RocketChat/fuselage/commit/a04f9089d19ba32d2b2e80738d2d5f4dac0d3e0c) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): Remove unnecessary aria-label fallback in `IconButton
+
+- [`a04f9089d`](https://github.com/RocketChat/fuselage/commit/a04f9089d19ba32d2b2e80738d2d5f4dac0d3e0c) Thanks [@dougfabris](https://github.com/dougfabris)! - chore(fuselage): ToggleSwitch best practices adjustments
+
+- [`a04f9089d`](https://github.com/RocketChat/fuselage/commit/a04f9089d19ba32d2b2e80738d2d5f4dac0d3e0c) Thanks [@dougfabris](https://github.com/dougfabris)! - chore(fuselage): Modal a11y improvements
+
+- [`a04f9089d`](https://github.com/RocketChat/fuselage/commit/a04f9089d19ba32d2b2e80738d2d5f4dac0d3e0c) Thanks [@dougfabris](https://github.com/dougfabris)! - chore(fuselage): Table background-color
+
+- [`a04f9089d`](https://github.com/RocketChat/fuselage/commit/a04f9089d19ba32d2b2e80738d2d5f4dac0d3e0c) Thanks [@dougfabris](https://github.com/dougfabris)! - chore(fuselage): color a11y report changes
+
+- [`a04f9089d`](https://github.com/RocketChat/fuselage/commit/a04f9089d19ba32d2b2e80738d2d5f4dac0d3e0c) Thanks [@dougfabris](https://github.com/dougfabris)! - chore(fuselage): button click animation
+
+- [`a04f9089d`](https://github.com/RocketChat/fuselage/commit/a04f9089d19ba32d2b2e80738d2d5f4dac0d3e0c) Thanks [@dougfabris](https://github.com/dougfabris)! - chore(fuselage): Checkbox best practices adjustments
+
+- [`a04f9089d`](https://github.com/RocketChat/fuselage/commit/a04f9089d19ba32d2b2e80738d2d5f4dac0d3e0c) Thanks [@dougfabris](https://github.com/dougfabris)! - chore(fuselage): Fix Accordion a11y
+
+- [`a04f9089d`](https://github.com/RocketChat/fuselage/commit/a04f9089d19ba32d2b2e80738d2d5f4dac0d3e0c) Thanks [@dougfabris](https://github.com/dougfabris)! - chore(fuselage): Avatar a11y improvements
+
+- [`a04f9089d`](https://github.com/RocketChat/fuselage/commit/a04f9089d19ba32d2b2e80738d2d5f4dac0d3e0c) Thanks [@dougfabris](https://github.com/dougfabris)! - chore(fuselage): Prop to keep MessageToolbox visible.
+
+- [`a04f9089d`](https://github.com/RocketChat/fuselage/commit/a04f9089d19ba32d2b2e80738d2d5f4dac0d3e0c) Thanks [@dougfabris](https://github.com/dougfabris)! - chore(fuselage): Field & Label best practices adjustments
+
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 

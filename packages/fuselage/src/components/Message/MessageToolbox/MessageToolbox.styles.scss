@@ -17,7 +17,12 @@
   background: colors.surface(room);
 
   &__wrapper {
-    @include mixins.visible-on-hover();
+    display: none;
+
+    @at-root .rcx-message:hover &,
+      &--visible {
+      display: inline-block;
+    }
   }
 
   @at-root .rcx-message & {

@@ -42,5 +42,9 @@
     color: map.get($colors, disabled-color);
     border-color: map.get($colors, disabled-border-color);
     background-color: map.get($colors, disabled-background-color);
+
+    * {
+      transform: none !important;
+    }
   }
 }
