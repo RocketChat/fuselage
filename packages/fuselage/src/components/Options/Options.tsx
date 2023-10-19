@@ -35,10 +35,11 @@ type OptionsProps = Omit<ComponentProps<typeof Box>, 'onSelect'> & {
   multiple?: boolean;
   options: OptionType[];
   cursor: number;
+  withTitle?: boolean;
+  customEmpty?: string;
   renderItem?: ElementType;
   renderEmpty?: ElementType;
   onSelect: (option: OptionType) => void;
-  customEmpty?: string;
 };
 
 export const Empty = memo(({ customEmpty }: { customEmpty: string }) => (
@@ -56,6 +57,7 @@ export const Options = forwardRef(
       renderItem: OptionComponent = Option,
       onSelect,
       customEmpty,
+      withTitle,
       ...props
     }: OptionsProps,
     ref: Ref<HTMLElement>
@@ -93,6 +95,7 @@ export const Options = forwardRef(
                 <OptionComponent
                   role='option'
                   label={label}
+                  {...(withTitle && { title: label })}
                   onMouseDown={(e: SyntheticEvent) => {
                     if (disabled) {
                       return;

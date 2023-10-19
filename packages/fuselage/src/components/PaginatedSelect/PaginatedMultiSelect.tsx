@@ -183,6 +183,7 @@ const PaginatedMultiSelect = ({
       <AnimatedVisibility visibility={visible}>
         <Position anchor={containerRef}>
           <OptionsComponent
+            withTitle={withTitle}
             width={borderBoxSize.inlineSize}
             onMouseDown={prevent}
             multiple

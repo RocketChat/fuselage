@@ -40,6 +40,7 @@ type MultiSelectProps = Omit<
   getLabel?: (params: SelectOption) => SelectOption[1];
   getValue?: (params: SelectOption) => SelectOption[0];
   customEmpty?: string;
+  withTitle?: boolean;
   anchor?:
     | ElementType<MultiSelectAnchorParams>
     | ((params: MultiSelectAnchorParams) => ReactNode);
@@ -69,6 +70,7 @@ export const MultiSelect = forwardRef(
       customEmpty,
       renderSelected: RenderSelected,
       addonIcon,
+      withTitle = false,
       ...props
     }: MultiSelectProps,
     ref: Ref<HTMLInputElement>
@@ -237,6 +239,7 @@ export const MultiSelect = forwardRef(
         <AnimatedVisibility visibility={visible}>
           <Position anchor={containerRef}>
             <_Options
+              withTitle={withTitle}
               width={borderBoxSize.inlineSize}
               onMouseDown={prevent}
               multiple
