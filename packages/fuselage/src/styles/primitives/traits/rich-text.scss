@@ -41,7 +41,7 @@
 
     &:active,
     &.is-active {
-      color: colors.status-font(on-danger);
+      color: colors.font(info);
     }
 
     &:hover,
