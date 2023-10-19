@@ -1,5 +1,22 @@
 # Change Log
 
+## 0.35.0
+
+### Minor Changes
+
+- [#1199](https://github.com/RocketChat/fuselage/pull/1199) [`2b4f0079c`](https://github.com/RocketChat/fuselage/commit/2b4f0079cae052e21a2000fb40922dc37e0aabdb) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage): change `link:active` color
+
+- [#1128](https://github.com/RocketChat/fuselage/pull/1128) [`6db5cb214`](https://github.com/RocketChat/fuselage/commit/6db5cb2141bf42c9622c5846701e5b26392a1ada) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage, fuselage-tokens): Update primitive tokens
+
+- [#1203](https://github.com/RocketChat/fuselage/pull/1203) [`da8cf6a97`](https://github.com/RocketChat/fuselage/commit/da8cf6a97c89263c020198e0c01aba27f57941d4) Thanks [@aleksandernsilva](https://github.com/aleksandernsilva)! - feat(fuselage): Add `renderItem` prop to the `PaginatedMultiSelect` component
+
+### Patch Changes
+
+- [#1202](https://github.com/RocketChat/fuselage/pull/1202) [`a7ec3d9d3`](https://github.com/RocketChat/fuselage/commit/a7ec3d9d301a4092f6524337d88857d0c3372009) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): `SidebarItem` margins
+
+- Updated dependencies [[`6db5cb214`](https://github.com/RocketChat/fuselage/commit/6db5cb2141bf42c9622c5846701e5b26392a1ada)]:
+  - @rocket.chat/fuselage-tokens@0.32.0
+
 ## 0.34.0
 
 ### Minor Changes
