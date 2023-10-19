@@ -16,6 +16,7 @@ import Chip from '../Chip';
 import Flex from '../Flex';
 import { Icon } from '../Icon';
 import Margins from '../Margins';
+import Option from '../Option';
 import { useVisible } from '../Options/useVisible';
 import { OptionsPaginated } from '../OptionsPaginated';
 import Position from '../Position';
@@ -41,6 +42,7 @@ type PaginatedMultiSelectProps = Omit<
   renderOptions?: (
     props: ComponentProps<typeof OptionsPaginated>
   ) => ReactElement | null;
+  renderItem?: (props: ComponentProps<typeof Option>) => ReactElement | null;
   anchor?: any;
 };
 
@@ -55,6 +57,7 @@ const PaginatedMultiSelect = ({
   onChange = () => {},
   placeholder,
   renderOptions: OptionsComponent = OptionsPaginated,
+  renderItem = Option,
   endReached,
   ...props
 }: PaginatedMultiSelectProps) => {
@@ -191,6 +194,7 @@ const PaginatedMultiSelect = ({
             options={options}
             cursor={-1}
             endReached={endReached}
+            renderItem={renderItem}
             onSelect={([value]) => {
               toggleOption(value);
             }}
