@@ -202,6 +202,7 @@ $sidebar-banner-color-danger: theme(
   &-item {
     @extend %sidebar-base;
     @include highlighted;
+    margin-inline: lengths.margin(-2);
 
     padding-block: lengths.padding(4);
     padding-inline: lengths.padding(16);
@@ -217,7 +218,7 @@ $sidebar-banner-color-danger: theme(
       @include typography.use-with-truncated-text();
       flex: 1 0;
 
-      margin-inline: lengths.margin(-4);
+      margin-inline: lengths.margin(-2);
     }
 
     &--clickable {
