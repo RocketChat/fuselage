@@ -1,5 +1,5 @@
 ---
-"@rocket.chat/fuselage": patch
+"@rocket.chat/fuselage": minor
 ---
 
-Added property `renderItem` to the PaginatedMultiSelect component
+Add `renderItem` prop to the `PaginatedMultiSelect` component
