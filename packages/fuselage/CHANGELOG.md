@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.36.0
+
+### Minor Changes
+
+- [#1198](https://github.com/RocketChat/fuselage/pull/1198) [`e64ef6805`](https://github.com/RocketChat/fuselage/commit/e64ef680517a69d4d370c008698a470002960916) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage): New `surface-sidebar` token
+
 ## 0.35.0
 
 ### Minor Changes
