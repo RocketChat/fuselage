@@ -260,7 +260,7 @@
       "title": "Awaiting confirmation",
       "content": {
         "securityCode": "Security code",
-        "sentEmail": "Email sent to <1>{{email}}</1> with a confirmation link.Please verify that the security code below matches the one in the email."
+        "sentEmail": "Email sent to <1>{{emailAddress}}</1> with a confirmation link.Please verify that the security code below matches the one in the email."
       }
     },
     "loginForm": {
