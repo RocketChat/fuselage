@@ -19,7 +19,7 @@ $callout-danger-color: theme(
   'callout-danger-color',
   colors.status-font(on-danger)
 );
-$callout-text-color: theme('callout-text-color', colors.font(pure-black));
+$callout-text-color: theme('callout-text-color', colors.font(default));
 
 .rcx-callout {
   display: flex;
