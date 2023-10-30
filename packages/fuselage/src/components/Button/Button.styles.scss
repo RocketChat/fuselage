@@ -65,6 +65,12 @@
 
   @include button.kind-variant(colors.$secondary);
 
+  &--loading {
+    .rcx-icon--name-loading {
+      animation: spin-animation 0.8s linear infinite;
+    }
+  }
+
   &--small {
     @include typography.use-font-scale(c2);
 
@@ -198,5 +204,15 @@
 
   &--secondary-success {
     @include button.kind-variant(colors.$secondary-success);
+  }
+}
+
+@keyframes spin-animation {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
   }
 }
