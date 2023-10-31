@@ -1,5 +1,15 @@
 # Change Log
 
+## 0.37.0
+
+### Minor Changes
+
+- [#1205](https://github.com/RocketChat/fuselage/pull/1205) [`5a6d05c30`](https://github.com/RocketChat/fuselage/commit/5a6d05c3005cfe24b04b3511bbe945d23de0a6b1) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage): add loading state to `Button`
+
+### Patch Changes
+
+- [#1206](https://github.com/RocketChat/fuselage/pull/1206) [`ec378a6bc`](https://github.com/RocketChat/fuselage/commit/ec378a6bc40cc2d209d753a2fbb05b1f814ca2f0) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): change `Callout` text color
+
 ## 0.36.0
 
 ### Minor Changes
