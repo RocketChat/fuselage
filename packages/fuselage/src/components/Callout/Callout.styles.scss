@@ -2,6 +2,10 @@
 @use '../../styles/lengths.scss';
 @use '../../styles/typography.scss';
 
+$callout-background-color: theme(
+  'callout-background-color',
+  colors.surface(light)
+);
 $callout-default-color: theme(
   'callout-default-color',
   colors.font(secondary-info)
@@ -33,6 +37,8 @@ $callout-text-color: theme('callout-text-color', colors.font(default));
   border-color: $callout-default-color;
 
   border-radius: theme('callout-border-radius', lengths.border-radius(medium));
+
+  background-color: $callout-background-color;
 
   &--info {
     border-color: $callout-info-color;
