@@ -5,7 +5,6 @@ import {
   Field,
   EmailInput,
   CheckBox,
-  Icon,
   FieldLabel,
   FieldRow,
   FieldError,
@@ -107,14 +106,6 @@ const RegisterServerForm = ({
                 htmlFor={emailField}
               >
                 {t('form.registeredServerForm.fields.accountEmail.inputLabel')}
-                <Icon
-                  title={t(
-                    'form.registeredServerForm.fields.accountEmail.tooltipLabel'
-                  )}
-                  mis={4}
-                  size='x16'
-                  name='info'
-                />
               </FieldLabel>
               <FieldRow>
                 <Controller
