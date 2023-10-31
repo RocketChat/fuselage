@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.37.1
+
+### Patch Changes
+
+- [#1210](https://github.com/RocketChat/fuselage/pull/1210) [`a95b2f7b3`](https://github.com/RocketChat/fuselage/commit/a95b2f7b3ed2fa7cc325898dbf8555e1976dc308) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): add `Callout` missing background-color
+
 ## 0.37.0
 
 ### Minor Changes
