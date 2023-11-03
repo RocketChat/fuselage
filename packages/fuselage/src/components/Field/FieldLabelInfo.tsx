@@ -1,15 +1,14 @@
-import type { ComponentPropsWithoutRef } from 'react';
+import type { ComponentProps } from 'react';
 import React from 'react';
 
 import WithErrorWrapper from '../../helpers/WithErrorWrapper';
-import type { Icon } from '../Icon';
 import { LabelInfo } from '../Label/LabelInfo';
 import { FieldContext } from './Field';
 
 type FieldLabelInfoProps = {
   title: string;
-  id: string;
-} & Omit<ComponentPropsWithoutRef<typeof Icon>, 'name'>;
+  id?: string;
+} & ComponentProps<typeof LabelInfo>;
 
 export const FieldLabelInfo = (props: FieldLabelInfoProps) => {
   const component = <LabelInfo {...props} />;
