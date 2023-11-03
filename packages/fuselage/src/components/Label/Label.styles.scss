@@ -1,14 +1,22 @@
 @use '../../styles/colors.scss';
 @use '../../styles/typography.scss';
+@use '../../styles/lengths.scss';
 
 .rcx-label {
   @include typography.use-font-scale(p2m);
+  position: relative;
+
   color: colors.font(default);
 
   &--disabled {
     pointer-events: none;
 
     color: colors.font(secondary-info);
+  }
+
+  &__info {
+    position: absolute;
+    right: lengths.inset(-20);
   }
 
   &__required {

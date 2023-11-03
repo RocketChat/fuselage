@@ -9,6 +9,7 @@ import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
 import { Label } from '../..';
+import { LabelInfo } from './LabelInfo';
 
 export default {
   title: 'Inputs/Label',
@@ -41,6 +42,20 @@ export const Required: ComponentStory<typeof Label> = Template.bind({});
 Required.args = {
   required: true,
 };
+
+export const Info: ComponentStory<typeof Label> = (args) => (
+  <Label {...args}>
+    Label
+    <LabelInfo title='this is a label info' />
+  </Label>
+);
+
+export const InfoRequired: ComponentStory<typeof Label> = (args) => (
+  <Label required {...args}>
+    Label
+    <LabelInfo title='this is a label info' />
+  </Label>
+);
 
 export const Disabled: ComponentStory<typeof Label> = Template.bind({});
 Disabled.args = {
