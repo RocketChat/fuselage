@@ -12,17 +12,16 @@
   E.g.: feat(fuselage-hooks): Add useWhatever hook
 -->
 
-<!-- Checklist!!! If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code.
+## Checklist
 
-- I have read the Contributing Guide - https://github.com/RocketChat/Rocket.Chat/blob/develop/.github/CONTRIBUTING.md#contributing-to-rocketchat doc
-- I have signed the CLA - https://cla-assistant.io/RocketChat/Rocket.Chat
-- Lint and unit tests pass locally with my changes
-- I have labeled the PR correctly with the related package
-- I have run visual regression tests (if applicable)
-- I have added tests that prove my fix is effective or that my feature works (if applicable)
-- I have added necessary documentation (if applicable)
-- Any dependent changes have been merged and published in downstream modules
--->
+<!-- Put an `x` in the boxes that apply. You can also fill these out after creating the PR. If you're unsure about any of them, don't hesitate to ask. We're here to help! This is simply a reminder of what we are going to look for before merging your code. -->
+
+- [ ] I have read the [CONTRIBUTING](https://github.com/RocketChat/Rocket.Chat/blob/develop/.github/CONTRIBUTING.md#contributing-to-rocketchat) doc
+- [ ] I have signed the [CLA](https://cla-assistant.io/RocketChat/Rocket.Chat.ReactNative)
+- [ ] Lint and unit tests pass locally with my changes
+- [ ] I have added tests that prove my fix is effective or that my feature works (if applicable)
+- [ ] I have added necessary documentation (if applicable)
+- [ ] Any dependent changes have been merged and published in downstream modules
 
 ## Proposed changes (including videos or screenshots)
 
