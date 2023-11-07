@@ -54,7 +54,7 @@ exports[`[Field Component] renders RequiredWithLabelInfo without crashing 1`] = 
       >
         Label
         <span
-          class="rcx-box rcx-box--full rcx-label__info rcx-css-1eogw2f"
+          class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
         >
           <span
             hidden=""
@@ -330,7 +330,7 @@ exports[`[Field Component] renders WithLabelInfo without crashing 1`] = `
       >
         Label
         <span
-          class="rcx-box rcx-box--full rcx-label__info rcx-css-1eogw2f"
+          class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
         >
           <span
             hidden=""
