@@ -4,7 +4,7 @@
 
 .rcx-label {
   @include typography.use-font-scale(p2m);
-  position: relative;
+  display: flex;
 
   color: colors.font(default);
 
@@ -15,9 +15,9 @@
   }
 
   &__info {
-    position: absolute;
-    top: lengths.inset(-2);
-    right: lengths.inset(-20);
+    display: flex;
+    align-items: center;
+    order: 1;
   }
 
   &__required {
