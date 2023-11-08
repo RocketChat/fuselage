@@ -7,7 +7,7 @@ const CardControls = ({ ...props }) => (
     display='flex'
     flexGrow={1}
     alignItems='center'
-    rcx-card__action-area
+    rcx-card__controls
     {...props}
   />
 );

@@ -5,26 +5,24 @@ import React from 'react';
 
 import './Card.styles.scss';
 
-const CardHorizontal = (props: Omit<AllHTMLAttributes<HTMLElement>, 'is'>) => {
+const CardVertical = (props: Omit<AllHTMLAttributes<HTMLElement>, 'is'>) => {
   const breakpoints = useBreakpoints();
   const isMobile = !breakpoints.includes('sm');
 
   return (
     <Box
       borderRadius='x8'
-      pb={4}
-      pi={12}
+      p={16}
       display='flex'
-      justifyContent='center'
-      alignItems='center'
+      flexDirection='column'
       flexWrap={isMobile ? 'wrap' : 'nowrap'}
       bg='light'
       color='default'
       rcx-card
-      rcx-card__horizontal
+      rcx-card__vertical
       {...props}
     />
   );
 };
 
-export default CardHorizontal;
+export default CardVertical;
