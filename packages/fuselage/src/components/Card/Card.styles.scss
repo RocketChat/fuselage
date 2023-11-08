@@ -1,0 +1,15 @@
+@use '../../styles/lengths.scss';
+
+.rcx-card__content,
+.rcx-card__controls,
+.rcx-card__horizontal {
+  & > * {
+    margin-inline: lengths.margin(4);
+  }
+}
+
+.rcx-card__horizontal {
+  & > * {
+    margin-block: lengths.margin(4);
+  }
+}
