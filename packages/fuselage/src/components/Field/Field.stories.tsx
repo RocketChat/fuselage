@@ -14,6 +14,7 @@ import {
   ToggleSwitch,
   FieldLink,
 } from '../..';
+import { FieldLabelInfo } from './FieldLabelInfo';
 
 export default {
   title: 'Inputs/Field',
@@ -42,6 +43,38 @@ export const Default: ComponentStory<typeof Field> = () => (
     <FieldDescription>Description</FieldDescription>
     <FieldRow>
       <InputBox.Skeleton />
+    </FieldRow>
+    <FieldError>Error</FieldError>
+    <FieldHint>Hint</FieldHint>
+  </Field>
+);
+export const WithLabelInfo: ComponentStory<typeof Field> = () => (
+  <Field>
+    <FieldLabel htmlFor='label-info-id'>
+      Label
+      <FieldLabelInfo id='info-id' title='this is a info label' />
+    </FieldLabel>
+    <FieldDescription>Description</FieldDescription>
+    <FieldRow>
+      <InputBox id='label-info-id' type='text' aria-describedby='info-id' />
+    </FieldRow>
+    <FieldError>Error</FieldError>
+    <FieldHint>Hint</FieldHint>
+  </Field>
+);
+export const RequiredWithLabelInfo: ComponentStory<typeof Field> = () => (
+  <Field>
+    <FieldLabel required htmlFor='label-required-id'>
+      Label
+      <FieldLabelInfo id='required-info-id' title='this is a info label' />
+    </FieldLabel>
+    <FieldDescription>Description</FieldDescription>
+    <FieldRow>
+      <InputBox
+        id='label-required-id'
+        type='text'
+        aria-describedby='required-info-id'
+      />
     </FieldRow>
     <FieldError>Error</FieldError>
     <FieldHint>Hint</FieldHint>
