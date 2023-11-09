@@ -51,7 +51,7 @@ export const Horizontal: ComponentStory<typeof Card> = () => (
       <Button primary>Button</Button>
       <Badge small variant='primary' />
       <Tag>Tag</Tag>
-      <MenuV2 placement='bottom-end'>
+      <MenuV2 placement='bottom-end' title='menu'>
         <MenuItem key='1'>Profile</MenuItem>
         <MenuItem key='2'>Chats</MenuItem>
         <MenuItem key='3'>Settings</MenuItem>
@@ -75,7 +75,7 @@ export const HorizontalNoIcon: ComponentStory<typeof Card> = () => (
     <CardControls>
       <Badge small variant='primary' />
       <Tag>Card tag</Tag>
-      <MenuV2 placement='bottom-end'>
+      <MenuV2 placement='bottom-end' title='menu'>
         <MenuItem key='1'>Profile</MenuItem>
         <MenuItem key='2'>Chats</MenuItem>
         <MenuItem key='3'>Settings</MenuItem>
@@ -131,7 +131,7 @@ export const HorizontalCustom: ComponentStory<typeof Card> = () => (
   <Card horizontal>
     <CardRow>
       <CardCol>
-        <Avatar url={imgUrl} />
+        <Avatar url={imgUrl} alt='avatar' />
       </CardCol>
       <CardCol>
         <CardHeader>
@@ -148,7 +148,7 @@ export const HorizontalCustom: ComponentStory<typeof Card> = () => (
     <CardControls>
       <Badge small variant='primary' />
       <Tag>Card tag</Tag>
-      <MenuV2 placement='bottom-end'>
+      <MenuV2 placement='bottom-end' title='menu'>
         <MenuItem key='1'>Profile</MenuItem>
         <MenuItem key='2'>Chats</MenuItem>
         <MenuItem key='3'>Settings</MenuItem>
@@ -204,7 +204,7 @@ export const VerticalCustom: ComponentStory<typeof Card> = () => (
   <Card>
     <CardCol>
       <CardHeader>
-        <Avatar url={imgUrl} />
+        <Avatar url={imgUrl} alt='avatar' />
         <CardTitle variant='h3'>Heading 3</CardTitle>
       </CardHeader>
       <CardBody>
