@@ -87,14 +87,16 @@ export const HorizontalNoIcon: ComponentStory<typeof Card> = () => (
 
 export const HorizontalNoAction: ComponentStory<typeof Card> = () => (
   <Card horizontal>
-    <Icon name='document-eye' size='x24' />
-    <CardCol>
-      <CardTitle variant='h3'>Heading 3</CardTitle>
-      <CardBody>
-        Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium
-        voluptatem rem praesentium earum ut consectetur.
-      </CardBody>
-    </CardCol>
+    <CardRow>
+      <Icon name='document-eye' size='x24' />
+      <CardCol>
+        <CardTitle variant='h3'>Heading 3</CardTitle>
+        <CardBody>
+          Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium
+          voluptatem rem praesentium earum ut consectetur.
+        </CardBody>
+      </CardCol>
+    </CardRow>
   </Card>
 );
 

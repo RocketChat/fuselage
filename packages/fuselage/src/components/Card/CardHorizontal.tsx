@@ -3,8 +3,6 @@ import { useBreakpoints } from '@rocket.chat/fuselage-hooks';
 import type { AllHTMLAttributes } from 'react';
 import React from 'react';
 
-import './Card.styles.scss';
-
 const CardHorizontal = (props: Omit<AllHTMLAttributes<HTMLElement>, 'is'>) => {
   const breakpoints = useBreakpoints();
   const isMobile = !breakpoints.includes('sm');
