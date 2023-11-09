@@ -139,9 +139,30 @@ test.each([
   ['_italic@test_', [paragraph([italic([plain('italic@test')])])]],
   ['_italic#test_', [paragraph([italic([plain('italic#test')])])]],
   ['paragraph@test__', [paragraph([plain('paragraph@test__')])]],
-  ['_ @guilherme_gazzo_ _', [paragraph([italic([plain(' '), mentionUser('guilherme_gazzo_'), plain(' ')])])]],
-  ['_ @guilherme.gazzo _', [paragraph([italic([plain(' '), mentionUser('guilherme.gazzo'), plain(' ')])])]],
-  ['_ @guilherme.gazzo_ _', [paragraph([italic([plain(' '), mentionUser('guilherme.gazzo_'), plain(' ')])])]],
+  [
+    '_ @guilherme_gazzo_ _',
+    [
+      paragraph([
+        italic([plain(' '), mentionUser('guilherme_gazzo_'), plain(' ')]),
+      ]),
+    ],
+  ],
+  [
+    '_ @guilherme.gazzo _',
+    [
+      paragraph([
+        italic([plain(' '), mentionUser('guilherme.gazzo'), plain(' ')]),
+      ]),
+    ],
+  ],
+  [
+    '_ @guilherme.gazzo_ _',
+    [
+      paragraph([
+        italic([plain(' '), mentionUser('guilherme.gazzo_'), plain(' ')]),
+      ]),
+    ],
+  ],
 ])('parses %p', (input, output) => {
   expect(parse(input)).toMatchObject(output);
 });
