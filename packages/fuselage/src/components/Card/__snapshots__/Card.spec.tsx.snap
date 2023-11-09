@@ -86,23 +86,17 @@ exports[`[Card Rendering] renders Horizontal without crashing 1`] = `
           </span>
         </span>
         <button
-          aria-expanded="false"
-          aria-haspopup="true"
+          aria-label="menu"
           class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
-          id="react-aria4469717075-1"
-          title="menu"
           type="button"
         >
           <i
             aria-hidden="true"
-            class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-4pvxx3"
+            class="rcx-box rcx-box--full rcx-icon--name-menu rcx-icon rcx-css-4pvxx3"
           >
-            
+            
           </i>
         </button>
-        <span
-          hidden=""
-        />
       </div>
     </div>
   </div>
@@ -175,23 +169,17 @@ exports[`[Card Rendering] renders HorizontalCustom without crashing 1`] = `
           </span>
         </span>
         <button
-          aria-expanded="false"
-          aria-haspopup="true"
+          aria-label="menu"
           class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
-          id="react-aria4469717075-5"
-          title="menu"
           type="button"
         >
           <i
             aria-hidden="true"
-            class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-4pvxx3"
+            class="rcx-box rcx-box--full rcx-icon--name-menu rcx-icon rcx-css-4pvxx3"
           >
-            
+            
           </i>
         </button>
-        <span
-          hidden=""
-        />
       </div>
     </div>
   </div>
@@ -285,23 +273,17 @@ exports[`[Card Rendering] renders HorizontalNoIcon without crashing 1`] = `
           </span>
         </span>
         <button
-          aria-expanded="false"
-          aria-haspopup="true"
+          aria-label="menu"
           class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
-          id="react-aria4469717075-3"
-          title="menu"
           type="button"
         >
           <i
             aria-hidden="true"
-            class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-4pvxx3"
+            class="rcx-box rcx-box--full rcx-icon--name-menu rcx-icon rcx-css-4pvxx3"
           >
-            
+            
           </i>
         </button>
-        <span
-          hidden=""
-        />
       </div>
     </div>
   </div>

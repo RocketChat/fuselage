@@ -3,7 +3,7 @@ import type { ComponentProps } from 'react';
 import React from 'react';
 
 import { Badge } from '../Badge';
-import { Button } from '../Button';
+import { Button, IconButton } from '../Button';
 import Card from '../Card/Card';
 import CardBody from '../Card/CardBody';
 import CardCol from '../Card/CardCol';
@@ -12,7 +12,6 @@ import CardHeader from '../Card/CardHeader';
 import CardRow from '../Card/CardRow';
 import CardTitle from '../Card/CardTitle';
 import { Icon } from '../Icon';
-import { MenuItem, MenuV2 } from '../Menu';
 import { Tag } from '../Tag';
 import { CardGroup } from './CardGroup';
 
@@ -63,12 +62,7 @@ const CardHorizontal: ComponentStory<typeof Card> = (props) => (
     <CardControls>
       <Badge small variant='primary' />
       <Tag>Card tag</Tag>
-      <MenuV2 placement='bottom-end' title='menu'>
-        <MenuItem key='1'>Profile</MenuItem>
-        <MenuItem key='2'>Chats</MenuItem>
-        <MenuItem key='3'>Settings</MenuItem>
-      </MenuV2>
-      <span hidden />
+      <IconButton icon='menu' small aria-label='menu' />
     </CardControls>
   </Card>
 );
@@ -83,6 +77,20 @@ export const Default: ComponentStory<typeof CardGroup> = (args) => (
 export const Wrap: ComponentStory<typeof CardGroup> = Default.bind({});
 Wrap.args = {
   wrap: true,
+};
+
+export const WrapAlignCenter: ComponentStory<typeof CardGroup> = Default.bind(
+  {}
+);
+WrapAlignCenter.args = {
+  wrap: true,
+  align: 'center',
+};
+
+export const WrapStretch: ComponentStory<typeof CardGroup> = Default.bind({});
+WrapStretch.args = {
+  wrap: true,
+  stretch: true,
 };
 
 export const Vertical: ComponentStory<typeof CardGroup> = Default.bind({});

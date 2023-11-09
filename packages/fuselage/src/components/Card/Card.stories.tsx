@@ -5,8 +5,8 @@ import React from 'react';
 import { Card, CardBody, CardCol, CardTitle } from '.';
 import { Avatar } from '../Avatar';
 import { Badge } from '../Badge';
+import { IconButton } from '../Button';
 import { Icon } from '../Icon';
-import { MenuItem, MenuV2 } from '../Menu';
 import { Tag } from '../Tag';
 import CardControls from './CardControls';
 import CardHeader from './CardHeader';
@@ -51,12 +51,7 @@ export const Horizontal: ComponentStory<typeof Card> = () => (
       <Button primary>Button</Button>
       <Badge small variant='primary' />
       <Tag>Tag</Tag>
-      <MenuV2 placement='bottom-end' title='menu'>
-        <MenuItem key='1'>Profile</MenuItem>
-        <MenuItem key='2'>Chats</MenuItem>
-        <MenuItem key='3'>Settings</MenuItem>
-      </MenuV2>
-      <span hidden />
+      <IconButton icon='menu' small aria-label='menu' />
     </CardControls>
   </Card>
 );
@@ -75,12 +70,7 @@ export const HorizontalNoIcon: ComponentStory<typeof Card> = () => (
     <CardControls>
       <Badge small variant='primary' />
       <Tag>Card tag</Tag>
-      <MenuV2 placement='bottom-end' title='menu'>
-        <MenuItem key='1'>Profile</MenuItem>
-        <MenuItem key='2'>Chats</MenuItem>
-        <MenuItem key='3'>Settings</MenuItem>
-      </MenuV2>
-      <span hidden />
+      <IconButton icon='menu' small aria-label='menu' />
     </CardControls>
   </Card>
 );
@@ -150,12 +140,7 @@ export const HorizontalCustom: ComponentStory<typeof Card> = () => (
     <CardControls>
       <Badge small variant='primary' />
       <Tag>Card tag</Tag>
-      <MenuV2 placement='bottom-end' title='menu'>
-        <MenuItem key='1'>Profile</MenuItem>
-        <MenuItem key='2'>Chats</MenuItem>
-        <MenuItem key='3'>Settings</MenuItem>
-      </MenuV2>
-      <span hidden />
+      <IconButton icon='menu' small aria-label='menu' />
     </CardControls>
   </Card>
 );
