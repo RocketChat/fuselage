@@ -136,6 +136,8 @@ test.each([
   ['text_hello_text', [paragraph([plain('text_hello_text')])]],
   ['_hello_text', [paragraph([plain('_hello_text')])]],
   ['text_hello_', [paragraph([plain('text_hello_')])]],
+  ['_italic@test_', [paragraph([italic([plain('italic@test')])])]],
+  ['_italic#test_', [paragraph([italic([plain('italic#test')])])]],
 ])('parses %p', (input, output) => {
   expect(parse(input)).toMatchObject(output);
 });

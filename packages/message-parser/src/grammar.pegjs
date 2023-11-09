@@ -428,7 +428,7 @@ Tilde = t:"~"+ {return plain(t.join(""))}
  *
 */
 UserMention
-  = t:Text "@"+ user:UTF8NamesValidation {
+  = t:Text "@"+ user:AnyText {
       return reducePlainTexts([t, plain('@' + user)])[0];
     }
   / "@"+ user:$(UTF8NamesValidation ([:@] UTF8NamesValidation)?) {
@@ -436,7 +436,7 @@ UserMention
     }
 
 ChannelMention
-  = t:Text "#" channel:UTF8NamesValidation {
+  = t:Text "#" channel:AnyText {
       return reducePlainTexts([t, plain('#' + channel)])[0];
     }
   / "#" channel:UTF8NamesValidation { return mentionChannel(channel); }
