@@ -89,7 +89,7 @@ exports[`[Card Rendering] renders Horizontal without crashing 1`] = `
           aria-expanded="false"
           aria-haspopup="true"
           class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
-          id="react-aria2054739200-1"
+          id="react-aria4469717075-1"
           title="menu"
           type="button"
         >
@@ -178,7 +178,7 @@ exports[`[Card Rendering] renders HorizontalCustom without crashing 1`] = `
           aria-expanded="false"
           aria-haspopup="true"
           class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
-          id="react-aria2054739200-5"
+          id="react-aria4469717075-5"
           title="menu"
           type="button"
         >
@@ -204,24 +204,28 @@ exports[`[Card Rendering] renders HorizontalNoAction without crashing 1`] = `
     <div
       class="rcx-box rcx-box--full rcx-card__horizontal rcx-card rcx-css-167oyqf"
     >
-      <i
-        aria-hidden="true"
-        class="rcx-box rcx-box--full rcx-icon--name-document-eye rcx-icon rcx-css-f8dsuo"
-      >
-        
-      </i>
       <div
-        class="rcx-box rcx-box--full rcx-card__col rcx-css-1tbw8nv"
+        class="rcx-box rcx-box--full rcx-card__row rcx-css-127j9mz"
       >
-        <h3
-          class="rcx-box rcx-box--full rcx-card__title rcx-css-10z9mkx"
+        <i
+          aria-hidden="true"
+          class="rcx-box rcx-box--full rcx-icon--name-document-eye rcx-icon rcx-css-f8dsuo"
         >
-          Heading 3
-        </h3>
+          
+        </i>
         <div
-          class="rcx-box rcx-box--full rcx-card__body rcx-css-1h0kzgh"
+          class="rcx-box rcx-box--full rcx-card__col rcx-css-1tbw8nv"
         >
-          Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium voluptatem rem praesentium earum ut consectetur.
+          <h3
+            class="rcx-box rcx-box--full rcx-card__title rcx-css-10z9mkx"
+          >
+            Heading 3
+          </h3>
+          <div
+            class="rcx-box rcx-box--full rcx-card__body rcx-css-1h0kzgh"
+          >
+            Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium voluptatem rem praesentium earum ut consectetur.
+          </div>
         </div>
       </div>
     </div>
@@ -284,7 +288,7 @@ exports[`[Card Rendering] renders HorizontalNoIcon without crashing 1`] = `
           aria-expanded="false"
           aria-haspopup="true"
           class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
-          id="react-aria2054739200-3"
+          id="react-aria4469717075-3"
           title="menu"
           type="button"
         >

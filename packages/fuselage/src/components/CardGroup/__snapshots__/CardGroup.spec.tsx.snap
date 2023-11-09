@@ -1,0 +1,2443 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[CardGroup Rendering] renders Default without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-card-group--align-start rcx-card-group"
+      role="group"
+    >
+      <div
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1mpst1p"
+      >
+        <div
+          class="rcx-box rcx-box--full rcx-card__col rcx-css-1tbw8nv"
+        >
+          <div
+            class="rcx-box rcx-box--full rcx-card__header rcx-css-1wuw1zw"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
+            >
+              
+            </i>
+            <h3
+              class="rcx-box rcx-box--full rcx-card__title rcx-css-10z9mkx"
+            >
+              Heading 3
+              <span
+                class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+              >
+                <span
+                  hidden=""
+                >
+                  Heading info
+                </span>
+                <i
+                  aria-hidden="true"
+                  class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+                  title="Heading info"
+                >
+                  
+                </i>
+              </span>
+            </h3>
+          </div>
+          <div
+            class="rcx-box rcx-box--full rcx-card__body rcx-css-1h0kzgh"
+          >
+            Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
+          </div>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__controls rcx-css-14l8sh3"
+        >
+          <button
+            class="rcx-box rcx-box--full rcx-button--primary rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Button
+            </span>
+          </button>
+          <button
+            class="rcx-box rcx-box--full rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Button
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1mpst1p"
+      >
+        <div
+          class="rcx-box rcx-box--full rcx-card__col rcx-css-1tbw8nv"
+        >
+          <div
+            class="rcx-box rcx-box--full rcx-card__header rcx-css-1wuw1zw"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
+            >
+              
+            </i>
+            <h3
+              class="rcx-box rcx-box--full rcx-card__title rcx-css-10z9mkx"
+            >
+              Heading 3
+              <span
+                class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+              >
+                <span
+                  hidden=""
+                >
+                  Heading info
+                </span>
+                <i
+                  aria-hidden="true"
+                  class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+                  title="Heading info"
+                >
+                  
+                </i>
+              </span>
+            </h3>
+          </div>
+          <div
+            class="rcx-box rcx-box--full rcx-card__body rcx-css-1h0kzgh"
+          >
+            Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
+          </div>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__controls rcx-css-14l8sh3"
+        >
+          <button
+            class="rcx-box rcx-box--full rcx-button--primary rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Button
+            </span>
+          </button>
+          <button
+            class="rcx-box rcx-box--full rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Button
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1mpst1p"
+      >
+        <div
+          class="rcx-box rcx-box--full rcx-card__col rcx-css-1tbw8nv"
+        >
+          <div
+            class="rcx-box rcx-box--full rcx-card__header rcx-css-1wuw1zw"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
+            >
+              
+            </i>
+            <h3
+              class="rcx-box rcx-box--full rcx-card__title rcx-css-10z9mkx"
+            >
+              Heading 3
+              <span
+                class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+              >
+                <span
+                  hidden=""
+                >
+                  Heading info
+                </span>
+                <i
+                  aria-hidden="true"
+                  class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+                  title="Heading info"
+                >
+                  
+                </i>
+              </span>
+            </h3>
+          </div>
+          <div
+            class="rcx-box rcx-box--full rcx-card__body rcx-css-1h0kzgh"
+          >
+            Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
+          </div>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__controls rcx-css-14l8sh3"
+        >
+          <button
+            class="rcx-box rcx-box--full rcx-button--primary rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Button
+            </span>
+          </button>
+          <button
+            class="rcx-box rcx-box--full rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Button
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1mpst1p"
+      >
+        <div
+          class="rcx-box rcx-box--full rcx-card__col rcx-css-1tbw8nv"
+        >
+          <div
+            class="rcx-box rcx-box--full rcx-card__header rcx-css-1wuw1zw"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
+            >
+              
+            </i>
+            <h3
+              class="rcx-box rcx-box--full rcx-card__title rcx-css-10z9mkx"
+            >
+              Heading 3
+              <span
+                class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+              >
+                <span
+                  hidden=""
+                >
+                  Heading info
+                </span>
+                <i
+                  aria-hidden="true"
+                  class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+                  title="Heading info"
+                >
+                  
+                </i>
+              </span>
+            </h3>
+          </div>
+          <div
+            class="rcx-box rcx-box--full rcx-card__body rcx-css-1h0kzgh"
+          >
+            Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
+          </div>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__controls rcx-css-14l8sh3"
+        >
+          <button
+            class="rcx-box rcx-box--full rcx-button--primary rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Button
+            </span>
+          </button>
+          <button
+            class="rcx-box rcx-box--full rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Button
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1mpst1p"
+      >
+        <div
+          class="rcx-box rcx-box--full rcx-card__col rcx-css-1tbw8nv"
+        >
+          <div
+            class="rcx-box rcx-box--full rcx-card__header rcx-css-1wuw1zw"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
+            >
+              
+            </i>
+            <h3
+              class="rcx-box rcx-box--full rcx-card__title rcx-css-10z9mkx"
+            >
+              Heading 3
+              <span
+                class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+              >
+                <span
+                  hidden=""
+                >
+                  Heading info
+                </span>
+                <i
+                  aria-hidden="true"
+                  class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+                  title="Heading info"
+                >
+                  
+                </i>
+              </span>
+            </h3>
+          </div>
+          <div
+            class="rcx-box rcx-box--full rcx-card__body rcx-css-1h0kzgh"
+          >
+            Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
+          </div>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__controls rcx-css-14l8sh3"
+        >
+          <button
+            class="rcx-box rcx-box--full rcx-button--primary rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Button
+            </span>
+          </button>
+          <button
+            class="rcx-box rcx-box--full rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Button
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1mpst1p"
+      >
+        <div
+          class="rcx-box rcx-box--full rcx-card__col rcx-css-1tbw8nv"
+        >
+          <div
+            class="rcx-box rcx-box--full rcx-card__header rcx-css-1wuw1zw"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
+            >
+              
+            </i>
+            <h3
+              class="rcx-box rcx-box--full rcx-card__title rcx-css-10z9mkx"
+            >
+              Heading 3
+              <span
+                class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+              >
+                <span
+                  hidden=""
+                >
+                  Heading info
+                </span>
+                <i
+                  aria-hidden="true"
+                  class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+                  title="Heading info"
+                >
+                  
+                </i>
+              </span>
+            </h3>
+          </div>
+          <div
+            class="rcx-box rcx-box--full rcx-card__body rcx-css-1h0kzgh"
+          >
+            Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
+          </div>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__controls rcx-css-14l8sh3"
+        >
+          <button
+            class="rcx-box rcx-box--full rcx-button--primary rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Button
+            </span>
+          </button>
+          <button
+            class="rcx-box rcx-box--full rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Button
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1mpst1p"
+      >
+        <div
+          class="rcx-box rcx-box--full rcx-card__col rcx-css-1tbw8nv"
+        >
+          <div
+            class="rcx-box rcx-box--full rcx-card__header rcx-css-1wuw1zw"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
+            >
+              
+            </i>
+            <h3
+              class="rcx-box rcx-box--full rcx-card__title rcx-css-10z9mkx"
+            >
+              Heading 3
+              <span
+                class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+              >
+                <span
+                  hidden=""
+                >
+                  Heading info
+                </span>
+                <i
+                  aria-hidden="true"
+                  class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+                  title="Heading info"
+                >
+                  
+                </i>
+              </span>
+            </h3>
+          </div>
+          <div
+            class="rcx-box rcx-box--full rcx-card__body rcx-css-1h0kzgh"
+          >
+            Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
+          </div>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__controls rcx-css-14l8sh3"
+        >
+          <button
+            class="rcx-box rcx-box--full rcx-button--primary rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Button
+            </span>
+          </button>
+          <button
+            class="rcx-box rcx-box--full rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Button
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1mpst1p"
+      >
+        <div
+          class="rcx-box rcx-box--full rcx-card__col rcx-css-1tbw8nv"
+        >
+          <div
+            class="rcx-box rcx-box--full rcx-card__header rcx-css-1wuw1zw"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
+            >
+              
+            </i>
+            <h3
+              class="rcx-box rcx-box--full rcx-card__title rcx-css-10z9mkx"
+            >
+              Heading 3
+              <span
+                class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+              >
+                <span
+                  hidden=""
+                >
+                  Heading info
+                </span>
+                <i
+                  aria-hidden="true"
+                  class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+                  title="Heading info"
+                >
+                  
+                </i>
+              </span>
+            </h3>
+          </div>
+          <div
+            class="rcx-box rcx-box--full rcx-card__body rcx-css-1h0kzgh"
+          >
+            Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
+          </div>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__controls rcx-css-14l8sh3"
+        >
+          <button
+            class="rcx-box rcx-box--full rcx-button--primary rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Button
+            </span>
+          </button>
+          <button
+            class="rcx-box rcx-box--full rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Button
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1mpst1p"
+      >
+        <div
+          class="rcx-box rcx-box--full rcx-card__col rcx-css-1tbw8nv"
+        >
+          <div
+            class="rcx-box rcx-box--full rcx-card__header rcx-css-1wuw1zw"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
+            >
+              
+            </i>
+            <h3
+              class="rcx-box rcx-box--full rcx-card__title rcx-css-10z9mkx"
+            >
+              Heading 3
+              <span
+                class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+              >
+                <span
+                  hidden=""
+                >
+                  Heading info
+                </span>
+                <i
+                  aria-hidden="true"
+                  class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+                  title="Heading info"
+                >
+                  
+                </i>
+              </span>
+            </h3>
+          </div>
+          <div
+            class="rcx-box rcx-box--full rcx-card__body rcx-css-1h0kzgh"
+          >
+            Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
+          </div>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__controls rcx-css-14l8sh3"
+        >
+          <button
+            class="rcx-box rcx-box--full rcx-button--primary rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Button
+            </span>
+          </button>
+          <button
+            class="rcx-box rcx-box--full rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Button
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`[CardGroup Rendering] renders Vertical without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-card-group--vertical rcx-card-group--align-center rcx-card-group"
+      role="group"
+    >
+      <div
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1mpst1p"
+      >
+        <div
+          class="rcx-box rcx-box--full rcx-card__col rcx-css-1tbw8nv"
+        >
+          <div
+            class="rcx-box rcx-box--full rcx-card__header rcx-css-1wuw1zw"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
+            >
+              
+            </i>
+            <h3
+              class="rcx-box rcx-box--full rcx-card__title rcx-css-10z9mkx"
+            >
+              Heading 3
+              <span
+                class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+              >
+                <span
+                  hidden=""
+                >
+                  Heading info
+                </span>
+                <i
+                  aria-hidden="true"
+                  class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+                  title="Heading info"
+                >
+                  
+                </i>
+              </span>
+            </h3>
+          </div>
+          <div
+            class="rcx-box rcx-box--full rcx-card__body rcx-css-1h0kzgh"
+          >
+            Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
+          </div>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__controls rcx-css-14l8sh3"
+        >
+          <button
+            class="rcx-box rcx-box--full rcx-button--primary rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Button
+            </span>
+          </button>
+          <button
+            class="rcx-box rcx-box--full rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Button
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1mpst1p"
+      >
+        <div
+          class="rcx-box rcx-box--full rcx-card__col rcx-css-1tbw8nv"
+        >
+          <div
+            class="rcx-box rcx-box--full rcx-card__header rcx-css-1wuw1zw"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
+            >
+              
+            </i>
+            <h3
+              class="rcx-box rcx-box--full rcx-card__title rcx-css-10z9mkx"
+            >
+              Heading 3
+              <span
+                class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+              >
+                <span
+                  hidden=""
+                >
+                  Heading info
+                </span>
+                <i
+                  aria-hidden="true"
+                  class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+                  title="Heading info"
+                >
+                  
+                </i>
+              </span>
+            </h3>
+          </div>
+          <div
+            class="rcx-box rcx-box--full rcx-card__body rcx-css-1h0kzgh"
+          >
+            Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
+          </div>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__controls rcx-css-14l8sh3"
+        >
+          <button
+            class="rcx-box rcx-box--full rcx-button--primary rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Button
+            </span>
+          </button>
+          <button
+            class="rcx-box rcx-box--full rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Button
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1mpst1p"
+      >
+        <div
+          class="rcx-box rcx-box--full rcx-card__col rcx-css-1tbw8nv"
+        >
+          <div
+            class="rcx-box rcx-box--full rcx-card__header rcx-css-1wuw1zw"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
+            >
+              
+            </i>
+            <h3
+              class="rcx-box rcx-box--full rcx-card__title rcx-css-10z9mkx"
+            >
+              Heading 3
+              <span
+                class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+              >
+                <span
+                  hidden=""
+                >
+                  Heading info
+                </span>
+                <i
+                  aria-hidden="true"
+                  class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+                  title="Heading info"
+                >
+                  
+                </i>
+              </span>
+            </h3>
+          </div>
+          <div
+            class="rcx-box rcx-box--full rcx-card__body rcx-css-1h0kzgh"
+          >
+            Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
+          </div>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__controls rcx-css-14l8sh3"
+        >
+          <button
+            class="rcx-box rcx-box--full rcx-button--primary rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Button
+            </span>
+          </button>
+          <button
+            class="rcx-box rcx-box--full rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Button
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1mpst1p"
+      >
+        <div
+          class="rcx-box rcx-box--full rcx-card__col rcx-css-1tbw8nv"
+        >
+          <div
+            class="rcx-box rcx-box--full rcx-card__header rcx-css-1wuw1zw"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
+            >
+              
+            </i>
+            <h3
+              class="rcx-box rcx-box--full rcx-card__title rcx-css-10z9mkx"
+            >
+              Heading 3
+              <span
+                class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+              >
+                <span
+                  hidden=""
+                >
+                  Heading info
+                </span>
+                <i
+                  aria-hidden="true"
+                  class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+                  title="Heading info"
+                >
+                  
+                </i>
+              </span>
+            </h3>
+          </div>
+          <div
+            class="rcx-box rcx-box--full rcx-card__body rcx-css-1h0kzgh"
+          >
+            Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
+          </div>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__controls rcx-css-14l8sh3"
+        >
+          <button
+            class="rcx-box rcx-box--full rcx-button--primary rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Button
+            </span>
+          </button>
+          <button
+            class="rcx-box rcx-box--full rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Button
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1mpst1p"
+      >
+        <div
+          class="rcx-box rcx-box--full rcx-card__col rcx-css-1tbw8nv"
+        >
+          <div
+            class="rcx-box rcx-box--full rcx-card__header rcx-css-1wuw1zw"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
+            >
+              
+            </i>
+            <h3
+              class="rcx-box rcx-box--full rcx-card__title rcx-css-10z9mkx"
+            >
+              Heading 3
+              <span
+                class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+              >
+                <span
+                  hidden=""
+                >
+                  Heading info
+                </span>
+                <i
+                  aria-hidden="true"
+                  class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+                  title="Heading info"
+                >
+                  
+                </i>
+              </span>
+            </h3>
+          </div>
+          <div
+            class="rcx-box rcx-box--full rcx-card__body rcx-css-1h0kzgh"
+          >
+            Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
+          </div>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__controls rcx-css-14l8sh3"
+        >
+          <button
+            class="rcx-box rcx-box--full rcx-button--primary rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Button
+            </span>
+          </button>
+          <button
+            class="rcx-box rcx-box--full rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Button
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1mpst1p"
+      >
+        <div
+          class="rcx-box rcx-box--full rcx-card__col rcx-css-1tbw8nv"
+        >
+          <div
+            class="rcx-box rcx-box--full rcx-card__header rcx-css-1wuw1zw"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
+            >
+              
+            </i>
+            <h3
+              class="rcx-box rcx-box--full rcx-card__title rcx-css-10z9mkx"
+            >
+              Heading 3
+              <span
+                class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+              >
+                <span
+                  hidden=""
+                >
+                  Heading info
+                </span>
+                <i
+                  aria-hidden="true"
+                  class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+                  title="Heading info"
+                >
+                  
+                </i>
+              </span>
+            </h3>
+          </div>
+          <div
+            class="rcx-box rcx-box--full rcx-card__body rcx-css-1h0kzgh"
+          >
+            Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
+          </div>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__controls rcx-css-14l8sh3"
+        >
+          <button
+            class="rcx-box rcx-box--full rcx-button--primary rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Button
+            </span>
+          </button>
+          <button
+            class="rcx-box rcx-box--full rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Button
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1mpst1p"
+      >
+        <div
+          class="rcx-box rcx-box--full rcx-card__col rcx-css-1tbw8nv"
+        >
+          <div
+            class="rcx-box rcx-box--full rcx-card__header rcx-css-1wuw1zw"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
+            >
+              
+            </i>
+            <h3
+              class="rcx-box rcx-box--full rcx-card__title rcx-css-10z9mkx"
+            >
+              Heading 3
+              <span
+                class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+              >
+                <span
+                  hidden=""
+                >
+                  Heading info
+                </span>
+                <i
+                  aria-hidden="true"
+                  class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+                  title="Heading info"
+                >
+                  
+                </i>
+              </span>
+            </h3>
+          </div>
+          <div
+            class="rcx-box rcx-box--full rcx-card__body rcx-css-1h0kzgh"
+          >
+            Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
+          </div>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__controls rcx-css-14l8sh3"
+        >
+          <button
+            class="rcx-box rcx-box--full rcx-button--primary rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Button
+            </span>
+          </button>
+          <button
+            class="rcx-box rcx-box--full rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Button
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1mpst1p"
+      >
+        <div
+          class="rcx-box rcx-box--full rcx-card__col rcx-css-1tbw8nv"
+        >
+          <div
+            class="rcx-box rcx-box--full rcx-card__header rcx-css-1wuw1zw"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
+            >
+              
+            </i>
+            <h3
+              class="rcx-box rcx-box--full rcx-card__title rcx-css-10z9mkx"
+            >
+              Heading 3
+              <span
+                class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+              >
+                <span
+                  hidden=""
+                >
+                  Heading info
+                </span>
+                <i
+                  aria-hidden="true"
+                  class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+                  title="Heading info"
+                >
+                  
+                </i>
+              </span>
+            </h3>
+          </div>
+          <div
+            class="rcx-box rcx-box--full rcx-card__body rcx-css-1h0kzgh"
+          >
+            Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
+          </div>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__controls rcx-css-14l8sh3"
+        >
+          <button
+            class="rcx-box rcx-box--full rcx-button--primary rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Button
+            </span>
+          </button>
+          <button
+            class="rcx-box rcx-box--full rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Button
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1mpst1p"
+      >
+        <div
+          class="rcx-box rcx-box--full rcx-card__col rcx-css-1tbw8nv"
+        >
+          <div
+            class="rcx-box rcx-box--full rcx-card__header rcx-css-1wuw1zw"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
+            >
+              
+            </i>
+            <h3
+              class="rcx-box rcx-box--full rcx-card__title rcx-css-10z9mkx"
+            >
+              Heading 3
+              <span
+                class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+              >
+                <span
+                  hidden=""
+                >
+                  Heading info
+                </span>
+                <i
+                  aria-hidden="true"
+                  class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+                  title="Heading info"
+                >
+                  
+                </i>
+              </span>
+            </h3>
+          </div>
+          <div
+            class="rcx-box rcx-box--full rcx-card__body rcx-css-1h0kzgh"
+          >
+            Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
+          </div>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__controls rcx-css-14l8sh3"
+        >
+          <button
+            class="rcx-box rcx-box--full rcx-button--primary rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Button
+            </span>
+          </button>
+          <button
+            class="rcx-box rcx-box--full rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Button
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-card-group--vertical rcx-card-group--align-start rcx-card-group"
+      role="group"
+    >
+      <div
+        class="rcx-box rcx-box--full rcx-card__horizontal rcx-card  rcx-card-group__item rcx-css-167oyqf"
+      >
+        <div
+          class="rcx-box rcx-box--full rcx-card__row rcx-css-127j9mz"
+        >
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-document-eye rcx-icon rcx-css-f8dsuo"
+          >
+            
+          </i>
+          <div
+            class="rcx-box rcx-box--full rcx-card__col rcx-css-1tbw8nv"
+          >
+            <h3
+              class="rcx-box rcx-box--full rcx-card__title rcx-css-10z9mkx"
+            >
+              Heading 3
+            </h3>
+            <div
+              class="rcx-box rcx-box--full rcx-card__body rcx-css-1h0kzgh"
+            >
+              Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium voluptatem rem praesentium earum ut consectetur.
+            </div>
+          </div>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__controls rcx-css-14l8sh3"
+        >
+          <span
+            class="rcx-box rcx-box--full rcx-badge rcx-badge--primary rcx-badge--small"
+          />
+          <span
+            class="rcx-box rcx-box--full  rcx-tag "
+          >
+            <span
+              class="rcx-tag__inner"
+            >
+              Card tag
+            </span>
+          </span>
+          <button
+            aria-expanded="false"
+            aria-haspopup="true"
+            class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
+            id="react-aria3591409028-1"
+            title="menu"
+            type="button"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-4pvxx3"
+            >
+              
+            </i>
+          </button>
+          <span
+            hidden=""
+          />
+        </div>
+      </div>
+      <div
+        class="rcx-box rcx-box--full rcx-card__horizontal rcx-card  rcx-card-group__item rcx-css-167oyqf"
+      >
+        <div
+          class="rcx-box rcx-box--full rcx-card__row rcx-css-127j9mz"
+        >
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-document-eye rcx-icon rcx-css-f8dsuo"
+          >
+            
+          </i>
+          <div
+            class="rcx-box rcx-box--full rcx-card__col rcx-css-1tbw8nv"
+          >
+            <h3
+              class="rcx-box rcx-box--full rcx-card__title rcx-css-10z9mkx"
+            >
+              Heading 3
+            </h3>
+            <div
+              class="rcx-box rcx-box--full rcx-card__body rcx-css-1h0kzgh"
+            >
+              Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium voluptatem rem praesentium earum ut consectetur.
+            </div>
+          </div>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__controls rcx-css-14l8sh3"
+        >
+          <span
+            class="rcx-box rcx-box--full rcx-badge rcx-badge--primary rcx-badge--small"
+          />
+          <span
+            class="rcx-box rcx-box--full  rcx-tag "
+          >
+            <span
+              class="rcx-tag__inner"
+            >
+              Card tag
+            </span>
+          </span>
+          <button
+            aria-expanded="false"
+            aria-haspopup="true"
+            class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
+            id="react-aria3591409028-3"
+            title="menu"
+            type="button"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-4pvxx3"
+            >
+              
+            </i>
+          </button>
+          <span
+            hidden=""
+          />
+        </div>
+      </div>
+      <div
+        class="rcx-box rcx-box--full rcx-card__horizontal rcx-card  rcx-card-group__item rcx-css-167oyqf"
+      >
+        <div
+          class="rcx-box rcx-box--full rcx-card__row rcx-css-127j9mz"
+        >
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-document-eye rcx-icon rcx-css-f8dsuo"
+          >
+            
+          </i>
+          <div
+            class="rcx-box rcx-box--full rcx-card__col rcx-css-1tbw8nv"
+          >
+            <h3
+              class="rcx-box rcx-box--full rcx-card__title rcx-css-10z9mkx"
+            >
+              Heading 3
+            </h3>
+            <div
+              class="rcx-box rcx-box--full rcx-card__body rcx-css-1h0kzgh"
+            >
+              Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium voluptatem rem praesentium earum ut consectetur.
+            </div>
+          </div>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__controls rcx-css-14l8sh3"
+        >
+          <span
+            class="rcx-box rcx-box--full rcx-badge rcx-badge--primary rcx-badge--small"
+          />
+          <span
+            class="rcx-box rcx-box--full  rcx-tag "
+          >
+            <span
+              class="rcx-tag__inner"
+            >
+              Card tag
+            </span>
+          </span>
+          <button
+            aria-expanded="false"
+            aria-haspopup="true"
+            class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
+            id="react-aria3591409028-5"
+            title="menu"
+            type="button"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-4pvxx3"
+            >
+              
+            </i>
+          </button>
+          <span
+            hidden=""
+          />
+        </div>
+      </div>
+      <div
+        class="rcx-box rcx-box--full rcx-card__horizontal rcx-card  rcx-card-group__item rcx-css-167oyqf"
+      >
+        <div
+          class="rcx-box rcx-box--full rcx-card__row rcx-css-127j9mz"
+        >
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-document-eye rcx-icon rcx-css-f8dsuo"
+          >
+            
+          </i>
+          <div
+            class="rcx-box rcx-box--full rcx-card__col rcx-css-1tbw8nv"
+          >
+            <h3
+              class="rcx-box rcx-box--full rcx-card__title rcx-css-10z9mkx"
+            >
+              Heading 3
+            </h3>
+            <div
+              class="rcx-box rcx-box--full rcx-card__body rcx-css-1h0kzgh"
+            >
+              Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium voluptatem rem praesentium earum ut consectetur.
+            </div>
+          </div>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__controls rcx-css-14l8sh3"
+        >
+          <span
+            class="rcx-box rcx-box--full rcx-badge rcx-badge--primary rcx-badge--small"
+          />
+          <span
+            class="rcx-box rcx-box--full  rcx-tag "
+          >
+            <span
+              class="rcx-tag__inner"
+            >
+              Card tag
+            </span>
+          </span>
+          <button
+            aria-expanded="false"
+            aria-haspopup="true"
+            class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
+            id="react-aria3591409028-7"
+            title="menu"
+            type="button"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-4pvxx3"
+            >
+              
+            </i>
+          </button>
+          <span
+            hidden=""
+          />
+        </div>
+      </div>
+      <div
+        class="rcx-box rcx-box--full rcx-card__horizontal rcx-card  rcx-card-group__item rcx-css-167oyqf"
+      >
+        <div
+          class="rcx-box rcx-box--full rcx-card__row rcx-css-127j9mz"
+        >
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-document-eye rcx-icon rcx-css-f8dsuo"
+          >
+            
+          </i>
+          <div
+            class="rcx-box rcx-box--full rcx-card__col rcx-css-1tbw8nv"
+          >
+            <h3
+              class="rcx-box rcx-box--full rcx-card__title rcx-css-10z9mkx"
+            >
+              Heading 3
+            </h3>
+            <div
+              class="rcx-box rcx-box--full rcx-card__body rcx-css-1h0kzgh"
+            >
+              Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium voluptatem rem praesentium earum ut consectetur.
+            </div>
+          </div>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__controls rcx-css-14l8sh3"
+        >
+          <span
+            class="rcx-box rcx-box--full rcx-badge rcx-badge--primary rcx-badge--small"
+          />
+          <span
+            class="rcx-box rcx-box--full  rcx-tag "
+          >
+            <span
+              class="rcx-tag__inner"
+            >
+              Card tag
+            </span>
+          </span>
+          <button
+            aria-expanded="false"
+            aria-haspopup="true"
+            class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
+            id="react-aria3591409028-9"
+            title="menu"
+            type="button"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-4pvxx3"
+            >
+              
+            </i>
+          </button>
+          <span
+            hidden=""
+          />
+        </div>
+      </div>
+      <div
+        class="rcx-box rcx-box--full rcx-card__horizontal rcx-card  rcx-card-group__item rcx-css-167oyqf"
+      >
+        <div
+          class="rcx-box rcx-box--full rcx-card__row rcx-css-127j9mz"
+        >
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-document-eye rcx-icon rcx-css-f8dsuo"
+          >
+            
+          </i>
+          <div
+            class="rcx-box rcx-box--full rcx-card__col rcx-css-1tbw8nv"
+          >
+            <h3
+              class="rcx-box rcx-box--full rcx-card__title rcx-css-10z9mkx"
+            >
+              Heading 3
+            </h3>
+            <div
+              class="rcx-box rcx-box--full rcx-card__body rcx-css-1h0kzgh"
+            >
+              Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium voluptatem rem praesentium earum ut consectetur.
+            </div>
+          </div>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__controls rcx-css-14l8sh3"
+        >
+          <span
+            class="rcx-box rcx-box--full rcx-badge rcx-badge--primary rcx-badge--small"
+          />
+          <span
+            class="rcx-box rcx-box--full  rcx-tag "
+          >
+            <span
+              class="rcx-tag__inner"
+            >
+              Card tag
+            </span>
+          </span>
+          <button
+            aria-expanded="false"
+            aria-haspopup="true"
+            class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
+            id="react-aria3591409028-11"
+            title="menu"
+            type="button"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-4pvxx3"
+            >
+              
+            </i>
+          </button>
+          <span
+            hidden=""
+          />
+        </div>
+      </div>
+      <div
+        class="rcx-box rcx-box--full rcx-card__horizontal rcx-card  rcx-card-group__item rcx-css-167oyqf"
+      >
+        <div
+          class="rcx-box rcx-box--full rcx-card__row rcx-css-127j9mz"
+        >
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-document-eye rcx-icon rcx-css-f8dsuo"
+          >
+            
+          </i>
+          <div
+            class="rcx-box rcx-box--full rcx-card__col rcx-css-1tbw8nv"
+          >
+            <h3
+              class="rcx-box rcx-box--full rcx-card__title rcx-css-10z9mkx"
+            >
+              Heading 3
+            </h3>
+            <div
+              class="rcx-box rcx-box--full rcx-card__body rcx-css-1h0kzgh"
+            >
+              Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium voluptatem rem praesentium earum ut consectetur.
+            </div>
+          </div>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__controls rcx-css-14l8sh3"
+        >
+          <span
+            class="rcx-box rcx-box--full rcx-badge rcx-badge--primary rcx-badge--small"
+          />
+          <span
+            class="rcx-box rcx-box--full  rcx-tag "
+          >
+            <span
+              class="rcx-tag__inner"
+            >
+              Card tag
+            </span>
+          </span>
+          <button
+            aria-expanded="false"
+            aria-haspopup="true"
+            class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
+            id="react-aria3591409028-13"
+            title="menu"
+            type="button"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-4pvxx3"
+            >
+              
+            </i>
+          </button>
+          <span
+            hidden=""
+          />
+        </div>
+      </div>
+      <div
+        class="rcx-box rcx-box--full rcx-card__horizontal rcx-card  rcx-card-group__item rcx-css-167oyqf"
+      >
+        <div
+          class="rcx-box rcx-box--full rcx-card__row rcx-css-127j9mz"
+        >
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-document-eye rcx-icon rcx-css-f8dsuo"
+          >
+            
+          </i>
+          <div
+            class="rcx-box rcx-box--full rcx-card__col rcx-css-1tbw8nv"
+          >
+            <h3
+              class="rcx-box rcx-box--full rcx-card__title rcx-css-10z9mkx"
+            >
+              Heading 3
+            </h3>
+            <div
+              class="rcx-box rcx-box--full rcx-card__body rcx-css-1h0kzgh"
+            >
+              Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium voluptatem rem praesentium earum ut consectetur.
+            </div>
+          </div>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__controls rcx-css-14l8sh3"
+        >
+          <span
+            class="rcx-box rcx-box--full rcx-badge rcx-badge--primary rcx-badge--small"
+          />
+          <span
+            class="rcx-box rcx-box--full  rcx-tag "
+          >
+            <span
+              class="rcx-tag__inner"
+            >
+              Card tag
+            </span>
+          </span>
+          <button
+            aria-expanded="false"
+            aria-haspopup="true"
+            class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
+            id="react-aria3591409028-15"
+            title="menu"
+            type="button"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-4pvxx3"
+            >
+              
+            </i>
+          </button>
+          <span
+            hidden=""
+          />
+        </div>
+      </div>
+      <div
+        class="rcx-box rcx-box--full rcx-card__horizontal rcx-card  rcx-card-group__item rcx-css-167oyqf"
+      >
+        <div
+          class="rcx-box rcx-box--full rcx-card__row rcx-css-127j9mz"
+        >
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-document-eye rcx-icon rcx-css-f8dsuo"
+          >
+            
+          </i>
+          <div
+            class="rcx-box rcx-box--full rcx-card__col rcx-css-1tbw8nv"
+          >
+            <h3
+              class="rcx-box rcx-box--full rcx-card__title rcx-css-10z9mkx"
+            >
+              Heading 3
+            </h3>
+            <div
+              class="rcx-box rcx-box--full rcx-card__body rcx-css-1h0kzgh"
+            >
+              Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium voluptatem rem praesentium earum ut consectetur.
+            </div>
+          </div>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__controls rcx-css-14l8sh3"
+        >
+          <span
+            class="rcx-box rcx-box--full rcx-badge rcx-badge--primary rcx-badge--small"
+          />
+          <span
+            class="rcx-box rcx-box--full  rcx-tag "
+          >
+            <span
+              class="rcx-tag__inner"
+            >
+              Card tag
+            </span>
+          </span>
+          <button
+            aria-expanded="false"
+            aria-haspopup="true"
+            class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
+            id="react-aria3591409028-17"
+            title="menu"
+            type="button"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-4pvxx3"
+            >
+              
+            </i>
+          </button>
+          <span
+            hidden=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`[CardGroup Rendering] renders Wrap without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-card-group--wrap rcx-card-group--align-start rcx-card-group"
+      role="group"
+    >
+      <div
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1mpst1p"
+      >
+        <div
+          class="rcx-box rcx-box--full rcx-card__col rcx-css-1tbw8nv"
+        >
+          <div
+            class="rcx-box rcx-box--full rcx-card__header rcx-css-1wuw1zw"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
+            >
+              
+            </i>
+            <h3
+              class="rcx-box rcx-box--full rcx-card__title rcx-css-10z9mkx"
+            >
+              Heading 3
+              <span
+                class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+              >
+                <span
+                  hidden=""
+                >
+                  Heading info
+                </span>
+                <i
+                  aria-hidden="true"
+                  class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+                  title="Heading info"
+                >
+                  
+                </i>
+              </span>
+            </h3>
+          </div>
+          <div
+            class="rcx-box rcx-box--full rcx-card__body rcx-css-1h0kzgh"
+          >
+            Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
+          </div>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__controls rcx-css-14l8sh3"
+        >
+          <button
+            class="rcx-box rcx-box--full rcx-button--primary rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Button
+            </span>
+          </button>
+          <button
+            class="rcx-box rcx-box--full rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Button
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1mpst1p"
+      >
+        <div
+          class="rcx-box rcx-box--full rcx-card__col rcx-css-1tbw8nv"
+        >
+          <div
+            class="rcx-box rcx-box--full rcx-card__header rcx-css-1wuw1zw"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
+            >
+              
+            </i>
+            <h3
+              class="rcx-box rcx-box--full rcx-card__title rcx-css-10z9mkx"
+            >
+              Heading 3
+              <span
+                class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+              >
+                <span
+                  hidden=""
+                >
+                  Heading info
+                </span>
+                <i
+                  aria-hidden="true"
+                  class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+                  title="Heading info"
+                >
+                  
+                </i>
+              </span>
+            </h3>
+          </div>
+          <div
+            class="rcx-box rcx-box--full rcx-card__body rcx-css-1h0kzgh"
+          >
+            Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
+          </div>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__controls rcx-css-14l8sh3"
+        >
+          <button
+            class="rcx-box rcx-box--full rcx-button--primary rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Button
+            </span>
+          </button>
+          <button
+            class="rcx-box rcx-box--full rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Button
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1mpst1p"
+      >
+        <div
+          class="rcx-box rcx-box--full rcx-card__col rcx-css-1tbw8nv"
+        >
+          <div
+            class="rcx-box rcx-box--full rcx-card__header rcx-css-1wuw1zw"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
+            >
+              
+            </i>
+            <h3
+              class="rcx-box rcx-box--full rcx-card__title rcx-css-10z9mkx"
+            >
+              Heading 3
+              <span
+                class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+              >
+                <span
+                  hidden=""
+                >
+                  Heading info
+                </span>
+                <i
+                  aria-hidden="true"
+                  class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+                  title="Heading info"
+                >
+                  
+                </i>
+              </span>
+            </h3>
+          </div>
+          <div
+            class="rcx-box rcx-box--full rcx-card__body rcx-css-1h0kzgh"
+          >
+            Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
+          </div>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__controls rcx-css-14l8sh3"
+        >
+          <button
+            class="rcx-box rcx-box--full rcx-button--primary rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Button
+            </span>
+          </button>
+          <button
+            class="rcx-box rcx-box--full rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Button
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1mpst1p"
+      >
+        <div
+          class="rcx-box rcx-box--full rcx-card__col rcx-css-1tbw8nv"
+        >
+          <div
+            class="rcx-box rcx-box--full rcx-card__header rcx-css-1wuw1zw"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
+            >
+              
+            </i>
+            <h3
+              class="rcx-box rcx-box--full rcx-card__title rcx-css-10z9mkx"
+            >
+              Heading 3
+              <span
+                class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+              >
+                <span
+                  hidden=""
+                >
+                  Heading info
+                </span>
+                <i
+                  aria-hidden="true"
+                  class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+                  title="Heading info"
+                >
+                  
+                </i>
+              </span>
+            </h3>
+          </div>
+          <div
+            class="rcx-box rcx-box--full rcx-card__body rcx-css-1h0kzgh"
+          >
+            Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
+          </div>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__controls rcx-css-14l8sh3"
+        >
+          <button
+            class="rcx-box rcx-box--full rcx-button--primary rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Button
+            </span>
+          </button>
+          <button
+            class="rcx-box rcx-box--full rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Button
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1mpst1p"
+      >
+        <div
+          class="rcx-box rcx-box--full rcx-card__col rcx-css-1tbw8nv"
+        >
+          <div
+            class="rcx-box rcx-box--full rcx-card__header rcx-css-1wuw1zw"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
+            >
+              
+            </i>
+            <h3
+              class="rcx-box rcx-box--full rcx-card__title rcx-css-10z9mkx"
+            >
+              Heading 3
+              <span
+                class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+              >
+                <span
+                  hidden=""
+                >
+                  Heading info
+                </span>
+                <i
+                  aria-hidden="true"
+                  class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+                  title="Heading info"
+                >
+                  
+                </i>
+              </span>
+            </h3>
+          </div>
+          <div
+            class="rcx-box rcx-box--full rcx-card__body rcx-css-1h0kzgh"
+          >
+            Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
+          </div>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__controls rcx-css-14l8sh3"
+        >
+          <button
+            class="rcx-box rcx-box--full rcx-button--primary rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Button
+            </span>
+          </button>
+          <button
+            class="rcx-box rcx-box--full rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Button
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1mpst1p"
+      >
+        <div
+          class="rcx-box rcx-box--full rcx-card__col rcx-css-1tbw8nv"
+        >
+          <div
+            class="rcx-box rcx-box--full rcx-card__header rcx-css-1wuw1zw"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
+            >
+              
+            </i>
+            <h3
+              class="rcx-box rcx-box--full rcx-card__title rcx-css-10z9mkx"
+            >
+              Heading 3
+              <span
+                class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+              >
+                <span
+                  hidden=""
+                >
+                  Heading info
+                </span>
+                <i
+                  aria-hidden="true"
+                  class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+                  title="Heading info"
+                >
+                  
+                </i>
+              </span>
+            </h3>
+          </div>
+          <div
+            class="rcx-box rcx-box--full rcx-card__body rcx-css-1h0kzgh"
+          >
+            Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
+          </div>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__controls rcx-css-14l8sh3"
+        >
+          <button
+            class="rcx-box rcx-box--full rcx-button--primary rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Button
+            </span>
+          </button>
+          <button
+            class="rcx-box rcx-box--full rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Button
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1mpst1p"
+      >
+        <div
+          class="rcx-box rcx-box--full rcx-card__col rcx-css-1tbw8nv"
+        >
+          <div
+            class="rcx-box rcx-box--full rcx-card__header rcx-css-1wuw1zw"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
+            >
+              
+            </i>
+            <h3
+              class="rcx-box rcx-box--full rcx-card__title rcx-css-10z9mkx"
+            >
+              Heading 3
+              <span
+                class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+              >
+                <span
+                  hidden=""
+                >
+                  Heading info
+                </span>
+                <i
+                  aria-hidden="true"
+                  class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+                  title="Heading info"
+                >
+                  
+                </i>
+              </span>
+            </h3>
+          </div>
+          <div
+            class="rcx-box rcx-box--full rcx-card__body rcx-css-1h0kzgh"
+          >
+            Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
+          </div>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__controls rcx-css-14l8sh3"
+        >
+          <button
+            class="rcx-box rcx-box--full rcx-button--primary rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Button
+            </span>
+          </button>
+          <button
+            class="rcx-box rcx-box--full rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Button
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1mpst1p"
+      >
+        <div
+          class="rcx-box rcx-box--full rcx-card__col rcx-css-1tbw8nv"
+        >
+          <div
+            class="rcx-box rcx-box--full rcx-card__header rcx-css-1wuw1zw"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
+            >
+              
+            </i>
+            <h3
+              class="rcx-box rcx-box--full rcx-card__title rcx-css-10z9mkx"
+            >
+              Heading 3
+              <span
+                class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+              >
+                <span
+                  hidden=""
+                >
+                  Heading info
+                </span>
+                <i
+                  aria-hidden="true"
+                  class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+                  title="Heading info"
+                >
+                  
+                </i>
+              </span>
+            </h3>
+          </div>
+          <div
+            class="rcx-box rcx-box--full rcx-card__body rcx-css-1h0kzgh"
+          >
+            Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
+          </div>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__controls rcx-css-14l8sh3"
+        >
+          <button
+            class="rcx-box rcx-box--full rcx-button--primary rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Button
+            </span>
+          </button>
+          <button
+            class="rcx-box rcx-box--full rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Button
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1mpst1p"
+      >
+        <div
+          class="rcx-box rcx-box--full rcx-card__col rcx-css-1tbw8nv"
+        >
+          <div
+            class="rcx-box rcx-box--full rcx-card__header rcx-css-1wuw1zw"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
+            >
+              
+            </i>
+            <h3
+              class="rcx-box rcx-box--full rcx-card__title rcx-css-10z9mkx"
+            >
+              Heading 3
+              <span
+                class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+              >
+                <span
+                  hidden=""
+                >
+                  Heading info
+                </span>
+                <i
+                  aria-hidden="true"
+                  class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+                  title="Heading info"
+                >
+                  
+                </i>
+              </span>
+            </h3>
+          </div>
+          <div
+            class="rcx-box rcx-box--full rcx-card__body rcx-css-1h0kzgh"
+          >
+            Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
+          </div>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__controls rcx-css-14l8sh3"
+        >
+          <button
+            class="rcx-box rcx-box--full rcx-button--primary rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Button
+            </span>
+          </button>
+          <button
+            class="rcx-box rcx-box--full rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Button
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
