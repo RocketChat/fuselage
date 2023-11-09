@@ -1,11 +1,10 @@
-import { Button } from '@rocket.chat/fuselage';
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 
 import { Card, CardBody, CardCol, CardTitle } from '.';
 import { Avatar } from '../Avatar';
 import { Badge } from '../Badge';
-import { IconButton } from '../Button';
+import { Button, IconButton } from '../Button';
 import { Icon } from '../Icon';
 import { Tag } from '../Tag';
 import CardControls from './CardControls';

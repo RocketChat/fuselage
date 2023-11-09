@@ -1,4 +1,3 @@
-// import type { ComponentProps } from 'react';
 import type { ReactNode } from 'react';
 import React from 'react';
 

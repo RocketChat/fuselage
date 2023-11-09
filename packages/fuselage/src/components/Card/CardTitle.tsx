@@ -1,7 +1,7 @@
-import { Box } from '@rocket.chat/fuselage';
 import type { AllHTMLAttributes, ReactNode } from 'react';
 import React from 'react';
 
+import Box from '../Box/Box';
 import { LabelInfo } from '../Label/LabelInfo';
 
 const CardTitle = ({

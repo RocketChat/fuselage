@@ -6,3 +6,5 @@ export { default as CardTitle } from './CardTitle';
 export { default as CardControls } from './CardControls';
 export { default as CardContent } from './CardRow';
 export { default as CardHeader } from './CardHeader';
+export { default as CardVertical } from './CardVertical';
+export { default as CardHorizontal } from './CardHorizontal';

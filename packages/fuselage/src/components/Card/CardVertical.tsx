@@ -1,9 +1,9 @@
-import { Box } from '@rocket.chat/fuselage';
 import { useBreakpoints } from '@rocket.chat/fuselage-hooks';
 import type { AllHTMLAttributes } from 'react';
 import React from 'react';
 
 import './Card.styles.scss';
+import Box from '../Box/Box';
 
 const CardVertical = (props: Omit<AllHTMLAttributes<HTMLElement>, 'is'>) => {
   const breakpoints = useBreakpoints();
