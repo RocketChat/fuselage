@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.38.0
+
+### Minor Changes
+
+- [#1220](https://github.com/RocketChat/fuselage/pull/1220) [`b0de1ec7e`](https://github.com/RocketChat/fuselage/commit/b0de1ec7effbd6fd4bd7fcbb71920c4186da45a7) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage): update `SidebarItem` highlighted weight
+
+- [#1214](https://github.com/RocketChat/fuselage/pull/1214) [`68674c502`](https://github.com/RocketChat/fuselage/commit/68674c502014e31b15cb81ab85d62677814a60fd) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage): create `LabelInfo` component
+
 ## 0.37.1
 
 ### Patch Changes
