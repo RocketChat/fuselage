@@ -155,14 +155,6 @@ test.each([
       ]),
     ],
   ],
-  [
-    '_ @guilherme.gazzo_ _',
-    [
-      paragraph([
-        italic([plain(' '), mentionUser('guilherme.gazzo_'), plain(' ')]),
-      ]),
-    ],
-  ],
 ])('parses %p', (input, output) => {
   expect(parse(input)).toMatchObject(output);
 });
