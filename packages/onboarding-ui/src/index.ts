@@ -8,7 +8,7 @@ export { default as InvalidLinkPage } from './pages/InvalidLinkPage';
 export { default as LoginLinkEmailPage } from './pages/LoginLinkEmailPage';
 export { default as OrganizationInfoPage } from './pages/OrganizationInfoPage';
 export { default as RegisterServerPage } from './pages/RegisterServerPage';
-export { default as StandaloneServerPage } from './pages/StandaloneServerPage';
+export { default as RegisterOfflinePage } from './pages/RegisterOfflinePage';
 export { default as RequestTrialPage } from './pages/RequestTrialPage';
 export { default as LoginPage } from './pages/LoginPage';
 export { default as CreateNewAccountPage } from './pages/CreateNewAccountPage';

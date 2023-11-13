@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.32.0
+
+### Minor Changes
+
+- [#1128](https://github.com/RocketChat/fuselage/pull/1128) [`6db5cb214`](https://github.com/RocketChat/fuselage/commit/6db5cb2141bf42c9622c5846701e5b26392a1ada) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage, fuselage-tokens): Update primitive tokens
+
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 

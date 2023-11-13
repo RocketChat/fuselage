@@ -12,7 +12,7 @@ const ContextualbarAction = ({
   name,
   ...props
 }: ContextualbarActionProps): ReactElement => (
-  <IconButton flexShrink={0} icon={name} {...props} tiny />
+  <IconButton {...props} small flexShrink={0} icon={name} />
 );
 
 export default memo(ContextualbarAction);

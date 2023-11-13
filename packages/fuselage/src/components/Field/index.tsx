@@ -3,6 +3,7 @@ import { FieldDescription } from './FieldDescription';
 import { FieldError } from './FieldError';
 import { FieldHint } from './FieldHint';
 import { FieldLabel } from './FieldLabel';
+import { FieldLabelInfo } from './FieldLabelInfo';
 import { FieldLink } from './FieldLink';
 import { FieldRow } from './FieldRow';
 
@@ -12,6 +13,7 @@ export {
   FieldError,
   FieldHint,
   FieldLabel,
+  FieldLabelInfo,
   FieldLink,
   FieldRow,
 };

@@ -6,25 +6,24 @@
         "back": "Back",
         "next": "Next",
         "skip": "Skip this step",
+        "registerWorkspace": "Register workspace",
         "register": "Register",
-        "registerNow": "Register now",
-        "confirm": "Confirm"
+        "registerOffline": "Register offline",
+        "confirm": "Confirm",
+        "pasteHere": "Paste here...",
+        "completeRegistration": "Complete registration"
       },
       "requiredField": "This field is required",
       "termsAndConditions": "I agree with <1>Terms and Conditions</1> and <3>Privacy Policy</3>"
     },
-    "emailCodeFallback": "Didn’t receive email? <1>Resend</1> or <3>Change email</3>",
+    "emailCodeFallback": "Didn’t receive email? <1>Resend</1> or <3>Change email</3>.",
     "manageWorkspaceFallback": "Already have an account? <1>Manage your workspaces.</1>",
     "createNewAccountPage": "Already registered? <1>Go to login</1>",
     "wantToLogin": "Want to log in? <1>Go to login</1>"
   },
   "page": {
     "form": {
-      "title": "Let's <1>Launch</1> Your Workspace"
-    },
-    "awaitingConfirmation": {
-      "title": "Awaiting confirmation",
-      "subtitle": "We have sent you an email to {{emailAddress}} with a confirmation link. Please verify that the security code below matches the one in the email."
+      "title": "Let's launch your workspace"
     },
     "emailConfirmed": {
       "title": "Email Confirmed!",
@@ -65,10 +64,6 @@
     "magicLinkEmail": {
       "title": "We emailed you a login link",
       "subtitle": "Click the link in the email we just sent you to sign in to your workspace. <1>The link will expire in 30 minutes.</1>"
-    },
-    "organizationInfoPage": {
-      "title": "A few more details...",
-      "subtitle": "These will help us to personalize your workspace."
     },
     "loginPage": {
       "title": {
@@ -126,7 +121,7 @@
   "form": {
     "adminInfoForm": {
       "title": "Admin Info",
-      "subtitle": "We need this to create an admin profile inside your workspace",
+      "subtitle": "We need this information to create an admin profile for your workspace.",
       "fields": {
         "fullName": {
           "label": "Full name",
@@ -151,7 +146,7 @@
     },
     "organizationInfoForm": {
       "title": "Organization Info",
-      "subtitle": "Please, bear with us. This info will help us personalize your workspace",
+      "subtitle": "We need to know who you are.",
       "fields": {
         "organizationName": {
           "label": "Organization name",
@@ -176,7 +171,7 @@
       }
     },
     "registeredServerForm": {
-      "title": "Register Your Server",
+      "title": "Register your workspace",
       "included": {
         "push": "Mobile push notifications",
         "externalProviders": "Integration with external providers (WhatsApp, Facebook, Telegram, Twitter)",
@@ -184,21 +179,15 @@
       },
       "fields": {
         "accountEmail": {
-          "inputLabel": "Cloud account email",
-          "tooltipLabel": "To register your server, we need to connect it to your cloud account. If you already have one - we wll link it automatically. Otherwise, a new account will be created",
-          "inputPlaceholder": "Please enter your Email"
+          "inputLabel": "Admin email",
+          "inputPlaceholder": "Insert your email to continue"
         }
       },
       "keepInformed": "Keep me informed about news and events",
       "registerLater": "Register later",
       "notConnectedToInternet": "The server is not connected to the internet, so you’ll have to do an offline registration for this workspace.",
-      "agreeToReceiveUpdates": "By registering I agree to receive relevant product and security updates"
-    },
-    "standaloneServerForm": {
-      "title": "Standalone Server Confirmation",
-      "servicesUnavailable": "Some of the services will be unavailable or will require manual setup",
-      "publishOwnApp": "In order to send push notitications you need to compile and publish your own app to Google Play and App Store",
-      "manuallyIntegrate": "Need to manually integrate with external services"
+      "registrationEngagement": "Registration allows automatic license updates, notifications of critical vulnerabilities and access to Rocket.Chat Cloud services. No sensitive workspace data is shared; statistics sent to Rocket.Chat are made visible to you within the administration area.",
+      "registrationKeepInformed": "By submitting this form you consent to receive more information about Rocket.Chat products, events and updates, according to our <1>privacy policy</1>. You may unsubscribe at any time."
     },
     "createCloudWorkspace": {
       "title": "New Cloud Workspace",
@@ -226,6 +215,20 @@
         "keepMeInformed": "Keep me informed about news and events"
       }
     },
+    "registerOfflineForm": {
+      "title": "Register Offline",
+      "copyStep": {
+        "description": "If for any reason your workspace can’t be connected to the internet, follow these steps:<1></1>1. Go to: <2>cloud.rocket.chat > Workspaces</2> and click “<3>Register self-managed</3>”<4></4>2. Click “<5>Continue offline</5>”<6></6>3. In the <7>Register offline workspace</7> dialog in cloud.rocket.chat, paste the token in the box below"
+      },
+      "pasteStep": {
+        "description": "1. In <1>cloud.rocket.chat</1> get the generated text and paste below to complete your registration process"
+      },
+      "fields": {
+        "registrationToken": {
+          "inputLabel": "Registration token"
+        }
+      }
+    },
     "requestTrialForm": {
       "fields": {
         "emailAddress": {
@@ -251,6 +254,13 @@
       "hasWorkspace": {
         "label": "Already registered a workspace?",
         "description": "Please use the email address associated with your cloud account"
+      }
+    },
+    "awaitConfirmationForm": {
+      "title": "Awaiting confirmation",
+      "content": {
+        "securityCode": "Security code",
+        "sentEmail": "Email sent to <1>{{email}}</1> with a confirmation link.Please verify that the security code below matches the one in the email."
       }
     },
     "loginForm": {

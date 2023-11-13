@@ -5,11 +5,14 @@ import Box from '../Box';
 import { Label } from '../Label';
 
 export const ToggleSwitch = forwardRef(function ToggleSwitch(
-  props: ComponentProps<typeof Box> & AllHTMLAttributes<HTMLInputElement>,
+  {
+    className,
+    ...props
+  }: ComponentProps<typeof Box> & AllHTMLAttributes<HTMLInputElement>,
   ref: Ref<HTMLInputElement>
 ) {
   return (
-    <Box is={Label} rcx-toggle-switch>
+    <Box is={Label} className={className} rcx-toggle-switch>
       <Box
         is='input'
         ref={ref}

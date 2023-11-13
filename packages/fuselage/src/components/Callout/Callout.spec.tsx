@@ -1,47 +1,31 @@
 import { composeStories } from '@storybook/testing-react';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
+import { axe } from 'jest-axe';
 import React from 'react';
 
-import { Callout } from './Callout';
 import * as stories from './Callout.stories';
 
-const { Default, WithDescriptionOnly, Info, Success, Warning, Danger } =
-  composeStories(stories);
+const testCases = Object.values(composeStories(stories)).map((Story) => [
+  Story.storyName || 'Story',
+  Story,
+]);
 
-describe('[Callout Component]', () => {
-  describe('Storybook', () => {
-    it.each([
-      ['Default', Default],
-      ['WithDescriptionOnly', WithDescriptionOnly],
-      ['Info', Info],
-      ['Success', Success],
-      ['Warning', Warning],
-      ['Danger', Danger],
-    ])('renders %p story without crashing', (_storyName, Story) => {
-      render(<Story />);
-    });
+describe('[CheckBox Rendering]', () => {
+  test.each(testCases)(
+    `renders %s without crashing`,
+    async (_storyname, Story) => {
+      const tree = render(<Story />);
+      expect(tree.baseElement).toMatchSnapshot();
+    }
+  );
 
-    it.each([
-      ['.rcx-callout--type-info', 'info', Info],
-      ['.rcx-callout--type-success', 'success', Success],
-      ['.rcx-callout--type-warning', 'warning', Warning],
-      ['.rcx-callout--type-danger', 'danger', Danger],
-    ])(
-      'should have class %p when type is %p',
-      (className, _typeName, Story) => {
-        const { container } = render(<Story />);
-        expect(container.querySelector(className)).toBeInTheDocument();
-      }
-    );
-  });
+  test.each(testCases)(
+    '%s should have no a11y violations',
+    async (_storyname, Story) => {
+      const { container } = render(<Story />);
 
-  it('should show title when this property is passed', () => {
-    render(<Callout title='test-title' />);
-    screen.getByText('test-title');
-  });
-
-  it('should display children', () => {
-    render(<Callout>Children</Callout>);
-    screen.getByText('Children');
-  });
+      const results = await axe(container);
+      expect(results).toHaveNoViolations();
+    }
+  );
 });

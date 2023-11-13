@@ -6,7 +6,7 @@ import Box from '../Box';
 import { Label } from '../Label';
 import { FieldContext } from './Field';
 
-type FieldLabelProps = ComponentPropsWithoutRef<typeof Box>;
+type FieldLabelProps = ComponentPropsWithoutRef<typeof Label>;
 
 export const FieldLabel = (props: FieldLabelProps) => {
   const component = <Box is={Label} rcx-field__label {...props} />;
