@@ -122,7 +122,7 @@ export function AutoComplete({
   const [cursor, handleKeyDown, , reset, [optionsAreVisible, hide, show]] =
     useCursor(value, memoizedOptions, handleSelect);
 
-  const onBlur = useMutableCallback((event) => {
+  const handleOnBlur = useMutableCallback((event) => {
     hide();
     onBlurAction(event);
   });
@@ -154,7 +154,7 @@ export function AutoComplete({
             onChange={useMutableCallback((e) =>
               setFilter(e.currentTarget.value)
             )}
-            onBlur={onBlur}
+            onBlur={handleOnBlur}
             onFocus={show}
             onKeyDown={handleKeyDown}
             placeholder={
