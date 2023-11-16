@@ -203,7 +203,7 @@ const RegisterServerForm = ({
               <Button
                 type='submit'
                 primary
-                disabled={isSubmitting || isValidating}
+                disabled={isSubmitting || isValidating || offline}
               >
                 {t('component.form.action.registerWorkspace')}
               </Button>
