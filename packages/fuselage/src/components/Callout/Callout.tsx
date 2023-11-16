@@ -29,9 +29,7 @@ export const Callout = ({
   return (
     <Box
       is='section'
-      className={[
-        `rcx-callout ${type && `rcx-callout--${type}`} ${className || ''}`,
-      ]
+      className={['rcx-callout', type && `rcx-callout--${type}`, className]
         .filter(Boolean)
         .join(' ')}
       {...props}

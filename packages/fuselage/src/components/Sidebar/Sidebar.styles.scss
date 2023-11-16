@@ -149,6 +149,8 @@ $sidebar-banner-color-danger: theme(
 
 %highlighted {
   color: $sidebar-item-color-highlighted;
+
+  font-weight: 600;
 }
 
 @mixin highlighted {

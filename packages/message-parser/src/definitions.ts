@@ -83,7 +83,7 @@ export type Quote = {
   value: Paragraph[];
 };
 
-export type Markup = Italic | Strike | Bold | Plain;
+export type Markup = Italic | Strike | Bold | Plain | ChannelMention;
 export type MarkupExcluding<T extends Markup> = Exclude<Markup, T>;
 
 export type Bold = {
