@@ -69,6 +69,7 @@ export function AutoComplete({
   error,
   disabled,
   multiple,
+  onBlur: onBlurAction = () => {},
   ...props
 }: AutoCompleteProps): ReactElement {
   const ref = useRef();
@@ -121,6 +122,11 @@ export function AutoComplete({
   const [cursor, handleKeyDown, , reset, [optionsAreVisible, hide, show]] =
     useCursor(value, memoizedOptions, handleSelect);
 
+  const onBlur = useMutableCallback((event) => {
+    hide();
+    onBlurAction(event);
+  });
+
   useEffect(reset, [filter]);
 
   return (
@@ -148,7 +154,7 @@ export function AutoComplete({
             onChange={useMutableCallback((e) =>
               setFilter(e.currentTarget.value)
             )}
-            onBlur={hide}
+            onBlur={onBlur}
             onFocus={show}
             onKeyDown={handleKeyDown}
             placeholder={
