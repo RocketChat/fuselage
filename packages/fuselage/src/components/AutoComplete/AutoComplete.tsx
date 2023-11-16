@@ -69,7 +69,7 @@ export function AutoComplete({
   error,
   disabled,
   multiple,
-  onBlur: onBlurAction = () => {},
+  onBlur: handleOnBlur = () => {},
   ...props
 }: AutoCompleteProps): ReactElement {
   const ref = useRef();
@@ -124,7 +124,7 @@ export function AutoComplete({
 
   const onBlur = useMutableCallback((event) => {
     hide();
-    onBlurAction(event);
+    handleOnBlur(event);
   });
 
   useEffect(reset, [filter]);
