@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.38.1
+
+### Patch Changes
+
+- [#1222](https://github.com/RocketChat/fuselage/pull/1222) [`ab9e4bf83`](https://github.com/RocketChat/fuselage/commit/ab9e4bf83d01cffb11b3ab803838770040bd2f2a) Thanks [@yash-rajpal](https://github.com/yash-rajpal)! - Handle `onBlur` prop on AutoComplete
+
 ## 0.38.0
 
 ### Minor Changes
