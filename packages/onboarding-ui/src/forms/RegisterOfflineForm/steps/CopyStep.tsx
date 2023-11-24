@@ -21,8 +21,8 @@ type CopyStepProps = {
 };
 
 const CopyStep = ({
-  termsHref,
-  policyHref,
+  termsHref = 'https://rocket.chat/terms',
+  policyHref = 'https://rocket.chat/privacy',
   clientKey,
   setStep,
   onBackButtonClick,
