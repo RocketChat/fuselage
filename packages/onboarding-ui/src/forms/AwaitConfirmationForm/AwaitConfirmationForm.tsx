@@ -38,19 +38,17 @@ const AwaitingConfirmationForm = ({
             the one in the email.
           </Trans>
         </Box>
-        <Label>
-          {t('form.awaitConfirmationForm.content.securityCode')}
-          <Box
-            padding='12px'
-            width='full'
-            fontScale='p2b'
-            lineHeight='20px'
-            backgroundColor='tint'
-            elevation='1'
-          >
-            {securityCode}
-          </Box>
-        </Label>
+        <Label>{t('form.awaitConfirmationForm.content.securityCode')}</Label>
+        <Box
+          padding='12px'
+          width='full'
+          fontScale='p2b'
+          lineHeight='20px'
+          backgroundColor='tint'
+          elevation='1'
+        >
+          {securityCode}
+        </Box>
       </Form.Container>
       <Form.Footer>
         <EmailCodeFallback
