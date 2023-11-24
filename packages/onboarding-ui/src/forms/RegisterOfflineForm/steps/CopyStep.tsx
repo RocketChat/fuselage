@@ -16,6 +16,7 @@ type CopyStepProps = {
   termsHref: string;
   policyHref: string;
   clientKey: string;
+  onCopySecurityCode: () => void;
   onBackButtonClick: () => void;
   setStep: (step: string) => void;
 };
@@ -25,6 +26,7 @@ const CopyStep = ({
   policyHref = 'https://rocket.chat/privacy',
   clientKey,
   setStep,
+  onCopySecurityCode,
   onBackButtonClick,
 }: CopyStepProps): ReactElement => {
   const { t } = useTranslation();
@@ -74,7 +76,14 @@ const CopyStep = ({
               {clientKey}
             </Box>
           </Scrollable>
-          <Button icon='copy' primary onClick={() => clipboard.copy()} />
+          <Button
+            icon='copy'
+            primary
+            onClick={() => {
+              onCopySecurityCode();
+              clipboard.copy();
+            }}
+          />
         </Box>
         <AgreeTermsField
           agreementField={agreementField}
