@@ -76,15 +76,13 @@ const CopyStep = ({
           </Scrollable>
           <Button icon='copy' primary onClick={() => clipboard.copy()} />
         </Box>
-        <Box mbs={24}>
-          <AgreeTermsField
-            agreementField={agreementField}
-            termsHref={termsHref}
-            policyHref={policyHref}
-            control={control}
-            errors={errors}
-          />
-        </Box>
+        <AgreeTermsField
+          agreementField={agreementField}
+          termsHref={termsHref}
+          policyHref={policyHref}
+          control={control}
+          errors={errors}
+        />
       </Form.Container>
       <Form.Footer>
         <Box display='flex' flexDirection='column'>

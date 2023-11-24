@@ -27,7 +27,7 @@ const AgreeTermsField = ({
   const { t } = useTranslation();
 
   return (
-    <Field>
+    <Field mbs='24px'>
       <FieldRow>
         <Controller
           name='agreement'
