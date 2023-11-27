@@ -38,7 +38,7 @@ const AwaitingConfirmationForm = ({
             the one in the email.
           </Trans>
         </Box>
-        <Label>
+        <Label display='block'>
           {t('form.awaitConfirmationForm.content.securityCode')}
           <Box
             padding='12px'

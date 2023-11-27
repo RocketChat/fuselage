@@ -9,6 +9,7 @@ it('renders without crashing', () => {
       termsHref=''
       policyHref=''
       clientKey=''
+      onCopySecurityCode={() => undefined}
       onBackButtonClick={() => undefined}
       onSubmit={() => undefined}
     />,
