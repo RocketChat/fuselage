@@ -17,7 +17,7 @@ const PasteStep = ({ setStep }: PasteStepProps): ReactElement => {
   const isMobile = !breakpoints.includes('md');
   const {
     register,
-    formState: { isValidating, isSubmitting },
+    formState: { isSubmitting, isValidating, isSubmitSuccessful },
   } = useFormContext();
 
   return (
@@ -62,7 +62,7 @@ const PasteStep = ({ setStep }: PasteStepProps): ReactElement => {
             <Button
               type='submit'
               primary
-              disabled={isValidating || isSubmitting}
+              disabled={isSubmitting || isValidating || isSubmitSuccessful}
             >
               {t('component.form.action.completeRegistration')}
             </Button>
