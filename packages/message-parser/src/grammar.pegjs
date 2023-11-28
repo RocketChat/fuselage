@@ -366,7 +366,6 @@ ItalicContentItems = text:ItalicContentItem+ { return reducePlainTexts(text); }
 
 ItalicContentItem
   = Whitespace
-  / References
   / UserMention
   / ChannelMention
   / Bold
@@ -375,18 +374,19 @@ ItalicContentItem
   / Emoticon
   / AnyItalic
   / Line
+  / References
 
 /* Bold */
 Bold = [\x2A] [\x2A] @BoldContent [\x2A] [\x2A] / [\x2A] @BoldContent [\x2A]
 
 BoldContent = text:BoldContentItem+ { return bold(reducePlainTexts(text)); }
 
-BoldContentItem = Whitespace / References / UserMention / ChannelMention / Italic / Strikethrough / Emoji / Emoticon / AnyBold / Line
+BoldContentItem = Whitespace / UserMention / ChannelMention / Italic / Strikethrough / Emoji / Emoticon / AnyBold / Line / References
 
 /* Strike */
 Strikethrough = [\x7E] [\x7E] @StrikethroughContent [\x7E] [\x7E] / [\x7E] @StrikethroughContent [\x7E]
 
-StrikethroughContent = text:(Whitespace / References / UserMention / ChannelMention / Italic / Bold / Emoji / Emoticon / AnyStrike / Line)+ {
+StrikethroughContent = text:(Whitespace / UserMention / ChannelMention / Italic / Bold / Emoji / Emoticon / AnyStrike / Line / References)+ {
       return strike(reducePlainTexts(text));
     }
 
