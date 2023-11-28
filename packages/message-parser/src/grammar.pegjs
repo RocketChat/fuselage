@@ -227,7 +227,7 @@ InlineItem = Whitespace
  *
  */
 References
-  = &("[" (!"]" .)* "](" URL ")") "[" title:LinkTitle* "](" href:LinkRef ")" { return title.length ? link(href, reducePlainTexts(title)) : link(href); }
+  = &("[" (!"]" .)* "](" LinkRef ")") "[" title:LinkTitle* "](" href:LinkRef ")" { return title.length ? link(href, reducePlainTexts(title)) : link(href); }
   / "<" href:LinkRef "|" title:LinkTitle2 ">" { return link(href, [plain(title)]); }
 
 LinkTitle = (Whitespace / Emphasis) / anyTitle:$(!("](" .) .) { return plain(anyTitle) }
