@@ -560,6 +560,27 @@ Text after line break`,
       ]),
     ],
   ],
+  [
+    '[Jira [Task _emph_ foo] parentheses not working](rocket.chat)',
+    [
+      paragraph([
+        link('rocket.chat', [
+          plain('Jira [Task '),
+          italic([plain('emph')]),
+          plain(' foo] parentheses not working'),
+        ]),
+      ]),
+    ],
+  ],
+  [
+    '[Title 1] bla bla [Title 2](https://foo.com/title2)',
+    [
+      paragraph([
+        plain('[Title 1] bla bla '),
+        link('https://foo.com/title2', [plain('Title 2')]),
+      ]),
+    ],
+  ],
 ])('parses %p', (input, output) => {
   expect(parse(input)).toMatchObject(output);
 });

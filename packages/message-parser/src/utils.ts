@@ -194,6 +194,12 @@ const joinEmoji = (
   return current;
 };
 
+export const flatten = (values: Paragraph['value']): Paragraph['value'] =>
+  values.reduce(
+    (acc, v) => [...acc, ...(Array.isArray(v) ? v : [v])],
+    [] as Paragraph['value']
+  );
+
 export const reducePlainTexts = (
   values: Paragraph['value']
 ): Paragraph['value'] =>
