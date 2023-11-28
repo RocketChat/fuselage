@@ -10,6 +10,7 @@ it('renders without crashing', () => {
       policyHref=''
       clientKey=''
       onSubmit={() => undefined}
+      onCopySecurityCode={() => undefined}
       onBackButtonClick={() => undefined}
     />,
     div

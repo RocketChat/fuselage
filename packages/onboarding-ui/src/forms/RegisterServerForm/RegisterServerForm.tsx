@@ -4,8 +4,6 @@ import {
   Button,
   Field,
   EmailInput,
-  CheckBox,
-  Icon,
   FieldLabel,
   FieldRow,
   FieldError,
@@ -18,6 +16,8 @@ import { useEffect, useRef } from 'react';
 import type { SubmitHandler, Validate } from 'react-hook-form';
 import { Controller, useForm, FormProvider } from 'react-hook-form';
 import { useTranslation, Trans } from 'react-i18next';
+
+import AgreeTermsField from '../../common/AgreeTermsField';
 
 export type RegisterServerPayload = {
   email: string;
@@ -107,14 +107,6 @@ const RegisterServerForm = ({
                 htmlFor={emailField}
               >
                 {t('form.registeredServerForm.fields.accountEmail.inputLabel')}
-                <Icon
-                  title={t(
-                    'form.registeredServerForm.fields.accountEmail.tooltipLabel'
-                  )}
-                  mis={4}
-                  size='x16'
-                  name='info'
-                />
               </FieldLabel>
               <FieldRow>
                 <Controller
@@ -144,65 +136,13 @@ const RegisterServerForm = ({
                 </FieldError>
               )}
             </Field>
-            <Field>
-              <FieldRow>
-                <Controller
-                  name='agreement'
-                  control={control}
-                  rules={{
-                    required: String(t('component.form.requiredField')),
-                  }}
-                  render={({
-                    field: { ref, name, onBlur, onChange, value },
-                  }) => (
-                    <CheckBox
-                      ref={ref}
-                      id={agreementField}
-                      onChange={onChange}
-                      onBlur={onBlur}
-                      name={name}
-                      checked={value}
-                      aria-describedby={`${agreementField}-error`}
-                      aria-invalid={Boolean(errors.agreement)}
-                      aria-required='true'
-                    />
-                  )}
-                />
-                <FieldLabel
-                  htmlFor={agreementField}
-                  withRichContent
-                  required
-                  fontScale='c1'
-                >
-                  <Trans i18nKey='component.form.termsAndConditions'>
-                    I agree with
-                    <a
-                      href={termsHref}
-                      target='_blank'
-                      rel='noopener noreferrer'
-                    >
-                      Terms and Conditions
-                    </a>
-                    and
-                    <a
-                      href={policyHref}
-                      target='_blank'
-                      rel='noopener noreferrer'
-                    >
-                      Privacy Policy
-                    </a>
-                  </Trans>
-                </FieldLabel>
-              </FieldRow>
-              {errors.agreement && (
-                <FieldError
-                  aria-live='assertive'
-                  id={`${agreementField}-error`}
-                >
-                  {t('component.form.requiredField')}
-                </FieldError>
-              )}
-            </Field>
+            <AgreeTermsField
+              agreementField={agreementField}
+              termsHref={termsHref}
+              policyHref={policyHref}
+              control={control}
+              errors={errors}
+            />
             <input type='hidden' {...register('updates')} />
           </FieldGroup>
         </Form.Container>
@@ -213,6 +153,7 @@ const RegisterServerForm = ({
                 type='submit'
                 primary
                 loading={isSubmitting || isValidating}
+                disabled={offline}
               >
                 {t('component.form.action.registerWorkspace')}
               </Button>
