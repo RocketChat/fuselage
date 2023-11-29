@@ -25,7 +25,7 @@ const CardTitle = ({
     {...props}
   >
     {children}
-    {info && <LabelInfo title={info} />}
+    {info && <LabelInfo title={info} mis={2} />}
   </Box>
 );
 

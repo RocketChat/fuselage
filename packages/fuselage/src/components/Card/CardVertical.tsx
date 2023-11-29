@@ -12,7 +12,6 @@ const CardVertical = (props: Omit<AllHTMLAttributes<HTMLElement>, 'is'>) => {
   return (
     <Box
       borderRadius='x8'
-      p={16}
       display='flex'
       flexDirection='column'
       flexWrap={isMobile ? 'wrap' : 'nowrap'}

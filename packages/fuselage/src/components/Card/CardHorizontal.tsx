@@ -11,8 +11,6 @@ const CardHorizontal = (props: Omit<AllHTMLAttributes<HTMLElement>, 'is'>) => {
   return (
     <Box
       borderRadius='x8'
-      pb={4}
-      pi={12}
       display='flex'
       justifyContent='center'
       alignItems='center'
@@ -21,6 +19,7 @@ const CardHorizontal = (props: Omit<AllHTMLAttributes<HTMLElement>, 'is'>) => {
       color='default'
       rcx-card
       rcx-card__horizontal
+      rcx-card__horizontal--wrap={isMobile}
       {...props}
     />
   );

@@ -2,9 +2,15 @@
 
 $card-spacing: lengths.margin(4);
 
+// Card horizontal
 .rcx-card__horizontal {
-  > .rcx-card__col,
-  > .rcx-card__row,
+  padding: lengths.margin(12);
+
+  .rcx-card__controls {
+    margin-inline-start: lengths.margin(16);
+  }
+
+  .rcx-card__row,
   .rcx-card__header,
   .rcx-card__controls {
     & > * {
@@ -12,35 +18,42 @@ $card-spacing: lengths.margin(4);
     }
   }
 
-  & > * {
-    margin-block: $card-spacing;
-    margin-inline: $card-spacing;
+  &--wrap {
+    .rcx-card__controls {
+      margin-block-start: lengths.margin(16);
+      margin-inline-start: lengths.margin(none);
+    }
   }
 }
 
+// Card vertical
 .rcx-card__vertical {
+  padding: lengths.margin(20);
+
   > .rcx-card__col,
   > .rcx-card__row,
   .rcx-card__header,
   .rcx-card__controls {
     & > * {
-      margin-block: $card-spacing;
       margin-inline: $card-spacing;
     }
   }
-}
 
-.rcx-card__col {
-  &:first-child {
-    margin-inline-start: lengths.margin(none);
+  .rcx-card__body {
+    margin-block: lengths.margin(24);
+    margin-inline: lengths.margin(none);
   }
 
-  &:last-child {
-    margin-inline-end: lengths.margin(none);
+  .rcx-card__header {
+    margin: lengths.margin(none);
   }
 }
 
-.rcx-card__header {
+// Remove margin from first and last child of a group
+.rcx-card__header,
+.rcx-card__col,
+.rcx-card__row,
+.rcx-card__controls {
   & > :first-child {
     margin-inline-start: lengths.margin(none);
   }
