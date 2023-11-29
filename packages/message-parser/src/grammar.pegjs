@@ -362,11 +362,10 @@ Italic
 
 ItalicContent = text:ItalicContentItems { return italic(text); }
 
-ItalicContentItems = text:ItalicContentItem+ { return reducePlainTexts(text); }
+ItalicContentItems = text:(References / ItalicContentItem)+ { return reducePlainTexts(text); }
 
 ItalicContentItem
   = Whitespace
-  / References
   / UserMention
   / ChannelMention
   / Bold
@@ -379,16 +378,29 @@ ItalicContentItem
 /* Bold */
 Bold = [\x2A] [\x2A] @BoldContent [\x2A] [\x2A] / [\x2A] @BoldContent [\x2A]
 
-BoldContent = text:BoldContentItem+ { return bold(reducePlainTexts(text)); }
+BoldContent = text:(References / BoldContentItem)+ { return bold(reducePlainTexts(text)); }
 
-BoldContentItem = Whitespace / References / UserMention / ChannelMention / Italic / Strikethrough / Emoji / Emoticon / AnyBold / Line
+BoldContentItem = Whitespace / UserMention / ChannelMention / Italic / Strikethrough / Emoji / Emoticon / AnyBold / Line
 
 /* Strike */
-Strikethrough = [\x7E] [\x7E] @StrikethroughContent [\x7E] [\x7E] / [\x7E] @StrikethroughContent [\x7E]
+Strikethrough = [\x7E] [\x7E] @(StrikethroughContentItems) [\x7E] [\x7E] / [\x7E] @(StrikethroughContentItems) [\x7E]
 
-StrikethroughContent = text:(Whitespace / References / UserMention / ChannelMention / Italic / Bold / Emoji / Emoticon / AnyStrike / Line)+ {
-      return strike(reducePlainTexts(text));
-    }
+StrikethroughForReferences = [\x7E] [\x7E] @(StrikethroughContentItemsForReferences) [\x7E] [\x7E] / [\x7E] @(StrikethroughContentItemsForReferences) [\x7E]
+
+StrikethroughContentItemsForReferences = text:(StrikethroughContentItem)+ { return strike(reducePlainTexts(text)); }
+
+StrikethroughContentItems = text:(References / StrikethroughContentItem)+ { return strike(reducePlainTexts(text)); }
+
+StrikethroughContentItem
+  = Whitespace
+  / UserMention
+  / ChannelMention
+  / Italic
+  / Bold
+  / Emoji
+  / Emoticon
+  / AnyStrike
+  / Line
 
 AnyBold = t:[^\x0a\* ] { return plain(t); }
 
