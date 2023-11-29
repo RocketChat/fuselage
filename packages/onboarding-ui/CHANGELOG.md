@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.33.2
+
+### Patch Changes
+
+- [#1227](https://github.com/RocketChat/fuselage/pull/1227) [`414b1fc88`](https://github.com/RocketChat/fuselage/commit/414b1fc88b1fc9d527d93e9fc1b3fa21d8c098e3) Thanks [@tiagoevanp](https://github.com/tiagoevanp)! - Fix offline registration wizard validation
+
 ## 0.33.1
 
 ### Patch Changes
