@@ -510,15 +510,15 @@ Text after line break`,
       ]),
     ],
   ],
-  // [
-  //   'the [Jira [Task] parentheses not working](rocket.chat)',
-  //   [
-  //     paragraph([
-  //       plain('the '),
-  //       link('rocket.chat', [plain('Jira [Task] parentheses not working')]),
-  //     ]),
-  //   ],
-  // ],
+  [
+    'the [Jira [Task] parentheses not working](rocket.chat)',
+    [
+      paragraph([
+        plain('the '),
+        link('rocket.chat', [plain('Jira [Task] parentheses not working')]),
+      ]),
+    ],
+  ],
   [
     'the [Jira (Task) parentheses not working](rocket.chat)',
     [
@@ -528,14 +528,14 @@ Text after line break`,
       ]),
     ],
   ],
-  // [
-  //   '[Jira [Task] parentheses not working](rocket.chat)',
-  //   [
-  //     paragraph([
-  //       link('rocket.chat', [plain('Jira [Task] parentheses not working')]),
-  //     ]),
-  //   ],
-  // ],
+  [
+    '[Jira [Task] parentheses not working](rocket.chat)',
+    [
+      paragraph([
+        link('rocket.chat', [plain('Jira [Task] parentheses not working')]),
+      ]),
+    ],
+  ],
   [
     '[Jira (Task) parentheses not working](rocket.chat)',
     [
