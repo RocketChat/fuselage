@@ -17,6 +17,7 @@ type RegisterOfflineFormProps = {
   policyHref: string;
   clientKey: string;
   onSubmit: SubmitHandler<RegisterOfflinePayload>;
+  onCopySecurityCode: () => void;
   onBackButtonClick: () => void;
 };
 
@@ -30,6 +31,7 @@ const RegisterOfflineForm = ({
   policyHref,
   clientKey,
   onSubmit,
+  onCopySecurityCode,
   onBackButtonClick,
 }: RegisterOfflineFormProps): ReactElement => {
   const { t } = useTranslation();
@@ -58,6 +60,7 @@ const RegisterOfflineForm = ({
             policyHref={policyHref}
             clientKey={clientKey}
             setStep={setStep}
+            onCopySecurityCode={onCopySecurityCode}
             onBackButtonClick={onBackButtonClick}
           />
         ) : (

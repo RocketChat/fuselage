@@ -1,0 +1,51 @@
+@use '../../styles/lengths.scss';
+
+$card-spacing: lengths.margin(4);
+
+.rcx-card__horizontal {
+  > .rcx-card__col,
+  > .rcx-card__row,
+  .rcx-card__header,
+  .rcx-card__controls {
+    & > * {
+      margin-inline: $card-spacing;
+    }
+  }
+
+  & > * {
+    margin-block: $card-spacing;
+    margin-inline: $card-spacing;
+  }
+}
+
+.rcx-card__vertical {
+  > .rcx-card__col,
+  > .rcx-card__row,
+  .rcx-card__header,
+  .rcx-card__controls {
+    & > * {
+      margin-block: $card-spacing;
+      margin-inline: $card-spacing;
+    }
+  }
+}
+
+.rcx-card__col {
+  &:first-child {
+    margin-inline-start: lengths.margin(none);
+  }
+
+  &:last-child {
+    margin-inline-end: lengths.margin(none);
+  }
+}
+
+.rcx-card__header {
+  & > :first-child {
+    margin-inline-start: lengths.margin(none);
+  }
+
+  & > :last-child {
+    margin-inline-end: lengths.margin(none);
+  }
+}

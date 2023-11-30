@@ -1,41 +1,42 @@
+import { Box, Button, ButtonGroup, Scrollable } from '@rocket.chat/fuselage';
 import {
-  Box,
-  Button,
-  ButtonGroup,
-  CheckBox,
-  Label,
-  Scrollable,
-} from '@rocket.chat/fuselage';
-import { useBreakpoints, useClipboard } from '@rocket.chat/fuselage-hooks';
+  useBreakpoints,
+  useClipboard,
+  useUniqueId,
+} from '@rocket.chat/fuselage-hooks';
 import { Form } from '@rocket.chat/layout';
 import { type ReactElement } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { Trans, useTranslation } from 'react-i18next';
 
+import AgreeTermsField from '../../../common/AgreeTermsField';
 import { Steps } from '../RegisterOfflineForm';
 
 type CopyStepProps = {
   termsHref: string;
   policyHref: string;
   clientKey: string;
+  onCopySecurityCode: () => void;
   onBackButtonClick: () => void;
   setStep: (step: string) => void;
 };
 
 const CopyStep = ({
-  termsHref,
-  policyHref,
+  termsHref = 'https://rocket.chat/terms',
+  policyHref = 'https://rocket.chat/privacy',
   clientKey,
   setStep,
+  onCopySecurityCode,
   onBackButtonClick,
 }: CopyStepProps): ReactElement => {
   const { t } = useTranslation();
+  const agreementField = useUniqueId();
   const breakpoints = useBreakpoints();
   const isMobile = !breakpoints.includes('md');
 
   const {
-    register,
-    formState: { isValid },
+    control,
+    formState: { isValid, errors },
   } = useFormContext();
 
   const clipboard = useClipboard(clientKey);
@@ -75,34 +76,22 @@ const CopyStep = ({
               {clientKey}
             </Box>
           </Scrollable>
-          <Button icon='copy' primary onClick={() => clipboard.copy()} />
+          <Button
+            icon='copy'
+            primary
+            onClick={() => {
+              onCopySecurityCode();
+              clipboard.copy();
+            }}
+          />
         </Box>
-        <Box mbs={24}>
-          <Box
-            display='flex'
-            flexDirection='row'
-            alignItems='flex-start'
-            color='default'
-            fontScale='c1'
-            lineHeight={20}
-          >
-            <Box mie={8}>
-              <CheckBox {...register('agreement', { required: true })} />{' '}
-            </Box>
-            <Label required htmlFor='agreement' withRichContent>
-              <Trans i18nKey='component.form.termsAndConditions'>
-                I agree with
-                <a href={termsHref} target='_blank' rel='noopener noreferrer'>
-                  Terms and Conditions
-                </a>
-                and
-                <a href={policyHref} target='_blank' rel='noopener noreferrer'>
-                  Privacy Policy
-                </a>
-              </Trans>
-            </Label>
-          </Box>
-        </Box>
+        <AgreeTermsField
+          agreementField={agreementField}
+          termsHref={termsHref}
+          policyHref={policyHref}
+          control={control}
+          errors={errors}
+        />
       </Form.Container>
       <Form.Footer>
         <Box display='flex' flexDirection='column'>

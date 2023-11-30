@@ -155,6 +155,7 @@ export const SelfHostedRegistration: Story = ({ offline }) => {
         termsHref=''
         policyHref=''
         clientKey=''
+        onCopySecurityCode={() => undefined}
         onBackButtonClick={() => navigateTo('/register-server')}
         onSubmit={handleRegisterOfflineSubmit}
       />
