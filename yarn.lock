@@ -66,7 +66,7 @@ __metadata:
     json5: ^2.1.2
     lodash: ^4.17.21
     resolve: ^1.3.2
-    semver: ^5.4.1
+    semver: ^5.7.2
     source-map: ^0.5.0
   checksum: 4d34eca4688214a4eb6bd5dde906b69a7824f17b931f52cd03628a8ac94d8fbe15565aebffdde106e974c8738cd64ac62c6a6060baa7139a06db1f18c4ff872d
   languageName: node
@@ -90,7 +90,7 @@ __metadata:
     debug: ^4.1.0
     gensync: ^1.0.0-beta.2
     json5: ^2.2.2
-    semver: ^6.3.0
+    semver: ^6.3.1
   checksum: a3beebb2cc79908a02f27a07dc381bcb34e8ecc58fa99f568ad0934c49e12111fc977ee9c5b51eb7ea2da66f63155d37c4dd96b6472eaeecfc35843ccb56bf3d
   languageName: node
   linkType: hard
@@ -101,7 +101,7 @@ __metadata:
   dependencies:
     "@nicolo-ribaudo/eslint-scope-5-internals": 5.1.1-v1
     eslint-visitor-keys: ^2.1.0
-    semver: ^6.3.0
+    semver: ^6.3.1
   peerDependencies:
     "@babel/core": ">=7.11.0"
     eslint: ^7.5.0 || ^8.0.0
@@ -160,7 +160,7 @@ __metadata:
     "@babel/helper-validator-option": ^7.21.0
     browserslist: ^4.21.3
     lru-cache: ^5.1.1
-    semver: ^6.3.0
+    semver: ^6.3.1
   peerDependencies:
     "@babel/core": ^7.0.0
   checksum: bf9c7d3e7e6adff9222c05d898724cd4ee91d7eb9d52222c7ad2a22955620c2872cc2d9bdf0e047df8efdb79f4e3af2a06b53f509286145feccc4d10ddc318be
@@ -208,7 +208,7 @@ __metadata:
     debug: ^4.1.1
     lodash.debounce: ^4.0.8
     resolve: ^1.14.2
-    semver: ^6.1.2
+    semver: ^6.3.1
   peerDependencies:
     "@babel/core": ^7.4.0-0
   checksum: 6f8b61b41730bedc9c4511035b7f2407ea30176c379107dd735aac7d010317a99171bf420959ba37418fb8a857dac7c0e36e1c8576a6560bdd9b690eb4314a95
@@ -224,7 +224,7 @@ __metadata:
     debug: ^4.1.1
     lodash.debounce: ^4.0.8
     resolve: ^1.14.2
-    semver: ^6.1.2
+    semver: ^6.3.1
   peerDependencies:
     "@babel/core": ^7.4.0-0
   checksum: 8e3fe75513302e34f6d92bd67b53890e8545e6c5bca8fe757b9979f09d68d7e259f6daea90dc9e01e332c4f8781bda31c5fe551c82a277f9bc0bec007aed497c
@@ -1387,7 +1387,7 @@ __metadata:
     babel-plugin-polyfill-corejs2: ^0.3.3
     babel-plugin-polyfill-corejs3: ^0.6.0
     babel-plugin-polyfill-regenerator: ^0.4.1
-    semver: ^6.3.0
+    semver: ^6.3.1
   peerDependencies:
     "@babel/core": ^7.0.0-0
   checksum: 7e2e6b0d6f9762fde58738829e4d3b5e13dc88ccc1463e4eee83c8d8f50238eeb8e3699923f5ad4d7edf597515f74d67fbb14eb330225075fc7733b547e22145
@@ -1565,7 +1565,7 @@ __metadata:
     babel-plugin-polyfill-corejs3: ^0.6.0
     babel-plugin-polyfill-regenerator: ^0.4.1
     core-js-compat: ^3.25.1
-    semver: ^6.3.0
+    semver: ^6.3.1
   peerDependencies:
     "@babel/core": ^7.0.0-0
   checksum: 1e328674c4b39e985fa81e5a8eee9aaab353dea4ff1f28f454c5e27a6498c762e25d42e827f5bfc9d7acf6c9b8bc317b5283aa7c83d9fd03c1a89e5c08f334f9
@@ -2832,7 +2832,7 @@ __metadata:
     npm-package-arg: ^8.1.0
     p-map: ^4.0.0
     pacote: ^11.2.6
-    semver: ^7.3.4
+    semver: ^7.5.2
   checksum: 769efaf964385f682a48e71a8eeb159158bfe4326682d0167147f08bbedad06f7f9964a658fc5508900e769257342a8c796e510868f5ac5c354631baa4d583d9
   languageName: node
   linkType: hard
@@ -2862,7 +2862,7 @@ __metadata:
     p-map-series: ^2.1.0
     p-waterfall: ^2.1.1
     read-package-tree: ^5.3.1
-    semver: ^7.3.4
+    semver: ^7.5.2
   checksum: 072ce3053a0f7c1e2ae93be02d75ef395e291a90cdd20c669e921da2eac2290bebbe2e11453f540759a24c6e32f86331fe188bf85cd6dc341244c8fadc86c9ed
   languageName: node
   linkType: hard
@@ -2985,7 +2985,7 @@ __metadata:
     npm-package-arg: ^8.1.0
     npmlog: ^4.1.2
     pify: ^5.0.0
-    semver: ^7.3.4
+    semver: ^7.5.2
   checksum: 84c1c18de23e2b65ba6677984c7379c9f1961c625576ca047c7325cba50ac87b2a334b8dcefb0a503ae0e253edca6d8f6e4c914466bf484411f8310ab8fe2d30
   languageName: node
   linkType: hard
@@ -3017,7 +3017,7 @@ __metadata:
     p-reduce: ^2.1.0
     pacote: ^11.2.6
     pify: ^5.0.0
-    semver: ^7.3.4
+    semver: ^7.5.2
     slash: ^3.0.0
     validate-npm-package-license: ^3.0.4
     validate-npm-package-name: ^3.0.0
@@ -3143,7 +3143,7 @@ __metadata:
   resolution: "@lerna/has-npm-version@npm:4.0.0"
   dependencies:
     "@lerna/child-process": 4.0.0
-    semver: ^7.3.4
+    semver: ^7.5.2
   checksum: 459db3c163048d3b38e26481471d50b44dfd5bba3816342c7dd554a1c3ffeb8384efb60b46673f07b3fac4d8f814fda25633b439698e582b4bfe1510c44cb218
   languageName: node
   linkType: hard
@@ -3341,7 +3341,7 @@ __metadata:
     "@lerna/validation-error": 4.0.0
     npm-package-arg: ^8.1.0
     npmlog: ^4.1.2
-    semver: ^7.3.4
+    semver: ^7.5.2
   checksum: fd6f55171a9d42ad4e4b6e4cc1ec8699306bb219d3c4118b942ba123efb8c9913397b20ed2e20e74e6c858991f6b8ffe628ae8f8f40c4f9790d699e601a4e094
   languageName: node
   linkType: hard
@@ -3361,7 +3361,7 @@ __metadata:
   version: 4.0.0
   resolution: "@lerna/prerelease-id-from-version@npm:4.0.0"
   dependencies:
-    semver: ^7.3.4
+    semver: ^7.5.2
   checksum: 88250b23d04492927cc0325ab51ec7bb864c8b1c703b54ecee4b1b5c2b3de35b86846b6507d267af1df7d067545efb43162621d07731624f189ac3206a48b9f7
   languageName: node
   linkType: hard
@@ -3438,7 +3438,7 @@ __metadata:
     p-map: ^4.0.0
     p-pipe: ^3.1.0
     pacote: ^11.2.6
-    semver: ^7.3.4
+    semver: ^7.5.2
   checksum: 3436f91d2130f5ad523027946540d06f9aa0561890e1cbef2948dbfe20ffd4eef1a8a2de0e6b50e0dc9372078be4c4df0ba7000f90d3c094d803471ad855b436
   languageName: node
   linkType: hard
@@ -3590,7 +3590,7 @@ __metadata:
     p-pipe: ^3.1.0
     p-reduce: ^2.1.0
     p-waterfall: ^2.1.1
-    semver: ^7.3.4
+    semver: ^7.5.2
     slash: ^3.0.0
     temp-write: ^4.0.0
     write-json-file: ^4.3.0
@@ -3742,7 +3742,7 @@ __metadata:
   resolution: "@npmcli/fs@npm:2.1.2"
   dependencies:
     "@gar/promisify": ^1.1.3
-    semver: ^7.3.5
+    semver: ^7.5.2
   checksum: 405074965e72d4c9d728931b64d2d38e6ea12066d4fad651ac253d175e413c06fe4350970c783db0d749181da8fe49c42d3880bd1cbc12cd68e3a7964d820225
   languageName: node
   linkType: hard
@@ -3757,7 +3757,7 @@ __metadata:
     npm-pick-manifest: ^6.1.1
     promise-inflight: ^1.0.1
     promise-retry: ^2.0.1
-    semver: ^7.3.5
+    semver: ^7.5.2
     which: ^2.0.2
   checksum: f1c824cc867ceee3412889163c76a6ffd9f8fd7aa86f08cb1c22c65ff429f67304ff33275652f3b5e0fff53a11eb72e9bc13c108025eebf1d11e25aaed828e3c
   languageName: node
@@ -8597,7 +8597,7 @@ __metadata:
     dequal: ^2.0.2
     lodash: ^4.17.21
     memoizerific: ^1.11.3
-    semver: ^7.3.7
+    semver: ^7.5.2
     store2: ^2.14.2
     telejson: ^7.0.3
     ts-dedent: ^2.0.0
@@ -8623,7 +8623,7 @@ __metadata:
     dequal: ^2.0.2
     lodash: ^4.17.21
     memoizerific: ^1.11.3
-    semver: ^7.3.7
+    semver: ^7.5.2
     store2: ^2.14.2
     telejson: ^7.2.0
     ts-dedent: ^2.0.0
@@ -10139,7 +10139,7 @@ __metadata:
     grapheme-splitter: ^1.0.4
     ignore: ^5.2.0
     natural-compare-lite: ^1.4.0
-    semver: ^7.3.7
+    semver: ^7.5.2
     tsutils: ^3.21.0
   peerDependencies:
     "@typescript-eslint/parser": ^5.0.0
@@ -10211,7 +10211,7 @@ __metadata:
     debug: ^4.3.4
     globby: ^11.1.0
     is-glob: ^4.0.3
-    semver: ^7.3.7
+    semver: ^7.5.2
     tsutils: ^3.21.0
   peerDependenciesMeta:
     typescript:
@@ -10231,7 +10231,7 @@ __metadata:
     "@typescript-eslint/types": 5.58.0
     "@typescript-eslint/typescript-estree": 5.58.0
     eslint-scope: ^5.1.1
-    semver: ^7.3.7
+    semver: ^7.5.2
   peerDependencies:
     eslint: ^6.0.0 || ^7.0.0 || ^8.0.0
   checksum: c618ae67963ecf96b1492c09afaeb363f542f0d6780bcac4af3c26034e3b20034666b2d523aa94821df813aafb57a0b150a7d5c2224fe8257452ad1de2237a58
@@ -11644,7 +11644,7 @@ __metadata:
   dependencies:
     "@babel/compat-data": ^7.17.7
     "@babel/helper-define-polyfill-provider": ^0.3.3
-    semver: ^6.1.1
+    semver: ^6.3.1
   peerDependencies:
     "@babel/core": ^7.0.0-0
   checksum: 7db3044993f3dddb3cc3d407bc82e640964a3bfe22de05d90e1f8f7a5cb71460011ab136d3c03c6c1ba428359ebf635688cd6205e28d0469bba221985f5c6179
@@ -13519,7 +13519,7 @@ __metadata:
     json-stringify-safe: ^5.0.1
     lodash: ^4.17.21
     meow: ^8.0.0
-    semver: ^6.0.0
+    semver: ^6.3.1
     split: ^1.0.0
     through2: ^4.0.0
   bin:
@@ -13832,7 +13832,7 @@ __metadata:
   dependencies:
     nice-try: ^1.0.4
     path-key: ^2.0.1
-    semver: ^5.5.0
+    semver: ^5.7.2
     shebang-command: ^1.2.0
     which: ^1.2.9
   checksum: f893bb0d96cd3d5751d04e67145bdddf25f99449531a72e82dcbbd42796bbc8268c1076c6b3ea51d4d455839902804b94bc45dfb37ecbb32ea8e54a6741c3ab9
@@ -13901,7 +13901,7 @@ __metadata:
     postcss-modules-values: ^3.0.0
     postcss-value-parser: ^4.1.0
     schema-utils: ^2.7.0
-    semver: ^6.3.0
+    semver: ^6.3.1
   peerDependencies:
     webpack: ^4.0.0 || ^5.0.0
   checksum: a45d7ee8105eea7a76caa45286f4b31f9413520511ae99a78886c522305a94c8adf289951f989d239919a9ffc08ea8cac2bf9c362f21b65d6f54f6812e904cc0
@@ -13921,7 +13921,7 @@ __metadata:
     postcss-modules-values: ^4.0.0
     postcss-value-parser: ^4.1.0
     schema-utils: ^3.0.0
-    semver: ^7.3.5
+    semver: ^7.5.2
   peerDependencies:
     webpack: ^4.27.0 || ^5.0.0
   checksum: fb0742b30ac0919f94b99a323bdefe6d48ae46d66c7d966aae59031350532f368f8bba5951fcd268f2e053c5e6e4655551076268e9073ccb58e453f98ae58f8e
@@ -13939,7 +13939,7 @@ __metadata:
     postcss-modules-scope: ^3.0.0
     postcss-modules-values: ^4.0.0
     postcss-value-parser: ^4.2.0
-    semver: ^7.3.8
+    semver: ^7.5.2
   peerDependencies:
     webpack: ^5.0.0
   checksum: 473cc32b6c837c2848e2051ad1ba331c1457449f47442e75a8c480d9891451434ada241f7e3de2347e57de17fcd84610b3bcfc4a9da41102cdaedd1e17902d31
@@ -15577,7 +15577,7 @@ __metadata:
     object.values: ^1.1.6
     prop-types: ^15.8.1
     resolve: ^2.0.0-next.4
-    semver: ^6.3.0
+    semver: ^6.3.1
     string.prototype.matchall: ^4.0.8
   peerDependencies:
     eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8
@@ -16438,7 +16438,7 @@ __metadata:
     chalk: ^2.4.1
     micromatch: ^3.1.10
     minimatch: ^3.0.5
-    semver: ^5.6.0
+    semver: ^5.7.2
     tapable: ^1.0.0
     worker-rpc: ^0.1.0
   checksum: 4cc4fa7919dd9a0d765514d064c86e3a6f9cea8e700996b3e775cfcc0280f606a2dd16203d9b7e294b64e900795b0d80eb41fc8c192857d3350e407f14ef3eed
@@ -16460,7 +16460,7 @@ __metadata:
     memfs: ^3.1.2
     minimatch: ^3.0.4
     schema-utils: 2.7.0
-    semver: ^7.3.2
+    semver: ^7.5.2
     tapable: ^1.0.0
   peerDependencies:
     eslint: ">= 6"
@@ -16983,7 +16983,7 @@ fsevents@^1.2.7:
   resolution: "git-semver-tags@npm:4.1.1"
   dependencies:
     meow: ^8.0.0
-    semver: ^6.0.0
+    semver: ^6.3.1
   bin:
     git-semver-tags: cli.js
   checksum: e16d02a515c0f88289a28b5bf59bf42c0dc053765922d3b617ae4b50546bd4f74a25bf3ad53b91cb6c1159319a2e92533b160c573b856c2629125c8b26b3b0e3
@@ -18122,7 +18122,7 @@ fsevents@^1.2.7:
     promzard: ^0.3.0
     read: ~1.0.1
     read-package-json: ^3.0.1
-    semver: ^7.3.5
+    semver: ^7.5.2
     validate-npm-package-license: ^3.0.4
     validate-npm-package-name: ^3.0.0
   checksum: 1787ed78e2fbba45592a54cc31b170692c5c018187719ce0c2cdb1ea620f3a3650a5882d2256f390620554c359dc39f3fa99d1e6d003d22ecdc5c77a5f9c9fd9
@@ -19011,7 +19011,7 @@ fsevents@^1.2.7:
     "@babel/parser": ^7.14.7
     "@istanbuljs/schema": ^0.1.2
     istanbul-lib-coverage: ^3.2.0
-    semver: ^6.3.0
+    semver: ^6.3.1
   checksum: 8b82e733c69fe9f94d2e21f3e5760c9bedb110329aa75df4bd40df95f1cac3bf38767e43f35b125cc547ceca7376b72ce7d95cc5238b7e9088345c7b589233d3
   languageName: node
   linkType: hard
@@ -19550,7 +19550,7 @@ fsevents@^1.2.7:
     jest-util: ^29.5.0
     natural-compare: ^1.4.0
     pretty-format: ^29.5.0
-    semver: ^7.3.5
+    semver: ^7.5.2
   checksum: fe5df54122ed10eed625de6416a45bc4958d5062b018f05b152bf9785ab7f355dcd55e40cf5da63895bf8278f8d7b2bb4059b2cfbfdee18f509d455d37d8aa2b
   languageName: node
   linkType: hard
@@ -20114,7 +20114,7 @@ fsevents@^1.2.7:
     normalize-package-data: ^3.0.2
     npm-package-arg: ^8.1.2
     npm-registry-fetch: ^10.0.0
-    semver: ^7.1.3
+    semver: ^7.5.2
     ssri: ^8.0.1
   checksum: 9b4f88a0c61082c2690fea30d22ca606cf93aecdbe7062b9f47f9eb219583b6d835637a3d53f5e7444c2f3eefaeb0327107c6ddcc59e4d8da0c1439e0c9f06e0
   languageName: node
@@ -20564,7 +20564,7 @@ fsevents@^1.2.7:
   resolution: "make-dir@npm:2.1.0"
   dependencies:
     pify: ^4.0.1
-    semver: ^5.6.0
+    semver: ^5.7.2
   checksum: 043548886bfaf1820323c6a2997e6d2fa51ccc2586ac14e6f14634f7458b4db2daf15f8c310e2a0abd3e0cddc64df1890d8fc7263033602c47bb12cbfcf86aab
   languageName: node
   linkType: hard
@@ -20573,7 +20573,7 @@ fsevents@^1.2.7:
   version: 3.1.0
   resolution: "make-dir@npm:3.1.0"
   dependencies:
-    semver: ^6.0.0
+    semver: ^6.3.1
   checksum: 484200020ab5a1fdf12f393fe5f385fc8e4378824c940fba1729dcd198ae4ff24867bc7a5646331e50cead8abff5d9270c456314386e629acec6dff4b8016b78
   languageName: node
   linkType: hard
@@ -22073,7 +22073,7 @@ fsevents@^1.2.7:
   version: 3.5.0
   resolution: "node-abi@npm:3.5.0"
   dependencies:
-    semver: ^7.3.5
+    semver: ^7.5.2
   checksum: e7fa2363cea366e788e460ead39cf900cc3c49b5978fa56790fda87df54b6937424c72ea00cbfb72fe1513eedcbb48a0ac50a56e7961cc6bd425ef09efbe1916
   languageName: node
   linkType: hard
@@ -22154,7 +22154,7 @@ fsevents@^1.2.7:
     npmlog: ^4.1.2
     request: ^2.88.0
     rimraf: ^2.6.3
-    semver: ^5.7.1
+    semver: ^5.7.2
     tar: ^4.4.18
     which: ^1.3.1
   bin:
@@ -22174,7 +22174,7 @@ fsevents@^1.2.7:
     npmlog: ^4.1.2
     request: ^2.88.2
     rimraf: ^3.0.2
-    semver: ^7.3.2
+    semver: ^7.5.2
     tar: ^6.1.9
     which: ^2.0.2
   bin:
@@ -22194,7 +22194,7 @@ fsevents@^1.2.7:
     nopt: ^6.0.0
     npmlog: ^6.0.0
     rimraf: ^3.0.2
-    semver: ^7.3.5
+    semver: ^7.5.2
     tar: ^6.1.2
     which: ^2.0.2
   bin:
@@ -22300,7 +22300,7 @@ fsevents@^1.2.7:
   dependencies:
     hosted-git-info: ^4.0.1
     resolve: ^1.20.0
-    semver: ^7.3.4
+    semver: ^7.5.2
     validate-npm-package-license: ^3.0.1
   checksum: b50e26f2c81c51ddf6b5a04f731ddc2fc409ef114d44b5e2e4a7cfaa2d45cb86f76fea0c3a57a41e106f71c777124f93b4a75fe1c4b3aa4844971a30a30d94c9
   languageName: node
@@ -22356,7 +22356,7 @@ fsevents@^1.2.7:
   version: 4.0.0
   resolution: "npm-install-checks@npm:4.0.0"
   dependencies:
-    semver: ^7.1.1
+    semver: ^7.5.2
   checksum: 8308ff48e61e0863d7f148f62543e1f6c832525a7d8002ea742d5e478efa8b29bf65a87f9fb82786e15232e4b3d0362b126c45afdceed4c051c0d3c227dd0ace
   languageName: node
   linkType: hard
@@ -22389,7 +22389,7 @@ fsevents@^1.2.7:
   resolution: "npm-package-arg@npm:8.1.2"
   dependencies:
     hosted-git-info: ^4.0.1
-    semver: ^7.3.4
+    semver: ^7.5.2
     validate-npm-package-name: ^3.0.0
   checksum: 84955934fbc4fe9b55022bd278e672e5bea7962c5a44a3894d17911767713f30e3e21ee3fe11738f54e5316076321ef8e412ffbcfa477e7e2e439d88612d24bf
   languageName: node
@@ -22416,7 +22416,7 @@ fsevents@^1.2.7:
     npm-install-checks: ^4.0.0
     npm-normalize-package-bin: ^1.0.1
     npm-package-arg: ^8.1.2
-    semver: ^7.3.4
+    semver: ^7.5.2
   checksum: 7a7b9475ae95cf903d37471229efbd12a829a9a7a1020ba36e75768aaa35da4c3a087fde3f06070baf81ec6b2ea2b660f022a1172644e6e7188199d7c1d2954b
   languageName: node
   linkType: hard
@@ -23057,7 +23057,7 @@ fsevents@^1.2.7:
     got: ^11.8.5
     registry-auth-token: ^4.0.0
     registry-url: ^5.0.0
-    semver: ^6.2.0
+    semver: ^6.3.1
   checksum: cc9f890d3667d7610e6184decf543278b87f657d1ace0deb4a9c9155feca738ef88f660c82200763d3348010f4e42e9c7adc91e96ab0f86a770955995b5351e2
   languageName: node
   linkType: hard
@@ -23069,7 +23069,7 @@ fsevents@^1.2.7:
     got: ^11.8.5
     registry-auth-token: ^4.0.0
     registry-url: ^5.0.0
-    semver: ^7.3.5
+    semver: ^7.5.2
   checksum: c03699b057f665c5bf2d6af76190b8fb32aaf69c70a78faf7c073c03c3d0d5e168d4a96f386739a4d179e925e66289bf0b93a446fbb3f97b05451a3cd2a3bd90
   languageName: node
   linkType: hard
@@ -23731,7 +23731,7 @@ fsevents@^1.2.7:
     klona: ^2.0.4
     loader-utils: ^2.0.4
     schema-utils: ^3.0.0
-    semver: ^7.3.4
+    semver: ^7.5.2
   peerDependencies:
     postcss: ^7.0.36 || ^8.2.13
     webpack: ^4.0.0 || ^5.0.0
@@ -23746,7 +23746,7 @@ fsevents@^1.2.7:
     cosmiconfig: ^8.1.3
     cosmiconfig-typescript-loader: ^4.3.0
     klona: ^2.0.6
-    semver: ^7.3.8
+    semver: ^7.5.2
   peerDependencies:
     postcss: ^7.0.0 || ^8.0.1
     ts-node: ">=10"
@@ -26171,7 +26171,7 @@ fsevents@^1.2.7:
   languageName: unknown
   linkType: soft
 
-"semver@npm:2 || 3 || 4 || 5, semver@npm:^5.4.1, semver@npm:^5.5.0, semver@npm:^5.6.0, semver@npm:^5.7.1":
+"semver@npm:2 || 3 || 4 || 5":
   version: 5.7.1
   resolution: "semver@npm:5.7.1"
   bin:
@@ -26180,27 +26180,36 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"semver@npm:7.x, semver@npm:^7.1.1, semver@npm:^7.1.3, semver@npm:^7.3.2, semver@npm:^7.3.4, semver@npm:^7.3.5, semver@npm:^7.3.7, semver@npm:^7.3.8":
-  version: 7.4.0
-  resolution: "semver@npm:7.4.0"
+"semver@npm:7.5.2":
+  version: 7.5.2
+  resolution: "semver@npm:7.5.2"
   dependencies:
     lru-cache: ^6.0.0
   bin:
     semver: bin/semver.js
-  checksum: debf7f4d6fa36fdc5ef82bd7fc3603b6412165c8a3963a30be0c45a587be1a49e7681e80aa109da1875765741af24edc6e021cee1ba16ae96f649d06c5df296d
+  checksum: 3fdf5d1e6f170fe8bcc41669e31787649af91af7f54f05c71d0865bb7aa27e8b92f68b3e6b582483e2c1c648008bc84249d2cd86301771fe5cbf7621d1fe5375
   languageName: node
   linkType: hard
 
-"semver@npm:^6.0.0, semver@npm:^6.1.1, semver@npm:^6.1.2, semver@npm:^6.2.0, semver@npm:^6.3.0":
-  version: 6.3.0
-  resolution: "semver@npm:6.3.0"
+"semver@npm:^5.7.2":
+  version: 5.7.2
+  resolution: "semver@npm:5.7.2"
   bin:
-    semver: ./bin/semver.js
-  checksum: 1b26ecf6db9e8292dd90df4e781d91875c0dcc1b1909e70f5d12959a23c7eebb8f01ea581c00783bbee72ceeaad9505797c381756326073850dc36ed284b21b9
+    semver: bin/semver
+  checksum: fb4ab5e0dd1c22ce0c937ea390b4a822147a9c53dbd2a9a0132f12fe382902beef4fbf12cf51bb955248d8d15874ce8cd89532569756384f994309825f10b686
   languageName: node
   linkType: hard
 
-"semver@npm:^7.5.3, semver@npm:^7.5.4":
+"semver@npm:^6.3.1":
+  version: 6.3.1
+  resolution: "semver@npm:6.3.1"
+  bin:
+    semver: bin/semver.js
+  checksum: ae47d06de28836adb9d3e25f22a92943477371292d9b665fb023fae278d345d508ca1958232af086d85e0155aee22e313e100971898bbb8d5d89b8b1d4054ca2
+  languageName: node
+  linkType: hard
+
+"semver@npm:^7.5.2, semver@npm:^7.5.3, semver@npm:^7.5.4":
   version: 7.5.4
   resolution: "semver@npm:7.5.4"
   dependencies:
@@ -26992,7 +27001,7 @@ fsevents@^1.2.7:
     figures: ^3.1.0
     find-up: ^5.0.0
     git-semver-tags: ^4.0.0
-    semver: ^7.1.1
+    semver: ^7.5.2
     stringify-package: ^1.0.1
     yargs: ^16.0.0
   bin:
@@ -28414,7 +28423,7 @@ fsevents@^1.2.7:
     json5: ^2.2.3
     lodash.memoize: 4.x
     make-error: 1.x
-    semver: 7.x
+    semver: 7.5.2
     yargs-parser: ^21.0.1
   peerDependencies:
     "@babel/core": ">=7.0.0-beta.0 <8"
@@ -28444,7 +28453,7 @@ fsevents@^1.2.7:
     chalk: ^4.1.0
     enhanced-resolve: ^5.0.0
     micromatch: ^4.0.0
-    semver: ^7.3.4
+    semver: ^7.5.2
   peerDependencies:
     typescript: "*"
     webpack: ^5.0.0
