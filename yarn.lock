@@ -6515,26 +6515,26 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rocket.chat/css-in-js@workspace:packages/css-in-js, @rocket.chat/css-in-js@workspace:~":
+"@rocket.chat/css-in-js@^0.31.25, @rocket.chat/css-in-js@workspace:packages/css-in-js":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/css-in-js@workspace:packages/css-in-js"
   dependencies:
     "@emotion/hash": ^0.9.0
-    "@rocket.chat/css-supports": "workspace:~"
-    "@rocket.chat/eslint-config-alt": "workspace:~"
-    "@rocket.chat/memo": "workspace:~"
-    "@rocket.chat/prettier-config": "workspace:~"
-    "@rocket.chat/stylis-logical-props-middleware": "workspace:~"
+    "@rocket.chat/css-supports": ^0.31.25
+    "@rocket.chat/eslint-config-alt": ^0.31.25
+    "@rocket.chat/memo": ^0.31.25
+    "@rocket.chat/prettier-config": ^0.31.25
+    "@rocket.chat/stylis-logical-props-middleware": ^0.31.25
     "@rollup/plugin-commonjs": ~21.0.3
     "@rollup/plugin-json": ~4.1.0
     "@rollup/plugin-node-resolve": ~13.1.3
     "@rollup/plugin-typescript": ~8.3.4
     "@types/jest": ~29.5.0
     "@types/stylis": ^4.0.2
-    bump: "workspace:~"
+    bump: ^0.31.25
     eslint: ~8.38.0
     jest: ~29.5.0
-    lint-all: "workspace:~"
+    lint-all: ^0.31.25
     lint-staged: ~13.2.1
     prettier: ~2.8.7
     rollup: ~2.67.3
@@ -6546,16 +6546,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/css-supports@workspace:packages/css-supports, @rocket.chat/css-supports@workspace:~":
+"@rocket.chat/css-supports@^0.31.25, @rocket.chat/css-supports@workspace:packages/css-supports":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/css-supports@workspace:packages/css-supports"
   dependencies:
-    "@rocket.chat/eslint-config-alt": "workspace:~"
-    "@rocket.chat/memo": "workspace:~"
-    "@rocket.chat/prettier-config": "workspace:~"
-    bump: "workspace:~"
+    "@rocket.chat/eslint-config-alt": ^0.31.25
+    "@rocket.chat/memo": ^0.31.25
+    "@rocket.chat/prettier-config": ^0.31.25
+    bump: ^0.31.25
     eslint: ~8.38.0
-    lint-all: "workspace:~"
+    lint-all: ^0.31.25
     lint-staged: ~13.2.1
     prettier: ~2.8.7
     rimraf: ~3.0.2
@@ -6568,17 +6568,17 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@rocket.chat/emitter@workspace:packages/emitter"
   dependencies:
-    "@rocket.chat/eslint-config-alt": "workspace:~"
-    "@rocket.chat/prettier-config": "workspace:~"
+    "@rocket.chat/eslint-config-alt": ^0.31.25
+    "@rocket.chat/prettier-config": ^0.31.25
     "@rollup/plugin-commonjs": ~21.0.3
     "@rollup/plugin-json": ~4.1.0
     "@rollup/plugin-node-resolve": ~13.1.3
     "@rollup/plugin-typescript": ~8.3.4
     "@types/jest": ~29.5.0
-    bump: "workspace:~"
+    bump: ^0.31.25
     eslint: ~8.38.0
     jest: ~29.5.0
-    lint-all: "workspace:~"
+    lint-all: ^0.31.25
     lint-staged: ~13.2.1
     npm-run-all: ^4.1.5
     prettier: ~2.8.7
@@ -6590,14 +6590,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/eslint-config-alt@workspace:packages/eslint-config-alt, @rocket.chat/eslint-config-alt@workspace:~":
+"@rocket.chat/eslint-config-alt@^0.31.25, @rocket.chat/eslint-config-alt@workspace:packages/eslint-config-alt":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/eslint-config-alt@workspace:packages/eslint-config-alt"
   dependencies:
     "@babel/eslint-parser": ~7.21.3
     "@typescript-eslint/eslint-plugin": ~5.58.0
     "@typescript-eslint/parser": ~5.58.0
-    bump: "workspace:~"
+    bump: ^0.31.25
     eslint: ~8.38.0
     eslint-config-prettier: ~8.8.0
     eslint-import-resolver-typescript: ~3.5.5
@@ -6605,7 +6605,7 @@ __metadata:
     eslint-plugin-prettier: ~4.2.1
     eslint-plugin-react: ~7.32.2
     eslint-plugin-react-hooks: ~4.6.0
-    lint-all: "workspace:~"
+    lint-all: ^0.31.25
     lint-staged: ~13.2.1
     prettier: ~2.8.7
   peerDependencies:
@@ -6615,13 +6615,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/fuselage-hooks@workspace:packages/fuselage-hooks, @rocket.chat/fuselage-hooks@workspace:~":
+"@rocket.chat/fuselage-hooks@^0.32.1, @rocket.chat/fuselage-hooks@workspace:packages/fuselage-hooks":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/fuselage-hooks@workspace:packages/fuselage-hooks"
   dependencies:
-    "@rocket.chat/eslint-config-alt": "workspace:~"
-    "@rocket.chat/fuselage-tokens": "workspace:~"
-    "@rocket.chat/prettier-config": "workspace:~"
+    "@rocket.chat/eslint-config-alt": ^0.31.25
+    "@rocket.chat/fuselage-tokens": ^0.32.0
+    "@rocket.chat/prettier-config": ^0.31.25
     "@rollup/plugin-commonjs": ~21.0.3
     "@rollup/plugin-json": ~4.1.0
     "@rollup/plugin-node-resolve": ~13.1.3
@@ -6633,10 +6633,10 @@ __metadata:
     "@types/react-dom": ^17.0.19
     "@types/resize-observer-browser": ~0.1.7
     "@types/use-sync-external-store": ~0.0.3
-    bump: "workspace:~"
+    bump: ^0.31.25
     eslint: ~8.38.0
     jest: ~29.5.0
-    lint-all: "workspace:~"
+    lint-all: ^0.31.25
     lint-staged: ~13.2.1
     npm-run-all: ^4.1.5
     prettier: ~2.8.7
@@ -6644,7 +6644,7 @@ __metadata:
     rimraf: ~5.0.0
     rollup: ~2.67.3
     rollup-plugin-terser: ~7.0.2
-    testing-utils: "workspace:~"
+    testing-utils: ^0.31.25
     ts-jest: ~29.1.0
     typedoc: ~0.24.1
     typescript: ~5.0.4
@@ -6672,20 +6672,20 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/fuselage-polyfills@workspace:packages/fuselage-polyfills, @rocket.chat/fuselage-polyfills@workspace:~":
+"@rocket.chat/fuselage-polyfills@^0.31.25, @rocket.chat/fuselage-polyfills@workspace:packages/fuselage-polyfills":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/fuselage-polyfills@workspace:packages/fuselage-polyfills"
   dependencies:
     "@juggle/resize-observer": ^3.4.0
-    "@rocket.chat/eslint-config-alt": "workspace:~"
-    "@rocket.chat/prettier-config": "workspace:~"
-    bump: "workspace:~"
+    "@rocket.chat/eslint-config-alt": ^0.31.25
+    "@rocket.chat/prettier-config": ^0.31.25
+    bump: ^0.31.25
     clipboard-polyfill: ^3.0.3
     element-closest-polyfill: ^1.0.6
     eslint: ~8.38.0
     focus-visible: ^5.2.0
     focus-within-polyfill: ^5.2.1
-    lint-all: "workspace:~"
+    lint-all: ^0.31.25
     lint-staged: ~13.2.1
     new-event-polyfill: ^1.0.1
     prettier: ~2.8.7
@@ -6696,12 +6696,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@rocket.chat/fuselage-toastbar@workspace:packages/fuselage-toastbar"
   dependencies:
-    "@rocket.chat/eslint-config-alt": "workspace:~"
-    "@rocket.chat/fuselage": "workspace:~"
-    "@rocket.chat/fuselage-hooks": "workspace:~"
-    "@rocket.chat/layout": "workspace:~"
-    "@rocket.chat/prettier-config": "workspace:~"
-    "@rocket.chat/styled": "workspace:~"
+    "@rocket.chat/eslint-config-alt": ^0.31.25
+    "@rocket.chat/fuselage": ^0.38.1
+    "@rocket.chat/fuselage-hooks": ^0.32.1
+    "@rocket.chat/layout": ^0.31.26
+    "@rocket.chat/prettier-config": ^0.31.25
+    "@rocket.chat/styled": ^0.31.25
     "@storybook/addon-essentials": ~6.5.16
     "@storybook/addons": ~6.5.16
     "@storybook/builder-webpack5": ~6.5.16
@@ -6711,10 +6711,10 @@ __metadata:
     "@types/jest": ~29.5.0
     "@types/react": ~17.0.57
     "@types/react-dom": ^17.0.19
-    bump: "workspace:~"
+    bump: ^0.31.25
     eslint: ~8.38.0
     jest: ~29.5.0
-    lint-all: "workspace:~"
+    lint-all: ^0.31.25
     lint-staged: ~13.2.1
     npm-run-all: ^4.1.5
     prettier: ~2.8.7
@@ -6733,19 +6733,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/fuselage-tokens@workspace:packages/fuselage-tokens, @rocket.chat/fuselage-tokens@workspace:~":
+"@rocket.chat/fuselage-tokens@^0.32.0, @rocket.chat/fuselage-tokens@workspace:packages/fuselage-tokens":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/fuselage-tokens@workspace:packages/fuselage-tokens"
   dependencies:
-    "@rocket.chat/eslint-config-alt": "workspace:~"
-    "@rocket.chat/prettier-config": "workspace:~"
-    build-design-tokens: "workspace:~"
-    bump: "workspace:~"
+    "@rocket.chat/eslint-config-alt": ^0.31.25
+    "@rocket.chat/prettier-config": ^0.31.25
+    build-design-tokens: ^0.31.25
+    bump: ^0.31.25
     eslint: ~8.38.0
     eslint-config-prettier: ~8.8.0
     eslint-plugin-import: ~2.26.0
     eslint-plugin-prettier: ~4.2.1
-    lint-all: "workspace:~"
+    lint-all: ^0.31.25
     lint-staged: ~13.2.1
     npm-run-all: ^4.1.5
     postcss-scss: ~4.0.6
@@ -6759,7 +6759,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/fuselage@workspace:packages/fuselage, @rocket.chat/fuselage@workspace:~":
+"@rocket.chat/fuselage@^0.38.1, @rocket.chat/fuselage@workspace:packages/fuselage":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/fuselage@workspace:packages/fuselage"
   dependencies:
@@ -6768,16 +6768,16 @@ __metadata:
     "@babel/plugin-transform-runtime": ~7.21.4
     "@babel/preset-env": ~7.21.4
     "@babel/preset-react": ~7.18.6
-    "@rocket.chat/css-in-js": "workspace:~"
-    "@rocket.chat/css-supports": "workspace:~"
-    "@rocket.chat/eslint-config-alt": "workspace:~"
-    "@rocket.chat/fuselage-hooks": "workspace:~"
-    "@rocket.chat/fuselage-polyfills": "workspace:~"
-    "@rocket.chat/fuselage-tokens": "workspace:~"
-    "@rocket.chat/icons": "workspace:~"
-    "@rocket.chat/memo": "workspace:~"
-    "@rocket.chat/prettier-config": "workspace:~"
-    "@rocket.chat/styled": "workspace:~"
+    "@rocket.chat/css-in-js": ^0.31.25
+    "@rocket.chat/css-supports": ^0.31.25
+    "@rocket.chat/eslint-config-alt": ^0.31.25
+    "@rocket.chat/fuselage-hooks": ^0.32.1
+    "@rocket.chat/fuselage-polyfills": ^0.31.25
+    "@rocket.chat/fuselage-tokens": ^0.32.0
+    "@rocket.chat/icons": ^0.32.0
+    "@rocket.chat/memo": ^0.31.25
+    "@rocket.chat/prettier-config": ^0.31.25
+    "@rocket.chat/styled": ^0.31.25
     "@storybook/addon-a11y": ~6.5.16
     "@storybook/addon-essentials": ~6.5.16
     "@storybook/addon-interactions": ~6.5.16
@@ -6800,7 +6800,7 @@ __metadata:
     "@types/jest-axe": ~3.5.5
     autoprefixer: ~10.4.14
     babel-loader: ~9.1.2
-    bump: "workspace:~"
+    bump: ^0.31.25
     caniuse-lite: ~1.0.30001477
     cross-env: ^7.0.3
     css-loader: ~6.7.3
@@ -6812,7 +6812,7 @@ __metadata:
     invariant: ^2.2.4
     jest: ~29.5.0
     jest-axe: ~8.0.0
-    lint-all: "workspace:~"
+    lint-all: ^0.31.25
     lint-staged: ~13.2.1
     mini-css-extract-plugin: ~2.7.6
     normalize.css: ^8.0.1
@@ -6842,7 +6842,7 @@ __metadata:
     stylelint-order: ~6.0.3
     stylelint-prettier: ~3.0.0
     stylelint-scss: ~4.6.0
-    testing-utils: "workspace:~"
+    testing-utils: ^0.31.25
     ts-jest: ~29.1.0
     ts-loader: ~9.4.2
     typescript: ~5.0.4
@@ -6860,17 +6860,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/icons@workspace:packages/icons, @rocket.chat/icons@workspace:~":
+"@rocket.chat/icons@^0.32.0, @rocket.chat/icons@workspace:packages/icons":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/icons@workspace:packages/icons"
   dependencies:
     "@prettier/plugin-xml": ~2.2.0
-    "@rocket.chat/eslint-config-alt": "workspace:~"
-    "@rocket.chat/prettier-config": "workspace:~"
-    build-icons: "workspace:~"
-    bump: "workspace:~"
+    "@rocket.chat/eslint-config-alt": ^0.31.25
+    "@rocket.chat/prettier-config": ^0.31.25
+    build-icons: ^0.31.25
+    bump: ^0.31.25
     eslint: ~8.38.0
-    lint-all: "workspace:~"
+    lint-all: ^0.31.25
     lint-staged: ~13.2.1
     npm-run-all: ^4.1.5
     prettier: ~2.8.7
@@ -6882,13 +6882,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/layout@workspace:packages/layout, @rocket.chat/layout@workspace:~":
+"@rocket.chat/layout@^0.31.26, @rocket.chat/layout@workspace:packages/layout":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/layout@workspace:packages/layout"
   dependencies:
-    "@rocket.chat/eslint-config-alt": "workspace:~"
-    "@rocket.chat/fuselage": "workspace:~"
-    "@rocket.chat/prettier-config": "workspace:~"
+    "@rocket.chat/eslint-config-alt": ^0.31.25
+    "@rocket.chat/fuselage": ^0.38.1
+    "@rocket.chat/prettier-config": ^0.31.25
     "@storybook/addon-essentials": ~6.5.16
     "@storybook/addons": ~6.5.16
     "@storybook/builder-webpack5": ~6.5.16
@@ -6898,10 +6898,10 @@ __metadata:
     "@types/jest": ~29.5.0
     "@types/react": ^17
     "@types/react-dom": ^17
-    bump: "workspace:~"
+    bump: ^0.31.25
     eslint: ~8.38.0
     jest: ~29.5.0
-    lint-all: "workspace:~"
+    lint-all: ^0.31.25
     lint-staged: ~13.2.1
     npm-run-all: ^4.1.5
     prettier: ~2.8.7
@@ -6921,23 +6921,23 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/logo@workspace:packages/logo, @rocket.chat/logo@workspace:~":
+"@rocket.chat/logo@^0.31.28, @rocket.chat/logo@workspace:packages/logo":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/logo@workspace:packages/logo"
   dependencies:
-    "@rocket.chat/eslint-config-alt": "workspace:~"
-    "@rocket.chat/fuselage-hooks": "workspace:~"
-    "@rocket.chat/fuselage-tokens": "workspace:~"
-    "@rocket.chat/prettier-config": "workspace:~"
-    "@rocket.chat/styled": "workspace:~"
+    "@rocket.chat/eslint-config-alt": ^0.31.25
+    "@rocket.chat/fuselage-hooks": ^0.32.1
+    "@rocket.chat/fuselage-tokens": ^0.32.0
+    "@rocket.chat/prettier-config": ^0.31.25
+    "@rocket.chat/styled": ^0.31.25
     "@types/jest": ~29.5.0
     "@types/react": ~17.0.57
     "@types/react-dom": ^17.0.19
-    build-logo: "workspace:~"
-    bump: "workspace:~"
+    build-logo: ^0.31.25
+    bump: ^0.31.25
     eslint: ~8.38.0
     jest: ~29.5.0
-    lint-all: "workspace:~"
+    lint-all: ^0.31.25
     lint-staged: ~13.2.1
     npm-run-all: ^4.1.5
     prettier: ~2.8.7
@@ -6953,17 +6953,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/memo@workspace:packages/memo, @rocket.chat/memo@workspace:~":
+"@rocket.chat/memo@^0.31.25, @rocket.chat/memo@workspace:packages/memo":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/memo@workspace:packages/memo"
   dependencies:
-    "@rocket.chat/eslint-config-alt": "workspace:~"
-    "@rocket.chat/prettier-config": "workspace:~"
+    "@rocket.chat/eslint-config-alt": ^0.31.25
+    "@rocket.chat/prettier-config": ^0.31.25
     "@types/jest": ~29.5.0
-    bump: "workspace:~"
+    bump: ^0.31.25
     eslint: ~8.38.0
     jest: ~29.5.0
-    lint-all: "workspace:~"
+    lint-all: ^0.31.25
     lint-staged: ~13.2.1
     prettier: ~2.8.7
     rimraf: ~3.0.2
@@ -6980,17 +6980,17 @@ __metadata:
     "@babel/core": ~7.21.4
     "@babel/eslint-parser": ~7.21.3
     "@babel/preset-env": ~7.21.4
-    "@rocket.chat/eslint-config-alt": "workspace:~"
-    "@rocket.chat/peggy-loader": "workspace:~"
-    "@rocket.chat/prettier-config": "workspace:~"
+    "@rocket.chat/eslint-config-alt": ^0.31.25
+    "@rocket.chat/peggy-loader": ^0.31.25
+    "@rocket.chat/prettier-config": ^0.31.25
     "@types/jest": ~29.5.0
     "@types/node": ~14.18.42
     "@typescript-eslint/parser": ~5.58.0
     babel-loader: ~9.1.2
-    bump: "workspace:~"
+    bump: ^0.31.25
     eslint: ~8.38.0
     jest: ~29.5.0
-    lint-all: "workspace:~"
+    lint-all: ^0.31.25
     lint-staged: ~13.2.1
     npm-run-all: ^4.1.5
     peggy: 3.0.2
@@ -7015,17 +7015,17 @@ __metadata:
     "@babel/plugin-transform-runtime": ~7.21.4
     "@babel/preset-env": ~7.21.4
     "@babel/preset-typescript": ~7.21.4
-    "@rocket.chat/eslint-config-alt": "workspace:~"
-    "@rocket.chat/prettier-config": "workspace:~"
+    "@rocket.chat/eslint-config-alt": ^0.31.25
+    "@rocket.chat/prettier-config": ^0.31.25
     "@rollup/plugin-commonjs": ~24.1.0
     "@rollup/plugin-node-resolve": ~15.0.2
     "@rollup/plugin-typescript": ~11.1.0
     "@types/jest": ~29.5.0
-    bump: "workspace:~"
+    bump: ^0.31.25
     eslint: ~8.38.0
     jest: ~29.5.0
     jest-environment-jsdom: ~29.5.0
-    lint-all: "workspace:~"
+    lint-all: ^0.31.25
     lint-staged: ~13.2.1
     prettier: ~2.8.7
     rollup: ~3.20.4
@@ -7039,16 +7039,16 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@rocket.chat/onboarding-ui@workspace:packages/onboarding-ui"
   dependencies:
-    "@rocket.chat/eslint-config-alt": "workspace:~"
-    "@rocket.chat/fuselage": "workspace:~"
-    "@rocket.chat/fuselage-hooks": "workspace:~"
-    "@rocket.chat/fuselage-polyfills": "workspace:~"
-    "@rocket.chat/fuselage-tokens": "workspace:~"
-    "@rocket.chat/icons": "workspace:~"
-    "@rocket.chat/layout": "workspace:~"
-    "@rocket.chat/logo": "workspace:~"
-    "@rocket.chat/prettier-config": "workspace:~"
-    "@rocket.chat/styled": "workspace:~"
+    "@rocket.chat/eslint-config-alt": ^0.31.25
+    "@rocket.chat/fuselage": ^0.38.1
+    "@rocket.chat/fuselage-hooks": ^0.32.1
+    "@rocket.chat/fuselage-polyfills": ^0.31.25
+    "@rocket.chat/fuselage-tokens": ^0.32.0
+    "@rocket.chat/icons": ^0.32.0
+    "@rocket.chat/layout": ^0.31.26
+    "@rocket.chat/logo": ^0.31.28
+    "@rocket.chat/prettier-config": ^0.31.25
+    "@rocket.chat/styled": ^0.31.25
     "@storybook/addon-a11y": ~7.4.6
     "@storybook/addon-essentials": ~6.5.16
     "@storybook/addons": ~6.5.16
@@ -7059,12 +7059,12 @@ __metadata:
     "@types/jest": ~29.5.0
     "@types/react": ~17.0.57
     "@types/react-dom": ^17.0.19
-    bump: "workspace:~"
+    bump: ^0.31.25
     countries-list: ^2.6.1
     eslint: ~8.38.0
     i18next: ~21.6.16
     jest: ~29.5.0
-    lint-all: "workspace:~"
+    lint-all: ^0.31.25
     lint-staged: ~13.2.1
     npm-run-all: ^4.1.5
     prettier: ~2.8.7
@@ -7091,16 +7091,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/peggy-loader@workspace:packages/peggy-loader, @rocket.chat/peggy-loader@workspace:~":
+"@rocket.chat/peggy-loader@^0.31.25, @rocket.chat/peggy-loader@workspace:packages/peggy-loader":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/peggy-loader@workspace:packages/peggy-loader"
   dependencies:
-    "@rocket.chat/eslint-config-alt": "workspace:~"
-    "@rocket.chat/prettier-config": "workspace:~"
+    "@rocket.chat/eslint-config-alt": ^0.31.25
+    "@rocket.chat/prettier-config": ^0.31.25
     "@types/node": ~14.18.42
-    bump: "workspace:~"
+    bump: ^0.31.25
     eslint: ~8.38.0
-    lint-all: "workspace:~"
+    lint-all: ^0.31.25
     lint-staged: ~13.2.1
     npm-run-all: ^4.1.5
     peggy: 3.0.2
@@ -7115,16 +7115,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/prettier-config@workspace:packages/prettier-config, @rocket.chat/prettier-config@workspace:~":
+"@rocket.chat/prettier-config@^0.31.25, @rocket.chat/prettier-config@workspace:packages/prettier-config":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/prettier-config@workspace:packages/prettier-config"
   dependencies:
-    bump: "workspace:~"
+    bump: ^0.31.25
     eslint: ~8.38.0
     eslint-config-prettier: ~8.8.0
     eslint-plugin-import: ~2.26.0
     eslint-plugin-prettier: ~4.2.1
-    lint-all: "workspace:~"
+    lint-all: ^0.31.25
     lint-staged: ~13.2.1
     prettier: ~2.8.7
   peerDependencies:
@@ -7136,13 +7136,13 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@rocket.chat/string-helpers@workspace:packages/string-helpers"
   dependencies:
-    "@rocket.chat/eslint-config-alt": "workspace:~"
-    "@rocket.chat/prettier-config": "workspace:~"
+    "@rocket.chat/eslint-config-alt": ^0.31.25
+    "@rocket.chat/prettier-config": ^0.31.25
     "@types/jest": ~29.5.0
-    bump: "workspace:~"
+    bump: ^0.31.25
     eslint: ~8.38.0
     jest: ~29.5.0
-    lint-all: "workspace:~"
+    lint-all: ^0.31.25
     lint-staged: ~13.2.1
     npm-run-all: ^4.1.5
     prettier: ~2.8.7
@@ -7153,18 +7153,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/styled@workspace:packages/styled, @rocket.chat/styled@workspace:~":
+"@rocket.chat/styled@^0.31.25, @rocket.chat/styled@workspace:packages/styled":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/styled@workspace:packages/styled"
   dependencies:
-    "@rocket.chat/css-in-js": "workspace:~"
-    "@rocket.chat/eslint-config-alt": "workspace:~"
-    "@rocket.chat/prettier-config": "workspace:~"
+    "@rocket.chat/css-in-js": ^0.31.25
+    "@rocket.chat/eslint-config-alt": ^0.31.25
+    "@rocket.chat/prettier-config": ^0.31.25
     "@types/jest": ~29.5.0
-    bump: "workspace:~"
+    bump: ^0.31.25
     eslint: ~8.38.0
     jest: ~29.5.0
-    lint-all: "workspace:~"
+    lint-all: ^0.31.25
     lint-staged: ~13.2.1
     npm-run-all: ^4.1.5
     prettier: ~2.8.7
@@ -7175,18 +7175,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/stylis-logical-props-middleware@workspace:packages/stylis-logical-props-middleware, @rocket.chat/stylis-logical-props-middleware@workspace:~":
+"@rocket.chat/stylis-logical-props-middleware@^0.31.25, @rocket.chat/stylis-logical-props-middleware@workspace:packages/stylis-logical-props-middleware":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/stylis-logical-props-middleware@workspace:packages/stylis-logical-props-middleware"
   dependencies:
-    "@rocket.chat/css-supports": "workspace:~"
-    "@rocket.chat/eslint-config-alt": "workspace:~"
-    "@rocket.chat/prettier-config": "workspace:~"
+    "@rocket.chat/css-supports": ^0.31.25
+    "@rocket.chat/eslint-config-alt": ^0.31.25
+    "@rocket.chat/prettier-config": ^0.31.25
     "@types/jest": ~29.5.0
-    bump: "workspace:~"
+    bump: ^0.31.25
     eslint: ~8.38.0
     jest: ~29.5.0
-    lint-all: "workspace:~"
+    lint-all: ^0.31.25
     lint-staged: ~13.2.1
     npm-run-all: ^4.1.5
     prettier: ~2.8.7
@@ -7208,14 +7208,14 @@ __metadata:
     "@babel/eslint-parser": ~7.21.3
     "@babel/plugin-transform-runtime": ~7.21.4
     "@babel/preset-env": ~7.21.4
-    "@rocket.chat/eslint-config-alt": "workspace:~"
-    "@rocket.chat/prettier-config": "workspace:~"
+    "@rocket.chat/eslint-config-alt": ^0.31.25
+    "@rocket.chat/prettier-config": ^0.31.25
     "@types/jest": ~29.5.0
     babel-loader: ~9.1.2
-    bump: "workspace:~"
+    bump: ^0.31.25
     eslint: ~8.38.0
     jest: ~29.5.0
-    lint-all: "workspace:~"
+    lint-all: ^0.31.25
     lint-staged: ~13.2.1
     npm-run-all: ^4.1.5
     prettier: ~2.8.7
@@ -12154,12 +12154,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"build-design-tokens@workspace:tools/build-design-tokens, build-design-tokens@workspace:~":
+"build-design-tokens@^0.31.25, build-design-tokens@workspace:tools/build-design-tokens":
   version: 0.0.0-use.local
   resolution: "build-design-tokens@workspace:tools/build-design-tokens"
   dependencies:
     stylelint: ~15.4.0
-    tools-utils: "workspace:~"
+    tools-utils: ^0.31.25
   peerDependencies:
     eslint: "*"
     prettier: "*"
@@ -12168,13 +12168,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"build-icons@workspace:tools/build-icons, build-icons@workspace:~":
+"build-icons@^0.31.25, build-icons@workspace:tools/build-icons":
   version: 0.0.0-use.local
   resolution: "build-icons@workspace:tools/build-icons"
   dependencies:
     svg2ttf: ~6.0.3
     svgicons2svgfont: ~10.0.6
-    tools-utils: "workspace:~"
+    tools-utils: ^0.31.25
     ttf2eot: ~3.1.0
     ttf2woff: ~3.0.0
     ttf2woff2: ~4.0.5
@@ -12185,7 +12185,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"build-logo@workspace:tools/build-logo, build-logo@workspace:~":
+"build-logo@^0.31.25, build-logo@workspace:tools/build-logo":
   version: 0.0.0-use.local
   resolution: "build-logo@workspace:tools/build-logo"
   dependencies:
@@ -12193,7 +12193,7 @@ __metadata:
     react: ^17.0.2
     react-dom: ^17.0.2
     sharp: ~0.30.7
-    tools-utils: "workspace:~"
+    tools-utils: ^0.31.25
   bin:
     build-logo: ./index.mjs
   languageName: unknown
@@ -12227,7 +12227,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bump@workspace:tools/bump, bump@workspace:~":
+"bump@^0.31.25, bump@workspace:tools/bump, bump@workspace:~":
   version: 0.0.0-use.local
   resolution: "bump@workspace:tools/bump"
   dependencies:
@@ -20106,7 +20106,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"lint-all@workspace:tools/lint-all, lint-all@workspace:~":
+"lint-all@^0.31.25, lint-all@workspace:tools/lint-all":
   version: 0.0.0-use.local
   resolution: "lint-all@workspace:tools/lint-all"
   dependencies:
@@ -26110,8 +26110,8 @@ fsevents@^1.2.7:
   version: 0.0.0-use.local
   resolution: "scripts@workspace:tools/scripts"
   dependencies:
-    "@rocket.chat/eslint-config-alt": "workspace:~"
-    "@rocket.chat/prettier-config": "workspace:~"
+    "@rocket.chat/eslint-config-alt": ^0.31.25
+    "@rocket.chat/prettier-config": ^0.31.25
     "@types/node": ~14.18.42
     "@typescript-eslint/parser": ~5.58.0
     cross-env: ^7.0.3
@@ -28002,7 +28002,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"testing-utils@workspace:tools/testing-utils, testing-utils@workspace:~":
+"testing-utils@^0.31.25, testing-utils@workspace:tools/testing-utils":
   version: 0.0.0-use.local
   resolution: "testing-utils@workspace:tools/testing-utils"
   dependencies:
@@ -28202,7 +28202,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"tools-utils@workspace:tools/tools-utils, tools-utils@workspace:~":
+"tools-utils@^0.31.25, tools-utils@workspace:tools/tools-utils":
   version: 0.0.0-use.local
   resolution: "tools-utils@workspace:tools/tools-utils"
   dependencies:
