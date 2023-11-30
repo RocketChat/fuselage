@@ -561,11 +561,19 @@ Text after line break`,
     ],
   ],
   [
-    '[ ~ [ ~ [ ~ [ ~ [ ~ [ ~ [test](https://rocket.chat)',
+    '[ ~ [ ~ [ ~ [ ~ [ ~ [ ~ [ ~ [ ~ [ ~ [ ~ [ ~ [ ~ [ ~ [ ~ [test](https://rocket.chat)',
     [
       paragraph([
         link('https://rocket.chat', [
           plain(' '),
+          strike([plain(' [ ')]),
+          plain(' [ '),
+          strike([plain(' [ ')]),
+          plain(' [ '),
+          strike([plain(' [ ')]),
+          plain(' [ '),
+          strike([plain(' [ ')]),
+          plain(' [ '),
           strike([plain(' [ ')]),
           plain(' [ '),
           strike([plain(' [ ')]),
