@@ -26,7 +26,7 @@ export default {
 } as ComponentMeta<typeof CardGroup>;
 
 const CardItem = (props: ComponentProps<typeof Card>) => (
-  <Card width='x208' {...props}>
+  <Card width='x260' {...props}>
     <CardCol>
       <CardHeader>
         <Icon name='address-book' size='x24' />
@@ -42,8 +42,10 @@ const CardItem = (props: ComponentProps<typeof Card>) => (
       </CardBody>
     </CardCol>
     <CardControls>
-      <Button primary>Button</Button>
-      <Button>Button</Button>
+      <Button medium primary>
+        Button
+      </Button>
+      <Button medium>Button</Button>
     </CardControls>
   </Card>
 );
@@ -91,12 +93,6 @@ export const WrapStretch: ComponentStory<typeof CardGroup> = Default.bind({});
 WrapStretch.args = {
   wrap: true,
   stretch: true,
-};
-
-export const Vertical: ComponentStory<typeof CardGroup> = Default.bind({});
-Vertical.args = {
-  vertical: true,
-  align: 'center',
 };
 
 export const VerticalWithHorizontalCard: ComponentStory<typeof CardGroup> = (

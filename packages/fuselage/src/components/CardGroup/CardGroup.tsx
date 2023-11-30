@@ -21,8 +21,6 @@ export const CardGroup = ({
   stretch,
   vertical,
   wrap,
-  small,
-  large,
   ...props
 }: CardGroupProps) => (
   <Box
@@ -30,8 +28,6 @@ export const CardGroup = ({
     rcx-card-group--align={align}
     rcx-card-group--stretch={stretch}
     rcx-card-group--vertical={vertical}
-    rcx-card-group--small={small}
-    rcx-card-group--large={large}
     rcx-card-group--wrap={wrap}
     role='group'
     {...props}
