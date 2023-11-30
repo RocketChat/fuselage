@@ -46,8 +46,10 @@ export const Horizontal: ComponentStory<typeof Card> = () => (
       </CardCol>
     </CardRow>
     <CardControls>
-      <Button>Button</Button>
-      <Button primary>Button</Button>
+      <Button medium>Button</Button>
+      <Button medium primary>
+        Button
+      </Button>
       <Badge small variant='primary' />
       <Tag>Tag</Tag>
       <IconButton icon='menu' small aria-label='menu' />
@@ -161,8 +163,10 @@ export const Vertical: ComponentStory<typeof Card> = () => (
       </CardBody>
     </CardCol>
     <CardControls>
-      <Button primary>Button</Button>
-      <Button>Button</Button>
+      <Button medium primary>
+        Button
+      </Button>
+      <Button medium>Button</Button>
     </CardControls>
   </Card>
 );
@@ -181,7 +185,7 @@ export const VerticalNoIcon: ComponentStory<typeof Card> = () => (
       </CardBody>
     </CardCol>
     <CardControls>
-      <Button>Button</Button>
+      <Button medium>Button</Button>
     </CardControls>
   </Card>
 );
@@ -215,7 +219,7 @@ export const VerticalCustom: ComponentStory<typeof Card> = () => (
       </CardBody>
     </CardCol>
     <CardControls>
-      <Button>Button</Button>
+      <Button medium>Button</Button>
     </CardControls>
   </Card>
 );

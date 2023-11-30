@@ -15,7 +15,7 @@ const CardBody = ({
   height,
 }: CardBodyProps) => (
   <Box
-    fontScale='c1'
+    fontScale='p2m'
     display='flex'
     flexDirection={flexDirection}
     flexGrow={1}
