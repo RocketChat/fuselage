@@ -230,7 +230,7 @@ References
   = "[" title:LinkTitle* "](" href:LinkRef ")" { return title.length ? link(href, reducePlainTexts(title)) : link(href); }
   / "<" href:LinkRef "|" title:LinkTitle2 ">" { return link(href, [plain(title)]); }
 
-LinkTitle = (Whitespace / Emphasis) / anyTitle:$(!("](" .) .) { return plain(anyTitle) }
+LinkTitle = (Whitespace / EmphasisForReferences) / anyTitle:$(!("](" .) .) { return plain(anyTitle) }
 
 LinkTitle2 = $([\x20-\x3B\x3D\x3F-\x60\x61-\x7B\x7D-\xFF] / NonASCII)+
 
@@ -343,6 +343,13 @@ Emphasis = Bold / Italic / Strikethrough
 
 /**
  *
+ * Emphasis for References
+ *
+*/
+EmphasisForReferences = BoldForReferences / ItalicForReferences / StrikethroughForReferences
+
+/**
+ *
  * Italic, Bold and Strike
  * e.g: __italic__, _italic_, **bold**, __*bold italic*__, ~~strikethrough~~
  *
@@ -387,6 +394,45 @@ BoldContentItem = Whitespace / References / UserMention / ChannelMention / Itali
 Strikethrough = [\x7E] [\x7E] @StrikethroughContent [\x7E] [\x7E] / [\x7E] @StrikethroughContent [\x7E]
 
 StrikethroughContent = text:(Whitespace / References / UserMention / ChannelMention / Italic / Bold / Emoji / Emoticon / AnyStrike / Line)+ {
+      return strike(reducePlainTexts(text));
+    }
+
+/* Italic for References */
+ItalicForReferences
+   = value:$([a-zA-Z0-9]+ [\x5F] [\x5F]?) { return plain(value); }
+  / [\x5F] [\x5F] i:ItalicContentItemsForReferences [\x5F] [\x5F] t:$[a-zA-Z0-9]+ {
+      return reducePlainTexts([plain('__'), ...i, plain('__'), plain(t)])[0];
+    }
+  / [\x5F] i:ItalicContentItemsForReferences [\x5F] t:$[a-zA-Z]+ {
+      return reducePlainTexts([plain('_'), ...i, plain('_'), plain(t)])[0];
+    }
+  / [\x5F] [\x5F] @ItalicContentForReferences [\x5F] [\x5F]
+  / [\x5F] @ItalicContentForReferences [\x5F]
+
+ItalicContentForReferences = text:ItalicContentItemsForReferences { return italic(text); }
+
+ItalicContentItemsForReferences = text:ItalicContentItemForReferences+ { return reducePlainTexts(text); }
+
+ItalicContentItemForReferences
+  = Whitespace
+  / UserMention
+  / ChannelMention
+  / BoldForReferences
+  / StrikethroughForReferences
+  / Emoji
+  / Emoticon
+  / AnyItalic
+  / Line
+
+/* Bold for References */
+BoldForReferences = [\x2A] [\x2A] @BoldContentForReferences [\x2A] [\x2A] / [\x2A] @BoldContentForReferences [\x2A]
+
+BoldContentForReferences = text:(Whitespace / UserMention / ChannelMention / ItalicForReferences / StrikethroughForReferences / Emoji / Emoticon / AnyBold / Line)+ { return bold(reducePlainTexts(text)); }
+
+/* Strike for References */
+StrikethroughForReferences = [\x7E] [\x7E] @StrikethroughContentForReferences [\x7E] [\x7E] / [\x7E] @StrikethroughContentForReferences [\x7E]
+
+StrikethroughContentForReferences = text:(Whitespace / UserMention / ChannelMention / ItalicForReferences / BoldForReferences / Emoji / Emoticon / AnyStrike / Line)+ {
       return strike(reducePlainTexts(text));
     }
 
