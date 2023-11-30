@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.38.2
+
+### Patch Changes
+
+- [#1232](https://github.com/RocketChat/fuselage/pull/1232) [`6d5778611`](https://github.com/RocketChat/fuselage/commit/6d577861193b7675d16ad415e36d53681a99392f) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): `Card` spacing
+
 ## 0.38.1
 
 ### Patch Changes
