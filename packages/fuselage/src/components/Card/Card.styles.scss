@@ -83,3 +83,20 @@ $card-spacing: lengths.margin(4);
     margin-inline-end: lengths.margin(none);
   }
 }
+
+.rcx-card__title,
+.rcx-card__row,
+.rcx-card__header,
+.rcx-card__controls {
+  display: flex;
+  align-items: center;
+}
+
+.rcx-card__controls {
+  flex-grow: 1;
+}
+
+.rcx-card__col {
+  display: flex;
+  flex-direction: column;
+}

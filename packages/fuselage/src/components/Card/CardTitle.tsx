@@ -14,15 +14,7 @@ const CardTitle = ({
   info?: string;
   variant?: 'h3' | 'h4' | 'h5';
 } & Omit<AllHTMLAttributes<HTMLElement>, 'is'>) => (
-  <Box
-    fontScale={variant}
-    is={variant}
-    display='flex'
-    flexDirection='row'
-    alignItems='center'
-    rcx-card__title
-    {...props}
-  >
+  <Box fontScale={variant} is={variant} rcx-card__title {...props}>
     {children}
     {info && <LabelInfo title={info} mis={2} />}
   </Box>
