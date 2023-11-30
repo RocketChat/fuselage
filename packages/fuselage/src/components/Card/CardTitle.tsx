@@ -17,7 +17,6 @@ const CardTitle = ({
   <Box
     fontScale={variant}
     is={variant}
-    color='default'
     display='flex'
     flexDirection='row'
     alignItems='center'

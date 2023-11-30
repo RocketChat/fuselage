@@ -1,10 +1,27 @@
+@use '../../styles/colors.scss';
+@use '../../styles/functions';
 @use '../../styles/lengths.scss';
 
 $card-spacing: lengths.margin(4);
 
+.rcx-card {
+  display: flex;
+
+  color: functions.theme('card-color', colors.font(default));
+  border-radius: lengths.border-radius(large);
+
+  background-color: functions.theme(
+    'card-background-color',
+    colors.surface(light)
+  );
+}
+
 // Card horizontal
 .rcx-card__horizontal {
-  padding: lengths.margin(12);
+  justify-content: center;
+  align-items: center;
+
+  padding: lengths.padding(12);
 
   .rcx-card__controls {
     margin-inline-start: lengths.margin(16);
@@ -19,6 +36,8 @@ $card-spacing: lengths.margin(4);
   }
 
   &--wrap {
+    flex-wrap: wrap;
+
     .rcx-card__controls {
       margin-block-start: lengths.margin(16);
       margin-inline-start: lengths.margin(none);
@@ -28,7 +47,9 @@ $card-spacing: lengths.margin(4);
 
 // Card vertical
 .rcx-card__vertical {
-  padding: lengths.margin(20);
+  flex-direction: column;
+
+  padding: lengths.padding(20);
 
   > .rcx-card__col,
   > .rcx-card__row,
