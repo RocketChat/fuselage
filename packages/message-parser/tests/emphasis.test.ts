@@ -136,6 +136,25 @@ test.each([
   ['text_hello_text', [paragraph([plain('text_hello_text')])]],
   ['_hello_text', [paragraph([plain('_hello_text')])]],
   ['text_hello_', [paragraph([plain('text_hello_')])]],
+  ['_italic@test_', [paragraph([italic([plain('italic@test')])])]],
+  ['_italic#test_', [paragraph([italic([plain('italic#test')])])]],
+  ['paragraph@test__', [paragraph([plain('paragraph@test__')])]],
+  [
+    '_ @guilherme_gazzo_ _',
+    [
+      paragraph([
+        italic([plain(' '), mentionUser('guilherme_gazzo_'), plain(' ')]),
+      ]),
+    ],
+  ],
+  [
+    '_ @guilherme.gazzo _',
+    [
+      paragraph([
+        italic([plain(' '), mentionUser('guilherme.gazzo'), plain(' ')]),
+      ]),
+    ],
+  ],
   [
     '**reference link inside [emphasis with more [references](https://rocket.chat)](https://rocket.chat)**',
     [

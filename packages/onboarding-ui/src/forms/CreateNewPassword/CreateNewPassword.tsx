@@ -4,6 +4,9 @@ import {
   PasswordInput,
   ButtonGroup,
   Button,
+  FieldLabel,
+  FieldRow,
+  FieldError,
 } from '@rocket.chat/fuselage';
 import { Form } from '@rocket.chat/layout';
 import type { ReactElement } from 'react';
@@ -47,10 +50,10 @@ const CreateNewPassword = ({
       <Form.Container>
         <FieldGroup>
           <Field>
-            <Field.Label>
+            <FieldLabel>
               {t('form.createPasswordForm.fields.password.label')}
-            </Field.Label>
-            <Field.Row>
+            </FieldLabel>
+            <FieldRow>
               <PasswordInput
                 {...register('password', {
                   validate: validatePassword,
@@ -60,16 +63,16 @@ const CreateNewPassword = ({
                   'form.createPasswordForm.fields.password.placeholder'
                 )}
               />
-            </Field.Row>
+            </FieldRow>
             {errors.password && (
-              <Field.Error>{errors.password.message}</Field.Error>
+              <FieldError>{errors.password.message}</FieldError>
             )}
           </Field>
           <Field>
-            <Field.Label>
+            <FieldLabel>
               {t('form.createPasswordForm.fields.confirmPassword.label')}
-            </Field.Label>
-            <Field.Row>
+            </FieldLabel>
+            <FieldRow>
               <PasswordInput
                 {...register('passwordConfirmation', {
                   validate: validatePasswordConfirmation,
@@ -79,9 +82,9 @@ const CreateNewPassword = ({
                   'form.createPasswordForm.fields.confirmPassword.placeholder'
                 )}
               />
-            </Field.Row>
+            </FieldRow>
             {errors.passwordConfirmation && (
-              <Field.Error>{errors.passwordConfirmation.message}</Field.Error>
+              <FieldError>{errors.passwordConfirmation.message}</FieldError>
             )}
           </Field>
         </FieldGroup>

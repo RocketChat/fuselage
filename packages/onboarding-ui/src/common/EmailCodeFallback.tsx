@@ -12,7 +12,7 @@ const EmailCodeFallback = ({
   onResendEmailRequest,
   onChangeEmailRequest,
 }: EmailCodeFallbackProps): ReactElement => (
-  <Box fontScale='c1'>
+  <Box fontScale='p2'>
     <Trans i18nKey='component.emailCodeFallback'>
       Didn’t receive email?
       <ActionLink onClick={onResendEmailRequest}>Resend</ActionLink>

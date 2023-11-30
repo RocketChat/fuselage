@@ -1,5 +1,43 @@
 # Change Log
 
+## 0.33.2
+
+### Patch Changes
+
+- [#1227](https://github.com/RocketChat/fuselage/pull/1227) [`414b1fc88`](https://github.com/RocketChat/fuselage/commit/414b1fc88b1fc9d527d93e9fc1b3fa21d8c098e3) Thanks [@tiagoevanp](https://github.com/tiagoevanp)! - Fix offline registration wizard validation
+
+## 0.33.1
+
+### Patch Changes
+
+- [#1208](https://github.com/RocketChat/fuselage/pull/1208) [`24a06471d`](https://github.com/RocketChat/fuselage/commit/24a06471d4fd3c48b4e9611b6d663218934d1416) Thanks [@tiagoevanp](https://github.com/tiagoevanp)! - Adjust some font scales and text colors, fix some wrong translations, remove description from admin email on register server step, disable register workspace button when air-gapped.
+
+## 0.33.0
+
+### Minor Changes
+
+- [#1187](https://github.com/RocketChat/fuselage/pull/1187) [`088591304`](https://github.com/RocketChat/fuselage/commit/088591304de15a20f77e84335054e8469c21e2e8) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(onboarding-ui): a11y forms improvements
+
+- [#1185](https://github.com/RocketChat/fuselage/pull/1185) [`e092a3c7a`](https://github.com/RocketChat/fuselage/commit/e092a3c7a839b001ab646283174c2b99ff74997d) Thanks [@tiagoevanp](https://github.com/tiagoevanp)! - feat(onboarding-ui): Update agreements message on `RegisterServerForm`
+
+- [#1182](https://github.com/RocketChat/fuselage/pull/1182) [`d5b269439`](https://github.com/RocketChat/fuselage/commit/d5b26943965d4d9a6d499968d933ead76a705ed3) Thanks [@tiagoevanp](https://github.com/tiagoevanp)! - feat(onboarding-ui): Required fields adjustments
+
+- [#1184](https://github.com/RocketChat/fuselage/pull/1184) [`695d42a03`](https://github.com/RocketChat/fuselage/commit/695d42a03968c7477c0a5569ec2d6b6119407e5a) Thanks [@tiagoevanp](https://github.com/tiagoevanp)! - feat(onboarding-ui): Remove standalone and introduce offline server registration
+
+- [#1183](https://github.com/RocketChat/fuselage/pull/1183) [`c3835a6a6`](https://github.com/RocketChat/fuselage/commit/c3835a6a6a48b8ba3a2e2b53950afe1c862bb709) Thanks [@tiagoevanp](https://github.com/tiagoevanp)! - feat(onboarding-ui): Modify AwaitingConfirmationPage page
+
+## 0.32.1
+
+### Patch Changes
+
+- [`a97c7f086`](https://github.com/RocketChat/fuselage/commit/a97c7f08633e6e36a39c8933b530f9acacb83af0) Thanks [@dougfabris](https://github.com/dougfabris)! - chore: resolve-workspace-deps to publish pkg versions
+
+## 0.32.0
+
+### Minor Changes
+
+- [`a04f9089d`](https://github.com/RocketChat/fuselage/commit/a04f9089d19ba32d2b2e80738d2d5f4dac0d3e0c) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(onboarding-ui): Development warnings
+
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
