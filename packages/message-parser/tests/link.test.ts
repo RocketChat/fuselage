@@ -560,6 +560,30 @@ Text after line break`,
       ]),
     ],
   ],
+  [
+    '[ ~ [ ~ [ ~ [ ~ [ ~ [ ~ [ ~ [ ~ [ ~ [ ~ [ ~ [ ~ [ ~ [ ~ [test](https://rocket.chat)',
+    [
+      paragraph([
+        link('https://rocket.chat', [
+          plain(' '),
+          strike([plain(' [ ')]),
+          plain(' [ '),
+          strike([plain(' [ ')]),
+          plain(' [ '),
+          strike([plain(' [ ')]),
+          plain(' [ '),
+          strike([plain(' [ ')]),
+          plain(' [ '),
+          strike([plain(' [ ')]),
+          plain(' [ '),
+          strike([plain(' [ ')]),
+          plain(' [ '),
+          strike([plain(' [ ')]),
+          plain(' [test'),
+        ]),
+      ]),
+    ],
+  ],
 ])('parses %p', (input, output) => {
   expect(parse(input)).toMatchObject(output);
 });
