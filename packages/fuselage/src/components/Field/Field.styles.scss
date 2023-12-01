@@ -38,10 +38,6 @@
     margin-block-end: lengths.margin(2);
 
     color: colors.font(secondary-info);
-
-    & .rcx-field__label {
-      padding-inline-start: lengths.padding(8);
-    }
   }
 
   &__hint {
