@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.38.3
+
+### Patch Changes
+
+- [#1239](https://github.com/RocketChat/fuselage/pull/1239) [`0245820b5`](https://github.com/RocketChat/fuselage/commit/0245820b5f325ff0243d9a97db5ad7d4d373d6fe) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): `CardControls` alignment
+
 ## 0.38.2
 
 ### Patch Changes
