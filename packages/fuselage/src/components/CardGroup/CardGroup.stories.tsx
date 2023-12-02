@@ -16,7 +16,7 @@ import { Tag } from '../Tag';
 import { CardGroup } from './CardGroup';
 
 export default {
-  title: 'Components/CardGroup',
+  title: 'Containers/CardGroup',
   component: CardGroup,
   parameters: {
     backgrounds: { default: 'dark' },
