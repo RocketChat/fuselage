@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.38.4
+
+### Patch Changes
+
+- [#1240](https://github.com/RocketChat/fuselage/pull/1240) [`617e8817b`](https://github.com/RocketChat/fuselage/commit/617e8817b5d0e7974d8a8d2e52a9b3f2ecb6fa6e) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): `CardGroup` wrap margins
+
 ## 0.38.3
 
 ### Patch Changes
