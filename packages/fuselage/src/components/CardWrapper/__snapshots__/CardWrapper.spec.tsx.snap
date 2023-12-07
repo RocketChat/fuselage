@@ -7,10 +7,10 @@ exports[`[CardGrid Rendering] renders _CardGrid without crashing 1`] = `
       class="rcx-box rcx-box--full rcx-grid__wrapper"
     >
       <div
-        class="rcx-box rcx-box--full rcx-card__grid rcx-grid rcx-css-9tlmd6"
+        class="rcx-box rcx-box--full rcx-card-grid rcx-grid rcx-css-9tlmd6"
       >
         <div
-          class="rcx-box rcx-box--full rcx-card__grid--item rcx-grid__item--xl-3 rcx-grid__item--lg-3 rcx-grid__item--md-4 rcx-grid__item--sm-4 rcx-grid__item--xs-4 rcx-grid__item rcx-css-itjqln"
+          class="rcx-box rcx-box--full rcx-card-grid__item rcx-grid__item--xl-3 rcx-grid__item--lg-3 rcx-grid__item--md-4 rcx-grid__item--sm-4 rcx-grid__item--xs-4 rcx-grid__item rcx-css-itjqln"
         >
           <div
             class="rcx-box rcx-box--full rcx-card__vertical rcx-card"
@@ -82,7 +82,7 @@ exports[`[CardGrid Rendering] renders _CardGrid without crashing 1`] = `
           </div>
         </div>
         <div
-          class="rcx-box rcx-box--full rcx-card__grid--item rcx-grid__item--xl-3 rcx-grid__item--lg-3 rcx-grid__item--md-4 rcx-grid__item--sm-4 rcx-grid__item--xs-4 rcx-grid__item rcx-css-itjqln"
+          class="rcx-box rcx-box--full rcx-card-grid__item rcx-grid__item--xl-3 rcx-grid__item--lg-3 rcx-grid__item--md-4 rcx-grid__item--sm-4 rcx-grid__item--xs-4 rcx-grid__item rcx-css-itjqln"
         >
           <div
             class="rcx-box rcx-box--full rcx-card__vertical rcx-card"
@@ -154,7 +154,7 @@ exports[`[CardGrid Rendering] renders _CardGrid without crashing 1`] = `
           </div>
         </div>
         <div
-          class="rcx-box rcx-box--full rcx-card__grid--item rcx-grid__item--xl-3 rcx-grid__item--lg-3 rcx-grid__item--md-4 rcx-grid__item--sm-4 rcx-grid__item--xs-4 rcx-grid__item rcx-css-itjqln"
+          class="rcx-box rcx-box--full rcx-card-grid__item rcx-grid__item--xl-3 rcx-grid__item--lg-3 rcx-grid__item--md-4 rcx-grid__item--sm-4 rcx-grid__item--xs-4 rcx-grid__item rcx-css-itjqln"
         >
           <div
             class="rcx-box rcx-box--full rcx-card__vertical rcx-card"
@@ -226,7 +226,7 @@ exports[`[CardGrid Rendering] renders _CardGrid without crashing 1`] = `
           </div>
         </div>
         <div
-          class="rcx-box rcx-box--full rcx-card__grid--item rcx-grid__item--xl-3 rcx-grid__item--lg-3 rcx-grid__item--md-4 rcx-grid__item--sm-4 rcx-grid__item--xs-4 rcx-grid__item rcx-css-itjqln"
+          class="rcx-box rcx-box--full rcx-card-grid__item rcx-grid__item--xl-3 rcx-grid__item--lg-3 rcx-grid__item--md-4 rcx-grid__item--sm-4 rcx-grid__item--xs-4 rcx-grid__item rcx-css-itjqln"
         >
           <div
             class="rcx-box rcx-box--full rcx-card__vertical rcx-card"
@@ -298,7 +298,7 @@ exports[`[CardGrid Rendering] renders _CardGrid without crashing 1`] = `
           </div>
         </div>
         <div
-          class="rcx-box rcx-box--full rcx-card__grid--item rcx-grid__item--xl-3 rcx-grid__item--lg-3 rcx-grid__item--md-4 rcx-grid__item--sm-4 rcx-grid__item--xs-4 rcx-grid__item rcx-css-itjqln"
+          class="rcx-box rcx-box--full rcx-card-grid__item rcx-grid__item--xl-3 rcx-grid__item--lg-3 rcx-grid__item--md-4 rcx-grid__item--sm-4 rcx-grid__item--xs-4 rcx-grid__item rcx-css-itjqln"
         >
           <div
             class="rcx-box rcx-box--full rcx-card__vertical rcx-card"
@@ -370,7 +370,7 @@ exports[`[CardGrid Rendering] renders _CardGrid without crashing 1`] = `
           </div>
         </div>
         <div
-          class="rcx-box rcx-box--full rcx-card__grid--item rcx-grid__item--xl-3 rcx-grid__item--lg-3 rcx-grid__item--md-4 rcx-grid__item--sm-4 rcx-grid__item--xs-4 rcx-grid__item rcx-css-itjqln"
+          class="rcx-box rcx-box--full rcx-card-grid__item rcx-grid__item--xl-3 rcx-grid__item--lg-3 rcx-grid__item--md-4 rcx-grid__item--sm-4 rcx-grid__item--xs-4 rcx-grid__item rcx-css-itjqln"
         >
           <div
             class="rcx-box rcx-box--full rcx-card__vertical rcx-card"
@@ -442,7 +442,7 @@ exports[`[CardGrid Rendering] renders _CardGrid without crashing 1`] = `
           </div>
         </div>
         <div
-          class="rcx-box rcx-box--full rcx-card__grid--item rcx-grid__item--xl-3 rcx-grid__item--lg-3 rcx-grid__item--md-4 rcx-grid__item--sm-4 rcx-grid__item--xs-4 rcx-grid__item rcx-css-itjqln"
+          class="rcx-box rcx-box--full rcx-card-grid__item rcx-grid__item--xl-3 rcx-grid__item--lg-3 rcx-grid__item--md-4 rcx-grid__item--sm-4 rcx-grid__item--xs-4 rcx-grid__item rcx-css-itjqln"
         >
           <div
             class="rcx-box rcx-box--full rcx-card__vertical rcx-card"
@@ -514,7 +514,7 @@ exports[`[CardGrid Rendering] renders _CardGrid without crashing 1`] = `
           </div>
         </div>
         <div
-          class="rcx-box rcx-box--full rcx-card__grid--item rcx-grid__item--xl-3 rcx-grid__item--lg-3 rcx-grid__item--md-4 rcx-grid__item--sm-4 rcx-grid__item--xs-4 rcx-grid__item rcx-css-itjqln"
+          class="rcx-box rcx-box--full rcx-card-grid__item rcx-grid__item--xl-3 rcx-grid__item--lg-3 rcx-grid__item--md-4 rcx-grid__item--sm-4 rcx-grid__item--xs-4 rcx-grid__item rcx-css-itjqln"
         >
           <div
             class="rcx-box rcx-box--full rcx-card__vertical rcx-card"
@@ -586,7 +586,7 @@ exports[`[CardGrid Rendering] renders _CardGrid without crashing 1`] = `
           </div>
         </div>
         <div
-          class="rcx-box rcx-box--full rcx-card__grid--item rcx-grid__item--xl-3 rcx-grid__item--lg-3 rcx-grid__item--md-4 rcx-grid__item--sm-4 rcx-grid__item--xs-4 rcx-grid__item rcx-css-itjqln"
+          class="rcx-box rcx-box--full rcx-card-grid__item rcx-grid__item--xl-3 rcx-grid__item--lg-3 rcx-grid__item--md-4 rcx-grid__item--sm-4 rcx-grid__item--xs-4 rcx-grid__item rcx-css-itjqln"
         >
           <div
             class="rcx-box rcx-box--full rcx-card__vertical rcx-card"

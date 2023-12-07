@@ -2,4 +2,4 @@
 "@rocket.chat/fuselage": minor
 ---
 
-feat(fuselage): `CardGroupGrid` component
+feat(fuselage): `CardGrid` component
