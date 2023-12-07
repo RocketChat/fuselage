@@ -2,7 +2,7 @@ import type { ComponentMeta, ComponentStory } from '@storybook/react';
 import type { ComponentProps } from 'react';
 import React from 'react';
 
-import { CardGroup, CardGroupGrid } from '.';
+import { CardGroup } from '.';
 import { Badge } from '../Badge';
 import { Button, IconButton } from '../Button';
 import {
@@ -18,7 +18,7 @@ import { Icon } from '../Icon';
 import { Tag } from '../Tag';
 
 export default {
-  title: 'Containers/CardGroup',
+  title: 'Containers/CardWrapper/CardGroup',
   component: CardGroup,
   parameters: {
     backgrounds: { default: 'dark' },
@@ -105,12 +105,4 @@ export const VerticalWithHorizontalCard: ComponentStory<typeof CardGroup> = (
       <CardHorizontal key={index} />
     ))}
   </CardGroup>
-);
-
-export const _CardGrid = (args: ComponentProps<typeof CardGroupGrid>) => (
-  <CardGroupGrid {...args} breakpoints={{ xs: 4, sm: 4, md: 4, lg: 3, xl: 3 }}>
-    {Array.from(new Array(9)).map((_, index) => (
-      <CardItem key={index} />
-    ))}
-  </CardGroupGrid>
 );

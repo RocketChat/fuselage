@@ -3,16 +3,16 @@ import React from 'react';
 
 import Grid, { GridItem } from '../Grid';
 
-type CardGroupGridProps = {
+type CardGridProps = {
   children: React.ReactNode;
   breakpoints: ComponentProps<typeof GridItem>;
 };
 
-export const CardGroupGrid = ({
+export const CardGrid = ({
   children,
   breakpoints,
   ...props
-}: CardGroupGridProps) => (
+}: CardGridProps) => (
   <Grid rcx-card__grid m={-8} {...props}>
     {React.Children.map(children, (child) => (
       <GridItem rcx-card__grid--item p={8} {...breakpoints}>
