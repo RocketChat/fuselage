@@ -13,9 +13,9 @@ export const CardGrid = ({
   breakpoints,
   ...props
 }: CardGridProps) => (
-  <Grid rcx-card__grid m={-8} {...props}>
+  <Grid rcx-card-grid m={-8} {...props}>
     {React.Children.map(children, (child) => (
-      <GridItem rcx-card__grid--item p={8} {...breakpoints}>
+      <GridItem rcx-card-grid__item p={8} {...breakpoints}>
         {child}
       </GridItem>
     ))}
