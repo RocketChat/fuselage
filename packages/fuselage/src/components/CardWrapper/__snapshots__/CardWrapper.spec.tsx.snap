@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`[CardGroup Rendering] renders _CardGrid without crashing 1`] = `
+exports[`[CardGrid Rendering] renders _CardGrid without crashing 1`] = `
 <body>
   <div>
     <div
