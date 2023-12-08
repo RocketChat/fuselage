@@ -1,5 +1,15 @@
 # Change Log
 
+## 0.39.0
+
+### Minor Changes
+
+- [#1242](https://github.com/RocketChat/fuselage/pull/1242) [`f659bae77`](https://github.com/RocketChat/fuselage/commit/f659bae771f38e09e85b39bb5343ffd24ac6430b) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage): `CardGrid` component
+
+### Patch Changes
+
+- [#1238](https://github.com/RocketChat/fuselage/pull/1238) [`286b30c1d`](https://github.com/RocketChat/fuselage/commit/286b30c1db31a3c81612b2089b69812f2a796aca) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): FieldLabel margins and paddings
+
 ## 0.38.4
 
 ### Patch Changes
