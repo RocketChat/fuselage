@@ -3,14 +3,15 @@ import { render } from '@testing-library/react';
 import { axe } from 'jest-axe';
 import React from 'react';
 
-import * as gridStories from './CardGrid.stories';
+import * as stories from './CardGrid.stories';
 
-const gridTestCases = Object.values(composeStories(gridStories)).map(
-  (Story) => [Story.storyName || 'Story', Story]
-);
+const testCases = Object.values(composeStories(stories)).map((Story) => [
+  Story.storyName || 'Story',
+  Story,
+]);
 
 describe('[CardGrid Rendering]', () => {
-  test.each(gridTestCases)(
+  test.each(testCases)(
     `renders %s without crashing`,
     async (_storyname, Story) => {
       const tree = render(<Story />);
@@ -18,7 +19,7 @@ describe('[CardGrid Rendering]', () => {
     }
   );
 
-  test.each(gridTestCases)(
+  test.each(testCases)(
     '%s should have no a11y violations',
     async (_storyname, Story) => {
       const { container } = render(<Story />);
