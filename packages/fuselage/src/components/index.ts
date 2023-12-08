@@ -12,6 +12,7 @@ export * from './ButtonGroup';
 export * from './Callout';
 export * from './Card';
 export * from './CardGroup';
+export * from './CardGrid';
 export * from './CheckBox';
 export * from './Chevron';
 export { default as CodeSnippet } from './CodeSnippet';

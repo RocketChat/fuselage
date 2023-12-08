@@ -60,6 +60,11 @@ $card-spacing: lengths.margin(4);
     }
   }
 
+  .rcx-card__controls {
+    align-items: flex-end;
+    flex-grow: 1;
+  }
+
   .rcx-card__body {
     margin-block: lengths.margin(24);
     margin-inline: lengths.margin(none);

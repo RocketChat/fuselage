@@ -49,8 +49,8 @@
 
   .rcx-card-group--wrap > & {
     margin-block-end: lengths.margin(16);
-    margin-inline-start: lengths.margin(none);
-    margin-inline-end: lengths.margin(16);
+    margin-inline-start: lengths.margin(8);
+    margin-inline-end: lengths.margin(8);
   }
 
   .rcx-card-group--stretch > & {

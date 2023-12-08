@@ -12,7 +12,7 @@ import CardHeader from './CardHeader';
 import CardRow from './CardRow';
 
 export default {
-  title: 'Components/Card',
+  title: 'Containers/Card',
   component: Card,
   subcomponents: {
     CardHeader,

@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/fuselage",
-  "version": "0.38.2",
+  "version": "0.38.4",
   "description": "Rocket.Chat's React Components Library",
   "author": {
     "name": "Rocket.Chat",
