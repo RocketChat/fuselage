@@ -39,7 +39,7 @@ exports[`[Field Component] renders WithCheckbox without crashing 1`] = `
           </span>
         </label>
         <label
-          class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-check-box"
+          class="rcx-box rcx-box--full rcx-check-box"
         >
           <input
             aria-describedby="fieldWithCheckboxInfo"
@@ -123,7 +123,7 @@ exports[`[Field Component] renders WithRadioButton without crashing 1`] = `
           </span>
         </label>
         <label
-          class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-radio-button"
+          class="rcx-box rcx-box--full rcx-radio-button"
         >
           <input
             aria-describedby="fieldWithRadioInfo"
@@ -361,7 +361,7 @@ exports[`[Field Component] renders WithToggleSwitch without crashing 1`] = `
           </span>
         </label>
         <label
-          class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-toggle-switch"
+          class="rcx-box rcx-box--full rcx-toggle-switch"
         >
           <input
             aria-describedby="fieldWithToggleInfo"
