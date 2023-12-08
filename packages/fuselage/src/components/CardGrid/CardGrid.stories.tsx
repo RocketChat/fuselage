@@ -15,7 +15,7 @@ import {
 import { Icon } from '../Icon';
 
 export default {
-  title: 'Containers/CardWrapper/CardGrid',
+  title: 'Containers/CardGrid',
   component: CardGrid,
   parameters: {
     backgrounds: { default: 'dark' },

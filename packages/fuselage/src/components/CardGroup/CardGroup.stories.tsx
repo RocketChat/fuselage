@@ -18,7 +18,7 @@ import { Icon } from '../Icon';
 import { Tag } from '../Tag';
 
 export default {
-  title: 'Containers/CardWrapper/CardGroup',
+  title: 'Containers/CardGroup',
   component: CardGroup,
   parameters: {
     backgrounds: { default: 'dark' },

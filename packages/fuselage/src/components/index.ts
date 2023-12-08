@@ -11,7 +11,7 @@ export { default as Button, ActionButton, IconButton } from './Button';
 export * from './ButtonGroup';
 export * from './Callout';
 export * from './Card';
-export * from './CardWrapper';
+export * from './CardGroup';
 export * from './CheckBox';
 export * from './Chevron';
 export { default as CodeSnippet } from './CodeSnippet';
