@@ -5,7 +5,7 @@ import Grid, { GridItem } from '../Grid';
 
 type CardGridProps = {
   children: React.ReactNode;
-  breakpoints: ComponentProps<typeof GridItem>;
+  breakpoints?: ComponentProps<typeof GridItem>;
 };
 
 export const CardGrid = ({
