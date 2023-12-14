@@ -4,7 +4,7 @@ exports[`[CheckBox Rendering] renders Checked without crashing 1`] = `
 <body>
   <div>
     <label
-      class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-check-box"
+      class="rcx-box rcx-box--full rcx-check-box"
     >
       <input
         aria-label="Decorator Label"
@@ -25,7 +25,7 @@ exports[`[CheckBox Rendering] renders Default without crashing 1`] = `
 <body>
   <div>
     <label
-      class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-check-box"
+      class="rcx-box rcx-box--full rcx-check-box"
     >
       <input
         aria-label="Decorator Label"
@@ -45,7 +45,7 @@ exports[`[CheckBox Rendering] renders DefaultChecked without crashing 1`] = `
 <body>
   <div>
     <label
-      class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-check-box"
+      class="rcx-box rcx-box--full rcx-check-box"
     >
       <input
         aria-label="Decorator Label"
@@ -66,7 +66,7 @@ exports[`[CheckBox Rendering] renders Disabled without crashing 1`] = `
 <body>
   <div>
     <label
-      class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-check-box"
+      class="rcx-box rcx-box--full rcx-check-box"
     >
       <input
         aria-label="Decorator Label"
@@ -87,7 +87,7 @@ exports[`[CheckBox Rendering] renders Indeterminate without crashing 1`] = `
 <body>
   <div>
     <label
-      class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-check-box"
+      class="rcx-box rcx-box--full rcx-check-box"
     >
       <input
         aria-label="Decorator Label"
@@ -150,7 +150,7 @@ exports[`[CheckBox Rendering] renders States without crashing 1`] = `
               class="rcx-box rcx-box--full rcx-css-7rd89h"
             >
               <label
-                class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-check-box"
+                class="rcx-box rcx-box--full rcx-check-box"
               >
                 <input
                   aria-label="Decorator Label"
@@ -172,7 +172,7 @@ exports[`[CheckBox Rendering] renders States without crashing 1`] = `
               class="rcx-box rcx-box--full rcx-css-7rd89h"
             >
               <label
-                class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-check-box"
+                class="rcx-box rcx-box--full rcx-check-box"
               >
                 <input
                   aria-label="Decorator Label"
@@ -202,7 +202,7 @@ exports[`[CheckBox Rendering] renders States without crashing 1`] = `
               class="rcx-box rcx-box--full rcx-css-7rd89h"
             >
               <label
-                class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-check-box  is-hovered"
+                class="rcx-box rcx-box--full rcx-check-box  is-hovered"
               >
                 <input
                   aria-label="Decorator Label"
@@ -224,7 +224,7 @@ exports[`[CheckBox Rendering] renders States without crashing 1`] = `
               class="rcx-box rcx-box--full rcx-css-7rd89h"
             >
               <label
-                class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-check-box  is-hovered"
+                class="rcx-box rcx-box--full rcx-check-box  is-hovered"
               >
                 <input
                   aria-label="Decorator Label"
@@ -254,7 +254,7 @@ exports[`[CheckBox Rendering] renders States without crashing 1`] = `
               class="rcx-box rcx-box--full rcx-css-7rd89h"
             >
               <label
-                class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-check-box  is-active"
+                class="rcx-box rcx-box--full rcx-check-box  is-active"
               >
                 <input
                   aria-label="Decorator Label"
@@ -276,7 +276,7 @@ exports[`[CheckBox Rendering] renders States without crashing 1`] = `
               class="rcx-box rcx-box--full rcx-css-7rd89h"
             >
               <label
-                class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-check-box  is-active"
+                class="rcx-box rcx-box--full rcx-check-box  is-active"
               >
                 <input
                   aria-label="Decorator Label"
@@ -306,7 +306,7 @@ exports[`[CheckBox Rendering] renders States without crashing 1`] = `
               class="rcx-box rcx-box--full rcx-css-7rd89h"
             >
               <label
-                class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-check-box  is-focused"
+                class="rcx-box rcx-box--full rcx-check-box  is-focused"
               >
                 <input
                   aria-label="Decorator Label"
@@ -328,7 +328,7 @@ exports[`[CheckBox Rendering] renders States without crashing 1`] = `
               class="rcx-box rcx-box--full rcx-css-7rd89h"
             >
               <label
-                class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-check-box  is-focused"
+                class="rcx-box rcx-box--full rcx-check-box  is-focused"
               >
                 <input
                   aria-label="Decorator Label"
@@ -358,7 +358,7 @@ exports[`[CheckBox Rendering] renders States without crashing 1`] = `
               class="rcx-box rcx-box--full rcx-css-7rd89h"
             >
               <label
-                class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-check-box"
+                class="rcx-box rcx-box--full rcx-check-box"
               >
                 <input
                   aria-label="Decorator Label"
@@ -381,7 +381,7 @@ exports[`[CheckBox Rendering] renders States without crashing 1`] = `
               class="rcx-box rcx-box--full rcx-css-7rd89h"
             >
               <label
-                class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-check-box"
+                class="rcx-box rcx-box--full rcx-check-box"
               >
                 <input
                   aria-label="Decorator Label"

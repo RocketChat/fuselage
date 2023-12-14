@@ -2,18 +2,20 @@ import type { ComponentMeta, ComponentStory } from '@storybook/react';
 import type { ComponentProps } from 'react';
 import React from 'react';
 
+import { CardGroup } from '.';
 import { Badge } from '../Badge';
 import { Button, IconButton } from '../Button';
-import Card from '../Card/Card';
-import CardBody from '../Card/CardBody';
-import CardCol from '../Card/CardCol';
-import CardControls from '../Card/CardControls';
-import CardHeader from '../Card/CardHeader';
-import CardRow from '../Card/CardRow';
-import CardTitle from '../Card/CardTitle';
+import {
+  Card,
+  CardBody,
+  CardCol,
+  CardControls,
+  CardHeader,
+  CardRow,
+  CardTitle,
+} from '../Card';
 import { Icon } from '../Icon';
 import { Tag } from '../Tag';
-import { CardGroup } from './CardGroup';
 
 export default {
   title: 'Containers/CardGroup',
@@ -26,7 +28,7 @@ export default {
 } as ComponentMeta<typeof CardGroup>;
 
 const CardItem = (props: ComponentProps<typeof Card>) => (
-  <Card width='x260' {...props}>
+  <Card {...props}>
     <CardCol>
       <CardHeader>
         <Icon name='address-book' size='x24' />
@@ -71,7 +73,7 @@ const CardHorizontal: ComponentStory<typeof Card> = (props) => (
 export const Default: ComponentStory<typeof CardGroup> = (args) => (
   <CardGroup {...args}>
     {Array.from(new Array(9)).map((_, index) => (
-      <CardItem key={index} />
+      <CardItem key={index} width='x260' />
     ))}
   </CardGroup>
 );
