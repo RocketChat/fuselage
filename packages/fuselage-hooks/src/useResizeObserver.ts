@@ -1,5 +1,5 @@
-import type { RefObject } from 'react';
-import { useRef, useEffect } from 'react';
+import type { RefCallback } from 'react';
+import { useState, useCallback } from 'react';
 
 import {
   extractContentBoxSizeFromObserver,
@@ -24,12 +24,10 @@ type UseResizeObserverOptions = {
 export const useResizeObserver = <T extends Element>({
   debounceDelay = 0,
 }: UseResizeObserverOptions = {}): {
-  ref: RefObject<T>;
+  ref: RefCallback<T>;
   contentBoxSize: Partial<ResizeObserverSize>;
   borderBoxSize: Partial<ResizeObserverSize>;
 } => {
-  const ref = useRef<T>(null);
-
   const [{ borderBoxSize, contentBoxSize }, setSizes] = useDebouncedState<{
     borderBoxSize: Partial<ResizeObserverSize>;
     contentBoxSize: Partial<ResizeObserverSize>;
@@ -47,22 +45,27 @@ export const useResizeObserver = <T extends Element>({
     debounceDelay
   );
 
-  useEffect(() => {
-    const observer = new ResizeObserver(([entry]) => {
-      setSizes({
-        contentBoxSize: extractContentBoxSizeFromObserver(entry),
-        borderBoxSize: extractBorderBoxSizeFromObserver(entry),
-      });
-    });
+  const [observer] = useState(
+    () =>
+      new ResizeObserver(([entry]) => {
+        setSizes({
+          contentBoxSize: extractContentBoxSizeFromObserver(entry),
+          borderBoxSize: extractBorderBoxSizeFromObserver(entry),
+        });
+      })
+  );
 
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
+  const ref = useCallback(
+    (node: T | null) => {
+      if (node === null) {
+        observer.disconnect();
+        return;
+      }
 
-    return () => {
-      observer.disconnect();
-    };
-  }, [setSizes]);
+      observer.observe(node);
+    },
+    [observer]
+  );
 
   return { ref, contentBoxSize, borderBoxSize };
 };

@@ -1,4 +1,5 @@
 import { renderHook, act } from '@testing-library/react-hooks';
+import type { RefCallback, MutableRefObject } from 'react';
 import { withResizeObserverMock } from 'testing-utils/mocks/withResizeObserverMock';
 
 import { useResizeObserver } from './useResizeObserver';
@@ -20,8 +21,21 @@ afterEach(() => {
   element.remove();
 });
 
+const isRefCallback = <T>(x: unknown): x is RefCallback<T> =>
+  typeof x === 'function';
+const isMutableRefObject = <T>(x: unknown): x is MutableRefObject<T> =>
+  typeof x === 'object';
+
 const wrapRef = (ret: ReturnType<typeof useResizeObserver>) => {
-  Object.assign(ret.ref, { current: element });
+  const { ref } = ret;
+
+  if (isRefCallback(ref)) {
+    ref(element);
+  }
+
+  if (isMutableRefObject(ref)) {
+    Object.assign(ret.ref, { current: element });
+  }
   return ret;
 };
 
