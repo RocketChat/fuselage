@@ -3,6 +3,9 @@
 @use '../../styles/lengths.scss';
 
 $card-spacing: lengths.margin(4);
+$card-vertical-padding: lengths.padding(20);
+$card-horizontal-padding: lengths.padding(12);
+$card-hero-padding: lengths.padding(28);
 
 .rcx-card {
   display: flex;
@@ -21,7 +24,7 @@ $card-spacing: lengths.margin(4);
   justify-content: center;
   align-items: center;
 
-  padding: lengths.padding(12);
+  padding: $card-horizontal-padding;
 
   .rcx-card__controls {
     margin-inline-start: lengths.margin(16);
@@ -49,7 +52,7 @@ $card-spacing: lengths.margin(4);
 .rcx-card__vertical {
   flex-direction: column;
 
-  padding: lengths.padding(20);
+  padding: $card-vertical-padding;
 
   > .rcx-card__col,
   > .rcx-card__row,
@@ -73,6 +76,11 @@ $card-spacing: lengths.margin(4);
   .rcx-card__header {
     margin: lengths.margin(none);
   }
+}
+
+// Card hero
+.rcx-card__hero {
+  padding: $card-hero-padding;
 }
 
 // Remove margin from first and last child of a group
