@@ -63,6 +63,14 @@ $card-hero-padding: lengths.padding(28);
     }
   }
 
+  .rcx-card__row {
+    margin-block-end: $card-spacing;
+
+    &:last-child {
+      margin-block-end: lengths.margin(none);
+    }
+  }
+
   .rcx-card__controls {
     align-items: flex-end;
     flex-grow: 1;
