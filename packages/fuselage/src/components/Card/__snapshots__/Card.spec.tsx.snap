@@ -1,5 +1,48 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`[Card Rendering] renders Hero without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-card__hero rcx-card__vertical rcx-card"
+    >
+      <div
+        class="rcx-card__col"
+      >
+        <div
+          class="rcx-card__header"
+        >
+          <h3
+            class="rcx-box rcx-box--full rcx-card__title rcx-css-1sfto34"
+          >
+            Heading 3
+          </h3>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
+        >
+          Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
+        </div>
+      </div>
+      <div
+        class="rcx-card__controls"
+      >
+        <button
+          class="rcx-box rcx-box--full rcx-button--medium rcx-button"
+          type="button"
+        >
+          <span
+            class="rcx-button--content"
+          >
+            Button
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
 exports[`[Card Rendering] renders Horizontal without crashing 1`] = `
 <body>
   <div>
