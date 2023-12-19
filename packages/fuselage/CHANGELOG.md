@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.40.0
+
+### Minor Changes
+
+- [#1247](https://github.com/RocketChat/fuselage/pull/1247) [`f9dc8b2a2`](https://github.com/RocketChat/fuselage/commit/f9dc8b2a28fd60bdfc3fe5a3bc49b4b863dd56c9) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage): add `Card` hero variant
+
 ## 0.39.0
 
 ### Minor Changes
