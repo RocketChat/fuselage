@@ -190,6 +190,25 @@ export const VerticalNoIcon: ComponentStory<typeof Card> = () => (
   </Card>
 );
 
+export const Hero: ComponentStory<typeof Card> = () => (
+  <Card hero>
+    <CardCol>
+      <CardHeader>
+        <CardTitle variant='h3'>Heading 3</CardTitle>
+      </CardHeader>
+      <CardBody>
+        Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem
+        praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In
+        adipisci consequatur qui laudantium rem praesentium earum ut
+        consectetur.
+      </CardBody>
+    </CardCol>
+    <CardControls>
+      <Button medium>Button</Button>
+    </CardControls>
+  </Card>
+);
+
 export const VerticalCustom: ComponentStory<typeof Card> = () => (
   <Card>
     <CardCol>
