@@ -1,7 +1,7 @@
 {
-  "name": "@rocket.chat/fuselage-tokens",
+  "name": "@rocket.chat/fuselage-tamagui-tokens",
   "version": "0.33.2",
-  "description": "Design tokens for Fuselage, Rocket.Chat's design system",
+  "description": "Tamagui tokens for Fuselage, Rocket.Chat's",
   "homepage": "https://rocketchat.github.io/Rocket.Chat.Fuselage/",
   "author": {
     "name": "Rocket.Chat",
@@ -11,7 +11,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/RocketChat/fuselage.git",
-    "directory": "packages/fuselage-tokens"
+    "directory": "packages/fuselage-tamagui-tokens"
   },
   "bugs": {
     "url": "https://github.com/RocketChat/fuselage/issues"
@@ -20,27 +20,14 @@
     "design",
     "tokens",
     "fuselage",
+    "tamagui",
     "rocket.chat"
   ],
-  "exports": {
-    "./*": "./dist/*.js"
-  },
-  "files": [
-    "/dist/*",
-    "/breakpoints.*",
-    "/colors.*",
-    "/typography.*"
-  ],
+  "main": "/src/index.ts",
   "publishConfig": {
     "access": "public"
   },
   "type": "module",
-  "scripts": {
-    "build": "run-s .:build:clean  .:build:legacy .:build",
-    ".:build": "node ./build --config ./config.js",
-    ".:build:legacy": "build-design-tokens",
-    ".:build:clean": "rimraf dist"
-  },
   "devDependencies": {
     "build-design-tokens": "workspace:~",
     "eslint": "~9.21.0",
@@ -55,5 +42,9 @@
     "stylelint-order": "~6.0.4",
     "stylelint-prettier": "~5.0.3",
     "stylelint-scss": "~6.11.1"
+  },
+  "dependencies": {
+    "@rocket.chat/fuselage-tokens": "workspace:~",
+    "tamagui": "~1.125.22"
   }
 }
