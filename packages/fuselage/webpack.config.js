@@ -1,6 +1,7 @@
 import { resolve } from 'node:path';
 
 import autoprefixer from 'autoprefixer';
+import { TamaguiPlugin } from 'tamagui-loader';
 import cssnanoPlugin from 'cssnano';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import postcssDirPseudoClass from 'postcss-dir-pseudo-class';
@@ -82,6 +83,11 @@ export default (env, { mode = 'production' }) =>
       ),
     ],
     plugins: [
+      new TamaguiPlugin({
+        config: './tamagui.config.ts',
+        components: ['tamagui', '@fuselage/fuselage-core'],
+        // disable: true,
+      }),
       new MiniCssExtractPlugin(),
       mode !== 'production' &&
         new WrapperPlugin({
