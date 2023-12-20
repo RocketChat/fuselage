@@ -72,7 +72,7 @@ export const useResizeObserver =
 
         return { ref, contentBoxSize, borderBoxSize };
       }
-    : (_debounceDelay = 0) => {
+    : ({}: UseResizeObserverOptions = {}) => {
         const ref = useRef();
 
         return {
