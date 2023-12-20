@@ -24,6 +24,7 @@ export * from './EmailInput';
 export { default as Field } from './Field';
 export * from './Field';
 export * from './FieldGroup';
+export * from './FramedIcon';
 export { default as Flex } from './Flex';
 export * from './Grid';
 export * from './Icon';
