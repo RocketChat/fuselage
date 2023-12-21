@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.33.3
+
+### Patch Changes
+
+- [#1250](https://github.com/RocketChat/fuselage/pull/1250) [`7ccde2abc`](https://github.com/RocketChat/fuselage/commit/7ccde2abc3e177fea52357100b2ab63482b3d005) Thanks [@hugocostadev](https://github.com/hugocostadev)! - Replace country SelectFilter that uses the SelectLegacy component with the Select component in Setup Wizard Organization Page
+
 ## 0.33.2
 
 ### Patch Changes
