@@ -37,7 +37,7 @@
 }
 
 .rcx-card-group__item {
-  margin-inline: lengths.margin(4);
+  margin-inline: lengths.margin(8);
 
   &:first-of-type {
     margin-inline-start: lengths.margin(none);
@@ -47,18 +47,10 @@
     margin-inline-end: lengths.margin(none);
   }
 
-  .rcx-card-group--small & {
-    margin-inline: lengths.margin(2);
-  }
-
-  .rcx-card-group--large & {
-    margin-inline: lengths.margin(8);
-  }
-
   .rcx-card-group--wrap > & {
     margin-block-end: lengths.margin(16);
-    margin-inline-start: lengths.margin(none);
-    margin-inline-end: lengths.margin(16);
+    margin-inline-start: lengths.margin(8);
+    margin-inline-end: lengths.margin(8);
   }
 
   .rcx-card-group--stretch > & {
@@ -68,30 +60,6 @@
   .rcx-card-group--vertical & {
     margin-block: lengths.margin(4);
     margin-inline: lengths.margin(none);
-
-    &:first-child {
-      margin-block-start: lengths.margin(none);
-    }
-
-    &:last-child {
-      margin-block-end: lengths.margin(none);
-    }
-  }
-
-  .rcx-card-group--vertical.rcx-card-group--large > & {
-    margin-block: lengths.margin(8);
-
-    &:first-child {
-      margin-block-start: lengths.margin(none);
-    }
-
-    &:last-child {
-      margin-block-end: lengths.margin(none);
-    }
-  }
-
-  .rcx-card-group--vertical.rcx-card-group--small > & {
-    margin-block: lengths.margin(2);
 
     &:first-child {
       margin-block-start: lengths.margin(none);

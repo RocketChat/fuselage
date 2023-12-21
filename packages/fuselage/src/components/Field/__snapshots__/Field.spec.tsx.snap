@@ -1,6 +1,174 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`[Field Component] renders Default without crashing 1`] = `
+exports[`[Field Component] renders WithCheckbox without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-field"
+    >
+      <span
+        class="rcx-box rcx-box--full rcx-field__row"
+      >
+        <label
+          class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-field__label"
+          for="fieldWithCheckbox"
+        >
+          Label
+          <span
+            class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+          >
+            <span
+              hidden=""
+              id="fieldWithCheckboxInfo"
+            >
+              this is a info label
+            </span>
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+              title="this is a info label"
+            >
+              
+            </i>
+          </span>
+          <span
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-label__required rcx-css-b7g1a9"
+          >
+            *
+          </span>
+        </label>
+        <label
+          class="rcx-box rcx-box--full rcx-check-box"
+        >
+          <input
+            aria-describedby="fieldWithCheckboxInfo"
+            class="rcx-box rcx-box--full rcx-check-box__input"
+            id="fieldWithCheckbox"
+            type="checkbox"
+          />
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-check-box__fake"
+          />
+        </label>
+      </span>
+      <span
+        class="rcx-box rcx-box--full rcx-field__description"
+      >
+        Description
+      </span>
+      <span
+        class="rcx-box rcx-box--full rcx-field__error"
+      >
+        Error feedback
+      </span>
+      <span
+        class="rcx-box rcx-box--full rcx-field__row"
+      >
+        <span
+          class="rcx-box rcx-box--full rcx-field__hint"
+        >
+          Hint
+        </span>
+        <a
+          class="rcx-box rcx-box--full rcx-field__link"
+          href="#"
+          target="_blank"
+        >
+          Link
+        </a>
+      </span>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`[Field Component] renders WithRadioButton without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-field"
+    >
+      <span
+        class="rcx-box rcx-box--full rcx-field__row"
+      >
+        <label
+          class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-field__label"
+          for="fieldWithRadio"
+        >
+          Label
+          <span
+            class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+          >
+            <span
+              hidden=""
+              id="fieldWithRadioInfo"
+            >
+              this is a info label
+            </span>
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+              title="this is a info label"
+            >
+              
+            </i>
+          </span>
+          <span
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-label__required rcx-css-b7g1a9"
+          >
+            *
+          </span>
+        </label>
+        <label
+          class="rcx-box rcx-box--full rcx-radio-button"
+        >
+          <input
+            aria-describedby="fieldWithRadioInfo"
+            class="rcx-box rcx-box--full rcx-radio-button__input"
+            id="fieldWithRadio"
+            type="radio"
+          />
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-radio-button__fake"
+          />
+        </label>
+      </span>
+      <span
+        class="rcx-box rcx-box--full rcx-field__description"
+      >
+        Description
+      </span>
+      <span
+        class="rcx-box rcx-box--full rcx-field__error"
+      >
+        Error feedback
+      </span>
+      <span
+        class="rcx-box rcx-box--full rcx-field__row"
+      >
+        <span
+          class="rcx-box rcx-box--full rcx-field__hint"
+        >
+          Hint
+        </span>
+        <a
+          class="rcx-box rcx-box--full rcx-field__link"
+          href="#"
+          target="_blank"
+        >
+          Link
+        </a>
+      </span>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`[Field Component] renders WithTextArea without crashing 1`] = `
 <body>
   <div>
     <div
@@ -8,8 +176,32 @@ exports[`[Field Component] renders Default without crashing 1`] = `
     >
       <label
         class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-field__label"
+        for="fieldWithTextArea"
       >
         Label
+        <span
+          class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+        >
+          <span
+            hidden=""
+            id="fieldWithTextAreaInfo"
+          >
+            this is a info label
+          </span>
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+            title="this is a info label"
+          >
+            
+          </i>
+        </span>
+        <span
+          aria-hidden="true"
+          class="rcx-box rcx-box--full rcx-label__required rcx-css-b7g1a9"
+        >
+          *
+        </span>
       </label>
       <span
         class="rcx-box rcx-box--full rcx-field__description"
@@ -19,30 +211,41 @@ exports[`[Field Component] renders Default without crashing 1`] = `
       <span
         class="rcx-box rcx-box--full rcx-field__row"
       >
-        <div
-          class="rcx-box rcx-box--full rcx-skeleton__input"
-        >
-          <span
-            class="rcx-box rcx-box--full rcx-skeleton--text rcx-skeleton rcx-css-1qcz93u"
-          />
-        </div>
+        <textarea
+          aria-describedby="fieldWithTextAreaInfo"
+          class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--type-textarea rcx-input-box"
+          cols="1"
+          id="fieldWithTextArea"
+          size="1"
+        />
       </span>
       <span
         class="rcx-box rcx-box--full rcx-field__error"
       >
-        Error
+        Error feedback
       </span>
       <span
-        class="rcx-box rcx-box--full rcx-field__hint"
+        class="rcx-box rcx-box--full rcx-field__row"
       >
-        Hint
+        <span
+          class="rcx-box rcx-box--full rcx-field__hint"
+        >
+          Hint
+        </span>
+        <a
+          class="rcx-box rcx-box--full rcx-field__link"
+          href="#"
+          target="_blank"
+        >
+          Link
+        </a>
       </span>
     </div>
   </div>
 </body>
 `;
 
-exports[`[Field Component] renders RequiredWithLabelInfo without crashing 1`] = `
+exports[`[Field Component] renders WithTextInput without crashing 1`] = `
 <body>
   <div>
     <div
@@ -50,7 +253,7 @@ exports[`[Field Component] renders RequiredWithLabelInfo without crashing 1`] = 
     >
       <label
         class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-field__label"
-        for="label-required-id"
+        for="fieldWithText"
       >
         Label
         <span
@@ -58,7 +261,7 @@ exports[`[Field Component] renders RequiredWithLabelInfo without crashing 1`] = 
         >
           <span
             hidden=""
-            id="required-info-id"
+            id="fieldWithTextInfo"
           >
             this is a info label
           </span>
@@ -86,9 +289,9 @@ exports[`[Field Component] renders RequiredWithLabelInfo without crashing 1`] = 
         class="rcx-box rcx-box--full rcx-field__row"
       >
         <input
-          aria-describedby="required-info-id"
+          aria-describedby="fieldWithTextInfo"
           class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--type-text rcx-input-box"
-          id="label-required-id"
+          id="fieldWithText"
           size="1"
           type="text"
         />
@@ -96,319 +299,22 @@ exports[`[Field Component] renders RequiredWithLabelInfo without crashing 1`] = 
       <span
         class="rcx-box rcx-box--full rcx-field__error"
       >
-        Error
-      </span>
-      <span
-        class="rcx-box rcx-box--full rcx-field__hint"
-      >
-        Hint
-      </span>
-    </div>
-  </div>
-</body>
-`;
-
-exports[`[Field Component] renders WithCheckBox without crashing 1`] = `
-<body>
-  <div>
-    <div
-      class="rcx-box rcx-box--full rcx-field"
-    >
-      <span
-        class="rcx-box rcx-box--full rcx-field__row"
-      >
-        <label
-          class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-check-box"
-        >
-          <input
-            class="rcx-box rcx-box--full rcx-check-box__input"
-            id="check-box"
-            type="checkbox"
-          />
-          <i
-            aria-hidden="true"
-            class="rcx-box rcx-box--full rcx-check-box__fake"
-          />
-        </label>
-        <label
-          class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-field__label"
-          for="check-box"
-        >
-          Label
-        </label>
-      </span>
-    </div>
-  </div>
-</body>
-`;
-
-exports[`[Field Component] renders WithDescription without crashing 1`] = `
-<body>
-  <div>
-    <div
-      class="rcx-box rcx-box--full rcx-field"
-    >
-      <label
-        class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-field__label"
-      >
-        Label
-      </label>
-      <span
-        class="rcx-box rcx-box--full rcx-field__description"
-      >
-        Descriptions should add useful and relevant additional information about what is required of the user for the related input. Its content is strictly composed by plain text.
+        Error feedback
       </span>
       <span
         class="rcx-box rcx-box--full rcx-field__row"
-      >
-        <div
-          class="rcx-box rcx-box--full rcx-skeleton__input"
-        >
-          <span
-            class="rcx-box rcx-box--full rcx-skeleton--text rcx-skeleton rcx-css-1qcz93u"
-          />
-        </div>
-      </span>
-    </div>
-  </div>
-</body>
-`;
-
-exports[`[Field Component] renders WithError without crashing 1`] = `
-<body>
-  <div>
-    <div
-      class="rcx-box rcx-box--full rcx-field"
-    >
-      <label
-        class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-field__label"
-      >
-        Label
-      </label>
-      <span
-        class="rcx-box rcx-box--full rcx-field__row"
-      >
-        <div
-          class="rcx-box rcx-box--full rcx-skeleton__input"
-        >
-          <span
-            class="rcx-box rcx-box--full rcx-skeleton--text rcx-skeleton rcx-css-1qcz93u"
-          />
-        </div>
-      </span>
-      <span
-        class="rcx-box rcx-box--full rcx-field__error"
-      >
-        Error text appears when the user has inputted an invalid response to a field and let's the user know exactly what the issue is, so as to let them remedy the error as easily as possible.
-      </span>
-    </div>
-  </div>
-</body>
-`;
-
-exports[`[Field Component] renders WithHint without crashing 1`] = `
-<body>
-  <div>
-    <div
-      class="rcx-box rcx-box--full rcx-field"
-    >
-      <label
-        class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-field__label"
-      >
-        Label
-      </label>
-      <span
-        class="rcx-box rcx-box--full rcx-field__row"
-      >
-        <div
-          class="rcx-box rcx-box--full rcx-skeleton__input"
-        >
-          <span
-            class="rcx-box rcx-box--full rcx-skeleton--text rcx-skeleton rcx-css-1qcz93u"
-          />
-        </div>
-      </span>
-      <span
-        class="rcx-box rcx-box--full rcx-field__hint"
-      >
-        Hint fields help by explaining technical terms or concepts related to third-party apps and integrations.
-      </span>
-    </div>
-  </div>
-</body>
-`;
-
-exports[`[Field Component] renders WithHintAndError without crashing 1`] = `
-<body>
-  <div>
-    <div
-      class="rcx-box rcx-box--full rcx-field"
-    >
-      <label
-        class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-field__label"
-      >
-        Label
-      </label>
-      <span
-        class="rcx-box rcx-box--full rcx-field__row"
-      >
-        <div
-          class="rcx-box rcx-box--full rcx-skeleton__input"
-        >
-          <span
-            class="rcx-box rcx-box--full rcx-skeleton--text rcx-skeleton rcx-css-1qcz93u"
-          />
-        </div>
-      </span>
-      <span
-        class="rcx-box rcx-box--full rcx-field__error"
-      >
-        Error must be above.
-      </span>
-      <span
-        class="rcx-box rcx-box--full rcx-field__hint"
-      >
-        Hint must be below.
-      </span>
-    </div>
-  </div>
-</body>
-`;
-
-exports[`[Field Component] renders WithHintAndLink without crashing 1`] = `
-<body>
-  <div>
-    <div
-      class="rcx-box rcx-box--full rcx-field"
-    >
-      <label
-        class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-field__label"
-      >
-        Label
-      </label>
-      <span
-        class="rcx-box rcx-box--full rcx-field__row"
-      >
-        <div
-          class="rcx-box rcx-box--full rcx-skeleton__input"
-        >
-          <span
-            class="rcx-box rcx-box--full rcx-skeleton--text rcx-skeleton rcx-css-1qcz93u"
-          />
-        </div>
-      </span>
-      <span
-        class="rcx-box rcx-box--full rcx-field__row rcx-css-rzpqmp"
       >
         <span
           class="rcx-box rcx-box--full rcx-field__hint"
         >
-          Same line as Link in the left
+          Hint
         </span>
         <a
           class="rcx-box rcx-box--full rcx-field__link"
           href="#"
           target="_blank"
         >
-          Same line as Hint in the right
-        </a>
-      </span>
-    </div>
-  </div>
-</body>
-`;
-
-exports[`[Field Component] renders WithLabelInfo without crashing 1`] = `
-<body>
-  <div>
-    <div
-      class="rcx-box rcx-box--full rcx-field"
-    >
-      <label
-        class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-field__label"
-        for="label-info-id"
-      >
-        Label
-        <span
-          class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
-        >
-          <span
-            hidden=""
-            id="info-id"
-          >
-            this is a info label
-          </span>
-          <i
-            aria-hidden="true"
-            class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
-            title="this is a info label"
-          >
-            
-          </i>
-        </span>
-      </label>
-      <span
-        class="rcx-box rcx-box--full rcx-field__description"
-      >
-        Description
-      </span>
-      <span
-        class="rcx-box rcx-box--full rcx-field__row"
-      >
-        <input
-          aria-describedby="info-id"
-          class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--type-text rcx-input-box"
-          id="label-info-id"
-          size="1"
-          type="text"
-        />
-      </span>
-      <span
-        class="rcx-box rcx-box--full rcx-field__error"
-      >
-        Error
-      </span>
-      <span
-        class="rcx-box rcx-box--full rcx-field__hint"
-      >
-        Hint
-      </span>
-    </div>
-  </div>
-</body>
-`;
-
-exports[`[Field Component] renders WithLink without crashing 1`] = `
-<body>
-  <div>
-    <div
-      class="rcx-box rcx-box--full rcx-field"
-    >
-      <label
-        class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-field__label"
-      >
-        Label
-      </label>
-      <span
-        class="rcx-box rcx-box--full rcx-field__row"
-      >
-        <div
-          class="rcx-box rcx-box--full rcx-skeleton__input"
-        >
-          <span
-            class="rcx-box rcx-box--full rcx-skeleton--text rcx-skeleton rcx-css-1qcz93u"
-          />
-        </div>
-      </span>
-      <span
-        class="rcx-box rcx-box--full rcx-field__row rcx-css-17mu816"
-      >
-        <a
-          class="rcx-box rcx-box--full rcx-field__link"
-          href="#"
-          target="_blank"
-        >
-          Link is used for external resources or documentation.
+          Link
         </a>
       </span>
     </div>
@@ -426,11 +332,41 @@ exports[`[Field Component] renders WithToggleSwitch without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-field__row"
       >
         <label
-          class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-toggle-switch"
+          class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-field__label"
+          for="fieldWithToggle"
+        >
+          Label
+          <span
+            class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+          >
+            <span
+              hidden=""
+              id="fieldWithToggleInfo"
+            >
+              this is a info label
+            </span>
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+              title="this is a info label"
+            >
+              
+            </i>
+          </span>
+          <span
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-label__required rcx-css-b7g1a9"
+          >
+            *
+          </span>
+        </label>
+        <label
+          class="rcx-box rcx-box--full rcx-toggle-switch"
         >
           <input
+            aria-describedby="fieldWithToggleInfo"
             class="rcx-box rcx-box--full rcx-toggle-switch__input"
-            id="toggle-switch"
+            id="fieldWithToggle"
             type="checkbox"
           />
           <i
@@ -438,12 +374,32 @@ exports[`[Field Component] renders WithToggleSwitch without crashing 1`] = `
             class="rcx-box rcx-box--full rcx-toggle-switch__fake"
           />
         </label>
-        <label
-          class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-field__label"
-          for="toggle-switch"
+      </span>
+      <span
+        class="rcx-box rcx-box--full rcx-field__description"
+      >
+        Description
+      </span>
+      <span
+        class="rcx-box rcx-box--full rcx-field__error"
+      >
+        Error feedback
+      </span>
+      <span
+        class="rcx-box rcx-box--full rcx-field__row"
+      >
+        <span
+          class="rcx-box rcx-box--full rcx-field__hint"
         >
-          Label
-        </label>
+          Hint
+        </span>
+        <a
+          class="rcx-box rcx-box--full rcx-field__link"
+          href="#"
+          target="_blank"
+        >
+          Link
+        </a>
       </span>
     </div>
   </div>

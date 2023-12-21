@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.31.27
+
+### Patch Changes
+
+- [`a029dce78`](https://github.com/RocketChat/fuselage/commit/a029dce78935d8bba5cb5b09e251483fe8eabcb3) Thanks [@yash-rajpal](https://github.com/yash-rajpal)! - Stop accepting `[` in link titles
+
 ## 0.31.26
 
 ### Patch Changes

@@ -1,16 +1,59 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`[Card Rendering] renders Hero without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-card__hero rcx-card__vertical rcx-card"
+    >
+      <div
+        class="rcx-card__col"
+      >
+        <div
+          class="rcx-card__header"
+        >
+          <h3
+            class="rcx-box rcx-box--full rcx-card__title rcx-css-1sfto34"
+          >
+            Heading 3
+          </h3>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
+        >
+          Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
+        </div>
+      </div>
+      <div
+        class="rcx-card__controls"
+      >
+        <button
+          class="rcx-box rcx-box--full rcx-button--medium rcx-button"
+          type="button"
+        >
+          <span
+            class="rcx-button--content"
+          >
+            Button
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
 exports[`[Card Rendering] renders Horizontal without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-card__horizontal rcx-card rcx-css-167oyqf"
+      class="rcx-box rcx-box--full rcx-card__horizontal--wrap rcx-card__horizontal rcx-card"
     >
       <div
-        class="rcx-box rcx-box--full rcx-card__row rcx-css-127j9mz"
+        class="rcx-card__row"
       >
         <div
-          class="rcx-box rcx-box--full rcx-card__col rcx-css-1tbw8nv"
+          class="rcx-card__col"
         >
           <i
             aria-hidden="true"
@@ -20,10 +63,10 @@ exports[`[Card Rendering] renders Horizontal without crashing 1`] = `
           </i>
         </div>
         <div
-          class="rcx-box rcx-box--full rcx-card__col rcx-css-1tbw8nv"
+          class="rcx-card__col"
         >
           <h3
-            class="rcx-box rcx-box--full rcx-card__title rcx-css-10z9mkx"
+            class="rcx-box rcx-box--full rcx-card__title rcx-css-1sfto34"
           >
             Heading 3
             <span
@@ -36,7 +79,7 @@ exports[`[Card Rendering] renders Horizontal without crashing 1`] = `
               </span>
               <i
                 aria-hidden="true"
-                class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+                class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon rcx-css-1hq8wl6"
                 title="Card info here"
               >
                 
@@ -44,17 +87,17 @@ exports[`[Card Rendering] renders Horizontal without crashing 1`] = `
             </span>
           </h3>
           <div
-            class="rcx-box rcx-box--full rcx-card__body rcx-css-1h0kzgh"
+            class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
           >
             Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium voluptatem rem praesentium earum ut consectetur.
           </div>
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__controls rcx-css-14l8sh3"
+        class="rcx-card__controls"
       >
         <button
-          class="rcx-box rcx-box--full rcx-button"
+          class="rcx-box rcx-box--full rcx-button--medium rcx-button"
           type="button"
         >
           <span
@@ -64,7 +107,7 @@ exports[`[Card Rendering] renders Horizontal without crashing 1`] = `
           </span>
         </button>
         <button
-          class="rcx-box rcx-box--full rcx-button--primary rcx-button"
+          class="rcx-box rcx-box--full rcx-button--medium rcx-button--primary rcx-button"
           type="button"
         >
           <span
@@ -107,13 +150,13 @@ exports[`[Card Rendering] renders HorizontalCustom without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-card__horizontal rcx-card rcx-css-167oyqf"
+      class="rcx-box rcx-box--full rcx-card__horizontal--wrap rcx-card__horizontal rcx-card"
     >
       <div
-        class="rcx-box rcx-box--full rcx-card__row rcx-css-127j9mz"
+        class="rcx-card__row"
       >
         <div
-          class="rcx-box rcx-box--full rcx-card__col rcx-css-1tbw8nv"
+          class="rcx-card__col"
         >
           <figure
             class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x36"
@@ -126,13 +169,13 @@ exports[`[Card Rendering] renders HorizontalCustom without crashing 1`] = `
           </figure>
         </div>
         <div
-          class="rcx-box rcx-box--full rcx-card__col rcx-css-1tbw8nv"
+          class="rcx-card__col"
         >
           <div
-            class="rcx-box rcx-box--full rcx-card__header rcx-css-1wuw1zw"
+            class="rcx-card__header"
           >
             <h4
-              class="rcx-box rcx-box--full rcx-card__title rcx-css-kzed8v"
+              class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
             >
               Heading 3
             </h4>
@@ -147,14 +190,14 @@ exports[`[Card Rendering] renders HorizontalCustom without crashing 1`] = `
             </span>
           </div>
           <div
-            class="rcx-box rcx-box--full rcx-card__body rcx-css-1h0kzgh"
+            class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
           >
             Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
           </div>
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__controls rcx-css-14l8sh3"
+        class="rcx-card__controls"
       >
         <span
           class="rcx-box rcx-box--full rcx-badge rcx-badge--primary rcx-badge--small"
@@ -190,10 +233,10 @@ exports[`[Card Rendering] renders HorizontalNoAction without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-card__horizontal rcx-card rcx-css-167oyqf"
+      class="rcx-box rcx-box--full rcx-card__horizontal--wrap rcx-card__horizontal rcx-card"
     >
       <div
-        class="rcx-box rcx-box--full rcx-card__row rcx-css-127j9mz"
+        class="rcx-card__row"
       >
         <i
           aria-hidden="true"
@@ -202,15 +245,15 @@ exports[`[Card Rendering] renders HorizontalNoAction without crashing 1`] = `
           
         </i>
         <div
-          class="rcx-box rcx-box--full rcx-card__col rcx-css-1tbw8nv"
+          class="rcx-card__col"
         >
           <h3
-            class="rcx-box rcx-box--full rcx-card__title rcx-css-10z9mkx"
+            class="rcx-box rcx-box--full rcx-card__title rcx-css-1sfto34"
           >
             Heading 3
           </h3>
           <div
-            class="rcx-box rcx-box--full rcx-card__body rcx-css-1h0kzgh"
+            class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
           >
             Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium voluptatem rem praesentium earum ut consectetur.
           </div>
@@ -225,13 +268,13 @@ exports[`[Card Rendering] renders HorizontalNoIcon without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-card__horizontal rcx-card rcx-css-167oyqf"
+      class="rcx-box rcx-box--full rcx-card__horizontal--wrap rcx-card__horizontal rcx-card"
     >
       <div
-        class="rcx-box rcx-box--full rcx-card__col rcx-css-1tbw8nv"
+        class="rcx-card__col"
       >
         <h3
-          class="rcx-box rcx-box--full rcx-card__title rcx-css-10z9mkx"
+          class="rcx-box rcx-box--full rcx-card__title rcx-css-1sfto34"
         >
           Heading 3
           <span
@@ -244,7 +287,7 @@ exports[`[Card Rendering] renders HorizontalNoIcon without crashing 1`] = `
             </span>
             <i
               aria-hidden="true"
-              class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+              class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon rcx-css-1hq8wl6"
               title="Card info here"
             >
               
@@ -252,13 +295,13 @@ exports[`[Card Rendering] renders HorizontalNoIcon without crashing 1`] = `
           </span>
         </h3>
         <div
-          class="rcx-box rcx-box--full rcx-card__body rcx-css-1h0kzgh"
+          class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
         >
           Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium voluptatem rem praesentium earum ut consectetur.
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__controls rcx-css-14l8sh3"
+        class="rcx-card__controls"
       >
         <span
           class="rcx-box rcx-box--full rcx-badge rcx-badge--primary rcx-badge--small"
@@ -294,18 +337,18 @@ exports[`[Card Rendering] renders Title h4 without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-card__horizontal rcx-card rcx-css-167oyqf"
+      class="rcx-box rcx-box--full rcx-card__horizontal--wrap rcx-card__horizontal rcx-card"
     >
       <div
-        class="rcx-box rcx-box--full rcx-card__col rcx-css-1tbw8nv"
+        class="rcx-card__col"
       >
         <h4
-          class="rcx-box rcx-box--full rcx-card__title rcx-css-kzed8v"
+          class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
         >
           Heading 4
         </h4>
         <div
-          class="rcx-box rcx-box--full rcx-card__body rcx-css-1h0kzgh"
+          class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
         >
           Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium voluptatem rem praesentium earum ut consectetur.
         </div>
@@ -319,18 +362,18 @@ exports[`[Card Rendering] renders Title h5 without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-card__horizontal rcx-card rcx-css-167oyqf"
+      class="rcx-box rcx-box--full rcx-card__horizontal--wrap rcx-card__horizontal rcx-card"
     >
       <div
-        class="rcx-box rcx-box--full rcx-card__col rcx-css-1tbw8nv"
+        class="rcx-card__col"
       >
         <h5
-          class="rcx-box rcx-box--full rcx-card__title rcx-css-1fiir1q"
+          class="rcx-box rcx-box--full rcx-card__title rcx-css-1rfo3kt"
         >
           Heading 5
         </h5>
         <div
-          class="rcx-box rcx-box--full rcx-card__body rcx-css-1h0kzgh"
+          class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
         >
           Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium voluptatem rem praesentium earum ut consectetur.
         </div>
@@ -344,13 +387,13 @@ exports[`[Card Rendering] renders Vertical without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-css-wufm31"
+      class="rcx-box rcx-box--full rcx-card__vertical rcx-card"
     >
       <div
-        class="rcx-box rcx-box--full rcx-card__col rcx-css-1tbw8nv"
+        class="rcx-card__col"
       >
         <div
-          class="rcx-box rcx-box--full rcx-card__header rcx-css-1wuw1zw"
+          class="rcx-card__header"
         >
           <i
             aria-hidden="true"
@@ -359,7 +402,7 @@ exports[`[Card Rendering] renders Vertical without crashing 1`] = `
             
           </i>
           <h3
-            class="rcx-box rcx-box--full rcx-card__title rcx-css-10z9mkx"
+            class="rcx-box rcx-box--full rcx-card__title rcx-css-1sfto34"
           >
             Heading 3
             <span
@@ -372,7 +415,7 @@ exports[`[Card Rendering] renders Vertical without crashing 1`] = `
               </span>
               <i
                 aria-hidden="true"
-                class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+                class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon rcx-css-1hq8wl6"
                 title="Heading info"
               >
                 
@@ -381,16 +424,16 @@ exports[`[Card Rendering] renders Vertical without crashing 1`] = `
           </h3>
         </div>
         <div
-          class="rcx-box rcx-box--full rcx-card__body rcx-css-1h0kzgh"
+          class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
         >
           Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__controls rcx-css-14l8sh3"
+        class="rcx-card__controls"
       >
         <button
-          class="rcx-box rcx-box--full rcx-button--primary rcx-button"
+          class="rcx-box rcx-box--full rcx-button--medium rcx-button--primary rcx-button"
           type="button"
         >
           <span
@@ -400,7 +443,7 @@ exports[`[Card Rendering] renders Vertical without crashing 1`] = `
           </span>
         </button>
         <button
-          class="rcx-box rcx-box--full rcx-button"
+          class="rcx-box rcx-box--full rcx-button--medium rcx-button"
           type="button"
         >
           <span
@@ -419,13 +462,13 @@ exports[`[Card Rendering] renders VerticalCustom without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-css-wufm31"
+      class="rcx-box rcx-box--full rcx-card__vertical rcx-card"
     >
       <div
-        class="rcx-box rcx-box--full rcx-card__col rcx-css-1tbw8nv"
+        class="rcx-card__col"
       >
         <div
-          class="rcx-box rcx-box--full rcx-card__header rcx-css-1wuw1zw"
+          class="rcx-card__header"
         >
           <figure
             class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x36"
@@ -437,16 +480,16 @@ exports[`[Card Rendering] renders VerticalCustom without crashing 1`] = `
             />
           </figure>
           <h3
-            class="rcx-box rcx-box--full rcx-card__title rcx-css-10z9mkx"
+            class="rcx-box rcx-box--full rcx-card__title rcx-css-1sfto34"
           >
             Heading 3
           </h3>
         </div>
         <div
-          class="rcx-box rcx-box--full rcx-card__body rcx-css-1h0kzgh"
+          class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
         >
           <div
-            class="rcx-box rcx-box--full rcx-card__col rcx-css-1tbw8nv"
+            class="rcx-card__col"
           >
             <ul>
               <li>
@@ -461,7 +504,7 @@ exports[`[Card Rendering] renders VerticalCustom without crashing 1`] = `
             </ul>
           </div>
           <div
-            class="rcx-box rcx-box--full rcx-card__col rcx-css-1tbw8nv"
+            class="rcx-card__col"
           >
             <ul>
               <li>
@@ -478,10 +521,10 @@ exports[`[Card Rendering] renders VerticalCustom without crashing 1`] = `
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__controls rcx-css-14l8sh3"
+        class="rcx-card__controls"
       >
         <button
-          class="rcx-box rcx-box--full rcx-button"
+          class="rcx-box rcx-box--full rcx-button--medium rcx-button"
           type="button"
         >
           <span
@@ -500,31 +543,31 @@ exports[`[Card Rendering] renders VerticalNoIcon without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-css-wufm31"
+      class="rcx-box rcx-box--full rcx-card__vertical rcx-card"
     >
       <div
-        class="rcx-box rcx-box--full rcx-card__col rcx-css-1tbw8nv"
+        class="rcx-card__col"
       >
         <div
-          class="rcx-box rcx-box--full rcx-card__header rcx-css-1wuw1zw"
+          class="rcx-card__header"
         >
           <h3
-            class="rcx-box rcx-box--full rcx-card__title rcx-css-10z9mkx"
+            class="rcx-box rcx-box--full rcx-card__title rcx-css-1sfto34"
           >
             Heading 3
           </h3>
         </div>
         <div
-          class="rcx-box rcx-box--full rcx-card__body rcx-css-1h0kzgh"
+          class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
         >
           Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__controls rcx-css-14l8sh3"
+        class="rcx-card__controls"
       >
         <button
-          class="rcx-box rcx-box--full rcx-button"
+          class="rcx-box rcx-box--full rcx-button--medium rcx-button"
           type="button"
         >
           <span

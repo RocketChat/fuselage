@@ -1,10 +1,36 @@
+@use '../../styles/colors.scss';
+@use '../../styles/functions';
 @use '../../styles/lengths.scss';
 
 $card-spacing: lengths.margin(4);
+$card-vertical-padding: lengths.padding(20);
+$card-horizontal-padding: lengths.padding(12);
+$card-hero-padding: lengths.padding(28);
 
+.rcx-card {
+  display: flex;
+
+  color: functions.theme('card-color', colors.font(default));
+  border-radius: lengths.border-radius(large);
+
+  background-color: functions.theme(
+    'card-background-color',
+    colors.surface(light)
+  );
+}
+
+// Card horizontal
 .rcx-card__horizontal {
-  > .rcx-card__col,
-  > .rcx-card__row,
+  justify-content: center;
+  align-items: center;
+
+  padding: $card-horizontal-padding;
+
+  .rcx-card__controls {
+    margin-inline-start: lengths.margin(16);
+  }
+
+  .rcx-card__row,
   .rcx-card__header,
   .rcx-card__controls {
     & > * {
@@ -12,35 +38,64 @@ $card-spacing: lengths.margin(4);
     }
   }
 
-  & > * {
-    margin-block: $card-spacing;
-    margin-inline: $card-spacing;
+  &--wrap {
+    flex-wrap: wrap;
+
+    .rcx-card__controls {
+      margin-block-start: lengths.margin(16);
+      margin-inline-start: lengths.margin(none);
+    }
   }
 }
 
+// Card vertical
 .rcx-card__vertical {
+  flex-direction: column;
+
+  padding: $card-vertical-padding;
+
   > .rcx-card__col,
   > .rcx-card__row,
   .rcx-card__header,
   .rcx-card__controls {
     & > * {
-      margin-block: $card-spacing;
       margin-inline: $card-spacing;
     }
   }
-}
 
-.rcx-card__col {
-  &:first-child {
-    margin-inline-start: lengths.margin(none);
+  .rcx-card__row {
+    margin-block-end: $card-spacing;
+
+    &:last-child {
+      margin-block-end: lengths.margin(none);
+    }
   }
 
-  &:last-child {
-    margin-inline-end: lengths.margin(none);
+  .rcx-card__controls {
+    align-items: flex-end;
+    flex-grow: 1;
+  }
+
+  .rcx-card__body {
+    margin-block: lengths.margin(24);
+    margin-inline: lengths.margin(none);
+  }
+
+  .rcx-card__header {
+    margin: lengths.margin(none);
   }
 }
 
-.rcx-card__header {
+// Card hero
+.rcx-card__hero {
+  padding: $card-hero-padding;
+}
+
+// Remove margin from first and last child of a group
+.rcx-card__header,
+.rcx-card__col,
+.rcx-card__row,
+.rcx-card__controls {
   & > :first-child {
     margin-inline-start: lengths.margin(none);
   }
@@ -48,4 +103,21 @@ $card-spacing: lengths.margin(4);
   & > :last-child {
     margin-inline-end: lengths.margin(none);
   }
+}
+
+.rcx-card__title,
+.rcx-card__row,
+.rcx-card__header,
+.rcx-card__controls {
+  display: flex;
+  align-items: center;
+}
+
+.rcx-card__controls {
+  flex-grow: 1;
+}
+
+.rcx-card__col {
+  display: flex;
+  flex-direction: column;
 }

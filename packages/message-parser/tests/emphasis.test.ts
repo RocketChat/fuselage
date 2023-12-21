@@ -155,6 +155,20 @@ test.each([
       ]),
     ],
   ],
+  [
+    '**reference link inside [emphasis with more [references](https://rocket.chat)](https://rocket.chat)**',
+    [
+      paragraph([
+        bold([
+          plain('reference link inside '),
+          link('https://rocket.chat', [
+            plain('emphasis with more [references'),
+          ]),
+          plain('](https://rocket.chat)'),
+        ]),
+      ]),
+    ],
+  ],
 ])('parses %p', (input, output) => {
   expect(parse(input)).toMatchObject(output);
 });

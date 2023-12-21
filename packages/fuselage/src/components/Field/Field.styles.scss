@@ -12,10 +12,10 @@
 
   &__label {
     @include typography.use-font-scale(p2b);
-    flex: 1 1 0;
     align-self: flex-start;
 
     margin-block: lengths.margin(2);
+    margin-inline-end: lengths.margin(8);
 
     color: colors.font(default);
   }
@@ -38,10 +38,6 @@
     margin-block-end: lengths.margin(2);
 
     color: colors.font(secondary-info);
-
-    & .rcx-field__label {
-      padding-inline-start: lengths.padding(8);
-    }
   }
 
   &__hint {

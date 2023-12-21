@@ -2,21 +2,23 @@ import type { ComponentMeta, ComponentStory } from '@storybook/react';
 import type { ComponentProps } from 'react';
 import React from 'react';
 
+import { CardGroup } from '.';
 import { Badge } from '../Badge';
 import { Button, IconButton } from '../Button';
-import Card from '../Card/Card';
-import CardBody from '../Card/CardBody';
-import CardCol from '../Card/CardCol';
-import CardControls from '../Card/CardControls';
-import CardHeader from '../Card/CardHeader';
-import CardRow from '../Card/CardRow';
-import CardTitle from '../Card/CardTitle';
+import {
+  Card,
+  CardBody,
+  CardCol,
+  CardControls,
+  CardHeader,
+  CardRow,
+  CardTitle,
+} from '../Card';
 import { Icon } from '../Icon';
 import { Tag } from '../Tag';
-import { CardGroup } from './CardGroup';
 
 export default {
-  title: 'Components/CardGroup',
+  title: 'Containers/CardGroup',
   component: CardGroup,
   parameters: {
     backgrounds: { default: 'dark' },
@@ -26,7 +28,7 @@ export default {
 } as ComponentMeta<typeof CardGroup>;
 
 const CardItem = (props: ComponentProps<typeof Card>) => (
-  <Card width='x208' {...props}>
+  <Card {...props}>
     <CardCol>
       <CardHeader>
         <Icon name='address-book' size='x24' />
@@ -42,8 +44,10 @@ const CardItem = (props: ComponentProps<typeof Card>) => (
       </CardBody>
     </CardCol>
     <CardControls>
-      <Button primary>Button</Button>
-      <Button>Button</Button>
+      <Button medium primary>
+        Button
+      </Button>
+      <Button medium>Button</Button>
     </CardControls>
   </Card>
 );
@@ -69,7 +73,7 @@ const CardHorizontal: ComponentStory<typeof Card> = (props) => (
 export const Default: ComponentStory<typeof CardGroup> = (args) => (
   <CardGroup {...args}>
     {Array.from(new Array(9)).map((_, index) => (
-      <CardItem key={index} />
+      <CardItem key={index} width='x260' />
     ))}
   </CardGroup>
 );
@@ -91,12 +95,6 @@ export const WrapStretch: ComponentStory<typeof CardGroup> = Default.bind({});
 WrapStretch.args = {
   wrap: true,
   stretch: true,
-};
-
-export const Vertical: ComponentStory<typeof CardGroup> = Default.bind({});
-Vertical.args = {
-  vertical: true,
-  align: 'center',
 };
 
 export const VerticalWithHorizontalCard: ComponentStory<typeof CardGroup> = (

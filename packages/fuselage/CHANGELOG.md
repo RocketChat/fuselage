@@ -1,5 +1,39 @@
 # Change Log
 
+## 0.40.0
+
+### Minor Changes
+
+- [#1247](https://github.com/RocketChat/fuselage/pull/1247) [`f9dc8b2a2`](https://github.com/RocketChat/fuselage/commit/f9dc8b2a28fd60bdfc3fe5a3bc49b4b863dd56c9) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage): add `Card` hero variant
+
+## 0.39.0
+
+### Minor Changes
+
+- [#1242](https://github.com/RocketChat/fuselage/pull/1242) [`f659bae77`](https://github.com/RocketChat/fuselage/commit/f659bae771f38e09e85b39bb5343ffd24ac6430b) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage): `CardGrid` component
+
+### Patch Changes
+
+- [#1238](https://github.com/RocketChat/fuselage/pull/1238) [`286b30c1d`](https://github.com/RocketChat/fuselage/commit/286b30c1db31a3c81612b2089b69812f2a796aca) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): FieldLabel margins and paddings
+
+## 0.38.4
+
+### Patch Changes
+
+- [#1240](https://github.com/RocketChat/fuselage/pull/1240) [`617e8817b`](https://github.com/RocketChat/fuselage/commit/617e8817b5d0e7974d8a8d2e52a9b3f2ecb6fa6e) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): `CardGroup` wrap margins
+
+## 0.38.3
+
+### Patch Changes
+
+- [#1239](https://github.com/RocketChat/fuselage/pull/1239) [`0245820b5`](https://github.com/RocketChat/fuselage/commit/0245820b5f325ff0243d9a97db5ad7d4d373d6fe) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): `CardControls` alignment
+
+## 0.38.2
+
+### Patch Changes
+
+- [#1232](https://github.com/RocketChat/fuselage/pull/1232) [`6d5778611`](https://github.com/RocketChat/fuselage/commit/6d577861193b7675d16ad415e36d53681a99392f) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): `Card` spacing
+
 ## 0.38.1
 
 ### Patch Changes

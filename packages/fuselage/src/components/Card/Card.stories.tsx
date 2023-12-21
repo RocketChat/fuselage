@@ -12,7 +12,7 @@ import CardHeader from './CardHeader';
 import CardRow from './CardRow';
 
 export default {
-  title: 'Components/Card',
+  title: 'Containers/Card',
   component: Card,
   subcomponents: {
     CardHeader,
@@ -46,8 +46,10 @@ export const Horizontal: ComponentStory<typeof Card> = () => (
       </CardCol>
     </CardRow>
     <CardControls>
-      <Button>Button</Button>
-      <Button primary>Button</Button>
+      <Button medium>Button</Button>
+      <Button medium primary>
+        Button
+      </Button>
       <Badge small variant='primary' />
       <Tag>Tag</Tag>
       <IconButton icon='menu' small aria-label='menu' />
@@ -161,8 +163,10 @@ export const Vertical: ComponentStory<typeof Card> = () => (
       </CardBody>
     </CardCol>
     <CardControls>
-      <Button primary>Button</Button>
-      <Button>Button</Button>
+      <Button medium primary>
+        Button
+      </Button>
+      <Button medium>Button</Button>
     </CardControls>
   </Card>
 );
@@ -181,7 +185,26 @@ export const VerticalNoIcon: ComponentStory<typeof Card> = () => (
       </CardBody>
     </CardCol>
     <CardControls>
-      <Button>Button</Button>
+      <Button medium>Button</Button>
+    </CardControls>
+  </Card>
+);
+
+export const Hero: ComponentStory<typeof Card> = () => (
+  <Card hero>
+    <CardCol>
+      <CardHeader>
+        <CardTitle variant='h3'>Heading 3</CardTitle>
+      </CardHeader>
+      <CardBody>
+        Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem
+        praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In
+        adipisci consequatur qui laudantium rem praesentium earum ut
+        consectetur.
+      </CardBody>
+    </CardCol>
+    <CardControls>
+      <Button medium>Button</Button>
     </CardControls>
   </Card>
 );
@@ -215,7 +238,7 @@ export const VerticalCustom: ComponentStory<typeof Card> = () => (
       </CardBody>
     </CardCol>
     <CardControls>
-      <Button>Button</Button>
+      <Button medium>Button</Button>
     </CardControls>
   </Card>
 );
