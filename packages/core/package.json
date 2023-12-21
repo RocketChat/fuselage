@@ -17,6 +17,7 @@
     "clean": "rm -rf dist types node_modules .turbo"
   },
   "dependencies": {
+    "@rocket.chat/fuselage-tokens": "workspace:~",
     "@shopify/flash-list": "^1.6.3",
     "@supabase/supabase-js": "^2.38.4",
     "@tamagui/animations-react-native": "1.75.9",

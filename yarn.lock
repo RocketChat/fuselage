@@ -5915,6 +5915,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@rocket.chat/fuselage-core@workspace:packages/core"
   dependencies:
+    "@rocket.chat/fuselage-tokens": "workspace:~"
     "@shopify/flash-list": "npm:^1.6.3"
     "@supabase/supabase-js": "npm:^2.38.4"
     "@tamagui/animations-react-native": "npm:1.75.9"
