@@ -253,7 +253,8 @@ const CreateCloudWorkspaceForm = ({
           <Button
             type='submit'
             primary
-            disabled={isValidating || isSubmitting || !isValid}
+            disabled={!isValid}
+            loading={isSubmitting || isValidating}
           >
             {t('component.form.action.next')}
           </Button>

@@ -94,7 +94,8 @@ const CreateNewPassword = ({
           <Button
             type='submit'
             primary
-            disabled={isValidating || isSubmitting || !isValid}
+            loading={isValidating || isSubmitting}
+            disabled={!isValid}
           >
             {t('form.createPasswordForm.button.text')}
           </Button>

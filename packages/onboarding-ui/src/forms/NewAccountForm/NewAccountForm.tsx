@@ -160,7 +160,8 @@ const NewAccountForm = ({
           <Button
             type='submit'
             primary
-            disabled={isValidating || isSubmitting || !isValid}
+            loading={isValidating || isSubmitting}
+            disabled={!isValid}
           >
             {t('component.form.action.next')}
           </Button>
