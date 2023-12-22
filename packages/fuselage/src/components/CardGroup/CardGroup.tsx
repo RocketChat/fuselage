@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import type { AllHTMLAttributes, ReactNode } from 'react';
 import React from 'react';
 
 import { appendClassName } from '../../helpers/appendClassName';
@@ -13,7 +13,7 @@ type CardGroupProps = {
   small?: boolean;
   large?: boolean;
   children?: ReactNode;
-};
+} & Omit<AllHTMLAttributes<HTMLElement>, 'is' | 'wrap'>;
 
 export const CardGroup = ({
   align = 'start',
