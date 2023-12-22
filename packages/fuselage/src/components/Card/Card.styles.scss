@@ -17,6 +17,16 @@ $card-hero-padding: lengths.padding(28);
     'card-background-color',
     colors.surface(light)
   );
+
+  &__clickable {
+    &:hover,
+    &:focus {
+      cursor: pointer;
+
+      outline: 0;
+      background-color: colors.surface(hover);
+    }
+  }
 }
 
 // Card horizontal
@@ -27,6 +37,9 @@ $card-hero-padding: lengths.padding(28);
   padding: $card-horizontal-padding;
 
   .rcx-card__controls {
+    justify-content: flex-end;
+    align-items: center;
+
     margin-inline-start: lengths.margin(16);
   }
 
@@ -39,9 +52,12 @@ $card-hero-padding: lengths.padding(28);
   }
 
   &--wrap {
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
 
     .rcx-card__controls {
+      justify-content: flex-start;
+
       margin-block-start: lengths.margin(16);
       margin-inline-start: lengths.margin(none);
     }
