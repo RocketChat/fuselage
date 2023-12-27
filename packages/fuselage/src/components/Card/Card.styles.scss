@@ -2,9 +2,11 @@
 @use '../../styles/functions';
 @use '../../styles/lengths.scss';
 
-$card-spacing: lengths.margin(4);
+$card-spacing: lengths.margin(8);
 $card-vertical-padding: lengths.padding(20);
+$card-vertical-gap: lengths.margin(24);
 $card-horizontal-padding: lengths.padding(12);
+$card-horizontal-gap: lengths.padding(16);
 $card-hero-padding: lengths.padding(28);
 
 .rcx-card {
@@ -17,91 +19,56 @@ $card-hero-padding: lengths.padding(28);
     'card-background-color',
     colors.surface(light)
   );
-}
 
-// Card horizontal
-.rcx-card__horizontal {
-  justify-content: center;
-  align-items: center;
+  &__clickable {
+    &:hover,
+    &:focus {
+      cursor: pointer;
 
-  padding: $card-horizontal-padding;
-
-  .rcx-card__controls {
-    margin-inline-start: lengths.margin(16);
-  }
-
-  .rcx-card__row,
-  .rcx-card__header,
-  .rcx-card__controls {
-    & > * {
-      margin-inline: $card-spacing;
+      outline: 0;
+      background-color: colors.surface(hover);
     }
   }
 
-  &--wrap {
-    flex-wrap: wrap;
-
-    .rcx-card__controls {
-      margin-block-start: lengths.margin(16);
-      margin-inline-start: lengths.margin(none);
-    }
-  }
-}
-
-// Card vertical
-.rcx-card__vertical {
-  flex-direction: column;
-
-  padding: $card-vertical-padding;
-
-  > .rcx-card__col,
-  > .rcx-card__row,
-  .rcx-card__header,
-  .rcx-card__controls {
-    & > * {
-      margin-inline: $card-spacing;
-    }
+  &__header,
+  &__title,
+  &__controls,
+  &__body,
+  &__row,
+  &__col {
+    gap: $card-spacing;
   }
 
-  .rcx-card__row {
-    margin-block-end: $card-spacing;
-
-    &:last-child {
-      margin-block-end: lengths.margin(none);
-    }
+  &__col {
+    display: flex;
+    flex-direction: column;
   }
 
-  .rcx-card__controls {
-    align-items: flex-end;
+  &__row {
     flex-grow: 1;
+    flex-shrink: 1;
   }
 
-  .rcx-card__body {
-    margin-block: lengths.margin(24);
-    margin-inline: lengths.margin(none);
+  &__horizontal {
+    align-items: center;
+
+    padding: $card-horizontal-padding;
+    gap: $card-horizontal-gap;
+
+    &--wrap {
+      flex-wrap: wrap;
+    }
   }
 
-  .rcx-card__header {
-    margin: lengths.margin(none);
-  }
-}
+  &__vertical {
+    flex-direction: column;
 
-// Card hero
-.rcx-card__hero {
-  padding: $card-hero-padding;
-}
-
-// Remove margin from first and last child of a group
-.rcx-card__header,
-.rcx-card__col,
-.rcx-card__row,
-.rcx-card__controls {
-  & > :first-child {
-    margin-inline-start: lengths.margin(none);
+    padding: $card-vertical-padding;
+    gap: $card-vertical-gap;
   }
 
-  & > :last-child {
-    margin-inline-end: lengths.margin(none);
+  &__hero {
+    padding: $card-hero-padding;
   }
 }
 
@@ -111,13 +78,4 @@ $card-hero-padding: lengths.padding(28);
 .rcx-card__controls {
   display: flex;
   align-items: center;
-}
-
-.rcx-card__controls {
-  flex-grow: 1;
-}
-
-.rcx-card__col {
-  display: flex;
-  flex-direction: column;
 }

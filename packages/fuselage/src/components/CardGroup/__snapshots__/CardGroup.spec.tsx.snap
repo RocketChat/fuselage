@@ -11,44 +11,40 @@ exports[`[CardGroup Rendering] renders Default without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
       >
         <div
-          class="rcx-card__col"
+          class="rcx-card__header"
         >
-          <div
-            class="rcx-card__header"
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
           >
-            <i
-              aria-hidden="true"
-              class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
+            
+          </i>
+          <h4
+            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+          >
+            Heading
+            <span
+              class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
             >
-              
-            </i>
-            <h3
-              class="rcx-box rcx-box--full rcx-card__title rcx-css-1sfto34"
-            >
-              Heading 3
               <span
-                class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+                hidden=""
               >
-                <span
-                  hidden=""
-                >
-                  Heading info
-                </span>
-                <i
-                  aria-hidden="true"
-                  class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon rcx-css-1hq8wl6"
-                  title="Heading info"
-                >
-                  
-                </i>
+                Heading info
               </span>
-            </h3>
-          </div>
-          <div
-            class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
-          >
-            Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
-          </div>
+              <i
+                aria-hidden="true"
+                class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+                title="Heading info"
+              >
+                
+              </i>
+            </span>
+          </h4>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
+        >
+          Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
           class="rcx-card__controls"
@@ -79,44 +75,40 @@ exports[`[CardGroup Rendering] renders Default without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
       >
         <div
-          class="rcx-card__col"
+          class="rcx-card__header"
         >
-          <div
-            class="rcx-card__header"
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
           >
-            <i
-              aria-hidden="true"
-              class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
+            
+          </i>
+          <h4
+            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+          >
+            Heading
+            <span
+              class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
             >
-              
-            </i>
-            <h3
-              class="rcx-box rcx-box--full rcx-card__title rcx-css-1sfto34"
-            >
-              Heading 3
               <span
-                class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+                hidden=""
               >
-                <span
-                  hidden=""
-                >
-                  Heading info
-                </span>
-                <i
-                  aria-hidden="true"
-                  class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon rcx-css-1hq8wl6"
-                  title="Heading info"
-                >
-                  
-                </i>
+                Heading info
               </span>
-            </h3>
-          </div>
-          <div
-            class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
-          >
-            Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
-          </div>
+              <i
+                aria-hidden="true"
+                class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+                title="Heading info"
+              >
+                
+              </i>
+            </span>
+          </h4>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
+        >
+          Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
           class="rcx-card__controls"
@@ -147,44 +139,40 @@ exports[`[CardGroup Rendering] renders Default without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
       >
         <div
-          class="rcx-card__col"
+          class="rcx-card__header"
         >
-          <div
-            class="rcx-card__header"
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
           >
-            <i
-              aria-hidden="true"
-              class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
+            
+          </i>
+          <h4
+            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+          >
+            Heading
+            <span
+              class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
             >
-              
-            </i>
-            <h3
-              class="rcx-box rcx-box--full rcx-card__title rcx-css-1sfto34"
-            >
-              Heading 3
               <span
-                class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+                hidden=""
               >
-                <span
-                  hidden=""
-                >
-                  Heading info
-                </span>
-                <i
-                  aria-hidden="true"
-                  class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon rcx-css-1hq8wl6"
-                  title="Heading info"
-                >
-                  
-                </i>
+                Heading info
               </span>
-            </h3>
-          </div>
-          <div
-            class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
-          >
-            Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
-          </div>
+              <i
+                aria-hidden="true"
+                class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+                title="Heading info"
+              >
+                
+              </i>
+            </span>
+          </h4>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
+        >
+          Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
           class="rcx-card__controls"
@@ -215,44 +203,40 @@ exports[`[CardGroup Rendering] renders Default without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
       >
         <div
-          class="rcx-card__col"
+          class="rcx-card__header"
         >
-          <div
-            class="rcx-card__header"
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
           >
-            <i
-              aria-hidden="true"
-              class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
+            
+          </i>
+          <h4
+            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+          >
+            Heading
+            <span
+              class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
             >
-              
-            </i>
-            <h3
-              class="rcx-box rcx-box--full rcx-card__title rcx-css-1sfto34"
-            >
-              Heading 3
               <span
-                class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+                hidden=""
               >
-                <span
-                  hidden=""
-                >
-                  Heading info
-                </span>
-                <i
-                  aria-hidden="true"
-                  class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon rcx-css-1hq8wl6"
-                  title="Heading info"
-                >
-                  
-                </i>
+                Heading info
               </span>
-            </h3>
-          </div>
-          <div
-            class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
-          >
-            Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
-          </div>
+              <i
+                aria-hidden="true"
+                class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+                title="Heading info"
+              >
+                
+              </i>
+            </span>
+          </h4>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
+        >
+          Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
           class="rcx-card__controls"
@@ -283,44 +267,40 @@ exports[`[CardGroup Rendering] renders Default without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
       >
         <div
-          class="rcx-card__col"
+          class="rcx-card__header"
         >
-          <div
-            class="rcx-card__header"
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
           >
-            <i
-              aria-hidden="true"
-              class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
+            
+          </i>
+          <h4
+            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+          >
+            Heading
+            <span
+              class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
             >
-              
-            </i>
-            <h3
-              class="rcx-box rcx-box--full rcx-card__title rcx-css-1sfto34"
-            >
-              Heading 3
               <span
-                class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+                hidden=""
               >
-                <span
-                  hidden=""
-                >
-                  Heading info
-                </span>
-                <i
-                  aria-hidden="true"
-                  class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon rcx-css-1hq8wl6"
-                  title="Heading info"
-                >
-                  
-                </i>
+                Heading info
               </span>
-            </h3>
-          </div>
-          <div
-            class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
-          >
-            Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
-          </div>
+              <i
+                aria-hidden="true"
+                class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+                title="Heading info"
+              >
+                
+              </i>
+            </span>
+          </h4>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
+        >
+          Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
           class="rcx-card__controls"
@@ -351,44 +331,40 @@ exports[`[CardGroup Rendering] renders Default without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
       >
         <div
-          class="rcx-card__col"
+          class="rcx-card__header"
         >
-          <div
-            class="rcx-card__header"
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
           >
-            <i
-              aria-hidden="true"
-              class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
+            
+          </i>
+          <h4
+            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+          >
+            Heading
+            <span
+              class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
             >
-              
-            </i>
-            <h3
-              class="rcx-box rcx-box--full rcx-card__title rcx-css-1sfto34"
-            >
-              Heading 3
               <span
-                class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+                hidden=""
               >
-                <span
-                  hidden=""
-                >
-                  Heading info
-                </span>
-                <i
-                  aria-hidden="true"
-                  class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon rcx-css-1hq8wl6"
-                  title="Heading info"
-                >
-                  
-                </i>
+                Heading info
               </span>
-            </h3>
-          </div>
-          <div
-            class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
-          >
-            Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
-          </div>
+              <i
+                aria-hidden="true"
+                class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+                title="Heading info"
+              >
+                
+              </i>
+            </span>
+          </h4>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
+        >
+          Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
           class="rcx-card__controls"
@@ -419,44 +395,40 @@ exports[`[CardGroup Rendering] renders Default without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
       >
         <div
-          class="rcx-card__col"
+          class="rcx-card__header"
         >
-          <div
-            class="rcx-card__header"
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
           >
-            <i
-              aria-hidden="true"
-              class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
+            
+          </i>
+          <h4
+            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+          >
+            Heading
+            <span
+              class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
             >
-              
-            </i>
-            <h3
-              class="rcx-box rcx-box--full rcx-card__title rcx-css-1sfto34"
-            >
-              Heading 3
               <span
-                class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+                hidden=""
               >
-                <span
-                  hidden=""
-                >
-                  Heading info
-                </span>
-                <i
-                  aria-hidden="true"
-                  class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon rcx-css-1hq8wl6"
-                  title="Heading info"
-                >
-                  
-                </i>
+                Heading info
               </span>
-            </h3>
-          </div>
-          <div
-            class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
-          >
-            Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
-          </div>
+              <i
+                aria-hidden="true"
+                class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+                title="Heading info"
+              >
+                
+              </i>
+            </span>
+          </h4>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
+        >
+          Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
           class="rcx-card__controls"
@@ -487,44 +459,40 @@ exports[`[CardGroup Rendering] renders Default without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
       >
         <div
-          class="rcx-card__col"
+          class="rcx-card__header"
         >
-          <div
-            class="rcx-card__header"
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
           >
-            <i
-              aria-hidden="true"
-              class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
+            
+          </i>
+          <h4
+            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+          >
+            Heading
+            <span
+              class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
             >
-              
-            </i>
-            <h3
-              class="rcx-box rcx-box--full rcx-card__title rcx-css-1sfto34"
-            >
-              Heading 3
               <span
-                class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+                hidden=""
               >
-                <span
-                  hidden=""
-                >
-                  Heading info
-                </span>
-                <i
-                  aria-hidden="true"
-                  class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon rcx-css-1hq8wl6"
-                  title="Heading info"
-                >
-                  
-                </i>
+                Heading info
               </span>
-            </h3>
-          </div>
-          <div
-            class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
-          >
-            Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
-          </div>
+              <i
+                aria-hidden="true"
+                class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+                title="Heading info"
+              >
+                
+              </i>
+            </span>
+          </h4>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
+        >
+          Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
           class="rcx-card__controls"
@@ -555,44 +523,40 @@ exports[`[CardGroup Rendering] renders Default without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
       >
         <div
-          class="rcx-card__col"
+          class="rcx-card__header"
         >
-          <div
-            class="rcx-card__header"
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
           >
-            <i
-              aria-hidden="true"
-              class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
+            
+          </i>
+          <h4
+            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+          >
+            Heading
+            <span
+              class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
             >
-              
-            </i>
-            <h3
-              class="rcx-box rcx-box--full rcx-card__title rcx-css-1sfto34"
-            >
-              Heading 3
               <span
-                class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+                hidden=""
               >
-                <span
-                  hidden=""
-                >
-                  Heading info
-                </span>
-                <i
-                  aria-hidden="true"
-                  class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon rcx-css-1hq8wl6"
-                  title="Heading info"
-                >
-                  
-                </i>
+                Heading info
               </span>
-            </h3>
-          </div>
-          <div
-            class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
-          >
-            Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
-          </div>
+              <i
+                aria-hidden="true"
+                class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+                title="Heading info"
+              >
+                
+              </i>
+            </span>
+          </h4>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
+        >
+          Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
           class="rcx-card__controls"
@@ -628,11 +592,11 @@ exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashi
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-card-group--vertical rcx-card-group--align-start rcx-card-group"
+      class="rcx-box rcx-box--full rcx-card-group--vertical rcx-card-group--stretch rcx-card-group--align-start rcx-card-group"
       role="group"
     >
       <div
-        class="rcx-box rcx-box--full rcx-card__horizontal--wrap rcx-card__horizontal rcx-card  rcx-card-group__item"
+        class="rcx-box rcx-box--full rcx-card__clickable rcx-card__horizontal--wrap rcx-card__horizontal rcx-card  rcx-card-group__item rcx-css-1qcz93u"
       >
         <div
           class="rcx-card__row"
@@ -654,7 +618,7 @@ exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashi
             <div
               class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
             >
-              Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium voluptatem rem praesentium earum ut consectetur.
+              Lorem ipsum dolor sit amet.
             </div>
           </div>
         </div>
@@ -688,7 +652,7 @@ exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashi
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__horizontal--wrap rcx-card__horizontal rcx-card  rcx-card-group__item"
+        class="rcx-box rcx-box--full rcx-card__clickable rcx-card__horizontal--wrap rcx-card__horizontal rcx-card  rcx-card-group__item rcx-css-1qcz93u"
       >
         <div
           class="rcx-card__row"
@@ -710,7 +674,7 @@ exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashi
             <div
               class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
             >
-              Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium voluptatem rem praesentium earum ut consectetur.
+              Lorem ipsum dolor sit amet.
             </div>
           </div>
         </div>
@@ -744,7 +708,7 @@ exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashi
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__horizontal--wrap rcx-card__horizontal rcx-card  rcx-card-group__item"
+        class="rcx-box rcx-box--full rcx-card__clickable rcx-card__horizontal--wrap rcx-card__horizontal rcx-card  rcx-card-group__item rcx-css-1qcz93u"
       >
         <div
           class="rcx-card__row"
@@ -766,7 +730,7 @@ exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashi
             <div
               class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
             >
-              Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium voluptatem rem praesentium earum ut consectetur.
+              Lorem ipsum dolor sit amet.
             </div>
           </div>
         </div>
@@ -800,7 +764,7 @@ exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashi
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__horizontal--wrap rcx-card__horizontal rcx-card  rcx-card-group__item"
+        class="rcx-box rcx-box--full rcx-card__clickable rcx-card__horizontal--wrap rcx-card__horizontal rcx-card  rcx-card-group__item rcx-css-1qcz93u"
       >
         <div
           class="rcx-card__row"
@@ -822,7 +786,7 @@ exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashi
             <div
               class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
             >
-              Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium voluptatem rem praesentium earum ut consectetur.
+              Lorem ipsum dolor sit amet.
             </div>
           </div>
         </div>
@@ -856,7 +820,7 @@ exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashi
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__horizontal--wrap rcx-card__horizontal rcx-card  rcx-card-group__item"
+        class="rcx-box rcx-box--full rcx-card__clickable rcx-card__horizontal--wrap rcx-card__horizontal rcx-card  rcx-card-group__item rcx-css-1qcz93u"
       >
         <div
           class="rcx-card__row"
@@ -878,7 +842,7 @@ exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashi
             <div
               class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
             >
-              Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium voluptatem rem praesentium earum ut consectetur.
+              Lorem ipsum dolor sit amet.
             </div>
           </div>
         </div>
@@ -912,7 +876,7 @@ exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashi
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__horizontal--wrap rcx-card__horizontal rcx-card  rcx-card-group__item"
+        class="rcx-box rcx-box--full rcx-card__clickable rcx-card__horizontal--wrap rcx-card__horizontal rcx-card  rcx-card-group__item rcx-css-1qcz93u"
       >
         <div
           class="rcx-card__row"
@@ -934,7 +898,7 @@ exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashi
             <div
               class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
             >
-              Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium voluptatem rem praesentium earum ut consectetur.
+              Lorem ipsum dolor sit amet.
             </div>
           </div>
         </div>
@@ -968,7 +932,7 @@ exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashi
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__horizontal--wrap rcx-card__horizontal rcx-card  rcx-card-group__item"
+        class="rcx-box rcx-box--full rcx-card__clickable rcx-card__horizontal--wrap rcx-card__horizontal rcx-card  rcx-card-group__item rcx-css-1qcz93u"
       >
         <div
           class="rcx-card__row"
@@ -990,7 +954,7 @@ exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashi
             <div
               class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
             >
-              Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium voluptatem rem praesentium earum ut consectetur.
+              Lorem ipsum dolor sit amet.
             </div>
           </div>
         </div>
@@ -1024,7 +988,7 @@ exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashi
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__horizontal--wrap rcx-card__horizontal rcx-card  rcx-card-group__item"
+        class="rcx-box rcx-box--full rcx-card__clickable rcx-card__horizontal--wrap rcx-card__horizontal rcx-card  rcx-card-group__item rcx-css-1qcz93u"
       >
         <div
           class="rcx-card__row"
@@ -1046,7 +1010,7 @@ exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashi
             <div
               class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
             >
-              Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium voluptatem rem praesentium earum ut consectetur.
+              Lorem ipsum dolor sit amet.
             </div>
           </div>
         </div>
@@ -1080,7 +1044,7 @@ exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashi
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__horizontal--wrap rcx-card__horizontal rcx-card  rcx-card-group__item"
+        class="rcx-box rcx-box--full rcx-card__clickable rcx-card__horizontal--wrap rcx-card__horizontal rcx-card  rcx-card-group__item rcx-css-1qcz93u"
       >
         <div
           class="rcx-card__row"
@@ -1102,7 +1066,7 @@ exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashi
             <div
               class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
             >
-              Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium voluptatem rem praesentium earum ut consectetur.
+              Lorem ipsum dolor sit amet.
             </div>
           </div>
         </div>
@@ -1151,44 +1115,40 @@ exports[`[CardGroup Rendering] renders Wrap without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
       >
         <div
-          class="rcx-card__col"
+          class="rcx-card__header"
         >
-          <div
-            class="rcx-card__header"
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
           >
-            <i
-              aria-hidden="true"
-              class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
+            
+          </i>
+          <h4
+            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+          >
+            Heading
+            <span
+              class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
             >
-              
-            </i>
-            <h3
-              class="rcx-box rcx-box--full rcx-card__title rcx-css-1sfto34"
-            >
-              Heading 3
               <span
-                class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+                hidden=""
               >
-                <span
-                  hidden=""
-                >
-                  Heading info
-                </span>
-                <i
-                  aria-hidden="true"
-                  class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon rcx-css-1hq8wl6"
-                  title="Heading info"
-                >
-                  
-                </i>
+                Heading info
               </span>
-            </h3>
-          </div>
-          <div
-            class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
-          >
-            Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
-          </div>
+              <i
+                aria-hidden="true"
+                class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+                title="Heading info"
+              >
+                
+              </i>
+            </span>
+          </h4>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
+        >
+          Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
           class="rcx-card__controls"
@@ -1219,44 +1179,40 @@ exports[`[CardGroup Rendering] renders Wrap without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
       >
         <div
-          class="rcx-card__col"
+          class="rcx-card__header"
         >
-          <div
-            class="rcx-card__header"
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
           >
-            <i
-              aria-hidden="true"
-              class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
+            
+          </i>
+          <h4
+            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+          >
+            Heading
+            <span
+              class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
             >
-              
-            </i>
-            <h3
-              class="rcx-box rcx-box--full rcx-card__title rcx-css-1sfto34"
-            >
-              Heading 3
               <span
-                class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+                hidden=""
               >
-                <span
-                  hidden=""
-                >
-                  Heading info
-                </span>
-                <i
-                  aria-hidden="true"
-                  class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon rcx-css-1hq8wl6"
-                  title="Heading info"
-                >
-                  
-                </i>
+                Heading info
               </span>
-            </h3>
-          </div>
-          <div
-            class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
-          >
-            Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
-          </div>
+              <i
+                aria-hidden="true"
+                class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+                title="Heading info"
+              >
+                
+              </i>
+            </span>
+          </h4>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
+        >
+          Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
           class="rcx-card__controls"
@@ -1287,44 +1243,40 @@ exports[`[CardGroup Rendering] renders Wrap without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
       >
         <div
-          class="rcx-card__col"
+          class="rcx-card__header"
         >
-          <div
-            class="rcx-card__header"
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
           >
-            <i
-              aria-hidden="true"
-              class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
+            
+          </i>
+          <h4
+            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+          >
+            Heading
+            <span
+              class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
             >
-              
-            </i>
-            <h3
-              class="rcx-box rcx-box--full rcx-card__title rcx-css-1sfto34"
-            >
-              Heading 3
               <span
-                class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+                hidden=""
               >
-                <span
-                  hidden=""
-                >
-                  Heading info
-                </span>
-                <i
-                  aria-hidden="true"
-                  class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon rcx-css-1hq8wl6"
-                  title="Heading info"
-                >
-                  
-                </i>
+                Heading info
               </span>
-            </h3>
-          </div>
-          <div
-            class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
-          >
-            Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
-          </div>
+              <i
+                aria-hidden="true"
+                class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+                title="Heading info"
+              >
+                
+              </i>
+            </span>
+          </h4>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
+        >
+          Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
           class="rcx-card__controls"
@@ -1355,44 +1307,40 @@ exports[`[CardGroup Rendering] renders Wrap without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
       >
         <div
-          class="rcx-card__col"
+          class="rcx-card__header"
         >
-          <div
-            class="rcx-card__header"
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
           >
-            <i
-              aria-hidden="true"
-              class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
+            
+          </i>
+          <h4
+            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+          >
+            Heading
+            <span
+              class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
             >
-              
-            </i>
-            <h3
-              class="rcx-box rcx-box--full rcx-card__title rcx-css-1sfto34"
-            >
-              Heading 3
               <span
-                class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+                hidden=""
               >
-                <span
-                  hidden=""
-                >
-                  Heading info
-                </span>
-                <i
-                  aria-hidden="true"
-                  class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon rcx-css-1hq8wl6"
-                  title="Heading info"
-                >
-                  
-                </i>
+                Heading info
               </span>
-            </h3>
-          </div>
-          <div
-            class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
-          >
-            Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
-          </div>
+              <i
+                aria-hidden="true"
+                class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+                title="Heading info"
+              >
+                
+              </i>
+            </span>
+          </h4>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
+        >
+          Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
           class="rcx-card__controls"
@@ -1423,44 +1371,40 @@ exports[`[CardGroup Rendering] renders Wrap without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
       >
         <div
-          class="rcx-card__col"
+          class="rcx-card__header"
         >
-          <div
-            class="rcx-card__header"
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
           >
-            <i
-              aria-hidden="true"
-              class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
+            
+          </i>
+          <h4
+            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+          >
+            Heading
+            <span
+              class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
             >
-              
-            </i>
-            <h3
-              class="rcx-box rcx-box--full rcx-card__title rcx-css-1sfto34"
-            >
-              Heading 3
               <span
-                class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+                hidden=""
               >
-                <span
-                  hidden=""
-                >
-                  Heading info
-                </span>
-                <i
-                  aria-hidden="true"
-                  class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon rcx-css-1hq8wl6"
-                  title="Heading info"
-                >
-                  
-                </i>
+                Heading info
               </span>
-            </h3>
-          </div>
-          <div
-            class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
-          >
-            Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
-          </div>
+              <i
+                aria-hidden="true"
+                class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+                title="Heading info"
+              >
+                
+              </i>
+            </span>
+          </h4>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
+        >
+          Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
           class="rcx-card__controls"
@@ -1491,44 +1435,40 @@ exports[`[CardGroup Rendering] renders Wrap without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
       >
         <div
-          class="rcx-card__col"
+          class="rcx-card__header"
         >
-          <div
-            class="rcx-card__header"
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
           >
-            <i
-              aria-hidden="true"
-              class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
+            
+          </i>
+          <h4
+            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+          >
+            Heading
+            <span
+              class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
             >
-              
-            </i>
-            <h3
-              class="rcx-box rcx-box--full rcx-card__title rcx-css-1sfto34"
-            >
-              Heading 3
               <span
-                class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+                hidden=""
               >
-                <span
-                  hidden=""
-                >
-                  Heading info
-                </span>
-                <i
-                  aria-hidden="true"
-                  class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon rcx-css-1hq8wl6"
-                  title="Heading info"
-                >
-                  
-                </i>
+                Heading info
               </span>
-            </h3>
-          </div>
-          <div
-            class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
-          >
-            Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
-          </div>
+              <i
+                aria-hidden="true"
+                class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+                title="Heading info"
+              >
+                
+              </i>
+            </span>
+          </h4>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
+        >
+          Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
           class="rcx-card__controls"
@@ -1559,44 +1499,40 @@ exports[`[CardGroup Rendering] renders Wrap without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
       >
         <div
-          class="rcx-card__col"
+          class="rcx-card__header"
         >
-          <div
-            class="rcx-card__header"
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
           >
-            <i
-              aria-hidden="true"
-              class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
+            
+          </i>
+          <h4
+            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+          >
+            Heading
+            <span
+              class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
             >
-              
-            </i>
-            <h3
-              class="rcx-box rcx-box--full rcx-card__title rcx-css-1sfto34"
-            >
-              Heading 3
               <span
-                class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+                hidden=""
               >
-                <span
-                  hidden=""
-                >
-                  Heading info
-                </span>
-                <i
-                  aria-hidden="true"
-                  class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon rcx-css-1hq8wl6"
-                  title="Heading info"
-                >
-                  
-                </i>
+                Heading info
               </span>
-            </h3>
-          </div>
-          <div
-            class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
-          >
-            Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
-          </div>
+              <i
+                aria-hidden="true"
+                class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+                title="Heading info"
+              >
+                
+              </i>
+            </span>
+          </h4>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
+        >
+          Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
           class="rcx-card__controls"
@@ -1627,44 +1563,40 @@ exports[`[CardGroup Rendering] renders Wrap without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
       >
         <div
-          class="rcx-card__col"
+          class="rcx-card__header"
         >
-          <div
-            class="rcx-card__header"
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
           >
-            <i
-              aria-hidden="true"
-              class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
+            
+          </i>
+          <h4
+            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+          >
+            Heading
+            <span
+              class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
             >
-              
-            </i>
-            <h3
-              class="rcx-box rcx-box--full rcx-card__title rcx-css-1sfto34"
-            >
-              Heading 3
               <span
-                class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+                hidden=""
               >
-                <span
-                  hidden=""
-                >
-                  Heading info
-                </span>
-                <i
-                  aria-hidden="true"
-                  class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon rcx-css-1hq8wl6"
-                  title="Heading info"
-                >
-                  
-                </i>
+                Heading info
               </span>
-            </h3>
-          </div>
-          <div
-            class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
-          >
-            Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
-          </div>
+              <i
+                aria-hidden="true"
+                class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+                title="Heading info"
+              >
+                
+              </i>
+            </span>
+          </h4>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
+        >
+          Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
           class="rcx-card__controls"
@@ -1695,44 +1627,40 @@ exports[`[CardGroup Rendering] renders Wrap without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
       >
         <div
-          class="rcx-card__col"
+          class="rcx-card__header"
         >
-          <div
-            class="rcx-card__header"
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
           >
-            <i
-              aria-hidden="true"
-              class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
+            
+          </i>
+          <h4
+            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+          >
+            Heading
+            <span
+              class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
             >
-              
-            </i>
-            <h3
-              class="rcx-box rcx-box--full rcx-card__title rcx-css-1sfto34"
-            >
-              Heading 3
               <span
-                class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+                hidden=""
               >
-                <span
-                  hidden=""
-                >
-                  Heading info
-                </span>
-                <i
-                  aria-hidden="true"
-                  class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon rcx-css-1hq8wl6"
-                  title="Heading info"
-                >
-                  
-                </i>
+                Heading info
               </span>
-            </h3>
-          </div>
-          <div
-            class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
-          >
-            Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
-          </div>
+              <i
+                aria-hidden="true"
+                class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+                title="Heading info"
+              >
+                
+              </i>
+            </span>
+          </h4>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
+        >
+          Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
           class="rcx-card__controls"
@@ -1775,44 +1703,40 @@ exports[`[CardGroup Rendering] renders WrapAlignCenter without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
       >
         <div
-          class="rcx-card__col"
+          class="rcx-card__header"
         >
-          <div
-            class="rcx-card__header"
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
           >
-            <i
-              aria-hidden="true"
-              class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
+            
+          </i>
+          <h4
+            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+          >
+            Heading
+            <span
+              class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
             >
-              
-            </i>
-            <h3
-              class="rcx-box rcx-box--full rcx-card__title rcx-css-1sfto34"
-            >
-              Heading 3
               <span
-                class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+                hidden=""
               >
-                <span
-                  hidden=""
-                >
-                  Heading info
-                </span>
-                <i
-                  aria-hidden="true"
-                  class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon rcx-css-1hq8wl6"
-                  title="Heading info"
-                >
-                  
-                </i>
+                Heading info
               </span>
-            </h3>
-          </div>
-          <div
-            class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
-          >
-            Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
-          </div>
+              <i
+                aria-hidden="true"
+                class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+                title="Heading info"
+              >
+                
+              </i>
+            </span>
+          </h4>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
+        >
+          Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
           class="rcx-card__controls"
@@ -1843,44 +1767,40 @@ exports[`[CardGroup Rendering] renders WrapAlignCenter without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
       >
         <div
-          class="rcx-card__col"
+          class="rcx-card__header"
         >
-          <div
-            class="rcx-card__header"
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
           >
-            <i
-              aria-hidden="true"
-              class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
+            
+          </i>
+          <h4
+            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+          >
+            Heading
+            <span
+              class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
             >
-              
-            </i>
-            <h3
-              class="rcx-box rcx-box--full rcx-card__title rcx-css-1sfto34"
-            >
-              Heading 3
               <span
-                class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+                hidden=""
               >
-                <span
-                  hidden=""
-                >
-                  Heading info
-                </span>
-                <i
-                  aria-hidden="true"
-                  class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon rcx-css-1hq8wl6"
-                  title="Heading info"
-                >
-                  
-                </i>
+                Heading info
               </span>
-            </h3>
-          </div>
-          <div
-            class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
-          >
-            Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
-          </div>
+              <i
+                aria-hidden="true"
+                class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+                title="Heading info"
+              >
+                
+              </i>
+            </span>
+          </h4>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
+        >
+          Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
           class="rcx-card__controls"
@@ -1911,44 +1831,40 @@ exports[`[CardGroup Rendering] renders WrapAlignCenter without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
       >
         <div
-          class="rcx-card__col"
+          class="rcx-card__header"
         >
-          <div
-            class="rcx-card__header"
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
           >
-            <i
-              aria-hidden="true"
-              class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
+            
+          </i>
+          <h4
+            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+          >
+            Heading
+            <span
+              class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
             >
-              
-            </i>
-            <h3
-              class="rcx-box rcx-box--full rcx-card__title rcx-css-1sfto34"
-            >
-              Heading 3
               <span
-                class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+                hidden=""
               >
-                <span
-                  hidden=""
-                >
-                  Heading info
-                </span>
-                <i
-                  aria-hidden="true"
-                  class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon rcx-css-1hq8wl6"
-                  title="Heading info"
-                >
-                  
-                </i>
+                Heading info
               </span>
-            </h3>
-          </div>
-          <div
-            class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
-          >
-            Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
-          </div>
+              <i
+                aria-hidden="true"
+                class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+                title="Heading info"
+              >
+                
+              </i>
+            </span>
+          </h4>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
+        >
+          Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
           class="rcx-card__controls"
@@ -1979,44 +1895,40 @@ exports[`[CardGroup Rendering] renders WrapAlignCenter without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
       >
         <div
-          class="rcx-card__col"
+          class="rcx-card__header"
         >
-          <div
-            class="rcx-card__header"
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
           >
-            <i
-              aria-hidden="true"
-              class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
+            
+          </i>
+          <h4
+            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+          >
+            Heading
+            <span
+              class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
             >
-              
-            </i>
-            <h3
-              class="rcx-box rcx-box--full rcx-card__title rcx-css-1sfto34"
-            >
-              Heading 3
               <span
-                class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+                hidden=""
               >
-                <span
-                  hidden=""
-                >
-                  Heading info
-                </span>
-                <i
-                  aria-hidden="true"
-                  class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon rcx-css-1hq8wl6"
-                  title="Heading info"
-                >
-                  
-                </i>
+                Heading info
               </span>
-            </h3>
-          </div>
-          <div
-            class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
-          >
-            Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
-          </div>
+              <i
+                aria-hidden="true"
+                class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+                title="Heading info"
+              >
+                
+              </i>
+            </span>
+          </h4>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
+        >
+          Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
           class="rcx-card__controls"
@@ -2047,44 +1959,40 @@ exports[`[CardGroup Rendering] renders WrapAlignCenter without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
       >
         <div
-          class="rcx-card__col"
+          class="rcx-card__header"
         >
-          <div
-            class="rcx-card__header"
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
           >
-            <i
-              aria-hidden="true"
-              class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
+            
+          </i>
+          <h4
+            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+          >
+            Heading
+            <span
+              class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
             >
-              
-            </i>
-            <h3
-              class="rcx-box rcx-box--full rcx-card__title rcx-css-1sfto34"
-            >
-              Heading 3
               <span
-                class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+                hidden=""
               >
-                <span
-                  hidden=""
-                >
-                  Heading info
-                </span>
-                <i
-                  aria-hidden="true"
-                  class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon rcx-css-1hq8wl6"
-                  title="Heading info"
-                >
-                  
-                </i>
+                Heading info
               </span>
-            </h3>
-          </div>
-          <div
-            class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
-          >
-            Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
-          </div>
+              <i
+                aria-hidden="true"
+                class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+                title="Heading info"
+              >
+                
+              </i>
+            </span>
+          </h4>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
+        >
+          Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
           class="rcx-card__controls"
@@ -2115,44 +2023,40 @@ exports[`[CardGroup Rendering] renders WrapAlignCenter without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
       >
         <div
-          class="rcx-card__col"
+          class="rcx-card__header"
         >
-          <div
-            class="rcx-card__header"
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
           >
-            <i
-              aria-hidden="true"
-              class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
+            
+          </i>
+          <h4
+            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+          >
+            Heading
+            <span
+              class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
             >
-              
-            </i>
-            <h3
-              class="rcx-box rcx-box--full rcx-card__title rcx-css-1sfto34"
-            >
-              Heading 3
               <span
-                class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+                hidden=""
               >
-                <span
-                  hidden=""
-                >
-                  Heading info
-                </span>
-                <i
-                  aria-hidden="true"
-                  class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon rcx-css-1hq8wl6"
-                  title="Heading info"
-                >
-                  
-                </i>
+                Heading info
               </span>
-            </h3>
-          </div>
-          <div
-            class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
-          >
-            Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
-          </div>
+              <i
+                aria-hidden="true"
+                class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+                title="Heading info"
+              >
+                
+              </i>
+            </span>
+          </h4>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
+        >
+          Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
           class="rcx-card__controls"
@@ -2183,44 +2087,40 @@ exports[`[CardGroup Rendering] renders WrapAlignCenter without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
       >
         <div
-          class="rcx-card__col"
+          class="rcx-card__header"
         >
-          <div
-            class="rcx-card__header"
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
           >
-            <i
-              aria-hidden="true"
-              class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
+            
+          </i>
+          <h4
+            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+          >
+            Heading
+            <span
+              class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
             >
-              
-            </i>
-            <h3
-              class="rcx-box rcx-box--full rcx-card__title rcx-css-1sfto34"
-            >
-              Heading 3
               <span
-                class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+                hidden=""
               >
-                <span
-                  hidden=""
-                >
-                  Heading info
-                </span>
-                <i
-                  aria-hidden="true"
-                  class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon rcx-css-1hq8wl6"
-                  title="Heading info"
-                >
-                  
-                </i>
+                Heading info
               </span>
-            </h3>
-          </div>
-          <div
-            class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
-          >
-            Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
-          </div>
+              <i
+                aria-hidden="true"
+                class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+                title="Heading info"
+              >
+                
+              </i>
+            </span>
+          </h4>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
+        >
+          Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
           class="rcx-card__controls"
@@ -2251,44 +2151,40 @@ exports[`[CardGroup Rendering] renders WrapAlignCenter without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
       >
         <div
-          class="rcx-card__col"
+          class="rcx-card__header"
         >
-          <div
-            class="rcx-card__header"
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
           >
-            <i
-              aria-hidden="true"
-              class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
+            
+          </i>
+          <h4
+            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+          >
+            Heading
+            <span
+              class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
             >
-              
-            </i>
-            <h3
-              class="rcx-box rcx-box--full rcx-card__title rcx-css-1sfto34"
-            >
-              Heading 3
               <span
-                class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+                hidden=""
               >
-                <span
-                  hidden=""
-                >
-                  Heading info
-                </span>
-                <i
-                  aria-hidden="true"
-                  class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon rcx-css-1hq8wl6"
-                  title="Heading info"
-                >
-                  
-                </i>
+                Heading info
               </span>
-            </h3>
-          </div>
-          <div
-            class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
-          >
-            Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
-          </div>
+              <i
+                aria-hidden="true"
+                class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+                title="Heading info"
+              >
+                
+              </i>
+            </span>
+          </h4>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
+        >
+          Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
           class="rcx-card__controls"
@@ -2319,44 +2215,40 @@ exports[`[CardGroup Rendering] renders WrapAlignCenter without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
       >
         <div
-          class="rcx-card__col"
+          class="rcx-card__header"
         >
-          <div
-            class="rcx-card__header"
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
           >
-            <i
-              aria-hidden="true"
-              class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
+            
+          </i>
+          <h4
+            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+          >
+            Heading
+            <span
+              class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
             >
-              
-            </i>
-            <h3
-              class="rcx-box rcx-box--full rcx-card__title rcx-css-1sfto34"
-            >
-              Heading 3
               <span
-                class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+                hidden=""
               >
-                <span
-                  hidden=""
-                >
-                  Heading info
-                </span>
-                <i
-                  aria-hidden="true"
-                  class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon rcx-css-1hq8wl6"
-                  title="Heading info"
-                >
-                  
-                </i>
+                Heading info
               </span>
-            </h3>
-          </div>
-          <div
-            class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
-          >
-            Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
-          </div>
+              <i
+                aria-hidden="true"
+                class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+                title="Heading info"
+              >
+                
+              </i>
+            </span>
+          </h4>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
+        >
+          Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
           class="rcx-card__controls"
@@ -2399,44 +2291,40 @@ exports[`[CardGroup Rendering] renders WrapStretch without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
       >
         <div
-          class="rcx-card__col"
+          class="rcx-card__header"
         >
-          <div
-            class="rcx-card__header"
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
           >
-            <i
-              aria-hidden="true"
-              class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
+            
+          </i>
+          <h4
+            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+          >
+            Heading
+            <span
+              class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
             >
-              
-            </i>
-            <h3
-              class="rcx-box rcx-box--full rcx-card__title rcx-css-1sfto34"
-            >
-              Heading 3
               <span
-                class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+                hidden=""
               >
-                <span
-                  hidden=""
-                >
-                  Heading info
-                </span>
-                <i
-                  aria-hidden="true"
-                  class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon rcx-css-1hq8wl6"
-                  title="Heading info"
-                >
-                  
-                </i>
+                Heading info
               </span>
-            </h3>
-          </div>
-          <div
-            class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
-          >
-            Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
-          </div>
+              <i
+                aria-hidden="true"
+                class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+                title="Heading info"
+              >
+                
+              </i>
+            </span>
+          </h4>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
+        >
+          Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
           class="rcx-card__controls"
@@ -2467,44 +2355,40 @@ exports[`[CardGroup Rendering] renders WrapStretch without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
       >
         <div
-          class="rcx-card__col"
+          class="rcx-card__header"
         >
-          <div
-            class="rcx-card__header"
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
           >
-            <i
-              aria-hidden="true"
-              class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
+            
+          </i>
+          <h4
+            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+          >
+            Heading
+            <span
+              class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
             >
-              
-            </i>
-            <h3
-              class="rcx-box rcx-box--full rcx-card__title rcx-css-1sfto34"
-            >
-              Heading 3
               <span
-                class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+                hidden=""
               >
-                <span
-                  hidden=""
-                >
-                  Heading info
-                </span>
-                <i
-                  aria-hidden="true"
-                  class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon rcx-css-1hq8wl6"
-                  title="Heading info"
-                >
-                  
-                </i>
+                Heading info
               </span>
-            </h3>
-          </div>
-          <div
-            class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
-          >
-            Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
-          </div>
+              <i
+                aria-hidden="true"
+                class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+                title="Heading info"
+              >
+                
+              </i>
+            </span>
+          </h4>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
+        >
+          Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
           class="rcx-card__controls"
@@ -2535,44 +2419,40 @@ exports[`[CardGroup Rendering] renders WrapStretch without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
       >
         <div
-          class="rcx-card__col"
+          class="rcx-card__header"
         >
-          <div
-            class="rcx-card__header"
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
           >
-            <i
-              aria-hidden="true"
-              class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
+            
+          </i>
+          <h4
+            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+          >
+            Heading
+            <span
+              class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
             >
-              
-            </i>
-            <h3
-              class="rcx-box rcx-box--full rcx-card__title rcx-css-1sfto34"
-            >
-              Heading 3
               <span
-                class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+                hidden=""
               >
-                <span
-                  hidden=""
-                >
-                  Heading info
-                </span>
-                <i
-                  aria-hidden="true"
-                  class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon rcx-css-1hq8wl6"
-                  title="Heading info"
-                >
-                  
-                </i>
+                Heading info
               </span>
-            </h3>
-          </div>
-          <div
-            class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
-          >
-            Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
-          </div>
+              <i
+                aria-hidden="true"
+                class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+                title="Heading info"
+              >
+                
+              </i>
+            </span>
+          </h4>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
+        >
+          Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
           class="rcx-card__controls"
@@ -2603,44 +2483,40 @@ exports[`[CardGroup Rendering] renders WrapStretch without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
       >
         <div
-          class="rcx-card__col"
+          class="rcx-card__header"
         >
-          <div
-            class="rcx-card__header"
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
           >
-            <i
-              aria-hidden="true"
-              class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
+            
+          </i>
+          <h4
+            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+          >
+            Heading
+            <span
+              class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
             >
-              
-            </i>
-            <h3
-              class="rcx-box rcx-box--full rcx-card__title rcx-css-1sfto34"
-            >
-              Heading 3
               <span
-                class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+                hidden=""
               >
-                <span
-                  hidden=""
-                >
-                  Heading info
-                </span>
-                <i
-                  aria-hidden="true"
-                  class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon rcx-css-1hq8wl6"
-                  title="Heading info"
-                >
-                  
-                </i>
+                Heading info
               </span>
-            </h3>
-          </div>
-          <div
-            class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
-          >
-            Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
-          </div>
+              <i
+                aria-hidden="true"
+                class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+                title="Heading info"
+              >
+                
+              </i>
+            </span>
+          </h4>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
+        >
+          Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
           class="rcx-card__controls"
@@ -2671,44 +2547,40 @@ exports[`[CardGroup Rendering] renders WrapStretch without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
       >
         <div
-          class="rcx-card__col"
+          class="rcx-card__header"
         >
-          <div
-            class="rcx-card__header"
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
           >
-            <i
-              aria-hidden="true"
-              class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
+            
+          </i>
+          <h4
+            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+          >
+            Heading
+            <span
+              class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
             >
-              
-            </i>
-            <h3
-              class="rcx-box rcx-box--full rcx-card__title rcx-css-1sfto34"
-            >
-              Heading 3
               <span
-                class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+                hidden=""
               >
-                <span
-                  hidden=""
-                >
-                  Heading info
-                </span>
-                <i
-                  aria-hidden="true"
-                  class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon rcx-css-1hq8wl6"
-                  title="Heading info"
-                >
-                  
-                </i>
+                Heading info
               </span>
-            </h3>
-          </div>
-          <div
-            class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
-          >
-            Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
-          </div>
+              <i
+                aria-hidden="true"
+                class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+                title="Heading info"
+              >
+                
+              </i>
+            </span>
+          </h4>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
+        >
+          Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
           class="rcx-card__controls"
@@ -2739,44 +2611,40 @@ exports[`[CardGroup Rendering] renders WrapStretch without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
       >
         <div
-          class="rcx-card__col"
+          class="rcx-card__header"
         >
-          <div
-            class="rcx-card__header"
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
           >
-            <i
-              aria-hidden="true"
-              class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
+            
+          </i>
+          <h4
+            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+          >
+            Heading
+            <span
+              class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
             >
-              
-            </i>
-            <h3
-              class="rcx-box rcx-box--full rcx-card__title rcx-css-1sfto34"
-            >
-              Heading 3
               <span
-                class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+                hidden=""
               >
-                <span
-                  hidden=""
-                >
-                  Heading info
-                </span>
-                <i
-                  aria-hidden="true"
-                  class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon rcx-css-1hq8wl6"
-                  title="Heading info"
-                >
-                  
-                </i>
+                Heading info
               </span>
-            </h3>
-          </div>
-          <div
-            class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
-          >
-            Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
-          </div>
+              <i
+                aria-hidden="true"
+                class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+                title="Heading info"
+              >
+                
+              </i>
+            </span>
+          </h4>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
+        >
+          Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
           class="rcx-card__controls"
@@ -2807,44 +2675,40 @@ exports[`[CardGroup Rendering] renders WrapStretch without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
       >
         <div
-          class="rcx-card__col"
+          class="rcx-card__header"
         >
-          <div
-            class="rcx-card__header"
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
           >
-            <i
-              aria-hidden="true"
-              class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
+            
+          </i>
+          <h4
+            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+          >
+            Heading
+            <span
+              class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
             >
-              
-            </i>
-            <h3
-              class="rcx-box rcx-box--full rcx-card__title rcx-css-1sfto34"
-            >
-              Heading 3
               <span
-                class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+                hidden=""
               >
-                <span
-                  hidden=""
-                >
-                  Heading info
-                </span>
-                <i
-                  aria-hidden="true"
-                  class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon rcx-css-1hq8wl6"
-                  title="Heading info"
-                >
-                  
-                </i>
+                Heading info
               </span>
-            </h3>
-          </div>
-          <div
-            class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
-          >
-            Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
-          </div>
+              <i
+                aria-hidden="true"
+                class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+                title="Heading info"
+              >
+                
+              </i>
+            </span>
+          </h4>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
+        >
+          Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
           class="rcx-card__controls"
@@ -2875,44 +2739,40 @@ exports[`[CardGroup Rendering] renders WrapStretch without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
       >
         <div
-          class="rcx-card__col"
+          class="rcx-card__header"
         >
-          <div
-            class="rcx-card__header"
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
           >
-            <i
-              aria-hidden="true"
-              class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
+            
+          </i>
+          <h4
+            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+          >
+            Heading
+            <span
+              class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
             >
-              
-            </i>
-            <h3
-              class="rcx-box rcx-box--full rcx-card__title rcx-css-1sfto34"
-            >
-              Heading 3
               <span
-                class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+                hidden=""
               >
-                <span
-                  hidden=""
-                >
-                  Heading info
-                </span>
-                <i
-                  aria-hidden="true"
-                  class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon rcx-css-1hq8wl6"
-                  title="Heading info"
-                >
-                  
-                </i>
+                Heading info
               </span>
-            </h3>
-          </div>
-          <div
-            class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
-          >
-            Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
-          </div>
+              <i
+                aria-hidden="true"
+                class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+                title="Heading info"
+              >
+                
+              </i>
+            </span>
+          </h4>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
+        >
+          Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
           class="rcx-card__controls"
@@ -2943,44 +2803,40 @@ exports[`[CardGroup Rendering] renders WrapStretch without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
       >
         <div
-          class="rcx-card__col"
+          class="rcx-card__header"
         >
-          <div
-            class="rcx-card__header"
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
           >
-            <i
-              aria-hidden="true"
-              class="rcx-box rcx-box--full rcx-icon--name-address-book rcx-icon rcx-css-f8dsuo"
+            
+          </i>
+          <h4
+            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+          >
+            Heading
+            <span
+              class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
             >
-              
-            </i>
-            <h3
-              class="rcx-box rcx-box--full rcx-card__title rcx-css-1sfto34"
-            >
-              Heading 3
               <span
-                class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+                hidden=""
               >
-                <span
-                  hidden=""
-                >
-                  Heading info
-                </span>
-                <i
-                  aria-hidden="true"
-                  class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon rcx-css-1hq8wl6"
-                  title="Heading info"
-                >
-                  
-                </i>
+                Heading info
               </span>
-            </h3>
-          </div>
-          <div
-            class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
-          >
-            Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
-          </div>
+              <i
+                aria-hidden="true"
+                class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+                title="Heading info"
+              >
+                
+              </i>
+            </span>
+          </h4>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
+        >
+          Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
           class="rcx-card__controls"

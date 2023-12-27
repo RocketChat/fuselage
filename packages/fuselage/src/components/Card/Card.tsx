@@ -4,14 +4,13 @@ import React from 'react';
 
 import Box from '../Box/Box';
 
-const Card = ({
-  horizontal,
-  hero,
-  ...props
-}: { horizontal?: boolean; hero?: boolean } & Omit<
-  AllHTMLAttributes<HTMLElement>,
-  'is'
->) => {
+type CardProps = {
+  horizontal?: boolean;
+  hero?: boolean;
+  clickable?: boolean;
+} & Omit<AllHTMLAttributes<HTMLElement>, 'is'>;
+
+const Card = ({ horizontal, hero, clickable, ...props }: CardProps) => {
   const breakpoints = useBreakpoints();
   const isMobile = !breakpoints.includes('sm');
 
@@ -22,6 +21,7 @@ const Card = ({
       rcx-card__vertical={!horizontal}
       rcx-card__hero={hero}
       rcx-card__horizontal--wrap={horizontal && isMobile}
+      rcx-card__clickable={clickable}
       {...props}
     />
   );
