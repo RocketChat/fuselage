@@ -22,27 +22,24 @@ export default {
   component: CardGroup,
   parameters: {
     backgrounds: { default: 'dark' },
-    layout: 'centered',
+    layout: 'padded',
     controls: { hideNoControlsWarning: true },
   },
 } as ComponentMeta<typeof CardGroup>;
 
 const CardItem = (props: ComponentProps<typeof Card>) => (
   <Card {...props}>
-    <CardCol>
-      <CardHeader>
-        <Icon name='address-book' size='x24' />
-        <CardTitle variant='h3' info='Heading info'>
-          Heading 3
-        </CardTitle>
-      </CardHeader>
-      <CardBody>
-        Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem
-        praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In
-        adipisci consequatur qui laudantium rem praesentium earum ut
-        consectetur.
-      </CardBody>
-    </CardCol>
+    <CardHeader>
+      <Icon name='address-book' size='x24' />
+      <CardTitle variant='h3' info='Heading info'>
+        Heading 3
+      </CardTitle>
+    </CardHeader>
+    <CardBody>
+      Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem
+      praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci
+      consequatur qui laudantium rem praesentium earum ut consectetur.
+    </CardBody>
     <CardControls>
       <Button medium primary>
         Button
@@ -57,10 +54,7 @@ const CardHorizontal: ComponentStory<typeof Card> = (props) => (
       <Icon name='document-eye' size='x24' />
       <CardCol>
         <CardTitle variant='h3'>Heading 3</CardTitle>
-        <CardBody>
-          Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium
-          voluptatem rem praesentium earum ut consectetur.
-        </CardBody>
+        <CardBody>Lorem ipsum dolor sit amet.</CardBody>
       </CardCol>
     </CardRow>
     <CardControls>
@@ -100,9 +94,9 @@ WrapStretch.args = {
 export const VerticalWithHorizontalCard: ComponentStory<typeof CardGroup> = (
   args
 ) => (
-  <CardGroup vertical {...args}>
+  <CardGroup vertical stretch {...args}>
     {Array.from(new Array(9)).map((_, index) => (
-      <CardHorizontal key={index} />
+      <CardHorizontal clickable key={index} width='full' />
     ))}
   </CardGroup>
 );

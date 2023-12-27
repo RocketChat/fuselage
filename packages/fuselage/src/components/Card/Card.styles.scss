@@ -2,9 +2,11 @@
 @use '../../styles/functions';
 @use '../../styles/lengths.scss';
 
-$card-spacing: lengths.margin(4);
+$card-spacing: lengths.margin(8);
 $card-vertical-padding: lengths.padding(20);
+$card-vertical-gap: lengths.margin(24);
 $card-horizontal-padding: lengths.padding(12);
+$card-horizontal-gap: lengths.padding(16);
 $card-hero-padding: lengths.padding(28);
 
 .rcx-card {
@@ -27,40 +29,35 @@ $card-hero-padding: lengths.padding(28);
       background-color: colors.surface(hover);
     }
   }
+
+  &__header,
+  &__title,
+  &__controls,
+  &__body,
+  &__row,
+  &__col {
+    gap: $card-spacing;
+  }
+
+  &__controls {
+    align-items: center;
+  }
 }
 
 // Card horizontal
 .rcx-card__horizontal {
-  justify-content: center;
   align-items: center;
 
   padding: $card-horizontal-padding;
+  gap: $card-horizontal-gap;
 
   .rcx-card__controls {
     justify-content: flex-end;
-    align-items: center;
-
-    margin-inline-start: lengths.margin(16);
-  }
-
-  .rcx-card__row,
-  .rcx-card__header,
-  .rcx-card__controls {
-    & > * {
-      margin-inline: $card-spacing;
-    }
+    flex-shrink: 0;
   }
 
   &--wrap {
-    flex-direction: column;
-    align-items: flex-start;
-
-    .rcx-card__controls {
-      justify-content: flex-start;
-
-      margin-block-start: lengths.margin(16);
-      margin-inline-start: lengths.margin(none);
-    }
+    flex-wrap: wrap;
   }
 }
 
@@ -69,56 +66,12 @@ $card-hero-padding: lengths.padding(28);
   flex-direction: column;
 
   padding: $card-vertical-padding;
-
-  > .rcx-card__col,
-  > .rcx-card__row,
-  .rcx-card__header,
-  .rcx-card__controls {
-    & > * {
-      margin-inline: $card-spacing;
-    }
-  }
-
-  .rcx-card__row {
-    margin-block-end: $card-spacing;
-
-    &:last-child {
-      margin-block-end: lengths.margin(none);
-    }
-  }
-
-  .rcx-card__controls {
-    align-items: flex-end;
-    flex-grow: 1;
-  }
-
-  .rcx-card__body {
-    margin-block: lengths.margin(24);
-    margin-inline: lengths.margin(none);
-  }
-
-  .rcx-card__header {
-    margin: lengths.margin(none);
-  }
+  gap: $card-vertical-gap;
 }
 
 // Card hero
 .rcx-card__hero {
   padding: $card-hero-padding;
-}
-
-// Remove margin from first and last child of a group
-.rcx-card__header,
-.rcx-card__col,
-.rcx-card__row,
-.rcx-card__controls {
-  & > :first-child {
-    margin-inline-start: lengths.margin(none);
-  }
-
-  & > :last-child {
-    margin-inline-end: lengths.margin(none);
-  }
 }
 
 .rcx-card__title,
@@ -129,11 +82,12 @@ $card-hero-padding: lengths.padding(28);
   align-items: center;
 }
 
-.rcx-card__controls {
-  flex-grow: 1;
-}
-
 .rcx-card__col {
   display: flex;
   flex-direction: column;
+}
+
+.rcx-card__row {
+  // flex-grow: 1;
+  // flex-shrink: 1;
 }

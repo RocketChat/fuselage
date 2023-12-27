@@ -16,7 +16,7 @@ const CardTitle = ({
 } & Omit<AllHTMLAttributes<HTMLElement>, 'is'>) => (
   <Box fontScale={variant} is={variant} rcx-card__title {...props}>
     {children}
-    {info && <LabelInfo title={info} mis={2} />}
+    {info && <LabelInfo title={info} />}
   </Box>
 );
 
