@@ -1,4 +1,5 @@
 import type { Keys } from '@rocket.chat/icons';
+import type { AllHTMLAttributes } from 'react';
 import React from 'react';
 
 import { Icon } from '../Icon';
@@ -10,7 +11,7 @@ type FramedIconProps = {
   danger?: boolean;
   neutral?: boolean;
   icon: Keys;
-};
+} & Omit<AllHTMLAttributes<HTMLElement>, 'is'>;
 
 export const FramedIcon = ({
   info,
@@ -19,8 +20,10 @@ export const FramedIcon = ({
   danger,
   neutral,
   icon,
+  ...props
 }: FramedIconProps) => (
   <Icon
+    {...props}
     rcx-framed-icon
     rcx-framed-icon--info={info}
     rcx-framed-icon--success={success}
