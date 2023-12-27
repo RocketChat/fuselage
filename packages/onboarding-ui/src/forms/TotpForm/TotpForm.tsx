@@ -89,7 +89,7 @@ const TotpForm = ({
       </Form.Container>
       <Form.Footer>
         <TotpActionsWrapper>
-          <Button type='submit' disabled={isValidating || isSubmitting} primary>
+          <Button type='submit' loading={isValidating || isSubmitting} primary>
             {t('form.totpForm.button.text')}
           </Button>
           <ActionLink fontScale='p2' onClick={onChangeTotpForm}>

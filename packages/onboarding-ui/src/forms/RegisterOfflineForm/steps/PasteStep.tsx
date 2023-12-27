@@ -62,7 +62,8 @@ const PasteStep = ({ setStep }: PasteStepProps): ReactElement => {
             <Button
               type='submit'
               primary
-              disabled={isSubmitting || isValidating || isSubmitSuccessful}
+              loading={isSubmitting || isValidating}
+              disabled={isSubmitSuccessful}
             >
               {t('component.form.action.completeRegistration')}
             </Button>

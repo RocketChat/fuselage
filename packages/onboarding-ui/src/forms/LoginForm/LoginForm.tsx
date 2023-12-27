@@ -99,7 +99,8 @@ const LoginForm = ({
         <LoginActionsWrapper>
           <Button
             type='submit'
-            disabled={!isDirty || isValidating || isSubmitting}
+            loading={isValidating || isSubmitting}
+            disabled={!isDirty}
             primary
           >
             {isPasswordLess

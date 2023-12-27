@@ -236,7 +236,7 @@ const OrganizationInfoForm = ({
               {t('component.form.action.back')}
             </Button>
           )}
-          <Button type='submit' primary disabled={isValidating || isSubmitting}>
+          <Button type='submit' primary loading={isValidating || isSubmitting}>
             {nextStep ?? t('component.form.action.next')}
           </Button>
           {onClickSkip && (

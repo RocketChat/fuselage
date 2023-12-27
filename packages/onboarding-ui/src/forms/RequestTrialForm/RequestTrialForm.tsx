@@ -203,7 +203,8 @@ const RequestTrialForm = ({
         <Button
           type='submit'
           primary
-          disabled={isValidating || isSubmitting || !isValid}
+          loading={isValidating || isSubmitting}
+          disabled={!isValid}
         >
           {t('form.requestTrialForm.button.text')}
         </Button>
