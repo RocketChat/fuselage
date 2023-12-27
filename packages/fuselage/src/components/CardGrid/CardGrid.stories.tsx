@@ -4,14 +4,7 @@ import React from 'react';
 
 import { CardGrid } from '.';
 import { Button } from '../Button';
-import {
-  Card,
-  CardBody,
-  CardCol,
-  CardControls,
-  CardHeader,
-  CardTitle,
-} from '../Card';
+import { Card, CardBody, CardControls, CardHeader, CardTitle } from '../Card';
 import { Icon } from '../Icon';
 
 export default {
@@ -26,20 +19,17 @@ export default {
 
 const CardItem = (props: ComponentProps<typeof Card>) => (
   <Card {...props}>
-    <CardCol>
-      <CardHeader>
-        <Icon name='address-book' size='x24' />
-        <CardTitle variant='h3' info='Heading info'>
-          Heading 3
-        </CardTitle>
-      </CardHeader>
-      <CardBody>
-        Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem
-        praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In
-        adipisci consequatur qui laudantium rem praesentium earum ut
-        consectetur.
-      </CardBody>
-    </CardCol>
+    <CardHeader>
+      <Icon name='address-book' size='x24' />
+      <CardTitle variant='h3' info='Heading info'>
+        Heading 3
+      </CardTitle>
+    </CardHeader>
+    <CardBody>
+      Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem
+      praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci
+      consequatur qui laudantium rem praesentium earum ut consectetur.
+    </CardBody>
     <CardControls>
       <Button medium primary>
         Button

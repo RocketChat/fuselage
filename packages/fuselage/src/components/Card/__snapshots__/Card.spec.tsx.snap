@@ -580,7 +580,11 @@ exports[`[Card Rendering] renders VerticalCustom without crashing 1`] = `
             >
               
             </i>
-             Lorem ipsum dolor sit amet.
+            <div
+              class="rcx-box rcx-box--full rcx-css-ws1yyr"
+            >
+              Lorem ipsum dolor sit amet.
+            </div>
           </span>
           <span
             class="rcx-box rcx-box--full rcx-css-127j9mz"
@@ -591,7 +595,11 @@ exports[`[Card Rendering] renders VerticalCustom without crashing 1`] = `
             >
               
             </i>
-             Lorem ipsum dolor sit amet.
+            <div
+              class="rcx-box rcx-box--full rcx-css-ws1yyr"
+            >
+              Lorem ipsum dolor sit amet.
+            </div>
           </span>
           <span
             class="rcx-box rcx-box--full rcx-css-127j9mz"
@@ -602,7 +610,11 @@ exports[`[Card Rendering] renders VerticalCustom without crashing 1`] = `
             >
               
             </i>
-             Lorem ipsum dolor sit amet.
+            <div
+              class="rcx-box rcx-box--full rcx-css-ws1yyr"
+            >
+              Lorem ipsum dolor sit amet.
+            </div>
           </span>
         </div>
         <div
@@ -613,33 +625,45 @@ exports[`[Card Rendering] renders VerticalCustom without crashing 1`] = `
           >
             <i
               aria-hidden="true"
-              class="rcx-box rcx-box--full rcx-framed-icon--success rcx-framed-icon rcx-icon--name-check rcx-icon rcx-css-1bepdyv"
+              class="rcx-box rcx-box--full rcx-framed-icon--danger rcx-framed-icon rcx-icon--name-cross rcx-icon rcx-css-1bepdyv"
             >
-              
+              
             </i>
-             Lorem ipsum dolor sit amet.
+            <div
+              class="rcx-box rcx-box--full rcx-css-ws1yyr"
+            >
+              Lorem ipsum dolor sit amet.
+            </div>
           </span>
           <span
             class="rcx-box rcx-box--full rcx-css-127j9mz"
           >
             <i
               aria-hidden="true"
-              class="rcx-box rcx-box--full rcx-framed-icon--success rcx-framed-icon rcx-icon--name-check rcx-icon rcx-css-1bepdyv"
+              class="rcx-box rcx-box--full rcx-framed-icon--danger rcx-framed-icon rcx-icon--name-cross rcx-icon rcx-css-1bepdyv"
             >
-              
+              
             </i>
-             Lorem ipsum dolor sit amet.
+            <div
+              class="rcx-box rcx-box--full rcx-css-ws1yyr"
+            >
+              Lorem ipsum dolor sit amet.
+            </div>
           </span>
           <span
             class="rcx-box rcx-box--full rcx-css-127j9mz"
           >
             <i
               aria-hidden="true"
-              class="rcx-box rcx-box--full rcx-framed-icon--success rcx-framed-icon rcx-icon--name-check rcx-icon rcx-css-1bepdyv"
+              class="rcx-box rcx-box--full rcx-framed-icon--danger rcx-framed-icon rcx-icon--name-cross rcx-icon rcx-css-1bepdyv"
             >
-              
+              
             </i>
-             Lorem ipsum dolor sit amet.
+            <div
+              class="rcx-box rcx-box--full rcx-css-ws1yyr"
+            >
+              Lorem ipsum dolor sit amet.
+            </div>
           </span>
         </div>
       </div>

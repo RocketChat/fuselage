@@ -31,9 +31,7 @@ const CardItem = (props: ComponentProps<typeof Card>) => (
   <Card {...props}>
     <CardHeader>
       <Icon name='address-book' size='x24' />
-      <CardTitle variant='h3' info='Heading info'>
-        Heading 3
-      </CardTitle>
+      <CardTitle info='Heading info'>Heading</CardTitle>
     </CardHeader>
     <CardBody>
       Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem

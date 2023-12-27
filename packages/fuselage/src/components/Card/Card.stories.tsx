@@ -93,14 +93,16 @@ export const VerticalCustom: ComponentStory<typeof Card> = () => (
       <CardCol>
         {Array.from(new Array(3)).map((_, index) => (
           <Box is='span' display='flex' alignItems='center' key={index}>
-            <FramedIcon icon='check' success /> Lorem ipsum dolor sit amet.
+            <FramedIcon icon='check' success />
+            <Box mis={8}>Lorem ipsum dolor sit amet.</Box>
           </Box>
         ))}
       </CardCol>
       <CardCol>
         {Array.from(new Array(3)).map((_, index) => (
           <Box is='span' display='flex' alignItems='center' key={index}>
-            <FramedIcon icon='check' success /> Lorem ipsum dolor sit amet.
+            <FramedIcon icon='cross' danger />
+            <Box mis={8}>Lorem ipsum dolor sit amet.</Box>
           </Box>
         ))}
       </CardCol>
