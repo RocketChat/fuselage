@@ -41,7 +41,7 @@ exports[`[CardGrid Rendering] renders _CardGrid without crashing 1`] = `
                     </span>
                     <i
                       aria-hidden="true"
-                      class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon rcx-css-1hq8wl6"
+                      class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
                       title="Heading info"
                     >
                       
@@ -113,7 +113,7 @@ exports[`[CardGrid Rendering] renders _CardGrid without crashing 1`] = `
                     </span>
                     <i
                       aria-hidden="true"
-                      class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon rcx-css-1hq8wl6"
+                      class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
                       title="Heading info"
                     >
                       
@@ -185,7 +185,7 @@ exports[`[CardGrid Rendering] renders _CardGrid without crashing 1`] = `
                     </span>
                     <i
                       aria-hidden="true"
-                      class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon rcx-css-1hq8wl6"
+                      class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
                       title="Heading info"
                     >
                       
@@ -257,7 +257,7 @@ exports[`[CardGrid Rendering] renders _CardGrid without crashing 1`] = `
                     </span>
                     <i
                       aria-hidden="true"
-                      class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon rcx-css-1hq8wl6"
+                      class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
                       title="Heading info"
                     >
                       
@@ -329,7 +329,7 @@ exports[`[CardGrid Rendering] renders _CardGrid without crashing 1`] = `
                     </span>
                     <i
                       aria-hidden="true"
-                      class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon rcx-css-1hq8wl6"
+                      class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
                       title="Heading info"
                     >
                       
@@ -401,7 +401,7 @@ exports[`[CardGrid Rendering] renders _CardGrid without crashing 1`] = `
                     </span>
                     <i
                       aria-hidden="true"
-                      class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon rcx-css-1hq8wl6"
+                      class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
                       title="Heading info"
                     >
                       
@@ -473,7 +473,7 @@ exports[`[CardGrid Rendering] renders _CardGrid without crashing 1`] = `
                     </span>
                     <i
                       aria-hidden="true"
-                      class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon rcx-css-1hq8wl6"
+                      class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
                       title="Heading info"
                     >
                       
@@ -545,7 +545,7 @@ exports[`[CardGrid Rendering] renders _CardGrid without crashing 1`] = `
                     </span>
                     <i
                       aria-hidden="true"
-                      class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon rcx-css-1hq8wl6"
+                      class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
                       title="Heading info"
                     >
                       
@@ -617,7 +617,7 @@ exports[`[CardGrid Rendering] renders _CardGrid without crashing 1`] = `
                     </span>
                     <i
                       aria-hidden="true"
-                      class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon rcx-css-1hq8wl6"
+                      class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
                       title="Heading info"
                     >
                       
