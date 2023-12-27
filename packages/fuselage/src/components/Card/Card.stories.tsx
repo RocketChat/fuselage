@@ -140,7 +140,7 @@ export const Horizontal: ComponentStory<typeof Card> = () => (
 );
 
 export const Clickable: ComponentStory<typeof Card> = () => (
-  <Card horizontal>
+  <Card horizontal clickable>
     <CardRow>
       <FramedIcon icon='document-eye' info />
       <CardCol>
