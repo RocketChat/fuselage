@@ -1,4 +1,4 @@
-import type { RefCallback } from 'react';
+import type { RefCallback, RefObject } from 'react';
 import { useRef, useState, useCallback } from 'react';
 
 import {
@@ -6,12 +6,19 @@ import {
   extractBorderBoxSizeFromObserver,
 } from './extractSizeFromObserver';
 import { useDebouncedState } from './useDebouncedState';
+import { useMergedRefs } from './useMergedRefs';
 
 /**
  * @ignore
  */
 type UseResizeObserverOptions = {
   debounceDelay?: number;
+};
+
+type UseResizeObserverReturnType<T> = {
+  ref: RefObject<T>;
+  contentBoxSize: Partial<ResizeObserverSize>;
+  borderBoxSize: Partial<ResizeObserverSize>;
 };
 
 /**
@@ -25,11 +32,7 @@ export const useResizeObserver =
   typeof window !== 'undefined'
     ? <T extends Element>({
         debounceDelay = 0,
-      }: UseResizeObserverOptions = {}): {
-        ref: RefCallback<T>;
-        contentBoxSize: Partial<ResizeObserverSize>;
-        borderBoxSize: Partial<ResizeObserverSize>;
-      } => {
+      }: UseResizeObserverOptions = {}): UseResizeObserverReturnType<T> => {
         const [{ borderBoxSize, contentBoxSize }, setSizes] =
           useDebouncedState<{
             borderBoxSize: Partial<ResizeObserverSize>;
@@ -58,7 +61,9 @@ export const useResizeObserver =
             })
         );
 
-        const ref = useCallback(
+        const ref = useRef<T>();
+
+        const callbackRef: RefCallback<T> = useCallback(
           (node: T | null) => {
             if (node === null) {
               observer.disconnect();
@@ -70,10 +75,16 @@ export const useResizeObserver =
           [observer]
         );
 
-        return { ref, contentBoxSize, borderBoxSize };
+        return {
+          ref: useMergedRefs(ref, callbackRef) as unknown as RefObject<T>,
+          contentBoxSize,
+          borderBoxSize,
+        };
       }
-    : (_props: UseResizeObserverOptions = {}) => {
-        const ref = useRef();
+    : <T extends Element>(
+        _props: UseResizeObserverOptions = {}
+      ): UseResizeObserverReturnType<T> => {
+        const ref = useRef<T>() as RefObject<T>;
 
         return {
           ref,
