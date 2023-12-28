@@ -1,5 +1,15 @@
 # Change Log
 
+## 0.41.0
+
+### Minor Changes
+
+- [#1249](https://github.com/RocketChat/fuselage/pull/1249) [`55fb265df`](https://github.com/RocketChat/fuselage/commit/55fb265df90f0a4ad309482fc2e16f111fddae9d) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage): `FramedIcon` new component
+
+### Patch Changes
+
+- [#1255](https://github.com/RocketChat/fuselage/pull/1255) [`84b486f63`](https://github.com/RocketChat/fuselage/commit/84b486f63c12de17d9ed4c316b58e86c3f1a884e) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): `FramedIcon` HTMLAttributes props
+
 ## 0.40.0
 
 ### Minor Changes
