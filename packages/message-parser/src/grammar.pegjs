@@ -369,7 +369,7 @@ Italic
 
 ItalicContent = text:ItalicContentItems { return italic(text); }
 
-ItalicContentItems = text:ItalicContentItem+ { console.log("Italic Content", text); return reducePlainTexts(text); }
+ItalicContentItems = text:ItalicContentItem+ { return reducePlainTexts(text); }
 
 ItalicContentItem
   = Whitespace
@@ -395,7 +395,6 @@ BoldContentItem = Whitespace / InlineCode / References / UserMention / ChannelMe
 Strikethrough = [\x7E] [\x7E] @StrikethroughContent [\x7E] [\x7E] / [\x7E] @StrikethroughContent [\x7E]
 
 StrikethroughContent = text:(InlineCode / Whitespace / References / UserMention / ChannelMention / Italic / Bold / Emoji / Emoticon / AnyStrike / Line)+ {
-      console.log("Strike Through Content -> ", text )
       return strike(reducePlainTexts(text));
     }
 
@@ -630,9 +629,7 @@ UnicodeEmojiFlags = $([\uD83C] [\uDD00-\uDDFF] [\uD83C] [\uDD00-\uDDFF])
  * e.g: `console.log('hello world')`
  *
  */
-InlineCode = "`" text:$InlineCode__+ "`" { 
-  console.log("Inline Code => ",text)
-  return inlineCode(plain(text)); }
+InlineCode = "`" text:$InlineCode__+ "`" { return inlineCode(plain(text)); }
 
 InlineCode__ = $(!"`" !"\n" .)
 
