@@ -369,10 +369,11 @@ Italic
 
 ItalicContent = text:ItalicContentItems { return italic(text); }
 
-ItalicContentItems = text:ItalicContentItem+ { return reducePlainTexts(text); }
+ItalicContentItems = text:ItalicContentItem+ { console.log("Italic Content", text); return reducePlainTexts(text); }
 
 ItalicContentItem
   = Whitespace
+  / InlineCode
   / References
   / UserMention
   / ChannelMention
@@ -388,12 +389,13 @@ Bold = [\x2A] [\x2A] @BoldContent [\x2A] [\x2A] / [\x2A] @BoldContent [\x2A]
 
 BoldContent = text:BoldContentItem+ { return bold(reducePlainTexts(text)); }
 
-BoldContentItem = Whitespace / References / UserMention / ChannelMention / Italic / Strikethrough / Emoji / Emoticon / AnyBold / Line
+BoldContentItem = Whitespace / InlineCode / References / UserMention / ChannelMention / Italic / Strikethrough / Emoji / Emoticon / AnyBold / Line
 
 /* Strike */
 Strikethrough = [\x7E] [\x7E] @StrikethroughContent [\x7E] [\x7E] / [\x7E] @StrikethroughContent [\x7E]
 
-StrikethroughContent = text:(Whitespace / References / UserMention / ChannelMention / Italic / Bold / Emoji / Emoticon / AnyStrike / Line)+ {
+StrikethroughContent = text:(InlineCode / Whitespace / References / UserMention / ChannelMention / Italic / Bold / Emoji / Emoticon / AnyStrike / Line)+ {
+      console.log("Strike Through Content -> ", text )
       return strike(reducePlainTexts(text));
     }
 
@@ -423,16 +425,17 @@ ItalicContentItemForReferences
   / Emoticon
   / AnyItalic
   / Line
+  / InlineCode
 
 /* Bold for References */
 BoldForReferences = [\x2A] [\x2A] @BoldContentForReferences [\x2A] [\x2A] / [\x2A] @BoldContentForReferences [\x2A]
 
-BoldContentForReferences = text:(Whitespace / UserMention / ChannelMention / ItalicForReferences / StrikethroughForReferences / Emoji / Emoticon / AnyBold / Line)+ { return bold(reducePlainTexts(text)); }
+BoldContentForReferences = text:(Whitespace / UserMention / ChannelMention / ItalicForReferences / StrikethroughForReferences / Emoji / Emoticon / AnyBold / Line / InlineCode)+ { return bold(reducePlainTexts(text)); }
 
 /* Strike for References */
 StrikethroughForReferences = [\x7E] [\x7E] @StrikethroughContentForReferences [\x7E] [\x7E] / [\x7E] @StrikethroughContentForReferences [\x7E]
 
-StrikethroughContentForReferences = text:(Whitespace / UserMention / ChannelMention / ItalicForReferences / BoldForReferences / Emoji / Emoticon / AnyStrike / Line)+ {
+StrikethroughContentForReferences = text:(Whitespace / UserMention / ChannelMention / ItalicForReferences / BoldForReferences / Emoji / Emoticon / AnyStrike / Line / InlineCode)+ {
       return strike(reducePlainTexts(text));
     }
 
@@ -627,7 +630,9 @@ UnicodeEmojiFlags = $([\uD83C] [\uDD00-\uDDFF] [\uD83C] [\uDD00-\uDDFF])
  * e.g: `console.log('hello world')`
  *
  */
-InlineCode = "`" text:$InlineCode__+ "`" { return inlineCode(plain(text)); }
+InlineCode = "`" text:$InlineCode__+ "`" { 
+  console.log("Inline Code => ",text)
+  return inlineCode(plain(text)); }
 
 InlineCode__ = $(!"`" !"\n" .)
 
