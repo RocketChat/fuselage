@@ -30,7 +30,7 @@ Simple.args = {
     makeAdmin: {
       label: (
         <Box display='flex' alignItems='center'>
-          <Icon mie='x4' name='key' size='x16' />
+          <Icon mie={4} name='key' size='x16' />
           Make Admin
         </Box>
       ),
@@ -39,7 +39,7 @@ Simple.args = {
     delete: {
       label: (
         <Box display='flex' alignItems='center' color='danger'>
-          <Icon mie='x4' name='trash' size='x16' />
+          <Icon mie={4} name='trash' size='x16' />
           Delete
         </Box>
       ),
@@ -71,7 +71,7 @@ Complex.args = {
       type: 'option',
       label: (
         <Box display='flex' alignItems='center' color='danger'>
-          <Icon mie='x4' name='trash' size='x16' />
+          <Icon mie={4} name='trash' size='x16' />
           Delete
         </Box>
       ),

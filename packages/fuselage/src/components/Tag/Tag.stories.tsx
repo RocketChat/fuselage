@@ -71,7 +71,7 @@ Featured.args = {
 
 export const WithIcon = Template.bind({});
 WithIcon.args = {
-  icon: <Icon size='x12' mie='x4' name='team-lock' />,
+  icon: <Icon size='x12' mie={4} name='team-lock' />,
   children: 'Team',
 };
 
@@ -93,4 +93,9 @@ Medium.args = {
 export const Large = Template.bind({});
 Large.args = {
   large: true,
+};
+
+export const AsLink = Template.bind({});
+AsLink.args = {
+  href: '#',
 };

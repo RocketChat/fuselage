@@ -2,7 +2,6 @@
 @use '../lengths';
 
 @import '../mixins/states.scss';
-@import '../mixins/states.scss';
 @import '../mixins/shadows.scss';
 @import '../variables/button-colors';
 
@@ -43,5 +42,9 @@
     color: map.get($colors, disabled-color);
     border-color: map.get($colors, disabled-border-color);
     background-color: map.get($colors, disabled-background-color);
+
+    .rcx-button--content {
+      transform: none !important;
+    }
   }
 }

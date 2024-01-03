@@ -4,6 +4,9 @@ import {
   NumberInput,
   TextInput,
   Button,
+  FieldLabel,
+  FieldRow,
+  FieldError,
 } from '@rocket.chat/fuselage';
 import { ActionLink, Form } from '@rocket.chat/layout';
 import type { ReactElement } from 'react';
@@ -50,15 +53,15 @@ const TotpForm = ({
         <FieldGroup>
           <Field>
             {isBackupCode ? (
-              <Field.Label>
+              <FieldLabel>
                 {t('form.totpForm.fields.backupCode.label')}
-              </Field.Label>
+              </FieldLabel>
             ) : (
-              <Field.Label>
+              <FieldLabel>
                 {t('form.totpForm.fields.totpCode.label')}
-              </Field.Label>
+              </FieldLabel>
             )}
-            <Field.Row>
+            <FieldRow>
               {isBackupCode ? (
                 <TextInput
                   {...register('backupCode', {
@@ -74,19 +77,19 @@ const TotpForm = ({
                   placeholder={t('form.totpForm.fields.totpCode.placeholder')}
                 />
               )}
-            </Field.Row>
+            </FieldRow>
             {errors.backupCode && (
-              <Field.Error>{errors.backupCode.message}</Field.Error>
+              <FieldError>{errors.backupCode.message}</FieldError>
             )}
             {errors.totpCode && (
-              <Field.Error>{errors.totpCode.message}</Field.Error>
+              <FieldError>{errors.totpCode.message}</FieldError>
             )}
           </Field>
         </FieldGroup>
       </Form.Container>
       <Form.Footer>
         <TotpActionsWrapper>
-          <Button type='submit' disabled={isValidating || isSubmitting} primary>
+          <Button type='submit' loading={isValidating || isSubmitting} primary>
             {t('form.totpForm.button.text')}
           </Button>
           <ActionLink fontScale='p2' onClick={onChangeTotpForm}>

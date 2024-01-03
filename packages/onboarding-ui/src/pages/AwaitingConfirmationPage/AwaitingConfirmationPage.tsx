@@ -1,55 +1,50 @@
-import { Box } from '@rocket.chat/fuselage';
-import colors from '@rocket.chat/fuselage-tokens/colors.json';
-import {
-  HeroLayout,
-  HeroLayoutTitle,
-  HeroLayoutSubtitle,
-} from '@rocket.chat/layout';
-import type { ReactElement } from 'react';
-import { useTranslation } from 'react-i18next';
+import { BackgroundLayer } from '@rocket.chat/layout';
+import type { ReactElement, ReactNode } from 'react';
 
-import EmailCodeFallback from '../../common/EmailCodeFallback';
+import type { FormPageLayoutStyleProps } from '../../Types';
+import FormPageLayout from '../../common/FormPageLayout';
+import AwaitingConfirmationForm from '../../forms/AwaitConfirmationForm';
 
 type AwaitingConfirmationPageProps = {
+  title?: ReactNode;
+  description?: ReactNode;
+  currentStep: number;
+  stepCount: number;
   emailAddress: string;
   securityCode: string;
   onResendEmailRequest: () => void;
   onChangeEmailRequest: () => void;
 };
 
+const pageLayoutStyleProps: FormPageLayoutStyleProps = {
+  justifyContent: 'center',
+};
+
 const AwaitingConfirmationPage = ({
+  title,
+  description,
+  currentStep,
+  stepCount,
   securityCode,
   emailAddress,
   onResendEmailRequest,
   onChangeEmailRequest,
-}: AwaitingConfirmationPageProps): ReactElement => {
-  const { t } = useTranslation();
-
-  return (
-    <HeroLayout>
-      <HeroLayoutTitle>{t('page.awaitingConfirmation.title')}</HeroLayoutTitle>
-      <HeroLayoutSubtitle>
-        {t('page.awaitingConfirmation.subtitle', { emailAddress })}
-      </HeroLayoutSubtitle>
-
-      <Box
-        maxWidth={498}
-        padding='x18'
-        width='full'
-        fontSize='x22'
-        lineHeight='x32'
-        backgroundColor={colors.n700}
-        borderRadius='x3'
-      >
-        {securityCode}
-      </Box>
-
-      <EmailCodeFallback
+}: AwaitingConfirmationPageProps): ReactElement => (
+  <BackgroundLayer>
+    <FormPageLayout
+      title={title}
+      styleProps={pageLayoutStyleProps}
+      description={description}
+    >
+      <AwaitingConfirmationForm
+        currentStep={currentStep}
+        stepCount={stepCount}
+        securityCode={securityCode}
+        emailAddress={emailAddress}
         onResendEmailRequest={onResendEmailRequest}
         onChangeEmailRequest={onChangeEmailRequest}
       />
-    </HeroLayout>
-  );
-};
-
+    </FormPageLayout>
+  </BackgroundLayer>
+);
 export default AwaitingConfirmationPage;

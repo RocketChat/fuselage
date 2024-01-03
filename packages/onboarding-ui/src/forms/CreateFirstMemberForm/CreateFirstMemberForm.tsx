@@ -7,6 +7,9 @@ import {
   PasswordInput,
   TextInput,
   Throbber,
+  FieldLabel,
+  FieldRow,
+  FieldError,
 } from '@rocket.chat/fuselage';
 import { Form } from '@rocket.chat/layout';
 import type { ReactElement } from 'react';
@@ -56,14 +59,14 @@ const CreateFirstMemberForm = ({
         {t('form.createFirstMemberForm.subtitle', { organizationName })}
       </Form.Subtitle>
 
-      <FieldGroup mbs='x16'>
+      <FieldGroup mbs={16}>
         <Field>
-          <Field.Label>
-            <Box display='inline' mie='x8'>
+          <FieldLabel>
+            <Box display='inline' mie={8}>
               {t('form.createFirstMemberForm.fields.username.label')}
             </Box>
-          </Field.Label>
-          <Field.Row>
+          </FieldLabel>
+          <FieldRow>
             <TextInput
               {...register('username', {
                 validate: validateUsername,
@@ -72,17 +75,17 @@ const CreateFirstMemberForm = ({
               defaultValue={defaultValues?.username}
               error={errors?.username?.type || undefined}
             />
-          </Field.Row>
+          </FieldRow>
           {errors?.username && (
-            <Field.Error>{errors.username.message}</Field.Error>
+            <FieldError>{errors.username.message}</FieldError>
           )}
         </Field>
 
         <Field>
-          <Field.Label>
+          <FieldLabel>
             {t('form.createFirstMemberForm.fields.password.label')}
-          </Field.Label>
-          <Field.Row>
+          </FieldLabel>
+          <FieldRow>
             <PasswordInput
               {...register('password', {
                 validate: validatePassword,
@@ -90,9 +93,9 @@ const CreateFirstMemberForm = ({
               })}
               defaultValue={defaultValues?.password}
             />
-          </Field.Row>
+          </FieldRow>
           {errors.password && (
-            <Field.Error>{errors.password.message}</Field.Error>
+            <FieldError>{errors.password.message}</FieldError>
           )}
         </Field>
       </FieldGroup>
@@ -106,7 +109,8 @@ const CreateFirstMemberForm = ({
           <Button
             type='submit'
             primary
-            disabled={isValidating || isSubmitting || !isValid}
+            disabled={!isValid}
+            loading={isSubmitting || isValidating}
             minHeight='x40'
           >
             {isSubmitting ? (

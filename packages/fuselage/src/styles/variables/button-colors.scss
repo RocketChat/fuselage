@@ -37,7 +37,7 @@ $button-primary-focus-border-color: theme(
 );
 $button-primary-focus-shadow-color: theme(
   'button-primary-focus-shadow-color',
-  colors.stroke(light)
+  colors.shadow(highlight)
 );
 $button-primary-disabled-background-color: theme(
   'button-primary-disabled-background-color',
@@ -91,7 +91,7 @@ $button-secondary-focus-border-color: theme(
 );
 $button-secondary-focus-shadow-color: theme(
   'button-secondary-focus-shadow-color',
-  colors.stroke(light)
+  colors.shadow(highlight)
 );
 $button-secondary-disabled-background-color: theme(
   'button-secondary-disabled-background-color',
@@ -142,7 +142,7 @@ $button-danger-focus-border-color: theme(
 );
 $button-danger-focus-shadow-color: theme(
   'button-danger-focus-shadow-color',
-  colors.stroke(light)
+  colors.shadow(extra-light-error)
 );
 $button-danger-disabled-background-color: theme(
   'button-danger-disabled-background-color',
@@ -196,7 +196,7 @@ $button-secondary-danger-focus-border-color: theme(
 );
 $button-secondary-danger-focus-shadow-color: theme(
   'button-secondary-danger-focus-shadow-color',
-  colors.stroke(light)
+  colors.shadow(extra-light-error)
 );
 $button-secondary-danger-disabled-background-color: theme(
   'button-secondary-danger-disabled-background-color',
@@ -457,7 +457,7 @@ $button-empty-focus-border-color: theme(
 );
 $button-empty-focus-shadow-color: theme(
   'button-empty-focus-shadow-color',
-  colors.stroke(light)
+  colors.shadow(highlight)
 );
 $button-empty-disabled-background-color: theme(
   'button-empty-disabled-background-color',

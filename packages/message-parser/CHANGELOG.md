@@ -1,5 +1,17 @@
 # Change Log
 
+## 0.31.27
+
+### Patch Changes
+
+- [`a029dce78`](https://github.com/RocketChat/fuselage/commit/a029dce78935d8bba5cb5b09e251483fe8eabcb3) Thanks [@yash-rajpal](https://github.com/yash-rajpal)! - Stop accepting `[` in link titles
+
+## 0.31.26
+
+### Patch Changes
+
+- [#1215](https://github.com/RocketChat/fuselage/pull/1215) [`684b73ca3`](https://github.com/RocketChat/fuselage/commit/684b73ca3b1e7c72f21f6dff23bfe46981ba472a) Thanks [@brf153](https://github.com/brf153)! - Added ChannelMention in the markup inside message-parser
+
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 

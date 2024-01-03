@@ -1,8 +1,6 @@
 import type { AllHTMLAttributes } from 'react';
 import React from 'react';
 
-import { useStyleSheet } from '../../hooks/useStyleSheet';
-import styleSheet from './StatusBullet.styles.scss';
 import Away from './icons/Away';
 import Busy from './icons/Busy';
 import Disabled from './icons/Disabled';
@@ -16,8 +14,6 @@ export type StatusBulletProps = {
 } & Omit<AllHTMLAttributes<SVGElement>, 'size'>;
 
 const StatusBullet = ({ status = 'loading', ...props }: StatusBulletProps) => {
-  useStyleSheet(styleSheet);
-
   switch (status) {
     case 'online':
       return <Online {...props} />;

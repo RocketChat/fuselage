@@ -2,76 +2,102 @@
 @use '../../styles/lengths.scss';
 @use '../../styles/typography.scss';
 
+$callout-background-color: theme(
+  'callout-background-color',
+  colors.surface(light)
+);
+$callout-default-color: theme(
+  'callout-default-color',
+  colors.font(secondary-info)
+);
+$callout-info-color: theme('callout-info-color', colors.status-font(on-info));
+$callout-success-color: theme(
+  'callout-success-color',
+  colors.status-font(on-success)
+);
+$callout-warning-color: theme(
+  'callout-warning-color',
+  colors.status-font(on-warning)
+);
+$callout-danger-color: theme(
+  'callout-danger-color',
+  colors.status-font(on-danger)
+);
+$callout-text-color: theme('callout-text-color', colors.font(default));
+
 .rcx-callout {
   display: flex;
 
-  padding-block: lengths.padding(8);
-  padding-inline: lengths.padding(16);
+  padding: lengths.padding(12);
 
-  color: theme('callout-color', colors.font(default));
+  color: $callout-text-color;
+
+  border-width: lengths.border-width(default);
+  border-style: solid;
+  border-color: $callout-default-color;
 
   border-radius: theme('callout-border-radius', lengths.border-radius(medium));
 
-  background-color: theme('callout-background-color', colors.surface(tint));
+  background-color: $callout-background-color;
 
-  &--type-info {
-    color: theme('callout-color-info', colors.font(pure-black));
-    background-color: theme(
-      'callout-background-color-info',
-      colors.status-background(info)
-    );
+  &--info {
+    border-color: $callout-info-color;
+
+    .rcx-callout__icon {
+      color: $callout-info-color;
+    }
   }
 
-  &--type-success {
-    color: theme('callout-color-success', colors.font(pure-black));
-    background-color: theme(
-      'callout-background-color-success',
-      colors.status-background(success)
-    );
+  &--success {
+    border-color: $callout-success-color;
+
+    .rcx-callout__icon {
+      color: $callout-success-color;
+    }
   }
 
-  &--type-warning {
-    color: theme('callout-color-warning', colors.font(pure-black));
-    background-color: theme(
-      'callout-background-color-warning',
-      colors.status-background(warning)
-    );
+  &--warning {
+    border-color: $callout-warning-color;
+
+    .rcx-callout__icon {
+      color: $callout-warning-color;
+    }
   }
 
-  &--type-danger {
-    color: theme('callout-color-danger', colors.font(pure-black));
-    background-color: theme(
-      'callout-background-color-danger',
-      colors.status-background(danger)
-    );
+  &--danger {
+    border-color: $callout-danger-color;
+
+    .rcx-callout__icon {
+      color: $callout-danger-color;
+    }
   }
-}
 
-.rcx-callout__wrapper {
-  display: flex;
+  &__wrapper {
+    display: flex;
 
-  overflow: hidden;
-  flex-flow: column nowrap;
-  flex: 1 1 0;
+    overflow: hidden;
+    flex-flow: column nowrap;
+    flex: 1 1 0;
 
-  margin-inline-start: lengths.margin(12);
+    margin-inline-start: lengths.margin(12);
 
-  @include typography.use-font-scale(c1);
+    @include typography.use-font-scale(c1);
 
-  > :nth-child(2) {
-    margin-block-start: lengths.margin(4);
+    > :nth-child(2) {
+      margin-block-start: lengths.margin(4);
+    }
   }
-}
 
-.rcx-callout__title {
-  white-space: nowrap;
+  &__title {
+    white-space: nowrap;
 
-  @include typography.use-font-scale(p2b);
-  @include typography.use-text-ellipsis;
-}
+    @include typography.use-font-scale(p2b);
+    @include typography.use-text-ellipsis;
+  }
 
-.rcx-callout__children {
-  display: block;
+  &__content {
+    display: block;
 
-  @include typography.use-font-scale(p2);
+    @include typography.use-font-scale(p2);
+  }
 }

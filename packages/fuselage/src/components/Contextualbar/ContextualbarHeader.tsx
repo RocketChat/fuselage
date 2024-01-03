@@ -13,9 +13,9 @@ const ContextualbarHeader = ({
   <Box
     display='flex'
     alignItems='center'
-    height='56px'
+    height='x56'
     is='h3'
-    pi='x24'
+    pi={24}
     borderBlockEndWidth='default'
     borderBlockColor='extra-light'
     flexShrink={0}

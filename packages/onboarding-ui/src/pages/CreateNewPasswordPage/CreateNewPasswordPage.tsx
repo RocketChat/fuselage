@@ -32,7 +32,7 @@ const ResetPasswordPage = ({
       styleProps={pageLayoutStyleProps}
     >
       <CreateNewPasswordForm {...props} />
-      <Box fontScale='p2' pbs='x40'>
+      <Box fontScale='p2' pbs={40}>
         <Trans i18nKey='component.wantToLogin'>
           Want to log in?
           <ActionLink fontScale='p2' onClick={onLogin}>

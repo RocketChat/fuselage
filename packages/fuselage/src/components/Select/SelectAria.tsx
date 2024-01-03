@@ -1,7 +1,7 @@
 import type { AriaSelectProps } from '@react-types/select';
-import { useResizeObserver } from '@rocket.chat/fuselage-hooks';
-import type { Key } from 'react';
-import React from 'react';
+import { useMergedRefs, useResizeObserver } from '@rocket.chat/fuselage-hooks';
+import type { Key, Ref } from 'react';
+import React, { forwardRef } from 'react';
 import {
   useSelect,
   HiddenSelect,
@@ -19,19 +19,22 @@ import { Popover } from './Popover';
 
 export { Item } from 'react-stately';
 
-export const SelectAria = function SelectAria<T extends object>({
-  disabled,
-  error,
-  placeholder,
-  value,
-  onChange,
-  ...props
-}: Omit<AriaSelectProps<T>, 'value' | 'onChange'> & {
-  error?: string;
-  placeholder?: string;
-  value?: Key | null;
-  onChange?: ((key: Key) => any) | undefined;
-} & React.AllHTMLAttributes<HTMLElement>) {
+export const SelectAria = forwardRef(function SelectAria<T extends object>(
+  {
+    disabled,
+    error,
+    placeholder,
+    value,
+    onChange,
+    ...props
+  }: Omit<AriaSelectProps<T>, 'value' | 'onChange'> & {
+    error?: string;
+    placeholder?: string;
+    value?: Key | null;
+    onChange?: ((key: Key) => any) | undefined;
+  } & React.AllHTMLAttributes<HTMLElement>,
+  outerRef: Ref<HTMLElement>
+) {
   const state = useSelectState({
     isDisabled: disabled,
     selectedKey: value,
@@ -47,14 +50,10 @@ export const SelectAria = function SelectAria<T extends object>({
 
   const { focusProps, isFocusVisible } = useFocusRing();
 
+  const mergedRef = useMergedRefs(outerRef, ref);
+
   return (
     <>
-      <HiddenSelect
-        state={state}
-        triggerRef={ref}
-        label={props.label}
-        name={props.name}
-      />
       <Box
         disabled={disabled}
         rcx-select
@@ -63,7 +62,7 @@ export const SelectAria = function SelectAria<T extends object>({
         display='flex'
         flexDirection='row'
         fontScale='p2'
-        ref={ref}
+        ref={mergedRef}
         justifyContent='space-between'
         className={[
           error && 'invalid',
@@ -73,6 +72,12 @@ export const SelectAria = function SelectAria<T extends object>({
           .filter(Boolean)
           .join(' ')}
       >
+        <HiddenSelect
+          state={state}
+          triggerRef={ref}
+          label={props.label}
+          name={props.name}
+        />
         <Box
           is='span'
           {...valueProps}
@@ -100,4 +105,4 @@ export const SelectAria = function SelectAria<T extends object>({
       )}
     </>
   );
-};
+});

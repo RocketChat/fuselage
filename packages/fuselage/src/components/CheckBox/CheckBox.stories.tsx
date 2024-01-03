@@ -3,7 +3,10 @@ import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
 import { CheckBox } from '../..';
-import { PropsVariationSection } from '../../../.storybook/helpers';
+import {
+  DECORATOR_LABEL,
+  PropsVariationSection,
+} from '../../../.storybook/helpers';
 
 export default {
   title: 'Inputs/CheckBox',
@@ -11,7 +14,11 @@ export default {
 } as ComponentMeta<typeof CheckBox>;
 
 const Template: ComponentStory<typeof CheckBox> = (args) => (
-  <CheckBox {...args} onChange={action('change')} />
+  <CheckBox
+    {...args}
+    aria-label={DECORATOR_LABEL}
+    onChange={action('change')}
+  />
 );
 
 export const Default = Template.bind({});
@@ -35,14 +42,13 @@ DefaultChecked.args = {
   defaultChecked: true,
 };
 
-export const States = () => (
+export const States: ComponentStory<typeof CheckBox> = () => (
   <PropsVariationSection
     component={CheckBox}
-    common={{ onChange: action('change') }}
+    common={{ 'onChange': action('change'), 'aria-label': DECORATOR_LABEL }}
     xAxis={{
       checked: { checked: true },
       unchecked: { checked: false },
-      indeterminate: { indeterminate: true },
     }}
     yAxis={{
       default: {},

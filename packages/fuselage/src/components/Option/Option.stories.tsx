@@ -10,7 +10,7 @@ import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
 import { Box, Menu, StatusBullet, Tile } from '../..';
-import { exampleAvatar, menuOptions } from '../../../.storybook/helpers.js';
+import { exampleAvatar, menuOptions } from '../../../.storybook/helpers';
 import { Avatar } from '../Avatar';
 import Option from './Option';
 import OptionAvatar from './OptionAvatar';

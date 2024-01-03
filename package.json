@@ -1,12 +1,13 @@
 {
-  "name": "@rocket.chat/fuselage-root",
+  "name": "@rocket.chat/fuselage-monorepo",
   "private": true,
-  "version": "0.31.22",
   "workspaces": [
     "packages/*",
     "tools/*"
   ],
   "devDependencies": {
+    "@changesets/changelog-github": "~0.4.8",
+    "@changesets/cli": "~2.26.2",
     "bump": "workspace:~",
     "husky": "~7.0.4",
     "hygen": "~6.1.5",
@@ -30,6 +31,8 @@
     "resolve-workspace-deps": "yarn workspace scripts run resolve-workspace-deps",
     "create-package": "hygen create-package",
     "bump-next": "yarn workspaces foreach --no-private -v run bump-next",
+    "release": "yarn changeset publish",
+    "changeset": "changeset",
     "release-next": "yarn workspaces foreach --no-private -v npm publish --tag next --tolerate-republish"
   },
   "devEngines": {
@@ -39,5 +42,8 @@
     "node": "14.21.3",
     "yarn": "1.22.19"
   },
-  "packageManager": "yarn@3.5.0"
+  "packageManager": "yarn@3.5.0",
+  "resolutions": {
+    "@storybook/react-docgen-typescript-plugin@1.0.2-canary.6.9d540b91e815f8fc2f8829189deb00553559ff63.0": "patch:@storybook/react-docgen-typescript-plugin@npm%3A1.0.2-canary.6.9d540b91e815f8fc2f8829189deb00553559ff63.0#./.yarn/patches/@storybook-react-docgen-typescript-plugin-npm-1.0.2-canary.6.9d540b91e815f8fc2f8829189deb00553559ff63.0-b31cc57c40.patch"
+  }
 }

@@ -1,5 +1,4 @@
 import {
-  FormPageLayout,
   HorizontalWizardLayout,
   HorizontalWizardLayoutAside,
   HorizontalWizardLayoutTitle,
@@ -8,7 +7,7 @@ import {
   HorizontalWizardLayoutContent,
 } from '@rocket.chat/layout';
 import type { ReactElement, ReactNode } from 'react';
-import { Trans, useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 // import { OnboardingLogo } from './OnboardingLogo';
 import type { FormPageLayoutStyleProps } from '../Types';
@@ -29,26 +28,15 @@ const FormPageLayoutOnboard = ({
   description,
   children,
 }: FormPageLayoutProps): ReactElement => {
-  useTranslation();
+  const { t } = useTranslation();
   return (
     <HorizontalWizardLayout>
       <HorizontalWizardLayoutAside>
         <HorizontalWizardLayoutTitle>
-          {title || (
-            <Trans i18nKey='page.form.title'>
-              Let's
-              <FormPageLayout.TitleHighlight>
-                Launch
-              </FormPageLayout.TitleHighlight>
-              Your Workspace
-            </Trans>
-          )}
+          {title || t('page.form.title')}
         </HorizontalWizardLayoutTitle>
         {subtitle && (
-          <HorizontalWizardLayoutSubtitle
-          // fontWeight={styleProps?.subTitleProps?.fontWeight}
-          // fontColor={styleProps?.subTitleProps?.color}
-          >
+          <HorizontalWizardLayoutSubtitle>
             {subtitle}
           </HorizontalWizardLayoutSubtitle>
         )}

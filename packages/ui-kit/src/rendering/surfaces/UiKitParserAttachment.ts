@@ -1,4 +1,5 @@
 import type { ActionsBlock } from '../../blocks/layout/ActionsBlock';
+import type { CalloutBlock } from '../../blocks/layout/CalloutBlock';
 import type { ContextBlock } from '../../blocks/layout/ContextBlock';
 import type { DividerBlock } from '../../blocks/layout/DividerBlock';
 import type { ImageBlock } from '../../blocks/layout/ImageBlock';
@@ -10,14 +11,15 @@ type AttachmentSurfaceLayoutBlock =
   | ContextBlock
   | DividerBlock
   | ImageBlock
-  | SectionBlock;
+  | SectionBlock
+  | CalloutBlock;
 
 export abstract class UiKitParserAttachment<T> extends SurfaceRenderer<
   T,
   AttachmentSurfaceLayoutBlock
 > {
   public constructor() {
-    super(['actions', 'context', 'divider', 'image', 'section']);
+    super(['actions', 'context', 'divider', 'image', 'section', 'callout']);
   }
 }
 

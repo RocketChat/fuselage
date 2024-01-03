@@ -8,6 +8,7 @@ export const DropdownMobile = forwardRef(function DropdownMobile<
 >(
   {
     children,
+    ...props
   }: {
     children: ReactNode;
   },
@@ -19,7 +20,7 @@ export const DropdownMobile = forwardRef(function DropdownMobile<
       elevation='2'
       pi='0'
       pb='0'
-      w='100%'
+      w='100vw'
       maxHeight='80%'
       position='fixed'
       display='flex'
@@ -28,8 +29,9 @@ export const DropdownMobile = forwardRef(function DropdownMobile<
       style={{ bottom: 0, left: 0 }}
       zIndex={2}
       data-testid='dropdown'
+      {...props}
     >
-      <Box flexShrink={1} pb='x16'>
+      <Box flexShrink={1} pb={16}>
         {children}
       </Box>
     </Tile>

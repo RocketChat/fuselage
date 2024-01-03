@@ -93,4 +93,12 @@ $variants: (
       }
     }
   }
+
+  &__link {
+    @include typography.use-font-scale(p2);
+    margin-block: lengths.margin(16);
+
+    color: colors.font(info);
+    @extend %--with-inline-elements;
+  }
 }

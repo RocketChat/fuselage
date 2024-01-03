@@ -3,7 +3,7 @@ import { useMediaQuery } from '@rocket.chat/fuselage-hooks';
 import type { ReactNode, Ref, RefObject } from 'react';
 import React, { forwardRef } from 'react';
 
-import { DropdownDesktop } from './DropdownDesktop';
+import { DropdownDesktopWrapper } from './DropdownDesktopWrapper';
 import { DropdownMobile } from './DropdownMobile';
 
 export const Dropdown = forwardRef(function Dropdown<
@@ -24,7 +24,7 @@ export const Dropdown = forwardRef(function Dropdown<
   const notSmall = useMediaQuery('(min-width: 500px)');
 
   return notSmall ? (
-    <DropdownDesktop
+    <DropdownDesktopWrapper
       reference={reference}
       children={children}
       placement={placement}

@@ -1,5 +1,9 @@
 import type { SelectOption } from '@rocket.chat/fuselage';
 import {
+  FieldDescription,
+  FieldError,
+  FieldLabel,
+  FieldRow,
   Button,
   Field,
   Box,
@@ -58,10 +62,10 @@ const RequestTrialForm = ({
     <Form onSubmit={handleSubmit(onSubmit)}>
       <FieldGroup>
         <Field>
-          <Field.Label>
+          <FieldLabel>
             {t('form.requestTrialForm.fields.emailAddress.label')}
-          </Field.Label>
-          <Field.Row>
+          </FieldLabel>
+          <FieldRow>
             <EmailInput
               {...register('email', {
                 validate: validateEmail,
@@ -73,14 +77,14 @@ const RequestTrialForm = ({
               defaultValue={defaultValues?.email}
               error={errors?.email?.message || undefined}
             />
-          </Field.Row>
-          {errors?.email && <Field.Error>{errors.email.message}</Field.Error>}
+          </FieldRow>
+          {errors?.email && <FieldError>{errors.email.message}</FieldError>}
         </Field>
         <Field>
-          <Field.Label>
+          <FieldLabel>
             {t('form.requestTrialForm.fields.organizationName.label')}
-          </Field.Label>
-          <Field.Row>
+          </FieldLabel>
+          <FieldRow>
             <TextInput
               {...register('organizationName', { required: true })}
               placeholder={t(
@@ -88,16 +92,16 @@ const RequestTrialForm = ({
               )}
               defaultValue={defaultValues?.organizationName}
             />
-          </Field.Row>
+          </FieldRow>
           {errors?.organizationName && (
-            <Field.Error>{t('component.form.requiredField')}</Field.Error>
+            <FieldError>{t('component.form.requiredField')}</FieldError>
           )}
         </Field>
         <Field>
-          <Field.Label>
+          <FieldLabel>
             {t('form.requestTrialForm.fields.organizationSize.label')}
-          </Field.Label>
-          <Field.Row>
+          </FieldLabel>
+          <FieldRow>
             <Controller
               name='organizationSize'
               control={control}
@@ -114,13 +118,13 @@ const RequestTrialForm = ({
               )}
               defaultValue={defaultValues?.organizationSize}
             />
-          </Field.Row>
+          </FieldRow>
         </Field>
         <Field>
-          <Field.Label>
+          <FieldLabel>
             {t('form.requestTrialForm.fields.country.label')}
-          </Field.Label>
-          <Field.Row>
+          </FieldLabel>
+          <FieldRow>
             <Controller
               name='country'
               control={control}
@@ -137,19 +141,19 @@ const RequestTrialForm = ({
               )}
               defaultValue={defaultValues?.country}
             />
-          </Field.Row>
+          </FieldRow>
         </Field>
         <Field>
-          <Box mbs='x24'>
+          <Box mbs={24}>
             <Box
-              mbe='x8'
+              mbe={8}
               display='flex'
               flexDirection='row'
               alignItems='flex-start'
               fontScale='c1'
               lineHeight={20}
             >
-              <CheckBox mie='x8' {...register('updates')} />{' '}
+              <CheckBox mie={8} {...register('updates')} />{' '}
               <Box is='label' htmlFor='updates'>
                 {t('form.registeredServerForm.keepInformed')}
               </Box>
@@ -163,7 +167,7 @@ const RequestTrialForm = ({
               lineHeight={20}
             >
               <CheckBox
-                mie='x8'
+                mie={8}
                 {...register('agreement', { required: true })}
               />{' '}
               <Box is='label' htmlFor='agreement' withRichContent>
@@ -187,19 +191,20 @@ const RequestTrialForm = ({
         </Field>
 
         <Field>
-          <Field.Label>
+          <FieldLabel>
             {t('form.requestTrialForm.hasWorkspace.label')}
-          </Field.Label>
-          <Field.Description>
+          </FieldLabel>
+          <FieldDescription>
             {t('form.requestTrialForm.hasWorkspace.description')}
-          </Field.Description>
+          </FieldDescription>
         </Field>
       </FieldGroup>
       <Form.Footer>
         <Button
           type='submit'
           primary
-          disabled={isValidating || isSubmitting || !isValid}
+          loading={isValidating || isSubmitting}
+          disabled={!isValid}
         >
           {t('form.requestTrialForm.button.text')}
         </Button>

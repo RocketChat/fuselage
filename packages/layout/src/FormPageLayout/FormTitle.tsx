@@ -8,7 +8,7 @@ const FormTitle = forwardRef<
     children: ReactNode;
   }
 >((props, ref) => (
-  <Box mbe='x8' fontScale='h2' fontWeight={800} {...props} ref={ref} />
+  <Box mbe={8} fontScale='h3' fontWeight={800} {...props} ref={ref} />
 ));
 
 export default FormTitle;

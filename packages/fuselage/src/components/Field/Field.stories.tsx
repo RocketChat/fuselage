@@ -2,7 +2,21 @@ import { Title, Description, Primary, Stories } from '@storybook/addon-docs';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
-import { CheckBox, Field, InputBox, ToggleSwitch } from '../..';
+import {
+  Field,
+  FieldDescription,
+  FieldError,
+  FieldHint,
+  FieldRow,
+  FieldLabel,
+  ToggleSwitch,
+  FieldLink,
+  TextInput,
+  TextAreaInput,
+  RadioButton,
+  CheckBox,
+} from '../..';
+import { FieldLabelInfo } from './FieldLabelInfo';
 
 export default {
   title: 'Inputs/Field',
@@ -18,118 +32,107 @@ export default {
           <Title />
           <Description />
           <Primary />
-          <Stories title={'Field Patterns'} />
+          <Stories />
         </>
       ),
     },
   },
 } as ComponentMeta<typeof Field>;
 
-export const Default: ComponentStory<typeof Field> = () => (
+export const WithTextInput: ComponentStory<typeof Field> = () => (
   <Field>
-    <Field.Label>Label</Field.Label>
-    <Field.Description>Description</Field.Description>
-    <Field.Row>
-      <InputBox.Skeleton />
-    </Field.Row>
-    <Field.Error>Error</Field.Error>
-    <Field.Hint>Hint</Field.Hint>
+    <FieldLabel required htmlFor='fieldWithText'>
+      Label
+      <FieldLabelInfo id='fieldWithTextInfo' title='this is a info label' />
+    </FieldLabel>
+    <FieldDescription>Description</FieldDescription>
+    <FieldRow>
+      <TextInput id='fieldWithText' aria-describedby='fieldWithTextInfo' />
+    </FieldRow>
+    <FieldError>Error feedback</FieldError>
+    <FieldRow>
+      <FieldHint>Hint</FieldHint>
+      <FieldLink href='#'>Link</FieldLink>
+    </FieldRow>
   </Field>
 );
-
-export const WithCheckBox: ComponentStory<typeof Field> = () => (
+export const WithTextArea: ComponentStory<typeof Field> = () => (
   <Field>
-    <Field.Row>
-      <CheckBox id='check-box' />
-      <Field.Label htmlFor='check-box'>Label</Field.Label>
-    </Field.Row>
+    <FieldLabel required htmlFor='fieldWithTextArea'>
+      Label
+      <FieldLabelInfo id='fieldWithTextAreaInfo' title='this is a info label' />
+    </FieldLabel>
+    <FieldDescription>Description</FieldDescription>
+    <FieldRow>
+      <TextAreaInput
+        id='fieldWithTextArea'
+        aria-describedby='fieldWithTextAreaInfo'
+      />
+    </FieldRow>
+    <FieldError>Error feedback</FieldError>
+    <FieldRow>
+      <FieldHint>Hint</FieldHint>
+      <FieldLink href='#'>Link</FieldLink>
+    </FieldRow>
   </Field>
 );
-
+export const WithRadioButton: ComponentStory<typeof Field> = () => (
+  <Field>
+    <FieldRow>
+      <FieldLabel required htmlFor='fieldWithRadio'>
+        Label
+        <FieldLabelInfo id='fieldWithRadioInfo' title='this is a info label' />
+      </FieldLabel>
+      <RadioButton id='fieldWithRadio' aria-describedby='fieldWithRadioInfo' />
+    </FieldRow>
+    <FieldDescription>Description</FieldDescription>
+    <FieldError>Error feedback</FieldError>
+    <FieldRow>
+      <FieldHint>Hint</FieldHint>
+      <FieldLink href='#'>Link</FieldLink>
+    </FieldRow>
+  </Field>
+);
 export const WithToggleSwitch: ComponentStory<typeof Field> = () => (
   <Field>
-    <Field.Row>
-      <ToggleSwitch id='toggle-switch' />
-      <Field.Label htmlFor='toggle-switch'>Label</Field.Label>
-    </Field.Row>
+    <FieldRow>
+      <FieldLabel required htmlFor='fieldWithToggle'>
+        Label
+        <FieldLabelInfo id='fieldWithToggleInfo' title='this is a info label' />
+      </FieldLabel>
+      <ToggleSwitch
+        id='fieldWithToggle'
+        aria-describedby='fieldWithToggleInfo'
+      />
+    </FieldRow>
+    <FieldDescription>Description</FieldDescription>
+    <FieldError>Error feedback</FieldError>
+    <FieldRow>
+      <FieldHint>Hint</FieldHint>
+      <FieldLink href='#'>Link</FieldLink>
+    </FieldRow>
   </Field>
 );
-
-export const WithDescription: ComponentStory<typeof Field> = () => (
+export const WithCheckbox: ComponentStory<typeof Field> = () => (
   <Field>
-    <Field.Label>Label</Field.Label>
-    <Field.Description>
-      Descriptions should add useful and relevant additional information about
-      what is required of the user for the related input. Its content is
-      strictly composed by plain text.
-    </Field.Description>
-    <Field.Row>
-      <InputBox.Skeleton />
-    </Field.Row>
-  </Field>
-);
-
-export const WithError: ComponentStory<typeof Field> = () => (
-  <Field>
-    <Field.Label>Label</Field.Label>
-    <Field.Row>
-      <InputBox.Skeleton />
-    </Field.Row>
-    <Field.Error>
-      Error text appears when the user has inputted an invalid response to a
-      field and let's the user know exactly what the issue is, so as to let them
-      remedy the error as easily as possible.
-    </Field.Error>
-  </Field>
-);
-
-export const WithHint: ComponentStory<typeof Field> = () => (
-  <Field>
-    <Field.Label>Label</Field.Label>
-    <Field.Row>
-      <InputBox.Skeleton />
-    </Field.Row>
-    <Field.Hint>
-      Hint fields help by explaining technical terms or concepts related to
-      third-party apps and integrations.
-    </Field.Hint>
-  </Field>
-);
-
-export const WithHintAndError: ComponentStory<typeof Field> = () => (
-  <Field>
-    <Field.Label>Label</Field.Label>
-    <Field.Row>
-      <InputBox.Skeleton />
-    </Field.Row>
-    <Field.Error>Error must be above.</Field.Error>
-    <Field.Hint>Hint must be below.</Field.Hint>
-  </Field>
-);
-
-export const WithLink: ComponentStory<typeof Field> = () => (
-  <Field>
-    <Field.Label>Label</Field.Label>
-    <Field.Row>
-      <InputBox.Skeleton />
-    </Field.Row>
-    <Field.Row justifyContent='end'>
-      <Field.Link href='#'>
-        Link is used for external resources or documentation.
-      </Field.Link>
-    </Field.Row>
-  </Field>
-);
-
-export const WithHintAndLink: ComponentStory<typeof Field> = () => (
-  <Field>
-    <Field.Label>Label</Field.Label>
-    <Field.Row>
-      <InputBox.Skeleton />
-    </Field.Row>
-    <Field.Row justifyContent='space-between'>
-      <Field.Hint>Same line as Link in the left</Field.Hint>
-      <Field.Link href='#'>Same line as Hint in the right</Field.Link>
-    </Field.Row>
+    <FieldRow>
+      <FieldLabel required htmlFor='fieldWithCheckbox'>
+        Label
+        <FieldLabelInfo
+          id='fieldWithCheckboxInfo'
+          title='this is a info label'
+        />
+      </FieldLabel>
+      <CheckBox
+        id='fieldWithCheckbox'
+        aria-describedby='fieldWithCheckboxInfo'
+      />
+    </FieldRow>
+    <FieldDescription>Description</FieldDescription>
+    <FieldError>Error feedback</FieldError>
+    <FieldRow>
+      <FieldHint>Hint</FieldHint>
+      <FieldLink href='#'>Link</FieldLink>
+    </FieldRow>
   </Field>
 );

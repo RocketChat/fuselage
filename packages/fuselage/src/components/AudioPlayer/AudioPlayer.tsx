@@ -28,6 +28,32 @@ function forceDownload(url: string, fileName?: string) {
   xhr.send();
 }
 
+const getDurationForInfinityDurationAudioFile = (
+  src: string,
+  callback: (duration: number) => void
+) => {
+  const audioElement = new Audio();
+  audioElement.src = src;
+
+  audioElement.addEventListener('loadedmetadata', () => {
+    const { duration } = audioElement;
+    if (duration === Infinity) {
+      audioElement.currentTime = 1e101;
+      return;
+    }
+
+    return callback(duration);
+  });
+
+  audioElement.addEventListener('durationchange', () => {
+    if (audioElement.duration === Infinity) {
+      return;
+    }
+    callback(audioElement.duration);
+    audioElement.remove();
+  });
+};
+
 export const AudioPlayer = forwardRef<
   HTMLAudioElement,
   {
@@ -98,11 +124,11 @@ export const AudioPlayer = forwardRef<
     return (
       <Box
         borderWidth='default'
-        bg='light'
+        bg='tint'
         borderColor='extra-light'
-        pb='x12'
-        pie='x8'
-        pis='x16'
+        pb={12}
+        pie={8}
+        pis={16}
         borderRadius='x4'
         w='100%'
         maxWidth='x300'
@@ -117,23 +143,26 @@ export const AudioPlayer = forwardRef<
           aria-label={isPlaying ? pauseLabel : playLabel}
           icon={isPlaying ? 'pause-shape-filled' : 'play-shape-filled'}
         />
-        <Margins inline='x8'>
-          <Box fontScale='p2' color='secondary-info' pie='x8'>
+        <Margins inline={8}>
+          <Box fontScale='p2' color='secondary-info'>
             {isPlaying || currentTime > 0
               ? getMaskTime(currentTime)
               : getMaskTime(durationTime)}
           </Box>
-          <Slider
-            aria-label={audioPlaybackRangeLabel}
-            showOutput={false}
-            value={currentTime}
-            maxValue={durationTime}
-            onChange={(value) => {
-              if (audioRef.current) {
-                audioRef.current.currentTime = value;
-              }
-            }}
-          />
+          <Box mi={16} w='full'>
+            <Slider
+              aria-label={audioPlaybackRangeLabel}
+              showOutput={false}
+              value={currentTime}
+              maxValue={durationTime}
+              onChange={(value) => {
+                if (audioRef.current) {
+                  audioRef.current.currentTime = value;
+                }
+              }}
+            />
+          </Box>
+
           <Button
             secondary
             small
@@ -166,8 +195,14 @@ export const AudioPlayer = forwardRef<
           onTimeUpdate={(e) => {
             setCurrentTime((e.target as HTMLAudioElement).currentTime);
           }}
-          onLoadedData={(e) => {
-            setDurationTime((e.target as HTMLAudioElement).duration);
+          onLoadedMetadata={(e) => {
+            const { duration } = e.target as HTMLAudioElement;
+
+            if (duration !== Infinity) {
+              return setDurationTime(duration);
+            }
+
+            getDurationForInfinityDurationAudioFile(src, setDurationTime);
           }}
           onEnded={() => setIsPlaying(false)}
           ref={refs}

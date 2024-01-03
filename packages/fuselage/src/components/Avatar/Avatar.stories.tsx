@@ -27,7 +27,7 @@ const Template: ComponentStory<typeof Avatar> = (args) => (
   <Margins all='x16'>
     {sizes.map((size, i) => (
       <Box display='inline-flex' verticalAlign='middle' key={i}>
-        <Avatar url={args.url} size={size} rounded={args.rounded} />
+        <Avatar url={args.url} size={size} rounded={args.rounded} alt='' />
       </Box>
     ))}
   </Margins>
@@ -52,9 +52,9 @@ const StackTemplate: ComponentStory<typeof Avatar> = (args) => (
     {sizes.map((size, i) => (
       <Box key={i}>
         <Avatar.Stack className={args.className}>
-          <Avatar url={args.url} size={size} rounded={args.rounded} />
-          <Avatar url={args.url} size={size} rounded={args.rounded} />
-          <Avatar url={args.url} size={size} rounded={args.rounded} />
+          <Avatar url={args.url} size={size} rounded={args.rounded} alt='' />
+          <Avatar url={args.url} size={size} rounded={args.rounded} alt='' />
+          <Avatar url={args.url} size={size} rounded={args.rounded} alt='' />
         </Avatar.Stack>
       </Box>
     ))}

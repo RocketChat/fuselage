@@ -940,5 +940,20 @@
   },
   "play-shape-filled": {
     "start": "\ue13d"
+  },
+  "flask": {
+    "start": "\ue13f"
+  },
+  "tag": {
+    "start": "\ue141"
+  },
+  "smart": {
+    "start": "\ue143"
+  },
+  "person-arms-spread": {
+    "start": "\ue145"
+  },
+  "rocketchat": {
+    "start": "\ue147"
   }
 }

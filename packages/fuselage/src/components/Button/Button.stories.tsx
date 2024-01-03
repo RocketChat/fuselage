@@ -11,7 +11,7 @@ import {
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
-import { Box, Button, ButtonGroup, Icon, IconButton } from '../..';
+import { Button, ButtonGroup, IconButton, Margins } from '../..';
 import { PropsVariationSection } from '../../../.storybook/helpers';
 
 export default {
@@ -40,64 +40,65 @@ export const Default: ComponentStory<typeof Button> = () => (
   <Button onClick={action('click')}>Button</Button>
 );
 
-export const Square: ComponentStory<typeof Button> = () => (
-  <Button square>
-    <Icon name='plus' size='x20' />
+export const Loading: ComponentStory<typeof Button> = () => (
+  <Button loading onClick={action('click')}>
+    Button
   </Button>
 );
+export const LoadingInteraction: ComponentStory<typeof Button> = () => {
+  const [isLoading, setIsLoading] = React.useState(false);
+  return (
+    <Button
+      icon='add-user'
+      loading={isLoading}
+      onClick={() => setIsLoading(!isLoading)}
+    >
+      Button
+    </Button>
+  );
+};
+
+LoadingInteraction.parameters = {
+  docs: {
+    description: {
+      story: 'Click the button to see the loading state.',
+    },
+  },
+};
 
 export const Variants: ComponentStory<typeof Button> = () => (
-  <ButtonGroup>
-    <Button primary>Primary</Button>
-    <Button secondary>Secondary</Button>
-    <Box display='flex' flexDirection='column'>
-      <Button m='2px' danger>
-        Danger
-      </Button>
-      <Button m='2px' secondary danger>
+  <Margins all='x8'>
+    <ButtonGroup>
+      <Button primary>Primary</Button>
+      <Button secondary>Secondary</Button>
+    </ButtonGroup>
+    <ButtonGroup>
+      <Button danger>Danger</Button>
+      <Button secondary danger>
         Secondary Danger
       </Button>
-    </Box>
-    <Box display='flex' flexDirection='column'>
-      <Button m='2px' warning>
-        Warning
-      </Button>
-      <Button m='2px' secondary warning>
+    </ButtonGroup>
+    <ButtonGroup>
+      <Button warning>Warning</Button>
+      <Button secondary warning>
         Secondary Warning
       </Button>
-    </Box>
-    <Box display='flex' flexDirection='column'>
-      <Button m='2px' success>
-        Success
-      </Button>
-      <Button m='2px' secondary success>
+    </ButtonGroup>
+    <ButtonGroup>
+      <Button success>Success</Button>
+      <Button secondary success>
         Secondary Success
       </Button>
-    </Box>
-  </ButtonGroup>
+    </ButtonGroup>
+  </Margins>
 );
 
 export const Sizes: ComponentStory<typeof ButtonGroup> = () => (
-  <>
-    <ButtonGroup marginBlockEnd={12}>
-      <Button small>Button</Button>
-      <Button>Button</Button>
-    </ButtonGroup>
-    <ButtonGroup>
-      <Button mini square>
-        <Icon name='circled-arrow-down' size='x16' />
-      </Button>
-      <Button tiny square>
-        <Icon name='circled-arrow-down' size='x20' />
-      </Button>
-      <Button small square>
-        <Icon name='circled-arrow-down' size='x24' />
-      </Button>
-      <Button square>
-        <Icon name='circled-arrow-down' size='x20' />
-      </Button>
-    </ButtonGroup>
-  </>
+  <ButtonGroup marginBlockEnd={12}>
+    <Button small>Small</Button>
+    <Button medium>Medium</Button>
+    <Button>Default</Button>
+  </ButtonGroup>
 );
 
 export const AsLink: ComponentStory<typeof Button> = () => (
@@ -119,16 +120,9 @@ export const States = () => (
         disabled: { disabled: true },
       }}
       yAxis={{
-        'square + icon': {
-          square: true,
-          children: <Icon name='circled-arrow-down' size='x20' />,
-        },
         'icon + text': {
-          children: (
-            <>
-              <Icon name='baloon-text' size='x16' /> Button
-            </>
-          ),
+          children: 'Button',
+          icon: 'baloon-text',
         },
         'text': {
           children: 'Button',
@@ -184,16 +178,9 @@ export const States = () => (
         disabled: { disabled: true },
       }}
       yAxis={{
-        'square + icon': {
-          square: true,
-          children: <Icon name='circled-arrow-down' size='x20' />,
-        },
         'icon + text': {
-          children: (
-            <>
-              <Icon name='baloon-text' size='x16' /> Button
-            </>
-          ),
+          children: 'Button',
+          icon: 'baloon-text',
         },
         'text': {
           children: 'Button',
@@ -241,3 +228,12 @@ export const States = () => (
 export const AsIconButton: ComponentStory<typeof IconButton> = (args) => (
   <IconButton {...args} icon='arrow-back' onClick={action('click')} />
 );
+
+AsIconButton.parameters = {
+  docs: {
+    description: {
+      story:
+        'See full IconButton documentation [here](../?path=/docs/inputs-iconbutton)',
+    },
+  },
+};

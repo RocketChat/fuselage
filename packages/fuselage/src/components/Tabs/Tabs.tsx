@@ -16,4 +16,5 @@ export function Tabs({ children, divider = true, ...props }: TabsProps) {
   );
 }
 
+/** @deprecated use named export TabsItem instead */
 Tabs.Item = TabsItem;

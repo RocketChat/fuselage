@@ -1,7 +1,10 @@
 import type { SelectOption } from '@rocket.chat/fuselage';
 import {
+  FieldLabel,
+  FieldRow,
   FieldGroup,
   Field,
+  FieldError,
   ButtonGroup,
   Button,
   Box,
@@ -74,12 +77,12 @@ const CreateCloudWorkspaceForm = ({
         <Form.Title>{t('form.createCloudWorkspace.title')}</Form.Title>
       </Form.Header>
 
-      <FieldGroup mbs='x16'>
+      <FieldGroup mbs={16}>
         <Field>
-          <Field.Label>
-            {t('form.createCloudWorkspace.fields.orgEmail.label')}
-          </Field.Label>
-          <Field.Row>
+          <FieldLabel>
+            {t('form.createCloudWorkspace.fields.orgEmaillabel')}
+          </FieldLabel>
+          <FieldRow>
             <EmailInput
               {...register('organizationEmail', {
                 required: true,
@@ -88,38 +91,38 @@ const CreateCloudWorkspaceForm = ({
               defaultValue={defaultValues?.organizationEmail}
               error={errors?.organizationEmail?.type || undefined}
             />
-          </Field.Row>
+          </FieldRow>
           {errors?.organizationEmail && (
-            <Field.Error>{errors.organizationEmail.message}</Field.Error>
+            <FieldError>{errors.organizationEmail.message}</FieldError>
           )}
         </Field>
 
         <Field>
-          <Field.Label>
-            <Box display='inline' mie='x8'>
-              {t('form.createCloudWorkspace.fields.workspaceName.label')}
+          <FieldLabel>
+            <Box display='inline' mie={8}>
+              {t('form.createCloudWorkspace.fields.workspaceNamelabel')}
             </Box>
-          </Field.Label>
-          <Field.Row>
+          </FieldLabel>
+          <FieldRow>
             <TextInput
               {...register('workspaceName', { required: true })}
               defaultValue={defaultValues?.workspaceName}
               error={errors?.workspaceName?.type || undefined}
               onBlur={onNameBlur}
             />
-          </Field.Row>
+          </FieldRow>
           {errors.workspaceName && (
-            <Field.Error>{t('component.form.requiredField')}</Field.Error>
+            <FieldError>{t('component.form.requiredField')}</FieldError>
           )}
         </Field>
 
         <Field>
-          <Field.Label>
-            <Box display='inline' mie='x8'>
-              {t('form.createCloudWorkspace.fields.workspaceUrl.label')}
+          <FieldLabel>
+            <Box display='inline' mie={8}>
+              {t('form.createCloudWorkspace.fields.workspaceUrllabel')}
             </Box>
-          </Field.Label>
-          <Field.Row>
+          </FieldLabel>
+          <FieldRow>
             <WorkspaceUrlInput
               domain={domain}
               {...register('workspaceURL', {
@@ -128,26 +131,26 @@ const CreateCloudWorkspaceForm = ({
               })}
               defaultValue={defaultValues?.workspaceURL}
             />
-          </Field.Row>
+          </FieldRow>
           {errors?.workspaceURL && (
-            <Field.Error>{errors.workspaceURL.message}</Field.Error>
+            <FieldError>{errors.workspaceURL.message}</FieldError>
           )}
         </Field>
 
-        <Grid mb='x16'>
+        <Grid mb={16}>
           <Grid.Item>
             <Field>
-              <Field.Label>
-                <Box display='inline' mie='x8'>
-                  {t('form.createCloudWorkspace.fields.serverRegion.label')}
+              <FieldLabel>
+                <Box display='inline' mie={8}>
+                  {t('form.createCloudWorkspace.fields.serverRegionlabel')}
                 </Box>
                 <Tooltip
                   text={t(
                     'form.createCloudWorkspace.fields.serverRegion.tooltip'
                   )}
                 />
-              </Field.Label>
-              <Field.Row>
+              </FieldLabel>
+              <FieldRow>
                 <Controller
                   name='serverRegion'
                   control={control}
@@ -158,26 +161,26 @@ const CreateCloudWorkspaceForm = ({
                       {...field}
                       options={serverRegionOptions}
                       placeholder={t(
-                        'form.createCloudWorkspace.fields.serverRegion.label'
+                        'form.createCloudWorkspace.fields.serverRegionlabel'
                       )}
                     />
                   )}
                 />
-              </Field.Row>
+              </FieldRow>
             </Field>
           </Grid.Item>
 
           <Grid.Item>
             <Field>
-              <Field.Label>
-                <Box display='inline' mie='x8'>
-                  {t('form.createCloudWorkspace.fields.language.label')}
+              <FieldLabel>
+                <Box display='inline' mie={8}>
+                  {t('form.createCloudWorkspace.fields.languagelabel')}
                 </Box>
                 <Tooltip
                   text={t('form.createCloudWorkspace.fields.language.tooltip')}
                 />
-              </Field.Label>
-              <Field.Row>
+              </FieldLabel>
+              <FieldRow>
                 <Controller
                   name='language'
                   control={control}
@@ -188,21 +191,21 @@ const CreateCloudWorkspaceForm = ({
                       {...field}
                       options={languageOptions}
                       placeholder={t(
-                        'form.createCloudWorkspace.fields.language.label'
+                        'form.createCloudWorkspace.fields.languagelabel'
                       )}
                     />
                   )}
                 />
-              </Field.Row>
+              </FieldRow>
             </Field>
           </Grid.Item>
         </Grid>
 
-        <Divider mb='x0' />
+        <Divider mb={0} />
 
         <Field>
-          <Field.Row justifyContent='flex-start'>
-            <CheckBox {...register('agreement', { required: true })} mie='x8' />
+          <FieldRow justifyContent='flex-start'>
+            <CheckBox {...register('agreement', { required: true })} mie={8} />
             <Box is='label' htmlFor='agreement' withRichContent fontScale='c1'>
               <Trans i18nKey='component.form.termsAndConditions'>
                 I agree with
@@ -223,19 +226,19 @@ const CreateCloudWorkspaceForm = ({
                 </a>
               </Trans>
             </Box>
-          </Field.Row>
+          </FieldRow>
           {errors.agreement?.type === 'required' && (
-            <Field.Error>{t('component.form.requiredField')}</Field.Error>
+            <FieldError>{t('component.form.requiredField')}</FieldError>
           )}
         </Field>
 
         <Field>
-          <Field.Row justifyContent='flex-start'>
-            <CheckBox {...register('updates')} mie='x8' />
+          <FieldRow justifyContent='flex-start'>
+            <CheckBox {...register('updates')} mie={8} />
             <Box fontScale='c1'>
               {t('form.createCloudWorkspace.fields.keepMeInformed')}
             </Box>
-          </Field.Row>
+          </FieldRow>
         </Field>
       </FieldGroup>
 
@@ -250,7 +253,8 @@ const CreateCloudWorkspaceForm = ({
           <Button
             type='submit'
             primary
-            disabled={isValidating || isSubmitting || !isValid}
+            disabled={!isValid}
+            loading={isSubmitting || isValidating}
           >
             {t('component.form.action.next')}
           </Button>

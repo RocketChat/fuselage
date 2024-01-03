@@ -1,5 +1,6 @@
 import { composeStories } from '@storybook/testing-react';
 import { fireEvent, getByRole, render } from '@testing-library/react';
+import { axe } from 'jest-axe';
 import React from 'react';
 
 import * as stories from './CheckBox.stories';
@@ -7,10 +8,32 @@ import * as stories from './CheckBox.stories';
 const { Default, Indeterminate, Disabled, DefaultChecked } =
   composeStories(stories);
 
-describe('[CheckBox Component]', () => {
-  it('renders without crashing', () => {
-    render(<Default />);
-  });
+const testCases = Object.values(composeStories(stories)).map((Story) => [
+  Story.storyName || 'Story',
+  Story,
+]);
+
+describe('[CheckBox Rendering]', () => {
+  test.each(testCases)(
+    `renders %s without crashing`,
+    async (_storyname, Story) => {
+      const tree = render(<Story />);
+      expect(tree.baseElement).toMatchSnapshot();
+    }
+  );
+
+  test.each(testCases)(
+    '%s should have no a11y violations',
+    async (_storyname, Story) => {
+      const { container } = render(<Story />);
+
+      const results = await axe(container);
+      expect(results).toHaveNoViolations();
+    }
+  );
+});
+
+describe('[CheckBox Interacting]', () => {
   it('changes style of element as checkbox is checked', () => {
     const { container } = render(<Default />);
     const checkbox = getByRole(container, 'checkbox') as HTMLInputElement;

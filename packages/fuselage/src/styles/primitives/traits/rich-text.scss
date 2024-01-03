@@ -31,8 +31,6 @@
 
   a {
     &:link {
-      text-decoration: none;
-
       color: colors.font(info);
     }
 
@@ -43,7 +41,7 @@
 
     &:active,
     &.is-active {
-      color: colors.status-font(on-danger);
+      color: colors.font(info);
     }
 
     &:hover,

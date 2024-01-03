@@ -32,6 +32,7 @@ type OptionProps = {
   value?: string;
   variant?: 'danger' | 'success' | 'warning' | 'primary';
   onClick?: (event: MouseEvent<HTMLElement>) => void;
+  description?: ReactNode;
 } & Omit<AllHTMLAttributes<HTMLElement>, 'label'>;
 
 const Option = memo(
@@ -52,6 +53,7 @@ const Option = memo(
         disabled,
         variant,
         onClick,
+        description,
         ...props
       }: OptionProps,
       ref
@@ -82,7 +84,14 @@ const Option = memo(
           .filter(Boolean)
           .join(' ')}
       >
-        <div className='rcx-option__wrapper'>
+        <div
+          className={[
+            'rcx-option__wrapper',
+            !!description && 'rcx-option__wrapper--align-top',
+          ]
+            .filter(Boolean)
+            .join(' ')}
+        >
           {avatar && <OptionAvatar>{avatar}</OptionAvatar>}
           {icon && <OptionIcon name={icon} />}
           {gap && <OptionColumn />}

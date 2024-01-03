@@ -1,8 +1,11 @@
 @use '../../styles/colors.scss';
 @use '../../styles/typography.scss';
+@use '../../styles/lengths.scss';
 
 .rcx-label {
   @include typography.use-font-scale(p2m);
+  display: flex;
+
   color: colors.font(default);
 
   &--disabled {
@@ -11,11 +14,13 @@
     color: colors.font(secondary-info);
   }
 
-  &--required {
-    &::before {
-      content: '*\0a0';
+  &__info {
+    display: flex;
+    align-items: center;
+    order: 1;
+  }
 
-      color: colors.font(danger);
-    }
+  &__required {
+    color: colors.font(danger);
   }
 }

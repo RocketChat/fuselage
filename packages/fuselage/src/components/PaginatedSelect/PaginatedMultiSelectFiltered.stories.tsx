@@ -20,6 +20,10 @@ export default {
   },
 } as ComponentMeta<typeof PaginatedMultiSelectFiltered>;
 
+const Template: ComponentStory<typeof PaginatedMultiSelectFiltered> = (
+  args
+) => <PaginatedMultiSelectFiltered {...args} />;
+
 export const Normal: ComponentStory<typeof PaginatedMultiSelectFiltered> = (
   args
 ) => {
@@ -33,16 +37,12 @@ export const Normal: ComponentStory<typeof PaginatedMultiSelectFiltered> = (
   );
 };
 
-export const Errored: ComponentStory<typeof PaginatedMultiSelectFiltered> = (
-  args
-) => <PaginatedMultiSelectFiltered {...args} />;
+export const Errored = Template.bind({});
 Errored.args = {
   error: true,
 };
 
-export const Disabled: ComponentStory<typeof PaginatedMultiSelectFiltered> = (
-  args
-) => <PaginatedMultiSelectFiltered {...args} />;
+export const Disabled = Template.bind({});
 Disabled.args = {
   disabled: true,
 };
