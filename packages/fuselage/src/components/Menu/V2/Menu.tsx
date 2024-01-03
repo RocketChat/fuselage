@@ -58,7 +58,7 @@ const Menu = <T extends object>({
   const sizes = { large, medium, tiny, mini };
   const defaultSmall = !large && !medium && !tiny && !mini;
 
-  const popover = (
+  const popover = state.isOpen && (
     <MenuPopover
       state={state}
       triggerRef={ref}
@@ -92,9 +92,7 @@ const Menu = <T extends object>({
           {...sizes}
         />
       )}
-      {state.isOpen && detached
-        ? createPortal(popover, document.body)
-        : popover}
+      {detached ? createPortal(popover, document.body) : popover}
     </>
   );
 };
