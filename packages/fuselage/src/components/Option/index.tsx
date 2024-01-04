@@ -32,6 +32,7 @@ export default Object.assign(Option, {
 });
 
 export * from './CheckOption';
+export { Option };
 export { OptionAvatar };
 export { OptionColumn };
 export { OptionContent };

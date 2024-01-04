@@ -147,19 +147,19 @@ export const OptionContainer = forwardRef<
   ComponentProps<typeof Box>
 >(({ children, ...props }, ref) => (
   <Box rcx-options>
-    <Tile padding={0} paddingBlock={'x12'} paddingInline={0}>
+    <Tile padding={0} paddingBlock={12} paddingInline={0}>
       <Scrollable vertical smooth>
         <Tile
           ref={ref}
           elevation='0'
           padding='none'
           maxHeight='x240'
+          {...props}
           // onMouseDown={prevent}
           // onClick={prevent}
           // is='ol'
           // aria-multiselectable={multiple || true}
           // role='listbox'
-          {...props}
         >
           {children}
         </Tile>

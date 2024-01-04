@@ -58,26 +58,6 @@ $chip-disabled-color: functions.theme(
 
 .rcx-chip {
   @extend %box--full;
-  @include button.kind-variant(
-    (
-      background-color: $chip-background-color,
-      border-color: $chip-border-color,
-      color: $chip-color,
-      hover-background-color: $chip-hover-background-color,
-      hover-border-color: $chip-hover-border-color,
-      active-background-color: $chip-active-background-color,
-      active-border-color: $chip-active-border-color,
-      focus-background-color: $chip-focus-background-color,
-      focus-border-color: $chip-focus-border-color,
-      focus-shadow-color: $chip-focus-shadow-color,
-      disabled-background-color: $chip-disabled-background-color,
-      disabled-border-color: $chip-disabled-border-color,
-      disabled-color: $chip-disabled-color,
-    )
-  );
-
-  @include clickable;
-  @include typography.use-font-scale('p2');
 
   display: flex;
   overflow: hidden;
@@ -86,6 +66,31 @@ $chip-disabled-color: functions.theme(
   min-height: lengths.size(28);
 
   border-width: 0;
+
+  border-radius: functions.theme(
+    'chip-border-radius',
+    lengths.border-radius(medium)
+  );
+  // @include button.kind-variant(
+  //   (
+  //     background-color: $chip-background-color,
+  //     border-color: $chip-border-color,
+  //     color: $chip-color,
+  //     hover-background-color: $chip-hover-background-color,
+  //     hover-border-color: $chip-hover-border-color,
+  //     active-background-color: $chip-active-background-color,
+  //     active-border-color: $chip-active-border-color,
+  //     focus-background-color: $chip-focus-background-color,
+  //     focus-border-color: $chip-focus-border-color,
+  //     focus-shadow-color: $chip-focus-shadow-color,
+  //     disabled-background-color: $chip-disabled-background-color,
+  //     disabled-border-color: $chip-disabled-border-color,
+  //     disabled-color: $chip-disabled-color,
+  //   )
+  // );
+  background-color: $chip-background-color;
+
+  @include typography.use-font-scale('p2');
 
   &.disabled,
   &:disabled {
