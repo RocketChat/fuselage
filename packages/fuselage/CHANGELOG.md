@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.42.0
+
+### Minor Changes
+
+- [#1087](https://github.com/RocketChat/fuselage/pull/1087) [`4cd95535b`](https://github.com/RocketChat/fuselage/commit/4cd95535b6c384af6cb56ce98e2045dbe65ef9de) Thanks [@ggazzo](https://github.com/ggazzo)! - feat(fuselage): Adds detached prop to render Menu on the document body
+
 ## 0.41.0
 
 ### Minor Changes
