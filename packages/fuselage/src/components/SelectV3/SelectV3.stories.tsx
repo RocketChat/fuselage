@@ -52,7 +52,6 @@ const Template: ComponentStory<typeof SelectV3> = (args) => (
 export const Default: ComponentStory<typeof SelectV3> = Template.bind({});
 
 const MyOption = (props: OptionProps) => {
-  console.log(props);
   const { label, value, isFocused, isSelected, innerProps } = props as any;
 
   return (

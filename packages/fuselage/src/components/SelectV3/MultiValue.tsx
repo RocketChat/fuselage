@@ -1,53 +1,28 @@
-// @ts-nocheck
-
 import React from 'react';
-import type { MultiValueProps, GroupBase } from 'react-select';
-import Select, { components } from 'react-select';
+import type { MultiValueProps } from 'react-select';
+import { components } from 'react-select';
 
-import { Margins, Box, Icon, Chip, IconButton } from '../..';
+import { Chip, IconButton } from '../..';
+import type { FuselageBoxHTMLAttributes } from '../../types/FuselageBoxHTMLAttributes';
 
 const MultiValue = (props: MultiValueProps) => {
-  const {
-    children,
-    // components,
-    data,
-    innerProps,
-    // isDisabled,
-    removeProps,
-    selectProps,
-  } = props;
-
-  // const { Container, Label, Remove } = components;
-
-  console.log(removeProps);
-  console.log(data);
+  const { children, removeProps } = props;
 
   return (
-    <div {...innerProps} {...selectProps}>
-      <Margins all='x2'>
-        <Chip
-          renderDismissSymbol={() => (
-            <IconButton
-              tiny
-              icon='cross'
-              // data={data}
-              // innerProps={
-              //   {
-              //     // ...getStyleProps(props, 'multiValueRemove', {
-              //     //   'multi-value__remove': true,
-              //     // }),
-              //   }
-              // }
-              aria-label={`Remove ${children || 'option'}`}
-              {...removeProps}
-              {...selectProps}
-            />
-          )}
-        >
-          {children}
-        </Chip>
-      </Margins>
-    </div>
+    <components.MultiValue {...props}>
+      <Chip
+        renderDismissSymbol={() => (
+          <IconButton
+            mini
+            icon='cross'
+            aria-label={`Remove ${children || 'option'}`}
+            {...(removeProps as FuselageBoxHTMLAttributes<HTMLElement>)}
+          />
+        )}
+      >
+        {children}
+      </Chip>
+    </components.MultiValue>
   );
 };
 

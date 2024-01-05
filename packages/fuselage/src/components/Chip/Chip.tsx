@@ -16,9 +16,7 @@ const defaultRenderThumb = ({ url }: { url: string }) => (
   </Box>
 );
 
-const defaultRenderDismissButton = () => (
-  <IconButton primary mini icon='cross' />
-);
+const defaultRenderDismissButton = () => <IconButton mini icon='cross' />;
 
 export const Chip = ({
   children,

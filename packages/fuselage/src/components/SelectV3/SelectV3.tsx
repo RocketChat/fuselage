@@ -32,6 +32,7 @@ const SelectV3 = ({
       DropdownIndicator,
       Option: renderOption || SelectOption,
       MultiValue: renderLabel || MultiValue,
+      MultiValueRemove: () => null,
       IndicatorSeparator: () => null,
     }}
     classNames={{

@@ -67,6 +67,10 @@
     color: $input-colors-color;
   }
 
+  &__multi-value-label {
+    padding: 0;
+  }
+
   @extend %input;
   @extend %input--invalid;
 }
