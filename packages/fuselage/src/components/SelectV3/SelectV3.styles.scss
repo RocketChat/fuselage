@@ -37,13 +37,6 @@
         $active-caret-color: $input-colors-invalid-active-caret-color,
         $disabled-color: $input-colors-invalid-disabled-color
       );
-
-      @include with-icon-addon-colors(
-        $color: $input-colors-invalid-color,
-        $focus-caret-color: $input-colors-invalid-focus-caret-color,
-        $focus-icon-color: $input-colors-invalid-focus-icon-color,
-        $disabled-color: $input-colors-invalid-disabled-color
-      );
     }
   }
 
@@ -52,19 +45,24 @@
     @include elevation.elevation-level(1);
   }
 
-  // &__control,
-  // &__value-container,
-  // &__single-value,
-  // &__multi-value,
-  // &__multi-value-label,
-  // &__multi-value-remove,
-  // &__input,
-  // &__dropdown-indicator,
-  // &__dropdown-indicator:hover {
-  //   &:not(.disabled) {
-  //     color: colors.font(default);
-  //   }
-  // }
+  &__placeholder {
+    @extend .rcx-input-box__placeholder;
+  }
+
+  &__dropdown-indicator,
+  &_indicators-container {
+    color: $input-colors-placeholder-color;
+
+    &:hover,
+    &:active {
+      color: $input-colors-placeholder-color;
+    }
+  }
+
+  &__single-value,
+  &__multi-value {
+    color: $input-colors-color;
+  }
 
   @extend %input;
   @extend %input--invalid;
