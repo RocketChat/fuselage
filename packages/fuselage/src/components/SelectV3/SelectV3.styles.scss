@@ -49,8 +49,11 @@
     @extend .rcx-input-box__placeholder;
   }
 
-  &__dropdown-indicator,
-  &_indicators-container {
+  &__dropdown-indicator {
+    @include clickable;
+
+    margin-inline: lengths.margin(4);
+
     color: $input-colors-placeholder-color;
 
     &:hover,
