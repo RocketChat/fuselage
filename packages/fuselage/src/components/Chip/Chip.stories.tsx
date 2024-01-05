@@ -8,6 +8,9 @@ import { exampleAvatar, blankAvatar } from '../../../.storybook/helpers';
 export default {
   title: 'Data Display/Chip',
   component: Chip,
+  parameters: {
+    layout: 'centered',
+  },
 } as ComponentMeta<typeof Chip>;
 
 const Template: ComponentStory<typeof Chip> = (args) => (

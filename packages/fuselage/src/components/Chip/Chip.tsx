@@ -22,19 +22,26 @@ export const Chip = ({
   children,
   className,
   thumbUrl,
+  onClick,
+  onMouseDown,
   renderThumb = defaultRenderThumb,
-  renderDismissSymbol = defaultRenderDismissButton,
+  renderDismissSymbol,
   ...props
-}: ChipProps) => (
-  <span
-    role='presentation'
-    className={prependClassName(className, 'rcx-box rcx-chip')}
-    {...props}
-  >
-    <Margins all='x4'>
-      {thumbUrl && renderThumb && renderThumb({ url: thumbUrl })}
-      {children && <span className='rcx-box rcx-chip__text'>{children}</span>}
-      {renderDismissSymbol && renderDismissSymbol()}
-    </Margins>
-  </span>
-);
+}: ChipProps) => {
+  const onDismiss = onClick || onMouseDown;
+
+  return (
+    <span
+      role='presentation'
+      className={prependClassName(className, 'rcx-box rcx-chip')}
+      {...props}
+    >
+      <Margins all='x4'>
+        {thumbUrl && renderThumb && renderThumb({ url: thumbUrl })}
+        {children && <span className='rcx-box rcx-chip__text'>{children}</span>}
+        {renderDismissSymbol && renderDismissSymbol()}
+        {onDismiss && !renderDismissSymbol && defaultRenderDismissButton()}
+      </Margins>
+    </span>
+  );
+};
