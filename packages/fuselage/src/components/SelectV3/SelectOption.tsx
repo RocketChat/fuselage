@@ -1,13 +1,28 @@
-// @ts-nocheck
-
 import React from 'react';
 import type { OptionProps } from 'react-select';
 
 import Option from '../Option';
 
-const SelectOption = (props: OptionProps) => {
-  const { children, isDisabled, isFocused, isSelected, innerRef, innerProps } =
-    props;
+const SelectOption = ({
+  children,
+  isDisabled,
+  isFocused,
+  isSelected,
+  innerRef,
+  theme,
+  innerProps: { is, ...innerProps },
+}: OptionProps) => {
+  // const {
+  //   children,
+  //   isDisabled,
+  //   isFocused,
+  //   isSelected,
+  //   innerRef,
+  //   theme,
+  //   innerProps: { is, ...innerProps },
+  // } = props;
+  console.log(theme);
+
   return (
     <Option
       // {...getStyleProps(props, 'option', {
@@ -18,7 +33,7 @@ const SelectOption = (props: OptionProps) => {
       // })}
       focus={isFocused}
       selected={isSelected}
-      ref={innerRef}
+      ref={innerRef as any}
       disabled={isDisabled}
       aria-disabled={isDisabled}
       {...innerProps}

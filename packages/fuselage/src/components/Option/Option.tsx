@@ -2,8 +2,8 @@ import type {
   Ref,
   ComponentProps,
   ReactNode,
-  MouseEvent,
   AllHTMLAttributes,
+  MouseEventHandler,
 } from 'react';
 import React, { forwardRef, memo } from 'react';
 
@@ -31,7 +31,7 @@ type OptionProps = {
   disabled?: boolean;
   value?: string;
   variant?: 'danger' | 'success' | 'warning' | 'primary';
-  onClick?: (event: MouseEvent<HTMLElement>) => void;
+  onClick?: MouseEventHandler<HTMLElement>;
   description?: ReactNode;
 } & Omit<AllHTMLAttributes<HTMLElement>, 'label'>;
 

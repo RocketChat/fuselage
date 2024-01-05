@@ -40,7 +40,12 @@ const OPTIONS = [
 const Template: ComponentStory<typeof SelectV3> = (args) => (
   <Field>
     <Field.Label htmlFor='aria-example-input'>Meu Select</Field.Label>
-    <SelectV3 inputId='aria-example-input' options={OPTIONS} {...args} />
+    <SelectV3
+      inputId='aria-example-input'
+      options={OPTIONS}
+      placeholder='Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+      {...args}
+    />
   </Field>
 );
 
@@ -48,7 +53,7 @@ export const Default: ComponentStory<typeof SelectV3> = Template.bind({});
 
 const MyOption = (props: OptionProps) => {
   console.log(props);
-  const { label, value, isFocused, isSelected, innerProps } = props;
+  const { label, value, isFocused, isSelected, innerProps } = props as any;
 
   return (
     <Option
@@ -58,7 +63,10 @@ const MyOption = (props: OptionProps) => {
       {...innerProps}
     >
       <OptionAvatar>
-        <Avatar url='http://localhost:3000/avatar/room/GENERAL' size='x20' />
+        <Avatar
+          url='https://lh3.googleusercontent.com/ogw/ANLem4bAyPrdmMHskjw8rwjvXg-3-QGfSSr_PQeNQe_x=s64-c-mo'
+          size='x20'
+        />
         {/* <UserAvatar username={value} size='x20' /> */}
       </OptionAvatar>
       <OptionContent>
@@ -75,6 +83,16 @@ Multi.args = {
   closeMenuOnSelect: false,
 };
 
-// export const AsyncSelect: ComponentStory<typeof SelectV3> = () => (
-//   <AsyncSelectComponent options={OPTIONS} />
-// );
+export const Invalid: ComponentStory<typeof SelectV3> = Template.bind({});
+Invalid.args = {
+  error: 'Error',
+};
+
+export const Disabled: ComponentStory<typeof SelectV3> = Template.bind({});
+Disabled.args = {
+  isDisabled: true,
+};
+
+export const AsyncSelect: ComponentStory<typeof SelectV3> = () => (
+  <AsyncSelectComponent options={OPTIONS} />
+);

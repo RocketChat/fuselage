@@ -20,6 +20,7 @@ module.exports = {
       'error',
       {
         argsIgnorePattern: '^_',
+        ignoreRestSiblings: true,
       },
     ],
     '@typescript-eslint/no-use-before-define': 'error',
