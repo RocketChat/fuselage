@@ -1,4 +1,4 @@
-import { useMutableCallback } from '@rocket.chat/fuselage-hooks';
+import { useEffectEvent } from '@rocket.chat/fuselage-hooks';
 import type { FormEvent, Ref } from 'react';
 import React, { useMemo, forwardRef } from 'react';
 
@@ -35,7 +35,7 @@ export const PaginatedSelectFiltered = ({
             ref={ref}
             placeholder={placeholder}
             value={filter}
-            onChange={useMutableCallback((e: FormEvent<HTMLInputElement>) => {
+            onChange={useEffectEvent((e: FormEvent<HTMLInputElement>) => {
               setFilter(e.currentTarget.value);
             })}
             {...props}

@@ -1,7 +1,4 @@
-import {
-  useMutableCallback,
-  useResizeObserver,
-} from '@rocket.chat/fuselage-hooks';
+import { useEffectEvent, useResizeObserver } from '@rocket.chat/fuselage-hooks';
 import React, { type ElementType, useState, useRef, useMemo } from 'react';
 
 import { type SelectProps } from '..';
@@ -52,7 +49,7 @@ export const PaginatedSelect = ({
 
   const [visible, hide, show] = useVisible();
 
-  const internalChangedByClick = useMutableCallback(([value]) => {
+  const internalChangedByClick = useEffectEvent(([value]) => {
     setInternalValue(value);
     onChange(value);
     hide();
@@ -68,7 +65,7 @@ export const PaginatedSelect = ({
     (filter === undefined || visible === AnimatedVisibility.HIDDEN) &&
     (valueLabel || placeholder || typeof placeholder === 'string');
 
-  const handleClick = useMutableCallback(() => {
+  const handleClick = useEffectEvent(() => {
     if (visible === AnimatedVisibility.VISIBLE) {
       return hide();
     }
