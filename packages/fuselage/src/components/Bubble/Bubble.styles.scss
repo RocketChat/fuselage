@@ -1,0 +1,33 @@
+@use '../../styles/colors.scss';
+@use '../../styles/lengths.scss';
+@use '../../styles/typography.scss';
+
+.rcx-button.rcx-bubble {
+  @include typography.use-font-scale(c2);
+
+  display: flex;
+  align-items: center;
+
+  height: lengths.size(28);
+
+  padding: lengths.padding(none);
+
+  cursor: pointer;
+  text-align: center;
+
+  border-radius: 20px;
+}
+
+.rcx-bubble {
+  &--content,
+  &--dismiss {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding-inline-start: lengths.padding(12);
+    padding-inline-end: lengths.padding(16);
+
+    transform: none !important;
+  }
+}
