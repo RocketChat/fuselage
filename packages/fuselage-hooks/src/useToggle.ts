@@ -1,7 +1,7 @@
 import type { SetStateAction } from 'react';
 import { useState } from 'react';
 
-import { useMutableCallback } from './useMutableCallback';
+import { useEffectEvent } from './useEffectEvent';
 
 /**
  * Hook to create a toggleable boolean state.
@@ -21,22 +21,20 @@ export const useToggle = (
     return !!initialValue;
   });
 
-  const dispatch = useMutableCallback(
-    (forcedValue?: SetStateAction<boolean>) => {
-      // uses value from scope to avoid multiple toggles in one render cycle
-      setValue(() => {
-        if (typeof forcedValue === 'boolean') {
-          return forcedValue;
-        }
+  const dispatch = useEffectEvent((forcedValue?: SetStateAction<boolean>) => {
+    // uses value from scope to avoid multiple toggles in one render cycle
+    setValue(() => {
+      if (typeof forcedValue === 'boolean') {
+        return forcedValue;
+      }
 
-        if (typeof forcedValue === 'function') {
-          return forcedValue(value);
-        }
+      if (typeof forcedValue === 'function') {
+        return forcedValue(value);
+      }
 
-        return !value;
-      });
-    }
-  );
+      return !value;
+    });
+  });
 
   return [value, dispatch];
 };

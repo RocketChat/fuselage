@@ -1,5 +1,61 @@
 # Change Log
 
+## 0.42.0
+
+### Minor Changes
+
+- [#1087](https://github.com/RocketChat/fuselage/pull/1087) [`4cd95535b`](https://github.com/RocketChat/fuselage/commit/4cd95535b6c384af6cb56ce98e2045dbe65ef9de) Thanks [@ggazzo](https://github.com/ggazzo)! - feat(fuselage): Adds detached prop to render Menu on the document body
+
+## 0.41.0
+
+### Minor Changes
+
+- [#1249](https://github.com/RocketChat/fuselage/pull/1249) [`55fb265df`](https://github.com/RocketChat/fuselage/commit/55fb265df90f0a4ad309482fc2e16f111fddae9d) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage): `FramedIcon` new component
+
+### Patch Changes
+
+- [#1255](https://github.com/RocketChat/fuselage/pull/1255) [`84b486f63`](https://github.com/RocketChat/fuselage/commit/84b486f63c12de17d9ed4c316b58e86c3f1a884e) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): `FramedIcon` HTMLAttributes props
+
+## 0.40.0
+
+### Minor Changes
+
+- [#1247](https://github.com/RocketChat/fuselage/pull/1247) [`f9dc8b2a2`](https://github.com/RocketChat/fuselage/commit/f9dc8b2a28fd60bdfc3fe5a3bc49b4b863dd56c9) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage): add `Card` hero variant
+
+## 0.39.0
+
+### Minor Changes
+
+- [#1242](https://github.com/RocketChat/fuselage/pull/1242) [`f659bae77`](https://github.com/RocketChat/fuselage/commit/f659bae771f38e09e85b39bb5343ffd24ac6430b) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage): `CardGrid` component
+
+### Patch Changes
+
+- [#1238](https://github.com/RocketChat/fuselage/pull/1238) [`286b30c1d`](https://github.com/RocketChat/fuselage/commit/286b30c1db31a3c81612b2089b69812f2a796aca) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): FieldLabel margins and paddings
+
+## 0.38.4
+
+### Patch Changes
+
+- [#1240](https://github.com/RocketChat/fuselage/pull/1240) [`617e8817b`](https://github.com/RocketChat/fuselage/commit/617e8817b5d0e7974d8a8d2e52a9b3f2ecb6fa6e) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): `CardGroup` wrap margins
+
+## 0.38.3
+
+### Patch Changes
+
+- [#1239](https://github.com/RocketChat/fuselage/pull/1239) [`0245820b5`](https://github.com/RocketChat/fuselage/commit/0245820b5f325ff0243d9a97db5ad7d4d373d6fe) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): `CardControls` alignment
+
+## 0.38.2
+
+### Patch Changes
+
+- [#1232](https://github.com/RocketChat/fuselage/pull/1232) [`6d5778611`](https://github.com/RocketChat/fuselage/commit/6d577861193b7675d16ad415e36d53681a99392f) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): `Card` spacing
+
+## 0.38.1
+
+### Patch Changes
+
+- [#1222](https://github.com/RocketChat/fuselage/pull/1222) [`ab9e4bf83`](https://github.com/RocketChat/fuselage/commit/ab9e4bf83d01cffb11b3ab803838770040bd2f2a) Thanks [@yash-rajpal](https://github.com/yash-rajpal)! - Handle `onBlur` prop on AutoComplete
+
 ## 0.38.0
 
 ### Minor Changes

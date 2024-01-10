@@ -1,8 +1,5 @@
 // @ts-nocheck
-import {
-  useMutableCallback,
-  useResizeObserver,
-} from '@rocket.chat/fuselage-hooks';
+import { useEffectEvent, useResizeObserver } from '@rocket.chat/fuselage-hooks';
 import type {
   AllHTMLAttributes,
   ComponentProps,
@@ -69,6 +66,7 @@ export function AutoComplete({
   error,
   disabled,
   multiple,
+  onBlur: onBlurAction = () => {},
   ...props
 }: AutoCompleteProps): ReactElement {
   const ref = useRef();
@@ -78,7 +76,7 @@ export function AutoComplete({
     () => getSelected(value, options) || []
   );
 
-  const handleSelect = useMutableCallback(([currentValue]) => {
+  const handleSelect = useEffectEvent(([currentValue]) => {
     if (selected?.some((item) => item.value === currentValue)) {
       hide();
       return;
@@ -96,7 +94,7 @@ export function AutoComplete({
     hide();
   });
 
-  const handleRemove = useMutableCallback((event) => {
+  const handleRemove = useEffectEvent((event) => {
     event.stopPropagation();
     event.preventDefault();
 
@@ -121,13 +119,18 @@ export function AutoComplete({
   const [cursor, handleKeyDown, , reset, [optionsAreVisible, hide, show]] =
     useCursor(value, memoizedOptions, handleSelect);
 
+  const handleOnBlur = useEffectEvent((event) => {
+    hide();
+    onBlurAction(event);
+  });
+
   useEffect(reset, [filter]);
 
   return (
     <Box
       rcx-autocomplete
       ref={containerRef}
-      onClick={useMutableCallback(() => ref.current.focus())}
+      onClick={useEffectEvent(() => ref.current.focus())}
       flexGrow={1}
       className={useMemo(
         () => [error && 'invalid', disabled && 'disabled'],
@@ -145,10 +148,8 @@ export function AutoComplete({
         <Margins all='x4'>
           <InputBox.Input
             ref={ref}
-            onChange={useMutableCallback((e) =>
-              setFilter(e.currentTarget.value)
-            )}
-            onBlur={hide}
+            onChange={useEffectEvent((e) => setFilter(e.currentTarget.value))}
+            onBlur={handleOnBlur}
             onFocus={show}
             onKeyDown={handleKeyDown}
             placeholder={

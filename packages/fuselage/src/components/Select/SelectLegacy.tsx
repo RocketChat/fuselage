@@ -1,6 +1,6 @@
 import {
   useMergedRefs,
-  useMutableCallback,
+  useEffectEvent,
   useResizeObserver,
   useOutsideClick,
 } from '@rocket.chat/fuselage-hooks';
@@ -39,7 +39,7 @@ const Wrapper = forwardRef((props: WrapperProps, ref: Ref<HTMLDivElement>) => (
 
 const useDidUpdate = (func: () => void, deps: DependencyList | undefined) => {
   const didMount = useRef(false);
-  const fn = useMutableCallback(func);
+  const fn = useEffectEvent(func);
 
   useEffect(() => {
     if (didMount.current) {
@@ -88,7 +88,7 @@ export const SelectLegacy = forwardRef(
   ) => {
     const [internalValue, setInternalValue] = useState(value || '');
 
-    const internalChangedByKeyboard = useMutableCallback(([value]) => {
+    const internalChangedByKeyboard = useEffectEvent(([value]) => {
       setInternalValue(value);
       onChange(value);
     });
@@ -122,7 +122,7 @@ export const SelectLegacy = forwardRef(
     const removeFocusClass = () =>
       innerRef.current?.classList.remove('focus-visible');
 
-    const internalChangedByClick = useMutableCallback(([value]) => {
+    const internalChangedByClick = useEffectEvent(([value]) => {
       setInternalValue(value);
       onChange(value);
       removeFocusClass();
@@ -152,7 +152,7 @@ export const SelectLegacy = forwardRef(
       (filter === undefined || visible === AnimatedVisibility.HIDDEN) &&
       (valueLabel || placeholder || typeof placeholder === 'string');
 
-    const handleClick = useMutableCallback(() => {
+    const handleClick = useEffectEvent(() => {
       if (innerRef.current?.classList.contains('focus-visible')) {
         removeFocusClass();
         return hide();

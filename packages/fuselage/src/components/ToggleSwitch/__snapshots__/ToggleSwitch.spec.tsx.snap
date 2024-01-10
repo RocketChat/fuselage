@@ -4,7 +4,7 @@ exports[`[ToggleSwitch Rendering] renders Checked without crashing 1`] = `
 <body>
   <div>
     <label
-      class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-toggle-switch"
+      class="rcx-box rcx-box--full rcx-toggle-switch"
     >
       <input
         aria-label="Decorator Label"
@@ -25,7 +25,7 @@ exports[`[ToggleSwitch Rendering] renders Default without crashing 1`] = `
 <body>
   <div>
     <label
-      class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-toggle-switch"
+      class="rcx-box rcx-box--full rcx-toggle-switch"
     >
       <input
         aria-label="Decorator Label"
@@ -45,7 +45,7 @@ exports[`[ToggleSwitch Rendering] renders Disabled without crashing 1`] = `
 <body>
   <div>
     <label
-      class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-toggle-switch"
+      class="rcx-box rcx-box--full rcx-toggle-switch"
     >
       <input
         aria-label="Decorator Label"
@@ -109,7 +109,7 @@ exports[`[ToggleSwitch Rendering] renders States without crashing 1`] = `
               class="rcx-box rcx-box--full rcx-css-7rd89h"
             >
               <label
-                class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-toggle-switch"
+                class="rcx-box rcx-box--full rcx-toggle-switch"
               >
                 <input
                   aria-label="Decorator Label"
@@ -131,7 +131,7 @@ exports[`[ToggleSwitch Rendering] renders States without crashing 1`] = `
               class="rcx-box rcx-box--full rcx-css-7rd89h"
             >
               <label
-                class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-toggle-switch"
+                class="rcx-box rcx-box--full rcx-toggle-switch"
               >
                 <input
                   aria-label="Decorator Label"
@@ -161,7 +161,7 @@ exports[`[ToggleSwitch Rendering] renders States without crashing 1`] = `
               class="rcx-box rcx-box--full rcx-css-7rd89h"
             >
               <label
-                class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-toggle-switch  is-hovered"
+                class="rcx-box rcx-box--full rcx-toggle-switch  is-hovered"
               >
                 <input
                   aria-label="Decorator Label"
@@ -183,7 +183,7 @@ exports[`[ToggleSwitch Rendering] renders States without crashing 1`] = `
               class="rcx-box rcx-box--full rcx-css-7rd89h"
             >
               <label
-                class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-toggle-switch  is-hovered"
+                class="rcx-box rcx-box--full rcx-toggle-switch  is-hovered"
               >
                 <input
                   aria-label="Decorator Label"
@@ -213,7 +213,7 @@ exports[`[ToggleSwitch Rendering] renders States without crashing 1`] = `
               class="rcx-box rcx-box--full rcx-css-7rd89h"
             >
               <label
-                class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-toggle-switch  is-active"
+                class="rcx-box rcx-box--full rcx-toggle-switch  is-active"
               >
                 <input
                   aria-label="Decorator Label"
@@ -235,7 +235,7 @@ exports[`[ToggleSwitch Rendering] renders States without crashing 1`] = `
               class="rcx-box rcx-box--full rcx-css-7rd89h"
             >
               <label
-                class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-toggle-switch  is-active"
+                class="rcx-box rcx-box--full rcx-toggle-switch  is-active"
               >
                 <input
                   aria-label="Decorator Label"
@@ -265,7 +265,7 @@ exports[`[ToggleSwitch Rendering] renders States without crashing 1`] = `
               class="rcx-box rcx-box--full rcx-css-7rd89h"
             >
               <label
-                class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-toggle-switch  is-focused"
+                class="rcx-box rcx-box--full rcx-toggle-switch  is-focused"
               >
                 <input
                   aria-label="Decorator Label"
@@ -287,7 +287,7 @@ exports[`[ToggleSwitch Rendering] renders States without crashing 1`] = `
               class="rcx-box rcx-box--full rcx-css-7rd89h"
             >
               <label
-                class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-toggle-switch  is-focused"
+                class="rcx-box rcx-box--full rcx-toggle-switch  is-focused"
               >
                 <input
                   aria-label="Decorator Label"
@@ -317,7 +317,7 @@ exports[`[ToggleSwitch Rendering] renders States without crashing 1`] = `
               class="rcx-box rcx-box--full rcx-css-7rd89h"
             >
               <label
-                class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-toggle-switch"
+                class="rcx-box rcx-box--full rcx-toggle-switch"
               >
                 <input
                   aria-label="Decorator Label"
@@ -340,7 +340,7 @@ exports[`[ToggleSwitch Rendering] renders States without crashing 1`] = `
               class="rcx-box rcx-box--full rcx-css-7rd89h"
             >
               <label
-                class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-toggle-switch"
+                class="rcx-box rcx-box--full rcx-toggle-switch"
               >
                 <input
                   aria-label="Decorator Label"

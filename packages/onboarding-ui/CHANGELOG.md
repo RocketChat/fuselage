@@ -1,5 +1,23 @@
 # Change Log
 
+## 0.33.3
+
+### Patch Changes
+
+- [#1250](https://github.com/RocketChat/fuselage/pull/1250) [`7ccde2abc`](https://github.com/RocketChat/fuselage/commit/7ccde2abc3e177fea52357100b2ab63482b3d005) Thanks [@hugocostadev](https://github.com/hugocostadev)! - Replace country SelectFilter that uses the SelectLegacy component with the Select component in Setup Wizard Organization Page
+
+## 0.33.2
+
+### Patch Changes
+
+- [#1227](https://github.com/RocketChat/fuselage/pull/1227) [`414b1fc88`](https://github.com/RocketChat/fuselage/commit/414b1fc88b1fc9d527d93e9fc1b3fa21d8c098e3) Thanks [@tiagoevanp](https://github.com/tiagoevanp)! - Fix offline registration wizard validation
+
+## 0.33.1
+
+### Patch Changes
+
+- [#1208](https://github.com/RocketChat/fuselage/pull/1208) [`24a06471d`](https://github.com/RocketChat/fuselage/commit/24a06471d4fd3c48b4e9611b6d663218934d1416) Thanks [@tiagoevanp](https://github.com/tiagoevanp)! - Adjust some font scales and text colors, fix some wrong translations, remove description from admin email on register server step, disable register workspace button when air-gapped.
+
 ## 0.33.0
 
 ### Minor Changes

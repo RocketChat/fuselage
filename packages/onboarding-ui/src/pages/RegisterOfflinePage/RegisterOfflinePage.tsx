@@ -12,6 +12,7 @@ type RegisterOfflinePageProps = {
   policyHref: string;
   clientKey: string;
   onSubmit: SubmitHandler<RegisterOfflinePayload>;
+  onCopySecurityCode: () => void;
   onBackButtonClick: () => void;
 };
 

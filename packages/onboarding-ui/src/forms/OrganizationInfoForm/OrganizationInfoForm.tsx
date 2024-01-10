@@ -9,7 +9,6 @@ import {
   Button,
   TextInput,
   Select,
-  SelectFiltered,
   Box,
 } from '@rocket.chat/fuselage';
 import { useBreakpoints, useUniqueId } from '@rocket.chat/fuselage-hooks';
@@ -208,7 +207,7 @@ const OrganizationInfoForm = ({
                 control={control}
                 rules={{ required: String(t('component.form.requiredField')) }}
                 render={({ field }) => (
-                  <SelectFiltered
+                  <Select
                     {...field}
                     options={countryOptions}
                     placeholder={t(
@@ -237,7 +236,7 @@ const OrganizationInfoForm = ({
               {t('component.form.action.back')}
             </Button>
           )}
-          <Button type='submit' primary disabled={isValidating || isSubmitting}>
+          <Button type='submit' primary loading={isValidating || isSubmitting}>
             {nextStep ?? t('component.form.action.next')}
           </Button>
           {onClickSkip && (

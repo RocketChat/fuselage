@@ -1,7 +1,4 @@
-import {
-  useMutableCallback,
-  useResizeObserver,
-} from '@rocket.chat/fuselage-hooks';
+import { useEffectEvent, useResizeObserver } from '@rocket.chat/fuselage-hooks';
 import React, {
   type ComponentProps,
   type ReactElement,
@@ -74,7 +71,7 @@ const PaginatedMultiSelect = ({
   const ref = useRef<HTMLInputElement>(null);
   const { ref: containerRef, borderBoxSize } = useResizeObserver();
 
-  const handleClick = useMutableCallback(() => {
+  const handleClick = useEffectEvent(() => {
     if (visible === AnimatedVisibility.VISIBLE) {
       return hide();
     }

@@ -109,7 +109,8 @@ const CreateFirstMemberForm = ({
           <Button
             type='submit'
             primary
-            disabled={isValidating || isSubmitting || !isValid}
+            disabled={!isValid}
+            loading={isSubmitting || isValidating}
             minHeight='x40'
           >
             {isSubmitting ? (
