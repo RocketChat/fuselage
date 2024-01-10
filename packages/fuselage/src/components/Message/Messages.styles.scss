@@ -290,10 +290,10 @@ $message-highlight-colors-background-other-color: theme(
     }
 
     & blockquote {
-      padding-inline: 8px;
+      padding-inline: lengths.padding(8);
 
       border: 1px solid colors.stroke(extra-light);
-      border-radius: 2px;
+      border-radius: lengths.border-radius(small);
       background-color: colors.surface(tint);
       border-inline-start-color: colors.stroke(medium);
 
@@ -330,7 +330,7 @@ $message-highlight-colors-background-other-color: theme(
       }
 
       &:focus {
-        border-radius: 2px;
+        border-radius: lengths.border-radius(small);
         box-shadow: 0 0 0 2px colors.stroke(extra-light-highlight);
       }
     }
