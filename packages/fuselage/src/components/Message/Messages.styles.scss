@@ -226,10 +226,6 @@ $message-highlight-colors-background-other-color: theme(
 
     color: colors.font(default);
 
-    & a {
-      color: $message-link-color;
-    }
-
     & h1 {
       @include typography.use-font-scale(h1);
     }
@@ -290,6 +286,52 @@ $message-highlight-colors-background-other-color: theme(
 
       &-4 {
         -webkit-line-clamp: 3;
+      }
+    }
+
+    & blockquote {
+      padding-inline: lengths.padding(8);
+
+      border: 1px solid colors.stroke(extra-light);
+      border-radius: lengths.border-radius(small);
+      background-color: colors.surface(tint);
+      border-inline-start-color: colors.stroke(medium);
+
+      &:hover,
+      &:focus {
+        border-color: colors.stroke(light);
+        background-color: colors.surface(hover);
+        border-inline-start-color: colors.stroke(medium);
+      }
+    }
+
+    & ul.task-list {
+      > li::before {
+        display: none;
+      }
+
+      > li
+        > .rcx-check-box
+        > .rcx-check-box__input:focus
+        + .rcx-check-box__fake {
+        z-index: 1;
+      }
+      margin-inline-start: 0;
+      padding-inline-start: 0;
+
+      list-style: none;
+    }
+
+    a {
+      color: $message-link-color;
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+      &:focus {
+        border-radius: lengths.border-radius(small);
+        box-shadow: 0 0 0 2px colors.stroke(extra-light-highlight);
       }
     }
   }
