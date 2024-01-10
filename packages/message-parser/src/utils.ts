@@ -193,6 +193,14 @@ const joinEmoji = (
 
   return current;
 };
+export const unnest = (inputValues: Paragraph['value']): Paragraph['value'] =>
+  inputValues.reduce(
+    (accumulator, currentValue) => [
+      ...accumulator,
+      ...(Array.isArray(currentValue) ? currentValue : [currentValue]),
+    ],
+    [] as Paragraph['value']
+  );
 
 export const reducePlainTexts = (
   values: Paragraph['value']

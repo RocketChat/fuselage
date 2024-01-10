@@ -30,6 +30,7 @@
     strike,
     task,
     tasks,
+    unnest,
     unorderedList,
   } = require('./utils');
 }}
@@ -227,8 +228,10 @@ InlineItem = Whitespace
  *
  */
 References
-  = "[" title:LinkTitle* "](" href:LinkRef ")" { return title.length ? link(href, reducePlainTexts(title)) : link(href); }
+  = "[" title:LinkTitle* "](" href:LinkRef ")" { return title.length ? link(href, reducePlainTexts(flatten(title))) : link(href); }
   / "<" href:LinkRef "|" title:LinkTitle2 ">" { return link(href, [plain(title)]); }
+LinkTitle = (Whitespace / Emphasis) / balanced / anyTitle:$[^\[\]] { return plain(anyTitle) }
+balanced = "[" t:LinkTitle* "]" { return reducePlainTexts([plain("["), ...(t || []), plain("]")]) }
 
 LinkTitle = (Whitespace / EmphasisForReferences) / anyTitle:$(!("](" .) .) { return plain(anyTitle) }
 
