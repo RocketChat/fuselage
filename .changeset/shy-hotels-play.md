@@ -2,4 +2,4 @@
 "@rocket.chat/fuselage": minor
 ---
 
-migrating blockquote style to fuselage MessageBody component
+Add missing message body additional styles to `MessageBody`
