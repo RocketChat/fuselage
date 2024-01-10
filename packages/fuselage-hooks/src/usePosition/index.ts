@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import type { RefObject, CSSProperties } from 'react';
 
 import { useDebouncedCallback } from '../useDebouncedCallback';
-import { useMutableCallback } from '../useMutableCallback';
+import { useEffectEvent } from '../useEffectEvent';
 import { useSafely } from '../useSafely';
 import type { Placement } from './Placement';
 import type { PlacementVariant } from './PlacementVariant';
@@ -206,7 +206,7 @@ export function usePosition<TTarget extends Element, TAnchor extends Element>(
   }, [container]);
 
   const handleBoundingClientRectChange = useDebouncedCallback(
-    useMutableCallback(() => {
+    useEffectEvent(() => {
       const target = targetRef.current;
       const anchor = anchorRef.current;
       const targetParent = target?.parentElement;

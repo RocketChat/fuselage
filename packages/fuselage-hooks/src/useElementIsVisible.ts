@@ -1,6 +1,8 @@
-import { useDebouncedState, useSafely } from '@rocket.chat/fuselage-hooks';
 import type { RefObject } from 'react';
 import { useCallback, useEffect, useRef, useState } from 'react';
+
+import { useDebouncedState } from './useDebouncedState';
+import { useSafely } from './useSafely';
 
 declare global {
   interface Window {

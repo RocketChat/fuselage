@@ -3,6 +3,7 @@ import type { ComponentProps, ElementType } from 'react';
 import React, { cloneElement, useRef } from 'react';
 import type { AriaMenuProps } from 'react-aria';
 import { useButton, useMenuTrigger } from 'react-aria';
+import { createPortal } from 'react-dom';
 import type { MenuTriggerProps } from 'react-stately';
 import { useMenuTriggerState } from 'react-stately';
 
@@ -21,6 +22,7 @@ interface MenuButtonProps<T> extends AriaMenuProps<T>, MenuTriggerProps {
   mini?: boolean;
   placement?: UsePositionOptions['placement'];
   title?: string;
+  detached?: boolean;
   /**
    * A component that renders an IconButton
    */
@@ -39,6 +41,7 @@ const Menu = <T extends object>({
   pressed,
   maxWidth = 'x250',
   button,
+  detached,
   ...props
 }: MenuButtonProps<T>) => {
   const state = useMenuTriggerState(props);
@@ -54,6 +57,17 @@ const Menu = <T extends object>({
   const { large, medium, tiny, mini } = props;
   const sizes = { large, medium, tiny, mini };
   const defaultSmall = !large && !medium && !tiny && !mini;
+
+  const popover = state.isOpen && (
+    <MenuPopover
+      state={state}
+      triggerRef={ref}
+      placement={getPlacement(placement)}
+      maxWidth={maxWidth}
+    >
+      <MenuDropDown {...props} {...menuProps} />
+    </MenuPopover>
+  );
 
   return (
     <>
@@ -78,16 +92,7 @@ const Menu = <T extends object>({
           {...sizes}
         />
       )}
-      {state.isOpen && (
-        <MenuPopover
-          state={state}
-          triggerRef={ref}
-          placement={getPlacement(placement)}
-          maxWidth={maxWidth}
-        >
-          <MenuDropDown {...props} {...menuProps} />
-        </MenuPopover>
-      )}
+      {detached ? createPortal(popover, document.body) : popover}
     </>
   );
 };
