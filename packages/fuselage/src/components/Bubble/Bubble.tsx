@@ -28,7 +28,12 @@ const Bubble = ({
       <span>{children}</span>
     </button>
     {onDismiss && (
-      <button className='rcx-bubble--dismiss' onClick={onClick} {...props}>
+      <button
+        aria-label={`Dismiss ${children}`}
+        className='rcx-bubble--dismiss'
+        onClick={onClick}
+        {...props}
+      >
         <Icon
           name='cross-small'
           size='x16'
