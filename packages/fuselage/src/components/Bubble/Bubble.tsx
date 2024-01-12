@@ -7,7 +7,7 @@ import { Icon } from '../Icon';
 type BubbleProps = {
   children: ReactNode;
   onClick: () => void;
-  icon: IconName;
+  icon?: IconName;
   onDismiss?: () => void;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
