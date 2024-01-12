@@ -23,7 +23,7 @@ Dismissable.args = {
   children: 'New messages',
   icon: 'arrow-down',
   onClick: action('click'),
-  onDismiss: () => console.log('dismiss'),
+  onDismiss: action('dismiss'),
 };
 
 export const LabelOnly = Template.bind({});
