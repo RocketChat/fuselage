@@ -1,30 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`[Bubble Rendering] renders Default without crashing 1`] = `
-<body>
-  <div>
-    <div
-      class="rcx-bubble rcx-box rcx-box--full "
-    >
-      <button
-        class="rcx-bubble--content"
-      >
-        <i
-          aria-hidden="true"
-          class="rcx-box rcx-box--full rcx-icon--name-arrow-down rcx-icon rcx-css-1g87xs3"
-        >
-          
-        </i>
-        <span>
-          New messages
-        </span>
-      </button>
-    </div>
-  </div>
-</body>
-`;
-
-exports[`[Bubble Rendering] renders WithDismiss without crashing 1`] = `
+exports[`[Bubble Rendering] renders Dismissable without crashing 1`] = `
 <body>
   <div>
     <div
@@ -55,6 +31,70 @@ exports[`[Bubble Rendering] renders WithDismiss without crashing 1`] = `
         </i>
       </button>
     </div>
+  </div>
+</body>
+`;
+
+exports[`[Bubble Rendering] renders IconAndLabel without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-bubble rcx-box rcx-box--full "
+    >
+      <button
+        class="rcx-bubble--content"
+      >
+        <i
+          aria-hidden="true"
+          class="rcx-box rcx-box--full rcx-icon--name-arrow-down rcx-icon rcx-css-1g87xs3"
+        >
+          
+        </i>
+        <span>
+          New messages
+        </span>
+      </button>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`[Bubble Rendering] renders LabelOnly without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-bubble rcx-box rcx-box--full "
+    >
+      <button
+        class="rcx-bubble--content"
+      >
+        <span>
+          See new messages
+        </span>
+      </button>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`[Bubble Rendering] renders RichContentTest without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-box--with-inline-elements"
+    >
+      <a
+        href="www.google.com"
+      >
+        www.google.com
+      </a>
+    </div>
+    <a
+      class="rcx-box rcx-box--full"
+      href="www.google.com"
+    >
+      www.google.com
+    </a>
   </div>
 </body>
 `;
