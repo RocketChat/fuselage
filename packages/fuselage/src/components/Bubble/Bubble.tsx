@@ -17,32 +17,29 @@ const Bubble = ({
   icon,
   onDismiss,
   ...props
-}: BubbleProps) => {
-  console.log('');
-  return (
-    <button
-      className='rcx-bubble rcx-button rcx-button--primary rcx-box rcx-box--full'
-      onClick={onClick}
-      {...props}
-    >
-      <span className='rcx-bubble--content'>
-        {icon && <Icon name={icon} size='x16' />}
-        {children}
-      </span>
-      <span className='rcx-bubble--dismiss'>
-        {onDismiss && (
-          <Icon
-            name='cross-small'
-            size='x16'
-            onClick={(e) => {
-              e.stopPropagation();
-              onDismiss();
-            }}
-          />
-        )}
-      </span>
+}: BubbleProps) => (
+  <div
+    className={`rcx-bubble rcx-box rcx-box--full ${
+      onDismiss ? 'rcx-bubble--group' : ''
+    }`}
+  >
+    <button className='rcx-bubble--content' onClick={onClick} {...props}>
+      {icon && <Icon name={icon} size='x16' />}
+      <span>{children}</span>
     </button>
-  );
-};
+    {onDismiss && (
+      <button className='rcx-bubble--dismiss' onClick={onClick} {...props}>
+        <Icon
+          name='cross-small'
+          size='x16'
+          onClick={(e) => {
+            e.stopPropagation();
+            onDismiss();
+          }}
+        />
+      </button>
+    )}
+  </div>
+);
 
 export default Bubble;

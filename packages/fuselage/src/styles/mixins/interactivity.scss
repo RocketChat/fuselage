@@ -8,3 +8,12 @@
     cursor: not-allowed;
   }
 }
+
+@mixin click-animation {
+  @include on-active {
+    > * {
+      transform: translateY(1px);
+    }
+    @content;
+  }
+}

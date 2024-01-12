@@ -2,32 +2,44 @@
 @use '../../styles/lengths.scss';
 @use '../../styles/typography.scss';
 
-.rcx-button.rcx-bubble {
-  @include typography.use-font-scale(c2);
+@use '../../styles/variables/buttons.scss' as buttonColors;
+@use '../../styles/primitives/button.scss';
+@use '../../styles/mixins/interactivity.scss';
 
+.rcx-bubble {
   display: flex;
   align-items: center;
 
-  height: lengths.size(28);
-
-  padding: lengths.padding(none);
-
-  cursor: pointer;
-  text-align: center;
-
-  border-radius: 20px;
-}
-
-.rcx-bubble {
   &--content,
   &--dismiss {
+    @include typography.use-font-scale(c2);
+    @include button.kind-variant(buttonColors.$primary);
+    @include clickable;
+    @include click-animation();
+
     display: flex;
     justify-content: center;
     align-items: center;
+
+    height: lengths.size(28);
 
     padding-inline-start: lengths.padding(12);
     padding-inline-end: lengths.padding(16);
 
     transform: none !important;
+
+    border-radius: 20px;
+  }
+
+  &--group {
+    :first-child {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    :last-child {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
   }
 }
