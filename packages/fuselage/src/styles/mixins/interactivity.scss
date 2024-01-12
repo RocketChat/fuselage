@@ -9,11 +9,11 @@
   }
 }
 
-@mixin click-animation {
+@mixin click-animation($excludeRole: false) {
   @include on-active {
-    > * {
+    > *:not([role='#{$excludeRole}']),
+    > *:not[aria-disabled='true'] {
       transform: translateY(1px);
     }
-    @content;
   }
 }
