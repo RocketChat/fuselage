@@ -76,25 +76,3 @@ exports[`[Bubble Rendering] renders LabelOnly without crashing 1`] = `
   </div>
 </body>
 `;
-
-exports[`[Bubble Rendering] renders RichContentTest without crashing 1`] = `
-<body>
-  <div>
-    <div
-      class="rcx-box rcx-box--full rcx-box--with-inline-elements"
-    >
-      <a
-        href="www.google.com"
-      >
-        www.google.com
-      </a>
-    </div>
-    <a
-      class="rcx-box rcx-box--full"
-      href="www.google.com"
-    >
-      www.google.com
-    </a>
-  </div>
-</body>
-`;
