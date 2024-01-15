@@ -26,7 +26,7 @@
     padding-inline-start: lengths.padding(12);
     padding-inline-end: lengths.padding(16);
 
-    border-radius: 20px;
+    border-radius: lengths.border-radius(extra-large);
   }
 
   &--group {
