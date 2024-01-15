@@ -1,4 +1,8 @@
-import type { ReactNode, MouseEvent as ReactMouseEvent } from 'react';
+import type {
+  ReactNode,
+  MouseEvent as ReactMouseEvent,
+  AllHTMLAttributes,
+} from 'react';
 import React from 'react';
 
 import './MessageSystem.styles.scss';
@@ -8,13 +12,13 @@ type MessageSystemProps = {
   title?: string;
   isSelected?: boolean;
   onClick?: (e: ReactMouseEvent<HTMLDivElement, MouseEvent>) => void;
-};
+} & AllHTMLAttributes<HTMLDivElement>;
 
 export const MessageSystem = ({
   children,
   title,
   isSelected,
-  ...rest
+  ...props
 }: MessageSystemProps) => (
   <div
     className={[
@@ -24,7 +28,7 @@ export const MessageSystem = ({
       .filter(Boolean)
       .join(' ')}
     title={title}
-    {...rest}
+    {...props}
   >
     {children}
   </div>
