@@ -65,14 +65,16 @@ export const PaginatedSelect = ({
     (filter === undefined || visible === AnimatedVisibility.HIDDEN) &&
     (valueLabel || placeholder || typeof placeholder === 'string');
 
+  const handleOnMouseDown = useEffectEvent(() => {
+    visible === AnimatedVisibility.VISIBLE ? hide() : show();
+  });
+
+  const handleBlur = useEffectEvent(() => {
+    visible === AnimatedVisibility.VISIBLE && hide();
+  });
+
   const handleClick = useEffectEvent(() => {
-    if (visible === AnimatedVisibility.VISIBLE) {
-      return hide();
-    }
-    if (ref && ref.current) {
-      ref.current.focus();
-      return show();
-    }
+    ref && ref.current && ref.current.focus();
   });
 
   return (
@@ -80,6 +82,7 @@ export const PaginatedSelect = ({
       rcx-select
       disabled={disabled}
       ref={containerRef}
+      onMouseDown={handleOnMouseDown}
       onClick={handleClick}
       className={useMemo(
         () => [error && 'invalid', disabled && 'disabled'],
@@ -110,8 +113,8 @@ export const PaginatedSelect = ({
           filter={filter}
           ref={ref}
           aria-haspopup='listbox'
-          onClick={show}
-          onBlur={hide}
+          // onClick={show}
+          onBlur={handleBlur}
         />
         <Margins inline='x4'>
           <SelectAddon>
