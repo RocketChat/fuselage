@@ -69,16 +69,22 @@ const PaginatedMultiSelect = ({
   const [visible, hide, show] = useVisible();
 
   const ref = useRef<HTMLInputElement>(null);
+
   const { ref: containerRef, borderBoxSize } = useResizeObserver();
 
+  const handleOnMouseDown = useEffectEvent((e) => {
+    const isClickOnChip = e.target.closest('.rcx-chip');
+    if (!isClickOnChip) {
+      visible === AnimatedVisibility.VISIBLE ? hide() : show();
+    }
+  });
+
+  const handleBlur = useEffectEvent(() => {
+    visible === AnimatedVisibility.VISIBLE && hide();
+  });
+
   const handleClick = useEffectEvent(() => {
-    if (visible === AnimatedVisibility.VISIBLE) {
-      return hide();
-    }
-    if (ref && ref.current) {
-      ref.current.focus();
-      return show();
-    }
+    ref && ref.current && ref.current.focus();
   });
 
   const addOption = (value: unknown) => {
@@ -114,6 +120,7 @@ const PaginatedMultiSelect = ({
       rcx-select
       className={[error && 'invalid', disabled && 'disabled']}
       ref={containerRef}
+      onMouseDown={handleOnMouseDown}
       onClick={handleClick}
       disabled={disabled}
       {...props}
@@ -135,8 +142,7 @@ const PaginatedMultiSelect = ({
                     disabled={disabled}
                     ref={ref}
                     aria-haspopup='listbox'
-                    onClick={show}
-                    onBlur={hide}
+                    onBlur={handleBlur}
                     order={1}
                     rcx-input-box--undecorated
                     children={placeholder ?? null}
