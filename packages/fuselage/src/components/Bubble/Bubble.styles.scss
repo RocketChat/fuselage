@@ -15,7 +15,7 @@
     @include typography.use-font-scale(c2);
     @include button.kind-variant(buttonColors.$primary);
     @include clickable;
-    @include click-animation();
+    @include click-animation;
 
     display: flex;
     justify-content: center;
