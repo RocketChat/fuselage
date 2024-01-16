@@ -4,10 +4,10 @@ exports[`[Bubble Rendering] renders Dismissable without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-bubble rcx-box rcx-box--full rcx-bubble--group"
+      class="rcx-bubble rcx-box rcx-box--full rcx-bubble__group"
     >
       <button
-        class="rcx-bubble--content"
+        class="rcx-bubble__content"
       >
         <i
           aria-hidden="true"
@@ -21,7 +21,7 @@ exports[`[Bubble Rendering] renders Dismissable without crashing 1`] = `
       </button>
       <button
         aria-label="Dismiss New messages"
-        class="rcx-bubble--dismiss"
+        class="rcx-bubble__dismiss"
       >
         <i
           aria-hidden="true"
@@ -42,7 +42,7 @@ exports[`[Bubble Rendering] renders IconAndLabel without crashing 1`] = `
       class="rcx-bubble rcx-box rcx-box--full "
     >
       <button
-        class="rcx-bubble--content"
+        class="rcx-bubble__content"
       >
         <i
           aria-hidden="true"
@@ -66,7 +66,7 @@ exports[`[Bubble Rendering] renders LabelOnly without crashing 1`] = `
       class="rcx-bubble rcx-box rcx-box--full "
     >
       <button
-        class="rcx-bubble--content"
+        class="rcx-bubble__content"
       >
         <span>
           See new messages

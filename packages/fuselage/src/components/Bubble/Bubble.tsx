@@ -24,18 +24,18 @@ const Bubble = ({
 }: BubbleProps) => (
   <div
     className={`rcx-bubble rcx-box rcx-box--full ${
-      onDismiss ? 'rcx-bubble--group' : ''
+      onDismiss ? 'rcx-bubble__group' : ''
     }`}
     {...props}
   >
-    <button className='rcx-bubble--content' onClick={onClick} {...contentProps}>
+    <button className='rcx-bubble__content' onClick={onClick} {...contentProps}>
       {icon && <Icon name={icon} size='x16' />}
       <span>{children}</span>
     </button>
     {onDismiss && (
       <button
         aria-label={`Dismiss ${children}`}
-        className='rcx-bubble--dismiss'
+        className='rcx-bubble__dismiss'
         onClick={onDismiss}
         {...dismissProps}
       >
