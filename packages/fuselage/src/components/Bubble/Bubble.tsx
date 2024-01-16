@@ -13,7 +13,7 @@ type BubbleProps = {
   dismissProps?: ButtonHTMLAttributes<HTMLButtonElement>;
 } & AllHTMLAttributes<HTMLDivElement>;
 
-const Bubble = ({
+export const Bubble = ({
   children,
   onClick,
   icon,
@@ -29,7 +29,7 @@ const Bubble = ({
     {...props}
   >
     <button className='rcx-bubble__content' onClick={onClick} {...contentProps}>
-      {icon && <Icon name={icon} size='x16' />}
+      {icon && <Icon name={icon} size='x16' mie={8} />}
       <span>{children}</span>
     </button>
     {onDismiss && (
@@ -44,5 +44,3 @@ const Bubble = ({
     )}
   </div>
 );
-
-export default Bubble;

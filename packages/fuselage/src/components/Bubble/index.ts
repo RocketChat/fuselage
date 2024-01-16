@@ -1,1 +1,1 @@
-export { default as Bubble } from './Bubble';
+export * from './Bubble';
