@@ -10,6 +10,8 @@ import type {
   ElementType,
   Ref,
   ReactNode,
+  FocusEventHandler,
+  MouseEventHandler,
 } from 'react';
 import React, { useState, useRef, useEffect, forwardRef } from 'react';
 
@@ -142,12 +144,21 @@ export const MultiSelect = forwardRef(
     };
 
     const handleClick = useEffectEvent(() => {
-      if (visible === AnimatedVisibility.VISIBLE) {
-        return hide();
-      }
       innerRef.current?.focus();
-      return show();
     });
+
+    const handleBlur: FocusEventHandler = useEffectEvent(() => {
+      visible === AnimatedVisibility.VISIBLE && hide();
+    });
+
+    const handleOnMouseDown = useEffectEvent((e) => {
+      const isClickOnChip = e.target.closest('.rcx-chip');
+      if (!isClickOnChip) {
+        visible === AnimatedVisibility.VISIBLE ? hide() : show();
+      }
+    });
+
+    const handleAnchorClick: MouseEventHandler = useEffectEvent(() => {});
 
     return (
       <Box
@@ -155,6 +166,7 @@ export const MultiSelect = forwardRef(
         rcx-select
         className={[error && 'invalid', disabled && 'disabled']}
         ref={containerRef}
+        onMouseDown={handleOnMouseDown}
         onClick={handleClick}
         disabled={disabled}
         {...props}
@@ -176,8 +188,8 @@ export const MultiSelect = forwardRef(
                       ref: anchorRef,
                       children: internalValue.length === 0 ? placeholder : null,
                       disabled: disabled ?? false,
-                      onClick: show,
-                      onBlur: hide,
+                      onClick: handleAnchorClick,
+                      onBlur: handleBlur,
                       onKeyDown: handleKeyDown,
                       onKeyUp: handleKeyUp,
                     })}
