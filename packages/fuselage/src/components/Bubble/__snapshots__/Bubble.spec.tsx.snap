@@ -11,7 +11,7 @@ exports[`[Bubble Rendering] renders Dismissable without crashing 1`] = `
       >
         <i
           aria-hidden="true"
-          class="rcx-box rcx-box--full rcx-icon--name-arrow-down rcx-icon rcx-css-1g87xs3"
+          class="rcx-box rcx-box--full rcx-icon--name-arrow-down rcx-icon rcx-css-gcnmf8"
         >
           
         </i>
@@ -46,7 +46,7 @@ exports[`[Bubble Rendering] renders IconAndLabel without crashing 1`] = `
       >
         <i
           aria-hidden="true"
-          class="rcx-box rcx-box--full rcx-icon--name-arrow-down rcx-icon rcx-css-1g87xs3"
+          class="rcx-box rcx-box--full rcx-icon--name-arrow-down rcx-icon rcx-css-gcnmf8"
         >
           
         </i>
