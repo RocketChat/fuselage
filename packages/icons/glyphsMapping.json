@@ -955,5 +955,8 @@
   },
   "rocketchat": {
     "start": "\ue147"
+  },
+  "arrow-up": {
+    "start": "\ue149"
   }
 }
