@@ -1,0 +1,43 @@
+@use '../../styles/colors.scss';
+@use '../../styles/lengths.scss';
+@use '../../styles/typography.scss';
+
+@use '../../styles/variables/buttons.scss' as buttonColors;
+@use '../../styles/primitives/button.scss';
+@use '../../styles/mixins/interactivity.scss';
+
+.rcx-bubble {
+  display: flex;
+  align-items: center;
+
+  &__content,
+  &__dismiss {
+    @include typography.use-font-scale(c2);
+    @include button.kind-variant(buttonColors.$primary);
+    @include clickable;
+    @include click-animation;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: lengths.size(28);
+
+    padding-inline-start: lengths.padding(12);
+    padding-inline-end: lengths.padding(16);
+
+    border-radius: lengths.border-radius(extra-large);
+  }
+
+  &__group {
+    :first-child {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    :last-child {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+}
