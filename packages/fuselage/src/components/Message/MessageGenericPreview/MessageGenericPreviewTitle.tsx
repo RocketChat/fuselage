@@ -12,12 +12,14 @@ export const MessageGenericPreviewTitle = ({
   ...props
 }: MessageGenericPreviewTitleProps) =>
   externalUrl ? (
-    <a
-      className='rcx-message-generic-preview__title'
-      href={externalUrl}
-      target='_blank'
-      {...props}
-    />
+    <span>
+      <a
+        className='rcx-message-generic-preview__title'
+        href={externalUrl}
+        target='_blank'
+        {...props}
+      />
+    </span>
   ) : (
     <span className='rcx-message-generic-preview__title' {...props} />
   );

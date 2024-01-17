@@ -323,16 +323,7 @@ $message-highlight-colors-background-other-color: theme(
     }
 
     a {
-      color: $message-link-color;
-
-      &:hover {
-        text-decoration: underline;
-      }
-
-      &:focus {
-        border-radius: lengths.border-radius(small);
-        box-shadow: 0 0 0 2px colors.stroke(extra-light-highlight);
-      }
+      @include as-link($message-link-color);
     }
   }
 

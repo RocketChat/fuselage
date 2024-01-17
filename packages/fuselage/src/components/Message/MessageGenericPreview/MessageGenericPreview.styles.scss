@@ -62,7 +62,7 @@ $message-generic-preview-icon-background-color: functions.theme(
       justify-content: center;
       flex-grow: 1;
 
-      margin-block: lengths.margin(8);
+      padding-block: lengths.margin(8);
       padding-inline: lengths.margin(16);
     }
   }
@@ -88,30 +88,6 @@ $message-generic-preview-icon-background-color: functions.theme(
     margin-block-end: lengths.margin(4);
 
     color: $message-generic-preview-title-color;
-    @at-root {
-      a#{&} {
-        &:link {
-          text-decoration: none;
-
-          color: colors.font(info);
-        }
-
-        &:visited,
-        &.is-visited {
-          color: colors.font(info);
-        }
-
-        &:active,
-        &.is-active {
-          color: colors.font(info);
-        }
-
-        &:hover,
-        &.is-hovered {
-          text-decoration: underline;
-        }
-      }
-    }
   }
 
   &__description {
