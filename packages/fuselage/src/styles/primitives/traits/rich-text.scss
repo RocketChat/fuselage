@@ -29,27 +29,6 @@
     font: inherit;
   }
 
-  a {
-    &:link {
-      color: colors.font(info);
-    }
-
-    &:visited,
-    &.is-visited {
-      color: colors.font(info);
-    }
-
-    &:active,
-    &.is-active {
-      color: colors.font(info);
-    }
-
-    &:hover,
-    &.is-hovered {
-      text-decoration: underline;
-    }
-  }
-
   strong {
     letter-spacing: inherit;
 
