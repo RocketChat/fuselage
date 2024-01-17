@@ -1,5 +1,5 @@
 import { Title, Description, Primary, Stories } from '@storybook/addon-docs';
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 import React from 'react';
 
 import {
@@ -31,9 +31,9 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof Field>;
+} as Meta<typeof Field>;
 
-export const Default: ComponentStory<typeof FieldGroup> = () => (
+export const Default: StoryFn<typeof FieldGroup> = () => (
   <FieldGroup>
     <Field>
       <FieldLabel>Field #1</FieldLabel>

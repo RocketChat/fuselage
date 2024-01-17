@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`[Card Rendering] renders Clickable without crashing 1`] = `
+exports[`renders Clickable without crashing 1`] = `
 <body>
   <div>
     <div
@@ -99,7 +99,7 @@ exports[`[Card Rendering] renders Clickable without crashing 1`] = `
 </body>
 `;
 
-exports[`[Card Rendering] renders Hero without crashing 1`] = `
+exports[`renders Hero without crashing 1`] = `
 <body>
   <div>
     <div
@@ -134,7 +134,7 @@ exports[`[Card Rendering] renders Hero without crashing 1`] = `
 </body>
 `;
 
-exports[`[Card Rendering] renders Horizontal without crashing 1`] = `
+exports[`renders Horizontal without crashing 1`] = `
 <body>
   <div>
     <div
@@ -237,7 +237,7 @@ exports[`[Card Rendering] renders Horizontal without crashing 1`] = `
 </body>
 `;
 
-exports[`[Card Rendering] renders HorizontalCustom without crashing 1`] = `
+exports[`renders HorizontalCustom without crashing 1`] = `
 <body>
   <div>
     <div
@@ -320,7 +320,7 @@ exports[`[Card Rendering] renders HorizontalCustom without crashing 1`] = `
 </body>
 `;
 
-exports[`[Card Rendering] renders HorizontalNoAction without crashing 1`] = `
+exports[`renders HorizontalNoAction without crashing 1`] = `
 <body>
   <div>
     <div
@@ -355,7 +355,7 @@ exports[`[Card Rendering] renders HorizontalNoAction without crashing 1`] = `
 </body>
 `;
 
-exports[`[Card Rendering] renders HorizontalNoIcon without crashing 1`] = `
+exports[`renders HorizontalNoIcon without crashing 1`] = `
 <body>
   <div>
     <div
@@ -420,7 +420,7 @@ exports[`[Card Rendering] renders HorizontalNoIcon without crashing 1`] = `
 </body>
 `;
 
-exports[`[Card Rendering] renders Title h4 without crashing 1`] = `
+exports[`renders Title h4 without crashing 1`] = `
 <body>
   <div>
     <div
@@ -445,7 +445,7 @@ exports[`[Card Rendering] renders Title h4 without crashing 1`] = `
 </body>
 `;
 
-exports[`[Card Rendering] renders Title h5 without crashing 1`] = `
+exports[`renders Title h5 without crashing 1`] = `
 <body>
   <div>
     <div
@@ -470,7 +470,7 @@ exports[`[Card Rendering] renders Title h5 without crashing 1`] = `
 </body>
 `;
 
-exports[`[Card Rendering] renders Vertical without crashing 1`] = `
+exports[`renders Vertical without crashing 1`] = `
 <body>
   <div>
     <div
@@ -541,7 +541,7 @@ exports[`[Card Rendering] renders Vertical without crashing 1`] = `
 </body>
 `;
 
-exports[`[Card Rendering] renders VerticalCustom without crashing 1`] = `
+exports[`renders VerticalCustom without crashing 1`] = `
 <body>
   <div>
     <div
@@ -686,7 +686,7 @@ exports[`[Card Rendering] renders VerticalCustom without crashing 1`] = `
 </body>
 `;
 
-exports[`[Card Rendering] renders VerticalNoIcon without crashing 1`] = `
+exports[`renders VerticalNoIcon without crashing 1`] = `
 <body>
   <div>
     <div

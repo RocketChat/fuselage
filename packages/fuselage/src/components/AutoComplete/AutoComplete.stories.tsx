@@ -7,7 +7,7 @@ import {
   Stories,
   PRIMARY_STORY,
 } from '@storybook/addon-docs';
-import type { ComponentMeta, ComponentStory } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import React, { useState } from 'react';
 
 import { AutoComplete, Box, Chip, Avatar, Option } from '../..';
@@ -33,7 +33,7 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof AutoComplete>;
+} as Meta<typeof AutoComplete>;
 
 const options = [
   { value: '1', label: 'test1' },
@@ -42,7 +42,7 @@ const options = [
   { value: '4', label: 'test4' },
 ];
 
-const Template: ComponentStory<typeof AutoComplete> = ({
+const Template: StoryFn<typeof AutoComplete> = ({
   value: defaultValue,
   ...args
 }) => {

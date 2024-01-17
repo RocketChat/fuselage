@@ -9,8 +9,6 @@ const { Default } = composeStories(stories);
 
 withResizeObserverMock();
 
-describe('[Select Component]', () => {
-  it('renders without crashing', () => {
-    render(<Default {...Default.args} />);
-  });
+it('renders without crashing', () => {
+  render(<Default {...Default.args} />);
 });

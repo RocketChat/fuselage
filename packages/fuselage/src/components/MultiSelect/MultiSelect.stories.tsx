@@ -8,7 +8,7 @@ import {
   Stories,
   PRIMARY_STORY,
 } from '@storybook/addon-docs';
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 import React from 'react';
 
 import { MultiSelect, MultiSelectFiltered } from '../..';
@@ -34,7 +34,7 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof MultiSelect>;
+} as Meta<typeof MultiSelect>;
 
 const options: SelectOption[] = [
   ['1', 'a teste 1'],
@@ -49,51 +49,49 @@ const options: SelectOption[] = [
   ['10', 'd teste 10'],
 ];
 
-const Template: ComponentStory<typeof MultiSelect> = (args) => (
+const Template: StoryFn<typeof MultiSelect> = (args) => (
   <MultiSelect {...args} />
 );
 
-export const Default: ComponentStory<typeof MultiSelect> = Template.bind({});
+export const Default: StoryFn<typeof MultiSelect> = Template.bind({});
 Default.args = {
   placeholder: 'Placeholder here...',
   options,
 };
 
-export const WithValue: ComponentStory<typeof MultiSelect> = Template.bind({});
+export const WithValue: StoryFn<typeof MultiSelect> = Template.bind({});
 WithValue.args = {
   placeholder: 'Placeholder here...',
   options,
   value: ['1', '2'],
 };
 
-export const Error: ComponentStory<typeof MultiSelect> = Template.bind({});
+export const Error: StoryFn<typeof MultiSelect> = Template.bind({});
 Error.args = {
   error: 'Error',
   placeholder: 'Placeholder here...',
   options,
 };
 
-export const Disabled: ComponentStory<typeof MultiSelect> = Template.bind({});
+export const Disabled: StoryFn<typeof MultiSelect> = Template.bind({});
 Disabled.args = {
   disabled: true,
   placeholder: 'Placeholder here...',
   options,
 };
 
-export const CustomEmpty: ComponentStory<typeof MultiSelect> = Template.bind(
-  {}
-);
+export const CustomEmpty: StoryFn<typeof MultiSelect> = Template.bind({});
 CustomEmpty.args = {
   customEmpty: 'Custom Empty Placeholder',
   placeholder: 'Placeholder here...',
   options: [],
 };
 
-const FilteredTemplate: ComponentStory<typeof MultiSelectFiltered> = (args) => (
+const FilteredTemplate: StoryFn<typeof MultiSelectFiltered> = (args) => (
   <MultiSelectFiltered {...args} />
 );
 
-export const WithFilter: ComponentStory<typeof MultiSelectFiltered> =
+export const WithFilter: StoryFn<typeof MultiSelectFiltered> =
   FilteredTemplate.bind({});
 WithFilter.args = {
   placeholder: 'Placeholder here...',

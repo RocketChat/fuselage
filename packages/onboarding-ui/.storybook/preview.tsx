@@ -1,15 +1,14 @@
 import { DarkModeProvider } from '@rocket.chat/layout';
 import { DocsPage, DocsContainer } from '@storybook/addon-docs';
-import type { Parameters } from '@storybook/addons';
-import type { DecoratorFn } from '@storybook/react';
+import type { Parameters, Decorator } from '@storybook/react';
 import { themes } from '@storybook/theming';
 import i18next from 'i18next';
 import { Suspense } from 'react';
 import { I18nextProvider, initReactI18next } from 'react-i18next';
 import { useDarkMode } from 'storybook-dark-mode';
 
-import manifest from '../package.json';
 import logo from './logo.svg';
+import manifest from '../package.json';
 
 import '@rocket.chat/fuselage/dist/fuselage.css';
 import '@rocket.chat/icons/dist/rocketchat.css';
@@ -28,7 +27,9 @@ export const parameters: Parameters = {
     page: DocsPage,
   },
   options: {
-    storySort: ([, a], [, b]) => a.kind.localeCompare(b.kind),
+    storySort: {
+      method: 'alphabetical',
+    },
   },
   darkMode: {
     dark: {
@@ -64,7 +65,7 @@ const getI18n = () => {
   return i18n;
 };
 
-export const decorators: DecoratorFn[] = [
+export const decorators: Decorator[] = [
   (Story) => {
     const dark = useDarkMode();
 

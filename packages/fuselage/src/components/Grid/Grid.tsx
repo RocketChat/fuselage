@@ -1,8 +1,8 @@
 import type { ComponentProps } from 'react';
 import React from 'react';
 
-import Box from '../Box';
 import { GridItem } from './GridItem';
+import Box from '../Box';
 
 type GridProps = ComponentProps<typeof Box> & {
   xs?: boolean;

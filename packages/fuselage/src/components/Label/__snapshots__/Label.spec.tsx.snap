@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`[Label Component] renders Default without crashing 1`] = `
+exports[`renders Default without crashing 1`] = `
 <body>
   <div>
     <label
@@ -12,7 +12,7 @@ exports[`[Label Component] renders Default without crashing 1`] = `
 </body>
 `;
 
-exports[`[Label Component] renders Disabled without crashing 1`] = `
+exports[`renders Disabled without crashing 1`] = `
 <body>
   <div>
     <label
@@ -24,7 +24,7 @@ exports[`[Label Component] renders Disabled without crashing 1`] = `
 </body>
 `;
 
-exports[`[Label Component] renders Info without crashing 1`] = `
+exports[`renders Info without crashing 1`] = `
 <body>
   <div>
     <label
@@ -52,7 +52,7 @@ exports[`[Label Component] renders Info without crashing 1`] = `
 </body>
 `;
 
-exports[`[Label Component] renders InfoRequired without crashing 1`] = `
+exports[`renders InfoRequired without crashing 1`] = `
 <body>
   <div>
     <label
@@ -86,7 +86,7 @@ exports[`[Label Component] renders InfoRequired without crashing 1`] = `
 </body>
 `;
 
-exports[`[Label Component] renders Required without crashing 1`] = `
+exports[`renders Required without crashing 1`] = `
 <body>
   <div>
     <label

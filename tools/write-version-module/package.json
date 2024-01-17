@@ -2,5 +2,8 @@
   "name": "write-version-module",
   "private": true,
   "bin": "./index.mjs",
-  "version": "0.31.25"
+  "version": "0.31.25",
+  "volta": {
+    "extends": "../../package.json"
+  }
 }

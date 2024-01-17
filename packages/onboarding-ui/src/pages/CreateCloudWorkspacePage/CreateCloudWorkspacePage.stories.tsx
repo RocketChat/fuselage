@@ -22,11 +22,12 @@ export default {
       ['pt', 'Português'],
     ],
     domain: 'rocket.chat',
-    validateUrl: async (url) => (url === 'rocket' ? 'invalid url' : true),
-    validateEmail: async (email) =>
+    validateUrl: async (url: string) =>
+      url === 'rocket' ? 'invalid url' : true,
+    validateEmail: async (email: string) =>
       email === 'rocket@rocket.chat' ? 'invalid email' : true,
   },
-} as Meta<Args>;
+} satisfies Meta<Args>;
 
 export const _CreateCloudWorkspacePage: Story<Args> = (args) => (
   <CreateCloudWorkspacePage {...args} />

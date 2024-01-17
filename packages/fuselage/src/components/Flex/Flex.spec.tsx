@@ -1,14 +1,13 @@
 import { render } from '@testing-library/react';
 import React from 'react';
 
-import Flex from '.';
+import FlexContainer from './FlexContainer';
+import FlexItem from './FlexItem';
 
-describe('[Flex Component]', () => {
-  it('renders Flex.Container without crashing', () => {
-    render(<Flex.Container />);
-  });
+it('renders Flex.Container without crashing', () => {
+  render(<FlexContainer />);
+});
 
-  it('renders Flex.Item without crashing', () => {
-    render(<Flex.Item />);
-  });
+it('renders Flex.Item without crashing', () => {
+  render(<FlexItem />);
 });

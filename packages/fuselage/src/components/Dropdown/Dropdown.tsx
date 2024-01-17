@@ -8,7 +8,7 @@ import { DropdownMobile } from './DropdownMobile';
 
 export const Dropdown = forwardRef(function Dropdown<
   T extends HTMLElement,
-  R extends HTMLElement
+  R extends HTMLElement,
 >(
   {
     children,

@@ -39,8 +39,8 @@ type RefTypes = {
   >
     ? T
     : JSX.IntrinsicElements[K] extends SVGProps<infer T>
-    ? T
-    : never;
+      ? T
+      : never;
 };
 
 type PropsTypes = {

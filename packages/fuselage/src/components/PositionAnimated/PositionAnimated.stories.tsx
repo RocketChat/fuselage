@@ -1,4 +1,4 @@
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 import React, { useRef } from 'react';
 
 import { PositionAnimated, Tile, AnimatedVisibility } from '../..';
@@ -12,12 +12,9 @@ export default {
   args: {
     visible: AnimatedVisibility.VISIBLE,
   },
-} as ComponentMeta<typeof PositionAnimated>;
+} as Meta<typeof PositionAnimated>;
 
-const Template: ComponentStory<typeof PositionAnimated> = ({
-  visible,
-  placement,
-}) => {
+const Template: StoryFn<typeof PositionAnimated> = ({ visible, placement }) => {
   const ref = useRef<HTMLElement>(null);
 
   return (

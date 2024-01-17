@@ -12,5 +12,5 @@ if ((await glob('.stylelintrc*')).length) {
 }
 
 if ((await glob('.prettierrc*')).length || 'prettier' in manifest) {
-  await $`prettier --write '**/*.{json,jsonc,md,yml,xml,svg}'`;
+  await $`prettier --plugin=@prettier/plugin-xml --write '**/*.{json,jsonc,md,yml,xml,svg}'`;
 }

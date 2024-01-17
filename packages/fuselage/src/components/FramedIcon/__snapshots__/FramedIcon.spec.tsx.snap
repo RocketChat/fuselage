@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`[FramedIcon rendering] renders Danger without crashing 1`] = `
+exports[`renders Danger without crashing 1`] = `
 <body>
   <div>
     <i
@@ -13,7 +13,7 @@ exports[`[FramedIcon rendering] renders Danger without crashing 1`] = `
 </body>
 `;
 
-exports[`[FramedIcon rendering] renders Default without crashing 1`] = `
+exports[`renders Default without crashing 1`] = `
 <body>
   <div>
     <i
@@ -26,7 +26,7 @@ exports[`[FramedIcon rendering] renders Default without crashing 1`] = `
 </body>
 `;
 
-exports[`[FramedIcon rendering] renders Info without crashing 1`] = `
+exports[`renders Info without crashing 1`] = `
 <body>
   <div>
     <i
@@ -39,7 +39,7 @@ exports[`[FramedIcon rendering] renders Info without crashing 1`] = `
 </body>
 `;
 
-exports[`[FramedIcon rendering] renders Success without crashing 1`] = `
+exports[`renders Success without crashing 1`] = `
 <body>
   <div>
     <i
@@ -52,7 +52,7 @@ exports[`[FramedIcon rendering] renders Success without crashing 1`] = `
 </body>
 `;
 
-exports[`[FramedIcon rendering] renders Warning without crashing 1`] = `
+exports[`renders Warning without crashing 1`] = `
 <body>
   <div>
     <i

@@ -6,7 +6,7 @@ import {
   Stories,
   ArgsTable,
 } from '@storybook/addon-docs';
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 import React from 'react';
 
 import { Pagination } from '../..';
@@ -27,9 +27,9 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof Pagination>;
+} as Meta<typeof Pagination>;
 
-export const Default: ComponentStory<typeof Pagination> = () => (
+export const Default: StoryFn<typeof Pagination> = () => (
   <Pagination
     count={500}
     onSetItemsPerPage={action('setItemsPerPage')}
@@ -37,7 +37,7 @@ export const Default: ComponentStory<typeof Pagination> = () => (
   />
 );
 
-export const Divider: ComponentStory<typeof Pagination> = () => (
+export const Divider: StoryFn<typeof Pagination> = () => (
   <Pagination
     divider
     count={500}

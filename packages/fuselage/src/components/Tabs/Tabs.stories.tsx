@@ -1,5 +1,5 @@
 import { Title, Description, Primary, Stories } from '@storybook/addon-docs';
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 import React from 'react';
 
 import { Tabs, TabsItem } from '../..';
@@ -23,9 +23,9 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof Tabs>;
+} as Meta<typeof Tabs>;
 
-const Template: ComponentStory<typeof Tabs> = (args) => (
+const Template: StoryFn<typeof Tabs> = (args) => (
   <Tabs {...args}>
     <TabsItem {...args}>Tab text 1</TabsItem>
     <TabsItem>Tab text 2</TabsItem>
@@ -35,27 +35,25 @@ const Template: ComponentStory<typeof Tabs> = (args) => (
   </Tabs>
 );
 
-export const Default: ComponentStory<typeof Tabs> = Template.bind({});
+export const Default: StoryFn<typeof Tabs> = Template.bind({});
 
-export const Selected: ComponentStory<typeof Tabs> = Template.bind({});
+export const Selected: StoryFn<typeof Tabs> = Template.bind({});
 Selected.args = {
   selected: true,
 };
 
-export const Disabled: ComponentStory<typeof Tabs> = Template.bind({});
+export const Disabled: StoryFn<typeof Tabs> = Template.bind({});
 Disabled.args = {
   disabled: true,
 };
 
-export const SelectedAndDisabled: ComponentStory<typeof Tabs> = Template.bind(
-  {}
-);
+export const SelectedAndDisabled: StoryFn<typeof Tabs> = Template.bind({});
 SelectedAndDisabled.args = {
   disabled: true,
   selected: true,
 };
 
-export const NoUnderline: ComponentStory<typeof Tabs> = Template.bind({});
+export const NoUnderline: StoryFn<typeof Tabs> = Template.bind({});
 NoUnderline.args = {
   selected: true,
   divider: false,

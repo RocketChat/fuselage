@@ -20,7 +20,7 @@ type SelectProps<T, V extends Key> = Omit<
 
 export const Select = forwardRef(function Select<
   T extends object,
-  V extends Key
+  V extends Key,
 >({ options, ...props }: SelectProps<T, V>, ref: Ref<HTMLElement>) {
   return (
     <SelectAria ref={ref} {...(props as ComponentProps<typeof SelectAria>)}>

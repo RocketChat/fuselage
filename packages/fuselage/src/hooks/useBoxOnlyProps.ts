@@ -3,7 +3,10 @@ import type { AllHTMLAttributes } from 'react';
 import { prependClassName } from '../helpers/prependClassName';
 
 export const useBoxOnlyProps = <
-  T extends { className: string; size?: AllHTMLAttributes<HTMLElement>['size'] }
+  T extends {
+    className: string;
+    size?: AllHTMLAttributes<HTMLElement>['size'];
+  },
 >(
   props: T & {
     animated?: boolean;

@@ -29,30 +29,31 @@
   "scripts": {
     "lint": "lint",
     "lint-and-fix": "lint-and-fix",
-    "lint-staged": "lint-staged",
-    "bump-next": "bump-next"
+    "lint-staged": "lint-staged"
   },
   "peerDependencies": {
-    "@babel/eslint-parser": "^7.13.14",
-    "eslint": "~8.38.0",
-    "prettier": "~2.7.1"
+    "@babel/eslint-parser": "~7.23.3",
+    "eslint": "~8.56.0",
+    "prettier": "~3.1.1"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "~7.21.3",
-    "bump": "workspace:~",
-    "eslint": "~8.38.0",
+    "@babel/eslint-parser": "~7.23.3",
+    "eslint": "~8.56.0",
     "lint-all": "workspace:~",
-    "lint-staged": "~13.2.1",
-    "prettier": "~2.8.7"
+    "lint-staged": "~15.2.0",
+    "prettier": "~3.1.1"
   },
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "~5.58.0",
-    "@typescript-eslint/parser": "~5.58.0",
-    "eslint-config-prettier": "~8.8.0",
-    "eslint-import-resolver-typescript": "~3.5.5",
-    "eslint-plugin-import": "~2.26.0",
-    "eslint-plugin-prettier": "~4.2.1",
-    "eslint-plugin-react": "~7.32.2",
+    "@typescript-eslint/eslint-plugin": "~6.18.1",
+    "@typescript-eslint/parser": "~6.18.1",
+    "eslint-config-prettier": "~9.1.0",
+    "eslint-import-resolver-typescript": "~3.6.1",
+    "eslint-plugin-import": "~2.29.1",
+    "eslint-plugin-prettier": "~5.1.2",
+    "eslint-plugin-react": "~7.33.2",
     "eslint-plugin-react-hooks": "~4.6.0"
+  },
+  "volta": {
+    "extends": "../../package.json"
   }
 }

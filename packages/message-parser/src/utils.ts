@@ -21,7 +21,7 @@ import type {
 const generate =
   <Type extends keyof Types>(type: Type) =>
   (value: Types[Type]['value']): Types[Type] =>
-    ({ type, value } as any);
+    ({ type, value }) as any;
 
 export const paragraph = generate('PARAGRAPH');
 
@@ -197,20 +197,23 @@ const joinEmoji = (
 export const reducePlainTexts = (
   values: Paragraph['value']
 ): Paragraph['value'] =>
-  values.reduce((result, item, index) => {
-    const next = values[index + 1];
-    const current = joinEmoji(item, values[index - 1], next);
-    const previous: Inlines = result[result.length - 1];
+  values.reduce(
+    (result, item, index) => {
+      const next = values[index + 1];
+      const current = joinEmoji(item, values[index - 1], next);
+      const previous: Inlines = result[result.length - 1];
 
-    if (previous) {
-      if (current.type === 'PLAIN_TEXT' && current.type === previous.type) {
-        previous.value += current.value;
-        return result;
+      if (previous) {
+        if (current.type === 'PLAIN_TEXT' && current.type === previous.type) {
+          previous.value += current.value;
+          return result;
+        }
       }
-    }
 
-    return [...result, current];
-  }, [] as Paragraph['value']);
+      return [...result, current];
+    },
+    [] as Paragraph['value']
+  );
 export const lineBreak = (): LineBreak => ({
   type: 'LINE_BREAK',
   value: undefined,

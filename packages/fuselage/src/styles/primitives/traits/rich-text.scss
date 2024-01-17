@@ -107,8 +107,7 @@
   li {
     display: list-item;
 
-    margin-inline-start: lengths.margin(24);
-    margin-inline-end: lengths.margin(8);
+    margin-inline: lengths.margin(24) lengths.margin(8);
 
     &:first-child {
       margin-inline-start: lengths.margin(16);

@@ -1,16 +1,8 @@
-import {
-  Title,
-  Description,
-  Primary,
-  Stories,
-  ArgsTable,
-} from '@storybook/addon-docs';
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 import React, { createRef } from 'react';
 
 import type { OptionType } from '.';
 import { Options } from '.';
-import type { Menu } from '..';
 import { Box } from '..';
 import Option from '../Option';
 import { CheckOption } from '../Option/CheckOption';
@@ -33,32 +25,23 @@ export default {
       description: {
         component: 'An input for selection of options.',
       },
-      page: () => (
-        <>
-          <Title />
-          <Description />
-          <Primary />
-          <ArgsTable />
-          <Stories title={''} />
-        </>
-      ),
     },
   },
-} as ComponentMeta<typeof Menu>;
+} as Meta<typeof Options>;
 
-const Template: ComponentStory<typeof Options> = (args) => (
+const Template: StoryFn<typeof Options> = (args) => (
   <Box position='relative' maxWidth={250}>
     <Options {...args} ref={createRef()} />
   </Box>
 );
 
-export const Default: ComponentStory<typeof Options> = Template.bind({});
+export const Default: StoryFn<typeof Options> = Template.bind({});
 Default.args = {
   cursor: 1,
   options,
 };
 
-export const OptionStory: ComponentStory<typeof Options> = Template.bind({});
+export const OptionStory: StoryFn<typeof Options> = Template.bind({});
 OptionStory.args = {
   renderItem: Option,
   cursor: 1,
@@ -66,9 +49,7 @@ OptionStory.args = {
 };
 OptionStory.storyName = 'Option';
 
-export const CheckOptionStory: ComponentStory<typeof Options> = Template.bind(
-  {}
-);
+export const CheckOptionStory: StoryFn<typeof Options> = Template.bind({});
 CheckOptionStory.args = {
   renderItem: CheckOption,
   value: ['1'],
@@ -77,13 +58,13 @@ CheckOptionStory.args = {
 };
 CheckOptionStory.storyName = 'CheckOption';
 
-export const EmptyOptions: ComponentStory<typeof Options> = Template.bind({});
+export const EmptyOptions: StoryFn<typeof Options> = Template.bind({});
 EmptyOptions.args = {
   cursor: 1,
   options: [],
 };
 
-export const CustomEmpty: ComponentStory<typeof Options> = Template.bind({});
+export const CustomEmpty: StoryFn<typeof Options> = Template.bind({});
 CustomEmpty.args = {
   cursor: 1,
   options: [],

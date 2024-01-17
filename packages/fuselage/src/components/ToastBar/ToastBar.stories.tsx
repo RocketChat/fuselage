@@ -8,7 +8,7 @@ import {
   Stories,
   PRIMARY_STORY,
 } from '@storybook/addon-docs';
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 import React from 'react';
 
 import { ToastBar } from '..';
@@ -33,9 +33,9 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof ToastBar>;
+} as Meta<typeof ToastBar>;
 
-const Template: ComponentStory<typeof ToastBar> = (args) => (
+const Template: StoryFn<typeof ToastBar> = (args) => (
   <ToastBar
     children='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
   tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,

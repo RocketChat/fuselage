@@ -9,7 +9,6 @@ import {
 } from '@rocket.chat/fuselage';
 import type { Meta, Story } from '@storybook/react';
 
-import { ActionLink, Form } from '..';
 import {
   HorizontalWizardLayout,
   HorizontalWizardLayoutAside,
@@ -19,6 +18,7 @@ import {
   HorizontalWizardLayoutTitle,
   HorizontalWizardTextHighlight,
 } from './HorizontalWizardLayout';
+import { ActionLink, Form } from '..';
 
 export default {
   title: 'HorizontalWizardLayout',

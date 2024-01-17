@@ -16,15 +16,14 @@ export default {
   args: {
     currentStep: 1,
     stepCount: 1,
-    workspaceName: 'Kapai',
     onSubmit: action('onSubmit'),
     onBackButtonClick: action('onBackButtonClick'),
-    validateUsername: async (username) =>
+    validateUsername: async (username: string) =>
       username === 'rocket' ? 'Invalid username' : true,
-    validatePassword: async (password) =>
+    validatePassword: async (password: string) =>
       password === '12345' ? 'Invalid password' : true,
   },
-} as Meta<Args>;
+} satisfies Meta<Args>;
 
 export const _CreateFirstMemberPage: Story<Args> = (args) => (
   <CreateFirstMemberPage {...args} />

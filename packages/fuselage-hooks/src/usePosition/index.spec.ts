@@ -18,7 +18,7 @@ describe('getPositionStyle function', () => {
       right: x + width,
       bottom: y + height,
       left: x,
-    } as DOMRect);
+    }) as DOMRect;
 
   it('returns a style for placement bottom-start', () => {
     const containerRect = createRect(0, 0, 1024, 1000);

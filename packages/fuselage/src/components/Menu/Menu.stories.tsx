@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions';
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 import React from 'react';
 
 import { Box, Menu } from '..';
@@ -16,9 +16,9 @@ export default {
     },
     layout: 'centered',
   },
-} as ComponentMeta<typeof Menu>;
+} as Meta<typeof Menu>;
 
-const Template: ComponentStory<typeof Menu> = (args) => (
+const Template: StoryFn<typeof Menu> = (args) => (
   <Box position='relative' maxWidth={250}>
     <Menu {...args} />
   </Box>

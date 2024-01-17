@@ -1,6 +1,6 @@
 import type { Keys } from '@rocket.chat/icons';
 import nameToCharacterMapping from '@rocket.chat/icons';
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 import type { CSSProperties } from 'react';
 import React from 'react';
 
@@ -11,9 +11,9 @@ const iconsList = Object.keys(nameToCharacterMapping) as Keys[];
 export default {
   title: 'Data Display/Icon',
   component: Icon,
-} as ComponentMeta<typeof Icon>;
+} as Meta<typeof Icon>;
 
-export const Default: ComponentStory<typeof Icon> = () => (
+export const Default: StoryFn<typeof Icon> = () => (
   <Box color='default'>
     {iconsList.map((name) => (
       <Icon key={name} name={name} size='x40' />
@@ -38,7 +38,7 @@ const styles: {
   },
 };
 
-export const AvailableIcons: ComponentStory<typeof Icon> = () => (
+export const AvailableIcons: StoryFn<typeof Icon> = () => (
   <div style={styles.container}>
     {iconsList.map((name) => (
       <div key={name} style={styles.wrapper}>

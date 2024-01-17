@@ -3,10 +3,10 @@ import { BackgroundLayer } from '@rocket.chat/layout';
 import type { ComponentProps, ReactElement } from 'react';
 import { useTranslation, Trans } from 'react-i18next';
 
-import FormPageLayout from '../../common/FormPageLayout';
-import CreateCloudWorkspaceForm from '../../forms/CreateCloudWorkspaceForm';
 import Description from './Description';
 import TitleCreateCloudPage from './TitleCreateCloudPage';
+import FormPageLayout from '../../common/FormPageLayout';
+import CreateCloudWorkspaceForm from '../../forms/CreateCloudWorkspaceForm';
 
 type CreateCloudWorkspacePageProps = ComponentProps<
   typeof CreateCloudWorkspaceForm

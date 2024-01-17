@@ -57,8 +57,7 @@
 
   .rcx-button-group--wrap > & {
     margin-block-end: lengths.margin(16);
-    margin-inline-start: lengths.margin(none);
-    margin-inline-end: lengths.margin(16);
+    margin-inline: lengths.margin(none) lengths.margin(16);
   }
 
   .rcx-button-group--stretch > & {

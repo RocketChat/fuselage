@@ -1,5 +1,5 @@
 import { Title, Description, Primary, Stories } from '@storybook/addon-docs';
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 import React from 'react';
 
 import { Icon, TelephoneInput } from '../..';
@@ -23,13 +23,13 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof TelephoneInput>;
+} as Meta<typeof TelephoneInput>;
 
-const Template: ComponentStory<typeof TelephoneInput> = (args) => (
+const Template: StoryFn<typeof TelephoneInput> = (args) => (
   <TelephoneInput {...args} />
 );
 
-export const Default: ComponentStory<typeof TelephoneInput> = Template.bind({});
+export const Default: StoryFn<typeof TelephoneInput> = Template.bind({});
 
 export const WithIconAddon = Template.bind({});
 WithIconAddon.args = {
@@ -56,7 +56,7 @@ WithValue.args = {
   defaultValue: '+1 (213) 724-2528',
 };
 
-export const States: ComponentStory<typeof TelephoneInput> = () => (
+export const States: StoryFn<typeof TelephoneInput> = () => (
   <PropsVariationSection
     component={TelephoneInput}
     common={{ onChange: () => {} }}

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`[CheckBox Rendering] renders CustomIcon without crashing 1`] = `
+exports[`renders CustomIcon without crashing 1`] = `
 <body>
   <div>
     <section
@@ -31,7 +31,7 @@ exports[`[CheckBox Rendering] renders CustomIcon without crashing 1`] = `
 </body>
 `;
 
-exports[`[CheckBox Rendering] renders Danger without crashing 1`] = `
+exports[`renders Danger without crashing 1`] = `
 <body>
   <div>
     <section
@@ -62,7 +62,7 @@ exports[`[CheckBox Rendering] renders Danger without crashing 1`] = `
 </body>
 `;
 
-exports[`[CheckBox Rendering] renders Default without crashing 1`] = `
+exports[`renders Default without crashing 1`] = `
 <body>
   <div>
     <section
@@ -93,7 +93,7 @@ exports[`[CheckBox Rendering] renders Default without crashing 1`] = `
 </body>
 `;
 
-exports[`[CheckBox Rendering] renders Info without crashing 1`] = `
+exports[`renders Info without crashing 1`] = `
 <body>
   <div>
     <section
@@ -124,7 +124,7 @@ exports[`[CheckBox Rendering] renders Info without crashing 1`] = `
 </body>
 `;
 
-exports[`[CheckBox Rendering] renders Success without crashing 1`] = `
+exports[`renders Success without crashing 1`] = `
 <body>
   <div>
     <section
@@ -155,7 +155,7 @@ exports[`[CheckBox Rendering] renders Success without crashing 1`] = `
 </body>
 `;
 
-exports[`[CheckBox Rendering] renders Warning without crashing 1`] = `
+exports[`renders Warning without crashing 1`] = `
 <body>
   <div>
     <section
@@ -186,7 +186,7 @@ exports[`[CheckBox Rendering] renders Warning without crashing 1`] = `
 </body>
 `;
 
-exports[`[CheckBox Rendering] renders WithDescriptionOnly without crashing 1`] = `
+exports[`renders WithDescriptionOnly without crashing 1`] = `
 <body>
   <div>
     <section

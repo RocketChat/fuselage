@@ -2,11 +2,11 @@ import React from 'react';
 import { useMenuSection, useSeparator } from 'react-aria';
 import type { TreeState } from 'react-stately';
 
+import MenuItem from './MenuItem';
+import type { Node } from './types';
 import Box from '../../Box/Box';
 import { Divider } from '../../Divider';
 import { OptionTitle } from '../../Option';
-import MenuItem from './MenuItem';
-import type { Node } from './types';
 
 type MenuSectionProps = {
   section: Node<unknown>;

@@ -1,12 +1,12 @@
 import type { ComponentProps } from 'react';
 import React from 'react';
 
-import Box from '../Box';
 import SidebarItem from './Item';
 import SidebarSection from './Section';
 import { SidebarBanner } from './SidebarBanner';
 import { SidebarDivider } from './SidebarDivider';
 import SidebarTopBar from './TopBar';
+import Box from '../Box';
 
 type SidebarProps = ComponentProps<typeof Box>;
 

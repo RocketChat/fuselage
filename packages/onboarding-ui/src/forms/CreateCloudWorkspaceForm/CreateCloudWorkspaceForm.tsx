@@ -21,8 +21,8 @@ import type { SubmitHandler, Validate } from 'react-hook-form';
 import { useForm, Controller } from 'react-hook-form';
 import { useTranslation, Trans } from 'react-i18next';
 
-import Tooltip from '../../common/InformationTooltipTrigger';
 import WorkspaceUrlInput from './WorkspaceUrlInput';
+import Tooltip from '../../common/InformationTooltipTrigger';
 
 type CreateCloudWorkspaceFormPayload = {
   organizationEmail: string;
@@ -41,8 +41,8 @@ type CreateCloudWorkspaceFormProps = {
   languageOptions: SelectOption[];
   domain: string;
   onBackButtonClick?: () => void;
-  validateUrl: Validate<string>;
-  validateEmail: Validate<string>;
+  validateUrl: Validate<string, CreateCloudWorkspaceFormPayload>;
+  validateEmail: Validate<string, CreateCloudWorkspaceFormPayload>;
 };
 
 const CreateCloudWorkspaceForm = ({

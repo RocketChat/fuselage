@@ -1,5 +1,5 @@
 import { Title, Description, Primary, Stories } from '@storybook/addon-docs';
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 import React from 'react';
 
 import { Icon, EmailInput } from '../..';
@@ -24,41 +24,37 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof EmailInput>;
+} as Meta<typeof EmailInput>;
 
-const Template: ComponentStory<typeof EmailInput> = (args) => (
-  <EmailInput {...args} />
-);
+const Template: StoryFn<typeof EmailInput> = (args) => <EmailInput {...args} />;
 
-export const Default: ComponentStory<typeof EmailInput> = Template.bind({});
+export const Default: StoryFn<typeof EmailInput> = Template.bind({});
 
-export const WithIconAddon: ComponentStory<typeof EmailInput> = () => (
+export const WithIconAddon: StoryFn<typeof EmailInput> = () => (
   <EmailInput addon={<Icon name='send' size='x20' />} />
 );
 
-export const Invalid: ComponentStory<typeof EmailInput> = Template.bind({});
+export const Invalid: StoryFn<typeof EmailInput> = Template.bind({});
 Invalid.args = {
   error: 'Error',
 };
 
-export const Disabled: ComponentStory<typeof EmailInput> = Template.bind({});
+export const Disabled: StoryFn<typeof EmailInput> = Template.bind({});
 Disabled.args = {
   disabled: true,
 };
 
-export const WithPlaceholder: ComponentStory<typeof EmailInput> = Template.bind(
-  {}
-);
+export const WithPlaceholder: StoryFn<typeof EmailInput> = Template.bind({});
 WithPlaceholder.args = {
   placeholder: 'Placeholder',
 };
 
-export const WithValue: ComponentStory<typeof EmailInput> = Template.bind({});
+export const WithValue: StoryFn<typeof EmailInput> = Template.bind({});
 WithValue.args = {
   defaultValue: 'support@rocket.chat',
 };
 
-export const States: ComponentStory<typeof EmailInput> = () => (
+export const States: StoryFn<typeof EmailInput> = () => (
   <PropsVariationSection
     component={EmailInput}
     common={{ onChange: () => {} }}

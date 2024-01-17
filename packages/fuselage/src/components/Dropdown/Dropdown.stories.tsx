@@ -1,10 +1,10 @@
-import type { ComponentStory } from '@storybook/react';
+import type { StoryFn } from '@storybook/react';
 import React, { useRef } from 'react';
 
+import { Dropdown } from './Dropdown';
 import { Box } from '..';
 import { IconButton } from '../Button';
 import Option from '../Option';
-import { Dropdown } from './Dropdown';
 
 export default {
   title: 'Navigation/Dropdown',
@@ -14,7 +14,7 @@ export default {
   },
 };
 
-export const Default: ComponentStory<typeof Dropdown> = () => {
+export const Default: StoryFn<typeof Dropdown> = () => {
   const anchor = useRef(null);
   const target = useRef(null);
 

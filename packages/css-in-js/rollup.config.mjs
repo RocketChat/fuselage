@@ -1,4 +1,4 @@
-import path from 'path';
+import { basename, dirname } from 'node:path';
 
 import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
@@ -6,10 +6,9 @@ import nodeResolve from '@rollup/plugin-node-resolve';
 import typescript from '@rollup/plugin-typescript';
 import { terser } from 'rollup-plugin-terser';
 
-import pkg from './package.json';
+import pkg from './package.json' with { type: 'json' };
 
 const globals = {
-  '@emotion/hash': 'hash',
   '@rocket.chat/memo': 'memo',
   '@rocket.chat/css-supports': 'cssSupports',
   '@rocket.chat/stylis-logical-props-middleware':
@@ -39,20 +38,20 @@ export default [
     input: 'src/index.ts',
     output: [
       {
-        dir: path.dirname(pkg.main),
-        entryFileNames: path.basename(pkg.main),
+        dir: dirname(pkg.main),
+        entryFileNames: basename(pkg.main),
         format: 'cjs',
         sourcemap: true,
       },
       {
-        dir: path.dirname(pkg.module),
-        entryFileNames: path.basename(pkg.module),
+        dir: dirname(pkg.module),
+        entryFileNames: basename(pkg.module),
         format: 'es',
         sourcemap: true,
       },
       {
-        dir: path.dirname(pkg.unpkg),
-        entryFileNames: path.basename(pkg.unpkg),
+        dir: dirname(pkg.unpkg),
+        entryFileNames: basename(pkg.unpkg),
         format: 'umd',
         name: 'cssInJs',
         sourcemap: true,

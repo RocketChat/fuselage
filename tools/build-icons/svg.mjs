@@ -1,6 +1,7 @@
 import { promisify } from 'util';
-import { parseString, Builder } from 'xml2js';
+
 import { readSource } from 'tools-utils/files';
+import { parseString, Builder } from 'xml2js';
 
 const xmlBuilder = new Builder({ headless: true });
 

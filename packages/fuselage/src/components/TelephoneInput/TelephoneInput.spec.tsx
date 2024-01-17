@@ -3,8 +3,6 @@ import React from 'react';
 
 import { TelephoneInput } from '.';
 
-describe('[TelephoneInput Component]', () => {
-  it('renders without crashing', () => {
-    render(<TelephoneInput />);
-  });
+it('renders without crashing', () => {
+  render(<TelephoneInput />);
 });

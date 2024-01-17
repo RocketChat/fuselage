@@ -3,8 +3,6 @@ import React from 'react';
 
 import UrlInput from '.';
 
-describe('[UrlInput Component]', () => {
-  it('renders without crashing', () => {
-    render(<UrlInput />);
-  });
+it('renders without crashing', () => {
+  render(<UrlInput />);
 });

@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions';
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 import React from 'react';
 
 import { CheckBox } from '../..';
@@ -11,9 +11,9 @@ import {
 export default {
   title: 'Inputs/CheckBox',
   component: CheckBox,
-} as ComponentMeta<typeof CheckBox>;
+} as Meta<typeof CheckBox>;
 
-const Template: ComponentStory<typeof CheckBox> = (args) => (
+const Template: StoryFn<typeof CheckBox> = (args) => (
   <CheckBox
     {...args}
     aria-label={DECORATOR_LABEL}
@@ -42,7 +42,7 @@ DefaultChecked.args = {
   defaultChecked: true,
 };
 
-export const States: ComponentStory<typeof CheckBox> = () => (
+export const States: StoryFn<typeof CheckBox> = () => (
   <PropsVariationSection
     component={CheckBox}
     common={{ 'onChange': action('change'), 'aria-label': DECORATOR_LABEL }}

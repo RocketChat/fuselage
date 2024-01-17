@@ -13,12 +13,12 @@ import React, {
   useRef,
 } from 'react';
 
+import { useCursor } from './useCursor';
 import { prevent } from '../../helpers/prevent';
 import Box from '../Box';
 import Option, { OptionHeader, OptionDivider } from '../Option';
 import Scrollable from '../Scrollable';
 import Tile from '../Tile';
-import { useCursor } from './useCursor';
 
 export { useCursor };
 
@@ -28,7 +28,7 @@ export type OptionType = [
   selected?: boolean,
   disabled?: boolean,
   type?: 'heading' | 'divider' | 'option',
-  url?: string
+  url?: string,
 ];
 
 type OptionsProps = Omit<ComponentProps<typeof Box>, 'onSelect'> & {

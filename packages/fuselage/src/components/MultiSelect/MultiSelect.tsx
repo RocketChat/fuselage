@@ -13,6 +13,9 @@ import type {
 } from 'react';
 import React, { useState, useRef, useEffect, forwardRef } from 'react';
 
+import MultiSelectAnchor from './MultiSelectAnchor';
+import type { MultiSelectAnchorParams } from './MultiSelectAnchorParams';
+import { SelectedOptions } from './SelectedOptions';
 import type { SelectOption } from '..';
 import { isForwardRefType } from '../../helpers/isForwardRefType';
 import { prevent } from '../../helpers/prevent';
@@ -25,9 +28,6 @@ import { CheckOption } from '../Option';
 import { Options, useCursor } from '../Options';
 import Position from '../Position';
 import SelectAddon from '../Select/SelectAddon';
-import MultiSelectAnchor from './MultiSelectAnchor';
-import type { MultiSelectAnchorParams } from './MultiSelectAnchorParams';
-import { SelectedOptions } from './SelectedOptions';
 
 type MultiSelectProps = Omit<
   ComponentProps<typeof Box>,

@@ -6,17 +6,15 @@ import Banner from './Banner';
 
 withResizeObserverMock();
 
-describe('[Banner Component]', () => {
-  it('renders without crashing', () => {
-    render(<Banner />);
-  });
+it('renders without crashing', () => {
+  render(<Banner />);
+});
 
-  it('renders with link', () => {
-    render(<Banner link='https://rocket.chat' linkText='More info' />);
-    expect(
-      screen.getByRole('link', {
-        name: /more info/i,
-      })
-    ).toBeInTheDocument();
-  });
+it('renders with link', () => {
+  render(<Banner link='https://rocket.chat' linkText='More info' />);
+  expect(
+    screen.getByRole('link', {
+      name: /more info/i,
+    })
+  ).toBeInTheDocument();
 });

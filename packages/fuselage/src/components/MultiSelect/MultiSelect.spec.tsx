@@ -9,8 +9,6 @@ const { Default } = composeStories(stories);
 
 withResizeObserverMock();
 
-describe('[MultiSelect Component]', () => {
-  it('renders without crashing', () => {
-    render(<Default />);
-  });
+it('renders without crashing', () => {
+  render(<Default />);
 });

@@ -1,5 +1,8 @@
 module.exports = {
-  extends: '@rocket.chat/eslint-config-alt/typescript',
+  extends: [
+    '@rocket.chat/eslint-config-alt/typescript',
+    'plugin:storybook/recommended',
+  ],
   env: {
     jest: true,
   },

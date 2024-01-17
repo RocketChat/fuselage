@@ -6,12 +6,9 @@ import {
   Stories,
   ArgsTable,
 } from '@storybook/addon-docs';
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 import React from 'react';
 
-import { Box, Menu, StatusBullet, Tile } from '../..';
-import { exampleAvatar, menuOptions } from '../../../.storybook/helpers';
-import { Avatar } from '../Avatar';
 import Option from './Option';
 import OptionAvatar from './OptionAvatar';
 import OptionColumn from './OptionColumn';
@@ -20,6 +17,9 @@ import OptionDescription from './OptionDescription';
 import OptionIcon from './OptionIcon';
 import OptionMenu from './OptionMenu';
 import OptionSkeleton from './OptionSkeleton';
+import { Box, Menu, StatusBullet, Tile } from '../..';
+import { exampleAvatar, menuOptions } from '../../../.storybook/helpers';
+import { Avatar } from '../Avatar';
 
 export default {
   title: 'Navigation/Option',
@@ -48,9 +48,9 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof Menu>;
+} as Meta<typeof Menu>;
 
-export const Default: ComponentStory<typeof Option> = () => (
+export const Default: StoryFn<typeof Option> = () => (
   <>
     <Option onClick={action('click')}>
       <OptionContent>Lorem Ipsum Lorem</OptionContent>
@@ -71,7 +71,7 @@ export const Default: ComponentStory<typeof Option> = () => (
   </>
 );
 
-export const WithAvatar: ComponentStory<typeof Option> = () => (
+export const WithAvatar: StoryFn<typeof Option> = () => (
   <>
     <Option onClick={action('click')}>
       <OptionAvatar>
@@ -101,7 +101,7 @@ export const WithAvatar: ComponentStory<typeof Option> = () => (
   </>
 );
 
-export const WithPresence: ComponentStory<typeof Option> = () => (
+export const WithPresence: StoryFn<typeof Option> = () => (
   <>
     <Option onClick={action('click')}>
       <OptionColumn>
@@ -123,7 +123,7 @@ export const WithPresence: ComponentStory<typeof Option> = () => (
   </>
 );
 
-export const WithMenu: ComponentStory<typeof Option> = () => (
+export const WithMenu: StoryFn<typeof Option> = () => (
   <>
     <Option onClick={action('click')}>
       <OptionContent>Lorem Ipsum Lorem</OptionContent>
@@ -148,7 +148,7 @@ export const WithMenu: ComponentStory<typeof Option> = () => (
   </>
 );
 
-export const WithIcon: ComponentStory<typeof Option> = () => (
+export const WithIcon: StoryFn<typeof Option> = () => (
   <>
     <Option onClick={action('click')}>
       <OptionIcon name='bell' />
@@ -174,7 +174,7 @@ export const WithIcon: ComponentStory<typeof Option> = () => (
     </Option>
   </>
 );
-export const WithAndWithoutIcon: ComponentStory<typeof Option> = () => (
+export const WithAndWithoutIcon: StoryFn<typeof Option> = () => (
   <>
     <Option onClick={action('click')} icon='star' label='Lorem Ipsum Lorem' />
     <Option onClick={action('click')} icon='user' label='Lorem Ipsum Lorem' />
@@ -195,7 +195,7 @@ WithAndWithoutIcon.parameters = {
   },
 };
 
-export const Disabled: ComponentStory<typeof Option> = () => (
+export const Disabled: StoryFn<typeof Option> = () => (
   <>
     <Option onClick={action('click')}>
       <OptionContent>Enabled</OptionContent>
@@ -206,7 +206,7 @@ export const Disabled: ComponentStory<typeof Option> = () => (
   </>
 );
 
-export const AsUserItem: ComponentStory<typeof Option> = () => (
+export const AsUserItem: StoryFn<typeof Option> = () => (
   <>
     <Option onClick={action('click')}>
       <OptionAvatar>
@@ -227,6 +227,4 @@ export const AsUserItem: ComponentStory<typeof Option> = () => (
   </>
 );
 
-export const AsSkeleton: ComponentStory<typeof Option> = () => (
-  <OptionSkeleton />
-);
+export const AsSkeleton: StoryFn<typeof Option> = () => <OptionSkeleton />;

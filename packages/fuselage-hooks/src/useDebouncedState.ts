@@ -20,7 +20,7 @@ export function useDebouncedState<S>(
   Dispatch<SetStateAction<S>> & {
     flush: () => void;
     cancel: () => void;
-  }
+  },
 ] {
   return useDebouncedUpdates(useState(initialValue), delay);
 }

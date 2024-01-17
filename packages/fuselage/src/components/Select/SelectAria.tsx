@@ -11,11 +11,11 @@ import {
 } from 'react-aria';
 import { useSelectState } from 'react-stately';
 
+import { ListBox } from './Listbox';
+import { Popover } from './Popover';
 import Box from '../Box/Box';
 import { Icon } from '../Icon';
 import { OptionContainer } from '../Options';
-import { ListBox } from './Listbox';
-import { Popover } from './Popover';
 
 export { Item } from 'react-stately';
 

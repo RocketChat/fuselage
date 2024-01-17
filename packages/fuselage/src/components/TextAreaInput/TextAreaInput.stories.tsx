@@ -1,5 +1,5 @@
 import { Title, Description, Primary, Stories } from '@storybook/addon-docs';
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 import React from 'react';
 
 import { Icon, TextAreaInput } from '../..';
@@ -23,44 +23,40 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof TextAreaInput>;
+} as Meta<typeof TextAreaInput>;
 
-const Template: ComponentStory<typeof TextAreaInput> = (args) => (
+const Template: StoryFn<typeof TextAreaInput> = (args) => (
   <TextAreaInput {...args} />
 );
 
-export const Default: ComponentStory<typeof TextAreaInput> = Template.bind({});
+export const Default: StoryFn<typeof TextAreaInput> = Template.bind({});
 
-export const WithIconAddon: ComponentStory<typeof TextAreaInput> =
-  Template.bind({});
+export const WithIconAddon: StoryFn<typeof TextAreaInput> = Template.bind({});
 WithIconAddon.args = {
   addon: <Icon name='send' size='x20' />,
 };
 
-export const Invalid: ComponentStory<typeof TextAreaInput> = Template.bind({});
+export const Invalid: StoryFn<typeof TextAreaInput> = Template.bind({});
 Invalid.args = {
   error: 'Error',
 };
 
-export const Disabled: ComponentStory<typeof TextAreaInput> = Template.bind({});
+export const Disabled: StoryFn<typeof TextAreaInput> = Template.bind({});
 Disabled.args = {
   disabled: true,
 };
 
-export const WithPlaceholder: ComponentStory<typeof TextAreaInput> =
-  Template.bind({});
+export const WithPlaceholder: StoryFn<typeof TextAreaInput> = Template.bind({});
 WithPlaceholder.args = {
   placeholder: 'Placeholder',
 };
 
-export const WithValue: ComponentStory<typeof TextAreaInput> = Template.bind(
-  {}
-);
+export const WithValue: StoryFn<typeof TextAreaInput> = Template.bind({});
 WithValue.args = {
   defaultValue: 'Roses are red\nViolets are blue',
 };
 
-export const States: ComponentStory<typeof TextAreaInput> = () => (
+export const States: StoryFn<typeof TextAreaInput> = () => (
   <PropsVariationSection
     component={TextAreaInput}
     common={{ onChange: () => {} }}

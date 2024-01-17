@@ -2,9 +2,9 @@ import type { ComponentProps, Dispatch, Ref, SetStateAction } from 'react';
 import React, { forwardRef, useState } from 'react';
 
 import { SelectLegacy } from '.';
-import type { Icon } from '..';
 import type { SelectAnchorParams } from './SelectAnchorParams';
 import SelectFilteredAnchor from './SelectFilteredAnchor';
+import type { Icon } from '..';
 
 export type SelectFilteredProps = ComponentProps<typeof SelectLegacy> & {
   filter?: string;

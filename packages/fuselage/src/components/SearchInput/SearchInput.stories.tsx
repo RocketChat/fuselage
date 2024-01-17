@@ -5,7 +5,7 @@ import {
   Stories,
   ArgsTable,
 } from '@storybook/addon-docs';
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 import React from 'react';
 
 import { Icon, SearchInput } from '../..';
@@ -30,43 +30,40 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof SearchInput>;
+} as Meta<typeof SearchInput>;
 
-const Template: ComponentStory<typeof SearchInput> = (args) => (
+const Template: StoryFn<typeof SearchInput> = (args) => (
   <SearchInput {...args} />
 );
 
-export const Default: ComponentStory<typeof SearchInput> = Template.bind({});
+export const Default: StoryFn<typeof SearchInput> = Template.bind({});
 
-export const WithIconAddon: ComponentStory<typeof SearchInput> = Template.bind(
-  {}
-);
+export const WithIconAddon: StoryFn<typeof SearchInput> = Template.bind({});
 WithIconAddon.args = {
   addon: <Icon name='send' size='x20' />,
 };
 
-export const Invalid: ComponentStory<typeof SearchInput> = Template.bind({});
+export const Invalid: StoryFn<typeof SearchInput> = Template.bind({});
 Invalid.args = {
   error: 'Error',
 };
 
-export const Disabled: ComponentStory<typeof SearchInput> = Template.bind({});
+export const Disabled: StoryFn<typeof SearchInput> = Template.bind({});
 Disabled.args = {
   disabled: true,
 };
 
-export const WithPlaceholder: ComponentStory<typeof SearchInput> =
-  Template.bind({});
+export const WithPlaceholder: StoryFn<typeof SearchInput> = Template.bind({});
 WithPlaceholder.args = {
   placeholder: 'Placeholder',
 };
 
-export const WithValue: ComponentStory<typeof SearchInput> = Template.bind({});
+export const WithValue: StoryFn<typeof SearchInput> = Template.bind({});
 WithValue.args = {
   defaultValue: 'cat rooms',
 };
 
-export const States: ComponentStory<typeof SearchInput> = () => (
+export const States: StoryFn<typeof SearchInput> = () => (
   <PropsVariationSection
     component={SearchInput}
     common={{ onChange: () => {} }}

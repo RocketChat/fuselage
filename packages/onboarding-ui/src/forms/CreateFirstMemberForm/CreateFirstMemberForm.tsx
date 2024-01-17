@@ -29,8 +29,8 @@ type CreateFirstMemberFormProps = {
   organizationName: string;
   onSubmit: SubmitHandler<CreateFirstMemberFormPayload>;
   onBackButtonClick: () => void;
-  validateUsername: Validate<string>;
-  validatePassword: Validate<string>;
+  validateUsername: Validate<string, CreateFirstMemberFormPayload>;
+  validatePassword: Validate<string, CreateFirstMemberFormPayload>;
 };
 
 const CreateFirstMemberForm = ({

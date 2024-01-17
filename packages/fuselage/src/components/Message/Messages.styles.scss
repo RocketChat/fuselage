@@ -93,8 +93,7 @@ $message-highlight-colors-background-other-color: theme(
   flex-direction: row;
   align-items: flex-start;
 
-  padding-block-start: lengths.padding(8);
-  padding-block-end: lengths.padding(4);
+  padding-block: lengths.padding(8) lengths.padding(4);
 
   padding-inline: lengths.padding(20);
 
@@ -245,8 +244,7 @@ $message-highlight-colors-background-other-color: theme(
     & ul,
     ol {
       margin: 0;
-      padding-block-start: lengths.padding(4);
-      padding-block-end: 0;
+      padding-block: lengths.padding(4) 0;
       padding-inline: 0;
 
       list-style: none;

@@ -6,7 +6,7 @@ import {
   Stories,
   ArgsTable,
 } from '@storybook/addon-docs';
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 import React from 'react';
 
 import { RadioButton } from '../..';
@@ -35,29 +35,29 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof RadioButton>;
+} as Meta<typeof RadioButton>;
 
-const Template: ComponentStory<typeof RadioButton> = (args) => (
+const Template: StoryFn<typeof RadioButton> = (args) => (
   <RadioButton {...args} aria-label={DECORATOR_LABEL} />
 );
 
-export const Default: ComponentStory<typeof RadioButton> = Template.bind({});
+export const Default: StoryFn<typeof RadioButton> = Template.bind({});
 Default.args = {
   onChange: action('change'),
 };
 
-export const Checked: ComponentStory<typeof RadioButton> = Template.bind({});
+export const Checked: StoryFn<typeof RadioButton> = Template.bind({});
 Checked.args = {
   onChange: action('change'),
   checked: true,
 };
 
-export const Disabled: ComponentStory<typeof RadioButton> = Template.bind({});
+export const Disabled: StoryFn<typeof RadioButton> = Template.bind({});
 Disabled.args = {
   disabled: true,
 };
 
-export const States: ComponentStory<typeof RadioButton> = () => (
+export const States: StoryFn<typeof RadioButton> = () => (
   <PropsVariationSection
     component={RadioButton}
     common={{ 'onChange': action('change'), 'aria-label': DECORATOR_LABEL }}

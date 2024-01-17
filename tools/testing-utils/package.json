@@ -8,7 +8,10 @@
     }
   },
   "dependencies": {
-    "css-mediaquery": "^0.1.2"
+    "css-mediaquery": "~0.1.2"
   },
-  "version": "0.31.25"
+  "version": "0.31.25",
+  "volta": {
+    "extends": "../../package.json"
+  }
 }

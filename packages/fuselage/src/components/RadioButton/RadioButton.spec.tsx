@@ -12,7 +12,7 @@ const testCases = Object.values(composeStories(stories)).map((Story) => [
 
 const { Default, Checked, Disabled } = composeStories(stories);
 
-describe('[RadioButton Rendering]', () => {
+describe('on rendering', () => {
   test.each(testCases)(
     `renders %s without crashing`,
     async (_storyname, Story) => {
@@ -32,7 +32,7 @@ describe('[RadioButton Rendering]', () => {
   );
 });
 
-describe('[RadioButton Interacting]', () => {
+describe('on interacting', () => {
   it('changes style of element as radio button is checked', () => {
     const { container } = render(<Default />);
     const radioButton = container.querySelector(

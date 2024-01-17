@@ -5,10 +5,9 @@ import {
   Stories,
   ArgsTable,
 } from '@storybook/addon-docs';
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 import React from 'react';
 
-import { Avatar } from '../..';
 import {
   SidebarItem,
   SidebarItemAvatar,
@@ -21,6 +20,7 @@ import {
   SidebarItemTitle,
   SidebarItemWrapper,
 } from './Item';
+import { Avatar } from '../..';
 
 export default {
   title: 'Sidebar/Item',
@@ -41,9 +41,9 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof SidebarItem>;
+} as Meta<typeof SidebarItem>;
 
-export const Default: ComponentStory<typeof SidebarItem> = () => (
+export const Default: StoryFn<typeof SidebarItem> = () => (
   <>
     <SidebarItem>
       <SidebarItemAvatar>

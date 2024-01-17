@@ -52,7 +52,11 @@ const AnimatedVisibility = (props: AnimatedVisibilityProps) => {
 
   const className = useStyle(
     css`
-      animation-duration: 230ms;
+      ${process.env.NODE_ENV !== 'test'
+        ? css`
+            animation-duration: 230ms;
+          `
+        : ''}
 
       ${visibility === Visibility.HIDING &&
       css`

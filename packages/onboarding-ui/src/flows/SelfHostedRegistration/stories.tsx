@@ -2,6 +2,15 @@ import { Box, Callout } from '@rocket.chat/fuselage';
 import type { Meta, Story } from '@storybook/react';
 import { useState } from 'react';
 
+import {
+  countryOptions,
+  logSubmit,
+  organizationIndustryOptions,
+  organizationSizeOptions,
+  validateEmail,
+  validatePassword,
+  validateUsername,
+} from './mocks';
 import type { AdminInfoPayload } from '../../forms/AdminInfoForm/AdminInfoForm';
 import type { OrganizationInfoPayload } from '../../forms/OrganizationInfoForm/OrganizationInfoForm';
 import type { RegisterOfflinePayload } from '../../forms/RegisterOfflineForm/RegisterOfflineForm';
@@ -13,15 +22,6 @@ import EmailConfirmedPage from '../../pages/EmailConfirmedPage';
 import OrganizationInfoPage from '../../pages/OrganizationInfoPage';
 import RegisterOfflinePage from '../../pages/RegisterOfflinePage';
 import RegisteredServerPage from '../../pages/RegisterServerPage';
-import {
-  countryOptions,
-  logSubmit,
-  organizationIndustryOptions,
-  organizationSizeOptions,
-  validateEmail,
-  validatePassword,
-  validateUsername,
-} from './mocks';
 
 export default {
   title: 'flows/Self-Hosted Registration',

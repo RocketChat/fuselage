@@ -35,7 +35,7 @@ type RequestTrialFormProps = {
   countryOptions: SelectOption[];
   onSubmit: SubmitHandler<RequestTrialPayload>;
   onManageWorkspaceClick: () => void;
-  validateEmail: Validate<string>;
+  validateEmail: Validate<string, RequestTrialPayload>;
   termsHref?: string;
   policyHref?: string;
 };

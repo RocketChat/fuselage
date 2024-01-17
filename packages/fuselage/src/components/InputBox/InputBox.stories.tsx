@@ -6,7 +6,7 @@ import {
   Stories,
   ArgsTable,
 } from '@storybook/addon-docs';
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 import React from 'react';
 
 import { Icon, InputBox } from '../..';
@@ -31,59 +31,53 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof Icon>;
+} as Meta<typeof Icon>;
 
-const Template: ComponentStory<typeof InputBox> = (args) => (
-  <InputBox {...args} />
-);
+const Template: StoryFn<typeof InputBox> = (args) => <InputBox {...args} />;
 
-export const Default: ComponentStory<typeof InputBox> = Template.bind({});
+export const Default: StoryFn<typeof InputBox> = Template.bind({});
 Default.args = {
   defaultValue: 'Value',
   onChange: action('change'),
 };
 
-export const Date: ComponentStory<typeof InputBox> = Template.bind({});
+export const Date: StoryFn<typeof InputBox> = Template.bind({});
 Date.args = {
   defaultValue: 'Value',
   onChange: action('change'),
   type: 'date',
 };
 
-export const Time: ComponentStory<typeof InputBox> = Template.bind({});
+export const Time: StoryFn<typeof InputBox> = Template.bind({});
 Time.args = {
   defaultValue: 'Value',
   onChange: action('change'),
   type: 'time',
 };
 
-export const WithAddon: ComponentStory<typeof InputBox> = Template.bind({});
+export const WithAddon: StoryFn<typeof InputBox> = Template.bind({});
 WithAddon.args = {
   addon: <Icon name='send' size='x20' />,
 };
 
-export const Invalid: ComponentStory<typeof InputBox> = Template.bind({});
+export const Invalid: StoryFn<typeof InputBox> = Template.bind({});
 Invalid.args = {
   defaultValue: 'Value',
   error: 'Error',
   onChange: action('change'),
 };
 
-export const Disabled: ComponentStory<typeof InputBox> = Template.bind({});
+export const Disabled: StoryFn<typeof InputBox> = Template.bind({});
 Disabled.args = {
   defaultValue: 'Value',
   disabled: true,
   onChange: action('change'),
 };
 
-export const WithPlaceholder: ComponentStory<typeof InputBox> = Template.bind(
-  {}
-);
+export const WithPlaceholder: StoryFn<typeof InputBox> = Template.bind({});
 WithPlaceholder.args = {
   placeholder: 'Placeholder',
   onChange: action('change'),
 };
-export const Skeleton: ComponentStory<typeof InputBox> = () => (
-  <InputBox.Skeleton />
-);
+export const Skeleton: StoryFn<typeof InputBox> = () => <InputBox.Skeleton />;
 Skeleton.storyName = 'InputBox.Skeleton';

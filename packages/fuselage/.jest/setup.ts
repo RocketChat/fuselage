@@ -1,4 +1,5 @@
 import { toHaveNoViolations } from 'jest-axe';
+import '@testing-library/jest-dom';
 
 const cssInJsClassRegex = /^rcx-css-[a-z0-9]+$/;
 

@@ -1,5 +1,5 @@
 import { Title, Description, Primary, Stories } from '@storybook/addon-docs';
-import type { ComponentMeta, ComponentStory } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import type { ComponentProps } from 'react';
 import React, { createRef } from 'react';
 
@@ -32,9 +32,9 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof OptionsPaginated>;
+} as Meta<typeof OptionsPaginated>;
 
-const Template: ComponentStory<typeof OptionsPaginated> = (args) => (
+const Template: StoryFn<typeof OptionsPaginated> = (args) => (
   <Box position='relative' maxWidth={250}>
     <OptionsPaginated {...args} ref={createRef()} options={options} />
   </Box>

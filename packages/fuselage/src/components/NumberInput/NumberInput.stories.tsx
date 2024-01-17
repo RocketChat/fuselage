@@ -5,7 +5,7 @@ import {
   Stories,
   ArgsTable,
 } from '@storybook/addon-docs';
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 import React from 'react';
 
 import { Icon, NumberInput } from '../..';
@@ -30,36 +30,33 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof NumberInput>;
+} as Meta<typeof NumberInput>;
 
-const Template: ComponentStory<typeof NumberInput> = (args) => (
+const Template: StoryFn<typeof NumberInput> = (args) => (
   <NumberInput {...args} />
 );
 
-export const Default: ComponentStory<typeof NumberInput> = Template.bind({});
+export const Default: StoryFn<typeof NumberInput> = Template.bind({});
 
-export const WithIconAddon: ComponentStory<typeof NumberInput> = Template.bind(
-  {}
-);
+export const WithIconAddon: StoryFn<typeof NumberInput> = Template.bind({});
 WithIconAddon.args = {
   addon: <Icon name='send' size='x20' />,
 };
 
-export const Invalid: ComponentStory<typeof NumberInput> = Template.bind({});
+export const Invalid: StoryFn<typeof NumberInput> = Template.bind({});
 Invalid.args = {
   error: 'Error',
 };
-export const Disabled: ComponentStory<typeof NumberInput> = Template.bind({});
+export const Disabled: StoryFn<typeof NumberInput> = Template.bind({});
 Disabled.args = {
   disabled: true,
 };
-export const WithPlaceholder: ComponentStory<typeof NumberInput> =
-  Template.bind({});
+export const WithPlaceholder: StoryFn<typeof NumberInput> = Template.bind({});
 WithPlaceholder.args = {
   defaultValue: 1024,
 };
 
-export const States: ComponentStory<typeof NumberInput> = () => (
+export const States: StoryFn<typeof NumberInput> = () => (
   <PropsVariationSection
     component={NumberInput}
     common={{ onChange: () => {} }}

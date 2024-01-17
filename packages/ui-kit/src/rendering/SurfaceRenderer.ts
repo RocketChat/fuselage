@@ -1,3 +1,10 @@
+import { BlockContext } from './BlockContext';
+import type { BlockRenderers } from './BlockRenderers';
+import type { Conditions } from './Conditions';
+import { renderBlockElement } from './renderBlockElement';
+import { renderLayoutBlock } from './renderLayoutBlock';
+import { renderTextObject } from './renderTextObject';
+import { resolveConditionalBlocks } from './resolveConditionalBlocks';
 import type { Block } from '../blocks/Block';
 import type { BlockElement } from '../blocks/BlockElement';
 import { LayoutBlockType } from '../blocks/LayoutBlockType';
@@ -16,17 +23,10 @@ import type { SectionBlock } from '../blocks/layout/SectionBlock';
 import type { Markdown } from '../blocks/text/Markdown';
 import type { PlainText } from '../blocks/text/PlainText';
 import { isNotNull } from '../isNotNull';
-import { BlockContext } from './BlockContext';
-import type { BlockRenderers } from './BlockRenderers';
-import type { Conditions } from './Conditions';
-import { renderBlockElement } from './renderBlockElement';
-import { renderLayoutBlock } from './renderLayoutBlock';
-import { renderTextObject } from './renderTextObject';
-import { resolveConditionalBlocks } from './resolveConditionalBlocks';
 
 export abstract class SurfaceRenderer<
   TOutputObject,
-  TAllowedLayoutBlock extends RenderableLayoutBlock = RenderableLayoutBlock
+  TAllowedLayoutBlock extends RenderableLayoutBlock = RenderableLayoutBlock,
 > implements BlockRenderers<TOutputObject>
 {
   protected readonly allowedLayoutBlockTypes: Set<TAllowedLayoutBlock['type']>;

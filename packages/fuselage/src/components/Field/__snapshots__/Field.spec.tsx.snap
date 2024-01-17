@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`[Field Component] renders WithCheckbox without crashing 1`] = `
+exports[`renders WithCheckbox without crashing 1`] = `
 <body>
   <div>
     <div
@@ -84,7 +84,7 @@ exports[`[Field Component] renders WithCheckbox without crashing 1`] = `
 </body>
 `;
 
-exports[`[Field Component] renders WithRadioButton without crashing 1`] = `
+exports[`renders WithRadioButton without crashing 1`] = `
 <body>
   <div>
     <div
@@ -168,7 +168,7 @@ exports[`[Field Component] renders WithRadioButton without crashing 1`] = `
 </body>
 `;
 
-exports[`[Field Component] renders WithTextArea without crashing 1`] = `
+exports[`renders WithTextArea without crashing 1`] = `
 <body>
   <div>
     <div
@@ -245,7 +245,7 @@ exports[`[Field Component] renders WithTextArea without crashing 1`] = `
 </body>
 `;
 
-exports[`[Field Component] renders WithTextInput without crashing 1`] = `
+exports[`renders WithTextInput without crashing 1`] = `
 <body>
   <div>
     <div
@@ -322,7 +322,7 @@ exports[`[Field Component] renders WithTextInput without crashing 1`] = `
 </body>
 `;
 
-exports[`[Field Component] renders WithToggleSwitch without crashing 1`] = `
+exports[`renders WithToggleSwitch without crashing 1`] = `
 <body>
   <div>
     <div

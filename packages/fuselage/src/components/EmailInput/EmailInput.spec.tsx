@@ -6,8 +6,6 @@ import * as stories from './EmailInput.stories';
 
 const { Default } = composeStories(stories);
 
-describe('[EmailInput Component]', () => {
-  it('renders without crashing', () => {
-    render(<Default />);
-  });
+it('renders without crashing', () => {
+  render(<Default />);
 });

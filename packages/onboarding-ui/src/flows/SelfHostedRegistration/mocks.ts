@@ -40,7 +40,9 @@ export const validateEmail = fetchMock('/email/validate', (email: string) => {
   return true;
 });
 
-export const validatePassword: Validate<string> = (password: string) => {
+export const validatePassword: Validate<string, unknown> = (
+  password: string
+) => {
   if (password.length < 6) {
     return `Password is too short`;
   }

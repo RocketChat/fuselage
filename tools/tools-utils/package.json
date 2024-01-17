@@ -10,9 +10,12 @@
     "stylelint": "*"
   },
   "dependencies": {
-    "fast-glob": "~3.2.12",
-    "json5": "^2.2.3",
-    "rimraf": "^3.0.2"
+    "fast-glob": "~3.3.2",
+    "json5": "~2.2.3",
+    "rimraf": "~5.0.5"
   },
-  "version": "0.31.25"
+  "version": "0.31.25",
+  "volta": {
+    "extends": "../../package.json"
+  }
 }

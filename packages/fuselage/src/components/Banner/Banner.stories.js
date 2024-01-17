@@ -1,8 +1,8 @@
 import { action } from '@storybook/addon-actions';
 import React from 'react';
 
-import { Icon } from '../Icon';
 import Banner from './Banner';
+import { Icon } from '../Icon';
 
 export default {
   title: 'Feedback/Banner',

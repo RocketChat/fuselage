@@ -66,5 +66,8 @@ to: packages/<%=package%>/package.json
     "testMatch": [
       "<rootDir>/src/**/*.spec.[jt]s?(x)"
     ]
+  },
+  "volta": {
+    "extends": "../../package.json"
   }
 }

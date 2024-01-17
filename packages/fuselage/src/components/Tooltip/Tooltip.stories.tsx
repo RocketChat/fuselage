@@ -1,4 +1,4 @@
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 import React from 'react';
 
 import { Box, Margins, Tooltip } from '../..';
@@ -9,12 +9,12 @@ export default {
   parameters: {
     jest: ['Tooltip.spec.tsx'],
   },
-} as ComponentMeta<typeof Tooltip>;
+} as Meta<typeof Tooltip>;
 
-export const Default: ComponentStory<typeof Tooltip> = () => (
+export const Default: StoryFn<typeof Tooltip> = () => (
   <Tooltip>An example tooltip</Tooltip>
 );
-export const LightTooltip: ComponentStory<typeof Tooltip> = () => (
+export const LightTooltip: StoryFn<typeof Tooltip> = () => (
   <Tooltip variation='light'>An example tooltip</Tooltip>
 );
 

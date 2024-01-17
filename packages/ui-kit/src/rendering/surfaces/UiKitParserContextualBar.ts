@@ -15,7 +15,7 @@ type ContextualBarSurfaceLayoutBlock =
   | SectionBlock;
 
 export abstract class UiKitParserContextualBar<
-  OutputElement
+  OutputElement,
 > extends SurfaceRenderer<OutputElement, ContextualBarSurfaceLayoutBlock> {
   public constructor() {
     super(['actions', 'context', 'divider', 'image', 'input', 'section']);

@@ -1,9 +1,9 @@
 import type { ComponentProps } from 'react';
 import React from 'react';
 
+import { style } from './Table';
 import Box from '../Box';
 import Margins from '../Margins';
-import { style } from './Table';
 
 type TableSelectionProps = ComponentProps<typeof Box> & {
   text?: string;

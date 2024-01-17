@@ -1,4 +1,4 @@
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 import React from 'react';
 
 import { AnimatedVisibility, Tile } from '../..';
@@ -19,11 +19,9 @@ export default {
       ],
     },
   },
-} as ComponentMeta<typeof AnimatedVisibility>;
+} as Meta<typeof AnimatedVisibility>;
 
-export const example: ComponentStory<typeof AnimatedVisibility> = ({
-  visibility,
-}) => (
+export const example: StoryFn<typeof AnimatedVisibility> = ({ visibility }) => (
   <AnimatedVisibility visibility={visibility}>
     <Tile padding={40}>Visible</Tile>
   </AnimatedVisibility>

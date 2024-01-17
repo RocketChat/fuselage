@@ -5,11 +5,11 @@ import {
   Stories,
   ArgsTable,
 } from '@storybook/addon-docs';
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 import React from 'react';
 
-import { Label } from '../..';
 import { LabelInfo } from './LabelInfo';
+import { Label } from '../..';
 
 export default {
   title: 'Inputs/Label',
@@ -30,34 +30,34 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof Label>;
+} as Meta<typeof Label>;
 
-const Template: ComponentStory<typeof Label> = (args) => (
+const Template: StoryFn<typeof Label> = (args) => (
   <Label {...args}>Label</Label>
 );
 
-export const Default: ComponentStory<typeof Label> = Template.bind({});
+export const Default: StoryFn<typeof Label> = Template.bind({});
 
-export const Required: ComponentStory<typeof Label> = Template.bind({});
+export const Required: StoryFn<typeof Label> = Template.bind({});
 Required.args = {
   required: true,
 };
 
-export const Info: ComponentStory<typeof Label> = (args) => (
+export const Info: StoryFn<typeof Label> = (args) => (
   <Label {...args}>
     Label
     <LabelInfo title='this is a label info' />
   </Label>
 );
 
-export const InfoRequired: ComponentStory<typeof Label> = (args) => (
+export const InfoRequired: StoryFn<typeof Label> = (args) => (
   <Label required {...args}>
     Label
     <LabelInfo title='this is a label info' />
   </Label>
 );
 
-export const Disabled: ComponentStory<typeof Label> = Template.bind({});
+export const Disabled: StoryFn<typeof Label> = Template.bind({});
 Disabled.args = {
   disabled: true,
 };

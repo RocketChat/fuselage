@@ -1,9 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import type { RefObject, CSSProperties } from 'react';
 
-import { useDebouncedCallback } from '../useDebouncedCallback';
-import { useEffectEvent } from '../useEffectEvent';
-import { useSafely } from '../useSafely';
 import type { Placement } from './Placement';
 import type { PlacementVariant } from './PlacementVariant';
 import type { Position } from './Position';
@@ -12,6 +9,9 @@ import { getTargetBoundaries } from './getTargetBoundaries';
 import type { VariantBoundaries } from './getVariantBoundaries';
 import { getVariantBoundaries } from './getVariantBoundaries';
 import { useBoundingClientRectChanges } from './useBoundingClientRectChanges';
+import { useDebouncedCallback } from '../useDebouncedCallback';
+import { useEffectEvent } from '../useEffectEvent';
+import { useSafely } from '../useSafely';
 
 export type UsePositionOptions = {
   margin?: number;

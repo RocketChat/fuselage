@@ -1,4 +1,4 @@
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 import React from 'react';
 
 import { Accordion, Box } from '../..';
@@ -14,9 +14,9 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof Accordion.Item>;
+} as Meta<typeof Accordion.Item>;
 
-const Template: ComponentStory<typeof Accordion> = () => (
+const Template: StoryFn<typeof Accordion> = () => (
   <Accordion>
     <Accordion.Item title='Item #1' defaultExpanded>
       <Box color='default' fontScale='p2' marginBlockEnd={16}>
@@ -36,4 +36,4 @@ const Template: ComponentStory<typeof Accordion> = () => (
   </Accordion>
 );
 
-export const Default: ComponentStory<typeof Accordion> = Template.bind({});
+export const Default: StoryFn<typeof Accordion> = Template.bind({});

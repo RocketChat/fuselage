@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-empty-interface */
-import type { LayoutBlock } from '..';
 import type { Actionable } from './Actionable';
 import type { Block } from './Block';
 import type { Option } from './Option';
@@ -21,6 +20,7 @@ import type { InputBlock } from './layout/InputBlock';
 import type { SectionBlock } from './layout/SectionBlock';
 import type { Markdown } from './text/Markdown';
 import type { PlainText } from './text/PlainText';
+import type { LayoutBlock } from '..';
 
 type InterfaceOf<T> = Pick<T, keyof T>;
 

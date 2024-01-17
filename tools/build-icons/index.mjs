@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { basename, dirname } from 'path';
+import { basename, dirname } from 'node:path';
 
 import { removeFile, listFiles } from 'tools-utils/files';
 

@@ -7,7 +7,7 @@ import {
   Stories,
   PRIMARY_STORY,
 } from '@storybook/addon-docs';
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 import React from 'react';
 
 import { Badge, Box } from '../..';
@@ -32,9 +32,9 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof Badge>;
+} as Meta<typeof Badge>;
 
-const Template: ComponentStory<typeof Badge> = (args) => (
+const Template: StoryFn<typeof Badge> = (args) => (
   <Box display='inline-flex'>
     <Badge {...args} />
   </Box>

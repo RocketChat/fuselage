@@ -1,4 +1,3 @@
-import { MessageLeftContainer } from '../MessageLeftContainer';
 import { ThreadMessage } from './ThreadMessage';
 import { ThreadMessageBody } from './ThreadMessageBody';
 import { ThreadMessageContainer } from './ThreadMessageContainer';
@@ -8,6 +7,7 @@ import { ThreadMessageIconThread } from './ThreadMessageIconThread';
 import { ThreadMessageOrigin } from './ThreadMessageOrigin';
 import { ThreadMessageRow } from './ThreadMessageRow';
 import { ThreadMessageUnfollow } from './ThreadMessageUnfollow';
+import { MessageLeftContainer } from '../MessageLeftContainer';
 
 const ThreadMessageLeftContainer = MessageLeftContainer;
 

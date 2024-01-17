@@ -5,7 +5,7 @@ import {
   Stories,
   ArgsTable,
 } from '@storybook/addon-docs';
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 import React from 'react';
 
 import { Box, Button, ButtonGroup, Margins, Tile } from '../..';
@@ -29,9 +29,9 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof ButtonGroup>;
+} as Meta<typeof ButtonGroup>;
 
-const Template: ComponentStory<typeof Margins> = (args) => (
+const Template: StoryFn<typeof Margins> = (args) => (
   <ButtonGroup>
     <Button>Without margins</Button>
     <Margins {...args}>
@@ -42,7 +42,7 @@ const Template: ComponentStory<typeof Margins> = (args) => (
   </ButtonGroup>
 );
 
-export const Example: ComponentStory<typeof Margins> = Template.bind({});
+export const Example: StoryFn<typeof Margins> = Template.bind({});
 Example.args = {
   all: 'x32',
 };

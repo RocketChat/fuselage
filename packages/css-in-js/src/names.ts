@@ -1,4 +1,4 @@
-import hash from '@emotion/hash';
+import { hash } from './hash';
 
 export const createAnimationName = (content: string): string =>
   content ? `rcx-css-${hash(content)}` : 'none';

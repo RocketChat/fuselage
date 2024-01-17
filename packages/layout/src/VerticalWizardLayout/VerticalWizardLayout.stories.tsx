@@ -9,13 +9,13 @@ import {
 } from '@rocket.chat/fuselage';
 import type { Meta, Story } from '@storybook/react';
 
-import Form from '../FormPageLayout';
 import {
   VerticalWizardLayout,
   VerticalWizardLayoutTitle,
   VerticalWizardLayoutForm,
   VerticalWizardLayoutFooter,
 } from './VerticalWizardLayout';
+import Form from '../FormPageLayout';
 
 export default {
   title: 'VerticalWizardLayout',

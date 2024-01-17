@@ -1,7 +1,7 @@
 import React, { createContext } from 'react';
 
-import Box from '../Box';
 import type { TableProps } from './Table';
+import Box from '../Box';
 
 export const TableHeadContext = createContext(false);
 

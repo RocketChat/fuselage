@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`[AutoComplete Rendering] renders CustomItem without crashing 1`] = `
+exports[`renders CustomItem without crashing 1`] = `
 <body>
   <div>
     <div
@@ -31,7 +31,7 @@ exports[`[AutoComplete Rendering] renders CustomItem without crashing 1`] = `
 </body>
 `;
 
-exports[`[AutoComplete Rendering] renders CustomSelected without crashing 1`] = `
+exports[`renders CustomSelected without crashing 1`] = `
 <body>
   <div>
     <div
@@ -129,7 +129,7 @@ v/L21v8BT/ZVoe1UItsAAAAASUVORK5CYII="
 </body>
 `;
 
-exports[`[AutoComplete Rendering] renders Default without crashing 1`] = `
+exports[`renders Default without crashing 1`] = `
 <body>
   <div>
     <div
@@ -160,7 +160,7 @@ exports[`[AutoComplete Rendering] renders Default without crashing 1`] = `
 </body>
 `;
 
-exports[`[AutoComplete Rendering] renders Multiple without crashing 1`] = `
+exports[`renders Multiple without crashing 1`] = `
 <body>
   <div>
     <div
@@ -227,7 +227,7 @@ exports[`[AutoComplete Rendering] renders Multiple without crashing 1`] = `
 </body>
 `;
 
-exports[`[AutoComplete Rendering] renders MultipleCustomSelected without crashing 1`] = `
+exports[`renders MultipleCustomSelected without crashing 1`] = `
 <body>
   <div>
     <div

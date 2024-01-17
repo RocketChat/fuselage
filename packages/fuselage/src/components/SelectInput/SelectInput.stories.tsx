@@ -5,7 +5,7 @@ import {
   Stories,
   ArgsTable,
 } from '@storybook/addon-docs';
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 import React from 'react';
 
 import { SelectInputOption } from '.';
@@ -31,9 +31,9 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof SelectInput>;
+} as Meta<typeof SelectInput>;
 
-const Template: ComponentStory<typeof SelectInput> = (args) => (
+const Template: StoryFn<typeof SelectInput> = (args) => (
   <SelectInput {...args}>
     <SelectInputOption value='a'>Item A</SelectInputOption>
     <SelectInputOption value='b'>Item B</SelectInputOption>
@@ -41,7 +41,7 @@ const Template: ComponentStory<typeof SelectInput> = (args) => (
   </SelectInput>
 );
 
-export const Default: ComponentStory<typeof SelectInput> = Template.bind({});
+export const Default: StoryFn<typeof SelectInput> = Template.bind({});
 
 export const Multiple = Template.bind({});
 Multiple.args = {
@@ -82,7 +82,7 @@ WithValue.args = {
   defaultValue: 'b',
 };
 
-export const States: ComponentStory<typeof SelectInput> = () => (
+export const States: StoryFn<typeof SelectInput> = () => (
   <PropsVariationSection
     component={SelectInput}
     common={{

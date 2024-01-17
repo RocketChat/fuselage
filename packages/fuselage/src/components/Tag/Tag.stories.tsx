@@ -6,7 +6,7 @@ import {
   Stories,
   ArgsTable,
 } from '@storybook/addon-docs';
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 import React from 'react';
 
 import { Tag, Box, Icon } from '../..';
@@ -30,9 +30,9 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof Tag>;
+} as Meta<typeof Tag>;
 
-const Template: ComponentStory<typeof Tag> = (args) => (
+const Template: StoryFn<typeof Tag> = (args) => (
   <Box display='inline-flex'>
     <Tag {...args}>{args.children || 'john.doe'}</Tag>
   </Box>

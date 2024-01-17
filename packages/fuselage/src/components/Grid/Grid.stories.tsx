@@ -5,7 +5,7 @@ import {
   Stories,
   ArgsTable,
 } from '@storybook/addon-docs';
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 import React, { Fragment } from 'react';
 
 import { Table, TableBody, TableCell, TableHead, TableRow } from '..';
@@ -31,9 +31,9 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof Grid>;
+} as Meta<typeof Grid>;
 
-const Template: ComponentStory<typeof Grid> = () => (
+const Template: StoryFn<typeof Grid> = () => (
   <Grid>
     <Grid.Item>
       <Tile />
@@ -47,7 +47,7 @@ const Template: ComponentStory<typeof Grid> = () => (
   </Grid>
 );
 
-export const Default: ComponentStory<typeof Grid> = Template.bind({});
+export const Default: StoryFn<typeof Grid> = Template.bind({});
 
 export const Breakpoints = () => (
   <Table fixed striped sticky>
@@ -106,7 +106,7 @@ export const Breakpoints = () => (
   </Table>
 );
 
-export const ExtraSmall: ComponentStory<typeof Grid> = () => {
+export const ExtraSmall: StoryFn<typeof Grid> = () => {
   type ColumnsType = 1 | 2 | 3 | 4;
   return (
     <Grid>
@@ -129,7 +129,7 @@ export const ExtraSmall: ComponentStory<typeof Grid> = () => {
 };
 ExtraSmall.storyName = 'Extra Small (xs)';
 
-export const Small: ComponentStory<typeof Grid> = () => {
+export const Small: StoryFn<typeof Grid> = () => {
   type ColumnsType = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
   return (
     <Grid>
@@ -152,7 +152,7 @@ export const Small: ComponentStory<typeof Grid> = () => {
 };
 Small.storyName = 'Small (sm)';
 
-export const Medium: ComponentStory<typeof Grid> = () => {
+export const Medium: StoryFn<typeof Grid> = () => {
   type ColumnsType = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
   return (
     <Grid>
@@ -175,7 +175,7 @@ export const Medium: ComponentStory<typeof Grid> = () => {
 };
 Medium.storyName = 'Medium (md)';
 
-export const Large: ComponentStory<typeof Grid> = () => {
+export const Large: StoryFn<typeof Grid> = () => {
   type ColumnsType = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
   return (
     <Grid>
@@ -198,7 +198,7 @@ export const Large: ComponentStory<typeof Grid> = () => {
 };
 Large.storyName = 'Large (lg)';
 
-export const ExtraLarge: ComponentStory<typeof Grid> = () => {
+export const ExtraLarge: StoryFn<typeof Grid> = () => {
   type ColumnsType = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
   return (
     <Grid>

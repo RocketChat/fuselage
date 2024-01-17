@@ -22,8 +22,7 @@ $variants: (
   display: list-item;
 
   padding-block: lengths.padding(4);
-  padding-inline-start: lengths.padding(12);
-  padding-inline-end: lengths.padding(24);
+  padding-inline: lengths.padding(12) lengths.padding(24);
 
   list-style: none;
 
@@ -32,10 +31,8 @@ $variants: (
   &__title {
     @include typography.use-font-scale(c2);
 
-    padding-block-start: lengths.padding(8);
-    padding-block-end: lengths.padding(4);
-    padding-inline-start: lengths.padding(12);
-    padding-inline-end: lengths.padding(24);
+    padding-block: lengths.padding(8) lengths.padding(4);
+    padding-inline: lengths.padding(12) lengths.padding(24);
 
     color: colors.font(default);
   }
@@ -109,8 +106,7 @@ $variants: (
 
     min-width: lengths.size(20);
     min-height: lengths.size(20);
-    margin-inline-start: lengths.margin(16);
-    margin-inline-end: lengths.margin(-12);
+    margin-inline: lengths.margin(16) lengths.margin(-12);
   }
 
   &__description {

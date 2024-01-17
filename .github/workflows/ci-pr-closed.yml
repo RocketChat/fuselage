@@ -10,7 +10,7 @@ jobs:
     name: "Delete Storybook for PR #${{ github.event.number }}"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           ref: gh-pages
       - run: rm -rf "fuselage/${{ github.event.number }}" "layout/${{ github.event.number }}" "onboarding-ui/${{ github.event.number }}"

@@ -6,8 +6,6 @@ import * as stories from './Divider.stories';
 
 const { Default } = composeStories(stories);
 
-describe('[Divider Component]', () => {
-  it('renders without crashing', () => {
-    render(<Default />);
-  });
+it('renders without crashing', () => {
+  render(<Default />);
 });

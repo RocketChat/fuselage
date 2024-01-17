@@ -1,6 +1,7 @@
 import { useEffectEvent, useResizeObserver } from '@rocket.chat/fuselage-hooks';
 import React, { type ElementType, useState, useRef, useMemo } from 'react';
 
+import PaginatedSelectWrapper from './PaginatedSelectWrapper';
 import { type SelectProps } from '..';
 import { prevent } from '../../helpers/prevent';
 import AnimatedVisibility from '../AnimatedVisibility';
@@ -12,7 +13,6 @@ import { OptionsPaginated } from '../OptionsPaginated';
 import PositionAnimated from '../PositionAnimated';
 import SelectAddon from '../Select/SelectAddon';
 import SelectFocus from '../Select/SelectFocus';
-import PaginatedSelectWrapper from './PaginatedSelectWrapper';
 
 type PaginatedOptionType = {
   value: string | number;

@@ -9,12 +9,15 @@ export interface Node<T> {
   /** A unique key for the node. */
   'key': Key;
   /** The object value the node was created from. */
-  'value': T;
+  'value': T | null;
   /** The level of depth this node is at in the heirarchy. */
   'level': number;
   /** Whether this item has children, even if not loaded yet. */
   'hasChildNodes': boolean;
-  /** The loaded children of this node. */
+  /**
+   * The loaded children of this node.
+   * @deprecated Use `collection.getChildren(node.key)` instead.
+   */
   'childNodes': Iterable<Node<T>>;
   /** The rendered contents of this node (e.g. JSX). */
   'rendered': ReactNode;
@@ -27,11 +30,11 @@ export interface Node<T> {
   /** A function that should be called to wrap the rendered node. */
   'wrapper'?: (element: ReactElement) => ReactElement;
   /** The key of the parent node. */
-  'parentKey'?: Key;
+  'parentKey'?: Key | null;
   /** The key of the node before this node. */
-  'prevKey'?: Key;
+  'prevKey'?: Key | null;
   /** The key of the node after this node. */
-  'nextKey'?: Key;
+  'nextKey'?: Key | null;
   /** Additional properties specific to a particular node type. */
   'props'?: any;
   /** @private */

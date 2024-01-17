@@ -31,7 +31,7 @@ export function useDebouncedReducer<S, R extends ReducerWithoutAction<S>>(
   DispatchWithoutAction & {
     flush: () => void;
     cancel: () => void;
-  }
+  },
 ];
 
 /**
@@ -55,7 +55,7 @@ export function useDebouncedReducer<S, R extends ReducerWithoutAction<S>, I>(
   DispatchWithoutAction & {
     flush: () => void;
     cancel: () => void;
-  }
+  },
 ];
 
 // /**
@@ -103,7 +103,7 @@ export function useDebouncedReducer<S, A, R extends Reducer<S, A>, I>(
   Dispatch<A> & {
     flush: () => void;
     cancel: () => void;
-  }
+  },
 ];
 
 export function useDebouncedReducer(

@@ -6,8 +6,6 @@ import * as stories from './Sidebar.stories';
 
 const { Default } = composeStories(stories);
 
-describe('[Throbber Component]', () => {
-  it('renders without crashing', () => {
-    render(<Default />);
-  });
+it('renders without crashing', () => {
+  render(<Default />);
 });

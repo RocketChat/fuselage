@@ -1,4 +1,4 @@
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 import React from 'react';
 
 import { ButtonGroup, Divider, IconButton } from '..';
@@ -6,19 +6,17 @@ import { ButtonGroup, Divider, IconButton } from '..';
 export default {
   title: 'Data Display/Divider',
   component: Divider,
-} as ComponentMeta<typeof Divider>;
+} as Meta<typeof Divider>;
 
-const Template: ComponentStory<typeof Divider> = (args) => (
-  <Divider {...args} />
-);
+const Template: StoryFn<typeof Divider> = (args) => <Divider {...args} />;
 
-export const Default: ComponentStory<typeof Divider> = Template.bind({});
-export const WithText: ComponentStory<typeof Divider> = Template.bind({});
+export const Default: StoryFn<typeof Divider> = Template.bind({});
+export const WithText: StoryFn<typeof Divider> = Template.bind({});
 WithText.args = {
   children: 'Divider',
 };
 
-export const Vertical: ComponentStory<typeof Divider> = Template.bind({});
+export const Vertical: StoryFn<typeof Divider> = Template.bind({});
 Vertical.args = {
   vertical: true,
 };

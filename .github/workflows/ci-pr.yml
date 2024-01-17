@@ -15,11 +15,11 @@ jobs:
       TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v4
         with:
-          node-version: "14.21.3"
-      - uses: actions/checkout@v2
-      - uses: actions/cache@v2
+          node-version: "20.10.0"
+      - uses: actions/checkout@v3
+      - uses: actions/cache@v3
         id: yarn-cache
         with:
           path: |
@@ -28,10 +28,10 @@ jobs:
           key: ${{ runner.os }}-modules-${{ hashFiles('yarn.lock') }}
       - name: Turbo Cache
         id: turbo-cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: .turbo
-          key: turbo-${{ runner.os }}-${{ github.job }}
+          key: turbo-${{ runner.os }}-${{ github.sha }}
           restore-keys: |
             turbo-${{ runner.os }}-
       - run: yarn install

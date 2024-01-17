@@ -1,7 +1,8 @@
 import { Title, Description, Primary, Stories } from '@storybook/addon-docs';
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 import React from 'react';
 
+import { FieldLabelInfo } from './FieldLabelInfo';
 import {
   Field,
   FieldDescription,
@@ -16,7 +17,6 @@ import {
   RadioButton,
   CheckBox,
 } from '../..';
-import { FieldLabelInfo } from './FieldLabelInfo';
 
 export default {
   title: 'Inputs/Field',
@@ -37,9 +37,9 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof Field>;
+} as Meta<typeof Field>;
 
-export const WithTextInput: ComponentStory<typeof Field> = () => (
+export const WithTextInput: StoryFn<typeof Field> = () => (
   <Field>
     <FieldLabel required htmlFor='fieldWithText'>
       Label
@@ -56,7 +56,7 @@ export const WithTextInput: ComponentStory<typeof Field> = () => (
     </FieldRow>
   </Field>
 );
-export const WithTextArea: ComponentStory<typeof Field> = () => (
+export const WithTextArea: StoryFn<typeof Field> = () => (
   <Field>
     <FieldLabel required htmlFor='fieldWithTextArea'>
       Label
@@ -76,7 +76,7 @@ export const WithTextArea: ComponentStory<typeof Field> = () => (
     </FieldRow>
   </Field>
 );
-export const WithRadioButton: ComponentStory<typeof Field> = () => (
+export const WithRadioButton: StoryFn<typeof Field> = () => (
   <Field>
     <FieldRow>
       <FieldLabel required htmlFor='fieldWithRadio'>
@@ -93,7 +93,7 @@ export const WithRadioButton: ComponentStory<typeof Field> = () => (
     </FieldRow>
   </Field>
 );
-export const WithToggleSwitch: ComponentStory<typeof Field> = () => (
+export const WithToggleSwitch: StoryFn<typeof Field> = () => (
   <Field>
     <FieldRow>
       <FieldLabel required htmlFor='fieldWithToggle'>
@@ -113,7 +113,7 @@ export const WithToggleSwitch: ComponentStory<typeof Field> = () => (
     </FieldRow>
   </Field>
 );
-export const WithCheckbox: ComponentStory<typeof Field> = () => (
+export const WithCheckbox: StoryFn<typeof Field> = () => (
   <Field>
     <FieldRow>
       <FieldLabel required htmlFor='fieldWithCheckbox'>

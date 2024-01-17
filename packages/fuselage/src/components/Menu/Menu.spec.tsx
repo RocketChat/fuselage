@@ -10,33 +10,29 @@ withResizeObserverMock();
 
 const { Simple } = composeStories(stories);
 
-describe('[Menu Component]', () => {
-  const menuOption = screen.queryByText('Make Admin');
+it('should renders without crashing', () => {
+  render(<Simple {...Simple.args} />);
+});
 
-  it('should renders without crashing', () => {
-    render(<Simple {...Simple.args} />);
-  });
+it('should open options when click', async () => {
+  const { getByTestId } = render(<Simple {...Simple.args} />);
+  const button = getByTestId('menu');
+  await userEvent.click(button);
+  expect(await screen.findByText('Make Admin')).toBeInTheDocument();
+});
 
-  it('should open options when click', async () => {
-    const { getByTestId } = render(<Simple {...Simple.args} />);
-    const button = getByTestId('menu');
-    await userEvent.click(button);
-    expect(await screen.findByText('Make Admin')).toBeInTheDocument();
-  });
+it('should have no options when click twice', async () => {
+  const { getByTestId } = render(<Simple {...Simple.args} />);
+  const button = getByTestId('menu');
+  await userEvent.click(button);
+  await userEvent.click(button);
+  expect(screen.queryByText('Make Admin')).not.toBeInTheDocument();
+});
 
-  it('should have no options when click twice', async () => {
-    const { getByTestId } = render(<Simple {...Simple.args} />);
-    const button = getByTestId('menu');
-    await userEvent.click(button);
-    await userEvent.click(button);
-    expect(menuOption).toBeNull();
-  });
-
-  it('should have no options when click on menu and then elsewhere', async () => {
-    const { getByTestId } = render(<Simple {...Simple.args} />);
-    const button = getByTestId('menu');
-    await userEvent.click(button);
-    await userEvent.click(document.body);
-    expect(menuOption).toBeNull();
-  });
+it('should have no options when click on menu and then elsewhere', async () => {
+  const { getByTestId } = render(<Simple {...Simple.args} />);
+  const button = getByTestId('menu');
+  await userEvent.click(button);
+  await userEvent.click(document.body);
+  expect(screen.queryByText('Make Admin')).not.toBeInTheDocument();
 });

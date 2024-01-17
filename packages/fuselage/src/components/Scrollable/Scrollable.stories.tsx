@@ -6,7 +6,7 @@ import {
   Stories,
   ArgsTable,
 } from '@storybook/addon-docs';
-import type { ComponentMeta } from '@storybook/react';
+import type { Meta } from '@storybook/react';
 import React from 'react';
 
 import { Box, Scrollable, Tile } from '../..';
@@ -30,7 +30,7 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof Scrollable>;
+} as Meta<typeof Scrollable>;
 
 export const Default = () => (
   <Scrollable>

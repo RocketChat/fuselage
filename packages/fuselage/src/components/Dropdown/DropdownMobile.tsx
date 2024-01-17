@@ -4,7 +4,7 @@ import React, { forwardRef } from 'react';
 import { Box, Tile } from '..';
 
 export const DropdownMobile = forwardRef(function DropdownMobile<
-  R extends HTMLElement
+  R extends HTMLElement,
 >(
   {
     children,

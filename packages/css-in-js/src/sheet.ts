@@ -1,4 +1,4 @@
-import hash from '@emotion/hash';
+import { hash } from './hash';
 
 const elementId = 'rcx-styles';
 let element: HTMLStyleElement;

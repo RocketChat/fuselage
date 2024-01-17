@@ -67,7 +67,7 @@ export default {
     validateEmail: async (email) =>
       email === 'rocket@rocket.chat' ? 'invalid email' : true,
   },
-} as Meta<Args>;
+} satisfies Meta<Args>;
 
 export const _CreateCloudWorkspaceForm: Story<Args> = (args) => (
   <CreateCloudWorkspaceForm {...args} />

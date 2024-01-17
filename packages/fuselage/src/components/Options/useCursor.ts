@@ -2,9 +2,9 @@ import { useEffectEvent } from '@rocket.chat/fuselage-hooks';
 import type { KeyboardEvent } from 'react';
 import { useState } from 'react';
 
-import AnimatedVisibility from '../AnimatedVisibility';
 import type { OptionType } from './Options';
 import { useVisible } from './useVisible';
+import AnimatedVisibility from '../AnimatedVisibility';
 
 const keyCodes = {
   ESC: 27,
@@ -69,8 +69,8 @@ export const useCursor = <
     selected?: unknown,
     disabled?: unknown,
     type?: OptionType[4],
-    url?: string
-  ] = OptionType
+    url?: string,
+  ] = OptionType,
 >(
   initial: number,
   options: Array<T>,
@@ -80,7 +80,7 @@ export const useCursor = <
   handleKeyDown: (e: KeyboardEvent) => void,
   handleKeyUp: (e: KeyboardEvent) => void,
   reset: () => void,
-  visibilityHandler: ReturnType<typeof useVisible>
+  visibilityHandler: ReturnType<typeof useVisible>,
 ] => {
   const [cursor, setCursor] = useState(initial);
   const visibilityHandler = useVisible();

@@ -34,8 +34,7 @@
     justify-content: space-between;
     align-items: center;
 
-    margin-block-start: lengths.margin(4);
-    margin-block-end: lengths.margin(2);
+    margin-block: lengths.margin(4) lengths.margin(2);
 
     color: colors.font(secondary-info);
   }

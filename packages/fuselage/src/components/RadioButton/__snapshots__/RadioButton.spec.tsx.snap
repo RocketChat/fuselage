@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`[RadioButton Rendering] renders Checked without crashing 1`] = `
+exports[`on rendering renders Checked without crashing 1`] = `
 <body>
   <div>
     <label
@@ -21,7 +21,7 @@ exports[`[RadioButton Rendering] renders Checked without crashing 1`] = `
 </body>
 `;
 
-exports[`[RadioButton Rendering] renders Default without crashing 1`] = `
+exports[`on rendering renders Default without crashing 1`] = `
 <body>
   <div>
     <label
@@ -41,7 +41,7 @@ exports[`[RadioButton Rendering] renders Default without crashing 1`] = `
 </body>
 `;
 
-exports[`[RadioButton Rendering] renders Disabled without crashing 1`] = `
+exports[`on rendering renders Disabled without crashing 1`] = `
 <body>
   <div>
     <label
@@ -62,7 +62,7 @@ exports[`[RadioButton Rendering] renders Disabled without crashing 1`] = `
 </body>
 `;
 
-exports[`[RadioButton Rendering] renders States without crashing 1`] = `
+exports[`on rendering renders States without crashing 1`] = `
 <body>
   <div>
     <table

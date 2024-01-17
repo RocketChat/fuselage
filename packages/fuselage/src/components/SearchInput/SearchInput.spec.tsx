@@ -3,8 +3,6 @@ import React from 'react';
 
 import { SearchInput } from '.';
 
-describe('[SearchInput Component]', () => {
-  it('renders without crashing', () => {
-    render(<SearchInput />);
-  });
+it('renders without crashing', () => {
+  render(<SearchInput />);
 });

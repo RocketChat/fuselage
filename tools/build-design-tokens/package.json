@@ -7,8 +7,11 @@
     "prettier": "*"
   },
   "dependencies": {
-    "stylelint": "~15.4.0",
+    "stylelint": "~16.1.0",
     "tools-utils": "workspace:~"
   },
-  "version": "0.31.25"
+  "version": "0.31.25",
+  "volta": {
+    "extends": "../../package.json"
+  }
 }

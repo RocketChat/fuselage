@@ -5,10 +5,9 @@ import {
   Stories,
   ArgsTable,
 } from '@storybook/addon-docs';
-import type { ComponentStory } from '@storybook/react';
+import type { StoryFn } from '@storybook/react';
 import React from 'react';
 
-import { CheckBox } from '../..';
 import {
   Table,
   TableSelection,
@@ -18,6 +17,7 @@ import {
   TableCell,
   TableBody,
 } from './index';
+import { CheckBox } from '../..';
 
 export default {
   title: 'Data Display/Table',
@@ -37,7 +37,7 @@ export default {
   },
 };
 
-export const Default: ComponentStory<typeof Table> = () => (
+export const Default: StoryFn<typeof Table> = () => (
   <>
     <Table>
       <TableHead>
@@ -73,7 +73,7 @@ export const Default: ComponentStory<typeof Table> = () => (
   </>
 );
 
-export const Selected: ComponentStory<typeof Table> = () => (
+export const Selected: StoryFn<typeof Table> = () => (
   <>
     <TableSelection text='5 Items selected'>
       <TableSelectionButton>Delete</TableSelectionButton>
@@ -157,7 +157,7 @@ export const Selected: ComponentStory<typeof Table> = () => (
   </>
 );
 
-export const Striped: ComponentStory<typeof Table> = () => (
+export const Striped: StoryFn<typeof Table> = () => (
   <Table fixed striped sticky>
     <TableHead>
       <TableRow>
@@ -218,7 +218,7 @@ export const Striped: ComponentStory<typeof Table> = () => (
   </Table>
 );
 
-export const Fixed: ComponentStory<typeof Table> = () => (
+export const Fixed: StoryFn<typeof Table> = () => (
   <Table fixed>
     <TableHead>
       <TableRow>

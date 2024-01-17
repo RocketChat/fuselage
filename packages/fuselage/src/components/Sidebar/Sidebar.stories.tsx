@@ -1,6 +1,6 @@
 import { action } from '@storybook/addon-actions';
 import { Title, Description, Primary, Stories } from '@storybook/addon-docs';
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 import React from 'react';
 
 import Sidebar, {
@@ -37,9 +37,9 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof Sidebar>;
+} as Meta<typeof Sidebar>;
 
-export const Default: ComponentStory<typeof Sidebar> = () => (
+export const Default: StoryFn<typeof Sidebar> = () => (
   <>
     <div className='rcx-sidebar'>
       <SidebarSection>
@@ -168,7 +168,7 @@ export const Default: ComponentStory<typeof Sidebar> = () => (
   </>
 );
 
-export const WithFooter: ComponentStory<typeof Sidebar> = () => (
+export const WithFooter: StoryFn<typeof Sidebar> = () => (
   <>
     <SidebarSection>
       <Avatar
@@ -347,7 +347,7 @@ export const WithFooter: ComponentStory<typeof Sidebar> = () => (
   </>
 );
 
-export const Admin: ComponentStory<typeof Sidebar> = () => (
+export const Admin: StoryFn<typeof Sidebar> = () => (
   <div className='rcx-sidebar'>
     <Box display='flex' is='header' pbs={16} pbe={8} pi={24}>
       <Box fontSize='p2' fontWeight='p2'>
@@ -385,7 +385,7 @@ export const Admin: ComponentStory<typeof Sidebar> = () => (
   </div>
 );
 
-export const WithBanner: ComponentStory<typeof Sidebar> = () => (
+export const WithBanner: StoryFn<typeof Sidebar> = () => (
   <div className='rcx-sidebar'>
     <Box display='flex' is='header' pbs={16} pbe={8} pi={24}>
       <Box fontSize='p2' fontWeight='p2'>
@@ -429,7 +429,7 @@ export const WithBanner: ComponentStory<typeof Sidebar> = () => (
   </div>
 );
 
-export const CustomBannerContent: ComponentStory<typeof SidebarBanner> = () => (
+export const CustomBannerContent: StoryFn<typeof SidebarBanner> = () => (
   <SidebarBanner>
     <Box display='flex' justifyContent='space-between'>
       <Icon name='modal-warning' size='x20' mi={8} />
@@ -438,7 +438,7 @@ export const CustomBannerContent: ComponentStory<typeof SidebarBanner> = () => (
   </SidebarBanner>
 );
 
-export const BannerVariations: ComponentStory<typeof SidebarBanner> = () => (
+export const BannerVariations: StoryFn<typeof SidebarBanner> = () => (
   <>
     <SidebarBanner text='This is a default banner variation' />
     <Divider />

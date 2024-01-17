@@ -1,7 +1,6 @@
-import { lstat, readlink, readFile, writeFile, mkdir } from 'fs/promises';
-import { dirname, join } from 'path';
-import { promisify } from 'util';
-import rimraf from 'rimraf';
+import { lstat, readlink, readFile, writeFile, mkdir } from 'node:fs/promises';
+import { dirname, join } from 'node:path';
+import { rimraf } from 'rimraf';
 import fg from 'fast-glob';
 import { encodeJson, decodeJson } from './json.mjs';
 import { encodeJson5, decodeJson5 } from './json5.mjs';
@@ -38,7 +37,7 @@ export const writeJson5 = (path) => (data) => {
   return data;
 };
 
-export const removeFile = (path) => promisify(rimraf)(path);
+export const removeFile = (path) => rimraf.rimraf(path);
 
 export const listFiles = (patterns, cwd) =>
   fg(patterns, { cwd }).then((paths) =>

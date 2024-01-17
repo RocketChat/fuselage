@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions';
-import type { ComponentStory } from '@storybook/react';
+import type { StoryFn } from '@storybook/react';
 import type { ComponentProps } from 'react';
 import React from 'react';
 
@@ -22,7 +22,7 @@ export default {
   },
 };
 
-export const Default: ComponentStory<typeof Modal> = () => (
+export const Default: StoryFn<typeof Modal> = () => (
   <Modal>
     <Modal.Header>
       <Modal.HeaderText>
@@ -42,7 +42,7 @@ export const Default: ComponentStory<typeof Modal> = () => (
   </Modal>
 );
 
-export const _WithThumb: ComponentStory<typeof Modal> = () => (
+export const _WithThumb: StoryFn<typeof Modal> = () => (
   <Modal>
     <Modal.Header>
       <Modal.Thumb url='data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==' />
@@ -63,7 +63,7 @@ export const _WithThumb: ComponentStory<typeof Modal> = () => (
   </Modal>
 );
 
-export const _WithIcon: ComponentStory<typeof Modal> = () => (
+export const _WithIcon: StoryFn<typeof Modal> = () => (
   <Modal>
     <Modal.Header>
       <Modal.Icon name='info' />
@@ -84,7 +84,7 @@ export const _WithIcon: ComponentStory<typeof Modal> = () => (
   </Modal>
 );
 
-export const _WithTagline: ComponentStory<typeof Modal> = () => (
+export const _WithTagline: StoryFn<typeof Modal> = () => (
   <Modal>
     <Modal.Header>
       <Modal.HeaderText>
@@ -105,7 +105,7 @@ export const _WithTagline: ComponentStory<typeof Modal> = () => (
   </Modal>
 );
 
-export const _WithIconAndTagline: ComponentStory<typeof Modal> = () => (
+export const _WithIconAndTagline: StoryFn<typeof Modal> = () => (
   <Modal>
     <Modal.Header>
       <Modal.Icon alignItems='end' name='info' />
@@ -127,7 +127,7 @@ export const _WithIconAndTagline: ComponentStory<typeof Modal> = () => (
   </Modal>
 );
 
-export const _WithAnnotation: ComponentStory<typeof Modal> = () => (
+export const _WithAnnotation: StoryFn<typeof Modal> = () => (
   <Modal>
     <Modal.Header>
       <Modal.HeaderText>
@@ -148,7 +148,7 @@ export const _WithAnnotation: ComponentStory<typeof Modal> = () => (
   </Modal>
 );
 
-export const _WithHeroImage: ComponentStory<typeof Modal> = () => (
+export const _WithHeroImage: StoryFn<typeof Modal> = () => (
   <Modal>
     <Modal.Header>
       <Modal.HeaderText>
@@ -191,7 +191,7 @@ const FormContainer = (props: ComponentProps<typeof Box>) => (
   />
 );
 
-export const _WithForm: ComponentStory<typeof Modal> = () => (
+export const _WithForm: StoryFn<typeof Modal> = () => (
   <Modal wrapper={FormContainer}>
     <Modal.Header>
       <Modal.HeaderText>

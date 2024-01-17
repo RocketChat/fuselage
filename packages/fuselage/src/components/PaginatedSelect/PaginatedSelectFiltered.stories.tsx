@@ -1,4 +1,4 @@
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 import React from 'react';
 
 import { PaginatedSelectFiltered } from '.';
@@ -18,9 +18,9 @@ export default {
     actions: { argTypesRegex: '^on.*' },
     layout: 'centered',
   },
-} satisfies ComponentMeta<typeof PaginatedSelectFiltered>;
+} satisfies Meta<typeof PaginatedSelectFiltered>;
 
-const Template: ComponentStory<typeof PaginatedSelectFiltered> = (args) => (
+const Template: StoryFn<typeof PaginatedSelectFiltered> = (args) => (
   <PaginatedSelectFiltered {...args} />
 );
 

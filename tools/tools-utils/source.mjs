@@ -1,4 +1,4 @@
-import { extname } from 'path';
+import { extname } from 'node:path';
 import { ESLint } from 'eslint';
 import stylelint from 'stylelint';
 import prettier from 'prettier';
@@ -24,7 +24,7 @@ export const runStylelint = (path) => async (source) => {
     fix: true,
   });
 
-  return results.output;
+  return results.code;
 };
 
 export const runPrettier = (path) => async (source) => {

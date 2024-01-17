@@ -31,20 +31,18 @@
     "lint": "lint",
     "lint-and-fix": "lint-and-fix",
     "lint-staged": "lint-staged",
-    "docs": "typedoc",
-    "bump-next": "bump-next"
+    "docs": "typedoc"
   },
   "devDependencies": {
     "@rocket.chat/eslint-config-alt": "workspace:~",
     "@rocket.chat/prettier-config": "workspace:~",
-    "bump": "workspace:~",
-    "eslint": "~8.38.0",
+    "eslint": "~8.56.0",
     "lint-all": "workspace:~",
-    "lint-staged": "~13.2.1",
-    "prettier": "~2.8.7",
-    "rimraf": "~3.0.2",
-    "typedoc": "~0.24.1",
-    "typescript": "~5.0.4"
+    "lint-staged": "~15.2.0",
+    "prettier": "~3.1.1",
+    "rimraf": "~5.0.5",
+    "typedoc": "~0.25.7",
+    "typescript": "~5.3.3"
   },
   "dependencies": {
     "@rocket.chat/memo": "workspace:~"
@@ -52,5 +50,8 @@
   "eslintConfig": {
     "extends": "@rocket.chat/eslint-config-alt/typescript"
   },
-  "prettier": "@rocket.chat/prettier-config/fuselage"
+  "prettier": "@rocket.chat/prettier-config/fuselage",
+  "volta": {
+    "extends": "../../package.json"
+  }
 }

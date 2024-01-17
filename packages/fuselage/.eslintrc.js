@@ -2,6 +2,7 @@ module.exports = {
   extends: [
     '@rocket.chat/eslint-config-alt/typescript',
     '@rocket.chat/eslint-config-alt/react',
+    'plugin:storybook/recommended',
   ],
   rules: {
     '@typescript-eslint/explicit-module-boundary-types': 'off',

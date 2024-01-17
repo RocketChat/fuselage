@@ -7,7 +7,7 @@ import { useStylingProps } from './useStylingProps';
 export const withBoxStyling = <
   TProps extends {
     className?: string;
-  }
+  },
 >(
   Component: ComponentType<TProps>
 ): ComponentType<TProps & Partial<StylingProps>> => {

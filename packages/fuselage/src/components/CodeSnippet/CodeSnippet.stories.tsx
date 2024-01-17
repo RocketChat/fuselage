@@ -6,7 +6,7 @@ import {
   Stories,
   ArgsTable,
 } from '@storybook/addon-docs';
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 import React from 'react';
 
 import { CodeSnippet } from '../..';
@@ -31,9 +31,9 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof CodeSnippet>;
+} as Meta<typeof CodeSnippet>;
 
-const Template: ComponentStory<typeof CodeSnippet> = (args) => (
+const Template: StoryFn<typeof CodeSnippet> = (args) => (
   <CodeSnippet {...args} />
 );
 

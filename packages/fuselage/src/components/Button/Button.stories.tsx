@@ -8,7 +8,7 @@ import {
   Stories,
   PRIMARY_STORY,
 } from '@storybook/addon-docs';
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 import React from 'react';
 
 import { Button, ButtonGroup, IconButton, Margins } from '../..';
@@ -34,18 +34,18 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof ButtonGroup>;
+} as Meta<typeof ButtonGroup>;
 
-export const Default: ComponentStory<typeof Button> = () => (
+export const Default: StoryFn<typeof Button> = () => (
   <Button onClick={action('click')}>Button</Button>
 );
 
-export const Loading: ComponentStory<typeof Button> = () => (
+export const Loading: StoryFn<typeof Button> = () => (
   <Button loading onClick={action('click')}>
     Button
   </Button>
 );
-export const LoadingInteraction: ComponentStory<typeof Button> = () => {
+export const LoadingInteraction: StoryFn<typeof Button> = () => {
   const [isLoading, setIsLoading] = React.useState(false);
   return (
     <Button
@@ -66,7 +66,7 @@ LoadingInteraction.parameters = {
   },
 };
 
-export const Variants: ComponentStory<typeof Button> = () => (
+export const Variants: StoryFn<typeof Button> = () => (
   <Margins all='x8'>
     <ButtonGroup>
       <Button primary>Primary</Button>
@@ -93,7 +93,7 @@ export const Variants: ComponentStory<typeof Button> = () => (
   </Margins>
 );
 
-export const Sizes: ComponentStory<typeof ButtonGroup> = () => (
+export const Sizes: StoryFn<typeof ButtonGroup> = () => (
   <ButtonGroup marginBlockEnd={12}>
     <Button small>Small</Button>
     <Button medium>Medium</Button>
@@ -101,7 +101,7 @@ export const Sizes: ComponentStory<typeof ButtonGroup> = () => (
   </ButtonGroup>
 );
 
-export const AsLink: ComponentStory<typeof Button> = () => (
+export const AsLink: StoryFn<typeof Button> = () => (
   <Button is='a' href='https://rocket.chat' external>
     Button
   </Button>
@@ -225,7 +225,7 @@ export const States = () => (
   </>
 );
 
-export const AsIconButton: ComponentStory<typeof IconButton> = (args) => (
+export const AsIconButton: StoryFn<typeof IconButton> = (args) => (
   <IconButton {...args} icon='arrow-back' onClick={action('click')} />
 );
 

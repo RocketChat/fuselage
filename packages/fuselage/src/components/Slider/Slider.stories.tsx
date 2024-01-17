@@ -5,12 +5,12 @@ import {
   Stories,
   ArgsTable,
 } from '@storybook/addon-docs';
-import type { ComponentMeta, ComponentStory } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import { screen, userEvent } from '@storybook/testing-library';
 import React, { useState } from 'react';
 
-import Box from '../Box';
 import { Slider } from './Slider';
+import Box from '../Box';
 
 export default {
   title: 'Inputs/Slider',
@@ -28,22 +28,20 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof Slider>;
+} as Meta<typeof Slider>;
 
-const Template: ComponentStory<typeof Slider> = (args) => (
+const Template: StoryFn<typeof Slider> = (args) => (
   <Box width='x300' display='flex' alignItems='center'>
     <Slider {...args} />
   </Box>
 );
-const TemplateVertical: ComponentStory<typeof Slider> = (args) => (
+const TemplateVertical: StoryFn<typeof Slider> = (args) => (
   <Box h='x200' display='flex' alignItems='center'>
     <Slider {...args} />
   </Box>
 );
 
-export const SliderPlayExample: ComponentStory<typeof Slider> = Template.bind(
-  {}
-);
+export const SliderPlayExample: StoryFn<typeof Slider> = Template.bind({});
 SliderPlayExample.args = {
   'aria-label': 'aria-range-label',
   'maxValue': 50,
@@ -62,35 +60,34 @@ Disabled.args = {
   disabled: true,
 };
 
-export const Default: ComponentStory<typeof Slider> = Template.bind({});
+export const Default: StoryFn<typeof Slider> = Template.bind({});
 Default.args = {
   'aria-label': 'aria-range-label',
   'maxValue': 500,
 } as const;
 
-export const NoOutput: ComponentStory<typeof Slider> = Template.bind({});
+export const NoOutput: StoryFn<typeof Slider> = Template.bind({});
 NoOutput.args = {
   'showOutput': false,
   'aria-label': 'range',
 } as const;
 
-export const WithLabel: ComponentStory<typeof Slider> = Template.bind({});
+export const WithLabel: StoryFn<typeof Slider> = Template.bind({});
 WithLabel.args = {
   'label': 'Range',
   'aria-label': 'range',
 } as const;
 
-export const Vertical: ComponentStory<typeof Slider> = TemplateVertical.bind(
-  {}
-);
+export const Vertical: StoryFn<typeof Slider> = TemplateVertical.bind({});
 Vertical.args = {
   'label': 'Range',
   'aria-label': 'range',
   'orientation': 'vertical',
 } as const;
 
-export const VerticalMultiThumb: ComponentStory<typeof Slider> =
-  TemplateVertical.bind({});
+export const VerticalMultiThumb: StoryFn<typeof Slider> = TemplateVertical.bind(
+  {}
+);
 VerticalMultiThumb.args = {
   'label': 'Range',
   'aria-label': 'range',
@@ -98,15 +95,13 @@ VerticalMultiThumb.args = {
   'multiThumb': true,
 } as const;
 
-export const WithDefaultValue: ComponentStory<typeof Slider> = Template.bind(
-  {}
-);
+export const WithDefaultValue: StoryFn<typeof Slider> = Template.bind({});
 WithDefaultValue.args = {
   'defaultValue': 25,
   'aria-label': 'range',
 } as const;
 
-export const MultiThumb: ComponentStory<typeof Slider> = Template.bind({});
+export const MultiThumb: StoryFn<typeof Slider> = Template.bind({});
 MultiThumb.args = {
   'aria-label': 'range',
   'multiThumb': true,
@@ -114,7 +109,7 @@ MultiThumb.args = {
   'step': 10,
 } as const;
 
-export const ControlledValue: ComponentStory<typeof Slider> = () => {
+export const ControlledValue: StoryFn<typeof Slider> = () => {
   const [value, setValue] = useState<number>(20);
   return (
     <Box width='500px' height='80px' display='flex' alignItems='center'>
@@ -123,7 +118,7 @@ export const ControlledValue: ComponentStory<typeof Slider> = () => {
   );
 };
 
-export const NumberFormatOptions: ComponentStory<typeof Slider> = () => (
+export const NumberFormatOptions: StoryFn<typeof Slider> = () => (
   <Box width='500px' height='80px' display='flex' alignItems='center'>
     <Slider
       multiThumb

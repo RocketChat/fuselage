@@ -1,8 +1,8 @@
 import type { ComponentProps, ReactElement, ReactNode } from 'react';
 import React from 'react';
 
-import Box from '../Box';
 import { AccordionItem } from './AccordionItem';
+import Box from '../Box';
 
 type AccordionProps = ComponentProps<typeof Box> & {
   animated?: boolean;

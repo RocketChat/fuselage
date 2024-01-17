@@ -1,4 +1,4 @@
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 import React from 'react';
 
 import { Avatar, Box, Margins } from '../..';
@@ -6,7 +6,7 @@ import { Avatar, Box, Margins } from '../..';
 export default {
   title: 'Data Display/Avatar',
   component: Avatar,
-} as ComponentMeta<typeof Avatar>;
+} as Meta<typeof Avatar>;
 
 const sizes: (
   | 'x16'
@@ -23,7 +23,7 @@ const sizes: (
   | 'x332'
 )[] = ['x16', 'x18', 'x28', 'x32', 'x36', 'x48', 'x124', 'x200', 'x332'];
 
-const Template: ComponentStory<typeof Avatar> = (args) => (
+const Template: StoryFn<typeof Avatar> = (args) => (
   <Margins all='x16'>
     {sizes.map((size, i) => (
       <Box display='inline-flex' verticalAlign='middle' key={i}>
@@ -47,7 +47,7 @@ Rounded.args = {
   rounded: true,
 };
 
-const StackTemplate: ComponentStory<typeof Avatar> = (args) => (
+const StackTemplate: StoryFn<typeof Avatar> = (args) => (
   <Margins all='x16'>
     {sizes.map((size, i) => (
       <Box key={i}>

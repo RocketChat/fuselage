@@ -38,8 +38,7 @@ $variants: (
   }
 
   &__title {
-    margin-block-start: lengths.margin(0);
-    margin-block-end: lengths.margin(8);
+    margin-block: lengths.margin(0) lengths.margin(8);
 
     text-align: center;
 

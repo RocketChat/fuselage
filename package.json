@@ -6,44 +6,42 @@
     "tools/*"
   ],
   "devDependencies": {
-    "@changesets/changelog-github": "~0.4.8",
-    "@changesets/cli": "~2.26.2",
-    "bump": "workspace:~",
-    "husky": "~7.0.4",
-    "hygen": "~6.1.5",
-    "lerna": "~4.0.0",
-    "lint-staged": "~13.2.1",
-    "turbo": "~1.1.10",
+    "@changesets/changelog-github": "~0.5.0",
+    "@changesets/cli": "~2.27.1",
+    "husky": "~8.0.3",
+    "hygen": "~6.2.11",
+    "lint-staged": "~15.2.0",
+    "turbo": "~1.11.3",
     "update-readme": "workspace:~",
-    "webpack": "~5.78.0"
+    "webpack": "~5.89.0"
   },
   "scripts": {
     "postinstall": "husky install",
     "ci": "yarn turbo run build lint test build-storybook --cache-dir=\".turbo\"",
-    "clean": "yarn workspaces foreach -v --topological-dev run clean",
+    "clean": "yarn workspaces foreach -Av --topological-dev run clean",
     "build": "yarn turbo run build",
     "lint": "yarn turbo run lint",
-    "lint-and-fix": "yarn workspaces foreach -v --topological-dev run lint-and-fix",
+    "lint-and-fix": "yarn workspaces foreach -Av --topological-dev run lint-and-fix",
     "test": "yarn turbo run test",
-    "docs": "yarn workspaces foreach -v --topological-dev run docs",
+    "docs": "yarn workspaces foreach -Av --topological-dev run docs",
     "build-storybook": "yarn turbo run build-storybook --cache-dir=\".turbo\"",
     "update-readme": "update-readme",
     "resolve-workspace-deps": "yarn workspace scripts run resolve-workspace-deps",
     "create-package": "hygen create-package",
-    "bump-next": "yarn workspaces foreach --no-private -v run bump-next",
     "release": "yarn changeset publish",
-    "changeset": "changeset",
-    "release-next": "yarn workspaces foreach --no-private -v npm publish --tag next --tolerate-republish"
+    "changeset": "changeset"
   },
   "devEngines": {
-    "node": "~14.21.3"
+    "node": "~20.10.0"
   },
   "volta": {
-    "node": "14.21.3",
-    "yarn": "1.22.19"
+    "node": "20.10.0",
+    "yarn": "4.0.2"
   },
-  "packageManager": "yarn@3.5.0",
+  "packageManager": "yarn@4.0.2",
   "resolutions": {
-    "@storybook/react-docgen-typescript-plugin@1.0.2-canary.6.9d540b91e815f8fc2f8829189deb00553559ff63.0": "patch:@storybook/react-docgen-typescript-plugin@npm%3A1.0.2-canary.6.9d540b91e815f8fc2f8829189deb00553559ff63.0#./.yarn/patches/@storybook-react-docgen-typescript-plugin-npm-1.0.2-canary.6.9d540b91e815f8fc2f8829189deb00553559ff63.0-b31cc57c40.patch"
+    "@storybook/react-docgen-typescript-plugin@1.0.2-canary.6.9d540b91e815f8fc2f8829189deb00553559ff63.0": "patch:@storybook/react-docgen-typescript-plugin@npm%3A1.0.2-canary.6.9d540b91e815f8fc2f8829189deb00553559ff63.0#./.yarn/patches/@storybook-react-docgen-typescript-plugin-npm-1.0.2-canary.6.9d540b91e815f8fc2f8829189deb00553559ff63.0-b31cc57c40.patch",
+    "@types/react": "~17.0.74",
+    "@types/react-dom": "~17.0.25"
   }
 }

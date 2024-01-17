@@ -1,14 +1,14 @@
 import type { cssFn } from '@rocket.chat/css-in-js';
 import { css } from '@rocket.chat/css-in-js';
 
+import { useStyle } from './useStyle';
 import { appendClassName } from '../helpers/appendClassName';
 import type { Falsy } from '../types/Falsy';
-import { useStyle } from './useStyle';
 
 export const useArrayLikeClassNameProp = <
   T extends {
     className?: string | cssFn | (string | cssFn | Falsy)[];
-  }
+  },
 >(
   props: T
 ): T & { className: string } => {

@@ -12,7 +12,7 @@ declare global {
 
 export const useElementIsVisible = <T extends Element>(): [
   ref: RefObject<T>,
-  isVisible: boolean
+  isVisible: boolean,
 ] => {
   const innerRef = useRef<T>();
 

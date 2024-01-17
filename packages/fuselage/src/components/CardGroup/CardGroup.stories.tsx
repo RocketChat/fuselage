@@ -1,4 +1,4 @@
-import type { ComponentMeta, ComponentStory } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import type { ComponentProps } from 'react';
 import React from 'react';
 
@@ -25,7 +25,7 @@ export default {
     layout: 'padded',
     controls: { hideNoControlsWarning: true },
   },
-} as ComponentMeta<typeof CardGroup>;
+} as Meta<typeof CardGroup>;
 
 const CardItem = (props: ComponentProps<typeof Card>) => (
   <Card {...props}>
@@ -46,7 +46,7 @@ const CardItem = (props: ComponentProps<typeof Card>) => (
     </CardControls>
   </Card>
 );
-const CardHorizontal: ComponentStory<typeof Card> = (props) => (
+const CardHorizontal: StoryFn<typeof Card> = (props) => (
   <Card horizontal {...props}>
     <CardRow>
       <Icon name='document-eye' size='x24' />
@@ -62,7 +62,7 @@ const CardHorizontal: ComponentStory<typeof Card> = (props) => (
     </CardControls>
   </Card>
 );
-export const Default: ComponentStory<typeof CardGroup> = (args) => (
+export const Default: StoryFn<typeof CardGroup> = (args) => (
   <CardGroup {...args}>
     {Array.from(new Array(9)).map((_, index) => (
       <CardItem key={index} width='x260' />
@@ -70,28 +70,24 @@ export const Default: ComponentStory<typeof CardGroup> = (args) => (
   </CardGroup>
 );
 
-export const Wrap: ComponentStory<typeof CardGroup> = Default.bind({});
+export const Wrap: StoryFn<typeof CardGroup> = Default.bind({});
 Wrap.args = {
   wrap: true,
 };
 
-export const WrapAlignCenter: ComponentStory<typeof CardGroup> = Default.bind(
-  {}
-);
+export const WrapAlignCenter: StoryFn<typeof CardGroup> = Default.bind({});
 WrapAlignCenter.args = {
   wrap: true,
   align: 'center',
 };
 
-export const WrapStretch: ComponentStory<typeof CardGroup> = Default.bind({});
+export const WrapStretch: StoryFn<typeof CardGroup> = Default.bind({});
 WrapStretch.args = {
   wrap: true,
   stretch: true,
 };
 
-export const VerticalWithHorizontalCard: ComponentStory<typeof CardGroup> = (
-  args
-) => (
+export const VerticalWithHorizontalCard: StoryFn<typeof CardGroup> = (args) => (
   <CardGroup vertical stretch {...args}>
     {Array.from(new Array(9)).map((_, index) => (
       <CardHorizontal clickable key={index} width='full' />

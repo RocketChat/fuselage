@@ -5,8 +5,6 @@ import * as stories from './stories';
 
 const { ToastBarWithData } = composeStories(stories);
 
-describe('[ToastBarWithData Component]', () => {
-  it('renders without crashing', () => {
-    render(<ToastBarWithData />);
-  });
+it('renders without crashing', () => {
+  render(<ToastBarWithData />);
 });

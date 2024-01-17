@@ -5,7 +5,7 @@ import {
   Stories,
   ArgsTable,
 } from '@storybook/addon-docs';
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 import React from 'react';
 
 import type { SelectOption } from '../..';
@@ -34,17 +34,17 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof Select>;
+} as Meta<typeof Select>;
 
-const Template: ComponentStory<typeof Select> = (args) => <Select {...args} />;
+const Template: StoryFn<typeof Select> = (args) => <Select {...args} />;
 
-const TemplateControlled: ComponentStory<typeof Select> = (args) => {
+const TemplateControlled: StoryFn<typeof Select> = (args) => {
   const [value, setValue] = React.useState<React.Key>('3');
 
   return <Select {...args} value={value} onChange={setValue as any} />;
 };
 
-export const Default: ComponentStory<typeof Select> = Template.bind({});
+export const Default: StoryFn<typeof Select> = Template.bind({});
 Default.args = {
   'placeholder': 'Placeholder here...',
   options,
@@ -57,7 +57,7 @@ Controlled.args = {
   options,
 };
 
-export const Error: ComponentStory<typeof Select> = Template.bind({});
+export const Error: StoryFn<typeof Select> = Template.bind({});
 Error.args = {
   'aria-label': 'Error select',
   'error': 'Error',
@@ -65,7 +65,7 @@ Error.args = {
   options,
 };
 
-export const Disabled: ComponentStory<typeof Select> = Template.bind({});
+export const Disabled: StoryFn<typeof Select> = Template.bind({});
 Disabled.args = {
   'aria-label': 'Disabled select',
   'disabled': true,
@@ -73,7 +73,7 @@ Disabled.args = {
   options,
 };
 
-export const NoPlaceholder: ComponentStory<typeof Select> = Template.bind({});
+export const NoPlaceholder: StoryFn<typeof Select> = Template.bind({});
 NoPlaceholder.args = {
   'aria-label': 'No placeholder select',
   options,

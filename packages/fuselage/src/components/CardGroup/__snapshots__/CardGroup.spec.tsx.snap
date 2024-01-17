@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`[CardGroup Rendering] renders Default without crashing 1`] = `
+exports[`renders Default without crashing 1`] = `
 <body>
   <div>
     <div
@@ -588,7 +588,7 @@ exports[`[CardGroup Rendering] renders Default without crashing 1`] = `
 </body>
 `;
 
-exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashing 1`] = `
+exports[`renders VerticalWithHorizontalCard without crashing 1`] = `
 <body>
   <div>
     <div
@@ -1104,7 +1104,7 @@ exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashi
 </body>
 `;
 
-exports[`[CardGroup Rendering] renders Wrap without crashing 1`] = `
+exports[`renders Wrap without crashing 1`] = `
 <body>
   <div>
     <div
@@ -1692,7 +1692,7 @@ exports[`[CardGroup Rendering] renders Wrap without crashing 1`] = `
 </body>
 `;
 
-exports[`[CardGroup Rendering] renders WrapAlignCenter without crashing 1`] = `
+exports[`renders WrapAlignCenter without crashing 1`] = `
 <body>
   <div>
     <div
@@ -2280,7 +2280,7 @@ exports[`[CardGroup Rendering] renders WrapAlignCenter without crashing 1`] = `
 </body>
 `;
 
-exports[`[CardGroup Rendering] renders WrapStretch without crashing 1`] = `
+exports[`renders WrapStretch without crashing 1`] = `
 <body>
   <div>
     <div

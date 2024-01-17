@@ -1,10 +1,8 @@
 import { render } from '@testing-library/react';
 import React from 'react';
 
-import PasswordInput from '.';
+import PasswordInput from './PasswordInput';
 
-describe('[PasswordInput Component]', () => {
-  it('renders without crashing', () => {
-    render(<PasswordInput />);
-  });
+it('renders without crashing', () => {
+  render(<PasswordInput />);
 });

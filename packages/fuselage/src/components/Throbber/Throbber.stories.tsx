@@ -1,6 +1,6 @@
 import { action } from '@storybook/addon-actions';
 import { Title, Description, Primary, Stories } from '@storybook/addon-docs';
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 import React from 'react';
 
 import { Throbber, Button, Box } from '../..';
@@ -24,20 +24,18 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof Throbber>;
+} as Meta<typeof Throbber>;
 
-const Template: ComponentStory<typeof Throbber> = (args) => (
-  <Throbber {...args} />
-);
+const Template: StoryFn<typeof Throbber> = (args) => <Throbber {...args} />;
 
-export const Default: ComponentStory<typeof Throbber> = Template.bind({});
+export const Default: StoryFn<typeof Throbber> = Template.bind({});
 
-export const Disabled: ComponentStory<typeof Throbber> = Template.bind({});
+export const Disabled: StoryFn<typeof Throbber> = Template.bind({});
 Disabled.args = {
   disabled: true,
 };
 
-export const InsideButton: ComponentStory<typeof Throbber> = () => (
+export const InsideButton: StoryFn<typeof Throbber> = () => (
   <Button minHeight='x40'>
     <Throbber size='x12' />
   </Button>
@@ -54,7 +52,7 @@ export const InsideButtonInheritColor = () => (
   </Box>
 );
 
-export const States: ComponentStory<typeof Throbber> = () => (
+export const States: StoryFn<typeof Throbber> = () => (
   <PropsVariationSection
     component={Throbber}
     common={{ onClick: action('click') }}

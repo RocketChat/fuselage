@@ -5,7 +5,7 @@ export enum BlockElementType {
   IMAGE = 'image',
   OVERFLOW = 'overflow',
   /** @deprecated */
-  OVERFLOW_MENU = 'overflow',
+  OVERFLOW_MENU = 'overflow', // eslint-disable-line @typescript-eslint/no-duplicate-enum-values
   PLAIN_TEXT_INPUT = 'plain_text_input',
   STATIC_SELECT = 'static_select',
   MULTI_STATIC_SELECT = 'multi_static_select',
@@ -15,9 +15,9 @@ export enum BlockElementType {
   CHANNEL_SELECT = 'channels_select',
   /** @deprecated */
   USER_SELECT = 'users_select',
-  CONVERSATIONS_SELECT = 'conversations_select',
-  CHANNELS_SELECT = 'channels_select',
-  USERS_SELECT = 'users_select',
+  CONVERSATIONS_SELECT = 'conversations_select', // eslint-disable-line @typescript-eslint/no-duplicate-enum-values
+  CHANNELS_SELECT = 'channels_select', // eslint-disable-line @typescript-eslint/no-duplicate-enum-values
+  USERS_SELECT = 'users_select', // eslint-disable-line @typescript-eslint/no-duplicate-enum-values
   DATEPICKER = 'datepicker',
   LINEAR_SCALE = 'linear_scale',
   MULTI_CHANNELS_SELECT = 'multi_channels_select',

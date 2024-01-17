@@ -1,13 +1,12 @@
 import { DocsPage, DocsContainer } from '@storybook/addon-docs';
-import type { Parameters } from '@storybook/addons';
-import type { DecoratorFn } from '@storybook/react';
+import type { Parameters, Decorator } from '@storybook/react';
 import { themes } from '@storybook/theming';
 import { Suspense } from 'react';
 import { useDarkMode } from 'storybook-dark-mode';
 
+import logo from './logo.svg';
 import manifest from '../package.json';
 import DarkModeProvider from '../src/DarkModeProvider';
-import logo from './logo.svg';
 
 import '@rocket.chat/fuselage/dist/fuselage.css';
 import '@rocket.chat/icons/dist/rocketchat.css';
@@ -26,7 +25,9 @@ export const parameters: Parameters = {
     page: DocsPage,
   },
   options: {
-    storySort: ([, a], [, b]) => a.kind.localeCompare(b.kind),
+    storySort: {
+      method: 'alphabetical',
+    },
   },
   layout: 'fullscreen',
   darkMode: {
@@ -45,7 +46,7 @@ export const parameters: Parameters = {
   },
 };
 
-export const decorators: DecoratorFn[] = [
+export const decorators: Decorator[] = [
   (Story) => {
     const dark = useDarkMode();
 

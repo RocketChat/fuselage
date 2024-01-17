@@ -14,12 +14,10 @@ module.exports = {
       message: "What's the package description?",
     });
 
-    let { version } = JSON.parse(await fs.promises.readFile("lerna.json"));
-
     ({ version } = await prompter.prompt({
       type: "input",
       name: "version",
-      default: version,
+      default: "0.0.1",
       message: "What's the package version?",
     }));
 

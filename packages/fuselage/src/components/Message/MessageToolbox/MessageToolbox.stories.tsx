@@ -1,5 +1,5 @@
 import { Title, Primary } from '@storybook/addon-docs';
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 import React from 'react';
 
 import type { MessageToolboxWrapper } from '.';
@@ -19,9 +19,9 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof MessageToolboxWrapper>;
+} as Meta<typeof MessageToolboxWrapper>;
 
-export const Default: ComponentStory<typeof MessageToolbox> = () => (
+export const Default: StoryFn<typeof MessageToolbox> = () => (
   <Box>
     <MessageToolbox>
       <MessageToolboxItem icon='quote' />

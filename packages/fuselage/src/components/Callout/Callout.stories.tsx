@@ -7,7 +7,7 @@ import {
   Stories,
   PRIMARY_STORY,
 } from '@storybook/addon-docs';
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 import React from 'react';
 
 import { Callout } from '../..';
@@ -34,9 +34,9 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof Callout>;
+} as Meta<typeof Callout>;
 
-const Template: ComponentStory<typeof Callout> = (args) => (
+const Template: StoryFn<typeof Callout> = (args) => (
   <Callout {...args}>
     {args.children || 'This is a generic description.'}
   </Callout>

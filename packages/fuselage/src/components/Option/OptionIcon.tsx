@@ -1,8 +1,8 @@
 import type { ComponentProps } from 'react';
 import React from 'react';
 
-import { Icon } from '../Icon';
 import OptionColumn from './OptionColumn';
+import { Icon } from '../Icon';
 
 type OptionIconProps = {
   name: ComponentProps<typeof Icon>['name'];

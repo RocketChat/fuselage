@@ -1,10 +1,8 @@
 import { render } from '@testing-library/react';
 import React from 'react';
 
-import { Pagination } from '.';
+import { Pagination } from './Pagination';
 
-describe('[Pagination Component]', () => {
-  it('renders without crashing', () => {
-    render(<Pagination count={0} />);
-  });
+it('renders without crashing', () => {
+  render(<Pagination count={0} />);
 });

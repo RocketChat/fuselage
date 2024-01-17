@@ -18,7 +18,7 @@ export function useDebouncedUpdates<S>(
   DispatchWithoutAction & {
     flush: () => void;
     cancel: () => void;
-  }
+  },
 ];
 
 /**
@@ -37,7 +37,7 @@ export function useDebouncedUpdates<S, A>(
   Dispatch<A> & {
     flush: () => void;
     cancel: () => void;
-  }
+  },
 ];
 
 export function useDebouncedUpdates(

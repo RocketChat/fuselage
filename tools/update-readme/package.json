@@ -4,7 +4,10 @@
   "bin": "./update-readme.mjs",
   "version": "0.31.25",
   "dependencies": {
-    "outdent": "^0.8.0",
-    "zx": "~7.2.1"
+    "outdent": "~0.8.0",
+    "zx": "~7.2.3"
+  },
+  "volta": {
+    "extends": "../../package.json"
   }
 }

@@ -1,4 +1,4 @@
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 import React from 'react';
 
 import {
@@ -33,9 +33,9 @@ export default {
       </Box>
     ),
   ],
-} as ComponentMeta<typeof Contextualbar>;
+} as Meta<typeof Contextualbar>;
 
-export const Default: ComponentStory<typeof Contextualbar> = () => (
+export const Default: StoryFn<typeof Contextualbar> = () => (
   <Contextualbar position='static' height='x540'>
     <ContextualbarHeader>
       <ContextualbarAction name='chevron-right' />
@@ -68,11 +68,11 @@ export const Default: ComponentStory<typeof Contextualbar> = () => (
   </Contextualbar>
 );
 
-export const Skeleton: ComponentStory<typeof Contextualbar> = () => (
+export const Skeleton: StoryFn<typeof Contextualbar> = () => (
   <ContextualbarSkeleton position='static' height='x540' />
 );
 
-export const Empty: ComponentStory<typeof Contextualbar> = () => (
+export const Empty: StoryFn<typeof Contextualbar> = () => (
   <Contextualbar position='static' height='x540'>
     <ContextualbarHeader>
       <ContextualbarAction name='chevron-right' />

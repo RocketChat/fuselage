@@ -33,9 +33,9 @@ module.exports = (env, { mode = 'production' }) => ({
   module: {
     rules: [
       {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: 'babel-loader',
+        test: /\.[cm]?js$/,
+        exclude: /node_modules\/(?!react-keyed-flatten-children)/,
+        loader: 'babel-loader',
       },
       {
         test: /\.tsx?$/,

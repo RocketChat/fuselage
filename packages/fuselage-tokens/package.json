@@ -34,31 +34,32 @@
     "access": "public"
   },
   "scripts": {
-    "build": "run-s .:build:clean  .:build:legacy .:build",
+    "build": "run-s .:build:clean .:build:legacy .:build",
     ".:build": "node ./build --config ./config.js",
     ".:build:legacy": "build-design-tokens",
-    ".:build:clean": "rimraf dist",
-    "bump-next": "bump-next"
+    ".:build:clean": "rimraf dist"
   },
   "devDependencies": {
     "@rocket.chat/eslint-config-alt": "workspace:~",
     "@rocket.chat/prettier-config": "workspace:~",
     "build-design-tokens": "workspace:~",
-    "bump": "workspace:~",
-    "eslint": "~8.38.0",
-    "eslint-config-prettier": "~8.8.0",
-    "eslint-plugin-import": "~2.26.0",
-    "eslint-plugin-prettier": "~4.2.1",
+    "eslint": "~8.56.0",
+    "eslint-config-prettier": "~9.1.0",
+    "eslint-plugin-import": "~2.29.1",
+    "eslint-plugin-prettier": "~5.1.2",
     "lint-all": "workspace:~",
-    "lint-staged": "~13.2.1",
-    "npm-run-all": "^4.1.5",
-    "postcss-scss": "~4.0.6",
-    "prettier": "~2.8.7",
-    "rimraf": "^3.0.2",
-    "style-dictionary": "~3.7.2",
-    "stylelint": "~15.4.0",
-    "stylelint-order": "~6.0.3",
-    "stylelint-prettier": "~3.0.0",
-    "stylelint-scss": "~4.6.0"
+    "lint-staged": "~15.2.0",
+    "npm-run-all": "~4.1.5",
+    "postcss-scss": "~4.0.9",
+    "prettier": "~3.1.1",
+    "rimraf": "~5.0.5",
+    "style-dictionary": "~3.9.1",
+    "stylelint": "~16.1.0",
+    "stylelint-order": "~6.0.4",
+    "stylelint-prettier": "~5.0.0",
+    "stylelint-scss": "~6.0.0"
+  },
+  "volta": {
+    "extends": "../../package.json"
   }
 }

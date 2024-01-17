@@ -12,7 +12,7 @@ if ((await glob('.stylelintrc*')).length) {
 }
 
 if ((await glob('.prettierrc*')).length || 'prettier' in manifest) {
-  await $`prettier --check '**/*.{json,jsonc,md,yml,xml,svg}'`;
+  await $`prettier --plugin=@prettier/plugin-xml --check '**/*.{json,jsonc,md,yml,xml,svg}'`;
 }
 
 if ((await glob('tsconfig.json')).length) {

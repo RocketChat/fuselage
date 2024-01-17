@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`[Avatar Component] renders Default without crashing 1`] = `
+exports[`renders Default without crashing 1`] = `
 <body>
   <div>
     <div
@@ -124,7 +124,7 @@ exports[`[Avatar Component] renders Default without crashing 1`] = `
 </body>
 `;
 
-exports[`[Avatar Component] renders Rounded without crashing 1`] = `
+exports[`renders Rounded without crashing 1`] = `
 <body>
   <div>
     <div
@@ -248,7 +248,7 @@ exports[`[Avatar Component] renders Rounded without crashing 1`] = `
 </body>
 `;
 
-exports[`[Avatar Component] renders Stack without crashing 1`] = `
+exports[`renders Stack without crashing 1`] = `
 <body>
   <div>
     <div
@@ -570,7 +570,7 @@ exports[`[Avatar Component] renders Stack without crashing 1`] = `
 </body>
 `;
 
-exports[`[Avatar Component] renders StackRounded without crashing 1`] = `
+exports[`renders StackRounded without crashing 1`] = `
 <body>
   <div>
     <div

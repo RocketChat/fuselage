@@ -30,7 +30,7 @@ function MenuItem({ item, state }: MenuItemProps) {
       focus={isFocused}
       disabled={isDisabled}
       is='label'
-      variant={item.value && item.value.variant}
+      variant={item.value?.variant}
     >
       <div className='rcx-option__wrapper'>{item.rendered}</div>
       {item.value && item.value.description && (

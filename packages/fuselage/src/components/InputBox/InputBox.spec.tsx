@@ -1,14 +1,13 @@
 import { render } from '@testing-library/react';
 import React from 'react';
 
-import { InputBox } from '.';
+import { InputBox } from './InputBox';
+import { InputBoxSkeleton } from './InputBoxSkeleton';
 
-describe('[InputBox Component]', () => {
-  it('renders InputBox without crashing', () => {
-    render(<InputBox type='text' />);
-  });
+it('renders InputBox without crashing', () => {
+  render(<InputBox type='text' />);
+});
 
-  it('renders InputBox.Skeleton without crashing', () => {
-    render(<InputBox.Skeleton />);
-  });
+it('renders InputBoxSkeleton without crashing', () => {
+  render(<InputBoxSkeleton />);
 });

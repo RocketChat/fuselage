@@ -1,13 +1,13 @@
 import type { ComponentProps, Ref, FormEvent, ReactElement } from 'react';
 import React, { useCallback, forwardRef } from 'react';
 
+import PaginatedMultiSelect, {
+  type PaginatedMultiSelectOption,
+} from './PaginatedMultiSelect';
 import type Box from '../Box';
 import Flex from '../Flex';
 import { InputBox } from '../InputBox';
 import { type OptionsPaginated } from '../OptionsPaginated';
-import PaginatedMultiSelect, {
-  type PaginatedMultiSelectOption,
-} from './PaginatedMultiSelect';
 
 type PaginatedMultiSelectFilteredProps = Omit<
   ComponentProps<typeof Box>,

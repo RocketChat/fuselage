@@ -15,7 +15,7 @@ export const useVisible = (
     | typeof AnimatedVisibility.VISIBLE
     | typeof AnimatedVisibility.UNHIDING,
   hide: () => void,
-  show: () => void
+  show: () => void,
 ] => {
   const [visible, setVisible] = useDebouncedState(initialVisibility, 10);
   const hide = useEffectEvent(() => setVisible(AnimatedVisibility.HIDDEN));

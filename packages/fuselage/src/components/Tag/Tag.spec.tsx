@@ -3,8 +3,6 @@ import React from 'react';
 
 import { Tag } from '.';
 
-describe('[Tag Component]', () => {
-  it('renders without crashing', () => {
-    render(<Tag />);
-  });
+it('renders without crashing', () => {
+  render(<Tag />);
 });
