@@ -148,7 +148,7 @@ const RegisterServerForm = ({
         </Form.Container>
         <Form.Footer>
           <Box display='flex' flexDirection='column' alignItems='flex-start'>
-            <ButtonGroup vertical={isMobile} flexGrow={1}>
+            <ButtonGroup vertical={isMobile}>
               <Button
                 type='submit'
                 primary

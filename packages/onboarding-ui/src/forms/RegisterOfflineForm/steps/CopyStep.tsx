@@ -95,7 +95,7 @@ const CopyStep = ({
       </Form.Container>
       <Form.Footer>
         <Box display='flex' flexDirection='column'>
-          <ButtonGroup vertical={isMobile} flexGrow={1}>
+          <ButtonGroup vertical={isMobile}>
             <Button
               type='button'
               primary

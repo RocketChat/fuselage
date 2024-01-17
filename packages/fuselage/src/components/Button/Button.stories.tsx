@@ -94,7 +94,7 @@ export const Variants: ComponentStory<typeof Button> = () => (
 );
 
 export const Sizes: ComponentStory<typeof ButtonGroup> = () => (
-  <ButtonGroup marginBlockEnd={12}>
+  <ButtonGroup>
     <Button small>Small</Button>
     <Button medium>Medium</Button>
     <Button>Default</Button>
