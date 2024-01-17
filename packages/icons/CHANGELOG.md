@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.33.0
+
+### Minor Changes
+
+- [#1266](https://github.com/RocketChat/fuselage/pull/1266) [`cc8e86b2f`](https://github.com/RocketChat/fuselage/commit/cc8e86b2f1ecf43c412e03c07430aecae6ccab29) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(icons): new `arrow-up` icon
+
 ## 0.32.0
 
 ### Minor Changes
