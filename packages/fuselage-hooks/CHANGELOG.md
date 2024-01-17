@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.33.0
+
+### Minor Changes
+
+- [#1244](https://github.com/RocketChat/fuselage/pull/1244) [`9be609744`](https://github.com/RocketChat/fuselage/commit/9be609744856f49b8971fb7aa45316ec7fd2463f) Thanks [@tassoevan](https://github.com/tassoevan)! - Deprecate `useMutableCallback` in favor of `useEffectEvent`
+
 ## 0.32.1
 
 ### Patch Changes
