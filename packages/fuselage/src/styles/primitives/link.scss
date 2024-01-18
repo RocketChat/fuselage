@@ -32,7 +32,7 @@
   }
 }
 
-@mixin use-link-color($fontColor: info) {
+@mixin use-link-colors($fontColor: info) {
   @extend %link;
 
   color: functions.theme('link-color', colors.font($fontColor));
