@@ -2,43 +2,54 @@
 @use '../../styles/lengths.scss';
 @use '../../styles/mixins/states.scss';
 @use '../../styles//functions.scss';
+@import '../../styles/mixins/states.scss';
 
-@mixin as-link($fontColor: info) {
-  color: functions.theme('link-color', colors.font($fontColor));
+%link {
+  color: functions.theme('link-color', colors.font(info));
 
-  &:focus,
-  &:focus-within,
-  &.focus,
-  &.is-focused {
+  @include on-focus {
     text-decoration: none;
 
-    color: functions.theme('link-focus-color', colors.font($fontColor));
+    color: functions.theme('link-focus-color', colors.font(info));
     border-radius: lengths.border-radius(small);
-    outline: functions.theme(
+    outline: none;
+    box-shadow: 0 0 0 2px
+      functions.theme(
         'link-focus-outline-color',
         colors.stroke(extra-light-highlight)
-      )
-      solid 2px;
-    outline-offset: 1px;
+      );
+  }
+
+  &:visited,
+  &.is-visited {
+    color: functions.theme('link-visited-color', colors.font(info));
+    outline: none;
+  }
+
+  @include on-active {
+    color: functions.theme('link-active-color', colors.font(info));
+    outline: none;
+  }
+}
+
+@mixin use-link-color($fontColor: info) {
+  @extend %link;
+
+  color: functions.theme('link-color', colors.font($fontColor));
+
+  @include on-focus {
+    color: functions.theme('link-focus-color', colors.font($fontColor));
   }
 
   &:visited,
   &.is-visited {
     color: functions.theme('link-visited-color', colors.font($fontColor));
   }
-
-  &:active,
-  &.active,
-  &.is-active {
+  @include on-active {
     color: functions.theme('link-active-color', colors.font($fontColor));
-  }
-
-  &:hover,
-  &.is-hovered {
-    text-decoration: underline;
   }
 }
 
 a {
-  @include as-link();
+  @extend %link;
 }

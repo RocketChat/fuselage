@@ -1,6 +1,7 @@
 @use '../../colors.scss';
 @use '../../lengths.scss';
 @use '../../typography.scss';
+@import '../link.scss';
 
 %--with-inline-elements {
   a,
@@ -27,6 +28,10 @@
     color: inherit;
 
     font: inherit;
+  }
+
+  a {
+    @extend %link;
   }
 
   strong {
