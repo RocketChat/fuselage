@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.44.0
+
+### Minor Changes
+
+- [#1264](https://github.com/RocketChat/fuselage/pull/1264) [`119f80664`](https://github.com/RocketChat/fuselage/commit/119f806649869b1d73bd0f774f7de629cc13bc31) Thanks [@dougfabris](https://github.com/dougfabris)! - feat(fuselage): Add Message focus style
+
+- [`971f07aae`](https://github.com/RocketChat/fuselage/commit/971f07aae4076481fd6b7d37c417d9b00972bc4a) Thanks [@dougfabris](https://github.com/dougfabris)! - feat(fuselage): Avoid `Box` usage on `ButtonGroup`
+
 ## 0.43.0
 
 ### Minor Changes
