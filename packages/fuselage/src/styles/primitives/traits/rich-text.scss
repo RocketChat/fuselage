@@ -4,7 +4,6 @@
 @import '../link.scss';
 
 %--with-inline-elements {
-  a,
   abbr,
   b,
   cite,
@@ -32,6 +31,10 @@
 
   a {
     @extend %link;
+
+    letter-spacing: inherit;
+
+    font: inherit;
   }
 
   strong {
