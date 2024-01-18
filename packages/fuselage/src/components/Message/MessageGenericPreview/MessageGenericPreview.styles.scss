@@ -4,6 +4,7 @@
 @use '../../../styles/typography.scss';
 @use '../../../styles/mixins/size.scss';
 @use '../../../styles/primitives/traits/rich-text.scss';
+@import '../../../styles/primitives/link.scss';
 
 $message-generic-preview-border-color: functions.theme(
   'message-generic-preview-border-color',
@@ -85,9 +86,15 @@ $message-generic-preview-icon-background-color: functions.theme(
   &__title {
     @include typography.use-with-truncated-text();
     @include typography.use-font-scale(p2);
+    display: block;
+
     margin-block-end: lengths.margin(4);
 
     color: $message-generic-preview-title-color;
+
+    &-link {
+      @include use-link-colors();
+    }
   }
 
   &__description {
@@ -118,7 +125,7 @@ $message-generic-preview-icon-background-color: functions.theme(
     color: $message-generic-preview-context-color;
 
     a {
-      color: $message-generic-preview-context-color;
+      @include use-link-colors($fontColor: secondary-info);
     }
   }
 

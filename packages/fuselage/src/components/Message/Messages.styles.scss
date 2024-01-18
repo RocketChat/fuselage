@@ -50,8 +50,6 @@ $message-background-color-highlight: functions.theme(
   colors.status-background(warning-2)
 );
 
-$message-link-color: functions.theme('message-link-color', colors.font(info));
-
 $message-highlight-colors-critical-color: theme(
   'message-highlight-colors-critical-color',
   colors.font(pure-white)
@@ -320,10 +318,6 @@ $message-highlight-colors-background-other-color: theme(
       padding-inline-start: 0;
 
       list-style: none;
-    }
-
-    a {
-      @include as-link($message-link-color);
     }
   }
 

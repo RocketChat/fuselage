@@ -14,7 +14,7 @@ export const MessageGenericPreviewTitle = ({
   externalUrl ? (
     <span>
       <a
-        className='rcx-message-generic-preview__title'
+        className='rcx-message-generic-preview__title rcx-message-generic-preview__title-link'
         href={externalUrl}
         target='_blank'
         {...props}
