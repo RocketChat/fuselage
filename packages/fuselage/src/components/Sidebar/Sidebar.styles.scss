@@ -32,12 +32,6 @@ $sidebar-color-stroke-default: theme(
   'sidebar-color-stroke-default',
   colors.stroke(light)
 );
-
-$sidebar-color-stroke-focus: theme(
-  'sidebar-color-stroke-focus',
-  colors.stroke(highlight)
-);
-
 $sidebar-item-color: theme('sidebar-item-color', colors.font(secondary-info));
 $sidebar-item-color-highlighted: theme(
   'sidebar-item-color-highlighted',
@@ -204,7 +198,7 @@ $sidebar-banner-color-danger: theme(
   &-item {
     @extend %sidebar-base;
     @include highlighted;
-    margin-inline: lengths.margin(-2);
+    // margin-inline: lengths.margin(-2);
 
     padding-block: lengths.padding(4);
     padding-inline: lengths.padding(16);
@@ -213,7 +207,7 @@ $sidebar-banner-color-danger: theme(
 
     color: $sidebar-color-font-default;
 
-    border: 2px solid transparent;
+    // border: 2px solid transparent;
 
     &__wrapper {
       @extend %sidebar-base;
@@ -225,14 +219,11 @@ $sidebar-banner-color-danger: theme(
 
     &--clickable {
       @include clickable;
+      @include use-link-colors($fontColor: default);
 
       @include on-hover {
         @include use-no-shadow;
         background-color: $sidebar-color-surface-hover;
-      }
-
-      @include on-focus-visible {
-        border: 2px solid $sidebar-color-stroke-focus;
       }
     }
 

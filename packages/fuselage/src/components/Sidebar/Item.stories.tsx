@@ -73,7 +73,7 @@ export const Default: ComponentStory<typeof SidebarItem> = () => (
       </SidebarItemContainer>
     </SidebarItem>
 
-    <SidebarItem highlighted clickable>
+    <SidebarItem highlighted is='a'>
       <SidebarItemAvatar>
         <Avatar
           size='x28'
@@ -97,7 +97,7 @@ export const Default: ComponentStory<typeof SidebarItem> = () => (
         </SidebarItemActions>
       </SidebarItemContainer>
     </SidebarItem>
-    <SidebarItem selected clickable>
+    <SidebarItem selected is='a'>
       <SidebarItemAvatar>
         <Avatar
           size='x28'
@@ -124,7 +124,7 @@ export const Default: ComponentStory<typeof SidebarItem> = () => (
         </SidebarItemActions>
       </SidebarItemContainer>
     </SidebarItem>
-    <SidebarItem clickable>
+    <SidebarItem is='a'>
       <SidebarItemAvatar>
         <Avatar
           size='x36'
