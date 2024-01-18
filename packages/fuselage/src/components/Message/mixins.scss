@@ -1,4 +1,5 @@
 @use '../../styles/lengths.scss';
+@use '../../styles/colors.scss';
 
 @mixin container() {
   &-container {
@@ -32,5 +33,15 @@
 @mixin visible-on-hover {
   .rcx-message:not(:hover) & {
     display: none;
+  }
+}
+
+@mixin focus-state {
+  border: 1px solid transparent;
+
+  &:focus {
+    border: 1px solid colors.stroke(highlight);
+    border-radius: lengths.border-radius(medium);
+    box-shadow: 0 0 0 2px colors.stroke(extra-light-highlight);
   }
 }

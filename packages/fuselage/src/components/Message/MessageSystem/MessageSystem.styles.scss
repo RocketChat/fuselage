@@ -16,6 +16,8 @@ $message-system-background-color-selected: functions.theme(
   flex-direction: row;
   align-items: flex-start;
 
+  margin-inline: lengths.margin(2);
+
   padding-block: lengths.padding(8);
   padding-inline: lengths.padding(20);
 
@@ -65,4 +67,6 @@ $message-system-background-color-selected: functions.theme(
     flex-direction: row;
     align-items: center;
   }
+
+  @include mixins.focus-state();
 }

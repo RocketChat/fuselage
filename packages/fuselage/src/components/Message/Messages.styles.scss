@@ -26,8 +26,8 @@ $message-background-color: functions.theme(
   colors.surface(room)
 );
 
-$message-background-color-focus: functions.theme(
-  'message-background-color-focus',
+$message-background-color-hover: functions.theme(
+  'message-background-color-hover',
   colors.surface(hover)
 );
 
@@ -93,6 +93,8 @@ $message-highlight-colors-background-other-color: theme(
   flex-direction: row;
   align-items: flex-start;
 
+  margin-inline: lengths.margin(2);
+
   padding-block-start: lengths.padding(8);
   padding-block-end: lengths.padding(4);
 
@@ -100,10 +102,11 @@ $message-highlight-colors-background-other-color: theme(
 
   // background-color: $message-background-color;
 
-  &:hover,
-  &:focus {
-    background: $message-background-color-focus;
+  &:hover {
+    background-color: $message-background-color-hover;
   }
+
+  @include mixins.focus-state();
 
   &--selected {
     background: $message-background-color-selected !important;
@@ -158,7 +161,6 @@ $message-highlight-colors-background-other-color: theme(
     min-width: 1px;
 
     &__wrapper {
-      @include typography.use-with-truncated-text();
       display: flex;
       flex-direction: row;
       align-items: center;
@@ -180,9 +182,13 @@ $message-highlight-colors-background-other-color: theme(
     }
 
     &__name-container {
+      display: inline;
+
+      @include typography.use-with-truncated-text();
+
       @extend %rcx-margins-header;
 
-      display: inline;
+      @include mixins.focus-state();
     }
 
     &__name {
