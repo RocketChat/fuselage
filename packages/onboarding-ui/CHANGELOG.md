@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.34.0
+
+### Minor Changes
+
+- [`971f07aae`](https://github.com/RocketChat/fuselage/commit/971f07aae4076481fd6b7d37c417d9b00972bc4a) Thanks [@dougfabris](https://github.com/dougfabris)! - feat(fuselage): Avoid `Box` usage on `ButtonGroup`
+
 ## 0.33.3
 
 ### Patch Changes
