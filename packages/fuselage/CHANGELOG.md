@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.44.1
+
+### Patch Changes
+
+- [#1271](https://github.com/RocketChat/fuselage/pull/1271) [`7cbad7df4`](https://github.com/RocketChat/fuselage/commit/7cbad7df405439c7b1bd3050bafce15e6b8ceff9) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): `ButtonGroup` missing `className` exposure
+
 ## 0.44.0
 
 ### Minor Changes
