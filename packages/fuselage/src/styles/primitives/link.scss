@@ -7,7 +7,7 @@
 %link {
   color: functions.theme('link-color', colors.font(info));
 
-  @include on-focus {
+  &:focus-visible {
     text-decoration: none;
 
     color: functions.theme('link-focus-color', colors.font(info));
