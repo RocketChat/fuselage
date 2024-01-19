@@ -37,20 +37,20 @@
 @mixin use-link-colors($color: colors.font(info)) {
   @extend %link;
 
-  color: functions.theme('link-color', $color) !important;
+  color: functions.theme('link-color', $color);
 
   @include on-focus {
-    color: functions.theme('link-focus-color', $color) !important;
+    color: functions.theme('link-focus-color', $color);
   }
 
   &:where(:visited),
   &:where(.is-visited) {
-    color: functions.theme('link-visited-color', $color) !important;
+    color: functions.theme('link-visited-color', $color);
   }
 
   &:where(:active),
   &:where(.active),
   &:where(.is-active) {
-    color: functions.theme('link-active-color', $color) !important;
+    color: functions.theme('link-active-color', $color);
   }
 }
