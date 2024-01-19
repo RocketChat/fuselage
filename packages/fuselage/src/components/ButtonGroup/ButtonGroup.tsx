@@ -22,6 +22,7 @@ export const ButtonGroup = forwardRef(function ButtonGroup(
     wrap,
     small,
     large,
+    className,
     ...props
   }: ButtonGroupProps,
   ref: Ref<HTMLDivElement>
@@ -37,6 +38,7 @@ export const ButtonGroup = forwardRef(function ButtonGroup(
         small && 'rcx-button-group--small',
         large && 'rcx-button-group--large',
         wrap && 'rcx-button-group--wrap',
+        className,
       ]
         .filter(Boolean)
         .join(' ')}
