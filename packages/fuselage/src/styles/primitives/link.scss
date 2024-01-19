@@ -7,7 +7,7 @@
 %link {
   color: functions.theme('link-color', colors.font(info));
 
-  &:focus-visible {
+  @include on-focus {
     text-decoration: none;
 
     color: functions.theme('link-focus-color', colors.font(info));
@@ -20,13 +20,15 @@
       );
   }
 
-  &:visited,
-  &.is-visited {
+  &:where(:visited),
+  &:where(.is-visited) {
     color: functions.theme('link-visited-color', colors.font(info));
     outline: none;
   }
 
-  @include on-active {
+  &:where(:active),
+  &:where(.active),
+  &:where(.is-active) {
     color: functions.theme('link-active-color', colors.font(info));
     outline: none;
   }
@@ -41,15 +43,14 @@
     color: functions.theme('link-focus-color', $color) !important;
   }
 
-  &:visited,
-  &.is-visited {
+  &:where(:visited),
+  &:where(.is-visited) {
     color: functions.theme('link-visited-color', $color) !important;
   }
-  @include on-active {
+
+  &:where(:active),
+  &:where(.active),
+  &:where(.is-active) {
     color: functions.theme('link-active-color', $color) !important;
   }
-}
-
-a:not([type='button']) {
-  @extend %link;
 }
