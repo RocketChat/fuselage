@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.44.2
+
+### Patch Changes
+
+- [#1273](https://github.com/RocketChat/fuselage/pull/1273) [`48363f168`](https://github.com/RocketChat/fuselage/commit/48363f168a67ec5fa2c3999a3a53e55d0cd84078) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): Add flexGrow for stretch variation
+
 ## 0.44.1
 
 ### Patch Changes
