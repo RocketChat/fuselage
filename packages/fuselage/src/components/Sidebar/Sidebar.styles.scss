@@ -198,7 +198,6 @@ $sidebar-banner-color-danger: theme(
   &-item {
     @extend %sidebar-base;
     @include highlighted;
-    // margin-inline: lengths.margin(-2);
 
     padding-block: lengths.padding(4);
     padding-inline: lengths.padding(16);
@@ -206,8 +205,6 @@ $sidebar-banner-color-danger: theme(
     text-decoration: none;
 
     color: $sidebar-color-font-default;
-
-    // border: 2px solid transparent;
 
     &__wrapper {
       @extend %sidebar-base;
