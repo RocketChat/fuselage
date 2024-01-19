@@ -125,7 +125,7 @@ $message-generic-preview-icon-background-color: functions.theme(
     color: $message-generic-preview-context-color;
 
     a {
-      @include use-link-colors($fontColor: secondary-info);
+      @include use-link-colors($color: colors.font(secondary-info));
     }
   }
 

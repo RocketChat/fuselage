@@ -32,24 +32,24 @@
   }
 }
 
-@mixin use-link-colors($fontColor: info) {
+@mixin use-link-colors($color: colors.font(info)) {
   @extend %link;
 
-  color: functions.theme('link-color', colors.font($fontColor));
+  color: functions.theme('link-color', $color) !important;
 
   @include on-focus {
-    color: functions.theme('link-focus-color', colors.font($fontColor));
+    color: functions.theme('link-focus-color', $color) !important;
   }
 
   &:visited,
   &.is-visited {
-    color: functions.theme('link-visited-color', colors.font($fontColor));
+    color: functions.theme('link-visited-color', $color) !important;
   }
   @include on-active {
-    color: functions.theme('link-active-color', colors.font($fontColor));
+    color: functions.theme('link-active-color', $color) !important;
   }
 }
 
-a {
+a:not([type='button']) {
   @extend %link;
 }

@@ -219,7 +219,7 @@ $sidebar-banner-color-danger: theme(
 
     &--clickable {
       @include clickable;
-      @include use-link-colors($fontColor: default);
+      @include use-link-colors($color: colors.font(default));
 
       @include on-hover {
         @include use-no-shadow;
@@ -381,6 +381,8 @@ $sidebar-banner-color-danger: theme(
       &--clickable {
         cursor: pointer;
         border-block-end: lengths.border-width(default) solid;
+
+        @include use-link-colors();
       }
     }
 
