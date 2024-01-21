@@ -239,7 +239,7 @@ const AdminInfoForm = ({
         </FieldGroup>
       </Form.Container>
       <Form.Footer>
-        <ButtonGroup flexGrow={1}>
+        <ButtonGroup>
           <Button type='submit' primary loading={isValidating || isSubmitting}>
             {t('component.form.action.next')}
           </Button>

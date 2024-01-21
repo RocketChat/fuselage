@@ -4,6 +4,7 @@
 @use '../../styles/variables/buttons.scss' as colors;
 @use '../../styles/primitives/button.scss';
 @use '../../styles/mixins/size.scss';
+@use '../../styles/mixins/interactivity.scss';
 @import '../../styles/mixins/states.scss';
 
 .rcx-button {
@@ -33,21 +34,13 @@
     }
   }
 
-  @mixin click-animation() {
-    @include on-active {
-      > *:not(div[role='status']) {
-        transform: translateY(1px);
-      }
-    }
-  }
-
   display: inline-block;
 
   text-align: center;
   white-space: nowrap;
   text-decoration: none;
 
-  @include click-animation();
+  @include click-animation($excludeRole: 'status');
 
   .rcx-button--content {
     display: inline-block;
@@ -111,7 +104,7 @@
 
   &--icon {
     @include button.kind-variant(colors.$icon);
-    @include click-animation();
+    @include click-animation('status');
 
     padding: 0;
 

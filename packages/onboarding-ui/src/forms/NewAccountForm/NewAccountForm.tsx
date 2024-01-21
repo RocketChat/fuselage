@@ -156,7 +156,7 @@ const NewAccountForm = ({
         </FieldGroup>
       </Form.Container>
       <Form.Footer>
-        <ButtonGroup flexGrow={1}>
+        <ButtonGroup>
           <Button
             type='submit'
             primary

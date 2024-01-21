@@ -1,5 +1,37 @@
 # Change Log
 
+## 0.44.2
+
+### Patch Changes
+
+- [#1273](https://github.com/RocketChat/fuselage/pull/1273) [`48363f168`](https://github.com/RocketChat/fuselage/commit/48363f168a67ec5fa2c3999a3a53e55d0cd84078) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): Add flexGrow for stretch variation
+
+## 0.44.1
+
+### Patch Changes
+
+- [#1271](https://github.com/RocketChat/fuselage/pull/1271) [`7cbad7df4`](https://github.com/RocketChat/fuselage/commit/7cbad7df405439c7b1bd3050bafce15e6b8ceff9) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): `ButtonGroup` missing `className` exposure
+
+## 0.44.0
+
+### Minor Changes
+
+- [#1264](https://github.com/RocketChat/fuselage/pull/1264) [`119f80664`](https://github.com/RocketChat/fuselage/commit/119f806649869b1d73bd0f774f7de629cc13bc31) Thanks [@dougfabris](https://github.com/dougfabris)! - feat(fuselage): Add Message focus style
+
+- [`971f07aae`](https://github.com/RocketChat/fuselage/commit/971f07aae4076481fd6b7d37c417d9b00972bc4a) Thanks [@dougfabris](https://github.com/dougfabris)! - feat(fuselage): Avoid `Box` usage on `ButtonGroup`
+
+## 0.43.0
+
+### Minor Changes
+
+- [#1263](https://github.com/RocketChat/fuselage/pull/1263) [`9020c0ee8`](https://github.com/RocketChat/fuselage/commit/9020c0ee87eeb4c903091b0e03ab9802c39591f0) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage): new `Bubble` component
+
+- [#1221](https://github.com/RocketChat/fuselage/pull/1221) [`769e5ea43`](https://github.com/RocketChat/fuselage/commit/769e5ea43fa7c83f988d7dfb042aeafaf66e1ad5) Thanks [@VanshulB](https://github.com/VanshulB)! - Add missing message body additional styles to `MessageBody`
+
+### Patch Changes
+
+- [#1244](https://github.com/RocketChat/fuselage/pull/1244) [`9be609744`](https://github.com/RocketChat/fuselage/commit/9be609744856f49b8971fb7aa45316ec7fd2463f) Thanks [@tassoevan](https://github.com/tassoevan)! - Deprecate `useMutableCallback` in favor of `useEffectEvent`
+
 ## 0.42.0
 
 ### Minor Changes
