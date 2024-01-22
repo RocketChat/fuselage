@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.31.28
+
+### Patch Changes
+
+- [`7fdfdb1b7`](https://github.com/RocketChat/fuselage/commit/7fdfdb1b7737808585b95cc62c4f9af2bc152b41) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(message-parser): Made changes in grammar.pegjs for the strikedown approach
+
 ## 0.31.27
 
 ### Patch Changes

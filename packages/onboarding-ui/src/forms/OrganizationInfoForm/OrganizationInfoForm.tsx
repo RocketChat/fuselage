@@ -230,7 +230,7 @@ const OrganizationInfoForm = ({
         </FieldGroup>
       </Form.Container>
       <Form.Footer>
-        <ButtonGroup vertical={isMobile} flexGrow={1}>
+        <ButtonGroup vertical={isMobile}>
           {onBackButtonClick && (
             <Button disabled={isSubmitting} onClick={onBackButtonClick}>
               {t('component.form.action.back')}
@@ -241,7 +241,7 @@ const OrganizationInfoForm = ({
           </Button>
           {onClickSkip && (
             <Box withTruncatedText flexGrow={1}>
-              <ButtonGroup flexGrow={1} align='end'>
+              <ButtonGroup align='end'>
                 <ActionLink onClick={onClickSkip}>
                   {t('component.form.action.skip')}
                 </ActionLink>

@@ -23,6 +23,11 @@
       &--visible {
       display: inline-block;
     }
+
+    @at-root .rcx-message:focus-within &,
+      &--visible {
+      display: inline-block;
+    }
   }
 
   @at-root .rcx-message & {
