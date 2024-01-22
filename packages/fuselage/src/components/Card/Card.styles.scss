@@ -7,6 +7,7 @@ $card-vertical-padding: lengths.padding(20);
 $card-vertical-gap: lengths.margin(24);
 $card-horizontal-padding: lengths.padding(12);
 $card-horizontal-gap: lengths.padding(16);
+$card-horizontal-row-gap: lengths.padding(4);
 $card-hero-padding: lengths.padding(28);
 
 .rcx-card {
@@ -60,6 +61,10 @@ $card-hero-padding: lengths.padding(28);
     }
   }
 
+  &__horizontal &__col {
+    row-gap: $card-horizontal-row-gap;
+  }
+
   &__vertical {
     flex-direction: column;
 
@@ -70,12 +75,12 @@ $card-hero-padding: lengths.padding(28);
   &__hero {
     padding: $card-hero-padding;
   }
-}
 
-.rcx-card__title,
-.rcx-card__row,
-.rcx-card__header,
-.rcx-card__controls {
-  display: flex;
-  align-items: center;
+  &__title,
+  &__row,
+  &__header,
+  &__controls {
+    display: flex;
+    align-items: center;
+  }
 }
