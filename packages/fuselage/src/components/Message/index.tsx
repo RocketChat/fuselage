@@ -13,7 +13,7 @@ import { MessageNameContainer } from './MessageNameContainer';
 import { MessageRole } from './MessageRole';
 import { MessageRoles } from './MessageRoles';
 import { MessageTimestamp } from './MessageTimestamp';
-import MessageToolbox from './MessageToolbox';
+import MessageToolbar from './MessageToolbar';
 import { MessageUsername } from './MessageUsername';
 
 export * from './MessageDivider';
@@ -22,7 +22,7 @@ export * from './MessageStatusIndicator';
 export * from './MessageSystem';
 export * from './MessageMetrics';
 export * from './MessageReactions';
-export * from './MessageToolbox';
+export * from './MessageToolbar';
 export * from './ThreadMessage';
 export * from './MessageBlock';
 export * from './MessageBody';
@@ -41,7 +41,7 @@ export * from './MessageHighlight';
 
 export default Object.assign(Message, {
   Metrics: MessageMetrics,
-  Toolbox: MessageToolbox,
+  Toolbar: MessageToolbar,
   Container: MessageContainer,
   ContainerFixed: MessageContainerFixed,
   LeftContainer: MessageLeftContainer,

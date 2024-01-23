@@ -3,7 +3,7 @@
 @use '../../../styles/typography.scss';
 @use '../mixins.scss';
 
-.rcx-message-toolbox {
+.rcx-message-toolbar {
   display: inline-block;
 
   margin-inline: lengths.margin(20);
@@ -11,7 +11,7 @@
 
   border: lengths.border-width(default) solid colors.stroke(extra-light);
   border-radius: theme(
-    'message-toolbox-border-radius',
+    'message-toolbar-border-radius',
     lengths.border-radius(medium)
   );
   background: colors.surface(room);

@@ -7,7 +7,7 @@ import { MessageDivider } from './MessageDivider';
 import { MessageEmoji } from './MessageEmoji';
 import MessageMetrics from './MessageMetrics';
 import MessageReactions from './MessageReactions';
-import MessageToolbox from './MessageToolbox';
+import MessageToolbar from './MessageToolbar';
 import ThreadMessage, { ThreadMessageEmoji } from './ThreadMessage';
 
 export default {
@@ -92,13 +92,13 @@ export const Default: ComponentStory<typeof Message> = () => (
           <MessageReactions.Action />
         </MessageReactions>
       </Message.Container>
-      <MessageToolbox.Wrapper>
-        <MessageToolbox>
-          <MessageToolbox.Item icon='quote' />
-          <MessageToolbox.Item icon='clock' />
-          <MessageToolbox.Item icon='thread' />
-        </MessageToolbox>
-      </MessageToolbox.Wrapper>
+      <MessageToolbar.Wrapper>
+        <MessageToolbar>
+          <MessageToolbar.Item icon='quote' />
+          <MessageToolbar.Item icon='clock' />
+          <MessageToolbar.Item icon='thread' />
+        </MessageToolbar>
+      </MessageToolbar.Wrapper>
     </Message>
   </Box>
 );
@@ -138,13 +138,13 @@ export const WithSequential: ComponentStory<typeof Message> = () => (
           <MessageReactions.Action />
         </MessageReactions>
       </Message.Container>
-      <MessageToolbox.Wrapper>
-        <MessageToolbox>
-          <MessageToolbox.Item icon='quote' />
-          <MessageToolbox.Item icon='clock' />
-          <MessageToolbox.Item icon='thread' />
-        </MessageToolbox>
-      </MessageToolbox.Wrapper>
+      <MessageToolbar.Wrapper>
+        <MessageToolbar>
+          <MessageToolbar.Item icon='quote' />
+          <MessageToolbar.Item icon='clock' />
+          <MessageToolbar.Item icon='thread' />
+        </MessageToolbar>
+      </MessageToolbar.Wrapper>
     </Message>
     <Message className='customclass' clickable sequential>
       <Message.LeftContainer />
@@ -153,13 +153,13 @@ export const WithSequential: ComponentStory<typeof Message> = () => (
           Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
         </Message.Body>
       </Message.Container>
-      <MessageToolbox.Wrapper>
-        <MessageToolbox>
-          <MessageToolbox.Item icon='quote' />
-          <MessageToolbox.Item icon='clock' />
-          <MessageToolbox.Item icon='thread' />
-        </MessageToolbox>
-      </MessageToolbox.Wrapper>
+      <MessageToolbar.Wrapper>
+        <MessageToolbar>
+          <MessageToolbar.Item icon='quote' />
+          <MessageToolbar.Item icon='clock' />
+          <MessageToolbar.Item icon='thread' />
+        </MessageToolbar>
+      </MessageToolbar.Wrapper>
     </Message>
     <Message className='customclass' clickable sequential>
       <Message.LeftContainer />
@@ -176,13 +176,13 @@ export const WithSequential: ComponentStory<typeof Message> = () => (
           Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
         </Message.Body>
       </Message.Container>
-      <MessageToolbox.Wrapper>
-        <MessageToolbox>
-          <MessageToolbox.Item icon='quote' />
-          <MessageToolbox.Item icon='clock' />
-          <MessageToolbox.Item icon='thread' />
-        </MessageToolbox>
-      </MessageToolbox.Wrapper>
+      <MessageToolbar.Wrapper>
+        <MessageToolbar>
+          <MessageToolbar.Item icon='quote' />
+          <MessageToolbar.Item icon='clock' />
+          <MessageToolbar.Item icon='thread' />
+        </MessageToolbar>
+      </MessageToolbar.Wrapper>
     </Message>
     <Message className='customclass' clickable sequential>
       <Message.LeftContainer />
@@ -192,13 +192,13 @@ export const WithSequential: ComponentStory<typeof Message> = () => (
           <MessageEmoji name='test' image={`url(${avatarUrl})`} />
         </Message.Body>
       </Message.Container>
-      <MessageToolbox.Wrapper>
-        <MessageToolbox>
-          <MessageToolbox.Item icon='quote' />
-          <MessageToolbox.Item icon='clock' />
-          <MessageToolbox.Item icon='thread' />
-        </MessageToolbox>
-      </MessageToolbox.Wrapper>
+      <MessageToolbar.Wrapper>
+        <MessageToolbar>
+          <MessageToolbar.Item icon='quote' />
+          <MessageToolbar.Item icon='clock' />
+          <MessageToolbar.Item icon='thread' />
+        </MessageToolbar>
+      </MessageToolbar.Wrapper>
     </Message>
     <Message className='customclass' clickable sequential>
       <Message.LeftContainer />
@@ -207,13 +207,13 @@ export const WithSequential: ComponentStory<typeof Message> = () => (
           <MessageEmoji big name='test' image={`url(${avatarUrl})`} />
         </Message.Body>
       </Message.Container>
-      <MessageToolbox.Wrapper>
-        <MessageToolbox>
-          <MessageToolbox.Item icon='quote' />
-          <MessageToolbox.Item icon='clock' />
-          <MessageToolbox.Item icon='thread' />
-        </MessageToolbox>
-      </MessageToolbox.Wrapper>
+      <MessageToolbar.Wrapper>
+        <MessageToolbar>
+          <MessageToolbar.Item icon='quote' />
+          <MessageToolbar.Item icon='clock' />
+          <MessageToolbar.Item icon='thread' />
+        </MessageToolbar>
+      </MessageToolbar.Wrapper>
     </Message>
   </Box>
 );
@@ -253,13 +253,13 @@ export const MessageWithThread: ComponentStory<typeof Message> = () => (
           <MessageReactions.Action />
         </MessageReactions>
       </Message.Container>
-      <MessageToolbox.Wrapper>
-        <MessageToolbox>
-          <MessageToolbox.Item icon='quote' />
-          <MessageToolbox.Item icon='clock' />
-          <MessageToolbox.Item icon='thread' />
-        </MessageToolbox>
-      </MessageToolbox.Wrapper>
+      <MessageToolbar.Wrapper>
+        <MessageToolbar>
+          <MessageToolbar.Item icon='quote' />
+          <MessageToolbar.Item icon='clock' />
+          <MessageToolbar.Item icon='thread' />
+        </MessageToolbar>
+      </MessageToolbar.Wrapper>
     </Message>
     <Message className='customclass' clickable sequential>
       <Message.LeftContainer />
@@ -268,13 +268,13 @@ export const MessageWithThread: ComponentStory<typeof Message> = () => (
           Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
         </Message.Body>
       </Message.Container>
-      <MessageToolbox.Wrapper>
-        <MessageToolbox>
-          <MessageToolbox.Item icon='quote' />
-          <MessageToolbox.Item icon='clock' />
-          <MessageToolbox.Item icon='thread' />
-        </MessageToolbox>
-      </MessageToolbox.Wrapper>
+      <MessageToolbar.Wrapper>
+        <MessageToolbar>
+          <MessageToolbar.Item icon='quote' />
+          <MessageToolbar.Item icon='clock' />
+          <MessageToolbar.Item icon='thread' />
+        </MessageToolbar>
+      </MessageToolbar.Wrapper>
     </Message>
     <Message className='customclass' clickable sequential>
       <Message.LeftContainer />
@@ -291,13 +291,13 @@ export const MessageWithThread: ComponentStory<typeof Message> = () => (
           Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
         </Message.Body>
       </Message.Container>
-      <MessageToolbox.Wrapper>
-        <MessageToolbox>
-          <MessageToolbox.Item icon='quote' />
-          <MessageToolbox.Item icon='clock' />
-          <MessageToolbox.Item icon='thread' />
-        </MessageToolbox>
-      </MessageToolbox.Wrapper>
+      <MessageToolbar.Wrapper>
+        <MessageToolbar>
+          <MessageToolbar.Item icon='quote' />
+          <MessageToolbar.Item icon='clock' />
+          <MessageToolbar.Item icon='thread' />
+        </MessageToolbar>
+      </MessageToolbar.Wrapper>
     </Message>
     <ThreadMessage>
       <ThreadMessage.Row>
@@ -430,13 +430,13 @@ export const MessageEditing: ComponentStory<typeof Message> = () => (
           <MessageReactions.Action />
         </MessageReactions>
       </Message.Container>
-      <MessageToolbox.Wrapper>
-        <MessageToolbox>
-          <MessageToolbox.Item icon='quote' />
-          <MessageToolbox.Item icon='clock' />
-          <MessageToolbox.Item icon='thread' />
-        </MessageToolbox>
-      </MessageToolbox.Wrapper>
+      <MessageToolbar.Wrapper>
+        <MessageToolbar>
+          <MessageToolbar.Item icon='quote' />
+          <MessageToolbar.Item icon='clock' />
+          <MessageToolbar.Item icon='thread' />
+        </MessageToolbar>
+      </MessageToolbar.Wrapper>
     </Message>
     <Message className='customclass' clickable sequential isEditing>
       <Message.LeftContainer />
@@ -445,13 +445,13 @@ export const MessageEditing: ComponentStory<typeof Message> = () => (
           Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
         </Message.Body>
       </Message.Container>
-      <MessageToolbox.Wrapper>
-        <MessageToolbox>
-          <MessageToolbox.Item icon='quote' />
-          <MessageToolbox.Item icon='clock' />
-          <MessageToolbox.Item icon='thread' />
-        </MessageToolbox>
-      </MessageToolbox.Wrapper>
+      <MessageToolbar.Wrapper>
+        <MessageToolbar>
+          <MessageToolbar.Item icon='quote' />
+          <MessageToolbar.Item icon='clock' />
+          <MessageToolbar.Item icon='thread' />
+        </MessageToolbar>
+      </MessageToolbar.Wrapper>
     </Message>
     <Message className='customclass' clickable sequential>
       <Message.LeftContainer />
@@ -468,13 +468,13 @@ export const MessageEditing: ComponentStory<typeof Message> = () => (
           Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
         </Message.Body>
       </Message.Container>
-      <MessageToolbox.Wrapper>
-        <MessageToolbox>
-          <MessageToolbox.Item icon='quote' />
-          <MessageToolbox.Item icon='clock' />
-          <MessageToolbox.Item icon='thread' />
-        </MessageToolbox>
-      </MessageToolbox.Wrapper>
+      <MessageToolbar.Wrapper>
+        <MessageToolbar>
+          <MessageToolbar.Item icon='quote' />
+          <MessageToolbar.Item icon='clock' />
+          <MessageToolbar.Item icon='thread' />
+        </MessageToolbar>
+      </MessageToolbar.Wrapper>
     </Message>
   </Box>
 );
@@ -514,13 +514,13 @@ export const MessageUnorderedList: ComponentStory<typeof Message> = () => (
           <MessageReactions.Action />
         </MessageReactions>
       </Message.Container>
-      <MessageToolbox.Wrapper>
-        <MessageToolbox>
-          <MessageToolbox.Item icon='quote' />
-          <MessageToolbox.Item icon='clock' />
-          <MessageToolbox.Item icon='thread' />
-        </MessageToolbox>
-      </MessageToolbox.Wrapper>
+      <MessageToolbar.Wrapper>
+        <MessageToolbar>
+          <MessageToolbar.Item icon='quote' />
+          <MessageToolbar.Item icon='clock' />
+          <MessageToolbar.Item icon='thread' />
+        </MessageToolbar>
+      </MessageToolbar.Wrapper>
     </Message>
   </Box>
 );
@@ -560,13 +560,13 @@ export const MessageOrderedList: ComponentStory<typeof Message> = () => (
           <MessageReactions.Action />
         </MessageReactions>
       </Message.Container>
-      <MessageToolbox.Wrapper>
-        <MessageToolbox>
-          <MessageToolbox.Item icon='quote' />
-          <MessageToolbox.Item icon='clock' />
-          <MessageToolbox.Item icon='thread' />
-        </MessageToolbox>
-      </MessageToolbox.Wrapper>
+      <MessageToolbar.Wrapper>
+        <MessageToolbar>
+          <MessageToolbar.Item icon='quote' />
+          <MessageToolbar.Item icon='clock' />
+          <MessageToolbar.Item icon='thread' />
+        </MessageToolbar>
+      </MessageToolbar.Wrapper>
     </Message>
   </Box>
 );
@@ -606,13 +606,13 @@ export const MessageHighlighted: ComponentStory<typeof Message> = () => (
           <MessageReactions.Action />
         </MessageReactions>
       </Message.Container>
-      <MessageToolbox.Wrapper>
-        <MessageToolbox>
-          <MessageToolbox.Item icon='quote' />
-          <MessageToolbox.Item icon='clock' />
-          <MessageToolbox.Item icon='thread' />
-        </MessageToolbox>
-      </MessageToolbox.Wrapper>
+      <MessageToolbar.Wrapper>
+        <MessageToolbar>
+          <MessageToolbar.Item icon='quote' />
+          <MessageToolbar.Item icon='clock' />
+          <MessageToolbar.Item icon='thread' />
+        </MessageToolbar>
+      </MessageToolbar.Wrapper>
     </Message>
     <Message className='customclass' sequential>
       <Message.LeftContainer />
@@ -621,13 +621,13 @@ export const MessageHighlighted: ComponentStory<typeof Message> = () => (
           Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
         </Message.Body>
       </Message.Container>
-      <MessageToolbox.Wrapper>
-        <MessageToolbox>
-          <MessageToolbox.Item icon='quote' />
-          <MessageToolbox.Item icon='clock' />
-          <MessageToolbox.Item icon='thread' />
-        </MessageToolbox>
-      </MessageToolbox.Wrapper>
+      <MessageToolbar.Wrapper>
+        <MessageToolbar>
+          <MessageToolbar.Item icon='quote' />
+          <MessageToolbar.Item icon='clock' />
+          <MessageToolbar.Item icon='thread' />
+        </MessageToolbar>
+      </MessageToolbar.Wrapper>
     </Message>
     <Message className='customclass' sequential>
       <Message.LeftContainer />
@@ -644,13 +644,13 @@ export const MessageHighlighted: ComponentStory<typeof Message> = () => (
           Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
         </Message.Body>
       </Message.Container>
-      <MessageToolbox.Wrapper>
-        <MessageToolbox>
-          <MessageToolbox.Item icon='quote' />
-          <MessageToolbox.Item icon='clock' />
-          <MessageToolbox.Item icon='thread' />
-        </MessageToolbox>
-      </MessageToolbox.Wrapper>
+      <MessageToolbar.Wrapper>
+        <MessageToolbar>
+          <MessageToolbar.Item icon='quote' />
+          <MessageToolbar.Item icon='clock' />
+          <MessageToolbar.Item icon='thread' />
+        </MessageToolbar>
+      </MessageToolbar.Wrapper>
     </Message>
   </Box>
 );
@@ -684,13 +684,13 @@ export const MessagePending: ComponentStory<typeof Message> = () => (
           veniam...
         </Message.Body>
       </Message.Container>
-      <MessageToolbox.Wrapper>
-        <MessageToolbox>
-          <MessageToolbox.Item icon='quote' />
-          <MessageToolbox.Item icon='clock' />
-          <MessageToolbox.Item icon='thread' />
-        </MessageToolbox>
-      </MessageToolbox.Wrapper>
+      <MessageToolbar.Wrapper>
+        <MessageToolbar>
+          <MessageToolbar.Item icon='quote' />
+          <MessageToolbar.Item icon='clock' />
+          <MessageToolbar.Item icon='thread' />
+        </MessageToolbar>
+      </MessageToolbar.Wrapper>
     </Message>
     <Message className='customclass' isPending sequential>
       <Message.LeftContainer />
@@ -699,13 +699,13 @@ export const MessagePending: ComponentStory<typeof Message> = () => (
           Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
         </Message.Body>
       </Message.Container>
-      <MessageToolbox.Wrapper>
-        <MessageToolbox>
-          <MessageToolbox.Item icon='quote' />
-          <MessageToolbox.Item icon='clock' />
-          <MessageToolbox.Item icon='thread' />
-        </MessageToolbox>
-      </MessageToolbox.Wrapper>
+      <MessageToolbar.Wrapper>
+        <MessageToolbar>
+          <MessageToolbar.Item icon='quote' />
+          <MessageToolbar.Item icon='clock' />
+          <MessageToolbar.Item icon='thread' />
+        </MessageToolbar>
+      </MessageToolbar.Wrapper>
     </Message>
     <Message className='customclass' isPending sequential>
       <Message.LeftContainer />
@@ -722,13 +722,13 @@ export const MessagePending: ComponentStory<typeof Message> = () => (
           Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
         </Message.Body>
       </Message.Container>
-      <MessageToolbox.Wrapper>
-        <MessageToolbox>
-          <MessageToolbox.Item icon='quote' />
-          <MessageToolbox.Item icon='clock' />
-          <MessageToolbox.Item icon='thread' />
-        </MessageToolbox>
-      </MessageToolbox.Wrapper>
+      <MessageToolbar.Wrapper>
+        <MessageToolbar>
+          <MessageToolbar.Item icon='quote' />
+          <MessageToolbar.Item icon='clock' />
+          <MessageToolbar.Item icon='thread' />
+        </MessageToolbar>
+      </MessageToolbar.Wrapper>
     </Message>
   </Box>
 );
@@ -775,13 +775,13 @@ export const MessageWithMetrics: ComponentStory<typeof Message> = () => (
           </MessageMetrics>
         </Message.Block>
       </Message.Container>
-      <MessageToolbox.Wrapper>
-        <MessageToolbox>
-          <MessageToolbox.Item icon='quote' />
-          <MessageToolbox.Item icon='clock' />
-          <MessageToolbox.Item icon='thread' />
-        </MessageToolbox>
-      </MessageToolbox.Wrapper>
+      <MessageToolbar.Wrapper>
+        <MessageToolbar>
+          <MessageToolbar.Item icon='quote' />
+          <MessageToolbar.Item icon='clock' />
+          <MessageToolbar.Item icon='thread' />
+        </MessageToolbar>
+      </MessageToolbar.Wrapper>
     </Message>
   </Box>
 );
@@ -823,13 +823,13 @@ export const MessageWithHeadings: ComponentStory<typeof Message> = () => (
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
         </Message.Body>
       </Message.Container>
-      <MessageToolbox.Wrapper>
-        <MessageToolbox>
-          <MessageToolbox.Item icon='quote' />
-          <MessageToolbox.Item icon='clock' />
-          <MessageToolbox.Item icon='thread' />
-        </MessageToolbox>
-      </MessageToolbox.Wrapper>
+      <MessageToolbar.Wrapper>
+        <MessageToolbar>
+          <MessageToolbar.Item icon='quote' />
+          <MessageToolbar.Item icon='clock' />
+          <MessageToolbar.Item icon='thread' />
+        </MessageToolbar>
+      </MessageToolbar.Wrapper>
     </Message>
   </Box>
 );
@@ -869,13 +869,13 @@ export const LotsOfReactions: ComponentStory<typeof Message> = () => (
           <MessageReactions.Action />
         </MessageReactions>
       </Message.Container>
-      <MessageToolbox.Wrapper>
-        <MessageToolbox>
-          <MessageToolbox.Item icon='quote' />
-          <MessageToolbox.Item icon='clock' />
-          <MessageToolbox.Item icon='thread' />
-        </MessageToolbox>
-      </MessageToolbox.Wrapper>
+      <MessageToolbar.Wrapper>
+        <MessageToolbar>
+          <MessageToolbar.Item icon='quote' />
+          <MessageToolbar.Item icon='clock' />
+          <MessageToolbar.Item icon='thread' />
+        </MessageToolbar>
+      </MessageToolbar.Wrapper>
     </Message>
   </Box>
 );
