@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[MessageToolbar Rendering] renders Default without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full"
+    >
+      <div
+        class="rcx-box rcx-box--full rcx-message-toolbar"
+      >
+        <div
+          class="rcx-button-group rcx-button-group--align-start rcx-button-group--small"
+          role="toolbar"
+        >
+          <button
+            class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button  rcx-button-group__item"
+            title="Quote"
+            type="button"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-quote rcx-icon rcx-css-4pvxx3"
+            >
+              
+            </i>
+          </button>
+          <button
+            class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button  rcx-button-group__item"
+            title="Emoji"
+            type="button"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-emoji rcx-icon rcx-css-4pvxx3"
+            >
+              
+            </i>
+          </button>
+          <button
+            class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button  rcx-button-group__item"
+            title="Thread"
+            type="button"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-thread rcx-icon rcx-css-4pvxx3"
+            >
+              
+            </i>
+          </button>
+          <button
+            class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button  rcx-button-group__item"
+            title="Menu"
+            type="button"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-menu rcx-icon rcx-css-4pvxx3"
+            >
+              
+            </i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
