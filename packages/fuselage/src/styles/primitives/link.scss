@@ -7,12 +7,19 @@
 %link {
   color: functions.theme('link-color', colors.font(info));
 
-  @include on-focus {
+  &:focus-visible,
+  &.is-focused,
+  &.focus {
     text-decoration: none;
 
     color: functions.theme('link-focus-color', colors.font(info));
     border-radius: lengths.border-radius(small);
-    outline: none;
+    outline: functions.theme(
+        'link-focus-outline-color',
+        colors.stroke(highlight)
+      )
+      solid 1px;
+    outline-offset: 0;
     box-shadow: 0 0 0 2px
       functions.theme(
         'link-focus-outline-color',
@@ -23,14 +30,12 @@
   &:where(:visited),
   &:where(.is-visited) {
     color: functions.theme('link-visited-color', colors.font(info));
-    outline: none;
   }
 
   &:where(:active),
   &:where(.active),
   &:where(.is-active) {
     color: functions.theme('link-active-color', colors.font(info));
-    outline: none;
   }
 }
 

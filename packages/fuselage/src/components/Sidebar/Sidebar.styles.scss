@@ -219,8 +219,12 @@ $sidebar-banner-color-danger: theme(
       @include use-link-colors($color: colors.font(default));
 
       @include on-hover {
-        @include use-no-shadow;
         background-color: $sidebar-color-surface-hover;
+      }
+
+      @include on-focus {
+        outline-offset: -1px;
+        box-shadow: none;
       }
     }
 
