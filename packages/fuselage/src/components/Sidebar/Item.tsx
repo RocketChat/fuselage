@@ -27,7 +27,7 @@ export const SidebarItem = ({
     className={[
       'rc-box rcx-box--full rcx-sidebar-item',
       highlighted && 'rcx-sidebar-item--highlighted',
-      clickable && 'rcx-sidebar-item--clickable',
+      (clickable || Tag === 'a') && 'rcx-sidebar-item--clickable',
       selected && 'rcx-sidebar-item--selected',
       featured && 'rcx-sidebar-item--featured',
     ]
