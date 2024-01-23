@@ -1,5 +1,17 @@
 # Change Log
 
+## 0.45.0
+
+### Minor Changes
+
+- [#1277](https://github.com/RocketChat/fuselage/pull/1277) [`775236cb4`](https://github.com/RocketChat/fuselage/commit/775236cb4f391194183a96df48ea241b1429dab6) Thanks [@dougfabris](https://github.com/dougfabris)! - feat(fuselage): Add forwardRef in MessageToolbar
+
+### Patch Changes
+
+- [#1275](https://github.com/RocketChat/fuselage/pull/1275) [`7451ecae5`](https://github.com/RocketChat/fuselage/commit/7451ecae56d9f4a73f00ca4b212e33260cf7a81b) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): change `card-horizontal` row gap
+
+- [#1270](https://github.com/RocketChat/fuselage/pull/1270) [`3469b7798`](https://github.com/RocketChat/fuselage/commit/3469b7798242b1925ac243cdf3268d4d7d7c3597) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage): normalize links
+
 ## 0.44.2
 
 ### Patch Changes
