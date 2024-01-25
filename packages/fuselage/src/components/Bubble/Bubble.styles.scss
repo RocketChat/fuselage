@@ -50,6 +50,12 @@
     border-radius: lengths.border-radius(extra-large);
   }
 
+  &--small &__button,
+  &--small &__item {
+    @include typography.use-font-scale(micro);
+    height: lengths.size(20);
+  }
+
   &__group {
     :first-child {
       border-top-right-radius: 0;

@@ -8,6 +8,7 @@ import { BubbleItem } from './BubbleItem';
 type BubbleProps = {
   secondary?: boolean;
   children: ReactNode;
+  small?: boolean;
   onClick?: () => void;
   icon?: IconName;
   onDismiss?: () => void;
@@ -21,6 +22,7 @@ export const Bubble = ({
   onClick,
   icon,
   onDismiss,
+  small,
   contentProps,
   dismissProps,
   ...props
@@ -31,6 +33,7 @@ export const Bubble = ({
       'rcx-box',
       'rcx-box--full',
       onDismiss && 'rcx-bubble__group',
+      small && 'rcx-bubble--small',
     ].join(' ')}
     {...props}
   >

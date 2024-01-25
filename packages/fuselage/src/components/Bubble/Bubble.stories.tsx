@@ -58,3 +58,10 @@ WithoutAction.args = {
   children: '22 Nov 2023',
   secondary: true,
 };
+
+export const Small = Template.bind({});
+Small.args = {
+  children: '22 Nov 2023',
+  secondary: true,
+  small: true,
+};
