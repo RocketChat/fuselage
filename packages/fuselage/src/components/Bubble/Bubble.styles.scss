@@ -10,13 +10,34 @@
   display: flex;
   align-items: center;
 
-  &__content,
-  &__dismiss {
-    @include typography.use-font-scale(c2);
-    @include button.kind-variant(buttonColors.$primary);
+  &__button {
+    &--primary {
+      @include button.kind-variant(buttonColors.$primary);
+    }
+
+    &--secondary {
+      @include button.kind-variant(buttonColors.$secondary);
+    }
+
     @include clickable;
     @include click-animation;
+  }
 
+  &__item {
+    &--primary {
+      color: buttonColors.$button-primary-color;
+      background-color: buttonColors.$button-primary-background-color;
+    }
+
+    &--secondary {
+      color: buttonColors.$button-secondary-color;
+      background-color: buttonColors.$button-secondary-background-color;
+    }
+  }
+
+  &__button,
+  &__item {
+    @include typography.use-font-scale(c2);
     display: flex;
     justify-content: center;
     align-items: center;
