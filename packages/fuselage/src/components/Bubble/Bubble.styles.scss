@@ -44,10 +44,14 @@
 
     height: lengths.size(28);
 
-    padding-inline-start: lengths.padding(12);
+    padding-inline: lengths.padding(12);
     padding-inline-end: lengths.padding(16);
 
     border-radius: lengths.border-radius(extra-large);
+  }
+
+  &:not(.rcx-bubble__group) &__item {
+    padding-inline: lengths.padding(8);
   }
 
   &--small &__button,
