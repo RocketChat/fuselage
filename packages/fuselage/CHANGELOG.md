@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.46.0
+
+### Minor Changes
+
+- [#1278](https://github.com/RocketChat/fuselage/pull/1278) [`7ed164c23`](https://github.com/RocketChat/fuselage/commit/7ed164c233fa6c511daa3951daa8c7af0c10bc86) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage): new `Bubble` variations
+
 ## 0.45.0
 
 ### Minor Changes
