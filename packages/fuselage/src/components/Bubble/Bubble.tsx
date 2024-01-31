@@ -2,45 +2,64 @@ import type { Keys as IconName } from '@rocket.chat/icons';
 import type { AllHTMLAttributes, ButtonHTMLAttributes, ReactNode } from 'react';
 import React from 'react';
 
-import { Icon } from '../Icon';
+import { BubbleButton } from './BubbleButton';
+import { BubbleItem } from './BubbleItem';
 
 type BubbleProps = {
+  secondary?: boolean;
   children: ReactNode;
-  onClick: () => void;
+  small?: boolean;
+  onClick?: () => void;
   icon?: IconName;
   onDismiss?: () => void;
-  contentProps?: ButtonHTMLAttributes<HTMLButtonElement>;
-  dismissProps?: ButtonHTMLAttributes<HTMLButtonElement>;
-} & AllHTMLAttributes<HTMLDivElement>;
+  contentProps?: Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onClick'>;
+  dismissProps?: Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onClick'>;
+} & Omit<AllHTMLAttributes<HTMLDivElement>, 'onClick'>;
 
 export const Bubble = ({
+  secondary,
   children,
   onClick,
   icon,
   onDismiss,
+  small,
   contentProps,
   dismissProps,
   ...props
 }: BubbleProps) => (
   <div
-    className={`rcx-bubble rcx-box rcx-box--full ${
-      onDismiss ? 'rcx-bubble__group' : ''
-    }`}
+    className={[
+      'rcx-bubble',
+      'rcx-box',
+      'rcx-box--full',
+      onDismiss && 'rcx-bubble__group',
+      small && 'rcx-bubble--small',
+    ].join(' ')}
     {...props}
   >
-    <button className='rcx-bubble__content' onClick={onClick} {...contentProps}>
-      {icon && <Icon name={icon} size='x16' mie={8} />}
-      <span>{children}</span>
-    </button>
+    {onClick ? (
+      <BubbleButton
+        onClick={onClick}
+        secondary={secondary}
+        icon={icon}
+        label={children}
+        {...contentProps}
+      />
+    ) : (
+      <BubbleItem
+        secondary={secondary}
+        icon={icon}
+        label={children}
+        {...contentProps}
+      />
+    )}
     {onDismiss && (
-      <button
-        aria-label={`Dismiss ${children}`}
-        className='rcx-bubble__dismiss'
+      <BubbleButton
         onClick={onDismiss}
-        {...dismissProps}
-      >
-        <Icon name='cross-small' size='x16' />
-      </button>
+        secondary={secondary}
+        icon='cross-small'
+        {...{ 'aria-label': `Dismiss ${children}`, ...dismissProps }}
+      />
     )}
   </div>
 );

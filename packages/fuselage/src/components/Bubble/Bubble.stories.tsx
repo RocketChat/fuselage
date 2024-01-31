@@ -31,3 +31,37 @@ LabelOnly.args = {
   children: 'See new messages',
   onClick: action('click'),
 };
+
+export const Secondary = Template.bind({});
+Secondary.args = {
+  children: 'See new messages',
+  secondary: true,
+  onClick: action('click'),
+};
+
+export const SecondaryDismissable = Template.bind({});
+SecondaryDismissable.args = {
+  children: 'New messages',
+  secondary: true,
+  onDismiss: action('dismiss'),
+};
+SecondaryDismissable.parameters = {
+  docs: {
+    description: {
+      story: 'Example with only a dismiss action - the label is not clickable.',
+    },
+  },
+};
+
+export const WithoutAction = Template.bind({});
+WithoutAction.args = {
+  children: '22 Nov 2023',
+  secondary: true,
+};
+
+export const Small = Template.bind({});
+Small.args = {
+  children: '22 Nov 2023',
+  secondary: true,
+  small: true,
+};
