@@ -1,12 +1,8 @@
-// @ts-nocheck
-import {
-  useMutableCallback,
-  useResizeObserver,
-} from '@rocket.chat/fuselage-hooks';
-import type { SyntheticEvent, ElementType } from 'react';
-import React, { useState, useRef, useMemo, useEffect } from 'react';
+import { useEffectEvent, useResizeObserver } from '@rocket.chat/fuselage-hooks';
+import React, { type ElementType, useState, useRef, useMemo } from 'react';
 
-import type { SelectProps } from '..';
+import { type SelectProps } from '..';
+import { prevent } from '../../helpers/prevent';
 import AnimatedVisibility from '../AnimatedVisibility';
 import Box from '../Box';
 import { Icon } from '../Icon';
@@ -28,24 +24,6 @@ export type PaginatedSelectProps = Omit<SelectProps, 'options'> & {
   withTitle?: boolean;
   endReached?: (index: number) => void;
   setFilter?: (value: string | undefined | number) => void;
-};
-
-const prevent = (e: SyntheticEvent) => {
-  e.preventDefault();
-  e.stopPropagation();
-  e.nativeEvent.stopImmediatePropagation();
-};
-
-const useDidUpdate = (func: string[]) => {
-  const didMount = useRef(false);
-  const fn = useMutableCallback(func as any);
-
-  useEffect(() => {
-    if (didMount.current) {
-      fn();
-    }
-    didMount.current = true;
-  }, [fn]);
 };
 
 export const PaginatedSelect = ({
@@ -71,7 +49,7 @@ export const PaginatedSelect = ({
 
   const [visible, hide, show] = useVisible();
 
-  const internalChangedByClick = useMutableCallback(([value]) => {
+  const internalChangedByClick = useEffectEvent(([value]) => {
     setInternalValue(value);
     onChange(value);
     hide();
@@ -81,15 +59,13 @@ export const PaginatedSelect = ({
 
   const { ref: containerRef, borderBoxSize } = useResizeObserver();
 
-  useDidUpdate([filter, internalValue]);
-
   const valueLabel = option?.label;
 
   const visibleText =
     (filter === undefined || visible === AnimatedVisibility.HIDDEN) &&
     (valueLabel || placeholder || typeof placeholder === 'string');
 
-  const handleClick = useMutableCallback(() => {
+  const handleClick = useEffectEvent(() => {
     if (visible === AnimatedVisibility.VISIBLE) {
       return hide();
     }
@@ -152,7 +128,7 @@ export const PaginatedSelect = ({
       </PaginatedSelectWrapper>
       <PositionAnimated visible={visible} anchor={containerRef}>
         <_Options
-          {...(withTitle && { title: withTitle })}
+          withTitle={withTitle}
           width={borderBoxSize.inlineSize}
           role='listbox'
           filter={filter}

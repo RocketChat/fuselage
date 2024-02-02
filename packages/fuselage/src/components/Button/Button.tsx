@@ -11,6 +11,7 @@ export type ButtonProps = ComponentProps<typeof Box> & {
   warning?: boolean;
   success?: boolean;
   disabled?: boolean;
+  loading?: boolean;
   mini?: boolean;
   tiny?: boolean;
   small?: boolean;
@@ -41,6 +42,8 @@ export const Button = forwardRef(function Button(
     medium,
     large,
     square,
+    loading,
+    disabled,
     children,
     ...props
   }: ButtonProps,
@@ -91,12 +94,15 @@ export const Button = forwardRef(function Button(
       rcx-button--small-square={small && square}
       rcx-button--medium-square={medium && square}
       rcx-button--large-square={large && square}
+      rcx-button--loading={loading}
+      disabled={disabled || loading}
       ref={ref}
       {...extraProps}
       {...props}
     >
       <span className='rcx-button--content'>
-        {icon && <Icon size='x16' name={icon} mie={4} />}
+        {icon && !loading && <Icon size='x16' name={icon} mie={4} />}
+        {loading && <Icon size='x16' name='loading' mie={4} />}
         {children}
       </span>
     </Box>

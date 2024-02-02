@@ -1,5 +1,17 @@
 # Change Log
 
+## 0.33.0
+
+### Minor Changes
+
+- [#1266](https://github.com/RocketChat/fuselage/pull/1266) [`cc8e86b2f`](https://github.com/RocketChat/fuselage/commit/cc8e86b2f1ecf43c412e03c07430aecae6ccab29) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(icons): new `arrow-up` icon
+
+## 0.32.0
+
+### Minor Changes
+
+- [#1163](https://github.com/RocketChat/fuselage/pull/1163) [`756aef7b2`](https://github.com/RocketChat/fuselage/commit/756aef7b20a335ed8b4a85261f06bf05a8a5ea47) Thanks [@hugocostadev](https://github.com/hugocostadev)! - feat(icons): Add rocketchat icon
+
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 

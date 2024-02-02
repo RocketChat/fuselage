@@ -6,16 +6,17 @@ const isPaletteColorRef = (ref: unknown): ref is keyof typeof tokenColors =>
 
 const mapTypeToPrefix = {
   neutral: 'n',
-  primary: 'b',
-  info: 'b',
-  success: 'g',
-  warning: 'y',
-  danger: 'r',
+  blue: 'b',
+  green: 'g',
+  yellow: 'y',
+  red: 'r',
+  orange: 'o',
+  purple: 'p',
 } as const;
 
 export const getPaletteColor = (
   type: keyof typeof mapTypeToPrefix,
-  grade: 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900,
+  grade: 100 | 200 | 250 | 300 | 400 | 450 | 500 | 600 | 700 | 800 | 900 | 1000,
   alpha?: number
 ): [customPropertyName: string, value: string] => {
   const ref = `${mapTypeToPrefix[type]}${grade}`;

@@ -1,7 +1,4 @@
-import {
-  useMutableCallback,
-  useDebouncedState,
-} from '@rocket.chat/fuselage-hooks';
+import { useEffectEvent, useDebouncedState } from '@rocket.chat/fuselage-hooks';
 import type { ComponentProps, ElementType, Ref, SyntheticEvent } from 'react';
 import React, { forwardRef, memo } from 'react';
 import { Virtuoso } from 'react-virtuoso';
@@ -107,8 +104,8 @@ export const OptionsPaginated = forwardRef(
 
 export const useVisible = (initialVisibility = AnimatedVisibility.HIDDEN) => {
   const [visible, setVisible] = useDebouncedState(initialVisibility, 10);
-  const hide = useMutableCallback(() => setVisible(AnimatedVisibility.HIDDEN));
-  const show = useMutableCallback(() => setVisible(AnimatedVisibility.VISIBLE));
+  const hide = useEffectEvent(() => setVisible(AnimatedVisibility.HIDDEN));
+  const show = useEffectEvent(() => setVisible(AnimatedVisibility.VISIBLE));
 
   return [visible, hide, show];
 };

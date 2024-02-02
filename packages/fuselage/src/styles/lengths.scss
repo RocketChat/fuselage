@@ -87,6 +87,7 @@ $border-radius-sizes: (
   'small': 2,
   'medium': 4,
   'large': 8,
+  'extra-large': 20,
 );
 
 @function border-radius($value) {
@@ -94,7 +95,16 @@ $border-radius-sizes: (
     @return 0;
   } @else if $value == 'full' {
     @return 9999px;
-  } @else if $value == 'small' or $value == 'medium' or $value == 'large' {
+  } @else if
+    $value ==
+    'small' or
+    $value ==
+    'medium' or
+    $value ==
+    'large' or
+    $value ==
+    'extra-large'
+  {
     @return functions.theme(
       'border-radius-#{$value}',
       functions.to-rem(map.get($border-radius-sizes, $value))

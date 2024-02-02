@@ -4,6 +4,7 @@
 @use '../../../styles/typography.scss';
 @use '../../../styles/mixins/size.scss';
 @use '../../../styles/primitives/traits/rich-text.scss';
+@import '../../../styles/primitives/link.scss';
 
 $message-generic-preview-border-color: functions.theme(
   'message-generic-preview-border-color',
@@ -22,7 +23,7 @@ $message-generic-preview-context-color: functions.theme(
 
 $message-generic-preview-description-color: functions.theme(
   'message-generic-preview-description-color',
-  colors.font(annotation)
+  colors.font(default)
 );
 
 $message-generic-preview-content-background-color: functions.theme(
@@ -62,7 +63,7 @@ $message-generic-preview-icon-background-color: functions.theme(
       justify-content: center;
       flex-grow: 1;
 
-      margin-block: lengths.margin(8);
+      padding-block: lengths.margin(8);
       padding-inline: lengths.margin(16);
     }
   }
@@ -85,32 +86,14 @@ $message-generic-preview-icon-background-color: functions.theme(
   &__title {
     @include typography.use-with-truncated-text();
     @include typography.use-font-scale(p2);
+    display: block;
+
     margin-block-end: lengths.margin(4);
 
     color: $message-generic-preview-title-color;
-    @at-root {
-      a#{&} {
-        &:link {
-          text-decoration: none;
 
-          color: colors.font(info);
-        }
-
-        &:visited,
-        &.is-visited {
-          color: colors.font(info);
-        }
-
-        &:active,
-        &.is-active {
-          color: colors.font(info);
-        }
-
-        &:hover,
-        &.is-hovered {
-          text-decoration: underline;
-        }
-      }
+    &-link {
+      @include use-link-colors();
     }
   }
 
@@ -142,7 +125,7 @@ $message-generic-preview-icon-background-color: functions.theme(
     color: $message-generic-preview-context-color;
 
     a {
-      color: $message-generic-preview-context-color;
+      @include use-link-colors($color: colors.font(secondary-info));
     }
   }
 

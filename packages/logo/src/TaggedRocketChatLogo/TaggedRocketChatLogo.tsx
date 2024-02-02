@@ -12,7 +12,7 @@ type TaggedRocketChatLogoProps = {
 
 const TaggedRocketChatLogo = ({
   tagTitle,
-  tagBackground = colors.d400,
+  tagBackground = colors.r400,
   color = colors.white,
   ...props
 }: TaggedRocketChatLogoProps): ReactElement => (

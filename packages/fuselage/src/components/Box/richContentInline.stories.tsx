@@ -53,20 +53,15 @@ i.storyName = 'i';
 
 export const a: ComponentStory<typeof Box> = () => (
   <>
-    <a href='#'>Normal</a>
+    <div>
+      <a href='#'>Normal</a>
+    </div>
     <br />
-    <a href='#' className='is-visited'>
-      Visited
-    </a>
-    <br />
-    <a href='#' className='is-active'>
-      Active
-    </a>
-    <br />
-    <a href='#' className='is-hovered'>
-      Hovered
-    </a>
-    <br />
+    <div>
+      <a href='#' className='is-focused'>
+        Focused
+      </a>
+    </div>
   </>
 );
 a.storyName = 'a';

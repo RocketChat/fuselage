@@ -7,7 +7,9 @@
     "secondaryInfo": { "value": "{colors.n700}" },
     "default": { "value": "{colors.n800}" },
     "titlesLabels": { "value": "{colors.n900}" },
-    "info": { "value": "{colors.i600}" },
-    "danger": { "value": "{colors.d600}" }
+    "info": { "value": "{colors.b600}" },
+    "danger": { "value": "{colors.r600}" },
+    "pure-white": { "value": "{colors.white}" },
+    "pure-black": { "value": "{colors.n800}" }
   }
 }

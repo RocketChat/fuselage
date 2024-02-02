@@ -83,27 +83,43 @@ export type Quote = {
   value: Paragraph[];
 };
 
-export type Markup = Italic | Strike | Bold | Plain;
+export type Markup = Italic | Strike | Bold | Plain | ChannelMention;
 export type MarkupExcluding<T extends Markup> = Exclude<Markup, T>;
 
 export type Bold = {
   type: 'BOLD';
   value: Array<
-    MarkupExcluding<Bold> | Link | Emoji | UserMention | ChannelMention
+    | MarkupExcluding<Bold>
+    | Link
+    | Emoji
+    | UserMention
+    | ChannelMention
+    | InlineCode
   >;
 };
 
 export type Italic = {
   type: 'ITALIC';
   value: Array<
-    MarkupExcluding<Italic> | Link | Emoji | UserMention | ChannelMention
+    | MarkupExcluding<Italic>
+    | Link
+    | Emoji
+    | UserMention
+    | ChannelMention
+    | InlineCode
   >;
 };
 
 export type Strike = {
   type: 'STRIKE';
   value: Array<
-    MarkupExcluding<Strike> | Link | Emoji | UserMention | ChannelMention
+    | MarkupExcluding<Strike>
+    | Link
+    | Emoji
+    | UserMention
+    | ChannelMention
+    | InlineCode
+    | Italic
   >;
 };
 

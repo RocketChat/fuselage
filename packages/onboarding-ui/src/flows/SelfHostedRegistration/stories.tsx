@@ -4,14 +4,15 @@ import { useState } from 'react';
 
 import type { AdminInfoPayload } from '../../forms/AdminInfoForm/AdminInfoForm';
 import type { OrganizationInfoPayload } from '../../forms/OrganizationInfoForm/OrganizationInfoForm';
+import type { RegisterOfflinePayload } from '../../forms/RegisterOfflineForm/RegisterOfflineForm';
 import type { RegisterServerPayload } from '../../forms/RegisterServerForm/RegisterServerForm';
 import AdminInfoPage from '../../pages/AdminInfoPage';
 import AwaitingConfirmationPage from '../../pages/AwaitingConfirmationPage';
 import ConfirmationProcessPage from '../../pages/ConfirmationProcessPage';
 import EmailConfirmedPage from '../../pages/EmailConfirmedPage';
 import OrganizationInfoPage from '../../pages/OrganizationInfoPage';
+import RegisterOfflinePage from '../../pages/RegisterOfflinePage';
 import RegisteredServerPage from '../../pages/RegisterServerPage';
-import StandaloneServerPage from '../../pages/StandaloneServerPage';
 import {
   countryOptions,
   logSubmit,
@@ -36,7 +37,7 @@ export const SelfHostedRegistration: Story = ({ offline }) => {
       | 'admin-info'
       | 'org-info'
       | 'register-server'
-      | 'standalone-confirmation'
+      | 'register-offline'
       | 'cloud-email'
       | 'awaiting'
       | 'home'
@@ -55,6 +56,11 @@ export const SelfHostedRegistration: Story = ({ offline }) => {
     agreement?: boolean;
     cloudAccountEmail?: string;
     securityCode?: string;
+  }>();
+
+  const [offlineRegistration, setOfflineRegistration] = useState<{
+    agreement?: boolean;
+    token?: string;
   }>();
 
   const handleAdminInfoSubmit = logSubmit((data: AdminInfoPayload) => {
@@ -77,6 +83,17 @@ export const SelfHostedRegistration: Story = ({ offline }) => {
         agreement: data.agreement,
         cloudAccountEmail: data.email,
         securityCode: 'Funny Tortoise In The Hat',
+      }));
+      navigateTo('/awaiting');
+    }
+  );
+
+  const handleRegisterOfflineSubmit = logSubmit(
+    (data: RegisterOfflinePayload) => {
+      setOfflineRegistration((offlineRegistration) => ({
+        ...offlineRegistration,
+        agreement: data.agreement,
+        token: data.token,
       }));
       navigateTo('/awaiting');
     }
@@ -125,32 +142,32 @@ export const SelfHostedRegistration: Story = ({ offline }) => {
             agreement: serverRegistration?.agreement,
           }),
         }}
-        onBackButtonClick={() => navigateTo('/org-info')}
         onSubmit={handleRegisterServerSubmit}
+        onClickRegisterOffline={() => navigateTo('/register-offline')}
         offline={offline}
-        onClickRegisterLater={() => navigateTo('/standalone-confirmation')}
       />
     );
   }
 
-  if (path === '/standalone-confirmation') {
+  if (path === '/register-offline') {
     return (
-      <StandaloneServerPage
-        currentStep={4}
-        stepCount={4}
-        initialValues={{}}
+      <RegisterOfflinePage
+        termsHref=''
+        policyHref=''
+        clientKey=''
+        onCopySecurityCode={() => undefined}
         onBackButtonClick={() => navigateTo('/register-server')}
-        onSubmit={() => navigateTo('/home')}
+        onSubmit={handleRegisterOfflineSubmit}
       />
     );
   }
 
   if (path === '/awaiting') {
-    if (!serverRegistration?.cloudAccountEmail) {
-      throw new Error('missing cloud account email');
+    if (!serverRegistration?.cloudAccountEmail || !offlineRegistration?.token) {
+      throw new Error('missing cloud account email or token');
     }
 
-    if (!serverRegistration?.securityCode) {
+    if (!serverRegistration?.securityCode || !offlineRegistration?.token) {
       throw new Error('missing verification code');
     }
 
@@ -160,6 +177,8 @@ export const SelfHostedRegistration: Story = ({ offline }) => {
 
     return (
       <AwaitingConfirmationPage
+        currentStep={4}
+        stepCount={4}
         emailAddress={serverRegistration.cloudAccountEmail}
         securityCode={serverRegistration.securityCode}
         onChangeEmailRequest={() => navigateTo('/admin-info')}

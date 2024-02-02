@@ -5,7 +5,7 @@ import Message from '..';
 import { Box, Avatar } from '../..';
 import { MessageDivider } from '../MessageDivider';
 import MessageReactions from '../MessageReactions';
-import MessageToolbox from '../MessageToolbox';
+import MessageToolbar from '../MessageToolbar';
 import { MessageStatusIndicatorText } from './MessageStatusIndicatorText';
 
 export default {
@@ -72,13 +72,13 @@ export const Default = () => (
           <MessageReactions.Action />
         </MessageReactions>
       </Message.Container>
-      <MessageToolbox.Wrapper>
-        <MessageToolbox>
-          <MessageToolbox.Item icon='quote' />
-          <MessageToolbox.Item icon='clock' />
-          <MessageToolbox.Item icon='thread' />
-        </MessageToolbox>
-      </MessageToolbox.Wrapper>
+      <MessageToolbar.Wrapper>
+        <MessageToolbar>
+          <MessageToolbar.Item icon='quote' />
+          <MessageToolbar.Item icon='clock' />
+          <MessageToolbar.Item icon='thread' />
+        </MessageToolbar>
+      </MessageToolbar.Wrapper>
     </Message>
     <Message className='customclass' clickable sequential>
       <Message.LeftContainer>
@@ -98,13 +98,13 @@ export const Default = () => (
           Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
         </Message.Body>
       </Message.Container>
-      <MessageToolbox.Wrapper>
-        <MessageToolbox>
-          <MessageToolbox.Item icon='quote' />
-          <MessageToolbox.Item icon='clock' />
-          <MessageToolbox.Item icon='thread' />
-        </MessageToolbox>
-      </MessageToolbox.Wrapper>
+      <MessageToolbar.Wrapper>
+        <MessageToolbar>
+          <MessageToolbar.Item icon='quote' />
+          <MessageToolbar.Item icon='clock' />
+          <MessageToolbar.Item icon='thread' />
+        </MessageToolbar>
+      </MessageToolbar.Wrapper>
     </Message>
     <Message className='customclass' clickable sequential>
       <Message.LeftContainer>
@@ -119,13 +119,13 @@ export const Default = () => (
           Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
         </Message.Body>
       </Message.Container>
-      <MessageToolbox.Wrapper>
-        <MessageToolbox>
-          <MessageToolbox.Item icon='quote' />
-          <MessageToolbox.Item icon='clock' />
-          <MessageToolbox.Item icon='thread' />
-        </MessageToolbox>
-      </MessageToolbox.Wrapper>
+      <MessageToolbar.Wrapper>
+        <MessageToolbar>
+          <MessageToolbar.Item icon='quote' />
+          <MessageToolbar.Item icon='clock' />
+          <MessageToolbar.Item icon='thread' />
+        </MessageToolbar>
+      </MessageToolbar.Wrapper>
     </Message>
   </Box>
 );

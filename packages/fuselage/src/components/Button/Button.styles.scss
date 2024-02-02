@@ -4,6 +4,7 @@
 @use '../../styles/variables/buttons.scss' as colors;
 @use '../../styles/primitives/button.scss';
 @use '../../styles/mixins/size.scss';
+@use '../../styles/mixins/interactivity.scss';
 @import '../../styles/mixins/states.scss';
 
 .rcx-button {
@@ -33,26 +34,13 @@
     }
   }
 
-  @mixin click-animation() {
-    @include on-active {
-      > * {
-        transform: translateY(1px);
-      }
-    }
-    @include on-pressed {
-      > * {
-        transform: translateY(1px);
-      }
-    }
-  }
-
   display: inline-block;
 
   text-align: center;
   white-space: nowrap;
   text-decoration: none;
 
-  @include click-animation();
+  @include click-animation($excludeRole: 'status');
 
   .rcx-button--content {
     display: inline-block;
@@ -69,6 +57,12 @@
   );
 
   @include button.kind-variant(colors.$secondary);
+
+  &--loading {
+    .rcx-icon--name-loading {
+      animation: spin-animation 0.8s linear infinite;
+    }
+  }
 
   &--small {
     @include typography.use-font-scale(c2);
@@ -110,7 +104,7 @@
 
   &--icon {
     @include button.kind-variant(colors.$icon);
-    @include click-animation();
+    @include click-animation('status');
 
     padding: 0;
 
@@ -203,5 +197,15 @@
 
   &--secondary-success {
     @include button.kind-variant(colors.$secondary-success);
+  }
+}
+
+@keyframes spin-animation {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
   }
 }

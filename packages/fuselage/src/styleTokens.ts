@@ -1,4 +1,3 @@
-import tokenColors from '@rocket.chat/fuselage-tokens/colors.json';
 import tokenTypography from '@rocket.chat/fuselage-tokens/typography.json';
 import { memoize } from '@rocket.chat/memo';
 import invariant from 'invariant';
@@ -79,11 +78,12 @@ export const borderRadius = measure((value: unknown) => {
 
 const mapTypeToPrefix = {
   neutral: 'n',
-  primary: 'b',
-  info: 'b',
-  success: 'g',
-  warning: 'y',
-  danger: 'r',
+  blue: 'b',
+  green: 'g',
+  yellow: 'y',
+  red: 'r',
+  orange: 'o',
+  purple: 'p',
 } as const;
 
 const isPaletteColorType = (
@@ -103,37 +103,8 @@ const isPaletteColorAlpha = (alpha: unknown): alpha is number | undefined =>
   alpha === undefined ||
   (typeof alpha === 'number' && alpha >= 0 && alpha <= 1);
 
-const foregroundColors = {
-  'default': tokenColors.n800,
-  'info': tokenColors.n700,
-  'hint': tokenColors.n600,
-  'disabled': tokenColors.n400,
-  'alternative': 'white',
-  'primary': tokenColors.p500,
-  'success': tokenColors.s500,
-  'danger': tokenColors.d500,
-  'warning': tokenColors.w700,
-  'link': tokenColors.p500,
-  'visited-link': tokenColors['s2-500'],
-  'active-link': tokenColors.d500,
-} as const;
-
-const isForegroundColorRef = (
-  ref: unknown
-): ref is keyof typeof foregroundColors =>
-  typeof ref === 'string' && ref in foregroundColors;
-
-const getForegroundColor = (
-  type: keyof typeof foregroundColors
-): [customPropertyName: string, value: string] => {
-  invariant(isForegroundColorRef(type), 'invalid foreground color');
-
-  const color = foregroundColors[type];
-  return [`--rcx-color-foreground-${type}`, color];
-};
-
 const paletteColorRegex =
-  /^(neutral|primary|info|success|warning|danger)-(\d+)(-(\d+))?$/;
+  /^(neutral|blue|green|yellow|red|orange|purple)-(\d+)(-(\d+))?$/;
 
 export const strokeColor = memoize((value) => {
   const colorName = `stroke-${value}`;
@@ -223,25 +194,15 @@ export const color = memoize((value) => {
   }
 
   if (value === 'surface-tint') {
-    return toCSSColorValue(value, neutral.n100);
+    return toCSSColorValue(value, neutral[100]);
   }
 
   if (value === 'secondary-info') {
-    return toCSSColorValue(value, neutral.n700);
+    return toCSSColorValue(value, neutral[700]);
   }
 
   if (value === 'surface-neutral') {
-    return toCSSColorValue(value, neutral.n400);
-  }
-
-  if (isForegroundColorRef(value)) {
-    const [customProperty, color] = getForegroundColor(value);
-
-    if (customProperty) {
-      return toCSSValue(customProperty, color);
-    }
-
-    return color;
+    return toCSSColorValue(value, neutral[400]);
   }
 
   const paletteMatches = paletteColorRegex.exec(String(value));

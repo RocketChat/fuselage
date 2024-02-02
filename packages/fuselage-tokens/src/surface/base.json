@@ -2,9 +2,13 @@
   "surface": {
     "light": { "value": "{colors.white}" },
     "tint": { "value": "{colors.n100}" },
+    "room": { "value": "{colors.white}" },
     "neutral": { "value": "{colors.n400}" },
     "disabled": { "value": "{colors.n100}" },
     "hover": { "value": "{colors.n200}" },
-    "dark": { "value": "{colors.n900}" }
+    "selected": { "value": "{colors.n450}" },
+    "dark": { "value": "{colors.n900}" },
+    "featured": { "value": "{colors.p700}" },
+    "featured-hover": { "value": "{colors.p800}" }
   }
 }

@@ -16,6 +16,7 @@ export const Callout = ({
   title,
   children,
   icon,
+  className,
   ...props
 }: CalloutProps) => {
   const defaultIcon =
@@ -26,15 +27,21 @@ export const Callout = ({
     'info-circled';
 
   return (
-    <Box is='section' rcx-callout rcx-callout--type={type} {...props}>
-      <Icon name={icon || defaultIcon} size='x20' />
+    <Box
+      is='section'
+      className={['rcx-callout', type && `rcx-callout--${type}`, className]
+        .filter(Boolean)
+        .join(' ')}
+      {...props}
+    >
+      <Icon
+        className='rcx-callout__icon'
+        name={icon || defaultIcon}
+        size='x20'
+      />
       <Box rcx-callout__wrapper>
-        {title && (
-          <Box is='h1' rcx-callout__title>
-            {title}
-          </Box>
-        )}
-        {children && <Box rcx-callout__children>{children}</Box>}
+        {title && <Box rcx-callout__title>{title}</Box>}
+        {children && <Box rcx-callout__content>{children}</Box>}
       </Box>
     </Box>
   );

@@ -8,3 +8,11 @@
     cursor: not-allowed;
   }
 }
+
+@mixin click-animation($excludeRole: false) {
+  @include on-active {
+    > *:not([role='#{$excludeRole}']) {
+      transform: translateY(1px);
+    }
+  }
+}

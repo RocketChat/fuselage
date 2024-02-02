@@ -3,14 +3,13 @@ import type { ComponentProps, Ref, FormEvent, AllHTMLAttributes } from 'react';
 import React, { forwardRef, useLayoutEffect, useRef, useCallback } from 'react';
 
 import Box from '../Box';
-import { Label } from '../Label';
 
 type CheckBoxProps = ComponentProps<typeof Box> & {
   indeterminate?: boolean;
 } & AllHTMLAttributes<HTMLInputElement>;
 
 export const CheckBox = forwardRef(function CheckBox(
-  { indeterminate, onChange, ...props }: CheckBoxProps,
+  { indeterminate, onChange, className, ...props }: CheckBoxProps,
   ref: Ref<HTMLInputElement>
 ) {
   const innerRef = useRef<HTMLInputElement>(null);
@@ -33,7 +32,7 @@ export const CheckBox = forwardRef(function CheckBox(
   );
 
   return (
-    <Box is={Label} rcx-check-box>
+    <Box is='label' className={className} rcx-check-box>
       <Box
         is='input'
         type='checkbox'

@@ -4,6 +4,10 @@ import {
   EmailInput,
   ButtonGroup,
   Button,
+  FieldLabel,
+  FieldDescription,
+  FieldRow,
+  FieldError,
 } from '@rocket.chat/fuselage';
 import { Form } from '@rocket.chat/layout';
 import type { ReactElement } from 'react';
@@ -44,13 +48,13 @@ const ResetPasswordForm = ({
       <Form.Container>
         <FieldGroup>
           <Field>
-            <Field.Label>
+            <FieldLabel>
               {t('form.resetPasswordForm.fields.email.label')}
-            </Field.Label>
-            <Field.Description>
+            </FieldLabel>
+            <FieldDescription>
               {t('form.resetPasswordForm.content.subtitle')}
-            </Field.Description>
-            <Field.Row>
+            </FieldDescription>
+            <FieldRow>
               <EmailInput
                 {...register('email', {
                   validate: validateEmail,
@@ -60,17 +64,18 @@ const ResetPasswordForm = ({
                   'form.resetPasswordForm.fields.email.placeholder'
                 )}
               />
-            </Field.Row>
-            {errors.email && <Field.Error>{errors.email.message}</Field.Error>}
+            </FieldRow>
+            {errors.email && <FieldError>{errors.email.message}</FieldError>}
           </Field>
         </FieldGroup>
       </Form.Container>
       <Form.Footer>
-        <ButtonGroup flexGrow={1}>
+        <ButtonGroup>
           <Button
             type='submit'
             primary
-            disabled={isValidating || isSubmitting || !isValid}
+            loading={isValidating || isSubmitting}
+            disabled={!isValid}
           >
             {t('form.resetPasswordForm.action.submit')}
           </Button>

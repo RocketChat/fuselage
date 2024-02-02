@@ -1,5 +1,5 @@
 import { css } from '@rocket.chat/css-in-js';
-import { useMutableCallback } from '@rocket.chat/fuselage-hooks';
+import { useEffectEvent } from '@rocket.chat/fuselage-hooks';
 import type { PropsWithChildren, MouseEvent, MutableRefObject } from 'react';
 import React, { useRef, useCallback } from 'react';
 
@@ -52,7 +52,7 @@ export const Scrollable = ({
   const scrollTimeoutRef = useRef<ReturnType<typeof setTimeout>>();
   const touchingEdgesRef = useRef({});
 
-  const handleScroll = useMutableCallback((event: MouseEvent) => {
+  const handleScroll = useEffectEvent((event: MouseEvent) => {
     const element = event.currentTarget;
 
     if (!scrollTimeoutRef.current) {

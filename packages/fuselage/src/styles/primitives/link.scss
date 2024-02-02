@@ -1,0 +1,61 @@
+@use '../../styles/colors.scss';
+@use '../../styles/lengths.scss';
+@use '../../styles/mixins/states.scss';
+@use '../../styles//functions.scss';
+@import '../../styles/mixins/states.scss';
+
+%link {
+  color: functions.theme('link-color', colors.font(info));
+
+  &:focus-visible,
+  &.is-focused,
+  &.focus {
+    text-decoration: none;
+
+    color: functions.theme('link-focus-color', colors.font(info));
+    border-radius: lengths.border-radius(small);
+    outline: functions.theme(
+        'link-focus-outline-color',
+        colors.stroke(highlight)
+      )
+      solid 1px;
+    outline-offset: 0;
+    box-shadow: 0 0 0 2px
+      functions.theme(
+        'link-focus-outline-color',
+        colors.stroke(extra-light-highlight)
+      );
+  }
+
+  &:where(:visited),
+  &:where(.is-visited) {
+    color: functions.theme('link-visited-color', colors.font(info));
+  }
+
+  &:where(:active),
+  &:where(.active),
+  &:where(.is-active) {
+    color: functions.theme('link-active-color', colors.font(info));
+  }
+}
+
+@mixin use-link-colors($color: colors.font(info)) {
+  @extend %link;
+
+  color: functions.theme('link-color', $color);
+
+  @include on-focus {
+    color: functions.theme('link-focus-color', $color);
+  }
+
+  &:where(:visited),
+  &:where(.is-visited) {
+    color: functions.theme('link-visited-color', $color);
+  }
+
+  &:where(:active),
+  &:where(.active),
+  &:where(.is-active) {
+    color: functions.theme('link-active-color', $color);
+  }
+}

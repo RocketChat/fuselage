@@ -8,6 +8,9 @@ import {
   TextInput,
   Box,
   CheckBox,
+  FieldLabel,
+  FieldRow,
+  FieldError,
 } from '@rocket.chat/fuselage';
 import { Form } from '@rocket.chat/layout';
 import type { ReactElement } from 'react';
@@ -56,66 +59,66 @@ const NewAccountForm = ({
       <Form.Container>
         <FieldGroup>
           <Field>
-            <Field.Label>
+            <FieldLabel>
               {t('form.newAccountForm.fields.name.label')}
-            </Field.Label>
-            <Field.Row>
+            </FieldLabel>
+            <FieldRow>
               <TextInput
                 {...register('name', {
                   required: String(t('component.form.requiredField')),
                 })}
               />
-            </Field.Row>
-            {errors.name && <Field.Error>{errors.name.message}</Field.Error>}
+            </FieldRow>
+            {errors.name && <FieldError>{errors.name.message}</FieldError>}
           </Field>
           <Field>
-            <Field.Label>
+            <FieldLabel>
               {t('form.newAccountForm.fields.email.label')}
-            </Field.Label>
-            <Field.Row>
+            </FieldLabel>
+            <FieldRow>
               <EmailInput
                 {...register('email', {
                   validate: validateEmail,
                   required: true,
                 })}
               />
-            </Field.Row>
-            {errors?.email && <Field.Error>{errors.email.message}</Field.Error>}
+            </FieldRow>
+            {errors?.email && <FieldError>{errors.email.message}</FieldError>}
           </Field>
           <Field>
-            <Field.Label>
+            <FieldLabel>
               {t('form.newAccountForm.fields.password.label')}
-            </Field.Label>
-            <Field.Row>
+            </FieldLabel>
+            <FieldRow>
               <PasswordInput
                 {...register('password', {
                   required: true,
                   validate: validatePassword,
                 })}
               />
-            </Field.Row>
+            </FieldRow>
             {errors.password && (
-              <Field.Error>{errors.password.message}</Field.Error>
+              <FieldError>{errors.password.message}</FieldError>
             )}
           </Field>
           <Field>
-            <Field.Label>
+            <FieldLabel>
               {t('form.newAccountForm.fields.confirmPassword.label')}
-            </Field.Label>
-            <Field.Row>
+            </FieldLabel>
+            <FieldRow>
               <PasswordInput
                 {...register('confirmPassword', {
                   required: true,
                   validate: validateConfirmationPassword,
                 })}
               />
-            </Field.Row>
+            </FieldRow>
             {errors.confirmPassword && (
-              <Field.Error>{errors.confirmPassword.message}</Field.Error>
+              <FieldError>{errors.confirmPassword.message}</FieldError>
             )}
           </Field>
           <Field>
-            <Field.Row justifyContent='flex-start'>
+            <FieldRow justifyContent='flex-start'>
               <CheckBox
                 {...register('agreement', { required: true })}
                 mie={8}
@@ -145,19 +148,20 @@ const NewAccountForm = ({
                   </a>
                 </Trans>
               </Box>
-            </Field.Row>
+            </FieldRow>
             {errors.agreement?.type === 'required' && (
-              <Field.Error>{t('component.form.requiredField')}</Field.Error>
+              <FieldError>{t('component.form.requiredField')}</FieldError>
             )}
           </Field>
         </FieldGroup>
       </Form.Container>
       <Form.Footer>
-        <ButtonGroup flexGrow={1}>
+        <ButtonGroup>
           <Button
             type='submit'
             primary
-            disabled={isValidating || isSubmitting || !isValid}
+            loading={isValidating || isSubmitting}
+            disabled={!isValid}
           >
             {t('component.form.action.next')}
           </Button>

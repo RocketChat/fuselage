@@ -1,4 +1,4 @@
-import { useMutableCallback } from '@rocket.chat/fuselage-hooks';
+import { useEffectEvent } from '@rocket.chat/fuselage-hooks';
 import type { KeyboardEvent } from 'react';
 import { useState } from 'react';
 
@@ -85,15 +85,15 @@ export const useCursor = <
   const [cursor, setCursor] = useState(initial);
   const visibilityHandler = useVisible();
   const [visibility, hide, show] = visibilityHandler;
-  const reset = useMutableCallback(() => setCursor(0));
-  const handleKeyUp = useMutableCallback((e: KeyboardEvent) => {
+  const reset = useEffectEvent(() => setCursor(0));
+  const handleKeyUp = useEffectEvent((e: KeyboardEvent) => {
     const { keyCode } = e;
     if (AnimatedVisibility.HIDDEN === visibility && keyCode === keyCodes.TAB) {
       return show();
     }
   });
 
-  const handleKeyDown = useMutableCallback((e: KeyboardEvent) => {
+  const handleKeyDown = useEffectEvent((e: KeyboardEvent) => {
     const isSelectableOption = ([, , , type]: T) => !type || type === 'option';
     const getLastIndex = () => findLastIndex(options, isSelectableOption);
 

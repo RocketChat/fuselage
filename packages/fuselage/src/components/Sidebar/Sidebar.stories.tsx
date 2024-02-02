@@ -358,25 +358,25 @@ export const Admin: ComponentStory<typeof Sidebar> = () => (
       </Box>
     </Box>
     <Divider />
-    <SidebarItem clickable>
+    <SidebarItem is='a' clickable href='#'>
       <Box display='flex' justifyContent='center' pb={8}>
         <Icon name='import' mi={4} size='x20' />
         Import
       </Box>
     </SidebarItem>
-    <SidebarItem clickable>
+    <SidebarItem is='a' clickable href='#'>
       <Box display='flex' justifyContent='center' pb={8}>
         <Icon name='user' mi={4} size='x20' />
         Users
       </Box>
     </SidebarItem>
-    <SidebarItem clickable>
+    <SidebarItem is='a' clickable href='#'>
       <Box display='flex' justifyContent='center' pb={8}>
         <Icon name='hashtag' mi={4} size='x20' />
         Rooms
       </Box>
     </SidebarItem>
-    <SidebarItem clickable>
+    <SidebarItem is='a' clickable href='#'>
       <Box display='flex' justifyContent='center' pb={8}>
         <Icon name='cube' mi={4} size='x20' />
         Apps
@@ -456,5 +456,15 @@ export const BannerVariations: ComponentStory<typeof SidebarBanner> = () => (
     <Divider />
     <SidebarBanner text='This is a danger banner variation' variant='danger' />
     <Divider />
+    <SidebarBanner
+      text='This is a banner with addon'
+      addon={<Icon name='warning' color='danger' size='x24' />}
+    />
+    <Divider />
+    <SidebarBanner
+      text='This is a banner with addon and onClose'
+      addon={<Icon name='warning' color='danger' size='x24' />}
+      onClose={action('click')}
+    />
   </>
 );

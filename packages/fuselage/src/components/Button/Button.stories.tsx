@@ -40,6 +40,32 @@ export const Default: ComponentStory<typeof Button> = () => (
   <Button onClick={action('click')}>Button</Button>
 );
 
+export const Loading: ComponentStory<typeof Button> = () => (
+  <Button loading onClick={action('click')}>
+    Button
+  </Button>
+);
+export const LoadingInteraction: ComponentStory<typeof Button> = () => {
+  const [isLoading, setIsLoading] = React.useState(false);
+  return (
+    <Button
+      icon='add-user'
+      loading={isLoading}
+      onClick={() => setIsLoading(!isLoading)}
+    >
+      Button
+    </Button>
+  );
+};
+
+LoadingInteraction.parameters = {
+  docs: {
+    description: {
+      story: 'Click the button to see the loading state.',
+    },
+  },
+};
+
 export const Variants: ComponentStory<typeof Button> = () => (
   <Margins all='x8'>
     <ButtonGroup>
@@ -68,7 +94,7 @@ export const Variants: ComponentStory<typeof Button> = () => (
 );
 
 export const Sizes: ComponentStory<typeof ButtonGroup> = () => (
-  <ButtonGroup marginBlockEnd={12}>
+  <ButtonGroup>
     <Button small>Small</Button>
     <Button medium>Medium</Button>
     <Button>Default</Button>

@@ -1,9 +1,11 @@
 // @ts-nocheck
-import {
-  useMutableCallback,
-  useResizeObserver,
-} from '@rocket.chat/fuselage-hooks';
-import type { ComponentProps, ElementType, ReactElement } from 'react';
+import { useEffectEvent, useResizeObserver } from '@rocket.chat/fuselage-hooks';
+import type {
+  AllHTMLAttributes,
+  ComponentProps,
+  ElementType,
+  ReactElement,
+} from 'react';
 import React, { useEffect, useRef, useMemo, useState } from 'react';
 
 import AnimatedVisibility from '../AnimatedVisibility';
@@ -37,7 +39,7 @@ type AutoCompleteProps = {
   error?: boolean;
   disabled?: boolean;
   multiple?: boolean;
-};
+} & Omit<AllHTMLAttributes<HTMLInputElement>, 'onChange'>;
 
 const getSelected = (
   value: string | string[],
@@ -64,6 +66,8 @@ export function AutoComplete({
   error,
   disabled,
   multiple,
+  onBlur: onBlurAction = () => {},
+  ...props
 }: AutoCompleteProps): ReactElement {
   const ref = useRef();
   const { ref: containerRef, borderBoxSize } = useResizeObserver();
@@ -72,7 +76,7 @@ export function AutoComplete({
     () => getSelected(value, options) || []
   );
 
-  const handleSelect = useMutableCallback(([currentValue]) => {
+  const handleSelect = useEffectEvent(([currentValue]) => {
     if (selected?.some((item) => item.value === currentValue)) {
       hide();
       return;
@@ -90,7 +94,7 @@ export function AutoComplete({
     hide();
   });
 
-  const handleRemove = useMutableCallback((event) => {
+  const handleRemove = useEffectEvent((event) => {
     event.stopPropagation();
     event.preventDefault();
 
@@ -115,13 +119,18 @@ export function AutoComplete({
   const [cursor, handleKeyDown, , reset, [optionsAreVisible, hide, show]] =
     useCursor(value, memoizedOptions, handleSelect);
 
+  const handleOnBlur = useEffectEvent((event) => {
+    hide();
+    onBlurAction(event);
+  });
+
   useEffect(reset, [filter]);
 
   return (
     <Box
       rcx-autocomplete
       ref={containerRef}
-      onClick={useMutableCallback(() => ref.current.focus())}
+      onClick={useEffectEvent(() => ref.current.focus())}
       flexGrow={1}
       className={useMemo(
         () => [error && 'invalid', disabled && 'disabled'],
@@ -134,15 +143,13 @@ export function AutoComplete({
         alignItems='center'
         flexWrap='wrap'
         margin='neg-x4'
-        role='listbox'
+        role='group'
       >
         <Margins all='x4'>
           <InputBox.Input
             ref={ref}
-            onChange={useMutableCallback((e) =>
-              setFilter(e.currentTarget.value)
-            )}
-            onBlur={hide}
+            onChange={useEffectEvent((e) => setFilter(e.currentTarget.value))}
+            onBlur={handleOnBlur}
             onFocus={show}
             onKeyDown={handleKeyDown}
             placeholder={
@@ -153,8 +160,9 @@ export function AutoComplete({
             order={1}
             rcx-input-box--undecorated
             value={filter}
+            {...props}
           />
-          {selected &&
+          {selected?.length > 0 &&
             selected.map((itemSelected) =>
               RenderSelected ? (
                 <RenderSelected
@@ -164,7 +172,6 @@ export function AutoComplete({
                 />
               ) : (
                 <Chip
-                  role='option'
                   key={itemSelected.value}
                   value={itemSelected.value}
                   label={itemSelected.label}
