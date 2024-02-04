@@ -80,6 +80,9 @@ export const MultiSelect = forwardRef(
     useEffect((): void => setInternalValue(value || []), [value]);
 
     const [currentOptionValue, setCurrentOption] = useState<SelectOption[0]>();
+    const [visibleOptions, setVisibleOptions] = useState(
+      AnimatedVisibility.HIDDEN
+    );
 
     const index = options.findIndex(
       (option) => getValue(option) === currentOptionValue
@@ -108,7 +111,6 @@ export const MultiSelect = forwardRef(
       }
       return [value, label];
     };
-
     const applyFilter = ([, option]: SelectOption) =>
       !filter || option.toLowerCase().includes(filter.toLowerCase());
 
@@ -142,10 +144,12 @@ export const MultiSelect = forwardRef(
     };
 
     const handleClick = useEffectEvent(() => {
-      if (visible === AnimatedVisibility.VISIBLE) {
+      if (visibleOptions === AnimatedVisibility.VISIBLE) {
+        setVisibleOptions(AnimatedVisibility.HIDDEN);
         return hide();
       }
       innerRef.current?.focus();
+      setVisibleOptions(AnimatedVisibility.VISIBLE);
       return show();
     });
 
