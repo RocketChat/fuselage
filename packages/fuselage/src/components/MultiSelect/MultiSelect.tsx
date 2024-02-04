@@ -149,6 +149,20 @@ export const MultiSelect = forwardRef(
       return show();
     });
 
+    useEffect(() => {
+      const handleWheel = (e: any) => {
+        if (visible === AnimatedVisibility.VISIBLE) {
+          e.preventDefault();
+        }
+      };
+
+      document.addEventListener('wheel', handleWheel, { passive: false });
+
+      return () => {
+        document.removeEventListener('wheel', handleWheel);
+      };
+    }, [visible]);
+
     return (
       <Box
         is='div'
