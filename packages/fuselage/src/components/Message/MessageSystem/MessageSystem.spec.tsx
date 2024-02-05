@@ -1,34 +1,29 @@
+import { composeStories } from '@storybook/testing-react';
 import { render } from '@testing-library/react';
+import { axe } from 'jest-axe';
 import React from 'react';
 
-import {
-  MessageSystem,
-  MessageSystemLeftContainer,
-  MessageSystemContainer,
-  MessageSystemBlock,
-  MessageSystemName,
-  MessageSystemBody,
-  MessageSystemTimestamp,
-} from '.';
+import * as stories from './MessageSystem.stories';
 
-it('renders without crashing', () => {
-  render(
-    <MessageSystem>
-      <MessageSystemLeftContainer />
-      <MessageSystemContainer>
-        <MessageSystemBlock>
-          <MessageSystemName>Haylie George</MessageSystemName>
-          <MessageSystemBody>
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-            nisi ut aliquip ex ea commodo consequat a duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-            veniam...
-          </MessageSystemBody>
-          <MessageSystemTimestamp>12:00 PM</MessageSystemTimestamp>
-        </MessageSystemBlock>
-      </MessageSystemContainer>
-    </MessageSystem>
-  );
-});
+const testCases = Object.values(composeStories(stories)).map((Story) => [
+  Story.storyName || 'Story',
+  Story,
+]);
+
+test.each(testCases)(
+  `renders %s without crashing`,
+  async (_storyname, Story) => {
+    const tree = render(<Story />);
+    expect(tree.baseElement).toMatchSnapshot();
+  }
+);
+
+test.each(testCases)(
+  '%s should have no a11y violations',
+  async (_storyname, Story) => {
+    const { container } = render(<Story />);
+
+    const results = await axe(container);
+    expect(results).toHaveNoViolations();
+  }
+);
