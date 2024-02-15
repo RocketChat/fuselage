@@ -6,18 +6,15 @@ import type { OverlayTriggerState } from 'react-stately';
 interface PopoverProps extends Omit<AriaPopoverProps, 'popoverRef'> {
   children: React.ReactNode;
   state: OverlayTriggerState;
-  className?: string;
-  popoverRef?: React.RefObject<HTMLDivElement>;
 }
 
 export function Popover(props: PopoverProps) {
-  const ref = React.useRef<HTMLDivElement>(null);
-  const { popoverRef = ref, state, children, isNonModal } = props;
+  const popoverRef = React.useRef<HTMLDivElement>(null);
+  const { state, children, isNonModal } = props;
 
   const { popoverProps, underlayProps } = usePopover(
     {
       ...props,
-      containerPadding: 8,
       popoverRef,
     },
     state
