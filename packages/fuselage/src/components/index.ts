@@ -55,6 +55,7 @@ export * from './SearchInput';
 export * from './Select';
 export * from './Slider';
 export * from './PaginatedSelect';
+export * from './Popover';
 export * from './SelectInput';
 export { default as Sidebar } from './Sidebar';
 export * from './Sidebar';

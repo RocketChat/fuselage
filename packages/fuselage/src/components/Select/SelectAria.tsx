@@ -14,8 +14,8 @@ import { useSelectState } from 'react-stately';
 import Box from '../Box/Box';
 import { Icon } from '../Icon';
 import { OptionContainer } from '../Options';
+import { Popover } from '../Popover';
 import { ListBox } from './Listbox';
-import { Popover } from './Popover';
 
 export { Item } from 'react-stately';
 
@@ -93,7 +93,13 @@ export const SelectAria = forwardRef(function SelectAria<T extends object>(
         />
       </Box>
       {state.isOpen && (
-        <Popover state={state} triggerRef={ref} placement='bottom' offset={4}>
+        <Popover
+          state={state}
+          triggerRef={ref}
+          placement='bottom'
+          offset={4}
+          containerPadding={8}
+        >
           <OptionContainer
             style={{
               width: borderBoxSize?.inlineSize,
