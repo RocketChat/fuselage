@@ -1,5 +1,7 @@
 @use '../../styles/lengths.scss';
 @use '../../styles/colors.scss';
+@import '../../styles/mixins/states.scss';
+@import '../../styles/mixins/shadows.scss';
 
 @mixin container() {
   &-container {
@@ -37,11 +39,14 @@
 }
 
 @mixin focus-state {
-  border: 1px solid transparent;
+  border-width: lengths.border-width('default');
+  border-style: solid;
+  border-color: transparent;
 
-  &:focus {
-    border: 1px solid colors.stroke(highlight);
+  @include on-focus-visible {
+    border-color: colors.stroke(highlight);
     border-radius: lengths.border-radius(medium);
-    box-shadow: 0 0 0 2px colors.stroke(extra-light-highlight);
+    outline: 0;
+    @include use-button-focus-shadow(colors.stroke(extra-light-highlight));
   }
 }
