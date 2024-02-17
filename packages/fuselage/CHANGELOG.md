@@ -1,5 +1,17 @@
 # Change Log
 
+## 0.47.0
+
+### Minor Changes
+
+- [#1287](https://github.com/RocketChat/fuselage/pull/1287) [`2863143ae`](https://github.com/RocketChat/fuselage/commit/2863143aee7e57df16d19ca86659a59800363b24) Thanks [@dougfabris](https://github.com/dougfabris)! - feat(fuselage): Popover
+
+### Patch Changes
+
+- [#1280](https://github.com/RocketChat/fuselage/pull/1280) [`8b8d43b74`](https://github.com/RocketChat/fuselage/commit/8b8d43b74da69094ea026aa041f8313be5c896b4) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): MessageSystem time fontScale
+
+- [#1288](https://github.com/RocketChat/fuselage/pull/1288) [`7390c0205`](https://github.com/RocketChat/fuselage/commit/7390c02057d52d3e62206667c5c26e0aedf70f26) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): Prevent focus state on clicking in Messages
+
 ## 0.46.0
 
 ### Minor Changes
