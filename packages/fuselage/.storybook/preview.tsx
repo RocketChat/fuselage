@@ -1,10 +1,9 @@
 import breakpointTokens from '@rocket.chat/fuselage-tokens/breakpoints.json';
-import { DarkModeProvider } from '@rocket.chat/layout';
 import { DocsPage } from '@storybook/addon-docs';
 import type { Parameters } from '@storybook/addons';
 import type { DecoratorFn } from '@storybook/react';
 import { themes } from '@storybook/theming';
-import React, { Suspense } from 'react';
+import React from 'react';
 import { useDarkMode } from 'storybook-dark-mode';
 
 import manifest from '../package.json';
@@ -84,12 +83,10 @@ export const decorators: DecoratorFn[] = [
     const dark = useDarkMode();
 
     return (
-      <Suspense fallback={null}>
-        <DarkModeProvider.default forcedDarkMode={dark}>
-          <PaletteStyleTag theme={dark ? 'dark' : 'light'} />
-          <Story />
-        </DarkModeProvider.default>
-      </Suspense>
+      <>
+        <PaletteStyleTag theme={dark ? 'dark' : 'light'} />
+        <Story />
+      </>
     );
   },
 ];
