@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.47.1
+
+### Patch Changes
+
+- [#1291](https://github.com/RocketChat/fuselage/pull/1291) [`7d61a2677`](https://github.com/RocketChat/fuselage/commit/7d61a26778253cf2e022a7d9422fdbe3aaedd9f2) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): `MessageNameContainer` missing forwardRef
+
 ## 0.47.0
 
 ### Minor Changes
