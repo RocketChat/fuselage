@@ -35,11 +35,11 @@
     "bump-next": "bump-next"
   },
   "devDependencies": {
-    "@rocket.chat/eslint-config-alt": "workspace:~",
-    "@rocket.chat/prettier-config": "workspace:~",
-    "bump": "workspace:~",
+    "@rocket.chat/eslint-config-alt": "^0.31.25",
+    "@rocket.chat/prettier-config": "^0.31.25",
+    "bump": "^0.31.25",
     "eslint": "~8.38.0",
-    "lint-all": "workspace:~",
+    "lint-all": "^0.31.25",
     "lint-staged": "~13.2.1",
     "prettier": "~2.8.7",
     "rimraf": "~3.0.2",
@@ -47,7 +47,7 @@
     "typescript": "~5.0.4"
   },
   "dependencies": {
-    "@rocket.chat/memo": "workspace:~"
+    "@rocket.chat/memo": "^0.31.25"
   },
   "eslintConfig": {
     "extends": "@rocket.chat/eslint-config-alt/typescript"
