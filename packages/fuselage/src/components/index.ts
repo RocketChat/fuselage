@@ -44,6 +44,7 @@ export * from './Options';
 export { default as Option } from './Option';
 export * from './Option';
 export * from './Pagination';
+export * from './PaletteStyleTag';
 export { default as PasswordInput } from './PasswordInput';
 export * from './StatusBullet';
 export { default as Position } from './Position';

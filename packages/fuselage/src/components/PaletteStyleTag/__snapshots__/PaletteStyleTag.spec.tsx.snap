@@ -1,0 +1,1047 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[PaletteStyleTag Rendering] renders CustomPrefix without crashing 1`] = `
+<body>
+  <div>
+    <div
+      style="display: flex; flex-direction: column; align-items: center; justify-content: center;"
+    >
+      <h2>
+        Custom prefix
+      </h2>
+      <h4>
+        --fuselage-color
+      </h4>
+      <div
+        style="width: 100%;"
+      >
+        <ul>
+          <li>
+            font-default
+          </li>
+          <li>
+            font-danger
+          </li>
+          <li>
+            font-info
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`[PaletteStyleTag Rendering] renders Dark without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-card__vertical rcx-card"
+    >
+      <div
+        class="rcx-card__header"
+      >
+        <i
+          aria-hidden="true"
+          class="rcx-box rcx-box--full rcx-framed-icon--neutral rcx-framed-icon rcx-icon--name-address-book rcx-icon rcx-css-1bepdyv"
+        >
+          
+        </i>
+        <h3
+          class="rcx-box rcx-box--full rcx-card__title rcx-css-1sfto34"
+        >
+          dark
+          -theme
+        </h3>
+      </div>
+      <div
+        class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
+      >
+        Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
+      </div>
+      <div
+        class="rcx-card__controls"
+      >
+        <button
+          class="rcx-box rcx-box--full rcx-button--medium rcx-button--primary rcx-button"
+          type="button"
+        >
+          <span
+            class="rcx-button--content"
+          >
+            Button
+          </span>
+        </button>
+        <button
+          class="rcx-box rcx-box--full rcx-button--medium rcx-button--danger rcx-button"
+          type="button"
+        >
+          <span
+            class="rcx-button--content"
+          >
+            Button
+          </span>
+        </button>
+        <button
+          class="rcx-box rcx-box--full rcx-button--medium rcx-button"
+          type="button"
+        >
+          <span
+            class="rcx-button--content"
+          >
+            Button
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`[PaletteStyleTag Rendering] renders HighContrast without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-card__vertical rcx-card"
+    >
+      <div
+        class="rcx-card__header"
+      >
+        <i
+          aria-hidden="true"
+          class="rcx-box rcx-box--full rcx-framed-icon--neutral rcx-framed-icon rcx-icon--name-address-book rcx-icon rcx-css-1bepdyv"
+        >
+          
+        </i>
+        <h3
+          class="rcx-box rcx-box--full rcx-card__title rcx-css-1sfto34"
+        >
+          high-contrast
+          -theme
+        </h3>
+      </div>
+      <div
+        class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
+      >
+        Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
+      </div>
+      <div
+        class="rcx-card__controls"
+      >
+        <button
+          class="rcx-box rcx-box--full rcx-button--medium rcx-button--primary rcx-button"
+          type="button"
+        >
+          <span
+            class="rcx-button--content"
+          >
+            Button
+          </span>
+        </button>
+        <button
+          class="rcx-box rcx-box--full rcx-button--medium rcx-button--danger rcx-button"
+          type="button"
+        >
+          <span
+            class="rcx-button--content"
+          >
+            Button
+          </span>
+        </button>
+        <button
+          class="rcx-box rcx-box--full rcx-button--medium rcx-button"
+          type="button"
+        >
+          <span
+            class="rcx-button--content"
+          >
+            Button
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`[PaletteStyleTag Rendering] renders Light without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-card__vertical rcx-card"
+    >
+      <div
+        class="rcx-card__header"
+      >
+        <i
+          aria-hidden="true"
+          class="rcx-box rcx-box--full rcx-framed-icon--neutral rcx-framed-icon rcx-icon--name-address-book rcx-icon rcx-css-1bepdyv"
+        >
+          
+        </i>
+        <h3
+          class="rcx-box rcx-box--full rcx-card__title rcx-css-1sfto34"
+        >
+          light
+          -theme
+        </h3>
+      </div>
+      <div
+        class="rcx-box rcx-box--full rcx-card__body rcx-css-1brox57"
+      >
+        Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
+      </div>
+      <div
+        class="rcx-card__controls"
+      >
+        <button
+          class="rcx-box rcx-box--full rcx-button--medium rcx-button--primary rcx-button"
+          type="button"
+        >
+          <span
+            class="rcx-button--content"
+          >
+            Button
+          </span>
+        </button>
+        <button
+          class="rcx-box rcx-box--full rcx-button--medium rcx-button--danger rcx-button"
+          type="button"
+        >
+          <span
+            class="rcx-button--content"
+          >
+            Button
+          </span>
+        </button>
+        <button
+          class="rcx-box rcx-box--full rcx-button--medium rcx-button"
+          type="button"
+        >
+          <span
+            class="rcx-button--content"
+          >
+            Button
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`[PaletteStyleTag Rendering] renders MessageDark without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-css-13wyzsd"
+    >
+      <div
+        class="rcx-message-divider"
+        role="separator"
+      >
+        <div
+          class="rcx-message-divider__bar"
+        />
+        <div
+          class="rcx-message-divider__wrapper"
+        >
+          <div
+            class="rcx-bubble rcx-box rcx-box--full  rcx-bubble--small"
+          >
+            <span
+              class="rcx-bubble__item rcx-bubble__item--secondary"
+            >
+              <span>
+                May, 24, 2020
+              </span>
+            </span>
+          </div>
+        </div>
+         
+        <div
+          class="rcx-message-divider__bar"
+        />
+      </div>
+      <div
+        class="rcx-message rcx-message--clickable customclass"
+      >
+        <div
+          class="rcx-box rcx-box--full rcx-message-container rcx-message-container--left"
+        >
+          <figure
+            class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x36"
+          >
+            <img
+              class="rcx-avatar__element rcx-avatar__element--x36"
+              src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAoACgDASIAAhEBAxEB/8QAGwAAAgIDAQAAAAAAAAAAAAAAAAcEBgIDBQj/xAAuEAACAQQAAwcEAQUAAAAAAAABAgMABAUREiExBhMUIkFRYQcWcYGhFTJSgpH/xAAYAQADAQEAAAAAAAAAAAAAAAACAwQBAP/EAB4RAAIBBQEBAQAAAAAAAAAAAAABAgMREiExE0HR/9oADAMBAAIRAxEAPwBuXuIkhBuMe5ib/AHQP49q4L3mLitryTLTSpOiHQI5k/HzXa/qbFOEudVTu1dumWvcTaNCZYZ7vU6g6LxqjOU/24dfs1Ouh9FnkMpd3Reeyx83hAxZZEhkdV9/MBrX71WGPvJcqrJBGveKATtuXXqNU0pu02bTHXD/AGvJAluyxxRd6F4x00o+NdKoVrjbzJdvVe1t5cVLc2ck8qjnohgpPtz2v7G6JtPQ2VJwjlcw+37mchpnK6GtIuv5NFWeTsLNPvxWTvpfjvOEfwKKzEVkSct2vscS/BIzSN0YRkeX81UpPqO8masJETu7OOccY4dswYFQeftv096XV5knuJGdm2T1+agvMXj8jEaHX905QihabvcbuS7X566mLWLwSY8PuRnk/u4eZ0deTl71Ef6hY+0yM88TzeNZY4luYwpVYyduOfrvhPTnr0pXSX9y5mCsyJMdyxxvwq599em+taItqCSNc90ChvZRUruUcT0JiO18Elpk7t8v41LWzacxkBSuvjQ/FFJayjDWrCTepAQ2vUH0oo/Jk3ovpwJJeVCP5CN+lFFaaMqy+nAyuChvrTI2kN9JAsi2ZOy4IBHMnkSCP+iqBexSWdxLazoUljJVlPUH2oorkV10pRc7b1zXb/hZOzuJvM86QWEXeELxOzHSIPcmiiiunVlF2RNTpRkrs//Z"
+            />
+          </figure>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-message-container"
+        >
+          <div
+            class="rcx-box rcx-box--full rcx-message-header"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-message-header__wrapper"
+            >
+              <span
+                class="rcx-box rcx-box--full rcx-message-header__name-container"
+              >
+                <span
+                  class="rcx-box rcx-box--full rcx-message-header__name"
+                >
+                  Haylie George
+                </span>
+                 
+                <span
+                  class="rcx-box rcx-box--full rcx-message-header__username"
+                >
+                  @haylie.george
+                </span>
+              </span>
+              <div
+                class="rcx-box rcx-box--full rcx-message-header__roles"
+              >
+                <span
+                  class="rcx-box rcx-box--full  rcx-tag  rcx-box rcx-box--full rcx-message-header__role"
+                >
+                  <span
+                    class="rcx-tag__inner"
+                  >
+                    Admin
+                  </span>
+                </span>
+                <span
+                  class="rcx-box rcx-box--full  rcx-tag  rcx-box rcx-box--full rcx-message-header__role"
+                >
+                  <span
+                    class="rcx-tag__inner"
+                  >
+                    User
+                  </span>
+                </span>
+                <span
+                  class="rcx-box rcx-box--full  rcx-tag  rcx-box rcx-box--full rcx-message-header__role"
+                >
+                  <span
+                    class="rcx-tag__inner"
+                  >
+                    Owner
+                  </span>
+                </span>
+              </div>
+              <span
+                class="rcx-box rcx-box--full rcx-message-header__time"
+              >
+                12:00 PM
+              </span>
+            </div>
+          </div>
+          <div
+            class="rcx-message-body"
+          >
+            Ut enim ad minim veniam,
+             
+            <span
+              class="rcx-box rcx-box--full rcx-message__highlight rcx-message__highlight--other rcx-message__highlight--clickable"
+            >
+              channel
+            </span>
+             
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat a duis aute irure dolor in
+             
+            <span
+              class="rcx-box rcx-box--full rcx-message__highlight rcx-message__highlight--critical rcx-message__highlight--clickable"
+            >
+              Haylie George
+            </span>
+             
+            <span
+              class="rcx-box rcx-box--full rcx-message__highlight rcx-message__highlight--critical rcx-message__highlight--clickable"
+            >
+              Haylie George
+            </span>
+             
+            <span
+              class="rcx-box rcx-box--full rcx-message__highlight rcx-message__highlight--critical rcx-message__highlight--clickable"
+            >
+              Haylie George
+            </span>
+             
+            <span
+              class="rcx-box rcx-box--full rcx-message__highlight rcx-message__highlight--critical rcx-message__highlight--clickable"
+            >
+              Haylie George
+            </span>
+             
+            <span
+              class="rcx-box rcx-box--full rcx-message__highlight rcx-message__highlight--critical rcx-message__highlight--clickable"
+            >
+              Haylie George
+            </span>
+             
+            commodo consequat a duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Consectetur adipiscing commodo consequat a duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Consectetur adipiscing
+             
+            <span
+              class="rcx-box rcx-box--full rcx-message__highlight rcx-message__highlight--critical"
+            >
+              highlighted text
+            </span>
+            touching text.
+             
+            <span
+              class="rcx-box rcx-box--full rcx-message__highlight rcx-message__highlight--relevant rcx-message__highlight--clickable"
+            >
+              all
+            </span>
+            . elit, sed do eiusmod tempor incididunt
+            <span
+              class="rcx-box rcx-box--full rcx-message__highlight rcx-message__highlight--link rcx-message__highlight--clickable"
+            >
+              Room Name
+            </span>
+            ut labore et dolore magna
+            <span
+              class="rcx-box rcx-box--full rcx-message__highlight rcx-message__highlight--other rcx-message__highlight--clickable"
+            >
+              Gabriel.Henriques
+            </span>
+            . aliqua. Ut enim ad minim veniam...
+          </div>
+          <div
+            class="rcx-box rcx-box--full rcx-message-block"
+          >
+            <div
+              class="rcx-message-reactions__container"
+            >
+              <div
+                class="rcx-message-reactions__reaction rcx-message-reactions__reaction--mine"
+              >
+                <div
+                  class="rcx-message-reactions__counter undefined"
+                >
+                  1
+                </div>
+              </div>
+              <div
+                class="rcx-message-reactions__reaction"
+              >
+                <div
+                  class="rcx-message-reactions__counter undefined"
+                >
+                  2
+                </div>
+              </div>
+              <div
+                class="rcx-message-reactions__reaction"
+              >
+                <div
+                  class="rcx-message-reactions__counter undefined"
+                >
+                  3
+                </div>
+              </div>
+              <div
+                class="rcx-message-reactions__reaction"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-message-toolbar__wrapper"
+        >
+          <div
+            class="rcx-box rcx-box--full rcx-message-toolbar"
+          >
+            <div
+              class="rcx-button-group rcx-button-group--align-start rcx-button-group--small"
+              role="toolbar"
+            >
+              <button
+                class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button  rcx-button-group__item"
+                type="button"
+              >
+                <i
+                  aria-hidden="true"
+                  class="rcx-box rcx-box--full rcx-icon--name-quote rcx-icon rcx-css-4pvxx3"
+                >
+                  
+                </i>
+              </button>
+              <button
+                class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button  rcx-button-group__item"
+                type="button"
+              >
+                <i
+                  aria-hidden="true"
+                  class="rcx-box rcx-box--full rcx-icon--name-clock rcx-icon rcx-css-4pvxx3"
+                >
+                  
+                </i>
+              </button>
+              <button
+                class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button  rcx-button-group__item"
+                type="button"
+              >
+                <i
+                  aria-hidden="true"
+                  class="rcx-box rcx-box--full rcx-icon--name-thread rcx-icon rcx-css-4pvxx3"
+                >
+                  
+                </i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`[PaletteStyleTag Rendering] renders MessageHighContrast without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-css-13wyzsd"
+    >
+      <div
+        class="rcx-message-divider"
+        role="separator"
+      >
+        <div
+          class="rcx-message-divider__bar"
+        />
+        <div
+          class="rcx-message-divider__wrapper"
+        >
+          <div
+            class="rcx-bubble rcx-box rcx-box--full  rcx-bubble--small"
+          >
+            <span
+              class="rcx-bubble__item rcx-bubble__item--secondary"
+            >
+              <span>
+                May, 24, 2020
+              </span>
+            </span>
+          </div>
+        </div>
+         
+        <div
+          class="rcx-message-divider__bar"
+        />
+      </div>
+      <div
+        class="rcx-message rcx-message--clickable customclass"
+      >
+        <div
+          class="rcx-box rcx-box--full rcx-message-container rcx-message-container--left"
+        >
+          <figure
+            class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x36"
+          >
+            <img
+              class="rcx-avatar__element rcx-avatar__element--x36"
+              src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAoACgDASIAAhEBAxEB/8QAGwAAAgIDAQAAAAAAAAAAAAAAAAcEBgIDBQj/xAAuEAACAQQAAwcEAQUAAAAAAAABAgMABAUREiExBhMUIkFRYQcWcYGhFTJSgpH/xAAYAQADAQEAAAAAAAAAAAAAAAACAwQBAP/EAB4RAAIBBQEBAQAAAAAAAAAAAAABAgMREiExE0HR/9oADAMBAAIRAxEAPwBuXuIkhBuMe5ib/AHQP49q4L3mLitryTLTSpOiHQI5k/HzXa/qbFOEudVTu1dumWvcTaNCZYZ7vU6g6LxqjOU/24dfs1Ouh9FnkMpd3Reeyx83hAxZZEhkdV9/MBrX71WGPvJcqrJBGveKATtuXXqNU0pu02bTHXD/AGvJAluyxxRd6F4x00o+NdKoVrjbzJdvVe1t5cVLc2ck8qjnohgpPtz2v7G6JtPQ2VJwjlcw+37mchpnK6GtIuv5NFWeTsLNPvxWTvpfjvOEfwKKzEVkSct2vscS/BIzSN0YRkeX81UpPqO8masJETu7OOccY4dswYFQeftv096XV5knuJGdm2T1+agvMXj8jEaHX905QihabvcbuS7X566mLWLwSY8PuRnk/u4eZ0deTl71Ef6hY+0yM88TzeNZY4luYwpVYyduOfrvhPTnr0pXSX9y5mCsyJMdyxxvwq599em+taItqCSNc90ChvZRUruUcT0JiO18Elpk7t8v41LWzacxkBSuvjQ/FFJayjDWrCTepAQ2vUH0oo/Jk3ovpwJJeVCP5CN+lFFaaMqy+nAyuChvrTI2kN9JAsi2ZOy4IBHMnkSCP+iqBexSWdxLazoUljJVlPUH2oorkV10pRc7b1zXb/hZOzuJvM86QWEXeELxOzHSIPcmiiiunVlF2RNTpRkrs//Z"
+            />
+          </figure>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-message-container"
+        >
+          <div
+            class="rcx-box rcx-box--full rcx-message-header"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-message-header__wrapper"
+            >
+              <span
+                class="rcx-box rcx-box--full rcx-message-header__name-container"
+              >
+                <span
+                  class="rcx-box rcx-box--full rcx-message-header__name"
+                >
+                  Haylie George
+                </span>
+                 
+                <span
+                  class="rcx-box rcx-box--full rcx-message-header__username"
+                >
+                  @haylie.george
+                </span>
+              </span>
+              <div
+                class="rcx-box rcx-box--full rcx-message-header__roles"
+              >
+                <span
+                  class="rcx-box rcx-box--full  rcx-tag  rcx-box rcx-box--full rcx-message-header__role"
+                >
+                  <span
+                    class="rcx-tag__inner"
+                  >
+                    Admin
+                  </span>
+                </span>
+                <span
+                  class="rcx-box rcx-box--full  rcx-tag  rcx-box rcx-box--full rcx-message-header__role"
+                >
+                  <span
+                    class="rcx-tag__inner"
+                  >
+                    User
+                  </span>
+                </span>
+                <span
+                  class="rcx-box rcx-box--full  rcx-tag  rcx-box rcx-box--full rcx-message-header__role"
+                >
+                  <span
+                    class="rcx-tag__inner"
+                  >
+                    Owner
+                  </span>
+                </span>
+              </div>
+              <span
+                class="rcx-box rcx-box--full rcx-message-header__time"
+              >
+                12:00 PM
+              </span>
+            </div>
+          </div>
+          <div
+            class="rcx-message-body"
+          >
+            Ut enim ad minim veniam,
+             
+            <span
+              class="rcx-box rcx-box--full rcx-message__highlight rcx-message__highlight--other rcx-message__highlight--clickable"
+            >
+              channel
+            </span>
+             
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat a duis aute irure dolor in
+             
+            <span
+              class="rcx-box rcx-box--full rcx-message__highlight rcx-message__highlight--critical rcx-message__highlight--clickable"
+            >
+              Haylie George
+            </span>
+             
+            <span
+              class="rcx-box rcx-box--full rcx-message__highlight rcx-message__highlight--critical rcx-message__highlight--clickable"
+            >
+              Haylie George
+            </span>
+             
+            <span
+              class="rcx-box rcx-box--full rcx-message__highlight rcx-message__highlight--critical rcx-message__highlight--clickable"
+            >
+              Haylie George
+            </span>
+             
+            <span
+              class="rcx-box rcx-box--full rcx-message__highlight rcx-message__highlight--critical rcx-message__highlight--clickable"
+            >
+              Haylie George
+            </span>
+             
+            <span
+              class="rcx-box rcx-box--full rcx-message__highlight rcx-message__highlight--critical rcx-message__highlight--clickable"
+            >
+              Haylie George
+            </span>
+             
+            commodo consequat a duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Consectetur adipiscing commodo consequat a duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Consectetur adipiscing
+             
+            <span
+              class="rcx-box rcx-box--full rcx-message__highlight rcx-message__highlight--critical"
+            >
+              highlighted text
+            </span>
+            touching text.
+             
+            <span
+              class="rcx-box rcx-box--full rcx-message__highlight rcx-message__highlight--relevant rcx-message__highlight--clickable"
+            >
+              all
+            </span>
+            . elit, sed do eiusmod tempor incididunt
+            <span
+              class="rcx-box rcx-box--full rcx-message__highlight rcx-message__highlight--link rcx-message__highlight--clickable"
+            >
+              Room Name
+            </span>
+            ut labore et dolore magna
+            <span
+              class="rcx-box rcx-box--full rcx-message__highlight rcx-message__highlight--other rcx-message__highlight--clickable"
+            >
+              Gabriel.Henriques
+            </span>
+            . aliqua. Ut enim ad minim veniam...
+          </div>
+          <div
+            class="rcx-box rcx-box--full rcx-message-block"
+          >
+            <div
+              class="rcx-message-reactions__container"
+            >
+              <div
+                class="rcx-message-reactions__reaction rcx-message-reactions__reaction--mine"
+              >
+                <div
+                  class="rcx-message-reactions__counter undefined"
+                >
+                  1
+                </div>
+              </div>
+              <div
+                class="rcx-message-reactions__reaction"
+              >
+                <div
+                  class="rcx-message-reactions__counter undefined"
+                >
+                  2
+                </div>
+              </div>
+              <div
+                class="rcx-message-reactions__reaction"
+              >
+                <div
+                  class="rcx-message-reactions__counter undefined"
+                >
+                  3
+                </div>
+              </div>
+              <div
+                class="rcx-message-reactions__reaction"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-message-toolbar__wrapper"
+        >
+          <div
+            class="rcx-box rcx-box--full rcx-message-toolbar"
+          >
+            <div
+              class="rcx-button-group rcx-button-group--align-start rcx-button-group--small"
+              role="toolbar"
+            >
+              <button
+                class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button  rcx-button-group__item"
+                type="button"
+              >
+                <i
+                  aria-hidden="true"
+                  class="rcx-box rcx-box--full rcx-icon--name-quote rcx-icon rcx-css-4pvxx3"
+                >
+                  
+                </i>
+              </button>
+              <button
+                class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button  rcx-button-group__item"
+                type="button"
+              >
+                <i
+                  aria-hidden="true"
+                  class="rcx-box rcx-box--full rcx-icon--name-clock rcx-icon rcx-css-4pvxx3"
+                >
+                  
+                </i>
+              </button>
+              <button
+                class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button  rcx-button-group__item"
+                type="button"
+              >
+                <i
+                  aria-hidden="true"
+                  class="rcx-box rcx-box--full rcx-icon--name-thread rcx-icon rcx-css-4pvxx3"
+                >
+                  
+                </i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`[PaletteStyleTag Rendering] renders MessageLight without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-css-13wyzsd"
+    >
+      <div
+        class="rcx-message-divider"
+        role="separator"
+      >
+        <div
+          class="rcx-message-divider__bar"
+        />
+        <div
+          class="rcx-message-divider__wrapper"
+        >
+          <div
+            class="rcx-bubble rcx-box rcx-box--full  rcx-bubble--small"
+          >
+            <span
+              class="rcx-bubble__item rcx-bubble__item--secondary"
+            >
+              <span>
+                May, 24, 2020
+              </span>
+            </span>
+          </div>
+        </div>
+         
+        <div
+          class="rcx-message-divider__bar"
+        />
+      </div>
+      <div
+        class="rcx-message rcx-message--clickable customclass"
+      >
+        <div
+          class="rcx-box rcx-box--full rcx-message-container rcx-message-container--left"
+        >
+          <figure
+            class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x36"
+          >
+            <img
+              class="rcx-avatar__element rcx-avatar__element--x36"
+              src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAoACgDASIAAhEBAxEB/8QAGwAAAgIDAQAAAAAAAAAAAAAAAAcEBgIDBQj/xAAuEAACAQQAAwcEAQUAAAAAAAABAgMABAUREiExBhMUIkFRYQcWcYGhFTJSgpH/xAAYAQADAQEAAAAAAAAAAAAAAAACAwQBAP/EAB4RAAIBBQEBAQAAAAAAAAAAAAABAgMREiExE0HR/9oADAMBAAIRAxEAPwBuXuIkhBuMe5ib/AHQP49q4L3mLitryTLTSpOiHQI5k/HzXa/qbFOEudVTu1dumWvcTaNCZYZ7vU6g6LxqjOU/24dfs1Ouh9FnkMpd3Reeyx83hAxZZEhkdV9/MBrX71WGPvJcqrJBGveKATtuXXqNU0pu02bTHXD/AGvJAluyxxRd6F4x00o+NdKoVrjbzJdvVe1t5cVLc2ck8qjnohgpPtz2v7G6JtPQ2VJwjlcw+37mchpnK6GtIuv5NFWeTsLNPvxWTvpfjvOEfwKKzEVkSct2vscS/BIzSN0YRkeX81UpPqO8masJETu7OOccY4dswYFQeftv096XV5knuJGdm2T1+agvMXj8jEaHX905QihabvcbuS7X566mLWLwSY8PuRnk/u4eZ0deTl71Ef6hY+0yM88TzeNZY4luYwpVYyduOfrvhPTnr0pXSX9y5mCsyJMdyxxvwq599em+taItqCSNc90ChvZRUruUcT0JiO18Elpk7t8v41LWzacxkBSuvjQ/FFJayjDWrCTepAQ2vUH0oo/Jk3ovpwJJeVCP5CN+lFFaaMqy+nAyuChvrTI2kN9JAsi2ZOy4IBHMnkSCP+iqBexSWdxLazoUljJVlPUH2oorkV10pRc7b1zXb/hZOzuJvM86QWEXeELxOzHSIPcmiiiunVlF2RNTpRkrs//Z"
+            />
+          </figure>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-message-container"
+        >
+          <div
+            class="rcx-box rcx-box--full rcx-message-header"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-message-header__wrapper"
+            >
+              <span
+                class="rcx-box rcx-box--full rcx-message-header__name-container"
+              >
+                <span
+                  class="rcx-box rcx-box--full rcx-message-header__name"
+                >
+                  Haylie George
+                </span>
+                 
+                <span
+                  class="rcx-box rcx-box--full rcx-message-header__username"
+                >
+                  @haylie.george
+                </span>
+              </span>
+              <div
+                class="rcx-box rcx-box--full rcx-message-header__roles"
+              >
+                <span
+                  class="rcx-box rcx-box--full  rcx-tag  rcx-box rcx-box--full rcx-message-header__role"
+                >
+                  <span
+                    class="rcx-tag__inner"
+                  >
+                    Admin
+                  </span>
+                </span>
+                <span
+                  class="rcx-box rcx-box--full  rcx-tag  rcx-box rcx-box--full rcx-message-header__role"
+                >
+                  <span
+                    class="rcx-tag__inner"
+                  >
+                    User
+                  </span>
+                </span>
+                <span
+                  class="rcx-box rcx-box--full  rcx-tag  rcx-box rcx-box--full rcx-message-header__role"
+                >
+                  <span
+                    class="rcx-tag__inner"
+                  >
+                    Owner
+                  </span>
+                </span>
+              </div>
+              <span
+                class="rcx-box rcx-box--full rcx-message-header__time"
+              >
+                12:00 PM
+              </span>
+            </div>
+          </div>
+          <div
+            class="rcx-message-body"
+          >
+            Ut enim ad minim veniam,
+             
+            <span
+              class="rcx-box rcx-box--full rcx-message__highlight rcx-message__highlight--other rcx-message__highlight--clickable"
+            >
+              channel
+            </span>
+             
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat a duis aute irure dolor in
+             
+            <span
+              class="rcx-box rcx-box--full rcx-message__highlight rcx-message__highlight--critical rcx-message__highlight--clickable"
+            >
+              Haylie George
+            </span>
+             
+            <span
+              class="rcx-box rcx-box--full rcx-message__highlight rcx-message__highlight--critical rcx-message__highlight--clickable"
+            >
+              Haylie George
+            </span>
+             
+            <span
+              class="rcx-box rcx-box--full rcx-message__highlight rcx-message__highlight--critical rcx-message__highlight--clickable"
+            >
+              Haylie George
+            </span>
+             
+            <span
+              class="rcx-box rcx-box--full rcx-message__highlight rcx-message__highlight--critical rcx-message__highlight--clickable"
+            >
+              Haylie George
+            </span>
+             
+            <span
+              class="rcx-box rcx-box--full rcx-message__highlight rcx-message__highlight--critical rcx-message__highlight--clickable"
+            >
+              Haylie George
+            </span>
+             
+            commodo consequat a duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Consectetur adipiscing commodo consequat a duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Consectetur adipiscing
+             
+            <span
+              class="rcx-box rcx-box--full rcx-message__highlight rcx-message__highlight--critical"
+            >
+              highlighted text
+            </span>
+            touching text.
+             
+            <span
+              class="rcx-box rcx-box--full rcx-message__highlight rcx-message__highlight--relevant rcx-message__highlight--clickable"
+            >
+              all
+            </span>
+            . elit, sed do eiusmod tempor incididunt
+            <span
+              class="rcx-box rcx-box--full rcx-message__highlight rcx-message__highlight--link rcx-message__highlight--clickable"
+            >
+              Room Name
+            </span>
+            ut labore et dolore magna
+            <span
+              class="rcx-box rcx-box--full rcx-message__highlight rcx-message__highlight--other rcx-message__highlight--clickable"
+            >
+              Gabriel.Henriques
+            </span>
+            . aliqua. Ut enim ad minim veniam...
+          </div>
+          <div
+            class="rcx-box rcx-box--full rcx-message-block"
+          >
+            <div
+              class="rcx-message-reactions__container"
+            >
+              <div
+                class="rcx-message-reactions__reaction rcx-message-reactions__reaction--mine"
+              >
+                <div
+                  class="rcx-message-reactions__counter undefined"
+                >
+                  1
+                </div>
+              </div>
+              <div
+                class="rcx-message-reactions__reaction"
+              >
+                <div
+                  class="rcx-message-reactions__counter undefined"
+                >
+                  2
+                </div>
+              </div>
+              <div
+                class="rcx-message-reactions__reaction"
+              >
+                <div
+                  class="rcx-message-reactions__counter undefined"
+                >
+                  3
+                </div>
+              </div>
+              <div
+                class="rcx-message-reactions__reaction"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-message-toolbar__wrapper"
+        >
+          <div
+            class="rcx-box rcx-box--full rcx-message-toolbar"
+          >
+            <div
+              class="rcx-button-group rcx-button-group--align-start rcx-button-group--small"
+              role="toolbar"
+            >
+              <button
+                class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button  rcx-button-group__item"
+                type="button"
+              >
+                <i
+                  aria-hidden="true"
+                  class="rcx-box rcx-box--full rcx-icon--name-quote rcx-icon rcx-css-4pvxx3"
+                >
+                  
+                </i>
+              </button>
+              <button
+                class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button  rcx-button-group__item"
+                type="button"
+              >
+                <i
+                  aria-hidden="true"
+                  class="rcx-box rcx-box--full rcx-icon--name-clock rcx-icon rcx-css-4pvxx3"
+                >
+                  
+                </i>
+              </button>
+              <button
+                class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button  rcx-button-group__item"
+                type="button"
+              >
+                <i
+                  aria-hidden="true"
+                  class="rcx-box rcx-box--full rcx-icon--name-thread rcx-icon rcx-css-4pvxx3"
+                >
+                  
+                </i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
