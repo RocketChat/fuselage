@@ -22288,7 +22288,7 @@ fsevents@^1.2.7:
   dependencies:
     hosted-git-info: ^2.8.9
     resolve: ^1.10.0
-    semver: 2 || 3 || 4 || 5
+    semver: ^5.7.2
     validate-npm-package-license: ^3.0.1
   checksum: 7999112efc35a6259bc22db460540cae06564aa65d0271e3bdfa86876d08b0e578b7b5b0028ee61b23f1cae9fc0e7847e4edc0948d3068a39a2a82853efc8499
   languageName: node
@@ -26153,15 +26153,6 @@ fsevents@^1.2.7:
     typescript: ~5.0.4
   languageName: unknown
   linkType: soft
-
-"semver@npm:2 || 3 || 4 || 5":
-  version: 5.7.1
-  resolution: "semver@npm:5.7.1"
-  bin:
-    semver: ./bin/semver
-  checksum: 57fd0acfd0bac382ee87cd52cd0aaa5af086a7dc8d60379dfe65fea491fb2489b6016400813930ecd61fd0952dae75c115287a1b16c234b1550887117744dfaf
-  languageName: node
-  linkType: hard
 
 "semver@npm:7.5.2":
   version: 7.5.2
