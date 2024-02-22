@@ -17,12 +17,12 @@ const themes = {
 
 export const PaletteStyleTag = memo(function PaletteStyleTag({
   theme = 'light',
-  id,
+  tagId = 'main-palette',
   prefix = '--rcx-color',
   selector,
 }: {
-  theme: Themes;
-  id?: string;
+  theme?: Themes;
+  tagId?: string;
   prefix?: string;
   selector?: string;
 }) {
@@ -32,7 +32,7 @@ export const PaletteStyleTag = memo(function PaletteStyleTag({
     <>
       {createPortal(
         theme === 'dark' ? palette + codeBlock : palette,
-        useCreateStyleContainer(id || 'main-palette')
+        useCreateStyleContainer(tagId)
       )}
     </>
   );
