@@ -8,9 +8,13 @@
     "font-on-danger": { "value": "{colors.r800}" },
     "warning": { "value": "{colors.y200}" },
     "font-on-warning": { "value": "{colors.y900}" },
+    "warning-2": { "value": "{colors.y100}" },
+    "font-on-warning-2": { "value": "{colors.n800}" },
     "service-1": { "value": "{colors.o200}" },
     "font-on-service-1": { "value": "{colors.o800}" },
     "service-2": { "value": "{colors.p200}" },
-    "font-on-service-2": { "value": "{colors.p600}" }
+    "font-on-service-2": { "value": "{colors.p600}" },
+    "service-3": { "value": "{colors.p700}" },
+    "font-on-service-3": { "value": "{colors.white}" }
   }
 }

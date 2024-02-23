@@ -1,0 +1,9 @@
+{
+  "badge": {
+    "level-0": { "value": "{colors.n400}" },
+    "level-1": { "value": "{colors.n700}" },
+    "level-2": { "value": "{colors.b500}" },
+    "level-3": { "value": "{colors.o500}" },
+    "level-4": { "value": "{colors.r500}" }
+  }
+}

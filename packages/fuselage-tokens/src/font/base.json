@@ -9,7 +9,7 @@
     "titlesLabels": { "value": "{colors.n900}" },
     "info": { "value": "{colors.b600}" },
     "danger": { "value": "{colors.r600}" },
-    "pure-white": { "value": "{colors.white}" },
-    "pure-black": { "value": "{colors.n800}" }
+    "pureWhite": { "value": "{colors.white}" },
+    "pureBlack": { "value": "{colors.n800}" }
   }
 }

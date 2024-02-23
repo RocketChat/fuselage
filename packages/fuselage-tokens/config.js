@@ -5,7 +5,7 @@ module.exports = {
   platforms: {
     js: {
       transformGroup: 'js',
-      buildPath: 'dist/',
+      buildPath: './',
       files: tokens.map((tokenCategory) => ({
         destination: `${tokenCategory}.js`,
         format: 'camelCase',
@@ -14,7 +14,7 @@ module.exports = {
     },
     json: {
       transformGroup: 'js',
-      buildPath: 'dist/',
+      buildPath: './',
       files: tokens.map((tokenCategory) => {
         const customFormat = `custom/${tokenCategory}-json`;
         return {
@@ -29,7 +29,7 @@ module.exports = {
     },
     mjs: {
       transformGroup: 'custom/mjs',
-      buildPath: 'dist/',
+      buildPath: './',
       files: tokens.map((tokenCategory) => {
         if (tokenCategory === 'colors') {
           return {
@@ -47,7 +47,7 @@ module.exports = {
     },
     scss: {
       transformGroup: 'scss',
-      buildPath: 'dist/',
+      buildPath: './',
       files: tokens.map((tokenCategory) => ({
         destination: `${tokenCategory}.scss`,
         format:

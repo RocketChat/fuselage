@@ -1,0 +1,10 @@
+{
+  "statusBullet": {
+    "online": { "value": "{colors.g800}" },
+    "away": { "value": "{colors.y800}" },
+    "busy": { "value": "{colors.r600}" },
+    "disabled": { "value": "{colors.o500}" },
+    "offline": { "value": "{colors.n700}" },
+    "loading": { "value": "{colors.n700}" }
+  }
+}

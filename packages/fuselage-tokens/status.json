@@ -1,0 +1,28 @@
+{
+  "status": {
+    "info": "#D1EBFE",
+    "font-on-info": "#095AD2",
+    "success": "#C0F6E4",
+    "font-on-success": "#148660",
+    "danger": "#FFC1C9",
+    "font-on-danger": "#9B1325",
+    "warning": "#FFECAD",
+    "font-on-warning": "#8E6300",
+    "warning-2": "#FFF8E0",
+    "font-on-warning-2": "#2F343D",
+    "service-1": "#FAD1B0",
+    "font-on-service-1": "#974809",
+    "service-2": "#EDD0F7",
+    "font-on-service-2": "#7F1B9F",
+    "service-3": "#5F1477",
+    "font-on-service-3": "#ffffff"
+  },
+  "statusBullet": {
+    "online": "#148660",
+    "away": "#AC892F",
+    "busy": "#D40C26",
+    "disabled": "#F38C39",
+    "offline": "#6C737A",
+    "loading": "#6C737A"
+  }
+}

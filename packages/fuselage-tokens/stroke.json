@@ -1,0 +1,13 @@
+{
+  "stroke": {
+    "extraLight": "#EBECEF",
+    "light": "#CBCED1",
+    "medium": "#9EA2A8",
+    "dark": "#6C737A",
+    "extraDark": "#2F343D",
+    "extraLightHighlight": "#D1EBFE",
+    "highlight": "#156FF5",
+    "extraLightError": "#FFC1C9",
+    "error": "#EC0D2A"
+  }
+}

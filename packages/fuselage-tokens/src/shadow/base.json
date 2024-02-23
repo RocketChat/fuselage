@@ -1,0 +1,6 @@
+{
+  "shadow": {
+    "highlight": { "value": "{colors.b200}" },
+    "danger": { "value": "{colors.r100}" }
+  }
+}

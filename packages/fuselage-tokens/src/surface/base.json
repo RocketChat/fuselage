@@ -9,6 +9,8 @@
     "selected": { "value": "{colors.n450}" },
     "dark": { "value": "{colors.n900}" },
     "featured": { "value": "{colors.p700}" },
-    "featured-hover": { "value": "{colors.p800}" }
+    "featuredHover": { "value": "{colors.p800}" },
+    "sidebar": { "value": "{colors.n400}" },
+    "overlay": { "value": "rgba(47, 52, 61, 0.5)" }
   }
 }
