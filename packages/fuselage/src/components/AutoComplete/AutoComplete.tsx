@@ -120,18 +120,32 @@ export function AutoComplete({
     useCursor(value, memoizedOptions, handleSelect);
 
   const handleOnBlur = useEffectEvent((event) => {
-    hide();
-    onBlurAction(event);
+    const isI = event.relatedTarget?.nodeName === 'I';
+    if (optionsAreVisible === AnimatedVisibility.VISIBLE && !isI) {
+      hide();
+      onBlurAction(event);
+    }
   });
 
   useEffect(reset, [filter]);
 
+  const handleIconClick = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    if (optionsAreVisible === AnimatedVisibility.VISIBLE) {
+      ref.current.blur();
+      hide();
+    } else {
+      ref.current.focus();
+      show();
+    }
+  };
   return (
     <Box
       rcx-autocomplete
       ref={containerRef}
-      onClick={useEffectEvent(() => ref.current.focus())}
       flexGrow={1}
+      onBlur={handleOnBlur}
       className={useMemo(
         () => [error && 'invalid', disabled && 'disabled'],
         [error, disabled]
@@ -149,7 +163,6 @@ export function AutoComplete({
           <InputBox.Input
             ref={ref}
             onChange={useEffectEvent((e) => setFilter(e.currentTarget.value))}
-            onBlur={handleOnBlur}
             onFocus={show}
             onKeyDown={handleKeyDown}
             placeholder={
@@ -191,6 +204,9 @@ export function AutoComplete({
                 ? 'cross'
                 : 'magnifier'
             }
+            style={{ cursor: 'pointer' }}
+            onClick={handleIconClick}
+            tabIndex='-1'
             size='x20'
           />
         }
