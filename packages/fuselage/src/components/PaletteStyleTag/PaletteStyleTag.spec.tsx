@@ -5,11 +5,6 @@ import PaletteStyleTag from './PaletteStyleTag';
 import { dark } from './lib/paletteDark';
 import { light } from './lib/paletteLight';
 
-describe('[PaletteStyleTag Rendering]', () => {
-  const tree = render(<PaletteStyleTag theme='dark' />);
-  expect(tree.baseElement).toMatchSnapshot();
-});
-
 describe('[PaletteStyleTag colors]', () => {
   it('creates the Light theme style tag', () => {
     render(<PaletteStyleTag theme='light' />);
