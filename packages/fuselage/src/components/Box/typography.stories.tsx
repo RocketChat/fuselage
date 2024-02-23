@@ -9,16 +9,13 @@ import {
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
-import { Box } from '../..';
+import { Box, Divider } from '../..';
 
 export default {
   title: 'Layout/Box/Typography',
   component: Box,
   parameters: {
     docs: {
-      description: {
-        component: 'Here is how rich content will be rendered, in details.',
-      },
       page: () => (
         <>
           <Title />
@@ -157,5 +154,43 @@ export const FontStyles: ComponentStory<typeof Box> = () => (
   <Box color='default'>
     <Box fontStyle='normal'>normal</Box>
     <Box fontStyle='italic'>italic</Box>
+  </Box>
+);
+
+export const TextTransform: ComponentStory<typeof Box> = () => (
+  <Box color='default'>
+    <Box textTransform='none'>none</Box>
+    <Box textTransform='uppercase'>uppercase</Box>
+    <Box textTransform='lowercase'>lowercase</Box>
+    <Box textTransform='capitalize'>capitalize</Box>
+  </Box>
+);
+
+export const WordBreak: ComponentStory<typeof Box> = () => (
+  <Box color='default'>
+    <Box wordBreak='break-word'>
+      break-word:
+      Breakwoooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooord
+    </Box>
+    <Divider />
+    <Box wordBreak='break-all'>
+      break-all:
+      Breakaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaall
+    </Box>
+  </Box>
+);
+
+export const withTruncatedText: ComponentStory<typeof Box> = () => (
+  <Box color='default'>
+    <Box
+      withTruncatedText
+      w='x120'
+      border='1px solid'
+      borderColor='stroke-dark'
+      borderRadius={4}
+      p={4}
+    >
+      This text is truncated.
+    </Box>
   </Box>
 );
