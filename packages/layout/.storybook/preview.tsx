@@ -1,17 +1,17 @@
+import { PaletteStyleTag } from '@rocket.chat/fuselage';
 import { DocsPage, DocsContainer } from '@storybook/addon-docs';
 import type { Parameters } from '@storybook/addons';
 import type { DecoratorFn } from '@storybook/react';
-import { themes } from '@storybook/theming';
 import { Suspense } from 'react';
 import { useDarkMode } from 'storybook-dark-mode';
 
 import manifest from '../package.json';
 import DarkModeProvider from '../src/DarkModeProvider';
 import logo from './logo.svg';
-
 import '@rocket.chat/fuselage/dist/fuselage.css';
 import '@rocket.chat/icons/dist/rocketchat.css';
 import '@rocket.chat/fuselage-polyfills';
+import { theme } from './theme';
 
 export const parameters: Parameters = {
   backgrounds: {
@@ -31,13 +31,13 @@ export const parameters: Parameters = {
   layout: 'fullscreen',
   darkMode: {
     dark: {
-      ...themes.dark,
+      ...theme.dark,
       brandTitle: manifest.name,
       brandImage: logo,
       brandUrl: manifest.homepage,
     },
     light: {
-      ...themes.normal,
+      ...theme.light,
       brandTitle: manifest.name,
       brandImage: logo,
       brandUrl: manifest.homepage,
@@ -53,6 +53,7 @@ export const decorators: DecoratorFn[] = [
       <Suspense fallback={null}>
         {/* <I18nextProvider i18n={getI18n()}> */}
         <DarkModeProvider forcedDarkMode={dark}>
+          <PaletteStyleTag theme={dark ? 'dark' : 'light'} />
           <Story />
         </DarkModeProvider>
         {/* </I18nextProvider> */}
