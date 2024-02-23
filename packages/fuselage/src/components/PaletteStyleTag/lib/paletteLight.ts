@@ -1,119 +1,131 @@
+import { badge } from '@rocket.chat/fuselage-tokens/badge.json';
+import { button } from '@rocket.chat/fuselage-tokens/button.json';
+import { font } from '@rocket.chat/fuselage-tokens/font.json';
+import { shadow } from '@rocket.chat/fuselage-tokens/shadow.json';
+import { status } from '@rocket.chat/fuselage-tokens/status.json';
+import { statusBullet } from '@rocket.chat/fuselage-tokens/statusBullet.json';
+import { stroke } from '@rocket.chat/fuselage-tokens/stroke.json';
+import { surface } from '@rocket.chat/fuselage-tokens/surface.json';
+
 export const palette = [
   {
     category: 'Stroke',
     description: "Use as component's outline, stroke, dividers",
     list: [
-      { name: 'stroke-extra-light', color: '#EBECEF' },
-      { name: 'stroke-light', color: '#CBCED1' },
-      { name: 'stroke-medium', color: '#9EA2A8' },
-      { name: 'stroke-dark', color: '#6C727A' },
-      { name: 'stroke-extra-dark', color: '#2F343D' },
-      { name: 'stroke-extra-light-highlight', color: '#D1EBFE' },
-      { name: 'stroke-highlight', color: '#156FF5' },
-      { name: 'stroke-extra-light-error', color: '#FFC1C9' },
-      { name: 'stroke-error', color: '#EC0D2A' },
+      { name: 'stroke-extra-light', color: stroke.extraLight },
+      { name: 'stroke-light', color: stroke.light },
+      { name: 'stroke-medium', color: stroke.medium },
+      { name: 'stroke-dark', color: stroke.dark },
+      { name: 'stroke-extra-dark', color: stroke.extraDark },
+      {
+        name: 'stroke-extra-light-highlight',
+        color: stroke.extraLightHighlight,
+      },
+      { name: 'stroke-highlight', color: stroke.highlight },
+      { name: 'stroke-extra-light-error', color: stroke.extraLightError },
+      { name: 'stroke-error', color: stroke.error },
     ],
   },
   {
     category: 'Surface',
     description: 'Use as a container on top of the background',
     list: [
-      { name: 'surface-light', color: '#FFFFFF' },
-      { name: 'surface-tint', color: '#F7F8FA' },
-      { name: 'surface-room', color: '#FFFFFF' },
-      { name: 'surface-neutral', color: '#E4E7EA' },
-      { name: 'surface-disabled', color: '#F7F8FA' },
-      { name: 'surface-hover', color: '#F2F3F5' },
-      { name: 'surface-selected', color: '#D7DBE0' },
-      { name: 'surface-dark', color: '#1F2329' },
-      { name: 'surface-featured', color: '#5F1477' },
-      { name: 'surface-featured-hover', color: '#4A105D' },
-      { name: 'surface-overlay', color: 'rgba(47, 52, 61, 0.5)' },
-      { name: 'surface-sidebar', color: '#E4E7EA' },
+      { name: 'surface-light', color: surface.light },
+      { name: 'surface-tint', color: surface.tint },
+      { name: 'surface-room', color: surface.room },
+      { name: 'surface-neutral', color: surface.neutral },
+      { name: 'surface-disabled', color: surface.disabled },
+      { name: 'surface-hover', color: surface.hover },
+      { name: 'surface-selected', color: surface.selected },
+      { name: 'surface-dark', color: surface.dark },
+      { name: 'surface-featured', color: surface.featured },
+      { name: 'surface-featured-hover', color: surface.featuredHover },
+      { name: 'surface-overlay', color: surface.overlay },
+      { name: 'surface-sidebar', color: surface.sidebar },
     ],
   },
   {
     category: 'Shadow',
     description: 'Use as a shadow color',
     list: [
-      { name: 'shadow-highlight', color: '#D1EBFE' },
-      { name: 'shadow-danger', color: '#FFE9EC' },
+      { name: 'shadow-highlight', color: shadow.highlight },
+      { name: 'shadow-danger', color: shadow.danger },
     ],
   },
   {
     category: 'Font',
     description: 'These should be applied according to surfaces',
     list: [
-      { name: 'font-white', color: '#FFFFFF' },
-      { name: 'font-disabled', color: '#CBCED1' },
-      { name: 'font-annotation', color: '#9EA2A8' },
-      { name: 'font-hint', color: '#6C737A' },
-      { name: 'font-secondary-info', color: '#6C737A' },
-      { name: 'font-default', color: '#2F343D' },
-      { name: 'font-titles-labels', color: '#1F2329' },
-      { name: 'font-info', color: '#095AD2' },
-      { name: 'font-danger', color: '#D40C26' },
-      { name: 'font-pure-black', color: '#2F343D' },
-      { name: 'font-pure-white', color: '#FFFFFF' },
+      { name: 'font-white', color: font.white },
+      { name: 'font-disabled', color: font.disabled },
+      { name: 'font-annotation', color: font.annotation },
+      { name: 'font-hint', color: font.hint },
+      { name: 'font-secondary-info', color: font.secondaryInfo },
+      { name: 'font-default', color: font.default },
+      { name: 'font-titles-labels', color: font.titlesLabels },
+      { name: 'font-info', color: font.info },
+      { name: 'font-danger', color: font.danger },
+      { name: 'font-pure-black', color: font.pureBlack },
+      { name: 'font-pure-white', color: font.pureWhite },
     ],
   },
   {
     category: 'Status',
     description: 'Status Background',
     list: [
-      { name: 'status-background-info', color: '#D1EBFE' },
-      { name: 'status-background-success', color: '#C0F6E4' },
-      { name: 'status-background-danger', color: '#FFC1C9' },
-      { name: 'status-background-warning', color: '#FFECAD' },
-      { name: 'status-background-warning-2', color: '#FFF8E0' },
+      { name: 'status-background-info', color: status.info },
+      { name: 'status-background-success', color: status.success },
+      { name: 'status-background-danger', color: status.danger },
+      { name: 'status-background-warning', color: status.warning },
+      { name: 'status-background-warning-2', color: status['warning-2'] },
       {
         name: 'status-background-service-1',
-        color: '#FAD1B0',
+        color: status['service-1'],
       },
       {
         name: 'status-background-service-2',
-        color: '#EDD0F7',
+        color: status['service-2'],
       },
       {
         name: 'status-background-service-3',
-        color: '#5F1477',
+        color: status['service-3'],
       },
     ],
   },
   {
     description: 'Status Font',
     list: [
-      { name: 'status-font-on-info', color: '#095AD2' },
-      { name: 'status-font-on-success', color: '#148660' },
-      { name: 'status-font-on-danger', color: '#9B1325' },
-      { name: 'status-font-on-warning', color: '#8E6300' },
-      { name: 'status-font-on-warning-2', color: '#2F343D' },
-      { name: 'status-font-on-service-1', color: '#974809' },
-      { name: 'status-font-on-service-2 ', color: '#7F1B9F' },
-      { name: 'status-font-on-service-3 ', color: '#FFFFFF' },
+      { name: 'status-font-on-info', color: status['font-on-info'] },
+      { name: 'status-font-on-success', color: status['font-on-success'] },
+      { name: 'status-font-on-danger', color: status['font-on-danger'] },
+      { name: 'status-font-on-warning', color: status['font-on-warning'] },
+      { name: 'status-font-on-warning-2', color: status['font-on-warning-2'] },
+      { name: 'status-font-on-service-1', color: status['font-on-service-1'] },
+      { name: 'status-font-on-service-2 ', color: status['font-on-service-2'] },
+      { name: 'status-font-on-service-3 ', color: status['font-on-service-3'] },
     ],
   },
   {
     category: 'Badge',
     description: 'Badge Background',
     list: [
-      { name: 'badge-background-level-0', color: '#E4E7EA' },
-      { name: 'badge-background-level-1', color: '#6C737A' },
-      { name: 'badge-background-level-2', color: '#156FF5' },
-      { name: 'badge-background-level-3', color: '#F38C39' },
-      { name: 'badge-background-level-4', color: '#EC0D2A' },
+      { name: 'badge-background-level-0', color: badge['level-0'] },
+      { name: 'badge-background-level-1', color: badge['level-1'] },
+      { name: 'badge-background-level-2', color: badge['level-2'] },
+      { name: 'badge-background-level-3', color: badge['level-3'] },
+      { name: 'badge-background-level-4', color: badge['level-4'] },
     ],
   },
   {
     category: 'Status Bullet',
     description: 'Used to show user status',
     list: [
-      { name: 'status-bullet-online', color: '#148660' },
-      { name: 'status-bullet-away', color: '#AC892F' },
-      { name: 'status-bullet-busy', color: '#D40C26' },
-      { name: 'status-bullet-disabled', color: '#F38C39' },
-      { name: 'status-bullet-offline', color: '#6C737A' },
-      { name: 'status-bullet-loading', color: '#6C737A' },
+      { name: 'status-bullet-online', color: statusBullet.online },
+      { name: 'status-bullet-away', color: statusBullet.away },
+      { name: 'status-bullet-busy', color: statusBullet.busy },
+      { name: 'status-bullet-disabled', color: statusBullet.disabled },
+      { name: 'status-bullet-offline', color: statusBullet.offline },
+      { name: 'status-bullet-loading', color: statusBullet.loading },
     ],
   },
   {
@@ -138,27 +150,27 @@ export const palette = [
     list: [
       {
         name: 'button-background-primary-default',
-        color: '#156FF5',
+        color: button.backgroundPrimaryDefault,
       },
       {
         name: 'button-background-primary-hover',
-        color: '#095AD2',
+        color: button.backgroundPrimaryHover,
       },
       {
         name: 'button-background-primary-press',
-        color: '#10529E',
+        color: button.backgroundPrimaryPress,
       },
       {
         name: 'button-background-primary-focus',
-        color: '#156FF5',
+        color: button.backgroundPrimaryFocus,
       },
       {
         name: 'button-background-primary-keyfocus',
-        color: '#156FF5',
+        color: button.backgroundPrimaryKeyfocus,
       },
       {
         name: 'button-background-primary-disabled',
-        color: '#D1EBFE',
+        color: button.backgroundPrimaryDisabled,
       },
     ],
   },
@@ -167,27 +179,27 @@ export const palette = [
     list: [
       {
         name: 'button-background-secondary-default',
-        color: '#E4E7EA',
+        color: button.backgroundSecondaryDefault,
       },
       {
         name: 'button-background-secondary-hover',
-        color: '#CBCED1',
+        color: button.backgroundSecondaryHover,
       },
       {
         name: 'button-background-secondary-press',
-        color: '#9EA2A8',
+        color: button.backgroundSecondaryPress,
       },
       {
         name: 'button-background-secondary-focus',
-        color: '#E4E7EA',
+        color: button.backgroundSecondaryFocus,
       },
       {
         name: 'button-background-secondary-keyfocus',
-        color: '#E4E7EA',
+        color: button.backgroundSecondaryKeyfocus,
       },
       {
         name: 'button-background-secondary-disabled',
-        color: '#EEEFF1',
+        color: button.backgroundSecondaryDisabled,
       },
     ],
   },
@@ -196,27 +208,27 @@ export const palette = [
     list: [
       {
         name: 'button-background-secondary-danger-default',
-        color: '#E4E7EA',
+        color: button.backgroundSecondaryDangerDefault,
       },
       {
         name: 'button-background-secondary-danger-hover',
-        color: '#CBCED1',
+        color: button.backgroundSecondaryDangerHover,
       },
       {
         name: 'button-background-secondary-danger-press',
-        color: '#9EA2A8',
+        color: button.backgroundSecondaryDangerPress,
       },
       {
         name: 'button-background-secondary-danger-focus',
-        color: '#E4E7EA',
+        color: button.backgroundSecondaryDangerFocus,
       },
       {
         name: 'button-background-secondary-danger-keyfocus',
-        color: '#E4E7EA',
+        color: button.backgroundSecondaryDangerKeyfocus,
       },
       {
         name: 'button-background-secondary-danger-disabled',
-        color: '#EEEFF1',
+        color: button.backgroundDangerDisabled,
       },
     ],
   },
@@ -225,27 +237,27 @@ export const palette = [
     list: [
       {
         name: 'button-background-danger-default',
-        color: '#EC0D2A',
+        color: button.backgroundDangerDefault,
       },
       {
         name: 'button-background-danger-hover',
-        color: '#D40C26',
+        color: button.backgroundDangerHover,
       },
       {
         name: 'button-background-danger-press',
-        color: '#BB0B21',
+        color: button.backgroundDangerPress,
       },
       {
         name: 'button-background-danger-focus',
-        color: '#EC0D2A',
+        color: button.backgroundDangerFocus,
       },
       {
         name: 'button-background-danger-keyfocus',
-        color: '#EC0D2A',
+        color: button.backgroundDangerKeyfocus,
       },
       {
         name: 'button-background-danger-disabled',
-        color: '#FFC1C9',
+        color: button.backgroundDangerDisabled,
       },
     ],
   },
@@ -254,54 +266,63 @@ export const palette = [
     list: [
       {
         name: 'button-background-success-default',
-        color: '#148660',
+        color: button.backgroundSuccessDefault,
       },
       {
         name: 'button-background-success-hover',
-        color: '#106D4F',
+        color: button.backgroundSuccessHover,
       },
       {
         name: 'button-background-success-press',
-        color: '#0D5940',
+        color: button.backgroundSuccessPress,
       },
-      { name: 'button-background-success-focus', color: '#148660' },
+      {
+        name: 'button-background-success-focus',
+        color: button.backgroundSuccessFocus,
+      },
       {
         name: 'button-background-success-keyfocus',
-        color: '#148660',
+        color: button.backgroundSuccessKeyfocus,
       },
       {
         name: 'button-background-success-disabled',
-        color: '#C0F6E4',
+        color: button.backgroundSuccessDisabled,
       },
     ],
   },
   {
     description: 'Font',
     list: [
-      { name: 'button-font-on-primary', color: '#FFFFFF' },
+      { name: 'button-font-on-primary', color: button.fontOnPrimary },
       {
         name: 'button-font-on-primary-disabled',
-        color: '#FFFFFF',
+        color: button.fontOnPrimaryDisabled,
       },
-      { name: 'button-font-on-secondary', color: '#1F2329' },
+      {
+        name: 'button-font-on-secondary',
+        color: button.fontOnSecondary,
+      },
       {
         name: 'button-font-on-secondary-disabled',
-        color: '#CBCED1',
+        color: button.fontOnSecondaryDisabled,
       },
-      { name: 'button-font-on-secondary-danger', color: '#BB0B21' },
+      {
+        name: 'button-font-on-secondary-danger',
+        color: button.fontOnSecondaryDanger,
+      },
       {
         name: 'button-font-on-secondary-danger-disabled',
-        color: '#F98F9D',
+        color: button.onSecondaryDangerDisabled,
       },
-      { name: 'button-font-on-danger', color: '#FFFFFF' },
+      { name: 'button-font-on-danger', color: button.fontOnDanger },
       {
         name: 'button-font-on-danger-disabled',
-        color: '#FFFFFF',
+        color: button.fontOnDangerDisabled,
       },
-      { name: 'button-font-on-success', color: '#FFFFFF' },
+      { name: 'button-font-on-success', color: button.fontOnSuccess },
       {
         name: 'button-font-on-success-disabled',
-        color: '#FFFFFF',
+        color: button.fontOnSuccessDisabled,
       },
     ],
   },
