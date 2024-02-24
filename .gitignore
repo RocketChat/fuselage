@@ -18,3 +18,4 @@ storybook-static/
 **/.storybook/jest-results.json
 **/bundle-report.html
 .env
+.gitpod.yml

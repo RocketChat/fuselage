@@ -17,6 +17,8 @@ $toggle-switch-border-radius: theme(
     @extend %selection-button__fake;
     width: lengths.size(2 * 20);
 
+    transition: background-color 0.3s ease;
+
     border-radius: $toggle-switch-border-radius;
   }
 
@@ -28,6 +30,7 @@ $toggle-switch-border-radius: theme(
     height: lengths.size(20) - 2 * lengths.border-width(default, rem);
 
     content: '';
+    transition: inset-inline-start 0.3s ease;
 
     border-radius: $toggle-switch-border-radius;
 
