@@ -77,14 +77,14 @@ export function AutoComplete({
   );
 
   const handleSelect = useEffectEvent(([currentValue]) => {
-    if (selected?.some((item) => item.value === currentValue)) {
-      hide();
-      return;
-    }
+    if (!currentValue) return; // Exit early if no value is selected
 
     if (multiple) {
+      const newValue = Array.isArray(value)
+        ? [...value, currentValue]
+        : [currentValue];
       setSelected([...selected, ...getSelected(currentValue, options)]);
-      onChange([...value, currentValue]);
+      onChange(newValue);
     } else {
       setSelected(getSelected(currentValue, options));
       onChange(currentValue);
@@ -98,13 +98,12 @@ export function AutoComplete({
     event.stopPropagation();
     event.preventDefault();
 
-    const filtered = selected.filter(
-      (item) => item.value !== event.currentTarget.value
-    );
+    const removedValue = event.currentTarget.value;
 
-    const filteredValue = value.filter(
-      (item) => item !== event.currentTarget.value
-    );
+    const filtered = selected.filter((item) => item.value !== removedValue);
+    const filteredValue = Array.isArray(value)
+      ? value.filter((item) => item !== removedValue)
+      : [];
 
     setSelected(filtered);
     onChange(filteredValue);
