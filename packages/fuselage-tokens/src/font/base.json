@@ -1,15 +1,43 @@
 {
   "font": {
-    "white": { "value": "{colors.white}" },
-    "disabled": { "value": "{colors.n500}" },
-    "annotation": { "value": "{colors.n600}" },
-    "hint": { "value": "{colors.n700}" },
-    "secondaryInfo": { "value": "{colors.n700}" },
-    "default": { "value": "{colors.n800}" },
-    "titlesLabels": { "value": "{colors.n900}" },
-    "info": { "value": "{colors.b600}" },
-    "danger": { "value": "{colors.r600}" },
-    "pureWhite": { "value": "{colors.white}" },
-    "pureBlack": { "value": "{colors.n800}" }
+    "light": {
+      "white": { "value": "{colors.white}" },
+      "disabled": { "value": "{colors.n500}" },
+      "annotation": { "value": "{colors.n600}" },
+      "hint": { "value": "{colors.n700}" },
+      "secondaryInfo": { "value": "{colors.n700}" },
+      "default": { "value": "{colors.n800}" },
+      "titlesLabels": { "value": "{colors.n900}" },
+      "info": { "value": "{colors.b600}" },
+      "danger": { "value": "{colors.r600}" },
+      "pureWhite": { "value": "{colors.white}" },
+      "pureBlack": { "value": "{colors.n800}" }
+    },
+    "high-contrast": {
+      "white": { "value": "{colors.white}" },
+      "disabled": { "value": "{colors.n500}" },
+      "annotation": { "value": "{colors.n900}" },
+      "hint": { "value": "{colors.n900}" },
+      "secondaryInfo": { "value": "{colors.n900}" },
+      "default": { "value": "{colors.n900}" },
+      "titlesLabels": { "value": "{colors.n900}" },
+      "info": { "value": "{colors.b800}" },
+      "danger": { "value": "{colors.r800}" },
+      "pureWhite": { "value": "{colors.white}" },
+      "pureBlack": { "value": "{colors.n900}" }
+    },
+    "dark": {
+      "white": { "value": "#2F343D" },
+      "disabled": { "value": "#60646C" },
+      "annotation": { "value": "#9EA2A8" },
+      "hint": { "value": "#9EA2A8" },
+      "secondaryInfo": { "value": "#9EA2A8" },
+      "default": { "value": "#C1C7D0" },
+      "titlesLabels": { "value": "#F2F3F5" },
+      "info": { "value": "#739EDE" },
+      "danger": { "value": "#D88892" },
+      "pureWhite": { "value": "{colors.white}" },
+      "pureBlack": { "value": "{colors.n900}" }
+    }
   }
 }

@@ -118,11 +118,15 @@ StyleDictionary.registerFormat({
     const exp = /[a-z]+\/([a-z]+)\/[a-z]+.json/i;
     const [, group] = dictionary.allTokens[0].filePath.match(exp);
     const newPaletteGroup = [
+      'badge',
       'background',
       'surface',
       'stroke',
+      'shadow',
       'button',
-      'text',
+      'font',
+      'status',
+      'statusbullet',
     ];
 
     if (newPaletteGroup.includes(group)) {

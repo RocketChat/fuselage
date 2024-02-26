@@ -1,16 +1,46 @@
 {
   "surface": {
-    "light": { "value": "{colors.white}" },
-    "tint": { "value": "{colors.n100}" },
-    "room": { "value": "{colors.white}" },
-    "neutral": { "value": "{colors.n400}" },
-    "disabled": { "value": "{colors.n100}" },
-    "hover": { "value": "{colors.n200}" },
-    "selected": { "value": "{colors.n450}" },
-    "dark": { "value": "{colors.n900}" },
-    "featured": { "value": "{colors.p700}" },
-    "featuredHover": { "value": "{colors.p800}" },
-    "sidebar": { "value": "{colors.n400}" },
-    "overlay": { "value": "rgba(47, 52, 61, 0.5)" }
+    "light": {
+      "light": { "value": "{colors.white}" },
+      "tint": { "value": "{colors.n100}" },
+      "room": { "value": "{colors.white}" },
+      "neutral": { "value": "{colors.n400}" },
+      "disabled": { "value": "{colors.n100}" },
+      "hover": { "value": "{colors.n200}" },
+      "selected": { "value": "{colors.n450}" },
+      "dark": { "value": "{colors.n900}" },
+      "featured": { "value": "{colors.p700}" },
+      "featuredHover": { "value": "{colors.p800}" },
+      "sidebar": { "value": "{colors.n400}" },
+      "overlay": { "value": "rgba(47, 52, 61, 0.5)" }
+    },
+    "high-contrast": {
+      "light": { "value": "{colors.white}" },
+      "tint": { "value": "{colors.n100}" },
+      "room": { "value": "{colors.white}" },
+      "neutral": { "value": "{colors.n400}" },
+      "disabled": { "value": "{colors.n100}" },
+      "hover": { "value": "{colors.n200}" },
+      "selected": { "value": "{colors.n450}" },
+      "dark": { "value": "{colors.n900}" },
+      "featured": { "value": "{colors.p700}" },
+      "featuredHover": { "value": "{colors.p800}" },
+      "sidebar": { "value": "{colors.n400}" },
+      "overlay": { "value": "rgba(47, 52, 61, 0.5)" }
+    },
+    "dark": {
+      "light": { "value": "#262931" },
+      "tint": { "value": "#1F2329" },
+      "room": { "value": "#1F2329" },
+      "neutral": { "value": "#2D3039" },
+      "disabled": { "value": "#24272E" },
+      "hover": { "value": "#1A1E23" },
+      "selected": { "value": "#4C5362" },
+      "dark": { "value": "#E4E7EA" },
+      "featured": { "value": "#5F1477" },
+      "featuredHover": { "value": "#4A105D" },
+      "sidebar": { "value": "#2F343D" },
+      "overlay": { "value": "rgba(0, 0, 0, 0.6)" }
+    }
   }
 }

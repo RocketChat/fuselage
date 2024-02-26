@@ -5,7 +5,7 @@ module.exports = {
   platforms: {
     js: {
       transformGroup: 'js',
-      buildPath: './',
+      buildPath: 'dist/',
       files: tokens.map((tokenCategory) => ({
         destination: `${tokenCategory}.js`,
         format: 'camelCase',
@@ -14,7 +14,7 @@ module.exports = {
     },
     json: {
       transformGroup: 'js',
-      buildPath: './',
+      buildPath: 'dist/',
       files: tokens.map((tokenCategory) => {
         const customFormat = `custom/${tokenCategory}-json`;
         return {
@@ -23,13 +23,15 @@ module.exports = {
             tokenCategory === 'breakpoints' || tokenCategory === 'colors'
               ? customFormat
               : 'json/nested',
-          filter: (token) => token.filePath.includes(tokenCategory),
+          filter: (token) =>
+            // console.log(token.filePath.includes(tokenCategory), tokenCategory);
+            token.filePath.includes(tokenCategory),
         };
       }),
     },
     mjs: {
       transformGroup: 'custom/mjs',
-      buildPath: './',
+      buildPath: 'dist/',
       files: tokens.map((tokenCategory) => {
         if (tokenCategory === 'colors') {
           return {
@@ -47,7 +49,7 @@ module.exports = {
     },
     scss: {
       transformGroup: 'scss',
-      buildPath: './',
+      buildPath: 'dist/',
       files: tokens.map((tokenCategory) => ({
         destination: `${tokenCategory}.scss`,
         format:
