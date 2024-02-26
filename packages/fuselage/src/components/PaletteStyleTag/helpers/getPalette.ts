@@ -3,7 +3,7 @@ import { button } from '@rocket.chat/fuselage-tokens/dist/button.json';
 import { font } from '@rocket.chat/fuselage-tokens/dist/font.json';
 import { shadow } from '@rocket.chat/fuselage-tokens/dist/shadow.json';
 import { status } from '@rocket.chat/fuselage-tokens/dist/status.json';
-import { statusBullet } from '@rocket.chat/fuselage-tokens/dist/statusbullet.json';
+import { statusbullet } from '@rocket.chat/fuselage-tokens/dist/statusbullet.json';
 import { stroke } from '@rocket.chat/fuselage-tokens/dist/stroke.json';
 import { surface } from '@rocket.chat/fuselage-tokens/dist/surface.json';
 
@@ -14,9 +14,9 @@ export const getTokens = (theme: Themes) => {
     badge: badge[theme],
     button: button[theme],
     font: font[theme],
-    shadow,
+    shadow: shadow[theme],
     status: status[theme],
-    statusBullet: statusBullet[theme],
+    statusbullet: statusbullet[theme],
     stroke: stroke[theme],
     surface: surface[theme],
   };
@@ -25,7 +25,7 @@ export const getTokens = (theme: Themes) => {
 };
 
 export const getThemePalette = (theme: Themes) => {
-  const { badge, button, font, shadow, status, statusBullet, stroke, surface } =
+  const { badge, button, font, shadow, status, statusbullet, stroke, surface } =
     getTokens(theme);
 
   const palette = [
@@ -71,6 +71,16 @@ export const getThemePalette = (theme: Themes) => {
       list: [
         { name: 'shadow-highlight', color: shadow.highlight },
         { name: 'shadow-danger', color: shadow.danger },
+        { name: 'shadow-elevation-border', color: shadow['elevation-border'] },
+        { name: 'shadow-elevation-1', color: shadow['elevation-1'] },
+        {
+          name: 'shadow-elevation-2x',
+          color: shadow['elevation-2x'],
+        },
+        {
+          name: 'shadow-elevation-2y',
+          color: shadow['elevation-2y'],
+        },
       ],
     },
     {
@@ -153,28 +163,12 @@ export const getThemePalette = (theme: Themes) => {
       category: 'Status Bullet',
       description: 'Used to show user status',
       list: [
-        { name: 'status-bullet-online', color: statusBullet.online },
-        { name: 'status-bullet-away', color: statusBullet.away },
-        { name: 'status-bullet-busy', color: statusBullet.busy },
-        { name: 'status-bullet-disabled', color: statusBullet.disabled },
-        { name: 'status-bullet-offline', color: statusBullet.offline },
-        { name: 'status-bullet-loading', color: statusBullet.loading },
-      ],
-    },
-    {
-      category: 'Elevation',
-      description: 'Elevation border and shadow levels',
-      list: [
-        { name: 'shadow-elevation-border', color: '#EBECEF' },
-        { name: 'shadow-elevation-1', color: 'rgba(47, 52, 61, 0.1)' },
-        {
-          name: 'shadow-elevation-2x',
-          color: 'rgba(47, 52, 61, 0.08)',
-        },
-        {
-          name: 'shadow-elevation-2y',
-          color: 'rgba(47, 52, 61, 0.12)',
-        },
+        { name: 'status-bullet-online', color: statusbullet.online },
+        { name: 'status-bullet-away', color: statusbullet.away },
+        { name: 'status-bullet-busy', color: statusbullet.busy },
+        { name: 'status-bullet-disabled', color: statusbullet.disabled },
+        { name: 'status-bullet-offline', color: statusbullet.offline },
+        { name: 'status-bullet-loading', color: statusbullet.loading },
       ],
     },
     {

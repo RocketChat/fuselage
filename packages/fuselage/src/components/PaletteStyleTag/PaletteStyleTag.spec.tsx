@@ -34,7 +34,6 @@ describe('[PaletteStyleTag colors]', () => {
   it('creates tag with the given selector', () => {
     render(<PaletteStyleTag theme='light' selector='.test' />);
     const style = document.querySelector('#main-palette');
-    console.log(style?.innerHTML);
     expect(style?.innerHTML).toContain('.test {');
   });
 });
