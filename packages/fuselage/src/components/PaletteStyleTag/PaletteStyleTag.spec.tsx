@@ -2,8 +2,7 @@ import { render } from '@testing-library/react';
 import React from 'react';
 
 import PaletteStyleTag from './PaletteStyleTag';
-import { dark } from './lib/paletteDark';
-import { light } from './lib/paletteLight';
+import { dark, light } from './lib/themePalettes';
 
 describe('[PaletteStyleTag colors]', () => {
   it('creates the Light theme style tag', () => {
