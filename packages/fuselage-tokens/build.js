@@ -126,7 +126,7 @@ StyleDictionary.registerFormat({
       'button',
       'font',
       'status',
-      'statusbullet',
+      'statusBullet',
     ];
 
     if (newPaletteGroup.includes(group)) {

@@ -1,5 +1,5 @@
 {
-  "statusbullet": {
+  "statusBullet": {
     "light": {
       "online": { "value": "{colors.g800}" },
       "away": { "value": "{colors.y800}" },
