@@ -4,9 +4,7 @@ import { createPortal } from 'react-dom';
 import { convertToCss } from './helpers/convertToCss';
 import { useCreateStyleContainer } from './hooks/useCreateStyleContainer';
 import { codeBlock } from './lib/codeBlockStyles';
-import { dark } from './lib/paletteDark';
-import { highContrast } from './lib/paletteHighContrast';
-import { light } from './lib/paletteLight';
+import { dark, highContrast, light } from './lib/themePalettes';
 import type { Themes } from './types/themes';
 
 const themes = {
