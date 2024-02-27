@@ -33,7 +33,7 @@ export default {
     docs: {
       description: {
         component:
-          'Style tag to handle the theme of the application. Import `PaletteStyleTag` and use it on the application informing the desired theme. <br /> Toggle the theme on Control panel to see the color changes.',
+          "Style tag to handle the theme of the application.  <br /> Import `PaletteStyleTag` and use it on the application informing the desired theme. <br /> Toggle the theme on Storybook's Control panel to see the color changes.",
       },
       page: () => (
         <>
