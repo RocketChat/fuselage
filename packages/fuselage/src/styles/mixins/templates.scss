@@ -1,0 +1,18 @@
+@use '../colors.scss';
+@use '../lengths.scss';
+
+@import './shadows.scss';
+@import './states.scss';
+
+@mixin focus-state {
+  border-width: lengths.border-width('default');
+  border-style: solid;
+  border-color: transparent;
+
+  @include on-focus-visible {
+    border-color: colors.stroke(highlight);
+    border-radius: lengths.border-radius(medium);
+    outline: 0;
+    @include use-button-focus-shadow(colors.stroke(extra-light-highlight));
+  }
+}

@@ -1,7 +1,5 @@
 @use '../../styles/lengths.scss';
 @use '../../styles/colors.scss';
-@import '../../styles/mixins/states.scss';
-@import '../../styles/mixins/shadows.scss';
 
 @mixin container() {
   &-container {
@@ -35,18 +33,5 @@
 @mixin visible-on-hover {
   .rcx-message:not(:hover) & {
     display: none;
-  }
-}
-
-@mixin focus-state {
-  border-width: lengths.border-width('default');
-  border-style: solid;
-  border-color: transparent;
-
-  @include on-focus-visible {
-    border-color: colors.stroke(highlight);
-    border-radius: lengths.border-radius(medium);
-    outline: 0;
-    @include use-button-focus-shadow(colors.stroke(extra-light-highlight));
   }
 }
