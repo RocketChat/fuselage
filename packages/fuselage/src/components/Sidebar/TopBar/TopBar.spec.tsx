@@ -3,14 +3,14 @@ import { render } from '@testing-library/react';
 import { axe } from 'jest-axe';
 import React from 'react';
 
-import * as stories from './Tag.stories';
+import * as stories from './TopBar.stories';
 
 const testCases = Object.values(composeStories(stories)).map((Story) => [
   Story.storyName || 'Story',
   Story,
 ]);
 
-describe('[Tag Rendering]', () => {
+describe('[TopBar Rendering]', () => {
   test.each(testCases)(
     `renders %s without crashing`,
     async (_storyname, Story) => {

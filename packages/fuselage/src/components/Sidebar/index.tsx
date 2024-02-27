@@ -27,7 +27,6 @@ export * from './Section';
 export { default as SidebarTopBar } from './TopBar';
 export * from './TopBar';
 export * from './SidebarBanner';
-
 export * from './SidebarFooter';
 
 export { SidebarDivider };
