@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.48.0
+
+### Minor Changes
+
+- [#1303](https://github.com/RocketChat/fuselage/pull/1303) [`168ff5b12`](https://github.com/RocketChat/fuselage/commit/168ff5b12a6ce1ddf3ba6a881d3634326516faee) Thanks [@dougfabris](https://github.com/dougfabris)! - feat(fuselage): Adds `Tag` focus state
+
 ## 0.47.1
 
 ### Patch Changes
