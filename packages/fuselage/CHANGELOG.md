@@ -1,5 +1,16 @@
 # Change Log
 
+## 0.49.0
+
+### Minor Changes
+
+- [#1289](https://github.com/RocketChat/fuselage/pull/1289) [`a40d471bd`](https://github.com/RocketChat/fuselage/commit/a40d471bdf71babf652f5df3108a05d92f08d975) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage): new `PaletteStyleTag` component
+
+### Patch Changes
+
+- Updated dependencies [[`a40d471bd`](https://github.com/RocketChat/fuselage/commit/a40d471bdf71babf652f5df3108a05d92f08d975)]:
+  - @rocket.chat/fuselage-tokens@0.33.0
+
 ## 0.48.0
 
 ### Minor Changes
