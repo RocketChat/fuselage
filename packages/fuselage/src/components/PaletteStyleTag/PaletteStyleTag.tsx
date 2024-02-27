@@ -20,8 +20,17 @@ export const PaletteStyleTag = memo(function PaletteStyleTag({
   selector,
 }: {
   theme?: Themes;
+  /**
+   * Default is `main-palette`.
+   */
   tagId?: string;
+  /**
+   * Token prefix. Default is `--rcx-color`.
+   */
   prefix?: string;
+  /**
+   * Default is `:root`.
+   */
   selector?: string;
 }) {
   const palette = convertToCss(themes[theme], prefix, selector);
