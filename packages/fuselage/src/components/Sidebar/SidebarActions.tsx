@@ -6,9 +6,12 @@ import { ButtonGroup } from '../ButtonGroup';
 
 type SidebarActionsProps = ComponentProps<typeof ButtonGroup>;
 
-export const SidebarActions = (props: SidebarActionsProps) => (
-  <ButtonGroup {...props} />
-);
+export const SidebarActions = forwardRef(function SidebarActions(
+  props: SidebarActionsProps,
+  ref: Ref<HTMLDivElement>
+) {
+  return <ButtonGroup ref={ref} {...props} />;
+});
 
 type SidebarActionProps = ComponentProps<typeof IconButton>;
 
