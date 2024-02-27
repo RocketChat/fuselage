@@ -1,9 +1,15 @@
 import breakpointTokens from '@rocket.chat/fuselage-tokens/breakpoints.json';
-import { DocsPage, DocsContainer } from '@storybook/addon-docs';
+import { DocsPage } from '@storybook/addon-docs';
 import type { Parameters } from '@storybook/addons';
+import type { DecoratorFn } from '@storybook/react';
 import { themes } from '@storybook/theming';
+import React from 'react';
+import { useDarkMode } from 'storybook-dark-mode';
 
 import manifest from '../package.json';
+import { PaletteStyleTag } from '../src';
+import { DocsContainer } from './DocsContainer';
+import { surface } from './helpers';
 import logo from './logo.svg';
 
 import 'normalize.css/normalize.css';
@@ -56,6 +62,9 @@ export const parameters: Parameters = {
   darkMode: {
     dark: {
       ...themes.dark,
+      appBg: surface.sidebar,
+      appContentBg: surface.main,
+      barBg: surface.main,
       brandTitle: manifest.name,
       brandImage: logo,
       brandUrl: manifest.homepage,
@@ -68,3 +77,16 @@ export const parameters: Parameters = {
     },
   },
 };
+
+export const decorators: DecoratorFn[] = [
+  (Story) => {
+    const dark = useDarkMode();
+
+    return (
+      <>
+        <PaletteStyleTag theme={dark ? 'dark' : 'light'} />
+        <Story />
+      </>
+    );
+  },
+];

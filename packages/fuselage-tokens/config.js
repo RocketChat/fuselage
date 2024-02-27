@@ -23,7 +23,9 @@ module.exports = {
             tokenCategory === 'breakpoints' || tokenCategory === 'colors'
               ? customFormat
               : 'json/nested',
-          filter: (token) => token.filePath.includes(tokenCategory),
+          filter: (token) =>
+            // console.log(token.filePath.includes(tokenCategory), tokenCategory);
+            token.filePath.includes(tokenCategory),
         };
       }),
     },
