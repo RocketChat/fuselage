@@ -17,16 +17,12 @@
   background: colors.surface(room);
 
   &__wrapper {
-    display: none;
+    opacity: 0;
 
-    @at-root .rcx-message:hover &,
-      &--visible {
-      display: inline-block;
-    }
-
-    @at-root .rcx-message:focus-within &,
-      &--visible {
-      display: inline-block;
+    .rcx-message:hover &,
+    .rcx-message:has(:focus-visible) &,
+    .rcx-message:focus-visible & {
+      opacity: 1;
     }
   }
 
