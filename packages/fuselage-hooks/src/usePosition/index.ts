@@ -138,7 +138,7 @@ export function getPositionStyle({
           [positionKey]: point,
           [variantKey]: variantPoint,
           position: 'fixed',
-          zIndex: 9999,
+          zIndex: 999999,
           opacity: 1,
         },
         placement: `${keysToPlacementMap[placementAttempt]}-${keysToPlacementMap[v]}`,
@@ -166,11 +166,11 @@ export function getPositionStyle({
       top: point,
       left: variantPoint,
       position: 'fixed',
+      zIndex: 999999,
       ...(bottom < targetRect.height + point && {
         bottom: margin,
         overflowY: 'auto',
       }),
-      ...({ zIndex: '9999' } as any),
     },
     placement: `${keysToPlacementMap[placementAttempt]}-${
       keysToPlacementMap[variantsAttempts[0]]
