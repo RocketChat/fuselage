@@ -28,7 +28,7 @@
   color: colors.font(default);
 
   border-width: lengths.border-width(default);
-  border-color: colors.neutral(300) transparent transparent;
+  border-color: colors.stroke(extra-light) transparent transparent;
 
   &[tabindex] {
     @include clickable;
