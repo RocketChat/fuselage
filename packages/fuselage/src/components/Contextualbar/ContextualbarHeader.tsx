@@ -25,8 +25,8 @@ const ContextualbarHeader = ({
       display='flex'
       alignItems='center'
       justifyContent='space-between'
-      fontScale='h4'
       flexGrow={1}
+      height='100%'
       overflow='hidden'
     >
       <Margins inline='x4'>{children}</Margins>

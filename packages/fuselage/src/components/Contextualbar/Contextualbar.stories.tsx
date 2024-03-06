@@ -39,7 +39,11 @@ export default {
 export const Default: ComponentStory<typeof Contextualbar> = () => (
   <Contextualbar position='static' height='x540'>
     <ContextualbarHeader>
-      <ContextualbarAction title='Back' name='arrow-back' />
+      <ContextualbarAction
+        title='Back'
+        name='arrow-back'
+        onClick={action('click')}
+      />
       <ContextualbarTitle>Contextualbar Title</ContextualbarTitle>
       <ContextualbarActions>
         <ContextualbarAction

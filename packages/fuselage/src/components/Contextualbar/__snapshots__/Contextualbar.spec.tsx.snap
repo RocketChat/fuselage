@@ -13,7 +13,7 @@ exports[`[Contextualbar Rendering] renders Default without crashing 1`] = `
           class="rcx-box rcx-box--full rcx-css-13kuqi8"
         >
           <div
-            class="rcx-box rcx-box--full rcx-css-1rtik3p"
+            class="rcx-box rcx-box--full rcx-css-1sl6k6j"
           >
             <button
               class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button  rcx-css-x7bl3q rcx-css-1yzvz7u"
@@ -28,7 +28,7 @@ exports[`[Contextualbar Rendering] renders Default without crashing 1`] = `
               </i>
             </button>
             <div
-              class="rcx-box rcx-box--full  rcx-css-x7bl3q rcx-css-1p7z9w5"
+              class="rcx-box rcx-box--full  rcx-css-x7bl3q rcx-css-1to6ka7"
             >
               Contextualbar Title
             </div>
@@ -128,7 +128,7 @@ exports[`[Contextualbar Rendering] renders Empty without crashing 1`] = `
           class="rcx-box rcx-box--full rcx-css-13kuqi8"
         >
           <div
-            class="rcx-box rcx-box--full rcx-css-1rtik3p"
+            class="rcx-box rcx-box--full rcx-css-1sl6k6j"
           >
             <button
               class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button  rcx-css-x7bl3q rcx-css-1yzvz7u"
@@ -143,7 +143,7 @@ exports[`[Contextualbar Rendering] renders Empty without crashing 1`] = `
               </i>
             </button>
             <div
-              class="rcx-box rcx-box--full  rcx-css-x7bl3q rcx-css-1p7z9w5"
+              class="rcx-box rcx-box--full  rcx-css-x7bl3q rcx-css-1to6ka7"
             >
               Contextualbar Empty
             </div>
@@ -209,7 +209,7 @@ exports[`[Contextualbar Rendering] renders Skeleton without crashing 1`] = `
           class="rcx-box rcx-box--full rcx-css-13kuqi8"
         >
           <div
-            class="rcx-box rcx-box--full rcx-css-1rtik3p"
+            class="rcx-box rcx-box--full rcx-css-1sl6k6j"
           >
             <span
               class="rcx-box rcx-box--full rcx-skeleton--text rcx-skeleton  rcx-css-x7bl3q rcx-css-16xwxf4"
