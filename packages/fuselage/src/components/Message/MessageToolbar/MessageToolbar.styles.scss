@@ -9,6 +9,8 @@
   margin-inline: lengths.margin(20);
   padding: lengths.padding(2);
 
+  opacity: 0;
+
   border: lengths.border-width(default) solid colors.stroke(extra-light);
   border-radius: theme(
     'message-toolbar-border-radius',
@@ -17,13 +19,26 @@
   background: colors.surface(room);
 
   &__wrapper {
-    opacity: 0;
+    display: none;
 
     .rcx-message:hover &,
-    .rcx-message:has(:focus-visible) &,
-    .rcx-message:focus-visible & {
-      opacity: 1;
+    .rcx-message:focus-within & {
+      display: inline-block;
     }
+
+    &--visible {
+      display: inline-block;
+
+      .rcx-message-toolbar {
+        opacity: 1;
+      }
+    }
+  }
+
+  .rcx-message:hover &,
+  .rcx-message:has(:focus-visible) &,
+  .rcx-message:focus-visible & {
+    opacity: 1;
   }
 
   @at-root .rcx-message & {

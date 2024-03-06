@@ -1,10 +1,12 @@
 import type { HTMLAttributes, Ref } from 'react';
 import React, { forwardRef } from 'react';
 
-type MessageToolbarWrapperProps = HTMLAttributes<HTMLDivElement>;
+type MessageToolbarWrapperProps = HTMLAttributes<HTMLDivElement> & {
+  visible?: boolean;
+};
 
 export const MessageToolbarWrapper = forwardRef(function MessageToolbarWrapper(
-  { className, ...props }: MessageToolbarWrapperProps,
+  { className, visible, ...props }: MessageToolbarWrapperProps,
   ref: Ref<HTMLDivElement>
 ) {
   return (
@@ -12,6 +14,7 @@ export const MessageToolbarWrapper = forwardRef(function MessageToolbarWrapper(
       ref={ref}
       className={[
         'rcx-box rcx-box--full rcx-message-toolbar__wrapper',
+        visible && 'rcx-message-toolbar__wrapper--visible',
         className,
       ]
         .filter(Boolean)
