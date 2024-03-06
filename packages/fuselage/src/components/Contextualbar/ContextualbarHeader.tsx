@@ -14,7 +14,6 @@ const ContextualbarHeader = ({
     display='flex'
     alignItems='center'
     height='x56'
-    is='h3'
     pi={24}
     borderBlockEndWidth='default'
     borderBlockColor='extra-light'
@@ -29,7 +28,6 @@ const ContextualbarHeader = ({
       fontScale='h4'
       flexGrow={1}
       overflow='hidden'
-      color='default'
     >
       <Margins inline='x4'>{children}</Margins>
     </Box>

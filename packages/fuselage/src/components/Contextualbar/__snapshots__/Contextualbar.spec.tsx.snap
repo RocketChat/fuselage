@@ -1,0 +1,245 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[Contextualbar Rendering] renders Default without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-css-fs953a"
+    >
+      <div
+        class="rcx-box rcx-box--full rcx-vertical-bar rcx-css-1pzjc7w"
+      >
+        <div
+          class="rcx-box rcx-box--full rcx-css-13kuqi8"
+        >
+          <div
+            class="rcx-box rcx-box--full rcx-css-1rtik3p"
+          >
+            <button
+              class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button  rcx-css-x7bl3q rcx-css-1yzvz7u"
+              title="Back"
+              type="button"
+            >
+              <i
+                aria-hidden="true"
+                class="rcx-box rcx-box--full rcx-icon--name-arrow-back rcx-icon rcx-css-4pvxx3"
+              >
+                ⦉
+              </i>
+            </button>
+            <div
+              class="rcx-box rcx-box--full  rcx-css-x7bl3q rcx-css-1p7z9w5"
+            >
+              Contextualbar Title
+            </div>
+            <div
+              class="rcx-button-group rcx-button-group--align-start rcx-css-x7bl3q"
+              role="group"
+            >
+              <button
+                class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button  rcx-button-group__item rcx-css-1yzvz7u"
+                title="Title"
+                type="button"
+              >
+                <i
+                  aria-hidden="true"
+                  class="rcx-box rcx-box--full rcx-icon--name-new-window rcx-icon rcx-css-4pvxx3"
+                >
+                  ⁽
+                </i>
+              </button>
+              <button
+                class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button  rcx-button-group__item rcx-css-1yzvz7u"
+                title="Add user"
+                type="button"
+              >
+                <i
+                  aria-hidden="true"
+                  class="rcx-box rcx-box--full rcx-icon--name-add-user rcx-icon rcx-css-4pvxx3"
+                >
+                  
+                </i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-vertical-bar__content rcx-css-1ptgac4"
+        >
+          Contextualbar Content
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-css-m843eh"
+        >
+          <div
+            class="rcx-button-group rcx-button-group--align-start"
+            role="group"
+          >
+            <button
+              class="rcx-box rcx-box--full rcx-button--secondary rcx-button  rcx-button-group__item rcx-css-1qcz93u"
+              type="button"
+            >
+              <span
+                class="rcx-button--content"
+              >
+                Cancel
+              </span>
+            </button>
+            <button
+              class="rcx-box rcx-box--full rcx-button--primary rcx-button  rcx-button-group__item rcx-css-1qcz93u"
+              type="button"
+            >
+              <span
+                class="rcx-button--content"
+              >
+                Save
+              </span>
+            </button>
+            <button
+              class="rcx-box rcx-box--full rcx-button--large-square rcx-button--square rcx-button--icon rcx-button  rcx-button-group__item"
+              title="More"
+              type="button"
+            >
+              <i
+                aria-hidden="true"
+                class="rcx-box rcx-box--full rcx-icon--name-menu rcx-icon rcx-css-1x2l7ts"
+              >
+                
+              </i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`[Contextualbar Rendering] renders Empty without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-css-fs953a"
+    >
+      <div
+        class="rcx-box rcx-box--full rcx-vertical-bar rcx-css-1pzjc7w"
+      >
+        <div
+          class="rcx-box rcx-box--full rcx-css-13kuqi8"
+        >
+          <div
+            class="rcx-box rcx-box--full rcx-css-1rtik3p"
+          >
+            <button
+              class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button  rcx-css-x7bl3q rcx-css-1yzvz7u"
+              title="Back"
+              type="button"
+            >
+              <i
+                aria-hidden="true"
+                class="rcx-box rcx-box--full rcx-icon--name-arrow-back rcx-icon rcx-css-4pvxx3"
+              >
+                ⦉
+              </i>
+            </button>
+            <div
+              class="rcx-box rcx-box--full  rcx-css-x7bl3q rcx-css-1p7z9w5"
+            >
+              Contextualbar Empty
+            </div>
+            <div
+              class="rcx-button-group rcx-button-group--align-start rcx-css-x7bl3q"
+              role="group"
+            >
+              <button
+                class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button  rcx-button-group__item rcx-css-1yzvz7u"
+                title="Title"
+                type="button"
+              >
+                <i
+                  aria-hidden="true"
+                  class="rcx-box rcx-box--full rcx-icon--name-new-window rcx-icon rcx-css-4pvxx3"
+                >
+                  ⁽
+                </i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-vertical-bar__content rcx-css-r8c38r"
+        >
+          <div
+            class="rcx-states"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-states__icon rcx-icon--name-magnifier rcx-icon rcx-css-d884y5"
+            >
+              
+            </i>
+            <h3
+              class="rcx-states__title"
+            >
+              Nothing Found
+            </h3>
+          </div>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-css-m843eh"
+        >
+          Footer
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`[Contextualbar Rendering] renders Skeleton without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-css-fs953a"
+    >
+      <div
+        class="rcx-box rcx-box--full rcx-vertical-bar rcx-css-1pzjc7w"
+      >
+        <div
+          class="rcx-box rcx-box--full rcx-css-13kuqi8"
+        >
+          <div
+            class="rcx-box rcx-box--full rcx-css-1rtik3p"
+          >
+            <span
+              class="rcx-box rcx-box--full rcx-skeleton--text rcx-skeleton  rcx-css-x7bl3q rcx-css-16xwxf4"
+            />
+          </div>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-css-m843eh"
+        >
+          <span
+            class="rcx-box rcx-box--full rcx-skeleton--rect rcx-skeleton rcx-css-kq1jj5"
+          />
+          <span
+            class="rcx-box rcx-box--full rcx-skeleton--text rcx-skeleton"
+          />
+          <span
+            class="rcx-box rcx-box--full rcx-skeleton--text rcx-skeleton"
+          />
+          <span
+            class="rcx-box rcx-box--full rcx-skeleton--text rcx-skeleton"
+          />
+          <span
+            class="rcx-box rcx-box--full rcx-skeleton--text rcx-skeleton"
+          />
+          <span
+            class="rcx-box rcx-box--full rcx-skeleton--text rcx-skeleton"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;

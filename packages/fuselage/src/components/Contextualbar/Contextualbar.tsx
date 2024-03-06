@@ -15,6 +15,7 @@ const Contextualbar = ({
   <Box
     rcx-vertical-bar
     bg={bg}
+    color='default'
     display='flex'
     flexDirection='column'
     flexShrink={0}

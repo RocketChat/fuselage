@@ -1,3 +1,4 @@
+import { action } from '@storybook/addon-actions';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
@@ -38,18 +39,18 @@ export default {
 export const Default: ComponentStory<typeof Contextualbar> = () => (
   <Contextualbar position='static' height='x540'>
     <ContextualbarHeader>
-      <ContextualbarAction name='chevron-right' />
       <ContextualbarAction title='Back' name='arrow-back' />
       <ContextualbarTitle>Contextualbar Title</ContextualbarTitle>
       <ContextualbarActions>
         <ContextualbarAction
           title='Title'
           name='new-window'
-          onClick={() => {}}
+          onClick={action('click')}
         />
         <ContextualbarAction
+          title='Add user'
           name='add-user'
-          onClick={() => console.log('close')}
+          onClick={action('click')}
         />
       </ContextualbarActions>
     </ContextualbarHeader>
@@ -62,7 +63,7 @@ export const Default: ComponentStory<typeof Contextualbar> = () => (
         <Button width='full' primary>
           Save
         </Button>
-        <IconButton icon='menu' />
+        <IconButton title='More' icon='menu' />
       </ButtonGroup>
     </ContextualbarFooter>
   </Contextualbar>
@@ -75,13 +76,13 @@ export const Skeleton: ComponentStory<typeof Contextualbar> = () => (
 export const Empty: ComponentStory<typeof Contextualbar> = () => (
   <Contextualbar position='static' height='x540'>
     <ContextualbarHeader>
-      <ContextualbarAction name='chevron-right' />
+      <ContextualbarAction title='Back' name='arrow-back' />
       <ContextualbarTitle>Contextualbar Empty</ContextualbarTitle>
       <ContextualbarActions>
         <ContextualbarAction
           title='Title'
           name='new-window'
-          onClick={() => {}}
+          onClick={action('click')}
         />
       </ContextualbarActions>
     </ContextualbarHeader>
