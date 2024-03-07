@@ -1,5 +1,19 @@
 # Change Log
 
+## 0.50.0
+
+### Minor Changes
+
+- [#1311](https://github.com/RocketChat/fuselage/pull/1311) [`aff73a3cb`](https://github.com/RocketChat/fuselage/commit/aff73a3cbbbc80dbd2045c3644cc787f1ca5eb4e) Thanks [@dougfabris](https://github.com/dougfabris)! - feat(fuselage): Add focus state on `MessgeHighlight`
+
+### Patch Changes
+
+- [#1310](https://github.com/RocketChat/fuselage/pull/1310) [`564174632`](https://github.com/RocketChat/fuselage/commit/564174632ccda751555a1e4128c3b897bbc1b86f) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): `MessageToolbarWrapper` visibility
+
+- [#1312](https://github.com/RocketChat/fuselage/pull/1312) [`91fe5c9d3`](https://github.com/RocketChat/fuselage/commit/91fe5c9d3600404a11529018c01907edb00e4c05) Thanks [@csuadev](https://github.com/csuadev)! - Change border color on Accordion component that was affecting dark mode, requested by design.
+
+- [#1314](https://github.com/RocketChat/fuselage/pull/1314) [`75305d76e`](https://github.com/RocketChat/fuselage/commit/75305d76e336f635efc855f7f6545605f873126c) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): `Contextualbar` elements syntax
+
 ## 0.49.0
 
 ### Minor Changes
