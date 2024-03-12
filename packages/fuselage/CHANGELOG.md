@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.50.1
+
+### Patch Changes
+
+- [#1317](https://github.com/RocketChat/fuselage/pull/1317) [`410a12131`](https://github.com/RocketChat/fuselage/commit/410a1213140b6dbfccdd75c9dfcf4b90938bf51d) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): remove margin inline end from bubble icon
+
 ## 0.50.0
 
 ### Minor Changes
