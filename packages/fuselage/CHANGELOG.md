@@ -1,5 +1,15 @@
 # Change Log
 
+## 0.51.0
+
+### Minor Changes
+
+- [#1319](https://github.com/RocketChat/fuselage/pull/1319) [`b37dd11c9`](https://github.com/RocketChat/fuselage/commit/b37dd11c9bd0fc4dbdda5ab5e623dfc46c8d8647) Thanks [@dougfabris](https://github.com/dougfabris)! - feat(fuselage): Add forwardRef on Contextualbar
+
+### Patch Changes
+
+- [#1320](https://github.com/RocketChat/fuselage/pull/1320) [`06b1d5701`](https://github.com/RocketChat/fuselage/commit/06b1d57015c59fbba95c8986fe054c2b3336f73f) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): `ToastBar` remove close button from content alert
+
 ## 0.50.1
 
 ### Patch Changes
