@@ -24,7 +24,6 @@ export function ToastBar({
   time = 5,
   id,
   onClose,
-  buttonLabel = 'Close',
   ...props
 }: ToastBarProps) {
   const iconName =
@@ -74,6 +73,7 @@ export function ToastBar({
       elevation='2nb'
       borderRadius='x4'
       role='alert'
+      aria-labelledby={toastId}
       {...props}
     >
       <div className='rcx-toastbar_inner'>
@@ -91,7 +91,8 @@ export function ToastBar({
               tiny
               onClick={() => onClose(toastId)}
               icon='cross'
-              aria-label={buttonLabel}
+              tabIndex={-1}
+              aria-hidden
             />
           </div>
         )}
