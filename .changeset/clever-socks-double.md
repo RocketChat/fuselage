@@ -2,4 +2,4 @@
 "@rocket.chat/fuselage": patch
 ---
 
-fix(fuselage): `ToastBar` considering close button as content when alerting
+fix(fuselage): `ToastBar` remove close button from content alert
