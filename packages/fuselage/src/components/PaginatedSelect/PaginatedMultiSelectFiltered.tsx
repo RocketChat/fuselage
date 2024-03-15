@@ -4,8 +4,8 @@ import React, { useCallback, forwardRef } from 'react';
 import type Box from '../Box';
 import Flex from '../Flex';
 import { InputBox } from '../InputBox';
+import type Option from '../Option';
 import { type OptionsPaginated } from '../OptionsPaginated';
-import Option from '../Option';
 import PaginatedMultiSelect, {
   type PaginatedMultiSelectOption,
 } from './PaginatedMultiSelect';
