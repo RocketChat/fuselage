@@ -153,7 +153,7 @@ exports[`[ToastBar Rendering] renders WithCloseButton without crashing 1`] = `
           class="rcx-toastbar-close"
         >
           <button
-            aria-label="Close alert"
+            aria-label="Dismiss alert"
             class="rcx-box rcx-box--full rcx-button--tiny-square rcx-button--square rcx-button--icon rcx-button"
             type="button"
           >
