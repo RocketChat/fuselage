@@ -5,6 +5,7 @@ import type Box from '../Box';
 import Flex from '../Flex';
 import { InputBox } from '../InputBox';
 import { type OptionsPaginated } from '../OptionsPaginated';
+import Option from '../Option';
 import PaginatedMultiSelect, {
   type PaginatedMultiSelectOption,
 } from './PaginatedMultiSelect';
@@ -23,6 +24,7 @@ type PaginatedMultiSelectFilteredProps = Omit<
   renderOptions?: (
     props: ComponentProps<typeof OptionsPaginated>
   ) => ReactElement | null;
+  renderItem?: (props: ComponentProps<typeof Option>) => ReactElement | null;
   anchor?: any;
   filter?: string;
   setFilter?: (value: string) => void;
