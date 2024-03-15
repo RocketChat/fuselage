@@ -24,6 +24,7 @@ export function ToastBar({
   time = 5,
   id,
   onClose,
+  buttonLabel = 'Dismiss alert',
   ...props
 }: ToastBarProps) {
   const iconName =
@@ -72,8 +73,6 @@ export function ToastBar({
       ]}
       elevation='2nb'
       borderRadius='x4'
-      role='alert'
-      aria-labelledby={toastId}
       {...props}
     >
       <div className='rcx-toastbar_inner'>
@@ -82,17 +81,16 @@ export function ToastBar({
           size='x20'
           name={iconName}
         />
-        <div className='rcx-toastbar_content' id={toastId}>
+        <div role='alert' className='rcx-toastbar_content'>
           {children}
         </div>
         {onClose && (
           <div className='rcx-toastbar-close'>
             <IconButton
               tiny
+              aria-label={buttonLabel}
               onClick={() => onClose(toastId)}
               icon='cross'
-              tabIndex={-1}
-              aria-hidden
             />
           </div>
         )}
