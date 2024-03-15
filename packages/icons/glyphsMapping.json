@@ -958,5 +958,8 @@
   },
   "arrow-up": {
     "start": "\ue149"
+  },
+  "circle-unfilled": {
+    "start": "\ue14b"
   }
 }
