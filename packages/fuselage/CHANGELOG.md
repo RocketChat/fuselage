@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.51.1
+
+### Patch Changes
+
+- [#1324](https://github.com/RocketChat/fuselage/pull/1324) [`8f4502968`](https://github.com/RocketChat/fuselage/commit/8f450296822ee8a087831683828f513c2156b279) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): Avoid duplicated alert on ToastBar
+
+- [#1323](https://github.com/RocketChat/fuselage/pull/1323) [`9ccc4e79f`](https://github.com/RocketChat/fuselage/commit/9ccc4e79f76c1ef2b182065883bd66a91860bc96) Thanks [@dougfabris](https://github.com/dougfabris)! - feat(icons): New circle-unfilled
+
 ## 0.51.0
 
 ### Minor Changes
