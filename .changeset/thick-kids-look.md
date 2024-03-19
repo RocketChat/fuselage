@@ -1,5 +1,5 @@
 ---
-"@rocket.chat/fuselage": minor
+"@rocket.chat/fuselage": patch
 ---
 
-chore(fuselage): Added missing render property from PaginatedMultiselect on PaginatedMultiSelectFiltered component to allow rendering items on it. 
+fix(fuselage): Added missing render property from PaginatedMultiselect on PaginatedMultiSelectFiltered component to allow rendering items on it. 
