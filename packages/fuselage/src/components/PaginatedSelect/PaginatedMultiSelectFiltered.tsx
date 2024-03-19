@@ -1,34 +1,13 @@
-import type { ComponentProps, Ref, FormEvent, ReactElement } from 'react';
+import type { ComponentProps, Ref, FormEvent } from 'react';
 import React, { useCallback, forwardRef } from 'react';
 
-import type Box from '../Box';
 import Flex from '../Flex';
 import { InputBox } from '../InputBox';
-import type Option from '../Option';
-import { type OptionsPaginated } from '../OptionsPaginated';
-import PaginatedMultiSelect, {
-  type PaginatedMultiSelectOption,
-} from './PaginatedMultiSelect';
+import PaginatedMultiSelect from './PaginatedMultiSelect';
 
-type PaginatedMultiSelectFilteredProps = Omit<
-  ComponentProps<typeof Box>,
-  'onChange' | 'value' | 'filter'
-> & {
-  error?: boolean;
-  options: PaginatedMultiSelectOption[];
-  withTitle?: boolean;
-  placeholder?: string;
-  endReached?: (start?: number, end?: number) => void;
-  value?: PaginatedMultiSelectOption[];
-  onChange: (values: PaginatedMultiSelectOption[]) => void;
-  renderOptions?: (
-    props: ComponentProps<typeof OptionsPaginated>
-  ) => ReactElement | null;
-  renderItem?: (props: ComponentProps<typeof Option>) => ReactElement | null;
-  anchor?: any;
-  filter?: string;
+type PaginatedMultiSelectFilteredProps = {
   setFilter?: (value: string) => void;
-};
+} & ComponentProps<typeof PaginatedMultiSelect>;
 
 export const PaginatedMultiSelectFiltered = ({
   filter,
@@ -69,8 +48,8 @@ export const PaginatedMultiSelectFiltered = ({
     <PaginatedMultiSelect
       filter={filter}
       options={options}
-      {...props}
       anchor={anchor}
+      {...props}
     />
   );
 };
