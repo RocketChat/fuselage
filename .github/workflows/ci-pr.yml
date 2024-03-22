@@ -17,7 +17,7 @@ jobs:
     steps:
       - uses: actions/setup-node@v2
         with:
-          node-version: "14.21.3"
+          node-version: "21.5.0"
       - uses: actions/checkout@v2
       - uses: actions/cache@v2
         id: yarn-cache

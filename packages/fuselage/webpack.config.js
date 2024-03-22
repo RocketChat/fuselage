@@ -3,6 +3,7 @@
 const path = require('path');
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { TamaguiPlugin } = require('tamagui-loader');
 const webpack = require('webpack');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const WrapperPlugin = require('wrapper-webpack-plugin');
@@ -10,6 +11,15 @@ const WrapperPlugin = require('wrapper-webpack-plugin');
 const pkg = require('./package.json');
 
 module.exports = (env, { mode = 'production' }) => ({
+  resolve: {
+    alias: {
+      // Resolve react-native to react-native-web
+      // 'react-native$': require.resolve('react-native-web'),
+      // // optional, for lighter svg icons on web
+      // 'react-native-svg': require.resolve('@tamagui/react-native-svg'),
+    },
+    extensions: ['.tsx', '.ts', '.jsx', '.js', '.json'],
+  },
   entry: {
     fuselage: path.resolve(__dirname, 'src/index.ts'),
   },
@@ -87,9 +97,7 @@ module.exports = (env, { mode = 'production' }) => ({
       },
     ],
   },
-  resolve: {
-    extensions: ['.tsx', '.ts', '.jsx', '.js', '.json'],
-  },
+
   externals: [
     {
       react: {
@@ -112,6 +120,12 @@ module.exports = (env, { mode = 'production' }) => ({
     '@rocket.chat/styled',
   ],
   plugins: [
+    new TamaguiPlugin({
+      config: './tamagui.config.ts',
+      components: ['tamagui', '@fuselage/fuselage-core'],
+      // disable: true,
+    }),
+
     new MiniCssExtractPlugin(),
     new webpack.DefinePlugin({
       'process.env.VERSION': JSON.stringify(pkg.version),
