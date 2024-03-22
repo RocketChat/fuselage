@@ -25,6 +25,8 @@ export const MessageReaction = forwardRef(function Reaction(
         .filter(Boolean)
         .join(' ')}
       ref={ref}
+      role='button'
+      tabIndex={0}
       {...props}
     >
       {children || (
