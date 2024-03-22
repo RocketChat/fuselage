@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.51.2
+
+### Patch Changes
+
+- [#1322](https://github.com/RocketChat/fuselage/pull/1322) [`f67ac5dc0`](https://github.com/RocketChat/fuselage/commit/f67ac5dc0a02ce47468a640d08e8ba373eca3d51) Thanks [@csuadev](https://github.com/csuadev)! - fix(fuselage): Added missing render property from PaginatedMultiselect on PaginatedMultiSelectFiltered component to allow rendering items on it.
+
 ## 0.51.1
 
 ### Patch Changes
