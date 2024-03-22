@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.51.3
+
+### Patch Changes
+
+- [#1327](https://github.com/RocketChat/fuselage/pull/1327) [`350eaa1ac`](https://github.com/RocketChat/fuselage/commit/350eaa1ac73a4dc66f1b6787df475c52389f96b6) Thanks [@csuadev](https://github.com/csuadev)! - fix(fuselage): Add missing renderItem property on PaginatedSelect component to allow options customization.
+
+- [#1328](https://github.com/RocketChat/fuselage/pull/1328) [`6eecf95fb`](https://github.com/RocketChat/fuselage/commit/6eecf95fb1f7e77032de801033134eaed3e4501f) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): add missing `Bubble` gap
+
 ## 0.51.2
 
 ### Patch Changes
