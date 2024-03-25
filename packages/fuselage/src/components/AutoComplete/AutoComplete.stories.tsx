@@ -17,6 +17,7 @@ export default {
   title: 'Inputs/AutoComplete',
   component: AutoComplete,
   parameters: {
+    layout: 'centered',
     docs: {
       description: {
         component: 'An input for selection of options.',
@@ -107,4 +108,9 @@ CustomItem.args = {
       avatar={<Avatar size='x20' url={exampleAvatar} aria-hidden />}
     />
   ),
+};
+
+export const WithPlaceholder = Template.bind({});
+WithPlaceholder.args = {
+  placeholder: 'Search...',
 };
