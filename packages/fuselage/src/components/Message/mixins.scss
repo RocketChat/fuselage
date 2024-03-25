@@ -35,3 +35,15 @@
     display: none;
   }
 }
+
+@mixin message-focus-visible {
+  @content;
+
+  opacity: 0;
+
+  .rcx-message:hover &,
+  .rcx-message:has(:focus-visible) &,
+  .rcx-message:focus-visible & {
+    opacity: 1;
+  }
+}

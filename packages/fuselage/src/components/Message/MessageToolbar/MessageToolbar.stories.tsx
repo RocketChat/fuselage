@@ -1,10 +1,10 @@
 import { Title, Primary } from '@storybook/addon-docs';
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { ComponentMeta } from '@storybook/react';
 import React from 'react';
 
-import type { MessageToolbarWrapper } from '.';
 import { MessageToolbar, MessageToolbarItem } from '.';
-import { Box } from '../..';
+import Box from '../../Box';
+import { BasicMessageTemplate } from '../helpers';
 
 export default {
   title: 'Message/MessageToolbar',
@@ -19,9 +19,9 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof MessageToolbarWrapper>;
+} as ComponentMeta<typeof MessageToolbar>;
 
-export const Default: ComponentStory<typeof MessageToolbar> = () => (
+const toolbar = (
   <Box>
     <MessageToolbar>
       <MessageToolbarItem title='Quote' icon='quote' />
@@ -31,3 +31,8 @@ export const Default: ComponentStory<typeof MessageToolbar> = () => (
     </MessageToolbar>
   </Box>
 );
+
+export const Default = BasicMessageTemplate.bind({});
+Default.args = {
+  toolbar,
+};
