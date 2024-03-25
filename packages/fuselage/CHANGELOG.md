@@ -1,5 +1,15 @@
 # Change Log
 
+## 0.52.0
+
+### Minor Changes
+
+- [#1331](https://github.com/RocketChat/fuselage/pull/1331) [`bd17e9c59`](https://github.com/RocketChat/fuselage/commit/bd17e9c59696f26bf59f7f389f08f3185a780c65) Thanks [@dougfabris](https://github.com/dougfabris)! - feat(fuselage): MessageReactions focus state
+
+### Patch Changes
+
+- [#1335](https://github.com/RocketChat/fuselage/pull/1335) [`cef61fd9f`](https://github.com/RocketChat/fuselage/commit/cef61fd9f0e2139f54036809b11782de09b9d025) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): show `AutoComplete` placeholder
+
 ## 0.51.3
 
 ### Patch Changes
