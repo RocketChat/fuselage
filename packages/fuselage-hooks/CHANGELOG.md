@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.33.1
+
+### Patch Changes
+
+- [#1334](https://github.com/RocketChat/fuselage/pull/1334) [`35155404b`](https://github.com/RocketChat/fuselage/commit/35155404baeb1e44aa1e4d767f431204d3ab2b53) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage-hooks): increase usePosition zIndex
+
 ## 0.33.0
 
 ### Minor Changes
