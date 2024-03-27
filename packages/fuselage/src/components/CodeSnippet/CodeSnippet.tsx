@@ -8,6 +8,7 @@ import { Skeleton } from '../Skeleton';
 type CodeSnippetProps = ComponentProps<typeof Box> & {
   children: string;
   buttonText?: string;
+  buttonDisabled?: boolean;
   onClick?: () => void;
 };
 
@@ -15,6 +16,7 @@ const CodeSnippet = ({
   children,
   onClick,
   buttonText = 'Copy',
+  buttonDisabled = false,
   ...props
 }: CodeSnippetProps): ReactElement<CodeSnippetProps> => {
   if (!children) {
@@ -32,7 +34,7 @@ const CodeSnippet = ({
       </Box>
       {onClick && children && (
         <Box>
-          <Button small primary onClick={onClick}>
+          <Button small primary onClick={onClick} disabled={buttonDisabled}>
             {buttonText}
           </Button>
         </Box>
