@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`[MessageToolbar Rendering] renders Default without crashing 1`] = `
+exports[`[MessageReactions Rendering] renders Default without crashing 1`] = `
 <body>
   <div>
     <div
@@ -107,65 +107,61 @@ exports[`[MessageToolbar Rendering] renders Default without crashing 1`] = `
           >
             Ut enim ad minim veniam
           </div>
-        </div>
-        <div
-          class="rcx-box rcx-box--full"
-        >
           <div
-            class="rcx-box rcx-box--full rcx-message-toolbar"
+            class="rcx-box rcx-box--full rcx-message-block"
           >
             <div
-              class="rcx-button-group rcx-button-group--align-start rcx-button-group--small"
-              role="toolbar"
+              class="rcx-message-reactions__container"
             >
-              <button
-                class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button  rcx-button-group__item"
-                title="Quote"
-                type="button"
+              <div
+                class="rcx-message-reactions__reaction rcx-message-reactions__reaction--mine"
+                role="button"
+                tabindex="0"
+                title="reaction 1"
+              >
+                <div
+                  class="rcx-message-reactions__counter undefined"
+                >
+                  1
+                </div>
+              </div>
+              <div
+                class="rcx-message-reactions__reaction"
+                role="button"
+                tabindex="0"
+                title="reaction 2"
+              >
+                <div
+                  class="rcx-message-reactions__counter undefined"
+                >
+                  2
+                </div>
+              </div>
+              <div
+                class="rcx-message-reactions__reaction"
+                role="button"
+                tabindex="0"
+                title="reaction 3"
+              >
+                <div
+                  class="rcx-message-reactions__counter undefined"
+                >
+                  3
+                </div>
+              </div>
+              <div
+                class="rcx-message-reactions__reaction rcx-message-reactions__reaction--action"
+                role="button"
+                tabindex="0"
+                title="action"
               >
                 <i
                   aria-hidden="true"
-                  class="rcx-box rcx-box--full rcx-icon--name-quote rcx-icon rcx-css-4pvxx3"
+                  class="rcx-box rcx-box--full rcx-icon--name-emoji-plus rcx-icon rcx-css-1g87xs3"
                 >
-                  
+                  
                 </i>
-              </button>
-              <button
-                class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button  rcx-button-group__item"
-                title="Emoji"
-                type="button"
-              >
-                <i
-                  aria-hidden="true"
-                  class="rcx-box rcx-box--full rcx-icon--name-emoji rcx-icon rcx-css-4pvxx3"
-                >
-                  
-                </i>
-              </button>
-              <button
-                class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button  rcx-button-group__item"
-                title="Thread"
-                type="button"
-              >
-                <i
-                  aria-hidden="true"
-                  class="rcx-box rcx-box--full rcx-icon--name-thread rcx-icon rcx-css-4pvxx3"
-                >
-                  
-                </i>
-              </button>
-              <button
-                class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button  rcx-button-group__item"
-                title="Menu"
-                type="button"
-              >
-                <i
-                  aria-hidden="true"
-                  class="rcx-box rcx-box--full rcx-icon--name-menu rcx-icon rcx-css-4pvxx3"
-                >
-                  
-                </i>
-              </button>
+              </div>
             </div>
           </div>
         </div>

@@ -8,6 +8,8 @@ export const MessageReactionAction = ({
   ...props
 }: HTMLAttributes<HTMLDivElement>) => (
   <div
+    role='button'
+    tabIndex={0}
     className={[
       'rcx-message-reactions__reaction rcx-message-reactions__reaction--action',
       className,

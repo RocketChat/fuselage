@@ -4,10 +4,10 @@
 @use '../mixins.scss';
 
 .rcx-message-toolbar {
-  display: inline-block;
-
   margin-inline: lengths.margin(20);
   padding: lengths.padding(2);
+
+  opacity: 0;
 
   border: lengths.border-width(default) solid colors.stroke(extra-light);
   border-radius: theme(
@@ -19,15 +19,22 @@
   &__wrapper {
     display: none;
 
-    @at-root .rcx-message:hover &,
-      &--visible {
+    .rcx-message:hover &,
+    .rcx-message:focus-within & {
       display: inline-block;
     }
 
-    @at-root .rcx-message:focus-within &,
-      &--visible {
+    &--visible {
       display: inline-block;
+
+      .rcx-message-toolbar {
+        opacity: 1;
+      }
     }
+  }
+
+  @include mixins.message-focus-visible {
+    display: inline-block;
   }
 
   @at-root .rcx-message & {

@@ -1,16 +1,18 @@
 import { composeStories } from '@storybook/testing-react';
 import { render } from '@testing-library/react';
-import { axe } from 'jest-axe';
+import { axe, toHaveNoViolations } from 'jest-axe';
 import React from 'react';
 
-import * as stories from './MessageReactions.stories';
+import * as stories from './Contextualbar.stories';
+
+expect.extend(toHaveNoViolations);
 
 const testCases = Object.values(composeStories(stories)).map((Story) => [
   Story.storyName || 'Story',
   Story,
 ]);
 
-describe('[MessageReactions Rendering]', () => {
+describe('[Contextualbar Rendering]', () => {
   test.each(testCases)(
     `renders %s without crashing`,
     async (_storyname, Story) => {

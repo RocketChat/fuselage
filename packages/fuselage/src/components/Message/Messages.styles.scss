@@ -424,5 +424,7 @@ $message-highlight-colors-background-other-color: theme(
     &--other {
       color: $message-highlight-colors-other-color;
     }
+
+    @include templates.focus-state;
   }
 }

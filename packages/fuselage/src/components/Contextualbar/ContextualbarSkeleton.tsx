@@ -7,7 +7,7 @@ import { Box, Skeleton } from '..';
 const ContextualbarSkeleton = (
   props: ComponentProps<typeof Box>
 ): ReactElement => (
-  <Contextualbar {...props} width='100%'>
+  <Contextualbar {...props}>
     <ContextualbarHeader>
       <Skeleton width='100%' />
     </ContextualbarHeader>

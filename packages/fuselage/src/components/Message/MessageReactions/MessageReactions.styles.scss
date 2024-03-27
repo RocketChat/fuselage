@@ -2,6 +2,7 @@
 @use '../../../styles/colors.scss';
 @use '../../../styles/typography.scss';
 @use '../../../styles/mixins/size.scss';
+@use '../../../styles/mixins/templates.scss';
 @use '../../../styles/variables/buttons.scss';
 @use '../../../styles/primitives/button.scss';
 @use '../mixins.scss';
@@ -49,7 +50,9 @@
     }
 
     &--action {
-      @include mixins.visible-on-hover();
+      @include mixins.message-focus-visible {
+        display: inline-flex;
+      }
       padding: lengths.padding(2);
     }
 
@@ -62,6 +65,8 @@
         colors.surface(selected)
       );
     }
+
+    @include templates.focus-state;
   }
 
   &__emoji {
