@@ -115,6 +115,16 @@ yarn storybook
 
 ### Usage
 
+To use the fuselage, you need to import the css first:
+
+```tsx
+import '@rocket.chat/fuselage/dist/fuselage.css';
+
+const MyButton = () => {
+  return <Button>Fuselage Button</<Button>
+};
+```
+
 Note: If you are using Next.js for development and wish to use Rocket.Chat Fuselage components, you need to dynamically import the component. More on this can be found [here](https://dev.to/vvo/how-to-solve-window-is-not-defined-errors-in-react-and-next-js-5f97#3-third-solution-dynamic-loading).
 
 Usage Example:
