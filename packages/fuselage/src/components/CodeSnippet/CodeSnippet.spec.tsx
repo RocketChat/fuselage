@@ -48,6 +48,6 @@ describe('[CodeSnippet Component]', () => {
   it('should should render a disabled button, when buttonDisabled prop is passed', () => {
     const { container } = render(<DisabledButton />);
 
-    expect(container.closest('button')).toBeDisabled;
+    expect(container.closest('button')).toBeDisabled();
   });
 });
