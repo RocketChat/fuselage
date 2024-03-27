@@ -1,5 +1,78 @@
 # Change Log
 
+## 0.52.0
+
+### Minor Changes
+
+- [#1331](https://github.com/RocketChat/fuselage/pull/1331) [`bd17e9c59`](https://github.com/RocketChat/fuselage/commit/bd17e9c59696f26bf59f7f389f08f3185a780c65) Thanks [@dougfabris](https://github.com/dougfabris)! - feat(fuselage): MessageReactions focus state
+
+### Patch Changes
+
+- [#1335](https://github.com/RocketChat/fuselage/pull/1335) [`cef61fd9f`](https://github.com/RocketChat/fuselage/commit/cef61fd9f0e2139f54036809b11782de09b9d025) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): show `AutoComplete` placeholder
+
+## 0.51.3
+
+### Patch Changes
+
+- [#1327](https://github.com/RocketChat/fuselage/pull/1327) [`350eaa1ac`](https://github.com/RocketChat/fuselage/commit/350eaa1ac73a4dc66f1b6787df475c52389f96b6) Thanks [@csuadev](https://github.com/csuadev)! - fix(fuselage): Add missing renderItem property on PaginatedSelect component to allow options customization.
+
+- [#1328](https://github.com/RocketChat/fuselage/pull/1328) [`6eecf95fb`](https://github.com/RocketChat/fuselage/commit/6eecf95fb1f7e77032de801033134eaed3e4501f) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): add missing `Bubble` gap
+
+## 0.51.2
+
+### Patch Changes
+
+- [#1322](https://github.com/RocketChat/fuselage/pull/1322) [`f67ac5dc0`](https://github.com/RocketChat/fuselage/commit/f67ac5dc0a02ce47468a640d08e8ba373eca3d51) Thanks [@csuadev](https://github.com/csuadev)! - fix(fuselage): Added missing render property from PaginatedMultiselect on PaginatedMultiSelectFiltered component to allow rendering items on it.
+
+## 0.51.1
+
+### Patch Changes
+
+- [#1324](https://github.com/RocketChat/fuselage/pull/1324) [`8f4502968`](https://github.com/RocketChat/fuselage/commit/8f450296822ee8a087831683828f513c2156b279) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): Avoid duplicated alert on ToastBar
+
+- [#1323](https://github.com/RocketChat/fuselage/pull/1323) [`9ccc4e79f`](https://github.com/RocketChat/fuselage/commit/9ccc4e79f76c1ef2b182065883bd66a91860bc96) Thanks [@dougfabris](https://github.com/dougfabris)! - feat(icons): New circle-unfilled
+
+## 0.51.0
+
+### Minor Changes
+
+- [#1319](https://github.com/RocketChat/fuselage/pull/1319) [`b37dd11c9`](https://github.com/RocketChat/fuselage/commit/b37dd11c9bd0fc4dbdda5ab5e623dfc46c8d8647) Thanks [@dougfabris](https://github.com/dougfabris)! - feat(fuselage): Add forwardRef on Contextualbar
+
+### Patch Changes
+
+- [#1320](https://github.com/RocketChat/fuselage/pull/1320) [`06b1d5701`](https://github.com/RocketChat/fuselage/commit/06b1d57015c59fbba95c8986fe054c2b3336f73f) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): `ToastBar` remove close button from content alert
+
+## 0.50.1
+
+### Patch Changes
+
+- [#1317](https://github.com/RocketChat/fuselage/pull/1317) [`410a12131`](https://github.com/RocketChat/fuselage/commit/410a1213140b6dbfccdd75c9dfcf4b90938bf51d) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): remove margin inline end from bubble icon
+
+## 0.50.0
+
+### Minor Changes
+
+- [#1311](https://github.com/RocketChat/fuselage/pull/1311) [`aff73a3cb`](https://github.com/RocketChat/fuselage/commit/aff73a3cbbbc80dbd2045c3644cc787f1ca5eb4e) Thanks [@dougfabris](https://github.com/dougfabris)! - feat(fuselage): Add focus state on `MessgeHighlight`
+
+### Patch Changes
+
+- [#1310](https://github.com/RocketChat/fuselage/pull/1310) [`564174632`](https://github.com/RocketChat/fuselage/commit/564174632ccda751555a1e4128c3b897bbc1b86f) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): `MessageToolbarWrapper` visibility
+
+- [#1312](https://github.com/RocketChat/fuselage/pull/1312) [`91fe5c9d3`](https://github.com/RocketChat/fuselage/commit/91fe5c9d3600404a11529018c01907edb00e4c05) Thanks [@csuadev](https://github.com/csuadev)! - Change border color on Accordion component that was affecting dark mode, requested by design.
+
+- [#1314](https://github.com/RocketChat/fuselage/pull/1314) [`75305d76e`](https://github.com/RocketChat/fuselage/commit/75305d76e336f635efc855f7f6545605f873126c) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): `Contextualbar` elements syntax
+
+## 0.49.0
+
+### Minor Changes
+
+- [#1289](https://github.com/RocketChat/fuselage/pull/1289) [`a40d471bd`](https://github.com/RocketChat/fuselage/commit/a40d471bdf71babf652f5df3108a05d92f08d975) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage): new `PaletteStyleTag` component
+
+### Patch Changes
+
+- Updated dependencies [[`a40d471bd`](https://github.com/RocketChat/fuselage/commit/a40d471bdf71babf652f5df3108a05d92f08d975)]:
+  - @rocket.chat/fuselage-tokens@0.33.0
+
 ## 0.48.0
 
 ### Minor Changes

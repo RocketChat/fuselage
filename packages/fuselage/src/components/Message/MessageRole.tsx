@@ -1,12 +1,8 @@
-import type { ReactNode } from 'react';
+import type { ComponentProps } from 'react';
 import React from 'react';
 
 import { Tag } from '../Tag';
 
-type MessageRoleProps = {
-  children?: ReactNode;
-};
-
-export const MessageRole = (props: MessageRoleProps) => (
+export const MessageRole = (props: ComponentProps<typeof Tag>) => (
   <Tag className='rcx-box rcx-box--full rcx-message-header__role' {...props} />
 );

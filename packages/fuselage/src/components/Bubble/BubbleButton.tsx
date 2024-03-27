@@ -27,7 +27,7 @@ export const BubbleButton = ({
     onClick={onClick}
     {...props}
   >
-    {icon && <Icon name={icon} size='x16' mie={8} />}
+    {icon && <Icon name={icon} size='x16' />}
     {label && <span>{label}</span>}
   </button>
 );
