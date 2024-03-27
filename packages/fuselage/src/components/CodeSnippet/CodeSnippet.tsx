@@ -1,4 +1,4 @@
-import type { ComponentProps, ReactElement } from 'react';
+import type { AllHTMLAttributes, ComponentProps, ReactElement } from 'react';
 import React from 'react';
 
 import Box from '../Box';
@@ -8,16 +8,20 @@ import { Skeleton } from '../Skeleton';
 type CodeSnippetProps = ComponentProps<typeof Box> & {
   children: string;
   buttonText?: string;
+  buttonDisabled?: boolean;
+  isLoading?: boolean;
   onClick?: () => void;
-};
+} & AllHTMLAttributes<HTMLPreElement>;
 
 const CodeSnippet = ({
   children,
-  onClick,
   buttonText = 'Copy',
+  buttonDisabled,
+  onClick,
+  isLoading,
   ...props
 }: CodeSnippetProps): ReactElement<CodeSnippetProps> => {
-  if (!children) {
+  if (isLoading) {
     return (
       <Box is='pre' rcx-code-snippet {...props}>
         <Skeleton w='100%' aria-hidden aria-busy />
@@ -30,12 +34,12 @@ const CodeSnippet = ({
       <Box rcx-code-snippet__codebox>
         <code>{children}</code>
       </Box>
-      {onClick && children && (
-        <Box>
-          <Button small primary onClick={onClick}>
+      {onClick && (
+        <div>
+          <Button small primary disabled={buttonDisabled} onClick={onClick}>
             {buttonText}
           </Button>
-        </Box>
+        </div>
       )}
     </Box>
   );
