@@ -60,3 +60,11 @@ LoadingCode.args = {
   children: '',
   onClick: action('click'),
 };
+
+export const DisabledButton = Template.bind({});
+DisabledButton.args = {
+  children: 'curl -L https://go.rocket.chat/i/docker-compose.yml -O',
+  onClick: action('click'),
+  buttonText: 'Disabled Button',
+  buttonDisabled: true,
+};
