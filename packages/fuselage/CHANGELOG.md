@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.53.0
+
+### Minor Changes
+
+- [#1338](https://github.com/RocketChat/fuselage/pull/1338) [`ea37a3110`](https://github.com/RocketChat/fuselage/commit/ea37a3110670e507c1a33c0793b6cef1b5ff1215) Thanks [@yash-rajpal](https://github.com/yash-rajpal)! - Accept disable button prop on CodeSnippet component
+
 ## 0.52.0
 
 ### Minor Changes
