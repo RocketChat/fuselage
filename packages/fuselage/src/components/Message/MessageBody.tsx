@@ -1,9 +1,9 @@
-import type { AllHTMLAttributes, ReactElement } from 'react';
+import type { HTMLAttributes, ReactElement } from 'react';
 import React from 'react';
 
 import { prependClassName } from '../../helpers/prependClassName';
 
-type MessageBodyProps = AllHTMLAttributes<HTMLDivElement> & {
+type MessageBodyProps = HTMLAttributes<HTMLDivElement> & {
   clamp?: 2 | 3 | 4;
 };
 

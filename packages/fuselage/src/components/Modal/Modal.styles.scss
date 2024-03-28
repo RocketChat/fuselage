@@ -102,7 +102,7 @@ $modal-margin: theme('modal-margin', auto);
     margin: $modal-container-margin;
 
     &-annotation {
-      color: colors.font(default);
+      color: colors.font(secondary-info);
       @include typography.use-font-scale(c1);
     }
   }
