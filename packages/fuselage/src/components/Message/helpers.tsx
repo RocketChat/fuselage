@@ -13,9 +13,11 @@ export const avatarUrl =
 export const BasicMessageTemplate: Story = ({
   reactions,
   toolbar,
+  metrics,
 }: {
   reactions?: ReactNode;
   toolbar?: ReactNode;
+  metrics?: ReactNode;
 }) => (
   <Box>
     <MessageDivider>May, 24, 2020</MessageDivider>
@@ -38,6 +40,7 @@ export const BasicMessageTemplate: Story = ({
         </Message.Header>
         <Message.Body>Ut enim ad minim veniam</Message.Body>
         {reactions}
+        {metrics && <Message.Block>{metrics}</Message.Block>}
       </Message.Container>
       {toolbar}
     </Message>
