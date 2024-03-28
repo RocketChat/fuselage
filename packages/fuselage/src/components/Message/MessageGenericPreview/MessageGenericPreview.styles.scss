@@ -54,6 +54,8 @@ $message-generic-preview-icon-background-color: functions.theme(
     display: flex;
     flex-direction: row;
 
+    text-align: left;
+
     font-size: 0;
 
     &-wrapper {

@@ -10,7 +10,7 @@ export const MessageGenericPreviewContent = ({
   thumb,
   ...props
 }: MessageGenericPreviewContentProps) => (
-  <div className='rcx-message-generic-preview__content'>
+  <div className='rcx-message-generic-preview__content' dir='auto'>
     {thumb}
     <div className='rcx-message-generic-preview__content-wrapper' {...props} />
   </div>
