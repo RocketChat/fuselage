@@ -104,7 +104,9 @@ WithSections.parameters = {
   },
 };
 
-export const MenuDisplayExample: ComponentStory<typeof Menu> = (args) => {
+export const MenuDisplayExample = (
+  args: Omit<ComponentProps<typeof Menu>, 'children'>
+) => {
   const [display, setDisplay] = useState('condensed');
   const [avatarDisplay, setAvatarDisplay] = useState(false);
   const [sortBy, setSortBy] = useState('name');
