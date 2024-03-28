@@ -67,10 +67,20 @@ const Template: ComponentStory<typeof NavBar> = (args) => (
       <NavBarDivider />
       <NavBarGroup role='toolbar'>
         <NavBarItem>
-          <MenuDisplayExample small icon='sort' />
+          <MenuDisplayExample
+            small
+            icon='sort'
+            aria-label='sort'
+            title='sort'
+          />
         </NavBarItem>
         <NavBarItem icon='magnifier' aria-label='search' title='search' />
-        <Menu icon='pencil-box' small>
+        <Menu
+          icon='pencil-box'
+          small
+          aria-label='create new'
+          title='create new'
+        >
           <MenuSection title='Create new'>
             <MenuItem key='direct-message'>Direct message</MenuItem>
             <MenuItem key='discussion'>Discussion</MenuItem>
@@ -99,7 +109,12 @@ const Template: ComponentStory<typeof NavBar> = (args) => (
       <NavBarGroup>
         <NavBarItem icon='cog' aria-label='preferences' title='preferences' />
         <NavBarItem>
-          <Menu small icon={<Avatar url={avatarUrl} />}>
+          <Menu
+            small
+            icon={<Avatar url={avatarUrl} alt='user avatar' />}
+            aria-label='profile'
+            title='profile'
+          >
             <MenuItem key='1'>Profile</MenuItem>
             <MenuItem key='2'>Chats</MenuItem>
             <MenuItem key='3'>Settings</MenuItem>
