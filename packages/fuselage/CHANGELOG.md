@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.53.2
+
+### Patch Changes
+
+- [#1344](https://github.com/RocketChat/fuselage/pull/1344) [`8f67c5d20`](https://github.com/RocketChat/fuselage/commit/8f67c5d20939258bf4f09ee8d6ca36b68496c7ac) Thanks [@dougfabris](https://github.com/dougfabris)! - fix: wrong `MessageMetrics` export
+
 ## 0.53.1
 
 ### Patch Changes
