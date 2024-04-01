@@ -1,0 +1,105 @@
+@use '../../styles/colors.scss';
+@use '../../styles/lengths.scss';
+@use '../../styles/typography.scss';
+@import '../../styles/mixins/all.scss';
+
+$sidebar-color-surface-default: theme(
+  'sidebar-color-surface-default',
+  colors.surface(sidebar)
+);
+
+$sidebar-color-font-default: theme(
+  'sidebar-color-font-default',
+  colors.font(default)
+);
+
+$sidebar-accordion-border-color: theme(
+  'sidebar-accordion-border-color',
+  colors.stroke(light)
+);
+
+.rcx-sidebar-v2 {
+  width: lengths.size(276);
+  height: lengths.size(full);
+
+  color: $sidebar-color-font-default;
+  background-color: $sidebar-color-surface-default;
+
+  &--accordion {
+    display: flex;
+    flex-flow: column nowrap;
+  }
+
+  &--accordion-item {
+    display: flex;
+    flex-flow: column nowrap;
+
+    border-bottom: lengths.border-width(default) solid
+      $sidebar-accordion-border-color;
+
+    &__bar {
+      display: flex;
+      flex-flow: row nowrap;
+
+      min-height: lengths.size(24);
+      padding: lengths.padding(16);
+
+      text-align: start;
+
+      color: colors.font(default);
+      column-gap: lengths.padding(4);
+
+      &[tabindex] {
+        @include clickable;
+
+        &.hover,
+        &:hover {
+          background-color: colors.surface(tint);
+        }
+
+        &.focus,
+        &:focus {
+          border-color: colors.stroke(highlight);
+          @include use-focus-shadow(
+            $outer-color: colors.stroke(extra-light-highlight)
+          );
+        }
+      }
+
+      &--disabled {
+        cursor: not-allowed;
+
+        color: colors.font(disabled);
+        background-color: colors.surface(disabled);
+      }
+    }
+
+    &__title {
+      flex: 1 1 lengths.size(none);
+
+      margin: lengths.margin(none);
+
+      white-space: nowrap;
+
+      @include typography.use-text-ellipsis;
+
+      @include typography.use-font-scale(h4);
+    }
+
+    &__panel {
+      visibility: hidden;
+
+      overflow: hidden;
+
+      height: lengths.size(none);
+      padding: lengths.padding(none) lengths.padding(8);
+
+      &--expanded {
+        visibility: visible;
+
+        height: auto;
+        padding: lengths.padding(32) lengths.padding(8);
+      }
+    }
+  }
+}
