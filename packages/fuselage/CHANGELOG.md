@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.53.1
+
+### Patch Changes
+
+- [#1342](https://github.com/RocketChat/fuselage/pull/1342) [`71c221684`](https://github.com/RocketChat/fuselage/commit/71c22168458c51975b32170a53c4a835124bec2b) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): MessageMetrics props types
+
 ## 0.53.0
 
 ### Minor Changes
