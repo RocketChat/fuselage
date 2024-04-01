@@ -26,7 +26,7 @@ export const Default: ComponentStory<typeof SideBar> = () => (
   <Box h='100vh'>
     <SideBar>
       <SideBarAccordion>
-        <SideBarAccordionItem title='Omnichannel' />
+        <SideBarAccordionItem title='Omnichannel' badgeCount={10} />
         <SideBarAccordionItem title='Team chat' />
       </SideBarAccordion>
     </SideBar>

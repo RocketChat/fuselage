@@ -40,6 +40,7 @@ $sidebar-accordion-border-color: theme(
     &__bar {
       display: flex;
       flex-flow: row nowrap;
+      align-items: center;
 
       min-height: lengths.size(24);
       padding: lengths.padding(16);

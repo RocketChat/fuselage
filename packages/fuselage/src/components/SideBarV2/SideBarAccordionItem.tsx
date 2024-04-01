@@ -7,6 +7,7 @@ import type {
 } from 'react';
 import React from 'react';
 
+import { Badge } from '../Badge';
 import { Chevron } from '../Chevron';
 
 type SideBarAccordionItemProps = {
@@ -18,6 +19,7 @@ type SideBarAccordionItemProps = {
   tabIndex?: number;
   title: ReactNode;
   noncollapsible?: boolean;
+  badgeCount?: number;
 } & HTMLAttributes<HTMLElement>;
 
 export const SideBarAccordionItem = function Item({
@@ -29,6 +31,7 @@ export const SideBarAccordionItem = function Item({
   tabIndex = 0,
   title,
   noncollapsible = !title,
+  badgeCount,
   ...props
 }: SideBarAccordionItemProps) {
   const [stateExpanded, toggleStateExpanded] = useToggle(defaultExpanded);
@@ -102,6 +105,7 @@ export const SideBarAccordionItem = function Item({
               {title}
             </h4>
           )}
+          {!expanded && badgeCount && <Badge>{badgeCount}</Badge>}
         </div>
       )}
       <div
