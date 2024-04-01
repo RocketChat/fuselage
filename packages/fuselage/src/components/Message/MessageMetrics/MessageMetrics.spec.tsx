@@ -1,14 +1,31 @@
+import { composeStories } from '@storybook/testing-react';
 import { render } from '@testing-library/react';
+import { axe } from 'jest-axe';
 import React from 'react';
 
-import MessageMetrics from '.';
+import * as stories from './MessageMetrics.stories';
 
-it('renders without crashing', () => {
-  render(
-    <MessageMetrics>
-      <MessageMetrics.Reply />
-      <MessageMetrics.Item />
-      <MessageMetrics.Following name='bell' />
-    </MessageMetrics>
+const testCases = Object.values(composeStories(stories)).map((Story) => [
+  Story.storyName || 'Story',
+  Story,
+]);
+
+describe('[MessageMetrics Rendering]', () => {
+  test.each(testCases)(
+    `renders %s without crashing`,
+    async (_storyname, Story) => {
+      const tree = render(<Story />);
+      expect(tree.baseElement).toMatchSnapshot();
+    }
+  );
+
+  test.each(testCases)(
+    '%s should have no a11y violations',
+    async (_storyname, Story) => {
+      const { container } = render(<Story />);
+
+      const results = await axe(container);
+      expect(results).toHaveNoViolations();
+    }
   );
 });
