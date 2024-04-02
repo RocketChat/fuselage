@@ -149,21 +149,37 @@ $sidebar-link-color: theme('sidebar-link-color', colors.font(titles-labels));
     @extend %sidebar-item-base;
     @include highlighted;
     @include typography.use-font-scale(p2);
+    justify-content: flex-start;
 
-    justify-content: space-between;
+    align-items: center;
 
     padding: lengths.padding(4) lengths.padding(16);
 
     text-decoration: none;
+    gap: lengths.padding(4);
 
+    &:active,
     &--selected {
       background-color: $sidebar-color-surface-selected;
     }
 
-    &--section {
-      display: flex;
-      align-items: center;
-      gap: lengths.padding(4);
+    &__title {
+      flex-grow: 1;
+    }
+
+    &__actions {
+      margin-inline-start: 12px;
+      margin-inline-end: -36px;
+
+      opacity: 0;
+    }
+
+    &:hover {
+      .rcx-sidebar-v2-link__actions {
+        margin-inline: 0;
+
+        opacity: 1;
+      }
     }
   }
 

@@ -9,6 +9,7 @@ import {
   SideBarLink,
 } from '.';
 import Box from '../Box';
+import { MenuV2 as Menu, MenuItem } from '../Menu';
 import { SideBarBadge } from './SideBarBadge';
 
 export default {
@@ -28,6 +29,13 @@ export default {
   },
 } as ComponentMeta<typeof SideBar>;
 
+const menuTemplate = (
+  <Menu mini aria-label='Options' title='Options'>
+    <MenuItem key='hide'>Hide</MenuItem>
+    <MenuItem key='discussion'>Mark unread</MenuItem>
+    <MenuItem key='unfavorite'>Unfavorite</MenuItem>
+  </Menu>
+);
 export const Default: ComponentStory<typeof SideBar> = () => (
   <Box h='100vh'>
     <SideBar>
@@ -42,6 +50,7 @@ export const Default: ComponentStory<typeof SideBar> = () => (
             href='#'
             selected
             badge={<SideBarBadge title={83} children={83} variant='primary' />}
+            menu={menuTemplate}
           >
             All
           </SideBarLink>
@@ -49,6 +58,7 @@ export const Default: ComponentStory<typeof SideBar> = () => (
             icon='user'
             href='#'
             badge={<SideBarBadge title={10} children={10} />}
+            menu={menuTemplate}
           >
             Assigned to me
           </SideBarLink>
@@ -56,10 +66,11 @@ export const Default: ComponentStory<typeof SideBar> = () => (
             icon='queue'
             href='#'
             badge={<SideBarBadge title={3} children={3} variant='danger' />}
+            menu={menuTemplate}
           >
             Unassigned
           </SideBarLink>
-          <SideBarLink icon='pause' href='#'>
+          <SideBarLink icon='pause' href='#' menu={menuTemplate}>
             On hold
           </SideBarLink>
         </SideBarAccordionItem>
