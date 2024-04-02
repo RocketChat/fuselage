@@ -1,19 +1,18 @@
 import type { Keys as Icons } from '@rocket.chat/icons';
-import type { LinkHTMLAttributes } from 'react';
+import type { LinkHTMLAttributes, ReactNode } from 'react';
 import React from 'react';
 
-import { Badge } from '../Badge';
 import { Icon } from '../Icon';
 
 export const SideBarLink = ({
   selected,
   icon,
-  badgeCount,
+  badge,
   ...props
 }: {
   selected?: boolean;
   icon?: Icons;
-  badgeCount?: number;
+  badge?: ReactNode;
 } & LinkHTMLAttributes<HTMLAnchorElement>) => (
   <a
     className={[
@@ -30,10 +29,6 @@ export const SideBarLink = ({
       )}
       <span>{props.children}</span>
     </span>
-    {badgeCount && (
-      <span className='rcx-sidebar-v2-link--section'>
-        <Badge>{badgeCount}</Badge>
-      </span>
-    )}
+    {badge && <span className='rcx-sidebar-v2-link--section'>{badge}</span>}
   </a>
 );

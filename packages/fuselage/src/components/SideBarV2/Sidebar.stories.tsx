@@ -9,6 +9,7 @@ import {
   SideBarLink,
 } from '.';
 import Box from '../Box';
+import { SideBarBadge } from './SideBarBadge';
 
 export default {
   title: 'Navigation/SideBar',
@@ -36,13 +37,26 @@ export const Default: ComponentStory<typeof SideBar> = () => (
           badgeCount={10}
           defaultExpanded={true}
         >
-          <SideBarLink icon='arrow-down-box' href='#' badgeCount={12} selected>
+          <SideBarLink
+            icon='arrow-down-box'
+            href='#'
+            selected
+            badge={<SideBarBadge title={83} children={83} variant='primary' />}
+          >
             All
           </SideBarLink>
-          <SideBarLink icon='user' href='#' badgeCount={4}>
+          <SideBarLink
+            icon='user'
+            href='#'
+            badge={<SideBarBadge title={10} children={10} />}
+          >
             Assigned to me
           </SideBarLink>
-          <SideBarLink icon='queue' href='#' badgeCount={3}>
+          <SideBarLink
+            icon='queue'
+            href='#'
+            badge={<SideBarBadge title={3} children={3} variant='danger' />}
+          >
             Unassigned
           </SideBarLink>
           <SideBarLink icon='pause' href='#'>
