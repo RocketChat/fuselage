@@ -84,42 +84,45 @@ export const SideBarAccordionItem = function Item({
 
   return (
     <section
-      className={`rcx-sidebar-v2--accordion-item ${className}`}
+      className={['rcx-sidebar-v2__accordion-item', className && className]
+        .filter(Boolean)
+        .join(' ')}
+      aria-expanded={expanded}
       {...props}
     >
-      {title && (
-        <div
-          role='button'
-          className={[
-            'rcx-sidebar-v2--accordion-item__bar',
-            'rcx-box--animated',
-            disabled && 'rcx-sidebar-v2--accordion-item__bar--disabled',
-          ]
-            .filter(Boolean)
-            .join(' ')}
-          {...barProps}
-        >
-          {!noncollapsible && <Chevron size='x24' up={expanded} />}
-          {title && (
-            <h4 className='rcx-sidebar-v2--accordion-item__title' id={titleId}>
-              {title}
-            </h4>
-          )}
-          {!expanded && badgeCount && <Badge>{badgeCount}</Badge>}
-        </div>
-      )}
+      <div
+        role='button'
+        className={[
+          'rcx-sidebar-v2__accordion-item__bar',
+          'rcx-box--animated',
+          disabled && 'rcx-sidebar-v2__accordion-item__bar--disabled',
+        ]
+          .filter(Boolean)
+          .join(' ')}
+        {...barProps}
+      >
+        {!noncollapsible && <Chevron size='x24' up={expanded} />}
+        {title && (
+          <h4 className='rcx-sidebar-v2__accordion-item__title' id={titleId}>
+            {title}
+          </h4>
+        )}
+        {!expanded && badgeCount && <Badge>{badgeCount}</Badge>}
+      </div>
       <div
         className={[
-          'rcx-sidebar-v2--accordion-item__panel',
+          'rcx-sidebar-v2__accordion-item__panel',
           'rcx-box--animated',
-          panelExpanded && 'rcx-sidebar-v2--accordion-item__panel--expanded',
+          panelExpanded && 'rcx-sidebar-v2__accordion-item__panel--expanded',
         ]
           .filter(Boolean)
           .join(' ')}
         id={panelId}
         role='region'
       >
-        {children}
+        <div className='rcx-sidebar-v2__accordion-item__panel-inner'>
+          {children}
+        </div>
       </div>
     </section>
   );

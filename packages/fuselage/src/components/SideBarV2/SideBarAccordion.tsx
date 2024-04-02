@@ -10,6 +10,6 @@ export function SideBarAccordion(
   props: SideBarAccordionProps
 ): ReactElement<SideBarAccordionProps> {
   return (
-    <div className='rcx-sidebar-v2--accordion rcx-box--animated' {...props} />
+    <div className='rcx-sidebar-v2__accordion rcx-box--animated' {...props} />
   );
 }
