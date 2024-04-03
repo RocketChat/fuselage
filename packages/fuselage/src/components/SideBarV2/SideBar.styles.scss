@@ -69,12 +69,10 @@ $sidebar-link-color: theme('sidebar-link-color', colors.font(titles-labels));
     flex-flow: column nowrap;
   }
 
+  &__collapse-group,
   &__accordion-item {
     display: flex;
     flex-flow: column nowrap;
-
-    border-bottom: lengths.border-width(default) solid
-      $sidebar-accordion-border-color;
 
     &__bar {
       display: flex;
@@ -82,7 +80,7 @@ $sidebar-link-color: theme('sidebar-link-color', colors.font(titles-labels));
       align-items: center;
 
       min-height: lengths.size(24);
-      padding: lengths.padding(16);
+      padding: lengths.padding(8) lengths.padding(16);
 
       text-align: start;
 
@@ -122,8 +120,6 @@ $sidebar-link-color: theme('sidebar-link-color', colors.font(titles-labels));
       white-space: nowrap;
 
       @include typography.use-text-ellipsis;
-
-      @include typography.use-font-scale(h4);
     }
 
     &__panel {
@@ -140,6 +136,19 @@ $sidebar-link-color: theme('sidebar-link-color', colors.font(titles-labels));
         padding-block-start: lengths.padding(4);
         padding-block-end: lengths.padding(8);
       }
+    }
+  }
+
+  &__accordion-item {
+    border-bottom: lengths.border-width(default) solid
+      $sidebar-accordion-border-color;
+
+    &__bar {
+      padding: lengths.padding(16);
+    }
+
+    &__title {
+      @include typography.use-font-scale(h4);
     }
   }
 
@@ -175,6 +184,7 @@ $sidebar-link-color: theme('sidebar-link-color', colors.font(titles-labels));
     }
 
     &:hover {
+      .rcx-sidebar-v2-item__actions,
       .rcx-sidebar-v2-link__actions {
         margin-inline: 0;
 

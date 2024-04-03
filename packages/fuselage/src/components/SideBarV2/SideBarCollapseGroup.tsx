@@ -1,56 +1,41 @@
 import { useToggle, useUniqueId } from '@rocket.chat/fuselage-hooks';
-import type {
-  HTMLAttributes,
-  KeyboardEvent,
-  MouseEvent,
-  ReactNode,
-} from 'react';
+import type { HTMLAttributes, MouseEvent } from 'react';
 import React from 'react';
 
 import { Chevron } from '../Chevron';
 
-type SideBarAccordionItemProps = {
-  children?: ReactNode;
-  className?: string;
-  defaultExpanded?: boolean;
-  disabled?: boolean;
+type SideBarCollapseGroupProps = {
   expanded?: boolean;
+  defaultExpanded?: boolean;
   tabIndex?: number;
-  title: ReactNode;
-  noncollapsible?: boolean;
-  badge?: ReactNode;
-} & HTMLAttributes<HTMLElement>;
+  title: string;
+  badge?: React.ReactNode;
+  actions?: React.ReactNode;
+} & HTMLAttributes<HTMLDivElement>;
 
-export const SideBarAccordionItem = function Item({
-  children,
-  className,
-  defaultExpanded,
-  disabled,
+export const SideBarCollapseGroup = ({
   expanded: propExpanded,
+  defaultExpanded,
   tabIndex = 0,
+  children,
   title,
-  noncollapsible = !title,
+  className,
   badge,
   ...props
-}: SideBarAccordionItemProps) {
+}: SideBarCollapseGroupProps) => {
   const [stateExpanded, toggleStateExpanded] = useToggle(defaultExpanded);
   const expanded = propExpanded || stateExpanded;
-
-  const panelExpanded = noncollapsible || expanded;
 
   const titleId = useUniqueId();
   const panelId = useUniqueId();
 
   const handleClick = (e: MouseEvent<HTMLElement>) => {
-    if (disabled) {
-      return;
-    }
     e.currentTarget?.blur();
     toggleStateExpanded();
   };
 
   const handleKeyDown = (event: KeyboardEvent) => {
-    if (disabled || event.currentTarget !== event.target) {
+    if (event.currentTarget !== event.target) {
       return;
     }
 
@@ -68,50 +53,38 @@ export const SideBarAccordionItem = function Item({
   const collapsibleProps = {
     'aria-controls': panelId,
     'aria-expanded': expanded ? 'true' : 'false',
-    'tabIndex': !disabled ? tabIndex : undefined,
+    tabIndex,
     'onClick': handleClick,
     'onKeyDown': handleKeyDown,
   } as const;
 
-  const nonCollapsibleProps = {
-    'aria-disabled': 'true',
-    'aria-expanded': 'true',
-    'aria-labelledby': titleId,
-  } as const;
-
-  const barProps = noncollapsible ? nonCollapsibleProps : collapsibleProps;
-
   return (
     <section
-      className={['rcx-sidebar-v2__accordion-item', className && className]
+      className={['rcx-sidebar-v2__collapse-group', className && className]
         .filter(Boolean)
         .join(' ')}
       {...props}
     >
       <div
         role='button'
-        className={[
-          'rcx-sidebar-v2__accordion-item__bar',
-          'rcx-box--animated',
-          disabled && 'rcx-sidebar-v2__accordion-item__bar--disabled',
-        ]
+        className={['rcx-sidebar-v2__collapse-group__bar', 'rcx-box--animated']
           .filter(Boolean)
           .join(' ')}
-        {...barProps}
+        {...collapsibleProps}
       >
-        {!noncollapsible && <Chevron size='x18' up={expanded} />}
+        {<Chevron size='x18' up={expanded} />}
         {title && (
-          <h4 className='rcx-sidebar-v2__accordion-item__title' id={titleId}>
+          <h5 className='rcx-sidebar-v2__collapse-group__title' id={titleId}>
             {title}
-          </h4>
+          </h5>
         )}
         {!expanded && badge && badge}
       </div>
       <div
         className={[
-          'rcx-sidebar-v2__accordion-item__panel',
+          'rcx-sidebar-v2__collapse-group__panel',
           'rcx-box--animated',
-          panelExpanded && 'rcx-sidebar-v2__accordion-item__panel--expanded',
+          expanded && 'rcx-sidebar-v2__collapse-group__panel--expanded',
         ]
           .filter(Boolean)
           .join(' ')}
@@ -121,5 +94,14 @@ export const SideBarAccordionItem = function Item({
         {children}
       </div>
     </section>
+    // <div
+    //   role='button'
+    //   className='rcx-sidebar-v2__collapse-group'
+    //   {...collapsibleProps}
+    //   {...props}
+    // >
+    //   <Chevron size='x18' up={expanded} />
+    //   <span className='rcx-sidebar-v2__collapse-group__title'>{children}</span>
+    // </div>
   );
 };
