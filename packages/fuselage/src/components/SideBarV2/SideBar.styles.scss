@@ -120,6 +120,7 @@ $sidebar-link-color: theme('sidebar-link-color', colors.font(titles-labels));
       white-space: nowrap;
 
       @include typography.use-text-ellipsis;
+      @include typography.use-font-scale(c2);
     }
 
     &__panel {
