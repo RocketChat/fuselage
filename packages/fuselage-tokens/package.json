@@ -23,9 +23,7 @@
     "rocket.chat"
   ],
   "files": [
-    "dist/breakpoints.*",
-    "dist/colors.*",
-    "dist/typography.*",
+    "dist",
     "/breakpoints.*",
     "/colors.*",
     "/typography.*"
