@@ -7,12 +7,14 @@ export const SideBarItemAction = ({
   children,
   ...props
 }: { onClick: (e: Event) => void } & HTMLAttributes<HTMLDivElement>) => (
-  <div
-    role='button'
-    className='rcx-sidebar-v2-item rcx-sidebar-v2-item__action'
-    {...props}
-  >
-    <Icon name='plus-small' size='x18' />
-    {children}
-  </div>
+  <li>
+    <div
+      role='button'
+      className='rcx-sidebar-v2-item rcx-sidebar-v2-item__action'
+      {...props}
+    >
+      <Icon name='plus-small' size='x18' />
+      {children}
+    </div>
+  </li>
 );

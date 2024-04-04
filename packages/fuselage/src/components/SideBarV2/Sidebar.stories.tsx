@@ -82,6 +82,7 @@ export const Default: ComponentStory<typeof SideBar> = () => (
           <SideBarCollapseGroup title='Favorites' defaultExpanded>
             <SideBarItem
               children='Tech news'
+              href='#'
               icon='team'
               avatar={
                 <Avatar size='x18' url={leterAvatarUrls[0]} alt='avatar' />
@@ -90,6 +91,7 @@ export const Default: ComponentStory<typeof SideBar> = () => (
             />
             <SideBarItem
               children='Marvin Black'
+              href='#'
               icon='balloon'
               avatar={
                 <Avatar size='x18' url={leterAvatarUrls[1]} alt='avatar' />
@@ -98,6 +100,7 @@ export const Default: ComponentStory<typeof SideBar> = () => (
             />
             <SideBarItem
               children='Eng news'
+              href='#'
               icon='hashtag'
               avatar={
                 <Avatar size='x18' url={leterAvatarUrls[2]} alt='avatar' />
@@ -106,6 +109,7 @@ export const Default: ComponentStory<typeof SideBar> = () => (
             />
             <SideBarItem
               children='Important'
+              href='#'
               icon='team'
               avatar={
                 <Avatar size='x18' url={leterAvatarUrls[3]} alt='avatar' />

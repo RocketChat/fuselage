@@ -1,14 +1,73 @@
-import type { ComponentProps } from 'react';
+import type { HTMLAttributes, ReactNode } from 'react';
 import React from 'react';
 
-import { SideBarCollapser } from './components/SideBarCollapser';
+import { Chevron } from '../Chevron';
+import { useCollapse } from './hooks/useCollapse';
 
-type SideBarAccordionItemProps = ComponentProps<typeof SideBarCollapser>;
+type SideBarAccordionItemProps = {
+  children?: ReactNode;
+  className?: string;
+  defaultExpanded?: boolean;
+  disabled?: boolean;
+  expanded?: boolean;
+  tabIndex?: number;
+  title: ReactNode;
+  noncollapsible?: boolean;
+  badge?: ReactNode;
+} & HTMLAttributes<HTMLElement>;
 
-export const SideBarAccordionItem = function Item(
-  props: SideBarAccordionItemProps
-) {
+export const SideBarAccordionItem = ({
+  children,
+  title,
+  badge,
+  noncollapsible,
+  disabled,
+  expanded: propExpanded,
+  defaultExpanded,
+  tabIndex,
+  ...props
+}: SideBarAccordionItemProps) => {
+  const { barProps, expanded, panelExpanded, panelId, titleId } = useCollapse({
+    expanded: propExpanded,
+    defaultExpanded,
+    tabIndex,
+    disabled,
+    noncollapsible,
+  });
+
   return (
-    <SideBarCollapser {...props} className='rcx-sidebar-v2__accordion-item' />
+    <section className={`rcx-sidebar-v2__accordion-item`} {...props}>
+      <div
+        role='button'
+        className={[
+          `rcx-sidebar-v2__accordion-item__bar`,
+          'rcx-box--animated',
+          disabled && `rcx-sidebar-v2__accordion-item__bar--disabled`,
+        ]
+          .filter(Boolean)
+          .join(' ')}
+        {...barProps}
+      >
+        {!noncollapsible && <Chevron size='x18' up={expanded} />}
+        {title && (
+          <h4 className={`rcx-sidebar-v2__accordion-item__title`} id={titleId}>
+            {title}
+          </h4>
+        )}
+        {!expanded && badge && badge}
+      </div>
+      <div
+        className={[
+          `rcx-sidebar-v2__accordion-item__panel`,
+          'rcx-box--animated',
+          panelExpanded && `rcx-sidebar-v2__accordion-item__panel--expanded`,
+        ]
+          .filter(Boolean)
+          .join(' ')}
+        id={panelId}
+      >
+        {children}
+      </div>
+    </section>
   );
 };
