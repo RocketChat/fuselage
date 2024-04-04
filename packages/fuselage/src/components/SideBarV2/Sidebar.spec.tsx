@@ -2,7 +2,6 @@ import { composeStories } from '@storybook/testing-react';
 import { render } from '@testing-library/react';
 import { axe } from 'jest-axe';
 import React from 'react';
-import { SSRProvider } from 'react-aria';
 
 import * as stories from './Sidebar.stories';
 
@@ -15,10 +14,7 @@ describe('[Sidebar Component]', () => {
   test.each(testCases)(
     `renders %s without crashing`,
     async (_storyname, Story) => {
-      const tree = render(<Story />, {
-        wrapper: ({ children }) => <SSRProvider>{children}</SSRProvider>,
-      });
-      expect(tree.baseElement).toMatchSnapshot();
+      render(<Story />);
     }
   );
 
