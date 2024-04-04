@@ -1,0 +1,1449 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[Sidebar Component] renders Default without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full"
+    >
+      <nav
+        class="rcx-sidebar-v2"
+      >
+        <div
+          class="rcx-sidebar-v2__accordion rcx-box--animated"
+        >
+          <section
+            class="rcx-sidebar-v2__accordion-item"
+          >
+            <div
+              aria-controls="6tjk28m8jee"
+              aria-expanded="false"
+              class="rcx-sidebar-v2__accordion-item__bar rcx-box--animated"
+              role="button"
+              tabindex="0"
+            >
+              <span
+                class="rcx-box rcx-box--full rcx-chevron"
+              >
+                <i
+                  aria-hidden="true"
+                  class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-sgixmw"
+                >
+                  
+                </i>
+              </span>
+              <h4
+                class="rcx-sidebar-v2__accordion-item__title"
+                id="cvcuvx58nc9"
+              >
+                Omnichannel
+              </h4>
+              <span
+                class="rcx-box rcx-box--full rcx-badge rcx-badge--danger"
+                title="83"
+              >
+                96
+              </span>
+            </div>
+            <div
+              class="rcx-sidebar-v2__accordion-item__panel rcx-box--animated"
+              id="6tjk28m8jee"
+            >
+              <a
+                class="rcx-sidebar-v2-link rcx-sidebar-v2-item--selected"
+                href="#"
+              >
+                <i
+                  aria-hidden="true"
+                  class="rcx-box rcx-box--full rcx-icon--name-arrow-down-box rcx-icon  rcx-sidebar-v2-link__icon rcx-css-4pvxx3"
+                >
+                  
+                </i>
+                <span
+                  class="rcx-sidebar-v2-link__title"
+                >
+                  All
+                </span>
+                <span
+                  class="rcx-box rcx-box--full rcx-badge rcx-badge--primary"
+                  title="83"
+                >
+                  83
+                </span>
+                <button
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                  class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button  rcx-sidebar-v2-link__actions rcx-box--animated"
+                  id="react-aria-1"
+                  title="Options"
+                  type="button"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1tg7yd0"
+                  >
+                    
+                  </i>
+                </button>
+              </a>
+              <a
+                class="rcx-sidebar-v2-link"
+                href="#"
+              >
+                <i
+                  aria-hidden="true"
+                  class="rcx-box rcx-box--full rcx-icon--name-user rcx-icon  rcx-sidebar-v2-link__icon rcx-css-4pvxx3"
+                >
+                  
+                </i>
+                <span
+                  class="rcx-sidebar-v2-link__title"
+                >
+                  Assigned to me
+                </span>
+                <span
+                  class="rcx-box rcx-box--full rcx-badge rcx-badge--secondary"
+                  title="10"
+                >
+                  10
+                </span>
+                <button
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                  class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button  rcx-sidebar-v2-link__actions rcx-box--animated"
+                  id="react-aria-3"
+                  title="Options"
+                  type="button"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1tg7yd0"
+                  >
+                    
+                  </i>
+                </button>
+              </a>
+              <a
+                class="rcx-sidebar-v2-link"
+                href="#"
+              >
+                <i
+                  aria-hidden="true"
+                  class="rcx-box rcx-box--full rcx-icon--name-queue rcx-icon  rcx-sidebar-v2-link__icon rcx-css-4pvxx3"
+                >
+                  
+                </i>
+                <span
+                  class="rcx-sidebar-v2-link__title"
+                >
+                  Unassigned
+                </span>
+                <span
+                  class="rcx-box rcx-box--full rcx-badge rcx-badge--danger"
+                  title="3"
+                >
+                  3
+                </span>
+                <button
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                  class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button  rcx-sidebar-v2-link__actions rcx-box--animated"
+                  id="react-aria-5"
+                  title="Options"
+                  type="button"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1tg7yd0"
+                  >
+                    
+                  </i>
+                </button>
+              </a>
+              <a
+                class="rcx-sidebar-v2-link"
+                href="#"
+              >
+                <i
+                  aria-hidden="true"
+                  class="rcx-box rcx-box--full rcx-icon--name-pause rcx-icon  rcx-sidebar-v2-link__icon rcx-css-4pvxx3"
+                >
+                  
+                </i>
+                <span
+                  class="rcx-sidebar-v2-link__title"
+                >
+                  On hold
+                </span>
+                <button
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                  class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button  rcx-sidebar-v2-link__actions rcx-box--animated"
+                  id="react-aria-7"
+                  title="Options"
+                  type="button"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1tg7yd0"
+                  >
+                    
+                  </i>
+                </button>
+              </a>
+            </div>
+          </section>
+          <section
+            class="rcx-sidebar-v2__accordion-item"
+          >
+            <div
+              aria-controls="m5zy58atu9p"
+              aria-expanded="true"
+              class="rcx-sidebar-v2__accordion-item__bar rcx-box--animated"
+              role="button"
+              tabindex="0"
+            >
+              <span
+                class="rcx-box rcx-box--full rcx-chevron--up rcx-chevron"
+              >
+                <i
+                  aria-hidden="true"
+                  class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-sgixmw"
+                >
+                  
+                </i>
+              </span>
+              <h4
+                class="rcx-sidebar-v2__accordion-item__title"
+                id="v7hrs9zvoe8"
+              >
+                Team chat
+              </h4>
+            </div>
+            <div
+              class="rcx-sidebar-v2__accordion-item__panel rcx-box--animated rcx-sidebar-v2__accordion-item__panel--expanded"
+              id="m5zy58atu9p"
+            >
+              <section
+                class="rcx-sidebar-v2__collapse-group"
+              >
+                <div
+                  aria-controls="25j6ml4d4j1"
+                  aria-expanded="true"
+                  class="rcx-sidebar-v2__collapse-group__bar rcx-box--animated"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="rcx-box rcx-box--full rcx-chevron--up rcx-chevron"
+                  >
+                    <i
+                      aria-hidden="true"
+                      class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-sgixmw"
+                    >
+                      
+                    </i>
+                  </span>
+                  <h4
+                    class="rcx-sidebar-v2__collapse-group__title"
+                    id="wr0m4ubr6d"
+                  >
+                    Favorites
+                  </h4>
+                </div>
+                <div
+                  class="rcx-sidebar-v2__collapse-group__panel rcx-box--animated rcx-sidebar-v2__collapse-group__panel--expanded"
+                  id="25j6ml4d4j1"
+                >
+                  <a
+                    class="rcx-sidebar-v2-item"
+                  >
+                    <figure
+                      class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x18"
+                    >
+                      <img
+                        alt="avatar"
+                        class="rcx-avatar__element rcx-avatar__element--x18"
+                        src="https://open.rocket.chat/avatar/room/6424421d31f936e5e0d18294"
+                      />
+                    </figure>
+                    <i
+                      aria-hidden="true"
+                      class="rcx-box rcx-box--full rcx-icon--name-team rcx-icon  rcx-sidebar-v2-item__icon rcx-css-4pvxx3"
+                    >
+                      
+                    </i>
+                    <span
+                      class="rcx-sidebar-v2-item__title"
+                    >
+                      Tech news
+                    </span>
+                    <button
+                      aria-expanded="false"
+                      aria-haspopup="true"
+                      class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button  rcx-sidebar-v2-item__actions rcx-box--animated"
+                      id="react-aria-9"
+                      title="Options"
+                      type="button"
+                    >
+                      <i
+                        aria-hidden="true"
+                        class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1tg7yd0"
+                      >
+                        
+                      </i>
+                    </button>
+                  </a>
+                  <a
+                    class="rcx-sidebar-v2-item"
+                  >
+                    <figure
+                      class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x18"
+                    >
+                      <img
+                        alt="avatar"
+                        class="rcx-avatar__element rcx-avatar__element--x18"
+                        src="https://open.rocket.chat/avatar/room/2Fd44Hrw5XyTC7T3g"
+                      />
+                    </figure>
+                    <i
+                      aria-hidden="true"
+                      class="rcx-box rcx-box--full rcx-icon--name-balloon rcx-icon  rcx-sidebar-v2-item__icon rcx-css-4pvxx3"
+                    >
+                      
+                    </i>
+                    <span
+                      class="rcx-sidebar-v2-item__title"
+                    >
+                      Marvin Black
+                    </span>
+                    <button
+                      aria-expanded="false"
+                      aria-haspopup="true"
+                      class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button  rcx-sidebar-v2-item__actions rcx-box--animated"
+                      id="react-aria-11"
+                      title="Options"
+                      type="button"
+                    >
+                      <i
+                        aria-hidden="true"
+                        class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1tg7yd0"
+                      >
+                        
+                      </i>
+                    </button>
+                  </a>
+                  <a
+                    class="rcx-sidebar-v2-item"
+                  >
+                    <figure
+                      class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x18"
+                    >
+                      <img
+                        alt="avatar"
+                        class="rcx-avatar__element rcx-avatar__element--x18"
+                        src="https://open.rocket.chat/avatar/room/65e9c78577f50a59926585a9"
+                      />
+                    </figure>
+                    <i
+                      aria-hidden="true"
+                      class="rcx-box rcx-box--full rcx-icon--name-hashtag rcx-icon  rcx-sidebar-v2-item__icon rcx-css-4pvxx3"
+                    >
+                      
+                    </i>
+                    <span
+                      class="rcx-sidebar-v2-item__title"
+                    >
+                      Eng news
+                    </span>
+                    <button
+                      aria-expanded="false"
+                      aria-haspopup="true"
+                      class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button  rcx-sidebar-v2-item__actions rcx-box--animated"
+                      id="react-aria-13"
+                      title="Options"
+                      type="button"
+                    >
+                      <i
+                        aria-hidden="true"
+                        class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1tg7yd0"
+                      >
+                        
+                      </i>
+                    </button>
+                  </a>
+                  <a
+                    class="rcx-sidebar-v2-item"
+                  >
+                    <figure
+                      class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x18"
+                    >
+                      <img
+                        alt="avatar"
+                        class="rcx-avatar__element rcx-avatar__element--x18"
+                        src="https://open.rocket.chat/avatar/room/TwfFFRmxBdJjBBYto"
+                      />
+                    </figure>
+                    <i
+                      aria-hidden="true"
+                      class="rcx-box rcx-box--full rcx-icon--name-team rcx-icon  rcx-sidebar-v2-item__icon rcx-css-4pvxx3"
+                    >
+                      
+                    </i>
+                    <span
+                      class="rcx-sidebar-v2-item__title"
+                    >
+                      Important
+                    </span>
+                    <button
+                      aria-expanded="false"
+                      aria-haspopup="true"
+                      class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button  rcx-sidebar-v2-item__actions rcx-box--animated"
+                      id="react-aria-15"
+                      title="Options"
+                      type="button"
+                    >
+                      <i
+                        aria-hidden="true"
+                        class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1tg7yd0"
+                      >
+                        
+                      </i>
+                    </button>
+                  </a>
+                </div>
+              </section>
+              <section
+                class="rcx-sidebar-v2__collapse-group"
+              >
+                <div
+                  aria-controls="8555cebri73"
+                  aria-expanded="true"
+                  class="rcx-sidebar-v2__collapse-group__bar rcx-box--animated"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="rcx-box rcx-box--full rcx-chevron--up rcx-chevron"
+                  >
+                    <i
+                      aria-hidden="true"
+                      class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-sgixmw"
+                    >
+                      
+                    </i>
+                  </span>
+                  <h4
+                    class="rcx-sidebar-v2__collapse-group__title"
+                    id="15bweg0kl0o"
+                  >
+                    Teams
+                  </h4>
+                </div>
+                <div
+                  class="rcx-sidebar-v2__collapse-group__panel rcx-box--animated rcx-sidebar-v2__collapse-group__panel--expanded"
+                  id="8555cebri73"
+                >
+                  <a
+                    class="rcx-sidebar-v2-item"
+                  >
+                    <figure
+                      class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x18"
+                    >
+                      <img
+                        alt="avatar"
+                        class="rcx-avatar__element rcx-avatar__element--x18"
+                        src="https://open.rocket.chat/avatar/room/6424421d31f936e5e0d18294"
+                      />
+                    </figure>
+                    <i
+                      aria-hidden="true"
+                      class="rcx-box rcx-box--full rcx-icon--name-balloons rcx-icon  rcx-sidebar-v2-item__icon rcx-css-4pvxx3"
+                    >
+                      
+                    </i>
+                    <span
+                      class="rcx-sidebar-v2-item__title"
+                    >
+                      Tech news
+                    </span>
+                    <button
+                      aria-expanded="false"
+                      aria-haspopup="true"
+                      class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button  rcx-sidebar-v2-item__actions rcx-box--animated"
+                      id="react-aria-17"
+                      title="Options"
+                      type="button"
+                    >
+                      <i
+                        aria-hidden="true"
+                        class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1tg7yd0"
+                      >
+                        
+                      </i>
+                    </button>
+                  </a>
+                  <a
+                    class="rcx-sidebar-v2-item"
+                  >
+                    <figure
+                      class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x18"
+                    >
+                      <img
+                        alt="avatar"
+                        class="rcx-avatar__element rcx-avatar__element--x18"
+                        src="https://open.rocket.chat/avatar/room/2Fd44Hrw5XyTC7T3g"
+                      />
+                    </figure>
+                    <i
+                      aria-hidden="true"
+                      class="rcx-box rcx-box--full rcx-icon--name-balloons rcx-icon  rcx-sidebar-v2-item__icon rcx-css-4pvxx3"
+                    >
+                      
+                    </i>
+                    <span
+                      class="rcx-sidebar-v2-item__title"
+                    >
+                      Private notes
+                    </span>
+                    <button
+                      aria-expanded="false"
+                      aria-haspopup="true"
+                      class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button  rcx-sidebar-v2-item__actions rcx-box--animated"
+                      id="react-aria-19"
+                      title="Options"
+                      type="button"
+                    >
+                      <i
+                        aria-hidden="true"
+                        class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1tg7yd0"
+                      >
+                        
+                      </i>
+                    </button>
+                  </a>
+                  <a
+                    class="rcx-sidebar-v2-item"
+                  >
+                    <figure
+                      class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x18"
+                    >
+                      <img
+                        alt="avatar"
+                        class="rcx-avatar__element rcx-avatar__element--x18"
+                        src="https://open.rocket.chat/avatar/room/2Fd44Hrw5XyTC7T3g"
+                      />
+                    </figure>
+                    <i
+                      aria-hidden="true"
+                      class="rcx-box rcx-box--full rcx-icon--name-balloons rcx-icon  rcx-sidebar-v2-item__icon rcx-css-4pvxx3"
+                    >
+                      
+                    </i>
+                    <span
+                      class="rcx-sidebar-v2-item__title"
+                    >
+                      Private notes
+                    </span>
+                    <button
+                      aria-expanded="false"
+                      aria-haspopup="true"
+                      class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button  rcx-sidebar-v2-item__actions rcx-box--animated"
+                      id="react-aria-21"
+                      title="Options"
+                      type="button"
+                    >
+                      <i
+                        aria-hidden="true"
+                        class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1tg7yd0"
+                      >
+                        
+                      </i>
+                    </button>
+                  </a>
+                  <a
+                    class="rcx-sidebar-v2-item"
+                  >
+                    <figure
+                      class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x18"
+                    >
+                      <img
+                        alt="avatar"
+                        class="rcx-avatar__element rcx-avatar__element--x18"
+                        src="https://open.rocket.chat/avatar/room/2Fd44Hrw5XyTC7T3g"
+                      />
+                    </figure>
+                    <i
+                      aria-hidden="true"
+                      class="rcx-box rcx-box--full rcx-icon--name-balloons rcx-icon  rcx-sidebar-v2-item__icon rcx-css-4pvxx3"
+                    >
+                      
+                    </i>
+                    <span
+                      class="rcx-sidebar-v2-item__title"
+                    >
+                      Private notes
+                    </span>
+                    <button
+                      aria-expanded="false"
+                      aria-haspopup="true"
+                      class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button  rcx-sidebar-v2-item__actions rcx-box--animated"
+                      id="react-aria-23"
+                      title="Options"
+                      type="button"
+                    >
+                      <i
+                        aria-hidden="true"
+                        class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1tg7yd0"
+                      >
+                        
+                      </i>
+                    </button>
+                  </a>
+                  <a
+                    class="rcx-sidebar-v2-item"
+                  >
+                    <figure
+                      class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x18"
+                    >
+                      <img
+                        alt="avatar"
+                        class="rcx-avatar__element rcx-avatar__element--x18"
+                        src="https://open.rocket.chat/avatar/room/2Fd44Hrw5XyTC7T3g"
+                      />
+                    </figure>
+                    <i
+                      aria-hidden="true"
+                      class="rcx-box rcx-box--full rcx-icon--name-balloons rcx-icon  rcx-sidebar-v2-item__icon rcx-css-4pvxx3"
+                    >
+                      
+                    </i>
+                    <span
+                      class="rcx-sidebar-v2-item__title"
+                    >
+                      Private notes
+                    </span>
+                    <button
+                      aria-expanded="false"
+                      aria-haspopup="true"
+                      class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button  rcx-sidebar-v2-item__actions rcx-box--animated"
+                      id="react-aria-25"
+                      title="Options"
+                      type="button"
+                    >
+                      <i
+                        aria-hidden="true"
+                        class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1tg7yd0"
+                      >
+                        
+                      </i>
+                    </button>
+                  </a>
+                  <div
+                    class="rcx-sidebar-v2-item rcx-sidebar-v2-item__action"
+                    role="button"
+                  >
+                    <i
+                      aria-hidden="true"
+                      class="rcx-box rcx-box--full rcx-icon--name-plus-small rcx-icon rcx-css-sgixmw"
+                    >
+                      
+                    </i>
+                    Add team
+                  </div>
+                </div>
+              </section>
+              <section
+                class="rcx-sidebar-v2__collapse-group"
+              >
+                <div
+                  aria-controls="99xhqtdwgmi"
+                  aria-expanded="true"
+                  class="rcx-sidebar-v2__collapse-group__bar rcx-box--animated"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="rcx-box rcx-box--full rcx-chevron--up rcx-chevron"
+                  >
+                    <i
+                      aria-hidden="true"
+                      class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-sgixmw"
+                    >
+                      
+                    </i>
+                  </span>
+                  <h4
+                    class="rcx-sidebar-v2__collapse-group__title"
+                    id="d6ecxdfz8x"
+                  >
+                    Discussions
+                  </h4>
+                </div>
+                <div
+                  class="rcx-sidebar-v2__collapse-group__panel rcx-box--animated rcx-sidebar-v2__collapse-group__panel--expanded"
+                  id="99xhqtdwgmi"
+                >
+                  <a
+                    class="rcx-sidebar-v2-item"
+                  >
+                    <figure
+                      class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x18"
+                    >
+                      <img
+                        alt="avatar"
+                        class="rcx-avatar__element rcx-avatar__element--x18"
+                        src="https://open.rocket.chat/avatar/room/6424421d31f936e5e0d18294"
+                      />
+                    </figure>
+                    <i
+                      aria-hidden="true"
+                      class="rcx-box rcx-box--full rcx-icon--name-balloons rcx-icon  rcx-sidebar-v2-item__icon rcx-css-4pvxx3"
+                    >
+                      
+                    </i>
+                    <span
+                      class="rcx-sidebar-v2-item__title"
+                    >
+                      Tech news
+                    </span>
+                    <button
+                      aria-expanded="false"
+                      aria-haspopup="true"
+                      class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button  rcx-sidebar-v2-item__actions rcx-box--animated"
+                      id="react-aria-27"
+                      title="Options"
+                      type="button"
+                    >
+                      <i
+                        aria-hidden="true"
+                        class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1tg7yd0"
+                      >
+                        
+                      </i>
+                    </button>
+                  </a>
+                  <a
+                    class="rcx-sidebar-v2-item"
+                  >
+                    <figure
+                      class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x18"
+                    >
+                      <img
+                        alt="avatar"
+                        class="rcx-avatar__element rcx-avatar__element--x18"
+                        src="https://open.rocket.chat/avatar/room/2Fd44Hrw5XyTC7T3g"
+                      />
+                    </figure>
+                    <i
+                      aria-hidden="true"
+                      class="rcx-box rcx-box--full rcx-icon--name-balloons rcx-icon  rcx-sidebar-v2-item__icon rcx-css-4pvxx3"
+                    >
+                      
+                    </i>
+                    <span
+                      class="rcx-sidebar-v2-item__title"
+                    >
+                      Private notes
+                    </span>
+                    <button
+                      aria-expanded="false"
+                      aria-haspopup="true"
+                      class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button  rcx-sidebar-v2-item__actions rcx-box--animated"
+                      id="react-aria-29"
+                      title="Options"
+                      type="button"
+                    >
+                      <i
+                        aria-hidden="true"
+                        class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1tg7yd0"
+                      >
+                        
+                      </i>
+                    </button>
+                  </a>
+                  <a
+                    class="rcx-sidebar-v2-item"
+                  >
+                    <figure
+                      class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x18"
+                    >
+                      <img
+                        alt="avatar"
+                        class="rcx-avatar__element rcx-avatar__element--x18"
+                        src="https://open.rocket.chat/avatar/room/2Fd44Hrw5XyTC7T3g"
+                      />
+                    </figure>
+                    <i
+                      aria-hidden="true"
+                      class="rcx-box rcx-box--full rcx-icon--name-balloons rcx-icon  rcx-sidebar-v2-item__icon rcx-css-4pvxx3"
+                    >
+                      
+                    </i>
+                    <span
+                      class="rcx-sidebar-v2-item__title"
+                    >
+                      Private notes
+                    </span>
+                    <button
+                      aria-expanded="false"
+                      aria-haspopup="true"
+                      class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button  rcx-sidebar-v2-item__actions rcx-box--animated"
+                      id="react-aria-31"
+                      title="Options"
+                      type="button"
+                    >
+                      <i
+                        aria-hidden="true"
+                        class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1tg7yd0"
+                      >
+                        
+                      </i>
+                    </button>
+                  </a>
+                  <a
+                    class="rcx-sidebar-v2-item"
+                  >
+                    <figure
+                      class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x18"
+                    >
+                      <img
+                        alt="avatar"
+                        class="rcx-avatar__element rcx-avatar__element--x18"
+                        src="https://open.rocket.chat/avatar/room/2Fd44Hrw5XyTC7T3g"
+                      />
+                    </figure>
+                    <i
+                      aria-hidden="true"
+                      class="rcx-box rcx-box--full rcx-icon--name-balloons rcx-icon  rcx-sidebar-v2-item__icon rcx-css-4pvxx3"
+                    >
+                      
+                    </i>
+                    <span
+                      class="rcx-sidebar-v2-item__title"
+                    >
+                      Private notes
+                    </span>
+                    <button
+                      aria-expanded="false"
+                      aria-haspopup="true"
+                      class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button  rcx-sidebar-v2-item__actions rcx-box--animated"
+                      id="react-aria-33"
+                      title="Options"
+                      type="button"
+                    >
+                      <i
+                        aria-hidden="true"
+                        class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1tg7yd0"
+                      >
+                        
+                      </i>
+                    </button>
+                  </a>
+                  <a
+                    class="rcx-sidebar-v2-item"
+                  >
+                    <figure
+                      class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x18"
+                    >
+                      <img
+                        alt="avatar"
+                        class="rcx-avatar__element rcx-avatar__element--x18"
+                        src="https://open.rocket.chat/avatar/room/2Fd44Hrw5XyTC7T3g"
+                      />
+                    </figure>
+                    <i
+                      aria-hidden="true"
+                      class="rcx-box rcx-box--full rcx-icon--name-balloons rcx-icon  rcx-sidebar-v2-item__icon rcx-css-4pvxx3"
+                    >
+                      
+                    </i>
+                    <span
+                      class="rcx-sidebar-v2-item__title"
+                    >
+                      Private notes
+                    </span>
+                    <button
+                      aria-expanded="false"
+                      aria-haspopup="true"
+                      class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button  rcx-sidebar-v2-item__actions rcx-box--animated"
+                      id="react-aria-35"
+                      title="Options"
+                      type="button"
+                    >
+                      <i
+                        aria-hidden="true"
+                        class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1tg7yd0"
+                      >
+                        
+                      </i>
+                    </button>
+                  </a>
+                  <a
+                    class="rcx-sidebar-v2-item"
+                  >
+                    <figure
+                      class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x18"
+                    >
+                      <img
+                        alt="avatar"
+                        class="rcx-avatar__element rcx-avatar__element--x18"
+                        src="https://open.rocket.chat/avatar/room/2Fd44Hrw5XyTC7T3g"
+                      />
+                    </figure>
+                    <i
+                      aria-hidden="true"
+                      class="rcx-box rcx-box--full rcx-icon--name-balloons rcx-icon  rcx-sidebar-v2-item__icon rcx-css-4pvxx3"
+                    >
+                      
+                    </i>
+                    <span
+                      class="rcx-sidebar-v2-item__title"
+                    >
+                      Private notes
+                    </span>
+                    <button
+                      aria-expanded="false"
+                      aria-haspopup="true"
+                      class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button  rcx-sidebar-v2-item__actions rcx-box--animated"
+                      id="react-aria-37"
+                      title="Options"
+                      type="button"
+                    >
+                      <i
+                        aria-hidden="true"
+                        class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1tg7yd0"
+                      >
+                        
+                      </i>
+                    </button>
+                  </a>
+                  <a
+                    class="rcx-sidebar-v2-item"
+                  >
+                    <figure
+                      class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x18"
+                    >
+                      <img
+                        alt="avatar"
+                        class="rcx-avatar__element rcx-avatar__element--x18"
+                        src="https://open.rocket.chat/avatar/room/2Fd44Hrw5XyTC7T3g"
+                      />
+                    </figure>
+                    <i
+                      aria-hidden="true"
+                      class="rcx-box rcx-box--full rcx-icon--name-balloons rcx-icon  rcx-sidebar-v2-item__icon rcx-css-4pvxx3"
+                    >
+                      
+                    </i>
+                    <span
+                      class="rcx-sidebar-v2-item__title"
+                    >
+                      Private notes
+                    </span>
+                    <button
+                      aria-expanded="false"
+                      aria-haspopup="true"
+                      class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button  rcx-sidebar-v2-item__actions rcx-box--animated"
+                      id="react-aria-39"
+                      title="Options"
+                      type="button"
+                    >
+                      <i
+                        aria-hidden="true"
+                        class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1tg7yd0"
+                      >
+                        
+                      </i>
+                    </button>
+                  </a>
+                  <a
+                    class="rcx-sidebar-v2-item"
+                  >
+                    <figure
+                      class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x18"
+                    >
+                      <img
+                        alt="avatar"
+                        class="rcx-avatar__element rcx-avatar__element--x18"
+                        src="https://open.rocket.chat/avatar/room/2Fd44Hrw5XyTC7T3g"
+                      />
+                    </figure>
+                    <i
+                      aria-hidden="true"
+                      class="rcx-box rcx-box--full rcx-icon--name-balloons rcx-icon  rcx-sidebar-v2-item__icon rcx-css-4pvxx3"
+                    >
+                      
+                    </i>
+                    <span
+                      class="rcx-sidebar-v2-item__title"
+                    >
+                      Private notes
+                    </span>
+                    <button
+                      aria-expanded="false"
+                      aria-haspopup="true"
+                      class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button  rcx-sidebar-v2-item__actions rcx-box--animated"
+                      id="react-aria-41"
+                      title="Options"
+                      type="button"
+                    >
+                      <i
+                        aria-hidden="true"
+                        class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1tg7yd0"
+                      >
+                        
+                      </i>
+                    </button>
+                  </a>
+                  <a
+                    class="rcx-sidebar-v2-item"
+                  >
+                    <figure
+                      class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x18"
+                    >
+                      <img
+                        alt="avatar"
+                        class="rcx-avatar__element rcx-avatar__element--x18"
+                        src="https://open.rocket.chat/avatar/room/2Fd44Hrw5XyTC7T3g"
+                      />
+                    </figure>
+                    <i
+                      aria-hidden="true"
+                      class="rcx-box rcx-box--full rcx-icon--name-balloons rcx-icon  rcx-sidebar-v2-item__icon rcx-css-4pvxx3"
+                    >
+                      
+                    </i>
+                    <span
+                      class="rcx-sidebar-v2-item__title"
+                    >
+                      Private notes
+                    </span>
+                    <button
+                      aria-expanded="false"
+                      aria-haspopup="true"
+                      class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button  rcx-sidebar-v2-item__actions rcx-box--animated"
+                      id="react-aria-43"
+                      title="Options"
+                      type="button"
+                    >
+                      <i
+                        aria-hidden="true"
+                        class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1tg7yd0"
+                      >
+                        
+                      </i>
+                    </button>
+                  </a>
+                  <a
+                    class="rcx-sidebar-v2-item"
+                  >
+                    <figure
+                      class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x18"
+                    >
+                      <img
+                        alt="avatar"
+                        class="rcx-avatar__element rcx-avatar__element--x18"
+                        src="https://open.rocket.chat/avatar/room/2Fd44Hrw5XyTC7T3g"
+                      />
+                    </figure>
+                    <i
+                      aria-hidden="true"
+                      class="rcx-box rcx-box--full rcx-icon--name-balloons rcx-icon  rcx-sidebar-v2-item__icon rcx-css-4pvxx3"
+                    >
+                      
+                    </i>
+                    <span
+                      class="rcx-sidebar-v2-item__title"
+                    >
+                      Private notes
+                    </span>
+                    <button
+                      aria-expanded="false"
+                      aria-haspopup="true"
+                      class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button  rcx-sidebar-v2-item__actions rcx-box--animated"
+                      id="react-aria-45"
+                      title="Options"
+                      type="button"
+                    >
+                      <i
+                        aria-hidden="true"
+                        class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1tg7yd0"
+                      >
+                        
+                      </i>
+                    </button>
+                  </a>
+                  <a
+                    class="rcx-sidebar-v2-item"
+                  >
+                    <figure
+                      class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x18"
+                    >
+                      <img
+                        alt="avatar"
+                        class="rcx-avatar__element rcx-avatar__element--x18"
+                        src="https://open.rocket.chat/avatar/room/2Fd44Hrw5XyTC7T3g"
+                      />
+                    </figure>
+                    <i
+                      aria-hidden="true"
+                      class="rcx-box rcx-box--full rcx-icon--name-balloons rcx-icon  rcx-sidebar-v2-item__icon rcx-css-4pvxx3"
+                    >
+                      
+                    </i>
+                    <span
+                      class="rcx-sidebar-v2-item__title"
+                    >
+                      Private notes
+                    </span>
+                    <button
+                      aria-expanded="false"
+                      aria-haspopup="true"
+                      class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button  rcx-sidebar-v2-item__actions rcx-box--animated"
+                      id="react-aria-47"
+                      title="Options"
+                      type="button"
+                    >
+                      <i
+                        aria-hidden="true"
+                        class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1tg7yd0"
+                      >
+                        
+                      </i>
+                    </button>
+                  </a>
+                  <a
+                    class="rcx-sidebar-v2-item"
+                  >
+                    <figure
+                      class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x18"
+                    >
+                      <img
+                        alt="avatar"
+                        class="rcx-avatar__element rcx-avatar__element--x18"
+                        src="https://open.rocket.chat/avatar/room/2Fd44Hrw5XyTC7T3g"
+                      />
+                    </figure>
+                    <i
+                      aria-hidden="true"
+                      class="rcx-box rcx-box--full rcx-icon--name-balloons rcx-icon  rcx-sidebar-v2-item__icon rcx-css-4pvxx3"
+                    >
+                      
+                    </i>
+                    <span
+                      class="rcx-sidebar-v2-item__title"
+                    >
+                      Private notes
+                    </span>
+                    <button
+                      aria-expanded="false"
+                      aria-haspopup="true"
+                      class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button  rcx-sidebar-v2-item__actions rcx-box--animated"
+                      id="react-aria-49"
+                      title="Options"
+                      type="button"
+                    >
+                      <i
+                        aria-hidden="true"
+                        class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1tg7yd0"
+                      >
+                        
+                      </i>
+                    </button>
+                  </a>
+                  <a
+                    class="rcx-sidebar-v2-item"
+                  >
+                    <figure
+                      class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x18"
+                    >
+                      <img
+                        alt="avatar"
+                        class="rcx-avatar__element rcx-avatar__element--x18"
+                        src="https://open.rocket.chat/avatar/room/2Fd44Hrw5XyTC7T3g"
+                      />
+                    </figure>
+                    <i
+                      aria-hidden="true"
+                      class="rcx-box rcx-box--full rcx-icon--name-balloons rcx-icon  rcx-sidebar-v2-item__icon rcx-css-4pvxx3"
+                    >
+                      
+                    </i>
+                    <span
+                      class="rcx-sidebar-v2-item__title"
+                    >
+                      Private notes
+                    </span>
+                    <button
+                      aria-expanded="false"
+                      aria-haspopup="true"
+                      class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button  rcx-sidebar-v2-item__actions rcx-box--animated"
+                      id="react-aria-51"
+                      title="Options"
+                      type="button"
+                    >
+                      <i
+                        aria-hidden="true"
+                        class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1tg7yd0"
+                      >
+                        
+                      </i>
+                    </button>
+                  </a>
+                  <a
+                    class="rcx-sidebar-v2-item"
+                  >
+                    <figure
+                      class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x18"
+                    >
+                      <img
+                        alt="avatar"
+                        class="rcx-avatar__element rcx-avatar__element--x18"
+                        src="https://open.rocket.chat/avatar/room/2Fd44Hrw5XyTC7T3g"
+                      />
+                    </figure>
+                    <i
+                      aria-hidden="true"
+                      class="rcx-box rcx-box--full rcx-icon--name-balloons rcx-icon  rcx-sidebar-v2-item__icon rcx-css-4pvxx3"
+                    >
+                      
+                    </i>
+                    <span
+                      class="rcx-sidebar-v2-item__title"
+                    >
+                      Private notes
+                    </span>
+                    <button
+                      aria-expanded="false"
+                      aria-haspopup="true"
+                      class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button  rcx-sidebar-v2-item__actions rcx-box--animated"
+                      id="react-aria-53"
+                      title="Options"
+                      type="button"
+                    >
+                      <i
+                        aria-hidden="true"
+                        class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1tg7yd0"
+                      >
+                        
+                      </i>
+                    </button>
+                  </a>
+                  <a
+                    class="rcx-sidebar-v2-item"
+                  >
+                    <figure
+                      class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x18"
+                    >
+                      <img
+                        alt="avatar"
+                        class="rcx-avatar__element rcx-avatar__element--x18"
+                        src="https://open.rocket.chat/avatar/room/2Fd44Hrw5XyTC7T3g"
+                      />
+                    </figure>
+                    <i
+                      aria-hidden="true"
+                      class="rcx-box rcx-box--full rcx-icon--name-balloons rcx-icon  rcx-sidebar-v2-item__icon rcx-css-4pvxx3"
+                    >
+                      
+                    </i>
+                    <span
+                      class="rcx-sidebar-v2-item__title"
+                    >
+                      Private notes
+                    </span>
+                    <button
+                      aria-expanded="false"
+                      aria-haspopup="true"
+                      class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button  rcx-sidebar-v2-item__actions rcx-box--animated"
+                      id="react-aria-55"
+                      title="Options"
+                      type="button"
+                    >
+                      <i
+                        aria-hidden="true"
+                        class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1tg7yd0"
+                      >
+                        
+                      </i>
+                    </button>
+                  </a>
+                  <a
+                    class="rcx-sidebar-v2-item"
+                  >
+                    <figure
+                      class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x18"
+                    >
+                      <img
+                        alt="avatar"
+                        class="rcx-avatar__element rcx-avatar__element--x18"
+                        src="https://open.rocket.chat/avatar/room/2Fd44Hrw5XyTC7T3g"
+                      />
+                    </figure>
+                    <i
+                      aria-hidden="true"
+                      class="rcx-box rcx-box--full rcx-icon--name-balloons rcx-icon  rcx-sidebar-v2-item__icon rcx-css-4pvxx3"
+                    >
+                      
+                    </i>
+                    <span
+                      class="rcx-sidebar-v2-item__title"
+                    >
+                      Private notes
+                    </span>
+                    <button
+                      aria-expanded="false"
+                      aria-haspopup="true"
+                      class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button  rcx-sidebar-v2-item__actions rcx-box--animated"
+                      id="react-aria-57"
+                      title="Options"
+                      type="button"
+                    >
+                      <i
+                        aria-hidden="true"
+                        class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1tg7yd0"
+                      >
+                        
+                      </i>
+                    </button>
+                  </a>
+                  <a
+                    class="rcx-sidebar-v2-item"
+                  >
+                    <figure
+                      class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x18"
+                    >
+                      <img
+                        alt="avatar"
+                        class="rcx-avatar__element rcx-avatar__element--x18"
+                        src="https://open.rocket.chat/avatar/room/2Fd44Hrw5XyTC7T3g"
+                      />
+                    </figure>
+                    <i
+                      aria-hidden="true"
+                      class="rcx-box rcx-box--full rcx-icon--name-balloons rcx-icon  rcx-sidebar-v2-item__icon rcx-css-4pvxx3"
+                    >
+                      
+                    </i>
+                    <span
+                      class="rcx-sidebar-v2-item__title"
+                    >
+                      Private notes
+                    </span>
+                    <button
+                      aria-expanded="false"
+                      aria-haspopup="true"
+                      class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button  rcx-sidebar-v2-item__actions rcx-box--animated"
+                      id="react-aria-59"
+                      title="Options"
+                      type="button"
+                    >
+                      <i
+                        aria-hidden="true"
+                        class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1tg7yd0"
+                      >
+                        
+                      </i>
+                    </button>
+                  </a>
+                  <a
+                    class="rcx-sidebar-v2-item"
+                  >
+                    <figure
+                      class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x18"
+                    >
+                      <img
+                        alt="avatar"
+                        class="rcx-avatar__element rcx-avatar__element--x18"
+                        src="https://open.rocket.chat/avatar/room/2Fd44Hrw5XyTC7T3g"
+                      />
+                    </figure>
+                    <i
+                      aria-hidden="true"
+                      class="rcx-box rcx-box--full rcx-icon--name-balloons rcx-icon  rcx-sidebar-v2-item__icon rcx-css-4pvxx3"
+                    >
+                      
+                    </i>
+                    <span
+                      class="rcx-sidebar-v2-item__title"
+                    >
+                      Private notes
+                    </span>
+                    <button
+                      aria-expanded="false"
+                      aria-haspopup="true"
+                      class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button  rcx-sidebar-v2-item__actions rcx-box--animated"
+                      id="react-aria-61"
+                      title="Options"
+                      type="button"
+                    >
+                      <i
+                        aria-hidden="true"
+                        class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1tg7yd0"
+                      >
+                        
+                      </i>
+                    </button>
+                  </a>
+                  <a
+                    class="rcx-sidebar-v2-item"
+                  >
+                    <figure
+                      class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x18"
+                    >
+                      <img
+                        alt="avatar"
+                        class="rcx-avatar__element rcx-avatar__element--x18"
+                        src="https://open.rocket.chat/avatar/room/2Fd44Hrw5XyTC7T3g"
+                      />
+                    </figure>
+                    <i
+                      aria-hidden="true"
+                      class="rcx-box rcx-box--full rcx-icon--name-balloons rcx-icon  rcx-sidebar-v2-item__icon rcx-css-4pvxx3"
+                    >
+                      
+                    </i>
+                    <span
+                      class="rcx-sidebar-v2-item__title"
+                    >
+                      Private notes
+                    </span>
+                    <button
+                      aria-expanded="false"
+                      aria-haspopup="true"
+                      class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button  rcx-sidebar-v2-item__actions rcx-box--animated"
+                      id="react-aria-63"
+                      title="Options"
+                      type="button"
+                    >
+                      <i
+                        aria-hidden="true"
+                        class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1tg7yd0"
+                      >
+                        
+                      </i>
+                    </button>
+                  </a>
+                  <div
+                    class="rcx-sidebar-v2-item rcx-sidebar-v2-item__action"
+                    role="button"
+                  >
+                    <i
+                      aria-hidden="true"
+                      class="rcx-box rcx-box--full rcx-icon--name-plus-small rcx-icon rcx-css-sgixmw"
+                    >
+                      
+                    </i>
+                    Add discussion
+                  </div>
+                </div>
+              </section>
+            </div>
+          </section>
+        </div>
+      </nav>
+    </div>
+  </div>
+</body>
+`;
