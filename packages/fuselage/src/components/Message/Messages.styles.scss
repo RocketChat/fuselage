@@ -2,11 +2,12 @@
 @use '../../styles/functions.scss';
 @use '../../styles/colors.scss';
 @use '../../styles/mixins/size.scss';
+@use '../../styles/mixins/templates.scss';
 @use '../../styles/typography.scss';
 @use './mixins.scss';
 
 @import './MessageMetrics/MessageMetrics.styles.scss';
-@import './MessageToolbox/MessageToolbox.styles.scss';
+@import './MessageToolbar/MessageToolbar.styles.scss';
 @import './MessageReactions/MessageReactions.styles.scss';
 @import './ThreadMessage/ThreadMessage.styles.scss';
 @import './MessageDivider/MessageDivider.styles.scss';
@@ -49,8 +50,6 @@ $message-background-color-highlight: functions.theme(
   'message-background-color-highlight',
   colors.status-background(warning-2)
 );
-
-$message-link-color: functions.theme('message-link-color', colors.font(info));
 
 $message-highlight-colors-critical-color: theme(
   'message-highlight-colors-critical-color',
@@ -106,7 +105,7 @@ $message-highlight-colors-background-other-color: theme(
     background-color: $message-background-color-hover;
   }
 
-  @include mixins.focus-state();
+  @include templates.focus-state;
 
   &--selected {
     background: $message-background-color-selected !important;
@@ -188,7 +187,7 @@ $message-highlight-colors-background-other-color: theme(
 
       @extend %rcx-margins-header;
 
-      @include mixins.focus-state();
+      @include templates.focus-state;
     }
 
     &__name {
@@ -327,19 +326,6 @@ $message-highlight-colors-background-other-color: theme(
 
       list-style: none;
     }
-
-    a {
-      color: $message-link-color;
-
-      &:hover {
-        text-decoration: underline;
-      }
-
-      &:focus {
-        border-radius: lengths.border-radius(small);
-        box-shadow: 0 0 0 2px colors.stroke(extra-light-highlight);
-      }
-    }
   }
 
   &-block {
@@ -438,5 +424,7 @@ $message-highlight-colors-background-other-color: theme(
     &--other {
       color: $message-highlight-colors-other-color;
     }
+
+    @include templates.focus-state;
   }
 }

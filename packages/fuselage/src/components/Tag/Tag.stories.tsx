@@ -9,7 +9,7 @@ import {
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
-import { Tag, Box, Icon } from '../..';
+import { Tag, Box, Icon, ButtonGroup } from '../..';
 
 export default {
   title: 'Data Display/Tag',
@@ -99,3 +99,30 @@ export const AsLink = Template.bind({});
 AsLink.args = {
   href: '#',
 };
+
+export const Variants = () => (
+  <ButtonGroup>
+    <Tag>john.doe</Tag>
+    <Tag variant='primary'>john.doe</Tag>
+    <Tag variant='danger'>john.doe</Tag>
+    <Tag variant='warning'>john.doe</Tag>
+    <Tag variant='featured'>john.doe</Tag>
+  </ButtonGroup>
+);
+export const VariantsAsLinks = () => (
+  <ButtonGroup>
+    <Tag href='#'>john.doe</Tag>
+    <Tag variant='primary' href='#'>
+      john.doe
+    </Tag>
+    <Tag variant='danger' href='#'>
+      john.doe
+    </Tag>
+    <Tag variant='warning' href='#'>
+      john.doe
+    </Tag>
+    <Tag variant='featured' href='#'>
+      john.doe
+    </Tag>
+  </ButtonGroup>
+);

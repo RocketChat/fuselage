@@ -1,0 +1,28 @@
+{
+  "shadow": {
+    "light": {
+      "highlight": { "value": "{colors.b200}" },
+      "danger": { "value": "{colors.r100}" },
+      "elevation-border": { "value": "{colors.n250}" },
+      "elevation-1": { "value": "rgba(47, 52, 61, 0.1)" },
+      "elevation-2x": { "value": "rgba(47, 52, 61, 0.08)" },
+      "elevation-2y": { "value": "rgba(47, 52, 61, 0.12)" }
+    },
+    "high-contrast": {
+      "highlight": { "value": "{colors.b200}" },
+      "danger": { "value": "{colors.r100}" },
+      "elevation-border": { "value": "{colors.n250}" },
+      "elevation-1": { "value": "rgba(47, 52, 61, 0.1)" },
+      "elevation-2x": { "value": "rgba(47, 52, 61, 0.08)" },
+      "elevation-2y": { "value": "rgba(47, 52, 61, 0.12)" }
+    },
+    "dark": {
+      "highlight": { "value": "{colors.b200}" },
+      "danger": { "value": "{colors.r100}" },
+      "elevation-border": { "value": "#2F343D" },
+      "elevation-1": { "value": "rgba(9, 9, 9, 0.35)" },
+      "elevation-2x": { "value": "rgba(9, 9, 9, 0.3)" },
+      "elevation-2y": { "value": "rgba(9, 9, 9, 0.45)" }
+    }
+  }
+}

@@ -36,12 +36,14 @@
   }
 }
 
-@mixin focus-state {
-  border: 1px solid transparent;
+@mixin message-focus-visible {
+  @content;
 
-  &:focus {
-    border: 1px solid colors.stroke(highlight);
-    border-radius: lengths.border-radius(medium);
-    box-shadow: 0 0 0 2px colors.stroke(extra-light-highlight);
+  opacity: 0;
+
+  .rcx-message:hover &,
+  .rcx-message:has(:focus-visible) &,
+  .rcx-message:focus-visible & {
+    opacity: 1;
   }
 }

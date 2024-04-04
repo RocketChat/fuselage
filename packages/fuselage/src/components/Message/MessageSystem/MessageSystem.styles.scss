@@ -2,6 +2,7 @@
 @use '../../../styles/functions.scss';
 @use '../../../styles/colors.scss';
 @use '../../../styles/typography.scss';
+@use '../../../styles/mixins/templates.scss';
 @use '../mixins.scss';
 
 $message-system-background-color-selected: functions.theme(
@@ -54,7 +55,7 @@ $message-system-background-color-selected: functions.theme(
 
   &__time {
     @include typography.use-with-truncated-text();
-    @include typography.use-font-scale(p2);
+    @include typography.use-font-scale(c1);
     flex-shrink: 0;
 
     margin-inline: lengths.margin(2);
@@ -68,5 +69,5 @@ $message-system-background-color-selected: functions.theme(
     align-items: center;
   }
 
-  @include mixins.focus-state();
+  @include templates.focus-state;
 }

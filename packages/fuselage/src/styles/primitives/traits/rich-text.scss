@@ -1,9 +1,9 @@
 @use '../../colors.scss';
 @use '../../lengths.scss';
 @use '../../typography.scss';
+@import '../link.scss';
 
 %--with-inline-elements {
-  a,
   abbr,
   b,
   cite,
@@ -30,24 +30,11 @@
   }
 
   a {
-    &:link {
-      color: colors.font(info);
-    }
+    @extend %link;
 
-    &:visited,
-    &.is-visited {
-      color: colors.font(info);
-    }
+    letter-spacing: inherit;
 
-    &:active,
-    &.is-active {
-      color: colors.font(info);
-    }
-
-    &:hover,
-    &.is-hovered {
-      text-decoration: underline;
-    }
+    font: inherit;
   }
 
   strong {

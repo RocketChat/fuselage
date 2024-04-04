@@ -2,6 +2,7 @@ import type { ComponentProps, ComponentType } from 'react';
 import React from 'react';
 
 import { Box, Icon } from '../src';
+import { dark } from '../src/components/PaletteStyleTag/lib/themePalettes';
 
 type PropsVariationSectionProps<TComponent extends ComponentType<any>> = {
   component: TComponent;
@@ -142,4 +143,9 @@ export const menuOptions = {
     ),
     action: () => console.log('[...] no longer exists'),
   },
+};
+
+export const surface = {
+  sidebar: dark['surface-sidebar'],
+  main: dark['surface-light'],
 };

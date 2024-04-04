@@ -7200,35 +7200,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/ui-kit@workspace:packages/ui-kit":
-  version: 0.0.0-use.local
-  resolution: "@rocket.chat/ui-kit@workspace:packages/ui-kit"
-  dependencies:
-    "@babel/core": ~7.21.4
-    "@babel/eslint-parser": ~7.21.3
-    "@babel/plugin-transform-runtime": ~7.21.4
-    "@babel/preset-env": ~7.21.4
-    "@rocket.chat/eslint-config-alt": "workspace:~"
-    "@rocket.chat/prettier-config": "workspace:~"
-    "@types/jest": ~29.5.0
-    babel-loader: ~9.1.2
-    bump: "workspace:~"
-    eslint: ~8.38.0
-    jest: ~29.5.0
-    lint-all: "workspace:~"
-    lint-staged: ~13.2.1
-    npm-run-all: ^4.1.5
-    prettier: ~2.8.7
-    rimraf: ^3.0.2
-    ts-jest: ~29.1.0
-    ts-loader: ~9.4.2
-    typedoc: ~0.24.1
-    typescript: ~5.0.4
-    webpack: ~5.78.0
-    webpack-cli: ~5.0.1
-  languageName: unknown
-  linkType: soft
-
 "@rollup/plugin-commonjs@npm:~21.0.3":
   version: 21.0.3
   resolution: "@rollup/plugin-commonjs@npm:21.0.3"
@@ -18215,9 +18186,9 @@ fsevents@^1.2.7:
   linkType: hard
 
 "ip@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "ip@npm:2.0.0"
-  checksum: cfcfac6b873b701996d71ec82a7dd27ba92450afdb421e356f44044ed688df04567344c36cbacea7d01b1c39a4c732dc012570ebe9bebfb06f27314bca625349
+  version: 2.0.1
+  resolution: "ip@npm:2.0.1"
+  checksum: d765c9fd212b8a99023a4cde6a558a054c298d640fec1020567494d257afd78ca77e37126b1a3ef0e053646ced79a816bf50621d38d5e768cdde0431fa3b0d35
   languageName: node
   linkType: hard
 
@@ -22288,7 +22259,7 @@ fsevents@^1.2.7:
   dependencies:
     hosted-git-info: ^2.8.9
     resolve: ^1.10.0
-    semver: 2 || 3 || 4 || 5
+    semver: ^5.7.2
     validate-npm-package-license: ^3.0.1
   checksum: 7999112efc35a6259bc22db460540cae06564aa65d0271e3bdfa86876d08b0e578b7b5b0028ee61b23f1cae9fc0e7847e4edc0948d3068a39a2a82853efc8499
   languageName: node
@@ -26153,15 +26124,6 @@ fsevents@^1.2.7:
     typescript: ~5.0.4
   languageName: unknown
   linkType: soft
-
-"semver@npm:2 || 3 || 4 || 5":
-  version: 5.7.1
-  resolution: "semver@npm:5.7.1"
-  bin:
-    semver: ./bin/semver
-  checksum: 57fd0acfd0bac382ee87cd52cd0aaa5af086a7dc8d60379dfe65fea491fb2489b6016400813930ecd61fd0952dae75c115287a1b16c234b1550887117744dfaf
-  languageName: node
-  linkType: hard
 
 "semver@npm:7.5.2":
   version: 7.5.2

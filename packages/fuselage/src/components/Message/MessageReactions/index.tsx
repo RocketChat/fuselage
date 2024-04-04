@@ -5,7 +5,13 @@ import { MessageReactionEmoji } from './MessageReactionEmoji';
 import { MessageReactions } from './MessageReactions';
 
 export default Object.assign(MessageReactions, {
+  /**
+   * @deprecated prefer using named imports
+   * */
   Reaction: MessageReaction,
+  /**
+   * @deprecated prefer using named imports
+   * */
   Action: MessageReactionAction,
 });
 

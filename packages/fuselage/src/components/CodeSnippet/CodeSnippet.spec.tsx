@@ -4,7 +4,7 @@ import React from 'react';
 
 import * as stories from './CodeSnippet.stories';
 
-const { Default, CopyButton, CustomButtonName, LoadingCode } =
+const { Default, CopyButton, CustomButtonName, LoadingCode, DisabledButton } =
   composeStories(stories);
 
 describe('[CodeSnippet Component]', () => {
@@ -43,5 +43,11 @@ describe('[CodeSnippet Component]', () => {
   it('should display skeleton, when there is no children', () => {
     const { container } = render(<LoadingCode />);
     expect(container.querySelector('.rcx-skeleton')).toBeInTheDocument();
+  });
+
+  it('should should render a disabled button, when buttonDisabled prop is passed', () => {
+    render(<DisabledButton />);
+    const button = screen.getByRole('button');
+    expect(button).toBeDisabled();
   });
 });

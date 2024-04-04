@@ -4,14 +4,14 @@ exports[`[Bubble Rendering] renders Dismissable without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-bubble rcx-box rcx-box--full rcx-bubble__group"
+      class="rcx-bubble rcx-box rcx-box--full rcx-bubble__group "
     >
       <button
-        class="rcx-bubble__content"
+        class="rcx-bubble__button rcx-bubble__button--primary"
       >
         <i
           aria-hidden="true"
-          class="rcx-box rcx-box--full rcx-icon--name-arrow-down rcx-icon rcx-css-gcnmf8"
+          class="rcx-box rcx-box--full rcx-icon--name-arrow-down rcx-icon rcx-css-1g87xs3"
         >
           
         </i>
@@ -21,7 +21,7 @@ exports[`[Bubble Rendering] renders Dismissable without crashing 1`] = `
       </button>
       <button
         aria-label="Dismiss New messages"
-        class="rcx-bubble__dismiss"
+        class="rcx-bubble__button rcx-bubble__button--primary"
       >
         <i
           aria-hidden="true"
@@ -39,14 +39,14 @@ exports[`[Bubble Rendering] renders IconAndLabel without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-bubble rcx-box rcx-box--full "
+      class="rcx-bubble rcx-box rcx-box--full  "
     >
       <button
-        class="rcx-bubble__content"
+        class="rcx-bubble__button rcx-bubble__button--primary"
       >
         <i
           aria-hidden="true"
-          class="rcx-box rcx-box--full rcx-icon--name-arrow-down rcx-icon rcx-css-gcnmf8"
+          class="rcx-box rcx-box--full rcx-icon--name-arrow-down rcx-icon rcx-css-1g87xs3"
         >
           
         </i>
@@ -63,15 +63,98 @@ exports[`[Bubble Rendering] renders LabelOnly without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-bubble rcx-box rcx-box--full "
+      class="rcx-bubble rcx-box rcx-box--full  "
     >
       <button
-        class="rcx-bubble__content"
+        class="rcx-bubble__button rcx-bubble__button--primary"
       >
         <span>
           See new messages
         </span>
       </button>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`[Bubble Rendering] renders Secondary without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-bubble rcx-box rcx-box--full  "
+    >
+      <button
+        class="rcx-bubble__button rcx-bubble__button--secondary"
+      >
+        <span>
+          See new messages
+        </span>
+      </button>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`[Bubble Rendering] renders SecondaryDismissable without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-bubble rcx-box rcx-box--full rcx-bubble__group "
+    >
+      <span
+        class="rcx-bubble__item rcx-bubble__item--secondary"
+      >
+        <span>
+          New messages
+        </span>
+      </span>
+      <button
+        aria-label="Dismiss New messages"
+        class="rcx-bubble__button rcx-bubble__button--secondary"
+      >
+        <i
+          aria-hidden="true"
+          class="rcx-box rcx-box--full rcx-icon--name-cross-small rcx-icon rcx-css-1g87xs3"
+        >
+          
+        </i>
+      </button>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`[Bubble Rendering] renders Small without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-bubble rcx-box rcx-box--full  rcx-bubble--small"
+    >
+      <span
+        class="rcx-bubble__item rcx-bubble__item--secondary"
+      >
+        <span>
+          22 Nov 2023
+        </span>
+      </span>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`[Bubble Rendering] renders WithoutAction without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-bubble rcx-box rcx-box--full  "
+    >
+      <span
+        class="rcx-bubble__item rcx-bubble__item--secondary"
+      >
+        <span>
+          22 Nov 2023
+        </span>
+      </span>
     </div>
   </div>
 </body>

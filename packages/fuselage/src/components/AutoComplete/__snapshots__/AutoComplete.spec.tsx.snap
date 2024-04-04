@@ -21,7 +21,7 @@ exports[`[AutoComplete Rendering] renders CustomItem without crashing 1`] = `
       >
         <i
           aria-hidden="true"
-          class="rcx-box rcx-box--full rcx-icon--name-magnifier rcx-icon rcx-css-4pvxx3"
+          class="rcx-box rcx-box--full rcx-icon--name-magnifier rcx-icon rcx-css-6vi44e"
         >
           
         </i>
@@ -119,7 +119,7 @@ v/L21v8BT/ZVoe1UItsAAAAASUVORK5CYII="
       >
         <i
           aria-hidden="true"
-          class="rcx-box rcx-box--full rcx-icon--name-magnifier rcx-icon rcx-css-4pvxx3"
+          class="rcx-box rcx-box--full rcx-icon--name-magnifier rcx-icon rcx-css-6vi44e"
         >
           
         </i>
@@ -150,7 +150,7 @@ exports[`[AutoComplete Rendering] renders Default without crashing 1`] = `
       >
         <i
           aria-hidden="true"
-          class="rcx-box rcx-box--full rcx-icon--name-magnifier rcx-icon rcx-css-4pvxx3"
+          class="rcx-box rcx-box--full rcx-icon--name-magnifier rcx-icon rcx-css-6vi44e"
         >
           
         </i>
@@ -217,7 +217,7 @@ exports[`[AutoComplete Rendering] renders Multiple without crashing 1`] = `
       >
         <i
           aria-hidden="true"
-          class="rcx-box rcx-box--full rcx-icon--name-magnifier rcx-icon rcx-css-4pvxx3"
+          class="rcx-box rcx-box--full rcx-icon--name-magnifier rcx-icon rcx-css-6vi44e"
         >
           
         </i>
@@ -414,7 +414,39 @@ v/L21v8BT/ZVoe1UItsAAAAASUVORK5CYII="
       >
         <i
           aria-hidden="true"
-          class="rcx-box rcx-box--full rcx-icon--name-magnifier rcx-icon rcx-css-4pvxx3"
+          class="rcx-box rcx-box--full rcx-icon--name-magnifier rcx-icon rcx-css-6vi44e"
+        >
+          
+        </i>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`[AutoComplete Rendering] renders WithPlaceholder without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-autocomplete rcx-css-t3n91h"
+    >
+      <div
+        class="rcx-box rcx-box--full rcx-css-6d871f"
+        role="group"
+      >
+        <input
+          aria-label="Decorator Label"
+          class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--undecorated rcx-input-box  rcx-css-trljwa rcx-css-rcil7k"
+          placeholder="Search..."
+          value=""
+        />
+      </div>
+      <div
+        class="rcx-box rcx-box--full rcx-autocomplete__addon"
+      >
+        <i
+          aria-hidden="true"
+          class="rcx-box rcx-box--full rcx-icon--name-magnifier rcx-icon rcx-css-6vi44e"
         >
           
         </i>

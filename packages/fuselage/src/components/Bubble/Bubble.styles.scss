@@ -10,23 +10,55 @@
   display: flex;
   align-items: center;
 
-  &__content,
-  &__dismiss {
-    @include typography.use-font-scale(c2);
-    @include button.kind-variant(buttonColors.$primary);
+  &__button {
+    &--primary {
+      @include button.kind-variant(buttonColors.$primary);
+    }
+
+    &--secondary {
+      @include button.kind-variant(buttonColors.$secondary);
+    }
+
     @include clickable;
     @include click-animation;
+  }
 
+  &__item {
+    &--primary {
+      color: buttonColors.$button-primary-color;
+      background-color: buttonColors.$button-primary-background-color;
+    }
+
+    &--secondary {
+      color: buttonColors.$button-secondary-color;
+      background-color: buttonColors.$button-secondary-background-color;
+    }
+  }
+
+  &__button,
+  &__item {
+    @include typography.use-font-scale(c2);
     display: flex;
     justify-content: center;
     align-items: center;
 
     height: lengths.size(28);
 
-    padding-inline-start: lengths.padding(12);
+    padding-inline: lengths.padding(12);
     padding-inline-end: lengths.padding(16);
 
     border-radius: lengths.border-radius(extra-large);
+    column-gap: lengths.padding(8);
+  }
+
+  &:not(.rcx-bubble__group) &__item {
+    padding-inline: lengths.padding(8);
+  }
+
+  &--small &__button,
+  &--small &__item {
+    @include typography.use-font-scale(micro);
+    height: lengths.size(20);
   }
 
   &__group {
