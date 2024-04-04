@@ -128,7 +128,10 @@ $sidebar-link-color: theme('sidebar-link-color', colors.font(titles-labels));
       overflow: hidden;
 
       height: lengths.size(none);
+      margin: lengths.margin(none);
       padding: lengths.padding(none);
+
+      list-style: none;
 
       &--expanded {
         visibility: visible;
@@ -177,20 +180,24 @@ $sidebar-link-color: theme('sidebar-link-color', colors.font(titles-labels));
       flex-grow: 1;
     }
 
-    &__actions {
-      margin-inline-start: 12px;
-      margin-inline-end: -36px;
+    &__menu-wrapper {
+      flex-shrink: 0;
+
+      width: 0;
+      height: 100%;
 
       opacity: 0;
     }
 
-    &:hover {
-      .rcx-sidebar-v2-item__actions,
-      .rcx-sidebar-v2-link__actions {
-        margin-inline: 0;
+    &:hover &__menu-wrapper,
+    &.focus-within &__menu-wrapper,
+    &:focus-within &__menu-wrapper {
+      display: flex;
+      align-items: center;
 
-        opacity: 1;
-      }
+      width: lengths.size(20);
+
+      opacity: 1;
     }
   }
 

@@ -102,7 +102,7 @@ export const SideBarCollapser = function Item({
         )}
         {!expanded && badge && badge}
       </div>
-      <div
+      <ul
         className={[
           `${className}__panel`,
           'rcx-box--animated',
@@ -111,10 +111,9 @@ export const SideBarCollapser = function Item({
           .filter(Boolean)
           .join(' ')}
         id={panelId}
-        role='region'
       >
         {children}
-      </div>
+      </ul>
     </section>
   );
 };

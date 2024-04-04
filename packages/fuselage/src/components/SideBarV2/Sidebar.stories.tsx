@@ -83,25 +83,33 @@ export const Default: ComponentStory<typeof SideBar> = () => (
             <SideBarItem
               children='Tech news'
               icon='team'
-              avatar={<Avatar size='x18' url={leterAvatarUrls[0]} />}
+              avatar={
+                <Avatar size='x18' url={leterAvatarUrls[0]} alt='avatar' />
+              }
               menu={menuTemplate}
             />
             <SideBarItem
               children='Marvin Black'
               icon='balloon'
-              avatar={<Avatar size='x18' url={leterAvatarUrls[1]} />}
+              avatar={
+                <Avatar size='x18' url={leterAvatarUrls[1]} alt='avatar' />
+              }
               menu={menuTemplate}
             />
             <SideBarItem
               children='Eng news'
               icon='hashtag'
-              avatar={<Avatar size='x18' url={leterAvatarUrls[2]} />}
+              avatar={
+                <Avatar size='x18' url={leterAvatarUrls[2]} alt='avatar' />
+              }
               menu={menuTemplate}
             />
             <SideBarItem
               children='Important'
               icon='team'
-              avatar={<Avatar size='x18' url={leterAvatarUrls[3]} />}
+              avatar={
+                <Avatar size='x18' url={leterAvatarUrls[3]} alt='avatar' />
+              }
               menu={menuTemplate}
             />
           </SideBarCollapseGroup>
@@ -109,15 +117,20 @@ export const Default: ComponentStory<typeof SideBar> = () => (
             <SideBarItem
               children='Tech news'
               icon='balloons'
-              avatar={<Avatar size='x18' url={leterAvatarUrls[0]} />}
+              avatar={
+                <Avatar size='x18' url={leterAvatarUrls[0]} alt='avatar' />
+              }
               menu={menuTemplate}
             />
             {Array.from(new Array(4)).map((_, i) => (
               <SideBarItem
+                href='#'
                 key={i}
                 children='Private notes'
                 icon='balloons'
-                avatar={<Avatar size='x18' url={leterAvatarUrls[1]} />}
+                avatar={
+                  <Avatar size='x18' url={leterAvatarUrls[1]} alt='avatar' />
+                }
                 menu={menuTemplate}
               />
             ))}
@@ -129,15 +142,20 @@ export const Default: ComponentStory<typeof SideBar> = () => (
             <SideBarItem
               children='Tech news'
               icon='balloons'
-              avatar={<Avatar size='x18' url={leterAvatarUrls[0]} />}
+              avatar={
+                <Avatar size='x18' url={leterAvatarUrls[0]} alt='avatar' />
+              }
               menu={menuTemplate}
             />
             {Array.from(new Array(18)).map((_, i) => (
               <SideBarItem
+                href='#'
                 key={i}
                 children='Private notes'
                 icon='balloons'
-                avatar={<Avatar size='x18' url={leterAvatarUrls[1]} />}
+                avatar={
+                  <Avatar size='x18' url={leterAvatarUrls[1]} alt='avatar' />
+                }
                 menu={menuTemplate}
               />
             ))}

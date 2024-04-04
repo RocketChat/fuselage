@@ -34,11 +34,14 @@ export const SideBarLink = ({
     <span className='rcx-sidebar-v2-link__title'>{props.children}</span>
     {badge && badge}
     {menu &&
-      patchChildren(menu, (childProps: { className: string | string[] }) => ({
-        className: appendClassName(
-          childProps.className,
-          'rcx-sidebar-v2-link__actions rcx-box--animated'
-        ),
-      }))}
+      patchChildren(
+        <span className='rcx-sidebar-v2-link__menu-wrapper'>{menu}</span>,
+        (childProps: { className: string | string[] }) => ({
+          className: appendClassName(
+            childProps.className,
+            'rcx-sidebar-v2-link__menu rcx-box--animated'
+          ),
+        })
+      )}
   </a>
 );

@@ -20,28 +20,33 @@ export const SideBarItem = ({
   badge?: ReactNode;
   menu?: ReactNode;
 } & LinkHTMLAttributes<HTMLAnchorElement>) => (
-  <a
-    className={[
-      'rcx-sidebar-v2-item',
-      selected && 'rcx-sidebar-v2-item--selected',
-    ]
-      .filter(Boolean)
-      .join(' ')}
-    onClick={(e) => e.stopPropagation()}
-    {...props}
-  >
-    {avatar && avatar}
-    {icon && (
-      <Icon name={icon} size='x20' className='rcx-sidebar-v2-item__icon' />
-    )}
-    <span className='rcx-sidebar-v2-item__title'>{props.children}</span>
-    {badge && badge}
-    {menu &&
-      patchChildren(menu, (childProps: { className: string | string[] }) => ({
-        className: appendClassName(
-          childProps.className,
-          'rcx-sidebar-v2-item__actions rcx-box--animated'
-        ),
-      }))}
-  </a>
+  <li>
+    <a
+      className={[
+        'rcx-sidebar-v2-item',
+        selected && 'rcx-sidebar-v2-item--selected',
+      ]
+        .filter(Boolean)
+        .join(' ')}
+      onClick={(e) => e.stopPropagation()}
+      {...props}
+    >
+      {avatar && avatar}
+      {icon && (
+        <Icon name={icon} size='x20' className='rcx-sidebar-v2-item__icon' />
+      )}
+      <span className='rcx-sidebar-v2-item__title'>{props.children}</span>
+      {badge && badge}
+      {menu &&
+        patchChildren(
+          <span className='rcx-sidebar-v2-item__menu-wrapper'>{menu}</span>,
+          (childProps: { className: string | string[] }) => ({
+            className: appendClassName(
+              childProps.className,
+              'rcx-sidebar-v2-item__menu rcx-box--animated'
+            ),
+          })
+        )}
+    </a>
+  </li>
 );
