@@ -4,3 +4,4 @@ export * from './SideBarAccordionItem';
 export * from './SideBarLink';
 export * from './SideBarItem';
 export * from './SideBarCollapseGroup';
+export * from './SideBarItemAction';

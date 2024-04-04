@@ -8,6 +8,7 @@ import {
   SideBarAccordionItem,
   SideBarCollapseGroup,
   SideBarItem,
+  SideBarItemAction,
   SideBarLink,
 } from '.';
 import { Avatar } from '../Avatar';
@@ -104,6 +105,26 @@ export const Default: ComponentStory<typeof SideBar> = () => (
               menu={menuTemplate}
             />
           </SideBarCollapseGroup>
+          <SideBarCollapseGroup title='Teams' defaultExpanded>
+            <SideBarItem
+              children='Tech news'
+              icon='balloons'
+              avatar={<Avatar size='x18' url={leterAvatarUrls[0]} />}
+              menu={menuTemplate}
+            />
+            {Array.from(new Array(4)).map((_, i) => (
+              <SideBarItem
+                key={i}
+                children='Private notes'
+                icon='balloons'
+                avatar={<Avatar size='x18' url={leterAvatarUrls[1]} />}
+                menu={menuTemplate}
+              />
+            ))}
+            <SideBarItemAction onClick={() => console.log('add team')}>
+              Add team
+            </SideBarItemAction>
+          </SideBarCollapseGroup>
           <SideBarCollapseGroup title='Discussions' defaultExpanded>
             <SideBarItem
               children='Tech news'
@@ -111,14 +132,18 @@ export const Default: ComponentStory<typeof SideBar> = () => (
               avatar={<Avatar size='x18' url={leterAvatarUrls[0]} />}
               menu={menuTemplate}
             />
-            {Array.from(new Array(18)).map(() => (
+            {Array.from(new Array(18)).map((_, i) => (
               <SideBarItem
+                key={i}
                 children='Private notes'
                 icon='balloons'
                 avatar={<Avatar size='x18' url={leterAvatarUrls[1]} />}
                 menu={menuTemplate}
               />
             ))}
+            <SideBarItemAction onClick={() => console.log('add team')}>
+              Add discussion
+            </SideBarItemAction>
           </SideBarCollapseGroup>
         </SideBarAccordionItem>
       </SideBarAccordion>
