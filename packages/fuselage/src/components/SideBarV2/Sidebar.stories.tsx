@@ -1,3 +1,4 @@
+import { action } from '@storybook/addon-actions';
 import { Title, Description, Primary, Stories } from '@storybook/addon-docs';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
@@ -6,6 +7,7 @@ import {
   SideBar,
   SideBarAccordion,
   SideBarAccordionItem,
+  SideBarBanner,
   SideBarCollapseGroup,
   SideBarItem,
   SideBarItemAction,
@@ -13,6 +15,7 @@ import {
 } from '.';
 import { Avatar } from '../Avatar';
 import Box from '../Box';
+import { Icon } from '../Icon';
 import { MenuV2 as Menu, MenuItem } from '../Menu';
 import { leterAvatarUrls } from '../Message/helpers';
 import { SideBarBadge } from './SideBarBadge';
@@ -44,6 +47,12 @@ const menuTemplate = (
 export const Default: ComponentStory<typeof SideBar> = () => (
   <Box>
     <SideBar>
+      <SideBarBanner
+        text='You’ve reached the limit active contacts this month'
+        description='Learn more'
+        onClick={action('click')}
+        addon={<Icon name='warning' color='danger' size='x24' />}
+      />
       <SideBarAccordion>
         <SideBarAccordionItem
           title='Omnichannel'
@@ -85,7 +94,7 @@ export const Default: ComponentStory<typeof SideBar> = () => (
               href='#'
               icon='team'
               avatar={
-                <Avatar size='x18' url={leterAvatarUrls[0]} alt='avatar' />
+                <Avatar size='x20' url={leterAvatarUrls[0]} alt='avatar' />
               }
               menu={menuTemplate}
             />
@@ -94,7 +103,7 @@ export const Default: ComponentStory<typeof SideBar> = () => (
               href='#'
               icon='balloon'
               avatar={
-                <Avatar size='x18' url={leterAvatarUrls[1]} alt='avatar' />
+                <Avatar size='x20' url={leterAvatarUrls[1]} alt='avatar' />
               }
               menu={menuTemplate}
             />
@@ -103,7 +112,7 @@ export const Default: ComponentStory<typeof SideBar> = () => (
               href='#'
               icon='hashtag'
               avatar={
-                <Avatar size='x18' url={leterAvatarUrls[2]} alt='avatar' />
+                <Avatar size='x20' url={leterAvatarUrls[2]} alt='avatar' />
               }
               menu={menuTemplate}
             />
@@ -112,7 +121,7 @@ export const Default: ComponentStory<typeof SideBar> = () => (
               href='#'
               icon='team'
               avatar={
-                <Avatar size='x18' url={leterAvatarUrls[3]} alt='avatar' />
+                <Avatar size='x20' url={leterAvatarUrls[3]} alt='avatar' />
               }
               menu={menuTemplate}
             />
@@ -122,7 +131,7 @@ export const Default: ComponentStory<typeof SideBar> = () => (
               children='Tech news'
               icon='balloons'
               avatar={
-                <Avatar size='x18' url={leterAvatarUrls[0]} alt='avatar' />
+                <Avatar size='x20' url={leterAvatarUrls[0]} alt='avatar' />
               }
               menu={menuTemplate}
             />
@@ -133,7 +142,7 @@ export const Default: ComponentStory<typeof SideBar> = () => (
                 children='Private notes'
                 icon='balloons'
                 avatar={
-                  <Avatar size='x18' url={leterAvatarUrls[1]} alt='avatar' />
+                  <Avatar size='x20' url={leterAvatarUrls[1]} alt='avatar' />
                 }
                 menu={menuTemplate}
               />
@@ -147,7 +156,7 @@ export const Default: ComponentStory<typeof SideBar> = () => (
               children='Tech news'
               icon='balloons'
               avatar={
-                <Avatar size='x18' url={leterAvatarUrls[0]} alt='avatar' />
+                <Avatar size='x20' url={leterAvatarUrls[0]} alt='avatar' />
               }
               menu={menuTemplate}
             />
@@ -158,7 +167,7 @@ export const Default: ComponentStory<typeof SideBar> = () => (
                 children='Private notes'
                 icon='balloons'
                 avatar={
-                  <Avatar size='x18' url={leterAvatarUrls[1]} alt='avatar' />
+                  <Avatar size='x20' url={leterAvatarUrls[1]} alt='avatar' />
                 }
                 menu={menuTemplate}
               />

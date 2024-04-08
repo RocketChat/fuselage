@@ -37,7 +37,7 @@ export const SideBarCollapseGroup = ({
           .join(' ')}
         {...barProps}
       >
-        <Chevron size='x18' up={expanded} />
+        <Chevron size='x20' up={expanded} />
         {title && (
           <h4 className={`rcx-sidebar-v2__collapse-group__title`} id={titleId}>
             {title}

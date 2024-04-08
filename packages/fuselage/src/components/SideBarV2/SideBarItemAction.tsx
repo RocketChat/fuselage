@@ -13,7 +13,7 @@ export const SideBarItemAction = ({
       className='rcx-sidebar-v2-item rcx-sidebar-v2-item__action'
       {...props}
     >
-      <Icon name='plus-small' size='x18' />
+      <Icon name='plus-small' size='x20' />
       {children}
     </div>
   </li>

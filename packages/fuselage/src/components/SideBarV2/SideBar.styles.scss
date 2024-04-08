@@ -28,6 +28,52 @@ $sidebar-accordion-border-color: theme(
 
 $sidebar-link-color: theme('sidebar-link-color', colors.font(titles-labels));
 
+// sidebar-banner-colors
+$sidebar-banner-background-default: theme(
+  'sidebar-banner-background-default',
+  colors.surface(sidebar)
+);
+$sidebar-banner-color-default: theme(
+  'sidebar-banner-color-default',
+  colors.font(titles-labels)
+);
+
+$sidebar-banner-background-info: theme(
+  'sidebar-banner-background-info',
+  colors.status-background(info)
+);
+$sidebar-banner-color-info: theme(
+  'sidebar-banner-background-info',
+  colors.status-font(on-info)
+);
+
+$sidebar-banner-background-success: theme(
+  'sidebar-banner-background-success',
+  colors.status-background(success)
+);
+$sidebar-banner-color-success: theme(
+  'sidebar-banner-background-success',
+  colors.status-font(on-success)
+);
+
+$sidebar-banner-background-warning: theme(
+  'sidebar-banner-background-warning',
+  colors.status-background(warning)
+);
+$sidebar-banner-color-warning: theme(
+  'sidebar-banner-background-warning',
+  colors.status-font(on-warning)
+);
+
+$sidebar-banner-background-danger: theme(
+  'sidebar-banner-background-danger',
+  colors.status-background(danger)
+);
+$sidebar-banner-color-danger: theme(
+  'sidebar-banner-background-danger',
+  colors.status-font(on-danger)
+);
+
 %sidebar-base {
   display: flex;
 
@@ -203,5 +249,64 @@ $sidebar-link-color: theme('sidebar-link-color', colors.font(titles-labels));
 
   &-link {
     @include use-link-colors($color: $sidebar-link-color);
+  }
+
+  &-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 100px;
+    padding: lengths.padding(16);
+
+    color: $sidebar-banner-color-default;
+
+    border-bottom: lengths.border-width(default) solid
+      $sidebar-accordion-border-color;
+    background-color: $sidebar-banner-background-default;
+    gap: lengths.padding(12);
+
+    &__actions {
+      display: flex;
+      align-items: center;
+    }
+
+    &--text {
+      @include typography.use-font-scale(h5);
+    }
+
+    &--description {
+      @include typography.use-font-scale(p2m);
+      display: inline-block;
+
+      color: currentColor;
+
+      &--clickable {
+        cursor: pointer;
+        border-block-end: lengths.border-width(default) solid;
+
+        @include use-link-colors();
+      }
+    }
+
+    &--info {
+      color: $sidebar-banner-color-info;
+      background-color: $sidebar-banner-background-info;
+    }
+
+    &--success {
+      color: $sidebar-banner-color-success;
+      background-color: $sidebar-banner-background-success;
+    }
+
+    &--warning {
+      color: $sidebar-banner-color-warning;
+      background-color: $sidebar-banner-background-warning;
+    }
+
+    &--danger {
+      color: $sidebar-banner-color-danger;
+      background-color: $sidebar-banner-background-danger;
+    }
   }
 }

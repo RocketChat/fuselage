@@ -5,3 +5,4 @@ export * from './SideBarLink';
 export * from './SideBarItem';
 export * from './SideBarCollapseGroup';
 export * from './SideBarItemAction';
+export * from './SideBarBanner';
