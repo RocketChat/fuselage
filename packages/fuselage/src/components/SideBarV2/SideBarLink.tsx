@@ -21,7 +21,7 @@ export const SideBarLink = ({
   <a
     className={[
       'rcx-sidebar-v2-link',
-      selected && 'rcx-sidebar-v2-item--selected',
+      selected && 'rcx-sidebar-v2-link--selected',
     ]
       .filter(Boolean)
       .join(' ')}

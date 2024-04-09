@@ -36,13 +36,13 @@ export const SideBarAccordionItem = ({
   });
 
   return (
-    <section className={`rcx-sidebar-v2__accordion-item`} {...props}>
+    <section className={`rcx-sidebar-v2-accordion-item`} {...props}>
       <div
         role='button'
         className={[
-          `rcx-sidebar-v2__accordion-item__bar`,
+          `rcx-sidebar-v2-accordion-item__bar`,
           'rcx-box--animated',
-          disabled && `rcx-sidebar-v2__accordion-item__bar--disabled`,
+          disabled && `rcx-sidebar-v2-accordion-item__bar--disabled`,
         ]
           .filter(Boolean)
           .join(' ')}
@@ -50,7 +50,7 @@ export const SideBarAccordionItem = ({
       >
         {!noncollapsible && <Chevron size='x20' up={expanded} />}
         {title && (
-          <h4 className={`rcx-sidebar-v2__accordion-item__title`} id={titleId}>
+          <h4 className={`rcx-sidebar-v2-accordion-item__title`} id={titleId}>
             {title}
           </h4>
         )}
@@ -58,9 +58,9 @@ export const SideBarAccordionItem = ({
       </div>
       <div
         className={[
-          `rcx-sidebar-v2__accordion-item__panel`,
+          `rcx-sidebar-v2-accordion-item__panel`,
           'rcx-box--animated',
-          panelExpanded && `rcx-sidebar-v2__accordion-item__panel--expanded`,
+          panelExpanded && `rcx-sidebar-v2-accordion-item__panel--expanded`,
         ]
           .filter(Boolean)
           .join(' ')}

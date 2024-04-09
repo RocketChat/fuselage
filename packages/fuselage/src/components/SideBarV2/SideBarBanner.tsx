@@ -6,8 +6,8 @@ import { IconButton } from '../Button';
 type VariantType = 'default' | 'info' | 'success' | 'warning' | 'danger';
 
 type SideBarBannerProps = {
-  text?: ReactNode;
-  description?: ReactNode;
+  title?: ReactNode;
+  link?: string;
   onClick?: () => void;
   variant?: VariantType;
   onClose?: () => void;
@@ -16,35 +16,25 @@ type SideBarBannerProps = {
 };
 
 export const SideBarBanner = ({
-  text,
-  description,
+  title,
+  link,
   onClick,
   variant = 'default',
   addon,
   onClose,
   children,
 }: SideBarBannerProps) => (
-  <div
-    className={`rcx-box rcx-box--full rcx-sidebar-v2-banner rcx-sidebar-v2-banner--${variant}`}
-  >
+  <div className={`rcx-sidebar-v2-banner rcx-sidebar-v2-banner--${variant}`}>
     <div>
-      {text && <div className='rcx-sidebar-v2-banner--text'>{text}</div>}
-      {description && (
-        <div
-          className={[
-            'rcx-sidebar-v2-banner--description',
-            onClick && 'rcx-sidebar-v2-banner--description--clickable',
-          ]
-            .filter(Boolean)
-            .join(' ')}
-          onClick={onClick}
-        >
-          {description}
+      {title && <h5 className='rcx-sidebar-v2-banner__title'>{title}</h5>}
+      {link && (
+        <div className='rcx-sidebar-v2-banner__link' onClick={onClick}>
+          {link}
         </div>
       )}
       {children}
     </div>
-    <div className='rcx-sidebar-v2-banner__actions'>
+    <div className='rcx-sidebar-v2-banner__addon'>
       {addon}
       {onClose && <IconButton onClick={onClose} tiny icon='cross' />}
     </div>

@@ -110,13 +110,13 @@ $sidebar-banner-color-danger: theme(
   color: $sidebar-color-font-default;
   background-color: $sidebar-color-surface-default;
 
-  &__accordion {
+  &-accordion {
     display: flex;
     flex-flow: column nowrap;
   }
 
-  &__collapse-group,
-  &__accordion-item {
+  &-collapse-group,
+  &-accordion-item {
     display: flex;
     flex-flow: column nowrap;
 
@@ -189,7 +189,7 @@ $sidebar-banner-color-danger: theme(
     }
   }
 
-  &__accordion-item {
+  &-accordion-item {
     border-bottom: lengths.border-width(default) solid
       $sidebar-accordion-border-color;
 
@@ -256,7 +256,6 @@ $sidebar-banner-color-danger: theme(
     justify-content: space-between;
     align-items: center;
 
-    height: 100px;
     padding: lengths.padding(16);
 
     color: $sidebar-banner-color-default;
@@ -266,27 +265,26 @@ $sidebar-banner-color-danger: theme(
     background-color: $sidebar-banner-background-default;
     gap: lengths.padding(12);
 
-    &__actions {
+    &__addon {
       display: flex;
       align-items: center;
     }
 
-    &--text {
+    &__title {
+      margin: 0;
+      padding: 0;
+
       @include typography.use-font-scale(h5);
     }
 
-    &--description {
+    &__link {
       @include typography.use-font-scale(p2m);
+      @include clickable();
+
       display: inline-block;
 
       color: currentColor;
-
-      &--clickable {
-        cursor: pointer;
-        border-block-end: lengths.border-width(default) solid;
-
-        @include use-link-colors();
-      }
+      border-block-end: lengths.border-width(default) solid;
     }
 
     &--info {

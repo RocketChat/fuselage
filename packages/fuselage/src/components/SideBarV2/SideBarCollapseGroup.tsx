@@ -29,17 +29,17 @@ export const SideBarCollapseGroup = ({
   });
 
   return (
-    <section className={`rcx-sidebar-v2__collapse-group`} {...props}>
+    <section className={`rcx-sidebar-v2-collapse-group`} {...props}>
       <div
         role='button'
-        className={[`rcx-sidebar-v2__collapse-group__bar`, 'rcx-box--animated']
+        className={[`rcx-sidebar-v2-collapse-group__bar`, 'rcx-box--animated']
           .filter(Boolean)
           .join(' ')}
         {...barProps}
       >
         <Chevron size='x20' up={expanded} />
         {title && (
-          <h4 className={`rcx-sidebar-v2__collapse-group__title`} id={titleId}>
+          <h4 className={`rcx-sidebar-v2-collapse-group__title`} id={titleId}>
             {title}
           </h4>
         )}
@@ -47,9 +47,9 @@ export const SideBarCollapseGroup = ({
       </div>
       <ul
         className={[
-          `rcx-sidebar-v2__collapse-group__panel`,
+          `rcx-sidebar-v2-collapse-group__panel`,
           'rcx-box--animated',
-          panelExpanded && `rcx-sidebar-v2__collapse-group__panel--expanded`,
+          panelExpanded && `rcx-sidebar-v2-collapse-group__panel--expanded`,
         ]
           .filter(Boolean)
           .join(' ')}

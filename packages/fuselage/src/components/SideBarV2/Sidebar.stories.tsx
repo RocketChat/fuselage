@@ -50,8 +50,8 @@ export const Default: ComponentStory<typeof SideBar> = () => (
   <Box>
     <SideBar>
       <SideBarBanner
-        text='You’ve reached the limit active contacts this month'
-        description='Learn more'
+        title='You’ve reached the limit active contacts this month'
+        link='Learn more'
         onClick={action('click')}
         addon={<Icon name='warning' color='danger' size='x24' />}
       />
