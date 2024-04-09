@@ -2,4 +2,4 @@
 "@rocket.chat/fuselage": patch
 ---
 
-fix: Remove 'option' role from Autocomplete Options component
+fix(fuselage): Remove `option` role from `Autocomplete` Options component
