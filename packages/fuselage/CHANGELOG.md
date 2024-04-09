@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.53.4
+
+### Patch Changes
+
+- [#1354](https://github.com/RocketChat/fuselage/pull/1354) [`d0c9e107f`](https://github.com/RocketChat/fuselage/commit/d0c9e107f1e787755c2a6358cab1ed45971fd5d8) Thanks [@gabriellsh](https://github.com/gabriellsh)! - fix(fuselage): Remove `option` role from `Autocomplete` Options component
+
+- [#1352](https://github.com/RocketChat/fuselage/pull/1352) [`34b047478`](https://github.com/RocketChat/fuselage/commit/34b047478f97c3e1bb94d801f212be41ffbe2cbb) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): MessageReactions missing border color
+
 ## 0.53.3
 
 ### Patch Changes
