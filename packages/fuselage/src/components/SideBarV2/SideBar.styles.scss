@@ -309,4 +309,26 @@ $sidebar-banner-color-danger: theme(
       background-color: $sidebar-banner-background-danger;
     }
   }
+
+  &-footer {
+    @include typography.use-font-scale(micro);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    height: lengths.size(48);
+    padding: lengths.padding(8) lengths.padding(16);
+
+    color: colors.font(default);
+
+    background-color: colors.surface(sidebar);
+    gap: lengths.padding(4);
+
+    &__content {
+      &--secondary {
+        color: colors.font(titles-labels);
+      }
+    }
+  }
 }

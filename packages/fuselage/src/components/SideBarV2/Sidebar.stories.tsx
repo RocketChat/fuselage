@@ -9,6 +9,7 @@ import {
   SideBarAccordionItem,
   SideBarBanner,
   SideBarCollapseGroup,
+  SideBarFooterContent,
   SideBarItem,
   SideBarItemAction,
   SideBarLink,
@@ -19,6 +20,7 @@ import { Icon } from '../Icon';
 import { MenuV2 as Menu, MenuItem } from '../Menu';
 import { leterAvatarUrls } from '../Message/helpers';
 import { SideBarBadge } from './SideBarBadge';
+import { SideBarFooter } from './SideBarFooter';
 
 export default {
   title: 'Navigation/SideBar',
@@ -178,6 +180,10 @@ export const Default: ComponentStory<typeof SideBar> = () => (
           </SideBarCollapseGroup>
         </SideBarAccordionItem>
       </SideBarAccordion>
+      <SideBarFooter>
+        <SideBarFooterContent>Powered by Rocket.Chat</SideBarFooterContent>
+        <SideBarFooterContent secondary>Free edition</SideBarFooterContent>
+      </SideBarFooter>
     </SideBar>
   </Box>
 );
