@@ -198,7 +198,6 @@ export function AutoComplete({
       />
       <PositionAnimated visible={optionsAreVisible} anchor={containerRef}>
         <Options
-          role='option'
           width={borderBoxSize.inlineSize}
           onSelect={handleSelect}
           renderItem={renderItem}
