@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.53.4
+
+### Patch Changes
+
+- [#1352](https://github.com/RocketChat/fuselage/pull/1352) [`34b047478`](https://github.com/RocketChat/fuselage/commit/34b047478f97c3e1bb94d801f212be41ffbe2cbb) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): MessageReactions missing border color
+
 ## 0.53.3
 
 ### Patch Changes
