@@ -11,12 +11,12 @@
 
   background-color: colors.surface(sidebar);
 
-  &--section {
+  &__section {
     display: flex;
     align-items: center;
   }
 
-  &--divider {
+  &-divider {
     border-color: colors.stroke(medium);
   }
 }

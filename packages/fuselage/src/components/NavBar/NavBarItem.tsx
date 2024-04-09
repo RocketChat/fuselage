@@ -14,12 +14,12 @@ export const NavBarItem = ({
 }: NavbarItemProps & HTMLAttributes<HTMLLIElement>) => (
   <>
     {icon ? (
-      <IconButton rcx-navbar--item icon={icon} small {...props} />
+      <IconButton rcx-navbar-item icon={icon} small {...props} />
     ) : (
       patchChildren(
         children,
         (childProps: { className: string | string[] }) => ({
-          className: appendClassName(childProps.className, 'rcx-navbar--item'),
+          className: appendClassName(childProps.className, 'rcx-navbar-item'),
           ...props,
         })
       )
