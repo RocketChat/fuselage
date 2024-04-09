@@ -1,0 +1,125 @@
+@use '../../../styles/colors.scss';
+@use '../../../styles/lengths.scss';
+@use '../../../styles/typography.scss';
+@import '../../../styles/mixins/all.scss';
+
+$sidebar-color-surface-default: theme(
+  'sidebar-color-surface-default',
+  colors.surface(sidebar)
+);
+$sidebar-color-surface-hover: theme(
+  'sidebar-color-surface-hover',
+  colors.surface(hover)
+);
+$sidebar-color-surface-selected: theme(
+  'sidebar-color-surface-selected',
+  colors.surface(selected)
+);
+
+$sidebar-color-font-default: theme(
+  'sidebar-color-font-default',
+  colors.font(default)
+);
+
+$sidebar-accordion-border-color: theme(
+  'sidebar-accordion-border-color',
+  colors.stroke(light)
+);
+
+$sidebar-link-color: theme('sidebar-link-color', colors.font(titles-labels));
+
+%sidebar-item-base {
+  @include clickable;
+  @include use-link-colors($color: colors.font(default));
+  @include typography.use-font-scale(p2);
+
+  display: flex;
+
+  align-items: center;
+
+  border-radius: lengths.border-radius(small);
+
+  @include on-hover {
+    background-color: $sidebar-color-surface-hover;
+  }
+
+  @include on-focus {
+    outline-offset: -1px;
+    box-shadow: none;
+  }
+}
+
+.rcx-sidebar-v2 {
+  &-item {
+    @extend %sidebar-item-base;
+    @include highlighted;
+    @include typography.use-font-scale(p2);
+    justify-content: flex-start;
+
+    align-items: center;
+
+    padding: lengths.padding(4) lengths.padding(16);
+
+    text-decoration: none;
+    gap: lengths.padding(4);
+
+    &:active,
+    &--selected {
+      background-color: $sidebar-color-surface-selected;
+    }
+
+    &__title {
+      flex-grow: 1;
+    }
+
+    &__subtitle {
+      flex-grow: 1;
+      @include typography.use-font-scale(c1);
+    }
+
+    &__timestamp {
+      @include typography.use-font-scale(c2);
+    }
+
+    &__content {
+      flex-grow: 1;
+    }
+
+    &__row {
+      display: flex;
+      align-items: center;
+      gap: lengths.padding(4);
+    }
+
+    &__col {
+      display: flex;
+      flex-direction: column;
+
+      width: lengths.size(full);
+    }
+
+    &__menu-wrapper {
+      flex-shrink: 0;
+
+      width: 0;
+      height: 100%;
+
+      margin-inline-end: -4px;
+
+      opacity: 0;
+    }
+
+    &:hover &__menu-wrapper,
+    &.focus-within &__menu-wrapper,
+    &:focus-within &__menu-wrapper {
+      display: flex;
+      align-items: center;
+
+      width: lengths.size(20);
+
+      margin-inline-end: lengths.margin(none);
+
+      opacity: 1;
+    }
+  }
+}

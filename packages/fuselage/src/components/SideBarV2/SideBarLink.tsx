@@ -21,7 +21,8 @@ export const SideBarLink = ({
   <a
     className={[
       'rcx-sidebar-v2-link',
-      selected && 'rcx-sidebar-v2-link--selected',
+      'rcx-sidebar-v2-item',
+      selected && 'rcx-sidebar-v2-item--selected',
     ]
       .filter(Boolean)
       .join(' ')}
@@ -29,17 +30,17 @@ export const SideBarLink = ({
     {...props}
   >
     {icon && (
-      <Icon name={icon} size='x20' className='rcx-sidebar-v2-link__icon' />
+      <Icon name={icon} size='x20' className='rcx-sidebar-v2-item__icon' />
     )}
-    <span className='rcx-sidebar-v2-link__title'>{props.children}</span>
+    <span className='rcx-sidebar-v2-item__title'>{props.children}</span>
     {badge && badge}
     {menu &&
       patchChildren(
-        <span className='rcx-sidebar-v2-link__menu-wrapper'>{menu}</span>,
+        <span className='rcx-sidebar-v2-item__menu-wrapper'>{menu}</span>,
         (childProps: { className: string | string[] }) => ({
           className: appendClassName(
             childProps.className,
-            'rcx-sidebar-v2-link__menu rcx-box--animated'
+            'rcx-sidebar-v2-item__menu rcx-box--animated'
           ),
         })
       )}

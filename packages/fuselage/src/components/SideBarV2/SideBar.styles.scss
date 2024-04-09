@@ -3,6 +3,9 @@
 @use '../../styles/typography.scss';
 @import '../../styles/mixins/all.scss';
 
+@import './SideBarFooter/SideBarFooter.styles.scss';
+@import './SideBarItem/SideBarItem.styles.scss';
+
 $sidebar-color-surface-default: theme(
   'sidebar-color-surface-default',
   colors.surface(sidebar)
@@ -74,33 +77,10 @@ $sidebar-banner-color-danger: theme(
   colors.status-font(on-danger)
 );
 
-%sidebar-base {
-  display: flex;
-
-  align-items: center;
-
-  border-radius: lengths.border-radius(small);
-  @include typography.use-font-scale(p2);
-}
-
 %highlighted {
   color: $sidebar-item-color-highlighted;
 
   font-weight: 600;
-}
-
-%sidebar-item-base {
-  @include clickable;
-  @include use-link-colors($color: colors.font(default));
-
-  @include on-hover {
-    background-color: $sidebar-color-surface-hover;
-  }
-
-  @include on-focus {
-    outline-offset: -1px;
-    box-shadow: none;
-  }
 }
 
 .rcx-sidebar-v2 {
@@ -202,51 +182,6 @@ $sidebar-banner-color-danger: theme(
     }
   }
 
-  &-item,
-  &-link {
-    @extend %sidebar-base;
-    @extend %sidebar-item-base;
-    @include highlighted;
-    @include typography.use-font-scale(p2);
-    justify-content: flex-start;
-
-    align-items: center;
-
-    padding: lengths.padding(4) lengths.padding(16);
-
-    text-decoration: none;
-    gap: lengths.padding(4);
-
-    &:active,
-    &--selected {
-      background-color: $sidebar-color-surface-selected;
-    }
-
-    &__title {
-      flex-grow: 1;
-    }
-
-    &__menu-wrapper {
-      flex-shrink: 0;
-
-      width: 0;
-      height: 100%;
-
-      opacity: 0;
-    }
-
-    &:hover &__menu-wrapper,
-    &.focus-within &__menu-wrapper,
-    &:focus-within &__menu-wrapper {
-      display: flex;
-      align-items: center;
-
-      width: lengths.size(20);
-
-      opacity: 1;
-    }
-  }
-
   &-link {
     @include use-link-colors($color: $sidebar-link-color);
   }
@@ -305,28 +240,6 @@ $sidebar-banner-color-danger: theme(
     &--danger {
       color: $sidebar-banner-color-danger;
       background-color: $sidebar-banner-background-danger;
-    }
-  }
-
-  &-footer {
-    @include typography.use-font-scale(micro);
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    height: lengths.size(48);
-    padding: lengths.padding(8) lengths.padding(16);
-
-    color: colors.font(default);
-
-    background-color: colors.surface(sidebar);
-    gap: lengths.padding(4);
-
-    &__content {
-      &--secondary {
-        color: colors.font(titles-labels);
-      }
     }
   }
 }
