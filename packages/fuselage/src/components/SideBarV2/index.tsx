@@ -6,4 +6,5 @@ export * from './SideBarItem';
 export * from './SideBarCollapseGroup';
 export * from './SideBarBanner';
 export * from './SideBarFooter';
-export * from './SideBarCallControllers';
+export * from './SideBarMedia';
+export * from './SideBarButtonGroup';

@@ -50,6 +50,10 @@ $sidebar-link-color: theme('sidebar-link-color', colors.font(titles-labels));
 }
 
 .rcx-sidebar-v2 {
+  li {
+    list-style: none;
+  }
+
   &-item {
     @extend %sidebar-item-base;
     @include highlighted;

@@ -23,9 +23,14 @@ import {
   SideBarItemRow,
   SideBarItemCol,
   SideBarItemTimestamp,
+  SideBarMedia,
+  SideBarMediaTitle,
+  SideBarMediaController,
+  SideBarButtonGroup,
 } from '.';
 import { Avatar } from '../Avatar';
 import Box from '../Box';
+import { IconButton } from '../Button';
 import { Icon } from '../Icon';
 import { MenuV2 as Menu, MenuItem } from '../Menu';
 import { leterAvatarUrls } from '../Message/helpers';
@@ -103,6 +108,26 @@ const GenericExtendedItem = (props: ComponentProps<typeof SideBarItem>) => (
   </SideBarItem>
 );
 
+const GenericCallItem = (props: ComponentProps<typeof SideBarItem>) => (
+  <SideBarItem {...props}>
+    <SideBarItemAvatarWrapper>
+      <Avatar size='x36' url={leterAvatarUrls[0]} alt='avatar' />
+    </SideBarItemAvatarWrapper>
+
+    <SideBarItemCol>
+      <SideBarItemTitle>Esther Miles</SideBarItemTitle>
+      <SideBarItemSubtitle>00:05</SideBarItemSubtitle>
+    </SideBarItemCol>
+
+    <SideBarItemRow>
+      <SideBarButtonGroup>
+        <IconButton small icon='phone-off' secondary danger />
+        <IconButton small icon='phone' secondary success />
+      </SideBarButtonGroup>
+    </SideBarItemRow>
+  </SideBarItem>
+);
+
 export const Default: ComponentStory<typeof SideBar> = () => (
   <Box>
     <SideBar>
@@ -148,7 +173,7 @@ export const Default: ComponentStory<typeof SideBar> = () => (
             On hold
           </SideBarLink>
         </SideBarAccordionItem>
-        <SideBarAccordionItem title='Team chat' defaultExpanded={true}>
+        <SideBarAccordionItem title='Team chat' defaultExpanded={false}>
           <SideBarCollapseGroup title='Favorites' defaultExpanded>
             <GenericCondensedItem />
             <GenericCondensedItem />
@@ -160,7 +185,7 @@ export const Default: ComponentStory<typeof SideBar> = () => (
             <GenericCondensedItem />
             <GenericCondensedItem />
             <GenericCondensedItem />
-            <SideBarItemAction onClick={() => console.log('add team')}>
+            <SideBarItemAction onClick={action('add team')}>
               Add team
             </SideBarItemAction>
           </SideBarCollapseGroup>
@@ -170,12 +195,21 @@ export const Default: ComponentStory<typeof SideBar> = () => (
             <GenericCondensedItem />
             <GenericCondensedItem />
             <GenericCondensedItem />
-            <SideBarItemAction onClick={() => console.log('add team')}>
+            <SideBarItemAction onClick={action('add team')}>
               Add discussion
             </SideBarItemAction>
           </SideBarCollapseGroup>
         </SideBarAccordionItem>
       </SideBarAccordion>
+      <SideBarMedia>
+        <SideBarMediaTitle>3 calls in queue</SideBarMediaTitle>
+        <SideBarMediaController label='Call'>
+          <IconButton icon='user-arrow-right' small />
+          <IconButton icon='mic' small />
+          <IconButton icon='pause-unfilled' small />
+        </SideBarMediaController>
+        <GenericCallItem />
+      </SideBarMedia>
       <SideBarFooter>
         <SideBarFooterWatermark>
           <SideBarFooterContent>Powered by Rocket.Chat</SideBarFooterContent>
@@ -190,7 +224,7 @@ export const Condensed: ComponentStory<typeof SideBar> = () => (
   <Box>
     <SideBar>
       <SideBarAccordion>
-        <SideBarAccordionItem title='Team chat' defaultExpanded={true}>
+        <SideBarAccordionItem title='Team chat' defaultExpanded>
           <SideBarCollapseGroup title='Favorites' defaultExpanded>
             <GenericCondensedItem />
             <GenericCondensedItem />
@@ -217,7 +251,7 @@ export const Medium: ComponentStory<typeof SideBar> = () => (
   <Box>
     <SideBar>
       <SideBarAccordion>
-        <SideBarAccordionItem title='Team chat' defaultExpanded={true}>
+        <SideBarAccordionItem title='Team chat' defaultExpanded>
           <SideBarCollapseGroup title='Favorites' defaultExpanded>
             <GenericMediumItem />
             <GenericMediumItem />
@@ -241,13 +275,14 @@ export const Extended: ComponentStory<typeof SideBar> = () => (
   <Box>
     <SideBar>
       <SideBarAccordion>
-        <SideBarAccordionItem title='Team chat' defaultExpanded={true}>
+        <SideBarAccordionItem title='Team chat' defaultExpanded>
           <SideBarCollapseGroup title='Favorites' defaultExpanded>
             <GenericExtendedItem />
             <GenericExtendedItem />
             <GenericExtendedItem />
             <GenericExtendedItem />
             <GenericExtendedItem />
+            <GenericCallItem />
           </SideBarCollapseGroup>
         </SideBarAccordionItem>
       </SideBarAccordion>
