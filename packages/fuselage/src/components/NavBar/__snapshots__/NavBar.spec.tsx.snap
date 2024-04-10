@@ -10,14 +10,13 @@ exports[`[NavBar Component] renders Default without crashing 1`] = `
         class="rcx-navbar"
       >
         <span
-          class="rcx-navbar__section"
+          class="rcx-navbar-section"
         >
           <div
             class="rcx-button-group rcx-button-group--align-start rcx-navbar-group"
             role="toolbar"
           >
             <button
-              aria-label="home"
               class="rcx-box rcx-box--full rcx-navbar-item rcx-button--small-square rcx-button--square rcx-button--icon rcx-button  rcx-button-group__item"
               title="home"
               type="button"
@@ -30,7 +29,6 @@ exports[`[NavBar Component] renders Default without crashing 1`] = `
               </i>
             </button>
             <button
-              aria-label="marketplace"
               class="rcx-box rcx-box--full rcx-navbar-item rcx-button--small-square rcx-button--square rcx-button--icon rcx-button  rcx-button-group__item"
               title="marketplace"
               type="button"
@@ -43,7 +41,6 @@ exports[`[NavBar Component] renders Default without crashing 1`] = `
               </i>
             </button>
             <button
-              aria-label="directory"
               class="rcx-box rcx-box--full rcx-navbar-item rcx-button--small-square rcx-button--square rcx-button--icon rcx-button  rcx-button-group__item"
               title="directory"
               type="button"
@@ -56,7 +53,6 @@ exports[`[NavBar Component] renders Default without crashing 1`] = `
               </i>
             </button>
             <button
-              aria-label="audit"
               class="rcx-box rcx-box--full rcx-navbar-item rcx-button--small-square rcx-button--square rcx-button--icon rcx-button  rcx-button-group__item"
               title="audit"
               type="button"
@@ -69,7 +65,6 @@ exports[`[NavBar Component] renders Default without crashing 1`] = `
               </i>
             </button>
             <button
-              aria-label="contacts"
               class="rcx-box rcx-box--full rcx-navbar-item rcx-button--small-square rcx-button--square rcx-button--icon rcx-button  rcx-button-group__item"
               title="contacts"
               type="button"
@@ -105,7 +100,6 @@ exports[`[NavBar Component] renders Default without crashing 1`] = `
               </i>
             </button>
             <button
-              aria-label="search"
               class="rcx-box rcx-box--full rcx-navbar-item rcx-button--small-square rcx-button--square rcx-button--icon rcx-button  rcx-button-group__item"
               title="search"
               type="button"
@@ -141,7 +135,6 @@ exports[`[NavBar Component] renders Default without crashing 1`] = `
             role="toolbar"
           >
             <button
-              aria-label="dialpad"
               class="rcx-box rcx-box--full rcx-navbar-item rcx-button--small-square rcx-button--square rcx-button--icon rcx-button  rcx-button-group__item"
               title="dialpad"
               type="button"
@@ -154,7 +147,6 @@ exports[`[NavBar Component] renders Default without crashing 1`] = `
               </i>
             </button>
             <button
-              aria-label="live"
               class="rcx-box rcx-box--full rcx-navbar-item rcx-button--small-square rcx-button--square rcx-button--icon rcx-button  rcx-button-group__item"
               title="live"
               type="button"
@@ -167,7 +159,6 @@ exports[`[NavBar Component] renders Default without crashing 1`] = `
               </i>
             </button>
             <button
-              aria-label="phone-disabled"
               class="rcx-box rcx-box--full rcx-navbar-item rcx-button--small-square rcx-button--square rcx-button--icon rcx-button  rcx-button-group__item"
               title="phone-disabled"
               type="button"
@@ -180,7 +171,6 @@ exports[`[NavBar Component] renders Default without crashing 1`] = `
               </i>
             </button>
             <button
-              aria-label="message-disabled"
               class="rcx-box rcx-box--full rcx-navbar-item rcx-button--small-square rcx-button--square rcx-button--icon rcx-button  rcx-button-group__item"
               title="message-disabled"
               type="button"
@@ -195,14 +185,13 @@ exports[`[NavBar Component] renders Default without crashing 1`] = `
           </div>
         </span>
         <span
-          class="rcx-navbar__section"
+          class="rcx-navbar-section"
         >
           <div
             class="rcx-button-group rcx-button-group--align-start rcx-navbar-group"
             role="group"
           >
             <button
-              aria-label="preferences"
               class="rcx-box rcx-box--full rcx-navbar-item rcx-button--small-square rcx-button--square rcx-button--icon rcx-button  rcx-button-group__item"
               title="preferences"
               type="button"
@@ -223,11 +212,11 @@ exports[`[NavBar Component] renders Default without crashing 1`] = `
               type="button"
             >
               <figure
-                class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x36"
+                class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x28"
               >
                 <img
                   alt="user avatar"
-                  class="rcx-avatar__element rcx-avatar__element--x36"
+                  class="rcx-avatar__element rcx-avatar__element--x28"
                   src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAoACgDASIAAhEBAxEB/8QAGwAAAgIDAQAAAAAAAAAAAAAAAAcEBgIDBQj/xAAuEAACAQQAAwcEAQUAAAAAAAABAgMABAUREiExBhMUIkFRYQcWcYGhFTJSgpH/xAAYAQADAQEAAAAAAAAAAAAAAAACAwQBAP/EAB4RAAIBBQEBAQAAAAAAAAAAAAABAgMREiExE0HR/9oADAMBAAIRAxEAPwBuXuIkhBuMe5ib/AHQP49q4L3mLitryTLTSpOiHQI5k/HzXa/qbFOEudVTu1dumWvcTaNCZYZ7vU6g6LxqjOU/24dfs1Ouh9FnkMpd3Reeyx83hAxZZEhkdV9/MBrX71WGPvJcqrJBGveKATtuXXqNU0pu02bTHXD/AGvJAluyxxRd6F4x00o+NdKoVrjbzJdvVe1t5cVLc2ck8qjnohgpPtz2v7G6JtPQ2VJwjlcw+37mchpnK6GtIuv5NFWeTsLNPvxWTvpfjvOEfwKKzEVkSct2vscS/BIzSN0YRkeX81UpPqO8masJETu7OOccY4dswYFQeftv096XV5knuJGdm2T1+agvMXj8jEaHX905QihabvcbuS7X566mLWLwSY8PuRnk/u4eZ0deTl71Ef6hY+0yM88TzeNZY4luYwpVYyduOfrvhPTnr0pXSX9y5mCsyJMdyxxvwq599em+taItqCSNc90ChvZRUruUcT0JiO18Elpk7t8v41LWzacxkBSuvjQ/FFJayjDWrCTepAQ2vUH0oo/Jk3ovpwJJeVCP5CN+lFFaaMqy+nAyuChvrTI2kN9JAsi2ZOy4IBHMnkSCP+iqBexSWdxLazoUljJVlPUH2oorkV10pRc7b1zXb/hZOzuJvM86QWEXeELxOzHSIPcmiiiunVlF2RNTpRkrs//Z"
                 />
               </figure>

@@ -50,37 +50,19 @@ const Template: ComponentStory<typeof NavBar> = (args) => (
   <NavBar {...args}>
     <NavBarSection>
       <NavBarGroup role='toolbar'>
-        <NavBarItem icon='home' aria-label='home' title='home' />
-        <NavBarItem icon='store' aria-label='marketplace' title='marketplace' />
-        <NavBarItem
-          icon='notebook-hashtag'
-          aria-label='directory'
-          title='directory'
-        />
-        <NavBarItem icon='document-eye' aria-label='audit' title='audit' />
-        <NavBarItem
-          icon='address-book'
-          aria-label='contacts'
-          title='contacts'
-        />
+        <NavBarItem icon='home' title='home' />
+        <NavBarItem icon='store' title='marketplace' />
+        <NavBarItem icon='notebook-hashtag' title='directory' />
+        <NavBarItem icon='document-eye' title='audit' />
+        <NavBarItem icon='address-book' title='contacts' />
       </NavBarGroup>
       <NavBarDivider />
       <NavBarGroup role='toolbar'>
         <NavBarItem>
-          <MenuDisplayExample
-            small
-            icon='sort'
-            aria-label='sort'
-            title='sort'
-          />
+          <MenuDisplayExample small icon='sort' title='sort' />
         </NavBarItem>
-        <NavBarItem icon='magnifier' aria-label='search' title='search' />
-        <Menu
-          icon='pencil-box'
-          small
-          aria-label='create new'
-          title='create new'
-        >
+        <NavBarItem icon='magnifier' title='search' />
+        <Menu icon='pencil-box' small title='create new'>
           <MenuSection title='Create new'>
             <MenuItem key='direct-message'>Direct message</MenuItem>
             <MenuItem key='discussion'>Discussion</MenuItem>
@@ -91,28 +73,19 @@ const Template: ComponentStory<typeof NavBar> = (args) => (
       </NavBarGroup>
       <NavBarDivider />
       <NavBarGroup role='toolbar'>
-        <NavBarItem icon='dialpad' aria-label='dialpad' title='dialpad' />
-        <NavBarItem icon='live' aria-label='live' title='live' />
-        <NavBarItem
-          icon='phone-disabled'
-          aria-label='phone-disabled'
-          title='phone-disabled'
-        />
-        <NavBarItem
-          icon='message-disabled'
-          aria-label='message-disabled'
-          title='message-disabled'
-        />
+        <NavBarItem icon='dialpad' title='dialpad' />
+        <NavBarItem icon='live' title='live' />
+        <NavBarItem icon='phone-disabled' title='phone-disabled' />
+        <NavBarItem icon='message-disabled' title='message-disabled' />
       </NavBarGroup>
     </NavBarSection>
     <NavBarSection>
       <NavBarGroup>
-        <NavBarItem icon='cog' aria-label='preferences' title='preferences' />
+        <NavBarItem icon='cog' title='preferences' />
         <NavBarItem>
           <Menu
             small
-            icon={<Avatar url={avatarUrl} alt='user avatar' />}
-            aria-label='profile'
+            icon={<Avatar url={avatarUrl} alt='user avatar' size='x28' />}
             title='profile'
           >
             <MenuItem key='1'>Profile</MenuItem>
