@@ -51,7 +51,7 @@ $sidebar-color-surface-selected: theme(
     text-decoration: none;
     gap: lengths.padding(4);
 
-    &:active,
+    &:active:not(:focus-within),
     &--selected {
       background-color: $sidebar-color-surface-selected;
     }
