@@ -5,10 +5,17 @@
 
 $sidebar-media-color: theme('sidebar-media-color', colors.font(titles-labels));
 
+$sidebar-media-border-color: theme(
+  'sidebar-media-border-color',
+  colors.stroke(light)
+);
+
 .rcx-sidebar-v2-media {
   padding-block: lengths.padding(8);
 
   color: $sidebar-media-color;
+
+  border-bottom: lengths.border-width(default) solid $sidebar-media-border-color;
 
   &__title {
     @include typography.use-font-scale(c1);

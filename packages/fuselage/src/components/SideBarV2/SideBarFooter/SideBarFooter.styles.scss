@@ -3,24 +3,6 @@
 @use '../../../styles/typography.scss';
 @import '../../../styles/mixins/all.scss';
 
-$sidebar-color-surface-default: theme(
-  'sidebar-color-surface-default',
-  colors.surface(sidebar)
-);
-$sidebar-color-surface-hover: theme(
-  'sidebar-color-surface-hover',
-  colors.surface(hover)
-);
-$sidebar-color-surface-selected: theme(
-  'sidebar-color-surface-selected',
-  colors.surface(selected)
-);
-
-$sidebar-color-font-default: theme(
-  'sidebar-color-font-default',
-  colors.font(default)
-);
-
 .rcx-sidebar-v2-footer {
   @include typography.use-font-scale(micro);
 
