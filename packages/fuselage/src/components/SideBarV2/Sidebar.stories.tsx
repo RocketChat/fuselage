@@ -121,8 +121,14 @@ const GenericCallItem = (props: ComponentProps<typeof SideBarItem>) => (
 
     <SideBarItemRow>
       <SideBarButtonGroup>
-        <IconButton small icon='phone-off' secondary danger />
-        <IconButton small icon='phone' secondary success />
+        <IconButton
+          small
+          icon='phone-off'
+          secondary
+          danger
+          aria-label='phone-off'
+        />
+        <IconButton small icon='phone' secondary success aria-label='phone' />
       </SideBarButtonGroup>
     </SideBarItemRow>
   </SideBarItem>
@@ -204,11 +210,11 @@ export const Default: ComponentStory<typeof SideBar> = () => (
       <SideBarMedia>
         <SideBarMediaTitle>3 calls in queue</SideBarMediaTitle>
         <SideBarMediaController label='Call'>
-          <IconButton icon='user-arrow-right' small />
-          <IconButton icon='mic' small />
-          <IconButton icon='pause-unfilled' small />
+          <IconButton icon='user-arrow-right' small aria-label='user-forward' />
+          <IconButton icon='mic' small aria-label='mic' />
+          <IconButton icon='pause-unfilled' small aria-label='pause' />
         </SideBarMediaController>
-        <GenericCallItem />
+        <GenericCallItem is='div' />
       </SideBarMedia>
       <SideBarFooter>
         <SideBarFooterWatermark>

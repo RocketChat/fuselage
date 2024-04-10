@@ -5,11 +5,13 @@ export const SideBarItem = ({
   selected,
   className,
   children,
+  is: Tag = 'li',
   ...props
 }: {
   selected?: boolean;
+  is?: React.ElementType;
 } & HTMLAttributes<HTMLAnchorElement>) => (
-  <li>
+  <Tag>
     <a
       className={[
         'rcx-sidebar-v2-item',
@@ -23,5 +25,5 @@ export const SideBarItem = ({
     >
       {children}
     </a>
-  </li>
+  </Tag>
 );
