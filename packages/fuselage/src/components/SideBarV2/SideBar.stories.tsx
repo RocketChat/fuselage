@@ -18,12 +18,11 @@ import {
   SideBarMediaTitle,
   SideBarMediaController,
 } from '.';
+import { IconButton, Icon } from '../..';
 import Box from '../Box';
-import { IconButton } from '../Button';
-import { Icon } from '../Icon';
-import { SideBarFooter } from './SideBarFooter/SideBarFooter';
+import { SideBarFooter } from './SideBarFooter';
 import { Condensed } from './SideBarItem/SideBarItem.stories';
-import { GenericCallItem, menuTemplate } from './helpers';
+import { GenericCallItem, MenuTemplate } from './helpers';
 
 export default {
   title: 'Navigation/SideBar',
@@ -66,7 +65,7 @@ export const Default: ComponentStory<typeof SideBar> = () => (
             badge={
               <SideBarItemBadge title={83} children={12} variant='primary' />
             }
-            menu={menuTemplate}
+            menu={<MenuTemplate />}
           >
             All
           </SideBarLink>
@@ -74,7 +73,7 @@ export const Default: ComponentStory<typeof SideBar> = () => (
             icon='user'
             href='#'
             badge={<SideBarItemBadge title={10} children={10} />}
-            menu={menuTemplate}
+            menu={<MenuTemplate />}
           >
             Assigned to me
           </SideBarLink>
@@ -82,11 +81,11 @@ export const Default: ComponentStory<typeof SideBar> = () => (
             icon='queue'
             href='#'
             badge={<SideBarItemBadge title={3} children={3} variant='danger' />}
-            menu={menuTemplate}
+            menu={<MenuTemplate />}
           >
             Unassigned
           </SideBarLink>
-          <SideBarLink icon='pause' href='#' menu={menuTemplate}>
+          <SideBarLink icon='pause' href='#' menu={<MenuTemplate />}>
             On hold
           </SideBarLink>
         </SideBarAccordionItem>

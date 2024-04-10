@@ -44,7 +44,7 @@ export const names = [
   'Eve Mallory',
 ];
 
-export const menuTemplate = (
+export const MenuTemplate = () => (
   <Menu mini aria-label='Options' title='Options'>
     <MenuItem key='hide'>Hide</MenuItem>
     <MenuItem key='discussion'>Mark unread</MenuItem>
@@ -60,7 +60,7 @@ export const GenericCondensedItem = ({ i = 0 }: { i: number }) => (
     <SideBarItemIcon name='team' />
     <SideBarItemTitle>{names[i % 10]}</SideBarItemTitle>
     <SideBarItemBadge children={Math.floor(Math.random() * 10) + 1} />
-    <SideBarItemMenu children={menuTemplate} />
+    <SideBarItemMenu children={<MenuTemplate />} />
   </SideBarItem>
 );
 
@@ -72,7 +72,7 @@ export const GenericMediumItem = ({ i = 0 }: { i: number }) => (
     <SideBarItemIcon name='team' />
     <SideBarItemTitle>{names[i % 10]}</SideBarItemTitle>
     <SideBarItemBadge children={Math.floor(Math.random() * 10) + 1} />
-    <SideBarItemMenu children={menuTemplate} />
+    <SideBarItemMenu children={<MenuTemplate />} />
   </SideBarItem>
 );
 
@@ -92,7 +92,7 @@ export const GenericExtendedItem = ({ i = 0 }: { i: number }) => (
       <SideBarItemRow>
         <SideBarItemSubtitle>No messages yet</SideBarItemSubtitle>
         <SideBarItemBadge children={Math.floor(Math.random() * 10) + 1} />
-        <SideBarItemMenu children={menuTemplate} />
+        <SideBarItemMenu children={<MenuTemplate />} />
       </SideBarItemRow>
     </SideBarItemCol>
   </SideBarItem>
