@@ -21,7 +21,14 @@ import {
   SideBarItemTimestamp,
   SideBarItemTitle,
 } from '.';
-import { Avatar, Box, IconButton, MenuV2 as Menu, MenuItem } from '../..';
+import {
+  Avatar,
+  Box,
+  IconButton,
+  MenuV2 as Menu,
+  MenuItem,
+  SidebarDivider,
+} from '../..';
 import { SideBarItemSubtitle } from './SideBarItem/SideBarItemSubtitle';
 
 export const leterAvatarUrls = [
@@ -129,7 +136,7 @@ export const GenericCallItem = ({
 
 export const decorators: DecoratorFn[] = [
   (fn): ReactElement => (
-    <Box>
+    <Box h='90vh'>
       <SideBar>
         <SideBarAccordion>
           <SideBarAccordionItem
@@ -147,6 +154,7 @@ export const decorators: DecoratorFn[] = [
           </SideBarAccordionItem>
         </SideBarAccordion>
         <SideBarFooter>
+          <SidebarDivider />
           <SideBarFooterWatermark>
             <SideBarFooterContent>Powered by Rocket.Chat</SideBarFooterContent>
             <SideBarFooterContent secondary>Free edition</SideBarFooterContent>

@@ -42,7 +42,7 @@ export default {
 } as ComponentMeta<typeof SideBar>;
 
 export const Default: ComponentStory<typeof SideBar> = () => (
-  <Box>
+  <Box h='90vh'>
     <SideBar>
       <SideBarBanner
         title='You’ve reached the limit active contacts this month'
