@@ -1,0 +1,23 @@
+@use '../../styles/colors.scss';
+@use '../../styles/lengths.scss';
+
+$sidepanel-color-default: colors.font(default);
+
+.rcx-sidepanel {
+  display: flex;
+  flex-direction: column;
+
+  width: lengths.size(276);
+
+  color: $sidepanel-color-default;
+  border: lengths.border-width(default) solid colors.stroke(extra-light);
+
+  &-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: lengths.padding(16);
+    gap: lengths.padding(8);
+  }
+}

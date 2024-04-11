@@ -1,0 +1,17 @@
+import type { HTMLAttributes } from 'react';
+import React from 'react';
+
+export const SidePanelSectionAction = ({
+  children,
+  className,
+  ...props
+}: HTMLAttributes<HTMLDivElement>) => (
+  <div
+    className={['rcx-sidepanel-section__action', className && className]
+      .filter(Boolean)
+      .join(' ')}
+    {...props}
+  >
+    {children}
+  </div>
+);

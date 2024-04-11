@@ -61,6 +61,7 @@ export * from './Popover';
 export * from './SelectInput';
 export { default as Sidebar } from './Sidebar';
 export * from './Sidebar';
+export * from './SidePanel';
 export * from './Skeleton';
 export * from './States';
 export * from './Table';
