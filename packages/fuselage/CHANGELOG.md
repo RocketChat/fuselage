@@ -1,5 +1,32 @@
 # Change Log
 
+## 0.53.4
+
+### Patch Changes
+
+- [#1354](https://github.com/RocketChat/fuselage/pull/1354) [`d0c9e107f`](https://github.com/RocketChat/fuselage/commit/d0c9e107f1e787755c2a6358cab1ed45971fd5d8) Thanks [@gabriellsh](https://github.com/gabriellsh)! - fix(fuselage): Remove `option` role from `Autocomplete` Options component
+
+- [#1352](https://github.com/RocketChat/fuselage/pull/1352) [`34b047478`](https://github.com/RocketChat/fuselage/commit/34b047478f97c3e1bb94d801f212be41ffbe2cbb) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): MessageReactions missing border color
+
+## 0.53.3
+
+### Patch Changes
+
+- Updated dependencies [[`bfe0abfb0`](https://github.com/RocketChat/fuselage/commit/bfe0abfb0bc2f828a0b6675f4719509d978a0a0f)]:
+  - @rocket.chat/fuselage-tokens@0.33.1
+
+## 0.53.2
+
+### Patch Changes
+
+- [#1344](https://github.com/RocketChat/fuselage/pull/1344) [`8f67c5d20`](https://github.com/RocketChat/fuselage/commit/8f67c5d20939258bf4f09ee8d6ca36b68496c7ac) Thanks [@dougfabris](https://github.com/dougfabris)! - fix: wrong `MessageMetrics` export
+
+## 0.53.1
+
+### Patch Changes
+
+- [#1342](https://github.com/RocketChat/fuselage/pull/1342) [`71c221684`](https://github.com/RocketChat/fuselage/commit/71c22168458c51975b32170a53c4a835124bec2b) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): MessageMetrics props types
+
 ## 0.53.0
 
 ### Minor Changes
