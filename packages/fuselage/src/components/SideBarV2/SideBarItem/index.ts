@@ -8,3 +8,4 @@ export * from './SideBarItemTitle';
 export * from './SideBarItemRow';
 export * from './SideBarItemCol';
 export * from './SideBarItemTimestamp';
+export * from './SideBarListItem';

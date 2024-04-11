@@ -85,6 +85,9 @@ $sidebar-banner-color-danger: theme(
 }
 
 .rcx-sidebar-v2 {
+  display: flex;
+  flex-direction: column;
+
   width: lengths.size(276);
   height: lengths.size(full);
 
@@ -94,6 +97,7 @@ $sidebar-banner-color-danger: theme(
   &-accordion {
     display: flex;
     flex-flow: column nowrap;
+    flex: 1 1 auto;
   }
 
   &-collapse-group,

@@ -20,6 +20,7 @@ import {
   SideBarItemRow,
   SideBarItemTimestamp,
   SideBarItemTitle,
+  SideBarListItem,
 } from '.';
 import {
   Avatar,
@@ -60,49 +61,55 @@ export const MenuTemplate = () => (
 );
 
 export const GenericCondensedItem = ({ i = 0 }: { i: number }) => (
-  <SideBarItem>
-    <SideBarItemAvatarWrapper>
-      <Avatar size='x20' url={leterAvatarUrls[i % 4]} alt='avatar' />
-    </SideBarItemAvatarWrapper>
-    <SideBarItemIcon name='team' />
-    <SideBarItemTitle>{names[i % 10]}</SideBarItemTitle>
-    <SideBarItemBadge children={Math.floor(Math.random() * 10) + 1} />
-    <SideBarItemMenu children={<MenuTemplate />} />
-  </SideBarItem>
+  <SideBarListItem>
+    <SideBarItem href='#'>
+      <SideBarItemAvatarWrapper>
+        <Avatar size='x20' url={leterAvatarUrls[i % 4]} alt='avatar' />
+      </SideBarItemAvatarWrapper>
+      <SideBarItemIcon name='team' />
+      <SideBarItemTitle>{names[i % 10]}</SideBarItemTitle>
+      <SideBarItemBadge children={Math.floor(Math.random() * 10) + 1} />
+      <SideBarItemMenu children={<MenuTemplate />} />
+    </SideBarItem>
+  </SideBarListItem>
 );
 
 export const GenericMediumItem = ({ i = 0 }: { i: number }) => (
-  <SideBarItem>
-    <SideBarItemAvatarWrapper>
-      <Avatar size='x28' url={leterAvatarUrls[i % 4]} alt='avatar' />
-    </SideBarItemAvatarWrapper>
-    <SideBarItemIcon name='team' />
-    <SideBarItemTitle>{names[i % 10]}</SideBarItemTitle>
-    <SideBarItemBadge children={Math.floor(Math.random() * 10) + 1} />
-    <SideBarItemMenu children={<MenuTemplate />} />
-  </SideBarItem>
+  <SideBarListItem>
+    <SideBarItem href='#'>
+      <SideBarItemAvatarWrapper>
+        <Avatar size='x28' url={leterAvatarUrls[i % 4]} alt='avatar' />
+      </SideBarItemAvatarWrapper>
+      <SideBarItemIcon name='team' />
+      <SideBarItemTitle>{names[i % 10]}</SideBarItemTitle>
+      <SideBarItemBadge children={Math.floor(Math.random() * 10) + 1} />
+      <SideBarItemMenu children={<MenuTemplate />} />
+    </SideBarItem>
+  </SideBarListItem>
 );
 
 export const GenericExtendedItem = ({ i = 0 }: { i: number }) => (
-  <SideBarItem>
-    <SideBarItemAvatarWrapper>
-      <Avatar size='x36' url={leterAvatarUrls[i % 4]} alt='avatar' />
-    </SideBarItemAvatarWrapper>
+  <SideBarListItem>
+    <SideBarItem href='#'>
+      <SideBarItemAvatarWrapper>
+        <Avatar size='x36' url={leterAvatarUrls[i % 4]} alt='avatar' />
+      </SideBarItemAvatarWrapper>
 
-    <SideBarItemCol>
-      <SideBarItemRow>
-        <SideBarItemIcon name='team' />
-        <SideBarItemTitle>{names[i % 10]}</SideBarItemTitle>
-        <SideBarItemTimestamp>12:00</SideBarItemTimestamp>
-      </SideBarItemRow>
+      <SideBarItemCol>
+        <SideBarItemRow>
+          <SideBarItemIcon name='team' />
+          <SideBarItemTitle>{names[i % 10]}</SideBarItemTitle>
+          <SideBarItemTimestamp>12:00</SideBarItemTimestamp>
+        </SideBarItemRow>
 
-      <SideBarItemRow>
-        <SideBarItemSubtitle>No messages yet</SideBarItemSubtitle>
-        <SideBarItemBadge children={Math.floor(Math.random() * 10) + 1} />
-        <SideBarItemMenu children={<MenuTemplate />} />
-      </SideBarItemRow>
-    </SideBarItemCol>
-  </SideBarItem>
+        <SideBarItemRow>
+          <SideBarItemSubtitle>No messages yet</SideBarItemSubtitle>
+          <SideBarItemBadge children={Math.floor(Math.random() * 10) + 1} />
+          <SideBarItemMenu children={<MenuTemplate />} />
+        </SideBarItemRow>
+      </SideBarItemCol>
+    </SideBarItem>
+  </SideBarListItem>
 );
 
 export const GenericCallItem = ({
