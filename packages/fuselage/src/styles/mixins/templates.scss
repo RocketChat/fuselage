@@ -15,4 +15,6 @@
     outline: 0;
     @include use-button-focus-shadow(colors.stroke(extra-light-highlight));
   }
+
+  @content;
 }
