@@ -3,7 +3,8 @@ import type { ReactNode } from 'react';
 import React from 'react';
 
 import Message from '.';
-import { Avatar, Box } from '../..';
+import { Avatar } from '../Avatar';
+import Box from '../Box';
 import { MessageDivider } from './MessageDivider';
 
 export const avatarUrl =
