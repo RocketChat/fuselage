@@ -47,7 +47,7 @@ const Template: ComponentStory<typeof SidePanel> = (args) => (
   <SidePanel {...args}>
     <SidePanelHeader>
       <SidePanelHeaderTitle>All</SidePanelHeaderTitle>
-      <IconButton icon='burger-menu' size='x28' />
+      <IconButton icon='burger-menu' size='x28' title='menu' />
     </SidePanelHeader>
     <SidePanelSection>
       <InputBox
