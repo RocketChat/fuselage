@@ -4,25 +4,20 @@
 @import '../../../styles/mixins/all.scss';
 
 .rcx-sidebar-v2-footer {
-  @include typography.use-font-scale(micro);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
-  &__watermark {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  height: lengths.size(48);
+  padding-block: lengths.padding(12) lengths.padding(8);
+  padding-inline: lengths.padding(16);
 
-    height: lengths.size(48);
-    padding: lengths.padding(8) lengths.padding(16);
+  color: colors.font(default);
 
-    color: colors.font(default);
-
-    background-color: colors.surface(sidebar);
-    gap: lengths.padding(4);
-  }
+  background-color: colors.surface(sidebar);
+  gap: lengths.padding(4);
 
   &__content {
-    &--secondary {
-      color: colors.font(titles-labels);
-    }
+    @include typography.use-font-scale(micro);
   }
 }

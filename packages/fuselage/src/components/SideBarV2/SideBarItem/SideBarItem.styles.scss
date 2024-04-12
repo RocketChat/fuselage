@@ -34,10 +34,6 @@ $sidebar-color-surface-selected: theme(
 }
 
 .rcx-sidebar-v2 {
-  li {
-    list-style: none;
-  }
-
   &-item {
     @extend %sidebar-item-base;
     @include highlighted;

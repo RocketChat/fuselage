@@ -10,7 +10,7 @@ const testCases = Object.values(composeStories(stories)).map((Story) => [
   Story,
 ]);
 
-describe('[Sidebar Component]', () => {
+describe('[SideBar Component]', () => {
   test.each(testCases)(
     `renders %s without crashing`,
     async (_storyname, Story) => {

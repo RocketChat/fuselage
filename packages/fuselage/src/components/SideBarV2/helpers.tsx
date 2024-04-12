@@ -10,7 +10,6 @@ import {
   SideBarCollapseGroup,
   SideBarFooter,
   SideBarFooterContent,
-  SideBarFooterWatermark,
   SideBarItem,
   SideBarItemAvatarWrapper,
   SideBarItemBadge,
@@ -22,14 +21,7 @@ import {
   SideBarItemTitle,
   SideBarListItem,
 } from '.';
-import {
-  Avatar,
-  Box,
-  IconButton,
-  MenuV2 as Menu,
-  MenuItem,
-  SidebarDivider,
-} from '../..';
+import { Avatar, Box, IconButton, MenuV2 as Menu, MenuItem } from '../..';
 import { SideBarItemSubtitle } from './SideBarItem/SideBarItemSubtitle';
 
 export const leterAvatarUrls = [
@@ -161,11 +153,10 @@ export const decorators: DecoratorFn[] = [
           </SideBarAccordionItem>
         </SideBarAccordion>
         <SideBarFooter>
-          <SidebarDivider />
-          <SideBarFooterWatermark>
-            <SideBarFooterContent>Powered by Rocket.Chat</SideBarFooterContent>
-            <SideBarFooterContent secondary>Free edition</SideBarFooterContent>
-          </SideBarFooterWatermark>
+          <SideBarFooterContent>Powered by Rocket.Chat</SideBarFooterContent>
+          <SideBarFooterContent color='titles-labels'>
+            Free edition
+          </SideBarFooterContent>
         </SideBarFooter>
       </SideBar>
     </Box>

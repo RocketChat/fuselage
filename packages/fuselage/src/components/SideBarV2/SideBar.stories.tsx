@@ -10,7 +10,6 @@ import {
   SideBarBanner,
   SideBarCollapseGroup,
   SideBarFooterContent,
-  SideBarFooterWatermark,
   SideBarItemAction,
   SideBarLink,
   SideBarItemBadge,
@@ -139,10 +138,10 @@ export const Default: ComponentStory<typeof SideBar> = () => (
         <GenericCallItem is='div' />
       </SideBarMedia>
       <SideBarFooter>
-        <SideBarFooterWatermark>
-          <SideBarFooterContent>Powered by Rocket.Chat</SideBarFooterContent>
-          <SideBarFooterContent secondary>Free edition</SideBarFooterContent>
-        </SideBarFooterWatermark>
+        <SideBarFooterContent>Powered by Rocket.Chat</SideBarFooterContent>
+        <SideBarFooterContent color='titles-labels'>
+          Free edition
+        </SideBarFooterContent>
       </SideBarFooter>
     </SideBar>
   </Box>

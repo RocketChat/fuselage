@@ -1,15 +1,17 @@
-import type { HTMLAttributes, ReactElement, ReactNode } from 'react';
+import type { HTMLAttributes } from 'react';
 import React from 'react';
 
-type SideBarAccordionProps = {
-  animated?: boolean;
-  children: ReactNode;
-} & HTMLAttributes<HTMLDivElement>;
-
-export function SideBarAccordion(
-  props: SideBarAccordionProps
-): ReactElement<SideBarAccordionProps> {
-  return (
-    <div className='rcx-sidebar-v2-accordion rcx-box--animated' {...props} />
-  );
-}
+export const SideBarAccordion = ({
+  className,
+  ...props
+}: HTMLAttributes<HTMLDivElement>) => (
+  <div
+    className={[
+      'rcx-sidebar-v2-accordion rcx-box--animated',
+      className && className,
+    ]
+      .filter(Boolean)
+      .join(' ')}
+    {...props}
+  />
+);
