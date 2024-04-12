@@ -8,9 +8,9 @@ export const SideBarItemIcon = ({
   ...props
 }: ComponentProps<typeof Icon>) => (
   <Icon
-    {...props}
     className={['rcx-sidebar-v2-item__icon', className && className]
       .filter(Boolean)
       .join(' ')}
+    {...props}
   />
 );

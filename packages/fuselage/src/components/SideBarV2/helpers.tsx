@@ -14,6 +14,7 @@ import {
   SideBarItemAvatarWrapper,
   SideBarItemBadge,
   SideBarItemCol,
+  SideBarItemContent,
   SideBarItemIcon,
   SideBarItemMenu,
   SideBarItemRow,
@@ -22,7 +23,6 @@ import {
   SideBarListItem,
 } from '.';
 import { Avatar, Box, IconButton, MenuV2 as Menu, MenuItem } from '../..';
-import { SideBarItemSubtitle } from './SideBarItem/SideBarItemSubtitle';
 
 export const leterAvatarUrls = [
   'https://open.rocket.chat/avatar/room/6424421d31f936e5e0d18294',
@@ -95,7 +95,7 @@ export const GenericExtendedItem = ({ i = 0 }: { i: number }) => (
         </SideBarItemRow>
 
         <SideBarItemRow>
-          <SideBarItemSubtitle>No messages yet</SideBarItemSubtitle>
+          <SideBarItemContent>No messages yet</SideBarItemContent>
           <SideBarItemBadge children={Math.floor(Math.random() * 10) + 1} />
           <SideBarItemMenu children={<MenuTemplate />} />
         </SideBarItemRow>
@@ -115,7 +115,7 @@ export const GenericCallItem = ({
 
     <SideBarItemCol>
       <SideBarItemTitle>{names[i % 10]}</SideBarItemTitle>
-      <SideBarItemSubtitle>Calling</SideBarItemSubtitle>
+      <SideBarItemContent>Calling</SideBarItemContent>
     </SideBarItemCol>
 
     <SideBarItemRow>

@@ -1,3 +1,4 @@
+import type { Keys as Icons } from '@rocket.chat/icons';
 import type { HTMLAttributes } from 'react';
 import React from 'react';
 
@@ -6,8 +7,12 @@ import { Icon } from '../../Icon';
 export const SideBarItemAction = ({
   children,
   className,
+  icon = 'plus-small',
   ...props
-}: { onClick: (e: Event) => void } & HTMLAttributes<HTMLDivElement>) => (
+}: {
+  onClick: (e: Event) => void;
+  icon?: Icons;
+} & HTMLAttributes<HTMLDivElement>) => (
   <li>
     <div
       role='button'
@@ -19,7 +24,7 @@ export const SideBarItemAction = ({
         .join(' ')}
       {...props}
     >
-      <Icon name='plus-small' size='x20' />
+      <Icon name={icon} size='x20' />
       {children}
     </div>
   </li>

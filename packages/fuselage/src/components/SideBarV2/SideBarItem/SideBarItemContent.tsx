@@ -1,7 +1,7 @@
 import type { HTMLAttributes } from 'react';
 import React from 'react';
 
-export const SideBarItemSubtitle = ({
+export const SideBarItemContent = ({
   className,
   ...props
 }: HTMLAttributes<HTMLDivElement>) => (
