@@ -8,7 +8,12 @@ import {
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
-import { SidePanel, SidePanelSection, SidePanelSectionTitle } from '.';
+import {
+  SidePanel,
+  SidePanelSection,
+  SidePanelHeader,
+  SidePanelHeaderTitle,
+} from '.';
 import { Box, Icon, IconButton, InputBox } from '../..';
 
 export default {
@@ -38,10 +43,10 @@ export default {
 
 const Template: ComponentStory<typeof SidePanel> = (args) => (
   <SidePanel {...args}>
-    <SidePanelSection>
-      <SidePanelSectionTitle>All</SidePanelSectionTitle>
-      <IconButton icon='burger-menu' />
-    </SidePanelSection>
+    <SidePanelHeader>
+      <SidePanelHeaderTitle>All</SidePanelHeaderTitle>
+      <IconButton icon='burger-menu' size='x28' />
+    </SidePanelHeader>
     <SidePanelSection>
       <InputBox
         type='text'
