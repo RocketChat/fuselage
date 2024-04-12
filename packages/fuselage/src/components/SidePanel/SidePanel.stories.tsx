@@ -13,6 +13,8 @@ import {
   SidePanelSection,
   SidePanelHeader,
   SidePanelHeaderTitle,
+  SidePanelList,
+  SidePanelListItem,
 } from '.';
 import { Box, Icon, IconButton, InputBox } from '../..';
 
@@ -54,6 +56,11 @@ const Template: ComponentStory<typeof SidePanel> = (args) => (
         addon={<Icon name='magnifier' size='x18' />}
       />
     </SidePanelSection>
+    <SidePanelList>
+      {new Array(20).fill(null).map((_, index) => (
+        <SidePanelListItem key={index}>Item {index}</SidePanelListItem>
+      ))}
+    </SidePanelList>
   </SidePanel>
 );
 
