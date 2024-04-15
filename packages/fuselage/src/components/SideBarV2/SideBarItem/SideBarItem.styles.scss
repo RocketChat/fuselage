@@ -33,77 +33,80 @@ $sidebar-color-surface-selected: theme(
   }
 }
 
-.rcx-sidebar-v2 {
-  &-item {
-    @extend %sidebar-item-base;
-    @include highlighted;
-    @include typography.use-font-scale(p2);
-    justify-content: flex-start;
+.rcx-sidebar-v2-item {
+  @extend %sidebar-item-base;
+  @include highlighted;
+  @include typography.use-font-scale(p2);
+  @include typography.use-text-ellipsis;
 
+  justify-content: flex-start;
+
+  align-items: center;
+
+  padding: lengths.padding(4) lengths.padding(16);
+
+  white-space: nowrap;
+
+  text-decoration: none;
+  gap: lengths.padding(4);
+
+  &:active:not(:focus-within),
+  &--selected {
+    background-color: $sidebar-color-surface-selected;
+  }
+
+  &__title {
+    flex-grow: 1;
+    flex-shrink: 0;
+  }
+
+  &__subtitle {
+    flex-grow: 1;
+    @include typography.use-font-scale(c1);
+  }
+
+  &__timestamp {
+    @include typography.use-font-scale(c2);
+  }
+
+  &__content {
+    flex-grow: 1;
+  }
+
+  &__row {
+    display: flex;
+    align-items: center;
+    gap: lengths.padding(4);
+  }
+
+  &__col {
+    display: flex;
+    flex-direction: column;
+
+    width: lengths.size(full);
+  }
+
+  &__menu-wrapper {
+    flex-shrink: 0;
+
+    width: 0;
+    height: 100%;
+
+    margin-inline-end: -4px;
+
+    opacity: 0;
+  }
+
+  &:hover &__menu-wrapper,
+  &.focus-within &__menu-wrapper,
+  &:focus-within &__menu-wrapper {
+    display: flex;
     align-items: center;
 
-    padding: lengths.padding(4) lengths.padding(16);
+    width: lengths.size(20);
 
-    text-decoration: none;
-    gap: lengths.padding(4);
+    margin-inline-end: lengths.margin(none);
 
-    &:active:not(:focus-within),
-    &--selected {
-      background-color: $sidebar-color-surface-selected;
-    }
-
-    &__title {
-      flex-grow: 1;
-    }
-
-    &__subtitle {
-      flex-grow: 1;
-      @include typography.use-font-scale(c1);
-    }
-
-    &__timestamp {
-      @include typography.use-font-scale(c2);
-    }
-
-    &__content {
-      flex-grow: 1;
-    }
-
-    &__row {
-      display: flex;
-      align-items: center;
-      gap: lengths.padding(4);
-    }
-
-    &__col {
-      display: flex;
-      flex-direction: column;
-
-      width: lengths.size(full);
-    }
-
-    &__menu-wrapper {
-      flex-shrink: 0;
-
-      width: 0;
-      height: 100%;
-
-      margin-inline-end: -4px;
-
-      opacity: 0;
-    }
-
-    &:hover &__menu-wrapper,
-    &.focus-within &__menu-wrapper,
-    &:focus-within &__menu-wrapper {
-      display: flex;
-      align-items: center;
-
-      width: lengths.size(20);
-
-      margin-inline-end: lengths.margin(none);
-
-      opacity: 1;
-    }
+    opacity: 1;
   }
 }
