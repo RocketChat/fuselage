@@ -14,8 +14,8 @@ $sidebar-media-border-color: theme(
   padding-block: lengths.padding(8);
 
   color: $sidebar-media-color;
-
   border-bottom: lengths.border-width(default) solid $sidebar-media-border-color;
+  background-color: $sidebar-color-surface-default;
 
   &__title {
     @include typography.use-font-scale(c1);
