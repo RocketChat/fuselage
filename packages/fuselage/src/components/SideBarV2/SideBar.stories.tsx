@@ -40,9 +40,9 @@ export default {
   },
 } as ComponentMeta<typeof SideBar>;
 
-export const Default: ComponentStory<typeof SideBar> = () => (
+export const Default: ComponentStory<typeof SideBar> = (props) => (
   <Box h='90vh'>
-    <SideBar>
+    <SideBar {...props}>
       <SideBarBanner
         title='You’ve reached the limit active contacts this month'
         link='Learn more'
@@ -145,4 +145,8 @@ export const Default: ComponentStory<typeof SideBar> = () => (
       </SideBarFooter>
     </SideBar>
   </Box>
+);
+
+export const CollapseOnMouseOver: ComponentStory<typeof SideBar> = () => (
+  <Default collapsed />
 );

@@ -25,7 +25,7 @@ export const SideBarBanner = ({
   children,
 }: SideBarBannerProps) => (
   <div className={`rcx-sidebar-v2-banner rcx-sidebar-v2-banner--${variant}`}>
-    <div>
+    <div className='rcx-sidebar-v2-banner__content'>
       {title && <h5 className='rcx-sidebar-v2-banner__title'>{title}</h5>}
       {link && (
         <div className='rcx-sidebar-v2-banner__link' onClick={onClick}>

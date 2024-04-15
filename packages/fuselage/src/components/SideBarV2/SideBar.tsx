@@ -1,6 +1,20 @@
 import type { HTMLAttributes } from 'react';
 import React from 'react';
 
-export const SideBar = (props: HTMLAttributes<HTMLElement>) => (
-  <nav className='rcx-sidebar-v2' {...props} />
+export const SideBar = ({
+  collapsed,
+  className,
+  ...props
+}: { collapsed?: boolean } & HTMLAttributes<HTMLElement>) => (
+  <nav
+    className={[
+      'rcx-sidebar-v2',
+      'rcx-box--animated',
+      collapsed && 'rcx-sidebar-v2--collapsed',
+      className && className,
+    ]
+      .filter(Boolean)
+      .join(' ')}
+    {...props}
+  />
 );
