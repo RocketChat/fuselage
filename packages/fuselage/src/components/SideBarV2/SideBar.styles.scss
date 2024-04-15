@@ -86,7 +86,6 @@ $sidebar-banner-color-danger: theme(
 
 .rcx-sidebar-v2 {
   display: flex;
-  overflow: visible;
   flex-direction: column;
 
   width: lengths.size(276);
@@ -97,6 +96,7 @@ $sidebar-banner-color-danger: theme(
 
   &-accordion {
     display: flex;
+    overflow-y: hidden;
     flex-flow: column nowrap;
     flex: 1 1 auto;
 
@@ -179,9 +179,7 @@ $sidebar-banner-color-danger: theme(
   }
 
   &-accordion-item {
-    overflow: auto;
-
-    flex: 1 1 0;
+    flex: 0 1 0;
 
     height: lengths.size(full);
 
