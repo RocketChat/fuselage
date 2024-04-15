@@ -22,7 +22,14 @@ import {
   SideBarItemTitle,
   SideBarListItem,
 } from '.';
-import { Avatar, Box, IconButton, MenuV2 as Menu, MenuItem } from '../..';
+import {
+  Avatar,
+  Box,
+  IconButton,
+  MenuV2 as Menu,
+  MenuItem,
+  StatusBullet,
+} from '../..';
 
 export const leterAvatarUrls = [
   'https://open.rocket.chat/avatar/room/6424421d31f936e5e0d18294',
@@ -59,6 +66,17 @@ export const GenericCondensedItem = ({ i = 0 }: { i: number }) => (
         <Avatar size='x20' url={leterAvatarUrls[i % 4]} alt='avatar' />
       </SideBarItemAvatarWrapper>
       <SideBarItemIcon name='team' />
+      <SideBarItemTitle>{names[i % 10]}</SideBarItemTitle>
+      <SideBarItemBadge children={Math.floor(Math.random() * 10) + 1} />
+      <SideBarItemMenu children={<MenuTemplate />} />
+    </SideBarItem>
+  </SideBarListItem>
+);
+
+export const GenericNoAvatarItem = ({ i = 0 }: { i: number }) => (
+  <SideBarListItem>
+    <SideBarItem href='#'>
+      <StatusBullet status='online' />
       <SideBarItemTitle>{names[i % 10]}</SideBarItemTitle>
       <SideBarItemBadge children={Math.floor(Math.random() * 10) + 1} />
       <SideBarItemMenu children={<MenuTemplate />} />

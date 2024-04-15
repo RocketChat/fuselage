@@ -21,7 +21,7 @@ import { IconButton, Icon } from '../..';
 import Box from '../Box';
 import { SideBarFooter } from './SideBarFooter';
 import { Condensed } from './SideBarItem/SideBarItem.stories';
-import { GenericCallItem, MenuTemplate } from './helpers';
+import { GenericCallItem, GenericNoAvatarItem, MenuTemplate } from './helpers';
 
 export default {
   title: 'Navigation/SideBar',
@@ -100,7 +100,9 @@ export const Default: ComponentStory<typeof SideBar> = (props) => (
               <SideBarItemBadge title={3} children='99+' variant='danger' />
             }
           >
-            <Condensed />
+            {Array.from({ length: 4 }).map((_, i) => (
+              <GenericNoAvatarItem key={i} i={i} />
+            ))}
           </SideBarCollapseGroup>
           <SideBarCollapseGroup
             title='Teams'

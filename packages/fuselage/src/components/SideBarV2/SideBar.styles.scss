@@ -278,8 +278,7 @@ $sidebar-banner-color-danger: theme(
     width: lengths.size(48);
 
     &:not(:hover) {
-      .rcx-sidebar-v2-item__title,
-      .rcx-sidebar-v2-item__badge,
+      .rcx-sidebar-v2-item.rcx-sidebar-v2-link > .rcx-sidebar-v2-item__title,
       .rcx-sidebar-v2-banner__content {
         display: none;
       }
