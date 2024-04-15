@@ -47,7 +47,13 @@ export const SideBarAccordionItem = ({
           .join(' ')}
         {...barProps}
       >
-        {!noncollapsible && <Chevron size='x20' up={expanded} />}
+        {!noncollapsible && (
+          <Chevron
+            className='rcx-sidebar-v2-accordion-item__chevron'
+            size='x16'
+            right={!expanded}
+          />
+        )}
         {title && (
           <h4 className='rcx-sidebar-v2-accordion-item__title' id={titleId}>
             {title}

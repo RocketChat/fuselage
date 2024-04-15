@@ -44,7 +44,7 @@ export const SideBarCollapseGroup = forwardRef<
           className='rcx-sidebar-v2-collapse-group__bar rcx-box--animated'
           {...barProps}
         >
-          <Chevron size='x20' up={expanded} />
+          <Chevron size='x20' right={!expanded} />
           {title && (
             <h4 className='rcx-sidebar-v2-collapse-group__title' id={titleId}>
               {title}

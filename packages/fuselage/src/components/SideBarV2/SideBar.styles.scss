@@ -187,7 +187,19 @@ $sidebar-banner-color-danger: theme(
       $sidebar-accordion-border-color;
 
     &__bar {
-      padding: lengths.padding(16);
+      padding: lengths.padding(12) lengths.padding(16) lengths.padding(12)
+        lengths.padding(none);
+
+      .rcx-sidebar-v2-accordion-item__chevron {
+        visibility: hidden;
+      }
+
+      &.hover,
+      &:hover {
+        .rcx-sidebar-v2-accordion-item__chevron {
+          visibility: visible;
+        }
+      }
     }
 
     &__title {
