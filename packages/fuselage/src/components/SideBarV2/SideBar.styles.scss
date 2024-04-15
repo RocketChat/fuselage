@@ -93,6 +93,10 @@ $sidebar-banner-color-danger: theme(
 
   color: $sidebar-color-font-default;
   background-color: $sidebar-color-surface-default;
+  scrollbar-color: $sidebar-color-surface-hover
+    $sidebar-banner-background-default;
+
+  scrollbar-width: thin;
 
   &-accordion {
     display: flex;
