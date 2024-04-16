@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import type { AllHTMLAttributes, ReactNode } from 'react';
 import React from 'react';
 
 import { IconButton } from '../Button';
@@ -7,9 +7,9 @@ type VariantType = 'default' | 'info' | 'success' | 'warning' | 'danger';
 
 type SideBarBannerProps = {
   title?: ReactNode;
-  link?: string;
+  linkText?: string;
+  linkProps?: AllHTMLAttributes<HTMLAnchorElement>;
   onClick?: () => void;
-  href?: string;
   variant?: VariantType;
   onClose?: () => void;
   children?: ReactNode;
@@ -18,9 +18,8 @@ type SideBarBannerProps = {
 
 export const SideBarBanner = ({
   title,
-  link,
-  onClick,
-  href,
+  linkText,
+  linkProps,
   variant = 'default',
   addon,
   onClose,
@@ -33,14 +32,9 @@ export const SideBarBanner = ({
   >
     <div className='rcx-sidebar-v2-banner__content'>
       {title && <h5 className='rcx-sidebar-v2-banner__title'>{title}</h5>}
-      {link && (
-        <a
-          className='rcx-sidebar-v2-banner__link'
-          onClick={onClick}
-          href={href}
-          tabIndex={0}
-        >
-          {link}
+      {linkText && (
+        <a className='rcx-sidebar-v2-banner__link' {...linkProps}>
+          {linkText}
         </a>
       )}
       {children}

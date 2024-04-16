@@ -45,7 +45,8 @@ export const Default: ComponentStory<typeof SideBar> = (props) => (
     <SideBar {...props}>
       <SideBarBanner
         title='You’ve reached the limit active contacts this month'
-        link='Learn more'
+        linkText='Learn more'
+        linkProps={{ href: '#' }}
         onClick={action('click')}
         addon={<Icon name='warning' color='danger' size='x24' />}
       />
