@@ -9,6 +9,7 @@ type SideBarBannerProps = {
   title?: ReactNode;
   link?: string;
   onClick?: () => void;
+  href?: string;
   variant?: VariantType;
   onClose?: () => void;
   children?: ReactNode;
@@ -19,18 +20,28 @@ export const SideBarBanner = ({
   title,
   link,
   onClick,
+  href,
   variant = 'default',
   addon,
   onClose,
   children,
+  ...props
 }: SideBarBannerProps) => (
-  <div className={`rcx-sidebar-v2-banner rcx-sidebar-v2-banner--${variant}`}>
+  <div
+    className={`rcx-sidebar-v2-banner rcx-sidebar-v2-banner--${variant}`}
+    {...props}
+  >
     <div className='rcx-sidebar-v2-banner__content'>
       {title && <h5 className='rcx-sidebar-v2-banner__title'>{title}</h5>}
       {link && (
-        <div className='rcx-sidebar-v2-banner__link' onClick={onClick}>
+        <a
+          className='rcx-sidebar-v2-banner__link'
+          onClick={onClick}
+          href={href}
+          tabIndex={0}
+        >
           {link}
-        </div>
+        </a>
       )}
       {children}
     </div>

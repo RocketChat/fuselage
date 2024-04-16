@@ -190,6 +190,7 @@ $sidebar-banner-color-danger: theme(
 
     height: lengths.size(full);
 
+    border: 2px solid transparent;
     border-bottom: lengths.border-width(default) solid
       $sidebar-accordion-border-color;
 
@@ -226,7 +227,6 @@ $sidebar-banner-color-danger: theme(
     padding: lengths.padding(16);
 
     color: $sidebar-banner-color-default;
-
     border-bottom: lengths.border-width(default) solid
       $sidebar-accordion-border-color;
     background-color: $sidebar-banner-background-default;
@@ -247,6 +247,7 @@ $sidebar-banner-color-danger: theme(
     &__link {
       @include typography.use-font-scale(p2m);
       @include clickable();
+      @include use-link-colors($color: $sidebar-banner-color-default);
 
       display: inline-block;
 
