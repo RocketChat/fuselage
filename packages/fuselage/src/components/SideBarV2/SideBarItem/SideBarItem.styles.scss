@@ -12,6 +12,11 @@ $sidebar-color-surface-selected: theme(
   colors.surface(selected)
 );
 
+$sidebar-color-font-active: theme(
+  'sidebar-color-font-active',
+  colors.font(titles-labels)
+);
+
 %sidebar-item-base {
   @include clickable;
   @include use-link-colors($color: colors.font(default));
@@ -46,6 +51,10 @@ $sidebar-color-surface-selected: theme(
 
   text-decoration: none;
   gap: lengths.padding(4);
+
+  &:active {
+    color: $sidebar-color-font-active;
+  }
 
   &:active:not(:focus-within),
   &--selected {
