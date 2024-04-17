@@ -16,21 +16,17 @@ $sidebar-color-surface-selected: theme(
   @include clickable;
   @include use-link-colors($color: colors.font(default));
   @include typography.use-font-scale(p2);
+  @include focus-state($shadow: false);
+
+  @include on-hover {
+    background-color: $sidebar-color-surface-hover;
+  }
 
   display: flex;
 
   align-items: center;
 
   border-radius: lengths.border-radius(small);
-
-  @include on-hover {
-    background-color: $sidebar-color-surface-hover;
-  }
-
-  @include on-focus {
-    outline-offset: -1px;
-    box-shadow: none;
-  }
 }
 
 .rcx-sidebar-v2-item {
@@ -43,7 +39,9 @@ $sidebar-color-surface-selected: theme(
 
   align-items: center;
 
-  padding: lengths.padding(4) lengths.padding(16);
+  // padding: lengths.padding(4) lengths.padding(16);
+  padding: calc(lengths.padding(4) - lengths.border-width('default'))
+    calc(lengths.padding(16) - lengths.border-width('default'));
 
   white-space: nowrap;
 

@@ -128,18 +128,11 @@ $sidebar-banner-color-danger: theme(
 
       &[tabindex] {
         @include clickable;
+        @include focus-state($shadow: false);
 
         &.hover,
         &:hover {
           background-color: colors.surface(tint);
-        }
-
-        &.focus,
-        &:focus {
-          border-color: colors.stroke(highlight);
-          @include use-focus-shadow(
-            $outer-color: colors.stroke(extra-light-highlight)
-          );
         }
       }
 
@@ -257,7 +250,6 @@ $sidebar-banner-color-danger: theme(
       display: inline-block;
 
       color: currentColor;
-      border-block-end: lengths.border-width(default) solid;
     }
 
     &--info {
