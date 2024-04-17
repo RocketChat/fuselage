@@ -16,6 +16,7 @@ export const SideBarItemAction = ({
   <li>
     <div
       role='button'
+      tabIndex={0}
       className={[
         'rcx-sidebar-v2-item rcx-sidebar-v2-item__action',
         className && className,
