@@ -100,7 +100,7 @@ $sidebar-banner-color-danger: theme(
 
   &-accordion {
     display: flex;
-    overflow-y: hidden;
+    overflow-y: scroll;
     flex-flow: column nowrap;
     justify-content: stretch;
     flex: 0 1 auto;
@@ -174,7 +174,7 @@ $sidebar-banner-color-danger: theme(
 
       &--expanded {
         visibility: visible;
-        overflow: auto;
+        // overflow: auto;
 
         flex-grow: 1;
 
@@ -195,8 +195,13 @@ $sidebar-banner-color-danger: theme(
       $sidebar-accordion-border-color;
 
     &__bar {
+      position: sticky;
+      top: 0;
+
       padding: lengths.padding(12) lengths.padding(16) lengths.padding(12)
         lengths.padding(none);
+
+      background-color: colors.surface(sidebar);
 
       .rcx-sidebar-v2-accordion-item__chevron {
         visibility: hidden;
