@@ -11,6 +11,7 @@ export const SideBarItemIcon = ({
     className={['rcx-sidebar-v2-item__icon', className && className]
       .filter(Boolean)
       .join(' ')}
+    size='x20'
     {...props}
   />
 );

@@ -18,18 +18,12 @@ import {
   SideBarItemIcon,
   SideBarItemMenu,
   SideBarItemRow,
+  SideBarItemStatusBullet,
   SideBarItemTimestamp,
   SideBarItemTitle,
   SideBarListItem,
 } from '.';
-import {
-  Avatar,
-  Box,
-  IconButton,
-  MenuV2 as Menu,
-  MenuItem,
-  StatusBullet,
-} from '../..';
+import { Avatar, Box, IconButton, MenuV2 as Menu, MenuItem } from '../..';
 
 export const leterAvatarUrls = [
   "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3e%3crect width='100%25' height='100%25' fill='%2310529E'/%3e%3ctext x='50%25' y='50%25' dy='0.36em' text-anchor='middle' pointer-events='none' fill='white' font-size='125' font-family='Helvetica%2c sans-serif'%3eB%3c/text%3e%3c/svg%3e",
@@ -76,7 +70,7 @@ export const GenericCondensedItem = ({ i = 0 }: { i: number }) => (
 export const GenericNoAvatarItem = ({ i = 0 }: { i: number }) => (
   <SideBarListItem>
     <SideBarItem href='#'>
-      <StatusBullet status='online' />
+      <SideBarItemStatusBullet status='online' />
       <SideBarItemTitle>{names[i % 10]}</SideBarItemTitle>
       <SideBarItemBadge children={Math.floor(Math.random() * 10) + 1} />
       <SideBarItemMenu children={<MenuTemplate />} />
