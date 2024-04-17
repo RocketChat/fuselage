@@ -61,7 +61,10 @@ export const GenericCondensedItem = ({ i = 0 }: { i: number }) => (
       </SideBarItemAvatarWrapper>
       <SideBarItemIcon name='team' />
       <SideBarItemTitle>{names[i % 10]}</SideBarItemTitle>
-      <SideBarItemBadge children={Math.floor(Math.random() * 10) + 1} />
+      <SideBarItemBadge
+        title='unread messages'
+        children={Math.floor(Math.random() * 10) + 1}
+      />
       <SideBarItemMenu children={<MenuTemplate />} />
     </SideBarItem>
   </SideBarListItem>
@@ -72,7 +75,10 @@ export const GenericNoAvatarItem = ({ i = 0 }: { i: number }) => (
     <SideBarItem href='#'>
       <SideBarItemStatusBullet status='online' />
       <SideBarItemTitle>{names[i % 10]}</SideBarItemTitle>
-      <SideBarItemBadge children={Math.floor(Math.random() * 10) + 1} />
+      <SideBarItemBadge
+        title='unread messages'
+        children={Math.floor(Math.random() * 10) + 1}
+      />
       <SideBarItemMenu children={<MenuTemplate />} />
     </SideBarItem>
   </SideBarListItem>
@@ -86,7 +92,10 @@ export const GenericMediumItem = ({ i = 0 }: { i: number }) => (
       </SideBarItemAvatarWrapper>
       <SideBarItemIcon name='team' />
       <SideBarItemTitle>{names[i % 10]}</SideBarItemTitle>
-      <SideBarItemBadge children={Math.floor(Math.random() * 10) + 1} />
+      <SideBarItemBadge
+        title='unread messages'
+        children={Math.floor(Math.random() * 10) + 1}
+      />
       <SideBarItemMenu children={<MenuTemplate />} />
     </SideBarItem>
   </SideBarListItem>
@@ -108,7 +117,10 @@ export const GenericExtendedItem = ({ i = 0 }: { i: number }) => (
 
         <SideBarItemRow>
           <SideBarItemContent>No messages yet</SideBarItemContent>
-          <SideBarItemBadge children={Math.floor(Math.random() * 10) + 1} />
+          <SideBarItemBadge
+            title='unread messages'
+            children={Math.floor(Math.random() * 10) + 1}
+          />
           <SideBarItemMenu children={<MenuTemplate />} />
         </SideBarItemRow>
       </SideBarItemCol>

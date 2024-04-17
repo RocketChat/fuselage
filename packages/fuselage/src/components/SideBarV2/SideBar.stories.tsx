@@ -54,7 +54,11 @@ export const Default: ComponentStory<typeof SideBar> = (props) => (
         <SideBarAccordionItem
           title='Omnichannel'
           badge={
-            <SideBarItemBadge title={83} children={25} variant='primary' />
+            <SideBarItemBadge
+              title='25 unred messages'
+              children={25}
+              variant='primary'
+            />
           }
           defaultExpanded
         >
@@ -63,7 +67,11 @@ export const Default: ComponentStory<typeof SideBar> = (props) => (
             href='#'
             selected
             badge={
-              <SideBarItemBadge title={83} children={12} variant='primary' />
+              <SideBarItemBadge
+                title='12 unread messages'
+                children={12}
+                variant='primary'
+              />
             }
             menu={<MenuTemplate />}
           >
@@ -72,7 +80,9 @@ export const Default: ComponentStory<typeof SideBar> = (props) => (
           <SideBarLink
             icon='user'
             href='#'
-            badge={<SideBarItemBadge title={10} children={10} />}
+            badge={
+              <SideBarItemBadge title='10 unread messages' children={10} />
+            }
             menu={<MenuTemplate />}
           >
             Assigned to me
@@ -80,7 +90,13 @@ export const Default: ComponentStory<typeof SideBar> = (props) => (
           <SideBarLink
             icon='queue'
             href='#'
-            badge={<SideBarItemBadge title={3} children={3} variant='danger' />}
+            badge={
+              <SideBarItemBadge
+                title='3 unread messages'
+                children={3}
+                variant='danger'
+              />
+            }
             menu={<MenuTemplate />}
           >
             Unassigned
@@ -92,13 +108,23 @@ export const Default: ComponentStory<typeof SideBar> = (props) => (
         <SideBarAccordionItem
           title='Team chat'
           defaultExpanded={true}
-          badge={<SideBarItemBadge title={3} children='99+' variant='danger' />}
+          badge={
+            <SideBarItemBadge
+              title='99+ unread messages'
+              children='99+'
+              variant='danger'
+            />
+          }
         >
           <SideBarCollapseGroup
             title='Favorites'
             defaultExpanded
             badge={
-              <SideBarItemBadge title={3} children='99+' variant='danger' />
+              <SideBarItemBadge
+                title='99+ unread messages'
+                children='99+'
+                variant='danger'
+              />
             }
           >
             {Array.from({ length: 4 }).map((_, i) => (
@@ -109,7 +135,11 @@ export const Default: ComponentStory<typeof SideBar> = (props) => (
             title='Teams'
             defaultExpanded
             badge={
-              <SideBarItemBadge title={3} children='99+' variant='danger' />
+              <SideBarItemBadge
+                title='99+ unread messages'
+                children='99+'
+                variant='danger'
+              />
             }
           >
             <Condensed />
@@ -121,7 +151,11 @@ export const Default: ComponentStory<typeof SideBar> = (props) => (
             title='Discussions'
             defaultExpanded
             badge={
-              <SideBarItemBadge title={3} children='99+' variant='danger' />
+              <SideBarItemBadge
+                title='99+ unread messages'
+                children='99+'
+                variant='danger'
+              />
             }
           >
             <Condensed />

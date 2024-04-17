@@ -18,14 +18,9 @@ $sidebar-color-font-active: theme(
 );
 
 %sidebar-item-base {
-  @include clickable;
   @include use-link-colors($color: colors.font(default));
   @include typography.use-font-scale(p2);
   @include focus-state($shadow: false);
-
-  @include on-hover {
-    background-color: $sidebar-color-surface-hover;
-  }
 
   display: flex;
 
@@ -34,8 +29,20 @@ $sidebar-color-font-active: theme(
   border-radius: lengths.border-radius(small);
 }
 
+%sidebar-item-clickable {
+  @include clickable;
+  @include on-hover {
+    background-color: $sidebar-color-surface-hover;
+  }
+}
+
 .rcx-sidebar-v2-item {
   @extend %sidebar-item-base;
+
+  &:is(a),
+  &:is(div[role='button']) {
+    @extend %sidebar-item-clickable;
+  }
   @include highlighted;
   @include typography.use-font-scale(p2);
   @include typography.use-text-ellipsis;
