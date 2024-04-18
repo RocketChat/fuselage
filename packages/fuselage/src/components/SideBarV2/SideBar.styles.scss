@@ -167,7 +167,6 @@ $sidebar-banner-color-danger: theme(
 
       &--expanded {
         visibility: visible;
-        // overflow: auto;
 
         flex-grow: 1;
 
@@ -209,7 +208,7 @@ $sidebar-banner-color-danger: theme(
     }
 
     &__title {
-      @include typography.use-font-scale(h4);
+      @include typography.use-font-scale(h5);
     }
   }
 

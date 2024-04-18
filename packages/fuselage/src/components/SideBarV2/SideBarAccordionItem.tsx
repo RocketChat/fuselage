@@ -55,9 +55,9 @@ export const SideBarAccordionItem = ({
           />
         )}
         {title && (
-          <h4 className='rcx-sidebar-v2-accordion-item__title' id={titleId}>
+          <h5 className='rcx-sidebar-v2-accordion-item__title' id={titleId}>
             {title}
-          </h4>
+          </h5>
         )}
         {!expanded && badge && badge}
       </div>
