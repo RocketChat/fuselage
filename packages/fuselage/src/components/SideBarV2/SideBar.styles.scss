@@ -100,12 +100,18 @@ $sidebar-banner-color-danger: theme(
 
   &-accordion {
     display: flex;
-    overflow-y: scroll;
+    overflow: hidden;
     flex-flow: column nowrap;
     justify-content: stretch;
     flex: 0 1 auto;
 
     height: lengths.size(full);
+
+    &__wrapper {
+      display: flex;
+      overflow: scroll;
+      flex-direction: column;
+    }
   }
 
   &-collapse-group,
@@ -180,14 +186,14 @@ $sidebar-banner-color-danger: theme(
   &-accordion-item {
     flex: 0 1 0;
 
-    height: lengths.size(full);
-
     border: 2px solid transparent;
     border-bottom: lengths.border-width(default) solid
       $sidebar-accordion-border-color;
 
     &__bar {
       position: sticky;
+
+      z-index: 1;
       top: 0;
 
       padding: lengths.padding(12) lengths.padding(16) lengths.padding(12)

@@ -3,6 +3,7 @@ import React from 'react';
 
 export const SideBarAccordion = ({
   className,
+  children,
   ...props
 }: HTMLAttributes<HTMLDivElement>) => (
   <div
@@ -13,5 +14,7 @@ export const SideBarAccordion = ({
       .filter(Boolean)
       .join(' ')}
     {...props}
-  />
+  >
+    <div className='rcx-sidebar-v2-accordion__wrapper'>{children}</div>
+  </div>
 );
