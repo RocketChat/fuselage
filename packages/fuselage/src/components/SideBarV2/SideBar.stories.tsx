@@ -16,6 +16,7 @@ import {
   SideBarMedia,
   SideBarMediaTitle,
   SideBarMediaController,
+  SideBarListItem,
 } from '.';
 import { IconButton, Icon } from '../..';
 import Box from '../Box';
@@ -143,9 +144,11 @@ export const Default: ComponentStory<typeof SideBar> = (props) => (
             }
           >
             <Condensed />
-            <SideBarItemAction onClick={action('add team')}>
-              Add team
-            </SideBarItemAction>
+            <SideBarListItem>
+              <SideBarItemAction onClick={action('add team')}>
+                Add team
+              </SideBarItemAction>
+            </SideBarListItem>
           </SideBarCollapseGroup>
           <SideBarCollapseGroup
             title='Discussions'
@@ -159,9 +162,11 @@ export const Default: ComponentStory<typeof SideBar> = (props) => (
             }
           >
             <Condensed />
-            <SideBarItemAction onClick={action('add team')}>
-              Add discussion
-            </SideBarItemAction>
+            <SideBarListItem>
+              <SideBarItemAction onClick={action('add team')}>
+                Add discussion
+              </SideBarItemAction>
+            </SideBarListItem>
           </SideBarCollapseGroup>
         </SideBarAccordionItem>
       </SideBarAccordion>

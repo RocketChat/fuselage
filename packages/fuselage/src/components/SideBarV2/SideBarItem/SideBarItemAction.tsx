@@ -13,20 +13,18 @@ export const SideBarItemAction = ({
   onClick: (e: Event) => void;
   icon?: Icons;
 } & HTMLAttributes<HTMLDivElement>) => (
-  <li>
-    <div
-      role='button'
-      tabIndex={0}
-      className={[
-        'rcx-sidebar-v2-item rcx-sidebar-v2-item__action',
-        className && className,
-      ]
-        .filter(Boolean)
-        .join(' ')}
-      {...props}
-    >
-      <Icon name={icon} size='x20' />
-      {children}
-    </div>
-  </li>
+  <div
+    role='button'
+    tabIndex={0}
+    className={[
+      'rcx-sidebar-v2-item rcx-sidebar-v2-item__action',
+      className && className,
+    ]
+      .filter(Boolean)
+      .join(' ')}
+    {...props}
+  >
+    <Icon name={icon} size='x20' />
+    {children}
+  </div>
 );
