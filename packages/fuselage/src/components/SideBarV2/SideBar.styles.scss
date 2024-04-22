@@ -198,12 +198,15 @@ $sidebar-banner-color-danger: theme(
       padding: lengths.padding(12) lengths.padding(16) lengths.padding(12)
         lengths.padding(none);
 
+      border-radius: lengths.border-radius(small);
+
       background-color: colors.surface(sidebar);
 
       .rcx-sidebar-v2-accordion-item__chevron {
         visibility: hidden;
       }
 
+      &:focus-visible,
       &.hover,
       &:hover {
         .rcx-sidebar-v2-accordion-item__chevron {
