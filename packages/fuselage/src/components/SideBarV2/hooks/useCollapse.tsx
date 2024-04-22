@@ -35,7 +35,7 @@ export const useCollapse = ({
       return;
     }
 
-    if (['enter', 'space'].includes(event.code)) {
+    if (['Enter', 'Space'].includes(event.code)) {
       event.preventDefault();
 
       if (event.repeat) {
