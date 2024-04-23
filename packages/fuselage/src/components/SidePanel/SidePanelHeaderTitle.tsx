@@ -6,7 +6,7 @@ export const SidePanelHeaderTitle = ({
   ...props
 }: HTMLAttributes<HTMLDivElement>) => (
   <div
-    className={['rcx-sidepanel-header__title', className && className]
+    className={['rcx-sidepanel-header__title', className]
       .filter(Boolean)
       .join(' ')}
     {...props}

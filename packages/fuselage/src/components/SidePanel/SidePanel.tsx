@@ -6,9 +6,7 @@ export const SidePanel = ({
   ...props
 }: HTMLAttributes<HTMLDivElement>) => (
   <div
-    className={['rcx-sidepanel', className && className]
-      .filter(Boolean)
-      .join(' ')}
+    className={['rcx-sidepanel', className].filter(Boolean).join(' ')}
     {...props}
   />
 );

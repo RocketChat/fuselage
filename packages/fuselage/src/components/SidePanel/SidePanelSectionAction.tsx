@@ -6,7 +6,7 @@ export const SidePanelSectionAction = ({
   ...props
 }: HTMLAttributes<HTMLDivElement>) => (
   <div
-    className={['rcx-sidepanel-section__action', className && className]
+    className={['rcx-sidepanel-section__action', className]
       .filter(Boolean)
       .join(' ')}
     {...props}

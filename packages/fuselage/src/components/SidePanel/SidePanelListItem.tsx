@@ -8,7 +8,7 @@ export const SidePanelListItem = forwardRef<
   return (
     <div
       role='listitem'
-      className={['rcx-sidepanel-list__item', className && className]
+      className={['rcx-sidepanel-list__item', className]
         .filter(Boolean)
         .join(' ')}
       {...props}

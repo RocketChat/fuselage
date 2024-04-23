@@ -8,9 +8,7 @@ export const SidePanelList = forwardRef<
   return (
     <div
       role='list'
-      className={['rcx-sidepanel-list', className && className]
-        .filter(Boolean)
-        .join(' ')}
+      className={['rcx-sidepanel-list', className].filter(Boolean).join(' ')}
       {...props}
     />
   );
