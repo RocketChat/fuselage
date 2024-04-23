@@ -82,10 +82,7 @@ const Template: ComponentStory<typeof SidePanel> = (args) => (
             </SideBarItemAvatarWrapper>
             <SideBarItemIcon name='team' />
             <SideBarItemTitle>{names[index % 10]}</SideBarItemTitle>
-            <SideBarItemBadge
-              title='unread messages'
-              children={Math.floor(Math.random() * 10) + 1}
-            />
+            <SideBarItemBadge title='unread messages' children={index + 3} />
             <SideBarItemMenu children={<MenuTemplate />} />
           </SideBarItem>
         </SidePanelListItem>

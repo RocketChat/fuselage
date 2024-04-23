@@ -94,7 +94,7 @@ exports[`[SidePanel Component] renders Default without crashing 1`] = `
                 class="rcx-box rcx-box--full rcx-badge rcx-badge--secondary rcx-sidebar-v2-item__badge"
                 title="unread messages"
               >
-                5
+                3
               </span>
               <div
                 class="rcx-sidebar-v2-item__menu-wrapper rcx-box--animated"
@@ -157,7 +157,7 @@ exports[`[SidePanel Component] renders Default without crashing 1`] = `
                 class="rcx-box rcx-box--full rcx-badge rcx-badge--secondary rcx-sidebar-v2-item__badge"
                 title="unread messages"
               >
-                8
+                4
               </span>
               <div
                 class="rcx-sidebar-v2-item__menu-wrapper rcx-box--animated"
@@ -220,7 +220,7 @@ exports[`[SidePanel Component] renders Default without crashing 1`] = `
                 class="rcx-box rcx-box--full rcx-badge rcx-badge--secondary rcx-sidebar-v2-item__badge"
                 title="unread messages"
               >
-                6
+                5
               </span>
               <div
                 class="rcx-sidebar-v2-item__menu-wrapper rcx-box--animated"
@@ -283,7 +283,7 @@ exports[`[SidePanel Component] renders Default without crashing 1`] = `
                 class="rcx-box rcx-box--full rcx-badge rcx-badge--secondary rcx-sidebar-v2-item__badge"
                 title="unread messages"
               >
-                2
+                6
               </span>
               <div
                 class="rcx-sidebar-v2-item__menu-wrapper rcx-box--animated"
@@ -346,7 +346,7 @@ exports[`[SidePanel Component] renders Default without crashing 1`] = `
                 class="rcx-box rcx-box--full rcx-badge rcx-badge--secondary rcx-sidebar-v2-item__badge"
                 title="unread messages"
               >
-                3
+                7
               </span>
               <div
                 class="rcx-sidebar-v2-item__menu-wrapper rcx-box--animated"
@@ -409,7 +409,7 @@ exports[`[SidePanel Component] renders Default without crashing 1`] = `
                 class="rcx-box rcx-box--full rcx-badge rcx-badge--secondary rcx-sidebar-v2-item__badge"
                 title="unread messages"
               >
-                7
+                8
               </span>
               <div
                 class="rcx-sidebar-v2-item__menu-wrapper rcx-box--animated"
@@ -472,7 +472,7 @@ exports[`[SidePanel Component] renders Default without crashing 1`] = `
                 class="rcx-box rcx-box--full rcx-badge rcx-badge--secondary rcx-sidebar-v2-item__badge"
                 title="unread messages"
               >
-                8
+                9
               </span>
               <div
                 class="rcx-sidebar-v2-item__menu-wrapper rcx-box--animated"
@@ -535,7 +535,7 @@ exports[`[SidePanel Component] renders Default without crashing 1`] = `
                 class="rcx-box rcx-box--full rcx-badge rcx-badge--secondary rcx-sidebar-v2-item__badge"
                 title="unread messages"
               >
-                7
+                10
               </span>
               <div
                 class="rcx-sidebar-v2-item__menu-wrapper rcx-box--animated"
@@ -598,7 +598,7 @@ exports[`[SidePanel Component] renders Default without crashing 1`] = `
                 class="rcx-box rcx-box--full rcx-badge rcx-badge--secondary rcx-sidebar-v2-item__badge"
                 title="unread messages"
               >
-                7
+                11
               </span>
               <div
                 class="rcx-sidebar-v2-item__menu-wrapper rcx-box--animated"
@@ -661,7 +661,7 @@ exports[`[SidePanel Component] renders Default without crashing 1`] = `
                 class="rcx-box rcx-box--full rcx-badge rcx-badge--secondary rcx-sidebar-v2-item__badge"
                 title="unread messages"
               >
-                2
+                12
               </span>
               <div
                 class="rcx-sidebar-v2-item__menu-wrapper rcx-box--animated"
@@ -724,7 +724,7 @@ exports[`[SidePanel Component] renders Default without crashing 1`] = `
                 class="rcx-box rcx-box--full rcx-badge rcx-badge--secondary rcx-sidebar-v2-item__badge"
                 title="unread messages"
               >
-                7
+                13
               </span>
               <div
                 class="rcx-sidebar-v2-item__menu-wrapper rcx-box--animated"
@@ -787,7 +787,7 @@ exports[`[SidePanel Component] renders Default without crashing 1`] = `
                 class="rcx-box rcx-box--full rcx-badge rcx-badge--secondary rcx-sidebar-v2-item__badge"
                 title="unread messages"
               >
-                9
+                14
               </span>
               <div
                 class="rcx-sidebar-v2-item__menu-wrapper rcx-box--animated"
@@ -850,7 +850,7 @@ exports[`[SidePanel Component] renders Default without crashing 1`] = `
                 class="rcx-box rcx-box--full rcx-badge rcx-badge--secondary rcx-sidebar-v2-item__badge"
                 title="unread messages"
               >
-                2
+                15
               </span>
               <div
                 class="rcx-sidebar-v2-item__menu-wrapper rcx-box--animated"
@@ -913,7 +913,7 @@ exports[`[SidePanel Component] renders Default without crashing 1`] = `
                 class="rcx-box rcx-box--full rcx-badge rcx-badge--secondary rcx-sidebar-v2-item__badge"
                 title="unread messages"
               >
-                8
+                16
               </span>
               <div
                 class="rcx-sidebar-v2-item__menu-wrapper rcx-box--animated"
@@ -976,7 +976,7 @@ exports[`[SidePanel Component] renders Default without crashing 1`] = `
                 class="rcx-box rcx-box--full rcx-badge rcx-badge--secondary rcx-sidebar-v2-item__badge"
                 title="unread messages"
               >
-                8
+                17
               </span>
               <div
                 class="rcx-sidebar-v2-item__menu-wrapper rcx-box--animated"
@@ -1039,7 +1039,7 @@ exports[`[SidePanel Component] renders Default without crashing 1`] = `
                 class="rcx-box rcx-box--full rcx-badge rcx-badge--secondary rcx-sidebar-v2-item__badge"
                 title="unread messages"
               >
-                6
+                18
               </span>
               <div
                 class="rcx-sidebar-v2-item__menu-wrapper rcx-box--animated"
@@ -1102,7 +1102,7 @@ exports[`[SidePanel Component] renders Default without crashing 1`] = `
                 class="rcx-box rcx-box--full rcx-badge rcx-badge--secondary rcx-sidebar-v2-item__badge"
                 title="unread messages"
               >
-                1
+                19
               </span>
               <div
                 class="rcx-sidebar-v2-item__menu-wrapper rcx-box--animated"
@@ -1165,7 +1165,7 @@ exports[`[SidePanel Component] renders Default without crashing 1`] = `
                 class="rcx-box rcx-box--full rcx-badge rcx-badge--secondary rcx-sidebar-v2-item__badge"
                 title="unread messages"
               >
-                1
+                20
               </span>
               <div
                 class="rcx-sidebar-v2-item__menu-wrapper rcx-box--animated"
@@ -1228,7 +1228,7 @@ exports[`[SidePanel Component] renders Default without crashing 1`] = `
                 class="rcx-box rcx-box--full rcx-badge rcx-badge--secondary rcx-sidebar-v2-item__badge"
                 title="unread messages"
               >
-                7
+                21
               </span>
               <div
                 class="rcx-sidebar-v2-item__menu-wrapper rcx-box--animated"
@@ -1291,7 +1291,7 @@ exports[`[SidePanel Component] renders Default without crashing 1`] = `
                 class="rcx-box rcx-box--full rcx-badge rcx-badge--secondary rcx-sidebar-v2-item__badge"
                 title="unread messages"
               >
-                4
+                22
               </span>
               <div
                 class="rcx-sidebar-v2-item__menu-wrapper rcx-box--animated"
