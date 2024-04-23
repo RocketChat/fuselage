@@ -16,7 +16,20 @@ import {
   SidePanelList,
   SidePanelListItem,
 } from '.';
-import { Box, Icon, IconButton, InputBox } from '../..';
+import {
+  Avatar,
+  Box,
+  Icon,
+  IconButton,
+  InputBox,
+  SideBarItem,
+  SideBarItemAvatarWrapper,
+  SideBarItemBadge,
+  SideBarItemIcon,
+  SideBarItemMenu,
+  SideBarItemTitle,
+} from '../..';
+import { MenuTemplate, leterAvatarUrls, names } from '../SideBarV2/helpers';
 
 export default {
   title: 'Navigation/SidePanel',
@@ -58,7 +71,24 @@ const Template: ComponentStory<typeof SidePanel> = (args) => (
     </SidePanelSection>
     <SidePanelList>
       {new Array(20).fill(null).map((_, index) => (
-        <SidePanelListItem key={index}>Item {index}</SidePanelListItem>
+        <SidePanelListItem key={index}>
+          <SideBarItem href='#'>
+            <SideBarItemAvatarWrapper>
+              <Avatar
+                size='x20'
+                url={leterAvatarUrls[index % 4]}
+                alt='avatar'
+              />
+            </SideBarItemAvatarWrapper>
+            <SideBarItemIcon name='team' />
+            <SideBarItemTitle>{names[index % 10]}</SideBarItemTitle>
+            <SideBarItemBadge
+              title='unread messages'
+              children={Math.floor(Math.random() * 10) + 1}
+            />
+            <SideBarItemMenu children={<MenuTemplate />} />
+          </SideBarItem>
+        </SidePanelListItem>
       ))}
     </SidePanelList>
   </SidePanel>
