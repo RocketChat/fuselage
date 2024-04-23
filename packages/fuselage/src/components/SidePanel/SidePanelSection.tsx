@@ -2,7 +2,6 @@ import type { HTMLAttributes } from 'react';
 import React from 'react';
 
 export const SidePanelSection = ({
-  children,
   className,
   ...props
 }: HTMLAttributes<HTMLDivElement>) => (
@@ -11,7 +10,5 @@ export const SidePanelSection = ({
       .filter(Boolean)
       .join(' ')}
     {...props}
-  >
-    {children}
-  </div>
+  />
 );

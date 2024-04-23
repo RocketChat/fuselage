@@ -2,7 +2,6 @@ import type { HTMLAttributes } from 'react';
 import React from 'react';
 
 export const SidePanelListItem = ({
-  children,
   className,
   ...props
 }: HTMLAttributes<HTMLDivElement>) => (
@@ -12,7 +11,5 @@ export const SidePanelListItem = ({
       .filter(Boolean)
       .join(' ')}
     {...props}
-  >
-    {children}
-  </div>
+  />
 );
