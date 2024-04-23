@@ -1,15 +1,17 @@
 import type { HTMLAttributes } from 'react';
-import React from 'react';
+import React, { forwardRef } from 'react';
 
-export const SidePanelList = ({
-  className,
-  ...props
-}: HTMLAttributes<HTMLDivElement>) => (
-  <div
-    role='list'
-    className={['rcx-sidepanel-list', className && className]
-      .filter(Boolean)
-      .join(' ')}
-    {...props}
-  />
-);
+export const SidePanelList = forwardRef<
+  HTMLDivElement,
+  HTMLAttributes<HTMLDivElement>
+>(function SidePanelList({ className, ...props }) {
+  return (
+    <div
+      role='list'
+      className={['rcx-sidepanel-list', className && className]
+        .filter(Boolean)
+        .join(' ')}
+      {...props}
+    />
+  );
+});
