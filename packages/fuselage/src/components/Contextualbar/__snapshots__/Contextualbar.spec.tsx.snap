@@ -10,13 +10,13 @@ exports[`[Contextualbar Rendering] renders Default without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-vertical-bar rcx-css-1pzjc7w"
       >
         <div
-          class="rcx-box rcx-box--full rcx-css-13kuqi8"
+          class="rcx-box rcx-box--full rcx-css-edl2v6"
         >
           <div
-            class="rcx-box rcx-box--full rcx-css-1sl6k6j"
+            class="rcx-box rcx-box--full rcx-css-1bdyjik rcx-css-1tmbvtv"
           >
             <button
-              class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button  rcx-css-x7bl3q rcx-css-1yzvz7u"
+              class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button rcx-css-ue04py"
               title="Back"
               type="button"
             >
@@ -28,16 +28,16 @@ exports[`[Contextualbar Rendering] renders Default without crashing 1`] = `
               </i>
             </button>
             <div
-              class="rcx-box rcx-box--full  rcx-css-x7bl3q rcx-css-1to6ka7"
+              class="rcx-box rcx-box--full rcx-css-1spko5i"
             >
               Contextualbar Title
             </div>
             <div
-              class="rcx-button-group rcx-button-group--align-start rcx-css-x7bl3q"
+              class="rcx-button-group rcx-button-group--align-start"
               role="group"
             >
               <button
-                class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button  rcx-button-group__item rcx-css-1yzvz7u"
+                class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button  rcx-button-group__item rcx-css-ue04py"
                 title="Title"
                 type="button"
               >
@@ -49,7 +49,7 @@ exports[`[Contextualbar Rendering] renders Default without crashing 1`] = `
                 </i>
               </button>
               <button
-                class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button  rcx-button-group__item rcx-css-1yzvz7u"
+                class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button  rcx-button-group__item rcx-css-ue04py"
                 title="Add user"
                 type="button"
               >
@@ -60,16 +60,50 @@ exports[`[Contextualbar Rendering] renders Default without crashing 1`] = `
                   
                 </i>
               </button>
+              <button
+                class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button  rcx-button-group__item rcx-css-ue04py"
+                title="Close"
+                type="button"
+              >
+                <i
+                  aria-hidden="true"
+                  class="rcx-box rcx-box--full rcx-icon--name-cross rcx-icon rcx-css-4pvxx3"
+                >
+                  
+                </i>
+              </button>
             </div>
           </div>
         </div>
         <div
-          class="rcx-box rcx-box--full rcx-vertical-bar__content rcx-css-1ptgac4"
+          class="rcx-box rcx-box--full rcx-vertical-bar__section rcx-css-14bkbcs"
         >
-          Contextualbar Content
+          <label
+            class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-box--animated rcx-input-box__wrapper"
+          >
+            <input
+              class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--undecorated rcx-input-box--type-text rcx-input-box"
+              placeholder="Search"
+              size="1"
+              type="text"
+            />
+            <span
+              class="rcx-box rcx-box--full rcx-input-box__addon"
+            >
+              <i
+                aria-hidden="true"
+                class="rcx-box rcx-box--full rcx-icon--name-magnifier rcx-icon rcx-css-4pvxx3"
+              >
+                
+              </i>
+            </span>
+          </label>
         </div>
         <div
-          class="rcx-box rcx-box--full rcx-css-m843eh"
+          class="rcx-box rcx-box--full rcx-vertical-bar__content rcx-css-1ptgac4"
+        />
+        <div
+          class="rcx-box rcx-box--full rcx-css-4jy2w6"
         >
           <div
             class="rcx-button-group rcx-button-group--align-start"
@@ -96,7 +130,7 @@ exports[`[Contextualbar Rendering] renders Default without crashing 1`] = `
               </span>
             </button>
             <button
-              class="rcx-box rcx-box--full rcx-button--large-square rcx-button--square rcx-button--icon rcx-button  rcx-button-group__item"
+              class="rcx-box rcx-box--full rcx-button--large-square rcx-button--icon-secondary rcx-button--square rcx-button--icon rcx-button  rcx-button-group__item"
               title="More"
               type="button"
             >
@@ -125,13 +159,13 @@ exports[`[Contextualbar Rendering] renders Empty without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-vertical-bar rcx-css-1pzjc7w"
       >
         <div
-          class="rcx-box rcx-box--full rcx-css-13kuqi8"
+          class="rcx-box rcx-box--full rcx-css-edl2v6"
         >
           <div
-            class="rcx-box rcx-box--full rcx-css-1sl6k6j"
+            class="rcx-box rcx-box--full rcx-css-1bdyjik rcx-css-1tmbvtv"
           >
             <button
-              class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button  rcx-css-x7bl3q rcx-css-1yzvz7u"
+              class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button rcx-css-ue04py"
               title="Back"
               type="button"
             >
@@ -143,16 +177,16 @@ exports[`[Contextualbar Rendering] renders Empty without crashing 1`] = `
               </i>
             </button>
             <div
-              class="rcx-box rcx-box--full  rcx-css-x7bl3q rcx-css-1to6ka7"
+              class="rcx-box rcx-box--full rcx-css-1spko5i"
             >
               Contextualbar Empty
             </div>
             <div
-              class="rcx-button-group rcx-button-group--align-start rcx-css-x7bl3q"
+              class="rcx-button-group rcx-button-group--align-start"
               role="group"
             >
               <button
-                class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button  rcx-button-group__item rcx-css-1yzvz7u"
+                class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button  rcx-button-group__item rcx-css-ue04py"
                 title="Title"
                 type="button"
               >
@@ -186,7 +220,7 @@ exports[`[Contextualbar Rendering] renders Empty without crashing 1`] = `
           </div>
         </div>
         <div
-          class="rcx-box rcx-box--full rcx-css-m843eh"
+          class="rcx-box rcx-box--full rcx-css-4jy2w6"
         >
           Footer
         </div>
@@ -206,13 +240,13 @@ exports[`[Contextualbar Rendering] renders Skeleton without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-vertical-bar rcx-css-1pzjc7w"
       >
         <div
-          class="rcx-box rcx-box--full rcx-css-13kuqi8"
+          class="rcx-box rcx-box--full rcx-css-edl2v6"
         >
           <div
-            class="rcx-box rcx-box--full rcx-css-1sl6k6j"
+            class="rcx-box rcx-box--full rcx-css-1bdyjik rcx-css-1tmbvtv"
           >
             <span
-              class="rcx-box rcx-box--full rcx-skeleton--text rcx-skeleton  rcx-css-x7bl3q rcx-css-16xwxf4"
+              class="rcx-box rcx-box--full rcx-skeleton--text rcx-skeleton rcx-css-1qcz93u"
             />
           </div>
         </div>
