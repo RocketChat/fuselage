@@ -1,8 +1,8 @@
+import { css } from '@rocket.chat/css-in-js';
 import type { ComponentProps } from 'react';
 import React, { memo } from 'react';
 
 import Box from '../Box';
-import Margins from '../Margins';
 
 type ContextualbarHeaderProps = ComponentProps<typeof Box>;
 
@@ -13,7 +13,7 @@ const ContextualbarHeader = ({
   <Box
     display='flex'
     alignItems='center'
-    height='x56'
+    height='x44'
     pi={24}
     borderBlockEndWidth='default'
     borderBlockColor='extra-light'
@@ -21,15 +21,17 @@ const ContextualbarHeader = ({
     {...props}
   >
     <Box
-      marginInline='neg-x4'
       display='flex'
       alignItems='center'
       justifyContent='space-between'
       flexGrow={1}
       height='100%'
       overflow='hidden'
+      className={css`
+        gap: 8px;
+      `}
     >
-      <Margins inline='x4'>{children}</Margins>
+      {children}
     </Box>
   </Box>
 );

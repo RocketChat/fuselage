@@ -6,7 +6,7 @@ import { Box } from '..';
 const ContextualbarFooter = forwardRef<HTMLElement, ComponentProps<typeof Box>>(
   function ContextualbarFooter({ children, ...props }, ref) {
     return (
-      <Box ref={ref} p={24} {...props}>
+      <Box ref={ref} p={16} {...props}>
         {children}
       </Box>
     );
