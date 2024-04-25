@@ -2,4 +2,4 @@
 "@rocket.chat/fuselage": minor
 ---
 
-feat(fuselage): new `Contextualbar` sizes
+feat(fuselage): `Contextualbar` components size improvements
