@@ -68,7 +68,7 @@ $sidebar-item-background-color-featured-selected: theme(
 
 $sidebar-header-height: theme(
   'sidebar-header-height',
-  theme('header-height', lengths.size(64))
+  theme('header-height', lengths.size(44))
 );
 
 $sidebar-section-height: theme(
@@ -185,7 +185,6 @@ $sidebar-banner-color-danger: theme(
 
       flex-grow: 1;
 
-      padding-block: lengths.padding(12);
       padding-inline: lengths.padding(16);
     }
 
