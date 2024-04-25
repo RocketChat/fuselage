@@ -8,13 +8,9 @@ function peggyLoader(
   this: LoaderContext<Options>,
   grammarContent: string
 ): string {
-  const dependenciesKeyValue = (this.resourceQuery ?? '')
-    .replace('?', '')
-    .split('&')
-    .map((query) => {
-      const [key, value] = query.split('=');
-      return [key, value] as const;
-    });
+  const dependenciesKeyValue = this.resourceQuery
+    ? [...new URLSearchParams(this.resourceQuery).entries()]
+    : [];
 
   const fromEntries = (entries: (readonly [string, string])[]) => {
     const obj: Record<string, string> = {};
