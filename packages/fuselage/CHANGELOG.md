@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.53.5
+
+### Patch Changes
+
+- [#1356](https://github.com/RocketChat/fuselage/pull/1356) [`fb710526b`](https://github.com/RocketChat/fuselage/commit/fb710526ba7a0adfe9356ae4518da10879f824ef) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): remove margins from `ButtonGroup` first and last items
+
 ## 0.53.4
 
 ### Patch Changes

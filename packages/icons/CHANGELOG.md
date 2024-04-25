@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.35.0
+
+### Minor Changes
+
+- [#1367](https://github.com/RocketChat/fuselage/pull/1367) [`e44d4da08`](https://github.com/RocketChat/fuselage/commit/e44d4da086324d7893696c0e240a9a800c01f1bb) Thanks [@dougfabris](https://github.com/dougfabris)! - feat(icons): Add double-check icon
+
 ## 0.34.0
 
 ### Minor Changes
