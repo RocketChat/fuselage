@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.53.6
+
+### Patch Changes
+
+- [#1370](https://github.com/RocketChat/fuselage/pull/1370) [`c94bd1cb8`](https://github.com/RocketChat/fuselage/commit/c94bd1cb8bf6586126da852b29594f6eadfc1d78) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): add `MessageSystem` missing colors
+
 ## 0.53.5
 
 ### Patch Changes
