@@ -22,7 +22,10 @@ $message-system-background-color-selected: functions.theme(
   padding-block: lengths.padding(8);
   padding-inline: lengths.padding(20);
 
+  color: colors.font(default);
+
   &--selected {
+    color: colors.font(pure-black);
     background: $message-system-background-color-selected !important;
   }
 
@@ -41,16 +44,12 @@ $message-system-background-color-selected: functions.theme(
     @include typography.use-font-scale(p2);
     @include typography.use-with-truncated-text();
     margin-inline: lengths.margin(2);
-
-    color: colors.font(default);
   }
 
   &__name {
     @include typography.use-font-scale(p2b);
     @include typography.use-with-truncated-text();
     flex-shrink: 0;
-
-    color: colors.font(default);
   }
 
   &__time {
@@ -59,8 +58,6 @@ $message-system-background-color-selected: functions.theme(
     flex-shrink: 0;
 
     margin-inline: lengths.margin(2);
-
-    color: colors.font(default);
   }
 
   &__block {
