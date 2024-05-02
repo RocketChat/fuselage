@@ -1,5 +1,44 @@
 # Change Log
 
+## 0.53.6
+
+### Patch Changes
+
+- [#1370](https://github.com/RocketChat/fuselage/pull/1370) [`c94bd1cb8`](https://github.com/RocketChat/fuselage/commit/c94bd1cb8bf6586126da852b29594f6eadfc1d78) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): add `MessageSystem` missing colors
+
+## 0.53.5
+
+### Patch Changes
+
+- [#1356](https://github.com/RocketChat/fuselage/pull/1356) [`fb710526b`](https://github.com/RocketChat/fuselage/commit/fb710526ba7a0adfe9356ae4518da10879f824ef) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): remove margins from `ButtonGroup` first and last items
+
+## 0.53.4
+
+### Patch Changes
+
+- [#1354](https://github.com/RocketChat/fuselage/pull/1354) [`d0c9e107f`](https://github.com/RocketChat/fuselage/commit/d0c9e107f1e787755c2a6358cab1ed45971fd5d8) Thanks [@gabriellsh](https://github.com/gabriellsh)! - fix(fuselage): Remove `option` role from `Autocomplete` Options component
+
+- [#1352](https://github.com/RocketChat/fuselage/pull/1352) [`34b047478`](https://github.com/RocketChat/fuselage/commit/34b047478f97c3e1bb94d801f212be41ffbe2cbb) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): MessageReactions missing border color
+
+## 0.53.3
+
+### Patch Changes
+
+- Updated dependencies [[`bfe0abfb0`](https://github.com/RocketChat/fuselage/commit/bfe0abfb0bc2f828a0b6675f4719509d978a0a0f)]:
+  - @rocket.chat/fuselage-tokens@0.33.1
+
+## 0.53.2
+
+### Patch Changes
+
+- [#1344](https://github.com/RocketChat/fuselage/pull/1344) [`8f67c5d20`](https://github.com/RocketChat/fuselage/commit/8f67c5d20939258bf4f09ee8d6ca36b68496c7ac) Thanks [@dougfabris](https://github.com/dougfabris)! - fix: wrong `MessageMetrics` export
+
+## 0.53.1
+
+### Patch Changes
+
+- [#1342](https://github.com/RocketChat/fuselage/pull/1342) [`71c221684`](https://github.com/RocketChat/fuselage/commit/71c22168458c51975b32170a53c4a835124bec2b) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): MessageMetrics props types
+
 ## 0.53.0
 
 ### Minor Changes

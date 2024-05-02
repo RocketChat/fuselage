@@ -1,6 +1,9 @@
 import { MessageMetrics } from './MessageMetrics';
 import { MessageMetricsFollowing } from './MessageMetricsFollowing';
-import MessageMetricsItem from './MessageMetricsItem';
+import MessageMetricsItem, {
+  MessageMetricsItemIcon,
+  MessageMetricsItemLabel,
+} from './MessageMetricsItem';
 import { MessageMetricsReply } from './MessageMetricsReply';
 
 export default Object.assign(MessageMetrics, {
@@ -18,5 +21,11 @@ export default Object.assign(MessageMetrics, {
   Following: MessageMetricsFollowing,
 });
 
-export { MessageMetrics, MessageMetricsFollowing, MessageMetricsReply };
-export * from './MessageMetricsItem';
+export {
+  MessageMetrics,
+  MessageMetricsItem,
+  MessageMetricsItemIcon,
+  MessageMetricsItemLabel,
+  MessageMetricsFollowing,
+  MessageMetricsReply,
+};

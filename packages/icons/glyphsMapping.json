@@ -961,5 +961,8 @@
   },
   "circle-unfilled": {
     "start": "\ue14b"
+  },
+  "double-check": {
+    "start": "\ue14d"
   }
 }
