@@ -20,10 +20,6 @@
     .rcx-message:hover &,
     .rcx-message:focus-within & {
       display: inline-block;
-
-      .rcx-message-toolbar {
-        opacity: 1;
-      }
     }
 
     &--visible {
