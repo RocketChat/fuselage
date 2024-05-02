@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.53.7
+
+### Patch Changes
+
+- [#1363](https://github.com/RocketChat/fuselage/pull/1363) [`3bc0e982c`](https://github.com/RocketChat/fuselage/commit/3bc0e982c27748fc1cf2551dffbd1c9112feb141) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): MessageToolbar missing opacity on hover
+
+- [#1372](https://github.com/RocketChat/fuselage/pull/1372) [`3b6daeebc`](https://github.com/RocketChat/fuselage/commit/3b6daeebcd0341f784ddbaa95deba26a128f37bc) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): `Bubble` missing font-family
+
 ## 0.53.6
 
 ### Patch Changes
