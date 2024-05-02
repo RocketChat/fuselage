@@ -7,8 +7,6 @@
   margin-inline: lengths.margin(20);
   padding: lengths.padding(2);
 
-  opacity: 0;
-
   border: lengths.border-width(default) solid colors.stroke(extra-light);
   border-radius: theme(
     'message-toolbar-border-radius',
