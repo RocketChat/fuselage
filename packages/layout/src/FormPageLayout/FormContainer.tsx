@@ -1,6 +1,6 @@
 import { Box } from '@rocket.chat/fuselage';
-import type { ReactElement, FC } from 'react';
+import type { ComponentProps } from 'react';
 
-const FormContainer: FC = ({ children }): ReactElement => <Box>{children}</Box>;
+const FormContainer = (props: ComponentProps<typeof Box>) => <Box {...props} />;
 
 export default FormContainer;

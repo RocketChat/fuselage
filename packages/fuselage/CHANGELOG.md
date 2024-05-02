@@ -1,5 +1,17 @@
 # Change Log
 
+## 0.53.6
+
+### Patch Changes
+
+- [#1370](https://github.com/RocketChat/fuselage/pull/1370) [`c94bd1cb8`](https://github.com/RocketChat/fuselage/commit/c94bd1cb8bf6586126da852b29594f6eadfc1d78) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): add `MessageSystem` missing colors
+
+## 0.53.5
+
+### Patch Changes
+
+- [#1356](https://github.com/RocketChat/fuselage/pull/1356) [`fb710526b`](https://github.com/RocketChat/fuselage/commit/fb710526ba7a0adfe9356ae4518da10879f824ef) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): remove margins from `ButtonGroup` first and last items
+
 ## 0.53.4
 
 ### Patch Changes
