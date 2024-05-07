@@ -9,6 +9,8 @@
   width: 100%;
   padding: lengths.padding(8) lengths.padding(16);
 
+  border-bottom: lengths.border-width(default) solid colors.stroke(light);
+
   background-color: colors.surface(sidebar);
 
   &-section {
