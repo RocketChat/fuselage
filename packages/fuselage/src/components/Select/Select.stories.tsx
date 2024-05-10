@@ -10,6 +10,7 @@ import React from 'react';
 
 import type { SelectOption } from '../..';
 import { Select } from '../..';
+import PropsVariationSection from '../../.storybook/PropsVariation';
 
 const options: SelectOption[] = Array.from({
   length: 12,
@@ -36,12 +37,21 @@ export default {
   },
 } as ComponentMeta<typeof Select>;
 
-const Template: ComponentStory<typeof Select> = (args) => <Select {...args} />;
+const Template: ComponentStory<typeof Select> = (args) => (
+  <Select aria-label='select' {...args} />
+);
 
 const TemplateControlled: ComponentStory<typeof Select> = (args) => {
   const [value, setValue] = React.useState<React.Key>('3');
 
-  return <Select {...args} value={value} onChange={setValue as any} />;
+  return (
+    <Select
+      aria-label='select'
+      {...args}
+      value={value}
+      onChange={setValue as any}
+    />
+  );
 };
 
 export const Default: ComponentStory<typeof Select> = Template.bind({});
@@ -78,3 +88,33 @@ NoPlaceholder.args = {
   'aria-label': 'No placeholder select',
   options,
 };
+
+export const States = () => (
+  <>
+    <PropsVariationSection
+      component={(props) => (
+        <Select options={options} aria-label='select' {...props} />
+      )}
+      common={{
+        onChange: () => {},
+      }}
+      xAxis={{
+        'default': {},
+        'with placeholder': { placeholder: 'Placeholder' },
+        'small': { small: true },
+        'small with placeholder': { small: true, placeholder: 'Placeholder' },
+      }}
+      yAxis={{
+        'default': {},
+        'hover': { className: 'hover' },
+        'active': { className: 'active' },
+        'focus': { className: 'focus' },
+        'disabled': { disabled: true },
+        'errored': { error: 'Error' },
+        'errored + hover': { className: 'hover', error: 'Error' },
+        'errored + active': { className: 'active', error: 'Error' },
+        'errored + focus': { className: 'focus', error: 'Error' },
+      }}
+    />
+  </>
+);

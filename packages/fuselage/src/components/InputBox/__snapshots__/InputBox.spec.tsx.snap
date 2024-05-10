@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[InputBox Component] renders without crashing 1`] = `
+<body>
+  <div>
+    <input
+      aria-label="Value"
+      class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--type-text rcx-input-box"
+      size="1"
+      type="text"
+      value="Value"
+    />
+  </div>
+</body>
+`;

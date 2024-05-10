@@ -26,7 +26,7 @@ export default {
 } as ComponentMeta<typeof TextInput>;
 
 const Template: ComponentStory<typeof TextInput> = (args) => (
-  <TextInput {...args} />
+  <TextInput aria-label='text' {...args} />
 );
 
 export const Default: ComponentStory<typeof TextInput> = Template.bind({});
@@ -61,28 +61,54 @@ WithValue.args = {
 };
 
 export const States: ComponentStory<typeof TextInput> = () => (
-  <PropsVariationSection
-    component={TextInput}
-    common={{ onChange: () => {} }}
-    xAxis={{
-      'default': {},
-      'with placeholder': { placeholder: 'Placeholder' },
-      'with value': { value: 'Value' },
-      'with icon': {
-        addon: <Icon name='keyboard' size='x20' />,
-        value: 'Value',
-      },
-    }}
-    yAxis={{
-      'default': {},
-      'hover': { className: 'hover' },
-      'active': { className: 'active' },
-      'focus': { className: 'focus' },
-      'disabled': { disabled: true },
-      'errored': { error: 'Error' },
-      'errored + hover': { className: 'hover', error: 'Error' },
-      'errored + active': { className: 'active', error: 'Error' },
-      'errored + focus': { className: 'focus', error: 'Error' },
-    }}
-  />
+  <>
+    <PropsVariationSection
+      component={TextInput}
+      common={{ 'onChange': () => {}, 'aria-label': 'text' }}
+      xAxis={{
+        'default': {},
+        'with placeholder': { placeholder: 'Placeholder' },
+        'with value': { value: 'Value' },
+        'with icon': {
+          addon: <Icon name='keyboard' size='x20' />,
+          value: 'Value',
+        },
+      }}
+      yAxis={{
+        'default': {},
+        'hover': { className: 'hover' },
+        'active': { className: 'active' },
+        'focus': { className: 'focus' },
+        'disabled': { disabled: true },
+        'errored': { error: 'Error' },
+        'errored + hover': { className: 'hover', error: 'Error' },
+        'errored + active': { className: 'active', error: 'Error' },
+        'errored + focus': { className: 'focus', error: 'Error' },
+      }}
+    />
+    <PropsVariationSection
+      component={TextInput}
+      common={{ 'onChange': () => {}, 'small': true, 'aria-label': 'text' }}
+      xAxis={{
+        'small': {},
+        'with placeholder': { placeholder: 'Placeholder' },
+        'with value': { value: 'Value' },
+        'with icon': {
+          addon: <Icon name='keyboard' size='x20' />,
+          value: 'Value',
+        },
+      }}
+      yAxis={{
+        'small': {},
+        'hover': { className: 'hover' },
+        'active': { className: 'active' },
+        'focus': { className: 'focus' },
+        'disabled': { disabled: true },
+        'errored': { error: 'Error' },
+        'errored + hover': { className: 'hover', error: 'Error' },
+        'errored + active': { className: 'active', error: 'Error' },
+        'errored + focus': { className: 'focus', error: 'Error' },
+      }}
+    />
+  </>
 );

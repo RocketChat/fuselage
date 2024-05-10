@@ -9,7 +9,7 @@ import {
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
-import { Icon, InputBox } from '../..';
+import { Icon, InputBox, Box } from '../..';
 
 export default {
   title: 'Inputs/InputBox',
@@ -34,7 +34,7 @@ export default {
 } as ComponentMeta<typeof Icon>;
 
 const Template: ComponentStory<typeof InputBox> = (args) => (
-  <InputBox {...args} />
+  <InputBox aria-label='Value' {...args} />
 );
 
 export const Default: ComponentStory<typeof InputBox> = Template.bind({});
@@ -87,3 +87,26 @@ export const Skeleton: ComponentStory<typeof InputBox> = () => (
   <InputBox.Skeleton />
 );
 Skeleton.storyName = 'InputBox.Skeleton';
+
+export const SmallVariants: ComponentStory<typeof InputBox> = () => (
+  <Box
+    display='flex'
+    flexDirection='column'
+    alignItems='flex-start'
+    style={{ gap: '8px' }}
+  >
+    <InputBox type='text' small placeholder='Name' aria-label='Name' />
+    <InputBox
+      type='text'
+      small
+      placeholder='Search'
+      addon={<Icon name='magnifier' size='x20' />}
+      aria-label='Search'
+    />
+  </Box>
+);
+SmallVariants.args = {
+  placeholder: 'Search',
+  small: true,
+  onChange: action('change'),
+};
