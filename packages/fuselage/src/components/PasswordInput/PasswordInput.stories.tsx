@@ -26,25 +26,48 @@ export const WithPlaceholder = () => (
 );
 
 export const States = () => (
-  <PropsVariation
-    component={PasswordInput}
-    common={{ onChange: () => undefined }}
-    xAxis={{
-      'default': {},
-      'with placeholder': { placeholder: 'Placeholder' },
-      'with value': { value: 'Value' },
-      'with icon': { addon: <Icon name='key' size='x20' />, value: 'Value' },
-    }}
-    yAxis={{
-      'default': {},
-      'hover': { className: 'hover' },
-      'active': { className: 'active' },
-      'focus': { className: 'focus' },
-      'disabled': { disabled: true },
-      'errored': { error: 'Error' },
-      'errored + hover': { className: 'hover', error: 'Error' },
-      'errored + active': { className: 'active', error: 'Error' },
-      'errored + focus': { className: 'focus', error: 'Error' },
-    }}
-  />
+  <>
+    <PropsVariation
+      component={PasswordInput}
+      common={{ onChange: () => undefined }}
+      xAxis={{
+        'default': {},
+        'with placeholder': { placeholder: 'Placeholder' },
+        'with value': { value: 'Value' },
+        'with icon': { addon: <Icon name='key' size='x20' />, value: 'Value' },
+      }}
+      yAxis={{
+        'default': {},
+        'hover': { className: 'hover' },
+        'active': { className: 'active' },
+        'focus': { className: 'focus' },
+        'disabled': { disabled: true },
+        'errored': { error: 'Error' },
+        'errored + hover': { className: 'hover', error: 'Error' },
+        'errored + active': { className: 'active', error: 'Error' },
+        'errored + focus': { className: 'focus', error: 'Error' },
+      }}
+    />
+    <PropsVariation
+      component={PasswordInput}
+      common={{ onChange: () => undefined, small: true }}
+      xAxis={{
+        'small': {},
+        'with placeholder': { placeholder: 'Placeholder' },
+        'with value': { value: 'Value' },
+        'with icon': { addon: <Icon name='key' size='x20' />, value: 'Value' },
+      }}
+      yAxis={{
+        'small': {},
+        'hover': { className: 'hover' },
+        'active': { className: 'active' },
+        'focus': { className: 'focus' },
+        'disabled': { disabled: true },
+        'errored': { error: 'Error' },
+        'errored + hover': { className: 'hover', error: 'Error' },
+        'errored + active': { className: 'active', error: 'Error' },
+        'errored + focus': { className: 'focus', error: 'Error' },
+      }}
+    />
+  </>
 );

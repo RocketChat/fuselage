@@ -59,28 +59,54 @@ WithValue.args = {
 };
 
 export const States: ComponentStory<typeof EmailInput> = () => (
-  <PropsVariationSection
-    component={EmailInput}
-    common={{ onChange: () => {} }}
-    xAxis={{
-      'default': {},
-      'with placeholder': { placeholder: 'Placeholder' },
-      'with value': { value: 'support@rocket.chat' },
-      'with icon': {
-        addon: <Icon name='at' size='x20' />,
-        value: 'support@rocket.chat',
-      },
-    }}
-    yAxis={{
-      'default': {},
-      'hover': { className: 'hover' },
-      'active': { className: 'active' },
-      'focus': { className: 'focus' },
-      'disabled': { disabled: true },
-      'errored': { error: 'Error' },
-      'errored + hover': { className: 'hover', error: 'Error' },
-      'errored + active': { className: 'active', error: 'Error' },
-      'errored + focus': { className: 'focus', error: 'Error' },
-    }}
-  />
+  <>
+    <PropsVariationSection
+      component={EmailInput}
+      common={{ onChange: () => {} }}
+      xAxis={{
+        'default': {},
+        'with placeholder': { placeholder: 'Placeholder' },
+        'with value': { value: 'support@rocket.chat' },
+        'with icon': {
+          addon: <Icon name='at' size='x20' />,
+          value: 'support@rocket.chat',
+        },
+      }}
+      yAxis={{
+        'default': {},
+        'hover': { className: 'hover' },
+        'active': { className: 'active' },
+        'focus': { className: 'focus' },
+        'disabled': { disabled: true },
+        'errored': { error: 'Error' },
+        'errored + hover': { className: 'hover', error: 'Error' },
+        'errored + active': { className: 'active', error: 'Error' },
+        'errored + focus': { className: 'focus', error: 'Error' },
+      }}
+    />
+    <PropsVariationSection
+      component={EmailInput}
+      common={{ onChange: () => {}, small: true }}
+      xAxis={{
+        'small': {},
+        'with placeholder': { placeholder: 'Placeholder' },
+        'with value': { value: 'support@rocket.chat' },
+        'with icon': {
+          addon: <Icon name='at' size='x20' />,
+          value: 'support@rocket.chat',
+        },
+      }}
+      yAxis={{
+        'small': {},
+        'hover': { className: 'hover' },
+        'active': { className: 'active' },
+        'focus': { className: 'focus' },
+        'disabled': { disabled: true },
+        'errored': { error: 'Error' },
+        'errored + hover': { className: 'hover', error: 'Error' },
+        'errored + active': { className: 'active', error: 'Error' },
+        'errored + focus': { className: 'focus', error: 'Error' },
+      }}
+    />
+  </>
 );

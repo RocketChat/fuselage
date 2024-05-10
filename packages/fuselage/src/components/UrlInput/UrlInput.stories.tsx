@@ -26,28 +26,54 @@ export const WithPlaceholder = () => <UrlInput placeholder='Placeholder' />;
 export const WithValue = () => <UrlInput defaultValue='https://rocket.chat' />;
 
 export const States = () => (
-  <PropsVariation
-    component={UrlInput}
-    common={{ onChange: () => undefined }}
-    xAxis={{
-      'default': {},
-      'with placeholder': { placeholder: 'Placeholder' },
-      'with value': { value: 'https://rocket.chat' },
-      'with icon': {
-        addon: <Icon name='discover' size='x20' />,
-        value: 'https://rocket.chat',
-      },
-    }}
-    yAxis={{
-      'default': {},
-      'hover': { className: 'hover' },
-      'active': { className: 'active' },
-      'focus': { className: 'focus' },
-      'disabled': { disabled: true },
-      'errored': { error: 'Error' },
-      'errored + hover': { className: 'hover', error: 'Error' },
-      'errored + active': { className: 'active', error: 'Error' },
-      'errored + focus': { className: 'focus', error: 'Error' },
-    }}
-  />
+  <>
+    <PropsVariation
+      component={UrlInput}
+      common={{ onChange: () => undefined }}
+      xAxis={{
+        'default': {},
+        'with placeholder': { placeholder: 'Placeholder' },
+        'with value': { value: 'https://rocket.chat' },
+        'with icon': {
+          addon: <Icon name='discover' size='x20' />,
+          value: 'https://rocket.chat',
+        },
+      }}
+      yAxis={{
+        'default': {},
+        'hover': { className: 'hover' },
+        'active': { className: 'active' },
+        'focus': { className: 'focus' },
+        'disabled': { disabled: true },
+        'errored': { error: 'Error' },
+        'errored + hover': { className: 'hover', error: 'Error' },
+        'errored + active': { className: 'active', error: 'Error' },
+        'errored + focus': { className: 'focus', error: 'Error' },
+      }}
+    />
+    <PropsVariation
+      component={UrlInput}
+      common={{ onChange: () => undefined, small: true }}
+      xAxis={{
+        'small': {},
+        'with placeholder': { placeholder: 'Placeholder' },
+        'with value': { value: 'https://rocket.chat' },
+        'with icon': {
+          addon: <Icon name='discover' size='x20' />,
+          value: 'https://rocket.chat',
+        },
+      }}
+      yAxis={{
+        'small': {},
+        'hover': { className: 'hover' },
+        'active': { className: 'active' },
+        'focus': { className: 'focus' },
+        'disabled': { disabled: true },
+        'errored': { error: 'Error' },
+        'errored + hover': { className: 'hover', error: 'Error' },
+        'errored + active': { className: 'active', error: 'Error' },
+        'errored + focus': { className: 'focus', error: 'Error' },
+      }}
+    />
+  </>
 );
