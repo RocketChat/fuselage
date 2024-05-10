@@ -16,6 +16,7 @@ type SelectProps<T, V extends Key> = Omit<
   value?: V | null;
   onChange?: ((key: V) => any) | undefined;
   options: SelectOption[];
+  small?: boolean;
 } & Omit<React.AllHTMLAttributes<HTMLElement>, 'onChange'>;
 
 export const Select = forwardRef(function Select<
