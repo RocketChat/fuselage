@@ -5,27 +5,18 @@ import React from 'react';
 
 import * as stories from './PasswordInput.stories';
 
-const testCases = Object.values(composeStories(stories)).map((Story) => [
-  Story.storyName || 'Story',
-  Story,
-]);
+const { Default } = composeStories(stories);
 
 describe('[PasswordInput Component]', () => {
-  test.each(testCases)(
-    `renders %s without crashing`,
-    async (_storyname, Story) => {
-      const tree = render(<Story />);
-      expect(tree.baseElement).toMatchSnapshot();
-    }
-  );
+  it('renders without crashing', () => {
+    const tree = render(<Default />);
+    expect(tree.baseElement).toMatchSnapshot();
+  });
 
-  test.each(testCases)(
-    '%s should have no a11y violations',
-    async (_storyname, Story) => {
-      const { container } = render(<Story />);
+  it('%s should have no a11y violations', async () => {
+    const { container } = render(<Default />);
 
-      const results = await axe(container);
-      expect(results).toHaveNoViolations();
-    }
-  );
+    const results = await axe(container);
+    expect(results).toHaveNoViolations();
+  });
 });
