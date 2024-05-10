@@ -33,7 +33,7 @@ export default {
 } as ComponentMeta<typeof SearchInput>;
 
 const Template: ComponentStory<typeof SearchInput> = (args) => (
-  <SearchInput {...args} />
+  <SearchInput aria-label='search' {...args} />
 );
 
 export const Default: ComponentStory<typeof SearchInput> = Template.bind({});
@@ -70,7 +70,7 @@ export const States: ComponentStory<typeof SearchInput> = () => (
   <>
     <PropsVariationSection
       component={SearchInput}
-      common={{ onChange: () => {} }}
+      common={{ 'onChange': () => {}, 'aria-label': 'search' }}
       xAxis={{
         'default': {},
         'with placeholder': { placeholder: 'Placeholder' },
@@ -94,7 +94,7 @@ export const States: ComponentStory<typeof SearchInput> = () => (
     />
     <PropsVariationSection
       component={SearchInput}
-      common={{ onChange: () => {}, small: true }}
+      common={{ 'onChange': () => {}, 'small': true, 'aria-label': 'search' }}
       xAxis={{
         'small': {},
         'with placeholder': { placeholder: 'Placeholder' },

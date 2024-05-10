@@ -37,12 +37,21 @@ export default {
   },
 } as ComponentMeta<typeof Select>;
 
-const Template: ComponentStory<typeof Select> = (args) => <Select {...args} />;
+const Template: ComponentStory<typeof Select> = (args) => (
+  <Select aria-label='select' {...args} />
+);
 
 const TemplateControlled: ComponentStory<typeof Select> = (args) => {
   const [value, setValue] = React.useState<React.Key>('3');
 
-  return <Select {...args} value={value} onChange={setValue as any} />;
+  return (
+    <Select
+      aria-label='select'
+      {...args}
+      value={value}
+      onChange={setValue as any}
+    />
+  );
 };
 
 export const Default: ComponentStory<typeof Select> = Template.bind({});
@@ -83,7 +92,9 @@ NoPlaceholder.args = {
 export const States = () => (
   <>
     <PropsVariationSection
-      component={(props) => <Select options={options} {...props} />}
+      component={(props) => (
+        <Select options={options} aria-label='select' {...props} />
+      )}
       common={{
         onChange: () => {},
       }}

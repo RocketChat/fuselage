@@ -27,13 +27,13 @@ export default {
 } as ComponentMeta<typeof EmailInput>;
 
 const Template: ComponentStory<typeof EmailInput> = (args) => (
-  <EmailInput {...args} />
+  <EmailInput aria-label='email' {...args} />
 );
 
 export const Default: ComponentStory<typeof EmailInput> = Template.bind({});
 
 export const WithIconAddon: ComponentStory<typeof EmailInput> = () => (
-  <EmailInput addon={<Icon name='send' size='x20' />} />
+  <EmailInput aria-label='email' addon={<Icon name='send' size='x20' />} />
 );
 
 export const Invalid: ComponentStory<typeof EmailInput> = Template.bind({});
@@ -62,7 +62,7 @@ export const States: ComponentStory<typeof EmailInput> = () => (
   <>
     <PropsVariationSection
       component={EmailInput}
-      common={{ onChange: () => {} }}
+      common={{ 'onChange': () => {}, 'aria-label': 'email' }}
       xAxis={{
         'default': {},
         'with placeholder': { placeholder: 'Placeholder' },
@@ -86,7 +86,7 @@ export const States: ComponentStory<typeof EmailInput> = () => (
     />
     <PropsVariationSection
       component={EmailInput}
-      common={{ onChange: () => {}, small: true }}
+      common={{ 'onChange': () => {}, 'small': true, 'aria-label': 'email' }}
       xAxis={{
         'small': {},
         'with placeholder': { placeholder: 'Placeholder' },

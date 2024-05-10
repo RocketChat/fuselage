@@ -1,35 +1,42 @@
+import type { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 
 import { Icon, PasswordInput } from '../..';
-import PropsVariation from '../../.storybook/PropsVariation';
+import { PropsVariationSection } from '../../../.storybook/helpers';
 
 export default {
   title: 'Inputs/PasswordInput',
   component: PasswordInput,
   parameters: { jest: ['PasswordInput.spec.tsx'] },
-};
+} as ComponentMeta<typeof PasswordInput>;
 
-export const Default = () => <PasswordInput />;
-
-export const WithValue = () => <PasswordInput defaultValue='password' />;
-
-export const WithIconAddon = () => (
-  <PasswordInput addon={<Icon name='send' size={20} />} />
+export const Default: ComponentStory<typeof PasswordInput> = () => (
+  <PasswordInput aria-label='password' />
 );
 
-export const Invalid = () => <PasswordInput error='Error' />;
+export const WithValue = () => (
+  <PasswordInput aria-label='password' defaultValue='password' />
+);
 
-export const Disabled = () => <PasswordInput disabled />;
+export const WithIconAddon = () => (
+  <PasswordInput aria-label='password' addon={<Icon name='send' size={20} />} />
+);
+
+export const Invalid = () => (
+  <PasswordInput aria-label='password' error='Error' />
+);
+
+export const Disabled = () => <PasswordInput aria-label='password' disabled />;
 
 export const WithPlaceholder = () => (
-  <PasswordInput placeholder='Placeholder' />
+  <PasswordInput aria-label='password' placeholder='Placeholder' />
 );
 
 export const States = () => (
   <>
-    <PropsVariation
+    <PropsVariationSection
       component={PasswordInput}
-      common={{ onChange: () => undefined }}
+      common={{ 'onChange': () => undefined, 'aria-label': 'password' }}
       xAxis={{
         'default': {},
         'with placeholder': { placeholder: 'Placeholder' },
@@ -48,9 +55,13 @@ export const States = () => (
         'errored + focus': { className: 'focus', error: 'Error' },
       }}
     />
-    <PropsVariation
+    <PropsVariationSection
       component={PasswordInput}
-      common={{ onChange: () => undefined, small: true }}
+      common={{
+        'onChange': () => undefined,
+        'small': true,
+        'aria-label': 'password',
+      }}
       xAxis={{
         'small': {},
         'with placeholder': { placeholder: 'Placeholder' },

@@ -1,0 +1,3802 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[SelectInput Component] renders Default without crashing 1`] = `
+<body>
+  <div>
+    <label
+      class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-box--animated rcx-input-box__wrapper"
+    >
+      <select
+        aria-label="select"
+        class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--undecorated rcx-input-box--type-select rcx-input-box"
+        size="1"
+      >
+        <option
+          class="rcx-box rcx-box--full rcx-input-box__option"
+          value="a"
+        >
+          Item A
+        </option>
+        <option
+          class="rcx-box rcx-box--full rcx-input-box__option"
+          value="b"
+        >
+          Item B
+        </option>
+        <option
+          class="rcx-box rcx-box--full rcx-input-box__option"
+          value="c"
+        >
+          Item C
+        </option>
+      </select>
+      <span
+        class="rcx-box rcx-box--full rcx-input-box__addon"
+      >
+        <i
+          aria-hidden="true"
+          class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-4pvxx3"
+        >
+          
+        </i>
+      </span>
+    </label>
+  </div>
+</body>
+`;
+
+exports[`[SelectInput Component] renders Disabled without crashing 1`] = `
+<body>
+  <div>
+    <label
+      class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-box--animated rcx-input-box__wrapper  disabled"
+    >
+      <select
+        aria-label="select"
+        class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--undecorated rcx-input-box--type-select rcx-input-box"
+        disabled=""
+        size="1"
+      >
+        <option
+          class="rcx-box rcx-box--full rcx-input-box__option"
+          value="a"
+        >
+          Item A
+        </option>
+        <option
+          class="rcx-box rcx-box--full rcx-input-box__option"
+          value="b"
+        >
+          Item B
+        </option>
+        <option
+          class="rcx-box rcx-box--full rcx-input-box__option"
+          value="c"
+        >
+          Item C
+        </option>
+      </select>
+      <span
+        class="rcx-box rcx-box--full rcx-input-box__addon"
+      >
+        <i
+          aria-hidden="true"
+          class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-4pvxx3"
+        >
+          
+        </i>
+      </span>
+    </label>
+  </div>
+</body>
+`;
+
+exports[`[SelectInput Component] renders Invalid without crashing 1`] = `
+<body>
+  <div>
+    <label
+      class="rcx-box rcx-box--full rcx-label rcx-box--animated rcx-input-box__wrapper invalid"
+    >
+      <select
+        aria-label="select"
+        class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--undecorated rcx-input-box--type-select rcx-input-box"
+        size="1"
+      >
+        <option
+          class="rcx-box rcx-box--full rcx-input-box__option"
+          value="a"
+        >
+          Item A
+        </option>
+        <option
+          class="rcx-box rcx-box--full rcx-input-box__option"
+          value="b"
+        >
+          Item B
+        </option>
+        <option
+          class="rcx-box rcx-box--full rcx-input-box__option"
+          value="c"
+        >
+          Item C
+        </option>
+      </select>
+      <span
+        class="rcx-box rcx-box--full rcx-input-box__addon"
+      >
+        <i
+          aria-hidden="true"
+          class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-4pvxx3"
+        >
+          
+        </i>
+      </span>
+    </label>
+  </div>
+</body>
+`;
+
+exports[`[SelectInput Component] renders Multiple without crashing 1`] = `
+<body>
+  <div>
+    <select
+      aria-label="select"
+      class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--type-select rcx-input-box--multiple rcx-input-box"
+      multiple=""
+      size="3"
+    >
+      <option
+        class="rcx-box rcx-box--full rcx-input-box__option"
+        value="a"
+      >
+        Item A
+      </option>
+      <option
+        class="rcx-box rcx-box--full rcx-input-box__option"
+        value="b"
+      >
+        Item B
+      </option>
+      <option
+        class="rcx-box rcx-box--full rcx-input-box__option"
+        value="c"
+      >
+        Item C
+      </option>
+    </select>
+  </div>
+</body>
+`;
+
+exports[`[SelectInput Component] renders MultipleWithAddon without crashing 1`] = `
+<body>
+  <div>
+    <label
+      class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-box--animated rcx-input-box__wrapper"
+    >
+      <select
+        aria-label="select"
+        class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--undecorated rcx-input-box--type-select rcx-input-box--multiple rcx-input-box"
+        multiple=""
+        size="3"
+      >
+        <option
+          class="rcx-box rcx-box--full rcx-input-box__option"
+          value="a"
+        >
+          Item A
+        </option>
+        <option
+          class="rcx-box rcx-box--full rcx-input-box__option"
+          value="b"
+        >
+          Item B
+        </option>
+        <option
+          class="rcx-box rcx-box--full rcx-input-box__option"
+          value="c"
+        >
+          Item C
+        </option>
+      </select>
+      <span
+        class="rcx-box rcx-box--full rcx-input-box__addon"
+      >
+        <i
+          aria-hidden="true"
+          class="rcx-box rcx-box--full rcx-icon--name-discover rcx-icon rcx-css-4pvxx3"
+        >
+          
+        </i>
+      </span>
+    </label>
+  </div>
+</body>
+`;
+
+exports[`[SelectInput Component] renders States without crashing 1`] = `
+<body>
+  <div>
+    <table
+      class="rcx-box rcx-box--full rcx-css-1s3wr6b"
+      style="border-collapse: collapse;"
+    >
+      <thead
+        class="rcx-box rcx-box--full"
+      >
+        <tr
+          class="rcx-box rcx-box--full"
+        >
+          <td
+            aria-hidden="true"
+            class="rcx-box rcx-box--full"
+          />
+          <th
+            class="rcx-box rcx-box--full rcx-css-11in3rj"
+          >
+            default
+          </th>
+          <th
+            class="rcx-box rcx-box--full rcx-css-11in3rj"
+          >
+            with placeholder
+          </th>
+          <th
+            class="rcx-box rcx-box--full rcx-css-11in3rj"
+          >
+            with value
+          </th>
+          <th
+            class="rcx-box rcx-box--full rcx-css-11in3rj"
+          >
+            multiple
+          </th>
+        </tr>
+      </thead>
+      <tbody
+        class="rcx-box rcx-box--full"
+      >
+        <tr
+          class="rcx-box rcx-box--full"
+        >
+          <th
+            class="rcx-box rcx-box--full rcx-css-11in3rj"
+          >
+            default
+          </th>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <label
+                class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-box--animated rcx-input-box__wrapper"
+              >
+                <select
+                  aria-label="select"
+                  class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--undecorated rcx-input-box--type-select rcx-input-box"
+                  size="1"
+                >
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="a"
+                  >
+                    Item A
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="b"
+                  >
+                    Item B
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="c"
+                  >
+                    Item C
+                  </option>
+                </select>
+                <span
+                  class="rcx-box rcx-box--full rcx-input-box__addon"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-4pvxx3"
+                  >
+                    
+                  </i>
+                </span>
+              </label>
+            </div>
+          </td>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <label
+                class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-box--animated rcx-input-box__wrapper"
+              >
+                <select
+                  aria-label="select"
+                  class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--undecorated rcx-input-box--type-select rcx-input-box--placeholder-visible rcx-input-box"
+                  size="1"
+                >
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__placeholder"
+                    value=""
+                  >
+                    Placeholder
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="a"
+                  >
+                    Item A
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="b"
+                  >
+                    Item B
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="c"
+                  >
+                    Item C
+                  </option>
+                </select>
+                <span
+                  class="rcx-box rcx-box--full rcx-input-box__addon"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-4pvxx3"
+                  >
+                    
+                  </i>
+                </span>
+              </label>
+            </div>
+          </td>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <label
+                class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-box--animated rcx-input-box__wrapper"
+              >
+                <select
+                  aria-label="select"
+                  class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--undecorated rcx-input-box--type-select rcx-input-box"
+                  size="1"
+                >
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="a"
+                  >
+                    Item A
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="b"
+                  >
+                    Item B
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="c"
+                  >
+                    Item C
+                  </option>
+                </select>
+                <span
+                  class="rcx-box rcx-box--full rcx-input-box__addon"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-4pvxx3"
+                  >
+                    
+                  </i>
+                </span>
+              </label>
+            </div>
+          </td>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <select
+                aria-label="select"
+                class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--type-select rcx-input-box--multiple rcx-input-box rcx-css-f59qpk"
+                multiple=""
+                size="1"
+              >
+                <option
+                  class="rcx-box rcx-box--full rcx-input-box__option"
+                  value="a"
+                >
+                  Item A
+                </option>
+                <option
+                  class="rcx-box rcx-box--full rcx-input-box__option"
+                  value="b"
+                >
+                  Item B
+                </option>
+                <option
+                  class="rcx-box rcx-box--full rcx-input-box__option"
+                  value="c"
+                >
+                  Item C
+                </option>
+              </select>
+            </div>
+          </td>
+        </tr>
+        <tr
+          class="rcx-box rcx-box--full"
+        >
+          <th
+            class="rcx-box rcx-box--full rcx-css-11in3rj"
+          >
+            hover
+          </th>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <label
+                class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-box--animated rcx-input-box__wrapper  hover"
+              >
+                <select
+                  aria-label="select"
+                  class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--undecorated rcx-input-box--type-select rcx-input-box  hover"
+                  size="1"
+                >
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="a"
+                  >
+                    Item A
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="b"
+                  >
+                    Item B
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="c"
+                  >
+                    Item C
+                  </option>
+                </select>
+                <span
+                  class="rcx-box rcx-box--full rcx-input-box__addon"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-4pvxx3"
+                  >
+                    
+                  </i>
+                </span>
+              </label>
+            </div>
+          </td>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <label
+                class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-box--animated rcx-input-box__wrapper  hover"
+              >
+                <select
+                  aria-label="select"
+                  class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--undecorated rcx-input-box--type-select rcx-input-box--placeholder-visible rcx-input-box  hover"
+                  size="1"
+                >
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__placeholder"
+                    value=""
+                  >
+                    Placeholder
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="a"
+                  >
+                    Item A
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="b"
+                  >
+                    Item B
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="c"
+                  >
+                    Item C
+                  </option>
+                </select>
+                <span
+                  class="rcx-box rcx-box--full rcx-input-box__addon"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-4pvxx3"
+                  >
+                    
+                  </i>
+                </span>
+              </label>
+            </div>
+          </td>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <label
+                class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-box--animated rcx-input-box__wrapper  hover"
+              >
+                <select
+                  aria-label="select"
+                  class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--undecorated rcx-input-box--type-select rcx-input-box  hover"
+                  size="1"
+                >
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="a"
+                  >
+                    Item A
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="b"
+                  >
+                    Item B
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="c"
+                  >
+                    Item C
+                  </option>
+                </select>
+                <span
+                  class="rcx-box rcx-box--full rcx-input-box__addon"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-4pvxx3"
+                  >
+                    
+                  </i>
+                </span>
+              </label>
+            </div>
+          </td>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <select
+                aria-label="select"
+                class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--type-select rcx-input-box--multiple rcx-input-box  hover rcx-css-f59qpk"
+                multiple=""
+                size="1"
+              >
+                <option
+                  class="rcx-box rcx-box--full rcx-input-box__option"
+                  value="a"
+                >
+                  Item A
+                </option>
+                <option
+                  class="rcx-box rcx-box--full rcx-input-box__option"
+                  value="b"
+                >
+                  Item B
+                </option>
+                <option
+                  class="rcx-box rcx-box--full rcx-input-box__option"
+                  value="c"
+                >
+                  Item C
+                </option>
+              </select>
+            </div>
+          </td>
+        </tr>
+        <tr
+          class="rcx-box rcx-box--full"
+        >
+          <th
+            class="rcx-box rcx-box--full rcx-css-11in3rj"
+          >
+            active
+          </th>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <label
+                class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-box--animated rcx-input-box__wrapper  active"
+              >
+                <select
+                  aria-label="select"
+                  class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--undecorated rcx-input-box--type-select rcx-input-box  active"
+                  size="1"
+                >
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="a"
+                  >
+                    Item A
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="b"
+                  >
+                    Item B
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="c"
+                  >
+                    Item C
+                  </option>
+                </select>
+                <span
+                  class="rcx-box rcx-box--full rcx-input-box__addon"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-4pvxx3"
+                  >
+                    
+                  </i>
+                </span>
+              </label>
+            </div>
+          </td>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <label
+                class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-box--animated rcx-input-box__wrapper  active"
+              >
+                <select
+                  aria-label="select"
+                  class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--undecorated rcx-input-box--type-select rcx-input-box--placeholder-visible rcx-input-box  active"
+                  size="1"
+                >
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__placeholder"
+                    value=""
+                  >
+                    Placeholder
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="a"
+                  >
+                    Item A
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="b"
+                  >
+                    Item B
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="c"
+                  >
+                    Item C
+                  </option>
+                </select>
+                <span
+                  class="rcx-box rcx-box--full rcx-input-box__addon"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-4pvxx3"
+                  >
+                    
+                  </i>
+                </span>
+              </label>
+            </div>
+          </td>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <label
+                class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-box--animated rcx-input-box__wrapper  active"
+              >
+                <select
+                  aria-label="select"
+                  class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--undecorated rcx-input-box--type-select rcx-input-box  active"
+                  size="1"
+                >
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="a"
+                  >
+                    Item A
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="b"
+                  >
+                    Item B
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="c"
+                  >
+                    Item C
+                  </option>
+                </select>
+                <span
+                  class="rcx-box rcx-box--full rcx-input-box__addon"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-4pvxx3"
+                  >
+                    
+                  </i>
+                </span>
+              </label>
+            </div>
+          </td>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <select
+                aria-label="select"
+                class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--type-select rcx-input-box--multiple rcx-input-box  active rcx-css-f59qpk"
+                multiple=""
+                size="1"
+              >
+                <option
+                  class="rcx-box rcx-box--full rcx-input-box__option"
+                  value="a"
+                >
+                  Item A
+                </option>
+                <option
+                  class="rcx-box rcx-box--full rcx-input-box__option"
+                  value="b"
+                >
+                  Item B
+                </option>
+                <option
+                  class="rcx-box rcx-box--full rcx-input-box__option"
+                  value="c"
+                >
+                  Item C
+                </option>
+              </select>
+            </div>
+          </td>
+        </tr>
+        <tr
+          class="rcx-box rcx-box--full"
+        >
+          <th
+            class="rcx-box rcx-box--full rcx-css-11in3rj"
+          >
+            focus
+          </th>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <label
+                class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-box--animated rcx-input-box__wrapper  focus"
+              >
+                <select
+                  aria-label="select"
+                  class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--undecorated rcx-input-box--type-select rcx-input-box  focus"
+                  size="1"
+                >
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="a"
+                  >
+                    Item A
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="b"
+                  >
+                    Item B
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="c"
+                  >
+                    Item C
+                  </option>
+                </select>
+                <span
+                  class="rcx-box rcx-box--full rcx-input-box__addon"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-4pvxx3"
+                  >
+                    
+                  </i>
+                </span>
+              </label>
+            </div>
+          </td>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <label
+                class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-box--animated rcx-input-box__wrapper  focus"
+              >
+                <select
+                  aria-label="select"
+                  class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--undecorated rcx-input-box--type-select rcx-input-box--placeholder-visible rcx-input-box  focus"
+                  size="1"
+                >
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__placeholder"
+                    value=""
+                  >
+                    Placeholder
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="a"
+                  >
+                    Item A
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="b"
+                  >
+                    Item B
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="c"
+                  >
+                    Item C
+                  </option>
+                </select>
+                <span
+                  class="rcx-box rcx-box--full rcx-input-box__addon"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-4pvxx3"
+                  >
+                    
+                  </i>
+                </span>
+              </label>
+            </div>
+          </td>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <label
+                class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-box--animated rcx-input-box__wrapper  focus"
+              >
+                <select
+                  aria-label="select"
+                  class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--undecorated rcx-input-box--type-select rcx-input-box  focus"
+                  size="1"
+                >
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="a"
+                  >
+                    Item A
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="b"
+                  >
+                    Item B
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="c"
+                  >
+                    Item C
+                  </option>
+                </select>
+                <span
+                  class="rcx-box rcx-box--full rcx-input-box__addon"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-4pvxx3"
+                  >
+                    
+                  </i>
+                </span>
+              </label>
+            </div>
+          </td>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <select
+                aria-label="select"
+                class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--type-select rcx-input-box--multiple rcx-input-box  focus rcx-css-f59qpk"
+                multiple=""
+                size="1"
+              >
+                <option
+                  class="rcx-box rcx-box--full rcx-input-box__option"
+                  value="a"
+                >
+                  Item A
+                </option>
+                <option
+                  class="rcx-box rcx-box--full rcx-input-box__option"
+                  value="b"
+                >
+                  Item B
+                </option>
+                <option
+                  class="rcx-box rcx-box--full rcx-input-box__option"
+                  value="c"
+                >
+                  Item C
+                </option>
+              </select>
+            </div>
+          </td>
+        </tr>
+        <tr
+          class="rcx-box rcx-box--full"
+        >
+          <th
+            class="rcx-box rcx-box--full rcx-css-11in3rj"
+          >
+            disabled
+          </th>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <label
+                class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-box--animated rcx-input-box__wrapper  disabled"
+              >
+                <select
+                  aria-label="select"
+                  class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--undecorated rcx-input-box--type-select rcx-input-box"
+                  disabled=""
+                  size="1"
+                >
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="a"
+                  >
+                    Item A
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="b"
+                  >
+                    Item B
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="c"
+                  >
+                    Item C
+                  </option>
+                </select>
+                <span
+                  class="rcx-box rcx-box--full rcx-input-box__addon"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-4pvxx3"
+                  >
+                    
+                  </i>
+                </span>
+              </label>
+            </div>
+          </td>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <label
+                class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-box--animated rcx-input-box__wrapper  disabled"
+              >
+                <select
+                  aria-label="select"
+                  class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--undecorated rcx-input-box--type-select rcx-input-box--placeholder-visible rcx-input-box"
+                  disabled=""
+                  size="1"
+                >
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__placeholder"
+                    value=""
+                  >
+                    Placeholder
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="a"
+                  >
+                    Item A
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="b"
+                  >
+                    Item B
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="c"
+                  >
+                    Item C
+                  </option>
+                </select>
+                <span
+                  class="rcx-box rcx-box--full rcx-input-box__addon"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-4pvxx3"
+                  >
+                    
+                  </i>
+                </span>
+              </label>
+            </div>
+          </td>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <label
+                class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-box--animated rcx-input-box__wrapper  disabled"
+              >
+                <select
+                  aria-label="select"
+                  class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--undecorated rcx-input-box--type-select rcx-input-box"
+                  disabled=""
+                  size="1"
+                >
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="a"
+                  >
+                    Item A
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="b"
+                  >
+                    Item B
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="c"
+                  >
+                    Item C
+                  </option>
+                </select>
+                <span
+                  class="rcx-box rcx-box--full rcx-input-box__addon"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-4pvxx3"
+                  >
+                    
+                  </i>
+                </span>
+              </label>
+            </div>
+          </td>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <select
+                aria-label="select"
+                class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--type-select rcx-input-box--multiple rcx-input-box rcx-css-f59qpk"
+                disabled=""
+                multiple=""
+                size="1"
+              >
+                <option
+                  class="rcx-box rcx-box--full rcx-input-box__option"
+                  value="a"
+                >
+                  Item A
+                </option>
+                <option
+                  class="rcx-box rcx-box--full rcx-input-box__option"
+                  value="b"
+                >
+                  Item B
+                </option>
+                <option
+                  class="rcx-box rcx-box--full rcx-input-box__option"
+                  value="c"
+                >
+                  Item C
+                </option>
+              </select>
+            </div>
+          </td>
+        </tr>
+        <tr
+          class="rcx-box rcx-box--full"
+        >
+          <th
+            class="rcx-box rcx-box--full rcx-css-11in3rj"
+          >
+            errored
+          </th>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <label
+                class="rcx-box rcx-box--full rcx-label rcx-box--animated rcx-input-box__wrapper invalid"
+              >
+                <select
+                  aria-label="select"
+                  class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--undecorated rcx-input-box--type-select rcx-input-box"
+                  size="1"
+                >
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="a"
+                  >
+                    Item A
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="b"
+                  >
+                    Item B
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="c"
+                  >
+                    Item C
+                  </option>
+                </select>
+                <span
+                  class="rcx-box rcx-box--full rcx-input-box__addon"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-4pvxx3"
+                  >
+                    
+                  </i>
+                </span>
+              </label>
+            </div>
+          </td>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <label
+                class="rcx-box rcx-box--full rcx-label rcx-box--animated rcx-input-box__wrapper invalid"
+              >
+                <select
+                  aria-label="select"
+                  class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--undecorated rcx-input-box--type-select rcx-input-box--placeholder-visible rcx-input-box"
+                  size="1"
+                >
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__placeholder"
+                    value=""
+                  >
+                    Placeholder
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="a"
+                  >
+                    Item A
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="b"
+                  >
+                    Item B
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="c"
+                  >
+                    Item C
+                  </option>
+                </select>
+                <span
+                  class="rcx-box rcx-box--full rcx-input-box__addon"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-4pvxx3"
+                  >
+                    
+                  </i>
+                </span>
+              </label>
+            </div>
+          </td>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <label
+                class="rcx-box rcx-box--full rcx-label rcx-box--animated rcx-input-box__wrapper invalid"
+              >
+                <select
+                  aria-label="select"
+                  class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--undecorated rcx-input-box--type-select rcx-input-box"
+                  size="1"
+                >
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="a"
+                  >
+                    Item A
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="b"
+                  >
+                    Item B
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="c"
+                  >
+                    Item C
+                  </option>
+                </select>
+                <span
+                  class="rcx-box rcx-box--full rcx-input-box__addon"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-4pvxx3"
+                  >
+                    
+                  </i>
+                </span>
+              </label>
+            </div>
+          </td>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <select
+                aria-label="select"
+                class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--type-select rcx-input-box--multiple rcx-input-box rcx-css-f59qpk"
+                multiple=""
+                size="1"
+              >
+                <option
+                  class="rcx-box rcx-box--full rcx-input-box__option"
+                  value="a"
+                >
+                  Item A
+                </option>
+                <option
+                  class="rcx-box rcx-box--full rcx-input-box__option"
+                  value="b"
+                >
+                  Item B
+                </option>
+                <option
+                  class="rcx-box rcx-box--full rcx-input-box__option"
+                  value="c"
+                >
+                  Item C
+                </option>
+              </select>
+            </div>
+          </td>
+        </tr>
+        <tr
+          class="rcx-box rcx-box--full"
+        >
+          <th
+            class="rcx-box rcx-box--full rcx-css-11in3rj"
+          >
+            errored + hover
+          </th>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <label
+                class="rcx-box rcx-box--full rcx-label rcx-box--animated rcx-input-box__wrapper hover invalid"
+              >
+                <select
+                  aria-label="select"
+                  class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--undecorated rcx-input-box--type-select rcx-input-box  hover"
+                  size="1"
+                >
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="a"
+                  >
+                    Item A
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="b"
+                  >
+                    Item B
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="c"
+                  >
+                    Item C
+                  </option>
+                </select>
+                <span
+                  class="rcx-box rcx-box--full rcx-input-box__addon"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-4pvxx3"
+                  >
+                    
+                  </i>
+                </span>
+              </label>
+            </div>
+          </td>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <label
+                class="rcx-box rcx-box--full rcx-label rcx-box--animated rcx-input-box__wrapper hover invalid"
+              >
+                <select
+                  aria-label="select"
+                  class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--undecorated rcx-input-box--type-select rcx-input-box--placeholder-visible rcx-input-box  hover"
+                  size="1"
+                >
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__placeholder"
+                    value=""
+                  >
+                    Placeholder
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="a"
+                  >
+                    Item A
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="b"
+                  >
+                    Item B
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="c"
+                  >
+                    Item C
+                  </option>
+                </select>
+                <span
+                  class="rcx-box rcx-box--full rcx-input-box__addon"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-4pvxx3"
+                  >
+                    
+                  </i>
+                </span>
+              </label>
+            </div>
+          </td>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <label
+                class="rcx-box rcx-box--full rcx-label rcx-box--animated rcx-input-box__wrapper hover invalid"
+              >
+                <select
+                  aria-label="select"
+                  class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--undecorated rcx-input-box--type-select rcx-input-box  hover"
+                  size="1"
+                >
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="a"
+                  >
+                    Item A
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="b"
+                  >
+                    Item B
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="c"
+                  >
+                    Item C
+                  </option>
+                </select>
+                <span
+                  class="rcx-box rcx-box--full rcx-input-box__addon"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-4pvxx3"
+                  >
+                    
+                  </i>
+                </span>
+              </label>
+            </div>
+          </td>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <select
+                aria-label="select"
+                class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--type-select rcx-input-box--multiple rcx-input-box  hover rcx-css-f59qpk"
+                multiple=""
+                size="1"
+              >
+                <option
+                  class="rcx-box rcx-box--full rcx-input-box__option"
+                  value="a"
+                >
+                  Item A
+                </option>
+                <option
+                  class="rcx-box rcx-box--full rcx-input-box__option"
+                  value="b"
+                >
+                  Item B
+                </option>
+                <option
+                  class="rcx-box rcx-box--full rcx-input-box__option"
+                  value="c"
+                >
+                  Item C
+                </option>
+              </select>
+            </div>
+          </td>
+        </tr>
+        <tr
+          class="rcx-box rcx-box--full"
+        >
+          <th
+            class="rcx-box rcx-box--full rcx-css-11in3rj"
+          >
+            errored + active
+          </th>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <label
+                class="rcx-box rcx-box--full rcx-label rcx-box--animated rcx-input-box__wrapper active invalid"
+              >
+                <select
+                  aria-label="select"
+                  class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--undecorated rcx-input-box--type-select rcx-input-box  active"
+                  size="1"
+                >
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="a"
+                  >
+                    Item A
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="b"
+                  >
+                    Item B
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="c"
+                  >
+                    Item C
+                  </option>
+                </select>
+                <span
+                  class="rcx-box rcx-box--full rcx-input-box__addon"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-4pvxx3"
+                  >
+                    
+                  </i>
+                </span>
+              </label>
+            </div>
+          </td>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <label
+                class="rcx-box rcx-box--full rcx-label rcx-box--animated rcx-input-box__wrapper active invalid"
+              >
+                <select
+                  aria-label="select"
+                  class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--undecorated rcx-input-box--type-select rcx-input-box--placeholder-visible rcx-input-box  active"
+                  size="1"
+                >
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__placeholder"
+                    value=""
+                  >
+                    Placeholder
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="a"
+                  >
+                    Item A
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="b"
+                  >
+                    Item B
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="c"
+                  >
+                    Item C
+                  </option>
+                </select>
+                <span
+                  class="rcx-box rcx-box--full rcx-input-box__addon"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-4pvxx3"
+                  >
+                    
+                  </i>
+                </span>
+              </label>
+            </div>
+          </td>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <label
+                class="rcx-box rcx-box--full rcx-label rcx-box--animated rcx-input-box__wrapper active invalid"
+              >
+                <select
+                  aria-label="select"
+                  class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--undecorated rcx-input-box--type-select rcx-input-box  active"
+                  size="1"
+                >
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="a"
+                  >
+                    Item A
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="b"
+                  >
+                    Item B
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="c"
+                  >
+                    Item C
+                  </option>
+                </select>
+                <span
+                  class="rcx-box rcx-box--full rcx-input-box__addon"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-4pvxx3"
+                  >
+                    
+                  </i>
+                </span>
+              </label>
+            </div>
+          </td>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <select
+                aria-label="select"
+                class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--type-select rcx-input-box--multiple rcx-input-box  active rcx-css-f59qpk"
+                multiple=""
+                size="1"
+              >
+                <option
+                  class="rcx-box rcx-box--full rcx-input-box__option"
+                  value="a"
+                >
+                  Item A
+                </option>
+                <option
+                  class="rcx-box rcx-box--full rcx-input-box__option"
+                  value="b"
+                >
+                  Item B
+                </option>
+                <option
+                  class="rcx-box rcx-box--full rcx-input-box__option"
+                  value="c"
+                >
+                  Item C
+                </option>
+              </select>
+            </div>
+          </td>
+        </tr>
+        <tr
+          class="rcx-box rcx-box--full"
+        >
+          <th
+            class="rcx-box rcx-box--full rcx-css-11in3rj"
+          >
+            errored + focus
+          </th>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <label
+                class="rcx-box rcx-box--full rcx-label rcx-box--animated rcx-input-box__wrapper focus invalid"
+              >
+                <select
+                  aria-label="select"
+                  class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--undecorated rcx-input-box--type-select rcx-input-box  focus"
+                  size="1"
+                >
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="a"
+                  >
+                    Item A
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="b"
+                  >
+                    Item B
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="c"
+                  >
+                    Item C
+                  </option>
+                </select>
+                <span
+                  class="rcx-box rcx-box--full rcx-input-box__addon"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-4pvxx3"
+                  >
+                    
+                  </i>
+                </span>
+              </label>
+            </div>
+          </td>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <label
+                class="rcx-box rcx-box--full rcx-label rcx-box--animated rcx-input-box__wrapper focus invalid"
+              >
+                <select
+                  aria-label="select"
+                  class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--undecorated rcx-input-box--type-select rcx-input-box--placeholder-visible rcx-input-box  focus"
+                  size="1"
+                >
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__placeholder"
+                    value=""
+                  >
+                    Placeholder
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="a"
+                  >
+                    Item A
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="b"
+                  >
+                    Item B
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="c"
+                  >
+                    Item C
+                  </option>
+                </select>
+                <span
+                  class="rcx-box rcx-box--full rcx-input-box__addon"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-4pvxx3"
+                  >
+                    
+                  </i>
+                </span>
+              </label>
+            </div>
+          </td>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <label
+                class="rcx-box rcx-box--full rcx-label rcx-box--animated rcx-input-box__wrapper focus invalid"
+              >
+                <select
+                  aria-label="select"
+                  class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--undecorated rcx-input-box--type-select rcx-input-box  focus"
+                  size="1"
+                >
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="a"
+                  >
+                    Item A
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="b"
+                  >
+                    Item B
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="c"
+                  >
+                    Item C
+                  </option>
+                </select>
+                <span
+                  class="rcx-box rcx-box--full rcx-input-box__addon"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-4pvxx3"
+                  >
+                    
+                  </i>
+                </span>
+              </label>
+            </div>
+          </td>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <select
+                aria-label="select"
+                class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--type-select rcx-input-box--multiple rcx-input-box  focus rcx-css-f59qpk"
+                multiple=""
+                size="1"
+              >
+                <option
+                  class="rcx-box rcx-box--full rcx-input-box__option"
+                  value="a"
+                >
+                  Item A
+                </option>
+                <option
+                  class="rcx-box rcx-box--full rcx-input-box__option"
+                  value="b"
+                >
+                  Item B
+                </option>
+                <option
+                  class="rcx-box rcx-box--full rcx-input-box__option"
+                  value="c"
+                >
+                  Item C
+                </option>
+              </select>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <table
+      class="rcx-box rcx-box--full rcx-css-1s3wr6b"
+      style="border-collapse: collapse;"
+    >
+      <thead
+        class="rcx-box rcx-box--full"
+      >
+        <tr
+          class="rcx-box rcx-box--full"
+        >
+          <td
+            aria-hidden="true"
+            class="rcx-box rcx-box--full"
+          />
+          <th
+            class="rcx-box rcx-box--full rcx-css-11in3rj"
+          >
+            small
+          </th>
+          <th
+            class="rcx-box rcx-box--full rcx-css-11in3rj"
+          >
+            with placeholder
+          </th>
+          <th
+            class="rcx-box rcx-box--full rcx-css-11in3rj"
+          >
+            with value
+          </th>
+          <th
+            class="rcx-box rcx-box--full rcx-css-11in3rj"
+          >
+            multiple
+          </th>
+        </tr>
+      </thead>
+      <tbody
+        class="rcx-box rcx-box--full"
+      >
+        <tr
+          class="rcx-box rcx-box--full"
+        >
+          <th
+            class="rcx-box rcx-box--full rcx-css-11in3rj"
+          >
+            small
+          </th>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <label
+                class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-box--animated rcx-input-box__wrapper"
+              >
+                <select
+                  aria-label="select"
+                  class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--small rcx-input-box--undecorated rcx-input-box--type-select rcx-input-box"
+                  size="1"
+                >
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="a"
+                  >
+                    Item A
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="b"
+                  >
+                    Item B
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="c"
+                  >
+                    Item C
+                  </option>
+                </select>
+                <span
+                  class="rcx-box rcx-box--full rcx-input-box__addon"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-4pvxx3"
+                  >
+                    
+                  </i>
+                </span>
+              </label>
+            </div>
+          </td>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <label
+                class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-box--animated rcx-input-box__wrapper"
+              >
+                <select
+                  aria-label="select"
+                  class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--small rcx-input-box--undecorated rcx-input-box--type-select rcx-input-box--placeholder-visible rcx-input-box"
+                  size="1"
+                >
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__placeholder"
+                    value=""
+                  >
+                    Placeholder
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="a"
+                  >
+                    Item A
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="b"
+                  >
+                    Item B
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="c"
+                  >
+                    Item C
+                  </option>
+                </select>
+                <span
+                  class="rcx-box rcx-box--full rcx-input-box__addon"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-4pvxx3"
+                  >
+                    
+                  </i>
+                </span>
+              </label>
+            </div>
+          </td>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <label
+                class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-box--animated rcx-input-box__wrapper"
+              >
+                <select
+                  aria-label="select"
+                  class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--small rcx-input-box--undecorated rcx-input-box--type-select rcx-input-box"
+                  size="1"
+                >
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="a"
+                  >
+                    Item A
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="b"
+                  >
+                    Item B
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="c"
+                  >
+                    Item C
+                  </option>
+                </select>
+                <span
+                  class="rcx-box rcx-box--full rcx-input-box__addon"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-4pvxx3"
+                  >
+                    
+                  </i>
+                </span>
+              </label>
+            </div>
+          </td>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <select
+                aria-label="select"
+                class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--small rcx-input-box--type-select rcx-input-box--multiple rcx-input-box rcx-css-f59qpk"
+                multiple=""
+                size="1"
+              >
+                <option
+                  class="rcx-box rcx-box--full rcx-input-box__option"
+                  value="a"
+                >
+                  Item A
+                </option>
+                <option
+                  class="rcx-box rcx-box--full rcx-input-box__option"
+                  value="b"
+                >
+                  Item B
+                </option>
+                <option
+                  class="rcx-box rcx-box--full rcx-input-box__option"
+                  value="c"
+                >
+                  Item C
+                </option>
+              </select>
+            </div>
+          </td>
+        </tr>
+        <tr
+          class="rcx-box rcx-box--full"
+        >
+          <th
+            class="rcx-box rcx-box--full rcx-css-11in3rj"
+          >
+            hover
+          </th>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <label
+                class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-box--animated rcx-input-box__wrapper  hover"
+              >
+                <select
+                  aria-label="select"
+                  class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--small rcx-input-box--undecorated rcx-input-box--type-select rcx-input-box  hover"
+                  size="1"
+                >
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="a"
+                  >
+                    Item A
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="b"
+                  >
+                    Item B
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="c"
+                  >
+                    Item C
+                  </option>
+                </select>
+                <span
+                  class="rcx-box rcx-box--full rcx-input-box__addon"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-4pvxx3"
+                  >
+                    
+                  </i>
+                </span>
+              </label>
+            </div>
+          </td>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <label
+                class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-box--animated rcx-input-box__wrapper  hover"
+              >
+                <select
+                  aria-label="select"
+                  class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--small rcx-input-box--undecorated rcx-input-box--type-select rcx-input-box--placeholder-visible rcx-input-box  hover"
+                  size="1"
+                >
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__placeholder"
+                    value=""
+                  >
+                    Placeholder
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="a"
+                  >
+                    Item A
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="b"
+                  >
+                    Item B
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="c"
+                  >
+                    Item C
+                  </option>
+                </select>
+                <span
+                  class="rcx-box rcx-box--full rcx-input-box__addon"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-4pvxx3"
+                  >
+                    
+                  </i>
+                </span>
+              </label>
+            </div>
+          </td>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <label
+                class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-box--animated rcx-input-box__wrapper  hover"
+              >
+                <select
+                  aria-label="select"
+                  class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--small rcx-input-box--undecorated rcx-input-box--type-select rcx-input-box  hover"
+                  size="1"
+                >
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="a"
+                  >
+                    Item A
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="b"
+                  >
+                    Item B
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="c"
+                  >
+                    Item C
+                  </option>
+                </select>
+                <span
+                  class="rcx-box rcx-box--full rcx-input-box__addon"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-4pvxx3"
+                  >
+                    
+                  </i>
+                </span>
+              </label>
+            </div>
+          </td>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <select
+                aria-label="select"
+                class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--small rcx-input-box--type-select rcx-input-box--multiple rcx-input-box  hover rcx-css-f59qpk"
+                multiple=""
+                size="1"
+              >
+                <option
+                  class="rcx-box rcx-box--full rcx-input-box__option"
+                  value="a"
+                >
+                  Item A
+                </option>
+                <option
+                  class="rcx-box rcx-box--full rcx-input-box__option"
+                  value="b"
+                >
+                  Item B
+                </option>
+                <option
+                  class="rcx-box rcx-box--full rcx-input-box__option"
+                  value="c"
+                >
+                  Item C
+                </option>
+              </select>
+            </div>
+          </td>
+        </tr>
+        <tr
+          class="rcx-box rcx-box--full"
+        >
+          <th
+            class="rcx-box rcx-box--full rcx-css-11in3rj"
+          >
+            active
+          </th>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <label
+                class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-box--animated rcx-input-box__wrapper  active"
+              >
+                <select
+                  aria-label="select"
+                  class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--small rcx-input-box--undecorated rcx-input-box--type-select rcx-input-box  active"
+                  size="1"
+                >
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="a"
+                  >
+                    Item A
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="b"
+                  >
+                    Item B
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="c"
+                  >
+                    Item C
+                  </option>
+                </select>
+                <span
+                  class="rcx-box rcx-box--full rcx-input-box__addon"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-4pvxx3"
+                  >
+                    
+                  </i>
+                </span>
+              </label>
+            </div>
+          </td>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <label
+                class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-box--animated rcx-input-box__wrapper  active"
+              >
+                <select
+                  aria-label="select"
+                  class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--small rcx-input-box--undecorated rcx-input-box--type-select rcx-input-box--placeholder-visible rcx-input-box  active"
+                  size="1"
+                >
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__placeholder"
+                    value=""
+                  >
+                    Placeholder
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="a"
+                  >
+                    Item A
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="b"
+                  >
+                    Item B
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="c"
+                  >
+                    Item C
+                  </option>
+                </select>
+                <span
+                  class="rcx-box rcx-box--full rcx-input-box__addon"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-4pvxx3"
+                  >
+                    
+                  </i>
+                </span>
+              </label>
+            </div>
+          </td>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <label
+                class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-box--animated rcx-input-box__wrapper  active"
+              >
+                <select
+                  aria-label="select"
+                  class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--small rcx-input-box--undecorated rcx-input-box--type-select rcx-input-box  active"
+                  size="1"
+                >
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="a"
+                  >
+                    Item A
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="b"
+                  >
+                    Item B
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="c"
+                  >
+                    Item C
+                  </option>
+                </select>
+                <span
+                  class="rcx-box rcx-box--full rcx-input-box__addon"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-4pvxx3"
+                  >
+                    
+                  </i>
+                </span>
+              </label>
+            </div>
+          </td>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <select
+                aria-label="select"
+                class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--small rcx-input-box--type-select rcx-input-box--multiple rcx-input-box  active rcx-css-f59qpk"
+                multiple=""
+                size="1"
+              >
+                <option
+                  class="rcx-box rcx-box--full rcx-input-box__option"
+                  value="a"
+                >
+                  Item A
+                </option>
+                <option
+                  class="rcx-box rcx-box--full rcx-input-box__option"
+                  value="b"
+                >
+                  Item B
+                </option>
+                <option
+                  class="rcx-box rcx-box--full rcx-input-box__option"
+                  value="c"
+                >
+                  Item C
+                </option>
+              </select>
+            </div>
+          </td>
+        </tr>
+        <tr
+          class="rcx-box rcx-box--full"
+        >
+          <th
+            class="rcx-box rcx-box--full rcx-css-11in3rj"
+          >
+            focus
+          </th>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <label
+                class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-box--animated rcx-input-box__wrapper  focus"
+              >
+                <select
+                  aria-label="select"
+                  class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--small rcx-input-box--undecorated rcx-input-box--type-select rcx-input-box  focus"
+                  size="1"
+                >
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="a"
+                  >
+                    Item A
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="b"
+                  >
+                    Item B
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="c"
+                  >
+                    Item C
+                  </option>
+                </select>
+                <span
+                  class="rcx-box rcx-box--full rcx-input-box__addon"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-4pvxx3"
+                  >
+                    
+                  </i>
+                </span>
+              </label>
+            </div>
+          </td>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <label
+                class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-box--animated rcx-input-box__wrapper  focus"
+              >
+                <select
+                  aria-label="select"
+                  class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--small rcx-input-box--undecorated rcx-input-box--type-select rcx-input-box--placeholder-visible rcx-input-box  focus"
+                  size="1"
+                >
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__placeholder"
+                    value=""
+                  >
+                    Placeholder
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="a"
+                  >
+                    Item A
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="b"
+                  >
+                    Item B
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="c"
+                  >
+                    Item C
+                  </option>
+                </select>
+                <span
+                  class="rcx-box rcx-box--full rcx-input-box__addon"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-4pvxx3"
+                  >
+                    
+                  </i>
+                </span>
+              </label>
+            </div>
+          </td>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <label
+                class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-box--animated rcx-input-box__wrapper  focus"
+              >
+                <select
+                  aria-label="select"
+                  class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--small rcx-input-box--undecorated rcx-input-box--type-select rcx-input-box  focus"
+                  size="1"
+                >
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="a"
+                  >
+                    Item A
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="b"
+                  >
+                    Item B
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="c"
+                  >
+                    Item C
+                  </option>
+                </select>
+                <span
+                  class="rcx-box rcx-box--full rcx-input-box__addon"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-4pvxx3"
+                  >
+                    
+                  </i>
+                </span>
+              </label>
+            </div>
+          </td>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <select
+                aria-label="select"
+                class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--small rcx-input-box--type-select rcx-input-box--multiple rcx-input-box  focus rcx-css-f59qpk"
+                multiple=""
+                size="1"
+              >
+                <option
+                  class="rcx-box rcx-box--full rcx-input-box__option"
+                  value="a"
+                >
+                  Item A
+                </option>
+                <option
+                  class="rcx-box rcx-box--full rcx-input-box__option"
+                  value="b"
+                >
+                  Item B
+                </option>
+                <option
+                  class="rcx-box rcx-box--full rcx-input-box__option"
+                  value="c"
+                >
+                  Item C
+                </option>
+              </select>
+            </div>
+          </td>
+        </tr>
+        <tr
+          class="rcx-box rcx-box--full"
+        >
+          <th
+            class="rcx-box rcx-box--full rcx-css-11in3rj"
+          >
+            disabled
+          </th>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <label
+                class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-box--animated rcx-input-box__wrapper  disabled"
+              >
+                <select
+                  aria-label="select"
+                  class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--small rcx-input-box--undecorated rcx-input-box--type-select rcx-input-box"
+                  disabled=""
+                  size="1"
+                >
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="a"
+                  >
+                    Item A
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="b"
+                  >
+                    Item B
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="c"
+                  >
+                    Item C
+                  </option>
+                </select>
+                <span
+                  class="rcx-box rcx-box--full rcx-input-box__addon"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-4pvxx3"
+                  >
+                    
+                  </i>
+                </span>
+              </label>
+            </div>
+          </td>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <label
+                class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-box--animated rcx-input-box__wrapper  disabled"
+              >
+                <select
+                  aria-label="select"
+                  class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--small rcx-input-box--undecorated rcx-input-box--type-select rcx-input-box--placeholder-visible rcx-input-box"
+                  disabled=""
+                  size="1"
+                >
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__placeholder"
+                    value=""
+                  >
+                    Placeholder
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="a"
+                  >
+                    Item A
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="b"
+                  >
+                    Item B
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="c"
+                  >
+                    Item C
+                  </option>
+                </select>
+                <span
+                  class="rcx-box rcx-box--full rcx-input-box__addon"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-4pvxx3"
+                  >
+                    
+                  </i>
+                </span>
+              </label>
+            </div>
+          </td>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <label
+                class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-box--animated rcx-input-box__wrapper  disabled"
+              >
+                <select
+                  aria-label="select"
+                  class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--small rcx-input-box--undecorated rcx-input-box--type-select rcx-input-box"
+                  disabled=""
+                  size="1"
+                >
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="a"
+                  >
+                    Item A
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="b"
+                  >
+                    Item B
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="c"
+                  >
+                    Item C
+                  </option>
+                </select>
+                <span
+                  class="rcx-box rcx-box--full rcx-input-box__addon"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-4pvxx3"
+                  >
+                    
+                  </i>
+                </span>
+              </label>
+            </div>
+          </td>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <select
+                aria-label="select"
+                class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--small rcx-input-box--type-select rcx-input-box--multiple rcx-input-box rcx-css-f59qpk"
+                disabled=""
+                multiple=""
+                size="1"
+              >
+                <option
+                  class="rcx-box rcx-box--full rcx-input-box__option"
+                  value="a"
+                >
+                  Item A
+                </option>
+                <option
+                  class="rcx-box rcx-box--full rcx-input-box__option"
+                  value="b"
+                >
+                  Item B
+                </option>
+                <option
+                  class="rcx-box rcx-box--full rcx-input-box__option"
+                  value="c"
+                >
+                  Item C
+                </option>
+              </select>
+            </div>
+          </td>
+        </tr>
+        <tr
+          class="rcx-box rcx-box--full"
+        >
+          <th
+            class="rcx-box rcx-box--full rcx-css-11in3rj"
+          >
+            errored
+          </th>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <label
+                class="rcx-box rcx-box--full rcx-label rcx-box--animated rcx-input-box__wrapper invalid"
+              >
+                <select
+                  aria-label="select"
+                  class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--small rcx-input-box--undecorated rcx-input-box--type-select rcx-input-box"
+                  size="1"
+                >
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="a"
+                  >
+                    Item A
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="b"
+                  >
+                    Item B
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="c"
+                  >
+                    Item C
+                  </option>
+                </select>
+                <span
+                  class="rcx-box rcx-box--full rcx-input-box__addon"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-4pvxx3"
+                  >
+                    
+                  </i>
+                </span>
+              </label>
+            </div>
+          </td>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <label
+                class="rcx-box rcx-box--full rcx-label rcx-box--animated rcx-input-box__wrapper invalid"
+              >
+                <select
+                  aria-label="select"
+                  class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--small rcx-input-box--undecorated rcx-input-box--type-select rcx-input-box--placeholder-visible rcx-input-box"
+                  size="1"
+                >
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__placeholder"
+                    value=""
+                  >
+                    Placeholder
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="a"
+                  >
+                    Item A
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="b"
+                  >
+                    Item B
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="c"
+                  >
+                    Item C
+                  </option>
+                </select>
+                <span
+                  class="rcx-box rcx-box--full rcx-input-box__addon"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-4pvxx3"
+                  >
+                    
+                  </i>
+                </span>
+              </label>
+            </div>
+          </td>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <label
+                class="rcx-box rcx-box--full rcx-label rcx-box--animated rcx-input-box__wrapper invalid"
+              >
+                <select
+                  aria-label="select"
+                  class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--small rcx-input-box--undecorated rcx-input-box--type-select rcx-input-box"
+                  size="1"
+                >
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="a"
+                  >
+                    Item A
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="b"
+                  >
+                    Item B
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="c"
+                  >
+                    Item C
+                  </option>
+                </select>
+                <span
+                  class="rcx-box rcx-box--full rcx-input-box__addon"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-4pvxx3"
+                  >
+                    
+                  </i>
+                </span>
+              </label>
+            </div>
+          </td>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <select
+                aria-label="select"
+                class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--small rcx-input-box--type-select rcx-input-box--multiple rcx-input-box rcx-css-f59qpk"
+                multiple=""
+                size="1"
+              >
+                <option
+                  class="rcx-box rcx-box--full rcx-input-box__option"
+                  value="a"
+                >
+                  Item A
+                </option>
+                <option
+                  class="rcx-box rcx-box--full rcx-input-box__option"
+                  value="b"
+                >
+                  Item B
+                </option>
+                <option
+                  class="rcx-box rcx-box--full rcx-input-box__option"
+                  value="c"
+                >
+                  Item C
+                </option>
+              </select>
+            </div>
+          </td>
+        </tr>
+        <tr
+          class="rcx-box rcx-box--full"
+        >
+          <th
+            class="rcx-box rcx-box--full rcx-css-11in3rj"
+          >
+            errored + hover
+          </th>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <label
+                class="rcx-box rcx-box--full rcx-label rcx-box--animated rcx-input-box__wrapper hover invalid"
+              >
+                <select
+                  aria-label="select"
+                  class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--small rcx-input-box--undecorated rcx-input-box--type-select rcx-input-box  hover"
+                  size="1"
+                >
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="a"
+                  >
+                    Item A
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="b"
+                  >
+                    Item B
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="c"
+                  >
+                    Item C
+                  </option>
+                </select>
+                <span
+                  class="rcx-box rcx-box--full rcx-input-box__addon"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-4pvxx3"
+                  >
+                    
+                  </i>
+                </span>
+              </label>
+            </div>
+          </td>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <label
+                class="rcx-box rcx-box--full rcx-label rcx-box--animated rcx-input-box__wrapper hover invalid"
+              >
+                <select
+                  aria-label="select"
+                  class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--small rcx-input-box--undecorated rcx-input-box--type-select rcx-input-box--placeholder-visible rcx-input-box  hover"
+                  size="1"
+                >
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__placeholder"
+                    value=""
+                  >
+                    Placeholder
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="a"
+                  >
+                    Item A
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="b"
+                  >
+                    Item B
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="c"
+                  >
+                    Item C
+                  </option>
+                </select>
+                <span
+                  class="rcx-box rcx-box--full rcx-input-box__addon"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-4pvxx3"
+                  >
+                    
+                  </i>
+                </span>
+              </label>
+            </div>
+          </td>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <label
+                class="rcx-box rcx-box--full rcx-label rcx-box--animated rcx-input-box__wrapper hover invalid"
+              >
+                <select
+                  aria-label="select"
+                  class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--small rcx-input-box--undecorated rcx-input-box--type-select rcx-input-box  hover"
+                  size="1"
+                >
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="a"
+                  >
+                    Item A
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="b"
+                  >
+                    Item B
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="c"
+                  >
+                    Item C
+                  </option>
+                </select>
+                <span
+                  class="rcx-box rcx-box--full rcx-input-box__addon"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-4pvxx3"
+                  >
+                    
+                  </i>
+                </span>
+              </label>
+            </div>
+          </td>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <select
+                aria-label="select"
+                class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--small rcx-input-box--type-select rcx-input-box--multiple rcx-input-box  hover rcx-css-f59qpk"
+                multiple=""
+                size="1"
+              >
+                <option
+                  class="rcx-box rcx-box--full rcx-input-box__option"
+                  value="a"
+                >
+                  Item A
+                </option>
+                <option
+                  class="rcx-box rcx-box--full rcx-input-box__option"
+                  value="b"
+                >
+                  Item B
+                </option>
+                <option
+                  class="rcx-box rcx-box--full rcx-input-box__option"
+                  value="c"
+                >
+                  Item C
+                </option>
+              </select>
+            </div>
+          </td>
+        </tr>
+        <tr
+          class="rcx-box rcx-box--full"
+        >
+          <th
+            class="rcx-box rcx-box--full rcx-css-11in3rj"
+          >
+            errored + active
+          </th>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <label
+                class="rcx-box rcx-box--full rcx-label rcx-box--animated rcx-input-box__wrapper active invalid"
+              >
+                <select
+                  aria-label="select"
+                  class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--small rcx-input-box--undecorated rcx-input-box--type-select rcx-input-box  active"
+                  size="1"
+                >
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="a"
+                  >
+                    Item A
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="b"
+                  >
+                    Item B
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="c"
+                  >
+                    Item C
+                  </option>
+                </select>
+                <span
+                  class="rcx-box rcx-box--full rcx-input-box__addon"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-4pvxx3"
+                  >
+                    
+                  </i>
+                </span>
+              </label>
+            </div>
+          </td>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <label
+                class="rcx-box rcx-box--full rcx-label rcx-box--animated rcx-input-box__wrapper active invalid"
+              >
+                <select
+                  aria-label="select"
+                  class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--small rcx-input-box--undecorated rcx-input-box--type-select rcx-input-box--placeholder-visible rcx-input-box  active"
+                  size="1"
+                >
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__placeholder"
+                    value=""
+                  >
+                    Placeholder
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="a"
+                  >
+                    Item A
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="b"
+                  >
+                    Item B
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="c"
+                  >
+                    Item C
+                  </option>
+                </select>
+                <span
+                  class="rcx-box rcx-box--full rcx-input-box__addon"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-4pvxx3"
+                  >
+                    
+                  </i>
+                </span>
+              </label>
+            </div>
+          </td>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <label
+                class="rcx-box rcx-box--full rcx-label rcx-box--animated rcx-input-box__wrapper active invalid"
+              >
+                <select
+                  aria-label="select"
+                  class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--small rcx-input-box--undecorated rcx-input-box--type-select rcx-input-box  active"
+                  size="1"
+                >
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="a"
+                  >
+                    Item A
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="b"
+                  >
+                    Item B
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="c"
+                  >
+                    Item C
+                  </option>
+                </select>
+                <span
+                  class="rcx-box rcx-box--full rcx-input-box__addon"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-4pvxx3"
+                  >
+                    
+                  </i>
+                </span>
+              </label>
+            </div>
+          </td>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <select
+                aria-label="select"
+                class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--small rcx-input-box--type-select rcx-input-box--multiple rcx-input-box  active rcx-css-f59qpk"
+                multiple=""
+                size="1"
+              >
+                <option
+                  class="rcx-box rcx-box--full rcx-input-box__option"
+                  value="a"
+                >
+                  Item A
+                </option>
+                <option
+                  class="rcx-box rcx-box--full rcx-input-box__option"
+                  value="b"
+                >
+                  Item B
+                </option>
+                <option
+                  class="rcx-box rcx-box--full rcx-input-box__option"
+                  value="c"
+                >
+                  Item C
+                </option>
+              </select>
+            </div>
+          </td>
+        </tr>
+        <tr
+          class="rcx-box rcx-box--full"
+        >
+          <th
+            class="rcx-box rcx-box--full rcx-css-11in3rj"
+          >
+            errored + focus
+          </th>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <label
+                class="rcx-box rcx-box--full rcx-label rcx-box--animated rcx-input-box__wrapper focus invalid"
+              >
+                <select
+                  aria-label="select"
+                  class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--small rcx-input-box--undecorated rcx-input-box--type-select rcx-input-box  focus"
+                  size="1"
+                >
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="a"
+                  >
+                    Item A
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="b"
+                  >
+                    Item B
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="c"
+                  >
+                    Item C
+                  </option>
+                </select>
+                <span
+                  class="rcx-box rcx-box--full rcx-input-box__addon"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-4pvxx3"
+                  >
+                    
+                  </i>
+                </span>
+              </label>
+            </div>
+          </td>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <label
+                class="rcx-box rcx-box--full rcx-label rcx-box--animated rcx-input-box__wrapper focus invalid"
+              >
+                <select
+                  aria-label="select"
+                  class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--small rcx-input-box--undecorated rcx-input-box--type-select rcx-input-box--placeholder-visible rcx-input-box  focus"
+                  size="1"
+                >
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__placeholder"
+                    value=""
+                  >
+                    Placeholder
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="a"
+                  >
+                    Item A
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="b"
+                  >
+                    Item B
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="c"
+                  >
+                    Item C
+                  </option>
+                </select>
+                <span
+                  class="rcx-box rcx-box--full rcx-input-box__addon"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-4pvxx3"
+                  >
+                    
+                  </i>
+                </span>
+              </label>
+            </div>
+          </td>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <label
+                class="rcx-box rcx-box--full rcx-label rcx-box--animated rcx-input-box__wrapper focus invalid"
+              >
+                <select
+                  aria-label="select"
+                  class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--small rcx-input-box--undecorated rcx-input-box--type-select rcx-input-box  focus"
+                  size="1"
+                >
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="a"
+                  >
+                    Item A
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="b"
+                  >
+                    Item B
+                  </option>
+                  <option
+                    class="rcx-box rcx-box--full rcx-input-box__option"
+                    value="c"
+                  >
+                    Item C
+                  </option>
+                </select>
+                <span
+                  class="rcx-box rcx-box--full rcx-input-box__addon"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-4pvxx3"
+                  >
+                    
+                  </i>
+                </span>
+              </label>
+            </div>
+          </td>
+          <td
+            class="rcx-box rcx-box--full rcx-css-yoolx6"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-7rd89h"
+            >
+              <select
+                aria-label="select"
+                class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--small rcx-input-box--type-select rcx-input-box--multiple rcx-input-box  focus rcx-css-f59qpk"
+                multiple=""
+                size="1"
+              >
+                <option
+                  class="rcx-box rcx-box--full rcx-input-box__option"
+                  value="a"
+                >
+                  Item A
+                </option>
+                <option
+                  class="rcx-box rcx-box--full rcx-input-box__option"
+                  value="b"
+                >
+                  Item B
+                </option>
+                <option
+                  class="rcx-box rcx-box--full rcx-input-box__option"
+                  value="c"
+                >
+                  Item C
+                </option>
+              </select>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+`;
+
+exports[`[SelectInput Component] renders WithAddon without crashing 1`] = `
+<body>
+  <div>
+    <label
+      class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-box--animated rcx-input-box__wrapper"
+    >
+      <select
+        aria-label="select"
+        class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--undecorated rcx-input-box--type-select rcx-input-box"
+        size="1"
+      >
+        <option
+          class="rcx-box rcx-box--full rcx-input-box__option"
+          value="a"
+        >
+          Item A
+        </option>
+        <option
+          class="rcx-box rcx-box--full rcx-input-box__option"
+          value="b"
+        >
+          Item B
+        </option>
+        <option
+          class="rcx-box rcx-box--full rcx-input-box__option"
+          value="c"
+        >
+          Item C
+        </option>
+      </select>
+      <span
+        class="rcx-box rcx-box--full rcx-input-box__addon"
+      >
+        <i
+          aria-hidden="true"
+          class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-4pvxx3"
+        >
+          
+        </i>
+      </span>
+    </label>
+  </div>
+</body>
+`;
+
+exports[`[SelectInput Component] renders WithPlaceholder without crashing 1`] = `
+<body>
+  <div>
+    <label
+      class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-box--animated rcx-input-box__wrapper"
+    >
+      <select
+        aria-label="select"
+        class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--undecorated rcx-input-box--type-select rcx-input-box--placeholder-visible rcx-input-box"
+        size="1"
+      >
+        <option
+          class="rcx-box rcx-box--full rcx-input-box__placeholder"
+          value=""
+        >
+          Placeholder
+        </option>
+        <option
+          class="rcx-box rcx-box--full rcx-input-box__option"
+          value="a"
+        >
+          Item A
+        </option>
+        <option
+          class="rcx-box rcx-box--full rcx-input-box__option"
+          value="b"
+        >
+          Item B
+        </option>
+        <option
+          class="rcx-box rcx-box--full rcx-input-box__option"
+          value="c"
+        >
+          Item C
+        </option>
+      </select>
+      <span
+        class="rcx-box rcx-box--full rcx-input-box__addon"
+      >
+        <i
+          aria-hidden="true"
+          class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-4pvxx3"
+        >
+          
+        </i>
+      </span>
+    </label>
+  </div>
+</body>
+`;
+
+exports[`[SelectInput Component] renders WithValue without crashing 1`] = `
+<body>
+  <div>
+    <label
+      class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-box--animated rcx-input-box__wrapper"
+    >
+      <select
+        aria-label="select"
+        class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--undecorated rcx-input-box--type-select rcx-input-box"
+        size="1"
+      >
+        <option
+          class="rcx-box rcx-box--full rcx-input-box__option"
+          value="a"
+        >
+          Item A
+        </option>
+        <option
+          class="rcx-box rcx-box--full rcx-input-box__option"
+          selected=""
+          value="b"
+        >
+          Item B
+        </option>
+        <option
+          class="rcx-box rcx-box--full rcx-input-box__option"
+          value="c"
+        >
+          Item C
+        </option>
+      </select>
+      <span
+        class="rcx-box rcx-box--full rcx-input-box__addon"
+      >
+        <i
+          aria-hidden="true"
+          class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-4pvxx3"
+        >
+          
+        </i>
+      </span>
+    </label>
+  </div>
+</body>
+`;

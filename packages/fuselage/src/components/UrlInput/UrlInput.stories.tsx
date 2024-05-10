@@ -1,7 +1,8 @@
+import type { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 
 import { Icon, UrlInput } from '../..';
-import PropsVariation from '../../.storybook/PropsVariation';
+import { PropsVariationSection } from '../../../.storybook/helpers';
 
 export default {
   title: 'Inputs/UrlInput',
@@ -9,27 +10,33 @@ export default {
   parameters: {
     jest: ['UrlInput.spec.tsx'],
   },
-};
+} as ComponentMeta<typeof UrlInput>;
 
-export const Default = () => <UrlInput />;
-
-export const WithIconAddon = () => (
-  <UrlInput addon={<Icon name='send' size='x20' />} />
+export const Default: ComponentStory<typeof UrlInput> = () => (
+  <UrlInput aria-label='url' />
 );
 
-export const Invalid = () => <UrlInput error='Error' />;
+export const WithIconAddon = () => (
+  <UrlInput aria-label='url' addon={<Icon name='send' size='x20' />} />
+);
 
-export const Disabled = () => <UrlInput disabled />;
+export const Invalid = () => <UrlInput aria-label='url' error='Error' />;
 
-export const WithPlaceholder = () => <UrlInput placeholder='Placeholder' />;
+export const Disabled = () => <UrlInput aria-label='url' disabled />;
 
-export const WithValue = () => <UrlInput defaultValue='https://rocket.chat' />;
+export const WithPlaceholder = () => (
+  <UrlInput aria-label='url' placeholder='Placeholder' />
+);
+
+export const WithValue = () => (
+  <UrlInput aria-label='url' defaultValue='https://rocket.chat' />
+);
 
 export const States = () => (
   <>
-    <PropsVariation
+    <PropsVariationSection
       component={UrlInput}
-      common={{ onChange: () => undefined }}
+      common={{ 'onChange': () => undefined, 'aria-label': 'url' }}
       xAxis={{
         'default': {},
         'with placeholder': { placeholder: 'Placeholder' },
@@ -51,9 +58,13 @@ export const States = () => (
         'errored + focus': { className: 'focus', error: 'Error' },
       }}
     />
-    <PropsVariation
+    <PropsVariationSection
       component={UrlInput}
-      common={{ onChange: () => undefined, small: true }}
+      common={{
+        'onChange': () => undefined,
+        'small': true,
+        'aria-label': 'url',
+      }}
       xAxis={{
         'small': {},
         'with placeholder': { placeholder: 'Placeholder' },

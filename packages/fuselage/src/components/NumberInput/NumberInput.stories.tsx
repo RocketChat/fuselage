@@ -33,7 +33,7 @@ export default {
 } as ComponentMeta<typeof NumberInput>;
 
 const Template: ComponentStory<typeof NumberInput> = (args) => (
-  <NumberInput {...args} />
+  <NumberInput aria-label='number' {...args} />
 );
 
 export const Default: ComponentStory<typeof NumberInput> = Template.bind({});
@@ -63,7 +63,7 @@ export const States: ComponentStory<typeof NumberInput> = () => (
   <>
     <PropsVariationSection
       component={NumberInput}
-      common={{ onChange: () => {} }}
+      common={{ 'onChange': () => {}, 'aria-label': 'number' }}
       xAxis={{
         'default': {},
         'with placeholder': { placeholder: 'Placeholder' },
@@ -87,7 +87,7 @@ export const States: ComponentStory<typeof NumberInput> = () => (
     />
     <PropsVariationSection
       component={NumberInput}
-      common={{ onChange: () => {}, small: true }}
+      common={{ 'onChange': () => {}, 'small': true, 'aria-label': 'number' }}
       xAxis={{
         'small': {},
         'with placeholder': { placeholder: 'Placeholder' },

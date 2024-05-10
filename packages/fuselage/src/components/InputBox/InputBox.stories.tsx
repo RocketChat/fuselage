@@ -34,7 +34,7 @@ export default {
 } as ComponentMeta<typeof Icon>;
 
 const Template: ComponentStory<typeof InputBox> = (args) => (
-  <InputBox {...args} />
+  <InputBox aria-label='Value' {...args} />
 );
 
 export const Default: ComponentStory<typeof InputBox> = Template.bind({});
@@ -95,12 +95,13 @@ export const SmallVariants: ComponentStory<typeof InputBox> = () => (
     alignItems='flex-start'
     style={{ gap: '8px' }}
   >
-    <InputBox type='text' small placeholder='Name' />
+    <InputBox type='text' small placeholder='Name' aria-label='Name' />
     <InputBox
       type='text'
       small
       placeholder='Search'
       addon={<Icon name='magnifier' size='x20' />}
+      aria-label='Search'
     />
   </Box>
 );

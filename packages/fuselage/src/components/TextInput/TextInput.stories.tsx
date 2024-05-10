@@ -26,7 +26,7 @@ export default {
 } as ComponentMeta<typeof TextInput>;
 
 const Template: ComponentStory<typeof TextInput> = (args) => (
-  <TextInput {...args} />
+  <TextInput aria-label='text' {...args} />
 );
 
 export const Default: ComponentStory<typeof TextInput> = Template.bind({});
@@ -64,7 +64,7 @@ export const States: ComponentStory<typeof TextInput> = () => (
   <>
     <PropsVariationSection
       component={TextInput}
-      common={{ onChange: () => {} }}
+      common={{ 'onChange': () => {}, 'aria-label': 'text' }}
       xAxis={{
         'default': {},
         'with placeholder': { placeholder: 'Placeholder' },
@@ -88,7 +88,7 @@ export const States: ComponentStory<typeof TextInput> = () => (
     />
     <PropsVariationSection
       component={TextInput}
-      common={{ onChange: () => {}, small: true }}
+      common={{ 'onChange': () => {}, 'small': true, 'aria-label': 'text' }}
       xAxis={{
         'small': {},
         'with placeholder': { placeholder: 'Placeholder' },

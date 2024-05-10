@@ -34,7 +34,7 @@ export default {
 } as ComponentMeta<typeof SelectInput>;
 
 const Template: ComponentStory<typeof SelectInput> = (args) => (
-  <SelectInput {...args}>
+  <SelectInput aria-label='select' {...args}>
     <SelectInputOption value='a'>Item A</SelectInputOption>
     <SelectInputOption value='b'>Item B</SelectInputOption>
     <SelectInputOption value='c'>Item C</SelectInputOption>
@@ -87,14 +87,15 @@ export const States: ComponentStory<typeof SelectInput> = () => (
     <PropsVariationSection
       component={SelectInput}
       common={{
-        children: (
+        'aria-label': 'select',
+        'children': (
           <>
             <SelectInputOption value='a'>Item A</SelectInputOption>
             <SelectInputOption value='b'>Item B</SelectInputOption>
             <SelectInputOption value='c'>Item C</SelectInputOption>
           </>
         ),
-        onChange: () => {},
+        'onChange': () => {},
       }}
       xAxis={{
         'default': {},
@@ -117,15 +118,16 @@ export const States: ComponentStory<typeof SelectInput> = () => (
     <PropsVariationSection
       component={SelectInput}
       common={{
-        children: (
+        'aria-label': 'select',
+        'children': (
           <>
             <SelectInputOption value='a'>Item A</SelectInputOption>
             <SelectInputOption value='b'>Item B</SelectInputOption>
             <SelectInputOption value='c'>Item C</SelectInputOption>
           </>
         ),
-        onChange: () => {},
-        small: true,
+        'onChange': () => {},
+        'small': true,
       }}
       xAxis={{
         'small': {},

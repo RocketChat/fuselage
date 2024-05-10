@@ -26,7 +26,7 @@ export default {
 } as ComponentMeta<typeof TelephoneInput>;
 
 const Template: ComponentStory<typeof TelephoneInput> = (args) => (
-  <TelephoneInput {...args} />
+  <TelephoneInput aria-label='telephone' {...args} />
 );
 
 export const Default: ComponentStory<typeof TelephoneInput> = Template.bind({});
@@ -60,7 +60,7 @@ export const States: ComponentStory<typeof TelephoneInput> = () => (
   <>
     <PropsVariationSection
       component={TelephoneInput}
-      common={{ onChange: () => {} }}
+      common={{ 'onChange': () => {}, 'aria-label': 'telephone' }}
       xAxis={{
         'default': {},
         'with placeholder': { placeholder: 'Placeholder' },
@@ -84,7 +84,11 @@ export const States: ComponentStory<typeof TelephoneInput> = () => (
     />
     <PropsVariationSection
       component={TelephoneInput}
-      common={{ onChange: () => {}, small: true }}
+      common={{
+        'onChange': () => {},
+        'small': true,
+        'aria-label': 'telephone',
+      }}
       xAxis={{
         'small': {},
         'with placeholder': { placeholder: 'Placeholder' },
