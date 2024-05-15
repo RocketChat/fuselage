@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.54.0
+
+### Minor Changes
+
+- [#1377](https://github.com/RocketChat/fuselage/pull/1377) [`a4f8bb5fb`](https://github.com/RocketChat/fuselage/commit/a4f8bb5fb31a9f80e9d8d5b4bfbb0cbb4f9780e6) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage): new `InputBox` small variant
+
 ## 0.53.7
 
 ### Patch Changes
