@@ -962,7 +962,10 @@
   "circle-unfilled": {
     "start": "\ue14b"
   },
-  "double-check": {
-    "start": "\ue14d"
+  "check-single": {
+    "start": "\ue14f"
+  },
+  "check-double": {
+    "start": "\ue151"
   }
 }
