@@ -1,5 +1,12 @@
 # Change Log
 
+## 0.54.1
+
+### Patch Changes
+
+- [#1381](https://github.com/RocketChat/fuselage/pull/1381) [`7e9138078`](https://github.com/RocketChat/fuselage/commit/7e91380780fdc862ff4546fdc449657f51f31aa1) Thanks [@dougfabris](https://github.com/dougfabris)! - Update dependencies [cef91c8dc](https://github.com/RocketChat/fuselage/commit/cef91c8dc646a4e9fc256eed6138eef108ee996c):
+  - @rocket.chat/icons@0.36.0
+
 ## 0.54.0
 
 ### Minor Changes
