@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.54.2
+
+### Patch Changes
+
+- [#1383](https://github.com/RocketChat/fuselage/pull/1383) [`5870a9395`](https://github.com/RocketChat/fuselage/commit/5870a939500e5b596be8c1ef1c2e28bb1cded4f5) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): remove `codeBlock` palette and add `palette` prop for a custom palette
+
 ## 0.54.1
 
 ### Patch Changes
