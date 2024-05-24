@@ -3,7 +3,6 @@ import { createPortal } from 'react-dom';
 
 import { convertToCss } from './helpers/convertToCss';
 import { useCreateStyleContainer } from './hooks/useCreateStyleContainer';
-import { codeBlock } from './lib/codeBlockStyles';
 import { dark, highContrast, light } from './lib/themePalettes';
 import type { Themes } from './types/themes';
 
@@ -18,6 +17,7 @@ export const PaletteStyleTag = memo(function PaletteStyleTag({
   tagId = 'main-palette',
   prefix = '--rcx-color',
   selector,
+  palette,
 }: {
   theme?: Themes;
   /**
@@ -32,17 +32,14 @@ export const PaletteStyleTag = memo(function PaletteStyleTag({
    * Default is `:root`.
    */
   selector?: string;
+  /**
+   * CSS containing custom palette styles to be used.
+   */
+  palette?: string;
 }) {
-  const palette = convertToCss(themes[theme], prefix, selector);
+  const themePalette = palette || convertToCss(themes[theme], prefix, selector);
 
-  return (
-    <>
-      {createPortal(
-        theme === 'dark' ? palette + codeBlock : palette,
-        useCreateStyleContainer(tagId)
-      )}
-    </>
-  );
+  return <>{createPortal(themePalette, useCreateStyleContainer(tagId))}</>;
 });
 
 export default PaletteStyleTag;
