@@ -30339,14 +30339,6 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"write-version-module@workspace:tools/write-version-module":
-  version: 0.0.0-use.local
-  resolution: "write-version-module@workspace:tools/write-version-module"
-  bin:
-    write-version-module: ./index.mjs
-  languageName: unknown
-  linkType: soft
-
 "ws@npm:^7.3.1":
   version: 7.5.9
   resolution: "ws@npm:7.5.9"
