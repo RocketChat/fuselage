@@ -13,7 +13,7 @@
     "hygen": "~6.1.5",
     "lerna": "~4.0.0",
     "lint-staged": "~13.2.1",
-    "turbo": "~1.1.10",
+    "turbo": "~1.13.3",
     "update-readme": "workspace:~",
     "webpack": "~5.78.0"
   },
@@ -25,7 +25,7 @@
     "lint": "yarn turbo run lint",
     "lint-and-fix": "yarn workspaces foreach -v --topological-dev run lint-and-fix",
     "test": "yarn turbo run test",
-    "docs": "yarn workspaces foreach -v --topological-dev run docs",
+    "docs": "yarn turbo run docs",
     "build-storybook": "yarn turbo run build-storybook --cache-dir=\".turbo\"",
     "update-readme": "update-readme",
     "resolve-workspace-deps": "yarn workspace scripts run resolve-workspace-deps",
@@ -34,6 +34,9 @@
     "release": "yarn changeset publish",
     "changeset": "changeset",
     "release-next": "yarn workspaces foreach --no-private -v npm publish --tag next --tolerate-republish"
+  },
+  "engines": {
+    "node": "22.2.0"
   },
   "volta": {
     "node": "22.2.0",

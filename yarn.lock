@@ -6586,8 +6586,8 @@ __metadata:
     rollup-plugin-terser: "npm:~7.0.2"
     stylis: "npm:~4.3.2"
     ts-jest: "npm:~29.1.0"
-    typedoc: "npm:~0.24.1"
-    typescript: "npm:~5.0.4"
+    typedoc: "npm:~0.25.13"
+    typescript: "npm:~5.4.5"
   languageName: unknown
   linkType: soft
 
@@ -6604,8 +6604,8 @@ __metadata:
     lint-staged: "npm:~13.2.1"
     prettier: "npm:~2.8.7"
     rimraf: "npm:~3.0.2"
-    typedoc: "npm:~0.24.1"
-    typescript: "npm:~5.0.4"
+    typedoc: "npm:~0.25.13"
+    typescript: "npm:~5.4.5"
   languageName: unknown
   linkType: soft
 
@@ -6630,8 +6630,8 @@ __metadata:
     rollup: "npm:~2.67.3"
     rollup-plugin-terser: "npm:~7.0.2"
     ts-jest: "npm:~29.1.0"
-    typedoc: "npm:~0.24.1"
-    typescript: "npm:~5.0.4"
+    typedoc: "npm:~0.25.13"
+    typescript: "npm:~5.4.5"
   languageName: unknown
   linkType: soft
 
@@ -6691,8 +6691,8 @@ __metadata:
     rollup-plugin-terser: "npm:~7.0.2"
     testing-utils: "workspace:~"
     ts-jest: "npm:~29.1.0"
-    typedoc: "npm:~0.24.1"
-    typescript: "npm:~5.0.4"
+    typedoc: "npm:~0.25.13"
+    typescript: "npm:~5.4.5"
     use-sync-external-store: "npm:~1.2.0"
   peerDependencies:
     "@rocket.chat/fuselage-tokens": "*"
@@ -6711,7 +6711,7 @@ __metadata:
     hygen: "npm:~6.1.5"
     lerna: "npm:~4.0.0"
     lint-staged: "npm:~13.2.1"
-    turbo: "npm:~1.1.10"
+    turbo: "npm:~1.13.3"
     update-readme: "workspace:~"
     webpack: "npm:~5.78.0"
   languageName: unknown
@@ -6766,8 +6766,8 @@ __metadata:
     rimraf: "npm:~3.0.2"
     storybook-dark-mode: "npm:~1.1.2"
     ts-jest: "npm:~29.1.0"
-    typedoc: "npm:~0.24.1"
-    typescript: "npm:~5.0.4"
+    typedoc: "npm:~0.25.13"
+    typescript: "npm:~5.4.5"
   peerDependencies:
     "@rocket.chat/fuselage": "*"
     "@rocket.chat/fuselage-hooks": "*"
@@ -6890,7 +6890,7 @@ __metadata:
     testing-utils: "workspace:~"
     ts-jest: "npm:~29.1.0"
     ts-loader: "npm:~9.4.2"
-    typescript: "npm:~5.0.4"
+    typescript: "npm:~5.4.5"
     webpack: "npm:~5.78.0"
     webpack-bundle-analyzer: "npm:~4.8.0"
     webpack-cli: "npm:~5.0.1"
@@ -6956,8 +6956,8 @@ __metadata:
     rimraf: "npm:~3.0.2"
     storybook-dark-mode: "npm:~3.0.1"
     ts-jest: "npm:~29.1.0"
-    typedoc: "npm:~0.24.1"
-    typescript: "npm:~5.0.4"
+    typedoc: "npm:~0.25.13"
+    typescript: "npm:~5.4.5"
   peerDependencies:
     "@rocket.chat/fuselage": "*"
     react: 17.0.2
@@ -6990,8 +6990,8 @@ __metadata:
     react-dom: "npm:^17.0.2"
     rimraf: "npm:^3.0.2"
     ts-jest: "npm:~29.1.0"
-    typedoc: "npm:~0.24.1"
-    typescript: "npm:~5.0.4"
+    typedoc: "npm:~0.25.13"
+    typescript: "npm:~5.4.5"
   peerDependencies:
     react: 17.0.2
     react-dom: 17.0.2
@@ -7013,8 +7013,8 @@ __metadata:
     prettier: "npm:~2.8.7"
     rimraf: "npm:~3.0.2"
     ts-jest: "npm:~29.1.0"
-    typedoc: "npm:~0.24.1"
-    typescript: "npm:~5.0.4"
+    typedoc: "npm:~0.25.13"
+    typescript: "npm:~5.4.5"
   languageName: unknown
   linkType: soft
 
@@ -7041,8 +7041,8 @@ __metadata:
     prettier: "npm:~2.8.7"
     rollup: "npm:~3.20.4"
     ts-jest: "npm:~29.1.0"
-    typedoc: "npm:~0.24.1"
-    typescript: "npm:~5.0.4"
+    typedoc: "npm:~0.25.13"
+    typescript: "npm:~5.4.5"
   languageName: unknown
   linkType: soft
 
@@ -7086,8 +7086,8 @@ __metadata:
     rimraf: "npm:^3.0.2"
     storybook-dark-mode: "npm:^1.1.2"
     ts-jest: "npm:~29.1.0"
-    typedoc: "npm:~0.24.1"
-    typescript: "npm:~5.0.4"
+    typedoc: "npm:~0.25.13"
+    typescript: "npm:~5.4.5"
   peerDependencies:
     "@rocket.chat/fuselage": "*"
     "@rocket.chat/fuselage-hooks": "*"
@@ -7118,7 +7118,7 @@ __metadata:
     prettier: "npm:~2.8.7"
     rimraf: "npm:^3.0.2"
     ts-jest: "npm:~29.1.0"
-    typescript: "npm:~5.0.4"
+    typescript: "npm:~5.4.5"
     webpack: "npm:~5.78.0"
   peerDependencies:
     peggy: "*"
@@ -7159,8 +7159,8 @@ __metadata:
     prettier: "npm:~2.8.7"
     rimraf: "npm:^3.0.2"
     ts-jest: "npm:~29.1.0"
-    typedoc: "npm:~0.24.1"
-    typescript: "npm:~5.0.4"
+    typedoc: "npm:~0.25.13"
+    typescript: "npm:~5.4.5"
   languageName: unknown
   linkType: soft
 
@@ -7181,8 +7181,8 @@ __metadata:
     prettier: "npm:~2.8.7"
     rimraf: "npm:^3.0.2"
     ts-jest: "npm:~29.1.0"
-    typedoc: "npm:~0.24.1"
-    typescript: "npm:~5.0.4"
+    typedoc: "npm:~0.25.13"
+    typescript: "npm:~5.4.5"
   languageName: unknown
   linkType: soft
 
@@ -7204,8 +7204,8 @@ __metadata:
     rimraf: "npm:^3.0.2"
     stylis: "npm:~4.3.2"
     ts-jest: "npm:~29.1.0"
-    typedoc: "npm:~0.24.1"
-    typescript: "npm:~5.0.4"
+    typedoc: "npm:~0.25.13"
+    typescript: "npm:~5.4.5"
   peerDependencies:
     stylis: ~4.3.2
   languageName: unknown
@@ -20967,7 +20967,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"marked@npm:^4.2.12":
+"marked@npm:^4.3.0":
   version: 4.3.0
   resolution: "marked@npm:4.3.0"
   bin:
@@ -21899,21 +21899,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"minimatch@npm:^7.1.3":
-  version: 7.4.6
-  resolution: "minimatch@npm:7.4.6"
-  dependencies:
-    brace-expansion: "npm:^2.0.1"
-  checksum: 10/0046ba1161ac6414bde1b07c440792ebcdb2ed93e6714c85c73974332b709b7e692801550bc9da22028a8613407b3f13861e17dd0dd44f4babdeacd44950430b
-  languageName: node
-  linkType: hard
-
 "minimatch@npm:^9.0.0":
   version: 9.0.0
   resolution: "minimatch@npm:9.0.0"
   dependencies:
     brace-expansion: "npm:^2.0.1"
   checksum: 10/a7653b37c4a6f0dcf98b5bc6ad10926c193b94ac83de5e7f7e462c137075feb8cfac7fa02963438ab401f504f043f9ea13a2d3f57a71e49307f8867af34296f5
+  languageName: node
+  linkType: hard
+
+"minimatch@npm:^9.0.3":
+  version: 9.0.4
+  resolution: "minimatch@npm:9.0.4"
+  dependencies:
+    brace-expansion: "npm:^2.0.1"
+  checksum: 10/4cdc18d112b164084513e890d6323370db14c22249d536ad1854539577a895e690a27513dc346392f61a4a50afbbd8abc88f3f25558bfbbbb862cd56508b20f5
   languageName: node
   linkType: hard
 
@@ -26538,7 +26538,7 @@ __metadata:
     npm-run-all: "npm:^4.1.5"
     prettier: "npm:~2.8.7"
     ts-node: "npm:~10.9.1"
-    typescript: "npm:~5.0.4"
+    typescript: "npm:~5.4.5"
   languageName: unknown
   linkType: soft
 
@@ -26827,15 +26827,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"shiki@npm:^0.14.1":
-  version: 0.14.1
-  resolution: "shiki@npm:0.14.1"
+"shiki@npm:^0.14.7":
+  version: 0.14.7
+  resolution: "shiki@npm:0.14.7"
   dependencies:
     ansi-sequence-parser: "npm:^1.1.0"
     jsonc-parser: "npm:^3.2.0"
     vscode-oniguruma: "npm:^1.7.0"
     vscode-textmate: "npm:^8.0.0"
-  checksum: 10/6256651a5db0cfcb3069c483e8cc43765af24fce0df6e5fdb515e61d52b0880c06c43bc1e6f7ef1bd58bada38830e6e7367256ce9472e879af1c88c41231b13b
+  checksum: 10/be3f2444c65bd0c57802026f171cb42ad571d361ee885be0c292b60785f68c70f19b69310f5ffe7f7a93db4c5ef50211e0a0248794bc6bb48d242bc43fe72a62
   languageName: node
   linkType: hard
 
@@ -29054,134 +29054,74 @@ __metadata:
   languageName: node
   linkType: hard
 
-"turbo-darwin-64@npm:1.1.10":
-  version: 1.1.10
-  resolution: "turbo-darwin-64@npm:1.1.10"
+"turbo-darwin-64@npm:1.13.3":
+  version: 1.13.3
+  resolution: "turbo-darwin-64@npm:1.13.3"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-darwin-arm64@npm:1.1.10":
-  version: 1.1.10
-  resolution: "turbo-darwin-arm64@npm:1.1.10"
+"turbo-darwin-arm64@npm:1.13.3":
+  version: 1.13.3
+  resolution: "turbo-darwin-arm64@npm:1.13.3"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo-freebsd-64@npm:1.1.10":
-  version: 1.1.10
-  resolution: "turbo-freebsd-64@npm:1.1.10"
-  conditions: os=freebsd & cpu=x64
-  languageName: node
-  linkType: hard
-
-"turbo-freebsd-arm64@npm:1.1.10":
-  version: 1.1.10
-  resolution: "turbo-freebsd-arm64@npm:1.1.10"
-  conditions: os=freebsd & cpu=arm64
-  languageName: node
-  linkType: hard
-
-"turbo-linux-32@npm:1.1.10":
-  version: 1.1.10
-  resolution: "turbo-linux-32@npm:1.1.10"
-  conditions: os=linux & cpu=ia32
-  languageName: node
-  linkType: hard
-
-"turbo-linux-64@npm:1.1.10":
-  version: 1.1.10
-  resolution: "turbo-linux-64@npm:1.1.10"
+"turbo-linux-64@npm:1.13.3":
+  version: 1.13.3
+  resolution: "turbo-linux-64@npm:1.13.3"
   conditions: os=linux & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-linux-arm64@npm:1.1.10":
-  version: 1.1.10
-  resolution: "turbo-linux-arm64@npm:1.1.10"
+"turbo-linux-arm64@npm:1.13.3":
+  version: 1.13.3
+  resolution: "turbo-linux-arm64@npm:1.13.3"
   conditions: os=linux & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo-linux-arm@npm:1.1.10":
-  version: 1.1.10
-  resolution: "turbo-linux-arm@npm:1.1.10"
-  conditions: os=linux & cpu=arm
-  languageName: node
-  linkType: hard
-
-"turbo-linux-mips64le@npm:1.1.10":
-  version: 1.1.10
-  resolution: "turbo-linux-mips64le@npm:1.1.10"
-  conditions: os=linux & cpu=mips64el
-  languageName: node
-  linkType: hard
-
-"turbo-linux-ppc64le@npm:1.1.10":
-  version: 1.1.10
-  resolution: "turbo-linux-ppc64le@npm:1.1.10"
-  conditions: os=linux & cpu=ppc64
-  languageName: node
-  linkType: hard
-
-"turbo-windows-32@npm:1.1.10":
-  version: 1.1.10
-  resolution: "turbo-windows-32@npm:1.1.10"
-  conditions: os=win32 & cpu=ia32
-  languageName: node
-  linkType: hard
-
-"turbo-windows-64@npm:1.1.10":
-  version: 1.1.10
-  resolution: "turbo-windows-64@npm:1.1.10"
+"turbo-windows-64@npm:1.13.3":
+  version: 1.13.3
+  resolution: "turbo-windows-64@npm:1.13.3"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo@npm:~1.1.10":
-  version: 1.1.10
-  resolution: "turbo@npm:1.1.10"
+"turbo-windows-arm64@npm:1.13.3":
+  version: 1.13.3
+  resolution: "turbo-windows-arm64@npm:1.13.3"
+  conditions: os=win32 & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"turbo@npm:~1.13.3":
+  version: 1.13.3
+  resolution: "turbo@npm:1.13.3"
   dependencies:
-    turbo-darwin-64: "npm:1.1.10"
-    turbo-darwin-arm64: "npm:1.1.10"
-    turbo-freebsd-64: "npm:1.1.10"
-    turbo-freebsd-arm64: "npm:1.1.10"
-    turbo-linux-32: "npm:1.1.10"
-    turbo-linux-64: "npm:1.1.10"
-    turbo-linux-arm: "npm:1.1.10"
-    turbo-linux-arm64: "npm:1.1.10"
-    turbo-linux-mips64le: "npm:1.1.10"
-    turbo-linux-ppc64le: "npm:1.1.10"
-    turbo-windows-32: "npm:1.1.10"
-    turbo-windows-64: "npm:1.1.10"
+    turbo-darwin-64: "npm:1.13.3"
+    turbo-darwin-arm64: "npm:1.13.3"
+    turbo-linux-64: "npm:1.13.3"
+    turbo-linux-arm64: "npm:1.13.3"
+    turbo-windows-64: "npm:1.13.3"
+    turbo-windows-arm64: "npm:1.13.3"
   dependenciesMeta:
     turbo-darwin-64:
       optional: true
     turbo-darwin-arm64:
       optional: true
-    turbo-freebsd-64:
-      optional: true
-    turbo-freebsd-arm64:
-      optional: true
-    turbo-linux-32:
-      optional: true
     turbo-linux-64:
-      optional: true
-    turbo-linux-arm:
       optional: true
     turbo-linux-arm64:
       optional: true
-    turbo-linux-mips64le:
-      optional: true
-    turbo-linux-ppc64le:
-      optional: true
-    turbo-windows-32:
-      optional: true
     turbo-windows-64:
+      optional: true
+    turbo-windows-arm64:
       optional: true
   bin:
     turbo: bin/turbo
-  checksum: 10/c30d32f5e82f882d31af96d89e9fb427509f2963c51c84133e26443e2ee31c0f9758ce09950cddfa97bfcab04dd1e12efb5084d2f6752a039c1f4134736ec371
+  checksum: 10/de96309b3c4c28b51d9436cdec57e3df452dea4ec4512e6c3b7f6596265d4b22d2c16b9c8a674cc1bafa3cc2eea9feb89a807526d6d820f9bca0522d8d86df12
   languageName: node
   linkType: hard
 
@@ -29346,39 +29286,39 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typedoc@npm:~0.24.1":
-  version: 0.24.1
-  resolution: "typedoc@npm:0.24.1"
+"typedoc@npm:~0.25.13":
+  version: 0.25.13
+  resolution: "typedoc@npm:0.25.13"
   dependencies:
     lunr: "npm:^2.3.9"
-    marked: "npm:^4.2.12"
-    minimatch: "npm:^7.1.3"
-    shiki: "npm:^0.14.1"
+    marked: "npm:^4.3.0"
+    minimatch: "npm:^9.0.3"
+    shiki: "npm:^0.14.7"
   peerDependencies:
-    typescript: 4.6.x || 4.7.x || 4.8.x || 4.9.x || 5.0.x
+    typescript: 4.6.x || 4.7.x || 4.8.x || 4.9.x || 5.0.x || 5.1.x || 5.2.x || 5.3.x || 5.4.x
   bin:
     typedoc: bin/typedoc
-  checksum: 10/1bba05f4c95854df38ced8f0aecaf747f1d70a3973ab531b4d6275c66c75fa6d014e0dae5e0ca2d52ff9fb1c983ef8398c01fbd29f88790065b99937d1b1e48c
+  checksum: 10/3c82603894b5830c4b027b4f4f9ca70f770b6752c6512a42e780c40cb67fe4c9a144e34a837bb35aab14a125e00a5893e1e6feac1ec86a2add80f46833b279d4
   languageName: node
   linkType: hard
 
-"typescript@npm:~5.0.4":
-  version: 5.0.4
-  resolution: "typescript@npm:5.0.4"
+"typescript@npm:~5.4.5":
+  version: 5.4.5
+  resolution: "typescript@npm:5.4.5"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10/e5c3adff09a138c0e27d13b5bb2b106ca17a162ffa945d66161669c265c65436309c5817358a2af1abb69d07440d358f8c1ed7cbb63a2c8680e19b9c268fe4ef
+  checksum: 10/d04a9e27e6d83861f2126665aa8d84847e8ebabcea9125b9ebc30370b98cb38b5dff2508d74e2326a744938191a83a69aa9fddab41f193ffa43eabfdf3f190a5
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A~5.0.4#optional!builtin<compat/typescript>":
-  version: 5.0.4
-  resolution: "typescript@patch:typescript@npm%3A5.0.4#optional!builtin<compat/typescript>::version=5.0.4&hash=b5f058"
+"typescript@patch:typescript@npm%3A~5.4.5#optional!builtin<compat/typescript>":
+  version: 5.4.5
+  resolution: "typescript@patch:typescript@npm%3A5.4.5#optional!builtin<compat/typescript>::version=5.4.5&hash=5adc0c"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10/b1b62606c7ec75efe9edc61e195d9e69f0440cac1bcd111dfa864f839255f0d9a7b79869f2823559c608826fc0c9894d2917ae4063e0aa06f5d0784a35170497
+  checksum: 10/760f7d92fb383dbf7dee2443bf902f4365db2117f96f875cf809167f6103d55064de973db9f78fe8f31ec08fff52b2c969aee0d310939c0a3798ec75d0bca2e1
   languageName: node
   linkType: hard
 
