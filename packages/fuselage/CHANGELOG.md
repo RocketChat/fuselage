@@ -1,5 +1,24 @@
 # Change Log
 
+## 0.54.2
+
+### Patch Changes
+
+- [#1383](https://github.com/RocketChat/fuselage/pull/1383) [`5870a9395`](https://github.com/RocketChat/fuselage/commit/5870a939500e5b596be8c1ef1c2e28bb1cded4f5) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): remove `codeBlock` palette and add `palette` prop for a custom palette
+
+## 0.54.1
+
+### Patch Changes
+
+- [#1381](https://github.com/RocketChat/fuselage/pull/1381) [`7e9138078`](https://github.com/RocketChat/fuselage/commit/7e91380780fdc862ff4546fdc449657f51f31aa1) Thanks [@dougfabris](https://github.com/dougfabris)! - Update dependencies [cef91c8dc](https://github.com/RocketChat/fuselage/commit/cef91c8dc646a4e9fc256eed6138eef108ee996c):
+  - @rocket.chat/icons@0.36.0
+
+## 0.54.0
+
+### Minor Changes
+
+- [#1377](https://github.com/RocketChat/fuselage/pull/1377) [`a4f8bb5fb`](https://github.com/RocketChat/fuselage/commit/a4f8bb5fb31a9f80e9d8d5b4bfbb0cbb4f9780e6) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage): new `InputBox` small variant
+
 ## 0.53.7
 
 ### Patch Changes
