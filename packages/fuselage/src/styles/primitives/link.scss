@@ -5,6 +5,8 @@
 @import '../../styles/mixins/states.scss';
 
 %link {
+  text-decoration: underline;
+
   color: functions.theme('link-color', colors.font(info));
 
   &:focus-visible,

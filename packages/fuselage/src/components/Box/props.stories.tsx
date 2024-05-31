@@ -56,3 +56,10 @@ isH4.args = {
   children: 'A Box rendering a h4',
 };
 isH4.storyName = 'is h4';
+
+export const asLink = Template.bind({});
+asLink.args = {
+  is: 'a',
+  onClick: () => null,
+  children: 'A Box rendering as a link',
+};
