@@ -34,7 +34,7 @@ describe('[fuselage-toastbar]', () => {
     expect(toasts).toBeInTheDocument;
   });
 
-  test('should ToastBar be displayed on the top right of the screen by default', async () => {
+  test('should display ToastBar on the top right of the screen by default', async () => {
     render(<TopEnd />);
     const toast = screen.queryByRole('alert');
     const toastContainer = toast?.parentElement?.parentElement?.parentElement;
