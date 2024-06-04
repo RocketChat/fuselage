@@ -123,7 +123,6 @@ export const IconButton = forwardRef(
         ref={ref}
         {...props}
       >
-        {children}
         {isValidElement(icon) ? (
           icon
         ) : (
@@ -132,6 +131,7 @@ export const IconButton = forwardRef(
             size={getIconSize()}
           />
         )}
+        {children}
       </Box>
     );
   }
