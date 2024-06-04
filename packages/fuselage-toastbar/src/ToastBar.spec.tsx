@@ -42,7 +42,7 @@ describe('[fuselage-toastbar]', () => {
     expect(toastContainer).toHaveStyle(topEndStyle);
   });
 
-  test('should ToastBar be displayed on the top right of the screen', async () => {
+  test('should display ToastBar on the top right of the screen', async () => {
     const { rerender } = render(<TopEnd />);
     document.body.setAttribute('dir', 'ltr');
     rerender(<TopEnd />);
