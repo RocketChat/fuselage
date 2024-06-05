@@ -31,7 +31,7 @@ describe('[fuselage-toastbar]', () => {
 
     fireEvent.click(button);
     const toasts = screen.queryAllByRole('alert');
-    expect(toasts).toBeInTheDocument;
+    expect(toasts).toBeInTheDocument();
   });
 
   test('should display ToastBar on the top right of the screen by default', async () => {
