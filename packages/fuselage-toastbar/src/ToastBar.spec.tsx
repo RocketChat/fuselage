@@ -1,5 +1,6 @@
 import { composeStories } from '@storybook/testing-react';
-import { render, getByRole, screen, fireEvent } from '@testing-library/react';
+import { render, getByRole, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 import * as stories from './ToastBar.stories';
 import ToastBarProvider from './ToastBarProvider';
@@ -24,16 +25,7 @@ const topStartStyle = {
   left: '0',
 };
 
-describe('[fuselage-toastbar]', () => {
-  test('should dispatch the ToastBar on click', async () => {
-    const { container } = render(<Default />);
-    const button = getByRole(container, 'button');
-
-    fireEvent.click(button);
-    const toasts = screen.queryAllByRole('alert');
-    expect(toasts).toBeInTheDocument();
-  });
-
+describe('[fuselage-toastbar rendering]', () => {
   test('should display ToastBar on the top right of the screen by default', async () => {
     render(<TopEnd />);
     const toast = screen.queryByRole('alert');
@@ -43,9 +35,8 @@ describe('[fuselage-toastbar]', () => {
   });
 
   test('should display ToastBar on the top right of the screen', async () => {
-    const { rerender } = render(<TopEnd />);
     document.body.setAttribute('dir', 'ltr');
-    rerender(<TopEnd />);
+    render(<TopEnd />);
     const toast = screen.queryByRole('alert');
     const toastContainer = toast?.parentElement?.parentElement?.parentElement;
 
@@ -59,5 +50,16 @@ describe('[fuselage-toastbar]', () => {
     const toastContainer = toast?.parentElement?.parentElement?.parentElement;
 
     expect(toastContainer).toHaveStyle(topStartStyle);
+  });
+});
+
+describe('[fuselage-toastbar interacting]', () => {
+  test('should dispatch the ToastBar on click', async () => {
+    const { container } = render(<Default />);
+    const button = getByRole(container, 'button');
+
+    userEvent.click(button);
+    const toasts = screen.queryAllByRole('alert');
+    toasts.forEach((toast) => expect(toast).toBeInTheDocument());
   });
 });
