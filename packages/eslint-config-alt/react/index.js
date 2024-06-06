@@ -1,7 +1,7 @@
 /** @type {import('eslint').Linter.Config} */
 module.exports = {
-  extends: '../minimal',
-  plugins: ['react', 'react-hooks'],
+  plugins: ['react', 'react-hooks', 'jsx-a11y'],
+  extends: ['../minimal', 'plugin:jsx-a11y/recommended'],
   parser: '@babel/eslint-parser',
   rules: {
     'jsx-quotes': ['error', 'prefer-single'],

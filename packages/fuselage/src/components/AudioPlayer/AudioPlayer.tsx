@@ -1,4 +1,5 @@
 import { useMergedRefs, useResizeObserver } from '@rocket.chat/fuselage-hooks';
+import type { TrackHTMLAttributes } from 'react';
 import React, { useState, useRef, forwardRef } from 'react';
 
 import { Box, Button, IconButton, Margins } from '../..';
@@ -54,22 +55,22 @@ const getDurationForInfinityDurationAudioFile = (
   });
 };
 
-export const AudioPlayer = forwardRef<
-  HTMLAudioElement,
-  {
-    src: string;
-    type?: string;
-    maxPlaybackSpeed?: number;
-    minPlaybackSpeed?: number;
-    playbackSpeedStep?: number;
-    download?: boolean;
-    playLabel?: string;
-    pauseLabel?: string;
-    audioPlaybackRangeLabel?: string;
-    changePlaybackSpeedLabel?: string;
-    downloadAudioFileLabel?: string;
-  }
->(
+type AudioPlayerProps = {
+  src: string;
+  type?: string;
+  maxPlaybackSpeed?: number;
+  minPlaybackSpeed?: number;
+  playbackSpeedStep?: number;
+  download?: boolean;
+  playLabel?: string;
+  pauseLabel?: string;
+  audioPlaybackRangeLabel?: string;
+  changePlaybackSpeedLabel?: string;
+  downloadAudioFileLabel?: string;
+  trackProps?: TrackHTMLAttributes<HTMLTrackElement>;
+};
+
+export const AudioPlayer = forwardRef<HTMLAudioElement, AudioPlayerProps>(
   (
     {
       src,
@@ -83,6 +84,7 @@ export const AudioPlayer = forwardRef<
       audioPlaybackRangeLabel = 'Audio Playback Range',
       changePlaybackSpeedLabel = 'Change Playback Speed',
       downloadAudioFileLabel = 'Download Audio File',
+      trackProps,
     },
     ref
   ) => {
@@ -219,6 +221,7 @@ export const AudioPlayer = forwardRef<
           controls
         >
           <source src={src} type={type} />
+          <track kind='captions' {...trackProps} />
         </audio>
       </Box>
     );

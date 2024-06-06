@@ -76,13 +76,17 @@ const Banner = ({
   );
 
   return (
-    <section
+    <div
       className={cx('rcx-banner')(
         { [variant]: true, inline, actionable },
         className
       )}
       ref={ref}
-      role='banner'
+      role={onAction ? 'button' : 'banner'}
+      tabIndex={onAction ? 0 : -1}
+      onKeyDown={(e) =>
+        e.code === 'Enter' || (e.code === 'Space' && handleBannerClick())
+      }
       onClick={handleBannerClick}
       {...props}
     >
@@ -115,7 +119,7 @@ const Banner = ({
           <IconButton small onClick={handleCloseButtonClick} icon='cross' />
         </div>
       )}
-    </section>
+    </div>
   );
 };
 

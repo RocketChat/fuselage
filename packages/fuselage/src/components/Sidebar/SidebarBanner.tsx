@@ -31,6 +31,8 @@ export const SidebarBanner = ({
       {text && <div className='rcx-sidebar-banner--text'>{text}</div>}
       {description && (
         <div
+          role='link'
+          tabIndex={0}
           className={[
             'rcx-sidebar-banner--description',
             onClick && 'rcx-sidebar-banner--description--clickable',
@@ -38,6 +40,7 @@ export const SidebarBanner = ({
             .filter(Boolean)
             .join(' ')}
           onClick={onClick}
+          onKeyDown={(e) => e.key === 'Enter' && onClick?.()}
         >
           {description}
         </div>
