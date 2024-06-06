@@ -9,23 +9,25 @@
     "@changesets/changelog-github": "~0.4.8",
     "@changesets/cli": "~2.26.2",
     "bump": "workspace:~",
-    "husky": "~7.0.4",
+    "husky": "~9.0.11",
     "hygen": "~6.1.5",
-    "lerna": "~4.0.0",
     "lint-staged": "~13.2.1",
-    "turbo": "~1.1.10",
+    "pinst": "~3.0.0",
+    "turbo": "~1.13.3",
     "update-readme": "workspace:~",
     "webpack": "~5.78.0"
   },
   "scripts": {
-    "postinstall": "husky install",
+    "postinstall": "husky install && yarn build",
+    "prepack": "pinst --disable",
+    "postpack": "pinst --enable",
     "ci": "yarn turbo run build lint test build-storybook --cache-dir=\".turbo\"",
     "clean": "yarn workspaces foreach -v --topological-dev run clean",
     "build": "yarn turbo run build",
     "lint": "yarn turbo run lint",
     "lint-and-fix": "yarn workspaces foreach -v --topological-dev run lint-and-fix",
     "test": "yarn turbo run test",
-    "docs": "yarn workspaces foreach -v --topological-dev run docs",
+    "docs": "yarn turbo run docs",
     "build-storybook": "yarn turbo run build-storybook --cache-dir=\".turbo\"",
     "update-readme": "update-readme",
     "resolve-workspace-deps": "yarn workspace scripts run resolve-workspace-deps",
@@ -35,15 +37,18 @@
     "changeset": "changeset",
     "release-next": "yarn workspaces foreach --no-private -v npm publish --tag next --tolerate-republish"
   },
-  "devEngines": {
-    "node": "~14.21.3"
+  "engines": {
+    "node": "22.2.0"
   },
   "volta": {
-    "node": "14.21.3",
-    "yarn": "1.22.19"
+    "node": "22.2.0",
+    "yarn": "4.2.2"
   },
-  "packageManager": "yarn@3.5.0",
+  "packageManager": "yarn@4.2.2",
   "resolutions": {
     "@storybook/react-docgen-typescript-plugin@1.0.2-canary.6.9d540b91e815f8fc2f8829189deb00553559ff63.0": "patch:@storybook/react-docgen-typescript-plugin@npm%3A1.0.2-canary.6.9d540b91e815f8fc2f8829189deb00553559ff63.0#./.yarn/patches/@storybook-react-docgen-typescript-plugin-npm-1.0.2-canary.6.9d540b91e815f8fc2f8829189deb00553559ff63.0-b31cc57c40.patch"
+  },
+  "eslintConfig": {
+    "extends": "@rocket.chat/eslint-config-alt"
   }
 }
