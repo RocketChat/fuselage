@@ -96,7 +96,11 @@
     "testMatch": [
       "<rootDir>/src/**/*.spec.[jt]s?(x)"
     ],
-    "testEnvironment": "jsdom"
+    "testEnvironment": "jsdom",
+    "setupFilesAfterEnv": [
+      "@testing-library/jest-dom/extend-expect",
+      "testing-utils/setup/noErrorsLogged"
+    ]
   },
   "volta": {
     "extends": "../../package.json"
