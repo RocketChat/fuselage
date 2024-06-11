@@ -961,5 +961,11 @@
   },
   "circle-unfilled": {
     "start": "\ue14b"
+  },
+  "check-single": {
+    "start": "\ue14f"
+  },
+  "check-double": {
+    "start": "\ue151"
   }
 }

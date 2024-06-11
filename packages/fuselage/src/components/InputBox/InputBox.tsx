@@ -23,6 +23,7 @@ type InputBoxProps = ComponentProps<typeof Box> & {
   error?: string;
   placeholder?: string;
   placeholderVisible?: boolean;
+  small?: boolean;
   type:
     | 'button'
     | 'checkbox'
@@ -69,6 +70,7 @@ export const InputBox = forwardRef(function InputBox(
     multiple,
     placeholderVisible,
     type = 'text',
+    small,
     onChange,
     ...props
   }: InputBoxProps,
@@ -140,6 +142,7 @@ export const InputBox = forwardRef(function InputBox(
         rcx-input-box--multiple={multiple}
         rcx-input-box--placeholder-visible={placeholderVisible}
         rcx-input-box--type={type}
+        rcx-input-box--small={small}
         {...props}
       />
     );
@@ -173,6 +176,7 @@ export const InputBox = forwardRef(function InputBox(
         rcx-input-box--placeholder-visible={placeholderVisible}
         rcx-input-box--type={type}
         rcx-input-box--undecorated
+        rcx-input-box--small={small}
         {...props}
       />
       <Addon children={addon} />

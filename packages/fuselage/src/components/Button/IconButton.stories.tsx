@@ -12,9 +12,11 @@ import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
 import { PropsVariationSection } from '../../../.storybook/helpers';
+import { Avatar } from '../Avatar';
 import { Badge } from '../Badge';
 import Box from '../Box/Box';
 import { ButtonGroup } from '../ButtonGroup';
+import { avatarUrl } from '../Message/helpers';
 import { IconButton } from './IconButton';
 
 const EmojiElement = (
@@ -219,6 +221,31 @@ export const _IconButtonSecondaryDanger: ComponentStory<
 export const _IconButtonWithBadge: ComponentStory<typeof IconButton> = () => (
   <ButtonGroup>
     <IconButton icon='balloon' small position='relative' overflow='visible'>
+      <Box
+        position='absolute'
+        role='status'
+        className={css`
+          top: 0;
+          right: 0;
+          transform: translate(30%, -30%);
+        `}
+      >
+        <Badge variant='danger'>2</Badge>
+      </Box>
+    </IconButton>
+  </ButtonGroup>
+);
+
+export const _IconButtonAvatarWithBadge: ComponentStory<
+  typeof IconButton
+> = () => (
+  <ButtonGroup>
+    <IconButton
+      icon={<Avatar size='x28' url={avatarUrl} />}
+      small
+      position='relative'
+      overflow='visible'
+    >
       <Box
         position='absolute'
         role='status'

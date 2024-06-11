@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/layout",
-  "version": "0.31.26",
+  "version": "0.31.27",
   "description": "Shared Application Layout Components",
   "author": {
     "name": "Rocket.Chat",
@@ -71,8 +71,8 @@
     "rimraf": "~3.0.2",
     "storybook-dark-mode": "~3.0.1",
     "ts-jest": "~29.1.0",
-    "typedoc": "~0.24.1",
-    "typescript": "~5.0.4"
+    "typedoc": "~0.25.13",
+    "typescript": "~5.4.5"
   },
   "eslintConfig": {
     "extends": "@rocket.chat/eslint-config-alt/typescript",

@@ -1,5 +1,56 @@
 # Change Log
 
+## 0.54.3
+
+### Patch Changes
+
+- [#1395](https://github.com/RocketChat/fuselage/pull/1395) [`07068a8c8`](https://github.com/RocketChat/fuselage/commit/07068a8c8bd1ff51eaf70756d0915a2cacd0a71d) Thanks [@yash-rajpal](https://github.com/yash-rajpal)! - Fix the typing on OptionContent component
+
+- [#1388](https://github.com/RocketChat/fuselage/pull/1388) [`bebe9bc1a`](https://github.com/RocketChat/fuselage/commit/bebe9bc1a82237f986efd68fca7526a12029fa21) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): `IconButton` with badge positioning
+
+- [#1392](https://github.com/RocketChat/fuselage/pull/1392) [`dfe712ee9`](https://github.com/RocketChat/fuselage/commit/dfe712ee9b496b4218f9d93155972f1909fa99ff) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): SidebarItem missing badge vertical alignment
+
+- [#1390](https://github.com/RocketChat/fuselage/pull/1390) [`4094d78c5`](https://github.com/RocketChat/fuselage/commit/4094d78c51be1cac1dd783249671dd430987e7c1) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): Modal components missing some a11y props
+
+## 0.54.2
+
+### Patch Changes
+
+- [#1383](https://github.com/RocketChat/fuselage/pull/1383) [`5870a9395`](https://github.com/RocketChat/fuselage/commit/5870a939500e5b596be8c1ef1c2e28bb1cded4f5) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): remove `codeBlock` palette and add `palette` prop for a custom palette
+
+## 0.54.1
+
+### Patch Changes
+
+- [#1381](https://github.com/RocketChat/fuselage/pull/1381) [`7e9138078`](https://github.com/RocketChat/fuselage/commit/7e91380780fdc862ff4546fdc449657f51f31aa1) Thanks [@dougfabris](https://github.com/dougfabris)! - Update dependencies [cef91c8dc](https://github.com/RocketChat/fuselage/commit/cef91c8dc646a4e9fc256eed6138eef108ee996c):
+  - @rocket.chat/icons@0.36.0
+
+## 0.54.0
+
+### Minor Changes
+
+- [#1377](https://github.com/RocketChat/fuselage/pull/1377) [`a4f8bb5fb`](https://github.com/RocketChat/fuselage/commit/a4f8bb5fb31a9f80e9d8d5b4bfbb0cbb4f9780e6) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage): new `InputBox` small variant
+
+## 0.53.7
+
+### Patch Changes
+
+- [#1363](https://github.com/RocketChat/fuselage/pull/1363) [`3bc0e982c`](https://github.com/RocketChat/fuselage/commit/3bc0e982c27748fc1cf2551dffbd1c9112feb141) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): MessageToolbar missing opacity on hover
+
+- [#1372](https://github.com/RocketChat/fuselage/pull/1372) [`3b6daeebc`](https://github.com/RocketChat/fuselage/commit/3b6daeebcd0341f784ddbaa95deba26a128f37bc) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): `Bubble` missing font-family
+
+## 0.53.6
+
+### Patch Changes
+
+- [#1370](https://github.com/RocketChat/fuselage/pull/1370) [`c94bd1cb8`](https://github.com/RocketChat/fuselage/commit/c94bd1cb8bf6586126da852b29594f6eadfc1d78) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): add `MessageSystem` missing colors
+
+## 0.53.5
+
+### Patch Changes
+
+- [#1356](https://github.com/RocketChat/fuselage/pull/1356) [`fb710526b`](https://github.com/RocketChat/fuselage/commit/fb710526ba7a0adfe9356ae4518da10879f824ef) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): remove margins from `ButtonGroup` first and last items
+
 ## 0.53.4
 
 ### Patch Changes

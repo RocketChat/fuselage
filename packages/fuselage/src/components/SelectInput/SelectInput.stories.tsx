@@ -34,7 +34,7 @@ export default {
 } as ComponentMeta<typeof SelectInput>;
 
 const Template: ComponentStory<typeof SelectInput> = (args) => (
-  <SelectInput {...args}>
+  <SelectInput aria-label='select' {...args}>
     <SelectInputOption value='a'>Item A</SelectInputOption>
     <SelectInputOption value='b'>Item B</SelectInputOption>
     <SelectInputOption value='c'>Item C</SelectInputOption>
@@ -83,34 +83,69 @@ WithValue.args = {
 };
 
 export const States: ComponentStory<typeof SelectInput> = () => (
-  <PropsVariationSection
-    component={SelectInput}
-    common={{
-      children: (
-        <>
-          <SelectInputOption value='a'>Item A</SelectInputOption>
-          <SelectInputOption value='b'>Item B</SelectInputOption>
-          <SelectInputOption value='c'>Item C</SelectInputOption>
-        </>
-      ),
-      onChange: () => {},
-    }}
-    xAxis={{
-      'default': {},
-      'with placeholder': { placeholder: 'Placeholder' },
-      'with value': { value: 'b' },
-      'multiple': { multiple: true, size: 3 },
-    }}
-    yAxis={{
-      'default': {},
-      'hover': { className: 'hover' },
-      'active': { className: 'active' },
-      'focus': { className: 'focus' },
-      'disabled': { disabled: true },
-      'errored': { error: 'Error' },
-      'errored + hover': { className: 'hover', error: 'Error' },
-      'errored + active': { className: 'active', error: 'Error' },
-      'errored + focus': { className: 'focus', error: 'Error' },
-    }}
-  />
+  <>
+    <PropsVariationSection
+      component={SelectInput}
+      common={{
+        'aria-label': 'select',
+        'children': (
+          <>
+            <SelectInputOption value='a'>Item A</SelectInputOption>
+            <SelectInputOption value='b'>Item B</SelectInputOption>
+            <SelectInputOption value='c'>Item C</SelectInputOption>
+          </>
+        ),
+        'onChange': () => {},
+      }}
+      xAxis={{
+        'default': {},
+        'with placeholder': { placeholder: 'Placeholder' },
+        'with value': { value: 'b' },
+        'multiple': { multiple: true, size: 3 },
+      }}
+      yAxis={{
+        'default': {},
+        'hover': { className: 'hover' },
+        'active': { className: 'active' },
+        'focus': { className: 'focus' },
+        'disabled': { disabled: true },
+        'errored': { error: 'Error' },
+        'errored + hover': { className: 'hover', error: 'Error' },
+        'errored + active': { className: 'active', error: 'Error' },
+        'errored + focus': { className: 'focus', error: 'Error' },
+      }}
+    />
+    <PropsVariationSection
+      component={SelectInput}
+      common={{
+        'aria-label': 'select',
+        'children': (
+          <>
+            <SelectInputOption value='a'>Item A</SelectInputOption>
+            <SelectInputOption value='b'>Item B</SelectInputOption>
+            <SelectInputOption value='c'>Item C</SelectInputOption>
+          </>
+        ),
+        'onChange': () => {},
+        'small': true,
+      }}
+      xAxis={{
+        'small': {},
+        'with placeholder': { placeholder: 'Placeholder' },
+        'with value': { value: 'b' },
+        'multiple': { multiple: true, size: 3 },
+      }}
+      yAxis={{
+        'small': {},
+        'hover': { className: 'hover' },
+        'active': { className: 'active' },
+        'focus': { className: 'focus' },
+        'disabled': { disabled: true },
+        'errored': { error: 'Error' },
+        'errored + hover': { className: 'hover', error: 'Error' },
+        'errored + active': { className: 'active', error: 'Error' },
+        'errored + focus': { className: 'focus', error: 'Error' },
+      }}
+    />
+  </>
 );

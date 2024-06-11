@@ -26,12 +26,14 @@ export const SelectAria = forwardRef(function SelectAria<T extends object>(
     placeholder,
     value,
     onChange,
+    small,
     ...props
   }: Omit<AriaSelectProps<T>, 'value' | 'onChange'> & {
     error?: string;
     placeholder?: string;
     value?: Key | null;
     onChange?: ((key: Key) => any) | undefined;
+    small?: boolean;
   } & React.AllHTMLAttributes<HTMLElement>,
   outerRef: Ref<HTMLElement>
 ) {
@@ -55,6 +57,7 @@ export const SelectAria = forwardRef(function SelectAria<T extends object>(
   return (
     <>
       <Box
+        {...props}
         disabled={disabled}
         rcx-select
         {...mergeProps(buttonProps, focusProps)}
@@ -64,6 +67,7 @@ export const SelectAria = forwardRef(function SelectAria<T extends object>(
         fontScale='p2'
         ref={mergedRef}
         justifyContent='space-between'
+        rcx-input-box--small={small}
         className={[
           error && 'invalid',
           disabled && 'disabled',
@@ -82,6 +86,7 @@ export const SelectAria = forwardRef(function SelectAria<T extends object>(
           is='span'
           {...valueProps}
           color={state.selectedItem ? 'default' : 'hint'}
+          {...(small && { fontScale: 'c1' })}
         >
           {state.selectedItem ? state.selectedItem.rendered : placeholder}
         </Box>
