@@ -198,7 +198,7 @@
 
     min-width: lengths.size(112);
     max-height: lengths.size(28);
-    padding: lengths.padding(4) lengths.padding(16);
+    padding: lengths.padding(4) lengths.padding(8);
   }
 
   &--small {
@@ -209,7 +209,7 @@
       min-width: lengths.size(112);
 
       min-height: lengths.size(28);
-      padding: lengths.padding(4) lengths.padding(16);
+      padding: lengths.padding(4) lengths.padding(8);
 
       &:invalid,
       &.invalid {

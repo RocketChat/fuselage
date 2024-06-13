@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/fuselage-toastbar",
-  "version": "0.31.26",
+  "version": "0.32.0",
   "description": "Fuselage ToastBar component",
   "keywords": [
     "rocketchat",
@@ -72,8 +72,8 @@
     "rimraf": "~3.0.2",
     "storybook-dark-mode": "~1.1.2",
     "ts-jest": "~29.1.0",
-    "typedoc": "~0.24.1",
-    "typescript": "~5.0.4"
+    "typedoc": "~0.25.13",
+    "typescript": "~5.4.5"
   },
   "peerDependencies": {
     "@rocket.chat/fuselage": "*",
@@ -96,7 +96,11 @@
     "testMatch": [
       "<rootDir>/src/**/*.spec.[jt]s?(x)"
     ],
-    "testEnvironment": "jsdom"
+    "testEnvironment": "jsdom",
+    "setupFilesAfterEnv": [
+      "@testing-library/jest-dom/extend-expect",
+      "testing-utils/setup/noErrorsLogged"
+    ]
   },
   "volta": {
     "extends": "../../package.json"
