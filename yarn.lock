@@ -12916,7 +12916,7 @@ __metadata:
     boolbase: "npm:~1.0.0"
     css-what: "npm:2.1"
     domutils: "npm:1.5.1"
-    nth-check: "npm:~1.0.1"
+    nth-check: "npm:~2.0.1"
   checksum: 10/4a57b1e39d209b5c99acfaf17de12ac09cc8df3f9c4f348be70f0bff23fce81d25d8c918d5d54a85045eaf4b8a556719d8863c672cb618d41fef9c01bbbe2fff
   languageName: node
   linkType: hard
@@ -12928,7 +12928,7 @@ __metadata:
     boolbase: "npm:^1.0.0"
     css-what: "npm:^3.2.1"
     domutils: "npm:^1.7.0"
-    nth-check: "npm:^1.0.2"
+    nth-check: "npm:^2.0.1"
   checksum: 10/87d514a6884c989df4d05d658cc2e7864b64ebf8f3dac5930a12930e712bbac7f16cfa765a22dc3f8fa00d3ae62ce0f3832624eedfac4b116694ea808749fb8a
   languageName: node
   linkType: hard
@@ -21120,16 +21120,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nth-check@npm:^1.0.2, nth-check@npm:~1.0.1":
-  version: 1.0.2
-  resolution: "nth-check@npm:1.0.2"
-  dependencies:
-    boolbase: "npm:~1.0.0"
-  checksum: 10/59e115fdd75b971d0030f42ada3aac23898d4c03aa13371fa8b3339d23461d1badf3fde5aad251fb956aaa75c0a3b9bfcd07c08a34a83b4f9dadfdce1d19337c
-  languageName: node
-  linkType: hard
-
-"nth-check@npm:^2.0.1":
+"nth-check@npm:^2.0.1, nth-check@npm:~2.0.1":
   version: 2.0.1
   resolution: "nth-check@npm:2.0.1"
   dependencies:
