@@ -10,7 +10,7 @@ exports[`[Contextualbar Rendering] renders Default without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-vertical-bar rcx-css-1pzjc7w"
       >
         <div
-          class="rcx-box rcx-box--full rcx-css-edl2v6"
+          class="rcx-box rcx-box--full rcx-css-5a9eaq"
         >
           <div
             class="rcx-box rcx-box--full rcx-css-1bdyjik rcx-css-1tmbvtv"
@@ -103,7 +103,7 @@ exports[`[Contextualbar Rendering] renders Default without crashing 1`] = `
           class="rcx-box rcx-box--full rcx-vertical-bar__content rcx-css-1ptgac4"
         />
         <div
-          class="rcx-box rcx-box--full rcx-css-4jy2w6"
+          class="rcx-box rcx-box--full rcx-css-f51umh"
         >
           <div
             class="rcx-button-group rcx-button-group--align-start"
@@ -159,7 +159,7 @@ exports[`[Contextualbar Rendering] renders Empty without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-vertical-bar rcx-css-1pzjc7w"
       >
         <div
-          class="rcx-box rcx-box--full rcx-css-edl2v6"
+          class="rcx-box rcx-box--full rcx-css-5a9eaq"
         >
           <div
             class="rcx-box rcx-box--full rcx-css-1bdyjik rcx-css-1tmbvtv"
@@ -220,7 +220,7 @@ exports[`[Contextualbar Rendering] renders Empty without crashing 1`] = `
           </div>
         </div>
         <div
-          class="rcx-box rcx-box--full rcx-css-4jy2w6"
+          class="rcx-box rcx-box--full rcx-css-f51umh"
         >
           Footer
         </div>
@@ -240,7 +240,7 @@ exports[`[Contextualbar Rendering] renders Skeleton without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-vertical-bar rcx-css-1pzjc7w"
       >
         <div
-          class="rcx-box rcx-box--full rcx-css-edl2v6"
+          class="rcx-box rcx-box--full rcx-css-5a9eaq"
         >
           <div
             class="rcx-box rcx-box--full rcx-css-1bdyjik rcx-css-1tmbvtv"
