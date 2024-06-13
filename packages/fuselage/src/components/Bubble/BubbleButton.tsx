@@ -19,7 +19,7 @@ export const BubbleButton = ({
   ...props
 }: BubbleButtonProps) => (
   <button
-    className={`rcx-bubble__button ${
+    className={`rcx-box rcx-box--full rcx-bubble__button ${
       secondary
         ? 'rcx-bubble__button--secondary'
         : 'rcx-bubble__button--primary'

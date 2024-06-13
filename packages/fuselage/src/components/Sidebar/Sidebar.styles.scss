@@ -293,6 +293,9 @@ $sidebar-banner-color-danger: theme(
     }
 
     &__badge {
+      display: flex;
+      align-items: center;
+
       margin-inline: lengths.margin(4);
     }
 

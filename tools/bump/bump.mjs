@@ -24,10 +24,6 @@ await standardVersion({
       filename: './package.json',
       type: 'json',
     },
-    {
-      filename: './lerna.json',
-      type: 'json',
-    },
     ...(
       await glob(workspaces.map((workspace) => `${workspace}/package.json`))
     ).map((filename) => ({

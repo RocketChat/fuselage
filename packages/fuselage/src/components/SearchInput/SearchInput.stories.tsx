@@ -33,7 +33,7 @@ export default {
 } as ComponentMeta<typeof SearchInput>;
 
 const Template: ComponentStory<typeof SearchInput> = (args) => (
-  <SearchInput {...args} />
+  <SearchInput aria-label='search' {...args} />
 );
 
 export const Default: ComponentStory<typeof SearchInput> = Template.bind({});
@@ -67,28 +67,54 @@ WithValue.args = {
 };
 
 export const States: ComponentStory<typeof SearchInput> = () => (
-  <PropsVariationSection
-    component={SearchInput}
-    common={{ onChange: () => {} }}
-    xAxis={{
-      'default': {},
-      'with placeholder': { placeholder: 'Placeholder' },
-      'with value': { value: 'Value' },
-      'with icon': {
-        addon: <Icon name='magnifier' size='x20' />,
-        value: 'Value',
-      },
-    }}
-    yAxis={{
-      'default': {},
-      'hover': { className: 'hover' },
-      'active': { className: 'active' },
-      'focus': { className: 'focus' },
-      'disabled': { disabled: true },
-      'errored': { error: 'Error' },
-      'errored + hover': { className: 'hover', error: 'Error' },
-      'errored + active': { className: 'active', error: 'Error' },
-      'errored + focus': { className: 'focus', error: 'Error' },
-    }}
-  />
+  <>
+    <PropsVariationSection
+      component={SearchInput}
+      common={{ 'onChange': () => {}, 'aria-label': 'search' }}
+      xAxis={{
+        'default': {},
+        'with placeholder': { placeholder: 'Placeholder' },
+        'with value': { value: 'Value' },
+        'with icon': {
+          addon: <Icon name='magnifier' size='x20' />,
+          value: 'Value',
+        },
+      }}
+      yAxis={{
+        'default': {},
+        'hover': { className: 'hover' },
+        'active': { className: 'active' },
+        'focus': { className: 'focus' },
+        'disabled': { disabled: true },
+        'errored': { error: 'Error' },
+        'errored + hover': { className: 'hover', error: 'Error' },
+        'errored + active': { className: 'active', error: 'Error' },
+        'errored + focus': { className: 'focus', error: 'Error' },
+      }}
+    />
+    <PropsVariationSection
+      component={SearchInput}
+      common={{ 'onChange': () => {}, 'small': true, 'aria-label': 'search' }}
+      xAxis={{
+        'small': {},
+        'with placeholder': { placeholder: 'Placeholder' },
+        'with value': { value: 'Value' },
+        'with icon': {
+          addon: <Icon name='magnifier' size='x20' />,
+          value: 'Value',
+        },
+      }}
+      yAxis={{
+        'small': {},
+        'hover': { className: 'hover' },
+        'active': { className: 'active' },
+        'focus': { className: 'focus' },
+        'disabled': { disabled: true },
+        'errored': { error: 'Error' },
+        'errored + hover': { className: 'hover', error: 'Error' },
+        'errored + active': { className: 'active', error: 'Error' },
+        'errored + focus': { className: 'focus', error: 'Error' },
+      }}
+    />
+  </>
 );
