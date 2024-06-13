@@ -11720,7 +11720,7 @@ __metadata:
     async-each: "npm:^1.0.1"
     braces: "npm:^3.0.3"
     fsevents: "npm:^1.2.7"
-    glob-parent: "npm:^3.1.0"
+    glob-parent: "npm:^5.1.2"
     inherits: "npm:^2.0.3"
     is-binary-path: "npm:^1.0.0"
     is-glob: "npm:^4.0.0"
@@ -15016,7 +15016,7 @@ __metadata:
   dependencies:
     "@mrmlnc/readdir-enhanced": "npm:^2.2.1"
     "@nodelib/fs.stat": "npm:^1.1.2"
-    glob-parent: "npm:^3.1.0"
+    glob-parent: "npm:^5.1.2"
     is-glob: "npm:^4.0.0"
     merge2: "npm:^1.2.3"
     micromatch: "npm:^3.1.10"
@@ -15938,16 +15938,6 @@ __metadata:
   dependencies:
     emoji-regex: "npm:>=6.0.0 <=6.1.1"
   checksum: 10/e145a91278e4eb2dc723cbe0d657a5d0c025de06d5f48c21541927944a346473a09faae2f92b7866812696ba1d84341becc9f668c20acf0fd9f388106a257fb7
-  languageName: node
-  linkType: hard
-
-"glob-parent@npm:^3.1.0":
-  version: 3.1.0
-  resolution: "glob-parent@npm:3.1.0"
-  dependencies:
-    is-glob: "npm:^3.1.0"
-    path-dirname: "npm:^1.0.0"
-  checksum: 10/653d559237e89a11b9934bef3f392ec42335602034c928590544d383ff5ef449f7b12f3cfa539708e74bc0a6c28ab1fe51d663cc07463cdf899ba92afd85a855
   languageName: node
   linkType: hard
 
@@ -17478,7 +17468,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"is-glob@npm:^3.0.0, is-glob@npm:^3.1.0":
+"is-glob@npm:^3.0.0":
   version: 3.1.0
   resolution: "is-glob@npm:3.1.0"
   dependencies:
@@ -21834,13 +21824,6 @@ __metadata:
     dot-case: "npm:^3.0.4"
     tslib: "npm:^2.0.3"
   checksum: 10/61de0526222629f65038a66f63330dd22d5b54014ded6636283e1d15364da38b3cf29e4433aa3f9d8b0dba407ae2b059c23b0104a34ee789944b1bc1c5c7e06d
-  languageName: node
-  linkType: hard
-
-"path-dirname@npm:^1.0.0":
-  version: 1.0.2
-  resolution: "path-dirname@npm:1.0.2"
-  checksum: 10/0d2f6604ae05a252a0025318685f290e2764ecf9c5436f203cdacfc8c0b17c24cdedaa449d766beb94ab88cc7fc70a09ec21e7933f31abc2b719180883e5e33f
   languageName: node
   linkType: hard
 
