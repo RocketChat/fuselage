@@ -1,5 +1,19 @@
 # Change Log
 
+## 0.55.0
+
+### Minor Changes
+
+- [#1378](https://github.com/RocketChat/fuselage/pull/1378) [`b86d19b6c`](https://github.com/RocketChat/fuselage/commit/b86d19b6cd5ec784ef73bc5af57f6c4e21f528dc) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage): new set of `NavBar` components
+
+- [#1366](https://github.com/RocketChat/fuselage/pull/1366) [`756430c9e`](https://github.com/RocketChat/fuselage/commit/756430c9e530fe59ca8755f6649c5e282c9493c0) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage): `Contextualbar` components size improvements
+
+- [#1369](https://github.com/RocketChat/fuselage/pull/1369) [`ffef20480`](https://github.com/RocketChat/fuselage/commit/ffef20480bd420e486b375eb6d5b8b7704eda1b7) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage): `Sidebar` header size improvements
+
+### Patch Changes
+
+- [#1398](https://github.com/RocketChat/fuselage/pull/1398) [`12da0a896`](https://github.com/RocketChat/fuselage/commit/12da0a8966c37ef1aad3e07e2c5d731b8b20c050) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): decrease `InputBox` small inline paddings
+
 ## 0.54.3
 
 ### Patch Changes
