@@ -19793,7 +19793,7 @@ __metadata:
     object-assign: "npm:^4.0.1"
     read-pkg-up: "npm:^1.0.1"
     redent: "npm:^1.0.0"
-    trim-newlines: "npm:^1.0.0"
+    trim-newlines: "npm:^3.0.1"
   checksum: 10/dd1f7fc0e533bee4987d4c9c969a671ecc1894c4a5f86c38464982468ad1725876882518013b5e2066acf87908c8c94597c086dccdff7c8106870871ab539ddc
   languageName: node
   linkType: hard
@@ -19810,7 +19810,7 @@ __metadata:
     normalize-package-data: "npm:^2.5.0"
     read-pkg-up: "npm:^7.0.1"
     redent: "npm:^3.0.0"
-    trim-newlines: "npm:^3.0.0"
+    trim-newlines: "npm:^3.0.1"
     type-fest: "npm:^0.13.1"
     yargs-parser: "npm:^18.1.3"
   checksum: 10/507ea2e7d61f6afe17e8f57323e190ddc8bd4ad0921db75920cf9d6f0f686828d3fe3b18a0a09ee6a5c27e070a3ca69133a7a095e57703b2e8d46eb56ee7d66f
@@ -19829,7 +19829,7 @@ __metadata:
     normalize-package-data: "npm:^3.0.0"
     read-pkg-up: "npm:^7.0.1"
     redent: "npm:^3.0.0"
-    trim-newlines: "npm:^3.0.0"
+    trim-newlines: "npm:^3.0.1"
     type-fest: "npm:^0.18.0"
     yargs-parser: "npm:^20.2.3"
   checksum: 10/94de9ae56823b426d2911b2bd9362190eb4c79207e91d2e918b36ebe7323a7aeb648debf5563bc881416f14133b652d6a80f54c77b1e5a302e12e5b2e00a20f4
@@ -19849,7 +19849,7 @@ __metadata:
     normalize-package-data: "npm:^3.0.0"
     read-pkg-up: "npm:^7.0.1"
     redent: "npm:^3.0.0"
-    trim-newlines: "npm:^3.0.0"
+    trim-newlines: "npm:^3.0.1"
     type-fest: "npm:^0.18.0"
     yargs-parser: "npm:^20.2.3"
   checksum: 10/3d0f199b9ccd81856a112f651290676f6816833626df53cee72b8e2c9acbd95beea4fa1f9fa729a553b5a0e74b18954f9fbc74c3ab837b3fc44e57de98f6c18f
@@ -26624,14 +26624,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"trim-newlines@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "trim-newlines@npm:1.0.0"
-  checksum: 10/ed96eea318581c6f894c0a98d0c4f16dcce11a41794ce140a79db55f1cab709cd9117578ee5e49a9b52f41e9cd93eaf3efa6c4bddbc77afbf91128b396fadbc1
-  languageName: node
-  linkType: hard
-
-"trim-newlines@npm:^3.0.0":
+"trim-newlines@npm:^3.0.1":
   version: 3.0.1
   resolution: "trim-newlines@npm:3.0.1"
   checksum: 10/b530f3fadf78e570cf3c761fb74fef655beff6b0f84b29209bac6c9622db75ad1417f4a7b5d54c96605dcd72734ad44526fef9f396807b90839449eb543c6206
