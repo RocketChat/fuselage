@@ -1,5 +1,31 @@
 # Change Log
 
+## 0.55.0
+
+### Minor Changes
+
+- [#1378](https://github.com/RocketChat/fuselage/pull/1378) [`b86d19b6c`](https://github.com/RocketChat/fuselage/commit/b86d19b6cd5ec784ef73bc5af57f6c4e21f528dc) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage): new set of `NavBar` components
+
+- [#1366](https://github.com/RocketChat/fuselage/pull/1366) [`756430c9e`](https://github.com/RocketChat/fuselage/commit/756430c9e530fe59ca8755f6649c5e282c9493c0) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage): `Contextualbar` components size improvements
+
+- [#1369](https://github.com/RocketChat/fuselage/pull/1369) [`ffef20480`](https://github.com/RocketChat/fuselage/commit/ffef20480bd420e486b375eb6d5b8b7704eda1b7) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage): `Sidebar` header size improvements
+
+### Patch Changes
+
+- [#1398](https://github.com/RocketChat/fuselage/pull/1398) [`12da0a896`](https://github.com/RocketChat/fuselage/commit/12da0a8966c37ef1aad3e07e2c5d731b8b20c050) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): decrease `InputBox` small inline paddings
+
+## 0.54.3
+
+### Patch Changes
+
+- [#1395](https://github.com/RocketChat/fuselage/pull/1395) [`07068a8c8`](https://github.com/RocketChat/fuselage/commit/07068a8c8bd1ff51eaf70756d0915a2cacd0a71d) Thanks [@yash-rajpal](https://github.com/yash-rajpal)! - Fix the typing on OptionContent component
+
+- [#1388](https://github.com/RocketChat/fuselage/pull/1388) [`bebe9bc1a`](https://github.com/RocketChat/fuselage/commit/bebe9bc1a82237f986efd68fca7526a12029fa21) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): `IconButton` with badge positioning
+
+- [#1392](https://github.com/RocketChat/fuselage/pull/1392) [`dfe712ee9`](https://github.com/RocketChat/fuselage/commit/dfe712ee9b496b4218f9d93155972f1909fa99ff) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): SidebarItem missing badge vertical alignment
+
+- [#1390](https://github.com/RocketChat/fuselage/pull/1390) [`4094d78c5`](https://github.com/RocketChat/fuselage/commit/4094d78c51be1cac1dd783249671dd430987e7c1) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): Modal components missing some a11y props
+
 ## 0.54.2
 
 ### Patch Changes
