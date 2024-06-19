@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.55.1
+
+### Patch Changes
+
+- [#1394](https://github.com/RocketChat/fuselage/pull/1394) [`1eb218f2a`](https://github.com/RocketChat/fuselage/commit/1eb218f2a5a8af323b744f60b812c1354d450155) Thanks [@abhinavkrin](https://github.com/abhinavkrin)! - Fixed: Prevent text overflow issues in chat messages when they include a large number of diacritical marks.
+
 ## 0.55.0
 
 ### Minor Changes
