@@ -30,7 +30,7 @@ exports[`[Contextualbar Rendering] renders Default without crashing 1`] = `
             <div
               class="rcx-box rcx-box--full rcx-css-1spko5i"
             >
-              Contextualbar Title
+              ContextualbarV2 Title
             </div>
             <div
               class="rcx-button-group rcx-button-group--align-start"
@@ -179,7 +179,7 @@ exports[`[Contextualbar Rendering] renders Empty without crashing 1`] = `
             <div
               class="rcx-box rcx-box--full rcx-css-1spko5i"
             >
-              Contextualbar Empty
+              ContextualbarV2 Empty
             </div>
             <div
               class="rcx-button-group rcx-button-group--align-start"
