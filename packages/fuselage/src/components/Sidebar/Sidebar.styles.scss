@@ -68,7 +68,12 @@ $sidebar-item-background-color-featured-selected: theme(
 
 $sidebar-header-height: theme(
   'sidebar-header-height',
-  theme('header-height', lengths.size(44))
+  theme('header-height', lengths.size(64))
+);
+
+$sidebar-header-v2-height: theme(
+  'sidebar-header-v2-height',
+  theme('header-height-v2', lengths.size(44))
 );
 
 $sidebar-section-height: theme(
@@ -192,6 +197,10 @@ $sidebar-banner-color-danger: theme(
       @include typography.use-font-scale(p2m);
       color: $sidebar-color-font-title;
     }
+  }
+
+  &-topbar-v2 {
+    height: $sidebar-header-v2-height;
   }
 
   &-item {
