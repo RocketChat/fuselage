@@ -1,7 +1,10 @@
 import type { ReactElement, ComponentProps } from 'react';
 import React, { memo } from 'react';
 
-import { Contextualbar, ContextualbarHeader } from '.';
+import {
+  ContextualbarV2 as Contextualbar,
+  ContextualbarV2Header as ContextualbarHeader,
+} from '.';
 import { Box, Skeleton } from '..';
 
 const ContextualbarSkeleton = (
