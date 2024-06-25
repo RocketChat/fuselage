@@ -15,35 +15,29 @@ const ToastBarTimed = ({
 
   const [hovering, setHovering] = useState(false);
 
-  const [timedOut, setTimedOut] = useState(false);
+  const visibleFor = time * 1000;
 
   useEffect(() => {
-    const timeOut = setTimeout(() => {
+    const start = Date.now();
+
+    const interval = setInterval(() => {
       if (hovering) {
-        setTimedOut(true);
         return;
       }
 
-      dismissToastMessage(id);
-    }, time * 1000);
+      if (Date.now() - start >= visibleFor) {
+        dismissToastMessage(id);
+      }
+    }, 100);
 
-    return () => clearTimeout(timeOut);
+    return () => clearTimeout(interval);
   }, [hovering]);
-
-  const onMouseLeave = () => {
-    if (timedOut) {
-      dismissToastMessage(id);
-      return;
-    }
-
-    setHovering(false);
-  };
 
   return (
     <ToastBar
       variant={type}
       onMouseEnter={() => setHovering(true)}
-      onMouseLeave={onMouseLeave}
+      onMouseLeave={() => setHovering(false)}
       children={message}
       onClose={dismissToastMessage}
       id={id}

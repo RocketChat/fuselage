@@ -59,6 +59,7 @@ export function ToastBar({
     &::after {
       width: 0%;
       animation: ${progressBar} ${time}s;
+      animation-fill-mode: forwards;
     }
   `;
 
