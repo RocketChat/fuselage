@@ -30,7 +30,7 @@ const ToastBarTimed = ({
       }
     }, 100);
 
-    return () => clearTimeout(interval);
+    return () => clearInterval(interval);
   }, [hovering]);
 
   return (
