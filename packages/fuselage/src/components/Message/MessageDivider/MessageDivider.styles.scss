@@ -82,7 +82,7 @@ $message-divider-size-neg: theme(
     background-color: $message-background-color;
 
     &--unread {
-      position: absolute;
+      //position: absolute;
       z-index: 1;
       // right: lengths.padding(8);
 
