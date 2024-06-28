@@ -32,6 +32,7 @@ interface MenuButtonProps<T> extends AriaMenuProps<T>, MenuTriggerProps {
   maxWidth?: string;
   button?: React.ReactElement;
 }
+
 const Menu = <T extends object>({
   icon = 'kebab',
   placement = 'bottom-start',
@@ -96,4 +97,7 @@ const Menu = <T extends object>({
     </>
   );
 };
+
+Menu.displayName = 'MenuV2';
+
 export default Menu;
