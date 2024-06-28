@@ -1,6 +1,6 @@
 import { ToastBar } from '@rocket.chat/fuselage';
 import type { ReactElement } from 'react';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 import type { ToastBarPayload } from './ToastBarContext';
 import { useToastBarDismiss } from './ToastBarContext';
@@ -13,17 +13,31 @@ const ToastBarTimed = ({
 }: ToastBarPayload): ReactElement => {
   const dismissToastMessage = useToastBarDismiss();
 
-  useEffect(() => {
-    const timeOut = setTimeout(() => {
-      dismissToastMessage(id);
-    }, time * 1000);
+  const [hovering, setHovering] = useState(false);
 
-    return () => clearTimeout(timeOut);
-  }, []);
+  const visibleFor = time * 1000;
+
+  useEffect(() => {
+    const start = Date.now();
+
+    const interval = setInterval(() => {
+      if (hovering) {
+        return;
+      }
+
+      if (Date.now() - start >= visibleFor) {
+        dismissToastMessage(id);
+      }
+    }, 100);
+
+    return () => clearInterval(interval);
+  }, [hovering]);
 
   return (
     <ToastBar
       variant={type}
+      onMouseEnter={() => setHovering(true)}
+      onMouseLeave={() => setHovering(false)}
       children={message}
       onClose={dismissToastMessage}
       id={id}
