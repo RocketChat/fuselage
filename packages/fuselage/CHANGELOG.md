@@ -1,5 +1,17 @@
 # Change Log
 
+## 0.55.2
+
+### Patch Changes
+
+- [#1404](https://github.com/RocketChat/fuselage/pull/1404) [`c23955874`](https://github.com/RocketChat/fuselage/commit/c239558745265d68b91bda1dc25bc8a7b0a1653b) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): move header size changes into V2 components
+
+## 0.55.1
+
+### Patch Changes
+
+- [#1394](https://github.com/RocketChat/fuselage/pull/1394) [`1eb218f2a`](https://github.com/RocketChat/fuselage/commit/1eb218f2a5a8af323b744f60b812c1354d450155) Thanks [@abhinavkrin](https://github.com/abhinavkrin)! - Fixed: Prevent text overflow issues in chat messages when they include a large number of diacritical marks.
+
 ## 0.55.0
 
 ### Minor Changes
