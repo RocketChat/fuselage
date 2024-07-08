@@ -11,33 +11,30 @@ const ToastBarTimed = ({
   id,
   message,
 }: ToastBarPayload): ReactElement => {
+  const timeInSeconds = time * 1000;
+  const [shouldPause, setShouldPause] = useState(false);
   const dismissToastMessage = useToastBarDismiss();
 
-  const [hovering, setHovering] = useState(false);
-
-  const visibleFor = time * 1000;
-
   useEffect(() => {
-    const start = Date.now();
-
+    const initialTime = Date.now();
     const interval = setInterval(() => {
-      if (hovering) {
+      if (shouldPause) {
         return;
       }
 
-      if (Date.now() - start >= visibleFor) {
+      if (Date.now() - initialTime >= timeInSeconds) {
         dismissToastMessage(id);
       }
-    }, 100);
+    }, timeInSeconds);
 
     return () => clearInterval(interval);
-  }, [hovering]);
+  }, [shouldPause]);
 
   return (
     <ToastBar
       variant={type}
-      onMouseEnter={() => setHovering(true)}
-      onMouseLeave={() => setHovering(false)}
+      onMouseEnter={() => setShouldPause(true)}
+      onMouseLeave={() => setShouldPause(false)}
       children={message}
       onClose={dismissToastMessage}
       id={id}
