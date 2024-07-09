@@ -1,5 +1,3 @@
-import { Item, Section } from 'react-stately';
-
 import {
   OptionIcon,
   OptionAvatar,
@@ -12,8 +10,9 @@ import {
 } from '../../Option';
 
 export { default as MenuV2 } from './Menu';
+export { default as MenuItem } from './stately/MenuItem';
+export { default as MenuSection } from './stately/MenuSection';
 
-export { Item as MenuItem, Section as MenuSection };
 export {
   OptionAvatar as MenuItemAvatar,
   OptionColumn as MenuItemColumn,
