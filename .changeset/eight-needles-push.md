@@ -3,4 +3,4 @@
 "@rocket.chat/fuselage": minor
 ---
 
-feat(fuselage-toastbar): Pause ToastBar timer when hovering
+feat(fuselage-toastbar): Pause ToastBar timer while hovering
