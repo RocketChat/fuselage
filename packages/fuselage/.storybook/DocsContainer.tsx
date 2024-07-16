@@ -1,4 +1,4 @@
-import { DocsContainer as BaseContainer } from '@storybook/addon-docs/blocks';
+import { DocsContainer as BaseContainer } from '@storybook/addon-docs';
 import { themes } from '@storybook/theming';
 import type { ComponentProps } from 'react';
 import React from 'react';
