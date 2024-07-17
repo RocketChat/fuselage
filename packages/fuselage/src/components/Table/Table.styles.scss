@@ -16,12 +16,12 @@
   }
 
   &__selection {
-    color: colors.status-font(on-info);
+    color: colors.font(titles-labels);
     border-radius: theme(
       'table-selected-border-radius',
-      lengths.border-radius(small)
+      lengths.border-radius(medium)
     );
-    background-color: colors.status-background(info);
+    background-color: colors.surface(neutral);
   }
 
   &__wrapper {
