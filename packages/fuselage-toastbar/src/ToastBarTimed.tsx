@@ -1,6 +1,6 @@
 import { ToastBar } from '@rocket.chat/fuselage';
 import type { ReactElement } from 'react';
-import { useEffect, useState } from 'react';
+import { useCountdown } from 'react-timing-hooks';
 
 import type { ToastBarPayload } from './ToastBarContext';
 import { useToastBarDismiss } from './ToastBarContext';
@@ -11,34 +11,23 @@ const ToastBarTimed = ({
   id,
   message,
 }: ToastBarPayload): ReactElement => {
-  const timeInSeconds = time * 1000;
-  const [shouldPause, setShouldPause] = useState(false);
   const dismissToastMessage = useToastBarDismiss();
 
-  useEffect(() => {
-    const initialTime = Date.now();
-    const interval = setInterval(() => {
-      if (shouldPause) {
-        return;
-      }
-
-      if (Date.now() - initialTime >= timeInSeconds) {
-        dismissToastMessage(id);
-      }
-    }, timeInSeconds);
-
-    return () => clearInterval(interval);
-  }, [shouldPause]);
+  const [, { isPaused, pause, resume }] = useCountdown(time, 0, {
+    onEnd: () => dismissToastMessage(id),
+    startOnMount: true,
+  });
 
   return (
     <ToastBar
       variant={type}
-      onMouseEnter={() => setShouldPause(true)}
-      onMouseLeave={() => setShouldPause(false)}
+      onPointerEnter={() => pause()}
+      onPointerLeave={() => resume()}
       children={message}
       onClose={dismissToastMessage}
       id={id}
       time={time}
+      isPaused={isPaused}
     />
   );
 };

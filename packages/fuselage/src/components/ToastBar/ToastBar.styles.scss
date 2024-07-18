@@ -112,8 +112,4 @@ $toastbar-progressbar-background-color: theme(
       background-color: $toastbar-progressbar-background-color;
     }
   }
-
-  &:hover &_progressbar::after {
-    animation-play-state: paused;
-  }
 }
