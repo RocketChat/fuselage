@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.56.0
+
+### Minor Changes
+
+- [#1409](https://github.com/RocketChat/fuselage/pull/1409) [`c156035e`](https://github.com/RocketChat/fuselage/commit/c156035ec539107bd187e094422addaea0892aa4) Thanks [@dougfabris](https://github.com/dougfabris)! - feat(fuselage): TableSelection visual improvements
+
 ## 0.55.2
 
 ### Patch Changes
