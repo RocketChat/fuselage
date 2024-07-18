@@ -104,5 +104,8 @@
   },
   "volta": {
     "extends": "../../package.json"
+  },
+  "dependencies": {
+    "react-timing-hooks": "~4.0.2"
   }
 }

@@ -5763,6 +5763,7 @@ __metadata:
     lint-staged: "npm:~13.2.1"
     npm-run-all: "npm:^4.1.5"
     prettier: "npm:~2.8.7"
+    react-timing-hooks: "npm:~4.0.2"
     rimraf: "npm:~3.0.2"
     storybook-dark-mode: "npm:~1.1.2"
     ts-jest: "npm:~29.1.0"
@@ -23556,6 +23557,15 @@ __metadata:
     "@types/react":
       optional: true
   checksum: 10/80c58fd6aac3594e351e2e7b048d8a5b09508adb21031a38b3c40911fe58295572eddc640d4b20a7be364842c8ed1120fe30097e22ea055316b375b88d4ff02a
+  languageName: node
+  linkType: hard
+
+"react-timing-hooks@npm:~4.0.2":
+  version: 4.0.2
+  resolution: "react-timing-hooks@npm:4.0.2"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+  checksum: 10/0d1c7b37e4d86932ad092ce248dd711521396ae36a91329bf6a8dfbdf904d7e45475946ead0e7991020a8546a0fb61d69c05d6bcbd417901b18932b83d688984
   languageName: node
   linkType: hard
 
