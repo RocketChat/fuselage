@@ -973,5 +973,11 @@
   },
   "share-alt": {
     "start": "\ue155"
+  },
+  "cloud": {
+    "start": "\ue157"
+  },
+  "ai": {
+    "start": "\ue159"
   }
 }
