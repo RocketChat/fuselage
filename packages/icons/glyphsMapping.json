@@ -967,5 +967,11 @@
   },
   "check-double": {
     "start": "\ue151"
+  },
+  "stars": {
+    "start": "\ue153"
+  },
+  "share-alt": {
+    "start": "\ue155"
   }
 }
