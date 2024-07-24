@@ -75,13 +75,35 @@ $callout-text-color: theme('callout-text-color', colors.font(default));
   &__wrapper {
     display: flex;
 
-    overflow: hidden;
-    flex-flow: column nowrap;
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    align-items: start;
+
     flex: 1 1 0;
 
     margin-inline-start: lengths.margin(12);
 
-    @include typography.use-font-scale(c1);
+    > :nth-child(2) {
+      margin-block-start: lengths.margin(12);
+    }
+
+    @include on-breakpoint(sm) {
+      flex-direction: row;
+      align-items: center;
+
+      > :nth-child(2) {
+        margin-block-start: lengths.margin(0);
+      }
+    }
+  }
+
+  &__wrapper-content {
+    display: flex;
+
+    overflow: hidden;
+    flex-flow: column nowrap;
 
     > :nth-child(2) {
       margin-block-start: lengths.margin(4);

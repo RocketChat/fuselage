@@ -1,4 +1,4 @@
-import type { ComponentProps, ReactNode } from 'react';
+import type { ComponentProps, ReactElement, ReactNode } from 'react';
 import React from 'react';
 
 import Box from '../Box';
@@ -9,6 +9,7 @@ type CalloutProps = Omit<ComponentProps<typeof Box>, 'type' | 'name'> & {
   title?: ReactNode;
   children?: ReactNode;
   icon?: ComponentProps<typeof Icon>['name'];
+  actions?: ReactElement;
 };
 
 export const Callout = ({
@@ -17,6 +18,7 @@ export const Callout = ({
   children,
   icon,
   className,
+  actions,
   ...props
 }: CalloutProps) => {
   const defaultIcon =
@@ -40,8 +42,11 @@ export const Callout = ({
         size='x20'
       />
       <Box rcx-callout__wrapper>
-        {title && <Box rcx-callout__title>{title}</Box>}
-        {children && <Box rcx-callout__content>{children}</Box>}
+        <Box rcx-callout__wrapper-content>
+          {title && <Box rcx-callout__title>{title}</Box>}
+          {children && <Box rcx-callout__content>{children}</Box>}
+        </Box>
+        {actions && <Box rcx-callout__actions>{actions}</Box>}
       </Box>
     </Box>
   );
