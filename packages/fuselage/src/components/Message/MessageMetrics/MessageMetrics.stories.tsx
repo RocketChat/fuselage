@@ -60,10 +60,10 @@ const metricsThread = (
     <MessageMetricsItem title={'Participants'}>
       <MessageMetricsItemAvatarRow>
         <MessageMetricsItemAvatarRowContent>
-          <Avatar size='x16' url={imgUrl} />
+          <Avatar alt='gazzolia' size='x16' url={imgUrl} />
         </MessageMetricsItemAvatarRowContent>
         <MessageMetricsItemAvatarRowContent>
-          <Avatar size='x16' url={imgUrl} />
+          <Avatar alt='gazzolia' size='x16' url={imgUrl} />
         </MessageMetricsItemAvatarRowContent>
       </MessageMetricsItemAvatarRow>
       <MessageMetricsItemLabel>+ 3 Participants</MessageMetricsItemLabel>
