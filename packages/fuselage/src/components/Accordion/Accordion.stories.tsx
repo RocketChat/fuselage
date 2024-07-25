@@ -1,19 +1,12 @@
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
-import { Accordion, Box } from '../..';
+import { Accordion } from '.';
+import Box from '../Box';
 
 export default {
   title: 'Containers/Accordion',
   component: Accordion,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'An `Accordion` allows users to toggle the display of sections of content.',
-      },
-    },
-  },
 } as ComponentMeta<typeof Accordion.Item>;
 
 const Template: ComponentStory<typeof Accordion> = () => (

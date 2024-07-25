@@ -1,2 +1,2 @@
-export * from './Accordion';
-export * from './AccordionItem';
+export { default as Accordion, AccordionProps } from './Accordion';
+export { default as AccordionItem, AccordionItemProps } from './AccordionItem';

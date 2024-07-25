@@ -50,35 +50,40 @@ import type { SetStateAction } from 'react';
 import { SVGAttributes } from 'react';
 import { UsePositionOptions } from '@rocket.chat/fuselage-hooks';
 
-// @public (undocumented)
+// @internal
 export const __setThrowErrorOnInvalidToken__: (value: boolean) => void;
 
-// Warning: (ae-forgotten-export) The symbol "AccordionProps" needs to be exported by the entry point index.d.ts
-//
-// @public (undocumented)
-export function Accordion(props: AccordionProps): ReactElement<AccordionProps>;
+// @public
+export function Accordion(props: AccordionProps): React_2.JSX.Element;
 
 // @public (undocumented)
 export namespace Accordion {
     var // (undocumented)
-    Item: ({ children, className, defaultExpanded, disabled, expanded: propExpanded, tabIndex, title, noncollapsible, onToggle, onToggleEnabled, ...props }: {
-        children?: ReactNode;
-        className?: string;
-        defaultExpanded?: boolean;
-        disabled?: boolean;
-        expanded?: boolean;
-        tabIndex?: number;
-        title: ReactNode;
-        noncollapsible?: boolean;
-        onToggle?: (e: React_2.MouseEvent | React_2.KeyboardEvent) => void;
-        onToggleEnabled?: (e: React_2.FormEvent) => void;
-    }) => React_2.JSX.Element;
+    Item: typeof AccordionItem;
 }
 
-// Warning: (ae-forgotten-export) The symbol "AccordionItemProps" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
-export const AccordionItem: ({ children, className, defaultExpanded, disabled, expanded: propExpanded, tabIndex, title, noncollapsible, onToggle, onToggleEnabled, ...props }: AccordionItemProps) => React_2.JSX.Element;
+export function AccordionItem({ children, className, defaultExpanded, disabled, expanded: propExpanded, tabIndex, title, noncollapsible, onToggle, onToggleEnabled, ...props }: AccordionItemProps): React_2.JSX.Element;
+
+// @public (undocumented)
+export type AccordionItemProps = {
+    children?: ReactNode;
+    className?: string;
+    defaultExpanded?: boolean;
+    disabled?: boolean;
+    expanded?: boolean;
+    tabIndex?: number;
+    title: ReactNode;
+    noncollapsible?: boolean;
+    onToggle?: (e: MouseEvent_2 | KeyboardEvent_2) => void;
+    onToggleEnabled?: (e: FormEvent) => void;
+};
+
+// @public (undocumented)
+export type AccordionProps = ComponentProps<typeof Box> & {
+    animated?: boolean;
+    children: ReactNode;
+};
 
 // Warning: (ae-forgotten-export) The symbol "StylingProps" needs to be exported by the entry point index.d.ts
 // Warning: (ae-forgotten-export) The symbol "ButtonSize" needs to be exported by the entry point index.d.ts
@@ -1556,7 +1561,7 @@ export const PaginatedSelectFiltered: ({ filter, setFilter, options, placeholder
 // @public (undocumented)
 export const Pagination: ({ count, current, itemsPerPage, itemsPerPageLabel, showingResultsLabel, onSetItemsPerPage, onSetCurrent, divider, ...props }: PaginationProps) => React_2.JSX.Element;
 
-// @public (undocumented)
+// @public
 export const Palette: {
     surface: {
         'surface-light': Var;
@@ -2558,7 +2563,7 @@ export const Wrapper: (props: ComponentProps<typeof Box>) => React_2.JSX.Element
 
 // Warnings were encountered during analysis:
 //
-// src/Theme.ts:255:1 - (ae-forgotten-export) The symbol "Var" needs to be exported by the entry point index.d.ts
+// src/Theme.ts:270:1 - (ae-forgotten-export) The symbol "Var" needs to be exported by the entry point index.d.ts
 // src/components/AnimatedVisibility/index.ts:4:5 - (ae-forgotten-export) The symbol "VisibilityType" needs to be exported by the entry point index.d.ts
 // src/components/Button/ActionButton.tsx:28:26 - (ae-forgotten-export) The symbol "Falsy" needs to be exported by the entry point index.d.ts
 // src/components/Flex/index.ts:4:5 - (ae-forgotten-export) The symbol "FlexContainer" needs to be exported by the entry point index.d.ts
