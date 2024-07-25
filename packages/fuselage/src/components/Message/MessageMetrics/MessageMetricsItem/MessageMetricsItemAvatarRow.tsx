@@ -3,9 +3,9 @@ import React from 'react';
 
 type MessageMetricsItemProps = HTMLAttributes<HTMLDivElement>;
 
-export const MessageMetricsItem = ({
+export const MessageMetricsItemAvatarRow = ({
   className,
   ...props
 }: MessageMetricsItemProps) => (
-  <div className={`rcx-message-metrics__item ${className}`} {...props} />
+  <div className={`rcx-message-metrics__avatar-row ${className}`} {...props} />
 );
