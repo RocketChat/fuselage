@@ -3,7 +3,7 @@ import type { KeyboardEvent } from 'react';
 import { useState } from 'react';
 
 import AnimatedVisibility from '../AnimatedVisibility';
-import type { OptionType } from './Options';
+import type { OptionType } from './OptionType';
 import { useVisible } from './useVisible';
 
 const keyCodes = {
@@ -62,6 +62,7 @@ export type UseCursorOnChange<T> = (
   visibilityHandler: ReturnType<typeof useVisible>
 ) => void;
 
+/** @public */
 export const useCursor = <
   T extends readonly [
     value: unknown,

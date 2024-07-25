@@ -30,7 +30,7 @@ import { Key } from 'react';
 import type { KeyboardEvent as KeyboardEvent_2 } from 'react';
 import type { KeyboardEventHandler } from 'react';
 import type { MenuTriggerProps } from 'react-stately';
-import { MouseEvent as MouseEvent_2 } from 'react';
+import type { MouseEvent as MouseEvent_2 } from 'react';
 import type { MouseEventHandler } from 'react';
 import { NamedExoticComponent } from 'react';
 import type { OverlayTriggerState } from 'react-stately';
@@ -40,7 +40,7 @@ import * as React_3 from 'react';
 import { ReactElement } from 'react';
 import { ReactNode } from 'react';
 import type { ReactPortal } from 'react';
-import { Ref } from 'react';
+import type { Ref } from 'react';
 import { RefAttributes } from 'react';
 import type { RefObject } from 'react';
 import type { SectionProps } from '@react-types/shared';
@@ -411,26 +411,13 @@ export const CheckBox: React_2.ForwardRefExoticComponent<{
     indeterminate?: boolean;
 } & AllHTMLAttributes<HTMLInputElement> & React_2.RefAttributes<HTMLInputElement>>;
 
+// Warning: (ae-forgotten-export) The symbol "CheckOption_2" needs to be exported by the entry point index.d.ts
+//
 // @public (undocumented)
-export const CheckOption: React_2.NamedExoticComponent<{
-    is?: BoxProps["is"];
-    id?: string;
-    children?: React_2.ReactNode;
-    label?: React_2.ReactNode;
-    focus?: boolean;
-    selected?: boolean;
-    className?: BoxProps["className"];
-    ref?: React_2.Ref<Element>;
-    icon?: IconName;
-    gap?: boolean;
-    avatar?: React_2.ReactNode;
-    title?: string;
-    disabled?: boolean;
-    value?: string;
-    variant?: "danger" | "success" | "warning" | "primary";
-    onClick?: (event: React_2.MouseEvent<HTMLElement>) => void;
-    description?: React_2.ReactNode;
-} & Omit<React_2.AllHTMLAttributes<HTMLElement>, "label">>;
+export const CheckOption: React_2.MemoExoticComponent<typeof CheckOption_2>;
+
+// @public (undocumented)
+export type CheckOptionProps = OptionProps;
 
 // Warning: (ae-forgotten-export) The symbol "ChevronProps" needs to be exported by the entry point index.d.ts
 //
@@ -646,9 +633,12 @@ export const EmailInput: React_2.ForwardRefExoticComponent<Omit<InputBoxProps, "
 } & React_2.RefAttributes<HTMLElement>>;
 
 // @public (undocumented)
-export const Empty: React_2.MemoExoticComponent<({ customEmpty }: {
+export const Empty: React_2.MemoExoticComponent<({ customEmpty }: EmptyProps) => React_2.JSX.Element>;
+
+// @public (undocumented)
+export type EmptyProps = {
     customEmpty: string;
-}) => React_2.JSX.Element>;
+};
 
 // Warning: (ae-forgotten-export) The symbol "Field_2" needs to be exported by the entry point index.d.ts
 //
@@ -1355,83 +1345,43 @@ export const NavBarSection: (props: HTMLAttributes<HTMLSpanElement>) => React_2.
 export const NumberInput: React_2.ForwardRefExoticComponent<NumberInputProps & React_2.RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
-const Option_2: NamedExoticComponent<Omit<{
-is?: BoxProps["is"];
-id?: string;
-children?: ReactNode;
-label?: ReactNode;
-focus?: boolean;
-selected?: boolean;
-className?: BoxProps["className"];
-ref?: Ref<Element>;
-icon?: IconName;
-gap?: boolean;
-avatar?: ReactNode;
-title?: string;
-disabled?: boolean;
-value?: string;
-variant?: "danger" | "success" | "warning" | "primary";
-onClick?: (event: MouseEvent_2<HTMLElement>) => void;
-description?: ReactNode;
-} & Omit<AllHTMLAttributes<HTMLElement>, "label">, "ref"> & RefAttributes<unknown>> & {
-    readonly type: ForwardRefExoticComponent<Omit<{
-    is?: BoxProps["is"];
-    id?: string;
-    children?: ReactNode;
-    label?: ReactNode;
-    focus?: boolean;
-    selected?: boolean;
-    className?: BoxProps["className"];
-    ref?: Ref<Element>;
-    icon?: IconName;
-    gap?: boolean;
-    avatar?: ReactNode;
-    title?: string;
-    disabled?: boolean;
-    value?: string;
-    variant?: "danger" | "success" | "warning" | "primary";
-    onClick?: (event: MouseEvent_2<HTMLElement>) => void;
-    description?: ReactNode;
-    } & Omit<AllHTMLAttributes<HTMLElement>, "label">, "ref"> & RefAttributes<unknown>>;
+const Option_2: NamedExoticComponent<Omit<OptionProps, "ref"> & RefAttributes<unknown>> & {
+    readonly type: ForwardRefExoticComponent<Omit<OptionProps, "ref"> & RefAttributes<unknown>>;
 } & {
-    Description: (props: {
-        children?: ReactNode;
-    }) => JSX_2.Element;
+    Description: (props: OptionDescriptionProps) => JSX_2.Element;
     Skeleton: () => JSX_2.Element;
-    Avatar: (props: {
-        children?: ReactNode;
-    }) => JSX_2.Element;
-    Menu: (props: {
-        children?: ReactNode;
-    } & HTMLAttributes<HTMLDivElement>) => JSX_2.Element;
-    Icon: ({ name }: {
-        name: IconName;
-    }) => JSX_2.Element;
-    Divider: (props: DividerProps) => JSX_2.Element;
-    Column: (props: {
-        children?: ReactNode;
-    }) => JSX_2.Element;
-    Content: (props: HTMLAttributes<HTMLDivElement>) => JSX_2.Element;
+    Avatar: (props: OptionAvatarProps) => JSX_2.Element;
+    Menu: (props: OptionMenuProps) => JSX_2.Element;
+    Icon: ({ name }: OptionIconProps) => JSX_2.Element;
+    Divider: (props: OptionDividerProps) => JSX_2.Element;
+    Column: (props: OptionColumnProps) => JSX_2.Element;
+    Content: (props: OptionContentProps) => JSX_2.Element;
 };
 export { Option_2 as Option }
 
-// Warning: (ae-forgotten-export) The symbol "OptionAvatarProps" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
 const OptionAvatar: (props: OptionAvatarProps) => React_2.JSX.Element;
 export { OptionAvatar as MenuItemAvatar }
 export { OptionAvatar }
 
-// Warning: (ae-forgotten-export) The symbol "OptionColumnProps" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export type OptionAvatarProps = {
+    children?: ReactNode;
+};
+
 // @public (undocumented)
 const OptionColumn: (props: OptionColumnProps) => React_2.JSX.Element;
 export { OptionColumn as MenuItemColumn }
 export { OptionColumn }
 
 // @public (undocumented)
+export type OptionColumnProps = {
+    children?: ReactNode;
+};
+
+// @public (undocumented)
 export const OptionContainer: React_2.ForwardRefExoticComponent<{
-    is?: ElementType;
+    is?: React_2.ElementType;
     className?: string | cssFn | (string | cssFn | Falsy)[];
     animated?: boolean;
     withRichContent?: boolean | "inlineWithoutBreaks";
@@ -1439,50 +1389,75 @@ export const OptionContainer: React_2.ForwardRefExoticComponent<{
 } & Partial<StylingProps> & Omit<React_2.AllHTMLAttributes<HTMLElement>, "ref" | "is" | "className" | "size" | "elevation"> & Omit<React_2.SVGAttributes<SVGElement>, "elevation" | keyof React_2.AllHTMLAttributes<HTMLElement>> & React_2.RefAttributes<HTMLElement>>;
 
 // @public (undocumented)
-const OptionContent: (props: HTMLAttributes<HTMLDivElement>) => React_2.JSX.Element;
+export type OptionContainerProps = BoxProps;
+
+// @public (undocumented)
+const OptionContent: (props: OptionContentProps) => React_2.JSX.Element;
 export { OptionContent as MenuItemContent }
 export { OptionContent }
 
-// Warning: (ae-forgotten-export) The symbol "OptionDescriptionProps_2" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
-export const OptionDescription: (props: OptionDescriptionProps_2) => React_2.JSX.Element;
+export type OptionContentProps = HTMLAttributes<HTMLDivElement>;
 
-// Warning: (ae-forgotten-export) The symbol "OptionDescriptionProps" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
-const OptionDescriptionBlock: (props: OptionDescriptionProps) => React_2.JSX.Element;
+export const OptionDescription: (props: OptionDescriptionProps) => React_2.JSX.Element;
+
+// @public (undocumented)
+const OptionDescriptionBlock: (props: OptionDescriptionBlockProps) => React_2.JSX.Element;
 export { OptionDescriptionBlock as MenuItemDescription }
 export { OptionDescriptionBlock }
 
-// Warning: (ae-forgotten-export) The symbol "OptionDividerProps" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export type OptionDescriptionBlockProps = {
+    children?: ReactNode;
+};
+
+// @public (undocumented)
+export type OptionDescriptionProps = {
+    children?: ReactNode;
+};
+
 // @public (undocumented)
 export const OptionDivider: (props: OptionDividerProps) => React_2.JSX.Element;
 
-// Warning: (ae-forgotten-export) The symbol "OptionHeaderProps" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export type OptionDividerProps = DividerProps;
+
 // @public (undocumented)
 export const OptionHeader: ({ children }: OptionHeaderProps) => React_2.JSX.Element;
 
-// Warning: (ae-forgotten-export) The symbol "OptionIconProps" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export type OptionHeaderProps = {
+    children: ReactNode;
+};
+
 // @public (undocumented)
 const OptionIcon: ({ name }: OptionIconProps) => React_2.JSX.Element;
 export { OptionIcon as MenuItemIcon }
 export { OptionIcon }
 
-// Warning: (ae-forgotten-export) The symbol "OptionInputProps" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export type OptionIconProps = {
+    name: IconName;
+};
+
 // @public (undocumented)
 const OptionInput: (props: OptionInputProps) => React_2.JSX.Element;
 export { OptionInput as MenuItemInput }
 export { OptionInput }
 
-// Warning: (ae-forgotten-export) The symbol "OptionMenuProps" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export type OptionInputProps = {
+    children?: ReactNode;
+};
+
 // @public (undocumented)
 export const OptionMenu: (props: OptionMenuProps) => React_2.JSX.Element;
+
+// @public (undocumented)
+export type OptionMenuProps = {
+    children?: ReactNode;
+} & HTMLAttributes<HTMLDivElement>;
 
 // @public (undocumented)
 export type OptionProps = {
@@ -1523,12 +1498,26 @@ const OptionSkeleton: () => React_2.JSX.Element;
 export { OptionSkeleton as MenuItemSkeleton }
 export { OptionSkeleton }
 
-// Warning: (ae-forgotten-export) The symbol "OptionTitleProps" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export type OptionsProps = Omit<BoxProps, 'onSelect'> & {
+    multiple?: boolean;
+    options: OptionType[];
+    cursor: number;
+    renderItem?: ElementType;
+    renderEmpty?: ElementType;
+    onSelect: (option: OptionType) => void;
+    customEmpty?: string;
+};
+
 // @public (undocumented)
 const OptionTitle: (props: OptionTitleProps) => React_2.JSX.Element;
 export { OptionTitle as MenuItemTitle }
 export { OptionTitle }
+
+// @public (undocumented)
+export type OptionTitleProps = {
+    children?: ReactNode;
+};
 
 // @public (undocumented)
 export type OptionType = [

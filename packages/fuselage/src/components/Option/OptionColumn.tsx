@@ -1,10 +1,12 @@
 import type { ReactNode } from 'react';
 import React from 'react';
 
-type OptionColumnProps = {
+/** @public */
+export type OptionColumnProps = {
   children?: ReactNode;
 };
 
+/** @public */
 const OptionColumn = (props: OptionColumnProps) => (
   <div className='rcx-option__column' {...props} />
 );

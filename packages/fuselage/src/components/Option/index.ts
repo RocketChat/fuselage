@@ -3,46 +3,47 @@ import OptionAvatar from './OptionAvatar';
 import OptionColumn from './OptionColumn';
 import OptionContent from './OptionContent';
 import OptionDescription from './OptionDescription';
-import OptionDescriptionBlock from './OptionDescriptionBlock';
 import OptionDivider from './OptionDivider';
-import OptionHeader from './OptionHeader';
 import OptionIcon from './OptionIcon';
-import OptionInput from './OptionInput';
 import OptionMenu from './OptionMenu';
 import OptionSkeleton from './OptionSkeleton';
-import OptionTitle from './OptionTitle';
 
 export default Object.assign(Option, {
-  /** @deprecated */
+  /** @deprecated Use `OptionDescription` instead */
   Description: OptionDescription,
-  /** @deprecated */
+  /** @deprecated Use `OptionSkeleton` instead */
   Skeleton: OptionSkeleton,
-  /** @deprecated */
+  /** @deprecated Use `OptionAvatar` instead */
   Avatar: OptionAvatar,
-  /** @deprecated */
+  /** @deprecated Use `OptionMenu` instead */
   Menu: OptionMenu,
-  /** @deprecated */
+  /** @deprecated Use `OptionIcon` instead */
   Icon: OptionIcon,
-  /** @deprecated */
+  /** @deprecated Use `OptionDivider` instead */
   Divider: OptionDivider,
-  /** @deprecated */
+  /** @deprecated Use `OptionColumn` instead */
   Column: OptionColumn,
-  /** @deprecated */
+  /** @deprecated Use `OptionContent` instead */
   Content: OptionContent,
 });
 
-export * from './CheckOption';
-export { OptionAvatar };
-export { OptionColumn };
-export { OptionContent };
-export { OptionDescription };
-export { OptionDescriptionBlock };
-export { OptionDivider };
-export { OptionIcon };
-export { OptionInput };
-export { OptionMenu };
-export { OptionSkeleton };
-export { OptionTitle };
-export { OptionHeader };
-
-export { OptionProps } from './Option';
+export { default as CheckOption, CheckOptionProps } from './CheckOption';
+export { default as Option, OptionProps } from './Option';
+export { default as OptionAvatar, OptionAvatarProps } from './OptionAvatar';
+export { default as OptionColumn, OptionColumnProps } from './OptionColumn';
+export { default as OptionContent, OptionContentProps } from './OptionContent';
+export {
+  default as OptionDescription,
+  OptionDescriptionProps,
+} from './OptionDescription';
+export {
+  default as OptionDescriptionBlock,
+  OptionDescriptionBlockProps,
+} from './OptionDescriptionBlock';
+export { default as OptionDivider, OptionDividerProps } from './OptionDivider';
+export { default as OptionIcon, OptionIconProps } from './OptionIcon';
+export { default as OptionInput, OptionInputProps } from './OptionInput';
+export { default as OptionMenu, OptionMenuProps } from './OptionMenu';
+export { default as OptionSkeleton } from './OptionSkeleton';
+export { default as OptionTitle, OptionTitleProps } from './OptionTitle';
+export { default as OptionHeader, OptionHeaderProps } from './OptionHeader';

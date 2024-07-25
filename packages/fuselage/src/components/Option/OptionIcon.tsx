@@ -4,10 +4,12 @@ import React from 'react';
 import { Icon } from '../Icon';
 import OptionColumn from './OptionColumn';
 
-type OptionIconProps = {
+/** @public */
+export type OptionIconProps = {
   name: IconName;
 };
 
+/** @public */
 const OptionIcon = ({ name }: OptionIconProps) => (
   <OptionColumn>
     <Icon size='x20' rcx-option__icon name={name} />

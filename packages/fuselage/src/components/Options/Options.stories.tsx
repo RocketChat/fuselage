@@ -12,8 +12,7 @@ import type { OptionType } from '.';
 import { Options } from '.';
 import type { Menu } from '..';
 import { Box } from '..';
-import Option from '../Option';
-import { CheckOption } from '../Option/CheckOption';
+import Option, { CheckOption } from '../Option';
 
 const options: OptionType[] = [
   [1, 'a teste 1'],
