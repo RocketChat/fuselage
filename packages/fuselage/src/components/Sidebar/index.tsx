@@ -1,6 +1,6 @@
-import type { ComponentProps } from 'react';
 import React from 'react';
 
+import type { BoxProps } from '../Box';
 import Box from '../Box';
 import SidebarItem from './Item';
 import SidebarSection from './Section';
@@ -8,7 +8,7 @@ import { SidebarBanner } from './SidebarBanner';
 import { SidebarDivider } from './SidebarDivider';
 import SidebarTopBar from './TopBar';
 
-type SidebarProps = ComponentProps<typeof Box>;
+type SidebarProps = BoxProps;
 
 export const Sidebar = (props: SidebarProps) => <Box rcx-sidebar {...props} />;
 

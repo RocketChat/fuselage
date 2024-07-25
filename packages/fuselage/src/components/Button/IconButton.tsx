@@ -1,6 +1,7 @@
 import type { ComponentProps, ReactElement, Ref } from 'react';
 import React, { isValidElement, useMemo, forwardRef } from 'react';
 
+import type { BoxProps } from '../Box';
 import Box from '../Box';
 import { Icon } from '../Icon';
 
@@ -12,7 +13,8 @@ type ButtonSize = {
   mini?: boolean;
 };
 
-type IconButtonProps = {
+/** @public */
+export type IconButtonProps = {
   icon: ComponentProps<typeof Icon>['name'] | ReactElement;
   primary?: boolean;
   secondary?: boolean;
@@ -22,7 +24,7 @@ type IconButtonProps = {
   success?: boolean;
   pressed?: boolean;
 } & ButtonSize &
-  ComponentProps<typeof Box>;
+  BoxProps;
 
 const getVariantClass = (variant: string) => {
   if (variant) {
@@ -41,7 +43,12 @@ const getPressedClass = (variant: string) => {
   return variantClass;
 };
 
-export const IconButton = forwardRef(
+/**
+ * Indicates an actionable user action.
+ *
+ * @public
+ */
+const IconButton = forwardRef(
   (
     {
       icon,
@@ -136,3 +143,5 @@ export const IconButton = forwardRef(
     );
   }
 );
+
+export default IconButton;

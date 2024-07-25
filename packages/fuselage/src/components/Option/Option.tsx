@@ -7,22 +7,22 @@ import type {
 } from 'react';
 import React, { forwardRef, memo } from 'react';
 
-import type { Icon } from '../..';
-import { OptionColumn } from '../..';
 import { prevent } from '../../helpers/prevent';
-import type Box from '../Box';
+import type { BoxProps } from '../Box';
+import type { Icon } from '../Icon';
 import OptionAvatar from './OptionAvatar';
+import OptionColumn from './OptionColumn';
 import OptionContent from './OptionContent';
 import OptionIcon from './OptionIcon';
 
 type OptionProps = {
-  is?: ComponentProps<typeof Box>['is'];
+  is?: BoxProps['is'];
   id?: string;
   children?: ReactNode;
   label?: ReactNode;
   focus?: boolean;
   selected?: boolean;
-  className?: ComponentProps<typeof Box>['className'];
+  className?: BoxProps['className'];
   ref?: Ref<Element>;
   icon?: ComponentProps<typeof Icon>['name'];
   gap?: boolean;
@@ -36,28 +36,28 @@ type OptionProps = {
 } & Omit<AllHTMLAttributes<HTMLElement>, 'label'>;
 
 const Option = memo(
-  forwardRef(
-    (
-      {
-        is: Tag = 'li',
-        id,
-        children,
-        label,
-        focus,
-        selected,
-        className,
-        icon,
-        gap,
-        avatar,
-        title,
-        disabled,
-        variant,
-        onClick,
-        description,
-        ...props
-      }: OptionProps,
-      ref
-    ) => (
+  forwardRef(function Option(
+    {
+      is: Tag = 'li',
+      id,
+      children,
+      label,
+      focus,
+      selected,
+      className,
+      icon,
+      gap,
+      avatar,
+      title,
+      disabled,
+      variant,
+      onClick,
+      description,
+      ...props
+    }: OptionProps,
+    ref
+  ) {
+    return (
       <Tag
         {...props}
         key={id}
@@ -99,8 +99,8 @@ const Option = memo(
           {label !== children && children}
         </div>
       </Tag>
-    )
-  )
+    );
+  })
 );
 
 export default Option;

@@ -7,7 +7,7 @@ export * from './Badge';
 export * from './Banner';
 export * from './Box';
 export { useArrayLikeClassNameProp } from '../hooks/useArrayLikeClassNameProp';
-export { default as Button, ActionButton, IconButton } from './Button';
+export * from './Button';
 export * from './Bubble';
 export * from './ButtonGroup';
 export * from './Callout';

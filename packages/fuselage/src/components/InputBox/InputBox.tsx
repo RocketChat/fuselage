@@ -5,18 +5,19 @@ import type {
   ForwardRefExoticComponent,
   ReactNode,
   Ref,
+  RefAttributes,
 } from 'react';
 import React, { forwardRef, useCallback, useLayoutEffect, useRef } from 'react';
 
 import type { InputBoxSkeleton } from '.';
 import { Input, Wrapper } from '.';
-import type Box from '../Box';
+import type { BoxProps } from '../Box';
 import { Icon } from '../Icon';
 import { Addon } from './Addon';
 import type { Option } from './Option';
 import type { Placeholder } from './Placeholder';
 
-type InputBoxProps = ComponentProps<typeof Box> & {
+type InputBoxProps = BoxProps & {
   addon?: ReactNode;
   input?: ReactNode;
   multiple?: boolean;
@@ -52,8 +53,10 @@ type InputBoxProps = ComponentProps<typeof Box> & {
     | 'select';
 };
 
-export type InputBox = ForwardRefExoticComponent<InputBoxProps> & {
-  Input: ForwardRefExoticComponent<ComponentProps<typeof Box>>;
+export type InputBox = ForwardRefExoticComponent<
+  InputBoxProps & RefAttributes<any>
+> & {
+  Input: ForwardRefExoticComponent<BoxProps & RefAttributes<any>>;
   Skeleton: ForwardRefExoticComponent<ComponentProps<typeof InputBoxSkeleton>>;
   Option: ForwardRefExoticComponent<ComponentProps<typeof Option>>;
   Placeholder: ForwardRefExoticComponent<ComponentProps<typeof Placeholder>>;

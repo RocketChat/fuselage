@@ -1,10 +1,12 @@
-import type { AllHTMLAttributes, ComponentProps, Ref } from 'react';
+import type { AllHTMLAttributes, ComponentProps } from 'react';
 import React, { forwardRef, useMemo } from 'react';
 
+import type { BoxProps } from '../Box';
 import Box from '../Box';
 import { Icon } from '../Icon';
 
-export type ButtonProps = ComponentProps<typeof Box> & {
+/** @public */
+export type ButtonProps = BoxProps & {
   primary?: boolean;
   secondary?: boolean;
   danger?: boolean;
@@ -25,7 +27,12 @@ export type ButtonProps = ComponentProps<typeof Box> & {
     'is' | 'className' | 'size'
   >;
 
-export const Button = forwardRef(function Button(
+/**
+ * Indicates an actionable user action.
+ *
+ * @public
+ */
+const Button = forwardRef<HTMLElement, ButtonProps>(function Button(
   {
     primary,
     secondary,
@@ -46,8 +53,8 @@ export const Button = forwardRef(function Button(
     disabled,
     children,
     ...props
-  }: ButtonProps,
-  ref: Ref<HTMLButtonElement | HTMLAnchorElement>
+  },
+  ref
 ) {
   const extraProps =
     (is === 'a' && {

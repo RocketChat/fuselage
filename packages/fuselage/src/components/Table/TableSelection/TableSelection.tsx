@@ -1,10 +1,10 @@
-import type { ComponentProps } from 'react';
 import React from 'react';
 
+import type { BoxProps } from '../../Box';
 import Box from '../../Box';
 import Margins from '../../Margins';
 
-type TableSelectionProps = ComponentProps<typeof Box> & {
+type TableSelectionProps = BoxProps & {
   text?: string;
 };
 

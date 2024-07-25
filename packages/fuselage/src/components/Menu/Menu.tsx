@@ -3,8 +3,8 @@ import type { ComponentProps, ElementType, ReactNode } from 'react';
 import React, { useRef, useCallback, useEffect } from 'react';
 
 import { PositionAnimated, Options, useCursor } from '..';
-import type Box from '../Box';
-import { IconButton } from '../Button/IconButton';
+import type { BoxProps } from '../Box';
+import { IconButton } from '../Button';
 import type { OptionType } from '../Options';
 
 type MenuProps = Omit<ComponentProps<typeof IconButton>, 'icon'> & {
@@ -16,7 +16,7 @@ type MenuProps = Omit<ComponentProps<typeof IconButton>, 'icon'> & {
       disabled?: boolean;
     };
   };
-  optionWidth?: ComponentProps<typeof Box>['width'];
+  optionWidth?: BoxProps['width'];
   placement?: UsePositionOptions['placement'];
   renderItem?: ElementType;
   icon?: ComponentProps<typeof IconButton>['icon'];

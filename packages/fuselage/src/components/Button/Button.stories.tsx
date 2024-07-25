@@ -1,13 +1,4 @@
 import { action } from '@storybook/addon-actions';
-import {
-  Title,
-  Subtitle,
-  Description,
-  Primary as PrimaryStory,
-  ArgsTable,
-  Stories,
-  PRIMARY_STORY,
-} from '@storybook/addon-docs';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
@@ -17,24 +8,7 @@ import { PropsVariationSection } from '../../../.storybook/helpers';
 export default {
   title: 'Inputs/Button',
   component: Button,
-  parameters: {
-    docs: {
-      description: {
-        component: 'Indicates an actionable user action.',
-      },
-      page: () => (
-        <>
-          <Title />
-          <Subtitle />
-          <Description />
-          <PrimaryStory />
-          <Stories title={''} />
-          <ArgsTable story={PRIMARY_STORY} />
-        </>
-      ),
-    },
-  },
-} as ComponentMeta<typeof ButtonGroup>;
+} satisfies ComponentMeta<typeof ButtonGroup>;
 
 export const Default: ComponentStory<typeof Button> = () => (
   <Button onClick={action('click')}>Button</Button>

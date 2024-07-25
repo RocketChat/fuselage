@@ -5,12 +5,13 @@ import { Virtuoso } from 'react-virtuoso';
 
 import { prevent } from '../../helpers/prevent';
 import AnimatedVisibility from '../AnimatedVisibility';
+import type { BoxProps } from '../Box';
 import Box from '../Box';
 import { CheckBox } from '../CheckBox';
 import Option from '../Option';
 import Tile from '../Tile';
 
-type OptionsPaginatedProps = Omit<ComponentProps<typeof Box>, 'onSelect'> & {
+type OptionsPaginatedProps = Omit<BoxProps, 'onSelect'> & {
   multiple?: boolean;
   options: { value: unknown; label: string; selected?: boolean }[];
   cursor: number;

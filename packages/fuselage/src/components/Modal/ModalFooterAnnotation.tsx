@@ -1,9 +1,9 @@
-import type { ComponentProps } from 'react';
 import React from 'react';
 
+import type { BoxProps } from '../Box';
 import Box from '../Box';
 
-export type ModalFooterAnnotationProps = ComponentProps<typeof Box>;
+export type ModalFooterAnnotationProps = BoxProps;
 
 export const ModalFooterAnnotation = ({
   children,

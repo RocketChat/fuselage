@@ -1,163 +1,167 @@
 import { action } from '@storybook/addon-actions';
 import type { ComponentStory } from '@storybook/react';
-import type { ComponentProps } from 'react';
 import React from 'react';
 
-import {
-  FieldGroup,
-  Field,
-  TextInput,
-  Button,
-  Modal,
-  Box,
-  FieldLabel,
-  FieldRow,
-} from '../..';
+import { Box, type BoxProps } from '../Box';
+import Button from '../Button';
+import Field, { FieldLabel, FieldRow } from '../Field';
+import { FieldGroup } from '../FieldGroup';
+import { TextInput } from '../TextInput';
+import { Modal } from './Modal';
+import { ModalClose } from './ModalClose';
+import { ModalContent } from './ModalContent';
+import { ModalFooter } from './ModalFooter';
+import { ModalFooterAnnotation } from './ModalFooterAnnotation';
+import { ModalFooterControllers } from './ModalFooterControllers';
+import { ModalHeader } from './ModalHeader';
+import { ModalHeaderText } from './ModalHeaderText';
+import { ModalHeroImage } from './ModalHeroImage';
+import { ModalIcon } from './ModalIcon';
+import { ModalTagline } from './ModalTagline';
+import { ModalThumb } from './ModalThumb';
+import { ModalTitle } from './ModalTitle';
 
 export default {
   title: 'Containers/Modal',
   component: Modal,
-  parameters: {
-    jest: ['Modal/Modal.spec.tsx'],
-  },
 };
 
 export const Default: ComponentStory<typeof Modal> = () => (
   <Modal>
-    <Modal.Header>
-      <Modal.HeaderText>
-        <Modal.Title>Modal Header</Modal.Title>
-      </Modal.HeaderText>
-      <Modal.Close />
-    </Modal.Header>
-    <Modal.Content>Modal Body</Modal.Content>
-    <Modal.Footer>
-      <Modal.FooterControllers>
+    <ModalHeader>
+      <ModalHeaderText>
+        <ModalTitle>Modal Header</ModalTitle>
+      </ModalHeaderText>
+      <ModalClose />
+    </ModalHeader>
+    <ModalContent>Modal Body</ModalContent>
+    <ModalFooter>
+      <ModalFooterControllers>
         <Button>Cancel</Button>
         <Button primary onClick={action('click')}>
           Submit
         </Button>
-      </Modal.FooterControllers>
-    </Modal.Footer>
+      </ModalFooterControllers>
+    </ModalFooter>
   </Modal>
 );
 
 export const _WithThumb: ComponentStory<typeof Modal> = () => (
   <Modal>
-    <Modal.Header>
-      <Modal.Thumb url='data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==' />
-      <Modal.HeaderText>
-        <Modal.Title>Modal Header</Modal.Title>
-      </Modal.HeaderText>
-      <Modal.Close />
-    </Modal.Header>
-    <Modal.Content>Modal Body</Modal.Content>
-    <Modal.Footer>
-      <Modal.FooterControllers>
+    <ModalHeader>
+      <ModalThumb url='data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==' />
+      <ModalHeaderText>
+        <ModalTitle>Modal Header</ModalTitle>
+      </ModalHeaderText>
+      <ModalClose />
+    </ModalHeader>
+    <ModalContent>Modal Body</ModalContent>
+    <ModalFooter>
+      <ModalFooterControllers>
         <Button>Cancel</Button>
         <Button primary onClick={action('click')}>
           Submit
         </Button>
-      </Modal.FooterControllers>
-    </Modal.Footer>
+      </ModalFooterControllers>
+    </ModalFooter>
   </Modal>
 );
 
 export const _WithIcon: ComponentStory<typeof Modal> = () => (
   <Modal>
-    <Modal.Header>
-      <Modal.Icon name='info' />
-      <Modal.HeaderText>
-        <Modal.Title>Modal Header</Modal.Title>
-      </Modal.HeaderText>
-      <Modal.Close />
-    </Modal.Header>
-    <Modal.Content>Modal Body</Modal.Content>
-    <Modal.Footer>
-      <Modal.FooterControllers>
+    <ModalHeader>
+      <ModalIcon name='info' />
+      <ModalHeaderText>
+        <ModalTitle>Modal Header</ModalTitle>
+      </ModalHeaderText>
+      <ModalClose />
+    </ModalHeader>
+    <ModalContent>Modal Body</ModalContent>
+    <ModalFooter>
+      <ModalFooterControllers>
         <Button>Cancel</Button>
         <Button primary onClick={action('click')}>
           Submit
         </Button>
-      </Modal.FooterControllers>
-    </Modal.Footer>
+      </ModalFooterControllers>
+    </ModalFooter>
   </Modal>
 );
 
 export const _WithTagline: ComponentStory<typeof Modal> = () => (
   <Modal>
-    <Modal.Header>
-      <Modal.HeaderText>
-        <Modal.Tagline>Tagline</Modal.Tagline>
-        <Modal.Title>Modal Header</Modal.Title>
-      </Modal.HeaderText>
-      <Modal.Close />
-    </Modal.Header>
-    <Modal.Content>Modal Body</Modal.Content>
-    <Modal.Footer>
-      <Modal.FooterControllers>
+    <ModalHeader>
+      <ModalHeaderText>
+        <ModalTagline>Tagline</ModalTagline>
+        <ModalTitle>Modal Header</ModalTitle>
+      </ModalHeaderText>
+      <ModalClose />
+    </ModalHeader>
+    <ModalContent>Modal Body</ModalContent>
+    <ModalFooter>
+      <ModalFooterControllers>
         <Button>Cancel</Button>
         <Button primary onClick={action('click')}>
           Submit
         </Button>
-      </Modal.FooterControllers>
-    </Modal.Footer>
+      </ModalFooterControllers>
+    </ModalFooter>
   </Modal>
 );
 
 export const _WithIconAndTagline: ComponentStory<typeof Modal> = () => (
   <Modal>
-    <Modal.Header>
-      <Modal.Icon alignItems='end' name='info' />
-      <Modal.HeaderText>
-        <Modal.Tagline>Tagline</Modal.Tagline>
-        <Modal.Title>Modal Header</Modal.Title>
-      </Modal.HeaderText>
-      <Modal.Close />
-    </Modal.Header>
-    <Modal.Content>Modal Body</Modal.Content>
-    <Modal.Footer>
-      <Modal.FooterControllers>
+    <ModalHeader>
+      <ModalIcon alignItems='end' name='info' />
+      <ModalHeaderText>
+        <ModalTagline>Tagline</ModalTagline>
+        <ModalTitle>Modal Header</ModalTitle>
+      </ModalHeaderText>
+      <ModalClose />
+    </ModalHeader>
+    <ModalContent>Modal Body</ModalContent>
+    <ModalFooter>
+      <ModalFooterControllers>
         <Button>Cancel</Button>
         <Button primary onClick={action('click')}>
           Submit
         </Button>
-      </Modal.FooterControllers>
-    </Modal.Footer>
+      </ModalFooterControllers>
+    </ModalFooter>
   </Modal>
 );
 
 export const _WithAnnotation: ComponentStory<typeof Modal> = () => (
   <Modal>
-    <Modal.Header>
-      <Modal.HeaderText>
-        <Modal.Title>Modal Header</Modal.Title>
-      </Modal.HeaderText>
-      <Modal.Close />
-    </Modal.Header>
-    <Modal.Content>Modal Body</Modal.Content>
-    <Modal.Footer justifyContent='space-between'>
-      <Modal.FooterAnnotation>Anototation</Modal.FooterAnnotation>
-      <Modal.FooterControllers>
+    <ModalHeader>
+      <ModalHeaderText>
+        <ModalTitle>Modal Header</ModalTitle>
+      </ModalHeaderText>
+      <ModalClose />
+    </ModalHeader>
+    <ModalContent>Modal Body</ModalContent>
+    <ModalFooter justifyContent='space-between'>
+      <ModalFooterAnnotation>Anototation</ModalFooterAnnotation>
+      <ModalFooterControllers>
         <Button>Cancel</Button>
         <Button primary onClick={action('click')}>
           Submit
         </Button>
-      </Modal.FooterControllers>
-    </Modal.Footer>
+      </ModalFooterControllers>
+    </ModalFooter>
   </Modal>
 );
 
 export const _WithHeroImage: ComponentStory<typeof Modal> = () => (
   <Modal>
-    <Modal.Header>
-      <Modal.HeaderText>
-        <Modal.Title>Modal Header</Modal.Title>
-      </Modal.HeaderText>
-      <Modal.Close />
-    </Modal.Header>
-    <Modal.Content>
-      <Modal.HeroImage src='data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAoACgDASIAAhEBAxEB/8QAGwAAAgIDAQAAAAAAAAAAAAAAAAcEBgIDBQj/xAAuEAACAQQAAwcEAQUAAAAAAAABAgMABAUREiExBhMUIkFRYQcWcYGhFTJSgpH/xAAYAQADAQEAAAAAAAAAAAAAAAACAwQBAP/EAB4RAAIBBQEBAQAAAAAAAAAAAAABAgMREiExE0HR/9oADAMBAAIRAxEAPwBuXuIkhBuMe5ib/AHQP49q4L3mLitryTLTSpOiHQI5k/HzXa/qbFOEudVTu1dumWvcTaNCZYZ7vU6g6LxqjOU/24dfs1Ouh9FnkMpd3Reeyx83hAxZZEhkdV9/MBrX71WGPvJcqrJBGveKATtuXXqNU0pu02bTHXD/AGvJAluyxxRd6F4x00o+NdKoVrjbzJdvVe1t5cVLc2ck8qjnohgpPtz2v7G6JtPQ2VJwjlcw+37mchpnK6GtIuv5NFWeTsLNPvxWTvpfjvOEfwKKzEVkSct2vscS/BIzSN0YRkeX81UpPqO8masJETu7OOccY4dswYFQeftv096XV5knuJGdm2T1+agvMXj8jEaHX905QihabvcbuS7X566mLWLwSY8PuRnk/u4eZ0deTl71Ef6hY+0yM88TzeNZY4luYwpVYyduOfrvhPTnr0pXSX9y5mCsyJMdyxxvwq599em+taItqCSNc90ChvZRUruUcT0JiO18Elpk7t8v41LWzacxkBSuvjQ/FFJayjDWrCTepAQ2vUH0oo/Jk3ovpwJJeVCP5CN+lFFaaMqy+nAyuChvrTI2kN9JAsi2ZOy4IBHMnkSCP+iqBexSWdxLazoUljJVlPUH2oorkV10pRc7b1zXb/hZOzuJvM86QWEXeELxOzHSIPcmiiiunVlF2RNTpRkrs//Z' />
+    <ModalHeader>
+      <ModalHeaderText>
+        <ModalTitle>Modal Header</ModalTitle>
+      </ModalHeaderText>
+      <ModalClose />
+    </ModalHeader>
+    <ModalContent>
+      <ModalHeroImage src='data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAoACgDASIAAhEBAxEB/8QAGwAAAgIDAQAAAAAAAAAAAAAAAAcEBgIDBQj/xAAuEAACAQQAAwcEAQUAAAAAAAABAgMABAUREiExBhMUIkFRYQcWcYGhFTJSgpH/xAAYAQADAQEAAAAAAAAAAAAAAAACAwQBAP/EAB4RAAIBBQEBAQAAAAAAAAAAAAABAgMREiExE0HR/9oADAMBAAIRAxEAPwBuXuIkhBuMe5ib/AHQP49q4L3mLitryTLTSpOiHQI5k/HzXa/qbFOEudVTu1dumWvcTaNCZYZ7vU6g6LxqjOU/24dfs1Ouh9FnkMpd3Reeyx83hAxZZEhkdV9/MBrX71WGPvJcqrJBGveKATtuXXqNU0pu02bTHXD/AGvJAluyxxRd6F4x00o+NdKoVrjbzJdvVe1t5cVLc2ck8qjnohgpPtz2v7G6JtPQ2VJwjlcw+37mchpnK6GtIuv5NFWeTsLNPvxWTvpfjvOEfwKKzEVkSct2vscS/BIzSN0YRkeX81UpPqO8masJETu7OOccY4dswYFQeftv096XV5knuJGdm2T1+agvMXj8jEaHX905QihabvcbuS7X566mLWLwSY8PuRnk/u4eZ0deTl71Ef6hY+0yM88TzeNZY4luYwpVYyduOfrvhPTnr0pXSX9y5mCsyJMdyxxvwq599em+taItqCSNc90ChvZRUruUcT0JiO18Elpk7t8v41LWzacxkBSuvjQ/FFJayjDWrCTepAQ2vUH0oo/Jk3ovpwJJeVCP5CN+lFFaaMqy+nAyuChvrTI2kN9JAsi2ZOy4IBHMnkSCP+iqBexSWdxLazoUljJVlPUH2oorkV10pRc7b1zXb/hZOzuJvM86QWEXeELxOzHSIPcmiiiunVlF2RNTpRkrs//Z' />
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse non
       urna posuere, tempor urna nec, lacinia lacus. Vivamus ac lobortis arcu.
       Morbi malesuada, diam sed congue aliquet, dui elit tincidunt leo, a
@@ -168,19 +172,19 @@ export const _WithHeroImage: ComponentStory<typeof Modal> = () => (
       a rhoncus lobortis. Sed eu nulla libero. Donec lacus ante, vehicula eget
       eros molestie, ullamcorper tincidunt arcu. Suspendisse eget pulvinar
       lacus.
-    </Modal.Content>
-    <Modal.Footer>
-      <Modal.FooterControllers>
+    </ModalContent>
+    <ModalFooter>
+      <ModalFooterControllers>
         <Button>Cancel</Button>
         <Button primary onClick={action('click')}>
           Submit
         </Button>
-      </Modal.FooterControllers>
-    </Modal.Footer>
+      </ModalFooterControllers>
+    </ModalFooter>
   </Modal>
 );
 
-const FormContainer = (props: ComponentProps<typeof Box>) => (
+const FormContainer = (props: BoxProps) => (
   <Box
     {...props}
     is='form'
@@ -193,13 +197,13 @@ const FormContainer = (props: ComponentProps<typeof Box>) => (
 
 export const _WithForm: ComponentStory<typeof Modal> = () => (
   <Modal wrapper={FormContainer}>
-    <Modal.Header>
-      <Modal.HeaderText>
-        <Modal.Title>Modal Header</Modal.Title>
-      </Modal.HeaderText>
-      <Modal.Close />
-    </Modal.Header>
-    <Modal.Content>
+    <ModalHeader>
+      <ModalHeaderText>
+        <ModalTitle>Modal Header</ModalTitle>
+      </ModalHeaderText>
+      <ModalClose />
+    </ModalHeader>
+    <ModalContent>
       <FieldGroup>
         <Field>
           <FieldLabel>Label</FieldLabel>
@@ -208,14 +212,14 @@ export const _WithForm: ComponentStory<typeof Modal> = () => (
           </FieldRow>
         </Field>
       </FieldGroup>
-    </Modal.Content>
-    <Modal.Footer>
-      <Modal.FooterControllers>
+    </ModalContent>
+    <ModalFooter>
+      <ModalFooterControllers>
         <Button>Cancel</Button>
         <Button type='submit' primary>
           Submit
         </Button>
-      </Modal.FooterControllers>
-    </Modal.Footer>
+      </ModalFooterControllers>
+    </ModalFooter>
   </Modal>
 );

@@ -1,10 +1,10 @@
 import { css } from '@rocket.chat/css-in-js';
-import type { ComponentProps } from 'react';
 import React, { memo } from 'react';
 
+import type { BoxProps } from '../Box';
 import Box from '../Box';
 
-type ContextualbarHeaderProps = ComponentProps<typeof Box>;
+type ContextualbarHeaderProps = BoxProps;
 
 const ContextualbarHeader = ({
   children,

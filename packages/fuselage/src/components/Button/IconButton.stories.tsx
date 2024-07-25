@@ -1,13 +1,4 @@
 import { css } from '@rocket.chat/css-in-js';
-import {
-  Title,
-  Subtitle,
-  Description,
-  Primary as PrimaryStory,
-  ArgsTable,
-  Stories,
-  PRIMARY_STORY,
-} from '@storybook/addon-docs';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
@@ -17,7 +8,7 @@ import { Badge } from '../Badge';
 import Box from '../Box/Box';
 import { ButtonGroup } from '../ButtonGroup';
 import { avatarUrl } from '../Message/helpers';
-import { IconButton } from './IconButton';
+import IconButton from './IconButton';
 
 const EmojiElement = (
   <div className='rcx-box rcx-box--full'>
@@ -33,21 +24,7 @@ const EmojiElement = (
 export default {
   title: 'Inputs/IconButton',
   component: IconButton,
-  parameters: {
-    docs: {
-      page: () => (
-        <>
-          <Title />
-          <Subtitle />
-          <Description />
-          <PrimaryStory />
-          <Stories title={''} />
-          <ArgsTable story={PRIMARY_STORY} />
-        </>
-      ),
-    },
-  },
-} as ComponentMeta<typeof ButtonGroup>;
+} satisfies ComponentMeta<typeof ButtonGroup>;
 
 export const _IconButton: ComponentStory<typeof IconButton> = () => (
   <IconButton icon='balloon' aria-label='balloon' />

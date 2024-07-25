@@ -1,37 +1,31 @@
-import type { ComponentProps, Ref, ElementType, ReactNode } from 'react';
+import type { ElementType, ReactNode } from 'react';
 import React, { createElement, forwardRef } from 'react';
 
+import type { BoxProps } from '../Box';
 import Box from '../Box';
 
 type ModalProps = {
   wrapperFunction?: (
-    props: Pick<
-      ComponentProps<typeof Box>,
-      'elevation' | 'className' | 'children'
-    >
+    props: Pick<BoxProps, 'elevation' | 'className' | 'children'>
   ) => ReactNode;
-  wrapper?: ElementType<
-    Pick<ComponentProps<typeof Box>, 'elevation' | 'className' | 'children'>
-  >;
-} & ComponentProps<typeof Box>;
+  wrapper?: ElementType<Pick<BoxProps, 'elevation' | 'className' | 'children'>>;
+} & BoxProps;
 
-export const Modal = forwardRef(
-  (
-    { children, wrapper = Box, wrapperFunction, ...props }: ModalProps,
-    ref: Ref<Element>
-  ) => {
-    const wrapperProps = {
-      children,
-      className: 'rcx-modal__inner',
-      elevation: '2',
-    } as const;
+export const Modal = forwardRef<Element, ModalProps>(function Modal(
+  { children, wrapper = Box, wrapperFunction, ...props },
+  ref
+) {
+  const wrapperProps = {
+    children,
+    className: 'rcx-modal__inner',
+    elevation: '2',
+  } as const;
 
-    return (
-      <Box is='dialog' open aria-modal='true' rcx-modal ref={ref} {...props}>
-        {wrapperFunction
-          ? wrapperFunction(wrapperProps)
-          : createElement(wrapper, wrapperProps)}
-      </Box>
-    );
-  }
-);
+  return (
+    <Box is='dialog' open aria-modal='true' rcx-modal ref={ref} {...props}>
+      {wrapperFunction
+        ? wrapperFunction(wrapperProps)
+        : createElement(wrapper, wrapperProps)}
+    </Box>
+  );
+});

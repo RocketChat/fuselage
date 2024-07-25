@@ -1,11 +1,11 @@
-import type { ComponentProps } from 'react';
 import React from 'react';
 
+import type { BoxProps } from '../Box';
 import Box from '../Box';
 
 type MessageBlockProps = {
   fixedWidth?: boolean;
-} & ComponentProps<typeof Box>;
+} & BoxProps;
 
 export const MessageBlock = ({
   className: _className,

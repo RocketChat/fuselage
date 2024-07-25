@@ -1,3 +1,3 @@
-export { default, Button } from './Button';
-export { ActionButton } from './ActionButton';
-export { IconButton } from './IconButton';
+export { default, default as Button, ButtonProps } from './Button';
+export { default as ActionButton, ActionButtonProps } from './ActionButton';
+export { default as IconButton, IconButtonProps } from './IconButton';

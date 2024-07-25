@@ -1,13 +1,13 @@
-import type { AllHTMLAttributes, ComponentProps, Ref } from 'react';
+import type { AllHTMLAttributes, Ref } from 'react';
 import React, { forwardRef } from 'react';
 
+import type { BoxProps } from '../Box';
 import Box from '../Box';
 
+type ToggleSwitchProps = BoxProps & AllHTMLAttributes<HTMLInputElement>;
+
 export const ToggleSwitch = forwardRef(function ToggleSwitch(
-  {
-    className,
-    ...props
-  }: ComponentProps<typeof Box> & AllHTMLAttributes<HTMLInputElement>,
+  { className, ...props }: ToggleSwitchProps,
   ref: Ref<HTMLInputElement>
 ) {
   return (

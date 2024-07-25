@@ -1,9 +1,9 @@
-import type { ComponentProps } from 'react';
 import React from 'react';
 
+import type { BoxProps } from '../Box';
 import Box from '../Box';
 
-type GridItemProps = ComponentProps<typeof Box> & {
+type GridItemProps = BoxProps & {
   xs?: 1 | 2 | 3 | 4;
   sm?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
   md?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;

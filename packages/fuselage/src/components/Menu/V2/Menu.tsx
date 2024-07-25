@@ -7,7 +7,7 @@ import { createPortal } from 'react-dom';
 import type { MenuTriggerProps } from 'react-stately';
 import { useMenuTriggerState } from 'react-stately';
 
-import type Box from '../../Box/Box';
+import type { BoxProps } from '../../Box';
 import { IconButton } from '../../Button';
 import MenuDropDown from './MenuDropdown';
 import MenuPopover from './MenuPopover';
@@ -27,7 +27,7 @@ interface MenuButtonProps<T> extends AriaMenuProps<T>, MenuTriggerProps {
    * A component that renders an IconButton
    */
   is?: ElementType;
-  className?: ComponentProps<typeof Box>['className'];
+  className?: BoxProps['className'];
   pressed?: boolean;
   maxWidth?: string;
   button?: React.ReactElement;

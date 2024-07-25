@@ -1,10 +1,10 @@
-import type { AllHTMLAttributes, ComponentProps, Ref } from 'react';
+import type { AllHTMLAttributes, Ref } from 'react';
 import React, { forwardRef } from 'react';
 
+import type { BoxProps } from '../Box';
 import Box from '../Box';
 
-type RadioButtonProps = ComponentProps<typeof Box> &
-  AllHTMLAttributes<HTMLInputElement>;
+type RadioButtonProps = BoxProps & AllHTMLAttributes<HTMLInputElement>;
 
 export const RadioButton = forwardRef(function RadioButton(
   { className, ...props }: RadioButtonProps,

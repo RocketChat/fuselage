@@ -1,9 +1,10 @@
 // @ts-nocheck
 import { useEffectEvent, useResizeObserver } from '@rocket.chat/fuselage-hooks';
-import type { AllHTMLAttributes, ComponentProps, ElementType } from 'react';
+import type { AllHTMLAttributes, ElementType } from 'react';
 import React, { useEffect, useRef, useMemo, useState } from 'react';
 
 import AnimatedVisibility from '../AnimatedVisibility';
+import type { BoxProps } from '../Box';
 import Box from '../Box';
 import Chip from '../Chip';
 import { Icon } from '../Icon';
@@ -12,9 +13,9 @@ import Margins from '../Margins';
 import { useCursor, Options } from '../Options';
 import PositionAnimated from '../PositionAnimated';
 
-const Addon = (props: ComponentProps<typeof Box>) => (
-  <Box rcx-autocomplete__addon {...props} />
-);
+type AddonProps = BoxProps;
+
+const Addon = (props: AddonProps) => <Box rcx-autocomplete__addon {...props} />;
 
 type AutoCompleteOption = {
   value: string;

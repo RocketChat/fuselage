@@ -1,11 +1,12 @@
-import type { ComponentProps, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import React from 'react';
 
+import type { BoxProps } from '../Box';
 import Box from '../Box';
 import { Button } from '../Button';
 import { Skeleton } from '../Skeleton';
 
-type CodeSnippetProps = ComponentProps<typeof Box> & {
+type CodeSnippetProps = BoxProps & {
   children: string;
   buttonText?: string;
   buttonDisabled?: boolean;

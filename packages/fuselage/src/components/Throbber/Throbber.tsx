@@ -1,10 +1,11 @@
 import { css } from '@rocket.chat/css-in-js';
-import type { ComponentProps, Ref } from 'react';
+import type { Ref } from 'react';
 import React, { forwardRef } from 'react';
 
+import type { BoxProps } from '../Box';
 import Box from '../Box';
 
-type ThrobberProps = Omit<ComponentProps<typeof Box>, 'disabled'> & {
+type ThrobberProps = Omit<BoxProps, 'disabled'> & {
   circleCount?: number;
   disabled?: boolean;
   inheritColor?: boolean;
@@ -15,7 +16,7 @@ type CircleProps = {
   iteration: number;
   inheritColor?: boolean;
   disabled?: boolean;
-} & Pick<ComponentProps<typeof Box>, 'size'>;
+} & Pick<BoxProps, 'size'>;
 
 function Circle({
   disabled,

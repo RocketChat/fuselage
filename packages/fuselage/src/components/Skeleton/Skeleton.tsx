@@ -1,9 +1,9 @@
-import type { ComponentProps } from 'react';
 import React from 'react';
 
+import type { BoxProps } from '../Box';
 import Box from '../Box';
 
-type SkeletonProps = ComponentProps<typeof Box> & {
+type SkeletonProps = BoxProps & {
   variant?: 'text' | 'rect' | 'circle';
 };
 

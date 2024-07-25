@@ -1,10 +1,10 @@
-import type { ComponentProps } from 'react';
 import React from 'react';
 
+import type { BoxProps } from '../Box';
 import Box from '../Box';
 import { TabsItem } from './TabsItem';
 
-type TabsProps = ComponentProps<typeof Box> & { divider?: boolean };
+type TabsProps = BoxProps & { divider?: boolean };
 
 export function Tabs({ children, divider = true, ...props }: TabsProps) {
   return (

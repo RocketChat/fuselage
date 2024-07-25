@@ -1,9 +1,10 @@
-import type { ComponentProps, Ref } from 'react';
+import type { Ref } from 'react';
 import React, { forwardRef } from 'react';
 
+import type { BoxProps } from '../Box';
 import Box from '../Box';
 
-type AddonProps = ComponentProps<typeof Box>;
+type AddonProps = BoxProps;
 
 export const Addon = forwardRef(function Addon(
   props: AddonProps,

@@ -1,11 +1,12 @@
-import type { ComponentProps, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import React, { useMemo } from 'react';
 
+import type { BoxProps } from '../Box';
 import Box from '../Box';
 import { Icon } from '../Icon';
 
-type ChevronProps = Omit<ComponentProps<typeof Box>, 'size'> & {
-  size?: ComponentProps<typeof Box>['width'];
+type ChevronProps = Omit<BoxProps, 'size'> & {
+  size?: BoxProps['width'];
   up?: boolean;
   right?: boolean;
   left?: boolean;

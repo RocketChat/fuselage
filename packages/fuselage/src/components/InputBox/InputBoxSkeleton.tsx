@@ -1,10 +1,10 @@
-import type { ComponentProps } from 'react';
 import React from 'react';
 
+import type { BoxProps } from '../Box';
 import Box from '../Box';
 import { Skeleton } from '../Skeleton';
 
-type InputBoxSkeletonProps = ComponentProps<typeof Box>;
+type InputBoxSkeletonProps = BoxProps;
 
 export const InputBoxSkeleton = (props: InputBoxSkeletonProps) => (
   <Box rcx-skeleton__input {...props}>

@@ -1,9 +1,10 @@
 import React from 'react';
-import type { ComponentProps, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
+import type { BoxProps } from '../Box';
 import Box from '../Box';
 
-type DividerProps = ComponentProps<typeof Box> & {
+type DividerProps = BoxProps & {
   variation?: 'danger';
   children?: ReactNode;
   vertical?: boolean;
@@ -29,4 +30,5 @@ const Divider = ({ variation, children, vertical, ...props }: DividerProps) => {
     </Box>
   );
 };
+
 export { Divider };

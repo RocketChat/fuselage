@@ -15,6 +15,7 @@ import React, { useState, useRef, useEffect, forwardRef, useMemo } from 'react';
 
 import { isForwardRefType } from '../../helpers/isForwardRefType';
 import AnimatedVisibility from '../AnimatedVisibility';
+import type { BoxProps } from '../Box';
 import Box from '../Box';
 import { Icon } from '../Icon';
 import Margins from '../Margins';
@@ -31,7 +32,7 @@ export type SelectOption = readonly [
   selected?: boolean
 ];
 
-type WrapperProps = ComponentProps<typeof Box>;
+type WrapperProps = BoxProps;
 
 const Wrapper = forwardRef((props: WrapperProps, ref: Ref<HTMLDivElement>) => (
   <Box is='div' rcx-select__wrapper ref={ref} {...props} />
@@ -49,7 +50,7 @@ const useDidUpdate = (func: () => void, deps: DependencyList | undefined) => {
   }, deps || []);
 };
 
-export type SelectProps = Omit<ComponentProps<typeof Box>, 'onChange'> & {
+export type SelectProps = Omit<BoxProps, 'onChange'> & {
   anchor?: ElementType;
   error?: string;
   options: SelectOption[];

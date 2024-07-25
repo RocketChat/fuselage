@@ -1,11 +1,10 @@
-import type { ReactElement, ComponentProps } from 'react';
 import React, { memo } from 'react';
 
-import { Box } from '..';
+import { Box, type BoxProps } from '../Box';
 
-const ContextualbarTitle = (
-  props: ComponentProps<typeof Box>
-): ReactElement => (
+type ContextualbarTitleProps = BoxProps;
+
+const ContextualbarTitle = (props: ContextualbarTitleProps) => (
   <Box
     flexShrink={1}
     flexGrow={1}
