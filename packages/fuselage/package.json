@@ -28,7 +28,7 @@
   "scripts": {
     "start": "webpack --watch --mode development",
     "storybook": "start-storybook -p 6006 --no-version-updates",
-    "build": "run-s .:build:clean .:build:dev .:build:prod",
+    "build": "run-s .:build:clean .:build:dev .:build:prod .:build:api",
     ".:build:clean": "rimraf dist",
     ".:build:prod": "run-s .:build:prod:bundle .:build:prod:check",
     ".:build:dev": "run-s .:build:dev:bundle .:build:dev:check",
@@ -36,14 +36,14 @@
     ".:build:prod:check": "es-check es5 dist/*.production.js",
     ".:build:dev:bundle": "webpack --mode development",
     ".:build:dev:check": "es-check es5 dist/*.development.js",
+    ".:build:api": "api-extractor run --local --verbose",
     "lint": "lint",
     "lint-and-fix": "lint-and-fix",
     "test": "jest --runInBand",
     "watch": "jest --watch",
     "docs": "cross-env NODE_ENV=production build-storybook -o ../../static/fuselage",
     "build-storybook": "cross-env NODE_ENV=production build-storybook",
-    "bump-next": "bump-next",
-    "extract-api": "api-extractor run --local --verbose"
+    "bump-next": "bump-next"
   },
   "peerDependencies": {
     "@rocket.chat/fuselage-hooks": "*",
