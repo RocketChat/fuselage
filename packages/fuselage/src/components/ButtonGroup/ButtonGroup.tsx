@@ -4,7 +4,7 @@ import React, { forwardRef } from 'react';
 import { appendClassName } from '../../helpers/appendClassName';
 import { patchChildren } from '../../helpers/patchChildren';
 
-type ButtonGroupProps = {
+export type ButtonGroupProps = {
   align?: 'start' | 'center' | 'end';
   stretch?: boolean;
   wrap?: boolean;

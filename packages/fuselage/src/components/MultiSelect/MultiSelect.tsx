@@ -4,13 +4,8 @@ import {
   useResizeObserver,
   useOutsideClick,
 } from '@rocket.chat/fuselage-hooks';
-import type {
-  ComponentProps,
-  SyntheticEvent,
-  ElementType,
-  Ref,
-  ReactNode,
-} from 'react';
+import type { IconName } from '@rocket.chat/icons';
+import type { SyntheticEvent, ElementType, Ref, ReactNode } from 'react';
 import React, { useState, useRef, useEffect, forwardRef } from 'react';
 
 import { isForwardRefType } from '../../helpers/isForwardRefType';
@@ -30,7 +25,7 @@ import MultiSelectAnchor from './MultiSelectAnchor';
 import type { MultiSelectAnchorParams } from './MultiSelectAnchorParams';
 import { SelectedOptions } from './SelectedOptions';
 
-type MultiSelectProps = Omit<BoxProps, 'onChange' | 'value'> & {
+export type MultiSelectProps = Omit<BoxProps, 'onChange' | 'value'> & {
   value?: SelectOption[0][];
   error?: string;
   options: SelectOption[];
@@ -44,7 +39,7 @@ type MultiSelectProps = Omit<BoxProps, 'onChange' | 'value'> & {
   renderOptions?: ElementType;
   renderItem?: ElementType;
   renderSelected?: ElementType;
-  addonIcon?: ComponentProps<typeof Icon>['name'];
+  addonIcon?: IconName;
   setFilter?: (filter: string) => void;
 };
 

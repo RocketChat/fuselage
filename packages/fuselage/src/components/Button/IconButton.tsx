@@ -1,4 +1,5 @@
-import type { ComponentProps, ReactElement, Ref } from 'react';
+import type { IconName } from '@rocket.chat/icons';
+import type { ReactElement, Ref } from 'react';
 import React, { isValidElement, useMemo, forwardRef } from 'react';
 
 import type { BoxProps } from '../Box';
@@ -15,7 +16,7 @@ type ButtonSize = {
 
 /** @public */
 export type IconButtonProps = {
-  icon: ComponentProps<typeof Icon>['name'] | ReactElement;
+  icon: IconName | ReactElement;
   primary?: boolean;
   secondary?: boolean;
   info?: boolean;
@@ -133,10 +134,7 @@ const IconButton = forwardRef(
         {isValidElement(icon) ? (
           icon
         ) : (
-          <Icon
-            name={icon as ComponentProps<typeof Icon>['name']}
-            size={getIconSize()}
-          />
+          <Icon name={icon as IconName} size={getIconSize()} />
         )}
         {children}
       </Box>

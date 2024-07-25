@@ -1,5 +1,6 @@
+import type { IconName } from '@rocket.chat/icons';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import type { ComponentProps, ReactNode, Ref } from 'react';
+import type { ReactNode, Ref } from 'react';
 import React, { forwardRef, useState } from 'react';
 
 import {
@@ -17,6 +18,7 @@ import { CheckBox } from '../../CheckBox';
 import { RadioButton } from '../../RadioButton';
 import Sidebar from '../../Sidebar';
 import { ToggleSwitch } from '../../ToggleSwitch';
+import type { MenuButtonProps } from './Menu';
 
 type MenuStories = ComponentMeta<typeof Menu>;
 
@@ -105,7 +107,7 @@ WithSections.parameters = {
 };
 
 export const MenuDisplayExample = (
-  args: Omit<ComponentProps<typeof Menu>, 'children'>
+  args: Omit<MenuButtonProps<object>, 'children'>
 ) => {
   const [display, setDisplay] = useState('condensed');
   const [avatarDisplay, setAvatarDisplay] = useState(false);
@@ -219,7 +221,7 @@ export const MenuDisplayExample = (
 
 type Item = {
   name: string;
-  icon: ComponentProps<typeof MenuItemIcon>['name'];
+  icon: IconName;
   input?: ReactNode;
   description?: string;
   variant?: string;

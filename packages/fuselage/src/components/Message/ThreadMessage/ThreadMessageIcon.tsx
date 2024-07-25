@@ -1,11 +1,13 @@
-import type { ComponentProps, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import React from 'react';
 
-import { Icon } from '../..';
+import { Icon, type IconProps } from '../../Icon';
+
+type ThreadMessageIconProps = IconProps;
 
 export const ThreadMessageIcon = ({
   ...props
-}: ComponentProps<typeof Icon>): ReactElement => (
+}: ThreadMessageIconProps): ReactElement => (
   <Icon
     className='rcx-box rcx-box--full rcx-message-thread__icon'
     size='x16'

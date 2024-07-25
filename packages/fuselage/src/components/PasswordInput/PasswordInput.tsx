@@ -1,13 +1,14 @@
 import { useToggle } from '@rocket.chat/fuselage-hooks';
-import type { ComponentProps, Ref } from 'react';
+import type { Ref } from 'react';
 import React, { forwardRef } from 'react';
 
 import { Icon } from '../Icon';
+import type { InputBoxProps } from '../InputBox';
 import { InputBox } from '../InputBox';
 
 // TODO: fix a11y issues
 
-type PasswordInputProps = Omit<ComponentProps<typeof InputBox>, 'type'>;
+type PasswordInputProps = Omit<InputBoxProps, 'type'>;
 
 const PasswordInput = forwardRef(function PasswordInput(
   props: PasswordInputProps,

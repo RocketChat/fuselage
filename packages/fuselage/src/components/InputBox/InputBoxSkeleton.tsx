@@ -4,7 +4,7 @@ import type { BoxProps } from '../Box';
 import Box from '../Box';
 import { Skeleton } from '../Skeleton';
 
-type InputBoxSkeletonProps = BoxProps;
+export type InputBoxSkeletonProps = BoxProps;
 
 export const InputBoxSkeleton = (props: InputBoxSkeletonProps) => (
   <Box rcx-skeleton__input {...props}>

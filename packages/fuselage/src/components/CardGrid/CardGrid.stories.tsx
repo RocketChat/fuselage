@@ -1,9 +1,10 @@
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
-import type { ComponentProps } from 'react';
 import React from 'react';
 
+import type { CardGridProps } from '.';
 import { CardGrid } from '.';
 import { Button } from '../Button';
+import type { CardProps } from '../Card';
 import { Card, CardBody, CardControls, CardHeader, CardTitle } from '../Card';
 import { Icon } from '../Icon';
 
@@ -17,7 +18,7 @@ export default {
   },
 } as ComponentMeta<typeof CardGrid>;
 
-const CardItem = (props: ComponentProps<typeof Card>) => (
+const CardItem = (props: CardProps) => (
   <Card {...props}>
     <CardHeader>
       <Icon name='address-book' size='x24' />
@@ -40,7 +41,7 @@ const CardItem = (props: ComponentProps<typeof Card>) => (
 );
 
 export const _CardGrid: ComponentStory<typeof CardGrid> = (
-  args: ComponentProps<typeof CardGrid>
+  args: CardGridProps
 ) => (
   <CardGrid {...args} breakpoints={{ xs: 4, sm: 4, md: 4, lg: 3, xl: 3 }}>
     {Array.from(new Array(9)).map((_, index) => (

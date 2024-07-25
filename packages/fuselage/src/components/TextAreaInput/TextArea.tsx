@@ -1,9 +1,10 @@
-import type { ComponentProps, ReactNode, Ref } from 'react';
+import type { ReactNode, Ref } from 'react';
 import React, { forwardRef } from 'react';
 
+import type { InputBoxProps } from '../InputBox';
 import { InputBox } from '../InputBox';
 
-type TextAreaInputProps = Omit<ComponentProps<typeof InputBox>, 'type'> & {
+type TextAreaInputProps = Omit<InputBoxProps, 'type'> & {
   addon?: ReactNode;
   error?: string;
 };

@@ -1,11 +1,11 @@
-import type { ComponentProps } from 'react';
+import type { IconName } from '@rocket.chat/icons';
 import React from 'react';
 
 import { Icon } from '../Icon';
 import OptionColumn from './OptionColumn';
 
 type OptionIconProps = {
-  name: ComponentProps<typeof Icon>['name'];
+  name: IconName;
 };
 
 const OptionIcon = ({ name }: OptionIconProps) => (

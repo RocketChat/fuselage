@@ -4,7 +4,7 @@ import type { ReactNode } from 'react';
 import type { BoxProps } from '../Box';
 import Box from '../Box';
 
-type DividerProps = BoxProps & {
+export type DividerProps = BoxProps & {
   variation?: 'danger';
   children?: ReactNode;
   vertical?: boolean;

@@ -1,15 +1,16 @@
-import type { ComponentProps, Dispatch, SetStateAction } from 'react';
+import type { IconName } from '@rocket.chat/icons';
+import type { Dispatch, SetStateAction } from 'react';
 import React, { useState } from 'react';
 
-import type { Icon } from '..';
+import type { MultiSelectProps } from './MultiSelect';
 import { MultiSelect } from './MultiSelect';
 import type { MultiSelectAnchorParams } from './MultiSelectAnchorParams';
 import MultiSelectFilteredAnchor from './MultiSelectFilteredAnchor';
 
-type MultiSelectFilteredProps = ComponentProps<typeof MultiSelect> & {
+type MultiSelectFilteredProps = MultiSelectProps & {
   filter?: string;
   setFilter?: Dispatch<SetStateAction<string>>;
-  addonIcon?: ComponentProps<typeof Icon>['name'];
+  addonIcon?: IconName;
 };
 
 export const MultiSelectFiltered = ({

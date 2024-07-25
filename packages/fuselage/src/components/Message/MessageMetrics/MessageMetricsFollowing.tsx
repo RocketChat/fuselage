@@ -1,11 +1,11 @@
-import type { ComponentProps } from 'react';
 import React from 'react';
 
+import type { IconButtonProps } from '../../Button';
 import { IconButton } from '../../Button';
 
 type MessageMetricsFollowingProps = {
   name: 'bell' | 'bell-off';
-} & Omit<ComponentProps<typeof IconButton>, 'icon'>;
+} & Omit<IconButtonProps, 'icon'>;
 
 export const MessageMetricsFollowing = ({
   name,

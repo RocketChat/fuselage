@@ -1,10 +1,10 @@
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
-import type { ComponentProps } from 'react';
 import React from 'react';
 
 import { CardGroup } from '.';
 import { Badge } from '../Badge';
 import { Button, IconButton } from '../Button';
+import type { CardProps } from '../Card';
 import {
   Card,
   CardBody,
@@ -27,7 +27,7 @@ export default {
   },
 } as ComponentMeta<typeof CardGroup>;
 
-const CardItem = (props: ComponentProps<typeof Card>) => (
+const CardItem = (props: CardProps) => (
   <Card {...props}>
     <CardHeader>
       <Icon name='address-book' size='x24' />

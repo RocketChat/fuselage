@@ -4,7 +4,7 @@ import React, { forwardRef } from 'react';
 import type { BoxProps } from '../Box';
 import Box from '../Box';
 
-type OptionProps = BoxProps;
+export type OptionProps = BoxProps;
 
 export const Option = forwardRef(function Option(
   props: OptionProps,

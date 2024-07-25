@@ -1,9 +1,9 @@
-import type { ComponentProps } from 'react';
 import React from 'react';
 
+import type { MessageEmojiBaseProps } from './MessageEmojiBase';
 import { MessageEmojiBase } from './MessageEmojiBase';
 
-type MessageEmojiProps = ComponentProps<typeof MessageEmojiBase> & {
+type MessageEmojiProps = MessageEmojiBaseProps & {
   big?: boolean;
 };
 

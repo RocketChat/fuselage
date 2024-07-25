@@ -1,4 +1,4 @@
-import type { Keys } from '@rocket.chat/icons';
+import type { IconName } from '@rocket.chat/icons';
 import nameToCharacterMapping from '@rocket.chat/icons';
 import {
   Title,
@@ -15,7 +15,7 @@ import InputBox from '../InputBox';
 
 const iconsList = Object.keys(nameToCharacterMapping).sort((a, b) =>
   a.localeCompare(b)
-) as Keys[];
+) as IconName[];
 
 export default {
   title: 'Data Display/Icon',

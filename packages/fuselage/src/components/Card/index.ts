@@ -1,4 +1,4 @@
-export { default as Card } from './Card';
+export { default as Card, CardProps } from './Card';
 export { default as CardBody } from './CardBody';
 export { default as CardCol } from './CardCol';
 export { default as CardRow } from './CardRow';

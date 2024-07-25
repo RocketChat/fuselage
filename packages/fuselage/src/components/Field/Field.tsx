@@ -1,11 +1,11 @@
-import type { ComponentPropsWithoutRef } from 'react';
 import React, { createContext } from 'react';
 
+import type { BoxProps } from '../Box';
 import Box from '../Box';
 
 export const FieldContext = createContext(false);
 
-type FieldProps = ComponentPropsWithoutRef<typeof Box>;
+type FieldProps = BoxProps;
 
 export function Field(props: FieldProps) {
   return (

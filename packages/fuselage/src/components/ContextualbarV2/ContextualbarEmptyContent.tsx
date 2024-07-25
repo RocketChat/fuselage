@@ -1,4 +1,4 @@
-import type { ComponentProps } from 'react';
+import type { IconName } from '@rocket.chat/icons';
 import React, { forwardRef, memo } from 'react';
 
 import type { BoxProps } from '../Box';
@@ -6,7 +6,7 @@ import { States, StatesIcon, StatesSubtitle, StatesTitle } from '../States';
 import ContextualbarContent from './ContextualbarContent';
 
 type ContextualbarEmptyContentProps = BoxProps & {
-  icon?: ComponentProps<typeof StatesIcon>['name'];
+  icon?: IconName;
   title?: string;
   subtitle?: string;
 };

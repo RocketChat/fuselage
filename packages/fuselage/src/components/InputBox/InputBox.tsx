@@ -1,7 +1,6 @@
 /* eslint-disable complexity */
 import { useMergedRefs } from '@rocket.chat/fuselage-hooks';
 import type {
-  ComponentProps,
   ForwardRefExoticComponent,
   ReactNode,
   Ref,
@@ -9,15 +8,16 @@ import type {
 } from 'react';
 import React, { forwardRef, useCallback, useLayoutEffect, useRef } from 'react';
 
-import type { InputBoxSkeleton } from '.';
-import { Input, Wrapper } from '.';
 import type { BoxProps } from '../Box';
 import { Icon } from '../Icon';
 import { Addon } from './Addon';
-import type { Option } from './Option';
-import type { Placeholder } from './Placeholder';
+import { Input } from './Input';
+import type { InputBoxSkeletonProps } from './InputBoxSkeleton';
+import type { OptionProps } from './Option';
+import type { PlaceholderProps } from './Placeholder';
+import { Wrapper } from './Wrapper';
 
-type InputBoxProps = BoxProps & {
+export type InputBoxProps = BoxProps & {
   addon?: ReactNode;
   input?: ReactNode;
   multiple?: boolean;
@@ -57,9 +57,9 @@ export type InputBox = ForwardRefExoticComponent<
   InputBoxProps & RefAttributes<any>
 > & {
   Input: ForwardRefExoticComponent<BoxProps & RefAttributes<any>>;
-  Skeleton: ForwardRefExoticComponent<ComponentProps<typeof InputBoxSkeleton>>;
-  Option: ForwardRefExoticComponent<ComponentProps<typeof Option>>;
-  Placeholder: ForwardRefExoticComponent<ComponentProps<typeof Placeholder>>;
+  Skeleton: ForwardRefExoticComponent<InputBoxSkeletonProps>;
+  Option: ForwardRefExoticComponent<OptionProps>;
+  Placeholder: ForwardRefExoticComponent<PlaceholderProps>;
 };
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare

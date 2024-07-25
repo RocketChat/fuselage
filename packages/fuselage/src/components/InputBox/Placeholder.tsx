@@ -4,7 +4,7 @@ import React, { forwardRef } from 'react';
 import type { BoxProps } from '../Box';
 import Box from '../Box';
 
-type PlaceholderProps = BoxProps;
+export type PlaceholderProps = BoxProps;
 
 export const Placeholder = forwardRef(function Placeholder(
   props: PlaceholderProps,

@@ -1,12 +1,13 @@
-import type { ReactElement, ComponentProps } from 'react';
+import type { IconName } from '@rocket.chat/icons';
+import type { ReactElement } from 'react';
 import React, { memo } from 'react';
 
-import type { Icon } from '..';
-import { IconButton } from '..';
+import type { IconButtonProps } from '../Button';
+import { IconButton } from '../Button';
 
 type ContextualbarActionProps = {
-  name: ComponentProps<typeof Icon>['name'];
-} & Omit<ComponentProps<typeof IconButton>, 'icon'>;
+  name: IconName;
+} & Omit<IconButtonProps, 'icon'>;
 
 const ContextualbarAction = ({
   name,

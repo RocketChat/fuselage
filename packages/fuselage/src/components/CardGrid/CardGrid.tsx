@@ -1,11 +1,11 @@
-import type { ComponentProps } from 'react';
 import React from 'react';
 
+import type { GridItemProps } from '../Grid';
 import Grid, { GridItem } from '../Grid';
 
-type CardGridProps = {
+export type CardGridProps = {
   children: React.ReactNode;
-  breakpoints?: ComponentProps<typeof GridItem>;
+  breakpoints?: GridItemProps;
 };
 
 export const CardGrid = ({

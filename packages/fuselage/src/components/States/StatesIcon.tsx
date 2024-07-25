@@ -1,11 +1,10 @@
-import type { ComponentProps } from 'react';
 import React from 'react';
 
-import { Icon } from '../Icon';
+import { Icon, type IconProps } from '../Icon';
 
 type StatesIconProps = {
   variation?: 'danger' | 'success' | 'warning' | 'primary';
-} & ComponentProps<typeof Icon>;
+} & IconProps;
 
 const StatesIcon = ({ variation, ...props }: StatesIconProps) => (
   <Icon

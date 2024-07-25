@@ -1,8 +1,10 @@
-import type { ComponentProps } from 'react';
 import React from 'react';
 
+import type { ButtonGroupProps } from '../../ButtonGroup';
 import { ButtonGroup } from '../../ButtonGroup';
 
+type TableSelectionButtonGroupProps = ButtonGroupProps;
+
 export const TableSelectionButtonGroup = (
-  props: ComponentProps<typeof ButtonGroup>
+  props: TableSelectionButtonGroupProps
 ) => <ButtonGroup {...props} />;

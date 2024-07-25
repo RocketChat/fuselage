@@ -1,10 +1,9 @@
-import type { ComponentProps } from 'react';
 import React from 'react';
 
-import { Button } from '../..';
+import { Button, type ButtonProps } from '../../Button';
 import MessageMetricsItem from './MessageMetricsItem';
 
-type MessageMetricsReplyProps = ComponentProps<typeof Button>;
+type MessageMetricsReplyProps = ButtonProps;
 
 export const MessageMetricsReply = (props: MessageMetricsReplyProps) => (
   <MessageMetricsItem>

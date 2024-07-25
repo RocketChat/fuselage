@@ -1,12 +1,14 @@
-import type { ComponentProps } from 'react';
 import React from 'react';
 
+import type { MessageEmojiBaseProps } from '../MessageEmojiBase';
 import { MessageEmojiBase } from '../MessageEmojiBase';
+
+type ThreadMessageEmojiProps = MessageEmojiBaseProps;
 
 export const ThreadMessageEmoji = ({
   className,
   ...props
-}: ComponentProps<typeof MessageEmojiBase>) => (
+}: ThreadMessageEmojiProps) => (
   <MessageEmojiBase
     className={`rcx-message-thread__emoji ${className || ''}`}
     {...props}

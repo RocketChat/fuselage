@@ -44,3 +44,5 @@ export { OptionMenu };
 export { OptionSkeleton };
 export { OptionTitle };
 export { OptionHeader };
+
+export { OptionProps } from './Option';

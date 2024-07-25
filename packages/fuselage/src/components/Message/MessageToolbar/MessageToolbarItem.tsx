@@ -1,9 +1,10 @@
-import type { ComponentProps, Ref } from 'react';
+import type { Ref } from 'react';
 import React, { forwardRef } from 'react';
 
+import type { IconButtonProps } from '../../Button';
 import { IconButton } from '../../Button';
 
-type MessageToolbarItemProps = ComponentProps<typeof IconButton>;
+type MessageToolbarItemProps = IconButtonProps;
 
 export const MessageToolbarItem = forwardRef(function MessageToolbarItem(
   props: MessageToolbarItemProps,

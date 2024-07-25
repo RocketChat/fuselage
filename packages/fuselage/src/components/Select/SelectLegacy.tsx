@@ -4,13 +4,8 @@ import {
   useResizeObserver,
   useOutsideClick,
 } from '@rocket.chat/fuselage-hooks';
-import type {
-  ComponentProps,
-  DependencyList,
-  Ref,
-  ElementType,
-  ReactNode,
-} from 'react';
+import type { IconName } from '@rocket.chat/icons';
+import type { DependencyList, Ref, ElementType, ReactNode } from 'react';
 import React, { useState, useRef, useEffect, forwardRef, useMemo } from 'react';
 
 import { isForwardRefType } from '../../helpers/isForwardRefType';
@@ -50,7 +45,7 @@ const useDidUpdate = (func: () => void, deps: DependencyList | undefined) => {
   }, deps || []);
 };
 
-export type SelectProps = Omit<BoxProps, 'onChange'> & {
+export type SelectLegacyProps = Omit<BoxProps, 'onChange'> & {
   anchor?: ElementType;
   error?: string;
   options: SelectOption[];
@@ -62,10 +57,10 @@ export type SelectProps = Omit<BoxProps, 'onChange'> & {
   renderItem?: ElementType;
   renderSelected?: ElementType;
   customEmpty?: string;
-  addonIcon?: ComponentProps<typeof Icon>['name'];
+  addonIcon?: IconName;
 };
 
-export const SelectLegacy = forwardRef(
+export const SelectLegacy = forwardRef<HTMLElement, SelectLegacyProps>(
   (
     {
       value,
@@ -84,8 +79,8 @@ export const SelectLegacy = forwardRef(
       addonIcon,
       customEmpty,
       ...props
-    }: SelectProps,
-    ref: Ref<HTMLInputElement>
+    },
+    ref
   ) => {
     const [internalValue, setInternalValue] = useState(value || '');
 

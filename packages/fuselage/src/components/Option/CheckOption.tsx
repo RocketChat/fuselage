@@ -1,10 +1,10 @@
-import type { ComponentProps } from 'react';
 import React, { memo } from 'react';
 
 import { CheckBox } from '../CheckBox';
+import type { OptionProps } from './Option';
 import Option from './Option';
 
-type CheckOptionProps = ComponentProps<typeof Option>;
+type CheckOptionProps = OptionProps;
 
 export const CheckOption = memo(function CheckOption({
   selected,

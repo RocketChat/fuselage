@@ -6,7 +6,7 @@ import Box from '../Box';
 
 const LabelContext = createContext(false);
 
-type LabelProps = Omit<BoxProps, 'is'> & {
+export type LabelProps = Omit<BoxProps, 'is'> & {
   disabled?: boolean;
   required?: boolean;
   is?: (ElementType<any> & string) | undefined;

@@ -1,4 +1,5 @@
-import type { ComponentProps, ReactNode } from 'react';
+import type { IconName } from '@rocket.chat/icons';
+import type { ReactNode } from 'react';
 import React from 'react';
 
 import type { BoxProps } from '../Box';
@@ -9,7 +10,7 @@ type CalloutProps = Omit<BoxProps, 'type' | 'name'> & {
   type?: 'info' | 'success' | 'warning' | 'danger';
   title?: ReactNode;
   children?: ReactNode;
-  icon?: ComponentProps<typeof Icon>['name'];
+  icon?: IconName;
 };
 
 export const Callout = ({

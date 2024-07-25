@@ -1,10 +1,5 @@
 import { useEffectEvent, useResizeObserver } from '@rocket.chat/fuselage-hooks';
-import React, {
-  type ComponentProps,
-  type ReactElement,
-  useState,
-  useRef,
-} from 'react';
+import React, { type ReactElement, useState, useRef } from 'react';
 
 import { prevent } from '../../helpers/prevent';
 import AnimatedVisibility from '../AnimatedVisibility';
@@ -15,7 +10,9 @@ import Flex from '../Flex';
 import { Icon } from '../Icon';
 import Margins from '../Margins';
 import Option from '../Option';
+import type { OptionProps } from '../Option';
 import { useVisible } from '../Options/useVisible';
+import type { OptionsPaginatedProps } from '../OptionsPaginated';
 import { OptionsPaginated } from '../OptionsPaginated';
 import Position from '../Position';
 import SelectAddon from '../Select/SelectAddon';
@@ -26,7 +23,7 @@ export type PaginatedMultiSelectOption = {
   label: string;
 };
 
-type PaginatedMultiSelectProps = Omit<BoxProps, 'onChange' | 'value'> & {
+export type PaginatedMultiSelectProps = Omit<BoxProps, 'onChange' | 'value'> & {
   error?: boolean;
   options: PaginatedMultiSelectOption[];
   withTitle?: boolean;
@@ -34,10 +31,8 @@ type PaginatedMultiSelectProps = Omit<BoxProps, 'onChange' | 'value'> & {
   endReached?: (start?: number, end?: number) => void;
   value?: PaginatedMultiSelectOption[];
   onChange: (values: PaginatedMultiSelectOption[]) => void;
-  renderOptions?: (
-    props: ComponentProps<typeof OptionsPaginated>
-  ) => ReactElement | null;
-  renderItem?: (props: ComponentProps<typeof Option>) => ReactElement | null;
+  renderOptions?: (props: OptionsPaginatedProps) => ReactElement | null;
+  renderItem?: (props: OptionProps) => ReactElement | null;
   anchor?: any;
 };
 

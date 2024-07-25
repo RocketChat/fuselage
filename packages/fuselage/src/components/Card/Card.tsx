@@ -4,7 +4,7 @@ import React from 'react';
 
 import Box from '../Box/Box';
 
-type CardProps = {
+export type CardProps = {
   horizontal?: boolean;
   hero?: boolean;
   clickable?: boolean;

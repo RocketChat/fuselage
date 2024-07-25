@@ -1,15 +1,16 @@
-import type { ComponentProps, Dispatch, Ref, SetStateAction } from 'react';
+import type { IconName } from '@rocket.chat/icons';
+import type { Dispatch, Ref, SetStateAction } from 'react';
 import React, { forwardRef, useState } from 'react';
 
-import { SelectLegacy } from '.';
-import type { Icon } from '..';
 import type { SelectAnchorParams } from './SelectAnchorParams';
 import SelectFilteredAnchor from './SelectFilteredAnchor';
+import type { SelectLegacyProps } from './SelectLegacy';
+import { SelectLegacy } from './SelectLegacy';
 
-export type SelectFilteredProps = ComponentProps<typeof SelectLegacy> & {
+export type SelectFilteredProps = SelectLegacyProps & {
   filter?: string;
   setFilter?: Dispatch<SetStateAction<string>>;
-  addonIcon?: ComponentProps<typeof Icon>['name'];
+  addonIcon?: IconName;
 };
 
 export const SelectFiltered = forwardRef(function SelectFiltered(

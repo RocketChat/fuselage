@@ -3,7 +3,7 @@ import React from 'react';
 import type { BoxProps } from '../Box';
 import Box from '../Box';
 
-type GridItemProps = BoxProps & {
+export type GridItemProps = BoxProps & {
   xs?: 1 | 2 | 3 | 4;
   sm?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
   md?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;

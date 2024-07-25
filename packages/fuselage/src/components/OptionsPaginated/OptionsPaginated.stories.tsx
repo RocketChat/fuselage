@@ -1,13 +1,13 @@
 import { Title, Description, Primary, Stories } from '@storybook/addon-docs';
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
-import type { ComponentProps } from 'react';
 import React, { createRef } from 'react';
 
+import type { OptionsPaginatedProps } from '.';
 import { OptionsPaginated, CheckOption } from '.';
 import { Box } from '..';
 import Option from '../Option';
-// ComponentProps<typeof Option.Icon>['name']
-const options: ComponentProps<typeof OptionsPaginated>['options'] = Array.from({
+
+const options: OptionsPaginatedProps['options'] = Array.from({
   length: 90,
 }).map((_: unknown, i: number) => ({
   value: 1 + i,

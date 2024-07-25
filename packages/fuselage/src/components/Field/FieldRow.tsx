@@ -1,11 +1,11 @@
-import type { ComponentPropsWithoutRef } from 'react';
 import React from 'react';
 
 import WithErrorWrapper from '../../helpers/WithErrorWrapper';
+import type { BoxProps } from '../Box';
 import Box from '../Box';
 import { FieldContext } from './Field';
 
-type FieldRowProps = ComponentPropsWithoutRef<typeof Box>;
+type FieldRowProps = BoxProps;
 
 export const FieldRow = (props: FieldRowProps) => {
   const component = <Box is='span' rcx-field__row {...props} />;

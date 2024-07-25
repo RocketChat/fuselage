@@ -1,5 +1,6 @@
 import type { UsePositionOptions } from '@rocket.chat/fuselage-hooks';
-import type { ComponentProps, ElementType } from 'react';
+import type { IconName } from '@rocket.chat/icons';
+import type { ElementType } from 'react';
 import React, { cloneElement, useRef } from 'react';
 import type { AriaMenuProps } from 'react-aria';
 import { useButton, useMenuTrigger } from 'react-aria';
@@ -13,8 +14,8 @@ import MenuDropDown from './MenuDropdown';
 import MenuPopover from './MenuPopover';
 import { getPlacement } from './helpers/helpers';
 
-interface MenuButtonProps<T> extends AriaMenuProps<T>, MenuTriggerProps {
-  icon?: ComponentProps<typeof IconButton>['icon'];
+export interface MenuButtonProps<T> extends AriaMenuProps<T>, MenuTriggerProps {
+  icon?: IconName;
   large?: boolean;
   medium?: boolean;
   small?: boolean;

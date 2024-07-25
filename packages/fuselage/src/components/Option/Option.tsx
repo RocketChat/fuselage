@@ -1,21 +1,15 @@
-import type {
-  Ref,
-  ComponentProps,
-  ReactNode,
-  MouseEvent,
-  AllHTMLAttributes,
-} from 'react';
+import type { IconName } from '@rocket.chat/icons';
+import type { Ref, ReactNode, MouseEvent, AllHTMLAttributes } from 'react';
 import React, { forwardRef, memo } from 'react';
 
 import { prevent } from '../../helpers/prevent';
 import type { BoxProps } from '../Box';
-import type { Icon } from '../Icon';
 import OptionAvatar from './OptionAvatar';
 import OptionColumn from './OptionColumn';
 import OptionContent from './OptionContent';
 import OptionIcon from './OptionIcon';
 
-type OptionProps = {
+export type OptionProps = {
   is?: BoxProps['is'];
   id?: string;
   children?: ReactNode;
@@ -24,7 +18,7 @@ type OptionProps = {
   selected?: boolean;
   className?: BoxProps['className'];
   ref?: Ref<Element>;
-  icon?: ComponentProps<typeof Icon>['name'];
+  icon?: IconName;
   gap?: boolean;
   avatar?: ReactNode;
   title?: string;

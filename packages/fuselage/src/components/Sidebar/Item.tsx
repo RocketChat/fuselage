@@ -1,8 +1,10 @@
-import type { AllHTMLAttributes, ComponentProps, ReactNode } from 'react';
+import type { IconName } from '@rocket.chat/icons';
+import type { AllHTMLAttributes, ReactNode } from 'react';
 import React from 'react';
 
 import type { BoxProps } from '../Box';
 import { Icon as FuselageIcon } from '../Icon';
+import type { SidebarActionProps } from './SidebarActions';
 import { SidebarAction, SidebarActions } from './SidebarActions';
 
 type SidebarItemProps = {
@@ -158,7 +160,7 @@ type SidebarItemIconProps = {
   children?: ReactNode;
   className?: string;
   highlighted?: boolean;
-  icon: ComponentProps<typeof FuselageIcon>['name'];
+  icon: IconName;
 } & Omit<AllHTMLAttributes<HTMLElement>, 'name' | 'is'>;
 
 export const SidebarItemIcon = ({
@@ -193,7 +195,7 @@ export const SidebarItemAvatar = ({ ...props }: SidebarItemAvatarProps) => (
 
 export const SidebarItemActions = SidebarActions;
 
-type SidebarItemActionProps = ComponentProps<typeof SidebarAction>;
+type SidebarItemActionProps = SidebarActionProps;
 
 export const SidebarItemAction = (props: SidebarItemActionProps) => (
   <SidebarAction {...props} />

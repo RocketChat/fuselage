@@ -1,10 +1,11 @@
-import type { AllHTMLAttributes, ComponentProps } from 'react';
+import type { IconName } from '@rocket.chat/icons';
+import type { AllHTMLAttributes } from 'react';
 import React from 'react';
 
 import { Icon } from '../..';
 
-type MessageStatusIndicatorItemProps = {
-  name: ComponentProps<typeof Icon>['name'];
+export type MessageStatusIndicatorItemProps = {
+  name: IconName;
   variant?: 'success' | 'danger' | 'warning' | 'primary';
 } & Omit<AllHTMLAttributes<HTMLElement>, 'is'>;
 

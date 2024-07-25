@@ -1,11 +1,12 @@
-import type { ComponentProps, HTMLAttributes } from 'react';
+import type { HTMLAttributes } from 'react';
 import React, { forwardRef } from 'react';
 
 import { appendClassName } from '../../helpers/appendClassName';
 import { patchChildren } from '../../helpers/patchChildren';
+import type { IconButtonProps } from '../Button';
 import { IconButton } from '../Button';
 
-type NavbarItemProps = Partial<ComponentProps<typeof IconButton>>;
+type NavbarItemProps = Partial<IconButtonProps>;
 
 export const NavBarItem = forwardRef<
   HTMLElement,

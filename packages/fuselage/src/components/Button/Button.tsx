@@ -1,4 +1,5 @@
-import type { AllHTMLAttributes, ComponentProps } from 'react';
+import type { IconName } from '@rocket.chat/icons';
+import type { AllHTMLAttributes } from 'react';
 import React, { forwardRef, useMemo } from 'react';
 
 import type { BoxProps } from '../Box';
@@ -21,7 +22,7 @@ export type ButtonProps = BoxProps & {
   large?: boolean;
   square?: boolean;
   external?: boolean;
-  icon?: ComponentProps<typeof Icon>['name'];
+  icon?: IconName;
 } & Omit<
     AllHTMLAttributes<HTMLButtonElement | HTMLAnchorElement>,
     'is' | 'className' | 'size'

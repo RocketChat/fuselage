@@ -1,11 +1,12 @@
-import type { AllHTMLAttributes, ComponentProps } from 'react';
+import type { AllHTMLAttributes } from 'react';
 import React from 'react';
 
+import type { AvatarContainerProps } from './AvatarContainer';
 import AvatarContainer from './AvatarContainer';
 import AvatarStack from './AvatarStack';
 
 /** @public */
-export type AvatarProps = ComponentProps<typeof AvatarContainer> & {
+export type AvatarProps = AvatarContainerProps & {
   rounded?: boolean;
   objectFit?: boolean;
   url: string;

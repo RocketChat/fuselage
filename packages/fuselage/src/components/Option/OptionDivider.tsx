@@ -1,9 +1,9 @@
-import type { ComponentProps } from 'react';
 import React from 'react';
 
-import { Divider } from '../..';
+import type { DividerProps } from '../Divider';
+import { Divider } from '../Divider';
 
-type OptionDividerProps = ComponentProps<typeof Divider>;
+type OptionDividerProps = DividerProps;
 
 const OptionDivider = (props: OptionDividerProps) => <Divider {...props} />;
 

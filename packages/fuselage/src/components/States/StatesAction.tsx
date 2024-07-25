@@ -1,9 +1,8 @@
-import type { ComponentProps } from 'react';
 import React from 'react';
 
-import { Button } from '..';
+import { Button, type ButtonProps } from '../Button';
 
-type StatesActionProps = ComponentProps<typeof Button>;
+type StatesActionProps = ButtonProps;
 
 const StatesAction = (props: StatesActionProps) => (
   <Button {...props} primary />

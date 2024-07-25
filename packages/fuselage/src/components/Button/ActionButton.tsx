@@ -1,4 +1,4 @@
-import type { ComponentProps } from 'react';
+import type { IconName } from '@rocket.chat/icons';
 import React, { forwardRef } from 'react';
 
 import { Icon } from '../Icon';
@@ -24,7 +24,7 @@ const getSize = ({ tiny, mini, small }: ButtonSize) => {
 /** @public */
 export type ActionButtonProps = ButtonProps &
   ButtonSize & {
-    icon: ComponentProps<typeof Icon>['name'];
+    icon: IconName;
   };
 
 /** @public */

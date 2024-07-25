@@ -1,4 +1,4 @@
-import type { ComponentProps } from 'react';
+import type { IconName } from '@rocket.chat/icons';
 import React from 'react';
 
 import type { BoxProps } from '../Box';
@@ -6,7 +6,7 @@ import Box from '../Box';
 import { Icon } from '../Icon';
 
 export type ModalIconProps = BoxProps & {
-  name: ComponentProps<typeof Icon>['name'];
+  name: IconName;
 };
 
 export const ModalIcon = ({
