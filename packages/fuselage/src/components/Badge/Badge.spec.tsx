@@ -2,7 +2,7 @@ import { composeStories } from '@storybook/testing-react';
 import { render, screen } from '@testing-library/react';
 import React from 'react';
 
-import { Badge } from './Badge';
+import Badge from './Badge';
 import * as stories from './Badge.stories';
 
 const { Default, Primary, Secondary, Danger, Warning, Disabled } =
