@@ -3,6 +3,7 @@ import React from 'react';
 
 import { prependClassName } from '../../helpers/prependClassName';
 
+/** @public */
 export type AvatarContainerProps = {
   size?:
     | 'x16'
@@ -19,11 +20,12 @@ export type AvatarContainerProps = {
     | 'x332';
 } & HTMLAttributes<HTMLElement>;
 
-export const AvatarContainer = ({
+/** @public */
+function AvatarContainer({
   size = 'x36',
   children,
   ...props
-}: AvatarContainerProps) => {
+}: AvatarContainerProps) {
   props.className = prependClassName(
     props.className,
     ['rcx-box rcx-box--full rcx-avatar', size && `rcx-avatar--${size}`]
@@ -32,4 +34,6 @@ export const AvatarContainer = ({
   );
 
   return <figure {...props}>{children}</figure>;
-};
+}
+
+export default AvatarContainer;

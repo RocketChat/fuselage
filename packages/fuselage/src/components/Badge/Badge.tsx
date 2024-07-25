@@ -1,19 +1,25 @@
-import type { ElementType } from 'react';
+import type { ElementType, ReactNode } from 'react';
 import React from 'react';
 
 import { prependClassName } from '../../helpers/prependClassName';
 
+/** @public */
 export type BadgeProps = {
   is?: ElementType;
   variant?: 'secondary' | 'primary' | 'danger' | 'warning' | 'ghost';
   small?: boolean;
   disabled?: boolean;
   className?: string;
-  children?: any;
-  title?: any;
+  children?: ReactNode;
+  title?: ReactNode;
 };
 
-export function Badge({
+/**
+ * Communicates notification’s amount and types.
+ *
+ * @public
+ */
+function Badge({
   is: Tag = 'span',
   variant = 'secondary',
   small,
@@ -36,3 +42,5 @@ export function Badge({
     />
   );
 }
+
+export default Badge;

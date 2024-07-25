@@ -164,13 +164,19 @@ export type AutoCompleteProps = {
 } & Omit<AllHTMLAttributes<HTMLInputElement>, 'onChange'>;
 
 // @public (undocumented)
-export const Avatar: {
-    ({ size, rounded, objectFit, url, className, ...props }: AvatarProps): React_2.JSX.Element;
-    Stack: ({ children, ...props }: React_2.ClassAttributes<HTMLDivElement> & React_2.HTMLAttributes<HTMLDivElement>) => React_2.JSX.Element;
-};
+export function Avatar({ size, rounded, objectFit, url, className, ...props }: AvatarProps): React_2.JSX.Element;
 
 // @public (undocumented)
-export const AvatarContainer: ({ size, children, ...props }: AvatarContainerProps) => React_2.JSX.Element;
+export namespace Avatar {
+    var // (undocumented)
+    Stack: typeof AvatarStack;
+}
+
+// @public (undocumented)
+export namespace Avatar { }
+
+// @public (undocumented)
+export function AvatarContainer({ size, children, ...props }: AvatarContainerProps): React_2.JSX.Element;
 
 // @public (undocumented)
 export type AvatarContainerProps = {
@@ -184,15 +190,16 @@ export type AvatarProps = ComponentProps<typeof AvatarContainer> & {
     url: string;
 } & Omit<AllHTMLAttributes<HTMLImageElement>, 'size'>;
 
-// Warning: (ae-forgotten-export) The symbol "AvatarStackProps" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
-export const AvatarStack: ({ children, ...props }: AvatarStackProps) => React_2.JSX.Element;
+export function AvatarStack({ children, ...props }: AvatarStackProps): React_2.JSX.Element;
+
+// @public (undocumented)
+export type AvatarStackProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
 
 // @public (undocumented)
 export const backgroundColor: (this: unknown, arg: unknown) => string | undefined;
 
-// @public (undocumented)
+// @public
 export function Badge({ is: Tag, variant, small, className, disabled, ...props }: BadgeProps): React_2.JSX.Element;
 
 // @public (undocumented)
@@ -202,14 +209,27 @@ export type BadgeProps = {
     small?: boolean;
     disabled?: boolean;
     className?: string;
-    children?: any;
-    title?: any;
+    children?: ReactNode;
+    title?: ReactNode;
 };
 
-// Warning: (ae-forgotten-export) The symbol "BannerProps" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
-export const Banner: ({ actionable, children, className, closeable, icon, inline, link, linkText, linkTarget, onAction, onClose, title, variant, ...props }: BannerProps) => React_2.JSX.Element;
+export function Banner({ actionable, children, className, closeable, icon, inline, link, linkText, linkTarget, onAction, onClose, title, variant, ...props }: BannerProps): React_2.JSX.Element;
+
+// @public (undocumented)
+export type BannerProps = {
+    actionable?: boolean;
+    closeable?: boolean;
+    icon?: ReactNode;
+    inline?: boolean;
+    link?: string;
+    linkTarget?: HTMLAttributeAnchorTarget;
+    linkText?: string;
+    onAction?: () => void;
+    onClose?: () => void;
+    title?: string;
+    variant?: VariantType;
+} & AllHTMLAttributes<HTMLElement>;
 
 // @public (undocumented)
 export const borderRadius: (this: unknown, arg: unknown) => string | undefined;
@@ -2583,6 +2603,7 @@ export const Wrapper: (props: ComponentProps<typeof Box>) => React_2.JSX.Element
 // src/Theme.ts:270:1 - (ae-forgotten-export) The symbol "Var" needs to be exported by the entry point index.d.ts
 // src/components/AnimatedVisibility/index.ts:4:5 - (ae-forgotten-export) The symbol "VisibilityType" needs to be exported by the entry point index.d.ts
 // src/components/AutoComplete/AutoComplete.tsx:41:3 - (ae-forgotten-export) The symbol "AutoCompleteOption" needs to be exported by the entry point index.d.ts
+// src/components/Banner/Banner.tsx:34:3 - (ae-forgotten-export) The symbol "VariantType" needs to be exported by the entry point index.d.ts
 // src/components/Button/ActionButton.tsx:28:26 - (ae-forgotten-export) The symbol "Falsy" needs to be exported by the entry point index.d.ts
 // src/components/Flex/index.ts:4:5 - (ae-forgotten-export) The symbol "FlexContainer" needs to be exported by the entry point index.d.ts
 // src/components/Flex/index.ts:5:5 - (ae-forgotten-export) The symbol "FlexItem" needs to be exported by the entry point index.d.ts

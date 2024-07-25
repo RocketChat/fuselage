@@ -1,31 +1,32 @@
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
-import { Accordion } from '.';
 import Box from '../Box';
+import Accordion from './Accordion';
+import AccordionItem from './AccordionItem';
 
 export default {
   title: 'Containers/Accordion',
   component: Accordion,
-} as ComponentMeta<typeof Accordion.Item>;
+} as ComponentMeta<typeof AccordionItem>;
 
 const Template: ComponentStory<typeof Accordion> = () => (
   <Accordion>
-    <Accordion.Item title='Item #1' defaultExpanded>
+    <AccordionItem title='Item #1' defaultExpanded>
       <Box color='default' fontScale='p2' marginBlockEnd={16}>
         Content #1
       </Box>
-    </Accordion.Item>
-    <Accordion.Item title='Item #2'>
+    </AccordionItem>
+    <AccordionItem title='Item #2'>
       <Box color='default' fontScale='p2' marginBlockEnd={16}>
         Content #2
       </Box>
-    </Accordion.Item>
-    <Accordion.Item title='Item #3'>
+    </AccordionItem>
+    <AccordionItem title='Item #3'>
       <Box color='default' fontScale='p2' marginBlockEnd={16}>
         Content #3
       </Box>
-    </Accordion.Item>
+    </AccordionItem>
   </Accordion>
 );
 

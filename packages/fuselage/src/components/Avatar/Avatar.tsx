@@ -1,23 +1,25 @@
 import type { AllHTMLAttributes, ComponentProps } from 'react';
 import React from 'react';
 
-import { AvatarContainer } from './AvatarContainer';
-import { AvatarStack } from './AvatarStack';
+import AvatarContainer from './AvatarContainer';
+import AvatarStack from './AvatarStack';
 
+/** @public */
 export type AvatarProps = ComponentProps<typeof AvatarContainer> & {
   rounded?: boolean;
   objectFit?: boolean;
   url: string;
 } & Omit<AllHTMLAttributes<HTMLImageElement>, 'size'>;
 
-export const Avatar = ({
+/** @public */
+function Avatar({
   size = 'x36',
   rounded = false,
   objectFit = false,
   url,
   className,
   ...props
-}: AvatarProps) => {
+}: AvatarProps) {
   const innerClass = [
     'rcx-avatar__element',
     objectFit && 'rcx-avatar__element--object-fit',
@@ -32,9 +34,15 @@ export const Avatar = ({
       <img src={`${url}`} className={`${innerClass}`} {...props} />
     </AvatarContainer>
   );
-};
+}
 
 /**
  * @deprecated Use named import instead
  */
 Avatar.Stack = AvatarStack;
+
+/** @public */
+// eslint-disable-next-line @typescript-eslint/no-namespace
+declare namespace Avatar {}
+
+export default Avatar;

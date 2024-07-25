@@ -1,7 +1,7 @@
 import type { ComponentMeta } from '@storybook/react';
 import React from 'react';
 
-import { AudioPlayer } from '.';
+import AudioPlayer from './AudioPlayer';
 
 export default {
   title: 'Media/AudioPlayer',

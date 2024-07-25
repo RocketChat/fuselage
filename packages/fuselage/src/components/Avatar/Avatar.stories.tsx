@@ -1,12 +1,15 @@
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
-import { Avatar, Box, Margins } from '../..';
+import { Margins } from '../..';
+import Box from '../Box';
+import Avatar from './Avatar';
+import AvatarStack from './AvatarStack';
 
 export default {
   title: 'Data Display/Avatar',
   component: Avatar,
-} as ComponentMeta<typeof Avatar>;
+} satisfies ComponentMeta<typeof Avatar>;
 
 const sizes: (
   | 'x16'
@@ -51,11 +54,11 @@ const StackTemplate: ComponentStory<typeof Avatar> = (args) => (
   <Margins all='x16'>
     {sizes.map((size, i) => (
       <Box key={i}>
-        <Avatar.Stack className={args.className}>
+        <AvatarStack className={args.className}>
           <Avatar url={args.url} size={size} rounded={args.rounded} alt='' />
           <Avatar url={args.url} size={size} rounded={args.rounded} alt='' />
           <Avatar url={args.url} size={size} rounded={args.rounded} alt='' />
-        </Avatar.Stack>
+        </AvatarStack>
       </Box>
     ))}
   </Margins>

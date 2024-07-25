@@ -4,7 +4,7 @@ export * from './AudioPlayer';
 export * from './AutoComplete';
 export * from './Avatar';
 export * from './Badge';
-export { default as Banner } from './Banner';
+export * from './Banner';
 export { default as Box } from './Box';
 export { useArrayLikeClassNameProp } from '../hooks/useArrayLikeClassNameProp';
 export { default as Button, ActionButton, IconButton } from './Button';
