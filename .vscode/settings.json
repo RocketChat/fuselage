@@ -24,13 +24,6 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   },
-  "editor.formatOnSave": true,
-  "[typescript]": {
-    "editor.formatOnSave": false
-  },
-  "[typescriptreact]": {
-    "editor.formatOnSave": false
-  },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "[pegjs]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
