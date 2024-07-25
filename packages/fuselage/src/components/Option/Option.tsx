@@ -1,5 +1,5 @@
 import type { IconName } from '@rocket.chat/icons';
-import type { Ref, ReactNode, MouseEvent, AllHTMLAttributes } from 'react';
+import type { ReactNode, MouseEvent, AllHTMLAttributes } from 'react';
 import React, { forwardRef, memo } from 'react';
 
 import { prevent } from '../../helpers/prevent';
@@ -18,7 +18,6 @@ export type OptionProps = {
   focus?: boolean;
   selected?: boolean;
   className?: BoxProps['className'];
-  ref?: Ref<Element>;
   icon?: IconName;
   gap?: boolean;
   avatar?: ReactNode;
@@ -28,10 +27,10 @@ export type OptionProps = {
   variant?: 'danger' | 'success' | 'warning' | 'primary';
   onClick?: (event: MouseEvent<HTMLElement>) => void;
   description?: ReactNode;
-} & Omit<AllHTMLAttributes<HTMLElement>, 'label'>;
+} & Omit<AllHTMLAttributes<HTMLElement>, 'label' | 'ref'>;
 
 /** @public */
-const Option = forwardRef<unknown, OptionProps>(function Option(
+const Option = forwardRef<Element, OptionProps>(function Option(
   {
     is: Tag = 'li',
     id,

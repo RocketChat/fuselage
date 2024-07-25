@@ -30,7 +30,7 @@ import { Key } from 'react';
 import type { KeyboardEvent as KeyboardEvent_2 } from 'react';
 import type { KeyboardEventHandler } from 'react';
 import type { MenuTriggerProps } from 'react-stately';
-import type { MouseEvent as MouseEvent_2 } from 'react';
+import { MouseEvent as MouseEvent_2 } from 'react';
 import type { MouseEventHandler } from 'react';
 import { NamedExoticComponent } from 'react';
 import type { OverlayTriggerState } from 'react-stately';
@@ -1345,8 +1345,42 @@ export const NavBarSection: (props: HTMLAttributes<HTMLSpanElement>) => React_2.
 export const NumberInput: React_2.ForwardRefExoticComponent<NumberInputProps & React_2.RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
-const Option_2: NamedExoticComponent<Omit<OptionProps, "ref"> & RefAttributes<unknown>> & {
-    readonly type: ForwardRefExoticComponent<Omit<OptionProps, "ref"> & RefAttributes<unknown>>;
+const Option_2: NamedExoticComponent<    {
+is?: BoxProps["is"];
+id?: string;
+children?: ReactNode;
+label?: ReactNode;
+focus?: boolean;
+selected?: boolean;
+className?: BoxProps["className"];
+icon?: IconName;
+gap?: boolean;
+avatar?: ReactNode;
+title?: string;
+disabled?: boolean;
+value?: string;
+variant?: "danger" | "success" | "warning" | "primary";
+onClick?: (event: MouseEvent_2<HTMLElement>) => void;
+description?: ReactNode;
+} & Omit<AllHTMLAttributes<HTMLElement>, "ref" | "label"> & RefAttributes<Element>> & {
+    readonly type: ForwardRefExoticComponent<    {
+    is?: BoxProps["is"];
+    id?: string;
+    children?: ReactNode;
+    label?: ReactNode;
+    focus?: boolean;
+    selected?: boolean;
+    className?: BoxProps["className"];
+    icon?: IconName;
+    gap?: boolean;
+    avatar?: ReactNode;
+    title?: string;
+    disabled?: boolean;
+    value?: string;
+    variant?: "danger" | "success" | "warning" | "primary";
+    onClick?: (event: MouseEvent_2<HTMLElement>) => void;
+    description?: ReactNode;
+    } & Omit<AllHTMLAttributes<HTMLElement>, "ref" | "label"> & RefAttributes<Element>>;
 } & {
     Description: (props: OptionDescriptionProps) => JSX_2.Element;
     Skeleton: () => JSX_2.Element;
@@ -1468,7 +1502,6 @@ export type OptionProps = {
     focus?: boolean;
     selected?: boolean;
     className?: BoxProps['className'];
-    ref?: Ref<Element>;
     icon?: IconName;
     gap?: boolean;
     avatar?: ReactNode;
@@ -1478,7 +1511,7 @@ export type OptionProps = {
     variant?: 'danger' | 'success' | 'warning' | 'primary';
     onClick?: (event: MouseEvent_2<HTMLElement>) => void;
     description?: ReactNode;
-} & Omit<AllHTMLAttributes<HTMLElement>, 'label'>;
+} & Omit<AllHTMLAttributes<HTMLElement>, 'label' | 'ref'>;
 
 // @public (undocumented)
 export const Options: ForwardRefExoticComponent<Omit<BoxProps, "onSelect"> & {

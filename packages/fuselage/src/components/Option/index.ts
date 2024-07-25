@@ -28,7 +28,7 @@ export default Object.assign(Option, {
 });
 
 export { default as CheckOption, CheckOptionProps } from './CheckOption';
-export { default as Option, OptionProps } from './Option';
+export { /* default as Option, */ OptionProps } from './Option';
 export { default as OptionAvatar, OptionAvatarProps } from './OptionAvatar';
 export { default as OptionColumn, OptionColumnProps } from './OptionColumn';
 export { default as OptionContent, OptionContentProps } from './OptionContent';
