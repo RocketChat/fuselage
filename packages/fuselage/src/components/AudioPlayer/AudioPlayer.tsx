@@ -54,23 +54,28 @@ const getDurationForInfinityDurationAudioFile = (
   });
 };
 
-export const AudioPlayer = forwardRef<
-  HTMLAudioElement,
-  {
-    src: string;
-    type?: string;
-    maxPlaybackSpeed?: number;
-    minPlaybackSpeed?: number;
-    playbackSpeedStep?: number;
-    download?: boolean;
-    playLabel?: string;
-    pauseLabel?: string;
-    audioPlaybackRangeLabel?: string;
-    changePlaybackSpeedLabel?: string;
-    downloadAudioFileLabel?: string;
-  }
->(
-  (
+/** @public */
+export type AudioPlayerProps = {
+  src: string;
+  type?: string;
+  maxPlaybackSpeed?: number;
+  minPlaybackSpeed?: number;
+  playbackSpeedStep?: number;
+  download?: boolean;
+  playLabel?: string;
+  pauseLabel?: string;
+  audioPlaybackRangeLabel?: string;
+  changePlaybackSpeedLabel?: string;
+  downloadAudioFileLabel?: string;
+};
+
+/**
+ * A Fuselage’s custom AudioPlayer.
+ *
+ * @public
+ */
+const AudioPlayer = forwardRef<HTMLAudioElement, AudioPlayerProps>(
+  function AudioPlayer(
     {
       src,
       type = 'audio/mpeg',
@@ -85,7 +90,7 @@ export const AudioPlayer = forwardRef<
       downloadAudioFileLabel = 'Download Audio File',
     },
     ref
-  ) => {
+  ) {
     const audioRef = useRef<HTMLAudioElement>(null);
     const refs = useMergedRefs(ref, audioRef);
     const [isPlaying, setIsPlaying] = useState(false);
@@ -224,3 +229,5 @@ export const AudioPlayer = forwardRef<
     );
   }
 );
+
+export default AudioPlayer;

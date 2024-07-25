@@ -126,8 +126,11 @@ export const AnimatedVisibility: ((props: {
     UNHIDING: VisibilityType;
 };
 
+// @public
+export const AudioPlayer: React_2.ForwardRefExoticComponent<AudioPlayerProps & React_2.RefAttributes<HTMLAudioElement>>;
+
 // @public (undocumented)
-export const AudioPlayer: React_2.ForwardRefExoticComponent<{
+export type AudioPlayerProps = {
     src: string;
     type?: string;
     maxPlaybackSpeed?: number;
@@ -139,12 +142,26 @@ export const AudioPlayer: React_2.ForwardRefExoticComponent<{
     audioPlaybackRangeLabel?: string;
     changePlaybackSpeedLabel?: string;
     downloadAudioFileLabel?: string;
-} & React_2.RefAttributes<HTMLAudioElement>>;
+};
 
-// Warning: (ae-forgotten-export) The symbol "AutoCompleteProps" needs to be exported by the entry point index.d.ts
-//
+// @public
+export function AutoComplete({ value, filter, setFilter, options, renderItem, renderSelected: RenderSelected, onChange, renderEmpty, placeholder, error, disabled, multiple, onBlur: onBlurAction, ...props }: AutoCompleteProps): React_2.JSX.Element;
+
 // @public (undocumented)
-export function AutoComplete({ value, filter, setFilter, options, renderItem, renderSelected: RenderSelected, onChange, renderEmpty, placeholder, error, disabled, multiple, onBlur: onBlurAction, ...props }: AutoCompleteProps): ReactElement;
+export type AutoCompleteProps = {
+    value?: string | string[];
+    filter: string;
+    setFilter?: (filter: string) => void;
+    options?: AutoCompleteOption[];
+    renderItem?: ElementType;
+    renderSelected?: ElementType;
+    onChange: (value: string | string[]) => void;
+    renderEmpty?: ElementType;
+    placeholder?: string;
+    error?: boolean;
+    disabled?: boolean;
+    multiple?: boolean;
+} & Omit<AllHTMLAttributes<HTMLInputElement>, 'onChange'>;
 
 // @public (undocumented)
 export const Avatar: {
@@ -2565,6 +2582,7 @@ export const Wrapper: (props: ComponentProps<typeof Box>) => React_2.JSX.Element
 //
 // src/Theme.ts:270:1 - (ae-forgotten-export) The symbol "Var" needs to be exported by the entry point index.d.ts
 // src/components/AnimatedVisibility/index.ts:4:5 - (ae-forgotten-export) The symbol "VisibilityType" needs to be exported by the entry point index.d.ts
+// src/components/AutoComplete/AutoComplete.tsx:41:3 - (ae-forgotten-export) The symbol "AutoCompleteOption" needs to be exported by the entry point index.d.ts
 // src/components/Button/ActionButton.tsx:28:26 - (ae-forgotten-export) The symbol "Falsy" needs to be exported by the entry point index.d.ts
 // src/components/Flex/index.ts:4:5 - (ae-forgotten-export) The symbol "FlexContainer" needs to be exported by the entry point index.d.ts
 // src/components/Flex/index.ts:5:5 - (ae-forgotten-export) The symbol "FlexItem" needs to be exported by the entry point index.d.ts

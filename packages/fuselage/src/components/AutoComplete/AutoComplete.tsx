@@ -1,11 +1,6 @@
 // @ts-nocheck
 import { useEffectEvent, useResizeObserver } from '@rocket.chat/fuselage-hooks';
-import type {
-  AllHTMLAttributes,
-  ComponentProps,
-  ElementType,
-  ReactElement,
-} from 'react';
+import type { AllHTMLAttributes, ComponentProps, ElementType } from 'react';
 import React, { useEffect, useRef, useMemo, useState } from 'react';
 
 import AnimatedVisibility from '../AnimatedVisibility';
@@ -26,7 +21,20 @@ type AutoCompleteOption = {
   label: unknown;
 };
 
-type AutoCompleteProps = {
+const getSelected = (
+  value: string | string[],
+  options: AutoCompleteOption[]
+) => {
+  if (!value) {
+    return [];
+  }
+  return typeof value === 'string'
+    ? options.filter((option) => option.value === value)
+    : options?.filter((option) => value.includes(option.value));
+};
+
+/** @public */
+export type AutoCompleteProps = {
   value?: string | string[];
   filter: string;
   setFilter?: (filter: string) => void;
@@ -41,19 +49,12 @@ type AutoCompleteProps = {
   multiple?: boolean;
 } & Omit<AllHTMLAttributes<HTMLInputElement>, 'onChange'>;
 
-const getSelected = (
-  value: string | string[],
-  options: AutoCompleteOption[]
-) => {
-  if (!value) {
-    return [];
-  }
-  return typeof value === 'string'
-    ? options.filter((option) => option.value === value)
-    : options?.filter((option) => value.includes(option.value));
-};
-
-export function AutoComplete({
+/**
+ * An input for selection of options.
+ *
+ * @public
+ * */
+function AutoComplete({
   value,
   filter,
   setFilter,
@@ -68,7 +69,7 @@ export function AutoComplete({
   multiple,
   onBlur: onBlurAction = () => {},
   ...props
-}: AutoCompleteProps): ReactElement {
+}: AutoCompleteProps) {
   const ref = useRef();
   const { ref: containerRef, borderBoxSize } = useResizeObserver();
 
@@ -210,3 +211,5 @@ export function AutoComplete({
     </Box>
   );
 }
+
+export default AutoComplete;

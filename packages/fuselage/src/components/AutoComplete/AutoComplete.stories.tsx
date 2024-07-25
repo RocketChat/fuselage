@@ -1,12 +1,3 @@
-import {
-  Title,
-  Subtitle,
-  Description,
-  Primary as PrimaryStory,
-  ArgsTable,
-  Stories,
-  PRIMARY_STORY,
-} from '@storybook/addon-docs';
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
 import React, { useState } from 'react';
 
@@ -18,21 +9,6 @@ export default {
   component: AutoComplete,
   parameters: {
     layout: 'centered',
-    docs: {
-      description: {
-        component: 'An input for selection of options.',
-      },
-      page: () => (
-        <>
-          <Title />
-          <Subtitle />
-          <Description />
-          <PrimaryStory />
-          <Stories title={''} />
-          <ArgsTable story={PRIMARY_STORY} />
-        </>
-      ),
-    },
   },
 } as ComponentMeta<typeof AutoComplete>;
 
