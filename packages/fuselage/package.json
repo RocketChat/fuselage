@@ -42,7 +42,8 @@
     "watch": "jest --watch",
     "docs": "cross-env NODE_ENV=production build-storybook -o ../../static/fuselage",
     "build-storybook": "cross-env NODE_ENV=production build-storybook",
-    "bump-next": "bump-next"
+    "bump-next": "bump-next",
+    "extract-api": "api-extractor run --local --verbose"
   },
   "peerDependencies": {
     "@rocket.chat/fuselage-hooks": "*",
@@ -69,6 +70,7 @@
     "@babel/plugin-transform-runtime": "~7.21.4",
     "@babel/preset-env": "~7.21.4",
     "@babel/preset-react": "~7.18.6",
+    "@microsoft/api-extractor": "~7.47.3",
     "@rocket.chat/eslint-config-alt": "workspace:~",
     "@rocket.chat/fuselage-hooks": "workspace:~",
     "@rocket.chat/fuselage-polyfills": "workspace:~",
