@@ -85,7 +85,7 @@ $callout-text-color: theme('callout-text-color', colors.font(default));
       margin-block-start: lengths.margin(12);
     }
 
-    @include on-breakpoint(sm) {
+    &--large {
       display: flex;
 
       overflow: hidden;
