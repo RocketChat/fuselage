@@ -1432,7 +1432,7 @@ htmlSize?: number | undefined;
     } & Partial<StylingProps> & Omit<AllHTMLAttributes<HTMLElement>, "ref" | "is" | "className" | "size" | "elevation"> & Omit<SVGAttributes<SVGElement>, "elevation" | keyof AllHTMLAttributes<HTMLElement>> & RefAttributes<any>) => JSX.Element;
     Icon: ({ size, name, alignItems, ...props }: ModalIconProps) => JSX.Element;
     Thumb: (props: {
-        size?: "x24" | "x16" | "x18" | "x20" | "x28" | "x32" | "x36" | "x40" | "x48" | "x124" | "x200" | "x332" | undefined;
+        size?: "x24" | "x20" | "x16" | "x18" | "x28" | "x32" | "x36" | "x40" | "x48" | "x124" | "x200" | "x332" | undefined;
     } & HTMLAttributes<HTMLElement> & {
         rounded?: boolean | undefined;
         objectFit?: boolean | undefined;
