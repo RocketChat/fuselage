@@ -9,7 +9,8 @@ import {
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
-import { Box, Divider } from '../..';
+import { Divider } from '../Divider';
+import Box from './Box';
 
 export default {
   title: 'Layout/Box/Typography',

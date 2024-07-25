@@ -5,7 +5,6 @@ import type {
   ElementType,
   RefAttributes,
   SVGAttributes,
-  Ref,
 } from 'react';
 
 import { useArrayLikeClassNameProp } from '../../hooks/useArrayLikeClassNameProp';
@@ -15,7 +14,8 @@ import { useBoxTransform, BoxTransforms } from './BoxTransforms';
 import type { StylingProps } from './stylingProps';
 import { useStylingProps } from './useStylingProps';
 
-type BoxProps = {
+/** @public */
+export type BoxProps = {
   is?: ElementType;
   className?: string | cssFn | (string | cssFn | Falsy)[];
   animated?: boolean;
@@ -31,9 +31,10 @@ type BoxProps = {
     keyof AllHTMLAttributes<HTMLElement> | 'elevation'
   >;
 
-export const Box = forwardRef(function Box(
-  { is = 'div', children, ...props }: BoxProps,
-  ref: Ref<any>
+/** @public */
+const Box = forwardRef<any, BoxProps>(function Box(
+  { is = 'div', children, ...props },
+  ref
 ) {
   const propsWithRef: BoxProps & RefAttributes<any> = props;
 

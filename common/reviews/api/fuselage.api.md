@@ -246,10 +246,29 @@ export const Box: React_2.MemoExoticComponent<React_2.ForwardRefExoticComponent<
     htmlSize?: AllHTMLAttributes<HTMLElement>["size"];
 } & Partial<StylingProps> & Omit<React_2.AllHTMLAttributes<HTMLElement>, "ref" | "is" | "className" | "size" | "elevation"> & Omit<React_2.SVGAttributes<SVGElement>, "elevation" | keyof React_2.AllHTMLAttributes<HTMLElement>> & React_2.RefAttributes<any>>>;
 
-// Warning: (ae-forgotten-export) The symbol "BubbleProps" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
-export const Bubble: ({ secondary, children, onClick, icon, onDismiss, small, contentProps, dismissProps, ...props }: BubbleProps) => React_2.JSX.Element;
+export type BoxProps = {
+    is?: ElementType;
+    className?: string | cssFn | (string | cssFn | Falsy)[];
+    animated?: boolean;
+    withRichContent?: boolean | 'inlineWithoutBreaks';
+    htmlSize?: AllHTMLAttributes<HTMLElement>['size'];
+} & Partial<StylingProps> & Omit<AllHTMLAttributes<HTMLElement>, 'ref' | 'is' | 'className' | 'size' | 'elevation'> & Omit<SVGAttributes<SVGElement>, keyof AllHTMLAttributes<HTMLElement> | 'elevation'>;
+
+// @public (undocumented)
+export function Bubble({ secondary, children, onClick, icon, onDismiss, small, contentProps, dismissProps, ...props }: BubbleProps): React_2.JSX.Element;
+
+// @public (undocumented)
+export type BubbleProps = {
+    secondary?: boolean;
+    children: ReactNode;
+    small?: boolean;
+    onClick?: () => void;
+    icon?: Keys;
+    onDismiss?: () => void;
+    contentProps?: Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onClick'>;
+    dismissProps?: Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onClick'>;
+} & Omit<AllHTMLAttributes<HTMLDivElement>, 'onClick'>;
 
 // @public (undocumented)
 export const Button: React_2.ForwardRefExoticComponent<Omit<{

@@ -10,7 +10,7 @@ import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 import flattenChildren from 'react-keyed-flatten-children';
 
-import { Box } from '../..';
+import Box from './Box';
 
 export default {
   title: 'Layout/Box/Colors',

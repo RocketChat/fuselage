@@ -10,7 +10,8 @@ import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 import flattenChildren from 'react-keyed-flatten-children';
 
-import { Box, Divider } from '../..';
+import { Divider } from '../Divider';
+import Box from './Box';
 
 export default {
   title: 'Layout/Box/Layout',

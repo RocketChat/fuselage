@@ -9,7 +9,8 @@ import {
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
-import { Box, Button } from '../..';
+import Button from '../Button';
+import Box from './Box';
 
 export default {
   title: 'Layout/Box/isProp',

@@ -2,10 +2,11 @@ import type { Keys as IconName } from '@rocket.chat/icons';
 import type { AllHTMLAttributes, ButtonHTMLAttributes, ReactNode } from 'react';
 import React from 'react';
 
-import { BubbleButton } from './BubbleButton';
-import { BubbleItem } from './BubbleItem';
+import BubbleButton from './BubbleButton';
+import BubbleItem from './BubbleItem';
 
-type BubbleProps = {
+/** @public */
+export type BubbleProps = {
   secondary?: boolean;
   children: ReactNode;
   small?: boolean;
@@ -16,7 +17,8 @@ type BubbleProps = {
   dismissProps?: Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onClick'>;
 } & Omit<AllHTMLAttributes<HTMLDivElement>, 'onClick'>;
 
-export const Bubble = ({
+/** @public */
+function Bubble({
   secondary,
   children,
   onClick,
@@ -26,40 +28,44 @@ export const Bubble = ({
   contentProps,
   dismissProps,
   ...props
-}: BubbleProps) => (
-  <div
-    className={[
-      'rcx-bubble',
-      'rcx-box',
-      'rcx-box--full',
-      onDismiss && 'rcx-bubble__group',
-      small && 'rcx-bubble--small',
-    ].join(' ')}
-    {...props}
-  >
-    {onClick ? (
-      <BubbleButton
-        onClick={onClick}
-        secondary={secondary}
-        icon={icon}
-        label={children}
-        {...contentProps}
-      />
-    ) : (
-      <BubbleItem
-        secondary={secondary}
-        icon={icon}
-        label={children}
-        {...contentProps}
-      />
-    )}
-    {onDismiss && (
-      <BubbleButton
-        onClick={onDismiss}
-        secondary={secondary}
-        icon='cross-small'
-        {...{ 'aria-label': `Dismiss ${children}`, ...dismissProps }}
-      />
-    )}
-  </div>
-);
+}: BubbleProps) {
+  return (
+    <div
+      className={[
+        'rcx-bubble',
+        'rcx-box',
+        'rcx-box--full',
+        onDismiss && 'rcx-bubble__group',
+        small && 'rcx-bubble--small',
+      ].join(' ')}
+      {...props}
+    >
+      {onClick ? (
+        <BubbleButton
+          onClick={onClick}
+          secondary={secondary}
+          icon={icon}
+          label={children}
+          {...contentProps}
+        />
+      ) : (
+        <BubbleItem
+          secondary={secondary}
+          icon={icon}
+          label={children}
+          {...contentProps}
+        />
+      )}
+      {onDismiss && (
+        <BubbleButton
+          onClick={onDismiss}
+          secondary={secondary}
+          icon='cross-small'
+          {...{ 'aria-label': `Dismiss ${children}`, ...dismissProps }}
+        />
+      )}
+    </div>
+  );
+}
+
+export default Bubble;

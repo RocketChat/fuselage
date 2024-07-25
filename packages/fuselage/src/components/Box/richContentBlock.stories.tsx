@@ -9,7 +9,7 @@ import {
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
-import { Box } from '../..';
+import Box from './Box';
 
 export default {
   title: 'Layout/Box/Rich content/Block',
