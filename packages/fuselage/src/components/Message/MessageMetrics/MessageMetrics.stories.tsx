@@ -79,9 +79,7 @@ const metricsThread = (
 
 export const Default = BasicMessageTemplate.bind({});
 export const ThreadMetrics = BasicMessageTemplate.bind({});
-// export const ThreadMetrics = () => (
-//   <BasicMessageTemplate metrics={metricsThread} />
-// );
+
 Default.args = {
   metrics,
 };
