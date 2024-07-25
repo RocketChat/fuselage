@@ -46,7 +46,6 @@ const metricsThread = (
     <MessageMetricsReply
       onClick={() => action('click view thread')}
       overflow='visible'
-      badge={<Badge variant={'danger'}>!</Badge>}
     >
       View thread
     </MessageMetricsReply>
@@ -55,6 +54,7 @@ const metricsThread = (
         title={'Following'}
         name={'bell'}
         onClick={() => action('click follow thread')}
+        badge={<Badge small variant={'danger'} />}
       />
     </MessageMetricsItem>
     <MessageMetricsItem title={'Participants'}>
@@ -66,7 +66,7 @@ const metricsThread = (
           <Avatar alt='gazzolia' size='x16' url={imgUrl} />
         </MessageMetricsItemAvatarRowContent>
       </MessageMetricsItemAvatarRow>
-      <MessageMetricsItemLabel>+ 3 Participants</MessageMetricsItemLabel>
+      <MessageMetricsItemLabel>+ 3 followers</MessageMetricsItemLabel>
     </MessageMetricsItem>
     <MessageMetricsItem title={'Last message: 12th July, 2024'}>
       <MessageMetricsItemIcon name='thread' />
