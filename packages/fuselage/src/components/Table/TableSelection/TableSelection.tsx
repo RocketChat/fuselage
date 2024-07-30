@@ -1,9 +1,8 @@
 import type { ComponentProps } from 'react';
 import React from 'react';
 
-import Box from '../Box';
-import Margins from '../Margins';
-import { style } from './Table';
+import Box from '../../Box';
+import Margins from '../../Margins';
 
 type TableSelectionProps = ComponentProps<typeof Box> & {
   text?: string;
@@ -19,10 +18,11 @@ export const TableSelection = ({
     display='flex'
     alignItems='center'
     justifyContent='space-between'
-    {...props}
     pi={24}
+    elevation='2'
+    {...props}
   >
-    <Box fontScale='p2m' mb={16} flexShrink={1} style={style}>
+    <Box fontScale='p2b' mb={16} flexShrink={1} withTruncatedText>
       {text}
     </Box>
     {children && (

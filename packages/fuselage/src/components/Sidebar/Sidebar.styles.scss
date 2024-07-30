@@ -71,6 +71,11 @@ $sidebar-header-height: theme(
   theme('header-height', lengths.size(64))
 );
 
+$sidebar-header-v2-height: theme(
+  'sidebar-header-v2-height',
+  theme('header-height-v2', lengths.size(44))
+);
+
 $sidebar-section-height: theme(
   'sidebar-section-height',
   theme('section-height', lengths.size(56))
@@ -185,7 +190,6 @@ $sidebar-banner-color-danger: theme(
 
       flex-grow: 1;
 
-      padding-block: lengths.padding(12);
       padding-inline: lengths.padding(16);
     }
 
@@ -193,6 +197,10 @@ $sidebar-banner-color-danger: theme(
       @include typography.use-font-scale(p2m);
       color: $sidebar-color-font-title;
     }
+  }
+
+  &-topbar-v2 {
+    height: $sidebar-header-v2-height;
   }
 
   &-item {
@@ -294,6 +302,9 @@ $sidebar-banner-color-danger: theme(
     }
 
     &__badge {
+      display: flex;
+      align-items: center;
+
       margin-inline: lengths.margin(4);
     }
 

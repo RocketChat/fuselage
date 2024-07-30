@@ -43,8 +43,8 @@
     "lint-staged": "~13.2.1",
     "prettier": "~2.8.7",
     "rimraf": "~3.0.2",
-    "typedoc": "~0.24.1",
-    "typescript": "~5.0.4"
+    "typedoc": "~0.25.13",
+    "typescript": "~5.4.5"
   },
   "dependencies": {
     "@rocket.chat/memo": "workspace:~"

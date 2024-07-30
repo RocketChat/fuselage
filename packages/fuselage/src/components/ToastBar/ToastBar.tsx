@@ -12,6 +12,7 @@ export type ToastBarProps = {
   className?: string;
   children?: ReactNode;
   time?: number;
+  isPaused?: boolean;
   id?: string;
   onClose?: (id: string) => void;
   buttonLabel?: string;
@@ -22,6 +23,7 @@ export function ToastBar({
   className = '',
   variant = 'info',
   time = 5,
+  isPaused,
   id,
   onClose,
   buttonLabel = 'Dismiss alert',
@@ -59,6 +61,8 @@ export function ToastBar({
     &::after {
       width: 0%;
       animation: ${progressBar} ${time}s;
+      animation-fill-mode: forwards;
+      animation-play-state: ${isPaused ? 'paused' : 'running'};
     }
   `;
 

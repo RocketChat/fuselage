@@ -31,6 +31,7 @@ export default Object.assign(TopBar, {
 });
 
 export * from './TopBar';
+export * from './TopBarV2';
 export * from './TopBarAction';
 export * from './TopBarActions';
 export * from './TopBarSection';

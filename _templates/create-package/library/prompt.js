@@ -1,8 +1,6 @@
-const fs = require("fs");
-
 module.exports = {
-  prompt: async ({ prompter, args }) => {
-    const { package } = await prompter.prompt({
+  prompt: async ({ prompter }) => {
+    const { package: packageName } = await prompter.prompt({
       type: "input",
       name: "package",
       message: "What's the package name?",
@@ -14,17 +12,15 @@ module.exports = {
       message: "What's the package description?",
     });
 
-    let { version } = JSON.parse(await fs.promises.readFile("lerna.json"));
-
-    ({ version } = await prompter.prompt({
+    const { version } = await prompter.prompt({
       type: "input",
       name: "version",
-      default: version,
+      default: "0.0.1",
       message: "What's the package version?",
-    }));
+    });
 
     return {
-      package,
+      package: packageName,
       description,
       version,
     };

@@ -221,6 +221,8 @@ $message-highlight-colors-background-other-color: theme(
     @extend %rcx-margins-block;
     @include typography.use-font-scale(p2);
 
+    overflow: hidden;
+
     flex-shrink: 1;
 
     transition: opacity 0.3s linear;

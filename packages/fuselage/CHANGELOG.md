@@ -1,5 +1,68 @@
 # Change Log
 
+## 0.56.0
+
+### Minor Changes
+
+- [#1409](https://github.com/RocketChat/fuselage/pull/1409) [`c156035e`](https://github.com/RocketChat/fuselage/commit/c156035ec539107bd187e094422addaea0892aa4) Thanks [@dougfabris](https://github.com/dougfabris)! - feat(fuselage): TableSelection visual improvements
+
+## 0.55.2
+
+### Patch Changes
+
+- [#1404](https://github.com/RocketChat/fuselage/pull/1404) [`c23955874`](https://github.com/RocketChat/fuselage/commit/c239558745265d68b91bda1dc25bc8a7b0a1653b) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): move header size changes into V2 components
+
+## 0.55.1
+
+### Patch Changes
+
+- [#1394](https://github.com/RocketChat/fuselage/pull/1394) [`1eb218f2a`](https://github.com/RocketChat/fuselage/commit/1eb218f2a5a8af323b744f60b812c1354d450155) Thanks [@abhinavkrin](https://github.com/abhinavkrin)! - Fixed: Prevent text overflow issues in chat messages when they include a large number of diacritical marks.
+
+## 0.55.0
+
+### Minor Changes
+
+- [#1378](https://github.com/RocketChat/fuselage/pull/1378) [`b86d19b6c`](https://github.com/RocketChat/fuselage/commit/b86d19b6cd5ec784ef73bc5af57f6c4e21f528dc) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage): new set of `NavBar` components
+
+- [#1366](https://github.com/RocketChat/fuselage/pull/1366) [`756430c9e`](https://github.com/RocketChat/fuselage/commit/756430c9e530fe59ca8755f6649c5e282c9493c0) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage): `Contextualbar` components size improvements
+
+- [#1369](https://github.com/RocketChat/fuselage/pull/1369) [`ffef20480`](https://github.com/RocketChat/fuselage/commit/ffef20480bd420e486b375eb6d5b8b7704eda1b7) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage): `Sidebar` header size improvements
+
+### Patch Changes
+
+- [#1398](https://github.com/RocketChat/fuselage/pull/1398) [`12da0a896`](https://github.com/RocketChat/fuselage/commit/12da0a8966c37ef1aad3e07e2c5d731b8b20c050) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): decrease `InputBox` small inline paddings
+
+## 0.54.3
+
+### Patch Changes
+
+- [#1395](https://github.com/RocketChat/fuselage/pull/1395) [`07068a8c8`](https://github.com/RocketChat/fuselage/commit/07068a8c8bd1ff51eaf70756d0915a2cacd0a71d) Thanks [@yash-rajpal](https://github.com/yash-rajpal)! - Fix the typing on OptionContent component
+
+- [#1388](https://github.com/RocketChat/fuselage/pull/1388) [`bebe9bc1a`](https://github.com/RocketChat/fuselage/commit/bebe9bc1a82237f986efd68fca7526a12029fa21) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): `IconButton` with badge positioning
+
+- [#1392](https://github.com/RocketChat/fuselage/pull/1392) [`dfe712ee9`](https://github.com/RocketChat/fuselage/commit/dfe712ee9b496b4218f9d93155972f1909fa99ff) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): SidebarItem missing badge vertical alignment
+
+- [#1390](https://github.com/RocketChat/fuselage/pull/1390) [`4094d78c5`](https://github.com/RocketChat/fuselage/commit/4094d78c51be1cac1dd783249671dd430987e7c1) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): Modal components missing some a11y props
+
+## 0.54.2
+
+### Patch Changes
+
+- [#1383](https://github.com/RocketChat/fuselage/pull/1383) [`5870a9395`](https://github.com/RocketChat/fuselage/commit/5870a939500e5b596be8c1ef1c2e28bb1cded4f5) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): remove `codeBlock` palette and add `palette` prop for a custom palette
+
+## 0.54.1
+
+### Patch Changes
+
+- [#1381](https://github.com/RocketChat/fuselage/pull/1381) [`7e9138078`](https://github.com/RocketChat/fuselage/commit/7e91380780fdc862ff4546fdc449657f51f31aa1) Thanks [@dougfabris](https://github.com/dougfabris)! - Update dependencies [cef91c8dc](https://github.com/RocketChat/fuselage/commit/cef91c8dc646a4e9fc256eed6138eef108ee996c):
+  - @rocket.chat/icons@0.36.0
+
+## 0.54.0
+
+### Minor Changes
+
+- [#1377](https://github.com/RocketChat/fuselage/pull/1377) [`a4f8bb5fb`](https://github.com/RocketChat/fuselage/commit/a4f8bb5fb31a9f80e9d8d5b4bfbb0cbb4f9780e6) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage): new `InputBox` small variant
+
 ## 0.53.7
 
 ### Patch Changes

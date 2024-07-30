@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.36.0
+
+### Minor Changes
+
+- [#1379](https://github.com/RocketChat/fuselage/pull/1379) [`cef91c8dc`](https://github.com/RocketChat/fuselage/commit/cef91c8dc646a4e9fc256eed6138eef108ee996c) Thanks [@dougfabris](https://github.com/dougfabris)! - feat(icons): New check-single icon
+
 ## 0.35.0
 
 ### Minor Changes

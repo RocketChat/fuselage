@@ -11,10 +11,11 @@ import {
   ContextualbarEmptyContent,
   ContextualbarFooter,
   ContextualbarHeader,
+  ContextualbarSection,
   ContextualbarSkeleton,
   ContextualbarTitle,
 } from '.';
-import { Button, ButtonGroup, IconButton, Box } from '..';
+import { Button, ButtonGroup, IconButton, Box, InputBox, Icon } from '..';
 
 export default {
   title: 'Containers/Contextualbar',
@@ -56,9 +57,21 @@ export const Default: ComponentStory<typeof Contextualbar> = () => (
           name='add-user'
           onClick={action('click')}
         />
+        <ContextualbarAction
+          title='Close'
+          name='cross'
+          onClick={action('click')}
+        />
       </ContextualbarActions>
     </ContextualbarHeader>
-    <ContextualbarContent>Contextualbar Content</ContextualbarContent>
+    <ContextualbarSection>
+      <InputBox
+        type='text'
+        placeholder='Search'
+        addon={<Icon name='magnifier' size='x20' />}
+      />
+    </ContextualbarSection>
+    <ContextualbarContent />
     <ContextualbarFooter>
       <ButtonGroup>
         <ContextualbarButton width='full' secondary>
@@ -67,7 +80,7 @@ export const Default: ComponentStory<typeof Contextualbar> = () => (
         <Button width='full' primary>
           Save
         </Button>
-        <IconButton title='More' icon='menu' />
+        <IconButton title='More' icon='menu' secondary />
       </ButtonGroup>
     </ContextualbarFooter>
   </Contextualbar>

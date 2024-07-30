@@ -1,11 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`[Modal Component] renders _WithAnnotation without crashing 1`] = `
+exports[`[Modal Component] _WithAnnotation should match the snapshot 1`] = `
 <body>
   <div>
     <dialog
       aria-modal="true"
       class="rcx-box rcx-box--full rcx-modal"
+      open=""
     >
       <div
         class="rcx-box rcx-box--full  rcx-modal__inner rcx-css-1ppp6za"
@@ -26,6 +27,7 @@ exports[`[Modal Component] renders _WithAnnotation without crashing 1`] = `
               </h2>
             </div>
             <button
+              aria-label="Close"
               class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button  rcx-css-trljwa rcx-css-lma364"
               type="button"
             >
@@ -87,12 +89,13 @@ exports[`[Modal Component] renders _WithAnnotation without crashing 1`] = `
 </body>
 `;
 
-exports[`[Modal Component] renders _WithForm without crashing 1`] = `
+exports[`[Modal Component] _WithForm should match the snapshot 1`] = `
 <body>
   <div>
     <dialog
       aria-modal="true"
       class="rcx-box rcx-box--full rcx-modal"
+      open=""
     >
       <form
         class="rcx-box rcx-box--full  rcx-modal__inner rcx-css-1ppp6za"
@@ -113,6 +116,7 @@ exports[`[Modal Component] renders _WithForm without crashing 1`] = `
               </h2>
             </div>
             <button
+              aria-label="Close"
               class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button  rcx-css-trljwa rcx-css-lma364"
               type="button"
             >
@@ -192,12 +196,13 @@ exports[`[Modal Component] renders _WithForm without crashing 1`] = `
 </body>
 `;
 
-exports[`[Modal Component] renders _WithHeroImage without crashing 1`] = `
+exports[`[Modal Component] _WithHeroImage should match the snapshot 1`] = `
 <body>
   <div>
     <dialog
       aria-modal="true"
       class="rcx-box rcx-box--full rcx-modal"
+      open=""
     >
       <div
         class="rcx-box rcx-box--full  rcx-modal__inner rcx-css-1ppp6za"
@@ -218,6 +223,7 @@ exports[`[Modal Component] renders _WithHeroImage without crashing 1`] = `
               </h2>
             </div>
             <button
+              aria-label="Close"
               class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button  rcx-css-trljwa rcx-css-lma364"
               type="button"
             >
@@ -282,12 +288,13 @@ exports[`[Modal Component] renders _WithHeroImage without crashing 1`] = `
 </body>
 `;
 
-exports[`[Modal Component] renders _WithIcon without crashing 1`] = `
+exports[`[Modal Component] _WithIcon should match the snapshot 1`] = `
 <body>
   <div>
     <dialog
       aria-modal="true"
       class="rcx-box rcx-box--full rcx-modal"
+      open=""
     >
       <div
         class="rcx-box rcx-box--full  rcx-modal__inner rcx-css-1ppp6za"
@@ -318,6 +325,7 @@ exports[`[Modal Component] renders _WithIcon without crashing 1`] = `
               </h2>
             </div>
             <button
+              aria-label="Close"
               class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button  rcx-css-trljwa rcx-css-lma364"
               type="button"
             >
@@ -374,12 +382,13 @@ exports[`[Modal Component] renders _WithIcon without crashing 1`] = `
 </body>
 `;
 
-exports[`[Modal Component] renders _WithIconAndTagline without crashing 1`] = `
+exports[`[Modal Component] _WithIconAndTagline should match the snapshot 1`] = `
 <body>
   <div>
     <dialog
       aria-modal="true"
       class="rcx-box rcx-box--full rcx-modal"
+      open=""
     >
       <div
         class="rcx-box rcx-box--full  rcx-modal__inner rcx-css-1ppp6za"
@@ -415,6 +424,7 @@ exports[`[Modal Component] renders _WithIconAndTagline without crashing 1`] = `
               </h2>
             </div>
             <button
+              aria-label="Close"
               class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button  rcx-css-trljwa rcx-css-lma364"
               type="button"
             >
@@ -471,12 +481,13 @@ exports[`[Modal Component] renders _WithIconAndTagline without crashing 1`] = `
 </body>
 `;
 
-exports[`[Modal Component] renders _WithTagline without crashing 1`] = `
+exports[`[Modal Component] _WithTagline should match the snapshot 1`] = `
 <body>
   <div>
     <dialog
       aria-modal="true"
       class="rcx-box rcx-box--full rcx-modal"
+      open=""
     >
       <div
         class="rcx-box rcx-box--full  rcx-modal__inner rcx-css-1ppp6za"
@@ -502,6 +513,7 @@ exports[`[Modal Component] renders _WithTagline without crashing 1`] = `
               </h2>
             </div>
             <button
+              aria-label="Close"
               class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button  rcx-css-trljwa rcx-css-lma364"
               type="button"
             >
@@ -558,12 +570,13 @@ exports[`[Modal Component] renders _WithTagline without crashing 1`] = `
 </body>
 `;
 
-exports[`[Modal Component] renders _WithThumb without crashing 1`] = `
+exports[`[Modal Component] _WithThumb should match the snapshot 1`] = `
 <body>
   <div>
     <dialog
       aria-modal="true"
       class="rcx-box rcx-box--full rcx-modal"
+      open=""
     >
       <div
         class="rcx-box rcx-box--full  rcx-modal__inner rcx-css-1ppp6za"
@@ -596,6 +609,7 @@ exports[`[Modal Component] renders _WithThumb without crashing 1`] = `
               </h2>
             </div>
             <button
+              aria-label="Close"
               class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button  rcx-css-trljwa rcx-css-lma364"
               type="button"
             >
@@ -652,12 +666,13 @@ exports[`[Modal Component] renders _WithThumb without crashing 1`] = `
 </body>
 `;
 
-exports[`[Modal Component] renders Default without crashing 1`] = `
+exports[`[Modal Component] Default should match the snapshot 1`] = `
 <body>
   <div>
     <dialog
       aria-modal="true"
       class="rcx-box rcx-box--full rcx-modal"
+      open=""
     >
       <div
         class="rcx-box rcx-box--full  rcx-modal__inner rcx-css-1ppp6za"
@@ -678,6 +693,7 @@ exports[`[Modal Component] renders Default without crashing 1`] = `
               </h2>
             </div>
             <button
+              aria-label="Close"
               class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button  rcx-css-trljwa rcx-css-lma364"
               type="button"
             >

@@ -4,10 +4,22 @@ import type { ReactNode, ReactElement } from 'react';
 import type { ToastBarPayload } from './ToastBarContext';
 
 const positionProps = {
-  'top-start': 'top: 0; left: 0;',
-  'top-end': 'top: 0; right: 0;',
-  'bottom-start': 'bottom: 0; left: 0;',
-  'bottom-end': 'bottom: 0; right: 0;',
+  'top-start': {
+    ltr: 'top: 0; left: 0; right: unset; bottom: unset;',
+    rtl: 'top: 0; right: 0; left: unset; bottom: unset;',
+  },
+  'top-end': {
+    ltr: 'top: 0; right: 0; left: unset; bottom: unset;',
+    rtl: 'top: 0; left: 0; right: unset; bottom: unset;',
+  },
+  'bottom-start': {
+    ltr: 'bottom: 0; left: 0; right: unset; top: unset;',
+    rtl: 'bottom: 0; right: 0; left: unset; top: unset;',
+  },
+  'bottom-end': {
+    ltr: 'bottom: 0; right: 0; left: unset; top: unset;',
+    rtl: 'bottom: 0; left: 0; right: unset; top: unset;',
+  },
 };
 
 export const ToastBarContainer = styled(
@@ -20,7 +32,10 @@ export const ToastBarContainer = styled(
   display: flex;
   flex-direction: column;
   margin: 1rem;
-  ${(p) => (p.position ? positionProps[p.position] : '')}
+  ${(p) => (p.position ? positionProps[p.position].ltr : '')}
+  [dir='rtl'] & {
+    ${(p) => (p.position ? positionProps[p.position].rtl : '')}
+  }
 `;
 
 type ToastBarZoneProps = {

@@ -17,6 +17,7 @@ import {
   TableRow,
   TableCell,
   TableBody,
+  TableSelectionButtonGroup,
 } from './index';
 
 export default {
@@ -73,11 +74,8 @@ export const Default: ComponentStory<typeof Table> = () => (
   </>
 );
 
-export const Selected: ComponentStory<typeof Table> = () => (
+export const WithSelection: ComponentStory<typeof Table> = () => (
   <>
-    <TableSelection text='5 Items selected'>
-      <TableSelectionButton>Delete</TableSelectionButton>
-    </TableSelection>
     <Table>
       <TableHead>
         <TableRow>
@@ -154,6 +152,12 @@ export const Selected: ComponentStory<typeof Table> = () => (
         </TableRow>
       </TableBody>
     </Table>
+    <TableSelection text='5 Items selected'>
+      <TableSelectionButtonGroup>
+        <TableSelectionButton>Delete</TableSelectionButton>
+        <TableSelectionButton>Cancel</TableSelectionButton>
+      </TableSelectionButtonGroup>
+    </TableSelection>
   </>
 );
 
