@@ -23,7 +23,7 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof Tabs>;
+} satisfies ComponentMeta<typeof Tabs>;
 
 const Template: ComponentStory<typeof Tabs> = (args) => (
   <Tabs {...args}>

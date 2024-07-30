@@ -9,7 +9,7 @@ export default {
   parameters: {
     jest: ['Tooltip.spec.tsx'],
   },
-} as ComponentMeta<typeof Tooltip>;
+} satisfies ComponentMeta<typeof Tooltip>;
 
 export const Default: ComponentStory<typeof Tooltip> = () => (
   <Tooltip>An example tooltip</Tooltip>

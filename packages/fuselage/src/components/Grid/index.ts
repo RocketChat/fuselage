@@ -1,6 +1,2 @@
-import { Grid } from './Grid';
-
-export * from './Grid';
-export * from './GridItem';
-
-export default Grid;
+export { default, default as Grid, GridProps } from './Grid';
+export { default as GridItem, GridItemProps } from './GridItem';

@@ -1,5 +1,5 @@
 import type { IconName } from '@rocket.chat/icons';
-import type { AllHTMLAttributes } from 'react';
+import type { AllHTMLAttributes, ForwardedRef } from 'react';
 import React, { forwardRef, useMemo } from 'react';
 
 import type { BoxProps } from '../Box';
@@ -33,7 +33,7 @@ export type ButtonProps = BoxProps & {
  *
  * @public
  */
-const Button = forwardRef<HTMLElement, ButtonProps>(function Button(
+const Button = forwardRef(function Button(
   {
     primary,
     secondary,
@@ -54,8 +54,8 @@ const Button = forwardRef<HTMLElement, ButtonProps>(function Button(
     disabled,
     children,
     ...props
-  },
-  ref
+  }: ButtonProps,
+  ref: ForwardedRef<HTMLElement>
 ) {
   const extraProps =
     (is === 'a' && {

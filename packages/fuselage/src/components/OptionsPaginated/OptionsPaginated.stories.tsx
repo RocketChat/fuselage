@@ -32,7 +32,7 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof OptionsPaginated>;
+} satisfies ComponentMeta<typeof OptionsPaginated>;
 
 const Template: ComponentStory<typeof OptionsPaginated> = (args) => (
   <Box position='relative' maxWidth={250}>

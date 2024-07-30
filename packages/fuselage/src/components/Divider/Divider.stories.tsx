@@ -1,12 +1,14 @@
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
-import { ButtonGroup, Divider, IconButton } from '..';
+import { IconButton } from '../Button';
+import ButtonGroup from '../ButtonGroup';
+import Divider from './Divider';
 
 export default {
   title: 'Data Display/Divider',
   component: Divider,
-} as ComponentMeta<typeof Divider>;
+} satisfies ComponentMeta<typeof Divider>;
 
 const Template: ComponentStory<typeof Divider> = (args) => (
   <Divider {...args} />

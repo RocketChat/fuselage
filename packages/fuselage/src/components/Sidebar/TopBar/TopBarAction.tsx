@@ -1,4 +1,4 @@
-import type { Ref } from 'react';
+import type { ForwardedRef } from 'react';
 import React, { forwardRef } from 'react';
 
 import type { SidebarActionProps } from '../SidebarActions';
@@ -8,7 +8,7 @@ type TopBarActionProps = SidebarActionProps;
 
 export const TopBarAction = forwardRef(function TopBarAction(
   props: TopBarActionProps,
-  ref: Ref<HTMLElement>
+  ref: ForwardedRef<HTMLElement>
 ) {
   return <SidebarAction ref={ref} {...props} />;
 });

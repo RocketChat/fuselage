@@ -18,6 +18,7 @@ import type { Dispatch } from 'react';
 import { ElementType } from 'react';
 import type { FocusEventHandler } from 'react';
 import type { FormEvent } from 'react';
+import type { ForwardedRef } from 'react';
 import { ForwardRefExoticComponent } from 'react';
 import type { HTMLAttributeAnchorTarget } from 'react';
 import { HTMLAttributes } from 'react';
@@ -39,13 +40,12 @@ import * as React_3 from 'react';
 import { ReactElement } from 'react';
 import { ReactNode } from 'react';
 import type { ReactPortal } from 'react';
-import type { Ref } from 'react';
 import { RefAttributes } from 'react';
 import type { RefObject } from 'react';
 import type { SectionProps } from '@react-types/shared';
 import type { SetStateAction } from 'react';
 import type { SVGAttributes } from 'react';
-import { UsePositionOptions } from '@rocket.chat/fuselage-hooks';
+import type { UsePositionOptions } from '@rocket.chat/fuselage-hooks';
 
 // @internal
 export const __setThrowErrorOnInvalidToken__: (value: boolean) => void;
@@ -55,7 +55,7 @@ export function Accordion(props: AccordionProps): React_2.JSX.Element;
 
 // @public (undocumented)
 export namespace Accordion {
-    var // (undocumented)
+    const // @deprecated (undocumented)
     Item: typeof AccordionItem;
 }
 
@@ -101,7 +101,7 @@ export const ActionButton: React_2.ForwardRefExoticComponent<BoxProps & {
     square?: boolean;
     external?: boolean;
     icon?: IconName;
-} & Omit<React_2.AllHTMLAttributes<HTMLButtonElement | HTMLAnchorElement>, "is" | "size" | "className"> & ButtonSize_2 & {
+} & Omit<React_2.AllHTMLAttributes<HTMLButtonElement | HTMLAnchorElement>, "className" | "size" | "is"> & ButtonSize_2 & {
     icon: IconName;
 } & React_2.RefAttributes<HTMLElement>>;
 
@@ -111,14 +111,18 @@ export type ActionButtonProps = ButtonProps & ButtonSize_2 & {
 };
 
 // @public (undocumented)
-export const AnimatedVisibility: ((props: {
-    children: ReactNode;
-    visibility?: VisibilityType;
-}) => JSX_2.Element | null) & {
+export const AnimatedVisibility: {
+    (props: AnimatedVisibilityProps): React_2.JSX.Element | null;
     HIDDEN: VisibilityType;
     VISIBLE: VisibilityType;
     HIDING: VisibilityType;
     UNHIDING: VisibilityType;
+};
+
+// @public (undocumented)
+export type AnimatedVisibilityProps = {
+    children: ReactNode;
+    visibility?: VisibilityType;
 };
 
 // @public
@@ -163,12 +167,9 @@ export function Avatar({ size, rounded, objectFit, url, className, ...props }: A
 
 // @public (undocumented)
 export namespace Avatar {
-    var // (undocumented)
+    const // @deprecated (undocumented)
     Stack: typeof AvatarStack;
 }
-
-// @public (undocumented)
-export namespace Avatar { }
 
 // @public (undocumented)
 export function AvatarContainer({ size, children, ...props }: AvatarContainerProps): React_2.JSX.Element;
@@ -287,9 +288,9 @@ export const Button: React_2.ForwardRefExoticComponent<BoxProps & {
     square?: boolean;
     external?: boolean;
     icon?: IconName;
-} & Omit<AllHTMLAttributes<HTMLButtonElement | HTMLAnchorElement>, "is" | "size" | "className"> & React_2.RefAttributes<HTMLElement>>;
+} & Omit<AllHTMLAttributes<HTMLButtonElement | HTMLAnchorElement>, "className" | "size" | "is"> & React_2.RefAttributes<HTMLElement>>;
 
-// @public (undocumented)
+// @public
 export const ButtonGroup: React_2.ForwardRefExoticComponent<{
     align?: "start" | "center" | "end";
     stretch?: boolean;
@@ -328,28 +329,43 @@ export type ButtonProps = BoxProps & {
     icon?: IconName;
 } & Omit<AllHTMLAttributes<HTMLButtonElement | HTMLAnchorElement>, 'is' | 'className' | 'size'>;
 
-// Warning: (ae-forgotten-export) The symbol "CalloutProps" needs to be exported by the entry point index.d.ts
-//
-// @public (undocumented)
+// @public
 export const Callout: ({ type, title, children, icon, className, ...props }: CalloutProps) => React_2.JSX.Element;
+
+// @public (undocumented)
+export type CalloutProps = Omit<BoxProps, 'type' | 'name'> & {
+    type?: 'info' | 'success' | 'warning' | 'danger';
+    title?: ReactNode;
+    children?: ReactNode;
+    icon?: IconName;
+};
 
 // @public (undocumented)
 export const Card: ({ horizontal, hero, clickable, ...props }: CardProps) => React_2.JSX.Element;
 
-// Warning: (ae-forgotten-export) The symbol "CardBodyProps" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
 export const CardBody: ({ children, flexDirection, height, ...props }: CardBodyProps) => React_2.JSX.Element;
 
 // @public (undocumented)
-export const CardCol: ({ children, ...props }: {
-    children: ReactNode;
-} & AllHTMLAttributes<HTMLElement>) => React_2.JSX.Element;
+export type CardBodyProps = {
+    flexDirection?: CSSProperties['flexDirection'];
+    height?: BoxProps['height'];
+    children: React_2.ReactNode;
+} & Omit<AllHTMLAttributes<HTMLElement>, 'is'>;
 
 // @public (undocumented)
-export const CardControls: ({ ...props }: {
-    [x: string]: any;
-}) => React_2.JSX.Element;
+export const CardCol: ({ children, ...props }: CardColProps) => React_2.JSX.Element;
+
+// @public (undocumented)
+export type CardColProps = AllHTMLAttributes<HTMLElement> & {
+    children: ReactNode;
+};
+
+// @public (undocumented)
+export const CardControls: (props: CardControlsProps) => React_2.JSX.Element;
+
+// @public (undocumented)
+export type CardControlsProps = HTMLAttributes<HTMLDivElement>;
 
 // @public (undocumented)
 export const CardGrid: ({ children, breakpoints, ...props }: CardGridProps) => React_2.JSX.Element;
@@ -360,15 +376,27 @@ export type CardGridProps = {
     breakpoints?: GridItemProps;
 };
 
-// Warning: (ae-forgotten-export) The symbol "CardGroupProps" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
 export const CardGroup: ({ align, children, stretch, vertical, wrap, ...props }: CardGroupProps) => React_2.JSX.Element;
 
 // @public (undocumented)
-export const CardHeader: ({ children, ...props }: {
+export type CardGroupProps = {
+    align?: 'start' | 'center' | 'end';
+    stretch?: boolean;
+    wrap?: boolean;
+    vertical?: boolean;
+    small?: boolean;
+    large?: boolean;
+    children?: ReactNode;
+} & Omit<AllHTMLAttributes<HTMLElement>, 'is' | 'wrap'>;
+
+// @public (undocumented)
+export const CardHeader: ({ children, ...props }: CardHeaderProps) => React_2.JSX.Element;
+
+// @public (undocumented)
+export type CardHeaderProps = AllHTMLAttributes<HTMLElement> & {
     children: ReactNode;
-} & AllHTMLAttributes<HTMLElement>) => React_2.JSX.Element;
+};
 
 // @public (undocumented)
 export type CardProps = {
@@ -378,23 +406,34 @@ export type CardProps = {
 } & Omit<AllHTMLAttributes<HTMLElement>, 'is'>;
 
 // @public (undocumented)
-const CardRow: ({ children, ...props }: {
-    children: ReactNode;
-} & AllHTMLAttributes<HTMLElement>) => React_2.JSX.Element;
+const CardRow: ({ children, ...props }: CardRowProps) => React_2.JSX.Element;
 export { CardRow as CardContent }
 export { CardRow }
 
 // @public (undocumented)
-export const CardTitle: ({ children, info, variant, ...props }: {
+export type CardRowProps = AllHTMLAttributes<HTMLElement> & {
+    children: ReactNode;
+};
+
+// @public (undocumented)
+export const CardTitle: ({ children, info, variant, ...props }: CardTitleProps) => React_2.JSX.Element;
+
+// @public (undocumented)
+export type CardTitleProps = {
     children: ReactNode;
     info?: string;
-    variant?: "h3" | "h4" | "h5";
-} & Omit<AllHTMLAttributes<HTMLElement>, "is">) => React_2.JSX.Element;
+    variant?: 'h3' | 'h4' | 'h5';
+} & Omit<AllHTMLAttributes<HTMLElement>, 'is'>;
 
 // @public (undocumented)
 export const CheckBox: React_2.ForwardRefExoticComponent<BoxProps & {
     indeterminate?: boolean;
 } & AllHTMLAttributes<HTMLInputElement> & React_2.RefAttributes<HTMLInputElement>>;
+
+// @public (undocumented)
+export type CheckBoxProps = BoxProps & {
+    indeterminate?: boolean;
+} & AllHTMLAttributes<HTMLInputElement>;
 
 // Warning: (ae-forgotten-export) The symbol "CheckOption_2" needs to be exported by the entry point index.d.ts
 //
@@ -404,10 +443,19 @@ export const CheckOption: React_2.MemoExoticComponent<typeof CheckOption_2>;
 // @public (undocumented)
 export type CheckOptionProps = OptionProps;
 
-// Warning: (ae-forgotten-export) The symbol "ChevronProps" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
 export function Chevron({ up, right, down, left, size, ...props }: ChevronProps): ReactElement<ChevronProps>;
+
+// @public (undocumented)
+export type ChevronProps = Omit<BoxProps, 'size'> & {
+    size?: BoxProps['width'];
+    up?: boolean;
+    right?: boolean;
+    left?: boolean;
+    down?: boolean;
+    top?: boolean;
+    bottom?: boolean;
+};
 
 // @public (undocumented)
 export const Chip: {
@@ -421,10 +469,16 @@ export const Chip: {
     displayName: string;
 };
 
-// Warning: (ae-forgotten-export) The symbol "CodeSnippetProps" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
-export const CodeSnippet: ({ children, onClick, buttonText, buttonDisabled, ...props }: CodeSnippetProps) => ReactElement<CodeSnippetProps>;
+export const CodeSnippet: ({ children, onClick, buttonText, buttonDisabled, ...props }: CodeSnippetProps) => React_2.JSX.Element;
+
+// @public (undocumented)
+export type CodeSnippetProps = BoxProps & {
+    children: string;
+    buttonText?: string;
+    buttonDisabled?: boolean;
+    onClick?: () => void;
+};
 
 // @public @deprecated (undocumented)
 export const color: (this: unknown, arg: unknown) => string | undefined;
@@ -548,17 +602,26 @@ export type DividerProps = BoxProps & {
 };
 
 // @public (undocumented)
-export const Dropdown: React_2.ForwardRefExoticComponent<{
-    reference: RefObject<HTMLElement>;
-    placement?: UsePositionOptions["placement"];
+export const Dropdown: React_2.ForwardRefExoticComponent<DropdownProps<HTMLElement> & React_2.RefAttributes<HTMLElement>>;
+
+// @public (undocumented)
+export type DropdownProps<T extends HTMLElement> = {
+    reference: RefObject<T>;
+    placement?: UsePositionOptions['placement'];
     children: ReactNode;
-} & React_2.RefAttributes<HTMLElement>>;
+};
 
 // @public (undocumented)
 export const EmailInput: React_2.ForwardRefExoticComponent<Omit<InputBoxProps, "type"> & {
     addon?: ReactNode;
     error?: string;
 } & React_2.RefAttributes<HTMLElement>>;
+
+// @public (undocumented)
+export type EmailInputProps = Omit<InputBoxProps, 'type'> & {
+    addon?: ReactNode;
+    error?: string;
+};
 
 // @public (undocumented)
 export const Empty: React_2.MemoExoticComponent<({ customEmpty }: EmptyProps) => React_2.JSX.Element>;
@@ -568,57 +631,77 @@ export type EmptyProps = {
     customEmpty: string;
 };
 
-// Warning: (ae-forgotten-export) The symbol "Field_2" needs to be exported by the entry point index.d.ts
-//
-// @public (undocumented)
-export const Field: typeof Field_2 & {
-    Label: (props: LabelProps) => JSX_2.Element;
-    Description: (props: BoxProps) => JSX_2.Element;
-    Row: (props: BoxProps) => JSX_2.Element;
-    Error: (props: BoxProps) => JSX_2.Element;
-    Hint: (props: BoxProps) => JSX_2.Element;
-    Link: (props: BoxProps) => JSX_2.Element;
-};
+// @public
+export function Field(props: FieldProps): React_2.JSX.Element;
 
-// Warning: (ae-forgotten-export) The symbol "FieldDescriptionProps" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export namespace Field {
+    const // @deprecated (undocumented)
+    Label: (props: FieldLabelProps) => React_2.JSX.Element;
+    const // @deprecated (undocumented)
+    Description: (props: FieldDescriptionProps) => React_2.JSX.Element;
+    const // @deprecated (undocumented)
+    Row: (props: FieldRowProps) => React_2.JSX.Element;
+    const // @deprecated (undocumented)
+    Error: (props: FieldErrorProps) => React_2.JSX.Element;
+    const // @deprecated (undocumented)
+    Hint: (props: FieldHintProps) => React_2.JSX.Element;
+    const // @deprecated (undocumented)
+    Link: (props: FieldLinkProps) => React_2.JSX.Element;
+}
+
 // @public (undocumented)
 export const FieldDescription: (props: FieldDescriptionProps) => React_2.JSX.Element;
 
-// Warning: (ae-forgotten-export) The symbol "FieldErrorProps" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export type FieldDescriptionProps = BoxProps;
+
 // @public (undocumented)
 export const FieldError: (props: FieldErrorProps) => React_2.JSX.Element;
 
-// Warning: (ae-forgotten-export) The symbol "FieldGroupProps" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export type FieldErrorProps = BoxProps;
+
 // @public (undocumented)
 export const FieldGroup: ({ children, ...props }: FieldGroupProps) => React_2.JSX.Element;
 
-// Warning: (ae-forgotten-export) The symbol "FieldHintProps" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export type FieldGroupProps = BoxProps;
+
 // @public (undocumented)
 export const FieldHint: (props: FieldHintProps) => React_2.JSX.Element;
 
-// Warning: (ae-forgotten-export) The symbol "FieldLabelProps" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export type FieldHintProps = BoxProps;
+
 // @public (undocumented)
 export const FieldLabel: (props: FieldLabelProps) => React_2.JSX.Element;
 
-// Warning: (ae-forgotten-export) The symbol "FieldLabelInfoProps" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
 export const FieldLabelInfo: (props: FieldLabelInfoProps) => React_2.JSX.Element;
 
-// Warning: (ae-forgotten-export) The symbol "FieldLinkProps" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "LabelInfoProps" needs to be exported by the entry point index.d.ts
 //
+// @public (undocumented)
+export type FieldLabelInfoProps = LabelInfoProps;
+
+// @public (undocumented)
+export type FieldLabelProps = LabelProps;
+
 // @public (undocumented)
 export const FieldLink: (props: FieldLinkProps) => React_2.JSX.Element;
 
-// Warning: (ae-forgotten-export) The symbol "FieldRowProps" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export type FieldLinkProps = BoxProps;
+
+// @public (undocumented)
+export type FieldProps = BoxProps;
+
 // @public (undocumented)
 export const FieldRow: (props: FieldRowProps) => React_2.JSX.Element;
+
+// @public (undocumented)
+export type FieldRowProps = BoxProps;
 
 // @public (undocumented)
 export const Flex: {
@@ -640,16 +723,27 @@ export const fontScale: (this: unknown, arg: unknown) => {
     letterSpacing: string;
 } | undefined;
 
-// Warning: (ae-forgotten-export) The symbol "FramedIconProps" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
 export const FramedIcon: ({ info, success, warning, danger, neutral, icon, ...props }: FramedIconProps) => React_2.JSX.Element;
 
 // @public (undocumented)
-export const Grid: {
-    ({ xs, sm, md, lg, xl, ...props }: GridProps): React_2.JSX.Element;
+export type FramedIconProps = {
+    info?: boolean;
+    success?: boolean;
+    warning?: boolean;
+    danger?: boolean;
+    neutral?: boolean;
+    icon: IconName;
+} & Omit<AllHTMLAttributes<HTMLElement>, 'is'>;
+
+// @public (undocumented)
+export function Grid({ xs, sm, md, lg, xl, ...props }: GridProps): React_2.JSX.Element;
+
+// @public (undocumented)
+export namespace Grid {
+    const // (undocumented)
     Item: ({ xs, sm, md, lg, xl, ...props }: GridItemProps) => React_2.JSX.Element;
-};
+}
 
 // @public (undocumented)
 export const GridItem: ({ xs, sm, md, lg, xl, ...props }: GridItemProps) => React_2.JSX.Element;
@@ -661,6 +755,15 @@ export type GridItemProps = BoxProps & {
     md?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
     lg?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
     xl?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+};
+
+// @public (undocumented)
+export type GridProps = BoxProps & {
+    xs?: boolean;
+    sm?: boolean;
+    md?: boolean;
+    lg?: boolean;
+    xl?: boolean;
 };
 
 // @public (undocumented)
@@ -701,18 +804,26 @@ export interface IconProps extends Omit<BoxProps, 'name' | 'size'> {
 }
 
 // @public (undocumented)
-export const Input: React_2.ForwardRefExoticComponent<BoxProps & React_2.RefAttributes<HTMLInputElement>>;
+export const Input: React_2.ForwardRefExoticComponent<BoxProps & React_2.RefAttributes<any>>;
 
 // @public (undocumented)
-export type InputBox = ForwardRefExoticComponent<InputBoxProps & RefAttributes<any>> & {
-    Input: ForwardRefExoticComponent<BoxProps & RefAttributes<any>>;
-    Skeleton: ForwardRefExoticComponent<InputBoxSkeletonProps>;
-    Option: ForwardRefExoticComponent<OptionProps_2>;
-    Placeholder: ForwardRefExoticComponent<PlaceholderProps>;
+export const InputBox: React_2.ForwardRefExoticComponent<BoxProps & {
+    addon?: ReactNode;
+    input?: ReactNode;
+    multiple?: boolean;
+    error?: string;
+    placeholder?: string;
+    placeholderVisible?: boolean;
+    small?: boolean;
+    type: "button" | "checkbox" | "color" | "date" | "datetime" | "datetime-local" | "email" | "file" | "hidden" | "image" | "month" | "number" | "password" | "radio" | "range" | "reset" | "search" | "submit" | "tel" | "text" | "time" | "url" | "week" | "textarea" | "select";
+} & React_2.RefAttributes<any>> & {
+    readonly Input: React_2.ForwardRefExoticComponent<BoxProps & React_2.RefAttributes<any>>;
+    readonly Skeleton: (props: InputBoxSkeletonProps) => React_2.JSX.Element;
+    readonly Wrapper: (props: WrapperProps) => React_2.JSX.Element;
+    readonly Addon: React_2.ForwardRefExoticComponent<BoxProps & React_2.RefAttributes<HTMLSpanElement>>;
+    readonly Placeholder: React_2.ForwardRefExoticComponent<BoxProps & React_2.RefAttributes<HTMLOptionElement>>;
+    readonly Option: new (text?: string, value?: string, defaultSelected?: boolean, selected?: boolean) => HTMLOptionElement;
 };
-
-// @public (undocumented)
-export const InputBox: InputBox;
 
 // @public (undocumented)
 export type InputBoxProps = BoxProps & {
@@ -733,6 +844,9 @@ export const InputBoxSkeleton: (props: InputBoxSkeletonProps) => React_2.JSX.Ele
 export type InputBoxSkeletonProps = BoxProps;
 
 // @public (undocumented)
+export type InputProps = BoxProps;
+
+// @public (undocumented)
 export const inset: (this: unknown, arg: unknown) => string | undefined;
 
 // @public (undocumented)
@@ -748,13 +862,21 @@ export type LabelProps = Omit<BoxProps, 'is'> & {
 // @public (undocumented)
 export const margin: (this: unknown, arg: unknown) => string | undefined;
 
-// Warning: (ae-forgotten-export) The symbol "MarginsProps" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
 export const Margins: (props: MarginsProps) => React_2.JSX.Element;
 
-// Warning: (ae-forgotten-export) The symbol "MenuProps" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export type MarginsProps = PropsWithChildren<{
+    all?: BoxProps['margin'];
+    block?: BoxProps['marginBlock'];
+    blockStart?: BoxProps['marginBlockStart'];
+    blockEnd?: BoxProps['marginBlockEnd'];
+    inline?: BoxProps['marginInline'];
+    inlineStart?: BoxProps['marginInlineStart'];
+    inlineEnd?: BoxProps['marginInlineEnd'];
+    className?: string;
+}>;
+
 // @public (undocumented)
 export const Menu: ({ tiny, mini, small, options, optionWidth, placement, renderItem, maxHeight, icon, ...props }: MenuProps) => React_2.JSX.Element;
 
@@ -770,6 +892,23 @@ export namespace MenuItem {
 }
 
 // @public (undocumented)
+export type MenuProps = Omit<IconButtonProps, 'icon'> & {
+    options: {
+        [id: string]: {
+            type?: 'option' | 'heading' | 'divider';
+            label?: ReactNode;
+            action?: () => void;
+            disabled?: boolean;
+        };
+    };
+    optionWidth?: BoxProps['width'];
+    placement?: UsePositionOptions['placement'];
+    renderItem?: ElementType;
+    icon?: IconName;
+    maxHeight?: string | number;
+};
+
+// @public (undocumented)
 export function MenuSection<T>(_props: SectionProps<T>): null;
 
 // @public (undocumented)
@@ -780,7 +919,7 @@ export namespace MenuSection {
 
 // @public (undocumented)
 export const MenuV2: {
-    <T extends object>({ icon, placement, title, is: MenuButton, className, pressed, maxWidth, button, detached, ...props }: MenuButtonProps<T>): React_2.JSX.Element;
+    <T extends object>({ icon, placement, title, is: MenuButton, className, pressed, maxWidth, button, detached, ...props }: MenuProps_2<T>): React_2.JSX.Element;
     displayName: string;
 };
 
@@ -833,21 +972,7 @@ highlight?: boolean;
         Wrapper: ForwardRefExoticComponent<HTMLAttributes<HTMLDivElement> & {
         visible?: boolean;
         } & RefAttributes<HTMLDivElement>>;
-        Menu: ({ tiny, mini, small, options, optionWidth, placement, renderItem, maxHeight, icon, ...props }: Omit<IconButtonProps, "icon"> & {
-            options: {
-                [id: string]: {
-                    type?: "option" | "heading" | "divider";
-                    label?: ReactNode;
-                    action?: () => void;
-                    disabled?: boolean;
-                };
-            };
-            optionWidth?: BoxProps["width"];
-            placement?: UsePositionOptions["placement"];
-            renderItem?: ElementType;
-            icon?: IconName;
-            maxHeight?: string | number;
-        }) => JSX_2.Element;
+        Menu: ({ tiny, mini, small, options, optionWidth, placement, renderItem, maxHeight, icon, ...props }: MenuProps) => JSX_2.Element;
     };
     Container: (props: HTMLAttributes<HTMLDivElement>) => JSX_2.Element;
     ContainerFixed: (props: HTMLAttributes<HTMLDivElement>) => JSX_2.Element;
@@ -860,7 +985,7 @@ highlight?: boolean;
         fixedWidth?: boolean;
     } & BoxProps) => JSX_2.Element;
     Timestamp: (props: HTMLAttributes<HTMLSpanElement>) => JSX_2.Element;
-    NameContainer: ForwardRefExoticComponent<HTMLAttributes<HTMLSpanElement> & RefAttributes<HTMLSpanElement>>;
+    NameContainer: ForwardRefExoticComponent<MessageNameContainerProps & RefAttributes<HTMLSpanElement>>;
     Name: (props: MessageNameProps) => JSX_2.Element;
     Username: (props: HTMLAttributes<HTMLSpanElement>) => JSX_2.Element;
     Roles: (props: HTMLAttributes<HTMLDivElement>) => JSX_2.Element;
@@ -996,7 +1121,10 @@ export const MessageMetricsReply: (props: MessageMetricsReplyProps) => React_2.J
 export const MessageName: (props: MessageNameProps) => React_2.JSX.Element;
 
 // @public (undocumented)
-export const MessageNameContainer: React_2.ForwardRefExoticComponent<HTMLAttributes<HTMLSpanElement> & React_2.RefAttributes<HTMLSpanElement>>;
+export const MessageNameContainer: React_2.ForwardRefExoticComponent<MessageNameContainerProps & React_2.RefAttributes<HTMLSpanElement>>;
+
+// @public (undocumented)
+export type MessageNameContainerProps = HTMLAttributes<HTMLSpanElement>;
 
 // @public (undocumented)
 export type MessageNameProps = HTMLAttributes<HTMLSpanElement>;
@@ -1253,7 +1381,7 @@ value?: string;
 variant?: "danger" | "success" | "warning" | "primary";
 onClick?: (event: MouseEvent_2<HTMLElement>) => void;
 description?: ReactNode;
-} & Omit<AllHTMLAttributes<HTMLElement>, "ref" | "label"> & RefAttributes<Element>> & {
+} & Omit<AllHTMLAttributes<HTMLElement>, "label" | "ref"> & RefAttributes<Element>> & {
     readonly type: ForwardRefExoticComponent<    {
     is?: BoxProps["is"];
     id?: string;
@@ -1271,7 +1399,7 @@ description?: ReactNode;
     variant?: "danger" | "success" | "warning" | "primary";
     onClick?: (event: MouseEvent_2<HTMLElement>) => void;
     description?: ReactNode;
-    } & Omit<AllHTMLAttributes<HTMLElement>, "ref" | "label"> & RefAttributes<Element>>;
+    } & Omit<AllHTMLAttributes<HTMLElement>, "label" | "ref"> & RefAttributes<Element>>;
 } & {
     Description: (props: OptionDescriptionProps) => JSX_2.Element;
     Skeleton: () => JSX_2.Element;
@@ -1776,7 +1904,7 @@ export const Sidebar: ((props: SidebarProps) => React_2.JSX.Element) & {
             className?: string;
             highlighted?: boolean;
             icon: IconName;
-        } & Omit<React_2.AllHTMLAttributes<HTMLElement>, "is" | "name">) => React_2.JSX.Element;
+        } & Omit<React_2.AllHTMLAttributes<HTMLElement>, "name" | "is">) => React_2.JSX.Element;
         Avatar: ({ ...props }: {
             children?: React_2.ReactNode;
         } & React_2.AllHTMLAttributes<HTMLElement>) => React_2.JSX.Element;
@@ -2298,23 +2426,23 @@ export const UrlInput: React_2.ForwardRefExoticComponent<UrlInputProps & React_2
 // @public (undocumented)
 export const useCursor: <T extends readonly [value: unknown, label: unknown, selected?: unknown, disabled?: unknown, type?: OptionType[4], url?: string] = OptionType>(initial: number, options: Array<T>, onChange: UseCursorOnChange<T>) => [cursor: number, handleKeyDown: (e: KeyboardEvent_2) => void, handleKeyUp: (e: KeyboardEvent_2) => void, reset: () => void, visibilityHandler: ReturnType<typeof useVisible>];
 
-// Warning: (ae-forgotten-export) The symbol "WrapperProps" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export type VisibilityType = 'hidden' | 'visible' | 'hiding' | 'unhiding' | undefined;
+
 // @public (undocumented)
 export const Wrapper: (props: WrapperProps) => React_2.JSX.Element;
+
+// @public (undocumented)
+export type WrapperProps = BoxProps;
 
 // Warnings were encountered during analysis:
 //
 // src/Theme.ts:270:1 - (ae-forgotten-export) The symbol "Var" needs to be exported by the entry point index.d.ts
-// src/components/AnimatedVisibility/index.ts:4:5 - (ae-forgotten-export) The symbol "VisibilityType" needs to be exported by the entry point index.d.ts
 // src/components/AutoComplete/AutoComplete.tsx:42:3 - (ae-forgotten-export) The symbol "AutoCompleteOption" needs to be exported by the entry point index.d.ts
 // src/components/Banner/Banner.tsx:34:3 - (ae-forgotten-export) The symbol "VariantType" needs to be exported by the entry point index.d.ts
 // src/components/Flex/index.ts:4:5 - (ae-forgotten-export) The symbol "FlexContainer" needs to be exported by the entry point index.d.ts
 // src/components/Flex/index.ts:5:5 - (ae-forgotten-export) The symbol "FlexItem" needs to be exported by the entry point index.d.ts
-// src/components/Grid/Grid.tsx:15:18 - (ae-forgotten-export) The symbol "GridProps" needs to be exported by the entry point index.d.ts
-// src/components/InputBox/InputBox.tsx:61:3 - (ae-forgotten-export) The symbol "OptionProps_2" needs to be exported by the entry point index.d.ts
-// src/components/InputBox/InputBox.tsx:62:3 - (ae-forgotten-export) The symbol "PlaceholderProps" needs to be exported by the entry point index.d.ts
-// src/components/Menu/V2/Menu.tsx:37:11 - (ae-forgotten-export) The symbol "MenuButtonProps" needs to be exported by the entry point index.d.ts
+// src/components/Menu/V2/Menu.tsx:39:11 - (ae-forgotten-export) The symbol "MenuProps_2" needs to be exported by the entry point index.d.ts
 // src/components/Modal/index.ts:14:43 - (ae-forgotten-export) The symbol "ModalFooterAnnotationProps" needs to be exported by the entry point index.d.ts
 // src/components/Modal/index.ts:19:5 - (ae-forgotten-export) The symbol "ModalBackdropProps" needs to be exported by the entry point index.d.ts
 // src/components/Modal/index.ts:20:5 - (ae-forgotten-export) The symbol "ModalCloseProps" needs to be exported by the entry point index.d.ts
@@ -2328,7 +2456,7 @@ export const Wrapper: (props: WrapperProps) => React_2.JSX.Element;
 // src/components/Modal/index.ts:28:5 - (ae-forgotten-export) The symbol "ModalHeaderTextProps" needs to be exported by the entry point index.d.ts
 // src/components/Modal/index.ts:29:5 - (ae-forgotten-export) The symbol "ModalHeroImageProps" needs to be exported by the entry point index.d.ts
 // src/components/Modal/index.ts:30:5 - (ae-forgotten-export) The symbol "ModalFooterControllersProps" needs to be exported by the entry point index.d.ts
-// src/components/MultiSelect/MultiSelect.tsx:36:3 - (ae-forgotten-export) The symbol "MultiSelectAnchorParams" needs to be exported by the entry point index.d.ts
+// src/components/MultiSelect/MultiSelect.tsx:41:3 - (ae-forgotten-export) The symbol "MultiSelectAnchorParams" needs to be exported by the entry point index.d.ts
 // src/components/PaletteStyleTag/PaletteStyleTag.tsx:15:29 - (ae-forgotten-export) The symbol "Themes" needs to be exported by the entry point index.d.ts
 // src/components/Select/Select.tsx:19:1 - (ae-forgotten-export) The symbol "SelectOption_2" needs to be exported by the entry point index.d.ts
 // src/components/SelectInput/SelectInput.tsx:12:3 - (ae-forgotten-export) The symbol "SelectInputOptions" needs to be exported by the entry point index.d.ts

@@ -33,7 +33,7 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof Box>;
+} satisfies ComponentMeta<typeof Box>;
 
 const Template: ComponentStory<typeof Box> = (args) => <Box {...args} />;
 

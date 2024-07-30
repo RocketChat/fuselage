@@ -1,4 +1,4 @@
-import type { Ref } from 'react';
+import type { ForwardedRef } from 'react';
 import React, { forwardRef } from 'react';
 
 import type { BoxProps } from '../Box';
@@ -11,7 +11,7 @@ type TabsItemProps = BoxProps & {
 
 export const TabsItem = forwardRef(function TabsItem(
   { selected, disabled, ...props }: TabsItemProps,
-  ref: Ref<HTMLButtonElement>
+  ref: ForwardedRef<HTMLButtonElement>
 ) {
   return (
     <Box

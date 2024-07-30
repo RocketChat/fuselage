@@ -1,4 +1,4 @@
-import type { AllHTMLAttributes, Ref } from 'react';
+import type { AllHTMLAttributes, ForwardedRef } from 'react';
 import React, { forwardRef } from 'react';
 
 import { prependClassName } from '../../helpers/prependClassName';
@@ -24,7 +24,7 @@ export const Message = forwardRef(function Message(
     highlight,
     ...props
   }: MessageProps,
-  ref: Ref<HTMLDivElement>
+  ref: ForwardedRef<HTMLDivElement>
 ) {
   return (
     <div

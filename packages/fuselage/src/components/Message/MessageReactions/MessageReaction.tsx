@@ -1,4 +1,4 @@
-import type { HTMLAttributes, ReactNode, Ref } from 'react';
+import type { HTMLAttributes, ReactNode, ForwardedRef } from 'react';
 import React, { forwardRef } from 'react';
 
 import { MessageReactionCounter } from './MessageReactionCounter';
@@ -13,7 +13,7 @@ type MessageReactionProps = {
 
 export const MessageReaction = forwardRef(function Reaction(
   { name, counter, mine, children, className, ...props }: MessageReactionProps,
-  ref: Ref<HTMLDivElement>
+  ref: ForwardedRef<HTMLDivElement>
 ) {
   return (
     <div

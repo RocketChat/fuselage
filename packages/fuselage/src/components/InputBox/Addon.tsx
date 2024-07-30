@@ -1,4 +1,4 @@
-import type { Ref } from 'react';
+import type { ForwardedRef } from 'react';
 import React, { forwardRef } from 'react';
 
 import type { BoxProps } from '../Box';
@@ -8,7 +8,7 @@ type AddonProps = BoxProps;
 
 export const Addon = forwardRef(function Addon(
   props: AddonProps,
-  ref: Ref<HTMLSpanElement>
+  ref: ForwardedRef<HTMLSpanElement>
 ) {
   return <Box is='span' rcx-input-box__addon ref={ref} {...props} />;
 });

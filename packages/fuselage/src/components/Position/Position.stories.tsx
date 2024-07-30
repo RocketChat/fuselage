@@ -9,7 +9,7 @@ export default {
   parameters: {
     layout: 'centered',
   },
-} as ComponentMeta<typeof Position>;
+} satisfies ComponentMeta<typeof Position>;
 
 const Template: ComponentStory<typeof Position> = ({ placement }) => {
   const ref = useRef<HTMLElement>(null);

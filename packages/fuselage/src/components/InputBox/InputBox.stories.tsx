@@ -31,7 +31,7 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof Icon>;
+} satisfies ComponentMeta<typeof Icon>;
 
 const Template: ComponentStory<typeof InputBox> = (args) => (
   <InputBox aria-label='Value' {...args} />

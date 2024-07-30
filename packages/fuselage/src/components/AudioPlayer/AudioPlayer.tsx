@@ -1,4 +1,5 @@
 import { useMergedRefs, useResizeObserver } from '@rocket.chat/fuselage-hooks';
+import type { ForwardedRef } from 'react';
 import React, { useState, useRef, forwardRef } from 'react';
 
 import { Box, Button, IconButton, Margins } from '../..';
@@ -74,160 +75,158 @@ export type AudioPlayerProps = {
  *
  * @public
  */
-const AudioPlayer = forwardRef<HTMLAudioElement, AudioPlayerProps>(
-  function AudioPlayer(
-    {
-      src,
-      type = 'audio/mpeg',
-      maxPlaybackSpeed = 2,
-      minPlaybackSpeed = 0.5,
-      playbackSpeedStep = 0.25,
-      download = false,
-      playLabel = 'Play',
-      pauseLabel = 'Pause',
-      audioPlaybackRangeLabel = 'Audio Playback Range',
-      changePlaybackSpeedLabel = 'Change Playback Speed',
-      downloadAudioFileLabel = 'Download Audio File',
-    },
-    ref
-  ) {
-    const audioRef = useRef<HTMLAudioElement>(null);
-    const refs = useMergedRefs(ref, audioRef);
-    const [isPlaying, setIsPlaying] = useState(false);
-    const [currentTime, setCurrentTime] = useState(0);
-    const [durationTime, setDurationTime] = useState(0);
-    const [playbackSpeed, setPlaybackSpeed] = useState(1);
-    const { ref: containerRef } = useResizeObserver();
+const AudioPlayer = forwardRef(function AudioPlayer(
+  {
+    src,
+    type = 'audio/mpeg',
+    maxPlaybackSpeed = 2,
+    minPlaybackSpeed = 0.5,
+    playbackSpeedStep = 0.25,
+    download = false,
+    playLabel = 'Play',
+    pauseLabel = 'Pause',
+    audioPlaybackRangeLabel = 'Audio Playback Range',
+    changePlaybackSpeedLabel = 'Change Playback Speed',
+    downloadAudioFileLabel = 'Download Audio File',
+  }: AudioPlayerProps,
+  ref: ForwardedRef<HTMLAudioElement>
+) {
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const refs = useMergedRefs(ref, audioRef);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [durationTime, setDurationTime] = useState(0);
+  const [playbackSpeed, setPlaybackSpeed] = useState(1);
+  const { ref: containerRef } = useResizeObserver();
 
-    const handlePlay = () => {
-      const isPlaying = audioRef.current?.paused;
+  const handlePlay = () => {
+    const isPlaying = audioRef.current?.paused;
 
-      if (isPlaying) {
-        audioRef.current?.play();
-      } else {
-        audioRef.current?.pause();
-      }
-    };
+    if (isPlaying) {
+      audioRef.current?.play();
+    } else {
+      audioRef.current?.pause();
+    }
+  };
 
-    const handlePlaybackSpeed = (mod: 1 | -1) => {
-      if (audioRef.current) {
-        audioRef.current.playbackRate += playbackSpeedStep * mod;
-      }
-    };
+  const handlePlaybackSpeed = (mod: 1 | -1) => {
+    if (audioRef.current) {
+      audioRef.current.playbackRate += playbackSpeedStep * mod;
+    }
+  };
 
-    const handlePlaybackSpeedSingleControl = () => {
-      const reachedMaxPlaybackSpeed =
-        maxPlaybackSpeed === audioRef?.current?.playbackRate;
+  const handlePlaybackSpeedSingleControl = () => {
+    const reachedMaxPlaybackSpeed =
+      maxPlaybackSpeed === audioRef?.current?.playbackRate;
 
-      if (reachedMaxPlaybackSpeed) {
-        audioRef.current.playbackRate = minPlaybackSpeed;
-        return;
-      }
-      handlePlaybackSpeed(1);
-    };
+    if (reachedMaxPlaybackSpeed) {
+      audioRef.current.playbackRate = minPlaybackSpeed;
+      return;
+    }
+    handlePlaybackSpeed(1);
+  };
 
-    return (
-      <Box
-        borderWidth='default'
-        bg='tint'
-        borderColor='extra-light'
-        pb={12}
-        pie={8}
-        pis={16}
-        borderRadius='x4'
-        w='100%'
-        maxWidth='x300'
-        ref={containerRef}
-        display='flex'
-        alignItems='center'
-      >
-        <IconButton
-          primary
-          medium
-          onClick={handlePlay}
-          aria-label={isPlaying ? pauseLabel : playLabel}
-          icon={isPlaying ? 'pause-shape-filled' : 'play-shape-filled'}
-        />
-        <Margins inline={8}>
-          <Box fontScale='p2' color='secondary-info'>
-            {isPlaying || currentTime > 0
-              ? getMaskTime(currentTime)
-              : getMaskTime(durationTime)}
-          </Box>
-          <Box mi={16} w='full'>
-            <Slider
-              aria-label={audioPlaybackRangeLabel}
-              showOutput={false}
-              value={currentTime}
-              maxValue={durationTime}
-              onChange={(value) => {
-                if (audioRef.current) {
-                  audioRef.current.currentTime = value;
-                }
-              }}
-            />
-          </Box>
-
-          <Button
-            secondary
-            small
-            onClick={handlePlaybackSpeedSingleControl}
-            aria-label={changePlaybackSpeedLabel}
-          >
-            {playbackSpeed}x
-          </Button>
-        </Margins>
-        {download && (
-          <IconButton
-            primary
-            aria-label={downloadAudioFileLabel}
-            is='a'
-            href={src}
-            download
-            icon='download'
-            medium
-            onClick={(e) => {
-              const { host } = new URL(src);
-              if (host !== window.location.host) {
-                e.preventDefault();
-                forceDownload(src);
+  return (
+    <Box
+      borderWidth='default'
+      bg='tint'
+      borderColor='extra-light'
+      pb={12}
+      pie={8}
+      pis={16}
+      borderRadius='x4'
+      w='100%'
+      maxWidth='x300'
+      ref={containerRef}
+      display='flex'
+      alignItems='center'
+    >
+      <IconButton
+        primary
+        medium
+        onClick={handlePlay}
+        aria-label={isPlaying ? pauseLabel : playLabel}
+        icon={isPlaying ? 'pause-shape-filled' : 'play-shape-filled'}
+      />
+      <Margins inline={8}>
+        <Box fontScale='p2' color='secondary-info'>
+          {isPlaying || currentTime > 0
+            ? getMaskTime(currentTime)
+            : getMaskTime(durationTime)}
+        </Box>
+        <Box mi={16} w='full'>
+          <Slider
+            aria-label={audioPlaybackRangeLabel}
+            showOutput={false}
+            value={currentTime}
+            maxValue={durationTime}
+            onChange={(value) => {
+              if (audioRef.current) {
+                audioRef.current.currentTime = value;
               }
             }}
           />
-        )}
-        <audio
-          style={{ display: 'none' }}
-          onTimeUpdate={(e) => {
-            setCurrentTime((e.target as HTMLAudioElement).currentTime);
-          }}
-          onLoadedMetadata={(e) => {
-            const { duration } = e.target as HTMLAudioElement;
+        </Box>
 
-            if (duration !== Infinity) {
-              return setDurationTime(duration);
-            }
-
-            getDurationForInfinityDurationAudioFile(src, setDurationTime);
-          }}
-          onEnded={() => setIsPlaying(false)}
-          ref={refs}
-          preload='metadata'
-          onRateChange={(e) => {
-            setPlaybackSpeed((e.target as HTMLAudioElement).playbackRate);
-          }}
-          onPlay={() => {
-            setIsPlaying(true);
-          }}
-          onPause={() => {
-            setIsPlaying(false);
-          }}
-          controls
+        <Button
+          secondary
+          small
+          onClick={handlePlaybackSpeedSingleControl}
+          aria-label={changePlaybackSpeedLabel}
         >
-          <source src={src} type={type} />
-        </audio>
-      </Box>
-    );
-  }
-);
+          {playbackSpeed}x
+        </Button>
+      </Margins>
+      {download && (
+        <IconButton
+          primary
+          aria-label={downloadAudioFileLabel}
+          is='a'
+          href={src}
+          download
+          icon='download'
+          medium
+          onClick={(e) => {
+            const { host } = new URL(src);
+            if (host !== window.location.host) {
+              e.preventDefault();
+              forceDownload(src);
+            }
+          }}
+        />
+      )}
+      <audio
+        style={{ display: 'none' }}
+        onTimeUpdate={(e) => {
+          setCurrentTime((e.target as HTMLAudioElement).currentTime);
+        }}
+        onLoadedMetadata={(e) => {
+          const { duration } = e.target as HTMLAudioElement;
+
+          if (duration !== Infinity) {
+            return setDurationTime(duration);
+          }
+
+          getDurationForInfinityDurationAudioFile(src, setDurationTime);
+        }}
+        onEnded={() => setIsPlaying(false)}
+        ref={refs}
+        preload='metadata'
+        onRateChange={(e) => {
+          setPlaybackSpeed((e.target as HTMLAudioElement).playbackRate);
+        }}
+        onPlay={() => {
+          setIsPlaying(true);
+        }}
+        onPause={() => {
+          setIsPlaying(false);
+        }}
+        controls
+      >
+        <source src={src} type={type} />
+      </audio>
+    </Box>
+  );
+});
 
 export default AudioPlayer;

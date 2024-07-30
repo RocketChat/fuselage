@@ -28,7 +28,7 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof Slider>;
+} satisfies ComponentMeta<typeof Slider>;
 
 const Template: ComponentStory<typeof Slider> = (args) => (
   <Box width='x300' display='flex' alignItems='center'>

@@ -1,4 +1,4 @@
-import type { Ref } from 'react';
+import type { ForwardedRef } from 'react';
 import React, { forwardRef } from 'react';
 
 import type { BoxProps } from '../Box';
@@ -34,7 +34,7 @@ type TooltipProps = BoxProps & {
 
 const Tooltip = forwardRef(function Tooltip(
   { variation = 'dark', placement, ...props }: TooltipProps,
-  ref: Ref<HTMLElement>
+  ref: ForwardedRef<HTMLElement>
 ) {
   const [direction, position] = parsePlacement(placement);
 

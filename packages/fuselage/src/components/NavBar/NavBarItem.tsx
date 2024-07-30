@@ -1,4 +1,4 @@
-import type { HTMLAttributes } from 'react';
+import type { ForwardedRef, HTMLAttributes } from 'react';
 import React, { forwardRef } from 'react';
 
 import { appendClassName } from '../../helpers/appendClassName';
@@ -6,12 +6,12 @@ import { patchChildren } from '../../helpers/patchChildren';
 import type { IconButtonProps } from '../Button';
 import { IconButton } from '../Button';
 
-type NavbarItemProps = Partial<IconButtonProps>;
+type NavbarItemProps = HTMLAttributes<HTMLElement> & Partial<IconButtonProps>;
 
-export const NavBarItem = forwardRef<
-  HTMLElement,
-  HTMLAttributes<HTMLElement> & NavbarItemProps
->(function NavBarItem({ children, icon, ...props }, ref) {
+export const NavBarItem = forwardRef(function NavBarItem(
+  { children, icon, ...props }: NavbarItemProps,
+  ref: ForwardedRef<HTMLElement>
+) {
   return (
     <>
       {icon ? (

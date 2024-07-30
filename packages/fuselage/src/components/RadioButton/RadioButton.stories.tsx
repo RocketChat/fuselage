@@ -35,7 +35,7 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof RadioButton>;
+} satisfies ComponentMeta<typeof RadioButton>;
 
 const Template: ComponentStory<typeof RadioButton> = (args) => (
   <RadioButton {...args} aria-label={DECORATOR_LABEL} />

@@ -10,7 +10,7 @@ export default {
   parameters: {
     jest: ['UrlInput.spec.tsx'],
   },
-} as ComponentMeta<typeof UrlInput>;
+} satisfies ComponentMeta<typeof UrlInput>;
 
 export const Default: ComponentStory<typeof UrlInput> = () => (
   <UrlInput aria-label='url' />

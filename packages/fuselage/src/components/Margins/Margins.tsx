@@ -9,7 +9,8 @@ import { margin } from '../../styleTokens';
 import type { BoxProps } from '../Box';
 import { BoxTransforms, useComposedBoxTransform } from '../Box/BoxTransforms';
 
-type MarginsProps = PropsWithChildren<{
+/** @public */
+export type MarginsProps = PropsWithChildren<{
   all?: BoxProps['margin'];
   block?: BoxProps['marginBlock'];
   blockStart?: BoxProps['marginBlockStart'];
@@ -20,7 +21,8 @@ type MarginsProps = PropsWithChildren<{
   className?: string;
 }>;
 
-export const Margins = (props: MarginsProps) => {
+/** @public */
+const Margins = (props: MarginsProps) => {
   const {
     children,
     className,
@@ -124,3 +126,5 @@ export const Margins = (props: MarginsProps) => {
     />
   );
 };
+
+export default Margins;

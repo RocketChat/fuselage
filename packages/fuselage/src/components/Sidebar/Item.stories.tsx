@@ -41,7 +41,7 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof SidebarItem>;
+} satisfies ComponentMeta<typeof SidebarItem>;
 
 export const Default: ComponentStory<typeof SidebarItem> = () => (
   <>

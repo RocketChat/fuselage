@@ -31,7 +31,7 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof CodeSnippet>;
+} satisfies ComponentMeta<typeof CodeSnippet>;
 
 const Template: ComponentStory<typeof CodeSnippet> = (args) => (
   <CodeSnippet {...args} />

@@ -4,7 +4,8 @@ import React from 'react';
 
 import { Icon } from '../Icon';
 
-type FramedIconProps = {
+/** @public */
+export type FramedIconProps = {
   info?: boolean;
   success?: boolean;
   warning?: boolean;
@@ -13,7 +14,8 @@ type FramedIconProps = {
   icon: IconName;
 } & Omit<AllHTMLAttributes<HTMLElement>, 'is'>;
 
-export const FramedIcon = ({
+/** @public */
+const FramedIcon = ({
   info,
   success,
   warning,
@@ -36,3 +38,5 @@ export const FramedIcon = ({
     size={20}
   />
 );
+
+export default FramedIcon;

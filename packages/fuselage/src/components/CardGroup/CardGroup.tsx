@@ -5,7 +5,8 @@ import { appendClassName } from '../../helpers/appendClassName';
 import { patchChildren } from '../../helpers/patchChildren';
 import Box from '../Box';
 
-type CardGroupProps = {
+/** @public */
+export type CardGroupProps = {
   align?: 'start' | 'center' | 'end';
   stretch?: boolean;
   wrap?: boolean;
@@ -15,7 +16,8 @@ type CardGroupProps = {
   children?: ReactNode;
 } & Omit<AllHTMLAttributes<HTMLElement>, 'is' | 'wrap'>;
 
-export const CardGroup = ({
+/** @public */
+const CardGroup = ({
   align = 'start',
   children,
   stretch,
@@ -43,3 +45,5 @@ export const CardGroup = ({
     )}
   </Box>
 );
+
+export default CardGroup;

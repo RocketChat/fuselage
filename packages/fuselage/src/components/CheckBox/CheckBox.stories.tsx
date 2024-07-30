@@ -2,16 +2,16 @@ import { action } from '@storybook/addon-actions';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
-import { CheckBox } from '../..';
 import {
   DECORATOR_LABEL,
   PropsVariationSection,
 } from '../../../.storybook/helpers';
+import CheckBox from './CheckBox';
 
 export default {
   title: 'Inputs/CheckBox',
   component: CheckBox,
-} as ComponentMeta<typeof CheckBox>;
+} satisfies ComponentMeta<typeof CheckBox>;
 
 const Template: ComponentStory<typeof CheckBox> = (args) => (
   <CheckBox

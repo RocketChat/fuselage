@@ -14,7 +14,8 @@ import MenuDropDown from './MenuDropdown';
 import MenuPopover from './MenuPopover';
 import { getPlacement } from './helpers/helpers';
 
-export interface MenuButtonProps<T> extends AriaMenuProps<T>, MenuTriggerProps {
+/** @public */
+export interface MenuProps<T> extends AriaMenuProps<T>, MenuTriggerProps {
   icon?: IconName | ReactElement;
   large?: boolean;
   medium?: boolean;
@@ -34,6 +35,7 @@ export interface MenuButtonProps<T> extends AriaMenuProps<T>, MenuTriggerProps {
   button?: React.ReactElement;
 }
 
+/** @public */
 const Menu = <T extends object>({
   icon = 'kebab',
   placement = 'bottom-start',
@@ -45,7 +47,7 @@ const Menu = <T extends object>({
   button,
   detached,
   ...props
-}: MenuButtonProps<T>) => {
+}: MenuProps<T>) => {
   const state = useMenuTriggerState(props);
 
   const ref = useRef(null);

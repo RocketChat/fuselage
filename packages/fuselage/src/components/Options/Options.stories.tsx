@@ -43,7 +43,7 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof Menu>;
+} satisfies ComponentMeta<typeof Menu>;
 
 const Template: ComponentStory<typeof Options> = (args) => (
   <Box position='relative' maxWidth={250}>

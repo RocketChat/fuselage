@@ -19,7 +19,7 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof MessageToolbar>;
+} satisfies ComponentMeta<typeof MessageToolbar>;
 
 const toolbar = (
   <Box>

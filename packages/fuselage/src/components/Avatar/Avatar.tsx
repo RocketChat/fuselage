@@ -37,13 +37,13 @@ function Avatar({
   );
 }
 
-/**
- * @deprecated Use named import instead
- */
-Avatar.Stack = AvatarStack;
-
 /** @public */
 // eslint-disable-next-line @typescript-eslint/no-namespace
-declare namespace Avatar {}
+namespace Avatar {
+  /**
+   * @deprecated Use named import instead
+   */
+  export const Stack = AvatarStack;
+}
 
 export default Avatar;

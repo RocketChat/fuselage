@@ -34,7 +34,7 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof MultiSelect>;
+} satisfies ComponentMeta<typeof MultiSelect>;
 
 const options: SelectOption[] = [
   ['1', 'a teste 1'],

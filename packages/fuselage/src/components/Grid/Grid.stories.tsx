@@ -31,7 +31,7 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof Grid>;
+} satisfies ComponentMeta<typeof Grid>;
 
 const Template: ComponentStory<typeof Grid> = () => (
   <Grid>

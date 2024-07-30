@@ -23,7 +23,7 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof TextInput>;
+} satisfies ComponentMeta<typeof TextInput>;
 
 const Template: ComponentStory<typeof TextInput> = (args) => (
   <TextInput aria-label='text' {...args} />

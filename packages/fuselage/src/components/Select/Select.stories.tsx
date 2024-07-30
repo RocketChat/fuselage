@@ -35,7 +35,7 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof Select>;
+} satisfies ComponentMeta<typeof Select>;
 
 const Template: ComponentStory<typeof Select> = (args) => (
   <Select aria-label='select' {...args} />

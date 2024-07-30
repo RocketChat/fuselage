@@ -5,7 +5,12 @@ import {
   useOutsideClick,
 } from '@rocket.chat/fuselage-hooks';
 import type { IconName } from '@rocket.chat/icons';
-import type { SyntheticEvent, ElementType, Ref, ReactNode } from 'react';
+import type {
+  SyntheticEvent,
+  ElementType,
+  ForwardedRef,
+  ReactNode,
+} from 'react';
 import React, { useState, useRef, useEffect, forwardRef } from 'react';
 
 import { isForwardRefType } from '../../helpers/isForwardRefType';
@@ -64,7 +69,7 @@ export const MultiSelect = forwardRef(
       addonIcon,
       ...props
     }: MultiSelectProps,
-    ref: Ref<HTMLInputElement>
+    ref: ForwardedRef<HTMLInputElement>
   ) => {
     const [internalValue, setInternalValue] = useState<SelectOption[0][]>(
       value || []

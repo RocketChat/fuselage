@@ -1,5 +1,5 @@
 import type { IconName } from '@rocket.chat/icons';
-import type { ReactElement, Ref } from 'react';
+import type { ForwardedRef, ReactElement } from 'react';
 import React, { isValidElement, useMemo, forwardRef } from 'react';
 
 import type { BoxProps } from '../Box';
@@ -68,7 +68,7 @@ const IconButton = forwardRef(
       children,
       ...props
     }: IconButtonProps,
-    ref: Ref<HTMLElement>
+    ref: ForwardedRef<HTMLElement>
   ) => {
     const variant = useMemo(
       () =>

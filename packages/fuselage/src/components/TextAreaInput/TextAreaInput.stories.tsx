@@ -23,7 +23,7 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof TextAreaInput>;
+} satisfies ComponentMeta<typeof TextAreaInput>;
 
 const Template: ComponentStory<typeof TextAreaInput> = (args) => (
   <TextAreaInput {...args} />

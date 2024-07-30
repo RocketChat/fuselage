@@ -1,5 +1,5 @@
 import type { AriaSelectProps } from '@react-types/select';
-import type { Key, Ref } from 'react';
+import type { Key, ForwardedRef } from 'react';
 import React, { forwardRef } from 'react';
 import { Item } from 'react-stately';
 
@@ -23,7 +23,7 @@ type SelectProps<T, V extends Key> = Omit<
 export const Select = forwardRef(function Select<
   T extends object,
   V extends Key
->({ options, ...props }: SelectProps<T, V>, ref: Ref<HTMLElement>) {
+>({ options, ...props }: SelectProps<T, V>, ref: ForwardedRef<HTMLElement>) {
   return (
     <SelectAria ref={ref} {...(props as SelectAriaProps)}>
       {options.map((option) => (

@@ -30,7 +30,7 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof SearchInput>;
+} satisfies ComponentMeta<typeof SearchInput>;
 
 const Template: ComponentStory<typeof SearchInput> = (args) => (
   <SearchInput aria-label='search' {...args} />

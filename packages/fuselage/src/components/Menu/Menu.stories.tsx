@@ -16,7 +16,7 @@ export default {
     },
     layout: 'centered',
   },
-} as ComponentMeta<typeof Menu>;
+} satisfies ComponentMeta<typeof Menu>;
 
 const Template: ComponentStory<typeof Menu> = (args) => (
   <Box position='relative' maxWidth={250}>

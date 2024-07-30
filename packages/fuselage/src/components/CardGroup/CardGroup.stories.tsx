@@ -1,7 +1,6 @@
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 
-import { CardGroup } from '.';
 import { Badge } from '../Badge';
 import { Button, IconButton } from '../Button';
 import type { CardProps } from '../Card';
@@ -16,6 +15,7 @@ import {
 } from '../Card';
 import { Icon } from '../Icon';
 import { Tag } from '../Tag';
+import CardGroup from './CardGroup';
 
 export default {
   title: 'Containers/CardGroup',
@@ -25,7 +25,7 @@ export default {
     layout: 'padded',
     controls: { hideNoControlsWarning: true },
   },
-} as ComponentMeta<typeof CardGroup>;
+} satisfies ComponentMeta<typeof CardGroup>;
 
 const CardItem = (props: CardProps) => (
   <Card {...props}>

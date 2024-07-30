@@ -1,12 +1,12 @@
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 
-import type { CardGridProps } from '.';
-import { CardGrid } from '.';
 import { Button } from '../Button';
 import type { CardProps } from '../Card';
 import { Card, CardBody, CardControls, CardHeader, CardTitle } from '../Card';
 import { Icon } from '../Icon';
+import type { CardGridProps } from './CardGrid';
+import CardGrid from './CardGrid';
 
 export default {
   title: 'Containers/CardGrid',
@@ -16,7 +16,7 @@ export default {
     layout: 'centered',
     controls: { hideNoControlsWarning: true },
   },
-} as ComponentMeta<typeof CardGrid>;
+} satisfies ComponentMeta<typeof CardGrid>;
 
 const CardItem = (props: CardProps) => (
   <Card {...props}>

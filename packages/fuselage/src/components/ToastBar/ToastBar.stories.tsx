@@ -33,7 +33,7 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof ToastBar>;
+} satisfies ComponentMeta<typeof ToastBar>;
 
 const Template: ComponentStory<typeof ToastBar> = (args) => (
   <ToastBar

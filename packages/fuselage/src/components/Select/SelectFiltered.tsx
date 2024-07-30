@@ -1,5 +1,5 @@
 import type { IconName } from '@rocket.chat/icons';
-import type { Dispatch, Ref, SetStateAction } from 'react';
+import type { Dispatch, ForwardedRef, SetStateAction } from 'react';
 import React, { forwardRef, useState } from 'react';
 
 import type { SelectAnchorParams } from './SelectAnchorParams';
@@ -21,7 +21,7 @@ export const SelectFiltered = forwardRef(function SelectFiltered(
     setFilter: propSetFilter,
     ...props
   }: SelectFilteredProps,
-  ref: Ref<HTMLInputElement>
+  ref: ForwardedRef<HTMLInputElement>
 ) {
   const [filter, setFilter] = useState('');
 

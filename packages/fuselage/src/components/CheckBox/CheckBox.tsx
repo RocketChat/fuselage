@@ -1,17 +1,19 @@
 import { useMergedRefs } from '@rocket.chat/fuselage-hooks';
-import type { Ref, FormEvent, AllHTMLAttributes } from 'react';
+import type { FormEvent, AllHTMLAttributes, ForwardedRef } from 'react';
 import React, { forwardRef, useLayoutEffect, useRef, useCallback } from 'react';
 
 import type { BoxProps } from '../Box';
 import Box from '../Box';
 
-type CheckBoxProps = BoxProps & {
+/** @public */
+export type CheckBoxProps = BoxProps & {
   indeterminate?: boolean;
 } & AllHTMLAttributes<HTMLInputElement>;
 
-export const CheckBox = forwardRef(function CheckBox(
+/** @public */
+const CheckBox = forwardRef(function CheckBox(
   { indeterminate, onChange, className, ...props }: CheckBoxProps,
-  ref: Ref<HTMLInputElement>
+  ref: ForwardedRef<HTMLInputElement>
 ) {
   const innerRef = useRef<HTMLInputElement>(null);
   const mergedRef = useMergedRefs(ref, innerRef);
@@ -46,3 +48,5 @@ export const CheckBox = forwardRef(function CheckBox(
     </Box>
   );
 });
+
+export default CheckBox;

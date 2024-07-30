@@ -1,40 +1,12 @@
-import {
-  Title,
-  Subtitle,
-  Description,
-  Primary as PrimaryStory,
-  ArgsTable,
-  Stories,
-  PRIMARY_STORY,
-} from '@storybook/addon-docs';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
-import { Callout } from '../..';
-import { setStoryDescription } from '../../helpers/setStoryDescription';
+import Callout from './Callout';
 
 export default {
   title: 'Feedback/Callout',
   component: Callout,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          "The `Callout` is used to get the user's attention explaining something important in the content of the current page.",
-      },
-      page: () => (
-        <>
-          <Title />
-          <Subtitle />
-          <Description />
-          <PrimaryStory />
-          <ArgsTable story={PRIMARY_STORY} />
-          <Stories title={''} />
-        </>
-      ),
-    },
-  },
-} as ComponentMeta<typeof Callout>;
+} satisfies ComponentMeta<typeof Callout>;
 
 const Template: ComponentStory<typeof Callout> = (args) => (
   <Callout {...args}>
@@ -60,27 +32,42 @@ Success.args = {
   type: 'success',
   title: 'This is a success message',
 };
-Success.parameters = setStoryDescription(
-  'Communicates that an important aspect of the system is working as expected.'
-);
+Success.parameters = {
+  docs: {
+    description: {
+      story:
+        'Communicates that an important aspect of the system is working as expected.',
+    },
+  },
+};
 
 export const Warning = Template.bind({});
 Warning.args = {
   type: 'warning',
   title: 'This is a warning message',
 };
-Warning.parameters = setStoryDescription(
-  'Communicates that an important aspect of the system needs attention.'
-);
+Warning.parameters = {
+  docs: {
+    description: {
+      story:
+        'Communicates that an important aspect of the system needs attention.',
+    },
+  },
+};
 
 export const Danger = Template.bind({});
 Danger.args = {
   type: 'danger',
   title: 'This is a danger message',
 };
-Danger.parameters = setStoryDescription(
-  'Communicates that an important aspect of the system is not working as expected and requires urgent action.'
-);
+Danger.parameters = {
+  docs: {
+    description: {
+      story:
+        'Communicates that an important aspect of the system is not working as expected and requires urgent action.',
+    },
+  },
+};
 
 export const CustomIcon = Template.bind({});
 CustomIcon.args = {

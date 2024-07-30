@@ -19,7 +19,7 @@ export default {
       ],
     },
   },
-} as ComponentMeta<typeof AnimatedVisibility>;
+} satisfies ComponentMeta<typeof AnimatedVisibility>;
 
 export const example: ComponentStory<typeof AnimatedVisibility> = ({
   visibility,

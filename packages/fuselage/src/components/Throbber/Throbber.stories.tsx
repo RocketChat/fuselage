@@ -24,7 +24,7 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof Throbber>;
+} satisfies ComponentMeta<typeof Throbber>;
 
 const Template: ComponentStory<typeof Throbber> = (args) => (
   <Throbber {...args} />

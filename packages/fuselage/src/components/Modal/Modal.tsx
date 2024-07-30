@@ -1,4 +1,4 @@
-import type { ElementType, ReactNode } from 'react';
+import type { ElementType, ForwardedRef, ReactNode } from 'react';
 import React, { createElement, forwardRef } from 'react';
 
 import type { BoxProps } from '../Box';
@@ -11,9 +11,9 @@ type ModalProps = {
   wrapper?: ElementType<Pick<BoxProps, 'elevation' | 'className' | 'children'>>;
 } & BoxProps;
 
-export const Modal = forwardRef<Element, ModalProps>(function Modal(
-  { children, wrapper = Box, wrapperFunction, ...props },
-  ref
+export const Modal = forwardRef(function Modal(
+  { children, wrapper = Box, wrapperFunction, ...props }: ModalProps,
+  ref: ForwardedRef<Element>
 ) {
   const wrapperProps = {
     children,

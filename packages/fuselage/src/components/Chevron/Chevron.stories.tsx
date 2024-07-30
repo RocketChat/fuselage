@@ -6,7 +6,7 @@ import { Box, Chevron } from '../..';
 export default {
   title: 'Data Display/Chevron',
   component: Chevron,
-} as ComponentMeta<typeof Chevron>;
+} satisfies ComponentMeta<typeof Chevron>;
 
 const Template: ComponentStory<typeof Chevron> = (args) => (
   <Chevron {...args} size={40} />

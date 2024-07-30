@@ -4,7 +4,7 @@ import type {
   KeyboardEventHandler,
   MouseEventHandler,
   ReactNode,
-  Ref,
+  ForwardedRef,
 } from 'react';
 import React, { forwardRef } from 'react';
 
@@ -30,7 +30,7 @@ const SelectFilteredAnchor = forwardRef(function SelectFilteredAnchor(
     placeholder,
     ...props
   }: SelectFilteredAnchorProps,
-  ref: Ref<Element>
+  ref: ForwardedRef<HTMLElement>
 ) {
   return (
     <InputBox.Input

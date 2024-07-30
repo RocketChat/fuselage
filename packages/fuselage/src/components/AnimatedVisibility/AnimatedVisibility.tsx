@@ -6,6 +6,7 @@ import { appendClassName } from '../../helpers/appendClassName';
 import { useStyle } from '../../hooks/useStyle';
 import { BoxTransforms, useComposedBoxTransform } from '../Box/BoxTransforms';
 
+/** @public */
 export type VisibilityType =
   | 'hidden'
   | 'visible'
@@ -13,7 +14,8 @@ export type VisibilityType =
   | 'unhiding'
   | undefined;
 
-type AnimatedVisibilityProps = {
+/** @public */
+export type AnimatedVisibilityProps = {
   children: ReactNode;
   visibility?: VisibilityType;
 };
@@ -25,6 +27,7 @@ const Visibility = {
   UNHIDING: 'unhiding' as VisibilityType,
 };
 
+/** @public */
 const AnimatedVisibility = (props: AnimatedVisibilityProps) => {
   const propVisibility = props.visibility || Visibility.HIDDEN;
 
@@ -124,5 +127,10 @@ const AnimatedVisibility = (props: AnimatedVisibilityProps) => {
     <BoxTransforms.Provider children={props.children} value={composedFn} />
   );
 };
+
+AnimatedVisibility.HIDDEN = 'hidden' as VisibilityType;
+AnimatedVisibility.VISIBLE = 'visible' as VisibilityType;
+AnimatedVisibility.HIDING = 'visible' as VisibilityType;
+AnimatedVisibility.UNHIDING = 'visible' as VisibilityType;
 
 export default AnimatedVisibility;

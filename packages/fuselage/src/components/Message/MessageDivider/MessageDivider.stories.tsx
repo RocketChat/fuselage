@@ -7,7 +7,7 @@ import Box from '../../Box';
 export default {
   title: 'Message/MessageDivider',
   component: MessageDivider,
-} as ComponentMeta<typeof MessageDivider>;
+} satisfies ComponentMeta<typeof MessageDivider>;
 
 export const Default: ComponentStory<typeof MessageDivider> = () => (
   <Box>

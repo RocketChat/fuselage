@@ -11,7 +11,7 @@ import {
 export default {
   title: 'Inputs/ToggleSwitch',
   component: ToggleSwitch,
-} as ComponentMeta<typeof ToggleSwitch>;
+} satisfies ComponentMeta<typeof ToggleSwitch>;
 
 const Template: ComponentStory<typeof ToggleSwitch> = (args) => (
   <ToggleSwitch aria-label={DECORATOR_LABEL} {...args} />

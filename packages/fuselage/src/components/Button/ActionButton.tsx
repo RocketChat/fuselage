@@ -1,4 +1,5 @@
 import type { IconName } from '@rocket.chat/icons';
+import type { ForwardedRef } from 'react';
 import React, { forwardRef } from 'react';
 
 import { Icon } from '../Icon';
@@ -28,15 +29,16 @@ export type ActionButtonProps = ButtonProps &
   };
 
 /** @public */
-const ActionButton = forwardRef<HTMLElement, ActionButtonProps>(
-  function ActionButton({ icon, children, ...props }, ref) {
-    return (
-      <Button ref={ref} square flexShrink={0} {...props}>
-        {children}
-        <Icon name={icon} size={getSize(props)} />
-      </Button>
-    );
-  }
-);
+const ActionButton = forwardRef(function ActionButton(
+  { icon, children, ...props }: ActionButtonProps,
+  ref: ForwardedRef<HTMLElement>
+) {
+  return (
+    <Button ref={ref} square flexShrink={0} {...props}>
+      {children}
+      <Icon name={icon} size={getSize(props)} />
+    </Button>
+  );
+});
 
 export default ActionButton;

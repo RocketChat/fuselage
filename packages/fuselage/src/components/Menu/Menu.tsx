@@ -9,7 +9,8 @@ import type { IconButtonProps } from '../Button';
 import { IconButton } from '../Button';
 import type { OptionType } from '../Options';
 
-type MenuProps = Omit<IconButtonProps, 'icon'> & {
+/** @public */
+export type MenuProps = Omit<IconButtonProps, 'icon'> & {
   options: {
     [id: string]: {
       type?: 'option' | 'heading' | 'divider';
@@ -40,7 +41,8 @@ const mapOptions = (options: MenuProps['options']): OptionType[] =>
     ]
   );
 
-export const Menu = ({
+/** @public */
+const Menu = ({
   tiny,
   mini,
   small = !(tiny || mini),
@@ -122,3 +124,5 @@ export const Menu = ({
     </>
   );
 };
+
+export default Menu;

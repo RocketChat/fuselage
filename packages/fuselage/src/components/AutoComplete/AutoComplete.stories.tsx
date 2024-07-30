@@ -11,7 +11,7 @@ export default {
   parameters: {
     layout: 'centered',
   },
-} as ComponentMeta<typeof AutoComplete>;
+} satisfies ComponentMeta<typeof AutoComplete>;
 
 const options = [
   { value: '1', label: 'test1' },

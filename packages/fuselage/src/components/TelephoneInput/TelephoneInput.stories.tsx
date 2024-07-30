@@ -23,7 +23,7 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof TelephoneInput>;
+} satisfies ComponentMeta<typeof TelephoneInput>;
 
 const Template: ComponentStory<typeof TelephoneInput> = (args) => (
   <TelephoneInput aria-label='telephone' {...args} />

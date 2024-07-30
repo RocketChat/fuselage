@@ -2,21 +2,19 @@ import { Title, Description, Primary, Stories } from '@storybook/addon-docs';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
-import {
-  Field,
-  FieldDescription,
-  FieldError,
-  FieldHint,
-  FieldRow,
-  FieldLabel,
-  ToggleSwitch,
-  FieldLink,
-  TextInput,
-  TextAreaInput,
-  RadioButton,
-  CheckBox,
-} from '../..';
-import { FieldLabelInfo } from './FieldLabelInfo';
+import CheckBox from '../CheckBox';
+import { RadioButton } from '../RadioButton';
+import { TextAreaInput } from '../TextAreaInput';
+import { TextInput } from '../TextInput';
+import { ToggleSwitch } from '../ToggleSwitch';
+import Field from './Field';
+import FieldDescription from './FieldDescription';
+import FieldError from './FieldError';
+import FieldHint from './FieldHint';
+import FieldLabel from './FieldLabel';
+import FieldLabelInfo from './FieldLabelInfo';
+import FieldLink from './FieldLink';
+import FieldRow from './FieldRow';
 
 export default {
   title: 'Inputs/Field',
@@ -37,7 +35,7 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof Field>;
+} satisfies ComponentMeta<typeof Field>;
 
 export const WithTextInput: ComponentStory<typeof Field> = () => (
   <Field>

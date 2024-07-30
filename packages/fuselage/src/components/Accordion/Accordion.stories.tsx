@@ -8,7 +8,7 @@ import AccordionItem from './AccordionItem';
 export default {
   title: 'Containers/Accordion',
   component: Accordion,
-} as ComponentMeta<typeof AccordionItem>;
+} satisfies ComponentMeta<typeof AccordionItem>;
 
 const Template: ComponentStory<typeof Accordion> = () => (
   <Accordion>

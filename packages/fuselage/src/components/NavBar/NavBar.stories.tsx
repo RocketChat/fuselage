@@ -44,7 +44,7 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof NavBar>;
+} satisfies ComponentMeta<typeof NavBar>;
 
 const Template: ComponentStory<typeof NavBar> = (args) => (
   <NavBar {...args}>

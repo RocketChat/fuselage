@@ -12,7 +12,7 @@ export default {
   args: {
     visible: AnimatedVisibility.VISIBLE,
   },
-} as ComponentMeta<typeof PositionAnimated>;
+} satisfies ComponentMeta<typeof PositionAnimated>;
 
 const Template: ComponentStory<typeof PositionAnimated> = ({
   visible,

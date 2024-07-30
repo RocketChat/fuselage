@@ -3,6 +3,7 @@ import React from 'react';
 import type { BoxProps } from '../Box';
 import Box from '../Box';
 
+/** @public */
 export type GridItemProps = BoxProps & {
   xs?: 1 | 2 | 3 | 4;
   sm?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
@@ -11,7 +12,8 @@ export type GridItemProps = BoxProps & {
   xl?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 };
 
-export const GridItem = ({ xs, sm, md, lg, xl, ...props }: GridItemProps) => (
+/** @public */
+const GridItem = ({ xs, sm, md, lg, xl, ...props }: GridItemProps) => (
   <Box
     rcx-grid__item
     rcx-grid__item--xs={xs}
@@ -22,3 +24,5 @@ export const GridItem = ({ xs, sm, md, lg, xl, ...props }: GridItemProps) => (
     {...props}
   />
 );
+
+export default GridItem;

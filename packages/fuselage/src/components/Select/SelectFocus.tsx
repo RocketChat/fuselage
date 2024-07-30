@@ -1,4 +1,4 @@
-import type { Ref } from 'react';
+import type { ForwardedRef } from 'react';
 import React, { forwardRef } from 'react';
 
 import type { BoxProps } from '../Box';
@@ -8,7 +8,7 @@ type SelectFocusProps = BoxProps;
 
 const SelectFocus = forwardRef(function SelectFocus(
   props: SelectFocusProps,
-  ref: Ref<Element>
+  ref: ForwardedRef<Element>
 ) {
   return (
     <Box

@@ -2,8 +2,9 @@ import { Title, Description, Primary, Stories } from '@storybook/addon-docs';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
-import { Icon, EmailInput } from '../..';
 import { PropsVariationSection } from '../../../.storybook/helpers';
+import Icon from '../Icon';
+import EmailInput from './EmailInput';
 
 export default {
   title: 'Inputs/EmailInput',
@@ -24,7 +25,7 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof EmailInput>;
+} satisfies ComponentMeta<typeof EmailInput>;
 
 const Template: ComponentStory<typeof EmailInput> = (args) => (
   <EmailInput aria-label='email' {...args} />

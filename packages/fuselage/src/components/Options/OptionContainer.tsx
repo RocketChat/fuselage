@@ -1,3 +1,4 @@
+import type { ForwardedRef } from 'react';
 import React, { forwardRef } from 'react';
 
 import type { BoxProps } from '../Box';
@@ -9,8 +10,11 @@ import Tile from '../Tile';
 export type OptionContainerProps = BoxProps;
 
 /** @public */
-const OptionContainer = forwardRef<HTMLElement, OptionContainerProps>(
-  ({ children, ...props }, ref) => (
+const OptionContainer = forwardRef(function OptionContainer(
+  { children, ...props }: OptionContainerProps,
+  ref: ForwardedRef<HTMLElement>
+) {
+  return (
     <Box rcx-options>
       <Tile padding={0} paddingBlock={'x12'} paddingInline={0}>
         <Scrollable vertical smooth>
@@ -31,7 +35,7 @@ const OptionContainer = forwardRef<HTMLElement, OptionContainerProps>(
         </Scrollable>
       </Tile>
     </Box>
-  )
-);
+  );
+});
 
 export default OptionContainer;

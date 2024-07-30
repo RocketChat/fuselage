@@ -6,13 +6,15 @@ import Box from '../Box';
 
 const LabelContext = createContext(false);
 
+/** @public */
 export type LabelProps = Omit<BoxProps, 'is'> & {
   disabled?: boolean;
   required?: boolean;
   is?: (ElementType<any> & string) | undefined;
 };
 
-export function Label({
+/** @public */
+function Label({
   disabled,
   is,
   required,
@@ -35,3 +37,5 @@ export function Label({
     </LabelContext.Provider>
   );
 }
+
+export default Label;

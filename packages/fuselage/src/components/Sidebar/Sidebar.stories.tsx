@@ -37,7 +37,7 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof Sidebar>;
+} satisfies ComponentMeta<typeof Sidebar>;
 
 export const Default: ComponentStory<typeof Sidebar> = () => (
   <>

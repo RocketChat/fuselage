@@ -1,4 +1,5 @@
 import type { IconName } from '@rocket.chat/icons';
+import type { ForwardedRef } from 'react';
 import React, { forwardRef, memo } from 'react';
 
 import type { BoxProps } from '../Box';
@@ -11,12 +12,14 @@ type ContextualbarEmptyContentProps = BoxProps & {
   subtitle?: string;
 };
 
-const ContextualbarEmptyContent = forwardRef<
-  HTMLElement,
-  ContextualbarEmptyContentProps
->(function ContextualbarEmptyContent(
-  { icon = 'magnifier', title = 'Nothing Found', subtitle, ...props },
-  ref
+const ContextualbarEmptyContent = forwardRef(function ContextualbarEmptyContent(
+  {
+    icon = 'magnifier',
+    title = 'Nothing Found',
+    subtitle,
+    ...props
+  }: ContextualbarEmptyContentProps,
+  ref: ForwardedRef<HTMLElement>
 ) {
   return (
     <ContextualbarContent justifyContent='center' {...props} ref={ref}>

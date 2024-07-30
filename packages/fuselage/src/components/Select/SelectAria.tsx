@@ -1,6 +1,6 @@
 import type { AriaSelectProps } from '@react-types/select';
 import { useMergedRefs, useResizeObserver } from '@rocket.chat/fuselage-hooks';
-import type { Key } from 'react';
+import type { ForwardedRef, Key } from 'react';
 import React, { forwardRef } from 'react';
 import {
   useSelect,
@@ -30,93 +30,95 @@ export type SelectAriaProps = Omit<
   small?: boolean;
 } & React.AllHTMLAttributes<HTMLElement>;
 
-export const SelectAria = forwardRef<HTMLElement, SelectAriaProps>(
-  function SelectAria(
-    { disabled, error, placeholder, value, onChange, small, ...props },
-    outerRef
-  ) {
-    const state = useSelectState({
-      isDisabled: disabled,
-      selectedKey: value,
-      onSelectionChange: onChange,
-      ...props,
-    });
+export const SelectAria = forwardRef(function SelectAria(
+  {
+    disabled,
+    error,
+    placeholder,
+    value,
+    onChange,
+    small,
+    ...props
+  }: SelectAriaProps,
+  outerRef: ForwardedRef<HTMLElement>
+) {
+  const state = useSelectState({
+    isDisabled: disabled,
+    selectedKey: value,
+    onSelectionChange: onChange,
+    ...props,
+  });
 
-    const { ref, borderBoxSize } = useResizeObserver<any>();
+  const { ref, borderBoxSize } = useResizeObserver<any>();
 
-    const { triggerProps, valueProps, menuProps } = useSelect(
-      props,
-      state,
-      ref
-    );
+  const { triggerProps, valueProps, menuProps } = useSelect(props, state, ref);
 
-    const { buttonProps } = useButton(triggerProps, ref);
+  const { buttonProps } = useButton(triggerProps, ref);
 
-    const { focusProps, isFocusVisible } = useFocusRing();
+  const { focusProps, isFocusVisible } = useFocusRing();
 
-    const mergedRef = useMergedRefs(outerRef, ref);
+  const mergedRef = useMergedRefs(outerRef, ref);
 
-    return (
-      <>
+  return (
+    <>
+      <Box
+        {...props}
+        disabled={disabled}
+        rcx-select
+        {...mergeProps(buttonProps, focusProps)}
+        is='button'
+        display='flex'
+        flexDirection='row'
+        fontScale='p2'
+        ref={mergedRef}
+        justifyContent='space-between'
+        rcx-input-box--small={small}
+        className={[
+          error && 'invalid',
+          disabled && 'disabled',
+          (isFocusVisible || state.isOpen) && 'focus',
+        ]
+          .filter(Boolean)
+          .join(' ')}
+      >
+        <HiddenSelect
+          state={state}
+          triggerRef={ref}
+          label={props.label}
+          name={props.name}
+        />
         <Box
-          {...props}
-          disabled={disabled}
-          rcx-select
-          {...mergeProps(buttonProps, focusProps)}
-          is='button'
-          display='flex'
-          flexDirection='row'
-          fontScale='p2'
-          ref={mergedRef}
-          justifyContent='space-between'
-          rcx-input-box--small={small}
-          className={[
-            error && 'invalid',
-            disabled && 'disabled',
-            (isFocusVisible || state.isOpen) && 'focus',
-          ]
-            .filter(Boolean)
-            .join(' ')}
+          is='span'
+          {...valueProps}
+          color={state.selectedItem ? 'default' : 'hint'}
+          {...(small && { fontScale: 'c1' })}
         >
-          <HiddenSelect
-            state={state}
-            triggerRef={ref}
-            label={props.label}
-            name={props.name}
-          />
-          <Box
-            is='span'
-            {...valueProps}
-            color={state.selectedItem ? 'default' : 'hint'}
-            {...(small && { fontScale: 'c1' })}
-          >
-            {state.selectedItem ? state.selectedItem.rendered : placeholder}
-          </Box>
-
-          <Icon
-            color='default'
-            name={state.isOpen ? 'chevron-up' : 'chevron-down'}
-            size='x20'
-          />
+          {state.selectedItem ? state.selectedItem.rendered : placeholder}
         </Box>
-        {state.isOpen && (
-          <Popover
-            state={state}
-            triggerRef={ref}
-            placement='bottom'
-            offset={4}
-            containerPadding={8}
+
+        <Icon
+          color='default'
+          name={state.isOpen ? 'chevron-up' : 'chevron-down'}
+          size='x20'
+        />
+      </Box>
+      {state.isOpen && (
+        <Popover
+          state={state}
+          triggerRef={ref}
+          placement='bottom'
+          offset={4}
+          containerPadding={8}
+        >
+          <OptionContainer
+            style={{
+              width: borderBoxSize?.inlineSize,
+            }}
           >
-            <OptionContainer
-              style={{
-                width: borderBoxSize?.inlineSize,
-              }}
-            >
-              <ListBox {...menuProps} state={state} />
-            </OptionContainer>
-          </Popover>
-        )}
-      </>
-    );
-  }
-);
+            <ListBox {...menuProps} state={state} />
+          </OptionContainer>
+        </Popover>
+      )}
+    </>
+  );
+});

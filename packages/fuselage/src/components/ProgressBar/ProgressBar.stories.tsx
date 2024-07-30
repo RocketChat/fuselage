@@ -30,7 +30,7 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof ProgressBar>;
+} satisfies ComponentMeta<typeof ProgressBar>;
 
 const Template: ComponentStory<typeof ProgressBar> = (args) => (
   <ProgressBar {...args} />

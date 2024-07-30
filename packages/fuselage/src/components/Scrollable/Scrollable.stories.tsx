@@ -30,7 +30,7 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof Scrollable>;
+} satisfies ComponentMeta<typeof Scrollable>;
 
 export const Default = () => (
   <Scrollable>

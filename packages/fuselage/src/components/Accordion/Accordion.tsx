@@ -20,9 +20,13 @@ function Accordion(props: AccordionProps) {
   return <Box animated rcx-accordion {...props} />;
 }
 
-/**
- * @deprecated use named import instead
- */
-Accordion.Item = AccordionItem;
+/** @public */
+// eslint-disable-next-line @typescript-eslint/no-namespace
+namespace Accordion {
+  /**
+   * @deprecated use `AccordionItem` instead
+   */
+  export const Item = AccordionItem;
+}
 
 export default Accordion;

@@ -1,5 +1,5 @@
 import { useEffectEvent, useDebouncedState } from '@rocket.chat/fuselage-hooks';
-import type { ElementType, Ref, SyntheticEvent } from 'react';
+import type { ElementType, ForwardedRef, SyntheticEvent } from 'react';
 import React, { forwardRef, memo } from 'react';
 import { Virtuoso } from 'react-virtuoso';
 
@@ -52,7 +52,7 @@ export const OptionsPaginated = forwardRef(
       endReached,
       ...props
     }: OptionsPaginatedProps,
-    ref: Ref<Element>
+    ref: ForwardedRef<Element>
   ) => {
     const OptionsComponentWithData = ({
       index,

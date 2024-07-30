@@ -27,7 +27,7 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof Pagination>;
+} satisfies ComponentMeta<typeof Pagination>;
 
 export const Default: ComponentStory<typeof Pagination> = () => (
   <Pagination

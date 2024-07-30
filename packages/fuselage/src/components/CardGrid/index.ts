@@ -1,1 +1,1 @@
-export * from './CardGrid';
+export { default, default as CardGrid, CardGridProps } from './CardGrid';

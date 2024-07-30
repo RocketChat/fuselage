@@ -18,7 +18,7 @@ export default {
     actions: { argTypesRegex: '^on.*' },
     layout: 'centered',
   },
-} as ComponentMeta<typeof PaginatedMultiSelectFiltered>;
+} satisfies ComponentMeta<typeof PaginatedMultiSelectFiltered>;
 
 const Template: ComponentStory<typeof PaginatedMultiSelectFiltered> = (
   args

@@ -1,39 +1,13 @@
-import {
-  Title,
-  Subtitle,
-  Description,
-  Primary as PrimaryStory,
-  ArgsTable,
-  Stories,
-  PRIMARY_STORY,
-} from '@storybook/addon-docs';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
-import { Button, ButtonGroup } from '../..';
+import Button from '../Button';
+import ButtonGroup from './ButtonGroup';
 
 export default {
   title: 'Inputs/ButtonGroup',
   component: ButtonGroup,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'A container for grouping buttons that semantically share a common action context.',
-      },
-      page: () => (
-        <>
-          <Title />
-          <Subtitle />
-          <Description />
-          <PrimaryStory />
-          <ArgsTable story={PRIMARY_STORY} />
-          <Stories title={''} />
-        </>
-      ),
-    },
-  },
-} as ComponentMeta<typeof ButtonGroup>;
+} satisfies ComponentMeta<typeof ButtonGroup>;
 
 const Template: ComponentStory<typeof ButtonGroup> = (args) => (
   <ButtonGroup {...args}>

@@ -47,7 +47,7 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof PaletteStyleTag>;
+} satisfies ComponentMeta<typeof PaletteStyleTag>;
 
 export const _PaletteStyleTag: ComponentStory<typeof PaletteStyleTag> = (
   args

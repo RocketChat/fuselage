@@ -31,7 +31,7 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof TopBar>;
+} satisfies ComponentMeta<typeof TopBar>;
 
 export const Default: ComponentStory<typeof TopBar> = () => (
   <>

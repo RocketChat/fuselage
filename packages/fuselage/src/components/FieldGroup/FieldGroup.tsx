@@ -5,9 +5,11 @@ import { patchChildren } from '../../helpers/patchChildren';
 import type { BoxProps } from '../Box';
 import Box from '../Box';
 
-type FieldGroupProps = BoxProps;
+/** @public */
+export type FieldGroupProps = BoxProps;
 
-export const FieldGroup = ({ children, ...props }: FieldGroupProps) => (
+/** @public */
+const FieldGroup = ({ children, ...props }: FieldGroupProps) => (
   <Box is='fieldset' rcx-field-group role='group' {...props}>
     {patchChildren(
       children,
@@ -20,3 +22,5 @@ export const FieldGroup = ({ children, ...props }: FieldGroupProps) => (
     )}
   </Box>
 );
+
+export default FieldGroup;

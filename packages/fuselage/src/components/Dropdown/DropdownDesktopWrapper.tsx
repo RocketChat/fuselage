@@ -1,6 +1,6 @@
 import type { UsePositionOptions } from '@rocket.chat/fuselage-hooks';
 import { usePosition } from '@rocket.chat/fuselage-hooks';
-import type { ReactNode, Ref, RefObject } from 'react';
+import type { ReactNode, ForwardedRef, RefObject } from 'react';
 import React, { forwardRef } from 'react';
 
 import { DropdownDesktop } from './DropdownDesktop';
@@ -17,7 +17,7 @@ export const DropdownDesktopWrapper = forwardRef(
       placement?: UsePositionOptions['placement'];
       children: ReactNode;
     },
-    ref: Ref<R>
+    ref: ForwardedRef<R>
   ) {
     const { style } = usePosition(reference, ref as RefObject<R>, {
       placement,

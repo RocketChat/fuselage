@@ -3,6 +3,7 @@ import React, { createElement, forwardRef, memo } from 'react';
 import type {
   AllHTMLAttributes,
   ElementType,
+  ForwardedRef,
   RefAttributes,
   SVGAttributes,
 } from 'react';
@@ -34,9 +35,9 @@ export interface BoxProps
 }
 
 /** @public */
-const Box = forwardRef<any, BoxProps>(function Box(
-  { is = 'div', children, ...props },
-  ref
+const Box = forwardRef(function Box(
+  { is = 'div', children, ...props }: BoxProps,
+  ref: ForwardedRef<any>
 ) {
   const propsWithRef: BoxProps & RefAttributes<any> = props;
 

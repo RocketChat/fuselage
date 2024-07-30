@@ -1,9 +1,10 @@
-import type { HTMLAttributes, Ref } from 'react';
+import type { ForwardedRef, HTMLAttributes } from 'react';
 import React, { forwardRef } from 'react';
 
 import { appendClassName } from '../../helpers/appendClassName';
 import { patchChildren } from '../../helpers/patchChildren';
 
+/** @public */
 export type ButtonGroupProps = {
   align?: 'start' | 'center' | 'end';
   stretch?: boolean;
@@ -13,7 +14,12 @@ export type ButtonGroupProps = {
   large?: boolean;
 } & HTMLAttributes<HTMLDivElement>;
 
-export const ButtonGroup = forwardRef(function ButtonGroup(
+/**
+ * A container for grouping buttons that semantically share a common action context.
+ *
+ * @public
+ */
+const ButtonGroup = forwardRef(function ButtonGroup(
   {
     align = 'start',
     children,
@@ -25,7 +31,7 @@ export const ButtonGroup = forwardRef(function ButtonGroup(
     className,
     ...props
   }: ButtonGroupProps,
-  ref: Ref<HTMLDivElement>
+  ref: ForwardedRef<HTMLDivElement>
 ) {
   return (
     <div
@@ -57,3 +63,5 @@ export const ButtonGroup = forwardRef(function ButtonGroup(
     </div>
   );
 });
+
+export default ButtonGroup;

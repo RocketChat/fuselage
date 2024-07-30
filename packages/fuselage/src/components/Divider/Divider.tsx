@@ -4,12 +4,14 @@ import type { ReactNode } from 'react';
 import type { BoxProps } from '../Box';
 import Box from '../Box';
 
+/** @public */
 export type DividerProps = BoxProps & {
   variation?: 'danger';
   children?: ReactNode;
   vertical?: boolean;
 };
 
+/** @public */
 const Divider = ({ variation, children, vertical, ...props }: DividerProps) => {
   if (!children) {
     return (
@@ -31,4 +33,4 @@ const Divider = ({ variation, children, vertical, ...props }: DividerProps) => {
   );
 };
 
-export { Divider };
+export default Divider;

@@ -33,7 +33,7 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof Box>;
+} satisfies ComponentMeta<typeof Box>;
 
 export const Borders: ComponentStory<typeof Box> = () => (
   <>

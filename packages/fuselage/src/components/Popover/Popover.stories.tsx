@@ -11,7 +11,7 @@ export default {
   parameters: {
     layout: 'centered',
   },
-} as ComponentMeta<typeof Popover>;
+} satisfies ComponentMeta<typeof Popover>;
 
 const Template: ComponentStory<typeof Popover> = (args) => {
   const ref = React.useRef(null);

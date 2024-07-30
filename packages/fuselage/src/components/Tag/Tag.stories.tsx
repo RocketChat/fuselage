@@ -30,7 +30,7 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof Tag>;
+} satisfies ComponentMeta<typeof Tag>;
 
 const Template: ComponentStory<typeof Tag> = (args) => (
   <Box display='inline-flex'>

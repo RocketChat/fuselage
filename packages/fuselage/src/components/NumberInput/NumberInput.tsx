@@ -1,4 +1,4 @@
-import type { Ref } from 'react';
+import type { ForwardedRef } from 'react';
 import React, { forwardRef } from 'react';
 
 import type { InputBoxProps } from '../InputBox';
@@ -8,7 +8,7 @@ type NumberInputProps = Omit<InputBoxProps, 'type'>;
 
 export const NumberInput = forwardRef(function NumberInput(
   props: NumberInputProps,
-  ref: Ref<HTMLInputElement>
+  ref: ForwardedRef<HTMLInputElement>
 ) {
   return <InputBox type='number' ref={ref} {...props} />;
 });

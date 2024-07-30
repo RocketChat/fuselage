@@ -1,4 +1,4 @@
-import type { ElementType, SyntheticEvent } from 'react';
+import type { ElementType, ForwardedRef, SyntheticEvent } from 'react';
 import React, { forwardRef, useLayoutEffect, useMemo, useRef } from 'react';
 
 import { prevent } from '../../helpers/prevent';
@@ -21,7 +21,7 @@ export type OptionsProps = Omit<BoxProps, 'onSelect'> & {
   customEmpty?: string;
 };
 
-const Options = forwardRef<HTMLElement, OptionsProps>(function Options(
+const Options = forwardRef(function Options(
   {
     maxHeight = 'x144',
     multiple,
@@ -32,8 +32,8 @@ const Options = forwardRef<HTMLElement, OptionsProps>(function Options(
     onSelect,
     customEmpty,
     ...props
-  },
-  ref
+  }: OptionsProps,
+  ref: ForwardedRef<HTMLElement>
 ) {
   const liRef = useRef<HTMLElement>(null);
 

@@ -30,7 +30,7 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof NumberInput>;
+} satisfies ComponentMeta<typeof NumberInput>;
 
 const Template: ComponentStory<typeof NumberInput> = (args) => (
   <NumberInput aria-label='number' {...args} />

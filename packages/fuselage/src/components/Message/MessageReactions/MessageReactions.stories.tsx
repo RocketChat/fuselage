@@ -18,7 +18,7 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof MessageReactions>;
+} satisfies ComponentMeta<typeof MessageReactions>;
 
 const reactions = (
   <MessageReactions>

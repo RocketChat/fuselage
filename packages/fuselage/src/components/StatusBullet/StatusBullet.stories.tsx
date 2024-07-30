@@ -29,7 +29,7 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof StatusBullet>;
+} satisfies ComponentMeta<typeof StatusBullet>;
 
 export const Default: ComponentStory<typeof StatusBullet> = () => (
   <Box>

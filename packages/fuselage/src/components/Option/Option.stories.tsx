@@ -48,7 +48,7 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof Menu>;
+} satisfies ComponentMeta<typeof Menu>;
 
 export const Default: ComponentStory<typeof Option> = () => (
   <>

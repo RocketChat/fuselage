@@ -3,7 +3,7 @@ import type {
   KeyboardEventHandler,
   MouseEventHandler,
   ReactNode,
-  Ref,
+  ForwardedRef,
 } from 'react';
 import React, { forwardRef } from 'react';
 
@@ -20,7 +20,7 @@ type MultiSelectAnchorProps = {
 
 const MultiSelectAnchor = forwardRef(function MultiSelectAnchor(
   props: MultiSelectAnchorProps,
-  ref: Ref<Element>
+  ref: ForwardedRef<Element>
 ) {
   return (
     <SelectFocus

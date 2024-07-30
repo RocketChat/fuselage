@@ -31,7 +31,7 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof SelectInput>;
+} satisfies ComponentMeta<typeof SelectInput>;
 
 const Template: ComponentStory<typeof SelectInput> = (args) => (
   <SelectInput aria-label='select' {...args}>

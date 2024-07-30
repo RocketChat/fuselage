@@ -26,7 +26,7 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof MessageMetrics>;
+} satisfies ComponentMeta<typeof MessageMetrics>;
 
 const metrics = (
   <MessageMetrics>

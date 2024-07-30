@@ -8,7 +8,7 @@ import { exampleAvatar, blankAvatar } from '../../../.storybook/helpers';
 export default {
   title: 'Data Display/Chip',
   component: Chip,
-} as ComponentMeta<typeof Chip>;
+} satisfies ComponentMeta<typeof Chip>;
 
 const Template: ComponentStory<typeof Chip> = (args) => (
   <Chip {...args}>Marie Rowe</Chip>

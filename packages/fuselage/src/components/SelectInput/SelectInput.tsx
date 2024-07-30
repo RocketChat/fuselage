@@ -1,4 +1,4 @@
-import type { ReactNode, Ref } from 'react';
+import type { ReactNode, ForwardedRef } from 'react';
 import React, { forwardRef, useState, useCallback } from 'react';
 
 import { Icon } from '../Icon';
@@ -16,7 +16,7 @@ type SelectInputProps = Omit<InputBoxProps, 'type'> & {
 
 export const SelectInput = forwardRef(function SelectInput(
   { children, multiple, placeholder, onChange, ...props }: SelectInputProps,
-  ref: Ref<HTMLElement>
+  ref: ForwardedRef<HTMLElement>
 ) {
   const [isPlaceholderVisible, setPlaceholderVisible] = useState(
     !props.value && !props.defaultValue

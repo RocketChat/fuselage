@@ -10,8 +10,10 @@ import {
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React, { useState } from 'react';
 
-import { Box, Divider, Icon } from '../..';
+import Box from '../Box';
+import Divider from '../Divider';
 import InputBox from '../InputBox';
+import Icon from './Icon';
 
 const iconsList = Object.keys(nameToCharacterMapping).sort((a, b) =>
   a.localeCompare(b)
@@ -33,7 +35,7 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof Icon>;
+} satisfies ComponentMeta<typeof Icon>;
 
 export const Default: ComponentStory<typeof Icon> = () => (
   <Box color='default'>

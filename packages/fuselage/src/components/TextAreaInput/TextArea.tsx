@@ -1,4 +1,4 @@
-import type { ReactNode, Ref } from 'react';
+import type { ReactNode, ForwardedRef } from 'react';
 import React, { forwardRef } from 'react';
 
 import type { InputBoxProps } from '../InputBox';
@@ -11,7 +11,7 @@ type TextAreaInputProps = Omit<InputBoxProps, 'type'> & {
 
 export const TextAreaInput = forwardRef(function TextAreaInput(
   props: TextAreaInputProps,
-  ref: Ref<HTMLTextAreaElement>
+  ref: ForwardedRef<HTMLTextAreaElement>
 ) {
   return <InputBox type='textarea' ref={ref} {...props} />;
 });

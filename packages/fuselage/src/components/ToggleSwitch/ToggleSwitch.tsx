@@ -1,4 +1,4 @@
-import type { AllHTMLAttributes, Ref } from 'react';
+import type { AllHTMLAttributes, ForwardedRef } from 'react';
 import React, { forwardRef } from 'react';
 
 import type { BoxProps } from '../Box';
@@ -8,7 +8,7 @@ type ToggleSwitchProps = BoxProps & AllHTMLAttributes<HTMLInputElement>;
 
 export const ToggleSwitch = forwardRef(function ToggleSwitch(
   { className, ...props }: ToggleSwitchProps,
-  ref: Ref<HTMLInputElement>
+  ref: ForwardedRef<HTMLInputElement>
 ) {
   return (
     <Box is='label' className={className} rcx-toggle-switch>

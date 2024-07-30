@@ -1,4 +1,4 @@
-import type { ReactNode, Ref } from 'react';
+import type { ReactNode, ForwardedRef } from 'react';
 import React, { forwardRef } from 'react';
 
 import { Box, Tile } from '..';
@@ -12,7 +12,7 @@ export const DropdownMobile = forwardRef(function DropdownMobile<
   }: {
     children: ReactNode;
   },
-  ref: Ref<R>
+  ref: ForwardedRef<R>
 ) {
   return (
     <Tile

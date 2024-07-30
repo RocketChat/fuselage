@@ -1,5 +1,5 @@
 import { css } from '@rocket.chat/css-in-js';
-import type { Ref } from 'react';
+import type { ForwardedRef } from 'react';
 import React, { forwardRef } from 'react';
 
 import type { BoxProps } from '../Box';
@@ -48,7 +48,7 @@ export const Throbber = forwardRef(function Throbber(
     inheritColor,
     ...props
   }: ThrobberProps,
-  ref: Ref<HTMLElement>
+  ref: ForwardedRef<HTMLElement>
 ) {
   return (
     <Box rcx-throbber ref={ref} {...props}>

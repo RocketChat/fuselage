@@ -1,4 +1,4 @@
-export { default as Avatar, AvatarProps } from './Avatar';
+export { default, default as Avatar, AvatarProps } from './Avatar';
 export {
   default as AvatarContainer,
   AvatarContainerProps,

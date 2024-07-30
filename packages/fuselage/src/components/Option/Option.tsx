@@ -1,5 +1,10 @@
 import type { IconName } from '@rocket.chat/icons';
-import type { ReactNode, MouseEvent, AllHTMLAttributes } from 'react';
+import type {
+  ReactNode,
+  MouseEvent,
+  AllHTMLAttributes,
+  ForwardedRef,
+} from 'react';
 import React, { forwardRef, memo } from 'react';
 
 import { prevent } from '../../helpers/prevent';
@@ -30,7 +35,7 @@ export type OptionProps = {
 } & Omit<AllHTMLAttributes<HTMLElement>, 'label' | 'ref'>;
 
 /** @public */
-const Option = forwardRef<Element, OptionProps>(function Option(
+const Option = forwardRef(function Option(
   {
     is: Tag = 'li',
     id,
@@ -48,8 +53,8 @@ const Option = forwardRef<Element, OptionProps>(function Option(
     onClick,
     description,
     ...props
-  },
-  ref
+  }: OptionProps,
+  ref: ForwardedRef<Element>
 ) {
   return (
     <Tag

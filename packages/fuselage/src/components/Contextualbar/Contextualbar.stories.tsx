@@ -35,7 +35,7 @@ export default {
       </Box>
     ),
   ],
-} as ComponentMeta<typeof Contextualbar>;
+} satisfies ComponentMeta<typeof Contextualbar>;
 
 export const Default: ComponentStory<typeof Contextualbar> = () => (
   <Contextualbar position='static' height='x540'>

@@ -1,5 +1,5 @@
 import { useToggle } from '@rocket.chat/fuselage-hooks';
-import type { Ref } from 'react';
+import type { ForwardedRef } from 'react';
 import React, { forwardRef } from 'react';
 
 import { Icon } from '../Icon';
@@ -12,7 +12,7 @@ type PasswordInputProps = Omit<InputBoxProps, 'type'>;
 
 const PasswordInput = forwardRef(function PasswordInput(
   props: PasswordInputProps,
-  ref: Ref<HTMLInputElement>
+  ref: ForwardedRef<HTMLInputElement>
 ) {
   const [hidden, toggle] = useToggle(true);
   const handleAddonClick = () => {

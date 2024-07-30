@@ -31,7 +31,7 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof Box>;
+} satisfies ComponentMeta<typeof Box>;
 
 export const strong: ComponentStory<typeof Box> = () => (
   <strong>strong importance</strong>

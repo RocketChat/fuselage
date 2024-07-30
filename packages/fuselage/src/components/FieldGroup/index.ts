@@ -1,1 +1,1 @@
-export * from './FieldGroup';
+export { default, default as FieldGroup, FieldGroupProps } from './FieldGroup';

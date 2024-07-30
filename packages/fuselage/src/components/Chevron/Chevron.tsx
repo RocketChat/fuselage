@@ -5,7 +5,8 @@ import type { BoxProps } from '../Box';
 import Box from '../Box';
 import { Icon } from '../Icon';
 
-type ChevronProps = Omit<BoxProps, 'size'> & {
+/** @public */
+export type ChevronProps = Omit<BoxProps, 'size'> & {
   size?: BoxProps['width'];
   up?: boolean;
   right?: boolean;
@@ -15,7 +16,8 @@ type ChevronProps = Omit<BoxProps, 'size'> & {
   bottom?: boolean;
 };
 
-export function Chevron({
+/** @public */
+function Chevron({
   up,
   right,
   down,
@@ -41,3 +43,5 @@ export function Chevron({
     />
   );
 }
+
+export default Chevron;
