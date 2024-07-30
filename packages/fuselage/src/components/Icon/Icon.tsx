@@ -5,10 +5,10 @@ import React, { forwardRef } from 'react';
 import type { BoxProps } from '../Box';
 import Box from '../Box';
 
-export type IconProps = Omit<BoxProps, 'name' | 'size'> & {
+export interface IconProps extends Omit<BoxProps, 'name' | 'size'> {
   name: IconName;
   size?: BoxProps['width'];
-};
+}
 
 const Icon = forwardRef<HTMLElement, IconProps>(function Icon(
   { name, size, ...props },

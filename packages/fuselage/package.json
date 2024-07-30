@@ -71,6 +71,7 @@
     "@babel/preset-env": "~7.21.4",
     "@babel/preset-react": "~7.18.6",
     "@microsoft/api-extractor": "~7.47.3",
+    "@react-types/shared": "~3.18.0",
     "@rocket.chat/eslint-config-alt": "workspace:~",
     "@rocket.chat/fuselage-hooks": "workspace:~",
     "@rocket.chat/fuselage-polyfills": "workspace:~",

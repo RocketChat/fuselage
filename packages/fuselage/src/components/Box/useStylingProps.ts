@@ -3,9 +3,11 @@ import { useStyle } from '../../hooks/useStyle';
 import type { StylingProps } from './stylingProps';
 import { extractStylingProps } from './stylingProps';
 
-export const useStylingProps = <TProps extends { className?: string }>(
-  originalProps: TProps & Partial<StylingProps>
-): TProps => {
+export const useStylingProps = <
+  TProps extends { className?: string } & Partial<StylingProps>
+>(
+  originalProps: TProps
+) => {
   const [props, styles] = extractStylingProps(originalProps);
 
   const newClassName = useStyle(styles, undefined);

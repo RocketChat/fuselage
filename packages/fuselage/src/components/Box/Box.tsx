@@ -15,21 +15,23 @@ import type { StylingProps } from './stylingProps';
 import { useStylingProps } from './useStylingProps';
 
 /** @public */
-export type BoxProps = {
+export interface BoxProps
+  extends Partial<StylingProps>,
+    Omit<
+      AllHTMLAttributes<HTMLElement>,
+      'ref' | 'is' | 'className' | keyof StylingProps
+    >,
+    Omit<
+      SVGAttributes<SVGElement>,
+      keyof AllHTMLAttributes<HTMLElement> | keyof StylingProps
+    > {
   is?: ElementType;
   className?: string | cssFn | (string | cssFn | Falsy)[];
   animated?: boolean;
   withRichContent?: boolean | 'inlineWithoutBreaks';
   htmlSize?: AllHTMLAttributes<HTMLElement>['size'];
-} & Partial<StylingProps> &
-  Omit<
-    AllHTMLAttributes<HTMLElement>,
-    'ref' | 'is' | 'className' | 'size' | 'elevation'
-  > &
-  Omit<
-    SVGAttributes<SVGElement>,
-    keyof AllHTMLAttributes<HTMLElement> | 'elevation'
-  >;
+  color?: string; // FIXME: it was `(Color | Var) & string` by mistake
+}
 
 /** @public */
 const Box = forwardRef<any, BoxProps>(function Box(

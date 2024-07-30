@@ -11,8 +11,7 @@ import type { AriaMenuProps } from 'react-aria';
 import type { AriaPopoverProps } from 'react-aria';
 import type { AriaSelectProps } from '@react-types/select';
 import { ButtonHTMLAttributes } from 'react';
-import { ComponentType } from 'react';
-import { cssFn } from '@rocket.chat/css-in-js';
+import type { cssFn } from '@rocket.chat/css-in-js';
 import type { CSSProperties } from 'react';
 import type { DetailedHTMLProps } from 'react';
 import type { Dispatch } from 'react';
@@ -45,7 +44,7 @@ import { RefAttributes } from 'react';
 import type { RefObject } from 'react';
 import type { SectionProps } from '@react-types/shared';
 import type { SetStateAction } from 'react';
-import { SVGAttributes } from 'react';
+import type { SVGAttributes } from 'react';
 import { UsePositionOptions } from '@rocket.chat/fuselage-hooks';
 
 // @internal
@@ -83,17 +82,10 @@ export type AccordionProps = BoxProps & {
     children: ReactNode;
 };
 
-// Warning: (ae-forgotten-export) The symbol "StylingProps" needs to be exported by the entry point index.d.ts
 // Warning: (ae-forgotten-export) The symbol "ButtonSize_2" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export const ActionButton: React_2.ForwardRefExoticComponent<{
-    is?: React_2.ElementType;
-    className?: string | cssFn | (string | cssFn | Falsy)[];
-    animated?: boolean;
-    withRichContent?: boolean | "inlineWithoutBreaks";
-    htmlSize?: React_2.AllHTMLAttributes<HTMLElement>["size"];
-} & Partial<StylingProps> & Omit<React_2.AllHTMLAttributes<HTMLElement>, "ref" | "is" | "className" | "size" | "elevation"> & Omit<React_2.SVGAttributes<SVGElement>, "elevation" | keyof React_2.AllHTMLAttributes<HTMLElement>> & {
+export const ActionButton: React_2.ForwardRefExoticComponent<BoxProps & {
     primary?: boolean;
     secondary?: boolean;
     danger?: boolean;
@@ -109,7 +101,7 @@ export const ActionButton: React_2.ForwardRefExoticComponent<{
     square?: boolean;
     external?: boolean;
     icon?: IconName;
-} & Omit<React_2.AllHTMLAttributes<HTMLButtonElement | HTMLAnchorElement>, "is" | "className" | "size"> & ButtonSize_2 & {
+} & Omit<React_2.AllHTMLAttributes<HTMLButtonElement | HTMLAnchorElement>, "is" | "size" | "className"> & ButtonSize_2 & {
     icon: IconName;
 } & React_2.RefAttributes<HTMLElement>>;
 
@@ -241,22 +233,27 @@ export const borderRadius: (this: unknown, arg: unknown) => string | undefined;
 export const borderWidth: (this: unknown, arg: unknown) => string | undefined;
 
 // @public (undocumented)
-export const Box: React_2.MemoExoticComponent<React_2.ForwardRefExoticComponent<{
-    is?: ElementType;
-    className?: string | cssFn | (string | cssFn | Falsy)[];
-    animated?: boolean;
-    withRichContent?: boolean | "inlineWithoutBreaks";
-    htmlSize?: AllHTMLAttributes<HTMLElement>["size"];
-} & Partial<StylingProps> & Omit<React_2.AllHTMLAttributes<HTMLElement>, "ref" | "is" | "className" | "size" | "elevation"> & Omit<React_2.SVGAttributes<SVGElement>, "elevation" | keyof React_2.AllHTMLAttributes<HTMLElement>> & React_2.RefAttributes<any>>>;
+export const Box: React_2.MemoExoticComponent<React_2.ForwardRefExoticComponent<BoxProps & React_2.RefAttributes<any>>>;
 
+// Warning: (ae-forgotten-export) The symbol "StylingProps" needs to be exported by the entry point index.d.ts
+//
 // @public (undocumented)
-export type BoxProps = {
-    is?: ElementType;
-    className?: string | cssFn | (string | cssFn | Falsy)[];
+export interface BoxProps extends Partial<StylingProps>, Omit<AllHTMLAttributes<HTMLElement>, 'ref' | 'is' | 'className' | keyof StylingProps>, Omit<SVGAttributes<SVGElement>, keyof AllHTMLAttributes<HTMLElement> | keyof StylingProps> {
+    // (undocumented)
     animated?: boolean;
-    withRichContent?: boolean | 'inlineWithoutBreaks';
+    // Warning: (ae-forgotten-export) The symbol "Falsy" needs to be exported by the entry point index.d.ts
+    //
+    // (undocumented)
+    className?: string | cssFn | (string | cssFn | Falsy)[];
+    // (undocumented)
+    color?: string;
+    // (undocumented)
     htmlSize?: AllHTMLAttributes<HTMLElement>['size'];
-} & Partial<StylingProps> & Omit<AllHTMLAttributes<HTMLElement>, 'ref' | 'is' | 'className' | 'size' | 'elevation'> & Omit<SVGAttributes<SVGElement>, keyof AllHTMLAttributes<HTMLElement> | 'elevation'>;
+    // (undocumented)
+    is?: ElementType;
+    // (undocumented)
+    withRichContent?: boolean | 'inlineWithoutBreaks';
+}
 
 // @public (undocumented)
 export function Bubble({ secondary, children, onClick, icon, onDismiss, small, contentProps, dismissProps, ...props }: BubbleProps): React_2.JSX.Element;
@@ -274,13 +271,7 @@ export type BubbleProps = {
 } & Omit<AllHTMLAttributes<HTMLDivElement>, 'onClick'>;
 
 // @public
-export const Button: React_2.ForwardRefExoticComponent<{
-    is?: React_2.ElementType;
-    className?: string | cssFn | (string | cssFn | Falsy)[];
-    animated?: boolean;
-    withRichContent?: boolean | "inlineWithoutBreaks";
-    htmlSize?: AllHTMLAttributes<HTMLElement>["size"];
-} & Partial<StylingProps> & Omit<AllHTMLAttributes<HTMLElement>, "ref" | "is" | "className" | "size" | "elevation"> & Omit<React_2.SVGAttributes<SVGElement>, "elevation" | keyof AllHTMLAttributes<HTMLElement>> & {
+export const Button: React_2.ForwardRefExoticComponent<BoxProps & {
     primary?: boolean;
     secondary?: boolean;
     danger?: boolean;
@@ -296,7 +287,7 @@ export const Button: React_2.ForwardRefExoticComponent<{
     square?: boolean;
     external?: boolean;
     icon?: IconName;
-} & Omit<AllHTMLAttributes<HTMLButtonElement | HTMLAnchorElement>, "is" | "className" | "size"> & React_2.RefAttributes<HTMLElement>>;
+} & Omit<AllHTMLAttributes<HTMLButtonElement | HTMLAnchorElement>, "is" | "size" | "className"> & React_2.RefAttributes<HTMLElement>>;
 
 // @public (undocumented)
 export const ButtonGroup: React_2.ForwardRefExoticComponent<{
@@ -401,13 +392,7 @@ export const CardTitle: ({ children, info, variant, ...props }: {
 } & Omit<AllHTMLAttributes<HTMLElement>, "is">) => React_2.JSX.Element;
 
 // @public (undocumented)
-export const CheckBox: React_2.ForwardRefExoticComponent<{
-    is?: React_2.ElementType;
-    className?: string | cssFn | (string | cssFn | Falsy)[];
-    animated?: boolean;
-    withRichContent?: boolean | "inlineWithoutBreaks";
-    htmlSize?: AllHTMLAttributes<HTMLElement>["size"];
-} & Partial<StylingProps> & Omit<AllHTMLAttributes<HTMLElement>, "ref" | "is" | "className" | "size" | "elevation"> & Omit<React_2.SVGAttributes<SVGElement>, "elevation" | keyof AllHTMLAttributes<HTMLElement>> & {
+export const CheckBox: React_2.ForwardRefExoticComponent<BoxProps & {
     indeterminate?: boolean;
 } & AllHTMLAttributes<HTMLInputElement> & React_2.RefAttributes<HTMLInputElement>>;
 
@@ -425,13 +410,16 @@ export type CheckOptionProps = OptionProps;
 export function Chevron({ up, right, down, left, size, ...props }: ChevronProps): ReactElement<ChevronProps>;
 
 // @public (undocumented)
-export const Chip: ComponentType<Omit<ButtonHTMLAttributes<HTMLButtonElement>, "type"> & {
-thumbUrl?: string;
-renderThumb?: (props: {
-url: string;
-}) => ReactNode;
-renderDismissSymbol?: () => ReactNode;
-} & Partial<StylingProps>>;
+export const Chip: {
+    (props: Omit<ButtonHTMLAttributes<HTMLButtonElement>, "type"> & {
+        thumbUrl?: string;
+        renderThumb?: (props: {
+            url: string;
+        }) => ReactNode;
+        renderDismissSymbol?: () => ReactNode;
+    } & Partial<StylingProps>): JSX_2.Element;
+    displayName: string;
+};
 
 // Warning: (ae-forgotten-export) The symbol "CodeSnippetProps" needs to be exported by the entry point index.d.ts
 //
@@ -442,13 +430,7 @@ export const CodeSnippet: ({ children, onClick, buttonText, buttonDisabled, ...p
 export const color: (this: unknown, arg: unknown) => string | undefined;
 
 // @public (undocumented)
-export const Contextualbar: React_2.MemoExoticComponent<React_2.ForwardRefExoticComponent<{
-    is?: React_2.ElementType;
-    className?: string | cssFn | (string | cssFn | Falsy)[];
-    animated?: boolean;
-    withRichContent?: boolean | "inlineWithoutBreaks";
-    htmlSize?: React_2.AllHTMLAttributes<HTMLElement>["size"];
-} & Partial<StylingProps> & Omit<React_2.AllHTMLAttributes<HTMLElement>, "ref" | "is" | "className" | "size" | "elevation"> & Omit<React_2.SVGAttributes<SVGElement>, "elevation" | keyof React_2.AllHTMLAttributes<HTMLElement>> & React_2.RefAttributes<HTMLElement>>>;
+export const Contextualbar: React_2.MemoExoticComponent<React_2.ForwardRefExoticComponent<BoxProps & React_2.RefAttributes<HTMLElement>>>;
 
 // Warning: (ae-forgotten-export) The symbol "ContextualbarActionProps" needs to be exported by the entry point index.d.ts
 //
@@ -466,35 +448,17 @@ export const ContextualbarActions: React_2.MemoExoticComponent<(props: Contextua
 export const ContextualbarButton: React_2.MemoExoticComponent<(props: ContextualbarButtonProps) => ReactElement>;
 
 // @public (undocumented)
-export const ContextualbarContent: React_2.MemoExoticComponent<React_2.ForwardRefExoticComponent<{
-    is?: React_2.ElementType;
-    className?: string | cssFn | (string | cssFn | Falsy)[];
-    animated?: boolean;
-    withRichContent?: boolean | "inlineWithoutBreaks";
-    htmlSize?: React_2.AllHTMLAttributes<HTMLElement>["size"];
-} & Partial<StylingProps> & Omit<React_2.AllHTMLAttributes<HTMLElement>, "ref" | "is" | "className" | "size" | "elevation"> & Omit<React_2.SVGAttributes<SVGElement>, "elevation" | keyof React_2.AllHTMLAttributes<HTMLElement>> & React_2.RefAttributes<HTMLElement>>>;
+export const ContextualbarContent: React_2.MemoExoticComponent<React_2.ForwardRefExoticComponent<BoxProps & React_2.RefAttributes<HTMLElement>>>;
 
 // @public (undocumented)
-export const ContextualbarEmptyContent: React_2.MemoExoticComponent<React_2.ForwardRefExoticComponent<{
-    is?: React_2.ElementType;
-    className?: string | cssFn | (string | cssFn | Falsy)[];
-    animated?: boolean;
-    withRichContent?: boolean | "inlineWithoutBreaks";
-    htmlSize?: React_2.AllHTMLAttributes<HTMLElement>["size"];
-} & Partial<StylingProps> & Omit<React_2.AllHTMLAttributes<HTMLElement>, "ref" | "is" | "className" | "size" | "elevation"> & Omit<React_2.SVGAttributes<SVGElement>, "elevation" | keyof React_2.AllHTMLAttributes<HTMLElement>> & {
+export const ContextualbarEmptyContent: React_2.MemoExoticComponent<React_2.ForwardRefExoticComponent<BoxProps & {
     icon?: IconName;
     title?: string;
     subtitle?: string;
 } & React_2.RefAttributes<HTMLElement>>>;
 
 // @public (undocumented)
-export const ContextualbarFooter: React_2.MemoExoticComponent<React_2.ForwardRefExoticComponent<{
-    is?: React_2.ElementType;
-    className?: string | cssFn | (string | cssFn | Falsy)[];
-    animated?: boolean;
-    withRichContent?: boolean | "inlineWithoutBreaks";
-    htmlSize?: React_2.AllHTMLAttributes<HTMLElement>["size"];
-} & Partial<StylingProps> & Omit<React_2.AllHTMLAttributes<HTMLElement>, "ref" | "is" | "className" | "size" | "elevation"> & Omit<React_2.SVGAttributes<SVGElement>, "elevation" | keyof React_2.AllHTMLAttributes<HTMLElement>> & React_2.RefAttributes<HTMLElement>>>;
+export const ContextualbarFooter: React_2.MemoExoticComponent<React_2.ForwardRefExoticComponent<BoxProps & React_2.RefAttributes<HTMLElement>>>;
 
 // Warning: (ae-forgotten-export) The symbol "ContextualbarHeaderProps" needs to be exported by the entry point index.d.ts
 //
@@ -507,13 +471,7 @@ export const ContextualbarHeader: React_2.MemoExoticComponent<({ children, ...pr
 export const ContextualbarIcon: React_2.MemoExoticComponent<(props: ContextualbarIconProps) => ReactElement>;
 
 // @public (undocumented)
-export const ContextualbarSection: React_2.MemoExoticComponent<React_2.ForwardRefExoticComponent<{
-    is?: React_2.ElementType;
-    className?: string | cssFn | (string | cssFn | Falsy)[];
-    animated?: boolean;
-    withRichContent?: boolean | "inlineWithoutBreaks";
-    htmlSize?: React_2.AllHTMLAttributes<HTMLElement>["size"];
-} & Partial<StylingProps> & Omit<React_2.AllHTMLAttributes<HTMLElement>, "ref" | "is" | "className" | "size" | "elevation"> & Omit<React_2.SVGAttributes<SVGElement>, "elevation" | keyof React_2.AllHTMLAttributes<HTMLElement>> & React_2.RefAttributes<HTMLElement>>>;
+export const ContextualbarSection: React_2.MemoExoticComponent<React_2.ForwardRefExoticComponent<BoxProps & React_2.RefAttributes<HTMLElement>>>;
 
 // Warning: (ae-forgotten-export) The symbol "ContextualbarSkeletonProps" needs to be exported by the entry point index.d.ts
 //
@@ -526,13 +484,7 @@ export const ContextualbarSkeleton: React_2.MemoExoticComponent<(props: Contextu
 export const ContextualbarTitle: React_2.MemoExoticComponent<(props: ContextualbarTitleProps) => React_2.JSX.Element>;
 
 // @public (undocumented)
-export const ContextualbarV2: React_2.MemoExoticComponent<React_2.ForwardRefExoticComponent<{
-    is?: React_2.ElementType;
-    className?: string | cssFn | (string | cssFn | Falsy)[];
-    animated?: boolean;
-    withRichContent?: boolean | "inlineWithoutBreaks";
-    htmlSize?: React_2.AllHTMLAttributes<HTMLElement>["size"];
-} & Partial<StylingProps> & Omit<React_2.AllHTMLAttributes<HTMLElement>, "ref" | "is" | "className" | "size" | "elevation"> & Omit<React_2.SVGAttributes<SVGElement>, "elevation" | keyof React_2.AllHTMLAttributes<HTMLElement>> & React_2.RefAttributes<HTMLElement>>>;
+export const ContextualbarV2: React_2.MemoExoticComponent<React_2.ForwardRefExoticComponent<BoxProps & React_2.RefAttributes<HTMLElement>>>;
 
 // Warning: (ae-forgotten-export) The symbol "ContextualbarActionProps_2" needs to be exported by the entry point index.d.ts
 //
@@ -550,35 +502,17 @@ export const ContextualbarV2Actions: React_2.MemoExoticComponent<(props: Context
 export const ContextualbarV2Button: React_2.MemoExoticComponent<(props: ContextualbarButtonProps_2) => ReactElement>;
 
 // @public (undocumented)
-export const ContextualbarV2Content: React_2.MemoExoticComponent<React_2.ForwardRefExoticComponent<{
-    is?: React_2.ElementType;
-    className?: string | cssFn | (string | cssFn | Falsy)[];
-    animated?: boolean;
-    withRichContent?: boolean | "inlineWithoutBreaks";
-    htmlSize?: React_2.AllHTMLAttributes<HTMLElement>["size"];
-} & Partial<StylingProps> & Omit<React_2.AllHTMLAttributes<HTMLElement>, "ref" | "is" | "className" | "size" | "elevation"> & Omit<React_2.SVGAttributes<SVGElement>, "elevation" | keyof React_2.AllHTMLAttributes<HTMLElement>> & React_2.RefAttributes<HTMLElement>>>;
+export const ContextualbarV2Content: React_2.MemoExoticComponent<React_2.ForwardRefExoticComponent<BoxProps & React_2.RefAttributes<HTMLElement>>>;
 
 // @public (undocumented)
-export const ContextualbarV2EmptyContent: React_2.MemoExoticComponent<React_2.ForwardRefExoticComponent<{
-    is?: React_2.ElementType;
-    className?: string | cssFn | (string | cssFn | Falsy)[];
-    animated?: boolean;
-    withRichContent?: boolean | "inlineWithoutBreaks";
-    htmlSize?: React_2.AllHTMLAttributes<HTMLElement>["size"];
-} & Partial<StylingProps> & Omit<React_2.AllHTMLAttributes<HTMLElement>, "ref" | "is" | "className" | "size" | "elevation"> & Omit<React_2.SVGAttributes<SVGElement>, "elevation" | keyof React_2.AllHTMLAttributes<HTMLElement>> & {
+export const ContextualbarV2EmptyContent: React_2.MemoExoticComponent<React_2.ForwardRefExoticComponent<BoxProps & {
     icon?: IconName;
     title?: string;
     subtitle?: string;
 } & React_2.RefAttributes<HTMLElement>>>;
 
 // @public (undocumented)
-export const ContextualbarV2Footer: React_2.MemoExoticComponent<React_2.ForwardRefExoticComponent<{
-    is?: React_2.ElementType;
-    className?: string | cssFn | (string | cssFn | Falsy)[];
-    animated?: boolean;
-    withRichContent?: boolean | "inlineWithoutBreaks";
-    htmlSize?: React_2.AllHTMLAttributes<HTMLElement>["size"];
-} & Partial<StylingProps> & Omit<React_2.AllHTMLAttributes<HTMLElement>, "ref" | "is" | "className" | "size" | "elevation"> & Omit<React_2.SVGAttributes<SVGElement>, "elevation" | keyof React_2.AllHTMLAttributes<HTMLElement>> & React_2.RefAttributes<HTMLElement>>>;
+export const ContextualbarV2Footer: React_2.MemoExoticComponent<React_2.ForwardRefExoticComponent<BoxProps & React_2.RefAttributes<HTMLElement>>>;
 
 // Warning: (ae-forgotten-export) The symbol "ContextualbarHeaderProps_2" needs to be exported by the entry point index.d.ts
 //
@@ -591,13 +525,7 @@ export const ContextualbarV2Header: React_2.MemoExoticComponent<({ children, ...
 export const ContextualbarV2Icon: React_2.MemoExoticComponent<(props: ContextualbarIconProps_2) => ReactElement>;
 
 // @public (undocumented)
-export const ContextualbarV2Section: React_2.MemoExoticComponent<React_2.ForwardRefExoticComponent<{
-    is?: React_2.ElementType;
-    className?: string | cssFn | (string | cssFn | Falsy)[];
-    animated?: boolean;
-    withRichContent?: boolean | "inlineWithoutBreaks";
-    htmlSize?: React_2.AllHTMLAttributes<HTMLElement>["size"];
-} & Partial<StylingProps> & Omit<React_2.AllHTMLAttributes<HTMLElement>, "ref" | "is" | "className" | "size" | "elevation"> & Omit<React_2.SVGAttributes<SVGElement>, "elevation" | keyof React_2.AllHTMLAttributes<HTMLElement>> & React_2.RefAttributes<HTMLElement>>>;
+export const ContextualbarV2Section: React_2.MemoExoticComponent<React_2.ForwardRefExoticComponent<BoxProps & React_2.RefAttributes<HTMLElement>>>;
 
 // Warning: (ae-forgotten-export) The symbol "ContextualbarSkeletonProps_2" needs to be exported by the entry point index.d.ts
 //
@@ -736,10 +664,7 @@ export type GridItemProps = BoxProps & {
 };
 
 // @public (undocumented)
-export const Icon: React_2.ForwardRefExoticComponent<Omit<BoxProps, "size" | "name"> & {
-    name: IconName;
-    size?: BoxProps["width"];
-} & React_2.RefAttributes<HTMLElement>>;
+export const Icon: React_2.ForwardRefExoticComponent<IconProps & React_2.RefAttributes<HTMLElement>>;
 
 // Warning: (ae-forgotten-export) The symbol "ButtonSize" needs to be exported by the entry point index.d.ts
 //
@@ -753,13 +678,7 @@ export const IconButton: React_2.ForwardRefExoticComponent<{
     warning?: boolean;
     success?: boolean;
     pressed?: boolean;
-} & ButtonSize & {
-    is?: React_2.ElementType;
-    className?: string | cssFn | (string | cssFn | Falsy)[];
-    animated?: boolean;
-    withRichContent?: boolean | "inlineWithoutBreaks";
-    htmlSize?: React_2.AllHTMLAttributes<HTMLElement>["size"];
-} & Partial<StylingProps> & Omit<React_2.AllHTMLAttributes<HTMLElement>, "ref" | "is" | "className" | "size" | "elevation"> & Omit<React_2.SVGAttributes<SVGElement>, "elevation" | keyof React_2.AllHTMLAttributes<HTMLElement>> & React_2.RefAttributes<HTMLElement>>;
+} & ButtonSize & BoxProps & React_2.RefAttributes<HTMLElement>>;
 
 // @public (undocumented)
 export type IconButtonProps = {
@@ -774,19 +693,15 @@ export type IconButtonProps = {
 } & ButtonSize & BoxProps;
 
 // @public (undocumented)
-export type IconProps = Omit<BoxProps, 'name' | 'size'> & {
+export interface IconProps extends Omit<BoxProps, 'name' | 'size'> {
+    // (undocumented)
     name: IconName;
+    // (undocumented)
     size?: BoxProps['width'];
-};
+}
 
 // @public (undocumented)
-export const Input: React_2.ForwardRefExoticComponent<{
-    is?: React_2.ElementType;
-    className?: string | cssFn | (string | cssFn | Falsy)[];
-    animated?: boolean;
-    withRichContent?: boolean | "inlineWithoutBreaks";
-    htmlSize?: React_2.AllHTMLAttributes<HTMLElement>["size"];
-} & Partial<StylingProps> & Omit<React_2.AllHTMLAttributes<HTMLElement>, "ref" | "is" | "className" | "size" | "elevation"> & Omit<React_2.SVGAttributes<SVGElement>, "elevation" | keyof React_2.AllHTMLAttributes<HTMLElement>> & React_2.RefAttributes<HTMLInputElement>>;
+export const Input: React_2.ForwardRefExoticComponent<BoxProps & React_2.RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
 export type InputBox = ForwardRefExoticComponent<InputBoxProps & RefAttributes<any>> & {
@@ -914,13 +829,7 @@ highlight?: boolean;
         small?: boolean;
         tiny?: boolean;
         mini?: boolean;
-        } & {
-        is?: ElementType;
-        className?: string | cssFn | (string | cssFn | Falsy)[];
-        animated?: boolean;
-        withRichContent?: boolean | "inlineWithoutBreaks";
-        htmlSize?: AllHTMLAttributes<HTMLElement>["size"];
-        } & Partial<StylingProps> & Omit<AllHTMLAttributes<HTMLElement>, "ref" | "is" | "className" | "size" | "elevation"> & Omit<SVGAttributes<SVGElement>, "elevation" | keyof AllHTMLAttributes<HTMLElement>> & RefAttributes<HTMLButtonElement>>;
+        } & BoxProps & RefAttributes<HTMLButtonElement>>;
         Wrapper: ForwardRefExoticComponent<HTMLAttributes<HTMLDivElement> & {
         visible?: boolean;
         } & RefAttributes<HTMLDivElement>>;
@@ -949,13 +858,7 @@ highlight?: boolean;
     }) => ReactElement;
     Block: ({ className: _className, fixedWidth, ...props }: {
         fixedWidth?: boolean;
-    } & {
-        is?: ElementType;
-        className?: string | cssFn | (string | cssFn | Falsy)[];
-        animated?: boolean;
-        withRichContent?: boolean | "inlineWithoutBreaks";
-        htmlSize?: AllHTMLAttributes<HTMLElement>["size"];
-    } & Partial<StylingProps> & Omit<AllHTMLAttributes<HTMLElement>, "ref" | "is" | "className" | "size" | "elevation"> & Omit<SVGAttributes<SVGElement>, "elevation" | keyof AllHTMLAttributes<HTMLElement>>) => JSX_2.Element;
+    } & BoxProps) => JSX_2.Element;
     Timestamp: (props: HTMLAttributes<HTMLSpanElement>) => JSX_2.Element;
     NameContainer: ForwardRefExoticComponent<HTMLAttributes<HTMLSpanElement> & RefAttributes<HTMLSpanElement>>;
     Name: (props: MessageNameProps) => JSX_2.Element;
@@ -1214,13 +1117,7 @@ export const MessageToolbarItem: React_2.ForwardRefExoticComponent<{
     small?: boolean;
     tiny?: boolean;
     mini?: boolean;
-} & {
-    is?: React_2.ElementType;
-    className?: string | cssFn | (string | cssFn | Falsy)[];
-    animated?: boolean;
-    withRichContent?: boolean | "inlineWithoutBreaks";
-    htmlSize?: React_2.AllHTMLAttributes<HTMLElement>["size"];
-} & Partial<StylingProps> & Omit<React_2.AllHTMLAttributes<HTMLElement>, "ref" | "is" | "className" | "size" | "elevation"> & Omit<React_2.SVGAttributes<SVGElement>, "elevation" | keyof React_2.AllHTMLAttributes<HTMLElement>> & React_2.RefAttributes<HTMLButtonElement>>;
+} & BoxProps & React_2.RefAttributes<HTMLButtonElement>>;
 
 // @public (undocumented)
 export const MessageToolbarWrapper: React_2.ForwardRefExoticComponent<HTMLAttributes<HTMLDivElement> & {
@@ -1234,13 +1131,7 @@ export const MessageUsername: (props: HTMLAttributes<HTMLSpanElement>) => React_
 export const Modal: ForwardRefExoticComponent<    {
 wrapperFunction?: (props: Pick<BoxProps, "elevation" | "className" | "children">) => ReactNode;
 wrapper?: ElementType<Pick<BoxProps, "elevation" | "className" | "children">>;
-} & {
-is?: ElementType;
-className?: string | cssFn | (string | cssFn | Falsy)[];
-animated?: boolean;
-withRichContent?: boolean | "inlineWithoutBreaks";
-htmlSize?: AllHTMLAttributes<HTMLElement>["size"];
-} & Partial<StylingProps> & Omit<AllHTMLAttributes<HTMLElement>, "ref" | "is" | "className" | "size" | "elevation"> & Omit<SVGAttributes<SVGElement>, "elevation" | keyof AllHTMLAttributes<HTMLElement>> & RefAttributes<Element>> & {
+} & BoxProps & RefAttributes<Element>> & {
     Backdrop: (props: ModalBackdropProps) => JSX_2.Element;
     Close: (props: ModalCloseProps) => JSX_2.Element;
     Content: ({ children, onScrollContent, ...props }: ModalContentProps) => JSX_2.Element;
@@ -1414,13 +1305,7 @@ export type OptionColumnProps = {
 };
 
 // @public (undocumented)
-export const OptionContainer: React_2.ForwardRefExoticComponent<{
-    is?: React_2.ElementType;
-    className?: string | cssFn | (string | cssFn | Falsy)[];
-    animated?: boolean;
-    withRichContent?: boolean | "inlineWithoutBreaks";
-    htmlSize?: React_2.AllHTMLAttributes<HTMLElement>["size"];
-} & Partial<StylingProps> & Omit<React_2.AllHTMLAttributes<HTMLElement>, "ref" | "is" | "className" | "size" | "elevation"> & Omit<React_2.SVGAttributes<SVGElement>, "elevation" | keyof React_2.AllHTMLAttributes<HTMLElement>> & React_2.RefAttributes<HTMLElement>>;
+export const OptionContainer: React_2.ForwardRefExoticComponent<BoxProps & React_2.RefAttributes<HTMLElement>>;
 
 // @public (undocumented)
 export type OptionContainerProps = BoxProps;
@@ -1701,13 +1586,7 @@ export const ProgressBar: React_2.ForwardRefExoticComponent<{
 } & Omit<AllHTMLAttributes<HTMLElement>, "is"> & React_2.RefAttributes<unknown>>;
 
 // @public (undocumented)
-export const RadioButton: React_2.ForwardRefExoticComponent<{
-    is?: React_2.ElementType;
-    className?: string | cssFn | (string | cssFn | Falsy)[];
-    animated?: boolean;
-    withRichContent?: boolean | "inlineWithoutBreaks";
-    htmlSize?: AllHTMLAttributes<HTMLElement>["size"];
-} & Partial<StylingProps> & Omit<AllHTMLAttributes<HTMLElement>, "ref" | "is" | "className" | "size" | "elevation"> & Omit<React_2.SVGAttributes<SVGElement>, "elevation" | keyof AllHTMLAttributes<HTMLElement>> & AllHTMLAttributes<HTMLInputElement> & React_2.RefAttributes<HTMLInputElement>>;
+export const RadioButton: React_2.ForwardRefExoticComponent<BoxProps & AllHTMLAttributes<HTMLInputElement> & React_2.RefAttributes<HTMLInputElement>>;
 
 // Warning: (ae-forgotten-export) The symbol "ScrollableProps" needs to be exported by the entry point index.d.ts
 //
@@ -1766,13 +1645,7 @@ export const SelectInput: React_2.ForwardRefExoticComponent<Omit<InputBoxProps, 
 } & React_2.RefAttributes<HTMLElement>>;
 
 // @public (undocumented)
-export const SelectInputOption: ForwardRefExoticComponent<    {
-is?: ElementType;
-className?: string | cssFn | (string | cssFn | Falsy)[];
-animated?: boolean;
-withRichContent?: boolean | "inlineWithoutBreaks";
-htmlSize?: AllHTMLAttributes<HTMLElement>["size"];
-} & Partial<StylingProps> & Omit<AllHTMLAttributes<HTMLElement>, "ref" | "is" | "className" | "size" | "elevation"> & Omit<SVGAttributes<SVGElement>, "elevation" | keyof AllHTMLAttributes<HTMLElement>> & RefAttributes<HTMLInputElement>>;
+export const SelectInputOption: ForwardRefExoticComponent<BoxProps & RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
 export const SelectLegacy: React_2.ForwardRefExoticComponent<Omit<BoxProps, "onChange"> & {
@@ -1858,13 +1731,7 @@ export const Sidebar: ((props: SidebarProps) => React_2.JSX.Element) & {
             small?: boolean;
             tiny?: boolean;
             mini?: boolean;
-        } & {
-            is?: React_2.ElementType;
-            className?: string | cssFn | (string | cssFn | Falsy)[];
-            animated?: boolean;
-            withRichContent?: boolean | "inlineWithoutBreaks";
-            htmlSize?: React_2.AllHTMLAttributes<HTMLElement>["size"];
-        } & Partial<StylingProps> & Omit<React_2.AllHTMLAttributes<HTMLElement>, "ref" | "is" | "className" | "size" | "elevation"> & Omit<React_2.SVGAttributes<SVGElement>, "elevation" | keyof React_2.AllHTMLAttributes<HTMLElement>> & React_2.RefAttributes<HTMLElement>>;
+        } & BoxProps & React_2.RefAttributes<HTMLElement>>;
         Divider: () => React_2.JSX.Element;
         Title: (props: {
             children?: React_2.ReactNode;
@@ -2084,13 +1951,7 @@ export const SidebarTopBar: (({ className, ...props }: {
     small?: boolean;
     tiny?: boolean;
     mini?: boolean;
-    } & {
-    is?: ElementType;
-    className?: string | cssFn | (string | cssFn | Falsy)[];
-    animated?: boolean;
-    withRichContent?: boolean | "inlineWithoutBreaks";
-    htmlSize?: AllHTMLAttributes<HTMLElement>["size"];
-    } & Partial<StylingProps> & Omit<AllHTMLAttributes<HTMLElement>, "ref" | "is" | "className" | "size" | "elevation"> & Omit<SVGAttributes<SVGElement>, "elevation" | keyof AllHTMLAttributes<HTMLElement>> & RefAttributes<HTMLElement>>;
+    } & BoxProps & RefAttributes<HTMLElement>>;
     Divider: () => JSX_2.Element;
     Title: (props: {
         children?: ReactNode;
@@ -2238,26 +2099,14 @@ export function Tabs({ children, divider, ...props }: TabsProps): React_2.JSX.El
 // @public (undocumented)
 export namespace Tabs {
     var // (undocumented)
-    Item: React_2.ForwardRefExoticComponent<{
-        is?: React_2.ElementType;
-        className?: string | cssFn | (string | cssFn | Falsy)[];
-        animated?: boolean;
-        withRichContent?: boolean | "inlineWithoutBreaks";
-        htmlSize?: React_2.AllHTMLAttributes<HTMLElement>["size"];
-    } & Partial<StylingProps> & Omit<React_2.AllHTMLAttributes<HTMLElement>, "ref" | "is" | "className" | "size" | "elevation"> & Omit<React_2.SVGAttributes<SVGElement>, "elevation" | keyof React_2.AllHTMLAttributes<HTMLElement>> & {
+    Item: React_2.ForwardRefExoticComponent<BoxProps & {
         selected?: boolean;
         disabled?: boolean;
     } & React_2.RefAttributes<HTMLButtonElement>>;
 }
 
 // @public (undocumented)
-export const TabsItem: React_2.ForwardRefExoticComponent<{
-    is?: React_2.ElementType;
-    className?: string | cssFn | (string | cssFn | Falsy)[];
-    animated?: boolean;
-    withRichContent?: boolean | "inlineWithoutBreaks";
-    htmlSize?: React_2.AllHTMLAttributes<HTMLElement>["size"];
-} & Partial<StylingProps> & Omit<React_2.AllHTMLAttributes<HTMLElement>, "ref" | "is" | "className" | "size" | "elevation"> & Omit<React_2.SVGAttributes<SVGElement>, "elevation" | keyof React_2.AllHTMLAttributes<HTMLElement>> & {
+export const TabsItem: React_2.ForwardRefExoticComponent<BoxProps & {
     selected?: boolean;
     disabled?: boolean;
 } & React_2.RefAttributes<HTMLButtonElement>>;
@@ -2349,13 +2198,7 @@ export const Throbber: React_2.ForwardRefExoticComponent<Omit<BoxProps, "disable
 } & React_2.RefAttributes<HTMLElement>>;
 
 // @public (undocumented)
-export const Tile: React_2.ForwardRefExoticComponent<{
-    is?: React_2.ElementType;
-    className?: string | cssFn | (string | cssFn | Falsy)[];
-    animated?: boolean;
-    withRichContent?: boolean | "inlineWithoutBreaks";
-    htmlSize?: React_2.AllHTMLAttributes<HTMLElement>["size"];
-} & Partial<StylingProps> & Omit<React_2.AllHTMLAttributes<HTMLElement>, "ref" | "is" | "className" | "size" | "elevation"> & Omit<React_2.SVGAttributes<SVGElement>, "elevation" | keyof React_2.AllHTMLAttributes<HTMLElement>> & React_2.RefAttributes<HTMLElement>>;
+export const Tile: React_2.ForwardRefExoticComponent<BoxProps & React_2.RefAttributes<HTMLElement>>;
 
 // @public (undocumented)
 export function ToastBar({ children, className, variant, time, isPaused, id, onClose, buttonLabel, ...props }: ToastBarProps): React_2.JSX.Element;
@@ -2373,22 +2216,10 @@ export type ToastBarProps = {
 } & Omit<AllHTMLAttributes<HTMLElement>, 'is'>;
 
 // @public (undocumented)
-export const ToggleSwitch: React_2.ForwardRefExoticComponent<{
-    is?: React_2.ElementType;
-    className?: string | cssFn | (string | cssFn | Falsy)[];
-    animated?: boolean;
-    withRichContent?: boolean | "inlineWithoutBreaks";
-    htmlSize?: AllHTMLAttributes<HTMLElement>["size"];
-} & Partial<StylingProps> & Omit<AllHTMLAttributes<HTMLElement>, "ref" | "is" | "className" | "size" | "elevation"> & Omit<React_2.SVGAttributes<SVGElement>, "elevation" | keyof AllHTMLAttributes<HTMLElement>> & AllHTMLAttributes<HTMLInputElement> & React_2.RefAttributes<HTMLInputElement>>;
+export const ToggleSwitch: React_2.ForwardRefExoticComponent<BoxProps & AllHTMLAttributes<HTMLInputElement> & React_2.RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
-export const Tooltip: React_2.ForwardRefExoticComponent<{
-    is?: React_2.ElementType;
-    className?: string | cssFn | (string | cssFn | Falsy)[];
-    animated?: boolean;
-    withRichContent?: boolean | "inlineWithoutBreaks";
-    htmlSize?: React_2.AllHTMLAttributes<HTMLElement>["size"];
-} & Partial<StylingProps> & Omit<React_2.AllHTMLAttributes<HTMLElement>, "ref" | "is" | "className" | "size" | "elevation"> & Omit<React_2.SVGAttributes<SVGElement>, "elevation" | keyof React_2.AllHTMLAttributes<HTMLElement>> & {
+export const Tooltip: React_2.ForwardRefExoticComponent<BoxProps & {
     variation?: "dark" | "light";
     placement?: "top-start" | "top-middle" | "top-end" | "bottom-start" | "bottom-middle" | "bottom-end" | "top" | "left" | "bottom" | "right" | null;
 } & React_2.RefAttributes<HTMLElement>>;
@@ -2414,13 +2245,7 @@ export const TopBarAction: React_2.ForwardRefExoticComponent<{
     small?: boolean;
     tiny?: boolean;
     mini?: boolean;
-} & {
-    is?: React_2.ElementType;
-    className?: string | cssFn | (string | cssFn | Falsy)[];
-    animated?: boolean;
-    withRichContent?: boolean | "inlineWithoutBreaks";
-    htmlSize?: React_2.AllHTMLAttributes<HTMLElement>["size"];
-} & Partial<StylingProps> & Omit<React_2.AllHTMLAttributes<HTMLElement>, "ref" | "is" | "className" | "size" | "elevation"> & Omit<React_2.SVGAttributes<SVGElement>, "elevation" | keyof React_2.AllHTMLAttributes<HTMLElement>> & React_2.RefAttributes<HTMLElement>>;
+} & BoxProps & React_2.RefAttributes<HTMLElement>>;
 
 // @public (undocumented)
 export const TopBarActions: React_2.ForwardRefExoticComponent<{
@@ -2467,13 +2292,6 @@ export const TopBarWrapper: ({ children }: TopBarWrapperProps) => React_2.JSX.El
 // @public (undocumented)
 export const UrlInput: React_2.ForwardRefExoticComponent<UrlInputProps & React_2.RefAttributes<HTMLElement>>;
 
-// @public (undocumented)
-export const useArrayLikeClassNameProp: <T extends {
-    className?: string | cssFn | (string | cssFn | Falsy)[];
-}>(props: T) => T & {
-    className: string;
-};
-
 // Warning: (ae-forgotten-export) The symbol "UseCursorOnChange" needs to be exported by the entry point index.d.ts
 // Warning: (ae-forgotten-export) The symbol "useVisible" needs to be exported by the entry point index.d.ts
 //
@@ -2491,26 +2309,25 @@ export const Wrapper: (props: WrapperProps) => React_2.JSX.Element;
 // src/components/AnimatedVisibility/index.ts:4:5 - (ae-forgotten-export) The symbol "VisibilityType" needs to be exported by the entry point index.d.ts
 // src/components/AutoComplete/AutoComplete.tsx:42:3 - (ae-forgotten-export) The symbol "AutoCompleteOption" needs to be exported by the entry point index.d.ts
 // src/components/Banner/Banner.tsx:34:3 - (ae-forgotten-export) The symbol "VariantType" needs to be exported by the entry point index.d.ts
-// src/components/Button/ActionButton.tsx:31:19 - (ae-forgotten-export) The symbol "Falsy" needs to be exported by the entry point index.d.ts
 // src/components/Flex/index.ts:4:5 - (ae-forgotten-export) The symbol "FlexContainer" needs to be exported by the entry point index.d.ts
 // src/components/Flex/index.ts:5:5 - (ae-forgotten-export) The symbol "FlexItem" needs to be exported by the entry point index.d.ts
 // src/components/Grid/Grid.tsx:15:18 - (ae-forgotten-export) The symbol "GridProps" needs to be exported by the entry point index.d.ts
 // src/components/InputBox/InputBox.tsx:61:3 - (ae-forgotten-export) The symbol "OptionProps_2" needs to be exported by the entry point index.d.ts
 // src/components/InputBox/InputBox.tsx:62:3 - (ae-forgotten-export) The symbol "PlaceholderProps" needs to be exported by the entry point index.d.ts
 // src/components/Menu/V2/Menu.tsx:37:11 - (ae-forgotten-export) The symbol "MenuButtonProps" needs to be exported by the entry point index.d.ts
-// src/components/Modal/index.ts:14:43 - (ae-forgotten-export) The symbol "ModalThumbProps" needs to be exported by the entry point index.d.ts
-// src/components/Modal/index.ts:14:43 - (ae-forgotten-export) The symbol "ModalTitleProps" needs to be exported by the entry point index.d.ts
-// src/components/Modal/index.ts:25:5 - (ae-forgotten-export) The symbol "ModalBackdropProps" needs to be exported by the entry point index.d.ts
-// src/components/Modal/index.ts:26:5 - (ae-forgotten-export) The symbol "ModalCloseProps" needs to be exported by the entry point index.d.ts
-// src/components/Modal/index.ts:27:5 - (ae-forgotten-export) The symbol "ModalContentProps" needs to be exported by the entry point index.d.ts
-// src/components/Modal/index.ts:28:5 - (ae-forgotten-export) The symbol "ModalFooterProps" needs to be exported by the entry point index.d.ts
-// src/components/Modal/index.ts:29:5 - (ae-forgotten-export) The symbol "ModalHeaderProps" needs to be exported by the entry point index.d.ts
-// src/components/Modal/index.ts:30:5 - (ae-forgotten-export) The symbol "ModalIconProps" needs to be exported by the entry point index.d.ts
-// src/components/Modal/index.ts:33:5 - (ae-forgotten-export) The symbol "ModalTaglineProps" needs to be exported by the entry point index.d.ts
-// src/components/Modal/index.ts:34:5 - (ae-forgotten-export) The symbol "ModalHeaderTextProps" needs to be exported by the entry point index.d.ts
-// src/components/Modal/index.ts:35:5 - (ae-forgotten-export) The symbol "ModalHeroImageProps" needs to be exported by the entry point index.d.ts
-// src/components/Modal/index.ts:36:5 - (ae-forgotten-export) The symbol "ModalFooterControllersProps" needs to be exported by the entry point index.d.ts
-// src/components/Modal/index.ts:37:5 - (ae-forgotten-export) The symbol "ModalFooterAnnotationProps" needs to be exported by the entry point index.d.ts
+// src/components/Modal/index.ts:14:43 - (ae-forgotten-export) The symbol "ModalFooterAnnotationProps" needs to be exported by the entry point index.d.ts
+// src/components/Modal/index.ts:19:5 - (ae-forgotten-export) The symbol "ModalBackdropProps" needs to be exported by the entry point index.d.ts
+// src/components/Modal/index.ts:20:5 - (ae-forgotten-export) The symbol "ModalCloseProps" needs to be exported by the entry point index.d.ts
+// src/components/Modal/index.ts:21:5 - (ae-forgotten-export) The symbol "ModalContentProps" needs to be exported by the entry point index.d.ts
+// src/components/Modal/index.ts:22:5 - (ae-forgotten-export) The symbol "ModalFooterProps" needs to be exported by the entry point index.d.ts
+// src/components/Modal/index.ts:23:5 - (ae-forgotten-export) The symbol "ModalHeaderProps" needs to be exported by the entry point index.d.ts
+// src/components/Modal/index.ts:24:5 - (ae-forgotten-export) The symbol "ModalIconProps" needs to be exported by the entry point index.d.ts
+// src/components/Modal/index.ts:25:5 - (ae-forgotten-export) The symbol "ModalThumbProps" needs to be exported by the entry point index.d.ts
+// src/components/Modal/index.ts:26:5 - (ae-forgotten-export) The symbol "ModalTitleProps" needs to be exported by the entry point index.d.ts
+// src/components/Modal/index.ts:27:5 - (ae-forgotten-export) The symbol "ModalTaglineProps" needs to be exported by the entry point index.d.ts
+// src/components/Modal/index.ts:28:5 - (ae-forgotten-export) The symbol "ModalHeaderTextProps" needs to be exported by the entry point index.d.ts
+// src/components/Modal/index.ts:29:5 - (ae-forgotten-export) The symbol "ModalHeroImageProps" needs to be exported by the entry point index.d.ts
+// src/components/Modal/index.ts:30:5 - (ae-forgotten-export) The symbol "ModalFooterControllersProps" needs to be exported by the entry point index.d.ts
 // src/components/MultiSelect/MultiSelect.tsx:36:3 - (ae-forgotten-export) The symbol "MultiSelectAnchorParams" needs to be exported by the entry point index.d.ts
 // src/components/PaletteStyleTag/PaletteStyleTag.tsx:15:29 - (ae-forgotten-export) The symbol "Themes" needs to be exported by the entry point index.d.ts
 // src/components/Select/Select.tsx:19:1 - (ae-forgotten-export) The symbol "SelectOption_2" needs to be exported by the entry point index.d.ts

@@ -36,7 +36,7 @@ type FontScale =
   | 'c2'
   | 'micro';
 
-export type StylingProps = {
+export interface StylingProps {
   border: CSSProperties['border'];
   borderBlock: CSSProperties['borderBlock'];
   borderBlockStart: CSSProperties['borderBlockStart'];
@@ -160,7 +160,7 @@ export type StylingProps = {
   minSize: CSSProperties['blockSize'];
   maxSize: CSSProperties['blockSize'];
   fontScale: FontScale;
-};
+}
 
 type PropDefinition =
   | {
@@ -525,9 +525,9 @@ const compiledPropDefs = new Map(
   )
 );
 
-export const extractStylingProps = <TProps extends Record<string, unknown>>(
-  props: TProps & Partial<StylingProps>
-): [props: TProps, styles: cssFn | undefined] => {
+export const extractStylingProps = <TProps extends Partial<StylingProps>>(
+  props: TProps
+): [props: Omit<TProps, keyof StylingProps>, styles: cssFn | undefined] => {
   const stylingProps = new Map<keyof StylingProps, cssFn>();
   const newProps: Record<string, unknown> = {};
 

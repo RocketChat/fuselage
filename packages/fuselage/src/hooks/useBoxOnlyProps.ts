@@ -2,17 +2,14 @@ import type { AllHTMLAttributes } from 'react';
 
 import { prependClassName } from '../helpers/prependClassName';
 
-export const useBoxOnlyProps = <
-  T extends { className: string; size?: AllHTMLAttributes<HTMLElement>['size'] }
->(
-  props: T & {
+export const useBoxOnlyProps = <TProps extends { className: string }>(
+  props: TProps & {
     animated?: boolean;
     withRichContent?: boolean | 'inlineWithoutBreaks';
-    elevation?: '0' | '1' | '2';
     htmlSize?: AllHTMLAttributes<HTMLElement>['size'];
     size?: AllHTMLAttributes<HTMLElement>['size'];
   }
-): T => {
+): TProps => {
   Object.entries(props).forEach(([key, value]) => {
     if (key.slice(0, 4) === 'rcx-') {
       try {
