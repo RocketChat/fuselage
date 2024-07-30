@@ -3,7 +3,8 @@ import React, { useCallback } from 'react';
 
 import { BoxTransforms, useComposedBoxTransform } from '../Box/BoxTransforms';
 
-type FlexItemProps = {
+/** @internal */
+export type FlexItemProps = {
   children?: ReactNode;
   order?: number;
   grow?: number;
@@ -12,6 +13,10 @@ type FlexItemProps = {
   align?: 'auto' | 'start' | 'end' | 'center' | 'stretch';
 };
 
+/**
+ * @deprecated prefer using the intrinsic style of the container component or the styling props of `Box`
+ * @internal
+ */
 function FlexItem({
   children,
   order,

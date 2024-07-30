@@ -1,13 +1,15 @@
 import type { AnchorHTMLAttributes, HTMLAttributes, ReactNode } from 'react';
 import React from 'react';
 
-type MessageGenericPreviewTitleProps = {
+/** @public */
+export type MessageGenericPreviewTitleProps = {
   children?: ReactNode;
   externalUrl?: string;
 } & HTMLAttributes<HTMLSpanElement> &
   AnchorHTMLAttributes<HTMLAnchorElement>;
 
-export const MessageGenericPreviewTitle = ({
+/** @public */
+const MessageGenericPreviewTitle = ({
   externalUrl,
   ...props
 }: MessageGenericPreviewTitleProps) =>
@@ -23,3 +25,5 @@ export const MessageGenericPreviewTitle = ({
   ) : (
     <span className='rcx-message-generic-preview__title' {...props} />
   );
+
+export default MessageGenericPreviewTitle;

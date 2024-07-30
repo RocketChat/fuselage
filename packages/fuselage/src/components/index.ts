@@ -18,7 +18,7 @@ export * from './Chevron';
 export * from './CodeSnippet';
 export * from './Contextualbar';
 export * from './ContextualbarV2';
-export { default as Chip } from './Chip';
+export * from './Chip';
 export * from './Divider';
 export * from './Dropdown';
 export * from './EmailInput';

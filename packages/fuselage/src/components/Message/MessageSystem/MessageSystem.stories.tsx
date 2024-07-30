@@ -1,21 +1,18 @@
-import type { ComponentStory } from '@storybook/react';
+import type { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 
-import {
-  MessageSystem,
-  MessageSystemBody,
-  MessageSystemContainer,
-  MessageSystemLeftContainer,
-  MessageSystemName,
-  MessageSystemTimestamp,
-} from '.';
-import {
-  MessageDivider,
-  MessageNameContainer,
-  MessageSystemBlock,
-  MessageUsername,
-} from '..';
-import { Avatar, Box } from '../..';
+import { MessageSystemLeftContainer } from '.';
+import Avatar from '../../Avatar';
+import Box from '../../Box';
+import MessageDivider from '../MessageDivider';
+import { MessageNameContainer } from '../MessageNameContainer';
+import { MessageUsername } from '../MessageUsername';
+import MessageSystem from './MessageSystem';
+import MessageSystemBlock from './MessageSystemBlock';
+import MessageSystemBody from './MessageSystemBody';
+import MessageSystemContainer from './MessageSystemContainer';
+import MessageSystemName from './MessageSystemName';
+import MessageSystemTimestamp from './MessageSystemTimestamp';
 
 export default {
   title: 'Message/MessageSystem',
@@ -23,7 +20,7 @@ export default {
   parameters: {
     jest: ['Message.spec.tsx'],
   },
-};
+} satisfies ComponentMeta<typeof MessageSystem>;
 
 export const Default: ComponentStory<typeof MessageSystem> = () => (
   <Box overflow='hidden'>

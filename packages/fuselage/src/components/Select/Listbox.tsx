@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-use-before-define */
 import type { Node } from '@react-types/shared';
+import type { RefObject } from 'react';
 import React, { useRef } from 'react';
 import type { AriaListBoxOptions } from 'react-aria';
 import { useListBox, useListBoxSection, useOption } from 'react-aria';
@@ -8,7 +9,7 @@ import type { ListState } from 'react-stately';
 import Option from '../Option';
 
 interface ListBoxProps extends AriaListBoxOptions<unknown> {
-  listBoxRef?: React.RefObject<HTMLDivElement>;
+  listBoxRef?: RefObject<HTMLDivElement>;
   state: ListState<unknown>;
 }
 
@@ -68,7 +69,7 @@ function ListBoxSection({ section, state }: SectionProps) {
 }
 
 function OptionAria({ item, state }: OptionProps) {
-  const ref = React.useRef<HTMLLIElement>(null);
+  const ref = useRef<HTMLLIElement>(null);
   const { optionProps, isDisabled, isSelected, isFocused } = useOption(
     {
       key: item.key,

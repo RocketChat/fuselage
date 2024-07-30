@@ -3,9 +3,11 @@ import React from 'react';
 import type { MessageEmojiBaseProps } from '../MessageEmojiBase';
 import { MessageEmojiBase } from '../MessageEmojiBase';
 
-type MessageReactionEmojiProps = MessageEmojiBaseProps;
+/** @public */
+export type MessageReactionEmojiProps = MessageEmojiBaseProps;
 
-export const MessageReactionEmoji = ({
+/** @public */
+const MessageReactionEmoji = ({
   className,
   ...props
 }: MessageReactionEmojiProps) => (
@@ -14,3 +16,5 @@ export const MessageReactionEmoji = ({
     {...props}
   />
 );
+
+export default MessageReactionEmoji;

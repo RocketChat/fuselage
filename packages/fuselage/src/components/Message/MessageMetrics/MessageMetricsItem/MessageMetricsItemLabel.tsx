@@ -1,6 +1,12 @@
 import type { HTMLAttributes } from 'react';
 import React from 'react';
 
-export const MessageMetricsItemLabel = (
-  props: HTMLAttributes<HTMLDivElement>
-) => <div className='rcx-message-metrics__item-label' {...props} />;
+/** @public */
+export type MessageMetricsItemLabelProps = HTMLAttributes<HTMLDivElement>;
+
+/** @public */
+const MessageMetricsItemLabel = (props: MessageMetricsItemLabelProps) => (
+  <div className='rcx-message-metrics__item-label' {...props} />
+);
+
+export default MessageMetricsItemLabel;

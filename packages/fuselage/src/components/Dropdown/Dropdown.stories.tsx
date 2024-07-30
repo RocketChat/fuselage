@@ -1,10 +1,10 @@
 import type { ComponentStory } from '@storybook/react';
 import React, { useRef } from 'react';
 
-import { Box } from '..';
+import Box from '../Box';
 import { IconButton } from '../Button';
 import Option from '../Option';
-import { Dropdown } from './Dropdown';
+import Dropdown from './Dropdown';
 
 export default {
   title: 'Navigation/Dropdown',

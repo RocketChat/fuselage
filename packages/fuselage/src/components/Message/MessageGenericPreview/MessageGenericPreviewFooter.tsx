@@ -1,13 +1,17 @@
 import type { ReactNode } from 'react';
 import React from 'react';
 
-type MessageGenericPreviewFooterProps = {
+/** @public */
+export type MessageGenericPreviewFooterProps = {
   children?: ReactNode;
   clamp?: boolean;
 };
 
-export const MessageGenericPreviewFooter = ({
+/** @public */
+const MessageGenericPreviewFooter = ({
   children,
 }: MessageGenericPreviewFooterProps) => (
   <div className={'rcx-message-generic-preview__footer'}>{children}</div>
 );
+
+export default MessageGenericPreviewFooter;

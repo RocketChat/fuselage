@@ -1,5 +1,5 @@
 import type { AriaSelectProps } from '@react-types/select';
-import type { Key, ForwardedRef } from 'react';
+import type { Key, ForwardedRef, AllHTMLAttributes } from 'react';
 import React, { forwardRef } from 'react';
 import { Item } from 'react-stately';
 
@@ -18,7 +18,7 @@ type SelectProps<T, V extends Key> = Omit<
   onChange?: ((key: V) => any) | undefined;
   options: SelectOption[];
   small?: boolean;
-} & Omit<React.AllHTMLAttributes<HTMLElement>, 'onChange'>;
+} & Omit<AllHTMLAttributes<HTMLElement>, 'onChange'>;
 
 export const Select = forwardRef(function Select<
   T extends object,

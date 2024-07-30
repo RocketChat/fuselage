@@ -1,12 +1,14 @@
 import type { ReactNode } from 'react';
 import React from 'react';
 
-type MessageGenericPreviewDescriptionProps = {
+/** @public */
+export type MessageGenericPreviewDescriptionProps = {
   children?: ReactNode;
   clamp?: boolean;
 };
 
-export const MessageGenericPreviewDescription = ({
+/** @public */
+const MessageGenericPreviewDescription = ({
   children,
   clamp = false,
 }: MessageGenericPreviewDescriptionProps) => (
@@ -21,3 +23,5 @@ export const MessageGenericPreviewDescription = ({
     {children}
   </div>
 );
+
+export default MessageGenericPreviewDescription;

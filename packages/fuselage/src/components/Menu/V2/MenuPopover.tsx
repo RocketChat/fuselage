@@ -1,5 +1,6 @@
 import { useBreakpoints } from '@rocket.chat/fuselage-hooks';
-import React from 'react';
+import type { ReactNode } from 'react';
+import React, { useRef } from 'react';
 import { usePopover } from 'react-aria';
 import type { AriaPopoverProps } from 'react-aria';
 import type { OverlayTriggerState } from 'react-stately';
@@ -8,7 +9,7 @@ import { DropdownDesktop } from '../../Dropdown/DropdownDesktop';
 import { DropdownMobile } from '../../Dropdown/DropdownMobile';
 
 interface PopoverProps extends Omit<AriaPopoverProps, 'popoverRef'> {
-  children: React.ReactNode;
+  children: ReactNode;
   state: OverlayTriggerState;
   maxWidth?: string;
 }
@@ -20,7 +21,7 @@ function MenuPopover({
   maxWidth,
   ...props
 }: PopoverProps) {
-  const popoverRef = React.useRef(null);
+  const popoverRef = useRef(null);
   const { popoverProps } = usePopover(
     {
       ...props,

@@ -7,7 +7,7 @@ import {
   Subtitle,
 } from '@storybook/addon-docs';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import React from 'react';
+import React, { cloneElement } from 'react';
 import flattenChildren from 'react-keyed-flatten-children';
 
 import Box from './Box';
@@ -53,7 +53,7 @@ SurfaceColors.decorators = [
   (story: any) => (
     <Box display='flex' flexWrap='wrap' alignItems='center'>
       {flattenChildren(story().props.children).map((child: any) =>
-        React.cloneElement(
+        cloneElement(
           child,
           {
             m: 'x4',
@@ -88,7 +88,7 @@ StatusColors.decorators = [
   (story: any) => (
     <Box display='flex' flexWrap='wrap' alignItems='center' overflow='hidden'>
       {flattenChildren(story().props.children).map((child: any) =>
-        React.cloneElement(
+        cloneElement(
           child,
           {
             m: 'x4',
@@ -124,7 +124,7 @@ StrokeColors.decorators = [
   (story: any) => (
     <Box display='flex' flexWrap='wrap' alignItems='center' overflow='hidden'>
       {flattenChildren(story().props.children).map((child: any) =>
-        React.cloneElement(
+        cloneElement(
           child,
           {
             m: 'x4',
@@ -167,7 +167,7 @@ FontColors.decorators = [
       flexDirection='column'
     >
       {flattenChildren(story().props.children).map((child: any) =>
-        React.cloneElement(child, { m: 'x4', p: 'x4' }, child.props.color)
+        cloneElement(child, { m: 'x4', p: 'x4' }, child.props.color)
       )}
     </Box>
   ),

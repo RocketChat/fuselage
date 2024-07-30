@@ -1,4 +1,17 @@
-export * from './MessageStatusIndicator';
-export * from './MessageStatusIndicatorText';
-export * from './MessageStatusIndicatorItem';
-export * from './MessageStatusPrivateIndicator';
+export {
+  default,
+  default as MessageStatusIndicator,
+  MessageStatusIndicatorProps,
+} from './MessageStatusIndicator';
+export {
+  default as MessageStatusIndicatorText,
+  MessageStatusIndicatorTextProps,
+} from './MessageStatusIndicatorText';
+export {
+  default as MessageStatusIndicatorItem,
+  MessageStatusIndicatorItemProps,
+} from './MessageStatusIndicatorItem';
+export {
+  default as MessageStatusIndicatorPrivateIndicator,
+  MessageStatusPrivateIndicatorProps,
+} from './MessageStatusPrivateIndicator';

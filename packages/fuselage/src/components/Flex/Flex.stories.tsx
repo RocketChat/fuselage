@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { Flex, Tile } from '../..';
+import Flex from '.';
+import Tile from '../Tile';
 
 export const example = () => (
   <Flex.Container>

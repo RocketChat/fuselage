@@ -1,17 +1,19 @@
 import type { HTMLAttributes, ReactNode, ForwardedRef } from 'react';
 import React, { forwardRef } from 'react';
 
-import { MessageReactionCounter } from './MessageReactionCounter';
-import { MessageReactionEmoji } from './MessageReactionEmoji';
+import MessageReactionCounter from './MessageReactionCounter';
+import MessageReactionEmoji from './MessageReactionEmoji';
 
-type MessageReactionProps = {
+/** @public */
+export type MessageReactionProps = {
   name?: string;
   counter?: number;
   mine?: boolean;
   children?: ReactNode;
 } & HTMLAttributes<HTMLDivElement>;
 
-export const MessageReaction = forwardRef(function Reaction(
+/** @public */
+const MessageReaction = forwardRef(function Reaction(
   { name, counter, mine, children, className, ...props }: MessageReactionProps,
   ref: ForwardedRef<HTMLDivElement>
 ) {
@@ -38,3 +40,5 @@ export const MessageReaction = forwardRef(function Reaction(
     </div>
   );
 });
+
+export default MessageReaction;

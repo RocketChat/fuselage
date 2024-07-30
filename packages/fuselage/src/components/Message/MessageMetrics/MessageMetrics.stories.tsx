@@ -1,31 +1,19 @@
 import { action } from '@storybook/addon-actions';
-import { Title, Primary } from '@storybook/addon-docs';
 import type { ComponentMeta } from '@storybook/react';
 import React from 'react';
 
-import {
-  MessageMetrics,
-  MessageMetricsReply,
-  MessageMetricsItem,
-  MessageMetricsFollowing,
+import { BasicMessageTemplate } from '../helpers';
+import MessageMetrics from './MessageMetrics';
+import MessageMetricsFollowing from './MessageMetricsFollowing';
+import MessageMetricsItem, {
   MessageMetricsItemIcon,
   MessageMetricsItemLabel,
-} from '.';
-import { BasicMessageTemplate } from '../helpers';
+} from './MessageMetricsItem';
+import MessageMetricsReply from './MessageMetricsReply';
 
 export default {
   title: 'Message/MessageMetrics',
   component: MessageMetrics,
-  parameters: {
-    docs: {
-      page: () => (
-        <>
-          <Title />
-          <Primary />
-        </>
-      ),
-    },
-  },
 } satisfies ComponentMeta<typeof MessageMetrics>;
 
 const metrics = (

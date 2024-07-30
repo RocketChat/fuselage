@@ -65,7 +65,7 @@ const Option = forwardRef(function Option(
       aria-selected={!!selected}
       aria-disabled={!!disabled}
       title={title}
-      onClick={(e: React.MouseEvent<HTMLDivElement>) => {
+      onClick={(e: MouseEvent<HTMLDivElement>) => {
         if (disabled) {
           prevent(e);
           return;

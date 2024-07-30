@@ -3,11 +3,13 @@ import React from 'react';
 import type { IconProps } from '../../Icon';
 import { Icon } from '../../Icon';
 
+/** @public */
 export type MessageGenericPreviewIconProps = IconProps & {
   type: string;
 };
 
-export const MessageGenericPreviewIcon = ({
+/** @public */
+const MessageGenericPreviewIcon = ({
   name = 'attachment-file',
   size = 32,
   color = 'default',
@@ -18,3 +20,5 @@ export const MessageGenericPreviewIcon = ({
     <div className='rcx-message-generic-preview__icon-title'>{type}</div>
   </div>
 );
+
+export default MessageGenericPreviewIcon;

@@ -1,12 +1,14 @@
 import type { ReactNode } from 'react';
 import React from 'react';
 
-type MessageDividerProps = {
+/** @public */
+export type MessageDividerProps = {
   children?: ReactNode;
   unreadLabel?: string;
 };
 
-export const MessageDivider = ({
+/** @public */
+const MessageDivider = ({
   children,
   unreadLabel,
   ...props
@@ -35,3 +37,5 @@ export const MessageDivider = ({
     </div>
   </div>
 );
+
+export default MessageDivider;

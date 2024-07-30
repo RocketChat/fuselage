@@ -2,8 +2,10 @@ import { Title, Primary } from '@storybook/addon-docs';
 import type { ComponentMeta } from '@storybook/react';
 import React from 'react';
 
-import { MessageReactions, MessageReaction, MessageReactionAction } from '.';
 import { BasicMessageTemplate } from '../helpers';
+import MessageReaction from './MessageReaction';
+import MessageReactionAction from './MessageReactionAction';
+import MessageReactions from './MessageReactions';
 
 export default {
   title: 'Message/MessageReactions',

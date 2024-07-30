@@ -1,8 +1,8 @@
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
-import { MessageDivider } from '.';
 import Box from '../../Box';
+import MessageDivider from './MessageDivider';
 
 export default {
   title: 'Message/MessageDivider',

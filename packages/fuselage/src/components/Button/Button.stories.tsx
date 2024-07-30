@@ -1,6 +1,6 @@
 import { action } from '@storybook/addon-actions';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Button, ButtonGroup, IconButton, Margins } from '../..';
 import { PropsVariationSection } from '../../../.storybook/helpers';
@@ -20,7 +20,7 @@ export const Loading: ComponentStory<typeof Button> = () => (
   </Button>
 );
 export const LoadingInteraction: ComponentStory<typeof Button> = () => {
-  const [isLoading, setIsLoading] = React.useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   return (
     <Button
       icon='add-user'

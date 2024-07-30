@@ -2,14 +2,34 @@ import type { HTMLAttributes, ForwardedRef } from 'react';
 import React, { forwardRef } from 'react';
 
 import { MessageBlock } from '../MessageBlock';
+import MessageReaction from './MessageReaction';
+import MessageReactionAction from './MessageReactionAction';
 
-export const MessageReactions = forwardRef(function MessageReactions(
-  props: HTMLAttributes<HTMLDivElement>,
-  ref: ForwardedRef<HTMLDivElement>
-) {
-  return (
-    <MessageBlock className='rcx-message-reactions'>
-      <div ref={ref} className='rcx-message-reactions__container' {...props} />
-    </MessageBlock>
-  );
-});
+/** @public */
+export type MessageReactionsProps = HTMLAttributes<HTMLDivElement>;
+
+/** @public */
+const MessageReactions = Object.assign(
+  forwardRef(function MessageReactions(
+    props: MessageReactionsProps,
+    ref: ForwardedRef<HTMLDivElement>
+  ) {
+    return (
+      <MessageBlock className='rcx-message-reactions'>
+        <div
+          ref={ref}
+          className='rcx-message-reactions__container'
+          {...props}
+        />
+      </MessageBlock>
+    );
+  }),
+  {
+    /** @deprecated use `MessageReaction` instead. */
+    Reaction: MessageReaction,
+    /** @deprecated use `MessageReactionAction` instead. */
+    Action: MessageReactionAction,
+  }
+);
+
+export default MessageReactions;

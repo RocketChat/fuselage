@@ -3,10 +3,15 @@ import React, { forwardRef } from 'react';
 
 import './MessageStatusIndicator.styles.scss';
 
-type MessageStatusIndicatorProps = AllHTMLAttributes<HTMLDivElement>;
+/** @public */
+export type MessageStatusIndicatorProps = AllHTMLAttributes<HTMLDivElement>;
 
-export const MessageStatusIndicator = forwardRef(
-  (props: MessageStatusIndicatorProps, ref: ForwardedRef<HTMLDivElement>) => (
-    <div ref={ref} className='rcx-message-status-indicator' {...props} />
-  )
-);
+/** @public */
+const MessageStatusIndicator = forwardRef(function MessageStatusIndicator(
+  props: MessageStatusIndicatorProps,
+  ref: ForwardedRef<HTMLDivElement>
+) {
+  return <div ref={ref} className='rcx-message-status-indicator' {...props} />;
+});
+
+export default MessageStatusIndicator;

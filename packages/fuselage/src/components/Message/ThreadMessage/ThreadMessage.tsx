@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Message, type MessageProps } from '../Message';
+import Message, { type MessageProps } from '../Message';
 
 type ThreadMessageProps = MessageProps;
 

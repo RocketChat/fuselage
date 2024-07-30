@@ -1,6 +1,12 @@
 import type { HTMLAttributes } from 'react';
 import React from 'react';
 
-export const MessageGenericPreviewThumb = (
-  props: HTMLAttributes<HTMLDivElement>
-) => <div className='rcx-message-generic-preview__thumb' {...props} />;
+/** @public */
+export type MessageGenericPreviewThumbProps = HTMLAttributes<HTMLDivElement>;
+
+/** @public */
+const MessageGenericPreviewThumb = (props: MessageGenericPreviewThumbProps) => (
+  <div className='rcx-message-generic-preview__thumb' {...props} />
+);
+
+export default MessageGenericPreviewThumb;

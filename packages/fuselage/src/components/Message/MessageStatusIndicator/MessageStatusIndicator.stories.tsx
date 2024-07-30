@@ -2,11 +2,12 @@ import React from 'react';
 
 import { MessageStatusIndicator, MessageStatusIndicatorItem } from '.';
 import Message from '..';
-import { Box, Avatar } from '../..';
-import { MessageDivider } from '../MessageDivider';
+import Avatar from '../../Avatar';
+import Box from '../../Box';
+import MessageDivider from '../MessageDivider';
 import MessageReactions from '../MessageReactions';
 import MessageToolbar from '../MessageToolbar';
-import { MessageStatusIndicatorText } from './MessageStatusIndicatorText';
+import MessageStatusIndicatorText from './MessageStatusIndicatorText';
 
 export default {
   title: 'Message/MessageStatusIndicator',

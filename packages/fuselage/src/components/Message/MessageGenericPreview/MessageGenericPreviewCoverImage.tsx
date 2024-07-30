@@ -2,14 +2,16 @@ import React from 'react';
 
 import { prependClassName } from '../../../helpers/prependClassName';
 
-type MessageGenericPreviewCoverImageProps = {
+/** @public */
+export type MessageGenericPreviewCoverImageProps = {
   url: string;
   width: number;
   height: number;
   className?: string;
 };
 
-export const MessageGenericPreviewCoverImage = ({
+/** @public */
+const MessageGenericPreviewCoverImage = ({
   url,
   width,
   height,
@@ -28,3 +30,5 @@ export const MessageGenericPreviewCoverImage = ({
     <div style={{ paddingTop: `${(height / width) * 100}%` }} />
   </div>
 );
+
+export default MessageGenericPreviewCoverImage;

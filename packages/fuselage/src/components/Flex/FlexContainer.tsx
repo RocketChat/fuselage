@@ -3,7 +3,8 @@ import React, { useCallback } from 'react';
 
 import { BoxTransforms, useComposedBoxTransform } from '../Box/BoxTransforms';
 
-type FlexContainerProps = {
+/** @internal */
+export type FlexContainerProps = {
   children?: ReactNode;
   inline?: boolean;
   direction?: 'row' | 'row-reverse' | 'column' | 'column-reverse';
@@ -18,6 +19,10 @@ type FlexContainerProps = {
     | 'space-around';
 };
 
+/**
+ * @deprecated prefer using the intrinsic style of the container component or the styling props of `Box`
+ * @internal
+ */
 function FlexContainer({
   inline = false,
   children,
