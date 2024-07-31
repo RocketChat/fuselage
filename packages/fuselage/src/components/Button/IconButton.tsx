@@ -1,18 +1,10 @@
 import type { IconName } from '@rocket.chat/icons';
 import type { ForwardedRef, ReactElement } from 'react';
-import React, { isValidElement, useMemo, forwardRef } from 'react';
+import { isValidElement, useMemo, forwardRef } from 'react';
 
 import type { BoxProps } from '../Box';
 import Box from '../Box';
 import { Icon } from '../Icon';
-
-type ButtonSize = {
-  large?: boolean;
-  medium?: boolean;
-  small?: boolean;
-  tiny?: boolean;
-  mini?: boolean;
-};
 
 /** @public */
 export type IconButtonProps = {
@@ -24,8 +16,12 @@ export type IconButtonProps = {
   warning?: boolean;
   success?: boolean;
   pressed?: boolean;
-} & ButtonSize &
-  BoxProps;
+  large?: boolean;
+  medium?: boolean;
+  small?: boolean;
+  tiny?: boolean;
+  mini?: boolean;
+} & BoxProps;
 
 const getVariantClass = (variant: string) => {
   if (variant) {

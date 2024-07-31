@@ -7,7 +7,7 @@ import {
 } from '@storybook/addon-docs';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import type { Key } from 'react';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import type { SelectOption } from '../..';
 import { Select } from '../..';

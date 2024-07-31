@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Button, type ButtonProps } from '../../Button';
 import MessageMetricsItem from './MessageMetricsItem';
 

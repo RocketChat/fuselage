@@ -1,5 +1,5 @@
 import type { ForwardedRef } from 'react';
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 
 import type { InputBoxProps } from '../InputBox';
 import { InputBox } from '../InputBox';

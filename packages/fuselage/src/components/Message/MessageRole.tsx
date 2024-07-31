@@ -1,5 +1,3 @@
-import React from 'react';
-
 import type { TagProps } from '../Tag';
 import { Tag } from '../Tag';
 

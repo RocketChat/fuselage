@@ -1,6 +1,6 @@
 import type { IconName } from '@rocket.chat/icons';
 import type { Dispatch, SetStateAction } from 'react';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import type { MultiSelectProps } from './MultiSelect';
 import { MultiSelect } from './MultiSelect';

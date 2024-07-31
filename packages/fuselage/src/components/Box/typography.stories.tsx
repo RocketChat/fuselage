@@ -7,7 +7,6 @@ import {
   Subtitle,
 } from '@storybook/addon-docs';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import React from 'react';
 
 import { Divider } from '../Divider';
 import Box from './Box';

@@ -1,5 +1,4 @@
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
-import React from 'react';
 
 import { MessageSystemLeftContainer } from '.';
 import Avatar from '../../Avatar';

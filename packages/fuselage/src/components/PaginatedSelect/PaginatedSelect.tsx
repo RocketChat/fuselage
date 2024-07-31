@@ -1,5 +1,5 @@
 import { useEffectEvent, useResizeObserver } from '@rocket.chat/fuselage-hooks';
-import React, { type ElementType, useState, useRef, useMemo } from 'react';
+import { type ElementType, useState, useRef, useMemo } from 'react';
 
 import { type SelectLegacyProps } from '..';
 import { prevent } from '../../helpers/prevent';

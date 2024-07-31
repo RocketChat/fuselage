@@ -1,5 +1,5 @@
 import type { Dispatch, SetStateAction } from 'react';
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 
 import type { BoxProps } from '../Box';
 import Box from '../Box';

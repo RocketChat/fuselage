@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import { memo } from 'react';
 
 import { Contextualbar, ContextualbarHeader } from '.';
 import { Box, type BoxProps } from '../Box';

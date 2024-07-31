@@ -1,5 +1,5 @@
 import type { ElementType, ForwardedRef, SyntheticEvent } from 'react';
-import React, { forwardRef, useLayoutEffect, useMemo, useRef } from 'react';
+import { forwardRef, useLayoutEffect, useMemo, useRef } from 'react';
 
 import { prevent } from '../../helpers/prevent';
 import type { BoxProps } from '../Box';

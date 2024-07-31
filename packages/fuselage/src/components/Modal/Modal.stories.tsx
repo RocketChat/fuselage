@@ -1,6 +1,5 @@
 import { action } from '@storybook/addon-actions';
 import type { ComponentStory } from '@storybook/react';
-import React from 'react';
 
 import { Box, type BoxProps } from '../Box';
 import Button from '../Button';

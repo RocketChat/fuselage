@@ -1,5 +1,4 @@
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import React from 'react';
 
 import { Margins } from '../..';
 import Box from '../Box';

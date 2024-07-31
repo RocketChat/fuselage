@@ -1,6 +1,5 @@
 import type { IconName } from '@rocket.chat/icons';
 import type { AllHTMLAttributes, ButtonHTMLAttributes, ReactNode } from 'react';
-import React from 'react';
 
 import BubbleButton from './BubbleButton';
 import BubbleItem from './BubbleItem';

@@ -1,5 +1,5 @@
 import type { ReactElement, ElementType } from 'react';
-import React, { createContext, useContext } from 'react';
+import { createContext, useContext } from 'react';
 
 import type { BoxProps } from '../Box';
 import Box from '../Box';

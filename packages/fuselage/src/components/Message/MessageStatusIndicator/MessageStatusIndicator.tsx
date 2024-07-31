@@ -1,5 +1,5 @@
 import type { AllHTMLAttributes, ForwardedRef } from 'react';
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 
 import './MessageStatusIndicator.styles.scss';
 

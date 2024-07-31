@@ -5,7 +5,7 @@ import type {
   AllHTMLAttributes,
   ForwardedRef,
 } from 'react';
-import React, { forwardRef, memo } from 'react';
+import { forwardRef, memo } from 'react';
 
 import { prevent } from '../../helpers/prevent';
 import type { BoxProps } from '../Box';

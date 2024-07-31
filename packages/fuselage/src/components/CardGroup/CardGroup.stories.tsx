@@ -1,5 +1,4 @@
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
-import React from 'react';
 
 import { Badge } from '../Badge';
 import { Button, IconButton } from '../Button';

@@ -1,5 +1,3 @@
-import React from 'react';
-
 import type { MessageEmojiBaseProps } from './MessageEmojiBase';
 import { MessageEmojiBase } from './MessageEmojiBase';
 

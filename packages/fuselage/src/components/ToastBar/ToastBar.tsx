@@ -1,7 +1,6 @@
 import { css, keyframes } from '@rocket.chat/css-in-js';
 import { useUniqueId } from '@rocket.chat/fuselage-hooks';
 import type { ReactNode, AllHTMLAttributes } from 'react';
-import React from 'react';
 
 import Box from '../Box';
 import { IconButton } from '../Button';

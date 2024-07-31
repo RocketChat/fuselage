@@ -7,7 +7,7 @@ import {
   Subtitle,
 } from '@storybook/addon-docs';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import React, { cloneElement } from 'react';
+import { cloneElement } from 'react';
 import flattenChildren from 'react-keyed-flatten-children';
 
 import { Divider } from '../Divider';

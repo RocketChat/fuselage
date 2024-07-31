@@ -1,5 +1,5 @@
 import type { ReactNode, ForwardedRef } from 'react';
-import React, { forwardRef, useState, useCallback } from 'react';
+import { forwardRef, useState, useCallback } from 'react';
 
 import { Icon } from '../Icon';
 import type { InputBoxProps } from '../InputBox';

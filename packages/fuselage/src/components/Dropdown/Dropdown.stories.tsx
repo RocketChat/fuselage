@@ -1,5 +1,5 @@
 import type { ComponentStory } from '@storybook/react';
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 
 import Box from '../Box';
 import { IconButton } from '../Button';

@@ -1,5 +1,5 @@
 import type { HTMLAttributes, ForwardedRef } from 'react';
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 
 import { MessageBlock } from '../MessageBlock';
 import MessageReaction from './MessageReaction';

@@ -1,5 +1,3 @@
-import React from 'react';
-
 import WithErrorWrapper from '../../helpers/WithErrorWrapper';
 import Box from '../Box';
 import type { LabelProps } from '../Label';

@@ -1,5 +1,3 @@
-import React from 'react';
-
 import WithErrorWrapper from '../../helpers/WithErrorWrapper';
 import type { LabelInfoProps } from '../Label/LabelInfo';
 import LabelInfo from '../Label/LabelInfo';

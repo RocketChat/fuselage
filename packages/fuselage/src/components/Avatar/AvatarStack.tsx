@@ -1,5 +1,4 @@
 import type { DetailedHTMLProps, HTMLAttributes } from 'react';
-import React from 'react';
 import flattenChildren from 'react-keyed-flatten-children';
 
 import { prependClassName } from '../../helpers/prependClassName';

@@ -1,6 +1,6 @@
 import { useEffectEvent, useDebouncedState } from '@rocket.chat/fuselage-hooks';
 import type { ElementType, ForwardedRef, SyntheticEvent } from 'react';
-import React, { forwardRef, memo } from 'react';
+import { forwardRef, memo } from 'react';
 import { Virtuoso } from 'react-virtuoso';
 
 import { prevent } from '../../helpers/prevent';

@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Icon, type IconProps } from '../../../Icon';
 
 /** @public */

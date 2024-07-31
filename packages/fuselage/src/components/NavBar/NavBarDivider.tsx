@@ -1,5 +1,3 @@
-import React from 'react';
-
 import type { DividerProps } from '../Divider';
 import { Divider } from '../Divider';
 

@@ -1,6 +1,6 @@
 import type { IconName } from '@rocket.chat/icons';
 import type { ForwardedRef } from 'react';
-import React, { forwardRef, memo } from 'react';
+import { forwardRef, memo } from 'react';
 
 import type { BoxProps } from '../Box';
 import { States, StatesIcon, StatesSubtitle, StatesTitle } from '../States';

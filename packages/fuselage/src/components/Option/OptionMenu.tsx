@@ -1,5 +1,4 @@
 import type { HTMLAttributes, ReactNode } from 'react';
-import React from 'react';
 
 /** @public */
 export type OptionMenuProps = {

@@ -1,7 +1,7 @@
 import type { UsePositionOptions } from '@rocket.chat/fuselage-hooks';
 import type { IconName } from '@rocket.chat/icons';
 import type { ElementType, ReactElement } from 'react';
-import React, { cloneElement, useRef } from 'react';
+import { cloneElement, useRef } from 'react';
 import type { AriaMenuProps } from 'react-aria';
 import { useButton, useMenuTrigger } from 'react-aria';
 import { createPortal } from 'react-dom';

@@ -1,6 +1,5 @@
 import { Title, Primary } from '@storybook/addon-docs';
 import type { ComponentMeta } from '@storybook/react';
-import React from 'react';
 
 import { BasicMessageTemplate } from '../helpers';
 import MessageReaction from './MessageReaction';

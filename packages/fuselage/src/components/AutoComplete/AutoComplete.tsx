@@ -1,7 +1,7 @@
 // @ts-nocheck
 import { useEffectEvent, useResizeObserver } from '@rocket.chat/fuselage-hooks';
 import type { AllHTMLAttributes, ElementType } from 'react';
-import React, { useEffect, useRef, useMemo, useState } from 'react';
+import { useEffect, useRef, useMemo, useState } from 'react';
 
 import AnimatedVisibility from '../AnimatedVisibility';
 import type { BoxProps } from '../Box';

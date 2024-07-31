@@ -1,6 +1,6 @@
 import type { IconName } from '@rocket.chat/icons';
 import type { Dispatch, ForwardedRef, SetStateAction } from 'react';
-import React, { forwardRef, useState } from 'react';
+import { forwardRef, useState } from 'react';
 
 import type { SelectAnchorParams } from './SelectAnchorParams';
 import SelectFilteredAnchor from './SelectFilteredAnchor';

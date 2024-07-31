@@ -6,7 +6,7 @@ import {
   ArgsTable,
 } from '@storybook/addon-docs';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import React, { createRef } from 'react';
+import { createRef } from 'react';
 
 import type { OptionType } from '.';
 import { Options } from '.';

@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { MessageStatusIndicator, MessageStatusIndicatorItem } from '.';
 import Message from '..';
 import Avatar from '../../Avatar';

@@ -11,7 +11,7 @@ import type {
   ReactNode,
   ForwardedRef,
 } from 'react';
-import React, { useState, useRef, useEffect, forwardRef, useMemo } from 'react';
+import { useState, useRef, useEffect, forwardRef, useMemo } from 'react';
 
 import { isForwardRefType } from '../../helpers/isForwardRefType';
 import AnimatedVisibility from '../AnimatedVisibility';

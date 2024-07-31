@@ -1,5 +1,3 @@
-import React from 'react';
-
 import AnimatedVisibility from '../AnimatedVisibility';
 import Position from '../Position';
 import type { PositionProps } from '../Position';

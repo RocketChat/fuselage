@@ -1,6 +1,5 @@
 import type { IconName } from '@rocket.chat/icons';
 import type { AllHTMLAttributes, ReactNode } from 'react';
-import React from 'react';
 
 import type { BoxProps } from '../Box';
 import { Icon as FuselageIcon } from '../Icon';

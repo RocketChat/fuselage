@@ -1,5 +1,3 @@
-import React from 'react';
-
 /** @public */
 export type MessageReactionCounterProps = {
   counter: number;

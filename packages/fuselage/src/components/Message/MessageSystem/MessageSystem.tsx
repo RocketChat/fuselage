@@ -3,7 +3,6 @@ import type {
   MouseEvent as ReactMouseEvent,
   AllHTMLAttributes,
 } from 'react';
-import React from 'react';
 
 import './MessageSystem.styles.scss';
 

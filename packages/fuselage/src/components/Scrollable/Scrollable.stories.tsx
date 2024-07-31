@@ -7,7 +7,6 @@ import {
   ArgsTable,
 } from '@storybook/addon-docs';
 import type { ComponentMeta } from '@storybook/react';
-import React from 'react';
 
 import { Box, Scrollable, Tile } from '../..';
 

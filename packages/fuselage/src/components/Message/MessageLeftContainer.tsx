@@ -1,5 +1,4 @@
 import type { HTMLAttributes, ReactElement } from 'react';
-import React from 'react';
 
 /** @public */
 export type MessageLeftContainerProps = HTMLAttributes<HTMLDivElement>;

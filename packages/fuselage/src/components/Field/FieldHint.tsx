@@ -1,5 +1,3 @@
-import React from 'react';
-
 import WithErrorWrapper from '../../helpers/WithErrorWrapper';
 import type { BoxProps } from '../Box';
 import Box from '../Box';

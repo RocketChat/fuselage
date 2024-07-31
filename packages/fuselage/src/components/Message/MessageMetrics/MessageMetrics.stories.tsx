@@ -1,6 +1,5 @@
 import { action } from '@storybook/addon-actions';
 import type { ComponentMeta } from '@storybook/react';
-import React from 'react';
 
 import { BasicMessageTemplate } from '../helpers';
 import MessageMetrics from './MessageMetrics';

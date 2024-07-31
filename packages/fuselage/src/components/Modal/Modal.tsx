@@ -1,5 +1,5 @@
 import type { ElementType, ForwardedRef, ReactNode } from 'react';
-import React, { createElement, forwardRef } from 'react';
+import { createElement, forwardRef } from 'react';
 
 import type { BoxProps } from '../Box';
 import Box from '../Box';

@@ -1,7 +1,7 @@
 import type { UsePositionOptions } from '@rocket.chat/fuselage-hooks';
 import type { IconName } from '@rocket.chat/icons';
 import type { ElementType, ReactNode } from 'react';
-import React, { useRef, useCallback, useEffect } from 'react';
+import { useRef, useCallback, useEffect } from 'react';
 
 import { PositionAnimated, Options, useCursor } from '..';
 import type { BoxProps } from '../Box';

@@ -1,5 +1,5 @@
 import { css } from '@rocket.chat/css-in-js';
-import React, { memo } from 'react';
+import { memo } from 'react';
 
 import type { BoxProps } from '../Box';
 import Box from '../Box';

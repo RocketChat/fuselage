@@ -1,6 +1,5 @@
 import { css } from '@rocket.chat/css-in-js';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import React from 'react';
 
 import { PropsVariationSection } from '../../../.storybook/helpers';
 import { Avatar } from '../Avatar';

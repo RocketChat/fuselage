@@ -1,5 +1,4 @@
 import type { HTMLAttributes } from 'react';
-import React from 'react';
 
 /** @public */
 export type MessageGenericPreviewThumbProps = HTMLAttributes<HTMLDivElement>;

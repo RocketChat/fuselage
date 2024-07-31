@@ -1,6 +1,6 @@
 import { action } from '@storybook/addon-actions';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import { Button, ButtonGroup, IconButton, Margins } from '../..';
 import { PropsVariationSection } from '../../../.storybook/helpers';

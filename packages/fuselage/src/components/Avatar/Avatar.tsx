@@ -1,5 +1,4 @@
 import type { AllHTMLAttributes } from 'react';
-import React from 'react';
 
 import type { AvatarContainerProps } from './AvatarContainer';
 import AvatarContainer from './AvatarContainer';

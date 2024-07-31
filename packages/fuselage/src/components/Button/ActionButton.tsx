@@ -1,6 +1,6 @@
 import type { IconName } from '@rocket.chat/icons';
 import type { ForwardedRef } from 'react';
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 
 import { Icon } from '../Icon';
 import type { ButtonProps } from './Button';

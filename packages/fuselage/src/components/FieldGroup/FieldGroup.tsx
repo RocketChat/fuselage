@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { appendClassName } from '../../helpers/appendClassName';
 import { patchChildren } from '../../helpers/patchChildren';
 import type { BoxProps } from '../Box';

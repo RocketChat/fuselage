@@ -1,6 +1,6 @@
 import type { IconName } from '@rocket.chat/icons';
 import type { ReactElement } from 'react';
-import React, { memo } from 'react';
+import { memo } from 'react';
 
 import type { IconButtonProps } from '../Button';
 import { IconButton } from '../Button';

@@ -1,5 +1,3 @@
-import React from 'react';
-
 import type { ButtonProps } from '../../Button';
 import { Button } from '../../Button';
 

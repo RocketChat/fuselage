@@ -1,5 +1,4 @@
 import type { IconName } from '@rocket.chat/icons';
-import React from 'react';
 
 import type { BoxProps } from '../Box';
 import Box from '../Box';

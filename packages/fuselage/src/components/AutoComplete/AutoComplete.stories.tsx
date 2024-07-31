@@ -1,5 +1,5 @@
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import { Box, Chip, Avatar, Option } from '../..';
 import { exampleAvatar, DECORATOR_LABEL } from '../../../.storybook/helpers';

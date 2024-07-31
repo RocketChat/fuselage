@@ -8,7 +8,7 @@ import {
   ArgsTable,
 } from '@storybook/addon-docs';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import Box from '../Box';
 import Divider from '../Divider';

@@ -1,5 +1,4 @@
 import type { ReactNode } from 'react';
-import React from 'react';
 
 import { SidebarDivider } from '../SidebarDivider';
 import { TopBar } from './TopBar';

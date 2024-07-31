@@ -4,7 +4,7 @@ import type {
   AllHTMLAttributes,
   HTMLAttributeAnchorTarget,
 } from 'react';
-import React, { useRef, useCallback, useMemo } from 'react';
+import { useRef, useCallback, useMemo } from 'react';
 
 import { composeClassNames as cx } from '../../helpers/composeClassNames';
 import { IconButton } from '../Button';

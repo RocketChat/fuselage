@@ -1,6 +1,6 @@
 import { useBreakpoints } from '@rocket.chat/fuselage-hooks';
 import type { ReactNode } from 'react';
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import { usePopover } from 'react-aria';
 import type { AriaPopoverProps } from 'react-aria';
 import type { OverlayTriggerState } from 'react-stately';

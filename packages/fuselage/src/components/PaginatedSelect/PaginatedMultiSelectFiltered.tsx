@@ -1,5 +1,5 @@
 import type { ForwardedRef, FormEvent } from 'react';
-import React, { useCallback, forwardRef } from 'react';
+import { useCallback, forwardRef } from 'react';
 
 import Flex from '../Flex';
 import type { InputBoxProps } from '../InputBox';

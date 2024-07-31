@@ -1,7 +1,7 @@
 import type { IconName } from '@rocket.chat/icons';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import type { ReactNode, ForwardedRef } from 'react';
-import React, { forwardRef, useState } from 'react';
+import { forwardRef, useState } from 'react';
 
 import {
   MenuV2 as Menu,

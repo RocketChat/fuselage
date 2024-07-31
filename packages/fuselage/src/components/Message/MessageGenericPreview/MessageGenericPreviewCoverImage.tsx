@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { prependClassName } from '../../../helpers/prependClassName';
 
 /** @public */

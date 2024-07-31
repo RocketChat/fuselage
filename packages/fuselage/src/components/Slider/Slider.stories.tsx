@@ -7,7 +7,7 @@ import {
 } from '@storybook/addon-docs';
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
 import { screen, userEvent } from '@storybook/testing-library';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import Box from '../Box';
 import { Slider } from './Slider';

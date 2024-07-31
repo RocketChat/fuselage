@@ -1,5 +1,5 @@
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import React, { cloneElement, isValidElement, useRef } from 'react';
+import { cloneElement, isValidElement, useRef } from 'react';
 import { useOverlayTrigger } from 'react-aria';
 import { useOverlayTriggerState } from 'react-stately';
 

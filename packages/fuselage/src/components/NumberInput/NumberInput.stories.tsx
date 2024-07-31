@@ -6,7 +6,6 @@ import {
   ArgsTable,
 } from '@storybook/addon-docs';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import React from 'react';
 
 import { Icon, NumberInput } from '../..';
 import { PropsVariationSection } from '../../../.storybook/helpers';

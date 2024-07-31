@@ -1,5 +1,3 @@
-import React from 'react';
-
 import type { MessageNameProps } from '../MessageName';
 
 /** @public */

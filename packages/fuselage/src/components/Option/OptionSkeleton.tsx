@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Skeleton } from '../Skeleton';
 import Option from './Option';
 

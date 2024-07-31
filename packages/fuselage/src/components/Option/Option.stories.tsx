@@ -7,7 +7,6 @@ import {
   ArgsTable,
 } from '@storybook/addon-docs';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import React from 'react';
 
 import { Box, Menu, StatusBullet, Tile } from '../..';
 import { exampleAvatar, menuOptions } from '../../../.storybook/helpers';

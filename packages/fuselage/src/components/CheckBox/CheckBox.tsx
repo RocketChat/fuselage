@@ -1,6 +1,6 @@
 import { useMergedRefs } from '@rocket.chat/fuselage-hooks';
 import type { FormEvent, AllHTMLAttributes, ForwardedRef } from 'react';
-import React, { forwardRef, useLayoutEffect, useRef, useCallback } from 'react';
+import { forwardRef, useLayoutEffect, useRef, useCallback } from 'react';
 
 import type { BoxProps } from '../Box';
 import Box from '../Box';

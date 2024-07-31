@@ -1,5 +1,3 @@
-import React from 'react';
-
 import type { ButtonGroupProps } from '../../ButtonGroup';
 import { ButtonGroup } from '../../ButtonGroup';
 

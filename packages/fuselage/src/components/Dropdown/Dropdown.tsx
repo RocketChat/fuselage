@@ -1,7 +1,7 @@
 import type { UsePositionOptions } from '@rocket.chat/fuselage-hooks';
 import { useMediaQuery } from '@rocket.chat/fuselage-hooks';
 import type { ForwardedRef, ReactNode, RefObject } from 'react';
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 
 import { DropdownDesktopWrapper } from './DropdownDesktopWrapper';
 import { DropdownMobile } from './DropdownMobile';

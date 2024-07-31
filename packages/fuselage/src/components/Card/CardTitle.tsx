@@ -1,5 +1,4 @@
 import type { AllHTMLAttributes, ReactNode } from 'react';
-import React from 'react';
 
 import Box from '../Box';
 import LabelInfo from '../Label/LabelInfo';

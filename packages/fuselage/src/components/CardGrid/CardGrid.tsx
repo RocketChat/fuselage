@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import React, { Children } from 'react';
+import { Children } from 'react';
 
 import type { GridItemProps } from '../Grid';
 import Grid, { GridItem } from '../Grid';

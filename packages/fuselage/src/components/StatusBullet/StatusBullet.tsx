@@ -1,5 +1,4 @@
 import type { AllHTMLAttributes } from 'react';
-import React from 'react';
 
 import Away from './icons/Away';
 import Busy from './icons/Busy';

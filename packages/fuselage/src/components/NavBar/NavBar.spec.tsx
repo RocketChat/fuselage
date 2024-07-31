@@ -1,7 +1,6 @@
 import { composeStories } from '@storybook/testing-react';
 import { render } from '@testing-library/react';
 import { axe } from 'jest-axe';
-import React from 'react';
 import { SSRProvider } from 'react-aria';
 
 import * as stories from './NavBar.stories';

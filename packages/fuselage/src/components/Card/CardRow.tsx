@@ -1,5 +1,4 @@
 import type { AllHTMLAttributes, ReactNode } from 'react';
-import React from 'react';
 
 /** @public */
 export type CardRowProps = AllHTMLAttributes<HTMLElement> & {

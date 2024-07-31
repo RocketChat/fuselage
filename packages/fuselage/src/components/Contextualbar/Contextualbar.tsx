@@ -1,5 +1,5 @@
 import type { ForwardedRef } from 'react';
-import React, { forwardRef, memo } from 'react';
+import { forwardRef, memo } from 'react';
 
 import { Box, type BoxProps } from '../Box';
 

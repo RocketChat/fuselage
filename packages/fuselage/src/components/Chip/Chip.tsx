@@ -1,5 +1,4 @@
 import type { ButtonHTMLAttributes, ReactNode } from 'react';
-import React from 'react';
 
 import { Avatar, Box } from '..';
 import { prependClassName } from '../../helpers/prependClassName';

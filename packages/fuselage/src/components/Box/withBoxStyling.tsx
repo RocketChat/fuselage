@@ -1,5 +1,4 @@
 import type { ComponentPropsWithoutRef, ComponentType } from 'react';
-import React from 'react';
 
 import type { StylingProps } from './stylingProps';
 import { useStylingProps } from './useStylingProps';

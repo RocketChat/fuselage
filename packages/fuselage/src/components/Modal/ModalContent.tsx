@@ -1,5 +1,3 @@
-import React from 'react';
-
 import type { BoxProps } from '../Box';
 import Box from '../Box';
 import Scrollable from '../Scrollable';

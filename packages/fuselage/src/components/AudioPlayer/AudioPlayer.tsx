@@ -1,6 +1,6 @@
 import { useMergedRefs, useResizeObserver } from '@rocket.chat/fuselage-hooks';
 import type { ForwardedRef } from 'react';
-import React, { useState, useRef, forwardRef } from 'react';
+import { useState, useRef, forwardRef } from 'react';
 
 import { Box, Button, IconButton, Margins } from '../..';
 import { Slider } from '../Slider';

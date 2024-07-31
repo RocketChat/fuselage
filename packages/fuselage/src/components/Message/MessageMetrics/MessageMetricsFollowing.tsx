@@ -1,5 +1,3 @@
-import React from 'react';
-
 import type { IconButtonProps } from '../../Button';
 import { IconButton } from '../../Button';
 

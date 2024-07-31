@@ -1,5 +1,4 @@
 import type { IconName } from '@rocket.chat/icons';
-import React from 'react';
 
 import { Icon } from '../Icon';
 import OptionColumn from './OptionColumn';

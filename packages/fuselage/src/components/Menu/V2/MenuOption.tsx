@@ -1,5 +1,5 @@
 import type { Ref, ReactNode, MouseEvent, AllHTMLAttributes } from 'react';
-import React, { forwardRef, memo } from 'react';
+import { forwardRef, memo } from 'react';
 
 import { prevent } from '../../../helpers/prevent';
 import type { BoxProps } from '../../Box';

@@ -11,7 +11,7 @@ import type {
   ForwardedRef,
   ReactNode,
 } from 'react';
-import React, { useState, useRef, useEffect, forwardRef } from 'react';
+import { useState, useRef, useEffect, forwardRef } from 'react';
 
 import { isForwardRefType } from '../../helpers/isForwardRefType';
 import { prevent } from '../../helpers/prevent';

@@ -1,5 +1,5 @@
 import type { HTMLAttributes, ReactNode, ForwardedRef } from 'react';
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 
 import MessageReactionCounter from './MessageReactionCounter';
 import MessageReactionEmoji from './MessageReactionEmoji';
