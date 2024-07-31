@@ -7,9 +7,9 @@ import {
   Subtitle,
 } from '@storybook/addon-docs';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import React from 'react';
 
-import { Box, Button } from '../..';
+import Button from '../Button';
+import Box from './Box';
 
 export default {
   title: 'Layout/Box/isProp',
@@ -32,7 +32,7 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof Box>;
+} satisfies ComponentMeta<typeof Box>;
 
 const Template: ComponentStory<typeof Box> = (args) => <Box {...args} />;
 

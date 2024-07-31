@@ -1,10 +1,11 @@
 import type { ReactNode } from 'react';
-import React from 'react';
 
-type OptionInputProps = {
+/** @public */
+export type OptionInputProps = {
   children?: ReactNode;
 };
 
+/** @public */
 const OptionInput = (props: OptionInputProps) => (
   <div className='rcx-option__input' {...props} />
 );

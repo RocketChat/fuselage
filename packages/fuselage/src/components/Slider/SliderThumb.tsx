@@ -1,16 +1,24 @@
 import { css } from '@rocket.chat/css-in-js';
-import React, { useRef } from 'react';
+import type { RefObject } from 'react';
+import { useRef } from 'react';
 import {
   mergeProps,
   useFocusRing,
   useSliderThumb,
   VisuallyHidden,
 } from 'react-aria';
+import type { SliderState } from 'react-stately';
 
 import { Palette } from '../../Theme';
 import { useStyle } from '../../hooks/useStyle';
 
-export const SliderThumb = (props: any) => {
+type SliderThumbProps = {
+  state: SliderState;
+  trackRef: RefObject<Element>;
+  index: number;
+};
+
+const SliderThumb = (props: SliderThumbProps) => {
   const { state, trackRef, index } = props;
   const inputRef = useRef(null);
   const { thumbProps, inputProps, isDragging } = useSliderThumb(
@@ -44,6 +52,7 @@ export const SliderThumb = (props: any) => {
     `,
     { isFocusVisible, isDragging }
   );
+
   return (
     <div {...thumbProps} className={thumb}>
       <VisuallyHidden>
@@ -52,3 +61,5 @@ export const SliderThumb = (props: any) => {
     </div>
   );
 };
+
+export default SliderThumb;

@@ -1,6 +1,7 @@
+import type { IconName } from '@rocket.chat/icons';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import type { ComponentProps, ReactNode, Ref } from 'react';
-import React, { forwardRef, useState } from 'react';
+import type { ReactNode, ForwardedRef } from 'react';
+import { forwardRef, useState } from 'react';
 
 import {
   MenuV2 as Menu,
@@ -17,6 +18,7 @@ import { CheckBox } from '../../CheckBox';
 import { RadioButton } from '../../RadioButton';
 import Sidebar from '../../Sidebar';
 import { ToggleSwitch } from '../../ToggleSwitch';
+import type { MenuProps } from './Menu';
 
 type MenuStories = ComponentMeta<typeof Menu>;
 
@@ -105,7 +107,7 @@ WithSections.parameters = {
 };
 
 export const MenuDisplayExample = (
-  args: Omit<ComponentProps<typeof Menu>, 'children'>
+  args: Omit<MenuProps<object>, 'children'>
 ) => {
   const [display, setDisplay] = useState('condensed');
   const [avatarDisplay, setAvatarDisplay] = useState(false);
@@ -219,7 +221,7 @@ export const MenuDisplayExample = (
 
 type Item = {
   name: string;
-  icon: ComponentProps<typeof MenuItemIcon>['name'];
+  icon: IconName;
   input?: ReactNode;
   description?: string;
   variant?: string;
@@ -430,7 +432,7 @@ export const Sizes = () => (
   </ButtonGroup>
 );
 
-const CustomButton = forwardRef((props, ref: Ref<HTMLElement>) => (
+const CustomButton = forwardRef((props, ref: ForwardedRef<HTMLElement>) => (
   <IconButton ref={ref} {...props} icon='kebab' secondary small={false} />
 ));
 

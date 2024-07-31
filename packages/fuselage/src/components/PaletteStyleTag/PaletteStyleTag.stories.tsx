@@ -8,7 +8,6 @@ import {
   PRIMARY_STORY,
 } from '@storybook/addon-docs';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import React from 'react';
 
 import {
   Box,
@@ -47,7 +46,7 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof PaletteStyleTag>;
+} satisfies ComponentMeta<typeof PaletteStyleTag>;
 
 export const _PaletteStyleTag: ComponentStory<typeof PaletteStyleTag> = (
   args

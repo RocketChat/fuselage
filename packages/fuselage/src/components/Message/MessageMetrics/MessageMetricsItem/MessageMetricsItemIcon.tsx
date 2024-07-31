@@ -1,12 +1,13 @@
-import type { ComponentProps } from 'react';
-import React from 'react';
+import { Icon, type IconProps } from '../../../Icon';
 
-import { Icon } from '../../../..';
-
-type MessageMetricsItemIconProps = {
+/** @public */
+export type MessageMetricsItemIconProps = {
   name: 'thread' | 'user' | 'clock' | 'discussion';
-} & Omit<ComponentProps<typeof Icon>, 'name'>;
+} & Omit<IconProps, 'name'>;
 
-export const MessageMetricsItemIcon = (props: MessageMetricsItemIconProps) => (
+/** @public */
+const MessageMetricsItemIcon = (props: MessageMetricsItemIconProps) => (
   <Icon size='x20' {...props} />
 );
+
+export default MessageMetricsItemIcon;

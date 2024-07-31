@@ -1,5 +1,4 @@
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
-import React from 'react';
 
 import { Icon, PasswordInput } from '../..';
 import { PropsVariationSection } from '../../../.storybook/helpers';
@@ -8,7 +7,7 @@ export default {
   title: 'Inputs/PasswordInput',
   component: PasswordInput,
   parameters: { jest: ['PasswordInput.spec.tsx'] },
-} as ComponentMeta<typeof PasswordInput>;
+} satisfies ComponentMeta<typeof PasswordInput>;
 
 export const Default: ComponentStory<typeof PasswordInput> = () => (
   <PasswordInput aria-label='password' />

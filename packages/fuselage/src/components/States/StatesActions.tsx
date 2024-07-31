@@ -1,10 +1,10 @@
-import type { ComponentProps } from 'react';
-import React from 'react';
-
+import type { ButtonGroupProps } from '../ButtonGroup';
 import { ButtonGroup } from '../ButtonGroup';
 
-type StatesActionsProps = ComponentProps<typeof ButtonGroup>;
+/** @public */
+export type StatesActionsProps = ButtonGroupProps;
 
+/** @public */
 const StatesActions = (props: StatesActionsProps) => <ButtonGroup {...props} />;
 
 export default StatesActions;

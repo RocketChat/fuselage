@@ -6,7 +6,6 @@ import {
   ArgsTable,
 } from '@storybook/addon-docs';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import React from 'react';
 
 import { ProgressBar } from '../..';
 
@@ -30,7 +29,7 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof ProgressBar>;
+} satisfies ComponentMeta<typeof ProgressBar>;
 
 const Template: ComponentStory<typeof ProgressBar> = (args) => (
   <ProgressBar {...args} />

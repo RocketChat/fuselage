@@ -1,14 +1,16 @@
-import type { AllHTMLAttributes, CSSProperties, ComponentProps } from 'react';
-import React from 'react';
+import type { AllHTMLAttributes, CSSProperties, ReactNode } from 'react';
 
+import type { BoxProps } from '../Box/Box';
 import Box from '../Box/Box';
 
-type CardBodyProps = {
+/** @public */
+export type CardBodyProps = {
   flexDirection?: CSSProperties['flexDirection'];
-  height?: ComponentProps<typeof Box>['height'];
-  children: React.ReactNode;
+  height?: BoxProps['height'];
+  children: ReactNode;
 } & Omit<AllHTMLAttributes<HTMLElement>, 'is'>;
 
+/** @public */
 const CardBody = ({
   children,
   flexDirection = 'row',

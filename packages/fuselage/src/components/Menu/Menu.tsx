@@ -1,13 +1,16 @@
 import type { UsePositionOptions } from '@rocket.chat/fuselage-hooks';
-import type { ComponentProps, ElementType, ReactNode } from 'react';
-import React, { useRef, useCallback, useEffect } from 'react';
+import type { IconName } from '@rocket.chat/icons';
+import type { ElementType, ReactNode } from 'react';
+import { useRef, useCallback, useEffect } from 'react';
 
 import { PositionAnimated, Options, useCursor } from '..';
-import type Box from '../Box';
-import { IconButton } from '../Button/IconButton';
+import type { BoxProps } from '../Box';
+import type { IconButtonProps } from '../Button';
+import { IconButton } from '../Button';
 import type { OptionType } from '../Options';
 
-type MenuProps = Omit<ComponentProps<typeof IconButton>, 'icon'> & {
+/** @public */
+export type MenuProps = Omit<IconButtonProps, 'icon'> & {
   options: {
     [id: string]: {
       type?: 'option' | 'heading' | 'divider';
@@ -16,10 +19,10 @@ type MenuProps = Omit<ComponentProps<typeof IconButton>, 'icon'> & {
       disabled?: boolean;
     };
   };
-  optionWidth?: ComponentProps<typeof Box>['width'];
+  optionWidth?: BoxProps['width'];
   placement?: UsePositionOptions['placement'];
   renderItem?: ElementType;
-  icon?: ComponentProps<typeof IconButton>['icon'];
+  icon?: IconName;
   maxHeight?: string | number;
 };
 
@@ -38,7 +41,8 @@ const mapOptions = (options: MenuProps['options']): OptionType[] =>
     ]
   );
 
-export const Menu = ({
+/** @public */
+const Menu = ({
   tiny,
   mini,
   small = !(tiny || mini),
@@ -120,3 +124,5 @@ export const Menu = ({
     </>
   );
 };
+
+export default Menu;

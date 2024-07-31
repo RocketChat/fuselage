@@ -25,6 +25,16 @@ export class Var {
 const white = new Var('white', '#ffffff');
 
 export let throwErrorOnInvalidToken = false;
+
+/**
+ * Defines if an error should be thrown when a token is not found
+ *
+ * This is useful when you want to find typos in your token names and not have to
+ * manually review all the tokens.
+ *
+ * @param value - if true, when a token is not found, an error will be thrown
+ * @internal
+ */
 export const __setThrowErrorOnInvalidToken__ = (value: boolean) => {
   throwErrorOnInvalidToken = value;
 };
@@ -250,6 +260,11 @@ export const isStatusColor = (color: unknown): color is StatusColors =>
 export const isShadowColor = (color: unknown): color is ShadowColors =>
   typeof color === 'string' && color in shadowColors;
 
+/**
+ * The palette object contains all the colors used in the theme.
+ *
+ * @public
+ */
 export const Palette = {
   surface: surfaceColors,
   status: statusBackgroundColors,

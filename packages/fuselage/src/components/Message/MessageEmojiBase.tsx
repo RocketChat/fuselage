@@ -1,7 +1,6 @@
 import type { HTMLAttributes } from 'react';
-import React from 'react';
 
-type MessageEmojiBaseProps = {
+export type MessageEmojiBaseProps = {
   name: string;
   image?: string;
 } & HTMLAttributes<HTMLSpanElement>;

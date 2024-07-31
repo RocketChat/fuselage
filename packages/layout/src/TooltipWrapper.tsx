@@ -10,7 +10,7 @@ import type {
   MutableRefObject,
   ReactElement,
   ReactNode,
-  Ref,
+  ForwardedRef,
   SetStateAction,
 } from 'react';
 import { cloneElement, forwardRef, useCallback, useMemo, useRef } from 'react';
@@ -42,7 +42,7 @@ const getAnchor = (
 // Workaround to the c̶r̶a̶p̶p̶y̶ not-so-great API of PositionAnimated
 const InnerTooltip = forwardRef(function InnerTooltip(
   { style, ...props }: ComponentProps<typeof Tooltip>,
-  ref: Ref<HTMLDivElement>
+  ref: ForwardedRef<HTMLDivElement>
 ): ReactElement {
   return (
     <div ref={ref} style={style}>

@@ -1,7 +1,6 @@
 import { render } from '@testing-library/react';
-import React from 'react';
 
-import { StatusBullet } from '.';
+import StatusBullet from './StatusBullet';
 
 describe('[StatusBullet Component]', () => {
   it('renders without crashing', () => {

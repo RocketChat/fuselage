@@ -1,7 +1,6 @@
 import { composeStories } from '@storybook/testing-react';
 import { fireEvent, getByRole, render } from '@testing-library/react';
 import { axe } from 'jest-axe';
-import React from 'react';
 
 import * as stories from './CheckBox.stories';
 

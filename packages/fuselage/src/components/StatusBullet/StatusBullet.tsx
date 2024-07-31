@@ -1,5 +1,4 @@
 import type { AllHTMLAttributes } from 'react';
-import React from 'react';
 
 import Away from './icons/Away';
 import Busy from './icons/Busy';
@@ -8,11 +7,16 @@ import Loading from './icons/Loading';
 import Offline from './icons/Offline';
 import Online from './icons/Online';
 
+/** @public */
 export type StatusBulletProps = {
   status?: 'loading' | 'online' | 'busy' | 'away' | 'offline' | 'disabled';
   size?: 'small' | 'large';
 } & Omit<AllHTMLAttributes<SVGElement>, 'size'>;
 
+/**
+ * The `StatusBullet` is used to inform the user status.
+ * @public
+ */
 const StatusBullet = ({ status = 'loading', ...props }: StatusBulletProps) => {
   switch (status) {
     case 'online':
@@ -29,4 +33,5 @@ const StatusBullet = ({ status = 'loading', ...props }: StatusBulletProps) => {
       return <Loading {...props} />;
   }
 };
-export { StatusBullet };
+
+export default StatusBullet;

@@ -1,12 +1,12 @@
 import { useToggle, useUniqueId } from '@rocket.chat/fuselage-hooks';
 import type { FormEvent, KeyboardEvent, MouseEvent, ReactNode } from 'react';
-import React from 'react';
 
 import Box from '../Box';
 import { Chevron } from '../Chevron';
 import { ToggleSwitch } from '../ToggleSwitch';
 
-type AccordionItemProps = {
+/** @public */
+export type AccordionItemProps = {
   children?: ReactNode;
   className?: string;
   defaultExpanded?: boolean;
@@ -19,7 +19,8 @@ type AccordionItemProps = {
   onToggleEnabled?: (e: FormEvent) => void;
 };
 
-export const AccordionItem = function Item({
+/** @public */
+function AccordionItem({
   children,
   className,
   defaultExpanded,
@@ -131,4 +132,6 @@ export const AccordionItem = function Item({
       </Box>
     </Box>
   );
-};
+}
+
+export default AccordionItem;

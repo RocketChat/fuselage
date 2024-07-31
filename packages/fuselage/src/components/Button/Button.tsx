@@ -1,10 +1,13 @@
-import type { AllHTMLAttributes, ComponentProps, Ref } from 'react';
-import React, { forwardRef, useMemo } from 'react';
+import type { IconName } from '@rocket.chat/icons';
+import type { AllHTMLAttributes, ForwardedRef } from 'react';
+import { forwardRef, useMemo } from 'react';
 
+import type { BoxProps } from '../Box';
 import Box from '../Box';
 import { Icon } from '../Icon';
 
-export type ButtonProps = ComponentProps<typeof Box> & {
+/** @public */
+export type ButtonProps = BoxProps & {
   primary?: boolean;
   secondary?: boolean;
   danger?: boolean;
@@ -19,13 +22,18 @@ export type ButtonProps = ComponentProps<typeof Box> & {
   large?: boolean;
   square?: boolean;
   external?: boolean;
-  icon?: ComponentProps<typeof Icon>['name'];
+  icon?: IconName;
 } & Omit<
     AllHTMLAttributes<HTMLButtonElement | HTMLAnchorElement>,
     'is' | 'className' | 'size'
   >;
 
-export const Button = forwardRef(function Button(
+/**
+ * Indicates an actionable user action.
+ *
+ * @public
+ */
+const Button = forwardRef(function Button(
   {
     primary,
     secondary,
@@ -47,7 +55,7 @@ export const Button = forwardRef(function Button(
     children,
     ...props
   }: ButtonProps,
-  ref: Ref<HTMLButtonElement | HTMLAnchorElement>
+  ref: ForwardedRef<HTMLElement>
 ) {
   const extraProps =
     (is === 'a' && {

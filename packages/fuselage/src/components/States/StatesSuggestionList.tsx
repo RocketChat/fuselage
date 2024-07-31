@@ -1,10 +1,11 @@
 import type { AllHTMLAttributes, ReactNode } from 'react';
-import React from 'react';
 
-type StatesSuggestionListProps = {
+/** @public */
+export type StatesSuggestionListProps = {
   children?: ReactNode;
 } & AllHTMLAttributes<HTMLUListElement>;
 
+/** @public */
 const StatesSuggestionList = ({
   children,
   ...props

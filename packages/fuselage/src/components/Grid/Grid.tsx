@@ -1,10 +1,9 @@
-import type { ComponentProps } from 'react';
-import React from 'react';
-
+import type { BoxProps } from '../Box';
 import Box from '../Box';
-import { GridItem } from './GridItem';
+import GridItem from './GridItem';
 
-type GridProps = ComponentProps<typeof Box> & {
+/** @public */
+export type GridProps = BoxProps & {
   xs?: boolean;
   sm?: boolean;
   md?: boolean;
@@ -12,18 +11,27 @@ type GridProps = ComponentProps<typeof Box> & {
   xl?: boolean;
 };
 
-export const Grid = ({ xs, sm, md, lg, xl, ...props }: GridProps) => (
-  <Box rcx-grid__wrapper>
-    <Box
-      rcx-grid
-      rcx-grid--xs={xs}
-      rcx-grid--sm={sm}
-      rcx-grid--md={md}
-      rcx-grid--lg={lg}
-      rcx-grid--xl={xl}
-      {...props}
-    />
-  </Box>
-);
+/** @public */
+function Grid({ xs, sm, md, lg, xl, ...props }: GridProps) {
+  return (
+    <Box rcx-grid__wrapper>
+      <Box
+        rcx-grid
+        rcx-grid--xs={xs}
+        rcx-grid--sm={sm}
+        rcx-grid--md={md}
+        rcx-grid--lg={lg}
+        rcx-grid--xl={xl}
+        {...props}
+      />
+    </Box>
+  );
+}
 
-Grid.Item = GridItem;
+/** @public */
+// eslint-disable-next-line @typescript-eslint/no-namespace
+namespace Grid {
+  export const Item = GridItem;
+}
+
+export default Grid;

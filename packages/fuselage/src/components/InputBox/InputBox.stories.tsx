@@ -7,7 +7,6 @@ import {
   ArgsTable,
 } from '@storybook/addon-docs';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import React from 'react';
 
 import { Icon, InputBox, Box } from '../..';
 
@@ -31,7 +30,7 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof Icon>;
+} satisfies ComponentMeta<typeof Icon>;
 
 const Template: ComponentStory<typeof InputBox> = (args) => (
   <InputBox aria-label='Value' {...args} />

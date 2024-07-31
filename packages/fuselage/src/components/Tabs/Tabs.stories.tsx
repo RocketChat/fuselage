@@ -1,29 +1,12 @@
-import { Title, Description, Primary, Stories } from '@storybook/addon-docs';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import React from 'react';
 
-import { Tabs, TabsItem } from '../..';
+import Tabs from './Tabs';
+import TabsItem from './TabsItem';
 
 export default {
   title: 'Navigation/Tabs',
   component: Tabs,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'Tabs is a component to navigate around the UI using buttons arranged together with the selected tab highlighted.',
-      },
-      page: () => (
-        <>
-          <Title />
-          <Description />
-          <Primary />
-          <Stories title={''} />
-        </>
-      ),
-    },
-  },
-} as ComponentMeta<typeof Tabs>;
+} satisfies ComponentMeta<typeof Tabs>;
 
 const Template: ComponentStory<typeof Tabs> = (args) => (
   <Tabs {...args}>

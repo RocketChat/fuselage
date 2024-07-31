@@ -1,16 +1,19 @@
-import type { ComponentProps, Ref } from 'react';
-import React, { forwardRef } from 'react';
+import type { ForwardedRef } from 'react';
+import { forwardRef } from 'react';
 
+import type { BoxProps } from '../Box';
 import Box from '../Box';
 
-type TabsItemProps = ComponentProps<typeof Box> & {
+/** @public */
+export type TabsItemProps = BoxProps & {
   selected?: boolean;
   disabled?: boolean;
 };
 
-export const TabsItem = forwardRef(function TabsItem(
+/** @public */
+const TabsItem = forwardRef(function TabsItem(
   { selected, disabled, ...props }: TabsItemProps,
-  ref: Ref<HTMLButtonElement>
+  ref: ForwardedRef<HTMLButtonElement>
 ) {
   return (
     <Box
@@ -26,3 +29,5 @@ export const TabsItem = forwardRef(function TabsItem(
     />
   );
 });
+
+export default TabsItem;

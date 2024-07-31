@@ -1,16 +1,24 @@
-import type { ComponentProps, ReactNode, Ref } from 'react';
-import React, { forwardRef } from 'react';
+import type { ReactNode, ForwardedRef } from 'react';
+import { forwardRef } from 'react';
 
+import type { InputBoxProps } from '../InputBox';
 import { InputBox } from '../InputBox';
 
-type TextAreaInputProps = Omit<ComponentProps<typeof InputBox>, 'type'> & {
+/** @public */
+export type TextAreaInputProps = Omit<InputBoxProps, 'type'> & {
   addon?: ReactNode;
   error?: string;
 };
 
-export const TextAreaInput = forwardRef(function TextAreaInput(
+/**
+ * An input for multi-line plain-text editing.
+ * @public
+ */
+const TextAreaInput = forwardRef(function TextAreaInput(
   props: TextAreaInputProps,
-  ref: Ref<HTMLTextAreaElement>
+  ref: ForwardedRef<HTMLTextAreaElement>
 ) {
   return <InputBox type='textarea' ref={ref} {...props} />;
 });
+
+export default TextAreaInput;

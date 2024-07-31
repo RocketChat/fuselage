@@ -1,6 +1,6 @@
 import type { Node } from '@react-types/shared';
 import type { ReactNode } from 'react';
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import { useMenuItem } from 'react-aria';
 import type { TreeState } from 'react-stately';
 

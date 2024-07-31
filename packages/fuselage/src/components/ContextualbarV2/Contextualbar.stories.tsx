@@ -1,6 +1,5 @@
 import { action } from '@storybook/addon-actions';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import React from 'react';
 
 import {
   ContextualbarV2,
@@ -35,7 +34,7 @@ export default {
       </Box>
     ),
   ],
-} as ComponentMeta<typeof ContextualbarV2>;
+} satisfies ComponentMeta<typeof ContextualbarV2>;
 
 export const Default: ComponentStory<typeof ContextualbarV2> = () => (
   <ContextualbarV2 position='static' height='x540'>

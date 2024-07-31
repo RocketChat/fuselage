@@ -1,16 +1,19 @@
-import type { ComponentProps } from 'react';
-import React, { forwardRef, memo } from 'react';
+import type { ForwardedRef } from 'react';
+import { forwardRef, memo } from 'react';
 
-import { Box } from '..';
+import { Box, type BoxProps } from '../Box';
 
-const ContextualbarFooter = forwardRef<HTMLElement, ComponentProps<typeof Box>>(
-  function ContextualbarFooter({ children, ...props }, ref) {
-    return (
-      <Box ref={ref} pi={16} pb={20} {...props}>
-        {children}
-      </Box>
-    );
-  }
-);
+type ContextualbarFooterProps = BoxProps;
+
+const ContextualbarFooter = forwardRef(function ContextualbarFooter(
+  { children, ...props }: ContextualbarFooterProps,
+  ref: ForwardedRef<HTMLElement>
+) {
+  return (
+    <Box ref={ref} pi={16} pb={20} {...props}>
+      {children}
+    </Box>
+  );
+});
 
 export default memo(ContextualbarFooter);

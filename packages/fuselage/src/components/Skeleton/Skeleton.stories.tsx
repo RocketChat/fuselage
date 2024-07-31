@@ -1,32 +1,11 @@
-import {
-  Title,
-  Description,
-  Primary,
-  Stories,
-  ArgsTable,
-} from '@storybook/addon-docs';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import React from 'react';
 
-import { Skeleton } from '../..';
+import Skeleton from './Skeleton';
 
 export default {
   title: 'Layout/Skeleton',
   component: Skeleton,
-  parameters: {
-    docs: {
-      page: () => (
-        <>
-          <Title />
-          <Description />
-          <Primary />
-          <ArgsTable />
-          <Stories title={''} />
-        </>
-      ),
-    },
-  },
-} as ComponentMeta<typeof Skeleton>;
+} satisfies ComponentMeta<typeof Skeleton>;
 
 const Template: ComponentStory<typeof Skeleton> = (args) => (
   <Skeleton {...args} />

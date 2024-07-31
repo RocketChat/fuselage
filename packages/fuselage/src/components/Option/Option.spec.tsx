@@ -1,5 +1,4 @@
 import { render } from '@testing-library/react';
-import React from 'react';
 
 import Option, { OptionContent } from '.';
 import { prevent } from '../../helpers/prevent';

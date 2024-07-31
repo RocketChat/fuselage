@@ -1,12 +1,13 @@
-import type { ComponentProps, Dispatch, SetStateAction } from 'react';
-import React, { useMemo } from 'react';
+import type { Dispatch, SetStateAction } from 'react';
+import { useMemo } from 'react';
 
+import type { BoxProps } from '../Box';
 import Box from '../Box';
 import { Chevron } from '../Chevron';
 
 type ItemsPerPage = 25 | 50 | 100;
 
-type PaginationProps = ComponentProps<typeof Box> & {
+type PaginationProps = BoxProps & {
   count: number;
   current?: number;
   divider?: boolean;
@@ -42,6 +43,8 @@ const defaultShowingResultsLabel = ({
   )} of ${count}`;
 
 const itemsPerPageOptions = [25, 50, 100] as ItemsPerPage[];
+
+/** @public */
 export const Pagination = ({
   count,
   current = 0,

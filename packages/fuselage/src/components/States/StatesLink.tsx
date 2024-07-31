@@ -1,11 +1,12 @@
-import type { AllHTMLAttributes, ComponentProps } from 'react';
-import React from 'react';
+import type { AllHTMLAttributes } from 'react';
 
+import type { BoxProps } from '../Box/Box';
 import Box from '../Box/Box';
 
-type StatesLinkProps = ComponentProps<typeof Box> &
-  AllHTMLAttributes<HTMLAnchorElement>;
+/** @public */
+export type StatesLinkProps = BoxProps & AllHTMLAttributes<HTMLAnchorElement>;
 
+/** @public */
 const StatesLink = (props: StatesLinkProps) => (
   <Box is='a' rcx-states__link {...props} />
 );

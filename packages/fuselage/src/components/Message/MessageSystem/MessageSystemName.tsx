@@ -1,10 +1,11 @@
-import type { ComponentProps } from 'react';
-import React from 'react';
+import type { MessageNameProps } from '../MessageName';
 
-import type { MessageName } from '../MessageName';
+/** @public */
+export type MessageSystemNameProps = MessageNameProps;
 
-type MessageSystemNameProps = ComponentProps<typeof MessageName>;
-
-export const MessageSystemName = (props: MessageSystemNameProps) => (
+/** @public */
+const MessageSystemName = (props: MessageSystemNameProps) => (
   <span className='rcx-box rcx-box--full rcx-message-system__name' {...props} />
 );
+
+export default MessageSystemName;

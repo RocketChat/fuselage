@@ -1,5 +1,5 @@
-import type { CSSProperties, ReactNode, Ref } from 'react';
-import React, { forwardRef } from 'react';
+import type { CSSProperties, ReactNode, ForwardedRef } from 'react';
+import { forwardRef } from 'react';
 
 import { Box, Tile } from '..';
 
@@ -15,7 +15,7 @@ export const DropdownDesktop = forwardRef(function DropdownDesktop<
     maxWidth?: string;
     style?: CSSProperties;
   },
-  ref: Ref<R>
+  ref: ForwardedRef<R>
 ) {
   return (
     <Tile

@@ -1,10 +1,11 @@
 import type { AllHTMLAttributes, ReactNode } from 'react';
-import React from 'react';
 
-type StatesTitleProps = {
+/** @public */
+export type StatesTitleProps = {
   children?: ReactNode;
 } & AllHTMLAttributes<HTMLHeadingElement>;
 
+/** @public */
 const StatesTitle = ({ children, ...props }: StatesTitleProps) => (
   <h3 {...props} className='rcx-states__title'>
     {children}

@@ -7,7 +7,6 @@ import {
   ArgsTable,
 } from '@storybook/addon-docs';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import React from 'react';
 
 import { Pagination } from '../..';
 
@@ -27,7 +26,7 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof Pagination>;
+} satisfies ComponentMeta<typeof Pagination>;
 
 export const Default: ComponentStory<typeof Pagination> = () => (
   <Pagination

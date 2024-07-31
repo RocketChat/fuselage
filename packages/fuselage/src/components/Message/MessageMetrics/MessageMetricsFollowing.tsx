@@ -1,13 +1,15 @@
-import type { ComponentProps } from 'react';
-import React from 'react';
-
+import type { IconButtonProps } from '../../Button';
 import { IconButton } from '../../Button';
 
-type MessageMetricsFollowingProps = {
+/** @public */
+export type MessageMetricsFollowingProps = {
   name: 'bell' | 'bell-off';
-} & Omit<ComponentProps<typeof IconButton>, 'icon'>;
+} & Omit<IconButtonProps, 'icon'>;
 
-export const MessageMetricsFollowing = ({
+/** @public */
+const MessageMetricsFollowing = ({
   name,
   ...props
 }: MessageMetricsFollowingProps) => <IconButton {...props} small icon={name} />;
+
+export default MessageMetricsFollowing;

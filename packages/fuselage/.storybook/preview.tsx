@@ -3,7 +3,6 @@ import { DocsPage } from '@storybook/addon-docs';
 import type { Parameters } from '@storybook/addons';
 import type { DecoratorFn } from '@storybook/react';
 import { themes } from '@storybook/theming';
-import React from 'react';
 import { useDarkMode } from 'storybook-dark-mode';
 
 import manifest from '../package.json';

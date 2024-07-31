@@ -1,6 +1,5 @@
 import { css } from '@rocket.chat/css-in-js';
 import type { LabelHTMLAttributes, OutputHTMLAttributes } from 'react';
-import React from 'react';
 import type { SliderState } from 'react-stately';
 
 import { useStyle } from '../../hooks/useStyle';
@@ -14,7 +13,8 @@ type SliderHeadProps = {
   showOutput?: boolean;
   multiThumb?: boolean;
 };
-export const SliderHead = ({
+
+const SliderHead = ({
   state,
   labelProps,
   outputProps,
@@ -59,3 +59,5 @@ export const SliderHead = ({
     </>
   );
 };
+
+export default SliderHead;

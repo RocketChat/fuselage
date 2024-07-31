@@ -1,7 +1,6 @@
-import React from 'react';
+import Divider from '../Divider';
 
-import { Divider } from '../Divider';
+/** @public */
+const SidebarDivider = () => <Divider rcx-sidebar--divider mbs={-2} mbe={0} />;
 
-export const SidebarDivider = () => (
-  <Divider rcx-sidebar--divider mbs={-2} mbe={0} />
-);
+export default SidebarDivider;

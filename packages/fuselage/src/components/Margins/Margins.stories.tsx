@@ -6,7 +6,6 @@ import {
   ArgsTable,
 } from '@storybook/addon-docs';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import React from 'react';
 
 import { Box, Button, ButtonGroup, Margins, Tile } from '../..';
 
@@ -29,7 +28,7 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof ButtonGroup>;
+} satisfies ComponentMeta<typeof ButtonGroup>;
 
 const Template: ComponentStory<typeof Margins> = (args) => (
   <ButtonGroup>

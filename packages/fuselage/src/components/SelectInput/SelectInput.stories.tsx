@@ -6,7 +6,6 @@ import {
   ArgsTable,
 } from '@storybook/addon-docs';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import React from 'react';
 
 import { SelectInputOption } from '.';
 import { Icon, SelectInput } from '../..';
@@ -31,7 +30,7 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof SelectInput>;
+} satisfies ComponentMeta<typeof SelectInput>;
 
 const Template: ComponentStory<typeof SelectInput> = (args) => (
   <SelectInput aria-label='select' {...args}>

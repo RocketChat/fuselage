@@ -6,7 +6,6 @@ import {
   ArgsTable,
 } from '@storybook/addon-docs';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import React from 'react';
 
 import {
   NavBar,
@@ -44,7 +43,7 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof NavBar>;
+} satisfies ComponentMeta<typeof NavBar>;
 
 const Template: ComponentStory<typeof NavBar> = (args) => (
   <NavBar {...args}>

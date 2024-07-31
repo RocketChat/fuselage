@@ -1,7 +1,7 @@
 import type { AriaSelectProps } from '@react-types/select';
 import { useMergedRefs, useResizeObserver } from '@rocket.chat/fuselage-hooks';
-import type { Key, Ref } from 'react';
-import React, { forwardRef } from 'react';
+import type { AllHTMLAttributes, ForwardedRef, Key } from 'react';
+import { forwardRef } from 'react';
 import {
   useSelect,
   HiddenSelect,
@@ -19,7 +19,18 @@ import { ListBox } from './Listbox';
 
 export { Item } from 'react-stately';
 
-export const SelectAria = forwardRef(function SelectAria<T extends object>(
+export type SelectAriaProps = Omit<
+  AriaSelectProps<object>,
+  'value' | 'onChange'
+> & {
+  error?: string;
+  placeholder?: string;
+  value?: Key | null;
+  onChange?: ((key: Key) => any) | undefined;
+  small?: boolean;
+} & AllHTMLAttributes<HTMLElement>;
+
+export const SelectAria = forwardRef(function SelectAria(
   {
     disabled,
     error,
@@ -28,14 +39,8 @@ export const SelectAria = forwardRef(function SelectAria<T extends object>(
     onChange,
     small,
     ...props
-  }: Omit<AriaSelectProps<T>, 'value' | 'onChange'> & {
-    error?: string;
-    placeholder?: string;
-    value?: Key | null;
-    onChange?: ((key: Key) => any) | undefined;
-    small?: boolean;
-  } & React.AllHTMLAttributes<HTMLElement>,
-  outerRef: Ref<HTMLElement>
+  }: SelectAriaProps,
+  outerRef: ForwardedRef<HTMLElement>
 ) {
   const state = useSelectState({
     isDisabled: disabled,

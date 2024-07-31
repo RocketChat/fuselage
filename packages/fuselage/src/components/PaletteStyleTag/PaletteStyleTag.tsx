@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import { memo } from 'react';
 import { createPortal } from 'react-dom';
 
 import { convertToCss } from './helpers/convertToCss';
@@ -12,6 +12,7 @@ const themes = {
   'high-contrast': highContrast,
 };
 
+/** @public */
 export const PaletteStyleTag = memo(function PaletteStyleTag({
   theme = 'light',
   tagId = 'main-palette',

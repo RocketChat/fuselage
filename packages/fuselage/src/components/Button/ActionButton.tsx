@@ -1,19 +1,16 @@
-import type { ComponentProps, Ref } from 'react';
-import React, { forwardRef } from 'react';
+import type { IconName } from '@rocket.chat/icons';
+import type { ForwardedRef } from 'react';
+import { forwardRef } from 'react';
 
-import { Button } from '.';
 import { Icon } from '../Icon';
 import type { ButtonProps } from './Button';
+import Button from './Button';
 
 type ButtonSize = {
   mini?: boolean;
   tiny?: boolean;
   small?: boolean;
 };
-type ActionButtonProps = ButtonProps &
-  ButtonSize & {
-    icon: ComponentProps<typeof Icon>['name'];
-  };
 
 const getSize = ({ tiny, mini, small }: ButtonSize) => {
   if (mini) {
@@ -25,11 +22,23 @@ const getSize = ({ tiny, mini, small }: ButtonSize) => {
   return 'x20';
 };
 
-export const ActionButton = forwardRef(
-  ({ icon, children, ...props }: ActionButtonProps, ref: Ref<HTMLElement>) => (
+/** @public */
+export type ActionButtonProps = ButtonProps &
+  ButtonSize & {
+    icon: IconName;
+  };
+
+/** @public */
+const ActionButton = forwardRef(function ActionButton(
+  { icon, children, ...props }: ActionButtonProps,
+  ref: ForwardedRef<HTMLElement>
+) {
+  return (
     <Button ref={ref} square flexShrink={0} {...props}>
       {children}
       <Icon name={icon} size={getSize(props)} />
     </Button>
-  )
-);
+  );
+});
+
+export default ActionButton;

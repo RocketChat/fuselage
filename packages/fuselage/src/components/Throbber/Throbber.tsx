@@ -1,10 +1,12 @@
 import { css } from '@rocket.chat/css-in-js';
-import type { ComponentProps, Ref } from 'react';
-import React, { forwardRef } from 'react';
+import type { ForwardedRef } from 'react';
+import { forwardRef } from 'react';
 
+import type { BoxProps } from '../Box';
 import Box from '../Box';
 
-type ThrobberProps = Omit<ComponentProps<typeof Box>, 'disabled'> & {
+/** @public */
+export type ThrobberProps = Omit<BoxProps, 'disabled'> & {
   circleCount?: number;
   disabled?: boolean;
   inheritColor?: boolean;
@@ -15,7 +17,7 @@ type CircleProps = {
   iteration: number;
   inheritColor?: boolean;
   disabled?: boolean;
-} & Pick<ComponentProps<typeof Box>, 'size'>;
+} & Pick<BoxProps, 'size'>;
 
 function Circle({
   disabled,
@@ -39,7 +41,8 @@ function Circle({
   );
 }
 
-export const Throbber = forwardRef(function Throbber(
+/** @public */
+const Throbber = forwardRef(function Throbber(
   {
     disabled,
     size = 'x16',
@@ -47,7 +50,7 @@ export const Throbber = forwardRef(function Throbber(
     inheritColor,
     ...props
   }: ThrobberProps,
-  ref: Ref<HTMLElement>
+  ref: ForwardedRef<HTMLElement>
 ) {
   return (
     <Box rcx-throbber ref={ref} {...props}>
@@ -64,3 +67,5 @@ export const Throbber = forwardRef(function Throbber(
     </Box>
   );
 });
+
+export default Throbber;

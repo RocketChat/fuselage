@@ -1,5 +1,3 @@
-import React from 'react';
-
 import type { StatusBulletProps } from '../StatusBullet';
 
 const Loading = ({ size, className, ...props }: StatusBulletProps) => (

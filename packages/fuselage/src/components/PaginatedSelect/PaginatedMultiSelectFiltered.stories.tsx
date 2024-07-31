@@ -1,6 +1,5 @@
 import { useArgs } from '@storybook/client-api';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import React from 'react';
 
 import { PaginatedMultiSelectFiltered } from '.';
 
@@ -18,7 +17,7 @@ export default {
     actions: { argTypesRegex: '^on.*' },
     layout: 'centered',
   },
-} as ComponentMeta<typeof PaginatedMultiSelectFiltered>;
+} satisfies ComponentMeta<typeof PaginatedMultiSelectFiltered>;
 
 const Template: ComponentStory<typeof PaginatedMultiSelectFiltered> = (
   args

@@ -7,7 +7,6 @@ import {
   ArgsTable,
 } from '@storybook/addon-docs';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import React from 'react';
 
 import { Box, Menu, StatusBullet, Tile } from '../..';
 import { exampleAvatar, menuOptions } from '../../../.storybook/helpers';
@@ -48,7 +47,7 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof Menu>;
+} satisfies ComponentMeta<typeof Menu>;
 
 export const Default: ComponentStory<typeof Option> = () => (
   <>

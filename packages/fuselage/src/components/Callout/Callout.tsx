@@ -1,17 +1,24 @@
-import type { ComponentProps, ReactNode } from 'react';
-import React from 'react';
+import type { IconName } from '@rocket.chat/icons';
+import type { ReactNode } from 'react';
 
+import type { BoxProps } from '../Box';
 import Box from '../Box';
 import { Icon } from '../Icon';
 
-type CalloutProps = Omit<ComponentProps<typeof Box>, 'type' | 'name'> & {
+/** @public */
+export type CalloutProps = Omit<BoxProps, 'type' | 'name'> & {
   type?: 'info' | 'success' | 'warning' | 'danger';
   title?: ReactNode;
   children?: ReactNode;
-  icon?: ComponentProps<typeof Icon>['name'];
+  icon?: IconName;
 };
 
-export const Callout = ({
+/**
+ * The `Callout` is used to get the user's attention explaining something important in the content of the current page.
+ *
+ * @public
+ */
+const Callout = ({
   type,
   title,
   children,
@@ -46,3 +53,5 @@ export const Callout = ({
     </Box>
   );
 };
+
+export default Callout;

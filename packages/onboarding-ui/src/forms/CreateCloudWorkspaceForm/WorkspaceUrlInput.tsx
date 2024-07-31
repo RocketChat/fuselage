@@ -1,5 +1,5 @@
 import { Box, InputBox } from '@rocket.chat/fuselage';
-import type { ComponentProps, ReactNode, Ref } from 'react';
+import type { ComponentProps, ReactNode, ForwardedRef } from 'react';
 import { forwardRef } from 'react';
 
 type WorkspaceUrlInputProps = Omit<ComponentProps<typeof InputBox>, 'type'> & {
@@ -10,7 +10,7 @@ type WorkspaceUrlInputProps = Omit<ComponentProps<typeof InputBox>, 'type'> & {
 
 const WorkspaceUrlInput = forwardRef(function TextInput(
   props: WorkspaceUrlInputProps,
-  ref: Ref<HTMLInputElement>
+  ref: ForwardedRef<HTMLInputElement>
 ) {
   const { domain } = props;
 

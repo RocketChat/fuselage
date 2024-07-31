@@ -1,11 +1,11 @@
 import type { cssFn } from '@rocket.chat/css-in-js';
-import React, { createElement, forwardRef, memo } from 'react';
+import { createElement, forwardRef, memo } from 'react';
 import type {
   AllHTMLAttributes,
   ElementType,
+  ForwardedRef,
   RefAttributes,
   SVGAttributes,
-  Ref,
 } from 'react';
 
 import { useArrayLikeClassNameProp } from '../../hooks/useArrayLikeClassNameProp';
@@ -15,25 +15,29 @@ import { useBoxTransform, BoxTransforms } from './BoxTransforms';
 import type { StylingProps } from './stylingProps';
 import { useStylingProps } from './useStylingProps';
 
-type BoxProps = {
+/** @public */
+export interface BoxProps
+  extends Partial<StylingProps>,
+    Omit<
+      AllHTMLAttributes<HTMLElement>,
+      'ref' | 'is' | 'className' | keyof StylingProps
+    >,
+    Omit<
+      SVGAttributes<SVGElement>,
+      keyof AllHTMLAttributes<HTMLElement> | keyof StylingProps
+    > {
   is?: ElementType;
   className?: string | cssFn | (string | cssFn | Falsy)[];
   animated?: boolean;
   withRichContent?: boolean | 'inlineWithoutBreaks';
   htmlSize?: AllHTMLAttributes<HTMLElement>['size'];
-} & Partial<StylingProps> &
-  Omit<
-    AllHTMLAttributes<HTMLElement>,
-    'ref' | 'is' | 'className' | 'size' | 'elevation'
-  > &
-  Omit<
-    SVGAttributes<SVGElement>,
-    keyof AllHTMLAttributes<HTMLElement> | 'elevation'
-  >;
+  color?: string; // FIXME: it was `(Color | Var) & string` by mistake
+}
 
-export const Box = forwardRef(function Box(
+/** @public */
+const Box = forwardRef(function Box(
   { is = 'div', children, ...props }: BoxProps,
-  ref: Ref<any>
+  ref: ForwardedRef<any>
 ) {
   const propsWithRef: BoxProps & RefAttributes<any> = props;
 

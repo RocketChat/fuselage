@@ -1,6 +1,6 @@
 import { css } from '@rocket.chat/css-in-js';
 import type { DOMAttributes, MutableRefObject, ReactNode } from 'react';
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import type { SliderState } from 'react-stately';
 
 import { Palette } from '../../Theme';
@@ -17,7 +17,7 @@ type SliderTrackProps = {
 const highlight = Palette.stroke['stroke-highlight'];
 const light = Palette.stroke['stroke-light'];
 
-export const SliderTrack = ({
+const SliderTrack = ({
   trackProps,
   trackRef,
   state,
@@ -117,3 +117,5 @@ export const SliderTrack = ({
     </div>
   );
 };
+
+export default SliderTrack;

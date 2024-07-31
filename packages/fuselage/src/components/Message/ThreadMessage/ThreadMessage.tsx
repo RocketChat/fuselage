@@ -1,9 +1,6 @@
-import type { ComponentProps } from 'react';
-import React from 'react';
+import Message, { type MessageProps } from '../Message';
 
-import Message from '..';
-
-type ThreadMessageProps = ComponentProps<typeof Message>;
+type ThreadMessageProps = MessageProps;
 
 export const ThreadMessage = (props: ThreadMessageProps) => (
   <Message {...({ className: 'rcx-message-thread' } as any)} {...props} />

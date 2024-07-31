@@ -6,7 +6,6 @@ import {
   ArgsTable,
 } from '@storybook/addon-docs';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import React from 'react';
 
 import { Icon, SearchInput } from '../..';
 import { PropsVariationSection } from '../../../.storybook/helpers';
@@ -30,7 +29,7 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof SearchInput>;
+} satisfies ComponentMeta<typeof SearchInput>;
 
 const Template: ComponentStory<typeof SearchInput> = (args) => (
   <SearchInput aria-label='search' {...args} />

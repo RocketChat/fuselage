@@ -1,24 +1,24 @@
-import type { ComponentProps, ReactElement } from 'react';
-import React from 'react';
-
+import type { BoxProps } from '../Box';
 import Box from '../Box';
-import { Button } from '../Button';
-import { Skeleton } from '../Skeleton';
+import Button from '../Button';
+import Skeleton from '../Skeleton';
 
-type CodeSnippetProps = ComponentProps<typeof Box> & {
+/** @public */
+export type CodeSnippetProps = BoxProps & {
   children: string;
   buttonText?: string;
   buttonDisabled?: boolean;
   onClick?: () => void;
 };
 
+/** @public */
 const CodeSnippet = ({
   children,
   onClick,
   buttonText = 'Copy',
   buttonDisabled = false,
   ...props
-}: CodeSnippetProps): ReactElement<CodeSnippetProps> => {
+}: CodeSnippetProps) => {
   if (!children) {
     return (
       <Box is='pre' rcx-code-snippet {...props}>

@@ -3,11 +3,11 @@ import type {
   KeyboardEventHandler,
   MouseEventHandler,
   ReactNode,
-  Ref,
+  ForwardedRef,
 } from 'react';
 
 export type MultiSelectAnchorParams = {
-  ref: Ref<Element>;
+  ref: ForwardedRef<HTMLElement>;
   children: ReactNode;
   disabled: boolean;
   onClick: MouseEventHandler;

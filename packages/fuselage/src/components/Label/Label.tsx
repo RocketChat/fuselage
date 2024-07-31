@@ -1,17 +1,20 @@
-import type { ComponentProps, ReactElement, ElementType } from 'react';
-import React, { createContext, useContext } from 'react';
+import type { ReactElement, ElementType } from 'react';
+import { createContext, useContext } from 'react';
 
+import type { BoxProps } from '../Box';
 import Box from '../Box';
 
 const LabelContext = createContext(false);
 
-type LabelProps = Omit<ComponentProps<typeof Box>, 'is'> & {
+/** @public */
+export type LabelProps = Omit<BoxProps, 'is'> & {
   disabled?: boolean;
   required?: boolean;
   is?: (ElementType<any> & string) | undefined;
 };
 
-export function Label({
+/** @public */
+function Label({
   disabled,
   is,
   required,
@@ -34,3 +37,5 @@ export function Label({
     </LabelContext.Provider>
   );
 }
+
+export default Label;

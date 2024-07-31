@@ -1,5 +1,5 @@
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 
 import { Position, Tile } from '../..';
 
@@ -9,7 +9,7 @@ export default {
   parameters: {
     layout: 'centered',
   },
-} as ComponentMeta<typeof Position>;
+} satisfies ComponentMeta<typeof Position>;
 
 const Template: ComponentStory<typeof Position> = ({ placement }) => {
   const ref = useRef<HTMLElement>(null);

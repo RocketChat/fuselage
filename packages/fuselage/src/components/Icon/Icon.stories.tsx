@@ -1,4 +1,4 @@
-import type { Keys } from '@rocket.chat/icons';
+import type { IconName } from '@rocket.chat/icons';
 import nameToCharacterMapping from '@rocket.chat/icons';
 import {
   Title,
@@ -8,14 +8,16 @@ import {
   ArgsTable,
 } from '@storybook/addon-docs';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
-import { Box, Divider, Icon } from '../..';
+import Box from '../Box';
+import Divider from '../Divider';
 import InputBox from '../InputBox';
+import Icon from './Icon';
 
 const iconsList = Object.keys(nameToCharacterMapping).sort((a, b) =>
   a.localeCompare(b)
-) as Keys[];
+) as IconName[];
 
 export default {
   title: 'Data Display/Icon',
@@ -33,7 +35,7 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof Icon>;
+} satisfies ComponentMeta<typeof Icon>;
 
 export const Default: ComponentStory<typeof Icon> = () => (
   <Box color='default'>

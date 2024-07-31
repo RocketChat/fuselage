@@ -1,14 +1,15 @@
 import { action } from '@storybook/addon-actions';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import React from 'react';
 
-import { Box, Chip, Margins } from '../..';
 import { exampleAvatar, blankAvatar } from '../../../.storybook/helpers';
+import Box from '../Box';
+import Margins from '../Margins';
+import Chip from './Chip';
 
 export default {
   title: 'Data Display/Chip',
   component: Chip,
-} as ComponentMeta<typeof Chip>;
+} satisfies ComponentMeta<typeof Chip>;
 
 const Template: ComponentStory<typeof Chip> = (args) => (
   <Chip {...args}>Marie Rowe</Chip>

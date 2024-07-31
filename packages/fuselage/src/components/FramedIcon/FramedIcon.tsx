@@ -1,19 +1,20 @@
-import type { Keys } from '@rocket.chat/icons';
+import type { IconName } from '@rocket.chat/icons';
 import type { AllHTMLAttributes } from 'react';
-import React from 'react';
 
 import { Icon } from '../Icon';
 
-type FramedIconProps = {
+/** @public */
+export type FramedIconProps = {
   info?: boolean;
   success?: boolean;
   warning?: boolean;
   danger?: boolean;
   neutral?: boolean;
-  icon: Keys;
+  icon: IconName;
 } & Omit<AllHTMLAttributes<HTMLElement>, 'is'>;
 
-export const FramedIcon = ({
+/** @public */
+const FramedIcon = ({
   info,
   success,
   warning,
@@ -36,3 +37,5 @@ export const FramedIcon = ({
     size={20}
   />
 );
+
+export default FramedIcon;

@@ -1,10 +1,11 @@
 import type { ReactNode, AllHTMLAttributes } from 'react';
-import React from 'react';
 
-type StatesSuggestionProps = {
+/** @public */
+export type StatesSuggestionProps = {
   children?: ReactNode;
 } & AllHTMLAttributes<HTMLDivElement>;
 
+/** @public */
 const StatesSuggestion = ({ children, ...props }: StatesSuggestionProps) => (
   <div {...props} className='rcx-states__suggestion'>
     {children}

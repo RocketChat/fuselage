@@ -1,22 +1,25 @@
-import type { ComponentProps } from 'react';
-import React, { forwardRef, memo } from 'react';
+import type { IconName } from '@rocket.chat/icons';
+import type { ForwardedRef } from 'react';
+import { forwardRef, memo } from 'react';
 
-import type { Box } from '..';
-import { StatesIcon, States, StatesTitle, StatesSubtitle } from '..';
+import type { BoxProps } from '../Box';
+import { States, StatesIcon, StatesSubtitle, StatesTitle } from '../States';
 import ContextualbarContent from './ContextualbarContent';
 
-type ContextualbarEmptyContentProps = ComponentProps<typeof Box> & {
-  icon?: ComponentProps<typeof StatesIcon>['name'];
+type ContextualbarEmptyContentProps = BoxProps & {
+  icon?: IconName;
   title?: string;
   subtitle?: string;
 };
 
-const ContextualbarEmptyContent = forwardRef<
-  HTMLElement,
-  ContextualbarEmptyContentProps
->(function ContextualbarEmptyContent(
-  { icon = 'magnifier', title = 'Nothing Found', subtitle, ...props },
-  ref
+const ContextualbarEmptyContent = forwardRef(function ContextualbarEmptyContent(
+  {
+    icon = 'magnifier',
+    title = 'Nothing Found',
+    subtitle,
+    ...props
+  }: ContextualbarEmptyContentProps,
+  ref: ForwardedRef<HTMLElement>
 ) {
   return (
     <ContextualbarContent justifyContent='center' {...props} ref={ref}>

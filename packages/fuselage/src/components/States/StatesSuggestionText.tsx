@@ -1,10 +1,11 @@
 import type { AllHTMLAttributes, ReactNode } from 'react';
-import React from 'react';
 
-type StatesSuggestionTextProps = {
+/** @public */
+export type StatesSuggestionTextProps = {
   children?: ReactNode;
 } & AllHTMLAttributes<HTMLDivElement>;
 
+/** @public */
 const StatesSuggestionText = ({
   children,
   ...props

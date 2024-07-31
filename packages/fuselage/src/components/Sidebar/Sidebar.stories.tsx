@@ -1,7 +1,6 @@
 import { action } from '@storybook/addon-actions';
 import { Title, Description, Primary, Stories } from '@storybook/addon-docs';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import React from 'react';
 
 import Sidebar, {
   SidebarItemContainer,
@@ -37,7 +36,7 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof Sidebar>;
+} satisfies ComponentMeta<typeof Sidebar>;
 
 export const Default: ComponentStory<typeof Sidebar> = () => (
   <>

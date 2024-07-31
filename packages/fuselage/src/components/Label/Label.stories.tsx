@@ -6,10 +6,9 @@ import {
   ArgsTable,
 } from '@storybook/addon-docs';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import React from 'react';
 
-import { Label } from '../..';
-import { LabelInfo } from './LabelInfo';
+import Label from './Label';
+import LabelInfo from './LabelInfo';
 
 export default {
   title: 'Inputs/Label',
@@ -30,7 +29,7 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof Label>;
+} satisfies ComponentMeta<typeof Label>;
 
 const Template: ComponentStory<typeof Label> = (args) => (
   <Label {...args}>Label</Label>

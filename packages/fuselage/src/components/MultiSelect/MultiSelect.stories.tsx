@@ -9,7 +9,6 @@ import {
   PRIMARY_STORY,
 } from '@storybook/addon-docs';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import React from 'react';
 
 import { MultiSelect, MultiSelectFiltered } from '../..';
 import type { SelectOption } from '../Select';
@@ -34,7 +33,7 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof MultiSelect>;
+} satisfies ComponentMeta<typeof MultiSelect>;
 
 const options: SelectOption[] = [
   ['1', 'a teste 1'],

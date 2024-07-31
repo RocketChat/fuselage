@@ -3,18 +3,19 @@ import type {
   MouseEvent as ReactMouseEvent,
   AllHTMLAttributes,
 } from 'react';
-import React from 'react';
 
 import './MessageSystem.styles.scss';
 
-type MessageSystemProps = {
+/** @public */
+export type MessageSystemProps = {
   children?: ReactNode;
   title?: string;
   isSelected?: boolean;
   onClick?: (e: ReactMouseEvent<HTMLDivElement, MouseEvent>) => void;
 } & AllHTMLAttributes<HTMLDivElement>;
 
-export const MessageSystem = ({
+/** @public */
+const MessageSystem = ({
   children,
   title,
   isSelected,
@@ -33,3 +34,5 @@ export const MessageSystem = ({
     {children}
   </div>
 );
+
+export default MessageSystem;

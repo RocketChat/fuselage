@@ -1,16 +1,18 @@
-import type { ComponentProps, ReactNode, Ref } from 'react';
-import React, { forwardRef } from 'react';
+import type { ReactNode, ForwardedRef } from 'react';
+import { forwardRef } from 'react';
 
+import type { InputBoxProps } from '../InputBox';
 import { InputBox } from '../InputBox';
 
-type SearchInputProps = Omit<ComponentProps<typeof InputBox>, 'type'> & {
+type SearchInputProps = Omit<InputBoxProps, 'type'> & {
   addon?: ReactNode;
   error?: string;
 };
 
+/** @public */
 export const SearchInput = forwardRef(function SearchInput(
   props: SearchInputProps,
-  ref: Ref<HTMLInputElement>
+  ref: ForwardedRef<HTMLInputElement>
 ) {
   return <InputBox type='search' ref={ref} {...props} />;
 });

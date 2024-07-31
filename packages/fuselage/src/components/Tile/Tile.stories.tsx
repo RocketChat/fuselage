@@ -1,6 +1,4 @@
-import React from 'react';
-
-import { Tile } from '../..';
+import Tile from './Tile';
 
 export default {
   title: 'Containers/Tile',

@@ -1,12 +1,15 @@
 import type { HTMLAttributes } from 'react';
-import React from 'react';
 
 import { Icon } from '../../Icon';
 
-export const MessageReactionAction = ({
+/** @public */
+export type MessageReactionActionProps = HTMLAttributes<HTMLDivElement>;
+
+/** @public */
+const MessageReactionAction = ({
   className,
   ...props
-}: HTMLAttributes<HTMLDivElement>) => (
+}: MessageReactionActionProps) => (
   <div
     role='button'
     tabIndex={0}
@@ -21,3 +24,5 @@ export const MessageReactionAction = ({
     <Icon name='emoji-plus' size='x16' />
   </div>
 );
+
+export default MessageReactionAction;

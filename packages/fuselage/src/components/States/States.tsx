@@ -1,10 +1,11 @@
 import type { AllHTMLAttributes, ReactNode } from 'react';
-import React from 'react';
 
-type StatesProps = {
+/** @public */
+export type StatesProps = {
   children?: ReactNode;
 } & AllHTMLAttributes<HTMLDivElement>;
 
+/** @public */
 const States = ({ children, ...props }: StatesProps) => (
   <div {...props} className='rcx-states'>
     {children}

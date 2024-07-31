@@ -3,48 +3,53 @@ import { Children } from 'react';
 
 import type { PartialNode } from './PartialNode';
 
+/** @public */
 function MenuSection<T>(_props: SectionProps<T>) {
   return null;
 }
 
-MenuSection.getCollectionNode = function* getCollectionNode<T>(
-  props: SectionProps<T>
-): Generator<PartialNode<T>> {
-  const { children, title, items } = props;
-  yield {
-    'type': 'section',
-    props,
-    'hasChildNodes': true,
-    'rendered': title,
-    'aria-label': props['aria-label'],
-    *'childNodes'() {
-      if (typeof children === 'function') {
-        if (!items) {
-          throw new Error(
-            'props.children was a function but props.items is missing'
-          );
-        }
+/** @public */
+// eslint-disable-next-line @typescript-eslint/no-namespace
+namespace MenuSection {
+  export function* getCollectionNode<T>(
+    props: SectionProps<T>
+  ): Generator<PartialNode<T>> {
+    const { children, title, items } = props;
+    yield {
+      'type': 'section',
+      props,
+      'hasChildNodes': true,
+      'rendered': title,
+      'aria-label': props['aria-label'],
+      *'childNodes'() {
+        if (typeof children === 'function') {
+          if (!items) {
+            throw new Error(
+              'props.children was a function but props.items is missing'
+            );
+          }
 
-        for (const item of items) {
-          yield {
-            type: 'item',
-            value: item,
-            renderer: children,
-          };
-        }
-      } else {
-        const items: PartialNode<T>[] = [];
-        Children.forEach(children, (child) => {
-          items.push({
-            type: 'item',
-            element: child,
+          for (const item of items) {
+            yield {
+              type: 'item',
+              value: item,
+              renderer: children,
+            };
+          }
+        } else {
+          const items: PartialNode<T>[] = [];
+          Children.forEach(children, (child) => {
+            items.push({
+              type: 'item',
+              element: child,
+            });
           });
-        });
 
-        yield* items;
-      }
-    },
-  };
-};
+          yield* items;
+        }
+      },
+    };
+  }
+}
 
 export default MenuSection;

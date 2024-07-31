@@ -97,7 +97,8 @@ export const buildDefinition = (icons) => {
     .then(
       (characters) => `declare const Icons: ${encodeJson(characters)};
 export default Icons;
-export type Keys = keyof typeof Icons;`
+export type Keys = keyof typeof Icons;
+export type IconName = keyof typeof Icons;`
     )
     // .then(runEslint('index.d.ts'))
     .then(writeSource('dist/index.d.ts'))

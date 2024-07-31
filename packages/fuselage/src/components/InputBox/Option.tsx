@@ -1,13 +1,14 @@
-import type { ComponentProps, Ref } from 'react';
-import React, { forwardRef } from 'react';
+import type { ForwardedRef } from 'react';
+import { forwardRef } from 'react';
 
+import type { BoxProps } from '../Box';
 import Box from '../Box';
 
-type OptionProps = ComponentProps<typeof Box>;
+export type OptionProps = BoxProps;
 
 export const Option = forwardRef(function Option(
   props: OptionProps,
-  ref: Ref<HTMLInputElement>
+  ref: ForwardedRef<HTMLInputElement>
 ) {
   return <Box is='option' rcx-input-box__option ref={ref} {...props} />;
 });

@@ -1,6 +1,5 @@
 import type { Story } from '@storybook/react';
 import type { ReactNode } from 'react';
-import React from 'react';
 
 import Message from '.';
 import { Avatar } from '../Avatar';

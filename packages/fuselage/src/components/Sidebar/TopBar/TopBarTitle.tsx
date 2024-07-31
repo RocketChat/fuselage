@@ -1,12 +1,15 @@
 import type { ReactNode } from 'react';
-import React from 'react';
 
 import Box from '../../Box';
 
-type TopBarTitleProps = {
+/** @public */
+export type TopBarTitleProps = {
   children?: ReactNode;
 };
 
-export const TopBarTitle = (props: TopBarTitleProps) => (
+/** @public */
+const TopBarTitle = (props: TopBarTitleProps) => (
   <Box className='rcx-sidebar-topbar__title' withTruncatedText {...props} />
 );
+
+export default TopBarTitle;

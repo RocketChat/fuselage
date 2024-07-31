@@ -6,7 +6,7 @@ import {
   ArgsTable,
 } from '@storybook/addon-docs';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import React, { Fragment } from 'react';
+import { Fragment } from 'react';
 
 import { Table, TableBody, TableCell, TableHead, TableRow } from '..';
 import { Grid, Tile } from '../..';
@@ -31,7 +31,7 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof Grid>;
+} satisfies ComponentMeta<typeof Grid>;
 
 const Template: ComponentStory<typeof Grid> = () => (
   <Grid>

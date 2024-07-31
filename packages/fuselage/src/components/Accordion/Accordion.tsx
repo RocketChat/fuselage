@@ -1,19 +1,31 @@
-import type { ComponentProps, ReactElement, ReactNode } from 'react';
-import React from 'react';
+import type { ReactNode } from 'react';
 
+import type { BoxProps } from '../Box';
 import Box from '../Box';
-import { AccordionItem } from './AccordionItem';
+import AccordionItem from './AccordionItem';
 
-type AccordionProps = ComponentProps<typeof Box> & {
+/** @public */
+export type AccordionProps = BoxProps & {
   animated?: boolean;
   children: ReactNode;
 };
 
-export function Accordion(props: AccordionProps): ReactElement<AccordionProps> {
+/**
+ * An `Accordion` allows users to toggle the display of sections of content.
+ *
+ * @public
+ */
+function Accordion(props: AccordionProps) {
   return <Box animated rcx-accordion {...props} />;
 }
 
-/**
- * @deprecated use named import instead
- */
-Accordion.Item = AccordionItem;
+/** @public */
+// eslint-disable-next-line @typescript-eslint/no-namespace
+namespace Accordion {
+  /**
+   * @deprecated use `AccordionItem` instead
+   */
+  export const Item = AccordionItem;
+}
+
+export default Accordion;

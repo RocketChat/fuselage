@@ -1,14 +1,16 @@
-import type { AllHTMLAttributes, ComponentProps } from 'react';
-import React from 'react';
+import type { IconName } from '@rocket.chat/icons';
+import type { AllHTMLAttributes } from 'react';
 
 import { Icon } from '../..';
 
-type MessageStatusIndicatorItemProps = {
-  name: ComponentProps<typeof Icon>['name'];
+/** @public */
+export type MessageStatusIndicatorItemProps = {
+  name: IconName;
   variant?: 'success' | 'danger' | 'warning' | 'primary';
 } & Omit<AllHTMLAttributes<HTMLElement>, 'is'>;
 
-export const MessageStatusIndicatorItem = ({
+/** @public */
+const MessageStatusIndicatorItem = ({
   name,
   variant,
   ...props
@@ -25,3 +27,5 @@ export const MessageStatusIndicatorItem = ({
     {...props}
   />
 );
+
+export default MessageStatusIndicatorItem;

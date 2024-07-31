@@ -1,12 +1,14 @@
-import type { ComponentProps } from 'react';
-import React, { memo } from 'react';
+import { memo } from 'react';
 
 import { CheckBox } from '../CheckBox';
+import type { OptionProps } from './Option';
 import Option from './Option';
 
-type CheckOptionProps = ComponentProps<typeof Option>;
+/** @public */
+export type CheckOptionProps = OptionProps;
 
-export const CheckOption = memo(function CheckOption({
+/** @public */
+function CheckOption({
   selected,
   children: label,
   ...options
@@ -16,4 +18,6 @@ export const CheckOption = memo(function CheckOption({
       <CheckBox checked={selected} />
     </Option>
   );
-});
+}
+
+export default memo(CheckOption);

@@ -4,19 +4,19 @@ import {
   useResizeObserver,
   useOutsideClick,
 } from '@rocket.chat/fuselage-hooks';
+import type { IconName } from '@rocket.chat/icons';
 import type {
-  ComponentProps,
   SyntheticEvent,
   ElementType,
-  Ref,
+  ForwardedRef,
   ReactNode,
 } from 'react';
-import React, { useState, useRef, useEffect, forwardRef } from 'react';
+import { useState, useRef, useEffect, forwardRef } from 'react';
 
-import type { SelectOption } from '..';
 import { isForwardRefType } from '../../helpers/isForwardRefType';
 import { prevent } from '../../helpers/prevent';
 import AnimatedVisibility from '../AnimatedVisibility';
+import type { BoxProps } from '../Box';
 import Box from '../Box';
 import Flex from '../Flex';
 import { Icon } from '../Icon';
@@ -24,15 +24,13 @@ import Margins from '../Margins';
 import { CheckOption } from '../Option';
 import { Options, useCursor } from '../Options';
 import Position from '../Position';
+import type { SelectOption } from '../Select';
 import SelectAddon from '../Select/SelectAddon';
 import MultiSelectAnchor from './MultiSelectAnchor';
 import type { MultiSelectAnchorParams } from './MultiSelectAnchorParams';
 import { SelectedOptions } from './SelectedOptions';
 
-type MultiSelectProps = Omit<
-  ComponentProps<typeof Box>,
-  'onChange' | 'value'
-> & {
+export type MultiSelectProps = Omit<BoxProps, 'onChange' | 'value'> & {
   value?: SelectOption[0][];
   error?: string;
   options: SelectOption[];
@@ -46,10 +44,11 @@ type MultiSelectProps = Omit<
   renderOptions?: ElementType;
   renderItem?: ElementType;
   renderSelected?: ElementType;
-  addonIcon?: ComponentProps<typeof Icon>['name'];
+  addonIcon?: IconName;
   setFilter?: (filter: string) => void;
 };
 
+/** @public */
 export const MultiSelect = forwardRef(
   (
     {
@@ -71,7 +70,7 @@ export const MultiSelect = forwardRef(
       addonIcon,
       ...props
     }: MultiSelectProps,
-    ref: Ref<HTMLInputElement>
+    ref: ForwardedRef<HTMLInputElement>
   ) => {
     const [internalValue, setInternalValue] = useState<SelectOption[0][]>(
       value || []

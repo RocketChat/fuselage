@@ -1,5 +1,5 @@
 import type { AllHTMLAttributes } from 'react';
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 
 import Box from '../Box';
 
@@ -38,6 +38,7 @@ type ProgressBarProps = {
   light?: boolean;
 } & Omit<AllHTMLAttributes<HTMLElement>, 'is'>;
 
+/** @public */
 export const ProgressBar = forwardRef(function ProgressBar(
   {
     percentage,

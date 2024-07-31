@@ -1,6 +1,6 @@
 import { useEffectEvent } from '@rocket.chat/fuselage-hooks';
-import type { FormEvent, Ref } from 'react';
-import React, { useMemo, forwardRef } from 'react';
+import type { FormEvent, ForwardedRef } from 'react';
+import { useMemo, forwardRef } from 'react';
 
 import { InputBox } from '../InputBox';
 import type { PaginatedSelectProps } from './PaginatedSelect';
@@ -10,6 +10,7 @@ type PaginatedSelectFilteredProps = Omit<PaginatedSelectProps, 'setFilter'> & {
   setFilter: (value: string | undefined | number) => void;
 };
 
+/** @public */
 export const PaginatedSelectFiltered = ({
   filter,
   setFilter,
@@ -26,7 +27,7 @@ export const PaginatedSelectFiltered = ({
             onChange: _onChange,
             ...props
           }: PaginatedSelectFilteredProps,
-          ref: Ref<HTMLInputElement>
+          ref: ForwardedRef<HTMLInputElement>
         ) => (
           <InputBox.Input
             mi={4}

@@ -1,14 +1,15 @@
-import type { ComponentProps, ReactNode } from 'react';
-import React from 'react';
+import type { ReactNode } from 'react';
 
-import type { MessageStatusIndicatorItem } from './MessageStatusIndicatorItem';
+import type { MessageStatusIndicatorItemProps } from './MessageStatusIndicatorItem';
 
-type MessageStatusPrivateIndicatorProps = {
+/** @public */
+export type MessageStatusPrivateIndicatorProps = {
   children?: ReactNode;
-  variant?: ComponentProps<typeof MessageStatusIndicatorItem>['variant'];
+  variant?: MessageStatusIndicatorItemProps['variant'];
 };
 
-export const MessageStatusPrivateIndicator = ({
+/** @public */
+const MessageStatusPrivateIndicator = ({
   children,
   variant,
 }: MessageStatusPrivateIndicatorProps) => (
@@ -23,3 +24,5 @@ export const MessageStatusPrivateIndicator = ({
     {children}
   </span>
 );
+
+export default MessageStatusPrivateIndicator;

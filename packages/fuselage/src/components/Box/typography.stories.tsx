@@ -7,9 +7,9 @@ import {
   Subtitle,
 } from '@storybook/addon-docs';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import React from 'react';
 
-import { Box, Divider } from '../..';
+import { Divider } from '../Divider';
+import Box from './Box';
 
 export default {
   title: 'Layout/Box/Typography',
@@ -28,7 +28,7 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof Box>;
+} satisfies ComponentMeta<typeof Box>;
 
 export const FontFamilies: ComponentStory<typeof Box> = () => (
   <Box color='default'>

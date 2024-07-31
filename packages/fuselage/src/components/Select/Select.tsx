@@ -1,8 +1,9 @@
 import type { AriaSelectProps } from '@react-types/select';
-import type { ComponentProps, Key, Ref } from 'react';
-import React, { forwardRef } from 'react';
+import type { Key, ForwardedRef, AllHTMLAttributes } from 'react';
+import { forwardRef } from 'react';
 import { Item } from 'react-stately';
 
+import type { SelectAriaProps } from './SelectAria';
 import { SelectAria } from './SelectAria';
 
 type SelectOption = readonly [value: string, label: string, selected?: boolean];
@@ -17,14 +18,15 @@ type SelectProps<T, V extends Key> = Omit<
   onChange?: ((key: V) => any) | undefined;
   options: SelectOption[];
   small?: boolean;
-} & Omit<React.AllHTMLAttributes<HTMLElement>, 'onChange'>;
+} & Omit<AllHTMLAttributes<HTMLElement>, 'onChange'>;
 
+/** @public */
 export const Select = forwardRef(function Select<
   T extends object,
   V extends Key
->({ options, ...props }: SelectProps<T, V>, ref: Ref<HTMLElement>) {
+>({ options, ...props }: SelectProps<T, V>, ref: ForwardedRef<HTMLElement>) {
   return (
-    <SelectAria ref={ref} {...(props as ComponentProps<typeof SelectAria>)}>
+    <SelectAria ref={ref} {...(props as SelectAriaProps)}>
       {options.map((option) => (
         <Item
           title={option[1] ?? option[0]}

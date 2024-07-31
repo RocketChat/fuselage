@@ -4,7 +4,7 @@ import type {
   AllHTMLAttributes,
   HTMLAttributeAnchorTarget,
 } from 'react';
-import React, { useRef, useCallback, useMemo } from 'react';
+import { useRef, useCallback, useMemo } from 'react';
 
 import { composeClassNames as cx } from '../../helpers/composeClassNames';
 import { IconButton } from '../Button';
@@ -19,7 +19,8 @@ const variants: VariantType[] = [
   'danger',
 ];
 
-type BannerProps = {
+/** @public */
+export type BannerProps = {
   actionable?: boolean;
   closeable?: boolean;
   icon?: ReactNode;
@@ -33,7 +34,8 @@ type BannerProps = {
   variant?: VariantType;
 } & AllHTMLAttributes<HTMLElement>;
 
-const Banner = ({
+/** @public */
+function Banner({
   actionable,
   children,
   className,
@@ -48,7 +50,7 @@ const Banner = ({
   title,
   variant = 'neutral',
   ...props
-}: BannerProps) => {
+}: BannerProps) {
   const ref = useRef(null);
   const { inlineSize } = useBorderBoxSize(ref, {
     debounceDelay: 70,
@@ -117,6 +119,6 @@ const Banner = ({
       )}
     </section>
   );
-};
+}
 
 export default Banner;

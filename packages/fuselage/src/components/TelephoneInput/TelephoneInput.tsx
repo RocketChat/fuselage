@@ -1,17 +1,25 @@
-import type { ComponentProps, ReactNode, Ref } from 'react';
-import React, { forwardRef } from 'react';
+import type { ReactNode, ForwardedRef } from 'react';
+import { forwardRef } from 'react';
 
+import type { InputBoxProps } from '../InputBox';
 import { InputBox } from '../InputBox';
 
-type TelephoneInputProps = Omit<ComponentProps<typeof InputBox>, 'type'> & {
+/** @public */
+export type TelephoneInputProps = Omit<InputBoxProps, 'type'> & {
   addon?: ReactNode;
   input?: ReactNode;
   error?: string;
 };
 
-export const TelephoneInput = forwardRef(function TelephoneInput(
+/**
+ * An input for telephone numbers.
+ * @public
+ */
+const TelephoneInput = forwardRef(function TelephoneInput(
   props: TelephoneInputProps,
-  ref: Ref<HTMLInputElement>
+  ref: ForwardedRef<HTMLInputElement>
 ) {
   return <InputBox type='tel' ref={ref} {...props} />;
 });
+
+export default TelephoneInput;

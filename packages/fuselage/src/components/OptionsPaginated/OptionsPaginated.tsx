@@ -1,16 +1,18 @@
 import { useEffectEvent, useDebouncedState } from '@rocket.chat/fuselage-hooks';
-import type { ComponentProps, ElementType, Ref, SyntheticEvent } from 'react';
-import React, { forwardRef, memo } from 'react';
+import type { ElementType, ForwardedRef, SyntheticEvent } from 'react';
+import { forwardRef, memo } from 'react';
 import { Virtuoso } from 'react-virtuoso';
 
 import { prevent } from '../../helpers/prevent';
 import AnimatedVisibility from '../AnimatedVisibility';
+import type { BoxProps } from '../Box';
 import Box from '../Box';
 import { CheckBox } from '../CheckBox';
 import Option from '../Option';
+import type { OptionProps } from '../Option';
 import Tile from '../Tile';
 
-type OptionsPaginatedProps = Omit<ComponentProps<typeof Box>, 'onSelect'> & {
+export type OptionsPaginatedProps = Omit<BoxProps, 'onSelect'> & {
   multiple?: boolean;
   options: { value: unknown; label: string; selected?: boolean }[];
   cursor: number;
@@ -23,7 +25,7 @@ type OptionsPaginatedProps = Omit<ComponentProps<typeof Box>, 'onSelect'> & {
 
 export const Empty = memo(() => <Option label='Empty' />);
 
-type CheckOptionProps = ComponentProps<typeof Option>;
+type CheckOptionProps = OptionProps;
 
 export const CheckOption = memo(function CheckOption({
   selected,
@@ -50,7 +52,7 @@ export const OptionsPaginated = forwardRef(
       endReached,
       ...props
     }: OptionsPaginatedProps,
-    ref: Ref<Element>
+    ref: ForwardedRef<Element>
   ) => {
     const OptionsComponentWithData = ({
       index,

@@ -9,9 +9,8 @@ import {
   PRIMARY_STORY,
 } from '@storybook/addon-docs';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import React from 'react';
 
-import { ToastBar } from '..';
+import ToastBar from './ToastBar';
 
 export default {
   title: 'Feedback/ToastBar',
@@ -33,7 +32,7 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof ToastBar>;
+} satisfies ComponentMeta<typeof ToastBar>;
 
 const Template: ComponentStory<typeof ToastBar> = (args) => (
   <ToastBar

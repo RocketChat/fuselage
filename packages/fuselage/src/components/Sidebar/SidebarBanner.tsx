@@ -1,11 +1,11 @@
 import type { ReactNode } from 'react';
-import React from 'react';
 
 import { IconButton } from '../Button';
 
 type VariantType = 'default' | 'info' | 'success' | 'warning' | 'danger';
 
-type SidebarBannerProps = {
+/** @public */
+export type SidebarBannerProps = {
   text?: ReactNode;
   description?: ReactNode;
   onClick?: () => void;
@@ -15,7 +15,8 @@ type SidebarBannerProps = {
   addon?: ReactNode;
 };
 
-export const SidebarBanner = ({
+/** @public */
+const SidebarBanner = ({
   text,
   description,
   onClick,
@@ -50,3 +51,5 @@ export const SidebarBanner = ({
     </div>
   </div>
 );
+
+export default SidebarBanner;

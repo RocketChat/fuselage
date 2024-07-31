@@ -1,10 +1,10 @@
 import type { AllHTMLAttributes, ReactNode } from 'react';
-import React from 'react';
 
 import { prependClassName } from '../../helpers/prependClassName';
 import Box from '../Box/Box';
 
-type TagProps = {
+/** @public */
+export type TagProps = {
   medium?: boolean;
   large?: boolean;
   variant?:
@@ -18,7 +18,11 @@ type TagProps = {
   icon?: ReactNode;
 } & Omit<AllHTMLAttributes<HTMLSpanElement | HTMLAnchorElement>, 'is'>;
 
-export const Tag = ({
+/**
+ * Used for mentions
+ * @public
+ */
+const Tag = ({
   large,
   medium,
   className,
@@ -55,3 +59,5 @@ export const Tag = ({
     </Box>
   );
 };
+
+export default Tag;

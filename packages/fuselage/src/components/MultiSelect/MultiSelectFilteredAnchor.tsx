@@ -4,9 +4,9 @@ import type {
   KeyboardEventHandler,
   MouseEventHandler,
   ReactNode,
-  Ref,
+  ForwardedRef,
 } from 'react';
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 
 import Flex from '../Flex';
 import { InputBox } from '../InputBox';
@@ -31,7 +31,7 @@ const MultiSelectFilteredAnchor = forwardRef(function MultiSelectFilteredAnchor(
     placeholder,
     ...props
   }: MultiSelectFilteredAnchorProps,
-  ref: Ref<Element>
+  ref: ForwardedRef<Element>
 ) {
   return (
     <Flex.Item grow={1}>

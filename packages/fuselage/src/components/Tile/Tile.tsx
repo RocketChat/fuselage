@@ -1,13 +1,16 @@
-import type { ComponentProps, Ref } from 'react';
-import React, { forwardRef } from 'react';
+import type { ForwardedRef } from 'react';
+import { forwardRef } from 'react';
 
+import type { BoxProps } from '../Box';
 import Box from '../Box';
 
-type TileProps = ComponentProps<typeof Box>;
+/** @public */
+export type TileProps = BoxProps;
 
+/** @public */
 const Tile = forwardRef(function Tile(
   { elevation = '1', padding = 16, ...props }: TileProps,
-  ref: Ref<HTMLElement>
+  ref: ForwardedRef<HTMLElement>
 ) {
   return (
     <Box

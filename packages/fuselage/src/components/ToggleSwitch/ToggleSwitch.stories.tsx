@@ -1,17 +1,16 @@
 import { action } from '@storybook/addon-actions';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import React from 'react';
 
-import { ToggleSwitch } from '../..';
 import {
   DECORATOR_LABEL,
   PropsVariationSection,
 } from '../../../.storybook/helpers';
+import ToggleSwitch from './ToggleSwitch';
 
 export default {
   title: 'Inputs/ToggleSwitch',
   component: ToggleSwitch,
-} as ComponentMeta<typeof ToggleSwitch>;
+} satisfies ComponentMeta<typeof ToggleSwitch>;
 
 const Template: ComponentStory<typeof ToggleSwitch> = (args) => (
   <ToggleSwitch aria-label={DECORATOR_LABEL} {...args} />

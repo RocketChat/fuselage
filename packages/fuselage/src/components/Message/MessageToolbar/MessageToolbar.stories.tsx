@@ -1,6 +1,5 @@
 import { Title, Primary } from '@storybook/addon-docs';
 import type { ComponentMeta } from '@storybook/react';
-import React from 'react';
 
 import { MessageToolbar, MessageToolbarItem } from '.';
 import Box from '../../Box';
@@ -19,7 +18,7 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof MessageToolbar>;
+} satisfies ComponentMeta<typeof MessageToolbar>;
 
 const toolbar = (
   <Box>

@@ -7,9 +7,8 @@ import {
   Subtitle,
 } from '@storybook/addon-docs';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import React from 'react';
 
-import { Box } from '../..';
+import Box from './Box';
 
 export default {
   title: 'Layout/Box/Rich content/Block',
@@ -31,7 +30,7 @@ export default {
       ),
     },
   },
-} as ComponentMeta<typeof Box>;
+} satisfies ComponentMeta<typeof Box>;
 
 export const hx: ComponentStory<typeof Box> = () => (
   <>

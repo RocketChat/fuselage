@@ -1,5 +1,5 @@
 import type { ReactNode, SyntheticEvent } from 'react';
-import React, { memo } from 'react';
+import { memo } from 'react';
 
 import Chip from '../Chip';
 

@@ -1,6 +1,10 @@
-import React from 'react';
+import type { HTMLAttributes } from 'react';
 
-const CardControls = ({ ...props }) => (
+/** @public */
+export type CardControlsProps = HTMLAttributes<HTMLDivElement>;
+
+/** @public */
+const CardControls = (props: CardControlsProps) => (
   <div className='rcx-card__controls' {...props} />
 );
 

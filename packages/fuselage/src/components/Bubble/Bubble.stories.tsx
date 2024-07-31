@@ -1,13 +1,12 @@
 import { action } from '@storybook/addon-actions';
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
-import React from 'react';
 
-import { Bubble } from '../..';
+import Bubble from './Bubble';
 
 export default {
   title: 'Data Display/Bubble',
   component: Bubble,
-} as ComponentMeta<typeof Bubble>;
+} satisfies ComponentMeta<typeof Bubble>;
 
 const Template: ComponentStory<typeof Bubble> = (args) => <Bubble {...args} />;
 

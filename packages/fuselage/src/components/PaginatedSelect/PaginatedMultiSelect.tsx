@@ -1,34 +1,30 @@
 import { useEffectEvent, useResizeObserver } from '@rocket.chat/fuselage-hooks';
-import React, {
-  type ComponentProps,
-  type ReactElement,
-  useState,
-  useRef,
-} from 'react';
+import { type ReactElement, useState, useRef } from 'react';
 
 import { prevent } from '../../helpers/prevent';
 import AnimatedVisibility from '../AnimatedVisibility';
+import type { BoxProps } from '../Box';
 import Box from '../Box';
 import Chip from '../Chip';
 import Flex from '../Flex';
 import { Icon } from '../Icon';
 import Margins from '../Margins';
 import Option from '../Option';
+import type { OptionProps } from '../Option';
 import { useVisible } from '../Options/useVisible';
+import type { OptionsPaginatedProps } from '../OptionsPaginated';
 import { OptionsPaginated } from '../OptionsPaginated';
 import Position from '../Position';
 import SelectAddon from '../Select/SelectAddon';
 import SelectFocus from '../Select/SelectFocus';
 
+/** @public */
 export type PaginatedMultiSelectOption = {
   value: string | number;
   label: string;
 };
 
-type PaginatedMultiSelectProps = Omit<
-  ComponentProps<typeof Box>,
-  'onChange' | 'value'
-> & {
+export type PaginatedMultiSelectProps = Omit<BoxProps, 'onChange' | 'value'> & {
   error?: boolean;
   options: PaginatedMultiSelectOption[];
   withTitle?: boolean;
@@ -36,10 +32,8 @@ type PaginatedMultiSelectProps = Omit<
   endReached?: (start?: number, end?: number) => void;
   value?: PaginatedMultiSelectOption[];
   onChange: (values: PaginatedMultiSelectOption[]) => void;
-  renderOptions?: (
-    props: ComponentProps<typeof OptionsPaginated>
-  ) => ReactElement | null;
-  renderItem?: (props: ComponentProps<typeof Option>) => ReactElement | null;
+  renderOptions?: (props: OptionsPaginatedProps) => ReactElement | null;
+  renderItem?: (props: OptionProps) => ReactElement | null;
   anchor?: any;
 };
 
