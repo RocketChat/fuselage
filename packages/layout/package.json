@@ -55,8 +55,8 @@
     "@storybook/react": "~6.5.16",
     "@storybook/theming": "~6.5.16",
     "@types/jest": "~29.5.0",
-    "@types/react": "^17",
-    "@types/react-dom": "^17",
+    "@types/react": "~17.0.80",
+    "@types/react-dom": "~17.0.25",
     "bump": "workspace:~",
     "eslint": "~8.38.0",
     "jest": "~29.5.0",
@@ -70,7 +70,7 @@
     "storybook-dark-mode": "~3.0.1",
     "ts-jest": "~29.1.0",
     "typedoc": "~0.25.13",
-    "typescript": "~5.4.5"
+    "typescript": "~5.5.4"
   },
   "eslintConfig": {
     "extends": "@rocket.chat/eslint-config-alt/typescript",
