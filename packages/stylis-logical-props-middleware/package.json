@@ -50,7 +50,7 @@
     "stylis": "~4.3.2",
     "ts-jest": "~29.1.0",
     "typedoc": "~0.25.13",
-    "typescript": "~5.4.5"
+    "typescript": "~5.5.4"
   },
   "dependencies": {
     "@rocket.chat/css-supports": "workspace:~"

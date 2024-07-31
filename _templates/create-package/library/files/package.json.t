@@ -49,7 +49,7 @@ to: packages/<%=package%>/package.json
     "rimraf": "~3.0.2",
     "ts-jest": "~27.1.3",
     "typedoc": "~0.24.1",
-    "typescript": "~4.3.5"
+    "typescript": "~5.5.4"
   },
   "eslintConfig": {
     "extends": "@rocket.chat/eslint-config-alt/typescript",

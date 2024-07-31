@@ -58,7 +58,7 @@
     "rollup-plugin-terser": "~7.0.2",
     "ts-jest": "~29.1.0",
     "typedoc": "~0.25.13",
-    "typescript": "~5.4.5"
+    "typescript": "~5.5.4"
   },
   "dependencies": {
     "@emotion/hash": "^0.9.0",
