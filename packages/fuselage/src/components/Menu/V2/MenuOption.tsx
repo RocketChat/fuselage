@@ -10,7 +10,7 @@ import React, { forwardRef, memo } from 'react';
 import { prevent } from '../../../helpers/prevent';
 import type Box from '../../Box/Box';
 
-type OptionProps = {
+export type MenuOptionProps = {
   is?: ComponentProps<typeof Box>['is'];
   id?: string;
   children?: ReactNode;
@@ -41,7 +41,7 @@ const MenuOption = memo(
         variant,
         onClick,
         ...props
-      }: OptionProps,
+      }: MenuOptionProps,
       ref
     ) => (
       <Tag
