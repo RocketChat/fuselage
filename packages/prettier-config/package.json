@@ -31,7 +31,6 @@
   "scripts": {
     "lint": "lint",
     "lint-and-fix": "lint-and-fix",
-    "lint-staged": "lint-staged",
     "bump-next": "bump-next"
   },
   "peerDependencies": {
@@ -44,7 +43,6 @@
     "eslint-plugin-import": "~2.26.0",
     "eslint-plugin-prettier": "~4.2.1",
     "lint-all": "workspace:~",
-    "lint-staged": "~13.2.1",
     "prettier": "~2.8.7"
   }
 }
