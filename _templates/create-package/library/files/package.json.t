@@ -35,7 +35,6 @@ to: packages/<%=package%>/package.json
     ".:build:cjs": "tsc -p tsconfig.cjs.json",
     "lint": "lint",
     "lint-and-fix": "lint-and-fix",
-    "lint-staged": "lint-staged",
     "test": "jest --runInBand",
     "docs": "typedoc"
   },
@@ -46,7 +45,6 @@ to: packages/<%=package%>/package.json
     "eslint": "~8.8.0",
     "jest": "~27.5.1",
     "lint-all": "workspace:~",
-    "lint-staged": "~12.3.3",
     "prettier": "~2.5.1",
     "rimraf": "~3.0.2",
     "ts-jest": "~27.1.3",

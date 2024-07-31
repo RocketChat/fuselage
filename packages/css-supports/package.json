@@ -30,7 +30,6 @@
     "build": "tsc -p tsconfig.esm.json && tsc -p tsconfig.cjs.json",
     "lint": "lint",
     "lint-and-fix": "lint-and-fix",
-    "lint-staged": "lint-staged",
     "docs": "typedoc",
     "bump-next": "bump-next"
   },
@@ -40,7 +39,6 @@
     "bump": "workspace:~",
     "eslint": "~8.38.0",
     "lint-all": "workspace:~",
-    "lint-staged": "~13.2.1",
     "prettier": "~2.8.7",
     "rimraf": "~3.0.2",
     "typedoc": "~0.25.13",
