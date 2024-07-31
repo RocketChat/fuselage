@@ -1,10 +1,12 @@
 import type { BoxProps } from '../Box';
 import Box from '../Box';
 
-type SkeletonProps = BoxProps & {
+/** @public */
+export type SkeletonProps = BoxProps & {
   variant?: 'text' | 'rect' | 'circle';
 };
 
+/** @public */
 const Skeleton = ({ variant = 'text', ...props }: SkeletonProps) => (
   <Box
     is='span'
@@ -15,4 +17,5 @@ const Skeleton = ({ variant = 'text', ...props }: SkeletonProps) => (
     {...props}
   />
 );
-export { Skeleton };
+
+export default Skeleton;

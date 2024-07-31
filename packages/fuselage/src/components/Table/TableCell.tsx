@@ -4,12 +4,14 @@ import Box from '../Box';
 import type { TableProps } from './Table';
 import { TableHeadContext } from './TableHead';
 
-type TableCellProps = TableProps & {
+/** @public */
+export type TableCellProps = TableProps & {
   align?: 'start' | 'center' | 'end' | 'justify' | object;
   clickable?: boolean;
 };
 
-export const TableCell = ({
+/** @public */
+const TableCell = ({
   align,
   clickable,
   children,
@@ -35,3 +37,5 @@ export const TableCell = ({
     />
   );
 };
+
+export default TableCell;

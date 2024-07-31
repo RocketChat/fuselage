@@ -4,6 +4,7 @@ import Box from '../Box';
 
 export type ModalThumbProps = AvatarProps;
 
+/** @public */
 export const ModalThumb = (props: ModalThumbProps) => (
   <Box>
     <Avatar size='x28' {...props} />

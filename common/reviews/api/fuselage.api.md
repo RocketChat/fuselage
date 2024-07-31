@@ -11,7 +11,6 @@ import type { AriaMenuProps } from 'react-aria';
 import type { AriaPopoverProps } from 'react-aria';
 import type { AriaSelectProps } from '@react-types/select';
 import type { ButtonHTMLAttributes } from 'react';
-import { Context } from 'react';
 import type { cssFn } from '@rocket.chat/css-in-js';
 import type { CSSProperties } from 'react';
 import type { DetailedHTMLProps } from 'react';
@@ -101,7 +100,7 @@ large?: boolean;
 square?: boolean;
 external?: boolean;
 icon?: IconName;
-} & Omit<AllHTMLAttributes<HTMLButtonElement | HTMLAnchorElement>, "className" | "is" | "size"> & ButtonSize & {
+} & Omit<AllHTMLAttributes<HTMLAnchorElement | HTMLButtonElement>, "size" | "is" | "className"> & ButtonSize & {
 icon: IconName;
 } & RefAttributes<HTMLElement>>;
 
@@ -192,9 +191,6 @@ export function AvatarStack({ children, ...props }: AvatarStackProps): JSX_2.Ele
 // @public (undocumented)
 export type AvatarStackProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
 
-// @public (undocumented)
-export const backgroundColor: (this: unknown, arg: unknown) => string | undefined;
-
 // @public
 export function Badge({ is: Tag, variant, small, className, disabled, ...props }: BadgeProps): JSX_2.Element;
 
@@ -226,12 +222,6 @@ export type BannerProps = {
     title?: string;
     variant?: VariantType;
 } & AllHTMLAttributes<HTMLElement>;
-
-// @public (undocumented)
-export const borderRadius: (this: unknown, arg: unknown) => string | undefined;
-
-// @public (undocumented)
-export const borderWidth: (this: unknown, arg: unknown) => string | undefined;
 
 // @public (undocumented)
 export const Box: MemoExoticComponent<ForwardRefExoticComponent<BoxProps & RefAttributes<any>>>;
@@ -288,7 +278,7 @@ large?: boolean;
 square?: boolean;
 external?: boolean;
 icon?: IconName;
-} & Omit<AllHTMLAttributes<HTMLButtonElement | HTMLAnchorElement>, "className" | "is" | "size"> & RefAttributes<HTMLElement>>;
+} & Omit<AllHTMLAttributes<HTMLAnchorElement | HTMLButtonElement>, "size" | "is" | "className"> & RefAttributes<HTMLElement>>;
 
 // @public
 export const ButtonGroup: ForwardRefExoticComponent<    {
@@ -488,9 +478,6 @@ export type CodeSnippetProps = BoxProps & {
     buttonDisabled?: boolean;
     onClick?: () => void;
 };
-
-// @public @deprecated (undocumented)
-export const color: (this: unknown, arg: unknown) => string | undefined;
 
 // @public (undocumented)
 export const Contextualbar: MemoExoticComponent<ForwardRefExoticComponent<BoxProps & RefAttributes<HTMLElement>>>;
@@ -719,20 +706,6 @@ export const Flex: {
 };
 
 // @public (undocumented)
-export const fontColor: (this: unknown, arg: unknown) => string | undefined;
-
-// @public (undocumented)
-export const fontFamily: (this: unknown, arg: unknown) => string | undefined;
-
-// @public (undocumented)
-export const fontScale: (this: unknown, arg: unknown) => {
-    fontSize: string;
-    fontWeight: number;
-    lineHeight: string;
-    letterSpacing: string;
-} | undefined;
-
-// @public (undocumented)
 export const FramedIcon: ({ info, success, warning, danger, neutral, icon, ...props }: FramedIconProps) => JSX_2.Element;
 
 // @public (undocumented)
@@ -864,9 +837,6 @@ export type InputBoxSkeletonProps = BoxProps;
 export type InputProps = BoxProps;
 
 // @public (undocumented)
-export const inset: (this: unknown, arg: unknown) => string | undefined;
-
-// @public (undocumented)
 export function Label({ disabled, is, required, children, ...props }: LabelProps): ReactElement;
 
 // @public (undocumented)
@@ -875,9 +845,6 @@ export type LabelProps = Omit<BoxProps, 'is'> & {
     required?: boolean;
     is?: (ElementType<any> & string) | undefined;
 };
-
-// @public (undocumented)
-export const margin: (this: unknown, arg: unknown) => string | undefined;
 
 // @public (undocumented)
 export const Margins: (props: MarginsProps) => JSX_2.Element;
@@ -1453,7 +1420,7 @@ export const ModalThumb: (props: ModalThumbProps) => JSX_2.Element;
 export const ModalTitle: ({ children, ...props }: ModalTitleProps) => JSX_2.Element;
 
 // @public (undocumented)
-export const MultiSelect: ForwardRefExoticComponent<Omit<BoxProps, "onChange" | "value"> & {
+export const MultiSelect: ForwardRefExoticComponent<Omit<BoxProps, "value" | "onChange"> & {
 value?: SelectOption[0][];
 error?: string;
 options: SelectOption[];
@@ -1713,9 +1680,6 @@ type?: 'heading' | 'divider' | 'option',
 url?: string
 ];
 
-// @public (undocumented)
-export const padding: (this: unknown, arg: unknown) => string | undefined;
-
 // Warning: (ae-forgotten-export) The symbol "PaginatedMultiSelectFilteredProps" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
@@ -1866,7 +1830,7 @@ error?: string;
 } & RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
-export const Select: ForwardRefExoticComponent<Omit<AriaSelectProps<object>, "children" | "onChange" | "value"> & {
+export const Select: ForwardRefExoticComponent<Omit<AriaSelectProps<object>, "value" | "children" | "onChange"> & {
 error?: string;
 placeholder?: string;
 value?: Key | null | undefined;
@@ -1952,113 +1916,16 @@ label: string,
 selected?: boolean
 ];
 
-// Warning: (ae-forgotten-export) The symbol "SidebarProps" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
-export const Sidebar: ((props: SidebarProps) => JSX_2.Element) & {
-    TopBar: (({ className, ...props }: {
-        children?: ReactNode;
-        className?: string;
-    }) => JSX_2.Element) & {
-        Section: ({ className, children, ...props }: {
-            children?: ReactNode;
-            className?: string;
-        }) => JSX_2.Element;
-        ToolBox: ({ children, className, ...props }: {
-            children?: ReactNode;
-            className?: string;
-        }) => JSX_2.Element;
-        Wrapper: ({ children }: {
-            children?: ReactNode;
-        }) => JSX_2.Element;
-        Avatar: {
-            size: "x24";
-        };
-        Actions: ForwardRefExoticComponent<    {
-        align?: "start" | "center" | "end";
-        stretch?: boolean;
-        wrap?: boolean;
-        vertical?: boolean;
-        small?: boolean;
-        large?: boolean;
-        } & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
-        Action: ForwardRefExoticComponent<    {
-        icon: IconName | ReactElement;
-        primary?: boolean;
-        secondary?: boolean;
-        info?: boolean;
-        danger?: boolean;
-        warning?: boolean;
-        success?: boolean;
-        pressed?: boolean;
-        large?: boolean;
-        medium?: boolean;
-        small?: boolean;
-        tiny?: boolean;
-        mini?: boolean;
-        } & BoxProps & RefAttributes<HTMLElement>>;
-        Divider: () => JSX_2.Element;
-        Title: (props: {
-            children?: ReactNode;
-        }) => JSX_2.Element;
-    };
-    Item: (({ selected, highlighted, clickable, featured, is: Tag, children, ...props }: {
-        selected?: boolean;
-        highlighted?: boolean;
-        clickable?: boolean;
-        featured?: boolean;
-        is?: BoxProps["is"];
-        children?: ReactNode;
-    } & AllHTMLAttributes<HTMLElement>) => JSX_2.Element) & {
-        Menu: (props: {
-            children?: ReactNode;
-        } & AllHTMLAttributes<HTMLElement>) => JSX_2.Element;
-        Container: (props: {
-            children?: ReactNode;
-        } & AllHTMLAttributes<HTMLElement>) => JSX_2.Element;
-        Content: ({ className, ...props }: {
-            children?: ReactNode;
-            className?: string;
-        } & AllHTMLAttributes<HTMLElement>) => JSX_2.Element;
-        Title: ({ className, ...props }: {
-            children?: ReactNode;
-            className?: string;
-        } & AllHTMLAttributes<HTMLElement>) => JSX_2.Element;
-        Subtitle: ({ className, ...props }: {
-            children?: ReactNode;
-            className?: string;
-        } & AllHTMLAttributes<HTMLElement>) => JSX_2.Element;
-        Time: ({ className, ...props }: {
-            children?: ReactNode;
-            className?: string;
-        } & AllHTMLAttributes<HTMLElement>) => JSX_2.Element;
-        Wrapper: ({ className, ...props }: {
-            children?: ReactNode;
-            className?: string;
-        } & AllHTMLAttributes<HTMLElement>) => JSX_2.Element;
-        Icon: ({ highlighted, children, icon, className: _className, ...props }: {
-            children?: ReactNode;
-            className?: string;
-            highlighted?: boolean;
-            icon: IconName;
-        } & Omit<AllHTMLAttributes<HTMLElement>, "is" | "name">) => JSX_2.Element;
-        Avatar: ({ ...props }: {
-            children?: ReactNode;
-        } & AllHTMLAttributes<HTMLElement>) => JSX_2.Element;
-        Actions: ForwardRefExoticComponent<    {
-        align?: "start" | "center" | "end";
-        stretch?: boolean;
-        wrap?: boolean;
-        vertical?: boolean;
-        small?: boolean;
-        large?: boolean;
-        } & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
-        Action: (props: IconButtonProps) => JSX_2.Element;
-        Badge: ({ className, ...props }: {
-            children?: ReactNode;
-            className?: string;
-        } & AllHTMLAttributes<HTMLElement>) => JSX_2.Element;
-    };
+export function Sidebar(props: SidebarProps): JSX_2.Element;
+
+// @public (undocumented)
+export namespace Sidebar {
+    const // (undocumented)
+    TopBar: typeof TopBar;
+    const // (undocumented)
+    Item: typeof SidebarItem;
+    const // (undocumented)
     Section: ((props: {
         children?: ReactNode;
     }) => JSX_2.Element) & {
@@ -2066,49 +1933,88 @@ export const Sidebar: ((props: SidebarProps) => JSX_2.Element) & {
             children?: ReactNode;
         }) => JSX_2.Element;
     };
+    const // (undocumented)
     Divider: () => JSX_2.Element;
-    Banner: ({ text, description, onClick, variant, addon, onClose, children, }: {
-        text?: ReactNode;
-        description?: ReactNode;
-        onClick?: () => void;
-        variant?: "default" | "info" | "danger" | "warning" | "success";
-        onClose?: () => void;
-        children?: ReactNode;
-        addon?: ReactNode;
-    }) => JSX_2.Element;
-};
+    const // (undocumented)
+    Banner: ({ text, description, onClick, variant, addon, onClose, children, }: SidebarBannerProps) => JSX_2.Element;
+}
 
-// Warning: (ae-forgotten-export) The symbol "SidebarBannerProps" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
 export const SidebarBanner: ({ text, description, onClick, variant, addon, onClose, children, }: SidebarBannerProps) => JSX_2.Element;
 
 // @public (undocumented)
+export type SidebarBannerProps = {
+    text?: ReactNode;
+    description?: ReactNode;
+    onClick?: () => void;
+    variant?: VariantType_2;
+    onClose?: () => void;
+    children?: ReactNode;
+    addon?: ReactNode;
+};
+
+// @public (undocumented)
 export const SidebarDivider: () => JSX_2.Element;
 
-// Warning: (ae-forgotten-export) The symbol "SidebarFooterProps" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
 export const SidebarFooter: ({ elevated, ...props }: SidebarFooterProps) => JSX_2.Element;
 
-// Warning: (ae-forgotten-export) The symbol "SidebarFooterHighlightProps" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
 export const SidebarFooterHighlight: ({ ...props }: SidebarFooterHighlightProps) => JSX_2.Element;
 
-// Warning: (ae-forgotten-export) The symbol "SidebarItemProps" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
-export const SidebarItem: (({ selected, highlighted, clickable, featured, is: Tag, children, ...props }: SidebarItemProps) => JSX_2.Element) & {
+export type SidebarFooterHighlightProps = {
+    children?: ReactNode;
+};
+
+// @public (undocumented)
+export type SidebarFooterProps = {
+    children?: ReactNode;
+    elevated?: boolean;
+};
+
+// @public (undocumented)
+export function SidebarItem({ selected, highlighted, clickable, featured, is: Tag, children, ...props }: SidebarItemProps): JSX_2.Element;
+
+// @public (undocumented)
+export namespace SidebarItem {
+    const // Warning: (ae-forgotten-export) The symbol "SidebarItemMenuProps" needs to be exported by the entry point index.d.ts
+    //
+    // (undocumented)
     Menu: (props: SidebarItemMenuProps) => JSX_2.Element;
+    const // Warning: (ae-forgotten-export) The symbol "SidebarItemContainerProps" needs to be exported by the entry point index.d.ts
+    //
+    // (undocumented)
     Container: (props: SidebarItemContainerProps) => JSX_2.Element;
+    const // Warning: (ae-forgotten-export) The symbol "SidebarItemContentProps" needs to be exported by the entry point index.d.ts
+    //
+    // (undocumented)
     Content: ({ className, ...props }: SidebarItemContentProps) => JSX_2.Element;
+    const // Warning: (ae-forgotten-export) The symbol "SidebarItemTitleProps" needs to be exported by the entry point index.d.ts
+    //
+    // (undocumented)
     Title: ({ className, ...props }: SidebarItemTitleProps) => JSX_2.Element;
+    const // Warning: (ae-forgotten-export) The symbol "SidebarItemSubtitleProps" needs to be exported by the entry point index.d.ts
+    //
+    // (undocumented)
     Subtitle: ({ className, ...props }: SidebarItemSubtitleProps) => JSX_2.Element;
+    const // Warning: (ae-forgotten-export) The symbol "SidebarItemTimeProps" needs to be exported by the entry point index.d.ts
+    //
+    // (undocumented)
     Time: ({ className, ...props }: SidebarItemTimeProps) => JSX_2.Element;
+    const // Warning: (ae-forgotten-export) The symbol "SidebarItemWrapperProps" needs to be exported by the entry point index.d.ts
+    //
+    // (undocumented)
     Wrapper: ({ className, ...props }: SidebarItemWrapperProps) => JSX_2.Element;
+    const // Warning: (ae-forgotten-export) The symbol "SidebarItemIconProps" needs to be exported by the entry point index.d.ts
+    //
+    // (undocumented)
     Icon: ({ highlighted, children, icon, className: _className, ...props }: SidebarItemIconProps) => JSX_2.Element;
+    const // Warning: (ae-forgotten-export) The symbol "SidebarItemAvatarProps" needs to be exported by the entry point index.d.ts
+    //
+    // (undocumented)
     Avatar: ({ ...props }: SidebarItemAvatarProps) => JSX_2.Element;
+    const // (undocumented)
     Actions: ForwardRefExoticComponent<    {
     align?: "start" | "center" | "end";
     stretch?: boolean;
@@ -2117,9 +2023,15 @@ export const SidebarItem: (({ selected, highlighted, clickable, featured, is: Ta
     small?: boolean;
     large?: boolean;
     } & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
+    const // Warning: (ae-forgotten-export) The symbol "SidebarItemActionProps" needs to be exported by the entry point index.d.ts
+    //
+    // (undocumented)
     Action: (props: SidebarItemActionProps) => JSX_2.Element;
+    const // Warning: (ae-forgotten-export) The symbol "SidebarItemBadgeProps" needs to be exported by the entry point index.d.ts
+    //
+    // (undocumented)
     Badge: ({ className, ...props }: SidebarItemBadgeProps) => JSX_2.Element;
-};
+}
 
 // @public (undocumented)
 export const SidebarItemAction: (props: SidebarItemActionProps) => JSX_2.Element;
@@ -2153,6 +2065,16 @@ export const SidebarItemIcon: ({ highlighted, children, icon, className: _classN
 export const SidebarItemMenu: (props: SidebarItemMenuProps) => JSX_2.Element;
 
 // @public (undocumented)
+export type SidebarItemProps = {
+    selected?: boolean;
+    highlighted?: boolean;
+    clickable?: boolean;
+    featured?: boolean;
+    is?: BoxProps['is'];
+    children?: ReactNode;
+} & AllHTMLAttributes<HTMLElement>;
+
+// @public (undocumented)
 export const SidebarItemSubtitle: ({ className, ...props }: SidebarItemSubtitleProps) => JSX_2.Element;
 
 // @public (undocumented)
@@ -2163,6 +2085,9 @@ export const SidebarItemTitle: ({ className, ...props }: SidebarItemTitleProps) 
 
 // @public (undocumented)
 export const SidebarItemWrapper: ({ className, ...props }: SidebarItemWrapperProps) => JSX_2.Element;
+
+// @public (undocumented)
+export type SidebarProps = BoxProps;
 
 // Warning: (ae-forgotten-export) The symbol "SidebarSectionProps" needs to be exported by the entry point index.d.ts
 //
@@ -2175,122 +2100,119 @@ export const SidebarSection: ((props: SidebarSectionProps) => JSX_2.Element) & {
 export const SidebarSectionTitle: (props: SidebarSectionTitleProps) => JSX_2.Element;
 
 // @public (undocumented)
-export const SidebarTopBar: (({ className, ...props }: {
-    children?: ReactNode;
-    className?: string;
-}) => JSX_2.Element) & {
-    Section: ({ className, children, ...props }: {
-        children?: ReactNode;
-        className?: string;
-    }) => JSX_2.Element;
-    ToolBox: ({ children, className, ...props }: {
-        children?: ReactNode;
-        className?: string;
-    }) => JSX_2.Element;
-    Wrapper: ({ children }: {
-        children?: ReactNode;
-    }) => JSX_2.Element;
-    Avatar: {
-        size: "x24";
-    };
-    Actions: ForwardRefExoticComponent<    {
-    align?: "start" | "center" | "end";
-    stretch?: boolean;
-    wrap?: boolean;
-    vertical?: boolean;
-    small?: boolean;
-    large?: boolean;
-    } & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
-    Action: ForwardRefExoticComponent<    {
-    icon: IconName | ReactElement;
-    primary?: boolean;
-    secondary?: boolean;
-    info?: boolean;
-    danger?: boolean;
-    warning?: boolean;
-    success?: boolean;
-    pressed?: boolean;
-    large?: boolean;
-    medium?: boolean;
-    small?: boolean;
-    tiny?: boolean;
-    mini?: boolean;
-    } & BoxProps & RefAttributes<HTMLElement>>;
-    Divider: () => JSX_2.Element;
-    Title: (props: {
-        children?: ReactNode;
-    }) => JSX_2.Element;
+export const Skeleton: ({ variant, ...props }: SkeletonProps) => JSX_2.Element;
+
+// @public (undocumented)
+export type SkeletonProps = BoxProps & {
+    variant?: 'text' | 'rect' | 'circle';
 };
 
 // @public (undocumented)
-export const size: (this: unknown, arg: unknown) => string | undefined;
-
-// Warning: (ae-forgotten-export) The symbol "SkeletonProps" needs to be exported by the entry point index.d.ts
-//
-// @public (undocumented)
-export const Skeleton: ({ variant, ...props }: SkeletonProps) => JSX_2.Element;
-
-// Warning: (ae-forgotten-export) The symbol "SliderProps" needs to be exported by the entry point index.d.ts
-//
-// @public (undocumented)
 export function Slider<T extends number | [min: number, max: number]>(props: SliderProps<T>): ReactElement;
 
-// Warning: (ae-forgotten-export) The symbol "StatesProps" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export type SliderProps<T extends number | number[]> = AriaAttributes & {
+    formatOptions?: Intl.NumberFormatOptions;
+    label?: string;
+    showOutput?: boolean;
+    multiThumb?: T extends number[] ? true : false;
+    step?: number;
+    minValue?: number;
+    maxValue?: number;
+    orientation?: 'horizontal' | 'vertical';
+    disabled?: boolean;
+    defaultValue?: T;
+} & ({
+    value: T;
+    onChange: (value: T) => void;
+} | {
+    value?: never;
+    onChange?: never;
+});
+
 // @public (undocumented)
 export const States: ({ children, ...props }: StatesProps) => JSX_2.Element;
 
-// Warning: (ae-forgotten-export) The symbol "StatesActionProps" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
 export const StatesAction: (props: StatesActionProps) => JSX_2.Element;
 
-// Warning: (ae-forgotten-export) The symbol "StatesActionsProps" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export type StatesActionProps = ButtonProps;
+
 // @public (undocumented)
 export const StatesActions: (props: StatesActionsProps) => JSX_2.Element;
 
-// Warning: (ae-forgotten-export) The symbol "StatesIconProps" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export type StatesActionsProps = ButtonGroupProps;
+
 // @public (undocumented)
 export const StatesIcon: ({ variation, ...props }: StatesIconProps) => JSX_2.Element;
 
-// Warning: (ae-forgotten-export) The symbol "StatesLinkProps" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export type StatesIconProps = {
+    variation?: 'danger' | 'success' | 'warning' | 'primary';
+} & IconProps;
+
 // @public (undocumented)
 export const StatesLink: (props: StatesLinkProps) => JSX_2.Element;
 
-// Warning: (ae-forgotten-export) The symbol "StatesSubtitleProps" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export type StatesLinkProps = BoxProps & AllHTMLAttributes<HTMLAnchorElement>;
+
+// @public (undocumented)
+export type StatesProps = {
+    children?: ReactNode;
+} & AllHTMLAttributes<HTMLDivElement>;
+
 // @public (undocumented)
 export const StatesSubtitle: ({ children, ...props }: StatesSubtitleProps) => JSX_2.Element;
 
-// Warning: (ae-forgotten-export) The symbol "StatesSuggestionProps" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export type StatesSubtitleProps = {
+    children?: ReactNode;
+} & AllHTMLAttributes<HTMLDivElement>;
+
 // @public (undocumented)
 export const StatesSuggestion: ({ children, ...props }: StatesSuggestionProps) => JSX_2.Element;
 
-// Warning: (ae-forgotten-export) The symbol "StatesSuggestionListProps" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
 export const StatesSuggestionList: ({ children, ...props }: StatesSuggestionListProps) => JSX_2.Element;
 
-// Warning: (ae-forgotten-export) The symbol "StatesSuggestionListItemProps" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
 export const StatesSuggestionListItem: ({ children, ...props }: StatesSuggestionListItemProps) => JSX_2.Element;
 
-// Warning: (ae-forgotten-export) The symbol "StatesSuggestionTextProps" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export type StatesSuggestionListItemProps = {
+    children?: ReactNode;
+} & AllHTMLAttributes<HTMLLIElement>;
+
+// @public (undocumented)
+export type StatesSuggestionListProps = {
+    children?: ReactNode;
+} & AllHTMLAttributes<HTMLUListElement>;
+
+// @public (undocumented)
+export type StatesSuggestionProps = {
+    children?: ReactNode;
+} & AllHTMLAttributes<HTMLDivElement>;
+
 // @public (undocumented)
 export const StatesSuggestionText: ({ children, ...props }: StatesSuggestionTextProps) => JSX_2.Element;
 
-// Warning: (ae-forgotten-export) The symbol "StatesTitleProps" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export type StatesSuggestionTextProps = {
+    children?: ReactNode;
+} & AllHTMLAttributes<HTMLDivElement>;
+
 // @public (undocumented)
 export const StatesTitle: ({ children, ...props }: StatesTitleProps) => JSX_2.Element;
 
 // @public (undocumented)
+export type StatesTitleProps = {
+    children?: ReactNode;
+} & AllHTMLAttributes<HTMLHeadingElement>;
+
+// @public
 export const StatusBullet: ({ status, ...props }: StatusBulletProps) => JSX_2.Element;
 
 // @public (undocumented)
@@ -2300,33 +2222,34 @@ export type StatusBulletProps = {
 } & Omit<AllHTMLAttributes<SVGElement>, 'size'>;
 
 // @public (undocumented)
-export const strokeColor: (this: unknown, arg: unknown) => string | undefined;
-
-// @public (undocumented)
 export const Table: ({ striped, sticky, fixed, ...props }: TableProps) => JSX_2.Element;
 
-// Warning: (ae-forgotten-export) The symbol "TableBodyProps" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
 export const TableBody: (props: TableBodyProps) => JSX_2.Element;
 
-// Warning: (ae-forgotten-export) The symbol "TableCellProps" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export type TableBodyProps = TableProps;
+
 // @public (undocumented)
 export const TableCell: ({ align, clickable, children, ...props }: TableCellProps) => JSX_2.Element;
 
-// Warning: (ae-forgotten-export) The symbol "TableFootProps" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export type TableCellProps = TableProps & {
+    align?: 'start' | 'center' | 'end' | 'justify' | object;
+    clickable?: boolean;
+};
+
 // @public (undocumented)
 export const TableFoot: (props: TableFootProps) => JSX_2.Element;
 
-// Warning: (ae-forgotten-export) The symbol "TableHeadProps" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export type TableFootProps = TableProps;
+
 // @public (undocumented)
 export const TableHead: (props: TableHeadProps) => JSX_2.Element;
 
 // @public (undocumented)
-export const TableHeadContext: Context<boolean>;
+export type TableHeadProps = TableProps;
 
 // @public (undocumented)
 export type TableProps = BoxProps & {
@@ -2335,34 +2258,29 @@ export type TableProps = BoxProps & {
     fixed?: boolean;
 };
 
-// Warning: (ae-forgotten-export) The symbol "TableRowProps" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
 export const TableRow: ({ action, selected, ...props }: TableRowProps) => JSX_2.Element;
 
-// Warning: (ae-forgotten-export) The symbol "TableSelectionProps" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
+export type TableRowProps = Omit<BoxProps, 'action'> & {
+    action?: boolean;
+    hasAction?: boolean;
+};
+
+// @public
 export const TableSelection: ({ children, text, ...props }: TableSelectionProps) => JSX_2.Element;
 
-// Warning: (ae-forgotten-export) The symbol "TableSelectionButtonProps" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
-export const TableSelectionButton: (props: TableSelectionButtonProps) => JSX_2.Element;
+export type TableSelectionProps = BoxProps & {
+    text?: string;
+};
 
-// Warning: (ae-forgotten-export) The symbol "TableSelectionButtonGroupProps" needs to be exported by the entry point index.d.ts
-//
-// @public (undocumented)
-export const TableSelectionButtonGroup: (props: TableSelectionButtonGroupProps) => JSX_2.Element;
-
-// Warning: (ae-forgotten-export) The symbol "TabsProps" needs to be exported by the entry point index.d.ts
-//
-// @public (undocumented)
+// @public
 export function Tabs({ children, divider, ...props }: TabsProps): JSX_2.Element;
 
 // @public (undocumented)
 export namespace Tabs {
-    var // (undocumented)
+    const // @deprecated (undocumented)
     Item: ForwardRefExoticComponent<BoxProps & {
     selected?: boolean;
     disabled?: boolean;
@@ -2376,6 +2294,17 @@ disabled?: boolean;
 } & RefAttributes<HTMLButtonElement>>;
 
 // @public (undocumented)
+export type TabsItemProps = BoxProps & {
+    selected?: boolean;
+    disabled?: boolean;
+};
+
+// @public (undocumented)
+export type TabsProps = BoxProps & {
+    divider?: boolean;
+};
+
+// @public
 export const Tag: ({ large, medium, className, disabled, onClick, variant, children, icon, href, ...props }: TagProps) => JSX_2.Element;
 
 // @public (undocumented)
@@ -2387,7 +2316,7 @@ export type TagProps = {
     icon?: ReactNode;
 } & Omit<AllHTMLAttributes<HTMLSpanElement | HTMLAnchorElement>, 'is'>;
 
-// @public (undocumented)
+// @public
 export const TelephoneInput: ForwardRefExoticComponent<Omit<InputBoxProps, "type"> & {
 addon?: ReactNode;
 input?: ReactNode;
@@ -2395,12 +2324,25 @@ error?: string;
 } & RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
+export type TelephoneInputProps = Omit<InputBoxProps, 'type'> & {
+    addon?: ReactNode;
+    input?: ReactNode;
+    error?: string;
+};
+
+// @public
 export const TextAreaInput: ForwardRefExoticComponent<Omit<InputBoxProps, "type"> & {
 addon?: ReactNode;
 error?: string;
 } & RefAttributes<HTMLTextAreaElement>>;
 
 // @public (undocumented)
+export type TextAreaInputProps = Omit<InputBoxProps, 'type'> & {
+    addon?: ReactNode;
+    error?: string;
+};
+
+// @public
 export const TextInput: ForwardRefExoticComponent<Omit<InputBoxProps, "type"> & {
 addon?: ReactNode;
 error?: string;
@@ -2462,6 +2404,13 @@ inheritColor?: boolean;
 } & RefAttributes<HTMLElement>>;
 
 // @public (undocumented)
+export type ThrobberProps = Omit<BoxProps, 'disabled'> & {
+    circleCount?: number;
+    disabled?: boolean;
+    inheritColor?: boolean;
+};
+
+// @public (undocumented)
 export const Tile: ForwardRefExoticComponent<BoxProps & RefAttributes<HTMLElement>>;
 
 // @public (undocumented)
@@ -2483,15 +2432,61 @@ export type ToastBarProps = {
 export const ToggleSwitch: ForwardRefExoticComponent<BoxProps & AllHTMLAttributes<HTMLInputElement> & RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
+export type ToggleSwitchProps = BoxProps & AllHTMLAttributes<HTMLInputElement>;
+
+// @public (undocumented)
 export const Tooltip: ForwardRefExoticComponent<BoxProps & {
 variation?: "dark" | "light";
 placement?: "top-start" | "top-middle" | "top-end" | "bottom-start" | "bottom-middle" | "bottom-end" | "top" | "left" | "bottom" | "right" | null;
 } & RefAttributes<HTMLElement>>;
 
-// Warning: (ae-forgotten-export) The symbol "TopBarProps" needs to be exported by the entry point index.d.ts
-//
+// @public
+function TopBar({ className, ...props }: TopBarProps): JSX_2.Element;
+
 // @public (undocumented)
-export const TopBar: ({ className, ...props }: TopBarProps) => JSX_2.Element;
+namespace TopBar {
+    const // @deprecated (undocumented)
+    Section: ({ className, children, ...props }: TopBarSectionProps) => JSX_2.Element;
+    const // @deprecated (undocumented)
+    ToolBox: ({ children, className, ...props }: TopBarToolBoxProps) => JSX_2.Element;
+    const // @deprecated (undocumented)
+    Wrapper: ({ children }: TopBarWrapperProps) => JSX_2.Element;
+    const // @deprecated (undocumented)
+    Avatar: {
+        readonly size: "x24";
+    };
+    const // @deprecated (undocumented)
+    Actions: ForwardRefExoticComponent<    {
+    align?: "start" | "center" | "end";
+    stretch?: boolean;
+    wrap?: boolean;
+    vertical?: boolean;
+    small?: boolean;
+    large?: boolean;
+    } & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
+    const // @deprecated (undocumented)
+    Action: ForwardRefExoticComponent<    {
+    icon: IconName | ReactElement;
+    primary?: boolean;
+    secondary?: boolean;
+    info?: boolean;
+    danger?: boolean;
+    warning?: boolean;
+    success?: boolean;
+    pressed?: boolean;
+    large?: boolean;
+    medium?: boolean;
+    small?: boolean;
+    tiny?: boolean;
+    mini?: boolean;
+    } & BoxProps & RefAttributes<HTMLElement>>;
+    const // @deprecated (undocumented)
+    Divider: () => JSX_2.Element;
+    const // @deprecated (undocumented)
+    Title: (props: TopBarTitleProps) => JSX_2.Element;
+}
+export { TopBar as SidebarTopBar }
+export { TopBar }
 
 // @public (undocumented)
 export const TopBarAction: ForwardRefExoticComponent<    {
@@ -2510,6 +2505,11 @@ tiny?: boolean;
 mini?: boolean;
 } & BoxProps & RefAttributes<HTMLElement>>;
 
+// Warning: (ae-forgotten-export) The symbol "SidebarActionProps" needs to be exported by the entry point index.d.ts
+//
+// @public (undocumented)
+export type TopBarActionProps = SidebarActionProps;
+
 // @public (undocumented)
 export const TopBarActions: ForwardRefExoticComponent<    {
 align?: "start" | "center" | "end";
@@ -2520,35 +2520,59 @@ small?: boolean;
 large?: boolean;
 } & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
+// Warning: (ae-forgotten-export) The symbol "SidebarActionsProps" needs to be exported by the entry point index.d.ts
+//
 // @public (undocumented)
-export const TopBarAvatar: {
-    size: "x24";
+export type TopBarActionsProps = SidebarActionsProps;
+
+// @public (undocumented)
+export type TopBarProps = {
+    children?: ReactNode;
+    className?: string;
 };
 
-// Warning: (ae-forgotten-export) The symbol "TopBarSectionProps" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
 export const TopBarSection: ({ className, children, ...props }: TopBarSectionProps) => JSX_2.Element;
 
-// Warning: (ae-forgotten-export) The symbol "TopBarTitleProps" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export type TopBarSectionProps = {
+    children?: ReactNode;
+    className?: string;
+};
+
 // @public (undocumented)
 export const TopBarTitle: (props: TopBarTitleProps) => JSX_2.Element;
 
-// Warning: (ae-forgotten-export) The symbol "TopBarToolBoxProps" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export type TopBarTitleProps = {
+    children?: ReactNode;
+};
+
 // @public (undocumented)
 export const TopBarToolBox: ({ children, className, ...props }: TopBarToolBoxProps) => JSX_2.Element;
 
-// Warning: (ae-forgotten-export) The symbol "TopBarProps_2" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
-export const TopBarV2: ({ className, ...props }: TopBarProps_2) => JSX_2.Element;
+export type TopBarToolBoxProps = {
+    children?: ReactNode;
+    className?: string;
+};
 
-// Warning: (ae-forgotten-export) The symbol "TopBarWrapperProps" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export const TopBarV2: ({ className, ...props }: TopBarV2Props) => JSX_2.Element;
+
+// @public (undocumented)
+export type TopBarV2Props = {
+    children?: ReactNode;
+    className?: string;
+};
+
 // @public (undocumented)
 export const TopBarWrapper: ({ children }: TopBarWrapperProps) => JSX_2.Element;
+
+// @public (undocumented)
+export type TopBarWrapperProps = {
+    children?: ReactNode;
+};
 
 // Warning: (ae-forgotten-export) The symbol "UrlInputProps" needs to be exported by the entry point index.d.ts
 //
@@ -2592,21 +2616,11 @@ export type WrapperProps = BoxProps;
 // src/components/Modal/index.ts:29:5 - (ae-forgotten-export) The symbol "ModalHeroImageProps" needs to be exported by the entry point index.d.ts
 // src/components/Modal/index.ts:30:5 - (ae-forgotten-export) The symbol "ModalFooterControllersProps" needs to be exported by the entry point index.d.ts
 // src/components/MultiSelect/MultiSelect.tsx:41:3 - (ae-forgotten-export) The symbol "MultiSelectAnchorParams" needs to be exported by the entry point index.d.ts
-// src/components/PaletteStyleTag/PaletteStyleTag.tsx:15:29 - (ae-forgotten-export) The symbol "Themes" needs to be exported by the entry point index.d.ts
+// src/components/PaletteStyleTag/PaletteStyleTag.tsx:16:29 - (ae-forgotten-export) The symbol "Themes" needs to be exported by the entry point index.d.ts
 // src/components/Select/Select.tsx:19:1 - (ae-forgotten-export) The symbol "SelectOption_2" needs to be exported by the entry point index.d.ts
 // src/components/SelectInput/SelectInput.tsx:12:3 - (ae-forgotten-export) The symbol "SelectInputOptions" needs to be exported by the entry point index.d.ts
-// src/components/Sidebar/Item.tsx:26:20 - (ae-forgotten-export) The symbol "SidebarItemMenuProps" needs to be exported by the entry point index.d.ts
-// src/components/Sidebar/Item.tsx:50:70 - (ae-forgotten-export) The symbol "SidebarItemContentProps" needs to be exported by the entry point index.d.ts
-// src/components/Sidebar/Item.tsx:61:60 - (ae-forgotten-export) The symbol "SidebarItemContainerProps" needs to be exported by the entry point index.d.ts
-// src/components/Sidebar/Item.tsx:76:27 - (ae-forgotten-export) The symbol "SidebarItemTitleProps" needs to be exported by the entry point index.d.ts
-// src/components/Sidebar/Item.tsx:91:25 - (ae-forgotten-export) The symbol "SidebarItemSubtitleProps" needs to be exported by the entry point index.d.ts
-// src/components/Sidebar/Item.tsx:106:24 - (ae-forgotten-export) The symbol "SidebarItemWrapperProps" needs to be exported by the entry point index.d.ts
-// src/components/Sidebar/Item.tsx:136:28 - (ae-forgotten-export) The symbol "SidebarItemTimeProps" needs to be exported by the entry point index.d.ts
-// src/components/Sidebar/Item.tsx:151:27 - (ae-forgotten-export) The symbol "SidebarItemIconProps" needs to be exported by the entry point index.d.ts
-// src/components/Sidebar/Item.tsx:171:24 - (ae-forgotten-export) The symbol "SidebarItemAvatarProps" needs to be exported by the entry point index.d.ts
-// src/components/Sidebar/Item.tsx:189:71 - (ae-forgotten-export) The symbol "SidebarItemActionProps" needs to be exported by the entry point index.d.ts
-// src/components/Sidebar/Item.tsx:200:26 - (ae-forgotten-export) The symbol "SidebarItemBadgeProps" needs to be exported by the entry point index.d.ts
-// src/components/Sidebar/Section.tsx:16:10 - (ae-forgotten-export) The symbol "SidebarSectionTitleProps" needs to be exported by the entry point index.d.ts
+// src/components/Sidebar/Section.tsx:17:10 - (ae-forgotten-export) The symbol "SidebarSectionTitleProps" needs to be exported by the entry point index.d.ts
+// src/components/Sidebar/SidebarBanner.tsx:12:3 - (ae-forgotten-export) The symbol "VariantType_2" needs to be exported by the entry point index.d.ts
 
 // (No @packageDocumentation comment for this package)
 

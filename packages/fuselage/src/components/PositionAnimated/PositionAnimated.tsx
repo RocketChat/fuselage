@@ -6,6 +6,7 @@ type PositionAnimatedProps = {
   visible?: 'hidden' | 'visible' | 'hiding' | 'unhiding';
 } & PositionProps;
 
+/** @public */
 const PositionAnimated = ({
   width: _width,
   visible,

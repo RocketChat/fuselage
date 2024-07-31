@@ -1,9 +1,11 @@
 import { Icon, type IconProps } from '../Icon';
 
-type StatesIconProps = {
+/** @public */
+export type StatesIconProps = {
   variation?: 'danger' | 'success' | 'warning' | 'primary';
 } & IconProps;
 
+/** @public */
 const StatesIcon = ({ variation, ...props }: StatesIconProps) => (
   <Icon
     {...props}

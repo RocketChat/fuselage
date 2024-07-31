@@ -13,6 +13,7 @@ type MultiSelectFilteredProps = MultiSelectProps & {
   addonIcon?: IconName;
 };
 
+/** @public */
 export const MultiSelectFiltered = ({
   options,
   placeholder,

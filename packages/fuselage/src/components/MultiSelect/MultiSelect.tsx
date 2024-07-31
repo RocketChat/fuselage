@@ -48,6 +48,7 @@ export type MultiSelectProps = Omit<BoxProps, 'onChange' | 'value'> & {
   setFilter?: (filter: string) => void;
 };
 
+/** @public */
 export const MultiSelect = forwardRef(
   (
     {

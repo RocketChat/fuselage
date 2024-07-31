@@ -1,18 +1,15 @@
 import type { BoxProps } from '../Box';
 import Box from '../Box';
 
+/** @public */
 export type TableProps = BoxProps & {
   striped?: boolean;
   sticky?: boolean;
   fixed?: boolean;
 };
 
-export const Table = ({
-  striped,
-  sticky,
-  fixed = false,
-  ...props
-}: TableProps) => (
+/** @public */
+const Table = ({ striped, sticky, fixed = false, ...props }: TableProps) => (
   <Box rcx-table__wrapper>
     <Box
       is='table'
@@ -24,3 +21,5 @@ export const Table = ({
     />
   </Box>
 );
+
+export default Table;

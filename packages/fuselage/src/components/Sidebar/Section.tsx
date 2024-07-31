@@ -4,6 +4,7 @@ type SidebarSectionTitleProps = {
   children?: ReactNode;
 };
 
+/** @public */
 export const SidebarSectionTitle = (props: SidebarSectionTitleProps) => (
   <div className='rcx-box rcx-box--full rcx-sidebar-title' {...props} />
 );

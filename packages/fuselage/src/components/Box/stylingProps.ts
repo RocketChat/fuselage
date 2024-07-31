@@ -499,9 +499,7 @@ const compiledPropDefs = new Map(
 
             stylingProps.set(
               propName,
-              css`
-                ${cssProperty}: ${cssValue} !important;
-              `
+              () => `${cssProperty}: ${cssValue} !important;`
             );
           },
         ];

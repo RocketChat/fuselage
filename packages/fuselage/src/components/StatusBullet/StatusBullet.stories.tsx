@@ -7,7 +7,8 @@ import {
 } from '@storybook/addon-docs';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { StatusBullet, Box } from '../..';
+import Box from '../Box';
+import StatusBullet from './StatusBullet';
 
 export default {
   title: 'Data Display/StatusBullet',

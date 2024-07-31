@@ -4,9 +4,11 @@ import { forwardRef } from 'react';
 import type { BoxProps } from '../Box';
 import Box from '../Box';
 
-type ToggleSwitchProps = BoxProps & AllHTMLAttributes<HTMLInputElement>;
+/** @public */
+export type ToggleSwitchProps = BoxProps & AllHTMLAttributes<HTMLInputElement>;
 
-export const ToggleSwitch = forwardRef(function ToggleSwitch(
+/** @public */
+const ToggleSwitch = forwardRef(function ToggleSwitch(
   { className, ...props }: ToggleSwitchProps,
   ref: ForwardedRef<HTMLInputElement>
 ) {
@@ -23,3 +25,5 @@ export const ToggleSwitch = forwardRef(function ToggleSwitch(
     </Box>
   );
 });
+
+export default ToggleSwitch;

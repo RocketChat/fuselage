@@ -4,12 +4,14 @@ import { forwardRef } from 'react';
 import type { BoxProps } from '../Box';
 import Box from '../Box';
 
-type TabsItemProps = BoxProps & {
+/** @public */
+export type TabsItemProps = BoxProps & {
   selected?: boolean;
   disabled?: boolean;
 };
 
-export const TabsItem = forwardRef(function TabsItem(
+/** @public */
+const TabsItem = forwardRef(function TabsItem(
   { selected, disabled, ...props }: TabsItemProps,
   ref: ForwardedRef<HTMLButtonElement>
 ) {
@@ -27,3 +29,5 @@ export const TabsItem = forwardRef(function TabsItem(
     />
   );
 });
+
+export default TabsItem;

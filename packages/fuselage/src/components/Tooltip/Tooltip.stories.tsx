@@ -1,6 +1,8 @@
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { Box, Margins, Tooltip } from '../..';
+import Box from '../Box';
+import Margins from '../Margins';
+import Tooltip from './Tooltip';
 
 export default {
   title: 'Data Display/Tooltip',

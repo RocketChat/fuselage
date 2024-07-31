@@ -43,6 +43,8 @@ const defaultShowingResultsLabel = ({
   )} of ${count}`;
 
 const itemsPerPageOptions = [25, 50, 100] as ItemsPerPage[];
+
+/** @public */
 export const Pagination = ({
   count,
   current = 0,

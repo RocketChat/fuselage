@@ -9,6 +9,7 @@ interface PopoverProps extends Omit<AriaPopoverProps, 'popoverRef'> {
   state: OverlayTriggerState;
 }
 
+/** @public */
 export function Popover(props: PopoverProps) {
   const popoverRef = useRef<HTMLDivElement>(null);
   const { state, children, isNonModal } = props;

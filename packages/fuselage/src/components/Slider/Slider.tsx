@@ -1,4 +1,3 @@
-/* eslint-disable no-nested-ternary */
 import { css } from '@rocket.chat/css-in-js';
 import type { AriaAttributes, ReactElement } from 'react';
 import { useMemo, useRef } from 'react';
@@ -7,11 +6,12 @@ import { useNumberFormatter, useSlider } from 'react-aria';
 import { useSliderState } from 'react-stately';
 
 import { useStyle } from '../../hooks/useStyle';
-import { SliderHead } from './SliderHead';
-import { SliderThumb } from './SliderThumb';
-import { SliderTrack } from './SliderTrack';
+import SliderHead from './SliderHead';
+import SliderThumb from './SliderThumb';
+import SliderTrack from './SliderTrack';
 
-type SliderProps<T extends number | number[]> = AriaAttributes & {
+/** @public */
+export type SliderProps<T extends number | number[]> = AriaAttributes & {
   /**
    * The display format of the value output.
    */
@@ -20,16 +20,16 @@ type SliderProps<T extends number | number[]> = AriaAttributes & {
   showOutput?: boolean;
   /**
    * Slider with multiple thumbs.
-   * @default false
+   * @defaultValue false
    */
   multiThumb?: T extends number[] ? true : false;
   step?: number;
   /**
-   * @default 0
+   * @defaultValue 0
    */
   minValue?: number;
   /**
-   * @default 100
+   * @defaultValue 100
    */
   maxValue?: number;
   orientation?: 'horizontal' | 'vertical';
@@ -46,7 +46,8 @@ type SliderProps<T extends number | number[]> = AriaAttributes & {
       }
   );
 
-export function Slider<T extends number | [min: number, max: number]>(
+/** @public */
+function Slider<T extends number | [min: number, max: number]>(
   props: SliderProps<T>
 ): ReactElement {
   const {
@@ -147,3 +148,5 @@ export function Slider<T extends number | [min: number, max: number]>(
     </div>
   );
 }
+
+export default Slider;

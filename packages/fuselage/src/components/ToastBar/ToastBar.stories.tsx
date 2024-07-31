@@ -10,7 +10,7 @@ import {
 } from '@storybook/addon-docs';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { ToastBar } from '..';
+import ToastBar from './ToastBar';
 
 export default {
   title: 'Feedback/ToastBar',

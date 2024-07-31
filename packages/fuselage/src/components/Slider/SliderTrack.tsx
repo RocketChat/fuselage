@@ -17,7 +17,7 @@ type SliderTrackProps = {
 const highlight = Palette.stroke['stroke-highlight'];
 const light = Palette.stroke['stroke-light'];
 
-export const SliderTrack = ({
+const SliderTrack = ({
   trackProps,
   trackRef,
   state,
@@ -117,3 +117,5 @@ export const SliderTrack = ({
     </div>
   );
 };
+
+export default SliderTrack;

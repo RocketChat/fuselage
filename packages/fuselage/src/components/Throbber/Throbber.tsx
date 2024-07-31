@@ -5,7 +5,8 @@ import { forwardRef } from 'react';
 import type { BoxProps } from '../Box';
 import Box from '../Box';
 
-type ThrobberProps = Omit<BoxProps, 'disabled'> & {
+/** @public */
+export type ThrobberProps = Omit<BoxProps, 'disabled'> & {
   circleCount?: number;
   disabled?: boolean;
   inheritColor?: boolean;
@@ -40,7 +41,8 @@ function Circle({
   );
 }
 
-export const Throbber = forwardRef(function Throbber(
+/** @public */
+const Throbber = forwardRef(function Throbber(
   {
     disabled,
     size = 'x16',
@@ -65,3 +67,5 @@ export const Throbber = forwardRef(function Throbber(
     </Box>
   );
 });
+
+export default Throbber;

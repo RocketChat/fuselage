@@ -18,6 +18,7 @@ import Position from '../Position';
 import SelectAddon from '../Select/SelectAddon';
 import SelectFocus from '../Select/SelectFocus';
 
+/** @public */
 export type PaginatedMultiSelectOption = {
   value: string | number;
   label: string;

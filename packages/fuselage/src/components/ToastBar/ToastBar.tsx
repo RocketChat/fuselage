@@ -6,6 +6,7 @@ import Box from '../Box';
 import { IconButton } from '../Button';
 import { Icon } from '../Icon';
 
+/** @public */
 export type ToastBarProps = {
   variant?: 'info' | 'success' | 'error';
   className?: string;
@@ -17,7 +18,8 @@ export type ToastBarProps = {
   buttonLabel?: string;
 } & Omit<AllHTMLAttributes<HTMLElement>, 'is'>;
 
-export function ToastBar({
+/** @public */
+function ToastBar({
   children,
   className = '',
   variant = 'info',
@@ -102,3 +104,5 @@ export function ToastBar({
     </Box>
   );
 }
+
+export default ToastBar;

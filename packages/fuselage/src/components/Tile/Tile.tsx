@@ -4,8 +4,10 @@ import { forwardRef } from 'react';
 import type { BoxProps } from '../Box';
 import Box from '../Box';
 
-type TileProps = BoxProps;
+/** @public */
+export type TileProps = BoxProps;
 
+/** @public */
 const Tile = forwardRef(function Tile(
   { elevation = '1', padding = 16, ...props }: TileProps,
   ref: ForwardedRef<HTMLElement>

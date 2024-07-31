@@ -7,12 +7,14 @@ import SelectFilteredAnchor from './SelectFilteredAnchor';
 import type { SelectLegacyProps } from './SelectLegacy';
 import { SelectLegacy } from './SelectLegacy';
 
+/** @public */
 export type SelectFilteredProps = SelectLegacyProps & {
   filter?: string;
   setFilter?: Dispatch<SetStateAction<string>>;
   addonIcon?: IconName;
 };
 
+/** @public */
 export const SelectFiltered = forwardRef(function SelectFiltered(
   {
     options,

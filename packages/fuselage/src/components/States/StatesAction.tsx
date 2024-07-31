@@ -1,7 +1,9 @@
 import { Button, type ButtonProps } from '../Button';
 
-type StatesActionProps = ButtonProps;
+/** @public */
+export type StatesActionProps = ButtonProps;
 
+/** @public */
 const StatesAction = (props: StatesActionProps) => (
   <Button {...props} primary />
 );

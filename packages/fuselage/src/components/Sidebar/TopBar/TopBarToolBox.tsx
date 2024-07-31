@@ -1,15 +1,17 @@
 import type { ReactNode } from 'react';
 
-import { SidebarDivider } from '../SidebarDivider';
-import { TopBar } from './TopBar';
-import { TopBarWrapper } from './TopBarWrapper';
+import SidebarDivider from '../SidebarDivider';
+import TopBar from './TopBar';
+import TopBarWrapper from './TopBarWrapper';
 
-type TopBarToolBoxProps = {
+/** @public */
+export type TopBarToolBoxProps = {
   children?: ReactNode;
   className?: string;
 };
 
-export const TopBarToolBox = ({
+/** @public */
+const TopBarToolBox = ({
   children,
   className,
   ...props
@@ -24,3 +26,5 @@ export const TopBarToolBox = ({
     <SidebarDivider />
   </TopBar>
 );
+
+export default TopBarToolBox;

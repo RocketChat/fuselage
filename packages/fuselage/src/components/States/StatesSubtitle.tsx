@@ -1,9 +1,11 @@
 import type { AllHTMLAttributes, ReactNode } from 'react';
 
-type StatesSubtitleProps = {
+/** @public */
+export type StatesSubtitleProps = {
   children?: ReactNode;
 } & AllHTMLAttributes<HTMLDivElement>;
 
+/** @public */
 const StatesSubtitle = ({ children, ...props }: StatesSubtitleProps) => (
   <div {...props} className='rcx-states__subtitle'>
     {children}

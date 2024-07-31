@@ -8,6 +8,7 @@ import { IconButton } from '../Button';
 
 type NavbarItemProps = HTMLAttributes<HTMLElement> & Partial<IconButtonProps>;
 
+/** @public */
 export const NavBarItem = forwardRef(function NavBarItem(
   { children, icon, ...props }: NavbarItemProps,
   ref: ForwardedRef<HTMLElement>

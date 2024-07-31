@@ -10,6 +10,7 @@ type PaginatedSelectFilteredProps = Omit<PaginatedSelectProps, 'setFilter'> & {
   setFilter: (value: string | undefined | number) => void;
 };
 
+/** @public */
 export const PaginatedSelectFiltered = ({
   filter,
   setFilter,

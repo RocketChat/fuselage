@@ -38,6 +38,7 @@ type ProgressBarProps = {
   light?: boolean;
 } & Omit<AllHTMLAttributes<HTMLElement>, 'is'>;
 
+/** @public */
 export const ProgressBar = forwardRef(function ProgressBar(
   {
     percentage,

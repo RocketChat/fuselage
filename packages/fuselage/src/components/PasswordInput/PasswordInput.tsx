@@ -10,6 +10,7 @@ import { InputBox } from '../InputBox';
 
 type PasswordInputProps = Omit<InputBoxProps, 'type'>;
 
+/** @public */
 const PasswordInput = forwardRef(function PasswordInput(
   props: PasswordInputProps,
   ref: ForwardedRef<HTMLInputElement>

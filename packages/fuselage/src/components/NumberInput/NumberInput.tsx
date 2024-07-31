@@ -6,6 +6,7 @@ import { InputBox } from '../InputBox';
 
 type NumberInputProps = Omit<InputBoxProps, 'type'>;
 
+/** @public */
 export const NumberInput = forwardRef(function NumberInput(
   props: NumberInputProps,
   ref: ForwardedRef<HTMLInputElement>

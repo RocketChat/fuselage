@@ -3,6 +3,7 @@ import Box from '../Box';
 
 export type ModalHeaderTextProps = BoxProps;
 
+/** @public */
 export const ModalHeaderText = ({
   children,
   ...props

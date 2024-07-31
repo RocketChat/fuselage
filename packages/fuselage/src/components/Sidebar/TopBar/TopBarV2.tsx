@@ -1,11 +1,13 @@
 import type { ReactNode } from 'react';
 
-type TopBarProps = {
+/** @public */
+export type TopBarV2Props = {
   children?: ReactNode;
   className?: string;
 };
 
-export const TopBarV2 = ({ className, ...props }: TopBarProps) => (
+/** @public */
+const TopBarV2 = ({ className, ...props }: TopBarV2Props) => (
   <div
     className={[
       'rc-box rc-box--full rcx-sidebar-topbar-v2 rcx-sidebar-topbar-v2',
@@ -16,3 +18,5 @@ export const TopBarV2 = ({ className, ...props }: TopBarProps) => (
     {...props}
   />
 );
+
+export default TopBarV2;

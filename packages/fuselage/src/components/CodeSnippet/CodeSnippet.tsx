@@ -1,7 +1,7 @@
 import type { BoxProps } from '../Box';
 import Box from '../Box';
-import { Button } from '../Button';
-import { Skeleton } from '../Skeleton';
+import Button from '../Button';
+import Skeleton from '../Skeleton';
 
 /** @public */
 export type CodeSnippetProps = BoxProps & {

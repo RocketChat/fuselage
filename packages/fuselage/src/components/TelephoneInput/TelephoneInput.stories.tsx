@@ -1,8 +1,9 @@
 import { Title, Description, Primary, Stories } from '@storybook/addon-docs';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { Icon, TelephoneInput } from '../..';
 import { PropsVariationSection } from '../../../.storybook/helpers';
+import Icon from '../Icon';
+import TelephoneInput from './TelephoneInput';
 
 export default {
   title: 'Inputs/TelephoneInput',

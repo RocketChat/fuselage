@@ -3,12 +3,17 @@ import { createContext } from 'react';
 import Box from '../Box';
 import type { TableProps } from './Table';
 
+/** @internal */
 export const TableHeadContext = createContext(false);
 
-type TableHeadProps = TableProps;
+/** @public */
+export type TableHeadProps = TableProps;
 
-export const TableHead = (props: TableHeadProps) => (
+/** @public */
+const TableHead = (props: TableHeadProps) => (
   <TableHeadContext.Provider value={true}>
     <Box is='thead' rcx-table__head {...props} />
   </TableHeadContext.Provider>
 );
+
+export default TableHead;

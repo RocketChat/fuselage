@@ -26,6 +26,7 @@ import SelectAddon from './SelectAddon';
 import type { SelectAnchorParams } from './SelectAnchorParams';
 import SelectFocus from './SelectFocus';
 
+/** @public */
 export type SelectOption = readonly [
   value: string,
   label: string,
@@ -52,6 +53,7 @@ const useDidUpdate = (func: () => void, deps: DependencyList | undefined) => {
   }, deps || []);
 };
 
+/** @public */
 export type SelectLegacyProps = Omit<BoxProps, 'onChange'> & {
   anchor?: ElementType;
   error?: string;
@@ -67,6 +69,7 @@ export type SelectLegacyProps = Omit<BoxProps, 'onChange'> & {
   addonIcon?: IconName;
 };
 
+/** @public */
 export const SelectLegacy = forwardRef(function SelectLegacy(
   {
     value,

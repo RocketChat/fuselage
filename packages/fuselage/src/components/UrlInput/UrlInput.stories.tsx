@@ -1,7 +1,8 @@
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { Icon, UrlInput } from '../..';
 import { PropsVariationSection } from '../../../.storybook/helpers';
+import Icon from '../Icon';
+import UrlInput from './UrlInput';
 
 export default {
   title: 'Inputs/UrlInput',

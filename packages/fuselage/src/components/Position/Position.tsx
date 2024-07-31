@@ -13,6 +13,7 @@ export type PositionProps = {
   placement?: UsePositionOptions['placement'];
 } & Omit<BoxProps, 'children' | 'margin'>;
 
+/** @public */
 const Position = ({
   anchor,
   children,

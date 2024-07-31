@@ -1,27 +1,12 @@
-import { Title, Description, Primary, Stories } from '@storybook/addon-docs';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { Icon, TextAreaInput } from '../..';
 import { PropsVariationSection } from '../../../.storybook/helpers';
+import Icon from '../Icon';
+import TextAreaInput from './TextArea';
 
 export default {
   title: 'Inputs/TextAreaInput',
   component: TextAreaInput,
-  parameters: {
-    docs: {
-      description: {
-        component: 'An input for multi-line plain-text editing.',
-      },
-      page: () => (
-        <>
-          <Title />
-          <Description />
-          <Primary />
-          <Stories title={'Props from InputBox'} />
-        </>
-      ),
-    },
-  },
 } satisfies ComponentMeta<typeof TextAreaInput>;
 
 const Template: ComponentStory<typeof TextAreaInput> = (args) => (

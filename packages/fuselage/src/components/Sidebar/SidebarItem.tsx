@@ -6,7 +6,8 @@ import { Icon as FuselageIcon } from '../Icon';
 import type { SidebarActionProps } from './SidebarActions';
 import { SidebarAction, SidebarActions } from './SidebarActions';
 
-type SidebarItemProps = {
+/** @public */
+export type SidebarItemProps = {
   selected?: boolean;
   highlighted?: boolean;
   clickable?: boolean;
@@ -15,7 +16,8 @@ type SidebarItemProps = {
   children?: ReactNode;
 } & AllHTMLAttributes<HTMLElement>;
 
-export const SidebarItem = ({
+/** @public */
+export function SidebarItem({
   selected,
   highlighted,
   clickable,
@@ -23,30 +25,33 @@ export const SidebarItem = ({
   is: Tag = 'div',
   children,
   ...props
-}: SidebarItemProps) => (
-  <Tag
-    className={[
-      'rc-box rcx-box--full rcx-sidebar-item',
-      highlighted && 'rcx-sidebar-item--highlighted',
-      (clickable || Tag === 'a') && 'rcx-sidebar-item--clickable',
-      selected && 'rcx-sidebar-item--selected',
-      featured && 'rcx-sidebar-item--featured',
-    ]
-      .filter(Boolean)
-      .join(' ')}
-    {...props}
-  >
-    <div
-      className='rcx-box rcx-box--full rcx-sidebar-item__wrapper'
-      children={children}
-    />
-  </Tag>
-);
+}: SidebarItemProps) {
+  return (
+    <Tag
+      className={[
+        'rc-box rcx-box--full rcx-sidebar-item',
+        highlighted && 'rcx-sidebar-item--highlighted',
+        (clickable || Tag === 'a') && 'rcx-sidebar-item--clickable',
+        selected && 'rcx-sidebar-item--selected',
+        featured && 'rcx-sidebar-item--featured',
+      ]
+        .filter(Boolean)
+        .join(' ')}
+      {...props}
+    >
+      <div
+        className='rcx-box rcx-box--full rcx-sidebar-item__wrapper'
+        children={children}
+      />
+    </Tag>
+  );
+}
 
 type SidebarItemContainerProps = {
   children?: ReactNode;
 } & AllHTMLAttributes<HTMLElement>;
 
+/** @public */
 export const SidebarItemContainer = (props: SidebarItemContainerProps) => (
   <div
     className='rc-box rcx-box--full rcx-sidebar-item__container'
@@ -58,6 +63,7 @@ type SidebarItemMenuProps = {
   children?: ReactNode;
 } & AllHTMLAttributes<HTMLElement>;
 
+/** @public */
 export const SidebarItemMenu = (props: SidebarItemMenuProps) => (
   <div
     className='rc-box rcx-box--full rcx-box--animated rcx-sidebar-item__menu-wrapper'
@@ -70,6 +76,7 @@ type SidebarItemContentProps = {
   className?: string;
 } & AllHTMLAttributes<HTMLElement>;
 
+/** @public */
 export const SidebarItemContent = ({
   className = '',
   ...props
@@ -85,6 +92,7 @@ type SidebarItemTitleProps = {
   className?: string;
 } & AllHTMLAttributes<HTMLElement>;
 
+/** @public */
 export const SidebarItemTitle = ({
   className = '',
   ...props
@@ -100,6 +108,7 @@ type SidebarItemTimeProps = {
   className?: string;
 } & AllHTMLAttributes<HTMLElement>;
 
+/** @public */
 export const SidebarItemTime = ({
   className,
   ...props
@@ -115,6 +124,7 @@ type SidebarItemBadgeProps = {
   className?: string;
 } & AllHTMLAttributes<HTMLElement>;
 
+/** @public */
 export const SidebarItemBadge = ({
   className,
   ...props
@@ -130,6 +140,7 @@ type SidebarItemSubtitleProps = {
   className?: string;
 } & AllHTMLAttributes<HTMLElement>;
 
+/** @public */
 export const SidebarItemSubtitle = ({
   className,
   ...props
@@ -145,6 +156,7 @@ type SidebarItemWrapperProps = {
   className?: string;
 } & AllHTMLAttributes<HTMLElement>;
 
+/** @public */
 export const SidebarItemWrapper = ({
   className = '',
   ...props
@@ -162,6 +174,7 @@ type SidebarItemIconProps = {
   icon: IconName;
 } & Omit<AllHTMLAttributes<HTMLElement>, 'name' | 'is'>;
 
+/** @public */
 export const SidebarItemIcon = ({
   highlighted,
   children,
@@ -186,31 +199,38 @@ type SidebarItemAvatarProps = {
   children?: ReactNode;
 } & AllHTMLAttributes<HTMLElement>;
 
+/** @public */
 export const SidebarItemAvatar = ({ ...props }: SidebarItemAvatarProps) => (
   <SidebarItemContainer>
     <div className='rc-box rcx-box--full rcx-sidebar-item__avatar' {...props} />
   </SidebarItemContainer>
 );
 
+/** @public */
 export const SidebarItemActions = SidebarActions;
 
 type SidebarItemActionProps = SidebarActionProps;
 
+/** @public */
 export const SidebarItemAction = (props: SidebarItemActionProps) => (
   <SidebarAction {...props} />
 );
 
-export default Object.assign(SidebarItem, {
-  Menu: SidebarItemMenu,
-  Container: SidebarItemContainer,
-  Content: SidebarItemContent,
-  Title: SidebarItemTitle,
-  Subtitle: SidebarItemSubtitle,
-  Time: SidebarItemTime,
-  Wrapper: SidebarItemWrapper,
-  Icon: SidebarItemIcon,
-  Avatar: SidebarItemAvatar,
-  Actions: SidebarItemActions,
-  Action: SidebarItemAction,
-  Badge: SidebarItemBadge,
-});
+/** @public */
+// eslint-disable-next-line @typescript-eslint/no-namespace
+export namespace SidebarItem {
+  export const Menu = SidebarItemMenu;
+  export const Container = SidebarItemContainer;
+  export const Content = SidebarItemContent;
+  export const Title = SidebarItemTitle;
+  export const Subtitle = SidebarItemSubtitle;
+  export const Time = SidebarItemTime;
+  export const Wrapper = SidebarItemWrapper;
+  export const Icon = SidebarItemIcon;
+  export const Avatar = SidebarItemAvatar;
+  export const Actions = SidebarItemActions;
+  export const Action = SidebarItemAction;
+  export const Badge = SidebarItemBadge;
+}
+
+export default SidebarItem;

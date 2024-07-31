@@ -2,8 +2,10 @@ import { action } from '@storybook/addon-actions';
 import { Title, Description, Primary, Stories } from '@storybook/addon-docs';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { Throbber, Button, Box } from '../..';
 import { PropsVariationSection } from '../../../.storybook/helpers';
+import Box from '../Box';
+import Button from '../Button';
+import Throbber from './Throbber';
 
 export default {
   title: 'Data Display/Throbber',

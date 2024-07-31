@@ -4,11 +4,15 @@ import { forwardRef } from 'react';
 import type { SidebarActionsProps } from '../SidebarActions';
 import { SidebarActions } from '../SidebarActions';
 
-type TopBarActionsProps = SidebarActionsProps;
+/** @public */
+export type TopBarActionsProps = SidebarActionsProps;
 
-export const TopBarActions = forwardRef(function TopBarActions(
+/** @public */
+const TopBarActions = forwardRef(function TopBarActions(
   props: TopBarActionsProps,
   ref: ForwardedRef<HTMLDivElement>
 ) {
   return <SidebarActions ref={ref} {...props} />;
 });
+
+export default TopBarActions;

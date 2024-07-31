@@ -1,40 +1,19 @@
-import {
-  Title,
-  Description,
-  Primary,
-  Stories,
-  ArgsTable,
-} from '@storybook/addon-docs';
 import type { ComponentStory } from '@storybook/react';
 
-import { CheckBox } from '../..';
-import {
-  Table,
-  TableSelection,
+import CheckBox from '../CheckBox';
+import Table from './Table';
+import TableBody from './TableBody';
+import TableCell from './TableCell';
+import TableHead from './TableHead';
+import TableRow from './TableRow';
+import TableSelection, {
   TableSelectionButton,
-  TableHead,
-  TableRow,
-  TableCell,
-  TableBody,
   TableSelectionButtonGroup,
-} from './index';
+} from './TableSelection';
 
 export default {
   title: 'Data Display/Table',
   component: Table,
-  parameters: {
-    docs: {
-      page: () => (
-        <>
-          <Title />
-          <Description />
-          <Primary />
-          <ArgsTable />
-          <Stories title={''} />
-        </>
-      ),
-    },
-  },
 };
 
 export const Default: ComponentStory<typeof Table> = () => (

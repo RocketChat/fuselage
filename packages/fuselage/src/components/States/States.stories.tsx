@@ -1,21 +1,23 @@
-import {
-  States,
-  StatesSubtitle,
-  StatesIcon,
-  StatesTitle,
-  StatesSuggestionList,
-  StatesSuggestionListItem,
-  StatesSuggestion,
-  StatesSuggestionText,
-  StatesActions,
-  StatesAction,
-  StatesLink,
-} from '.';
-import { Box, Icon } from '..';
+import type { ComponentMeta } from '@storybook/react';
+
+import Box from '../Box';
+import Icon from '../Icon';
+import States from './States';
+import StatesAction from './StatesAction';
+import StatesActions from './StatesActions';
+import StatesIcon from './StatesIcon';
+import StatesLink from './StatesLink';
+import StatesSubtitle from './StatesSubtitle';
+import StatesSuggestion from './StatesSuggestion';
+import StatesSuggestionList from './StatesSuggestionList';
+import StatesSuggestionListItem from './StatesSuggestionListItem';
+import StatesSuggestionText from './StatesSuggestionText';
+import StatesTitle from './StatesTitle';
 
 export default {
   title: 'Feedback/States',
-};
+  component: States,
+} satisfies ComponentMeta<typeof States>;
 
 export const Default = ({ searchTerm = 'search term here' }) => (
   <Box>

@@ -8,6 +8,7 @@ export type ModalIconProps = BoxProps & {
   name: IconName;
 };
 
+/** @public */
 export const ModalIcon = ({
   size = 'x20',
   name,

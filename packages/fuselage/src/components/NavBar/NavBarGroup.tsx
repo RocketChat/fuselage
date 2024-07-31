@@ -4,6 +4,7 @@ import { forwardRef } from 'react';
 import type { ButtonGroupProps } from '../ButtonGroup';
 import { ButtonGroup } from '../ButtonGroup';
 
+/** @public */
 export const NavBarGroup = forwardRef(function NavBarGroup(
   props: ButtonGroupProps,
   ref: ForwardedRef<HTMLDivElement>

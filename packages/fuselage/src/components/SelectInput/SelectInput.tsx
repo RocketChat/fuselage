@@ -14,6 +14,7 @@ type SelectInputProps = Omit<InputBoxProps, 'type'> & {
   addon?: ReactNode;
 };
 
+/** @public */
 export const SelectInput = forwardRef(function SelectInput(
   { children, multiple, placeholder, onChange, ...props }: SelectInputProps,
   ref: ForwardedRef<HTMLElement>

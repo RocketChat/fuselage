@@ -1,33 +1,13 @@
-import {
-  Title,
-  Description,
-  Primary,
-  Stories,
-  ArgsTable,
-} from '@storybook/addon-docs';
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
 import { screen, userEvent } from '@storybook/testing-library';
 import { useState } from 'react';
 
 import Box from '../Box';
-import { Slider } from './Slider';
+import Slider from './Slider';
 
 export default {
   title: 'Inputs/Slider',
   component: Slider,
-  parameters: {
-    docs: {
-      page: () => (
-        <>
-          <Title />
-          <Description />
-          <Primary />
-          <Stories title={''} />
-          <ArgsTable />
-        </>
-      ),
-    },
-  },
 } satisfies ComponentMeta<typeof Slider>;
 
 const Template: ComponentStory<typeof Slider> = (args) => (

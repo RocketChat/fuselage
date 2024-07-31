@@ -6,6 +6,7 @@ import Box from '../Box';
 
 type RadioButtonProps = BoxProps & AllHTMLAttributes<HTMLInputElement>;
 
+/** @public */
 export const RadioButton = forwardRef(function RadioButton(
   { className, ...props }: RadioButtonProps,
   ref: ForwardedRef<HTMLInputElement>

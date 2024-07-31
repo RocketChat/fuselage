@@ -13,7 +13,8 @@ type SliderHeadProps = {
   showOutput?: boolean;
   multiThumb?: boolean;
 };
-export const SliderHead = ({
+
+const SliderHead = ({
   state,
   labelProps,
   outputProps,
@@ -58,3 +59,5 @@ export const SliderHead = ({
     </>
   );
 };
+
+export default SliderHead;

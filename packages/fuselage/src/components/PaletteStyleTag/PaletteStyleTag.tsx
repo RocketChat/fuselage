@@ -12,6 +12,7 @@ const themes = {
   'high-contrast': highContrast,
 };
 
+/** @public */
 export const PaletteStyleTag = memo(function PaletteStyleTag({
   theme = 'light',
   tagId = 'main-palette',

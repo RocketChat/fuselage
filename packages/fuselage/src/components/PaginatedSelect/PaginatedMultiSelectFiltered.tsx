@@ -11,6 +11,7 @@ type PaginatedMultiSelectFilteredProps = {
   setFilter?: (value: string) => void;
 } & PaginatedMultiSelectProps;
 
+/** @public */
 export const PaginatedMultiSelectFiltered = ({
   filter,
   setFilter,

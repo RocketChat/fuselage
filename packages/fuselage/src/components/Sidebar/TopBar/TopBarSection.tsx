@@ -1,15 +1,17 @@
 import type { ReactNode } from 'react';
 
-import { SidebarDivider } from '../SidebarDivider';
-import { TopBar } from './TopBar';
-import { TopBarWrapper } from './TopBarWrapper';
+import SidebarDivider from '../SidebarDivider';
+import TopBar from './TopBar';
+import TopBarWrapper from './TopBarWrapper';
 
-type TopBarSectionProps = {
+/** @public */
+export type TopBarSectionProps = {
   children?: ReactNode;
   className?: string;
 };
 
-export const TopBarSection = ({
+/** @public */
+const TopBarSection = ({
   className,
   children,
   ...props
@@ -24,3 +26,5 @@ export const TopBarSection = ({
     <SidebarDivider />
   </TopBar>
 );
+
+export default TopBarSection;

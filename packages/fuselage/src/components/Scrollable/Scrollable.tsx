@@ -42,6 +42,7 @@ const pollTouchingEdges = (
   }
 };
 
+/** @public */
 export const Scrollable = ({
   children,
   horizontal,

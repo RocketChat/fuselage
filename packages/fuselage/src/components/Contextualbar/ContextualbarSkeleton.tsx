@@ -2,7 +2,7 @@ import { memo } from 'react';
 
 import { Contextualbar, ContextualbarHeader } from '.';
 import { Box, type BoxProps } from '../Box';
-import { Skeleton } from '../Skeleton';
+import Skeleton from '../Skeleton';
 
 type ContextualbarSkeletonProps = BoxProps;
 

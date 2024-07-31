@@ -16,7 +16,8 @@ const parsePlacement = (placement: string | null | undefined) => {
   return [direction, position];
 };
 
-type TooltipProps = BoxProps & {
+/** @public */
+export type TooltipProps = BoxProps & {
   variation?: 'dark' | 'light';
   placement?:
     | 'top-start'
@@ -32,6 +33,7 @@ type TooltipProps = BoxProps & {
     | null;
 };
 
+/** @public */
 const Tooltip = forwardRef(function Tooltip(
   { variation = 'dark', placement, ...props }: TooltipProps,
   ref: ForwardedRef<HTMLElement>

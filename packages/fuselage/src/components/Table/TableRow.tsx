@@ -1,12 +1,14 @@
 import type { BoxProps } from '../Box';
 import Box from '../Box';
 
-type TableRowProps = Omit<BoxProps, 'action'> & {
+/** @public */
+export type TableRowProps = Omit<BoxProps, 'action'> & {
   action?: boolean;
   hasAction?: boolean;
 };
 
-export const TableRow = ({ action, selected, ...props }: TableRowProps) => (
+/** @public */
+const TableRow = ({ action, selected, ...props }: TableRowProps) => (
   <Box
     is='tr'
     rcx-table__row
@@ -15,3 +17,5 @@ export const TableRow = ({ action, selected, ...props }: TableRowProps) => (
     {...props}
   />
 );
+
+export default TableRow;

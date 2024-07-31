@@ -1,11 +1,11 @@
 import { action } from '@storybook/addon-actions';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { ToggleSwitch } from '../..';
 import {
   DECORATOR_LABEL,
   PropsVariationSection,
 } from '../../../.storybook/helpers';
+import ToggleSwitch from './ToggleSwitch';
 
 export default {
   title: 'Inputs/ToggleSwitch',
