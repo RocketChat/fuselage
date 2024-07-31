@@ -1288,9 +1288,6 @@ export type MessageStatusIndicatorItemProps = {
 } & Omit<AllHTMLAttributes<HTMLElement>, 'is'>;
 
 // @public (undocumented)
-export const MessageStatusIndicatorPrivateIndicator: ({ children, variant, }: MessageStatusPrivateIndicatorProps) => JSX_2.Element;
-
-// @public (undocumented)
 export type MessageStatusIndicatorProps = AllHTMLAttributes<HTMLDivElement>;
 
 // @public (undocumented)
@@ -1300,6 +1297,9 @@ export const MessageStatusIndicatorText: ({ children, }: MessageStatusIndicatorT
 export type MessageStatusIndicatorTextProps = {
     children: ReactNode;
 };
+
+// @public (undocumented)
+export const MessageStatusPrivateIndicator: ({ children, variant, }: MessageStatusPrivateIndicatorProps) => JSX_2.Element;
 
 // @public (undocumented)
 export type MessageStatusPrivateIndicatorProps = {

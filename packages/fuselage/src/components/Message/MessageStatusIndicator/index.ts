@@ -12,6 +12,6 @@ export {
   MessageStatusIndicatorItemProps,
 } from './MessageStatusIndicatorItem';
 export {
-  default as MessageStatusIndicatorPrivateIndicator,
+  default as MessageStatusPrivateIndicator,
   MessageStatusPrivateIndicatorProps,
 } from './MessageStatusPrivateIndicator';
