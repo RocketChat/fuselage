@@ -15,10 +15,11 @@ $sidepanel-color-default: colors.font(default);
   display: flex;
   flex-direction: column;
 
-  width: lengths.size(276);
+  min-width: lengths.size(276);
 
   color: $sidepanel-color-default;
   border: lengths.border-width(default) solid colors.stroke(extra-light);
+  background-color: colors.surface(room);
 
   &-section {
     @extend %section-base;
@@ -27,7 +28,8 @@ $sidepanel-color-default: colors.font(default);
 
   &-header {
     @extend %section-base;
-    padding: lengths.padding(16) lengths.padding(24);
+    height: lengths.size(44);
+    padding-inline: lengths.padding(16);
 
     border-bottom: lengths.border-width(default) solid
       colors.stroke(extra-light);
@@ -41,5 +43,7 @@ $sidepanel-color-default: colors.font(default);
     overflow-y: auto;
 
     height: lengths.size(full);
+
+    padding-block: lengths.padding(8);
   }
 }
