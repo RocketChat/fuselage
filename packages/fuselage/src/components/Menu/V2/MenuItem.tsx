@@ -1,7 +1,7 @@
 import type { Node } from '@react-types/shared';
 import type { ReactNode } from 'react';
 import { useRef } from 'react';
-import { useMenuItem } from 'react-aria';
+import { mergeProps, useMenuItem } from 'react-aria';
 import type { TreeState } from 'react-stately';
 
 import { MenuItemDescription } from '.';
@@ -18,15 +18,15 @@ type MenuItemProps = {
 
 function MenuItem({ item, state }: MenuItemProps) {
   const ref = useRef(null);
-  const { menuItemProps, isFocused, isDisabled } = useMenuItem(
-    { key: item.key },
-    state,
-    ref
-  );
+  const {
+    menuItemProps: { onPointerUp, ...menuItemProps },
+    isFocused,
+    isDisabled,
+  } = useMenuItem({ key: item.key }, state, ref);
 
   return (
     <MenuOption
-      {...menuItemProps}
+      {...mergeProps(menuItemProps, { onPointerDown: onPointerUp })}
       ref={ref}
       focus={isFocused}
       disabled={isDisabled}
