@@ -32,3 +32,9 @@ expect.extend({
 });
 
 expect.extend(toHaveNoViolations);
+
+window.ResizeObserver = jest.fn().mockImplementation(() => ({
+  observe: jest.fn(),
+  unobserve: jest.fn(),
+  disconnect: jest.fn(),
+}));
