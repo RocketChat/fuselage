@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/icons",
-  "version": "0.36.0",
+  "version": "0.37.0",
   "description": "Rocket.Chat's Icons",
   "author": {
     "name": "Rocket.Chat",
@@ -31,12 +31,12 @@
   },
   "devDependencies": {
     "@prettier/plugin-xml": "~2.2.0",
-    "@rocket.chat/eslint-config-alt": "workspace:~",
-    "@rocket.chat/prettier-config": "workspace:~",
-    "build-icons": "workspace:~",
-    "bump": "workspace:~",
+    "@rocket.chat/eslint-config-alt": "^0.31.25",
+    "@rocket.chat/prettier-config": "^0.31.25",
+    "build-icons": "^0.31.25",
+    "bump": "^0.31.25",
     "eslint": "~8.38.0",
-    "lint-all": "workspace:~",
+    "lint-all": "^0.31.25",
     "npm-run-all": "^4.1.5",
     "prettier": "~2.8.7",
     "rimraf": "^3.0.2",
