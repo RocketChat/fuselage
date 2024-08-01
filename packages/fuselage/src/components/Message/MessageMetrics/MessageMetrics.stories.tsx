@@ -43,7 +43,7 @@ const metrics = (
 const metricsThread = (
   <MessageMetrics>
     <MessageMetricsReply
-      onClick={() => action('click view thread')}
+      onClick={action('click view thread')}
       overflow='visible'
     >
       View thread
@@ -52,7 +52,7 @@ const metricsThread = (
       <MessageMetricsFollowing
         title={'Following'}
         name={'bell'}
-        onClick={() => action('click follow thread')}
+        onClick={action('click follow thread')}
         badge={<Badge small variant={'danger'} />}
       />
     </MessageMetricsItem>
