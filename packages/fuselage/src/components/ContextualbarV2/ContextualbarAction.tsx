@@ -1,5 +1,5 @@
 import type { ReactElement, ComponentProps } from 'react';
-import React, { memo } from 'react';
+import { memo } from 'react';
 
 import type { Icon } from '..';
 import { IconButton } from '..';

@@ -1,5 +1,4 @@
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import React from 'react';
 
 import { ButtonGroup, Divider, IconButton } from '..';
 

@@ -1,5 +1,4 @@
 import type { HTMLAttributes, ReactNode } from 'react';
-import React from 'react';
 
 type OptionMenuProps = {
   children?: ReactNode;

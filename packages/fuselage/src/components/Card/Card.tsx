@@ -1,6 +1,5 @@
 import { useBreakpoints } from '@rocket.chat/fuselage-hooks';
 import type { AllHTMLAttributes } from 'react';
-import React from 'react';
 
 import Box from '../Box/Box';
 

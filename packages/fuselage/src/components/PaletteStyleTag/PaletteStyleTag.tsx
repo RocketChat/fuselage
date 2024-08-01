@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import { memo } from 'react';
 import { createPortal } from 'react-dom';
 
 import { convertToCss } from './helpers/convertToCss';

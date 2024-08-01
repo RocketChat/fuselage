@@ -1,5 +1,3 @@
-import React from 'react';
-
 import type { StatusBulletProps } from '../StatusBullet';
 
 const Offline = ({ size, className, ...props }: StatusBulletProps) => (

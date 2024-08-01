@@ -1,5 +1,3 @@
-import React from 'react';
-
 type MessageReactionCounterProps = {
   counter: number;
   className?: string;

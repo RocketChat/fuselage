@@ -7,7 +7,7 @@ import {
   Subtitle,
 } from '@storybook/addon-docs';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import React from 'react';
+import { cloneElement } from 'react';
 import flattenChildren from 'react-keyed-flatten-children';
 
 import { Box, Divider } from '../..';
@@ -70,7 +70,7 @@ Borders.decorators = [
   (fn: any) => (
     <Box display='flex' flexWrap='wrap' alignItems='center'>
       {flattenChildren(fn().props.children).map((child: any) =>
-        React.cloneElement(child, {
+        cloneElement(child, {
           size: 'x32',
           m: 'x16',
           borderColor: 'stroke-dark',
@@ -93,7 +93,7 @@ BorderRadii.decorators = [
   (fn: any) => (
     <Box display='flex' flexWrap='wrap' alignItems='center'>
       {flattenChildren(fn().props.children).map((child: any) =>
-        React.cloneElement(child, {
+        cloneElement(child, {
           bg: 'dark',
           size: 'x32',
           m: 'x16',
@@ -117,7 +117,7 @@ Display.decorators = [
   (fn: any) => (
     <Box color='default'>
       {flattenChildren(fn().props.children).map((child: any) =>
-        React.cloneElement(child, {
+        cloneElement(child, {
           children: child.props.display,
           border: '1px solid',
           borderColor: 'stroke-light',
@@ -142,7 +142,7 @@ Elevation.decorators = [
   (fn: any) => (
     <Box display='flex' flexWrap='wrap' alignItems='center'>
       {flattenChildren(fn().props.children).map((child: any) =>
-        React.cloneElement(child, {
+        cloneElement(child, {
           bg: 'light',
           size: 'x32',
           m: 'x16',
@@ -164,7 +164,7 @@ Heights.decorators = [
   (fn: any) => (
     <Box display='flex' flexWrap='wrap' alignItems='center'>
       {flattenChildren(fn().props.children).map((child: any) =>
-        React.cloneElement(child, { bg: 'neutral', w: 'x32', m: 'x4' })
+        cloneElement(child, { bg: 'neutral', w: 'x32', m: 'x4' })
       )}
     </Box>
   ),
@@ -197,7 +197,7 @@ Insets.decorators = [
           m={16}
           size='x64'
         >
-          {React.cloneElement(child, {
+          {cloneElement(child, {
             bg: 'neutral',
             position: 'absolute',
             minSize: 'x16',
@@ -235,7 +235,7 @@ Margins.decorators = [
     <Box display='flex' flexWrap='wrap' alignItems='center'>
       {flattenChildren(story().props.children).map((child: any, i) => (
         <Box key={i} bg='neutral-200' m={16}>
-          {React.cloneElement(
+          {cloneElement(
             child,
             { bg: 'primary-200' },
             <Box bg='neutral-500' size='x16' />
@@ -282,7 +282,7 @@ Paddings.decorators = [
     <Box display='flex' flexWrap='wrap' alignItems='center'>
       {flattenChildren(story().props.children).map((child: any, i) => (
         <Box key={i} bg='neutral-200' m={16}>
-          {React.cloneElement(
+          {cloneElement(
             child,
             { bg: 'primary-200' },
             <Box bg='neutral-500' size='x16' />
@@ -305,7 +305,7 @@ Position.decorators = [
   (fn: any) => (
     <Box display='flex' flexWrap='wrap' alignItems='center'>
       {flattenChildren(fn().props.children).map((child: any) =>
-        React.cloneElement(child, {
+        cloneElement(child, {
           bg: 'neutral',
           size: 'x32',
           m: 'x16',
@@ -327,7 +327,7 @@ Widths.decorators = [
   (fn: any) => (
     <Box display='flex' flexWrap='wrap' alignItems='center'>
       {flattenChildren(fn().props.children).map((child: any) =>
-        React.cloneElement(child, { bg: 'neutral', h: 'x32', m: 'x4' })
+        cloneElement(child, { bg: 'neutral', h: 'x32', m: 'x4' })
       )}
     </Box>
   ),
@@ -344,7 +344,7 @@ Sizes.decorators = [
   (fn: any) => (
     <Box display='flex' flexWrap='wrap' alignItems='center'>
       {flattenChildren(fn().props.children).map((child: any) =>
-        React.cloneElement(child, { bg: 'neutral', m: 'x4' })
+        cloneElement(child, { bg: 'neutral', m: 'x4' })
       )}
     </Box>
   ),
@@ -378,7 +378,7 @@ VerticalAlign.decorators = [
   (fn: any) => (
     <Box>
       {flattenChildren(fn().props.children).map((child: any) =>
-        React.cloneElement(child, {
+        cloneElement(child, {
           display: 'inline',
           children: child.props.verticalAlign,
           color: 'default',
@@ -405,7 +405,7 @@ ZIndex.decorators = [
   (fn: any) => (
     <Box display='flex' flexWrap='wrap' alignItems='center'>
       {flattenChildren(fn().props.children).map((child: any) =>
-        React.cloneElement(child, {
+        cloneElement(child, {
           bg: 'neutral',
           borderWidth: 'x4',
           size: 'x32',

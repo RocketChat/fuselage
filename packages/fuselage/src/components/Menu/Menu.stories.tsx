@@ -1,6 +1,5 @@
 import { action } from '@storybook/addon-actions';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import React from 'react';
 
 import { Box, Menu } from '..';
 import { Icon } from '../Icon';

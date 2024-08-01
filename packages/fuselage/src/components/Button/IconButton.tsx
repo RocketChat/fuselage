@@ -1,5 +1,5 @@
 import type { ComponentProps, ReactElement, Ref } from 'react';
-import React, { isValidElement, useMemo, forwardRef } from 'react';
+import { isValidElement, useMemo, forwardRef } from 'react';
 
 import Box from '../Box';
 import { Icon } from '../Icon';

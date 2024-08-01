@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import type { AriaMenuProps } from 'react-aria';
 import { useMenu } from 'react-aria';
 import { useTreeState } from 'react-stately';

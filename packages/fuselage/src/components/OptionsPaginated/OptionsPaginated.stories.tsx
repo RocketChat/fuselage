@@ -1,7 +1,7 @@
 import { Title, Description, Primary, Stories } from '@storybook/addon-docs';
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
 import type { ComponentProps } from 'react';
-import React, { createRef } from 'react';
+import { createRef } from 'react';
 
 import { OptionsPaginated, CheckOption } from '.';
 import { Box } from '..';

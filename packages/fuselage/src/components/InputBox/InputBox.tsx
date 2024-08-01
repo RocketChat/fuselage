@@ -6,7 +6,7 @@ import type {
   ReactNode,
   Ref,
 } from 'react';
-import React, { forwardRef, useCallback, useLayoutEffect, useRef } from 'react';
+import { forwardRef, useCallback, useLayoutEffect, useRef } from 'react';
 
 import type { InputBoxSkeleton } from '.';
 import { Input, Wrapper } from '.';

@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Tile } from '../..';
 
 export default {

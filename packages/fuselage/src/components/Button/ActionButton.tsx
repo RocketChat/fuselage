@@ -1,5 +1,5 @@
 import type { ComponentProps, Ref } from 'react';
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 
 import { Button } from '.';
 import { Icon } from '../Icon';

@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Flex, Tile } from '../..';
 
 export const example = () => (

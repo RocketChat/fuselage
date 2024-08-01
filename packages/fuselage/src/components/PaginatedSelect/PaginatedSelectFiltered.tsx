@@ -1,6 +1,6 @@
 import { useEffectEvent } from '@rocket.chat/fuselage-hooks';
 import type { FormEvent, Ref } from 'react';
-import React, { useMemo, forwardRef } from 'react';
+import { useMemo, forwardRef } from 'react';
 
 import { InputBox } from '../InputBox';
 import type { PaginatedSelectProps } from './PaginatedSelect';
