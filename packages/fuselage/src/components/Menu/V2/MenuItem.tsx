@@ -24,6 +24,9 @@ function MenuItem({ item, state }: MenuItemProps) {
     isDisabled,
   } = useMenuItem({ key: item.key }, state, ref);
 
+  // There's an issue caused by conflicting event handlers. The popover opens on onPointerDown and the selection event for both, the menu (listbox), happens on onPointerUp.
+  // As a workaround, we are overwriting `onPointerDown` event with `onPointerUp`
+
   return (
     <MenuOption
       {...mergeProps(menuItemProps, { onPointerDown: onPointerUp })}
