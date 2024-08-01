@@ -1,6 +1,6 @@
 import type { UsePositionOptions } from '@rocket.chat/fuselage-hooks';
-import type { ComponentProps, ElementType } from 'react';
-import React, { cloneElement, useRef } from 'react';
+import type { ComponentProps, ElementType, ReactElement } from 'react';
+import { cloneElement, useRef } from 'react';
 import type { AriaMenuProps } from 'react-aria';
 import { useButton, useMenuTrigger } from 'react-aria';
 import { createPortal } from 'react-dom';
@@ -30,7 +30,7 @@ interface MenuButtonProps<T> extends AriaMenuProps<T>, MenuTriggerProps {
   className?: ComponentProps<typeof Box>['className'];
   pressed?: boolean;
   maxWidth?: string;
-  button?: React.ReactElement;
+  button?: ReactElement;
 }
 
 const Menu = <T extends object>({

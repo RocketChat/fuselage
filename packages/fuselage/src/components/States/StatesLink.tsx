@@ -1,5 +1,4 @@
 import type { AllHTMLAttributes, ComponentProps } from 'react';
-import React from 'react';
 
 import Box from '../Box/Box';
 

@@ -1,5 +1,4 @@
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
-import React from 'react';
 
 import { Card, CardBody, CardCol, CardTitle } from '.';
 import { Avatar } from '../Avatar';

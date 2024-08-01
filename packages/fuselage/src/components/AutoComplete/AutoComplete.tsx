@@ -6,7 +6,7 @@ import type {
   ElementType,
   ReactElement,
 } from 'react';
-import React, { useEffect, useRef, useMemo, useState } from 'react';
+import { useEffect, useRef, useMemo, useState } from 'react';
 
 import AnimatedVisibility from '../AnimatedVisibility';
 import Box from '../Box';

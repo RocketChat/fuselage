@@ -1,4 +1,3 @@
-import React from 'react';
 import type { ComponentProps, ReactNode } from 'react';
 
 import Box from '../Box';

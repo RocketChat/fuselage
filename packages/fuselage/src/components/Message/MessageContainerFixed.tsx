@@ -1,5 +1,4 @@
 import type { HTMLAttributes } from 'react';
-import React from 'react';
 
 export const MessageContainerFixed = (
   props: HTMLAttributes<HTMLDivElement>
