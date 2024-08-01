@@ -1,5 +1,17 @@
 # Change Log
 
+## 0.57.0
+
+### Minor Changes
+
+- [#1406](https://github.com/RocketChat/fuselage/pull/1406) [`781f4aa0`](https://github.com/RocketChat/fuselage/commit/781f4aa07aa5be3dbd6658220d6cd4150acaffa8) Thanks [@debdutdeb](https://github.com/debdutdeb)! - feat(fuselage-toastbar): Pause ToastBar timer while hovering
+
+- [#1415](https://github.com/RocketChat/fuselage/pull/1415) [`5fe84595`](https://github.com/RocketChat/fuselage/commit/5fe84595926c3e1e6d334eb197bcfd72d423e4d4) Thanks [@dougfabris](https://github.com/dougfabris)! - feat(fuselage): Introduce Callout actions
+
+### Patch Changes
+
+- [#1422](https://github.com/RocketChat/fuselage/pull/1422) [`0df364b2`](https://github.com/RocketChat/fuselage/commit/0df364b2abda76c69fcf13d1bdd6fb4336c9d209) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): `MenuItem` onPointerUp event behavior
+
 ## 0.56.0
 
 ### Minor Changes
