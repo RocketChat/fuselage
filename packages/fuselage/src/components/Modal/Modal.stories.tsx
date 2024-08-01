@@ -1,7 +1,6 @@
 import { action } from '@storybook/addon-actions';
 import type { ComponentStory } from '@storybook/react';
 import type { ComponentProps } from 'react';
-import React from 'react';
 
 import {
   FieldGroup,

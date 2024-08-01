@@ -6,7 +6,8 @@ import {
   ArgsTable,
 } from '@storybook/addon-docs';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import React from 'react';
+import type { Key } from 'react';
+import { useState } from 'react';
 
 import type { SelectOption } from '../..';
 import { Select } from '../..';
@@ -42,7 +43,7 @@ const Template: ComponentStory<typeof Select> = (args) => (
 );
 
 const TemplateControlled: ComponentStory<typeof Select> = (args) => {
-  const [value, setValue] = React.useState<React.Key>('3');
+  const [value, setValue] = useState<Key>('3');
 
   return (
     <Select

@@ -1,5 +1,4 @@
 import type { ComponentProps, ReactElement } from 'react';
-import React from 'react';
 
 import Box from '../Box';
 import { Button } from '../Button';

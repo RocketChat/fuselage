@@ -8,7 +8,7 @@ import {
   PRIMARY_STORY,
 } from '@storybook/addon-docs';
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import { AutoComplete, Box, Chip, Avatar, Option } from '../..';
 import { exampleAvatar, DECORATOR_LABEL } from '../../../.storybook/helpers';

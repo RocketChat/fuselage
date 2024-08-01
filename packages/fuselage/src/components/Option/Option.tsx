@@ -5,7 +5,7 @@ import type {
   MouseEvent,
   AllHTMLAttributes,
 } from 'react';
-import React, { forwardRef, memo } from 'react';
+import { forwardRef, memo } from 'react';
 
 import type { Icon } from '../..';
 import { OptionColumn } from '../..';
@@ -66,7 +66,7 @@ const Option = memo(
         aria-selected={!!selected}
         aria-disabled={!!disabled}
         title={title}
-        onClick={(e: React.MouseEvent<HTMLDivElement>) => {
+        onClick={(e: MouseEvent<HTMLDivElement>) => {
           if (disabled) {
             prevent(e);
             return;

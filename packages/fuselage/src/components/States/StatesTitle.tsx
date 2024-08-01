@@ -1,5 +1,4 @@
 import type { AllHTMLAttributes, ReactNode } from 'react';
-import React from 'react';
 
 type StatesTitleProps = {
   children?: ReactNode;

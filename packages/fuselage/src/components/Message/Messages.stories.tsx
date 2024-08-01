@@ -1,5 +1,5 @@
 import type { ComponentStory } from '@storybook/react';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import Message from '.';
 import { Box, Avatar } from '..';

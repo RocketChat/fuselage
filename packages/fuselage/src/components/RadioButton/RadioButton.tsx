@@ -1,5 +1,5 @@
 import type { AllHTMLAttributes, ComponentProps, Ref } from 'react';
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 
 import Box from '../Box';
 

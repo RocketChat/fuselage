@@ -11,7 +11,7 @@ import type {
   Ref,
   ReactNode,
 } from 'react';
-import React, { useState, useRef, useEffect, forwardRef } from 'react';
+import { useState, useRef, useEffect, forwardRef } from 'react';
 
 import type { SelectOption } from '..';
 import { isForwardRefType } from '../../helpers/isForwardRefType';

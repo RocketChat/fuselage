@@ -8,9 +8,8 @@ import {
   PRIMARY_STORY,
 } from '@storybook/addon-docs';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import React from 'react';
 
-import { Callout } from '../..';
+import { Button, ButtonGroup, Callout } from '../..';
 import { setStoryDescription } from '../../helpers/setStoryDescription';
 
 export default {
@@ -86,4 +85,18 @@ export const CustomIcon = Template.bind({});
 CustomIcon.args = {
   title: 'This is a message with custom icon',
   icon: 'hash',
+};
+
+export const WithActions: ComponentStory<typeof Callout> = (args) => (
+  <Callout {...args} />
+);
+WithActions.args = {
+  title: 'This is a generic title',
+  children: 'This is a generic description.',
+  actions: (
+    <ButtonGroup>
+      <Button small>Button</Button>
+      <Button small>Button</Button>
+    </ButtonGroup>
+  ),
 };

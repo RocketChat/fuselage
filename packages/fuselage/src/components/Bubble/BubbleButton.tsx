@@ -1,6 +1,5 @@
 import type { Keys as IconName } from '@rocket.chat/icons';
 import type { ButtonHTMLAttributes, ReactNode } from 'react';
-import React from 'react';
 
 import { Icon } from '../Icon';
 

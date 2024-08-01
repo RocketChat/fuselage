@@ -1,5 +1,4 @@
 import type { HTMLAttributes, ReactElement } from 'react';
-import React from 'react';
 
 export const MessageLeftContainer = (
   props: HTMLAttributes<HTMLDivElement>

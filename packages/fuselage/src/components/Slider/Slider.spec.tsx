@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { composeStories } from '@storybook/testing-react';
 import { fireEvent, render, screen } from '@testing-library/react';
-import React from 'react';
 
 import * as stories from './Slider.stories';
 

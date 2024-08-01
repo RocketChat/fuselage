@@ -1,6 +1,5 @@
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
 import type { ComponentProps } from 'react';
-import React from 'react';
 
 import { CardGroup } from '.';
 import { Badge } from '../Badge';
