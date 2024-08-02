@@ -20,9 +20,7 @@ export const MessageMetricsFollowing = ({
     icon={name}
   >
     {badge && (
-      <div role='status' className='rcx-message-metrics__item__follow-badge'>
-        {badge}
-      </div>
+      <div className='rcx-message-metrics__item__follow-badge'>{badge}</div>
     )}
   </IconButton>
 );
