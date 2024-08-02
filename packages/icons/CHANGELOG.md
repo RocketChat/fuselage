@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.37.0
+
+### Minor Changes
+
+- [#1414](https://github.com/RocketChat/fuselage/pull/1414) [`7f1e904d`](https://github.com/RocketChat/fuselage/commit/7f1e904def9a51961e27bdd1c37c3144f5ab9744) Thanks [@tiagoevanp](https://github.com/tiagoevanp)! - feat(icons): Add new and updated icons
+
 ## 0.36.0
 
 ### Minor Changes
