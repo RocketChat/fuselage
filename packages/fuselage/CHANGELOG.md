@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.58.0
+
+### Minor Changes
+
+- [#1417](https://github.com/RocketChat/fuselage/pull/1417) [`b8441ee5`](https://github.com/RocketChat/fuselage/commit/b8441ee5f0b91a9a4a78d058a0da063582b9576a) Thanks [@gabriellsh](https://github.com/gabriellsh)! - Updated message metric styles and added Avatar row
+
 ## 0.57.0
 
 ### Minor Changes
