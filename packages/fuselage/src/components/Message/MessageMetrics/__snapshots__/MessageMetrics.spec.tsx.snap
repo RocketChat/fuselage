@@ -117,7 +117,7 @@ exports[`[MessageMetrics Rendering] renders Default without crashing 1`] = `
                 class="rcx-message-metrics__content-wrapper"
               >
                 <div
-                  class="rcx-message-metrics__item undefined"
+                  class="rcx-message-metrics__item"
                 >
                   <button
                     class="rcx-box rcx-box--full rcx-button--small rcx-button--primary rcx-button"
@@ -131,7 +131,7 @@ exports[`[MessageMetrics Rendering] renders Default without crashing 1`] = `
                   </button>
                 </div>
                 <div
-                  class="rcx-message-metrics__item undefined"
+                  class="rcx-message-metrics__item"
                   title="Replies"
                 >
                   <i
@@ -147,7 +147,7 @@ exports[`[MessageMetrics Rendering] renders Default without crashing 1`] = `
                   </div>
                 </div>
                 <div
-                  class="rcx-message-metrics__item undefined"
+                  class="rcx-message-metrics__item"
                 >
                   <button
                     class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button rcx-css-ll6zd0"
@@ -289,7 +289,7 @@ exports[`[MessageMetrics Rendering] renders ThreadMetrics without crashing 1`] =
                 class="rcx-message-metrics__content-wrapper"
               >
                 <div
-                  class="rcx-message-metrics__item undefined"
+                  class="rcx-message-metrics__item"
                 >
                   <button
                     class="rcx-box rcx-box--full rcx-button--small rcx-button--primary rcx-button rcx-css-yendf2"
@@ -303,7 +303,7 @@ exports[`[MessageMetrics Rendering] renders ThreadMetrics without crashing 1`] =
                   </button>
                 </div>
                 <div
-                  class="rcx-message-metrics__item undefined"
+                  class="rcx-message-metrics__item"
                 >
                   <button
                     class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button rcx-css-ll6zd0"
@@ -318,7 +318,6 @@ exports[`[MessageMetrics Rendering] renders ThreadMetrics without crashing 1`] =
                     </i>
                     <div
                       class="rcx-message-metrics__item__follow-badge"
-                      role="status"
                     >
                       <span
                         class="rcx-box rcx-box--full rcx-badge rcx-badge--danger rcx-badge--small"
@@ -327,7 +326,7 @@ exports[`[MessageMetrics Rendering] renders ThreadMetrics without crashing 1`] =
                   </button>
                 </div>
                 <div
-                  class="rcx-message-metrics__item undefined"
+                  class="rcx-message-metrics__item"
                   title="Participants"
                 >
                   <div
@@ -367,7 +366,7 @@ exports[`[MessageMetrics Rendering] renders ThreadMetrics without crashing 1`] =
                   </div>
                 </div>
                 <div
-                  class="rcx-message-metrics__item undefined"
+                  class="rcx-message-metrics__item"
                   title="Last message: 12th July, 2024"
                 >
                   <i
