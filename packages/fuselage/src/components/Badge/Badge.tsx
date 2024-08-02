@@ -1,4 +1,4 @@
-import type { ElementType } from 'react';
+import type { ElementType, HTMLAttributes } from 'react';
 
 import { prependClassName } from '../../helpers/prependClassName';
 
@@ -10,7 +10,7 @@ export type BadgeProps = {
   className?: string;
   children?: any;
   title?: any;
-};
+} & HTMLAttributes<HTMLSpanElement>;
 
 export function Badge({
   is: Tag = 'span',
