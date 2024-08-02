@@ -330,10 +330,10 @@ exports[`[MessageMetrics Rendering] renders ThreadMetrics without crashing 1`] =
                   title="Participants"
                 >
                   <div
-                    class="rcx-message-metrics__avatar-row undefined"
+                    class="rcx-message-metrics__avatar-row"
                   >
                     <div
-                      class="rcx-message-metrics__avatar-row__content undefined"
+                      class="rcx-message-metrics__avatar-row__content"
                     >
                       <figure
                         class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x16"
@@ -346,7 +346,7 @@ exports[`[MessageMetrics Rendering] renders ThreadMetrics without crashing 1`] =
                       </figure>
                     </div>
                     <div
-                      class="rcx-message-metrics__avatar-row__content undefined"
+                      class="rcx-message-metrics__avatar-row__content"
                     >
                       <figure
                         class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x16"
