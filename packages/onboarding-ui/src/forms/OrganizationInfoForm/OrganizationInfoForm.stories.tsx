@@ -1,10 +1,7 @@
-import type { Story, Meta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 import { countries } from 'countries-list';
-import type { ComponentProps } from 'react';
 
 import OrganizationInfoForm from './OrganizationInfoForm';
-
-type Args = ComponentProps<typeof OrganizationInfoForm>;
 
 export default {
   title: 'forms/OrganizationInfoForm',
@@ -58,9 +55,9 @@ export default {
       ['worldwide', 'Worldwide'],
     ],
   },
-} as Meta<Args>;
+} satisfies Meta<typeof OrganizationInfoForm>;
 
-export const _OrganizationInfoForm: Story<Args> = (args) => (
-  <OrganizationInfoForm {...args} />
-);
+export const _OrganizationInfoForm: StoryFn<typeof OrganizationInfoForm> = (
+  args
+) => <OrganizationInfoForm {...args} />;
 _OrganizationInfoForm.storyName = 'OrganizationInfoForm';

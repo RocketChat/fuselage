@@ -1,5 +1,5 @@
 import { Box, Callout } from '@rocket.chat/fuselage';
-import type { Meta, Story } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import { useState } from 'react';
 
 import type { AdminInfoPayload } from '../../forms/AdminInfoForm/AdminInfoForm';
@@ -29,9 +29,9 @@ export default {
     layout: 'fullscreen',
     actions: { argTypesRegex: '^on.*' },
   },
-} as Meta;
+} satisfies Meta<typeof SelfHostedRegistration>;
 
-export const SelfHostedRegistration: Story = ({ offline }) => {
+export const SelfHostedRegistration: StoryFn = ({ offline }) => {
   const [path, navigateTo] =
     useState<`/${
       | 'admin-info'
@@ -217,8 +217,8 @@ export const SelfHostedRegistration: Story = ({ offline }) => {
 };
 SelfHostedRegistration.storyName = 'Self-Hosted Registration';
 
-export const SelfHostedRegistrationOffline: Story = () => (
-  <SelfHostedRegistration offline />
-);
+export const SelfHostedRegistrationOffline: StoryFn<
+  typeof SelfHostedRegistration
+> = () => <SelfHostedRegistration offline />;
 
 SelfHostedRegistrationOffline.storyName = 'Airgapped Self-Hosted Registration';

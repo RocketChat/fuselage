@@ -1,9 +1,6 @@
-import type { Story, Meta } from '@storybook/react';
-import type { ComponentProps } from 'react';
+import type { StoryFn, Meta } from '@storybook/react';
 
 import InvalidLinkPage from './InvalidLinkPage';
-
-type Args = ComponentProps<typeof InvalidLinkPage>;
 
 export default {
   title: 'pages/InvalidLinkPage',
@@ -12,9 +9,9 @@ export default {
     actions: { argTypesRegex: '^on.*' },
     layout: 'fullscreen',
   },
-} as Meta<Args>;
+} satisfies Meta<typeof InvalidLinkPage>;
 
-export const _InvalidLinkPage: Story<Args> = (args) => (
+export const _InvalidLinkPage: StoryFn<typeof InvalidLinkPage> = (args) => (
   <InvalidLinkPage {...args} />
 );
 _InvalidLinkPage.storyName = 'InvalidLinkPage';

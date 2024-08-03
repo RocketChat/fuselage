@@ -1,10 +1,7 @@
-import type { Meta, Story } from '@storybook/react';
-import type { ComponentProps } from 'react';
+import type { Meta, StoryFn } from '@storybook/react';
 
 import CreateCloudWorkspaceForm from './CreateCloudWorkspaceForm';
 import WorkspaceUrlInput from './WorkspaceUrlInput';
-
-type Args = ComponentProps<typeof CreateCloudWorkspaceForm>;
 
 const isValidLength = (domainName: string) => {
   if (domainName.length < 3) {
@@ -67,13 +64,13 @@ export default {
     validateEmail: async (email) =>
       email === 'rocket@rocket.chat' ? 'invalid email' : true,
   },
-} as Meta<Args>;
+} satisfies Meta<typeof CreateCloudWorkspaceForm>;
 
-export const _CreateCloudWorkspaceForm: Story<Args> = (args) => (
-  <CreateCloudWorkspaceForm {...args} />
-);
+export const _CreateCloudWorkspaceForm: StoryFn<
+  typeof CreateCloudWorkspaceForm
+> = (args) => <CreateCloudWorkspaceForm {...args} />;
 
-export const _WorkspaceUrlInput: Story<Args> = () => (
-  <WorkspaceUrlInput domain='rocket.chat' />
-);
+export const _WorkspaceUrlInput: StoryFn<
+  typeof CreateCloudWorkspaceForm
+> = () => <WorkspaceUrlInput domain='rocket.chat' />;
 _CreateCloudWorkspaceForm.storyName = 'CreateCloudWorkspaceForm';

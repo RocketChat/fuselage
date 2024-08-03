@@ -1,10 +1,7 @@
-import type { Story, Meta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 import { countries } from 'countries-list';
-import type { ComponentProps } from 'react';
 
 import RequestTrialPage from './RequestTrialPage';
-
-type Args = ComponentProps<typeof RequestTrialPage>;
 
 export default {
   title: 'pages/RequestTrialPage',
@@ -16,8 +13,6 @@ export default {
   args: {
     validateEmail: (email) =>
       email === 'rocket@rocket.chat' ? 'invalid email' : true,
-    onManageWorkspaces: () =>
-      window.open('https://cloud.rocket.chat/login', '_blank'),
     organizationSizeOptions: [
       ['0', '1-10 people'],
       ['1', '11-50 people'],
@@ -35,9 +30,9 @@ export default {
       ['worldwide', 'Worldwide'],
     ],
   },
-} as Meta<Args>;
+} satisfies Meta<typeof RequestTrialPage>;
 
-export const _RequestTrialPage: Story<Args> = (args) => (
+export const _RequestTrialPage: StoryFn<typeof RequestTrialPage> = (args) => (
   <RequestTrialPage {...args} />
 );
 _RequestTrialPage.storyName = 'RequestTrialPage';

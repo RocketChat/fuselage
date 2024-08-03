@@ -1,9 +1,6 @@
-import type { Meta, Story } from '@storybook/react';
-import type { ComponentProps } from 'react';
+import type { Meta, StoryFn } from '@storybook/react';
 
 import RegisterServerForm from './RegisterServerForm';
-
-type Args = ComponentProps<typeof RegisterServerForm>;
 
 export default {
   title: 'forms/RegisterServerForm',
@@ -16,15 +13,15 @@ export default {
     currentStep: 1,
     stepCount: 1,
   },
-} as Meta<Args>;
+} satisfies Meta<typeof RegisterServerForm>;
 
-export const _RegisterServerForm: Story<Args> = (args) => (
-  <RegisterServerForm {...args} />
-);
+export const _RegisterServerForm: StoryFn<typeof RegisterServerForm> = (
+  args
+) => <RegisterServerForm {...args} />;
 _RegisterServerForm.storyName = 'RegisterServerForm';
 
-export const _RegisterServerFormOffline: Story<Args> = (args) => (
-  <RegisterServerForm {...args} offline />
-);
+export const _RegisterServerFormOffline: StoryFn<typeof RegisterServerForm> = (
+  args
+) => <RegisterServerForm {...args} offline />;
 
 _RegisterServerFormOffline.storyName = 'RegisterServerFormOffline';

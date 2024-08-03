@@ -1,9 +1,6 @@
-import type { Story, Meta } from '@storybook/react';
-import type { ComponentProps } from 'react';
+import type { StoryFn, Meta } from '@storybook/react';
 
 import SomethingWentWrongPage from './SomethingWentWrongPage';
-
-type Args = ComponentProps<typeof SomethingWentWrongPage>;
 
 export default {
   title: 'pages/SomethingWentWrongPage',
@@ -15,10 +12,10 @@ export default {
   args: {
     requestId: undefined,
   },
-} as Meta<Args>;
+} satisfies Meta<typeof SomethingWentWrongPage>;
 
-export const _SomethingWentWrongPage: Story<Args> = (args) => (
-  <SomethingWentWrongPage {...args} />
-);
+export const _SomethingWentWrongPage: StoryFn<typeof SomethingWentWrongPage> = (
+  args
+) => <SomethingWentWrongPage {...args} />;
 
 _SomethingWentWrongPage.storyName = 'SomethingWentWrongPage';

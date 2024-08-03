@@ -1,9 +1,6 @@
-import type { Story, Meta } from '@storybook/react';
-import type { ComponentProps } from 'react';
+import type { StoryFn, Meta } from '@storybook/react';
 
 import RegisterServerPage from './RegisterServerPage';
-
-type Args = ComponentProps<typeof RegisterServerPage>;
 
 export default {
   title: 'pages/RegisterServerPage',
@@ -18,15 +15,15 @@ export default {
     termsHref: '#',
     policyHref: '#',
   },
-} as Meta<Args>;
+} satisfies Meta<typeof RegisterServerPage>;
 
-export const _RegisterServerPage: Story<Args> = (args) => (
-  <RegisterServerPage {...args} />
-);
+export const _RegisterServerPage: StoryFn<typeof RegisterServerPage> = (
+  args
+) => <RegisterServerPage {...args} />;
 _RegisterServerPage.storyName = 'Online';
 
-export const _RegisterServerPageOffline: Story<Args> = (args) => (
-  <RegisterServerPage {...args} offline />
-);
+export const _RegisterServerPageOffline: StoryFn<typeof RegisterServerPage> = (
+  args
+) => <RegisterServerPage {...args} offline />;
 
 _RegisterServerPageOffline.storyName = 'Offline';

@@ -1,9 +1,6 @@
-import type { Story, Meta } from '@storybook/react';
-import type { ComponentProps } from 'react';
+import type { StoryFn, Meta } from '@storybook/react';
 
 import CreateNewPasswordPage from './CreateNewPasswordPage';
-
-type Args = ComponentProps<typeof CreateNewPasswordPage>;
 
 export default {
   title: 'pages/CreateNewPasswordPage',
@@ -16,13 +13,10 @@ export default {
     validatePassword: { action: 'validatePassword' },
     validatePasswordConfirmation: { action: 'validatePasswordConfirmation' },
   },
-  args: {
-    control: { type: 'inline-radio' },
-  },
-} as Meta<Args>;
+} satisfies Meta<typeof CreateNewPasswordPage>;
 
-export const _CreateNewPasswordPage: Story<Args> = (args) => (
-  <CreateNewPasswordPage {...args} />
-);
+export const _CreateNewPasswordPage: StoryFn<typeof CreateNewPasswordPage> = (
+  args
+) => <CreateNewPasswordPage {...args} />;
 
 _CreateNewPasswordPage.storyName = 'CreateNewPasswordPage';

@@ -1,9 +1,6 @@
-import type { Meta, Story } from '@storybook/react';
-import type { ComponentProps } from 'react';
+import type { Meta, StoryFn } from '@storybook/react';
 
 import TotpForm from './TotpForm';
-
-type Args = ComponentProps<typeof TotpForm>;
 
 export default {
   title: 'forms/TotpForm',
@@ -12,7 +9,9 @@ export default {
     layout: 'centered',
     actions: { argTypesRegex: '^on.*' },
   },
-} as Meta<Args>;
+} satisfies Meta<typeof TotpForm>;
 
-export const _TotpForm: Story<Args> = (args) => <TotpForm {...args} />;
+export const _TotpForm: StoryFn<typeof TotpForm> = (args) => (
+  <TotpForm {...args} />
+);
 _TotpForm.storyName = 'TotpForm';
