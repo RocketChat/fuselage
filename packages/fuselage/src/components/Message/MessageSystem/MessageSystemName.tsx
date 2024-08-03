@@ -1,5 +1,4 @@
 import type { ComponentProps } from 'react';
-import React from 'react';
 
 import type { MessageName } from '../MessageName';
 

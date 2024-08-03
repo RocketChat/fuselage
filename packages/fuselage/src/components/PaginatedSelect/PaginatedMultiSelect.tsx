@@ -1,5 +1,5 @@
 import { useEffectEvent, useResizeObserver } from '@rocket.chat/fuselage-hooks';
-import React, {
+import {
   type ComponentProps,
   type ReactElement,
   useState,

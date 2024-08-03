@@ -1,5 +1,5 @@
 import type { cssFn } from '@rocket.chat/css-in-js';
-import React, { createElement, forwardRef, memo } from 'react';
+import { createElement, forwardRef, memo } from 'react';
 import type {
   AllHTMLAttributes,
   ElementType,

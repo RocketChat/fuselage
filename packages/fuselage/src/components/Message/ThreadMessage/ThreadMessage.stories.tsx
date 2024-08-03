@@ -1,5 +1,3 @@
-import React from 'react';
-
 import ThreadMessage from '.';
 import { Avatar, Box } from '../..';
 import { ThreadMessageEmoji } from './ThreadMessageEmoji';

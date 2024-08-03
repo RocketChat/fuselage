@@ -1,6 +1,5 @@
 import { action } from '@storybook/addon-actions';
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
-import React from 'react';
 
 import { Bubble } from '../..';
 

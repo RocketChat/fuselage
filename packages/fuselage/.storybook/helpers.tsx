@@ -1,5 +1,4 @@
 import type { ComponentProps, ComponentType } from 'react';
-import React from 'react';
 
 import { Box, Icon } from '../src';
 import { dark } from '../src/components/PaletteStyleTag/lib/themePalettes';

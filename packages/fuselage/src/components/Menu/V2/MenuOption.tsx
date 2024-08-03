@@ -5,12 +5,12 @@ import type {
   MouseEvent,
   AllHTMLAttributes,
 } from 'react';
-import React, { forwardRef, memo } from 'react';
+import { forwardRef, memo } from 'react';
 
 import { prevent } from '../../../helpers/prevent';
 import type Box from '../../Box/Box';
 
-type OptionProps = {
+export type MenuOptionProps = {
   is?: ComponentProps<typeof Box>['is'];
   id?: string;
   children?: ReactNode;
@@ -41,7 +41,7 @@ const MenuOption = memo(
         variant,
         onClick,
         ...props
-      }: OptionProps,
+      }: MenuOptionProps,
       ref
     ) => (
       <Tag
@@ -52,7 +52,7 @@ const MenuOption = memo(
         aria-selected={!!selected}
         aria-disabled={!!disabled}
         title={title}
-        onClick={(e: React.MouseEvent<HTMLDivElement>) => {
+        onClick={(e: MouseEvent<HTMLDivElement>) => {
           if (disabled) {
             prevent(e);
             return;

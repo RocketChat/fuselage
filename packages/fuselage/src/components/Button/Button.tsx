@@ -1,5 +1,5 @@
 import type { AllHTMLAttributes, ComponentProps, Ref } from 'react';
-import React, { forwardRef, useMemo } from 'react';
+import { forwardRef, useMemo } from 'react';
 
 import Box from '../Box';
 import { Icon } from '../Icon';

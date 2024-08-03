@@ -2,6 +2,8 @@ import { MessageMetrics } from './MessageMetrics';
 import { MessageMetricsFollowing } from './MessageMetricsFollowing';
 import MessageMetricsItem, {
   MessageMetricsItemIcon,
+  MessageMetricsItemAvatarRowContent,
+  MessageMetricsItemAvatarRow,
   MessageMetricsItemLabel,
 } from './MessageMetricsItem';
 import { MessageMetricsReply } from './MessageMetricsReply';
@@ -23,6 +25,8 @@ export default Object.assign(MessageMetrics, {
 
 export {
   MessageMetrics,
+  MessageMetricsItemAvatarRow,
+  MessageMetricsItemAvatarRowContent,
   MessageMetricsItem,
   MessageMetricsItemIcon,
   MessageMetricsItemLabel,

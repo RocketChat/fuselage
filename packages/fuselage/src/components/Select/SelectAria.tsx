@@ -1,7 +1,7 @@
 import type { AriaSelectProps } from '@react-types/select';
 import { useMergedRefs, useResizeObserver } from '@rocket.chat/fuselage-hooks';
-import type { Key, Ref } from 'react';
-import React, { forwardRef } from 'react';
+import type { AllHTMLAttributes, Key, Ref } from 'react';
+import { forwardRef } from 'react';
 import {
   useSelect,
   HiddenSelect,
@@ -34,7 +34,7 @@ export const SelectAria = forwardRef(function SelectAria<T extends object>(
     value?: Key | null;
     onChange?: ((key: Key) => any) | undefined;
     small?: boolean;
-  } & React.AllHTMLAttributes<HTMLElement>,
+  } & AllHTMLAttributes<HTMLElement>,
   outerRef: Ref<HTMLElement>
 ) {
   const state = useSelectState({

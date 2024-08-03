@@ -6,7 +6,6 @@ import {
   ArgsTable,
 } from '@storybook/addon-docs';
 import type { ComponentStory } from '@storybook/react';
-import React from 'react';
 
 import { CheckBox } from '../..';
 import {
