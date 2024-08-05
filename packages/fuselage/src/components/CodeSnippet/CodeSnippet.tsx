@@ -11,6 +11,13 @@ type CodeSnippetProps = ComponentProps<typeof Box> & {
   onClick?: () => void;
 };
 
+/**
+ * The `CodeSnippet` is used to show code or commands and make easier to copy them.
+ *
+ * The default button text is `Copy` but you can use the `buttonText` prop to handle translations in your project.
+ *
+ * Please check the `useClipBoard` hook in `fuselage-hooks` package, to handle the copy behaviour.
+ */
 const CodeSnippet = ({
   children,
   onClick,

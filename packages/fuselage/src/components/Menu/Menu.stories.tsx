@@ -1,23 +1,19 @@
 import { action } from '@storybook/addon-actions';
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 
-import { Box, Menu } from '..';
+import Box from '../Box';
 import { Icon } from '../Icon';
+import { Menu } from './Menu';
 
 export default {
   title: 'Navigation/Menu',
   component: Menu,
   parameters: {
-    docs: {
-      description: {
-        component: 'Kebab Menu',
-      },
-    },
     layout: 'centered',
   },
-} as ComponentMeta<typeof Menu>;
+} satisfies Meta<typeof Menu>;
 
-const Template: ComponentStory<typeof Menu> = (args) => (
+const Template: StoryFn<typeof Menu> = (args) => (
   <Box position='relative' maxWidth={250}>
     <Menu {...args} />
   </Box>

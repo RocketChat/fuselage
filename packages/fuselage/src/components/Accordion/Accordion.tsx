@@ -8,6 +8,9 @@ type AccordionProps = ComponentProps<typeof Box> & {
   children: ReactNode;
 };
 
+/**
+ * An `Accordion` allows users to toggle the display of sections of content.
+ */
 export function Accordion(props: AccordionProps): ReactElement<AccordionProps> {
   return <Box animated rcx-accordion {...props} />;
 }

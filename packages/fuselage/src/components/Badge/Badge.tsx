@@ -12,6 +12,9 @@ export type BadgeProps = {
   title?: any;
 } & HTMLAttributes<HTMLSpanElement>;
 
+/**
+ * Communicates notification’s amount and types.
+ */
 export function Badge({
   is: Tag = 'span',
   variant = 'secondary',

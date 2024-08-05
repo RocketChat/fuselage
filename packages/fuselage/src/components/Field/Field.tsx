@@ -7,6 +7,9 @@ export const FieldContext = createContext(false);
 
 type FieldProps = ComponentPropsWithoutRef<typeof Box>;
 
+/**
+ * A `Field` is a wrapper representing an entry in a form.
+ */
 export function Field(props: FieldProps) {
   return (
     <FieldContext.Provider value={true}>

@@ -14,6 +14,9 @@ type CalloutProps = Omit<ComponentProps<typeof Box>, 'type' | 'name'> & {
 
 const WRAPPER_LIMIT_SIZE = 420;
 
+/**
+ * The `Callout` is used to get the user's attention explaining something important in the content of the current page.
+ */
 export const Callout = ({
   type,
   title,

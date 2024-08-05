@@ -9,6 +9,7 @@ module.exports = {
   testEnvironment: 'jsdom',
   moduleNameMapper: {
     '\\.scss$': 'testing-utils/lazySingletonStyleTagModule',
+    '^react-dom/client$': 'react-dom',
   },
   setupFilesAfterEnv: [
     '@testing-library/jest-dom/extend-expect',

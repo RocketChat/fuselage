@@ -42,6 +42,9 @@ const pollTouchingEdges = (
   }
 };
 
+/**
+ * Add scroll capability to the wrapped component.
+ */
 export const Scrollable = ({
   children,
   horizontal,

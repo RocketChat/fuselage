@@ -50,6 +50,9 @@ type MultiSelectProps = Omit<
   setFilter?: (filter: string) => void;
 };
 
+/**
+ * An input for selection of options.
+ */
 export const MultiSelect = forwardRef(
   (
     {

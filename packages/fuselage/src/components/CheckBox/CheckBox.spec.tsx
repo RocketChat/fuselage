@@ -1,4 +1,4 @@
-import { composeStories } from '@storybook/testing-react';
+import { composeStories } from '@storybook/react';
 import { fireEvent, getByRole, render } from '@testing-library/react';
 import { axe } from 'jest-axe';
 

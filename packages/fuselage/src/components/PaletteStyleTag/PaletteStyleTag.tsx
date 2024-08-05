@@ -12,6 +12,13 @@ const themes = {
   'high-contrast': highContrast,
 };
 
+/**
+ * Style tag to handle the theme of the application.
+ *
+ * Import `PaletteStyleTag` and use it on the application informing the desired theme.
+ *
+ * Toggle the theme on Storybook's Control panel to see the color changes.
+ */
 export const PaletteStyleTag = memo(function PaletteStyleTag({
   theme = 'light',
   tagId = 'main-palette',

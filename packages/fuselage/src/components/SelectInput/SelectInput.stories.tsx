@@ -1,38 +1,17 @@
-import {
-  Title,
-  Description,
-  Primary,
-  Stories,
-  ArgsTable,
-} from '@storybook/addon-docs';
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 
 import { SelectInputOption } from '.';
-import { Icon, SelectInput } from '../..';
 import { PropsVariationSection } from '../../../.storybook/helpers';
+import { Icon } from '../Icon';
+import { SelectInput } from './SelectInput';
 
 export default {
   title: 'Inputs/SelectInput',
   component: SelectInput,
-  parameters: {
-    docs: {
-      description: {
-        component: 'An input for selection of options.',
-      },
-      page: () => (
-        <>
-          <Title />
-          <Description />
-          <Primary />
-          <ArgsTable />
-          <Stories title={'Props from InputBox'} />
-        </>
-      ),
-    },
-  },
-} as ComponentMeta<typeof SelectInput>;
+  subcomponents: { SelectInputOption },
+} satisfies Meta<typeof SelectInput>;
 
-const Template: ComponentStory<typeof SelectInput> = (args) => (
+const Template: StoryFn<typeof SelectInput> = (args) => (
   <SelectInput aria-label='select' {...args}>
     <SelectInputOption value='a'>Item A</SelectInputOption>
     <SelectInputOption value='b'>Item B</SelectInputOption>
@@ -40,7 +19,7 @@ const Template: ComponentStory<typeof SelectInput> = (args) => (
   </SelectInput>
 );
 
-export const Default: ComponentStory<typeof SelectInput> = Template.bind({});
+export const Default: StoryFn<typeof SelectInput> = Template.bind({});
 
 export const Multiple = Template.bind({});
 Multiple.args = {
@@ -81,7 +60,7 @@ WithValue.args = {
   defaultValue: 'b',
 };
 
-export const States: ComponentStory<typeof SelectInput> = () => (
+export const States: StoryFn<typeof SelectInput> = () => (
   <>
     <PropsVariationSection
       component={SelectInput}

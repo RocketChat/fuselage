@@ -25,6 +25,9 @@ export type ButtonProps = ComponentProps<typeof Box> & {
     'is' | 'className' | 'size'
   >;
 
+/**
+ * Indicates an actionable user action.
+ */
 export const Button = forwardRef(function Button(
   {
     primary,

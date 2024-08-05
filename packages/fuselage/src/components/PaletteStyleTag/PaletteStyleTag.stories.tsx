@@ -1,56 +1,29 @@
-import {
-  Title,
-  Subtitle,
-  Description,
-  Primary as PrimaryStory,
-  ArgsTable,
-  Stories,
-  PRIMARY_STORY,
-} from '@storybook/addon-docs';
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 
+import Box from '../Box';
+import Button from '../Button';
 import {
-  Box,
-  Button,
-  PaletteStyleTag,
   Card,
-  CardHeader,
-  FramedIcon,
-  CardTitle,
   CardBody,
-  CardControls,
-  Divider,
-  ProgressBar,
   CardCol,
-} from '../..';
+  CardControls,
+  CardHeader,
+  CardTitle,
+} from '../Card';
+import { Divider } from '../Divider';
+import { FramedIcon } from '../FramedIcon';
+import { ProgressBar } from '../ProgressBar';
+import PaletteStyleTag from './PaletteStyleTag';
 
 export default {
   title: 'Layout/PaletteStyleTag',
   component: PaletteStyleTag,
   parameters: {
     layout: 'centered',
-    docs: {
-      description: {
-        component:
-          "Style tag to handle the theme of the application.  <br /> Import `PaletteStyleTag` and use it on the application informing the desired theme. <br /> Toggle the theme on Storybook's Control panel to see the color changes.",
-      },
-      page: () => (
-        <>
-          <Title />
-          <Subtitle />
-          <Description />
-          <PrimaryStory />
-          <Stories title={''} />
-          <ArgsTable story={PRIMARY_STORY} />
-        </>
-      ),
-    },
   },
-} as ComponentMeta<typeof PaletteStyleTag>;
+} satisfies Meta<typeof PaletteStyleTag>;
 
-export const _PaletteStyleTag: ComponentStory<typeof PaletteStyleTag> = (
-  args
-) => (
+export const _PaletteStyleTag: StoryFn<typeof PaletteStyleTag> = (args) => (
   <Box bg='neutral' p={24}>
     <PaletteStyleTag {...args} />
     <Card>
@@ -81,7 +54,7 @@ export const _PaletteStyleTag: ComponentStory<typeof PaletteStyleTag> = (
   </Box>
 );
 
-// export const _PaletteStyleTag: ComponentStory<typeof PaletteStyleTag> =
+// export const _PaletteStyleTag: StoryFn<typeof PaletteStyleTag> =
 //   Template.bind({});
 
 _PaletteStyleTag.parameters = {

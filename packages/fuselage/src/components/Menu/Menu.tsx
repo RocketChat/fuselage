@@ -38,6 +38,9 @@ const mapOptions = (options: MenuProps['options']): OptionType[] =>
     ]
   );
 
+/**
+ * Kebab Menu
+ */
 export const Menu = ({
   tiny,
   mini,

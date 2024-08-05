@@ -17,6 +17,9 @@ type TagProps = {
   icon?: ReactNode;
 } & Omit<AllHTMLAttributes<HTMLSpanElement | HTMLAnchorElement>, 'is'>;
 
+/**
+ * Used for mentions
+ */
 export const Tag = ({
   large,
   medium,

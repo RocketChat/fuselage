@@ -1,14 +1,14 @@
 import { action } from '@storybook/addon-actions';
-import type { ComponentMeta, ComponentStory } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 
-import { Bubble } from '../..';
+import { Bubble } from './Bubble';
 
 export default {
   title: 'Data Display/Bubble',
   component: Bubble,
-} as ComponentMeta<typeof Bubble>;
+} satisfies Meta<typeof Bubble>;
 
-const Template: ComponentStory<typeof Bubble> = (args) => <Bubble {...args} />;
+const Template: StoryFn<typeof Bubble> = (args) => <Bubble {...args} />;
 
 export const IconAndLabel = Template.bind({});
 IconAndLabel.args = {

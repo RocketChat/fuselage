@@ -12,6 +12,9 @@ export type StatusBulletProps = {
   size?: 'small' | 'large';
 } & Omit<AllHTMLAttributes<SVGElement>, 'size'>;
 
+/**
+ * The `StatusBullet` is used to inform the user status.
+ */
 const StatusBullet = ({ status = 'loading', ...props }: StatusBulletProps) => {
   switch (status) {
     case 'online':

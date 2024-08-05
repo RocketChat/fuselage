@@ -13,7 +13,7 @@ import MenuDropDown from './MenuDropdown';
 import MenuPopover from './MenuPopover';
 import { getPlacement } from './helpers/helpers';
 
-interface MenuButtonProps<T> extends AriaMenuProps<T>, MenuTriggerProps {
+export interface MenuButtonProps<T> extends AriaMenuProps<T>, MenuTriggerProps {
   icon?: ComponentProps<typeof IconButton>['icon'];
   large?: boolean;
   medium?: boolean;
@@ -33,6 +33,9 @@ interface MenuButtonProps<T> extends AriaMenuProps<T>, MenuTriggerProps {
   button?: ReactElement;
 }
 
+/**
+ * Kebab Menu. Use `<MenuItem>` to render the menu items.
+ */
 const Menu = <T extends object>({
   icon = 'kebab',
   placement = 'bottom-start',

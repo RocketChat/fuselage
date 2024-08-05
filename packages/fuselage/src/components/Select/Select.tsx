@@ -19,6 +19,9 @@ type SelectProps<T, V extends Key> = Omit<
   small?: boolean;
 } & Omit<AllHTMLAttributes<HTMLElement>, 'onChange'>;
 
+/**
+ * An input for selection of options.
+ */
 export const Select = forwardRef(function Select<
   T extends object,
   V extends Key

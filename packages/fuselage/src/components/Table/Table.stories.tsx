@@ -1,43 +1,32 @@
-import {
-  Title,
-  Description,
-  Primary,
-  Stories,
-  ArgsTable,
-} from '@storybook/addon-docs';
-import type { ComponentStory } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 
-import { CheckBox } from '../..';
+import { CheckBox } from '../CheckBox';
+import { Table } from './Table';
+import { TableBody } from './TableBody';
+import { TableCell } from './TableCell';
+import { TableHead } from './TableHead';
+import { TableRow } from './TableRow';
 import {
-  Table,
   TableSelection,
   TableSelectionButton,
-  TableHead,
-  TableRow,
-  TableCell,
-  TableBody,
   TableSelectionButtonGroup,
-} from './index';
+} from './TableSelection';
 
 export default {
   title: 'Data Display/Table',
   component: Table,
-  parameters: {
-    docs: {
-      page: () => (
-        <>
-          <Title />
-          <Description />
-          <Primary />
-          <ArgsTable />
-          <Stories title={''} />
-        </>
-      ),
-    },
+  subcomponents: {
+    TableHead,
+    TableRow,
+    TableCell,
+    TableBody,
+    TableSelection,
+    TableSelectionButton,
+    TableSelectionButtonGroup,
   },
-};
+} satisfies Meta<typeof Table>;
 
-export const Default: ComponentStory<typeof Table> = () => (
+export const Default: StoryFn<typeof Table> = () => (
   <>
     <Table>
       <TableHead>
@@ -73,7 +62,7 @@ export const Default: ComponentStory<typeof Table> = () => (
   </>
 );
 
-export const WithSelection: ComponentStory<typeof Table> = () => (
+export const WithSelection: StoryFn<typeof Table> = () => (
   <>
     <Table>
       <TableHead>
@@ -160,7 +149,7 @@ export const WithSelection: ComponentStory<typeof Table> = () => (
   </>
 );
 
-export const Striped: ComponentStory<typeof Table> = () => (
+export const Striped: StoryFn<typeof Table> = () => (
   <Table fixed striped sticky>
     <TableHead>
       <TableRow>
@@ -221,7 +210,7 @@ export const Striped: ComponentStory<typeof Table> = () => (
   </Table>
 );
 
-export const Fixed: ComponentStory<typeof Table> = () => (
+export const Fixed: StoryFn<typeof Table> = () => (
   <Table fixed>
     <TableHead>
       <TableRow>
