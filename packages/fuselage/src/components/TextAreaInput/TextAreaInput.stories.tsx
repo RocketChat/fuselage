@@ -2,7 +2,7 @@ import type { StoryFn, Meta } from '@storybook/react';
 
 import { PropsVariationSection } from '../../../.storybook/helpers';
 import { Icon } from '../Icon';
-import { TextAreaInput } from './TextArea';
+import { TextAreaInput } from './TextAreaInput';
 
 export default {
   title: 'Inputs/TextAreaInput',

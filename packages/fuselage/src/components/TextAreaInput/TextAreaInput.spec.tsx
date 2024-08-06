@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 
-import { TextAreaInput } from './TextArea';
+import { TextAreaInput } from './TextAreaInput';
 
 describe('[TextAreaInput]', () => {
   it('renders without crashing', () => {
