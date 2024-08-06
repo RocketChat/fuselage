@@ -53,10 +53,6 @@ export const _PaletteStyleTag: StoryFn<typeof PaletteStyleTag> = (args) => (
     </Card>
   </Box>
 );
-
-// export const _PaletteStyleTag: StoryFn<typeof PaletteStyleTag> =
-//   Template.bind({});
-
 _PaletteStyleTag.parameters = {
   docs: {
     description: {
