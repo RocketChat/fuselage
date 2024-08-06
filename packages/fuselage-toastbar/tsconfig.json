@@ -11,6 +11,11 @@
     "resolveJsonModule": true,
     "jsx": "react-jsx"
   },
-  "include": ["./src", "./.storybook/**/*"],
+  "include": [
+    "./src",
+    "./.storybook/**/*",
+    "./jest.config.ts",
+    "./jest-setup.ts"
+  ],
   "exclude": ["./dist"]
 }

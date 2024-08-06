@@ -44,9 +44,6 @@
     "yarn": "4.2.2"
   },
   "packageManager": "yarn@4.4.0",
-  "resolutions": {
-    "@storybook/react-docgen-typescript-plugin@1.0.2-canary.6.9d540b91e815f8fc2f8829189deb00553559ff63.0": "patch:@storybook/react-docgen-typescript-plugin@npm%3A1.0.2-canary.6.9d540b91e815f8fc2f8829189deb00553559ff63.0#./.yarn/patches/@storybook-react-docgen-typescript-plugin-npm-1.0.2-canary.6.9d540b91e815f8fc2f8829189deb00553559ff63.0-b31cc57c40.patch"
-  },
   "eslintConfig": {
     "extends": "@rocket.chat/eslint-config-alt"
   }
