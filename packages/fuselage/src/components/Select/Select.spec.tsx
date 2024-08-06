@@ -10,6 +10,6 @@ withResizeObserverMock();
 
 describe('[Select Component]', () => {
   it('renders without crashing', () => {
-    render(<Default {...Default.args} />);
+    render(<Default {...Default.args} />, { legacyRoot: true });
   });
 });

@@ -8,11 +8,11 @@ const { Default, CopyButton, CustomButtonName, LoadingCode, DisabledButton } =
 
 describe('[CodeSnippet Component]', () => {
   it('renders without crashing', () => {
-    render(<Default />);
+    render(<Default />, { legacyRoot: true });
   });
 
   it('should display children', () => {
-    render(<Default>Children</Default>);
+    render(<Default>Children</Default>, { legacyRoot: true });
     screen.getByText('Children');
   });
 
@@ -20,7 +20,7 @@ describe('[CodeSnippet Component]', () => {
     let onClickSpy: ReturnType<typeof jest.fn>;
     beforeEach(() => {
       onClickSpy = jest.fn();
-      render(<CopyButton onClick={onClickSpy} />);
+      render(<CopyButton onClick={onClickSpy} />, { legacyRoot: true });
     });
 
     it('should display button, when component receives onClick property', () => {
@@ -35,17 +35,17 @@ describe('[CodeSnippet Component]', () => {
   });
 
   it('should change button name, when buttonText property is passed', () => {
-    render(<CustomButtonName buttonText='custom-name' />);
+    render(<CustomButtonName buttonText='custom-name' />, { legacyRoot: true });
     screen.getByText('custom-name');
   });
 
   it('should display skeleton, when there is no children', () => {
-    const { container } = render(<LoadingCode />);
+    const { container } = render(<LoadingCode />, { legacyRoot: true });
     expect(container.querySelector('.rcx-skeleton')).toBeInTheDocument();
   });
 
   it('should should render a disabled button, when buttonDisabled prop is passed', () => {
-    render(<DisabledButton />);
+    render(<DisabledButton />, { legacyRoot: true });
     const button = screen.getByRole('button');
     expect(button).toBeDisabled();
   });

@@ -13,7 +13,7 @@ describe('[Field Component]', () => {
   test.each(testCases)(
     `renders %s without crashing`,
     async (_storyname, Story) => {
-      const tree = render(<Story />);
+      const tree = render(<Story />, { legacyRoot: true });
       expect(tree.baseElement).toMatchSnapshot();
     }
   );
@@ -21,7 +21,7 @@ describe('[Field Component]', () => {
   test.each(testCases)(
     '%s should have no a11y violations',
     async (_storyname, Story) => {
-      const { container } = render(<Story />);
+      const { container } = render(<Story />, { legacyRoot: true });
 
       const results = await axe(container);
       expect(results).toHaveNoViolations();

@@ -1,9 +1,9 @@
 import { render } from '@testing-library/react';
 
-import { TextAreaInput } from '.';
+import { TextAreaInput } from './TextArea';
 
 describe('[TextAreaInput]', () => {
   it('renders without crashing', () => {
-    render(<TextAreaInput />);
+    render(<TextAreaInput />, { legacyRoot: true });
   });
 });

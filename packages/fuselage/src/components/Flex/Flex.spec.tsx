@@ -4,10 +4,10 @@ import Flex from '.';
 
 describe('[Flex Component]', () => {
   it('renders Flex.Container without crashing', () => {
-    render(<Flex.Container />);
+    render(<Flex.Container />, { legacyRoot: true });
   });
 
   it('renders Flex.Item without crashing', () => {
-    render(<Flex.Item />);
+    render(<Flex.Item />, { legacyRoot: true });
   });
 });

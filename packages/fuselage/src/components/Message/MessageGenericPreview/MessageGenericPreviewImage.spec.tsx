@@ -4,12 +4,12 @@ import { MessageGenericPreviewImage } from './MessageGenericPreviewImage';
 
 describe('MessageGenericPreviewImage', () => {
   it('renders without crashing', () => {
-    render(<MessageGenericPreviewImage url='' />);
+    render(<MessageGenericPreviewImage url='' />, { legacyRoot: true });
   });
 
   it('should render image', () => {
-    render(<MessageGenericPreviewImage url='test' />);
-    const previewImage = screen.getByRole('img');
+    render(<MessageGenericPreviewImage url='test' />, { legacyRoot: true });
+    const previewImage = screen.getByRole('presentation');
 
     expect(previewImage).toBeInTheDocument();
     expect(previewImage).toHaveAttribute('src', 'test');

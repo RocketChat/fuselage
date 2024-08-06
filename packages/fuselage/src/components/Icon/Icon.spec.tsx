@@ -4,6 +4,6 @@ import { Icon } from '.';
 
 describe('[Icon Component]', () => {
   it('renders without crashing', () => {
-    render(<Icon name='chat' />);
+    render(<Icon name='chat' />, { legacyRoot: true });
   });
 });

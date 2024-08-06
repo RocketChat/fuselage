@@ -11,13 +11,16 @@ export default {
   parameters: {
     layout: 'centered',
   },
+  decorators: [
+    (Story) => (
+      <Box position='relative' maxWidth={250}>
+        <Story />
+      </Box>
+    ),
+  ],
 } satisfies Meta<typeof Menu>;
 
-const Template: StoryFn<typeof Menu> = (args) => (
-  <Box position='relative' maxWidth={250}>
-    <Menu {...args} />
-  </Box>
-);
+const Template: StoryFn<typeof Menu> = (args) => <Menu {...args} />;
 
 export const Simple = Template.bind({});
 Simple.args = {

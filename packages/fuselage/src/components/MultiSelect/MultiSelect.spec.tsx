@@ -10,6 +10,6 @@ withResizeObserverMock();
 
 describe('[MultiSelect Component]', () => {
   it('renders without crashing', () => {
-    render(<Default />);
+    render(<Default />, { legacyRoot: true });
   });
 });

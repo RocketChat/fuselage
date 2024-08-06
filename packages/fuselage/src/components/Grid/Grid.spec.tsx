@@ -4,10 +4,10 @@ import { Grid } from '.';
 
 describe('[Grid Component]', () => {
   it('renders Grid without crashing', () => {
-    render(<Grid />);
+    render(<Grid />, { legacyRoot: true });
   });
 
   it('renders Grid.Item without crashing', () => {
-    render(<Grid.Item />);
+    render(<Grid.Item />, { legacyRoot: true });
   });
 });

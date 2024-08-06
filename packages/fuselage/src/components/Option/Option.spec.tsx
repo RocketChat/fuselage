@@ -10,7 +10,8 @@ describe('Option', () => {
     render(
       <Option>
         <OptionContent>Lorem Ipsum Lorem</OptionContent>
-      </Option>
+      </Option>,
+      { legacyRoot: true }
     );
   });
 
@@ -20,7 +21,8 @@ describe('Option', () => {
     const { getByText } = render(
       <Option onClick={click}>
         <OptionContent>Option</OptionContent>
-      </Option>
+      </Option>,
+      { legacyRoot: true }
     );
 
     getByText('Option').click();
@@ -34,7 +36,8 @@ describe('Option', () => {
     const { getByText } = render(
       <Option disabled onClick={click}>
         <OptionContent>Option</OptionContent>
-      </Option>
+      </Option>,
+      { legacyRoot: true }
     );
 
     getByText('Option').click();

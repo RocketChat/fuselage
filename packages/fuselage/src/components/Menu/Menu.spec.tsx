@@ -1,5 +1,5 @@
 import { composeStories } from '@storybook/react';
-import { render, screen } from '@testing-library/react';
+import { act, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { withResizeObserverMock } from 'testing-utils/mocks/withResizeObserverMock';
 
@@ -13,29 +13,41 @@ describe('[Menu Component]', () => {
   const menuOption = screen.queryByText('Make Admin');
 
   it('should renders without crashing', () => {
-    render(<Simple {...Simple.args} />);
+    render(<Simple {...Simple.args} />, { legacyRoot: true });
   });
 
   it('should open options when click', async () => {
-    const { getByTestId } = render(<Simple {...Simple.args} />);
-    const button = getByTestId('menu');
-    await userEvent.click(button);
-    expect(await screen.findByText('Make Admin')).toBeInTheDocument();
+    render(<Simple {...Simple.args} />, {
+      legacyRoot: true,
+    });
+    const button = screen.getByTestId('menu');
+    await act(async () => {
+      await userEvent.click(button);
+      expect(await screen.findByText('Make Admin')).toBeInTheDocument();
+    });
   });
 
   it('should have no options when click twice', async () => {
-    const { getByTestId } = render(<Simple {...Simple.args} />);
-    const button = getByTestId('menu');
+    render(<Simple {...Simple.args} />, {
+      legacyRoot: true,
+    });
+    const button = screen.getByTestId('menu');
     await userEvent.click(button);
-    await userEvent.click(button);
-    expect(menuOption).toBeNull();
+    await act(async () => {
+      await userEvent.click(button);
+      expect(menuOption).toBeNull();
+    });
   });
 
   it('should have no options when click on menu and then elsewhere', async () => {
-    const { getByTestId } = render(<Simple {...Simple.args} />);
-    const button = getByTestId('menu');
-    await userEvent.click(button);
-    await userEvent.click(document.body);
-    expect(menuOption).toBeNull();
+    render(<Simple {...Simple.args} />, {
+      legacyRoot: true,
+    });
+    const button = screen.getByTestId('menu');
+    await act(async () => {
+      await userEvent.click(button);
+      await userEvent.click(document.body);
+      expect(menuOption).toBeNull();
+    });
   });
 });

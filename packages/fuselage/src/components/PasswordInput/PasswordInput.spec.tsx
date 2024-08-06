@@ -8,12 +8,12 @@ const { Default } = composeStories(stories);
 
 describe('[PasswordInput Component]', () => {
   it('renders without crashing', () => {
-    const tree = render(<Default />);
+    const tree = render(<Default />, { legacyRoot: true });
     expect(tree.baseElement).toMatchSnapshot();
   });
 
   it('%s should have no a11y violations', async () => {
-    const { container } = render(<Default />);
+    const { container } = render(<Default />, { legacyRoot: true });
 
     const results = await axe(container);
     expect(results).toHaveNoViolations();

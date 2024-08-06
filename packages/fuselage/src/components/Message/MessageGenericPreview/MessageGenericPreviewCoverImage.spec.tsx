@@ -4,12 +4,16 @@ import { MessageGenericPreviewCoverImage } from './MessageGenericPreviewCoverIma
 
 describe('MessageGenericPreviewCoverImage', () => {
   it('renders without crashing', () => {
-    render(<MessageGenericPreviewCoverImage url='' width={200} height={200} />);
+    render(
+      <MessageGenericPreviewCoverImage url='' width={200} height={200} />,
+      { legacyRoot: true }
+    );
   });
 
   it('should render div with background image', () => {
     render(
-      <MessageGenericPreviewCoverImage url='test' width={200} height={200} />
+      <MessageGenericPreviewCoverImage url='test' width={200} height={200} />,
+      { legacyRoot: true }
     );
     const previewImage = screen.getByTestId('preview-image');
 

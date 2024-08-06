@@ -7,6 +7,6 @@ const { Default } = composeStories(stories);
 
 describe('[Chevron Component]', () => {
   it('renders without crashing', () => {
-    render(<Default />);
+    render(<Default />, { legacyRoot: true });
   });
 });

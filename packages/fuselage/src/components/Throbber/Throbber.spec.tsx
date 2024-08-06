@@ -7,6 +7,6 @@ const { Default } = composeStories(stories);
 
 describe('[Throbber Component]', () => {
   it('renders without crashing', () => {
-    render(<Default />);
+    render(<Default />, { legacyRoot: true });
   });
 });

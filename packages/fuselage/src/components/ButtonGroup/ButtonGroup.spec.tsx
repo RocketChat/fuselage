@@ -8,11 +8,11 @@ const { Default } = composeStories(stories);
 
 describe('[ButtonGroup Component]', () => {
   it('renders without crashing', () => {
-    render(<Default />);
+    render(<Default />, { legacyRoot: true });
   });
 
   it('should have no a11y violations', async () => {
-    const { container } = render(<Default />);
+    const { container } = render(<Default />, { legacyRoot: true });
 
     const results = await axe(container);
     expect(results).toHaveNoViolations();

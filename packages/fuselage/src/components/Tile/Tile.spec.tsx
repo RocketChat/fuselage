@@ -1,9 +1,9 @@
 import { render } from '@testing-library/react';
 
-import Tile from '.';
+import Tile from './Tile';
 
 describe('[Tile Component]', () => {
   it('renders without crashing', () => {
-    render(<Tile />);
+    render(<Tile />, { legacyRoot: true });
   });
 });

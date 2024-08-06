@@ -2,10 +2,10 @@ import type { UsePositionOptions } from '@rocket.chat/fuselage-hooks';
 import type { ComponentProps, ElementType, ReactNode } from 'react';
 import { useRef, useCallback, useEffect } from 'react';
 
-import { PositionAnimated, Options, useCursor } from '..';
 import type Box from '../Box';
-import { IconButton } from '../Button/IconButton';
-import type { OptionType } from '../Options';
+import { IconButton } from '../Button';
+import Options, { useCursor, type OptionType } from '../Options';
+import PositionAnimated from '../PositionAnimated';
 
 type MenuProps = Omit<ComponentProps<typeof IconButton>, 'icon'> & {
   options: {

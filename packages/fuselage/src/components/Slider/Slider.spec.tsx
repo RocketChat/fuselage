@@ -9,30 +9,30 @@ const { Default, WithLabel, MultiThumb, WithDefaultValue } =
 
 describe('[Slider Component]', () => {
   it('renders without crashing', () => {
-    render(<Default />);
+    render(<Default />, { legacyRoot: true });
   });
 
   it('should display the label when passed', () => {
-    render(<WithLabel />);
+    render(<WithLabel />, { legacyRoot: true });
     const label = screen.queryByText('Range');
     expect(label).toBeInTheDocument();
     expect(label?.textContent).toBe('Range');
   });
 
   it('should output the defaultValue when passed', () => {
-    render(<WithDefaultValue />);
+    render(<WithDefaultValue />, { legacyRoot: true });
     const output = screen.queryByTestId('slider-output');
     expect(output?.textContent).toBe('25');
   });
 
   it('should have two thumbs when multiThumb prop is true', () => {
-    render(<MultiThumb />);
+    render(<MultiThumb />, { legacyRoot: true });
     const thumbs = screen.queryAllByRole('slider');
     expect(thumbs.length).toBe(2);
   });
 
   it("should update Thumb's position when Thumb is clicked and dragged", () => {
-    render(<Default />);
+    render(<Default />, { legacyRoot: true });
 
     const slider = screen.getByRole<HTMLFormElement>('slider');
 
