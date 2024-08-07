@@ -1,9 +1,8 @@
-import { render } from '@testing-library/react';
-
+import { render } from '../../testing';
 import { ProgressBar } from './ProgressBar';
 
 describe('[ProgressBar Component]', () => {
   it('renders without crashing', () => {
-    render(<ProgressBar percentage={0} />, { legacyRoot: true });
+    render(<ProgressBar percentage={0} />);
   });
 });

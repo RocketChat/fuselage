@@ -1,7 +1,6 @@
-import { render } from '@testing-library/react';
-
 import ThreadMessage from '.';
+import { render } from '../../../testing';
 
 it('renders without crashing', () => {
-  render(<ThreadMessage />, { legacyRoot: true });
+  render(<ThreadMessage />);
 });

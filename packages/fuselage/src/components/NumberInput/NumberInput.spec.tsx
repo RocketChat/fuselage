@@ -1,19 +1,19 @@
 import { composeStories } from '@storybook/react';
-import { render } from '@testing-library/react';
 import { axe } from 'jest-axe';
 
+import { render } from '../../testing';
 import * as stories from './NumberInput.stories';
 
 const { Default } = composeStories(stories);
 
 describe('[NumberInput Component]', () => {
   it('renders without crashing', () => {
-    const tree = render(<Default />, { legacyRoot: true });
+    const tree = render(<Default />);
     expect(tree.baseElement).toMatchSnapshot();
   });
 
   it('%s should have no a11y violations', async () => {
-    const { container } = render(<Default />, { legacyRoot: true });
+    const { container } = render(<Default />);
 
     const results = await axe(container);
     expect(results).toHaveNoViolations();

@@ -1,9 +1,10 @@
 import { composeStories } from '@storybook/react';
-import { render, getByRole, screen } from '@testing-library/react';
+import { getByRole, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import * as stories from './ToastBar.stories';
 import ToastBarProvider from './ToastBarProvider';
+import { render } from './testing';
 
 const { Default, TopEnd } = composeStories(stories, {
   decorators: [
@@ -27,7 +28,7 @@ const topStartStyle = {
 
 describe('[fuselage-toastbar rendering]', () => {
   test('should display ToastBar on the top right of the screen by default', async () => {
-    render(<TopEnd />, { legacyRoot: true });
+    render(<TopEnd />);
     const toast = screen.queryByRole('alert');
     const toastContainer = toast?.parentElement?.parentElement?.parentElement;
 
@@ -36,7 +37,7 @@ describe('[fuselage-toastbar rendering]', () => {
 
   test('should display ToastBar on the top right of the screen', async () => {
     document.body.setAttribute('dir', 'ltr');
-    render(<TopEnd />, { legacyRoot: true });
+    render(<TopEnd />);
     const toast = screen.queryByRole('alert');
     const toastContainer = toast?.parentElement?.parentElement?.parentElement;
 
@@ -45,7 +46,7 @@ describe('[fuselage-toastbar rendering]', () => {
 
   test('should display ToastBar on the top left of the screen', async () => {
     document.body.setAttribute('dir', 'rtl');
-    render(<TopEnd />, { legacyRoot: true });
+    render(<TopEnd />);
     const toast = screen.queryByRole('alert');
     const toastContainer = toast?.parentElement?.parentElement?.parentElement;
 
@@ -55,7 +56,7 @@ describe('[fuselage-toastbar rendering]', () => {
 
 describe('[fuselage-toastbar interacting]', () => {
   test('should dispatch the ToastBar on click', async () => {
-    const { container } = render(<Default />, { legacyRoot: true });
+    const { container } = render(<Default />);
     const button = getByRole(container, 'button');
 
     userEvent.click(button);

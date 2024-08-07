@@ -1,8 +1,8 @@
 import { composeStories } from '@storybook/react';
-import { render } from '@testing-library/react';
 import { axe } from 'jest-axe';
 import { SSRProvider } from 'react-aria';
 
+import { render } from '../../testing';
 import * as stories from './NavBar.stories';
 
 const testCases = Object.values(composeStories(stories)).map((Story) => [
@@ -15,7 +15,6 @@ describe('[NavBar Component]', () => {
     `renders %s without crashing`,
     async (_storyname, Story) => {
       const tree = render(<Story />, {
-        legacyRoot: true,
         wrapper: ({ children }) => <SSRProvider>{children}</SSRProvider>,
       });
       expect(tree.baseElement).toMatchSnapshot();
@@ -25,7 +24,7 @@ describe('[NavBar Component]', () => {
   test.each(testCases)(
     '%s should have no a11y violations',
     async (_storyname, Story) => {
-      const { container } = render(<Story />, { legacyRoot: true });
+      const { container } = render(<Story />);
 
       const results = await axe(container);
       expect(results).toHaveNoViolations();

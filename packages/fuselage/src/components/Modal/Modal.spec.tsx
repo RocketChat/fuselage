@@ -1,7 +1,8 @@
 import { composeStories } from '@storybook/react';
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import { axe } from 'jest-axe';
 
+import { render } from '../../testing';
 import * as stories from './Modal.stories';
 import { Default } from './Modal.stories';
 
@@ -14,7 +15,7 @@ describe('[Modal Component]', () => {
   test.each(testCases)(
     `%s should match the snapshot`,
     async (_storyname, Story) => {
-      const tree = render(<Story />, { legacyRoot: true });
+      const tree = render(<Story />);
       expect(tree.baseElement).toMatchSnapshot();
     }
   );
@@ -22,7 +23,7 @@ describe('[Modal Component]', () => {
   test.each(testCases)(
     '%s should have no a11y violations',
     async (_storyname, Story) => {
-      const { container } = render(<Story />, { legacyRoot: true });
+      const { container } = render(<Story />);
 
       const results = await axe(container);
       expect(results).toHaveNoViolations();
@@ -30,7 +31,7 @@ describe('[Modal Component]', () => {
   );
 
   test('Default should render the dialog a11y compliant', () => {
-    render(<Default />, { legacyRoot: true });
+    render(<Default />);
     expect(screen.getByRole('dialog')).toBeInTheDocument();
   });
 });

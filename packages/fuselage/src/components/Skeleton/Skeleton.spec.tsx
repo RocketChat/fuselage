@@ -1,9 +1,8 @@
-import { render } from '@testing-library/react';
-
+import { render } from '../../testing';
 import { Skeleton } from './Skeleton';
 
 describe('[Skeleton Component]', () => {
   it('renders without crashing', () => {
-    render(<Skeleton />, { legacyRoot: true });
+    render(<Skeleton />);
   });
 });

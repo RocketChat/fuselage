@@ -1,7 +1,7 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { composeStories } from '@storybook/react';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, screen } from '@testing-library/react';
 
+import { render } from '../../testing';
 import * as stories from './Slider.stories';
 
 const { Default, WithLabel, MultiThumb, WithDefaultValue } =
@@ -9,30 +9,30 @@ const { Default, WithLabel, MultiThumb, WithDefaultValue } =
 
 describe('[Slider Component]', () => {
   it('renders without crashing', () => {
-    render(<Default />, { legacyRoot: true });
+    render(<Default />);
   });
 
   it('should display the label when passed', () => {
-    render(<WithLabel />, { legacyRoot: true });
+    render(<WithLabel />);
     const label = screen.queryByText('Range');
     expect(label).toBeInTheDocument();
     expect(label?.textContent).toBe('Range');
   });
 
   it('should output the defaultValue when passed', () => {
-    render(<WithDefaultValue />, { legacyRoot: true });
+    render(<WithDefaultValue />);
     const output = screen.queryByTestId('slider-output');
     expect(output?.textContent).toBe('25');
   });
 
   it('should have two thumbs when multiThumb prop is true', () => {
-    render(<MultiThumb />, { legacyRoot: true });
+    render(<MultiThumb />);
     const thumbs = screen.queryAllByRole('slider');
     expect(thumbs.length).toBe(2);
   });
 
   it("should update Thumb's position when Thumb is clicked and dragged", () => {
-    render(<Default />, { legacyRoot: true });
+    render(<Default />);
 
     const slider = screen.getByRole<HTMLFormElement>('slider');
 

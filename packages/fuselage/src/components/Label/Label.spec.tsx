@@ -1,7 +1,7 @@
 import { composeStories } from '@storybook/react';
-import { render } from '@testing-library/react';
 import { axe } from 'jest-axe';
 
+import { render } from '../../testing';
 import * as stories from './Label.stories';
 
 const testCases = Object.values(composeStories(stories)).map((Story) => [
@@ -13,7 +13,7 @@ describe('[Label Component]', () => {
   test.each(testCases)(
     `renders %s without crashing`,
     async (_storyname, Story) => {
-      const tree = render(<Story />, { legacyRoot: true });
+      const tree = render(<Story />);
       expect(tree.baseElement).toMatchSnapshot();
     }
   );
@@ -21,7 +21,7 @@ describe('[Label Component]', () => {
   test.each(testCases)(
     '%s should have no a11y violations',
     async (_storyname, Story) => {
-      const { container } = render(<Story />, { legacyRoot: true });
+      const { container } = render(<Story />);
 
       const results = await axe(container);
       expect(results).toHaveNoViolations();

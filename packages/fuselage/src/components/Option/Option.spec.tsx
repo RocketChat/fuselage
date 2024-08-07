@@ -1,7 +1,6 @@
-import { render } from '@testing-library/react';
-
 import Option, { OptionContent } from '.';
 import { prevent } from '../../helpers/prevent';
+import { render } from '../../testing';
 
 jest.mock('../../helpers/prevent');
 
@@ -10,8 +9,7 @@ describe('Option', () => {
     render(
       <Option>
         <OptionContent>Lorem Ipsum Lorem</OptionContent>
-      </Option>,
-      { legacyRoot: true }
+      </Option>
     );
   });
 
@@ -21,8 +19,7 @@ describe('Option', () => {
     const { getByText } = render(
       <Option onClick={click}>
         <OptionContent>Option</OptionContent>
-      </Option>,
-      { legacyRoot: true }
+      </Option>
     );
 
     getByText('Option').click();
@@ -36,8 +33,7 @@ describe('Option', () => {
     const { getByText } = render(
       <Option disabled onClick={click}>
         <OptionContent>Option</OptionContent>
-      </Option>,
-      { legacyRoot: true }
+      </Option>
     );
 
     getByText('Option').click();

@@ -1,9 +1,8 @@
-import { render } from '@testing-library/react';
-
+import { render } from '../../testing';
 import { StatusBullet } from './StatusBullet';
 
 describe('[StatusBullet Component]', () => {
   it('renders without crashing', () => {
-    render(<StatusBullet />, { legacyRoot: true });
+    render(<StatusBullet />);
   });
 });

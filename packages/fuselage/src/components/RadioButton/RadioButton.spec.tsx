@@ -1,7 +1,7 @@
 import { composeStories } from '@storybook/react';
-import { render } from '@testing-library/react';
 import { axe } from 'jest-axe';
 
+import { render } from '../../testing';
 import * as stories from './RadioButton.stories';
 
 const testCases = Object.values(composeStories(stories)).map((Story) => [
@@ -15,7 +15,7 @@ describe('[RadioButton Rendering]', () => {
   test.each(testCases)(
     `renders %s without crashing`,
     async (_storyname, Story) => {
-      const tree = render(<Story />, { legacyRoot: true });
+      const tree = render(<Story />);
       expect(tree.baseElement).toMatchSnapshot();
     }
   );
@@ -23,7 +23,7 @@ describe('[RadioButton Rendering]', () => {
   test.each(testCases)(
     '%s should have no a11y violations',
     async (_storyname, Story) => {
-      const { container } = render(<Story />, { legacyRoot: true });
+      const { container } = render(<Story />);
 
       const results = await axe(container);
       expect(results).toHaveNoViolations();
@@ -33,7 +33,7 @@ describe('[RadioButton Rendering]', () => {
 
 describe('[RadioButton Interacting]', () => {
   it('changes style of element as radio button is checked', () => {
-    const { container } = render(<Default />, { legacyRoot: true });
+    const { container } = render(<Default />);
     const radioButton = container.querySelector(
       'input[type="radio"]'
     ) as HTMLInputElement;
@@ -41,14 +41,14 @@ describe('[RadioButton Interacting]', () => {
     expect(radioButton.checked).toEqual(true);
   });
   it('displays radio button with defaultChecked value correctly', () => {
-    const { container } = render(<Checked />, { legacyRoot: true });
+    const { container } = render(<Checked />);
     const radioButton = container.querySelector(
       'input[type="radio"]'
     ) as HTMLInputElement;
     expect(radioButton.defaultChecked).toEqual(true);
   });
   it('displays radio button disabled correctly', () => {
-    const { container } = render(<Disabled />, { legacyRoot: true });
+    const { container } = render(<Disabled />);
     const radioButton = container.querySelector(
       'input[type="radio"]'
     ) as HTMLInputElement;

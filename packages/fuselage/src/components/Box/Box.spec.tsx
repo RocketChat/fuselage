@@ -1,18 +1,16 @@
 import { css } from '@rocket.chat/css-in-js';
-import { render } from '@testing-library/react';
 
 import Box from '.';
+import { render } from '../../testing';
 
 describe('[Box Component]', () => {
   it('renders without crashing', () => {
-    render(<Box />, { legacyRoot: true });
+    render(<Box />);
   });
 
   describe('className prop', () => {
     it('accepts a string in className prop', () => {
-      const { container } = render(<Box className='fuselage' />, {
-        legacyRoot: true,
-      });
+      const { container } = render(<Box className='fuselage' />);
 
       expect(container.firstElementChild).toHaveProperty('tagName', 'DIV');
       expect(container.firstElementChild).toBeInstanceOf(HTMLDivElement);
@@ -26,8 +24,7 @@ describe('[Box Component]', () => {
           className={css`
             width: 10em;
           `}
-        />,
-        { legacyRoot: true }
+        />
       );
 
       expect(container.firstElementChild).toHaveProperty('tagName', 'DIV');
@@ -39,9 +36,7 @@ describe('[Box Component]', () => {
     });
 
     it('accepts an empty array in className prop', () => {
-      const { container } = render(<Box className={[]} />, {
-        legacyRoot: true,
-      });
+      const { container } = render(<Box className={[]} />);
 
       expect(container.firstElementChild).toHaveProperty('tagName', 'DIV');
       expect(container.firstElementChild).toHaveClass('rcx-box');
@@ -56,8 +51,7 @@ describe('[Box Component]', () => {
               width: 10em;
             `,
           ]}
-        />,
-        { legacyRoot: true }
+        />
       );
 
       expect(container.firstElementChild).toHaveProperty('tagName', 'DIV');
@@ -71,8 +65,7 @@ describe('[Box Component]', () => {
 
     it('attaches rcx-* props into className', () => {
       const { container } = render(
-        <Box rcx-test-a rcx-test-b={false} rcx-test-c={true} rcx-test='d' />,
-        { legacyRoot: true }
+        <Box rcx-test-a rcx-test-b={false} rcx-test-c={true} rcx-test='d' />
       );
 
       expect(container.firstElementChild).toHaveProperty('tagName', 'DIV');
@@ -91,8 +84,7 @@ describe('[Box Component]', () => {
           rcx-test-b={false}
           rcx-test-c={true}
           rcx-test='d'
-        />,
-        { legacyRoot: true }
+        />
       );
 
       expect(container.firstElementChild).toHaveProperty('tagName', 'DIV');
@@ -116,8 +108,7 @@ describe('[Box Component]', () => {
           rcx-test-b={false}
           rcx-test-c={true}
           rcx-test='d'
-        />,
-        { legacyRoot: true }
+        />
       );
 
       expect(container.firstElementChild).toHaveProperty('tagName', 'DIV');
@@ -136,14 +127,13 @@ describe('[Box Component]', () => {
 
   describe('is props', () => {
     it('accepts a instrinsic HTML element', () => {
-      const { container } = render(<Box is='span' />, { legacyRoot: true });
+      const { container } = render(<Box is='span' />);
 
       expect(container.firstElementChild).toHaveProperty('tagName', 'SPAN');
     });
 
     it('accepts a instrinsic SVG element', () => {
       const { container } = render(<Box is='path' />, {
-        legacyRoot: true,
         wrapper: ({ children }) => <svg children={children} />,
       });
 

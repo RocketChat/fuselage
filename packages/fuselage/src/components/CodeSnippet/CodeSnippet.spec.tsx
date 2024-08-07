@@ -1,6 +1,7 @@
 import { composeStories } from '@storybook/react';
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 
+import { render } from '../../testing';
 import * as stories from './CodeSnippet.stories';
 
 const { Default, CopyButton, CustomButtonName, LoadingCode, DisabledButton } =
@@ -8,11 +9,11 @@ const { Default, CopyButton, CustomButtonName, LoadingCode, DisabledButton } =
 
 describe('[CodeSnippet Component]', () => {
   it('renders without crashing', () => {
-    render(<Default />, { legacyRoot: true });
+    render(<Default />);
   });
 
   it('should display children', () => {
-    render(<Default>Children</Default>, { legacyRoot: true });
+    render(<Default>Children</Default>);
     screen.getByText('Children');
   });
 
@@ -20,7 +21,7 @@ describe('[CodeSnippet Component]', () => {
     let onClickSpy: ReturnType<typeof jest.fn>;
     beforeEach(() => {
       onClickSpy = jest.fn();
-      render(<CopyButton onClick={onClickSpy} />, { legacyRoot: true });
+      render(<CopyButton onClick={onClickSpy} />);
     });
 
     it('should display button, when component receives onClick property', () => {
@@ -35,17 +36,17 @@ describe('[CodeSnippet Component]', () => {
   });
 
   it('should change button name, when buttonText property is passed', () => {
-    render(<CustomButtonName buttonText='custom-name' />, { legacyRoot: true });
+    render(<CustomButtonName buttonText='custom-name' />);
     screen.getByText('custom-name');
   });
 
   it('should display skeleton, when there is no children', () => {
-    const { container } = render(<LoadingCode />, { legacyRoot: true });
+    const { container } = render(<LoadingCode />);
     expect(container.querySelector('.rcx-skeleton')).toBeInTheDocument();
   });
 
   it('should should render a disabled button, when buttonDisabled prop is passed', () => {
-    render(<DisabledButton />, { legacyRoot: true });
+    render(<DisabledButton />);
     const button = screen.getByRole('button');
     expect(button).toBeDisabled();
   });

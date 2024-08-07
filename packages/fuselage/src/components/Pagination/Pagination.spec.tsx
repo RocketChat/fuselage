@@ -1,9 +1,8 @@
-import { render } from '@testing-library/react';
-
+import { render } from '../../testing';
 import { Pagination } from './Pagination';
 
 describe('[Pagination Component]', () => {
   it('renders without crashing', () => {
-    render(<Pagination count={0} />, { legacyRoot: true });
+    render(<Pagination count={0} />);
   });
 });

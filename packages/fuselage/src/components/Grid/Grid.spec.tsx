@@ -1,13 +1,12 @@
-import { render } from '@testing-library/react';
-
 import { Grid } from '.';
+import { render } from '../../testing';
 
 describe('[Grid Component]', () => {
   it('renders Grid without crashing', () => {
-    render(<Grid />, { legacyRoot: true });
+    render(<Grid />);
   });
 
   it('renders Grid.Item without crashing', () => {
-    render(<Grid.Item />, { legacyRoot: true });
+    render(<Grid.Item />);
   });
 });
