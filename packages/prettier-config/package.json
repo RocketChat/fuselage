@@ -34,7 +34,7 @@
     "bump-next": "bump-next"
   },
   "peerDependencies": {
-    "prettier": "~2.7.1"
+    "prettier": "*"
   },
   "devDependencies": {
     "bump": "workspace:~",
