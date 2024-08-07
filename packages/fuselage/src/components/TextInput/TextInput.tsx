@@ -8,6 +8,9 @@ export type TextInputProps = Omit<ComponentProps<typeof InputBox>, 'type'> & {
   error?: string;
 };
 
+/**
+ * An input for any kind of single-line text.
+ */
 export const TextInput = forwardRef(function TextInput(
   props: TextInputProps,
   ref: Ref<HTMLInputElement>

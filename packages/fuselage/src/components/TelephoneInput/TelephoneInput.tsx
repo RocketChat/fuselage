@@ -9,6 +9,9 @@ type TelephoneInputProps = Omit<ComponentProps<typeof InputBox>, 'type'> & {
   error?: string;
 };
 
+/**
+ * An input for telephone numbers.
+ */
 export const TelephoneInput = forwardRef(function TelephoneInput(
   props: TelephoneInputProps,
   ref: Ref<HTMLInputElement>

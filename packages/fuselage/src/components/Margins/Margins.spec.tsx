@@ -1,6 +1,5 @@
-import { render } from '@testing-library/react';
-
 import Margins from '.';
+import { render } from '../../testing';
 
 describe('[Margins Component]', () => {
   it('renders without crashing', () => {

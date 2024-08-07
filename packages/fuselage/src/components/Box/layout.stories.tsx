@@ -1,16 +1,9 @@
-import {
-  Title,
-  Description,
-  Primary,
-  Stories,
-  ArgsTable,
-  Subtitle,
-} from '@storybook/addon-docs';
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 import { cloneElement } from 'react';
 import flattenChildren from 'react-keyed-flatten-children';
 
-import { Box, Divider } from '../..';
+import { Divider } from '../Divider';
+import Box from './Box';
 
 export default {
   title: 'Layout/Box/Layout',
@@ -20,21 +13,11 @@ export default {
       description: {
         component: 'Here is how rich content will be rendered, in details.',
       },
-      page: () => (
-        <>
-          <Title />
-          <Subtitle />
-          <Description />
-          <Primary />
-          <Stories />
-          <ArgsTable />
-        </>
-      ),
     },
   },
-} as ComponentMeta<typeof Box>;
+} satisfies Meta<typeof Box>;
 
-export const Borders: ComponentStory<typeof Box> = () => (
+export const Borders: StoryFn<typeof Box> = () => (
   <>
     <Box border='2px solid currentColor' />
     <Box borderBlock='2px solid currentColor' />
@@ -80,7 +63,7 @@ Borders.decorators = [
   ),
 ];
 
-export const BorderRadii: ComponentStory<typeof Box> = () => (
+export const BorderRadii: StoryFn<typeof Box> = () => (
   <>
     <Box borderRadius='full' />
     <Box borderStartStartRadius='full' />
@@ -103,7 +86,7 @@ BorderRadii.decorators = [
   ),
 ];
 
-export const Display: ComponentStory<typeof Box> = () => (
+export const Display: StoryFn<typeof Box> = () => (
   <>
     <Box display='none' />
     <Box display='inline' />
@@ -129,7 +112,7 @@ Display.decorators = [
   ),
 ];
 
-export const Elevation: ComponentStory<typeof Box> = () => (
+export const Elevation: StoryFn<typeof Box> = () => (
   <>
     <Box elevation='0' />
     <Box elevation='1' />
@@ -152,7 +135,7 @@ Elevation.decorators = [
   ),
 ];
 
-export const Heights: ComponentStory<typeof Box> = () => (
+export const Heights: StoryFn<typeof Box> = () => (
   <>
     <Box h='x64' />
     <Box height='x64' />
@@ -170,7 +153,7 @@ Heights.decorators = [
   ),
 ];
 
-export const Insets: ComponentStory<typeof Box> = () => (
+export const Insets: StoryFn<typeof Box> = () => (
   <>
     <Box inset='none' />
     <Box inset='x1' />
@@ -208,9 +191,9 @@ Insets.decorators = [
   ),
 ];
 
-export const Invisible: ComponentStory<typeof Box> = () => <Box invisible />;
+export const Invisible: StoryFn<typeof Box> = () => <Box invisible />;
 
-export const Margins: ComponentStory<typeof Box> = () => (
+export const Margins: StoryFn<typeof Box> = () => (
   <>
     <Box bg='neutral'>
       <Box m={16} bg='tint' size='x16' />
@@ -246,7 +229,7 @@ Margins.decorators = [
   ),
 ];
 
-export const Opacity: ComponentStory<typeof Box> = () => (
+export const Opacity: StoryFn<typeof Box> = () => (
   <Box display='flex'>
     <Box size={32} opacity={0.1} bg='dark' />
     <Box size={32} opacity={0.3} bg='dark' />
@@ -257,7 +240,7 @@ export const Opacity: ComponentStory<typeof Box> = () => (
   </Box>
 );
 
-export const Paddings: ComponentStory<typeof Box> = () => (
+export const Paddings: StoryFn<typeof Box> = () => (
   <>
     <Box bg='neutral'>
       <Box p={16} bg='tint' size='x16' />
@@ -293,7 +276,7 @@ Paddings.decorators = [
   ),
 ];
 
-export const Position: ComponentStory<typeof Box> = () => (
+export const Position: StoryFn<typeof Box> = () => (
   <>
     <Box position='static' />
     <Box position='relative' />
@@ -315,7 +298,7 @@ Position.decorators = [
   ),
 ];
 
-export const Widths: ComponentStory<typeof Box> = () => (
+export const Widths: StoryFn<typeof Box> = () => (
   <>
     <Box w='x64' />
     <Box width='x64' />
@@ -333,7 +316,7 @@ Widths.decorators = [
   ),
 ];
 
-export const Sizes: ComponentStory<typeof Box> = () => (
+export const Sizes: StoryFn<typeof Box> = () => (
   <>
     <Box size='x64' />
     <Box size='none' minSize='x64' />
@@ -350,7 +333,7 @@ Sizes.decorators = [
   ),
 ];
 
-export const TextAlign: ComponentStory<typeof Box> = () => (
+export const TextAlign: StoryFn<typeof Box> = () => (
   <Box display='flex' color='default' flexDirection='column'>
     <Box textAlign='left'>left</Box>
     <Divider />
@@ -363,7 +346,7 @@ export const TextAlign: ComponentStory<typeof Box> = () => (
   </Box>
 );
 
-export const VerticalAlign: ComponentStory<typeof Box> = () => (
+export const VerticalAlign: StoryFn<typeof Box> = () => (
   <>
     <Box verticalAlign='top' />
     <Box verticalAlign='baseline' />
@@ -393,7 +376,7 @@ VerticalAlign.decorators = [
   ),
 ];
 
-export const ZIndex: ComponentStory<typeof Box> = () => (
+export const ZIndex: StoryFn<typeof Box> = () => (
   <>
     <Box zIndex={2} borderColor='stroke-extra-light-highlight' />
     <Box zIndex={1} borderColor='stroke-highlight' />

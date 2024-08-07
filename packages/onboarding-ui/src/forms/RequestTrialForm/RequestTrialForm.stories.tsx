@@ -1,10 +1,7 @@
-import type { Meta, Story } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import { countries } from 'countries-list';
-import type { ComponentProps } from 'react';
 
 import RequestTrialForm from './RequestTrialForm';
-
-type Args = ComponentProps<typeof RequestTrialForm>;
 
 export default {
   title: 'forms/RequestTrialForm',
@@ -33,9 +30,9 @@ export default {
       ['worldwide', 'Worldwide'],
     ],
   },
-} as Meta<Args>;
+} satisfies Meta<typeof RequestTrialForm>;
 
-export const _RequestTrialForm: Story<Args> = (args) => (
+export const _RequestTrialForm: StoryFn<typeof RequestTrialForm> = (args) => (
   <RequestTrialForm {...args} />
 );
 _RequestTrialForm.storyName = 'RequestTrialForm';

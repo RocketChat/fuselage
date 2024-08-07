@@ -17,6 +17,9 @@ export type ToastBarProps = {
   buttonLabel?: string;
 } & Omit<AllHTMLAttributes<HTMLElement>, 'is'>;
 
+/**
+ * Shows alerts in a toast component.
+ */
 export function ToastBar({
   children,
   className = '',

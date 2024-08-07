@@ -1,5 +1,5 @@
 import { Button } from '@rocket.chat/fuselage';
-import type { Meta, Story } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import { useEffect, useState } from 'react';
 
 import { useToastBarDispatch } from './ToastBarContext';
@@ -10,11 +10,11 @@ export default {
     layout: 'centered',
     actions: { argTypesRegex: '^on.*' },
   },
-} as Meta;
+} satisfies Meta;
 
 const DEFAULT_MESSAGE = 'Lorem Ipsum';
 
-export const Default: Story = () => {
+export const Default: StoryFn = () => {
   const [counter, setCounter] = useState(0);
   const dispatchToastMessage = useToastBarDispatch();
 
@@ -53,7 +53,7 @@ export const Default: Story = () => {
   );
 };
 
-export const TopStart: Story = () => {
+export const TopStart: StoryFn = () => {
   const dispatchToastMessage = useToastBarDispatch();
 
   const handleDispatch = () =>
@@ -74,7 +74,7 @@ export const TopStart: Story = () => {
   );
 };
 
-export const TopEnd: Story = () => {
+export const TopEnd: StoryFn = () => {
   const dispatchToastMessage = useToastBarDispatch();
 
   const handleDispatch = () =>
@@ -94,7 +94,7 @@ export const TopEnd: Story = () => {
   );
 };
 
-export const BottomStart: Story = () => {
+export const BottomStart: StoryFn = () => {
   const dispatchToastMessage = useToastBarDispatch();
 
   const handleDispatch = () =>
@@ -115,7 +115,7 @@ export const BottomStart: Story = () => {
   );
 };
 
-export const BottomEnd: Story = () => {
+export const BottomEnd: StoryFn = () => {
   const dispatchToastMessage = useToastBarDispatch();
 
   const handleDispatch = () =>

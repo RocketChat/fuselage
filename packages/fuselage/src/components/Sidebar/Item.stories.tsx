@@ -1,13 +1,7 @@
-import {
-  Title,
-  Description,
-  Primary,
-  Stories,
-  ArgsTable,
-} from '@storybook/addon-docs';
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
+import type { ComponentType } from 'react';
 
-import { Avatar } from '../..';
+import { Avatar } from '../Avatar';
 import {
   SidebarItem,
   SidebarItemAvatar,
@@ -24,25 +18,18 @@ import {
 export default {
   title: 'Sidebar/Item',
   component: SidebarItem,
-  parameters: {
-    docs: {
-      description: {
-        component: 'Item component to be used inside Sidebar.',
-      },
-      page: () => (
-        <>
-          <Title />
-          <Description />
-          <Primary />
-          <ArgsTable />
-          <Stories title={''} />
-        </>
-      ),
-    },
+  subcomponents: {
+    SidebarItemAvatar,
+    SidebarItemContent,
+    SidebarItemContainer,
+    SidebarItemIcon: SidebarItemIcon as ComponentType<any>,
+    SidebarItemSubtitle,
+    SidebarItemTitle,
+    SidebarItemWrapper,
   },
-} as ComponentMeta<typeof SidebarItem>;
+} satisfies Meta<typeof SidebarItem>;
 
-export const Default: ComponentStory<typeof SidebarItem> = () => (
+export const Default: StoryFn<typeof SidebarItem> = () => (
   <>
     <SidebarItem>
       <SidebarItemAvatar>

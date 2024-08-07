@@ -7,7 +7,7 @@ import {
   FieldRow,
   InputBox,
 } from '@rocket.chat/fuselage';
-import type { Meta, Story } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 
 import Form from '../FormPageLayout';
 import {
@@ -20,9 +20,9 @@ import {
 export default {
   title: 'VerticalWizardLayout',
   component: VerticalWizardLayout,
-} as Meta;
+} satisfies Meta<typeof VerticalWizardLayout>;
 
-export const Default: Story = () => (
+export const Default: StoryFn<typeof VerticalWizardLayout> = () => (
   <VerticalWizardLayout>
     <VerticalWizardLayoutTitle>Title</VerticalWizardLayoutTitle>
     <VerticalWizardLayoutForm>
@@ -51,7 +51,7 @@ export const Default: Story = () => (
   </VerticalWizardLayout>
 );
 
-export const WithScroll: Story = () => (
+export const WithScroll: StoryFn<typeof VerticalWizardLayout> = () => (
   <VerticalWizardLayout>
     <VerticalWizardLayoutTitle>Title</VerticalWizardLayoutTitle>
     <VerticalWizardLayoutForm>

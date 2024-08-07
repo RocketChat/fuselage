@@ -5,6 +5,9 @@ import { Box } from '..';
 
 type ContextualbarProps = ComponentProps<typeof Box>;
 
+/**
+ * The `Contextualbar` has the purpose to persist and input information about the scope of the related page.
+ */
 const Contextualbar = forwardRef<HTMLElement, ContextualbarProps>(
   function Contextualbar(
     { children, width, position, bg = 'room', ...props },

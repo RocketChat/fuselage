@@ -39,6 +39,9 @@ function Circle({
   );
 }
 
+/**
+ * Indicates content that has not loaded yet.
+ */
 export const Throbber = forwardRef(function Throbber(
   {
     disabled,

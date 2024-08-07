@@ -1,9 +1,11 @@
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 import { cloneElement, isValidElement, useRef } from 'react';
 import { useOverlayTrigger } from 'react-aria';
 import { useOverlayTriggerState } from 'react-stately';
 
-import { Button, Popover, Tile } from '../..';
+import Button from '../Button';
+import Tile from '../Tile';
+import { Popover } from './Popover';
 
 export default {
   title: 'Layout/Popover',
@@ -11,9 +13,9 @@ export default {
   parameters: {
     layout: 'centered',
   },
-} as ComponentMeta<typeof Popover>;
+} satisfies Meta<typeof Popover>;
 
-const Template: ComponentStory<typeof Popover> = (args) => {
+const Template: StoryFn<typeof Popover> = (args) => {
   const ref = useRef(null);
   const state = useOverlayTriggerState({});
   const { triggerProps, overlayProps } = useOverlayTrigger(
@@ -39,7 +41,7 @@ const Template: ComponentStory<typeof Popover> = (args) => {
   );
 };
 
-export const Default: ComponentStory<typeof Popover> = Template.bind({});
+export const Default: StoryFn<typeof Popover> = Template.bind({});
 Default.args = {
   children: <Tile>Popover Content</Tile>,
 };

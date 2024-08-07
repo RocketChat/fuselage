@@ -1,13 +1,14 @@
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 
-import { Box, Chevron } from '../..';
+import Box from '../Box';
+import { Chevron } from './Chevron';
 
 export default {
   title: 'Data Display/Chevron',
   component: Chevron,
-} as ComponentMeta<typeof Chevron>;
+} satisfies Meta<typeof Chevron>;
 
-const Template: ComponentStory<typeof Chevron> = (args) => (
+const Template: StoryFn<typeof Chevron> = (args) => (
   <Chevron {...args} size={40} />
 );
 
@@ -33,7 +34,7 @@ Left.args = {
   left: true,
 };
 
-export const Size: ComponentStory<typeof Chevron> = () => (
+export const Size: StoryFn<typeof Chevron> = () => (
   <Box display='flex' alignItems='center'>
     <Chevron size='x2' />
     <Chevron size='x4' />

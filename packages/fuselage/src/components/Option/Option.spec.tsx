@@ -1,7 +1,6 @@
-import { render } from '@testing-library/react';
-
 import Option, { OptionContent } from '.';
 import { prevent } from '../../helpers/prevent';
+import { render } from '../../testing';
 
 jest.mock('../../helpers/prevent');
 

@@ -1,17 +1,15 @@
-import type { ComponentMeta, ComponentStory } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 
-import { Icon, UrlInput } from '../..';
 import { PropsVariationSection } from '../../../.storybook/helpers';
+import { Icon } from '../Icon';
+import UrlInput from './UrlInput';
 
 export default {
   title: 'Inputs/UrlInput',
   component: UrlInput,
-  parameters: {
-    jest: ['UrlInput.spec.tsx'],
-  },
-} as ComponentMeta<typeof UrlInput>;
+} satisfies Meta<typeof UrlInput>;
 
-export const Default: ComponentStory<typeof UrlInput> = () => (
+export const Default: StoryFn<typeof UrlInput> = () => (
   <UrlInput aria-label='url' />
 );
 

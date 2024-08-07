@@ -1,16 +1,8 @@
-import {
-  Title,
-  Description,
-  Primary,
-  Stories,
-  ArgsTable,
-  Subtitle,
-} from '@storybook/addon-docs';
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 import { cloneElement } from 'react';
 import flattenChildren from 'react-keyed-flatten-children';
 
-import { Box } from '../..';
+import Box from './Box';
 
 export default {
   title: 'Layout/Box/Colors',
@@ -20,21 +12,11 @@ export default {
       description: {
         component: 'Here are the available color props and values.',
       },
-      page: () => (
-        <>
-          <Title />
-          <Subtitle />
-          <Description />
-          <Primary />
-          <Stories />
-          <ArgsTable />
-        </>
-      ),
     },
   },
-} as ComponentMeta<typeof Box>;
+} satisfies Meta<typeof Box>;
 
-export const SurfaceColors: ComponentStory<typeof Box> = () => (
+export const SurfaceColors: StoryFn<typeof Box> = () => (
   <>
     <Box bg='light' />
     <Box bg='tint' />
@@ -74,7 +56,7 @@ SurfaceColors.decorators = [
   ),
 ];
 
-export const StatusColors: ComponentStory<typeof Box> = () => (
+export const StatusColors: StoryFn<typeof Box> = () => (
   <>
     <Box bg='status-background-info' color='status-font-on-info' />
     <Box bg='status-background-success' color='status-font-on-success' />
@@ -107,7 +89,7 @@ StatusColors.decorators = [
   ),
 ];
 
-export const StrokeColors: ComponentStory<typeof Box> = () => (
+export const StrokeColors: StoryFn<typeof Box> = () => (
   <>
     <Box borderColor='stroke-extra-light' />
     <Box borderColor='stroke-light' />
@@ -145,7 +127,7 @@ StrokeColors.decorators = [
   ),
 ];
 
-export const FontColors: ComponentStory<typeof Box> = () => (
+export const FontColors: StoryFn<typeof Box> = () => (
   <>
     <Box color='font-white' bg='dark' borderRadius={4} />
     <Box color='font-disabled' />

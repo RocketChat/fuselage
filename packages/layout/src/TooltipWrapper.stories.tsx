@@ -1,14 +1,14 @@
 import { Box } from '@rocket.chat/fuselage';
-import type { Meta, Story } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 
 import TooltipWrapper from './TooltipWrapper';
 
 export default {
   title: 'common/TooltipWrapper',
   component: TooltipWrapper,
-} as Meta;
+} satisfies Meta<typeof TooltipWrapper>;
 
-export const WithRenderProp: Story = () => (
+export const WithRenderProp: StoryFn<typeof TooltipWrapper> = () => (
   <TooltipWrapper text='A example tooltip'>
     {({ ref, toggle, id }) => (
       <Box
@@ -29,7 +29,7 @@ WithRenderProp.parameters = {
   layout: 'centered',
 };
 
-export const WithElement: Story = () => (
+export const WithElement: StoryFn<typeof TooltipWrapper> = () => (
   <TooltipWrapper text='A example tooltip'>
     <Box tabIndex={0}>Text</Box>
   </TooltipWrapper>

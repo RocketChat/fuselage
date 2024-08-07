@@ -1,6 +1,5 @@
-import { render } from '@testing-library/react';
-
-import { Skeleton } from '.';
+import { render } from '../../testing';
+import { Skeleton } from './Skeleton';
 
 describe('[Skeleton Component]', () => {
   it('renders without crashing', () => {

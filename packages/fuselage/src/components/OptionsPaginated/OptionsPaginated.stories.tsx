@@ -1,12 +1,16 @@
-import { Title, Description, Primary, Stories } from '@storybook/addon-docs';
-import type { ComponentMeta, ComponentStory } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import type { ComponentProps } from 'react';
 import { createRef } from 'react';
 
-import { OptionsPaginated, CheckOption } from '.';
-import { Box } from '..';
+import Box from '../Box';
 import Option from '../Option';
-// ComponentProps<typeof Option.Icon>['name']
+import { CheckOption, OptionsPaginated } from './OptionsPaginated';
+
+export default {
+  title: 'Navigation/Options/OptionsPaginated',
+  component: OptionsPaginated,
+} satisfies Meta<typeof OptionsPaginated>;
+
 const options: ComponentProps<typeof OptionsPaginated>['options'] = Array.from({
   length: 90,
 }).map((_: unknown, i: number) => ({
@@ -14,27 +18,7 @@ const options: ComponentProps<typeof OptionsPaginated>['options'] = Array.from({
   label: `a test ${i + 1}`,
 }));
 
-export default {
-  title: 'Navigation/Options/OptionsPaginated',
-  component: OptionsPaginated,
-  parameters: {
-    docs: {
-      description: {
-        component: 'An input for selection of options.',
-      },
-      page: () => (
-        <>
-          <Title />
-          <Description />
-          <Primary />
-          <Stories title={''} />
-        </>
-      ),
-    },
-  },
-} as ComponentMeta<typeof OptionsPaginated>;
-
-const Template: ComponentStory<typeof OptionsPaginated> = (args) => (
+const Template: StoryFn<typeof OptionsPaginated> = (args) => (
   <Box position='relative' maxWidth={250}>
     <OptionsPaginated {...args} ref={createRef()} options={options} />
   </Box>

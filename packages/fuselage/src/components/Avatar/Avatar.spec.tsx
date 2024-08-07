@@ -1,7 +1,7 @@
-import { composeStories } from '@storybook/testing-react';
-import { render } from '@testing-library/react';
+import { composeStories } from '@storybook/react';
 import { axe } from 'jest-axe';
 
+import { render } from '../../testing';
 import * as stories from './Avatar.stories';
 
 const testCases = Object.values(composeStories(stories)).map((Story) => [

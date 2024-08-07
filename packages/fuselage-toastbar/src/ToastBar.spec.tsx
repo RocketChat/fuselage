@@ -1,9 +1,10 @@
-import { composeStories } from '@storybook/testing-react';
-import { render, getByRole, screen } from '@testing-library/react';
+import { composeStories } from '@storybook/react';
+import { getByRole, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import * as stories from './ToastBar.stories';
 import ToastBarProvider from './ToastBarProvider';
+import { render } from './testing';
 
 const { Default, TopEnd } = composeStories(stories, {
   decorators: [

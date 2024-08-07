@@ -1,5 +1,6 @@
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 
+import { render } from '../../../testing';
 import { ThreadMessageOrigin } from './ThreadMessageOrigin';
 
 describe('ThreadMessageOrigin', () => {

@@ -13,6 +13,9 @@ type SidebarItemProps = {
   children?: ReactNode;
 } & AllHTMLAttributes<HTMLElement>;
 
+/**
+ * Item component to be used inside Sidebar.
+ */
 export const SidebarItem = ({
   selected,
   highlighted,

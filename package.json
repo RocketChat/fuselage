@@ -12,7 +12,7 @@
     "husky": "~9.0.11",
     "hygen": "~6.1.5",
     "pinst": "~3.0.0",
-    "turbo": "~2.0.9",
+    "turbo": "~2.0.11",
     "update-readme": "workspace:~",
     "webpack": "~5.78.0"
   },
@@ -43,10 +43,7 @@
     "node": "22.2.0",
     "yarn": "4.2.2"
   },
-  "packageManager": "yarn@4.2.2",
-  "resolutions": {
-    "@storybook/react-docgen-typescript-plugin@1.0.2-canary.6.9d540b91e815f8fc2f8829189deb00553559ff63.0": "patch:@storybook/react-docgen-typescript-plugin@npm%3A1.0.2-canary.6.9d540b91e815f8fc2f8829189deb00553559ff63.0#./.yarn/patches/@storybook-react-docgen-typescript-plugin-npm-1.0.2-canary.6.9d540b91e815f8fc2f8829189deb00553559ff63.0-b31cc57c40.patch"
-  },
+  "packageManager": "yarn@4.4.0",
   "eslintConfig": {
     "extends": "@rocket.chat/eslint-config-alt"
   }

@@ -54,6 +54,9 @@ const getDurationForInfinityDurationAudioFile = (
   });
 };
 
+/**
+ * A Fuselage’s custom AudioPlayer.
+ */
 export const AudioPlayer = forwardRef<
   HTMLAudioElement,
   {

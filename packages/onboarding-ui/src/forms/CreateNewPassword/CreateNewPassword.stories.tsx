@@ -1,9 +1,6 @@
-import type { Meta, Story } from '@storybook/react';
-import type { ComponentProps } from 'react';
+import type { Meta, StoryFn } from '@storybook/react';
 
 import CreateNewPassword from './CreateNewPassword';
-
-type Args = ComponentProps<typeof CreateNewPassword>;
 
 export default {
   title: 'forms/CreateNewPassword',
@@ -12,9 +9,9 @@ export default {
     layout: 'centered',
     actions: { argTypesRegex: '^on.*' },
   },
-} as Meta<Args>;
+} satisfies Meta<typeof CreateNewPassword>;
 
-export const _CreateNewPassword: Story<Args> = (args) => (
+export const _CreateNewPassword: StoryFn<typeof CreateNewPassword> = (args) => (
   <CreateNewPassword {...args} />
 );
 _CreateNewPassword.storyName = 'CreateNewPassword';

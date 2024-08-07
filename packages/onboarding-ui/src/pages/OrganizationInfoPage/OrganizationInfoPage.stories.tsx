@@ -1,11 +1,8 @@
-import type { Story, Meta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 import { countries } from 'countries-list';
-import type { ComponentProps } from 'react';
 
 import OrganizationInfoPage from './OrganizationInfoPage';
 import TitleOrganizationInfoPage from './TitleOrganizationInfoPage';
-
-type Args = ComponentProps<typeof OrganizationInfoPage>;
 
 export default {
   title: 'pages/OrganizationInfoPage',
@@ -59,14 +56,14 @@ export default {
       ['worldwide', 'Worldwide'],
     ],
   },
-} as Meta<Args>;
+} satisfies Meta<typeof OrganizationInfoPage>;
 
-export const _OrganizationInfoPage: Story<Args> = (args) => (
-  <OrganizationInfoPage {...args} />
-);
+export const _OrganizationInfoPage: StoryFn<typeof OrganizationInfoPage> = (
+  args
+) => <OrganizationInfoPage {...args} />;
 _OrganizationInfoPage.storyName = 'OrganizationInfoPage';
 
-export const _WithoutBack: Story<Args> = (args) => (
+export const _WithoutBack: StoryFn<typeof OrganizationInfoPage> = (args) => (
   <OrganizationInfoPage {...args} />
 );
 _WithoutBack.storyName = 'WithoutBack';
@@ -74,9 +71,9 @@ _WithoutBack.args = {
   onBackButtonClick: undefined,
 };
 
-export const _CloudOrganizationInfoPage: Story<Args> = (args) => (
-  <OrganizationInfoPage {...args} />
-);
+export const _CloudOrganizationInfoPage: StoryFn<
+  typeof OrganizationInfoPage
+> = (args) => <OrganizationInfoPage {...args} />;
 
 _CloudOrganizationInfoPage.storyName = 'CloudOrganizationInfoPage';
 _CloudOrganizationInfoPage.args = {

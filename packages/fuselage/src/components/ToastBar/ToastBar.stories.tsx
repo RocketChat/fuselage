@@ -1,40 +1,14 @@
 import { action } from '@storybook/addon-actions';
-import {
-  Title,
-  Subtitle,
-  Description,
-  Primary as PrimaryStory,
-  ArgsTable,
-  Stories,
-  PRIMARY_STORY,
-} from '@storybook/addon-docs';
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 
-import { ToastBar } from '..';
+import { ToastBar } from './ToastBar';
 
 export default {
   title: 'Feedback/ToastBar',
   component: ToastBar,
-  parameters: {
-    docs: {
-      description: {
-        component: 'Shows alerts in a toast component.',
-      },
-      page: () => (
-        <>
-          <Title />
-          <Subtitle />
-          <Description />
-          <PrimaryStory />
-          <ArgsTable story={PRIMARY_STORY} />
-          <Stories title={''} />
-        </>
-      ),
-    },
-  },
-} as ComponentMeta<typeof ToastBar>;
+} satisfies Meta<typeof ToastBar>;
 
-const Template: ComponentStory<typeof ToastBar> = (args) => (
+const Template: StoryFn<typeof ToastBar> = (args) => (
   <ToastBar
     children='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
   tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,

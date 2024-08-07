@@ -1,9 +1,6 @@
-import type { Story, Meta } from '@storybook/react';
-import type { ComponentProps } from 'react';
+import type { StoryFn, Meta } from '@storybook/react';
 
 import InformationPage from './InformationPage';
-
-type Args = ComponentProps<typeof InformationPage>;
 
 export default {
   title: 'pages/InformationPage',
@@ -16,9 +13,9 @@ export default {
     title: 'Place your title here',
     description: 'Place your description here',
   },
-} as Meta<Args>;
+} satisfies Meta<typeof InformationPage>;
 
-export const _InformationPage: Story<Args> = (args) => (
+export const _InformationPage: StoryFn<typeof InformationPage> = (args) => (
   <InformationPage {...args} />
 );
 _InformationPage.storyName = 'InformationPage';
