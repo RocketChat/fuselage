@@ -1,11 +1,12 @@
 import breakpointTokens from '@rocket.chat/fuselage-tokens/breakpoints.json';
+import surface from '@rocket.chat/fuselage-tokens/dist/surface.json';
 import type { Preview } from '@storybook/react';
 import { themes } from '@storybook/theming';
 import { useDarkMode } from 'storybook-dark-mode';
 
 import manifest from '../package.json';
 import { PaletteStyleTag } from '../src';
-import { surface } from './helpers';
+import DocsContainer from './DocsContainer';
 import logo from './logo.svg';
 
 import 'normalize.css/normalize.css';
@@ -20,6 +21,9 @@ export default {
         cellAmount: 4,
         opacity: 0.5,
       },
+    },
+    docs: {
+      container: DocsContainer,
     },
     options: {
       storySort: {
@@ -54,15 +58,17 @@ export default {
     darkMode: {
       dark: {
         ...themes.dark,
-        appBg: surface.sidebar,
-        appContentBg: surface.main,
-        barBg: surface.main,
+        appBg: surface.surface.dark.sidebar,
+        appContentBg: surface.surface.dark.light,
+        appPreviewBg: 'transparent',
+        barBg: surface.surface.dark.light,
         brandTitle: manifest.name,
         brandImage: logo,
         brandUrl: manifest.homepage,
       },
       light: {
         ...themes.normal,
+        appPreviewBg: 'transparent',
         brandTitle: manifest.name,
         brandImage: logo,
         brandUrl: manifest.homepage,
