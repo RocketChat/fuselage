@@ -30,7 +30,7 @@ const Contextualbar = forwardRef<HTMLElement, ContextualbarProps>(
         position={position}
         insetInlineEnd='none'
         insetBlockStart='none'
-        zIndex={5}
+        zIndex={10}
         {...props}
       >
         {children}
