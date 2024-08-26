@@ -1,5 +1,4 @@
 import type { ComponentProps } from 'react';
-
 import { MessageEmojiBase } from './MessageEmojiBase';
 
 type MessageEmojiProps = ComponentProps<typeof MessageEmojiBase> & {
