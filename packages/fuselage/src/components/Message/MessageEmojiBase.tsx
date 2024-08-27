@@ -11,7 +11,7 @@ export const MessageEmojiBase = ({
   className,
   ...props
 }: MessageEmojiBaseProps) => {
-  // Detect if the name prop is a ZWJ sequence
+  // Detect if the name prop is a ZWJ sequence added this
   const isZWJSequence = name.includes('\u200D'); // '\u200D' is the Unicode for ZWJ
 
   return (
