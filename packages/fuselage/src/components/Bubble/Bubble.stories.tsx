@@ -58,6 +58,14 @@ WithoutAction.args = {
   secondary: true,
 };
 
+export const WithLargeText = Template.bind({});
+WithLargeText.args = {
+  children:
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vestibulum libero viverra nulla varius, a consequat ante malesuada. Fusce bibendum, lacus sed fermentum sagittis, urna erat viverra lacus, eu pellentesque neque est nec nisl. Morbi in lobortis dui, ac consectetur mi.',
+  secondary: true,
+  onClick: action('click'),
+};
+
 export const Small = Template.bind({});
 Small.args = {
   children: '22 Nov 2023',
