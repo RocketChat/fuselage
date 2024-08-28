@@ -49,6 +49,12 @@
 
     border-radius: lengths.border-radius(extra-large);
     column-gap: lengths.padding(8);
+
+    @include typography.use-with-truncated-text;
+
+    > span {
+      @include typography.use-with-truncated-text;
+    }
   }
 
   &:not(.rcx-bubble__group) &__item {
