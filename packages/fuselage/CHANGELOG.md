@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.58.1
+
+### Patch Changes
+
+- [#1429](https://github.com/RocketChat/fuselage/pull/1429) [`5237bf4e`](https://github.com/RocketChat/fuselage/commit/5237bf4ec12469ead842bff9df020c0e587077c4) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): change `Accordion` color token
+
+- [#1433](https://github.com/RocketChat/fuselage/pull/1433) [`277dffab`](https://github.com/RocketChat/fuselage/commit/277dffabcfcbfebd075d12fc912719b47eddd4b5) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): Bubble missing text truncation
+
 ## 0.58.0
 
 ### Minor Changes
