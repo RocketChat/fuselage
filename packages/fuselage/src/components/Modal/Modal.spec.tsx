@@ -1,7 +1,8 @@
-import { composeStories } from '@storybook/testing-react';
-import { render, screen } from '@testing-library/react';
+import { composeStories } from '@storybook/react';
+import { screen } from '@testing-library/react';
 import { axe } from 'jest-axe';
 
+import { render } from '../../testing';
 import * as stories from './Modal.stories';
 import { Default } from './Modal.stories';
 

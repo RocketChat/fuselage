@@ -53,6 +53,9 @@ const getSelected = (
     : options?.filter((option) => value.includes(option.value));
 };
 
+/**
+ * An input for selection of options.
+ */
 export function AutoComplete({
   value,
   filter,

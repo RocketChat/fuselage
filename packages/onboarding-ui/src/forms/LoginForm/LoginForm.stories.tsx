@@ -1,9 +1,6 @@
-import type { Meta, Story } from '@storybook/react';
-import type { ComponentProps } from 'react';
+import type { Meta, StoryFn } from '@storybook/react';
 
 import LoginForm from './LoginForm';
-
-type Args = ComponentProps<typeof LoginForm>;
 
 export default {
   title: 'forms/LoginForm',
@@ -12,7 +9,9 @@ export default {
     layout: 'centered',
     actions: { argTypesRegex: '^on.*' },
   },
-} as Meta<Args>;
+} satisfies Meta<typeof LoginForm>;
 
-export const _LoginForm: Story<Args> = (args) => <LoginForm {...args} />;
+export const _LoginForm: StoryFn<typeof LoginForm> = (args) => (
+  <LoginForm {...args} />
+);
 _LoginForm.storyName = 'LoginForm';

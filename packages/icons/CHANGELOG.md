@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.38.0
+
+### Minor Changes
+
+- [#1425](https://github.com/RocketChat/fuselage/pull/1425) [`f37f5f1a`](https://github.com/RocketChat/fuselage/commit/f37f5f1a42bc9f27f77d3be9a635585230298bac) Thanks [@aleksandernsilva](https://github.com/aleksandernsilva)! - feat(icons): Add icon pause-shape-unfilled
+
 ## 0.37.0
 
 ### Minor Changes

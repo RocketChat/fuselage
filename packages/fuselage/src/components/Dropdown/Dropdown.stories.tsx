@@ -1,7 +1,7 @@
-import type { ComponentStory } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import { useRef } from 'react';
 
-import { Box } from '..';
+import Box from '../Box';
 import { IconButton } from '../Button';
 import Option from '../Option';
 import { Dropdown } from './Dropdown';
@@ -9,12 +9,9 @@ import { Dropdown } from './Dropdown';
 export default {
   title: 'Navigation/Dropdown',
   component: Dropdown,
-  parameters: {
-    jest: ['Dropdown.spec.tsx'],
-  },
-};
+} satisfies Meta<typeof Dropdown>;
 
-export const Default: ComponentStory<typeof Dropdown> = () => {
+export const Default: StoryFn<typeof Dropdown> = () => {
   const anchor = useRef(null);
   const target = useRef(null);
 

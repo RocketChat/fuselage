@@ -1,6 +1,5 @@
-import { render } from '@testing-library/react';
-
 import Flex from '.';
+import { render } from '../../testing';
 
 describe('[Flex Component]', () => {
   it('renders Flex.Container without crashing', () => {

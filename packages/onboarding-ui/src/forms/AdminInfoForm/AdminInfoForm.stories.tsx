@@ -1,9 +1,6 @@
-import type { Story, Meta } from '@storybook/react';
-import type { ComponentProps } from 'react';
+import type { StoryFn, Meta } from '@storybook/react';
 
 import AdminInfoForm from './AdminInfoForm';
-
-type Args = ComponentProps<typeof AdminInfoForm>;
 
 export default {
   title: 'forms/AdminInfoForm',
@@ -22,9 +19,9 @@ export default {
     stepCount: 1,
     passwordRulesHint: 'Password rules description goes here',
   },
-} as Meta<Args>;
+} satisfies Meta<typeof AdminInfoForm>;
 
-export const _AdminInfoForm: Story<Args> = (args) => (
+export const _AdminInfoForm: StoryFn<typeof AdminInfoForm> = (args) => (
   <AdminInfoForm {...args} />
 );
 _AdminInfoForm.storyName = 'AdminInfoForm';

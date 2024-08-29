@@ -38,6 +38,9 @@ type InputType =
 
 const type: InputType = 'email';
 
+/**
+ * An input for email addresses.
+ */
 export const EmailInput = forwardRef(function EmailInput(
   props: EmailInputProps,
   ref: Ref<HTMLElement>

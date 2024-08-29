@@ -39,6 +39,9 @@ export const Empty = memo(({ customEmpty }: { customEmpty: string }) => (
   <Option label={customEmpty || 'Empty'} />
 ));
 
+/**
+ * An input for selection of options.
+ */
 export const Options = forwardRef(
   (
     {

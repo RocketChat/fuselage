@@ -1,11 +1,6 @@
 import type { UsePositionOptions } from '@rocket.chat/fuselage-hooks';
 import { usePosition } from '@rocket.chat/fuselage-hooks';
-import type {
-  RefObject,
-  ComponentProps,
-  ReactPortal,
-  ReactElement,
-} from 'react';
+import type { RefObject, ComponentProps, ReactElement } from 'react';
 import { useRef, useMemo, cloneElement, useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 
@@ -25,7 +20,7 @@ const Position = ({
   margin,
   className: _className,
   ...props
-}: PositionProps): ReactPortal => {
+}: PositionProps) => {
   const target = useRef(null);
   const { style: positionStyle, placement: positionPlacement } =
     usePosition(

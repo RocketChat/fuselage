@@ -1,6 +1,5 @@
-import { render } from '@testing-library/react';
-
-import { Pagination } from '.';
+import { render } from '../../testing';
+import { Pagination } from './Pagination';
 
 describe('[Pagination Component]', () => {
   it('renders without crashing', () => {

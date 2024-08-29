@@ -1,41 +1,23 @@
 import type { Keys } from '@rocket.chat/icons';
 import nameToCharacterMapping from '@rocket.chat/icons';
-import {
-  Title,
-  Description,
-  Primary,
-  Stories,
-  ArgsTable,
-} from '@storybook/addon-docs';
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 import { useState } from 'react';
 
-import { Box, Divider, Icon } from '../..';
+import Box from '../Box';
+import { Divider } from '../Divider';
 import InputBox from '../InputBox';
+import { Icon } from './Icon';
+
+export default {
+  title: 'Data Display/Icon',
+  component: Icon,
+} satisfies Meta<typeof Icon>;
 
 const iconsList = Object.keys(nameToCharacterMapping).sort((a, b) =>
   a.localeCompare(b)
 ) as Keys[];
 
-export default {
-  title: 'Data Display/Icon',
-  component: Icon,
-  parameters: {
-    docs: {
-      page: () => (
-        <>
-          <Title />
-          <Description />
-          <Primary />
-          <Stories />
-          <ArgsTable />
-        </>
-      ),
-    },
-  },
-} as ComponentMeta<typeof Icon>;
-
-export const Default: ComponentStory<typeof Icon> = () => (
+export const Default: StoryFn<typeof Icon> = () => (
   <Box color='default'>
     {iconsList.map((name) => (
       <Icon key={name} name={name} size='x40' />
@@ -43,7 +25,7 @@ export const Default: ComponentStory<typeof Icon> = () => (
   </Box>
 );
 
-export const AvailableIcons: ComponentStory<typeof Icon> = () => {
+export const AvailableIcons: StoryFn<typeof Icon> = () => {
   const [filter, setFilter] = useState('');
 
   const filteredIcons = iconsList.filter((name) =>

@@ -979,5 +979,8 @@
   },
   "ai": {
     "start": "\ue159"
+  },
+  "pause-shape-unfilled": {
+    "start": "\ue15b"
   }
 }

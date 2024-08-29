@@ -1,5 +1,5 @@
 import { Tile } from '@rocket.chat/fuselage';
-import type { Story, Meta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 
 import BackgroundLayer from './BackgroundLayer';
 
@@ -9,24 +9,10 @@ export default {
   parameters: {
     layout: 'fullscreen',
   },
-} as Meta;
+} satisfies Meta<typeof BackgroundLayer>;
 
-export const SystemDarkMode: Story = () => (
+export const SystemDarkMode: StoryFn<typeof BackgroundLayer> = () => (
   <BackgroundLayer>
     <Tile>An example tile</Tile>
   </BackgroundLayer>
 );
-
-export const DarkMode: Story = (props) => (
-  <BackgroundLayer {...props}>
-    <Tile>An example tile</Tile>
-  </BackgroundLayer>
-);
-DarkMode.args = { forcedDarkMode: true };
-
-export const LightMode: Story = (props) => (
-  <BackgroundLayer {...props}>
-    <Tile>An example tile</Tile>
-  </BackgroundLayer>
-);
-LightMode.args = { forcedDarkMode: false };

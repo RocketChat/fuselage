@@ -1,6 +1,5 @@
-import { render } from '@testing-library/react';
-
-import { Scrollable } from '../..';
+import { render } from '../../testing';
+import { Scrollable } from './Scrollable';
 
 describe('Scrollabe Component', () => {
   it('renders without crashing', () => {

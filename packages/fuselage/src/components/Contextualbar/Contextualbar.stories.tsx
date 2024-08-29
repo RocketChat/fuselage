@@ -1,31 +1,38 @@
 import { action } from '@storybook/addon-actions';
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
+import type { ComponentType } from 'react';
 
-import {
-  Contextualbar,
-  ContextualbarAction,
-  ContextualbarActions,
-  ContextualbarButton,
-  ContextualbarContent,
-  ContextualbarEmptyContent,
-  ContextualbarFooter,
-  ContextualbarHeader,
-  ContextualbarSection,
-  ContextualbarSkeleton,
-  ContextualbarTitle,
-} from '.';
-import { Button, ButtonGroup, IconButton, Box, InputBox, Icon } from '..';
+import Box from '../Box';
+import Button, { IconButton } from '../Button';
+import { ButtonGroup } from '../ButtonGroup';
+import { Icon } from '../Icon';
+import InputBox from '../InputBox';
+import Contextualbar from './Contextualbar';
+import ContextualbarAction from './ContextualbarAction';
+import ContextualbarActions from './ContextualbarActions';
+import ContextualbarButton from './ContextualbarButton';
+import ContextualbarContent from './ContextualbarContent';
+import ContextualbarEmptyContent from './ContextualbarEmptyContent';
+import ContextualbarFooter from './ContextualbarFooter';
+import ContextualbarHeader from './ContextualbarHeader';
+import ContextualbarSection from './ContextualbarSection';
+import ContextualbarSkeleton from './ContextualbarSkeleton';
+import ContextualbarTitle from './ContextualbarTitle';
 
 export default {
   title: 'Containers/Contextualbar',
   component: Contextualbar,
-  parameters: {
-    docs: {
-      description: {
-        component: `The \`Contextualbar\` has the purpose to persist and input information about the scope of the related page.
-				`,
-      },
-    },
+  subcomponents: {
+    ContextualbarAction: ContextualbarAction as ComponentType<any>,
+    ContextualbarActions: ContextualbarActions as ComponentType<any>,
+    ContextualbarButton: ContextualbarButton as ComponentType<any>,
+    ContextualbarContent: ContextualbarContent as ComponentType<any>,
+    ContextualbarEmptyContent: ContextualbarEmptyContent as ComponentType<any>,
+    ContextualbarFooter: ContextualbarFooter as ComponentType<any>,
+    ContextualbarHeader: ContextualbarHeader as ComponentType<any>,
+    ContextualbarSection: ContextualbarSection as ComponentType<any>,
+    ContextualbarSkeleton: ContextualbarSkeleton as ComponentType<any>,
+    ContextualbarTitle: ContextualbarTitle as ComponentType<any>,
   },
   decorators: [
     (storyFn) => (
@@ -34,9 +41,9 @@ export default {
       </Box>
     ),
   ],
-} as ComponentMeta<typeof Contextualbar>;
+} satisfies Meta<typeof Contextualbar>;
 
-export const Default: ComponentStory<typeof Contextualbar> = () => (
+export const Default: StoryFn<typeof Contextualbar> = () => (
   <Contextualbar position='static' height='x540'>
     <ContextualbarHeader>
       <ContextualbarAction
@@ -85,11 +92,11 @@ export const Default: ComponentStory<typeof Contextualbar> = () => (
   </Contextualbar>
 );
 
-export const Skeleton: ComponentStory<typeof Contextualbar> = () => (
+export const Skeleton: StoryFn<typeof Contextualbar> = () => (
   <ContextualbarSkeleton position='static' height='x540' />
 );
 
-export const Empty: ComponentStory<typeof Contextualbar> = () => (
+export const Empty: StoryFn<typeof Contextualbar> = () => (
   <Contextualbar position='static' height='x540'>
     <ContextualbarHeader>
       <ContextualbarAction title='Back' name='arrow-back' />

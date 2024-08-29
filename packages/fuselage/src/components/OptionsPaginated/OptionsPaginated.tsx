@@ -37,6 +37,9 @@ export const CheckOption = memo(function CheckOption({
   );
 });
 
+/**
+ * An input for selection of options.
+ */
 export const OptionsPaginated = forwardRef(
   (
     {

@@ -7,9 +7,10 @@ import {
   FieldRow,
   InputBox,
 } from '@rocket.chat/fuselage';
-import type { Meta, Story } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 
-import { ActionLink, Form } from '..';
+import ActionLink from '../ActionLink';
+import Form from '../FormPageLayout';
 import {
   HorizontalWizardLayout,
   HorizontalWizardLayoutAside,
@@ -23,9 +24,9 @@ import {
 export default {
   title: 'HorizontalWizardLayout',
   component: HorizontalWizardLayout,
-} as Meta;
+} satisfies Meta<typeof HorizontalWizardLayout>;
 
-export const Default: Story = (props) => (
+export const Default: StoryFn<typeof HorizontalWizardLayout> = (props) => (
   <>
     <HorizontalWizardLayout {...props}>
       <HorizontalWizardLayoutAside>
@@ -70,7 +71,7 @@ export const Default: Story = (props) => (
 );
 Default.args = { forceDarkMode: false };
 
-export const WithScroll: Story = (props) => (
+export const WithScroll: StoryFn<typeof HorizontalWizardLayout> = (props) => (
   <HorizontalWizardLayout {...props}>
     <HorizontalWizardLayoutAside>
       <HorizontalWizardLayoutTitle>Title</HorizontalWizardLayoutTitle>
@@ -201,5 +202,4 @@ export const WithScroll: Story = (props) => (
     </HorizontalWizardLayoutContent>
   </HorizontalWizardLayout>
 );
-
 WithScroll.args = { forceDarkMode: undefined };

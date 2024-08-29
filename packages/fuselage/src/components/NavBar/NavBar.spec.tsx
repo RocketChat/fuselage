@@ -1,8 +1,8 @@
-import { composeStories } from '@storybook/testing-react';
-import { render } from '@testing-library/react';
+import { composeStories } from '@storybook/react';
 import { axe } from 'jest-axe';
 import { SSRProvider } from 'react-aria';
 
+import { render } from '../../testing';
 import * as stories from './NavBar.stories';
 
 const testCases = Object.values(composeStories(stories)).map((Story) => [

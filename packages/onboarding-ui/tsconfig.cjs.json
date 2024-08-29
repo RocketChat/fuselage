@@ -6,5 +6,5 @@
     "outDir": "./dist/cjs"
   },
   "include": ["./src"],
-  "exclude": ["**/*.spec.ts"]
+  "exclude": ["**/*.spec.ts", "**/*.stories.tsx"]
 }

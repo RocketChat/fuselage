@@ -1,21 +1,20 @@
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
+import type { ComponentType } from 'react';
 
-import { Accordion, Box } from '../..';
+import Box from '../Box';
+import { Accordion } from './Accordion';
+import { AccordionItem } from './AccordionItem';
 
 export default {
   title: 'Containers/Accordion',
   component: Accordion,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'An `Accordion` allows users to toggle the display of sections of content.',
-      },
-    },
+  subcomponents: {
+    'Accordion.Item': Accordion.Item as ComponentType<any>,
+    'AccordionItem': AccordionItem as ComponentType<any>,
   },
-} as ComponentMeta<typeof Accordion.Item>;
+} satisfies Meta<typeof Accordion>;
 
-const Template: ComponentStory<typeof Accordion> = () => (
+const Template: StoryFn<typeof Accordion> = () => (
   <Accordion>
     <Accordion.Item title='Item #1' defaultExpanded>
       <Box color='default' fontScale='p2' marginBlockEnd={16}>
@@ -35,4 +34,4 @@ const Template: ComponentStory<typeof Accordion> = () => (
   </Accordion>
 );
 
-export const Default: ComponentStory<typeof Accordion> = Template.bind({});
+export const Default: StoryFn<typeof Accordion> = Template.bind({});

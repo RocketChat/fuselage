@@ -1,5 +1,4 @@
-import type { Story, Meta } from '@storybook/react';
-import type { ComponentProps } from 'react';
+import type { StoryFn, Meta } from '@storybook/react';
 
 import LoaderPage from './LoaderPage';
 
@@ -11,8 +10,6 @@ const subtitles = [
   'Beginning countdown, 5...4...3...2...1  🚀',
   'Transitioning to liftoff  🚀',
 ];
-
-type Args = ComponentProps<typeof LoaderPage>;
 
 export default {
   title: 'pages/LoaderPage',
@@ -27,7 +24,9 @@ export default {
     isReady: false,
     loadingSeconds: 15,
   },
-} as Meta<Args>;
+} satisfies Meta<typeof LoaderPage>;
 
-export const _LoaderPage: Story<Args> = (args) => <LoaderPage {...args} />;
+export const _LoaderPage: StoryFn<typeof LoaderPage> = (args) => (
+  <LoaderPage {...args} />
+);
 _LoaderPage.storyName = 'LoaderPage';

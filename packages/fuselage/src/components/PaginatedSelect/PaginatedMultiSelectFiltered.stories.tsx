@@ -1,7 +1,7 @@
-import { useArgs } from '@storybook/client-api';
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import { useArgs } from '@storybook/preview-api';
+import type { StoryFn, Meta } from '@storybook/react';
 
-import { PaginatedMultiSelectFiltered } from '.';
+import { PaginatedMultiSelectFiltered } from './PaginatedMultiSelectFiltered';
 
 export default {
   title: 'Inputs/PaginatedMultiSelectFiltered',
@@ -17,15 +17,13 @@ export default {
     actions: { argTypesRegex: '^on.*' },
     layout: 'centered',
   },
-} as ComponentMeta<typeof PaginatedMultiSelectFiltered>;
+} satisfies Meta<typeof PaginatedMultiSelectFiltered>;
 
-const Template: ComponentStory<typeof PaginatedMultiSelectFiltered> = (
-  args
-) => <PaginatedMultiSelectFiltered {...args} />;
+const Template: StoryFn<typeof PaginatedMultiSelectFiltered> = (args) => (
+  <PaginatedMultiSelectFiltered {...args} />
+);
 
-export const Normal: ComponentStory<typeof PaginatedMultiSelectFiltered> = (
-  args
-) => {
+export const Normal: StoryFn<typeof PaginatedMultiSelectFiltered> = (args) => {
   const [, updateArgs] = useArgs();
 
   return (

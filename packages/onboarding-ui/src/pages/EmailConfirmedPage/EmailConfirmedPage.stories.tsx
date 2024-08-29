@@ -1,4 +1,4 @@
-import type { Story, Meta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 
 import EmailConfirmedPage from './EmailConfirmedPage';
 
@@ -8,9 +8,9 @@ export default {
   parameters: {
     layout: 'fullscreen',
   },
-} as Meta;
+} satisfies Meta<typeof EmailConfirmedPage>;
 
-export const _EmailConfirmedPage: Story = (args) => (
-  <EmailConfirmedPage {...args} />
+export const _EmailConfirmedPage: StoryFn<typeof EmailConfirmedPage> = () => (
+  <EmailConfirmedPage />
 );
 _EmailConfirmedPage.storyName = 'EmailConfirmedPage';

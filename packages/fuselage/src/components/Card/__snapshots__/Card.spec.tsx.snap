@@ -420,7 +420,7 @@ exports[`[Card Rendering] renders HorizontalNoIcon without crashing 1`] = `
 </body>
 `;
 
-exports[`[Card Rendering] renders Title h4 without crashing 1`] = `
+exports[`[Card Rendering] renders TitleH4 without crashing 1`] = `
 <body>
   <div>
     <div
@@ -445,7 +445,7 @@ exports[`[Card Rendering] renders Title h4 without crashing 1`] = `
 </body>
 `;
 
-exports[`[Card Rendering] renders Title h5 without crashing 1`] = `
+exports[`[Card Rendering] renders TitleH5 without crashing 1`] = `
 <body>
   <div>
     <div

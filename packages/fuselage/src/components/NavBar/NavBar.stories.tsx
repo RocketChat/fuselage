@@ -1,28 +1,26 @@
-import {
-  Title,
-  Description,
-  Primary,
-  Stories,
-  ArgsTable,
-} from '@storybook/addon-docs';
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
+import type { ComponentType } from 'react';
 
-import {
-  NavBar,
-  NavBarItem,
-  NavBarSection,
-  NavBarDivider,
-  NavBarGroup,
-} from '.';
 import { Avatar } from '../Avatar';
 import Box from '../Box';
 import { MenuV2 as Menu, MenuItem, MenuSection } from '../Menu';
 import { MenuDisplayExample } from '../Menu/V2/Menu.stories';
 import { avatarUrl } from '../Message/helpers';
+import { NavBar } from './NavBar';
+import { NavBarDivider } from './NavBarDivider';
+import { NavBarGroup } from './NavBarGroup';
+import { NavBarItem } from './NavBarItem';
+import { NavBarSection } from './NavBarSection';
 
 export default {
   title: 'Navigation/Navbar',
   component: NavBar,
+  subcomponents: {
+    NavBarItem: NavBarItem as ComponentType<any>,
+    NavBarSection: NavBarSection as ComponentType<any>,
+    NavBarDivider: NavBarDivider as ComponentType<any>,
+    NavBarGroup: NavBarGroup as ComponentType<any>,
+  },
   decorators: [
     (Story) => (
       <Box display='flex'>
@@ -30,22 +28,9 @@ export default {
       </Box>
     ),
   ],
-  parameters: {
-    docs: {
-      page: () => (
-        <>
-          <Title />
-          <Description />
-          <Primary />
-          <Stories />
-          <ArgsTable />
-        </>
-      ),
-    },
-  },
-} as ComponentMeta<typeof NavBar>;
+} satisfies Meta<typeof NavBar>;
 
-const Template: ComponentStory<typeof NavBar> = (args) => (
+const Template: StoryFn<typeof NavBar> = (args) => (
   <NavBar {...args}>
     <NavBarSection>
       <NavBarGroup role='toolbar'>
@@ -97,4 +82,4 @@ const Template: ComponentStory<typeof NavBar> = (args) => (
   </NavBar>
 );
 
-export const Default: ComponentStory<typeof NavBar> = Template.bind({});
+export const Default: StoryFn<typeof NavBar> = Template.bind({});

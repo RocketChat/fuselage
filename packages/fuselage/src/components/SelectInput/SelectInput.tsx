@@ -13,6 +13,9 @@ type SelectInputProps = Omit<ComponentProps<typeof InputBox>, 'type'> & {
   addon?: ReactNode;
 };
 
+/**
+ * An input for selection of options.
+ */
 export const SelectInput = forwardRef(function SelectInput(
   { children, multiple, placeholder, onChange, ...props }: SelectInputProps,
   ref: Ref<HTMLElement>

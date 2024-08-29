@@ -1,4 +1,4 @@
-import type { Story } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 
 import ResetPasswordConfirmationPage from './ResetPasswordConfirmationPage';
 
@@ -9,9 +9,9 @@ export default {
     actions: { argTypesRegex: '^on.*' },
     layout: 'fullscreen',
   },
-};
+} satisfies Meta<typeof ResetPasswordConfirmationPage>;
 
-export const _ResetPasswordConfirmationPage: Story = (args) => (
-  <ResetPasswordConfirmationPage {...args} />
-);
+export const _ResetPasswordConfirmationPage: StoryFn<
+  typeof ResetPasswordConfirmationPage
+> = () => <ResetPasswordConfirmationPage />;
 _ResetPasswordConfirmationPage.storyName = 'ResetPasswordConfirmationPage';
