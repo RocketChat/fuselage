@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.57.1
+
+### Patch Changes
+
+- [`98f18bb86`](https://github.com/RocketChat/fuselage/commit/98f18bb86038e5fc58b5d24cde79b1569752a0b7) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): `Bubble` missing overflow property
+
+- [`a214cfadd`](https://github.com/RocketChat/fuselage/commit/a214cfadd2ce76acaef0ab9cc6c3d4e972c1fefe) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): Bubble missing text truncation
+
 ## 0.58.0
 
 ### Minor Changes
