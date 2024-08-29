@@ -8,6 +8,9 @@
 
 .rcx-bubble {
   display: flex;
+
+  overflow: hidden;
+
   align-items: center;
 
   &__button {
