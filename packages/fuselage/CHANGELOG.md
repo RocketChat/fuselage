@@ -1,5 +1,27 @@
 # Change Log
 
+## 0.57.1
+
+### Patch Changes
+
+- [`98f18bb86`](https://github.com/RocketChat/fuselage/commit/98f18bb86038e5fc58b5d24cde79b1569752a0b7) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): `Bubble` missing overflow property
+
+- [`a214cfadd`](https://github.com/RocketChat/fuselage/commit/a214cfadd2ce76acaef0ab9cc6c3d4e972c1fefe) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): Bubble missing text truncation
+
+## 0.58.2
+
+### Patch Changes
+
+- [#1437](https://github.com/RocketChat/fuselage/pull/1437) [`e9333204`](https://github.com/RocketChat/fuselage/commit/e9333204008ec00f8123a4959def0bf95d5e111a) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): `Bubble` missing overflow property
+
+## 0.58.1
+
+### Patch Changes
+
+- [#1429](https://github.com/RocketChat/fuselage/pull/1429) [`5237bf4e`](https://github.com/RocketChat/fuselage/commit/5237bf4ec12469ead842bff9df020c0e587077c4) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): change `Accordion` color token
+
+- [#1433](https://github.com/RocketChat/fuselage/pull/1433) [`277dffab`](https://github.com/RocketChat/fuselage/commit/277dffabcfcbfebd075d12fc912719b47eddd4b5) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): Bubble missing text truncation
+
 ## 0.58.0
 
 ### Minor Changes
