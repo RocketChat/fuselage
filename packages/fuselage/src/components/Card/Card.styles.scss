@@ -86,4 +86,10 @@ $card-hero-padding: lengths.padding(28);
   &__controls{
     flex-wrap: wrap;
   }
+  &__horizontal &__controls{
+    flex-wrap: nowrap;
+    &--wrap{
+      flex-wrap: wrap;
+    }
+  }
 }
