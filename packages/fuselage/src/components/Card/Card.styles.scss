@@ -83,4 +83,7 @@ $card-hero-padding: lengths.padding(28);
     display: flex;
     align-items: center;
   }
+  &__controls{
+    flex-wrap: wrap;
+  }
 }
