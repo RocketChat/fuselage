@@ -1,5 +1,12 @@
-const CardControls = ({ ...props }) => (
-  <div className='rcx-card__controls' {...props} />
-);
+import Box from '../Box/Box';
+
+const CardControls = ({...props }) => {
+  return (
+    <Box
+      rcx-card__controls
+      {...props}
+    />
+  )
+}
 
 export default CardControls;
