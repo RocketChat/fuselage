@@ -1,9 +1,6 @@
-import type { Story, Meta } from '@storybook/react';
-import type { ComponentProps } from 'react';
+import type { StoryFn, Meta } from '@storybook/react';
 
 import CreateCloudWorkspacePage from './CreateCloudWorkspacePage';
-
-type Args = ComponentProps<typeof CreateCloudWorkspacePage>;
 
 export default {
   title: 'pages/CreateCloudWorkspacePage',
@@ -26,9 +23,9 @@ export default {
     validateEmail: async (email) =>
       email === 'rocket@rocket.chat' ? 'invalid email' : true,
   },
-} as Meta<Args>;
+} satisfies Meta<typeof CreateCloudWorkspacePage>;
 
-export const _CreateCloudWorkspacePage: Story<Args> = (args) => (
-  <CreateCloudWorkspacePage {...args} />
-);
+export const _CreateCloudWorkspacePage: StoryFn<
+  typeof CreateCloudWorkspacePage
+> = (args) => <CreateCloudWorkspacePage {...args} />;
 _CreateCloudWorkspacePage.storyName = 'CreateCloudWorkspacePage';

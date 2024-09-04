@@ -1,6 +1,16 @@
+import '@testing-library/jest-dom';
 import { toHaveNoViolations } from 'jest-axe';
 
 const cssInJsClassRegex = /^rcx-css-[a-z0-9]+$/;
+
+declare global {
+  // eslint-disable-next-line @typescript-eslint/no-namespace
+  namespace jest {
+    interface Matchers<R> {
+      toHaveCssInJsClass(): R;
+    }
+  }
+}
 
 expect.extend({
   toHaveCssInJsClass: (received: Element | null) => {

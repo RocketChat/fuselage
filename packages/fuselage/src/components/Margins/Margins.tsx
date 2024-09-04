@@ -20,6 +20,9 @@ type MarginsProps = PropsWithChildren<{
   className?: string;
 }>;
 
+/**
+ * Add margins to the wrapped component.
+ */
 export const Margins = (props: MarginsProps) => {
   const {
     children,

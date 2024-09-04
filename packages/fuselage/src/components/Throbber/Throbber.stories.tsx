@@ -1,42 +1,26 @@
 import { action } from '@storybook/addon-actions';
-import { Title, Description, Primary, Stories } from '@storybook/addon-docs';
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 
-import { Throbber, Button, Box } from '../..';
 import { PropsVariationSection } from '../../../.storybook/helpers';
+import Box from '../Box';
+import Button from '../Button';
+import { Throbber } from './Throbber';
 
 export default {
   title: 'Data Display/Throbber',
   component: Throbber,
-  parameters: {
-    docs: {
-      description: {
-        component: 'Indicates content that has not loaded yet.',
-      },
-      page: () => (
-        <>
-          <Title />
-          <Description />
-          <Primary />
-          <Stories title={'Props from InputBox'} />
-        </>
-      ),
-    },
-  },
-} as ComponentMeta<typeof Throbber>;
+} satisfies Meta<typeof Throbber>;
 
-const Template: ComponentStory<typeof Throbber> = (args) => (
-  <Throbber {...args} />
-);
+const Template: StoryFn<typeof Throbber> = (args) => <Throbber {...args} />;
 
-export const Default: ComponentStory<typeof Throbber> = Template.bind({});
+export const Default: StoryFn<typeof Throbber> = Template.bind({});
 
-export const Disabled: ComponentStory<typeof Throbber> = Template.bind({});
+export const Disabled: StoryFn<typeof Throbber> = Template.bind({});
 Disabled.args = {
   disabled: true,
 };
 
-export const InsideButton: ComponentStory<typeof Throbber> = () => (
+export const InsideButton: StoryFn<typeof Throbber> = () => (
   <Button minHeight='x40'>
     <Throbber size='x12' />
   </Button>
@@ -53,7 +37,7 @@ export const InsideButtonInheritColor = () => (
   </Box>
 );
 
-export const States: ComponentStory<typeof Throbber> = () => (
+export const States: StoryFn<typeof Throbber> = () => (
   <PropsVariationSection
     component={Throbber}
     common={{ onClick: action('click') }}

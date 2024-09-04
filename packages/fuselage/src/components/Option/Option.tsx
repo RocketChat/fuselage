@@ -35,6 +35,9 @@ type OptionProps = {
   description?: ReactNode;
 } & Omit<AllHTMLAttributes<HTMLElement>, 'label'>;
 
+/**
+ * The generic `Option` item of options. Can be freely used or inside the `Options` as well.
+ */
 const Option = memo(
   forwardRef(
     (

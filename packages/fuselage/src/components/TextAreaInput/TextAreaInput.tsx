@@ -8,6 +8,9 @@ type TextAreaInputProps = Omit<ComponentProps<typeof InputBox>, 'type'> & {
   error?: string;
 };
 
+/**
+ * An input for multi-line plain-text editing.
+ */
 export const TextAreaInput = forwardRef(function TextAreaInput(
   props: TextAreaInputProps,
   ref: Ref<HTMLTextAreaElement>

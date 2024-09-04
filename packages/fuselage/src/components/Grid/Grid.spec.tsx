@@ -1,6 +1,5 @@
-import { render } from '@testing-library/react';
-
 import { Grid } from '.';
+import { render } from '../../testing';
 
 describe('[Grid Component]', () => {
   it('renders Grid without crashing', () => {

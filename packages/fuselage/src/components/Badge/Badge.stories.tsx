@@ -1,39 +1,14 @@
-import {
-  Title,
-  Subtitle,
-  Description,
-  Primary as PrimaryStory,
-  ArgsTable,
-  Stories,
-  PRIMARY_STORY,
-} from '@storybook/addon-docs';
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 
-import { Badge, Box } from '../..';
+import Box from '../Box';
+import { Badge } from './Badge';
 
 export default {
   title: 'Data Display/Badge',
   component: Badge,
-  parameters: {
-    docs: {
-      description: {
-        component: "Communicates notification's amount and types.",
-      },
-      page: () => (
-        <>
-          <Title />
-          <Subtitle />
-          <Description />
-          <PrimaryStory />
-          <ArgsTable story={PRIMARY_STORY} />
-          <Stories title={''} />
-        </>
-      ),
-    },
-  },
-} as ComponentMeta<typeof Badge>;
+} satisfies Meta<typeof Badge>;
 
-const Template: ComponentStory<typeof Badge> = (args) => (
+const Template: StoryFn<typeof Badge> = (args) => (
   <Box display='inline-flex'>
     <Badge {...args} />
   </Box>

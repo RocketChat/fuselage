@@ -1,13 +1,13 @@
-import type { ComponentMeta, ComponentStory } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 
 import { FramedIcon } from './FramedIcon';
 
 export default {
   title: 'Data Display/FramedIcon',
   component: FramedIcon,
-} as ComponentMeta<typeof FramedIcon>;
+} satisfies Meta<typeof FramedIcon>;
 
-const Template: ComponentStory<typeof FramedIcon> = (args) => (
+const Template: StoryFn<typeof FramedIcon> = (args) => (
   <FramedIcon {...args} icon='rocket' />
 );
 

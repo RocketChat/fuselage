@@ -1,10 +1,7 @@
 import { action } from '@storybook/addon-actions';
-import type { Story, Meta } from '@storybook/react';
-import type { ComponentProps } from 'react';
+import type { StoryFn, Meta } from '@storybook/react';
 
 import RedirectPage from './RedirectPage';
-
-type Args = ComponentProps<typeof RedirectPage>;
 
 export default {
   title: 'pages/RedirectPage',
@@ -18,7 +15,9 @@ export default {
     countDownSeconds: 5,
     onRedirect: action('onRedirect'),
   },
-} as Meta<Args>;
+} satisfies Meta<typeof RedirectPage>;
 
-export const _RedirectPage: Story<Args> = (args) => <RedirectPage {...args} />;
+export const _RedirectPage: StoryFn<typeof RedirectPage> = (args) => (
+  <RedirectPage {...args} />
+);
 _RedirectPage.storyName = 'RedirectPage';

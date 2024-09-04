@@ -1,9 +1,6 @@
-import type { Meta, Story } from '@storybook/react';
-import type { ComponentProps } from 'react';
+import type { Meta, StoryFn } from '@storybook/react';
 
 import RegisterOfflineForm from './RegisterOfflineForm';
-
-type Args = ComponentProps<typeof RegisterOfflineForm>;
 
 export default {
   title: 'forms/RegisterOfflineForm',
@@ -16,8 +13,8 @@ export default {
     clientKey:
       'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA',
   },
-} as Meta<Args>;
+} satisfies Meta<typeof RegisterOfflineForm>;
 
-export const _RegisterOfflineForm: Story<Args> = (args) => (
-  <RegisterOfflineForm {...args} />
-);
+export const _RegisterOfflineForm: StoryFn<typeof RegisterOfflineForm> = (
+  args
+) => <RegisterOfflineForm {...args} />;

@@ -1,10 +1,7 @@
 import { action } from '@storybook/addon-actions';
-import type { Story, Meta } from '@storybook/react';
-import type { ComponentProps } from 'react';
+import type { StoryFn, Meta } from '@storybook/react';
 
 import CreateFirstMemberPage from './CreateFirstMemberPage';
-
-type Args = ComponentProps<typeof CreateFirstMemberPage>;
 
 export default {
   title: 'pages/CreateFirstMemberPage',
@@ -16,7 +13,6 @@ export default {
   args: {
     currentStep: 1,
     stepCount: 1,
-    workspaceName: 'Kapai',
     onSubmit: action('onSubmit'),
     onBackButtonClick: action('onBackButtonClick'),
     validateUsername: async (username) =>
@@ -24,9 +20,9 @@ export default {
     validatePassword: async (password) =>
       password === '12345' ? 'Invalid password' : true,
   },
-} as Meta<Args>;
+} satisfies Meta<typeof CreateFirstMemberPage>;
 
-export const _CreateFirstMemberPage: Story<Args> = (args) => (
-  <CreateFirstMemberPage {...args} />
-);
+export const _CreateFirstMemberPage: StoryFn<typeof CreateFirstMemberPage> = (
+  args
+) => <CreateFirstMemberPage {...args} />;
 _CreateFirstMemberPage.storyName = 'CreateFirstMemberPage';

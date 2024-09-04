@@ -1,12 +1,11 @@
-import { Tile } from '../..';
+import type { Meta } from '@storybook/react';
+
+import Tile from './Tile';
 
 export default {
   title: 'Containers/Tile',
   component: Tile,
-  parameters: {
-    jest: ['Tile.spec.tsx'],
-  },
-};
+} satisfies Meta<typeof Tile>;
 
 export const Default = () => <Tile>Content</Tile>;
 

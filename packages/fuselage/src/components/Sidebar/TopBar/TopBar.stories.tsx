@@ -1,5 +1,5 @@
-import { Title, Description, Primary, Stories } from '@storybook/addon-docs';
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
+import type { ComponentType } from 'react';
 
 import {
   TopBar,
@@ -9,30 +9,21 @@ import {
   TopBarTitle,
   TopBarToolBox,
 } from '.';
-import { SidebarSection } from '..';
-import { Avatar } from '../..';
+import { Avatar } from '../../Avatar';
+import { SidebarSection } from '../Section';
 
 export default {
   title: 'Sidebar/TopBar',
   component: TopBar,
-  parameters: {
-    docs: {
-      description: {
-        component: 'Sidebar TopBar and ToolBox.',
-      },
-      page: () => (
-        <>
-          <Title />
-          <Description />
-          <Primary />
-          <Stories title={''} />
-        </>
-      ),
-    },
+  subcomponents: {
+    TopBarAction: TopBarAction as ComponentType<any>,
+    TopBarActions,
+    TopBarTitle,
+    TopBarToolBox,
   },
-} as ComponentMeta<typeof TopBar>;
+} satisfies Meta<typeof TopBar>;
 
-export const Default: ComponentStory<typeof TopBar> = () => (
+export const Default: StoryFn<typeof TopBar> = () => (
   <>
     <SidebarSection>
       <Avatar
