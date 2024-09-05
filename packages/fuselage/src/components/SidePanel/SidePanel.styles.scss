@@ -1,0 +1,44 @@
+@use '../../styles/colors.scss';
+@use '../../styles/lengths.scss';
+@use '../../styles/typography.scss';
+
+$sidepanel-color-default: colors.font(default);
+
+%section-base {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: lengths.padding(8);
+}
+
+.rcx-sidepanel {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+
+  width: lengths.size(276);
+
+  color: $sidepanel-color-default;
+  border-right: lengths.border-width(default) solid colors.stroke(extra-light);
+
+  background-color: colors.surface(room);
+
+  &-section {
+    @extend %section-base;
+    padding: lengths.padding(16);
+  }
+
+  &-header {
+    @extend %section-base;
+    height: lengths.size(44);
+    padding-inline: lengths.padding(16);
+
+    &__title {
+      @include typography.use-font-scale(h4);
+    }
+  }
+
+  &-list {
+    padding-block: lengths.padding(8);
+  }
+}
