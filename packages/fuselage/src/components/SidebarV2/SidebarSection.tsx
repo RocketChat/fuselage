@@ -1,10 +1,10 @@
 import type { HTMLAttributes } from 'react';
 
-import { SideBarDivider } from './SidebarDivider';
+import { SidebarDivider } from './SidebarDivider';
 
-export const SideBarSection = (props: HTMLAttributes<HTMLDivElement>) => (
+export const SidebarSection = (props: HTMLAttributes<HTMLDivElement>) => (
   <div>
     <div className='rcx-box rcx-box--full rcx-sidebar-v2-section' {...props} />
-    <SideBarDivider />
+    <SidebarDivider />
   </div>
 );

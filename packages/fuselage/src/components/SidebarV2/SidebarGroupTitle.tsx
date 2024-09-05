@@ -3,21 +3,21 @@ import React from 'react';
 
 import { Chevron } from '../Chevron';
 
-type SideBarGroupTitleProps = {
+type SidebarGroupTitleProps = {
   expanded?: boolean;
   title?: string;
   titleId?: string;
   badge?: React.ReactNode;
   barProps?: React.AriaAttributes;
 } & HTMLAttributes<HTMLDivElement>;
-export const SideBarGroupTitle = ({
+export const SidebarGroupTitle = ({
   title,
   titleId,
   badge,
   barProps,
   expanded,
   ...props
-}: SideBarGroupTitleProps) => (
+}: SidebarGroupTitleProps) => (
   <div
     className={[
       'rcx-box rcx-box--full',

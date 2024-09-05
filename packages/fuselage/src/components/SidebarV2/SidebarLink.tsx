@@ -5,7 +5,7 @@ import { appendClassName } from '../../helpers/appendClassName';
 import { patchChildren } from '../../helpers/patchChildren';
 import { Icon } from '../Icon';
 
-export const SideBarLink = ({
+export const SidebarLink = ({
   selected,
   icon,
   badge,

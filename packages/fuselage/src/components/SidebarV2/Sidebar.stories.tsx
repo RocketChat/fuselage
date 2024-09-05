@@ -2,54 +2,54 @@ import { action } from '@storybook/addon-actions';
 import type { Meta, StoryFn } from '@storybook/react';
 
 import {
-  SideBar,
-  SideBarAccordion,
-  SideBarAccordionItem,
-  SideBarBanner,
-  SideBarCollapseGroup,
-  SideBarFooterContent,
-  SideBarItemAction,
-  SideBarLink,
-  SideBarItemBadge,
-  SideBarMedia,
-  SideBarMediaTitle,
-  SideBarMediaController,
-  SideBarListItem,
-  SideBarSection,
-  SideBarFooter,
+  Sidebar,
+  SidebarAccordion,
+  SidebarAccordionItem,
+  SidebarBanner,
+  SidebarCollapseGroup,
+  SidebarFooterContent,
+  SidebarItemAction,
+  SidebarLink,
+  SidebarItemBadge,
+  SidebarMedia,
+  SidebarMediaTitle,
+  SidebarMediaController,
+  SidebarListItem,
+  SidebarSection,
+  SidebarFooter,
 } from '.';
 import { IconButton, TextInput, Icon, Box } from '../..';
-import { Condensed } from './SidebarItem/SideBarItem.stories';
+import { Condensed } from './SidebarItem/SidebarItem.stories';
 import { GenericNoAvatarItem, MenuTemplate } from './helpers';
 
 export default {
-  title: 'Navigation/SideBar',
-  component: SideBar,
-} as Meta<typeof SideBar>;
+  title: 'Navigation/Sidebar',
+  component: Sidebar,
+} as Meta<typeof Sidebar>;
 
-export const Default: StoryFn<typeof SideBar> = (props) => (
+export const Default: StoryFn<typeof Sidebar> = (props) => (
   <Box h='90vh' w='x280'>
-    <SideBar {...props}>
-      <SideBarBanner
+    <Sidebar {...props}>
+      <SidebarBanner
         title='You’ve reached the limit active contacts this month'
         linkText='Learn more'
         linkProps={{ href: '#' }}
         onClick={action('click')}
         addon={<Icon name='warning' color='danger' size='x24' />}
       />
-      <SideBarSection>
+      <SidebarSection>
         <TextInput
           addon={<Icon name='magnifier' size='x20' />}
           small
           placeholder='Search'
         />
         <IconButton icon='sort' title='Sort' medium />
-      </SideBarSection>
-      <SideBarAccordion>
-        <SideBarAccordionItem
+      </SidebarSection>
+      <SidebarAccordion>
+        <SidebarAccordionItem
           title='Omnichannel'
           badge={
-            <SideBarItemBadge
+            <SidebarItemBadge
               title='25 unred messages'
               children={25}
               variant='primary'
@@ -57,12 +57,12 @@ export const Default: StoryFn<typeof SideBar> = (props) => (
           }
           defaultExpanded
         >
-          <SideBarLink
+          <SidebarLink
             icon='arrow-down-box'
             href='#'
             selected
             badge={
-              <SideBarItemBadge
+              <SidebarItemBadge
                 title='12 unread messages'
                 children={12}
                 variant='primary'
@@ -71,22 +71,22 @@ export const Default: StoryFn<typeof SideBar> = (props) => (
             menu={<MenuTemplate />}
           >
             All
-          </SideBarLink>
-          <SideBarLink
+          </SidebarLink>
+          <SidebarLink
             icon='user'
             href='#'
             badge={
-              <SideBarItemBadge title='10 unread messages' children={10} />
+              <SidebarItemBadge title='10 unread messages' children={10} />
             }
             menu={<MenuTemplate />}
           >
             Assigned to me
-          </SideBarLink>
-          <SideBarLink
+          </SidebarLink>
+          <SidebarLink
             icon='queue'
             href='#'
             badge={
-              <SideBarItemBadge
+              <SidebarItemBadge
                 title='3 unread messages'
                 children={3}
                 variant='danger'
@@ -95,27 +95,27 @@ export const Default: StoryFn<typeof SideBar> = (props) => (
             menu={<MenuTemplate />}
           >
             Unassigned
-          </SideBarLink>
-          <SideBarLink icon='pause' href='#' menu={<MenuTemplate />}>
+          </SidebarLink>
+          <SidebarLink icon='pause' href='#' menu={<MenuTemplate />}>
             On hold
-          </SideBarLink>
-        </SideBarAccordionItem>
-        <SideBarAccordionItem
+          </SidebarLink>
+        </SidebarAccordionItem>
+        <SidebarAccordionItem
           title='Team chat'
           defaultExpanded={true}
           badge={
-            <SideBarItemBadge
+            <SidebarItemBadge
               title='99+ unread messages'
               children='99+'
               variant='danger'
             />
           }
         >
-          <SideBarCollapseGroup
+          <SidebarCollapseGroup
             title='Favorites'
             defaultExpanded
             badge={
-              <SideBarItemBadge
+              <SidebarItemBadge
                 title='99+ unread messages'
                 children='99+'
                 variant='danger'
@@ -125,12 +125,12 @@ export const Default: StoryFn<typeof SideBar> = (props) => (
             {Array.from({ length: 4 }).map((_, i) => (
               <GenericNoAvatarItem key={i} i={i} />
             ))}
-          </SideBarCollapseGroup>
-          <SideBarCollapseGroup
+          </SidebarCollapseGroup>
+          <SidebarCollapseGroup
             title='Teams'
             defaultExpanded
             badge={
-              <SideBarItemBadge
+              <SidebarItemBadge
                 title='99+ unread messages'
                 children='99+'
                 variant='danger'
@@ -138,17 +138,17 @@ export const Default: StoryFn<typeof SideBar> = (props) => (
             }
           >
             <Condensed />
-            <SideBarListItem>
-              <SideBarItemAction onClick={action('add team')}>
+            <SidebarListItem>
+              <SidebarItemAction onClick={action('add team')}>
                 Add team
-              </SideBarItemAction>
-            </SideBarListItem>
-          </SideBarCollapseGroup>
-          <SideBarCollapseGroup
+              </SidebarItemAction>
+            </SidebarListItem>
+          </SidebarCollapseGroup>
+          <SidebarCollapseGroup
             title='Discussions'
             defaultExpanded
             badge={
-              <SideBarItemBadge
+              <SidebarItemBadge
                 title='99+ unread messages'
                 children='99+'
                 variant='danger'
@@ -156,29 +156,29 @@ export const Default: StoryFn<typeof SideBar> = (props) => (
             }
           >
             <Condensed />
-            <SideBarListItem>
-              <SideBarItemAction onClick={action('add team')}>
+            <SidebarListItem>
+              <SidebarItemAction onClick={action('add team')}>
                 Add discussion
-              </SideBarItemAction>
-            </SideBarListItem>
-          </SideBarCollapseGroup>
-        </SideBarAccordionItem>
-      </SideBarAccordion>
-      <SideBarMedia>
-        <SideBarMediaTitle>3 calls in queue</SideBarMediaTitle>
-        <SideBarMediaController label='Call'>
+              </SidebarItemAction>
+            </SidebarListItem>
+          </SidebarCollapseGroup>
+        </SidebarAccordionItem>
+      </SidebarAccordion>
+      <SidebarMedia>
+        <SidebarMediaTitle>3 calls in queue</SidebarMediaTitle>
+        <SidebarMediaController label='Call'>
           <IconButton icon='user-arrow-right' small aria-label='user-forward' />
           <IconButton icon='mic' small aria-label='mic' />
           <IconButton icon='pause-unfilled' small aria-label='pause' />
-        </SideBarMediaController>
+        </SidebarMediaController>
         {/* <GenericCallItem is='div' /> */}
-      </SideBarMedia>
-      <SideBarFooter>
-        <SideBarFooterContent>Powered by Rocket.Chat</SideBarFooterContent>
-        <SideBarFooterContent color='titles-labels'>
+      </SidebarMedia>
+      <SidebarFooter>
+        <SidebarFooterContent>Powered by Rocket.Chat</SidebarFooterContent>
+        <SidebarFooterContent color='titles-labels'>
           Free edition
-        </SideBarFooterContent>
-      </SideBarFooter>
-    </SideBar>
+        </SidebarFooterContent>
+      </SidebarFooter>
+    </Sidebar>
   </Box>
 );

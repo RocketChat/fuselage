@@ -4,7 +4,7 @@ import { IconButton } from '../Button';
 
 type VariantType = 'default' | 'info' | 'success' | 'warning' | 'danger';
 
-type SideBarBannerProps = {
+type SidebarBannerProps = {
   title?: ReactNode;
   linkText?: string;
   linkProps?: AllHTMLAttributes<HTMLAnchorElement>;
@@ -15,7 +15,7 @@ type SideBarBannerProps = {
   addon?: ReactNode;
 };
 
-export const SideBarBanner = ({
+export const SidebarBanner = ({
   title,
   linkText,
   linkProps,
@@ -24,7 +24,7 @@ export const SideBarBanner = ({
   onClose,
   children,
   ...props
-}: SideBarBannerProps) => (
+}: SidebarBannerProps) => (
   <div
     className={`rcx-box rcx-box--full rcx-sidebar-v2-banner rcx-sidebar-v2-banner--${variant}`}
     {...props}

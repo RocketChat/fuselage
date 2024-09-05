@@ -1,6 +1,6 @@
 import type { HTMLAttributes } from 'react';
 
-export const SideBarFooter = ({
+export const SidebarFooter = ({
   children,
   ...props
 }: HTMLAttributes<HTMLElement>) => (

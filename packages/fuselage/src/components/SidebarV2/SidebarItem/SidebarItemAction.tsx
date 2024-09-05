@@ -3,7 +3,7 @@ import type { HTMLAttributes } from 'react';
 
 import { Icon } from '../../Icon';
 
-export const SideBarItemAction = ({
+export const SidebarItemAction = ({
   children,
   className,
   icon = 'plus-small',

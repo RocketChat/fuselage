@@ -1,32 +1,32 @@
 import type { StoryFn, Meta } from '@storybook/react';
 
 import {
-  SideBar,
-  SideBarMedia,
-  SideBarMediaTitle,
-  SideBarMediaController,
+  Sidebar,
+  SidebarMedia,
+  SidebarMediaTitle,
+  SidebarMediaController,
   Box,
   IconButton,
 } from '../..';
 import { GenericCallItem } from '../helpers';
 
 export default {
-  title: 'Navigation/SideBar/Media',
-  component: SideBar,
-} satisfies Meta<typeof SideBar>;
+  title: 'Navigation/Sidebar/Media',
+  component: Sidebar,
+} satisfies Meta<typeof Sidebar>;
 
-export const Default: StoryFn<typeof SideBar> = () => (
+export const Default: StoryFn<typeof Sidebar> = () => (
   <Box>
-    <SideBar>
-      <SideBarMedia>
-        <SideBarMediaTitle>3 calls in queue</SideBarMediaTitle>
-        <SideBarMediaController label='Call'>
+    <Sidebar>
+      <SidebarMedia>
+        <SidebarMediaTitle>3 calls in queue</SidebarMediaTitle>
+        <SidebarMediaController label='Call'>
           <IconButton icon='user-arrow-right' small aria-label='user-forward' />
           <IconButton icon='mic' small aria-label='mic' />
           <IconButton icon='pause-unfilled' small aria-label='pause' />
-        </SideBarMediaController>
+        </SidebarMediaController>
         <GenericCallItem is='div' />
-      </SideBarMedia>
-    </SideBar>
+      </SidebarMedia>
+    </Sidebar>
   </Box>
 );

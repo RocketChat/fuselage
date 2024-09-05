@@ -2,7 +2,7 @@ import type { ComponentProps } from 'react';
 
 import { ButtonGroup } from '../ButtonGroup';
 
-export const SideBarButtonGroup = ({
+export const SidebarButtonGroup = ({
   align = 'end',
   small = true,
   ...props

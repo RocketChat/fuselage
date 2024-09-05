@@ -3,17 +3,17 @@ import { isValidElement, type ComponentProps, type ReactElement } from 'react';
 
 import { Icon } from '../../Icon';
 
-type SideBarItemIconProps = Omit<ComponentProps<typeof Icon>, 'name'> & {
+type SidebarItemIconProps = Omit<ComponentProps<typeof Icon>, 'name'> & {
   icon: IconKeys | ReactElement;
   highlighted?: boolean;
 };
 
-export const SideBarItemIcon = ({
+export const SidebarItemIcon = ({
   icon,
   className,
   highlighted,
   ...props
-}: SideBarItemIconProps) => (
+}: SidebarItemIconProps) => (
   <div
     className={[
       'rcx-box rcx-box--full rcx-sidebar-v2-item__icon',

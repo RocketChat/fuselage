@@ -2,26 +2,26 @@ import type { Decorator } from '@storybook/react';
 import type { ComponentProps, ReactElement } from 'react';
 
 import {
-  SideBar,
-  SideBarAccordion,
-  SideBarAccordionItem,
-  SideBarActions,
-  SideBarButtonGroup,
-  SideBarCollapseGroup,
-  SideBarFooter,
-  SideBarFooterContent,
-  SideBarItem,
-  SideBarItemAvatarWrapper,
-  SideBarItemBadge,
-  SideBarItemCol,
-  SideBarItemContent,
-  SideBarItemIcon,
-  SideBarItemMenu,
-  SideBarItemRow,
-  SideBarItemStatusBullet,
-  SideBarItemTimestamp,
-  SideBarItemTitle,
-  SideBarListItem,
+  Sidebar,
+  SidebarAccordion,
+  SidebarAccordionItem,
+  SidebarActions,
+  SidebarButtonGroup,
+  SidebarCollapseGroup,
+  SidebarFooter,
+  SidebarFooterContent,
+  SidebarItem,
+  SidebarItemAvatarWrapper,
+  SidebarItemBadge,
+  SidebarItemCol,
+  SidebarItemContent,
+  SidebarItemIcon,
+  SidebarItemMenu,
+  SidebarItemRow,
+  SidebarItemStatusBullet,
+  SidebarItemTimestamp,
+  SidebarItemTitle,
+  SidebarListItem,
 } from '.';
 import { Avatar, Box, IconButton, MenuV2 as Menu, MenuItem } from '../..';
 
@@ -54,21 +54,21 @@ export const MenuTemplate = () => (
 );
 
 export const GenericCondensedItem = ({ i = 0 }: { i: number }) => (
-  <SideBarListItem>
-    <SideBarItem selected={i === 2} href='#'>
-      <SideBarItemAvatarWrapper>
+  <SidebarListItem>
+    <SidebarItem selected={i === 2} href='#'>
+      <SidebarItemAvatarWrapper>
         <Avatar size='x20' url={leterAvatarUrls[i % 4]} alt='avatar' />
-      </SideBarItemAvatarWrapper>
-      <SideBarItemIcon highlighted={i % 2 !== 0} icon='balloons' />
-      <SideBarItemTitle unread={i % 2 !== 0}>{names[i % 10]}</SideBarItemTitle>
+      </SidebarItemAvatarWrapper>
+      <SidebarItemIcon highlighted={i % 2 !== 0} icon='balloons' />
+      <SidebarItemTitle unread={i % 2 !== 0}>{names[i % 10]}</SidebarItemTitle>
       {i % 2 !== 0 && (
-        <SideBarItemBadge
+        <SidebarItemBadge
           title='unread messages'
           children={Math.floor(Math.random() * 10) + 1}
         />
       )}
       {i === 0 && (
-        <SideBarActions>
+        <SidebarActions>
           <IconButton aria-label='phone' tiny secondary success icon='phone' />
           <IconButton
             aria-label='phone-off'
@@ -77,87 +77,87 @@ export const GenericCondensedItem = ({ i = 0 }: { i: number }) => (
             danger
             icon='phone-off'
           />
-        </SideBarActions>
+        </SidebarActions>
       )}
-      <SideBarItemMenu children={<MenuTemplate />} />
-    </SideBarItem>
-  </SideBarListItem>
+      <SidebarItemMenu children={<MenuTemplate />} />
+    </SidebarItem>
+  </SidebarListItem>
 );
 
 export const GenericNoAvatarItem = ({ i = 0 }: { i: number }) => (
-  <SideBarListItem>
-    <SideBarItem href='#'>
-      <SideBarItemStatusBullet status='online' />
-      <SideBarItemTitle>{names[i % 10]}</SideBarItemTitle>
-      <SideBarItemBadge
+  <SidebarListItem>
+    <SidebarItem href='#'>
+      <SidebarItemStatusBullet status='online' />
+      <SidebarItemTitle>{names[i % 10]}</SidebarItemTitle>
+      <SidebarItemBadge
         title='unread messages'
         children={Math.floor(Math.random() * 10) + 1}
       />
-      <SideBarItemMenu children={<MenuTemplate />} />
-    </SideBarItem>
-  </SideBarListItem>
+      <SidebarItemMenu children={<MenuTemplate />} />
+    </SidebarItem>
+  </SidebarListItem>
 );
 
 export const GenericMediumItem = ({ i = 0 }: { i: number }) => (
-  <SideBarListItem>
-    <SideBarItem href='#'>
-      <SideBarItemAvatarWrapper>
+  <SidebarListItem>
+    <SidebarItem href='#'>
+      <SidebarItemAvatarWrapper>
         <Avatar size='x28' url={leterAvatarUrls[i % 4]} alt='avatar' />
-      </SideBarItemAvatarWrapper>
-      <SideBarItemIcon icon='team' />
-      <SideBarItemTitle>{names[i % 10]}</SideBarItemTitle>
-      <SideBarItemBadge
+      </SidebarItemAvatarWrapper>
+      <SidebarItemIcon icon='team' />
+      <SidebarItemTitle>{names[i % 10]}</SidebarItemTitle>
+      <SidebarItemBadge
         title='unread messages'
         children={Math.floor(Math.random() * 10) + 1}
       />
-      <SideBarItemMenu children={<MenuTemplate />} />
-    </SideBarItem>
-  </SideBarListItem>
+      <SidebarItemMenu children={<MenuTemplate />} />
+    </SidebarItem>
+  </SidebarListItem>
 );
 
 export const GenericExtendedItem = ({ i = 0 }: { i: number }) => (
-  <SideBarListItem>
-    <SideBarItem href='#'>
-      <SideBarItemAvatarWrapper>
+  <SidebarListItem>
+    <SidebarItem href='#'>
+      <SidebarItemAvatarWrapper>
         <Avatar size='x36' url={leterAvatarUrls[i % 4]} alt='avatar' />
-      </SideBarItemAvatarWrapper>
+      </SidebarItemAvatarWrapper>
 
-      <SideBarItemCol>
-        <SideBarItemRow>
-          <SideBarItemIcon icon='team' />
-          <SideBarItemTitle>{names[i % 10]}</SideBarItemTitle>
-          <SideBarItemTimestamp>12:00</SideBarItemTimestamp>
-        </SideBarItemRow>
+      <SidebarItemCol>
+        <SidebarItemRow>
+          <SidebarItemIcon icon='team' />
+          <SidebarItemTitle>{names[i % 10]}</SidebarItemTitle>
+          <SidebarItemTimestamp>12:00</SidebarItemTimestamp>
+        </SidebarItemRow>
 
-        <SideBarItemRow>
-          <SideBarItemContent>No messages yet</SideBarItemContent>
-          <SideBarItemBadge
+        <SidebarItemRow>
+          <SidebarItemContent>No messages yet</SidebarItemContent>
+          <SidebarItemBadge
             title='unread messages'
             children={Math.floor(Math.random() * 10) + 1}
           />
-          <SideBarItemMenu children={<MenuTemplate />} />
-        </SideBarItemRow>
-      </SideBarItemCol>
-    </SideBarItem>
-  </SideBarListItem>
+          <SidebarItemMenu children={<MenuTemplate />} />
+        </SidebarItemRow>
+      </SidebarItemCol>
+    </SidebarItem>
+  </SidebarListItem>
 );
 
 export const GenericCallItem = ({
   i = 0,
   ...props
-}: { i?: number } & ComponentProps<typeof SideBarItem>) => (
-  <SideBarItem {...props}>
-    <SideBarItemAvatarWrapper>
+}: { i?: number } & ComponentProps<typeof SidebarItem>) => (
+  <SidebarItem {...props}>
+    <SidebarItemAvatarWrapper>
       <Avatar size='x36' url={leterAvatarUrls[i % 4]} alt='avatar' />
-    </SideBarItemAvatarWrapper>
+    </SidebarItemAvatarWrapper>
 
-    <SideBarItemCol>
-      <SideBarItemTitle>{names[i % 10]}</SideBarItemTitle>
-      <SideBarItemContent>Calling</SideBarItemContent>
-    </SideBarItemCol>
+    <SidebarItemCol>
+      <SidebarItemTitle>{names[i % 10]}</SidebarItemTitle>
+      <SidebarItemContent>Calling</SidebarItemContent>
+    </SidebarItemCol>
 
-    <SideBarItemRow>
-      <SideBarButtonGroup>
+    <SidebarItemRow>
+      <SidebarButtonGroup>
         <IconButton
           small
           icon='phone-off'
@@ -166,37 +166,37 @@ export const GenericCallItem = ({
           aria-label='phone-off'
         />
         <IconButton small icon='phone' secondary success aria-label='phone' />
-      </SideBarButtonGroup>
-    </SideBarItemRow>
-  </SideBarItem>
+      </SidebarButtonGroup>
+    </SidebarItemRow>
+  </SidebarItem>
 );
 
 export const decorators: Decorator[] = [
   (fn): ReactElement => (
     <Box h='90vh' w='x280'>
-      <SideBar>
-        <SideBarAccordion>
-          <SideBarAccordionItem
+      <Sidebar>
+        <SidebarAccordion>
+          <SidebarAccordionItem
             title='Label'
             defaultExpanded
-            badge={<SideBarItemBadge children='99+' variant='danger' />}
+            badge={<SidebarItemBadge children='99+' variant='danger' />}
           >
-            <SideBarCollapseGroup
+            <SidebarCollapseGroup
               title='Label'
               defaultExpanded
-              badge={<SideBarItemBadge children='99+' variant='danger' />}
+              badge={<SidebarItemBadge children='99+' variant='danger' />}
             >
               {fn()}
-            </SideBarCollapseGroup>
-          </SideBarAccordionItem>
-        </SideBarAccordion>
-        <SideBarFooter>
-          <SideBarFooterContent>Powered by Rocket.Chat</SideBarFooterContent>
-          <SideBarFooterContent color='titles-labels'>
+            </SidebarCollapseGroup>
+          </SidebarAccordionItem>
+        </SidebarAccordion>
+        <SidebarFooter>
+          <SidebarFooterContent>Powered by Rocket.Chat</SidebarFooterContent>
+          <SidebarFooterContent color='titles-labels'>
             Free edition
-          </SideBarFooterContent>
-        </SideBarFooter>
-      </SideBar>
+          </SidebarFooterContent>
+        </SidebarFooter>
+      </Sidebar>
     </Box>
   ),
 ];

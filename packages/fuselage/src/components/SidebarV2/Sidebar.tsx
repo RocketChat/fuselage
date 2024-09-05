@@ -1,8 +1,8 @@
 import { forwardRef, type HTMLAttributes } from 'react';
 
-type SideBarProps = { collapsed?: boolean } & HTMLAttributes<HTMLElement>;
+type SidebarProps = { collapsed?: boolean } & HTMLAttributes<HTMLElement>;
 
-export const SideBar = forwardRef<HTMLElement, SideBarProps>(
+export const Sidebar = forwardRef<HTMLElement, SidebarProps>(
   ({ collapsed, className, ...props }, ref) => (
     <nav
       ref={ref}

@@ -1,6 +1,6 @@
 import type { HTMLAttributes } from 'react';
 
-export const SideBarAccordion = ({
+export const SidebarAccordion = ({
   className,
   children,
   ...props

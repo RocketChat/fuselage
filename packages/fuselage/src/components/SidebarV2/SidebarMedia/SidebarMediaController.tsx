@@ -1,8 +1,8 @@
 import type { HTMLAttributes } from 'react';
 
-import { SideBarButtonGroup } from '../SidebarButtonGroup';
+import { SidebarButtonGroup } from '../SidebarButtonGroup';
 
-export const SideBarMediaController = ({
+export const SidebarMediaController = ({
   className,
   label,
   children,
@@ -14,8 +14,8 @@ export const SideBarMediaController = ({
       .join(' ')}
   >
     <div className='rcx-sidebar-v2-media__controller__label'>{label}</div>
-    <SideBarButtonGroup small align='end' {...props}>
+    <SidebarButtonGroup small align='end' {...props}>
       {children}
-    </SideBarButtonGroup>
+    </SidebarButtonGroup>
   </div>
 );

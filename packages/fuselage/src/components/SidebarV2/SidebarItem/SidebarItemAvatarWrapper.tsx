@@ -1,6 +1,6 @@
 import type { HTMLAttributes } from 'react';
 
-export const SideBarItemAvatarWrapper = ({
+export const SidebarItemAvatarWrapper = ({
   className,
   ...props
 }: HTMLAttributes<HTMLDivElement>) => (

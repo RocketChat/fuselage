@@ -1,10 +1,10 @@
 import type { HTMLAttributes, ReactNode } from 'react';
 import { forwardRef } from 'react';
 
-import { SideBarGroupTitle } from './SidebarGroupTitle';
+import { SidebarGroupTitle } from './SidebarGroupTitle';
 import { useCollapse } from './hooks/useCollapse';
 
-type SideBarCollapseGroupProps = {
+type SidebarCollapseGroupProps = {
   expanded?: boolean;
   defaultExpanded?: boolean;
   tabIndex?: number;
@@ -13,9 +13,9 @@ type SideBarCollapseGroupProps = {
   actions?: ReactNode;
 } & HTMLAttributes<HTMLDivElement>;
 
-export const SideBarCollapseGroup = forwardRef<
+export const SidebarCollapseGroup = forwardRef<
   HTMLDivElement,
-  SideBarCollapseGroupProps
+  SidebarCollapseGroupProps
 >(
   (
     {
@@ -26,7 +26,7 @@ export const SideBarCollapseGroup = forwardRef<
       badge,
       title,
       ...props
-    }: SideBarCollapseGroupProps,
+    }: SidebarCollapseGroupProps,
     ref
   ) => {
     const { barProps, expanded, panelExpanded, panelId, titleId } = useCollapse(
@@ -42,7 +42,7 @@ export const SideBarCollapseGroup = forwardRef<
         className='rcx-box rcx-box--full rcx-sidebar-v2-collapse-group'
         {...props}
       >
-        <SideBarGroupTitle
+        <SidebarGroupTitle
           expanded={expanded}
           title={title}
           titleId={titleId}

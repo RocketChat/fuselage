@@ -1,6 +1,6 @@
 import type { HTMLAttributes } from 'react';
 
-export const SideBarMedia = ({
+export const SidebarMedia = ({
   className,
   ...props
 }: HTMLAttributes<HTMLDivElement>) => (

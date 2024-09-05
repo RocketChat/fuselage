@@ -3,7 +3,7 @@ import type { HTMLAttributes } from 'react';
 import { appendClassName } from '../../../helpers/appendClassName';
 import { patchChildren } from '../../../helpers/patchChildren';
 
-export const SideBarItemMenu = ({
+export const SidebarItemMenu = ({
   children,
   ...props
 }: HTMLAttributes<HTMLDivElement>) => (

@@ -1,6 +1,6 @@
 import type { HTMLAttributes } from 'react';
 
-export const SideBarItemRow = ({
+export const SidebarItemRow = ({
   className,
   ...props
 }: HTMLAttributes<HTMLDivElement>) => (

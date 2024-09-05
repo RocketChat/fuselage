@@ -1,6 +1,6 @@
 import type { HTMLAttributes } from 'react';
 
-export const SideBarItemTimestamp = ({
+export const SidebarItemTimestamp = ({
   className,
   ...props
 }: HTMLAttributes<HTMLDivElement>) => (

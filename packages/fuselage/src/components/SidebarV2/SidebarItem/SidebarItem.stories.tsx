@@ -1,6 +1,6 @@
 import type { Meta, StoryFn } from '@storybook/react';
 
-import { SideBarListItem } from '../..';
+import { SidebarListItem } from '../..';
 import {
   GenericCondensedItem,
   GenericExtendedItem,
@@ -9,12 +9,12 @@ import {
 } from '../helpers';
 
 export default {
-  title: 'Navigation/SideBar/Item',
-  component: SideBarListItem,
+  title: 'Navigation/Sidebar/Item',
+  component: SidebarListItem,
   decorators,
-} satisfies Meta<typeof SideBarListItem>;
+} satisfies Meta<typeof SidebarListItem>;
 
-export const Condensed: StoryFn<typeof SideBarListItem> = () => (
+export const Condensed: StoryFn<typeof SidebarListItem> = () => (
   <>
     {Array.from({ length: 8 }).map((_, i) => (
       <GenericCondensedItem key={i} i={i} />
@@ -22,7 +22,7 @@ export const Condensed: StoryFn<typeof SideBarListItem> = () => (
   </>
 );
 
-export const Medium: StoryFn<typeof SideBarListItem> = () => (
+export const Medium: StoryFn<typeof SidebarListItem> = () => (
   <>
     {Array.from({ length: 8 }).map((_, i) => (
       <GenericMediumItem key={i} i={i} />
@@ -30,7 +30,7 @@ export const Medium: StoryFn<typeof SideBarListItem> = () => (
   </>
 );
 
-export const Extended: StoryFn<typeof SideBarListItem> = () => (
+export const Extended: StoryFn<typeof SidebarListItem> = () => (
   <>
     {Array.from({ length: 8 }).map((_, i) => (
       <GenericExtendedItem key={i} i={i} />

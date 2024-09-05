@@ -1,6 +1,6 @@
 import type { AllHTMLAttributes } from 'react';
 
-export const SideBarItem = ({
+export const SidebarItem = ({
   selected,
   className,
   children,

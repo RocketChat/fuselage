@@ -2,7 +2,7 @@ import type { ComponentProps } from 'react';
 
 import { Badge } from '../../Badge';
 
-export const SideBarItemBadge = ({
+export const SidebarItemBadge = ({
   className,
   ...props
 }: ComponentProps<typeof Badge>) => (

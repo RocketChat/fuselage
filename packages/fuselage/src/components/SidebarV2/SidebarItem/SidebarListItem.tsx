@@ -1,11 +1,11 @@
 import type { HTMLAttributes } from 'react';
 import { forwardRef } from 'react';
 
-type SideBarListItemProps = {
+type SidebarListItemProps = {
   selected?: boolean;
 } & HTMLAttributes<HTMLDivElement>;
 
-export const SideBarListItem = forwardRef<HTMLDivElement, SideBarListItemProps>(
+export const SidebarListItem = forwardRef<HTMLDivElement, SidebarListItemProps>(
   ({ className, children, ...props }, ref) => (
     <div
       ref={ref}

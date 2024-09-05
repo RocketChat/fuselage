@@ -1,6 +1,6 @@
 import type { HTMLAttributes } from 'react';
 
-export const SideBarItemContent = ({
+export const SidebarItemContent = ({
   className,
   unread,
   ...props
