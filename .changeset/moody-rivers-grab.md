@@ -2,4 +2,4 @@
 "@rocket.chat/fuselage": minor
 ---
 
-feat(fuselage): `SideBar` and `SidePanel` components
+feat(fuselage): `Sidebar` and `Sidepanel` components
