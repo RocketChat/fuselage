@@ -2,28 +2,28 @@ import { action } from '@storybook/addon-actions';
 import type { Meta, StoryFn } from '@storybook/react';
 
 import {
-  Sidebar,
-  SidebarAccordion,
-  SidebarAccordionItem,
-  SidebarBanner,
-  SidebarCollapseGroup,
-  SidebarFooterContent,
-  SidebarItemAction,
-  SidebarLink,
-  SidebarItemBadge,
-  SidebarMedia,
-  SidebarMediaTitle,
-  SidebarMediaController,
-  SidebarListItem,
-  SidebarSection,
-  SidebarFooter,
+  SidebarV2 as Sidebar,
+  SidebarV2Accordion as SidebarAccordion,
+  SidebarV2AccordionItem as SidebarAccordionItem,
+  SidebarV2Banner as SidebarBanner,
+  SidebarV2CollapseGroup as SidebarCollapseGroup,
+  SidebarV2FooterContent as SidebarFooterContent,
+  SidebarV2ItemAction as SidebarItemAction,
+  SidebarV2Link as SidebarLink,
+  SidebarV2ItemBadge as SidebarItemBadge,
+  SidebarV2Media as SidebarMedia,
+  SidebarV2MediaTitle as SidebarMediaTitle,
+  SidebarV2MediaController as SidebarMediaController,
+  SidebarV2ListItem as SidebarListItem,
+  SidebarV2Section as SidebarSection,
+  SidebarV2Footer as SidebarFooter,
 } from '.';
 import { IconButton, TextInput, Icon, Box } from '../..';
 import { Condensed } from './SidebarItem/SidebarItem.stories';
 import { GenericNoAvatarItem, MenuTemplate } from './helpers';
 
 export default {
-  title: 'Navigation/Sidebar',
+  title: 'Navigation/SidebarV2',
   component: Sidebar,
 } as Meta<typeof Sidebar>;
 

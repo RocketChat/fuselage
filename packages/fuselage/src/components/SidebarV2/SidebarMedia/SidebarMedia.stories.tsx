@@ -1,17 +1,17 @@
 import type { StoryFn, Meta } from '@storybook/react';
 
 import {
-  Sidebar,
-  SidebarMedia,
-  SidebarMediaTitle,
-  SidebarMediaController,
+  SidebarV2 as Sidebar,
+  SidebarV2Media as SidebarMedia,
+  SidebarV2MediaTitle as SidebarMediaTitle,
+  SidebarV2MediaController as SidebarMediaController,
   Box,
   IconButton,
 } from '../..';
 import { GenericCallItem } from '../helpers';
 
 export default {
-  title: 'Navigation/Sidebar/Media',
+  title: 'Navigation/SidebarV2/Media',
   component: Sidebar,
 } satisfies Meta<typeof Sidebar>;
 

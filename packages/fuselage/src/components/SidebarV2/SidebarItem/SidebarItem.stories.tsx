@@ -1,6 +1,6 @@
 import type { Meta, StoryFn } from '@storybook/react';
 
-import { SidebarListItem } from '../..';
+import { SidebarV2ListItem as SidebarListItem } from '../..';
 import {
   GenericCondensedItem,
   GenericExtendedItem,
@@ -9,7 +9,7 @@ import {
 } from '../helpers';
 
 export default {
-  title: 'Navigation/Sidebar/Item',
+  title: 'Navigation/SidebarV2/Item',
   component: SidebarListItem,
   decorators,
 } satisfies Meta<typeof SidebarListItem>;
