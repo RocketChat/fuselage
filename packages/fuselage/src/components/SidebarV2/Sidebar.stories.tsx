@@ -19,7 +19,7 @@ import {
   SideBarFooter,
 } from '.';
 import { IconButton, TextInput, Icon, Box } from '../..';
-import { Condensed } from './SideBarItem/SideBarItem.stories';
+import { Condensed } from './SidebarItem/SideBarItem.stories';
 import { GenericNoAvatarItem, MenuTemplate } from './helpers';
 
 export default {

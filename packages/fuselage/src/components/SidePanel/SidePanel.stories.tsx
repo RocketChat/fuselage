@@ -21,7 +21,7 @@ import {
   SideBarItemMenu,
   SideBarItemTitle,
 } from '../..';
-import { MenuTemplate, leterAvatarUrls, names } from '../SideBarV2/helpers';
+import { MenuTemplate, leterAvatarUrls, names } from '../SidebarV2/helpers';
 
 export default {
   title: 'Navigation/SidePanel',

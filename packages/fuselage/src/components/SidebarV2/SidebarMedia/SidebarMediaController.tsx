@@ -1,6 +1,6 @@
 import type { HTMLAttributes } from 'react';
 
-import { SideBarButtonGroup } from '../SideBarButtonGroup';
+import { SideBarButtonGroup } from '../SidebarButtonGroup';
 
 export const SideBarMediaController = ({
   className,

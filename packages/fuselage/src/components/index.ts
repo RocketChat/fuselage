@@ -63,7 +63,7 @@ export * from './SelectInput';
 export { default as Sidebar } from './Sidebar';
 export * from './Sidebar';
 export * from './SidePanel';
-export * from './SideBarV2';
+export * from './SidebarV2';
 export * from './Skeleton';
 export * from './States';
 export * from './Table';

@@ -2,7 +2,7 @@ import type { ComponentProps } from 'react';
 
 import Box from '../../Box';
 
-export const SideBarFooterContent = ({
+export const SidebarFooterContent = ({
   children,
   ...props
 }: ComponentProps<typeof Box>) => (

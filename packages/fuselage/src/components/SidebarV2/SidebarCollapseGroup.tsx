@@ -1,7 +1,7 @@
 import type { HTMLAttributes, ReactNode } from 'react';
 import { forwardRef } from 'react';
 
-import { SideBarGroupTitle } from './SideBarGroupTitle';
+import { SideBarGroupTitle } from './SidebarGroupTitle';
 import { useCollapse } from './hooks/useCollapse';
 
 type SideBarCollapseGroupProps = {
