@@ -1,6 +1,6 @@
 import type { HTMLAttributes } from 'react';
 
-export const SidePanelSectionAction = ({
+export const SidepanelSectionAction = ({
   className,
   ...props
 }: HTMLAttributes<HTMLDivElement>) => (

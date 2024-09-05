@@ -1,10 +1,10 @@
 import type { HTMLAttributes } from 'react';
 import { forwardRef } from 'react';
 
-export const SidePanelList = forwardRef<
+export const SidepanelList = forwardRef<
   HTMLDivElement,
   HTMLAttributes<HTMLDivElement>
->(function SidePanelList({ className, ...props }, ref) {
+>(function SidepanelList({ className, ...props }, ref) {
   return (
     <div
       role='list'

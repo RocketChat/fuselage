@@ -1,8 +1,8 @@
 import type { HTMLAttributes } from 'react';
 
-import { SidePanelDivider } from './SidePanelDivider';
+import { SidepanelDivider } from './SidepanelDivider';
 
-export const SidePanelHeader = ({
+export const SidepanelHeader = ({
   className,
   ...props
 }: HTMLAttributes<HTMLDivElement>) => (
@@ -11,6 +11,6 @@ export const SidePanelHeader = ({
       className={['rcx-sidepanel-header', className].filter(Boolean).join(' ')}
       {...props}
     />
-    <SidePanelDivider />
+    <SidepanelDivider />
   </>
 );
