@@ -1,0 +1,318 @@
+@use '../../styles/colors.scss';
+@use '../../styles/lengths.scss';
+@use '../../styles/typography.scss';
+@import '../../styles/mixins/all.scss';
+
+@import './SidebarFooter/SidebarFooter.styles.scss';
+@import './SidebarItem/SidebarItem.styles.scss';
+@import './SidebarMedia/SidebarMedia.styles.scss';
+
+$sidebar-color-surface-default: theme(
+  'sidebar-color-surface-default',
+  colors.surface(sidebar)
+);
+$sidebar-color-surface-hover: theme(
+  'sidebar-color-surface-hover',
+  colors.surface(hover)
+);
+$sidebar-color-surface-selected: theme(
+  'sidebar-color-surface-selected',
+  colors.surface(selected)
+);
+
+$sidebar-color-font-default: theme(
+  'sidebar-color-font-default',
+  colors.font(default)
+);
+
+$sidebar-accordion-border-color: theme(
+  'sidebar-accordion-border-color',
+  colors.stroke(light)
+);
+
+$sidebar-link-color: theme('sidebar-link-color', colors.font(titles-labels));
+
+$sidebar-banner-background-default: theme(
+  'sidebar-banner-background-default',
+  colors.surface(sidebar)
+);
+$sidebar-banner-color-default: theme(
+  'sidebar-banner-color-default',
+  colors.font(titles-labels)
+);
+
+$sidebar-banner-background-info: theme(
+  'sidebar-banner-background-info',
+  colors.status-background(info)
+);
+$sidebar-banner-color-info: theme(
+  'sidebar-banner-background-info',
+  colors.status-font(on-info)
+);
+
+$sidebar-banner-background-success: theme(
+  'sidebar-banner-background-success',
+  colors.status-background(success)
+);
+$sidebar-banner-color-success: theme(
+  'sidebar-banner-background-success',
+  colors.status-font(on-success)
+);
+
+$sidebar-banner-background-warning: theme(
+  'sidebar-banner-background-warning',
+  colors.status-background(warning)
+);
+$sidebar-banner-color-warning: theme(
+  'sidebar-banner-background-warning',
+  colors.status-font(on-warning)
+);
+
+$sidebar-banner-background-danger: theme(
+  'sidebar-banner-background-danger',
+  colors.status-background(danger)
+);
+$sidebar-banner-color-danger: theme(
+  'sidebar-banner-background-danger',
+  colors.status-font(on-danger)
+);
+
+%highlighted {
+  color: $sidebar-item-color-highlighted;
+
+  font-weight: 600;
+}
+
+.rcx-sidebar-v2 {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  height: lengths.size(full);
+
+  color: $sidebar-color-font-default;
+  background-color: $sidebar-color-surface-default;
+
+  &--divider {
+    border-color: theme(
+      'sidebar-color-stroke-extra-light',
+      colors.stroke(light)
+    );
+  }
+
+  &-section {
+    display: flex;
+    align-items: center;
+
+    height: lengths.size(44);
+
+    padding-inline: lengths.padding(16);
+
+    gap: lengths.padding(8);
+  }
+
+  &-accordion {
+    display: flex;
+    overflow: hidden;
+    flex-flow: column nowrap;
+    justify-content: stretch;
+    flex: 0 1 auto;
+
+    height: lengths.size(full);
+
+    &__wrapper {
+      display: flex;
+      overflow: scroll;
+      flex-direction: column;
+    }
+  }
+
+  &-collapse-group,
+  &-accordion-item {
+    display: flex;
+    flex-flow: column nowrap;
+
+    &__bar {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+
+      min-height: lengths.size(24);
+      padding: lengths.padding(8) lengths.padding(16);
+
+      text-align: start;
+
+      color: colors.font(default);
+
+      background-color: $sidebar-color-surface-default;
+      column-gap: lengths.padding(4);
+
+      &[tabindex] {
+        @include clickable;
+        @include focus-state($shadow: false);
+
+        &.hover,
+        &:hover {
+          background-color: colors.surface(tint);
+        }
+      }
+
+      &--disabled {
+        cursor: not-allowed;
+
+        color: colors.font(disabled);
+        background-color: colors.surface(disabled);
+      }
+    }
+
+    &__title {
+      flex: 1 1 lengths.size(none);
+
+      margin: lengths.margin(none);
+
+      white-space: nowrap;
+
+      @include typography.use-text-ellipsis;
+      @include typography.use-font-scale(c2);
+    }
+
+    &__panel {
+      visibility: hidden;
+      overflow: hidden;
+
+      height: lengths.size(none);
+      margin: lengths.margin(none);
+      padding: lengths.padding(none);
+
+      list-style: none;
+
+      &--expanded {
+        visibility: visible;
+
+        flex-grow: 1;
+
+        height: 100%;
+        padding-block-start: lengths.padding(4);
+        padding-block-end: lengths.padding(8);
+      }
+    }
+  }
+
+  &-accordion-item {
+    flex: 0 1 0;
+
+    border: 2px solid transparent;
+    border-bottom: lengths.border-width(default) solid
+      $sidebar-accordion-border-color;
+
+    &__bar {
+      position: sticky;
+
+      z-index: 1;
+      top: 0;
+
+      padding: lengths.padding(12) lengths.padding(16) lengths.padding(12)
+        lengths.padding(none);
+
+      border-radius: lengths.border-radius(small);
+
+      background-color: colors.surface(sidebar);
+
+      .rcx-sidebar-v2-accordion-item__chevron {
+        visibility: hidden;
+      }
+
+      &:focus-visible,
+      &.hover,
+      &:hover {
+        .rcx-sidebar-v2-accordion-item__chevron {
+          visibility: visible;
+        }
+      }
+    }
+
+    &__title {
+      @include typography.use-font-scale(h5);
+    }
+  }
+
+  &-link {
+    @include use-link-colors($color: $sidebar-link-color);
+  }
+
+  &-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: lengths.padding(16);
+
+    color: $sidebar-banner-color-default;
+    border-bottom: lengths.border-width(default) solid
+      $sidebar-accordion-border-color;
+    background-color: $sidebar-banner-background-default;
+    gap: lengths.padding(12);
+
+    &__addon {
+      display: flex;
+      align-items: center;
+    }
+
+    &__title {
+      margin: 0;
+      padding: 0;
+
+      @include typography.use-font-scale(h5);
+    }
+
+    &__link {
+      @include typography.use-font-scale(p2m);
+      @include clickable();
+
+      display: inline-block;
+
+      text-decoration: underline;
+    }
+
+    &--info {
+      color: $sidebar-banner-color-info;
+      background-color: $sidebar-banner-background-info;
+    }
+
+    &--success {
+      color: $sidebar-banner-color-success;
+      background-color: $sidebar-banner-background-success;
+    }
+
+    &--warning {
+      color: $sidebar-banner-color-warning;
+      background-color: $sidebar-banner-background-warning;
+    }
+
+    &--danger {
+      color: $sidebar-banner-color-danger;
+      background-color: $sidebar-banner-background-danger;
+    }
+  }
+
+  &--collapsed {
+    overflow: hidden;
+
+    width: lengths.size(48);
+
+    &:not(:hover) {
+      .rcx-sidebar-v2-item.rcx-sidebar-v2-link > .rcx-sidebar-v2-item__title,
+      .rcx-sidebar-v2-banner__content {
+        display: none;
+      }
+
+      .rcx-sidebar-v2-media__title,
+      .rcx-sidebar-v2-footer {
+        visibility: hidden;
+
+        white-space: nowrap;
+      }
+    }
+  }
+}
