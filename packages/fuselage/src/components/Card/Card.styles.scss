@@ -89,10 +89,10 @@ $card-hero-padding: lengths.padding(28);
   }
 
   &__horizontal &__controls {
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
 
-    &--wrap {
-      flex-wrap: wrap;
+    @include on-breakpoint(sm) {
+      flex-wrap: nowrap;
     }
   }
 }
