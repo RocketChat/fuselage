@@ -1,13 +1,14 @@
-import { useBreakpoints } from '@rocket.chat/fuselage-hooks';
+import type { ReactNode, MouseEvent } from 'react';
 
-import Box from '../Box/Box';
-
-const CardControls = ({ ...props }) => {
-  const breakpoints = useBreakpoints();
-  const isMobile = !breakpoints.includes('sm');
-  return (
-    <Box rcx-card__controls rcx-card__controls--wrap={isMobile} {...props} />
-  );
+type CardControlsProps = {
+  children?: ReactNode;
+  onClick?: (e?: MouseEvent<HTMLOrSVGElement>) => void;
 };
+
+const CardControls = ({ onClick, children }: CardControlsProps) => (
+  <div className='rcx-card__controls' onClick={onClick} children={children} />
+);
+
+export default CardControls;
 
 export default CardControls;
