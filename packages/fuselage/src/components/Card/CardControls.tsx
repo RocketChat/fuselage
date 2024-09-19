@@ -10,5 +10,3 @@ const CardControls = ({ onClick, children }: CardControlsProps) => (
 );
 
 export default CardControls;
-
-export default CardControls;
