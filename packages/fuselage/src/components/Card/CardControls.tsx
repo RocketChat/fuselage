@@ -1,8 +1,8 @@
-import type { ReactNode, MouseEvent } from 'react';
+import type { ReactNode, MouseEventHandler } from 'react';
 
 type CardControlsProps = {
   children?: ReactNode;
-  onClick?: (e?: MouseEvent<HTMLOrSVGElement>) => void;
+  onClick?: MouseEventHandler<HTMLDivElement>;
 };
 
 const CardControls = ({ onClick, children }: CardControlsProps) => (
