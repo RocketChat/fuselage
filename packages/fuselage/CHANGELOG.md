@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.59.0
+
+### Minor Changes
+
+- [#1358](https://github.com/RocketChat/fuselage/pull/1358) [`60345fa9`](https://github.com/RocketChat/fuselage/commit/60345fa971da63da19b3ebad3a638b5bb27cc3cc) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage): `Sidebar` and `Sidepanel` components
+
+- [#1442](https://github.com/RocketChat/fuselage/pull/1442) [`1087ee86`](https://github.com/RocketChat/fuselage/commit/1087ee861138836699059e54aacdfeac60ef0eb6) Thanks [@rique223](https://github.com/rique223)! - feat(fuselage): update `InputBox` and `Field` typography
+
 ## 0.57.1
 
 ### Patch Changes
