@@ -21,14 +21,7 @@ jobs:
         with:
           node-version: "22.2.0"
       - uses: actions/checkout@v2
-      - name: Turbo Cache
-        id: turbo-cache
-        uses: actions/cache@v2
-        with:
-          path: .turbo
-          key: turbo-${{ runner.os }}-${{ github.job }}
-          restore-keys: |
-            turbo-${{ runner.os }}-
+      - uses: rharkor/caching-for-turbo@v1.5
       - uses: actions/cache@v2
         id: yarn-cache
         with:
