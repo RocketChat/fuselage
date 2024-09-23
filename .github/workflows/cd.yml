@@ -33,7 +33,7 @@ jobs:
         if: steps.yarn-cache.outputs.cache-hit != 'true'
       - run: yarn run ci
       - run: yarn run docs
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         with:
           name: storybooks
           path: |
@@ -41,7 +41,7 @@ jobs:
             packages/onboarding-ui/storybook-static
             packages/layout/storybook-static
 
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         with:
           name: docs
           path: |
@@ -50,7 +50,7 @@ jobs:
           ref='${{ github.ref }}'
           echo "::set-output name=branch-name::$(echo "${ref:11}")"
         id: set-branch-name
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         with:
           name: build
           path: packages/**/dist/*
