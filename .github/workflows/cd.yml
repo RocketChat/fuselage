@@ -61,15 +61,16 @@ jobs:
     needs:
       - build-and-test
     steps:
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
           node-version: "22.2.0"
           registry-url: "https://registry.npmjs.org"
           scope: "@rocket.chat"
-      - uses: actions/checkout@v2
+          cache: "yarn"
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - uses: actions/cache@v2
+      - uses: actions/cache@v3
         id: yarn-cache
         with:
           path: |
@@ -112,15 +113,15 @@ jobs:
       name: github-pages
       url: "https://rocketchat.github.io/fuselage/fuselage/${{ needs.build-and-test.outputs.branch-name }}"
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           ref: gh-pages
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v3
         with:
           name: storybooks
           path: packages
 
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v3
         with:
           name: docs
           path: .
