@@ -1,5 +1,4 @@
 import type { ReactNode, AllHTMLAttributes } from 'react';
-import React from 'react';
 
 type StatesSuggestionProps = {
   children?: ReactNode;

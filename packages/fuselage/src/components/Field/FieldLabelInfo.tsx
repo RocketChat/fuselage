@@ -1,5 +1,4 @@
 import type { ComponentProps } from 'react';
-import React from 'react';
 
 import WithErrorWrapper from '../../helpers/WithErrorWrapper';
 import { LabelInfo } from '../Label/LabelInfo';

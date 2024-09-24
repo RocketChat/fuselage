@@ -22,7 +22,6 @@
   "scripts": {
     "lint": "lint",
     "lint-and-fix": "lint-and-fix",
-    "lint-staged": "lint-staged",
     "bump-next": "bump-next"
   },
   "dependencies": {
@@ -39,7 +38,6 @@
     "bump": "workspace:~",
     "eslint": "~8.38.0",
     "lint-all": "workspace:~",
-    "lint-staged": "~13.2.1",
     "prettier": "~2.8.7"
   }
 }

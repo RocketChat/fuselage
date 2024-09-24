@@ -1,36 +1,14 @@
 import { action } from '@storybook/addon-actions';
-import {
-  Title,
-  Description,
-  Primary,
-  Stories,
-  ArgsTable,
-} from '@storybook/addon-docs';
-import type { ComponentMeta } from '@storybook/react';
-import React from 'react';
+import type { Meta } from '@storybook/react';
 
-import { Box, Scrollable, Tile } from '../..';
+import Box from '../Box';
+import Tile from '../Tile';
+import { Scrollable } from './Scrollable';
 
 export default {
   title: 'Layout/Scrollable',
   component: Scrollable,
-  parameters: {
-    docs: {
-      description: {
-        component: 'Add scroll capability to the wrapped component.',
-      },
-      page: () => (
-        <>
-          <Title />
-          <Description />
-          <Primary />
-          <ArgsTable />
-          <Stories title={''} />
-        </>
-      ),
-    },
-  },
-} as ComponentMeta<typeof Scrollable>;
+} satisfies Meta<typeof Scrollable>;
 
 export const Default = () => (
   <Scrollable>

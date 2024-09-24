@@ -1,4 +1,4 @@
-import type { Meta, Story } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 
 import InformationTooltipTrigger from './InformationTooltipTrigger';
 
@@ -11,11 +11,11 @@ export default {
       defaultValue: 'Some tooltip text',
     },
   },
-} as Meta;
+} satisfies Meta<typeof InformationTooltipTrigger>;
 
-export const _InformationTooltipTrigger: Story = (args) => (
-  <InformationTooltipTrigger text={args.text} />
-);
+export const _InformationTooltipTrigger: StoryFn<
+  typeof InformationTooltipTrigger
+> = (args) => <InformationTooltipTrigger text={args.text} />;
 _InformationTooltipTrigger.storyName = 'InformationTooltipTrigger';
 _InformationTooltipTrigger.parameters = {
   layout: 'centered',

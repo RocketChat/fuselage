@@ -1,35 +1,14 @@
 import { action } from '@storybook/addon-actions';
-import {
-  Title,
-  Description,
-  Primary,
-  Stories,
-  ArgsTable,
-} from '@storybook/addon-docs';
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import React from 'react';
+import type { StoryFn, Meta } from '@storybook/react';
 
-import { Pagination } from '../..';
+import { Pagination } from './Pagination';
 
 export default {
   title: 'Navigation/Pagination',
   component: Pagination,
-  parameters: {
-    docs: {
-      page: () => (
-        <>
-          <Title />
-          <Description />
-          <Primary />
-          <Stories title={''} />
-          <ArgsTable />
-        </>
-      ),
-    },
-  },
-} as ComponentMeta<typeof Pagination>;
+} satisfies Meta<typeof Pagination>;
 
-export const Default: ComponentStory<typeof Pagination> = () => (
+export const Default: StoryFn<typeof Pagination> = () => (
   <Pagination
     count={500}
     onSetItemsPerPage={action('setItemsPerPage')}
@@ -37,7 +16,7 @@ export const Default: ComponentStory<typeof Pagination> = () => (
   />
 );
 
-export const Divider: ComponentStory<typeof Pagination> = () => (
+export const Divider: StoryFn<typeof Pagination> = () => (
   <Pagination
     divider
     count={500}

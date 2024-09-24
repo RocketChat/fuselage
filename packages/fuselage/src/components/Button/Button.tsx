@@ -1,5 +1,5 @@
 import type { AllHTMLAttributes, ComponentProps, Ref } from 'react';
-import React, { forwardRef, useMemo } from 'react';
+import { forwardRef, useMemo } from 'react';
 
 import Box from '../Box';
 import { Icon } from '../Icon';
@@ -25,6 +25,9 @@ export type ButtonProps = ComponentProps<typeof Box> & {
     'is' | 'className' | 'size'
   >;
 
+/**
+ * Indicates an actionable user action.
+ */
 export const Button = forwardRef(function Button(
   {
     primary,

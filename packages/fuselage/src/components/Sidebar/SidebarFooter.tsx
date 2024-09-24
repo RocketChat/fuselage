@@ -1,8 +1,7 @@
 import type { ReactNode } from 'react';
-import React from 'react';
 
 type SidebarFooterProps = {
-  children?: React.ReactNode;
+  children?: ReactNode;
   elevated?: boolean;
 };
 

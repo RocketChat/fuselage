@@ -1,7 +1,7 @@
 import type { UsePositionOptions } from '@rocket.chat/fuselage-hooks';
 import { usePosition } from '@rocket.chat/fuselage-hooks';
 import type { ReactNode, Ref, RefObject } from 'react';
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 
 import { DropdownDesktop } from './DropdownDesktop';
 

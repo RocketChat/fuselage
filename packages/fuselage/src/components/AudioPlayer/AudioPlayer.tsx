@@ -1,5 +1,5 @@
 import { useMergedRefs, useResizeObserver } from '@rocket.chat/fuselage-hooks';
-import React, { useState, useRef, forwardRef } from 'react';
+import { useState, useRef, forwardRef } from 'react';
 
 import { Box, Button, IconButton, Margins } from '../..';
 import { Slider } from '../Slider';
@@ -54,6 +54,9 @@ const getDurationForInfinityDurationAudioFile = (
   });
 };
 
+/**
+ * A Fuselage’s custom AudioPlayer.
+ */
 export const AudioPlayer = forwardRef<
   HTMLAudioElement,
   {

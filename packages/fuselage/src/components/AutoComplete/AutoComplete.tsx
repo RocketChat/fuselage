@@ -6,7 +6,7 @@ import type {
   ElementType,
   ReactElement,
 } from 'react';
-import React, { useEffect, useRef, useMemo, useState } from 'react';
+import { useEffect, useRef, useMemo, useState } from 'react';
 
 import AnimatedVisibility from '../AnimatedVisibility';
 import Box from '../Box';
@@ -53,6 +53,9 @@ const getSelected = (
     : options?.filter((option) => value.includes(option.value));
 };
 
+/**
+ * An input for selection of options.
+ */
 export function AutoComplete({
   value,
   filter,

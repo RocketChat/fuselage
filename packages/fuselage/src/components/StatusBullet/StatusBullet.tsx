@@ -1,5 +1,4 @@
 import type { AllHTMLAttributes } from 'react';
-import React from 'react';
 
 import Away from './icons/Away';
 import Busy from './icons/Busy';
@@ -13,6 +12,9 @@ export type StatusBulletProps = {
   size?: 'small' | 'large';
 } & Omit<AllHTMLAttributes<SVGElement>, 'size'>;
 
+/**
+ * The `StatusBullet` is used to inform the user status.
+ */
 const StatusBullet = ({ status = 'loading', ...props }: StatusBulletProps) => {
   switch (status) {
     case 'online':

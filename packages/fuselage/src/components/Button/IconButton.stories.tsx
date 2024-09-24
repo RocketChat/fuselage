@@ -1,21 +1,18 @@
 import { css } from '@rocket.chat/css-in-js';
-import {
-  Title,
-  Subtitle,
-  Description,
-  Primary as PrimaryStory,
-  ArgsTable,
-  Stories,
-  PRIMARY_STORY,
-} from '@storybook/addon-docs';
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import React from 'react';
+import type { StoryFn, Meta } from '@storybook/react';
 
 import { PropsVariationSection } from '../../../.storybook/helpers';
+import { Avatar } from '../Avatar';
 import { Badge } from '../Badge';
 import Box from '../Box/Box';
 import { ButtonGroup } from '../ButtonGroup';
+import { avatarUrl } from '../Message/helpers';
 import { IconButton } from './IconButton';
+
+export default {
+  title: 'Inputs/IconButton',
+  component: IconButton,
+} satisfies Meta<typeof IconButton>;
 
 const EmojiElement = (
   <div className='rcx-box rcx-box--full'>
@@ -28,26 +25,7 @@ const EmojiElement = (
   </div>
 );
 
-export default {
-  title: 'Inputs/IconButton',
-  component: IconButton,
-  parameters: {
-    docs: {
-      page: () => (
-        <>
-          <Title />
-          <Subtitle />
-          <Description />
-          <PrimaryStory />
-          <Stories title={''} />
-          <ArgsTable story={PRIMARY_STORY} />
-        </>
-      ),
-    },
-  },
-} as ComponentMeta<typeof ButtonGroup>;
-
-export const _IconButton: ComponentStory<typeof IconButton> = () => (
+export const _IconButton: StoryFn<typeof IconButton> = () => (
   <IconButton icon='balloon' aria-label='balloon' />
 );
 
@@ -176,49 +154,72 @@ export const Sizes = () => (
     <IconButton icon='balloon' aria-label='balloon' secondary mini />
   </ButtonGroup>
 );
-export const _IconButtonDisabled: ComponentStory<typeof IconButton> = () => (
+export const _IconButtonDisabled: StoryFn<typeof IconButton> = () => (
   <IconButton icon='balloon' aria-label='balloon' disabled />
 );
 
-export const _IconButtonWithEmoji: ComponentStory<typeof IconButton> = () => (
+export const _IconButtonWithEmoji: StoryFn<typeof IconButton> = () => (
   <IconButton icon={EmojiElement} aria-label='emoji' />
 );
 
-export const _IconButtonInfo: ComponentStory<typeof IconButton> = () => (
+export const _IconButtonInfo: StoryFn<typeof IconButton> = () => (
   <IconButton icon='balloon' aria-label='balloon' info />
 );
 
-export const _IconButtonSecondaryInfo: ComponentStory<
-  typeof IconButton
-> = () => <IconButton icon='balloon' aria-label='balloon' secondary info />;
+export const _IconButtonSecondaryInfo: StoryFn<typeof IconButton> = () => (
+  <IconButton icon='balloon' aria-label='balloon' secondary info />
+);
 
-export const _IconButtonSuccess: ComponentStory<typeof IconButton> = () => (
+export const _IconButtonSuccess: StoryFn<typeof IconButton> = () => (
   <IconButton icon='balloon' aria-label='balloon' success />
 );
 
-export const _IconButtonSecondarySuccess: ComponentStory<
-  typeof IconButton
-> = () => <IconButton icon='balloon' aria-label='balloon' secondary success />;
+export const _IconButtonSecondarySuccess: StoryFn<typeof IconButton> = () => (
+  <IconButton icon='balloon' aria-label='balloon' secondary success />
+);
 
-export const _IconButtonWarning: ComponentStory<typeof IconButton> = () => (
+export const _IconButtonWarning: StoryFn<typeof IconButton> = () => (
   <IconButton icon='balloon' aria-label='balloon' warning />
 );
 
-export const _IconButtonSecondaryWarning: ComponentStory<
-  typeof IconButton
-> = () => <IconButton icon='balloon' aria-label='balloon' secondary warning />;
+export const _IconButtonSecondaryWarning: StoryFn<typeof IconButton> = () => (
+  <IconButton icon='balloon' aria-label='balloon' secondary warning />
+);
 
-export const _IconButtonDanger: ComponentStory<typeof IconButton> = () => (
+export const _IconButtonDanger: StoryFn<typeof IconButton> = () => (
   <IconButton icon='balloon' aria-label='balloon' danger />
 );
 
-export const _IconButtonSecondaryDanger: ComponentStory<
-  typeof IconButton
-> = () => <IconButton icon='balloon' aria-label='balloon' secondary danger />;
+export const _IconButtonSecondaryDanger: StoryFn<typeof IconButton> = () => (
+  <IconButton icon='balloon' aria-label='balloon' secondary danger />
+);
 
-export const _IconButtonWithBadge: ComponentStory<typeof IconButton> = () => (
+export const _IconButtonWithBadge: StoryFn<typeof IconButton> = () => (
   <ButtonGroup>
     <IconButton icon='balloon' small position='relative' overflow='visible'>
+      <Box
+        position='absolute'
+        role='status'
+        className={css`
+          top: 0;
+          right: 0;
+          transform: translate(30%, -30%);
+        `}
+      >
+        <Badge variant='danger'>2</Badge>
+      </Box>
+    </IconButton>
+  </ButtonGroup>
+);
+
+export const _IconButtonAvatarWithBadge: StoryFn<typeof IconButton> = () => (
+  <ButtonGroup>
+    <IconButton
+      icon={<Avatar size='x28' url={avatarUrl} />}
+      small
+      position='relative'
+      overflow='visible'
+    >
       <Box
         position='absolute'
         role='status'

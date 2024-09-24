@@ -1,7 +1,6 @@
 import { css, keyframes } from '@rocket.chat/css-in-js';
 import { useUniqueId } from '@rocket.chat/fuselage-hooks';
 import type { ReactNode, AllHTMLAttributes } from 'react';
-import React from 'react';
 
 import Box from '../Box';
 import { IconButton } from '../Button';
@@ -12,16 +11,21 @@ export type ToastBarProps = {
   className?: string;
   children?: ReactNode;
   time?: number;
+  isPaused?: boolean;
   id?: string;
   onClose?: (id: string) => void;
   buttonLabel?: string;
 } & Omit<AllHTMLAttributes<HTMLElement>, 'is'>;
 
+/**
+ * Shows alerts in a toast component.
+ */
 export function ToastBar({
   children,
   className = '',
   variant = 'info',
   time = 5,
+  isPaused,
   id,
   onClose,
   buttonLabel = 'Dismiss alert',
@@ -59,6 +63,8 @@ export function ToastBar({
     &::after {
       width: 0%;
       animation: ${progressBar} ${time}s;
+      animation-fill-mode: forwards;
+      animation-play-state: ${isPaused ? 'paused' : 'running'};
     }
   `;
 

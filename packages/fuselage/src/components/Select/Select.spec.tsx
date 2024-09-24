@@ -1,8 +1,7 @@
-import { composeStories } from '@storybook/testing-react';
-import { render } from '@testing-library/react';
-import React from 'react';
+import { composeStories } from '@storybook/react';
 import { withResizeObserverMock } from 'testing-utils/mocks/withResizeObserverMock';
 
+import { render } from '../../testing';
 import * as stories from './Select.stories';
 
 const { Default } = composeStories(stories);

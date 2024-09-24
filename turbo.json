@@ -1,6 +1,6 @@
 {
-  "baseBranch": "origin/master",
-  "pipeline": {
+  "$schema": "https://turbo.build/schema.json",
+  "tasks": {
     "build": {
       "dependsOn": ["^build"]
     },
@@ -12,12 +12,12 @@
       "dependsOn": ["build"],
       "outputs": []
     },
+    "docs": {
+      "dependsOn": ["build"]
+    },
     "build-storybook": {
       "dependsOn": ["^build"],
       "outputs": ["storybook-static/**"]
-    },
-    "lint-staged": {
-      "outputs": []
     }
   }
 }

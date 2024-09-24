@@ -1,7 +1,7 @@
 import type { Keys } from '@rocket.chat/icons';
 import nameToCharacterMapping from '@rocket.chat/icons';
 import type { ComponentProps, Ref } from 'react';
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 
 import Box from '../Box';
 

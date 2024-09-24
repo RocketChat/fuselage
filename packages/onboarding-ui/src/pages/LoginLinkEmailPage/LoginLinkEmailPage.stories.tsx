@@ -1,9 +1,6 @@
-import type { Story, Meta } from '@storybook/react';
-import type { ComponentProps } from 'react';
+import type { Meta, StoryFn } from '@storybook/react';
 
 import LoginLinkEmailPage from './LoginLinkEmailPage';
-
-type Args = ComponentProps<typeof LoginLinkEmailPage>;
 
 export default {
   title: 'pages/LoginLinkEmailPage',
@@ -12,9 +9,9 @@ export default {
     actions: { argTypesRegex: '^on.*' },
     layout: 'fullscreen',
   },
-} as Meta<Args>;
+} satisfies Meta<typeof LoginLinkEmailPage>;
 
-export const _LoginLinkEmailPage: Story<Args> = (args) => (
-  <LoginLinkEmailPage {...args} />
-);
+export const _LoginLinkEmailPage: StoryFn<typeof LoginLinkEmailPage> = (
+  args
+) => <LoginLinkEmailPage {...args} />;
 _LoginLinkEmailPage.storyName = 'LoginLinkEmailPage';

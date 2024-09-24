@@ -1,8 +1,9 @@
-import type { ComponentStory } from '@storybook/react';
-import React, { useState } from 'react';
+import type { Meta, StoryFn } from '@storybook/react';
+import { useState } from 'react';
 
 import Message from '.';
-import { Box, Avatar } from '..';
+import { Avatar } from '../Avatar';
+import Box from '../Box';
 import { MessageDivider } from './MessageDivider';
 import { MessageEmoji } from './MessageEmoji';
 import MessageMetrics from './MessageMetrics';
@@ -14,12 +15,9 @@ import { avatarUrl } from './helpers';
 export default {
   title: 'Message/Message',
   component: Message,
-  parameters: {
-    jest: ['Message.spec.tsx'],
-  },
-};
+} satisfies Meta<typeof Message>;
 
-export const Default: ComponentStory<typeof Message> = () => (
+export const Default: StoryFn<typeof Message> = () => (
   <Box>
     <MessageDivider>May, 24, 2020</MessageDivider>
     <Message className='customclass' clickable>
@@ -101,7 +99,7 @@ export const Default: ComponentStory<typeof Message> = () => (
   </Box>
 );
 
-export const WithSequential: ComponentStory<typeof Message> = () => (
+export const WithSequential: StoryFn<typeof Message> = () => (
   <Box>
     <MessageDivider>May, 24, 2020</MessageDivider>
     <Message className='customclass' clickable>
@@ -216,7 +214,7 @@ export const WithSequential: ComponentStory<typeof Message> = () => (
   </Box>
 );
 
-export const MessageWithThread: ComponentStory<typeof Message> = () => (
+export const MessageWithThread: StoryFn<typeof Message> = () => (
   <Box>
     <MessageDivider unreadLabel='Unread'>May, 24, 2020</MessageDivider>
     <Message className='customclass' clickable>
@@ -334,7 +332,7 @@ export const MessageWithThread: ComponentStory<typeof Message> = () => (
   </Box>
 );
 
-export const MessageSelected: ComponentStory<typeof Message> = () => {
+export const MessageSelected: StoryFn<typeof Message> = () => {
   const [selected, setSelected] = useState(true);
   return (
     <Box>
@@ -393,7 +391,7 @@ export const MessageSelected: ComponentStory<typeof Message> = () => {
   );
 };
 
-export const MessageEditing: ComponentStory<typeof Message> = () => (
+export const MessageEditing: StoryFn<typeof Message> = () => (
   <Box>
     <MessageDivider>May, 24, 2020</MessageDivider>
     <Message className='customclass' clickable>
@@ -477,7 +475,7 @@ export const MessageEditing: ComponentStory<typeof Message> = () => (
   </Box>
 );
 
-export const MessageUnorderedList: ComponentStory<typeof Message> = () => (
+export const MessageUnorderedList: StoryFn<typeof Message> = () => (
   <Box>
     <MessageDivider>May, 24, 2020</MessageDivider>
     <Message className='customclass' clickable>
@@ -523,7 +521,7 @@ export const MessageUnorderedList: ComponentStory<typeof Message> = () => (
   </Box>
 );
 
-export const MessageOrderedList: ComponentStory<typeof Message> = () => (
+export const MessageOrderedList: StoryFn<typeof Message> = () => (
   <Box>
     <MessageDivider>May, 24, 2020</MessageDivider>
     <Message className='customclass' clickable>
@@ -569,7 +567,7 @@ export const MessageOrderedList: ComponentStory<typeof Message> = () => (
   </Box>
 );
 
-export const MessageHighlighted: ComponentStory<typeof Message> = () => (
+export const MessageHighlighted: StoryFn<typeof Message> = () => (
   <Box>
     <MessageDivider>May, 24, 2020</MessageDivider>
     <Message className='customclass' highlight>
@@ -653,7 +651,7 @@ export const MessageHighlighted: ComponentStory<typeof Message> = () => (
   </Box>
 );
 
-export const MessagePending: ComponentStory<typeof Message> = () => (
+export const MessagePending: StoryFn<typeof Message> = () => (
   <Box>
     <MessageDivider>May, 24, 2020</MessageDivider>
     <Message className='customclass' isPending>
@@ -731,7 +729,7 @@ export const MessagePending: ComponentStory<typeof Message> = () => (
   </Box>
 );
 
-export const MessageWithMetrics: ComponentStory<typeof Message> = () => (
+export const MessageWithMetrics: StoryFn<typeof Message> = () => (
   <Box>
     <MessageDivider>May, 24, 2020</MessageDivider>
     <Message className='customclass'>
@@ -784,7 +782,7 @@ export const MessageWithMetrics: ComponentStory<typeof Message> = () => (
   </Box>
 );
 
-export const MessageWithHeadings: ComponentStory<typeof Message> = () => (
+export const MessageWithHeadings: StoryFn<typeof Message> = () => (
   <Box>
     <MessageDivider>May, 24, 2020</MessageDivider>
     <Message className='customclass' clickable>
@@ -832,7 +830,7 @@ export const MessageWithHeadings: ComponentStory<typeof Message> = () => (
   </Box>
 );
 
-export const LotsOfReactions: ComponentStory<typeof Message> = () => (
+export const LotsOfReactions: StoryFn<typeof Message> = () => (
   <Box>
     <MessageDivider>May, 24, 2020</MessageDivider>
     <Message className='customclass' clickable>

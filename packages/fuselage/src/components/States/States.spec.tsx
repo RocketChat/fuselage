@@ -1,7 +1,5 @@
-import { render } from '@testing-library/react';
-import React from 'react';
-
-import { States } from '.';
+import { render } from '../../testing';
+import States from './States';
 
 describe('[States Component]', () => {
   it('renders without crashing', () => {

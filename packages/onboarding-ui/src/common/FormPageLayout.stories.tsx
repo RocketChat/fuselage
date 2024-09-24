@@ -1,10 +1,7 @@
 import { Tile } from '@rocket.chat/fuselage';
-import type { Meta, Story } from '@storybook/react';
-import type { ComponentProps } from 'react';
+import type { Meta, StoryFn } from '@storybook/react';
 
 import FormPageLayout from './FormPageLayout';
-
-type Args = ComponentProps<typeof FormPageLayout>;
 
 export default {
   title: 'common/FormPageLayout',
@@ -19,9 +16,9 @@ export default {
     description: <Tile>Description</Tile>,
     children: <Tile>Form</Tile>,
   },
-} as Meta<Args>;
+} satisfies Meta<typeof FormPageLayout>;
 
-export const _FormPageLayout: Story<Args> = (args) => (
+export const _FormPageLayout: StoryFn<typeof FormPageLayout> = (args) => (
   <FormPageLayout {...args} />
 );
 _FormPageLayout.storyName = 'FormPageLayout';

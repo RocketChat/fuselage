@@ -1,5 +1,5 @@
 import type { ComponentProps, ReactNode, Ref } from 'react';
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 
 import { InputBox } from '../InputBox';
 
@@ -9,6 +9,9 @@ type TelephoneInputProps = Omit<ComponentProps<typeof InputBox>, 'type'> & {
   error?: string;
 };
 
+/**
+ * An input for telephone numbers.
+ */
 export const TelephoneInput = forwardRef(function TelephoneInput(
   props: TelephoneInputProps,
   ref: Ref<HTMLInputElement>

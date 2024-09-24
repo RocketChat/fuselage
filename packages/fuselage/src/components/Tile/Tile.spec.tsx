@@ -1,7 +1,5 @@
-import { render } from '@testing-library/react';
-import React from 'react';
-
-import Tile from '.';
+import { render } from '../../testing';
+import Tile from './Tile';
 
 describe('[Tile Component]', () => {
   it('renders without crashing', () => {

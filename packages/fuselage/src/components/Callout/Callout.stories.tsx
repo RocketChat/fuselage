@@ -1,42 +1,14 @@
-import {
-  Title,
-  Subtitle,
-  Description,
-  Primary as PrimaryStory,
-  ArgsTable,
-  Stories,
-  PRIMARY_STORY,
-} from '@storybook/addon-docs';
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import React from 'react';
+import type { StoryFn, Meta } from '@storybook/react';
 
-import { Callout } from '../..';
+import { Button, ButtonGroup, Callout } from '../..';
 import { setStoryDescription } from '../../helpers/setStoryDescription';
 
 export default {
   title: 'Feedback/Callout',
   component: Callout,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          "The `Callout` is used to get the user's attention explaining something important in the content of the current page.",
-      },
-      page: () => (
-        <>
-          <Title />
-          <Subtitle />
-          <Description />
-          <PrimaryStory />
-          <ArgsTable story={PRIMARY_STORY} />
-          <Stories title={''} />
-        </>
-      ),
-    },
-  },
-} as ComponentMeta<typeof Callout>;
+} satisfies Meta<typeof Callout>;
 
-const Template: ComponentStory<typeof Callout> = (args) => (
+const Template: StoryFn<typeof Callout> = (args) => (
   <Callout {...args}>
     {args.children || 'This is a generic description.'}
   </Callout>
@@ -86,4 +58,18 @@ export const CustomIcon = Template.bind({});
 CustomIcon.args = {
   title: 'This is a message with custom icon',
   icon: 'hash',
+};
+
+export const WithActions: StoryFn<typeof Callout> = (args) => (
+  <Callout {...args} />
+);
+WithActions.args = {
+  title: 'This is a generic title',
+  children: 'This is a generic description.',
+  actions: (
+    <ButtonGroup>
+      <Button small>Button</Button>
+      <Button small>Button</Button>
+    </ButtonGroup>
+  ),
 };

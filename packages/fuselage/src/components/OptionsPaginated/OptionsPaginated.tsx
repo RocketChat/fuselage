@@ -1,6 +1,6 @@
 import { useEffectEvent, useDebouncedState } from '@rocket.chat/fuselage-hooks';
 import type { ComponentProps, ElementType, Ref, SyntheticEvent } from 'react';
-import React, { forwardRef, memo } from 'react';
+import { forwardRef, memo } from 'react';
 import { Virtuoso } from 'react-virtuoso';
 
 import { prevent } from '../../helpers/prevent';
@@ -37,6 +37,9 @@ export const CheckOption = memo(function CheckOption({
   );
 });
 
+/**
+ * An input for selection of options.
+ */
 export const OptionsPaginated = forwardRef(
   (
     {

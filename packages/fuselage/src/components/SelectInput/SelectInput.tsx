@@ -1,5 +1,5 @@
 import type { ComponentProps, ReactNode, Ref } from 'react';
-import React, { forwardRef, useState, useCallback } from 'react';
+import { forwardRef, useState, useCallback } from 'react';
 
 import { Icon } from '../Icon';
 import { InputBox } from '../InputBox';
@@ -13,6 +13,9 @@ type SelectInputProps = Omit<ComponentProps<typeof InputBox>, 'type'> & {
   addon?: ReactNode;
 };
 
+/**
+ * An input for selection of options.
+ */
 export const SelectInput = forwardRef(function SelectInput(
   { children, multiple, placeholder, onChange, ...props }: SelectInputProps,
   ref: Ref<HTMLElement>

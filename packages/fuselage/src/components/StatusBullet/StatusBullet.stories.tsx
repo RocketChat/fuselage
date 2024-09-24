@@ -1,37 +1,14 @@
-import {
-  Title,
-  Description,
-  Primary,
-  Stories,
-  ArgsTable,
-} from '@storybook/addon-docs';
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import React from 'react';
+import type { StoryFn, Meta } from '@storybook/react';
 
-import { StatusBullet, Box } from '../..';
+import Box from '../Box';
+import { StatusBullet } from './StatusBullet';
 
 export default {
   title: 'Data Display/StatusBullet',
   component: StatusBullet,
-  parameters: {
-    docs: {
-      description: {
-        component: 'The `StatusBullet` is used to inform the user status.',
-      },
-      page: () => (
-        <>
-          <Title />
-          <Description />
-          <Primary />
-          <ArgsTable />
-          <Stories title={''} />
-        </>
-      ),
-    },
-  },
-} as ComponentMeta<typeof StatusBullet>;
+} satisfies Meta<typeof StatusBullet>;
 
-export const Default: ComponentStory<typeof StatusBullet> = () => (
+export const Default: StoryFn<typeof StatusBullet> = () => (
   <Box>
     <StatusBullet status='online' />
     <StatusBullet status='away' />
@@ -42,7 +19,7 @@ export const Default: ComponentStory<typeof StatusBullet> = () => (
   </Box>
 );
 
-export const Small: ComponentStory<typeof StatusBullet> = () => (
+export const Small: StoryFn<typeof StatusBullet> = () => (
   <Box>
     <StatusBullet size='small' status='online' />
     <StatusBullet size='small' status='away' />

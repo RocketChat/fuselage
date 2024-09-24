@@ -1,9 +1,6 @@
-import type { Story, Meta } from '@storybook/react';
-import type { ComponentProps } from 'react';
+import type { StoryFn, Meta } from '@storybook/react';
 
 import LoginPage from './LoginPage';
-
-type Args = ComponentProps<typeof LoginPage>;
 
 export default {
   title: 'pages/LoginPage',
@@ -12,10 +9,12 @@ export default {
     actions: { argTypesRegex: '^on.*' },
     layout: 'fullscreen',
   },
-} as Meta<Args>;
+} satisfies Meta<typeof LoginPage>;
 
-export const _LoginPage: Story<Args> = (args) => <LoginPage {...args} />;
-export const _LoginPasswordLessPage: Story<Args> = (args) => (
+export const _LoginPage: StoryFn<typeof LoginPage> = (args) => (
+  <LoginPage {...args} />
+);
+export const _LoginPasswordLessPage: StoryFn<typeof LoginPage> = (args) => (
   <LoginPage {...args} />
 );
 _LoginPage.storyName = 'CloudDefaultLoginPage';

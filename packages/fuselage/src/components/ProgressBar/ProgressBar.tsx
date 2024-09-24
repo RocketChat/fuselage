@@ -1,5 +1,5 @@
 import type { AllHTMLAttributes } from 'react';
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 
 import Box from '../Box';
 
@@ -38,6 +38,9 @@ type ProgressBarProps = {
   light?: boolean;
 } & Omit<AllHTMLAttributes<HTMLElement>, 'is'>;
 
+/**
+ * The `ProgressBar` is used to inform the user the progress of an operation.
+ */
 export const ProgressBar = forwardRef(function ProgressBar(
   {
     percentage,

@@ -1,5 +1,29 @@
 # Change Log
 
+## 0.38.0
+
+### Minor Changes
+
+- [#1425](https://github.com/RocketChat/fuselage/pull/1425) [`f37f5f1a`](https://github.com/RocketChat/fuselage/commit/f37f5f1a42bc9f27f77d3be9a635585230298bac) Thanks [@aleksandernsilva](https://github.com/aleksandernsilva)! - feat(icons): Add icon pause-shape-unfilled
+
+## 0.37.0
+
+### Minor Changes
+
+- [#1414](https://github.com/RocketChat/fuselage/pull/1414) [`7f1e904d`](https://github.com/RocketChat/fuselage/commit/7f1e904def9a51961e27bdd1c37c3144f5ab9744) Thanks [@tiagoevanp](https://github.com/tiagoevanp)! - feat(icons): Add new and updated icons
+
+## 0.36.0
+
+### Minor Changes
+
+- [#1379](https://github.com/RocketChat/fuselage/pull/1379) [`cef91c8dc`](https://github.com/RocketChat/fuselage/commit/cef91c8dc646a4e9fc256eed6138eef108ee996c) Thanks [@dougfabris](https://github.com/dougfabris)! - feat(icons): New check-single icon
+
+## 0.35.0
+
+### Minor Changes
+
+- [#1367](https://github.com/RocketChat/fuselage/pull/1367) [`e44d4da08`](https://github.com/RocketChat/fuselage/commit/e44d4da086324d7893696c0e240a9a800c01f1bb) Thanks [@dougfabris](https://github.com/dougfabris)! - feat(icons): Add double-check icon
+
 ## 0.34.0
 
 ### Minor Changes

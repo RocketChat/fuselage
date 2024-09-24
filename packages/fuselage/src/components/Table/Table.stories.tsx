@@ -1,43 +1,32 @@
-import {
-  Title,
-  Description,
-  Primary,
-  Stories,
-  ArgsTable,
-} from '@storybook/addon-docs';
-import type { ComponentStory } from '@storybook/react';
-import React from 'react';
+import type { Meta, StoryFn } from '@storybook/react';
 
-import { CheckBox } from '../..';
+import { CheckBox } from '../CheckBox';
+import { Table } from './Table';
+import { TableBody } from './TableBody';
+import { TableCell } from './TableCell';
+import { TableHead } from './TableHead';
+import { TableRow } from './TableRow';
 import {
-  Table,
   TableSelection,
   TableSelectionButton,
-  TableHead,
-  TableRow,
-  TableCell,
-  TableBody,
-} from './index';
+  TableSelectionButtonGroup,
+} from './TableSelection';
 
 export default {
   title: 'Data Display/Table',
   component: Table,
-  parameters: {
-    docs: {
-      page: () => (
-        <>
-          <Title />
-          <Description />
-          <Primary />
-          <ArgsTable />
-          <Stories title={''} />
-        </>
-      ),
-    },
+  subcomponents: {
+    TableHead,
+    TableRow,
+    TableCell,
+    TableBody,
+    TableSelection,
+    TableSelectionButton,
+    TableSelectionButtonGroup,
   },
-};
+} satisfies Meta<typeof Table>;
 
-export const Default: ComponentStory<typeof Table> = () => (
+export const Default: StoryFn<typeof Table> = () => (
   <>
     <Table>
       <TableHead>
@@ -73,11 +62,8 @@ export const Default: ComponentStory<typeof Table> = () => (
   </>
 );
 
-export const Selected: ComponentStory<typeof Table> = () => (
+export const WithSelection: StoryFn<typeof Table> = () => (
   <>
-    <TableSelection text='5 Items selected'>
-      <TableSelectionButton>Delete</TableSelectionButton>
-    </TableSelection>
     <Table>
       <TableHead>
         <TableRow>
@@ -154,10 +140,16 @@ export const Selected: ComponentStory<typeof Table> = () => (
         </TableRow>
       </TableBody>
     </Table>
+    <TableSelection text='5 Items selected'>
+      <TableSelectionButtonGroup>
+        <TableSelectionButton>Delete</TableSelectionButton>
+        <TableSelectionButton>Cancel</TableSelectionButton>
+      </TableSelectionButtonGroup>
+    </TableSelection>
   </>
 );
 
-export const Striped: ComponentStory<typeof Table> = () => (
+export const Striped: StoryFn<typeof Table> = () => (
   <Table fixed striped sticky>
     <TableHead>
       <TableRow>
@@ -218,7 +210,7 @@ export const Striped: ComponentStory<typeof Table> = () => (
   </Table>
 );
 
-export const Fixed: ComponentStory<typeof Table> = () => (
+export const Fixed: StoryFn<typeof Table> = () => (
   <Table fixed>
     <TableHead>
       <TableRow>

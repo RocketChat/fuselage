@@ -1,6 +1,6 @@
-import { render, screen } from '@testing-library/react';
-import React from 'react';
+import { screen } from '@testing-library/react';
 
+import { render } from '../../../testing';
 import { MessageGenericPreviewImage } from './MessageGenericPreviewImage';
 
 describe('MessageGenericPreviewImage', () => {
@@ -10,7 +10,7 @@ describe('MessageGenericPreviewImage', () => {
 
   it('should render image', () => {
     render(<MessageGenericPreviewImage url='test' />);
-    const previewImage = screen.getByRole('img');
+    const previewImage = screen.getByRole('presentation');
 
     expect(previewImage).toBeInTheDocument();
     expect(previewImage).toHaveAttribute('src', 'test');

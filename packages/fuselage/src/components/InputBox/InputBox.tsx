@@ -1,4 +1,3 @@
-/* eslint-disable complexity */
 import { useMergedRefs } from '@rocket.chat/fuselage-hooks';
 import type {
   ComponentProps,
@@ -6,15 +5,16 @@ import type {
   ReactNode,
   Ref,
 } from 'react';
-import React, { forwardRef, useCallback, useLayoutEffect, useRef } from 'react';
+import { forwardRef, useCallback, useLayoutEffect, useRef } from 'react';
 
-import type { InputBoxSkeleton } from '.';
-import { Input, Wrapper } from '.';
 import type Box from '../Box';
 import { Icon } from '../Icon';
 import { Addon } from './Addon';
+import { Input } from './Input';
+import type { InputBoxSkeleton } from './InputBoxSkeleton';
 import type { Option } from './Option';
 import type { Placeholder } from './Placeholder';
+import { Wrapper } from './Wrapper';
 
 type InputBoxProps = ComponentProps<typeof Box> & {
   addon?: ReactNode;
@@ -23,6 +23,7 @@ type InputBoxProps = ComponentProps<typeof Box> & {
   error?: string;
   placeholder?: string;
   placeholderVisible?: boolean;
+  small?: boolean;
   type:
     | 'button'
     | 'checkbox'
@@ -51,14 +52,13 @@ type InputBoxProps = ComponentProps<typeof Box> & {
     | 'select';
 };
 
-export type InputBox = ForwardRefExoticComponent<InputBoxProps> & {
-  Input: ForwardRefExoticComponent<ComponentProps<typeof Box>>;
-  Skeleton: ForwardRefExoticComponent<ComponentProps<typeof InputBoxSkeleton>>;
-  Option: ForwardRefExoticComponent<ComponentProps<typeof Option>>;
-  Placeholder: ForwardRefExoticComponent<ComponentProps<typeof Placeholder>>;
-};
-
-// eslint-disable-next-line @typescript-eslint/no-redeclare
+/**
+ * A decorated input control with support for addons.
+ *
+ * Usually you'll perfer to use `-Input` (e.g. <LinkTo kind='Forms/TextInput' story='Default'>`TextInput`</LinkTo>)
+ * components over this one because it works as a construction block for them.
+ */
+// eslint-disable-next-line complexity
 export const InputBox = forwardRef(function InputBox(
   {
     className,
@@ -69,6 +69,7 @@ export const InputBox = forwardRef(function InputBox(
     multiple,
     placeholderVisible,
     type = 'text',
+    small,
     onChange,
     ...props
   }: InputBoxProps,
@@ -140,6 +141,7 @@ export const InputBox = forwardRef(function InputBox(
         rcx-input-box--multiple={multiple}
         rcx-input-box--placeholder-visible={placeholderVisible}
         rcx-input-box--type={type}
+        rcx-input-box--small={small}
         {...props}
       />
     );
@@ -173,9 +175,15 @@ export const InputBox = forwardRef(function InputBox(
         rcx-input-box--placeholder-visible={placeholderVisible}
         rcx-input-box--type={type}
         rcx-input-box--undecorated
+        rcx-input-box--small={small}
         {...props}
       />
       <Addon children={addon} />
     </Wrapper>
   );
-}) as unknown as InputBox;
+}) as unknown as ForwardRefExoticComponent<InputBoxProps> & {
+  Input: ForwardRefExoticComponent<ComponentProps<typeof Box>>;
+  Skeleton: ForwardRefExoticComponent<ComponentProps<typeof InputBoxSkeleton>>;
+  Option: ForwardRefExoticComponent<ComponentProps<typeof Option>>;
+  Placeholder: ForwardRefExoticComponent<ComponentProps<typeof Placeholder>>;
+};

@@ -1,9 +1,6 @@
-import type { Story, Meta } from '@storybook/react';
-import type { ComponentProps } from 'react';
+import type { StoryFn, Meta } from '@storybook/react';
 
 import NewAccountForm from './NewAccountForm';
-
-type Args = ComponentProps<typeof NewAccountForm>;
 
 export default {
   title: 'forms/NewAccountForm',
@@ -13,15 +10,14 @@ export default {
     layout: 'centered',
   },
   argTypes: {
-    validateUsername: { action: 'validateUsername' },
     validateEmail: { action: 'validateEmail' },
     validatePassword: { action: 'validatePassword' },
-    validateConfirmPassword: { action: 'validateConfirmPassword' },
+    validateConfirmationPassword: { action: 'validateConfirmationPassword' },
   },
   args: {},
-} as Meta<Args>;
+} satisfies Meta<typeof NewAccountForm>;
 
-export const _NewAccountForm: Story<Args> = (args) => (
+export const _NewAccountForm: StoryFn<typeof NewAccountForm> = (args) => (
   <NewAccountForm {...args} />
 );
 _NewAccountForm.storyName = 'NewAccountForm';

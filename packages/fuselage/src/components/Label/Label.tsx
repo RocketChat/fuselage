@@ -1,5 +1,5 @@
 import type { ComponentProps, ReactElement, ElementType } from 'react';
-import React, { createContext, useContext } from 'react';
+import { createContext, useContext } from 'react';
 
 import Box from '../Box';
 
@@ -11,6 +11,9 @@ type LabelProps = Omit<ComponentProps<typeof Box>, 'is'> & {
   is?: (ElementType<any> & string) | undefined;
 };
 
+/**
+ * A caption for an input component.
+ */
 export function Label({
   disabled,
   is,

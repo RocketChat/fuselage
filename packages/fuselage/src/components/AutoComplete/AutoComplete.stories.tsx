@@ -1,40 +1,20 @@
-import {
-  Title,
-  Subtitle,
-  Description,
-  Primary as PrimaryStory,
-  ArgsTable,
-  Stories,
-  PRIMARY_STORY,
-} from '@storybook/addon-docs';
-import type { ComponentMeta, ComponentStory } from '@storybook/react';
-import React, { useState } from 'react';
+import type { Meta, StoryFn } from '@storybook/react';
+import { useState } from 'react';
 
-import { AutoComplete, Box, Chip, Avatar, Option } from '../..';
 import { exampleAvatar, DECORATOR_LABEL } from '../../../.storybook/helpers';
+import { Avatar } from '../Avatar';
+import Box from '../Box';
+import Chip from '../Chip';
+import Option from '../Option';
+import { AutoComplete } from './AutoComplete';
 
 export default {
   title: 'Inputs/AutoComplete',
   component: AutoComplete,
   parameters: {
     layout: 'centered',
-    docs: {
-      description: {
-        component: 'An input for selection of options.',
-      },
-      page: () => (
-        <>
-          <Title />
-          <Subtitle />
-          <Description />
-          <PrimaryStory />
-          <Stories title={''} />
-          <ArgsTable story={PRIMARY_STORY} />
-        </>
-      ),
-    },
   },
-} as ComponentMeta<typeof AutoComplete>;
+} satisfies Meta<typeof AutoComplete>;
 
 const options = [
   { value: '1', label: 'test1' },
@@ -43,7 +23,7 @@ const options = [
   { value: '4', label: 'test4' },
 ];
 
-const Template: ComponentStory<typeof AutoComplete> = ({
+const Template: StoryFn<typeof AutoComplete> = ({
   value: defaultValue,
   ...args
 }) => {

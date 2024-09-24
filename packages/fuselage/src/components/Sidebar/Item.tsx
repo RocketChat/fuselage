@@ -1,5 +1,4 @@
 import type { AllHTMLAttributes, ComponentProps, ReactNode } from 'react';
-import React from 'react';
 
 import type Box from '../Box';
 import { Icon as FuselageIcon } from '../Icon';
@@ -14,6 +13,9 @@ type SidebarItemProps = {
   children?: ReactNode;
 } & AllHTMLAttributes<HTMLElement>;
 
+/**
+ * Item component to be used inside Sidebar.
+ */
 export const SidebarItem = ({
   selected,
   highlighted,

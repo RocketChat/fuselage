@@ -1,6 +1,6 @@
 import { css } from '@rocket.chat/css-in-js';
 import type { ComponentProps, PropsWithChildren } from 'react';
-import React, { useCallback } from 'react';
+import { useCallback } from 'react';
 
 import { appendClassName } from '../../helpers/appendClassName';
 import { patchChildren } from '../../helpers/patchChildren';
@@ -20,6 +20,9 @@ type MarginsProps = PropsWithChildren<{
   className?: string;
 }>;
 
+/**
+ * Add margins to the wrapped component.
+ */
 export const Margins = (props: MarginsProps) => {
   const {
     children,

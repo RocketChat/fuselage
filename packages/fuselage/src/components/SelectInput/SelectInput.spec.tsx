@@ -1,8 +1,21 @@
-import { render } from '@testing-library/react';
-import React from 'react';
+import { composeStories } from '@storybook/react';
+import { axe } from 'jest-axe';
 
-import { SelectInput } from '.';
+import { render } from '../../testing';
+import * as stories from './SelectInput.stories';
 
-it('renders without crashing', () => {
-  render(<SelectInput />);
+const { Default } = composeStories(stories);
+
+describe('[SelectInput Component]', () => {
+  it('renders without crashing', () => {
+    const tree = render(<Default />);
+    expect(tree.baseElement).toMatchSnapshot();
+  });
+
+  it('%s should have no a11y violations', async () => {
+    const { container } = render(<Default />);
+
+    const results = await axe(container);
+    expect(results).toHaveNoViolations();
+  });
 });

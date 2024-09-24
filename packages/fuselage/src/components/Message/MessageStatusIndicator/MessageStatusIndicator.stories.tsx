@@ -1,22 +1,20 @@
-import React from 'react';
+import type { Meta, StoryFn } from '@storybook/react';
 
-import { MessageStatusIndicator, MessageStatusIndicatorItem } from '.';
-import Message from '..';
-import { Box, Avatar } from '../..';
+import Message, { MessageStatusIndicatorItem } from '..';
+import { Avatar } from '../../Avatar';
+import Box from '../../Box';
 import { MessageDivider } from '../MessageDivider';
 import MessageReactions from '../MessageReactions';
 import MessageToolbar from '../MessageToolbar';
+import { MessageStatusIndicator } from './MessageStatusIndicator';
 import { MessageStatusIndicatorText } from './MessageStatusIndicatorText';
 
 export default {
   title: 'Message/MessageStatusIndicator',
-  component: Message,
-  // parameters: {
-  //   jest: ['Message.spec.tsx'],
-  // },
-};
+  component: MessageStatusIndicator,
+} satisfies Meta<typeof MessageStatusIndicator>;
 
-export const Default = () => (
+export const Default: StoryFn = () => (
   <Box>
     <MessageDivider>May, 24, 2020</MessageDivider>
     <Message clickable>

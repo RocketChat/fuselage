@@ -1,5 +1,5 @@
 import type { ComponentProps, ReactElement, Ref } from 'react';
-import React, { isValidElement, useMemo, forwardRef } from 'react';
+import { isValidElement, useMemo, forwardRef } from 'react';
 
 import Box from '../Box';
 import { Icon } from '../Icon';
@@ -123,7 +123,6 @@ export const IconButton = forwardRef(
         ref={ref}
         {...props}
       >
-        {children}
         {isValidElement(icon) ? (
           icon
         ) : (
@@ -132,6 +131,7 @@ export const IconButton = forwardRef(
             size={getIconSize()}
           />
         )}
+        {children}
       </Box>
     );
   }

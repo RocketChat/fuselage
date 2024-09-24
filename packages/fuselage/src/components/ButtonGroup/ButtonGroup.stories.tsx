@@ -1,41 +1,14 @@
-import {
-  Title,
-  Subtitle,
-  Description,
-  Primary as PrimaryStory,
-  ArgsTable,
-  Stories,
-  PRIMARY_STORY,
-} from '@storybook/addon-docs';
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import React from 'react';
+import type { StoryFn, Meta } from '@storybook/react';
 
-import { Button, ButtonGroup } from '../..';
+import Button from '../Button';
+import { ButtonGroup } from './ButtonGroup';
 
 export default {
   title: 'Inputs/ButtonGroup',
   component: ButtonGroup,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'A container for grouping buttons that semantically share a common action context.',
-      },
-      page: () => (
-        <>
-          <Title />
-          <Subtitle />
-          <Description />
-          <PrimaryStory />
-          <ArgsTable story={PRIMARY_STORY} />
-          <Stories title={''} />
-        </>
-      ),
-    },
-  },
-} as ComponentMeta<typeof ButtonGroup>;
+} satisfies Meta<typeof ButtonGroup>;
 
-const Template: ComponentStory<typeof ButtonGroup> = (args) => (
+const Template: StoryFn<typeof ButtonGroup> = (args) => (
   <ButtonGroup {...args}>
     <Button>Button 1</Button>
     <Button>Button 2</Button>
@@ -43,7 +16,7 @@ const Template: ComponentStory<typeof ButtonGroup> = (args) => (
   </ButtonGroup>
 );
 
-const TemplateMultiple: ComponentStory<typeof ButtonGroup> = (args) => (
+const TemplateMultiple: StoryFn<typeof ButtonGroup> = (args) => (
   <ButtonGroup {...args}>
     <Button>Button 1</Button>
     <Button>Button 2</Button>
@@ -68,74 +41,62 @@ const TemplateMultiple: ComponentStory<typeof ButtonGroup> = (args) => (
   </ButtonGroup>
 );
 
-export const Default: ComponentStory<typeof ButtonGroup> = Template.bind({});
+export const Default: StoryFn<typeof ButtonGroup> = Template.bind({});
 
-export const Large: ComponentStory<typeof ButtonGroup> = Template.bind({});
+export const Large: StoryFn<typeof ButtonGroup> = Template.bind({});
 Large.args = {
   large: true,
 };
 
-export const Small: ComponentStory<typeof ButtonGroup> = Template.bind({});
+export const Small: StoryFn<typeof ButtonGroup> = Template.bind({});
 Small.args = {
   small: true,
 };
 
-export const Wrap: ComponentStory<typeof ButtonGroup> = TemplateMultiple.bind(
-  {}
-);
+export const Wrap: StoryFn<typeof ButtonGroup> = TemplateMultiple.bind({});
 Wrap.args = {
   wrap: true,
 };
 
-export const Stretch: ComponentStory<typeof ButtonGroup> = Template.bind({});
+export const Stretch: StoryFn<typeof ButtonGroup> = Template.bind({});
 Stretch.args = {
   stretch: true,
 };
 
-export const Vertical: ComponentStory<typeof ButtonGroup> = Template.bind({});
+export const Vertical: StoryFn<typeof ButtonGroup> = Template.bind({});
 Vertical.args = {
   vertical: true,
 };
 
-export const VerticalLarge: ComponentStory<typeof ButtonGroup> = Template.bind(
-  {}
-);
+export const VerticalLarge: StoryFn<typeof ButtonGroup> = Template.bind({});
 VerticalLarge.args = {
   vertical: true,
   large: true,
 };
 
-export const VerticalSmall: ComponentStory<typeof ButtonGroup> = Template.bind(
-  {}
-);
+export const VerticalSmall: StoryFn<typeof ButtonGroup> = Template.bind({});
 VerticalSmall.args = {
   vertical: true,
   small: true,
 };
 
-export const VerticalStretch: ComponentStory<typeof ButtonGroup> =
-  Template.bind({});
+export const VerticalStretch: StoryFn<typeof ButtonGroup> = Template.bind({});
 VerticalStretch.args = {
   vertical: true,
   stretch: true,
 };
 
-export const AlignedAtStart: ComponentStory<typeof ButtonGroup> = Template.bind(
-  {}
-);
+export const AlignedAtStart: StoryFn<typeof ButtonGroup> = Template.bind({});
 AlignedAtStart.args = {
   align: 'start',
 };
 
-export const AlignedAtCenter: ComponentStory<typeof ButtonGroup> =
-  Template.bind({});
+export const AlignedAtCenter: StoryFn<typeof ButtonGroup> = Template.bind({});
 AlignedAtCenter.args = {
   align: 'center',
 };
 
-export const AlignedAtEnd: ComponentStory<typeof ButtonGroup> = Template.bind(
-  {}
-);
+export const AlignedAtEnd: StoryFn<typeof ButtonGroup> = Template.bind({});
 AlignedAtEnd.args = {
   align: 'end',
 };

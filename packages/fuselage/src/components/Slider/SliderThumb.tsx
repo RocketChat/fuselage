@@ -1,5 +1,5 @@
 import { css } from '@rocket.chat/css-in-js';
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import {
   mergeProps,
   useFocusRing,

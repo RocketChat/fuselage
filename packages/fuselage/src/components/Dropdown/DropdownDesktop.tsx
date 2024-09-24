@@ -1,5 +1,5 @@
 import type { CSSProperties, ReactNode, Ref } from 'react';
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 
 import { Box, Tile } from '..';
 

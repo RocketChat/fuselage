@@ -1,4 +1,5 @@
-import React from 'react';
+import type { Meta } from '@storybook/react';
+import type { ComponentType } from 'react';
 
 import {
   States,
@@ -13,11 +14,25 @@ import {
   StatesAction,
   StatesLink,
 } from '.';
-import { Box, Icon } from '..';
+import Box from '../Box';
+import { Icon } from '../Icon';
 
 export default {
   title: 'Feedback/States',
-};
+  component: States,
+  subcomponents: {
+    StatesSubtitle,
+    StatesIcon: StatesIcon as ComponentType<any>,
+    StatesTitle,
+    StatesSuggestionList,
+    StatesSuggestionListItem,
+    StatesSuggestion,
+    StatesSuggestionText,
+    StatesActions,
+    StatesAction,
+    StatesLink,
+  },
+} satisfies Meta<typeof States>;
 
 export const Default = ({ searchTerm = 'search term here' }) => (
   <Box>

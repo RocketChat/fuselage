@@ -1,4 +1,4 @@
-import React from 'react';
+import type { Node } from '@react-types/shared';
 import { useMenuSection, useSeparator } from 'react-aria';
 import type { TreeState } from 'react-stately';
 
@@ -6,14 +6,16 @@ import Box from '../../Box/Box';
 import { Divider } from '../../Divider';
 import { OptionTitle } from '../../Option';
 import MenuItem from './MenuItem';
-import type { Node } from './types';
 
-type MenuSectionProps = {
-  section: Node<unknown>;
+type MenuSectionProps<T extends object> = {
+  section: Node<T>;
   state: TreeState<unknown>;
 };
 
-function MenuSection({ section, state }: MenuSectionProps) {
+function MenuSection<T extends object>({
+  section,
+  state,
+}: MenuSectionProps<T>) {
   const { itemProps, headingProps, groupProps } = useMenuSection({
     'heading': section.rendered,
     'aria-label': section['aria-label'],
