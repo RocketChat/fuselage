@@ -31,7 +31,6 @@ jobs:
             **/node_modules
             .yarn/cache
           key: ${{ runner.os }}-modules-${{ hashFiles('yarn.lock') }}
-      - uses: rharkor/caching-for-turbo@v1.5
       - name: Turbo Cache
         id: turbo-cache
         uses: actions/cache@v3
