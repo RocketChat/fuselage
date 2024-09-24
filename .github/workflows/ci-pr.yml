@@ -35,7 +35,6 @@ jobs:
           restore-keys: |
             turbo-${{ runner.os }}-
       - run: yarn install
-        if: steps.setup-node.outputs.cache-hit != 'true'
       - run: yarn run ci
       - uses: actions/upload-artifact@v3
         with:
