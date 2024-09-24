@@ -37,12 +37,12 @@
     "prettier": "~2.7.1"
   },
   "devDependencies": {
-    "bump": "workspace:~",
+    "bump": "^0.31.25",
     "eslint": "~8.38.0",
     "eslint-config-prettier": "~8.8.0",
     "eslint-plugin-import": "~2.26.0",
     "eslint-plugin-prettier": "~4.2.1",
-    "lint-all": "workspace:~",
+    "lint-all": "^0.31.25",
     "prettier": "~2.8.7"
   }
 }
