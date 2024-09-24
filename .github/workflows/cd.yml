@@ -17,10 +17,11 @@ jobs:
     outputs:
       branch-name: ${{ steps.set-branch-name.outputs.branch-name }}
     steps:
+      - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: "22.2.0"
-      - uses: actions/checkout@v3
+          cache: "yarn"
       - uses: rharkor/caching-for-turbo@v1.5
       - uses: actions/cache@v3
         id: yarn-cache
@@ -61,15 +62,15 @@ jobs:
     needs:
       - build-and-test
     steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v3
         with:
           node-version: "22.2.0"
           registry-url: "https://registry.npmjs.org"
           scope: "@rocket.chat"
           cache: "yarn"
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
       - uses: actions/cache@v3
         id: yarn-cache
         with:
@@ -113,7 +114,7 @@ jobs:
       name: github-pages
       url: "https://rocketchat.github.io/fuselage/fuselage/${{ needs.build-and-test.outputs.branch-name }}"
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           ref: gh-pages
       - uses: actions/download-artifact@v3
