@@ -21,16 +21,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v4
+        id: setup-node
         with:
           node-version: "22.2.0"
           cache: "yarn"
-      - uses: actions/cache@v3
-        id: yarn-cache
-        with:
-          path: |
-            **/node_modules
-            .yarn/cache
-          key: ${{ runner.os }}-modules-${{ hashFiles('yarn.lock') }}
+      - uses: rharkor/caching-for-turbo@v1.5
       - name: Turbo Cache
         id: turbo-cache
         uses: actions/cache@v3
@@ -40,7 +35,7 @@ jobs:
           restore-keys: |
             turbo-${{ runner.os }}-
       - run: yarn install
-        if: steps.yarn-cache.outputs.cache-hit != 'true'
+        if: steps.setup-node.outputs.cache-hit != 'true'
       - run: yarn run ci
       - uses: actions/upload-artifact@v3
         with:
