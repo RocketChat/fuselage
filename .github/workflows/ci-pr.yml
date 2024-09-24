@@ -26,14 +26,6 @@ jobs:
           node-version: "22.2.0"
           cache: "yarn"
       - uses: rharkor/caching-for-turbo@v1.5
-      - name: Turbo Cache
-        id: turbo-cache
-        uses: actions/cache@v3
-        with:
-          path: .turbo
-          key: turbo-${{ runner.os }}-${{ github.job }}
-          restore-keys: |
-            turbo-${{ runner.os }}-
       - run: yarn install
       - run: yarn run ci
       - uses: actions/upload-artifact@v3
