@@ -18,20 +18,14 @@ jobs:
       branch-name: ${{ steps.set-branch-name.outputs.branch-name }}
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
+        id: setup-node
         with:
           node-version: "22.2.0"
           cache: "yarn"
       - uses: rharkor/caching-for-turbo@v1.5
-      - uses: actions/cache@v3
-        id: yarn-cache
-        with:
-          path: |
-            **/node_modules
-            .yarn/cache
-          key: ${{ runner.os }}-modules-${{ hashFiles('yarn.lock') }}
       - run: yarn install
-        if: steps.yarn-cache.outputs.cache-hit != 'true'
+        if: steps.setup-node.outputs.cache-hit != 'true'
       - run: yarn run ci
       - run: yarn run docs
       - uses: actions/upload-artifact@v3
@@ -65,25 +59,19 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
+        id: setup-node
         with:
           node-version: "22.2.0"
           registry-url: "https://registry.npmjs.org"
           scope: "@rocket.chat"
           cache: "yarn"
-      - uses: actions/cache@v3
-        id: yarn-cache
-        with:
-          path: |
-            **/node_modules
-            .yarn/cache
-          key: ${{ runner.os }}-modules-${{ hashFiles('yarn.lock') }}
       - uses: actions/download-artifact@v3
         with:
           name: build
           path: packages
       - run: yarn install
-        if: steps.yarn-cache.outputs.cache-hit != 'true'
+        if: steps.setup-node.outputs.cache-hit != 'true'
 
       - name: Create Release Pull Request
         id: changesets
