@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.59.1
+
+### Patch Changes
+
+- [`1d038fdc`](https://github.com/RocketChat/fuselage/commit/1d038fdc5645d3afad000b6f255dc0a644cbb838) Thanks [@ggazzo](https://github.com/ggazzo)! - Fixed color sidebar highlighted
+
 ## 0.59.0
 
 ### Minor Changes
