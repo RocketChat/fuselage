@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[SelectInput Component] renders without crashing 1`] = `
+<body>
+  <div>
+    <label
+      class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-box--animated rcx-input-box__wrapper"
+    >
+      <select
+        aria-label="select"
+        class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--undecorated rcx-input-box--type-select rcx-input-box"
+        size="1"
+      >
+        <option
+          class="rcx-box rcx-box--full rcx-input-box__option"
+          value="a"
+        >
+          Item A
+        </option>
+        <option
+          class="rcx-box rcx-box--full rcx-input-box__option"
+          value="b"
+        >
+          Item B
+        </option>
+        <option
+          class="rcx-box rcx-box--full rcx-input-box__option"
+          value="c"
+        >
+          Item C
+        </option>
+      </select>
+      <span
+        class="rcx-box rcx-box--full rcx-input-box__addon"
+      >
+        <i
+          aria-hidden="true"
+          class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-4pvxx3"
+        >
+          
+        </i>
+      </span>
+    </label>
+  </div>
+</body>
+`;

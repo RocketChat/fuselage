@@ -1,16 +1,9 @@
-import {
-  Title,
-  Description,
-  Primary,
-  Stories,
-  ArgsTable,
-  Subtitle,
-} from '@storybook/addon-docs';
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import React from 'react';
+import type { StoryFn, Meta } from '@storybook/react';
+import { cloneElement } from 'react';
 import flattenChildren from 'react-keyed-flatten-children';
 
-import { Box, Divider } from '../..';
+import { Divider } from '../Divider';
+import Box from './Box';
 
 export default {
   title: 'Layout/Box/Layout',
@@ -20,21 +13,11 @@ export default {
       description: {
         component: 'Here is how rich content will be rendered, in details.',
       },
-      page: () => (
-        <>
-          <Title />
-          <Subtitle />
-          <Description />
-          <Primary />
-          <Stories />
-          <ArgsTable />
-        </>
-      ),
     },
   },
-} as ComponentMeta<typeof Box>;
+} satisfies Meta<typeof Box>;
 
-export const Borders: ComponentStory<typeof Box> = () => (
+export const Borders: StoryFn<typeof Box> = () => (
   <>
     <Box border='2px solid currentColor' />
     <Box borderBlock='2px solid currentColor' />
@@ -70,7 +53,7 @@ Borders.decorators = [
   (fn: any) => (
     <Box display='flex' flexWrap='wrap' alignItems='center'>
       {flattenChildren(fn().props.children).map((child: any) =>
-        React.cloneElement(child, {
+        cloneElement(child, {
           size: 'x32',
           m: 'x16',
           borderColor: 'stroke-dark',
@@ -80,7 +63,7 @@ Borders.decorators = [
   ),
 ];
 
-export const BorderRadii: ComponentStory<typeof Box> = () => (
+export const BorderRadii: StoryFn<typeof Box> = () => (
   <>
     <Box borderRadius='full' />
     <Box borderStartStartRadius='full' />
@@ -93,7 +76,7 @@ BorderRadii.decorators = [
   (fn: any) => (
     <Box display='flex' flexWrap='wrap' alignItems='center'>
       {flattenChildren(fn().props.children).map((child: any) =>
-        React.cloneElement(child, {
+        cloneElement(child, {
           bg: 'dark',
           size: 'x32',
           m: 'x16',
@@ -103,7 +86,7 @@ BorderRadii.decorators = [
   ),
 ];
 
-export const Display: ComponentStory<typeof Box> = () => (
+export const Display: StoryFn<typeof Box> = () => (
   <>
     <Box display='none' />
     <Box display='inline' />
@@ -117,7 +100,7 @@ Display.decorators = [
   (fn: any) => (
     <Box color='default'>
       {flattenChildren(fn().props.children).map((child: any) =>
-        React.cloneElement(child, {
+        cloneElement(child, {
           children: child.props.display,
           border: '1px solid',
           borderColor: 'stroke-light',
@@ -129,7 +112,7 @@ Display.decorators = [
   ),
 ];
 
-export const Elevation: ComponentStory<typeof Box> = () => (
+export const Elevation: StoryFn<typeof Box> = () => (
   <>
     <Box elevation='0' />
     <Box elevation='1' />
@@ -142,7 +125,7 @@ Elevation.decorators = [
   (fn: any) => (
     <Box display='flex' flexWrap='wrap' alignItems='center'>
       {flattenChildren(fn().props.children).map((child: any) =>
-        React.cloneElement(child, {
+        cloneElement(child, {
           bg: 'light',
           size: 'x32',
           m: 'x16',
@@ -152,7 +135,7 @@ Elevation.decorators = [
   ),
 ];
 
-export const Heights: ComponentStory<typeof Box> = () => (
+export const Heights: StoryFn<typeof Box> = () => (
   <>
     <Box h='x64' />
     <Box height='x64' />
@@ -164,13 +147,13 @@ Heights.decorators = [
   (fn: any) => (
     <Box display='flex' flexWrap='wrap' alignItems='center'>
       {flattenChildren(fn().props.children).map((child: any) =>
-        React.cloneElement(child, { bg: 'neutral', w: 'x32', m: 'x4' })
+        cloneElement(child, { bg: 'neutral', w: 'x32', m: 'x4' })
       )}
     </Box>
   ),
 ];
 
-export const Insets: ComponentStory<typeof Box> = () => (
+export const Insets: StoryFn<typeof Box> = () => (
   <>
     <Box inset='none' />
     <Box inset='x1' />
@@ -197,7 +180,7 @@ Insets.decorators = [
           m={16}
           size='x64'
         >
-          {React.cloneElement(child, {
+          {cloneElement(child, {
             bg: 'neutral',
             position: 'absolute',
             minSize: 'x16',
@@ -208,9 +191,9 @@ Insets.decorators = [
   ),
 ];
 
-export const Invisible: ComponentStory<typeof Box> = () => <Box invisible />;
+export const Invisible: StoryFn<typeof Box> = () => <Box invisible />;
 
-export const Margins: ComponentStory<typeof Box> = () => (
+export const Margins: StoryFn<typeof Box> = () => (
   <>
     <Box bg='neutral'>
       <Box m={16} bg='tint' size='x16' />
@@ -235,7 +218,7 @@ Margins.decorators = [
     <Box display='flex' flexWrap='wrap' alignItems='center'>
       {flattenChildren(story().props.children).map((child: any, i) => (
         <Box key={i} bg='neutral-200' m={16}>
-          {React.cloneElement(
+          {cloneElement(
             child,
             { bg: 'primary-200' },
             <Box bg='neutral-500' size='x16' />
@@ -246,7 +229,7 @@ Margins.decorators = [
   ),
 ];
 
-export const Opacity: ComponentStory<typeof Box> = () => (
+export const Opacity: StoryFn<typeof Box> = () => (
   <Box display='flex'>
     <Box size={32} opacity={0.1} bg='dark' />
     <Box size={32} opacity={0.3} bg='dark' />
@@ -257,7 +240,7 @@ export const Opacity: ComponentStory<typeof Box> = () => (
   </Box>
 );
 
-export const Paddings: ComponentStory<typeof Box> = () => (
+export const Paddings: StoryFn<typeof Box> = () => (
   <>
     <Box bg='neutral'>
       <Box p={16} bg='tint' size='x16' />
@@ -282,7 +265,7 @@ Paddings.decorators = [
     <Box display='flex' flexWrap='wrap' alignItems='center'>
       {flattenChildren(story().props.children).map((child: any, i) => (
         <Box key={i} bg='neutral-200' m={16}>
-          {React.cloneElement(
+          {cloneElement(
             child,
             { bg: 'primary-200' },
             <Box bg='neutral-500' size='x16' />
@@ -293,7 +276,7 @@ Paddings.decorators = [
   ),
 ];
 
-export const Position: ComponentStory<typeof Box> = () => (
+export const Position: StoryFn<typeof Box> = () => (
   <>
     <Box position='static' />
     <Box position='relative' />
@@ -305,7 +288,7 @@ Position.decorators = [
   (fn: any) => (
     <Box display='flex' flexWrap='wrap' alignItems='center'>
       {flattenChildren(fn().props.children).map((child: any) =>
-        React.cloneElement(child, {
+        cloneElement(child, {
           bg: 'neutral',
           size: 'x32',
           m: 'x16',
@@ -315,7 +298,7 @@ Position.decorators = [
   ),
 ];
 
-export const Widths: ComponentStory<typeof Box> = () => (
+export const Widths: StoryFn<typeof Box> = () => (
   <>
     <Box w='x64' />
     <Box width='x64' />
@@ -327,13 +310,13 @@ Widths.decorators = [
   (fn: any) => (
     <Box display='flex' flexWrap='wrap' alignItems='center'>
       {flattenChildren(fn().props.children).map((child: any) =>
-        React.cloneElement(child, { bg: 'neutral', h: 'x32', m: 'x4' })
+        cloneElement(child, { bg: 'neutral', h: 'x32', m: 'x4' })
       )}
     </Box>
   ),
 ];
 
-export const Sizes: ComponentStory<typeof Box> = () => (
+export const Sizes: StoryFn<typeof Box> = () => (
   <>
     <Box size='x64' />
     <Box size='none' minSize='x64' />
@@ -344,13 +327,13 @@ Sizes.decorators = [
   (fn: any) => (
     <Box display='flex' flexWrap='wrap' alignItems='center'>
       {flattenChildren(fn().props.children).map((child: any) =>
-        React.cloneElement(child, { bg: 'neutral', m: 'x4' })
+        cloneElement(child, { bg: 'neutral', m: 'x4' })
       )}
     </Box>
   ),
 ];
 
-export const TextAlign: ComponentStory<typeof Box> = () => (
+export const TextAlign: StoryFn<typeof Box> = () => (
   <Box display='flex' color='default' flexDirection='column'>
     <Box textAlign='left'>left</Box>
     <Divider />
@@ -363,7 +346,7 @@ export const TextAlign: ComponentStory<typeof Box> = () => (
   </Box>
 );
 
-export const VerticalAlign: ComponentStory<typeof Box> = () => (
+export const VerticalAlign: StoryFn<typeof Box> = () => (
   <>
     <Box verticalAlign='top' />
     <Box verticalAlign='baseline' />
@@ -378,7 +361,7 @@ VerticalAlign.decorators = [
   (fn: any) => (
     <Box>
       {flattenChildren(fn().props.children).map((child: any) =>
-        React.cloneElement(child, {
+        cloneElement(child, {
           display: 'inline',
           children: child.props.verticalAlign,
           color: 'default',
@@ -393,7 +376,7 @@ VerticalAlign.decorators = [
   ),
 ];
 
-export const ZIndex: ComponentStory<typeof Box> = () => (
+export const ZIndex: StoryFn<typeof Box> = () => (
   <>
     <Box zIndex={2} borderColor='stroke-extra-light-highlight' />
     <Box zIndex={1} borderColor='stroke-highlight' />
@@ -405,7 +388,7 @@ ZIndex.decorators = [
   (fn: any) => (
     <Box display='flex' flexWrap='wrap' alignItems='center'>
       {flattenChildren(fn().props.children).map((child: any) =>
-        React.cloneElement(child, {
+        cloneElement(child, {
           bg: 'neutral',
           borderWidth: 'x4',
           size: 'x32',

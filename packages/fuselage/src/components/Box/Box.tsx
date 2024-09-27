@@ -1,5 +1,5 @@
 import type { cssFn } from '@rocket.chat/css-in-js';
-import React, { createElement, forwardRef, memo } from 'react';
+import { createElement, forwardRef, memo } from 'react';
 import type {
   AllHTMLAttributes,
   ElementType,
@@ -16,6 +16,9 @@ import type { StylingProps } from './stylingProps';
 import { useStylingProps } from './useStylingProps';
 
 type BoxProps = {
+  /**
+   * The `is` prop is used to render the Box as a different HTML tag. It can also be used to render a different fuselage component.
+   */
   is?: ElementType;
   className?: string | cssFn | (string | cssFn | Falsy)[];
   animated?: boolean;

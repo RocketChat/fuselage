@@ -1,8 +1,8 @@
-import { composeStories } from '@storybook/testing-react';
-import { fireEvent, getByRole, render } from '@testing-library/react';
+import { composeStories } from '@storybook/react';
+import { fireEvent, getByRole } from '@testing-library/react';
 import { axe } from 'jest-axe';
-import React from 'react';
 
+import { render } from '../../testing';
 import * as stories from './CheckBox.stories';
 
 const { Default, Indeterminate, Disabled, DefaultChecked } =

@@ -1,4 +1,4 @@
-import type { Story, Meta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 
 import ConfirmationProcessPage from './ConfirmationProcessPage';
 
@@ -8,9 +8,9 @@ export default {
   parameters: {
     layout: 'fullscreen',
   },
-} as Meta;
+} satisfies Meta<typeof ConfirmationProcessPage>;
 
-export const _ConfirmationProcessPage: Story = (args) => (
-  <ConfirmationProcessPage {...args} />
-);
+export const _ConfirmationProcessPage: StoryFn<
+  typeof ConfirmationProcessPage
+> = () => <ConfirmationProcessPage />;
 _ConfirmationProcessPage.storyName = 'ConfirmationProcessPage';

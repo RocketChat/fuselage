@@ -1,9 +1,6 @@
-import type { Story, Meta } from '@storybook/react';
-import type { ComponentProps } from 'react';
+import type { StoryFn, Meta } from '@storybook/react';
 
 import ResetPasswordPage from './ResetPasswordPage';
-
-type Args = ComponentProps<typeof ResetPasswordPage>;
 
 export default {
   title: 'pages/ResetPasswordPage',
@@ -15,12 +12,9 @@ export default {
   argTypes: {
     validateEmail: { action: 'validateEmail' },
   },
-  args: {
-    control: { type: 'inline-radio' },
-  },
-} as Meta<Args>;
+} satisfies Meta<typeof ResetPasswordPage>;
 
-export const _ResetPasswordPage: Story<Args> = (args) => (
+export const _ResetPasswordPage: StoryFn<typeof ResetPasswordPage> = (args) => (
   <ResetPasswordPage {...args} />
 );
 

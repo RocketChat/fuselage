@@ -1,27 +1,20 @@
-import { Title, Primary } from '@storybook/addon-docs';
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import React from 'react';
+import type { Meta } from '@storybook/react';
+import type { ComponentType } from 'react';
 
-import type { MessageToolbarWrapper } from '.';
-import { MessageToolbar, MessageToolbarItem } from '.';
-import { Box } from '../..';
+import Box from '../../Box';
+import { BasicMessageTemplate } from '../helpers';
+import { MessageToolbar } from './MessageToolbar';
+import { MessageToolbarItem } from './MessageToolbarItem';
 
 export default {
   title: 'Message/MessageToolbar',
   component: MessageToolbar,
-  parameters: {
-    docs: {
-      page: () => (
-        <>
-          <Title />
-          <Primary />
-        </>
-      ),
-    },
+  subcomponents: {
+    MessageToolbarItem: MessageToolbarItem as ComponentType<any>,
   },
-} as ComponentMeta<typeof MessageToolbarWrapper>;
+} satisfies Meta<typeof MessageToolbar>;
 
-export const Default: ComponentStory<typeof MessageToolbar> = () => (
+const toolbar = (
   <Box>
     <MessageToolbar>
       <MessageToolbarItem title='Quote' icon='quote' />
@@ -31,3 +24,8 @@ export const Default: ComponentStory<typeof MessageToolbar> = () => (
     </MessageToolbar>
   </Box>
 );
+
+export const Default = BasicMessageTemplate.bind({});
+Default.args = {
+  toolbar,
+};

@@ -5,13 +5,7 @@ import type {
   Ref,
   SyntheticEvent,
 } from 'react';
-import React, {
-  forwardRef,
-  memo,
-  useLayoutEffect,
-  useMemo,
-  useRef,
-} from 'react';
+import { forwardRef, memo, useLayoutEffect, useMemo, useRef } from 'react';
 
 import { prevent } from '../../helpers/prevent';
 import Box from '../Box';
@@ -45,6 +39,9 @@ export const Empty = memo(({ customEmpty }: { customEmpty: string }) => (
   <Option label={customEmpty || 'Empty'} />
 ));
 
+/**
+ * An input for selection of options.
+ */
 export const Options = forwardRef(
   (
     {

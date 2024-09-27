@@ -1,8 +1,7 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
-import { composeStories } from '@storybook/testing-react';
-import { fireEvent, render, screen } from '@testing-library/react';
-import React from 'react';
+import { composeStories } from '@storybook/react';
+import { fireEvent, screen } from '@testing-library/react';
 
+import { render } from '../../testing';
 import * as stories from './Slider.stories';
 
 const { Default, WithLabel, MultiThumb, WithDefaultValue } =

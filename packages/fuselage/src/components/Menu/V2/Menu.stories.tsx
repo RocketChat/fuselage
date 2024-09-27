@@ -1,6 +1,6 @@
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 import type { ComponentProps, ReactNode, Ref } from 'react';
-import React, { forwardRef, useState } from 'react';
+import { forwardRef, useState } from 'react';
 
 import {
   MenuV2 as Menu,
@@ -10,15 +10,13 @@ import {
   MenuItemIcon,
   MenuItemInput,
 } from '.';
-import Box from '../../Box/Box';
+import Box from '../../Box';
 import { IconButton } from '../../Button';
 import { ButtonGroup } from '../../ButtonGroup';
 import { CheckBox } from '../../CheckBox';
 import { RadioButton } from '../../RadioButton';
 import Sidebar from '../../Sidebar';
 import { ToggleSwitch } from '../../ToggleSwitch';
-
-type MenuStories = ComponentMeta<typeof Menu>;
 
 export default {
   title: 'Navigation/Menu/v2',
@@ -36,20 +34,9 @@ export default {
       </Box>
     ),
   ],
-  parameters: {
-    docs: {
-      source: {
-        excludeDecorators: true,
-        transform: (src: string) => console.log(src),
-      },
-      description: {
-        component: 'Kebab Menu. Use `<MenuItem>` to render the menu items.',
-      },
-    },
-  },
-} as MenuStories;
+} satisfies Meta<typeof Menu>;
 
-export const Simple: ComponentStory<typeof Menu> = (args) => (
+export const Simple: StoryFn<typeof Menu> = (args) => (
   <Menu {...args} placement='right-start'>
     <MenuItem key='1'>Profile</MenuItem>
     <MenuItem key='2'>Chats</MenuItem>
@@ -57,7 +44,7 @@ export const Simple: ComponentStory<typeof Menu> = (args) => (
   </Menu>
 );
 
-export const Complex: ComponentStory<typeof Menu> = (args) => (
+export const Complex: StoryFn<typeof Menu> = (args) => (
   <Menu {...args}>
     <MenuItem key='profile'>
       <MenuItemIcon name='user' />
@@ -82,7 +69,7 @@ Complex.parameters = {
   },
 };
 
-export const WithSections: ComponentStory<typeof Menu> = (args) => (
+export const WithSections: StoryFn<typeof Menu> = (args) => (
   <Menu {...args}>
     <MenuSection title='Styles'>
       <MenuItem key='bold'>Bold</MenuItem>
@@ -104,7 +91,9 @@ WithSections.parameters = {
   },
 };
 
-export const MenuDisplayExample: ComponentStory<typeof Menu> = (args) => {
+export const MenuDisplayExample = (
+  args: Omit<ComponentProps<typeof Menu>, 'children'>
+) => {
   const [display, setDisplay] = useState('condensed');
   const [avatarDisplay, setAvatarDisplay] = useState(false);
   const [sortBy, setSortBy] = useState('name');

@@ -1,9 +1,6 @@
-import type { Meta, Story } from '@storybook/react';
-import type { ComponentProps } from 'react';
+import type { Meta, StoryFn } from '@storybook/react';
 
 import ResetPasswordForm from './ResetPasswordForm';
-
-type Args = ComponentProps<typeof ResetPasswordForm>;
 
 export default {
   title: 'forms/ResetPasswordForm',
@@ -12,9 +9,9 @@ export default {
     layout: 'centered',
     actions: { argTypesRegex: '^on.*' },
   },
-} as Meta<Args>;
+} satisfies Meta<typeof ResetPasswordForm>;
 
-export const _ResetPasswordForm: Story<Args> = (args) => (
+export const _ResetPasswordForm: StoryFn<typeof ResetPasswordForm> = (args) => (
   <ResetPasswordForm {...args} />
 );
 _ResetPasswordForm.storyName = 'ResetPasswordForm';

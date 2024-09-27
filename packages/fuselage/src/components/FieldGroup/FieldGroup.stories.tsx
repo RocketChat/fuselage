@@ -1,39 +1,15 @@
-import { Title, Description, Primary, Stories } from '@storybook/addon-docs';
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import React from 'react';
+import type { StoryFn, Meta } from '@storybook/react';
 
-import {
-  Field,
-  FieldGroup,
-  FieldHint,
-  FieldLabel,
-  FieldRow,
-  InputBox,
-} from '../..';
+import Field, { FieldHint, FieldLabel, FieldRow } from '../Field';
+import InputBox from '../InputBox';
+import { FieldGroup } from './FieldGroup';
 
 export default {
   title: 'Inputs/FieldGroup',
   component: FieldGroup,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'A container for grouping fields that semantically share a common data context.',
-      },
+} satisfies Meta<typeof FieldGroup>;
 
-      page: () => (
-        <>
-          <Title />
-          <Description />
-          <Primary />
-          <Stories title={'Label positioning for selection buttons'} />
-        </>
-      ),
-    },
-  },
-} as ComponentMeta<typeof Field>;
-
-export const Default: ComponentStory<typeof FieldGroup> = () => (
+export const Default: StoryFn<typeof FieldGroup> = () => (
   <FieldGroup>
     <Field>
       <FieldLabel>Field #1</FieldLabel>

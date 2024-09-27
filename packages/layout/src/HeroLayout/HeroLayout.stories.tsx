@@ -1,13 +1,13 @@
-import type { Meta, Story } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 
 import { HeroLayout, HeroLayoutSubtitle, HeroLayoutTitle } from './HeroLayout';
 
 export default {
   title: 'HeroLayout',
   component: HeroLayout,
-} as Meta;
+} satisfies Meta<typeof HeroLayout>;
 
-export const Default: Story = () => (
+export const Default: StoryFn<typeof HeroLayout> = () => (
   <HeroLayout>
     <HeroLayoutTitle>Title</HeroLayoutTitle>
     <HeroLayoutSubtitle>Subtitle</HeroLayoutSubtitle>

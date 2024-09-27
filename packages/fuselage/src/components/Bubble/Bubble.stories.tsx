@@ -1,15 +1,14 @@
 import { action } from '@storybook/addon-actions';
-import type { ComponentMeta, ComponentStory } from '@storybook/react';
-import React from 'react';
+import type { Meta, StoryFn } from '@storybook/react';
 
-import { Bubble } from '../..';
+import { Bubble } from './Bubble';
 
 export default {
   title: 'Data Display/Bubble',
   component: Bubble,
-} as ComponentMeta<typeof Bubble>;
+} satisfies Meta<typeof Bubble>;
 
-const Template: ComponentStory<typeof Bubble> = (args) => <Bubble {...args} />;
+const Template: StoryFn<typeof Bubble> = (args) => <Bubble {...args} />;
 
 export const IconAndLabel = Template.bind({});
 IconAndLabel.args = {
@@ -57,6 +56,14 @@ export const WithoutAction = Template.bind({});
 WithoutAction.args = {
   children: '22 Nov 2023',
   secondary: true,
+};
+
+export const WithLargeText = Template.bind({});
+WithLargeText.args = {
+  children:
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vestibulum libero viverra nulla varius, a consequat ante malesuada. Fusce bibendum, lacus sed fermentum sagittis, urna erat viverra lacus, eu pellentesque neque est nec nisl. Morbi in lobortis dui, ac consectetur mi.',
+  secondary: true,
+  onClick: action('click'),
 };
 
 export const Small = Template.bind({});

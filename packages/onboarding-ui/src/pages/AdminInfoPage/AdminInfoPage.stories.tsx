@@ -1,9 +1,6 @@
-import type { Story, Meta } from '@storybook/react';
-import type { ComponentProps } from 'react';
+import type { StoryFn, Meta } from '@storybook/react';
 
 import AdminInfoPage from './AdminInfoPage';
-
-type Args = ComponentProps<typeof AdminInfoPage>;
 
 export default {
   title: 'pages/AdminInfoPage',
@@ -21,15 +18,14 @@ export default {
     currentStep: 1,
     stepCount: 1,
     passwordRulesHint: 'Password rules description goes here',
-    control: { type: 'inline-radio' },
   },
-} as Meta<Args>;
+} satisfies Meta<typeof AdminInfoPage>;
 
-export const _AdminInfoPage: Story<Args> = (args) => (
+export const _AdminInfoPage: StoryFn<typeof AdminInfoPage> = (args) => (
   <AdminInfoPage {...args} />
 );
 
-export const _CloudAdminInfoPage: Story<Args> = (args) => (
+export const _CloudAdminInfoPage: StoryFn<typeof AdminInfoPage> = (args) => (
   <AdminInfoPage {...args} />
 );
 

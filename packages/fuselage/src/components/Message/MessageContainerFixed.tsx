@@ -1,11 +1,8 @@
-import type { ReactNode } from 'react';
-import React from 'react';
+import type { HTMLAttributes } from 'react';
 
-type MessageContainerFixedProps = {
-  children?: ReactNode;
-};
-
-export const MessageContainerFixed = (props: MessageContainerFixedProps) => (
+export const MessageContainerFixed = (
+  props: HTMLAttributes<HTMLDivElement>
+) => (
   <div
     className='rcx-box rcx-box--full rcx-message-container rcx-message-container--fixed'
     {...props}

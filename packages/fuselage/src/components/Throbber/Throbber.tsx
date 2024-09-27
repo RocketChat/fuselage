@@ -1,6 +1,6 @@
 import { css } from '@rocket.chat/css-in-js';
 import type { ComponentProps, Ref } from 'react';
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 
 import Box from '../Box';
 
@@ -39,6 +39,9 @@ function Circle({
   );
 }
 
+/**
+ * Indicates content that has not loaded yet.
+ */
 export const Throbber = forwardRef(function Throbber(
   {
     disabled,

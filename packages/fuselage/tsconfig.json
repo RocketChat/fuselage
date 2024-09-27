@@ -12,8 +12,13 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "allowJs": true,
-    "jsx": "react"
+    "jsx": "react-jsx"
   },
-  "include": ["./src", "./.storybook/**/*", "./.jest/**/*"],
+  "include": [
+    "./src",
+    "./.storybook/**/*",
+    "./jest.config.ts",
+    "./jest-setup.ts"
+  ],
   "exclude": ["./dist", "./storybook-static/", "./*.js"]
 }

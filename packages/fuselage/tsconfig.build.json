@@ -4,5 +4,10 @@
     "rootDir": "./src"
   },
   "include": ["./src"],
-  "exclude": ["./**/*.stories.tsx", "./**/*.spec.tsx"]
+  "exclude": [
+    "./**/*.stories.tsx",
+    "./**/*.spec.tsx",
+    "./jest.config.ts",
+    "./jest-setup.ts"
+  ]
 }

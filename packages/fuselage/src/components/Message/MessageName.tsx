@@ -1,8 +1,5 @@
-import type { AllHTMLAttributes } from 'react';
-import React from 'react';
+import type { HTMLAttributes } from 'react';
 
-type MessageNameProps = AllHTMLAttributes<HTMLSpanElement>;
-
-export const MessageName = (props: MessageNameProps) => (
+export const MessageName = (props: HTMLAttributes<HTMLSpanElement>) => (
   <span className='rcx-box rcx-box--full rcx-message-header__name' {...props} />
 );

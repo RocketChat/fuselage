@@ -1,14 +1,9 @@
-import type { ReactNode } from 'react';
-import React from 'react';
+import type { ComponentProps } from 'react';
 
 import { MessageEmojiBase } from './MessageEmojiBase';
 
-type MessageEmojiProps = {
-  name: string;
-  className?: string;
-  image?: string;
+type MessageEmojiProps = ComponentProps<typeof MessageEmojiBase> & {
   big?: boolean;
-  children?: ReactNode;
 };
 
 export const MessageEmoji = ({
@@ -16,7 +11,7 @@ export const MessageEmoji = ({
   className,
   image,
   big,
-  children,
+  ...props
 }: MessageEmojiProps) => (
   <MessageEmojiBase
     className={[
@@ -28,6 +23,6 @@ export const MessageEmoji = ({
       .join(' ')}
     name={name}
     image={image}
-    children={children}
+    {...props}
   />
 );

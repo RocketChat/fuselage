@@ -1,7 +1,7 @@
 import { css } from '@rocket.chat/css-in-js';
 import { useEffectEvent } from '@rocket.chat/fuselage-hooks';
 import type { PropsWithChildren, MouseEvent, MutableRefObject } from 'react';
-import React, { useRef, useCallback } from 'react';
+import { useRef, useCallback } from 'react';
 
 import { appendClassName } from '../../helpers/appendClassName';
 import { useStyle } from '../../hooks/useStyle';
@@ -42,6 +42,9 @@ const pollTouchingEdges = (
   }
 };
 
+/**
+ * Add scroll capability to the wrapped component.
+ */
 export const Scrollable = ({
   children,
   horizontal,

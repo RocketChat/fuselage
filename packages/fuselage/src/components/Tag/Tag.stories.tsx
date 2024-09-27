@@ -1,38 +1,17 @@
 import { action } from '@storybook/addon-actions';
-import {
-  Title,
-  Description,
-  Primary,
-  Stories,
-  ArgsTable,
-} from '@storybook/addon-docs';
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import React from 'react';
+import type { StoryFn, Meta } from '@storybook/react';
 
-import { Tag, Box, Icon, ButtonGroup } from '../..';
+import Box from '../Box';
+import { ButtonGroup } from '../ButtonGroup';
+import { Icon } from '../Icon';
+import { Tag } from './Tag';
 
 export default {
   title: 'Data Display/Tag',
   component: Tag,
-  parameters: {
-    docs: {
-      description: {
-        component: 'Used for mentions',
-      },
-      page: () => (
-        <>
-          <Title />
-          <Description />
-          <Primary />
-          <Stories title={''} />
-          <ArgsTable />
-        </>
-      ),
-    },
-  },
-} as ComponentMeta<typeof Tag>;
+} satisfies Meta<typeof Tag>;
 
-const Template: ComponentStory<typeof Tag> = (args) => (
+const Template: StoryFn<typeof Tag> = (args) => (
   <Box display='inline-flex'>
     <Tag {...args}>{args.children || 'john.doe'}</Tag>
   </Box>

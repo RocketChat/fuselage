@@ -1,11 +1,9 @@
-import type { AllHTMLAttributes } from 'react';
-import React, { forwardRef } from 'react';
-
-type MessageNameContainerProps = AllHTMLAttributes<HTMLSpanElement>;
+import type { HTMLAttributes } from 'react';
+import { forwardRef } from 'react';
 
 export const MessageNameContainer = forwardRef<
   HTMLSpanElement,
-  MessageNameContainerProps
+  HTMLAttributes<HTMLSpanElement>
 >(function MessageNameContainer(props, ref) {
   return (
     <span

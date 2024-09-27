@@ -1,10 +1,5 @@
-import type { ReactNode } from 'react';
-import React from 'react';
-
-type MessageMetricsContentItemProps = {
-  children?: ReactNode;
-};
+import type { HTMLAttributes } from 'react';
 
 export const MessageMetricsContentItem = (
-  props: MessageMetricsContentItemProps
+  props: HTMLAttributes<HTMLDivElement>
 ) => <div className='rcx-message-metrics__content-item' {...props} />;

@@ -1,6 +1,6 @@
 import type { UsePositionOptions } from '@rocket.chat/fuselage-hooks';
-import type { ComponentProps, ElementType } from 'react';
-import React, { cloneElement, useRef } from 'react';
+import type { ComponentProps, ElementType, ReactElement } from 'react';
+import { cloneElement, useRef } from 'react';
 import type { AriaMenuProps } from 'react-aria';
 import { useButton, useMenuTrigger } from 'react-aria';
 import { createPortal } from 'react-dom';
@@ -13,7 +13,7 @@ import MenuDropDown from './MenuDropdown';
 import MenuPopover from './MenuPopover';
 import { getPlacement } from './helpers/helpers';
 
-interface MenuButtonProps<T> extends AriaMenuProps<T>, MenuTriggerProps {
+export interface MenuButtonProps<T> extends AriaMenuProps<T>, MenuTriggerProps {
   icon?: ComponentProps<typeof IconButton>['icon'];
   large?: boolean;
   medium?: boolean;
@@ -30,8 +30,12 @@ interface MenuButtonProps<T> extends AriaMenuProps<T>, MenuTriggerProps {
   className?: ComponentProps<typeof Box>['className'];
   pressed?: boolean;
   maxWidth?: string;
-  button?: React.ReactElement;
+  button?: ReactElement;
 }
+
+/**
+ * Kebab Menu. Use `<MenuItem>` to render the menu items.
+ */
 const Menu = <T extends object>({
   icon = 'kebab',
   placement = 'bottom-start',
@@ -96,4 +100,7 @@ const Menu = <T extends object>({
     </>
   );
 };
+
+Menu.displayName = 'MenuV2';
+
 export default Menu;

@@ -1,22 +1,19 @@
-import type { ReactNode } from 'react';
-import React from 'react';
+import type { HTMLAttributes } from 'react';
 
 type MessageEmojiBaseProps = {
   name: string;
-  className?: string;
-  children?: ReactNode;
   image?: string;
-};
+} & HTMLAttributes<HTMLSpanElement>;
 
 export const MessageEmojiBase = ({
   name,
-  className,
   image,
-  children,
+  className,
+  ...props
 }: MessageEmojiBaseProps) => (
   <span
     className={`${className || ''} ${name}`}
     style={image && image.length ? { backgroundImage: image } : undefined}
-    children={children}
+    {...props}
   />
 );

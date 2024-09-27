@@ -1,10 +1,7 @@
 import { action } from '@storybook/addon-actions';
-import type { Story, Meta } from '@storybook/react';
-import type { ComponentProps } from 'react';
+import type { StoryFn, Meta } from '@storybook/react';
 
 import RegisterOfflinePage from './RegisterOfflinePage';
-
-type Args = ComponentProps<typeof RegisterOfflinePage>;
 
 export default {
   title: 'pages/RegisterOfflinePage',
@@ -17,8 +14,8 @@ export default {
     onSubmit: action('onSubmit'),
     onBackButtonClick: action('onBackButtonClick'),
   },
-} as Meta<Args>;
+} satisfies Meta<typeof RegisterOfflinePage>;
 
-export const _RegisterOfflinePage: Story<Args> = (args) => (
-  <RegisterOfflinePage {...args} />
-);
+export const _RegisterOfflinePage: StoryFn<typeof RegisterOfflinePage> = (
+  args
+) => <RegisterOfflinePage {...args} />;

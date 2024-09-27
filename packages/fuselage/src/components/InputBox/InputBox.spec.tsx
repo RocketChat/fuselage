@@ -1,14 +1,21 @@
-import { render } from '@testing-library/react';
-import React from 'react';
+import { composeStories } from '@storybook/react';
+import { axe } from 'jest-axe';
 
-import { InputBox } from '.';
+import { render } from '../../testing';
+import * as stories from './InputBox.stories';
+
+const { Default } = composeStories(stories);
 
 describe('[InputBox Component]', () => {
-  it('renders InputBox without crashing', () => {
-    render(<InputBox type='text' />);
+  it('renders without crashing', () => {
+    const tree = render(<Default />);
+    expect(tree.baseElement).toMatchSnapshot();
   });
 
-  it('renders InputBox.Skeleton without crashing', () => {
-    render(<InputBox.Skeleton />);
+  it('%s should have no a11y violations', async () => {
+    const { container } = render(<Default />);
+
+    const results = await axe(container);
+    expect(results).toHaveNoViolations();
   });
 });

@@ -1,5 +1,5 @@
 import { useEffectEvent, useResizeObserver } from '@rocket.chat/fuselage-hooks';
-import React, { type ElementType, useState, useRef, useMemo } from 'react';
+import { type ElementType, useState, useRef, useMemo } from 'react';
 
 import { type SelectProps } from '..';
 import { prevent } from '../../helpers/prevent';
@@ -7,6 +7,7 @@ import AnimatedVisibility from '../AnimatedVisibility';
 import Box from '../Box';
 import { Icon } from '../Icon';
 import Margins from '../Margins';
+import Option from '../Option';
 import { useVisible } from '../Options/useVisible';
 import { OptionsPaginated } from '../OptionsPaginated';
 import PositionAnimated from '../PositionAnimated';
@@ -38,6 +39,7 @@ export const PaginatedSelect = ({
   onChange = () => {},
   placeholder = '',
   renderOptions: _Options = OptionsPaginated,
+  renderItem = Option,
   endReached,
   ...props
 }: PaginatedSelectProps) => {
@@ -136,6 +138,7 @@ export const PaginatedSelect = ({
           onSelect={internalChangedByClick}
           endReached={endReached}
           onMouseDown={prevent}
+          renderItem={renderItem}
         />
       </PositionAnimated>
     </Box>

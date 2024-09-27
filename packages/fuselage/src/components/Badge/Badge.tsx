@@ -1,5 +1,4 @@
-import type { ElementType } from 'react';
-import React from 'react';
+import type { ElementType, HTMLAttributes } from 'react';
 
 import { prependClassName } from '../../helpers/prependClassName';
 
@@ -11,8 +10,11 @@ export type BadgeProps = {
   className?: string;
   children?: any;
   title?: any;
-};
+} & HTMLAttributes<HTMLSpanElement>;
 
+/**
+ * Communicates notification’s amount and types.
+ */
 export function Badge({
   is: Tag = 'span',
   variant = 'secondary',

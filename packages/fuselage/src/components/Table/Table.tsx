@@ -1,13 +1,6 @@
-import type { ComponentProps, CSSProperties } from 'react';
-import React from 'react';
+import type { ComponentProps } from 'react';
 
 import Box from '../Box';
-
-export const style: CSSProperties = {
-  overflow: 'hidden',
-  textOverflow: 'ellipsis',
-  whiteSpace: 'nowrap',
-};
 
 export type TableProps = ComponentProps<typeof Box> & {
   striped?: boolean;

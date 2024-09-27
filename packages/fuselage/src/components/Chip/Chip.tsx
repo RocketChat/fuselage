@@ -1,5 +1,4 @@
-import type { ButtonHTMLAttributes } from 'react';
-import React from 'react';
+import type { ButtonHTMLAttributes, ReactNode } from 'react';
 
 import { Avatar, Box } from '..';
 import { prependClassName } from '../../helpers/prependClassName';
@@ -8,8 +7,8 @@ import Margins from '../Margins';
 
 type ChipProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type'> & {
   thumbUrl?: string;
-  renderThumb?: (props: { url: string }) => React.ReactNode;
-  renderDismissSymbol?: () => React.ReactNode;
+  renderThumb?: (props: { url: string }) => ReactNode;
+  renderDismissSymbol?: () => ReactNode;
 };
 
 const defaultRenderThumb = ({ url }: { url: string }) => (

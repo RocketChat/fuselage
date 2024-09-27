@@ -1,5 +1,5 @@
 import type { HTMLAttributes, ReactNode, Ref } from 'react';
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 
 import { MessageReactionCounter } from './MessageReactionCounter';
 import { MessageReactionEmoji } from './MessageReactionEmoji';
@@ -25,6 +25,8 @@ export const MessageReaction = forwardRef(function Reaction(
         .filter(Boolean)
         .join(' ')}
       ref={ref}
+      role='button'
+      tabIndex={0}
       {...props}
     >
       {children || (

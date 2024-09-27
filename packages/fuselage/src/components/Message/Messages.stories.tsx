@@ -1,27 +1,23 @@
-import type { ComponentStory } from '@storybook/react';
-import React, { useState } from 'react';
+import type { Meta, StoryFn } from '@storybook/react';
+import { useState } from 'react';
 
 import Message from '.';
-import { Box, Avatar } from '..';
+import { Avatar } from '../Avatar';
+import Box from '../Box';
 import { MessageDivider } from './MessageDivider';
 import { MessageEmoji } from './MessageEmoji';
 import MessageMetrics from './MessageMetrics';
 import MessageReactions from './MessageReactions';
 import MessageToolbar from './MessageToolbar';
 import ThreadMessage, { ThreadMessageEmoji } from './ThreadMessage';
+import { avatarUrl } from './helpers';
 
 export default {
   title: 'Message/Message',
   component: Message,
-  parameters: {
-    jest: ['Message.spec.tsx'],
-  },
-};
+} satisfies Meta<typeof Message>;
 
-const avatarUrl =
-  'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAoACgDASIAAhEBAxEB/8QAGwAAAgIDAQAAAAAAAAAAAAAAAAcEBgIDBQj/xAAuEAACAQQAAwcEAQUAAAAAAAABAgMABAUREiExBhMUIkFRYQcWcYGhFTJSgpH/xAAYAQADAQEAAAAAAAAAAAAAAAACAwQBAP/EAB4RAAIBBQEBAQAAAAAAAAAAAAABAgMREiExE0HR/9oADAMBAAIRAxEAPwBuXuIkhBuMe5ib/AHQP49q4L3mLitryTLTSpOiHQI5k/HzXa/qbFOEudVTu1dumWvcTaNCZYZ7vU6g6LxqjOU/24dfs1Ouh9FnkMpd3Reeyx83hAxZZEhkdV9/MBrX71WGPvJcqrJBGveKATtuXXqNU0pu02bTHXD/AGvJAluyxxRd6F4x00o+NdKoVrjbzJdvVe1t5cVLc2ck8qjnohgpPtz2v7G6JtPQ2VJwjlcw+37mchpnK6GtIuv5NFWeTsLNPvxWTvpfjvOEfwKKzEVkSct2vscS/BIzSN0YRkeX81UpPqO8masJETu7OOccY4dswYFQeftv096XV5knuJGdm2T1+agvMXj8jEaHX905QihabvcbuS7X566mLWLwSY8PuRnk/u4eZ0deTl71Ef6hY+0yM88TzeNZY4luYwpVYyduOfrvhPTnr0pXSX9y5mCsyJMdyxxvwq599em+taItqCSNc90ChvZRUruUcT0JiO18Elpk7t8v41LWzacxkBSuvjQ/FFJayjDWrCTepAQ2vUH0oo/Jk3ovpwJJeVCP5CN+lFFaaMqy+nAyuChvrTI2kN9JAsi2ZOy4IBHMnkSCP+iqBexSWdxLazoUljJVlPUH2oorkV10pRc7b1zXb/hZOzuJvM86QWEXeELxOzHSIPcmiiiunVlF2RNTpRkrs//Z';
-
-export const Default: ComponentStory<typeof Message> = () => (
+export const Default: StoryFn<typeof Message> = () => (
   <Box>
     <MessageDivider>May, 24, 2020</MessageDivider>
     <Message className='customclass' clickable>
@@ -103,7 +99,7 @@ export const Default: ComponentStory<typeof Message> = () => (
   </Box>
 );
 
-export const WithSequential: ComponentStory<typeof Message> = () => (
+export const WithSequential: StoryFn<typeof Message> = () => (
   <Box>
     <MessageDivider>May, 24, 2020</MessageDivider>
     <Message className='customclass' clickable>
@@ -218,7 +214,7 @@ export const WithSequential: ComponentStory<typeof Message> = () => (
   </Box>
 );
 
-export const MessageWithThread: ComponentStory<typeof Message> = () => (
+export const MessageWithThread: StoryFn<typeof Message> = () => (
   <Box>
     <MessageDivider unreadLabel='Unread'>May, 24, 2020</MessageDivider>
     <Message className='customclass' clickable>
@@ -336,7 +332,7 @@ export const MessageWithThread: ComponentStory<typeof Message> = () => (
   </Box>
 );
 
-export const MessageSelected: ComponentStory<typeof Message> = () => {
+export const MessageSelected: StoryFn<typeof Message> = () => {
   const [selected, setSelected] = useState(true);
   return (
     <Box>
@@ -395,7 +391,7 @@ export const MessageSelected: ComponentStory<typeof Message> = () => {
   );
 };
 
-export const MessageEditing: ComponentStory<typeof Message> = () => (
+export const MessageEditing: StoryFn<typeof Message> = () => (
   <Box>
     <MessageDivider>May, 24, 2020</MessageDivider>
     <Message className='customclass' clickable>
@@ -479,7 +475,7 @@ export const MessageEditing: ComponentStory<typeof Message> = () => (
   </Box>
 );
 
-export const MessageUnorderedList: ComponentStory<typeof Message> = () => (
+export const MessageUnorderedList: StoryFn<typeof Message> = () => (
   <Box>
     <MessageDivider>May, 24, 2020</MessageDivider>
     <Message className='customclass' clickable>
@@ -525,7 +521,7 @@ export const MessageUnorderedList: ComponentStory<typeof Message> = () => (
   </Box>
 );
 
-export const MessageOrderedList: ComponentStory<typeof Message> = () => (
+export const MessageOrderedList: StoryFn<typeof Message> = () => (
   <Box>
     <MessageDivider>May, 24, 2020</MessageDivider>
     <Message className='customclass' clickable>
@@ -571,7 +567,7 @@ export const MessageOrderedList: ComponentStory<typeof Message> = () => (
   </Box>
 );
 
-export const MessageHighlighted: ComponentStory<typeof Message> = () => (
+export const MessageHighlighted: StoryFn<typeof Message> = () => (
   <Box>
     <MessageDivider>May, 24, 2020</MessageDivider>
     <Message className='customclass' highlight>
@@ -655,7 +651,7 @@ export const MessageHighlighted: ComponentStory<typeof Message> = () => (
   </Box>
 );
 
-export const MessagePending: ComponentStory<typeof Message> = () => (
+export const MessagePending: StoryFn<typeof Message> = () => (
   <Box>
     <MessageDivider>May, 24, 2020</MessageDivider>
     <Message className='customclass' isPending>
@@ -733,7 +729,7 @@ export const MessagePending: ComponentStory<typeof Message> = () => (
   </Box>
 );
 
-export const MessageWithMetrics: ComponentStory<typeof Message> = () => (
+export const MessageWithMetrics: StoryFn<typeof Message> = () => (
   <Box>
     <MessageDivider>May, 24, 2020</MessageDivider>
     <Message className='customclass'>
@@ -786,7 +782,7 @@ export const MessageWithMetrics: ComponentStory<typeof Message> = () => (
   </Box>
 );
 
-export const MessageWithHeadings: ComponentStory<typeof Message> = () => (
+export const MessageWithHeadings: StoryFn<typeof Message> = () => (
   <Box>
     <MessageDivider>May, 24, 2020</MessageDivider>
     <Message className='customclass' clickable>
@@ -834,7 +830,7 @@ export const MessageWithHeadings: ComponentStory<typeof Message> = () => (
   </Box>
 );
 
-export const LotsOfReactions: ComponentStory<typeof Message> = () => (
+export const LotsOfReactions: StoryFn<typeof Message> = () => (
   <Box>
     <MessageDivider>May, 24, 2020</MessageDivider>
     <Message className='customclass' clickable>

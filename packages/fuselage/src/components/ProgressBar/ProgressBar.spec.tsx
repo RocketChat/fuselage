@@ -1,7 +1,5 @@
-import { render } from '@testing-library/react';
-import React from 'react';
-
-import { ProgressBar } from '../..';
+import { render } from '../../testing';
+import { ProgressBar } from './ProgressBar';
 
 describe('[ProgressBar Component]', () => {
   it('renders without crashing', () => {

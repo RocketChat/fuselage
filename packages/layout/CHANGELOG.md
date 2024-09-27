@@ -1,5 +1,11 @@
 # @rocket.chat/layout
 
+## 0.31.27
+
+### Patch Changes
+
+- [#1362](https://github.com/RocketChat/fuselage/pull/1362) [`2a4d8db74`](https://github.com/RocketChat/fuselage/commit/2a4d8db743fd2233bfe9f897ffe308955f56c24b) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(layout): FormContainer wrong props
+
 ## 0.31.26
 
 ### Patch Changes

@@ -1,5 +1,4 @@
 import type { ElementType, HTMLAttributes } from 'react';
-import React from 'react';
 
 import { prependClassName } from '../../helpers/prependClassName';
 

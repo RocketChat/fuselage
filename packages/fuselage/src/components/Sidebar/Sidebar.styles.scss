@@ -35,7 +35,7 @@ $sidebar-color-stroke-default: theme(
 $sidebar-item-color: theme('sidebar-item-color', colors.font(secondary-info));
 $sidebar-item-color-highlighted: theme(
   'sidebar-item-color-highlighted',
-  colors.font(pure-white)
+  colors.font(titles-labels)
 );
 $sidebar-item-background-color-hover: theme(
   'sidebar-item-background-color-hover',
@@ -69,6 +69,11 @@ $sidebar-item-background-color-featured-selected: theme(
 $sidebar-header-height: theme(
   'sidebar-header-height',
   theme('header-height', lengths.size(64))
+);
+
+$sidebar-header-v2-height: theme(
+  'sidebar-header-v2-height',
+  theme('header-height-v2', lengths.size(44))
 );
 
 $sidebar-section-height: theme(
@@ -185,7 +190,6 @@ $sidebar-banner-color-danger: theme(
 
       flex-grow: 1;
 
-      padding-block: lengths.padding(12);
       padding-inline: lengths.padding(16);
     }
 
@@ -193,6 +197,10 @@ $sidebar-banner-color-danger: theme(
       @include typography.use-font-scale(p2m);
       color: $sidebar-color-font-title;
     }
+  }
+
+  &-topbar-v2 {
+    height: $sidebar-header-v2-height;
   }
 
   &-item {
@@ -294,6 +302,9 @@ $sidebar-banner-color-danger: theme(
     }
 
     &__badge {
+      display: flex;
+      align-items: center;
+
       margin-inline: lengths.margin(4);
     }
 

@@ -1,5 +1,4 @@
 import type { ReactElement, ReactNode } from 'react';
-import React from 'react';
 
 type MessageGenericPreviewContentProps = {
   children?: ReactNode;

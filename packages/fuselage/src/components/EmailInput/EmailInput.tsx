@@ -1,5 +1,5 @@
 import type { ComponentProps, ReactNode, Ref } from 'react';
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 
 import { InputBox } from '../InputBox';
 
@@ -38,6 +38,9 @@ type InputType =
 
 const type: InputType = 'email';
 
+/**
+ * An input for email addresses.
+ */
 export const EmailInput = forwardRef(function EmailInput(
   props: EmailInputProps,
   ref: Ref<HTMLElement>

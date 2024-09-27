@@ -1,10 +1,5 @@
-import type { ReactNode } from 'react';
-import React from 'react';
+import type { HTMLAttributes } from 'react';
 
-type MessageContainerProps = {
-  children?: ReactNode;
-};
-
-export const MessageContainer = (props: MessageContainerProps) => (
+export const MessageContainer = (props: HTMLAttributes<HTMLDivElement>) => (
   <div className='rcx-box rcx-box--full rcx-message-container' {...props} />
 );

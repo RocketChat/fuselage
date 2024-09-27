@@ -1,15 +1,6 @@
-import {
-  Title,
-  Description,
-  Primary,
-  Stories,
-  ArgsTable,
-  Subtitle,
-} from '@storybook/addon-docs';
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import React from 'react';
+import type { StoryFn, Meta } from '@storybook/react';
 
-import { Box } from '../..';
+import Box from './Box';
 
 export default {
   title: 'Layout/Box/Rich content/Block',
@@ -19,21 +10,11 @@ export default {
       description: {
         component: 'Here is how rich content will be rendered, in details.',
       },
-      page: () => (
-        <>
-          <Title />
-          <Subtitle />
-          <Description />
-          <ArgsTable />
-          <Primary />
-          <Stories title={'Block'} />
-        </>
-      ),
     },
   },
-} as ComponentMeta<typeof Box>;
+} satisfies Meta<typeof Box>;
 
-export const hx: ComponentStory<typeof Box> = () => (
+export const hx: StoryFn<typeof Box> = () => (
   <>
     <h1>Heading 1</h1>
     <h2>Heading 2</h2>
@@ -45,10 +26,10 @@ export const hx: ComponentStory<typeof Box> = () => (
 );
 hx.storyName = 'hx';
 
-export const p: ComponentStory<typeof Box> = () => <p>Paragraph</p>;
+export const p: StoryFn<typeof Box> = () => <p>Paragraph</p>;
 p.storyName = 'p';
 
-export const ul: ComponentStory<typeof Box> = () => (
+export const ul: StoryFn<typeof Box> = () => (
   <ul>
     <li>unordered list item 1</li>
     <li>unordered list item 2</li>
@@ -57,7 +38,7 @@ export const ul: ComponentStory<typeof Box> = () => (
 );
 ul.storyName = 'ul';
 
-export const ol: ComponentStory<typeof Box> = () => (
+export const ol: StoryFn<typeof Box> = () => (
   <ol>
     <li>ordered list item 1</li>
     <li>ordered list item 2</li>
@@ -66,7 +47,7 @@ export const ol: ComponentStory<typeof Box> = () => (
 );
 ol.storyName = 'ol';
 
-export const dl: ComponentStory<typeof Box> = () => (
+export const dl: StoryFn<typeof Box> = () => (
   <dl>
     <dt>description list term 1</dt>
     <dd>description list description 1</dd>
@@ -78,7 +59,7 @@ export const dl: ComponentStory<typeof Box> = () => (
 );
 dl.storyName = 'dl';
 
-export const table: ComponentStory<typeof Box> = () => (
+export const table: StoryFn<typeof Box> = () => (
   <table>
     <thead>
       <tr>
@@ -108,7 +89,7 @@ export const table: ComponentStory<typeof Box> = () => (
 );
 table.storyName = 'table';
 
-export const table_complex: ComponentStory<typeof Box> = () => (
+export const table_complex: StoryFn<typeof Box> = () => (
   <table>
     <caption>Caption</caption>
     <thead>
@@ -146,7 +127,7 @@ export const table_complex: ComponentStory<typeof Box> = () => (
 );
 table_complex.storyName = 'table (complex)';
 
-export const blockquote_and_cite: ComponentStory<typeof Box> = () => (
+export const blockquote_and_cite: StoryFn<typeof Box> = () => (
   <blockquote>
     <p>
       Words can be like X-rays, if you use them properly — they’ll go through
@@ -159,7 +140,7 @@ export const blockquote_and_cite: ComponentStory<typeof Box> = () => (
 );
 blockquote_and_cite.storyName = 'blockquote and cite';
 
-export const pre: ComponentStory<typeof Box> = () => (
+export const pre: StoryFn<typeof Box> = () => (
   <pre>
     # A UNINTENDED LOL-ZONE: SORRY FOR THIS{'\n'}#
     ------------+----------+-------------{'\n'}# /\O | _O | O {'\n'}# /\/ | //|_
@@ -170,7 +151,7 @@ export const pre: ComponentStory<typeof Box> = () => (
 );
 pre.storyName = 'pre';
 
-export const pre_with_code: ComponentStory<typeof Box> = () => (
+export const pre_with_code: StoryFn<typeof Box> = () => (
   <pre>
     <code>
       # A UNINTENDED LOL-ZONE: SORRY FOR THIS{'\n'}#

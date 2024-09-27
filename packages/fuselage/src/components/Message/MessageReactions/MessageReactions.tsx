@@ -1,12 +1,15 @@
-import type { ReactNode } from 'react';
-import React from 'react';
+import type { HTMLAttributes, Ref } from 'react';
+import { forwardRef } from 'react';
 
 import { MessageBlock } from '../MessageBlock';
 
-type MessageReactionsProps = { children: ReactNode };
-
-export const MessageReactions = (props: MessageReactionsProps) => (
-  <MessageBlock className='rcx-message-reactions'>
-    <div className='rcx-message-reactions__container' {...props} />
-  </MessageBlock>
-);
+export const MessageReactions = forwardRef(function MessageReactions(
+  props: HTMLAttributes<HTMLDivElement>,
+  ref: Ref<HTMLDivElement>
+) {
+  return (
+    <MessageBlock className='rcx-message-reactions'>
+      <div ref={ref} className='rcx-message-reactions__container' {...props} />
+    </MessageBlock>
+  );
+});

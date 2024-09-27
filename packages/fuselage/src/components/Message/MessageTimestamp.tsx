@@ -1,8 +1,5 @@
-import type { ReactNode } from 'react';
-import React from 'react';
+import type { HTMLAttributes } from 'react';
 
-type MessageTimestampProps = { children: ReactNode; title?: string };
-
-export const MessageTimestamp = (props: MessageTimestampProps) => (
+export const MessageTimestamp = (props: HTMLAttributes<HTMLSpanElement>) => (
   <span className='rcx-box rcx-box--full rcx-message-header__time' {...props} />
 );

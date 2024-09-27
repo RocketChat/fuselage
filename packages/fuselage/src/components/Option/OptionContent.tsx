@@ -1,11 +1,6 @@
-import type { ReactNode } from 'react';
-import React from 'react';
+import type { HTMLAttributes } from 'react';
 
-type OptionContentProps = {
-  children?: ReactNode;
-};
-
-const OptionContent = (props: OptionContentProps) => (
+const OptionContent = (props: HTMLAttributes<HTMLDivElement>) => (
   <div className='rcx-option__content' {...props} />
 );
 

@@ -18,19 +18,11 @@
     "javascriptreact",
     "typescript",
     "typescriptreact",
-    "markdown",
     "mdx",
     "pegjs"
   ],
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
-  },
-  "editor.formatOnSave": true,
-  "[typescript]": {
-    "editor.formatOnSave": false
-  },
-  "[typescriptreact]": {
-    "editor.formatOnSave": false
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "[pegjs]": {

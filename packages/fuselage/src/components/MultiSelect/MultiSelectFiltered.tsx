@@ -1,5 +1,5 @@
 import type { ComponentProps, Dispatch, SetStateAction } from 'react';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import type { Icon } from '..';
 import { MultiSelect } from './MultiSelect';

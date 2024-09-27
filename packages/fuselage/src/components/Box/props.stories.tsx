@@ -1,40 +1,14 @@
-import {
-  Title,
-  Description,
-  Primary,
-  Stories,
-  ArgsTable,
-  Subtitle,
-} from '@storybook/addon-docs';
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import React from 'react';
+import type { StoryFn, Meta } from '@storybook/react';
 
-import { Box, Button } from '../..';
+import Button from '../Button';
+import Box from './Box';
 
 export default {
-  title: 'Layout/Box/isProp',
+  title: 'Layout/Box/is',
   component: Box,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'The `is` prop is used to render the Box as a different HTML tag. It can also be used to render a different fuselage component.',
-      },
-      page: () => (
-        <>
-          <Title />
-          <Subtitle />
-          <Description />
-          <Primary />
-          <Stories />
-          <ArgsTable />
-        </>
-      ),
-    },
-  },
-} as ComponentMeta<typeof Box>;
+} satisfies Meta<typeof Box>;
 
-const Template: ComponentStory<typeof Box> = (args) => <Box {...args} />;
+const Template: StoryFn<typeof Box> = (args) => <Box {...args} />;
 
 export const isButton = Template.bind({});
 isButton.args = {

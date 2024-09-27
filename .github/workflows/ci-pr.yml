@@ -7,6 +7,10 @@ on:
       - reopened
       - synchronize
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build-and-test:
     name: Build and Test
@@ -15,11 +19,12 @@ jobs:
       TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v4
         with:
-          node-version: "14.21.3"
-      - uses: actions/checkout@v2
-      - uses: actions/cache@v2
+          node-version: "22.2.0"
+          cache: "yarn"
+      - uses: actions/cache@v3
         id: yarn-cache
         with:
           path: |
@@ -28,7 +33,7 @@ jobs:
           key: ${{ runner.os }}-modules-${{ hashFiles('yarn.lock') }}
       - name: Turbo Cache
         id: turbo-cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: .turbo
           key: turbo-${{ runner.os }}-${{ github.job }}
@@ -37,7 +42,7 @@ jobs:
       - run: yarn install
         if: steps.yarn-cache.outputs.cache-hit != 'true'
       - run: yarn run ci
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         with:
           name: "storybooks-${{ github.event.number }}"
           path: |

@@ -3,7 +3,6 @@ module.exports = {
   extends: ['../original', 'prettier'],
   plugins: ['prettier'],
   rules: {
-    'generator-star-spacing': ['error', 'before'],
     'import/named': 'error',
     'import/order': [
       'error',

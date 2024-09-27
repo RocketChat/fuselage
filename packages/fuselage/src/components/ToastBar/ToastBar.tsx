@@ -1,7 +1,6 @@
 import { css, keyframes } from '@rocket.chat/css-in-js';
 import { useUniqueId } from '@rocket.chat/fuselage-hooks';
 import type { ReactNode, AllHTMLAttributes } from 'react';
-import React from 'react';
 
 import Box from '../Box';
 import { IconButton } from '../Button';
@@ -12,19 +11,24 @@ export type ToastBarProps = {
   className?: string;
   children?: ReactNode;
   time?: number;
+  isPaused?: boolean;
   id?: string;
   onClose?: (id: string) => void;
   buttonLabel?: string;
 } & Omit<AllHTMLAttributes<HTMLElement>, 'is'>;
 
+/**
+ * Shows alerts in a toast component.
+ */
 export function ToastBar({
   children,
   className = '',
   variant = 'info',
   time = 5,
+  isPaused,
   id,
   onClose,
-  buttonLabel = 'Close',
+  buttonLabel = 'Dismiss alert',
   ...props
 }: ToastBarProps) {
   const iconName =
@@ -59,6 +63,8 @@ export function ToastBar({
     &::after {
       width: 0%;
       animation: ${progressBar} ${time}s;
+      animation-fill-mode: forwards;
+      animation-play-state: ${isPaused ? 'paused' : 'running'};
     }
   `;
 
@@ -73,7 +79,6 @@ export function ToastBar({
       ]}
       elevation='2nb'
       borderRadius='x4'
-      role='alert'
       {...props}
     >
       <div className='rcx-toastbar_inner'>
@@ -82,16 +87,16 @@ export function ToastBar({
           size='x20'
           name={iconName}
         />
-        <div className='rcx-toastbar_content' id={toastId}>
+        <div role='alert' className='rcx-toastbar_content'>
           {children}
         </div>
         {onClose && (
           <div className='rcx-toastbar-close'>
             <IconButton
               tiny
+              aria-label={buttonLabel}
               onClick={() => onClose(toastId)}
               icon='cross'
-              aria-label={buttonLabel}
             />
           </div>
         )}

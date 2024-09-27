@@ -1,5 +1,4 @@
 import type { ComponentPropsWithoutRef } from 'react';
-import React from 'react';
 
 import WithErrorWrapper from '../../helpers/WithErrorWrapper';
 import Box from '../Box';

@@ -1,36 +1,14 @@
-import {
-  Title,
-  Description,
-  Primary,
-  Stories,
-  ArgsTable,
-  Subtitle,
-} from '@storybook/addon-docs';
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import React from 'react';
+import type { StoryFn, Meta } from '@storybook/react';
 
-import { Box, Divider } from '../..';
+import { Divider } from '../Divider';
+import Box from './Box';
 
 export default {
   title: 'Layout/Box/Typography',
   component: Box,
-  parameters: {
-    docs: {
-      page: () => (
-        <>
-          <Title />
-          <Subtitle />
-          <Description />
-          <Primary />
-          <Stories />
-          <ArgsTable />
-        </>
-      ),
-    },
-  },
-} as ComponentMeta<typeof Box>;
+} satisfies Meta<typeof Box>;
 
-export const FontFamilies: ComponentStory<typeof Box> = () => (
+export const FontFamilies: StoryFn<typeof Box> = () => (
   <Box color='default'>
     <Box fontFamily='sans'>
       Sans: The quick brown fox jumps over the lazy dog
@@ -41,7 +19,7 @@ export const FontFamilies: ComponentStory<typeof Box> = () => (
   </Box>
 );
 
-export const FontScales: ComponentStory<typeof Box> = () => (
+export const FontScales: StoryFn<typeof Box> = () => (
   <Box color='default'>
     <Box fontScale='hero'>hero</Box>
     <Box fontScale='h1'>h1</Box>
@@ -61,7 +39,7 @@ export const FontScales: ComponentStory<typeof Box> = () => (
   </Box>
 );
 
-export const FontSizes: ComponentStory<typeof Box> = () => (
+export const FontSizes: StoryFn<typeof Box> = () => (
   <Box color='default'>
     <Box fontSize='hero'>hero</Box>
     <Box fontSize='h1'>h1</Box>
@@ -81,7 +59,7 @@ export const FontSizes: ComponentStory<typeof Box> = () => (
   </Box>
 );
 
-export const FontWeights: ComponentStory<typeof Box> = () => (
+export const FontWeights: StoryFn<typeof Box> = () => (
   <Box color='default'>
     <Box fontWeight={100}>100</Box>
     <Box fontWeight={200}>200</Box>
@@ -110,7 +88,7 @@ export const FontWeights: ComponentStory<typeof Box> = () => (
   </Box>
 );
 
-export const LineHeights: ComponentStory<typeof Box> = () => (
+export const LineHeights: StoryFn<typeof Box> = () => (
   <Box color='default'>
     <Box lineHeight='hero'>hero</Box>
     <Box lineHeight='h1'>h1</Box>
@@ -130,7 +108,7 @@ export const LineHeights: ComponentStory<typeof Box> = () => (
   </Box>
 );
 
-export const LetterSpacings: ComponentStory<typeof Box> = () => (
+export const LetterSpacings: StoryFn<typeof Box> = () => (
   <Box color='default'>
     <Box letterSpacing='hero'>hero</Box>
     <Box letterSpacing='h1'>h1</Box>
@@ -150,14 +128,14 @@ export const LetterSpacings: ComponentStory<typeof Box> = () => (
   </Box>
 );
 
-export const FontStyles: ComponentStory<typeof Box> = () => (
+export const FontStyles: StoryFn<typeof Box> = () => (
   <Box color='default'>
     <Box fontStyle='normal'>normal</Box>
     <Box fontStyle='italic'>italic</Box>
   </Box>
 );
 
-export const TextTransform: ComponentStory<typeof Box> = () => (
+export const TextTransform: StoryFn<typeof Box> = () => (
   <Box color='default'>
     <Box textTransform='none'>none</Box>
     <Box textTransform='uppercase'>uppercase</Box>
@@ -166,7 +144,7 @@ export const TextTransform: ComponentStory<typeof Box> = () => (
   </Box>
 );
 
-export const WordBreak: ComponentStory<typeof Box> = () => (
+export const WordBreak: StoryFn<typeof Box> = () => (
   <Box color='default'>
     <Box wordBreak='break-word'>
       break-word:
@@ -180,7 +158,7 @@ export const WordBreak: ComponentStory<typeof Box> = () => (
   </Box>
 );
 
-export const withTruncatedText: ComponentStory<typeof Box> = () => (
+export const withTruncatedText: StoryFn<typeof Box> = () => (
   <Box color='default'>
     <Box
       withTruncatedText

@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.33.1
+
+### Patch Changes
+
+- [#1349](https://github.com/RocketChat/fuselage/pull/1349) [`bfe0abfb0`](https://github.com/RocketChat/fuselage/commit/bfe0abfb0bc2f828a0b6675f4719509d978a0a0f) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage-tokens): added whole dist folder to published files list
+
 ## 0.33.0
 
 ### Minor Changes

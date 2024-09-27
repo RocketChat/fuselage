@@ -1,9 +1,6 @@
-import type { Story, Meta } from '@storybook/react';
-import type { ComponentProps } from 'react';
+import type { StoryFn, Meta } from '@storybook/react';
 
 import AwaitConfirmationForm from './AwaitConfirmationForm';
-
-type Args = ComponentProps<typeof AwaitConfirmationForm>;
 
 export default {
   title: 'forms/AwaitConfirmationForm',
@@ -22,9 +19,9 @@ export default {
     securityCode: 'Funny Tortoise In The Hat',
     emailAddress: 'emailname@email.com',
   },
-} as Meta<Args>;
+} satisfies Meta<typeof AwaitConfirmationForm>;
 
-export const _AwaitConfirmationForm: Story<Args> = (args) => (
-  <AwaitConfirmationForm {...args} />
-);
+export const _AwaitConfirmationForm: StoryFn<typeof AwaitConfirmationForm> = (
+  args
+) => <AwaitConfirmationForm {...args} />;
 _AwaitConfirmationForm.storyName = 'AwaitConfirmationForm';

@@ -1,5 +1,5 @@
 import type { ComponentProps, ReactNode, Ref } from 'react';
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 
 import { InputBox } from '../InputBox';
 
@@ -8,6 +8,9 @@ export type TextInputProps = Omit<ComponentProps<typeof InputBox>, 'type'> & {
   error?: string;
 };
 
+/**
+ * An input for any kind of single-line text.
+ */
 export const TextInput = forwardRef(function TextInput(
   props: TextInputProps,
   ref: Ref<HTMLInputElement>

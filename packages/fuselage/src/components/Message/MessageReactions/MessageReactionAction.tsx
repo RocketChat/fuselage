@@ -1,5 +1,4 @@
 import type { HTMLAttributes } from 'react';
-import React from 'react';
 
 import { Icon } from '../../Icon';
 
@@ -8,6 +7,8 @@ export const MessageReactionAction = ({
   ...props
 }: HTMLAttributes<HTMLDivElement>) => (
   <div
+    role='button'
+    tabIndex={0}
     className={[
       'rcx-message-reactions__reaction rcx-message-reactions__reaction--action',
       className,

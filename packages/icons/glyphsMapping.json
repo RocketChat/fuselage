@@ -958,5 +958,29 @@
   },
   "arrow-up": {
     "start": "\ue149"
+  },
+  "circle-unfilled": {
+    "start": "\ue14b"
+  },
+  "check-single": {
+    "start": "\ue14f"
+  },
+  "check-double": {
+    "start": "\ue151"
+  },
+  "stars": {
+    "start": "\ue153"
+  },
+  "share-alt": {
+    "start": "\ue155"
+  },
+  "cloud": {
+    "start": "\ue157"
+  },
+  "ai": {
+    "start": "\ue159"
+  },
+  "pause-shape-unfilled": {
+    "start": "\ue15b"
   }
 }

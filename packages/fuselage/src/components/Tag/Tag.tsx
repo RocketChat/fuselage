@@ -1,5 +1,4 @@
 import type { AllHTMLAttributes, ReactNode } from 'react';
-import React from 'react';
 
 import { prependClassName } from '../../helpers/prependClassName';
 import Box from '../Box/Box';
@@ -18,6 +17,9 @@ type TagProps = {
   icon?: ReactNode;
 } & Omit<AllHTMLAttributes<HTMLSpanElement | HTMLAnchorElement>, 'is'>;
 
+/**
+ * Used for mentions
+ */
 export const Tag = ({
   large,
   medium,
