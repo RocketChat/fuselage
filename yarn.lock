@@ -4959,7 +4959,7 @@ __metadata:
     lint-all: "workspace:~"
     prettier: "npm:~2.8.7"
   peerDependencies:
-    prettier: ~2.7.1
+    prettier: "*"
   languageName: unknown
   linkType: soft
 
