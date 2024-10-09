@@ -4862,7 +4862,7 @@ __metadata:
     jest-environment-jsdom: "npm:~29.7.0"
     lint-all: "workspace:~"
     prettier: "npm:~2.8.7"
-    rollup: "npm:~3.20.4"
+    rollup: "npm:~3.29.5"
     ts-jest: "npm:~29.2.4"
     typedoc: "npm:~0.25.13"
     typescript: "npm:~5.5.4"
@@ -19232,9 +19232,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup@npm:~3.20.4":
-  version: 3.20.4
-  resolution: "rollup@npm:3.20.4"
+"rollup@npm:~3.29.5":
+  version: 3.29.5
+  resolution: "rollup@npm:3.29.5"
   dependencies:
     fsevents: "npm:~2.3.2"
   dependenciesMeta:
@@ -19242,7 +19242,7 @@ __metadata:
       optional: true
   bin:
     rollup: dist/bin/rollup
-  checksum: 10/5f26382949a71d2da347814e54bdf9e9897348b94c4e440b399ceb8f1f0ab0961a0607abfb9194988e61c2499572a8906637acfff0d5bec033cc9ee7028e03e4
+  checksum: 10/5ce0e5f1d9288d4954db93993477f894eb3042ec98a7c9c19980e53b1f58296481e3dc6c2b1a2a3680b20eb6c3fe64ed97942d5ff29df658a059647c33b3593c
   languageName: node
   linkType: hard
 
