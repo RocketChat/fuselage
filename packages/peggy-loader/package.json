@@ -56,6 +56,6 @@
     "rimraf": "^3.0.2",
     "ts-jest": "~29.2.4",
     "typescript": "~5.5.4",
-    "webpack": "~5.78.0"
+    "webpack": "~5.94.0"
   }
 }

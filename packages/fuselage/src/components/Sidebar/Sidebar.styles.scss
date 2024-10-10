@@ -35,7 +35,7 @@ $sidebar-color-stroke-default: theme(
 $sidebar-item-color: theme('sidebar-item-color', colors.font(secondary-info));
 $sidebar-item-color-highlighted: theme(
   'sidebar-item-color-highlighted',
-  colors.font(pure-white)
+  colors.font(titles-labels)
 );
 $sidebar-item-background-color-hover: theme(
   'sidebar-item-background-color-hover',
