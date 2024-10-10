@@ -16,7 +16,7 @@
       "dependsOn": ["build"]
     },
     "build-storybook": {
-      "dependsOn": ["^build"],
+      "dependsOn": ["build", "^build"],
       "outputs": ["storybook-static/**"]
     }
   }
