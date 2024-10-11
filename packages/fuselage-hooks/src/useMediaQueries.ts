@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useCallback, useMemo, useRef } from 'react';
 import { useSyncExternalStore } from 'use-sync-external-store/shim';
 
 import { useStableArray } from './useStableArray';
@@ -59,10 +59,13 @@ const createStore = (queries: string[]) => {
  */
 export const useMediaQueries = (...queries: string[]): boolean[] => {
   const stableQueries = useStableArray(queries);
+  const serverSnapshotRef = useRef(queries.map(() => false));
   const [subscribe, getSnapshot] = useMemo(
     () => createStore(stableQueries),
     [stableQueries]
   );
 
-  return useSyncExternalStore(subscribe, getSnapshot);
+  const getServerSnapshot = useCallback(() => serverSnapshotRef.current, []);
+
+  return useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 };

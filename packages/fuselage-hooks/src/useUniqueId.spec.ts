@@ -1,4 +1,4 @@
-import { renderHook } from '@testing-library/react-hooks';
+import { renderHook } from '@testing-library/react';
 
 import { useUniqueId } from './useUniqueId';
 
@@ -18,9 +18,12 @@ it('returns a unique ID', () => {
 
 it('returns the same ID on each render cycle', () => {
   const { result, rerender } = renderHook(() => useUniqueId());
+
+  const uniqueIdA = result.current;
+
   rerender();
 
-  const [uniqueIdA, uniqueIdB] = result.all;
+  const uniqueIdB = result.current;
 
   expect(uniqueIdA).toBe(uniqueIdB);
 });

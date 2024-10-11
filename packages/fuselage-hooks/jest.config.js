@@ -3,5 +3,8 @@ module.exports = {
   errorOnDeprecated: true,
   testMatch: ['<rootDir>/src/**/*.spec.{ts,tsx}'],
   testEnvironment: 'jsdom',
-  setupFilesAfterEnv: ['testing-utils/setup/noErrorsLogged'],
+  setupFilesAfterEnv: [
+    'testing-utils/setup/noErrorsLogged',
+    '<rootDir>/src/jest-setup.ts',
+  ],
 };

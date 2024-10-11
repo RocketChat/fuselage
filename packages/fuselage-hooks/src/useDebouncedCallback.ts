@@ -1,6 +1,8 @@
 import type { DependencyList } from 'react';
 import { useMemo, useCallback, useRef, useEffect } from 'react';
 
+import { emptyDeps } from './helpers/emptyDeps';
+
 /**
  * Hook to memoize a debounced version of a callback.
  *
@@ -13,7 +15,7 @@ import { useMemo, useCallback, useRef, useEffect } from 'react';
 export const useDebouncedCallback = <P extends unknown[]>(
   callback: (...args: P) => unknown,
   delay: number,
-  deps?: DependencyList
+  deps: DependencyList = emptyDeps
 ): ((...args: P) => unknown) & {
   flush: () => void;
   cancel: () => void;

@@ -1,4 +1,4 @@
-import { renderHook, act } from '@testing-library/react-hooks';
+import { renderHook, act } from '@testing-library/react';
 import { withClipboardMock } from 'testing-utils/mocks/withClipboardMock';
 
 import { useClipboard } from './useClipboard';

@@ -1,4 +1,4 @@
-import { renderHook } from '@testing-library/react-hooks';
+import { renderHook } from '@testing-library/react';
 import { createRef } from 'react';
 
 import { useMergedRefs } from './useMergedRefs';

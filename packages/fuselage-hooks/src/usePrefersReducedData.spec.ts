@@ -1,4 +1,4 @@
-import { renderHook } from '@testing-library/react-hooks';
+import { renderHook } from '@testing-library/react';
 import { withMatchMediaMock } from 'testing-utils/mocks/withMatchMediaMock';
 
 import { usePrefersReducedData } from './usePrefersReducedData';
