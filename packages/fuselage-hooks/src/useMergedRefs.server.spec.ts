@@ -1,7 +1,3 @@
-/**
- * @jest-environment node
- */
-
 import { renderHook } from '@testing-library/react-hooks/server';
 import { createRef } from 'react';
 

@@ -1,7 +1,3 @@
-/**
- * @jest-environment node
- */
-
 import { renderHook } from '@testing-library/react-hooks/server';
 
 import { useToggle } from './useToggle';
