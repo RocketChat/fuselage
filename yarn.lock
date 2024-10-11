@@ -4405,7 +4405,7 @@ __metadata:
     "@rollup/plugin-json": "npm:~4.1.0"
     "@rollup/plugin-node-resolve": "npm:~13.1.3"
     "@rollup/plugin-typescript": "npm:~8.3.4"
-    "@types/jest": "npm:~29.5.12"
+    "@types/jest": "npm:~29.5.13"
     "@types/stylis": "npm:^4.0.2"
     bump: "workspace:~"
     eslint: "npm:~8.38.0"
@@ -4448,7 +4448,7 @@ __metadata:
     "@rollup/plugin-json": "npm:~4.1.0"
     "@rollup/plugin-node-resolve": "npm:~13.1.3"
     "@rollup/plugin-typescript": "npm:~8.3.4"
-    "@types/jest": "npm:~29.5.12"
+    "@types/jest": "npm:~29.5.13"
     bump: "workspace:~"
     eslint: "npm:~8.38.0"
     jest: "npm:~29.7.0"
@@ -4500,7 +4500,7 @@ __metadata:
     "@rollup/plugin-typescript": "npm:~8.3.4"
     "@testing-library/react-hooks": "npm:~8.0.1"
     "@testing-library/user-event": "npm:~14.5.2"
-    "@types/jest": "npm:~29.5.12"
+    "@types/jest": "npm:~29.5.13"
     "@types/react": "npm:~17.0.80"
     "@types/react-dom": "npm:~17.0.25"
     "@types/resize-observer-browser": "npm:~0.1.7"
@@ -4580,7 +4580,7 @@ __metadata:
     "@testing-library/jest-dom": "npm:~6.4.8"
     "@testing-library/react": "npm:~16.0.0"
     "@testing-library/user-event": "npm:~14.5.2"
-    "@types/jest": "npm:~29.5.12"
+    "@types/jest": "npm:~29.5.13"
     "@types/react": "npm:~17.0.80"
     "@types/react-dom": "npm:~17.0.25"
     bump: "workspace:~"
@@ -4668,7 +4668,7 @@ __metadata:
     "@testing-library/react": "npm:~16.0.0"
     "@testing-library/user-event": "npm:~14.5.2"
     "@types/invariant": "npm:^2.2.37"
-    "@types/jest": "npm:~29.5.12"
+    "@types/jest": "npm:~29.5.13"
     "@types/jest-axe": "npm:~3.5.9"
     autoprefixer: "npm:~10.4.14"
     babel-loader: "npm:~9.1.2"
@@ -4683,7 +4683,7 @@ __metadata:
     eslint-plugin-mdx: "npm:~2.0.5"
     invariant: "npm:^2.2.4"
     jest: "npm:~29.7.0"
-    jest-axe: "npm:~8.0.0"
+    jest-axe: "npm:~9.0.0"
     lint-all: "workspace:~"
     mini-css-extract-plugin: "npm:~2.7.6"
     normalize.css: "npm:^8.0.1"
@@ -4766,7 +4766,7 @@ __metadata:
     "@storybook/react": "npm:~8.2.7"
     "@storybook/react-webpack5": "npm:~8.2.7"
     "@storybook/theming": "npm:~8.2.7"
-    "@types/jest": "npm:~29.5.12"
+    "@types/jest": "npm:~29.5.13"
     "@types/react": "npm:~17.0.80"
     "@types/react-dom": "npm:~17.0.25"
     bump: "workspace:~"
@@ -4801,7 +4801,7 @@ __metadata:
     "@rocket.chat/fuselage-tokens": "workspace:~"
     "@rocket.chat/prettier-config": "workspace:~"
     "@rocket.chat/styled": "workspace:~"
-    "@types/jest": "npm:~29.5.12"
+    "@types/jest": "npm:~29.5.13"
     "@types/react": "npm:~17.0.80"
     "@types/react-dom": "npm:~17.0.25"
     build-logo: "workspace:~"
@@ -4829,7 +4829,7 @@ __metadata:
   dependencies:
     "@rocket.chat/eslint-config-alt": "workspace:~"
     "@rocket.chat/prettier-config": "workspace:~"
-    "@types/jest": "npm:~29.5.12"
+    "@types/jest": "npm:~29.5.13"
     bump: "workspace:~"
     eslint: "npm:~8.38.0"
     jest: "npm:~29.7.0"
@@ -4855,7 +4855,7 @@ __metadata:
     "@rollup/plugin-commonjs": "npm:~24.1.0"
     "@rollup/plugin-node-resolve": "npm:~15.0.2"
     "@rollup/plugin-typescript": "npm:~11.1.0"
-    "@types/jest": "npm:~29.5.12"
+    "@types/jest": "npm:~29.5.13"
     bump: "workspace:~"
     eslint: "npm:~8.38.0"
     jest: "npm:~29.7.0"
@@ -4889,7 +4889,7 @@ __metadata:
     "@storybook/react": "npm:~8.2.7"
     "@storybook/react-webpack5": "npm:~8.2.7"
     "@storybook/theming": "npm:~8.2.7"
-    "@types/jest": "npm:~29.5.12"
+    "@types/jest": "npm:~29.5.13"
     "@types/react": "npm:~17.0.80"
     "@types/react-dom": "npm:~17.0.25"
     bump: "workspace:~"
@@ -4969,7 +4969,7 @@ __metadata:
   dependencies:
     "@rocket.chat/eslint-config-alt": "workspace:~"
     "@rocket.chat/prettier-config": "workspace:~"
-    "@types/jest": "npm:~29.5.12"
+    "@types/jest": "npm:~29.5.13"
     bump: "workspace:~"
     eslint: "npm:~8.38.0"
     jest: "npm:~29.7.0"
@@ -4990,7 +4990,7 @@ __metadata:
     "@rocket.chat/css-in-js": "workspace:~"
     "@rocket.chat/eslint-config-alt": "workspace:~"
     "@rocket.chat/prettier-config": "workspace:~"
-    "@types/jest": "npm:~29.5.12"
+    "@types/jest": "npm:~29.5.13"
     bump: "workspace:~"
     eslint: "npm:~8.38.0"
     jest: "npm:~29.7.0"
@@ -5011,7 +5011,7 @@ __metadata:
     "@rocket.chat/css-supports": "workspace:~"
     "@rocket.chat/eslint-config-alt": "workspace:~"
     "@rocket.chat/prettier-config": "workspace:~"
-    "@types/jest": "npm:~29.5.12"
+    "@types/jest": "npm:~29.5.13"
     bump: "workspace:~"
     eslint: "npm:~8.38.0"
     jest: "npm:~29.7.0"
@@ -6433,13 +6433,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jest@npm:~29.5.12":
-  version: 29.5.12
-  resolution: "@types/jest@npm:29.5.12"
+"@types/jest@npm:~29.5.13":
+  version: 29.5.13
+  resolution: "@types/jest@npm:29.5.13"
   dependencies:
     expect: "npm:^29.0.0"
     pretty-format: "npm:^29.0.0"
-  checksum: 10/312e8dcf92cdd5a5847d6426f0940829bca6fe6b5a917248f3d7f7ef5d85c9ce78ef05e47d2bbabc40d41a930e0e36db2d443d2610a9e3db9062da2d5c904211
+  checksum: 10/7d6e3e4ef4b1cab0f61270d55764709512fdfbcb1bd47c0ef44117d48490529c1f264dacf3440b9188363e99e290b80b79c529eadc3af2184116a90f6856b192
   languageName: node
   linkType: hard
 
@@ -7776,10 +7776,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axe-core@npm:4.7.2, axe-core@npm:^4.2.0":
-  version: 4.7.2
-  resolution: "axe-core@npm:4.7.2"
-  checksum: 10/1b94fcbe203296fc7174992a3d70dbcd477d88b933afa045aaffa1704fe63d8da8945e4b38fc576f9c7384abeb353e2d6607ab54d25b5c90b255ef2244bda29a
+"axe-core@npm:4.9.1":
+  version: 4.9.1
+  resolution: "axe-core@npm:4.9.1"
+  checksum: 10/9d4944f6d3289428e1c6b41a80516f6558a960889f59c3c00f0fb88b955eda81edf9ca377c2cbc2a775f4003596d2aeaa35acca5aad3e1fc6b3d1e26e82b02cc
   languageName: node
   linkType: hard
 
@@ -7787,6 +7787,13 @@ __metadata:
   version: 3.5.6
   resolution: "axe-core@npm:3.5.6"
   checksum: 10/3e776d843737edbb189e909694518e925ff1830c89ad7a043044ca4f2136d43417dc1f3006d2b164488316d12bf6fbcf0d989f05e874d8eeab58b8e2393ba4bc
+  languageName: node
+  linkType: hard
+
+"axe-core@npm:^4.2.0":
+  version: 4.7.2
+  resolution: "axe-core@npm:4.7.2"
+  checksum: 10/1b94fcbe203296fc7174992a3d70dbcd477d88b933afa045aaffa1704fe63d8da8945e4b38fc576f9c7384abeb353e2d6607ab54d25b5c90b255ef2244bda29a
   languageName: node
   linkType: hard
 
@@ -13413,15 +13420,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-axe@npm:~8.0.0":
-  version: 8.0.0
-  resolution: "jest-axe@npm:8.0.0"
+"jest-axe@npm:~9.0.0":
+  version: 9.0.0
+  resolution: "jest-axe@npm:9.0.0"
   dependencies:
-    axe-core: "npm:4.7.2"
+    axe-core: "npm:4.9.1"
     chalk: "npm:4.1.2"
     jest-matcher-utils: "npm:29.2.2"
     lodash.merge: "npm:4.6.2"
-  checksum: 10/6a1673b547292d0ced82fbf48ff337efd349da00164ecffe95b3b702b6fbe477ba6762baa221bbb972bfa31b3368b15d5f91fcd3489d18789a990c7b6b7bb7ce
+  checksum: 10/4a0d382f5d24457a16e2459f75f2f101ed267b803654291d992c6c7181e462602e8d9d4902a7b40422258d5cafc5b5484da529693011c0ce1c60e64825d365fa
   languageName: node
   linkType: hard
 
