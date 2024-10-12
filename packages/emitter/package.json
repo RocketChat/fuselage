@@ -37,8 +37,7 @@
     "lint": "lint",
     "lint-and-fix": "lint-and-fix",
     "test": "jest --runInBand",
-    "docs": "typedoc",
-    "bump-next": "bump-next"
+    "docs": "typedoc"
   },
   "devDependencies": {
     "@rocket.chat/eslint-config-alt": "workspace:~",
@@ -48,7 +47,6 @@
     "@rollup/plugin-node-resolve": "~13.1.3",
     "@rollup/plugin-typescript": "~8.3.4",
     "@types/jest": "~29.5.12",
-    "bump": "workspace:~",
     "eslint": "~8.38.0",
     "jest": "~29.7.0",
     "lint-all": "workspace:~",
