@@ -5,6 +5,8 @@ import { pkgReadme } from './templates/pkgReadme.mjs';
 import { rootReadme } from './templates/rootReadme.mjs';
 import { replaceSections } from './templates/section.mjs';
 
+$.verbose = true;
+
 const pkgDirs = await glob('packages/*', { onlyDirectories: true });
 const pkgs = await Promise.all(
   pkgDirs.map(async (dirPath) => ({
