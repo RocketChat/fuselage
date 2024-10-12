@@ -75,7 +75,7 @@ export const SelectLegacy = forwardRef(
       anchor: Anchor = SelectFocus,
       onChange = () => {},
       getValue = ([value] = ['', '']) => value,
-      getLabel = ([_, label] = ['', '']) => label,
+      getLabel = ([, label] = ['', '']) => label,
       placeholder = '',
       renderItem,
       renderSelected: RenderSelected,
