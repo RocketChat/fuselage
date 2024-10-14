@@ -39,8 +39,7 @@
     ".:build:rollup": "rollup -c",
     "lint": "lint",
     "lint-and-fix": "lint-and-fix",
-    "test": "jest --runInBand",
-    "bump-next": "bump-next"
+    "test": "jest --runInBand"
   },
   "devDependencies": {
     "@rocket.chat/eslint-config-alt": "workspace:~",
@@ -57,7 +56,6 @@
     "@types/react-dom": "~17.0.25",
     "@types/resize-observer-browser": "~0.1.7",
     "@types/use-sync-external-store": "~0.0.3",
-    "bump": "workspace:~",
     "eslint": "~8.38.0",
     "jest": "~29.7.0",
     "lint-all": "workspace:~",

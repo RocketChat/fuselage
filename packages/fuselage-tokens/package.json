@@ -35,14 +35,12 @@
     "build": "run-s .:build:clean  .:build:legacy .:build",
     ".:build": "node ./build --config ./config.js",
     ".:build:legacy": "build-design-tokens",
-    ".:build:clean": "rimraf dist",
-    "bump-next": "bump-next"
+    ".:build:clean": "rimraf dist"
   },
   "devDependencies": {
     "@rocket.chat/eslint-config-alt": "workspace:~",
     "@rocket.chat/prettier-config": "workspace:~",
     "build-design-tokens": "workspace:~",
-    "bump": "workspace:~",
     "eslint": "~8.38.0",
     "eslint-config-prettier": "~8.8.0",
     "eslint-plugin-import": "~2.26.0",

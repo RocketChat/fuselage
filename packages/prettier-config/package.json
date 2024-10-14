@@ -30,14 +30,12 @@
   "prettier": "./fuselage",
   "scripts": {
     "lint": "lint",
-    "lint-and-fix": "lint-and-fix",
-    "bump-next": "bump-next"
+    "lint-and-fix": "lint-and-fix"
   },
   "peerDependencies": {
     "prettier": "*"
   },
   "devDependencies": {
-    "bump": "workspace:~",
     "eslint": "~8.38.0",
     "eslint-config-prettier": "~8.8.0",
     "eslint-plugin-import": "~2.26.0",

@@ -35,8 +35,7 @@
     "test": "jest --runInBand",
     "docs": "typedoc",
     "storybook": "storybook dev -p 6006 --no-version-updates",
-    "build-storybook": "storybook build",
-    "bump-next": "bump-next"
+    "build-storybook": "storybook build"
   },
   "bugs": {
     "url": "https://github.com/RocketChat/fuselage/issues"
@@ -61,7 +60,6 @@
     "@types/jest": "~29.5.12",
     "@types/react": "~17.0.80",
     "@types/react-dom": "~17.0.25",
-    "bump": "workspace:~",
     "countries-list": "^2.6.1",
     "eslint": "~8.38.0",
     "jest": "~29.7.0",
