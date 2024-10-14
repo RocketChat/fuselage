@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.59.2
+
+### Patch Changes
+
+- [#1462](https://github.com/RocketChat/fuselage/pull/1462) [`d255394`](https://github.com/RocketChat/fuselage/commit/d2553945363ce35adeb745fb398dc5673e80af23) Thanks [@dougfabris](https://github.com/dougfabris)! - feat(icons): New `question-mark` icon
+
 ## 0.59.1
 
 ### Patch Changes
