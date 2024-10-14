@@ -3,4 +3,4 @@
 "@rocket.chat/fuselage": patch
 ---
 
-feat: New `question-mark` icon
+feat(icons): New `question-mark` icon
