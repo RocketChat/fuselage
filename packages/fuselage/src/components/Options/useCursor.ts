@@ -165,7 +165,7 @@ export const useCursor = <
             const [, label] = option;
             return typeof label === 'string' && label[0].toLowerCase() === key;
           });
-          ~index && setCursor(index);
+          if (~index) setCursor(index);
         }
     }
   });

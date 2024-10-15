@@ -48,7 +48,7 @@
     "@rollup/plugin-typescript": "~8.3.4",
     "@types/jest": "~29.5.12",
     "@types/stylis": "^4.0.2",
-    "eslint": "~8.38.0",
+    "eslint": "~8.45.0",
     "jest": "~29.7.0",
     "lint-all": "workspace:~",
     "prettier": "~2.8.7",
