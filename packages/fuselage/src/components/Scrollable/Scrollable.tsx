@@ -38,7 +38,7 @@ const pollTouchingEdges = (
 
   if (dirty) {
     touchingEdgesRef.current = newTouchingEdges;
-    onScrollContent && onScrollContent(newTouchingEdges);
+    onScrollContent?.(newTouchingEdges);
   }
 };
 
@@ -62,7 +62,7 @@ export const Scrollable = ({
       pollTouchingEdges(element, touchingEdgesRef, onScrollContent);
     }
 
-    scrollTimeoutRef.current && clearTimeout(scrollTimeoutRef.current);
+    if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
 
     scrollTimeoutRef.current = setTimeout(() => {
       scrollTimeoutRef.current = undefined;
