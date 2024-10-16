@@ -74,9 +74,9 @@ export const WithSelection: StoryFn<typeof Table> = () => {
   });
 
   const handleCheckBoxChange = (item: string) => {
-    setCheckedItems(prevState => ({
+    setCheckedItems((prevState) => ({
       ...prevState,
-      [item]: !prevState[item]
+      [item]: !prevState[item],
     }));
   };
 
@@ -98,7 +98,11 @@ export const WithSelection: StoryFn<typeof Table> = () => {
         <TableHead>
           <TableRow>
             <TableCell>
-              <CheckBox aria-label='select all' checked={checkedAll} onChange={handleAllCheckBoxChange} />
+              <CheckBox
+                aria-label='select all'
+                checked={checkedAll}
+                onChange={handleAllCheckBoxChange}
+              />
             </TableCell>
             <TableCell>Dessert (100g serving)</TableCell>
             <TableCell align='end'>Calories</TableCell>
@@ -110,7 +114,11 @@ export const WithSelection: StoryFn<typeof Table> = () => {
         <TableBody>
           <TableRow selected={checkedItems.item1}>
             <TableCell>
-              <CheckBox aria-label='select item1' checked={checkedItems.item1} onChange={() => handleCheckBoxChange('item1')} />
+              <CheckBox
+                aria-label='select item1'
+                checked={checkedItems.item1}
+                onChange={() => handleCheckBoxChange('item1')}
+              />
             </TableCell>
             <TableCell is='th' scope='row'>
               Frozen yoghurt
@@ -122,7 +130,11 @@ export const WithSelection: StoryFn<typeof Table> = () => {
           </TableRow>
           <TableRow selected={checkedItems.item2}>
             <TableCell>
-              <CheckBox aria-label='select item2' checked={checkedItems.item2} onChange={() => handleCheckBoxChange('item2')} />
+              <CheckBox
+                aria-label='select item2'
+                checked={checkedItems.item2}
+                onChange={() => handleCheckBoxChange('item2')}
+              />
             </TableCell>
             <TableCell is='th' scope='row'>
               Frozen yoghurt
@@ -134,7 +146,11 @@ export const WithSelection: StoryFn<typeof Table> = () => {
           </TableRow>
           <TableRow selected={checkedItems.item3}>
             <TableCell>
-              <CheckBox aria-label='select item3' checked={checkedItems.item3} onChange={() => handleCheckBoxChange('item3')} />
+              <CheckBox
+                aria-label='select item3'
+                checked={checkedItems.item3}
+                onChange={() => handleCheckBoxChange('item3')}
+              />
             </TableCell>
             <TableCell is='th' scope='row'>
               Frozen yoghurt
@@ -146,7 +162,11 @@ export const WithSelection: StoryFn<typeof Table> = () => {
           </TableRow>
           <TableRow selected={checkedItems.item4}>
             <TableCell>
-              <CheckBox aria-label='select item4' checked={checkedItems.item4} onChange={() => handleCheckBoxChange('item4')} />
+              <CheckBox
+                aria-label='select item4'
+                checked={checkedItems.item4}
+                onChange={() => handleCheckBoxChange('item4')}
+              />
             </TableCell>
             <TableCell is='th' scope='row'>
               Frozen yoghurt
@@ -158,7 +178,11 @@ export const WithSelection: StoryFn<typeof Table> = () => {
           </TableRow>
           <TableRow selected={checkedItems.item5}>
             <TableCell>
-              <CheckBox aria-label='select item5' checked={checkedItems.item5} onChange={() => handleCheckBoxChange('item5')} />
+              <CheckBox
+                aria-label='select item5'
+                checked={checkedItems.item5}
+                onChange={() => handleCheckBoxChange('item5')}
+              />
             </TableCell>
             <TableCell is='th' scope='row'>
               Frozen yoghurt
