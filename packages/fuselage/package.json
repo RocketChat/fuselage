@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/fuselage",
-  "version": "0.59.1",
+  "version": "0.59.2",
   "description": "Rocket.Chat's React Components Library",
   "author": {
     "name": "Rocket.Chat",
@@ -41,8 +41,7 @@
     "test": "jest --runInBand",
     "watch": "jest --watch",
     "docs": "cross-env NODE_ENV=production storybook build -o ../../static/fuselage",
-    "build-storybook": "cross-env NODE_ENV=production storybook build",
-    "bump-next": "bump-next"
+    "build-storybook": "cross-env NODE_ENV=production storybook build"
   },
   "peerDependencies": {
     "@rocket.chat/fuselage-hooks": "*",
@@ -94,13 +93,12 @@
     "@types/jest-axe": "~3.5.9",
     "autoprefixer": "~10.4.14",
     "babel-loader": "~9.1.2",
-    "bump": "workspace:~",
     "caniuse-lite": "~1.0.30001477",
     "cross-env": "^7.0.3",
     "css-loader": "~6.7.3",
     "cssnano": "~5.0.17",
     "es-check": "~7.1.1",
-    "eslint": "~8.38.0",
+    "eslint": "~8.45.0",
     "eslint-mdx": "~2.0.5",
     "eslint-plugin-mdx": "~2.0.5",
     "jest": "~29.7.0",
@@ -135,8 +133,8 @@
     "testing-utils": "workspace:~",
     "ts-jest": "~29.2.4",
     "ts-loader": "~9.4.2",
-    "typescript": "~5.5.4",
-    "webpack": "~5.78.0",
+    "typescript": "~5.6.3",
+    "webpack": "~5.94.0",
     "webpack-bundle-analyzer": "~4.8.0",
     "webpack-cli": "~5.0.1",
     "wrapper-webpack-plugin": "~2.2.2"

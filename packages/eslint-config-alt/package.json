@@ -28,8 +28,7 @@
   },
   "scripts": {
     "lint": "lint",
-    "lint-and-fix": "lint-and-fix",
-    "bump-next": "bump-next"
+    "lint-and-fix": "lint-and-fix"
   },
   "peerDependencies": {
     "@babel/eslint-parser": "^7.13.14",
@@ -38,14 +37,13 @@
   },
   "devDependencies": {
     "@babel/eslint-parser": "~7.21.3",
-    "bump": "workspace:~",
-    "eslint": "~8.38.0",
+    "eslint": "~8.45.0",
     "lint-all": "workspace:~",
     "prettier": "~2.8.7"
   },
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "~5.58.0",
-    "@typescript-eslint/parser": "~5.58.0",
+    "@typescript-eslint/eslint-plugin": "~8.8.1",
+    "@typescript-eslint/parser": "~8.8.1",
     "eslint-config-prettier": "~8.8.0",
     "eslint-import-resolver-typescript": "~3.5.5",
     "eslint-plugin-import": "~2.26.0",

@@ -21,8 +21,7 @@
   },
   "scripts": {
     "lint": "lint",
-    "lint-and-fix": "lint-and-fix",
-    "bump-next": "bump-next"
+    "lint-and-fix": "lint-and-fix"
   },
   "dependencies": {
     "@juggle/resize-observer": "^3.4.0",
@@ -35,8 +34,7 @@
   "devDependencies": {
     "@rocket.chat/eslint-config-alt": "workspace:~",
     "@rocket.chat/prettier-config": "workspace:~",
-    "bump": "workspace:~",
-    "eslint": "~8.38.0",
+    "eslint": "~8.45.0",
     "lint-all": "workspace:~",
     "prettier": "~2.8.7"
   }
