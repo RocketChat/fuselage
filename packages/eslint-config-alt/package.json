@@ -38,7 +38,7 @@
   "devDependencies": {
     "@babel/eslint-parser": "~7.21.3",
     "eslint": "~8.45.0",
-    "lint-all": "workspace:~",
+    "lint-all": "^0.31.25",
     "prettier": "~2.8.7"
   },
   "dependencies": {
