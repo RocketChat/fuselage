@@ -38,10 +38,13 @@
   },
   "volta": {
     "node": "22.9.0",
-    "yarn": "4.5.0"
+    "yarn": "4.5.1"
   },
-  "packageManager": "yarn@4.5.0",
+  "packageManager": "yarn@4.5.1",
   "eslintConfig": {
     "extends": "@rocket.chat/eslint-config-alt"
+  },
+  "resolutions": {
+    "jsdom": "25.0.1"
   }
 }

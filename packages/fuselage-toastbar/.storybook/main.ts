@@ -1,16 +1,18 @@
+import { dirname, join } from 'path';
+
 import type { StorybookConfig } from '@storybook/react-webpack5';
 
 const config: StorybookConfig = {
   addons: [
-    '@storybook/addon-essentials',
-    'storybook-dark-mode',
-    '@storybook/addon-webpack5-compiler-swc',
+    getAbsolutePath('@storybook/addon-essentials'),
+    getAbsolutePath('storybook-dark-mode'),
+    getAbsolutePath('@storybook/addon-webpack5-compiler-swc'),
   ],
 
   stories: ['../src/**/*.stories.tsx', '../src/**/stories.tsx'],
 
   framework: {
-    name: '@storybook/react-webpack5',
+    name: getAbsolutePath('@storybook/react-webpack5'),
     options: {},
   },
   swc: () => ({
@@ -31,3 +33,7 @@ const config: StorybookConfig = {
 };
 
 export default config;
+
+function getAbsolutePath(value: string): any {
+  return dirname(require.resolve(join(value, 'package.json')));
+}
