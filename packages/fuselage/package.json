@@ -104,6 +104,7 @@
     "eslint-plugin-mdx": "~2.0.5",
     "jest": "~29.7.0",
     "jest-axe": "~8.0.0",
+    "jest-environment-jsdom": "~29.7.0",
     "lint-all": "workspace:~",
     "mini-css-extract-plugin": "~2.7.6",
     "normalize.css": "^8.0.1",
