@@ -43,5 +43,8 @@
   "packageManager": "yarn@4.5.0",
   "eslintConfig": {
     "extends": "@rocket.chat/eslint-config-alt"
+  },
+  "resolutions": {
+    "jsdom": "25.0.1"
   }
 }
