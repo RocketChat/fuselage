@@ -6,6 +6,7 @@ export default {
     'storybook-dark-mode',
     '@storybook/addon-webpack5-compiler-swc',
   ],
+  logLevel: 'silent',
 
   stories: ['../src/**/*.stories.tsx', '../src/**/stories.tsx'],
 

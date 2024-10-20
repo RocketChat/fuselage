@@ -1,6 +1,9 @@
 import { useToggle, useUniqueId } from '@rocket.chat/fuselage-hooks';
 import type { KeyboardEventHandler, MouseEvent } from 'react';
 
+const hasPropExpanded = (expanded: boolean | undefined) =>
+  expanded !== undefined;
+
 export const useCollapse = ({
   expanded: propExpanded,
   defaultExpanded,
@@ -15,7 +18,7 @@ export const useCollapse = ({
   tabIndex?: number;
 }) => {
   const [stateExpanded, toggleStateExpanded] = useToggle(defaultExpanded);
-  const expanded = propExpanded || stateExpanded;
+  const expanded = hasPropExpanded(propExpanded) ? propExpanded : stateExpanded;
 
   const panelExpanded = noncollapsible || expanded;
 

@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 import { $, fs, glob } from 'zx';
 
+$.verbose = true;
+
 const manifest = await fs.readJSON('./package.json');
 
 if ((await glob('.eslintrc*')).length || 'eslintConfig' in manifest) {
