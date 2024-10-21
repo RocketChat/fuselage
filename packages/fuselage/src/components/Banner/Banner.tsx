@@ -96,7 +96,7 @@ const Banner = ({
         </div>
       )}
       <div className={cx('rcx-banner__content')({ inline })}>
-        {title && (
+        {title && typeof title === 'string' && (
           <h6 className={cx('rcx-banner__title')({ inline })}>{title}</h6>
         )}
         {children}
