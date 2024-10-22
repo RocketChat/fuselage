@@ -88,4 +88,4 @@ export default {
     },
   ],
   tags: ['autodocs'],
-} as Preview;
+} satisfies Preview;
