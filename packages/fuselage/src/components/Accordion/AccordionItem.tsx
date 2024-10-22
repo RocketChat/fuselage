@@ -1,11 +1,11 @@
 import { useToggle, useUniqueId } from '@rocket.chat/fuselage-hooks';
-import type { FormEvent, KeyboardEvent, MouseEvent, ReactNode } from 'react';
+import type { KeyboardEvent, MouseEvent, ReactNode } from 'react';
 
-import Box from '../Box';
+import { cx, cxx } from '../../helpers/composeClassNames';
+import { StylingBox } from '../Box';
 import { Chevron } from '../Chevron';
-import { ToggleSwitch } from '../ToggleSwitch';
 
-type AccordionItemProps = {
+export type AccordionItemProps = {
   children?: ReactNode;
   className?: string;
   defaultExpanded?: boolean;
@@ -14,33 +14,20 @@ type AccordionItemProps = {
   tabIndex?: number;
   title: ReactNode;
   noncollapsible?: boolean;
-  onToggle?: (e: MouseEvent | KeyboardEvent) => void;
-  onToggleEnabled?: (e: FormEvent) => void;
 };
 
-export const AccordionItem = function Item({
+const AccordionItem = ({
   children,
-  className,
   defaultExpanded,
-  disabled,
+  disabled = false,
   expanded: propExpanded,
   tabIndex = 0,
   title,
   noncollapsible = !title,
-  onToggle,
-  onToggleEnabled,
   ...props
-}: AccordionItemProps) {
+}: AccordionItemProps) => {
   const [stateExpanded, toggleStateExpanded] = useToggle(defaultExpanded);
   const expanded = propExpanded || stateExpanded;
-  const toggleExpanded = (event: MouseEvent | KeyboardEvent) => {
-    if (onToggle) {
-      onToggle.call(event.currentTarget, event);
-      return;
-    }
-
-    toggleStateExpanded();
-  };
 
   const panelExpanded = noncollapsible || expanded;
 
@@ -52,7 +39,7 @@ export const AccordionItem = function Item({
       return;
     }
     e.currentTarget?.blur();
-    toggleExpanded(e);
+    toggleStateExpanded();
   };
 
   const handleKeyDown = (event: KeyboardEvent) => {
@@ -60,19 +47,17 @@ export const AccordionItem = function Item({
       return;
     }
 
-    if ([13, 32].includes(event.keyCode)) {
-      event.preventDefault();
-
-      if (event.repeat) {
-        return;
-      }
-
-      toggleExpanded(event);
+    if (![' ', 'Enter'].includes(event.key)) {
+      return;
     }
-  };
 
-  const handleToggleClick = (event: MouseEvent) => {
-    event.stopPropagation();
+    event.preventDefault();
+
+    if (event.repeat) {
+      return;
+    }
+
+    toggleStateExpanded();
   };
 
   const collapsibleProps = {
@@ -92,42 +77,41 @@ export const AccordionItem = function Item({
   const barProps = noncollapsible ? nonCollapsibleProps : collapsibleProps;
 
   return (
-    <Box is='section' rcx-accordion-item className={className} {...props}>
-      {title && (
-        <Box
-          role='button'
-          animated
-          rcx-accordion-item__bar
-          rcx-accordion-item__bar--disabled={disabled}
-          {...barProps}
-        >
-          <Box is='h2' rcx-accordion-item__title id={titleId}>
-            {title}
-          </Box>
-          {!noncollapsible && (
-            <>
-              {(disabled || onToggleEnabled) && (
-                <Box rcx-accordion-item__toggle-switch>
-                  <ToggleSwitch
-                    checked={!disabled}
-                    onClick={handleToggleClick}
-                    onChange={onToggleEnabled}
-                  />
-                </Box>
+    <StylingBox {...props}>
+      <section className={cx(cxx('rcx-box')('full'), 'rcx-accordion-item')}>
+        {title && (
+          <div
+            role='button'
+            className={cx(
+              cxx('rcx-box')('full', 'animated'),
+              cxx('rcx-accordion-item__bar')({ disabled })
+            )}
+            {...barProps}
+          >
+            <h2
+              className={cx(
+                cxx('rcx-box')('full'),
+                'rcx-accordion-item__title'
               )}
-              <Chevron size='x24' up={expanded} />
-            </>
+              id={titleId}
+            >
+              {title}
+            </h2>
+            {!noncollapsible && <Chevron size='x24' up={expanded} />}
+          </div>
+        )}
+        <div
+          className={cx(
+            cxx('rcx-box')('full', 'animated'),
+            cxx('rcx-accordion-item__panel')({ expanded: panelExpanded })
           )}
-        </Box>
-      )}
-      <Box
-        animated
-        rcx-accordion-item__panel
-        rcx-accordion-item__panel--expanded={panelExpanded}
-        id={panelId}
-      >
-        {children}
-      </Box>
-    </Box>
+          id={panelId}
+        >
+          {children}
+        </div>
+      </section>
+    </StylingBox>
   );
 };
+
+export default AccordionItem;
