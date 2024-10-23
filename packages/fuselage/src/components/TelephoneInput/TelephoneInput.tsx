@@ -1,5 +1,5 @@
 import type { ComponentProps, ReactNode, Ref } from 'react';
-import { forwardRef } from 'react';
+import { forwardRef, useState } from 'react';
 
 import { InputBox } from '../InputBox';
 
@@ -16,5 +16,22 @@ export const TelephoneInput = forwardRef(function TelephoneInput(
   props: TelephoneInputProps,
   ref: Ref<HTMLInputElement>
 ) {
-  return <InputBox type='tel' ref={ref} {...props} />;
+  const [value, setValue] = useState('');
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const telephonicValue = event.target.value;
+    if (/^[0-9()+]*$/.test(telephonicValue)) {
+      setValue(telephonicValue);
+    }
+  };
+
+  return (
+    <InputBox
+      type='tel'
+      ref={ref}
+      value={value}
+      onChange={handleChange}
+      {...props}
+    />
+  );
 });
