@@ -1,5 +1,19 @@
 # Change Log
 
+## 0.60.0
+
+### Minor Changes
+
+- [#1470](https://github.com/RocketChat/fuselage/pull/1470) [`86fe018`](https://github.com/RocketChat/fuselage/commit/86fe018577b24adf3b7ff7c7631aed36b7caa466) Thanks [@tassoevan](https://github.com/tassoevan)! - Simplifies `Accordion` and `AccordionItem`
+
+  It removes an obsolete and not accessible toggle switch in `AccordionItem` and eases the internal usage of `Box` to
+  improve rendering performance.
+
+  Additionally, it adds a new `StylingBox` component that can be used as a wrapper for components that accept styling
+  props but don't need the weight of the `Box` component prop handling internally.
+
+  Also, it adds a new `cx` and `cxx` helpers to compose class names.
+
 ## 0.59.3
 
 ### Patch Changes
