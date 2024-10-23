@@ -37,13 +37,13 @@
       "fontOnDanger": { "value": "{colors.white}" },
       "fontOnDangerDisabled": { "value": "{colors.white}" },
 
-      "backgroundSuccessDefault": { "value": "{colors.g500}" },
-      "backgroundSuccessHover": { "value": "{colors.g600}" },
-      "backgroundSuccessPress": { "value": "{colors.g700}" },
-      "backgroundSuccessFocus": { "value": "{colors.g500}" },
-      "backgroundSuccessKeyfocus": { "value": "{colors.g500}" },
+      "backgroundSuccessDefault": { "value": "{colors.g800}" },
+      "backgroundSuccessHover": { "value": "{colors.g900}" },
+      "backgroundSuccessPress": { "value": "{colors.g1000}" },
+      "backgroundSuccessFocus": { "value": "{colors.g800}" },
+      "backgroundSuccessKeyfocus": { "value": "{colors.g800}" },
       "backgroundSuccessDisabled": { "value": "{colors.g200}" },
-      "fontOnSuccess": { "value": "{colors.n900}" },
+      "fontOnSuccess": { "value": "{colors.white}" },
       "fontOnSuccessDisabled": { "value": "{colors.white}" }
     },
     "high-contrast": {
