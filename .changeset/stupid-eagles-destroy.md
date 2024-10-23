@@ -2,4 +2,4 @@
 "@rocket.chat/fuselage-tokens": patch
 ---
 
-Fixes Button's success variant, which was using incorrect color tokens.
+fix(fuselage-tokens): incorrect color tokens on Button's success variant 
