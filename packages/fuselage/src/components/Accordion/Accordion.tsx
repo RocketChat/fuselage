@@ -1,21 +1,22 @@
-import type { ComponentProps, ReactElement, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
-import Box from '../Box';
-import { AccordionItem } from './AccordionItem';
+import { cx, cxx } from '../../helpers/composeClassNames';
+import { StylingBox } from '../Box';
+import { StylingProps } from '../Box/stylingProps';
 
-type AccordionProps = ComponentProps<typeof Box> & {
-  animated?: boolean;
+export type AccordionProps = {
   children: ReactNode;
-};
+} & Partial<StylingProps>;
 
 /**
  * An `Accordion` allows users to toggle the display of sections of content.
  */
-export function Accordion(props: AccordionProps): ReactElement<AccordionProps> {
-  return <Box animated rcx-accordion {...props} />;
-}
+const Accordion = ({ children, ...props }: AccordionProps) => (
+  <StylingBox {...props}>
+    <div className={cx(cxx('rcx-box')('full', 'animated'), 'rcx-accordion')}>
+      {children}
+    </div>
+  </StylingBox>
+);
 
-/**
- * @deprecated use named import instead
- */
-Accordion.Item = AccordionItem;
+export default Accordion;

@@ -6,7 +6,6 @@
   display: flex;
   flex-flow: column nowrap;
   border-block-end-color: colors.stroke(extra-light);
-
   border-block-end-width: lengths.border-width(default);
 }
 
@@ -62,14 +61,6 @@
   white-space: nowrap;
 
   @include typography.use-font-scale(h4);
-}
-
-.rcx-accordion-item__toggle-switch {
-  display: flex;
-  align-items: center;
-  flex: 0 0 auto;
-
-  margin: lengths.margin(none) lengths.margin(24);
 }
 
 .rcx-accordion-item__panel {
