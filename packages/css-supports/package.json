@@ -33,17 +33,17 @@
     "docs": "typedoc"
   },
   "devDependencies": {
-    "@rocket.chat/eslint-config-alt": "workspace:~",
-    "@rocket.chat/prettier-config": "workspace:~",
+    "@rocket.chat/eslint-config-alt": "^0.31.25",
+    "@rocket.chat/prettier-config": "^0.31.25",
     "eslint": "~8.45.0",
-    "lint-all": "workspace:~",
+    "lint-all": "^0.31.25",
     "prettier": "~2.8.7",
     "rimraf": "~3.0.2",
     "typedoc": "~0.25.13",
     "typescript": "~5.6.3"
   },
   "dependencies": {
-    "@rocket.chat/memo": "workspace:~"
+    "@rocket.chat/memo": "^0.31.25"
   },
   "eslintConfig": {
     "extends": "@rocket.chat/eslint-config-alt/typescript"

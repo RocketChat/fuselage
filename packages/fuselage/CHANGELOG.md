@@ -1,5 +1,12 @@
 # Change Log
 
+## 0.59.4
+
+### Patch Changes
+
+- Updated dependencies [[`6e49fde`](https://github.com/RocketChat/fuselage/commit/6e49fde1bcf3762a5d6e96f5c8da9bc4c434f0dd)]:
+  - @rocket.chat/fuselage-tokens@0.33.2
+
 ## 0.59.3
 
 ### Patch Changes

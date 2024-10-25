@@ -10,8 +10,8 @@
     "lint-and-fix": "eslint --fix ."
   },
   "devDependencies": {
-    "@rocket.chat/eslint-config-alt": "workspace:~",
-    "@rocket.chat/prettier-config": "workspace:~",
+    "@rocket.chat/eslint-config-alt": "^0.31.25",
+    "@rocket.chat/prettier-config": "^0.31.25",
     "@types/node": "~14.18.42",
     "@typescript-eslint/parser": "~8.8.1",
     "cross-env": "^7.0.3",
