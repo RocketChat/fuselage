@@ -7,7 +7,7 @@ type TopBarActionProps = ComponentProps<typeof SidebarAction>;
 
 export const TopBarAction = forwardRef(function TopBarAction(
   props: TopBarActionProps,
-  ref: Ref<HTMLElement>
+  ref: Ref<HTMLElement>,
 ) {
   return <SidebarAction ref={ref} {...props} />;
 });

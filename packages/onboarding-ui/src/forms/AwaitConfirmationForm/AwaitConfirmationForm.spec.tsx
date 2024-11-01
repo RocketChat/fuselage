@@ -13,7 +13,7 @@ it('renders without crashing', () => {
       onResendEmailRequest={() => true}
       onChangeEmailRequest={() => true}
     />,
-    div
+    div,
   );
   ReactDOM.unmountComponentAtNode(div);
 });

@@ -84,7 +84,7 @@ const AnimatedVisibility = (props: AnimatedVisibilityProps) => {
       `};
       `}
     `,
-    null
+    null,
   );
 
   const handleAnimationEnd = useCallback(
@@ -100,7 +100,7 @@ const AnimatedVisibility = (props: AnimatedVisibilityProps) => {
 
         return visibility;
       }),
-    []
+    [],
   );
 
   const transformFn = useCallback(
@@ -112,7 +112,7 @@ const AnimatedVisibility = (props: AnimatedVisibilityProps) => {
         className && appendClassName(props.className, className);
       return props;
     },
-    [className, handleAnimationEnd]
+    [className, handleAnimationEnd],
   );
 
   const composedFn = useComposedBoxTransform(transformFn);

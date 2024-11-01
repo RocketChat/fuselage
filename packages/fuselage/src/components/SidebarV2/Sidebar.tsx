@@ -16,5 +16,5 @@ export const Sidebar = forwardRef<HTMLElement, SidebarProps>(
         .join(' ')}
       {...props}
     />
-  )
+  ),
 );

@@ -4,7 +4,7 @@ import { useRef, useState, useEffect, useCallback } from 'react';
 
 function makeStorageHook(
   storageFactory: Storage | (() => Storage),
-  name: string
+  name: string,
 ): <T>(key: string, initialValue: T) => [T, Dispatch<SetStateAction<T>>] {
   let storage: Storage | undefined = undefined;
 
@@ -19,7 +19,7 @@ function makeStorageHook(
 
   return <T>(
     key: string,
-    initialValue: T
+    initialValue: T,
   ): [T, Dispatch<SetStateAction<T>>] => {
     const initialValueRef = useRef(initialValue);
     initialValueRef.current = initialValue;
@@ -43,7 +43,7 @@ function makeStorageHook(
           return valueToStore;
         });
       },
-      [key]
+      [key],
     );
 
     useEffect(() => {
@@ -53,7 +53,7 @@ function makeStorageHook(
         }
 
         setStoredValue(
-          event.newValue ? JSON.parse(event.newValue) : initialValueRef.current
+          event.newValue ? JSON.parse(event.newValue) : initialValueRef.current,
         );
       };
 
@@ -81,7 +81,7 @@ function makeStorageHook(
  */
 export const useLocalStorage = makeStorageHook(
   () => window.localStorage,
-  'localStorage'
+  'localStorage',
 );
 
 /**
@@ -93,5 +93,5 @@ export const useLocalStorage = makeStorageHook(
  */
 export const useSessionStorage = makeStorageHook(
   () => window.sessionStorage,
-  'sessionStorage'
+  'sessionStorage',
 );

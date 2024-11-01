@@ -13,7 +13,7 @@ type CreateCloudWorkspacePageProps = ComponentProps<
 >;
 
 const CreateCloudWorkspacePage = (
-  props: CreateCloudWorkspacePageProps
+  props: CreateCloudWorkspacePageProps,
 ): ReactElement => {
   const { t } = useTranslation();
 

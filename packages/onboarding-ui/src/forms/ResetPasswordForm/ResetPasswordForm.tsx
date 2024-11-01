@@ -61,7 +61,7 @@ const ResetPasswordForm = ({
                   required: true,
                 })}
                 placeholder={t(
-                  'form.resetPasswordForm.fields.email.placeholder'
+                  'form.resetPasswordForm.fields.email.placeholder',
                 )}
               />
             </FieldRow>

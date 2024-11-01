@@ -7,7 +7,7 @@ type SidebarActionsProps = ComponentProps<typeof ButtonGroup>;
 
 export const SidebarActions = forwardRef(function SidebarActions(
   props: SidebarActionsProps,
-  ref: Ref<HTMLDivElement>
+  ref: Ref<HTMLDivElement>,
 ) {
   return <ButtonGroup ref={ref} {...props} />;
 });

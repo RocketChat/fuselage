@@ -31,7 +31,7 @@ const MultiSelectFilteredAnchor = forwardRef(function MultiSelectFilteredAnchor(
     placeholder,
     ...props
   }: MultiSelectFilteredAnchorProps,
-  ref: Ref<Element>
+  ref: Ref<Element>,
 ) {
   return (
     <Flex.Item grow={1}>

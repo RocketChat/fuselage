@@ -26,11 +26,11 @@ export const SliderTrack = ({
 }: SliderTrackProps) => {
   const isHorizontal = useMemo(
     () => state.orientation === 'horizontal',
-    [state.orientation]
+    [state.orientation],
   );
   const isVertical = useMemo(
     () => state.orientation === 'vertical',
-    [state.orientation]
+    [state.orientation],
   );
 
   const getThumbPosition = useMemo(
@@ -39,31 +39,31 @@ export const SliderTrack = ({
       const minValue = state.getThumbMinValue(0);
       return (value / (maxValue - minValue)) * 100;
     },
-    [state]
+    [state],
   );
 
   const getTrackGradient = () => {
     if (isHorizontal) {
       return multiThumb
         ? `to right, ${light} ${getThumbPosition(
-            state.values[0]
+            state.values[0],
           )}%, ${highlight} 0, ${highlight} ${getThumbPosition(
-            state.values[1]
+            state.values[1],
           )}%, ${light} 0`
         : `to right, ${highlight}  ${getThumbPosition(
-            state.values[0]
+            state.values[0],
           )}%, ${light} 0%`;
     }
 
     if (isVertical) {
       return multiThumb
         ? `to top, ${light} ${getThumbPosition(
-            state.values[0]
+            state.values[0],
           )}%, ${highlight} 0, ${highlight} ${getThumbPosition(
-            state.values[1]
+            state.values[1],
           )}%, ${light} 0`
         : `to top, ${highlight}  ${getThumbPosition(
-            state.values[0]
+            state.values[0],
           )}%, ${light} 0%`;
     }
 
@@ -108,7 +108,7 @@ export const SliderTrack = ({
         opacity: 0.4;
       `};
     `,
-    state
+    state,
   );
 
   return (

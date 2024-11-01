@@ -85,7 +85,7 @@ export const TitleHighlight = styled(
   }: {
     fontColor?: string;
     isDark?: boolean;
-  }) => props
+  }) => props,
 )`
   color: ${(p) => (p.isDark ? '#76B7FC' : '#095AD2')};
   display: inline-block;

@@ -16,7 +16,7 @@ const ContextualbarEmptyContent = forwardRef<
   ContextualbarEmptyContentProps
 >(function ContextualbarEmptyContent(
   { icon = 'magnifier', title = 'Nothing Found', subtitle, ...props },
-  ref
+  ref,
 ) {
   return (
     <ContextualbarContent justifyContent='center' {...props} ref={ref}>

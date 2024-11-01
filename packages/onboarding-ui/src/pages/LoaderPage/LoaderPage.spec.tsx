@@ -15,7 +15,7 @@ it('renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(
     <LoaderPage title='Kapai' subtitles={subtitles} isReady={false} />,
-    div
+    div,
   );
   ReactDOM.unmountComponentAtNode(div);
 });

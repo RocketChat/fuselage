@@ -8,7 +8,7 @@ type RadioButtonProps = ComponentProps<typeof Box> &
 
 export const RadioButton = forwardRef(function RadioButton(
   { className, ...props }: RadioButtonProps,
-  ref: Ref<HTMLInputElement>
+  ref: Ref<HTMLInputElement>,
 ) {
   return (
     <Box is='label' className={className} rcx-radio-button>

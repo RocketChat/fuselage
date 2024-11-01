@@ -7,7 +7,7 @@ type AddonProps = ComponentProps<typeof Box>;
 
 const SelectAddon = forwardRef(function SelectAddon(
   props: AddonProps,
-  ref: Ref<HTMLDivElement>
+  ref: Ref<HTMLDivElement>,
 ) {
   return <Box is='div' rcx-select__addon ref={ref} {...props} />;
 });

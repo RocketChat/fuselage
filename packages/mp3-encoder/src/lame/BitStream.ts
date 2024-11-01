@@ -51,7 +51,7 @@ export class BitStream {
     assert(bit_rate >= 8 && bit_rate <= 640);
 
     const bytes = Math.trunc(
-      ((gfp.version + 1) * 72000 * bit_rate) / gfp.out_samplerate + gfc.padding
+      ((gfp.version + 1) * 72000 * bit_rate) / gfp.out_samplerate + gfc.padding,
     );
     return 8 * bytes;
   }
@@ -62,7 +62,7 @@ export class BitStream {
       0,
       this.buf,
       this.bufByteIdx,
-      gfc.sideinfo_len
+      gfc.sideinfo_len,
     );
     this.bufByteIdx += gfc.sideinfo_len;
     this.totbit += gfc.sideinfo_len * 8;
@@ -353,7 +353,7 @@ export class BitStream {
     tableindex: number,
     start: number,
     end: number,
-    gi: GrInfo
+    gi: GrInfo,
   ) {
     const h = tables.ht[tableindex];
     let bits = 0;
@@ -430,7 +430,7 @@ export class BitStream {
       gi.table_select[1],
       region1Start,
       gi.big_values,
-      gi
+      gi,
     );
     return bits;
   }
@@ -466,14 +466,14 @@ export class BitStream {
       gi.table_select[1],
       region1Start,
       region2Start,
-      gi
+      gi,
     );
     bits += this.huffmancode(
       gfc,
       gi.table_select[2],
       region2Start,
       bigvalues,
-      gi
+      gi,
     );
     return bits;
   }
@@ -572,7 +572,7 @@ export class BitStream {
 
   private compute_flushbits(
     gfp: LameGlobalFlags,
-    total_bytes_output: TotalBytes
+    total_bytes_output: TotalBytes,
   ) {
     const gfc = gfp.internal_flags;
     let flushbits;
@@ -622,7 +622,8 @@ export class BitStream {
     this.drain_into_ancillary(gfp, flushbits);
 
     assert(
-      gfc.header[last_ptr].write_timing + this.getframebits(gfp) === this.totbit
+      gfc.header[last_ptr].write_timing + this.getframebits(gfp) ===
+        this.totbit,
     );
 
     gfc.ResvSize = 0;
@@ -631,14 +632,14 @@ export class BitStream {
     if (gfc.findReplayGain) {
       const radioGain = this.ga.getTitleGain(gfc.rgdata);
       assert(
-        !isCloseToEachOther(radioGain, GainAnalysis.GAIN_NOT_ENOUGH_SAMPLES)
+        !isCloseToEachOther(radioGain, GainAnalysis.GAIN_NOT_ENOUGH_SAMPLES),
       );
       gfc.RadioGain = Math.floor(radioGain * 10.0 + 0.5);
     }
 
     if (gfc.findPeakSample) {
       gfc.noclipGainChange = Math.ceil(
-        Math.log10(gfc.PeakSample / 32767.0) * 20.0 * 10.0
+        Math.log10(gfc.PeakSample / 32767.0) * 20.0 * 10.0,
       );
 
       if (gfc.noclipGainChange > 0) {
@@ -688,12 +689,12 @@ export class BitStream {
             bits - l3_side.resvDrain_post - 8 * gfc.sideinfo_len
           } \n` +
           `total bits:               ${bits} (remainder: ${bits % 8}) \n` +
-          `bitsperframe:             ${bitsPerFrame}`
+          `bitsperframe:             ${bitsPerFrame}`,
       );
 
       console.warn('This is a fatal error.  It has several possible causes:');
       console.warn(
-        '90%%  LAME compiled with buggy version of gcc using advanced optimizations'
+        '90%%  LAME compiled with buggy version of gcc using advanced optimizations',
       );
       console.warn(' 9%%  Your system is overclocked');
       console.warn(' 1%%  bug in LAME encoding library');
@@ -716,7 +717,7 @@ export class BitStream {
     gfc: LameInternalFlags,
     buffer: Uint8Array,
     bufferPos: number,
-    size: number
+    size: number,
   ) {
     return this.copyBuffer(gfc, buffer, bufferPos, size, false);
   }
@@ -725,7 +726,7 @@ export class BitStream {
     gfc: LameInternalFlags,
     buffer: Uint8Array,
     bufferPos: number,
-    size: number
+    size: number,
   ) {
     return this.copyBuffer(gfc, buffer, bufferPos, size, true);
   }
@@ -735,7 +736,7 @@ export class BitStream {
     buffer: Uint8Array,
     bufferPos: number,
     size: number,
-    mp3data: boolean
+    mp3data: boolean,
   ) {
     const minimum = this.bufByteIdx + 1;
     if (minimum <= 0) {

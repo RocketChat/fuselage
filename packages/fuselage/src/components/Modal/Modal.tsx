@@ -8,7 +8,7 @@ type ModalProps = {
     props: Pick<
       ComponentProps<typeof Box>,
       'elevation' | 'className' | 'children'
-    >
+    >,
   ) => ReactNode;
   wrapper?: ElementType<
     Pick<ComponentProps<typeof Box>, 'elevation' | 'className' | 'children'>
@@ -18,7 +18,7 @@ type ModalProps = {
 export const Modal = forwardRef(
   (
     { children, wrapper = Box, wrapperFunction, ...props }: ModalProps,
-    ref: Ref<Element>
+    ref: Ref<Element>,
   ) => {
     const wrapperProps = {
       children,
@@ -33,5 +33,5 @@ export const Modal = forwardRef(
           : createElement(wrapper, wrapperProps)}
       </Box>
     );
-  }
+  },
 );

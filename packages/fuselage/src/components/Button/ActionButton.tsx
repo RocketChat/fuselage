@@ -31,5 +31,5 @@ export const ActionButton = forwardRef(
       {children}
       <Icon name={icon} size={getSize(props)} />
     </Button>
-  )
+  ),
 );

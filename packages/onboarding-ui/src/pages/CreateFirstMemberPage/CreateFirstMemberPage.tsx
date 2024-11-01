@@ -11,7 +11,7 @@ type CreateCloudWorkspacePageProps = ComponentProps<
 >;
 
 const CreateFirstMemberPage = (
-  props: CreateCloudWorkspacePageProps
+  props: CreateCloudWorkspacePageProps,
 ): ReactElement => {
   const pageLayoutStyleProps: FormPageLayoutStyleProps = {
     justifyContent: 'center',

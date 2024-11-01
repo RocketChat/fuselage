@@ -42,7 +42,7 @@ export class Reservoir {
     gfp: LameGlobalFlags,
     mean_bits: number,
     targ_bits: MeanBits,
-    cbr: number
+    cbr: number,
   ) {
     const gfc = gfp.internal_flags;
     let add_bits;

@@ -121,7 +121,7 @@ export class FFT {
     x_real: Float32Array[],
     chn: number,
     buffer: Float32Array[],
-    bufPos: number
+    bufPos: number,
   ) {
     for (let b = 0; b < 3; b++) {
       let x = BLKSIZE_s / 2;
@@ -174,7 +174,7 @@ export class FFT {
     y: Float32Array,
     chn: number,
     buffer: Float32Array[],
-    bufPos: number
+    bufPos: number,
   ) {
     let jj = BLKSIZE / 8 - 1;
     let x = BLKSIZE / 2;

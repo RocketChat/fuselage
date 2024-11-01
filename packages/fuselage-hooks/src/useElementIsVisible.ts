@@ -12,12 +12,12 @@ declare global {
 
 export const useElementIsVisible = <T extends Element>(): [
   ref: RefObject<T>,
-  isVisible: boolean
+  isVisible: boolean,
 ] => {
   const innerRef = useRef<T>();
 
   const [menuVisibility, setMenuVisibility] = useSafely(
-    useDebouncedState(false, 100)
+    useDebouncedState(false, 100),
   );
 
   const [observer] = useState(
@@ -26,14 +26,14 @@ export const useElementIsVisible = <T extends Element>(): [
         entries.forEach((entry) => {
           setMenuVisibility(entry.isIntersecting);
         });
-      })
+      }),
   );
 
   useEffect(
     () => () => {
       observer.disconnect();
     },
-    [observer]
+    [observer],
   );
 
   const ref = useCallback(
@@ -46,7 +46,7 @@ export const useElementIsVisible = <T extends Element>(): [
 
       observer.observe(innerRef.current);
     },
-    [observer, setMenuVisibility]
+    [observer, setMenuVisibility],
   ) as unknown as RefObject<T>;
 
   return [ref, menuVisibility];

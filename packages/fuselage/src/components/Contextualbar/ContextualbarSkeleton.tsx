@@ -7,7 +7,7 @@ import Contextualbar from './Contextualbar';
 import ContextualbarHeader from './ContextualbarHeader';
 
 const ContextualbarSkeleton = (
-  props: ComponentProps<typeof Box>
+  props: ComponentProps<typeof Box>,
 ): ReactElement => (
   <Contextualbar {...props}>
     <ContextualbarHeader>

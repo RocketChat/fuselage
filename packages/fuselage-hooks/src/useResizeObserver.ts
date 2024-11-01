@@ -44,7 +44,7 @@ export const useResizeObserver = <T extends Element>({
         blockSize: undefined,
       },
     },
-    debounceDelay
+    debounceDelay,
   );
 
   useEffect(() => {

@@ -13,7 +13,7 @@ it('is a debounced state updater', () => {
   const newState = Symbol('new');
 
   const { result } = renderHook(() =>
-    useDebouncedState<symbol>(initialState, delay)
+    useDebouncedState<symbol>(initialState, delay),
   );
 
   expect(result.current[0]).toBe(initialState);

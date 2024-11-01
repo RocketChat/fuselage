@@ -13,6 +13,4 @@ if ((await glob('.stylelintrc*')).length) {
   await $`stylelint --allow-empty-input --fix '**/*.{css,scss}'`;
 }
 
-if ((await glob('.prettierrc*')).length || 'prettier' in manifest) {
-  await $`prettier --write '**/*.{json,jsonc,md,yml,xml,svg}'`;
-}
+await $`prettier --plugin=@prettier/plugin-xml --write '**/*.{json,jsonc,md,yml,xml,svg}'`;

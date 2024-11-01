@@ -14,7 +14,7 @@ it('renders without crashing', () => {
       isPasswordLess={false}
       onCreateAccount={() => undefined}
     />,
-    div
+    div,
   );
   ReactDOM.unmountComponentAtNode(div);
 });

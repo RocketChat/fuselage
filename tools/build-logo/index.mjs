@@ -11,10 +11,10 @@ import RocketChatLogo from '../../packages/logo/dist/cjs/RocketChatLogo/index.js
 
 const renderAssets = async () => {
   const html = ReactDOMServer.renderToStaticMarkup(
-    React.createElement(RocketChatLogo.default)
+    React.createElement(RocketChatLogo.default),
   );
 
-  const prettySvg = prettier.format(html, { parser: 'html' });
+  const prettySvg = await prettier.format(html, { parser: 'html' });
   const outputSvg = './dist/logo.svg';
   const outputPng = './dist/logo.png';
 

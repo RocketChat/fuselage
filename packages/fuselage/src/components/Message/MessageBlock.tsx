@@ -10,7 +10,7 @@ type MessageBlockProps = {
 export const MessageBlock = forwardRef(
   (
     { className: _className, fixedWidth, ...props }: MessageBlockProps,
-    ref: Ref<HTMLDivElement>
+    ref: Ref<HTMLDivElement>,
   ) => (
     <Box
       rcx-message-block
@@ -18,5 +18,5 @@ export const MessageBlock = forwardRef(
       ref={ref}
       {...props}
     />
-  )
+  ),
 );

@@ -45,7 +45,7 @@ to: packages/<%=package%>/package.json
     "eslint": "~8.8.0",
     "jest": "~27.5.1",
     "lint-all": "workspace:~",
-    "prettier": "~2.5.1",
+    "prettier": "~3.3.3",
     "rimraf": "~3.0.2",
     "ts-jest": "~27.1.3",
     "typedoc": "~0.24.1",
@@ -57,7 +57,6 @@ to: packages/<%=package%>/package.json
       "jest": true
     }
   },
-  "prettier": "@rocket.chat/prettier-config/fuselage",
   "jest": {
     "preset": "ts-jest",
     "errorOnDeprecated": true,

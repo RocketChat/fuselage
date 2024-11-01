@@ -13,9 +13,7 @@ if ((await glob('.stylelintrc*')).length) {
   await $`stylelint --allow-empty-input '**/*.{css,scss}'`;
 }
 
-if ((await glob('.prettierrc*')).length || 'prettier' in manifest) {
-  await $`prettier --check '**/*.{json,jsonc,md,yml,xml,svg}'`;
-}
+await $`prettier --plugin=@prettier/plugin-xml --check '**/*.{json,jsonc,md,yml,xml,svg}'`;
 
 if ((await glob('tsconfig.json')).length) {
   await $`tsc --skipLibCheck --noEmit`;

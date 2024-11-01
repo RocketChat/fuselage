@@ -72,7 +72,7 @@ export const SelfHostedRegistration: StoryFn = ({ offline }) => {
     (data: OrganizationInfoPayload) => {
       setOrganizationInfo(data);
       navigateTo('/register-server');
-    }
+    },
   );
 
   const handleRegisterServerSubmit = logSubmit(
@@ -85,7 +85,7 @@ export const SelfHostedRegistration: StoryFn = ({ offline }) => {
         securityCode: 'Funny Tortoise In The Hat',
       }));
       navigateTo('/awaiting');
-    }
+    },
   );
 
   const handleRegisterOfflineSubmit = logSubmit(
@@ -96,7 +96,7 @@ export const SelfHostedRegistration: StoryFn = ({ offline }) => {
         token: data.token,
       }));
       navigateTo('/awaiting');
-    }
+    },
   );
 
   if (path === '/admin-info') {

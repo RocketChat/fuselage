@@ -36,7 +36,7 @@ it('returns a new dispatcher that mutates the state', () => {
   const newState = Symbol();
 
   const { result } = renderHook(() =>
-    useSafely(useState<symbol>(initialState))
+    useSafely(useState<symbol>(initialState)),
   );
   const [, newDispatcher] = result.current;
 

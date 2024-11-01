@@ -8,7 +8,7 @@ import { DropdownMobile } from './DropdownMobile';
 
 export const Dropdown = forwardRef(function Dropdown<
   T extends HTMLElement,
-  R extends HTMLElement
+  R extends HTMLElement,
 >(
   {
     children,
@@ -19,7 +19,7 @@ export const Dropdown = forwardRef(function Dropdown<
     placement?: UsePositionOptions['placement'];
     children: ReactNode;
   },
-  ref: Ref<R>
+  ref: Ref<R>,
 ) {
   const notSmall = useMediaQuery('(min-width: 500px)');
 

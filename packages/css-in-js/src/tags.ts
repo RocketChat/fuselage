@@ -44,7 +44,8 @@ type Evaluable = <T extends readonly unknown[]>(...args: T) => string;
 const isEvaluable = (x: unknown): x is Evaluable => typeof x === 'function';
 
 const staticEvaluable = memoize(
-  <T extends Evaluable>(content: string): T => Object.freeze(() => content) as T
+  <T extends Evaluable>(content: string): T =>
+    Object.freeze(() => content) as T,
 );
 
 export type cssFn = Evaluable;
@@ -69,12 +70,12 @@ const evaluateValue = (value: unknown, args: readonly unknown[]): string => {
 const reduceEvaluable = (
   [first, ...rest]: readonly string[],
   values: readonly unknown[],
-  args: readonly unknown[]
+  args: readonly unknown[],
 ): string =>
   values
     .reduce<string>(
       (string, value, i) => string + evaluateValue(value, args) + rest[i],
-      first
+      first,
     )
     .trim();
 

@@ -6,7 +6,7 @@ it('transpiles simple properties', () => {
 
 it('transpiles with vendor prefixing', () => {
   expect(transpile('div', 'display: flex;')).toMatch(
-    'div{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;}'
+    'div{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;}',
   );
 });
 
@@ -28,12 +28,12 @@ const isSupported = (vendorPrefixedProperty?: string) => (property: string) =>
         `${property}: inherit;`,
         createTranspileMiddleware({
           isPropertySupported: (p: string) => p === property,
-        })
-      )
+        }),
+      ),
     ).toMatch(
       vendorPrefixedProperty
         ? `div{${vendorPrefixedProperty}:inherit;${property}:inherit;}`
-        : `div{${property}:inherit;}`
+        : `div{${property}:inherit;}`,
     );
   });
 
@@ -47,10 +47,10 @@ const fallbacksTo =
           `${property}: inherit;`,
           createTranspileMiddleware({
             isPropertySupported: (p) => properties.includes(p),
-          })
-        )
+          }),
+        ),
       ).toMatch(
-        `div{${properties.map((property) => `${property}:inherit;`).join('')}}`
+        `div{${properties.map((property) => `${property}:inherit;`).join('')}}`,
       );
     });
 
@@ -74,8 +74,8 @@ const fallbacksWithDirectionTo =
           `${property}: inherit;`,
           createTranspileMiddleware({
             isPropertySupported: (p) => properties.includes(p),
-          })
-        )
+          }),
+        ),
       ).toMatch(expected);
     });
   };
@@ -91,10 +91,10 @@ const supportsLogicalValues = () => (property: string) =>
           createTranspileMiddleware({
             isPropertyValueSupported: (p, v) =>
               p === property && v === logicalValue,
-          })
-        )
+          }),
+        ),
       ).toMatch(`div{${property}:${logicalValue};}`);
-    }
+    },
   );
 
 const fallbacksLogicalValues = () => (property: string) =>
@@ -107,136 +107,136 @@ const fallbacksLogicalValues = () => (property: string) =>
     'fallbacks %s value to %s and %s',
     (logicalValue: string, ltrValue: string, rtlValue: string) => {
       expect(transpile('div', `${property}: ${logicalValue};`)).toMatch(
-        `[dir=rtl] div{${property}:${rtlValue};}div{${property}:${ltrValue};}`
+        `[dir=rtl] div{${property}:${rtlValue};}div{${property}:${ltrValue};}`,
       );
-    }
+    },
   );
 
 property(
   'border-start-start-radius',
   isSupported(),
-  fallbacksWithDirectionTo('border-top-left-radius', 'border-top-right-radius')
+  fallbacksWithDirectionTo('border-top-left-radius', 'border-top-right-radius'),
 );
 property(
   'border-start-end-radius',
   isSupported(),
-  fallbacksWithDirectionTo('border-top-right-radius', 'border-top-left-radius')
+  fallbacksWithDirectionTo('border-top-right-radius', 'border-top-left-radius'),
 );
 property(
   'border-end-start-radius',
   isSupported(),
   fallbacksWithDirectionTo(
     'border-bottom-left-radius',
-    'border-bottom-right-radius'
-  )
+    'border-bottom-right-radius',
+  ),
 );
 property(
   'border-end-end-radius',
   isSupported(),
   fallbacksWithDirectionTo(
     'border-bottom-right-radius',
-    'border-bottom-left-radius'
-  )
+    'border-bottom-left-radius',
+  ),
 );
 property(
   'inset-inline-start',
   isSupported(),
-  fallbacksWithDirectionTo('left', 'right')
+  fallbacksWithDirectionTo('left', 'right'),
 );
 property(
   'inset-inline-end',
   isSupported(),
-  fallbacksWithDirectionTo('right', 'left')
+  fallbacksWithDirectionTo('right', 'left'),
 );
 property(
   'border-inline-start',
   isSupported(),
-  fallbacksWithDirectionTo('border-left', 'border-right')
+  fallbacksWithDirectionTo('border-left', 'border-right'),
 );
 property(
   'border-inline-end',
   isSupported(),
-  fallbacksWithDirectionTo('border-right', 'border-left')
+  fallbacksWithDirectionTo('border-right', 'border-left'),
 );
 property(
   'border-inline-start-width',
   isSupported(),
-  fallbacksWithDirectionTo('border-left-width', 'border-right-width')
+  fallbacksWithDirectionTo('border-left-width', 'border-right-width'),
 );
 property(
   'border-inline-end-width',
   isSupported(),
-  fallbacksWithDirectionTo('border-right-width', 'border-left-width')
+  fallbacksWithDirectionTo('border-right-width', 'border-left-width'),
 );
 property(
   'border-inline-start-style',
   isSupported(),
-  fallbacksWithDirectionTo('border-left-style', 'border-right-style')
+  fallbacksWithDirectionTo('border-left-style', 'border-right-style'),
 );
 property(
   'border-inline-end-style',
   isSupported(),
-  fallbacksWithDirectionTo('border-right-style', 'border-left-style')
+  fallbacksWithDirectionTo('border-right-style', 'border-left-style'),
 );
 property(
   'border-inline-start-color',
   isSupported(),
-  fallbacksWithDirectionTo('border-left-color', 'border-right-color')
+  fallbacksWithDirectionTo('border-left-color', 'border-right-color'),
 );
 property(
   'border-inline-end-color',
   isSupported(),
-  fallbacksWithDirectionTo('border-right-color', 'border-left-color')
+  fallbacksWithDirectionTo('border-right-color', 'border-left-color'),
 );
 property(
   'margin-inline-start',
   isSupported('-webkit-margin-start'),
-  fallbacksWithDirectionTo('margin-left', 'margin-right')
+  fallbacksWithDirectionTo('margin-left', 'margin-right'),
 );
 property(
   'margin-inline-end',
   isSupported('-webkit-margin-end'),
-  fallbacksWithDirectionTo('margin-right', 'margin-left')
+  fallbacksWithDirectionTo('margin-right', 'margin-left'),
 );
 property(
   'padding-inline-start',
   isSupported('-webkit-padding-start'),
-  fallbacksWithDirectionTo('padding-left', 'padding-right')
+  fallbacksWithDirectionTo('padding-left', 'padding-right'),
 );
 property(
   'padding-inline-end',
   isSupported('-webkit-padding-end'),
-  fallbacksWithDirectionTo('padding-right', 'padding-left')
+  fallbacksWithDirectionTo('padding-right', 'padding-left'),
 );
 property(
   'border-inline',
   isSupported(),
   fallbacksTo('border-inline-start', 'border-inline-end'),
-  fallbacksTo('border-left', 'border-right')
+  fallbacksTo('border-left', 'border-right'),
 );
 property(
   'border-inline-width',
   isSupported(),
   fallbacksTo('border-inline-start-width', 'border-inline-end-width'),
-  fallbacksTo('border-left-width', 'border-right-width')
+  fallbacksTo('border-left-width', 'border-right-width'),
 );
 property(
   'border-inline-style',
   isSupported(),
   fallbacksTo('border-inline-start-style', 'border-inline-end-style'),
-  fallbacksTo('border-left-style', 'border-right-style')
+  fallbacksTo('border-left-style', 'border-right-style'),
 );
 property(
   'border-inline-color',
   isSupported(),
   fallbacksTo('border-inline-start-color', 'border-inline-end-color'),
-  fallbacksTo('border-left-color', 'border-right-color')
+  fallbacksTo('border-left-color', 'border-right-color'),
 );
 property(
   'inset-inline',
   isSupported(),
   fallbacksTo('inset-inline-start', 'inset-inline-end'),
-  fallbacksTo('left', 'right')
+  fallbacksTo('left', 'right'),
 );
 property(
   'margin-inline',
@@ -245,9 +245,9 @@ property(
     '-webkit-margin-start',
     'margin-inline-start',
     '-webkit-margin-end',
-    'margin-inline-end'
+    'margin-inline-end',
   ),
-  fallbacksTo('margin-left', 'margin-right')
+  fallbacksTo('margin-left', 'margin-right'),
 );
 property(
   'padding-inline',
@@ -256,41 +256,41 @@ property(
     '-webkit-padding-start',
     'padding-inline-start',
     '-webkit-padding-end',
-    'padding-inline-end'
+    'padding-inline-end',
   ),
-  fallbacksTo('padding-left', 'padding-right')
+  fallbacksTo('padding-left', 'padding-right'),
 );
 property('border-block-start', isSupported(), fallbacksTo('border-top'));
 property('border-block-end', isSupported(), fallbacksTo('border-bottom'));
 property(
   'border-block-start-width',
   isSupported(),
-  fallbacksTo('border-top-width')
+  fallbacksTo('border-top-width'),
 );
 property(
   'border-block-end-width',
   isSupported(),
-  fallbacksTo('border-bottom-width')
+  fallbacksTo('border-bottom-width'),
 );
 property(
   'border-block-start-style',
   isSupported(),
-  fallbacksTo('border-top-style')
+  fallbacksTo('border-top-style'),
 );
 property(
   'border-block-end-style',
   isSupported(),
-  fallbacksTo('border-bottom-style')
+  fallbacksTo('border-bottom-style'),
 );
 property(
   'border-block-start-color',
   isSupported(),
-  fallbacksTo('border-top-color')
+  fallbacksTo('border-top-color'),
 );
 property(
   'border-block-end-color',
   isSupported(),
-  fallbacksTo('border-bottom-color')
+  fallbacksTo('border-bottom-color'),
 );
 property('inset-block-start', isSupported(), fallbacksTo('top'));
 property('inset-block-end', isSupported(), fallbacksTo('bottom'));
@@ -302,43 +302,43 @@ property(
   'border-block',
   isSupported(),
   fallbacksTo('border-block-start', 'border-block-end'),
-  fallbacksTo('border-top', 'border-bottom')
+  fallbacksTo('border-top', 'border-bottom'),
 );
 property(
   'border-block-width',
   isSupported(),
   fallbacksTo('border-block-start-width', 'border-block-end-width'),
-  fallbacksTo('border-top-width', 'border-bottom-width')
+  fallbacksTo('border-top-width', 'border-bottom-width'),
 );
 property(
   'border-block-style',
   isSupported(),
   fallbacksTo('border-block-start-style', 'border-block-end-style'),
-  fallbacksTo('border-top-style', 'border-bottom-style')
+  fallbacksTo('border-top-style', 'border-bottom-style'),
 );
 property(
   'border-block-color',
   isSupported(),
   fallbacksTo('border-block-start-color', 'border-block-end-color'),
-  fallbacksTo('border-top-color', 'border-bottom-color')
+  fallbacksTo('border-top-color', 'border-bottom-color'),
 );
 property(
   'inset-block',
   isSupported(),
   fallbacksTo('inset-block-start', 'inset-block-end'),
-  fallbacksTo('top', 'bottom')
+  fallbacksTo('top', 'bottom'),
 );
 property(
   'margin-block',
   isSupported(),
   fallbacksTo('margin-block-start', 'margin-block-end'),
-  fallbacksTo('margin-top', 'margin-bottom')
+  fallbacksTo('margin-top', 'margin-bottom'),
 );
 property(
   'padding-block',
   isSupported(),
   fallbacksTo('padding-block-start', 'padding-block-end'),
-  fallbacksTo('padding-top', 'padding-bottom')
+  fallbacksTo('padding-top', 'padding-bottom'),
 );
 property(
   'inset',
@@ -348,9 +348,9 @@ property(
     'inset-inline-start',
     'inset-inline-end',
     'inset-block-start',
-    'inset-block-end'
+    'inset-block-end',
   ),
-  fallbacksWithDirectionTo('left', 'right', 'top', 'bottom')
+  fallbacksWithDirectionTo('left', 'right', 'top', 'bottom'),
 );
 property('inline-size', isSupported(), fallbacksTo('width'));
 property('min-inline-size', isSupported(), fallbacksTo('min-width'));

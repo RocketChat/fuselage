@@ -15,7 +15,7 @@ describe('[Bubble Rendering]', () => {
     async (_storyname, Story) => {
       const tree = render(<Story />);
       expect(tree.baseElement).toMatchSnapshot();
-    }
+    },
   );
 
   test.each(testCases)(
@@ -25,6 +25,6 @@ describe('[Bubble Rendering]', () => {
 
       const results = await axe(container);
       expect(results).toHaveNoViolations();
-    }
+    },
   );
 });

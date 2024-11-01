@@ -30,7 +30,7 @@ function forceDownload(url: string, fileName?: string) {
 
 const getDurationForInfinityDurationAudioFile = (
   src: string,
-  callback: (duration: number) => void
+  callback: (duration: number) => void,
 ) => {
   const audioElement = new Audio();
   audioElement.src = src;
@@ -87,7 +87,7 @@ export const AudioPlayer = forwardRef<
       changePlaybackSpeedLabel = 'Change Playback Speed',
       downloadAudioFileLabel = 'Download Audio File',
     },
-    ref
+    ref,
   ) => {
     const audioRef = useRef<HTMLAudioElement>(null);
     const refs = useMergedRefs(ref, audioRef);
@@ -225,5 +225,5 @@ export const AudioPlayer = forwardRef<
         </audio>
       </Box>
     );
-  }
+  },
 );

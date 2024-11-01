@@ -44,9 +44,9 @@ export const SidebarLink = ({
         (childProps: { className: string | string[] }) => ({
           className: appendClassName(
             childProps.className,
-            'rcx-box rcx-box--full rcx-sidebar-v2-item__menu rcx-box--animated'
+            'rcx-box rcx-box--full rcx-sidebar-v2-item__menu rcx-box--animated',
           ),
-        })
+        }),
       )}
   </a>
 );

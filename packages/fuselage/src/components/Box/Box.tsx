@@ -36,7 +36,7 @@ type BoxProps = {
 
 export const Box = forwardRef(function Box(
   { is = 'div', children, ...props }: BoxProps,
-  ref: Ref<any>
+  ref: Ref<any>,
 ) {
   const propsWithRef: BoxProps & RefAttributes<any> = props;
 

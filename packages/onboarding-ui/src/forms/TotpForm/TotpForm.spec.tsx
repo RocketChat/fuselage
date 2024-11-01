@@ -10,7 +10,7 @@ it('renders without crashing', () => {
       isBackupCode={false}
       onSubmit={() => undefined}
     />,
-    div
+    div,
   );
   ReactDOM.unmountComponentAtNode(div);
 });

@@ -7,14 +7,14 @@ describe('[PaletteStyleTag colors]', () => {
     render(<PaletteStyleTag theme='light' />);
     const style = document.querySelector('#main-palette');
     expect(style?.innerHTML).toContain(
-      `surface-light: ${light['surface-light']}`
+      `surface-light: ${light['surface-light']}`,
     );
   });
   it('creates the Dark theme style tag', () => {
     render(<PaletteStyleTag theme='dark' />);
     const style = document.querySelector('#main-palette');
     expect(style?.innerHTML).toContain(
-      `surface-light: ${dark['surface-light']}`
+      `surface-light: ${dark['surface-light']}`,
     );
   });
   it('creates tag with the given id', () => {
@@ -26,7 +26,7 @@ describe('[PaletteStyleTag colors]', () => {
     render(<PaletteStyleTag theme='light' prefix='--test' />);
     const style = document.querySelector('#main-palette');
     expect(style?.innerHTML).toContain(
-      `--test-surface-light: ${light['surface-light']}`
+      `--test-surface-light: ${light['surface-light']}`,
     );
   });
   it('creates tag with the given selector', () => {

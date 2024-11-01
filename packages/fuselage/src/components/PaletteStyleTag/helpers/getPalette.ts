@@ -364,10 +364,10 @@ export const getThemePalette = (theme: Themes) => {
             ...rec,
             [item.name]: item.color,
           }),
-          {} as Record<string, string>
+          {} as Record<string, string>,
         ),
       }),
-      {} as Record<string, string>
+      {} as Record<string, string>,
     ),
   };
 };

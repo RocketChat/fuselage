@@ -64,7 +64,7 @@ function FlexContainer({
 
       return props;
     },
-    [alignContent, alignItems, direction, inline, justifyContent, wrap]
+    [alignContent, alignItems, direction, inline, justifyContent, wrap],
   );
 
   return (

@@ -17,7 +17,7 @@ const htmlEntityCodeToCharacter = {
 const toString = (object: unknown): string => (object ? `${object}` : '');
 
 const isHtmlEntityCode = (
-  htmlEntityCode: string
+  htmlEntityCode: string,
 ): htmlEntityCode is keyof typeof htmlEntityCodeToCharacter =>
   htmlEntityCode in htmlEntityCodeToCharacter;
 

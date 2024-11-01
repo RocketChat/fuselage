@@ -34,7 +34,7 @@ export const createLogicalPropertiesMiddleware = ({
       RULESET,
       ruleSet.props.map((selector) => `html:not([dir=rtl]) ${selector}`),
       [],
-      0
+      0,
     ) as RuleSet;
 
     const rtlRuleSet = node(
@@ -44,7 +44,7 @@ export const createLogicalPropertiesMiddleware = ({
       RULESET,
       ruleSet.props.map((selector) => `[dir=rtl] ${selector}`),
       [],
-      0
+      0,
     ) as RuleSet;
 
     const rules = ruleSet.children;

@@ -30,7 +30,7 @@ const SelectFilteredAnchor = forwardRef(function SelectFilteredAnchor(
     placeholder,
     ...props
   }: SelectFilteredAnchorProps,
-  ref: Ref<Element>
+  ref: Ref<Element>,
 ) {
   return (
     <InputBox.Input

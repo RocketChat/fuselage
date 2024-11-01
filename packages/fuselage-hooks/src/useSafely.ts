@@ -16,17 +16,17 @@ export function useSafely<S, D extends DispatchWithoutAction | Dispatch<any>>([
 
 export function useSafely([state, dispatcher]: [
   state: unknown,
-  dispatch: (action?: unknown) => void
+  dispatch: (action?: unknown) => void,
 ]) {
   const dispatcherRef = useRef<((action?: unknown) => void) | undefined>(
-    dispatcher
+    dispatcher,
   );
 
   useEffect(
     () => () => {
       dispatcherRef.current = undefined;
     },
-    []
+    [],
   );
 
   const safeDispatcher = useCallback((action) => {

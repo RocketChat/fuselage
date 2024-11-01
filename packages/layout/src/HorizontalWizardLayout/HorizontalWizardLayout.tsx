@@ -38,15 +38,15 @@ export const HorizontalWizardLayoutAside = ({
 );
 
 export const HorizontalWizardLayoutTitle = (
-  props: ComponentProps<typeof FormPageLayout.Title>
+  props: ComponentProps<typeof FormPageLayout.Title>,
 ): ReactElement => <FormPageLayout.Title {...props} />;
 
 export const HorizontalWizardLayoutSubtitle = (
-  props: ComponentProps<typeof FormPageLayout.Subtitle>
+  props: ComponentProps<typeof FormPageLayout.Subtitle>,
 ): ReactElement => <FormPageLayout.Subtitle {...props} />;
 
 export const HorizontalWizardLayoutDescription = (
-  props: ComponentProps<typeof FormPageLayout.Description>
+  props: ComponentProps<typeof FormPageLayout.Description>,
 ): ReactElement => <FormPageLayout.Description {...props} />;
 
 export const HorizontalWizardTextHighlight = (props: {
