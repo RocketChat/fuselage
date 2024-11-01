@@ -58,8 +58,7 @@
   }
 
   @include on-breakpoint(md) {
-    margin-inline-start: lengths.margin(none);
-    margin-inline-end: auto;
+    margin-inline: lengths.margin(none) auto;
   }
 }
 

@@ -14,7 +14,7 @@ export default {
 } satisfies Meta<typeof Icon>;
 
 const iconsList = Object.keys(nameToCharacterMapping).sort((a, b) =>
-  a.localeCompare(b)
+  a.localeCompare(b),
 ) as Keys[];
 
 export const Default: StoryFn<typeof Icon> = () => (
@@ -29,7 +29,7 @@ export const AvailableIcons: StoryFn<typeof Icon> = () => {
   const [filter, setFilter] = useState('');
 
   const filteredIcons = iconsList.filter((name) =>
-    name.toLowerCase().includes(filter.toLowerCase())
+    name.toLowerCase().includes(filter.toLowerCase()),
   );
   return (
     <>

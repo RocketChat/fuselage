@@ -36,9 +36,9 @@ export const CardGroup = ({
       (childProps: { className: string | string[] }) => ({
         className: appendClassName(
           childProps.className,
-          'rcx-card-group__item'
+          'rcx-card-group__item',
         ),
-      })
+      }),
     )}
   </Box>
 );

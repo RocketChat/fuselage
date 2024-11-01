@@ -30,7 +30,7 @@ const getStyleSheet = (): CSSStyleSheet => {
     const _styleSheet =
       styleTag.sheet ||
       Array.from(document.styleSheets).find(
-        ({ ownerNode }) => ownerNode === styleTag
+        ({ ownerNode }) => ownerNode === styleTag,
       );
 
     if (!_styleSheet) {
@@ -60,14 +60,14 @@ const attachRulesIntoStyleSheet: RuleAttacher = (rules) => {
   const styleSheet = getStyleSheet();
   const index = styleSheet.insertRule(
     `@media all{${rules}}`,
-    styleSheet.cssRules.length
+    styleSheet.cssRules.length,
   );
   const insertedRule = styleSheet.cssRules[index];
 
   return () => {
     const index = Array.prototype.findIndex.call(
       styleSheet.cssRules,
-      (cssRule: CSSRule): boolean => cssRule === insertedRule
+      (cssRule: CSSRule): boolean => cssRule === insertedRule,
     );
     styleSheet.deleteRule(index);
   };

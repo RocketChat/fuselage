@@ -13,7 +13,7 @@ export type TextInputProps = Omit<ComponentProps<typeof InputBox>, 'type'> & {
  */
 export const TextInput = forwardRef(function TextInput(
   props: TextInputProps,
-  ref: Ref<HTMLInputElement>
+  ref: Ref<HTMLInputElement>,
 ) {
   return <InputBox type='text' ref={ref} {...props} />;
 });

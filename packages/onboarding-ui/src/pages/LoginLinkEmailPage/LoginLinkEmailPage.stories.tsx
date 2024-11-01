@@ -12,6 +12,6 @@ export default {
 } satisfies Meta<typeof LoginLinkEmailPage>;
 
 export const _LoginLinkEmailPage: StoryFn<typeof LoginLinkEmailPage> = (
-  args
+  args,
 ) => <LoginLinkEmailPage {...args} />;
 _LoginLinkEmailPage.storyName = 'LoginLinkEmailPage';

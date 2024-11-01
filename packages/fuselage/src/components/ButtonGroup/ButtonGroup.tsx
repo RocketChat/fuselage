@@ -28,7 +28,7 @@ export const ButtonGroup = forwardRef(function ButtonGroup(
     className,
     ...props
   }: ButtonGroupProps,
-  ref: Ref<HTMLDivElement>
+  ref: Ref<HTMLDivElement>,
 ) {
   return (
     <div
@@ -53,9 +53,9 @@ export const ButtonGroup = forwardRef(function ButtonGroup(
         (childProps: { className: string | string[] }) => ({
           className: appendClassName(
             childProps.className,
-            'rcx-button-group__item'
+            'rcx-button-group__item',
           ),
-        })
+        }),
       )}
     </div>
   );

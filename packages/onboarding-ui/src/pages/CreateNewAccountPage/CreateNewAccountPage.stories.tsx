@@ -17,5 +17,5 @@ export default {
 } satisfies Meta<typeof CreateNewAccountPage>;
 
 export const _CreateNewAccountPage: StoryFn<typeof CreateNewAccountPage> = (
-  args
+  args,
 ) => <CreateNewAccountPage {...args} />;

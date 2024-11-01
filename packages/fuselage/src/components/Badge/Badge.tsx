@@ -32,7 +32,7 @@ export function Badge({
     <Tag
       className={prependClassName(
         className,
-        `rcx-box rcx-box--full rcx-badge ${modifiers}`
+        `rcx-box rcx-box--full rcx-badge ${modifiers}`,
       )}
       {...props}
     />

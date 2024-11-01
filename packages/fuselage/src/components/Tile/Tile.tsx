@@ -7,7 +7,7 @@ type TileProps = ComponentProps<typeof Box>;
 
 const Tile = forwardRef(function Tile(
   { elevation = '1', padding = 16, ...props }: TileProps,
-  ref: Ref<HTMLElement>
+  ref: Ref<HTMLElement>,
 ) {
   return (
     <Box

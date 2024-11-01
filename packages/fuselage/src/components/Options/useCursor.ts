@@ -18,7 +18,7 @@ const keyCodes = {
 
 const findLastIndex = <T>(
   options: T[],
-  predicate: (value: T, index: number, obj: T[]) => unknown
+  predicate: (value: T, index: number, obj: T[]) => unknown,
 ) => {
   for (let i = options.length - 1; i >= 0; i--) {
     if (predicate(options[i], i, options)) {
@@ -32,7 +32,7 @@ const findLastIndex = <T>(
 const findPreviousIndex = <T>(
   options: T[],
   predicate: (value: T, index: number, obj: T[]) => unknown,
-  currentIndex: number
+  currentIndex: number,
 ) => {
   for (let i = currentIndex - 1; i >= 0; i--) {
     if (predicate(options[i], i, options)) {
@@ -46,7 +46,7 @@ const findPreviousIndex = <T>(
 const findNextIndex = <T>(
   options: T[],
   predicate: (value: T, index: number, obj: T[]) => unknown,
-  currentIndex: number
+  currentIndex: number,
 ) => {
   for (let i = currentIndex + 1; i < options.length; i++) {
     if (predicate(options[i], i, options)) {
@@ -59,7 +59,7 @@ const findNextIndex = <T>(
 
 export type UseCursorOnChange<T> = (
   option: T,
-  visibilityHandler: ReturnType<typeof useVisible>
+  visibilityHandler: ReturnType<typeof useVisible>,
 ) => void;
 
 export const useCursor = <
@@ -69,18 +69,18 @@ export const useCursor = <
     selected?: unknown,
     disabled?: unknown,
     type?: OptionType[4],
-    url?: string
-  ] = OptionType
+    url?: string,
+  ] = OptionType,
 >(
   initial: number,
   options: Array<T>,
-  onChange: UseCursorOnChange<T>
+  onChange: UseCursorOnChange<T>,
 ): [
   cursor: number,
   handleKeyDown: (e: KeyboardEvent) => void,
   handleKeyUp: (e: KeyboardEvent) => void,
   reset: () => void,
-  visibilityHandler: ReturnType<typeof useVisible>
+  visibilityHandler: ReturnType<typeof useVisible>,
 ] => {
   const [cursor, setCursor] = useState(initial);
   const visibilityHandler = useVisible();
@@ -120,7 +120,7 @@ export const useCursor = <
           return setCursor(getLastIndex());
         }
         return setCursor((cursor) =>
-          findPreviousIndex(options, isSelectableOption, cursor)
+          findPreviousIndex(options, isSelectableOption, cursor),
         );
 
       case keyCodes.KEY_DOWN:
@@ -129,7 +129,7 @@ export const useCursor = <
           return setCursor(0);
         }
         return setCursor((cursor) =>
-          findNextIndex(options, isSelectableOption, cursor)
+          findNextIndex(options, isSelectableOption, cursor),
         );
 
       case keyCodes.ENTER:

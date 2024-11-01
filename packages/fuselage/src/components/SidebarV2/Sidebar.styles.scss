@@ -193,8 +193,7 @@ $sidebar-banner-color-danger: theme(
         flex-grow: 1;
 
         height: 100%;
-        padding-block-start: lengths.padding(4);
-        padding-block-end: lengths.padding(8);
+        padding-block: lengths.padding(4) lengths.padding(8);
       }
     }
   }

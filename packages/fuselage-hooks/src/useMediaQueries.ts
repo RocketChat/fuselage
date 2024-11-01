@@ -14,14 +14,14 @@ const createStore = (queries: string[]) => {
 
   const mediaQueryLists = queries.map((query) => window.matchMedia(query));
   let snapshot = mediaQueryLists.map(
-    (mediaQueryList) => mediaQueryList.matches
+    (mediaQueryList) => mediaQueryList.matches,
   );
 
   return [
     (onStoreChange: () => void) => {
       const callback = () => {
         snapshot = mediaQueryLists.map(
-          (mediaQueryList) => mediaQueryList.matches
+          (mediaQueryList) => mediaQueryList.matches,
         );
         onStoreChange();
       };
@@ -61,7 +61,7 @@ export const useMediaQueries = (...queries: string[]): boolean[] => {
   const stableQueries = useStableArray(queries);
   const [subscribe, getSnapshot] = useMemo(
     () => createStore(stableQueries),
-    [stableQueries]
+    [stableQueries],
   );
 
   return useSyncExternalStore(subscribe, getSnapshot);

@@ -20,7 +20,7 @@ export const MessageBody = ({
           clamp && `rcx-message-body--clamp rcx-message-body--clamp-${clamp}`,
         ]
           .filter(Boolean)
-          .join(' ')
+          .join(' '),
       ) as string
     }
     {...props}

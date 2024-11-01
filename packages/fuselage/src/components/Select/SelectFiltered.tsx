@@ -20,7 +20,7 @@ export const SelectFiltered = forwardRef(function SelectFiltered(
     setFilter: propSetFilter,
     ...props
   }: SelectFilteredProps,
-  ref: Ref<HTMLInputElement>
+  ref: Ref<HTMLInputElement>,
 ) {
   const [filter, setFilter] = useState('');
 

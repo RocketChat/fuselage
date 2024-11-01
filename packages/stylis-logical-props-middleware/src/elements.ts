@@ -22,7 +22,7 @@ export const isDeclaration = (element: Element): element is Declaration =>
 export const attachDeclaration = (
   property: string,
   value: string,
-  ruleSet: RuleSet
+  ruleSet: RuleSet,
 ): void => {
   const declaration = node(
     `${property}:${value};`,
@@ -31,7 +31,7 @@ export const attachDeclaration = (
     DECLARATION,
     property as unknown as string[],
     value as unknown as Element[],
-    property.length
+    property.length,
   );
 
   ruleSet.children.push(declaration);

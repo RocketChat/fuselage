@@ -74,7 +74,7 @@ it('debounces the observed element size', async () => {
   const delay = 2 * halfDelay;
 
   const { result } = renderHook(() =>
-    useBorderBoxSize(wrapRef(useRef(null)), { debounceDelay: delay })
+    useBorderBoxSize(wrapRef(useRef(null)), { debounceDelay: delay }),
   );
 
   // triggers MutationObserver

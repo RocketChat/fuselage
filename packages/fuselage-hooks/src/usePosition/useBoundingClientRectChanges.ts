@@ -15,7 +15,7 @@ function getAncestors(element: Element): Element[] {
 
 export function useBoundingClientRectChanges(
   ref: RefObject<Element>,
-  callback: () => void
+  callback: () => void,
 ): void {
   useEffect(() => {
     const element = ref.current;
@@ -41,14 +41,14 @@ export function useBoundingClientRectChanges(
 
     const ancestors = getAncestors(element);
     ancestors.forEach((ancestor) =>
-      ancestor.addEventListener('scroll', safeCallback, { passive: true })
+      ancestor.addEventListener('scroll', safeCallback, { passive: true }),
     );
 
     return () => {
       observer.disconnect();
       window.removeEventListener('resize', safeCallback);
       ancestors.forEach((ancestor) =>
-        ancestor.removeEventListener('scroll', safeCallback)
+        ancestor.removeEventListener('scroll', safeCallback),
       );
     };
   }, [callback, ref]);

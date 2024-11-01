@@ -25,7 +25,7 @@ const positionProps = {
 export const ToastBarContainer = styled(
   'div',
   ({ position: _position, ...props }: Pick<ToastBarPayload, 'position'>) =>
-    props
+    props,
 )`
   position: fixed;
   gap: 1rem;

@@ -14,7 +14,7 @@ it('returns a debounced state dispatcher', () => {
   const newState = Symbol('new');
 
   const { result } = renderHook(() =>
-    useDebouncedUpdates(useState<symbol>(initialState), delay)
+    useDebouncedUpdates(useState<symbol>(initialState), delay),
   );
 
   const [, dispatch] = result.current;

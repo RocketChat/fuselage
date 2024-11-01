@@ -7,7 +7,7 @@ type UrlInputProps = Omit<ComponentProps<typeof InputBox>, 'type'>;
 
 const UrlInput = forwardRef(function UrlInput(
   props: UrlInputProps,
-  ref: Ref<HTMLElement>
+  ref: Ref<HTMLElement>,
 ) {
   return <InputBox type='url' ref={ref} {...props} />;
 });

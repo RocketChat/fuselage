@@ -27,7 +27,7 @@ export function MessageHighlight({
     <Tag
       className={prependClassName(
         className,
-        `rcx-box rcx-box--full rcx-message__highlight ${modifiers}`
+        `rcx-box rcx-box--full rcx-message__highlight ${modifiers}`,
       )}
       {...props}
     />

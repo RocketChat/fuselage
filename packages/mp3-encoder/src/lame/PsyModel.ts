@@ -78,7 +78,7 @@ export class PsyModel {
     gr_out: number,
     chn: number,
     buffer: Float32Array[],
-    bufPos: number
+    bufPos: number,
   ) {
     const gfc = gfp.internal_flags;
     if (chn < 2) {
@@ -218,7 +218,7 @@ export class PsyModel {
     kk: number,
     b: number,
     gfc: LameInternalFlags,
-    shortblock: number
+    shortblock: number,
   ) {
     let ratio;
 
@@ -366,13 +366,13 @@ export class PsyModel {
         let mld = gfc.mld_s[sb] * gfc.en[3].s[sb][sblock];
         const rmid = Math.max(
           gfc.thm[2].s[sb][sblock],
-          Math.min(gfc.thm[3].s[sb][sblock], mld)
+          Math.min(gfc.thm[3].s[sb][sblock], mld),
         );
 
         mld = gfc.mld_s[sb] * gfc.en[2].s[sb][sblock];
         const rside = Math.max(
           gfc.thm[3].s[sb][sblock],
-          Math.min(gfc.thm[2].s[sb][sblock], mld)
+          Math.min(gfc.thm[2].s[sb][sblock], mld),
         );
 
         gfc.thm[2].s[sb][sblock] = rmid;
@@ -393,7 +393,7 @@ export class PsyModel {
       const ath = gfc.ATH.cb_l[gfc.bm_l[sb]] * athlower;
       const thmLR = Math.min(
         Math.max(gfc.thm[0].l[sb], ath),
-        Math.max(gfc.thm[1].l[sb], ath)
+        Math.max(gfc.thm[1].l[sb], ath),
       );
       thmM = Math.max(gfc.thm[2].l[sb], ath);
       thmS = Math.max(gfc.thm[3].l[sb], ath);
@@ -415,7 +415,7 @@ export class PsyModel {
         const ath = gfc.ATH.cb_s[gfc.bm_s[sb]] * athlower;
         const thmLR = Math.min(
           Math.max(gfc.thm[0].s[sb][sblock], ath),
-          Math.max(gfc.thm[1].s[sb][sblock], ath)
+          Math.max(gfc.thm[1].s[sb][sblock], ath),
         );
         thmM = Math.max(gfc.thm[2].s[sb][sblock], ath);
         thmS = Math.max(gfc.thm[3].s[sb][sblock], ath);
@@ -437,7 +437,7 @@ export class PsyModel {
     eb: Float32Array,
     thr: Float32Array,
     chn: number,
-    sblock: number
+    sblock: number,
   ) {
     let sb = 0;
     let b = 0;
@@ -486,7 +486,7 @@ export class PsyModel {
     gfc: LameInternalFlags,
     eb: Float32Array,
     thr: Float32Array,
-    chn: number
+    chn: number,
   ) {
     let sb = 0;
     let b = 0;
@@ -536,7 +536,7 @@ export class PsyModel {
     eb: Float32Array,
     thr: Float32Array,
     chn: number,
-    sblock: number
+    sblock: number,
   ) {
     const gfc = gfp.internal_flags;
     let j = 0;
@@ -591,7 +591,7 @@ export class PsyModel {
     gfp: LameGlobalFlags,
     uselongblock: Int32Array,
     blocktype_d: Int32Array,
-    blocktype: Int32Array
+    blocktype: Int32Array,
   ) {
     const gfc = gfp.internal_flags;
 
@@ -700,7 +700,7 @@ export class PsyModel {
     fftenergy: Float32Array,
     eb: Float32Array,
     max: Float32Array,
-    avg: Float32Array
+    avg: Float32Array,
   ) {
     let b = 0;
     let j = 0;
@@ -730,7 +730,7 @@ export class PsyModel {
     gfc: LameInternalFlags,
     max: Float32Array,
     avg: Float32Array,
-    mask_idx: Int32Array
+    mask_idx: Int32Array,
   ) {
     const last_tab_entry = this.tab.length - 1;
     let b = 0;
@@ -762,7 +762,7 @@ export class PsyModel {
             gfc.numlines_l[b] +
             gfc.numlines_l[b + 1] -
             1 >
-            0
+            0,
         );
         a =
           (20.0 * (m * 3.0 - a)) /
@@ -823,13 +823,13 @@ export class PsyModel {
     percep_entropy: number[],
     percep_MS_entropy: number[],
     energy: Float32Array,
-    blocktype_d: Int32Array
+    blocktype_d: Int32Array,
   ) {
     const gfc = gfp.internal_flags;
 
     const wsamp_L = Array.from({ length: 2 }, () => new Float32Array(BLKSIZE));
     const wsamp_S = Array.from({ length: 2 }, () =>
-      Array.from({ length: 3 }, () => new Float32Array(BLKSIZE_s))
+      Array.from({ length: 3 }, () => new Float32Array(BLKSIZE_s)),
     );
 
     const eb_l = new Float32Array(CBANDS + 1);
@@ -911,7 +911,7 @@ export class PsyModel {
       const fftenergy = new Float32Array(HBLKSIZE);
       const fftenergy_s = Array.from(
         { length: 3 },
-        () => new Float32Array(HBLKSIZE_s)
+        () => new Float32Array(HBLKSIZE_s),
       );
 
       assert(gfc.npart_s <= CBANDS);
@@ -1014,7 +1014,7 @@ export class PsyModel {
         gr_out,
         chn,
         buffer,
-        bufPos
+        bufPos,
       );
 
       this.calc_energy(gfc, fftenergy, eb_l, max, avg);
@@ -1035,7 +1035,7 @@ export class PsyModel {
             const p = this.nsInterp(
               gfc.thm[chn].s[sb][idx],
               thmm,
-              PsyModel.NS_PREECHO_ATT1 * pcfact
+              PsyModel.NS_PREECHO_ATT1 * pcfact,
             );
             thmm = Math.min(thmm, p);
           }
@@ -1045,7 +1045,7 @@ export class PsyModel {
             const p = this.nsInterp(
               gfc.thm[chn].s[sb][idx],
               thmm,
-              PsyModel.NS_PREECHO_ATT2 * pcfact
+              PsyModel.NS_PREECHO_ATT2 * pcfact,
             );
             thmm = Math.min(thmm, p);
           } else if (
@@ -1056,7 +1056,7 @@ export class PsyModel {
             const p = this.nsInterp(
               gfc.thm[chn].s[sb][idx],
               thmm,
-              PsyModel.NS_PREECHO_ATT2 * pcfact
+              PsyModel.NS_PREECHO_ATT2 * pcfact,
             );
             thmm = Math.min(thmm, p);
           }
@@ -1095,11 +1095,11 @@ export class PsyModel {
               ecb,
               Math.min(
                 this.rpelev * gfc.nb_1[chn][b],
-                this.rpelev2 * gfc.nb_2[chn][b]
-              )
+                this.rpelev2 * gfc.nb_2[chn][b],
+              ),
             ),
             ecb,
-            pcfact
+            pcfact,
           );
 
         gfc.nb_2[chn][b] = gfc.nb_1[chn][b];
@@ -1163,7 +1163,7 @@ export class PsyModel {
     chn: number,
     fftenergy: Float32Array,
     wsamp_l: Float32Array[],
-    wsamp_lPos: number
+    wsamp_lPos: number,
   ) {
     const gfc = gfp.internal_flags;
     if (chn < 2) {
@@ -1200,7 +1200,7 @@ export class PsyModel {
     sblock: number,
     fftenergy_s: Float32Array[],
     wsamp_s: Float32Array[][],
-    wsamp_sPos: number
+    wsamp_sPos: number,
   ) {
     const gfc = gfp.internal_flags;
 
@@ -1229,7 +1229,7 @@ export class PsyModel {
     gfp: LameGlobalFlags,
     gr_out: number,
     chn: number,
-    fftenergy: Float32Array
+    fftenergy: Float32Array,
   ) {
     const gfc = gfp.internal_flags;
     if (gfp.athaa_loudapprox === 2 && chn < 2) {
@@ -1262,7 +1262,7 @@ export class PsyModel {
     energy: Float32Array,
     sub_short_factor: Float32Array[],
     ns_attacks: number[][],
-    uselongblock: Int32Array
+    uselongblock: Int32Array,
   ) {
     const ns_hpfsmpl = Array.from({ length: 2 }, () => new Float32Array(576));
     const gfc = gfp.internal_flags;
@@ -1422,7 +1422,7 @@ export class PsyModel {
   private vbrpsy_skip_masking_s(
     gfc: LameInternalFlags,
     chn: number,
-    sblock: number
+    sblock: number,
   ) {
     if (sblock === 0) {
       for (let b = 0; b < gfc.npart_s; b++) {
@@ -1443,7 +1443,7 @@ export class PsyModel {
     gfc: LameInternalFlags,
     max: number[],
     avg: Float32Array,
-    mask_idx: number[]
+    mask_idx: number[],
   ) {
     const last_tab_entry = this.tab.length - 1;
     let b = 0;
@@ -1476,7 +1476,7 @@ export class PsyModel {
             gfc.numlines_s[b] +
             gfc.numlines_s[b + 1] -
             1 >
-            0
+            0,
         );
         a =
           (20.0 * (m * 3.0 - a)) /
@@ -1519,7 +1519,7 @@ export class PsyModel {
     eb: Float32Array,
     thr: Float32Array,
     chn: number,
-    sblock: number
+    sblock: number,
   ) {
     const gfc = gfp.internal_flags;
     const max = new Array<number>(CBANDS);
@@ -1612,7 +1612,7 @@ export class PsyModel {
     fftenergy: Float32Array,
     eb_l: Float32Array,
     thr: Float32Array,
-    chn: number
+    chn: number,
   ) {
     const max = new Float32Array(CBANDS);
     const avg = new Float32Array(CBANDS);
@@ -1704,7 +1704,7 @@ export class PsyModel {
 
   private vbrpsy_compute_block_type(
     gfp: LameGlobalFlags,
-    uselongblock: Int32Array
+    uselongblock: Int32Array,
   ) {
     const gfc = gfp.internal_flags;
 
@@ -1729,7 +1729,7 @@ export class PsyModel {
   private vbrpsy_apply_block_type(
     gfp: LameGlobalFlags,
     uselongblock: Int32Array,
-    blocktype_d: Int32Array
+    blocktype_d: Int32Array,
   ) {
     const gfc = gfp.internal_flags;
 
@@ -1761,7 +1761,7 @@ export class PsyModel {
     ath_cb: Float32Array,
     athadjust: number,
     msfix: number,
-    n: number
+    n: number,
   ) {
     const msfix2 = msfix * 2;
     const athlower = msfix > 0 ? Math.pow(10, athadjust) : 1;
@@ -1821,7 +1821,7 @@ export class PsyModel {
     percep_entropy: number[],
     percep_MS_entropy: number[],
     energy: Float32Array,
-    blocktype_d: Int32Array
+    blocktype_d: Int32Array,
   ) {
     const gfc = gfp.internal_flags;
 
@@ -1830,17 +1830,17 @@ export class PsyModel {
     const fftenergy = new Float32Array(HBLKSIZE);
     const fftenergy_s = Array.from(
       { length: 3 },
-      () => new Float32Array(HBLKSIZE_s)
+      () => new Float32Array(HBLKSIZE_s),
     );
     const wsamp_L = Array.from({ length: 2 }, () => new Float32Array(BLKSIZE));
     const wsamp_S = Array.from({ length: 2 }, () =>
-      Array.from({ length: 3 }, () => new Float32Array(BLKSIZE_s))
+      Array.from({ length: 3 }, () => new Float32Array(BLKSIZE_s)),
     );
     const eb = Array.from({ length: 4 }, () => new Float32Array(CBANDS));
     const thr = Array.from({ length: 4 }, () => new Float32Array(CBANDS));
     const sub_short_factor = Array.from(
       { length: 4 },
-      () => new Float32Array(3)
+      () => new Float32Array(3),
     );
     const pcfact = 0.6;
 
@@ -1864,7 +1864,7 @@ export class PsyModel {
       energy,
       sub_short_factor,
       ns_attacks,
-      uselongblock
+      uselongblock,
     );
 
     this.vbrpsy_compute_block_type(gfp, uselongblock);
@@ -1879,7 +1879,7 @@ export class PsyModel {
         chn,
         fftenergy,
         wsamp_l,
-        ch01
+        ch01,
       );
 
       this.vbrpsy_compute_loudness_approximation_l(gfp, gr_out, chn, fftenergy);
@@ -1899,7 +1899,7 @@ export class PsyModel {
           gfc.ATH.cb_l,
           gfp.ATHlower * gfc.ATH.adjust,
           gfp.msfix,
-          gfc.npart_l
+          gfc.npart_l,
         );
       }
     }
@@ -1927,7 +1927,7 @@ export class PsyModel {
             sblock,
             fftenergy_s,
             wsamp_s,
-            ch01
+            ch01,
           );
           this.vbrpsy_compute_masking_s(
             gfp,
@@ -1935,7 +1935,7 @@ export class PsyModel {
             eb[chn],
             thr[chn],
             chn,
-            sblock
+            sblock,
           );
         }
       }
@@ -1948,7 +1948,7 @@ export class PsyModel {
             gfc.ATH.cb_s,
             gfp.ATHlower * gfc.ATH.adjust,
             gfp.msfix,
-            gfc.npart_s
+            gfc.npart_s,
           );
         }
       }
@@ -1961,7 +1961,7 @@ export class PsyModel {
             eb[chn],
             thr[chn],
             chn,
-            sblock
+            sblock,
           );
         }
       }
@@ -1987,7 +1987,7 @@ export class PsyModel {
             const p = this.nsInterp(
               gfc.thm[chn].s[sb][idx],
               thmm,
-              PsyModel.NS_PREECHO_ATT1 * pcfact
+              PsyModel.NS_PREECHO_ATT1 * pcfact,
             );
             thmm = Math.min(thmm, p);
           } else if (ns_attacks[chn][sblock] === 1) {
@@ -1995,7 +1995,7 @@ export class PsyModel {
             const p = this.nsInterp(
               gfc.thm[chn].s[sb][idx],
               thmm,
-              PsyModel.NS_PREECHO_ATT2 * pcfact
+              PsyModel.NS_PREECHO_ATT2 * pcfact,
             );
             thmm = Math.min(thmm, p);
           } else if (
@@ -2006,7 +2006,7 @@ export class PsyModel {
             const p = this.nsInterp(
               gfc.thm[chn].s[sb][idx],
               thmm,
-              PsyModel.NS_PREECHO_ATT2 * pcfact
+              PsyModel.NS_PREECHO_ATT2 * pcfact,
             );
             thmm = Math.min(thmm, p);
           }
@@ -2163,7 +2163,7 @@ export class PsyModel {
     blksize: number,
     scalepos: Int32Array,
     deltafreq: number,
-    sbmax: number
+    sbmax: number,
   ) {
     const b_frq = new Float32Array(CBANDS + 1);
     const sample_freq_frac = sfreq / (sbmax > 15 ? 2 * 576 : 2 * 192);
@@ -2258,7 +2258,7 @@ export class PsyModel {
     bval: Float32Array,
     bval_width: Float32Array,
     norm: Float32Array,
-    use_old_s3: boolean
+    use_old_s3: boolean,
   ) {
     const s3 = Array.from({ length: CBANDS }, () => new Float32Array(CBANDS));
 
@@ -2369,7 +2369,7 @@ export class PsyModel {
       BLKSIZE,
       gfc.scalefac_band.l,
       BLKSIZE / (2.0 * 576),
-      SBMAX_l
+      SBMAX_l,
     );
     assert(gfc.npart_l < CBANDS);
 
@@ -2393,7 +2393,7 @@ export class PsyModel {
       bval,
       bval_width,
       norm,
-      useOldS3
+      useOldS3,
     );
 
     let j = 0;
@@ -2437,7 +2437,7 @@ export class PsyModel {
       BLKSIZE_s,
       gfc.scalefac_band.s,
       BLKSIZE_s / (2.0 * 192),
-      SBMAX_s
+      SBMAX_s,
     );
     assert(gfc.npart_s < CBANDS);
 
@@ -2486,14 +2486,14 @@ export class PsyModel {
       bval,
       bval_width,
       norm,
-      useOldS3
+      useOldS3,
     );
 
     this.init_mask_add_max_values();
     this.fft.init();
 
     gfc.decay = Math.exp(
-      (-1.0 * LOG10) / ((this.temporalmask_sustain_sec * sfreq) / 192.0)
+      (-1.0 * LOG10) / ((this.temporalmask_sustain_sec * sfreq) / 192.0),
     );
 
     {

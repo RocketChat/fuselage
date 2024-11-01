@@ -85,7 +85,7 @@ export const PaginatedSelect = ({
       onClick={handleClick}
       className={useMemo(
         () => [error && 'invalid', disabled && 'disabled'],
-        [error, disabled]
+        [error, disabled],
       )}
       {...props}
     >

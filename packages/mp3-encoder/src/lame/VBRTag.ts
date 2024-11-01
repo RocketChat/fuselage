@@ -41,7 +41,7 @@ export class VBRTag {
     crc: Int32Array,
     buffer: Uint8Array,
     bufferPos: number,
-    size: number
+    size: number,
   ) {
     for (let i = 0; i < size; ++i) {
       crc[0] = this.crcUpdateLookup(buffer[bufferPos + i], crc[0]);

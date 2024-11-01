@@ -11,7 +11,7 @@ export type ToastBarPayload = {
 
 type ToastBarContextValue = {
   dispatch: (
-    payload: Omit<ToastBarPayload, 'id' | 'time'> & { time?: number }
+    payload: Omit<ToastBarPayload, 'id' | 'time'> & { time?: number },
   ) => void;
   dismiss: (id: ToastBarPayload['id']) => void;
 };

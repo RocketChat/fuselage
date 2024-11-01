@@ -33,7 +33,7 @@ type TooltipProps = ComponentProps<typeof Box> & {
 
 const Tooltip = forwardRef(function Tooltip(
   { variation = 'dark', placement, ...props }: TooltipProps,
-  ref: Ref<HTMLElement>
+  ref: Ref<HTMLElement>,
 ) {
   const [direction, position] = parsePlacement(placement);
 

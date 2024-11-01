@@ -51,7 +51,7 @@ export class Quantize {
     cod_info: GrInfo,
     xrpow: Float32Array,
     upper: number,
-    sum: number
+    sum: number,
   ) {
     sum = 0;
     for (let i = 0; i <= upper; ++i) {
@@ -102,7 +102,7 @@ export class Quantize {
         let ath21 = this.qupvt.athAdjust(
           ath.adjust,
           ath.psfb21[gsfb],
-          ath.floor
+          ath.floor,
         );
 
         if (gfc.nsPsy.longfact[21] > 1e-12) ath21 *= gfc.nsPsy.longfact[21];
@@ -130,7 +130,7 @@ export class Quantize {
           let ath12 = this.qupvt.athAdjust(
             ath.adjust,
             ath.psfb12[gsfb],
-            ath.floor
+            ath.floor,
           );
 
           if (gfc.nsPsy.shortfact[12] > 1e-12) ath12 *= gfc.nsPsy.shortfact[12];
@@ -240,7 +240,7 @@ export class Quantize {
     cod_info: GrInfo,
     desired_rate: number,
     ch: number,
-    xrpow: Float32Array
+    xrpow: Float32Array,
   ) {
     const enum BinSearchDirection {
       BINSEARCH_NONE,
@@ -305,7 +305,7 @@ export class Quantize {
     gfc: LameInternalFlags,
     gi: GrInfo,
     l3_xmin: Float32Array,
-    work: Float32Array
+    work: Float32Array,
   ) {
     const distort = new Float32Array(SFBMAX);
 
@@ -345,7 +345,7 @@ export class Quantize {
           if (
             !isCloseToEachOther(
               work[start + j - width],
-              work[start + j + nsame - width]
+              work[start + j + nsame - width],
             )
           )
             break;
@@ -399,7 +399,7 @@ export class Quantize {
     best: CalcNoiseResult,
     calc: CalcNoiseResult,
     gi: GrInfo,
-    distort: Float32Array
+    distort: Float32Array,
   ) {
     let better;
 
@@ -496,7 +496,7 @@ export class Quantize {
     cod_info: GrInfo,
     distort: Float32Array,
     xrpow: Float32Array,
-    bRefine: boolean
+    bRefine: boolean,
   ) {
     const gfc = gfp.internal_flags;
     let ifqstep34;
@@ -581,7 +581,7 @@ export class Quantize {
   private inc_subblock_gain(
     gfc: LameInternalFlags,
     cod_info: GrInfo,
-    xrpow: Float32Array
+    xrpow: Float32Array,
   ) {
     let sfb;
     const { scalefac } = cod_info;
@@ -653,7 +653,7 @@ export class Quantize {
     cod_info: GrInfo,
     distort: Float32Array,
     xrpow: Float32Array,
-    bRefine: boolean
+    bRefine: boolean,
   ) {
     const gfc = gfp.internal_flags;
 
@@ -694,7 +694,7 @@ export class Quantize {
     l3_xmin: Float32Array,
     xrpow: Float32Array,
     ch: number,
-    targ_bits: number
+    targ_bits: number,
   ) {
     const gfc = gfp.internal_flags;
     const cod_info_w = new GrInfo();
@@ -755,7 +755,7 @@ export class Quantize {
             gfc,
             xrpow,
             cod_info_w,
-            prev_noise
+            prev_noise,
           )) > huff_bits &&
           cod_info_w.global_gain <= maxggain
         )
@@ -769,7 +769,7 @@ export class Quantize {
               gfc,
               xrpow,
               cod_info_w,
-              prev_noise
+              prev_noise,
             )) > best_part2_3_length &&
             cod_info_w.global_gain <= maxggain
           )
@@ -790,7 +790,7 @@ export class Quantize {
           best_noise_info,
           noise_info,
           cod_info_w,
-          distort
+          distort,
         )
           ? 1
           : 0;
@@ -859,7 +859,7 @@ export class Quantize {
 
     if (this._pow20 === undefined) {
       this._pow20 = new Float32Array(
-        QuantizePVT.Q_MAX + QuantizePVT.Q_MAX2 + 1
+        QuantizePVT.Q_MAX + QuantizePVT.Q_MAX2 + 1,
       );
       for (let i = 0; i <= QuantizePVT.Q_MAX + QuantizePVT.Q_MAX2; i++) {
         this._pow20[i] = Math.pow(2.0, (i - 210 - QuantizePVT.Q_MAX2) * 0.25);
@@ -873,7 +873,7 @@ export class Quantize {
     cod_info: GrInfo,
     startline: StartLine,
     l: number,
-    step: number
+    step: number,
   ) {
     let noise = 0;
     let j = startline.s;
@@ -923,7 +923,7 @@ export class Quantize {
     l3_xmin: Float32Array,
     distort: Float32Array,
     res: CalcNoiseResult,
-    prev_noise: CalcNoiseData | null
+    prev_noise: CalcNoiseData | null,
   ) {
     let distortPos = 0;
     let l3_xminPos = 0;

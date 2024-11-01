@@ -24,7 +24,7 @@ export const Message = forwardRef(function Message(
     highlight,
     ...props
   }: MessageProps,
-  ref: Ref<HTMLDivElement>
+  ref: Ref<HTMLDivElement>,
 ) {
   return (
     <div
@@ -41,7 +41,7 @@ export const Message = forwardRef(function Message(
           highlight && 'rcx-message--highlight',
         ]
           .filter(Boolean)
-          .join(' ')
+          .join(' '),
       )}
       {...props}
     />

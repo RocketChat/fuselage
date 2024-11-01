@@ -28,7 +28,7 @@ function MenuPopover({
       offset,
       popoverRef,
     },
-    state
+    state,
   );
 
   const breakpoints = useBreakpoints();

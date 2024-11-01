@@ -16,7 +16,7 @@ export const MessageGenericPreviewImage = ({
     src={url}
     className={prependClassName(
       className,
-      'rcx-message-generic-preview__image'
+      'rcx-message-generic-preview__image',
     )}
     alt=''
     {...props}

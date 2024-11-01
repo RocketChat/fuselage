@@ -47,7 +47,7 @@ function FlexItem({
 
       return props;
     },
-    [align, basis, grow, order, shrink]
+    [align, basis, grow, order, shrink],
   );
 
   return (

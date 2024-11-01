@@ -35,7 +35,7 @@ export const SelectAria = forwardRef(function SelectAria<T extends object>(
     onChange?: ((key: Key) => any) | undefined;
     small?: boolean;
   } & AllHTMLAttributes<HTMLElement>,
-  outerRef: Ref<HTMLElement>
+  outerRef: Ref<HTMLElement>,
 ) {
   const state = useSelectState({
     isDisabled: disabled,

@@ -18,12 +18,12 @@ export default {
 } satisfies Meta<typeof RegisterServerPage>;
 
 export const _RegisterServerPage: StoryFn<typeof RegisterServerPage> = (
-  args
+  args,
 ) => <RegisterServerPage {...args} />;
 _RegisterServerPage.storyName = 'Online';
 
 export const _RegisterServerPageOffline: StoryFn<typeof RegisterServerPage> = (
-  args
+  args,
 ) => <RegisterServerPage {...args} offline />;
 
 _RegisterServerPageOffline.storyName = 'Offline';

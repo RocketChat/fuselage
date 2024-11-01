@@ -84,14 +84,14 @@ const AccordionItem = ({
             role='button'
             className={cx(
               cxx('rcx-box')('full', 'animated'),
-              cxx('rcx-accordion-item__bar')({ disabled })
+              cxx('rcx-accordion-item__bar')({ disabled }),
             )}
             {...barProps}
           >
             <h2
               className={cx(
                 cxx('rcx-box')('full'),
-                'rcx-accordion-item__title'
+                'rcx-accordion-item__title',
               )}
               id={titleId}
             >
@@ -103,7 +103,7 @@ const AccordionItem = ({
         <div
           className={cx(
             cxx('rcx-box')('full', 'animated'),
-            cxx('rcx-accordion-item__panel')({ expanded: panelExpanded })
+            cxx('rcx-accordion-item__panel')({ expanded: panelExpanded }),
           )}
           id={panelId}
         >

@@ -21,7 +21,7 @@ const Template: StoryFn<typeof Popover> = (args) => {
   const { triggerProps, overlayProps } = useOverlayTrigger(
     { type: 'dialog' },
     state,
-    ref
+    ref,
   );
   delete triggerProps.onPress;
 

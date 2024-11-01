@@ -16,7 +16,7 @@ it('is a debounced state updater', () => {
   const init = jest.fn((state) => state);
 
   const { result } = renderHook(() =>
-    useDebouncedReducer(reducer, initialArg, init, delay)
+    useDebouncedReducer(reducer, initialArg, init, delay),
   );
 
   expect(result.current[0]).toBe(initialState);

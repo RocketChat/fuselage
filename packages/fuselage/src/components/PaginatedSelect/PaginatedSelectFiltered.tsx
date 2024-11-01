@@ -26,7 +26,7 @@ export const PaginatedSelectFiltered = ({
             onChange: _onChange,
             ...props
           }: PaginatedSelectFilteredProps,
-          ref: Ref<HTMLInputElement>
+          ref: Ref<HTMLInputElement>,
         ) => (
           <InputBox.Input
             mi={4}
@@ -41,9 +41,9 @@ export const PaginatedSelectFiltered = ({
             {...props}
             rcx-input-box--undecorated
           />
-        )
+        ),
       ),
-    [placeholder, setFilter]
+    [placeholder, setFilter],
   );
 
   return (

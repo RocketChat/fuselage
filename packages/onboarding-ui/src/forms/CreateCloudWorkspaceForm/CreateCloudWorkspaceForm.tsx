@@ -146,7 +146,7 @@ const CreateCloudWorkspaceForm = ({
                 </Box>
                 <Tooltip
                   text={t(
-                    'form.createCloudWorkspace.fields.serverRegion.tooltip'
+                    'form.createCloudWorkspace.fields.serverRegion.tooltip',
                   )}
                 />
               </FieldLabel>
@@ -161,7 +161,7 @@ const CreateCloudWorkspaceForm = ({
                       {...field}
                       options={serverRegionOptions}
                       placeholder={t(
-                        'form.createCloudWorkspace.fields.serverRegionlabel'
+                        'form.createCloudWorkspace.fields.serverRegionlabel',
                       )}
                     />
                   )}
@@ -191,7 +191,7 @@ const CreateCloudWorkspaceForm = ({
                       {...field}
                       options={languageOptions}
                       placeholder={t(
-                        'form.createCloudWorkspace.fields.languagelabel'
+                        'form.createCloudWorkspace.fields.languagelabel',
                       )}
                     />
                   )}

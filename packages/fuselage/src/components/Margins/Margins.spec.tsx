@@ -10,7 +10,7 @@ describe('[Margins Component]', () => {
     const { container } = render(
       <Margins all='10px'>
         <div />
-      </Margins>
+      </Margins>,
     );
 
     expect(container.firstElementChild).toHaveCssInJsClass();

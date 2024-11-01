@@ -23,7 +23,7 @@ type AnchorParams = {
 
 const getAnchor = (
   children: ReactElement | ((props: AnchorParams) => ReactNode),
-  params: AnchorParams
+  params: AnchorParams,
 ): ReactNode => {
   if (typeof children === 'function') {
     return children(params);
@@ -42,7 +42,7 @@ const getAnchor = (
 // Workaround to the c̶r̶a̶p̶p̶y̶ not-so-great API of PositionAnimated
 const InnerTooltip = forwardRef(function InnerTooltip(
   { style, ...props }: ComponentProps<typeof Tooltip>,
-  ref: Ref<HTMLDivElement>
+  ref: Ref<HTMLDivElement>,
 ): ReactElement {
   return (
     <div ref={ref} style={style}>
@@ -70,14 +70,14 @@ const TooltipWrapper = ({
         setOpen.flush();
       }
     },
-    [setOpen]
+    [setOpen],
   );
 
   const id = useUniqueId();
 
   const anchorParams = useMemo(
     () => ({ ref: anchorRef, toggle, id }),
-    [id, toggle]
+    [id, toggle],
   );
   const anchor = getAnchor(children, anchorParams);
 

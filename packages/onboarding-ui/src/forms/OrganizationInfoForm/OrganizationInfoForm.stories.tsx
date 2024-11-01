@@ -50,7 +50,7 @@ export default {
     ],
     countryOptions: [
       ...Object.entries(countries).map(
-        ([code, { name }]): [value: string, label: string] => [code, name]
+        ([code, { name }]): [value: string, label: string] => [code, name],
       ),
       ['worldwide', 'Worldwide'],
     ],
@@ -58,6 +58,6 @@ export default {
 } satisfies Meta<typeof OrganizationInfoForm>;
 
 export const _OrganizationInfoForm: StoryFn<typeof OrganizationInfoForm> = (
-  args
+  args,
 ) => <OrganizationInfoForm {...args} />;
 _OrganizationInfoForm.storyName = 'OrganizationInfoForm';

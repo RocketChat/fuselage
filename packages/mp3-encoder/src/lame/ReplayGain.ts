@@ -6,13 +6,13 @@ export class ReplayGain {
   linpre = 0;
 
   lstepbuf = new Float32Array(
-    GainAnalysis.MAX_SAMPLES_PER_WINDOW + GainAnalysis.MAX_ORDER
+    GainAnalysis.MAX_SAMPLES_PER_WINDOW + GainAnalysis.MAX_ORDER,
   );
 
   lstep = 0;
 
   loutbuf = new Float32Array(
-    GainAnalysis.MAX_SAMPLES_PER_WINDOW + GainAnalysis.MAX_ORDER
+    GainAnalysis.MAX_SAMPLES_PER_WINDOW + GainAnalysis.MAX_ORDER,
   );
 
   lout = 0;
@@ -22,13 +22,13 @@ export class ReplayGain {
   rinpre = 0;
 
   rstepbuf = new Float32Array(
-    GainAnalysis.MAX_SAMPLES_PER_WINDOW + GainAnalysis.MAX_ORDER
+    GainAnalysis.MAX_SAMPLES_PER_WINDOW + GainAnalysis.MAX_ORDER,
   );
 
   rstep = 0;
 
   routbuf = new Float32Array(
-    GainAnalysis.MAX_SAMPLES_PER_WINDOW + GainAnalysis.MAX_ORDER
+    GainAnalysis.MAX_SAMPLES_PER_WINDOW + GainAnalysis.MAX_ORDER,
   );
 
   rout = 0;

@@ -9,7 +9,7 @@ describe('Option', () => {
     render(
       <Option>
         <OptionContent>Lorem Ipsum Lorem</OptionContent>
-      </Option>
+      </Option>,
     );
   });
 
@@ -19,7 +19,7 @@ describe('Option', () => {
     const { getByText } = render(
       <Option onClick={click}>
         <OptionContent>Option</OptionContent>
-      </Option>
+      </Option>,
     );
 
     getByText('Option').click();
@@ -33,7 +33,7 @@ describe('Option', () => {
     const { getByText } = render(
       <Option disabled onClick={click}>
         <OptionContent>Option</OptionContent>
-      </Option>
+      </Option>,
     );
 
     getByText('Option').click();

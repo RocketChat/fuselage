@@ -11,7 +11,7 @@ const arrayTocamelCase = (arr) =>
 const encodeJson = (data) =>
   JSON.stringify(data, null, 2).replace(
     /[\u007f-\uffff]/g,
-    (c) => `\\u${`0000${c.charCodeAt(0).toString(16)}`.slice(-4)}`
+    (c) => `\\u${`0000${c.charCodeAt(0).toString(16)}`.slice(-4)}`,
   );
 
 const toScssIdentifier = (string) =>
@@ -49,7 +49,7 @@ StyleDictionary.registerFormat({
   formatter({ dictionary }) {
     return `{${dictionary.allTokens.map(
       (token) =>
-        `\n\t${encodeJson(token.path[1])}: ${encodeJson(token.original.value)}`
+        `\n\t${encodeJson(token.path[1])}: ${encodeJson(token.original.value)}`,
     )}\n}`;
   },
 });
@@ -58,7 +58,7 @@ StyleDictionary.registerFormat({
   name: 'custom/breakpoints-json',
   formatter({ dictionary }) {
     return `[${dictionary.allTokens.map(
-      (token) => `\n\t${encodeJson(token.original.value)}`
+      (token) => `\n\t${encodeJson(token.original.value)}`,
     )}\n]`;
   },
 });
@@ -68,7 +68,7 @@ StyleDictionary.registerFormat({
   formatter({ dictionary }) {
     return `module.exports = {${dictionary.allTokens.map(
       (token) =>
-        `\n\t${encodeJson(token.name)}: ${encodeJson(token.original.value)}`
+        `\n\t${encodeJson(token.name)}: ${encodeJson(token.original.value)}`,
     )}\n};`;
   },
 });
@@ -96,7 +96,7 @@ StyleDictionary.registerFormat({
   formatter({ dictionary }) {
     return `export default {${dictionary.allTokens.map(
       (token) =>
-        `\n\t${encodeJson(token.name)}: ${encodeJson(token.original.value)}`
+        `\n\t${encodeJson(token.name)}: ${encodeJson(token.original.value)}`,
     )}\n};`;
   },
 });
@@ -106,7 +106,7 @@ StyleDictionary.registerFormat({
   formatter({ dictionary }) {
     return `export default {${dictionary.allTokens.map(
       (token) =>
-        `\n\t${encodeJson(token.path[1])}: ${encodeJson(token.original.value)}`
+        `\n\t${encodeJson(token.path[1])}: ${encodeJson(token.original.value)}`,
     )}\n};`;
   },
 });
@@ -143,8 +143,8 @@ StyleDictionary.registerFormat({
       .map(
         (token) =>
           `\n${toScssIdentifier(
-            group === 'colors' ? token.path[1] : token.name
-          )}:${toScssValue(token.value)},`
+            group === 'colors' ? token.path[1] : token.name,
+          )}:${toScssValue(token.value)},`,
       )
       .join('')})`;
   },

@@ -11,7 +11,7 @@ export const MessageMetricsItemAvatarRowContent = ({
   <div
     className={prependClassName(
       className,
-      'rcx-message-metrics__avatar-row__content'
+      'rcx-message-metrics__avatar-row__content',
     )}
     {...props}
   />

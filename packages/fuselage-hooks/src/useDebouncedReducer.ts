@@ -25,13 +25,13 @@ export function useDebouncedReducer<S, R extends ReducerWithoutAction<S>>(
   reducer: R,
   initialArg: S,
   init: undefined,
-  delay: number
+  delay: number,
 ): [
   ReducerStateWithoutAction<R>,
   DispatchWithoutAction & {
     flush: () => void;
     cancel: () => void;
-  }
+  },
 ];
 
 /**
@@ -49,13 +49,13 @@ export function useDebouncedReducer<S, R extends ReducerWithoutAction<S>, I>(
   reducer: R,
   initialArg: I,
   init: (arg: I) => ReducerStateWithoutAction<R>,
-  delay: number
+  delay: number,
 ): [
   ReducerStateWithoutAction<R>,
   DispatchWithoutAction & {
     flush: () => void;
     cancel: () => void;
-  }
+  },
 ];
 
 // /**
@@ -97,20 +97,20 @@ export function useDebouncedReducer<S, A, R extends Reducer<S, A>, I>(
   reducer: R,
   initialArg: I,
   init: (arg: I) => ReducerState<R>,
-  delay: number
+  delay: number,
 ): [
   ReducerState<R>,
   Dispatch<A> & {
     flush: () => void;
     cancel: () => void;
-  }
+  },
 ];
 
 export function useDebouncedReducer(
   reducer: (prevState: unknown, action?: unknown) => unknown,
   initialArg: unknown,
   init: ((arg?: unknown) => unknown) | undefined,
-  delay: number
+  delay: number,
 ) {
   return useDebouncedUpdates(
     init !== undefined
@@ -118,6 +118,6 @@ export function useDebouncedReducer(
         useReducer(reducer, initialArg, init)
       : // eslint-disable-next-line react-hooks/rules-of-hooks
         useReducer(reducer, initialArg),
-    delay
+    delay,
   );
 }

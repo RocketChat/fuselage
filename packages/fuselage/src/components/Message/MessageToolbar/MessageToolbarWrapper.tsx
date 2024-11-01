@@ -7,7 +7,7 @@ type MessageToolbarWrapperProps = HTMLAttributes<HTMLDivElement> & {
 
 export const MessageToolbarWrapper = forwardRef(function MessageToolbarWrapper(
   { className, visible, ...props }: MessageToolbarWrapperProps,
-  ref: Ref<HTMLDivElement>
+  ref: Ref<HTMLDivElement>,
 ) {
   return (
     <div
