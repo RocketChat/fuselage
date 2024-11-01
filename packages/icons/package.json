@@ -29,7 +29,6 @@
     "lint-and-fix": "lint-and-fix"
   },
   "devDependencies": {
-    "@prettier/plugin-xml": "~2.2.0",
     "@rocket.chat/eslint-config-alt": "workspace:~",
     "@rocket.chat/prettier-config": "workspace:~",
     "build-icons": "workspace:~",
