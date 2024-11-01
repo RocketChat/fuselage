@@ -57,7 +57,6 @@
       "jest": true
     }
   },
-  "prettier": "@rocket.chat/prettier-config/fuselage",
   "jest": {
     "preset": "ts-jest",
     "errorOnDeprecated": true,

@@ -47,6 +47,5 @@
   },
   "eslintConfig": {
     "extends": "@rocket.chat/eslint-config-alt/typescript"
-  },
-  "prettier": "@rocket.chat/prettier-config/fuselage"
+  }
 }

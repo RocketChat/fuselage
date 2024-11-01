@@ -79,7 +79,6 @@
       "jest": true
     }
   },
-  "prettier": "@rocket.chat/prettier-config/fuselage",
   "volta": {
     "extends": "../../package.json"
   }
