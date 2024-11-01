@@ -10,7 +10,7 @@ exports[`[Field Component] renders WithCheckbox without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-field__row"
       >
         <label
-          class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-field__label"
+          class="rcx-box rcx-box--full rcx-label rcx-box rcx-box--full rcx-field__label"
           for="fieldWithCheckbox"
         >
           Label
@@ -94,7 +94,7 @@ exports[`[Field Component] renders WithRadioButton without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-field__row"
       >
         <label
-          class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-field__label"
+          class="rcx-box rcx-box--full rcx-label rcx-box rcx-box--full rcx-field__label"
           for="fieldWithRadio"
         >
           Label
@@ -175,7 +175,7 @@ exports[`[Field Component] renders WithTextArea without crashing 1`] = `
       class="rcx-box rcx-box--full rcx-field"
     >
       <label
-        class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-field__label"
+        class="rcx-box rcx-box--full rcx-label rcx-box rcx-box--full rcx-field__label"
         for="fieldWithTextArea"
       >
         Label
@@ -252,7 +252,7 @@ exports[`[Field Component] renders WithTextInput without crashing 1`] = `
       class="rcx-box rcx-box--full rcx-field"
     >
       <label
-        class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-field__label"
+        class="rcx-box rcx-box--full rcx-label rcx-box rcx-box--full rcx-field__label"
         for="fieldWithText"
       >
         Label
@@ -332,7 +332,7 @@ exports[`[Field Component] renders WithToggleSwitch without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-field__row"
       >
         <label
-          class="rcx-box rcx-box--full rcx-label  rcx-box rcx-box--full rcx-field__label"
+          class="rcx-box rcx-box--full rcx-label rcx-box rcx-box--full rcx-field__label"
           for="fieldWithToggle"
         >
           Label

@@ -746,7 +746,7 @@ exports[`[Table Rendering] renders WithSelection without crashing 1`] = `
           role="group"
         >
           <button
-            class="rcx-box rcx-box--full rcx-button--small rcx-button  rcx-button-group__item rcx-css-1yzvz7u"
+            class="rcx-box rcx-box--full rcx-button--small rcx-button rcx-button-group__item rcx-css-1yzvz7u"
             type="button"
           >
             <span
@@ -756,7 +756,7 @@ exports[`[Table Rendering] renders WithSelection without crashing 1`] = `
             </span>
           </button>
           <button
-            class="rcx-box rcx-box--full rcx-button--small rcx-button  rcx-button-group__item rcx-css-1yzvz7u"
+            class="rcx-box rcx-box--full rcx-button--small rcx-button rcx-button-group__item rcx-css-1yzvz7u"
             type="button"
           >
             <span
