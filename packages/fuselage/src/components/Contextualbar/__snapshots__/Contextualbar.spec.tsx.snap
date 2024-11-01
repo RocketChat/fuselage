@@ -4,7 +4,7 @@ exports[`[Contextualbar Rendering] renders Default without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-css-fs953a"
+      class="rcx-box rcx-box--full rcx-css-1ucnmmp"
     >
       <div
         class="rcx-box rcx-box--full rcx-vertical-bar rcx-css-1pzjc7w"
@@ -153,7 +153,7 @@ exports[`[Contextualbar Rendering] renders Empty without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-css-fs953a"
+      class="rcx-box rcx-box--full rcx-css-1ucnmmp"
     >
       <div
         class="rcx-box rcx-box--full rcx-vertical-bar rcx-css-1pzjc7w"
@@ -234,7 +234,7 @@ exports[`[Contextualbar Rendering] renders Skeleton without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-css-fs953a"
+      class="rcx-box rcx-box--full rcx-css-1ucnmmp"
     >
       <div
         class="rcx-box rcx-box--full rcx-vertical-bar rcx-css-1pzjc7w"
