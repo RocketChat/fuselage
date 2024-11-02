@@ -246,7 +246,7 @@ exports[`[Contextualbar Rendering] renders Skeleton without crashing 1`] = `
             class="rcx-box rcx-box--full rcx-css-1sl6k6j"
           >
             <span
-              class="rcx-box rcx-box--full rcx-skeleton--text rcx-skeleton rcx-css-x7bl3q rcx-css-16xwxf4"
+              class="rcx-skeleton rcx-skeleton--text rcx-css-x7bl3q rcx-css-1qcz93u"
             />
           </div>
         </div>
@@ -254,22 +254,22 @@ exports[`[Contextualbar Rendering] renders Skeleton without crashing 1`] = `
           class="rcx-box rcx-box--full rcx-css-m843eh"
         >
           <span
-            class="rcx-box rcx-box--full rcx-skeleton--rect rcx-skeleton rcx-css-kq1jj5"
+            class="rcx-skeleton rcx-skeleton--rect rcx-css-kq1jj5"
           />
           <span
-            class="rcx-box rcx-box--full rcx-skeleton--text rcx-skeleton"
+            class="rcx-skeleton rcx-skeleton--text"
           />
           <span
-            class="rcx-box rcx-box--full rcx-skeleton--text rcx-skeleton"
+            class="rcx-skeleton rcx-skeleton--text"
           />
           <span
-            class="rcx-box rcx-box--full rcx-skeleton--text rcx-skeleton"
+            class="rcx-skeleton rcx-skeleton--text"
           />
           <span
-            class="rcx-box rcx-box--full rcx-skeleton--text rcx-skeleton"
+            class="rcx-skeleton rcx-skeleton--text"
           />
           <span
-            class="rcx-box rcx-box--full rcx-skeleton--text rcx-skeleton"
+            class="rcx-skeleton rcx-skeleton--text"
           />
         </div>
       </div>
