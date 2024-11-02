@@ -8,12 +8,17 @@
 
   animation: rcx-skeleton__animation 1s linear 0s infinite running;
 
+  opacity: 10%;
+
   border-radius: lengths.border-radius(medium);
 
-  background-color: colors.stroke(extra-dark);
-  background: linear-gradient(to right, colors.stroke(extra-dark), color-mix(in srgb, colors.stroke(extra-dark), transparent 50%) 50%, colors.stroke(extra-dark));
-  background-size: 100vw 100%;
-  opacity: 10%;
+  background: repeat 0% 0%/100vw 100%
+    linear-gradient(
+      to right,
+      colors.stroke(extra-dark),
+      color-mix(in srgb, colors.stroke(extra-dark), transparent 50%) 50%,
+      colors.stroke(extra-dark)
+    );
 
   &--text {
     height: auto;
