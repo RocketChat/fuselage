@@ -8,7 +8,7 @@ exports[`[CardGroup Rendering] renders Default without crashing 1`] = `
       role="group"
     >
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
       >
         <div
           class="rcx-card__header"
@@ -72,7 +72,7 @@ exports[`[CardGroup Rendering] renders Default without crashing 1`] = `
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
       >
         <div
           class="rcx-card__header"
@@ -136,7 +136,7 @@ exports[`[CardGroup Rendering] renders Default without crashing 1`] = `
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
       >
         <div
           class="rcx-card__header"
@@ -200,7 +200,7 @@ exports[`[CardGroup Rendering] renders Default without crashing 1`] = `
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
       >
         <div
           class="rcx-card__header"
@@ -264,7 +264,7 @@ exports[`[CardGroup Rendering] renders Default without crashing 1`] = `
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
       >
         <div
           class="rcx-card__header"
@@ -328,7 +328,7 @@ exports[`[CardGroup Rendering] renders Default without crashing 1`] = `
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
       >
         <div
           class="rcx-card__header"
@@ -392,7 +392,7 @@ exports[`[CardGroup Rendering] renders Default without crashing 1`] = `
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
       >
         <div
           class="rcx-card__header"
@@ -456,7 +456,7 @@ exports[`[CardGroup Rendering] renders Default without crashing 1`] = `
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
       >
         <div
           class="rcx-card__header"
@@ -520,7 +520,7 @@ exports[`[CardGroup Rendering] renders Default without crashing 1`] = `
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
       >
         <div
           class="rcx-card__header"
@@ -596,7 +596,7 @@ exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashi
       role="group"
     >
       <div
-        class="rcx-box rcx-box--full rcx-card__clickable rcx-card__horizontal--wrap rcx-card__horizontal rcx-card  rcx-card-group__item rcx-css-1qcz93u"
+        class="rcx-box rcx-box--full rcx-card__clickable rcx-card__horizontal--wrap rcx-card__horizontal rcx-card rcx-card-group__item rcx-css-1qcz93u"
       >
         <div
           class="rcx-card__row"
@@ -629,7 +629,7 @@ exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashi
             class="rcx-box rcx-box--full rcx-badge rcx-badge--primary rcx-badge--small"
           />
           <span
-            class="rcx-box rcx-box--full  rcx-tag "
+            class="rcx-box rcx-box--full rcx-tag "
           >
             <span
               class="rcx-tag__inner"
@@ -652,7 +652,7 @@ exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashi
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__clickable rcx-card__horizontal--wrap rcx-card__horizontal rcx-card  rcx-card-group__item rcx-css-1qcz93u"
+        class="rcx-box rcx-box--full rcx-card__clickable rcx-card__horizontal--wrap rcx-card__horizontal rcx-card rcx-card-group__item rcx-css-1qcz93u"
       >
         <div
           class="rcx-card__row"
@@ -685,7 +685,7 @@ exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashi
             class="rcx-box rcx-box--full rcx-badge rcx-badge--primary rcx-badge--small"
           />
           <span
-            class="rcx-box rcx-box--full  rcx-tag "
+            class="rcx-box rcx-box--full rcx-tag "
           >
             <span
               class="rcx-tag__inner"
@@ -708,7 +708,7 @@ exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashi
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__clickable rcx-card__horizontal--wrap rcx-card__horizontal rcx-card  rcx-card-group__item rcx-css-1qcz93u"
+        class="rcx-box rcx-box--full rcx-card__clickable rcx-card__horizontal--wrap rcx-card__horizontal rcx-card rcx-card-group__item rcx-css-1qcz93u"
       >
         <div
           class="rcx-card__row"
@@ -741,7 +741,7 @@ exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashi
             class="rcx-box rcx-box--full rcx-badge rcx-badge--primary rcx-badge--small"
           />
           <span
-            class="rcx-box rcx-box--full  rcx-tag "
+            class="rcx-box rcx-box--full rcx-tag "
           >
             <span
               class="rcx-tag__inner"
@@ -764,7 +764,7 @@ exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashi
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__clickable rcx-card__horizontal--wrap rcx-card__horizontal rcx-card  rcx-card-group__item rcx-css-1qcz93u"
+        class="rcx-box rcx-box--full rcx-card__clickable rcx-card__horizontal--wrap rcx-card__horizontal rcx-card rcx-card-group__item rcx-css-1qcz93u"
       >
         <div
           class="rcx-card__row"
@@ -797,7 +797,7 @@ exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashi
             class="rcx-box rcx-box--full rcx-badge rcx-badge--primary rcx-badge--small"
           />
           <span
-            class="rcx-box rcx-box--full  rcx-tag "
+            class="rcx-box rcx-box--full rcx-tag "
           >
             <span
               class="rcx-tag__inner"
@@ -820,7 +820,7 @@ exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashi
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__clickable rcx-card__horizontal--wrap rcx-card__horizontal rcx-card  rcx-card-group__item rcx-css-1qcz93u"
+        class="rcx-box rcx-box--full rcx-card__clickable rcx-card__horizontal--wrap rcx-card__horizontal rcx-card rcx-card-group__item rcx-css-1qcz93u"
       >
         <div
           class="rcx-card__row"
@@ -853,7 +853,7 @@ exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashi
             class="rcx-box rcx-box--full rcx-badge rcx-badge--primary rcx-badge--small"
           />
           <span
-            class="rcx-box rcx-box--full  rcx-tag "
+            class="rcx-box rcx-box--full rcx-tag "
           >
             <span
               class="rcx-tag__inner"
@@ -876,7 +876,7 @@ exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashi
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__clickable rcx-card__horizontal--wrap rcx-card__horizontal rcx-card  rcx-card-group__item rcx-css-1qcz93u"
+        class="rcx-box rcx-box--full rcx-card__clickable rcx-card__horizontal--wrap rcx-card__horizontal rcx-card rcx-card-group__item rcx-css-1qcz93u"
       >
         <div
           class="rcx-card__row"
@@ -909,7 +909,7 @@ exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashi
             class="rcx-box rcx-box--full rcx-badge rcx-badge--primary rcx-badge--small"
           />
           <span
-            class="rcx-box rcx-box--full  rcx-tag "
+            class="rcx-box rcx-box--full rcx-tag "
           >
             <span
               class="rcx-tag__inner"
@@ -932,7 +932,7 @@ exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashi
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__clickable rcx-card__horizontal--wrap rcx-card__horizontal rcx-card  rcx-card-group__item rcx-css-1qcz93u"
+        class="rcx-box rcx-box--full rcx-card__clickable rcx-card__horizontal--wrap rcx-card__horizontal rcx-card rcx-card-group__item rcx-css-1qcz93u"
       >
         <div
           class="rcx-card__row"
@@ -965,7 +965,7 @@ exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashi
             class="rcx-box rcx-box--full rcx-badge rcx-badge--primary rcx-badge--small"
           />
           <span
-            class="rcx-box rcx-box--full  rcx-tag "
+            class="rcx-box rcx-box--full rcx-tag "
           >
             <span
               class="rcx-tag__inner"
@@ -988,7 +988,7 @@ exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashi
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__clickable rcx-card__horizontal--wrap rcx-card__horizontal rcx-card  rcx-card-group__item rcx-css-1qcz93u"
+        class="rcx-box rcx-box--full rcx-card__clickable rcx-card__horizontal--wrap rcx-card__horizontal rcx-card rcx-card-group__item rcx-css-1qcz93u"
       >
         <div
           class="rcx-card__row"
@@ -1021,7 +1021,7 @@ exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashi
             class="rcx-box rcx-box--full rcx-badge rcx-badge--primary rcx-badge--small"
           />
           <span
-            class="rcx-box rcx-box--full  rcx-tag "
+            class="rcx-box rcx-box--full rcx-tag "
           >
             <span
               class="rcx-tag__inner"
@@ -1044,7 +1044,7 @@ exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashi
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__clickable rcx-card__horizontal--wrap rcx-card__horizontal rcx-card  rcx-card-group__item rcx-css-1qcz93u"
+        class="rcx-box rcx-box--full rcx-card__clickable rcx-card__horizontal--wrap rcx-card__horizontal rcx-card rcx-card-group__item rcx-css-1qcz93u"
       >
         <div
           class="rcx-card__row"
@@ -1077,7 +1077,7 @@ exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashi
             class="rcx-box rcx-box--full rcx-badge rcx-badge--primary rcx-badge--small"
           />
           <span
-            class="rcx-box rcx-box--full  rcx-tag "
+            class="rcx-box rcx-box--full rcx-tag "
           >
             <span
               class="rcx-tag__inner"
@@ -1112,7 +1112,7 @@ exports[`[CardGroup Rendering] renders Wrap without crashing 1`] = `
       role="group"
     >
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
       >
         <div
           class="rcx-card__header"
@@ -1176,7 +1176,7 @@ exports[`[CardGroup Rendering] renders Wrap without crashing 1`] = `
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
       >
         <div
           class="rcx-card__header"
@@ -1240,7 +1240,7 @@ exports[`[CardGroup Rendering] renders Wrap without crashing 1`] = `
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
       >
         <div
           class="rcx-card__header"
@@ -1304,7 +1304,7 @@ exports[`[CardGroup Rendering] renders Wrap without crashing 1`] = `
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
       >
         <div
           class="rcx-card__header"
@@ -1368,7 +1368,7 @@ exports[`[CardGroup Rendering] renders Wrap without crashing 1`] = `
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
       >
         <div
           class="rcx-card__header"
@@ -1432,7 +1432,7 @@ exports[`[CardGroup Rendering] renders Wrap without crashing 1`] = `
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
       >
         <div
           class="rcx-card__header"
@@ -1496,7 +1496,7 @@ exports[`[CardGroup Rendering] renders Wrap without crashing 1`] = `
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
       >
         <div
           class="rcx-card__header"
@@ -1560,7 +1560,7 @@ exports[`[CardGroup Rendering] renders Wrap without crashing 1`] = `
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
       >
         <div
           class="rcx-card__header"
@@ -1624,7 +1624,7 @@ exports[`[CardGroup Rendering] renders Wrap without crashing 1`] = `
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
       >
         <div
           class="rcx-card__header"
@@ -1700,7 +1700,7 @@ exports[`[CardGroup Rendering] renders WrapAlignCenter without crashing 1`] = `
       role="group"
     >
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
       >
         <div
           class="rcx-card__header"
@@ -1764,7 +1764,7 @@ exports[`[CardGroup Rendering] renders WrapAlignCenter without crashing 1`] = `
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
       >
         <div
           class="rcx-card__header"
@@ -1828,7 +1828,7 @@ exports[`[CardGroup Rendering] renders WrapAlignCenter without crashing 1`] = `
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
       >
         <div
           class="rcx-card__header"
@@ -1892,7 +1892,7 @@ exports[`[CardGroup Rendering] renders WrapAlignCenter without crashing 1`] = `
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
       >
         <div
           class="rcx-card__header"
@@ -1956,7 +1956,7 @@ exports[`[CardGroup Rendering] renders WrapAlignCenter without crashing 1`] = `
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
       >
         <div
           class="rcx-card__header"
@@ -2020,7 +2020,7 @@ exports[`[CardGroup Rendering] renders WrapAlignCenter without crashing 1`] = `
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
       >
         <div
           class="rcx-card__header"
@@ -2084,7 +2084,7 @@ exports[`[CardGroup Rendering] renders WrapAlignCenter without crashing 1`] = `
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
       >
         <div
           class="rcx-card__header"
@@ -2148,7 +2148,7 @@ exports[`[CardGroup Rendering] renders WrapAlignCenter without crashing 1`] = `
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
       >
         <div
           class="rcx-card__header"
@@ -2212,7 +2212,7 @@ exports[`[CardGroup Rendering] renders WrapAlignCenter without crashing 1`] = `
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
       >
         <div
           class="rcx-card__header"
@@ -2288,7 +2288,7 @@ exports[`[CardGroup Rendering] renders WrapStretch without crashing 1`] = `
       role="group"
     >
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
       >
         <div
           class="rcx-card__header"
@@ -2352,7 +2352,7 @@ exports[`[CardGroup Rendering] renders WrapStretch without crashing 1`] = `
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
       >
         <div
           class="rcx-card__header"
@@ -2416,7 +2416,7 @@ exports[`[CardGroup Rendering] renders WrapStretch without crashing 1`] = `
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
       >
         <div
           class="rcx-card__header"
@@ -2480,7 +2480,7 @@ exports[`[CardGroup Rendering] renders WrapStretch without crashing 1`] = `
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
       >
         <div
           class="rcx-card__header"
@@ -2544,7 +2544,7 @@ exports[`[CardGroup Rendering] renders WrapStretch without crashing 1`] = `
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
       >
         <div
           class="rcx-card__header"
@@ -2608,7 +2608,7 @@ exports[`[CardGroup Rendering] renders WrapStretch without crashing 1`] = `
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
       >
         <div
           class="rcx-card__header"
@@ -2672,7 +2672,7 @@ exports[`[CardGroup Rendering] renders WrapStretch without crashing 1`] = `
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
       >
         <div
           class="rcx-card__header"
@@ -2736,7 +2736,7 @@ exports[`[CardGroup Rendering] renders WrapStretch without crashing 1`] = `
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
       >
         <div
           class="rcx-card__header"
@@ -2800,7 +2800,7 @@ exports[`[CardGroup Rendering] renders WrapStretch without crashing 1`] = `
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card  rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
       >
         <div
           class="rcx-card__header"
