@@ -1,19 +1,21 @@
-import type { ComponentProps } from 'react';
+import { cx, cxx } from '../../helpers/composeClassNames';
+import { StylingBox, StylingBoxProps } from '../Box';
 
-import Box from '../Box';
-
-type SkeletonProps = ComponentProps<typeof Box> & {
+type SkeletonProps = Omit<StylingBoxProps, 'children'> & {
   variant?: 'text' | 'rect' | 'circle';
 };
 
 const Skeleton = ({ variant = 'text', ...props }: SkeletonProps) => (
-  <Box
-    is='span'
-    rcx-skeleton
-    rcx-skeleton--text={variant === 'text'}
-    rcx-skeleton--rect={variant === 'rect'}
-    rcx-skeleton--circle={variant === 'circle'}
-    {...props}
-  />
+  <StylingBox {...props}>
+    <span
+      className={cx(
+        cxx('rcx-skeleton')({
+          text: variant === 'text',
+          rect: variant === 'rect',
+          circle: variant === 'circle',
+        }),
+      )}
+    />
+  </StylingBox>
 );
 export { Skeleton };
