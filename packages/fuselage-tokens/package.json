@@ -42,7 +42,7 @@
     "@rocket.chat/eslint-config-alt": "workspace:~",
     "@rocket.chat/prettier-config": "workspace:~",
     "build-design-tokens": "workspace:~",
-    "eslint": "~8.45.0",
+    "eslint": "~8.57.1",
     "eslint-config-prettier": "~8.8.0",
     "eslint-plugin-import": "~2.26.0",
     "eslint-plugin-prettier": "~5.2.1",
