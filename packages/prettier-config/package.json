@@ -24,9 +24,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "eslintConfig": {
-    "extends": "@rocket.chat/eslint-config-alt/minimal"
-  },
   "scripts": {
     "lint": "lint",
     "lint-and-fix": "lint-and-fix"

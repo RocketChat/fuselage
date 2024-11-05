@@ -42,7 +42,6 @@
     "test": "jest --runInBand"
   },
   "devDependencies": {
-    "@rocket.chat/eslint-config-alt": "workspace:~",
     "@rocket.chat/fuselage-tokens": "workspace:~",
     "@rollup/plugin-commonjs": "~21.0.3",
     "@rollup/plugin-json": "~4.1.0",

@@ -32,7 +32,6 @@
     "new-event-polyfill": "^1.0.1"
   },
   "devDependencies": {
-    "@rocket.chat/eslint-config-alt": "workspace:~",
     "eslint": "~9.14.0",
     "lint-all": "workspace:~",
     "prettier": "~3.3.3"

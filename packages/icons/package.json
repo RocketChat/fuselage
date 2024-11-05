@@ -29,7 +29,6 @@
     "lint-and-fix": "lint-and-fix"
   },
   "devDependencies": {
-    "@rocket.chat/eslint-config-alt": "workspace:~",
     "build-icons": "workspace:~",
     "eslint": "~9.14.0",
     "lint-all": "workspace:~",

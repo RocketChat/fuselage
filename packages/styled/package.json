@@ -36,7 +36,6 @@
     "docs": "typedoc"
   },
   "devDependencies": {
-    "@rocket.chat/eslint-config-alt": "workspace:~",
     "@types/jest": "~29.5.12",
     "eslint": "~9.14.0",
     "jest": "~29.7.0",

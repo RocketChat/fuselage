@@ -41,7 +41,6 @@
     "url": "https://github.com/RocketChat/fuselage/issues"
   },
   "devDependencies": {
-    "@rocket.chat/eslint-config-alt": "workspace:~",
     "@rocket.chat/fuselage": "workspace:~",
     "@rocket.chat/fuselage-hooks": "workspace:~",
     "@rocket.chat/fuselage-polyfills": "workspace:~",
