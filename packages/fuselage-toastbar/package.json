@@ -50,7 +50,6 @@
     "@rocket.chat/fuselage-hooks": "workspace:~",
     "@rocket.chat/fuselage-tokens": "workspace:~",
     "@rocket.chat/layout": "workspace:~",
-    "@rocket.chat/prettier-config": "workspace:~",
     "@rocket.chat/styled": "workspace:~",
     "@storybook/addon-essentials": "~8.4.1",
     "@storybook/addon-webpack5-compiler-swc": "~1.0.5",

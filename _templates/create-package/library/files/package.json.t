@@ -40,7 +40,6 @@ to: packages/<%=package%>/package.json
   },
   "devDependencies": {
     "@rocket.chat/eslint-config-alt": "workspace:~",
-    "@rocket.chat/prettier-config": "workspace:~",
     "@types/jest": "~27.4.0",
     "eslint": "~8.8.0",
     "jest": "~27.5.1",

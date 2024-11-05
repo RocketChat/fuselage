@@ -4015,7 +4015,6 @@ __metadata:
     "@rocket.chat/css-supports": "workspace:~"
     "@rocket.chat/eslint-config-alt": "workspace:~"
     "@rocket.chat/memo": "workspace:~"
-    "@rocket.chat/prettier-config": "workspace:~"
     "@rocket.chat/stylis-logical-props-middleware": "workspace:~"
     "@rollup/plugin-commonjs": "npm:~21.0.3"
     "@rollup/plugin-json": "npm:~4.1.0"
@@ -4042,7 +4041,6 @@ __metadata:
   dependencies:
     "@rocket.chat/eslint-config-alt": "workspace:~"
     "@rocket.chat/memo": "workspace:~"
-    "@rocket.chat/prettier-config": "workspace:~"
     eslint: "npm:~8.57.1"
     lint-all: "workspace:~"
     prettier: "npm:~3.3.3"
@@ -4057,7 +4055,6 @@ __metadata:
   resolution: "@rocket.chat/emitter@workspace:packages/emitter"
   dependencies:
     "@rocket.chat/eslint-config-alt": "workspace:~"
-    "@rocket.chat/prettier-config": "workspace:~"
     "@rollup/plugin-commonjs": "npm:~21.0.3"
     "@rollup/plugin-json": "npm:~4.1.0"
     "@rollup/plugin-node-resolve": "npm:~13.1.3"
@@ -4095,7 +4092,7 @@ __metadata:
   peerDependencies:
     "@babel/eslint-parser": ^7.13.14
     eslint: ~8.38.0
-    prettier: ~2.7.1
+    prettier: "*"
   languageName: unknown
   linkType: soft
 
@@ -4105,7 +4102,6 @@ __metadata:
   dependencies:
     "@rocket.chat/eslint-config-alt": "workspace:~"
     "@rocket.chat/fuselage-tokens": "workspace:~"
-    "@rocket.chat/prettier-config": "workspace:~"
     "@rollup/plugin-commonjs": "npm:~21.0.3"
     "@rollup/plugin-json": "npm:~4.1.0"
     "@rollup/plugin-node-resolve": "npm:~13.1.3"
@@ -4147,6 +4143,7 @@ __metadata:
   dependencies:
     "@changesets/changelog-github": "npm:~0.5.0"
     "@changesets/cli": "npm:~2.27.9"
+    "@rocket.chat/prettier-config": "workspace:~"
     husky: "npm:~9.1.6"
     hygen: "npm:~6.2.11"
     pinst: "npm:~3.0.0"
@@ -4162,7 +4159,6 @@ __metadata:
   dependencies:
     "@juggle/resize-observer": "npm:^3.4.0"
     "@rocket.chat/eslint-config-alt": "workspace:~"
-    "@rocket.chat/prettier-config": "workspace:~"
     clipboard-polyfill: "npm:^3.0.3"
     element-closest-polyfill: "npm:^1.0.6"
     eslint: "npm:~8.57.1"
@@ -4183,7 +4179,6 @@ __metadata:
     "@rocket.chat/fuselage-hooks": "workspace:~"
     "@rocket.chat/fuselage-tokens": "workspace:~"
     "@rocket.chat/layout": "workspace:~"
-    "@rocket.chat/prettier-config": "workspace:~"
     "@rocket.chat/styled": "workspace:~"
     "@storybook/addon-essentials": "npm:~8.4.1"
     "@storybook/addon-webpack5-compiler-swc": "npm:~1.0.5"
@@ -4226,7 +4221,6 @@ __metadata:
   resolution: "@rocket.chat/fuselage-tokens@workspace:packages/fuselage-tokens"
   dependencies:
     "@rocket.chat/eslint-config-alt": "workspace:~"
-    "@rocket.chat/prettier-config": "workspace:~"
     build-design-tokens: "workspace:~"
     eslint: "npm:~8.57.1"
     eslint-config-prettier: "npm:~8.8.0"
@@ -4262,7 +4256,6 @@ __metadata:
     "@rocket.chat/fuselage-tokens": "workspace:~"
     "@rocket.chat/icons": "workspace:~"
     "@rocket.chat/memo": "workspace:~"
-    "@rocket.chat/prettier-config": "workspace:~"
     "@rocket.chat/styled": "workspace:~"
     "@storybook/addon-a11y": "npm:~8.4.1"
     "@storybook/addon-essentials": "npm:~8.4.1"
@@ -4352,7 +4345,6 @@ __metadata:
   resolution: "@rocket.chat/icons@workspace:packages/icons"
   dependencies:
     "@rocket.chat/eslint-config-alt": "workspace:~"
-    "@rocket.chat/prettier-config": "workspace:~"
     build-icons: "workspace:~"
     eslint: "npm:~8.57.1"
     lint-all: "workspace:~"
@@ -4373,7 +4365,6 @@ __metadata:
     "@rocket.chat/eslint-config-alt": "workspace:~"
     "@rocket.chat/fuselage": "workspace:~"
     "@rocket.chat/fuselage-tokens": "workspace:~"
-    "@rocket.chat/prettier-config": "workspace:~"
     "@storybook/addon-essentials": "npm:~8.4.1"
     "@storybook/addon-webpack5-compiler-swc": "npm:~1.0.5"
     "@storybook/preview-api": "npm:~8.4.1"
@@ -4413,7 +4404,6 @@ __metadata:
     "@rocket.chat/eslint-config-alt": "workspace:~"
     "@rocket.chat/fuselage-hooks": "workspace:~"
     "@rocket.chat/fuselage-tokens": "workspace:~"
-    "@rocket.chat/prettier-config": "workspace:~"
     "@rocket.chat/styled": "workspace:~"
     "@types/jest": "npm:~29.5.12"
     "@types/react": "npm:~17.0.80"
@@ -4442,7 +4432,6 @@ __metadata:
   resolution: "@rocket.chat/memo@workspace:packages/memo"
   dependencies:
     "@rocket.chat/eslint-config-alt": "workspace:~"
-    "@rocket.chat/prettier-config": "workspace:~"
     "@types/jest": "npm:~29.5.12"
     eslint: "npm:~8.57.1"
     jest: "npm:~29.7.0"
@@ -4464,7 +4453,6 @@ __metadata:
     "@babel/preset-env": "npm:~7.21.4"
     "@babel/preset-typescript": "npm:~7.21.4"
     "@rocket.chat/eslint-config-alt": "workspace:~"
-    "@rocket.chat/prettier-config": "workspace:~"
     "@rollup/plugin-commonjs": "npm:~24.1.0"
     "@rollup/plugin-node-resolve": "npm:~15.0.2"
     "@rollup/plugin-typescript": "npm:~11.1.0"
@@ -4493,7 +4481,6 @@ __metadata:
     "@rocket.chat/icons": "workspace:~"
     "@rocket.chat/layout": "workspace:~"
     "@rocket.chat/logo": "workspace:~"
-    "@rocket.chat/prettier-config": "workspace:~"
     "@rocket.chat/styled": "workspace:~"
     "@storybook/addon-a11y": "npm:~8.4.1"
     "@storybook/addon-essentials": "npm:~8.4.1"
@@ -4541,7 +4528,6 @@ __metadata:
   resolution: "@rocket.chat/peggy-loader@workspace:packages/peggy-loader"
   dependencies:
     "@rocket.chat/eslint-config-alt": "workspace:~"
-    "@rocket.chat/prettier-config": "workspace:~"
     "@types/node": "npm:~14.18.42"
     eslint: "npm:~8.57.1"
     lint-all: "workspace:~"
@@ -4578,7 +4564,6 @@ __metadata:
   resolution: "@rocket.chat/string-helpers@workspace:packages/string-helpers"
   dependencies:
     "@rocket.chat/eslint-config-alt": "workspace:~"
-    "@rocket.chat/prettier-config": "workspace:~"
     "@types/jest": "npm:~29.5.12"
     eslint: "npm:~8.57.1"
     jest: "npm:~29.7.0"
@@ -4598,7 +4583,6 @@ __metadata:
   dependencies:
     "@rocket.chat/css-in-js": "workspace:~"
     "@rocket.chat/eslint-config-alt": "workspace:~"
-    "@rocket.chat/prettier-config": "workspace:~"
     "@types/jest": "npm:~29.5.12"
     eslint: "npm:~8.57.1"
     jest: "npm:~29.7.0"
@@ -4619,7 +4603,6 @@ __metadata:
   dependencies:
     "@rocket.chat/css-supports": "workspace:~"
     "@rocket.chat/eslint-config-alt": "workspace:~"
-    "@rocket.chat/prettier-config": "workspace:~"
     "@types/jest": "npm:~29.5.12"
     eslint: "npm:~8.57.1"
     jest: "npm:~29.7.0"
@@ -16926,7 +16909,6 @@ __metadata:
   resolution: "scripts@workspace:tools/scripts"
   dependencies:
     "@rocket.chat/eslint-config-alt": "workspace:~"
-    "@rocket.chat/prettier-config": "workspace:~"
     "@types/node": "npm:~14.18.42"
     "@typescript-eslint/parser": "npm:~8.8.1"
     cross-env: "npm:^7.0.3"

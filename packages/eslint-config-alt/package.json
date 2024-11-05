@@ -33,7 +33,7 @@
   "peerDependencies": {
     "@babel/eslint-parser": "^7.13.14",
     "eslint": "~8.38.0",
-    "prettier": "~2.7.1"
+    "prettier": "*"
   },
   "devDependencies": {
     "@babel/eslint-parser": "~7.21.3",

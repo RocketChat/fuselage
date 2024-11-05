@@ -30,7 +30,6 @@
   },
   "devDependencies": {
     "@rocket.chat/eslint-config-alt": "workspace:~",
-    "@rocket.chat/prettier-config": "workspace:~",
     "build-icons": "workspace:~",
     "eslint": "~8.57.1",
     "lint-all": "workspace:~",

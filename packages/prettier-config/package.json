@@ -27,7 +27,6 @@
   "eslintConfig": {
     "extends": "@rocket.chat/eslint-config-alt/minimal"
   },
-  "prettier": "./fuselage",
   "scripts": {
     "lint": "lint",
     "lint-and-fix": "lint-and-fix"

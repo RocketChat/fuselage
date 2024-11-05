@@ -72,7 +72,6 @@
     "@rocket.chat/fuselage-hooks": "workspace:~",
     "@rocket.chat/fuselage-polyfills": "workspace:~",
     "@rocket.chat/icons": "workspace:~",
-    "@rocket.chat/prettier-config": "workspace:~",
     "@storybook/addon-a11y": "~8.4.1",
     "@storybook/addon-essentials": "~8.4.1",
     "@storybook/addon-interactions": "~8.4.1",
