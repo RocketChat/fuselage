@@ -3,6 +3,7 @@ import { screen, userEvent } from '@storybook/test';
 import { useState } from 'react';
 
 import Box from '../Box';
+
 import { Slider } from './Slider';
 
 export default {

@@ -13,6 +13,7 @@ import {
 import { Divider } from '../Divider';
 import { FramedIcon } from '../FramedIcon';
 import { ProgressBar } from '../ProgressBar';
+
 import PaletteStyleTag from './PaletteStyleTag';
 
 export default {

@@ -1,4 +1,5 @@
 import Box from '../Box';
+
 import type { TableProps } from './Table';
 
 type TableBodyProps = TableProps;

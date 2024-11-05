@@ -1,11 +1,13 @@
 // @ts-check
-import tseslint from 'typescript-eslint';
-import globals from 'globals';
-import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
+
 import pluginImport from 'eslint-plugin-import';
+import * as mdx from 'eslint-plugin-mdx';
+import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 import pluginReact from 'eslint-plugin-react';
 import pluginReactHooks from 'eslint-plugin-react-hooks';
-import * as mdx from 'eslint-plugin-mdx';
+import globals from 'globals';
+// eslint-disable-next-line import/no-unresolved
+import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
   {
@@ -379,8 +381,16 @@ export default tseslint.config(
             'builtin',
             'external',
             'internal',
-            ['parent', 'sibling', 'index'],
+            'parent',
+            ['sibling', 'index'],
           ],
+          'named': false,
+          'warnOnUnassignedImports': false,
+          'alphabetize': {
+            order: 'asc',
+            orderImportKind: 'asc',
+            caseInsensitive: false,
+          },
         },
       ],
       'import/newline-after-import': 'error',

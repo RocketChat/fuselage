@@ -10,6 +10,7 @@ import {
 import type { Meta, StoryFn } from '@storybook/react';
 
 import Form from '../FormPageLayout';
+
 import {
   VerticalWizardLayout,
   VerticalWizardLayoutTitle,

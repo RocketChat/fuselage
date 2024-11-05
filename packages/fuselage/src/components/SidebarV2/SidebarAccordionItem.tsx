@@ -1,6 +1,7 @@
 import type { HTMLAttributes, ReactNode } from 'react';
 
 import { Chevron } from '../Chevron';
+
 import { useCollapse } from './hooks/useCollapse';
 
 type SidebarAccordionItemProps = {

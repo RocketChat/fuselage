@@ -3,6 +3,7 @@ import type { StoryFn, Meta } from '@storybook/react';
 
 import Box from '../Box';
 import { Icon } from '../Icon';
+
 import { Menu } from './Menu';
 
 export default {

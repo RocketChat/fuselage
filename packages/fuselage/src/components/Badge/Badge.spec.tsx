@@ -2,6 +2,7 @@ import { composeStories } from '@storybook/react';
 import { screen } from '@testing-library/react';
 
 import { render } from '../../testing';
+
 import { Badge } from './Badge';
 import * as stories from './Badge.stories';
 

@@ -3,6 +3,7 @@ import type { Key } from 'react';
 import { useState } from 'react';
 
 import PropsVariationSection from '../../../.storybook/PropsVariation';
+
 import { Select } from './Select';
 import type { SelectOption } from './SelectLegacy';
 

@@ -3,6 +3,7 @@ import { useCallback, forwardRef } from 'react';
 
 import Flex from '../Flex';
 import { InputBox } from '../InputBox';
+
 import PaginatedMultiSelect from './PaginatedMultiSelect';
 
 type PaginatedMultiSelectFilteredProps = {

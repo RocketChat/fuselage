@@ -1,6 +1,7 @@
 import type { StoryFn, Meta } from '@storybook/react';
 
 import { Divider } from '../Divider';
+
 import Box from './Box';
 
 export default {

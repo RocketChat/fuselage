@@ -6,6 +6,7 @@ import { useNumberFormatter, useSlider } from 'react-aria';
 import { useSliderState } from 'react-stately';
 
 import { useStyle } from '../../hooks/useStyle';
+
 import { SliderHead } from './SliderHead';
 import { SliderThumb } from './SliderThumb';
 import { SliderTrack } from './SliderTrack';

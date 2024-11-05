@@ -1,8 +1,9 @@
 import type { ComponentProps, Dispatch, Ref, SetStateAction } from 'react';
 import { forwardRef, useState } from 'react';
 
-import { SelectLegacy } from '.';
 import type { Icon } from '..';
+
+import { SelectLegacy } from '.';
 import type { SelectAnchorParams } from './SelectAnchorParams';
 import SelectFilteredAnchor from './SelectFilteredAnchor';
 

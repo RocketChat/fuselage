@@ -1,4 +1,5 @@
 import { render } from '../../testing';
+
 import States from './States';
 
 describe('[States Component]', () => {

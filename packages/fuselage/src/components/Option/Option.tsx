@@ -11,6 +11,7 @@ import type { Icon } from '../..';
 import { OptionColumn } from '../..';
 import { prevent } from '../../helpers/prevent';
 import type Box from '../Box';
+
 import OptionAvatar from './OptionAvatar';
 import OptionContent from './OptionContent';
 import OptionIcon from './OptionIcon';

@@ -2,6 +2,7 @@ import type { StoryFn, Meta } from '@storybook/react';
 import type { ComponentType } from 'react';
 
 import Box from '../Box';
+
 import Accordion from './Accordion';
 import AccordionItem from './AccordionItem';
 

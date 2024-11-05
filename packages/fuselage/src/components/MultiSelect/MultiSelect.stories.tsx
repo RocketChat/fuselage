@@ -3,6 +3,7 @@ import type { StoryFn, Meta } from '@storybook/react';
 import type { ComponentType } from 'react';
 
 import type { SelectOption } from '../Select';
+
 import { MultiSelect } from './MultiSelect';
 import { MultiSelectFiltered } from './MultiSelectFiltered';
 

@@ -2,6 +2,7 @@ import type { StoryFn, Meta } from '@storybook/react';
 
 import { IconButton } from '../Button';
 import { ButtonGroup } from '../ButtonGroup';
+
 import { Divider } from './Divider';
 
 export default {

@@ -13,6 +13,7 @@ import EmailConfirmedPage from '../../pages/EmailConfirmedPage';
 import OrganizationInfoPage from '../../pages/OrganizationInfoPage';
 import RegisterOfflinePage from '../../pages/RegisterOfflinePage';
 import RegisteredServerPage from '../../pages/RegisterServerPage';
+
 import {
   countryOptions,
   logSubmit,

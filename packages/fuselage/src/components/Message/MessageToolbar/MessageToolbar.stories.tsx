@@ -3,6 +3,7 @@ import type { ComponentType } from 'react';
 
 import Box from '../../Box';
 import { BasicMessageTemplate } from '../helpers';
+
 import { MessageToolbar } from './MessageToolbar';
 import { MessageToolbarItem } from './MessageToolbarItem';
 

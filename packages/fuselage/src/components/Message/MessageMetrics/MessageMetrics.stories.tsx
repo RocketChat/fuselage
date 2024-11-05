@@ -5,6 +5,7 @@ import type { ComponentType } from 'react';
 import { Avatar } from '../../Avatar';
 import { Badge } from '../../Badge';
 import { BasicMessageTemplate } from '../helpers';
+
 import { MessageMetrics } from './MessageMetrics';
 import { MessageMetricsFollowing } from './MessageMetricsFollowing';
 import MessageMetricsItem, {
