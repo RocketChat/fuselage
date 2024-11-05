@@ -33,9 +33,6 @@
   },
   "devDependencies": {
     "eslint": "~9.14.0",
-    "eslint-config-prettier": "~8.8.0",
-    "eslint-plugin-import": "~2.26.0",
-    "eslint-plugin-prettier": "~5.2.1",
     "lint-all": "workspace:~",
     "prettier": "~3.3.3"
   }

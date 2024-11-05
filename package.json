@@ -15,6 +15,7 @@
     "eslint-import-resolver-typescript": "~3.6.3",
     "eslint-plugin-import": "~2.31.0",
     "eslint-plugin-mdx": "~3.1.5",
+    "eslint-plugin-prettier": "~5.2.1",
     "eslint-plugin-react": "~7.37.2",
     "eslint-plugin-react-hooks": "~5.0.0",
     "globals": "~15.12.0",
