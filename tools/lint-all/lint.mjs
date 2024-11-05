@@ -1,13 +1,9 @@
 #!/usr/bin/env node
-import { $, fs, glob } from 'zx';
+import { $, glob } from 'zx';
 
 $.verbose = true;
 
-const manifest = await fs.readJSON('./package.json');
-
-if ((await glob('.eslintrc*')).length || 'eslintConfig' in manifest) {
-  await $`eslint '**/*.{js,mjs,ts,tsx,mdx}'`;
-}
+await $`eslint`;
 
 if ((await glob('.stylelintrc*')).length) {
   await $`stylelint --allow-empty-input '**/*.{css,scss}'`;

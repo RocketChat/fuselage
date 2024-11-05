@@ -1,26 +1,4 @@
 {
-  "eslint.workingDirectories": [
-    {
-      "pattern": "packages/*",
-      "changeProcessCWD": true
-    },
-    {
-      "pattern": "tools/*",
-      "changeProcessCWD": true
-    }
-  ],
-  "eslint.onIgnoredFiles": "warn",
-  "eslint.options": {
-    "extensions": [".js", ".jsx", ".md", ".mdx", ".ts", ".tsx", ".pegjs"]
-  },
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact",
-    "mdx",
-    "pegjs"
-  ],
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   },

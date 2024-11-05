@@ -41,7 +41,7 @@
   "devDependencies": {
     "@rocket.chat/eslint-config-alt": "workspace:~",
     "build-design-tokens": "workspace:~",
-    "eslint": "~8.57.1",
+    "eslint": "~9.14.0",
     "eslint-config-prettier": "~8.8.0",
     "eslint-plugin-import": "~2.26.0",
     "eslint-plugin-prettier": "~5.2.1",
