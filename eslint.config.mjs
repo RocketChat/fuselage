@@ -11,7 +11,7 @@ import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
   {
-    ignores: ['**/dist/**', '.yarn/**'],
+    ignores: ['**/dist/**', '.yarn/**', '**/storybook-static/**'],
   },
   {
     rules: {
