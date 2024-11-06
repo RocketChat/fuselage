@@ -156,7 +156,7 @@ export class GainAnalysis {
     output: Float32Array,
     outputPos: number,
     nSamples: number,
-    kernel: number[]
+    kernel: number[],
   ): void {
     while (nSamples-- !== 0) {
       output[outputPos] =
@@ -193,7 +193,7 @@ export class GainAnalysis {
     output: Float32Array,
     outputPos: number,
     nSamples: number,
-    kernel: number[]
+    kernel: number[],
   ) {
     while (nSamples-- !== 0) {
       output[outputPos] =
@@ -253,7 +253,7 @@ export class GainAnalysis {
       (samplefreq * GainAnalysis.RMS_WINDOW_TIME_NUMERATOR +
         GainAnalysis.RMS_WINDOW_TIME_DENOMINATOR -
         1) /
-        GainAnalysis.RMS_WINDOW_TIME_DENOMINATOR
+        GainAnalysis.RMS_WINDOW_TIME_DENOMINATOR,
     );
 
     rgData.lsum = 0;
@@ -292,7 +292,7 @@ export class GainAnalysis {
     right_samples: Float32Array,
     right_samplesPos: number,
     num_samples: number,
-    num_channels: number
+    num_channels: number,
   ) {
     let curleft;
     let curleftBase;
@@ -324,14 +324,14 @@ export class GainAnalysis {
         left_samplesPos,
         rgData.linprebuf,
         GainAnalysis.MAX_ORDER,
-        num_samples
+        num_samples,
       );
       copyArray(
         right_samples,
         right_samplesPos,
         rgData.rinprebuf,
         GainAnalysis.MAX_ORDER,
-        num_samples
+        num_samples,
       );
     } else {
       copyArray(
@@ -339,14 +339,14 @@ export class GainAnalysis {
         left_samplesPos,
         rgData.linprebuf,
         GainAnalysis.MAX_ORDER,
-        GainAnalysis.MAX_ORDER
+        GainAnalysis.MAX_ORDER,
       );
       copyArray(
         right_samples,
         right_samplesPos,
         rgData.rinprebuf,
         GainAnalysis.MAX_ORDER,
-        GainAnalysis.MAX_ORDER
+        GainAnalysis.MAX_ORDER,
       );
     }
 
@@ -375,7 +375,7 @@ export class GainAnalysis {
         rgData.lstepbuf,
         rgData.lstep + rgData.totsamp,
         cursamples,
-        this.ABYule[rgData.reqindex]
+        this.ABYule[rgData.reqindex],
       );
       this.filterYule(
         currightBase,
@@ -383,7 +383,7 @@ export class GainAnalysis {
         rgData.rstepbuf,
         rgData.rstep + rgData.totsamp,
         cursamples,
-        this.ABYule[rgData.reqindex]
+        this.ABYule[rgData.reqindex],
       );
 
       this.filterButter(
@@ -392,7 +392,7 @@ export class GainAnalysis {
         rgData.loutbuf,
         rgData.lout + rgData.totsamp,
         cursamples,
-        this.ABButter[rgData.reqindex]
+        this.ABButter[rgData.reqindex],
       );
       this.filterButter(
         rgData.rstepbuf,
@@ -400,7 +400,7 @@ export class GainAnalysis {
         rgData.routbuf,
         rgData.rout + rgData.totsamp,
         cursamples,
-        this.ABButter[rgData.reqindex]
+        this.ABButter[rgData.reqindex],
       );
 
       curleft = rgData.lout + rgData.totsamp;
@@ -446,7 +446,7 @@ export class GainAnalysis {
           GainAnalysis.STEPS_per_dB *
           10 *
           Math.log10(
-            ((rgData.lsum + rgData.rsum) / rgData.totsamp) * 0.5 + 1e-37
+            ((rgData.lsum + rgData.rsum) / rgData.totsamp) * 0.5 + 1e-37,
           );
         let ival = val <= 0 ? 0 : Math.trunc(val);
         if (ival >= rgData.A.length) ival = rgData.A.length - 1;
@@ -459,28 +459,28 @@ export class GainAnalysis {
           rgData.totsamp,
           rgData.loutbuf,
           0,
-          GainAnalysis.MAX_ORDER
+          GainAnalysis.MAX_ORDER,
         );
         copyArray(
           rgData.routbuf,
           rgData.totsamp,
           rgData.routbuf,
           0,
-          GainAnalysis.MAX_ORDER
+          GainAnalysis.MAX_ORDER,
         );
         copyArray(
           rgData.lstepbuf,
           rgData.totsamp,
           rgData.lstepbuf,
           0,
-          GainAnalysis.MAX_ORDER
+          GainAnalysis.MAX_ORDER,
         );
         copyArray(
           rgData.rstepbuf,
           rgData.totsamp,
           rgData.rstepbuf,
           0,
-          GainAnalysis.MAX_ORDER
+          GainAnalysis.MAX_ORDER,
         );
         rgData.totsamp = 0;
       }
@@ -494,28 +494,28 @@ export class GainAnalysis {
         num_samples,
         rgData.linprebuf,
         0,
-        GainAnalysis.MAX_ORDER - num_samples
+        GainAnalysis.MAX_ORDER - num_samples,
       );
       copyArray(
         rgData.rinprebuf,
         num_samples,
         rgData.rinprebuf,
         0,
-        GainAnalysis.MAX_ORDER - num_samples
+        GainAnalysis.MAX_ORDER - num_samples,
       );
       copyArray(
         left_samples,
         left_samplesPos,
         rgData.linprebuf,
         GainAnalysis.MAX_ORDER - num_samples,
-        num_samples
+        num_samples,
       );
       copyArray(
         right_samples,
         right_samplesPos,
         rgData.rinprebuf,
         GainAnalysis.MAX_ORDER - num_samples,
-        num_samples
+        num_samples,
       );
     } else {
       copyArray(
@@ -523,14 +523,14 @@ export class GainAnalysis {
         left_samplesPos + num_samples - GainAnalysis.MAX_ORDER,
         rgData.linprebuf,
         0,
-        GainAnalysis.MAX_ORDER
+        GainAnalysis.MAX_ORDER,
       );
       copyArray(
         right_samples,
         right_samplesPos + num_samples - GainAnalysis.MAX_ORDER,
         rgData.rinprebuf,
         0,
-        GainAnalysis.MAX_ORDER
+        GainAnalysis.MAX_ORDER,
       );
     }
 

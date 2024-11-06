@@ -17,7 +17,7 @@ function WithErrorWrapper<T>({
   const isInsideParent = useContext(context);
   if (!isInsideParent) {
     throw new Error(
-      `${componentName} should be used as children of ${parentComponent} Component`
+      `${componentName} should be used as children of ${parentComponent} Component`,
     );
   }
 

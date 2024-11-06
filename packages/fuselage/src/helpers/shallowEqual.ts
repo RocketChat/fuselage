@@ -1,11 +1,11 @@
 const isObject = (
-  value: unknown
+  value: unknown,
 ): value is Record<string | number | symbol, unknown> =>
   typeof value === 'object' && value !== null;
 
 const compareObjects = (
   a: Record<string | number | symbol, unknown>,
-  b: Record<string | number | symbol, unknown>
+  b: Record<string | number | symbol, unknown>,
 ) => {
   const keysA = Object.keys(a);
   const keysB = Object.keys(b);

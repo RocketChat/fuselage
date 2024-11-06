@@ -59,7 +59,7 @@ const Option = memo(
         description,
         ...props
       }: OptionProps,
-      ref
+      ref,
     ) => (
       <Tag
         {...props}
@@ -102,8 +102,8 @@ const Option = memo(
           {label !== children && children}
         </div>
       </Tag>
-    )
-  )
+    ),
+  ),
 );
 
 export default Option;

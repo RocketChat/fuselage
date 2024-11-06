@@ -12,7 +12,7 @@ describe('ThreadMessageOrigin', () => {
     render(<ThreadMessageOrigin system>system</ThreadMessageOrigin>);
 
     expect(screen.getByText('system')).toHaveClass(
-      'rcx-message-thread__origin--system'
+      'rcx-message-thread__origin--system',
     );
   });
 });

@@ -18,7 +18,7 @@ export type AnyEventHandlerOf<EventMap extends DefaultEventMap> = {
 /** @public */
 export type EventTypeOf<
   EventMap extends DefaultEventMap,
-  EventValue extends EventMap[keyof EventMap]
+  EventValue extends EventMap[keyof EventMap],
 > = {
   [EventType in keyof EventMap]: EventMap[EventType] extends EventValue
     ? EventType
@@ -28,13 +28,13 @@ export type EventTypeOf<
 /** @public */
 export type EventOf<
   EventMap extends DefaultEventMap,
-  EventType extends AnyEventTypeOf<EventMap>
+  EventType extends AnyEventTypeOf<EventMap>,
 > = EventMap[EventType] extends void ? never : EventMap[EventType];
 
 /** @public */
 export type EventHandlerOf<
   EventMap extends DefaultEventMap,
-  EventType extends AnyEventTypeOf<EventMap>
+  EventType extends AnyEventTypeOf<EventMap>,
 > = EventMap[EventType] extends void
   ? () => void
   : (event: EventMap[EventType]) => void;
@@ -46,28 +46,28 @@ export type OffCallbackHandler = () => void;
 export interface IEmitter<EventMap extends DefaultEventMap = DefaultEventMap> {
   on<
     T extends AnyEventOf<EventMap>,
-    EventType extends AnyEventTypeOf<EventMap> = EventTypeOf<EventMap, T>
+    EventType extends AnyEventTypeOf<EventMap> = EventTypeOf<EventMap, T>,
   >(
     type: EventType,
-    handler: EventHandlerOf<EventMap, EventType>
+    handler: EventHandlerOf<EventMap, EventType>,
   ): OffCallbackHandler;
   once<
     T extends AnyEventOf<EventMap>,
-    EventType extends AnyEventTypeOf<EventMap> = EventTypeOf<EventMap, T>
+    EventType extends AnyEventTypeOf<EventMap> = EventTypeOf<EventMap, T>,
   >(
     type: EventType,
-    handler: EventHandlerOf<EventMap, EventType>
+    handler: EventHandlerOf<EventMap, EventType>,
   ): OffCallbackHandler;
   off<
     T extends AnyEventOf<EventMap>,
-    EventType extends AnyEventTypeOf<EventMap> = EventTypeOf<EventMap, T>
+    EventType extends AnyEventTypeOf<EventMap> = EventTypeOf<EventMap, T>,
   >(
     type: EventType,
-    handler: EventHandlerOf<EventMap, EventType>
+    handler: EventHandlerOf<EventMap, EventType>,
   ): void;
   emit<
     T extends AnyEventOf<EventMap>,
-    EventType extends AnyEventTypeOf<EventMap> = EventTypeOf<EventMap, T>
+    EventType extends AnyEventTypeOf<EventMap> = EventTypeOf<EventMap, T>,
   >(
     type: EventType,
     ...[event]: EventOf<EventMap, EventType> extends void
@@ -117,7 +117,7 @@ export class Emitter<EventMap extends DefaultEventMap = DefaultEventMap>
    */
   on<
     T extends AnyEventOf<EventMap>,
-    TType extends AnyEventTypeOf<EventMap> = EventTypeOf<EventMap, T>
+    TType extends AnyEventTypeOf<EventMap> = EventTypeOf<EventMap, T>,
   >(type: TType, handler: EventHandlerOf<EventMap, TType>): OffCallbackHandler;
 
   on(type: keyof EventMap, handler: (...args: any[]) => void) {
@@ -134,10 +134,10 @@ export class Emitter<EventMap extends DefaultEventMap = DefaultEventMap>
    */
   once<
     T extends AnyEventOf<EventMap>,
-    EventType extends AnyEventTypeOf<EventMap> = EventTypeOf<EventMap, T>
+    EventType extends AnyEventTypeOf<EventMap> = EventTypeOf<EventMap, T>,
   >(
     type: EventType,
-    handler: EventHandlerOf<EventMap, EventType>
+    handler: EventHandlerOf<EventMap, EventType>,
   ): OffCallbackHandler;
 
   once(type: keyof EventMap, handler: (...args: any[]) => void) {
@@ -151,7 +151,7 @@ export class Emitter<EventMap extends DefaultEventMap = DefaultEventMap>
    */
   off<
     T extends AnyEventOf<EventMap>,
-    EventType extends AnyEventTypeOf<EventMap> = EventTypeOf<EventMap, T>
+    EventType extends AnyEventTypeOf<EventMap> = EventTypeOf<EventMap, T>,
   >(type: EventType, handler: EventHandlerOf<EventMap, EventType>): void;
 
   off(type: keyof EventMap, handler: (...args: any[]) => void) {
@@ -169,7 +169,7 @@ export class Emitter<EventMap extends DefaultEventMap = DefaultEventMap>
 
     handlers.splice(
       handlers.findIndex((callback) => callback === handler) >>> 0,
-      1
+      1,
     );
 
     if (handlers.length === 0) {
@@ -183,7 +183,7 @@ export class Emitter<EventMap extends DefaultEventMap = DefaultEventMap>
    */
   emit<
     T extends AnyEventOf<EventMap>,
-    EventType extends AnyEventTypeOf<EventMap> = EventTypeOf<EventMap, T>
+    EventType extends AnyEventTypeOf<EventMap> = EventTypeOf<EventMap, T>,
   >(
     type: EventType,
     ...[event]: EventOf<EventMap, EventType> extends void

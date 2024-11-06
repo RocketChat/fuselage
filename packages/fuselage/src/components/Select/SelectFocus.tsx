@@ -7,7 +7,7 @@ type SelectFocusProps = ComponentProps<typeof Box>;
 
 const SelectFocus = forwardRef(function SelectFocus(
   props: SelectFocusProps,
-  ref: Ref<Element>
+  ref: Ref<Element>,
 ) {
   return (
     <Box

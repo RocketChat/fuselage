@@ -18,17 +18,17 @@ type SelectInputProps = Omit<ComponentProps<typeof InputBox>, 'type'> & {
  */
 export const SelectInput = forwardRef(function SelectInput(
   { children, multiple, placeholder, onChange, ...props }: SelectInputProps,
-  ref: Ref<HTMLElement>
+  ref: Ref<HTMLElement>,
 ) {
   const [isPlaceholderVisible, setPlaceholderVisible] = useState(
-    !props.value && !props.defaultValue
+    !props.value && !props.defaultValue,
   );
   const handleChange = useCallback(
     (event) => {
       setPlaceholderVisible(!event.currentTarget.value);
       onChange?.call(event.currentTarget, event);
     },
-    [onChange]
+    [onChange],
   );
 
   if (multiple) {

@@ -4,7 +4,7 @@ const cssSupportsVariable = cssSupports('(--foo: bar)');
 
 type cssToValueType = <T extends string | { toString: () => string }>(
   label: string,
-  value: T
+  value: T,
 ) => string;
 export const toCSSValue: cssToValueType = cssSupportsVariable
   ? (((label, value) => `var(${label}, ${value})`) as cssToValueType)

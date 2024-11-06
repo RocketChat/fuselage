@@ -25,7 +25,7 @@ it('returns matching breakpoint names', async () => {
   const { result } = renderHook(() => useBreakpoints());
 
   expect(result.current).toEqual(
-    initialBreakpoints.map((breakpoint) => breakpoint.name)
+    initialBreakpoints.map((breakpoint) => breakpoint.name),
   );
 
   await act(async () => {
@@ -37,6 +37,6 @@ it('returns matching breakpoint names', async () => {
   });
 
   expect(result.current).toStrictEqual(
-    finalBreakpoints.map((breakpoint) => breakpoint.name)
+    finalBreakpoints.map((breakpoint) => breakpoint.name),
   );
 });

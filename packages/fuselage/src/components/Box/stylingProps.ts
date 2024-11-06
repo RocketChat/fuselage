@@ -387,7 +387,8 @@ export const propDefs: Record<keyof StylingProps, PropDefinition> = {
 
       if (value === '2') {
         return css`
-          box-shadow: 0px 0px 2px 0px ${Palette.shadow['shadow-elevation-2x']},
+          box-shadow:
+            0px 0px 2px 0px ${Palette.shadow['shadow-elevation-2x']},
             0px 0px 12px 0px ${Palette.shadow['shadow-elevation-2y']};
           border: 1px solid ${Palette.shadow['shadow-elevation-border']};
         `;
@@ -395,7 +396,8 @@ export const propDefs: Record<keyof StylingProps, PropDefinition> = {
 
       if (value === '2nb') {
         return css`
-          box-shadow: 0px 0px 2px 0px ${Palette.shadow['shadow-elevation-2x']},
+          box-shadow:
+            0px 0px 2px 0px ${Palette.shadow['shadow-elevation-2x']},
             0px 0px 12px 0px ${Palette.shadow['shadow-elevation-2y']};
         `;
       }
@@ -465,8 +467,8 @@ const compiledPropDefs = new Map(
       propName: string,
       inject: (
         value: unknown,
-        stylingProps: Map<keyof StylingProps, cssFn>
-      ) => void
+        stylingProps: Map<keyof StylingProps, cssFn>,
+      ) => void,
     ] => {
       if ('aliasOf' in propDef) {
         const { aliasOf: effectivePropName } = propDef;
@@ -501,7 +503,7 @@ const compiledPropDefs = new Map(
               propName,
               css`
                 ${cssProperty}: ${cssValue} !important;
-              `
+              `,
             );
           },
         ];
@@ -521,12 +523,12 @@ const compiledPropDefs = new Map(
           stylingProps.set(propName, style);
         },
       ];
-    }
-  )
+    },
+  ),
 );
 
 export const extractStylingProps = <TProps extends Record<string, unknown>>(
-  props: TProps & Partial<StylingProps>
+  props: TProps & Partial<StylingProps>,
 ): [props: TProps, styles: cssFn | undefined] => {
   const stylingProps = new Map<keyof StylingProps, cssFn>();
   const newProps: Record<string, unknown> = {};

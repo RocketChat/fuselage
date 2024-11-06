@@ -24,3 +24,8 @@ CircleVariant.args = {
   width: 16,
   height: 16,
 };
+
+export const TextVariant: StoryFn<typeof Skeleton> = Template.bind({});
+TextVariant.args = {
+  variant: 'text',
+};

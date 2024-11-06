@@ -8,7 +8,7 @@ function MenuSection<T>(_props: SectionProps<T>) {
 }
 
 MenuSection.getCollectionNode = function* getCollectionNode<T>(
-  props: SectionProps<T>
+  props: SectionProps<T>,
 ): Generator<PartialNode<T>> {
   const { children, title, items } = props;
   yield {
@@ -21,7 +21,7 @@ MenuSection.getCollectionNode = function* getCollectionNode<T>(
       if (typeof children === 'function') {
         if (!items) {
           throw new Error(
-            'props.children was a function but props.items is missing'
+            'props.children was a function but props.items is missing',
           );
         }
 

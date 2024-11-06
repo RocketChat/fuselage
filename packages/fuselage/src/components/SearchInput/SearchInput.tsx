@@ -13,7 +13,7 @@ type SearchInputProps = Omit<ComponentProps<typeof InputBox>, 'type'> & {
  */
 export const SearchInput = forwardRef(function SearchInput(
   props: SearchInputProps,
-  ref: Ref<HTMLInputElement>
+  ref: Ref<HTMLInputElement>,
 ) {
   return <InputBox type='search' ref={ref} {...props} />;
 });

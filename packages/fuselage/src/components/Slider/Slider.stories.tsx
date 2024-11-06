@@ -66,7 +66,7 @@ Vertical.args = {
 } as const;
 
 export const VerticalMultiThumb: StoryFn<typeof Slider> = TemplateVertical.bind(
-  {}
+  {},
 );
 VerticalMultiThumb.args = {
   'label': 'Range',

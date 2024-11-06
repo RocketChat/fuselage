@@ -38,7 +38,7 @@ const defaultShowingResultsLabel = ({
 }) =>
   `Showing results ${current + 1} - ${Math.min(
     current + itemsPerPage,
-    count
+    count,
   )} of ${count}`;
 
 const itemsPerPageOptions = [25, 50, 100] as ItemsPerPage[];

@@ -112,7 +112,7 @@ const OrganizationInfoForm = ({
                   <TextInput
                     {...field}
                     placeholder={t(
-                      'form.organizationInfoForm.fields.organizationName.placeholder'
+                      'form.organizationInfoForm.fields.organizationName.placeholder',
                     )}
                     aria-describedby={`${organizationNameField}-error}`}
                     aria-required='true'
@@ -145,7 +145,7 @@ const OrganizationInfoForm = ({
                     {...field}
                     options={organizationIndustryOptions}
                     placeholder={t(
-                      'form.organizationInfoForm.fields.organizationIndustry.placeholder'
+                      'form.organizationInfoForm.fields.organizationIndustry.placeholder',
                     )}
                     aria-required='true'
                     aria-invalid={Boolean(errors.organizationIndustry)}
@@ -178,7 +178,7 @@ const OrganizationInfoForm = ({
                     {...field}
                     options={organizationSizeOptions}
                     placeholder={t(
-                      'form.organizationInfoForm.fields.organizationSize.placeholder'
+                      'form.organizationInfoForm.fields.organizationSize.placeholder',
                     )}
                     aria-required='true'
                     aria-invalid={Boolean(errors.organizationSize)}
@@ -211,7 +211,7 @@ const OrganizationInfoForm = ({
                     {...field}
                     options={countryOptions}
                     placeholder={t(
-                      'form.organizationInfoForm.fields.country.placeholder'
+                      'form.organizationInfoForm.fields.country.placeholder',
                     )}
                     aria-required='true'
                     aria-invalid={Boolean(errors.country)}

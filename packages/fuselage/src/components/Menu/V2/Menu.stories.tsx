@@ -92,7 +92,7 @@ WithSections.parameters = {
 };
 
 export const MenuDisplayExample = (
-  args: Omit<ComponentProps<typeof Menu>, 'children'>
+  args: Omit<ComponentProps<typeof Menu>, 'children'>,
 ) => {
   const [display, setDisplay] = useState('condensed');
   const [avatarDisplay, setAvatarDisplay] = useState(false);

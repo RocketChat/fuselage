@@ -10,7 +10,7 @@ type WorkspaceUrlInputProps = Omit<ComponentProps<typeof InputBox>, 'type'> & {
 
 const WorkspaceUrlInput = forwardRef(function TextInput(
   props: WorkspaceUrlInputProps,
-  ref: Ref<HTMLInputElement>
+  ref: Ref<HTMLInputElement>,
 ) {
   const { domain } = props;
 

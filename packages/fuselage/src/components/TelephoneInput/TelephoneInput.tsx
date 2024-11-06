@@ -14,7 +14,7 @@ type TelephoneInputProps = Omit<ComponentProps<typeof InputBox>, 'type'> & {
  */
 export const TelephoneInput = forwardRef(function TelephoneInput(
   props: TelephoneInputProps,
-  ref: Ref<HTMLInputElement>
+  ref: Ref<HTMLInputElement>,
 ) {
   const [value, setValue] = useState('');
 

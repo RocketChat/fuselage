@@ -2,7 +2,7 @@ type ObserverSizeProperty = 'contentBoxSize' | 'borderBoxSize';
 
 export const extractSizeFromObserver = (
   entry: ResizeObserverEntry,
-  sizeProperty: ObserverSizeProperty
+  sizeProperty: ObserverSizeProperty,
 ): ResizeObserverSize => {
   // In case we're dealing with Safari, 'contentBoxSize'
   // && 'borderBoxSize' do not exist up to this point.
@@ -39,9 +39,9 @@ export const extractSizeFromObserver = (
 };
 
 export const extractContentBoxSizeFromObserver = (
-  entry: ResizeObserverEntry
+  entry: ResizeObserverEntry,
 ): ResizeObserverSize => extractSizeFromObserver(entry, 'contentBoxSize');
 
 export const extractBorderBoxSizeFromObserver = (
-  entry: ResizeObserverEntry
+  entry: ResizeObserverEntry,
 ): ResizeObserverSize => extractSizeFromObserver(entry, 'borderBoxSize');

@@ -52,7 +52,7 @@ export default {
             type: 'desktop',
           },
         }),
-        {}
+        {},
       ),
     },
     darkMode: {

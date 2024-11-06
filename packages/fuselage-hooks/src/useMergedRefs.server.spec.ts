@@ -66,6 +66,6 @@ it('works with refs and callback refs', () => {
 
   refs.forEach((ref) => expect(ref.current).toBe(value));
   callbackRefs.forEach((callbackRef) =>
-    expect(callbackRef).toHaveBeenCalledWith(value)
+    expect(callbackRef).toHaveBeenCalledWith(value),
   );
 });

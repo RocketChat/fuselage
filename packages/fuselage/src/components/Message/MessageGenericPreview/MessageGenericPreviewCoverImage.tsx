@@ -17,7 +17,7 @@ export const MessageGenericPreviewCoverImage = ({
   <div
     className={prependClassName(
       className,
-      'rcx-message-generic-preview__preview'
+      'rcx-message-generic-preview__preview',
     )}
     style={{ backgroundImage: `url(${url})`, maxWidth: '100%' }}
     data-testid='preview-image'

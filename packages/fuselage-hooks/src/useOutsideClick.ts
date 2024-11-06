@@ -12,15 +12,15 @@ import { useEffectEvent } from './useEffectEvent';
 
 export function useOutsideClick<T extends Element>(
   elements: RefObject<T>[],
-  cb: (e: MouseEvent) => void
+  cb: (e: MouseEvent) => void,
 ): void {
   const handleClickOutside = useEffectEvent(function handleClickOutside(
-    event: MouseEvent
+    event: MouseEvent,
   ): void {
     if (
       elements.every(
         (ref) =>
-          event && ref.current && !ref.current.contains(event.target as Node)
+          event && ref.current && !ref.current.contains(event.target as Node),
       )
     )
       return cb(event);

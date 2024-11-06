@@ -6,7 +6,7 @@ type Options = Partial<BuildOptionsBase & OutputFormatAmdCommonjsEs<'source'>>;
 
 function peggyLoader(
   this: LoaderContext<Options>,
-  grammarContent: string
+  grammarContent: string,
 ): string {
   const dependenciesKeyValue = this.resourceQuery
     ? [...new URLSearchParams(this.resourceQuery).entries()]

@@ -13,7 +13,7 @@ type MessageReactionProps = {
 
 export const MessageReaction = forwardRef(function Reaction(
   { name, counter, mine, children, className, ...props }: MessageReactionProps,
-  ref: Ref<HTMLDivElement>
+  ref: Ref<HTMLDivElement>,
 ) {
   return (
     <div

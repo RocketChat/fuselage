@@ -8,31 +8,31 @@ import { useStyle } from './useStyle';
 export const useArrayLikeClassNameProp = <
   T extends {
     className?: string | cssFn | (string | cssFn | Falsy)[];
-  }
+  },
 >(
-  props: T
+  props: T,
 ): T & { className: string } => {
   const classNames = props.className
     ? ([] as (string | cssFn | Falsy)[]).concat(props.className)
     : [];
 
   const cssFns = classNames.filter(
-    (value): value is cssFn => typeof value === 'function'
+    (value): value is cssFn => typeof value === 'function',
   );
   const stylesClassName = useStyle(
     css`
       ${cssFns}
     `,
-    props
+    props,
   );
 
   const strings = classNames.filter(
-    (value): value is string => typeof value === 'string'
+    (value): value is string => typeof value === 'string',
   );
 
   const className = strings.reduce(
     (className, string) => appendClassName(className, string),
-    stylesClassName || ''
+    stylesClassName || '',
   );
 
   return Object.assign(props, { className });

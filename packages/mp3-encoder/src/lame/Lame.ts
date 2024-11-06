@@ -83,13 +83,13 @@ export class Lame {
     if (gfp.VBR === VbrMode.vbr_off && gfp.compression_ratio > 0) {
       if (gfp.out_samplerate === 0) {
         gfp.out_samplerate = findNearestSampleRate(
-          Math.trunc(0.97 * gfp.in_samplerate)
+          Math.trunc(0.97 * gfp.in_samplerate),
         );
       }
 
       gfp.brate = Math.trunc(
         (gfp.out_samplerate * 16 * gfc.channels_out) /
-          (1e3 * gfp.compression_ratio)
+          (1e3 * gfp.compression_ratio),
       );
 
       Lame.smpFrqIndex(gfp);
@@ -97,7 +97,7 @@ export class Lame {
       gfp.brate = findNearestBitrate(
         gfp.brate,
         gfp.version,
-        gfp.out_samplerate
+        gfp.out_samplerate,
       );
     }
 
@@ -124,7 +124,7 @@ export class Lame {
         }
         case VbrMode.vbr_abr: {
           lowpass = this.p.abrPresets.getOptimumBandwidth(
-            gfp.VBR_mean_bitrate_kbps
+            gfp.VBR_mean_bitrate_kbps,
           );
           break;
         }
@@ -168,7 +168,7 @@ export class Lame {
       }
       gfp.out_samplerate = this.optimum_samplefreq(
         Math.trunc(gfp.lowpassfreq),
-        gfp.in_samplerate
+        gfp.in_samplerate,
       );
     }
 
@@ -254,12 +254,12 @@ export class Lame {
       gfp.brate = findNearestBitrate(
         gfp.brate,
         gfp.version,
-        gfp.out_samplerate
+        gfp.out_samplerate,
       );
       gfc.bitrate_index = findBitrateIndex(
         gfp.brate,
         gfp.version,
-        gfp.out_samplerate
+        gfp.out_samplerate,
       );
     } else {
       gfc.bitrate_index = 1;
@@ -399,35 +399,35 @@ export class Lame {
         gfp.VBR_min_bitrate_kbps = findNearestBitrate(
           gfp.VBR_min_bitrate_kbps,
           gfp.version,
-          gfp.out_samplerate
+          gfp.out_samplerate,
         );
         gfc.VBR_min_bitrate = findBitrateIndex(
           gfp.VBR_min_bitrate_kbps,
           gfp.version,
-          gfp.out_samplerate
+          gfp.out_samplerate,
         );
       }
       if (gfp.VBR_max_bitrate_kbps !== 0) {
         gfp.VBR_max_bitrate_kbps = findNearestBitrate(
           gfp.VBR_max_bitrate_kbps,
           gfp.version,
-          gfp.out_samplerate
+          gfp.out_samplerate,
         );
         gfc.VBR_max_bitrate = findBitrateIndex(
           gfp.VBR_max_bitrate_kbps,
           gfp.version,
-          gfp.out_samplerate
+          gfp.out_samplerate,
         );
       }
       gfp.VBR_min_bitrate_kbps = getBitrate(gfp.version, gfc.VBR_min_bitrate);
       gfp.VBR_max_bitrate_kbps = getBitrate(gfp.version, gfc.VBR_max_bitrate);
       gfp.VBR_mean_bitrate_kbps = Math.min(
         getBitrate(gfp.version, gfc.VBR_max_bitrate),
-        gfp.VBR_mean_bitrate_kbps
+        gfp.VBR_mean_bitrate_kbps,
       );
       gfp.VBR_mean_bitrate_kbps = Math.max(
         getBitrate(gfp.version, gfc.VBR_min_bitrate),
-        gfp.VBR_mean_bitrate_kbps
+        gfp.VBR_mean_bitrate_kbps,
       );
     }
 
@@ -518,7 +518,7 @@ export class Lame {
 
   private optimum_samplefreq(
     lowpassfreq: number,
-    input_samplefreq: number
+    input_samplefreq: number,
   ): SampleRate {
     let suggested_samplefreq: SampleRate = 44100;
 
@@ -634,7 +634,7 @@ export class Lame {
         gfc.highpass1 = 0;
         gfc.highpass2 = 0;
         console.warn(
-          'Warning: highpass filter disabled. highpass frequency too small'
+          'Warning: highpass filter disabled. highpass frequency too small',
         );
       }
     }
@@ -666,14 +666,14 @@ export class Lame {
       const freq = band / 31.0;
       if (gfc.highpass2 > gfc.highpass1) {
         fc1 = this.filterCoeficient(
-          (gfc.highpass2 - freq) / (gfc.highpass2 - gfc.highpass1 + 1e-20)
+          (gfc.highpass2 - freq) / (gfc.highpass2 - gfc.highpass1 + 1e-20),
         );
       } else {
         fc1 = 1.0;
       }
       if (gfc.lowpass2 > gfc.lowpass1) {
         fc2 = this.filterCoeficient(
-          (freq - gfc.lowpass1) / (gfc.lowpass2 - gfc.lowpass1 + 1e-20)
+          (freq - gfc.lowpass1) / (gfc.lowpass2 - gfc.lowpass1 + 1e-20),
         );
       } else {
         fc2 = 1.0;
@@ -799,7 +799,7 @@ export class Lame {
     gfp: LameGlobalFlags,
     mp3buffer: Uint8Array,
     mp3bufferPos: number,
-    mp3buffer_size: number
+    mp3buffer_size: number,
   ) {
     const gfc = gfp.internal_flags;
 
@@ -842,7 +842,7 @@ export class Lame {
         bunch,
         mp3buffer,
         mp3bufferPos,
-        mp3buffer_size_remaining
+        mp3buffer_size_remaining,
       );
 
       mp3bufferPos += imp3;
@@ -865,7 +865,7 @@ export class Lame {
       gfc,
       mp3buffer,
       mp3bufferPos,
-      mp3buffer_size_remaining
+      mp3buffer_size_remaining,
     );
     if (imp3 < 0) {
       return imp3;
@@ -883,7 +883,7 @@ export class Lame {
     nsamples: number,
     mp3buf: Uint8Array,
     mp3bufPos: number,
-    mp3buf_size: number
+    mp3buf_size: number,
   ) {
     const gfc = gfp.internal_flags;
 
@@ -917,7 +917,7 @@ export class Lame {
       nsamples,
       mp3buf,
       mp3bufPos,
-      mp3buf_size
+      mp3buf_size,
     );
   }
 
@@ -937,7 +937,7 @@ export class Lame {
     nsamples: number,
     mp3buf: Uint8Array,
     mp3bufPos: number,
-    mp3buf_size: number
+    mp3buf_size: number,
   ) {
     const gfc = gfp.internal_flags;
 
@@ -988,7 +988,7 @@ export class Lame {
         in_buffer_ptr,
         in_bufferPos,
         nsamples,
-        inOut
+        inOut,
       );
       const { n_in } = inOut;
       const { n_out } = inOut;
@@ -1002,7 +1002,7 @@ export class Lame {
             mfbuf[1],
             gfc.mf_size,
             n_out,
-            gfc.channels_out
+            gfc.channels_out,
           ) === GainAnalysis.GAIN_ANALYSIS_ERROR
         ) {
           return -6;
@@ -1029,7 +1029,7 @@ export class Lame {
           mfbuf[1],
           mp3buf,
           mp3bufPos,
-          buf_size
+          buf_size,
         );
 
         if (ret < 0) return ret;
@@ -1056,7 +1056,7 @@ export class Lame {
     inbuf_r: Float32Array,
     mp3buf: Uint8Array,
     mp3bufPos: number,
-    mp3buf_size: number
+    mp3buf_size: number,
   ) {
     const ret = this.enc.lame_encode_mp3_frame(
       gfp,
@@ -1064,7 +1064,7 @@ export class Lame {
       inbuf_r,
       mp3buf,
       mp3bufPos,
-      mp3buf_size
+      mp3buf_size,
     );
     gfp.frameNum++;
     return ret;
@@ -1079,7 +1079,7 @@ export class Lame {
     in_bufferPos: number,
     len: number,
     num_used: NumUsed,
-    ch: number
+    ch: number,
   ) {
     const gfc = gfp.internal_flags;
     let i;
@@ -1178,7 +1178,7 @@ export class Lame {
     in_buffer: Float32Array[],
     in_bufferPos: number,
     nsamples: number,
-    io: InOut
+    io: InOut,
   ) {
     const gfc = gfp.internal_flags;
 
@@ -1194,7 +1194,7 @@ export class Lame {
           in_bufferPos,
           nsamples,
           numUsed,
-          ch
+          ch,
         );
         io.n_in = numUsed.num_used;
       }
@@ -1217,7 +1217,7 @@ export class Lame {
       ],
       [0, 4, 8, 12, 18, 24, 32, 42, 56, 74, 100, 132, 174, 192],
       [0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0]
+      [0, 0, 0, 0, 0, 0, 0],
     ),
 
     new ScaleFac(
@@ -1227,7 +1227,7 @@ export class Lame {
       ],
       [0, 4, 8, 12, 18, 26, 36, 48, 62, 80, 104, 136, 180, 192],
       [0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0]
+      [0, 0, 0, 0, 0, 0, 0],
     ),
     new ScaleFac(
       [
@@ -1236,7 +1236,7 @@ export class Lame {
       ],
       [0, 4, 8, 12, 18, 26, 36, 48, 62, 80, 104, 134, 174, 192],
       [0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0]
+      [0, 0, 0, 0, 0, 0, 0],
     ),
     new ScaleFac(
       [
@@ -1245,7 +1245,7 @@ export class Lame {
       ],
       [0, 4, 8, 12, 16, 22, 30, 40, 52, 66, 84, 106, 136, 192],
       [0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0]
+      [0, 0, 0, 0, 0, 0, 0],
     ),
     new ScaleFac(
       [
@@ -1254,7 +1254,7 @@ export class Lame {
       ],
       [0, 4, 8, 12, 16, 22, 28, 38, 50, 64, 80, 100, 126, 192],
       [0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0]
+      [0, 0, 0, 0, 0, 0, 0],
     ),
     new ScaleFac(
       [
@@ -1263,7 +1263,7 @@ export class Lame {
       ],
       [0, 4, 8, 12, 16, 22, 30, 42, 58, 78, 104, 138, 180, 192],
       [0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0]
+      [0, 0, 0, 0, 0, 0, 0],
     ),
     new ScaleFac(
       [
@@ -1287,7 +1287,7 @@ export class Lame {
         576 / 3,
       ],
       [0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0]
+      [0, 0, 0, 0, 0, 0, 0],
     ),
     new ScaleFac(
       [
@@ -1311,7 +1311,7 @@ export class Lame {
         576 / 3,
       ],
       [0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0]
+      [0, 0, 0, 0, 0, 0, 0],
     ),
 
     new ScaleFac(
@@ -1336,7 +1336,7 @@ export class Lame {
         576 / 3,
       ],
       [0, 0, 0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 0, 0]
+      [0, 0, 0, 0, 0, 0, 0],
     ),
   ] as const;
 }

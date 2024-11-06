@@ -72,7 +72,7 @@ const RequestTrialForm = ({
                 required: true,
               })}
               placeholder={t(
-                'form.requestTrialForm.fields.emailAddress.placeholder'
+                'form.requestTrialForm.fields.emailAddress.placeholder',
               )}
               defaultValue={defaultValues?.email}
               error={errors?.email?.message || undefined}
@@ -88,7 +88,7 @@ const RequestTrialForm = ({
             <TextInput
               {...register('organizationName', { required: true })}
               placeholder={t(
-                'form.requestTrialForm.fields.organizationName.placeholder'
+                'form.requestTrialForm.fields.organizationName.placeholder',
               )}
               defaultValue={defaultValues?.organizationName}
             />
@@ -111,7 +111,7 @@ const RequestTrialForm = ({
                   {...field}
                   options={organizationSizeOptions}
                   placeholder={t(
-                    'form.requestTrialForm.fields.organizationSize.placeholder'
+                    'form.requestTrialForm.fields.organizationSize.placeholder',
                   )}
                   error={errors?.email?.message || undefined}
                 />
@@ -135,7 +135,7 @@ const RequestTrialForm = ({
                   options={countryOptions}
                   width='full'
                   placeholder={t(
-                    'form.requestTrialForm.fields.country.placeholder'
+                    'form.requestTrialForm.fields.country.placeholder',
                   )}
                 />
               )}

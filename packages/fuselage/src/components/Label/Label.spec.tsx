@@ -15,7 +15,7 @@ describe('[Label Component]', () => {
     async (_storyname, Story) => {
       const tree = render(<Story />);
       expect(tree.baseElement).toMatchSnapshot();
-    }
+    },
   );
 
   test.each(testCases)(
@@ -25,6 +25,6 @@ describe('[Label Component]', () => {
 
       const results = await axe(container);
       expect(results).toHaveNoViolations();
-    }
+    },
   );
 });

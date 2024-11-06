@@ -47,7 +47,7 @@ type SliderProps<T extends number | number[]> = AriaAttributes & {
   );
 
 export function Slider<T extends number | [min: number, max: number]>(
-  props: SliderProps<T>
+  props: SliderProps<T>,
 ): ReactElement {
   const {
     label,
@@ -94,16 +94,16 @@ export function Slider<T extends number | [min: number, max: number]>(
   const { groupProps, trackProps, labelProps, outputProps } = useSlider(
     sliderProps,
     sliderState,
-    trackRef
+    trackRef,
   );
 
   const isHorizontal = useMemo(
     () => sliderState.orientation === 'horizontal',
-    [sliderState.orientation]
+    [sliderState.orientation],
   );
   const isVertical = useMemo(
     () => sliderState.orientation === 'vertical',
-    [sliderState.orientation]
+    [sliderState.orientation],
   );
 
   const slider = useStyle(
@@ -120,7 +120,7 @@ export function Slider<T extends number | [min: number, max: number]>(
         height: 100%;
       `}
     `,
-    sliderState
+    sliderState,
   );
 
   return (

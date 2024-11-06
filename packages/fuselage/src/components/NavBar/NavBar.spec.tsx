@@ -18,7 +18,7 @@ describe('[NavBar Component]', () => {
         wrapper: ({ children }) => <SSRProvider>{children}</SSRProvider>,
       });
       expect(tree.baseElement).toMatchSnapshot();
-    }
+    },
   );
 
   test.each(testCases)(
@@ -28,6 +28,6 @@ describe('[NavBar Component]', () => {
 
       const results = await axe(container);
       expect(results).toHaveNoViolations();
-    }
+    },
   );
 });

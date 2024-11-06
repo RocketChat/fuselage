@@ -27,7 +27,7 @@ const ActionLink = ({
         onClick(event);
       }
     },
-    [onClick]
+    [onClick],
   );
 
   return (

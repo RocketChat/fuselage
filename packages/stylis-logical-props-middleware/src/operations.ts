@@ -5,7 +5,7 @@ export type Operation = (
   value: Declaration['children'],
   ruleSet: Readonly<RuleSet>,
   ltrRuleSet: Readonly<RuleSet>,
-  rtlRuleSet: Readonly<RuleSet>
+  rtlRuleSet: Readonly<RuleSet>,
 ) => void;
 
 export const compileOperations = ({
@@ -22,7 +22,7 @@ export const compileOperations = ({
       ['start', 'inline-start', 'end', 'inline-end'].map((logicalValue) => [
         logicalValue,
         isPropertyValueSupported(property, logicalValue),
-      ])
+      ]),
     );
 
     if (Array.from(logicalValues.values()).every((supported) => supported)) {
@@ -59,7 +59,7 @@ export const compileOperations = ({
   const withDirectionalFallback = (
     property: string,
     ltrFallbackProperty: string,
-    rtlFallbackProperty: string
+    rtlFallbackProperty: string,
   ): void => {
     if (isPropertySupported(property)) {
       return;
@@ -104,22 +104,22 @@ export const compileOperations = ({
   withDirectionalFallback(
     'border-start-start-radius',
     'border-top-left-radius',
-    'border-top-right-radius'
+    'border-top-right-radius',
   );
   withDirectionalFallback(
     'border-start-end-radius',
     'border-top-right-radius',
-    'border-top-left-radius'
+    'border-top-left-radius',
   );
   withDirectionalFallback(
     'border-end-start-radius',
     'border-bottom-left-radius',
-    'border-bottom-right-radius'
+    'border-bottom-right-radius',
   );
   withDirectionalFallback(
     'border-end-end-radius',
     'border-bottom-right-radius',
-    'border-bottom-left-radius'
+    'border-bottom-left-radius',
   );
   withDirectionalFallback('inset-inline-start', 'left', 'right');
   withDirectionalFallback('inset-inline-end', 'right', 'left');
@@ -128,62 +128,62 @@ export const compileOperations = ({
   withDirectionalFallback(
     'border-inline-start-width',
     'border-left-width',
-    'border-right-width'
+    'border-right-width',
   );
   withDirectionalFallback(
     'border-inline-end-width',
     'border-right-width',
-    'border-left-width'
+    'border-left-width',
   );
 
   withDirectionalFallback(
     'border-inline-start-style',
     'border-left-style',
-    'border-right-style'
+    'border-right-style',
   );
   withDirectionalFallback(
     'border-inline-end-style',
     'border-right-style',
-    'border-left-style'
+    'border-left-style',
   );
   withDirectionalFallback(
     'border-inline-start-color',
     'border-left-color',
-    'border-right-color'
+    'border-right-color',
   );
   withDirectionalFallback(
     'border-inline-end-color',
     'border-right-color',
-    'border-left-color'
+    'border-left-color',
   );
   withDirectionalFallback('margin-inline-start', 'margin-left', 'margin-right');
   withDirectionalFallback('margin-inline-end', 'margin-right', 'margin-left');
   withDirectionalFallback(
     'padding-inline-start',
     'padding-left',
-    'padding-right'
+    'padding-right',
   );
   withDirectionalFallback(
     'padding-inline-end',
     'padding-right',
-    'padding-left'
+    'padding-left',
   );
 
   withFallback('border-inline', 'border-inline-start', 'border-inline-end');
   withFallback(
     'border-inline-width',
     'border-inline-start-width',
-    'border-inline-end-width'
+    'border-inline-end-width',
   );
   withFallback(
     'border-inline-style',
     'border-inline-start-style',
-    'border-inline-end-style'
+    'border-inline-end-style',
   );
   withFallback(
     'border-inline-color',
     'border-inline-start-color',
-    'border-inline-end-color'
+    'border-inline-end-color',
   );
   withFallback('inset-inline', 'inset-inline-start', 'inset-inline-end');
   withFallback('margin-inline', 'margin-inline-start', 'margin-inline-end');
@@ -208,17 +208,17 @@ export const compileOperations = ({
   withFallback(
     'border-block-width',
     'border-block-start-width',
-    'border-block-end-width'
+    'border-block-end-width',
   );
   withFallback(
     'border-block-style',
     'border-block-start-style',
-    'border-block-end-style'
+    'border-block-end-style',
   );
   withFallback(
     'border-block-color',
     'border-block-start-color',
-    'border-block-end-color'
+    'border-block-end-color',
   );
   withFallback('inset-block', 'inset-block-start', 'inset-block-end');
   withFallback('margin-block', 'margin-block-start', 'margin-block-end');

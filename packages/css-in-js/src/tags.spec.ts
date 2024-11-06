@@ -15,7 +15,7 @@ describe('tags', () => {
       expect(
         css`
           color: red;
-        `()
+        `(),
       ).toBe('color: red;');
     });
 
@@ -23,12 +23,12 @@ describe('tags', () => {
       expect(
         css`
           border: ${0};
-        `()
+        `(),
       ).toBe('border: 0;');
       expect(
         css`
           color: ${'red'};
-        `()
+        `(),
       ).toBe('color: red;');
     });
 
@@ -36,7 +36,7 @@ describe('tags', () => {
       expect(
         css`
           border: ${['1', 'px']};
-        `()
+        `(),
       ).toBe('border: 1px;');
     });
 
@@ -44,7 +44,7 @@ describe('tags', () => {
       expect(
         css`
           color: ${false} ${undefined} ${null};
-        `()
+        `(),
       ).toBe('color:   ;');
     });
 
@@ -52,7 +52,7 @@ describe('tags', () => {
       expect(
         css`
           color: ${(): string => 'red'};
-        `()
+        `(),
       ).toBe('color: red;');
     });
 
@@ -60,7 +60,7 @@ describe('tags', () => {
       expect(
         css`
           color: ${(colorValue: string): string => colorValue};
-        `('red')
+        `('red'),
       ).toBe('color: red;');
     });
 
@@ -68,7 +68,7 @@ describe('tags', () => {
       expect(
         css`
           color: ${css`red`};
-        `()
+        `(),
       ).toBe('color: red;');
     });
 
@@ -83,11 +83,11 @@ describe('tags', () => {
           opacity: 1;
         }
       `};
-        `()
+        `(),
       ).toEqual(
         expect.stringMatching(
-          /^animation-name: rcx-css-([0-9a-z]+);@keyframes rcx-css-\1{/
-        )
+          /^animation-name: rcx-css-([0-9a-z]+);@keyframes rcx-css-\1{/,
+        ),
       );
     });
 
@@ -117,7 +117,7 @@ describe('tags', () => {
       const escapedAnimationName = keyframes` from { opacity: 0; } `();
 
       expect(freeContext()).toBe(
-        `@keyframes ${escapedAnimationName}{from { opacity: 0; }}`
+        `@keyframes ${escapedAnimationName}{from { opacity: 0; }}`,
       );
     });
 
@@ -127,7 +127,7 @@ describe('tags', () => {
       const escapedAnimationName = keyframes`from { opacity: ${0}; }`();
 
       expect(freeContext()).toBe(
-        `@keyframes ${escapedAnimationName}{from { opacity: 0; }}`
+        `@keyframes ${escapedAnimationName}{from { opacity: 0; }}`,
       );
     });
 
@@ -138,7 +138,7 @@ describe('tags', () => {
         keyframes`from { opacity: ${false} ${undefined} ${null}; }`();
 
       expect(freeContext()).toBe(
-        `@keyframes ${escapedAnimationName}{from { opacity:   ; }}`
+        `@keyframes ${escapedAnimationName}{from { opacity:   ; }}`,
       );
     });
 
@@ -148,7 +148,7 @@ describe('tags', () => {
       const escapedAnimationName = keyframes`from { opacity: ${() => 0}; }`();
 
       expect(freeContext()).toBe(
-        `@keyframes ${escapedAnimationName}{from { opacity: 0; }}`
+        `@keyframes ${escapedAnimationName}{from { opacity: 0; }}`,
       );
     });
 
@@ -156,11 +156,11 @@ describe('tags', () => {
       const [, freeContext] = holdContext();
 
       const escapedAnimationName = keyframes`from { opacity: ${(
-        opacityValue: number
+        opacityValue: number,
       ) => opacityValue}; }`(0.5);
 
       expect(freeContext()).toBe(
-        `@keyframes ${escapedAnimationName}{from { opacity: 0.5; }}`
+        `@keyframes ${escapedAnimationName}{from { opacity: 0.5; }}`,
       );
     });
 
@@ -172,7 +172,7 @@ describe('tags', () => {
       `} }`();
 
       expect(freeContext()).toBe(
-        `@keyframes ${escapedAnimationName}{from { opacity: 0; }}`
+        `@keyframes ${escapedAnimationName}{from { opacity: 0; }}`,
       );
     });
 

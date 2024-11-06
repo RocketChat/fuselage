@@ -11,10 +11,10 @@ import { useEffect, useRef } from 'react';
  * @deprecated in favor of focus provided by react-hook-form
  */
 export const useAutoFocus = <
-  T extends { focus: (options?: FocusOptions) => void }
+  T extends { focus: (options?: FocusOptions) => void },
 >(
   isFocused = true,
-  options?: FocusOptions
+  options?: FocusOptions,
 ): Ref<T> => {
   const elementRef = useRef<T>(null);
 

@@ -16,7 +16,7 @@ describe('[Banner Component]', () => {
     expect(
       screen.getByRole('link', {
         name: /more info/i,
-      })
+      }),
     ).toBeInTheDocument();
   });
 });

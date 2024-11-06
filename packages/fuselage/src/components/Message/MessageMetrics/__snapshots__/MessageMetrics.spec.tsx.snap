@@ -68,7 +68,7 @@ exports[`[MessageMetrics Rendering] renders Default without crashing 1`] = `
                 class="rcx-box rcx-box--full rcx-message-header__roles"
               >
                 <span
-                  class="rcx-box rcx-box--full  rcx-tag  rcx-box rcx-box--full rcx-message-header__role"
+                  class="rcx-box rcx-box--full rcx-tag  rcx-box rcx-box--full rcx-message-header__role"
                 >
                   <span
                     class="rcx-tag__inner"
@@ -77,7 +77,7 @@ exports[`[MessageMetrics Rendering] renders Default without crashing 1`] = `
                   </span>
                 </span>
                 <span
-                  class="rcx-box rcx-box--full  rcx-tag  rcx-box rcx-box--full rcx-message-header__role"
+                  class="rcx-box rcx-box--full rcx-tag  rcx-box rcx-box--full rcx-message-header__role"
                 >
                   <span
                     class="rcx-tag__inner"
@@ -86,7 +86,7 @@ exports[`[MessageMetrics Rendering] renders Default without crashing 1`] = `
                   </span>
                 </span>
                 <span
-                  class="rcx-box rcx-box--full  rcx-tag  rcx-box rcx-box--full rcx-message-header__role"
+                  class="rcx-box rcx-box--full rcx-tag  rcx-box rcx-box--full rcx-message-header__role"
                 >
                   <span
                     class="rcx-tag__inner"
@@ -240,7 +240,7 @@ exports[`[MessageMetrics Rendering] renders ThreadMetrics without crashing 1`] =
                 class="rcx-box rcx-box--full rcx-message-header__roles"
               >
                 <span
-                  class="rcx-box rcx-box--full  rcx-tag  rcx-box rcx-box--full rcx-message-header__role"
+                  class="rcx-box rcx-box--full rcx-tag  rcx-box rcx-box--full rcx-message-header__role"
                 >
                   <span
                     class="rcx-tag__inner"
@@ -249,7 +249,7 @@ exports[`[MessageMetrics Rendering] renders ThreadMetrics without crashing 1`] =
                   </span>
                 </span>
                 <span
-                  class="rcx-box rcx-box--full  rcx-tag  rcx-box rcx-box--full rcx-message-header__role"
+                  class="rcx-box rcx-box--full rcx-tag  rcx-box rcx-box--full rcx-message-header__role"
                 >
                   <span
                     class="rcx-tag__inner"
@@ -258,7 +258,7 @@ exports[`[MessageMetrics Rendering] renders ThreadMetrics without crashing 1`] =
                   </span>
                 </span>
                 <span
-                  class="rcx-box rcx-box--full  rcx-tag  rcx-box rcx-box--full rcx-message-header__role"
+                  class="rcx-box rcx-box--full rcx-tag  rcx-box rcx-box--full rcx-message-header__role"
                 >
                   <span
                     class="rcx-tag__inner"

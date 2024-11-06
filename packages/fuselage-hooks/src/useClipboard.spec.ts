@@ -46,7 +46,7 @@ it('reverts hasCopied to false', async () => {
   const delay = 2 * halfDelay;
 
   const { result } = renderHook(() =>
-    useClipboard('Lorem Ipsum', { clearTime: delay })
+    useClipboard('Lorem Ipsum', { clearTime: delay }),
   );
 
   await act(async () => {
@@ -77,7 +77,7 @@ it('runs only success function receiving event object', async () => {
     useClipboard('Lorem Ipsum', {
       onCopySuccess,
       onCopyError,
-    })
+    }),
   );
 
   const event = new MouseEvent('click');
@@ -102,7 +102,7 @@ it('runs only error function receiving error object', async () => {
     useClipboard('Lorem Ipsum', {
       onCopySuccess,
       onCopyError,
-    })
+    }),
   );
 
   const event = new MouseEvent('click');

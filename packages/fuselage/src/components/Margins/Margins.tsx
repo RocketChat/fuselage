@@ -68,7 +68,7 @@ export const Margins = (props: MarginsProps) => {
 
       return props;
     },
-    [all, block, blockEnd, blockStart, inline, inlineEnd, inlineStart]
+    [all, block, blockEnd, blockStart, inline, inlineEnd, inlineStart],
   );
 
   const marginsClassName = useStyle(
@@ -104,7 +104,7 @@ export const Margins = (props: MarginsProps) => {
         `}
       }
     `,
-    props
+    props,
   ) as string;
 
   const patchedChildren = patchChildren(
@@ -115,9 +115,9 @@ export const Margins = (props: MarginsProps) => {
     }) => ({
       className: appendClassName(
         childProps.className,
-        appendClassName(className, marginsClassName)
+        appendClassName(className, marginsClassName),
       ),
-    })
+    }),
   );
 
   return (

@@ -28,7 +28,7 @@ function init(config: Config): void {
   encoder = new Mp3Encoder(
     config.numChannels || 1,
     config.sampleRate || 44100,
-    config.bitRate || 32
+    config.bitRate || 32,
   );
   dataBuffer = [];
 }

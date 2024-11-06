@@ -22,10 +22,10 @@ const BackgroundLayer = ({ children }: BackgroundLayerProps): ReactElement => {
       (darkMode ? backgroundDark : background) ||
       `data:image/svg+xml,${encodeURIComponent(
         renderToStaticMarkup(
-          <BackgroundImage backgroundColor={backgroundColor} />
-        )
+          <BackgroundImage backgroundColor={backgroundColor} />,
+        ),
       )}`,
-    [backgroundColor]
+    [backgroundColor],
   );
 
   return (

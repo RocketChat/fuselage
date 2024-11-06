@@ -8,7 +8,7 @@ import {
 import { Box, Skeleton } from '..';
 
 const ContextualbarSkeleton = (
-  props: ComponentProps<typeof Box>
+  props: ComponentProps<typeof Box>,
 ): ReactElement => (
   <Contextualbar {...props}>
     <ContextualbarHeader>

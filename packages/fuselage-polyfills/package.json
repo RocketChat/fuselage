@@ -36,6 +36,6 @@
     "@rocket.chat/prettier-config": "workspace:~",
     "eslint": "~8.45.0",
     "lint-all": "workspace:~",
-    "prettier": "~2.8.7"
+    "prettier": "~3.3.3"
   }
 }

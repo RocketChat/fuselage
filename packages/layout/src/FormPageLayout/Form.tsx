@@ -21,7 +21,7 @@ const Form = forwardRef<
       textAlign='left'
       {...props}
     />
-  )
+  ),
 );
 
 export default Form;

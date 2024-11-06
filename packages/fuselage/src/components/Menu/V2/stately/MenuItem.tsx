@@ -9,7 +9,7 @@ function MenuItem<T>(_props: ItemProps<T>) {
 
 MenuItem.getCollectionNode = function* getCollectionNode<T>(
   props: ItemProps<T>,
-  context: any
+  context: any,
 ): Generator<PartialNode<T>> {
   const { childItems, title, children } = props;
 
@@ -22,7 +22,7 @@ MenuItem.getCollectionNode = function* getCollectionNode<T>(
 
   if (!textValue && !context?.suppressTextValueWarning) {
     console.warn(
-      '<Item> with non-plain text contents is unsupported by type to select for accessibility. Please add a `textValue` prop.'
+      '<Item> with non-plain text contents is unsupported by type to select for accessibility. Please add a `textValue` prop.',
     );
   }
 

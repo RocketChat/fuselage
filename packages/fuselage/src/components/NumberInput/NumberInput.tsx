@@ -10,7 +10,7 @@ type NumberInputProps = Omit<ComponentProps<typeof InputBox>, 'type'>;
  */
 export const NumberInput = forwardRef(function NumberInput(
   props: NumberInputProps,
-  ref: Ref<HTMLInputElement>
+  ref: Ref<HTMLInputElement>,
 ) {
   return <InputBox type='number' ref={ref} {...props} />;
 });

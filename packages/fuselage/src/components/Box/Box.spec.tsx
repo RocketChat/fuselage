@@ -24,7 +24,7 @@ describe('[Box Component]', () => {
           className={css`
             width: 10em;
           `}
-        />
+        />,
       );
 
       expect(container.firstElementChild).toHaveProperty('tagName', 'DIV');
@@ -51,7 +51,7 @@ describe('[Box Component]', () => {
               width: 10em;
             `,
           ]}
-        />
+        />,
       );
 
       expect(container.firstElementChild).toHaveProperty('tagName', 'DIV');
@@ -65,7 +65,7 @@ describe('[Box Component]', () => {
 
     it('attaches rcx-* props into className', () => {
       const { container } = render(
-        <Box rcx-test-a rcx-test-b={false} rcx-test-c={true} rcx-test='d' />
+        <Box rcx-test-a rcx-test-b={false} rcx-test-c={true} rcx-test='d' />,
       );
 
       expect(container.firstElementChild).toHaveProperty('tagName', 'DIV');
@@ -84,7 +84,7 @@ describe('[Box Component]', () => {
           rcx-test-b={false}
           rcx-test-c={true}
           rcx-test='d'
-        />
+        />,
       );
 
       expect(container.firstElementChild).toHaveProperty('tagName', 'DIV');
@@ -108,7 +108,7 @@ describe('[Box Component]', () => {
           rcx-test-b={false}
           rcx-test-c={true}
           rcx-test='d'
-        />
+        />,
       );
 
       expect(container.firstElementChild).toHaveProperty('tagName', 'DIV');
@@ -139,7 +139,7 @@ describe('[Box Component]', () => {
 
       expect(container.firstElementChild?.firstElementChild).toHaveProperty(
         'tagName',
-        'path' // tagName is lowercase for SVG elements
+        'path', // tagName is lowercase for SVG elements
       );
     });
   });

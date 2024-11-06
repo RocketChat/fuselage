@@ -29,7 +29,7 @@ const Link = ({
         onClick(event);
       }
     },
-    [onClick]
+    [onClick],
   );
 
   const isDarkMode = useDarkMode();

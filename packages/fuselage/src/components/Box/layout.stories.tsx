@@ -57,7 +57,7 @@ Borders.decorators = [
           size: 'x32',
           m: 'x16',
           borderColor: 'stroke-dark',
-        })
+        }),
       )}
     </Box>
   ),
@@ -80,7 +80,7 @@ BorderRadii.decorators = [
           bg: 'dark',
           size: 'x32',
           m: 'x16',
-        })
+        }),
       )}
     </Box>
   ),
@@ -106,7 +106,7 @@ Display.decorators = [
           borderColor: 'stroke-light',
           m: 'x4',
           p: 'x4',
-        })
+        }),
       )}
     </Box>
   ),
@@ -129,7 +129,7 @@ Elevation.decorators = [
           bg: 'light',
           size: 'x32',
           m: 'x16',
-        })
+        }),
       )}
     </Box>
   ),
@@ -147,7 +147,7 @@ Heights.decorators = [
   (fn: any) => (
     <Box display='flex' flexWrap='wrap' alignItems='center'>
       {flattenChildren(fn().props.children).map((child: any) =>
-        cloneElement(child, { bg: 'neutral', w: 'x32', m: 'x4' })
+        cloneElement(child, { bg: 'neutral', w: 'x32', m: 'x4' }),
       )}
     </Box>
   ),
@@ -221,7 +221,7 @@ Margins.decorators = [
           {cloneElement(
             child,
             { bg: 'primary-200' },
-            <Box bg='neutral-500' size='x16' />
+            <Box bg='neutral-500' size='x16' />,
           )}
         </Box>
       ))}
@@ -268,7 +268,7 @@ Paddings.decorators = [
           {cloneElement(
             child,
             { bg: 'primary-200' },
-            <Box bg='neutral-500' size='x16' />
+            <Box bg='neutral-500' size='x16' />,
           )}
         </Box>
       ))}
@@ -292,7 +292,7 @@ Position.decorators = [
           bg: 'neutral',
           size: 'x32',
           m: 'x16',
-        })
+        }),
       )}
     </Box>
   ),
@@ -310,7 +310,7 @@ Widths.decorators = [
   (fn: any) => (
     <Box display='flex' flexWrap='wrap' alignItems='center'>
       {flattenChildren(fn().props.children).map((child: any) =>
-        cloneElement(child, { bg: 'neutral', h: 'x32', m: 'x4' })
+        cloneElement(child, { bg: 'neutral', h: 'x32', m: 'x4' }),
       )}
     </Box>
   ),
@@ -327,7 +327,7 @@ Sizes.decorators = [
   (fn: any) => (
     <Box display='flex' flexWrap='wrap' alignItems='center'>
       {flattenChildren(fn().props.children).map((child: any) =>
-        cloneElement(child, { bg: 'neutral', m: 'x4' })
+        cloneElement(child, { bg: 'neutral', m: 'x4' }),
       )}
     </Box>
   ),
@@ -370,7 +370,7 @@ VerticalAlign.decorators = [
           borderRadius: 'x4',
           m: 'x4',
           p: 'x4',
-        })
+        }),
       )}
     </Box>
   ),
@@ -393,7 +393,7 @@ ZIndex.decorators = [
           borderWidth: 'x4',
           size: 'x32',
           m: 'neg-x2',
-        })
+        }),
       )}
     </Box>
   ),

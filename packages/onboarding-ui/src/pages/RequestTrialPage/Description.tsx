@@ -15,9 +15,9 @@ const Description = (): ReactElement => {
   const icon = useMemo(
     () =>
       encodeURIComponent(
-        renderToStaticMarkup(<PlanFeatureIcon color={color} />)
+        renderToStaticMarkup(<PlanFeatureIcon color={color} />),
       ),
-    [color]
+    [color],
   );
 
   return (

@@ -10,7 +10,7 @@ type CheckBoxProps = ComponentProps<typeof Box> & {
 
 export const CheckBox = forwardRef(function CheckBox(
   { indeterminate, onChange, className, ...props }: CheckBoxProps,
-  ref: Ref<HTMLInputElement>
+  ref: Ref<HTMLInputElement>,
 ) {
   const innerRef = useRef<HTMLInputElement>(null);
   const mergedRef = useMergedRefs(ref, innerRef);
@@ -28,7 +28,7 @@ export const CheckBox = forwardRef(function CheckBox(
       }
       onChange?.call(innerRef.current, event);
     },
-    [innerRef, indeterminate, onChange]
+    [innerRef, indeterminate, onChange],
   );
 
   return (

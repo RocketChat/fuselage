@@ -21,10 +21,10 @@ export const useBreakpoints = (unit: 'px' | 'em' = 'em'): string[] => {
                 unit === 'px'
                   ? `${breakpoint.minViewportWidth}px`
                   : `${breakpoint.minViewportWidth! / 16}em`
-              })`
+              })`,
           ),
-      [unit]
-    )
+      [unit],
+    ),
   );
 
   return useMemo(
@@ -37,8 +37,8 @@ export const useBreakpoints = (unit: 'px' | 'em' = 'em'): string[] => {
 
           return names;
         },
-        [breakpointsDefinitions[0].name]
+        [breakpointsDefinitions[0].name],
       ),
-    [matches]
+    [matches],
   );
 };
