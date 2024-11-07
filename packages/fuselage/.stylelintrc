@@ -1,13 +1,7 @@
 {
-  "plugins": [
-    "stylelint-order",
-    "stylelint-scss",
-    "stylelint-prettier"
-  ],
+  "plugins": ["stylelint-order", "stylelint-scss", "stylelint-prettier"],
   "customSyntax": "postcss-scss",
-  "ignoreFiles": [
-    "src/**/*.js"
-  ],
+  "ignoreFiles": ["src/**/*.js"],
   "rules": {
     "prettier/prettier": true,
     "block-no-empty": true,
@@ -17,9 +11,7 @@
     "declaration-block-no-duplicate-properties": [
       true,
       {
-        "ignore": [
-          "consecutive-duplicates-with-different-values"
-        ]
+        "ignore": ["consecutive-duplicates-with-different-values"]
       }
     ],
     "declaration-block-no-redundant-longhand-properties": true,
@@ -37,12 +29,8 @@
     "rule-empty-line-before": [
       "always",
       {
-        "except": [
-          "first-nested"
-        ],
-        "ignore": [
-          "after-comment"
-        ]
+        "except": ["first-nested"],
+        "ignore": ["after-comment"]
       }
     ],
     "scss/at-mixin-pattern": "^-?([a-z][a-z0-9]+-)*[a-z][a-z0-9]+$",
@@ -51,9 +39,7 @@
     "selector-pseudo-class-no-unknown": [
       true,
       {
-        "ignorePseudoClasses": [
-          "global"
-        ]
+        "ignorePseudoClasses": ["global"]
       }
     ],
     "selector-pseudo-element-colon-notation": "double",

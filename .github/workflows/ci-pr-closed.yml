@@ -7,7 +7,7 @@ on:
 
 jobs:
   delete-storybook-for-pr:
-    name: "Delete Storybook for PR #${{ github.event.number }}"
+    name: 'Delete Storybook for PR #${{ github.event.number }}'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -18,7 +18,7 @@ jobs:
         with:
           target_branch: gh-pages
           build_dir: .
-          commit_message: "Deploy to Github Pages [skip ci]"
+          commit_message: 'Deploy to Github Pages [skip ci]'
           jekyll: false
         env:
           GITHUB_TOKEN: ${{ github.token }}
