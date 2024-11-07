@@ -88,7 +88,7 @@ export const toScssVariables = async (data) => {
   const code = Object.entries(data)
     .map(
       ([varName, value]) =>
-        `\$${toScssIdentifier(varName)}:${toScssValue(value)};`
+        `\$${toScssIdentifier(varName)}:${toScssValue(value)};`,
     )
     .join('');
 

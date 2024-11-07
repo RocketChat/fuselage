@@ -2,7 +2,7 @@ name: Continuous Integration (PR opened)
 
 on:
   workflow_run:
-    workflows: ["Continuous Integration"]
+    workflows: ['Continuous Integration']
     types:
       - completed
 
@@ -51,7 +51,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: "https://rocketchat.github.io/fuselage/fuselage/${{ needs.download-artifact.outputs.pr-number }}"
+      url: 'https://rocketchat.github.io/fuselage/fuselage/${{ needs.download-artifact.outputs.pr-number }}'
     steps:
       - uses: actions/checkout@v2
         with:
@@ -70,7 +70,7 @@ jobs:
         with:
           target_branch: gh-pages
           build_dir: .
-          commit_message: "Deploy to Github Pages [skip ci]"
+          commit_message: 'Deploy to Github Pages [skip ci]'
           jekyll: false
         env:
           GITHUB_TOKEN: ${{ github.token }}

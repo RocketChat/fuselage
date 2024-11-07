@@ -27,7 +27,7 @@ export const header = (pkg) =>
       pkg.peerDependencies?.react && npmPeerDepVersionBadge(pkg, 'react'),
       pkg.devDependencies?.['@storybook/react'] && storybookBadge(pkg),
       npmDownloadsBadge(pkg),
-      licenseBadge(pkg)
+      licenseBadge(pkg),
     )}
 
     ${badges(depsBadge(pkg), bundleSizeBadge(pkg))}

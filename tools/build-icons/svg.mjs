@@ -37,7 +37,7 @@ export const createSvgIcons = (icons) =>
       });
 
       return { name, type, viewBox, elements, xml };
-    })
+    }),
   );
 
 export const createSvgSprite = async (svgIcons) =>
@@ -54,7 +54,7 @@ export const createSvgSprite = async (svgIcons) =>
           },
           ...elements,
         },
-      })
+      }),
     ),
     '</svg>',
   ].join('\n');
