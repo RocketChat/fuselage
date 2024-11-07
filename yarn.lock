@@ -4047,6 +4047,7 @@ __metadata:
     husky: "npm:~9.1.6"
     hygen: "npm:~6.2.11"
     pinst: "npm:~3.0.0"
+    prettier: "npm:~3.3.3"
     turbo: "npm:~2.2.3"
     update-readme: "workspace:~"
   languageName: unknown

@@ -19,10 +19,10 @@ export const buildSvgImages = (icons) =>
   createSvgIcons(icons).then((svgIcons) =>
     Promise.all([
       ...svgIcons.map(({ name, xml }) =>
-        writeSource(`./dist/svg/${name}.svg`)(xml)
+        writeSource(`./dist/svg/${name}.svg`)(xml),
       ),
       createSvgSprite(svgIcons).then(writeSource('./dist/icons.svg')),
-    ])
+    ]),
   );
 
 export const buildCss = () =>
@@ -42,7 +42,7 @@ export const buildCss = () =>
           url('./font/rocketchat.ttf') format('truetype'),
           url('./font/rocketchat.svg#RocketChat') format('svg');
       }
-    `
+    `,
   )
     .then(runStylelint('rocketchat.css'))
     .then(writeSource('dist/rocketchat.css'));
@@ -52,7 +52,7 @@ const fromIconDescriptorsToCharacters = (icons) =>
     .then((glyphsMapping) =>
       icons
         .filter(({ name }) => !!glyphsMapping[name])
-        .map(({ name }) => [name, glyphsMapping[name].start])
+        .map(({ name }) => [name, glyphsMapping[name].start]),
     )
     .then(Object.fromEntries);
 
@@ -80,15 +80,15 @@ export const buildFont = (icons) =>
     .then((ttfBuffer) =>
       Promise.all([
         createWoffBuffer(ttfBuffer).then(
-          writeBinary('./dist/font/rocketchat.woff')
+          writeBinary('./dist/font/rocketchat.woff'),
         ),
         createWoff2Buffer(ttfBuffer).then(
-          writeBinary('./dist/font/rocketchat.woff2')
+          writeBinary('./dist/font/rocketchat.woff2'),
         ),
         createEotBuffer(ttfBuffer).then(
-          writeBinary('./dist/font/rocketchat.eot')
+          writeBinary('./dist/font/rocketchat.eot'),
         ),
-      ])
+      ]),
     );
 
 export const buildDefinition = (icons) => {
@@ -97,7 +97,7 @@ export const buildDefinition = (icons) => {
     .then(
       (characters) => `declare const Icons: ${encodeJson(characters)};
 export default Icons;
-export type Keys = keyof typeof Icons;`
+export type Keys = keyof typeof Icons;`,
     )
     // .then(runEslint('index.d.ts'))
     .then(writeSource('dist/index.d.ts'))

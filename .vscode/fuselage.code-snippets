@@ -10,7 +10,7 @@
       "",
       "it('renders without crashing', () => {",
       "  render(<$1 />);",
-      "});"
-    ]
-  }
+      "});",
+    ],
+  },
 }
