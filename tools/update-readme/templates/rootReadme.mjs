@@ -25,7 +25,7 @@ export const rootReadme = (pkgs) => outdent`
           pkg.description ?? '',
           npmVersionBadge(pkg),
           depsBadge(pkg),
-        ].join(' | ')} |`
+        ].join(' | ')} |`,
     )
     .join('\n')}
 

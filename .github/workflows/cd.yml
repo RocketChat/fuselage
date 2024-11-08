@@ -20,8 +20,8 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: "22.2.0"
-          cache: "yarn"
+          node-version: '22.2.0'
+          cache: 'yarn'
       - uses: actions/cache@v3
         id: yarn-cache
         with:
@@ -66,10 +66,10 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-node@v3
         with:
-          node-version: "22.2.0"
-          registry-url: "https://registry.npmjs.org"
-          scope: "@rocket.chat"
-          cache: "yarn"
+          node-version: '22.2.0'
+          registry-url: 'https://registry.npmjs.org'
+          scope: '@rocket.chat'
+          cache: 'yarn'
       - uses: actions/cache@v3
         id: yarn-cache
         with:
@@ -111,7 +111,7 @@ jobs:
       - build-and-test
     environment:
       name: github-pages
-      url: "https://rocketchat.github.io/fuselage/fuselage/${{ needs.build-and-test.outputs.branch-name }}"
+      url: 'https://rocketchat.github.io/fuselage/fuselage/${{ needs.build-and-test.outputs.branch-name }}'
     steps:
       - uses: actions/checkout@v4
         with:
@@ -135,7 +135,7 @@ jobs:
         with:
           target_branch: gh-pages
           build_dir: .
-          commit_message: "Deploy to Github Pages [skip ci]"
+          commit_message: 'Deploy to Github Pages [skip ci]'
           jekyll: false
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}

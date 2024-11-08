@@ -42,7 +42,7 @@ export const removeFile = (path) => promisify(rimraf)(path);
 
 export const listFiles = (patterns, cwd) =>
   fg(patterns, { cwd }).then((paths) =>
-    Promise.all(paths.map((path) => join(path)))
+    Promise.all(paths.map((path) => join(path))),
   );
 
 export const resolveLink = async (path) => {

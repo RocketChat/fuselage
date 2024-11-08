@@ -1,7 +1,7 @@
 import type { CSSProperties } from 'react';
 
 export const createBoxSizes = (
-  style: CSSProperties
+  style: CSSProperties,
 ): {
   borderBoxSize: ResizeObserverSize;
   contentBoxSize: ResizeObserverSize;
@@ -127,10 +127,10 @@ export class ResizeObserverMock implements ResizeObserver {
                 devicePixelContentBoxSize: [],
               },
             ],
-            this
+            this,
           );
         }
-      }
+      },
     );
 
     mutationObserver.observe(target, {

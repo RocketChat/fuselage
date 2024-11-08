@@ -1,4 +1,4 @@
-name: "Pull request title"
+name: 'Pull request title'
 on:
   pull_request_target:
     types: [opened, edited]
