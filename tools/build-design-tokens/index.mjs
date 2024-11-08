@@ -43,4 +43,6 @@ const buildTypography = async () => {
   ]);
 };
 
-await Promise.all([buildBreakpoints(), buildColors(), buildTypography()]);
+buildBreakpoints();
+buildColors();
+buildTypography();

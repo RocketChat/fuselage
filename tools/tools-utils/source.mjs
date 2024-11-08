@@ -1,7 +1,9 @@
 import { extname } from 'path';
+
 import { ESLint } from 'eslint';
-import stylelint from 'stylelint';
 import prettier from 'prettier';
+import stylelint from 'stylelint';
+
 import { encodeJson } from './json.mjs';
 
 export const runEslint = (path) => async (source) => {
@@ -24,13 +26,13 @@ export const runStylelint = (path) => async (source) => {
     fix: true,
   });
 
-  return results.output;
+  return results.code;
 };
 
 export const runPrettier = (path) => async (source) => {
   const config = await prettier.resolveConfig(process.cwd());
 
-  return await prettier.format(source, {
+  return prettier.format(source, {
     ...config,
     parser:
       (extname(path) === '.json' && 'json') ||
@@ -41,7 +43,7 @@ export const runPrettier = (path) => async (source) => {
 
 export const toJson = async (data) => {
   const code = encodeJson(data);
-  return await runPrettier('index.json')(code);
+  return runPrettier('index.json')(code);
 };
 
 export const toCommonJsModule = async (data) => {
@@ -49,14 +51,14 @@ export const toCommonJsModule = async (data) => {
     'use strict';
     module.exports = ${encodeJson(data)};
   `;
-  return await runEslint('index.cjs')(code);
+  return runEslint('index.cjs')(code);
 };
 
 export const toEsmModule = async (data) => {
   const code = `
     export default ${encodeJson(data)};
   `;
-  return await runEslint('index.mjs')(code);
+  return runEslint('index.mjs')(code);
 };
 
 export const toScssIdentifier = (string) =>
@@ -92,5 +94,5 @@ export const toScssVariables = async (data) => {
     )
     .join('');
 
-  return await runStylelint('index.scss')(code);
+  return runStylelint('index.scss')(code);
 };

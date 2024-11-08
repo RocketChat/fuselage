@@ -1,4 +1,4 @@
-const StyleDictionary = require('style-dictionary');
+import StyleDictionary from 'style-dictionary';
 
 console.log('Build started...');
 console.log('\n==============================================');
@@ -41,12 +41,12 @@ const toScssValue = (chunk) => {
 
 StyleDictionary.registerTransformGroup({
   name: 'custom/mjs',
-  transforms: ['name/cti/camel'],
+  transforms: ['name/camel'],
 });
 
 StyleDictionary.registerFormat({
   name: 'custom/colors-json',
-  formatter({ dictionary }) {
+  async format({ dictionary }) {
     return `{${dictionary.allTokens.map(
       (token) =>
         `\n\t${encodeJson(token.path[1])}: ${encodeJson(token.original.value)}`,
@@ -56,7 +56,7 @@ StyleDictionary.registerFormat({
 
 StyleDictionary.registerFormat({
   name: 'custom/breakpoints-json',
-  formatter({ dictionary }) {
+  async format({ dictionary }) {
     return `[${dictionary.allTokens.map(
       (token) => `\n\t${encodeJson(token.original.value)}`,
     )}\n]`;
@@ -65,7 +65,7 @@ StyleDictionary.registerFormat({
 
 StyleDictionary.registerFormat({
   name: 'cjsmodule',
-  formatter({ dictionary }) {
+  async format({ dictionary }) {
     return `module.exports = {${dictionary.allTokens.map(
       (token) =>
         `\n\t${encodeJson(token.name)}: ${encodeJson(token.original.value)}`,
@@ -75,7 +75,7 @@ StyleDictionary.registerFormat({
 
 StyleDictionary.registerFormat({
   name: 'camelCase',
-  formatter({ dictionary }) {
+  async format({ dictionary }) {
     // Get group name through folder name ./src/******
     const exp = /[a-z]+\/([a-z]+)\/[a-z]+.json/i;
     const [, group] = dictionary.allTokens[0].filePath.match(exp);
@@ -93,7 +93,7 @@ StyleDictionary.registerFormat({
 
 StyleDictionary.registerFormat({
   name: 'custom/mjs',
-  formatter({ dictionary }) {
+  async format({ dictionary }) {
     return `export default {${dictionary.allTokens.map(
       (token) =>
         `\n\t${encodeJson(token.name)}: ${encodeJson(token.original.value)}`,
@@ -103,7 +103,7 @@ StyleDictionary.registerFormat({
 
 StyleDictionary.registerFormat({
   name: 'custom/colors-mjs',
-  formatter({ dictionary }) {
+  async format({ dictionary }) {
     return `export default {${dictionary.allTokens.map(
       (token) =>
         `\n\t${encodeJson(token.path[1])}: ${encodeJson(token.original.value)}`,
@@ -113,7 +113,7 @@ StyleDictionary.registerFormat({
 
 StyleDictionary.registerFormat({
   name: 'custom/scss',
-  formatter({ dictionary }) {
+  async format({ dictionary }) {
     // Get group name through folder name ./src/******
     const exp = /[a-z]+\/([a-z]+)\/[a-z]+.json/i;
     const [, group] = dictionary.allTokens[0].filePath.match(exp);
@@ -152,7 +152,7 @@ StyleDictionary.registerFormat({
 
 StyleDictionary.registerFormat({
   name: 'custom/typography-scss',
-  formatter({ dictionary }) {
+  async format({ dictionary }) {
     return `${dictionary.allTokens
       .map((token) => `$${token.name}: \n${toScssValue(token.value)};`)
       .join('')}`;
@@ -161,10 +161,12 @@ StyleDictionary.registerFormat({
 
 // APPLY THE CONFIGURATION
 // needs to be done _before_ applying the configuration
-const StyleDictionaryExtended = StyleDictionary.extend('./config.js');
+const StyleDictionaryExtended = new StyleDictionary('./config.js');
+
+await StyleDictionaryExtended.hasInitialized;
 
 // Build all platforms
-StyleDictionaryExtended.buildAllPlatforms();
+await StyleDictionaryExtended.buildAllPlatforms();
 
 console.log('\n==============================================');
 console.log('\nBuild completed!');
