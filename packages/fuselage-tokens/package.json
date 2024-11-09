@@ -31,6 +31,7 @@
   "publishConfig": {
     "access": "public"
   },
+  "type": "module",
   "scripts": {
     "build": "run-s .:build:clean  .:build:legacy .:build",
     ".:build": "node ./build --config ./config.js",
@@ -50,7 +51,7 @@
     "postcss-scss": "~4.0.6",
     "prettier": "~3.3.3",
     "rimraf": "^3.0.2",
-    "style-dictionary": "~3.7.2",
+    "style-dictionary": "~4.1.4",
     "stylelint": "~16.10.0",
     "stylelint-order": "~6.0.4",
     "stylelint-prettier": "~5.0.2",

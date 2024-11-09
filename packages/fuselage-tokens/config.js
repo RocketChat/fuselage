@@ -1,6 +1,6 @@
-const tokens = require('./src');
+import tokens from './src/index.js';
 
-module.exports = {
+export default {
   source: ['src/**/*.json'],
   platforms: {
     js: {
