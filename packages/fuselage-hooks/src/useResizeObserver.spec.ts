@@ -1,6 +1,6 @@
-import { renderHook, act } from './testing';
 import { withResizeObserverMock } from 'testing-utils/mocks/withResizeObserverMock';
 
+import { renderHook, act } from './testing';
 import { useResizeObserver } from './useResizeObserver';
 
 withResizeObserverMock();

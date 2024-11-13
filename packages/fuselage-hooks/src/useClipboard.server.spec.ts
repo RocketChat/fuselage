@@ -1,5 +1,4 @@
 import { renderHook } from './testing';
-
 import { useClipboard } from './useClipboard';
 
 it('has hasCopied and copy properties', () => {

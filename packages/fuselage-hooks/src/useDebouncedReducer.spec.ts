@@ -1,5 +1,4 @@
 import { renderHook, act } from './testing';
-
 import { useDebouncedReducer } from './useDebouncedReducer';
 
 beforeAll(() => {

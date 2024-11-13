@@ -1,5 +1,4 @@
 import { renderHook } from './testing';
-
 import { useDebouncedCallback } from './useDebouncedCallback';
 
 beforeAll(() => {

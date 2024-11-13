@@ -31,5 +31,32 @@ export default {
         '^react-dom($|/.+)': 'react-dom$1',
       },
     },
+    {
+      displayName: 'React 18',
+      preset: 'ts-jest',
+      errorOnDeprecated: true,
+      testMatch: [
+        '<rootDir>/src/**/*.spec.{ts,tsx}',
+        '!**/*.server.spec.{ts,tsx}',
+      ],
+      testEnvironment: 'jsdom',
+      setupFilesAfterEnv: ['testing-utils/setup/noErrorsLogged'],
+      moduleNameMapper: {
+        '^react($|/.+)': 'react18$1',
+        '^react-dom($|/.+)': 'react-dom18$1',
+      },
+    },
+    {
+      displayName: 'React 18 SSR',
+      preset: 'ts-jest',
+      errorOnDeprecated: true,
+      testMatch: ['<rootDir>/src/**/*.server.spec.{ts,tsx}'],
+      testEnvironment: 'node',
+      setupFilesAfterEnv: ['testing-utils/setup/noErrorsLogged'],
+      moduleNameMapper: {
+        '^react($|/.+)': 'react18$1',
+        '^react-dom($|/.+)': 'react-dom18$1',
+      },
+    },
   ],
 } satisfies Config;

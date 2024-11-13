@@ -1,5 +1,4 @@
 import { renderHook, act } from './testing';
-
 import { useSessionStorage } from './useStorage';
 
 it('returns a default value', () => {

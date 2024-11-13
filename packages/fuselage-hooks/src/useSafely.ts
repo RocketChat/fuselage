@@ -29,7 +29,7 @@ export function useSafely([state, dispatcher]: [
     [],
   );
 
-  const safeDispatcher = useCallback((action) => {
+  const safeDispatcher = useCallback((action?: unknown) => {
     const dispatcher = dispatcherRef.current;
     dispatcher?.(action);
   }, []);

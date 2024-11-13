@@ -1,6 +1,6 @@
-import { renderHook } from './testing';
 import { useRef } from 'react';
 
+import { renderHook } from './testing';
 import { useContentBoxSize } from './useContentBoxSize';
 
 it('immediately returns zero size', () => {

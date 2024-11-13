@@ -1,6 +1,6 @@
-import { renderHook, act } from './testing';
 import { useReducer } from 'react';
 
+import { renderHook, act } from './testing';
 import { usePrevious } from './usePrevious';
 
 it('returns previous values', () => {
