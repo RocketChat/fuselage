@@ -1,4 +1,4 @@
-import { renderHook, act } from '@testing-library/react-hooks';
+import { renderHook, act } from './testing';
 import { useImperativeHandle, useState } from 'react';
 
 import { useAutoFocus } from './useAutoFocus';

@@ -1,9 +1,4 @@
-/**
- * @jest-environment node
- */
-
-import { renderHook } from '@testing-library/react-hooks/server';
-
+import { renderHook } from './testing';
 import { usePrefersReducedMotion } from './usePrefersReducedMotion';
 
 it('should return false on the initial call', () => {

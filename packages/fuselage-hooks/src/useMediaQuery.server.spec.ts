@@ -1,9 +1,4 @@
-/**
- * @jest-environment node
- */
-
-import { renderHook } from '@testing-library/react-hooks/server';
-
+import { renderHook } from './testing';
 import { useMediaQuery } from './useMediaQuery';
 
 it('returns false for undefined media query', () => {

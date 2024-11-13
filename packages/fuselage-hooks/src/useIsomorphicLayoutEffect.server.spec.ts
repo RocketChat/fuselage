@@ -1,9 +1,4 @@
-/**
- * @jest-environment node
- */
-
-import { renderHook } from '@testing-library/react-hooks/server';
-
+import { renderHook } from './testing';
 import { useIsomorphicLayoutEffect } from './useIsomorphicLayoutEffect';
 
 it('performs a useEffect', () => {
@@ -15,5 +10,5 @@ it('performs a useEffect', () => {
     });
   });
 
-  expect(watcher).toBeCalledTimes(0);
+  expect(watcher).toHaveBeenCalledTimes(0);
 });

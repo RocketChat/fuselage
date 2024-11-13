@@ -1,4 +1,4 @@
-import { renderHook, act } from '@testing-library/react-hooks';
+import { renderHook, act } from './testing';
 import { useState } from 'react';
 
 import { useDebouncedUpdates } from './useDebouncedUpdates';

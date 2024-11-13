@@ -1,5 +1,4 @@
-import { renderHook } from '@testing-library/react-hooks';
-
+import { renderHook } from './testing';
 import { useIsomorphicLayoutEffect } from './useIsomorphicLayoutEffect';
 
 it('performs a useLayoutEffect', () => {
@@ -11,5 +10,5 @@ it('performs a useLayoutEffect', () => {
     });
   });
 
-  expect(watcher).toBeCalledTimes(1);
+  expect(watcher).toHaveBeenCalledTimes(1);
 });

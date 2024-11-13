@@ -1,8 +1,4 @@
-/**
- * @jest-environment node
- */
-
-import { renderHook } from '@testing-library/react-hooks/server';
+import { renderHook } from './testing';
 import { useRef } from 'react';
 
 import { useContentBoxSize } from './useContentBoxSize';

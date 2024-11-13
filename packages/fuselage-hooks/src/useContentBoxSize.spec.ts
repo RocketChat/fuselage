@@ -1,4 +1,4 @@
-import { renderHook, act } from '@testing-library/react-hooks';
+import { renderHook, act } from './testing';
 import type { RefObject } from 'react';
 import { useRef } from 'react';
 import { withResizeObserverMock } from 'testing-utils/mocks/withResizeObserverMock';
