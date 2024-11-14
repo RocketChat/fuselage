@@ -6,21 +6,17 @@ import {
   renderHook as _renderHook,
 } from '@testing-library/react';
 import { createElement } from 'react';
-// eslint-disable-next-line import/no-unresolved
-import * as ReactDOMClient from 'react-dom/client';
-import * as ReactDOMServer from 'react-dom/server';
+import * as ReactDOMClient from 'react-dom';
+import { renderToString } from 'react-dom/server';
 
-type RendererableContainer = ReactDOMClient.Container;
-type HydrateableContainer = Parameters<
-  (typeof ReactDOMClient)['hydrateRoot']
->[0];
+type RendererableContainer = Element | Document | DocumentFragment;
 
 export function renderHook<
   Result,
   Props,
   Q extends Queries = typeof queries,
-  Container extends RendererableContainer | HydrateableContainer = HTMLElement,
-  BaseElement extends RendererableContainer | HydrateableContainer = Container,
+  Container extends RendererableContainer = HTMLElement,
+  BaseElement extends RendererableContainer = Container,
 >(
   render: (initialProps: Props) => Result,
   options?: RenderHookOptions<Props, Q, Container, BaseElement> | undefined,
@@ -32,7 +28,7 @@ export function renderHook<
       return null;
     };
 
-    ReactDOMServer.renderToString(createElement(TestComponent));
+    renderToString(createElement(TestComponent));
 
     return {
       result: { current: current! },
@@ -41,30 +37,9 @@ export function renderHook<
     };
   }
 
-  if (typeof ReactDOMClient.createRoot === 'undefined')
-    return _renderHook(render, { ...options, legacyRoot: true });
-  return _renderHook(render, options);
-}
+  if ('createRoot' in ReactDOMClient) return _renderHook(render, options);
 
-export function renderHookOnServer<
-  Result,
-  Props,
-  Q extends Queries = typeof queries,
-  Container extends RendererableContainer | HydrateableContainer = HTMLElement,
-  BaseElement extends RendererableContainer | HydrateableContainer = Container,
->(
-  render: (initialProps: Props) => Result,
-  options?: RenderHookOptions<Props, Q, Container, BaseElement> | undefined,
-) {
-  let current: Result;
-  const TestComponent = () => {
-    current = render(options?.initialProps as any);
-    return null;
-  };
-
-  ReactDOMServer.renderToString(createElement(TestComponent));
-
-  return { result: { current: current! } };
+  return _renderHook(render, { ...options, legacyRoot: true });
 }
 
 export { act } from '@testing-library/react';

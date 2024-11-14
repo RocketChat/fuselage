@@ -4106,8 +4106,8 @@ __metadata:
     "@testing-library/react": "npm:~16.0.1"
     "@testing-library/user-event": "npm:~14.5.2"
     "@types/jest": "npm:~29.5.12"
-    "@types/react": "npm:~18.3.12"
-    "@types/react-dom": "npm:~18.3.1"
+    "@types/react": "npm:~17.0.80"
+    "@types/react-dom": "npm:~17.0.25"
     "@types/resize-observer-browser": "npm:~0.1.7"
     "@types/use-sync-external-store": "npm:~0.0.3"
     eslint: "npm:~8.45.0"
@@ -4276,6 +4276,8 @@ __metadata:
     "@types/invariant": "npm:^2.2.37"
     "@types/jest": "npm:~29.5.12"
     "@types/jest-axe": "npm:~3.5.9"
+    "@types/react": "npm:~17.0.80"
+    "@types/react-dom": "npm:~17.0.25"
     autoprefixer: "npm:~10.4.14"
     babel-loader: "npm:~9.1.2"
     caniuse-lite: "npm:~1.0.30001477"
@@ -5990,25 +5992,6 @@ __metadata:
   dependencies:
     "@types/react": "npm:^17"
   checksum: 10/5854802aee0f23436e086b179360e93ac6db3387339f7e9359a786245a36bff5e4c36ff380e9ddb3c7c02d720a3bc9cbb3a3433906ecb4b48482f6e5462d1d22
-  languageName: node
-  linkType: hard
-
-"@types/react-dom@npm:~18.3.1":
-  version: 18.3.1
-  resolution: "@types/react-dom@npm:18.3.1"
-  dependencies:
-    "@types/react": "npm:*"
-  checksum: 10/33f9ba79b26641ddf00a8699c30066b7e3573ab254e97475bf08f82fab83a6d3ce8d4ebad86afeb49bb8df3374390a9ba93125cece33badc4b3e8f7eac3c84d8
-  languageName: node
-  linkType: hard
-
-"@types/react@npm:*, @types/react@npm:~18.3.12":
-  version: 18.3.12
-  resolution: "@types/react@npm:18.3.12"
-  dependencies:
-    "@types/prop-types": "npm:*"
-    csstype: "npm:^3.0.2"
-  checksum: 10/c9bbdfeacd5347d2240e0d2cb5336bc57dbc1b9ff557b6c4024b49df83419e4955553518169d3736039f1b62608e15b35762a6c03d49bd86e33add4b43b19033
   languageName: node
   linkType: hard
 
