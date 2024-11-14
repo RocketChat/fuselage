@@ -2,13 +2,16 @@ import { renderHook } from './testing';
 import { useIsomorphicLayoutEffect } from './useIsomorphicLayoutEffect';
 
 it('performs a useLayoutEffect', () => {
-  const watcher = jest.fn();
+  const cleanup = jest.fn();
+  const effect = jest.fn(() => cleanup);
 
-  renderHook(() => {
-    useIsomorphicLayoutEffect(() => {
-      watcher();
-    });
+  const { unmount } = renderHook(() => {
+    useIsomorphicLayoutEffect(effect);
   });
 
-  expect(watcher).toHaveBeenCalledTimes(1);
+  expect(effect).toHaveBeenCalled();
+
+  unmount();
+
+  expect(cleanup).toHaveBeenCalled();
 });

@@ -40,7 +40,10 @@ export default {
         '!**/*.server.spec.{ts,tsx}',
       ],
       testEnvironment: 'jsdom',
-      setupFilesAfterEnv: ['testing-utils/setup/noErrorsLogged'],
+      setupFilesAfterEnv: [
+        'testing-utils/setup/noErrorsLogged',
+        '<rootDir>/src/jest-setup.ts',
+      ],
       moduleNameMapper: {
         '^react($|/.+)': 'react18$1',
         '^react-dom($|/.+)': 'react-dom18$1',
@@ -52,7 +55,10 @@ export default {
       errorOnDeprecated: true,
       testMatch: ['<rootDir>/src/**/*.server.spec.{ts,tsx}'],
       testEnvironment: 'node',
-      setupFilesAfterEnv: ['testing-utils/setup/noErrorsLogged'],
+      setupFilesAfterEnv: [
+        'testing-utils/setup/noErrorsLogged',
+        '<rootDir>/src/jest-setup.ts',
+      ],
       moduleNameMapper: {
         '^react($|/.+)': 'react18$1',
         '^react-dom($|/.+)': 'react-dom18$1',
