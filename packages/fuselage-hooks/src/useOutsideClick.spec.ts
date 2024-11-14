@@ -1,7 +1,7 @@
-import { renderHook } from '@testing-library/react-hooks';
 import userEvent from '@testing-library/user-event';
 import type { MutableRefObject } from 'react';
 
+import { renderHook } from './testing';
 import { useOutsideClick } from './useOutsideClick';
 
 it('it should call the callback when the user clicked outside the element', async () => {

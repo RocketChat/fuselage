@@ -1,6 +1,6 @@
-import { act, renderHook } from '@testing-library/react-hooks';
 import { useState } from 'react';
 
+import { act, renderHook } from './testing';
 import { useEffectEvent } from './useEffectEvent';
 
 it('returns a stable callback', () => {
@@ -8,9 +8,12 @@ it('returns a stable callback', () => {
 
   const { result, rerender } = renderHook(() => useEffectEvent(fn));
 
+  const stableCallbackA = result.current;
+
   rerender();
 
-  const [stableCallbackA, stableCallbackB] = result.all;
+  const stableCallbackB = result.current;
+
   expect(stableCallbackB).toBe(stableCallbackA);
 });
 
