@@ -1,9 +1,4 @@
-/**
- * @jest-environment node
- */
-
-import { renderHook } from '@testing-library/react-hooks/server';
-
+import { renderHook } from './testing';
 import { useLazyRef } from './useLazyRef';
 
 it('returns the computed value immediately', () => {

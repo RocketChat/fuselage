@@ -22,14 +22,14 @@ export function useSafely([state, dispatcher]: [
     dispatcher,
   );
 
-  useEffect(
-    () => () => {
+  useEffect(() => {
+    dispatcherRef.current = dispatcher;
+    return () => {
       dispatcherRef.current = undefined;
-    },
-    [],
-  );
+    };
+  }, [dispatcher]);
 
-  const safeDispatcher = useCallback((action) => {
+  const safeDispatcher = useCallback((action?: unknown) => {
     const dispatcher = dispatcherRef.current;
     dispatcher?.(action);
   }, []);

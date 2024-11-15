@@ -1,7 +1,6 @@
-import { renderHook, act } from '@testing-library/react-hooks';
-import type { Dispatch } from 'react';
 import { useState } from 'react';
 
+import { renderHook, act } from './testing';
 import { useSafely } from './useSafely';
 
 it('returns a new dispatcher that invokes the previous one', () => {
@@ -38,13 +37,14 @@ it('returns a new dispatcher that mutates the state', () => {
   const { result } = renderHook(() =>
     useSafely(useState<symbol>(initialState)),
   );
-  const [, newDispatcher] = result.current;
+  const [valueA, newDispatcher] = result.current;
 
   act(() => {
     newDispatcher(newState);
   });
 
-  const [[valueA], [valueB]] = result.all as [symbol, Dispatch<any>][];
+  const [valueB] = result.current;
+
   expect(valueA).toBe(initialState);
   expect(valueB).toBe(newState);
 });

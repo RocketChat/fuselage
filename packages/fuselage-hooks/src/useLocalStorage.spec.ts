@@ -1,5 +1,4 @@
-import { renderHook, act } from '@testing-library/react-hooks';
-
+import { renderHook, act } from './testing';
 import { useLocalStorage } from './useStorage';
 
 it('returns a default value', () => {

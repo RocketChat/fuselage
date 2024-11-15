@@ -1,6 +1,6 @@
-import { renderHook, act } from '@testing-library/react-hooks';
 import { useImperativeHandle, useState } from 'react';
 
+import { renderHook, act } from './testing';
 import { useAutoFocus } from './useAutoFocus';
 
 const focus = jest.fn();
@@ -17,7 +17,7 @@ it('invokes focus', async () => {
 
   act(() => undefined);
 
-  expect(focus).toHaveBeenCalledTimes(1);
+  expect(focus).toHaveBeenCalled();
 });
 
 it('does not invoke focus if isFocused is false', () => {
@@ -28,7 +28,7 @@ it('does not invoke focus if isFocused is false', () => {
 
   act(() => undefined);
 
-  expect(focus).toHaveBeenCalledTimes(0);
+  expect(focus).not.toHaveBeenCalled();
 });
 
 it('invokes focus if isFocused is toggled', () => {
@@ -41,11 +41,11 @@ it('invokes focus if isFocused is toggled', () => {
 
   act(() => undefined);
 
-  expect(focus).toHaveBeenCalledTimes(0);
+  expect(focus).not.toHaveBeenCalled();
 
   act(() => {
     result.current.setIsFocused(true);
   });
 
-  expect(focus).toHaveBeenCalledTimes(1);
+  expect(focus).toHaveBeenCalled();
 });

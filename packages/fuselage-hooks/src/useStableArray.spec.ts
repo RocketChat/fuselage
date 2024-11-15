@@ -1,6 +1,6 @@
-import { renderHook, act } from '@testing-library/react-hooks';
 import { useState } from 'react';
 
+import { renderHook, act } from './testing';
 import { useStableArray } from './useStableArray';
 
 it('uses same-value equality by default', () => {
