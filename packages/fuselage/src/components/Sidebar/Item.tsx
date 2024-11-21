@@ -2,6 +2,7 @@ import type { AllHTMLAttributes, ComponentProps, ReactNode } from 'react';
 
 import type Box from '../Box';
 import { Icon as FuselageIcon } from '../Icon';
+
 import { SidebarAction, SidebarActions } from './SidebarActions';
 
 type SidebarItemProps = {

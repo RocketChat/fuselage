@@ -1,6 +1,8 @@
 import { action } from '@storybook/addon-actions';
 import type { Meta, StoryFn } from '@storybook/react';
 
+import { IconButton, TextInput, Icon, Box } from '../..';
+
 import {
   SidebarV2 as Sidebar,
   SidebarV2Accordion as SidebarAccordion,
@@ -18,7 +20,6 @@ import {
   SidebarV2Section as SidebarSection,
   SidebarV2Footer as SidebarFooter,
 } from '.';
-import { IconButton, TextInput, Icon, Box } from '../..';
 import { Condensed } from './SidebarItem/SidebarItem.stories';
 import { GenericNoAvatarItem, MenuTemplate } from './helpers';
 

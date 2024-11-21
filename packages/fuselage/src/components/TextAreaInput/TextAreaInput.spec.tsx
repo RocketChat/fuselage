@@ -1,4 +1,5 @@
 import { render } from '../../testing';
+
 import { TextAreaInput } from './TextAreaInput';
 
 describe('[TextAreaInput]', () => {

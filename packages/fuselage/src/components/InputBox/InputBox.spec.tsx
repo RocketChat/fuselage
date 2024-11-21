@@ -2,6 +2,7 @@ import { composeStories } from '@storybook/react';
 import { axe } from 'jest-axe';
 
 import { render } from '../../testing';
+
 import * as stories from './InputBox.stories';
 
 const { Default } = composeStories(stories);

@@ -142,7 +142,6 @@ export class Encoder {
     }
   }
 
-  // eslint-disable-next-line complexity
   lame_encode_mp3_frame(
     gfp: LameGlobalFlags,
     inbuf_l: Float32Array,

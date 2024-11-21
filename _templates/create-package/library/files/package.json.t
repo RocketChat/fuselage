@@ -39,8 +39,6 @@ to: packages/<%=package%>/package.json
     "docs": "typedoc"
   },
   "devDependencies": {
-    "@rocket.chat/eslint-config-alt": "workspace:~",
-    "@rocket.chat/prettier-config": "workspace:~",
     "@types/jest": "~27.4.0",
     "eslint": "~8.8.0",
     "jest": "~27.5.1",
@@ -50,12 +48,6 @@ to: packages/<%=package%>/package.json
     "ts-jest": "~27.1.3",
     "typedoc": "~0.24.1",
     "typescript": "~5.5.4"
-  },
-  "eslintConfig": {
-    "extends": "@rocket.chat/eslint-config-alt/typescript",
-    "env": {
-      "jest": true
-    }
   },
   "jest": {
     "preset": "ts-jest",

@@ -3,6 +3,7 @@ import { Fragment } from 'react';
 
 import { Table, TableBody, TableCell, TableHead, TableRow } from '../Table';
 import Tile from '../Tile';
+
 import { Grid } from './Grid';
 
 export default {

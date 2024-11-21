@@ -3,6 +3,7 @@ import { useRef } from 'react';
 
 import AnimatedVisibility from '../AnimatedVisibility';
 import Tile from '../Tile';
+
 import PositionAnimated from './PositionAnimated';
 
 export default {

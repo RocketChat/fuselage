@@ -2,6 +2,14 @@ import type { StoryFn, Meta } from '@storybook/react';
 import type { ComponentProps, ReactNode, Ref } from 'react';
 import { forwardRef, useState } from 'react';
 
+import Box from '../../Box';
+import { IconButton } from '../../Button';
+import { ButtonGroup } from '../../ButtonGroup';
+import { CheckBox } from '../../CheckBox';
+import { RadioButton } from '../../RadioButton';
+import Sidebar from '../../Sidebar';
+import { ToggleSwitch } from '../../ToggleSwitch';
+
 import {
   MenuV2 as Menu,
   MenuItem,
@@ -10,13 +18,6 @@ import {
   MenuItemIcon,
   MenuItemInput,
 } from '.';
-import Box from '../../Box';
-import { IconButton } from '../../Button';
-import { ButtonGroup } from '../../ButtonGroup';
-import { CheckBox } from '../../CheckBox';
-import { RadioButton } from '../../RadioButton';
-import Sidebar from '../../Sidebar';
-import { ToggleSwitch } from '../../ToggleSwitch';
 
 export default {
   title: 'Navigation/Menu/v2',

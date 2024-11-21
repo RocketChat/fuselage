@@ -1,6 +1,5 @@
 import outdent from 'outdent';
 
-import { badges } from '../badges.mjs';
 import { bundleSizeBadge } from '../badges/bundleSizeBadge.mjs';
 import { depsBadge } from '../badges/depsBadge.mjs';
 import { licenseBadge } from '../badges/licenseBadge.mjs';
@@ -8,6 +7,7 @@ import { npmDownloadsBadge } from '../badges/npmDownloadsBadge.mjs';
 import { npmPeerDepVersionBadge } from '../badges/npmPeerDepVersionBadge.mjs';
 import { npmVersionBadge } from '../badges/npmVersionBadge.mjs';
 import { storybookBadge } from '../badges/storybookBadge.mjs';
+import { badges } from '../badges.mjs';
 import { rocketChatLogo } from '../rocketChatLogo.mjs';
 
 export const header = (pkg) =>

@@ -1,9 +1,10 @@
-import { useEffect, useRef, useState } from 'react';
 import type { RefObject, CSSProperties } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import { useDebouncedCallback } from '../useDebouncedCallback';
 import { useEffectEvent } from '../useEffectEvent';
 import { useSafely } from '../useSafely';
+
 import type { Placement } from './Placement';
 import type { PlacementVariant } from './PlacementVariant';
 import type { Position } from './Position';

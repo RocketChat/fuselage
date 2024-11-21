@@ -7,6 +7,7 @@ import { useTranslation, Trans } from 'react-i18next';
 
 import FormPageLayout from '../../common/FormPageLayout';
 import RequestTrialForm from '../../forms/RequestTrialForm';
+
 import Description from './Description';
 
 type RequestTrialPageProps = ComponentProps<typeof RequestTrialForm>;

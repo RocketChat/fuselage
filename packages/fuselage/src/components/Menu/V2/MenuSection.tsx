@@ -5,6 +5,7 @@ import type { TreeState } from 'react-stately';
 import Box from '../../Box/Box';
 import { Divider } from '../../Divider';
 import { OptionTitle } from '../../Option';
+
 import MenuItem from './MenuItem';
 
 type MenuSectionProps<T extends object> = {

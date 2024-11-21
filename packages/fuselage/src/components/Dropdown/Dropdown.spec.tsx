@@ -3,6 +3,7 @@ import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import { render } from '../../testing';
+
 import * as stories from './Dropdown.stories';
 
 const { Default } = composeStories(stories);

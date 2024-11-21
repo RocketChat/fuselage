@@ -2,6 +2,7 @@ import { composeStories } from '@storybook/react';
 import { axe, toHaveNoViolations } from 'jest-axe';
 
 import { render } from '../../testing';
+
 import * as stories from './ToggleSwitch.stories';
 
 expect.extend(toHaveNoViolations);

@@ -39,7 +39,7 @@ jobs:
           key: turbo-${{ runner.os }}-${{ github.job }}
           restore-keys: |
             turbo-${{ runner.os }}-
-      - run: yarn install
+      - run: yarn
         if: steps.yarn-cache.outputs.cache-hit != 'true'
       - run: yarn run ci
       - uses: actions/upload-artifact@v3

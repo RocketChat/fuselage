@@ -1,8 +1,9 @@
 import type { StoryFn, Meta } from '@storybook/react';
 
-import { SelectInputOption } from '.';
 import { PropsVariationSection } from '../../../.storybook/helpers';
 import { Icon } from '../Icon';
+
+import { SelectInputOption } from '.';
 import { SelectInput } from './SelectInput';
 
 export default {

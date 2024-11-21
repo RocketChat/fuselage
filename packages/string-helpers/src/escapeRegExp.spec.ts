@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-
 import { escapeRegExp } from './escapeRegExp';
 
 describe('escapeRegExp', () => {
@@ -83,16 +81,12 @@ describe('escapeRegExp', () => {
   });
 
   it('ignores errors from non-string argument', () => {
-    // @ts-ignore
-    expect(() => escapeRegExp(false)).not.toThrowError();
+    expect(() => escapeRegExp(false as any)).not.toThrowError();
 
-    // @ts-ignore
-    expect(() => escapeRegExp()).not.toThrowError();
+    expect(() => (escapeRegExp as any)()).not.toThrowError();
 
-    // @ts-ignore
-    expect(() => escapeRegExp(null)).not.toThrowError();
+    expect(() => escapeRegExp(null as any)).not.toThrowError();
 
-    // @ts-ignore
-    expect(() => escapeRegExp(42)).not.toThrowError();
+    expect(() => escapeRegExp(42 as any)).not.toThrowError();
   });
 });

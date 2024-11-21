@@ -5,6 +5,7 @@ import {
   DECORATOR_LABEL,
   PropsVariationSection,
 } from '../../../.storybook/helpers';
+
 import { ToggleSwitch } from './ToggleSwitch';
 
 export default {

@@ -1,14 +1,6 @@
 import type { Meta, StoryFn } from '@storybook/react';
 
 import {
-  Sidepanel,
-  SidepanelSection,
-  SidepanelHeader,
-  SidepanelHeaderTitle,
-  SidepanelList,
-  SidepanelListItem,
-} from '.';
-import {
   Avatar,
   Box,
   Icon,
@@ -22,6 +14,15 @@ import {
 } from '../..';
 import { SidebarItemAvatarWrapper } from '../SidebarV2/SidebarItem/SidebarItemAvatarWrapper';
 import { MenuTemplate, leterAvatarUrls, names } from '../SidebarV2/helpers';
+
+import {
+  Sidepanel,
+  SidepanelSection,
+  SidepanelHeader,
+  SidepanelHeaderTitle,
+  SidepanelList,
+  SidepanelListItem,
+} from '.';
 
 export default {
   title: 'Navigation/Sidepanel',

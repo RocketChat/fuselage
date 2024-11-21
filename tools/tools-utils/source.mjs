@@ -7,16 +7,24 @@ import stylelint from 'stylelint';
 import { encodeJson } from './json.mjs';
 
 export const runEslint = (path) => async (source) => {
-  const eslint = new ESLint({ fix: true, extensions: [extname(path)] });
-  const results = await eslint.lintText(source);
-  const [result] = results;
+  const eslint = new ESLint({ fix: true });
+  const results = await eslint.lintText(source, {
+    filePath: path,
+    warnIgnored: true,
+  });
 
-  if (result.fatalErrorCount > 0) {
-    throw new Error(result.messages.map(({ message }) => message).join('\n'));
+  const formatter = await eslint.loadFormatter('stylish');
+  const resultText = await formatter.format(results);
+
+  if (results.some((result) => result.fatalErrorCount > 0)) {
+    throw new Error(resultText);
   }
 
-  await ESLint.outputFixes(results);
-  return result.output;
+  console.log(resultText);
+
+  const [result] = results;
+
+  return result.output ?? source;
 };
 
 export const runStylelint = (path) => async (source) => {

@@ -6,6 +6,7 @@ import Box from '../../Box';
 import { MessageDivider } from '../MessageDivider';
 import MessageReactions from '../MessageReactions';
 import MessageToolbar from '../MessageToolbar';
+
 import { MessageStatusIndicator } from './MessageStatusIndicator';
 import { MessageStatusIndicatorText } from './MessageStatusIndicatorText';
 

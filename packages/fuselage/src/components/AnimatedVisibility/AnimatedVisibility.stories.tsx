@@ -1,7 +1,8 @@
 import type { StoryFn, Meta } from '@storybook/react';
 
-import AnimatedVisibility from '.';
 import Tile from '../Tile';
+
+import AnimatedVisibility from '.';
 
 export default {
   title: 'Layout/AnimatedVisibility',

@@ -3,6 +3,7 @@ import { axe } from 'jest-axe';
 import { withResizeObserverMock } from 'testing-utils/mocks/withResizeObserverMock';
 
 import { render } from '../../testing';
+
 import * as stories from './AutoComplete.stories';
 
 const testCases = Object.values(composeStories(stories)).map((Story) => [

@@ -1,4 +1,5 @@
 import { render } from '../../testing';
+
 import { Scrollable } from './Scrollable';
 
 describe('Scrollabe Component', () => {

@@ -6,6 +6,7 @@ import { useDarkMode } from 'storybook-dark-mode';
 
 import manifest from '../package.json';
 import { PaletteStyleTag } from '../src';
+
 import DocsContainer from './DocsContainer';
 import logo from './logo.svg';
 

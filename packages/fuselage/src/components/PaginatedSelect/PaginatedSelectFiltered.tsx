@@ -3,6 +3,7 @@ import type { FormEvent, Ref } from 'react';
 import { useMemo, forwardRef } from 'react';
 
 import { InputBox } from '../InputBox';
+
 import type { PaginatedSelectProps } from './PaginatedSelect';
 import { PaginatedSelect } from './PaginatedSelect';
 

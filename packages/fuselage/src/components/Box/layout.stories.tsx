@@ -3,6 +3,7 @@ import { cloneElement } from 'react';
 import flattenChildren from 'react-keyed-flatten-children';
 
 import { Divider } from '../Divider';
+
 import Box from './Box';
 
 export default {

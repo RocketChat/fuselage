@@ -9,6 +9,7 @@ import { forwardRef, useCallback, useLayoutEffect, useRef } from 'react';
 
 import type Box from '../Box';
 import { Icon } from '../Icon';
+
 import { Addon } from './Addon';
 import { Input } from './Input';
 import type { InputBoxSkeleton } from './InputBoxSkeleton';
