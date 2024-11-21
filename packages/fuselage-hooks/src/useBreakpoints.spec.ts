@@ -1,7 +1,7 @@
 import breakpoints from '@rocket.chat/fuselage-tokens/breakpoints.json';
-import { renderHook, act } from '@testing-library/react-hooks';
 import { withMatchMediaMock } from 'testing-utils/mocks/withMatchMediaMock';
 
+import { renderHook, act } from './testing';
 import { useBreakpoints } from './useBreakpoints';
 
 const setViewport = withMatchMediaMock();

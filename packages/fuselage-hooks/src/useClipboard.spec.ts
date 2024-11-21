@@ -1,6 +1,6 @@
-import { renderHook, act } from '@testing-library/react-hooks';
 import { withClipboardMock } from 'testing-utils/mocks/withClipboardMock';
 
+import { renderHook, act } from './testing';
 import { useClipboard } from './useClipboard';
 
 let container: Element | undefined;
@@ -87,8 +87,8 @@ it('runs only success function receiving event object', async () => {
     await copy(event);
   });
 
-  expect(onCopySuccess).toBeCalledWith(event);
-  expect(onCopyError).toBeCalledTimes(0);
+  expect(onCopySuccess).toHaveBeenCalledWith(event);
+  expect(onCopyError).toHaveBeenCalledTimes(0);
 });
 
 it('runs only error function receiving error object', async () => {
@@ -112,6 +112,6 @@ it('runs only error function receiving error object', async () => {
     await copy(event);
   });
 
-  expect(onCopySuccess).toBeCalledTimes(0);
-  expect(onCopyError).toBeCalledWith(rejection);
+  expect(onCopySuccess).toHaveBeenCalledTimes(0);
+  expect(onCopyError).toHaveBeenCalledWith(rejection);
 });

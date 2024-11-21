@@ -1,10 +1,6 @@
-/**
- * @jest-environment node
- */
-
-import { renderHook } from '@testing-library/react-hooks/server';
 import { createRef } from 'react';
 
+import { renderHook } from './testing';
 import { useMergedRefs } from './useMergedRefs';
 
 it('returns a callback ref', () => {

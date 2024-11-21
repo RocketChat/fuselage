@@ -92,6 +92,8 @@
     "@types/invariant": "^2.2.37",
     "@types/jest": "~29.5.12",
     "@types/jest-axe": "~3.5.9",
+    "@types/react": "~17.0.80",
+    "@types/react-dom": "~17.0.25",
     "autoprefixer": "~10.4.14",
     "babel-loader": "~9.1.2",
     "caniuse-lite": "~1.0.30001477",
