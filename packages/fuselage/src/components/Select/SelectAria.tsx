@@ -89,6 +89,7 @@ export const SelectAria = forwardRef(function SelectAria<T extends object>(
           triggerRef={ref}
           label={props.label}
           name={props.name}
+          isDisabled={isDisabled}
         />
         <Box
           is='span'
