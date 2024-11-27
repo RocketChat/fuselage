@@ -10,7 +10,7 @@ type TabsItemProps = ComponentProps<typeof Box> & {
 
 export const TabsItem = forwardRef(function TabsItem(
   { selected, disabled, ...props }: TabsItemProps,
-  ref: Ref<HTMLButtonElement>
+  ref: Ref<HTMLButtonElement>,
 ) {
   return (
     <Box

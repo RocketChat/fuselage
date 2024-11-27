@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
 import { useEffectEvent, useResizeObserver } from '@rocket.chat/fuselage-hooks';
 import type {
@@ -43,7 +44,7 @@ type AutoCompleteProps = {
 
 const getSelected = (
   value: string | string[],
-  options: AutoCompleteOption[]
+  options: AutoCompleteOption[],
 ) => {
   if (!value) {
     return [];
@@ -76,7 +77,7 @@ export function AutoComplete({
   const { ref: containerRef, borderBoxSize } = useResizeObserver();
 
   const [selected, setSelected] = useState(
-    () => getSelected(value, options) || []
+    () => getSelected(value, options) || [],
   );
 
   const handleSelect = useEffectEvent(([currentValue]) => {
@@ -102,11 +103,11 @@ export function AutoComplete({
     event.preventDefault();
 
     const filtered = selected.filter(
-      (item) => item.value !== event.currentTarget.value
+      (item) => item.value !== event.currentTarget.value,
     );
 
     const filteredValue = value.filter(
-      (item) => item !== event.currentTarget.value
+      (item) => item !== event.currentTarget.value,
     );
 
     setSelected(filtered);
@@ -116,7 +117,7 @@ export function AutoComplete({
 
   const memoizedOptions = useMemo(
     () => options.map(({ value, label }) => [value, label]),
-    [options]
+    [options],
   );
 
   const [cursor, handleKeyDown, , reset, [optionsAreVisible, hide, show]] =
@@ -137,7 +138,7 @@ export function AutoComplete({
       flexGrow={1}
       className={useMemo(
         () => [error && 'invalid', disabled && 'disabled'],
-        [error, disabled]
+        [error, disabled],
       )}
     >
       <Box
@@ -182,7 +183,7 @@ export function AutoComplete({
                   onClick={handleRemove}
                   selected={selected}
                 />
-              )
+              ),
             )}
         </Margins>
       </Box>

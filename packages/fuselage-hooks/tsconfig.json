@@ -1,7 +1,6 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "rootDir": "./src",
     "module": "ESNext",
     "lib": ["DOM", "ES2015"],
     "declarationDir": "./dist",
@@ -10,6 +9,6 @@
     "esModuleInterop": true,
     "resolveJsonModule": true
   },
-  "include": ["src"],
+  "include": ["src", "./jest.config.ts"],
   "exclude": ["dist", "node_modules"]
 }

@@ -22,7 +22,7 @@ const lightColors = {
 const getColor = (
   isLight: boolean,
   variant: 'info' | 'success' | 'warning' | 'danger',
-  error?: string
+  error?: string,
 ) => {
   if (error) {
     return isLight ? lightColors.danger : colors.danger;
@@ -50,7 +50,7 @@ export const ProgressBar = forwardRef(function ProgressBar(
     light = false,
     ...props
   }: ProgressBarProps,
-  ref
+  ref,
 ) {
   return (
     <Box

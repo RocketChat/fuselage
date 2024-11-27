@@ -12,7 +12,7 @@ it('renders without crashing', () => {
       onClickRegisterOffline={() => undefined}
       onSubmit={() => undefined}
     />,
-    div
+    div,
   );
   ReactDOM.unmountComponentAtNode(div);
 });

@@ -21,8 +21,7 @@
   },
   "scripts": {
     "lint": "lint",
-    "lint-and-fix": "lint-and-fix",
-    "bump-next": "bump-next"
+    "lint-and-fix": "lint-and-fix"
   },
   "dependencies": {
     "@juggle/resize-observer": "^3.4.0",
@@ -33,11 +32,8 @@
     "new-event-polyfill": "^1.0.1"
   },
   "devDependencies": {
-    "@rocket.chat/eslint-config-alt": "workspace:~",
-    "@rocket.chat/prettier-config": "workspace:~",
-    "bump": "workspace:~",
-    "eslint": "~8.38.0",
+    "eslint": "~9.14.0",
     "lint-all": "workspace:~",
-    "prettier": "~2.8.7"
+    "prettier": "~3.3.3"
   }
 }

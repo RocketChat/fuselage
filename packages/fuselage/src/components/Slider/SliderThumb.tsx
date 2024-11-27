@@ -19,7 +19,7 @@ export const SliderThumb = (props: any) => {
       trackRef,
       inputRef,
     },
-    state
+    state,
   );
 
   const { focusProps, isFocusVisible } = useFocusRing();
@@ -42,7 +42,7 @@ export const SliderThumb = (props: any) => {
             left: 50%;
           `}
     `,
-    { isFocusVisible, isDragging }
+    { isFocusVisible, isDragging },
   );
   return (
     <div {...thumbProps} className={thumb}>

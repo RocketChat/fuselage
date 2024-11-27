@@ -7,7 +7,7 @@ type MessageToolbarProps = ComponentProps<typeof ButtonGroup>;
 
 export const MessageToolbar = forwardRef(function MessageToolbar(
   props: MessageToolbarProps,
-  ref: ForwardedRef<HTMLDivElement>
+  ref: ForwardedRef<HTMLDivElement>,
 ) {
   return (
     <div className='rcx-box rcx-box--full rcx-message-toolbar'>

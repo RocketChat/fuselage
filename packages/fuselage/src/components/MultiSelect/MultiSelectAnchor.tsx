@@ -20,7 +20,7 @@ type MultiSelectAnchorProps = {
 
 const MultiSelectAnchor = forwardRef(function MultiSelectAnchor(
   props: MultiSelectAnchorProps,
-  ref: Ref<Element>
+  ref: Ref<Element>,
 ) {
   return (
     <SelectFocus

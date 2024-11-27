@@ -3,6 +3,7 @@ import { forwardRef, memo } from 'react';
 
 import type { Box } from '..';
 import { StatesIcon, States, StatesTitle, StatesSubtitle } from '..';
+
 import ContextualbarContent from './ContextualbarContent';
 
 type ContextualbarEmptyContentProps = ComponentProps<typeof Box> & {
@@ -16,7 +17,7 @@ const ContextualbarEmptyContent = forwardRef<
   ContextualbarEmptyContentProps
 >(function ContextualbarEmptyContent(
   { icon = 'magnifier', title = 'Nothing Found', subtitle, ...props },
-  ref
+  ref,
 ) {
   return (
     <ContextualbarContent justifyContent='center' {...props} ref={ref}>

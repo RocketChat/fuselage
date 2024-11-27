@@ -24,7 +24,7 @@ export function Chevron({
 }: ChevronProps): ReactElement<ChevronProps> {
   const children = useMemo(
     () => <Icon name='chevron-down' size={size} />,
-    [size]
+    [size],
   );
 
   return (

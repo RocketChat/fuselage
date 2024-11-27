@@ -5,6 +5,7 @@ import { renderToStaticMarkup } from 'react-dom/server';
 
 import { useDarkMode } from '../DarkModeProvider';
 import { useLayoutContext } from '../contexts/LayoutContext';
+
 import BackgroundImage from './BackgroundImage';
 import { Wrapper } from './BackgroundLayer.styles';
 
@@ -22,10 +23,10 @@ const BackgroundLayer = ({ children }: BackgroundLayerProps): ReactElement => {
       (darkMode ? backgroundDark : background) ||
       `data:image/svg+xml,${encodeURIComponent(
         renderToStaticMarkup(
-          <BackgroundImage backgroundColor={backgroundColor} />
-        )
+          <BackgroundImage backgroundColor={backgroundColor} />,
+        ),
       )}`,
-    [backgroundColor]
+    [backgroundColor],
   );
 
   return (

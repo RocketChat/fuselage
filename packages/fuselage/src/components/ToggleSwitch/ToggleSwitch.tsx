@@ -8,7 +8,7 @@ export const ToggleSwitch = forwardRef(function ToggleSwitch(
     className,
     ...props
   }: ComponentProps<typeof Box> & AllHTMLAttributes<HTMLInputElement>,
-  ref: Ref<HTMLInputElement>
+  ref: Ref<HTMLInputElement>,
 ) {
   return (
     <Box is='label' className={className} rcx-toggle-switch>

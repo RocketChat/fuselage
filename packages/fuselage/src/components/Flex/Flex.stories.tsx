@@ -1,7 +1,8 @@
 import type { Meta } from '@storybook/react';
 
-import Flex from '.';
 import Tile from '../Tile';
+
+import Flex from '.';
 
 export default {
   title: 'Layout/Flex',

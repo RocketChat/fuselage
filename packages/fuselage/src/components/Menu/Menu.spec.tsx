@@ -4,6 +4,7 @@ import userEvent from '@testing-library/user-event';
 import { withResizeObserverMock } from 'testing-utils/mocks/withResizeObserverMock';
 
 import { render } from '../../testing';
+
 import * as stories from './Menu.stories';
 
 withResizeObserverMock();

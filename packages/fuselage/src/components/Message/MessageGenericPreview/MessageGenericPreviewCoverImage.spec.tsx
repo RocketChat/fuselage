@@ -1,6 +1,7 @@
 import { screen } from '@testing-library/react';
 
 import { render } from '../../../testing';
+
 import { MessageGenericPreviewCoverImage } from './MessageGenericPreviewCoverImage';
 
 describe('MessageGenericPreviewCoverImage', () => {
@@ -10,7 +11,7 @@ describe('MessageGenericPreviewCoverImage', () => {
 
   it('should render div with background image', () => {
     render(
-      <MessageGenericPreviewCoverImage url='test' width={200} height={200} />
+      <MessageGenericPreviewCoverImage url='test' width={200} height={200} />,
     );
     const previewImage = screen.getByTestId('preview-image');
 
@@ -19,7 +20,7 @@ describe('MessageGenericPreviewCoverImage', () => {
     });
     expect(previewImage).toHaveClass('rcx-message-generic-preview__preview');
     expect(previewImage).not.toHaveClass(
-      'rcx-message-generic-preview__preview--image'
+      'rcx-message-generic-preview__preview--image',
     );
   });
 });

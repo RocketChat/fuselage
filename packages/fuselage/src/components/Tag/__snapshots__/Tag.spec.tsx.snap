@@ -7,7 +7,7 @@ exports[`[Tag Rendering] renders _Danger without crashing 1`] = `
       class="rcx-box rcx-box--full rcx-css-8i0p31"
     >
       <span
-        class="rcx-box rcx-box--full  rcx-tag rcx-tag--danger"
+        class="rcx-box rcx-box--full rcx-tag rcx-tag--danger"
       >
         <span
           class="rcx-tag__inner"
@@ -27,7 +27,7 @@ exports[`[Tag Rendering] renders _Primary without crashing 1`] = `
       class="rcx-box rcx-box--full rcx-css-8i0p31"
     >
       <span
-        class="rcx-box rcx-box--full  rcx-tag rcx-tag--primary"
+        class="rcx-box rcx-box--full rcx-tag rcx-tag--primary"
       >
         <span
           class="rcx-tag__inner"
@@ -47,7 +47,7 @@ exports[`[Tag Rendering] renders _SecondaryDanger without crashing 1`] = `
       class="rcx-box rcx-box--full rcx-css-8i0p31"
     >
       <span
-        class="rcx-box rcx-box--full  rcx-tag rcx-tag--secondary-danger"
+        class="rcx-box rcx-box--full rcx-tag rcx-tag--secondary-danger"
       >
         <span
           class="rcx-tag__inner"
@@ -67,7 +67,7 @@ exports[`[Tag Rendering] renders AsLink without crashing 1`] = `
       class="rcx-box rcx-box--full rcx-css-8i0p31"
     >
       <a
-        class="rcx-box rcx-box--full  rcx-tag rcx-tag--clickable"
+        class="rcx-box rcx-box--full rcx-tag rcx-tag--clickable"
         href="#"
       >
         <span
@@ -88,7 +88,7 @@ exports[`[Tag Rendering] renders Clickable without crashing 1`] = `
       class="rcx-box rcx-box--full rcx-css-8i0p31"
     >
       <span
-        class="rcx-box rcx-box--full  rcx-tag rcx-tag--clickable"
+        class="rcx-box rcx-box--full rcx-tag rcx-tag--clickable"
       >
         <span
           class="rcx-tag__inner"
@@ -108,7 +108,7 @@ exports[`[Tag Rendering] renders Default without crashing 1`] = `
       class="rcx-box rcx-box--full rcx-css-8i0p31"
     >
       <span
-        class="rcx-box rcx-box--full  rcx-tag "
+        class="rcx-box rcx-box--full rcx-tag "
       >
         <span
           class="rcx-tag__inner"
@@ -128,7 +128,7 @@ exports[`[Tag Rendering] renders Disabled without crashing 1`] = `
       class="rcx-box rcx-box--full rcx-css-8i0p31"
     >
       <span
-        class="rcx-box rcx-box--full  rcx-tag rcx-tag--disabled"
+        class="rcx-box rcx-box--full rcx-tag rcx-tag--disabled"
       >
         <span
           class="rcx-tag__inner"
@@ -148,7 +148,7 @@ exports[`[Tag Rendering] renders Featured without crashing 1`] = `
       class="rcx-box rcx-box--full rcx-css-8i0p31"
     >
       <span
-        class="rcx-box rcx-box--full  rcx-tag rcx-tag--featured"
+        class="rcx-box rcx-box--full rcx-tag rcx-tag--featured"
       >
         <span
           class="rcx-tag__inner"
@@ -168,7 +168,7 @@ exports[`[Tag Rendering] renders Large without crashing 1`] = `
       class="rcx-box rcx-box--full rcx-css-8i0p31"
     >
       <span
-        class="rcx-box rcx-box--full  rcx-tag rcx-tag--large"
+        class="rcx-box rcx-box--full rcx-tag rcx-tag--large"
       >
         <span
           class="rcx-tag__inner"
@@ -188,7 +188,7 @@ exports[`[Tag Rendering] renders Medium without crashing 1`] = `
       class="rcx-box rcx-box--full rcx-css-8i0p31"
     >
       <span
-        class="rcx-box rcx-box--full  rcx-tag rcx-tag--medium"
+        class="rcx-box rcx-box--full rcx-tag rcx-tag--medium"
       >
         <span
           class="rcx-tag__inner"
@@ -208,7 +208,7 @@ exports[`[Tag Rendering] renders Secondary without crashing 1`] = `
       class="rcx-box rcx-box--full rcx-css-8i0p31"
     >
       <span
-        class="rcx-box rcx-box--full  rcx-tag rcx-tag--secondary"
+        class="rcx-box rcx-box--full rcx-tag rcx-tag--secondary"
       >
         <span
           class="rcx-tag__inner"
@@ -229,7 +229,7 @@ exports[`[Tag Rendering] renders Variants without crashing 1`] = `
       role="group"
     >
       <span
-        class="rcx-box rcx-box--full  rcx-tag  rcx-button-group__item"
+        class="rcx-box rcx-box--full rcx-tag  rcx-button-group__item"
       >
         <span
           class="rcx-tag__inner"
@@ -238,7 +238,7 @@ exports[`[Tag Rendering] renders Variants without crashing 1`] = `
         </span>
       </span>
       <span
-        class="rcx-box rcx-box--full  rcx-tag rcx-tag--primary rcx-button-group__item"
+        class="rcx-box rcx-box--full rcx-tag rcx-tag--primary rcx-button-group__item"
       >
         <span
           class="rcx-tag__inner"
@@ -247,7 +247,7 @@ exports[`[Tag Rendering] renders Variants without crashing 1`] = `
         </span>
       </span>
       <span
-        class="rcx-box rcx-box--full  rcx-tag rcx-tag--danger rcx-button-group__item"
+        class="rcx-box rcx-box--full rcx-tag rcx-tag--danger rcx-button-group__item"
       >
         <span
           class="rcx-tag__inner"
@@ -256,7 +256,7 @@ exports[`[Tag Rendering] renders Variants without crashing 1`] = `
         </span>
       </span>
       <span
-        class="rcx-box rcx-box--full  rcx-tag rcx-tag--warning rcx-button-group__item"
+        class="rcx-box rcx-box--full rcx-tag rcx-tag--warning rcx-button-group__item"
       >
         <span
           class="rcx-tag__inner"
@@ -265,7 +265,7 @@ exports[`[Tag Rendering] renders Variants without crashing 1`] = `
         </span>
       </span>
       <span
-        class="rcx-box rcx-box--full  rcx-tag rcx-tag--featured rcx-button-group__item"
+        class="rcx-box rcx-box--full rcx-tag rcx-tag--featured rcx-button-group__item"
       >
         <span
           class="rcx-tag__inner"
@@ -286,7 +286,7 @@ exports[`[Tag Rendering] renders VariantsAsLinks without crashing 1`] = `
       role="group"
     >
       <a
-        class="rcx-box rcx-box--full  rcx-tag rcx-tag--clickable rcx-button-group__item"
+        class="rcx-box rcx-box--full rcx-tag rcx-tag--clickable rcx-button-group__item"
         href="#"
       >
         <span
@@ -296,7 +296,7 @@ exports[`[Tag Rendering] renders VariantsAsLinks without crashing 1`] = `
         </span>
       </a>
       <a
-        class="rcx-box rcx-box--full  rcx-tag rcx-tag--primary rcx-tag--clickable rcx-button-group__item"
+        class="rcx-box rcx-box--full rcx-tag rcx-tag--primary rcx-tag--clickable rcx-button-group__item"
         href="#"
       >
         <span
@@ -306,7 +306,7 @@ exports[`[Tag Rendering] renders VariantsAsLinks without crashing 1`] = `
         </span>
       </a>
       <a
-        class="rcx-box rcx-box--full  rcx-tag rcx-tag--danger rcx-tag--clickable rcx-button-group__item"
+        class="rcx-box rcx-box--full rcx-tag rcx-tag--danger rcx-tag--clickable rcx-button-group__item"
         href="#"
       >
         <span
@@ -316,7 +316,7 @@ exports[`[Tag Rendering] renders VariantsAsLinks without crashing 1`] = `
         </span>
       </a>
       <a
-        class="rcx-box rcx-box--full  rcx-tag rcx-tag--warning rcx-tag--clickable rcx-button-group__item"
+        class="rcx-box rcx-box--full rcx-tag rcx-tag--warning rcx-tag--clickable rcx-button-group__item"
         href="#"
       >
         <span
@@ -326,7 +326,7 @@ exports[`[Tag Rendering] renders VariantsAsLinks without crashing 1`] = `
         </span>
       </a>
       <a
-        class="rcx-box rcx-box--full  rcx-tag rcx-tag--featured rcx-tag--clickable rcx-button-group__item"
+        class="rcx-box rcx-box--full rcx-tag rcx-tag--featured rcx-tag--clickable rcx-button-group__item"
         href="#"
       >
         <span
@@ -347,7 +347,7 @@ exports[`[Tag Rendering] renders Warning without crashing 1`] = `
       class="rcx-box rcx-box--full rcx-css-8i0p31"
     >
       <span
-        class="rcx-box rcx-box--full  rcx-tag rcx-tag--warning"
+        class="rcx-box rcx-box--full rcx-tag rcx-tag--warning"
       >
         <span
           class="rcx-tag__inner"
@@ -367,7 +367,7 @@ exports[`[Tag Rendering] renders WithIcon without crashing 1`] = `
       class="rcx-box rcx-box--full rcx-css-8i0p31"
     >
       <span
-        class="rcx-box rcx-box--full  rcx-tag "
+        class="rcx-box rcx-box--full rcx-tag "
       >
         <i
           aria-hidden="true"

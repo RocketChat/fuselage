@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 
 import { SidebarDivider } from '../SidebarDivider';
+
 import { TopBar } from './TopBar';
 import { TopBarWrapper } from './TopBarWrapper';
 

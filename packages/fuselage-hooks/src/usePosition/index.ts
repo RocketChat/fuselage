@@ -1,9 +1,10 @@
-import { useEffect, useRef, useState } from 'react';
 import type { RefObject, CSSProperties } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import { useDebouncedCallback } from '../useDebouncedCallback';
 import { useEffectEvent } from '../useEffectEvent';
 import { useSafely } from '../useSafely';
+
 import type { Placement } from './Placement';
 import type { PlacementVariant } from './PlacementVariant';
 import type { Position } from './Position';
@@ -195,7 +196,7 @@ export function usePosition<TTarget extends Element, TAnchor extends Element>(
     margin = 8,
     placement = 'bottom-start',
     container = document.body,
-  }: UsePositionOptions = {}
+  }: UsePositionOptions = {},
 ): UsePositionResult {
   const [style, setStyle] = useSafely(useState<UsePositionResult>(emptyStyle));
 
@@ -243,10 +244,10 @@ export function usePosition<TTarget extends Element, TAnchor extends Element>(
           variantBoundaries,
           targetRect,
           margin,
-        })
+        }),
       );
     }),
-    UPDATE_DEBOUNCE_DELAY
+    UPDATE_DEBOUNCE_DELAY,
   );
 
   useBoundingClientRectChanges(targetRef, handleBoundingClientRectChange);

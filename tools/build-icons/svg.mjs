@@ -1,6 +1,7 @@
 import { promisify } from 'util';
-import { parseString, Builder } from 'xml2js';
+
 import { readSource } from 'tools-utils/files';
+import { parseString, Builder } from 'xml2js';
 
 const xmlBuilder = new Builder({ headless: true });
 
@@ -37,7 +38,7 @@ export const createSvgIcons = (icons) =>
       });
 
       return { name, type, viewBox, elements, xml };
-    })
+    }),
   );
 
 export const createSvgSprite = async (svgIcons) =>
@@ -54,7 +55,7 @@ export const createSvgSprite = async (svgIcons) =>
           },
           ...elements,
         },
-      })
+      }),
     ),
     '</svg>',
   ].join('\n');

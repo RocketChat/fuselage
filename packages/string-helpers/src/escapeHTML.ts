@@ -15,13 +15,13 @@ const characterToHtmlEntityCode = {
 
 const regex = new RegExp(
   `[${Object.keys(characterToHtmlEntityCode).join('')}]`,
-  'g'
+  'g',
 );
 
 const toString = (object: unknown): string => (object ? `${object}` : '');
 
 const isEscapable = (
-  char: string
+  char: string,
 ): char is keyof typeof characterToHtmlEntityCode =>
   char in characterToHtmlEntityCode;
 

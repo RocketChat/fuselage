@@ -6,15 +6,27 @@
     "tools/*"
   ],
   "devDependencies": {
-    "@changesets/changelog-github": "~0.4.8",
-    "@changesets/cli": "~2.26.2",
-    "bump": "workspace:~",
-    "husky": "~9.0.11",
-    "hygen": "~6.1.5",
+    "@changesets/changelog-github": "~0.5.0",
+    "@changesets/cli": "~2.27.9",
+    "@eslint/js": "~9.14.0",
+    "@rocket.chat/prettier-config": "workspace:~",
+    "@types/eslint__js": "~8.42.3",
+    "eslint": "~9.14.0",
+    "eslint-import-resolver-typescript": "~3.6.3",
+    "eslint-plugin-import": "~2.31.0",
+    "eslint-plugin-mdx": "~3.1.5",
+    "eslint-plugin-prettier": "~5.2.1",
+    "eslint-plugin-react": "~7.37.2",
+    "eslint-plugin-react-hooks": "~5.0.0",
+    "globals": "~15.12.0",
+    "husky": "~9.1.6",
+    "hygen": "~6.2.11",
     "pinst": "~3.0.0",
-    "turbo": "~2.0.11",
-    "update-readme": "workspace:~",
-    "webpack": "~5.78.0"
+    "prettier": "~3.3.3",
+    "turbo": "~2.2.3",
+    "typescript": "~5.6.3",
+    "typescript-eslint": "~8.13.0",
+    "update-readme": "workspace:~"
   },
   "scripts": {
     "postinstall": "husky install && yarn build",
@@ -31,20 +43,20 @@
     "update-readme": "update-readme",
     "resolve-workspace-deps": "yarn workspace scripts run resolve-workspace-deps",
     "create-package": "hygen create-package",
-    "bump-next": "yarn workspaces foreach --no-private -v run bump-next",
     "release": "yarn changeset publish",
     "changeset": "changeset",
-    "release-next": "yarn workspaces foreach --no-private -v npm publish --tag next --tolerate-republish"
+    "release-next": "yarn workspaces foreach --no-private -v npm publish --tag next --tolerate-republish",
+    "prettier": "prettier --plugin=@prettier/plugin-xml"
   },
   "engines": {
-    "node": "22.2.0"
+    "node": "22.9.0"
   },
   "volta": {
-    "node": "22.2.0",
-    "yarn": "4.2.2"
+    "node": "22.9.0",
+    "yarn": "4.5.1"
   },
-  "packageManager": "yarn@4.4.0",
-  "eslintConfig": {
-    "extends": "@rocket.chat/eslint-config-alt"
+  "packageManager": "yarn@4.5.1",
+  "resolutions": {
+    "jsdom": "25.0.1"
   }
 }

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 const mediaQuery = require('css-mediaquery');
 
 const withMatchMediaMock = () => {
@@ -17,7 +18,7 @@ const withMatchMediaMock = () => {
       this._onchange = null;
       this.changeEventListeners = new Set([
         (ev) => {
-          this._onchange && this._onchange.call(this, ev);
+          this._onchange?.call(this, ev);
         },
       ]);
     }

@@ -1,9 +1,4 @@
-/**
- * @jest-environment node
- */
-
-import { renderHook } from '@testing-library/react-hooks/server';
-
+import { renderHook } from './testing';
 import { useResizeObserver } from './useResizeObserver';
 
 it('immediately returns undefined sizes', () => {

@@ -19,7 +19,7 @@ function MenuDropDown<T extends object>(props: AriaMenuProps<T>) {
           <MenuSection key={item.key} section={item} state={state} />
         ) : (
           <MenuItem key={item.key} item={item} state={state} />
-        )
+        ),
       )}
     </div>
   );

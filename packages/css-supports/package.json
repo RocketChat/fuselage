@@ -30,25 +30,17 @@
     "build": "tsc -p tsconfig.esm.json && tsc -p tsconfig.cjs.json",
     "lint": "lint",
     "lint-and-fix": "lint-and-fix",
-    "docs": "typedoc",
-    "bump-next": "bump-next"
+    "docs": "typedoc"
   },
   "devDependencies": {
-    "@rocket.chat/eslint-config-alt": "workspace:~",
-    "@rocket.chat/prettier-config": "workspace:~",
-    "bump": "workspace:~",
-    "eslint": "~8.38.0",
+    "eslint": "~9.14.0",
     "lint-all": "workspace:~",
-    "prettier": "~2.8.7",
+    "prettier": "~3.3.3",
     "rimraf": "~3.0.2",
     "typedoc": "~0.25.13",
-    "typescript": "~5.5.4"
+    "typescript": "~5.6.3"
   },
   "dependencies": {
     "@rocket.chat/memo": "workspace:~"
-  },
-  "eslintConfig": {
-    "extends": "@rocket.chat/eslint-config-alt/typescript"
-  },
-  "prettier": "@rocket.chat/prettier-config/fuselage"
+  }
 }

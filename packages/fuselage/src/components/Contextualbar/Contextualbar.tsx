@@ -11,7 +11,7 @@ type ContextualbarProps = ComponentProps<typeof Box>;
 const Contextualbar = forwardRef<HTMLElement, ContextualbarProps>(
   function Contextualbar(
     { children, width, position, bg = 'room', ...props },
-    ref
+    ref,
   ) {
     return (
       <Box
@@ -36,7 +36,7 @@ const Contextualbar = forwardRef<HTMLElement, ContextualbarProps>(
         {children}
       </Box>
     );
-  }
+  },
 );
 
 export default memo(Contextualbar);

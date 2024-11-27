@@ -7,7 +7,7 @@ type MessageToolbarItemProps = ComponentProps<typeof IconButton>;
 
 export const MessageToolbarItem = forwardRef(function MessageToolbarItem(
   props: MessageToolbarItemProps,
-  ref: Ref<HTMLButtonElement>
+  ref: Ref<HTMLButtonElement>,
 ) {
   return <IconButton ref={ref} small {...props} />;
 });

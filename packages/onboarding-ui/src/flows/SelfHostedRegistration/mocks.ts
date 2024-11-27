@@ -29,7 +29,7 @@ export const validateUsername = fetchMock(
     }
 
     return true;
-  }
+  },
 );
 
 export const validateEmail = fetchMock('/email/validate', (email: string) => {

@@ -4,7 +4,7 @@ import { memo } from 'react';
 import { Icon } from '..';
 
 const ContextualbarIcon = (
-  props: ComponentProps<typeof Icon>
+  props: ComponentProps<typeof Icon>,
 ): ReactElement => <Icon {...props} pi={2} size='x24' />;
 
 export default memo(ContextualbarIcon);

@@ -142,6 +142,24 @@ exports[`[Bubble Rendering] renders Small without crashing 1`] = `
 </body>
 `;
 
+exports[`[Bubble Rendering] renders WithLargeText without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-bubble rcx-box rcx-box--full  "
+    >
+      <button
+        class="rcx-box rcx-box--full rcx-bubble__button rcx-bubble__button--secondary"
+      >
+        <span>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vestibulum libero viverra nulla varius, a consequat ante malesuada. Fusce bibendum, lacus sed fermentum sagittis, urna erat viverra lacus, eu pellentesque neque est nec nisl. Morbi in lobortis dui, ac consectetur mi.
+        </span>
+      </button>
+    </div>
+  </div>
+</body>
+`;
+
 exports[`[Bubble Rendering] renders WithoutAction without crashing 1`] = `
 <body>
   <div>

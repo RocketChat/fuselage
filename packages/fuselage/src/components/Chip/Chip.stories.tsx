@@ -4,6 +4,7 @@ import type { StoryFn, Meta } from '@storybook/react';
 import { exampleAvatar, blankAvatar } from '../../../.storybook/helpers';
 import Box from '../Box';
 import Margins from '../Margins';
+
 import { Chip } from './Chip';
 
 export default {

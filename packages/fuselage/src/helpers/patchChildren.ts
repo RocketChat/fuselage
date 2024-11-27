@@ -6,7 +6,7 @@ import { shallowEqual } from './shallowEqual';
 
 export const patchChildren = <TProps>(
   children: ReactNode,
-  patch: (props: TProps) => TProps & Attributes
+  patch: (props: TProps) => TProps & Attributes,
 ) => {
   let dirty = false;
 

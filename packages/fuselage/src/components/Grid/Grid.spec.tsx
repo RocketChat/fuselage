@@ -1,5 +1,6 @@
-import { Grid } from '.';
 import { render } from '../../testing';
+
+import { Grid } from '.';
 
 describe('[Grid Component]', () => {
   it('renders Grid without crashing', () => {

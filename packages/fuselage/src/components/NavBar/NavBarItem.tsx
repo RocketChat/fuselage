@@ -22,7 +22,7 @@ export const NavBarItem = forwardRef<
             className: appendClassName(childProps.className, 'rcx-navbar-item'),
             ref,
             ...props,
-          })
+          }),
         )
       )}
     </>

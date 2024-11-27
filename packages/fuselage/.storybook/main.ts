@@ -1,13 +1,15 @@
+import { dirname, join } from 'path';
+
 import type { StorybookConfig } from '@storybook/react-webpack5';
 
 export default {
   addons: [
-    '@storybook/addon-a11y',
-    '@storybook/addon-essentials',
-    '@storybook/addon-interactions',
-    'storybook-dark-mode',
-    '@storybook/addon-mdx-gfm',
-    '@storybook/addon-webpack5-compiler-swc',
+    getAbsolutePath('@storybook/addon-a11y'),
+    getAbsolutePath('@storybook/addon-essentials'),
+    getAbsolutePath('@storybook/addon-interactions'),
+    getAbsolutePath('storybook-dark-mode'),
+    getAbsolutePath('@storybook/addon-mdx-gfm'),
+    getAbsolutePath('@storybook/addon-webpack5-compiler-swc'),
     {
       name: '@storybook/addon-styling-webpack',
 
@@ -69,7 +71,7 @@ export default {
   stories: ['../src/**/*.stories.{mdx,js,tsx}', '../src/**/*.mdx'],
 
   framework: {
-    name: '@storybook/react-webpack5',
+    name: getAbsolutePath('@storybook/react-webpack5'),
     options: {},
   },
   swc: () => ({
@@ -88,3 +90,7 @@ export default {
     reactDocgen: 'react-docgen-typescript',
   },
 } satisfies StorybookConfig;
+
+function getAbsolutePath(value: string): any {
+  return dirname(require.resolve(join(value, 'package.json')));
+}

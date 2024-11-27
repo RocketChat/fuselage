@@ -48,7 +48,7 @@ export const createSvgBuffer = async (icons) => {
 
         fontStream.write(stream);
       }
-    })
+    }),
   );
 
   return new Promise((resolve, reject) => {
@@ -71,7 +71,7 @@ export const createTtfBuffer = async (svgBuffer) => {
       description: pkg.description,
       url: pkg.homepage,
       version: pkg.version.split('.').slice(0, 2).join('.'),
-    }).buffer
+    }).buffer,
   );
 };
 

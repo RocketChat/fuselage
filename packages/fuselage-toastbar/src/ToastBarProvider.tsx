@@ -16,7 +16,7 @@ const ToastBarProvider = ({ children }: ToastBarProps): ReactElement => {
 
   const contextValue = {
     dispatch: (
-      option: Omit<ToastBarPayload, 'id' | 'time'> & { time?: number }
+      option: Omit<ToastBarPayload, 'id' | 'time'> & { time?: number },
     ) =>
       setToasts((toasts) => [
         ...toasts,
@@ -31,12 +31,18 @@ const ToastBarProvider = ({ children }: ToastBarProps): ReactElement => {
       {children}
       <ToastBarPortal>
         {Object.entries(
-          toasts?.reduce((zones, toast) => {
-            zones[toast.position || 'top-end'] =
-              zones[toast.position || 'top-end'] || [];
-            zones[toast.position || 'top-end'].push(toast);
-            return zones;
-          }, {} as Record<'top-start' | 'top-end' | 'bottom-start' | 'bottom-end', ToastBarPayload[]>)
+          toasts?.reduce(
+            (zones, toast) => {
+              zones[toast.position || 'top-end'] =
+                zones[toast.position || 'top-end'] || [];
+              zones[toast.position || 'top-end'].push(toast);
+              return zones;
+            },
+            {} as Record<
+              'top-start' | 'top-end' | 'bottom-start' | 'bottom-end',
+              ToastBarPayload[]
+            >,
+          ),
         ).map(([zone, toasts]) => (
           <ToastBarZone
             key={zone}

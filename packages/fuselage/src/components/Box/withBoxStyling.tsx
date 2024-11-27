@@ -6,12 +6,12 @@ import { useStylingProps } from './useStylingProps';
 export const withBoxStyling = <
   TComponent extends ComponentType<{
     className?: string;
-  }>
+  }>,
 >(
-  Component: TComponent
+  Component: TComponent,
 ) => {
   const WithBoxStyling = (
-    props: ComponentPropsWithoutRef<TComponent> & Partial<StylingProps>
+    props: ComponentPropsWithoutRef<TComponent> & Partial<StylingProps>,
   ) => {
     const propsWithoutStylingProps = useStylingProps(props);
     return <Component {...(propsWithoutStylingProps as any)} />;

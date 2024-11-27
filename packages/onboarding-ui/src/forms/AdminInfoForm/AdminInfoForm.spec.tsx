@@ -14,7 +14,7 @@ it('renders without crashing', () => {
       validateUsername={() => true}
       onSubmit={() => undefined}
     />,
-    div
+    div,
   );
   ReactDOM.unmountComponentAtNode(div);
 });

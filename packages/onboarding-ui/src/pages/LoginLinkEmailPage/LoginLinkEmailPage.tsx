@@ -36,7 +36,7 @@ const LoginLinkEmailPage = ({
           </Box>
 
           <Box fontScale='p1' maxWidth={570}>
-            <Trans i18nKey='page.magicLinkEmail.subtitle'></Trans>
+            <Trans i18nKey='page.magicLinkEmail.subtitle' />
           </Box>
 
           <EmailCodeFallback

@@ -3,6 +3,7 @@ import { axe } from 'jest-axe';
 import { withResizeObserverMock } from 'testing-utils/mocks/withResizeObserverMock';
 
 import { render } from '../../testing';
+
 import * as stories from './AutoComplete.stories';
 
 const testCases = Object.values(composeStories(stories)).map((Story) => [
@@ -18,7 +19,7 @@ describe('[AutoComplete Rendering]', () => {
     async (_storyname, Story) => {
       const tree = render(<Story />);
       expect(tree.baseElement).toMatchSnapshot();
-    }
+    },
   );
 
   test.each(testCases)(
@@ -28,6 +29,6 @@ describe('[AutoComplete Rendering]', () => {
 
       const results = await axe(container);
       expect(results).toHaveNoViolations();
-    }
+    },
   );
 });

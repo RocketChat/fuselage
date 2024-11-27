@@ -34,7 +34,7 @@ export function ListBox(props: ListBoxProps) {
           <ListBoxSection key={item.key} section={item} state={state} />
         ) : (
           <OptionAria key={item.key} item={item} state={state} />
-        )
+        ),
       )}
     </div>
   );
@@ -74,7 +74,7 @@ function OptionAria({ item, state }: OptionProps) {
       key: item.key,
     },
     state,
-    ref
+    ref,
   );
 
   return (

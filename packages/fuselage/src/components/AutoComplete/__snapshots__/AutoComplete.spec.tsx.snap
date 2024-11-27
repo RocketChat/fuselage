@@ -12,7 +12,7 @@ exports[`[AutoComplete Rendering] renders CustomItem without crashing 1`] = `
       >
         <input
           aria-label="Decorator Label"
-          class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--undecorated rcx-input-box  rcx-css-trljwa rcx-css-rcil7k"
+          class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--undecorated rcx-input-box rcx-css-trljwa rcx-css-rcil7k"
           value=""
         />
       </div>
@@ -43,7 +43,7 @@ exports[`[AutoComplete Rendering] renders CustomSelected without crashing 1`] = 
       >
         <input
           aria-label="Decorator Label"
-          class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--undecorated rcx-input-box  rcx-css-trljwa rcx-css-rcil7k"
+          class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--undecorated rcx-input-box rcx-css-trljwa rcx-css-rcil7k"
           value=""
         />
         <div
@@ -141,7 +141,7 @@ exports[`[AutoComplete Rendering] renders Default without crashing 1`] = `
       >
         <input
           aria-label="Decorator Label"
-          class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--undecorated rcx-input-box  rcx-css-trljwa rcx-css-rcil7k"
+          class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--undecorated rcx-input-box rcx-css-trljwa rcx-css-rcil7k"
           value=""
         />
       </div>
@@ -172,7 +172,7 @@ exports[`[AutoComplete Rendering] renders Multiple without crashing 1`] = `
       >
         <input
           aria-label="Decorator Label"
-          class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--undecorated rcx-input-box  rcx-css-trljwa rcx-css-rcil7k"
+          class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--undecorated rcx-input-box rcx-css-trljwa rcx-css-rcil7k"
           value=""
         />
         <button
@@ -188,7 +188,7 @@ exports[`[AutoComplete Rendering] renders Multiple without crashing 1`] = `
           </span>
           <i
             aria-hidden="true"
-            class="rcx-box rcx-box--full rcx-icon--name-cross rcx-icon  rcx-css-trljwa rcx-css-1wv1vf9"
+            class="rcx-box rcx-box--full rcx-icon--name-cross rcx-icon rcx-css-trljwa rcx-css-1wv1vf9"
           >
             
           </i>
@@ -206,7 +206,7 @@ exports[`[AutoComplete Rendering] renders Multiple without crashing 1`] = `
           </span>
           <i
             aria-hidden="true"
-            class="rcx-box rcx-box--full rcx-icon--name-cross rcx-icon  rcx-css-trljwa rcx-css-1wv1vf9"
+            class="rcx-box rcx-box--full rcx-icon--name-cross rcx-icon rcx-css-trljwa rcx-css-1wv1vf9"
           >
             
           </i>
@@ -239,7 +239,7 @@ exports[`[AutoComplete Rendering] renders MultipleCustomSelected without crashin
       >
         <input
           aria-label="Decorator Label"
-          class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--undecorated rcx-input-box  rcx-css-trljwa rcx-css-rcil7k"
+          class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--undecorated rcx-input-box rcx-css-trljwa rcx-css-rcil7k"
           value=""
         />
         <button
@@ -320,7 +320,7 @@ v/L21v8BT/ZVoe1UItsAAAAASUVORK5CYII="
           </span>
           <i
             aria-hidden="true"
-            class="rcx-box rcx-box--full rcx-icon--name-cross rcx-icon  rcx-css-trljwa rcx-css-1wv1vf9"
+            class="rcx-box rcx-box--full rcx-icon--name-cross rcx-icon rcx-css-trljwa rcx-css-1wv1vf9"
           >
             
           </i>
@@ -403,7 +403,7 @@ v/L21v8BT/ZVoe1UItsAAAAASUVORK5CYII="
           </span>
           <i
             aria-hidden="true"
-            class="rcx-box rcx-box--full rcx-icon--name-cross rcx-icon  rcx-css-trljwa rcx-css-1wv1vf9"
+            class="rcx-box rcx-box--full rcx-icon--name-cross rcx-icon rcx-css-trljwa rcx-css-1wv1vf9"
           >
             
           </i>
@@ -436,7 +436,7 @@ exports[`[AutoComplete Rendering] renders WithPlaceholder without crashing 1`] =
       >
         <input
           aria-label="Decorator Label"
-          class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--undecorated rcx-input-box  rcx-css-trljwa rcx-css-rcil7k"
+          class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--undecorated rcx-input-box rcx-css-trljwa rcx-css-rcil7k"
           placeholder="Search..."
           value=""
         />

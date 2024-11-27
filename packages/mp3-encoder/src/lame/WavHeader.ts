@@ -3,7 +3,7 @@ export class WavHeader {
     public readonly dataOffset: number,
     public readonly dataLen: number,
     public readonly channels: number,
-    public readonly sampleRate: number
+    public readonly sampleRate: number,
   ) {}
 
   private static fourccToInt(fourcc: string) {

@@ -5,6 +5,7 @@ import { useTranslation, Trans } from 'react-i18next';
 
 import FormPageLayout from '../../common/FormPageLayout';
 import CreateCloudWorkspaceForm from '../../forms/CreateCloudWorkspaceForm';
+
 import Description from './Description';
 import TitleCreateCloudPage from './TitleCreateCloudPage';
 
@@ -13,7 +14,7 @@ type CreateCloudWorkspacePageProps = ComponentProps<
 >;
 
 const CreateCloudWorkspacePage = (
-  props: CreateCloudWorkspacePageProps
+  props: CreateCloudWorkspacePageProps,
 ): ReactElement => {
   const { t } = useTranslation();
 

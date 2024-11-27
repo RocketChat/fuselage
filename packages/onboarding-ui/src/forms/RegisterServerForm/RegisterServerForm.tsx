@@ -123,7 +123,7 @@ const RegisterServerForm = ({
                       aria-required='true'
                       aria-describedby={`${emailField}-error`}
                       placeholder={t(
-                        'form.registeredServerForm.fields.accountEmail.inputPlaceholder'
+                        'form.registeredServerForm.fields.accountEmail.inputPlaceholder',
                       )}
                       id={emailField}
                     />

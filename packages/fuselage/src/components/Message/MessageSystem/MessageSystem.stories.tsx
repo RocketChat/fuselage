@@ -1,11 +1,12 @@
 import type { Meta, StoryFn } from '@storybook/react';
 
-import { MessageSystemLeftContainer } from '.';
 import { Avatar } from '../../Avatar';
 import Box from '../../Box';
 import { MessageDivider } from '../MessageDivider';
 import { MessageNameContainer } from '../MessageNameContainer';
 import { MessageUsername } from '../MessageUsername';
+
+import { MessageSystemLeftContainer } from '.';
 import { MessageSystem } from './MessageSystem';
 import { MessageSystemBlock } from './MessageSystemBlock';
 import { MessageSystemBody } from './MessageSystemBody';

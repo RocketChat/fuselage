@@ -12,6 +12,7 @@ import Box from '../Box';
 import Option, { OptionHeader, OptionDivider } from '../Option';
 import Scrollable from '../Scrollable';
 import Tile from '../Tile';
+
 import { useCursor } from './useCursor';
 
 export { useCursor };
@@ -22,7 +23,7 @@ export type OptionType = [
   selected?: boolean,
   disabled?: boolean,
   type?: 'heading' | 'divider' | 'option',
-  url?: string
+  url?: string,
 ];
 
 type OptionsProps = Omit<ComponentProps<typeof Box>, 'onSelect'> & {
@@ -55,7 +56,7 @@ export const Options = forwardRef(
       customEmpty,
       ...props
     }: OptionsProps,
-    ref: Ref<HTMLElement>
+    ref: Ref<HTMLElement>,
   ) => {
     const liRef = useRef<HTMLElement>(null);
 
@@ -107,7 +108,7 @@ export const Options = forwardRef(
               );
           }
         }),
-      [options, multiple, cursor, onSelect, OptionComponent]
+      [options, multiple, cursor, onSelect, OptionComponent],
     );
 
     return (
@@ -137,7 +138,7 @@ export const Options = forwardRef(
         </Tile>
       </Box>
     );
-  }
+  },
 );
 export const OptionContainer = forwardRef<
   HTMLElement,

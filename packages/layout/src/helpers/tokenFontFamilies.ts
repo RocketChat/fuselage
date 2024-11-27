@@ -1,7 +1,7 @@
 import typography from '@rocket.chat/fuselage-tokens/dist/typography.json';
 
 const getTokenFontFamily = (
-  name: keyof typeof typography.fontFamilies
+  name: keyof typeof typography.fontFamilies,
 ): string =>
   typography.fontFamilies[name]
     .map((fontFace) => (fontFace.includes(' ') ? `'${fontFace}'` : fontFace))

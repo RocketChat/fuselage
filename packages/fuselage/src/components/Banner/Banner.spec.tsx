@@ -2,6 +2,7 @@ import { screen } from '@testing-library/react';
 import { withResizeObserverMock } from 'testing-utils/mocks/withResizeObserverMock';
 
 import { render } from '../../testing';
+
 import Banner from './Banner';
 
 withResizeObserverMock();
@@ -16,7 +17,7 @@ describe('[Banner Component]', () => {
     expect(
       screen.getByRole('link', {
         name: /more info/i,
-      })
+      }),
     ).toBeInTheDocument();
   });
 });
