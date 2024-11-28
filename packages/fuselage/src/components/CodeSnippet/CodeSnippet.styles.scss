@@ -3,6 +3,7 @@
 @use '../../styles/typography.scss';
 
 .rcx-code-snippet {
+  color: colors.font(default);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -21,6 +22,8 @@
 
   &__codebox {
     margin-right: lengths.margin(8);
+
+    font-family: monospace, monospace;
 
     white-space: pre-line;
     word-break: break-all;

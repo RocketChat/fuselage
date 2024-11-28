@@ -35,8 +35,8 @@ const CodeSnippet = ({
 
   return (
     <Box is='pre' rcx-code-snippet {...props}>
-      <Box rcx-code-snippet__codebox>
-        <code>{children}</code>
+      <Box role='code' rcx-code-snippet__codebox>
+        {children}
       </Box>
       {onClick && children && (
         <Box>
