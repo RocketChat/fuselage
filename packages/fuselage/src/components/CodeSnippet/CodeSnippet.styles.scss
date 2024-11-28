@@ -3,7 +3,6 @@
 @use '../../styles/typography.scss';
 
 .rcx-code-snippet {
-  color: colors.font(default);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -14,6 +13,8 @@
   min-height: lengths.size(60);
   padding: lengths.padding(16);
 
+  color: colors.font(default);
+
   border-radius: theme(
     'code-snippet-border-radius',
     lengths.border-radius(medium)
@@ -23,9 +24,9 @@
   &__codebox {
     margin-right: lengths.margin(8);
 
-    font-family: monospace, monospace;
-
     white-space: pre-line;
     word-break: break-all;
+
+    font-family: monospace;
   }
 }
