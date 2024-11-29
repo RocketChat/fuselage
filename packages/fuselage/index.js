@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 if (process.env.NODE_ENV === 'production') {
   module.exports = require('./dist/fuselage.production.js');
 } else {

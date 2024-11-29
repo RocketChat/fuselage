@@ -16,9 +16,9 @@ export const FieldGroup = ({ children, ...props }: FieldGroupProps) => (
       (childProps: { className: string | string[] }) => ({
         className: appendClassName(
           childProps.className,
-          'rcx-field-group__item'
+          'rcx-field-group__item',
         ),
-      })
+      }),
     )}
   </Box>
 );

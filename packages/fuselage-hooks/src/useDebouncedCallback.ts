@@ -13,13 +13,13 @@ import { useMemo, useCallback, useRef, useEffect } from 'react';
 export const useDebouncedCallback = <P extends unknown[]>(
   callback: (...args: P) => unknown,
   delay: number,
-  deps?: DependencyList
+  deps?: DependencyList,
 ): ((...args: P) => unknown) & {
   flush: () => void;
   cancel: () => void;
 } => {
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const effectiveCallback = useMemo(() => callback, deps);
+  // eslint-disable-next-line react-hooks/exhaustive-deps, react-hooks/rules-of-hooks
+  const effectiveCallback = deps ? useMemo(() => callback, deps) : callback;
 
   const timerCallbackRef = useRef<() => void>();
   const timerRef = useRef<ReturnType<typeof setTimeout>>();
@@ -32,7 +32,7 @@ export const useDebouncedCallback = <P extends unknown[]>(
       clearTimeout(timerRef.current);
       timerRef.current = setTimeout(timerCallbackRef.current, delay);
     },
-    [effectiveCallback, delay]
+    [effectiveCallback, delay],
   );
 
   const flush = useCallback(() => {
@@ -48,11 +48,11 @@ export const useDebouncedCallback = <P extends unknown[]>(
     () => () => {
       cancel();
     },
-    [cancel]
+    [cancel],
   );
 
   return useMemo(
     () => Object.assign(debouncedCallback, { flush, cancel }),
-    [debouncedCallback, flush, cancel]
+    [debouncedCallback, flush, cancel],
   );
 };

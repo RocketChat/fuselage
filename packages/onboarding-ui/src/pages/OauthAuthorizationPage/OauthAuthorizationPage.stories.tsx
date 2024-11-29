@@ -19,7 +19,7 @@ export default {
 } satisfies Meta<typeof OauthAuthorizationPage>;
 
 export const _OauthAuthorizationPage: StoryFn<typeof OauthAuthorizationPage> = (
-  args
+  args,
 ) => <OauthAuthorizationPage {...args} />;
 
 _OauthAuthorizationPage.storyName = 'OauthAuthorizationPage';

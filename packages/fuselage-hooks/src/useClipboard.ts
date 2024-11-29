@@ -25,7 +25,7 @@ export const useClipboard = (
     clearTime = 2000,
     onCopySuccess = (): void => undefined,
     onCopyError = (): void => undefined,
-  }: UseClipboardParams = {}
+  }: UseClipboardParams = {},
 ): UseClipboardReturn => {
   const [hasCopied, setHasCopied] = useState(false);
 

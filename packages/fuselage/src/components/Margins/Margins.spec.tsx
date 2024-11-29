@@ -1,5 +1,6 @@
-import Margins from '.';
 import { render } from '../../testing';
+
+import Margins from '.';
 
 describe('[Margins Component]', () => {
   it('renders without crashing', () => {
@@ -10,7 +11,7 @@ describe('[Margins Component]', () => {
     const { container } = render(
       <Margins all='10px'>
         <div />
-      </Margins>
+      </Margins>,
     );
 
     expect(container.firstElementChild).toHaveCssInJsClass();

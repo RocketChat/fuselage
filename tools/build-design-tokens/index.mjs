@@ -16,7 +16,7 @@ const buildBreakpoints = async () => {
     toCommonJsModule(entries).then(writeSource('./breakpoints.js')),
     toEsmModule(entries).then(writeSource('./breakpoints.mjs')),
     toScssVariables({ breakpoints: entries }).then(
-      writeSource('./breakpoints.scss')
+      writeSource('./breakpoints.scss'),
     ),
   ]);
 };
@@ -43,4 +43,6 @@ const buildTypography = async () => {
   ]);
 };
 
-await Promise.all([buildBreakpoints(), buildColors(), buildTypography()]);
+buildBreakpoints();
+buildColors();
+buildTypography();

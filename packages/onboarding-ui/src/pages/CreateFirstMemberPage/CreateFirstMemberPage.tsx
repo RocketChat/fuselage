@@ -4,6 +4,7 @@ import type { ComponentProps, ReactElement } from 'react';
 import type { FormPageLayoutStyleProps } from '../../Types';
 import FormPageLayout from '../../common/FormPageLayout';
 import CreateFirstMemberForm from '../../forms/CreateFirstMemberForm';
+
 import TitleCreateFirstMemberPage from './TitleCreateFirstMemberPage';
 
 type CreateCloudWorkspacePageProps = ComponentProps<
@@ -11,7 +12,7 @@ type CreateCloudWorkspacePageProps = ComponentProps<
 >;
 
 const CreateFirstMemberPage = (
-  props: CreateCloudWorkspacePageProps
+  props: CreateCloudWorkspacePageProps,
 ): ReactElement => {
   const pageLayoutStyleProps: FormPageLayoutStyleProps = {
     justifyContent: 'center',

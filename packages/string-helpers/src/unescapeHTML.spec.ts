@@ -4,8 +4,8 @@ describe('unescapeHTML', () => {
   it('works', () => {
     expect(
       unescapeHTML(
-        '&lt;div&gt;Blah &amp; &quot;blah&quot; &amp; &apos;blah&#39;&lt;/div&gt;'
-      )
+        '&lt;div&gt;Blah &amp; &quot;blah&quot; &amp; &apos;blah&#39;&lt;/div&gt;',
+      ),
     ).toBe('<div>Blah & "blah" & \'blah\'</div>');
     expect(unescapeHTML('&amp;lt;')).toBe('&lt;');
     expect(unescapeHTML('&apos;')).toBe("'");
@@ -22,14 +22,16 @@ describe('unescapeHTML', () => {
     expect(unescapeHTML('')).toBe('');
     expect(unescapeHTML('&nbsp;')).toBe(' ');
     expect(
-      unescapeHTML('what is the &yen; to &pound; to &euro; conversion process?')
+      unescapeHTML(
+        'what is the &yen; to &pound; to &euro; conversion process?',
+      ),
     ).toBe('what is the ¥ to £ to € conversion process?');
     expect(unescapeHTML('&reg; trademark')).toBe('® trademark');
     expect(unescapeHTML('&trade; unregistered trademark')).toBe(
-      '™ unregistered trademark'
+      '™ unregistered trademark',
     );
     expect(unescapeHTML('&copy; 1992. License available for 50 &cent;')).toBe(
-      '© 1992. License available for 50 ¢'
+      '© 1992. License available for 50 ¢',
     );
     expect(unescapeHTML('&nbsp;')).toBe(' ');
     expect(unescapeHTML('&nbsp;')).toBe(' ');

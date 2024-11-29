@@ -13,6 +13,7 @@ import { OptionsPaginated } from '../OptionsPaginated';
 import PositionAnimated from '../PositionAnimated';
 import SelectAddon from '../Select/SelectAddon';
 import SelectFocus from '../Select/SelectFocus';
+
 import PaginatedSelectWrapper from './PaginatedSelectWrapper';
 
 type PaginatedOptionType = {
@@ -85,7 +86,7 @@ export const PaginatedSelect = ({
       onClick={handleClick}
       className={useMemo(
         () => [error && 'invalid', disabled && 'disabled'],
-        [error, disabled]
+        [error, disabled],
       )}
       {...props}
     >

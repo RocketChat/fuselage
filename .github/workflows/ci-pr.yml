@@ -22,8 +22,8 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v4
         with:
-          node-version: "22.2.0"
-          cache: "yarn"
+          node-version: '22.2.0'
+          cache: 'yarn'
       - uses: actions/cache@v3
         id: yarn-cache
         with:
@@ -39,12 +39,12 @@ jobs:
           key: turbo-${{ runner.os }}-${{ github.job }}
           restore-keys: |
             turbo-${{ runner.os }}-
-      - run: yarn install
+      - run: yarn
         if: steps.yarn-cache.outputs.cache-hit != 'true'
       - run: yarn run ci
       - uses: actions/upload-artifact@v3
         with:
-          name: "storybooks-${{ github.event.number }}"
+          name: 'storybooks-${{ github.event.number }}'
           path: |
             packages/fuselage/storybook-static
             packages/onboarding-ui/storybook-static

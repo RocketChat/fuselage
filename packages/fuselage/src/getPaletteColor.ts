@@ -17,7 +17,7 @@ const mapTypeToPrefix = {
 export const getPaletteColor = (
   type: keyof typeof mapTypeToPrefix,
   grade: 100 | 200 | 250 | 300 | 400 | 450 | 500 | 600 | 700 | 800 | 900 | 1000,
-  alpha?: number
+  alpha?: number,
 ): [customPropertyName: string, value: string] => {
   const ref = `${mapTypeToPrefix[type]}${grade}`;
   invariant(isPaletteColorRef(ref), 'invalid color reference');
@@ -25,7 +25,7 @@ export const getPaletteColor = (
   const baseColor = tokenColors[ref];
 
   const matches = /^#([0-9A-Fa-f]{2})([0-9A-Fa-f]{2})([0-9A-Fa-f]{2})$/.exec(
-    baseColor
+    baseColor,
   );
 
   invariant(!!matches, 'invalid color token format');

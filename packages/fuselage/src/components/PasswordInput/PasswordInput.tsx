@@ -11,7 +11,7 @@ type PasswordInputProps = Omit<ComponentProps<typeof InputBox>, 'type'>;
 
 const PasswordInput = forwardRef(function PasswordInput(
   props: PasswordInputProps,
-  ref: Ref<HTMLInputElement>
+  ref: Ref<HTMLInputElement>,
 ) {
   const [hidden, toggle] = useToggle(true);
   const handleAddonClick = () => {

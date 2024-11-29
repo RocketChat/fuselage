@@ -10,7 +10,7 @@ it('renders without crashing', () => {
       onSubmit={() => undefined}
       validatePassword={() => undefined}
     />,
-    div
+    div,
   );
   ReactDOM.unmountComponentAtNode(div);
 });

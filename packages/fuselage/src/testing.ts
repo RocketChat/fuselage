@@ -17,14 +17,14 @@ type HydrateableContainer = Parameters<(typeof ReactDOMClient)['hydrate']>[0];
 export function render<
   Q extends Queries = typeof queries,
   Container extends RendererableContainer | HydrateableContainer = HTMLElement,
-  BaseElement extends RendererableContainer | HydrateableContainer = Container
+  BaseElement extends RendererableContainer | HydrateableContainer = Container,
 >(
   ui: React.ReactNode,
-  options: RenderOptions<Q, Container, BaseElement>
+  options: RenderOptions<Q, Container, BaseElement>,
 ): RenderResult<Q, Container, BaseElement>;
 export function render(
   ui: React.ReactNode,
-  options?: Omit<RenderOptions, 'queries'>
+  options?: Omit<RenderOptions, 'queries'>,
 ): RenderResult;
 export function render(ui: React.ReactNode, options?: any): any {
   return renderOriginal(ui, {

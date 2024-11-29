@@ -5,6 +5,7 @@ import { useOverlayTriggerState } from 'react-stately';
 
 import Button from '../Button';
 import Tile from '../Tile';
+
 import { Popover } from './Popover';
 
 export default {
@@ -21,7 +22,7 @@ const Template: StoryFn<typeof Popover> = (args) => {
   const { triggerProps, overlayProps } = useOverlayTrigger(
     { type: 'dialog' },
     state,
-    ref
+    ref,
   );
   delete triggerProps.onPress;
 

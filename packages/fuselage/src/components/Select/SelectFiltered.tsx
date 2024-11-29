@@ -1,8 +1,9 @@
 import type { ComponentProps, Dispatch, Ref, SetStateAction } from 'react';
 import { forwardRef, useState } from 'react';
 
-import { SelectLegacy } from '.';
 import type { Icon } from '..';
+
+import { SelectLegacy } from '.';
 import type { SelectAnchorParams } from './SelectAnchorParams';
 import SelectFilteredAnchor from './SelectFilteredAnchor';
 
@@ -20,7 +21,7 @@ export const SelectFiltered = forwardRef(function SelectFiltered(
     setFilter: propSetFilter,
     ...props
   }: SelectFilteredProps,
-  ref: Ref<HTMLInputElement>
+  ref: Ref<HTMLInputElement>,
 ) {
   const [filter, setFilter] = useState('');
 

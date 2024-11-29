@@ -13,7 +13,7 @@ it('renders without crashing', () => {
       onCopySecurityCode={() => undefined}
       onBackButtonClick={() => undefined}
     />,
-    div
+    div,
   );
   ReactDOM.unmountComponentAtNode(div);
 });

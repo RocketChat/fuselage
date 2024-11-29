@@ -16,5 +16,5 @@ export default {
 } satisfies Meta<typeof RegisterOfflineForm>;
 
 export const _RegisterOfflineForm: StoryFn<typeof RegisterOfflineForm> = (
-  args
+  args,
 ) => <RegisterOfflineForm {...args} />;

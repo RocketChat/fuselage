@@ -1,6 +1,6 @@
-import { renderHook, act } from '@testing-library/react-hooks';
 import { useState } from 'react';
 
+import { renderHook, act } from './testing';
 import { useDebouncedCallback } from './useDebouncedCallback';
 
 beforeAll(() => {
@@ -33,7 +33,7 @@ it('returns a debounced callback', () => {
 it("returns the same callback if deps don't change", () => {
   const delay = 100;
   const { result, rerender } = renderHook(() =>
-    useDebouncedCallback(() => undefined, delay, [])
+    useDebouncedCallback(() => undefined, delay, []),
   );
 
   const initialCallback = result.current;

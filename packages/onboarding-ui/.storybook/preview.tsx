@@ -8,6 +8,7 @@ import { I18nextProvider, initReactI18next } from 'react-i18next';
 import { useDarkMode } from 'storybook-dark-mode';
 
 import manifest from '../package.json';
+
 import DocsContainer from './DocsContainer';
 import logo from './logo.svg';
 

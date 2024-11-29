@@ -4,7 +4,7 @@ import { memo } from 'react';
 import { Box } from '..';
 
 const ContextualbarTitle = (
-  props: ComponentProps<typeof Box>
+  props: ComponentProps<typeof Box>,
 ): ReactElement => (
   <Box
     flexShrink={1}

@@ -240,7 +240,7 @@ export class QuantizePVT {
     targ_bits: Int32Array,
     ms_ener_ratio: number,
     mean_bits: number,
-    max_bits: number
+    max_bits: number,
   ) {
     assert(max_bits <= MAX_BITS_PER_GRANULE);
     assert(targ_bits[0] + targ_bits[1] <= MAX_BITS_PER_GRANULE);
@@ -297,7 +297,7 @@ export class QuantizePVT {
     gfp: LameGlobalFlags,
     ratio: III_psy_ratio,
     cod_info: GrInfo,
-    pxmin: Float32Array
+    pxmin: Float32Array,
   ) {
     let pxminPos = 0;
     const gfc = gfp.internal_flags;

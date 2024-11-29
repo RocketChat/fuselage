@@ -3,6 +3,7 @@ import type { ComponentType } from 'react';
 
 import Box from '../Box';
 import Margins from '../Margins';
+
 import { Avatar } from './Avatar';
 import { AvatarContainer } from './AvatarContainer';
 import { AvatarStack } from './AvatarStack';

@@ -2,6 +2,7 @@ import type { StoryFn, Meta } from '@storybook/react';
 import type { ComponentType } from 'react';
 
 import { Avatar } from '../Avatar';
+
 import {
   SidebarItem,
   SidebarItemAvatar,

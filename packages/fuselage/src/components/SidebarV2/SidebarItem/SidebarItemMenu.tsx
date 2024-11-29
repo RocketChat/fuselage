@@ -18,9 +18,9 @@ export const SidebarItemMenu = ({
       (childProps: { className: string | string[] }) => ({
         className: appendClassName(
           childProps.className,
-          'rcx-sidebar-v2-item__menu'
+          'rcx-sidebar-v2-item__menu',
         ),
-      })
+      }),
     )}
   </div>
 );

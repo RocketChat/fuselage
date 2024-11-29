@@ -4,6 +4,7 @@ import type { StoryFn, Meta } from '@storybook/react';
 import Box from '../Box';
 import { ButtonGroup } from '../ButtonGroup';
 import { Icon } from '../Icon';
+
 import { Tag } from './Tag';
 
 export default {

@@ -8,7 +8,7 @@ type MiddlewareOptions = {
 };
 
 export const createTranspileMiddleware = (
-  options: MiddlewareOptions = {}
+  options: MiddlewareOptions = {},
 ): Middleware =>
   middleware([createLogicalPropertiesMiddleware(options), prefixer, stringify]);
 
@@ -20,5 +20,5 @@ const defaultMiddleware = createTranspileMiddleware();
 export const transpile = (
   selector: string,
   content: string,
-  middleware: Middleware = defaultMiddleware
+  middleware: Middleware = defaultMiddleware,
 ): string => serialize(compile(`${selector}{${content}}`), middleware);

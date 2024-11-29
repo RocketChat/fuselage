@@ -12,7 +12,7 @@ export type IconProps = Omit<ComponentProps<typeof Box>, 'name' | 'size'> & {
 
 export const Icon = forwardRef(function Icon(
   { name, size, ...props }: IconProps,
-  ref: Ref<HTMLElement>
+  ref: Ref<HTMLElement>,
 ) {
   return (
     <Box

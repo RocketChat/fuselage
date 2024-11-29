@@ -10,7 +10,7 @@ const ContextualbarFooter = forwardRef<HTMLElement, ComponentProps<typeof Box>>(
         {children}
       </Box>
     );
-  }
+  },
 );
 
 export default memo(ContextualbarFooter);

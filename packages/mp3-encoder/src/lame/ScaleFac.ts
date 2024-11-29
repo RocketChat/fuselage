@@ -44,14 +44,14 @@ export class ScaleFac {
         0,
         this.psfb21,
         0,
-        Math.min(this.arr21.length, this.psfb21.length)
+        Math.min(this.arr21.length, this.psfb21.length),
       );
       copyArray(
         this.arr12,
         0,
         this.psfb12,
         0,
-        Math.min(this.arr12.length, this.psfb12.length)
+        Math.min(this.arr12.length, this.psfb12.length),
       );
     }
   }

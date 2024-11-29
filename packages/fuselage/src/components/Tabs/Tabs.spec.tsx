@@ -1,4 +1,5 @@
 import { render } from '../../testing';
+
 import { Tabs } from './Tabs';
 
 describe('[Tabs Component]', () => {

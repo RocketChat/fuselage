@@ -30,7 +30,7 @@ export const SliderHead = ({
         flex-direction: column;
       `}
     `,
-    null
+    null,
   );
   const output = (
     <Label {...(outputProps as any)}>

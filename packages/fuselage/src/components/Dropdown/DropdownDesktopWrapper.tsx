@@ -17,7 +17,7 @@ export const DropdownDesktopWrapper = forwardRef(
       placement?: UsePositionOptions['placement'];
       children: ReactNode;
     },
-    ref: Ref<R>
+    ref: Ref<R>,
   ) {
     const { style } = usePosition(reference, ref as RefObject<R>, {
       placement,
@@ -26,5 +26,5 @@ export const DropdownDesktopWrapper = forwardRef(
     return (
       <DropdownDesktop style={style} children={children} ref={ref} {...props} />
     );
-  }
+  },
 );

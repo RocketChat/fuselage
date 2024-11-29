@@ -28,7 +28,7 @@ const LOW_SAMPLE_RATE_THRESHOLD = 16000;
 
 const getBitrates = (
   version: 0 | 1,
-  samplerate = LOW_SAMPLE_RATE_THRESHOLD
+  samplerate = LOW_SAMPLE_RATE_THRESHOLD,
 ) => {
   if (samplerate < 16000) {
     return bitratesMap.mpeg2_5;
@@ -44,7 +44,7 @@ const getBitrates = (
 export function findNearestBitrate(
   bRate: number,
   version: 0 | 1,
-  samplerate: number
+  samplerate: number,
 ): Bitrate {
   const bitrates = getBitrates(version, samplerate);
 
@@ -66,7 +66,7 @@ export type BitrateIndex = number & { __brand: 'BitrateIndex' };
 export function findBitrateIndex(
   bRate: number,
   version: 0 | 1,
-  samplerate: number
+  samplerate: number,
 ): BitrateIndex {
   const bitrates = getBitrates(version, samplerate);
 

@@ -25,7 +25,7 @@ type ReactAriaPlacement =
   | 'end bottom';
 
 export const getPlacement = (
-  placement: UsePositionOptions['placement']
+  placement: UsePositionOptions['placement'],
 ): ReactAriaPlacement => {
   // switch case for placement from usePosition placement to react-aria
   switch (placement) {

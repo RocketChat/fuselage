@@ -1,10 +1,6 @@
-/**
- * @jest-environment node
- */
-
-import { renderHook } from '@testing-library/react-hooks/server';
 import { useRef } from 'react';
 
+import { renderHook } from './testing';
 import { useBorderBoxSize } from './useBorderBoxSize';
 
 it('immediately returns zero size', () => {

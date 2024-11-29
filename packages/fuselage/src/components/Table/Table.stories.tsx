@@ -1,6 +1,7 @@
 import type { Meta, StoryFn } from '@storybook/react';
 
 import { CheckBox } from '../CheckBox';
+
 import { Table } from './Table';
 import { TableBody } from './TableBody';
 import { TableCell } from './TableCell';

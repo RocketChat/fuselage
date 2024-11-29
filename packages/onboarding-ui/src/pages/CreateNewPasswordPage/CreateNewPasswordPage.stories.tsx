@@ -16,7 +16,7 @@ export default {
 } satisfies Meta<typeof CreateNewPasswordPage>;
 
 export const _CreateNewPasswordPage: StoryFn<typeof CreateNewPasswordPage> = (
-  args
+  args,
 ) => <CreateNewPasswordPage {...args} />;
 
 _CreateNewPasswordPage.storyName = 'CreateNewPasswordPage';

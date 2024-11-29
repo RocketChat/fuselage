@@ -42,7 +42,7 @@ const MenuOption = memo(
         onClick,
         ...props
       }: MenuOptionProps,
-      ref
+      ref,
     ) => (
       <Tag
         {...props}
@@ -72,8 +72,8 @@ const MenuOption = memo(
       >
         {children}
       </Tag>
-    )
-  )
+    ),
+  ),
 );
 
 export default MenuOption;

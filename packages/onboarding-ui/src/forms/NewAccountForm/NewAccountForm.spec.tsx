@@ -11,7 +11,7 @@ it('renders without crashing', () => {
       validateConfirmationPassword={() => undefined}
       onSubmit={() => undefined}
     />,
-    div
+    div,
   );
   ReactDOM.unmountComponentAtNode(div);
 });

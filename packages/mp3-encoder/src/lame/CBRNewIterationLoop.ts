@@ -18,7 +18,7 @@ export class CBRNewIterationLoop {
     gfp: LameGlobalFlags,
     pe: number[][],
     ms_ener_ratio: number[],
-    ratio: III_psy_ratio[][]
+    ratio: III_psy_ratio[][],
   ) {
     const gfc = gfp.internal_flags;
     const l3_xmin = new Float32Array(SFBMAX);
@@ -41,7 +41,7 @@ export class CBRNewIterationLoop {
           targ_bits,
           ms_ener_ratio[gr],
           mean_bits,
-          max_bits
+          max_bits,
         );
       }
 
@@ -69,7 +69,7 @@ export class CBRNewIterationLoop {
             l3_xmin,
             xrpow,
             ch,
-            targ_bits[ch]
+            targ_bits[ch],
           );
         }
 
@@ -88,7 +88,7 @@ export class CBRNewIterationLoop {
     targ_bits: Int32Array,
     mean_bits: number,
     gr: number,
-    cbr: number
+    cbr: number,
   ) {
     const gfc = gfp.internal_flags;
     let tbits = 0;
@@ -108,7 +108,7 @@ export class CBRNewIterationLoop {
       targ_bits[ch] = Math.min(MAX_BITS_PER_CHANNEL, tbits / gfc.channels_out);
 
       add_bits[ch] = Math.trunc(
-        (targ_bits[ch] * pe[gr][ch]) / 700.0 - targ_bits[ch]
+        (targ_bits[ch] * pe[gr][ch]) / 700.0 - targ_bits[ch],
       );
 
       if (add_bits[ch] > (mean_bits * 3) / 4)

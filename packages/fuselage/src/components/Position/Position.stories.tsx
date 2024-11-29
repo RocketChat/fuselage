@@ -2,6 +2,7 @@ import type { StoryFn, Meta } from '@storybook/react';
 import { useRef } from 'react';
 
 import Tile from '../Tile';
+
 import Position from './Position';
 
 export default {

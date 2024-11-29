@@ -24,7 +24,7 @@ const getTouchingEdges = (element: Element) => ({
 const pollTouchingEdges = (
   element: EventTarget & Element,
   touchingEdgesRef: MutableRefObject<Record<string, boolean>>,
-  onScrollContent: ((touching: { top: boolean }) => void) | undefined
+  onScrollContent: ((touching: { top: boolean }) => void) | undefined,
 ) => {
   const touchingEdges = touchingEdgesRef.current;
   const newTouchingEdges = getTouchingEdges(element);
@@ -115,7 +115,7 @@ export const Scrollable = ({
         scroll-behavior: smooth !important;
       `}
     `,
-    null
+    null,
   );
 
   const transformFn = useCallback(
@@ -129,7 +129,7 @@ export const Scrollable = ({
 
       return props;
     },
-    [className, handleScroll, onScrollContent]
+    [className, handleScroll, onScrollContent],
   );
 
   return (

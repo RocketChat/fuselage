@@ -13,7 +13,7 @@ it('renders without crashing', () => {
       onBackButtonClick={() => undefined}
       onSubmit={() => undefined}
     />,
-    div
+    div,
   );
   ReactDOM.unmountComponentAtNode(div);
 });

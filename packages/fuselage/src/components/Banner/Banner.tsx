@@ -72,14 +72,14 @@ const Banner = ({
         onClose();
       }
     },
-    [onClose]
+    [onClose],
   );
 
   return (
     <section
       className={cx('rcx-banner')(
         { [variant]: true, inline, actionable },
-        className
+        className,
       )}
       ref={ref}
       role='banner'

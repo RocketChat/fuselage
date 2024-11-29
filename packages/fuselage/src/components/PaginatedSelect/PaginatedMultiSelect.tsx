@@ -37,7 +37,7 @@ type PaginatedMultiSelectProps = Omit<
   value?: PaginatedMultiSelectOption[];
   onChange: (values: PaginatedMultiSelectOption[]) => void;
   renderOptions?: (
-    props: ComponentProps<typeof OptionsPaginated>
+    props: ComponentProps<typeof OptionsPaginated>,
   ) => ReactElement | null;
   renderItem?: (props: ComponentProps<typeof Option>) => ReactElement | null;
   anchor?: any;
@@ -63,7 +63,7 @@ const PaginatedMultiSelect = ({
   const currentValue = value !== undefined ? value : internalValue;
 
   const selectedOptions = options.filter((option) =>
-    currentValue.some((opt) => opt.value === option.value)
+    currentValue.some((opt) => opt.value === option.value),
   );
 
   const [visible, hide, show] = useVisible();

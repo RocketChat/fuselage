@@ -14,7 +14,7 @@ export const ListComponent = styled(
     icon: _icon,
     listStyleType: _listStyleType,
     ...props
-  }: ListComponentProps) => props
+  }: ListComponentProps) => props,
 )`
   padding: 0;
   margin: 0;

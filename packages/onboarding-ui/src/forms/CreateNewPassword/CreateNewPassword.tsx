@@ -60,7 +60,7 @@ const CreateNewPassword = ({
                   required: true,
                 })}
                 placeholder={t(
-                  'form.createPasswordForm.fields.password.placeholder'
+                  'form.createPasswordForm.fields.password.placeholder',
                 )}
               />
             </FieldRow>
@@ -79,7 +79,7 @@ const CreateNewPassword = ({
                   required: true,
                 })}
                 placeholder={t(
-                  'form.createPasswordForm.fields.confirmPassword.placeholder'
+                  'form.createPasswordForm.fields.confirmPassword.placeholder',
                 )}
               />
             </FieldRow>

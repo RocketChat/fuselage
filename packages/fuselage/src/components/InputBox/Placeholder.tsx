@@ -7,7 +7,7 @@ type PlaceholderProps = ComponentProps<typeof Box>;
 
 export const Placeholder = forwardRef(function Placeholder(
   props: PlaceholderProps,
-  ref: Ref<HTMLOptionElement>
+  ref: Ref<HTMLOptionElement>,
 ) {
   return <Box is='option' rcx-input-box__placeholder ref={ref} {...props} />;
 });

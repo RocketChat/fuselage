@@ -2,7 +2,7 @@ import { GrInfo } from './GrInfo';
 
 export class IIISideInfo {
   tt = Array.from({ length: 2 }, () =>
-    Array.from({ length: 2 }, () => new GrInfo())
+    Array.from({ length: 2 }, () => new GrInfo()),
   );
 
   main_data_begin = 0;

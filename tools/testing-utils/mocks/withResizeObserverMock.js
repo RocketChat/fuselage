@@ -7,29 +7,29 @@ const getNormalizedStyle = (style) => ({
   boxSizing: style.boxSizing === 'border-box' ? 'border-box' : 'content-box',
   inlineSize: getSizeInPixels(style.inlineSize || style.width),
   borderInlineStartWidth: getSizeInPixels(
-    style.borderInlineStartWidth || style.borderRightWidth
+    style.borderInlineStartWidth || style.borderRightWidth,
   ),
   borderInlineEndWidth: getSizeInPixels(
-    style.borderInlineEndWidth || style.borderRightWidth
+    style.borderInlineEndWidth || style.borderRightWidth,
   ),
   paddingInlineStart: getSizeInPixels(
-    style.paddingInlineStart || style.paddingLeft
+    style.paddingInlineStart || style.paddingLeft,
   ),
   paddingInlineEnd: getSizeInPixels(
-    style.paddingInlineEnd || style.paddingRight
+    style.paddingInlineEnd || style.paddingRight,
   ),
   blockSize: getSizeInPixels(style.blockSize || style.height),
   borderBlockStartWidth: getSizeInPixels(
-    style.borderBlockStartWidth || style.borderTopWidth
+    style.borderBlockStartWidth || style.borderTopWidth,
   ),
   borderBlockEndWidth: getSizeInPixels(
-    style.borderBlockEndWidth || style.borderBottomWidth
+    style.borderBlockEndWidth || style.borderBottomWidth,
   ),
   paddingBlockStart: getSizeInPixels(
-    style.paddingBlockStart || style.paddingTop
+    style.paddingBlockStart || style.paddingTop,
   ),
   paddingBlockEnd: getSizeInPixels(
-    style.paddingBlockEnd || style.paddingBottom
+    style.paddingBlockEnd || style.paddingBottom,
   ),
 });
 
@@ -243,7 +243,7 @@ class ResizeObserverMock {
               contentBoxSize: [contentBoxSize],
             },
           ],
-          this
+          this,
         );
       }
     });

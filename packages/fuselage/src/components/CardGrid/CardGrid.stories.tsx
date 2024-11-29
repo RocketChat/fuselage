@@ -4,6 +4,7 @@ import type { ComponentProps } from 'react';
 import { Button } from '../Button';
 import { Card, CardBody, CardControls, CardHeader, CardTitle } from '../Card';
 import { Icon } from '../Icon';
+
 import { CardGrid } from './CardGrid';
 
 export default {
@@ -39,7 +40,7 @@ const CardItem = (props: ComponentProps<typeof Card>) => (
 );
 
 export const _CardGrid: StoryFn<typeof CardGrid> = (
-  args: ComponentProps<typeof CardGrid>
+  args: ComponentProps<typeof CardGrid>,
 ) => (
   <CardGrid {...args} breakpoints={{ xs: 4, sm: 4, md: 4, lg: 3, xl: 3 }}>
     {Array.from(new Array(9)).map((_, index) => (

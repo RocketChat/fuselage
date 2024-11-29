@@ -8,7 +8,7 @@ it('renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(
     <RedirectPage title='Ready' countDownSeconds={5} onRedirect={onRedirect} />,
-    div
+    div,
   );
   ReactDOM.unmountComponentAtNode(div);
 });

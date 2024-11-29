@@ -15,18 +15,20 @@ import Box from '../Box/Box';
 import { Icon } from '../Icon';
 import { OptionContainer } from '../Options';
 import { Popover } from '../Popover';
+
 import { ListBox } from './Listbox';
 
 export { Item } from 'react-stately';
 
 export const SelectAria = forwardRef(function SelectAria<T extends object>(
   {
-    disabled,
     error,
     placeholder,
     value,
     onChange,
     small,
+    isDisabled: isDisabledProps,
+    disabled,
     ...props
   }: Omit<AriaSelectProps<T>, 'value' | 'onChange'> & {
     error?: string;
@@ -35,10 +37,12 @@ export const SelectAria = forwardRef(function SelectAria<T extends object>(
     onChange?: ((key: Key) => any) | undefined;
     small?: boolean;
   } & AllHTMLAttributes<HTMLElement>,
-  outerRef: Ref<HTMLElement>
+  outerRef: Ref<HTMLElement>,
 ) {
+  const isDisabled = isDisabledProps || disabled;
+
   const state = useSelectState({
-    isDisabled: disabled,
+    isDisabled,
     selectedKey: value,
     onSelectionChange: onChange,
     ...props,
@@ -46,7 +50,11 @@ export const SelectAria = forwardRef(function SelectAria<T extends object>(
 
   const { ref, borderBoxSize } = useResizeObserver<any>();
 
-  const { triggerProps, valueProps, menuProps } = useSelect(props, state, ref);
+  const { triggerProps, valueProps, menuProps } = useSelect(
+    { isDisabled, ...props },
+    state,
+    ref,
+  );
 
   const { buttonProps } = useButton(triggerProps, ref);
 
@@ -58,7 +66,7 @@ export const SelectAria = forwardRef(function SelectAria<T extends object>(
     <>
       <Box
         {...props}
-        disabled={disabled}
+        disabled={isDisabled}
         rcx-select
         {...mergeProps(buttonProps, focusProps)}
         is='button'
@@ -70,7 +78,7 @@ export const SelectAria = forwardRef(function SelectAria<T extends object>(
         rcx-input-box--small={small}
         className={[
           error && 'invalid',
-          disabled && 'disabled',
+          isDisabled && 'disabled',
           (isFocusVisible || state.isOpen) && 'focus',
         ]
           .filter(Boolean)
@@ -81,6 +89,7 @@ export const SelectAria = forwardRef(function SelectAria<T extends object>(
           triggerRef={ref}
           label={props.label}
           name={props.name}
+          isDisabled={isDisabled}
         />
         <Box
           is='span'

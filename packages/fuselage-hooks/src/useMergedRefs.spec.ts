@@ -1,6 +1,6 @@
-import { renderHook } from '@testing-library/react-hooks';
 import { createRef } from 'react';
 
+import { renderHook } from './testing';
 import { useMergedRefs } from './useMergedRefs';
 
 it('returns a callback ref', () => {
@@ -62,6 +62,6 @@ it('works with refs and callback refs', () => {
 
   refs.forEach((ref) => expect(ref.current).toBe(value));
   callbackRefs.forEach((callbackRef) =>
-    expect(callbackRef).toHaveBeenCalledWith(value)
+    expect(callbackRef).toHaveBeenCalledWith(value),
   );
 });

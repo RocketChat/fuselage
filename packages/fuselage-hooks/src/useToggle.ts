@@ -11,7 +11,7 @@ import { useEffectEvent } from './useEffectEvent';
  * @public
  */
 export const useToggle = (
-  initialValue?: boolean | (() => boolean)
+  initialValue?: boolean | (() => boolean),
 ): [boolean, (forcedValue?: SetStateAction<boolean>) => void] => {
   const [value, setValue] = useState(() => {
     if (typeof initialValue === 'function') {

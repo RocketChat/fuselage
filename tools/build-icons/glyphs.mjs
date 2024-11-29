@@ -33,7 +33,7 @@ export const nextCharactersFor = async (name, type) => {
       Math.max(
         ...Object.values(glyphsMapping)
           .map(({ start }) => startCharacters.indexOf(start))
-          .filter((index) => index > -1)
+          .filter((index) => index > -1),
       ) + 2;
 
     if (startCharacters.length <= i) {
@@ -51,7 +51,7 @@ export const nextCharactersFor = async (name, type) => {
       Math.max(
         ...Object.values(glyphsMapping)
           .map(({ start }) => start.codePointAt(0))
-          .filter((codePoint) => codePoint >= 0xe000)
+          .filter((codePoint) => codePoint >= 0xe000),
       ) -
       0xe000 +
       2;

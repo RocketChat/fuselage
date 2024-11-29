@@ -20,5 +20,5 @@ export const SidebarListItem = forwardRef<HTMLDivElement, SidebarListItemProps>(
     >
       {children}
     </div>
-  )
+  ),
 );

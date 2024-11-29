@@ -14,9 +14,9 @@
       "};",
       "",
       "export default $1;",
-      ""
+      "",
     ],
-    "description": "React component for onboarding-ui"
+    "description": "React component for onboarding-ui",
   },
   "Storybook story": {
     "scope": "typescriptreact",
@@ -41,8 +41,8 @@
       "export const _$1: Story<Args> = (args) => (",
       "  <$1 {...args} />",
       ");",
-      "_$1.storyName = '$1';"
+      "_$1.storyName = '$1';",
     ],
-    "description": "Storybook story for onboarding-ui"
-  }
+    "description": "Storybook story for onboarding-ui",
+  },
 }

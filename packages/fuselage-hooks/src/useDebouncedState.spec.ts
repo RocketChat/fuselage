@@ -1,5 +1,4 @@
-import { renderHook, act } from '@testing-library/react-hooks';
-
+import { renderHook, act } from './testing';
 import { useDebouncedState } from './useDebouncedState';
 
 beforeAll(() => {
@@ -13,7 +12,7 @@ it('is a debounced state updater', () => {
   const newState = Symbol('new');
 
   const { result } = renderHook(() =>
-    useDebouncedState<symbol>(initialState, delay)
+    useDebouncedState<symbol>(initialState, delay),
   );
 
   expect(result.current[0]).toBe(initialState);
