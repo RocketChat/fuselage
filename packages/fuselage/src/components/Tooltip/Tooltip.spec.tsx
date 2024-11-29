@@ -1,4 +1,5 @@
 import { render } from '../../testing';
+
 import * as stories from './Tooltip.stories';
 
 const { Default, LightTooltip } = stories;

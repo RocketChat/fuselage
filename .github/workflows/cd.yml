@@ -29,7 +29,7 @@ jobs:
             **/node_modules
             .yarn/cache
           key: ${{ runner.os }}-modules-${{ hashFiles('yarn.lock') }}
-      - run: yarn install
+      - run: yarn
         if: steps.yarn-cache.outputs.cache-hit != 'true'
       - run: yarn run ci
       - run: yarn run docs

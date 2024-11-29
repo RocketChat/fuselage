@@ -41,7 +41,6 @@
     "url": "https://github.com/RocketChat/fuselage/issues"
   },
   "devDependencies": {
-    "@rocket.chat/eslint-config-alt": "workspace:~",
     "@rocket.chat/fuselage": "workspace:~",
     "@rocket.chat/fuselage-hooks": "workspace:~",
     "@rocket.chat/fuselage-polyfills": "workspace:~",
@@ -49,7 +48,6 @@
     "@rocket.chat/icons": "workspace:~",
     "@rocket.chat/layout": "workspace:~",
     "@rocket.chat/logo": "workspace:~",
-    "@rocket.chat/prettier-config": "workspace:~",
     "@rocket.chat/styled": "workspace:~",
     "@storybook/addon-a11y": "~8.4.1",
     "@storybook/addon-essentials": "~8.4.1",
@@ -61,7 +59,7 @@
     "@types/react": "~17.0.80",
     "@types/react-dom": "~17.0.25",
     "countries-list": "^2.6.1",
-    "eslint": "~8.45.0",
+    "eslint": "~9.14.0",
     "jest": "~29.7.0",
     "jest-environment-jsdom": "~29.7.0",
     "lint-all": "workspace:~",

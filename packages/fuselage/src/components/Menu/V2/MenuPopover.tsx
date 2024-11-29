@@ -1,8 +1,8 @@
 import { useBreakpoints } from '@rocket.chat/fuselage-hooks';
 import type { ReactNode } from 'react';
 import { useRef } from 'react';
-import { usePopover } from 'react-aria';
 import type { AriaPopoverProps } from 'react-aria';
+import { usePopover } from 'react-aria';
 import type { OverlayTriggerState } from 'react-stately';
 
 import { DropdownDesktop } from '../../Dropdown/DropdownDesktop';

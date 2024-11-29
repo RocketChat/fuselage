@@ -24,10 +24,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "eslintConfig": {
-    "extends": "@rocket.chat/eslint-config-alt/minimal"
-  },
-  "prettier": "./fuselage",
   "scripts": {
     "lint": "lint",
     "lint-and-fix": "lint-and-fix"
@@ -36,10 +32,7 @@
     "prettier": "*"
   },
   "devDependencies": {
-    "eslint": "~8.45.0",
-    "eslint-config-prettier": "~8.8.0",
-    "eslint-plugin-import": "~2.26.0",
-    "eslint-plugin-prettier": "~5.2.1",
+    "eslint": "~9.14.0",
     "lint-all": "workspace:~",
     "prettier": "~3.3.3"
   }

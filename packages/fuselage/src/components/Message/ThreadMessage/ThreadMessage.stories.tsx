@@ -1,8 +1,9 @@
 import type { Meta } from '@storybook/react';
 
-import ThreadMessage from '.';
 import { Avatar } from '../../Avatar';
 import Box from '../../Box';
+
+import ThreadMessage from '.';
 import { ThreadMessageEmoji } from './ThreadMessageEmoji';
 
 export default {

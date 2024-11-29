@@ -2,6 +2,7 @@ import { composeStories } from '@storybook/react';
 import { fireEvent, screen } from '@testing-library/react';
 
 import { render } from '../../testing';
+
 import * as stories from './Slider.stories';
 
 const { Default, WithLabel, MultiThumb, WithDefaultValue } =

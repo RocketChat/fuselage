@@ -1,6 +1,7 @@
 import type { ComponentProps } from 'react';
 
 import Box from '../Box';
+
 import { GridItem } from './GridItem';
 
 type GridProps = ComponentProps<typeof Box> & {

@@ -11,7 +11,7 @@ afterAll(() => {
     expect(spyConsoleError).not.toBeCalled();
     expect(spyConsoleWarn).not.toBeCalled();
   } finally {
-    spyConsoleError && spyConsoleError.mockRestore();
-    spyConsoleWarn && spyConsoleWarn.mockRestore();
+    spyConsoleError?.mockRestore();
+    spyConsoleWarn?.mockRestore();
   }
 });

@@ -1,4 +1,5 @@
 import { Falsy } from '../types/Falsy';
+
 import { exhaustiveCheck } from './exhaustiveCheck';
 
 const withPrefix = (prefix?: string) => (modifier: string) =>

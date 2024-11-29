@@ -2,6 +2,7 @@ import type { StoryFn, Meta } from '@storybook/react';
 
 import Box from '../Box';
 import Margins from '../Margins';
+
 import Tooltip from './Tooltip';
 
 export default {

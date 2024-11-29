@@ -4,6 +4,7 @@ import type { ReactNode } from 'react';
 import Message from '..';
 import { Avatar } from '../../Avatar';
 import Box from '../../Box';
+
 import { MessageGenericPreview } from './MessageGenericPreview';
 import { MessageGenericPreviewContent } from './MessageGenericPreviewContent';
 import { MessageGenericPreviewCoverImage } from './MessageGenericPreviewCoverImage';

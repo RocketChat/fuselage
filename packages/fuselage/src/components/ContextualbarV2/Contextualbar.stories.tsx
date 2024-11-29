@@ -2,6 +2,12 @@ import { action } from '@storybook/addon-actions';
 import type { StoryFn, Meta } from '@storybook/react';
 import type { ComponentType } from 'react';
 
+import Box from '../Box';
+import Button, { IconButton } from '../Button';
+import { ButtonGroup } from '../ButtonGroup';
+import { Icon } from '../Icon';
+import InputBox from '../InputBox';
+
 import {
   ContextualbarV2,
   ContextualbarV2Action,
@@ -15,11 +21,6 @@ import {
   ContextualbarV2Skeleton,
   ContextualbarV2Title,
 } from '.';
-import Box from '../Box';
-import Button, { IconButton } from '../Button';
-import { ButtonGroup } from '../ButtonGroup';
-import { Icon } from '../Icon';
-import InputBox from '../InputBox';
 
 export default {
   title: 'Containers/ContextualbarV2',

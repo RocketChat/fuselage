@@ -2,12 +2,13 @@ import { action } from '@storybook/addon-actions';
 import type { Meta, StoryFn } from '@storybook/react';
 import type { ComponentProps } from 'react';
 
-import Modal from '.';
 import Box from '../Box';
 import Button from '../Button';
 import Field, { FieldLabel, FieldRow } from '../Field';
 import { FieldGroup } from '../FieldGroup';
 import { TextInput } from '../TextInput';
+
+import Modal from '.';
 
 export default {
   title: 'Containers/Modal',

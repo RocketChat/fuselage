@@ -1,6 +1,9 @@
 import type { StoryFn, Meta } from '@storybook/react';
 import type { ComponentType } from 'react';
 
+import { Avatar } from '../../Avatar';
+import { SidebarSection } from '../Section';
+
 import {
   TopBar,
   TopBarAction,
@@ -9,8 +12,6 @@ import {
   TopBarTitle,
   TopBarToolBox,
 } from '.';
-import { Avatar } from '../../Avatar';
-import { SidebarSection } from '../Section';
 
 export default {
   title: 'Sidebar/TopBar',

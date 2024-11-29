@@ -1,9 +1,10 @@
 import type { StoryFn } from '@storybook/react';
 import type { ReactNode } from 'react';
 
-import Message from '.';
 import { Avatar } from '../Avatar';
 import Box from '../Box';
+
+import Message from '.';
 import { MessageDivider } from './MessageDivider';
 
 export const avatarUrl =

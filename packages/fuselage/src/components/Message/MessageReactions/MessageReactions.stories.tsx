@@ -1,6 +1,7 @@
 import type { Meta } from '@storybook/react';
 
 import { BasicMessageTemplate } from '../helpers';
+
 import { MessageReaction } from './MessageReaction';
 import { MessageReactionAction } from './MessageReactionAction';
 import { MessageReactions } from './MessageReactions';
