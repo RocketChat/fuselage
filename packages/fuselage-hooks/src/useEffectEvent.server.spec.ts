@@ -1,9 +1,4 @@
-/**
- * @jest-environment node
- */
-
-import { renderHook } from '@testing-library/react-hooks/server';
-
+import { renderHook } from './testing';
 import { useEffectEvent } from './useEffectEvent';
 
 it('returns a callback that invokes the mutable one', () => {

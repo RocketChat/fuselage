@@ -49,8 +49,8 @@ SurfaceColors.decorators = [
             alignItems: 'center',
             justifyContent: 'center',
           },
-          child.props.bg
-        )
+          child.props.bg,
+        ),
       )}
     </Box>
   ),
@@ -82,8 +82,8 @@ StatusColors.decorators = [
             alignItems: 'center',
             justifyContent: 'center',
           },
-          child.props.bg.replace('status-background-', '')
-        )
+          child.props.bg.replace('status-background-', ''),
+        ),
       )}
     </Box>
   ),
@@ -120,8 +120,8 @@ StrokeColors.decorators = [
             justifyContent: 'center',
             p: 8,
           },
-          child.props.borderColor
-        )
+          child.props.borderColor,
+        ),
       )}
     </Box>
   ),
@@ -149,7 +149,7 @@ FontColors.decorators = [
       flexDirection='column'
     >
       {flattenChildren(story().props.children).map((child: any) =>
-        cloneElement(child, { m: 'x4', p: 'x4' }, child.props.color)
+        cloneElement(child, { m: 'x4', p: 'x4' }, child.props.color),
       )}
     </Box>
   ),

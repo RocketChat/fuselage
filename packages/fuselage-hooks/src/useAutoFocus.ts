@@ -8,25 +8,23 @@ import { useEffect, useRef } from 'react';
  * @param options - options of the focus request
  * @returns the ref which holds the element
  * @public
- * @deprecated in favor of focus provided by react-hook-form
+ * @deprecated in favor of focus provided by react-hook-form or the `autoFocus` attribute
  */
 export const useAutoFocus = <
-  T extends { focus: (options?: FocusOptions) => void }
+  T extends { focus: (options?: FocusOptions) => void },
 >(
   isFocused = true,
-  options?: FocusOptions
+  options?: FocusOptions,
 ): Ref<T> => {
   const elementRef = useRef<T>(null);
-
-  const { preventScroll } = options || {};
+  const optionsRef = useRef(options);
+  optionsRef.current = options;
 
   useEffect(() => {
     if (isFocused && elementRef.current) {
-      elementRef.current.focus({
-        preventScroll,
-      });
+      elementRef.current.focus(optionsRef.current);
     }
-  }, [elementRef, isFocused, preventScroll]);
+  }, [elementRef, isFocused]);
 
   return elementRef;
 };

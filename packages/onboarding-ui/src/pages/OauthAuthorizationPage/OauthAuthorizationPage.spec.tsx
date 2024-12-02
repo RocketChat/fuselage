@@ -13,7 +13,7 @@ it('renders without crashing', () => {
         onGoBack: () => undefined,
       }}
     />,
-    div
+    div,
   );
   ReactDOM.unmountComponentAtNode(div);
 });

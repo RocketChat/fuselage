@@ -60,7 +60,7 @@ export const IconButton = forwardRef(
       children,
       ...props
     }: IconButtonProps,
-    ref: Ref<HTMLElement>
+    ref: Ref<HTMLElement>,
   ) => {
     const variant = useMemo(
       () =>
@@ -75,7 +75,7 @@ export const IconButton = forwardRef(
         (primary && 'secondary-info') ||
         (secondary && 'secondary') ||
         '',
-      [danger, info, primary, secondary, success, warning]
+      [danger, info, primary, secondary, success, warning],
     );
 
     const kindAndVariantProps = useMemo(() => {
@@ -97,7 +97,7 @@ export const IconButton = forwardRef(
         (medium && 'medium') ||
         (large && 'large') ||
         'large',
-      [medium, mini, small, tiny, large]
+      [medium, mini, small, tiny, large],
     );
 
     const getSizeClass = () => ({ [`rcx-button--${size}-square`]: true });
@@ -134,5 +134,5 @@ export const IconButton = forwardRef(
         {children}
       </Box>
     );
-  }
+  },
 );

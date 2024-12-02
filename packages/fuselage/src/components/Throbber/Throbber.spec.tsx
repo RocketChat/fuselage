@@ -1,6 +1,7 @@
 import { composeStories } from '@storybook/react';
 
 import { render } from '../../testing';
+
 import * as stories from './Throbber.stories';
 
 const { Default } = composeStories(stories);

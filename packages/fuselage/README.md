@@ -134,6 +134,6 @@ import dynamic from 'next/dynamic';
 
 export const TextInput = dynamic(
   () => import('@rocket.chat/fuselage').then((module) => module.TextInput),
-  { ssr: false }
+  { ssr: false },
 );
 ```

@@ -1,4 +1,5 @@
 import { Skeleton } from '../Skeleton';
+
 import Option from './Option';
 
 const OptionSkeleton = () => (

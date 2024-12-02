@@ -7,7 +7,7 @@ type SidebarActionProps = ComponentProps<typeof IconButton>;
 
 export const SidebarAction = forwardRef(function SidebarAction(
   props: SidebarActionProps,
-  ref: Ref<HTMLElement>
+  ref: Ref<HTMLElement>,
 ) {
   return <IconButton small ref={ref} {...props} />;
 });

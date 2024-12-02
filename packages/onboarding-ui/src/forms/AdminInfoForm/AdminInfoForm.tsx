@@ -116,7 +116,7 @@ const AdminInfoForm = ({
                     aria-required='true'
                     aria-invalid={Boolean(errors.fullname)}
                     placeholder={t(
-                      'form.adminInfoForm.fields.fullName.placeholder'
+                      'form.adminInfoForm.fields.fullName.placeholder',
                     )}
                     id={fullnameField}
                   />
@@ -148,7 +148,7 @@ const AdminInfoForm = ({
                     aria-required='true'
                     aria-invalid={Boolean(errors.username)}
                     placeholder={t(
-                      'form.adminInfoForm.fields.username.placeholder'
+                      'form.adminInfoForm.fields.username.placeholder',
                     )}
                     id={usernameField}
                   />
@@ -180,7 +180,7 @@ const AdminInfoForm = ({
                     aria-invalid={Boolean(errors.email)}
                     aria-describedby={`${emailField}-error}`}
                     placeholder={t(
-                      'form.adminInfoForm.fields.email.placeholder'
+                      'form.adminInfoForm.fields.email.placeholder',
                     )}
                     id={emailField}
                   />
@@ -212,7 +212,7 @@ const AdminInfoForm = ({
                     aria-invalid={Boolean(errors.password)}
                     aria-describedby={`${passwordField}-hint ${passwordField}-error}`}
                     placeholder={t(
-                      'form.adminInfoForm.fields.password.placeholder'
+                      'form.adminInfoForm.fields.password.placeholder',
                     )}
                     id={passwordField}
                   />

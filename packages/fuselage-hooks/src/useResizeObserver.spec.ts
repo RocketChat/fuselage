@@ -1,6 +1,6 @@
-import { renderHook, act } from '@testing-library/react-hooks';
 import { withResizeObserverMock } from 'testing-utils/mocks/withResizeObserverMock';
 
+import { renderHook, act } from './testing';
 import { useResizeObserver } from './useResizeObserver';
 
 withResizeObserverMock();
@@ -112,7 +112,7 @@ it('debounces the observed element size', async () => {
   const delay = 2 * halfDelay;
 
   const { result } = renderHook(() =>
-    wrapRef(useResizeObserver({ debounceDelay: delay }))
+    wrapRef(useResizeObserver({ debounceDelay: delay })),
   );
 
   // triggers MutationObserver

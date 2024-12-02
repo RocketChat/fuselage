@@ -1,8 +1,9 @@
 import type { ComponentProps, Ref } from 'react';
 import { forwardRef } from 'react';
 
-import { Button } from '.';
 import { Icon } from '../Icon';
+
+import { Button } from '.';
 import type { ButtonProps } from './Button';
 
 type ButtonSize = {
@@ -31,5 +32,5 @@ export const ActionButton = forwardRef(
       {children}
       <Icon name={icon} size={getSize(props)} />
     </Button>
-  )
+  ),
 );

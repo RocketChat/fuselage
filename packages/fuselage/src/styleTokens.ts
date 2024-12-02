@@ -26,7 +26,7 @@ import {
 } from './helpers/toCSSValue';
 
 const measure = (
-  computeSpecialValue?: (value: string) => null | undefined | string
+  computeSpecialValue?: (value: string) => null | undefined | string,
 ) =>
   memoize((value) => {
     if (typeof value === 'number') {
@@ -87,12 +87,12 @@ const mapTypeToPrefix = {
 } as const;
 
 const isPaletteColorType = (
-  type: unknown
+  type: unknown,
 ): type is keyof typeof mapTypeToPrefix =>
   typeof type === 'string' && type in mapTypeToPrefix;
 
 const isPaletteColorGrade = (
-  grade: unknown
+  grade: unknown,
 ): grade is 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 =>
   typeof grade === 'number' &&
   grade % 100 === 0 &&
@@ -170,7 +170,7 @@ export const color = memoize((value) => {
   }
   if (throwErrorOnInvalidToken) {
     throw new Error(
-      `The color token "${value}" is deprecated. Please use the new color tokens instead.`
+      `The color token "${value}" is deprecated. Please use the new color tokens instead.`,
     );
   }
 
@@ -298,7 +298,7 @@ const isFontScale = (value: unknown): value is FontScale =>
 
 export const fontScale = memoize(
   (
-    value: unknown
+    value: unknown,
   ):
     | {
         fontSize: string;
@@ -320,5 +320,5 @@ export const fontScale = memoize(
       lineHeight: `${lineHeight / 16}rem`,
       letterSpacing: `${letterSpacing / 16}rem`,
     };
-  }
+  },
 );

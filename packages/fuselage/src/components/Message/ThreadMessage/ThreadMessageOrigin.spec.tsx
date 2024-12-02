@@ -1,6 +1,7 @@
 import { screen } from '@testing-library/react';
 
 import { render } from '../../../testing';
+
 import { ThreadMessageOrigin } from './ThreadMessageOrigin';
 
 describe('ThreadMessageOrigin', () => {
@@ -12,7 +13,7 @@ describe('ThreadMessageOrigin', () => {
     render(<ThreadMessageOrigin system>system</ThreadMessageOrigin>);
 
     expect(screen.getByText('system')).toHaveClass(
-      'rcx-message-thread__origin--system'
+      'rcx-message-thread__origin--system',
     );
   });
 });

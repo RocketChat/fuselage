@@ -22,6 +22,6 @@ export default {
 } satisfies Meta<typeof AwaitConfirmationForm>;
 
 export const _AwaitConfirmationForm: StoryFn<typeof AwaitConfirmationForm> = (
-  args
+  args,
 ) => <AwaitConfirmationForm {...args} />;
 _AwaitConfirmationForm.storyName = 'AwaitConfirmationForm';

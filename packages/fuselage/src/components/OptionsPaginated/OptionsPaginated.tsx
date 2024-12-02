@@ -53,7 +53,7 @@ export const OptionsPaginated = forwardRef(
       endReached,
       ...props
     }: OptionsPaginatedProps,
-    ref: Ref<Element>
+    ref: Ref<Element>,
   ) => {
     const OptionsComponentWithData = ({
       index,
@@ -102,7 +102,7 @@ export const OptionsPaginated = forwardRef(
         </Tile>
       </Box>
     );
-  }
+  },
 );
 
 export const useVisible = (initialVisibility = AnimatedVisibility.HIDDEN) => {

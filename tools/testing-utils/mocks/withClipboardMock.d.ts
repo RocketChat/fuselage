@@ -1,3 +1,3 @@
 export declare const withClipboardMock: () => (
-  writeText: () => Promise<void>
+  writeText: () => Promise<void>,
 ) => void;

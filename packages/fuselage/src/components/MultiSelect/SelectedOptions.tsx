@@ -12,7 +12,7 @@ type SelectedOptionsProps = {
 };
 
 export const SelectedOptions = memo(function SelectedOptions(
-  props: SelectedOptionsProps
+  props: SelectedOptionsProps,
 ) {
   return <Chip {...props} />;
 });

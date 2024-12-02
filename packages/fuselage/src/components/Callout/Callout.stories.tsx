@@ -33,7 +33,7 @@ Success.args = {
   title: 'This is a success message',
 };
 Success.parameters = setStoryDescription(
-  'Communicates that an important aspect of the system is working as expected.'
+  'Communicates that an important aspect of the system is working as expected.',
 );
 
 export const Warning = Template.bind({});
@@ -42,7 +42,7 @@ Warning.args = {
   title: 'This is a warning message',
 };
 Warning.parameters = setStoryDescription(
-  'Communicates that an important aspect of the system needs attention.'
+  'Communicates that an important aspect of the system needs attention.',
 );
 
 export const Danger = Template.bind({});
@@ -51,7 +51,7 @@ Danger.args = {
   title: 'This is a danger message',
 };
 Danger.parameters = setStoryDescription(
-  'Communicates that an important aspect of the system is not working as expected and requires urgent action.'
+  'Communicates that an important aspect of the system is not working as expected and requires urgent action.',
 );
 
 export const CustomIcon = Template.bind({});

@@ -3,6 +3,7 @@ import type { FormEvent, Ref } from 'react';
 import { useMemo, forwardRef } from 'react';
 
 import { InputBox } from '../InputBox';
+
 import type { PaginatedSelectProps } from './PaginatedSelect';
 import { PaginatedSelect } from './PaginatedSelect';
 
@@ -26,7 +27,7 @@ export const PaginatedSelectFiltered = ({
             onChange: _onChange,
             ...props
           }: PaginatedSelectFilteredProps,
-          ref: Ref<HTMLInputElement>
+          ref: Ref<HTMLInputElement>,
         ) => (
           <InputBox.Input
             mi={4}
@@ -41,9 +42,9 @@ export const PaginatedSelectFiltered = ({
             {...props}
             rcx-input-box--undecorated
           />
-        )
+        ),
       ),
-    [placeholder, setFilter]
+    [placeholder, setFilter],
   );
 
   return (

@@ -20,7 +20,7 @@ exports[`[TopBar Rendering] renders Default without crashing 1`] = `
         role="group"
       >
         <button
-          class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button  rcx-button-group__item"
+          class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button rcx-button-group__item"
           title="home"
           type="button"
         >
@@ -32,7 +32,7 @@ exports[`[TopBar Rendering] renders Default without crashing 1`] = `
           </i>
         </button>
         <button
-          class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button  rcx-button-group__item"
+          class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button rcx-button-group__item"
           title="search"
           type="button"
         >
@@ -44,7 +44,7 @@ exports[`[TopBar Rendering] renders Default without crashing 1`] = `
           </i>
         </button>
         <button
-          class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button  rcx-button-group__item"
+          class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button rcx-button-group__item"
           title="discover"
           type="button"
         >
@@ -56,7 +56,7 @@ exports[`[TopBar Rendering] renders Default without crashing 1`] = `
           </i>
         </button>
         <button
-          class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button  rcx-button-group__item"
+          class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button rcx-button-group__item"
           title="sort"
           type="button"
         >
@@ -68,7 +68,7 @@ exports[`[TopBar Rendering] renders Default without crashing 1`] = `
           </i>
         </button>
         <button
-          class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button  rcx-button-group__item"
+          class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button rcx-button-group__item"
           title="edit"
           type="button"
         >
@@ -88,7 +88,7 @@ exports[`[TopBar Rendering] renders Default without crashing 1`] = `
         class="rc-box rc-box--full rcx-sidebar-topbar__wrapper"
       >
         <div
-          class="rcx-box rcx-box--full  rcx-sidebar-topbar__title rcx-css-1te28na"
+          class="rcx-box rcx-box--full rcx-sidebar-topbar__title rcx-css-1te28na"
         >
           Title
         </div>
@@ -97,7 +97,7 @@ exports[`[TopBar Rendering] renders Default without crashing 1`] = `
           role="group"
         >
           <button
-            class="rcx-box rcx-box--full rcx-button--small-square rcx-button--icon-success rcx-button--square rcx-button--icon rcx-button  rcx-button-group__item"
+            class="rcx-box rcx-box--full rcx-button--small-square rcx-button--icon-success rcx-button--square rcx-button--icon rcx-button rcx-button-group__item"
             title="call"
             type="button"
           >
@@ -109,7 +109,7 @@ exports[`[TopBar Rendering] renders Default without crashing 1`] = `
             </i>
           </button>
           <button
-            class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button  rcx-button-group__item"
+            class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button rcx-button-group__item"
             title="message"
             type="button"
           >
@@ -133,7 +133,7 @@ exports[`[TopBar Rendering] renders Default without crashing 1`] = `
         class="rc-box rc-box--full rcx-sidebar-topbar__wrapper"
       >
         <div
-          class="rcx-box rcx-box--full  rcx-sidebar-topbar__title rcx-css-1te28na"
+          class="rcx-box rcx-box--full rcx-sidebar-topbar__title rcx-css-1te28na"
         >
           Long Title Long Title Long Title Long Title Long Title Long Title Long Title Long Title Long Title Long Title Long Title Long Title Long Title Long Title Long Title Long Title Long Title Long Title Long Title Long Title Long Title
         </div>
@@ -142,7 +142,7 @@ exports[`[TopBar Rendering] renders Default without crashing 1`] = `
           role="group"
         >
           <button
-            class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button  rcx-button-group__item"
+            class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button rcx-button-group__item"
             title="dialpad"
             type="button"
           >
@@ -154,7 +154,7 @@ exports[`[TopBar Rendering] renders Default without crashing 1`] = `
             </i>
           </button>
           <button
-            class="rcx-box rcx-box--full rcx-button--small-square rcx-button--icon-success rcx-button--square rcx-button--icon rcx-button  rcx-button-group__item"
+            class="rcx-box rcx-box--full rcx-button--small-square rcx-button--icon-success rcx-button--square rcx-button--icon rcx-button rcx-button-group__item"
             title="call"
             type="button"
           >
@@ -166,7 +166,7 @@ exports[`[TopBar Rendering] renders Default without crashing 1`] = `
             </i>
           </button>
           <button
-            class="rcx-box rcx-box--full rcx-button--small-square rcx-button--icon-danger rcx-button--square rcx-button--icon rcx-button  rcx-button-group__item"
+            class="rcx-box rcx-box--full rcx-button--small-square rcx-button--icon-danger rcx-button--square rcx-button--icon rcx-button rcx-button-group__item"
             title="end"
             type="button"
           >
@@ -178,7 +178,7 @@ exports[`[TopBar Rendering] renders Default without crashing 1`] = `
             </i>
           </button>
           <button
-            class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button  rcx-button-group__item"
+            class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button rcx-button-group__item"
             title="message"
             type="button"
           >
@@ -190,7 +190,7 @@ exports[`[TopBar Rendering] renders Default without crashing 1`] = `
             </i>
           </button>
           <button
-            class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button  rcx-button-group__item"
+            class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button rcx-button-group__item"
             title="contact"
             type="button"
           >

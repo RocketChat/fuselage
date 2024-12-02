@@ -1,8 +1,8 @@
-import { renderHook, act } from '@testing-library/react-hooks';
 import type { RefObject } from 'react';
 import { useRef } from 'react';
 import { withResizeObserverMock } from 'testing-utils/mocks/withResizeObserverMock';
 
+import { renderHook, act } from './testing';
 import { useBorderBoxSize } from './useBorderBoxSize';
 
 withResizeObserverMock();
@@ -74,7 +74,7 @@ it('debounces the observed element size', async () => {
   const delay = 2 * halfDelay;
 
   const { result } = renderHook(() =>
-    useBorderBoxSize(wrapRef(useRef(null)), { debounceDelay: delay })
+    useBorderBoxSize(wrapRef(useRef(null)), { debounceDelay: delay }),
   );
 
   // triggers MutationObserver

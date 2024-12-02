@@ -19,6 +19,6 @@ export default {
 } satisfies Meta<typeof CheckYourEmailPage>;
 
 export const _CheckYourEmailPage: StoryFn<typeof CheckYourEmailPage> = (
-  args
+  args,
 ) => <CheckYourEmailPage {...args} />;
 _CheckYourEmailPage.storyName = 'CheckYourEmailPage';

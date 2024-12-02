@@ -21,7 +21,7 @@ test('mono', async () => {
   const samples = new Int16Array(
     leftSampleBuffer,
     waveHeader.dataOffset,
-    waveHeader.dataLen / 2
+    waveHeader.dataLen / 2,
   );
 
   const hash = createHash('sha1');
@@ -62,12 +62,12 @@ test('stereo', async () => {
   const leftSamples = new Int16Array(
     leftSampleBuffer,
     leftWaveHeader.dataOffset,
-    leftWaveHeader.dataLen / 2
+    leftWaveHeader.dataLen / 2,
   );
   const rightSamples = new Int16Array(
     rightSampleBuffer,
     rightWaveHeader.dataOffset,
-    rightWaveHeader.dataLen / 2
+    rightWaveHeader.dataLen / 2,
   );
 
   expect(leftSamples.length).toBe(rightSamples.length);

@@ -27,14 +27,14 @@ export const SidebarCollapseGroup = forwardRef<
       title,
       ...props
     }: SidebarCollapseGroupProps,
-    ref
+    ref,
   ) => {
     const { barProps, expanded, panelExpanded, panelId, titleId } = useCollapse(
       {
         expanded: propExpanded,
         defaultExpanded,
         tabIndex,
-      }
+      },
     );
 
     return (
@@ -65,5 +65,5 @@ export const SidebarCollapseGroup = forwardRef<
         </div>
       </section>
     );
-  }
+  },
 );

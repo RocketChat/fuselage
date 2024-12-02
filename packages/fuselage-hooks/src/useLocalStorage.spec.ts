@@ -1,10 +1,9 @@
-import { renderHook, act } from '@testing-library/react-hooks';
-
+import { renderHook, act } from './testing';
 import { useLocalStorage } from './useStorage';
 
 it('returns a default value', () => {
   const { result } = renderHook(() =>
-    useLocalStorage('value-key', 'value-default')
+    useLocalStorage('value-key', 'value-default'),
   );
 
   const [value] = result.current;
@@ -13,7 +12,7 @@ it('returns a default value', () => {
 
 it('returns a new value', () => {
   const { result } = renderHook(() =>
-    useLocalStorage('value-key', 'value-default')
+    useLocalStorage('value-key', 'value-default'),
   );
   const [, setValue] = result.current;
 

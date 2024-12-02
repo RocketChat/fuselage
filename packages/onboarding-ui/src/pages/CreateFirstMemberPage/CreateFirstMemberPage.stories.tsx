@@ -23,6 +23,6 @@ export default {
 } satisfies Meta<typeof CreateFirstMemberPage>;
 
 export const _CreateFirstMemberPage: StoryFn<typeof CreateFirstMemberPage> = (
-  args
+  args,
 ) => <CreateFirstMemberPage {...args} />;
 _CreateFirstMemberPage.storyName = 'CreateFirstMemberPage';

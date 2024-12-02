@@ -25,7 +25,7 @@ export function copyArray<T>(
   srcPos: number,
   dest: { [index: number]: T },
   destPos: number,
-  length: number
+  length: number,
 ) {
   if (hasSubarray(src) && hasSet(dest)) {
     dest.set(src.subarray(srcPos, srcPos + length), destPos);
@@ -48,7 +48,7 @@ export function fillArray(
   a: TypedArray,
   fromIndex: number,
   toIndex: number,
-  val: number
+  val: number,
 ): void;
 export function fillArray(
   ...args:

@@ -1,5 +1,4 @@
-import { renderHook, act } from '@testing-library/react-hooks';
-
+import { renderHook, act } from './testing';
 import { useDebouncedReducer } from './useDebouncedReducer';
 
 beforeAll(() => {
@@ -16,7 +15,7 @@ it('is a debounced state updater', () => {
   const init = jest.fn((state) => state);
 
   const { result } = renderHook(() =>
-    useDebouncedReducer(reducer, initialArg, init, delay)
+    useDebouncedReducer(reducer, initialArg, init, delay),
   );
 
   expect(result.current[0]).toBe(initialState);

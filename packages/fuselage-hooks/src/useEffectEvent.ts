@@ -14,11 +14,11 @@ import { useIsomorphicLayoutEffect } from './useIsomorphicLayoutEffect';
  * @public
  */
 export const useEffectEvent = <P extends any[], T>(
-  fn: (...args: P) => T
+  fn: (...args: P) => T,
 ): ((...args: P) => T) => {
   const fnRef = useRef(fn);
   const stableFnRef = useRef(
-    (...args: P): T => fnRef.current.call(undefined, ...args)
+    (...args: P): T => fnRef.current.call(undefined, ...args),
   );
 
   useIsomorphicLayoutEffect(() => {

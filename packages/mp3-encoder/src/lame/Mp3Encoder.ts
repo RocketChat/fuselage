@@ -40,7 +40,7 @@ export class Mp3Encoder {
       left.length,
       this.mp3buf,
       0,
-      this.mp3buf_size
+      this.mp3buf_size,
     );
     return new Uint8Array(this.mp3buf.subarray(0, size));
   }
@@ -50,7 +50,7 @@ export class Mp3Encoder {
       this.gfp,
       this.mp3buf,
       0,
-      this.mp3buf_size
+      this.mp3buf_size,
     );
     return new Uint8Array(this.mp3buf.subarray(0, size));
   }

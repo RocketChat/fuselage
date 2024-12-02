@@ -3,6 +3,7 @@ import { fireEvent, getByRole } from '@testing-library/react';
 import { axe } from 'jest-axe';
 
 import { render } from '../../testing';
+
 import * as stories from './CheckBox.stories';
 
 const { Default, Indeterminate, Disabled, DefaultChecked } =
@@ -19,7 +20,7 @@ describe('[CheckBox Rendering]', () => {
     async (_storyname, Story) => {
       const tree = render(<Story />);
       expect(tree.baseElement).toMatchSnapshot();
-    }
+    },
   );
 
   test.each(testCases)(
@@ -29,7 +30,7 @@ describe('[CheckBox Rendering]', () => {
 
       const results = await axe(container);
       expect(results).toHaveNoViolations();
-    }
+    },
   );
 });
 

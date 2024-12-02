@@ -1,8 +1,10 @@
 import { lstat, readlink, readFile, writeFile, mkdir } from 'fs/promises';
 import { dirname, join } from 'path';
 import { promisify } from 'util';
-import rimraf from 'rimraf';
+
 import fg from 'fast-glob';
+import rimraf from 'rimraf';
+
 import { encodeJson, decodeJson } from './json.mjs';
 import { encodeJson5, decodeJson5 } from './json5.mjs';
 
@@ -42,7 +44,7 @@ export const removeFile = (path) => promisify(rimraf)(path);
 
 export const listFiles = (patterns, cwd) =>
   fg(patterns, { cwd }).then((paths) =>
-    Promise.all(paths.map((path) => join(path)))
+    Promise.all(paths.map((path) => join(path))),
   );
 
 export const resolveLink = async (path) => {

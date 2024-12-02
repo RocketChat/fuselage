@@ -50,7 +50,7 @@ export const Button = forwardRef(function Button(
     children,
     ...props
   }: ButtonProps,
-  ref: Ref<HTMLButtonElement | HTMLAnchorElement>
+  ref: Ref<HTMLButtonElement | HTMLAnchorElement>,
 ) {
   const extraProps =
     (is === 'a' && {

@@ -103,7 +103,7 @@ export class Takehiro {
     xr: Float32Array,
     xrPos: number,
     ix: Int32Array,
-    ixPos: number
+    ixPos: number,
   ) {
     const compareval0 = (1.0 - 0.4054) / istep;
 
@@ -121,7 +121,7 @@ export class Takehiro {
     xr: Float32Array,
     xrPos: number,
     ix: Int32Array,
-    ixPos: number
+    ixPos: number,
   ) {
     assert(l > 0);
 
@@ -163,7 +163,7 @@ export class Takehiro {
     pi: Int32Array,
     istep: number,
     codInfo: GrInfo,
-    prevNoise: CalcNoiseData | null
+    prevNoise: CalcNoiseData | null,
   ) {
     let sfb;
     let sfbmax;
@@ -204,7 +204,7 @@ export class Takehiro {
             acc_xp,
             acc_xpPos,
             acc_iData,
-            acc_iDataPos
+            acc_iDataPos,
           );
           accumulate = 0;
         }
@@ -215,7 +215,7 @@ export class Takehiro {
             acc_xp,
             acc_xpPos,
             acc_iData,
-            acc_iDataPos
+            acc_iDataPos,
           );
           accumulate01 = 0;
         }
@@ -254,7 +254,7 @@ export class Takehiro {
               acc_xp,
               acc_xpPos,
               acc_iData,
-              acc_iDataPos
+              acc_iDataPos,
             );
             accumulate = 0;
             acc_iData = iData;
@@ -271,7 +271,7 @@ export class Takehiro {
               acc_xp,
               acc_xpPos,
               acc_iData,
-              acc_iDataPos
+              acc_iDataPos,
             );
             accumulate01 = 0;
             acc_iData = iData;
@@ -290,7 +290,7 @@ export class Takehiro {
               acc_xp,
               acc_xpPos,
               acc_iData,
-              acc_iDataPos
+              acc_iDataPos,
             );
             accumulate01 = 0;
           }
@@ -301,7 +301,7 @@ export class Takehiro {
               acc_xp,
               acc_xpPos,
               acc_iData,
-              acc_iDataPos
+              acc_iDataPos,
             );
             accumulate = 0;
           }
@@ -323,7 +323,7 @@ export class Takehiro {
         acc_xp,
         acc_xpPos,
         acc_iData,
-        acc_iDataPos
+        acc_iDataPos,
       );
     }
 
@@ -334,7 +334,7 @@ export class Takehiro {
         acc_xp,
         acc_xpPos,
         acc_iData,
-        acc_iDataPos
+        acc_iDataPos,
       );
     }
   }
@@ -360,7 +360,7 @@ export class Takehiro {
     end: number,
     t1: number,
     t2: number,
-    s: Bits
+    s: Bits,
   ) {
     const linbits = tables.ht[t1].xlen * 65536 + tables.ht[t2].xlen;
     let sum = 0;
@@ -419,7 +419,7 @@ export class Takehiro {
     ixPos: number,
     end: number,
     t1: number,
-    s: Bits
+    s: Bits,
   ) {
     let sum = 0;
     const { xlen } = tables.ht[t1];
@@ -450,7 +450,7 @@ export class Takehiro {
     ixPos: number,
     end: number,
     t1: number,
-    s: Bits
+    s: Bits,
   ) {
     let sum1 = 0;
     let sum2 = 0;
@@ -506,7 +506,7 @@ export class Takehiro {
           ixPos,
           endPos,
           this.huf_tbl_noESC[max - 1],
-          s
+          s,
         );
 
       case 4:
@@ -526,7 +526,7 @@ export class Takehiro {
           ixPos,
           endPos,
           this.huf_tbl_noESC[max - 1],
-          s
+          s,
         );
 
       default:
@@ -554,7 +554,7 @@ export class Takehiro {
   noquant_count_bits(
     gfc: LameInternalFlags,
     gi: GrInfo,
-    prev_noise: CalcNoiseData | null
+    prev_noise: CalcNoiseData | null,
   ) {
     const ix = gi.l3_enc;
     let i = Math.min(576, ((gi.max_nonzero_coeff + 2) >> 1) << 1);
@@ -655,7 +655,7 @@ export class Takehiro {
     gfc: LameInternalFlags,
     xr: Float32Array,
     gi: GrInfo,
-    prev_noise: CalcNoiseData | null
+    prev_noise: CalcNoiseData | null,
   ) {
     const ix = gi.l3_enc;
 
@@ -668,7 +668,7 @@ export class Takehiro {
       ix,
       this.qupvt.ipow20(gi.global_gain),
       gi,
-      prev_noise
+      prev_noise,
     );
 
     if ((gfc.substep_shaping & 2) !== 0) {
@@ -699,7 +699,7 @@ export class Takehiro {
     r01_bits: Int32Array,
     r01_div: Int32Array,
     r0_tbl: Int32Array,
-    r1_tbl: Int32Array
+    r1_tbl: Int32Array,
   ) {
     const bigv = cod_info.big_values;
 
@@ -740,7 +740,7 @@ export class Takehiro {
     r01_bits: Int32Array,
     r01_div: Int32Array,
     r0_tbl: Int32Array,
-    r1_tbl: Int32Array
+    r1_tbl: Int32Array,
   ) {
     const bigv = cod_info2.big_values;
 
@@ -786,7 +786,7 @@ export class Takehiro {
         r01_bits,
         r01_div,
         r0_tbl,
-        r1_tbl
+        r1_tbl,
       );
     }
     let i = cod_info2.big_values;
@@ -826,7 +826,7 @@ export class Takehiro {
         r01_bits,
         r01_div,
         r0_tbl,
-        r1_tbl
+        r1_tbl,
       );
     } else {
       cod_info2.part2_3_length = a1;
@@ -911,7 +911,7 @@ export class Takehiro {
     gfc: LameInternalFlags,
     gr: number,
     ch: number,
-    l3_side: IIISideInfo
+    l3_side: IIISideInfo,
   ) {
     const gi = l3_side.tt[gr][ch];
     let sfb;

@@ -2,6 +2,7 @@ import type { ComponentProps } from 'react';
 import { memo } from 'react';
 
 import { CheckBox } from '../CheckBox';
+
 import Option from './Option';
 
 type CheckOptionProps = ComponentProps<typeof Option>;

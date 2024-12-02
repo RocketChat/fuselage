@@ -26,12 +26,12 @@ const Position = ({
     usePosition(
       anchor,
       target,
-      useMemo(() => ({ placement, margin }), [placement, margin])
+      useMemo(() => ({ placement, margin }), [placement, margin]),
     ) || {};
 
   const style = useMemo(
     () => ({ position: 'fixed', ...positionStyle }),
-    [positionStyle]
+    [positionStyle],
   );
   const [portalContainer] = useState(() => {
     const prev = document.getElementById('position-container');
@@ -52,7 +52,7 @@ const Position = ({
         document.body.removeChild(portalContainer);
       }
     },
-    [portalContainer]
+    [portalContainer],
   );
 
   return createPortal(
@@ -62,7 +62,7 @@ const Position = ({
       ...props,
       placement: positionPlacement,
     }),
-    portalContainer
+    portalContainer,
   );
 };
 

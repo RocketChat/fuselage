@@ -7,5 +7,5 @@ export const encodeJson5 = (data) =>
     .stringify(data, null, 2)
     .replace(
       /[\u007f-\uffff]/g,
-      (c) => `\\u${`0000${c.charCodeAt(0).toString(16)}`.slice(-4)}`
+      (c) => `\\u${`0000${c.charCodeAt(0).toString(16)}`.slice(-4)}`,
     );

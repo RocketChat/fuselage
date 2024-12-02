@@ -3,6 +3,7 @@ import { screen, userEvent } from '@storybook/test';
 import { useState } from 'react';
 
 import Box from '../Box';
+
 import { Slider } from './Slider';
 
 export default {
@@ -66,7 +67,7 @@ Vertical.args = {
 } as const;
 
 export const VerticalMultiThumb: StoryFn<typeof Slider> = TemplateVertical.bind(
-  {}
+  {},
 );
 VerticalMultiThumb.args = {
   'label': 'Range',

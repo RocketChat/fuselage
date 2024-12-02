@@ -1,6 +1,6 @@
-import { renderHook, act } from '@testing-library/react-hooks';
 import { useState } from 'react';
 
+import { renderHook, act } from './testing';
 import { useDebouncedUpdates } from './useDebouncedUpdates';
 
 beforeAll(() => {
@@ -14,7 +14,7 @@ it('returns a debounced state dispatcher', () => {
   const newState = Symbol('new');
 
   const { result } = renderHook(() =>
-    useDebouncedUpdates(useState<symbol>(initialState), delay)
+    useDebouncedUpdates(useState<symbol>(initialState), delay),
   );
 
   const [, dispatch] = result.current;

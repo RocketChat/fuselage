@@ -6,6 +6,7 @@ import { Avatar } from '../Avatar';
 import Box from '../Box';
 import Chip from '../Chip';
 import Option from '../Option';
+
 import { AutoComplete } from './AutoComplete';
 
 export default {

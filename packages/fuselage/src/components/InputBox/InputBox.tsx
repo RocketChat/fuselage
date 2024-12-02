@@ -9,6 +9,7 @@ import { forwardRef, useCallback, useLayoutEffect, useRef } from 'react';
 
 import type Box from '../Box';
 import { Icon } from '../Icon';
+
 import { Addon } from './Addon';
 import { Input } from './Input';
 import type { InputBoxSkeleton } from './InputBoxSkeleton';
@@ -73,7 +74,7 @@ export const InputBox = forwardRef(function InputBox(
     onChange,
     ...props
   }: InputBoxProps,
-  ref: Ref<any> | null
+  ref: Ref<any> | null,
 ) {
   const innerRef = useRef<
     HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
@@ -90,7 +91,7 @@ export const InputBox = forwardRef(function InputBox(
     if (addon && innerRef.current && innerRef.current.parentElement) {
       innerRef.current.parentElement.classList.toggle(
         'invalid',
-        !innerRef.current.checkValidity()
+        !innerRef.current.checkValidity(),
       );
     }
   }, []);
@@ -100,13 +101,13 @@ export const InputBox = forwardRef(function InputBox(
       if (addon && innerRef.current && innerRef.current.parentElement) {
         innerRef.current.parentElement.classList.toggle(
           'invalid',
-          !innerRef.current.checkValidity()
+          !innerRef.current.checkValidity(),
         );
       }
 
       onChange?.call(event.currentTarget, event);
     },
-    [addon, onChange]
+    [addon, onChange],
   );
 
   const handleAddonClick = () =>

@@ -13,7 +13,7 @@ it('renders without crashing', () => {
       onResendEmailRequest={() => undefined}
       onChangeEmailRequest={() => undefined}
     />,
-    div
+    div,
   );
   ReactDOM.unmountComponentAtNode(div);
 });

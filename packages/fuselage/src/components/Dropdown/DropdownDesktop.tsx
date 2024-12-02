@@ -4,7 +4,7 @@ import { forwardRef } from 'react';
 import { Box, Tile } from '..';
 
 export const DropdownDesktop = forwardRef(function DropdownDesktop<
-  R extends HTMLElement
+  R extends HTMLElement,
 >(
   {
     children,
@@ -15,7 +15,7 @@ export const DropdownDesktop = forwardRef(function DropdownDesktop<
     maxWidth?: string;
     style?: CSSProperties;
   },
-  ref: Ref<R>
+  ref: Ref<R>,
 ) {
   return (
     <Tile

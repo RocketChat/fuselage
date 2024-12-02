@@ -4,14 +4,14 @@ exports[`[ToastBar Rendering] renders Default without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-css-fnyeze rcx-toastbar rcx-toastbar--info  rcx-css-n4l2cd"
+      class="rcx-box rcx-box--full rcx-css-fnyeze rcx-toastbar rcx-toastbar--info  rcx-css-1h96jes"
     >
       <div
         class="rcx-toastbar_inner"
       >
         <i
           aria-hidden="true"
-          class="rcx-box rcx-box--full rcx-icon--name-info rcx-icon  rcx-toastbar_icon--info rcx-css-4pvxx3"
+          class="rcx-box rcx-box--full rcx-icon--name-info rcx-icon rcx-toastbar_icon--info rcx-css-4pvxx3"
         >
           
         </i>
@@ -36,14 +36,14 @@ exports[`[ToastBar Rendering] renders Error without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-css-fnyeze rcx-toastbar rcx-toastbar--error  rcx-css-n4l2cd"
+      class="rcx-box rcx-box--full rcx-css-fnyeze rcx-toastbar rcx-toastbar--error  rcx-css-1h96jes"
     >
       <div
         class="rcx-toastbar_inner"
       >
         <i
           aria-hidden="true"
-          class="rcx-box rcx-box--full rcx-icon--name-ban rcx-icon  rcx-toastbar_icon--error rcx-css-4pvxx3"
+          class="rcx-box rcx-box--full rcx-icon--name-ban rcx-icon rcx-toastbar_icon--error rcx-css-4pvxx3"
         >
           
         </i>
@@ -68,14 +68,14 @@ exports[`[ToastBar Rendering] renders Success without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-css-fnyeze rcx-toastbar rcx-toastbar--success  rcx-css-n4l2cd"
+      class="rcx-box rcx-box--full rcx-css-fnyeze rcx-toastbar rcx-toastbar--success  rcx-css-1h96jes"
     >
       <div
         class="rcx-toastbar_inner"
       >
         <i
           aria-hidden="true"
-          class="rcx-box rcx-box--full rcx-icon--name-circle-check rcx-icon  rcx-toastbar_icon--success rcx-css-4pvxx3"
+          class="rcx-box rcx-box--full rcx-icon--name-circle-check rcx-icon rcx-toastbar_icon--success rcx-css-4pvxx3"
         >
           
         </i>
@@ -100,14 +100,14 @@ exports[`[ToastBar Rendering] renders TinyText without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-css-fnyeze rcx-toastbar rcx-toastbar--info  rcx-css-n4l2cd"
+      class="rcx-box rcx-box--full rcx-css-fnyeze rcx-toastbar rcx-toastbar--info  rcx-css-1h96jes"
     >
       <div
         class="rcx-toastbar_inner"
       >
         <i
           aria-hidden="true"
-          class="rcx-box rcx-box--full rcx-icon--name-info rcx-icon  rcx-toastbar_icon--info rcx-css-4pvxx3"
+          class="rcx-box rcx-box--full rcx-icon--name-info rcx-icon rcx-toastbar_icon--info rcx-css-4pvxx3"
         >
           
         </i>
@@ -130,14 +130,14 @@ exports[`[ToastBar Rendering] renders WithCloseButton without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-css-fnyeze rcx-toastbar rcx-toastbar--info  rcx-css-n4l2cd"
+      class="rcx-box rcx-box--full rcx-css-fnyeze rcx-toastbar rcx-toastbar--info  rcx-css-1h96jes"
     >
       <div
         class="rcx-toastbar_inner"
       >
         <i
           aria-hidden="true"
-          class="rcx-box rcx-box--full rcx-icon--name-info rcx-icon  rcx-toastbar_icon--info rcx-css-4pvxx3"
+          class="rcx-box rcx-box--full rcx-icon--name-info rcx-icon rcx-toastbar_icon--info rcx-css-4pvxx3"
         >
           
         </i>

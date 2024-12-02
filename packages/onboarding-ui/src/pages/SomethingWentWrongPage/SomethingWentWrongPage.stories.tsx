@@ -15,7 +15,7 @@ export default {
 } satisfies Meta<typeof SomethingWentWrongPage>;
 
 export const _SomethingWentWrongPage: StoryFn<typeof SomethingWentWrongPage> = (
-  args
+  args,
 ) => <SomethingWentWrongPage {...args} />;
 
 _SomethingWentWrongPage.storyName = 'SomethingWentWrongPage';

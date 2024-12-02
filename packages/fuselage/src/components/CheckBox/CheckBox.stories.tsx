@@ -5,6 +5,7 @@ import {
   DECORATOR_LABEL,
   PropsVariationSection,
 } from '../../../.storybook/helpers';
+
 import { CheckBox } from './CheckBox';
 
 export default {

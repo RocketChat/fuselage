@@ -104,7 +104,7 @@ export class LameInternalFlags {
 
   readonly blackfilt = Array.from(
     { length: 2 * BPC + 1 },
-    () => new Float32Array()
+    () => new Float32Array(),
   );
 
   readonly itime = new Float64Array(2);
@@ -113,8 +113,8 @@ export class LameInternalFlags {
 
   readonly sb_sample = Array.from({ length: 2 }, () =>
     Array.from({ length: 2 }, () =>
-      Array.from({ length: 18 }, () => new Float32Array(SBLIMIT))
-    )
+      Array.from({ length: 18 }, () => new Float32Array(SBLIMIT)),
+    ),
   );
 
   readonly amp_filter = new Float32Array(32);
@@ -219,12 +219,12 @@ export class LameInternalFlags {
 
   readonly bitrate_stereoMode_Hist = Array.from(
     { length: 16 },
-    () => new Int32Array(4 + 1)
+    () => new Int32Array(4 + 1),
   );
 
   readonly bitrate_blockType_Hist = Array.from(
     { length: 16 },
-    () => new Int32Array(4 + 1 + 1)
+    () => new Int32Array(4 + 1 + 1),
   );
 
   in_buffer_nsamples = 0;

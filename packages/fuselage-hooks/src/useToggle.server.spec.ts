@@ -1,9 +1,4 @@
-/**
- * @jest-environment node
- */
-
-import { renderHook } from '@testing-library/react-hooks/server';
-
+import { renderHook } from './testing';
 import { useToggle } from './useToggle';
 
 it('has false value when an initial value is undefined', () => {

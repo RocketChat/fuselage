@@ -11,7 +11,7 @@ export const useContentBoxSize = (
     debounceDelay = 0,
   }: {
     debounceDelay?: number;
-  } = {}
+  } = {},
 ): Readonly<{
   inlineSize: number;
   blockSize: number;

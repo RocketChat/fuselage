@@ -4,7 +4,7 @@ import { useRef } from 'react';
 const hasChanged = <T extends unknown[]>(
   ref: MutableRefObject<T>,
   array: T,
-  compare: <T>(a: T, b: T) => boolean
+  compare: <T>(a: T, b: T) => boolean,
 ): boolean => {
   if (!Array.isArray(array)) {
     return true;
@@ -24,7 +24,7 @@ const hasChanged = <T extends unknown[]>(
 const getCurrentArray = <T extends unknown[]>(
   ref: MutableRefObject<T>,
   array: T,
-  compare: <T>(a: T, b: T) => boolean
+  compare: <T>(a: T, b: T) => boolean,
 ): T => {
   if (hasChanged(ref, array, compare)) {
     ref.current = array;
@@ -45,7 +45,7 @@ const getCurrentArray = <T extends unknown[]>(
  */
 export const useStableArray = <T extends unknown[]>(
   array: T,
-  compare: <T>(a: T, b: T) => boolean = Object.is
+  compare: <T>(a: T, b: T) => boolean = Object.is,
 ): T => {
   const ref = useRef(array);
   return getCurrentArray<T>(ref, array, compare);

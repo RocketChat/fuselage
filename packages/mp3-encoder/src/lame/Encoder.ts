@@ -103,7 +103,7 @@ export class Encoder {
 
   private lame_encode_frame_init(
     gfp: LameGlobalFlags,
-    inbuf: [Float32Array, Float32Array]
+    inbuf: [Float32Array, Float32Array],
   ) {
     const gfc = gfp.internal_flags;
 
@@ -142,21 +142,20 @@ export class Encoder {
     }
   }
 
-  // eslint-disable-next-line complexity
   lame_encode_mp3_frame(
     gfp: LameGlobalFlags,
     inbuf_l: Float32Array,
     inbuf_r: Float32Array,
     mp3buf: Uint8Array,
     mp3bufPos: number,
-    mp3buf_size: number
+    mp3buf_size: number,
   ) {
     const masking_LR = Array.from({ length: 2 }, () =>
-      Array.from({ length: 2 }, () => new III_psy_ratio())
+      Array.from({ length: 2 }, () => new III_psy_ratio()),
     );
 
     const masking_MS = Array.from({ length: 2 }, () =>
-      Array.from({ length: 2 }, () => new III_psy_ratio())
+      Array.from({ length: 2 }, () => new III_psy_ratio()),
     );
 
     masking_MS[0][0] = new III_psy_ratio();
@@ -221,7 +220,7 @@ export class Encoder {
             pe[gr],
             pe_MS[gr],
             tot_ener[gr],
-            blocktype
+            blocktype,
           );
         } else {
           ret = this.psy.L3psycho_anal_ns(
@@ -234,7 +233,7 @@ export class Encoder {
             pe[gr],
             pe_MS[gr],
             tot_ener[gr],
-            blocktype
+            blocktype,
           );
         }
         if (ret !== 0) return -4;

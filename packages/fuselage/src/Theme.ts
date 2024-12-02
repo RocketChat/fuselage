@@ -140,7 +140,7 @@ export const strokeColors = {
   'stroke-dark': neutral[700].theme('stroke-dark'),
   'stroke-extra-dark': neutral[800].theme('stroke-extra-dark'),
   'stroke-extra-light-highlight': blue[200].theme(
-    'stroke-extra-light-highlight'
+    'stroke-extra-light-highlight',
   ),
   'stroke-highlight': blue[500].theme('stroke-highlight'),
   'stroke-extra-light-error': red[200].theme('stroke-extra-light-error'),
@@ -171,13 +171,13 @@ export const statusBackgroundColors = {
   'status-background-danger': red[200].theme('status-background-danger'),
   'status-background-warning': yellow[200].theme('status-background-warning'),
   'status-background-warning-2': yellow[100].theme(
-    'status-background-warning-2'
+    'status-background-warning-2',
   ),
   'status-background-service-1': orange[200].theme(
-    'status-background-service-1'
+    'status-background-service-1',
   ),
   'status-background-service-2': purple[200].theme(
-    'status-background-service-2'
+    'status-background-service-2',
   ),
 };
 
@@ -207,19 +207,19 @@ type BadgeBackgroundColors = keyof typeof badgeBackgroundColors;
 
 export const shadowColors = {
   'shadow-elevation-border': strokeColors['stroke-extra-light'].theme(
-    'shadow-elevation-border'
+    'shadow-elevation-border',
   ),
   'shadow-elevation-1': new Var(
     'shadow-elevation-1',
-    getPaletteColor('neutral', 800, 0.1)[1]
+    getPaletteColor('neutral', 800, 0.1)[1],
   ),
   'shadow-elevation-2x': new Var(
     'shadow-elevation-2x',
-    getPaletteColor('neutral', 800, 0.08)[1]
+    getPaletteColor('neutral', 800, 0.08)[1],
   ),
   'shadow-elevation-2y': new Var(
     'shadow-elevation-2y',
-    getPaletteColor('neutral', 800, 0.12)[1]
+    getPaletteColor('neutral', 800, 0.12)[1],
   ),
   'shadow-highlight': blue[200].theme('shadow-highlight'),
   'shadow-danger': red[100].theme('shadow-danger'),
@@ -240,7 +240,7 @@ export const isBadgeColor = (color: unknown): color is BadgeBackgroundColors =>
   typeof color === 'string' && color in badgeBackgroundColors;
 
 export const isStatusBackgroundColor = (
-  color: unknown
+  color: unknown,
 ): color is StatusBackgroundColors =>
   typeof color === 'string' && color in statusBackgroundColors;
 

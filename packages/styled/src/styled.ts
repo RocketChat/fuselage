@@ -24,7 +24,7 @@ import {
 
 export const attachClassName = <P extends { className?: string }>(
   props: P,
-  additionalClassName: string
+  additionalClassName: string,
 ): P => ({
   ...props,
   className: props.className
@@ -39,8 +39,8 @@ type RefTypes = {
   >
     ? T
     : JSX.IntrinsicElements[K] extends SVGProps<infer T>
-    ? T
-    : never;
+      ? T
+      : never;
 };
 
 type PropsTypes = {
@@ -50,7 +50,7 @@ type PropsTypes = {
 const styled =
   <K extends keyof JSX.IntrinsicElements, P>(
     type: K,
-    filter?: (p: P) => PropsTypes[K]
+    filter?: (p: P) => PropsTypes[K],
   ) =>
   (
     slices: TemplateStringsArray,
@@ -68,19 +68,19 @@ const styled =
               const escapedClassName = escapeName(computedClassName);
               const transpiledContent = transpile(
                 `.${escapedClassName}`,
-                content
+                content,
               );
 
               const newProps = attachClassName(
                 { ref, ...props },
-                computedClassName
+                computedClassName,
               );
 
               return createElement(
                 Fragment,
                 {},
                 createElement('style', {}, transpiledContent),
-                createElement(type, filter ? filter(newProps) : newProps)
+                createElement(type, filter ? filter(newProps) : newProps),
               );
             },
           }
@@ -95,7 +95,7 @@ const styled =
                 const escapedClassName = escapeName(computedClassName);
                 const transpiledContent = transpile(
                   `.${escapedClassName}`,
-                  content
+                  content,
                 );
                 const detach = attachRules(transpiledContent);
 
@@ -106,7 +106,7 @@ const styled =
 
               const newProps = attachClassName(
                 { ref, ...props },
-                computedClassName
+                computedClassName,
               );
               return createElement(type, filter ? filter(newProps) : newProps);
             },
