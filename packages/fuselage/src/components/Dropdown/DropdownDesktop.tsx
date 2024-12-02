@@ -28,6 +28,7 @@ export const DropdownDesktop = forwardRef(function DropdownDesktop<
       flexDirection='column'
       overflow='auto'
       data-testid='dropdown'
+      position='fixed'
       {...props}
     >
       <Box flexShrink={1} pb={12}>
