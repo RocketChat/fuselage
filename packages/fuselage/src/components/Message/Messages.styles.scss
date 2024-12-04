@@ -34,7 +34,7 @@ $message-background-color-hover: functions.theme(
 
 $message-background-color-selected: functions.theme(
   'message-background-color-selected',
-  colors.status-background(success)
+  colors.surface(selected)
 );
 
 $message-background-color-editing: functions.theme(
@@ -108,12 +108,6 @@ $message-highlight-colors-background-other-color: theme(
 
   &--selected {
     background: $message-background-color-selected !important;
-
-    .rcx-message-header__name,
-    .rcx-message-header__time,
-    .rcx-message-body {
-      color: colors.font(pure-black);
-    }
   }
 
   &--editing {
