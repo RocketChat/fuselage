@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.33.2
+
+### Patch Changes
+
+- [#1471](https://github.com/RocketChat/fuselage/pull/1471) [`0b4e37a`](https://github.com/RocketChat/fuselage/commit/0b4e37aea8ca562d7cdf453824dd5c514ede349d) Thanks [@aleksandernsilva](https://github.com/aleksandernsilva)! - fix(fuselage-tokens): incorrect color tokens on Button's success variant
+
 ## 0.33.1
 
 ### Patch Changes

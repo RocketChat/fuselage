@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.31.26
+
+### Patch Changes
+
+- [#1481](https://github.com/RocketChat/fuselage/pull/1481) [`8084488`](https://github.com/RocketChat/fuselage/commit/80844881787fb8c5679ac5bcd18e43ddc23a8673) Thanks [@tassoevan](https://github.com/tassoevan)! - Suppressed assertions at the LAME encoding due to unknown `NaN` values
+
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 

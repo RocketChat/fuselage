@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.34.0
+
+### Minor Changes
+
+- [#1483](https://github.com/RocketChat/fuselage/pull/1483) [`4910d29`](https://github.com/RocketChat/fuselage/commit/4910d294defc1effc0b857f44138498a73013877) Thanks [@tassoevan](https://github.com/tassoevan)! - Enables hooks' compatibility with React 18
+
 ## 0.33.1
 
 ### Patch Changes
