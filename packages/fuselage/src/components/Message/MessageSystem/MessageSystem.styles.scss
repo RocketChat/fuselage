@@ -7,7 +7,7 @@
 
 $message-system-background-color-selected: functions.theme(
   'message-system-background-color-selected',
-  colors.status-background(success)
+  colors.surface(selected)
 );
 
 .rcx-message-system {
@@ -25,7 +25,6 @@ $message-system-background-color-selected: functions.theme(
   color: colors.font(default);
 
   &--selected {
-    color: colors.font(pure-black);
     background: $message-system-background-color-selected !important;
   }
 
