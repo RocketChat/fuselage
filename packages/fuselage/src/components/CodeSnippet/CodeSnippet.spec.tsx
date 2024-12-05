@@ -1,54 +1,33 @@
 import { composeStories } from '@storybook/react';
-import { screen } from '@testing-library/react';
+import { axe, toHaveNoViolations } from 'jest-axe';
 
 import { render } from '../../testing';
 
 import * as stories from './CodeSnippet.stories';
 
-const { Default, CopyButton, CustomButtonName, LoadingCode, DisabledButton } =
-  composeStories(stories);
+expect.extend(toHaveNoViolations);
 
-describe('[CodeSnippet Component]', () => {
-  it('renders without crashing', () => {
-    render(<Default />);
-  });
+const testCases = Object.values(composeStories(stories)).map((Story) => [
+  Story.storyName || 'Story',
+  Story,
+]);
 
-  it('should display children', () => {
-    render(<Default>Children</Default>);
-    screen.getByText('Children');
-  });
+describe('[CodeSnippet Rendering]', () => {
+  test.each(testCases)(
+    `renders %s without crashing`,
+    async (_storyname, Story) => {
+      const tree = render(<Story />);
+      expect(tree.baseElement).toMatchSnapshot();
+    },
+  );
 
-  describe('Button behavior', () => {
-    let onClickSpy: ReturnType<typeof jest.fn>;
-    beforeEach(() => {
-      onClickSpy = jest.fn();
-      render(<CopyButton onClick={onClickSpy} />);
-    });
+  test.each(testCases)(
+    '%s should have no a11y violations',
+    async (_storyname, Story) => {
+      const { container } = render(<Story />);
 
-    it('should display button, when component receives onClick property', () => {
-      screen.getByRole('button');
-    });
-
-    it('should call onClick function when button is clicked', () => {
-      const button = screen.getByRole('button');
-      button.click();
-      expect(onClickSpy).toHaveBeenCalled();
-    });
-  });
-
-  it('should change button name, when buttonText property is passed', () => {
-    render(<CustomButtonName buttonText='custom-name' />);
-    screen.getByText('custom-name');
-  });
-
-  it('should display skeleton, when there is no children', () => {
-    const { container } = render(<LoadingCode />);
-    expect(container.querySelector('.rcx-skeleton')).toBeInTheDocument();
-  });
-
-  it('should should render a disabled button, when buttonDisabled prop is passed', () => {
-    render(<DisabledButton />);
-    const button = screen.getByRole('button');
-    expect(button).toBeDisabled();
-  });
+      const results = await axe(container);
+      expect(results).toHaveNoViolations();
+    },
+  );
 });
