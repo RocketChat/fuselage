@@ -45,7 +45,7 @@
   "devDependencies": {
     "@types/node": "~14.18.42",
     "eslint": "~9.14.0",
-    "lint-all": "workspace:~",
+    "lint-all": "^0.31.25",
     "npm-run-all": "^4.1.5",
     "peggy": "3.0.2",
     "prettier": "~3.3.3",
