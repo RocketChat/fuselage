@@ -128,7 +128,7 @@
     "stylelint": "~16.10.0",
     "stylelint-order": "~6.0.4",
     "stylelint-prettier": "~5.0.2",
-    "stylelint-scss": "~6.8.1",
+    "stylelint-scss": "~6.10.0",
     "testing-utils": "workspace:~",
     "ts-jest": "~29.2.5",
     "ts-loader": "~9.5.1",
