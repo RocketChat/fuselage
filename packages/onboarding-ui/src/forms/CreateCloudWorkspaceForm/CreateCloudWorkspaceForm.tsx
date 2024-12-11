@@ -22,6 +22,7 @@ import { useForm, Controller } from 'react-hook-form';
 import { useTranslation, Trans } from 'react-i18next';
 
 import Tooltip from '../../common/InformationTooltipTrigger';
+
 import WorkspaceUrlInput from './WorkspaceUrlInput';
 
 type CreateCloudWorkspaceFormPayload = {

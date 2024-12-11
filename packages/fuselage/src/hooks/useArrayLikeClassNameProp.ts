@@ -3,6 +3,7 @@ import { css } from '@rocket.chat/css-in-js';
 
 import { appendClassName } from '../helpers/appendClassName';
 import type { Falsy } from '../types/Falsy';
+
 import { useStyle } from './useStyle';
 
 export const useArrayLikeClassNameProp = <

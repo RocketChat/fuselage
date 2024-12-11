@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/logo",
-  "version": "0.31.30",
+  "version": "0.31.31",
   "description": "Rocket.Chat logo package",
   "keywords": [
     "rocketchat",
@@ -41,14 +41,12 @@
     "docs": "typedoc"
   },
   "devDependencies": {
-    "@rocket.chat/eslint-config-alt": "workspace:~",
     "@rocket.chat/fuselage-tokens": "workspace:~",
-    "@rocket.chat/prettier-config": "workspace:~",
     "@types/jest": "~29.5.12",
     "@types/react": "~17.0.80",
     "@types/react-dom": "~17.0.25",
     "build-logo": "workspace:~",
-    "eslint": "~8.45.0",
+    "eslint": "~9.14.0",
     "jest": "~29.7.0",
     "jest-environment-jsdom": "~29.7.0",
     "lint-all": "workspace:~",

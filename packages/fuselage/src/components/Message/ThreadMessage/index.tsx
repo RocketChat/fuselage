@@ -1,4 +1,5 @@
 import { MessageLeftContainer } from '../MessageLeftContainer';
+
 import { ThreadMessage } from './ThreadMessage';
 import { ThreadMessageBody } from './ThreadMessageBody';
 import { ThreadMessageContainer } from './ThreadMessageContainer';

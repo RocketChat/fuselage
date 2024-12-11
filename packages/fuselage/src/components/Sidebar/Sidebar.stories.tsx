@@ -2,6 +2,8 @@ import { action } from '@storybook/addon-actions';
 import type { StoryFn, Meta } from '@storybook/react';
 import type { ComponentType } from 'react';
 
+import { Avatar, Icon, Box, Tag, Divider, SidebarBanner } from '../..';
+
 import Sidebar, {
   SidebarItemContainer,
   SidebarItemActions,
@@ -19,7 +21,6 @@ import Sidebar, {
   SidebarFooterHighlight,
   SidebarItemIcon,
 } from '.';
-import { Avatar, Icon, Box, Tag, Divider, SidebarBanner } from '../..';
 
 export default {
   title: 'Sidebar/Sidebar',

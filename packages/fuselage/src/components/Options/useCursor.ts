@@ -3,6 +3,7 @@ import type { KeyboardEvent } from 'react';
 import { useState } from 'react';
 
 import AnimatedVisibility from '../AnimatedVisibility';
+
 import type { OptionType } from './Options';
 import { useVisible } from './useVisible';
 

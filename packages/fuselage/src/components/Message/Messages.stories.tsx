@@ -1,9 +1,10 @@
 import type { Meta, StoryFn } from '@storybook/react';
 import { useState } from 'react';
 
-import Message from '.';
 import { Avatar } from '../Avatar';
 import Box from '../Box';
+
+import Message from '.';
 import { MessageDivider } from './MessageDivider';
 import { MessageEmoji } from './MessageEmoji';
 import MessageMetrics from './MessageMetrics';

@@ -1,6 +1,9 @@
 import type { Meta } from '@storybook/react';
 import type { ComponentType } from 'react';
 
+import Box from '../Box';
+import { Icon } from '../Icon';
+
 import {
   States,
   StatesSubtitle,
@@ -14,8 +17,6 @@ import {
   StatesAction,
   StatesLink,
 } from '.';
-import Box from '../Box';
-import { Icon } from '../Icon';
 
 export default {
   title: 'Feedback/States',

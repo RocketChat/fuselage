@@ -3,6 +3,7 @@ import { fireEvent, getByRole } from '@testing-library/react';
 import { axe } from 'jest-axe';
 
 import { render } from '../../testing';
+
 import * as stories from './CheckBox.stories';
 
 const { Default, Indeterminate, Disabled, DefaultChecked } =

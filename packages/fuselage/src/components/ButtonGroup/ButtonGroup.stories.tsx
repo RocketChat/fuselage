@@ -1,6 +1,7 @@
 import type { StoryFn, Meta } from '@storybook/react';
 
 import Button from '../Button';
+
 import { ButtonGroup } from './ButtonGroup';
 
 export default {

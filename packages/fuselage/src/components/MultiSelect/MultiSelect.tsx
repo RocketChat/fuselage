@@ -25,6 +25,7 @@ import { CheckOption } from '../Option';
 import { Options, useCursor } from '../Options';
 import Position from '../Position';
 import SelectAddon from '../Select/SelectAddon';
+
 import MultiSelectAnchor from './MultiSelectAnchor';
 import type { MultiSelectAnchorParams } from './MultiSelectAnchorParams';
 import { SelectedOptions } from './SelectedOptions';

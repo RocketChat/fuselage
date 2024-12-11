@@ -14,5 +14,10 @@
     "json5": "^2.2.3",
     "rimraf": "^3.0.2"
   },
-  "version": "0.31.25"
+  "version": "0.31.25",
+  "devDependencies": {
+    "eslint": "~9.14.0",
+    "lint-all": "workspace:~",
+    "prettier": "~3.3.3"
+  }
 }

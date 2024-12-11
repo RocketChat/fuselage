@@ -1,4 +1,3 @@
-/* eslint-disable no-nested-ternary */
 import { css } from '@rocket.chat/css-in-js';
 import type { AriaAttributes, ReactElement } from 'react';
 import { useMemo, useRef } from 'react';
@@ -7,6 +6,7 @@ import { useNumberFormatter, useSlider } from 'react-aria';
 import { useSliderState } from 'react-stately';
 
 import { useStyle } from '../../hooks/useStyle';
+
 import { SliderHead } from './SliderHead';
 import { SliderThumb } from './SliderThumb';
 import { SliderTrack } from './SliderTrack';

@@ -1,4 +1,5 @@
 import { render } from '../../testing';
+
 import PaletteStyleTag from './PaletteStyleTag';
 import { dark, light } from './lib/themePalettes';
 

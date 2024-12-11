@@ -7,6 +7,7 @@ import { Badge } from '../Badge';
 import Box from '../Box/Box';
 import { ButtonGroup } from '../ButtonGroup';
 import { avatarUrl } from '../Message/helpers';
+
 import { IconButton } from './IconButton';
 
 export default {
