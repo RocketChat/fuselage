@@ -174,6 +174,7 @@ export const MultiSelect = forwardRef(
                   flexWrap='wrap'
                   margin='-x8'
                   role='listbox'
+                  onClick={handleClick}
                 >
                   <Margins all='x4'>
                     {renderAnchor({
@@ -225,6 +226,7 @@ export const MultiSelect = forwardRef(
         <Flex.Item grow={0} shrink={0}>
           <Margins inline='x4'>
             <SelectAddon
+              onClick={handleClick}
               children={
                 <Icon
                   name={
