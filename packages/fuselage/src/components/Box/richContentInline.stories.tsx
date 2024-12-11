@@ -35,11 +35,11 @@ i.storyName = 'i';
 export const a: StoryFn<typeof Box> = () => (
   <>
     <div>
-      <a href='#'>Normal</a>
+      <a href='#any'>Normal</a>
     </div>
     <br />
     <div>
-      <a href='#' className='is-focused'>
+      <a href='#any' className='is-focused'>
         Focused
       </a>
     </div>
