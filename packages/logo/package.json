@@ -42,7 +42,7 @@
   },
   "devDependencies": {
     "@rocket.chat/fuselage-tokens": "workspace:~",
-    "@types/jest": "~29.5.12",
+    "@types/jest": "~29.5.14",
     "@types/react": "~17.0.80",
     "@types/react-dom": "~17.0.25",
     "build-logo": "workspace:~",
@@ -55,9 +55,9 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "rimraf": "^3.0.2",
-    "ts-jest": "~29.2.4",
-    "typedoc": "~0.25.13",
-    "typescript": "~5.6.3"
+    "ts-jest": "~29.2.5",
+    "typedoc": "~0.27.4",
+    "typescript": "~5.7.2"
   },
   "dependencies": {
     "@rocket.chat/fuselage-hooks": "workspace:~",
