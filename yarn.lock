@@ -2255,11 +2255,11 @@ __metadata:
   linkType: hard
 
 "@eslint/plugin-kit@npm:^0.2.0":
-  version: 0.2.2
-  resolution: "@eslint/plugin-kit@npm:0.2.2"
+  version: 0.2.4
+  resolution: "@eslint/plugin-kit@npm:0.2.4"
   dependencies:
     levn: "npm:^0.4.1"
-  checksum: 10/19ce7b8c991c7d17269044d64cd1f8e207b5ddf31290de65950cdaf4c78387467759ad0ca275708c11b85d90e649faf65618255ad310a532ef6dea7fe6326bf1
+  checksum: 10/e34d02ea1dccd716e51369620263a4b2167aff3c0510ed776e21336cc3ad7158087449a76931baf07cdc33810cb6919db375f2e9f409435d2c6e0dd5f4786b25
   languageName: node
   linkType: hard
 
