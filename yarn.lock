@@ -2240,10 +2240,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/js@npm:~9.16.0":
-  version: 9.16.0
-  resolution: "@eslint/js@npm:9.16.0"
-  checksum: 10/122da09b6a2c6a92d68be26146af1da17d9d4e03cf9435a874d341f18519122eef9ed229e52a1b781dc5987239754954e80a0b11bbe8f65df96e9ef8f3b438ad
+"@eslint/js@npm:~9.17.0":
+  version: 9.17.0
+  resolution: "@eslint/js@npm:9.17.0"
+  checksum: 10/1a89e62f5c50e75d44565b7f3b91701455a999132c991e10bac59c118fbb54bdd54be22b9bda1ac730f78a2e64604403d65ce5dd7726d80b2632982cfc3d84ac
   languageName: node
   linkType: hard
 
@@ -4499,7 +4499,7 @@ __metadata:
     rollup-plugin-terser: "npm:~7.0.2"
     stylis: "npm:~4.3.2"
     ts-jest: "npm:~29.2.5"
-    typedoc: "npm:~0.27.4"
+    typedoc: "npm:~0.27.5"
     typescript: "npm:~5.7.2"
   languageName: unknown
   linkType: soft
@@ -4513,7 +4513,7 @@ __metadata:
     lint-all: "workspace:~"
     prettier: "npm:~3.3.3"
     rimraf: "npm:~3.0.2"
-    typedoc: "npm:~0.27.4"
+    typedoc: "npm:~0.27.5"
     typescript: "npm:~5.7.2"
   languageName: unknown
   linkType: soft
@@ -4535,7 +4535,7 @@ __metadata:
     rollup: "npm:~2.79.2"
     rollup-plugin-terser: "npm:~7.0.2"
     ts-jest: "npm:~29.2.5"
-    typedoc: "npm:~0.27.4"
+    typedoc: "npm:~0.27.5"
     typescript: "npm:~5.7.2"
   languageName: unknown
   linkType: soft
@@ -4571,7 +4571,7 @@ __metadata:
     rollup-plugin-terser: "npm:~7.0.2"
     testing-utils: "workspace:~"
     ts-jest: "npm:~29.2.5"
-    typedoc: "npm:~0.27.4"
+    typedoc: "npm:~0.27.5"
     typescript: "npm:~5.7.2"
     use-sync-external-store: "npm:~1.2.0"
   peerDependencies:
@@ -4586,7 +4586,7 @@ __metadata:
   dependencies:
     "@changesets/changelog-github": "npm:~0.5.0"
     "@changesets/cli": "npm:~2.27.10"
-    "@eslint/js": "npm:~9.16.0"
+    "@eslint/js": "npm:~9.17.0"
     "@rocket.chat/prettier-config": "workspace:~"
     "@types/eslint__js": "npm:~8.42.3"
     eslint: "npm:~9.14.0"
@@ -4657,7 +4657,7 @@ __metadata:
     storybook: "npm:~8.4.7"
     storybook-dark-mode: "npm:~4.0.2"
     ts-jest: "npm:~29.2.5"
-    typedoc: "npm:~0.27.4"
+    typedoc: "npm:~0.27.5"
     typescript: "npm:~5.7.2"
   peerDependencies:
     "@rocket.chat/fuselage": "*"
@@ -4728,7 +4728,7 @@ __metadata:
     "@types/react-dom": "npm:~17.0.25"
     autoprefixer: "npm:~10.4.20"
     babel-loader: "npm:~9.2.1"
-    caniuse-lite: "npm:~1.0.30001687"
+    caniuse-lite: "npm:~1.0.30001688"
     cross-env: "npm:^7.0.3"
     css-loader: "npm:~6.7.3"
     cssnano: "npm:~5.0.17"
@@ -4759,7 +4759,7 @@ __metadata:
     react-virtuoso: "npm:~3.1.5"
     resolve-url-loader: "npm:~5.0.0"
     rimraf: "npm:^3.0.2"
-    sass: "npm:~1.82.0"
+    sass: "npm:~1.83.0"
     sass-loader: "npm:~13.2.2"
     storybook: "npm:~8.4.7"
     storybook-dark-mode: "npm:~4.0.2"
@@ -4831,7 +4831,7 @@ __metadata:
     storybook: "npm:~8.4.7"
     storybook-dark-mode: "npm:~4.0.2"
     ts-jest: "npm:~29.2.5"
-    typedoc: "npm:~0.27.4"
+    typedoc: "npm:~0.27.5"
     typescript: "npm:~5.7.2"
   peerDependencies:
     "@rocket.chat/fuselage": "*"
@@ -4862,7 +4862,7 @@ __metadata:
     react-dom: "npm:^17.0.2"
     rimraf: "npm:^3.0.2"
     ts-jest: "npm:~29.2.5"
-    typedoc: "npm:~0.27.4"
+    typedoc: "npm:~0.27.5"
     typescript: "npm:~5.7.2"
   peerDependencies:
     react: 17.0.2
@@ -4881,7 +4881,7 @@ __metadata:
     prettier: "npm:~3.3.3"
     rimraf: "npm:~3.0.2"
     ts-jest: "npm:~29.2.5"
-    typedoc: "npm:~0.27.4"
+    typedoc: "npm:~0.27.5"
     typescript: "npm:~5.7.2"
   languageName: unknown
   linkType: soft
@@ -4905,7 +4905,7 @@ __metadata:
     prettier: "npm:~3.3.3"
     rollup: "npm:~3.29.5"
     ts-jest: "npm:~29.2.5"
-    typedoc: "npm:~0.27.4"
+    typedoc: "npm:~0.27.5"
     typescript: "npm:~5.7.2"
   languageName: unknown
   linkType: soft
@@ -4947,7 +4947,7 @@ __metadata:
     storybook: "npm:~8.4.7"
     storybook-dark-mode: "npm:~4.0.2"
     ts-jest: "npm:~29.2.5"
-    typedoc: "npm:~0.27.4"
+    typedoc: "npm:~0.27.5"
     typescript: "npm:~5.7.2"
   peerDependencies:
     "@rocket.chat/fuselage": "*"
@@ -5007,7 +5007,7 @@ __metadata:
     prettier: "npm:~3.3.3"
     rimraf: "npm:^3.0.2"
     ts-jest: "npm:~29.2.5"
-    typedoc: "npm:~0.27.4"
+    typedoc: "npm:~0.27.5"
     typescript: "npm:~5.7.2"
   languageName: unknown
   linkType: soft
@@ -5026,7 +5026,7 @@ __metadata:
     prettier: "npm:~3.3.3"
     rimraf: "npm:^3.0.2"
     ts-jest: "npm:~29.2.5"
-    typedoc: "npm:~0.27.4"
+    typedoc: "npm:~0.27.5"
     typescript: "npm:~5.7.2"
   languageName: unknown
   linkType: soft
@@ -5045,7 +5045,7 @@ __metadata:
     rimraf: "npm:^3.0.2"
     stylis: "npm:~4.3.2"
     ts-jest: "npm:~29.2.5"
-    typedoc: "npm:~0.27.4"
+    typedoc: "npm:~0.27.5"
     typescript: "npm:~5.7.2"
   peerDependencies:
     stylis: ~4.3.2
@@ -8179,10 +8179,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"caniuse-lite@npm:^1.0.30001646, caniuse-lite@npm:~1.0.30001687":
+"caniuse-lite@npm:^1.0.30001646":
   version: 1.0.30001687
   resolution: "caniuse-lite@npm:1.0.30001687"
   checksum: 10/0b6a064d5df185ec60b842dba5a27d2c54a66967b7f89571bfd0a8256f0863b1f2a910da6a19ed1b8f534bedf0663cae90309a4a6899bba2286205d459b32f95
+  languageName: node
+  linkType: hard
+
+"caniuse-lite@npm:~1.0.30001688":
+  version: 1.0.30001688
+  resolution: "caniuse-lite@npm:1.0.30001688"
+  checksum: 10/2125e900af866ee211c66beca01220c98e72c8a91d25c87b8ab456d3916f56fb1be5feef72556bca746da7aa852fc0118a04669f5ec2e6511eb77c960479e1c0
   languageName: node
   linkType: hard
 
@@ -17581,9 +17588,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:~1.82.0":
-  version: 1.82.0
-  resolution: "sass@npm:1.82.0"
+"sass@npm:~1.83.0":
+  version: 1.83.0
+  resolution: "sass@npm:1.83.0"
   dependencies:
     "@parcel/watcher": "npm:^2.4.1"
     chokidar: "npm:^4.0.0"
@@ -17594,7 +17601,7 @@ __metadata:
       optional: true
   bin:
     sass: sass.js
-  checksum: 10/35fca01aef652e8cb1fede83fe4214e3c2ba10c9af3d7f101eec7c3c3d1064001f9c7d09a7fdb9548062b60fee62e5f1f931d90aecac02f6bc8deaa4b7516c5f
+  checksum: 10/cae7c489ffeb1324ac7e766dda60206a6d7a318d0689b490290a32a6414ef1fd0f376f92d45fb1610e507baa6f6594f1a61d4d706df2f105122ff9a83d2a28e1
   languageName: node
   linkType: hard
 
@@ -19457,9 +19464,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typedoc@npm:~0.27.4":
-  version: 0.27.4
-  resolution: "typedoc@npm:0.27.4"
+"typedoc@npm:~0.27.5":
+  version: 0.27.5
+  resolution: "typedoc@npm:0.27.5"
   dependencies:
     "@gerrit0/mini-shiki": "npm:^1.24.0"
     lunr: "npm:^2.3.9"
@@ -19470,7 +19477,7 @@ __metadata:
     typescript: 5.0.x || 5.1.x || 5.2.x || 5.3.x || 5.4.x || 5.5.x || 5.6.x || 5.7.x
   bin:
     typedoc: bin/typedoc
-  checksum: 10/420036e5bdadf0dc2e27d5c347807704cc1d8beb69666149ecd96cbd32b4fa2b5488c73e2d5c47b7712ff4233e63a98903d01f5bd49123cdd75fa09578c0595e
+  checksum: 10/de683457a23d5031a6632801315b82b8a554a4f650aefbcee1cf191b484939be226b45cf5b40a0c831d523cdffd854d27799df546ba173f5b71d60d3c14d0164
   languageName: node
   linkType: hard
 

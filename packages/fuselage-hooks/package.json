@@ -69,7 +69,7 @@
     "rollup-plugin-terser": "~7.0.2",
     "testing-utils": "workspace:~",
     "ts-jest": "~29.2.5",
-    "typedoc": "~0.27.4",
+    "typedoc": "~0.27.5",
     "typescript": "~5.7.2"
   },
   "peerDependencies": {
