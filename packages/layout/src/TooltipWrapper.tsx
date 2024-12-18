@@ -63,7 +63,7 @@ const TooltipWrapper = ({
   const anchorRef = useRef(null);
   const [open, setOpen] = useDebouncedState(false, 460);
   const toggle = useCallback(
-    (open) => {
+    (open: SetStateAction<boolean>) => {
       setOpen(open);
 
       if (open) {

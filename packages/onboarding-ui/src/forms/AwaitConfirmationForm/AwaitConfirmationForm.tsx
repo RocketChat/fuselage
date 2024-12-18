@@ -39,7 +39,7 @@ const AwaitingConfirmationForm = ({
           </Trans>
         </Box>
         <Label display='block'>
-          {t('form.awaitConfirmationForm.content.securityCode')}
+          <>{t('form.awaitConfirmationForm.content.securityCode')}</>
           <Box
             padding='12px'
             width='full'

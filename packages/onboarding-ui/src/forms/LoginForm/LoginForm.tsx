@@ -68,7 +68,7 @@ const LoginForm = ({
             <FieldRow>
               <EmailInput
                 {...register('email', {
-                  required: String(t('component.form.requiredField')),
+                  required: t('component.form.requiredField'),
                 })}
                 placeholder={t('form.loginForm.fields.email.placeholder')}
               />

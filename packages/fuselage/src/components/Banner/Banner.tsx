@@ -3,6 +3,7 @@ import type {
   ReactNode,
   AllHTMLAttributes,
   HTMLAttributeAnchorTarget,
+  MouseEvent,
 } from 'react';
 import { useRef, useCallback, useMemo } from 'react';
 
@@ -65,7 +66,7 @@ const Banner = ({
   }, [onAction]);
 
   const handleCloseButtonClick = useCallback(
-    (event) => {
+    (event: MouseEvent) => {
       event.stopPropagation();
 
       if (onClose) {
