@@ -30,7 +30,7 @@ export const SidebarBanner = ({
       {text && <div className='rcx-sidebar-banner--text'>{text}</div>}
       {description && (
         <div
-          role='link'
+          role={onClick ? 'link' : undefined}
           tabIndex={0}
           className={[
             'rcx-sidebar-banner--description',
