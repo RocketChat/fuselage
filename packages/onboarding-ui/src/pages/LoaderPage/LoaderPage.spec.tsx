@@ -1,4 +1,4 @@
-import ReactDOM from 'react-dom';
+import { render } from '@testing-library/react';
 
 import LoaderPage from './LoaderPage';
 
@@ -12,10 +12,5 @@ const subtitles = [
 ];
 
 it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(
-    <LoaderPage title='Kapai' subtitles={subtitles} isReady={false} />,
-    div,
-  );
-  ReactDOM.unmountComponentAtNode(div);
+  render(<LoaderPage title='Kapai' subtitles={subtitles} isReady={false} />);
 });

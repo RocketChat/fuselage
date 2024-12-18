@@ -1,10 +1,9 @@
-import ReactDOM from 'react-dom';
+import { render } from '@testing-library/react';
 
 import OrganizationInfoForm from './OrganizationInfoForm';
 
 it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(
+  render(
     <OrganizationInfoForm
       currentStep={1}
       stepCount={1}
@@ -14,7 +13,5 @@ it('renders without crashing', () => {
       onSubmit={() => undefined}
       onBackButtonClick={() => undefined}
     />,
-    div,
   );
-  ReactDOM.unmountComponentAtNode(div);
 });

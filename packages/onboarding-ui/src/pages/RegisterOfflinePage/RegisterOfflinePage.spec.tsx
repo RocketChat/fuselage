@@ -1,10 +1,9 @@
-import ReactDOM from 'react-dom';
+import { render } from '@testing-library/react';
 
 import RegisterOfflinePage from '.';
 
 it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(
+  render(
     <RegisterOfflinePage
       termsHref=''
       policyHref=''
@@ -13,7 +12,5 @@ it('renders without crashing', () => {
       onCopySecurityCode={() => undefined}
       onBackButtonClick={() => undefined}
     />,
-    div,
   );
-  ReactDOM.unmountComponentAtNode(div);
 });

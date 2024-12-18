@@ -37,7 +37,7 @@ export const Margins = (props: MarginsProps) => {
   } = props;
 
   const transformFn = useCallback(
-    (props) => {
+    (props: any) => {
       if (all !== undefined && props.margin === undefined) {
         props.margin = all;
       }

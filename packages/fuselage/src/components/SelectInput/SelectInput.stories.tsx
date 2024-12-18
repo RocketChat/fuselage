@@ -1,4 +1,5 @@
 import type { StoryFn, Meta } from '@storybook/react';
+import { ComponentType } from 'react';
 
 import { PropsVariationSection } from '../../../.storybook/helpers';
 import { Icon } from '../Icon';
@@ -9,7 +10,9 @@ import { SelectInput } from './SelectInput';
 export default {
   title: 'Inputs/SelectInput',
   component: SelectInput,
-  subcomponents: { SelectInputOption },
+  subcomponents: {
+    SelectInputOption: SelectInputOption as ComponentType<any>,
+  },
 } satisfies Meta<typeof SelectInput>;
 
 const Template: StoryFn<typeof SelectInput> = (args) => (

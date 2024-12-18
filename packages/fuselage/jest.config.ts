@@ -11,6 +11,5 @@ export default {
   ],
   moduleNameMapper: {
     '\\.scss$': 'testing-utils/lazySingletonStyleTagModule',
-    '^react-dom/client$': 'react-dom',
   },
 } satisfies Config;
