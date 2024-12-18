@@ -65,7 +65,7 @@ const NewAccountForm = ({
             <FieldRow>
               <TextInput
                 {...register('name', {
-                  required: String(t('component.form.requiredField')),
+                  required: t('component.form.requiredField'),
                 })}
               />
             </FieldRow>

@@ -1,5 +1,5 @@
+import { render } from '@testing-library/react';
 import { createElement } from 'react';
-import { render } from 'react-dom';
 
 import styled from './styled';
 
@@ -8,8 +8,7 @@ it('should create a styled component', () => {
     color: rebeccapurple;
   `;
 
-  const container = document.createElement('div');
-  render(createElement(component), container);
+  render(createElement(component));
 
   const styleElement = document.getElementsByTagName('style')[0];
   expect(styleElement.textContent).toMatch(/\{color:rebeccapurple;\}/);
@@ -23,10 +22,8 @@ it('should create a styled component with props', () => {
     color: ${(props) => props.foo};
   `;
 
-  const container = document.createElement('div');
-  render(
+  const { container } = render(
     createElement(component, { foo: 'rebeccapurple', lang: 'pt-BR' }),
-    container,
   );
 
   const styleElement = document.getElementsByTagName('style')[0];

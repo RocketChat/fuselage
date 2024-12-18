@@ -17,7 +17,7 @@ type SelectProps<T, V extends Key> = Omit<
   onChange?: ((key: V) => any) | undefined;
   options: SelectOption[];
   small?: boolean;
-} & Omit<AllHTMLAttributes<HTMLElement>, 'onChange'>;
+} & Omit<AllHTMLAttributes<HTMLElement>, 'value' | 'onChange'>;
 
 /**
  * An input for selection of options.

@@ -6,7 +6,6 @@ import {
   renderHook as _renderHook,
 } from '@testing-library/react';
 import { createElement } from 'react';
-import * as ReactDOMClient from 'react-dom';
 import { renderToString } from 'react-dom/server';
 
 type RendererableContainer = Element | Document | DocumentFragment;
@@ -37,9 +36,7 @@ export function renderHook<
     };
   }
 
-  if ('createRoot' in ReactDOMClient) return _renderHook(render, options);
-
-  return _renderHook(render, { ...options, legacyRoot: true });
+  return _renderHook(render, options);
 }
 
 export { act } from '@testing-library/react';

@@ -1,4 +1,4 @@
-import ReactDOM from 'react-dom';
+import { render } from '@testing-library/react';
 
 import CreateFirstMemberPage from './CreateFirstMemberPage';
 
@@ -18,7 +18,5 @@ const props = {
 };
 
 it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<CreateFirstMemberPage {...props} />, div);
-  ReactDOM.unmountComponentAtNode(div);
+  render(<CreateFirstMemberPage {...props} />);
 });
