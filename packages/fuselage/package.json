@@ -93,7 +93,7 @@
     "@types/react-dom": "~17.0.25",
     "autoprefixer": "~10.4.20",
     "babel-loader": "~9.2.1",
-    "caniuse-lite": "~1.0.30001688",
+    "caniuse-lite": "~1.0.30001689",
     "cross-env": "^7.0.3",
     "css-loader": "~6.7.3",
     "cssnano": "~5.0.17",
