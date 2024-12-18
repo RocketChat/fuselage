@@ -108,7 +108,7 @@ const AdminInfoForm = ({
               <Controller
                 name='fullname'
                 control={control}
-                rules={{ required: String(t('component.form.requiredField')) }}
+                rules={{ required: t('component.form.requiredField') }}
                 render={({ field }) => (
                   <TextInput
                     {...field}
@@ -138,7 +138,7 @@ const AdminInfoForm = ({
                 name='username'
                 control={control}
                 rules={{
-                  required: String(t('component.form.requiredField')),
+                  required: t('component.form.requiredField'),
                   validate: validateUsername,
                 }}
                 render={({ field }) => (
@@ -170,7 +170,7 @@ const AdminInfoForm = ({
                 name='email'
                 control={control}
                 rules={{
-                  required: String(t('component.form.requiredField')),
+                  required: t('component.form.requiredField'),
                   validate: validateEmail,
                 }}
                 render={({ field }) => (
@@ -202,7 +202,7 @@ const AdminInfoForm = ({
                 name='password'
                 control={control}
                 rules={{
-                  required: String(t('component.form.requiredField')),
+                  required: t('component.form.requiredField'),
                   validate: validatePassword,
                 }}
                 render={({ field }) => (

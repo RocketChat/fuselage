@@ -65,14 +65,14 @@ const TotpForm = ({
               {isBackupCode ? (
                 <TextInput
                   {...register('backupCode', {
-                    required: String(t('component.form.requiredField')),
+                    required: t('component.form.requiredField'),
                   })}
                   placeholder={t('form.totpForm.fields.backupCode.placeholder')}
                 />
               ) : (
                 <NumberInput
                   {...register('totpCode', {
-                    required: String(t('component.form.requiredField')),
+                    required: t('component.form.requiredField'),
                   })}
                   placeholder={t('form.totpForm.fields.totpCode.placeholder')}
                 />

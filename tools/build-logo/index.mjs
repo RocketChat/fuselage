@@ -4,7 +4,7 @@ import * as fs from 'fs';
 
 import prettier from 'prettier';
 import React from 'react';
-import ReactDOMServer from 'react-dom/server.js';
+import ReactDOMServer from 'react-dom/server';
 import sharp from 'sharp';
 
 import RocketChatLogo from '../../packages/logo/dist/cjs/RocketChatLogo/index.js';
