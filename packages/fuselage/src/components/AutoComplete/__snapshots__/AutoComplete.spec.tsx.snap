@@ -53,6 +53,7 @@ exports[`[AutoComplete Rendering] renders CustomSelected without crashing 1`] = 
             class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x20"
           >
             <img
+              alt=""
               aria-hidden="true"
               class="rcx-avatar__element rcx-avatar__element--x20"
               src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAA
@@ -257,6 +258,7 @@ exports[`[AutoComplete Rendering] renders MultipleCustomSelected without crashin
                 class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x20"
               >
                 <img
+                  alt=""
                   aria-hidden="true"
                   class="rcx-avatar__element rcx-avatar__element--x20"
                   src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAA
@@ -340,6 +342,7 @@ v/L21v8BT/ZVoe1UItsAAAAASUVORK5CYII="
                 class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x20"
               >
                 <img
+                  alt=""
                   aria-hidden="true"
                   class="rcx-avatar__element rcx-avatar__element--x20"
                   src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAA
