@@ -1,12 +1,20 @@
 import type { Meta } from '@storybook/react';
+import type { ComponentType } from 'react';
 
 import Tile from '../Tile';
 
 import Flex from '.';
+import FlexContainer from './FlexContainer';
+import FlexItem from './FlexItem';
 
 export default {
   title: 'Layout/Flex',
-  subcomponents: { 'Flex.Container': Flex.Container, 'Flex.Item': Flex.Item },
+  subcomponents: {
+    'FlexContainer': FlexContainer as ComponentType<any>,
+    'FlexItem': FlexItem as ComponentType<any>,
+    'Flex.Container': Flex.Container as ComponentType<any>,
+    'Flex.Item': Flex.Item as ComponentType<any>,
+  },
 } satisfies Meta;
 
 export const example = () => (

@@ -1,15 +1,11 @@
-import ReactDOM from 'react-dom';
+import { render } from '@testing-library/react';
 
 import TooltipWrapper from './TooltipWrapper';
 
 it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<TooltipWrapper children={() => null} text='' />, div);
-  ReactDOM.unmountComponentAtNode(div);
+  render(<TooltipWrapper children={() => null} text='' />);
 });
 
 it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<TooltipWrapper children={<div />} text='' />, div);
-  ReactDOM.unmountComponentAtNode(div);
+  render(<TooltipWrapper children={<div />} text='' />);
 });

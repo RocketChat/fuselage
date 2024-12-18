@@ -1,10 +1,4 @@
-import type { ReactElement } from 'react';
-
-const BackgroundImage = ({
-  backgroundColor,
-}: {
-  backgroundColor: string;
-}): ReactElement => (
+const BackgroundImage = ({ backgroundColor }: { backgroundColor: string }) => (
   <svg
     width='1440'
     height='896'

@@ -65,7 +65,8 @@ export const Menu = ({
   const onClick = useCallback(() => {
     if (ref.current?.classList.contains('focus-visible')) {
       ref.current.classList.remove('focus-visible');
-      return hide();
+      hide();
+      return;
     }
     if (ref.current) {
       ref.current.focus();
@@ -75,7 +76,7 @@ export const Menu = ({
   }, [hide, show]);
 
   const handleSelection = useCallback(
-    (args) => {
+    (args: OptionType) => {
       menuAction(args, options);
       reset();
       hide();

@@ -8,9 +8,9 @@ import {
 import type {
   DetailedHTMLProps,
   ForwardRefExoticComponent,
+  ForwardRefRenderFunction,
   HTMLAttributes,
   PropsWithoutRef,
-  Ref,
   RefAttributes,
   SVGProps,
 } from 'react';
@@ -43,76 +43,69 @@ type RefTypes = {
       : never;
 };
 
-type PropsTypes = {
-  [K in keyof JSX.IntrinsicElements]: JSX.IntrinsicElements[K];
-};
-
 const styled =
   <K extends keyof JSX.IntrinsicElements, P>(
     type: K,
-    filter?: (p: P) => PropsTypes[K],
+    filter?: (
+      p: PropsWithoutRef<JSX.IntrinsicElements[K] & P>,
+    ) => JSX.IntrinsicElements[K],
   ) =>
   (
     slices: TemplateStringsArray,
     ...values: readonly (string | ((props: P) => string))[]
   ): ForwardRefExoticComponent<
-    PropsWithoutRef<PropsTypes[K] & P> & RefAttributes<RefTypes[K]>
+    PropsWithoutRef<JSX.IntrinsicElements[K] & P> & RefAttributes<RefTypes[K]>
   > => {
     const cssFn = css(slices, ...values);
-    const fn =
-      typeof window === 'undefined'
-        ? {
-            [type](props: PropsTypes[K] & P, ref: Ref<RefTypes[K]>) {
-              const content = cssFn(props);
-              const computedClassName = createClassName(content);
-              const escapedClassName = escapeName(computedClassName);
-              const transpiledContent = transpile(
-                `.${escapedClassName}`,
-                content,
-              );
+    const fn: ForwardRefRenderFunction<
+      RefTypes[K],
+      PropsWithoutRef<JSX.IntrinsicElements[K] & P>
+    > = typeof window === 'undefined'
+      ? (props, ref) => {
+          const content = cssFn(props);
+          const computedClassName = createClassName(content);
+          const escapedClassName = escapeName(computedClassName);
+          const transpiledContent = transpile(`.${escapedClassName}`, content);
 
-              const newProps = attachClassName(
-                { ref, ...props },
-                computedClassName,
-              );
+          const newProps = attachClassName(
+            { ref, ...props },
+            computedClassName,
+          );
 
-              return createElement(
-                Fragment,
-                {},
-                createElement('style', {}, transpiledContent),
-                createElement(type, filter ? filter(newProps) : newProps),
-              );
-            },
-          }
-        : {
-            [type](props: PropsTypes[K] & P, ref: Ref<RefTypes[K]>) {
-              const content = cssFn(props);
-              const computedClassName = createClassName(content);
+          return createElement(
+            Fragment,
+            {},
+            createElement('style', {}, transpiledContent),
+            createElement(type, filter ? filter(newProps) : newProps),
+          );
+        }
+      : (props, ref) => {
+          const content = cssFn(props);
+          const computedClassName = createClassName(content);
 
-              useDebugValue(computedClassName);
+          useDebugValue(computedClassName);
 
-              useLayoutEffect(() => {
-                const escapedClassName = escapeName(computedClassName);
-                const transpiledContent = transpile(
-                  `.${escapedClassName}`,
-                  content,
-                );
-                const detach = attachRules(transpiledContent);
+          useLayoutEffect(() => {
+            const escapedClassName = escapeName(computedClassName);
+            const transpiledContent = transpile(
+              `.${escapedClassName}`,
+              content,
+            );
+            const detach = attachRules(transpiledContent);
 
-                return () => {
-                  setTimeout(detach, 1000);
-                };
-              }, [computedClassName, content]);
+            return () => {
+              setTimeout(detach, 1000);
+            };
+          }, [computedClassName, content]);
 
-              const newProps = attachClassName(
-                { ref, ...props },
-                computedClassName,
-              );
-              return createElement(type, filter ? filter(newProps) : newProps);
-            },
-          };
+          const newProps = attachClassName(
+            { ref, ...props },
+            computedClassName,
+          );
+          return createElement(type, filter ? filter(newProps) : newProps);
+        };
 
-    const component = forwardRef(fn[type]);
+    const component = forwardRef(fn);
     component.displayName = `StyledComponent(${type})`;
     return component;
   };

@@ -8,8 +8,8 @@ beforeAll(() => {
 
 afterAll(() => {
   try {
-    expect(spyConsoleError).not.toBeCalled();
-    expect(spyConsoleWarn).not.toBeCalled();
+    expect(spyConsoleError).not.toHaveBeenCalled();
+    expect(spyConsoleWarn).not.toHaveBeenCalled();
   } finally {
     spyConsoleError?.mockRestore();
     spyConsoleWarn?.mockRestore();

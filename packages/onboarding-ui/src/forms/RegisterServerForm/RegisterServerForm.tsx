@@ -113,7 +113,7 @@ const RegisterServerForm = ({
                   name='email'
                   control={control}
                   rules={{
-                    required: String(t('component.form.requiredField')),
+                    required: t('component.form.requiredField'),
                     validate: validateEmail,
                   }}
                   render={({ field }) => (
