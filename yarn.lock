@@ -1356,12 +1356,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.14.5, @babel/runtime@npm:^7.17.2, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.8.4":
-  version: 7.22.15
-  resolution: "@babel/runtime@npm:7.22.15"
+"@babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.17.2, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.22.5, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.8.4":
+  version: 7.26.0
+  resolution: "@babel/runtime@npm:7.26.0"
   dependencies:
     regenerator-runtime: "npm:^0.14.0"
-  checksum: 10/9670da63b77ea6d8234117c55a6d9888be5cf220b91a5954d7faefe7a537e06fa8992e11d36b7cff2ab0ef5301fe6effb3d41bec8b4e0bae10d386b7c377568b
+  checksum: 10/9f4ea1c1d566c497c052d505587554e782e021e6ccd302c2ad7ae8291c8e16e3f19d4a7726fb64469e057779ea2081c28b7dbefec6d813a22f08a35712c0f699
   languageName: node
   linkType: hard
 
@@ -4928,7 +4928,7 @@ __metadata:
     prettier: "npm:~3.4.2"
     react: "npm:~18.3.1"
     react-dom: "npm:~18.3.1"
-    react-i18next: "npm:~11.17.0"
+    react-i18next: "npm:~13.2.2"
     rimraf: "npm:~3.0.2"
     storybook: "npm:~8.4.7"
     storybook-dark-mode: "npm:~4.0.2"
@@ -5046,7 +5046,7 @@ __metadata:
     react: "npm:~18.3.1"
     react-dom: "npm:~18.3.1"
     react-hook-form: "npm:~7.54.2"
-    react-i18next: "npm:~11.17.0"
+    react-i18next: "npm:~13.2.2"
     rimraf: "npm:^3.0.2"
     storybook: "npm:~8.4.7"
     storybook-dark-mode: "npm:~4.0.2"
@@ -16594,22 +16594,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-i18next@npm:~11.17.0":
-  version: 11.17.4
-  resolution: "react-i18next@npm:11.17.4"
+"react-i18next@npm:~13.2.2":
+  version: 13.2.2
+  resolution: "react-i18next@npm:13.2.2"
   dependencies:
-    "@babel/runtime": "npm:^7.14.5"
-    html-escaper: "npm:^2.0.2"
+    "@babel/runtime": "npm:^7.22.5"
     html-parse-stringify: "npm:^3.0.1"
   peerDependencies:
-    i18next: ">= 19.0.0"
+    i18next: ">= 23.2.3"
     react: ">= 16.8.0"
   peerDependenciesMeta:
     react-dom:
       optional: true
     react-native:
       optional: true
-  checksum: 10/69ab450e00f0ffd4d109efbc97e014c5706ccbcf5939cbffd52d8cb6ae280b8051bbd2ef8cbce937b6e0bbacdd00e16b1139bada7cd8ceafb6f4592c15db00fd
+  checksum: 10/e85fedfd21b0d4561dbda31ba4eb65161780b41ee4a1d376c77b12d0bd95baf0bf9c796fd3d59eb319ae4519158b3652336ef1244c1239ab3cbc537bd0420f00
   languageName: node
   linkType: hard
 
