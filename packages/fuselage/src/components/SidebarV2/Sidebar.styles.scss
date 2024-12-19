@@ -139,7 +139,9 @@ $sidebar-banner-color-danger: theme(
       align-items: center;
 
       min-height: lengths.size(24);
-      padding: lengths.padding(8) lengths.padding(16);
+
+      padding: calc(lengths.padding(8) - lengths.border-width('default'))
+        calc(lengths.padding(16) - lengths.border-width('default'));
 
       text-align: start;
 

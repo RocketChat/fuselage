@@ -8,7 +8,7 @@
   flex-direction: column;
   justify-content: center;
 
-  height: lengths.size(48);
+  min-height: lengths.size(48);
   padding-block: lengths.padding(12) lengths.padding(8);
   padding-inline: lengths.padding(16);
 
