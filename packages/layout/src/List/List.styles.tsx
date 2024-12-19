@@ -2,7 +2,7 @@ import styled from '@rocket.chat/styled';
 import type { CSSProperties } from 'react';
 
 type ListComponentProps = {
-  color: string;
+  color: NonNullable<CSSProperties['color']>;
   icon?: string;
   listStyleType: CSSProperties['listStyleType'];
 };
