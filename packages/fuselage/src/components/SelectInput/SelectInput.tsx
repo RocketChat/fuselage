@@ -20,11 +20,14 @@ export const SelectInput = forwardRef(function SelectInput(
   { children, multiple, placeholder, onChange, ...props }: SelectInputProps,
   ref: Ref<HTMLElement>,
 ) {
+  const [isOptionSelected, setOptionSelected] = useState(false);
   const [isPlaceholderVisible, setPlaceholderVisible] = useState(
     !props.value && !props.defaultValue,
   );
   const handleChange = useCallback(
     (event) => {
+      if (event.currentTarget.value !== '') setOptionSelected(true);
+      console.log('event', event.currentTarget.value);
       setPlaceholderVisible(!event.currentTarget.value);
       onChange?.call(event.currentTarget, event);
     },
@@ -43,6 +46,7 @@ export const SelectInput = forwardRef(function SelectInput(
     );
   }
 
+  console.log('props', isOptionSelected);
   return (
     <InputBox
       placeholderVisible={isPlaceholderVisible ? !!placeholder : undefined}
@@ -52,7 +56,7 @@ export const SelectInput = forwardRef(function SelectInput(
       type='select'
       onChange={handleChange}
     >
-      {placeholder && (
+      {placeholder && !isOptionSelected && (
         <InputBox.Placeholder value=''>{placeholder}</InputBox.Placeholder>
       )}
       {children}
