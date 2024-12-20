@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.60.1
+
+### Patch Changes
+
+- [#1516](https://github.com/RocketChat/fuselage/pull/1516) [`deac02f`](https://github.com/RocketChat/fuselage/commit/deac02f45b23227b699774b92aeac87b2dda739e) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): `SidebarV2` styles
+
 ## 0.60.0
 
 ### Minor Changes
