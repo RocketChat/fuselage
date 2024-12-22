@@ -15,7 +15,7 @@ import {
 import { Form } from '@rocket.chat/layout';
 import type { ReactElement } from 'react';
 import { useEffect } from 'react';
-import type { SubmitHandler, Validate } from 'react-hook-form';
+import type { FieldPathValue, SubmitHandler, Validate } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
 import { Trans, useTranslation } from 'react-i18next';
 
@@ -29,9 +29,18 @@ export type NewAccountPayload = {
 
 type NewAccountFormProps = {
   initialValues?: Omit<NewAccountPayload, 'password'>;
-  validateEmail: Validate<string>;
-  validatePassword: Validate<string>;
-  validateConfirmationPassword: Validate<string>;
+  validateEmail: Validate<
+    FieldPathValue<NewAccountPayload, 'email'>,
+    NewAccountPayload
+  >;
+  validatePassword: Validate<
+    FieldPathValue<NewAccountPayload, 'password'>,
+    NewAccountPayload
+  >;
+  validateConfirmationPassword: Validate<
+    FieldPathValue<NewAccountPayload, 'confirmPassword'>,
+    NewAccountPayload
+  >;
   onSubmit: SubmitHandler<NewAccountPayload>;
 };
 
@@ -65,7 +74,7 @@ const NewAccountForm = ({
             <FieldRow>
               <TextInput
                 {...register('name', {
-                  required: String(t('component.form.requiredField')),
+                  required: t('component.form.requiredField'),
                 })}
               />
             </FieldRow>

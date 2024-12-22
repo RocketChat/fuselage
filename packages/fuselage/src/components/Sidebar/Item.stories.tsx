@@ -20,13 +20,13 @@ export default {
   title: 'Sidebar/Item',
   component: SidebarItem,
   subcomponents: {
-    SidebarItemAvatar,
-    SidebarItemContent,
-    SidebarItemContainer,
+    SidebarItemAvatar: SidebarItemAvatar as ComponentType<any>,
+    SidebarItemContent: SidebarItemContent as ComponentType<any>,
+    SidebarItemContainer: SidebarItemContainer as ComponentType<any>,
     SidebarItemIcon: SidebarItemIcon as ComponentType<any>,
-    SidebarItemSubtitle,
-    SidebarItemTitle,
-    SidebarItemWrapper,
+    SidebarItemSubtitle: SidebarItemSubtitle as ComponentType<any>,
+    SidebarItemTitle: SidebarItemTitle as ComponentType<any>,
+    SidebarItemWrapper: SidebarItemWrapper as ComponentType<any>,
   },
 } satisfies Meta<typeof SidebarItem>;
 

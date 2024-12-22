@@ -1,4 +1,5 @@
 import type { StoryFn, Meta } from '@storybook/react';
+import type { ComponentType } from 'react';
 
 import { Tabs } from './Tabs';
 import { TabsItem } from './TabsItem';
@@ -7,7 +8,7 @@ export default {
   title: 'Navigation/Tabs',
   component: Tabs,
   subcomponents: {
-    TabsItem,
+    TabsItem: TabsItem as ComponentType<any>,
   },
 } satisfies Meta<typeof Tabs>;
 

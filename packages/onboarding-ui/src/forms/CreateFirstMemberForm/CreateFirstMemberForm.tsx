@@ -13,7 +13,7 @@ import {
 } from '@rocket.chat/fuselage';
 import { Form } from '@rocket.chat/layout';
 import type { ReactElement } from 'react';
-import type { SubmitHandler, Validate } from 'react-hook-form';
+import type { FieldPathValue, SubmitHandler, Validate } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
@@ -29,8 +29,14 @@ type CreateFirstMemberFormProps = {
   organizationName: string;
   onSubmit: SubmitHandler<CreateFirstMemberFormPayload>;
   onBackButtonClick: () => void;
-  validateUsername: Validate<string>;
-  validatePassword: Validate<string>;
+  validateUsername: Validate<
+    FieldPathValue<CreateFirstMemberFormPayload, 'username'>,
+    CreateFirstMemberFormPayload
+  >;
+  validatePassword: Validate<
+    FieldPathValue<CreateFirstMemberFormPayload, 'password'>,
+    CreateFirstMemberFormPayload
+  >;
 };
 
 const CreateFirstMemberForm = ({

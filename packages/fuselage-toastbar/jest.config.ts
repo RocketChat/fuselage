@@ -9,7 +9,4 @@ export default {
     '<rootDir>/jest-setup.ts',
     'testing-utils/setup/noErrorsLogged',
   ],
-  moduleNameMapper: {
-    '^react-dom/client$': 'react-dom',
-  },
 } satisfies Config;

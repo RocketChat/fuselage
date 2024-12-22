@@ -1,6 +1,6 @@
 import { BackgroundLayer } from '@rocket.chat/layout';
 import type { ReactElement, ReactNode } from 'react';
-import type { SubmitHandler, Validate } from 'react-hook-form';
+import type { FieldPathValue, SubmitHandler, Validate } from 'react-hook-form';
 
 import type { FormPageLayoutStyleProps } from '../../Types';
 import FormPageLayout from '../../common/FormPageLayout';
@@ -15,9 +15,18 @@ type AdminInfoPageProps = {
   passwordRulesHint: string;
   keepPosted?: boolean;
   initialValues?: Omit<AdminInfoPayload, 'password'>;
-  validateUsername: Validate<string>;
-  validateEmail: Validate<string>;
-  validatePassword: Validate<string>;
+  validateUsername: Validate<
+    FieldPathValue<AdminInfoPayload, 'username'>,
+    AdminInfoPayload
+  >;
+  validateEmail: Validate<
+    FieldPathValue<AdminInfoPayload, 'email'>,
+    AdminInfoPayload
+  >;
+  validatePassword: Validate<
+    FieldPathValue<AdminInfoPayload, 'password'>,
+    AdminInfoPayload
+  >;
   onSubmit: SubmitHandler<AdminInfoPayload>;
 };
 
