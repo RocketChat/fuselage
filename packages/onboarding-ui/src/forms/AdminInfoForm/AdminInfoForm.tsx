@@ -17,7 +17,7 @@ import { useUniqueId } from '@rocket.chat/fuselage-hooks';
 import { Form } from '@rocket.chat/layout';
 import type { ReactElement } from 'react';
 import { useRef, useEffect } from 'react';
-import type { SubmitHandler, Validate } from 'react-hook-form';
+import type { FieldPathValue, SubmitHandler, Validate } from 'react-hook-form';
 import { useForm, Controller } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
@@ -35,9 +35,18 @@ type AdminInfoFormProps = {
   passwordRulesHint: string;
   keepPosted?: boolean;
   initialValues?: Omit<AdminInfoPayload, 'password'>;
-  validateUsername: Validate<string, AdminInfoPayload>;
-  validateEmail: Validate<string, AdminInfoPayload>;
-  validatePassword: Validate<string, AdminInfoPayload>;
+  validateUsername: Validate<
+    FieldPathValue<AdminInfoPayload, 'username'>,
+    AdminInfoPayload
+  >;
+  validateEmail: Validate<
+    FieldPathValue<AdminInfoPayload, 'email'>,
+    AdminInfoPayload
+  >;
+  validatePassword: Validate<
+    FieldPathValue<AdminInfoPayload, 'password'>,
+    AdminInfoPayload
+  >;
   onSubmit: SubmitHandler<AdminInfoPayload>;
 };
 
