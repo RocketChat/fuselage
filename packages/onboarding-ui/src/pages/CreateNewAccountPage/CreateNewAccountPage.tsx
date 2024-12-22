@@ -6,7 +6,7 @@ import {
   VerticalWizardLayoutTitle,
 } from '@rocket.chat/layout';
 import type { ReactElement } from 'react';
-import type { SubmitHandler, Validate } from 'react-hook-form';
+import type { FieldPathValue, SubmitHandler, Validate } from 'react-hook-form';
 import { Trans, useTranslation } from 'react-i18next';
 
 import NewAccountForm from '../../forms/NewAccountForm';
@@ -14,9 +14,18 @@ import type { NewAccountPayload } from '../../forms/NewAccountForm/NewAccountFor
 
 type CreateNewAccountPageProps = {
   initialValues?: Omit<NewAccountPayload, 'password'>;
-  validateEmail: Validate<string, NewAccountPayload>;
-  validatePassword: Validate<string, NewAccountPayload>;
-  validateConfirmationPassword: Validate<string, NewAccountPayload>;
+  validateEmail: Validate<
+    FieldPathValue<NewAccountPayload, 'email'>,
+    NewAccountPayload
+  >;
+  validatePassword: Validate<
+    FieldPathValue<NewAccountPayload, 'password'>,
+    NewAccountPayload
+  >;
+  validateConfirmationPassword: Validate<
+    FieldPathValue<NewAccountPayload, 'confirmPassword'>,
+    NewAccountPayload
+  >;
   onSubmit: SubmitHandler<NewAccountPayload>;
   onLogin: () => void;
 };

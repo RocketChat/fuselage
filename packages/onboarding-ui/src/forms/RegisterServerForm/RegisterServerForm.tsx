@@ -13,7 +13,7 @@ import { useUniqueId, useBreakpoints } from '@rocket.chat/fuselage-hooks';
 import { Form } from '@rocket.chat/layout';
 import type { ReactElement } from 'react';
 import { useEffect, useRef } from 'react';
-import type { SubmitHandler, Validate } from 'react-hook-form';
+import type { FieldPathValue, SubmitHandler, Validate } from 'react-hook-form';
 import { Controller, useForm, FormProvider } from 'react-hook-form';
 import { useTranslation, Trans } from 'react-i18next';
 
@@ -29,7 +29,10 @@ type RegisterServerFormProps = {
   currentStep: number;
   stepCount: number;
   initialValues?: Partial<RegisterServerPayload>;
-  validateEmail?: Validate<string, RegisterServerPayload>;
+  validateEmail?: Validate<
+    FieldPathValue<RegisterServerPayload, 'email'>,
+    RegisterServerPayload
+  >;
   onSubmit: SubmitHandler<RegisterServerPayload>;
   onClickRegisterOffline: () => void;
   termsHref?: string;
