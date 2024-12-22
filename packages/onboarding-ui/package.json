@@ -78,7 +78,7 @@
   },
   "dependencies": {
     "i18next": "~21.6.16",
-    "react-hook-form": "~7.27.1"
+    "react-hook-form": "~7.45.4"
   },
   "peerDependencies": {
     "@rocket.chat/fuselage": "*",

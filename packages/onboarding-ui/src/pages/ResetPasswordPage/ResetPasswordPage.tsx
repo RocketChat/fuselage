@@ -1,7 +1,7 @@
 import { Box } from '@rocket.chat/fuselage';
 import { ActionLink, BackgroundLayer } from '@rocket.chat/layout';
 import type { ReactElement } from 'react';
-import type { SubmitHandler, Validate } from 'react-hook-form';
+import type { FieldPathValue, SubmitHandler, Validate } from 'react-hook-form';
 import { Trans, useTranslation } from 'react-i18next';
 
 import type { FormPageLayoutStyleProps } from '../../Types';
@@ -11,7 +11,10 @@ import type { ResetPasswordFormPayload } from '../../forms/ResetPasswordForm/Res
 
 type ResetPasswordPageProps = {
   initialValues?: ResetPasswordFormPayload;
-  validateEmail: Validate<string>;
+  validateEmail: Validate<
+    FieldPathValue<ResetPasswordFormPayload, 'email'>,
+    ResetPasswordFormPayload
+  >;
   onSubmit: SubmitHandler<ResetPasswordFormPayload>;
   onLogin: () => void;
 };
