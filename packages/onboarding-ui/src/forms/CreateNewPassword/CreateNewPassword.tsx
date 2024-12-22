@@ -10,7 +10,7 @@ import {
 } from '@rocket.chat/fuselage';
 import { Form } from '@rocket.chat/layout';
 import type { ReactElement } from 'react';
-import type { SubmitHandler, Validate } from 'react-hook-form';
+import type { FieldPathValue, SubmitHandler, Validate } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
@@ -21,8 +21,14 @@ export type CreateNewPasswordPayload = {
 
 type CreateNewPasswordProps = {
   initialValues?: CreateNewPasswordPayload;
-  validatePassword: Validate<string, CreateNewPasswordPayload>;
-  validatePasswordConfirmation: Validate<string, CreateNewPasswordPayload>;
+  validatePassword: Validate<
+    FieldPathValue<CreateNewPasswordPayload, 'password'>,
+    CreateNewPasswordPayload
+  >;
+  validatePasswordConfirmation: Validate<
+    FieldPathValue<CreateNewPasswordPayload, 'passwordConfirmation'>,
+    CreateNewPasswordPayload
+  >;
   onSubmit: SubmitHandler<CreateNewPasswordPayload>;
 };
 
