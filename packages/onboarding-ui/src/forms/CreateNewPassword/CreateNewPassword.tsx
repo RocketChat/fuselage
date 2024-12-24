@@ -21,8 +21,8 @@ export type CreateNewPasswordPayload = {
 
 type CreateNewPasswordProps = {
   initialValues?: CreateNewPasswordPayload;
-  validatePassword: Validate<string>;
-  validatePasswordConfirmation: Validate<string>;
+  validatePassword: Validate<string, CreateNewPasswordPayload>;
+  validatePasswordConfirmation: Validate<string, CreateNewPasswordPayload>;
   onSubmit: SubmitHandler<CreateNewPasswordPayload>;
 };
 

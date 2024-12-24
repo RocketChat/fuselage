@@ -11,7 +11,7 @@ import type { ResetPasswordFormPayload } from '../../forms/ResetPasswordForm/Res
 
 type ResetPasswordPageProps = {
   initialValues?: ResetPasswordFormPayload;
-  validateEmail: Validate<string>;
+  validateEmail: Validate<string, ResetPasswordFormPayload>;
   onSubmit: SubmitHandler<ResetPasswordFormPayload>;
   onLogin: () => void;
 };
