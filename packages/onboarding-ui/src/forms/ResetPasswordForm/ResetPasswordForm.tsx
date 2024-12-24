@@ -21,7 +21,7 @@ export type ResetPasswordFormPayload = {
 
 type ResetPasswordFormProps = {
   initialValues?: ResetPasswordFormPayload;
-  validateEmail: Validate<string>;
+  validateEmail: Validate<string, ResetPasswordFormPayload>;
   onSubmit: SubmitHandler<ResetPasswordFormPayload>;
 };
 
