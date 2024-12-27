@@ -11,8 +11,8 @@ import type { CreateNewPasswordPayload } from '../../forms/CreateNewPassword/Cre
 
 type CreateNewPasswordPageProps = {
   initialValues?: CreateNewPasswordPayload;
-  validatePassword: Validate<string>;
-  validatePasswordConfirmation: Validate<string>;
+  validatePassword: Validate<string, CreateNewPasswordPayload>;
+  validatePasswordConfirmation: Validate<string, CreateNewPasswordPayload>;
   onSubmit: SubmitHandler<CreateNewPasswordPayload>;
   onLogin: () => void;
 };

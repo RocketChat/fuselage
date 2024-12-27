@@ -14,7 +14,7 @@ type RegisterServerPageProps = {
   onSubmit: SubmitHandler<RegisterServerPayload>;
   onClickRegisterOffline: () => void;
   offline?: boolean;
-  validateEmail?: Validate<string>;
+  validateEmail?: Validate<string, RegisterServerPayload>;
   termsHref?: string;
   policyHref?: string;
 };

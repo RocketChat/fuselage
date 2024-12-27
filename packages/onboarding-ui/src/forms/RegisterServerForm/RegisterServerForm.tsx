@@ -29,7 +29,7 @@ type RegisterServerFormProps = {
   currentStep: number;
   stepCount: number;
   initialValues?: Partial<RegisterServerPayload>;
-  validateEmail?: Validate<string>;
+  validateEmail?: Validate<string, RegisterServerPayload>;
   onSubmit: SubmitHandler<RegisterServerPayload>;
   onClickRegisterOffline: () => void;
   termsHref?: string;
