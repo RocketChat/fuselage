@@ -1,10 +1,9 @@
-import ReactDOM from 'react-dom';
+import { render } from '@testing-library/react';
 
 import RegisterServerForm from './RegisterServerForm';
 
 it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(
+  render(
     <RegisterServerForm
       currentStep={1}
       stepCount={1}
@@ -12,7 +11,5 @@ it('renders without crashing', () => {
       onClickRegisterOffline={() => undefined}
       onSubmit={() => undefined}
     />,
-    div,
   );
-  ReactDOM.unmountComponentAtNode(div);
 });

@@ -106,7 +106,7 @@ const OrganizationInfoForm = ({
                 name='organizationName'
                 control={control}
                 rules={{
-                  required: String(t('component.form.requiredField')),
+                  required: t('component.form.requiredField'),
                 }}
                 render={({ field }) => (
                   <TextInput
@@ -139,7 +139,7 @@ const OrganizationInfoForm = ({
               <Controller
                 name='organizationIndustry'
                 control={control}
-                rules={{ required: String(t('component.form.requiredField')) }}
+                rules={{ required: t('component.form.requiredField') }}
                 render={({ field }) => (
                   <Select
                     {...field}
@@ -172,7 +172,7 @@ const OrganizationInfoForm = ({
               <Controller
                 name='organizationSize'
                 control={control}
-                rules={{ required: String(t('component.form.requiredField')) }}
+                rules={{ required: t('component.form.requiredField') }}
                 render={({ field }) => (
                   <Select
                     {...field}
@@ -205,7 +205,7 @@ const OrganizationInfoForm = ({
               <Controller
                 name='country'
                 control={control}
-                rules={{ required: String(t('component.form.requiredField')) }}
+                rules={{ required: t('component.form.requiredField') }}
                 render={({ field }) => (
                   <Select
                     {...field}

@@ -104,7 +104,7 @@ const AnimatedVisibility = (props: AnimatedVisibilityProps) => {
   );
 
   const transformFn = useCallback(
-    (props) => {
+    (props: any) => {
       if (props.onAnimationEnd === undefined) {
         props.onAnimationEnd = handleAnimationEnd;
       }

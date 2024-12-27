@@ -1,10 +1,9 @@
-import ReactDOM from 'react-dom';
+import { render } from '@testing-library/react';
 
 import AwaitConfirmationForm from './AwaitConfirmationForm';
 
 it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(
+  render(
     <AwaitConfirmationForm
       currentStep={4}
       stepCount={4}
@@ -13,7 +12,5 @@ it('renders without crashing', () => {
       onResendEmailRequest={() => true}
       onChangeEmailRequest={() => true}
     />,
-    div,
   );
-  ReactDOM.unmountComponentAtNode(div);
 });
