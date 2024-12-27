@@ -42,8 +42,8 @@ type CreateCloudWorkspaceFormProps = {
   languageOptions: SelectOption[];
   domain: string;
   onBackButtonClick?: () => void;
-  validateUrl: Validate<string>;
-  validateEmail: Validate<string>;
+  validateUrl: Validate<string, CreateCloudWorkspaceFormPayload>;
+  validateEmail: Validate<string, CreateCloudWorkspaceFormPayload>;
 };
 
 const CreateCloudWorkspaceForm = ({

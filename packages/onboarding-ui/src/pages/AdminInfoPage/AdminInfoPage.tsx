@@ -15,9 +15,9 @@ type AdminInfoPageProps = {
   passwordRulesHint: string;
   keepPosted?: boolean;
   initialValues?: Omit<AdminInfoPayload, 'password'>;
-  validateUsername: Validate<string>;
-  validateEmail: Validate<string>;
-  validatePassword: Validate<string>;
+  validateUsername: Validate<string, AdminInfoPayload>;
+  validateEmail: Validate<string, AdminInfoPayload>;
+  validatePassword: Validate<string, AdminInfoPayload>;
   onSubmit: SubmitHandler<AdminInfoPayload>;
 };
 

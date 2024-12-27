@@ -29,9 +29,9 @@ export type NewAccountPayload = {
 
 type NewAccountFormProps = {
   initialValues?: Omit<NewAccountPayload, 'password'>;
-  validateEmail: Validate<string>;
-  validatePassword: Validate<string>;
-  validateConfirmationPassword: Validate<string>;
+  validateEmail: Validate<string, NewAccountPayload>;
+  validatePassword: Validate<string, NewAccountPayload>;
+  validateConfirmationPassword: Validate<string, NewAccountPayload>;
   onSubmit: SubmitHandler<NewAccountPayload>;
 };
 
