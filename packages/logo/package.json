@@ -43,7 +43,7 @@
   "devDependencies": {
     "@rocket.chat/fuselage-tokens": "workspace:~",
     "@types/jest": "~29.5.14",
-    "@types/react": "~17.0.80",
+    "@types/react": "~17.0.83",
     "@types/react-dom": "~17.0.25",
     "build-logo": "workspace:~",
     "eslint": "~9.17.0",
