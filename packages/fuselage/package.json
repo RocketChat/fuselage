@@ -89,7 +89,7 @@
     "@types/invariant": "^2.2.37",
     "@types/jest": "~29.5.14",
     "@types/jest-axe": "~3.5.9",
-    "@types/react": "~17.0.80",
+    "@types/react": "~17.0.83",
     "@types/react-dom": "~17.0.25",
     "autoprefixer": "~10.4.20",
     "babel-loader": "~9.2.1",
