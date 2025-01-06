@@ -47,10 +47,10 @@ const OauthAuthorizationPage = ({
             <>
               <Trans
                 i18nKey='page.oauthAuthorizationPage.allowLogin'
-                name={clientName}
+                values={{ name: clientName }}
               >
                 Do you wish to allow
-                <strong>{{ clientName }}</strong>
+                <strong>{clientName}</strong>
                 to login with your Rocket.Chat Cloud Account?
               </Trans>
 
