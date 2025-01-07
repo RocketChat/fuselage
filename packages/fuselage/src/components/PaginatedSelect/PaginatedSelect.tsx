@@ -1,7 +1,7 @@
 import { useEffectEvent, useResizeObserver } from '@rocket.chat/fuselage-hooks';
 import { type ElementType, useState, useRef, useMemo } from 'react';
 
-import { type SelectProps } from '..';
+import type { OptionType, SelectOption, SelectProps } from '..';
 import { prevent } from '../../helpers/prevent';
 import AnimatedVisibility from '../AnimatedVisibility';
 import Box from '../Box';
@@ -52,9 +52,9 @@ export const PaginatedSelect = ({
 
   const [visible, hide, show] = useVisible();
 
-  const internalChangedByClick = useEffectEvent(([value]) => {
+  const internalChangedByClick = useEffectEvent(([value]: OptionType) => {
     setInternalValue(value);
-    onChange(value);
+    onChange(value as SelectOption[0]); // FIXME
     hide();
   });
 

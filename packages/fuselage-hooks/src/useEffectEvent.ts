@@ -13,10 +13,13 @@ import { useIsomorphicLayoutEffect } from './useIsomorphicLayoutEffect';
  * @returns a stable callback
  * @public
  */
-export const useEffectEvent = <P extends any[], T>(
-  fn: (...args: P) => T,
-): ((...args: P) => T) => {
+// eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
+export const useEffectEvent = <TFunction extends Function>(fn: TFunction) => {
   const fnRef = useRef(fn);
+
+  type P = TFunction extends (...args: infer P) => any ? P : never;
+  type T = TFunction extends (...args: any) => infer T ? T : never;
+
   const stableFnRef = useRef(
     (...args: P): T => fnRef.current.call(undefined, ...args),
   );
