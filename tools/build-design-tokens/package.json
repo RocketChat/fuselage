@@ -8,12 +8,12 @@
   },
   "dependencies": {
     "stylelint": "~16.12.0",
-    "tools-utils": "workspace:~"
+    "tools-utils": "^0.31.25"
   },
   "version": "0.31.25",
   "devDependencies": {
     "eslint": "~9.17.0",
-    "lint-all": "workspace:~",
+    "lint-all": "^0.31.25",
     "prettier": "~3.4.2"
   }
 }
