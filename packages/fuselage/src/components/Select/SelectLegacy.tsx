@@ -89,9 +89,9 @@ export const SelectLegacy = forwardRef(
   ) => {
     const [internalValue, setInternalValue] = useState(value || '');
 
-    const internalChangedByKeyboard = useEffectEvent(([value]) => {
+    const internalChangedByKeyboard = useEffectEvent(([value]: OptionType) => {
       setInternalValue(value);
-      onChange(value);
+      onChange(value as SelectOption[0]); // FIXME
     });
 
     const option = options.find(
@@ -123,9 +123,9 @@ export const SelectLegacy = forwardRef(
     const removeFocusClass = () =>
       innerRef.current?.classList.remove('focus-visible');
 
-    const internalChangedByClick = useEffectEvent(([value]) => {
+    const internalChangedByClick = useEffectEvent(([value]: OptionType) => {
       setInternalValue(value);
-      onChange(value);
+      onChange(value as SelectOption[0]); // FIXME
       removeFocusClass();
       hide();
     });

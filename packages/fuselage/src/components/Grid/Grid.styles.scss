@@ -29,7 +29,8 @@ $breakpoint-names: map-keys(breakpoints.$breakpoints);
               map-get(breakpoints.$breakpoints, $breakpoint-name),
               gutter-width
             )
-          )} / -2
+          )} /
+          -2
       );
       margin-inline: calc(
         #{to-rem(
@@ -37,7 +38,8 @@ $breakpoint-names: map-keys(breakpoints.$breakpoints);
               map-get(breakpoints.$breakpoints, $breakpoint-name),
               gutter-width
             )
-          )} / -2
+          )} /
+          -2
       );
     }
   }
@@ -54,7 +56,8 @@ $breakpoint-names: map-keys(breakpoints.$breakpoints);
               map-get(breakpoints.$breakpoints, $breakpoint-name),
               gutter-width
             )
-          )} / 2
+          )} /
+          2
       );
       padding-inline: calc(
         #{to-rem(
@@ -62,7 +65,8 @@ $breakpoint-names: map-keys(breakpoints.$breakpoints);
               map-get(breakpoints.$breakpoints, $breakpoint-name),
               gutter-width
             )
-          )} / 2
+          )} /
+          2
       );
 
       $total-columns: map-get(

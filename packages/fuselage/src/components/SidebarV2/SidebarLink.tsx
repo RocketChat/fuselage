@@ -18,6 +18,8 @@ export const SidebarLink = ({
   menu?: ReactNode;
 } & LinkHTMLAttributes<HTMLAnchorElement>) => (
   <a
+    role='link'
+    tabIndex={0}
     className={[
       'rcx-box rcx-box--full',
       'rcx-sidebar-v2-link',
@@ -27,6 +29,7 @@ export const SidebarLink = ({
       .filter(Boolean)
       .join(' ')}
     onClick={(e) => e.stopPropagation()}
+    onKeyDown={(e) => e.code === 'Enter' && e.stopPropagation()}
     {...props}
   >
     {icon && (

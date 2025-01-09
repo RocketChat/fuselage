@@ -594,6 +594,7 @@ exports[`[Modal Component] _WithThumb should match the snapshot 1`] = `
                 class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x28 rcx-css-trljwa"
               >
                 <img
+                  alt=""
                   class="rcx-avatar__element rcx-avatar__element--x28"
                   src="data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
                 />

@@ -15,6 +15,7 @@ export const Avatar = ({
   objectFit = false,
   url,
   className,
+  alt,
   ...props
 }: AvatarProps) => {
   const innerClass = [
@@ -28,7 +29,7 @@ export const Avatar = ({
 
   return (
     <AvatarContainer size={size} className={className}>
-      <img src={`${url}`} className={`${innerClass}`} {...props} />
+      <img src={url} className={innerClass} alt={alt || ''} {...props} />
     </AvatarContainer>
   );
 };
