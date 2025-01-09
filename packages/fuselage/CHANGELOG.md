@@ -1,5 +1,17 @@
 # Change Log
 
+## 0.60.1
+
+### Patch Changes
+
+- [#1521](https://github.com/RocketChat/fuselage/pull/1521) [`1dc6c86`](https://github.com/RocketChat/fuselage/commit/1dc6c86df827a44a8c0ac4cc7f239b2507ecd33d) Thanks [@tassoevan](https://github.com/tassoevan)! - fix(fuselage-hooks): Stricter generics for `useEffectEvent`
+
+- [#1516](https://github.com/RocketChat/fuselage/pull/1516) [`deac02f`](https://github.com/RocketChat/fuselage/commit/deac02f45b23227b699774b92aeac87b2dda739e) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): `SidebarV2` styles
+
+- [#1523](https://github.com/RocketChat/fuselage/pull/1523) [`7bf080f`](https://github.com/RocketChat/fuselage/commit/7bf080f512c160da6c8f79a3c3ba3cd783b17402) Thanks [@dougfabris](https://github.com/dougfabris)! - feat(icons): Add circle-unfilled new variations
+
+- [#1522](https://github.com/RocketChat/fuselage/pull/1522) [`0006fe9`](https://github.com/RocketChat/fuselage/commit/0006fe943a23607d9974cabacadf973a68996683) Thanks [@dougfabris](https://github.com/dougfabris)! - fix: `OptionIcon` not receiving proper icon props
+
 ## 0.60.0
 
 ### Minor Changes
