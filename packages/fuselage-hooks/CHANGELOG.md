@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.34.1
+
+### Patch Changes
+
+- [#1521](https://github.com/RocketChat/fuselage/pull/1521) [`1dc6c86`](https://github.com/RocketChat/fuselage/commit/1dc6c86df827a44a8c0ac4cc7f239b2507ecd33d) Thanks [@tassoevan](https://github.com/tassoevan)! - fix(fuselage-hooks): Stricter generics for `useEffectEvent`
+
 ## 0.34.0
 
 ### Minor Changes
