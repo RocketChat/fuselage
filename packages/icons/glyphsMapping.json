@@ -985,5 +985,11 @@
   },
   "question-mark": {
     "start": "\ue15d"
+  },
+  "circle-unfilled-large": {
+    "start": "\ue15f"
+  },
+  "circle-unfilled-small": {
+    "start": "\ue161"
   }
 }
