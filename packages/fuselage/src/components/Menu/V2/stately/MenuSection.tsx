@@ -29,15 +29,15 @@ MenuSection.getCollectionNode = function* getCollectionNode<T>(
           yield {
             type: 'item',
             value: item,
-            renderer: children,
-          };
+            element: children(item),
+          } as PartialNode<T>;
         }
       } else {
         const items: PartialNode<T>[] = [];
         Children.forEach(children, (child) => {
           items.push({
             type: 'item',
-            element: child,
+            element: child ?? undefined,
           });
         });
 
