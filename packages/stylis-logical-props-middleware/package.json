@@ -45,8 +45,8 @@
     "rimraf": "^3.0.2",
     "stylis": "~4.3.4",
     "ts-jest": "~29.2.5",
-    "typedoc": "~0.27.5",
-    "typescript": "~5.7.2"
+    "typedoc": "~0.27.6",
+    "typescript": "~5.7.3"
   },
   "dependencies": {
     "@rocket.chat/css-supports": "workspace:~"
