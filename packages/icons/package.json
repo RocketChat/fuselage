@@ -38,6 +38,6 @@
     "stylelint": "~16.13.2",
     "stylelint-order": "~6.0.4",
     "stylelint-prettier": "~5.0.2",
-    "stylelint-scss": "~6.10.0"
+    "stylelint-scss": "~6.10.1"
   }
 }
