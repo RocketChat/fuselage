@@ -1,17 +1,59 @@
 import type { ReactElement, ReactNode } from 'react';
-import { memo, useEffect, useState } from 'react';
+import { memo, useLayoutEffect } from 'react';
 import { createPortal } from 'react-dom';
 
-import { createAnchor } from './lib/utils/createAnchor';
-import { deleteAnchor } from './lib/utils/deleteAnchor';
+const ensureAnchorElement = (id: string): HTMLElement => {
+	const existingAnchor = document.getElementById(id);
+	if (existingAnchor) return existingAnchor;
+
+	const newAnchor = document.createElement('div');
+	newAnchor.id = id;
+	document.body.appendChild(newAnchor);
+	return newAnchor;
+};
+
+const getAnchorRefCount = (anchorElement: HTMLElement): number => {
+	const { refCount } = anchorElement.dataset;
+	if (refCount) return parseInt(refCount, 10);
+	return 0;
+};
+
+const setAnchorRefCount = (anchorElement: HTMLElement, refCount: number): void => {
+	anchorElement.dataset.refCount = String(refCount);
+};
+
+const refAnchorElement = (anchorElement: HTMLElement): void => {
+	setAnchorRefCount(anchorElement, getAnchorRefCount(anchorElement) + 1);
+
+	if (anchorElement.parentElement !== document.body) {
+		document.body.appendChild(anchorElement);
+	}
+};
+
+const unrefAnchorElement = (anchorElement: HTMLElement): void => {
+	const refCount = getAnchorRefCount(anchorElement) - 1;
+	setAnchorRefCount(anchorElement, refCount);
+
+	if (refCount <= 0) {
+		document.body.removeChild(anchorElement);
+	}
+};
 
 type ToastBarPortalProps = {
   children?: ReactNode;
 };
 
 const ToastBarPortal = ({ children }: ToastBarPortalProps): ReactElement => {
-  const [toastBarRoot] = useState(() => createAnchor('toastBarRoot'));
-  useEffect(() => (): void => deleteAnchor(toastBarRoot), [toastBarRoot]);
+  const toastBarRoot = ensureAnchorElement('toastBarRoot');
+
+	useLayoutEffect(() => {
+		refAnchorElement(toastBarRoot);
+
+		return () => {
+			unrefAnchorElement(toastBarRoot);
+		};
+	}, [toastBarRoot]);
+
   return createPortal(children, toastBarRoot);
 };
 
