@@ -2,13 +2,7 @@ import type { AriaSelectProps } from '@react-types/select';
 import { useMergedRefs, useResizeObserver } from '@rocket.chat/fuselage-hooks';
 import type { AllHTMLAttributes, Key, Ref } from 'react';
 import { forwardRef } from 'react';
-import {
-  useSelect,
-  HiddenSelect,
-  useButton,
-  mergeProps,
-  useFocusRing,
-} from 'react-aria';
+import { useSelect, HiddenSelect, mergeProps, useFocusRing } from 'react-aria';
 import { useSelectState } from 'react-stately';
 
 import Box from '../Box/Box';
@@ -17,8 +11,17 @@ import { OptionContainer } from '../Options';
 import { Popover } from '../Popover';
 
 import { ListBox } from './Listbox';
+import { SelectTrigger } from './SelectTrigger';
 
 export { Item } from 'react-stately';
+
+type SelectAriaProps<T extends object> = AriaSelectProps<T> & {
+  error?: string;
+  placeholder?: string;
+  value?: Key | null;
+  onChange?: (key: Key) => void;
+  small?: boolean;
+};
 
 export const SelectAria = forwardRef(function SelectAria<T extends object>(
   {
@@ -29,14 +32,9 @@ export const SelectAria = forwardRef(function SelectAria<T extends object>(
     small,
     isDisabled: isDisabledProps,
     disabled,
+    id,
     ...props
-  }: Omit<AriaSelectProps<T>, 'value' | 'onChange'> & {
-    error?: string;
-    placeholder?: string;
-    value?: Key | null;
-    onChange?: ((key: Key) => any) | undefined;
-    small?: boolean;
-  } & AllHTMLAttributes<HTMLElement>,
+  }: SelectAriaProps<T> & AllHTMLAttributes<HTMLElement>,
   outerRef: Ref<HTMLElement>,
 ) {
   const isDisabled = isDisabledProps || disabled;
@@ -49,6 +47,7 @@ export const SelectAria = forwardRef(function SelectAria<T extends object>(
   });
 
   const { ref, borderBoxSize } = useResizeObserver<any>();
+  const mergedRef = useMergedRefs(outerRef, ref);
 
   const { triggerProps, valueProps, menuProps } = useSelect(
     { isDisabled, ...props },
@@ -56,56 +55,39 @@ export const SelectAria = forwardRef(function SelectAria<T extends object>(
     ref,
   );
 
-  const { buttonProps } = useButton(triggerProps, ref);
-
   const { focusProps, isFocusVisible } = useFocusRing();
-
-  const mergedRef = useMergedRefs(outerRef, ref);
 
   return (
     <>
-      <Box
-        {...props}
-        disabled={isDisabled}
-        rcx-select
-        {...mergeProps(buttonProps, focusProps)}
-        is='button'
-        display='flex'
-        flexDirection='row'
-        fontScale='p2'
+      <HiddenSelect
+        state={state}
+        triggerRef={ref}
+        label={props.label}
+        name={props.name}
+        isDisabled={isDisabled}
+      />
+      <SelectTrigger
+        {...mergeProps(focusProps, triggerProps)}
         ref={mergedRef}
-        justifyContent='space-between'
-        rcx-input-box--small={small}
-        className={[
-          error && 'invalid',
-          isDisabled && 'disabled',
-          (isFocusVisible || state.isOpen) && 'focus',
-        ]
-          .filter(Boolean)
-          .join(' ')}
+        small={small}
+        focus={isFocusVisible || state.isOpen}
+        error={error}
+        id={id}
       >
-        <HiddenSelect
-          state={state}
-          triggerRef={ref}
-          label={props.label}
-          name={props.name}
-          isDisabled={isDisabled}
-        />
         <Box
           is='span'
-          {...valueProps}
           color={state.selectedItem ? 'default' : 'hint'}
+          {...valueProps}
           {...(small && { fontScale: 'c1' })}
         >
           {state.selectedItem ? state.selectedItem.rendered : placeholder}
         </Box>
-
         <Icon
           color='default'
           name={state.isOpen ? 'chevron-up' : 'chevron-down'}
           size='x20'
         />
-      </Box>
+      </SelectTrigger>
       {state.isOpen && (
         <Popover
           state={state}
