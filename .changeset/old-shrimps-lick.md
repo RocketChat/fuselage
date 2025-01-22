@@ -2,4 +2,4 @@
 '@rocket.chat/fuselage': patch
 ---
 
-fix: `SelectAria` id prop overwriting
+fix(fuselage): SelectAria id prop overwriting
