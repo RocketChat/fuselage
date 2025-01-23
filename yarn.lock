@@ -4805,14 +4805,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rocket.chat/css-in-js@workspace:packages/css-in-js, @rocket.chat/css-in-js@workspace:~":
+"@rocket.chat/css-in-js@npm:^0.31.25, @rocket.chat/css-in-js@workspace:packages/css-in-js":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/css-in-js@workspace:packages/css-in-js"
   dependencies:
     "@emotion/hash": "npm:^0.9.2"
-    "@rocket.chat/css-supports": "workspace:~"
-    "@rocket.chat/memo": "workspace:~"
-    "@rocket.chat/stylis-logical-props-middleware": "workspace:~"
+    "@rocket.chat/css-supports": "npm:^0.31.25"
+    "@rocket.chat/memo": "npm:^0.31.25"
+    "@rocket.chat/stylis-logical-props-middleware": "npm:^0.31.25"
     "@rollup/plugin-commonjs": "npm:~21.0.3"
     "@rollup/plugin-json": "npm:~4.1.0"
     "@rollup/plugin-node-resolve": "npm:~13.1.3"
@@ -4821,7 +4821,7 @@ __metadata:
     "@types/stylis": "npm:^4.2.7"
     eslint: "npm:~9.18.0"
     jest: "npm:~29.7.0"
-    lint-all: "workspace:~"
+    lint-all: "npm:^0.31.25"
     prettier: "npm:~3.4.2"
     rollup: "npm:~2.79.2"
     rollup-plugin-terser: "npm:~7.0.2"
@@ -4832,13 +4832,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/css-supports@workspace:packages/css-supports, @rocket.chat/css-supports@workspace:~":
+"@rocket.chat/css-supports@npm:^0.31.25, @rocket.chat/css-supports@workspace:packages/css-supports":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/css-supports@workspace:packages/css-supports"
   dependencies:
-    "@rocket.chat/memo": "workspace:~"
+    "@rocket.chat/memo": "npm:^0.31.25"
     eslint: "npm:~9.18.0"
-    lint-all: "workspace:~"
+    lint-all: "npm:^0.31.25"
     prettier: "npm:~3.4.2"
     rimraf: "npm:~3.0.2"
     typedoc: "npm:~0.27.5"
@@ -4857,7 +4857,7 @@ __metadata:
     "@types/jest": "npm:~29.5.14"
     eslint: "npm:~9.18.0"
     jest: "npm:~29.7.0"
-    lint-all: "workspace:~"
+    lint-all: "npm:^0.31.25"
     npm-run-all: "npm:^4.1.5"
     prettier: "npm:~3.4.2"
     rollup: "npm:~2.79.2"
@@ -4868,11 +4868,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/fuselage-hooks@workspace:packages/fuselage-hooks, @rocket.chat/fuselage-hooks@workspace:~":
+"@rocket.chat/fuselage-hooks@npm:^0.34.1, @rocket.chat/fuselage-hooks@workspace:packages/fuselage-hooks":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/fuselage-hooks@workspace:packages/fuselage-hooks"
   dependencies:
-    "@rocket.chat/fuselage-tokens": "workspace:~"
+    "@rocket.chat/fuselage-tokens": "npm:^0.33.2"
     "@rollup/plugin-commonjs": "npm:~21.0.3"
     "@rollup/plugin-json": "npm:~4.1.0"
     "@rollup/plugin-node-resolve": "npm:~13.1.3"
@@ -4887,7 +4887,7 @@ __metadata:
     eslint: "npm:~9.18.0"
     jest: "npm:~29.7.0"
     jest-environment-jsdom: "npm:~29.7.0"
-    lint-all: "workspace:~"
+    lint-all: "npm:^0.31.25"
     npm-run-all: "npm:^4.1.5"
     prettier: "npm:~3.4.2"
     react: "npm:^17.0.2"
@@ -4897,7 +4897,7 @@ __metadata:
     rimraf: "npm:~5.0.0"
     rollup: "npm:~2.79.2"
     rollup-plugin-terser: "npm:~7.0.2"
-    testing-utils: "workspace:~"
+    testing-utils: "npm:^0.31.25"
     ts-jest: "npm:~29.2.5"
     typedoc: "npm:~0.27.5"
     typescript: "npm:~5.7.2"
@@ -4937,7 +4937,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/fuselage-polyfills@workspace:packages/fuselage-polyfills, @rocket.chat/fuselage-polyfills@workspace:~":
+"@rocket.chat/fuselage-polyfills@npm:^0.31.25, @rocket.chat/fuselage-polyfills@workspace:packages/fuselage-polyfills":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/fuselage-polyfills@workspace:packages/fuselage-polyfills"
   dependencies:
@@ -4947,7 +4947,7 @@ __metadata:
     eslint: "npm:~9.18.0"
     focus-visible: "npm:^5.2.1"
     focus-within-polyfill: "npm:^5.2.1"
-    lint-all: "workspace:~"
+    lint-all: "npm:^0.31.25"
     new-event-polyfill: "npm:^1.0.1"
     prettier: "npm:~3.4.2"
   languageName: unknown
@@ -4957,11 +4957,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@rocket.chat/fuselage-toastbar@workspace:packages/fuselage-toastbar"
   dependencies:
-    "@rocket.chat/fuselage": "workspace:~"
-    "@rocket.chat/fuselage-hooks": "workspace:~"
-    "@rocket.chat/fuselage-tokens": "workspace:~"
-    "@rocket.chat/layout": "workspace:~"
-    "@rocket.chat/styled": "workspace:~"
+    "@rocket.chat/fuselage": "npm:^0.60.2"
+    "@rocket.chat/fuselage-hooks": "npm:^0.34.1"
+    "@rocket.chat/fuselage-tokens": "npm:^0.33.2"
+    "@rocket.chat/layout": "npm:^0.31.27"
+    "@rocket.chat/styled": "npm:^0.31.25"
     "@storybook/addon-essentials": "npm:~8.4.7"
     "@storybook/addon-webpack5-compiler-swc": "npm:~1.0.5"
     "@storybook/preview-api": "npm:~8.4.7"
@@ -4977,7 +4977,7 @@ __metadata:
     eslint: "npm:~9.18.0"
     jest: "npm:~29.7.0"
     jest-environment-jsdom: "npm:~29.7.0"
-    lint-all: "workspace:~"
+    lint-all: "npm:^0.31.25"
     npm-run-all: "npm:^4.1.5"
     prettier: "npm:~3.4.2"
     react-dom: "npm:~17.0.2"
@@ -4998,14 +4998,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/fuselage-tokens@workspace:packages/fuselage-tokens, @rocket.chat/fuselage-tokens@workspace:~":
+"@rocket.chat/fuselage-tokens@npm:^0.33.2, @rocket.chat/fuselage-tokens@workspace:packages/fuselage-tokens":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/fuselage-tokens@workspace:packages/fuselage-tokens"
   dependencies:
-    build-design-tokens: "workspace:~"
+    build-design-tokens: "npm:^0.31.25"
     eslint: "npm:~9.18.0"
     eslint-config-prettier: "npm:~8.8.0"
-    lint-all: "workspace:~"
+    lint-all: "npm:^0.31.25"
     npm-run-all: "npm:^4.1.5"
     postcss-scss: "npm:~4.0.9"
     prettier: "npm:~3.4.2"
@@ -5018,7 +5018,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/fuselage@workspace:packages/fuselage, @rocket.chat/fuselage@workspace:~":
+"@rocket.chat/fuselage@npm:^0.60.2, @rocket.chat/fuselage@workspace:packages/fuselage":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/fuselage@workspace:packages/fuselage"
   dependencies:
@@ -5026,14 +5026,14 @@ __metadata:
     "@babel/plugin-transform-runtime": "npm:~7.25.9"
     "@babel/preset-env": "npm:~7.26.0"
     "@babel/preset-react": "npm:~7.26.3"
-    "@rocket.chat/css-in-js": "workspace:~"
-    "@rocket.chat/css-supports": "workspace:~"
-    "@rocket.chat/fuselage-hooks": "workspace:~"
-    "@rocket.chat/fuselage-polyfills": "workspace:~"
-    "@rocket.chat/fuselage-tokens": "workspace:~"
-    "@rocket.chat/icons": "workspace:~"
-    "@rocket.chat/memo": "workspace:~"
-    "@rocket.chat/styled": "workspace:~"
+    "@rocket.chat/css-in-js": "npm:^0.31.25"
+    "@rocket.chat/css-supports": "npm:^0.31.25"
+    "@rocket.chat/fuselage-hooks": "npm:^0.34.1"
+    "@rocket.chat/fuselage-polyfills": "npm:^0.31.25"
+    "@rocket.chat/fuselage-tokens": "npm:^0.33.2"
+    "@rocket.chat/icons": "npm:^0.40.0"
+    "@rocket.chat/memo": "npm:^0.31.25"
+    "@rocket.chat/styled": "npm:^0.31.25"
     "@storybook/addon-a11y": "npm:~8.4.7"
     "@storybook/addon-essentials": "npm:~8.4.7"
     "@storybook/addon-interactions": "npm:~8.4.7"
@@ -5067,7 +5067,7 @@ __metadata:
     jest: "npm:~29.7.0"
     jest-axe: "npm:~8.0.0"
     jest-environment-jsdom: "npm:~29.7.0"
-    lint-all: "workspace:~"
+    lint-all: "npm:^0.31.25"
     mini-css-extract-plugin: "npm:~2.9.2"
     normalize.css: "npm:^8.0.1"
     npm-run-all: "npm:^4.1.5"
@@ -5097,7 +5097,7 @@ __metadata:
     stylelint-order: "npm:~6.0.4"
     stylelint-prettier: "npm:~5.0.2"
     stylelint-scss: "npm:~6.10.0"
-    testing-utils: "workspace:~"
+    testing-utils: "npm:^0.31.25"
     ts-jest: "npm:~29.2.5"
     ts-loader: "npm:~9.5.1"
     typescript: "npm:~5.7.2"
@@ -5115,13 +5115,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/icons@workspace:packages/icons, @rocket.chat/icons@workspace:~":
+"@rocket.chat/icons@npm:^0.40.0, @rocket.chat/icons@workspace:packages/icons":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/icons@workspace:packages/icons"
   dependencies:
-    build-icons: "workspace:~"
+    build-icons: "npm:^0.31.25"
     eslint: "npm:~9.18.0"
-    lint-all: "workspace:~"
+    lint-all: "npm:^0.31.25"
     npm-run-all: "npm:^4.1.5"
     prettier: "npm:~3.4.2"
     rimraf: "npm:^3.0.2"
@@ -5132,12 +5132,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/layout@workspace:packages/layout, @rocket.chat/layout@workspace:~":
+"@rocket.chat/layout@npm:^0.31.27, @rocket.chat/layout@workspace:packages/layout":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/layout@workspace:packages/layout"
   dependencies:
-    "@rocket.chat/fuselage": "workspace:~"
-    "@rocket.chat/fuselage-tokens": "workspace:~"
+    "@rocket.chat/fuselage": "npm:^0.60.2"
+    "@rocket.chat/fuselage-tokens": "npm:^0.33.2"
     "@storybook/addon-essentials": "npm:~8.4.7"
     "@storybook/addon-webpack5-compiler-swc": "npm:~1.0.5"
     "@storybook/preview-api": "npm:~8.4.7"
@@ -5150,7 +5150,7 @@ __metadata:
     eslint: "npm:~9.18.0"
     jest: "npm:~29.7.0"
     jest-environment-jsdom: "npm:~29.7.0"
-    lint-all: "workspace:~"
+    lint-all: "npm:^0.31.25"
     npm-run-all: "npm:^4.1.5"
     prettier: "npm:~3.4.2"
     react: "npm:~17.0.2"
@@ -5170,21 +5170,21 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/logo@workspace:packages/logo, @rocket.chat/logo@workspace:~":
+"@rocket.chat/logo@npm:^0.31.32, @rocket.chat/logo@workspace:packages/logo":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/logo@workspace:packages/logo"
   dependencies:
-    "@rocket.chat/fuselage-hooks": "workspace:~"
-    "@rocket.chat/fuselage-tokens": "workspace:~"
-    "@rocket.chat/styled": "workspace:~"
+    "@rocket.chat/fuselage-hooks": "npm:^0.34.1"
+    "@rocket.chat/fuselage-tokens": "npm:^0.33.2"
+    "@rocket.chat/styled": "npm:^0.31.25"
     "@types/jest": "npm:~29.5.14"
     "@types/react": "npm:~17.0.83"
     "@types/react-dom": "npm:~17.0.25"
-    build-logo: "workspace:~"
+    build-logo: "npm:^0.31.25"
     eslint: "npm:~9.18.0"
     jest: "npm:~29.7.0"
     jest-environment-jsdom: "npm:~29.7.0"
-    lint-all: "workspace:~"
+    lint-all: "npm:^0.31.25"
     npm-run-all: "npm:^4.1.5"
     prettier: "npm:~3.4.2"
     react: "npm:^17.0.2"
@@ -5199,14 +5199,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/memo@workspace:packages/memo, @rocket.chat/memo@workspace:~":
+"@rocket.chat/memo@npm:^0.31.25, @rocket.chat/memo@workspace:packages/memo":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/memo@workspace:packages/memo"
   dependencies:
     "@types/jest": "npm:~29.5.14"
     eslint: "npm:~9.18.0"
     jest: "npm:~29.7.0"
-    lint-all: "workspace:~"
+    lint-all: "npm:^0.31.25"
     prettier: "npm:~3.4.2"
     rimraf: "npm:~3.0.2"
     ts-jest: "npm:~29.2.5"
@@ -5230,7 +5230,7 @@ __metadata:
     eslint: "npm:~9.18.0"
     jest: "npm:~29.7.0"
     jest-environment-jsdom: "npm:~29.7.0"
-    lint-all: "workspace:~"
+    lint-all: "npm:^0.31.25"
     prettier: "npm:~3.4.2"
     rollup: "npm:~3.29.5"
     ts-jest: "npm:~29.2.5"
@@ -5243,14 +5243,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@rocket.chat/onboarding-ui@workspace:packages/onboarding-ui"
   dependencies:
-    "@rocket.chat/fuselage": "workspace:~"
-    "@rocket.chat/fuselage-hooks": "workspace:~"
-    "@rocket.chat/fuselage-polyfills": "workspace:~"
-    "@rocket.chat/fuselage-tokens": "workspace:~"
-    "@rocket.chat/icons": "workspace:~"
-    "@rocket.chat/layout": "workspace:~"
-    "@rocket.chat/logo": "workspace:~"
-    "@rocket.chat/styled": "workspace:~"
+    "@rocket.chat/fuselage": "npm:^0.60.2"
+    "@rocket.chat/fuselage-hooks": "npm:^0.34.1"
+    "@rocket.chat/fuselage-polyfills": "npm:^0.31.25"
+    "@rocket.chat/fuselage-tokens": "npm:^0.33.2"
+    "@rocket.chat/icons": "npm:^0.40.0"
+    "@rocket.chat/layout": "npm:^0.31.27"
+    "@rocket.chat/logo": "npm:^0.31.32"
+    "@rocket.chat/styled": "npm:^0.31.25"
     "@storybook/addon-a11y": "npm:~8.4.7"
     "@storybook/addon-essentials": "npm:~8.4.7"
     "@storybook/addon-webpack5-compiler-swc": "npm:~1.0.5"
@@ -5265,7 +5265,7 @@ __metadata:
     i18next: "npm:~21.6.16"
     jest: "npm:~29.7.0"
     jest-environment-jsdom: "npm:~29.7.0"
-    lint-all: "workspace:~"
+    lint-all: "npm:^0.31.25"
     npm-run-all: "npm:^4.1.5"
     prettier: "npm:~3.4.2"
     react: "npm:^17.0.2"
@@ -5298,7 +5298,7 @@ __metadata:
   dependencies:
     "@types/node": "npm:~14.18.42"
     eslint: "npm:~9.18.0"
-    lint-all: "workspace:~"
+    lint-all: "npm:^0.31.25"
     npm-run-all: "npm:^4.1.5"
     peggy: "npm:3.0.2"
     prettier: "npm:~3.4.2"
@@ -5317,7 +5317,7 @@ __metadata:
   resolution: "@rocket.chat/prettier-config@workspace:packages/prettier-config"
   dependencies:
     eslint: "npm:~9.18.0"
-    lint-all: "workspace:~"
+    lint-all: "npm:^0.31.25"
     prettier: "npm:~3.4.2"
   peerDependencies:
     prettier: "*"
@@ -5331,7 +5331,7 @@ __metadata:
     "@types/jest": "npm:~29.5.14"
     eslint: "npm:~9.18.0"
     jest: "npm:~29.7.0"
-    lint-all: "workspace:~"
+    lint-all: "npm:^0.31.25"
     npm-run-all: "npm:^4.1.5"
     prettier: "npm:~3.4.2"
     rimraf: "npm:^3.0.2"
@@ -5341,16 +5341,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/styled@workspace:packages/styled, @rocket.chat/styled@workspace:~":
+"@rocket.chat/styled@npm:^0.31.25, @rocket.chat/styled@workspace:packages/styled":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/styled@workspace:packages/styled"
   dependencies:
-    "@rocket.chat/css-in-js": "workspace:~"
+    "@rocket.chat/css-in-js": "npm:^0.31.25"
     "@types/jest": "npm:~29.5.14"
     eslint: "npm:~9.18.0"
     jest: "npm:~29.7.0"
     jest-environment-jsdom: "npm:~29.7.0"
-    lint-all: "workspace:~"
+    lint-all: "npm:^0.31.25"
     npm-run-all: "npm:^4.1.5"
     prettier: "npm:~3.4.2"
     rimraf: "npm:^3.0.2"
@@ -5360,15 +5360,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/stylis-logical-props-middleware@workspace:packages/stylis-logical-props-middleware, @rocket.chat/stylis-logical-props-middleware@workspace:~":
+"@rocket.chat/stylis-logical-props-middleware@npm:^0.31.25, @rocket.chat/stylis-logical-props-middleware@workspace:packages/stylis-logical-props-middleware":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/stylis-logical-props-middleware@workspace:packages/stylis-logical-props-middleware"
   dependencies:
-    "@rocket.chat/css-supports": "workspace:~"
+    "@rocket.chat/css-supports": "npm:^0.31.25"
     "@types/jest": "npm:~29.5.14"
     eslint: "npm:~9.18.0"
     jest: "npm:~29.7.0"
-    lint-all: "workspace:~"
+    lint-all: "npm:^0.31.25"
     npm-run-all: "npm:^4.1.5"
     prettier: "npm:~3.4.2"
     rimraf: "npm:^3.0.2"
@@ -8370,15 +8370,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"build-design-tokens@workspace:tools/build-design-tokens, build-design-tokens@workspace:~":
+"build-design-tokens@npm:^0.31.25, build-design-tokens@workspace:tools/build-design-tokens":
   version: 0.0.0-use.local
   resolution: "build-design-tokens@workspace:tools/build-design-tokens"
   dependencies:
     eslint: "npm:~9.18.0"
-    lint-all: "workspace:~"
+    lint-all: "npm:^0.31.25"
     prettier: "npm:~3.4.2"
     stylelint: "npm:~16.13.2"
-    tools-utils: "workspace:~"
+    tools-utils: "npm:^0.31.25"
   peerDependencies:
     eslint: "*"
     prettier: "*"
@@ -8387,16 +8387,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"build-icons@workspace:tools/build-icons, build-icons@workspace:~":
+"build-icons@npm:^0.31.25, build-icons@workspace:tools/build-icons":
   version: 0.0.0-use.local
   resolution: "build-icons@workspace:tools/build-icons"
   dependencies:
     eslint: "npm:~9.18.0"
-    lint-all: "workspace:~"
+    lint-all: "npm:^0.31.25"
     prettier: "npm:~3.4.2"
     svg2ttf: "npm:~6.0.3"
     svgicons2svgfont: "npm:~10.0.6"
-    tools-utils: "workspace:~"
+    tools-utils: "npm:^0.31.25"
     ttf2eot: "npm:~3.1.0"
     ttf2woff: "npm:~3.0.0"
     ttf2woff2: "npm:~4.0.5"
@@ -8407,17 +8407,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"build-logo@workspace:tools/build-logo, build-logo@workspace:~":
+"build-logo@npm:^0.31.25, build-logo@workspace:tools/build-logo":
   version: 0.0.0-use.local
   resolution: "build-logo@workspace:tools/build-logo"
   dependencies:
     eslint: "npm:~9.18.0"
-    lint-all: "workspace:~"
+    lint-all: "npm:^0.31.25"
     prettier: "npm:~3.4.2"
     react: "npm:^17.0.2"
     react-dom: "npm:^17.0.2"
     sharp: "npm:~0.33.5"
-    tools-utils: "workspace:~"
+    tools-utils: "npm:^0.31.25"
   bin:
     build-logo: ./index.mjs
   languageName: unknown
@@ -13781,7 +13781,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lint-all@workspace:tools/lint-all, lint-all@workspace:~":
+"lint-all@npm:^0.31.25, lint-all@workspace:tools/lint-all":
   version: 0.0.0-use.local
   resolution: "lint-all@workspace:tools/lint-all"
   dependencies:
@@ -19133,13 +19133,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"testing-utils@workspace:tools/testing-utils, testing-utils@workspace:~":
+"testing-utils@npm:^0.31.25, testing-utils@workspace:tools/testing-utils":
   version: 0.0.0-use.local
   resolution: "testing-utils@workspace:tools/testing-utils"
   dependencies:
     css-mediaquery: "npm:^0.1.2"
     eslint: "npm:~9.18.0"
-    lint-all: "workspace:~"
+    lint-all: "npm:^0.31.25"
     prettier: "npm:~3.4.2"
   languageName: unknown
   linkType: soft
@@ -19248,14 +19248,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tools-utils@workspace:tools/tools-utils, tools-utils@workspace:~":
+"tools-utils@npm:^0.31.25, tools-utils@workspace:tools/tools-utils":
   version: 0.0.0-use.local
   resolution: "tools-utils@workspace:tools/tools-utils"
   dependencies:
     eslint: "npm:~9.18.0"
     fast-glob: "npm:~3.3.3"
     json5: "npm:^2.2.3"
-    lint-all: "workspace:~"
+    lint-all: "npm:^0.31.25"
     prettier: "npm:~3.4.2"
     rimraf: "npm:^3.0.2"
   peerDependencies:
@@ -20017,7 +20017,7 @@ __metadata:
   resolution: "update-readme@workspace:tools/update-readme"
   dependencies:
     eslint: "npm:~9.18.0"
-    lint-all: "workspace:~"
+    lint-all: "npm:^0.31.25"
     outdent: "npm:^0.8.0"
     prettier: "npm:~3.4.2"
     zx: "npm:~8.3.0"
