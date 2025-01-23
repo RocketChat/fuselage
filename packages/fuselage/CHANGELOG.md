@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.60.2
+
+### Patch Changes
+
+- [#1533](https://github.com/RocketChat/fuselage/pull/1533) [`a5bc3a6`](https://github.com/RocketChat/fuselage/commit/a5bc3a6a00b6931d7c67a9485de7f3ffaa112282) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): SelectAria id prop overwriting
+
 ## 0.60.1
 
 ### Patch Changes

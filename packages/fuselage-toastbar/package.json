@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/fuselage-toastbar",
-  "version": "0.33.0",
+  "version": "0.33.1",
   "description": "Fuselage ToastBar component",
   "keywords": [
     "rocketchat",
