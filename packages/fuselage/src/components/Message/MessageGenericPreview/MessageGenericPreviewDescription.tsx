@@ -16,6 +16,7 @@ export const MessageGenericPreviewDescription = ({
     ]
       .filter(Boolean)
       .join(' ')}
+    dir='auto'
   >
     {children}
   </div>
