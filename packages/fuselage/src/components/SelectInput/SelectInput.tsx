@@ -20,9 +20,12 @@ export const SelectInput = forwardRef(function SelectInput(
   { children, multiple, placeholder, onChange, ...props }: SelectInputProps,
   ref: Ref<HTMLElement>,
 ) {
+  // State to track if the placeholder should be visible
   const [isPlaceholderVisible, setPlaceholderVisible] = useState(
     !props.value && !props.defaultValue,
   );
+
+  // Update placeholder visibility based on the selected value
   const handleChange = useCallback(
     (event) => {
       setPlaceholderVisible(!event.currentTarget.value);
@@ -37,7 +40,7 @@ export const SelectInput = forwardRef(function SelectInput(
         children={children}
         {...props}
         multiple
-        type='select'
+        type="select"
         onChange={handleChange}
       />
     );
@@ -45,16 +48,21 @@ export const SelectInput = forwardRef(function SelectInput(
 
   return (
     <InputBox
+      // Conditionally set placeholder visibility based on state
       placeholderVisible={isPlaceholderVisible ? !!placeholder : undefined}
       ref={ref}
       {...props}
-      addon={<Icon name='chevron-down' size='x20' />}
-      type='select'
+      addon={<Icon name="chevron-down" size="x20" />}
+      type="select"
       onChange={handleChange}
     >
-      {placeholder && (
-        <InputBox.Placeholder value=''>{placeholder}</InputBox.Placeholder>
+      {/* Render a disabled, hidden placeholder option if no value is selected */}
+      {placeholder && isPlaceholderVisible && (
+        <option value="" disabled hidden>
+          {placeholder}
+        </option>
       )}
+      {/* Render the provided children options */}
       {children}
     </InputBox>
   );
