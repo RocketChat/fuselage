@@ -11,7 +11,7 @@ import { useEffectEvent } from './useEffectEvent';
  */
 
 export function useOutsideClick<T extends Element>(
-  elements: RefObject<T>[],
+  elements: RefObject<T | null>[],
   cb: (e: MouseEvent) => void,
 ): void {
   const handleClickOutside = useEffectEvent(function handleClickOutside(

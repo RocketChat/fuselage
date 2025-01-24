@@ -16,7 +16,16 @@ import { useBoxTransform, BoxTransforms } from './BoxTransforms';
 import type { StylingProps } from './stylingProps';
 import { useStylingProps } from './useStylingProps';
 
-type BoxProps = {
+export interface BoxProps
+  extends Partial<StylingProps>,
+    Omit<
+      AllHTMLAttributes<HTMLElement>,
+      'ref' | 'is' | 'className' | 'size' | 'elevation' | keyof StylingProps
+    >,
+    Omit<
+      SVGAttributes<SVGElement>,
+      keyof AllHTMLAttributes<HTMLElement> | 'elevation' | keyof StylingProps
+    > {
   /**
    * The `is` prop is used to render the Box as a different HTML tag. It can also be used to render a different fuselage component.
    */
@@ -25,15 +34,7 @@ type BoxProps = {
   animated?: boolean;
   withRichContent?: boolean | 'inlineWithoutBreaks';
   htmlSize?: AllHTMLAttributes<HTMLElement>['size'];
-} & Partial<StylingProps> &
-  Omit<
-    AllHTMLAttributes<HTMLElement>,
-    'ref' | 'is' | 'className' | 'size' | 'elevation'
-  > &
-  Omit<
-    SVGAttributes<SVGElement>,
-    keyof AllHTMLAttributes<HTMLElement> | 'elevation'
-  >;
+}
 
 export const Box = forwardRef(function Box(
   { is = 'div', children, ...props }: BoxProps,

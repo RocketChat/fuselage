@@ -1,10 +1,5 @@
 import { useEffectEvent, useResizeObserver } from '@rocket.chat/fuselage-hooks';
-import {
-  type ComponentProps,
-  type ReactElement,
-  useState,
-  useRef,
-} from 'react';
+import { type ComponentProps, useState, useRef, ElementType } from 'react';
 
 import { prevent } from '../../helpers/prevent';
 import AnimatedVisibility from '../AnimatedVisibility';
@@ -36,10 +31,8 @@ type PaginatedMultiSelectProps = Omit<
   endReached?: (start?: number, end?: number) => void;
   value?: PaginatedMultiSelectOption[];
   onChange: (values: PaginatedMultiSelectOption[]) => void;
-  renderOptions?: (
-    props: ComponentProps<typeof OptionsPaginated>,
-  ) => ReactElement | null;
-  renderItem?: (props: ComponentProps<typeof Option>) => ReactElement | null;
+  renderOptions?: ElementType<ComponentProps<typeof OptionsPaginated>>;
+  renderItem?: ElementType<ComponentProps<typeof Option>>;
   anchor?: any;
 };
 

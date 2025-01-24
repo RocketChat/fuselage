@@ -119,7 +119,7 @@ export const Scrollable = ({
   );
 
   const transformFn = useCallback(
-    (props) => {
+    (props: any) => {
       props.className =
         className && appendClassName(props.className, className);
 

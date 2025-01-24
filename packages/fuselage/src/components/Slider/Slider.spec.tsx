@@ -1,5 +1,6 @@
 import { composeStories } from '@storybook/react';
-import { fireEvent, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 import { render } from '../../testing';
 
@@ -32,16 +33,16 @@ describe('[Slider Component]', () => {
     expect(thumbs.length).toBe(2);
   });
 
-  it("should update Thumb's position when Thumb is clicked and dragged", () => {
+  it("should update Thumb's position when Thumb is clicked and dragged", async () => {
     render(<Default />);
 
     const slider = screen.getByRole<HTMLFormElement>('slider');
 
-    slider.focus();
-    fireEvent.keyDown(slider, { key: 'ArrowRight' });
-    fireEvent.keyDown(slider, { key: 'ArrowRight' });
-    fireEvent.keyDown(slider, { key: 'ArrowRight' });
-    fireEvent.keyDown(slider, { key: 'ArrowRight' });
+    await userEvent.tab();
+    await userEvent.keyboard('{ArrowRight}');
+    await userEvent.keyboard('{ArrowRight}');
+    await userEvent.keyboard('{ArrowRight}');
+    await userEvent.keyboard('{ArrowRight}');
 
     expect(slider.value).toBe('4');
   });

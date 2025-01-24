@@ -41,7 +41,7 @@ export const SelectAria = forwardRef(function SelectAria<T extends object>(
 
   const state = useSelectState({
     isDisabled,
-    selectedKey: value,
+    selectedKey: typeof value !== 'bigint' ? value : null,
     onSelectionChange: onChange,
     ...props,
   });

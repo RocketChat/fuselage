@@ -1,9 +1,7 @@
-import ReactDOM from 'react-dom';
+import { render } from '@testing-library/react';
 
 import TaggedRocketChatLogo from './TaggedRocketChatLogo';
 
 it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<TaggedRocketChatLogo />, div);
-  ReactDOM.unmountComponentAtNode(div);
+  render(<TaggedRocketChatLogo />);
 });

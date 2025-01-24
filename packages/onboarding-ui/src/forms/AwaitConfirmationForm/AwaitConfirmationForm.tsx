@@ -32,14 +32,17 @@ const AwaitingConfirmationForm = ({
       </Form.Header>
       <Form.Container>
         <Box fontScale='p2' mbe={24}>
-          <Trans i18nKey='form.awaitConfirmationForm.content.sentEmail'>
-            Email sent to <strong>{{ emailAddress }}</strong> with a
-            confirmation link.Please verify that the security code below matches
-            the one in the email.
+          <Trans
+            i18nKey='form.awaitConfirmationForm.content.sentEmail'
+            values={{ emailAddress }}
+          >
+            Email sent to <strong>{emailAddress}</strong> with a confirmation
+            link.Please verify that the security code below matches the one in
+            the email.
           </Trans>
         </Box>
         <Label display='block'>
-          {t('form.awaitConfirmationForm.content.securityCode')}
+          <>{t('form.awaitConfirmationForm.content.securityCode')}</>
           <Box
             padding='12px'
             width='full'
