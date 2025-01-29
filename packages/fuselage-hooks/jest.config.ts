@@ -3,7 +3,7 @@ import type { Config } from 'jest';
 export default {
   projects: [
     {
-      displayName: 'React 18',
+      displayName: 'csr',
       preset: 'ts-jest',
       errorOnDeprecated: true,
       testMatch: [
@@ -17,7 +17,7 @@ export default {
       ],
     },
     {
-      displayName: 'React 18 SSR',
+      displayName: 'ssr',
       preset: 'ts-jest',
       errorOnDeprecated: true,
       testMatch: ['<rootDir>/src/**/*.server.spec.{ts,tsx}'],
