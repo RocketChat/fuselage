@@ -4657,7 +4657,6 @@ __metadata:
     "@types/react": "npm:~18.3.18"
     "@types/react-dom": "npm:~18.3.5"
     "@types/resize-observer-browser": "npm:~0.1.11"
-    "@types/use-sync-external-store": "npm:~0.0.3"
     eslint: "npm:~9.18.0"
     jest: "npm:~29.7.0"
     jest-environment-jsdom: "npm:~29.7.0"
@@ -4673,7 +4672,6 @@ __metadata:
     ts-jest: "npm:~29.2.5"
     typedoc: "npm:~0.27.5"
     typescript: "npm:~5.7.2"
-    use-sync-external-store: "npm:~1.4.0"
   peerDependencies:
     "@rocket.chat/fuselage-tokens": "*"
     react: "*"
@@ -6621,13 +6619,6 @@ __metadata:
   version: 2.0.3
   resolution: "@types/unist@npm:2.0.3"
   checksum: 10/c13ec9068d7b63d1cf20e652c1c50e52e6bb34562e8f225a2e7e4402b15d7bb0f73c9cfa0ed9debc10caaf83638e2be7937a773e99cb322b8d37a8c44075e184
-  languageName: node
-  linkType: hard
-
-"@types/use-sync-external-store@npm:~0.0.3":
-  version: 0.0.3
-  resolution: "@types/use-sync-external-store@npm:0.0.3"
-  checksum: 10/161ddb8eec5dbe7279ac971531217e9af6b99f7783213566d2b502e2e2378ea19cf5e5ea4595039d730aa79d3d35c6567d48599f69773a02ffcff1776ec2a44e
   languageName: node
   linkType: hard
 
@@ -19533,15 +19524,6 @@ __metadata:
     punycode: "npm:^1.4.1"
     qs: "npm:^6.12.3"
   checksum: 10/e787d070f0756518b982a4653ef6cdf4d9030d8691eee2d483344faf2b530b71d302287fa63b292299455fea5075c502a5ad5f920cb790e95605847f957a65e4
-  languageName: node
-  linkType: hard
-
-"use-sync-external-store@npm:~1.4.0":
-  version: 1.4.0
-  resolution: "use-sync-external-store@npm:1.4.0"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
-  checksum: 10/08bf581a8a2effaefc355e9d18ed025d436230f4cc973db2f593166df357cf63e47b9097b6e5089b594758bde322e1737754ad64905e030d70f8ff7ee671fd01
   languageName: node
   linkType: hard
 
