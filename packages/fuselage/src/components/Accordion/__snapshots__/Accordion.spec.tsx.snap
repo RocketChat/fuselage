@@ -10,7 +10,7 @@ exports[`renders Default without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-accordion-item"
       >
         <div
-          aria-controls="unique-id-1"
+          aria-controls=":r1:"
           aria-expanded="false"
           class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__bar"
           role="button"
@@ -18,7 +18,7 @@ exports[`renders Default without crashing 1`] = `
         >
           <h2
             class="rcx-box rcx-box--full rcx-accordion-item__title"
-            id="unique-id-0"
+            id=":r0:"
           >
             Item #1
           </h2>
@@ -35,7 +35,7 @@ exports[`renders Default without crashing 1`] = `
         </div>
         <div
           class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__panel"
-          id="unique-id-1"
+          id=":r1:"
         >
           <div
             class="rcx-box rcx-box--full rcx-css-xuk1lb"
@@ -48,7 +48,7 @@ exports[`renders Default without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-accordion-item"
       >
         <div
-          aria-controls="unique-id-3"
+          aria-controls=":r3:"
           aria-expanded="false"
           class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__bar"
           role="button"
@@ -56,7 +56,7 @@ exports[`renders Default without crashing 1`] = `
         >
           <h2
             class="rcx-box rcx-box--full rcx-accordion-item__title"
-            id="unique-id-2"
+            id=":r2:"
           >
             Item #2
           </h2>
@@ -73,7 +73,7 @@ exports[`renders Default without crashing 1`] = `
         </div>
         <div
           class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__panel"
-          id="unique-id-3"
+          id=":r3:"
         >
           <div
             class="rcx-box rcx-box--full rcx-css-xuk1lb"
@@ -86,7 +86,7 @@ exports[`renders Default without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-accordion-item"
       >
         <div
-          aria-controls="unique-id-5"
+          aria-controls=":r5:"
           aria-expanded="false"
           class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__bar"
           role="button"
@@ -94,7 +94,7 @@ exports[`renders Default without crashing 1`] = `
         >
           <h2
             class="rcx-box rcx-box--full rcx-accordion-item__title"
-            id="unique-id-4"
+            id=":r4:"
           >
             Item #3
           </h2>
@@ -111,7 +111,7 @@ exports[`renders Default without crashing 1`] = `
         </div>
         <div
           class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__panel"
-          id="unique-id-5"
+          id=":r5:"
         >
           <div
             class="rcx-box rcx-box--full rcx-css-xuk1lb"
@@ -135,7 +135,7 @@ exports[`renders DisabledItem without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-accordion-item"
       >
         <div
-          aria-controls="unique-id-13"
+          aria-controls=":rd:"
           aria-expanded="false"
           class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__bar"
           role="button"
@@ -143,7 +143,7 @@ exports[`renders DisabledItem without crashing 1`] = `
         >
           <h2
             class="rcx-box rcx-box--full rcx-accordion-item__title"
-            id="unique-id-12"
+            id=":rc:"
           >
             Item #1
           </h2>
@@ -160,7 +160,7 @@ exports[`renders DisabledItem without crashing 1`] = `
         </div>
         <div
           class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__panel"
-          id="unique-id-13"
+          id=":rd:"
         >
           <div
             class="rcx-box rcx-box--full rcx-css-xuk1lb"
@@ -173,14 +173,14 @@ exports[`renders DisabledItem without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-accordion-item"
       >
         <div
-          aria-controls="unique-id-15"
+          aria-controls=":rf:"
           aria-expanded="false"
           class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__bar rcx-accordion-item__bar--disabled"
           role="button"
         >
           <h2
             class="rcx-box rcx-box--full rcx-accordion-item__title"
-            id="unique-id-14"
+            id=":re:"
           >
             Item #2
           </h2>
@@ -197,7 +197,7 @@ exports[`renders DisabledItem without crashing 1`] = `
         </div>
         <div
           class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__panel"
-          id="unique-id-15"
+          id=":rf:"
         >
           <div
             class="rcx-box rcx-box--full rcx-css-xuk1lb"
@@ -210,7 +210,7 @@ exports[`renders DisabledItem without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-accordion-item"
       >
         <div
-          aria-controls="unique-id-17"
+          aria-controls=":rh:"
           aria-expanded="false"
           class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__bar"
           role="button"
@@ -218,7 +218,7 @@ exports[`renders DisabledItem without crashing 1`] = `
         >
           <h2
             class="rcx-box rcx-box--full rcx-accordion-item__title"
-            id="unique-id-16"
+            id=":rg:"
           >
             Item #3
           </h2>
@@ -235,7 +235,7 @@ exports[`renders DisabledItem without crashing 1`] = `
         </div>
         <div
           class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__panel"
-          id="unique-id-17"
+          id=":rh:"
         >
           <div
             class="rcx-box rcx-box--full rcx-css-xuk1lb"
@@ -259,7 +259,7 @@ exports[`renders ExpandedItemByDefault without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-accordion-item"
       >
         <div
-          aria-controls="unique-id-7"
+          aria-controls=":r7:"
           aria-expanded="false"
           class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__bar"
           role="button"
@@ -267,7 +267,7 @@ exports[`renders ExpandedItemByDefault without crashing 1`] = `
         >
           <h2
             class="rcx-box rcx-box--full rcx-accordion-item__title"
-            id="unique-id-6"
+            id=":r6:"
           >
             Item #1
           </h2>
@@ -284,7 +284,7 @@ exports[`renders ExpandedItemByDefault without crashing 1`] = `
         </div>
         <div
           class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__panel"
-          id="unique-id-7"
+          id=":r7:"
         >
           <div
             class="rcx-box rcx-box--full rcx-css-xuk1lb"
@@ -297,7 +297,7 @@ exports[`renders ExpandedItemByDefault without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-accordion-item"
       >
         <div
-          aria-controls="unique-id-9"
+          aria-controls=":r9:"
           aria-expanded="true"
           class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__bar"
           role="button"
@@ -305,7 +305,7 @@ exports[`renders ExpandedItemByDefault without crashing 1`] = `
         >
           <h2
             class="rcx-box rcx-box--full rcx-accordion-item__title"
-            id="unique-id-8"
+            id=":r8:"
           >
             Item #2
           </h2>
@@ -322,7 +322,7 @@ exports[`renders ExpandedItemByDefault without crashing 1`] = `
         </div>
         <div
           class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__panel rcx-accordion-item__panel--expanded"
-          id="unique-id-9"
+          id=":r9:"
         >
           <div
             class="rcx-box rcx-box--full rcx-css-xuk1lb"
@@ -335,7 +335,7 @@ exports[`renders ExpandedItemByDefault without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-accordion-item"
       >
         <div
-          aria-controls="unique-id-11"
+          aria-controls=":rb:"
           aria-expanded="false"
           class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__bar"
           role="button"
@@ -343,7 +343,7 @@ exports[`renders ExpandedItemByDefault without crashing 1`] = `
         >
           <h2
             class="rcx-box rcx-box--full rcx-accordion-item__title"
-            id="unique-id-10"
+            id=":ra:"
           >
             Item #3
           </h2>
@@ -360,7 +360,7 @@ exports[`renders ExpandedItemByDefault without crashing 1`] = `
         </div>
         <div
           class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__panel"
-          id="unique-id-11"
+          id=":rb:"
         >
           <div
             class="rcx-box rcx-box--full rcx-css-xuk1lb"

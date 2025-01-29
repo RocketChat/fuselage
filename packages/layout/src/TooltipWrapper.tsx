@@ -3,7 +3,7 @@ import {
   PositionAnimated,
   Tooltip,
 } from '@rocket.chat/fuselage';
-import { useDebouncedState, useUniqueId } from '@rocket.chat/fuselage-hooks';
+import { useDebouncedState } from '@rocket.chat/fuselage-hooks';
 import type {
   ComponentProps,
   Dispatch,
@@ -13,7 +13,14 @@ import type {
   Ref,
   SetStateAction,
 } from 'react';
-import { cloneElement, forwardRef, useCallback, useMemo, useRef } from 'react';
+import {
+  cloneElement,
+  forwardRef,
+  useCallback,
+  useId,
+  useMemo,
+  useRef,
+} from 'react';
 
 type AnchorParams = {
   ref: MutableRefObject<null>;
@@ -73,7 +80,7 @@ const TooltipWrapper = ({
     [setOpen],
   );
 
-  const id = useUniqueId();
+  const id = useId();
 
   const anchorParams = useMemo(
     () => ({ ref: anchorRef, toggle, id }),

@@ -13,10 +13,9 @@ import {
   FieldError,
   FieldHint,
 } from '@rocket.chat/fuselage';
-import { useUniqueId } from '@rocket.chat/fuselage-hooks';
 import { Form } from '@rocket.chat/layout';
 import type { ReactElement } from 'react';
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useId } from 'react';
 import type { FieldPathValue, SubmitHandler, Validate } from 'react-hook-form';
 import { useForm, Controller } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
@@ -63,11 +62,11 @@ const AdminInfoForm = ({
 }: AdminInfoFormProps): ReactElement => {
   const { t } = useTranslation();
 
-  const formId = useUniqueId();
-  const fullnameField = useUniqueId();
-  const usernameField = useUniqueId(); // lgtm [js/insecure-randomness]
-  const emailField = useUniqueId();
-  const passwordField = useUniqueId(); // lgtm [js/insecure-randomness]
+  const formId = useId();
+  const fullnameField = useId();
+  const usernameField = useId(); // lgtm [js/insecure-randomness]
+  const emailField = useId();
+  const passwordField = useId(); // lgtm [js/insecure-randomness]
 
   const adminInfoFormRef = useRef<HTMLElement>(null);
 

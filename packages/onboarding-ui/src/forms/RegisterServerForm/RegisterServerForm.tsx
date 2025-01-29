@@ -9,10 +9,10 @@ import {
   FieldError,
   FieldGroup,
 } from '@rocket.chat/fuselage';
-import { useUniqueId, useBreakpoints } from '@rocket.chat/fuselage-hooks';
+import { useBreakpoints } from '@rocket.chat/fuselage-hooks';
 import { Form } from '@rocket.chat/layout';
 import type { ReactElement } from 'react';
-import { useEffect, useRef } from 'react';
+import { useEffect, useId, useRef } from 'react';
 import type { FieldPathValue, SubmitHandler, Validate } from 'react-hook-form';
 import { Controller, useForm, FormProvider } from 'react-hook-form';
 import { useTranslation, Trans } from 'react-i18next';
@@ -53,9 +53,9 @@ const RegisterServerForm = ({
 }: RegisterServerFormProps): ReactElement => {
   const { t } = useTranslation();
 
-  const formId = useUniqueId();
-  const emailField = useUniqueId();
-  const agreementField = useUniqueId();
+  const formId = useId();
+  const emailField = useId();
+  const agreementField = useId();
 
   const registerServerFormRef = useRef<HTMLElement>(null);
 

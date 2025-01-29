@@ -11,10 +11,10 @@ import {
   Select,
   Box,
 } from '@rocket.chat/fuselage';
-import { useBreakpoints, useUniqueId } from '@rocket.chat/fuselage-hooks';
+import { useBreakpoints } from '@rocket.chat/fuselage-hooks';
 import { ActionLink, Form } from '@rocket.chat/layout';
 import type { ReactElement, ReactNode } from 'react';
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useId } from 'react';
 import type { SubmitHandler } from 'react-hook-form';
 import { useForm, Controller } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
@@ -55,11 +55,11 @@ const OrganizationInfoForm = ({
   const breakpoints = useBreakpoints();
   const isMobile = !breakpoints.includes('md');
 
-  const formId = useUniqueId();
-  const organizationNameField = useUniqueId();
-  const organizationIndustryField = useUniqueId();
-  const organizationSizeField = useUniqueId();
-  const countryField = useUniqueId();
+  const formId = useId();
+  const organizationNameField = useId();
+  const organizationIndustryField = useId();
+  const organizationSizeField = useId();
+  const countryField = useId();
 
   const organizationInfoFormRef = useRef<HTMLElement>(null);
 

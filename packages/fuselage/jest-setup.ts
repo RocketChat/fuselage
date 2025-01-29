@@ -48,9 +48,3 @@ window.ResizeObserver = jest.fn().mockImplementation(() => ({
   unobserve: jest.fn(),
   disconnect: jest.fn(),
 }));
-
-let uniqueIdCounter = 0;
-jest.mock('@rocket.chat/fuselage-hooks', () => ({
-  ...jest.requireActual('@rocket.chat/fuselage-hooks'),
-  useUniqueId: () => `unique-id-${uniqueIdCounter++}`,
-}));
