@@ -28,7 +28,7 @@ function FlexContainer({
   justifyContent,
 }: FlexContainerProps) {
   const transformFn = useCallback(
-    (props) => {
+    (props: any) => {
       if (inline !== undefined && props.display === undefined) {
         props.display = inline ? 'inline-flex' : 'flex';
       }

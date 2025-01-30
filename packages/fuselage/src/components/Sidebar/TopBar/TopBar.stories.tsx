@@ -18,9 +18,9 @@ export default {
   component: TopBar,
   subcomponents: {
     TopBarAction: TopBarAction as ComponentType<any>,
-    TopBarActions,
-    TopBarTitle,
-    TopBarToolBox,
+    TopBarActions: TopBarActions as ComponentType<any>,
+    TopBarTitle: TopBarTitle as ComponentType<any>,
+    TopBarToolBox: TopBarToolBox as ComponentType<any>,
   },
 } satisfies Meta<typeof TopBar>;
 

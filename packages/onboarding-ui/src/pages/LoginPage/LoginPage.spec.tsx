@@ -1,10 +1,9 @@
-import ReactDOM from 'react-dom';
+import { render } from '@testing-library/react';
 
 import LoginPage from './LoginPage';
 
 it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(
+  render(
     <LoginPage
       isMfa={false}
       initialValues={undefined}
@@ -14,7 +13,5 @@ it('renders without crashing', () => {
       isPasswordLess={false}
       onCreateAccount={() => undefined}
     />,
-    div,
   );
-  ReactDOM.unmountComponentAtNode(div);
 });

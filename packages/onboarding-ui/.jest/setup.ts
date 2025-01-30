@@ -1,3 +1,5 @@
+import { TextEncoder } from 'node:util';
+
 import i18next from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
@@ -18,3 +20,5 @@ beforeAll(async () => {
 beforeAll(() => {
   window.ResizeObserver = ResizeObserverMock;
 });
+
+global.TextEncoder = TextEncoder;

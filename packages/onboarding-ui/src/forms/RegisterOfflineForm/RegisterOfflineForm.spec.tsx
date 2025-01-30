@@ -1,10 +1,9 @@
-import ReactDOM from 'react-dom';
+import { render } from '@testing-library/react';
 
 import RegisterOfflineForm from './RegisterOfflineForm';
 
 it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(
+  render(
     <RegisterOfflineForm
       termsHref=''
       policyHref=''
@@ -13,7 +12,5 @@ it('renders without crashing', () => {
       onBackButtonClick={() => undefined}
       onSubmit={() => undefined}
     />,
-    div,
   );
-  ReactDOM.unmountComponentAtNode(div);
 });

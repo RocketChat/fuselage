@@ -1,6 +1,6 @@
 import { BackgroundLayer } from '@rocket.chat/layout';
 import type { ReactElement } from 'react';
-import type { SubmitHandler, Validate } from 'react-hook-form';
+import type { FieldPathValue, SubmitHandler, Validate } from 'react-hook-form';
 
 import type { FormPageLayoutStyleProps } from '../../Types';
 import FormPageLayout from '../../common/FormPageLayout';
@@ -14,7 +14,10 @@ type RegisterServerPageProps = {
   onSubmit: SubmitHandler<RegisterServerPayload>;
   onClickRegisterOffline: () => void;
   offline?: boolean;
-  validateEmail?: Validate<string, RegisterServerPayload>;
+  validateEmail?: Validate<
+    FieldPathValue<RegisterServerPayload, 'email'>,
+    RegisterServerPayload
+  >;
   termsHref?: string;
   policyHref?: string;
 };

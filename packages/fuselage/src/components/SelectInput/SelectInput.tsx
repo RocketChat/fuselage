@@ -1,4 +1,4 @@
-import type { ComponentProps, ReactNode, Ref } from 'react';
+import type { ComponentProps, FormEvent, ReactNode, Ref } from 'react';
 import { forwardRef, useState, useCallback } from 'react';
 
 import { Icon } from '../Icon';
@@ -24,7 +24,7 @@ export const SelectInput = forwardRef(function SelectInput(
     !props.value && !props.defaultValue,
   );
   const handleChange = useCallback(
-    (event) => {
+    (event: FormEvent<HTMLSelectElement>) => {
       setPlaceholderVisible(!event.currentTarget.value);
       onChange?.call(event.currentTarget, event);
     },

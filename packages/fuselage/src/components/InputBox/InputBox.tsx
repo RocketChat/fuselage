@@ -1,6 +1,7 @@
 import { useMergedRefs } from '@rocket.chat/fuselage-hooks';
 import type {
   ComponentProps,
+  FormEvent,
   ForwardRefExoticComponent,
   ReactNode,
   Ref,
@@ -97,7 +98,7 @@ export const InputBox = forwardRef(function InputBox(
   }, []);
 
   const handleChange = useCallback(
-    (event) => {
+    (event: FormEvent<HTMLElement>) => {
       if (addon && innerRef.current && innerRef.current.parentElement) {
         innerRef.current.parentElement.classList.toggle(
           'invalid',
