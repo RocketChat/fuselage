@@ -25,7 +25,7 @@ export default {
     CardCol: CardCol as ComponentType<any>,
     CardRow: CardRow as ComponentType<any>,
     CardBody: CardBody as ComponentType<any>,
-    CardControls,
+    CardControls: CardControls as ComponentType<any>,
   },
   parameters: {
     backgrounds: { default: 'dark' },

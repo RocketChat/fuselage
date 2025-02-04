@@ -1,5 +1,10 @@
-import { useToggle, useUniqueId } from '@rocket.chat/fuselage-hooks';
-import type { KeyboardEvent, MouseEvent, ReactNode } from 'react';
+import { useToggle } from '@rocket.chat/fuselage-hooks';
+import {
+  useId,
+  type KeyboardEvent,
+  type MouseEvent,
+  type ReactNode,
+} from 'react';
 
 import { cx, cxx } from '../../helpers/composeClassNames';
 import { StylingBox } from '../Box';
@@ -31,8 +36,8 @@ const AccordionItem = ({
 
   const panelExpanded = noncollapsible || expanded;
 
-  const titleId = useUniqueId();
-  const panelId = useUniqueId();
+  const titleId = useId();
+  const panelId = useId();
 
   const handleClick = (e: MouseEvent<HTMLElement>) => {
     if (disabled) {

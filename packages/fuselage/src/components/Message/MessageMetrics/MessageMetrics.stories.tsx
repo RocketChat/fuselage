@@ -23,13 +23,15 @@ export default {
   title: 'Message/MessageMetrics',
   component: MessageMetrics,
   subcomponents: {
-    MessageMetricsReply,
-    MessageMetricsItem,
+    MessageMetricsReply: MessageMetricsReply as ComponentType<any>,
+    MessageMetricsItem: MessageMetricsItem as ComponentType<any>,
     MessageMetricsFollowing: MessageMetricsFollowing as ComponentType<any>,
     MessageMetricsItemIcon: MessageMetricsItemIcon as ComponentType<any>,
-    MessageMetricsItemLabel,
-    MessageMetricsItemAvatarRowContent,
-    MessageMetricsItemAvatarRow,
+    MessageMetricsItemLabel: MessageMetricsItemLabel as ComponentType<any>,
+    MessageMetricsItemAvatarRowContent:
+      MessageMetricsItemAvatarRowContent as ComponentType<any>,
+    MessageMetricsItemAvatarRow:
+      MessageMetricsItemAvatarRow as ComponentType<any>,
   },
 } satisfies Meta<typeof MessageMetrics>;
 

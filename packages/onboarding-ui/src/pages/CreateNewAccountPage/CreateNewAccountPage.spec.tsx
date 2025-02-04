@@ -1,10 +1,9 @@
-import ReactDOM from 'react-dom';
+import { render } from '@testing-library/react';
 
 import CreateNewAccountPage from './CreateNewAccountPage';
 
 it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(
+  render(
     <CreateNewAccountPage
       validateEmail={() => undefined}
       validatePassword={() => undefined}
@@ -12,7 +11,5 @@ it('renders without crashing', () => {
       onSubmit={() => undefined}
       onLogin={() => undefined}
     />,
-    div,
   );
-  ReactDOM.unmountComponentAtNode(div);
 });

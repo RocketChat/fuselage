@@ -1,5 +1,5 @@
-import { useToggle, useUniqueId } from '@rocket.chat/fuselage-hooks';
-import type { KeyboardEventHandler, MouseEvent } from 'react';
+import { useToggle } from '@rocket.chat/fuselage-hooks';
+import { useId, type KeyboardEventHandler, type MouseEvent } from 'react';
 
 const hasPropExpanded = (expanded: boolean | undefined) =>
   expanded !== undefined;
@@ -22,8 +22,8 @@ export const useCollapse = ({
 
   const panelExpanded = noncollapsible || expanded;
 
-  const titleId = useUniqueId();
-  const panelId = useUniqueId();
+  const titleId = useId();
+  const panelId = useId();
 
   const handleClick = (e: MouseEvent<HTMLElement>) => {
     if (disabled) {

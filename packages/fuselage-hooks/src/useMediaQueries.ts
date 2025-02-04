@@ -1,5 +1,4 @@
-import { useCallback, useRef } from 'react';
-import { useSyncExternalStore } from 'use-sync-external-store/shim';
+import { useCallback, useRef, useSyncExternalStore } from 'react';
 
 import { useStableArray } from './useStableArray';
 

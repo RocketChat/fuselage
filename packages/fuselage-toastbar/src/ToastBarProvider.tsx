@@ -1,5 +1,5 @@
 import type { ReactNode, ReactElement } from 'react';
-import { useState, memo } from 'react';
+import { useState, memo, useCallback } from 'react';
 
 import type { ToastBarPayload } from './ToastBarContext';
 import { ToastBarContext } from './ToastBarContext';
@@ -15,15 +15,19 @@ const ToastBarProvider = ({ children }: ToastBarProps): ReactElement => {
   const [toasts, setToasts] = useState<ToastBarPayload[]>([]);
 
   const contextValue = {
-    dispatch: (
-      option: Omit<ToastBarPayload, 'id' | 'time'> & { time?: number },
-    ) =>
-      setToasts((toasts) => [
-        ...toasts,
-        { ...option, time: option.time || 5, id: Math.random().toString() },
-      ]),
-    dismiss: (id: ToastBarPayload['id']) =>
-      setToasts((prevState) => prevState.filter((toast) => toast.id !== id)),
+    dispatch: useCallback(
+      (option: Omit<ToastBarPayload, 'id' | 'time'> & { time?: number }) =>
+        setToasts((toasts) => [
+          ...toasts,
+          { ...option, time: option.time || 5, id: Math.random().toString() },
+        ]),
+      [],
+    ),
+    dismiss: useCallback(
+      (id: ToastBarPayload['id']) =>
+        setToasts((prevState) => prevState.filter((toast) => toast.id !== id)),
+      [],
+    ),
   };
 
   return (

@@ -1,10 +1,9 @@
-import ReactDOM from 'react-dom';
+import { render } from '@testing-library/react';
 
 import AdminInfoForm from './AdminInfoForm';
 
 it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(
+  render(
     <AdminInfoForm
       currentStep={1}
       stepCount={1}
@@ -14,7 +13,5 @@ it('renders without crashing', () => {
       validateUsername={() => true}
       onSubmit={() => undefined}
     />,
-    div,
   );
-  ReactDOM.unmountComponentAtNode(div);
 });

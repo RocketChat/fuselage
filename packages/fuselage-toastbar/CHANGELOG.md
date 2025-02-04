@@ -1,5 +1,13 @@
 # @rocket.chat/fuselage-toastbar
 
+## 0.33.1
+
+### Patch Changes
+
+- [#1531](https://github.com/RocketChat/fuselage/pull/1531) [`c7478d2`](https://github.com/RocketChat/fuselage/commit/c7478d2e6aa6a9b020203af94eb6ae6335fdaaf0) Thanks [@tassoevan](https://github.com/tassoevan)! - Enable compatibility with React 18
+
+  React 18's Strict Mode fires effects twice, which breaks Fuselage's toast bar portal.
+
 ## 0.33.0
 
 ### Minor Changes

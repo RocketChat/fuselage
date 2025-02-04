@@ -21,7 +21,7 @@ function FlexItem({
   align,
 }: FlexItemProps) {
   const transformFn = useCallback(
-    (props) => {
+    (props: any) => {
       if (order !== undefined && props.order === undefined) {
         props.order = order;
       }

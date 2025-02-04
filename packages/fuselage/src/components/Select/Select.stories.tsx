@@ -24,12 +24,7 @@ const TemplateControlled: StoryFn<typeof Select> = (args) => {
   const [value, setValue] = useState<Key>('3');
 
   return (
-    <Select
-      aria-label='select'
-      {...args}
-      value={value}
-      onChange={setValue as any}
-    />
+    <Select aria-label='select' {...args} value={value} onChange={setValue} />
   );
 };
 

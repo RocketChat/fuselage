@@ -5,8 +5,8 @@ import type { StylingProps } from './stylingProps';
 import { extractStylingProps } from './stylingProps';
 
 export const useStylingProps = <TProps extends { className?: string }>(
-  originalProps: TProps & Partial<StylingProps>,
-): TProps => {
+  originalProps: TProps,
+): Omit<TProps, keyof StylingProps> => {
   const [props, styles] = extractStylingProps(originalProps);
 
   const newClassName = useStyle(styles, undefined);

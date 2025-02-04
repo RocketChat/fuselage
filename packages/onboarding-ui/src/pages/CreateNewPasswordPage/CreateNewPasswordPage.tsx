@@ -1,7 +1,7 @@
 import { Box } from '@rocket.chat/fuselage';
 import { ActionLink } from '@rocket.chat/layout';
 import type { ReactElement } from 'react';
-import type { SubmitHandler, Validate } from 'react-hook-form';
+import type { FieldPathValue, SubmitHandler, Validate } from 'react-hook-form';
 import { Trans, useTranslation } from 'react-i18next';
 
 import type { FormPageLayoutStyleProps } from '../../Types';
@@ -11,8 +11,14 @@ import type { CreateNewPasswordPayload } from '../../forms/CreateNewPassword/Cre
 
 type CreateNewPasswordPageProps = {
   initialValues?: CreateNewPasswordPayload;
-  validatePassword: Validate<string, CreateNewPasswordPayload>;
-  validatePasswordConfirmation: Validate<string, CreateNewPasswordPayload>;
+  validatePassword: Validate<
+    FieldPathValue<CreateNewPasswordPayload, 'password'>,
+    CreateNewPasswordPayload
+  >;
+  validatePasswordConfirmation: Validate<
+    FieldPathValue<CreateNewPasswordPayload, 'passwordConfirmation'>,
+    CreateNewPasswordPayload
+  >;
   onSubmit: SubmitHandler<CreateNewPasswordPayload>;
   onLogin: () => void;
 };
