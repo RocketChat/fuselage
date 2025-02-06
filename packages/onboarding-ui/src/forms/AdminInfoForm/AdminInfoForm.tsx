@@ -13,11 +13,10 @@ import {
   FieldError,
   FieldHint,
 } from '@rocket.chat/fuselage';
-import { useUniqueId } from '@rocket.chat/fuselage-hooks';
 import { Form } from '@rocket.chat/layout';
 import type { ReactElement } from 'react';
-import { useRef, useEffect } from 'react';
-import type { SubmitHandler, Validate } from 'react-hook-form';
+import { useRef, useEffect, useId } from 'react';
+import type { FieldPathValue, SubmitHandler, Validate } from 'react-hook-form';
 import { useForm, Controller } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
@@ -35,9 +34,18 @@ type AdminInfoFormProps = {
   passwordRulesHint: string;
   keepPosted?: boolean;
   initialValues?: Omit<AdminInfoPayload, 'password'>;
-  validateUsername: Validate<string>;
-  validateEmail: Validate<string>;
-  validatePassword: Validate<string>;
+  validateUsername: Validate<
+    FieldPathValue<AdminInfoPayload, 'username'>,
+    AdminInfoPayload
+  >;
+  validateEmail: Validate<
+    FieldPathValue<AdminInfoPayload, 'email'>,
+    AdminInfoPayload
+  >;
+  validatePassword: Validate<
+    FieldPathValue<AdminInfoPayload, 'password'>,
+    AdminInfoPayload
+  >;
   onSubmit: SubmitHandler<AdminInfoPayload>;
 };
 
@@ -54,11 +62,11 @@ const AdminInfoForm = ({
 }: AdminInfoFormProps): ReactElement => {
   const { t } = useTranslation();
 
-  const formId = useUniqueId();
-  const fullnameField = useUniqueId();
-  const usernameField = useUniqueId(); // lgtm [js/insecure-randomness]
-  const emailField = useUniqueId();
-  const passwordField = useUniqueId(); // lgtm [js/insecure-randomness]
+  const formId = useId();
+  const fullnameField = useId();
+  const usernameField = useId(); // lgtm [js/insecure-randomness]
+  const emailField = useId();
+  const passwordField = useId(); // lgtm [js/insecure-randomness]
 
   const adminInfoFormRef = useRef<HTMLElement>(null);
 
@@ -108,7 +116,7 @@ const AdminInfoForm = ({
               <Controller
                 name='fullname'
                 control={control}
-                rules={{ required: String(t('component.form.requiredField')) }}
+                rules={{ required: t('component.form.requiredField') }}
                 render={({ field }) => (
                   <TextInput
                     {...field}
@@ -138,7 +146,7 @@ const AdminInfoForm = ({
                 name='username'
                 control={control}
                 rules={{
-                  required: String(t('component.form.requiredField')),
+                  required: t('component.form.requiredField'),
                   validate: validateUsername,
                 }}
                 render={({ field }) => (
@@ -170,7 +178,7 @@ const AdminInfoForm = ({
                 name='email'
                 control={control}
                 rules={{
-                  required: String(t('component.form.requiredField')),
+                  required: t('component.form.requiredField'),
                   validate: validateEmail,
                 }}
                 render={({ field }) => (
@@ -202,7 +210,7 @@ const AdminInfoForm = ({
                 name='password'
                 control={control}
                 rules={{
-                  required: String(t('component.form.requiredField')),
+                  required: t('component.form.requiredField'),
                   validate: validatePassword,
                 }}
                 render={({ field }) => (

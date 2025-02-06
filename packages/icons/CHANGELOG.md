@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.40.0
+
+### Minor Changes
+
+- [#1523](https://github.com/RocketChat/fuselage/pull/1523) [`7bf080f`](https://github.com/RocketChat/fuselage/commit/7bf080f512c160da6c8f79a3c3ba3cd783b17402) Thanks [@dougfabris](https://github.com/dougfabris)! - feat(icons): Add circle-unfilled new variations
+
 ## 0.39.0
 
 ### Minor Changes

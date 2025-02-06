@@ -1,6 +1,5 @@
 import { action } from '@storybook/addon-actions';
 import { countries } from 'countries-list';
-import type { Validate } from 'react-hook-form';
 
 export const logSubmit =
   <T extends (...args: any[]) => any>(onSubmit: T) =>
@@ -40,7 +39,7 @@ export const validateEmail = fetchMock('/email/validate', (email: string) => {
   return true;
 });
 
-export const validatePassword: Validate<string> = (password: string) => {
+export const validatePassword = (password: string) => {
   if (password.length < 6) {
     return `Password is too short`;
   }

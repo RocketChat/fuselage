@@ -1,6 +1,5 @@
 import { css, keyframes } from '@rocket.chat/css-in-js';
-import { useUniqueId } from '@rocket.chat/fuselage-hooks';
-import type { ReactNode, AllHTMLAttributes } from 'react';
+import { type ReactNode, type AllHTMLAttributes, useId } from 'react';
 
 import Box from '../Box';
 import { IconButton } from '../Button';
@@ -68,7 +67,7 @@ export function ToastBar({
     }
   `;
 
-  const uniqueId = useUniqueId();
+  const uniqueId = useId();
   const toastId = id || uniqueId;
 
   return (

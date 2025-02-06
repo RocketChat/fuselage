@@ -1,17 +1,14 @@
-import ReactDOM from 'react-dom';
+import { render } from '@testing-library/react';
 
 import NewAccountForm from './NewAccountForm';
 
 it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(
+  render(
     <NewAccountForm
       validateEmail={() => undefined}
       validatePassword={() => undefined}
       validateConfirmationPassword={() => undefined}
       onSubmit={() => undefined}
     />,
-    div,
   );
-  ReactDOM.unmountComponentAtNode(div);
 });

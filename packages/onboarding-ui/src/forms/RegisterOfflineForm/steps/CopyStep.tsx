@@ -1,11 +1,7 @@
 import { Box, Button, ButtonGroup, Scrollable } from '@rocket.chat/fuselage';
-import {
-  useBreakpoints,
-  useClipboard,
-  useUniqueId,
-} from '@rocket.chat/fuselage-hooks';
+import { useBreakpoints, useClipboard } from '@rocket.chat/fuselage-hooks';
 import { Form } from '@rocket.chat/layout';
-import { type ReactElement } from 'react';
+import { useId, type ReactElement } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { Trans, useTranslation } from 'react-i18next';
 
@@ -30,7 +26,7 @@ const CopyStep = ({
   onBackButtonClick,
 }: CopyStepProps): ReactElement => {
   const { t } = useTranslation();
-  const agreementField = useUniqueId();
+  const agreementField = useId();
   const breakpoints = useBreakpoints();
   const isMobile = !breakpoints.includes('md');
 

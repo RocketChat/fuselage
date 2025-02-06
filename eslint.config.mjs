@@ -1,6 +1,7 @@
 // @ts-check
 
 import pluginImport from 'eslint-plugin-import';
+import pluginJsxA11y from 'eslint-plugin-jsx-a11y';
 import * as mdx from 'eslint-plugin-mdx';
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 import pluginReact from 'eslint-plugin-react';
@@ -450,7 +451,18 @@ export default tseslint.config(
     },
   },
   {
-    plugins: { 'react': pluginReact, 'react-hooks': pluginReactHooks },
+    plugins: {
+      'jsx-a11y': pluginJsxA11y,
+    },
+    rules: {
+      ...pluginJsxA11y.configs.recommended.rules,
+    },
+  },
+  {
+    plugins: {
+      'react': pluginReact,
+      'react-hooks': pluginReactHooks,
+    },
     languageOptions: {
       globals: {
         ...globals.browser,

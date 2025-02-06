@@ -1,5 +1,68 @@
 # Change Log
 
+## 0.60.3
+
+### Patch Changes
+
+- [#1537](https://github.com/RocketChat/fuselage/pull/1537) [`6a6386a`](https://github.com/RocketChat/fuselage/commit/6a6386a2b1fe56eda40277984f6d300315b1f38a) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix: `SelectAria` hidden select should be child of trigger
+
+## 0.60.2
+
+### Patch Changes
+
+- [#1533](https://github.com/RocketChat/fuselage/pull/1533) [`a5bc3a6`](https://github.com/RocketChat/fuselage/commit/a5bc3a6a00b6931d7c67a9485de7f3ffaa112282) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): SelectAria id prop overwriting
+
+## 0.60.1
+
+### Patch Changes
+
+- [#1521](https://github.com/RocketChat/fuselage/pull/1521) [`1dc6c86`](https://github.com/RocketChat/fuselage/commit/1dc6c86df827a44a8c0ac4cc7f239b2507ecd33d) Thanks [@tassoevan](https://github.com/tassoevan)! - fix(fuselage-hooks): Stricter generics for `useEffectEvent`
+
+- [#1516](https://github.com/RocketChat/fuselage/pull/1516) [`deac02f`](https://github.com/RocketChat/fuselage/commit/deac02f45b23227b699774b92aeac87b2dda739e) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): `SidebarV2` styles
+
+- [#1523](https://github.com/RocketChat/fuselage/pull/1523) [`7bf080f`](https://github.com/RocketChat/fuselage/commit/7bf080f512c160da6c8f79a3c3ba3cd783b17402) Thanks [@dougfabris](https://github.com/dougfabris)! - feat(icons): Add circle-unfilled new variations
+
+- [#1522](https://github.com/RocketChat/fuselage/pull/1522) [`0006fe9`](https://github.com/RocketChat/fuselage/commit/0006fe943a23607d9974cabacadf973a68996683) Thanks [@dougfabris](https://github.com/dougfabris)! - fix: `OptionIcon` not receiving proper icon props
+
+## 0.60.0
+
+### Minor Changes
+
+- [#1494](https://github.com/RocketChat/fuselage/pull/1494) [`242af51`](https://github.com/RocketChat/fuselage/commit/242af51f3ada154599c294b918f872bb90726bbe) Thanks [@dougfabris](https://github.com/dougfabris)! - feat(fuselage): Update selected system message background
+
+- [#1475](https://github.com/RocketChat/fuselage/pull/1475) [`e86ad6f`](https://github.com/RocketChat/fuselage/commit/e86ad6fcb41454a3df41ee110f4dbc13e031fe71) Thanks [@tassoevan](https://github.com/tassoevan)! - Simplifies `Skeleton`
+
+  It replaces the dependency on `Box` with `StylingBox` and implements a new background animation.
+
+- [#1470](https://github.com/RocketChat/fuselage/pull/1470) [`86fe018`](https://github.com/RocketChat/fuselage/commit/86fe018577b24adf3b7ff7c7631aed36b7caa466) Thanks [@tassoevan](https://github.com/tassoevan)! - Simplifies `Accordion` and `AccordionItem`
+
+  It removes an obsolete and not accessible toggle switch in `AccordionItem` and eases the internal usage of `Box` to
+  improve rendering performance.
+
+  Additionally, it adds a new `StylingBox` component that can be used as a wrapper for components that accept styling
+  props but don't need the weight of the `Box` component prop handling internally.
+
+  Also, it adds a new `cx` and `cxx` helpers to compose class names.
+
+- [#1493](https://github.com/RocketChat/fuselage/pull/1493) [`a38bf08`](https://github.com/RocketChat/fuselage/commit/a38bf089d30c5581251ee09416c3397992b4a116) Thanks [@dougfabris](https://github.com/dougfabris)! - feat(fuselage): Update selected message background
+
+### Patch Changes
+
+- [#1474](https://github.com/RocketChat/fuselage/pull/1474) [`fd15f2b`](https://github.com/RocketChat/fuselage/commit/fd15f2bd7bc1fda6e8a34edc4fe5be974cb04210) Thanks [@tassoevan](https://github.com/tassoevan)! - Fixes a bug that adds an extra whitespace when concatenating class names with `appendClassName`
+
+- [#1495](https://github.com/RocketChat/fuselage/pull/1495) [`b044c3b`](https://github.com/RocketChat/fuselage/commit/b044c3b956bc253dfcf289677c4d909699284735) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): Skeleton missing HTML attributes in type
+
+- [#1487](https://github.com/RocketChat/fuselage/pull/1487) [`9e64011`](https://github.com/RocketChat/fuselage/commit/9e6401101b9bd8ef3b9685ecc7f8230dade8f472) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): `Select` disabled opening with keyboard
+
+- [#1428](https://github.com/RocketChat/fuselage/pull/1428) [`5cfac08`](https://github.com/RocketChat/fuselage/commit/5cfac085d329dd6d418e38d5692d5b668aa621b9) Thanks [@rique223](https://github.com/rique223)! - Changes the `contextualbar` z-index to avoid UI glitches on pages where it needs to appear on top of the `Table`
+
+- [#1490](https://github.com/RocketChat/fuselage/pull/1490) [`418dd23`](https://github.com/RocketChat/fuselage/commit/418dd2340e75010e4ba3f16a787d2ac8a0c333ab) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): `CodeSnippet` inheriting `code` css styles
+
+- [#1483](https://github.com/RocketChat/fuselage/pull/1483) [`4910d29`](https://github.com/RocketChat/fuselage/commit/4910d294defc1effc0b857f44138498a73013877) Thanks [@tassoevan](https://github.com/tassoevan)! - Enables hooks' compatibility with React 18
+
+- Updated dependencies [[`0b4e37a`](https://github.com/RocketChat/fuselage/commit/0b4e37aea8ca562d7cdf453824dd5c514ede349d)]:
+  - @rocket.chat/fuselage-tokens@0.33.2
+
 ## 0.59.3
 
 ### Patch Changes

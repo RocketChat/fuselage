@@ -33,7 +33,7 @@ const AgreeTermsField = ({
           name='agreement'
           control={control}
           rules={{
-            required: String(t('component.form.requiredField')),
+            required: t('component.form.requiredField'),
           }}
           render={({ field: { ref, name, onBlur, onChange, value } }) => (
             <CheckBox

@@ -17,7 +17,7 @@ import {
 } from '@rocket.chat/fuselage';
 import { Form } from '@rocket.chat/layout';
 import type { ReactElement, FocusEvent } from 'react';
-import type { SubmitHandler, Validate } from 'react-hook-form';
+import type { FieldPathValue, SubmitHandler, Validate } from 'react-hook-form';
 import { useForm, Controller } from 'react-hook-form';
 import { useTranslation, Trans } from 'react-i18next';
 
@@ -42,8 +42,14 @@ type CreateCloudWorkspaceFormProps = {
   languageOptions: SelectOption[];
   domain: string;
   onBackButtonClick?: () => void;
-  validateUrl: Validate<string>;
-  validateEmail: Validate<string>;
+  validateUrl: Validate<
+    FieldPathValue<CreateCloudWorkspaceFormPayload, 'workspaceURL'>,
+    CreateCloudWorkspaceFormPayload
+  >;
+  validateEmail: Validate<
+    FieldPathValue<CreateCloudWorkspaceFormPayload, 'organizationEmail'>,
+    CreateCloudWorkspaceFormPayload
+  >;
 };
 
 const CreateCloudWorkspaceForm = ({
