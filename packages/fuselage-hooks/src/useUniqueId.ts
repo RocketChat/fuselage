@@ -5,6 +5,7 @@ import { useDebugValue, useRef, useMemo } from 'react';
  *
  * @returns the unique ID string
  * @public
+ * @deprecated use `useId` from `react` instead
  */
 export const useUniqueId = (): string => {
   const ref = useRef<string>();

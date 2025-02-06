@@ -8,14 +8,14 @@
     "tools-utils": "workspace:~",
     "ttf2eot": "~3.1.0",
     "ttf2woff": "~3.0.0",
-    "ttf2woff2": "~4.0.5",
+    "ttf2woff2": "~6.0.1",
     "unicode": "~14.0.0",
-    "xml2js": "~0.5.0"
+    "xml2js": "~0.6.2"
   },
   "version": "0.31.25",
   "devDependencies": {
-    "eslint": "~9.14.0",
+    "eslint": "~9.18.0",
     "lint-all": "workspace:~",
-    "prettier": "~3.3.3"
+    "prettier": "~3.4.2"
   }
 }

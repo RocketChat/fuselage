@@ -1,6 +1,5 @@
-import { useUniqueId } from '@rocket.chat/fuselage-hooks';
 import colors from '@rocket.chat/fuselage-tokens/colors.json';
-import type { ReactElement, SVGAttributes } from 'react';
+import { useId, type ReactElement, type SVGAttributes } from 'react';
 
 type RocketChatLogoProps = {
   color?: SVGAttributes<SVGSVGElement>['fill'];
@@ -9,7 +8,7 @@ type RocketChatLogoProps = {
 const RocketChatLogo = ({
   color = colors.r400,
 }: RocketChatLogoProps): ReactElement => {
-  const titleId = useUniqueId();
+  const titleId = useId();
 
   return (
     <svg

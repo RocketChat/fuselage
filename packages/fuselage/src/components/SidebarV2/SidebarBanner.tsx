@@ -38,7 +38,6 @@ export const SidebarBanner = ({
       {linkText && (
         <a
           className='rcx-box rcx-box--full rcx-sidebar-v2-banner__link'
-          tabIndex={0}
           {...linkProps}
         >
           {linkText}

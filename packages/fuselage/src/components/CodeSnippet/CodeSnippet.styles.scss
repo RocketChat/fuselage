@@ -13,6 +13,8 @@
   min-height: lengths.size(60);
   padding: lengths.padding(16);
 
+  color: colors.font(default);
+
   border-radius: theme(
     'code-snippet-border-radius',
     lengths.border-radius(medium)
@@ -24,5 +26,7 @@
 
     white-space: pre-line;
     word-break: break-all;
+
+    font-family: monospace;
   }
 }

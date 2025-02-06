@@ -1,9 +1,7 @@
-import ReactDOM from 'react-dom';
+import { render } from '@testing-library/react';
 
 import InformationPage from './InformationPage';
 
 it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<InformationPage title='' description='' />, div);
-  ReactDOM.unmountComponentAtNode(div);
+  render(<InformationPage title='' description='' />);
 });

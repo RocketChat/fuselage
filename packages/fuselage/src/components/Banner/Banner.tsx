@@ -3,6 +3,7 @@ import type {
   ReactNode,
   AllHTMLAttributes,
   HTMLAttributeAnchorTarget,
+  MouseEvent,
 } from 'react';
 import { useRef, useCallback, useMemo } from 'react';
 
@@ -65,7 +66,7 @@ const Banner = ({
   }, [onAction]);
 
   const handleCloseButtonClick = useCallback(
-    (event) => {
+    (event: MouseEvent) => {
       event.stopPropagation();
 
       if (onClose) {
@@ -76,13 +77,17 @@ const Banner = ({
   );
 
   return (
-    <section
+    <div
       className={cx('rcx-banner')(
         { [variant]: true, inline, actionable },
         className,
       )}
       ref={ref}
-      role='banner'
+      role={onAction ? 'button' : 'banner'}
+      tabIndex={onAction ? 0 : -1}
+      onKeyDown={(e) =>
+        e.code === 'Enter' || (e.code === 'Space' && handleBannerClick())
+      }
       onClick={handleBannerClick}
       {...props}
     >
@@ -115,7 +120,7 @@ const Banner = ({
           <IconButton small onClick={handleCloseButtonClick} icon='cross' />
         </div>
       )}
-    </section>
+    </div>
   );
 };
 

@@ -53,85 +53,51 @@ export const Default: StoryFn = () => {
   );
 };
 
-export const TopStart: StoryFn = () => {
+const Template: StoryFn<{
+  position: 'top-start' | 'top-end' | 'bottom-start' | 'bottom-end';
+}> = ({ position }) => {
   const dispatchToastMessage = useToastBarDispatch();
 
-  const handleDispatch = () =>
+  useEffect(() => {
     dispatchToastMessage({
       type: 'success',
       message: DEFAULT_MESSAGE,
-      position: 'top-start',
+      position,
     });
-
-  useEffect(() => {
-    handleDispatch();
-  }, []);
+  }, [dispatchToastMessage, position]);
 
   return (
-    <Button primary onClick={handleDispatch}>
+    <Button
+      primary
+      onClick={() =>
+        dispatchToastMessage({
+          type: 'success',
+          message: DEFAULT_MESSAGE,
+          position,
+        })
+      }
+    >
       Dispatch ToastBar
     </Button>
   );
 };
 
-export const TopEnd: StoryFn = () => {
-  const dispatchToastMessage = useToastBarDispatch();
-
-  const handleDispatch = () =>
-    dispatchToastMessage({
-      type: 'success',
-      message: DEFAULT_MESSAGE,
-    });
-
-  useEffect(() => {
-    handleDispatch();
-  }, []);
-
-  return (
-    <Button primary onClick={handleDispatch}>
-      Dispatch ToastBar
-    </Button>
-  );
+export const TopStart = Template.bind({});
+TopStart.args = {
+  position: 'top-start',
 };
 
-export const BottomStart: StoryFn = () => {
-  const dispatchToastMessage = useToastBarDispatch();
-
-  const handleDispatch = () =>
-    dispatchToastMessage({
-      type: 'success',
-      message: DEFAULT_MESSAGE,
-      position: 'bottom-start',
-    });
-
-  useEffect(() => {
-    handleDispatch();
-  }, []);
-
-  return (
-    <Button primary onClick={handleDispatch}>
-      Dispatch ToastBar
-    </Button>
-  );
+export const TopEnd = Template.bind({});
+TopEnd.args = {
+  position: 'top-end',
 };
 
-export const BottomEnd: StoryFn = () => {
-  const dispatchToastMessage = useToastBarDispatch();
+export const BottomStart = Template.bind({});
+BottomStart.args = {
+  position: 'bottom-start',
+};
 
-  const handleDispatch = () =>
-    dispatchToastMessage({
-      type: 'success',
-      message: DEFAULT_MESSAGE,
-      position: 'bottom-end',
-    });
-
-  useEffect(() => {
-    handleDispatch();
-  }, []);
-
-  return (
-    <Button primary onClick={handleDispatch}>
-      Dispatch ToastBar
-    </Button>
-  );
+export const BottomEnd = Template.bind({});
+BottomEnd.args = {
+  position: 'bottom-end',
 };

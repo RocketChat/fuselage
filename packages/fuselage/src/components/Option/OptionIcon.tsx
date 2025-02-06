@@ -4,13 +4,11 @@ import { Icon } from '../Icon';
 
 import OptionColumn from './OptionColumn';
 
-type OptionIconProps = {
-  name: ComponentProps<typeof Icon>['name'];
-};
+type OptionIconProps = ComponentProps<typeof Icon>;
 
-const OptionIcon = ({ name }: OptionIconProps) => (
+const OptionIcon = (props: OptionIconProps) => (
   <OptionColumn>
-    <Icon size='x20' rcx-option__icon name={name} />
+    <Icon size='x20' rcx-option__icon {...props} />
   </OptionColumn>
 );
 
