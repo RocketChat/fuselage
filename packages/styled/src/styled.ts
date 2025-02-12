@@ -19,7 +19,7 @@ import {
   forwardRef,
   Fragment,
   useDebugValue,
-  useLayoutEffect,
+  useInsertionEffect,
 } from 'react';
 
 export const attachClassName = <P extends { className?: string }>(
@@ -85,7 +85,7 @@ const styled =
 
           useDebugValue(computedClassName);
 
-          useLayoutEffect(() => {
+          useInsertionEffect(() => {
             const escapedClassName = escapeName(computedClassName);
             const transpiledContent = transpile(
               `.${escapedClassName}`,

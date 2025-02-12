@@ -5,7 +5,7 @@ import {
   transpile,
   attachRules,
 } from '@rocket.chat/css-in-js';
-import { useDebugValue, useLayoutEffect, useMemo } from 'react';
+import { useDebugValue, useInsertionEffect, useMemo } from 'react';
 
 export const useStyle = (cssFn: cssFn | undefined, arg: unknown) => {
   const content = useMemo(() => (cssFn ? cssFn(arg) : undefined), [arg, cssFn]);
@@ -20,7 +20,7 @@ export const useStyle = (cssFn: cssFn | undefined, arg: unknown) => {
 
   useDebugValue(className);
 
-  useLayoutEffect(() => {
+  useInsertionEffect(() => {
     if (!content || !className) {
       return;
     }
