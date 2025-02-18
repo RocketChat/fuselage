@@ -75,7 +75,7 @@ export const SliderTrack = ({
       &::before {
         position: absolute;
         display: block;
-        content: attr(x);
+        content: '';
 
         background: linear-gradient(${getTrackGradient()});
         transform: translateX(-50%);
