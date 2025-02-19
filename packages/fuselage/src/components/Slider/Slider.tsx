@@ -60,7 +60,7 @@ export function Slider<T extends number | [min: number, max: number]>(
 
   // Get a defaultValue in the range for multiThumb
   const getMultiThumbDefaultValue = (): T | undefined => {
-    if (multiThumb && !defaultValue) {
+    if (multiThumb && !props.defaultValue) {
       if (minValue && maxValue) {
         return [minValue, maxValue] as T;
       }
