@@ -1,5 +1,22 @@
 # Change Log
 
+## 0.61.0
+
+### Minor Changes
+
+- [#1559](https://github.com/RocketChat/fuselage/pull/1559) [`1695629`](https://github.com/RocketChat/fuselage/commit/1695629a9a9600159f7a6ca8d5f92ab7c8c76008) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat: replace `useLayoutEffect` in favor of `useInsertionEffect`
+
+- [#1514](https://github.com/RocketChat/fuselage/pull/1514) [`c4d8300`](https://github.com/RocketChat/fuselage/commit/c4d8300a651a25b92450b8830c5028b4fcf8f4a1) Thanks [@tassoevan](https://github.com/tassoevan)! - feat: Raise minimum supported React version to 18
+
+### Patch Changes
+
+- [#1564](https://github.com/RocketChat/fuselage/pull/1564) [`aa6aa26`](https://github.com/RocketChat/fuselage/commit/aa6aa26b5ff2932276c463537f942edf0ab18797) Thanks [@rique223](https://github.com/rique223)! - fix(fuselage): Missing track on `Slider` component
+
+- [#1565](https://github.com/RocketChat/fuselage/pull/1565) [`10f82d9`](https://github.com/RocketChat/fuselage/commit/10f82d9a9c93a42f563ff21be1bcdf3c2bd0456a) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix: broken `Slider` multi thumb
+
+- Updated dependencies [[`1695629`](https://github.com/RocketChat/fuselage/commit/1695629a9a9600159f7a6ca8d5f92ab7c8c76008), [`c4d8300`](https://github.com/RocketChat/fuselage/commit/c4d8300a651a25b92450b8830c5028b4fcf8f4a1)]:
+  - @rocket.chat/styled@0.32.0
+
 ## 0.60.3
 
 ### Patch Changes

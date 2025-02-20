@@ -1,5 +1,11 @@
 # @rocket.chat/layout
 
+## 0.32.0
+
+### Minor Changes
+
+- [#1514](https://github.com/RocketChat/fuselage/pull/1514) [`c4d8300`](https://github.com/RocketChat/fuselage/commit/c4d8300a651a25b92450b8830c5028b4fcf8f4a1) Thanks [@tassoevan](https://github.com/tassoevan)! - feat: Raise minimum supported React version to 18
+
 ## 0.31.27
 
 ### Patch Changes
