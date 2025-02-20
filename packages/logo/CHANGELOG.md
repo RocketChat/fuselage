@@ -1,5 +1,17 @@
 # Change Log
 
+## 0.32.0
+
+### Minor Changes
+
+- [#1514](https://github.com/RocketChat/fuselage/pull/1514) [`c4d8300`](https://github.com/RocketChat/fuselage/commit/c4d8300a651a25b92450b8830c5028b4fcf8f4a1) Thanks [@tassoevan](https://github.com/tassoevan)! - feat: Raise minimum supported React version to 18
+
+### Patch Changes
+
+- Updated dependencies [[`1695629`](https://github.com/RocketChat/fuselage/commit/1695629a9a9600159f7a6ca8d5f92ab7c8c76008), [`c4d8300`](https://github.com/RocketChat/fuselage/commit/c4d8300a651a25b92450b8830c5028b4fcf8f4a1)]:
+  - @rocket.chat/styled@0.32.0
+  - @rocket.chat/fuselage-hooks@0.35.0
+
 ## 0.31.32
 
 ### Patch Changes
