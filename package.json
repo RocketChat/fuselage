@@ -10,7 +10,7 @@
     "@changesets/cli": "~2.28.1",
     "@eslint/js": "~9.21.0",
     "@rocket.chat/prettier-config": "workspace:~",
-    "@types/eslint__js": "~9.14.0",
+    "@types/eslint__js": "~8.42.3",
     "eslint": "~9.20.0",
     "eslint-import-resolver-typescript": "~3.8.3",
     "eslint-plugin-import": "~2.31.0",
