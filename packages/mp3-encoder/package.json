@@ -39,9 +39,9 @@
     "access": "public"
   },
   "devDependencies": {
-    "@babel/core": "~7.26.0",
-    "@babel/plugin-transform-runtime": "~7.25.9",
-    "@babel/preset-env": "~7.26.0",
+    "@babel/core": "~7.26.9",
+    "@babel/plugin-transform-runtime": "~7.26.9",
+    "@babel/preset-env": "~7.26.9",
     "@babel/preset-typescript": "~7.26.0",
     "@rollup/plugin-commonjs": "~24.1.0",
     "@rollup/plugin-node-resolve": "~15.0.2",
@@ -53,8 +53,8 @@
     "lint-all": "workspace:~",
     "prettier": "~3.5.0",
     "rollup": "~3.29.5",
-    "ts-jest": "~29.2.5",
-    "typedoc": "~0.27.5",
-    "typescript": "~5.7.2"
+    "ts-jest": "~29.2.6",
+    "typedoc": "~0.27.9",
+    "typescript": "~5.7.3"
   }
 }
