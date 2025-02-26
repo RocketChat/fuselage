@@ -1,15 +1,15 @@
-import type { ComponentProps, ReactElement } from 'react';
+import type { AllHTMLAttributes, ReactElement } from 'react';
 
 import Box from '../Box';
 import { Button } from '../Button';
 import { Skeleton } from '../Skeleton';
 
-type CodeSnippetProps = ComponentProps<typeof Box> & {
+type CodeSnippetProps = {
   children: string;
   buttonText?: string;
   buttonDisabled?: boolean;
   onClick?: () => void;
-};
+} & Omit<AllHTMLAttributes<HTMLElement>, 'is'>;
 
 /**
  * The `CodeSnippet` is used to show code or commands and make easier to copy them.
@@ -27,15 +27,15 @@ const CodeSnippet = ({
 }: CodeSnippetProps): ReactElement<CodeSnippetProps> => {
   if (!children) {
     return (
-      <Box is='pre' rcx-code-snippet {...props}>
+      <Box is='pre' rcx-code-snippet>
         <Skeleton w='100%' aria-hidden aria-busy />
       </Box>
     );
   }
 
   return (
-    <Box is='pre' rcx-code-snippet {...props}>
-      <Box role='code' rcx-code-snippet__codebox>
+    <Box is='pre' rcx-code-snippet>
+      <Box role='code' rcx-code-snippet__codebox {...props}>
         {children}
       </Box>
       {onClick && children && (
