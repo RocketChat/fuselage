@@ -32,8 +32,8 @@
     "prettier": "*"
   },
   "devDependencies": {
-    "eslint": "~9.20.0",
+    "eslint": "~9.21.0",
     "lint-all": "workspace:~",
-    "prettier": "~3.5.0"
+    "prettier": "~3.5.2"
   }
 }
