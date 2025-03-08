@@ -1,38 +1,35 @@
-import path from 'path';
+import { basename, dirname } from 'node:path';
 
 import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
 import nodeResolve from '@rollup/plugin-node-resolve';
+import terser from '@rollup/plugin-terser';
 import typescript from '@rollup/plugin-typescript';
-import { terser } from 'rollup-plugin-terser';
+import { defineConfig } from 'rollup';
 
 import pkg from './package.json' with { type: 'json' };
 
-export default {
-  external: ['react'],
+export default defineConfig({
   input: 'src/index.ts',
   output: [
     {
-      dir: path.dirname(pkg.main),
-      entryFileNames: path.basename(pkg.main),
+      dir: dirname(pkg.main),
+      entryFileNames: basename(pkg.main),
       format: 'cjs',
       sourcemap: true,
     },
     {
-      dir: path.dirname(pkg.module),
-      entryFileNames: path.basename(pkg.module),
+      dir: dirname(pkg.module),
+      entryFileNames: basename(pkg.module),
       format: 'es',
       sourcemap: true,
     },
     {
-      dir: path.dirname(pkg.unpkg),
-      entryFileNames: path.basename(pkg.unpkg),
+      dir: dirname(pkg.unpkg),
+      entryFileNames: basename(pkg.unpkg),
       format: 'umd',
       name: 'Emitter',
       sourcemap: true,
-      globals: {
-        react: 'React',
-      },
     },
   ],
   plugins: [
@@ -51,4 +48,4 @@ export default {
       tsconfig: './tsconfig.build.json',
     }),
   ],
-};
+});

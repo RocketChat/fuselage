@@ -1,10 +1,11 @@
-import path from 'path';
+import { basename, dirname } from 'node:path';
 
 import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
 import nodeResolve from '@rollup/plugin-node-resolve';
+import terser from '@rollup/plugin-terser';
 import typescript from '@rollup/plugin-typescript';
-import { terser } from 'rollup-plugin-terser';
+import { defineConfig } from 'rollup';
 
 import pkg from './package.json' with { type: 'json' };
 
@@ -16,50 +17,46 @@ const globals = {
     'stylisLogicalPropsMiddleware',
 };
 
-const plugins = [
-  terser({
-    compress: true,
-    mangle: true,
-    module: true,
-    output: {
-      comments: false,
+export default defineConfig({
+  external: Object.keys(globals),
+  input: 'src/index.ts',
+  output: [
+    {
+      dir: dirname(pkg.main),
+      entryFileNames: basename(pkg.main),
+      format: 'cjs',
+      sourcemap: true,
+      interop: 'compat',
     },
-  }),
-  json(),
-  nodeResolve(),
-  commonjs(),
-  typescript({
-    tsconfig: './tsconfig.build.json',
-  }),
-];
-
-export default [
-  {
-    external: Object.keys(globals),
-    input: 'src/index.ts',
-    output: [
-      {
-        dir: path.dirname(pkg.main),
-        entryFileNames: path.basename(pkg.main),
-        format: 'cjs',
-        sourcemap: true,
-        interop: 'compat',
+    {
+      dir: dirname(pkg.module),
+      entryFileNames: basename(pkg.module),
+      format: 'es',
+      sourcemap: true,
+    },
+    {
+      dir: dirname(pkg.unpkg),
+      entryFileNames: basename(pkg.unpkg),
+      format: 'umd',
+      name: 'cssInJs',
+      sourcemap: true,
+      globals,
+    },
+  ],
+  plugins: [
+    terser({
+      compress: true,
+      mangle: true,
+      module: true,
+      output: {
+        comments: false,
       },
-      {
-        dir: path.dirname(pkg.module),
-        entryFileNames: path.basename(pkg.module),
-        format: 'es',
-        sourcemap: true,
-      },
-      {
-        dir: path.dirname(pkg.unpkg),
-        entryFileNames: path.basename(pkg.unpkg),
-        format: 'umd',
-        name: 'cssInJs',
-        sourcemap: true,
-        globals,
-      },
-    ],
-    plugins,
-  },
-];
+    }),
+    json(),
+    nodeResolve(),
+    commonjs(),
+    typescript({
+      tsconfig: './tsconfig.build.json',
+    }),
+  ],
+});
