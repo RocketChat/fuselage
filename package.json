@@ -56,7 +56,7 @@
     "node": "22.14.0",
     "yarn": "4.5.1"
   },
-  "packageManager": "yarn@4.6.0",
+  "packageManager": "yarn@4.7.0",
   "resolutions": {
     "jsdom": "25.0.1"
   }
