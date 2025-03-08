@@ -34,7 +34,7 @@
     "prepack": "pinst --disable",
     "postpack": "pinst --enable",
     "ci": "yarn turbo run build lint test build-storybook --cache-dir=\".turbo\"",
-    "clean": "yarn workspaces foreach -v --topological-dev run clean",
+    "clean": "yarn workspaces foreach -vA run clean",
     "build": "yarn turbo run build",
     "lint": "yarn turbo run lint",
     "lint-and-fix": "yarn workspaces foreach -v --topological-dev --all run lint-and-fix",
