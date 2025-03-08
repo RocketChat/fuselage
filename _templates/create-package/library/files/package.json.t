@@ -44,7 +44,7 @@ to: packages/<%=package%>/package.json
     "jest": "~27.5.1",
     "lint-all": "workspace:~",
     "prettier": "~3.3.3",
-    "rimraf": "~3.0.2",
+    "rimraf": "~6.0.1",
     "ts-jest": "~27.1.3",
     "typedoc": "~0.24.1",
     "typescript": "~5.5.4"
