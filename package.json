@@ -50,10 +50,10 @@
     "prettier": "prettier --plugin=@prettier/plugin-xml"
   },
   "engines": {
-    "node": "22.9.0"
+    "node": "22.14.0"
   },
   "volta": {
-    "node": "22.9.0",
+    "node": "22.14.0",
     "yarn": "4.5.1"
   },
   "packageManager": "yarn@4.6.0",
