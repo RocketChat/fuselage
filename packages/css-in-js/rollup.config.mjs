@@ -6,7 +6,7 @@ import nodeResolve from '@rollup/plugin-node-resolve';
 import typescript from '@rollup/plugin-typescript';
 import { terser } from 'rollup-plugin-terser';
 
-import pkg from './package.json';
+import pkg from './package.json' with { type: 'json' };
 
 const globals = {
   '@emotion/hash': 'hash',
@@ -43,6 +43,7 @@ export default [
         entryFileNames: path.basename(pkg.main),
         format: 'cjs',
         sourcemap: true,
+        interop: 'compat',
       },
       {
         dir: path.dirname(pkg.module),
