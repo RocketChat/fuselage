@@ -76,7 +76,7 @@
     "@storybook/addon-links": "~8.6.4",
     "@storybook/addon-mdx-gfm": "~8.6.4",
     "@storybook/addon-styling-webpack": "~1.0.1",
-    "@storybook/addon-webpack5-compiler-swc": "~1.0.5",
+    "@storybook/addon-webpack5-compiler-swc": "~1.0.6",
     "@storybook/blocks": "~8.6.4",
     "@storybook/preview-api": "~8.6.4",
     "@storybook/react": "~8.6.4",

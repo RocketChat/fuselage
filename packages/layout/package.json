@@ -42,7 +42,7 @@
     "@rocket.chat/fuselage-tokens": "workspace:~",
     "@storybook/addon-a11y": "~8.6.4",
     "@storybook/addon-essentials": "~8.6.4",
-    "@storybook/addon-webpack5-compiler-swc": "~1.0.5",
+    "@storybook/addon-webpack5-compiler-swc": "~1.0.6",
     "@storybook/preview-api": "~8.6.4",
     "@storybook/react": "~8.6.4",
     "@storybook/react-webpack5": "~8.6.4",
