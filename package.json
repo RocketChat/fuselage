@@ -5,6 +5,29 @@
     "packages/*",
     "tools/*"
   ],
+  "scripts": {
+    "build": "yarn turbo run build",
+    "build-storybook": "yarn turbo run build-storybook --cache-dir=\".turbo\"",
+    "changeset": "changeset",
+    "ci": "yarn turbo run build lint test build-storybook --cache-dir=\".turbo\"",
+    "clean": "yarn workspaces foreach -vA run clean",
+    "create-package": "hygen create-package",
+    "docs": "yarn turbo run docs",
+    "postinstall": "husky install && yarn build",
+    "lint": "yarn turbo run lint",
+    "lint-and-fix": "yarn workspaces foreach -v --topological-dev --all run lint-and-fix",
+    "prepack": "pinst --disable",
+    "postpack": "pinst --enable",
+    "prettier": "prettier --plugin=@prettier/plugin-xml",
+    "release": "yarn changeset publish",
+    "release-next": "yarn workspaces foreach --no-private -v npm publish --tag next --tolerate-republish",
+    "resolve-workspace-deps": "yarn workspace scripts run resolve-workspace-deps",
+    "test": "yarn turbo run test",
+    "update-readme": "update-readme"
+  },
+  "resolutions": {
+    "jsdom": "25.0.1"
+  },
   "devDependencies": {
     "@changesets/changelog-github": "~0.5.1",
     "@changesets/cli": "~2.28.1",
@@ -29,35 +52,12 @@
     "typescript-eslint": "~8.26.0",
     "update-readme": "workspace:~"
   },
-  "scripts": {
-    "postinstall": "husky install && yarn build",
-    "prepack": "pinst --disable",
-    "postpack": "pinst --enable",
-    "ci": "yarn turbo run build lint test build-storybook --cache-dir=\".turbo\"",
-    "clean": "yarn workspaces foreach -vA run clean",
-    "build": "yarn turbo run build",
-    "lint": "yarn turbo run lint",
-    "lint-and-fix": "yarn workspaces foreach -v --topological-dev --all run lint-and-fix",
-    "test": "yarn turbo run test",
-    "docs": "yarn turbo run docs",
-    "build-storybook": "yarn turbo run build-storybook --cache-dir=\".turbo\"",
-    "update-readme": "update-readme",
-    "resolve-workspace-deps": "yarn workspace scripts run resolve-workspace-deps",
-    "create-package": "hygen create-package",
-    "release": "yarn changeset publish",
-    "changeset": "changeset",
-    "release-next": "yarn workspaces foreach --no-private -v npm publish --tag next --tolerate-republish",
-    "prettier": "prettier --plugin=@prettier/plugin-xml"
-  },
+  "packageManager": "yarn@4.7.0",
   "engines": {
     "node": "22.14.0"
   },
   "volta": {
     "node": "22.14.0",
     "yarn": "4.5.1"
-  },
-  "packageManager": "yarn@4.7.0",
-  "resolutions": {
-    "jsdom": "25.0.1"
   }
 }

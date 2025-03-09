@@ -6,22 +6,19 @@
     "rocketchat",
     "rocketchat logo"
   ],
-  "author": {
-    "name": "Rocket.Chat",
-    "url": "https://rocket.chat/"
-  },
   "homepage": "https://github.com/RocketChat/fuselage#readme",
-  "license": "MIT",
-  "publishConfig": {
-    "access": "public"
+  "bugs": {
+    "url": "https://github.com/RocketChat/fuselage/issues"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/RocketChat/fuselage.git",
     "directory": "packages/logo"
   },
-  "bugs": {
-    "url": "https://github.com/RocketChat/fuselage/issues"
+  "license": "MIT",
+  "author": {
+    "name": "Rocket.Chat",
+    "url": "https://rocket.chat/"
   },
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -39,6 +36,10 @@
     "lint-and-fix": "lint-and-fix",
     "test": "jest --runInBand",
     "docs": "typedoc"
+  },
+  "dependencies": {
+    "@rocket.chat/fuselage-hooks": "workspace:~",
+    "@rocket.chat/styled": "workspace:~"
   },
   "devDependencies": {
     "@rocket.chat/fuselage-tokens": "workspace:~",
@@ -60,12 +61,11 @@
     "typedoc": "~0.27.9",
     "typescript": "~5.8.2"
   },
-  "dependencies": {
-    "@rocket.chat/fuselage-hooks": "workspace:~",
-    "@rocket.chat/styled": "workspace:~"
-  },
   "peerDependencies": {
     "react": "*",
     "react-dom": "17.0.2"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

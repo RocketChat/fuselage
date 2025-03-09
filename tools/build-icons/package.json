@@ -1,5 +1,6 @@
 {
   "name": "build-icons",
+  "version": "0.31.25",
   "private": true,
   "bin": "./index.mjs",
   "dependencies": {
@@ -12,7 +13,6 @@
     "unicode": "~14.0.0",
     "xml2js": "~0.6.2"
   },
-  "version": "0.31.25",
   "devDependencies": {
     "eslint": "~9.21.0",
     "lint-all": "workspace:~",

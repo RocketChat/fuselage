@@ -7,19 +7,19 @@
     "loader",
     "webpack"
   ],
-  "author": {
-    "name": "Rocket.Chat",
-    "url": "https://rocket.chat/"
-  },
   "homepage": "https://github.com/RocketChat/fuselage#readme",
-  "license": "MIT",
-  "publishConfig": {
-    "access": "public"
+  "bugs": {
+    "url": "https://github.com/RocketChat/fuselage/issues"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/RocketChat/fuselage.git",
     "directory": "packages/peggy-loader"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Rocket.Chat",
+    "url": "https://rocket.chat/"
   },
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -35,13 +35,6 @@
     "lint": "lint",
     "lint-and-fix": "lint-and-fix"
   },
-  "bugs": {
-    "url": "https://github.com/RocketChat/fuselage/issues"
-  },
-  "peerDependencies": {
-    "peggy": "*",
-    "webpack": "*"
-  },
   "devDependencies": {
     "@types/node": "~14.18.42",
     "eslint": "~9.21.0",
@@ -53,5 +46,12 @@
     "ts-jest": "~29.2.6",
     "typescript": "~5.8.2",
     "webpack": "~5.98.0"
+  },
+  "peerDependencies": {
+    "peggy": "*",
+    "webpack": "*"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

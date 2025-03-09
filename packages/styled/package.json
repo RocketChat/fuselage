@@ -2,22 +2,19 @@
   "name": "@rocket.chat/styled",
   "version": "0.32.0",
   "description": "A simple styled API for React components",
-  "author": {
-    "name": "Rocket.Chat",
-    "url": "https://rocket.chat/"
-  },
   "homepage": "https://github.com/RocketChat/fuselage#readme",
-  "license": "MIT",
-  "publishConfig": {
-    "access": "public"
+  "bugs": {
+    "url": "https://github.com/RocketChat/fuselage/issues"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/RocketChat/fuselage.git",
     "directory": "packages/styled"
   },
-  "bugs": {
-    "url": "https://github.com/RocketChat/fuselage/issues"
+  "license": "MIT",
+  "author": {
+    "name": "Rocket.Chat",
+    "url": "https://rocket.chat/"
   },
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -35,6 +32,9 @@
     "test": "jest --runInBand",
     "docs": "typedoc"
   },
+  "dependencies": {
+    "@rocket.chat/css-in-js": "workspace:~"
+  },
   "devDependencies": {
     "@testing-library/react": "~16.2.0",
     "@types/jest": "~29.5.14",
@@ -49,7 +49,7 @@
     "typedoc": "~0.27.9",
     "typescript": "~5.8.2"
   },
-  "dependencies": {
-    "@rocket.chat/css-in-js": "workspace:~"
+  "publishConfig": {
+    "access": "public"
   }
 }
