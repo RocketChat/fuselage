@@ -6,19 +6,19 @@
     "string",
     "helpers"
   ],
-  "author": {
-    "name": "Rocket.Chat",
-    "url": "https://rocket.chat/"
-  },
   "homepage": "https://github.com/RocketChat/fuselage#readme",
-  "license": "MIT",
-  "publishConfig": {
-    "access": "public"
+  "bugs": {
+    "url": "https://github.com/RocketChat/fuselage/issues"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/RocketChat/fuselage.git",
     "directory": "packages/string-helpers"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Rocket.Chat",
+    "url": "https://rocket.chat/"
   },
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -36,8 +36,12 @@
     "test": "jest --runInBand",
     "docs": "typedoc"
   },
-  "bugs": {
-    "url": "https://github.com/RocketChat/fuselage/issues"
+  "jest": {
+    "errorOnDeprecated": true,
+    "preset": "ts-jest",
+    "testMatch": [
+      "<rootDir>/src/**/*.spec.[jt]s?(x)"
+    ]
   },
   "devDependencies": {
     "@types/jest": "~29.5.14",
@@ -51,11 +55,7 @@
     "typedoc": "~0.27.9",
     "typescript": "~5.8.2"
   },
-  "jest": {
-    "preset": "ts-jest",
-    "errorOnDeprecated": true,
-    "testMatch": [
-      "<rootDir>/src/**/*.spec.[jt]s?(x)"
-    ]
+  "publishConfig": {
+    "access": "public"
   }
 }

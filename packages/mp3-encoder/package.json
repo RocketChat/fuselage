@@ -2,25 +2,25 @@
   "name": "@rocket.chat/mp3-encoder",
   "version": "0.31.26",
   "description": "A LAME encoder to be used in web workers",
-  "homepage": "https://rocketchat.github.io/Rocket.Chat.Fuselage/",
-  "author": {
-    "name": "Rocket.Chat",
-    "url": "https://rocket.chat/"
-  },
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/RocketChat/fuselage.git",
-    "directory": "packages/mp3-encoder"
-  },
-  "bugs": {
-    "url": "https://github.com/RocketChat/fuselage/issues"
-  },
   "keywords": [
     "rocket.chat",
     "mp3",
     "encoder"
   ],
+  "homepage": "https://rocketchat.github.io/Rocket.Chat.Fuselage/",
+  "bugs": {
+    "url": "https://github.com/RocketChat/fuselage/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RocketChat/fuselage.git",
+    "directory": "packages/mp3-encoder"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Rocket.Chat",
+    "url": "https://rocket.chat/"
+  },
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
@@ -28,15 +28,12 @@
     "/dist"
   ],
   "scripts": {
-    "start": "rollup -c -w",
     "build": "rollup -c",
+    "docs": "typedoc",
     "lint": "lint",
     "lint-and-fix": "lint-and-fix",
-    "test": "jest --runInBand",
-    "docs": "typedoc"
-  },
-  "publishConfig": {
-    "access": "public"
+    "start": "rollup -c -w",
+    "test": "jest --runInBand"
   },
   "devDependencies": {
     "@babel/core": "~7.26.9",
@@ -56,5 +53,8 @@
     "ts-jest": "~29.2.6",
     "typedoc": "~0.27.9",
     "typescript": "~5.8.2"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

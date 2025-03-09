@@ -2,37 +2,34 @@
   "name": "@rocket.chat/fuselage-hooks",
   "version": "0.35.0",
   "description": "React hooks for Fuselage, Rocket.Chat's design system and UI toolkit",
-  "homepage": "https://rocketchat.github.io/Rocket.Chat.Fuselage/",
-  "author": {
-    "name": "Rocket.Chat",
-    "url": "https://rocket.chat/"
-  },
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/RocketChat/fuselage.git",
-    "directory": "packages/fuselage-hooks"
-  },
-  "bugs": {
-    "url": "https://github.com/RocketChat/fuselage/issues"
-  },
   "keywords": [
     "react",
     "hooks",
     "fuselage",
     "rocket.chat"
   ],
-  "source": "src/index.ts",
+  "homepage": "https://rocketchat.github.io/Rocket.Chat.Fuselage/",
+  "bugs": {
+    "url": "https://github.com/RocketChat/fuselage/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RocketChat/fuselage.git",
+    "directory": "packages/fuselage-hooks"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Rocket.Chat",
+    "url": "https://rocket.chat/"
+  },
   "main": "dist/index.js",
-  "module": "dist/index.module.js",
   "unpkg": "dist/index.umd.js",
+  "module": "dist/index.module.js",
+  "source": "src/index.ts",
   "types": "dist/index.d.ts",
   "files": [
     "/dist"
   ],
-  "publishConfig": {
-    "access": "public"
-  },
   "scripts": {
     "build": "run-s .:build:clean .:build:rollup",
     ".:build:clean": "rimraf dist",
@@ -75,5 +72,8 @@
     "@rocket.chat/emitter": "*",
     "@rocket.chat/fuselage-tokens": "*",
     "react": "*"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

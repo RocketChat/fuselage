@@ -1,5 +1,6 @@
 {
   "name": "scripts",
+  "version": "0.31.25",
   "private": true,
   "scripts": {
     "resolve-workspace-deps": "run-s .:resolve-workspace-deps:run-script .:resolve-workspace-deps:update-lockfile .:resolve-workspace-deps:git-commit",
@@ -20,6 +21,5 @@
     "prettier": "~3.5.2",
     "ts-node": "~10.9.2",
     "typescript": "~5.8.2"
-  },
-  "version": "0.31.25"
+  }
 }

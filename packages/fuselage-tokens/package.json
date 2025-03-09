@@ -2,36 +2,33 @@
   "name": "@rocket.chat/fuselage-tokens",
   "version": "0.33.2",
   "description": "Design tokens for Fuselage, Rocket.Chat's design system",
-  "homepage": "https://rocketchat.github.io/Rocket.Chat.Fuselage/",
-  "author": {
-    "name": "Rocket.Chat",
-    "url": "https://rocket.chat/"
-  },
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/RocketChat/fuselage.git",
-    "directory": "packages/fuselage-tokens"
-  },
-  "bugs": {
-    "url": "https://github.com/RocketChat/fuselage/issues"
-  },
   "keywords": [
     "design",
     "tokens",
     "fuselage",
     "rocket.chat"
   ],
+  "homepage": "https://rocketchat.github.io/Rocket.Chat.Fuselage/",
+  "bugs": {
+    "url": "https://github.com/RocketChat/fuselage/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RocketChat/fuselage.git",
+    "directory": "packages/fuselage-tokens"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Rocket.Chat",
+    "url": "https://rocket.chat/"
+  },
+  "type": "module",
   "files": [
     "dist",
     "/breakpoints.*",
     "/colors.*",
     "/typography.*"
   ],
-  "publishConfig": {
-    "access": "public"
-  },
-  "type": "module",
   "scripts": {
     "build": "run-s .:build:clean  .:build:legacy .:build",
     ".:build": "node ./build --config ./config.js",
@@ -52,5 +49,8 @@
     "stylelint-order": "~6.0.4",
     "stylelint-prettier": "~5.0.3",
     "stylelint-scss": "~6.11.1"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

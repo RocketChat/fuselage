@@ -2,33 +2,30 @@
   "name": "@rocket.chat/emitter",
   "version": "0.31.25",
   "description": "Event Emitter by Rocket.Chat",
+  "keywords": [
+    "rocket.chat"
+  ],
   "homepage": "https://rocketchat.github.io/Rocket.Chat.Fuselage/",
-  "author": {
-    "name": "Rocket.Chat",
-    "url": "https://rocket.chat/"
+  "bugs": {
+    "url": "https://github.com/RocketChat/fuselage/issues"
   },
-  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/RocketChat/fuselage.git"
   },
-  "bugs": {
-    "url": "https://github.com/RocketChat/fuselage/issues"
+  "license": "MIT",
+  "author": {
+    "name": "Rocket.Chat",
+    "url": "https://rocket.chat/"
   },
-  "keywords": [
-    "rocket.chat"
-  ],
-  "source": "src/index.ts",
   "main": "dist/index.js",
-  "module": "dist/index.module.js",
   "unpkg": "dist/index.umd.js",
+  "module": "dist/index.module.js",
+  "source": "src/index.ts",
   "types": "dist/index.d.ts",
   "files": [
     "/dist"
   ],
-  "publishConfig": {
-    "access": "public"
-  },
   "scripts": {
     "build": "rollup -c",
     "lint": "lint",
@@ -53,5 +50,8 @@
     "ts-jest": "~29.2.6",
     "typedoc": "~0.27.9",
     "typescript": "~5.8.2"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

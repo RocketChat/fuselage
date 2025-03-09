@@ -9,22 +9,19 @@
     "toastbar",
     "fuselage-toastbar"
   ],
-  "author": {
-    "name": "Rocket.Chat",
-    "url": "https://rocket.chat/"
-  },
   "homepage": "https://github.com/RocketChat/fuselage#readme",
-  "license": "MIT",
-  "publishConfig": {
-    "access": "public"
+  "bugs": {
+    "url": "https://github.com/RocketChat/fuselage/issues"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/RocketChat/fuselage.git",
     "directory": "packages/fuselage-toastbar"
   },
-  "bugs": {
-    "url": "https://github.com/RocketChat/fuselage/issues"
+  "license": "MIT",
+  "author": {
+    "name": "Rocket.Chat",
+    "url": "https://rocket.chat/"
   },
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -43,6 +40,9 @@
     "docs": "typedoc",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
+  },
+  "dependencies": {
+    "react-timing-hooks": "~4.0.2"
   },
   "devDependencies": {
     "@rocket.chat/fuselage": "workspace:~",
@@ -87,7 +87,7 @@
   "volta": {
     "extends": "../../package.json"
   },
-  "dependencies": {
-    "react-timing-hooks": "~4.0.2"
+  "publishConfig": {
+    "access": "public"
   }
 }

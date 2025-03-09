@@ -5,19 +5,19 @@
   "keywords": [
     "rocketchat"
   ],
-  "author": {
-    "name": "Rocket.Chat",
-    "url": "https://rocket.chat/"
-  },
   "homepage": "https://github.com/RocketChat/fuselage#readme",
-  "license": "MIT",
-  "publishConfig": {
-    "access": "public"
+  "bugs": {
+    "url": "https://github.com/RocketChat/fuselage/issues"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/RocketChat/fuselage.git",
     "directory": "packages/onboarding-ui"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Rocket.Chat",
+    "url": "https://rocket.chat/"
   },
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -37,8 +37,9 @@
     "storybook": "storybook dev -p 6006 --no-version-updates",
     "build-storybook": "storybook build"
   },
-  "bugs": {
-    "url": "https://github.com/RocketChat/fuselage/issues"
+  "dependencies": {
+    "i18next": "~21.6.16",
+    "react-hook-form": "~7.54.2"
   },
   "devDependencies": {
     "@rocket.chat/fuselage": "workspace:~",
@@ -76,10 +77,6 @@
     "typedoc": "~0.27.9",
     "typescript": "~5.8.2"
   },
-  "dependencies": {
-    "i18next": "~21.6.16",
-    "react-hook-form": "~7.54.2"
-  },
   "peerDependencies": {
     "@rocket.chat/fuselage": "*",
     "@rocket.chat/fuselage-hooks": "*",
@@ -94,5 +91,8 @@
   },
   "volta": {
     "extends": "../../package.json"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

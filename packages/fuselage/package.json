@@ -2,19 +2,19 @@
   "name": "@rocket.chat/fuselage",
   "version": "0.61.0",
   "description": "Rocket.Chat's React Components Library",
-  "author": {
-    "name": "Rocket.Chat",
-    "url": "https://rocket.chat/"
-  },
-  "license": "MIT",
   "homepage": "https://github.com/RocketChat/fuselage#readme",
+  "bugs": {
+    "url": "https://github.com/RocketChat/fuselage/issues"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/RocketChat/fuselage.git",
     "directory": "packages/fuselage"
   },
-  "bugs": {
-    "url": "https://github.com/RocketChat/fuselage/issues"
+  "license": "MIT",
+  "author": {
+    "name": "Rocket.Chat",
+    "url": "https://rocket.chat/"
   },
   "main": "index.js",
   "types": "dist/index.d.ts",
@@ -22,9 +22,6 @@
     "/dist",
     "/index.js"
   ],
-  "publishConfig": {
-    "access": "public"
-  },
   "scripts": {
     "start": "webpack --watch --mode development",
     "storybook": "storybook dev -p 6006 --no-version-updates",
@@ -42,14 +39,6 @@
     "watch": "jest --watch",
     "docs": "cross-env NODE_ENV=production storybook build -o ../../static/fuselage",
     "build-storybook": "cross-env NODE_ENV=production storybook build"
-  },
-  "peerDependencies": {
-    "@rocket.chat/fuselage-hooks": "*",
-    "@rocket.chat/fuselage-polyfills": "*",
-    "@rocket.chat/icons": "*",
-    "react": "*",
-    "react-dom": "*",
-    "react-virtuoso": "1.2.4"
   },
   "dependencies": {
     "@rocket.chat/css-in-js": "workspace:~",
@@ -138,7 +127,18 @@
     "webpack-cli": "~5.1.4",
     "wrapper-webpack-plugin": "~2.2.2"
   },
+  "peerDependencies": {
+    "@rocket.chat/fuselage-hooks": "*",
+    "@rocket.chat/fuselage-polyfills": "*",
+    "@rocket.chat/icons": "*",
+    "react": "*",
+    "react-dom": "*",
+    "react-virtuoso": "1.2.4"
+  },
   "volta": {
     "extends": "../../package.json"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

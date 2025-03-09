@@ -1,23 +1,23 @@
 {
   "name": "tools-utils",
+  "version": "0.31.25",
   "private": true,
   "exports": {
     "./*": "./*.mjs"
-  },
-  "peerDependencies": {
-    "eslint": "*",
-    "prettier": "*",
-    "stylelint": "*"
   },
   "dependencies": {
     "fast-glob": "~3.3.3",
     "json5": "^2.2.3",
     "rimraf": "~6.0.1"
   },
-  "version": "0.31.25",
   "devDependencies": {
     "eslint": "~9.21.0",
     "lint-all": "workspace:~",
     "prettier": "~3.5.2"
+  },
+  "peerDependencies": {
+    "eslint": "*",
+    "prettier": "*",
+    "stylelint": "*"
   }
 }

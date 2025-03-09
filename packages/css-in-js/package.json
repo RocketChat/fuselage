@@ -2,42 +2,46 @@
   "name": "@rocket.chat/css-in-js",
   "version": "0.31.25",
   "description": "Toolset to transpile and use CSS on runtime",
+  "keywords": [
+    "rocket.chat",
+    "css-in-js"
+  ],
   "homepage": "https://rocketchat.github.io/Rocket.Chat.Fuselage/",
-  "author": {
-    "name": "Rocket.Chat",
-    "url": "https://rocket.chat/"
+  "bugs": {
+    "url": "https://github.com/RocketChat/fuselage/issues"
   },
-  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/RocketChat/fuselage.git",
     "directory": "packages/css-in-js"
   },
-  "bugs": {
-    "url": "https://github.com/RocketChat/fuselage/issues"
+  "license": "MIT",
+  "author": {
+    "name": "Rocket.Chat",
+    "url": "https://rocket.chat/"
   },
-  "keywords": [
-    "rocket.chat",
-    "css-in-js"
-  ],
-  "source": "src/index.ts",
   "main": "dist/index.js",
-  "module": "dist/index.module.js",
   "unpkg": "dist/index.umd.js",
+  "module": "dist/index.module.js",
+  "source": "src/index.ts",
   "types": "dist/index.d.ts",
   "files": [
     "/dist",
     "/logicalProperties"
   ],
-  "publishConfig": {
-    "access": "public"
-  },
   "scripts": {
     "build": "rollup -c",
+    "docs": "typedoc",
     "lint": "lint",
     "lint-and-fix": "lint-and-fix",
-    "test": "jest --runInBand",
-    "docs": "typedoc"
+    "test": "jest --runInBand"
+  },
+  "dependencies": {
+    "@emotion/hash": "^0.9.2",
+    "@rocket.chat/css-supports": "workspace:~",
+    "@rocket.chat/memo": "workspace:~",
+    "@rocket.chat/stylis-logical-props-middleware": "workspace:~",
+    "stylis": "~4.3.6"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "~28.0.3",
@@ -57,11 +61,7 @@
     "typedoc": "~0.27.9",
     "typescript": "~5.8.2"
   },
-  "dependencies": {
-    "@emotion/hash": "^0.9.2",
-    "@rocket.chat/css-supports": "workspace:~",
-    "@rocket.chat/memo": "workspace:~",
-    "@rocket.chat/stylis-logical-props-middleware": "workspace:~",
-    "stylis": "~4.3.6"
+  "publishConfig": {
+    "access": "public"
   }
 }

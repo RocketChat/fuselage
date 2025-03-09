@@ -2,23 +2,20 @@
   "name": "@rocket.chat/fuselage-polyfills",
   "version": "0.31.25",
   "description": "A bundle of useful poly/ponyfills used by fuselage",
-  "author": {
-    "name": "Rocket.Chat",
-    "url": "https://rocket.chat/"
+  "bugs": {
+    "url": "https://github.com/RocketChat/fuselage/issues"
   },
-  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/RocketChat/fuselage.git"
   },
-  "bugs": {
-    "url": "https://github.com/RocketChat/fuselage/issues"
+  "license": "MIT",
+  "author": {
+    "name": "Rocket.Chat",
+    "url": "https://rocket.chat/"
   },
   "main": "index.js",
   "types": "index.d.ts",
-  "publishConfig": {
-    "access": "public"
-  },
   "scripts": {
     "lint": "lint",
     "lint-and-fix": "lint-and-fix"
@@ -35,5 +32,8 @@
     "eslint": "~9.21.0",
     "lint-all": "workspace:~",
     "prettier": "~3.5.2"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

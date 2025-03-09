@@ -1,39 +1,39 @@
 {
   "name": "@rocket.chat/prettier-config",
-  "description": "Prettier configuration for Rocket.Chat repositories",
   "version": "0.31.25",
-  "author": {
-    "name": "Rocket.Chat",
-    "url": "https://rocket.chat/"
-  },
-  "license": "MIT",
+  "description": "Prettier configuration for Rocket.Chat repositories",
   "homepage": "https://github.com/RocketChat/fuselage#readme",
+  "bugs": {
+    "url": "https://github.com/RocketChat/fuselage/issues"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/RocketChat/fuselage.git",
     "directory": "packages/prettier-config"
   },
-  "bugs": {
-    "url": "https://github.com/RocketChat/fuselage/issues"
+  "license": "MIT",
+  "author": {
+    "name": "Rocket.Chat",
+    "url": "https://rocket.chat/"
   },
   "main": "default/index.js",
   "files": [
     "/default",
     "/fuselage"
   ],
-  "publishConfig": {
-    "access": "public"
-  },
   "scripts": {
     "lint": "lint",
     "lint-and-fix": "lint-and-fix"
-  },
-  "peerDependencies": {
-    "prettier": "*"
   },
   "devDependencies": {
     "eslint": "~9.21.0",
     "lint-all": "workspace:~",
     "prettier": "~3.5.2"
+  },
+  "peerDependencies": {
+    "prettier": "*"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
