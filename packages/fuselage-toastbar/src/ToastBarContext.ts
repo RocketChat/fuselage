@@ -7,6 +7,7 @@ export type ToastBarPayload = {
   position?: 'top-start' | 'top-end' | 'bottom-start' | 'bottom-end';
   time: number;
   id: string;
+  isPersistent?: boolean;
 };
 
 type ToastBarContextValue = {
