@@ -23,7 +23,7 @@ const ToastBarTimed = ({
       variant={type}
       onPointerEnter={() => pause()}
       onPointerLeave={() => resume()}
-      children={String(message)}
+      children={message instanceof Error ? String(message) : message}
       onClose={dismissToastMessage}
       id={id}
       time={time}

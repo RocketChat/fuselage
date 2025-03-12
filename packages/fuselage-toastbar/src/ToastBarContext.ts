@@ -1,8 +1,8 @@
-import { createContext, useContext } from 'react';
+import { createContext, ReactNode, useContext } from 'react';
 
 export type ToastBarPayload = {
   type?: 'success' | 'info' | 'error';
-  message: string | Error;
+  message: ReactNode | string | Error;
   title?: string;
   position?: 'top-start' | 'top-end' | 'bottom-start' | 'bottom-end';
   time: number;
