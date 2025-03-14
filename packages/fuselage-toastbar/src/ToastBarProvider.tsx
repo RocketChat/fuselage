@@ -3,6 +3,7 @@ import { useState, memo, useCallback } from 'react';
 
 import type { ToastBarPayload } from './ToastBarContext';
 import { ToastBarContext } from './ToastBarContext';
+import ToastBarPersistent from './ToastBarPersistent';
 import ToastBarPortal from './ToastBarPortal';
 import ToastBarTimed from './ToastBarTimed';
 import ToastBarZone from './ToastBarZone';
@@ -52,9 +53,13 @@ const ToastBarProvider = ({ children }: ToastBarProps): ReactElement => {
             key={zone}
             position={zone as ToastBarPayload['position']}
           >
-            {toasts.map((toast) => (
-              <ToastBarTimed key={toast.id} {...toast} />
-            ))}
+            {toasts.map((toast) =>
+              toast.isPersistent ? (
+                <ToastBarPersistent key={toast.id} {...toast} />
+              ) : (
+                <ToastBarTimed key={toast.id} {...toast} />
+              ),
+            )}
           </ToastBarZone>
         ))}
       </ToastBarPortal>
