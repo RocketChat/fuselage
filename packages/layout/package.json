@@ -2,22 +2,19 @@
   "name": "@rocket.chat/layout",
   "version": "0.32.0",
   "description": "Shared Application Layout Components",
-  "author": {
-    "name": "Rocket.Chat",
-    "url": "https://rocket.chat/"
-  },
   "homepage": "https://github.com/RocketChat/fuselage#readme",
-  "license": "MIT",
-  "publishConfig": {
-    "access": "public"
+  "bugs": {
+    "url": "https://github.com/RocketChat/fuselage/issues"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/RocketChat/fuselage.git",
     "directory": "packages/layout"
   },
-  "bugs": {
-    "url": "https://github.com/RocketChat/fuselage/issues"
+  "license": "MIT",
+  "author": {
+    "name": "Rocket.Chat",
+    "url": "https://rocket.chat/"
   },
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -59,7 +56,7 @@
     "react": "~18.3.1",
     "react-dom": "~18.3.1",
     "react-i18next": "~13.2.2",
-    "rimraf": "~3.0.2",
+    "rimraf": "~6.0.1",
     "storybook": "~8.6.4",
     "storybook-dark-mode": "~4.0.2",
     "ts-jest": "~29.2.6",
@@ -74,5 +71,8 @@
   },
   "volta": {
     "extends": "../../package.json"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
