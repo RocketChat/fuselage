@@ -32,8 +32,8 @@
     "new-event-polyfill": "^1.0.1"
   },
   "devDependencies": {
-    "eslint": "~9.21.0",
+    "eslint": "~9.22.0",
     "lint-all": "workspace:~",
-    "prettier": "~3.5.2"
+    "prettier": "~3.5.3"
   }
 }
