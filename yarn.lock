@@ -4860,7 +4860,7 @@ __metadata:
   dependencies:
     build-design-tokens: "workspace:~"
     eslint: "npm:~9.21.0"
-    eslint-config-prettier: "npm:~8.8.0"
+    eslint-config-prettier: "npm:~10.1.1"
     lint-all: "workspace:~"
     npm-run-all: "npm:^4.1.5"
     postcss-scss: "npm:~4.0.9"
@@ -10310,14 +10310,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-prettier@npm:~8.8.0":
-  version: 8.8.0
-  resolution: "eslint-config-prettier@npm:8.8.0"
+"eslint-config-prettier@npm:~10.1.1":
+  version: 10.1.1
+  resolution: "eslint-config-prettier@npm:10.1.1"
   peerDependencies:
     eslint: ">=7.0.0"
   bin:
     eslint-config-prettier: bin/cli.js
-  checksum: 10/3638144cecada897105ff9442bc85aba71c4f44d7d25b576cb34d50a207f6655f7cc55e729aad1a934a9f15e55c88e7adcbd1067d6582325fc89864c879b52f1
+  checksum: 10/e78e195a4f19e0de9bf655648bb3433877d6a5368537f1b1049976b74180844a00dd7c1ba3144e3da6e8b6864f8dcdfcda6c7338a537883fcf5b212ef6dcd0e0
   languageName: node
   linkType: hard
 
