@@ -9,9 +9,9 @@
     "sharp": "~0.33.5"
   },
   "devDependencies": {
-    "eslint": "~9.21.0",
+    "eslint": "~9.22.0",
     "lint-all": "workspace:~",
-    "prettier": "~3.5.2",
+    "prettier": "~3.5.3",
     "tools-utils": "workspace:~"
   }
 }
