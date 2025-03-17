@@ -1,5 +1,11 @@
 # @rocket.chat/fuselage-toastbar
 
+## 0.35.0
+
+### Minor Changes
+
+- [#1591](https://github.com/RocketChat/fuselage/pull/1591) [`13755ae`](https://github.com/RocketChat/fuselage/commit/13755aef092f68a392809999a03c54bd0ec66749) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(toastbar): new Toastbar variants
+
 ## 0.34.0
 
 ### Minor Changes
