@@ -53,18 +53,16 @@ export const Default: StoryFn = () => {
   );
 };
 
-const Template: StoryFn<{
-  position: 'top-start' | 'top-end' | 'bottom-start' | 'bottom-end';
-}> = ({ position }) => {
+const Template: StoryFn<typeof useToastBarDispatch> = (args) => {
   const dispatchToastMessage = useToastBarDispatch();
 
   useEffect(() => {
     dispatchToastMessage({
       type: 'success',
       message: DEFAULT_MESSAGE,
-      position,
+      ...args,
     });
-  }, [dispatchToastMessage, position]);
+  }, [args, dispatchToastMessage]);
 
   return (
     <Button
@@ -73,7 +71,7 @@ const Template: StoryFn<{
         dispatchToastMessage({
           type: 'success',
           message: DEFAULT_MESSAGE,
-          position,
+          ...args,
         })
       }
     >
@@ -100,4 +98,9 @@ BottomStart.args = {
 export const BottomEnd = Template.bind({});
 BottomEnd.args = {
   position: 'bottom-end',
+};
+
+export const Persistent = Template.bind({});
+Persistent.args = {
+  isPersistent: true,
 };

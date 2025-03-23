@@ -10,6 +10,7 @@ const ToastBarTimed = ({
   type,
   id,
   message,
+  title,
 }: ToastBarPayload): ReactElement => {
   const dismissToastMessage = useToastBarDismiss();
 
@@ -23,12 +24,14 @@ const ToastBarTimed = ({
       variant={type}
       onPointerEnter={() => pause()}
       onPointerLeave={() => resume()}
-      children={String(message)}
       onClose={dismissToastMessage}
       id={id}
       time={time}
       isPaused={isPaused}
-    />
+    >
+      {title}
+      {message instanceof Error ? String(message) : message}
+    </ToastBar>
   );
 };
 
