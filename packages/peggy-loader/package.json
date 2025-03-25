@@ -43,7 +43,7 @@
     "peggy": "3.0.2",
     "prettier": "~3.5.3",
     "rimraf": "~6.0.1",
-    "ts-jest": "~29.2.6",
+    "ts-jest": "~29.3.0",
     "typescript": "~5.8.2",
     "webpack": "~5.98.0"
   },
