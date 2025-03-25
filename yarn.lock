@@ -5060,7 +5060,7 @@ __metadata:
     "@types/jest": "npm:~29.5.14"
     "@types/react": "npm:~18.3.18"
     "@types/react-dom": "npm:~18.3.5"
-    countries-list: "npm:^2.6.1"
+    countries-list: "npm:^3.1.1"
     eslint: "npm:~9.23.0"
     i18next: "npm:~21.6.16"
     jest: "npm:~29.7.0"
@@ -8806,10 +8806,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"countries-list@npm:^2.6.1":
-  version: 2.6.1
-  resolution: "countries-list@npm:2.6.1"
-  checksum: 10/fd2714ec8b1474a7af34d5cd176d526c03037d5ce504122a81e3d60f191032a48f93c729a8ac2ea6f059c280e46902792b83e60b0fdfa60fe1db5c7746ed1b08
+"countries-list@npm:^3.1.1":
+  version: 3.1.1
+  resolution: "countries-list@npm:3.1.1"
+  checksum: 10/4519de861c55b4424a089d5335a0094ddca47086ca98a910eac0f4682a582a52fb4453ed067beb4b81fcf7c62e93ea41919d6ad290f36b7e5cb777b84b9e4b9b
   languageName: node
   linkType: hard
 
