@@ -4,7 +4,7 @@
   "private": true,
   "bin": "./index.mjs",
   "dependencies": {
-    "stylelint": "~16.14.1",
+    "stylelint": "~16.16.0",
     "tools-utils": "workspace:~"
   },
   "devDependencies": {
