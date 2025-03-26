@@ -1,6 +1,6 @@
 import { Emitter } from '@rocket.chat/emitter';
-import type { Dispatch, SetStateAction } from 'react';
-import { useRef, useCallback, useSyncExternalStore } from 'react';
+import type { Dispatch, MutableRefObject, SetStateAction } from 'react';
+import { useRef, useCallback, useSyncExternalStore, useState } from 'react';
 
 const getStorageItem = (
   key: string,
@@ -37,9 +37,11 @@ function makeStorageHook(
     const initialValueRef = useRef(initialValue);
     initialValueRef.current = initialValue;
 
-    const valueRef = useRef(getStorageItem(getKey(key), initialValue, storage));
+    const [valueRef] = useState<MutableRefObject<T>>(() => ({
+      current: getStorageItem(getKey(key), initialValue, storage),
+    }));
 
-    const getSnapshot = useCallback(() => valueRef.current, []);
+    const getSnapshot = useCallback(() => valueRef.current, [valueRef]);
 
     const getServerSnapshot = useCallback(() => initialValueRef.current, []);
 
@@ -68,7 +70,7 @@ function makeStorageHook(
           window.removeEventListener('storage', handleEvent);
         };
       },
-      [key],
+      [key, valueRef],
     );
 
     const storedValue = useSyncExternalStore(
@@ -85,7 +87,7 @@ function makeStorageHook(
         ee.emit(key, valueToStore);
         return valueToStore;
       },
-      [key],
+      [key, valueRef],
     );
 
     return [storedValue, setValue];
