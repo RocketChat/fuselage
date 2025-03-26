@@ -4706,7 +4706,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/emitter@workspace:packages/emitter":
+"@rocket.chat/emitter@workspace:packages/emitter, @rocket.chat/emitter@workspace:~":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/emitter@workspace:packages/emitter"
   dependencies:
@@ -4732,6 +4732,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@rocket.chat/fuselage-hooks@workspace:packages/fuselage-hooks"
   dependencies:
+    "@rocket.chat/emitter": "workspace:~"
     "@rocket.chat/fuselage-tokens": "workspace:~"
     "@rollup/plugin-commonjs": "npm:~21.0.3"
     "@rollup/plugin-json": "npm:~4.1.0"
@@ -4759,6 +4760,7 @@ __metadata:
     typedoc: "npm:~0.27.9"
     typescript: "npm:~5.8.2"
   peerDependencies:
+    "@rocket.chat/emitter": "*"
     "@rocket.chat/fuselage-tokens": "*"
     react: "*"
   languageName: unknown

@@ -25,11 +25,11 @@
 Firstly, install the peer dependencies (prerequisites):
 
 ```sh
-npm i @rocket.chat/fuselage-tokens react
+npm i @rocket.chat/emitter @rocket.chat/fuselage-tokens react
 
 # or, if you are using yarn:
 
-yarn add @rocket.chat/fuselage-tokens react
+yarn add @rocket.chat/emitter @rocket.chat/fuselage-tokens react
 ```
 
 Add `@rocket.chat/fuselage-hooks` as a dependency:
