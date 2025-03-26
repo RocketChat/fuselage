@@ -42,6 +42,7 @@
     "test": "jest --runInBand"
   },
   "devDependencies": {
+    "@rocket.chat/emitter": "workspace:~",
     "@rocket.chat/fuselage-tokens": "workspace:~",
     "@rollup/plugin-commonjs": "~21.0.3",
     "@rollup/plugin-json": "~4.1.0",
@@ -70,6 +71,7 @@
     "typescript": "~5.8.2"
   },
   "peerDependencies": {
+    "@rocket.chat/emitter": "*",
     "@rocket.chat/fuselage-tokens": "*",
     "react": "*"
   }
