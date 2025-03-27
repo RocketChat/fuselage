@@ -7,8 +7,6 @@ const FormSubtitle = forwardRef<
   Omit<FormHTMLAttributes<HTMLElement>, 'is'> & {
     children: ReactNode;
   }
->((props, ref) => (
-  <Box fontScale='p2' color='neutral-900' {...props} ref={ref} />
-));
+>((props, ref) => <Box fontScale='p2' color='hint' {...props} ref={ref} />);
 
 export default FormSubtitle;
