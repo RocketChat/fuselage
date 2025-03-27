@@ -4,7 +4,7 @@ import type { Meta, StoryFn } from '@storybook/react';
 import TooltipWrapper from './TooltipWrapper';
 
 export default {
-  title: 'common/TooltipWrapper',
+  title: 'components/TooltipWrapper',
   component: TooltipWrapper,
 } satisfies Meta<typeof TooltipWrapper>;
 
