@@ -9,21 +9,26 @@ import {
 } from '@rocket.chat/fuselage';
 import type { Meta, StoryFn } from '@storybook/react';
 
-import ActionLink from '../ActionLink';
-import Form from '../FormPageLayout';
-
+import ActionLink from '../../components/ActionLink/ActionLink';
 import {
-  HorizontalWizardLayout,
-  HorizontalWizardLayoutAside,
-  HorizontalWizardLayoutContent,
-  HorizontalWizardLayoutDescription,
-  HorizontalWizardLayoutSubtitle,
-  HorizontalWizardLayoutTitle,
-  HorizontalWizardTextHighlight,
-} from './HorizontalWizardLayout';
+  Form,
+  FormHeader,
+  FormFooter,
+  FormContainer,
+  FormTitle,
+  FormSubtitle,
+} from '../../components/FormPageLayout';
+
+import HorizontalWizardLayout from './HorizontalWizardLayout';
+import HorizontalWizardLayoutAside from './HorizontalWizardLayoutAside';
+import HorizontalWizardLayoutContent from './HorizontalWizardLayoutContent';
+import HorizontalWizardLayoutDescription from './HorizontalWizardLayoutDescription';
+import HorizontalWizardLayoutSubtitle from './HorizontalWizardLayoutSubtitle';
+import HorizontalWizardLayoutTitle from './HorizontalWizardLayoutTitle';
+import HorizontalWizardTextHighlight from './HorizontalWizardTextHighlight';
 
 export default {
-  title: 'HorizontalWizardLayout',
+  title: 'layouts/HorizontalWizardLayout',
   component: HorizontalWizardLayout,
 } satisfies Meta<typeof HorizontalWizardLayout>;
 
@@ -49,11 +54,11 @@ export const Default: StoryFn<typeof HorizontalWizardLayout> = (props) => (
       </HorizontalWizardLayoutAside>
       <HorizontalWizardLayoutContent>
         <Form onSubmit={console.log}>
-          <Form.Header>
-            <Form.Title>Title</Form.Title>
-            <Form.Subtitle>Subtitle</Form.Subtitle>
-          </Form.Header>
-          <Form.Container>
+          <FormHeader>
+            <FormTitle>Title</FormTitle>
+            <FormSubtitle>Subtitle</FormSubtitle>
+          </FormHeader>
+          <FormContainer>
             <Field>
               <FieldLabel>Label</FieldLabel>
               <FieldDescription>Description</FieldDescription>
@@ -63,8 +68,8 @@ export const Default: StoryFn<typeof HorizontalWizardLayout> = (props) => (
               <FieldError>Error</FieldError>
               <FieldHint>Hint</FieldHint>
             </Field>
-          </Form.Container>
-          <Form.Footer>footer</Form.Footer>
+          </FormContainer>
+          <FormFooter>footer</FormFooter>
         </Form>
       </HorizontalWizardLayoutContent>
     </HorizontalWizardLayout>
@@ -84,11 +89,11 @@ export const WithScroll: StoryFn<typeof HorizontalWizardLayout> = (props) => (
     </HorizontalWizardLayoutAside>
     <HorizontalWizardLayoutContent>
       <Form onSubmit={console.log}>
-        <Form.Header>
-          <Form.Title>Title</Form.Title>
-          <Form.Subtitle>Subtitle</Form.Subtitle>
-        </Form.Header>
-        <Form.Container>
+        <FormHeader>
+          <FormTitle>Title</FormTitle>
+          <FormSubtitle>Subtitle</FormSubtitle>
+        </FormHeader>
+        <FormContainer>
           <Field>
             <FieldLabel>Label</FieldLabel>
             <FieldDescription>Description</FieldDescription>
@@ -197,8 +202,8 @@ export const WithScroll: StoryFn<typeof HorizontalWizardLayout> = (props) => (
             <FieldRow>Error</FieldRow>
             <FieldHint>Hint</FieldHint>
           </Field>
-        </Form.Container>
-        <Form.Footer>footer</Form.Footer>
+        </FormContainer>
+        <FormFooter>footer</FormFooter>
       </Form>
     </HorizontalWizardLayoutContent>
   </HorizontalWizardLayout>
