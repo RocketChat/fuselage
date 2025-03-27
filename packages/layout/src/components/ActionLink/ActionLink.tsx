@@ -9,7 +9,7 @@ import type {
 import { useCallback } from 'react';
 
 type ActionLinkProps = {
-  children?: ReactNode;
+  children: ReactNode;
   href?: string;
   fontScale?: ComponentProps<typeof Box>['fontScale'];
 } & AnchorHTMLAttributes<HTMLAnchorElement>;
@@ -34,7 +34,7 @@ const ActionLink = ({
     <Box
       {...props}
       is='a'
-      fontScale={'p2'}
+      fontScale='p2'
       href={href}
       color='info'
       mi={4}
