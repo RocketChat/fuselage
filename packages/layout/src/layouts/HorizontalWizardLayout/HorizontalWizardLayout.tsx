@@ -1,7 +1,7 @@
 import type { ReactElement, ReactNode } from 'react';
 
-import BackgroundLayer from '../../BackgroundLayer';
 import DarkModeProvider from '../../DarkModeProvider';
+import BackgroundLayer from '../../components/BackgroundLayer';
 import * as FormPageLayout from '../../components/FormPageLayout/FormPageLayout.styles';
 import type { LayoutContextValue } from '../../contexts/LayoutContext';
 import { LayoutContext } from '../../contexts/LayoutContext';

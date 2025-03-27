@@ -1,9 +1,9 @@
 import { Box, Margins } from '@rocket.chat/fuselage';
 import type { ReactElement, ReactNode } from 'react';
 
-import BackgroundLayer from '../../BackgroundLayer';
 import DarkModeProvider from '../../DarkModeProvider';
-import { LayoutLogo } from '../../components/LayoutLogo';
+import { LayoutLogo } from '../../LayoutLogo';
+import BackgroundLayer from '../../components/BackgroundLayer';
 import type { LayoutContextValue } from '../../contexts/LayoutContext';
 import { LayoutContext } from '../../contexts/LayoutContext';
 

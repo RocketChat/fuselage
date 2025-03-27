@@ -3,8 +3,8 @@ import type { ReactElement, ReactNode } from 'react';
 import { useMemo } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 
-import { useDarkMode } from '../DarkModeProvider';
-import { useLayoutContext } from '../contexts/LayoutContext';
+import { useDarkMode } from '../../DarkModeProvider';
+import { useLayoutContext } from '../../contexts/LayoutContext';
 
 import BackgroundImage from './BackgroundImage';
 import { Wrapper } from './BackgroundLayer.styles';
