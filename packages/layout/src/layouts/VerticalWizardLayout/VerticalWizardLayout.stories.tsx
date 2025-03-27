@@ -9,17 +9,22 @@ import {
 } from '@rocket.chat/fuselage';
 import type { Meta, StoryFn } from '@storybook/react';
 
-import Form from '../FormPageLayout';
-
 import {
-  VerticalWizardLayout,
-  VerticalWizardLayoutTitle,
-  VerticalWizardLayoutForm,
-  VerticalWizardLayoutFooter,
-} from './VerticalWizardLayout';
+  Form,
+  FormContainer,
+  FormFooter,
+  FormHeader,
+  FormSubtitle,
+  FormTitle,
+} from '../../components/FormPageLayout';
+
+import VerticalWizardLayout from './VerticalWizardLayout';
+import VerticalWizardLayoutFooter from './VerticalWizardLayoutFooter';
+import VerticalWizardLayoutForm from './VerticalWizardLayoutForm';
+import VerticalWizardLayoutTitle from './VerticalWizardLayoutTitle';
 
 export default {
-  title: 'VerticalWizardLayout',
+  title: 'layouts/VerticalWizardLayout',
   component: VerticalWizardLayout,
 } satisfies Meta<typeof VerticalWizardLayout>;
 
@@ -28,11 +33,11 @@ export const Default: StoryFn<typeof VerticalWizardLayout> = () => (
     <VerticalWizardLayoutTitle>Title</VerticalWizardLayoutTitle>
     <VerticalWizardLayoutForm>
       <Form onSubmit={console.log}>
-        <Form.Header>
-          <Form.Title>Title</Form.Title>
-          <Form.Subtitle>Subtitle</Form.Subtitle>
-        </Form.Header>
-        <Form.Container>
+        <FormHeader>
+          <FormTitle>Title</FormTitle>
+          <FormSubtitle>Subtitle</FormSubtitle>
+        </FormHeader>
+        <FormContainer>
           <Field>
             <FieldLabel>Label</FieldLabel>
             <FieldDescription>Description</FieldDescription>
@@ -42,8 +47,8 @@ export const Default: StoryFn<typeof VerticalWizardLayout> = () => (
             <FieldError>Error</FieldError>
             <FieldHint>Hint</FieldHint>
           </Field>
-        </Form.Container>
-        <Form.Footer>footer</Form.Footer>
+        </FormContainer>
+        <FormFooter>footer</FormFooter>
       </Form>
     </VerticalWizardLayoutForm>
     <VerticalWizardLayoutFooter>
@@ -57,11 +62,11 @@ export const WithScroll: StoryFn<typeof VerticalWizardLayout> = () => (
     <VerticalWizardLayoutTitle>Title</VerticalWizardLayoutTitle>
     <VerticalWizardLayoutForm>
       <Form onSubmit={console.log}>
-        <Form.Header>
-          <Form.Title>Title</Form.Title>
-          <Form.Subtitle>Subtitle</Form.Subtitle>
-        </Form.Header>
-        <Form.Container>
+        <FormHeader>
+          <FormTitle>Title</FormTitle>
+          <FormSubtitle>Subtitle</FormSubtitle>
+        </FormHeader>
+        <FormContainer>
           <Field>
             <FieldLabel>Label</FieldLabel>
             <FieldDescription>Description</FieldDescription>
@@ -179,8 +184,8 @@ export const WithScroll: StoryFn<typeof VerticalWizardLayout> = () => (
             <FieldError>Error</FieldError>
             <FieldHint>Hint</FieldHint>
           </Field>
-        </Form.Container>
-        <Form.Footer>footer</Form.Footer>
+        </FormContainer>
+        <FormFooter>footer</FormFooter>
       </Form>
     </VerticalWizardLayoutForm>
     <VerticalWizardLayoutFooter>

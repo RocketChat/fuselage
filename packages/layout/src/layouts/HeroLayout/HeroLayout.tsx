@@ -1,25 +1,13 @@
 import { Box, Margins } from '@rocket.chat/fuselage';
 import type { ReactElement, ReactNode } from 'react';
 
-import BackgroundLayer from '../BackgroundLayer';
-import DarkModeProvider from '../DarkModeProvider';
-import { LayoutLogo } from '../LayoutLogo';
-import type { LayoutContextValue } from '../contexts/LayoutContext';
-import { LayoutContext } from '../contexts/LayoutContext';
+import BackgroundLayer from '../../BackgroundLayer';
+import DarkModeProvider from '../../DarkModeProvider';
+import { LayoutLogo } from '../../components/LayoutLogo';
+import type { LayoutContextValue } from '../../contexts/LayoutContext';
+import { LayoutContext } from '../../contexts/LayoutContext';
 
-export const HeroLayoutTitle = ({
-  children,
-}: {
-  children: ReactNode;
-}): ReactElement => <Box fontScale='hero'>{children}</Box>;
-
-export const HeroLayoutSubtitle = ({
-  children,
-}: {
-  children: ReactNode;
-}): ReactElement => <Box fontScale='p1'>{children}</Box>;
-
-export const HeroLayout = ({
+const HeroLayout = ({
   children,
   forceDarkMode,
   ...rest
@@ -41,7 +29,6 @@ export const HeroLayout = ({
         >
           <Margins blockEnd={32}>
             <LayoutLogo />
-
             {children}
           </Margins>
         </Box>
@@ -49,3 +36,5 @@ export const HeroLayout = ({
     </LayoutContext.Provider>
   </DarkModeProvider>
 );
+
+export default HeroLayout;

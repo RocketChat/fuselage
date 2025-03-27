@@ -1,9 +1,11 @@
 import type { Meta, StoryFn } from '@storybook/react';
 
-import { HeroLayout, HeroLayoutSubtitle, HeroLayoutTitle } from './HeroLayout';
+import HeroLayout from './HeroLayout';
+import HeroLayoutSubtitle from './HeroLayoutSubtitle';
+import HeroLayoutTitle from './HeroLayoutTitle';
 
 export default {
-  title: 'HeroLayout',
+  title: 'layouts/HeroLayout',
   component: HeroLayout,
 } satisfies Meta<typeof HeroLayout>;
 
