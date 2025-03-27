@@ -2,6 +2,7 @@ import Form from './Form';
 import FormContainer from './FormContainer';
 import FormFooter from './FormFooter';
 import FormHeader from './FormHeader';
+import * as FormPageLayout from './FormPageLayout.styles';
 import FormSteps from './FormSteps';
 import FormSubtitle from './FormSubtitle';
 import FormTitle from './FormTitle';
@@ -41,4 +42,5 @@ export {
   FormSteps,
   FormSubtitle,
   FormTitle,
+  FormPageLayout,
 };
