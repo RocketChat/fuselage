@@ -8,7 +8,7 @@ import type {
 } from 'react';
 import { useCallback } from 'react';
 
-import { useDarkMode } from './DarkModeProvider';
+import { useDarkMode } from '../DarkModeProvider';
 
 type LinkProps = {
   children?: ReactNode;
@@ -16,6 +16,10 @@ type LinkProps = {
   fontScale?: ComponentProps<typeof Box>['fontScale'];
 } & AnchorHTMLAttributes<HTMLAnchorElement>;
 
+/**
+ * @deprecated
+ * prefer using ActionLink instead
+ **/
 const Link = ({
   children,
   href = '#',
