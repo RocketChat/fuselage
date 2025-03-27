@@ -7,13 +7,13 @@
     "prettier": "*"
   },
   "dependencies": {
-    "stylelint": "~16.14.1",
+    "stylelint": "~16.17.0",
     "tools-utils": "workspace:~"
   },
   "version": "0.31.25",
   "devDependencies": {
-    "eslint": "~9.21.0",
+    "eslint": "~9.23.0",
     "lint-all": "workspace:~",
-    "prettier": "~3.5.2"
+    "prettier": "~3.5.3"
   }
 }
