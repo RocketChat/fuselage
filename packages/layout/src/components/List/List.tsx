@@ -1,16 +1,14 @@
-import { Margins } from '@rocket.chat/fuselage';
-import colors from '@rocket.chat/fuselage-tokens/colors.json';
+import { Margins, Palette } from '@rocket.chat/fuselage';
 import type { ReactNode, ComponentProps, CSSProperties } from 'react';
 
 import { ListComponent } from './List.styles';
-import ListItem from './ListItem';
 
 const List = ({
   children,
   listStyleType,
   icon,
   spacing = 'x6',
-  color = colors.n900,
+  color = Palette.text['font-default'].toString(),
 }: {
   children: ReactNode;
   spacing?: ComponentProps<typeof Margins>['block'];
@@ -22,7 +20,5 @@ const List = ({
     <Margins block={spacing}>{children}</Margins>
   </ListComponent>
 );
-
-List.Item = ListItem;
 
 export default List;
