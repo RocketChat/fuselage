@@ -991,5 +991,9 @@
   },
   "circle-unfilled-small": {
     "start": "\ue161"
+  },
+  "arrow-back-up": {
+    "start": "\u29da",
+    "end": "\u29db"
   }
 }
