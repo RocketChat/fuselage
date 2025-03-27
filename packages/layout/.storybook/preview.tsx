@@ -1,3 +1,4 @@
+import { PaletteStyleTag } from '@rocket.chat/fuselage';
 import surface from '@rocket.chat/fuselage-tokens/dist/surface.json';
 import type { Preview } from '@storybook/react';
 import { themes } from '@storybook/theming';
@@ -59,11 +60,13 @@ export default {
       return (
         <Suspense fallback={null}>
           <DarkModeProvider forcedDarkMode={dark}>
+            <PaletteStyleTag theme={dark ? 'dark' : 'light'} />
             <Story />
           </DarkModeProvider>
         </Suspense>
       );
     },
   ],
+
   tags: ['autodocs'],
 } satisfies Preview;
