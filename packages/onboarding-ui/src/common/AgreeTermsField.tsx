@@ -28,7 +28,7 @@ const AgreeTermsField = ({
 
   return (
     <Field mbs='24px'>
-      <FieldRow justifyContent='flex-start'>
+      <FieldRow justifyContent='initial'>
         <Controller
           name='agreement'
           control={control}

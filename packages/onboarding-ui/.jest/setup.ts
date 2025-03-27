@@ -1,6 +1,7 @@
 import { TextEncoder } from 'node:util';
 
 import i18next from 'i18next';
+import { toHaveNoViolations } from 'jest-axe';
 import { initReactI18next } from 'react-i18next';
 
 import ResizeObserverMock from './ResizeObserverMock';
@@ -22,3 +23,5 @@ beforeAll(() => {
 });
 
 global.TextEncoder = TextEncoder;
+
+expect.extend(toHaveNoViolations);
