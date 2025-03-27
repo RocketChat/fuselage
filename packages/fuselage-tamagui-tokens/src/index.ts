@@ -1,9 +1,15 @@
-import button from '@rocket.chat/fuselage-tokens/button';
-import font from '@rocket.chat/fuselage-tokens/font';
-import shadow from '@rocket.chat/fuselage-tokens/shadow';
-import stroke from '@rocket.chat/fuselage-tokens/stroke';
-import surface from '@rocket.chat/fuselage-tokens/surface';
+import buttons from '@rocket.chat/fuselage-tokens/dist/button.json';
+import fonts from '@rocket.chat/fuselage-tokens/dist/font.json';
+import shadows from '@rocket.chat/fuselage-tokens/dist/shadow.json';
+import strokes from '@rocket.chat/fuselage-tokens/dist/stroke.json';
+import surfaces from '@rocket.chat/fuselage-tokens/dist/surface.json';
 import { createTamagui } from '@tamagui/core';
+
+const { surface } = surfaces;
+const { button } = buttons;
+const { font } = fonts;
+const { shadow } = shadows;
+const { stroke } = strokes;
 
 // import button from './app/tokens/button';
 // import { colors } from './app/tokens/colors';

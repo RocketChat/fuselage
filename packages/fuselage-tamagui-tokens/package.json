@@ -23,7 +23,7 @@
     "tamagui",
     "rocket.chat"
   ],
-  "main": "/src/index.ts",
+  "main": "./src/index.ts",
   "publishConfig": {
     "access": "public"
   },
@@ -44,7 +44,9 @@
     "stylelint-scss": "~6.11.1"
   },
   "dependencies": {
-    "@rocket.chat/fuselage-tokens": "workspace:~",
-    "tamagui": "~1.125.22"
+    "@tamagui/core": "^1.125.22"
+  },
+  "peerDependencies": {
+    "@tamagui/core": "*"
   }
 }
