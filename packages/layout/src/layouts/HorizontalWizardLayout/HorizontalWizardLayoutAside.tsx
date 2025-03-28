@@ -1,7 +1,7 @@
 import { ReactElement, ReactNode } from 'react';
 
-import { LayoutLogo } from '../../LayoutLogo';
 import * as FormPageLayout from '../../components/FormPageLayout/FormPageLayout.styles';
+import LayoutLogo from '../../components/LayoutLogo';
 
 const HorizontalWizardLayoutAside = ({
   children,
