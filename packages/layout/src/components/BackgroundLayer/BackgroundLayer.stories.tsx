@@ -4,7 +4,7 @@ import type { StoryFn, Meta } from '@storybook/react';
 import BackgroundLayer from './BackgroundLayer';
 
 export default {
-  title: 'views/BackgroundLayer',
+  title: 'components/BackgroundLayer',
   component: BackgroundLayer,
   parameters: {
     layout: 'fullscreen',
