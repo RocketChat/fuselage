@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.41.0
+
+### Minor Changes
+
+- [#1597](https://github.com/RocketChat/fuselage/pull/1597) [`4f8bec1`](https://github.com/RocketChat/fuselage/commit/4f8bec13b7691dcccb18c6155a39558ef62ed28a) Thanks [@dougfabris](https://github.com/dougfabris)! - feat(icons): Add arrow-back-up icon
+
 ## 0.40.0
 
 ### Minor Changes
