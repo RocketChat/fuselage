@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Default without crashing 1`] = `
+<body>
+  <div>
+    <ul
+      class="rcx-css-iu9tna"
+    >
+      <li
+        class="rcx-box rcx-box--full rcx-css-1hi76ss"
+      >
+        List Item 1
+      </li>
+      <li
+        class="rcx-box rcx-box--full rcx-css-1hi76ss"
+      >
+        List Item 2
+      </li>
+    </ul>
+  </div>
+</body>
+`;

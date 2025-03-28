@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Default without crashing 1`] = `
+<body>
+  <div>
+    <a
+      class="rcx-box rcx-box--full rcx-css-157mryd"
+      href="#"
+    >
+      Default
+    </a>
+  </div>
+</body>
+`;

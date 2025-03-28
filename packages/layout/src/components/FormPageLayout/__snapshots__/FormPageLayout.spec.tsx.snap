@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Default without crashing 1`] = `
+<body>
+  <div>
+    <div
+      style="width: 600px;"
+    >
+      <form
+        class="rcx-box rcx-box--full rcx-tile--elevation-1 rcx-tile rcx-css-axj8in"
+      >
+        <header
+          class="rcx-box rcx-box--full rcx-css-heem01"
+        >
+          <div
+            class="rcx-box rcx-box--full rcx-css-141nwsj"
+          >
+            component.form.steps
+          </div>
+          <div
+            class="rcx-box rcx-box--full rcx-css-18gg2kh"
+          >
+            Title
+          </div>
+          <div
+            class="rcx-box rcx-box--full rcx-css-aa4lxf"
+          >
+            Subtitle
+          </div>
+        </header>
+        <div
+          class="rcx-box rcx-box--full"
+        >
+          Container
+        </div>
+        <footer
+          class="rcx-box rcx-box--full rcx-css-c21cfe"
+        >
+          footer
+        </footer>
+      </form>
+    </div>
+  </div>
+</body>
+`;
