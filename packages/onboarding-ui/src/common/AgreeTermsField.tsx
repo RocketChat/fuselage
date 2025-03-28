@@ -28,7 +28,7 @@ const AgreeTermsField = ({
 
   return (
     <Field mbs='24px'>
-      <FieldRow>
+      <FieldRow justifyContent='initial'>
         <Controller
           name='agreement'
           control={control}
@@ -55,6 +55,7 @@ const AgreeTermsField = ({
           withRichContent
           required
           fontScale='c1'
+          mis={4}
         >
           <Trans i18nKey='component.form.termsAndConditions'>
             I agree with
