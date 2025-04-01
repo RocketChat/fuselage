@@ -34,13 +34,13 @@
   },
   "devDependencies": {
     "eslint": "~9.21.0",
-    "lint-all": "workspace:~",
+    "lint-all": "^0.31.25",
     "prettier": "~3.5.2",
     "rimraf": "~3.0.2",
     "typedoc": "~0.27.9",
     "typescript": "~5.8.2"
   },
   "dependencies": {
-    "@rocket.chat/memo": "workspace:~"
+    "@rocket.chat/memo": "^0.31.25"
   }
 }

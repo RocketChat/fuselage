@@ -5,7 +5,7 @@
   "dependencies": {
     "svg2ttf": "~6.0.3",
     "svgicons2svgfont": "~10.0.6",
-    "tools-utils": "workspace:~",
+    "tools-utils": "^0.31.25",
     "ttf2eot": "~3.1.0",
     "ttf2woff": "~3.0.0",
     "ttf2woff2": "~6.0.1",
@@ -15,7 +15,7 @@
   "version": "0.31.25",
   "devDependencies": {
     "eslint": "~9.21.0",
-    "lint-all": "workspace:~",
+    "lint-all": "^0.31.25",
     "prettier": "~3.5.2"
   }
 }
