@@ -29,7 +29,7 @@ const LoginLinkEmailPage = ({
         paddingInline={16}
       >
         <Margins blockEnd={32}>
-          <LayoutLogo.LayoutLogo />
+          <LayoutLogo />
 
           <Box fontScale='hero' width='100%'>
             {t('page.magicLinkEmail.title')}
