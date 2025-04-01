@@ -13426,7 +13426,7 @@ __metadata:
     eslint: "npm:~9.23.0"
     prettier: "npm:~3.5.3"
     stylelint: "npm:~16.16.0"
-    zx: "npm:8.4.2"
+    zx: "npm:8.5.0"
   bin:
     lint: ./lint.mjs
     lint-and-fix: ./lint-and-fix.mjs
@@ -19668,7 +19668,7 @@ __metadata:
     lint-all: "workspace:~"
     outdent: "npm:^0.8.0"
     prettier: "npm:~3.5.3"
-    zx: "npm:8.4.2"
+    zx: "npm:8.5.0"
   bin:
     update-readme: ./update-readme.mjs
   languageName: unknown
@@ -20508,11 +20508,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"zx@npm:8.4.2":
-  version: 8.4.2
-  resolution: "zx@npm:8.4.2"
+"zx@npm:8.5.0":
+  version: 8.5.0
+  resolution: "zx@npm:8.5.0"
   bin:
     zx: build/cli.js
-  checksum: 10/aaafeaf28d7d6fe66a99affefcfdfb857c0580ecacf624d1a10b1d132c41fe0429adec6e06b24986e98e4099448942774c03b12f6865af1107054ccd2a1c11b8
+  checksum: 10/820a2f0765e47356cd6f9bceb620cc3cb6675981b57301e778cf91d8c04e74ae06c5f39e219b552669f12906b54c490714fdcf7c4663f5c7df4f97015c471d9f
   languageName: node
   linkType: hard
