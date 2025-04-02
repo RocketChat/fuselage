@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.42.0
+
+### Minor Changes
+
+- [#1603](https://github.com/RocketChat/fuselage/pull/1603) [`cc50d41`](https://github.com/RocketChat/fuselage/commit/cc50d41a75715c3c2cfcbfeedb9e10a41c7a4795) Thanks [@yash-rajpal](https://github.com/yash-rajpal)! - feat(icons): Add/Modify video icons
+
 ## 0.41.0
 
 ### Minor Changes
