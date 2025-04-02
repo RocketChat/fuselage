@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.62.0
+
+### Minor Changes
+
+- [#1604](https://github.com/RocketChat/fuselage/pull/1604) [`8188f5b`](https://github.com/RocketChat/fuselage/commit/8188f5b7654603d66a623b2135a53433bfd40a1b) Thanks [@dougfabris](https://github.com/dougfabris)! - feat(fuselage): Add `focusable` prop in `Box`
+
 ## 0.61.0
 
 ### Minor Changes
