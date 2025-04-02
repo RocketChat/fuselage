@@ -995,5 +995,8 @@
   "arrow-back-up": {
     "start": "\u29da",
     "end": "\u29db"
+  },
+  "video-message": {
+    "start": "\ue163"
   }
 }
