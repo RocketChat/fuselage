@@ -2,4 +2,4 @@
 '@rocket.chat/fuselage': minor
 ---
 
-feat(fuselage): Expose `rcx-focusable` util class
+feat(fuselage): Add `focusable` prop in `Box`
