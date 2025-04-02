@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.35.1
+
+### Patch Changes
+
+- [#1599](https://github.com/RocketChat/fuselage/pull/1599) [`330f4e5`](https://github.com/RocketChat/fuselage/commit/330f4e585ba011b127e3b3600d581df886024208) Thanks [@yash-rajpal](https://github.com/yash-rajpal)! - Fixes a text alignment issue on server registration step
+
 ## 0.35.0
 
 ### Minor Changes

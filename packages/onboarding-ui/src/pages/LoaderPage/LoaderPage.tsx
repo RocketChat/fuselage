@@ -51,7 +51,7 @@ const LoaderPage = ({
         paddingInline={16}
       >
         <Margins blockEnd={32}>
-          <LayoutLogo.LayoutLogo />
+          <LayoutLogo />
 
           <Box fontScale='hero'>{title}</Box>
 
