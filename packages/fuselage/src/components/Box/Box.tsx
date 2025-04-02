@@ -34,6 +34,7 @@ export interface BoxProps
   animated?: boolean;
   withRichContent?: boolean | 'inlineWithoutBreaks';
   htmlSize?: AllHTMLAttributes<HTMLElement>['size'];
+  focusable?: boolean;
 }
 
 export const Box = forwardRef(function Box(

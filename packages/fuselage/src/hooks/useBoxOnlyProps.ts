@@ -12,6 +12,7 @@ export const useBoxOnlyProps = <
     withRichContent?: boolean | 'inlineWithoutBreaks';
     htmlSize?: AllHTMLAttributes<HTMLElement>['size'];
     size?: AllHTMLAttributes<HTMLElement>['size'];
+    focusable?: boolean;
   },
 ): T => {
   Object.entries(props).forEach(([key, value]) => {
@@ -56,6 +57,11 @@ export const useBoxOnlyProps = <
   if (props.htmlSize) {
     props.size = props.htmlSize;
     delete props.htmlSize;
+  }
+
+  if (props.focusable) {
+    props.className = prependClassName(props.className, 'rcx-box--focusable');
+    delete props.focusable;
   }
 
   delete props.withRichContent;
