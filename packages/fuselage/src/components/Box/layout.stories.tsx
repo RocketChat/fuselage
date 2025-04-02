@@ -399,3 +399,9 @@ ZIndex.decorators = [
     </Box>
   ),
 ];
+
+export const Focusable: StoryFn<typeof Box> = () => (
+  <Box color='default' is='span' role='button' tabIndex={0} focusable>
+    Focus me
+  </Box>
+);
