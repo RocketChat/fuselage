@@ -5,11 +5,11 @@
   "version": "0.31.25",
   "dependencies": {
     "outdent": "^0.8.0",
-    "zx": "~8.3.2"
+    "zx": "~8.5.0"
   },
   "devDependencies": {
-    "eslint": "~9.21.0",
+    "eslint": "~9.23.0",
     "lint-all": "workspace:~",
-    "prettier": "~3.5.2"
+    "prettier": "~3.5.3"
   }
 }
