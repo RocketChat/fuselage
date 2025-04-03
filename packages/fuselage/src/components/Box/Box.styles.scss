@@ -27,4 +27,8 @@
   &--with-block-elements {
     @extend %--with-block-elements;
   }
+
+  &--focusable {
+    @include focus-state();
+  }
 }
