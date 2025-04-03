@@ -2,22 +2,19 @@
   "name": "@rocket.chat/styled",
   "version": "0.32.0",
   "description": "A simple styled API for React components",
-  "author": {
-    "name": "Rocket.Chat",
-    "url": "https://rocket.chat/"
-  },
   "homepage": "https://github.com/RocketChat/fuselage#readme",
-  "license": "MIT",
-  "publishConfig": {
-    "access": "public"
+  "bugs": {
+    "url": "https://github.com/RocketChat/fuselage/issues"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/RocketChat/fuselage.git",
     "directory": "packages/styled"
   },
-  "bugs": {
-    "url": "https://github.com/RocketChat/fuselage/issues"
+  "license": "MIT",
+  "author": {
+    "name": "Rocket.Chat",
+    "url": "https://rocket.chat/"
   },
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -35,21 +32,24 @@
     "test": "jest --runInBand",
     "docs": "typedoc"
   },
+  "dependencies": {
+    "@rocket.chat/css-in-js": "workspace:~"
+  },
   "devDependencies": {
     "@testing-library/react": "~16.2.0",
     "@types/jest": "~29.5.14",
-    "eslint": "~9.21.0",
+    "eslint": "~9.23.0",
     "jest": "~29.7.0",
     "jest-environment-jsdom": "~29.7.0",
     "lint-all": "workspace:~",
     "npm-run-all": "^4.1.5",
-    "prettier": "~3.5.2",
-    "rimraf": "^3.0.2",
-    "ts-jest": "~29.2.6",
-    "typedoc": "~0.27.9",
+    "prettier": "~3.5.3",
+    "rimraf": "~6.0.1",
+    "ts-jest": "~29.3.1",
+    "typedoc": "~0.28.1",
     "typescript": "~5.8.2"
   },
-  "dependencies": {
-    "@rocket.chat/css-in-js": "workspace:~"
+  "publishConfig": {
+    "access": "public"
   }
 }

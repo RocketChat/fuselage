@@ -2,22 +2,19 @@
   "name": "@rocket.chat/css-supports",
   "version": "0.31.25",
   "description": "Memoized and SSR-compatible facade of CSS.supports API",
-  "author": {
-    "name": "Rocket.Chat",
-    "url": "https://rocket.chat/"
-  },
   "homepage": "https://github.com/RocketChat/fuselage#readme",
-  "license": "MIT",
-  "publishConfig": {
-    "access": "public"
+  "bugs": {
+    "url": "https://github.com/RocketChat/fuselage/issues"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/RocketChat/fuselage.git",
     "directory": "packages/css-supports"
   },
-  "bugs": {
-    "url": "https://github.com/RocketChat/fuselage/issues"
+  "license": "MIT",
+  "author": {
+    "name": "Rocket.Chat",
+    "url": "https://rocket.chat/"
   },
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -26,21 +23,24 @@
     "/dist"
   ],
   "scripts": {
-    "clean": "rimraf dist",
     "build": "tsc -p tsconfig.esm.json && tsc -p tsconfig.cjs.json",
+    "clean": "rimraf dist",
+    "docs": "typedoc",
     "lint": "lint",
-    "lint-and-fix": "lint-and-fix",
-    "docs": "typedoc"
-  },
-  "devDependencies": {
-    "eslint": "~9.21.0",
-    "lint-all": "workspace:~",
-    "prettier": "~3.5.2",
-    "rimraf": "~3.0.2",
-    "typedoc": "~0.27.9",
-    "typescript": "~5.8.2"
+    "lint-and-fix": "lint-and-fix"
   },
   "dependencies": {
     "@rocket.chat/memo": "workspace:~"
+  },
+  "devDependencies": {
+    "eslint": "~9.23.0",
+    "lint-all": "workspace:~",
+    "prettier": "~3.5.3",
+    "rimraf": "~6.0.1",
+    "typedoc": "~0.28.1",
+    "typescript": "~5.8.2"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

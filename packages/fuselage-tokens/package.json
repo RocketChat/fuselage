@@ -2,36 +2,33 @@
   "name": "@rocket.chat/fuselage-tokens",
   "version": "0.33.2",
   "description": "Design tokens for Fuselage, Rocket.Chat's design system",
-  "homepage": "https://rocketchat.github.io/Rocket.Chat.Fuselage/",
-  "author": {
-    "name": "Rocket.Chat",
-    "url": "https://rocket.chat/"
-  },
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/RocketChat/fuselage.git",
-    "directory": "packages/fuselage-tokens"
-  },
-  "bugs": {
-    "url": "https://github.com/RocketChat/fuselage/issues"
-  },
   "keywords": [
     "design",
     "tokens",
     "fuselage",
     "rocket.chat"
   ],
+  "homepage": "https://rocketchat.github.io/Rocket.Chat.Fuselage/",
+  "bugs": {
+    "url": "https://github.com/RocketChat/fuselage/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RocketChat/fuselage.git",
+    "directory": "packages/fuselage-tokens"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Rocket.Chat",
+    "url": "https://rocket.chat/"
+  },
+  "type": "module",
   "files": [
     "dist",
     "/breakpoints.*",
     "/colors.*",
     "/typography.*"
   ],
-  "publishConfig": {
-    "access": "public"
-  },
-  "type": "module",
   "scripts": {
     "build": "run-s .:build:clean  .:build:legacy .:build",
     ".:build": "node ./build --config ./config.js",
@@ -40,17 +37,20 @@
   },
   "devDependencies": {
     "build-design-tokens": "workspace:~",
-    "eslint": "~9.21.0",
-    "eslint-config-prettier": "~8.8.0",
+    "eslint": "~9.23.0",
+    "eslint-config-prettier": "~10.1.1",
     "lint-all": "workspace:~",
     "npm-run-all": "^4.1.5",
     "postcss-scss": "~4.0.9",
-    "prettier": "~3.5.2",
-    "rimraf": "^3.0.2",
+    "prettier": "~3.5.3",
+    "rimraf": "~6.0.1",
     "style-dictionary": "~4.3.3",
-    "stylelint": "~16.14.1",
+    "stylelint": "~16.17.0",
     "stylelint-order": "~6.0.4",
     "stylelint-prettier": "~5.0.3",
     "stylelint-scss": "~6.11.1"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

@@ -2,27 +2,24 @@
   "name": "@rocket.chat/icons",
   "version": "0.42.0",
   "description": "Rocket.Chat's Icons",
-  "author": {
-    "name": "Rocket.Chat",
-    "url": "https://rocket.chat/"
-  },
   "homepage": "https://github.com/RocketChat/fuselage#readme",
-  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RocketChat/fuselage/issues"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/RocketChat/fuselage.git",
     "directory": "packages/icons"
   },
-  "bugs": {
-    "url": "https://github.com/RocketChat/fuselage/issues"
+  "license": "MIT",
+  "author": {
+    "name": "Rocket.Chat",
+    "url": "https://rocket.chat/"
   },
   "main": "dist/index.js",
   "files": [
     "/dist"
   ],
-  "publishConfig": {
-    "access": "public"
-  },
   "scripts": {
     "build": "build-icons",
     "lint": "lint",
@@ -30,14 +27,17 @@
   },
   "devDependencies": {
     "build-icons": "workspace:~",
-    "eslint": "~9.21.0",
+    "eslint": "~9.23.0",
     "lint-all": "workspace:~",
     "npm-run-all": "^4.1.5",
-    "prettier": "~3.5.2",
-    "rimraf": "^3.0.2",
-    "stylelint": "~16.14.1",
+    "prettier": "~3.5.3",
+    "rimraf": "~6.0.1",
+    "stylelint": "~16.17.0",
     "stylelint-order": "~6.0.4",
     "stylelint-prettier": "~5.0.3",
     "stylelint-scss": "~6.11.1"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
