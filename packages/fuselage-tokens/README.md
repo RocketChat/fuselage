@@ -77,3 +77,5 @@ yarn lint-and-fix
 ```
 
 <!--/yarn(lint-and-fix)-->
+
+Build instructions verified using Yarn 4.7.0.
