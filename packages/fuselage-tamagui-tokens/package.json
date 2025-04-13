@@ -1,8 +1,13 @@
 {
   "name": "@rocket.chat/fuselage-tamagui-tokens",
-  "version": "0.33.2",
+  "version": "0.1.0",
   "description": "Tamagui tokens for Fuselage, Rocket.Chat's",
   "homepage": "https://rocketchat.github.io/Rocket.Chat.Fuselage/",
+  "module": "dist/index.es.js",
+   "types": "dist/index.d.ts",
+   "files": [
+    "dist"
+ ],
   "author": {
     "name": "Rocket.Chat",
     "url": "https://rocket.chat/"
@@ -41,12 +46,25 @@
     "stylelint": "~16.14.1",
     "stylelint-order": "~6.0.4",
     "stylelint-prettier": "~5.0.3",
-    "stylelint-scss": "~6.11.1"
+    "stylelint-scss": "~6.11.1",
+    "@tamagui/babel-plugin": "latest",
+    "@tamagui/vite-plugin": "latest",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "@vitejs/plugin-react": "latest",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-native-web": "latest",
+    "typescript": "^5.0.0",
+    "vite": "latest"
   },
   "dependencies": {
-    "@tamagui/core": "^1.125.22"
+    "@tamagui/core": "^1.125.22",
+     "tamagui":"*" 
   },
   "peerDependencies": {
-    "@tamagui/core": "*"
+    "@tamagui/core": "*",
+   "react": ">=18.0.0",
+   "react-dom": ">=18.0.0"
   }
 }
