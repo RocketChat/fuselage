@@ -59,5 +59,10 @@
   "packageManager": "yarn@4.6.0",
   "resolutions": {
     "jsdom": "25.0.1"
+  },
+  "dependencies": {
+    "@tamagui/core": "~1.125.34",
+    "@tamagui/web": "~1.125.34",
+    "tamagui": "~1.125.34"
   }
 }
