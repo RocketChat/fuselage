@@ -23,14 +23,18 @@
     "/dist"
   ],
   "scripts": {
+    "dev": "run vite:dev",
     ".:build:cjs": "tsc -p tsconfig.cjs.json",
     ".:build:esm": "tsc -p tsconfig.esm.json",
-    "build": "run .:build:esm && run .:build:cjs",
+    "build": "run clean && run .:build:esm && run .:build:cjs && cp ./src/index.html ./dist/esm/index.html",
     "clean": "rimraf dist",
     "docs": "typedoc",
     "lint": "lint",
     "lint-and-fix": "lint-and-fix",
-    "test": "jest --runInBand"
+    "test": "jest --runInBand",
+    "vite:dev": "vite",
+    "vite:build": "vite build",
+    "vite:preview": "vite preview"
   },
   "jest": {
     "errorOnDeprecated": true,
@@ -48,9 +52,13 @@
     "rimraf": "~6.0.1",
     "ts-jest": "~27.1.3",
     "typedoc": "~0.24.1",
-    "typescript": "~5.5.4"
+    "typescript": "~5.5.4",
+    "vite": "~6.2.6"
   },
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "@rocket.chat/emitter": "workspace:~"
   }
 }

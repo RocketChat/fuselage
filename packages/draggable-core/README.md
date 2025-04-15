@@ -89,3 +89,51 @@ yarn test
 ```
 
 <!--/yarn(test)-->
+
+## Development with Vite
+
+This package now includes Vite configuration for a better development experience.
+
+### Running the Development Server
+
+To start the Vite development server:
+
+```bash
+yarn vite:dev
+```
+
+This will start a development server at http://localhost:3000 with hot module replacement.
+
+### Building for Production
+
+To build the package for production:
+
+```bash
+yarn vite:build
+```
+
+This will generate optimized production files in the `dist/vite` directory.
+
+### Previewing the Production Build
+
+To preview the production build locally:
+
+```bash
+yarn vite:preview
+```
+
+This will serve the production build at http://localhost:3000.
+
+## Example Usage
+
+The package includes a simple demo that demonstrates the draggable functionality. When you run the development server, you'll see a blue box that you can drag around the screen.
+
+To use the `DraggableElement` class in your own project:
+
+```typescript
+import { DraggableElement } from '@rocket.chat/draggable-core';
+
+// Create a draggable element
+const element = document.getElementById('my-element');
+const draggable = new DraggableElement(element);
+```
