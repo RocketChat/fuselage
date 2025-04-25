@@ -1,5 +1,11 @@
 # @rocket.chat/layout
 
+## 0.32.1
+
+### Patch Changes
+
+- [#1624](https://github.com/RocketChat/fuselage/pull/1624) [`c659931`](https://github.com/RocketChat/fuselage/commit/c65993112e87a9ed264886b35ffaef59b5ba2ceb) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(layout): add missing tokens to layout `Form`
+
 ## 0.32.0
 
 ### Minor Changes
