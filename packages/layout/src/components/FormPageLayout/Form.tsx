@@ -12,6 +12,8 @@ const Form = forwardRef<
     <Tile
       ref={ref}
       is='form'
+      backgroundColor='light'
+      color='default'
       padding={40}
       width='full'
       maxWidth={576}
