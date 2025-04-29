@@ -2,4 +2,4 @@
 "@rocket.chat/icons": minor
 ---
 
-feat(icons): `stacked-meatballs`
+feat(icons): Add new `stacked-meatballs`
