@@ -998,5 +998,8 @@
   },
   "video-message": {
     "start": "\ue163"
+  },
+  "stacked-meatballs": {
+    "start": "\ue147"
   }
 }
