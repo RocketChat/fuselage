@@ -36,10 +36,10 @@
     "test": "jest --runInBand"
   },
   "devDependencies": {
-    "@babel/core": "~7.26.10",
-    "@babel/plugin-transform-runtime": "~7.26.10",
-    "@babel/preset-env": "~7.26.9",
-    "@babel/preset-typescript": "~7.27.0",
+    "@babel/core": "~7.27.1",
+    "@babel/plugin-transform-runtime": "~7.27.1",
+    "@babel/preset-env": "~7.27.1",
+    "@babel/preset-typescript": "~7.27.1",
     "@rollup/plugin-commonjs": "~28.0.3",
     "@rollup/plugin-node-resolve": "~16.0.1",
     "@rollup/plugin-typescript": "~12.1.2",
@@ -49,10 +49,10 @@
     "jest-environment-jsdom": "~29.7.0",
     "lint-all": "workspace:~",
     "prettier": "~3.5.3",
-    "rollup": "~4.38.0",
-    "ts-jest": "~29.3.1",
-    "typedoc": "~0.28.1",
-    "typescript": "~5.8.2"
+    "rollup": "~4.40.1",
+    "ts-jest": "~29.3.2",
+    "typedoc": "~0.28.4",
+    "typescript": "~5.8.3"
   },
   "publishConfig": {
     "access": "public"
