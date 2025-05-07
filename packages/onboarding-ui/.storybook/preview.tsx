@@ -1,3 +1,4 @@
+import { PaletteStyleTag } from '@rocket.chat/fuselage';
 import surface from '@rocket.chat/fuselage-tokens/dist/surface.json';
 import { DarkModeProvider } from '@rocket.chat/layout';
 import type { Preview } from '@storybook/react';
@@ -79,6 +80,7 @@ export default {
         <Suspense fallback={null}>
           <I18nextProvider i18n={getI18n()}>
             <DarkModeProvider.default forcedDarkMode={dark}>
+              <PaletteStyleTag theme={dark ? 'dark' : 'light'} />
               <Story />
             </DarkModeProvider.default>
           </I18nextProvider>
