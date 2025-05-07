@@ -6,7 +6,7 @@ exports[`renders _RegisterServerForm without crashing 1`] = `
     <form
       aria-describedby=":r0:-informed-disclaimer :r0:-engagement-disclaimer"
       aria-labelledby=":r0:-title"
-      class="rcx-box rcx-box--full rcx-tile--elevation-1 rcx-tile rcx-css-axj8in"
+      class="rcx-box rcx-box--full rcx-tile--elevation-1 rcx-tile rcx-css-vuqkc1"
       tabindex="-1"
     >
       <header
@@ -179,7 +179,7 @@ exports[`renders _RegisterServerFormOffline without crashing 1`] = `
     <form
       aria-describedby=":r3:-informed-disclaimer :r3:-engagement-disclaimer"
       aria-labelledby=":r3:-title"
-      class="rcx-box rcx-box--full rcx-tile--elevation-1 rcx-tile rcx-css-axj8in"
+      class="rcx-box rcx-box--full rcx-tile--elevation-1 rcx-tile rcx-css-vuqkc1"
       tabindex="-1"
     >
       <header
