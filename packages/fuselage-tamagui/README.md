@@ -9,10 +9,11 @@ To get started with the project, follow these steps:
 ### 1. Install Dependencies
 
 Run the following command to install all the required dependencies:
-
-```bash
+```
 yarn
-
+```
 ### 2. Runnig the project
 
-```yarn storybook ````
+``` 
+yarn storybook
+````
