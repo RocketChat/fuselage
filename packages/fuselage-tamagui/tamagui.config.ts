@@ -93,9 +93,14 @@ export const config = createTamagui({
       backgroundHover: '#404754', // lighter background on hover
       color: '#353B45'
     },
-
+    primary_Button: {
+      background: '#095AD2',
+      backgroundHover: '#10529E',
+      backgroundPress: '#01336B',
+      backgroundFocus: '#095AD2',
+      color: '#fff',
+    },
   },
-
   media: {
     sm: { maxWidth: 860 },
     gtSm: { minWidth: 860 + 1 },
