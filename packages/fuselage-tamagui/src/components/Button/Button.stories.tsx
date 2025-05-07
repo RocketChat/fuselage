@@ -64,17 +64,17 @@ export const Variants: StoryFn<typeof Button> = () => {
 
       <XStack space="$sm">
         <Button  Danger borderRadius="$sm">Danger</Button>
-        <Button  Secondary Danger borderRadius="$sm">Secondary Danger</Button>
+        <Button  SecondaryDanger borderRadius="$sm">Secondary Danger</Button>
       </XStack>
 
       <XStack space="$sm">
         <Button  Warning borderRadius="$sm">Warning</Button>
-        <Button  Secondary Warning borderRadius="$sm">Secondary Warning</Button>
+        <Button  SecondaryWarning borderRadius="$sm">Secondary Warning</Button>
       </XStack>
       
       <XStack space="$sm">
         <Button  Success borderRadius="$sm">Success</Button>
-        <Button  Secondary Success borderRadius="$sm">
+        <Button  SecondarySuccess borderRadius="$sm">
         Secondary Success
         </Button>
       </XStack>
