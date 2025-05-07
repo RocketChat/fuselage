@@ -5,7 +5,6 @@ import { createFont, createTamagui, createTokens, isWeb } from 'tamagui'
 // `letterSpacing` to be consistent. The `createFont` function
 // will fill-in any missing values if `lineHeight`, `weight` or
 // `letterSpacing` are subsets of `size`.
-
 const systemFont = createFont({
   family: isWeb ? 'Helvetica, Arial, sans-serif' : 'System',
   size: {
@@ -46,6 +45,61 @@ const size = {
 }
 
 export const tokens = createTokens({
+  primary_button:{
+    background: '#095AD2',
+    backgroundHover: '#10529E',
+    backgroundPress: '#01336B',
+    backgroundFocus: '#095AD2',
+  },
+  danger_button:{
+    background: '#BB3E4E',
+    backgroundHover: '#95323F',
+    backgroundPress: '#822C37',
+    backgroundFocus: '#BB3E4E',
+  },
+  warning_button:{
+    background: '#B08C30',
+    backgroundHover: '#C7AA66',
+    backgroundPress: '#B08C30',
+    backgroundFocus: '#095AD2',
+  },
+  success_button:{
+    background: '#1D7256',
+    backgroundHover: '#175943',
+    backgroundPress: '#134937',
+    backgroundFocus: '#1D7256',
+  },
+  secondary_button:{
+    background: '#353B45',
+    backgroundHover: '#404754',
+    backgroundPress: '#4C5362',
+    backgroundFocus: '#353B45',
+  },
+  secondaryDanger_button:{
+    background: '#353B45',
+    backgroundHover: '#404754',
+    backgroundPress: '#4C5362',
+    backgroundFocus: '#353B45',
+  },
+  secondaryWarning_button:{
+    background: '#e1e1e1',
+    backgroundHover: '#404754',
+    backgroundPress: '#e1e1e1',
+    backgroundFocus: '#404754',
+  },
+  secondarySuccess_button:{
+    background: '#e1e1e1',
+    backgroundHover: '#404754',
+    backgroundPress: '#4C5362',
+    backgroundFocus: '#404754',
+  },
+  disabled_button:{
+    background: '#353B45',
+    backgroundHover: '#404754',
+    backgroundPress: '#4C5362',
+    backgroundFocus: '#353B45',
+  },
+
   size: {
     sm: 38,
     md: 46,
