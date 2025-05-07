@@ -85,6 +85,12 @@ $variants: (
     height: 100%;
 
     opacity: 0;
+
+    &:has(> [aria-expanded='true']) {
+      width: lengths.size(28);
+
+      opacity: 1;
+    }
   }
 
   &__column {

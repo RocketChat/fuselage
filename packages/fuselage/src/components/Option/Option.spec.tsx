@@ -25,7 +25,7 @@ describe('Option', () => {
 
     getByText('Option').click();
 
-    expect(click).toBeCalledTimes(1);
+    expect(click).toHaveBeenCalledTimes(1);
   });
 
   it('should call prevent when click on disabled', () => {
@@ -39,7 +39,7 @@ describe('Option', () => {
 
     getByText('Option').click();
 
-    expect(click).toBeCalledTimes(0);
-    expect(prevent).toBeCalledTimes(1);
+    expect(click).toHaveBeenCalledTimes(0);
+    expect(prevent).toHaveBeenCalledTimes(1);
   });
 });

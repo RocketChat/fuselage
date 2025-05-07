@@ -1,10 +1,12 @@
 import { action } from '@storybook/addon-actions';
 import type { StoryFn, Meta } from '@storybook/react';
+import { ComponentProps } from 'react';
 
 import { exampleAvatar, menuOptions } from '../../../.storybook/helpers';
 import { Avatar } from '../Avatar';
 import Box from '../Box';
 import { Menu } from '../Menu';
+import { MenuItem, MenuV2 } from '../Menu/V2';
 import { StatusBullet } from '../StatusBullet';
 import Tile from '../Tile';
 
@@ -122,6 +124,45 @@ export const WithMenu: StoryFn<typeof Option> = () => (
       </OptionContent>
       <OptionMenu>
         <Menu options={menuOptions} />
+      </OptionMenu>
+    </Option>
+  </>
+);
+
+const SimpleMenuV2 = (
+  props: Omit<ComponentProps<typeof MenuV2>, 'children'>,
+) => (
+  <MenuV2 {...props}>
+    <MenuItem key='1'>Profile</MenuItem>
+    <MenuItem key='2'>Chats</MenuItem>
+    <MenuItem key='3'>Settings</MenuItem>
+  </MenuV2>
+);
+
+export const WithMenuV2: StoryFn<typeof Option> = () => (
+  <>
+    <Option onClick={action('click')}>
+      <OptionContent>Lorem Ipsum Lorem</OptionContent>
+      <OptionMenu>
+        <Menu options={menuOptions} />
+      </OptionMenu>
+    </Option>
+    <Option>
+      <OptionAvatar>
+        <Avatar url={exampleAvatar} size='x28' />
+      </OptionAvatar>
+      <OptionColumn>
+        <StatusBullet />
+      </OptionColumn>
+      <OptionContent>
+        Lorem Ipsum Lorem Lorem Ipsum Lorem Lorem Ipsum Lorem Lorem Ipsum Lorem
+      </OptionContent>
+      <OptionMenu>
+        <SimpleMenuV2
+          detached
+          small
+          items={[{ id: '1', label: 'Option', icon: 'hashtag' }]}
+        />
       </OptionMenu>
     </Option>
   </>
