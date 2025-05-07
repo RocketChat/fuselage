@@ -21,13 +21,25 @@ export const ButtonFrame = styled(View, {
   backgroundColor: '$background',
   alignItems: 'center',
   flexDirection: 'row',
+  // background: '#353B45',
+  // backgroundPress: '#4C5362', // darker background on press
+  // backgroundHover: '#404754', // lighter background on hover
+  // color: '#353B45',
+  borderRadius: '$1',
 
   hoverStyle: {
-    backgroundColor: '$backgroundHover',
+    backgroundColor: '#404754',
+    borderColor:'none',
+    cursor: 'pointer',
+  },
+  pressStyle: {
+    backgroundColor: '#4C5362',
+    borderColor:'none'
   },
 
-  pressStyle: {
-    backgroundColor: '$backgroundPress',
+  focusVisibleStyle: {
+    backgroundColor: '#404754',
+  //   borderColor: '$borderColorFocus',
   },
 
   variants: {
@@ -35,7 +47,7 @@ export const ButtonFrame = styled(View, {
       '...size': (name, { tokens }) => {
         return {
           height: tokens.size[name],
-          borderRadius: tokens.radius[name],
+          // borderRadius: tokens.radius[name],
           // note the getSpace and getSize helpers will let you shift down/up token sizes
           // whereas with gap we just multiply by 0.2
           // this is a stylistic choice, and depends on your design system values
@@ -44,6 +56,186 @@ export const ButtonFrame = styled(View, {
             shift: -1,
           }),
         }
+      },
+    },
+    Primary:{
+      true:{
+        backgroundColor:'#095AD2',
+        hoverStyle: {
+          backgroundColor: '#10529E',
+          borderColor:'none',
+          cursor: 'pointer',
+        },
+      
+        pressStyle: {
+          backgroundColor: '#01336B',
+          borderColor:'none'
+        },
+      
+        focusVisibleStyle: {
+          backgroundColor: '#095AD2',
+        },
+      },
+    },
+    Danger:{
+      true:{
+        backgroundColor:'#BB3E4E',
+        hoverStyle: {
+          backgroundColor: '#95323F',
+          borderColor:'none',
+          cursor: 'pointer',
+        },
+      
+        pressStyle: {
+          backgroundColor: '#822C37',
+          borderColor:'none'
+        },
+      
+        focusVisibleStyle: {
+          backgroundColor: '#BB3E4E',
+        },
+      
+      },
+      
+    },
+    Warning:{
+      true:{
+        //font color:'FFFFFF',
+        backgroundColor:'#B08C30',
+        hoverStyle: {
+          backgroundColor: '#C7AA66',
+          borderColor:'none',
+          cursor: 'pointer',
+        },
+      
+        pressStyle: {
+          backgroundColor: '#01336B',
+          borderColor:'none'
+        },
+      
+        focusVisibleStyle: {
+          backgroundColor: '#095AD2',
+        },
+      
+      },
+      
+    },
+    Success:{
+      true:{
+        backgroundColor:'#1D7256',
+        hoverStyle: {
+          backgroundColor: '#175943',
+          borderColor:'none',
+          cursor: 'pointer',
+        },
+      
+        pressStyle: {
+          backgroundColor: '#134937',
+          borderColor:'none'
+        },
+      
+        focusVisibleStyle: {
+          backgroundColor: '#1D7256',
+        },
+      
+      },
+      
+    },
+    Secondary:{
+      true:{
+        backgroundColor:'#353B45',
+        hoverStyle: {
+          backgroundColor: '#404754',
+          borderColor:'none',
+          cursor: 'pointer',
+        },
+      
+        pressStyle: {
+          backgroundColor: '#4C5362',
+          borderColor:'none'
+        },
+      
+        focusVisibleStyle: {
+          backgroundColor: '#353B45',
+        },
+      },
+    },
+    SecondaryDanger:{
+      true:{
+        backgroundColor:'#353B45',
+        hoverStyle: {
+          backgroundColor: '#404754',
+          borderColor:'none',
+          cursor: 'pointer',
+        },
+      
+        pressStyle: {
+          backgroundColor: '#4C5362',
+          borderColor:'none'
+        },
+      
+        focusVisibleStyle: {
+          backgroundColor: '#353B45',
+        },
+      },
+    },
+    SecondaryWarning:{
+      true:{
+        // font color:'FEEFBE',  
+
+        backgroundColor:'#e1e1e1',
+        hoverStyle: {
+          backgroundColor: '#404754',
+          borderColor:'none',
+          cursor: 'pointer',
+        },
+      
+        pressStyle: {
+          backgroundColor: '#4C5362',
+          borderColor:'none'
+        },
+      
+        focusVisibleStyle: {
+          backgroundColor: '#404754',
+        },
+      },
+    },
+    // 404754,4C5362,404754
+    SecondarySuccess:{
+      true:{
+        backgroundColor:'#e1e1e1',
+        hoverStyle: {
+          backgroundColor: '#404754',
+          borderColor:'none',
+          cursor: 'pointer',
+        },
+      
+        pressStyle: {
+          backgroundColor: '#4C5362',
+          borderColor:'none'
+        },
+      
+        focusVisibleStyle: {
+          backgroundColor: '#404754',
+        },
+      },
+    },
+    disabled: {
+      true: {
+        cursor: 'not-allowed',
+        pointerEvents: 'none',
+        backgroundColor: '#353B45',          
+        borderRadius: '$2',
+        hoverStyle: {
+          cursor: 'not-allowed',
+          backgroundColor: '#404754',
+          borderColor:'none'
+        },
+
+        focusVisibleStyle: {
+          backgroundColor: '#353B45',
+        //   borderColor: '$borderColorFocus',
+        },
       },
     },
   } as const,
