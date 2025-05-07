@@ -10,6 +10,7 @@ import {
   withStaticProperties,
 } from '@tamagui/web'
 import { cloneElement, isValidElement, useContext } from 'react'
+import { getTokens } from '@tamagui/core'
 
 export const ButtonContext = createStyledContext({
   size: '$md' as SizeTokens,
@@ -60,39 +61,39 @@ export const ButtonFrame = styled(View, {
     },
     Primary:{
       true:{
-        backgroundColor:'#095AD2',
+        backgroundColor:'$primary_button.background',
         hoverStyle: {
-          backgroundColor: '#10529E',
+          backgroundColor: '$primary_button.backgroundHover',
           borderColor:'none',
           cursor: 'pointer',
         },
       
         pressStyle: {
-          backgroundColor: '#01336B',
+          backgroundColor: '$primary_button.backgroundPress',
           borderColor:'none'
         },
       
         focusVisibleStyle: {
-          backgroundColor: '#095AD2',
+          backgroundColor: '$primary_button.backgroundFocus',
         },
       },
     },
     Danger:{
       true:{
-        backgroundColor:'#BB3E4E',
+        backgroundColor:'$danger_button.background',
         hoverStyle: {
-          backgroundColor: '#95323F',
+          backgroundColor: '$danger_button.backgroundHover',
           borderColor:'none',
           cursor: 'pointer',
         },
       
         pressStyle: {
-          backgroundColor: '#822C37',
+          backgroundColor: '$danger_button.backgroundPress',
           borderColor:'none'
         },
       
         focusVisibleStyle: {
-          backgroundColor: '#BB3E4E',
+          backgroundColor: '$danger_button.backgroundFocus',
         },
       
       },
@@ -101,20 +102,20 @@ export const ButtonFrame = styled(View, {
     Warning:{
       true:{
         //font color:'FFFFFF',
-        backgroundColor:'#B08C30',
+        backgroundColor:'$warning_button.background',
         hoverStyle: {
-          backgroundColor: '#C7AA66',
+          backgroundColor: '$warning_button.backgroundHover',
           borderColor:'none',
           cursor: 'pointer',
         },
       
         pressStyle: {
-          backgroundColor: '#01336B',
+          backgroundColor: '$warning_button.backgroundPress',
           borderColor:'none'
         },
       
         focusVisibleStyle: {
-          backgroundColor: '#095AD2',
+          backgroundColor: '$warning_button.backgroundFocus',
         },
       
       },
@@ -122,20 +123,20 @@ export const ButtonFrame = styled(View, {
     },
     Success:{
       true:{
-        backgroundColor:'#1D7256',
+        backgroundColor:'$success_button.background',
         hoverStyle: {
-          backgroundColor: '#175943',
+          backgroundColor: '$success_button.backgroundHover',
           borderColor:'none',
           cursor: 'pointer',
         },
       
         pressStyle: {
-          backgroundColor: '#134937',
+          backgroundColor: '$success_button.backgroundPress',
           borderColor:'none'
         },
       
         focusVisibleStyle: {
-          backgroundColor: '#1D7256',
+          backgroundColor: '$success_button.backgroundFocus',
         },
       
       },
@@ -143,39 +144,39 @@ export const ButtonFrame = styled(View, {
     },
     Secondary:{
       true:{
-        backgroundColor:'#353B45',
+        backgroundColor:'$secondary_button.background',
         hoverStyle: {
-          backgroundColor: '#404754',
+          backgroundColor: '$secondary_button.backgroundHover',
           borderColor:'none',
           cursor: 'pointer',
         },
       
         pressStyle: {
-          backgroundColor: '#4C5362',
+          backgroundColor: '$secondary_button.backgroundPress',
           borderColor:'none'
         },
       
         focusVisibleStyle: {
-          backgroundColor: '#353B45',
+          backgroundColor: '$secondary_button.backgroundFocus',
         },
       },
     },
     SecondaryDanger:{
       true:{
-        backgroundColor:'#353B45',
+        backgroundColor:'$secondaryDanger_button.background',
         hoverStyle: {
-          backgroundColor: '#404754',
+          backgroundColor: '$secondaryDanger_button.backgroundHover',
           borderColor:'none',
           cursor: 'pointer',
         },
       
         pressStyle: {
-          backgroundColor: '#4C5362',
+          backgroundColor: '$secondaryDanger_button.backgroundPress',
           borderColor:'none'
         },
       
         focusVisibleStyle: {
-          backgroundColor: '#353B45',
+          backgroundColor: '$secondaryDanger_button.backgroundFocus',
         },
       },
     },
@@ -183,40 +184,40 @@ export const ButtonFrame = styled(View, {
       true:{
         // font color:'FEEFBE',  
 
-        backgroundColor:'#e1e1e1',
+        backgroundColor:'$secondaryWarning_button.background',
         hoverStyle: {
-          backgroundColor: '#404754',
+          backgroundColor: '$secondaryWarning_button.backgroundHover',
           borderColor:'none',
           cursor: 'pointer',
         },
       
         pressStyle: {
-          backgroundColor: '#4C5362',
+          backgroundColor: '$secondaryWarning_button.backgroundPress',
           borderColor:'none'
         },
       
         focusVisibleStyle: {
-          backgroundColor: '#404754',
+          backgroundColor: '$secondaryWarning_button.backgroundFocus',
         },
       },
     },
     // 404754,4C5362,404754
     SecondarySuccess:{
       true:{
-        backgroundColor:'#e1e1e1',
+        backgroundColor:'$secondarySuccess_button.background',
         hoverStyle: {
-          backgroundColor: '#404754',
+          backgroundColor: '$secondarySuccess_button.backgroundHover',
           borderColor:'none',
           cursor: 'pointer',
         },
       
         pressStyle: {
-          backgroundColor: '#4C5362',
+          backgroundColor: '$secondarySuccess_button.backgroundPress',
           borderColor:'none'
         },
       
         focusVisibleStyle: {
-          backgroundColor: '#404754',
+          backgroundColor: '$secondarySuccess_button.backgroundFocus',
         },
       },
     },
@@ -224,16 +225,16 @@ export const ButtonFrame = styled(View, {
       true: {
         cursor: 'not-allowed',
         pointerEvents: 'none',
-        backgroundColor: '#353B45',          
+        backgroundColor: '$disabled_button.background',          
         borderRadius: '$2',
         hoverStyle: {
           cursor: 'not-allowed',
-          backgroundColor: '#404754',
+          backgroundColor: '$disabled_button.backgroundHover',
           borderColor:'none'
         },
 
         focusVisibleStyle: {
-          backgroundColor: '#353B45',
+          backgroundColor: '$disabled_button.backgroundFocus',
         //   borderColor: '$borderColorFocus',
         },
       },
