@@ -1,0 +1,20 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": "./src",
+    "module": "ESNext",
+    "outDir": "./dist/esm",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+  },
+  "include": ["./src"],
+  "exclude": ["./dist", "./node_modules"],
+  "typedocOptions": {
+    "entryPoints": [
+      "src/index.ts"
+    ],
+    "out": "../../static/draggable-core"
+  }
+}
