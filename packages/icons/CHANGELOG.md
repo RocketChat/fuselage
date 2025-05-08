@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.43.0
+
+### Minor Changes
+
+- [#1626](https://github.com/RocketChat/fuselage/pull/1626) [`d3d7817`](https://github.com/RocketChat/fuselage/commit/d3d78172e0395575281526c2925eba86d7c95d50) Thanks [@gabriellsh](https://github.com/gabriellsh)! - feat(icons): Add new `stacked-meatballs`
+
 ## 0.42.0
 
 ### Minor Changes
