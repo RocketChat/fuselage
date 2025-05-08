@@ -62,7 +62,7 @@ const MenuOption = memo(
         className={[
           'rcx-option',
           className,
-          focus && 'rcx-option--focus',
+          focus,
           selected && 'rcx-option--selected',
           disabled && 'rcx-option--disabled',
           variant && `rcx-option--${variant}`,
