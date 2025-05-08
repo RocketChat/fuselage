@@ -2,7 +2,7 @@ import type { UsePositionOptions } from '@rocket.chat/fuselage-hooks';
 import type { ComponentProps, ElementType, ReactElement } from 'react';
 import { cloneElement, useRef } from 'react';
 import type { AriaMenuProps } from 'react-aria';
-import { useButton, useMenuTrigger } from 'react-aria';
+import { Overlay, useButton, useMenuTrigger } from 'react-aria';
 import { createPortal } from 'react-dom';
 import type { MenuTriggerProps } from 'react-stately';
 import { useMenuTriggerState } from 'react-stately';
@@ -64,14 +64,16 @@ const Menu = <T extends object>({
   const defaultSmall = !large && !medium && !tiny && !mini;
 
   const popover = state.isOpen && (
-    <MenuPopover
-      state={state}
-      triggerRef={ref}
-      placement={getPlacement(placement)}
-      maxWidth={maxWidth}
-    >
-      <MenuDropDown {...props} {...menuProps} />
-    </MenuPopover>
+    <Overlay>
+      <MenuPopover
+        state={state}
+        triggerRef={ref}
+        placement={getPlacement(placement)}
+        maxWidth={maxWidth}
+      >
+        <MenuDropDown {...props} {...menuProps} />
+      </MenuPopover>
+    </Overlay>
   );
 
   return (
