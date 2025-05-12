@@ -1,12 +1,11 @@
 import { useBreakpoints } from '@rocket.chat/fuselage-hooks';
 import type { ReactNode } from 'react';
-import { useRef } from 'react';
 import type { AriaPopoverProps } from 'react-aria';
-import { usePopover } from 'react-aria';
 import type { OverlayTriggerState } from 'react-stately';
 
-import { DropdownDesktop } from '../../Dropdown/DropdownDesktop';
-import { DropdownMobile } from '../../Dropdown/DropdownMobile';
+import Box from '../../Box';
+import { Popover } from '../../Popover';
+import Tile from '../../Tile';
 
 interface PopoverProps extends Omit<AriaPopoverProps, 'popoverRef'> {
   children: ReactNode;
@@ -21,31 +20,48 @@ function MenuPopover({
   maxWidth,
   ...props
 }: PopoverProps) {
-  const popoverRef = useRef(null);
-  const { popoverProps } = usePopover(
-    {
-      ...props,
-      offset,
-      popoverRef,
-    },
-    state,
-  );
-
-  const breakpoints = useBreakpoints();
-  const isMobile = !breakpoints.includes('sm');
+  const isMobile = !useBreakpoints().includes('sm');
 
   if (isMobile) {
-    const mobileProps = { ...popoverProps, style: { bottom: 0, left: 0 } };
-    return <DropdownMobile children={children} {...mobileProps} />;
+    return (
+      <Popover state={state} offset={offset} {...props}>
+        <Tile
+          elevation='2'
+          pi='0'
+          pb='0'
+          w='100vw'
+          maxHeight='80%'
+          position='fixed'
+          display='flex'
+          flexDirection='column'
+          overflow='auto'
+          style={{ bottom: 0, left: 0 }}
+          zIndex={2}
+        >
+          <Box flexShrink={1} pb={16}>
+            {children}
+          </Box>
+        </Tile>
+      </Popover>
+    );
   }
 
   return (
-    <DropdownDesktop
-      children={children}
-      ref={popoverRef}
-      maxWidth={maxWidth}
-      {...popoverProps}
-    />
+    <Popover state={state} offset={offset} {...props}>
+      <Tile
+        elevation='2'
+        pi='0'
+        pb='0'
+        display='flex'
+        flexDirection='column'
+        overflow='auto'
+        maxWidth={maxWidth}
+      >
+        <Box flexShrink={1} pb={12}>
+          {children}
+        </Box>
+      </Tile>
+    </Popover>
   );
 }
 export default MenuPopover;
