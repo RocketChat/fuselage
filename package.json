@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "@changesets/changelog-github": "~0.5.1",
-    "@changesets/cli": "~2.29.3",
+    "@changesets/cli": "~2.29.4",
     "@eslint/js": "~9.26.0",
     "@rocket.chat/prettier-config": "workspace:~",
     "eslint": "~9.23.0",
@@ -48,7 +48,7 @@
     "prettier": "~3.5.3",
     "turbo": "~2.5.3",
     "typescript": "~5.8.3",
-    "typescript-eslint": "~8.32.0",
+    "typescript-eslint": "~8.32.1",
     "update-readme": "workspace:~"
   },
   "packageManager": "yarn@4.7.0",
