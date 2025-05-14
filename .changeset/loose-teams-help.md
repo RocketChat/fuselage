@@ -2,4 +2,4 @@
 '@rocket.chat/fuselage': patch
 ---
 
-Improves MenuV2 accessibility
+fix(fuselage): `MenuV2` not handling focus properly
