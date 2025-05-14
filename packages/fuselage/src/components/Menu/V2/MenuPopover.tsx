@@ -3,9 +3,9 @@ import type { ReactNode } from 'react';
 import type { AriaPopoverProps } from 'react-aria';
 import type { OverlayTriggerState } from 'react-stately';
 
-import Box from '../../Box';
+import { DropdownDesktop } from '../../Dropdown/DropdownDesktop';
+import { DropdownMobile } from '../../Dropdown/DropdownMobile';
 import { Popover } from '../../Popover';
-import Tile from '../../Tile';
 
 interface PopoverProps extends Omit<AriaPopoverProps, 'popoverRef'> {
   children: ReactNode;
@@ -25,42 +25,14 @@ function MenuPopover({
   if (isMobile) {
     return (
       <Popover state={state} offset={offset} {...props}>
-        <Tile
-          elevation='2'
-          pi='0'
-          pb='0'
-          w='100vw'
-          maxHeight='80%'
-          position='fixed'
-          display='flex'
-          flexDirection='column'
-          overflow='auto'
-          style={{ bottom: 0, left: 0 }}
-          zIndex={2}
-        >
-          <Box flexShrink={1} pb={16}>
-            {children}
-          </Box>
-        </Tile>
+        <DropdownMobile>{children}</DropdownMobile>
       </Popover>
     );
   }
 
   return (
     <Popover state={state} offset={offset} {...props}>
-      <Tile
-        elevation='2'
-        pi='0'
-        pb='0'
-        display='flex'
-        flexDirection='column'
-        overflow='auto'
-        maxWidth={maxWidth}
-      >
-        <Box flexShrink={1} pb={12}>
-          {children}
-        </Box>
-      </Tile>
+      <DropdownDesktop maxWidth={maxWidth}>{children}</DropdownDesktop>
     </Popover>
   );
 }
