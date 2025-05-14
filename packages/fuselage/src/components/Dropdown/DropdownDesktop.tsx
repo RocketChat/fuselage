@@ -31,7 +31,7 @@ export const DropdownDesktop = forwardRef(function DropdownDesktop<
       {...props}
     >
       <Box flexShrink={1} pb={12}>
-        {(style as any).visibility === 'hidden' ? null : children}
+        {style?.visibility === 'hidden' ? null : children}
       </Box>
     </Tile>
   );

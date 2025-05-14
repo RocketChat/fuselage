@@ -1,14 +1,13 @@
 import { useBreakpoints } from '@rocket.chat/fuselage-hooks';
 import type { ReactNode } from 'react';
-import { useRef } from 'react';
 import type { AriaPopoverProps } from 'react-aria';
-import { usePopover } from 'react-aria';
 import type { OverlayTriggerState } from 'react-stately';
 
 import { DropdownDesktop } from '../../Dropdown/DropdownDesktop';
 import { DropdownMobile } from '../../Dropdown/DropdownMobile';
+import { Popover } from '../../Popover';
 
-interface PopoverProps extends Omit<AriaPopoverProps, 'popoverRef'> {
+interface MenuPopoverProps extends Omit<AriaPopoverProps, 'popoverRef'> {
   children: ReactNode;
   state: OverlayTriggerState;
   maxWidth?: string;
@@ -20,32 +19,21 @@ function MenuPopover({
   offset = 4,
   maxWidth,
   ...props
-}: PopoverProps) {
-  const popoverRef = useRef(null);
-  const { popoverProps } = usePopover(
-    {
-      ...props,
-      offset,
-      popoverRef,
-    },
-    state,
-  );
-
-  const breakpoints = useBreakpoints();
-  const isMobile = !breakpoints.includes('sm');
+}: MenuPopoverProps) {
+  const isMobile = !useBreakpoints().includes('sm');
 
   if (isMobile) {
-    const mobileProps = { ...popoverProps, style: { bottom: 0, left: 0 } };
-    return <DropdownMobile children={children} {...mobileProps} />;
+    return (
+      <Popover state={state} offset={offset} {...props}>
+        <DropdownMobile>{children}</DropdownMobile>
+      </Popover>
+    );
   }
 
   return (
-    <DropdownDesktop
-      children={children}
-      ref={popoverRef}
-      maxWidth={maxWidth}
-      {...popoverProps}
-    />
+    <Popover state={state} offset={offset} {...props}>
+      <DropdownDesktop maxWidth={maxWidth}>{children}</DropdownDesktop>
+    </Popover>
   );
 }
 export default MenuPopover;
