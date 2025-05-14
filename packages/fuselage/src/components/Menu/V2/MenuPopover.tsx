@@ -7,7 +7,7 @@ import { DropdownDesktop } from '../../Dropdown/DropdownDesktop';
 import { DropdownMobile } from '../../Dropdown/DropdownMobile';
 import { Popover } from '../../Popover';
 
-interface PopoverProps extends Omit<AriaPopoverProps, 'popoverRef'> {
+interface MenuPopoverProps extends Omit<AriaPopoverProps, 'popoverRef'> {
   children: ReactNode;
   state: OverlayTriggerState;
   maxWidth?: string;
@@ -19,7 +19,7 @@ function MenuPopover({
   offset = 4,
   maxWidth,
   ...props
-}: PopoverProps) {
+}: MenuPopoverProps) {
   const isMobile = !useBreakpoints().includes('sm');
 
   if (isMobile) {
