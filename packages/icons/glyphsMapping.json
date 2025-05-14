@@ -1001,5 +1001,8 @@
   },
   "stacked-meatballs": {
     "start": "\ue147"
+  },
+  "inbox": {
+    "start": "\ue165"
   }
 }
