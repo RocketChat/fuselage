@@ -1,5 +1,15 @@
 # Change Log
 
+## 0.62.1
+
+### Patch Changes
+
+- [#1633](https://github.com/RocketChat/fuselage/pull/1633) [`18a33f4`](https://github.com/RocketChat/fuselage/commit/18a33f44e7c2df9a2ef50596a813b86d68b1604e) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): Keep displaying button when Menu is opened
+
+- [#1632](https://github.com/RocketChat/fuselage/pull/1632) [`9f8fea1`](https://github.com/RocketChat/fuselage/commit/9f8fea100223fdb4efb1175e2ecb608cdfe3d79f) Thanks [@yash-rajpal](https://github.com/yash-rajpal)! - fix(fuselage): `MenuV2` not handling focus properly
+
+- [#1634](https://github.com/RocketChat/fuselage/pull/1634) [`20d9521`](https://github.com/RocketChat/fuselage/commit/20d9521ccc517206e8e1ac87f4f8e7665036dfd4) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): Increase `z-index` in `ContextualbarV2`
+
 ## 0.62.0
 
 ### Minor Changes
