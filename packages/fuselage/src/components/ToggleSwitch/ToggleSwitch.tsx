@@ -11,7 +11,7 @@ export const ToggleSwitch = forwardRef(function ToggleSwitch(
   ref: Ref<HTMLInputElement>,
 ) {
   return (
-    <Box is='label' className={className} rcx-toggle-switch>
+    <Box is='div' className={className} rcx-toggle-switch>
       <Box
         is='input'
         ref={ref}
