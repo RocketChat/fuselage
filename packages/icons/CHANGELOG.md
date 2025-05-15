@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.43.0
+
+### Minor Changes
+
+- [#1640](https://github.com/RocketChat/fuselage/pull/1640) [`5c8eff6`](https://github.com/RocketChat/fuselage/commit/5c8eff6a39eb509685536ce34bdb49f16dcd88c8) Thanks [@dougfabris](https://github.com/dougfabris)! - feat(icons): Add new inbox icon
+
+- [#1626](https://github.com/RocketChat/fuselage/pull/1626) [`d3d7817`](https://github.com/RocketChat/fuselage/commit/d3d78172e0395575281526c2925eba86d7c95d50) Thanks [@gabriellsh](https://github.com/gabriellsh)! - feat(icons): Add new `stacked-meatballs`
+
 ## 0.42.0
 
 ### Minor Changes

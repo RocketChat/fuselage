@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "eslint": "~9.23.0",
-    "lint-all": "workspace:~",
+    "lint-all": "^0.31.25",
     "prettier": "~3.5.3"
   },
   "peerDependencies": {
