@@ -47,7 +47,7 @@
     "prettier": "~3.5.3",
     "rollup": "~4.40.2",
     "rollup-plugin-terser": "~7.0.2",
-    "ts-jest": "~29.3.2",
+    "ts-jest": "~29.3.3",
     "typedoc": "~0.28.4",
     "typescript": "~5.8.3"
   },

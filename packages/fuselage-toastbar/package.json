@@ -72,7 +72,7 @@
     "rimraf": "~6.0.1",
     "storybook": "~8.6.12",
     "storybook-dark-mode": "~4.0.2",
-    "ts-jest": "~29.3.2",
+    "ts-jest": "~29.3.3",
     "typedoc": "~0.28.4",
     "typescript": "~5.8.3"
   },
