@@ -87,7 +87,7 @@ const CreateCloudWorkspaceForm = ({
       <FieldGroup mbs={16}>
         <Field>
           <FieldLabel>
-            {t('form.createCloudWorkspace.fields.orgEmaillabel')}
+            {t('form.createCloudWorkspace.fields.orgEmail.label')}
           </FieldLabel>
           <FieldRow>
             <EmailInput
@@ -107,7 +107,7 @@ const CreateCloudWorkspaceForm = ({
         <Field>
           <FieldLabel>
             <Box display='inline' mie={8}>
-              {t('form.createCloudWorkspace.fields.workspaceNamelabel')}
+              {t('form.createCloudWorkspace.fields.workspaceName.label')}
             </Box>
           </FieldLabel>
           <FieldRow>
@@ -126,7 +126,7 @@ const CreateCloudWorkspaceForm = ({
         <Field>
           <FieldLabel>
             <Box display='inline' mie={8}>
-              {t('form.createCloudWorkspace.fields.workspaceUrllabel')}
+              {t('form.createCloudWorkspace.fields.workspaceUrl.label')}
             </Box>
           </FieldLabel>
           <FieldRow>
@@ -149,7 +149,7 @@ const CreateCloudWorkspaceForm = ({
             <Field>
               <FieldLabel>
                 <Box display='inline' mie={8}>
-                  {t('form.createCloudWorkspace.fields.serverRegionlabel')}
+                  {t('form.createCloudWorkspace.fields.serverRegion.label')}
                 </Box>
                 <Tooltip
                   text={t(
@@ -168,7 +168,7 @@ const CreateCloudWorkspaceForm = ({
                       {...field}
                       options={serverRegionOptions}
                       placeholder={t(
-                        'form.createCloudWorkspace.fields.serverRegionlabel',
+                        'form.createCloudWorkspace.fields.serverRegion.label',
                       )}
                     />
                   )}
@@ -181,7 +181,7 @@ const CreateCloudWorkspaceForm = ({
             <Field>
               <FieldLabel>
                 <Box display='inline' mie={8}>
-                  {t('form.createCloudWorkspace.fields.languagelabel')}
+                  {t('form.createCloudWorkspace.fields.language.label')}
                 </Box>
                 <Tooltip
                   text={t('form.createCloudWorkspace.fields.language.tooltip')}
@@ -198,7 +198,7 @@ const CreateCloudWorkspaceForm = ({
                       {...field}
                       options={languageOptions}
                       placeholder={t(
-                        'form.createCloudWorkspace.fields.languagelabel',
+                        'form.createCloudWorkspace.fields.language.label',
                       )}
                     />
                   )}
