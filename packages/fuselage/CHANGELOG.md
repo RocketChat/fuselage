@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.62.2
+
+### Patch Changes
+
+- [#1644](https://github.com/RocketChat/fuselage/pull/1644) [`174a936`](https://github.com/RocketChat/fuselage/commit/174a936c586185b0a4e4f186518bfd4e534dd994) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): MenuV2 button should receive label
+
 ## 0.62.1
 
 ### Patch Changes
