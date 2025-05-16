@@ -55,7 +55,11 @@ const Menu = <T extends object>({
   const { menuTriggerProps, menuProps } = useMenuTrigger<T>({}, state, ref);
 
   const { buttonProps } = useButton(
-    { ...menuTriggerProps, ...{ preventFocusOnPress: true } },
+    {
+      ...menuTriggerProps,
+      'aria-label': props['aria-label'] || title,
+      ...{ preventFocusOnPress: true },
+    },
     ref,
   );
 
