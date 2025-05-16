@@ -10,14 +10,16 @@ export const ToggleSwitch = forwardRef(function ToggleSwitch(
   }: ComponentProps<typeof Box> & AllHTMLAttributes<HTMLInputElement>,
   ref: Ref<HTMLInputElement>,
 ) {
+  const { is: outerIs = 'label', ...rest } = props;
+
   return (
-    <Box is='div' className={className} rcx-toggle-switch>
+    <Box is={outerIs} className={className} rcx-toggle-switch>
       <Box
         is='input'
         ref={ref}
         rcx-toggle-switch__input
         type='checkbox'
-        {...props}
+        {...rest}
       />
       <Box is='i' rcx-toggle-switch__fake aria-hidden='true' />
     </Box>
