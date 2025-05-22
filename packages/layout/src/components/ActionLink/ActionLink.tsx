@@ -37,8 +37,6 @@ const ActionLink = ({
       fontScale='p2'
       href={href}
       color='info'
-      mi={4}
-      textDecorationLine='none'
       onClick={handleClick}
     >
       {children}
