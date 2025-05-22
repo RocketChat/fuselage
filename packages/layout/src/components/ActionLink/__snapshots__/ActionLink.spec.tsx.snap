@@ -4,7 +4,7 @@ exports[`renders Default without crashing 1`] = `
 <body>
   <div>
     <a
-      class="rcx-box rcx-box--full rcx-css-157mryd"
+      class="rcx-box rcx-box--full rcx-css-pn6rem"
       href="#"
     >
       Default
