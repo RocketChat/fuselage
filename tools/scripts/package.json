@@ -11,8 +11,8 @@
     "lint-and-fix": "eslint --fix ."
   },
   "devDependencies": {
-    "@types/node": "~22.15.16",
-    "@typescript-eslint/parser": "~8.32.0",
+    "@types/node": "~22.15.21",
+    "@typescript-eslint/parser": "~8.32.1",
     "cross-env": "^7.0.3",
     "endent": "^2.1.0",
     "eslint": "~9.23.0",
