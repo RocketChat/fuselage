@@ -5,7 +5,7 @@
 
 $tag-colors-default-color: theme(
   'tag-colors-default-color',
-  colors.font(titles-labels)
+  colors.button(on-secondary)
 );
 $tag-colors-default-hover-color: theme(
   'tag-colors-default-hover-color',
@@ -13,7 +13,7 @@ $tag-colors-default-hover-color: theme(
 );
 $tag-colors-default-background-color: theme(
   'tag-colors-default-background-color',
-  colors.surface(neutral)
+  colors.button(secondary-default)
 );
 $tag-colors-default-hover-background-color: theme(
   'tag-colors-default-hover-background-color',
