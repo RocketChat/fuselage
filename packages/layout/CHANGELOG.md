@@ -1,5 +1,11 @@
 # @rocket.chat/layout
 
+## 0.33.0
+
+### Minor Changes
+
+- [#1650](https://github.com/RocketChat/fuselage/pull/1650) [`69cae10`](https://github.com/RocketChat/fuselage/commit/69cae10093138e81a004a8229d14d214f60c509e) Thanks [@dougfabris](https://github.com/dougfabris)! - feat(layout): Remove unnecessary Link component
+
 ## 0.32.1
 
 ### Patch Changes
