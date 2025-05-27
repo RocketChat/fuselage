@@ -4,6 +4,7 @@ import type { ComponentType } from 'react';
 import { useState } from 'react';
 
 import { PropsVariationSection } from '../../../.storybook/helpers';
+import Box from '../Box';
 import { ButtonGroup } from '../ButtonGroup';
 import Margins from '../Margins';
 
@@ -37,6 +38,12 @@ export const LoadingInteraction: StoryFn<typeof Button> = () => {
     </Button>
   );
 };
+
+export const Truncated: StoryFn<typeof Button> = () => (
+  <Box maxWidth={160} display='flex' justifyContent='center'>
+    <Button onClick={action('click')}>Button with loooooooooooong text</Button>
+  </Box>
+);
 
 LoadingInteraction.parameters = {
   docs: {
