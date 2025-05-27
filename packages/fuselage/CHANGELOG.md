@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.62.3
+
+### Patch Changes
+
+- [#1654](https://github.com/RocketChat/fuselage/pull/1654) [`6ad5db9`](https://github.com/RocketChat/fuselage/commit/6ad5db9f613b2cda09d5cc5b8158196115f3f72a) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): Tag default colors
+
+- [#1655](https://github.com/RocketChat/fuselage/pull/1655) [`3dee4d8`](https://github.com/RocketChat/fuselage/commit/3dee4d887c7a58088c500df9a90611aee02a5535) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): `Button` content not truncating
+
 ## 0.62.2
 
 ### Patch Changes
