@@ -44,6 +44,10 @@
 
   .rcx-button--content {
     display: inline-block;
+    width: 100%;
+    vertical-align: top;
+
+    @include typography.use-with-truncated-text();
   }
 
   @include clickable;
