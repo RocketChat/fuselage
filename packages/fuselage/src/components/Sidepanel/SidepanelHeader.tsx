@@ -6,11 +6,11 @@ export const SidepanelHeader = ({
   className,
   ...props
 }: HTMLAttributes<HTMLDivElement>) => (
-  <>
+  <div className='rcx-sidepanel-header-wrapper'>
     <div
       className={['rcx-sidepanel-header', className].filter(Boolean).join(' ')}
       {...props}
     />
     <SidepanelDivider />
-  </>
+  </div>
 );

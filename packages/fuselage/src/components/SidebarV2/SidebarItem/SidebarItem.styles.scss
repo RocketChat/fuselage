@@ -143,6 +143,7 @@ $sidebar-color-font-active: theme(
     flex-direction: column;
 
     width: lengths.size(full);
+    gap: lengths.padding(4);
   }
 
   &__menu-wrapper {
