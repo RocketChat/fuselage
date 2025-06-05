@@ -66,11 +66,11 @@ jobs:
         with:
           cmd: install
       
-      - name: run yarn install
-        run: yarn install
-      
       - name: cd packages/fuselage
         run: cd packages/fuselage
+      
+      - name: show directory
+        run: ls
 
       - name: setup loki
         run: yarn build-storybook && yarn loki --requireReference --reactUri file:./storybook-static
