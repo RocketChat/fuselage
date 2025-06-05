@@ -10,7 +10,7 @@
 
 ---
 
-[![npm@latest](https://img.shields.io/npm/v/fuselage-tamagui/latest?style=flat-square)](https://www.npmjs.com/package/fuselage-tamagui/v/latest) [![npm@next](https://img.shields.io/npm/v/fuselage-tamagui/next?style=flat-square)](https://www.npmjs.com/package/fuselage-tamagui/v/next) ![react version](https://img.shields.io/npm/dependency-version/fuselage-tamagui/peer/react?style=flat-square) [![Storybook](https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg)](https://rocketchat.github.io/fuselage/fuselage-tamagui) ![npm downloads](https://img.shields.io/npm/dw/fuselage-tamagui?style=flat-square) ![License: undefined](https://img.shields.io/npm/l/fuselage-tamagui?style=flat-square)
+[![npm@latest](https://img.shields.io/npm/v/fuselage-tamagui/latest?style=flat-square)](https://www.npmjs.com/package/fuselage-tamagui/v/latest) [![npm@next](https://img.shields.io/npm/v/fuselage-tamagui/next?style=flat-square)](https://www.npmjs.com/package/fuselage-tamagui/v/next) [![Storybook](https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg)](https://rocketchat.github.io/fuselage/fuselage-tamagui) ![npm downloads](https://img.shields.io/npm/dw/fuselage-tamagui?style=flat-square) ![License: undefined](https://img.shields.io/npm/l/fuselage-tamagui?style=flat-square)
 
 ![deps](https://img.shields.io/librariesio/release/npm/fuselage-tamagui?style=flat-square) ![npm bundle size](https://img.shields.io/bundlephobia/min/fuselage-tamagui?style=flat-square)
 
@@ -19,16 +19,6 @@
 ## Install
 
 <!--install-->
-
-Firstly, install the peer dependencies (prerequisites):
-
-```sh
-npm i @tamagui/core react react-dom
-
-# or, if you are using yarn:
-
-yarn add @tamagui/core react react-dom
-```
 
 Add `fuselage-tamagui` as a dependency:
 

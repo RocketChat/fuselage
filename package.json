@@ -61,8 +61,14 @@
     "jsdom": "25.0.1"
   },
   "dependencies": {
-    "@tamagui/core": "~1.125.34",
-    "@tamagui/web": "~1.125.34",
-    "tamagui": "~1.125.34"
+    "@tamagui/core": "^1.125.22",
+    "@tamagui/web": "^1.125.22",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tamagui": "^1.125.22"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }
