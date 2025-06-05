@@ -66,11 +66,5 @@ jobs:
         with:
           cmd: install
       
-      - name: cd packages/fuselage
-        run: cd packages/fuselage
-      
-      - name: show directory
-        run: ls
-
       - name: setup loki
-        run: yarn build-storybook && yarn loki --requireReference --reactUri file:./storybook-static
+        run: cd packages/fuselage && yarn build-storybook && yarn loki --requireReference --reactUri file:./storybook-static
