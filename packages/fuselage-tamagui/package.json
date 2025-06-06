@@ -39,7 +39,7 @@
     "@storybook/react-vite": "^8.6.4",
     "@storybook/test": "^8.6.4",
     "@storybook/addon-links": "^7.0.0",
-    "@storybook/addon-react-native-web": "^7.0.0",
+    "@storybook/addon-react-native-web": "^0.0.29",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "@tamagui/vite-plugin": "~1.125.22",

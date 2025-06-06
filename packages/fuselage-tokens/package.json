@@ -22,9 +22,6 @@
     "fuselage",
     "rocket.chat"
   ],
-  "exports": {
-    "./*": "./dist/*.js"
-  },
   "files": [
     "/dist/*",
     "/breakpoints.*",

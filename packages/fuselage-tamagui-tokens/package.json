@@ -4,10 +4,10 @@
   "description": "Tamagui tokens for Fuselage, Rocket.Chat's",
   "homepage": "https://rocketchat.github.io/Rocket.Chat.Fuselage/",
   "module": "dist/index.es.js",
-   "types": "dist/index.d.ts",
-   "files": [
+  "types": "dist/index.d.ts",
+  "files": [
     "dist"
- ],
+  ],
   "author": {
     "name": "Rocket.Chat",
     "url": "https://rocket.chat/"
@@ -34,6 +34,11 @@
   },
   "type": "module",
   "devDependencies": {
+    "@tamagui/babel-plugin": "latest",
+    "@tamagui/vite-plugin": "latest",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "@vitejs/plugin-react": "latest",
     "build-design-tokens": "workspace:~",
     "eslint": "~9.21.0",
     "eslint-config-prettier": "~8.8.0",
@@ -41,30 +46,25 @@
     "npm-run-all": "^4.1.5",
     "postcss-scss": "~4.0.9",
     "prettier": "~3.5.2",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-native-web": "latest",
     "rimraf": "^3.0.2",
     "style-dictionary": "~4.3.3",
     "stylelint": "~16.14.1",
     "stylelint-order": "~6.0.4",
     "stylelint-prettier": "~5.0.3",
     "stylelint-scss": "~6.11.1",
-    "@tamagui/babel-plugin": "latest",
-    "@tamagui/vite-plugin": "latest",
-    "@types/react": "^18.0.0",
-    "@types/react-dom": "^18.0.0",
-    "@vitejs/plugin-react": "latest",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "react-native-web": "latest",
     "typescript": "^5.0.0",
     "vite": "latest"
   },
   "dependencies": {
     "@tamagui/core": "^1.125.22",
-     "tamagui":"*" 
+    "tamagui": "*"
   },
   "peerDependencies": {
     "@tamagui/core": "*",
-   "react": ">=18.0.0",
-   "react-dom": ">=18.0.0"
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
   }
 }
