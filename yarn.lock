@@ -5634,6 +5634,7 @@ __metadata:
     jest: "npm:~29.7.0"
     jest-environment-jsdom: "npm:~29.7.0"
     lint-all: "workspace:~"
+    loki: "npm:~0.35.1"
     npm-run-all: "npm:^4.1.5"
     prettier: "npm:~3.5.3"
     react: "npm:~18.3.1"
