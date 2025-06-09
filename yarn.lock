@@ -3217,6 +3217,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@loki/create-async-callback@npm:~0.35.1":
+  version: 0.35.1
+  resolution: "@loki/create-async-callback@npm:0.35.1"
+  dependencies:
+    "@loki/integration-react-native": "npm:^0.35.0"
+  checksum: 10/efe37935e1da7449adf9c1624c2808a2c3e0527c2b244f26cfc209771a0f443c3de4b841aa7a372615790ab1a0b4713937e0806ba6dc99273a3e7ef01a0817e5
+  languageName: node
+  linkType: hard
+
 "@loki/diff-graphics-magick@npm:^0.35.0":
   version: 0.35.0
   resolution: "@loki/diff-graphics-magick@npm:0.35.0"
@@ -3298,6 +3307,13 @@ __metadata:
     "@storybook/vue":
       optional: true
   checksum: 10/227f12f06dab08d3fe62294eaf1b28183397f996de1a215875a47587d75175989e9c72e30fefc026d7a4fa3993aa8a81b5d3e275ebaa5d2baf63cc6e716960eb
+  languageName: node
+  linkType: hard
+
+"@loki/is-loki-running@npm:~0.35.0":
+  version: 0.35.0
+  resolution: "@loki/is-loki-running@npm:0.35.0"
+  checksum: 10/444beb17f84484e681ec59d5c67f62c0e230464e6bcd8c583de0cad21679b0e17a16deacbce2e4794dd9748456fba541ff724fcdf4f78607554bdf130228c63c
   languageName: node
   linkType: hard
 
@@ -5487,6 +5503,8 @@ __metadata:
     "@babel/plugin-transform-runtime": "npm:~7.27.3"
     "@babel/preset-env": "npm:~7.27.2"
     "@babel/preset-react": "npm:~7.27.1"
+    "@loki/create-async-callback": "npm:~0.35.1"
+    "@loki/is-loki-running": "npm:~0.35.0"
     "@rocket.chat/css-in-js": "workspace:~"
     "@rocket.chat/css-supports": "workspace:~"
     "@rocket.chat/fuselage-hooks": "workspace:~"
@@ -5732,6 +5750,7 @@ __metadata:
     jest: "npm:~29.7.0"
     jest-environment-jsdom: "npm:~29.7.0"
     lint-all: "workspace:~"
+    loki: "npm:~0.35.1"
     npm-run-all: "npm:^4.1.5"
     prettier: "npm:~3.5.3"
     react: "npm:~18.3.1"
