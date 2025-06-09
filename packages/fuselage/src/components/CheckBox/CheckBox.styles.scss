@@ -1,8 +1,9 @@
 @use 'sass:math';
 @use '../../styles/lengths.scss';
+@use '../../styles/primitives/selection-button.scss' as selection-button;
 
 .rcx-check-box {
-  @include is-selection-button(
+  @include selection-button.is-selection-button(
     $checked: 'primary',
     $unchecked: 'empty',
     $indeterminate: 'primary'

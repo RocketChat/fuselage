@@ -5038,6 +5038,9 @@ __metadata:
     "@changesets/changelog-github": "npm:~0.5.1"
     "@changesets/cli": "npm:~2.29.4"
     "@eslint/js": "npm:~9.27.0"
+    "@rocket.chat/fuselage-hooks": "workspace:~"
+    "@rocket.chat/fuselage-polyfills": "workspace:~"
+    "@rocket.chat/icons": "workspace:~"
     "@rocket.chat/prettier-config": "workspace:~"
     eslint: "npm:~9.23.0"
     eslint-import-resolver-typescript: "npm:~4.4.1"
@@ -5052,6 +5055,9 @@ __metadata:
     hygen: "npm:~6.2.11"
     pinst: "npm:~3.0.0"
     prettier: "npm:~3.5.3"
+    react: "npm:~19.1.0"
+    react-dom: "npm:~19.1.0"
+    react-virtuoso: "npm:~4.12.8"
     turbo: "npm:~2.5.3"
     typescript: "npm:~5.8.3"
     typescript-eslint: "npm:~8.33.0"
@@ -17197,6 +17203,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-dom@npm:~19.1.0":
+  version: 19.1.0
+  resolution: "react-dom@npm:19.1.0"
+  dependencies:
+    scheduler: "npm:^0.26.0"
+  peerDependencies:
+    react: ^19.1.0
+  checksum: 10/c5b58605862c7b0bb044416b01c73647bb8e89717fb5d7a2c279b11815fb7b49b619fe685c404e59f55eb52c66831236cc565c25ee1c2d042739f4a2cc538aa2
+  languageName: node
+  linkType: hard
+
 "react-hook-form@npm:~7.54.2":
   version: 7.54.2
   resolution: "react-hook-form@npm:7.54.2"
@@ -17313,6 +17330,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-virtuoso@npm:~4.12.8":
+  version: 4.12.8
+  resolution: "react-virtuoso@npm:4.12.8"
+  peerDependencies:
+    react: ">=16 || >=17 || >= 18 || >= 19"
+    react-dom: ">=16 || >=17 || >= 18 || >=19"
+  checksum: 10/3d37ff207423d1860f99c5999f083b71b27254da45ce770fa392fa77e3d47fc670157bb372ccdff657353077a036264dc0cf3308ca5efb6f8cfc5792597ae441
+  languageName: node
+  linkType: hard
+
 "react@npm:^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0":
   version: 19.0.0
   resolution: "react@npm:19.0.0"
@@ -17326,6 +17353,13 @@ __metadata:
   dependencies:
     loose-envify: "npm:^1.1.0"
   checksum: 10/261137d3f3993eaa2368a83110466fc0e558bc2c7f7ae7ca52d94f03aac945f45146bd85e5f481044db1758a1dbb57879e2fcdd33924e2dde1bdc550ce73f7bf
+  languageName: node
+  linkType: hard
+
+"react@npm:~19.1.0":
+  version: 19.1.0
+  resolution: "react@npm:19.1.0"
+  checksum: 10/d0180689826fd9de87e839c365f6f361c561daea397d61d724687cae88f432a307d1c0f53a0ee95ddbe3352c10dac41d7ff1ad85530fb24951b27a39e5398db4
   languageName: node
   linkType: hard
 
@@ -18062,6 +18096,13 @@ __metadata:
   version: 0.25.0
   resolution: "scheduler@npm:0.25.0"
   checksum: 10/e661e38503ab29a153429a99203fefa764f28b35c079719eb5efdd2c1c1086522f6653d8ffce388209682c23891a6d1d32fa6badf53c35fb5b9cd0c55ace42de
+  languageName: node
+  linkType: hard
+
+"scheduler@npm:^0.26.0":
+  version: 0.26.0
+  resolution: "scheduler@npm:0.26.0"
+  checksum: 10/1ecf2e5d7de1a7a132796834afe14a2d589ba7e437615bd8c06f3e0786a3ac3434655e67aac8755d9b14e05754c177e49c064261de2673aaa3c926bc98caa002
   languageName: node
   linkType: hard
 

@@ -1,5 +1,5 @@
-@use '../lengths.scss';
-@use '../typography.scss';
+@use '../lengths.scss' as lengths;
+@use '../typography.scss' as typography;
 
 %box {
   flex: 0 1 auto;

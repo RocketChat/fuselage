@@ -58,5 +58,13 @@
   "volta": {
     "node": "22.14.0",
     "yarn": "4.5.1"
+  },
+  "dependencies": {
+    "@rocket.chat/fuselage-hooks": "workspace:~",
+    "@rocket.chat/fuselage-polyfills": "workspace:~",
+    "@rocket.chat/icons": "workspace:~",
+    "react": "~19.1.0",
+    "react-dom": "~19.1.0",
+    "react-virtuoso": "~4.12.8"
   }
 }
