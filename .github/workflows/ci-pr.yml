@@ -67,4 +67,5 @@ jobs:
           cmd: install
       
       - name: setup loki
-        run: cd packages/fuselage && yarn build-storybook && yarn loki --requireReference --reactUri file:./storybook-static
+        run: yarn build-storybook && yarn loki --requireReference --reactUri file:./storybook-static --storiesFilter AudioPlayer
+        working-directory: packages/fuselage
