@@ -1,4 +1,7 @@
-import { useBorderBoxSize } from '@rocket.chat/fuselage-hooks';
+import {
+  useBorderBoxSize,
+  useButtonPattern,
+} from '@rocket.chat/fuselage-hooks';
 import type {
   ReactNode,
   AllHTMLAttributes,
@@ -76,6 +79,8 @@ const Banner = ({
     [onClose],
   );
 
+  const buttonProps = useButtonPattern(handleBannerClick);
+
   return (
     <div
       className={cx('rcx-banner')(
@@ -83,12 +88,7 @@ const Banner = ({
         className,
       )}
       ref={ref}
-      role={onAction ? 'button' : 'banner'}
-      tabIndex={onAction ? 0 : -1}
-      onKeyDown={(e) =>
-        e.code === 'Enter' || (e.code === 'Space' && handleBannerClick())
-      }
-      onClick={handleBannerClick}
+      {...(onAction ? { ...buttonProps } : { role: 'banner', tabIndex: -1 })}
       {...props}
     >
       {icon && isIconVisible && (
