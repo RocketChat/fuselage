@@ -16,28 +16,29 @@ $toggle-switch-border-radius: theme(
   &__fake {
     position: relative;
 
-    height: lengths.size(20) - 2 * lengths.border-width(default, rem);
     width: lengths.size(2 * 18);
+    height: lengths.size(20) - 2 * lengths.border-width(default, rem);
+
+    border-width: lengths.border-width(default);
 
     border-radius: $toggle-switch-border-radius;
-    border-width: lengths.border-width(default);
   }
 
   &__input + &__fake::before {
     position: absolute;
+
+    top: 50%;
     inset-inline-start: lengths.inset(none);
 
     width: lengths.size(16) - 2 * lengths.border-width(default, rem);
     height: lengths.size(16) - 2 * lengths.border-width(default, rem);
 
     content: '';
+    transform: translateY(-50%);
 
     border-radius: $toggle-switch-border-radius;
 
     background-color: colors.button(on-primary);
-
-    top: 50%;
-    transform: translateY(-50%);
   }
 
   &__input:disabled + &__fake::before {
