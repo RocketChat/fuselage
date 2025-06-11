@@ -28,7 +28,7 @@ $toggle-switch-border-radius: theme(
     position: absolute;
 
     top: 50%;
-    inset-inline-start: lengths.inset(none);
+    inset-inline-start: lengths.inset(1);
 
     width: lengths.size(16) - 2 * lengths.border-width(default, rem);
     height: lengths.size(16) - 2 * lengths.border-width(default, rem);
@@ -47,7 +47,7 @@ $toggle-switch-border-radius: theme(
 
   &__input:checked + &__fake::before {
     inset-inline-start: calc(
-      100% - #{lengths.inset(16) - 2 * lengths.border-width(default, rem)}
+      100% - #{lengths.inset(16) - lengths.border-width(default, rem)}
     );
 
     background-color: colors.button(on-primary);
