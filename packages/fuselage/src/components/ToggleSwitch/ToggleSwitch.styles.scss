@@ -14,12 +14,10 @@ $toggle-switch-border-radius: theme(
   }
 
   &__fake {
-    position: relative;
+    @extend %selection-button__fake;
 
     width: lengths.size(2 * 18);
     height: lengths.size(20) - 2 * lengths.border-width(default, rem);
-
-    border-width: lengths.border-width(default);
 
     border-radius: $toggle-switch-border-radius;
   }
