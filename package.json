@@ -9,7 +9,7 @@
     "build": "yarn turbo run build",
     "build-storybook": "yarn turbo run build-storybook --cache-dir=\".turbo\"",
     "changeset": "changeset",
-    "ci": "yarn turbo run build lint test build-storybook --cache-dir=\".turbo\"",
+    "ci": "yarn turbo run build lint test build-storybook --force",
     "clean": "yarn workspaces foreach -vA run clean",
     "create-package": "hygen create-package",
     "docs": "yarn turbo run docs",
