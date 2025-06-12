@@ -1,5 +1,4 @@
 import createAsyncCallback from '@loki/create-async-callback';
-
 import type { Meta } from '@storybook/react';
 
 import { AudioPlayer } from './AudioPlayer';
