@@ -117,7 +117,7 @@ export const AudioPlayer = forwardRef<HTMLAudioElement, AudioPlayerProps>(
       }
     };
 
-    if( durationTime != 0){
+    if (durationTime !== 0) {
       onDone?.();
     }
     const handlePlaybackSpeedSingleControl = () => {
