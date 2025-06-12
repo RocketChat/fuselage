@@ -39,10 +39,6 @@ jobs:
           key: turbo-${{ runner.os }}-${{ github.job }}
           restore-keys: |
             turbo-${{ runner.os }}-
-      - name: Reset Turborepo Cache
-        run: |
-          rm -rf .turbo
-          rm -rf node_modules/.cache/turbo
       - run: yarn
         if: steps.yarn-cache.outputs.cache-hit != 'true'
       - run: yarn run ci
