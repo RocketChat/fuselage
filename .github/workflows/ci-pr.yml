@@ -69,9 +69,9 @@ jobs:
       - name: setup loki
         run: yarn build-storybook && yarn loki --requireReference --reactUri file:./storybook-static --storiesFilter AudioPlayer
         working-directory: packages/fuselage
+        
       - name: upload artifact
         uses: actions/upload-artifact@v4
-        run: ls -a
         with:
           name: loki-${{ github.event.number }}
           path: packages/fuselage/.loki/current
