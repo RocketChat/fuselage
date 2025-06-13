@@ -66,7 +66,7 @@ jobs:
         with:
           cmd: install
       
-      - name: setup loki
+      - name: setup loki for fuselage
         run: yarn build-storybook && yarn loki --requireReference --reactUri file:./storybook-static --storiesFilter AudioPlayer
         working-directory: packages/fuselage
 
@@ -79,8 +79,12 @@ jobs:
         with:
           name: loki-${{ github.event.number }}
           path: |
-            packages/fuselage/.loki
-            packages/fuselage-toastbar/.loki
+            packages/fuselage/.loki/current
+            packages/fuselage/.loki/difference
+            packages/fuselage/.loki/reference
+            packages/fuselage-toastbar/.loki/current
+            packages/fuselage-toastbar/.loki/difference
+            packages/fuselage-toastbar/.loki/reference
       
       - name: download .loki
         uses: actions/download-artifact@v4
