@@ -92,6 +92,7 @@
     "access": "public"
   },
   "loki": {
+    "chromeSelector": "body > *",
     "configurations": {
       "desktop": {
         "target": "chrome.docker",
