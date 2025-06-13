@@ -69,6 +69,10 @@ jobs:
       - name: setup loki
         run: yarn build-storybook && yarn loki --requireReference --reactUri file:./storybook-static --storiesFilter AudioPlayer
         working-directory: packages/fuselage
+
+      - name: setup loki for fuselage-toastbar
+        run: yarn build-storybook && yarn loki --requireReference --reactUri file:./storybook-static
+        working-directory: packages/fuselage-toastbar
         
       - name: upload artifact
         uses: actions/upload-artifact@v4
