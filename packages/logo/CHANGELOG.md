@@ -1,5 +1,12 @@
 # Change Log
 
+## 0.32.1
+
+### Patch Changes
+
+- Updated dependencies [[`2a877ef`](https://github.com/RocketChat/fuselage/commit/2a877eff8996f7443df62d63039639212708cd1d)]:
+  - @rocket.chat/fuselage-hooks@0.36.0
+
 ## 0.32.0
 
 ### Minor Changes
