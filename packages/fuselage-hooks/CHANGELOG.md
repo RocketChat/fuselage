@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.36.0
+
+### Minor Changes
+
+- [#1671](https://github.com/RocketChat/fuselage/pull/1671) [`2a877ef`](https://github.com/RocketChat/fuselage/commit/2a877eff8996f7443df62d63039639212708cd1d) Thanks [@dougfabris](https://github.com/dougfabris)! - feat(fuselage): Introduce useButtonPattern
+
 ## 0.35.0
 
 ### Minor Changes
