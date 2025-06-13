@@ -1,9 +1,8 @@
 @use 'sass:map';
-@use '../lengths';
-
-@import '../mixins/states.scss';
-@import '../mixins/shadows.scss';
-@import '../variables/button-colors';
+@use '../lengths.scss' as lengths;
+@use '../mixins/states.scss' as states;
+@use '../mixins/shadows.scss' as shadows;
+@use '../variables/button-colors.scss' as button-colors;
 
 @mixin kind-variant($colors) {
   color: map.get($colors, color);
@@ -15,30 +14,30 @@
 
   appearance: none;
 
-  @include on-focus-visible {
+  @include states.on-focus-visible {
     border-color: map.get($colors, focus-border-color);
     background-color: map.get($colors, focus-background-color);
-    @include use-button-focus-shadow(map.get($colors, focus-shadow-color));
+    @include shadows.use-button-focus-shadow(map.get($colors, focus-shadow-color));
   }
 
-  @include on-hover {
+  @include states.on-hover {
     border-color: map.get($colors, hover-border-color);
     background-color: map.get($colors, hover-background-color);
-    @include use-no-shadow;
+    @include shadows.use-no-shadow;
   }
 
-  @include on-active {
+  @include states.on-active {
     border-color: map.get($colors, active-border-color);
     background-color: map.get($colors, active-background-color);
-    @include use-no-shadow;
+    @include shadows.use-no-shadow;
   }
 
-  @include on-pressed {
+  @include states.on-pressed {
     color: map.get($colors, pressed-color);
     border-color: map.get($colors, pressed-border-color);
     background-color: map.get($colors, pressed-background-color);
   }
-  @include on-disabled {
+  @include states.on-disabled {
     color: map.get($colors, disabled-color);
     border-color: map.get($colors, disabled-border-color);
     background-color: map.get($colors, disabled-background-color);

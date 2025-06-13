@@ -1,7 +1,6 @@
 @use './box.scss';
 @use './traits/all.scss';
-
-@import './input.scss';
-@import './button.scss';
-@import './selection-button.scss';
-@import './link.scss';
+@use './input.scss';
+@use './button.scss';
+@use './selection-button.scss';
+@use './link.scss';

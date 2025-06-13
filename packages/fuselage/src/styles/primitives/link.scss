@@ -1,8 +1,7 @@
-@use '../../styles/colors.scss';
-@use '../../styles/lengths.scss';
-@use '../../styles/mixins/states.scss';
-@use '../../styles//functions.scss';
-@import '../../styles/mixins/states.scss';
+@use '../../styles/colors.scss' as colors;
+@use '../../styles/lengths.scss' as lengths;
+@use '../../styles/mixins/states.scss' as states;
+@use '../../styles/functions.scss' as functions;
 
 %link {
   color: functions.theme('link-color', colors.font(info));
@@ -44,7 +43,7 @@
 
   color: functions.theme('link-color', $color);
 
-  @include on-focus {
+  @include states.on-focus {
     color: functions.theme('link-focus-color', $color);
   }
 
