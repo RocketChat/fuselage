@@ -2,4 +2,4 @@
 '@rocket.chat/fuselage': patch
 ---
 
-Reduces the ToggleSwitch component size.
+feat(fuselage): Update ToggleSwitch size
