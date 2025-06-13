@@ -3,7 +3,7 @@ import type { ReactNode } from 'react';
 type MessageDividerProps = {
   children?: ReactNode;
   unreadLabel?: string;
-};
+} & Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>;
 
 export const MessageDivider = ({
   children,
