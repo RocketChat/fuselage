@@ -8,7 +8,7 @@
     "zx": "8.5.5"
   },
   "devDependencies": {
-    "eslint": "~9.28.0",
+    "eslint": "~9.29.0",
     "lint-all": "workspace:~",
     "prettier": "~3.5.3"
   }

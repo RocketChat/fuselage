@@ -43,7 +43,7 @@
     "@rollup/plugin-commonjs": "~28.0.3",
     "@rollup/plugin-node-resolve": "~16.0.1",
     "@rollup/plugin-typescript": "~12.1.2",
-    "eslint": "~9.28.0",
+    "eslint": "~9.29.0",
     "jest": "~30.0.0",
     "jest-environment-jsdom": "~30.0.0",
     "lint-all": "workspace:~",
