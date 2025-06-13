@@ -9,7 +9,7 @@
     "tools-utils": "workspace:~",
     "ttf2eot": "~3.1.0",
     "ttf2woff": "~3.0.0",
-    "ttf2woff2": "~6.0.1",
+    "ttf2woff2": "~8.0.0",
     "unicode": "~14.0.0",
     "xml2js": "~0.6.2"
   },
