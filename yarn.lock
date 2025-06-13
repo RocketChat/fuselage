@@ -5228,7 +5228,7 @@ __metadata:
     cross-env: "npm:^7.0.3"
     css-loader: "npm:~7.1.2"
     cssnano: "npm:~7.0.7"
-    es-check: "npm:~8.0.2"
+    es-check: "npm:~9.1.4"
     eslint: "npm:~9.28.0"
     invariant: "npm:^2.2.4"
     jest: "npm:~29.7.0"
@@ -7721,16 +7721,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"acorn@npm:8.14.0":
-  version: 8.14.0
-  resolution: "acorn@npm:8.14.0"
-  bin:
-    acorn: bin/acorn
-  checksum: 10/6df29c35556782ca9e632db461a7f97947772c6c1d5438a81f0c873a3da3a792487e83e404d1c6c25f70513e91aa18745f6eafb1fcc3a43ecd1920b21dd173d2
-  languageName: node
-  linkType: hard
-
-"acorn@npm:^8.0.0, acorn@npm:^8.0.4, acorn@npm:^8.11.0, acorn@npm:^8.12.1, acorn@npm:^8.14.0, acorn@npm:^8.14.1, acorn@npm:^8.4.1, acorn@npm:^8.8.2":
+"acorn@npm:8.14.1, acorn@npm:^8.0.0, acorn@npm:^8.0.4, acorn@npm:^8.11.0, acorn@npm:^8.12.1, acorn@npm:^8.14.0, acorn@npm:^8.14.1, acorn@npm:^8.4.1, acorn@npm:^8.8.2":
   version: 8.14.1
   resolution: "acorn@npm:8.14.1"
   bin:
@@ -8490,6 +8481,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"browserslist@npm:^4.23.3":
+  version: 4.25.0
+  resolution: "browserslist@npm:4.25.0"
+  dependencies:
+    caniuse-lite: "npm:^1.0.30001718"
+    electron-to-chromium: "npm:^1.5.160"
+    node-releases: "npm:^2.0.19"
+    update-browserslist-db: "npm:^1.1.3"
+  bin:
+    browserslist: cli.js
+  checksum: 10/4a5442b1a0d09c4c64454f184b8fed17d8c3e202034bf39de28f74497d7bd28dddee121b2bab4e34825fe0ed4c166d84e32a39f576c76fce73c1f8f05e4b6ee6
+  languageName: node
+  linkType: hard
+
 "browserslist@npm:^4.24.5":
   version: 4.24.5
   resolution: "browserslist@npm:4.24.5"
@@ -8751,7 +8756,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"caniuse-lite@npm:~1.0.30001723":
+"caniuse-lite@npm:^1.0.30001718, caniuse-lite@npm:~1.0.30001723":
   version: 1.0.30001723
   resolution: "caniuse-lite@npm:1.0.30001723"
   checksum: 10/edab89e84a2b257cf640f0bac1f25f92c699ade86143b2affc73403468f894023416a9f4a99e5345c933956990b005a2facfb87ac4517c8ccb588819bb62453b
@@ -9188,10 +9193,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commander@npm:13.1.0":
-  version: 13.1.0
-  resolution: "commander@npm:13.1.0"
-  checksum: 10/d3b4b79e6be8471ddadacbb8cd441fe82154d7da7393b50e76165a9e29ccdb74fa911a186437b9a211d0fc071db6051915c94fb8ef16d77511d898e9dbabc6af
+"commander@npm:14.0.0":
+  version: 14.0.0
+  resolution: "commander@npm:14.0.0"
+  checksum: 10/c05418bfc35a3e8b5c67bd9f75f5b773f386f9b85f83e70e7c926047f270929cb06cf13cd68f387dd6e7e23c6157de8171b28ba606abd3e6256028f1f789becf
   languageName: node
   linkType: hard
 
@@ -10236,6 +10241,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"electron-to-chromium@npm:^1.5.160":
+  version: 1.5.167
+  resolution: "electron-to-chromium@npm:1.5.167"
+  checksum: 10/078093a38e7295e575f381943f62914f49b53dd73506af2ce3e59332835c42b487ad02ff1207dfdcb33a5886d74a98e352c04431c0537366d9999a79c7d15c94
+  languageName: node
+  linkType: hard
+
 "electron-to-chromium@npm:^1.5.73":
   version: 1.5.105
   resolution: "electron-to-chromium@npm:1.5.105"
@@ -10437,19 +10449,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"es-check@npm:~8.0.2":
-  version: 8.0.2
-  resolution: "es-check@npm:8.0.2"
+"es-check@npm:~9.1.4":
+  version: 9.1.4
+  resolution: "es-check@npm:9.1.4"
   dependencies:
-    acorn: "npm:8.14.0"
+    acorn: "npm:8.14.1"
     acorn-walk: "npm:^8.3.4"
-    commander: "npm:13.1.0"
+    browserslist: "npm:^4.23.3"
+    commander: "npm:14.0.0"
     fast-glob: "npm:^3.3.3"
+    lilconfig: "npm:^3.1.3"
+    source-map: "npm:^0.7.4"
     supports-color: "npm:8.1.1"
     winston: "npm:3.17.0"
   bin:
     es-check: index.js
-  checksum: 10/14ff63b12021f87daa7f243c4ab8b6acc0a794ce8037c298208c092fc9d301437a26ac196dda424c59ace6768729c0b724d4972536de944f411b7579d998cdf3
+  checksum: 10/60594c723904652bc8a97fc9e5edb2e3cbfc0478a2635120376ee0d15f50104ff080e7ecd3544487272c22f98c5f5aa205fb82d4f61ee096d8e7720bc8d419f4
   languageName: node
   linkType: hard
 
