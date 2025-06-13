@@ -56,6 +56,8 @@
     "@babel/plugin-transform-runtime": "~7.27.3",
     "@babel/preset-env": "~7.27.2",
     "@babel/preset-react": "~7.27.1",
+    "@loki/create-async-callback": "~0.35.1",
+    "@loki/is-loki-running": "~0.35.0",
     "@rocket.chat/fuselage-hooks": "workspace:~",
     "@rocket.chat/fuselage-polyfills": "workspace:~",
     "@rocket.chat/icons": "workspace:~",
@@ -92,6 +94,7 @@
     "jest-axe": "~10.0.0",
     "jest-environment-jsdom": "~29.7.0",
     "lint-all": "workspace:~",
+    "loki": "~0.35.1",
     "mini-css-extract-plugin": "~2.9.2",
     "normalize.css": "^8.0.1",
     "npm-run-all": "^4.1.5",
@@ -140,5 +143,30 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "loki": {
+    "configurations": {
+      "desktop": {
+        "target": "chrome.docker",
+        "width": 1440,
+        "height": 896,
+        "deviceScaleFactor": 1,
+        "mobile": false,
+        "fitWindow": false
+      },
+      "tablet": {
+        "target": "chrome.docker",
+        "width": 768,
+        "height": 970,
+        "deviceScaleFactor": 1,
+        "mobile": false,
+        "fitWindow": false
+      },
+      "mobile": {
+        "target": "chrome.docker",
+        "preset": "iPhone 7"
+      }
+    },
+    "fetchFailIgnore": ".*"
   }
 }
