@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.64.0
+
+### Minor Changes
+
+- [#1676](https://github.com/RocketChat/fuselage/pull/1676) [`93edea5`](https://github.com/RocketChat/fuselage/commit/93edea5a195d9d7de68a7991f09d54a7ef367a82) Thanks [@yash-rajpal](https://github.com/yash-rajpal)! - feat(fuselage): Apply proper bold styles to unread `SidebarItemTitle`.
+
 ## 0.63.0
 
 ### Minor Changes
