@@ -25,9 +25,6 @@
     "test": "yarn turbo run test",
     "update-readme": "update-readme"
   },
-  "resolutions": {
-    "jsdom": "25.0.1"
-  },
   "devDependencies": {
     "@changesets/changelog-github": "~0.5.1",
     "@changesets/cli": "~2.29.4",
