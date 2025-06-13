@@ -3,12 +3,13 @@ import type { ComponentPropsWithoutRef } from 'react';
 import WithErrorWrapper from '../../helpers/WithErrorWrapper';
 import Box from '../Box';
 
-import { FieldContext } from './Field';
+import { FieldContext, useFieldDescriptorId } from './Field';
 
 type FieldErrorProps = ComponentPropsWithoutRef<typeof Box>;
 
 export const FieldError = (props: FieldErrorProps) => {
-  const component = <Box is='span' rcx-field__error {...props} />;
+  const id = useFieldDescriptorId('error');
+  const component = <Box is='span' rcx-field__error id={id} {...props} />;
 
   if (process.env.NODE_ENV === 'development') {
     return (
