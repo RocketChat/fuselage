@@ -53,10 +53,10 @@
   },
   "packageManager": "yarn@4.9.2",
   "engines": {
-    "node": "22.14.0"
+    "node": "22.16.0"
   },
   "volta": {
-    "node": "22.14.0",
-    "yarn": "4.5.1"
+    "node": "22.16.0",
+    "yarn": "4.9.2"
   }
 }
