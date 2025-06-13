@@ -1,13 +1,13 @@
-import type { ReactNode, ComponentPropsWithoutRef } from 'react';
+import type { ReactNode, AllHTMLAttributes } from 'react';
 import { VisuallyHidden } from '@react-aria/visually-hidden';
 
 type FieldLegendProps = {
   children: ReactNode;
-} & ComponentPropsWithoutRef<'legend'>;
+} & AllHTMLAttributes<HTMLLegendElement>;
 
 export const FieldLegend = ({ children, ...props }: FieldLegendProps) => (
   <VisuallyHidden>
-    <legend className="rcx-field-legend" {...props}>
+    <legend aria-hidden="true" {...props}>
       {children}
     </legend>
   </VisuallyHidden>
