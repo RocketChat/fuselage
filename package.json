@@ -31,9 +31,9 @@
   "devDependencies": {
     "@changesets/changelog-github": "~0.5.1",
     "@changesets/cli": "~2.29.4",
-    "@eslint/js": "~9.27.0",
+    "@eslint/js": "~9.28.0",
     "@rocket.chat/prettier-config": "workspace:~",
-    "eslint": "~9.23.0",
+    "eslint": "~9.28.0",
     "eslint-import-resolver-typescript": "~4.4.3",
     "eslint-plugin-import": "~2.31.0",
     "eslint-plugin-jsx-a11y": "~6.10.2",
@@ -48,7 +48,7 @@
     "prettier": "~3.5.3",
     "turbo": "~2.5.4",
     "typescript": "~5.8.3",
-    "typescript-eslint": "~8.33.1",
+    "typescript-eslint": "~8.34.0",
     "update-readme": "workspace:~"
   },
   "packageManager": "yarn@4.9.2",
