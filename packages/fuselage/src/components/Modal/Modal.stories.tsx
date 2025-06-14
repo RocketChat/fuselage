@@ -1,6 +1,6 @@
-import { action } from '@storybook/addon-actions';
-import type { Meta, StoryFn } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react-webpack5';
 import type { ComponentProps } from 'react';
+import { action } from 'storybook/actions';
 
 import Box from '../Box';
 import Button from '../Button';

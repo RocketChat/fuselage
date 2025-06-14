@@ -1,4 +1,4 @@
-import type { StoryFn, Meta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react-webpack5';
 
 import Tile from '../Tile';
 
@@ -22,11 +22,11 @@ export default {
   },
 } satisfies Meta<typeof AnimatedVisibility>;
 
-export const example: StoryFn<typeof AnimatedVisibility> = ({ visibility }) => (
+export const Example: StoryFn<typeof AnimatedVisibility> = ({ visibility }) => (
   <AnimatedVisibility visibility={visibility}>
     <Tile padding={40}>Visible</Tile>
   </AnimatedVisibility>
 );
-example.args = {
+Example.args = {
   visibility: AnimatedVisibility.VISIBLE,
 };

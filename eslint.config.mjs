@@ -1,3 +1,5 @@
+// For more info, see https://github.com/storybookjs/eslint-plugin-storybook#configuration-flat-config-format
+
 // @ts-check
 
 import pluginImport from 'eslint-plugin-import';
@@ -6,6 +8,7 @@ import * as mdx from 'eslint-plugin-mdx';
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 import pluginReact from 'eslint-plugin-react';
 import pluginReactHooks from 'eslint-plugin-react-hooks';
+import storybook from 'eslint-plugin-storybook';
 import globals from 'globals';
 // eslint-disable-next-line import/no-unresolved
 import tseslint from 'typescript-eslint';
@@ -522,6 +525,9 @@ export default tseslint.config(
   },
   {
     files: ['packages/fuselage/**/*.{js,mdx}'],
+    rules: {
+      'import/no-unresolved': 'off',
+    },
     settings: {
       'import/resolver': {
         node: {
@@ -544,4 +550,5 @@ export default tseslint.config(
       },
     },
   },
+  storybook.configs['flat/recommended'],
 );
