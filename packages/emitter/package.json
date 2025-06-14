@@ -34,7 +34,7 @@
     "docs": "typedoc"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "~28.0.3",
+    "@rollup/plugin-commonjs": "~28.0.5",
     "@rollup/plugin-json": "~6.1.0",
     "@rollup/plugin-node-resolve": "~16.0.1",
     "@rollup/plugin-terser": "~0.4.4",

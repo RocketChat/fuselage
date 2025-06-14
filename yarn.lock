@@ -4797,7 +4797,7 @@ __metadata:
     "@rocket.chat/css-supports": "workspace:~"
     "@rocket.chat/memo": "workspace:~"
     "@rocket.chat/stylis-logical-props-middleware": "workspace:~"
-    "@rollup/plugin-commonjs": "npm:~28.0.3"
+    "@rollup/plugin-commonjs": "npm:~28.0.5"
     "@rollup/plugin-json": "npm:~6.1.0"
     "@rollup/plugin-node-resolve": "npm:~16.0.1"
     "@rollup/plugin-terser": "npm:~0.4.4"
@@ -4834,7 +4834,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@rocket.chat/emitter@workspace:packages/emitter"
   dependencies:
-    "@rollup/plugin-commonjs": "npm:~28.0.3"
+    "@rollup/plugin-commonjs": "npm:~28.0.5"
     "@rollup/plugin-json": "npm:~6.1.0"
     "@rollup/plugin-node-resolve": "npm:~16.0.1"
     "@rollup/plugin-terser": "npm:~0.4.4"
@@ -4858,7 +4858,7 @@ __metadata:
   dependencies:
     "@rocket.chat/emitter": "workspace:~"
     "@rocket.chat/fuselage-tokens": "workspace:~"
-    "@rollup/plugin-commonjs": "npm:~28.0.3"
+    "@rollup/plugin-commonjs": "npm:~28.0.5"
     "@rollup/plugin-json": "npm:~6.1.0"
     "@rollup/plugin-node-resolve": "npm:~16.0.1"
     "@rollup/plugin-terser": "npm:~0.4.4"
@@ -4990,7 +4990,7 @@ __metadata:
     postcss-scss: "npm:~4.0.9"
     prettier: "npm:~3.5.3"
     rimraf: "npm:~6.0.1"
-    style-dictionary: "npm:~4.4.0"
+    style-dictionary: "npm:~5.0.0"
     stylelint: "npm:~16.20.0"
     stylelint-order: "npm:~7.0.0"
     stylelint-prettier: "npm:~5.0.3"
@@ -5202,7 +5202,7 @@ __metadata:
     "@babel/plugin-transform-runtime": "npm:~7.27.4"
     "@babel/preset-env": "npm:~7.27.2"
     "@babel/preset-typescript": "npm:~7.27.1"
-    "@rollup/plugin-commonjs": "npm:~28.0.3"
+    "@rollup/plugin-commonjs": "npm:~28.0.5"
     "@rollup/plugin-node-resolve": "npm:~16.0.1"
     "@rollup/plugin-typescript": "npm:~12.1.2"
     eslint: "npm:~9.29.0"
@@ -5357,9 +5357,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rollup/plugin-commonjs@npm:~28.0.3":
-  version: 28.0.3
-  resolution: "@rollup/plugin-commonjs@npm:28.0.3"
+"@rollup/plugin-commonjs@npm:~28.0.5":
+  version: 28.0.5
+  resolution: "@rollup/plugin-commonjs@npm:28.0.5"
   dependencies:
     "@rollup/pluginutils": "npm:^5.0.1"
     commondir: "npm:^1.0.1"
@@ -5373,7 +5373,7 @@ __metadata:
   peerDependenciesMeta:
     rollup:
       optional: true
-  checksum: 10/b30bd8cfb20dda9ec6c5008d18a834d054015669708fda1c77fc45571278260be50752ef5eaf54b55d06096e51fba98b97efd75f14281ea8c9399e0031e3cfb8
+  checksum: 10/66a7cb4952450a28ec83d6e62a366574099d70724452d57e07ccf284bd4b5f500145a7dfd4cfd198acc6e583c6751817efc4f345d3dcd8dcb00834aa2e84d4b8
   languageName: node
   linkType: hard
 
@@ -6706,7 +6706,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^22.0.0, @types/node@npm:~22.15.31":
+"@types/node@npm:*, @types/node@npm:^22.0.0, @types/node@npm:^22.10.5, @types/node@npm:~22.15.31":
   version: 22.15.31
   resolution: "@types/node@npm:22.15.31"
   dependencies:
@@ -18654,13 +18654,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"style-dictionary@npm:~4.4.0":
-  version: 4.4.0
-  resolution: "style-dictionary@npm:4.4.0"
+"style-dictionary@npm:~5.0.0":
+  version: 5.0.0
+  resolution: "style-dictionary@npm:5.0.0"
   dependencies:
     "@bundled-es-modules/deepmerge": "npm:^4.3.1"
     "@bundled-es-modules/glob": "npm:^10.4.2"
     "@bundled-es-modules/memfs": "npm:^4.9.4"
+    "@types/node": "npm:^22.10.5"
     "@zip.js/zip.js": "npm:^2.7.44"
     chalk: "npm:^5.3.0"
     change-case: "npm:^5.3.0"
@@ -18673,7 +18674,7 @@ __metadata:
     tinycolor2: "npm:^1.6.0"
   bin:
     style-dictionary: bin/style-dictionary.js
-  checksum: 10/c25cacf1d902bb0d9e2edf83e307a1f3e75006d35a2aefb24ad42277fda8d14c4faf765f2cd06b6101414fbaf60fd523e591d0a6d62c089e7136c22fcfc83bf9
+  checksum: 10/bcdfba3e9ef385b6035aff05b60996e2b7d5817982307836f13522b522d2836684ae703348fe30bc7a2e0660aff8c901bbbe16c4e7c33bc05390c2ea58b13e9b
   languageName: node
   linkType: hard
 

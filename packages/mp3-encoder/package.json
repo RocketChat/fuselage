@@ -40,7 +40,7 @@
     "@babel/plugin-transform-runtime": "~7.27.4",
     "@babel/preset-env": "~7.27.2",
     "@babel/preset-typescript": "~7.27.1",
-    "@rollup/plugin-commonjs": "~28.0.3",
+    "@rollup/plugin-commonjs": "~28.0.5",
     "@rollup/plugin-node-resolve": "~16.0.1",
     "@rollup/plugin-typescript": "~12.1.2",
     "eslint": "~9.29.0",
