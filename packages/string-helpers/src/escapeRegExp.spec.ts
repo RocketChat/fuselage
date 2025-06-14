@@ -81,12 +81,12 @@ describe('escapeRegExp', () => {
   });
 
   it('ignores errors from non-string argument', () => {
-    expect(() => escapeRegExp(false as any)).not.toThrowError();
+    expect(() => escapeRegExp(false as any)).not.toThrow();
 
-    expect(() => (escapeRegExp as any)()).not.toThrowError();
+    expect(() => (escapeRegExp as any)()).not.toThrow();
 
-    expect(() => escapeRegExp(null as any)).not.toThrowError();
+    expect(() => escapeRegExp(null as any)).not.toThrow();
 
-    expect(() => escapeRegExp(42 as any)).not.toThrowError();
+    expect(() => escapeRegExp(42 as any)).not.toThrow();
   });
 });

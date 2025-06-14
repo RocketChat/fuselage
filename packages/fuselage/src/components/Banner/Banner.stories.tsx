@@ -1,4 +1,4 @@
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 
 import { Icon } from '../Icon';
 
@@ -21,7 +21,6 @@ export const _Banner = () => (
     tempor
   </Banner>
 );
-_Banner.storyName = 'Banner';
 
 export const Variations = () => (
   <>

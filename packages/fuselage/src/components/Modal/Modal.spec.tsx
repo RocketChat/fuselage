@@ -1,4 +1,4 @@
-import { composeStories } from '@storybook/react';
+import { composeStories } from '@storybook/react-webpack5';
 import { screen } from '@testing-library/react';
 import { axe } from 'jest-axe';
 

@@ -1,6 +1,6 @@
-import type { Meta, StoryFn } from '@storybook/react';
-import { screen, userEvent } from '@storybook/test';
+import type { Meta, StoryFn } from '@storybook/react-webpack5';
 import { useState } from 'react';
+import { screen, userEvent } from 'storybook/test';
 
 import Box from '../Box';
 

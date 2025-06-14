@@ -1,5 +1,5 @@
 import { css } from '@rocket.chat/css-in-js';
-import type { StoryFn, Meta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react-webpack5';
 
 import { PropsVariationSection } from '../../../.storybook/helpers';
 import { Avatar } from '../Avatar';

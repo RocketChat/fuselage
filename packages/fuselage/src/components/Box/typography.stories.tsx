@@ -1,4 +1,4 @@
-import type { StoryFn, Meta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react-webpack5';
 
 import { Divider } from '../Divider';
 
@@ -159,7 +159,7 @@ export const WordBreak: StoryFn<typeof Box> = () => (
   </Box>
 );
 
-export const withTruncatedText: StoryFn<typeof Box> = () => (
+export const WithTruncatedText: StoryFn<typeof Box> = () => (
   <Box color='default'>
     <Box
       withTruncatedText

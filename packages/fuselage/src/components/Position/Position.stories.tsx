@@ -1,4 +1,4 @@
-import type { StoryFn, Meta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react-webpack5';
 import { useRef } from 'react';
 
 import Tile from '../Tile';
@@ -28,38 +28,38 @@ const Template: StoryFn<typeof Position> = ({ placement }) => {
   );
 };
 
-export const topStart = Template.bind({});
-topStart.args = { placement: 'top-start' };
+export const TopStart = Template.bind({});
+TopStart.args = { placement: 'top-start' };
 
-export const topMiddle = Template.bind({});
-topMiddle.args = { placement: 'top-middle' };
+export const TopMiddle = Template.bind({});
+TopMiddle.args = { placement: 'top-middle' };
 
-export const topEnd = Template.bind({});
-topEnd.args = { placement: 'top-end' };
+export const TopEnd = Template.bind({});
+TopEnd.args = { placement: 'top-end' };
 
-export const bottomStart = Template.bind({});
-bottomStart.args = { placement: 'bottom-start' };
+export const BottomStart = Template.bind({});
+BottomStart.args = { placement: 'bottom-start' };
 
-export const bottomMiddle = Template.bind({});
-bottomMiddle.args = { placement: 'bottom-middle' };
+export const BottomMiddle = Template.bind({});
+BottomMiddle.args = { placement: 'bottom-middle' };
 
-export const bottomEnd = Template.bind({});
-bottomEnd.args = { placement: 'bottom-end' };
+export const BottomEnd = Template.bind({});
+BottomEnd.args = { placement: 'bottom-end' };
 
-export const rightStart = Template.bind({});
-rightStart.args = { placement: 'right-start' };
+export const RightStart = Template.bind({});
+RightStart.args = { placement: 'right-start' };
 
-export const rightMiddle = Template.bind({});
-rightMiddle.args = { placement: 'right-middle' };
+export const RightMiddle = Template.bind({});
+RightMiddle.args = { placement: 'right-middle' };
 
-export const rightEnd = Template.bind({});
-rightEnd.args = { placement: 'right-end' };
+export const RightEnd = Template.bind({});
+RightEnd.args = { placement: 'right-end' };
 
-export const leftStart = Template.bind({});
-leftStart.args = { placement: 'left-start' };
+export const LeftStart = Template.bind({});
+LeftStart.args = { placement: 'left-start' };
 
-export const leftMiddle = Template.bind({});
-leftMiddle.args = { placement: 'left-middle' };
+export const LeftMiddle = Template.bind({});
+LeftMiddle.args = { placement: 'left-middle' };
 
-export const leftEnd = Template.bind({});
-leftEnd.args = { placement: 'left-end' };
+export const LeftEnd = Template.bind({});
+LeftEnd.args = { placement: 'left-end' };

@@ -1,5 +1,5 @@
 import { Tile } from '@rocket.chat/fuselage';
-import type { Meta, StoryFn } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react-webpack5';
 
 import FormPageLayout from './FormPageLayout';
 

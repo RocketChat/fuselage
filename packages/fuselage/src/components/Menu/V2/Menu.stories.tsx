@@ -1,4 +1,4 @@
-import type { StoryFn, Meta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react-webpack5';
 import type { ComponentProps, ReactNode, Ref } from 'react';
 import { forwardRef, useState } from 'react';
 

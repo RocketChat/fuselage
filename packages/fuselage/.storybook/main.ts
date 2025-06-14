@@ -5,13 +5,10 @@ import type { StorybookConfig } from '@storybook/react-webpack5';
 export default {
   addons: [
     getAbsolutePath('@storybook/addon-a11y'),
-    getAbsolutePath('@storybook/addon-essentials'),
-    getAbsolutePath('@storybook/addon-interactions'),
     getAbsolutePath('storybook-dark-mode'),
-    getAbsolutePath('@storybook/addon-mdx-gfm'),
     getAbsolutePath('@storybook/addon-webpack5-compiler-swc'),
     {
-      name: '@storybook/addon-styling-webpack',
+      name: getAbsolutePath('@storybook/addon-styling-webpack'),
 
       options: {
         rules: [
@@ -66,6 +63,7 @@ export default {
         ],
       },
     },
+    getAbsolutePath('@storybook/addon-docs'),
   ],
 
   stories: ['../src/**/*.stories.{mdx,js,tsx}', '../src/**/*.mdx'],

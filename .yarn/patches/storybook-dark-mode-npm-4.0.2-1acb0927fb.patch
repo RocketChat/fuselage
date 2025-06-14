@@ -1,0 +1,543 @@
+diff --git a/dist/cjs/Tool.js b/dist/cjs/Tool.js
+index 53e12660b7265c5bf15591028d227f061e6b44d7..a47cfe84985afd92d347ea8e7a829d0577c0c306 100644
+--- a/dist/cjs/Tool.js
++++ b/dist/cjs/Tool.js
+@@ -1,6 +1,6 @@
+ "use strict";
+ 
+-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
++function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+ Object.defineProperty(exports, "__esModule", {
+   value: true
+ });
+@@ -8,42 +8,40 @@ exports.DarkMode = DarkMode;
+ exports.updateStore = exports.store = exports.prefersDark = exports["default"] = void 0;
+ var React = _interopRequireWildcard(require("react"));
+ var _global = require("@storybook/global");
+-var _theming = require("@storybook/theming");
+-var _components = require("@storybook/components");
++var _theming = require("storybook/theming");
++var _components = require("storybook/internal/components");
+ var _icons = require("@storybook/icons");
+-var _coreEvents = require("@storybook/core-events");
+-var _managerApi = require("@storybook/manager-api");
++var _coreEvents = require("storybook/internal/core-events");
++var _managerApi = require("storybook/manager-api");
+ var _fastDeepEqual = _interopRequireDefault(require("fast-deep-equal"));
+ var _constants = require("./constants");
+ var _excluded = ["current", "stylePreview"];
+ var _window$matchMedia;
+-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+-function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+-function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+-function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+-function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
++function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default": e }; }
++function _interopRequireWildcard(e, t) { if ("function" == typeof WeakMap) var r = new WeakMap(), n = new WeakMap(); return (_interopRequireWildcard = function _interopRequireWildcard(e, t) { if (!t && e && e.__esModule) return e; var o, i, f = { __proto__: null, "default": e }; if (null === e || "object" != _typeof(e) && "function" != typeof e) return f; if (o = t ? n : r) { if (o.has(e)) return o.get(e); o.set(e, f); } for (var _t in e) "default" !== _t && {}.hasOwnProperty.call(e, _t) && ((i = (o = Object.defineProperty) && Object.getOwnPropertyDescriptor(e, _t)) && (i.get || i.set) ? o(f, _t, i) : f[_t] = e[_t]); return f; })(e, t); }
++function _objectWithoutProperties(e, t) { if (null == e) return {}; var o, r, i = _objectWithoutPropertiesLoose(e, t); if (Object.getOwnPropertySymbols) { var n = Object.getOwnPropertySymbols(e); for (r = 0; r < n.length; r++) o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]); } return i; }
++function _objectWithoutPropertiesLoose(r, e) { if (null == r) return {}; var t = {}; for (var n in r) if ({}.hasOwnProperty.call(r, n)) { if (-1 !== e.indexOf(n)) continue; t[n] = r[n]; } return t; }
++function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
+ function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+-function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0) { ; } } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
+-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+-function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+-function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+-function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
++function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
++function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
++function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
++function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
++function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
++function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
++function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
++function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+ function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
++function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
++function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
++function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
++function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+ var _ref = _global.global,
+   document = _ref.document,
+   window = _ref.window;
+ var modes = ['light', 'dark'];
+ var STORAGE_KEY = 'sb-addon-themes-3';
+-var prefersDark = (_window$matchMedia = window.matchMedia) === null || _window$matchMedia === void 0 ? void 0 : _window$matchMedia.call(window, '(prefers-color-scheme: dark)');
+-exports.prefersDark = prefersDark;
++var prefersDark = exports.prefersDark = (_window$matchMedia = window.matchMedia) === null || _window$matchMedia === void 0 ? void 0 : _window$matchMedia.call(window, '(prefers-color-scheme: dark)');
+ var defaultParams = {
+   classTarget: 'body',
+   dark: _theming.themes.dark,
+@@ -55,12 +53,11 @@ var defaultParams = {
+ };
+ 
+ /** Persist the dark mode settings in localStorage */
+-var updateStore = function updateStore(newStore) {
++var updateStore = exports.updateStore = function updateStore(newStore) {
+   window.localStorage.setItem(STORAGE_KEY, JSON.stringify(newStore));
+ };
+ 
+ /** Add the light/dark class to an element */
+-exports.updateStore = updateStore;
+ var toggleDarkClass = function toggleDarkClass(el, _ref2) {
+   var current = _ref2.current,
+     _ref2$darkClass = _ref2.darkClass,
+@@ -111,7 +108,7 @@ var updateManager = function updateManager(store) {
+ };
+ 
+ /** Update changed dark mode settings and persist to localStorage  */
+-var store = function store() {
++var store = exports.store = function store() {
+   var userTheme = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+   var storedItem = window.localStorage.getItem(STORAGE_KEY);
+   if (typeof storedItem === 'string') {
+@@ -134,7 +131,6 @@ var store = function store() {
+ // On initial load, set the dark mode class on the manager
+ // This is needed if you're using mostly CSS overrides to styles the storybook
+ // Otherwise the default theme is set in src/preset/manager.tsx
+-exports.store = store;
+ updateManager(store());
+ /** A toolbar icon to toggle between dark and light themes in storybook */
+ function DarkMode(_ref3) {
+@@ -154,12 +150,13 @@ function DarkMode(_ref3) {
+   }, [params]);
+   /** Set the theme in storybook, update the local state, and emit an event */
+   var setMode = React.useCallback(function (mode) {
++    var _api$getChannel;
+     var currentStore = store();
+     api.setOptions({
+       theme: currentStore[mode]
+     });
+     setDark(mode === 'dark');
+-    api.getChannel().emit(_constants.DARK_MODE_EVENT_NAME, mode === 'dark');
++    (_api$getChannel = api.getChannel()) === null || _api$getChannel === void 0 || _api$getChannel.emit(_constants.DARK_MODE_EVENT_NAME, mode === 'dark');
+     updateManager(currentStore);
+     if (stylePreview) {
+       updatePreview(currentStore);
+@@ -212,21 +209,21 @@ function DarkMode(_ref3) {
+     renderTheme();
+   }, [darkModeParams, renderTheme]);
+   React.useEffect(function () {
+-    channel.on(_coreEvents.STORY_CHANGED, renderTheme);
+-    channel.on(_coreEvents.SET_STORIES, renderTheme);
+-    channel.on(_coreEvents.DOCS_RENDERED, renderTheme);
++    channel === null || channel === void 0 || channel.on(_coreEvents.STORY_CHANGED, renderTheme);
++    channel === null || channel === void 0 || channel.on(_coreEvents.SET_STORIES, renderTheme);
++    channel === null || channel === void 0 || channel.on(_coreEvents.DOCS_RENDERED, renderTheme);
+     prefersDark.addListener(prefersDarkUpdate);
+     return function () {
+-      channel.removeListener(_coreEvents.STORY_CHANGED, renderTheme);
+-      channel.removeListener(_coreEvents.SET_STORIES, renderTheme);
+-      channel.removeListener(_coreEvents.DOCS_RENDERED, renderTheme);
++      channel === null || channel === void 0 || channel.removeListener(_coreEvents.STORY_CHANGED, renderTheme);
++      channel === null || channel === void 0 || channel.removeListener(_coreEvents.SET_STORIES, renderTheme);
++      channel === null || channel === void 0 || channel.removeListener(_coreEvents.DOCS_RENDERED, renderTheme);
+       prefersDark.removeListener(prefersDarkUpdate);
+     };
+   });
+   React.useEffect(function () {
+-    channel.on(_constants.UPDATE_DARK_MODE_EVENT_NAME, updateMode);
++    channel === null || channel === void 0 || channel.on(_constants.UPDATE_DARK_MODE_EVENT_NAME, updateMode);
+     return function () {
+-      channel.removeListener(_constants.UPDATE_DARK_MODE_EVENT_NAME, updateMode);
++      channel === null || channel === void 0 || channel.removeListener(_constants.UPDATE_DARK_MODE_EVENT_NAME, updateMode);
+     };
+   });
+   // Storybook's first render doesn't have the global user params loaded so we
+@@ -252,5 +249,4 @@ function DarkMode(_ref3) {
+     "aria-hidden": "true"
+   }));
+ }
+-var _default = DarkMode;
+-exports["default"] = _default;
+\ No newline at end of file
++var _default = exports["default"] = DarkMode;
+\ No newline at end of file
+diff --git a/dist/cjs/constants.js b/dist/cjs/constants.js
+index b4d2aa8db372fc3c9be570092e45288a1fba9953..d3c7bda11c271934140847df98aed87f4a6a7556 100644
+--- a/dist/cjs/constants.js
++++ b/dist/cjs/constants.js
+@@ -4,7 +4,5 @@ Object.defineProperty(exports, "__esModule", {
+   value: true
+ });
+ exports.UPDATE_DARK_MODE_EVENT_NAME = exports.DARK_MODE_EVENT_NAME = void 0;
+-var DARK_MODE_EVENT_NAME = 'DARK_MODE';
+-exports.DARK_MODE_EVENT_NAME = DARK_MODE_EVENT_NAME;
+-var UPDATE_DARK_MODE_EVENT_NAME = 'UPDATE_DARK_MODE';
+-exports.UPDATE_DARK_MODE_EVENT_NAME = UPDATE_DARK_MODE_EVENT_NAME;
+\ No newline at end of file
++var DARK_MODE_EVENT_NAME = exports.DARK_MODE_EVENT_NAME = 'DARK_MODE';
++var UPDATE_DARK_MODE_EVENT_NAME = exports.UPDATE_DARK_MODE_EVENT_NAME = 'UPDATE_DARK_MODE';
+\ No newline at end of file
+diff --git a/dist/cjs/index.js b/dist/cjs/index.js
+index c0a0bf0138d2bd192a33bc139d2f10c5e92bcea1..870474d0e4156c0b50e9062b919baf2ff61b04e8 100644
+--- a/dist/cjs/index.js
++++ b/dist/cjs/index.js
+@@ -7,7 +7,7 @@ var _exportNames = {
+   useDarkMode: true
+ };
+ exports.useDarkMode = useDarkMode;
+-var _previewApi = require("@storybook/preview-api");
++var _previewApi = require("storybook/preview-api");
+ var _constants = require("./constants");
+ Object.keys(_constants).forEach(function (key) {
+   if (key === "default" || key === "__esModule") return;
+@@ -21,12 +21,12 @@ Object.keys(_constants).forEach(function (key) {
+   });
+ });
+ var _Tool = require("./Tool");
+-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
++function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
+ function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+-function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0) { ; } } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
+-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
++function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
++function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
++function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
++function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+ /**
+  * Returns the current state of storybook's dark-mode
+  */
+diff --git a/dist/cjs/preset/manager.js b/dist/cjs/preset/manager.js
+index 3e3fd4cf247d3d7c5f42ee96259b186afa5d7bc2..159d2be912e8adb1bfca99512c1a4edaf12b1892 100644
+--- a/dist/cjs/preset/manager.js
++++ b/dist/cjs/preset/manager.js
+@@ -1,18 +1,17 @@
+ "use strict";
+ 
+-var _managerApi = require("@storybook/manager-api");
+-var _types = require("@storybook/types");
+-var _theming = require("@storybook/theming");
++var _managerApi = require("storybook/manager-api");
++var _types = require("storybook/internal/types");
++var _theming = require("storybook/theming");
+ var React = _interopRequireWildcard(require("react"));
+ var _Tool = _interopRequireWildcard(require("../Tool"));
+-function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+-function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+-function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+-function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+-function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
++function _interopRequireWildcard(e, t) { if ("function" == typeof WeakMap) var r = new WeakMap(), n = new WeakMap(); return (_interopRequireWildcard = function _interopRequireWildcard(e, t) { if (!t && e && e.__esModule) return e; var o, i, f = { __proto__: null, "default": e }; if (null === e || "object" != _typeof(e) && "function" != typeof e) return f; if (o = t ? n : r) { if (o.has(e)) return o.get(e); o.set(e, f); } for (var _t in e) "default" !== _t && {}.hasOwnProperty.call(e, _t) && ((i = (o = Object.defineProperty) && Object.getOwnPropertyDescriptor(e, _t)) && (i.get || i.set) ? o(f, _t, i) : f[_t] = e[_t]); return f; })(e, t); }
++function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
++function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
++function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
++function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
++function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
++function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+ var currentStore = (0, _Tool.store)();
+ var currentTheme = currentStore.current || _Tool.prefersDark.matches && 'dark' || 'light';
+ _managerApi.addons.setConfig({
+diff --git a/dist/esm/Tool.js b/dist/esm/Tool.js
+index 12b99ffbcc3002b3a9081d02db230ea6eb9990d7..e9121295fb048c2af70f6fbfe5cb88edc1814ea5 100644
+--- a/dist/esm/Tool.js
++++ b/dist/esm/Tool.js
+@@ -1,30 +1,30 @@
+-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
++function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+ var _excluded = ["current", "stylePreview"];
+ var _window$matchMedia;
+-function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+-function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
++function _objectWithoutProperties(e, t) { if (null == e) return {}; var o, r, i = _objectWithoutPropertiesLoose(e, t); if (Object.getOwnPropertySymbols) { var n = Object.getOwnPropertySymbols(e); for (r = 0; r < n.length; r++) o = n[r], -1 === t.indexOf(o) && {}.propertyIsEnumerable.call(e, o) && (i[o] = e[o]); } return i; }
++function _objectWithoutPropertiesLoose(r, e) { if (null == r) return {}; var t = {}; for (var n in r) if ({}.hasOwnProperty.call(r, n)) { if (-1 !== e.indexOf(n)) continue; t[n] = r[n]; } return t; }
++function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
+ function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+-function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0) { ; } } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
+-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+-function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+-function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+-function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
++function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
++function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
++function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
++function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
++function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
++function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
++function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
++function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+ function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
++function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
++function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
++function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
++function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+ import * as React from 'react';
+ import { global } from '@storybook/global';
+-import { themes } from '@storybook/theming';
+-import { IconButton } from '@storybook/components';
++import { themes } from 'storybook/theming';
++import { IconButton } from 'storybook/internal/components';
+ import { MoonIcon, SunIcon } from '@storybook/icons';
+-import { STORY_CHANGED, SET_STORIES, DOCS_RENDERED } from '@storybook/core-events';
+-import { useParameter } from '@storybook/manager-api';
++import { STORY_CHANGED, SET_STORIES, DOCS_RENDERED } from 'storybook/internal/core-events';
++import { useParameter } from 'storybook/manager-api';
+ import equal from 'fast-deep-equal';
+ import { DARK_MODE_EVENT_NAME, UPDATE_DARK_MODE_EVENT_NAME } from './constants';
+ var _ref = global,
+@@ -141,12 +141,13 @@ export function DarkMode(_ref3) {
+   }, [params]);
+   /** Set the theme in storybook, update the local state, and emit an event */
+   var setMode = React.useCallback(function (mode) {
++    var _api$getChannel;
+     var currentStore = store();
+     api.setOptions({
+       theme: currentStore[mode]
+     });
+     setDark(mode === 'dark');
+-    api.getChannel().emit(DARK_MODE_EVENT_NAME, mode === 'dark');
++    (_api$getChannel = api.getChannel()) === null || _api$getChannel === void 0 || _api$getChannel.emit(DARK_MODE_EVENT_NAME, mode === 'dark');
+     updateManager(currentStore);
+     if (stylePreview) {
+       updatePreview(currentStore);
+@@ -199,21 +200,21 @@ export function DarkMode(_ref3) {
+     renderTheme();
+   }, [darkModeParams, renderTheme]);
+   React.useEffect(function () {
+-    channel.on(STORY_CHANGED, renderTheme);
+-    channel.on(SET_STORIES, renderTheme);
+-    channel.on(DOCS_RENDERED, renderTheme);
++    channel === null || channel === void 0 || channel.on(STORY_CHANGED, renderTheme);
++    channel === null || channel === void 0 || channel.on(SET_STORIES, renderTheme);
++    channel === null || channel === void 0 || channel.on(DOCS_RENDERED, renderTheme);
+     prefersDark.addListener(prefersDarkUpdate);
+     return function () {
+-      channel.removeListener(STORY_CHANGED, renderTheme);
+-      channel.removeListener(SET_STORIES, renderTheme);
+-      channel.removeListener(DOCS_RENDERED, renderTheme);
++      channel === null || channel === void 0 || channel.removeListener(STORY_CHANGED, renderTheme);
++      channel === null || channel === void 0 || channel.removeListener(SET_STORIES, renderTheme);
++      channel === null || channel === void 0 || channel.removeListener(DOCS_RENDERED, renderTheme);
+       prefersDark.removeListener(prefersDarkUpdate);
+     };
+   });
+   React.useEffect(function () {
+-    channel.on(UPDATE_DARK_MODE_EVENT_NAME, updateMode);
++    channel === null || channel === void 0 || channel.on(UPDATE_DARK_MODE_EVENT_NAME, updateMode);
+     return function () {
+-      channel.removeListener(UPDATE_DARK_MODE_EVENT_NAME, updateMode);
++      channel === null || channel === void 0 || channel.removeListener(UPDATE_DARK_MODE_EVENT_NAME, updateMode);
+     };
+   });
+   // Storybook's first render doesn't have the global user params loaded so we
+diff --git a/dist/esm/index.js b/dist/esm/index.js
+index f9fba78c0a84fc5e07fea8c9096983806874a592..7c4ee85a3d8de5a90ee3d105628f26dab443d3fb 100644
+--- a/dist/esm/index.js
++++ b/dist/esm/index.js
+@@ -1,10 +1,10 @@
+-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
++function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
+ function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+-function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0) { ; } } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
+-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+-import { addons, useState, useEffect } from '@storybook/preview-api';
++function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
++function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
++function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
++function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
++import { addons, useState, useEffect } from 'storybook/preview-api';
+ import { DARK_MODE_EVENT_NAME } from './constants';
+ import { store } from './Tool';
+ 
+diff --git a/dist/esm/preset/manager.js b/dist/esm/preset/manager.js
+index 4b14ca543bb350a1adc9d08521bcf2980204aab0..fbc6efc1a7a6077624d9c6446b37f55ff40a274c 100644
+--- a/dist/esm/preset/manager.js
++++ b/dist/esm/preset/manager.js
+@@ -1,12 +1,12 @@
+-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+-function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+-function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+-function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+-import { addons } from '@storybook/manager-api';
+-import { Addon_TypesEnum } from '@storybook/types';
+-import { themes } from '@storybook/theming';
++function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
++function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
++function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
++function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
++function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
++function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
++import { addons } from 'storybook/manager-api';
++import { Addon_TypesEnum } from 'storybook/internal/types';
++import { themes } from 'storybook/theming';
+ import * as React from 'react';
+ import Tool, { prefersDark, store } from '../Tool';
+ var currentStore = store();
+diff --git a/dist/ts/Tool.d.ts b/dist/ts/Tool.d.ts
+index 2de459fee17f7263e28c5f551c5a9fd128915566..b04ca52b0b808b314954f5e662d91f3e975cf5ad 100644
+--- a/dist/ts/Tool.d.ts
++++ b/dist/ts/Tool.d.ts
+@@ -1,6 +1,6 @@
+-/// <reference types="react" />
+-import { ThemeVars } from '@storybook/theming';
+-import { API } from '@storybook/manager-api';
++import * as React from 'react';
++import { ThemeVars } from 'storybook/theming';
++import { API } from 'storybook/manager-api';
+ declare const modes: readonly ["light", "dark"];
+ type Mode = typeof modes[number];
+ interface DarkModeStore {
+@@ -31,5 +31,5 @@ interface DarkModeProps {
+     api: API;
+ }
+ /** A toolbar icon to toggle between dark and light themes in storybook */
+-export declare function DarkMode({ api }: DarkModeProps): JSX.Element;
++export declare function DarkMode({ api }: DarkModeProps): React.JSX.Element;
+ export default DarkMode;
+diff --git a/package.json b/package.json
+index ba076c2f1e90d8a0b67397b7dd37a28ab55b5401..c9618936a997a9c85286654635c5c5e0e1d96bc5 100644
+--- a/package.json
++++ b/package.json
+@@ -35,12 +35,8 @@
+     "release": "auto shipit"
+   },
+   "dependencies": {
+-    "@storybook/components": "^8.0.0",
+-    "@storybook/core-events": "^8.0.0",
+     "@storybook/global": "^5.0.0",
+     "@storybook/icons": "^1.2.5",
+-    "@storybook/manager-api": "^8.0.0",
+-    "@storybook/theming": "^8.0.0",
+     "fast-deep-equal": "^3.1.3",
+     "memoizerific": "^1.11.3"
+   },
+@@ -50,9 +46,9 @@
+     "@babel/preset-env": "^7.20.2",
+     "@babel/preset-react": "^7.18.6",
+     "@babel/preset-typescript": "^7.18.6",
+-    "@storybook/builder-vite": "8.0.0",
+-    "@storybook/react": "8.0.0",
+-    "@storybook/react-vite": "8.0.0",
++    "@storybook/builder-vite": "^9.0.0",
++    "@storybook/react": "^9.0.0",
++    "@storybook/react-vite": "^9.0.0",
+     "@types/node": "^18.11.11",
+     "@types/react": "^18.0.26",
+     "@typescript-eslint/eslint-plugin": "5.45.1",
+@@ -72,7 +68,7 @@
+     "react": "^18.2.0",
+     "react-dom": "^18.2.0",
+     "rimraf": "^3.0.2",
+-    "storybook": "8.0.0",
++    "storybook": "^9.0.0",
+     "ts-node": "^10.9.1",
+     "typescript": "^4.9.3",
+     "vite": "^5.1.3"
+@@ -83,5 +79,6 @@
+   "prettier": {
+     "singleQuote": true
+   },
+-  "license": "MIT"
++  "license": "MIT",
++  "packageManager": "yarn@4.9.2"
+ }
+diff --git a/src/Tool.tsx b/src/Tool.tsx
+index cdbd73447add8c0cc049de8dc36adbb1496612f6..a110a77a5c11b86db1f494321201a935e40d920c 100644
+--- a/src/Tool.tsx
++++ b/src/Tool.tsx
+@@ -1,14 +1,14 @@
+ import * as React from 'react';
+ import { global } from '@storybook/global';
+-import { themes, ThemeVars } from '@storybook/theming';
+-import { IconButton } from '@storybook/components';
++import { themes, ThemeVars } from 'storybook/theming';
++import { IconButton } from 'storybook/internal/components';
+ import { MoonIcon, SunIcon } from '@storybook/icons';
+ import {
+   STORY_CHANGED,
+   SET_STORIES,
+   DOCS_RENDERED,
+-} from '@storybook/core-events';
+-import { API, useParameter } from '@storybook/manager-api';
++} from 'storybook/internal/core-events';
++import { API, useParameter } from 'storybook/manager-api';
+ import equal from 'fast-deep-equal';
+ import { DARK_MODE_EVENT_NAME, UPDATE_DARK_MODE_EVENT_NAME } from './constants';
+ 
+@@ -163,7 +163,7 @@ export function DarkMode({ api }: DarkModeProps) {
+       const currentStore = store();
+       api.setOptions({ theme: currentStore[mode] });
+       setDark(mode === 'dark');
+-      api.getChannel().emit(DARK_MODE_EVENT_NAME, mode === 'dark');
++      api.getChannel()?.emit(DARK_MODE_EVENT_NAME, mode === 'dark');
+       updateManager(currentStore);
+       if (stylePreview) {
+         updatePreview(currentStore);
+@@ -219,21 +219,21 @@ export function DarkMode({ api }: DarkModeProps) {
+     renderTheme();
+   }, [darkModeParams, renderTheme]);
+   React.useEffect(() => {
+-    channel.on(STORY_CHANGED, renderTheme);
+-    channel.on(SET_STORIES, renderTheme);
+-    channel.on(DOCS_RENDERED, renderTheme);
++    channel?.on(STORY_CHANGED, renderTheme);
++    channel?.on(SET_STORIES, renderTheme);
++    channel?.on(DOCS_RENDERED, renderTheme);
+     prefersDark.addListener(prefersDarkUpdate);
+     return () => {
+-      channel.removeListener(STORY_CHANGED, renderTheme);
+-      channel.removeListener(SET_STORIES, renderTheme);
+-      channel.removeListener(DOCS_RENDERED, renderTheme);
++      channel?.removeListener(STORY_CHANGED, renderTheme);
++      channel?.removeListener(SET_STORIES, renderTheme);
++      channel?.removeListener(DOCS_RENDERED, renderTheme);
+       prefersDark.removeListener(prefersDarkUpdate);
+     };
+   });
+   React.useEffect(() => {
+-    channel.on(UPDATE_DARK_MODE_EVENT_NAME, updateMode);
++    channel?.on(UPDATE_DARK_MODE_EVENT_NAME, updateMode);
+     return () => {
+-      channel.removeListener(UPDATE_DARK_MODE_EVENT_NAME, updateMode);
++      channel?.removeListener(UPDATE_DARK_MODE_EVENT_NAME, updateMode);
+     };
+   });
+   // Storybook's first render doesn't have the global user params loaded so we
+diff --git a/src/index.tsx b/src/index.tsx
+index 6178cd588c88c2d1b49e96a1dff3c2277027d488..2cd168982a7255b49cc3c8e56309f5723e3e0c20 100644
+--- a/src/index.tsx
++++ b/src/index.tsx
+@@ -1,4 +1,4 @@
+-import { addons, useState, useEffect } from '@storybook/preview-api';
++import { addons, useState, useEffect } from 'storybook/preview-api';
+ import { DARK_MODE_EVENT_NAME } from './constants';
+ import { store } from './Tool';
+ 
+diff --git a/src/preset/manager.tsx b/src/preset/manager.tsx
+index 471ec69d1548b829ac30a7359afef682c3a239d9..bc00efc8ccb85518db46d6a1afc2667b6ae05dd1 100644
+--- a/src/preset/manager.tsx
++++ b/src/preset/manager.tsx
+@@ -1,6 +1,6 @@
+-import { addons } from '@storybook/manager-api';
+-import { Addon_TypesEnum } from '@storybook/types';
+-import { themes } from '@storybook/theming';
++import { addons } from 'storybook/manager-api';
++import { Addon_TypesEnum } from 'storybook/internal/types';
++import { themes } from 'storybook/theming';
+ import * as React from 'react';
+ 
+ import Tool, { prefersDark, store } from '../Tool';

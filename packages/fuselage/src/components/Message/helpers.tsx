@@ -1,4 +1,4 @@
-import type { StoryFn } from '@storybook/react';
+import type { StoryFn } from '@storybook/react-webpack5';
 import type { ReactNode } from 'react';
 
 import { Avatar } from '../Avatar';

@@ -54,7 +54,7 @@ describe('clear', () => {
   it('should do nothing when a non-memoized function is passed', () => {
     const fn = jest.fn(() => 'foo');
 
-    expect(() => clear(fn)).not.toThrowError();
+    expect(() => clear(fn)).not.toThrow();
   });
 });
 

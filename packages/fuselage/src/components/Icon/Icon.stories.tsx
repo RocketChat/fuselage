@@ -1,6 +1,6 @@
 import type { Keys } from '@rocket.chat/icons';
 import nameToCharacterMapping from '@rocket.chat/icons';
-import type { StoryFn, Meta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react-webpack5';
 import { useState } from 'react';
 
 import Box from '../Box';

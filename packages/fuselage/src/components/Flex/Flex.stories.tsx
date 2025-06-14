@@ -1,4 +1,4 @@
-import type { Meta } from '@storybook/react';
+import type { Meta } from '@storybook/react-webpack5';
 import type { ComponentType } from 'react';
 
 import Tile from '../Tile';
@@ -17,7 +17,7 @@ export default {
   },
 } satisfies Meta;
 
-export const example = () => (
+export const Example = () => (
   <Flex.Container>
     <Tile>
       {Array.from({ length: 3 }, (_, i) => (
@@ -29,7 +29,7 @@ export const example = () => (
   </Flex.Container>
 );
 
-export const direction = () => (
+export const Direction = () => (
   <Flex.Container direction='row-reverse'>
     <Tile>
       {Array.from({ length: 3 }, (_, i) => (
@@ -41,7 +41,7 @@ export const direction = () => (
   </Flex.Container>
 );
 
-export const wrap = () => (
+export const Wrap = () => (
   <Flex.Container wrap='wrap'>
     <Tile>
       {Array.from({ length: 12 }, (_, i) => (
@@ -53,7 +53,7 @@ export const wrap = () => (
   </Flex.Container>
 );
 
-export const justifyContent = () => (
+export const JustifyContent = () => (
   <Flex.Container justifyContent='space-around'>
     <Tile>
       {Array.from({ length: 3 }, (_, i) => (
@@ -65,7 +65,7 @@ export const justifyContent = () => (
   </Flex.Container>
 );
 
-export const alignItems = () => (
+export const AlignItems = () => (
   <Flex.Container alignItems='end'>
     <Tile>
       {Array.from({ length: 3 }, (_, i) => (
@@ -77,7 +77,7 @@ export const alignItems = () => (
   </Flex.Container>
 );
 
-export const alignContent = () => (
+export const AlignContent = () => (
   <Flex.Container wrap='wrap' alignContent='end'>
     <Tile style={{ minHeight: 400 }}>
       {Array.from({ length: 12 }, (_, i) => (
@@ -89,7 +89,7 @@ export const alignContent = () => (
   </Flex.Container>
 );
 
-export const order = () => (
+export const Order = () => (
   <Flex.Container>
     <Tile>
       <Flex.Item>
@@ -105,7 +105,7 @@ export const order = () => (
   </Flex.Container>
 );
 
-export const grow = () => (
+export const Grow = () => (
   <Flex.Container>
     <Tile>
       <Flex.Item>
@@ -121,7 +121,7 @@ export const grow = () => (
   </Flex.Container>
 );
 
-export const shrink = () => (
+export const Shrink = () => (
   <Flex.Container>
     <Tile>
       <Flex.Item>
@@ -137,7 +137,7 @@ export const shrink = () => (
   </Flex.Container>
 );
 
-export const basis = () => (
+export const Basis = () => (
   <Flex.Container>
     <Tile>
       <Flex.Item>
@@ -153,7 +153,7 @@ export const basis = () => (
   </Flex.Container>
 );
 
-export const align = () => (
+export const Align = () => (
   <Flex.Container alignItems='center'>
     <Tile style={{ minHeight: 400 }}>
       <Flex.Item>

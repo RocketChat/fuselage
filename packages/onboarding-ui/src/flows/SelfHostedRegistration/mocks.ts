@@ -1,5 +1,5 @@
-import { action } from '@storybook/addon-actions';
 import { countries } from 'countries-list';
+import { action } from 'storybook/actions';
 
 export const logSubmit =
   <T extends (...args: any[]) => any>(onSubmit: T) =>
