@@ -41,7 +41,7 @@
   "devDependencies": {
     "@rocket.chat/emitter": "workspace:~",
     "@rocket.chat/fuselage-tokens": "workspace:~",
-    "@rollup/plugin-commonjs": "~28.0.3",
+    "@rollup/plugin-commonjs": "~28.0.5",
     "@rollup/plugin-json": "~6.1.0",
     "@rollup/plugin-node-resolve": "~16.0.1",
     "@rollup/plugin-terser": "~0.4.4",
@@ -61,10 +61,10 @@
     "react": "~18.3.1",
     "react-dom": "~18.3.1",
     "rimraf": "~6.0.1",
-    "rollup": "~4.41.1",
+    "rollup": "~4.43.0",
     "rollup-plugin-terser": "~7.0.2",
     "testing-utils": "workspace:~",
-    "ts-jest": "~29.3.4",
+    "ts-jest": "~29.4.0",
     "typedoc": "~0.28.5",
     "typescript": "~5.8.3"
   },
