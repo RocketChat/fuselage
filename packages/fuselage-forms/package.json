@@ -26,6 +26,7 @@
     ".:build:clean": "rimraf dist",
     ".:build:cjs": "tsc -p tsconfig.cjs.json",
     ".:build:esm": "tsc -p tsconfig.esm.json",
+    "storybook": "storybook dev -p 6006 --no-version-updates",
     "build": "run .:build:clean && run .:build:esm && run .:build:cjs",
     "clean": "rimraf dist",
     "docs": "typedoc",
@@ -41,6 +42,15 @@
     ]
   },
   "devDependencies": {
+    "@rocket.chat/fuselage-tokens": "workspace:~",
+    "@storybook/addon-essentials": "~8.6.14",
+    "@storybook/addon-webpack5-compiler-swc": "~3.0.0",
+    "@storybook/blocks": "~8.6.14",
+    "@storybook/preview-api": "~8.6.14",
+    "@storybook/react": "~8.6.12",
+    "@storybook/react-webpack5": "~8.6.12",
+    "@storybook/theming": "~8.6.14",
+    "@storybook/types": "~8.6.14",
     "@types/jest": "~29.5.14",
     "@types/jest-axe": "~3.5.9",
     "@types/react": "~18.3.20",
@@ -52,9 +62,12 @@
     "lint-all": "workspace:~",
     "prettier": "~3.5.3",
     "rimraf": "~6.0.1",
+    "storybook": "~8.6.12",
+    "storybook-dark-mode": "~4.0.2",
     "ts-jest": "~29.3.4",
     "typedoc": "~0.24.1",
-    "typescript": "~5.8.3"
+    "typescript": "~5.8.3",
+    "webpack": "~5.99.9"
   },
   "peerDependencies": {
     "@rocket.chat/fuselage": "*",

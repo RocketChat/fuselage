@@ -4996,6 +4996,15 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@rocket.chat/fuselage-forms@workspace:packages/fuselage-forms"
   dependencies:
+    "@rocket.chat/fuselage-tokens": "workspace:~"
+    "@storybook/addon-essentials": "npm:~8.6.14"
+    "@storybook/addon-webpack5-compiler-swc": "npm:~3.0.0"
+    "@storybook/blocks": "npm:~8.6.14"
+    "@storybook/preview-api": "npm:~8.6.14"
+    "@storybook/react": "npm:~8.6.12"
+    "@storybook/react-webpack5": "npm:~8.6.12"
+    "@storybook/theming": "npm:~8.6.14"
+    "@storybook/types": "npm:~8.6.14"
     "@types/jest": "npm:~29.5.14"
     "@types/jest-axe": "npm:~3.5.9"
     "@types/react": "npm:~18.3.20"
@@ -5008,9 +5017,12 @@ __metadata:
     prettier: "npm:~3.5.3"
     react-aria: "npm:~3.37.0"
     rimraf: "npm:~6.0.1"
+    storybook: "npm:~8.6.12"
+    storybook-dark-mode: "npm:~4.0.2"
     ts-jest: "npm:~29.3.4"
     typedoc: "npm:~0.24.1"
     typescript: "npm:~5.8.3"
+    webpack: "npm:~5.99.9"
   peerDependencies:
     "@rocket.chat/fuselage": "*"
     react: "*"
@@ -6459,6 +6471,15 @@ __metadata:
   peerDependencies:
     storybook: ^8.2.0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
   checksum: 10/6936ea3348968fe598ad47421c11a78c6ee2ce62336ea1ce9cb8257e9faa2553d3ac3e443f8a36d35a41b0d60eb169231516649c710582ec68fdead4f23ffc0e
+  languageName: node
+  linkType: hard
+
+"@storybook/types@npm:~8.6.14":
+  version: 8.6.14
+  resolution: "@storybook/types@npm:8.6.14"
+  peerDependencies:
+    storybook: ^8.2.0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
+  checksum: 10/e91c17e1af9d672d9dccfe45543c6a7fd8f5f58207279ca1b86b605cd700cffd5f8b2d423f6fe51e6a46d680bb628b16abf287f0c0bea134ee7427f0affcdcad
   languageName: node
   linkType: hard
 
