@@ -1,4 +1,4 @@
-import type { StoryFn, Meta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react-webpack5';
 
 import Box from './Box';
 
@@ -14,7 +14,7 @@ export default {
   },
 } satisfies Meta<typeof Box>;
 
-export const hx: StoryFn<typeof Box> = () => (
+export const Hx: StoryFn<typeof Box> = () => (
   <>
     <h1>Heading 1</h1>
     <h2>Heading 2</h2>
@@ -24,30 +24,30 @@ export const hx: StoryFn<typeof Box> = () => (
     <h6>Heading 6</h6>
   </>
 );
-hx.storyName = 'hx';
+Hx.storyName = 'hx';
 
-export const p: StoryFn<typeof Box> = () => <p>Paragraph</p>;
-p.storyName = 'p';
+export const P: StoryFn<typeof Box> = () => <p>Paragraph</p>;
+P.storyName = 'p';
 
-export const ul: StoryFn<typeof Box> = () => (
+export const Ul: StoryFn<typeof Box> = () => (
   <ul>
     <li>unordered list item 1</li>
     <li>unordered list item 2</li>
     <li>unordered list item 3</li>
   </ul>
 );
-ul.storyName = 'ul';
+Ul.storyName = 'ul';
 
-export const ol: StoryFn<typeof Box> = () => (
+export const Ol: StoryFn<typeof Box> = () => (
   <ol>
     <li>ordered list item 1</li>
     <li>ordered list item 2</li>
     <li>ordered list item 3</li>
   </ol>
 );
-ol.storyName = 'ol';
+Ol.storyName = 'ol';
 
-export const dl: StoryFn<typeof Box> = () => (
+export const Dl: StoryFn<typeof Box> = () => (
   <dl>
     <dt>description list term 1</dt>
     <dd>description list description 1</dd>
@@ -57,9 +57,9 @@ export const dl: StoryFn<typeof Box> = () => (
     <dd>description list description 3</dd>
   </dl>
 );
-dl.storyName = 'dl';
+Dl.storyName = 'dl';
 
-export const table: StoryFn<typeof Box> = () => (
+export const Table: StoryFn<typeof Box> = () => (
   <table>
     <thead>
       <tr>
@@ -87,9 +87,9 @@ export const table: StoryFn<typeof Box> = () => (
     </tbody>
   </table>
 );
-table.storyName = 'table';
+Table.storyName = 'table';
 
-export const table_complex: StoryFn<typeof Box> = () => (
+export const TableComplex: StoryFn<typeof Box> = () => (
   <table>
     <caption>Caption</caption>
     <thead>
@@ -125,9 +125,9 @@ export const table_complex: StoryFn<typeof Box> = () => (
     </tbody>
   </table>
 );
-table_complex.storyName = 'table (complex)';
+TableComplex.storyName = 'table (complex)';
 
-export const blockquote_and_cite: StoryFn<typeof Box> = () => (
+export const BlockquoteAndCite: StoryFn<typeof Box> = () => (
   <blockquote>
     <p>
       Words can be like X-rays, if you use them properly — they’ll go through
@@ -138,9 +138,9 @@ export const blockquote_and_cite: StoryFn<typeof Box> = () => (
     </footer>
   </blockquote>
 );
-blockquote_and_cite.storyName = 'blockquote and cite';
+BlockquoteAndCite.storyName = 'blockquote and cite';
 
-export const pre: StoryFn<typeof Box> = () => (
+export const Pre: StoryFn<typeof Box> = () => (
   <pre>
     # A UNINTENDED LOL-ZONE: SORRY FOR THIS{'\n'}#
     ------------+----------+-------------{'\n'}# /\O | _O | O {'\n'}# /\/ | //|_
@@ -149,9 +149,9 @@ export const pre: StoryFn<typeof Box> = () => (
     FEATURED ENABLED
   </pre>
 );
-pre.storyName = 'pre';
+Pre.storyName = 'pre';
 
-export const pre_with_code: StoryFn<typeof Box> = () => (
+export const PreWithCode: StoryFn<typeof Box> = () => (
   <pre>
     <code>
       # A UNINTENDED LOL-ZONE: SORRY FOR THIS{'\n'}#
@@ -162,4 +162,4 @@ export const pre_with_code: StoryFn<typeof Box> = () => (
     </code>
   </pre>
 );
-pre_with_code.storyName = 'pre with code';
+PreWithCode.storyName = 'pre with code';
