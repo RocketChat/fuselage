@@ -11,6 +11,9 @@ type LabelProps = Omit<ComponentProps<typeof Box>, 'is'> & {
   is?: (ElementType<any> & string) | undefined;
 };
 
+// TODO: Communicate "required", either by appending a visually hidden (required) text to the label
+// Or by leveraging the context to add "aria-required" to the input element.
+// Reference: https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA2
 /**
  * A caption for an input component.
  */

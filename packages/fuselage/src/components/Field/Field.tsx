@@ -141,6 +141,15 @@ const getInputId = (id: string, descriptors: Set<LabelTypes>) => {
   return `${id}-label${descriptors.has('placeholder') ? ` ${id}-placeholder` : ''}`;
 };
 
+const getAriaInvalid = (
+  descriptors: Set<LabelTypes>,
+): { 'aria-invalid': 'true' | 'false' } => {
+  if (descriptors.has('error')) {
+    return { 'aria-invalid': 'true' };
+  }
+  return { 'aria-invalid': 'false' };
+};
+
 // Input has id and label is htmlFor
 export const useFieldReferencedByInput = () => {
   const { id, descriptors, setFieldType } = useContext(FieldContext);
@@ -153,6 +162,7 @@ export const useFieldReferencedByInput = () => {
     () => ({
       'id': getInputId(id, descriptors),
       'aria-describedby': getDescribedBy(descriptors, id),
+      ...getAriaInvalid(descriptors),
     }),
     [descriptors, id],
   );
@@ -170,6 +180,7 @@ export const useFieldReferencedByLabel = () => {
     () => ({
       'aria-labelledby': getInputId(id, descriptors),
       'aria-describedby': getDescribedBy(descriptors, id),
+      ...getAriaInvalid(descriptors),
     }),
     [descriptors, id],
   );
@@ -192,6 +203,7 @@ export const useFieldWrappedByInputLabel = (): [
       {
         'aria-describedby': getDescribedBy(descriptors, id),
         'id': getInputId(id, descriptors),
+        ...getAriaInvalid(descriptors),
       },
     ],
     [label, id, descriptors],
