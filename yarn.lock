@@ -1362,7 +1362,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.17.2, @babel/runtime@npm:^7.22.5, @babel/runtime@npm:^7.5.5":
+"@babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.22.5, @babel/runtime@npm:^7.5.5":
   version: 7.26.0
   resolution: "@babel/runtime@npm:7.26.0"
   dependencies:
@@ -5227,7 +5227,7 @@ __metadata:
     "@types/react-dom": "npm:~18.3.7"
     countries-list: "npm:^3.1.1"
     eslint: "npm:~9.29.0"
-    i18next: "npm:~21.6.16"
+    i18next: "npm:~23.4.9"
     jest: "npm:~30.0.0"
     jest-environment-jsdom: "npm:~30.0.0"
     lint-all: "workspace:~"
@@ -11608,12 +11608,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"i18next@npm:~21.6.16":
-  version: 21.6.16
-  resolution: "i18next@npm:21.6.16"
+"i18next@npm:~23.4.9":
+  version: 23.4.9
+  resolution: "i18next@npm:23.4.9"
   dependencies:
-    "@babel/runtime": "npm:^7.17.2"
-  checksum: 10/da3e03b0cd330fcb7123a985dad6ca67b5b8d216f6a781e5c1c470b0808e0cf58177ceda6da8c5de42dbfaec6897d71d5b22327abc2e38f95f2f615b399b994a
+    "@babel/runtime": "npm:^7.22.5"
+  checksum: 10/2f9de44e9771c1df97b10ecec25e429b530e6bfbb388e4adfa01c360217db04d29c7c19868fd7be9973abfecfb7ea2d146b2682f00dd41db5fb75a139db2ac38
   languageName: node
   linkType: hard
 
