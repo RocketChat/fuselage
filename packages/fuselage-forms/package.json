@@ -66,5 +66,8 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "react-aria": "~3.37.0"
   }
 }

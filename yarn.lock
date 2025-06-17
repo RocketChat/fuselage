@@ -5006,6 +5006,7 @@ __metadata:
     jest-environment-jsdom: "npm:~29.7.0"
     lint-all: "workspace:~"
     prettier: "npm:~3.5.3"
+    react-aria: "npm:~3.37.0"
     rimraf: "npm:~6.0.1"
     ts-jest: "npm:~29.3.4"
     typedoc: "npm:~0.24.1"
