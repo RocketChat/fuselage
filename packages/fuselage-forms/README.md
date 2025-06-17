@@ -12,7 +12,7 @@
 
 ---
 
-[![npm@latest](https://img.shields.io/npm/v/@rocket.chat/fuselage-forms/latest?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/fuselage-forms/v/latest) [![npm@next](https://img.shields.io/npm/v/@rocket.chat/fuselage-forms/next?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/fuselage-forms/v/next) ![react version](https://img.shields.io/npm/dependency-version/@rocket.chat/fuselage-forms/peer/react?style=flat-square) ![npm downloads](https://img.shields.io/npm/dw/@rocket.chat/fuselage-forms?style=flat-square) ![License: MIT](https://img.shields.io/npm/l/@rocket.chat/fuselage-forms?style=flat-square)
+[![npm@latest](https://img.shields.io/npm/v/@rocket.chat/fuselage-forms/latest?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/fuselage-forms/v/latest) [![npm@next](https://img.shields.io/npm/v/@rocket.chat/fuselage-forms/next?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/fuselage-forms/v/next) ![react version](https://img.shields.io/npm/dependency-version/@rocket.chat/fuselage-forms/peer/react?style=flat-square) [![Storybook](https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg)](https://rocketchat.github.io/fuselage/fuselage-forms) ![npm downloads](https://img.shields.io/npm/dw/@rocket.chat/fuselage-forms?style=flat-square) ![License: MIT](https://img.shields.io/npm/l/@rocket.chat/fuselage-forms?style=flat-square)
 
 ![deps](https://img.shields.io/librariesio/release/npm/@rocket.chat/fuselage-forms?style=flat-square) ![npm bundle size](https://img.shields.io/bundlephobia/min/@rocket.chat/fuselage-forms?style=flat-square)
 

@@ -7,3 +7,10 @@ export { default as FieldHint } from './FieldHint';
 export * from './FieldContext';
 
 export * from './Label';
+
+export {
+  FieldGroup,
+  FieldRow,
+  FieldLink,
+  FieldLabelInfo,
+} from '@rocket.chat/fuselage';
