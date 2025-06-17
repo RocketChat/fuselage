@@ -1,5 +1,21 @@
 # Change Log
 
+## 0.64.0
+
+### Minor Changes
+
+- [#1676](https://github.com/RocketChat/fuselage/pull/1676) [`93edea5`](https://github.com/RocketChat/fuselage/commit/93edea5a195d9d7de68a7991f09d54a7ef367a82) Thanks [@yash-rajpal](https://github.com/yash-rajpal)! - feat(fuselage): Apply proper bold styles to unread `SidebarItemTitle`.
+
+## 0.63.0
+
+### Minor Changes
+
+- [#1671](https://github.com/RocketChat/fuselage/pull/1671) [`2a877ef`](https://github.com/RocketChat/fuselage/commit/2a877eff8996f7443df62d63039639212708cd1d) Thanks [@dougfabris](https://github.com/dougfabris)! - feat(fuselage): Introduce useButtonPattern
+
+### Patch Changes
+
+- [#1669](https://github.com/RocketChat/fuselage/pull/1669) [`a694b0c`](https://github.com/RocketChat/fuselage/commit/a694b0ce3e8dcc7d08ce51bfca9012038fd5d9c8) Thanks [@yash-rajpal](https://github.com/yash-rajpal)! - feat(fuselage): Update ToggleSwitch size
+
 ## 0.62.3
 
 ### Patch Changes

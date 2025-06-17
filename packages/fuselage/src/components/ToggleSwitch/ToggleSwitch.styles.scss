@@ -15,19 +15,24 @@ $toggle-switch-border-radius: theme(
 
   &__fake {
     @extend %selection-button__fake;
-    width: lengths.size(2 * 20);
+
+    width: lengths.size(2 * 18);
+    height: lengths.size(20) - 2 * lengths.border-width(default, rem);
 
     border-radius: $toggle-switch-border-radius;
   }
 
   &__input + &__fake::before {
     position: absolute;
-    inset-inline-start: lengths.inset(none);
 
-    width: lengths.size(20) - 2 * lengths.border-width(default, rem);
-    height: lengths.size(20) - 2 * lengths.border-width(default, rem);
+    top: 50%;
+    inset-inline-start: lengths.inset(1);
+
+    width: lengths.size(16) - 2 * lengths.border-width(default, rem);
+    height: lengths.size(16) - 2 * lengths.border-width(default, rem);
 
     content: '';
+    transform: translateY(-50%);
 
     border-radius: $toggle-switch-border-radius;
 
@@ -40,7 +45,7 @@ $toggle-switch-border-radius: theme(
 
   &__input:checked + &__fake::before {
     inset-inline-start: calc(
-      100% - #{lengths.inset(20) - 2 * lengths.border-width(default, rem)}
+      100% - #{lengths.inset(16) - lengths.border-width(default, rem)}
     );
 
     background-color: colors.button(on-primary);

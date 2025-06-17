@@ -15,7 +15,7 @@ describe('web worker messages', () => {
       },
     });
     self.dispatchEvent(event);
-    expect(self.onmessage).toBeCalledTimes(1);
+    expect(self.onmessage).toHaveBeenCalledTimes(1);
   });
 
   it('handles encode message', () => {
@@ -26,7 +26,7 @@ describe('web worker messages', () => {
       },
     });
     self.dispatchEvent(event);
-    expect(self.onmessage).toBeCalledTimes(1);
+    expect(self.onmessage).toHaveBeenCalledTimes(1);
   });
 
   it('handles finish message', () => {
@@ -36,7 +36,7 @@ describe('web worker messages', () => {
       },
     });
     self.dispatchEvent(event);
-    expect(self.onmessage).toBeCalledTimes(1);
-    expect(self.postMessage).toBeCalledTimes(1);
+    expect(self.onmessage).toHaveBeenCalledTimes(1);
+    expect(self.postMessage).toHaveBeenCalledTimes(1);
   });
 });
