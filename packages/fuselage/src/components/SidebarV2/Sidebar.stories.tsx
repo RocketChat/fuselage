@@ -1,3 +1,4 @@
+import isLokiRunning from '@loki/is-loki-running';
 import { action } from '@storybook/addon-actions';
 import type { Meta, StoryFn } from '@storybook/react';
 
@@ -22,8 +23,6 @@ import {
 } from '.';
 import { Condensed } from './SidebarItem/SidebarItem.stories';
 import { GenericNoAvatarItem, MenuTemplate } from './helpers';
-
-import isLokiRunning from '@loki/is-loki-running'
 
 export default {
   title: 'Navigation/SidebarV2',
