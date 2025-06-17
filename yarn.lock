@@ -5164,7 +5164,7 @@ __metadata:
     typescript: "npm:~5.8.3"
   peerDependencies:
     react: "*"
-    react-dom: 17.0.2
+    react-dom: "*"
   languageName: unknown
   linkType: soft
 
