@@ -34,13 +34,6 @@
     "lint-and-fix": "lint-and-fix",
     "test": "jest --runInBand"
   },
-  "jest": {
-    "errorOnDeprecated": true,
-    "preset": "ts-jest",
-    "testMatch": [
-      "<rootDir>/src/**/*.spec.[jt]s?(x)"
-    ]
-  },
   "devDependencies": {
     "@rocket.chat/fuselage-tokens": "workspace:~",
     "@storybook/addon-essentials": "~8.6.14",
@@ -51,6 +44,8 @@
     "@storybook/react-webpack5": "~8.6.12",
     "@storybook/theming": "~8.6.14",
     "@storybook/types": "~8.6.14",
+    "@testing-library/jest-dom": "~6.6.3",
+    "@testing-library/react": "~16.3.0",
     "@types/jest": "~29.5.14",
     "@types/jest-axe": "~3.5.9",
     "@types/react": "~18.3.20",
