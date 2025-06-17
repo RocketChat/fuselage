@@ -59,7 +59,6 @@
     "@types/react-dom": "~18.3.7",
     "countries-list": "^3.1.1",
     "eslint": "~9.29.0",
-    "eslint-plugin-storybook": "9.0.9",
     "jest": "~30.0.0",
     "jest-environment-jsdom": "~30.0.0",
     "lint-all": "workspace:~",
