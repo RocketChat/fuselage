@@ -6601,7 +6601,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/parser@npm:8.34.0, @typescript-eslint/parser@npm:~8.34.0":
+"@typescript-eslint/parser@npm:8.34.0":
   version: 8.34.0
   resolution: "@typescript-eslint/parser@npm:8.34.0"
   dependencies:
@@ -17265,7 +17265,6 @@ __metadata:
   resolution: "scripts@workspace:tools/scripts"
   dependencies:
     "@types/node": "npm:~22.15.31"
-    "@typescript-eslint/parser": "npm:~8.34.0"
     cross-env: "npm:^7.0.3"
     endent: "npm:^2.1.0"
     eslint: "npm:~9.29.0"
