@@ -3,8 +3,6 @@ import type { AllHTMLAttributes, ComponentProps, Key, Ref } from 'react';
 import { forwardRef } from 'react';
 import { Item } from 'react-stately';
 
-import { useFieldReferencedByLabel } from '../Field/Field';
-
 import { SelectAria } from './SelectAria';
 
 type SelectOption = readonly [value: string, label: string, selected?: boolean];
@@ -28,13 +26,8 @@ export const Select = forwardRef(function Select<
   T extends object,
   V extends Key,
 >({ options, ...props }: SelectProps<T, V>, ref: Ref<HTMLElement>) {
-  const labelProps = useFieldReferencedByLabel();
   return (
-    <SelectAria
-      ref={ref}
-      {...(props as ComponentProps<typeof SelectAria>)}
-      {...labelProps}
-    >
+    <SelectAria ref={ref} {...(props as ComponentProps<typeof SelectAria>)}>
       {options.map((option) => (
         <Item
           title={option[1] ?? option[0]}

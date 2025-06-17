@@ -2,7 +2,6 @@ import type { StoryFn, Meta } from '@storybook/react';
 
 import { CheckBox } from '../CheckBox';
 import { RadioButton } from '../RadioButton';
-import { Select } from '../Select';
 import { TextAreaInput } from '../TextAreaInput';
 import { TextInput } from '../TextInput';
 import { ToggleSwitch } from '../ToggleSwitch';
@@ -61,11 +60,11 @@ export const WithTextArea: StoryFn<typeof Field> = () => (
 export const WithRadioButton: StoryFn<typeof Field> = () => (
   <Field>
     <FieldRow>
-      <FieldLabel required>
+      <FieldLabel required htmlFor='fieldWithRadio'>
         Label
-        <FieldLabelInfo title='this is a info label' />
+        <FieldLabelInfo id='fieldWithRadioInfo' title='this is a info label' />
       </FieldLabel>
-      <RadioButton />
+      <RadioButton id='fieldWithRadio' aria-describedby='fieldWithRadioInfo' />
     </FieldRow>
     <FieldDescription>Description</FieldDescription>
     <FieldError>Error feedback</FieldError>
@@ -78,11 +77,14 @@ export const WithRadioButton: StoryFn<typeof Field> = () => (
 export const WithToggleSwitch: StoryFn<typeof Field> = () => (
   <Field>
     <FieldRow>
-      <FieldLabel required>
+      <FieldLabel required htmlFor='fieldWithToggle'>
         Label
-        <FieldLabelInfo title='this is a info label' />
+        <FieldLabelInfo id='fieldWithToggleInfo' title='this is a info label' />
       </FieldLabel>
-      <ToggleSwitch />
+      <ToggleSwitch
+        id='fieldWithToggle'
+        aria-describedby='fieldWithToggleInfo'
+      />
     </FieldRow>
     <FieldDescription>Description</FieldDescription>
     <FieldError>Error feedback</FieldError>
@@ -95,49 +97,20 @@ export const WithToggleSwitch: StoryFn<typeof Field> = () => (
 export const WithCheckbox: StoryFn<typeof Field> = () => (
   <Field>
     <FieldRow>
-      <FieldLabel required>
+      <FieldLabel required htmlFor='fieldWithCheckbox'>
         Label
-        <FieldLabelInfo title='this is a info label' />
+        <FieldLabelInfo
+          id='fieldWithCheckboxInfo'
+          title='this is a info label'
+        />
       </FieldLabel>
-      <CheckBox />
+      <CheckBox
+        id='fieldWithCheckbox'
+        aria-describedby='fieldWithCheckboxInfo'
+      />
     </FieldRow>
     <FieldDescription>Description</FieldDescription>
     <FieldError>Error feedback</FieldError>
-    <FieldRow>
-      <FieldHint>Hint</FieldHint>
-      <FieldLink href='#'>Link</FieldLink>
-    </FieldRow>
-  </Field>
-);
-export const WithSelect: StoryFn<typeof Field> = () => (
-  <Field>
-    <FieldRow>
-      <FieldLabel required>
-        Label
-        <FieldLabelInfo title='this is a info label' />
-      </FieldLabel>
-    </FieldRow>
-    <FieldRow>
-      <Select
-        options={[
-          ['1', 'item 1'],
-          ['2', 'item 2'],
-          ['3', 'item 3'],
-          ['4', 'item 4'],
-          ['5', 'item 5'],
-          ['6', 'item 6'],
-          ['7', 'item 7'],
-          ['8', 'item 8'],
-          ['9', 'item 9'],
-          ['10', 'item 10'],
-        ]}
-      />
-    </FieldRow>
-
-    <FieldRow>
-      <FieldDescription>Description</FieldDescription>
-      <FieldError>Error feedback</FieldError>
-    </FieldRow>
     <FieldRow>
       <FieldHint>Hint</FieldHint>
       <FieldLink href='#'>Link</FieldLink>
