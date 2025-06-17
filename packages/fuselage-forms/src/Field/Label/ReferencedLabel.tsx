@@ -9,8 +9,11 @@ const ReferencedLabel = ({
 }: ComponentProps<typeof FieldLabelComponent>) => {
   const [labelRef, id] = useFieldLabel();
 
-  // TODO fix ref type
-  return <FieldLabelComponent {...props} ref={labelRef} htmlFor={id} />;
+  return (
+    <FieldLabelComponent {...props} ref={labelRef} htmlFor={id}>
+      {children}
+    </FieldLabelComponent>
+  );
 };
 
 export default ReferencedLabel;
