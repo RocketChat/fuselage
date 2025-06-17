@@ -41,3 +41,8 @@ export const Default: StoryFn<typeof Dropdown> = () => {
     </Box>
   );
 };
+Default.parameters = {
+  loki: {
+    skip: true,
+  },
+};

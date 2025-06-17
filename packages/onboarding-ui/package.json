@@ -65,6 +65,7 @@
     "jest": "~29.7.0",
     "jest-environment-jsdom": "~29.7.0",
     "lint-all": "workspace:~",
+    "loki": "~0.35.1",
     "npm-run-all": "^4.1.5",
     "prettier": "~3.5.3",
     "react": "~18.3.1",
@@ -94,5 +95,29 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "loki": {
+    "configurations": {
+      "desktop": {
+        "target": "chrome.docker",
+        "width": 1440,
+        "height": 896,
+        "deviceScaleFactor": 1,
+        "mobile": false,
+        "fitWindow": false
+      },
+      "tablet": {
+        "target": "chrome.docker",
+        "width": 768,
+        "height": 970,
+        "deviceScaleFactor": 1,
+        "mobile": false,
+        "fitWindow": false
+      },
+      "mobile": {
+        "target": "chrome.docker",
+        "preset": "iPhone 7"
+      }
+    }
   }
 }

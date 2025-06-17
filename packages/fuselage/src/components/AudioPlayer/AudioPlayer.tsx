@@ -70,6 +70,7 @@ type AudioPlayerProps = {
   audioPlaybackRangeLabel?: string;
   changePlaybackSpeedLabel?: string;
   downloadAudioFileLabel?: string;
+  onDone?: () => void;
   trackProps?: TrackHTMLAttributes<HTMLTrackElement>;
 };
 
@@ -88,6 +89,7 @@ export const AudioPlayer = forwardRef<HTMLAudioElement, AudioPlayerProps>(
       changePlaybackSpeedLabel = 'Change Playback Speed',
       downloadAudioFileLabel = 'Download Audio File',
       trackProps,
+      onDone,
     },
     ref,
   ) => {
@@ -115,6 +117,9 @@ export const AudioPlayer = forwardRef<HTMLAudioElement, AudioPlayerProps>(
       }
     };
 
+    if (durationTime !== 0) {
+      onDone?.();
+    }
     const handlePlaybackSpeedSingleControl = () => {
       const reachedMaxPlaybackSpeed =
         maxPlaybackSpeed === audioRef?.current?.playbackRate;
