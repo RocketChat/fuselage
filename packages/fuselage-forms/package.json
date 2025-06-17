@@ -1,0 +1,70 @@
+{
+  "name": "@rocket.chat/fuselage-forms",
+  "version": "0.0.1",
+  "description": "A set of component wrappers to provide ease of use and accessibility out-of-box.",
+  "homepage": "https://github.com/RocketChat/fuselage#readme",
+  "bugs": {
+    "url": "https://github.com/RocketChat/fuselage/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RocketChat/fuselage.git",
+    "directory": "packages/fuselage-forms"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Rocket.Chat",
+    "url": "https://rocket.chat/"
+  },
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/esm/index.d.ts",
+  "files": [
+    "/dist"
+  ],
+  "scripts": {
+    ".:build:clean": "rimraf dist",
+    ".:build:cjs": "tsc -p tsconfig.cjs.json",
+    ".:build:esm": "tsc -p tsconfig.esm.json",
+    "build": "run .:build:clean && run .:build:esm && run .:build:cjs",
+    "clean": "rimraf dist",
+    "docs": "typedoc",
+    "lint": "lint",
+    "lint-and-fix": "lint-and-fix",
+    "test": "jest --runInBand"
+  },
+  "jest": {
+    "errorOnDeprecated": true,
+    "preset": "ts-jest",
+    "testMatch": [
+      "<rootDir>/src/**/*.spec.[jt]s?(x)"
+    ]
+  },
+  "devDependencies": {
+    "@types/jest": "~29.5.14",
+    "@types/jest-axe": "~3.5.9",
+    "@types/react": "~18.3.20",
+    "@types/react-dom": "~18.3.5",
+    "eslint": "~9.23.0",
+    "jest": "~29.7.0",
+    "jest-axe": "~10.0.0",
+    "jest-environment-jsdom": "~29.7.0",
+    "lint-all": "workspace:~",
+    "prettier": "~3.5.3",
+    "rimraf": "~6.0.1",
+    "ts-jest": "~29.3.4",
+    "typedoc": "~0.24.1",
+    "typescript": "~5.8.3"
+  },
+  "peerDependencies": {
+    "@rocket.chat/fuselage": "*",
+    "react": "*",
+    "react-dom": "*"
+  },
+  "volta": {
+    "extends": "../../package.json"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
