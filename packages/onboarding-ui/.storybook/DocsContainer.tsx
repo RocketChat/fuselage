@@ -11,7 +11,6 @@ const DocsContainer = (
   props: ComponentPropsWithoutRef<typeof BaseContainer>,
 ) => {
   const [isDark, setDark] = useState(false);
-  console.log('DocsContainer', isDark);
 
   useEffect(() => {
     channel.on(DARK_MODE_EVENT_NAME, setDark);
