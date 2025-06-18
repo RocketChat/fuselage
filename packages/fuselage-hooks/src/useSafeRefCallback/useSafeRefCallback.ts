@@ -26,19 +26,21 @@ type SafeCallbackRef<T> = CallbackRefWithCleanup<T> | CallbackRef<T>;
  *   );
  *
  */
-export const useSafeRefCallback = <T extends HTMLElement | null>(callback: SafeCallbackRef<T>) => {
-	const callbackRef = useMemo(() => {
-		let _cleanup: (() => void) | null;
+export const useSafeRefCallback = <T extends HTMLElement | null>(
+  callback: SafeCallbackRef<T>,
+) => {
+  const callbackRef = useMemo(() => {
+    let _cleanup: (() => void) | null;
 
-		return (node: T): void => {
-			if (typeof _cleanup === 'function') {
-				_cleanup();
-			}
-			const cleanup = callback(node);
+    return (node: T): void => {
+      if (typeof _cleanup === 'function') {
+        _cleanup();
+      }
+      const cleanup = callback(node);
 
-			_cleanup = cleanup || null;
-		};
-	}, [callback]);
+      _cleanup = cleanup || null;
+    };
+  }, [callback]);
 
-	return callbackRef;
+  return callbackRef;
 };
