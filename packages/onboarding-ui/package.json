@@ -38,7 +38,7 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
-    "i18next": "~21.6.16",
+    "i18next": "~23.4.9",
     "react-hook-form": "~7.54.2"
   },
   "devDependencies": {
@@ -54,12 +54,12 @@
     "@storybook/addon-docs": "~9.0.9",
     "@storybook/addon-webpack5-compiler-swc": "~3.0.0",
     "@storybook/react-webpack5": "~9.0.9",
+    "@testing-library/dom": "~10.4.0",
     "@testing-library/react": "~16.3.0",
     "@types/react": "~18.3.23",
     "@types/react-dom": "~18.3.7",
     "countries-list": "^3.1.1",
     "eslint": "~9.29.0",
-    "eslint-plugin-storybook": "9.0.9",
     "jest": "~30.0.0",
     "jest-environment-jsdom": "~30.0.0",
     "lint-all": "workspace:~",
