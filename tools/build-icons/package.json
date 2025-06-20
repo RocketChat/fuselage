@@ -4,6 +4,7 @@
   "private": true,
   "bin": "./index.mjs",
   "dependencies": {
+    "stylelint": "~16.20.0",
     "svg2ttf": "~6.0.3",
     "svgicons2svgfont": "~15.0.1",
     "tools-utils": "workspace:~",
