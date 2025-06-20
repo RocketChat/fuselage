@@ -1,6 +1,6 @@
 import isLokiRunning from '@loki/is-loki-running';
-import { action } from '@storybook/addon-actions';
-import type { Meta, StoryFn } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react-webpack5';
+import { action } from 'storybook/actions';
 
 import { IconButton, TextInput, Icon, Box } from '../..';
 

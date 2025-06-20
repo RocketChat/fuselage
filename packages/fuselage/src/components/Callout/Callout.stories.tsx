@@ -1,4 +1,4 @@
-import type { StoryFn, Meta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react-webpack5';
 
 import { Button, ButtonGroup, Callout } from '../..';
 import { setStoryDescription } from '../../helpers/setStoryDescription';

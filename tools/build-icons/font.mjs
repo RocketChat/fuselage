@@ -1,7 +1,7 @@
 import { Readable } from 'stream';
 
 import svg2ttf from 'svg2ttf';
-import SVGIcons2SVGFontStream from 'svgicons2svgfont';
+import { SVGIcons2SVGFontStream } from 'svgicons2svgfont';
 import { readSource, readJson } from 'tools-utils/files';
 import ttf2eot from 'ttf2eot';
 import ttf2woff from 'ttf2woff';
@@ -17,6 +17,11 @@ const createReadableFromString = (content) => {
   return stream;
 };
 
+/**
+ *
+ * @param {{ name: string; type: string; path: string }[]} icons
+ * @returns {Buffer}
+ */
 export const createSvgBuffer = async (icons) => {
   const fontStream = new SVGIcons2SVGFontStream({
     fontName: 'RocketChat',
@@ -52,10 +57,13 @@ export const createSvgBuffer = async (icons) => {
   );
 
   return new Promise((resolve, reject) => {
+    /** @type Uint8Array[] */
     const buffers = [];
 
+    const encoder = new TextEncoder();
+
     fontStream
-      .on('data', (data) => buffers.push(data))
+      .on('data', (data) => buffers.push(encoder.encode(data)))
       .on('error', (error) => reject(error))
       .on('finish', () => resolve(Buffer.concat(buffers)));
 

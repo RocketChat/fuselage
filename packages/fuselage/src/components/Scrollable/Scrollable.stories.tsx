@@ -1,5 +1,5 @@
-import { action } from '@storybook/addon-actions';
-import type { Meta } from '@storybook/react';
+import type { Meta } from '@storybook/react-webpack5';
+import { action } from 'storybook/actions';
 
 import Box from '../Box';
 import Tile from '../Tile';
