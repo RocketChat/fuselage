@@ -4,7 +4,7 @@
   "private": true,
   "bin": "./index.mjs",
   "dependencies": {
-    "stylelint": "~16.20.0",
+    "stylelint": "~16.21.0",
     "svg2ttf": "~6.0.3",
     "svgicons2svgfont": "~15.0.1",
     "tools-utils": "workspace:~",
@@ -17,6 +17,6 @@
   "devDependencies": {
     "eslint": "~9.29.0",
     "lint-all": "workspace:~",
-    "prettier": "~3.5.3"
+    "prettier": "~3.6.0"
   }
 }
