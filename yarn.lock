@@ -3076,12 +3076,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@loki/browser@npm:^0.35.0":
+"@loki/browser@npm:0.35.0":
   version: 0.35.0
   resolution: "@loki/browser@npm:0.35.0"
   dependencies:
     "@loki/integration-core": "npm:^0.35.0"
   checksum: 10/4aee45ebace2ea617c7253a68c12ea22604452b195832d7b0304aab365975c2a50c006ff1ffcdd4aeaee10467e5ef82c1b2db8a148434bca1a0babb4c0f013f3
+  languageName: node
+  linkType: hard
+
+"@loki/browser@patch:@loki/browser@npm%3A0.35.0#~/.yarn/patches/@loki-browser-npm-0.35.0-56c1d62186.patch":
+  version: 0.35.0
+  resolution: "@loki/browser@patch:@loki/browser@npm%3A0.35.0#~/.yarn/patches/@loki-browser-npm-0.35.0-56c1d62186.patch::version=0.35.0&hash=beab69"
+  dependencies:
+    "@loki/integration-core": "npm:^0.35.0"
+  checksum: 10/05237c4cc41c217170cefa04f66072cf2507d9b8ae13186b6e4d51fb6ce28e5dcbd52c7ed3591c95a89795b7e501530c0bd1157659625ef3562859f1cf96c449
   languageName: node
   linkType: hard
 
