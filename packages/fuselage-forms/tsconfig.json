@@ -10,11 +10,14 @@
     "jsx": "react-jsx"
   },
   "typedocOptions": {
-    "entryPoints": [
-      "src/index.ts"
-    ],
+    "entryPoints": ["src/index.ts"],
     "out": "../../static/fuselage-forms"
   },
-  "include": ["src/**/*",  "./.storybook/**/*"],
+  "include": [
+    "src/**/*",
+    "./.storybook/**/*",
+    "./jest.config.ts",
+    "./jest-setup.ts"
+  ],
   "exclude": ["node_modules", "dist"]
 }
