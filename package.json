@@ -57,5 +57,8 @@
   "volta": {
     "node": "22.16.0",
     "yarn": "4.9.2"
+  },
+  "resolutions": {
+    "@loki/browser@npm:^0.35.0": "patch:@loki/browser@npm%3A0.35.0#~/.yarn/patches/@loki-browser-npm-0.35.0-56c1d62186.patch"
   }
 }
