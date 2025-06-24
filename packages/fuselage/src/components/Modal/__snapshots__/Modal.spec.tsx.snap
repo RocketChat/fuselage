@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`[Modal Component] _WithAnnotation should match the snapshot 1`] = `
 <body>
@@ -143,7 +143,7 @@ exports[`[Modal Component] _WithForm should match the snapshot 1`] = `
                 class="rcx-box rcx-box--full rcx-field rcx-field-group__item"
               >
                 <label
-                  class="rcx-box rcx-box--full rcx-label rcx-box rcx-box--full rcx-field__label"
+                  class="rcx-box rcx-box--full rcx-field__label rcx-label"
                 >
                   Label
                 </label>
