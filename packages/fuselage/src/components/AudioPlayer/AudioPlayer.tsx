@@ -1,3 +1,4 @@
+import isLokiRunning from '@loki/is-loki-running';
 import { useMergedRefs, useResizeObserver } from '@rocket.chat/fuselage-hooks';
 import type { TrackHTMLAttributes } from 'react';
 import { useState, useRef, forwardRef } from 'react';
@@ -126,6 +127,101 @@ export const AudioPlayer = forwardRef<HTMLAudioElement, AudioPlayerProps>(
       handlePlaybackSpeed(1);
     };
 
+    if(isLokiRunning()) {
+      return (
+      <Box
+        borderWidth='default'
+        bg='tint'
+        borderColor='extra-light'
+        pb={12}
+        pie={8}
+        pis={16}
+        borderRadius='x4'
+        w='100%'
+        maxWidth='x300'
+        ref={containerRef}
+        display='flex'
+        alignItems='center'
+      >
+        <IconButton
+          primary
+          medium
+          onClick={handlePlay}
+          aria-label={isPlaying ? pauseLabel : playLabel}
+          icon={isPlaying ? 'pause-shape-filled' : 'play-shape-filled'}
+        />
+        <Margins inline={8}>
+          <Box fontScale='p2' color='secondary-info'>
+            {isPlaying || currentTime > 0
+              ? getMaskTime(currentTime)
+              : getMaskTime(durationTime)}
+          </Box>
+          <Box mi={16} w='full'>
+            <Slider
+              aria-label={audioPlaybackRangeLabel}
+              showOutput={false}
+              value={currentTime}
+              maxValue={durationTime}
+              onChange={(value) => {
+                if (audioRef.current) {
+                  audioRef.current.currentTime = value;
+                }
+              }}
+            />
+          </Box>
+
+          <Button
+            secondary
+            small
+            onClick={handlePlaybackSpeedSingleControl}
+            aria-label={changePlaybackSpeedLabel}
+          >
+            {playbackSpeed}x
+          </Button>
+        </Margins>
+        {download && (
+          <IconButton
+            primary
+            aria-label={downloadAudioFileLabel}
+            is='a'
+            download
+            icon='download'
+            medium
+          />
+        )}
+        <audio
+          style={{ display: 'none' }}
+          onTimeUpdate={(e) => {
+            setCurrentTime((e.target as HTMLAudioElement).currentTime);
+          }}
+          onLoadedMetadata={(e) => {
+            const { duration } = e.target as HTMLAudioElement;
+
+            if (duration !== Infinity) {
+              return setDurationTime(duration);
+            }
+
+          }}
+          onEnded={() => setIsPlaying(false)}
+          ref={refs}
+          preload='metadata'
+          onRateChange={(e) => {
+            setPlaybackSpeed((e.target as HTMLAudioElement).playbackRate);
+          }}
+          onPlay={() => {
+            setIsPlaying(true);
+          }}
+          onPause={() => {
+            setIsPlaying(false);
+          }}
+          controls
+        >
+          <source type={type} />
+          <track kind='captions' {...trackProps} />
+        </audio>
+      </Box>
+    );
+    }
     return (
       <Box
         borderWidth='default'
