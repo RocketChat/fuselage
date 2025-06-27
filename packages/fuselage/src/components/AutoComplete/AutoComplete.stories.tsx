@@ -95,3 +95,8 @@ export const WithPlaceholder = Template.bind({});
 WithPlaceholder.args = {
   placeholder: 'Search...',
 };
+
+export const Disabled = Template.bind({});
+WithPlaceholder.args = {
+  disabled: true,
+};
