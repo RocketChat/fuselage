@@ -25,7 +25,7 @@ const LoaderPage = ({
       setPercentage(100);
       return;
     }
-    if(isLokiRunning()){
+    if (isLokiRunning()) {
       setPercentage(99);
       return;
     }
