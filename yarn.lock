@@ -3094,13 +3094,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@loki/core@npm:^0.35.0":
+"@loki/core@npm:0.35.0":
   version: 0.35.0
   resolution: "@loki/core@npm:0.35.0"
   dependencies:
     mime-types: "npm:^2.1.35"
     shelljs: "npm:^0.8.3"
   checksum: 10/4891bff9ac1c145e1f59fe04bbc521df41e739ed39f13e86a2218f5dc61fd41542a3606130182912d8848fad93b18813f55228cf450c2c1e002baa00c3d6257e
+  languageName: node
+  linkType: hard
+
+"@loki/core@patch:@loki/core@npm%3A0.35.0#~/.yarn/patches/@loki-core-npm-0.35.0-2f7ae66155.patch":
+  version: 0.35.0
+  resolution: "@loki/core@patch:@loki/core@npm%3A0.35.0#~/.yarn/patches/@loki-core-npm-0.35.0-2f7ae66155.patch::version=0.35.0&hash=0fbf3a"
+  dependencies:
+    mime-types: "npm:^2.1.35"
+    shelljs: "npm:^0.8.3"
+  checksum: 10/52c18672bfcbd9b275a1c899a662b47cea789dec9916891722ff2ff47090e3d29ae035597b0c1b7389233cf97aaaaad8c8653b9b6d855a4000618ed7f75f6d29
   languageName: node
   linkType: hard
 
@@ -3271,7 +3281,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@loki/target-chrome-docker@npm:^0.35.0":
+"@loki/target-chrome-docker@npm:0.35.0":
   version: 0.35.0
   resolution: "@loki/target-chrome-docker@npm:0.35.0"
   dependencies:
@@ -3284,6 +3294,22 @@ __metadata:
     fs-extra: "npm:^9.1.0"
     wait-port: "npm:^1.1.0"
   checksum: 10/9fa586257ed4e4060cdb298476bb11fb3cd3b955615be3a13ca9904ce6e3cd497d2d486fb19419c61af70457989a8aa5e056e2c70fb30c1e2c672c44aff0e9e7
+  languageName: node
+  linkType: hard
+
+"@loki/target-chrome-docker@patch:@loki/target-chrome-docker@npm%3A0.35.0#~/.yarn/patches/@loki-target-chrome-docker-npm-0.35.0-e5bcaa6a12.patch":
+  version: 0.35.0
+  resolution: "@loki/target-chrome-docker@patch:@loki/target-chrome-docker@npm%3A0.35.0#~/.yarn/patches/@loki-target-chrome-docker-npm-0.35.0-e5bcaa6a12.patch::version=0.35.0&hash=0f9f89"
+  dependencies:
+    "@loki/core": "npm:^0.35.0"
+    "@loki/target-chrome-core": "npm:^0.35.0"
+    chrome-remote-interface: "npm:^0.32.1"
+    debug: "npm:^4.1.1"
+    execa: "npm:^5.0.0"
+    find-free-port-sync: "npm:^1.0.0"
+    fs-extra: "npm:^9.1.0"
+    wait-port: "npm:^1.1.0"
+  checksum: 10/ccfd7f2cc232f579e6bcce5a779f7a884ddf6c485500e55528968e0dfff3267f6230188d8a2ad234da346b0431c5a06917ad36e931e9d50c677be587dcdd24be
   languageName: node
   linkType: hard
 
