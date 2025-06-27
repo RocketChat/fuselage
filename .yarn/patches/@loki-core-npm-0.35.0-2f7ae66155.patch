@@ -1,15 +1,3 @@
-diff --git a/package.json b/package.json
-index 5bf63d200e70912d73cc750dc6124cd8c352bbbd..fe128d9ed5e618d400416ffad413c8521f4db5f0 100644
---- a/package.json
-+++ b/package.json
-@@ -23,6 +23,7 @@
-     "access": "public"
-   },
-   "dependencies": {
-+    "express":"^4.18.2 ",
-     "mime-types": "^2.1.35",
-     "shelljs": "^0.8.3"
-   },
 diff --git a/src/create-static-server.js b/src/create-static-server.js
 index f70a656ade0cdeae6ec2e59f35d7f79fbd2199d3..b90177ffbd45e7fff2a34fd17637afd0e6416e01 100644
 --- a/src/create-static-server.js
