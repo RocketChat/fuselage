@@ -1,6 +1,6 @@
 import isLokiRunning from '@loki/is-loki-running';
 import { Button } from '@rocket.chat/fuselage';
-import type { Meta, StoryFn } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react-webpack5';
 import { useEffect, useState, useCallback, useMemo } from 'react';
 
 import { useToastBarDispatch } from './ToastBarContext';

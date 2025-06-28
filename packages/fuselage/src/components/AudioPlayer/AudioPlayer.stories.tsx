@@ -1,5 +1,5 @@
-import createAsyncCallback from '@loki/create-async-callback';
-import type { Meta } from '@storybook/react';
+import isLokiRunning from '@loki/is-loki-running';
+import type { Meta } from '@storybook/react-webpack5';
 
 import { AudioPlayer } from './AudioPlayer';
 
@@ -8,9 +8,8 @@ export default {
   component: AudioPlayer,
 } satisfies Meta<typeof AudioPlayer>;
 
-const AUDIO_URL =
-  'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-17.mp3';
+const AUDIO_URL = isLokiRunning()
+  ? 'Loki is Running'
+  : 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-17.mp3';
 
-export const AudioPlayerDefault = () => (
-  <AudioPlayer src={AUDIO_URL} onDone={createAsyncCallback()} />
-);
+export const AudioPlayerDefault = () => <AudioPlayer src={AUDIO_URL} />;

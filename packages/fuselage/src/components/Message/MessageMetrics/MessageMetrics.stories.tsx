@@ -1,6 +1,6 @@
-import { action } from '@storybook/addon-actions';
-import type { Meta } from '@storybook/react';
+import type { Meta } from '@storybook/react-webpack5';
 import type { ComponentType } from 'react';
+import { action } from 'storybook/actions';
 
 import { Avatar } from '../../Avatar';
 import { Badge } from '../../Badge';

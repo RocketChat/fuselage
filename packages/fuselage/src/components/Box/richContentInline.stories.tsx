@@ -1,4 +1,4 @@
-import type { StoryFn, Meta } from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react-webpack5';
 
 import Box from './Box';
 
@@ -14,25 +14,25 @@ export default {
   },
 } satisfies Meta<typeof Box>;
 
-export const strong: StoryFn<typeof Box> = () => (
+export const Strong: StoryFn<typeof Box> = () => (
   <strong>strong importance</strong>
 );
-strong.storyName = 'strong';
+Strong.storyName = 'strong';
 
-export const em: StoryFn<typeof Box> = () => <em>emphasis</em>;
-em.storyName = 'em';
+export const Em: StoryFn<typeof Box> = () => <em>emphasis</em>;
+Em.storyName = 'em';
 
-export const b: StoryFn<typeof Box> = () => <b>bring attention</b>;
-b.storyName = 'b';
+export const B: StoryFn<typeof Box> = () => <b>bring attention</b>;
+B.storyName = 'b';
 
-export const i: StoryFn<typeof Box> = () => (
+export const I: StoryFn<typeof Box> = () => (
   <i>
     technical terms, foreign language phrases, or fictional character thoughts
   </i>
 );
-i.storyName = 'i';
+I.storyName = 'i';
 
-export const a: StoryFn<typeof Box> = () => (
+export const A: StoryFn<typeof Box> = () => (
   <>
     <div>
       <a href='#any'>Normal</a>
@@ -45,45 +45,45 @@ export const a: StoryFn<typeof Box> = () => (
     </div>
   </>
 );
-a.storyName = 'a';
+A.storyName = 'a';
 
-export const q_and_cite: StoryFn<typeof Box> = () => (
+export const QAndCite: StoryFn<typeof Box> = () => (
   <q>
     The problem with quotes found on the internet is that they are often not
     true. <cite>Abraham Lincoln</cite>
   </q>
 );
-q_and_cite.storyName = 'q and cite';
+QAndCite.storyName = 'q and cite';
 
-export const code: StoryFn<typeof Box> = () => <code>inline code</code>;
-code.storyName = 'code';
+export const Code: StoryFn<typeof Box> = () => <code>inline code</code>;
+Code.storyName = 'code';
 
-export const time: StoryFn<typeof Box> = () => (
+export const Time: StoryFn<typeof Box> = () => (
   <time dateTime='20220101 10:00'>January 1th 2022, 10 a.m.</time>
 );
-time.storyName = 'time';
+Time.storyName = 'time';
 
-export const dfn: StoryFn<typeof Box> = () => (
+export const Dfn: StoryFn<typeof Box> = () => (
   <>
     <dfn>Definition:</dfn> description.
   </>
 );
-dfn.storyName = 'dfn';
+Dfn.storyName = 'dfn';
 
-export const abbr: StoryFn<typeof Box> = () => (
+export const Abbr: StoryFn<typeof Box> = () => (
   <abbr title='Source Development Kit'>SDK</abbr>
 );
-abbr.storyName = 'abbr';
+Abbr.storyName = 'abbr';
 
-export const sup_and_sub: StoryFn<typeof Box> = () => (
+export const SupAndSub: StoryFn<typeof Box> = () => (
   <>
     <sup>superscript</sup> <sub>subscript</sub>
   </>
 );
-sup_and_sub.storyName = 'sup and sub';
+SupAndSub.storyName = 'sup and sub';
 
-export const kbd: StoryFn<typeof Box> = () => <kbd>Ctrl + Alt + Del</kbd>;
-kbd.storyName = 'kbd';
+export const Kbd: StoryFn<typeof Box> = () => <kbd>Ctrl + Alt + Del</kbd>;
+Kbd.storyName = 'kbd';
 
-export const small: StoryFn<typeof Box> = () => <small>small text</small>;
-small.storyName = 'small';
+export const Small: StoryFn<typeof Box> = () => <small>small text</small>;
+Small.storyName = 'small';
