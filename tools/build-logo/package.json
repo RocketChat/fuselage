@@ -6,10 +6,11 @@
   "dependencies": {
     "react": "~18.3.1",
     "react-dom": "~18.3.1",
-    "sharp": "~0.33.5"
+    "sharp": "~0.34.2",
+    "stylelint": "~16.20.0"
   },
   "devDependencies": {
-    "eslint": "~9.23.0",
+    "eslint": "~9.29.0",
     "lint-all": "workspace:~",
     "prettier": "~3.5.3",
     "tools-utils": "workspace:~"

@@ -1,4 +1,4 @@
-import type { Decorator } from '@storybook/react';
+import type { Decorator } from '@storybook/react-webpack5';
 import type { ComponentProps, ReactElement } from 'react';
 
 import { Avatar, Box, IconButton, MenuV2 as Menu, MenuItem } from '../..';

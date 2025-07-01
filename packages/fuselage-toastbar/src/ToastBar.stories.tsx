@@ -1,5 +1,5 @@
 import { Button } from '@rocket.chat/fuselage';
-import type { Meta, StoryFn } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react-webpack5';
 import { useEffect, useState } from 'react';
 
 import { useToastBarDispatch } from './ToastBarContext';

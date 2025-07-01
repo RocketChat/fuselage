@@ -5,9 +5,9 @@ import type { StorybookConfig } from '@storybook/react-webpack5';
 export default {
   addons: [
     getAbsolutePath('@storybook/addon-a11y'),
-    getAbsolutePath('@storybook/addon-essentials'),
     getAbsolutePath('storybook-dark-mode'),
     getAbsolutePath('@storybook/addon-webpack5-compiler-swc'),
+    getAbsolutePath('@storybook/addon-docs'),
   ],
 
   stories: ['../src/**/*.stories.tsx', '../src/**/stories.tsx'],
