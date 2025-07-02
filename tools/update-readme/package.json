@@ -5,11 +5,11 @@
   "bin": "./update-readme.mjs",
   "dependencies": {
     "outdent": "^0.8.0",
-    "zx": "8.5.5"
+    "zx": "8.6.1"
   },
   "devDependencies": {
-    "eslint": "~9.29.0",
+    "eslint": "~9.30.1",
     "lint-all": "workspace:~",
-    "prettier": "~3.5.3"
+    "prettier": "~3.6.2"
   }
 }
