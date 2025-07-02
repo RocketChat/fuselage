@@ -18,6 +18,7 @@ import SelectFocus from '../Select/SelectFocus';
 export type PaginatedMultiSelectOption = {
   value: string | number;
   label: string;
+  description?: string;
 };
 
 type PaginatedMultiSelectProps = Omit<
