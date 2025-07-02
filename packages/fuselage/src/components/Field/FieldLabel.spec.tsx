@@ -15,7 +15,7 @@ describe('[FieldLabel Component]', () => {
 
   it('should render required asterisk when using custom element', () => {
     render(
-      <FieldLabel required htmlFor='test-field'>
+      <FieldLabel is='span' id='test-field' required>
         Test Label
       </FieldLabel>,
     );
