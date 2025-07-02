@@ -42,4 +42,19 @@ describe('Option', () => {
     expect(click).toHaveBeenCalledTimes(0);
     expect(prevent).toHaveBeenCalledTimes(1);
   });
+
+  it('should render description when passed', () => {
+    const { getByText } = render(
+      <Option label='Option label' description='Option description' />,
+    );
+
+    expect(getByText('Option label')).toBeInTheDocument();
+    expect(getByText('Option description')).toBeInTheDocument();
+  });
+
+  it('should not render description when description is passed but label is not', () => {
+    const { queryByText } = render(<Option description='Option description' />);
+
+    expect(queryByText('Option description')).not.toBeInTheDocument();
+  });
 });
