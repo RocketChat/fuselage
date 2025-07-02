@@ -97,6 +97,6 @@ WithPlaceholder.args = {
 };
 
 export const Disabled = Template.bind({});
-WithPlaceholder.args = {
+Disabled.args = {
   disabled: true,
 };
