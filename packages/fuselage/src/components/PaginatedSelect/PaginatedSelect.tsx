@@ -19,6 +19,7 @@ import PaginatedSelectWrapper from './PaginatedSelectWrapper';
 type PaginatedOptionType = {
   value: string | number;
   label: string;
+  description?: string;
 };
 export type PaginatedSelectProps = Omit<SelectProps, 'options'> & {
   anchor?: ElementType;
@@ -64,9 +65,12 @@ export const PaginatedSelect = ({
 
   const valueLabel = option?.label;
 
-  const visibleText =
-    (filter === undefined || visible === AnimatedVisibility.HIDDEN) &&
-    (valueLabel || placeholder || typeof placeholder === 'string');
+  const isUnfilteredOrHidden =
+    filter === undefined || visible === AnimatedVisibility.HIDDEN;
+
+  const visibleText = isUnfilteredOrHidden
+    ? valueLabel || placeholder
+    : undefined;
 
   const handleClick = useEffectEvent(() => {
     if (visible === AnimatedVisibility.VISIBLE) {
