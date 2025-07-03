@@ -1,4 +1,4 @@
-import { createFont, createTamagui, createTokens, isWeb } from 'tamagui'
+import { createFont, createTamagui, createTokens, isWeb } from 'tamagui';
 
 // To work with the tamagui UI kit styled components (which is optional)
 // you'd want the keys used for `size`, `lineHeight`, `weight` and
@@ -31,69 +31,69 @@ const systemFont = createFont({
     300: { normal: 'InterLight', italic: 'InterItalic' },
     600: { normal: 'InterBold' },
   },
-})
+});
 
 // Set up tokens
 
 // The keys can be whatever you want, but if using `tamagui` you'll want 1-10:
 
 const size = {
-    small: 20,
-    medium: 30,
-    true: 30, // note true = 30 just like medium, your default size token
-    large: 40,
-}
+  small: 20,
+  medium: 30,
+  true: 30, // note true = 30 just like medium, your default size token
+  large: 40,
+};
 
 export const tokens = createTokens({
-  primary_button:{
+  primary_button: {
     background: '#095AD2',
     backgroundHover: '#10529E',
     backgroundPress: '#01336B',
     backgroundFocus: '#095AD2',
   },
-  danger_button:{
+  danger_button: {
     background: '#BB3E4E',
     backgroundHover: '#95323F',
     backgroundPress: '#822C37',
     backgroundFocus: '#BB3E4E',
   },
-  warning_button:{
+  warning_button: {
     background: '#B08C30',
     backgroundHover: '#C7AA66',
     backgroundPress: '#B08C30',
     backgroundFocus: '#095AD2',
   },
-  success_button:{
+  success_button: {
     background: '#1D7256',
     backgroundHover: '#175943',
     backgroundPress: '#134937',
     backgroundFocus: '#1D7256',
   },
-  secondary_button:{
+  secondary_button: {
     background: '#353B45',
     backgroundHover: '#404754',
     backgroundPress: '#4C5362',
     backgroundFocus: '#353B45',
   },
-  secondaryDanger_button:{
+  secondaryDanger_button: {
     background: '#353B45',
     backgroundHover: '#404754',
     backgroundPress: '#4C5362',
     backgroundFocus: '#353B45',
   },
-  secondaryWarning_button:{
+  secondaryWarning_button: {
     background: '#e1e1e1',
     backgroundHover: '#404754',
     backgroundPress: '#e1e1e1',
     backgroundFocus: '#404754',
   },
-  secondarySuccess_button:{
+  secondarySuccess_button: {
     background: '#e1e1e1',
     backgroundHover: '#404754',
     backgroundPress: '#4C5362',
     backgroundFocus: '#404754',
   },
-  disabled_button:{
+  disabled_button: {
     background: '#353B45',
     backgroundHover: '#404754',
     backgroundPress: '#4C5362',
@@ -109,7 +109,7 @@ export const tokens = createTokens({
   space: {
     sm: 15,
     md: 20,
-    true:20,
+    true: 20,
     lg: 25,
   },
   radius: {
@@ -124,7 +124,7 @@ export const tokens = createTokens({
     white: '#fff',
     black: '#000',
   },
-})
+});
 
 export const config = createTamagui({
   fonts: {
@@ -145,7 +145,7 @@ export const config = createTamagui({
       background: '#353B45',
       backgroundPress: '#4C5362', // darker background on press
       backgroundHover: '#404754', // lighter background on hover
-      color: '#353B45'
+      color: '#353B45',
     },
     primary_Button: {
       background: '#095AD2',
@@ -182,13 +182,12 @@ export const config = createTamagui({
       color: 'green',
     },
   },
-})
+});
 
-type AppConfig = typeof config
+type AppConfig = typeof config;
 
 // this will give you types for your components
 // note - if using your own design system, put the package name here instead of tamagui
 declare module 'tamagui' {
   interface TamaguiCustomConfig extends AppConfig {}
 }
-
