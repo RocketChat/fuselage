@@ -44,19 +44,19 @@
     "stylis": "~4.3.6"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "~28.0.5",
+    "@rollup/plugin-commonjs": "~28.0.6",
     "@rollup/plugin-json": "~6.1.0",
     "@rollup/plugin-node-resolve": "~16.0.1",
     "@rollup/plugin-terser": "~0.4.4",
-    "@rollup/plugin-typescript": "~12.1.2",
+    "@rollup/plugin-typescript": "~12.1.4",
     "@types/stylis": "^4.2.7",
     "eslint": "~9.29.0",
-    "jest": "~30.0.0",
+    "jest": "~30.0.4",
     "lint-all": "workspace:~",
     "prettier": "~3.5.3",
-    "rollup": "~4.43.0",
+    "rollup": "~4.44.1",
     "ts-jest": "~29.4.0",
-    "typedoc": "~0.28.5",
+    "typedoc": "~0.28.7",
     "typescript": "~5.8.3"
   },
   "publishConfig": {
