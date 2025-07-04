@@ -164,6 +164,7 @@ export function AutoComplete({
             order={1}
             rcx-input-box--undecorated
             value={filter}
+            disabled={disabled}
             {...props}
           />
           {selected?.length > 0 &&
