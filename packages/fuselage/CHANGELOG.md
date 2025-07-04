@@ -1,5 +1,17 @@
 # Change Log
 
+## 0.65.0
+
+### Minor Changes
+
+- [#1701](https://github.com/RocketChat/fuselage/pull/1701) [`3837986`](https://github.com/RocketChat/fuselage/commit/3837986eef96d8c8e6571002cfd10e59f1691615) Thanks [@dougfabris](https://github.com/dougfabris)! - feat(fuselage): Sidepanel visual updates
+
+### Patch Changes
+
+- [#1704](https://github.com/RocketChat/fuselage/pull/1704) [`56b43b3`](https://github.com/RocketChat/fuselage/commit/56b43b3d2453cabae9fba1060f5f4e6da2e02db7) Thanks [@aleksandernsilva](https://github.com/aleksandernsilva)! - fix(fuselage): AutoComplete's disabled property not working
+
+- [#1703](https://github.com/RocketChat/fuselage/pull/1703) [`33f6797`](https://github.com/RocketChat/fuselage/commit/33f67971392057420b3b3b49e35f567ac2af7319) Thanks [@aleksandernsilva](https://github.com/aleksandernsilva)! - fix(fuselage): FieldLabel required prop ignored when 'is' prop is set
+
 ## 0.64.0
 
 ### Minor Changes
