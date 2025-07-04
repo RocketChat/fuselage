@@ -1,5 +1,11 @@
 # @rocket.chat/layout
 
+## 0.33.1
+
+### Patch Changes
+
+- [#1703](https://github.com/RocketChat/fuselage/pull/1703) [`33f6797`](https://github.com/RocketChat/fuselage/commit/33f67971392057420b3b3b49e35f567ac2af7319) Thanks [@aleksandernsilva](https://github.com/aleksandernsilva)! - fix(fuselage): FieldLabel required prop ignored when 'is' prop is set
+
 ## 0.33.0
 
 ### Minor Changes
