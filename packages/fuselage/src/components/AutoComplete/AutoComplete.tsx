@@ -92,10 +92,10 @@ export function AutoComplete({
     } else {
       setSelected(getSelected(currentValue, options));
       onChange(currentValue);
+      hide();
     }
 
     setFilter('');
-    hide();
   });
 
   const handleRemove = useEffectEvent((event) => {
