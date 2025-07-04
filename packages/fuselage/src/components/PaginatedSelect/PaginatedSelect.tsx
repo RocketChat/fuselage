@@ -65,12 +65,9 @@ export const PaginatedSelect = ({
 
   const valueLabel = option?.label;
 
-  const isUnfilteredOrHidden =
-    filter === undefined || visible === AnimatedVisibility.HIDDEN;
-
-  const visibleText = isUnfilteredOrHidden
-    ? valueLabel || placeholder
-    : undefined;
+  const visibleText =
+    (filter === undefined || visible === AnimatedVisibility.HIDDEN) &&
+    (valueLabel || placeholder || typeof placeholder === 'string');
 
   const handleClick = useEffectEvent(() => {
     if (visible === AnimatedVisibility.VISIBLE) {
