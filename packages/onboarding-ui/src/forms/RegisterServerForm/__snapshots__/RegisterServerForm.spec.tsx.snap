@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders _RegisterServerForm without crashing 1`] = `
 <body>
@@ -35,7 +35,7 @@ exports[`renders _RegisterServerForm without crashing 1`] = `
             class="rcx-box rcx-box--full rcx-field rcx-field-group__item"
           >
             <label
-              class="rcx-box rcx-box--full rcx-label rcx-box rcx-box--full rcx-field__label rcx-css-127j9mz"
+              class="rcx-box rcx-box--full rcx-field__label rcx-label rcx-css-127j9mz"
               for=":r1:"
             >
               Admin email
@@ -87,7 +87,7 @@ exports[`renders _RegisterServerForm without crashing 1`] = `
                 />
               </label>
               <label
-                class="rcx-box rcx-box--full rcx-label rcx-box rcx-box--full rcx-box--with-block-elements rcx-box--with-inline-elements rcx-field__label rcx-css-1nlo49l"
+                class="rcx-box rcx-box--full rcx-box--with-block-elements rcx-box--with-inline-elements rcx-field__label rcx-label rcx-css-1nlo49l"
                 for=":r2:"
               >
                 I agree with 
@@ -208,7 +208,7 @@ exports[`renders _RegisterServerFormOffline without crashing 1`] = `
             class="rcx-box rcx-box--full rcx-field rcx-field-group__item"
           >
             <label
-              class="rcx-box rcx-box--full rcx-label rcx-box rcx-box--full rcx-field__label rcx-css-127j9mz"
+              class="rcx-box rcx-box--full rcx-field__label rcx-label rcx-css-127j9mz"
               for=":r4:"
             >
               Admin email
@@ -260,7 +260,7 @@ exports[`renders _RegisterServerFormOffline without crashing 1`] = `
                 />
               </label>
               <label
-                class="rcx-box rcx-box--full rcx-label rcx-box rcx-box--full rcx-box--with-block-elements rcx-box--with-inline-elements rcx-field__label rcx-css-1nlo49l"
+                class="rcx-box rcx-box--full rcx-box--with-block-elements rcx-box--with-inline-elements rcx-field__label rcx-label rcx-css-1nlo49l"
                 for=":r5:"
               >
                 I agree with 
