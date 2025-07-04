@@ -34,3 +34,12 @@ export const Disabled = Template.bind({});
 Disabled.args = {
   disabled: true,
 };
+
+export const WithDescription = Template.bind({});
+WithDescription.args = {
+  options: Array.from({ length: 10 }, (_, i) => ({
+    value: i,
+    label: `Item #${i}`,
+    description: `Description #${i}`,
+  })),
+};
