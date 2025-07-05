@@ -55,8 +55,8 @@ jobs:
     env:
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
       TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
-    needs:
-      - build-and-test
+    # needs:
+    #   - build-and-test
     steps:
       - uses: actions/setup-node@v4
         with:
@@ -71,7 +71,7 @@ jobs:
           key: ${{ runner.os }}-modules-${{ hashFiles('yarn.lock') }}
       - run: yarn install
         if: steps.yarn-cache.outputs.cache-hit != 'true'
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v4
         with:
           name: "storybooks-${{ github.event.number }}"
           path: packages
