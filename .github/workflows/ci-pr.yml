@@ -50,43 +50,39 @@ jobs:
             packages/onboarding-ui/storybook-static
             packages/layout/storybook-static
   test-with-loki:
-    name: Test with loki
+    name: Test with Loki
     runs-on: ubuntu-latest
+    env:
+      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+      TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
+    needs:
+      - build-and-test
     steps:
-      - name: checkout
-        uses: actions/checkout@v4
-
       - uses: actions/setup-node@v4
         with:
-          node-version: '22.14.0'
-          cache: 'yarn'
-      
-      - name: Run install
-        uses: borales/actions-yarn@v4
+          node-version: "22.16.0"
+      - uses: actions/checkout@v4
+      - uses: actions/cache@v4
+        id: yarn-cache
         with:
-          cmd: install
-      
-      - name: setup loki for fuselage
-        run: yarn build-storybook && yarn loki --requireReference --reactUri file:./storybook-static --storiesFilter AudioPlayer
-        working-directory: packages/fuselage
-
-      - name: setup loki for fuselage-toastbar
+          path: |
+            **/node_modules
+            .yarn/cache
+          key: ${{ runner.os }}-modules-${{ hashFiles('yarn.lock') }}
+      - run: yarn install
+        if: steps.yarn-cache.outputs.cache-hit != 'true'
+      - uses: actions/download-artifact@v2
+        with:
+          name: "storybooks-${{ github.event.number }}"
+          path: packages
+      - name: Turbo Cache
+        id: turbo-cache
+        uses: actions/cache@v4
+        with:
+          path: .turbo
+          key: turbo-${{ runner.os }}-${{ github.job }}
+          restore-keys: |
+            turbo-${{ runner.os }}-
+      - name: loki test fuselage-toastbar
         run: yarn build-storybook && yarn loki --requireReference --reactUri file:./storybook-static
         working-directory: packages/fuselage-toastbar
-        
-      - name: upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: loki-${{ github.event.number }}
-          path: |
-            packages/fuselage/.loki/current
-            packages/fuselage/.loki/difference
-            packages/fuselage/.loki/reference
-            packages/fuselage-toastbar/.loki/current
-            packages/fuselage-toastbar/.loki/difference
-            packages/fuselage-toastbar/.loki/reference
-      
-      - name: download .loki
-        uses: actions/download-artifact@v4
-        with:
-          name: loki-${{ github.event.number }}
