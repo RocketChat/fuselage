@@ -55,8 +55,8 @@ jobs:
     env:
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
       TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
-    # needs:
-    #   - build-and-test
+    needs:
+      - build-and-test
     steps:
       - uses: actions/setup-node@v4
         with:
