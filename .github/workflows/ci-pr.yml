@@ -116,10 +116,6 @@ jobs:
         with:
           name: "loki-storybooks-${{ github.event.number }}"
           path: packages
-      - name: show directory of artifacts
-        run: |
-          cd packages
-          ls -a
       - name: Turbo Cache
         id: turbo-cache
         uses: actions/cache@v4
@@ -129,5 +125,5 @@ jobs:
           restore-keys: |
             turbo-${{ runner.os }}-
       - name: loki test fuselage-toastbar
-        run: yarn build-storybook && yarn loki --requireReference --reactUri file:./storybook-static
+        run: yarn loki --requireReference --reactUri file:./storybook-static
         working-directory: packages/fuselage-toastbar
