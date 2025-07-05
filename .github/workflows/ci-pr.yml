@@ -116,6 +116,10 @@ jobs:
         with:
           name: "loki-storybooks-${{ github.event.number }}"
           path: packages
+      - name: show directory of artifacts
+        run: |
+          cd packages
+          ls -a
       - name: Turbo Cache
         id: turbo-cache
         uses: actions/cache@v4
