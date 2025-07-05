@@ -55,13 +55,34 @@ jobs:
     env:
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
       TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
-    needs:
-      - build-and-test
+    # needs:
+    #   - build-and-test
     steps:
       - uses: actions/setup-node@v4
         with:
           node-version: "22.16.0"
       - uses: actions/checkout@v4
+      - run: yarn install
+      - name: yarn build-fuselage
+        working-directory: packages/fuselage
+        run: yarn build 
+      - name: yarn build-onboarding-ui
+        working-directory: packages/onboarding-ui
+        run: yarn build 
+      - name: yarn build-layout
+        working-directory: packages/layout
+        run: yarn build 
+      - name: yarn build-fuselage-toastbar
+        working-directory: packages/fuselage-toastbar
+        run: yarn build 
+      - uses: actions/upload-artifact@v4
+        with:
+          name: 'storybooks-${{ github.event.number }}'
+          path: |
+            packages/fuselage-toastbar/storybook-static
+            packages/fuselage/storybook-static
+            packages/onboarding-ui/storybook-static
+            packages/layout/storybook-static
       - uses: actions/cache@v4
         id: yarn-cache
         with:
