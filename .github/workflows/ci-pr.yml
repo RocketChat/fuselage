@@ -49,12 +49,38 @@ jobs:
             packages/fuselage/storybook-static
             packages/onboarding-ui/storybook-static
             packages/layout/storybook-static
+  upload-artifact:
+    name: upload-artifact
+    runs-on: ubuntu-latest
+    steps:
+      - name: yarn build-fuselage
+        working-directory: packages/fuselage
+        run: yarn build-storybook
+      - name: yarn build-onboarding-ui
+        working-directory: packages/onboarding-ui
+        run: yarn build-storybook
+      - name: yarn build-layout
+        working-directory: packages/layout
+        run: yarn build-storybook
+      - name: yarn build-fuselage-toastbar
+        working-directory: packages/fuselage-toastbar
+        run: yarn build-storybook 
+      - uses: actions/upload-artifact@v4
+        with:
+          name: 'loki-storybooks-${{ github.event.number }}'
+          path: |
+            packages/fuselage-toastbar/storybook-static
+            packages/fuselage/storybook-static
+            packages/onboarding-ui/storybook-static
+            packages/layout/storybook-static
   test-with-loki:
     name: Test with Loki
     runs-on: ubuntu-latest
     env:
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
       TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
+    needs:
+      - upload-artifact:
     # needs:
     #   - build-and-test
     steps:
@@ -63,26 +89,6 @@ jobs:
           node-version: "22.16.0"
       - uses: actions/checkout@v4
       - run: yarn install
-      - name: yarn build-fuselage
-        working-directory: packages/fuselage
-        run: yarn build 
-      - name: yarn build-onboarding-ui
-        working-directory: packages/onboarding-ui
-        run: yarn build 
-      - name: yarn build-layout
-        working-directory: packages/layout
-        run: yarn build 
-      - name: yarn build-fuselage-toastbar
-        working-directory: packages/fuselage-toastbar
-        run: yarn build 
-      - uses: actions/upload-artifact@v4
-        with:
-          name: 'storybooks-${{ github.event.number }}'
-          path: |
-            packages/fuselage-toastbar/storybook-static
-            packages/fuselage/storybook-static
-            packages/onboarding-ui/storybook-static
-            packages/layout/storybook-static
       - uses: actions/cache@v4
         id: yarn-cache
         with:
@@ -94,7 +100,7 @@ jobs:
         if: steps.yarn-cache.outputs.cache-hit != 'true'
       - uses: actions/download-artifact@v4
         with:
-          name: "storybooks-${{ github.event.number }}"
+          name: "loki-storybooks-${{ github.event.number }}"
           path: packages
       - name: Turbo Cache
         id: turbo-cache
