@@ -116,6 +116,11 @@ jobs:
         with:
           name: "loki-storybooks-${{ github.event.number }}"
           path: packages
+      - name: show download artifact 
+        run: |
+          cd packages/fuselage-toastbar
+          ls -a
+
       - name: Turbo Cache
         id: turbo-cache
         uses: actions/cache@v4
