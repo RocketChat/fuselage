@@ -98,6 +98,8 @@ jobs:
     # needs:
     #   - build-and-test
     steps:
+      - name: check docker 
+        run: docker ps
       - uses: actions/setup-node@v4
         with:
           node-version: "22.16.0"
