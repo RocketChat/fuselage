@@ -55,8 +55,17 @@ jobs:
     steps:
       - name: checkout reopened
         uses: actions/checkout@v4
-      - name: install  
-        run: yarn install && yarn build
+      - uses: actions/cache@v4
+        id: yarn-cache
+        with:
+          path: |
+            **/node_modules
+            .yarn/cache
+          key: ${{ runner.os }}-modules-${{ hashFiles('yarn.lock') }}
+      - run: yarn
+        if: steps.yarn-cache.outputs.cache-hit != 'true'
+      - name: dist  
+        run: yarn build
         working-directory: ./.github/actions/test
       - name: custom action test
         uses: ./.github/actions/test

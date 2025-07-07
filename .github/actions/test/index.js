@@ -9,7 +9,7 @@ function run(context){
     }
     core.info('\u001b[48;5;6mSuccess')
 }
-run(localContext);
+run(context);
 
 // const childProcess = require('child_process');
 // let ps = childProcess.spawn('./index.sh', [],{interactive: true})
