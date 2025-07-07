@@ -8,7 +8,8 @@ const context = JSON.stringify(github.context,undefined,2);
 // ps.stdout.on('data', data => {
 //   console.log(`${data}`)
 // })
-core.startGroup();
+core.startGroup('click to see context');
+console.log(context);
 core.endGroup();
 
 // subProcess.exec('cd ../../../packages/fuselage && ls',  (err, stdout)  => {
