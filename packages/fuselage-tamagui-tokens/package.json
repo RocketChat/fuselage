@@ -1,0 +1,52 @@
+{
+  "name": "@rocket.chat/fuselage-tamagui-tokens",
+  "version": "0.33.2",
+  "description": "Tamagui tokens for Fuselage, Rocket.Chat's",
+  "homepage": "https://rocketchat.github.io/Rocket.Chat.Fuselage/",
+  "author": {
+    "name": "Rocket.Chat",
+    "url": "https://rocket.chat/"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RocketChat/fuselage.git",
+    "directory": "packages/fuselage-tamagui-tokens"
+  },
+  "bugs": {
+    "url": "https://github.com/RocketChat/fuselage/issues"
+  },
+  "keywords": [
+    "design",
+    "tokens",
+    "fuselage",
+    "tamagui",
+    "rocket.chat"
+  ],
+  "main": "./src/index.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "type": "module",
+  "devDependencies": {
+    "build-design-tokens": "workspace:~",
+    "eslint": "~9.21.0",
+    "eslint-config-prettier": "~8.8.0",
+    "lint-all": "workspace:~",
+    "npm-run-all": "^4.1.5",
+    "postcss-scss": "~4.0.9",
+    "prettier": "~3.5.2",
+    "rimraf": "^3.0.2",
+    "style-dictionary": "~4.3.3",
+    "stylelint": "~16.14.1",
+    "stylelint-order": "~6.0.4",
+    "stylelint-prettier": "~5.0.3",
+    "stylelint-scss": "~6.11.1"
+  },
+  "dependencies": {
+    "@tamagui/core": "^1.125.22"
+  },
+  "peerDependencies": {
+    "@tamagui/core": "*"
+  }
+}
