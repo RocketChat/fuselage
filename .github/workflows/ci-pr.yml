@@ -53,6 +53,10 @@ jobs:
     name: upload-artifact
     runs-on: ubuntu-latest
     steps:
+      - name: Show base and head branches
+        run: |
+          echo "Base branch: ${{ github.event.pull_request.base.ref }}"
+          echo "Head branch: ${{ github.event.pull_request.head.ref }}"
       - uses: actions/setup-node@v4
         with:
           node-version: "22.16.0"
