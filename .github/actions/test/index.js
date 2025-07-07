@@ -1,11 +1,16 @@
-const subProcess = require('child_process');
-const childProcess = require('child_process')
+const childProcess = require('child_process');
+const github = require('@actions/github');
+const core = require('@actions/core');
 
-let ps = childProcess.spawn('./index.sh', [],{interactive: true})
+const context = github.context;
+// let ps = childProcess.spawn('./index.sh', [],{interactive: true})
 
-ps.stdout.on('data', data => {
-  console.log(`${data}`)
-})
+// ps.stdout.on('data', data => {
+//   console.log(`${data}`)
+// })
+core.startGroup();
+console.log(context);
+core.endGroup();
 
 // subProcess.exec('cd ../../../packages/fuselage && ls',  (err, stdout)  => {
 //     if( err ){

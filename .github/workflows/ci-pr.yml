@@ -58,6 +58,9 @@ jobs:
           node-version: "22.16.0"
       - uses: actions/checkout@v4
       - run: yarn install
+      - name: custom action test
+        uses: ./.github/actions/test
+
       - uses: actions/cache@v4
         id: yarn-cache
         with:
