@@ -1,0 +1,31 @@
+{
+  "name": "fuselage-tamagui",
+  "packageManager": "yarn@4.6.0",
+  "devDependencies": {
+    "@storybook/addon-essentials": "^8.6.12",
+    "@storybook/addon-interactions": "^8.6.12",
+    "@storybook/addon-onboarding": "^8.6.12",
+    "@storybook/blocks": "^8.6.12",
+    "@storybook/react": "^8.6.12",
+    "@storybook/react-webpack5": "^8.6.12",
+    "@storybook/test": "^8.6.12",
+    "@types/node": "~24.0.10",
+    "@types/react": "~19.1.8",
+    "@types/react-native-web": "^0",
+    "storybook": "^8.6.12",
+    "ts-loader": "~9.5.2",
+    "typescript": "~5.8.3"
+  },
+  "scripts": {
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "dependencies": {
+    "@tamagui/core": "~1.126.5",
+    "@tamagui/get-button-sized": "~1.130.8",
+    "@tamagui/get-font-sized": "~1.130.8",
+    "@tamagui/get-size": "~1.27.3",
+    "react-native-web": "~0.20.0",
+    "tamagui": "~1.126.5"
+  }
+}
