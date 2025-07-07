@@ -11,4 +11,4 @@ inputs:
     default: ./storybook-static
 runs:
   using: "node20"
-  main: index.js
+  main: dist/index.js
