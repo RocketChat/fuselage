@@ -4,13 +4,13 @@
   "private": true,
   "bin": "./index.mjs",
   "dependencies": {
-    "stylelint": "~16.20.0",
+    "stylelint": "~16.21.1",
     "tools-utils": "workspace:~"
   },
   "devDependencies": {
-    "eslint": "~9.29.0",
+    "eslint": "~9.30.1",
     "lint-all": "workspace:~",
-    "prettier": "~3.5.3"
+    "prettier": "~3.6.2"
   },
   "peerDependencies": {
     "eslint": "*",
