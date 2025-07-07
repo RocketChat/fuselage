@@ -55,6 +55,9 @@ jobs:
     steps:
       - name: checkout reopened
         uses: actions/checkout@v4
+      - name: create dist 
+        run: yarn build
+        working-directory: ./.github/actions/test
       - name: custom action test
         uses: ./.github/actions/test
   upload-artifact:
