@@ -1,7 +1,7 @@
 const github = require('@actions/github');
 const core = require('@actions/core');
 const context = JSON.stringify(github.context,undefined,2);
-const localContext = require('./dump/context.json');
+// const localContext = require('./dump/context.json');
 
 function run(context){
     if(context.eventName === 'pull_request'){
