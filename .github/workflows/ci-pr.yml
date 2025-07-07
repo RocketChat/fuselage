@@ -54,7 +54,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout reopened
-        use: actions/checkout@v4
+        uses: actions/checkout@v4
       - name: custom action test
         uses: ./.github/actions/test
   upload-artifact:
