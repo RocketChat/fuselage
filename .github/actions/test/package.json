@@ -3,7 +3,7 @@
     "version": "0.0.1",
     "type": "commonjs",
     "scripts": {
-        "build":"rollup index.js --file dist/index.js --format cjs"
+        "build": "rollup index.js --file dist/index.js --format cjs"
     },
     "dependencies": {
         "@actions/core": "~1.11.1",
