@@ -15,6 +15,6 @@ describe('[PaginatedSelect Component]', () => {
 
     render(<PaginatedSelect {...defaultProps} placeholder={placeholder} />);
 
-    expect(screen.getByPlaceholderText(placeholder)).toBeVisible();
+    expect(screen.getByText(placeholder)).toBeVisible();
   });
 });
