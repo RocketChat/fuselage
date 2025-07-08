@@ -55,6 +55,8 @@ jobs:
     steps:
       - name: checkout reopened
         uses: actions/checkout@v4
+        with: 
+          fetch-depth: 0
       - uses: actions/cache@v4
         id: yarn-cache
         with:
