@@ -1,13 +1,53 @@
-const json = require('./context.json')
-console.log(json);
-// function getHeadBranch( context ){
+const github = require('@actions/github');
+const execa = require('execa');
+// const context = require('./dump/context.json');
 
-// }
+async function getHeadBranch( context ){
+    const branch = context.payload.pull_request.head.ref;
+    if( branch ) return branch;
+    return "error: no branch found";
+}
 
-// function getBaseBranch( context ){
+async function getBaseBranch( context ){
+    const branch = context.payload.pull_request.base.ref;
+    if( branch ) return branch;
+    return "error: no branch found";
+}
 
-// }
+async function getBaseCommit (context){
+    const baseCommit = context.payload.pull_request.base.sha;
+    if(baseCommit) return baseCommit;
+    return "";
+}
 
-// function overallChangedFiles(){
+async function getHeadCommit (context){
+    const headCommit = context.payload.pull_request.head.sha;
+    if(headCommit) return headCommit;
+    return ""
+}
 
-// }
+async function getChangedFile(context){
+    const headCommit = await getHeadCommit(context);
+    const baseCommit = await getBaseCommit(context);
+
+    // `git --no-pager diff --name-only --no-relative ${baseCommit} ${headCommit}`
+    const { stdout } = await execa('git', [
+    '--no-pager',
+    'diff',
+    '--name-only',
+    '--no-relative',
+    baseCommit,
+    headCommit
+    ]);
+    const changedFile = stdout.split('\n');
+    // console.log(headCommit);
+    // see the changed files using the sha
+    return changedFile;
+}
+module.exports = {
+    getHeadBranch,
+    getBaseBranch,
+    getBaseCommit,
+    getHeadCommit,
+    getChangedFile
+}

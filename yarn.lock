@@ -16721,6 +16721,7 @@ __metadata:
   dependencies:
     "@actions/core": "npm:~1.11.1"
     "@actions/github": "npm:~6.0.1"
+    execa: "npm:~9.6.0"
     rollup: "npm:~4.44.2"
   languageName: unknown
   linkType: soft
