@@ -2,7 +2,6 @@ const github = require('@actions/github');
 const core = require('@actions/core');
 const context = github.context;
 const git = require('./git');
-// const context = JSON.stringify(github.context,undefined,2);
 // const localContext = require('./dump/context.json');
 
 async function run(context){
