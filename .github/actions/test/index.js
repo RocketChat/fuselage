@@ -1,14 +1,15 @@
 const github = require('@actions/github');
 const core = require('@actions/core');
 const context = github.context;
-const getChangedFile = require('./git');
+const git = require('./git');
 // const context = JSON.stringify(github.context,undefined,2);
 // const localContext = require('./dump/context.json');
 
-function run(context){
+async function run(context){
     if(context.eventName === 'pull_request'){
         core.info('\u001b[48;5;6mSuccess');
-        console.log(getChangedFile(context));
+        const changedFiles = await git.getChangedFile(context);
+        console.log(changedFiles);
     }
     else {
         core.error('To use Loki OdinSnap please use trigger events like pull request or push');
