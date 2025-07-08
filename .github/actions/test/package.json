@@ -1,14 +1,14 @@
 {
     "name": "odinsnap",
     "version": "0.0.1",
-    "type": "commonjs",
+    "type": "module",
     "scripts": {
         "build": "rollup index.js --file dist/index.js --format cjs"
     },
     "dependencies": {
         "@actions/core": "~1.11.1",
         "@actions/github": "~6.0.1",
-        "execa": "5",
+        "execa": "~9.6.0",
         "rollup": "~4.44.2"
     }
 }

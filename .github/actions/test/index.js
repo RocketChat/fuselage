@@ -1,13 +1,13 @@
-const github = require('@actions/github');
-const core = require('@actions/core');
+import * as github from '@actions/github';
+import * as core from '@actions/core';
+import { getChangedFile } from './git.js';
+
 const context = github.context;
-const git = require('./git');
-// const localContext = require('./dump/context.json');
 
 async function run(context){
     if(context.eventName === 'pull_request'){
         core.info('\u001b[48;5;6mSuccess');
-        const changedFiles = await git.getChangedFile(context);
+        const changedFiles = await getChangedFile(context);
         console.log(changedFiles);
     }
     else {

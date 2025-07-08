@@ -1,32 +1,31 @@
-const github = require('@actions/github');
-const execa = require('execa');
+import { execa } from 'execa';
 // const context = require('./dump/context.json');
 
-async function getHeadBranch( context ){
+export async function getHeadBranch( context ){
     const branch = context.payload.pull_request.head.ref;
     if( branch ) return branch;
     return "error: no branch found";
 }
 
-async function getBaseBranch( context ){
+export async function getBaseBranch( context ){
     const branch = context.payload.pull_request.base.ref;
     if( branch ) return branch;
     return "error: no branch found";
 }
 
-async function getBaseCommit (context){
+export async function getBaseCommit (context){
     const baseCommit = context.payload.pull_request.base.sha;
     if(baseCommit) return baseCommit;
     return "";
 }
 
-async function getHeadCommit (context){
+export async function getHeadCommit (context){
     const headCommit = context.payload.pull_request.head.sha;
     if(headCommit) return headCommit;
     return ""
 }
 
-async function getChangedFile(context){
+export async function getChangedFile(context){
     const headCommit = await getHeadCommit(context);
     const baseCommit = await getBaseCommit(context);
 
@@ -43,11 +42,4 @@ async function getChangedFile(context){
     // console.log(headCommit);
     // see the changed files using the sha
     return changedFile;
-}
-module.exports = {
-    getHeadBranch,
-    getBaseBranch,
-    getBaseCommit,
-    getHeadCommit,
-    getChangedFile
 }
