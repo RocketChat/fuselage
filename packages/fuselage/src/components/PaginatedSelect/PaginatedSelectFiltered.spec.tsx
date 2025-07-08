@@ -12,7 +12,7 @@ const testCases = Object.values(composeStories(stories)).map((Story) => [
   Story,
 ]);
 
-describe('[Bubble Rendering]', () => {
+describe('[PaginatedSelectFiltered Component]', () => {
   test.each(testCases)(
     `renders %s without crashing`,
     async (_storyname, Story) => {
