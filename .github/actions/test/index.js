@@ -24,19 +24,3 @@ run(context);
 core.startGroup('click to see context');
 console.log(context);
 core.endGroup();
-
-// subProcess.exec('cd ../../../packages/fuselage && ls',  (err, stdout)  => {
-//     if( err ){
-//         console.error(err);
-//         process.exit(1);
-//     }
-//     console.log(stdout.toString())
-// })  
-
-// subProcess.exec('./index.sh' ,(err, stdout) => {
-//     if ( err ){
-//         console.err(err);
-//         process.exit(1);
-//     }
-//     console.log(stdout.toString());
-// })
