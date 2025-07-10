@@ -31,6 +31,7 @@ export const trimStatsFile = async (filePath) => {
     try {
         const trimmedJSON = JSON.stringify({'modules': trimmedStats}, null, 4);
         await writeFile('trimmedStats.json' ,trimmedJSON);
+        return trimmedJSON;
     }
     catch(err){
         console.error("Error occured while writing file ...");
