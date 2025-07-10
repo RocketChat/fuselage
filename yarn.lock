@@ -1996,7 +1996,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@discoveryjs/json-ext@npm:^0.6.1":
+"@discoveryjs/json-ext@npm:^0.6.1, @discoveryjs/json-ext@npm:~0.6.3":
   version: 0.6.3
   resolution: "@discoveryjs/json-ext@npm:0.6.3"
   checksum: 10/6cb35ce92c8f1e9533250da9a893def63cce4f9a4f67677259bf11619d83858ca9c010171f49b22d83153b7b7ff65c39bbbf0edf4734d67e864de1044b7a943c
@@ -16721,6 +16721,7 @@ __metadata:
   dependencies:
     "@actions/core": "npm:~1.11.1"
     "@actions/github": "npm:~6.0.1"
+    "@discoveryjs/json-ext": "npm:~0.6.3"
     execa: "npm:~9.6.0"
     rollup: "npm:~4.44.2"
   languageName: unknown
