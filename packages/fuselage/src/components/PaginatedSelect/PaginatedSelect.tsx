@@ -19,6 +19,7 @@ import PaginatedSelectWrapper from './PaginatedSelectWrapper';
 type PaginatedOptionType = {
   value: string | number;
   label: string;
+  description?: string;
 };
 export type PaginatedSelectProps = Omit<SelectProps, 'options'> & {
   anchor?: ElementType;
