@@ -1,11 +1,7 @@
 import { trimStatsFile } from './stats/trimStatsFile.js';
 import { readStatsFile } from './stats/readStatsFile.js';
-const test = new Map();
 
-test.set("key", {"obj1":"hii","obj2":"hii"});
-console.log(test.get("key"));
-
-const changedFiles = ['./src/components/Card/CardBody.tsx','./src/components/AudioPlayer/AudioPlayer.tsx'];
+const changedFiles = ['./src/components/index.ts'];
 // if in compoenet folder check index of the component
 // eg - ./src/componets/Button/index.ts
 // this takes the index.ts file and return false if index.ts not exists
@@ -19,15 +15,29 @@ async function isIndexTsx(index_ts, trimmedFile){
     return true;
 }
 
+// returns array of objects if matches the moduleName
+// else undefined
+async function getReasonsOfModule(trimmedFile, moduleName){
+    for(const module of trimmedFile) {
+        if(module.name === moduleName){
+            return module.reasons;
+        }
+    }
+    return undefined;
+}
+
 const filePath = '../dump/compilation-stats.json';
 export const getDependencies = async (changedFiles, filePath) => {
     await trimStatsFile(filePath);
     const trimmedFile = await readStatsFile('./trimmedStats.json');
+    const moduleDependentMap = new Map();
+
     // componets are imported from the index.ts | index.tsx
     // eg -
     // if changes are in ./src/components/Button/Button.tsx
     // check the reasons for the ./src/componenets/Button/index.ts
-    const updateChangeFiles = changedFiles.map(async (fileName) => {
+    const updateChangeFiles = await Promise.all(
+        changedFiles.map(async (fileName) => {
         if(fileName.includes('components')){
             const array = fileName.split('/');
             array[array.length - 1] = 'index.ts';
@@ -40,15 +50,16 @@ export const getDependencies = async (changedFiles, filePath) => {
                 return array.join('/');
             }
             return index_ts;
-        }
-    })
-    
-    changedFiles.map((fileName) => {
-        trimmedFile.modules.map((module) => {
-            if(module.name === fileName){
-                // console.log(module.reasons);
             }
+            return fileName;
         })
-    })
+    )
+    console.log(updateChangeFiles);
+    for(const moduleName of updateChangeFiles) {
+        const resolvedName = await moduleName;
+        const reasons = await getReasonsOfModule(trimmedFile.modules, moduleName);
+        moduleDependentMap.set(resolvedName, reasons);
+    }
+    return moduleDependentMap;
 }
-getDependencies(changedFiles, filePath);
+console.log(await getDependencies(changedFiles, filePath));
