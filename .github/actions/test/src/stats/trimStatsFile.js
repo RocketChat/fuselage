@@ -8,7 +8,7 @@ const isUserCode = (module) => {
     return !isWebpackInternal && !isNodeModuleRuntime;
 }
 
-export const trimStatsFile = async (filePath) => {
+export const trimStatsFile = async (filePath, fileName) => {
     const getStats = await readStatsFile(filePath);
     const trimmedStats = getStats.modules
     .filter(module => isUserCode(module))
@@ -30,7 +30,7 @@ export const trimStatsFile = async (filePath) => {
     })
     try {
         const trimmedJSON = JSON.stringify({'modules': trimmedStats}, null, 4);
-        await writeFile('trimmedStats.json' ,trimmedJSON);
+        await writeFile(fileName ,trimmedJSON);
         return trimmedJSON;
     }
     catch(err){
