@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.37.0
+
+### Minor Changes
+
+- [#1683](https://github.com/RocketChat/fuselage/pull/1683) [`b9d4f2c`](https://github.com/RocketChat/fuselage/commit/b9d4f2c1b578293c3c28e4ff6a905af60abfe9ab) Thanks [@gabriellsh](https://github.com/gabriellsh)! - feat(fuselage-hooks): Implement `useSafeRefCallback`
+
 ## 0.36.0
 
 ### Minor Changes
