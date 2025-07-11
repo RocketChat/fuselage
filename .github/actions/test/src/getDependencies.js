@@ -1,7 +1,6 @@
 import { trimStatsFile } from './stats/trimStatsFile.js';
 import { readStatsFile } from './stats/readStatsFile.js';
 
-const changedFiles = ['./src/components/index.ts'];
 // if in compoenet folder check index of the component
 // eg - ./src/componets/Button/index.ts
 // this takes the index.ts file and return false if index.ts not exists
@@ -54,7 +53,6 @@ export const getDependencies = async (changedFiles, filePath) => {
             return fileName;
         })
     )
-    console.log(updateChangeFiles);
     for(const moduleName of updateChangeFiles) {
         const resolvedName = await moduleName;
         const reasons = await getReasonsOfModule(trimmedFile.modules, moduleName);
@@ -62,4 +60,3 @@ export const getDependencies = async (changedFiles, filePath) => {
     }
     return moduleDependentMap;
 }
-console.log(await getDependencies(changedFiles, filePath));
