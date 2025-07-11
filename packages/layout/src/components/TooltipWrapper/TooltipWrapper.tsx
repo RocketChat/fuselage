@@ -61,11 +61,13 @@ const InnerTooltip = forwardRef(function InnerTooltip(
 type TooltipWrapperProps = {
   children: ReactElement | ((props: AnchorParams) => ReactNode);
   text: string;
+  placement?: ComponentProps<typeof PositionAnimated>['placement'];
 };
 
 const TooltipWrapper = ({
   children,
   text,
+  placement = 'top-middle',
 }: TooltipWrapperProps): ReactElement => {
   const anchorRef = useRef(null);
   const [open, setOpen] = useDebouncedState(false, 460);
@@ -95,7 +97,7 @@ const TooltipWrapper = ({
       {open && (
         <PositionAnimated
           anchor={anchorRef}
-          placement='top-middle'
+          placement={placement}
           margin={8}
           visible={AnimatedVisibility.UNHIDING}
         >
