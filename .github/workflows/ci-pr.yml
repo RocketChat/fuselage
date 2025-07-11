@@ -49,3 +49,44 @@ jobs:
             packages/fuselage/storybook-static
             packages/onboarding-ui/storybook-static
             packages/layout/storybook-static
+  test-with-loki:
+    name: Test with loki
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.14.0'
+          cache: 'yarn'
+      
+      - name: Run install
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: install
+      
+      - name: setup loki for fuselage
+        run: yarn build-storybook && yarn loki --requireReference --reactUri file:./storybook-static --storiesFilter AudioPlayer
+        working-directory: packages/fuselage
+
+      - name: setup loki for fuselage-toastbar
+        run: yarn build-storybook && yarn loki --requireReference --reactUri file:./storybook-static
+        working-directory: packages/fuselage-toastbar
+        
+      - name: upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: loki-${{ github.event.number }}
+          path: |
+            packages/fuselage/.loki/current
+            packages/fuselage/.loki/difference
+            packages/fuselage/.loki/reference
+            packages/fuselage-toastbar/.loki/current
+            packages/fuselage-toastbar/.loki/difference
+            packages/fuselage-toastbar/.loki/reference
+      
+      - name: download .loki
+        uses: actions/download-artifact@v4
+        with:
+          name: loki-${{ github.event.number }}
