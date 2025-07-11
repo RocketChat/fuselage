@@ -1,5 +1,21 @@
 # Change Log
 
+## 0.65.0
+
+### Minor Changes
+
+- [#1701](https://github.com/RocketChat/fuselage/pull/1701) [`3837986`](https://github.com/RocketChat/fuselage/commit/3837986eef96d8c8e6571002cfd10e59f1691615) Thanks [@dougfabris](https://github.com/dougfabris)! - feat(fuselage): Sidepanel visual updates
+
+- [#1715](https://github.com/RocketChat/fuselage/pull/1715) [`aa29684`](https://github.com/RocketChat/fuselage/commit/aa2968428e1e98e8e61b7847d4be424a5cf400fe) Thanks [@tassoevan](https://github.com/tassoevan)! - feat(fuselage): Remove deprecated `Modal.*` component namespace
+
+### Patch Changes
+
+- [#1704](https://github.com/RocketChat/fuselage/pull/1704) [`56b43b3`](https://github.com/RocketChat/fuselage/commit/56b43b3d2453cabae9fba1060f5f4e6da2e02db7) Thanks [@aleksandernsilva](https://github.com/aleksandernsilva)! - fix(fuselage): AutoComplete's disabled property not working
+
+- [#1703](https://github.com/RocketChat/fuselage/pull/1703) [`33f6797`](https://github.com/RocketChat/fuselage/commit/33f67971392057420b3b3b49e35f567ac2af7319) Thanks [@aleksandernsilva](https://github.com/aleksandernsilva)! - fix(fuselage): FieldLabel required prop ignored when 'is' prop is set
+
+- [#1712](https://github.com/RocketChat/fuselage/pull/1712) [`b82fb37`](https://github.com/RocketChat/fuselage/commit/b82fb37bc389b8cfc4ef9fa35b0f89f79a42e0c7) Thanks [@aleksandernsilva](https://github.com/aleksandernsilva)! - fix(fuselage): Placeholder not being displayed in PaginatedSelectFiltered
+
 ## 0.64.0
 
 ### Minor Changes
