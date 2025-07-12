@@ -6,7 +6,7 @@ import { readStatsFile } from './stats/readStatsFile.js';
 // const changedFile = ['./src/components/Button/Button.tsx']
 // await getDirectAffected(changedFile, 'fuselage');
 
-const getComponentName = async (storyNameArray, changedPackage) => {
+export const getComponentName = async (storyNameArray, changedPackage) => {
     const indexJSON = await readStatsFile(`../dist/${ changedPackage }-sb.json`);
     const componentSet = new Set();
     for(const storyName of storyNameArray) {
