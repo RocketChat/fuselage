@@ -1,13 +1,14 @@
 import { trimStatsFile } from './stats/trimStatsFile.js';
 import { readStatsFile } from './stats/readStatsFile.js';
 
+const changedFiles = ['./src/components/Button/Button.tsx'];
 // if in compoenet folder check index of the component
 // eg - ./src/componets/Button/index.ts
 // this takes the index.ts file and return false if index.ts not exists
 
 async function isIndexTsx(index_ts, trimmedFile){
     for(const module of trimmedFile) {
-        if(module.name === index_ts ){
+        if(module.name.includes(index_ts) ){
             return false;
         }
     }
@@ -18,17 +19,21 @@ async function isIndexTsx(index_ts, trimmedFile){
 // else undefined
 async function getReasonsOfModule(trimmedFile, moduleName){
     for(const module of trimmedFile) {
-        if(module.name === moduleName){
+        if(module.name.includes(moduleName)){
             return module.reasons;
         }
     }
     return undefined;
 }
 
-const filePath = '../dump/compilation-stats.json';
-export const getDependencies = async (changedFiles, filePath) => {
-    await trimStatsFile(filePath);
-    const trimmedFile = await readStatsFile('./trimmedStats.json');
+// changedFiles: array of changed files with path
+// eg.['.src/components/Button/Button.tsx]
+// pathToTrimmedFile: string
+// returns map 
+// key: component index
+// value: reasons of index
+export const getChangedFileReasonMap = async (changedFiles, pathToTrimmedFile) => {
+    const trimmedFile = await readStatsFile(pathToTrimmedFile);
     const moduleDependentMap = new Map();
 
     // componets are imported from the index.ts | index.tsx
@@ -48,7 +53,7 @@ export const getDependencies = async (changedFiles, filePath) => {
                 array[array.length - 1] = 'index.tsx';
                 return array.join('/');
             }
-            return index_ts;
+                return index_ts;
             }
             return fileName;
         })
