@@ -9,7 +9,7 @@ import { trimStatsFile } from './src/stats/trimStatsFile.js';
 // index.js run from the root of the project
 const context = github.context;
 const filesToCopy = [
-    {src:'./packages/fuselage/storybook-static/preview-stats.json', dest:'.github/actions/test/dist/fuselage-sb.json'},
+    {src:'./packages/fuselage/storybook-static/index.json', dest:'.github/actions/test/dist/fuselage-sb.json'},
     {src:'./packages/fuselage-toastbar/storybook-static/index.json', dest:'.github/actions/test/dist/fuselage-toastbar-sb.json'},
     {src:'./packages/onboarding-ui/storybook-static/index.json', dest:'.github/actions/test/dist/onboarding-ui-sb.json'},
     {src:'./packages/layout/storybook-static/index.json', dest:'.github/actions/test/dist/layout-sb.json'},
