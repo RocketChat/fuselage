@@ -64,7 +64,7 @@ const packageDependents = {
         'stylis-logical-props-middleware': null
     }
 
-const getPackageDependentsTree = (pkg) => {
+export const getPackageDependentsTree = (pkg) => {
     const directDependents = packageDependents[pkg];
     if (!directDependents) return null;
 
@@ -76,4 +76,15 @@ const getPackageDependentsTree = (pkg) => {
 
     return result;
 }
-console.log(getPackageDependentsTree('fuselage'));
+/*
+{
+eg-
+const getTree = {'fuselage':getPackageDependentsTree('fuselage')}
+
+  fuselage: {
+    'fuselage-toastbar': null,
+    'onboarding-ui': null,
+    layout: { 'fuselage-toastbar': null, 'onboarding-ui': null }
+  }
+}
+*/

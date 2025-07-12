@@ -1,7 +1,7 @@
 import { trimStatsFile } from './stats/trimStatsFile.js';
 import { readStatsFile } from './stats/readStatsFile.js';
 
-const changedFiles = ['./src/components/Button/Button.tsx'];
+// const changedFiles = ['./src/components/Button/Button.tsx'];
 // if in compoenet folder check index of the component
 // eg - ./src/componets/Button/index.ts
 // this takes the index.ts file and return false if index.ts not exists
