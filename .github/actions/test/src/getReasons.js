@@ -4,7 +4,7 @@ const seenModules = new Set();
 // usage
 // changedfile = Button.tsx
 // const result = await getChangedStories(changedFile, '../dist/trimmed-fuselage-stats.json');
-export const getChangedStories = async (changedFile, statsPath) => {
+export const getReasons = async (name, statsPath) => {
   const stats = await readStatsFile(statsPath);
   const affectedStories = new Set();
 
@@ -31,10 +31,10 @@ export const getChangedStories = async (changedFile, statsPath) => {
     }
   };
 
-  if (changedFile.includes('.stories')) {
-    affectedStories.add(changedFile);
+  if (name.includes('.stories')) {
+    affectedStories.add(name);
   } else {
-    walk(changedFile);
+    walk(name);
   }
 
   return [...affectedStories];

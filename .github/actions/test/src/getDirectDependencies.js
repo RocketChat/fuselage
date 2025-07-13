@@ -1,5 +1,5 @@
 import { isStoryBookPkg } from './isStorybookPkg.js';
-import { getChangedStories } from './getChangedStories.js';
+import { getReasons } from './getReasons.js';
 import { normaliseDDPath } from './normalise.js';
 import { getComponentTitle } from './getComponentTitle.js';
 
@@ -15,9 +15,9 @@ export const getDirectDependencies = async (changedFiles, changedPackage) => {
     const normalizedFiles = normaliseDDPath(changedFiles);
     const saveComponentTitles = new Set();
     if(isStoryBookPkg(changedPackage)) {
-        for(const fileName of normalizedFiles) {
+        for(const name of normalizedFiles) {
             // returns me the array of changed stories
-            const result = await getChangedStories(fileName, `../dist/trimmed-${changedPackage}-stats.json`);
+            const result = await getReasons(name, `../dist/trimmed-${changedPackage}-stats.json`);
             const componentTiltes = await getComponentTitle(result, changedPackage);
             for(const value of componentTiltes) {
                 saveComponentTitles.add(value);
@@ -28,8 +28,9 @@ export const getDirectDependencies = async (changedFiles, changedPackage) => {
     return {[changedPackage]: null};
 }
 // const changedFile = ['./src/components/Button/Button.tsx', './src/components/Box/Box.tsx']
-// const changedFiles = ['packages/fuselage/src/components/Button/Button.tsx']
-// normaliseDDPath(changedFiles);
+const changedFiles = ['packages/fuselage/src/components/Button/Button.tsx']
+const temp = await getDirectDependencies(changedFiles,'fuselage');
+console.log(temp);
 // const temp = await getDirectDependencies(changedFile, 'fuselage');
 // console.log(temp);
 // // console.log(await getDirectAffected('fuselage', changedFile));
