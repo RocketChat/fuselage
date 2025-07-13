@@ -64,8 +64,8 @@ const packageDependents = {
         'stylis-logical-props-middleware': null
     }
 
-export const getPackageDependentsTree = (pkg) => {
-    const directDependents = packageDependents[pkg];
+export const getPackageDependentsTree = (pkgName) => {
+    const directDependents = packageDependents[pkgName];
     if (!directDependents) return null;
 
     const result = {};
