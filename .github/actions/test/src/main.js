@@ -1,5 +1,7 @@
 import { getPackageDependentsTree } from './getPackageDependentsTree.js';
 import { getDirectDependencies } from './getDirectDependencies.js';
+import { execa } from 'execa';
+
 // test
 const changedFiles = [
     'packages/fuselage/src/components/Button/Button.tsx',
@@ -35,14 +37,32 @@ const mapPackagesToFilePath = (changedFiles) => {
 
 async function mapToPackageSet(changedFiles, pkgName) {
     const getDirectCmp = await getDirectDependencies(changedFiles, pkgName);
-    
+    return getDirectCmp;
 }
+async function runLoki(pkgName, titles) {
+    try {
+    const subprocess = execa('sh', ['-c', 'cd packages/fuselage  && yarn loki --requireReference --reactUri file:./storybook-static --storiesFilter Button'], {
+        stdio: 'inherit',
+    });
 
+    await subprocess;
+    } catch (error) {
+    console.error('Command failed:', error);
+    }
+}
 export const runner = async ()=> {
+
     const map = mapPackagesToFilePath(changedFiles);
-    const ovrerallAffectedComponents = {};
+    const ovrerallAffectedComponents = [];
     for(const pkgName in map) {
-        mapToPackageSet(map[pkgName], pkgName);
+        ovrerallAffectedComponents.push(await mapToPackageSet(map[pkgName], pkgName));
+    }
+
+    // loki 
+    for(const obj of ovrerallAffectedComponents) {
+        for(const pkg in obj) {
+            await runLoki(pkg, obj[pkg]);
+        }
     }
 }
 runner(changedFiles);

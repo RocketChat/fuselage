@@ -17,7 +17,7 @@ export const getDirectDependencies = async (changedFiles, changedPackage) => {
     if(isStoryBookPkg(changedPackage)) {
         for(const name of normalizedFiles) {
             // returns me the array of changed stories
-            const result = await getReasons(name, `../dist/trimmed-${changedPackage}-stats.json`);
+            const result = await getReasons(name, `.github/actions/test/dist/trimmed-${changedPackage}-stats.json`);
             const componentTiltes = await getComponentTitle(result, changedPackage);
             for(const value of componentTiltes) {
                 saveComponentTitles.add(value);
