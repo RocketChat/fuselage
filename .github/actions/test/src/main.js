@@ -11,10 +11,8 @@ const changedFiles = [
     'packages/layout/src/components/ActionLink/ActionLink.tsx',
     'packages/layout/src/contexts/LayoutContext.ts'
 ]
-const packageNameTemp = 'fuselage';
-const tree = {[packageNameTemp]: getPackageDependentsTree(packageNameTemp)};
-
-//
+// key: package name
+// value: array of file name of path
 const mapPackagesToFilePath = (changedFiles) => {
     const packageToFileMap = {};
     for(const filePath of changedFiles) {
@@ -35,44 +33,16 @@ const mapPackagesToFilePath = (changedFiles) => {
     return packageToFileMap;
 }
 
-export const traverseDependencyTree = (tree, parent = null) => {
-  for (const [key, value] of Object.entries(tree)) {
-    if (value === null) {
-        // console.log('current:'+key);
-        // console.log('parent'+parent); // Print the parent when leaf node (null)
-    } else if (typeof value === 'object') {
-      traverseDependencyTree(value, key); // Go deeper, pass current key as parent
-    }
-  }
-};
-
-// this function will return me the set of component-title along with associated packges
-// eg - 
-// {
-//  package1: Set(2) { 'foo', 'bar' },
-//  package2: Set(2) { 'another', 'package' }
-// }
 async function mapToPackageSet(changedFiles, pkgName) {
-    const dependencyTree = {[pkgName]: getPackageDependentsTree(pkgName)};
-    const getIndirectCmp = traverseDependencyTree(dependencyTree);
-    /*
-    {
-        'childPackage1: Set(2){'componet1', 'component2'}
-        'childPackage2: Setc(3){'c1','c2','c3'}
-    }
-    */
-   // changeFiles: array of strings
-   // pkgName: string
     const getDirectCmp = await getDirectDependencies(changedFiles, pkgName);
-    console.log(getDirectCmp);
-    console.log('********************')
+    
 }
 
 export const runner = async ()=> {
     const map = mapPackagesToFilePath(changedFiles);
     const ovrerallAffectedComponents = {};
     for(const pkgName in map) {
-        const getMapToPackageSet = await mapToPackageSet(map[pkgName], pkgName);
+        mapToPackageSet(map[pkgName], pkgName);
     }
 }
 runner(changedFiles);

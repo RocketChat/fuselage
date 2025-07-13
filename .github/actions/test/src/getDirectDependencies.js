@@ -28,9 +28,9 @@ export const getDirectDependencies = async (changedFiles, changedPackage) => {
     return {[changedPackage]: null};
 }
 // const changedFile = ['./src/components/Button/Button.tsx', './src/components/Box/Box.tsx']
-const changedFiles = ['packages/fuselage/src/components/Button/Button.tsx']
-const temp = await getDirectDependencies(changedFiles,'fuselage');
-console.log(temp);
-// const temp = await getDirectDependencies(changedFile, 'fuselage');
+// const changedFiles = ['packages/fuselage/src/components/Button/Button.tsx']
+// const temp = await getDirectDependencies(changedFiles,'fuselage');
 // console.log(temp);
-// // console.log(await getDirectAffected('fuselage', changedFile));
+// // const temp = await getDirectDependencies(changedFile, 'fuselage');
+// // console.log(temp);
+// // // console.log(await getDirectAffected('fuselage', changedFile));
