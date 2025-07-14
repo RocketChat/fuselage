@@ -2,10 +2,7 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "rootDirs": ["./src", "./.storybook"],
-    "target": "ES5",
     "module": "CommonJS",
-    "lib": ["ES2020", "DOM"],
-    "downlevelIteration": true,
     "outDir": "./dist",
     "esModuleInterop": true,
     "skipLibCheck": true,

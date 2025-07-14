@@ -2,7 +2,6 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "module": "ESNext",
-    "lib": ["DOM", "ES2015"],
     "declarationDir": "./dist",
     "outDir": "./dist",
     "moduleResolution": "node",
