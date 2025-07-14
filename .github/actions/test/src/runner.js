@@ -4,7 +4,7 @@ import { getIndirectDps } from './getIndirectDependency.js';
 
 // test
 const changedFiles = [
-    'packages/fuselage/src/components/Button/Button.tsx',
+    'packages/fuselage/package.json',
     'packages/fuselage/src/components/Box/Box.tsx',
     'packages/fuselage-toastbar/src/ToastBar.stories.tsx',
     'packages/css-in-js/index.ts',
@@ -12,7 +12,6 @@ const changedFiles = [
     'packages/onboarding-ui/src/common/AgreeTermsField.tsx',
     'packages/layout/src/components/ActionLink/ActionLink.tsx',
     'packages/layout/src/contexts/LayoutContext.ts',
-    'tools/scripts/package.json'
 ]
 
 const mapPackagesToFilePath = (changedFiles) => {
@@ -36,11 +35,12 @@ const mapPackagesToFilePath = (changedFiles) => {
 }
 
 /**
- * @param {} saveDirectDps - list of dependent components within the changed package
- * @param {} saveIndirectDps - list of dependent component within dependent packages
- * @returns {{Promise<object<Set>>}} - list of merged changed componet titles from saveDirectDps and saveIndirectDps
- */
-async function mergeCmpDeps(saveDirectDps, saveIndirectDps) {
+ * @param {Array<Object<string, set<string>>>} saveDirectDps - list of dependent components within the changed package
+ * @param {Array<Array<Object<string, Set<string>>>>} saveIndirectDps - list of dependent component within dependent packages
+ * @param {Object<string, string[]>} pkgToFileMap - Mapping of package name to array of changed files.
+ * @returns {Promise<Object<string, Set<string>>>} - Merged map of package names to their affected component titles. 
+*/
+async function mergeCmpDeps(saveDirectDps, saveIndirectDps, pkgToFileMap) {
     const fuselage = new Set();
     const fuselageToastbar = new Set();
     const onboardingUi = new Set();
@@ -48,7 +48,6 @@ async function mergeCmpDeps(saveDirectDps, saveIndirectDps) {
     for (const parentObj of saveIndirectDps) {
         for (const childObj of parentObj) {
             const [key, valueSet] = Object.entries(childObj)[0];
-
             if (key === 'fuselage') {
                 for (const item of valueSet) fuselage.add(item);
             } else if (key === 'fuselage-toastbar') {
@@ -75,6 +74,28 @@ async function mergeCmpDeps(saveDirectDps, saveIndirectDps) {
             }
         }
     }
+    for(const pkg in pkgToFileMap) {
+        for(const file of pkgToFileMap[pkg]) {
+            if(file.includes('package.json')|| file.includes('.storybook')) {
+                if(pkg === 'fuselage') {
+                    fuselage.clear();
+                    fuselage.add('full test');
+                } else if (pkg === 'fuselage-toastbar') {
+                    fuselageToastbar.clear();
+                    fuselageToastbar.add('full test');
+                } else if (pkg === 'onboarding-ui') {
+                    onboardingUi.clear();
+                    onboardingUi.add('full test');
+                } else if (pkg === 'layout') {
+                    layout.clear();
+                    layout.add('full test');
+                }
+                else {
+                    console.log('package donot contain storybook ');
+                }
+            }
+        }
+    }
     return {['fuselage']:fuselage, ['fuselage-toastbar']:fuselageToastbar, ['onboarding-ui']:onboardingUi, ['layout']:layout};
 }
 
@@ -90,45 +111,40 @@ async function runLoki(pkgName, titles) {
     }
 }
 
-async function checkNullValue(pkgWithCmpObj) {
-    if( Object.values(pkgWithCmpObj)[0] === null ) return true;
+function potentialFullTest(changedFiles) {
+    for(const file of changedFiles) {
+        if(file.includes('tools') || file.includes('yarn.lock') ){
+            return true;
+        } else {
+            const pkg = file.split('/')[0];
+            if(pkg.includes('package.json')){
+                return true;
+            }
+        }
+    }
     return false;
 }
 export const runner = async ()=> {
-    const map = mapPackagesToFilePath(changedFiles);
-    const saveIndirectDps = new Array();
-    const saveDirectDps = new Array();
-    for(const pkgName in map) {
-        saveDirectDps.push(await getDirectDependencies(map[pkgName], pkgName));
-        saveIndirectDps.push(await getIndirectDps(pkgName));
-    }
-    const result = await mergeCmpDeps(saveDirectDps, saveIndirectDps);
-    console.log(result);
-    // console.log(totalChangedCmp);
-    // loki 
-    // for(const obj of ovrerallAffectedComponents) {
-    //     for(const pkg in obj) {
-    //         await runLoki(pkg, obj[pkg]);
-    //     }
-    // }
-}
-runner(changedFiles);
-
-/*
-    const overallAffectedComponents = {};
-    const getPackagetoFilePathMap = mapPackagesToFilePath(changedFiles);
-    const package1 = new Set();
-    package1.add('foo');
-    package1.add('bar');
-    package1.add('foo');
-    const package2 = new Set();
-    package2.add('another');
-    package2.add('package');
-    overallAffectedComponents['package1'] = package1;
-    overallAffectedComponents['package2'] = package2;
-    for(const property in overallAffectedComponents) {
-        for(const value of overallAffectedComponents[property]) {
-            console.log(property+":"+value);
+    if(potentialFullTest(changedFiles)) {
+        const fuselage = new Set();
+        const fuselageToastbar = new Set();
+        const onboardingUi = new Set();
+        const layout = new Set();
+        fuselage.add('full test')
+        fuselageToastbar.add('full test');
+        onboardingUi.add('full test');
+        layout.add('full test');
+        return {['fuselage']:fuselage, ['fuselage-toastbar']:fuselageToastbar, ['onboarding-ui']:onboardingUi, ['layout']:layout};
+    } else {
+        const map = mapPackagesToFilePath(changedFiles);
+        const saveIndirectDps = new Array();
+        const saveDirectDps = new Array();
+        for(const pkgName in map) {
+            saveDirectDps.push(await getDirectDependencies(map[pkgName], pkgName));
+            saveIndirectDps.push(await getIndirectDps(pkgName));
         }
+        console.log(saveDirectDps);
+        const result = await mergeCmpDeps(saveDirectDps, saveIndirectDps, map);
+        return result;
     }
-*/
+}
