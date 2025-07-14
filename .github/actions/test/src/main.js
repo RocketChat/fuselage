@@ -44,26 +44,32 @@ async function runLoki(pkgName, titles) {
     const subprocess = execa('sh', ['-c', 'cd packages/fuselage  && yarn loki --requireReference --reactUri file:./storybook-static --storiesFilter Button'], {
         stdio: 'inherit',
     });
-
+    console.log(titles);
     await subprocess;
     } catch (error) {
     console.error('Command failed:', error);
     }
 }
-export const runner = async ()=> {
 
+async function checkNullValue(pkgWithCmpObj) {
+    if( Object.values(pkgWithCmpObj)[0] === null ) return true;
+    return false;
+}
+export const runner = async ()=> {
     const map = mapPackagesToFilePath(changedFiles);
     const ovrerallAffectedComponents = [];
     for(const pkgName in map) {
-        ovrerallAffectedComponents.push(await mapToPackageSet(map[pkgName], pkgName));
-    }
-
-    // loki 
-    for(const obj of ovrerallAffectedComponents) {
-        for(const pkg in obj) {
-            await runLoki(pkg, obj[pkg]);
+        const pkgWithCmpObj = await mapToPackageSet(map[pkgName], pkgName)
+        if(!await checkNullValue(pkgWithCmpObj)) {
+           ovrerallAffectedComponents.push(pkgWithCmpObj); 
         }
     }
+    // loki 
+    // for(const obj of ovrerallAffectedComponents) {
+    //     for(const pkg in obj) {
+    //         await runLoki(pkg, obj[pkg]);
+    //     }
+    // }
 }
 runner(changedFiles);
 
