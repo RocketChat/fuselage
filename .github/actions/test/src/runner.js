@@ -4,31 +4,37 @@ import { getIndirectDps } from './getIndirectDependency.js';
 
 // test
 const changedFiles = [
-    'packages/fuselage/package.json',
-    'packages/fuselage/src/components/Box/Box.tsx',
-    'packages/fuselage-toastbar/src/ToastBar.stories.tsx',
-    'packages/css-in-js/index.ts',
-    'packages/anxhul10/css/in/js',
-    'packages/onboarding-ui/src/common/AgreeTermsField.tsx',
-    'packages/layout/src/components/ActionLink/ActionLink.tsx',
-    'packages/layout/src/contexts/LayoutContext.ts',
+    // 'packages',
+    // 'some.txt',
+    // 'package.json',
+    // 'yarn.lock',
+    // 'packages/fuselage/package.json',
+    // 'packages/fuselage/src/components/Box/Box.tsx',
+    // 'packages/fuselage-toastbar/src/ToastBar.stories.tsx',
+    // 'packages/css-in-js/index.ts',
+    // 'packages/anxhul10/css/in/js',
+    // 'packages/onboarding-ui/src/common/AgreeTermsField.tsx',
+    // 'packages/layout/src/components/ActionLink/ActionLink.tsx',
+    // 'packages/layout/src/contexts/LayoutContext.ts',
 ]
 
 const mapPackagesToFilePath = (changedFiles) => {
     const packageToFileMap = {};
     for(const filePath of changedFiles) {
-        try {
-            const match = filePath.match(/^packages\/([^/]+)/);
-            const packageName = match[1];
-            if(match){
-                if(!packageToFileMap[packageName]) {
-                    packageToFileMap[packageName] = [];
-                }
-            packageToFileMap[packageName].push(filePath);
-        } 
-        } catch(error) {
-            console.log('Ensure file path contains packages ');
-            console.log(error.message);
+        if(filePath.split('/').length !== 1) {
+            try {
+                const match = filePath.match(/^packages\/([^/]+)/);
+                const packageName = match[1];
+                if(match){
+                    if(!packageToFileMap[packageName]) {
+                        packageToFileMap[packageName] = [];
+                    }
+                packageToFileMap[packageName].push(filePath);
+            } 
+            } catch(error) {
+                console.log('Ensure file path contains packages ');
+                console.log(error.message);
+            }
         }
     }
     return packageToFileMap;
@@ -140,10 +146,13 @@ export const runner = async ()=> {
         const saveIndirectDps = new Array();
         const saveDirectDps = new Array();
         for(const pkgName in map) {
+            const chunk = map[pkgName][0].split('/');
+            if(chunk.length === 3 && chunk[2] != 'package.json') continue;
+            else if(chunk.length === 2 ) continue;
+            else if(chunk.length === 1) continue;
             saveDirectDps.push(await getDirectDependencies(map[pkgName], pkgName));
             saveIndirectDps.push(await getIndirectDps(pkgName));
         }
-        console.log(saveDirectDps);
         const result = await mergeCmpDeps(saveDirectDps, saveIndirectDps, map);
         return result;
     }
