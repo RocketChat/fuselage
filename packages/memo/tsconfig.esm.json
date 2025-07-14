@@ -4,5 +4,5 @@
     "module": "ESNext",
     "outDir": "./dist/esm"
   },
-  "exclude": ["src/**/*.spec.ts"],
+  "exclude": ["src/**/*.spec.ts"]
 }
