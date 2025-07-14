@@ -1,12 +1,9 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "module": "ESNext",
-    "outDir": "./dist/esm",
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "moduleResolution": "node",
-    "resolveJsonModule": true
+    "types": ["node"],
+    "lib": ["ES2024", "DOM"],
+    "moduleResolution": "node"
   },
   "include": ["src/**/*"],
   "typedocOptions": {
