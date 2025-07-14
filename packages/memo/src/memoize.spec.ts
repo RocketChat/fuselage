@@ -1,3 +1,5 @@
+import { it, jest, expect, describe } from '@jest/globals';
+
 import { memoize, clear } from './memoize';
 
 it('should memoize a function that takes no parameter', () => {
