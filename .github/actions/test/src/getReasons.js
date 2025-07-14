@@ -1,9 +1,12 @@
 import { readStatsFile } from './stats/readStatsFile.js';
 
 const seenModules = new Set();
-// usage
-// changedfile = Button.tsx
-// const result = await getChangedStories(changedFile, '../dist/trimmed-fuselage-stats.json');
+/**
+ * 
+ * @param {string} name - component filename or path from src
+ * @param {string} statsPath - path to .json file of stats
+ * @returns {promise<string[]>} - list of affected components stories
+ */
 export const getReasons = async (name, statsPath) => {
   const stats = await readStatsFile(statsPath);
   const affectedStories = new Set();
@@ -39,4 +42,3 @@ export const getReasons = async (name, statsPath) => {
 
   return [...affectedStories];
 };
-
