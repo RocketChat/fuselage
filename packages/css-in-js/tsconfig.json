@@ -3,7 +3,6 @@
   "compilerOptions": {
     "rootDir": "./src",
     "module": "ESNext",
-    "lib": ["dom", "es6"],
     "declarationDir": "./dist",
     "outDir": "./dist",
     "moduleResolution": "node",

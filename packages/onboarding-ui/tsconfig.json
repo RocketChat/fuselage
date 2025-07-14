@@ -2,7 +2,6 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "rootDirs": ["./src", "./.storybook"],
-    "target": "ES5",
     "module": "CommonJS",
     "outDir": "./dist",
     "esModuleInterop": true,

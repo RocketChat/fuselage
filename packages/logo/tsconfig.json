@@ -1,7 +1,7 @@
 {
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "rootDir": "./src",
-    "target": "es5",
     "module": "ESNext",
     "declaration": true,
     "declarationMap": true,
