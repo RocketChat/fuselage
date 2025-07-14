@@ -1,6 +1,6 @@
-import { getPackageDependentsTree } from './getPackageDependentsTree.js';
 import { getDirectDependencies } from './getDirectDependencies.js';
 import { execa } from 'execa';
+import { getIndirectDps } from './getIndirectDependency.js';
 
 // test
 const changedFiles = [
@@ -11,10 +11,10 @@ const changedFiles = [
     'packages/anxhul10/css/in/js',
     'packages/onboarding-ui/src/common/AgreeTermsField.tsx',
     'packages/layout/src/components/ActionLink/ActionLink.tsx',
-    'packages/layout/src/contexts/LayoutContext.ts'
+    'packages/layout/src/contexts/LayoutContext.ts',
+    'tools/scripts/package.json'
 ]
-// key: package name
-// value: array of file name of path
+
 const mapPackagesToFilePath = (changedFiles) => {
     const packageToFileMap = {};
     for(const filePath of changedFiles) {
@@ -35,10 +35,49 @@ const mapPackagesToFilePath = (changedFiles) => {
     return packageToFileMap;
 }
 
-async function mapToPackageSet(changedFiles, pkgName) {
-    const getDirectCmp = await getDirectDependencies(changedFiles, pkgName);
-    return getDirectCmp;
+/**
+ * @param {} saveDirectDps - list of dependent components within the changed package
+ * @param {} saveIndirectDps - list of dependent component within dependent packages
+ * @returns {{Promise<object<Set>>}} - list of merged changed componet titles from saveDirectDps and saveIndirectDps
+ */
+async function mergeCmpDeps(saveDirectDps, saveIndirectDps) {
+    const fuselage = new Set();
+    const fuselageToastbar = new Set();
+    const onboardingUi = new Set();
+    const layout = new Set();
+    for (const parentObj of saveIndirectDps) {
+        for (const childObj of parentObj) {
+            const [key, valueSet] = Object.entries(childObj)[0];
+
+            if (key === 'fuselage') {
+                for (const item of valueSet) fuselage.add(item);
+            } else if (key === 'fuselage-toastbar') {
+                for (const item of valueSet) fuselageToastbar.add(item);
+            } else if (key === 'onboarding-ui') {
+                for (const item of valueSet) onboardingUi.add(item);
+            } else if (key === 'layout') {
+                for (const item of valueSet) layout.add(item);
+            }
+        }
+    }
+    for(const parentObj of saveDirectDps) {
+        const [key, value] = Object.entries(parentObj)[0];
+        if(value !== null) {
+            if(key === 'fuselage') {
+                for(const cmp of value) fuselage.add(cmp);
+            } else if(key === 'fuselage-toastbar') {
+                for(const cmp of value) fuselageToastbar.add(cmp);
+            } else if(key === 'onboarding-ui') {
+                for(const cmp of value) onboardingUi.add(cmp);
+            }
+            else if (key === 'layout') {
+                for(const cmp of value) layout.add(cmp);
+            }
+        }
+    }
+    return {['fuselage']:fuselage, ['fuselage-toastbar']:fuselageToastbar, ['onboarding-ui']:onboardingUi, ['layout']:layout};
 }
+
 async function runLoki(pkgName, titles) {
     try {
     const subprocess = execa('sh', ['-c', 'cd packages/fuselage  && yarn loki --requireReference --reactUri file:./storybook-static --storiesFilter Button'], {
@@ -57,13 +96,15 @@ async function checkNullValue(pkgWithCmpObj) {
 }
 export const runner = async ()=> {
     const map = mapPackagesToFilePath(changedFiles);
-    const ovrerallAffectedComponents = [];
+    const saveIndirectDps = new Array();
+    const saveDirectDps = new Array();
     for(const pkgName in map) {
-        const pkgWithCmpObj = await mapToPackageSet(map[pkgName], pkgName)
-        if(!await checkNullValue(pkgWithCmpObj)) {
-           ovrerallAffectedComponents.push(pkgWithCmpObj); 
-        }
+        saveDirectDps.push(await getDirectDependencies(map[pkgName], pkgName));
+        saveIndirectDps.push(await getIndirectDps(pkgName));
     }
+    const result = await mergeCmpDeps(saveDirectDps, saveIndirectDps);
+    console.log(result);
+    // console.log(totalChangedCmp);
     // loki 
     // for(const obj of ovrerallAffectedComponents) {
     //     for(const pkg in obj) {
