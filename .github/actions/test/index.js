@@ -5,6 +5,7 @@ import { copyFiles } from './src/utils/copyFiles.js';
 import { trimStatsFile } from './src/stats/trimStatsFile.js';
 import { runner } from './src/runner.js';
 import { runLoki } from './src/runLoki.js';
+import { generateRegex } from './src/utils/generateRegex.js';
 
 // yarn build-storybook --stats-json gives project-stats.json which has component titles
 // where as index.json gives the webpack base dependency graph
