@@ -3,6 +3,7 @@ import * as core from '@actions/core';
 import { getChangedFile } from './src/git/git.js';
 import { copyFiles } from './src/utils/copyFiles.js';
 import { trimStatsFile } from './src/stats/trimStatsFile.js';
+import { runner } from './src/runner.js';
 
 // yarn build-storybook --stats-json gives project-stats.json which has component titles
 // where as index.json gives the webpack base dependency graph
@@ -34,6 +35,8 @@ async function run(context){
         core.info('\u001b[48;5;6mSuccess');
         core.startGroup('click to see the changed files');
         console.log(changedFiles);
+        const result = await runner(changedFiles);
+        console.log(result);
         core.endGroup();
     }
     else {

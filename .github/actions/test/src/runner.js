@@ -1,6 +1,7 @@
 import { getDirectDependencies } from './getDirectDependencies.js';
 import { execa } from 'execa';
 import { getIndirectDps } from './getIndirectDependency.js';
+import { generateRegex } from './utils/generateRegex.js';
 
 // test
 const changedFiles = [
@@ -14,7 +15,7 @@ const changedFiles = [
     // 'packages/css-in-js/index.ts',
     // 'packages/anxhul10/css/in/js',
     // 'packages/onboarding-ui/src/common/AgreeTermsField.tsx',
-    // 'packages/layout/src/components/ActionLink/ActionLink.tsx',
+    'packages/layout/src/components/ActionLink/ActionLink.tsx',
     // 'packages/layout/src/contexts/LayoutContext.ts',
 ]
 
@@ -105,17 +106,6 @@ async function mergeCmpDeps(saveDirectDps, saveIndirectDps, pkgToFileMap) {
     return {['fuselage']:fuselage, ['fuselage-toastbar']:fuselageToastbar, ['onboarding-ui']:onboardingUi, ['layout']:layout};
 }
 
-async function runLoki(pkgName, titles) {
-    try {
-    const subprocess = execa('sh', ['-c', 'cd packages/fuselage  && yarn loki --requireReference --reactUri file:./storybook-static --storiesFilter Button'], {
-        stdio: 'inherit',
-    });
-    console.log(titles);
-    await subprocess;
-    } catch (error) {
-    console.error('Command failed:', error);
-    }
-}
 
 function potentialFullTest(changedFiles) {
     for(const file of changedFiles) {
@@ -157,3 +147,35 @@ export const runner = async ()=> {
         return result;
     }
 }
+
+async function runLoki(storyPkg, reg) {
+    try {
+        const subprocess = await execa('sh', ['-c', `cd packages/${storyPkg}  && yarn loki --requireReference --reactUri file:./storybook-static --storiesFilter="${reg}"`], {
+            stdio: 'inherit',
+        });
+        console.log(titles);
+    } catch (error) {
+        console.error(`some visual tests failed at packages/${storyPkg}`);
+    }
+}
+
+const data = await runner(changedFiles);
+const regex = await generateRegex(data);
+
+for(const reg in regex) {
+    if(regex[reg].length === 0) {
+        console.log(`skipping Loki in packages/${reg}`);
+        // console.log(regex[reg]);
+    } else {
+        console.log(`currenlty running Loki on packages/${reg}:`);
+        // console.log(regex[reg]);
+        await runLoki(reg, regex[reg]);
+    }
+    // await runLoki(reg, regex[reg]);
+}
+
+/*
+AIL  chrome.docker/tablet/Feedback/Callout
+       With Actions
+
+*/
