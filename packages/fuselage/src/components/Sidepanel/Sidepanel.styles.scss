@@ -36,8 +36,9 @@ $sidepanel-color-default: colors.font(default);
     padding-inline: lengths.padding(16);
 
     &__title {
+      color: colors.font(titles-labels);
       @include typography.use-with-truncated-text;
-      @include typography.use-font-scale(h4);
+      @include typography.use-font-scale(h5);
     }
   }
 
