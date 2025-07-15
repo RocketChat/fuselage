@@ -1,24 +1,24 @@
 import { getDirectDependencies } from './getDirectDependencies.js';
-import { execa } from 'execa';
 import { getIndirectDps } from './getIndirectDependency.js';
-import { generateRegex } from './utils/generateRegex.js';
-
-// test
-const changedFiles = [
-    // 'packages',
-    // 'some.txt',
-    // 'package.json',
-    // 'yarn.lock',
-    'packages/layout/package.json',
-    // 'packages/fuselage/package.json',
-    // 'packages/fuselage/src/components/Box/Box.tsx',
-    // 'packages/fuselage-toastbar/src/ToastBar.stories.tsx',
-    // 'packages/css-in-js/index.ts',
-    // 'packages/anxhul10/css/in/js',
-    // 'packages/onboarding-ui/src/common/AgreeTermsField.tsx',
-    // 'packages/layout/src/components/ActionLink/ActionLink.tsx',
-    // 'packages/layout/src/contexts/LayoutContext.ts',
-]
+import { isStoryBookPkg } from './isStorybookPkg.js';
+// // test
+// const changedFiles = [
+//     // 'packages/fuselage/.loki/reference/desktop_Data_Display_Icon_Default.png',
+//     // 'packages/css-in-js/.loki/reference/desktop_Data_Display_Icon_Default.png',
+//     // 'packages',
+//     // 'some.txt',
+//     // 'package.json',
+//     // 'yarn.lock',
+//     // 'packages/layout/package.json',
+//     // 'packages/fuselage/package.json',
+//     // 'packages/fuselage/src/components/Box/Box.tsx',
+//     // 'packages/fuselage-toastbar/src/ToastBar.stories.tsx',
+//     // 'packages/css-in-js/index.ts',
+//     // 'packages/anxhul10/css/in/js',
+//     // 'packages/onboarding-ui/src/common/AgreeTermsField.tsx',
+//     // 'packages/layout/src/components/ActionLink/ActionLink.tsx',
+//     // 'packages/layout/src/contexts/LayoutContext.ts',
+// ]
 
 const mapPackagesToFilePath = (changedFiles) => {
     const packageToFileMap = {};
@@ -121,7 +121,7 @@ function potentialFullTest(changedFiles) {
     }
     return false;
 }
-export const runner = async ()=> {
+export const runner = async (changedFiles)=> {
     if(potentialFullTest(changedFiles)) {
         const fuselage = new Set();
         const fuselageToastbar = new Set();
@@ -137,6 +137,7 @@ export const runner = async ()=> {
         const saveIndirectDps = new Array();
         const saveDirectDps = new Array();
         for(const pkgName in map) {
+            if(!map[pkgName].includes('src') && isStoryBookPkg(pkgName)) continue;
             const chunk = map[pkgName][0].split('/');
             if(chunk.length === 3 && chunk[2] != 'package.json') continue;
             else if(chunk.length === 2 ) continue;
@@ -148,7 +149,6 @@ export const runner = async ()=> {
         return result;
     }
 }
-
 
 /*
 AIL  chrome.docker/tablet/Feedback/Callout
