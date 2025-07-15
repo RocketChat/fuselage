@@ -2,23 +2,24 @@ import { getDirectDependencies } from './getDirectDependencies.js';
 import { getIndirectDps } from './getIndirectDependency.js';
 import { isStoryBookPkg } from './isStorybookPkg.js';
 // // test
-// const changedFiles = [
-//     // 'packages/fuselage/.loki/reference/desktop_Data_Display_Icon_Default.png',
-//     // 'packages/css-in-js/.loki/reference/desktop_Data_Display_Icon_Default.png',
-//     // 'packages',
-//     // 'some.txt',
-//     // 'package.json',
-//     // 'yarn.lock',
-//     // 'packages/layout/package.json',
-//     // 'packages/fuselage/package.json',
-//     // 'packages/fuselage/src/components/Box/Box.tsx',
-//     // 'packages/fuselage-toastbar/src/ToastBar.stories.tsx',
-//     // 'packages/css-in-js/index.ts',
-//     // 'packages/anxhul10/css/in/js',
-//     // 'packages/onboarding-ui/src/common/AgreeTermsField.tsx',
-//     // 'packages/layout/src/components/ActionLink/ActionLink.tsx',
-//     // 'packages/layout/src/contexts/LayoutContext.ts',
-// ]
+const changedFiles = [
+    '.github/actions/test/affectedFiles.js',
+    // 'packages/fuselage/.loki/reference/desktop_Data_Display_Icon_Default.png',
+    // 'packages/css-in-js/.loki/reference/desktop_Data_Display_Icon_Default.png',
+    // 'packages',
+    // 'some.txt',
+    // 'package.json',
+    // 'yarn.lock',
+    // 'packages/layout/package.json',
+    // 'packages/fuselage/package.json',
+    // 'packages/fuselage/src/components/Box/Box.tsx',
+    // 'packages/fuselage-toastbar/src/ToastBar.stories.tsx',
+    // 'packages/css-in-js/index.ts',
+    // 'packages/anxhul10/css/in/js',
+    // 'packages/onboarding-ui/src/common/AgreeTermsField.tsx',
+    // 'packages/layout/src/components/ActionLink/ActionLink.tsx',
+    // 'packages/layout/src/contexts/LayoutContext.ts',
+]
 
 const mapPackagesToFilePath = (changedFiles) => {
     const packageToFileMap = {};
@@ -133,7 +134,13 @@ export const runner = async (changedFiles)=> {
         layout.add('full test');
         return {['fuselage']:fuselage, ['fuselage-toastbar']:fuselageToastbar, ['onboarding-ui']:onboardingUi, ['layout']:layout};
     } else {
-        const map = mapPackagesToFilePath(changedFiles);
+        const filterChangedFiles = [];
+        for(const file of changedFiles) {
+            if(file.includes('packages')) {
+                filterChangedFiles.push(file);
+            }
+        }
+        const map = mapPackagesToFilePath(filterChangedFiles);
         const saveIndirectDps = new Array();
         const saveDirectDps = new Array();
         for(const pkgName in map) {
