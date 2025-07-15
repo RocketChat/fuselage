@@ -78,6 +78,7 @@ jobs:
       - name: custom action test
         uses: ./.github/actions/test
       - name: upload loki images
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: loki-${{ github.event.number }}
@@ -95,6 +96,7 @@ jobs:
             packages/layout/.loki/difference
             packages/layout/.loki/reference
       - name: download .loki
+        if: always()
         uses: actions/download-artifact@v4
         with:
           name: loki-${{ github.event.number }}
