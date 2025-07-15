@@ -95,9 +95,3 @@ export const getIndirectDps = async (pkgName) => {
     return overall;
 }
 
-
-/*
-array of set and object if array has 1 ele then check set if set is empty no cmp affected
-in return first check the set to run ful test then check the object which is not in the set 
-
-*/
