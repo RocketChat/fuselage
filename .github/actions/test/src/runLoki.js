@@ -1,4 +1,5 @@
 import { execa } from 'execa';
+import * as core from '@actions/core';
 
 export const runLoki = async (storyPkg, reg) => {
     try {
@@ -12,7 +13,6 @@ export const runLoki = async (storyPkg, reg) => {
             });
         }
     } catch (error) {
-        console.log(error);
-        console.error(`some visual tests failed at packages/${storyPkg}`);
+        core.setFailed(`some visual tests failed at packages/${storyPkg}`+error)
     }
 }
