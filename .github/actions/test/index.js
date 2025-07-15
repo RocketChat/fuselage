@@ -24,13 +24,13 @@ const filesToCopy = [
 
 async function run(context){
     // getTrimmedstats
-    if(context.eventName === 'pull_request'){
-        for( const {src, dest} of filesToCopy ){
+    for( const {src, dest} of filesToCopy ){
             copyFiles(src, dest);
             if(dest.includes('stats')){
                 await trimStatsFile(dest,`.github/actions/test/dist/trimmed-${dest.split('/').slice(-1)}`);
             }
         }
+    if(context.eventName === 'pull_request'){
         const changedFiles = await getChangedFile(context);        
         const data = await runner(changedFiles);
         const regex = await generateRegex(data);
@@ -55,7 +55,5 @@ async function run(context){
     }
 }
 run(context);
-core.startGroup('click to see context');
-console.log(context);
-core.endGroup();
+
 
