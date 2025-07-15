@@ -29,7 +29,7 @@ export default {
   component: Sidepanel,
   decorators: [
     (Story) => (
-      <Box display='flex' h='90vh' w='x276'>
+      <Box h='90vh' w='x276'>
         <Story />
       </Box>
     ),
@@ -39,7 +39,9 @@ export default {
 const Template: StoryFn<typeof Sidepanel> = (args) => (
   <Sidepanel {...args}>
     <SidepanelHeader>
-      <SidepanelHeaderTitle>All</SidepanelHeaderTitle>
+      <SidepanelHeaderTitle>
+        Title Lorem Ipsum Indolor Ipsum Dolor Ipsum Ipsum
+      </SidepanelHeaderTitle>
       <IconButton icon='burger-menu' size='x28' title='menu' />
     </SidepanelHeader>
     <SidepanelSection>

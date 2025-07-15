@@ -38,7 +38,7 @@ export const PaginatedSelect = ({
   options = [],
   anchor: Anchor = SelectFocus,
   onChange = () => {},
-  placeholder = '',
+  placeholder,
   renderOptions: _Options = OptionsPaginated,
   renderItem = Option,
   endReached,
@@ -64,9 +64,12 @@ export const PaginatedSelect = ({
 
   const valueLabel = option?.label;
 
-  const visibleText =
-    (filter === undefined || visible === AnimatedVisibility.HIDDEN) &&
-    (valueLabel || placeholder || typeof placeholder === 'string');
+  const isUnfilteredOrHidden =
+    filter === undefined || visible === AnimatedVisibility.HIDDEN;
+
+  const visibleText = isUnfilteredOrHidden
+    ? valueLabel || placeholder
+    : undefined;
 
   const handleClick = useEffectEvent(() => {
     if (visible === AnimatedVisibility.VISIBLE) {
