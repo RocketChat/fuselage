@@ -34,7 +34,6 @@ async function run(context){
         const changedFiles = await getChangedFile(context);        
         const data = await runner(changedFiles);
         const regex = await generateRegex(data);
-        core.info('\u001b[48;5;6mSuccess');
         core.startGroup('click to see the changed files');
         console.log(changedFiles);
         core.endGroup();
@@ -42,11 +41,13 @@ async function run(context){
             if(regex[reg].length === 0) {
                 console.log(`skipping Loki in packages/${reg}`);
             } else if (regex[reg] === 'full test') {
-                console.log(`currenlty running Loki on packages/${reg}--full test:`);
+                core.startGroup(`currenlty running Loki on packages/${reg}--full test:`);
                 await runLoki(reg, '');
+                core.endGroup();
             } else {
-                console.log(`currenlty running Loki on packages/${reg}:`);
+                core.startGroup(`currenlty running Loki on packages/${reg}:`);
                 await runLoki(reg, regex[reg]);
+                core.endGroup();
             }
         }
     }
