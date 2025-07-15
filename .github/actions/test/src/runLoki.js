@@ -1,3 +1,5 @@
+import { execa } from 'execa';
+
 export const runLoki = async (storyPkg, reg) => {
     try {
         if(reg.length === 0) {
