@@ -22,10 +22,10 @@ const preview: Preview = {
   decorators: [
     (Story) => (
       <TamaguiProvider config={config} defaultTheme="light">
-      <Story />
-    </TamaguiProvider>
+        <Story />
+      </TamaguiProvider>
     ),
   ],
-};
+}
 
-export default preview;
+export default preview

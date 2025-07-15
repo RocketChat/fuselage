@@ -251,7 +251,7 @@ type ButtonProps = GetProps<typeof ButtonFrame>
 export const ButtonText = styled(Text, {
   name: 'ButtonText',
   context: ButtonContext,
-  color: '$color',
+  color: '#fff',
   userSelect: 'none',
 
   variants: {

@@ -45,53 +45,69 @@ const size = {
 };
 
 export const tokens = createTokens({
+  // Base colors
+  button: {
+    secondaryBg: '#9EA2A8', // Light grey background for all secondary buttons
+    secondaryHover: '#6C727A',
+    secondaryPress: '#6C727A',
+    secondaryText: '#1F2329', // Dark text for secondary buttons
+  },
   primary_button: {
-    background: '#095AD2',
+    background: '#095AD2', // Blue
     backgroundHover: '#10529E',
     backgroundPress: '#01336B',
     backgroundFocus: '#095AD2',
+    color: '#FFFFFF'
   },
   danger_button: {
-    background: '#BB3E4E',
+    background: '#BB3E4E', // Red
     backgroundHover: '#95323F',
     backgroundPress: '#822C37',
     backgroundFocus: '#BB3E4E',
+    color: '#FFFFFF'
   },
   warning_button: {
-    background: '#B08C30',
-    backgroundHover: '#C7AA66',
-    backgroundPress: '#B08C30',
-    backgroundFocus: '#095AD2',
+    background: '#F5C625', // Yellow
+    backgroundHover: '#E6B91D',
+    backgroundPress: '#D6AB15',
+    backgroundFocus: '#F5C625',
+    color: '#1F2329' // Dark text for yellow background
   },
   success_button: {
-    background: '#1D7256',
+    background: '#1D7256', // Green
     backgroundHover: '#175943',
     backgroundPress: '#134937',
     backgroundFocus: '#1D7256',
+    color: '#FFFFFF'
   },
+  // All secondary variants use the same grey background
   secondary_button: {
-    background: '#353B45',
-    backgroundHover: '#404754',
-    backgroundPress: '#4C5362',
-    backgroundFocus: '#353B45',
+    background: '#9EA2A8',
+    backgroundHover: '#6C727A',
+    backgroundPress: '#6C727A',
+    backgroundFocus: '#9EA2A8',
+    color: '#1F2329'
   },
   secondaryDanger_button: {
-    background: '#353B45',
-    backgroundHover: '#404754',
-    backgroundPress: '#4C5362',
-    backgroundFocus: '#353B45',
+    background: '#9EA2A8',
+    backgroundHover: '#6C727A',
+    backgroundPress: '#6C727A',
+    backgroundFocus: '#9EA2A8',
+    color: '#BB3E4E' // Red text
   },
   secondaryWarning_button: {
-    background: '#e1e1e1',
-    backgroundHover: '#404754',
-    backgroundPress: '#e1e1e1',
-    backgroundFocus: '#404754',
+    background: '#9EA2A8',
+    backgroundHover: '#6C727A',
+    backgroundPress: '#6C727A',
+    backgroundFocus: '#9EA2A8',
+    color: '#B08C30' // Yellow/Brown text
   },
   secondarySuccess_button: {
-    background: '#e1e1e1',
-    backgroundHover: '#404754',
-    backgroundPress: '#4C5362',
-    backgroundFocus: '#404754',
+    background: '#9EA2A8',
+    backgroundHover: '#6C727A',
+    backgroundPress: '#6C727A',
+    backgroundFocus: '#9EA2A8',
+    color: '#1D7256' // Green text
   },
   disabled_button: {
     background: '#353B45',
@@ -142,17 +158,56 @@ export const config = createTamagui({
       color: tokens.color.white,
     },
     light_Button: {
-      background: '#353B45',
-      backgroundPress: '#4C5362', // darker background on press
-      backgroundHover: '#404754', // lighter background on hover
-      color: '#353B45',
+      background: tokens.button.secondaryBg,
+      backgroundPress: tokens.button.secondaryPress,
+      backgroundHover: tokens.button.secondaryHover,
+      color: tokens.button.secondaryText,
     },
     primary_Button: {
-      background: '#095AD2',
-      backgroundHover: '#10529E',
-      backgroundPress: '#01336B',
-      backgroundFocus: '#095AD2',
-      color: '#fff',
+      background: tokens.primary_button.background,
+      backgroundHover: tokens.primary_button.backgroundHover,
+      backgroundPress: tokens.primary_button.backgroundPress,
+      backgroundFocus: tokens.primary_button.backgroundFocus,
+      color: tokens.primary_button.color,
+    },
+    danger_Button: {
+      background: tokens.danger_button.background,
+      backgroundHover: tokens.danger_button.backgroundHover,
+      backgroundPress: tokens.danger_button.backgroundPress,
+      backgroundFocus: tokens.danger_button.backgroundFocus,
+      color: tokens.danger_button.color,
+    },
+    warning_Button: {
+      background: tokens.warning_button.background,
+      backgroundHover: tokens.warning_button.backgroundHover,
+      backgroundPress: tokens.warning_button.backgroundPress,
+      backgroundFocus: tokens.warning_button.backgroundFocus,
+      color: tokens.warning_button.color,
+    },
+    success_Button: {
+      background: tokens.success_button.background,
+      backgroundHover: tokens.success_button.backgroundHover,
+      backgroundPress: tokens.success_button.backgroundPress,
+      backgroundFocus: tokens.success_button.backgroundFocus,
+      color: tokens.success_button.color,
+    },
+    secondaryDanger_Button: {
+      background: tokens.button.secondaryBg,
+      backgroundPress: tokens.button.secondaryPress,
+      backgroundHover: tokens.button.secondaryHover,
+      color: tokens.danger_button.background,
+    },
+    secondaryWarning_Button: {
+      background: tokens.button.secondaryBg,
+      backgroundPress: tokens.button.secondaryPress,
+      backgroundHover: tokens.button.secondaryHover,
+      color: tokens.warning_button.background,
+    },
+    secondarySuccess_Button: {
+      background: tokens.button.secondaryBg,
+      backgroundPress: tokens.button.secondaryPress,
+      backgroundHover: tokens.button.secondaryHover,
+      color: tokens.success_button.background,
     },
   },
   media: {
