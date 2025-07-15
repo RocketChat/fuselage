@@ -4,6 +4,7 @@ import { getChangedFile } from './src/git/git.js';
 import { copyFiles } from './src/utils/copyFiles.js';
 import { trimStatsFile } from './src/stats/trimStatsFile.js';
 import { runner } from './src/runner.js';
+import { runLoki } from './src/runLoki.js';
 
 // yarn build-storybook --stats-json gives project-stats.json which has component titles
 // where as index.json gives the webpack base dependency graph
@@ -26,18 +27,29 @@ async function run(context){
         copyFiles(src, dest);
         if(dest.includes('stats')){
             await trimStatsFile(dest,`.github/actions/test/dist/trimmed-${dest.split('/').slice(-1)}`);
-            }
         }
+    }
     
     // getTrimmedstats
     if(context.eventName === 'pull_request'){
-        const changedFiles = await getChangedFile(context);
+        const changedFiles = await getChangedFile(context);        
+        const data = await runner(changedFiles);
+        const regex = await generateRegex(data);
         core.info('\u001b[48;5;6mSuccess');
         core.startGroup('click to see the changed files');
         console.log(changedFiles);
-        const result = await runner(changedFiles);
-        console.log(result);
         core.endGroup();
+        for(const reg in regex) {
+            if(regex[reg].length === 0) {
+                console.log(`skipping Loki in packages/${reg}`);
+            } else if (regex[reg] === 'full test') {
+                console.log(`currenlty running Loki on packages/${reg}--full test:`);
+                await runLoki(reg, '');
+            } else {
+                console.log(`currenlty running Loki on packages/${reg}:`);
+                await runLoki(reg, regex[reg]);
+            }
+        }
     }
     else {
         core.error('To use Loki OdinSnap please use trigger events like pull request or push');

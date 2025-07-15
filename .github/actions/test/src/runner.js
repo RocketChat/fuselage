@@ -9,13 +9,14 @@ const changedFiles = [
     // 'some.txt',
     // 'package.json',
     // 'yarn.lock',
+    'packages/layout/package.json',
     // 'packages/fuselage/package.json',
     // 'packages/fuselage/src/components/Box/Box.tsx',
     // 'packages/fuselage-toastbar/src/ToastBar.stories.tsx',
     // 'packages/css-in-js/index.ts',
     // 'packages/anxhul10/css/in/js',
     // 'packages/onboarding-ui/src/common/AgreeTermsField.tsx',
-    'packages/layout/src/components/ActionLink/ActionLink.tsx',
+    // 'packages/layout/src/components/ActionLink/ActionLink.tsx',
     // 'packages/layout/src/contexts/LayoutContext.ts',
 ]
 
@@ -148,31 +149,6 @@ export const runner = async ()=> {
     }
 }
 
-async function runLoki(storyPkg, reg) {
-    try {
-        const subprocess = await execa('sh', ['-c', `cd packages/${storyPkg}  && yarn loki --requireReference --reactUri file:./storybook-static --storiesFilter="${reg}"`], {
-            stdio: 'inherit',
-        });
-        console.log(titles);
-    } catch (error) {
-        console.error(`some visual tests failed at packages/${storyPkg}`);
-    }
-}
-
-const data = await runner(changedFiles);
-const regex = await generateRegex(data);
-
-for(const reg in regex) {
-    if(regex[reg].length === 0) {
-        console.log(`skipping Loki in packages/${reg}`);
-        // console.log(regex[reg]);
-    } else {
-        console.log(`currenlty running Loki on packages/${reg}:`);
-        // console.log(regex[reg]);
-        await runLoki(reg, regex[reg]);
-    }
-    // await runLoki(reg, regex[reg]);
-}
 
 /*
 AIL  chrome.docker/tablet/Feedback/Callout
