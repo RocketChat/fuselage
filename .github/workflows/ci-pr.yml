@@ -75,19 +75,29 @@ jobs:
       - name: dist  
         run: yarn build
         working-directory: ./.github/actions/test
-      # - name: generate stats file 
-      #   run: |
-      #     for pkg in fuselage fuselage-toastbar onboarding-ui layout; do
-      #       echo "generating storybook-stats for $pkg"
-      #       cd $pkg
-      #       yarn build-storybook --stats-json
-      #       cd ..
-      #       echo "show direcotry "
-      #       ls
-      #     done
-        # working-directory: packages
       - name: custom action test
         uses: ./.github/actions/test
+      - name: upload loki images
+        uses: actions/upload-artifact@v4
+        with:
+          name: loki-${{ github.event.number }}
+          path: |
+            packages/fuselage/.loki/current
+            packages/fuselage/.loki/difference
+            packages/fuselage/.loki/reference
+            packages/fuselage-toastbar/.loki/current
+            packages/fuselage-toastbar/.loki/difference
+            packages/fuselage-toastbar/.loki/reference
+            packages/onboarding-ui/.loki/current
+            packages/onboarding-ui/.loki/difference
+            packages/onboarding-ui/.loki/reference
+            packages/layout/.loki/current
+            packages/layout/.loki/difference
+            packages/layout/.loki/reference
+      - name: download .loki
+        uses: actions/download-artifact@v4
+        with:
+          name: loki-${{ github.event.number }}
   upload-artifact:
     name: upload-artifact
     runs-on: ubuntu-latest
