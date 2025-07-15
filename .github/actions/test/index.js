@@ -23,16 +23,14 @@ const filesToCopy = [
 ]
 
 async function run(context){
-    // later for loop be used in if statement
-    for( const {src, dest} of filesToCopy ){
-        copyFiles(src, dest);
-        if(dest.includes('stats')){
-            await trimStatsFile(dest,`.github/actions/test/dist/trimmed-${dest.split('/').slice(-1)}`);
-        }
-    }
-    
     // getTrimmedstats
     if(context.eventName === 'pull_request'){
+        for( const {src, dest} of filesToCopy ){
+            copyFiles(src, dest);
+            if(dest.includes('stats')){
+                await trimStatsFile(dest,`.github/actions/test/dist/trimmed-${dest.split('/').slice(-1)}`);
+            }
+        }
         const changedFiles = await getChangedFile(context);        
         const data = await runner(changedFiles);
         const regex = await generateRegex(data);
