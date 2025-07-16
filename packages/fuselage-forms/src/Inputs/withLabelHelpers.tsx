@@ -1,6 +1,7 @@
 // Disabled this flag since we need to wrap multiple components
 /* eslint-disable react/no-multi-comp */
 import type { ReactNode, ForwardRefExoticComponent } from 'react';
+import { VisuallyHidden } from 'react-aria';
 
 import {
   useFieldReferencedByInput,
@@ -45,7 +46,13 @@ function withVisuallyHiddenLabel<TProps>(
 ) {
   const WrappedComponent = function (props: TProps) {
     const [label, labelProps] = useFieldWrappedByInputLabel();
-    return <Component {...props} {...labelProps} labelChildren={label} />;
+    return (
+      <Component
+        {...props}
+        {...labelProps}
+        labelChildren={<VisuallyHidden>{label}</VisuallyHidden>}
+      />
+    );
   };
 
   WrappedComponent.displayName = `withVisuallyHiddenLabel(${Component.displayName ?? Component.name ?? 'InputComponent'})`;
