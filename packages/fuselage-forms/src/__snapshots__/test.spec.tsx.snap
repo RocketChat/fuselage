@@ -39,7 +39,11 @@ exports[`renders WithCheckbox without crashing 1`] = `
         <label
           class="rcx-box rcx-box--full rcx-check-box"
         >
-          Example Checkbox with extra info in a tooltip  *
+          <div
+            style="border: 0px; clip-path: inset(50%); height: 1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+          >
+            Example Checkbox with extra info in a tooltip  *
+          </div>
           <input
             aria-describedby="react-aria-:r7:-description react-aria-:r7:-error react-aria-:r7:-hint"
             aria-invalid="true"
@@ -151,6 +155,86 @@ exports[`renders WithEmailInput without crashing 1`] = `
         <span
           class="rcx-box rcx-box--full rcx-field__hint"
           id="react-aria-:r1:-hint"
+        >
+          This should help the user enter a valid value
+        </span>
+        <a
+          class="rcx-box rcx-box--full rcx-field__link"
+          href="#"
+          target="_blank"
+        >
+          Link to more information
+        </a>
+      </span>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`renders WithNumberInput without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-field"
+    >
+      <label
+        class="rcx-box rcx-box--full rcx-field__label rcx-label"
+        for="react-aria-:r9:-label"
+      >
+        Example Number Input
+        <span
+          class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+        >
+          <span
+            hidden=""
+          >
+            with extra info in a tooltip
+          </span>
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+            title="with extra info in a tooltip"
+          >
+            
+          </i>
+        </span>
+        <span
+          aria-hidden="true"
+          class="rcx-box rcx-box--full rcx-label__required rcx-css-b7g1a9"
+        >
+          *
+        </span>
+      </label>
+      <span
+        class="rcx-box rcx-box--full rcx-field__description"
+        id="react-aria-:r9:-description"
+      >
+        This field requires a valid number
+      </span>
+      <span
+        class="rcx-box rcx-box--full rcx-field__row"
+      >
+        <input
+          aria-describedby="react-aria-:r9:-description react-aria-:r9:-error react-aria-:r9:-hint"
+          aria-invalid="true"
+          class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--type-number rcx-input-box"
+          id="react-aria-:r9:-label"
+          size="1"
+          type="number"
+        />
+      </span>
+      <span
+        class="rcx-box rcx-box--full rcx-field__error"
+        id="react-aria-:r9:-error"
+      >
+        You failed to enter a valid value
+      </span>
+      <span
+        class="rcx-box rcx-box--full rcx-field__row"
+      >
+        <span
+          class="rcx-box rcx-box--full rcx-field__hint"
+          id="react-aria-:r9:-hint"
         >
           This should help the user enter a valid value
         </span>
@@ -300,7 +384,11 @@ exports[`renders WithRadioButton without crashing 1`] = `
         <label
           class="rcx-box rcx-box--full rcx-radio-button"
         >
-          Example Radio Button with extra info in a tooltip  *
+          <div
+            style="border: 0px; clip-path: inset(50%); height: 1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+          >
+            Example Radio Button with extra info in a tooltip  *
+          </div>
           <input
             aria-describedby="react-aria-:r5:-description react-aria-:r5:-error react-aria-:r5:-hint"
             aria-invalid="true"
@@ -412,6 +500,86 @@ exports[`renders WithSearchInput without crashing 1`] = `
         <span
           class="rcx-box rcx-box--full rcx-field__hint"
           id="react-aria-:r3:-hint"
+        >
+          This should help the user enter a valid value
+        </span>
+        <a
+          class="rcx-box rcx-box--full rcx-field__link"
+          href="#"
+          target="_blank"
+        >
+          Link to more information
+        </a>
+      </span>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`renders WithTelephoneInput without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-field"
+    >
+      <label
+        class="rcx-box rcx-box--full rcx-field__label rcx-label"
+        for="react-aria-:r8:-label"
+      >
+        Example Telephone Input
+        <span
+          class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+        >
+          <span
+            hidden=""
+          >
+            with extra info in a tooltip
+          </span>
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+            title="with extra info in a tooltip"
+          >
+            
+          </i>
+        </span>
+        <span
+          aria-hidden="true"
+          class="rcx-box rcx-box--full rcx-label__required rcx-css-b7g1a9"
+        >
+          *
+        </span>
+      </label>
+      <span
+        class="rcx-box rcx-box--full rcx-field__description"
+        id="react-aria-:r8:-description"
+      >
+        This field requires a valid telephone number
+      </span>
+      <span
+        class="rcx-box rcx-box--full rcx-field__row"
+      >
+        <input
+          aria-describedby="react-aria-:r8:-description react-aria-:r8:-error react-aria-:r8:-hint"
+          aria-invalid="true"
+          class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--type-tel rcx-input-box"
+          id="react-aria-:r8:-label"
+          size="1"
+          type="tel"
+        />
+      </span>
+      <span
+        class="rcx-box rcx-box--full rcx-field__error"
+        id="react-aria-:r8:-error"
+      >
+        You failed to enter a valid value
+      </span>
+      <span
+        class="rcx-box rcx-box--full rcx-field__row"
+      >
+        <span
+          class="rcx-box rcx-box--full rcx-field__hint"
+          id="react-aria-:r8:-hint"
         >
           This should help the user enter a valid value
         </span>
@@ -627,7 +795,11 @@ exports[`renders WithToggleSwitch without crashing 1`] = `
         <label
           class="rcx-box rcx-box--full rcx-toggle-switch"
         >
-          Example Toggle Switch with extra info in a tooltip  *
+          <div
+            style="border: 0px; clip-path: inset(50%); height: 1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+          >
+            Example Toggle Switch with extra info in a tooltip  *
+          </div>
           <input
             aria-describedby="react-aria-:r6:-description react-aria-:r6:-error react-aria-:r6:-hint"
             aria-invalid="true"
@@ -659,6 +831,86 @@ exports[`renders WithToggleSwitch without crashing 1`] = `
         <span
           class="rcx-box rcx-box--full rcx-field__hint"
           id="react-aria-:r6:-hint"
+        >
+          This should help the user enter a valid value
+        </span>
+        <a
+          class="rcx-box rcx-box--full rcx-field__link"
+          href="#"
+          target="_blank"
+        >
+          Link to more information
+        </a>
+      </span>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`renders WithUrlInput without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-field"
+    >
+      <label
+        class="rcx-box rcx-box--full rcx-field__label rcx-label"
+        for="react-aria-:ra:-label"
+      >
+        Example URL Input
+        <span
+          class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+        >
+          <span
+            hidden=""
+          >
+            with extra info in a tooltip
+          </span>
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+            title="with extra info in a tooltip"
+          >
+            
+          </i>
+        </span>
+        <span
+          aria-hidden="true"
+          class="rcx-box rcx-box--full rcx-label__required rcx-css-b7g1a9"
+        >
+          *
+        </span>
+      </label>
+      <span
+        class="rcx-box rcx-box--full rcx-field__description"
+        id="react-aria-:ra:-description"
+      >
+        This field requires a valid URL
+      </span>
+      <span
+        class="rcx-box rcx-box--full rcx-field__row"
+      >
+        <input
+          aria-describedby="react-aria-:ra:-description react-aria-:ra:-error react-aria-:ra:-hint"
+          aria-invalid="true"
+          class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--type-url rcx-input-box"
+          id="react-aria-:ra:-label"
+          size="1"
+          type="url"
+        />
+      </span>
+      <span
+        class="rcx-box rcx-box--full rcx-field__error"
+        id="react-aria-:ra:-error"
+      >
+        You failed to enter a valid value
+      </span>
+      <span
+        class="rcx-box rcx-box--full rcx-field__row"
+      >
+        <span
+          class="rcx-box rcx-box--full rcx-field__hint"
+          id="react-aria-:ra:-hint"
         >
           This should help the user enter a valid value
         </span>
