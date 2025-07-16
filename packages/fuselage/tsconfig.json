@@ -2,13 +2,11 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "rootDirs": ["./src", "./.storybook"],
-    "module": "CommonJS",
-    "outDir": "./dist",
-    "esModuleInterop": true,
     "skipLibCheck": true,
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "allowJs": true,
+    "allowJs": false,
+    "esModuleInterop": true,
     "jsx": "react-jsx"
   },
   "include": [
