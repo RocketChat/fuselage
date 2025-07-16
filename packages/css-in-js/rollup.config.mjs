@@ -34,14 +34,6 @@ export default defineConfig({
       format: 'es',
       sourcemap: true,
     },
-    {
-      dir: dirname(pkg.unpkg),
-      entryFileNames: basename(pkg.unpkg),
-      format: 'umd',
-      name: 'cssInJs',
-      sourcemap: true,
-      globals,
-    },
   ],
   plugins: [
     terser({
