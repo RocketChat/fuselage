@@ -5,6 +5,7 @@
     "sourceMap": true,
     "declaration": true,
     "declarationMap": true,
+    "esModuleInterop": true,
     "allowJs": false,
     "noImplicitReturns": true,
     "noImplicitThis": true,

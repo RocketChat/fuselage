@@ -4,7 +4,6 @@
     "rootDir": "./src",
     "module": "ESNext",
     "outDir": "./dist",
-    "esModuleInterop": true,
     "moduleResolution": "node",
     "skipLibCheck": true
   },
