@@ -46,7 +46,7 @@
     "eslint": "~9.29.0",
     "jest": "~30.0.0",
     "jest-environment-jsdom": "~30.0.0",
-    "lint-all": "workspace:~",
+    "lint-all": "^0.31.25",
     "prettier": "~3.5.3",
     "rollup": "~4.43.0",
     "ts-jest": "~29.4.0",

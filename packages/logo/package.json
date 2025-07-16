@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/logo",
-  "version": "0.32.1",
+  "version": "0.32.2",
   "description": "Rocket.Chat logo package",
   "keywords": [
     "rocketchat",
@@ -38,20 +38,20 @@
     "docs": "typedoc"
   },
   "dependencies": {
-    "@rocket.chat/fuselage-hooks": "workspace:~",
-    "@rocket.chat/styled": "workspace:~"
+    "@rocket.chat/fuselage-hooks": "^0.37.0",
+    "@rocket.chat/styled": "^0.32.0"
   },
   "devDependencies": {
-    "@rocket.chat/fuselage-tokens": "workspace:~",
+    "@rocket.chat/fuselage-tokens": "^0.33.2",
     "@testing-library/dom": "~10.4.0",
     "@testing-library/react": "~16.3.0",
     "@types/react": "~18.3.23",
     "@types/react-dom": "~18.3.7",
-    "build-logo": "workspace:~",
+    "build-logo": "^0.31.25",
     "eslint": "~9.29.0",
     "jest": "~30.0.0",
     "jest-environment-jsdom": "~30.0.0",
-    "lint-all": "workspace:~",
+    "lint-all": "^0.31.25",
     "npm-run-all": "^4.1.5",
     "prettier": "~3.5.3",
     "react": "~18.3.1",
