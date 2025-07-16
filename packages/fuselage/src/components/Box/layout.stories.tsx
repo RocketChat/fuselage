@@ -63,6 +63,11 @@ Borders.decorators = [
     </Box>
   ),
 ];
+Borders.parameters = {
+  loki: {
+    skip: true,
+  },
+};
 
 export const BorderRadii: StoryFn<typeof Box> = () => (
   <>
@@ -86,6 +91,11 @@ BorderRadii.decorators = [
     </Box>
   ),
 ];
+BorderRadii.parameters = {
+  loki: {
+    skip: true,
+  },
+};
 
 export const Display: StoryFn<typeof Box> = () => (
   <>
@@ -112,6 +122,11 @@ Display.decorators = [
     </Box>
   ),
 ];
+Display.parameters = {
+  loki: {
+    skip: true,
+  },
+};
 
 export const Elevation: StoryFn<typeof Box> = () => (
   <>
@@ -135,6 +150,11 @@ Elevation.decorators = [
     </Box>
   ),
 ];
+Elevation.parameters = {
+  loki: {
+    skip: true,
+  },
+};
 
 export const Heights: StoryFn<typeof Box> = () => (
   <>
@@ -153,6 +173,11 @@ Heights.decorators = [
     </Box>
   ),
 ];
+Heights.parameters = {
+  loki: {
+    skip: true,
+  },
+};
 
 export const Insets: StoryFn<typeof Box> = () => (
   <>
@@ -191,8 +216,18 @@ Insets.decorators = [
     </Box>
   ),
 ];
+Insets.parameters = {
+  loki: {
+    skip: true,
+  },
+};
 
 export const Invisible: StoryFn<typeof Box> = () => <Box invisible />;
+Invisible.parameters = {
+  loki: {
+    skip: true,
+  },
+};
 
 export const Margins: StoryFn<typeof Box> = () => (
   <>
@@ -229,6 +264,11 @@ Margins.decorators = [
     </Box>
   ),
 ];
+Margins.parameters = {
+  loki: {
+    skip: true,
+  },
+};
 
 export const Opacity: StoryFn<typeof Box> = () => (
   <Box display='flex'>
@@ -276,6 +316,11 @@ Paddings.decorators = [
     </Box>
   ),
 ];
+Paddings.parameters = {
+  loki: {
+    skip: true,
+  },
+};
 
 export const Position: StoryFn<typeof Box> = () => (
   <>
@@ -298,6 +343,11 @@ Position.decorators = [
     </Box>
   ),
 ];
+Position.parameters = {
+  loki: {
+    skip: true,
+  },
+};
 
 export const Widths: StoryFn<typeof Box> = () => (
   <>
@@ -316,6 +366,11 @@ Widths.decorators = [
     </Box>
   ),
 ];
+Widths.parameters = {
+  loki: {
+    skip: true,
+  },
+};
 
 export const Sizes: StoryFn<typeof Box> = () => (
   <>
@@ -333,6 +388,11 @@ Sizes.decorators = [
     </Box>
   ),
 ];
+Sizes.parameters = {
+  loki: {
+    skip: true,
+  },
+};
 
 export const TextAlign: StoryFn<typeof Box> = () => (
   <Box display='flex' color='default' flexDirection='column'>
@@ -376,6 +436,11 @@ VerticalAlign.decorators = [
     </Box>
   ),
 ];
+VerticalAlign.parameters = {
+  loki: {
+    skip: true,
+  },
+};
 
 export const ZIndex: StoryFn<typeof Box> = () => (
   <>
@@ -399,6 +464,11 @@ ZIndex.decorators = [
     </Box>
   ),
 ];
+ZIndex.parameters = {
+  loki: {
+    skip: true,
+  },
+};
 
 export const Focusable: StoryFn<typeof Box> = () => (
   <Box color='default' is='span' role='button' tabIndex={0} focusable>

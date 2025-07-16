@@ -43,13 +43,16 @@
     "@storybook/react-webpack5": "~9.0.9",
     "@testing-library/dom": "~10.4.0",
     "@testing-library/react": "~16.3.0",
+    "@types/express": "^4",
     "@types/react": "~18.3.23",
     "@types/react-dom": "~18.3.7",
     "eslint": "~9.29.0",
+    "express": "^4.18.2",
     "i18next": "~23.4.9",
     "jest": "~30.0.0",
     "jest-environment-jsdom": "~30.0.0",
     "lint-all": "workspace:~",
+    "loki": "~0.35.1",
     "npm-run-all": "^4.1.5",
     "prettier": "~3.5.3",
     "react": "~18.3.1",
@@ -73,5 +76,29 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "loki": {
+    "configurations": {
+      "desktop": {
+        "target": "chrome.docker",
+        "width": 1440,
+        "height": 896,
+        "deviceScaleFactor": 1,
+        "mobile": false,
+        "fitWindow": false
+      },
+      "tablet": {
+        "target": "chrome.docker",
+        "width": 768,
+        "height": 970,
+        "deviceScaleFactor": 1,
+        "mobile": false,
+        "fitWindow": false
+      },
+      "mobile": {
+        "target": "chrome.docker",
+        "preset": "iPhone 7"
+      }
+    }
   }
 }
