@@ -12,7 +12,12 @@ import Tile from '../Tile';
 
 type OptionsPaginatedProps = Omit<ComponentProps<typeof Box>, 'onSelect'> & {
   multiple?: boolean;
-  options: { value: unknown; label: string; selected?: boolean }[];
+  options: {
+    value: unknown;
+    label: string;
+    selected?: boolean;
+    description?: string;
+  }[];
   cursor: number;
   withTitle?: boolean;
   renderItem?: ElementType;
@@ -62,7 +67,7 @@ export const OptionsPaginated = forwardRef(
       index: number;
       data: OptionsPaginatedProps['options'][0];
     }) => {
-      const { value, label, selected } = data;
+      const { value, label, description, selected } = data;
       return (
         <OptionComponent
           {...(withTitle && { title: label })}
@@ -74,6 +79,7 @@ export const OptionsPaginated = forwardRef(
             return false;
           }}
           key={value}
+          description={description}
           value={value}
           selected={selected || (multiple !== true && null)}
           focus={cursor === index || null}
