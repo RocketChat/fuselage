@@ -2,10 +2,7 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "module": "ESNext",
-    "declarationDir": "./dist",
-    "outDir": "./dist",
     "moduleResolution": "node",
-    "esModuleInterop": true,
     "resolveJsonModule": true,
     "jsx": "react-jsx"
   },
