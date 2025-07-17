@@ -3,15 +3,13 @@ import { forwardRef } from 'react';
 
 import Box from '../Box';
 
+type RadioButtonProps = ComponentProps<typeof Box> &
+  AllHTMLAttributes<HTMLInputElement> & {
+    labelChildren?: ReactNode;
+  };
+
 export const RadioButton = forwardRef(function RadioButton(
-  {
-    className,
-    labelChildren,
-    ...props
-  }: ComponentProps<typeof Box> &
-    AllHTMLAttributes<HTMLInputElement> & {
-      labelChildren?: ReactNode;
-    },
+  { className, labelChildren, ...props }: RadioButtonProps,
   ref: Ref<HTMLInputElement>,
 ) {
   return (

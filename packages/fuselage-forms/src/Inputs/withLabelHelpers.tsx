@@ -9,8 +9,10 @@ import {
   useFieldWrappedByInputLabel,
 } from '../Field/FieldContext';
 
+type WithLabelId = { id?: string };
+
 function withLabelId<TProps>(
-  Component: ForwardRefExoticComponent<TProps & { id?: string }>,
+  Component: ForwardRefExoticComponent<TProps & WithLabelId>,
 ) {
   const WrappedComponent = function (props: TProps) {
     const labelProps = useFieldReferencedByInput();
@@ -22,8 +24,10 @@ function withLabelId<TProps>(
   return WrappedComponent;
 }
 
+type WithLablledBy = { 'aria-labelledby'?: string };
+
 function withAriaLabelledBy<TProps>(
-  Component: ForwardRefExoticComponent<TProps & { 'aria-labelledby'?: string }>,
+  Component: ForwardRefExoticComponent<TProps & WithLablledBy>,
 ) {
   const WrappedComponent = function (props: TProps) {
     const labelProps = useFieldReferencedByLabel();
@@ -35,8 +39,10 @@ function withAriaLabelledBy<TProps>(
   return WrappedComponent;
 }
 
+type WithChildrenLabel = { labelChildren: ReactNode };
+
 function withVisuallyHiddenLabel<TProps>(
-  Component: ForwardRefExoticComponent<TProps & { labelChildren: ReactNode }>,
+  Component: ForwardRefExoticComponent<TProps & WithChildrenLabel>,
 ) {
   const WrappedComponent = function (props: TProps) {
     const [label, labelProps] = useFieldWrappedByInputLabel();

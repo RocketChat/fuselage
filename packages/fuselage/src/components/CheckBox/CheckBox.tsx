@@ -10,6 +10,11 @@ import { forwardRef, useLayoutEffect, useRef, useCallback } from 'react';
 
 import Box from '../Box';
 
+type CheckBoxProps = ComponentProps<typeof Box> & {
+  indeterminate?: boolean;
+  labelChildren?: ReactNode;
+} & AllHTMLAttributes<HTMLInputElement>;
+
 export const CheckBox = forwardRef(function CheckBox(
   {
     indeterminate,
@@ -17,10 +22,7 @@ export const CheckBox = forwardRef(function CheckBox(
     className,
     labelChildren,
     ...props
-  }: ComponentProps<typeof Box> & {
-    indeterminate?: boolean;
-    labelChildren?: ReactNode;
-  } & AllHTMLAttributes<HTMLInputElement>,
+  }: CheckBoxProps,
   ref: Ref<HTMLInputElement>,
 ) {
   const innerRef = useRef<HTMLInputElement>(null);

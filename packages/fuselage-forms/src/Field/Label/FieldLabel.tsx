@@ -7,9 +7,9 @@ import HiddenLabel from './HiddenLabel';
 import LabelFor from './LabelFor';
 import ReferencedLabel from './ReferencedLabel';
 
-const FieldLabel = (
-  props: ComponentPropsWithoutRef<typeof FieldLabelComponent>,
-) => {
+type FieldLabelProps = ComponentPropsWithoutRef<typeof FieldLabelComponent>;
+
+const FieldLabel = (props: FieldLabelProps) => {
   const fieldType = useFieldFieldType();
 
   if (fieldType === 'wrappedByLabel') {
