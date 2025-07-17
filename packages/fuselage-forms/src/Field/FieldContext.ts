@@ -51,7 +51,6 @@ export const useFieldLabel = (): [RefCallback<HTMLElement>, string] => {
         text.push(treeWalker.currentNode.textContent);
       }
 
-      console.log('text', text);
       setLabel(text.join(' '));
     },
     [setLabel],
