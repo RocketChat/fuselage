@@ -5,5 +5,4 @@
     "outDir": "./dist/cjs",
     "rootDir": "./src"
   },
-  "exclude": ["**/*.spec.*", "./.storybook", "./jest*"]
 }
