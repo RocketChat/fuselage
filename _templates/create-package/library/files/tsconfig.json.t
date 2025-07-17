@@ -6,7 +6,6 @@ to: packages/<%=package%>/tsconfig.json
   "compilerOptions": {
     "module": "ESNext",
     "outDir": "./dist/esm",
-    "esModuleInterop": true,
     "skipLibCheck": true,
     "moduleResolution": "node",
     "resolveJsonModule": true

@@ -23,8 +23,7 @@
     "/dist"
   ],
   "scripts": {
-    "build": "tsc -p tsconfig.esm.json && tsc -p tsconfig.cjs.json",
-    "clean": "rimraf dist",
+    "build": "rimraf dist && tsc -p tsconfig.esm.json && tsc -p tsconfig.cjs.json",
     "docs": "typedoc",
     "lint": "lint",
     "lint-and-fix": "lint-and-fix"
