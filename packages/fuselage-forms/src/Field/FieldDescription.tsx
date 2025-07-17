@@ -3,12 +3,11 @@ import type { ReactNode, ComponentProps } from 'react';
 
 import { useFieldDescriptorId } from './FieldContext';
 
-const FieldDescription = ({
-  children,
-  ...props
-}: { children: ReactNode } & ComponentProps<
+type FieldDescriptionProps = { children: ReactNode } & ComponentProps<
   typeof FieldDescriptionComponent
->) => {
+>;
+
+const FieldDescription = ({ children, ...props }: FieldDescriptionProps) => {
   const id = useFieldDescriptorId('description');
 
   return (

@@ -3,7 +3,9 @@ import { useId } from 'react-aria';
 
 import { FieldContext, LabelTypes, FieldType } from './FieldContext';
 
-function FieldProvider({ children }: { children: ReactNode }) {
+type FieldProviderProps = { children: ReactNode };
+
+function FieldProvider({ children }: FieldProviderProps) {
   const id = useId();
   const [label, setLabel] = useState<ReactNode | null>(null);
   const [descriptors, setDescriptors] = useState(new Set<LabelTypes>());

@@ -3,10 +3,9 @@ import type { ComponentProps } from 'react';
 
 import { useFieldLabel } from '../FieldContext';
 
-const HiddenLabel = ({
-  children,
-  ...props
-}: ComponentProps<typeof FieldLabelComponent>) => {
+type HiddenLabelProps = ComponentProps<typeof FieldLabelComponent>;
+
+const HiddenLabel = ({ children, ...props }: HiddenLabelProps) => {
   const [labelRef] = useFieldLabel();
 
   return (

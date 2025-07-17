@@ -3,15 +3,13 @@ import { forwardRef } from 'react';
 
 import Box from '../Box';
 
+type ToggleSwitchProps = ComponentProps<typeof Box> &
+  AllHTMLAttributes<HTMLInputElement> & {
+    labelChildren?: ReactNode;
+  };
+
 export const ToggleSwitch = forwardRef(function ToggleSwitch(
-  {
-    className,
-    labelChildren,
-    ...props
-  }: ComponentProps<typeof Box> &
-    AllHTMLAttributes<HTMLInputElement> & {
-      labelChildren?: ReactNode;
-    },
+  { className, labelChildren, ...props }: ToggleSwitchProps,
   ref: Ref<HTMLInputElement>,
 ) {
   return (

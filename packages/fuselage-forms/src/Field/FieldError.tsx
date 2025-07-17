@@ -3,10 +3,11 @@ import type { ReactNode, ComponentProps } from 'react';
 
 import { useFieldDescriptorId } from './FieldContext';
 
-const FieldError = ({
-  children,
-  ...props
-}: { children: ReactNode } & ComponentProps<typeof FieldErrorComponent>) => {
+type FieldErrorProps = { children: ReactNode } & ComponentProps<
+  typeof FieldErrorComponent
+>;
+
+const FieldError = ({ children, ...props }: FieldErrorProps) => {
   const id = useFieldDescriptorId('error');
 
   return (

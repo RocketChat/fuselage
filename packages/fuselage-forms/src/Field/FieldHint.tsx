@@ -3,10 +3,11 @@ import type { ReactNode, ComponentProps } from 'react';
 
 import { useFieldDescriptorId } from './FieldContext';
 
-const FieldHint = ({
-  children,
-  ...props
-}: { children: ReactNode } & ComponentProps<typeof FieldHintComponent>) => {
+type FieldHintProps = { children: ReactNode } & ComponentProps<
+  typeof FieldHintComponent
+>;
+
+const FieldHint = ({ children, ...props }: FieldHintProps) => {
   const id = useFieldDescriptorId('hint');
 
   return (

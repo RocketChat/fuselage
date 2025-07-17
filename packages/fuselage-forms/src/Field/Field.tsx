@@ -3,10 +3,11 @@ import { ComponentProps, ReactNode } from 'react';
 
 import FieldProvider from './FieldProvider';
 
-function Field({
-  children,
-  ...props
-}: { children: ReactNode } & ComponentProps<typeof FieldComponent>) {
+type FieldProps = { children: ReactNode } & ComponentProps<
+  typeof FieldComponent
+>;
+
+function Field({ children, ...props }: FieldProps) {
   return (
     <FieldProvider>
       <FieldComponent {...props}>{children}</FieldComponent>
