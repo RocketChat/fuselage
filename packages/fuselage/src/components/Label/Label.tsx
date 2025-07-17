@@ -5,17 +5,21 @@ import Box from '../Box';
 
 const LabelContext = createContext(false);
 
-type LabelProps = Omit<ComponentProps<typeof Box>, 'is'> & {
-  disabled?: boolean;
-  required?: boolean;
-  is?: (ElementType<any> & string) | undefined;
-};
-
 /**
  * A caption for an input component.
  */
 export const Label = forwardRef(function Label(
-  { disabled, is, required, children, ...props }: LabelProps,
+  {
+    disabled,
+    is,
+    required,
+    children,
+    ...props
+  }: Omit<ComponentProps<typeof Box>, 'is'> & {
+    disabled?: boolean;
+    required?: boolean;
+    is?: (ElementType<any> & string) | undefined;
+  },
   ref: Ref<HTMLElement>,
 ): ReactElement {
   const isInsideLabel = useContext(LabelContext);
