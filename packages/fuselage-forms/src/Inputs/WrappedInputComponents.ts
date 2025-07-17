@@ -4,7 +4,6 @@ import {
   CheckBox as CheckBoxComponent,
   ToggleSwitch as ToggleSwitchComponent,
   RadioButton as RadioButtonComponent,
-  // SelectInput as SelectInputComponent,
   EmailInput as EmailInputComponent,
   PasswordInput as PasswordInputComponent,
   SearchInput as SearchInputComponent,
