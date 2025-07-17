@@ -2,8 +2,6 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "rootDirs": ["./src", "./.storybook"],
-    "module": "CommonJS",
-    "outDir": "./dist",
     "skipLibCheck": true,
     "moduleResolution": "node",
     "resolveJsonModule": true,
