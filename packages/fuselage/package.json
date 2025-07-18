@@ -140,6 +140,9 @@
     "access": "public"
   },
   "loki": {
+    "pixelmatch": {
+      "tolerance": 0.00000000000000001
+    },
     "configurations": {
       "desktop": {
         "target": "chrome.docker",
