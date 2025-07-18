@@ -3,5 +3,12 @@
   "compilerOptions": {
     "rootDir": "./src"
   },
-  "exclude": ["node_modules", "dist", "**/*.spec.*", "./.storybook", "./jest*", "**/*.stories*"]
+  "exclude": [
+    "node_modules",
+    "dist",
+    "**/*.spec.*",
+    "./.storybook",
+    "./jest*",
+    "**/*.stories*"
+  ]
 }
