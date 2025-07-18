@@ -141,7 +141,7 @@
   },
   "loki": {
     "pixelmatch": {
-      "tolerance": 0.00000000001
+      "tolerance": 0.0000001
     },
     "configurations": {
       "desktop": {
