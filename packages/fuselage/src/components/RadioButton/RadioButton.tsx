@@ -1,17 +1,20 @@
-import type { AllHTMLAttributes, ComponentProps, Ref } from 'react';
+import type { AllHTMLAttributes, ComponentProps, ReactNode, Ref } from 'react';
 import { forwardRef } from 'react';
 
 import Box from '../Box';
 
 type RadioButtonProps = ComponentProps<typeof Box> &
-  AllHTMLAttributes<HTMLInputElement>;
+  AllHTMLAttributes<HTMLInputElement> & {
+    labelChildren?: ReactNode;
+  };
 
 export const RadioButton = forwardRef(function RadioButton(
-  { className, ...props }: RadioButtonProps,
+  { className, labelChildren, ...props }: RadioButtonProps,
   ref: Ref<HTMLInputElement>,
 ) {
   return (
     <Box is='label' className={className} rcx-radio-button>
+      {labelChildren}
       <Box
         is='input'
         rcx-radio-button__input
