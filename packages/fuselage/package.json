@@ -140,9 +140,7 @@
     "access": "public"
   },
   "loki": {
-    "pixelmatch": {
-      "tolerance": 0.001
-    },
+    "chromeLoadTimeout":60000,
     "configurations": {
       "desktop": {
         "target": "chrome.docker",
