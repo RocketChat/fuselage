@@ -110,9 +110,9 @@ $sidebar-color-font-active: theme(
   &__subtitle {
     @include highlighted;
 
-    flex-grow: 1;
+    flex: 1 1 0;
     @include typography.use-font-scale(c1);
-    @include typography.use-text-ellipsis;
+    @include typography.use-with-truncated-text;
   }
 
   &__timestamp {

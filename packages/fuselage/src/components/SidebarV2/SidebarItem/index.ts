@@ -11,3 +11,4 @@ export { SidebarItemTimestamp as SidebarV2ItemTimestamp } from './SidebarItemTim
 export { SidebarListItem as SidebarV2ListItem } from './SidebarListItem';
 export { SidebarItemContent as SidebarV2ItemContent } from './SidebarItemContent';
 export { SidebarItemStatusBullet as SidebarV2ItemStatusBullet } from './SidebarItemStatusBullet';
+export { SidebarItemTag as SidebarV2ItemTag } from './SidebarItemTag';
