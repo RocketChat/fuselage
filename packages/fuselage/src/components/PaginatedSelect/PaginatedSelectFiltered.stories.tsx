@@ -24,28 +24,13 @@ const Template: StoryFn<typeof PaginatedSelectFiltered> = (args) => (
 );
 
 export const Normal = Template.bind({});
-Normal.parameters = {
-  loki: {
-    skip: true,
-  },
-};
 
 export const Errored = Template.bind({});
 Errored.args = {
   error: 'Error',
 };
-Errored.parameters = {
-  loki: {
-    skip: true,
-  },
-};
 
 export const Disabled = Template.bind({});
 Disabled.args = {
   disabled: true,
-};
-Disabled.parameters = {
-  loki: {
-    skip: true,
-  },
 };
