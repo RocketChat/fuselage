@@ -16,7 +16,7 @@
     },
     "dark": {
       "level-0": { "value": "#404754" },
-      "level-1": { "value": "#484C51" },
+      "level-1": { "value": "#404754" },
       "level-2": { "value": "#2C65BA" },
       "level-3": { "value": "#955828" },
       "level-4": { "value": "#B43C4C" }
