@@ -2,4 +2,4 @@
 '@rocket.chat/fuselage': patch
 ---
 
-Adjust `SidebarItemContent` styles.
+feat(fuselage): Adjust SidebarItemContent styles
