@@ -37,19 +37,21 @@ async function run(context){
         core.startGroup('click to see the changed files');
         console.log(changedFiles);
         core.endGroup();
-        for(const reg in regex) {
-            if(regex[reg].length === 0) {
-                console.log(`skipping Loki in packages/${reg}`);
-            } else if (regex[reg] === 'full test') {
-                core.startGroup(`currenlty running Loki on packages/${reg}--full test:`);
-                runLoki(reg, '');
-                core.endGroup();
-            } else {
-                core.startGroup(`currenlty running Loki on packages/${reg}:`);
-                runLoki(reg, regex[reg]);
-                core.endGroup();
+        (async () => {
+            for await (const reg of generateRegex(data)) {
+                if(regex[reg].length === 0) {
+                    console.log(`skipping Loki in packages/${reg}`);
+                } else if (regex[reg] === 'full test') {
+                    core.startGroup(`currenlty running Loki on packages/${reg}--full test:`);
+                    await runLoki(reg, '');
+                    core.endGroup();
+                } else {
+                    core.startGroup(`currenlty running Loki on packages/${reg}:`);
+                    await runLoki(reg, regex[reg]);
+                    core.endGroup();
+                }
             }
-        }
+        })
     }
     else {
         core.error('To use Loki OdinSnap please use trigger events like pull request or push');
