@@ -3,7 +3,7 @@ import * as core from '@actions/core';
 
 export const runLoki = async (storyPkg, reg) => {
     try {
-        if(reg.length === 0) {
+        if(reg === 'full test') {
             const subprocess = await execa('sh', ['-c', `cd packages/${storyPkg}  && yarn loki --requireReference --reactUri file:./storybook-static`], {
                 stdio: 'inherit',
             });

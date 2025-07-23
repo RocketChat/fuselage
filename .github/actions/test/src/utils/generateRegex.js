@@ -2,7 +2,7 @@
  * @param {Object<Object<string, Set>>} changedCmps 
  * @returns {Object<string, string>}
  */
-export const generateRegex = async (changedCmps) => {
+export const generateRegex = (changedCmps) => {
     const rgx = new Object();
     for(const key in changedCmps) {
         const trray = new Array();
