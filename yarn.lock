@@ -5390,6 +5390,7 @@ __metadata:
     "@types/jest-axe": "npm:~3.5.9"
     "@types/react": "npm:~18.3.23"
     "@types/react-dom": "npm:~18.3.7"
+    cross-env: "npm:^7.0.3"
     eslint: "npm:~9.23.0"
     jest: "npm:~29.7.0"
     jest-axe: "npm:~10.0.0"
@@ -5403,7 +5404,6 @@ __metadata:
     storybook: "npm:~9.0.9"
     storybook-dark-mode: "patch:storybook-dark-mode@npm%3A4.0.2#~/.yarn/patches/storybook-dark-mode-npm-4.0.2-1acb0927fb.patch"
     ts-jest: "npm:~29.4.0"
-    typedoc: "npm:~0.28.5"
     typescript: "npm:~5.8.3"
     webpack: "npm:~5.99.9"
   peerDependencies:
