@@ -34,10 +34,6 @@ export const _Danger = Template.bind({});
 _Danger.args = {
   variant: 'danger',
 };
-export const _SecondaryDanger = Template.bind({});
-_SecondaryDanger.args = {
-  variant: 'secondary-danger',
-};
 
 export const Warning = Template.bind({});
 Warning.args = {
@@ -47,6 +43,21 @@ Warning.args = {
 export const Featured = Template.bind({});
 Featured.args = {
   variant: 'featured',
+};
+
+export const _SecondaryDanger = Template.bind({});
+_SecondaryDanger.args = {
+  variant: 'secondary-danger',
+};
+
+export const _SecondaryWarning = Template.bind({});
+_SecondaryWarning.args = {
+  variant: 'secondary-warning',
+};
+
+export const _SecondaryInfo = Template.bind({});
+_SecondaryInfo.args = {
+  variant: 'secondary-info',
 };
 
 export const WithIcon = Template.bind({});
@@ -87,6 +98,9 @@ export const Variants = () => (
     <Tag variant='danger'>john.doe</Tag>
     <Tag variant='warning'>john.doe</Tag>
     <Tag variant='featured'>john.doe</Tag>
+    <Tag variant='secondary-danger'>john.doe</Tag>
+    <Tag variant='secondary-warning'>john.doe</Tag>
+    <Tag variant='secondary-info'>john.doe</Tag>
   </ButtonGroup>
 );
 export const VariantsAsLinks = () => (
@@ -102,6 +116,15 @@ export const VariantsAsLinks = () => (
       john.doe
     </Tag>
     <Tag variant='featured' href='#'>
+      john.doe
+    </Tag>
+    <Tag variant='secondary-danger' href='#'>
+      john.doe
+    </Tag>
+    <Tag variant='secondary-warning' href='#'>
+      john.doe
+    </Tag>
+    <Tag variant='secondary-info' href='#'>
       john.doe
     </Tag>
   </ButtonGroup>
