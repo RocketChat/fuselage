@@ -31,13 +31,14 @@ async function run(context){
             }
         }
     if(context.eventName === 'pull_request'){
+        await runLoki('fuselage', 'full test');
         const changedFiles = await getChangedFile(context);        
         const data = await runner(changedFiles);
         const regex = generateRegex(data);
         core.startGroup('click to see the changed files');
         console.log(changedFiles);
         core.endGroup();
-        await runLoki('fuselage', regex.fuselage);
+        // await runLoki('fuselage', regex.fuselage);
         // for(const reg in regex) {
         //     if(regex[reg].length === 0) {
         //         console.log(`skipping Loki in packages/${reg}`);
