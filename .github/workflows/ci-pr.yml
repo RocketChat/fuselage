@@ -183,5 +183,5 @@ jobs:
         run: yarn loki --requireReference --reactUri file:./storybook-static
         working-directory: packages/fuselage-toastbar
       - name: run script
-        run: ./script.Show
+        run: ./script.sh
         shell: bash
