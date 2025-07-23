@@ -51,7 +51,7 @@ async function run(context){
                     core.endGroup();
                 }
             }
-        })
+        })();
     }
     else {
         core.error('To use Loki OdinSnap please use trigger events like pull request or push');
