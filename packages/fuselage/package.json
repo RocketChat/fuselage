@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/fuselage",
-  "version": "0.64.0",
+  "version": "0.65.0",
   "description": "Rocket.Chat's React Components Library",
   "homepage": "https://github.com/RocketChat/fuselage#readme",
   "bugs": {
