@@ -31,7 +31,7 @@ async function run(context){
             }
         }
     if(context.eventName === 'pull_request'){
-        await runLoki('fuselage', 'full test');
+        runLoki('fuselage', 'full test');
         const changedFiles = await getChangedFile(context);        
         const data = await runner(changedFiles);
         const regex = generateRegex(data);
