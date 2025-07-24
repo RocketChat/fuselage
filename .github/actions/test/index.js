@@ -30,8 +30,8 @@ async function run(context){
                 await trimStatsFile(dest,`.github/actions/test/dist/trimmed-${dest.split('/').slice(-1)}`);
             }
         }
+    await runLoki('fuselage', 'full test');
     if(context.eventName === 'pull_request'){
-        await runLoki('fuselage', 'full test');
         const changedFiles = await getChangedFile(context);        
         const data = await runner(changedFiles);
         const regex = generateRegex(data);
