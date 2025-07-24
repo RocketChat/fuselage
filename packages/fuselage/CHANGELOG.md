@@ -4,9 +4,7 @@
 
 ### Minor Changes
 
-- [`0534e6b`](https://github.com/RocketChat/fuselage/commit/0534e6b8e323151af8524d4cefe08ff9315578ac) Thanks [@dougfabris](https://github.com/dougfabris)! - feat(fuselage): Add new Tag secondary variants
-
-### Patch Changes
+- [#1725](https://github.com/RocketChat/fuselage/pull/1725) [`0534e6b`](https://github.com/RocketChat/fuselage/commit/0534e6b8e323151af8524d4cefe08ff9315578ac) Thanks [@dougfabris](https://github.com/dougfabris)! - feat(fuselage): Add new Tag secondary variants
 
 - [#1723](https://github.com/RocketChat/fuselage/pull/1723) [`1170251`](https://github.com/RocketChat/fuselage/commit/11702517a6c243d7ba9b52636d86c01bcaaf8320) Thanks [@yash-rajpal](https://github.com/yash-rajpal)! - feat(fuselage): Adjust SidebarItemContent styles
 
