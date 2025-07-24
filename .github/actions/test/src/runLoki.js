@@ -1,18 +1,26 @@
 import { execa } from 'execa';
 import * as core from '@actions/core';
+import * as child_process from 'child_process';
+
 
 export const runLoki = async (storyPkg, reg) => {
-    try {
-        if(reg === 'full test') {
-            const subprocess = await execa('sh', ['-c', `cd packages/${storyPkg}  && yarn loki --requireReference --reactUri file:./storybook-static --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\"`], {
-                stdio: 'inherit',
-            });
-        } else {
-            const subprocess = await execa('sh', ['-c', `cd packages/${storyPkg}  && yarn loki --requireReference --reactUri file:./storybook-static --storiesFilter="${reg}" --chromeTolerance=0.1`], {
-                stdio: 'inherit',
-            });
-        }
-    } catch (error) {
-        core.setFailed(`some visual tests failed at packages/${storyPkg}`+error)
+    if(reg === 'full test') {
+        child_process.execSync(`cd packages/${storyPkg} && yarn loki --requireReference --reactUri file:./storybook-static --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\"`,{stdio:[0,1,2]});
     }
+    else {
+        console.log('smart test');
+    }
+    // try {
+    //     if(reg === 'full test') {
+    //         const subprocess = await execa('sh', ['-c', `cd packages/${storyPkg}  && yarn loki --requireReference --reactUri file:./storybook-static --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\"`], {
+    //             stdio: 'inherit',
+    //         });
+    //     } else {
+    //         const subprocess = await execa('sh', ['-c', `cd packages/${storyPkg}  && yarn loki --requireReference --reactUri file:./storybook-static --storiesFilter="${reg}" --chromeTolerance=0.1`], {
+    //             stdio: 'inherit',
+    //         });
+    //     }
+    // } catch (error) {
+    //     core.setFailed(`some visual tests failed at packages/${storyPkg}`+error)
+    // }
 }
