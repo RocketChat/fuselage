@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/fuselage-forms",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A set of component wrappers to provide ease of use and accessibility out-of-box.",
   "homepage": "https://github.com/RocketChat/fuselage#readme",
   "bugs": {
@@ -36,7 +36,7 @@
   },
   "devDependencies": {
     "@rocket.chat/fuselage": "*",
-    "@rocket.chat/fuselage-tokens": "workspace:~",
+    "@rocket.chat/fuselage-tokens": "^0.33.2",
     "@storybook/addon-docs": "~9.0.9",
     "@storybook/addon-webpack5-compiler-swc": "~3.0.0",
     "@storybook/react-webpack5": "~9.0.9",
@@ -52,7 +52,7 @@
     "jest": "~29.7.0",
     "jest-axe": "~10.0.0",
     "jest-environment-jsdom": "~30.0.0",
-    "lint-all": "workspace:~",
+    "lint-all": "^0.31.25",
     "prettier": "~3.5.3",
     "react": "~18.3.1",
     "react-dom": "~18.3.1",
