@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/fuselage-forms",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A set of component wrappers to provide ease of use and accessibility out-of-box.",
   "homepage": "https://github.com/RocketChat/fuselage#readme",
   "bugs": {
