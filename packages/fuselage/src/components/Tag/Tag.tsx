@@ -12,6 +12,8 @@ type TagProps = {
     | 'danger'
     | 'warning'
     | 'secondary-danger'
+    | 'secondary-warning'
+    | 'secondary-info'
     | 'featured';
   disabled?: boolean;
   icon?: ReactNode;
