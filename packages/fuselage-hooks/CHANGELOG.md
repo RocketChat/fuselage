@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.37.1
+
+### Patch Changes
+
+- [#1730](https://github.com/RocketChat/fuselage/pull/1730) [`09044af`](https://github.com/RocketChat/fuselage/commit/09044af47be69f80595ea3d355b5c3682c27031e) Thanks [@gabriellsh](https://github.com/gabriellsh)! - fix(fuselage-hooks): Missing useSafeRefCallback at index
+
 ## 0.37.0
 
 ### Minor Changes
