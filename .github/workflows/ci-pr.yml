@@ -81,9 +81,6 @@ jobs:
       - name: output from the action
         run: |
           echo "fuselage:${{ steps.custom_action.outputs.fuselage }}"
-          echo "fuselage-toastbar:${{ steps.custom_action.outputs.fuselage-toastbar }}"
-          echo "layout:${{ steps.custom_action.outputs.layout }}"
-          echo "onboarding-ui:${{ steps.custom_action.outputs.onboarding-ui }}"
       - name: upload loki images
         if: always()
         uses: actions/upload-artifact@v4
