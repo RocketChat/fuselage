@@ -30,7 +30,6 @@ async function run(context){
                 await trimStatsFile(dest,`.github/actions/test/dist/trimmed-${dest.split('/').slice(-1)}`);
             }
         }
-    await runLoki('fuselage', 'full test');
     if(context.eventName === 'pull_request'){
         const changedFiles = await getChangedFile(context);        
         const data = await runner(changedFiles);
@@ -38,6 +37,7 @@ async function run(context){
         core.startGroup('click to see the changed files');
         console.log(changedFiles);
         core.endGroup();
+        core.setOutput('regex', regex);
         // await runLoki('fuselage', regex.fuselage);
         // for(const reg in regex) {
         //     if(regex[reg].length === 0) {

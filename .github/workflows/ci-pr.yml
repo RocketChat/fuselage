@@ -76,7 +76,10 @@ jobs:
         run: yarn build
         working-directory: ./.github/actions/test
       - name: custom action test
+        id: custom_action
         uses: ./.github/actions/test
+      - name: output from the action
+        run: echo "${{ steps.custom_action.outputs.regex }}"
       - name: upload loki images
         if: always()
         uses: actions/upload-artifact@v4

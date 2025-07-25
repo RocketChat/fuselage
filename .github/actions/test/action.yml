@@ -9,6 +9,9 @@ inputs:
   react_uri:
     required: true
     default: ./storybook-static
+outputs:  
+  regex:
+    description: A regex of components to run test against
 runs:
   using: "node20"
   main: dist/index.js
