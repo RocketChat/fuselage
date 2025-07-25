@@ -37,9 +37,10 @@ async function run(context){
         core.startGroup('click to see the changed files');
         console.log(changedFiles);
         core.endGroup();
-        core.setOutput('fuselage', JSON.stringify(regex['fuselage']));
+        core.setOutput('fuselage', regex.fuselage);
+        core.setOutput('fuselage', regex['fuselage']);
         core.setOutput('fusealge-toastbar', JSON.stringify(regex['fuselage-toastbar']));
-        core.setOutput('layout', JSON.stringify(regex['layout']));
+        core.setOutput('layout', regex.layout);
         core.setOutput('onboarding-ui', JSON.stringify(regex['onboarding-ui']));
         
         // await runLoki('fuselage', regex.fuselage);
