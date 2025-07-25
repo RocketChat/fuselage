@@ -29,3 +29,4 @@ export * from './useUniqueId';
 export * from './useOutsideClick';
 export * from './useElementIsVisible';
 export * from './useButtonPattern';
+export * from './useSafeRefCallback';
