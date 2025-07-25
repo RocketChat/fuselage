@@ -10,8 +10,15 @@ inputs:
     required: true
     default: ./storybook-static
 outputs:  
-  regex:
-    description: A regex of components to run test against
+  fuselage:
+    description: A regex of fuselage components
+  fuselage-toastbar:
+    description: A regex of fuselage-toastbar components
+  layout:
+    description: A regex of layout components
+  onboarding-ui:
+    description: A regex of onboarding-ui components
+  
 runs:
   using: "node20"
   main: dist/index.js
