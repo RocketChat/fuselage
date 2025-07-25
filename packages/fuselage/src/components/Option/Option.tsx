@@ -8,7 +8,7 @@ import type {
 import { forwardRef, memo } from 'react';
 
 import type { Icon } from '../..';
-import { OptionColumn } from '../..';
+import { OptionColumn, OptionDescription } from '../..';
 import { prevent } from '../../helpers/prevent';
 import type Box from '../Box';
 
@@ -99,7 +99,15 @@ const Option = memo(
           {avatar && <OptionAvatar>{avatar}</OptionAvatar>}
           {icon && <OptionIcon name={icon} />}
           {gap && <OptionColumn />}
-          {label && <OptionContent>{label}</OptionContent>}
+          {label && (
+            <OptionContent>
+              {label}
+
+              {description && (
+                <OptionDescription>{description}</OptionDescription>
+              )}
+            </OptionContent>
+          )}
           {label !== children && children}
         </div>
       </Tag>
