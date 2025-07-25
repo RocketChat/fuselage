@@ -4,12 +4,23 @@ import * as child_process from 'child_process';
 
 
 export const runLoki = async (storyPkg, reg) => {
-    if(reg === 'full test') {
-        child_process.execSync(`cd packages/${storyPkg} && yarn loki --requireReference --reactUri file:./storybook-static --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\"`,{stdio:[0,1,2]});
-    }
-    else {
-        console.log('smart test');
-    }
+    await execa('yarn', [
+  'loki',
+  '--requireReference',
+  '--reactUri',
+  'file:./storybook-static',
+  '--chromeFlags=--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor'
+    ], {
+    cwd: `packages/${storyPkg}`,
+    stdio: 'inherit',
+    });
+
+    // if(reg === 'full test') {
+    //     child_process.execSync(`cd packages/${storyPkg} && yarn loki --requireReference --reactUri file:./storybook-static --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\"`,{stdio:[0,1,2]});
+    // }
+    // else {
+    //     console.log('smart test');
+    // }
     // try {
     //     if(reg === 'full test') {
     //         const subprocess = await execa('sh', ['-c', `cd packages/${storyPkg}  && yarn loki --requireReference --reactUri file:./storybook-static --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\"`], {
