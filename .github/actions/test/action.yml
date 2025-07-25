@@ -12,12 +12,12 @@ inputs:
 outputs:  
   fuselage:
     description: A regex of fuselage components
-  fuselage-toastbar:
-    description: A regex of fuselage-toastbar components
+  # fuselage-toastbar:
+  #   description: A regex of fuselage-toastbar components
   layout:
     description: A regex of layout components
-  onboarding-ui:
-    description: A regex of onboarding-ui components
+  # onboarding-ui:
+  #   description: A regex of onboarding-ui components
   
 runs:
   using: "node20"
