@@ -90,7 +90,7 @@ jobs:
           fi
       - name: visual test for layout
         run: |
-          if [ "${{steps.custom_action.outputs.layout }}" = "skip"]; then 
+          if [ "${{steps.custom_action.outputs.layout }}" = "skip" ]; then 
             echo "skipping loki "
           fi
         shell: bash
