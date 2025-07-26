@@ -51,8 +51,8 @@ async function run(context){
             regex['onboarding-ui'] = 'skip';
         }
         console.log(regex);
-        core.setOutput('fusealge', regex['fuselage']);
-        core.setOutput('fusealge-toastbar', regex['fuselage-toastbar']);
+        core.setOutput('fuselage', regex['fuselage']);
+        core.setOutput('fuselage-toastbar', regex['fuselage-toastbar']);
         core.setOutput('layout', regex['layout']);
         core.setOutput('onboarding-ui', regex['onboarding-ui']);
         
