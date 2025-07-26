@@ -37,6 +37,8 @@ async function run(context){
         core.startGroup('click to see the changed files');
         console.log(changedFiles);
         core.endGroup();
+        console.log(regex['fuselage']);
+        console.log(regex['fusleage-toastbar']);
         if(regex['fuselage'].length === 0 ) {
             regex['fuselage'] = 'skip';
         }

@@ -83,6 +83,21 @@ jobs:
           if [ ${{steps.custom_action.outputs.fuselage }} = "skip"]; then 
             echo "skipping loki "
           fi
+      - name: visual test for fuselage-toastbar
+        run: |
+          if [ ${{steps.custom_action.outputs.fuselage-toastbar }} = "skip"]; then 
+            echo "skipping loki "
+          fi
+      - name: visual test for layout
+        run: |
+          if [ ${{steps.custom_action.outputs.layout }} = "skip"]; then 
+            echo "skipping loki "
+          fi
+      - name: visual test for onboarding-ui
+        run: |
+          if [ ${{steps.custom_action.outputs.onboarding-ui }} = "skip"]; then 
+            echo "skipping loki "
+          fi
       - name: output from the action
         run: |
           echo "fuselage:${{ steps.custom_action.outputs.fuselage }}"
