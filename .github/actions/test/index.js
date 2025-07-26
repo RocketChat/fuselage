@@ -38,9 +38,9 @@ async function run(context){
         console.log(changedFiles);
         core.endGroup();
         core.setOutput('fuselage', regex);
-        core.setOutput('fusealge-toastbar', JSON.stringify(regex['fuselage-toastbar']));
-        core.setOutput('layout', 'fuselage');
-        core.setOutput('onboarding-ui', JSON.stringify(regex['onboarding-ui']));
+        core.setOutput('fusealge-toastbar', regex);
+        core.setOutput('layout', regex);
+        core.setOutput('onboarding-ui', regex);
         
         // await runLoki('fuselage', regex.fuselage);
         // for(const reg in regex) {
