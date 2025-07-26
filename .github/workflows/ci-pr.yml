@@ -81,34 +81,43 @@ jobs:
       - name: visual test for fuselage
         run: |
           if [ "${{steps.custom_action.outputs.fuselage }}" = "skip" ]; then 
-            echo "skipping loki "
+            yarn loki --requireReference --reactUri file:./storybook-static --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\"
+          elif [ "${{steps.custom_action.outputs.fuselage }}" = "full test"]; then 
+            yarn loki --requireReference --reactUri file:./storybook-static --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\"
+          else
+            echo "smart test"
           fi
+        working-directory: packages/fuselage
       - name: visual test for fuselage-toastbar
         run: |
           if [ "${{steps.custom_action.outputs.fuselage-toastbar }}" = "skip" ]; then 
             echo "skipping loki "
+          elif [ "${{steps.custom_action.outputs.fuselage-toastbar }}" = "full test"]; then 
+            yarn loki --requireReference --reactUri file:./storybook-static --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\"
+          else
+            echo "smart test"
           fi
+        working-directory: packages/fuselage-toastbar
       - name: visual test for layout
         run: |
           if [ "${{steps.custom_action.outputs.layout }}" = "skip" ]; then 
             echo "skipping loki "
           elif [ "${{steps.custom_action.outputs.layout }}" = "full test"]; then 
-            echo "full test"
+            yarn loki --requireReference --reactUri file:./storybook-static --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\"
           else
             echo "smart test"
           fi
-        shell: bash
+        working-directory: packages/layout
       - name: visual test for onboarding-ui
         run: |
           if [ "${{steps.custom_action.outputs.onboarding-ui }}" = "skip" ]; then 
             echo "skipping loki "
+          elif [ "${{steps.custom_action.outputs.onboarding-ui }}" = "full test"]; then 
+            yarn loki --requireReference --reactUri file:./storybook-static --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\"
+          else
+            echo "smart test"
           fi
-      - name: output from the action
-        run: |
-          echo "fuselage:${{ steps.custom_action.outputs.fuselage }}"
-          echo "fuselage-toastbar:${{ steps.custom_action.outputs.fuselage-toastbar }}"
-          echo "layout:${{ steps.custom_action.outputs.layout }}"
-          echo "onboarding-ui:${{ steps.custom_action.outputs.onboarding-ui }}"
+        working-directory: packages/onboarding-ui
       - name: upload loki images
         if: always()
         uses: actions/upload-artifact@v4
