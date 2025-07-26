@@ -79,6 +79,7 @@ jobs:
         id: custom_action
         uses: ./.github/actions/test
       - name: visual test for fuselage
+        if: always()
         run: |
           if [ "${{steps.custom_action.outputs.fuselage }}" = "skip" ]; then 
             yarn loki --requireReference --reactUri file:./storybook-static --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\"
@@ -89,6 +90,7 @@ jobs:
           fi
         working-directory: packages/fuselage
       - name: visual test for fuselage-toastbar
+        if: always()
         run: |
           if [ "${{steps.custom_action.outputs.fuselage-toastbar }}" = "skip" ]; then 
             echo "skipping loki "
@@ -99,6 +101,7 @@ jobs:
           fi
         working-directory: packages/fuselage-toastbar
       - name: visual test for layout
+        if: always()
         run: |
           if [ "${{steps.custom_action.outputs.layout }}" = "skip" ]; then 
             echo "skipping loki "
@@ -109,6 +112,7 @@ jobs:
           fi
         working-directory: packages/layout
       - name: visual test for onboarding-ui
+        if: always()
         run: |
           if [ "${{steps.custom_action.outputs.onboarding-ui }}" = "skip" ]; then 
             echo "skipping loki "
