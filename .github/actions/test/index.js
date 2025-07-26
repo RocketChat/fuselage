@@ -49,6 +49,7 @@ async function run(context){
         if(regex['onboarding-ui'].length === 0 ) {
             regex['onboarding-ui'] = 'skip';
         }
+        console.log(regex);
         core.setOutput('fusealge', regex['fuselage']);
         core.setOutput('fusealge-toastbar', regex['fuselage-toastbar']);
         core.setOutput('layout', regex['layout']);
