@@ -80,23 +80,27 @@ jobs:
         uses: ./.github/actions/test
       - name: visual test for fuselage
         run: |
-          if [ ${{steps.custom_action.outputs.fuselage }} -eq "skip"]; then 
+          if [ "${{steps.custom_action.outputs.fuselage }}"" = "skip" ]; then 
             echo "skipping loki "
           fi
       - name: visual test for fuselage-toastbar
         run: |
-          if [ ${{steps.custom_action.outputs.fuselage-toastbar }} -eq "skip"]; then 
+          if [ "${{steps.custom_action.outputs.fuselage-toastbar }}" = "skip" ]; then 
             echo "skipping loki "
           fi
       - name: visual test for layout
         run: |
           if [ "${{steps.custom_action.outputs.layout }}" = "skip" ]; then 
             echo "skipping loki "
+          elif [ "${{steps.custom_action.outputs.layout }}" = "full test"]; then 
+            echo "full test"
+          else
+            echo "smart test"
           fi
         shell: bash
       - name: visual test for onboarding-ui
         run: |
-          if [ ${{steps.custom_action.outputs.onboarding-ui }} -eq "skip"]; then 
+          if [ "${{steps.custom_action.outputs.onboarding-ui }}" = "skip" ]; then 
             echo "skipping loki "
           fi
       - name: output from the action
