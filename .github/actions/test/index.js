@@ -37,18 +37,22 @@ async function run(context){
         core.startGroup('click to see the changed files');
         console.log(changedFiles);
         core.endGroup();
-        if(regex.fuselage.length === 0 ) {
-            console.log('empty');
+        if(regex['fuselage'].length === 0 ) {
             regex['fuselage'] = 'skip';
-            console.log(regex);
-            console.log(regex['fuselage-toastbar'].length);
-            console.log(regex['layout'].length);
-            console.log(regex['onboarding-ui'].length);
         }
-        core.setOutput('fuselage', regex);
-        core.setOutput('fusealge-toastbar', regex);
-        core.setOutput('layout', regex);
-        core.setOutput('onboarding-ui', regex);
+        if(regex['fuselage-toastbar'].length === 0 ) {
+            regex['fuselage-toastbar'] = 'skip';
+        }
+        if(regex['layout'].length === 0 ) {
+            regex['layout'] = 'skip';
+        }
+        if(regex['onboarding-ui'].length === 0 ) {
+            regex['onboarding-ui'] = 'skip';
+        }
+        core.setOutput('fusealge', regex['fuselage']);
+        core.setOutput('fusealge-toastbar', regex['fuselage-toastbar']);
+        core.setOutput('layout', regex['layout']);
+        core.setOutput('onboarding-ui', regex['onboarding-ui']);
         
         // await runLoki('fuselage', regex.fuselage);
         // for(const reg in regex) {

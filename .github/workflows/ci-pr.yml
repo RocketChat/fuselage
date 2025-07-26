@@ -78,6 +78,11 @@ jobs:
       - name: custom action test
         id: custom_action
         uses: ./.github/actions/test
+      - name: visual test for fuselage
+        run: |
+          if [ ${{steps.custom_action.outputs.fuselage }} = "skip"]; then 
+            echo "skipping loki "
+          fi
       - name: output from the action
         run: |
           echo "fuselage:${{ steps.custom_action.outputs.fuselage }}"
