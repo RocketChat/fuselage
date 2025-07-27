@@ -76,7 +76,52 @@ jobs:
         run: yarn build
         working-directory: ./.github/actions/test
       - name: custom action test
+        id: custom_action
         uses: ./.github/actions/test
+      - name: visual test for fuselage
+        if: always()
+        run: |
+          if [ "${{steps.custom_action.outputs.fuselage }}" = "skip" ]; then 
+            echo "skipping visual tests for fuselage"
+          elif [ "${{steps.custom_action.outputs.fuselage }}" = "full test"]; then 
+            yarn loki --requireReference --reactUri file:./storybook-static --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\"
+          else
+            echo "smart test"
+          fi
+        working-directory: packages/fuselage
+      - name: visual test for fuselage-toastbar
+        if: always()
+        run: |
+          if [ "${{steps.custom_action.outputs.fuselage-toastbar }}" = "skip" ]; then 
+            echo "skipping visual test for fuselage-toastbar "
+          elif [ "${{steps.custom_action.outputs.fuselage-toastbar }}" = "full test"]; then 
+            yarn loki --requireReference --reactUri file:./storybook-static --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\"
+          else
+            echo "smart test"
+          fi
+        working-directory: packages/fuselage-toastbar
+      - name: visual test for layout
+        if: always()
+        run: |
+          if [ "${{steps.custom_action.outputs.layout }}" = "skip" ]; then 
+            echo "skipping visual tests fro layout "
+          elif [ "${{steps.custom_action.outputs.layout }}" = "full test"]; then 
+            yarn loki --requireReference --reactUri file:./storybook-static --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\"
+          else
+            echo "smart test"
+          fi
+        working-directory: packages/layout
+      - name: visual test for onboarding-ui
+        if: always()
+        run: |
+          if [ "${{steps.custom_action.outputs.onboarding-ui }}" = "skip" ]; then 
+            echo "skipping visual test for onboarding-ui "
+          elif [ "${{steps.custom_action.outputs.onboarding-ui }}" = "full test"]; then 
+            yarn loki --requireReference --reactUri file:./storybook-static --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\"
+          else
+            echo "smart test"
+          fi
+        working-directory: packages/onboarding-ui
       - name: upload loki images
         if: always()
         uses: actions/upload-artifact@v4
@@ -182,6 +227,3 @@ jobs:
       - name: loki test fuselage-toastbar
         run: yarn loki --requireReference --reactUri file:./storybook-static
         working-directory: packages/fuselage-toastbar
-      - name: run script
-        run: ./script.sh
-        shell: bash

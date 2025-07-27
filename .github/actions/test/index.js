@@ -30,7 +30,6 @@ async function run(context){
                 await trimStatsFile(dest,`.github/actions/test/dist/trimmed-${dest.split('/').slice(-1)}`);
             }
         }
-    await runLoki('fuselage', 'full test');
     if(context.eventName === 'pull_request'){
         const changedFiles = await getChangedFile(context);        
         const data = await runner(changedFiles);
@@ -38,6 +37,25 @@ async function run(context){
         core.startGroup('click to see the changed files');
         console.log(changedFiles);
         core.endGroup();
+        console.log(regex);
+        if(regex['fuselage'].length === 0 ) {
+            regex['fuselage'] = 'skip';
+        }
+        if(regex['fuselage-toastbar'].length === 0 ) {
+            regex['fuselage-toastbar'] = 'skip';
+        }
+        if(regex['layout'].length === 0 ) {
+            regex['layout'] = 'skip';
+        }
+        if(regex['onboarding-ui'].length === 0 ) {
+            regex['onboarding-ui'] = 'skip';
+        }
+        console.log(regex);
+        core.setOutput('fuselage', regex['fuselage']);
+        core.setOutput('fuselage-toastbar', regex['fuselage-toastbar']);
+        core.setOutput('layout', regex['layout']);
+        core.setOutput('onboarding-ui', regex['onboarding-ui']);
+        
         // await runLoki('fuselage', regex.fuselage);
         // for(const reg in regex) {
         //     if(regex[reg].length === 0) {

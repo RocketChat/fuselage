@@ -3,8 +3,19 @@ import { getIndirectDps } from './getIndirectDependency.js';
 import { isStoryBookPkg } from './isStorybookPkg.js';
 // // test
 const changedFiles = [
-    '.github/actions/test/affectedFiles.js',
-    // 'packages/fuselage/.loki/reference/desktop_Data_Display_Icon_Default.png',
+    // '.github/actions/test/affectedFiles.js',
+    // '.husky',
+    // '.turbo',
+    // '.yarn',
+    // 'tools',
+    // 'README.md',
+    // 'packages/css-in-js/src/transpile.spec.ts',
+    // 'css-supports/index.ts'
+    // 'packages/fuselage/src/hooks/useStyle.ts',
+    // 'packages/fuselage-toastbar/.storybook/logo.svg'
+    // 'packages/layout/layouts/components/ActionLink/indexts'
+    // 'packages/onboarding-ui/src/common/FormPageLayout.stories.tsx'
+    // 'packages/onboarding-ui/src/flows/SelfHostedRegistration/SelfHostedRegistration.stories.tsx'
     // 'packages/css-in-js/.loki/reference/desktop_Data_Display_Icon_Default.png',
     // 'packages',
     // 'some.txt',
@@ -13,9 +24,9 @@ const changedFiles = [
     // 'packages/layout/package.json',
     // 'packages/fuselage/package.json',
     // 'packages/fuselage/src/components/Box/Box.tsx',
+    // 'packages/fuselage/src/components/Accordion/index.ts',
     // 'packages/fuselage-toastbar/src/ToastBar.stories.tsx',
     // 'packages/css-in-js/index.ts',
-    // 'packages/anxhul10/css/in/js',
     // 'packages/onboarding-ui/src/common/AgreeTermsField.tsx',
     // 'packages/layout/src/components/ActionLink/ActionLink.tsx',
     // 'packages/layout/src/contexts/LayoutContext.ts',
@@ -144,7 +155,7 @@ export const runner = async (changedFiles)=> {
         const saveIndirectDps = new Array();
         const saveDirectDps = new Array();
         for(const pkgName in map) {
-            if(!map[pkgName].includes('src') && isStoryBookPkg(pkgName)) continue;
+            // if(!map[pkgName].includes('src') && isStoryBookPkg(pkgName)) continue;
             const chunk = map[pkgName][0].split('/');
             if(chunk.length === 3 && chunk[2] != 'package.json') continue;
             else if(chunk.length === 2 ) continue;
@@ -156,9 +167,3 @@ export const runner = async (changedFiles)=> {
         return result;
     }
 }
-
-/*
-AIL  chrome.docker/tablet/Feedback/Callout
-       With Actions
-
-*/
