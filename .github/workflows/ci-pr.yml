@@ -83,7 +83,7 @@ jobs:
         run: |
           if [ "${{steps.custom_action.outputs.fuselage }}" = "skip" ]; then 
             echo "skipping visual tests for fuselage"
-          elif [ "${{steps.custom_action.outputs.fuselage }}" = "full test"]; then 
+          elif [ "${{steps.custom_action.outputs.fuselage }}" = "full test" ]; then 
             yarn loki --requireReference --reactUri file:./storybook-static --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\"
           else
             echo "smart test"
@@ -94,7 +94,7 @@ jobs:
         run: |
           if [ "${{steps.custom_action.outputs.fuselage-toastbar }}" = "skip" ]; then 
             echo "skipping visual test for fuselage-toastbar "
-          elif [ "${{steps.custom_action.outputs.fuselage-toastbar }}" = "full test"]; then 
+          elif [ "${{steps.custom_action.outputs.fuselage-toastbar }}" = "full test" ]; then 
             yarn loki --requireReference --reactUri file:./storybook-static --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\"
           else
             echo "smart test"
@@ -105,7 +105,7 @@ jobs:
         run: |
           if [ "${{steps.custom_action.outputs.layout }}" = "skip" ]; then 
             echo "skipping visual tests fro layout "
-          elif [ "${{steps.custom_action.outputs.layout }}" = "full test"]; then 
+          elif [ "${{steps.custom_action.outputs.layout }}" = "full test" ]; then 
             yarn loki --requireReference --reactUri file:./storybook-static --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\"
           else
             echo "smart test"
@@ -116,7 +116,7 @@ jobs:
         run: |
           if [ "${{steps.custom_action.outputs.onboarding-ui }}" = "skip" ]; then 
             echo "skipping visual test for onboarding-ui "
-          elif [ "${{steps.custom_action.outputs.onboarding-ui }}" = "full test"]; then 
+          elif [ "${{steps.custom_action.outputs.onboarding-ui }}" = "full test" ]; then 
             yarn loki --requireReference --reactUri file:./storybook-static --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\"
           else
             echo "smart test"
