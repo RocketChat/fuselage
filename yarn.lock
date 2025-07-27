@@ -16715,18 +16715,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"odinsnap@workspace:.github/actions/test":
-  version: 0.0.0-use.local
-  resolution: "odinsnap@workspace:.github/actions/test"
-  dependencies:
-    "@actions/core": "npm:~1.11.1"
-    "@actions/github": "npm:~6.0.1"
-    "@discoveryjs/json-ext": "npm:~0.6.3"
-    execa: "npm:~9.6.0"
-    rollup: "npm:~4.44.2"
-  languageName: unknown
-  linkType: soft
-
 "on-finished@npm:2.4.1":
   version: 2.4.1
   resolution: "on-finished@npm:2.4.1"
@@ -18936,6 +18924,18 @@ __metadata:
   checksum: 10/0eb7edf08aa39017496c99ba675552dda11a20811ba78f8232da2ba945308c91e9cd673f95998b1a8202bc7436d33390831d23ea38ae52751038d56373ad99e2
   languageName: node
   linkType: hard
+
+"rocket.thruster@workspace:.github/actions/test":
+  version: 0.0.0-use.local
+  resolution: "rocket.thruster@workspace:.github/actions/test"
+  dependencies:
+    "@actions/core": "npm:~1.11.1"
+    "@actions/github": "npm:~6.0.1"
+    "@discoveryjs/json-ext": "npm:~0.6.3"
+    execa: "npm:~9.6.0"
+    rollup: "npm:~4.44.2"
+  languageName: unknown
+  linkType: soft
 
 "rollup@npm:~4.43.0":
   version: 4.43.0

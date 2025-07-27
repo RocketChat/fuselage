@@ -72,7 +72,7 @@ async function run(context){
         // }
     }
     else {
-        core.error('To use Loki OdinSnap please use trigger events like pull request or push');
+        core.error('To use Loki rocket.thruster please use trigger events like pull request or push');
     }
 }
 run(context);
