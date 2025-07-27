@@ -82,7 +82,7 @@ jobs:
         if: always()
         run: |
           if [ "${{steps.custom_action.outputs.fuselage }}" = "full test" ]; then 
-            yarn loki --requireReference --reactUri file:./storybook-static --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\"
+            sudo yarn loki --requireReference --reactUri file:./storybook-static --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\"
           elif [ "${{steps.custom_action.outputs.fuselage }}" = "full test" ]; then 
             echo "skipping visual tests for fuselage"
           else
