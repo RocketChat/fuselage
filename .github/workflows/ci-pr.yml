@@ -83,7 +83,8 @@ jobs:
         run: |
           if [ "${{steps.custom_action.outputs.fuselage }}" = "skip" ]; then 
             echo "skipping visual tests for fuselage"
-          elif [ "${{steps.custom_action.outputs.fuselage }}" = "full test" ]; then 
+          fi
+          if [ "${{steps.custom_action.outputs.fuselage }}" = "full test" ]; then 
             yarn loki --requireReference --reactUri file:./storybook-static --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\"
           else
             echo "smart test"
