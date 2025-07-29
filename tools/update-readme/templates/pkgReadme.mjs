@@ -67,4 +67,16 @@ export const pkgReadme = (pkg) =>
           `
         : ''
     }
+    
+    ${
+      pkg.scripts?.['update-storybook']
+        ? outdent`
+            ### Visually testing stories
+            We perform visual regression testing in our component stories using [Loki](https://loki.js.org/).
+            Everytime you add, modify, or remove components, you should update the set of reference images used to match
+            how the components render in a real browser by running the following:
+            ${section(pkg, 'yarn(update-storybook)')}
+          `
+        : ''
+    }
   `;
