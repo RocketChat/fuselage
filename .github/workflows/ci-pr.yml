@@ -82,7 +82,7 @@ jobs:
         if: always()
         run: |
           if [ "${{steps.custom_action.outputs.fuselage }}" = "full test" ]; then 
-            sudo yarn loki --requireReference --reactUri file:./storybook-static --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\"
+            yarn loki:test-ci
           elif [ "${{steps.custom_action.outputs.fuselage }}" = "full test" ]; then 
             echo "skipping visual tests for fuselage"
           else
@@ -96,7 +96,7 @@ jobs:
             echo "skipping visual test for fuselage-toastbar "
           fi
           if [ "${{steps.custom_action.outputs.fuselage-toastbar }}" = "full test" ]; then 
-            yarn loki --requireReference --reactUri file:./storybook-static --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\"
+            yarn loki:test-ci
           else
             echo "smart test"
           fi
@@ -107,7 +107,7 @@ jobs:
           if [ "${{steps.custom_action.outputs.layout }}" = "skip" ]; then 
             echo "skipping visual tests fro layout "
           elif [ "${{steps.custom_action.outputs.layout }}" = "full test" ]; then 
-            yarn loki --requireReference --reactUri file:./storybook-static --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\"
+            yarn loki:test-ci
           else
             echo "smart test"
           fi
@@ -118,7 +118,7 @@ jobs:
           if [ "${{steps.custom_action.outputs.onboarding-ui }}" = "skip" ]; then 
             echo "skipping visual test for onboarding-ui "
           elif [ "${{steps.custom_action.outputs.onboarding-ui }}" = "full test" ]; then 
-            yarn loki --requireReference --reactUri file:./storybook-static --chromeFlags=\"--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor\"
+            yarn loki:test-ci
           else
             echo "smart test"
           fi
