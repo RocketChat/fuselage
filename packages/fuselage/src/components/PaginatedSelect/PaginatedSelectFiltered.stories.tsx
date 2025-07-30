@@ -1,5 +1,7 @@
 import type { StoryFn, Meta } from '@storybook/react-webpack5';
 
+import Option, { OptionDescription } from '../Option';
+
 import { PaginatedSelectFiltered } from './PaginatedSelectFiltered';
 
 export default {
@@ -33,4 +35,15 @@ Errored.args = {
 export const Disabled = Template.bind({});
 Disabled.args = {
   disabled: true,
+};
+
+export const WithRenderItem = Template.bind({});
+WithRenderItem.args = {
+  renderItem: ({ label, value, index, ...props }) => (
+    <Option {...props} label={<strong>{label}</strong>}>
+      <OptionDescription>
+        (Value: {value}, Index: {index})
+      </OptionDescription>
+    </Option>
+  ),
 };
