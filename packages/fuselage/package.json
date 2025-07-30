@@ -45,7 +45,7 @@
     ".:update-storybook:purge-refs": "rimraf .loki/reference",
     ".:update-storybook:loki-update": "loki update --chromeDockerImage=chinello/alpine-chrome:93 --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --verboseRenderer --requireReference --reactUri file:./storybook-static",
     "prettier-format": "prettier 'src/**/*.{ts,tsx,js,jsx}' --write",
-    "loki:test-ci": "loki test --chromeDockerWithoutSeccomp='true' --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --requireReference --verboseRenderer --reactUri file:./storybook-static"
+    "loki:test-ci": "loki test --chromeDockerImage='yukinying/chrome-headless-browser-stable:118.0.5993.11' --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --requireReference --verboseRenderer --reactUri file:./storybook-static"
   },
   "dependencies": {
     "@rocket.chat/css-in-js": "workspace:~",
