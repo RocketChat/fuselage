@@ -224,7 +224,7 @@ jobs:
           restore-keys: |
             turbo-${{ runner.os }}-
       - name: show directory
-        run: ls
+        run: ls -a
       - name: custom action test
         id: custom_action
         uses: ./.github/actions/test
