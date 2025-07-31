@@ -1,8 +1,8 @@
 import * as core from '@actions/core';
 import * as github from '@actions/github';
 
+import { getAffectedComponents } from './src/getAffectedComponents.js';
 import { getChangedFile } from './src/git/git.js';
-import { getAffectedComponents } from './src/getAffectedComponents.js'
 import { trimStatsFile } from './src/stats/trimStatsFile.js';
 import { copyFiles } from './src/utils/copyFiles.js';
 import { generateRegex } from './src/utils/generateRegex.js';
