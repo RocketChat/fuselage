@@ -213,7 +213,7 @@ jobs:
         if: steps.yarn-cache.outputs.cache-hit != 'true'
       - uses: actions/download-artifact@v4
         with:
-          name: "loki-storybooks-${{ github.event.number }}"
+          name: 'storybooks-${{ github.event.number }}'
           path: packages
       - name: Turbo Cache
         id: turbo-cache
