@@ -1,7 +1,7 @@
 import { readStatsFile } from './stats/readStatsFile.js';
 
 /**
- * 
+ *
  * @param {string} name - component filename or path from src
  * @param {string} statsPath - path to .json file of stats
  * @returns {promise<string[]>} - list of affected components stories if it returns .storybook run full test on this stats package
@@ -13,7 +13,7 @@ export const getResonsLogic = async (name, statsPath) => {
 
   const walk = (file) => {
     if (seenModules.has(file)) {
-      return
+      return;
     }
     seenModules.add(file);
 
@@ -28,7 +28,7 @@ export const getResonsLogic = async (name, statsPath) => {
         if (module.reasons) {
           for (const reason of module.reasons) {
             if (reason.moduleName) {
-              if(reason.moduleName.includes('.storybook')){
+              if (reason.moduleName.includes('.storybook')) {
                 affectedStories.add(reason.moduleName);
               }
               walk(reason.moduleName);
@@ -49,14 +49,12 @@ export const getResonsLogic = async (name, statsPath) => {
 export const getReasons = async (name, statsPath) => {
   const arr = await getResonsLogic(name, statsPath);
   try {
-    if(arr.length === 0) {
+    if (arr.length === 0) {
       throw new Error(`no matching ${name} in the ${statsPath}`);
     }
     return arr;
-  } catch(error) {
+  } catch (error) {
     console.log(error.message);
     return [];
   }
-
-}
-
+};

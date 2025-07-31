@@ -1,80 +1,106 @@
-import * as github from '@actions/github';
 import * as core from '@actions/core';
+import * as github from '@actions/github';
+
 import { getChangedFile } from './src/git/git.js';
-import { copyFiles } from './src/utils/copyFiles.js';
-import { trimStatsFile } from './src/stats/trimStatsFile.js';
 import { runner } from './src/runner.js';
-import { runLoki } from './src/runLoki.js';
+import { trimStatsFile } from './src/stats/trimStatsFile.js';
+import { copyFiles } from './src/utils/copyFiles.js';
 import { generateRegex } from './src/utils/generateRegex.js';
 
 // yarn build-storybook --stats-json gives project-stats.json which has component titles
 // where as index.json gives the webpack base dependency graph
 // index.js run from the root of the project
-const context = github.context;
+const { context } = github;
 const filesToCopy = [
-    {src:'./packages/fuselage/storybook-static/index.json', dest:'.github/actions/test/dist/fuselage-sb.json'},
-    {src:'./packages/fuselage-toastbar/storybook-static/index.json', dest:'.github/actions/test/dist/fuselage-toastbar-sb.json'},
-    {src:'./packages/onboarding-ui/storybook-static/index.json', dest:'.github/actions/test/dist/onboarding-ui-sb.json'},
-    {src:'./packages/layout/storybook-static/index.json', dest:'.github/actions/test/dist/layout-sb.json'},
-    {src:'./packages/fuselage/storybook-static/preview-stats.json', dest: '.github/actions/test/dist/fuselage-stats.json'},
-    {src:'./packages/fuselage-toastbar/storybook-static/preview-stats.json', dest:'.github/actions/test/dist/fuselage-toastbar-stats.json'},
-    {src:'./packages/onboarding-ui/storybook-static/preview-stats.json', dest:'.github/actions/test/dist/onboarding-ui-stats.json'},
-    {src:'./packages/layout/storybook-static/preview-stats.json', dest:'.github/actions/test/dist/layout-stats.json'},
-]
+  {
+    src: './packages/fuselage/storybook-static/index.json',
+    dest: '.github/actions/test/dist/fuselage-sb.json',
+  },
+  {
+    src: './packages/fuselage-toastbar/storybook-static/index.json',
+    dest: '.github/actions/test/dist/fuselage-toastbar-sb.json',
+  },
+  {
+    src: './packages/onboarding-ui/storybook-static/index.json',
+    dest: '.github/actions/test/dist/onboarding-ui-sb.json',
+  },
+  {
+    src: './packages/layout/storybook-static/index.json',
+    dest: '.github/actions/test/dist/layout-sb.json',
+  },
+  {
+    src: './packages/fuselage/storybook-static/preview-stats.json',
+    dest: '.github/actions/test/dist/fuselage-stats.json',
+  },
+  {
+    src: './packages/fuselage-toastbar/storybook-static/preview-stats.json',
+    dest: '.github/actions/test/dist/fuselage-toastbar-stats.json',
+  },
+  {
+    src: './packages/onboarding-ui/storybook-static/preview-stats.json',
+    dest: '.github/actions/test/dist/onboarding-ui-stats.json',
+  },
+  {
+    src: './packages/layout/storybook-static/preview-stats.json',
+    dest: '.github/actions/test/dist/layout-stats.json',
+  },
+];
 
-async function run(context){
-    // getTrimmedstats
-    for( const {src, dest} of filesToCopy ){
-            copyFiles(src, dest);
-            if(dest.includes('stats')){
-                await trimStatsFile(dest,`.github/actions/test/dist/trimmed-${dest.split('/').slice(-1)}`);
-            }
-        }
-    if(context.eventName === 'pull_request'){
-        const changedFiles = await getChangedFile(context);        
-        const data = await runner(changedFiles);
-        const regex = generateRegex(data);
-        core.startGroup('click to see the changed files');
-        console.log(changedFiles);
-        core.endGroup();
-        console.log(regex);
-        if(regex['fuselage'].length === 0 ) {
-            regex['fuselage'] = 'skip';
-        }
-        if(regex['fuselage-toastbar'].length === 0 ) {
-            regex['fuselage-toastbar'] = 'skip';
-        }
-        if(regex['layout'].length === 0 ) {
-            regex['layout'] = 'skip';
-        }
-        if(regex['onboarding-ui'].length === 0 ) {
-            regex['onboarding-ui'] = 'skip';
-        }
-        console.log(regex);
-        core.setOutput('fuselage', regex['fuselage']);
-        core.setOutput('fuselage-toastbar', regex['fuselage-toastbar']);
-        core.setOutput('layout', regex['layout']);
-        core.setOutput('onboarding-ui', regex['onboarding-ui']);
-        
-        // await runLoki('fuselage', regex.fuselage);
-        // for(const reg in regex) {
-        //     if(regex[reg].length === 0) {
-        //         console.log(`skipping Loki in packages/${reg}`);
-        //     } else if (regex[reg] === 'full test') {
-        //         core.startGroup(`currenlty running Loki on packages/${reg}--full test:`);
-        //         await runLoki(reg, 'full test');
-        //         core.endGroup();
-        //     } else {
-        //         core.startGroup(`currenlty running Loki on packages/${reg}:`);
-        //         await runLoki(reg, regex[reg]);
-        //         core.endGroup();
-        //     }
-        // }
+async function run(context) {
+  // getTrimmedstats
+  const promises = [];
+  for (const { src, dest } of filesToCopy) {
+    copyFiles(src, dest);
+    if (dest.includes('stats')) {
+      const trimmedPath = `.github/actions/test/dist/trimmed-${dest.split('/').slice(-1)}`;
+      promises.push(trimStatsFile(dest, trimmedPath));
     }
-    else {
-        core.error('To use Loki rocket.thruster please use trigger events like pull request or push');
+  }
+  await Promise.all(promises);
+  if (context.eventName === 'pull_request') {
+    const changedFiles = await getChangedFile(context);
+    const data = await runner(changedFiles);
+    const regex = generateRegex(data);
+    core.startGroup('click to see the changed files');
+    console.log(changedFiles);
+    core.endGroup();
+    console.log(regex);
+    if (regex.fuselage.length === 0) {
+      regex.fuselage = 'skip';
     }
+    if (regex['fuselage-toastbar'].length === 0) {
+      regex['fuselage-toastbar'] = 'skip';
+    }
+    if (regex.layout.length === 0) {
+      regex.layout = 'skip';
+    }
+    if (regex['onboarding-ui'].length === 0) {
+      regex['onboarding-ui'] = 'skip';
+    }
+    console.log(regex);
+    core.setOutput('fuselage', regex.fuselage);
+    core.setOutput('fuselage-toastbar', regex['fuselage-toastbar']);
+    core.setOutput('layout', regex.layout);
+    core.setOutput('onboarding-ui', regex['onboarding-ui']);
+
+    // await runLoki('fuselage', regex.fuselage);
+    // for(const reg in regex) {
+    //     if(regex[reg].length === 0) {
+    //         console.log(`skipping Loki in packages/${reg}`);
+    //     } else if (regex[reg] === 'full test') {
+    //         core.startGroup(`currenlty running Loki on packages/${reg}--full test:`);
+    //         await runLoki(reg, 'full test');
+    //         core.endGroup();
+    //     } else {
+    //         core.startGroup(`currenlty running Loki on packages/${reg}:`);
+    //         await runLoki(reg, regex[reg]);
+    //         core.endGroup();
+    //     }
+    // }
+  } else {
+    core.error(
+      'To use Loki rocket.thruster please use trigger events like pull request or push',
+    );
+  }
 }
 run(context);
-
-
