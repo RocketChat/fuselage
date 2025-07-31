@@ -64,7 +64,6 @@ async function run(context) {
     core.startGroup('click to see the changed files');
     console.log(changedFiles);
     core.endGroup();
-    console.log(regex);
     if (regex.fuselage.length === 0) {
       regex.fuselage = 'skip';
     }
@@ -77,7 +76,6 @@ async function run(context) {
     if (regex['onboarding-ui'].length === 0) {
       regex['onboarding-ui'] = 'skip';
     }
-    console.log(regex);
     core.setOutput('fuselage', regex.fuselage);
     core.setOutput('fuselage-toastbar', regex['fuselage-toastbar']);
     core.setOutput('layout', regex.layout);
