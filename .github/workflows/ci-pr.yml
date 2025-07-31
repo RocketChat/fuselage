@@ -100,7 +100,12 @@ jobs:
           elif [ "${{steps.custom_action.outputs.fuselage }}" = "full test" ]; then 
             echo "skipping visual tests for fuselage"
           else
-            echo "smart test"
+            core.startGroup('Affected components')
+            echo ${{steps.custom_action.outputs.fuselage }}
+            core.endGroup();
+            core.startGroup('running smart test')
+            yarn loki test --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --requireReference --verboseRenderer --reactUri file:./storybook-static --storiesFilter="${{steps.custom_action.outputs.fuselage }}"
+            core.endGroup();
           fi
         working-directory: packages/fuselage
       - name: visual test for fuselage-toastbar
