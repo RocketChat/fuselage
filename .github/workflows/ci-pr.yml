@@ -89,8 +89,7 @@ jobs:
       - name: Build private action
         run: yarn build
         working-directory: ./.github/actions/test
-      - name: thruster action
-        id: thruster_action
+      - id: thruster_action
         uses: ./.github/actions/test
       - name: visual test for fuselage
         if: always()
