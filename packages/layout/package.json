@@ -32,7 +32,7 @@
     "test": "jest --runInBand",
     "docs": "typedoc",
     "storybook": "storybook dev -p 6006 --no-version-updates",
-    "build-storybook": "storybook build",
+    "build-storybook": "storybook build --stats-json",
     "update-storybook": "run-s .:update-storybook:build-storybook .:update-storybook:purge-refs .:update-storybook:loki-update resolve",
     "resolve": "resolve-loki",
     ".:update-storybook:build-storybook": "run-s build-storybook",
