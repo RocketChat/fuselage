@@ -143,10 +143,18 @@ jobs:
         with:
           name: loki-${{ github.event.number }}
           path: |
-            packages/fuselage/.loki
-            packages/fuselage-toastbar/.loki
-            packages/onboarding-ui/.loki
-            packages/layout/.loki
+            packages/fuselage/.loki/current
+            packages/fuselage/.loki/difference
+            packages/fuselage/.loki/reference
+            packages/fuselage-toastbar/.loki/current
+            packages/fuselage-toastbar/.loki/difference
+            packages/fuselage-toastbar/.loki/reference
+            packages/onboarding-ui/.loki/current
+            packages/onboarding-ui/.loki/difference
+            packages/onboarding-ui/.loki/reference
+            packages/layout/.loki/current
+            packages/layout/.loki/difference
+            packages/layout/.loki/reference
       - name: download .loki
         if: always()
         uses: actions/download-artifact@v4
