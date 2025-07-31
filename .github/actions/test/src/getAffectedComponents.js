@@ -105,7 +105,7 @@ function potentialFullTest(changedFiles) {
   }
   return false;
 }
-export const runner = async (changedFiles) => {
+export const getAffectedComponents = async (changedFiles) => {
   if (potentialFullTest(changedFiles)) {
     const fuselage = new Set();
     const fuselageToastbar = new Set();

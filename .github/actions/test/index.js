@@ -2,7 +2,7 @@ import * as core from '@actions/core';
 import * as github from '@actions/github';
 
 import { getChangedFile } from './src/git/git.js';
-import { runner } from './src/runner.js';
+import { getAffectedComponents } from './src/getAffectedComponents.js'
 import { trimStatsFile } from './src/stats/trimStatsFile.js';
 import { copyFiles } from './src/utils/copyFiles.js';
 import { generateRegex } from './src/utils/generateRegex.js';
@@ -59,7 +59,7 @@ async function run(context) {
   await Promise.all(promises);
   if (context.eventName === 'pull_request') {
     const changedFiles = await getChangedFile(context);
-    const data = await runner(changedFiles);
+    const data = await getAffectedComponents(changedFiles);
     const regex = generateRegex(data);
     core.startGroup('click to see the changed files');
     console.log(changedFiles);
@@ -80,21 +80,6 @@ async function run(context) {
     core.setOutput('fuselage-toastbar', regex['fuselage-toastbar']);
     core.setOutput('layout', regex.layout);
     core.setOutput('onboarding-ui', regex['onboarding-ui']);
-
-    // await runLoki('fuselage', regex.fuselage);
-    // for(const reg in regex) {
-    //     if(regex[reg].length === 0) {
-    //         console.log(`skipping Loki in packages/${reg}`);
-    //     } else if (regex[reg] === 'full test') {
-    //         core.startGroup(`currenlty running Loki on packages/${reg}--full test:`);
-    //         await runLoki(reg, 'full test');
-    //         core.endGroup();
-    //     } else {
-    //         core.startGroup(`currenlty running Loki on packages/${reg}:`);
-    //         await runLoki(reg, regex[reg]);
-    //         core.endGroup();
-    //     }
-    // }
   } else {
     core.error(
       'To use Loki rocket.thruster please use trigger events like pull request or push',
