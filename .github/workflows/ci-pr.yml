@@ -47,34 +47,185 @@ jobs:
           name: 'storybooks-${{ github.event.number }}'
           path: |
             packages/fuselage/storybook-static
+            packages/fuselage-toastbar/storybook-static
             packages/onboarding-ui/storybook-static
             packages/layout/storybook-static
-  my-action:
-    name: my-action
+  # my-action:
+  #   name: my-action
+  #   runs-on: ubuntu-latest
+  #   needs:
+  #     - upload-artifact
+  #   steps:
+  #     - name: checkout reopened
+  #       uses: actions/checkout@v4
+  #       with: 
+  #         fetch-depth: 0
+  #     # - uses: actions/cache@v4
+  #     #   id: yarn-cache
+  #     #   with:
+  #     #     path: |
+  #     #       **/node_modules
+  #     #       .yarn/cache
+  #     #     key: ${{ runner.os }}-modules-${{ hashFiles('yarn.lock') }}
+  #     - run: yarn
+  #       if: steps.yarn-cache.outputs.cache-hit != 'true'
+  #     - uses: actions/download-artifact@v4
+  #       with:
+  #         name: "loki-storybooks-${{ github.event.number }}"
+  #         path: packages
+  #     - name: dist  
+  #       run: yarn build
+  #       working-directory: ./.github/actions/test
+  #     - name: custom action test
+  #       id: custom_action
+  #       uses: ./.github/actions/test
+  #     - name: visual test for fuselage
+  #       if: always()
+  #       run: |
+  #         if [ "${{steps.custom_action.outputs.fuselage }}" = "full test" ]; then 
+  #           yarn loki:test-ci
+  #         elif [ "${{steps.custom_action.outputs.fuselage }}" = "full test" ]; then 
+  #           echo "skipping visual tests for fuselage"
+  #         else
+  #           echo "smart test"
+  #         fi
+  #       working-directory: packages/fuselage
+  #     - name: visual test for fuselage-toastbar
+  #       if: always()
+  #       run: |
+  #         if [ "${{steps.custom_action.outputs.fuselage-toastbar }}" = "skip" ]; then 
+  #           echo "skipping visual test for fuselage-toastbar "
+  #         fi
+  #         if [ "${{steps.custom_action.outputs.fuselage-toastbar }}" = "full test" ]; then 
+  #           yarn loki:test-ci
+  #         else
+  #           echo "smart test"
+  #         fi
+  #       working-directory: packages/fuselage-toastbar
+  #     - name: visual test for layout
+  #       if: always()
+  #       run: |
+  #         if [ "${{steps.custom_action.outputs.layout }}" = "skip" ]; then 
+  #           echo "skipping visual tests fro layout "
+  #         elif [ "${{steps.custom_action.outputs.layout }}" = "full test" ]; then 
+  #           yarn loki:test-ci
+  #         else
+  #           echo "smart test"
+  #         fi
+  #       working-directory: packages/layout
+  #     - name: visual test for onboarding-ui
+  #       if: always()
+  #       run: |
+  #         if [ "${{steps.custom_action.outputs.onboarding-ui }}" = "skip" ]; then 
+  #           echo "skipping visual test for onboarding-ui "
+  #         elif [ "${{steps.custom_action.outputs.onboarding-ui }}" = "full test" ]; then 
+  #           yarn loki:test-ci
+  #         else
+  #           echo "smart test"
+  #         fi
+  #       working-directory: packages/onboarding-ui
+  #     - name: upload loki images
+  #       if: always()
+  #       uses: actions/upload-artifact@v4
+  #       with:
+  #         name: loki-${{ github.event.number }}
+  #         path: |
+  #           packages/fuselage/.loki/current
+  #           packages/fuselage/.loki/difference
+  #           packages/fuselage/.loki/reference
+  #           packages/fuselage-toastbar/.loki/current
+  #           packages/fuselage-toastbar/.loki/difference
+  #           packages/fuselage-toastbar/.loki/reference
+  #           packages/onboarding-ui/.loki/current
+  #           packages/onboarding-ui/.loki/difference
+  #           packages/onboarding-ui/.loki/reference
+  #           packages/layout/.loki/current
+  #           packages/layout/.loki/difference
+  #           packages/layout/.loki/reference
+  #     - name: download .loki
+  #       if: always()
+  #       uses: actions/download-artifact@v4
+  #       with:
+  #         name: loki-${{ github.event.number }}
+  # upload-artifact:
+  #   name: upload-artifact
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Show base and head branches
+  #       run: |
+  #         echo "Base branch: ${{ github.event.pull_request.base.ref }}"
+  #         echo "Head branch: ${{ github.event.pull_request.head.ref }}"
+  #     - uses: actions/setup-node@v4
+  #       with:
+  #         node-version: "22.16.0"
+  #     - uses: actions/checkout@v4
+  #     - run: yarn install
+  #     - uses: actions/cache@v4
+  #       id: yarn-cache
+  #       with:
+  #         path: |
+  #           **/node_modules
+  #           .yarn/cache
+  #         key: ${{ runner.os }}-modules-${{ hashFiles('yarn.lock') }}
+  #     - run: yarn install
+  #       if: steps.yarn-cache.outputs.cache-hit != 'true'
+  #     - name: yarn build-fuselage
+  #       working-directory: packages/fuselage
+  #       run: yarn build-storybook --stats-json
+  #     - name: yarn build-onboarding-ui
+  #       working-directory: packages/onboarding-ui
+  #       run: yarn build-storybook --stats-json
+  #     - name: yarn build-layout
+  #       working-directory: packages/layout
+  #       run: yarn build-storybook --stats-json
+  #     - name: yarn build-fuselage-toastbar
+  #       working-directory: packages/fuselage-toastbar
+  #       run: yarn build-storybook --stats-json
+  #     - uses: actions/upload-artifact@v4
+  #       with:
+  #         name: 'loki-storybooks-${{ github.event.number }}'
+  #         path: |
+  #           packages/fuselage-toastbar/storybook-static
+  #           packages/fuselage/storybook-static
+  #           packages/onboarding-ui/storybook-static
+  #           packages/layout/storybook-static
+  test-with-loki:
+    name: Test with Loki
     runs-on: ubuntu-latest
+    env:
+      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+      TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
     needs:
       - upload-artifact
+    needs:
+      - build-and-test
     steps:
-      - name: checkout reopened
-        uses: actions/checkout@v4
-        with: 
-          fetch-depth: 0
-      # - uses: actions/cache@v4
-      #   id: yarn-cache
-      #   with:
-      #     path: |
-      #       **/node_modules
-      #       .yarn/cache
-      #     key: ${{ runner.os }}-modules-${{ hashFiles('yarn.lock') }}
-      - run: yarn
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22.16.0"
+      - uses: actions/checkout@v4
+      - run: yarn install
+      - uses: actions/cache@v4
+        id: yarn-cache
+        with:
+          path: |
+            **/node_modules
+            .yarn/cache
+          key: ${{ runner.os }}-modules-${{ hashFiles('yarn.lock') }}
+      - run: yarn install
         if: steps.yarn-cache.outputs.cache-hit != 'true'
       - uses: actions/download-artifact@v4
         with:
           name: "loki-storybooks-${{ github.event.number }}"
           path: packages
-      - name: dist  
-        run: yarn build
-        working-directory: ./.github/actions/test
+      - name: Turbo Cache
+        id: turbo-cache
+        uses: actions/cache@v4
+        with:
+          path: .turbo
+          key: turbo-${{ runner.os }}-${{ github.job }}
+          restore-keys: |
+            turbo-${{ runner.os }}-
       - name: custom action test
         id: custom_action
         uses: ./.github/actions/test
@@ -146,85 +297,3 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: loki-${{ github.event.number }}
-  upload-artifact:
-    name: upload-artifact
-    runs-on: ubuntu-latest
-    steps:
-      - name: Show base and head branches
-        run: |
-          echo "Base branch: ${{ github.event.pull_request.base.ref }}"
-          echo "Head branch: ${{ github.event.pull_request.head.ref }}"
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "22.16.0"
-      - uses: actions/checkout@v4
-      - run: yarn install
-      - uses: actions/cache@v4
-        id: yarn-cache
-        with:
-          path: |
-            **/node_modules
-            .yarn/cache
-          key: ${{ runner.os }}-modules-${{ hashFiles('yarn.lock') }}
-      - run: yarn install
-        if: steps.yarn-cache.outputs.cache-hit != 'true'
-      - name: yarn build-fuselage
-        working-directory: packages/fuselage
-        run: yarn build-storybook --stats-json
-      - name: yarn build-onboarding-ui
-        working-directory: packages/onboarding-ui
-        run: yarn build-storybook --stats-json
-      - name: yarn build-layout
-        working-directory: packages/layout
-        run: yarn build-storybook --stats-json
-      - name: yarn build-fuselage-toastbar
-        working-directory: packages/fuselage-toastbar
-        run: yarn build-storybook --stats-json
-      - uses: actions/upload-artifact@v4
-        with:
-          name: 'loki-storybooks-${{ github.event.number }}'
-          path: |
-            packages/fuselage-toastbar/storybook-static
-            packages/fuselage/storybook-static
-            packages/onboarding-ui/storybook-static
-            packages/layout/storybook-static
-  test-with-loki:
-    name: Test with Loki
-    runs-on: ubuntu-latest
-    env:
-      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
-      TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
-    needs:
-      - upload-artifact
-    # needs:
-    #   - build-and-test
-    steps:
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "22.16.0"
-      - uses: actions/checkout@v4
-      - run: yarn install
-      - uses: actions/cache@v4
-        id: yarn-cache
-        with:
-          path: |
-            **/node_modules
-            .yarn/cache
-          key: ${{ runner.os }}-modules-${{ hashFiles('yarn.lock') }}
-      - run: yarn install
-        if: steps.yarn-cache.outputs.cache-hit != 'true'
-      - uses: actions/download-artifact@v4
-        with:
-          name: "loki-storybooks-${{ github.event.number }}"
-          path: packages
-      - name: Turbo Cache
-        id: turbo-cache
-        uses: actions/cache@v4
-        with:
-          path: .turbo
-          key: turbo-${{ runner.os }}-${{ github.job }}
-          restore-keys: |
-            turbo-${{ runner.os }}-
-      - name: loki test fuselage-toastbar
-        run: yarn loki --requireReference --reactUri file:./storybook-static
-        working-directory: packages/fuselage-toastbar

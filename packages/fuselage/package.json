@@ -38,7 +38,7 @@
     "test": "jest --runInBand",
     "watch": "jest --watch",
     "docs": "cross-env NODE_ENV=production storybook build -o ../../static/fuselage",
-    "build-storybook": "cross-env NODE_ENV=production storybook build",
+    "build-storybook": "cross-env NODE_ENV=production storybook build --stats-json",
     "update-storybook": "run-s .:update-storybook:build-storybook .:update-storybook:purge-refs .:update-storybook:loki-update resolve",
     "resolve": "resolve-loki",
     ".:update-storybook:build-storybook": "run-s build-storybook",
