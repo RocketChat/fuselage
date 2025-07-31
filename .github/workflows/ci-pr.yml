@@ -224,9 +224,10 @@ jobs:
           path: .turbo
           key: turbo-${{ runner.os }}-${{ github.job }}
           restore-keys: |
-            turbo-${{ runner.os }}-
-      - name: show directory
-        run: ls -a
+            turbo-${{ runner.os }}-  
+      - name: Build private action
+        run: yarn build
+        working-directory: ./.github/actions/test
       - name: custom action test
         id: custom_action
         uses: ./.github/actions/test
