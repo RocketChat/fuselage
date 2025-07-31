@@ -112,7 +112,7 @@ jobs:
           if [ "${{steps.custom_action.outputs.fuselage-toastbar }}" = "full test" ]; then 
             yarn loki:test-ci
           else
-            echo "smart test"
+            yarn loki test --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --requireReference --verboseRenderer --reactUri file:./storybook-static --storiesFilter="${{steps.custom_action.outputs.fuselage-toastbar }}"
           fi
         working-directory: packages/fuselage-toastbar
       - name: visual test for layout
@@ -123,7 +123,7 @@ jobs:
           elif [ "${{steps.custom_action.outputs.layout }}" = "full test" ]; then 
             yarn loki:test-ci
           else
-            echo "smart test"
+            yarn loki test --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --requireReference --verboseRenderer --reactUri file:./storybook-static --storiesFilter="${{steps.custom_action.outputs.layout }}"
           fi
         working-directory: packages/layout
       - name: visual test for onboarding-ui
@@ -134,7 +134,7 @@ jobs:
           elif [ "${{steps.custom_action.outputs.onboarding-ui }}" = "full test" ]; then 
             yarn loki:test-ci
           else
-            echo "smart test "
+            yarn loki test --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --requireReference --verboseRenderer --reactUri file:./storybook-static --storiesFilter="${{steps.custom_action.outputs.onboarding-ui }}"
           fi
         working-directory: packages/onboarding-ui
       - name: upload loki images
