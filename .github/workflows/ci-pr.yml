@@ -95,10 +95,10 @@ jobs:
       - name: visual test for fuselage
         if: always()
         run: |
-          if [ "${{steps.custom_action.outputs.fuselage }}" = "full test" ]; then 
-            yarn loki:test-ci
+          if [ "${{steps.custom_action.outputs.fuselage }}" = "skip" ]; then 
+            echo "skipping visual test for fuselage"
           elif [ "${{steps.custom_action.outputs.fuselage }}" = "full test" ]; then 
-            echo "skipping visual tests for fuselage"
+            yarn loki:test-ci
           else
             yarn loki test --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --requireReference --verboseRenderer --reactUri file:./storybook-static --storiesFilter="${{steps.custom_action.outputs.fuselage }}"
           fi
@@ -108,8 +108,7 @@ jobs:
         run: |
           if [ "${{steps.custom_action.outputs.fuselage-toastbar }}" = "skip" ]; then 
             echo "skipping visual test for fuselage-toastbar "
-          fi
-          if [ "${{steps.custom_action.outputs.fuselage-toastbar }}" = "full test" ]; then 
+          elif [ "${{steps.custom_action.outputs.fuselage-toastbar }}" = "full test" ]; then 
             yarn loki:test-ci
           else
             yarn loki test --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --requireReference --verboseRenderer --reactUri file:./storybook-static --storiesFilter="${{steps.custom_action.outputs.fuselage-toastbar }}"
