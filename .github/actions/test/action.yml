@@ -1,7 +1,7 @@
 name: Loki
 branding:
-  icon: "check"
-  color: "green"
+  icon: 'check'
+  color: 'green'
 inputs:
   working_dir:
     required: true
@@ -9,7 +9,7 @@ inputs:
   react_uri:
     required: true
     default: ./storybook-static
-outputs:  
+outputs:
   fuselage:
     description: A regex of fuselage components
   fuselage-toastbar:
@@ -18,7 +18,7 @@ outputs:
     description: A regex of layout components
   onboarding-ui:
     description: A regex of onboarding-ui components
-  
+
 runs:
-  using: "node20"
+  using: 'node20'
   main: dist/index.js

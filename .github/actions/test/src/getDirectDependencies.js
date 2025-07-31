@@ -1,27 +1,38 @@
-import { isStoryBookPkg } from './isStorybookPkg.js';
-import { getReasons } from './getReasons.js';
-import { normaliseDDPath } from './normalise.js';
 import { getComponentTitle } from './getComponentTitle.js';
+import { getReasons } from './getReasons.js';
+import { isStoryBookPkg } from './isStorybookPkg.js';
+import { normaliseDDPath } from './normalise.js';
 
 /**
- * 
- * @param {Array<string>} changedFiles 
- * @param {string} changedPackage 
- * @returns 
+ *
+ * @param {Array<string>} changedFiles
+ * @param {string} changedPackage
+ * @returns
  */
 export const getDirectDependencies = async (changedFiles, changedPackage) => {
-    const normalizedFiles = normaliseDDPath(changedFiles);
-    const saveComponentTitles = new Set();
-    if(isStoryBookPkg(changedPackage)) {
-        for(const name of normalizedFiles) {
-            // returns me the array of changed stories
-            const result = await getReasons(name, `.github/actions/test/dist/trimmed-${changedPackage}-stats.json`);
-            const componentTiltes = await getComponentTitle(result, changedPackage);
-            for(const value of componentTiltes) {
-                saveComponentTitles.add(value);
-            }
-        }
-        return {[changedPackage]: saveComponentTitles}
+  const normalizedFiles = normaliseDDPath(changedFiles);
+  const saveComponentTitles = new Set();
+
+  if (isStoryBookPkg(changedPackage)) {
+    const promises = normalizedFiles.map(async (name) => {
+      const result = await getReasons(
+        name,
+        `.github/actions/test/dist/trimmed-${changedPackage}-stats.json`,
+      );
+      const componentTitles = await getComponentTitle(result, changedPackage);
+      return componentTitles;
+    });
+
+    const allTitles = await Promise.all(promises);
+
+    for (const titles of allTitles) {
+      for (const title of titles) {
+        saveComponentTitles.add(title);
+      }
     }
-    return {[changedPackage]: null};
-}
+
+    return { [changedPackage]: saveComponentTitles };
+  }
+
+  return { [changedPackage]: null };
+};

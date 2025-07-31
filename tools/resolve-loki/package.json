@@ -9,7 +9,7 @@
   "bin": "bin/resolve-loki-references.js",
   "devDependencies": {
     "@types/node": "^15.14.1",
-    "@typescript-eslint/parser": "^5.3.1",
+    "@typescript-eslint/parser": "^8.0.0",
     "cross-env": "^7.0.3",
     "endent": "^2.1.0",
     "eslint": "^9.29.0",
