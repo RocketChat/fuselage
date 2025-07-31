@@ -82,23 +82,21 @@ const graph = [
  * and the value is a Set of affected component titles.
  */
 export const getIndirectDps = async (pkgName) => {
-  const overall = [];
-  for (const obj of graph) {
-    if (isStoryBookPkg(Object.keys(obj)[0])) {
-      if (Object.values(obj)[0] === pkgName) {
-        const result = await getReasons(
-          pkgName,
-          `.github/actions/test/dist/trimmed-${Object.keys(obj)[0]}-stats.json`,
-        );
-        const cmp = {
-          [Object.keys(obj)[0]]: await getComponentTitle(
-            result,
-            Object.keys(obj)[0],
-          ),
-        };
-        overall.push(cmp);
-      }
-    }
-  }
+  const relevantGraph = graph.filter((obj) => {
+    const key = Object.keys(obj)[0];
+    return isStoryBookPkg(key) && Object.values(obj)[0] === pkgName;
+  });
+
+  const promises = relevantGraph.map(async (obj) => {
+    const key = Object.keys(obj)[0];
+    const result = await getReasons(
+      pkgName,
+      `.github/actions/test/dist/trimmed-${key}-stats.json`,
+    );
+    const titles = await getComponentTitle(result, key);
+    return { [key]: titles };
+  });
+
+  const overall = await Promise.all(promises);
   return overall;
 };

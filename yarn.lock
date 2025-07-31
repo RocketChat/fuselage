@@ -19145,6 +19145,7 @@ __metadata:
     eslint: "npm:~9.29.0"
     execa: "npm:~9.6.0"
     lint-all: "workspace:~"
+    prettier: "npm:~3.5.3"
     rollup: "npm:~4.44.2"
   languageName: unknown
   linkType: soft

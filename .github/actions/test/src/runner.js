@@ -63,22 +63,24 @@ async function mergeCmpDeps(saveDirectDps, saveIndirectDps, pkgToFileMap) {
     }
   }
   for (const pkg in pkgToFileMap) {
-    for (const file of pkgToFileMap[pkg]) {
-      if (file.includes('package.json') || file.includes('.storybook')) {
-        if (pkg === 'fuselage') {
-          fuselage.clear();
-          fuselage.add('full test');
-        } else if (pkg === 'fuselage-toastbar') {
-          fuselageToastbar.clear();
-          fuselageToastbar.add('full test');
-        } else if (pkg === 'onboarding-ui') {
-          onboardingUi.clear();
-          onboardingUi.add('full test');
-        } else if (pkg === 'layout') {
-          layout.clear();
-          layout.add('full test');
-        } else {
-          console.log('package donot contain storybook ');
+    if (Object.prototype.hasOwnProperty.call(pkgToFileMap, pkg)) {
+      for (const file of pkgToFileMap[pkg]) {
+        if (file.includes('package.json') || file.includes('.storybook')) {
+          if (pkg === 'fuselage') {
+            fuselage.clear();
+            fuselage.add('full test');
+          } else if (pkg === 'fuselage-toastbar') {
+            fuselageToastbar.clear();
+            fuselageToastbar.add('full test');
+          } else if (pkg === 'onboarding-ui') {
+            onboardingUi.clear();
+            onboardingUi.add('full test');
+          } else if (pkg === 'layout') {
+            layout.clear();
+            layout.add('full test');
+          } else {
+            console.log('package does not contain storybook');
+          }
         }
       }
     }
@@ -127,17 +129,31 @@ export const runner = async (changedFiles) => {
     }
   }
   const map = mapPackagesToFilePath(filterChangedFiles);
-  const saveIndirectDps = [];
-  const saveDirectDps = [];
+  const directDepsPromises = [];
+  const indirectDepsPromises = [];
+  const pkgNames = [];
+
   for (const pkgName in map) {
-    // if(!map[pkgName].includes('src') && isStoryBookPkg(pkgName)) continue;
-    const chunk = map[pkgName][0].split('/');
-    if (chunk.length === 3 && chunk[2] !== 'package.json') continue;
-    else if (chunk.length === 2) continue;
-    else if (chunk.length === 1) continue;
-    saveDirectDps.push(await getDirectDependencies(map[pkgName], pkgName));
-    saveIndirectDps.push(await getIndirectDps(pkgName));
+    if (Object.prototype.hasOwnProperty.call(map, pkgName)) {
+      const chunk = map[pkgName][0].split('/');
+
+      if (
+        (chunk.length === 3 && chunk[2] !== 'package.json') ||
+        chunk.length === 2 ||
+        chunk.length === 1
+      ) {
+        continue;
+      }
+
+      pkgNames.push(pkgName);
+      directDepsPromises.push(getDirectDependencies(map[pkgName], pkgName));
+      indirectDepsPromises.push(getIndirectDps(pkgName));
+    }
   }
+
+  const saveDirectDps = await Promise.all(directDepsPromises);
+  const saveIndirectDps = await Promise.all(indirectDepsPromises);
+
   const result = await mergeCmpDeps(saveDirectDps, saveIndirectDps, map);
   return result;
 };

@@ -3,13 +3,14 @@
  * @returns {Object<string, string>}
  */
 export const generateRegex = (changedCmps) => {
-  const rgx = new Object();
+  const rgx = {};
+
   for (const key in changedCmps) {
-    const trray = [];
-    for (const title of changedCmps[key]) {
-      trray.push(title);
+    if (Object.prototype.hasOwnProperty.call(changedCmps, key)) {
+      // changedCmps[key] is assumed to be a Set or array
+      const titles = Array.from(changedCmps[key]);
+      rgx[key] = titles.join('|');
     }
-    rgx[key] = trray.join('|');
   }
   return rgx;
 };

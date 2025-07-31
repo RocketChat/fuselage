@@ -35,6 +35,7 @@ export const trimStatsFile = async (filePath, fileName) => {
     await writeFile(fileName, trimmedJSON);
     return trimmedJSON;
   } catch (error) {
+    console.log(error);
     console.error('Error occured while writing file ...');
   }
 };
