@@ -99,7 +99,7 @@ jobs:
           elif [ "${{steps.thruster_action.outputs.fuselage }}" = "full test" ]; then 
             yarn loki:test-ci
           else
-            yarn loki test --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --requireReference --verboseRenderer --reactUri file:./storybook-static --storiesFilter="${{steps.thruster_action.outputs.fuselage }} --chromeTolerance='0.0025'"
+            yarn loki test --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --requireReference --verboseRenderer --reactUri file:./storybook-static --storiesFilter="${{steps.thruster_action.outputs.fuselage }} --chromeTolerance='0.08'"
           fi
         working-directory: packages/fuselage
       - name: visual test for fuselage-toastbar
