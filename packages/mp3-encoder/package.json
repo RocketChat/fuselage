@@ -44,7 +44,7 @@
     "@rollup/plugin-node-resolve": "~16.0.1",
     "@rollup/plugin-typescript": "~12.1.4",
     "eslint": "~9.29.0",
-    "jest": "~30.0.0",
+    "jest": "~30.0.5",
     "jest-environment-jsdom": "~30.0.5",
     "lint-all": "workspace:~",
     "prettier": "~3.5.3",
