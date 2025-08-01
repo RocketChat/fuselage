@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.66.1
+
+### Patch Changes
+
+- [#1733](https://github.com/RocketChat/fuselage/pull/1733) [`fcf1f7d`](https://github.com/RocketChat/fuselage/commit/fcf1f7d1c95363fc3577e9a1681d361fe1934ffb) Thanks [@aleksandernsilva](https://github.com/aleksandernsilva)! - feat(fuselage): Made index available to OptionsPaginated rendered items
+
 ## 0.66.0
 
 ### Minor Changes
