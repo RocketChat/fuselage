@@ -35,8 +35,8 @@
     "build-storybook": "storybook build"
   },
   "devDependencies": {
-    "@rocket.chat/fuselage": "workspace:~",
-    "@rocket.chat/fuselage-tokens": "workspace:~",
+    "@rocket.chat/fuselage": "^0.66.1",
+    "@rocket.chat/fuselage-tokens": "^0.33.2",
     "@storybook/addon-a11y": "~9.0.18",
     "@storybook/addon-docs": "~9.0.18",
     "@storybook/addon-webpack5-compiler-swc": "~3.0.0",
@@ -49,7 +49,7 @@
     "i18next": "~23.4.9",
     "jest": "~30.0.0",
     "jest-environment-jsdom": "~30.0.5",
-    "lint-all": "workspace:~",
+    "lint-all": "^0.31.25",
     "npm-run-all": "^4.1.5",
     "prettier": "~3.5.3",
     "react": "~18.3.1",
