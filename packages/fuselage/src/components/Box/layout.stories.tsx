@@ -51,14 +51,15 @@ export const Borders: StoryFn<typeof Box> = () => (
   </>
 );
 Borders.decorators = [
-  (fn: any) => (
+  (_: any, context: any) => (
     <Box display='flex' flexWrap='wrap' alignItems='center'>
-      {flattenChildren(fn().props.children).map((child: any) =>
-        cloneElement(child, {
-          size: 'x32',
-          m: 'x16',
-          borderColor: 'stroke-dark',
-        }),
+      {flattenChildren(context.originalStoryFn(context.args)).map(
+        (child: any) =>
+          cloneElement(child, {
+            size: 'x32',
+            m: 'x16',
+            borderColor: 'stroke-dark',
+          }),
       )}
     </Box>
   ),
@@ -74,14 +75,15 @@ export const BorderRadii: StoryFn<typeof Box> = () => (
   </>
 );
 BorderRadii.decorators = [
-  (fn: any) => (
+  (_: any, context: any) => (
     <Box display='flex' flexWrap='wrap' alignItems='center'>
-      {flattenChildren(fn().props.children).map((child: any) =>
-        cloneElement(child, {
-          bg: 'dark',
-          size: 'x32',
-          m: 'x16',
-        }),
+      {flattenChildren(context.originalStoryFn(context.args)).map(
+        (child: any) =>
+          cloneElement(child, {
+            bg: 'dark',
+            size: 'x32',
+            m: 'x16',
+          }),
       )}
     </Box>
   ),
@@ -98,16 +100,17 @@ export const Display: StoryFn<typeof Box> = () => (
   </>
 );
 Display.decorators = [
-  (fn: any) => (
+  (_: any, context: any) => (
     <Box color='default'>
-      {flattenChildren(fn().props.children).map((child: any) =>
-        cloneElement(child, {
-          children: child.props.display,
-          border: '1px solid',
-          borderColor: 'stroke-light',
-          m: 'x4',
-          p: 'x4',
-        }),
+      {flattenChildren(context.originalStoryFn(context.args)).map(
+        (child: any) =>
+          cloneElement(child, {
+            children: child.props.display,
+            border: '1px solid',
+            borderColor: 'stroke-light',
+            m: 'x4',
+            p: 'x4',
+          }),
       )}
     </Box>
   ),
@@ -123,14 +126,15 @@ export const Elevation: StoryFn<typeof Box> = () => (
   </>
 );
 Elevation.decorators = [
-  (fn: any) => (
+  (_: any, context: any) => (
     <Box display='flex' flexWrap='wrap' alignItems='center'>
-      {flattenChildren(fn().props.children).map((child: any) =>
-        cloneElement(child, {
-          bg: 'light',
-          size: 'x32',
-          m: 'x16',
-        }),
+      {flattenChildren(context.originalStoryFn(context.args)).map(
+        (child: any) =>
+          cloneElement(child, {
+            bg: 'light',
+            size: 'x32',
+            m: 'x16',
+          }),
       )}
     </Box>
   ),
@@ -145,10 +149,11 @@ export const Heights: StoryFn<typeof Box> = () => (
   </>
 );
 Heights.decorators = [
-  (fn: any) => (
+  (_: any, context: any) => (
     <Box display='flex' flexWrap='wrap' alignItems='center'>
-      {flattenChildren(fn().props.children).map((child: any) =>
-        cloneElement(child, { bg: 'neutral', w: 'x32', m: 'x4' }),
+      {flattenChildren(context.originalStoryFn(context.args)).map(
+        (child: any) =>
+          cloneElement(child, { bg: 'neutral', w: 'x32', m: 'x4' }),
       )}
     </Box>
   ),
@@ -171,9 +176,11 @@ export const Insets: StoryFn<typeof Box> = () => (
   </>
 );
 Insets.decorators = [
-  (fn: any) => (
+  (_: any, context: any) => (
     <Box display='flex' flexWrap='wrap' alignItems='center'>
-      {flattenChildren(fn().props.children).map((child: any) => (
+      {flattenChildren(
+        context.originalStoryFn(context.args).props.children,
+      ).map((child: any) => (
         <Box
           key={child.key}
           position='relative'
@@ -215,9 +222,11 @@ export const Margins: StoryFn<typeof Box> = () => (
   </>
 );
 Margins.decorators = [
-  (story: any) => (
+  (_: any, context: any) => (
     <Box display='flex' flexWrap='wrap' alignItems='center'>
-      {flattenChildren(story().props.children).map((child: any, i) => (
+      {flattenChildren(
+        context.originalStoryFn(context.args).props.children,
+      ).map((child: any, i) => (
         <Box key={i} bg='neutral-200' m={16}>
           {cloneElement(
             child,
@@ -262,9 +271,11 @@ export const Paddings: StoryFn<typeof Box> = () => (
   </>
 );
 Paddings.decorators = [
-  (story: any) => (
+  (_: any, context: any) => (
     <Box display='flex' flexWrap='wrap' alignItems='center'>
-      {flattenChildren(story().props.children).map((child: any, i) => (
+      {flattenChildren(
+        context.originalStoryFn(context.args).props.children,
+      ).map((child: any, i) => (
         <Box key={i} bg='neutral-200' m={16}>
           {cloneElement(
             child,
@@ -286,9 +297,11 @@ export const Position: StoryFn<typeof Box> = () => (
   </>
 );
 Position.decorators = [
-  (fn: any) => (
+  (_: any, context: any) => (
     <Box display='flex' flexWrap='wrap' alignItems='center'>
-      {flattenChildren(fn().props.children).map((child: any) =>
+      {flattenChildren(
+        context.originalStoryFn(context.args).props.children,
+      ).map((child: any) =>
         cloneElement(child, {
           bg: 'neutral',
           size: 'x32',
@@ -308,9 +321,11 @@ export const Widths: StoryFn<typeof Box> = () => (
   </>
 );
 Widths.decorators = [
-  (fn: any) => (
+  (_: any, context: any) => (
     <Box display='flex' flexWrap='wrap' alignItems='center'>
-      {flattenChildren(fn().props.children).map((child: any) =>
+      {flattenChildren(
+        context.originalStoryFn(context.args).props.children,
+      ).map((child: any) =>
         cloneElement(child, { bg: 'neutral', h: 'x32', m: 'x4' }),
       )}
     </Box>
@@ -325,11 +340,11 @@ export const Sizes: StoryFn<typeof Box> = () => (
   </>
 );
 Sizes.decorators = [
-  (fn: any) => (
+  (_: any, context: any) => (
     <Box display='flex' flexWrap='wrap' alignItems='center'>
-      {flattenChildren(fn().props.children).map((child: any) =>
-        cloneElement(child, { bg: 'neutral', m: 'x4' }),
-      )}
+      {flattenChildren(
+        context.originalStoryFn(context.args).props.children,
+      ).map((child: any) => cloneElement(child, { bg: 'neutral', m: 'x4' }))}
     </Box>
   ),
 ];
@@ -359,9 +374,11 @@ export const VerticalAlign: StoryFn<typeof Box> = () => (
   </>
 );
 VerticalAlign.decorators = [
-  (fn: any) => (
+  (_: any, context: any) => (
     <Box>
-      {flattenChildren(fn().props.children).map((child: any) =>
+      {flattenChildren(
+        context.originalStoryFn(context.args).props.children,
+      ).map((child: any) =>
         cloneElement(child, {
           display: 'inline',
           children: child.props.verticalAlign,
@@ -386,9 +403,11 @@ export const ZIndex: StoryFn<typeof Box> = () => (
   </>
 );
 ZIndex.decorators = [
-  (fn: any) => (
+  (_: any, context: any) => (
     <Box display='flex' flexWrap='wrap' alignItems='center'>
-      {flattenChildren(fn().props.children).map((child: any) =>
+      {flattenChildren(
+        context.originalStoryFn(context.args).props.children,
+      ).map((child: any) =>
         cloneElement(child, {
           bg: 'neutral',
           borderWidth: 'x4',
