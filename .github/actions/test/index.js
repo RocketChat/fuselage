@@ -82,7 +82,7 @@ async function run(context) {
     core.setOutput('onboarding-ui', regex['onboarding-ui']);
   } else {
     core.error(
-      'To use Loki rocket.thruster please use trigger events like pull request or push',
+      'To use Loki fuselagesnap please use trigger events like pull request or push',
     );
   }
 }
