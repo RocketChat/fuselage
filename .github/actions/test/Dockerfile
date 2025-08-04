@@ -4,6 +4,6 @@ COPY entrypoint.sh /entrypoint.sh
 
 # ENV CHROME_PATH /usr/bin/chromium-browser
 
-# USER root
+USER root
 
 ENTRYPOINT ["/entrypoint.sh"]
