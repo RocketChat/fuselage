@@ -19,6 +19,6 @@ cd packages/fuselage
 mv package.json package.json-old
 cat package.json-old | sed s/\.docker/.app/ > package.json
 
-ls
+npm install -g yarn@1.22.19
 
 mv package.json-old package.json
