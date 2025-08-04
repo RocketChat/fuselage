@@ -6,4 +6,4 @@ ENV CHROME_PATH /usr/bin/chromium-browser
 
 USER root
 
-CMD ["node", "index.js"]
+ENTRYPOINT ["/entrypoint.sh"]
