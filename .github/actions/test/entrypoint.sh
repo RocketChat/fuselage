@@ -19,7 +19,6 @@ cd packages/fuselage
 mv package.json package.json-old
 cat package.json-old | sed s/\.docker/.app/ > package.json
 
-npm install --global yarn
-yarn --version
+yarn install
 
 mv package.json-old package.json
