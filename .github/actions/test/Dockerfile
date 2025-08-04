@@ -1,10 +1,8 @@
-FROM yukinying/chrome-headless-browser-stable:118.0.5993.117
+FROM chinello/alpine-chrome:with-node
 
 COPY entrypoint.sh /entrypoint.sh
 
-RUN apk add --no-cache nodejs npm yarn
-
-ENV CHROME_PATH=/usr/bin/chromium-browser
+ENV CHROME_PATH /usr/bin/chromium-browser
 
 USER root
 
