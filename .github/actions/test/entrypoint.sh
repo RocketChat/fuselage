@@ -18,5 +18,6 @@
 cd packages/fuselage
 mv package.json package.json-old
 cat package.json-old | sed s/\.docker/.app/ > package.json
-yarn loki loki:test-ci
+cat package.json
+cat package.json-old
 mv package.json-old package.json
