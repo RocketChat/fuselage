@@ -1,9 +1,9 @@
-FROM chinello/alpine-chrome:with-node
+FROM yukinying/chrome-headless-browser-stable:118.0.5993.117
 
 COPY entrypoint.sh /entrypoint.sh
 
-ENV CHROME_PATH /usr/bin/chromium-browser
+# ENV CHROME_PATH /usr/bin/chromium-browser
 
-USER root
+# USER root
 
 ENTRYPOINT ["/entrypoint.sh"]
