@@ -18,6 +18,8 @@
 cd packages/fuselage
 mv package.json package.json-old
 cat package.json-old | sed s/\.docker/.app/ > package.json
-cat package.json
-cat package.json-old
+which yarn
+yarn --version
+node --version
+
 mv package.json-old package.json
