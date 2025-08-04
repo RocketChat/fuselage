@@ -20,5 +20,5 @@ outputs:
     description: A regex of onboarding-ui components
 
 runs:
-  using: 'node20'
-  main: dist/index.js
+  using: 'docker'
+  main: Dockerfile
