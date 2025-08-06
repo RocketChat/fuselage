@@ -1,9 +1,6 @@
-FROM chinello/alpine-chrome:with-node
+FROM zenika/alpine-chrome:with-node
 
-COPY entrypoint.sh /entrypoint.sh
+COPY . .
 
-ENV CHROME_PATH /usr/bin/chromium-browser
 
-USER root
-
-ENTRYPOINT ["/entrypoint.sh"]
+RUN yarn loki:test-ci
