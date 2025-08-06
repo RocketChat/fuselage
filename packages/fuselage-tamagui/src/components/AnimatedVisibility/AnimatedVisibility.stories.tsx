@@ -15,11 +15,16 @@ const meta = {
   },
   argTypes: {
     visibility: {
-      description: '"hidden" "visible" "hiding" "unhiding"',
+      description: 'Determines the visibility state of the component',
       control: 'radio',
-      options: ['visible', 'hidden', 'hiding', 'unhiding'],
+      options: [
+        (AnimatedVisibility as any).VISIBLE,
+        (AnimatedVisibility as any).HIDDEN,
+        (AnimatedVisibility as any).HIDING,
+        (AnimatedVisibility as any).UNHIDING,
+      ],
       table: {
-        defaultValue: { summary: '-' },
+        defaultValue: { summary: (AnimatedVisibility as any).VISIBLE },
       },
     },
   },
@@ -36,5 +41,6 @@ export const Example: Story = {
         Visible
       </YStack>
     ),
+    visibility: (AnimatedVisibility as any).VISIBLE,
   },
 };

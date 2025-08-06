@@ -1,59 +1,32 @@
+import { useResizeObserver, useEffectEvent } from '@rocket.chat/fuselage-hooks';
+import type {
+  AllHTMLAttributes,
+  ComponentProps,
+  ElementType,
+  ReactElement,
+} from 'react';
+import { useMemo, useRef, useState, useEffect } from 'react';
+import type { View } from 'react-native';
 import {
-  styled,
-  XStack,
-  YStack,
   Input,
-  AnimatePresence,
+  YStack,
   Text,
+  AnimatePresence,
   SizableText,
   Theme,
   Button,
+  XStack,
 } from 'tamagui';
-import { useState, useRef, useMemo, useCallback } from 'react';
-import type { ComponentProps, ElementType } from 'react';
 
-// Styled components remain the same
-const AutoCompleteContainer = styled(YStack, {
-  flex: 1,
-  position: 'relative',
-  variants: {
-    error: {
-      true: {
-        borderColor: '$stroke-error',
-      },
-    },
-    disabled: {
-      true: {
-        opacity: 0.5,
-      },
-    },
-  },
-});
+import { Chip } from '../Chip';
+import { Icon } from '../Icon';
+import { Options, useCursor } from '../Options';
 
-const AutoCompleteInput = styled(Input, {
-  flex: 1,
-  padding: '$2',
-  borderRadius: '$2',
-});
-
-const OptionsContainer = styled(YStack, {
-  position: 'absolute',
-  top: '100%',
-  left: 0,
-  right: 0,
-  backgroundColor: '$background',
-  borderRadius: '$2',
-  borderWidth: 1,
-  borderColor: '$borderColor',
-  zIndex: 1000,
-  marginTop: 4,
-  maxHeight: 200,
-  overflow: 'auto',
-});
+const Addon = (props: ComponentProps<typeof XStack>) => <XStack {...props} />;
 
 type AutoCompleteOption = {
   value: string;
-  label: string;
+  label: unknown;
 };
 
 type AutoCompleteProps = {
@@ -69,11 +42,11 @@ type AutoCompleteProps = {
   error?: boolean;
   disabled?: boolean;
   multiple?: boolean;
-} & Omit<ComponentProps<typeof Input>, 'onChange'>;
+} & Omit<AllHTMLAttributes<HTMLInputElement>, 'onChange'>;
 
 const getSelected = (
   value: string | string[],
-  options: AutoCompleteOption[],
+  options: AutoCompleteOption[]
 ) => {
   if (!value) {
     return [];
@@ -88,130 +61,162 @@ export function AutoComplete({
   filter,
   setFilter,
   options = [],
-  renderItem: RenderItem,
+  renderItem,
   renderSelected: RenderSelected,
   onChange,
-  renderEmpty: RenderEmpty,
+  renderEmpty,
   placeholder,
   error,
   disabled,
   multiple,
   onBlur: onBlurAction = () => {},
   ...props
-}: AutoCompleteProps) {
-  const inputRef = useRef<HTMLInputElement>(null);
-  const [isOpen, setIsOpen] = useState(false);
-  const [selected, setSelected] = useState(() => getSelected(value ?? '', options));
+}: AutoCompleteProps): ReactElement {
+  const ref = useRef<View>(null);
+  const { ref: containerRef, borderBoxSize } = useResizeObserver();
 
-  const handleSelect = useCallback((selectedValue: string) => {
-    if (selected?.some((item) => item.value === selectedValue)) {
-      setIsOpen(false);
+  const [selected, setSelected] = useState(
+    () => getSelected(value, options) || []
+  );
+
+  const handleSelect = useEffectEvent(([currentValue]) => {
+    if (selected?.some((item) => item.value === currentValue)) {
+      hide();
       return;
     }
 
     if (multiple) {
-      const newSelected = [...selected, ...getSelected(selectedValue, options)];
-      setSelected(newSelected);
-      onChange([...(value as string[]), selectedValue]);
+      setSelected([...selected, ...getSelected(currentValue, options)]);
+      onChange([...value, currentValue]);
     } else {
-      setSelected(getSelected(selectedValue, options));
-      onChange(selectedValue);
+      setSelected(getSelected(currentValue, options));
+      onChange(currentValue);
     }
 
-    setFilter?.('');
-    setIsOpen(false);
-  }, [selected, multiple, options, onChange, setFilter, value]);
+    setFilter('');
+    hide();
+  });
 
-  const handleRemove = useCallback((itemValue: string) => {
-    const filtered = selected.filter((item) => item.value !== itemValue);
-    const filteredValue = Array.isArray(value) 
-      ? value.filter((item) => item !== itemValue)
-      : [];
+  const handleRemove = useEffectEvent((event) => {
+    event.stopPropagation();
+    event.preventDefault();
+
+    const filtered = selected.filter(
+      (item) => item.value !== event.currentTarget.value
+    );
+
+    const filteredValue = value.filter(
+      (item) => item !== event.currentTarget.value
+    );
 
     setSelected(filtered);
     onChange(filteredValue);
-    setIsOpen(false);
-  }, [selected, onChange, value]);
+    hide();
+  });
 
-  const filteredOptions = useMemo(() => {
-    if (!filter) return options;
-    return options.filter((option) =>
-      option.label.toLowerCase().includes(filter.toLowerCase())
-    );
-  }, [filter, options]);
+  const memoizedOptions = useMemo(
+    () => options.map(({ value, label }) => [value, label]),
+    [options]
+  );
+
+  const [cursor, handleKeyDown, , reset, [optionsAreVisible, hide, show]] =
+    useCursor(value, memoizedOptions, handleSelect);
+
+  const handleOnBlur = useEffectEvent((event) => {
+    hide();
+    onBlurAction(event);
+  });
+
+  useEffect(reset, [filter]);
 
   return (
-    <Theme name="light">
-      <AutoCompleteContainer error={error} disabled={disabled}>
-        <XStack flex={1} flexWrap="wrap" gap="$2">
-          <AutoCompleteInput
-            ref={inputRef}
-            value={filter}
-            onChange={(e) => setFilter?.(e.target.value)}
-            onFocus={() => setIsOpen(true)}
-            onBlur={(e) => {
-              onBlurAction(e);
-              // Delay to allow click events on options
-              setTimeout(() => setIsOpen(false), 200);
-            }}
-            placeholder={!selected.length ? placeholder : undefined}
-            {...props}
-          />
-          {selected.map((item) =>
+    <XStack
+      ref={containerRef}
+      onPress={useEffectEvent(() => ref.current.focus())}
+      flexGrow={1}
+      borderColor={error ? 'red' : '#ccc'}
+      borderWidth={1}
+      borderRadius={4}
+      padding={8}
+      opacity={disabled ? 0.5 : 1}
+      alignItems='center'
+    >
+      <XStack flexGrow={1} flexWrap='wrap' alignItems='center' marginHorizontal={-4}>
+        <Input
+          ref={ref}
+          onChangeText={setFilter}
+          onBlur={handleOnBlur}
+          onFocus={show}
+          onKeyPress={handleKeyDown}
+          placeholder={!value ? placeholder : undefined}
+          flex={1}
+          borderWidth={0}
+          value={filter}
+          {...props}
+        />
+        {selected?.length > 0 &&
+          selected.map((itemSelected) =>
             RenderSelected ? (
               <RenderSelected
-                key={item.value}
-                selected={item}
-                onRemove={() => handleRemove(item.value)}
+                key={itemSelected.value}
+                selected={itemSelected}
+                onRemove={handleRemove}
               />
             ) : (
-              <Button
-                key={item.value}
-                size="$2"
-                onPress={() => handleRemove(item.value)}
+              <Chip
+                key={itemSelected.value}
+                value={itemSelected.value}
+                onPress={handleRemove}
+                margin={4}
               >
-                <SizableText>{item.label}</SizableText>
-              </Button>
+                {itemSelected.label}
+              </Chip>
             )
           )}
-        </XStack>
-
-        <AnimatePresence>
-          {isOpen && (
-            <OptionsContainer
-              animation="quick"
-              enterStyle={{ opacity: 0, scale: 0.95 }}
-              exitStyle={{ opacity: 0, scale: 0.95 }}
-              y={0}
-            >
-              {filteredOptions.length > 0 ? (
-                filteredOptions.map((option) =>
-                  RenderItem ? (
-                    <RenderItem
-                      key={option.value}
-                      {...option}
-                      onSelect={() => handleSelect(option.value)}
-                    />
-                  ) : (
-                    <Button
-                      key={option.value}
-                      onPress={() => handleSelect(option.value)}
-                      width="100%"
-                      justifyContent="flex-start"
-                    >
-                      <Text>{option.label}</Text>
-                    </Button>
-                  )
-                )
-              ) : (
-                RenderEmpty && <RenderEmpty />
-              )}
-            </OptionsContainer>
-          )}
-        </AnimatePresence>
-      </AutoCompleteContainer>
-    </Theme>
+      </XStack>
+      <Addon paddingLeft={4}>
+        <Icon
+          name={
+            optionsAreVisible
+              ? 'cross'
+              : 'magnifier'
+          }
+          size={20}
+          color='#333'
+        />
+      </Addon>
+      <AnimatePresence>
+        {optionsAreVisible && (
+          <YStack
+            position='absolute'
+            top={borderBoxSize.blockSize}
+            left={0}
+            right={0}
+            backgroundColor='#fff'
+            borderWidth={1}
+            borderColor='#ccc'
+            borderRadius={4}
+            maxHeight={200}
+            overflow='scroll'
+            zIndex={9999}
+          >
+            <Options
+              onSelect={handleSelect}
+              renderItem={renderItem}
+              renderEmpty={renderEmpty}
+              cursor={cursor}
+              value={value}
+              options={memoizedOptions}
+            />
+          </YStack>
+        )}
+      </AnimatePresence>
+    </XStack>
   );
 }
 
-export default AutoComplete;
+AutoComplete.displayName = 'AutoComplete';
+
+AutoComplete.Item = Options.Item;
+
+AutoComplete.Empty = Options.Empty;

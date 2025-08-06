@@ -1,81 +1,50 @@
-import { styled, Input, GetProps, Stack, Theme } from 'tamagui'
-import type { ComponentProps, ReactNode } from 'react'
-import { forwardRef } from 'react'
 
-const StyledInput = styled(Input, {
-  name: 'EmailInput',
-  backgroundColor: '$background',
-  borderColor: '$border',
-  borderWidth: 1,
-  borderRadius: '$2',
-  color: '$color',
-  paddingHorizontal: '$3',
-  paddingVertical: '$2',
-  
-  variants: {
-    size: {
-      small: {
-        height: '$3',
-        fontSize: '$2',
-      },
-      medium: {
-        height: '$4',
-        fontSize: '$3',
-      },
-    },
-    hasError: {
-      true: {
-        borderColor: '$error',
-        color: '$error',
-      },
-    },
-  } as const,
+import type { ComponentProps, ReactNode, Ref } from 'react';
+import { forwardRef } from 'react';
 
-  defaultVariants: {
-    size: 'medium',
-  },
-})
+import { InputBox } from '../InputBox';
 
-const InputWrapper = styled(Stack, {
-  position: 'relative',
-  flexDirection: 'row',
-  alignItems: 'center',
-})
+type EmailInputProps = Omit<ComponentProps<typeof InputBox>, 'type'> & {
+  addon?: ReactNode;
+  error?: string;
+};
 
-const AddonWrapper = styled(Stack, {
-  position: 'absolute',
-  right: '$3',
-  alignItems: 'center',
-  justifyContent: 'center',
-})
+// Import from InputBox once it's converted to tsx
+type InputType =
+  | 'button'
+  | 'checkbox'
+  | 'color'
+  | 'date'
+  | 'datetime'
+  | 'datetime-local'
+  | 'email'
+  | 'file'
+  | 'hidden'
+  | 'image'
+  | 'month'
+  | 'number'
+  | 'password'
+  | 'radio'
+  | 'range'
+  | 'reset'
+  | 'search'
+  | 'submit'
+  | 'tel'
+  | 'text'
+  | 'time'
+  | 'url'
+  | 'week'
+  | 'textarea'
+  | 'select';
 
-export type EmailInputProps = Omit<GetProps<typeof StyledInput>, 'type'> & {
-  addon?: ReactNode
-  error?: string
-  size?: 'small' | 'medium'
-}
+const type: InputType = 'email';
 
-export const EmailInput = forwardRef<HTMLInputElement, EmailInputProps>(function EmailInput(
-  { addon, error, size = 'medium', ...props }, 
-  ref
+/**
+ * An input for email addresses.
+ */
+export const EmailInput = forwardRef(function EmailInput(
+  props: EmailInputProps,
+  ref: Ref<HTMLElement>,
 ) {
-  return (
-    <Theme name="light">
-      <InputWrapper>
-        <StyledInput
-          ref={ref}
-          type="email"
-          size={size}
-          hasError={!!error}
-          {...props}
-          paddingRight={addon ? '$8' : '$3'}
-        />
-        {addon && (
-          <AddonWrapper>
-            {addon}
-          </AddonWrapper>
-        )}
-      </InputWrapper>
-    </Theme>
-  )
-})
+  return <InputBox type={type} ref={ref} {...props} />;
+});
