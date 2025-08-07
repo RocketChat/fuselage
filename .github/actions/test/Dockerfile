@@ -1,4 +1,4 @@
-FROM zenika/alpine-chrome:with-node
+FROM zenika/alpine-chrome
 
 COPY entrypoint.sh /entrypoint.sh
 
