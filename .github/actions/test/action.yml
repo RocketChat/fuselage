@@ -21,4 +21,3 @@ inputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  options: --user 1001
