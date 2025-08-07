@@ -19,8 +19,6 @@ cd packages/fuselage
 mv package.json package.json-old
 cat package.json-old | sed s/\.docker/.app/ > package.json
 
-npm install -g yarn@1.22.19
-yarn --version
-yarn install
+yarn loki:test-ci
 
 mv package.json-old package.json

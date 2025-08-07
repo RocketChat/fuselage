@@ -1,6 +1,7 @@
 FROM zenika/alpine-chrome:with-node
 
-COPY . .
+COPY entrypoint.sh /entrypoint.sh
 
+USER root
 
-RUN yarn loki:test-ci
+ENTRYPOINT ["/entrypoint.sh"]
