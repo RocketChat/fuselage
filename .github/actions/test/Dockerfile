@@ -1,7 +1,13 @@
-FROM zenika/alpine-chrome:124-with-node
+FROM zenika/alpine-chrome:with-node
+
+USER root
 
 COPY entrypoint.sh /entrypoint.sh
 
-USER root
+RUN chmod +x /entrypoint.sh
+
+RUN chmod +x /usr/bin/chromium-browser
+
+ENV CHROME_PATH=/usr/bin/chromium-browser
 
 ENTRYPOINT ["/entrypoint.sh"]
