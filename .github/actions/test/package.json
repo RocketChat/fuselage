@@ -1,0 +1,21 @@
+{
+  "name": "fuselagesnap",
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "build": "rollup index.js --file dist/index.js",
+    "lint": "lint",
+    "lint-and-fix": "lint-and-fix",
+    "prettier-format": "prettier 'src/**/*.{ts,tsx,js,jsx}' --write"
+  },
+  "dependencies": {
+    "@actions/core": "~1.11.1",
+    "@actions/github": "~6.0.1",
+    "@discoveryjs/json-ext": "~0.6.3",
+    "eslint": "~9.29.0",
+    "execa": "~9.6.0",
+    "lint-all": "workspace:~",
+    "prettier": "~3.5.3",
+    "rollup": "~4.44.2"
+  }
+}
