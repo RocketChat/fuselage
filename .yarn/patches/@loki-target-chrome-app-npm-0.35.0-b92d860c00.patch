@@ -1,0 +1,14 @@
+diff --git a/src/create-chrome-app-target.js b/src/create-chrome-app-target.js
+index d87adea85023016f43bf5055906d50b2b97deaf4..bd6512d59f039e8689920d66f744c5e68d86f984 100644
+--- a/src/create-chrome-app-target.js
++++ b/src/create-chrome-app-target.js
+@@ -56,8 +56,7 @@ function createChromeAppTarget({
+ 
+   async function start(options = {}) {
+     if (useStaticServer && isLocalFile) {
+-      staticServer = createStaticServer(staticServerPath);
+-      staticServer.listen(staticServerPort);
++      staticServer = createStaticServer(staticServerPath).listen(staticServerPort);
+       debug(`Starting static file server at ${chromeUrl}`);
+     }
+     const launchOptions = Object.assign(

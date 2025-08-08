@@ -66,6 +66,7 @@
   "resolutions": {
     "@loki/browser@npm:^0.35.0": "patch:@loki/browser@npm%3A0.35.0#~/.yarn/patches/@loki-browser-npm-0.35.0-56c1d62186.patch",
     "@loki/target-chrome-docker@npm:^0.35.0": "patch:@loki/target-chrome-docker@npm%3A0.35.0#~/.yarn/patches/@loki-target-chrome-docker-npm-0.35.0-e5bcaa6a12.patch",
-    "@loki/core@npm:^0.35.0": "patch:@loki/core@npm%3A0.35.0#~/.yarn/patches/@loki-core-npm-0.35.0-2f7ae66155.patch"
+    "@loki/core@npm:^0.35.0": "patch:@loki/core@npm%3A0.35.0#~/.yarn/patches/@loki-core-npm-0.35.0-2f7ae66155.patch",
+    "@loki/target-chrome-app@npm:^0.35.0": "patch:@loki/target-chrome-app@npm%3A0.35.0#~/.yarn/patches/@loki-target-chrome-app-npm-0.35.0-b92d860c00.patch"
   }
 }
