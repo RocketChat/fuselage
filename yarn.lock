@@ -3346,7 +3346,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@loki/target-chrome-app@npm:^0.35.0":
+"@loki/target-chrome-app@npm:0.35.0":
   version: 0.35.0
   resolution: "@loki/target-chrome-app@npm:0.35.0"
   dependencies:
@@ -3357,6 +3357,20 @@ __metadata:
     debug: "npm:^4.1.1"
     find-free-port-sync: "npm:^1.0.0"
   checksum: 10/119f86d751410eae97e1f66f6936b87bbfa7bf851c3f90db5bcac3100771411cbddb1b8515c7ab54c0edb91f44168cfef4e4cc36341f77153f6ae1b7b0cf54f3
+  languageName: node
+  linkType: hard
+
+"@loki/target-chrome-app@patch:@loki/target-chrome-app@npm%3A0.35.0#~/.yarn/patches/@loki-target-chrome-app-npm-0.35.0-b92d860c00.patch":
+  version: 0.35.0
+  resolution: "@loki/target-chrome-app@patch:@loki/target-chrome-app@npm%3A0.35.0#~/.yarn/patches/@loki-target-chrome-app-npm-0.35.0-b92d860c00.patch::version=0.35.0&hash=9302f0"
+  dependencies:
+    "@loki/core": "npm:^0.35.0"
+    "@loki/target-chrome-core": "npm:^0.35.0"
+    chrome-launcher: "npm:0.15.2"
+    chrome-remote-interface: "npm:^0.32.1"
+    debug: "npm:^4.1.1"
+    find-free-port-sync: "npm:^1.0.0"
+  checksum: 10/c56e5276d90ecdccce6b6841fa449cbb2b7a6ccb0ee05b58b7ef944a2e4dd92afae51aa93c7fbf3bfbf5015d3afbd4738fd987b75f192aa3d81fe0e2ed883700
   languageName: node
   linkType: hard
 

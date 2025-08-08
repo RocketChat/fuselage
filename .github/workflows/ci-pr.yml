@@ -85,76 +85,77 @@ jobs:
           path: .turbo
           key: turbo-${{ runner.os }}-${{ github.job }}
           restore-keys: |
-            turbo-${{ runner.os }}-  
-      - name: Build private action
-        run: yarn build
-        working-directory: ./.github/actions/test
-      - id: thruster_action
-        uses: ./.github/actions/test
-      - name: visual test for fuselage
-        if: always()
-        run: |
-          if [ "${{steps.thruster_action.outputs.fuselage }}" = "skip" ]; then 
-            echo "skipping visual test for fuselage"
-          elif [ "${{steps.thruster_action.outputs.fuselage }}" = "full test" ]; then 
-            yarn loki:test-ci
-          else
-            yarn loki test --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --requireReference --verboseRenderer --reactUri file:./storybook-static --storiesFilter="${{steps.thruster_action.outputs.fuselage }}"
-          fi
-        working-directory: packages/fuselage
-      - name: visual test for fuselage-toastbar
-        if: always()
-        run: |
-          if [ "${{steps.thruster_action.outputs.fuselage-toastbar }}" = "skip" ]; then 
-            echo "skipping visual test for fuselage-toastbar "
-          elif [ "${{steps.thruster_action.outputs.fuselage-toastbar }}" = "full test" ]; then 
-            yarn loki:test-ci
-          else
-            yarn loki test --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --requireReference --verboseRenderer --reactUri file:./storybook-static --storiesFilter="${{steps.thruster_action.outputs.fuselage-toastbar }}"
-          fi
-        working-directory: packages/fuselage-toastbar
-      - name: visual test for layout
-        if: always()
-        run: |
-          if [ "${{steps.thruster_action.outputs.layout }}" = "skip" ]; then 
-            echo "skipping visual tests fro layout "
-          elif [ "${{steps.thruster_action.outputs.layout }}" = "full test" ]; then 
-            yarn loki:test-ci
-          else
-            yarn loki test --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --requireReference --verboseRenderer --reactUri file:./storybook-static --storiesFilter="${{steps.thruster_action.outputs.layout }}"
-          fi
-        working-directory: packages/layout
-      - name: visual test for onboarding-ui
-        if: always()
-        run: |
-          if [ "${{steps.thruster_action.outputs.onboarding-ui }}" = "skip" ]; then 
-            echo "skipping visual test for onboarding-ui "
-          elif [ "${{steps.thruster_action.outputs.onboarding-ui }}" = "full test" ]; then 
-            yarn loki:test-ci
-          else
-            yarn loki test --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --requireReference --verboseRenderer --reactUri file:./storybook-static --storiesFilter="${{steps.thruster_action.outputs.onboarding-ui }}"
-          fi
-        working-directory: packages/onboarding-ui
-      - name: upload loki images
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: loki-${{ github.event.number }}
-          path: |
-            packages/fuselage/.loki/current
-            packages/fuselage/.loki/difference
-            packages/fuselage/.loki/reference
-            packages/fuselage-toastbar/.loki/current
-            packages/fuselage-toastbar/.loki/difference
-            packages/fuselage-toastbar/.loki/reference
-            packages/onboarding-ui/.loki/current
-            packages/onboarding-ui/.loki/difference
-            packages/onboarding-ui/.loki/reference
-            packages/layout/.loki/current
-            packages/layout/.loki/difference
-            packages/layout/.loki/reference
-      - name: download .loki
-        if: always()
-        uses: actions/download-artifact@v4
-        with:
-          name: loki-${{ github.event.number }}
+            turbo-${{ runner.os }}- 
+      - uses: ./.github/actions/test 
+      # - name: Build private action
+      #   run: yarn build
+      #   working-directory: ./.github/actions/test
+      # - id: thruster_action
+      #   uses: ./.github/actions/test
+      # - name: visual test for fuselage
+      #   if: always()
+      #   run: |
+      #     if [ "${{steps.thruster_action.outputs.fuselage }}" = "skip" ]; then 
+      #       echo "skipping visual test for fuselage"
+      #     elif [ "${{steps.thruster_action.outputs.fuselage }}" = "full test" ]; then 
+      #       yarn loki:test-ci
+      #     else
+      #       yarn loki test --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --requireReference --verboseRenderer --reactUri file:./storybook-static --storiesFilter="${{steps.thruster_action.outputs.fuselage }}"
+      #     fi
+      #   working-directory: packages/fuselage
+      # - name: visual test for fuselage-toastbar
+      #   if: always()
+      #   run: |
+      #     if [ "${{steps.thruster_action.outputs.fuselage-toastbar }}" = "skip" ]; then 
+      #       echo "skipping visual test for fuselage-toastbar "
+      #     elif [ "${{steps.thruster_action.outputs.fuselage-toastbar }}" = "full test" ]; then 
+      #       yarn loki:test-ci
+      #     else
+      #       yarn loki test --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --requireReference --verboseRenderer --reactUri file:./storybook-static --storiesFilter="${{steps.thruster_action.outputs.fuselage-toastbar }}"
+      #     fi
+      #   working-directory: packages/fuselage-toastbar
+      # - name: visual test for layout
+      #   if: always()
+      #   run: |
+      #     if [ "${{steps.thruster_action.outputs.layout }}" = "skip" ]; then 
+      #       echo "skipping visual tests fro layout "
+      #     elif [ "${{steps.thruster_action.outputs.layout }}" = "full test" ]; then 
+      #       yarn loki:test-ci
+      #     else
+      #       yarn loki test --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --requireReference --verboseRenderer --reactUri file:./storybook-static --storiesFilter="${{steps.thruster_action.outputs.layout }}"
+      #     fi
+      #   working-directory: packages/layout
+      # - name: visual test for onboarding-ui
+      #   if: always()
+      #   run: |
+      #     if [ "${{steps.thruster_action.outputs.onboarding-ui }}" = "skip" ]; then 
+      #       echo "skipping visual test for onboarding-ui "
+      #     elif [ "${{steps.thruster_action.outputs.onboarding-ui }}" = "full test" ]; then 
+      #       yarn loki:test-ci
+      #     else
+      #       yarn loki test --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --requireReference --verboseRenderer --reactUri file:./storybook-static --storiesFilter="${{steps.thruster_action.outputs.onboarding-ui }}"
+      #     fi
+      #   working-directory: packages/onboarding-ui
+      # - name: upload loki images
+      #   if: always()
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: loki-${{ github.event.number }}
+      #     path: |
+      #       packages/fuselage/.loki/current
+      #       packages/fuselage/.loki/difference
+      #       packages/fuselage/.loki/reference
+      #       packages/fuselage-toastbar/.loki/current
+      #       packages/fuselage-toastbar/.loki/difference
+      #       packages/fuselage-toastbar/.loki/reference
+      #       packages/onboarding-ui/.loki/current
+      #       packages/onboarding-ui/.loki/difference
+      #       packages/onboarding-ui/.loki/reference
+      #       packages/layout/.loki/current
+      #       packages/layout/.loki/difference
+      #       packages/layout/.loki/reference
+      # - name: download .loki
+      #   if: always()
+      #   uses: actions/download-artifact@v4
+      #   with:
+      #     name: loki-${{ github.event.number }}
