@@ -16,5 +16,5 @@ outputs:
   onboarding-ui:
     description: A regex of onboarding-ui components
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
+  using: "node20"
+  main: dist/index.js

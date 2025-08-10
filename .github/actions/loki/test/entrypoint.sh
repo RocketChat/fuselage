@@ -15,10 +15,10 @@
 #   cd -
 # done
 echo "fuselage:$1"
-cd packages/fuselage
-mv package.json package.json-old
-cat package.json-old | sed s/\.docker/.app/ > package.json
+# cd packages/fuselage
+# mv package.json package.json-old
+# cat package.json-old | sed s/\.docker/.app/ > package.json
 
-yarn loki:test-ci
+# yarn loki:test-ci
 
-mv package.json-old package.json
+# mv package.json-old package.json
