@@ -14,7 +14,7 @@
 #   mv package.json-old package.json
 #   cd -
 # done
-
+echo "fuselage:$1"
 cd packages/fuselage
 mv package.json package.json-old
 cat package.json-old | sed s/\.docker/.app/ > package.json

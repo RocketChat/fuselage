@@ -86,7 +86,11 @@ jobs:
           key: turbo-${{ runner.os }}-${{ github.job }}
           restore-keys: |
             turbo-${{ runner.os }}- 
-      - uses: ./.github/actions/loki/test
       - uses: ./.github/actions/loki/fuselageSnap
+        id: fuselageSnap
         run: |
-          echo ${{steps.thruster_action.outputs.fuselage }}
+          echo ${{steps.fuselageSnap.outputs.fuselage }}
+      - uses: ./.github/actions/loki/test
+        with: 
+          fuselage: ${{steps.fuselageSnap.outputs.fuselage }}
+      

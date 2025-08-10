@@ -9,6 +9,9 @@ inputs:
   react_uri:
     required: true
     default: ./storybook-static
+  fuselage:
+    description: 'fuselage components regex'
+    required: true
 # outputs:
 # fuselage:
 #   description: A regex of fuselage components
@@ -21,3 +24,5 @@ inputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
+  args:
+    - ${{ inputs.fuselage }}
