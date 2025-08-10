@@ -87,7 +87,4 @@ import * as core from '@actions/core';
 //   }
 // }
 // run(context);
-function run() {
-  core.setOutput('fuselage', 'hi from js action');
-}
-run();
+console.log('hii')
