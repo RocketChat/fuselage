@@ -86,6 +86,9 @@ jobs:
           key: turbo-${{ runner.os }}-${{ github.job }}
           restore-keys: |
             turbo-${{ runner.os }}- 
+      - name: build
+        run: yarn build
+        working-directory: ./.github/actions/loki/fuselageSnap
       - uses: ./.github/actions/loki/fuselageSnap
         id: fuselageSnap
       - uses: ./.github/actions/loki/test
