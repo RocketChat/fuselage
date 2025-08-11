@@ -7,10 +7,10 @@ for pkg in packages/*/package.json; do
   cd -
 done
 
-storybookPkgs=("packages/fuselage" "packages/fuselage-toastbar" "packages/layout" "packages/onboarding-ui")
+storybookPkgs="packages/fuselage packages/fuselage-toastbar packages/layout packages/onboarding-ui"
 arg=1
 
-for pkg in ${storybookPkgs[@]}; do
+for pkg in $storybookPkgs; do
     cd $pkg
     if [ "$arg" = "skip" ]; then 
         echo "skipping visual tests for $pkg"
