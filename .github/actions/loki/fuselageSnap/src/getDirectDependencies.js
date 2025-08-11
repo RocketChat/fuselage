@@ -17,7 +17,7 @@ export const getDirectDependencies = async (changedFiles, changedPackage) => {
     const promises = normalizedFiles.map(async (name) => {
       const result = await getReasons(
         name,
-        `.github/actions/test/dist/trimmed-${changedPackage}-stats.json`,
+        `.github/actions/loki/fuselageSnap/dist/trimmed-${changedPackage}-stats.json`,
       );
       const componentTitles = await getComponentTitle(result, changedPackage);
       return componentTitles;

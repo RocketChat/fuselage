@@ -22,7 +22,7 @@ if [ "$regex" = "skip" ]; then
 elif [ "$regex" = "full test" ]; then 
     yarn loki:test-ci
 else
-    yarn loki test --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --requireReference --verboseRenderer --reactUri file:./storybook-static --storiesFilter="$regex"
+    yarn loki test --chromeConcurrency=2 --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --requireReference --verboseRenderer --reactUri file:./storybook-static --storiesFilter="$regex"
 fi
 
 mv package.json-old package.json

@@ -91,7 +91,7 @@ export const getIndirectDps = async (pkgName) => {
     const key = Object.keys(obj)[0];
     const result = await getReasons(
       pkgName,
-      `.github/actions/test/dist/trimmed-${key}-stats.json`,
+      `.github/actions/loki/fuselageSnap/dist/trimmed-${key}-stats.json`,
     );
     const titles = await getComponentTitle(result, key);
     return { [key]: titles };
