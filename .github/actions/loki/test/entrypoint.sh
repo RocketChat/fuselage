@@ -12,9 +12,9 @@ arg=1
 
 for pkg in $storybookPkgs; do
     cd $pkg
-    if [ "$arg" = "skip" ]; then 
+    if [ "$$arg" = "skip" ]; then 
         echo "skipping visual tests for $pkg"
-    elif [ "$arg" = "full test" ]; then 
+    elif [ "$$arg" = "full test" ]; then 
         # yarn loki:test-ci
         echo 'full-test'
     else
