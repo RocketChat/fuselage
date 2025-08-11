@@ -14,7 +14,10 @@
 #   mv package.json-old package.json
 #   cd -
 # done
-echo "fuselage:$1"
+echo "fuselage: $1"
+echo "fuselage-toastbar: $2"
+echo "layout: $3"
+echo "onboarding-ui: $4"
 # cd packages/fuselage
 # mv package.json package.json-old
 # cat package.json-old | sed s/\.docker/.app/ > package.json

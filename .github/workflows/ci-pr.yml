@@ -94,4 +94,7 @@ jobs:
       - uses: ./.github/actions/loki/test
         with: 
           fuselage: ${{steps.fuselageSnap.outputs.fuselage }}
+          fuselage-toastbar: ${{steps.fuselageSnap.outputs.fuselage-toastbar }}
+          layout: ${{steps.fuselageSnap.outputs.layout }}
+          onboarding-ui: ${{steps.fuselageSnap.outputs.onboarding-ui }}
       
