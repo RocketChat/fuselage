@@ -91,12 +91,21 @@ jobs:
         working-directory: ./.github/actions/loki/fuselageSnap
       - uses: ./.github/actions/loki/fuselageSnap
         id: fuselageSnap
-      - name: Loki test
+      - name: fuselage test
         uses: ./.github/actions/loki/test
         with: 
           fuselage: ${{steps.fuselageSnap.outputs.fuselage }}
+      - name: fuselage-toastbar test
+        uses: ./.github/actions/loki/test
+        with: 
           fuselage-toastbar: ${{steps.fuselageSnap.outputs.fuselage-toastbar }}
+      - name: layout test
+        uses: ./.github/actions/loki/test
+        with: 
           layout: ${{steps.fuselageSnap.outputs.layout }}
+      - name: onboarding-ui test
+        uses: ./.github/actions/loki/test
+        with: 
           onboarding-ui: ${{steps.fuselageSnap.outputs.onboarding-ui }}
       - run: |
           echo "${{steps.fuselageSnap.outputs.fuselage }}"
