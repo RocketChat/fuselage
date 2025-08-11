@@ -42,7 +42,7 @@
     ".:update-storybook:purge-refs": "rimraf .loki/reference",
     ".:update-storybook:loki-update": "loki update --chromeDockerImage=chinello/alpine-chrome:93 --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --verboseRenderer --requireReference --reactUri file:./storybook-static",
     "prettier-format": "prettier 'src/**/*.{ts,tsx,js,jsx}' --write",
-    "loki:test-ci": "loki test --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --requireReference --verboseRenderer --reactUri file:./storybook-static"
+    "loki:test-ci": "loki test --chromeConcurrency=2 --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --requireReference --verboseRenderer --reactUri file:./storybook-static"
   },
   "dependencies": {
     "i18next": "~23.4.9",
