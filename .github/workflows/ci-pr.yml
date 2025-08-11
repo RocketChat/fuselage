@@ -111,10 +111,3 @@ jobs:
         with: 
           onboarding-ui: ${{steps.fuselageSnap.outputs.onboarding-ui }}
           pkg-name: "onboarding-ui"
-      - run: |
-          echo "${{steps.fuselageSnap.outputs.fuselage }}"
-          echo "${{steps.fuselageSnap.outputs.fuselage-toastbar }}"
-          echo "${{steps.fuselageSnap.outputs.layout }}"
-          echo "${{steps.fuselageSnap.outputs.onboarding-ui }}"
-
-      
