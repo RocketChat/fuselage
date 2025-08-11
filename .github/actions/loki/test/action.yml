@@ -9,6 +9,18 @@ inputs:
   react_uri:
     required: true
     default: ./storybook-static
+  fuselage:
+    description: 'fuselage components regex'
+    required: true
+  fuselage-toastbar:
+    description: 'fuselage-toastbar components regex'
+    required: true
+  layout:
+    description: 'layout components regex'
+    required: true
+  onboarding-ui:
+    description: 'onboarding-ui components regex'
+    required: true
 # outputs:
 # fuselage:
 #   description: A regex of fuselage components
@@ -21,3 +33,8 @@ inputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
+  args:
+    - ${{ inputs.fuselage }}
+    - ${{ inputs.fuselage-toastbar }}
+    - ${{ inputs.layout }}
+    - ${{ inputs.onboarding-ui }}

@@ -4,7 +4,7 @@
   "workspaces": [
     "packages/*",
     "tools/*",
-    ".github/actions/*"
+    ".github/actions/loki/fuselageSnap"
   ],
   "scripts": {
     "build": "yarn turbo run build",

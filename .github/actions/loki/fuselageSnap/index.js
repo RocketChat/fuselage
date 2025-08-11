@@ -14,35 +14,35 @@ const { context } = github;
 const filesToCopy = [
   {
     src: './packages/fuselage/storybook-static/index.json',
-    dest: '.github/actions/test/dist/fuselage-sb.json',
+    dest: '.github/actions/loki/fuselageSnap/dist/fuselage-sb.json',
   },
   {
     src: './packages/fuselage-toastbar/storybook-static/index.json',
-    dest: '.github/actions/test/dist/fuselage-toastbar-sb.json',
+    dest: '.github/actions/loki/fuselageSnap/dist/fuselage-toastbar-sb.json',
   },
   {
     src: './packages/onboarding-ui/storybook-static/index.json',
-    dest: '.github/actions/test/dist/onboarding-ui-sb.json',
+    dest: '.github/actions/loki/fuselageSnap/dist/onboarding-ui-sb.json',
   },
   {
     src: './packages/layout/storybook-static/index.json',
-    dest: '.github/actions/test/dist/layout-sb.json',
+    dest: '.github/actions/loki/fuselageSnap/dist/layout-sb.json',
   },
   {
     src: './packages/fuselage/storybook-static/preview-stats.json',
-    dest: '.github/actions/test/dist/fuselage-stats.json',
+    dest: '.github/actions/loki/fuselageSnap/dist/fuselage-stats.json',
   },
   {
     src: './packages/fuselage-toastbar/storybook-static/preview-stats.json',
-    dest: '.github/actions/test/dist/fuselage-toastbar-stats.json',
+    dest: '.github/actions/loki/fuselageSnap/dist/fuselage-toastbar-stats.json',
   },
   {
     src: './packages/onboarding-ui/storybook-static/preview-stats.json',
-    dest: '.github/actions/test/dist/onboarding-ui-stats.json',
+    dest: '.github/actions/loki/fuselageSnap/dist/onboarding-ui-stats.json',
   },
   {
     src: './packages/layout/storybook-static/preview-stats.json',
-    dest: '.github/actions/test/dist/layout-stats.json',
+    dest: '.github/actions/loki/fuselageSnap/dist/layout-stats.json',
   },
 ];
 
@@ -52,7 +52,7 @@ async function run(context) {
   for (const { src, dest } of filesToCopy) {
     copyFiles(src, dest);
     if (dest.includes('stats')) {
-      const trimmedPath = `.github/actions/test/dist/trimmed-${dest.split('/').slice(-1)}`;
+      const trimmedPath = `.github/actions/loki/fuselageSnap/dist/trimmed-${dest.split('/').slice(-1)}`;
       promises.push(trimStatsFile(dest, trimmedPath));
     }
   }
