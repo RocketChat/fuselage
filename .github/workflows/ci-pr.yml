@@ -97,4 +97,10 @@ jobs:
           fuselage-toastbar: ${{steps.fuselageSnap.outputs.fuselage-toastbar }}
           layout: ${{steps.fuselageSnap.outputs.layout }}
           onboarding-ui: ${{steps.fuselageSnap.outputs.onboarding-ui }}
+      - run: |
+          echo "${{steps.fuselageSnap.outputs.fuselage }}"
+          echo "${{steps.fuselageSnap.outputs.fuselage-toastbar }}"
+          echo "${{steps.fuselageSnap.outputs.layout }}"
+          echo "${{steps.fuselageSnap.outputs.onboarding-ui }}"
+
       
