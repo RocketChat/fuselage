@@ -1,3 +1,5 @@
+import { writeFileSync } from 'fs';
+
 import * as core from '@actions/core';
 import * as github from '@actions/github';
 
@@ -46,6 +48,17 @@ const filesToCopy = [
   },
 ];
 
+writeFileSync(
+  '.github/actions/loki/fuselageSnap/dist/save.json',
+  '{"file_name":[]}',
+  function (err) {
+    if (err) {
+      return console.log(err);
+    }
+    console.log('The file was saved!');
+  },
+);
+
 async function run(context) {
   // getTrimmedstats
   const promises = [];
@@ -56,6 +69,7 @@ async function run(context) {
       promises.push(trimStatsFile(dest, trimmedPath));
     }
   }
+
   await Promise.all(promises);
   if (context.eventName === 'pull_request') {
     const changedFiles = await getChangedFile(context);
