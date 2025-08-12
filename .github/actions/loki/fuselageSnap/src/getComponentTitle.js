@@ -8,7 +8,7 @@ import { readStatsFile } from './stats/readStatsFile.js';
  */
 export const getComponentTitle = async (storyNameArray, changedPackage) => {
   const indexJSON = await readStatsFile(
-    `.github/actions/test/dist/${changedPackage}-sb.json`,
+    `.github/actions/loki/fuselageSnap/dist/${changedPackage}-sb.json`,
   );
   const componentSet = new Set();
   for (const storyName of storyNameArray) {

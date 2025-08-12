@@ -21,6 +21,9 @@ inputs:
   onboarding-ui:
     description: 'onboarding-ui components regex'
     required: true
+  pkg-name:
+    description: 'storybook containing packages'
+    required: true
 # outputs:
 # fuselage:
 #   description: A regex of fuselage components
@@ -38,3 +41,4 @@ runs:
     - ${{ inputs.fuselage-toastbar }}
     - ${{ inputs.layout }}
     - ${{ inputs.onboarding-ui }}
+    - ${{ inputs.pkg-name }}

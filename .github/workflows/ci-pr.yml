@@ -91,17 +91,27 @@ jobs:
         working-directory: ./.github/actions/loki/fuselageSnap
       - uses: ./.github/actions/loki/fuselageSnap
         id: fuselageSnap
-      - name: Loki test
+      - name: fuselage visual test
+        if: always()
         uses: ./.github/actions/loki/test
         with: 
           fuselage: ${{steps.fuselageSnap.outputs.fuselage }}
+          pkg-name: "fuselage"
+      - name: fuselage-toastbar visual test
+        if: always()
+        uses: ./.github/actions/loki/test
+        with: 
           fuselage-toastbar: ${{steps.fuselageSnap.outputs.fuselage-toastbar }}
+          pkg-name: "fuselage-toastbar"
+      - name: layout visual test
+        if: always()
+        uses: ./.github/actions/loki/test
+        with: 
           layout: ${{steps.fuselageSnap.outputs.layout }}
+          pkg-name: "layout"
+      - name: onboarding-ui visual test
+        if: always()
+        uses: ./.github/actions/loki/test
+        with: 
           onboarding-ui: ${{steps.fuselageSnap.outputs.onboarding-ui }}
-      - run: |
-          echo "${{steps.fuselageSnap.outputs.fuselage }}"
-          echo "${{steps.fuselageSnap.outputs.fuselage-toastbar }}"
-          echo "${{steps.fuselageSnap.outputs.layout }}"
-          echo "${{steps.fuselageSnap.outputs.onboarding-ui }}"
-
-      
+          pkg-name: "onboarding-ui"

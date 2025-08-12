@@ -1,5 +1,5 @@
+import { getNonStatsFile } from './getNonStatsFile.js';
 import { readStatsFile } from './stats/readStatsFile.js';
-
 /**
  *
  * @param {string} name - component filename or path from src
@@ -50,7 +50,7 @@ export const getReasons = async (name, statsPath) => {
   const arr = await getResonsLogic(name, statsPath);
   try {
     if (arr.length === 0) {
-      throw new Error(`no matching ${name} in the ${statsPath}`);
+      getNonStatsFile(`${name}`, '.github/actions/loki/fuselageSnap/dist/save');
     }
     return arr;
   } catch (error) {

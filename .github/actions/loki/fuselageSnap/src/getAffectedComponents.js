@@ -1,5 +1,6 @@
 import { getDirectDependencies } from './getDirectDependencies.js';
 import { getIndirectDps } from './getIndirectDependency.js';
+import { getNonStatsFile } from './getNonStatsFile.js';
 
 const mapPackagesToFilePath = (changedFiles) => {
   const packageToFileMap = {};
@@ -123,11 +124,24 @@ export const getAffectedComponents = async (changedFiles) => {
     };
   }
   const filterChangedFiles = [];
+  const unfilteredChangedFiles = [];
   for (const file of changedFiles) {
     if (file.includes('packages')) {
       filterChangedFiles.push(file);
+    } else {
+      unfilteredChangedFiles.push(file);
     }
   }
+  const promises = [];
+  for (const file of unfilteredChangedFiles) {
+    promises.push(
+      getNonStatsFile(
+        file,
+        '.github/actions/loki/fuselageSnap/dist/non-storybook-files',
+      ),
+    );
+  }
+  await Promise.all(promises);
   const map = mapPackagesToFilePath(filterChangedFiles);
   const directDepsPromises = [];
   const indirectDepsPromises = [];
@@ -135,16 +149,6 @@ export const getAffectedComponents = async (changedFiles) => {
 
   for (const pkgName in map) {
     if (Object.prototype.hasOwnProperty.call(map, pkgName)) {
-      const chunk = map[pkgName][0].split('/');
-
-      if (
-        (chunk.length === 3 && chunk[2] !== 'package.json') ||
-        chunk.length === 2 ||
-        chunk.length === 1
-      ) {
-        continue;
-      }
-
       pkgNames.push(pkgName);
       directDepsPromises.push(getDirectDependencies(map[pkgName], pkgName));
       indirectDepsPromises.push(getIndirectDps(pkgName));
