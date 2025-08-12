@@ -50,7 +50,6 @@ export const getReasons = async (name, statsPath) => {
   const arr = await getResonsLogic(name, statsPath);
   try {
     if (arr.length === 0) {
-      console.log(`${name}`);
       getNonStatsFile(`${name}`, '.github/actions/loki/fuselageSnap/dist/save');
     }
     return arr;
