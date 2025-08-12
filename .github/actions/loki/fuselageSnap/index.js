@@ -50,7 +50,7 @@ const filesToCopy = [
 
 writeFileSync(
   '.github/actions/loki/fuselageSnap/dist/save.json',
-  '{"file_name":[]}',
+  '{"file_names":[]}',
   function (err) {
     if (err) {
       return console.log(err);
