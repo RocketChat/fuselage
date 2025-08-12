@@ -133,9 +133,7 @@ export const getAffectedComponents = async (changedFiles) => {
       unfilteredChangedFiles.push(file);
     }
   }
-  core.startGroup(
-    'Files missing from Webpack stats (except Storybook packages)',
-  );
+  core.startGroup('Changed non-Storybook files');
   for (const file of unfilteredChangedFiles) {
     console.log(file);
   }
