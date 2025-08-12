@@ -95,9 +95,7 @@ async function run(context) {
     core.startGroup('click to see the changed files');
     console.log(changedFiles);
     core.endGroup();
-    core.startGroup(
-      'click to see files that do not appear in storybook stats',
-    );
+    core.startGroup('click to see files that do not appear in storybook stats');
     console.log(nonStatsFileName.file_names);
     core.startGroup('click to see non storybook package files');
     console.log(nonStryBkFiles.file_names);
