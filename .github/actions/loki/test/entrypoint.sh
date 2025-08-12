@@ -18,11 +18,11 @@ else
 fi
 
 if [ "$regex" = "skip" ]; then 
-    echo "skipping visual test for fuselage"
+    echo "skipping visual test for $5"
 elif [ "$regex" = "full test" ]; then 
-    yarn loki:test-ci
+    yarn loki:test-ci --chromeConcurrency=1
 else
-    yarn loki test --chromeConcurrency=2 --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --requireReference --verboseRenderer --reactUri file:./storybook-static --storiesFilter="$regex"
+    yarn loki test --chromeConcurrency=1 --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --requireReference --verboseRenderer --reactUri file:./storybook-static --storiesFilter="$regex"
 fi
 
 mv package.json-old package.json
