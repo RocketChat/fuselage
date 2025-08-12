@@ -1,4 +1,4 @@
-import { createReadStream, writeFileSync } from 'fs';
+import { createReadStream, existsSync, writeFileSync, readFileSync } from 'fs';
 
 import { parseChunked } from '@discoveryjs/json-ext';
 
@@ -10,11 +10,18 @@ const jsonToFile = (obj, filename) => {
   writeFileSync(`${filename}.json`, JSON.stringify(obj, null, 2));
 };
 
-// returns  the file name which is not in the storybook stats
-export const getNonStatsFile = async (name, fileName) => {
-  const save = await readArr(
-    '.github/actions/loki/fuselageSnap/dist/save.json',
-  );
-  save.file_names.push(name);
-  jsonToFile(save, `${fileName}`);
+export const getNonStatsFile = async (data, filePath) => {
+  const fullPath = `${filePath}.json`;
+
+  let save;
+
+  if (existsSync(fullPath)) {
+    save = JSON.parse(readFileSync(fullPath, 'utf8'));
+  } else {
+    save = { file_names: [] };
+  }
+
+  save.file_names.push(data);
+
+  jsonToFile(save, filePath);
 };
