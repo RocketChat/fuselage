@@ -1,3 +1,5 @@
+import * as core from '@actions/core';
+
 import { getDirectDependencies } from './getDirectDependencies.js';
 import { getIndirectDps } from './getIndirectDependency.js';
 
@@ -123,11 +125,19 @@ export const getAffectedComponents = async (changedFiles) => {
     };
   }
   const filterChangedFiles = [];
+  const unfilteredChangedFiles = [];
   for (const file of changedFiles) {
     if (file.includes('packages')) {
       filterChangedFiles.push(file);
+    } else {
+      unfilteredChangedFiles.push(file);
     }
   }
+  core.startGroup('Changed non-Storybook files');
+  for (const file of unfilteredChangedFiles) {
+    console.log(file);
+  }
+  core.endGroup();
   const map = mapPackagesToFilePath(filterChangedFiles);
   const directDepsPromises = [];
   const indirectDepsPromises = [];
@@ -135,16 +145,6 @@ export const getAffectedComponents = async (changedFiles) => {
 
   for (const pkgName in map) {
     if (Object.prototype.hasOwnProperty.call(map, pkgName)) {
-      const chunk = map[pkgName][0].split('/');
-
-      if (
-        (chunk.length === 3 && chunk[2] !== 'package.json') ||
-        chunk.length === 2 ||
-        chunk.length === 1
-      ) {
-        continue;
-      }
-
       pkgNames.push(pkgName);
       directDepsPromises.push(getDirectDependencies(map[pkgName], pkgName));
       indirectDepsPromises.push(getIndirectDps(pkgName));
