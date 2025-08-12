@@ -11,10 +11,10 @@ const jsonToFile = (obj, filename) => {
 };
 
 // returns  the file name which is not in the storybook stats
-export const getNonStatsFile = async (fileName) => {
+export const getNonStatsFile = async (name, fileName) => {
   const save = await readArr(
     '.github/actions/loki/fuselageSnap/dist/save.json',
   );
-  save.file_names.push(fileName);
-  jsonToFile(save, 'save');
+  save.file_names.push(name);
+  jsonToFile(save, `${fileName}`);
 };

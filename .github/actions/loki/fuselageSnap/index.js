@@ -59,6 +59,16 @@ writeFileSync(
     console.log('The file was saved!');
   },
 );
+writeFileSync(
+  '.github/actions/loki/fuselageSnap/dist/non-storybook-files.json',
+  '{"file_names":[]}',
+  function (err) {
+    if (err) {
+      return console.log(err);
+    }
+    console.log('The file was saved!');
+  },
+);
 
 async function run(context) {
   // getTrimmedstats
@@ -79,6 +89,9 @@ async function run(context) {
     const nonStatsFileName = await readStatsFile(
       '.github/actions/loki/fuselageSnap/dist/save.json',
     );
+    const nonStryBkFiles = await readStatsFile(
+      '.github/actions/loki/fuselageSnap/dist/non-storybook-files.json',
+    );
     core.startGroup('click to see the changed files');
     console.log(changedFiles);
     core.endGroup();
@@ -86,6 +99,9 @@ async function run(context) {
       'click to see files that do not appear in stats of storybook',
     );
     console.log(nonStatsFileName.file_names);
+    core.startGroup('click to see non storybook files');
+    console.log(nonStryBkFiles);
+    core.endGroup();
     if (regex.fuselage.length === 0) {
       regex.fuselage = 'skip';
     }
