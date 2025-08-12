@@ -96,10 +96,10 @@ async function run(context) {
     console.log(changedFiles);
     core.endGroup();
     core.startGroup(
-      'click to see files that do not appear in stats of storybook',
+      'click to see files that do not appear in storybook stats',
     );
     console.log(nonStatsFileName.file_names);
-    core.startGroup('click to see non storybook files');
+    core.startGroup('click to see non storybook package files');
     console.log(nonStryBkFiles.file_names);
     core.endGroup();
     if (regex.fuselage.length === 0) {
