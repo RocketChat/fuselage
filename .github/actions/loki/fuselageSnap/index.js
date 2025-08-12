@@ -100,7 +100,7 @@ async function run(context) {
     );
     console.log(nonStatsFileName.file_names);
     core.startGroup('click to see non storybook files');
-    console.log(nonStryBkFiles);
+    console.log(nonStryBkFiles.file_names);
     core.endGroup();
     if (regex.fuselage.length === 0) {
       regex.fuselage = 'skip';
