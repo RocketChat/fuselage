@@ -1,5 +1,3 @@
-import * as core from '@actions/core';
-
 import { getDirectDependencies } from './getDirectDependencies.js';
 import { getIndirectDps } from './getIndirectDependency.js';
 import { getNonStatsFile } from './getNonStatsFile.js';
