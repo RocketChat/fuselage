@@ -5,10 +5,10 @@ import * as github from '@actions/github';
 
 import { getAffectedComponents } from './src/getAffectedComponents.js';
 import { getChangedFile } from './src/git/git.js';
+import { readStatsFile } from './src/stats/readStatsFile.js';
 import { trimStatsFile } from './src/stats/trimStatsFile.js';
 import { copyFiles } from './src/utils/copyFiles.js';
 import { generateRegex } from './src/utils/generateRegex.js';
-import { readStatsFile } from './src/stats/readStatsFile.js';
 
 // yarn build-storybook --stats-json gives project-stats.json which has component titles
 // where as index.json gives the webpack base dependency graph
@@ -60,7 +60,6 @@ writeFileSync(
   },
 );
 
-
 async function run(context) {
   // getTrimmedstats
   const promises = [];
@@ -77,11 +76,15 @@ async function run(context) {
     const changedFiles = await getChangedFile(context);
     const data = await getAffectedComponents(changedFiles);
     const regex = generateRegex(data);
-    const nonStatsFileName = await readStatsFile('.github/actions/loki/fuselageSnap/dist/save.json');
+    const nonStatsFileName = await readStatsFile(
+      '.github/actions/loki/fuselageSnap/dist/save.json',
+    );
     core.startGroup('click to see the changed files');
     console.log(changedFiles);
     core.endGroup();
-    core.startGroup('click to see files that do not appear in stats of storybook')
+    core.startGroup(
+      'click to see files that do not appear in stats of storybook',
+    );
     console.log(nonStatsFileName.file_names);
     if (regex.fuselage.length === 0) {
       regex.fuselage = 'skip';
