@@ -1,7 +1,5 @@
-import * as core from '@actions/core';
-
+import { getNonStatsFile } from './getNonStatsFile.js';
 import { readStatsFile } from './stats/readStatsFile.js';
-
 /**
  *
  * @param {string} name - component filename or path from src
@@ -52,11 +50,8 @@ export const getReasons = async (name, statsPath) => {
   const arr = await getResonsLogic(name, statsPath);
   try {
     if (arr.length === 0) {
-      core.startGroup(
-        'Click to see files that do not appear in Storybook Webpack stats',
-      );
       console.log(`${name}`);
-      core.endGroup();
+      getNonStatsFile(`${name}`, '.github/actions/loki/fuselageSnap/dist/save');
     }
     return arr;
   } catch (error) {

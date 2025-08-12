@@ -1,8 +1,11 @@
+import { writeFileSync } from 'fs';
+
 import * as core from '@actions/core';
 import * as github from '@actions/github';
 
 import { getAffectedComponents } from './src/getAffectedComponents.js';
 import { getChangedFile } from './src/git/git.js';
+import { readStatsFile } from './src/stats/readStatsFile.js';
 import { trimStatsFile } from './src/stats/trimStatsFile.js';
 import { copyFiles } from './src/utils/copyFiles.js';
 import { generateRegex } from './src/utils/generateRegex.js';
@@ -46,6 +49,27 @@ const filesToCopy = [
   },
 ];
 
+writeFileSync(
+  '.github/actions/loki/fuselageSnap/dist/save.json',
+  '{"file_names":[]}',
+  function (err) {
+    if (err) {
+      return console.log(err);
+    }
+    console.log('The file was saved!');
+  },
+);
+writeFileSync(
+  '.github/actions/loki/fuselageSnap/dist/non-storybook-files.json',
+  '{"file_names":[]}',
+  function (err) {
+    if (err) {
+      return console.log(err);
+    }
+    console.log('The file was saved!');
+  },
+);
+
 async function run(context) {
   // getTrimmedstats
   const promises = [];
@@ -56,13 +80,25 @@ async function run(context) {
       promises.push(trimStatsFile(dest, trimmedPath));
     }
   }
+
   await Promise.all(promises);
   if (context.eventName === 'pull_request') {
     const changedFiles = await getChangedFile(context);
     const data = await getAffectedComponents(changedFiles);
     const regex = generateRegex(data);
+    const nonStatsFileName = await readStatsFile(
+      '.github/actions/loki/fuselageSnap/dist/save.json',
+    );
+    const nonStryBkFiles = await readStatsFile(
+      '.github/actions/loki/fuselageSnap/dist/non-storybook-files.json',
+    );
     core.startGroup('click to see the changed files');
     console.log(changedFiles);
+    core.endGroup();
+    core.startGroup('click to see files that do not appear in storybook stats');
+    console.log(nonStatsFileName.file_names);
+    core.startGroup('click to see non storybook package files');
+    console.log(nonStryBkFiles.file_names);
     core.endGroup();
     if (regex.fuselage.length === 0) {
       regex.fuselage = 'skip';

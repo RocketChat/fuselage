@@ -1,7 +1,6 @@
-import * as core from '@actions/core';
-
 import { getDirectDependencies } from './getDirectDependencies.js';
 import { getIndirectDps } from './getIndirectDependency.js';
+import { getNonStatsFile } from './getNonStatsFile.js';
 
 const mapPackagesToFilePath = (changedFiles) => {
   const packageToFileMap = {};
@@ -133,11 +132,16 @@ export const getAffectedComponents = async (changedFiles) => {
       unfilteredChangedFiles.push(file);
     }
   }
-  core.startGroup('Changed non-Storybook files');
+  const promises = [];
   for (const file of unfilteredChangedFiles) {
-    console.log(file);
+    promises.push(
+      getNonStatsFile(
+        file,
+        '.github/actions/loki/fuselageSnap/dist/non-storybook-files',
+      ),
+    );
   }
-  core.endGroup();
+  await Promise.all(promises);
   const map = mapPackagesToFilePath(filterChangedFiles);
   const directDepsPromises = [];
   const indirectDepsPromises = [];
