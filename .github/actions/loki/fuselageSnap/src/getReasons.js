@@ -1,5 +1,6 @@
-import { readStatsFile } from './stats/readStatsFile.js';
 import * as core from '@actions/core';
+
+import { readStatsFile } from './stats/readStatsFile.js';
 
 /**
  *
@@ -51,13 +52,14 @@ export const getReasons = async (name, statsPath) => {
   const arr = await getResonsLogic(name, statsPath);
   try {
     if (arr.length === 0) {
-      core.startGroup('Click to see files that do not appear in Storybook Webpack stats')
-      console.log(`${name}`)
-      core.endGroup()
+      core.startGroup(
+        'Click to see files that do not appear in Storybook Webpack stats',
+      );
+      console.log(`${name}`);
+      core.endGroup();
     }
     return arr;
   } catch (error) {
-
     console.log(error.message);
     return [];
   }
