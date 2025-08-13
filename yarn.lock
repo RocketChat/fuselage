@@ -12664,8 +12664,12 @@ __metadata:
 "fuselagesnap-local@workspace:tools/fuselageSnap-local":
   version: 0.0.0-use.local
   resolution: "fuselagesnap-local@workspace:tools/fuselageSnap-local"
+  dependencies:
+    eslint: "npm:^9.29.0"
+    lint-all: "workspace:~"
+    prettier: "npm:~3.5.3"
   bin:
-    fuselagesnap-local: bin/fuselagesnap-local.js
+    fuselagesnap-local: bin/index.js
   languageName: unknown
   linkType: soft
 

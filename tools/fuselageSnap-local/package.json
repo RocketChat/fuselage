@@ -7,6 +7,11 @@
     "lint-and-fix": "lint-and-fix"
   },
   "type": "module",
-  "bin": "bin/fuselagesnap-local.js",
+  "bin": "bin/index.js",
+  "devDependencies": {
+    "eslint": "^9.29.0",
+    "lint-all": "workspace:~",
+    "prettier": "~3.5.3"
+  },
   "version": "0.0.1"
 }
