@@ -1,12 +1,12 @@
 import { writeFileSync } from 'fs';
+
 import { execa } from 'execa';
 
-import { getChangedFileLocal } from '../src/git_local.js';
 import { getAffectedComponents } from '../../../.github/actions/loki/fuselageSnap/src/getAffectedComponents.js';
-import { readStatsFile } from '../../../.github/actions/loki/fuselageSnap/src/stats/readStatsFile.js';
 import { trimStatsFile } from '../../../.github/actions/loki/fuselageSnap/src/stats/trimStatsFile.js';
 import { copyFiles } from '../../../.github/actions/loki/fuselageSnap/src/utils/copyFiles.js';
 import { generateRegex } from '../../../.github/actions/loki/fuselageSnap/src/utils/generateRegex.js';
+import { getChangedFileLocal } from '../src/git_local.js';
 
 // yarn build-storybook --stats-json gives project-stats.json which has component titles
 // where as index.json gives the webpack base dependency graph
@@ -79,31 +79,25 @@ async function run() {
   }
 
   await Promise.all(promises);
-    const headCommit = await execa`git rev-parse HEAD`;
-    const changedFiles = await getChangedFileLocal(headCommit.stdout);
-    const data = await getAffectedComponents(changedFiles);
-    const regex = generateRegex(data);
-    const nonStatsFileName = await readStatsFile(
-      '.github/actions/loki/fuselageSnap/dist/save.json',
-    );
-    const nonStryBkFiles = await readStatsFile(
-      '.github/actions/loki/fuselageSnap/dist/non-storybook-files.json',
-    );
-    if (regex.fuselage.length === 0) {
-      regex.fuselage = 'skip';
-    }
-    if (regex['fuselage-toastbar'].length === 0) {
-      regex['fuselage-toastbar'] = 'skip';
-    }
-    if (regex.layout.length === 0) {
-      regex.layout = 'skip';
-    }
-    if (regex['onboarding-ui'].length === 0) {
-      regex['onboarding-ui'] = 'skip';
-    }
-    console.log(regex['fuselage']);
-    console.log(regex['fuselage-toastbar']);
-    console.log(regex['layout']);
-    console.log(regex['onboarding-ui']);
+  const headCommit = await execa`git rev-parse HEAD`;
+  const changedFiles = await getChangedFileLocal(headCommit.stdout);
+  const data = await getAffectedComponents(changedFiles);
+  const regex = generateRegex(data);
+  if (regex.fuselage.length === 0) {
+    regex.fuselage = 'skip';
+  }
+  if (regex['fuselage-toastbar'].length === 0) {
+    regex['fuselage-toastbar'] = 'skip';
+  }
+  if (regex.layout.length === 0) {
+    regex.layout = 'skip';
+  }
+  if (regex['onboarding-ui'].length === 0) {
+    regex['onboarding-ui'] = 'skip';
+  }
+  console.log(regex.fuselage);
+  console.log(regex['fuselage-toastbar']);
+  console.log(regex.layout);
+  console.log(regex['onboarding-ui']);
 }
 run();

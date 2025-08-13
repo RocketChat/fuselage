@@ -5548,6 +5548,7 @@ __metadata:
     eslint-plugin-react-hooks: "npm:~5.2.0"
     eslint-plugin-storybook: "npm:~9.0.11"
     execa: "npm:~9.6.0"
+    fuselagesnap-local: "workspace:~"
     globals: "npm:~16.2.0"
     husky: "npm:~9.1.7"
     hygen: "npm:~6.2.11"
@@ -12661,7 +12662,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fuselagesnap-local@workspace:tools/fuselageSnap-local":
+"fuselagesnap-local@workspace:tools/fuselageSnap-local, fuselagesnap-local@workspace:~":
   version: 0.0.0-use.local
   resolution: "fuselagesnap-local@workspace:tools/fuselageSnap-local"
   dependencies:
