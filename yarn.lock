@@ -12661,6 +12661,14 @@ __metadata:
   languageName: node
   linkType: hard
 
+"fuselagesnap-local@workspace:tools/fuselageSnap-local":
+  version: 0.0.0-use.local
+  resolution: "fuselagesnap-local@workspace:tools/fuselageSnap-local"
+  bin:
+    fuselagesnap-local: bin/fuselagesnap-local.js
+  languageName: unknown
+  linkType: soft
+
 "fuselagesnap@workspace:.github/actions/loki/fuselageSnap":
   version: 0.0.0-use.local
   resolution: "fuselagesnap@workspace:.github/actions/loki/fuselageSnap"

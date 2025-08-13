@@ -1,6 +1,6 @@
 import { execa } from 'execa';
 
-export async function getChangedFile(headCommit) {
+export async function getChangedFileLocal(headCommit) {
   // `git --no-pager diff --name-only --no-relative ${baseCommit} ${headCommit}`
   const { stdout } = await execa('git', [
     '--no-pager',
@@ -14,5 +14,3 @@ export async function getChangedFile(headCommit) {
   // see the changed files using the sha
   return changedFile;
 }
-const temp = await getChangedFile('fa873a105b7c304fad6c580d0d65d340e99f1a37');
-console.log(temp);

@@ -1,0 +1,12 @@
+{
+  "private": true,
+  "name": "fuselagesnap-local",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "lint": "lint .",
+    "lint-and-fix": "lint-and-fix"
+  },
+  "type": "module",
+  "bin": "bin/fuselagesnap-local.js",
+  "version": "0.0.1"
+}
