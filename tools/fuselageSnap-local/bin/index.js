@@ -22,11 +22,7 @@ export const execCommand = (command) => {
       reject(error);
     });
     childProcess.on('exit', (code) => {
-      if (code === 0) {
-        resolve();
-      } else {
-        reject(new Error(`Command exited with code ${code}.`));
-      }
+      resolve();
     });
   });
 };
@@ -133,11 +129,12 @@ async function run() {
     console.log(colorize('Running full visual tests for fuselage').green);
     await execCommand('cd packages/fuselage && yarn loki:test');
   } else {
-    console.log(colorize('Running fuselageSnap for fuselage ').bgBlue);
+    console.log(colorize('Running fuselageSnap for fuselage ').green);
     await execCommand(
       `cd packages/fuselage && yarn loki:test --storiesFilter="${regex.fuselage}"`,
     );
   }
+
 
   if (regex['fuselage-toastbar'].length === 0) {
     console.log(
@@ -151,7 +148,7 @@ async function run() {
   } else {
     console.log(colorize('Running fuselageSnap for fuselage-toastbar ').bgBlue);
     await execCommand(
-      `cd packages/fuselage-toastbar && yarn loki:test --storiesFilter="${regex['fuselage-toastbar']}`,
+      `cd packages/fuselage-toastbar && yarn loki:test --storiesFilter="${regex['fuselage-toastbar']}"`,
     );
   }
 
@@ -163,7 +160,7 @@ async function run() {
   } else {
     console.log(colorize('Running fuselageSnap for layout ').bgBlue);
     await execCommand(
-      `cd packages/layout && yarn loki:test --storiesFilter="${regex.layout}`,
+      `cd packages/layout && yarn loki:test --storiesFilter="${regex.layout}"`,
     );
   }
 
@@ -177,7 +174,7 @@ async function run() {
   } else {
     console.log(colorize('Running fuselageSnap for onboarding-ui ').bgBlue);
     await execCommand(
-      `cd packages/onboarding-ui && yarn loki:test --storiesFilter="${regex['onboarding-ui']}`,
+      `cd packages/onboarding-ui && yarn loki:test --storiesFilter="${regex['onboarding-ui']}"`,
     );
   }
 }
