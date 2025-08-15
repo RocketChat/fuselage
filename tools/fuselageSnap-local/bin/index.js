@@ -21,7 +21,7 @@ export const execCommand = (command) => {
     childProcess.on('error', (error) => {
       reject(error);
     });
-    childProcess.on('exit', (code) => {
+    childProcess.on('exit', () => {
       resolve();
     });
   });
@@ -117,65 +117,23 @@ async function run() {
     bgCyan: `\x1b[46m${args.join(' ')}\x1b[0m`,
     bgWhite: `\x1b[47m${args.join(' ')}\x1b[0m`,
   });
-  console.log(
-    colorize('Remember to git add . your changes before running fuselageSnap')
-      .magenta,
-  );
-  if (regex.fuselage.length === 0) {
-    console.log(
-      colorize('skipping fuselage no affected components found').green,
-    );
-  } else if (regex.fuselage === 'full test') {
-    console.log(colorize('Running full visual tests for fuselage').green);
-    await execCommand('cd packages/fuselage && yarn loki:test');
-  } else {
-    console.log(colorize('Running fuselageSnap for fuselage ').green);
-    await execCommand(
-      `cd packages/fuselage && yarn loki:test --storiesFilter="${regex.fuselage}"`,
-    );
-  }
-
-
-  if (regex['fuselage-toastbar'].length === 0) {
-    console.log(
-      colorize('skipping fuselage-toastbar no affected components found').green,
-    );
-  } else if (regex['fuselage-toastbar'] === 'full test') {
-    console.log(
-      colorize('Running full visual tests for fuselage-toastbar').green,
-    );
-    await execCommand('cd packages/fuselage-toastbar && yarn loki:test');
-  } else {
-    console.log(colorize('Running fuselageSnap for fuselage-toastbar ').bgBlue);
-    await execCommand(
-      `cd packages/fuselage-toastbar && yarn loki:test --storiesFilter="${regex['fuselage-toastbar']}"`,
-    );
-  }
-
-  if (regex.layout.length === 0) {
-    console.log(colorize('skipping layout no affected components found').green);
-  } else if (regex.layout === 'full test') {
-    console.log(colorize('Running full visual tests for layout').green);
-    await execCommand('cd packages/layout && yarn loki:test');
-  } else {
-    console.log(colorize('Running fuselageSnap for layout ').bgBlue);
-    await execCommand(
-      `cd packages/layout && yarn loki:test --storiesFilter="${regex.layout}"`,
-    );
-  }
-
-  if (regex['onboarding-ui'].length === 0) {
-    console.log(
-      colorize('skipping onboarding-ui no affected components found').green,
-    );
-  } else if (regex['onboarding-ui'] === 'full test') {
-    console.log(colorize('Running full visual tests for onboarding-ui').green);
-    await execCommand('cd packages/onboarding-ui && yarn loki:test');
-  } else {
-    console.log(colorize('Running fuselageSnap for onboarding-ui ').bgBlue);
-    await execCommand(
-      `cd packages/onboarding-ui && yarn loki:test --storiesFilter="${regex['onboarding-ui']}"`,
-    );
+  // await execCommand('yarn build-storybook');
+  const pkgs = ['fuselage', 'fuselage-toastbar', 'layout', 'onboarding-ui'];
+  /* eslint-disable no-await-in-loop */
+  for (const pkg of pkgs) {
+    if (regex[`${pkg}`].length === 0) {
+      console.log(
+        colorize(`skipping ${pkg} no affected components found`).bgBlue,
+      );
+    } else if (regex[`${pkg}`] === 'full test') {
+      console.log(colorize(`Running full visual tests for ${pkg}`).bgBlue);
+      await execCommand(`cd packages/${pkg} && yarn loki:test`);
+    } else {
+      console.log(colorize(`Running fuselageSnap for ${pkg}`).bgBlue);
+      await execCommand(
+        `cd packages/${pkg} && yarn loki:test --storiesFilter="${regex[pkg]}"`,
+      );
+    }
   }
 }
 run();
