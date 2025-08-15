@@ -12,20 +12,6 @@ import { getChangedFileLocal } from '../src/git_local.js';
 // yarn build-storybook --stats-json gives project-stats.json which has component titles
 // where as index.json gives the webpack base dependency graph
 // index.js run from the root of the project
-export const execCommand = (command) => {
-  return new Promise((resolve, reject) => {
-    const childProcess = spawn(command, {
-      stdio: 'inherit',
-      shell: true,
-    });
-    childProcess.on('error', (error) => {
-      reject(error);
-    });
-    childProcess.on('exit', () => {
-      resolve();
-    });
-  });
-};
 const filesToCopy = [
   {
     src: './packages/fuselage/storybook-static/index.json',
@@ -60,6 +46,21 @@ const filesToCopy = [
     dest: '.github/actions/loki/fuselageSnap/dist/layout-stats.json',
   },
 ];
+
+export const execCommand = (command) => {
+  return new Promise((resolve, reject) => {
+    const childProcess = spawn(command, {
+      stdio: 'inherit',
+      shell: true,
+    });
+    childProcess.on('error', (error) => {
+      reject(error);
+    });
+    childProcess.on('exit', () => {
+      resolve();
+    });
+  });
+};
 
 writeFileSync(
   '.github/actions/loki/fuselageSnap/dist/save.json',
@@ -98,6 +99,7 @@ async function run() {
   const changedFiles = await getChangedFileLocal(headCommit.stdout);
   const data = await getAffectedComponents(changedFiles);
   const regex = generateRegex(data);
+  const pkgs = ['fuselage', 'fuselage-toastbar', 'layout', 'onboarding-ui'];
 
   const colorize = (...args) => ({
     black: `\x1b[30m${args.join(' ')}`,
@@ -118,8 +120,19 @@ async function run() {
     bgWhite: `\x1b[47m${args.join(' ')}\x1b[0m`,
   });
   // await execCommand('yarn build-storybook');
-  const pkgs = ['fuselage', 'fuselage-toastbar', 'layout', 'onboarding-ui'];
   /* eslint-disable no-await-in-loop */
+  if (regex.fuselage.length > 0) {
+    await execCommand('yarn build-storybook');
+  } else if (regex['fuselage-toastbar'].length > 0) {
+    await execCommand('cd packages/fuselage-toastbar && yarn build-storybook');
+  } else if (regex.layout.length > 0) {
+    await execCommand('cd packages/fuselage-toastbar && yarn build-storybook');
+    await execCommand('cd packages/onboarding-ui && yarn build-storybook');
+    await execCommand('cd packages/layout && yarn build-storybook');
+  } else if (regex['onboarding-ui'].length > 0) {
+    await execCommand('cd packages/onboarding-ui && yarn build-storybook');
+  }
+
   for (const pkg of pkgs) {
     if (regex[`${pkg}`].length === 0) {
       console.log(
