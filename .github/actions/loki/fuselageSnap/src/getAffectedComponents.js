@@ -96,7 +96,7 @@ async function mergeCmpDeps(saveDirectDps, saveIndirectDps, pkgToFileMap) {
 
 function potentialFullTest(changedFiles) {
   for (const file of changedFiles) {
-    if (file.includes('tools') || file.includes('yarn.lock')) {
+    if (file.includes('yarn.lock')) {
       return true;
     }
     const pkg = file.split('/')[0];
