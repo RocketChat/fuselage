@@ -123,41 +123,56 @@ export const getAffectedComponents = async (changedFiles) => {
       layout,
     };
   }
-  const filterChangedFiles = [];
-  const unfilteredChangedFiles = [];
-  for (const file of changedFiles) {
-    if (file.includes('packages')) {
-      filterChangedFiles.push(file);
-    } else {
-      unfilteredChangedFiles.push(file);
+  else {
+    const filterChangedFiles = [];
+    const unfilteredChangedFiles = [];
+    for (const file of changedFiles) {
+      if (file.includes('packages')) {
+        // SCSS files are not included in the webpack dependency graph.
+        // If a changed file is a `*.styles.scss` inside `components/`, 
+        // map it to its parent component’s `.tsx` file.
+        // Example: `Button.styles.scss` → `Button.tsx`
+        if(file.includes('styles.scss') && file.includes('components')) {
+          const part = file.split('/');
+          const replace = part[part.length-2];
+          part[part.length-1] = `${replace}.tsx`;
+          filterChangedFiles.push(part.join('/'));
+        }
+        else {
+          filterChangedFiles.push(file);
+        }
+      } else {
+        unfilteredChangedFiles.push(file);
+      }
     }
-  }
-  const promises = [];
-  for (const file of unfilteredChangedFiles) {
-    promises.push(
-      getNonStatsFile(
-        file,
-        '.github/actions/loki/fuselageSnap/dist/non-storybook-files',
-      ),
-    );
-  }
-  await Promise.all(promises);
-  const map = mapPackagesToFilePath(filterChangedFiles);
-  const directDepsPromises = [];
-  const indirectDepsPromises = [];
-  const pkgNames = [];
-
-  for (const pkgName in map) {
-    if (Object.prototype.hasOwnProperty.call(map, pkgName)) {
-      pkgNames.push(pkgName);
-      directDepsPromises.push(getDirectDependencies(map[pkgName], pkgName));
-      indirectDepsPromises.push(getIndirectDps(pkgName));
+    const promises = [];
+    for (const file of unfilteredChangedFiles) {
+      promises.push(
+        getNonStatsFile(
+          file,
+          '.github/actions/loki/fuselageSnap/dist/non-storybook-files',
+        ),
+      );
     }
-  }
+    await Promise.all(promises);
+    const map = mapPackagesToFilePath(filterChangedFiles);
+    const directDepsPromises = [];
+    const indirectDepsPromises = [];
+    const pkgNames = [];
 
-  const saveDirectDps = await Promise.all(directDepsPromises);
-  const saveIndirectDps = await Promise.all(indirectDepsPromises);
+    for (const pkgName in map) {
+      if (Object.prototype.hasOwnProperty.call(map, pkgName)) {
+        pkgNames.push(pkgName);
+        directDepsPromises.push(getDirectDependencies(map[pkgName], pkgName));
+        indirectDepsPromises.push(getIndirectDps(pkgName));
+      }
+    }
 
-  const result = await mergeCmpDeps(saveDirectDps, saveIndirectDps, map);
-  return result;
-};
+    const saveDirectDps = await Promise.all(directDepsPromises);
+    const saveIndirectDps = await Promise.all(indirectDepsPromises);
+
+    const result = await mergeCmpDeps(saveDirectDps, saveIndirectDps, map);
+    return result;
+
+    }
+  };
