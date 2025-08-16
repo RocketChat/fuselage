@@ -112,7 +112,6 @@ export const mergePkgsObj = (pkgName) => {
 };
 export const getIndirectDps = async (pkgName) => {
   const relevantGraph = mergePkgsObj(pkgName);
-  console.log(relevantGraph);
   const promises = relevantGraph.map(async (obj) => {
     const key = Object.keys(obj)[0];
     const result = await getReasons(
