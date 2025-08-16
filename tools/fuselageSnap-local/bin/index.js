@@ -84,9 +84,9 @@ writeFileSync(
 );
 async function copyFilesToDest(filesToCopy, location) {
   const promises = [];
-  for(const pkg of location ) {
+  for (const pkg of location) {
     for (const { src, dest } of filesToCopy) {
-      if(src.split('/')[2] === pkg) {
+      if (src.split('/')[2] === pkg) {
         copyFiles(src, dest);
         if (dest.includes('stats')) {
           const trimmedPath = `.github/actions/loki/fuselageSnap/dist/trimmed-${dest.split('/').slice(-1)}`;
@@ -95,7 +95,7 @@ async function copyFilesToDest(filesToCopy, location) {
       }
     }
   }
-  
+
   await Promise.all(promises);
 }
 async function run() {
@@ -119,13 +119,12 @@ async function run() {
       storyBookPkgs.add('fuselage');
     }
   }
-  for(const pkg of storyBookPkgs) {
+  for (const pkg of storyBookPkgs) {
     if (pkg === 'fuselage') {
       storyBookPkgs.delete('fuselage-toastbar');
       storyBookPkgs.delete('layout');
       storyBookPkgs.delete('onboarding-ui');
-    }
-    else if (pkg === 'layout') {
+    } else if (pkg === 'layout') {
       storyBookPkgs.delete('fuselage-toastbar');
       storyBookPkgs.delete('onboarding-ui');
     }
@@ -165,7 +164,7 @@ async function run() {
     }
   }
   await Promise.all(buildStoryBookPromises);
-  if(storyBookFilesToCopy.length > 0) {
+  if (storyBookFilesToCopy.length > 0) {
     await copyFilesToDest(filesToCopy, storyBookFilesToCopy);
   }
   const data = await getAffectedComponents(changedFiles);
