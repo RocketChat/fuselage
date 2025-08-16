@@ -119,6 +119,17 @@ async function run() {
       storyBookPkgs.add('fuselage');
     }
   }
+  for(const pkg of storyBookPkgs) {
+    if (pkg === 'fuselage') {
+      storyBookPkgs.delete('fuselage-toastbar');
+      storyBookPkgs.delete('layout');
+      storyBookPkgs.delete('onboarding-ui');
+    }
+    else if (pkg === 'layout') {
+      storyBookPkgs.delete('fuselage-toastbar');
+      storyBookPkgs.delete('onboarding-ui');
+    }
+  }
   const storyBookFilesToCopy = [];
   for (const pkg of storyBookPkgs) {
     if (pkg === 'fuselage') {
