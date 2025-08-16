@@ -82,6 +82,22 @@ writeFileSync(
     console.log('The file was saved!');
   },
 );
+async function copyFilesToDest(filesToCopy, location) {
+  const promises = [];
+  for(const pkg of location ) {
+    for (const { src, dest } of filesToCopy) {
+      if(src.split('/')[2] === pkg) {
+        copyFiles(src, dest);
+        if (dest.includes('stats')) {
+          const trimmedPath = `.github/actions/loki/fuselageSnap/dist/trimmed-${dest.split('/').slice(-1)}`;
+          promises.push(trimStatsFile(dest, trimmedPath));
+        }
+      }
+    }
+  }
+  
+  await Promise.all(promises);
+}
 async function run() {
   const buildStoryBookPromises = [];
   const headCommit = await execa`git rev-parse HEAD`;
@@ -93,6 +109,7 @@ async function run() {
         storyBookPkgs.add('fuselage');
         break;
       }
+      storyBookPkgs.add(file.split('/')[1]);
       const pkgMap = mergePkgsObj(file.split('/')[1]);
       for (const pkgName of pkgMap) {
         storyBookPkgs.add(Object.keys(pkgName)[0]);
@@ -102,15 +119,20 @@ async function run() {
       storyBookPkgs.add('fuselage');
     }
   }
-
+  const storyBookFilesToCopy = [];
   for (const pkg of storyBookPkgs) {
     if (pkg === 'fuselage') {
       buildStoryBookPromises.push(execCommand('yarn build-storybook'));
+      storyBookFilesToCopy.push('fuselage');
+      storyBookFilesToCopy.push('fuselage-toastbar');
+      storyBookFilesToCopy.push('layout');
+      storyBookFilesToCopy.push('onboarding-ui');
       break;
     } else if (pkg === 'fuselage-toastbar') {
       buildStoryBookPromises.push(
         execCommand('cd packages/fuselage-toastbar && yarn build-storybook'),
       );
+      storyBookFilesToCopy.push('fuselage-toastbar');
     } else if (pkg === 'layout') {
       buildStoryBookPromises.push(
         execCommand('cd packages/fuselage-toastbar && yarn build-storybook'),
@@ -121,25 +143,20 @@ async function run() {
       buildStoryBookPromises.push(
         execCommand('cd packages/layout && yarn build-storybook'),
       );
+      storyBookFilesToCopy.push('fuselage-toastbar');
+      storyBookFilesToCopy.push('onboarding-ui');
+      storyBookFilesToCopy.push('layout');
     } else if (pkg === 'onboarding-ui') {
       buildStoryBookPromises.push(
-        execCommand('cd onboarding-ui && yarn build-storybook'),
+        execCommand('cd packages/onboarding-ui && yarn build-storybook'),
       );
+      storyBookFilesToCopy.push('onboarding-ui');
     }
   }
   await Promise.all(buildStoryBookPromises);
-
-  const promises = [];
-  for (const { src, dest } of filesToCopy) {
-    copyFiles(src, dest);
-    if (dest.includes('stats')) {
-      const trimmedPath = `.github/actions/loki/fuselageSnap/dist/trimmed-${dest.split('/').slice(-1)}`;
-      promises.push(trimStatsFile(dest, trimmedPath));
-    }
+  if(storyBookFilesToCopy.length > 0) {
+    await copyFilesToDest(filesToCopy, storyBookFilesToCopy);
   }
-
-  await Promise.all(promises);
-
   const data = await getAffectedComponents(changedFiles);
   const regex = generateRegex(data);
   const pkgs = ['fuselage', 'fuselage-toastbar', 'layout', 'onboarding-ui'];
