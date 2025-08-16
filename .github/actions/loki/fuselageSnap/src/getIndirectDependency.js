@@ -80,18 +80,18 @@ const graph = [
  * @returns {Promise<Array<Object<string, Set<string>>>>} - A list of objects where each key is the dependent package name
  * and the value is a Set of affected component titles.
  */
-export const getRelevantGraph = (pkgName) => {
-  const relevantGraph = graph.filter((obj) => {
+export const traverseGraph = (pkgName) => {
+  const traversedData = graph.filter((obj) => {
     const key = Object.keys(obj)[0];
     return isStoryBookPkg(key) && Object.values(obj)[0] === pkgName;
   });
-  return relevantGraph;
+  return traversedData;
 };
-export const getIndirectDps = async (pkgName) => {
-  const relevantGraph = getRelevantGraph(pkgName);
+export const mergePkgsObj = (pkgName) => {
+  const relevantGraph = traverseGraph(pkgName);
   const transitive = [];
   for (const obj of relevantGraph) {
-    transitive.push(getRelevantGraph(Object.keys(obj)[0]));
+    transitive.push(traverseGraph(Object.keys(obj)[0]));
   }
   for (const arr of transitive) {
     for (const obj_tr of arr) {
@@ -108,6 +108,11 @@ export const getIndirectDps = async (pkgName) => {
       }
     }
   }
+  return relevantGraph;
+};
+export const getIndirectDps = async (pkgName) => {
+  const relevantGraph = mergePkgsObj(pkgName);
+  console.log(relevantGraph);
   const promises = relevantGraph.map(async (obj) => {
     const key = Object.keys(obj)[0];
     const result = await getReasons(
