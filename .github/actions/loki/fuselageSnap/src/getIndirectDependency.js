@@ -83,22 +83,31 @@ const graph = [
 export const getRelevantGraph = (pkgName) => {
   const relevantGraph = graph.filter((obj) => {
     const key = Object.keys(obj)[0];
-    if (isStoryBookPkg(key) && Object.values(obj)[0] === pkgName) {
-      return key;
-    }
-    return '';
+    return isStoryBookPkg(key) && Object.values(obj)[0] === pkgName;
   });
   return relevantGraph;
 };
 export const getIndirectDps = async (pkgName) => {
   const relevantGraph = getRelevantGraph(pkgName);
-  // for(const temp of relevantGraph) {
-  //   console.log(temp.length);
-  //   console.log(Object.keys(temp)[0]);
-  //   console.log(Object.values(temp)[0]);
-  // }
-  console.log(relevantGraph);
-
+  const transitive = [];
+  for (const obj of relevantGraph) {
+    transitive.push(getRelevantGraph(Object.keys(obj)[0]));
+  }
+  for (const arr of transitive) {
+    for (const obj_tr of arr) {
+      const transitive_keys = Object.keys(obj_tr)[0];
+      let isPresent = 0;
+      for (const obj_rel of relevantGraph) {
+        const rel_keys = Object.keys(obj_rel)[0];
+        if (transitive_keys === rel_keys) {
+          isPresent = 1;
+        }
+      }
+      if (isPresent === 0) {
+        relevantGraph.push(obj_tr);
+      }
+    }
+  }
   const promises = relevantGraph.map(async (obj) => {
     const key = Object.keys(obj)[0];
     const result = await getReasons(
@@ -112,5 +121,3 @@ export const getIndirectDps = async (pkgName) => {
   const overall = await Promise.all(promises);
   return overall;
 };
-
-await getIndirectDps('layout');
