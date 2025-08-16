@@ -123,11 +123,23 @@ export const getAffectedComponents = async (changedFiles) => {
       layout,
     };
   }
+
   const filterChangedFiles = [];
   const unfilteredChangedFiles = [];
   for (const file of changedFiles) {
     if (file.includes('packages')) {
-      filterChangedFiles.push(file);
+      // SCSS files are not included in the webpack dependency graph.
+      // If a changed file is a `*.styles.scss` inside `components/`,
+      // map it to its parent component’s `.tsx` file.
+      // Example: `Button.styles.scss` → `Button.tsx`
+      if (file.includes('styles.scss') && file.includes('components')) {
+        const part = file.split('/');
+        const replace = part[part.length - 2];
+        part[part.length - 1] = `${replace}.tsx`;
+        filterChangedFiles.push(part.join('/'));
+      } else {
+        filterChangedFiles.push(file);
+      }
     } else {
       unfilteredChangedFiles.push(file);
     }
