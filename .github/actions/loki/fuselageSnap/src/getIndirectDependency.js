@@ -74,18 +74,30 @@ const graph = [
   { 'tools-utils': 'lint-all' },
   { 'update-readme': 'lint-all' },
 ];
-
 /**
  *
  * @param {string} pkgName - Name of the package that a changed file belongs to.
  * @returns {Promise<Array<Object<string, Set<string>>>>} - A list of objects where each key is the dependent package name
  * and the value is a Set of affected component titles.
  */
-export const getIndirectDps = async (pkgName) => {
+export const getRelevantGraph = (pkgName) => {
   const relevantGraph = graph.filter((obj) => {
     const key = Object.keys(obj)[0];
-    return isStoryBookPkg(key) && Object.values(obj)[0] === pkgName;
+    if (isStoryBookPkg(key) && Object.values(obj)[0] === pkgName) {
+      return key;
+    }
+    return '';
   });
+  return relevantGraph;
+};
+export const getIndirectDps = async (pkgName) => {
+  const relevantGraph = getRelevantGraph(pkgName);
+  // for(const temp of relevantGraph) {
+  //   console.log(temp.length);
+  //   console.log(Object.keys(temp)[0]);
+  //   console.log(Object.values(temp)[0]);
+  // }
+  console.log(relevantGraph);
 
   const promises = relevantGraph.map(async (obj) => {
     const key = Object.keys(obj)[0];
@@ -100,3 +112,5 @@ export const getIndirectDps = async (pkgName) => {
   const overall = await Promise.all(promises);
   return overall;
 };
+
+await getIndirectDps('layout');
