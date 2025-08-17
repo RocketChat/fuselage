@@ -5548,6 +5548,7 @@ __metadata:
     eslint-plugin-react-hooks: "npm:~5.2.0"
     eslint-plugin-storybook: "npm:~9.0.11"
     execa: "npm:~9.6.0"
+    fuselagesnap-local: "workspace:~"
     globals: "npm:~16.2.0"
     husky: "npm:~9.1.7"
     hygen: "npm:~6.2.11"
@@ -12660,6 +12661,18 @@ __metadata:
   checksum: 10/0ddfd3ed1066a55984aaecebf5419fbd9344a5c38dd120ffb0739fac4496758dcf371297440528b115e4367fc46e3abc86a2cc0ff44612181b175ae967a11a05
   languageName: node
   linkType: hard
+
+"fuselagesnap-local@workspace:tools/fuselageSnap-local, fuselagesnap-local@workspace:~":
+  version: 0.0.0-use.local
+  resolution: "fuselagesnap-local@workspace:tools/fuselageSnap-local"
+  dependencies:
+    eslint: "npm:^9.29.0"
+    lint-all: "workspace:~"
+    prettier: "npm:~3.5.3"
+  bin:
+    fuselagesnap-local: bin/index.js
+  languageName: unknown
+  linkType: soft
 
 "fuselagesnap@workspace:.github/actions/loki/fuselageSnap":
   version: 0.0.0-use.local

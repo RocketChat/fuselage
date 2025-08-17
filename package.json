@@ -27,7 +27,8 @@
     "update-storybook": "yarn turbo run update-storybook",
     "loki:test": "yarn turbo run loki:test --cache-dir=\".turbo\"",
     "loki:test-ci": "yarn turbo run loki:test-ci --cache-dir=\".turbo\"",
-    "update-readme": "update-readme"
+    "update-readme": "update-readme",
+    "fuselageSnap": "fuselagesnap-local"
   },
   "devDependencies": {
     "@changesets/changelog-github": "~0.5.1",
@@ -44,6 +45,7 @@
     "eslint-plugin-react-hooks": "~5.2.0",
     "eslint-plugin-storybook": "~9.0.11",
     "execa": "~9.6.0",
+    "fuselagesnap-local": "workspace:~",
     "globals": "~16.2.0",
     "husky": "~9.1.7",
     "hygen": "~6.2.11",

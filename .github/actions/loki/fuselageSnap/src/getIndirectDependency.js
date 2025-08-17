@@ -74,19 +74,44 @@ const graph = [
   { 'tools-utils': 'lint-all' },
   { 'update-readme': 'lint-all' },
 ];
-
 /**
  *
  * @param {string} pkgName - Name of the package that a changed file belongs to.
  * @returns {Promise<Array<Object<string, Set<string>>>>} - A list of objects where each key is the dependent package name
  * and the value is a Set of affected component titles.
  */
-export const getIndirectDps = async (pkgName) => {
-  const relevantGraph = graph.filter((obj) => {
+export const traverseGraph = (pkgName) => {
+  const traversedData = graph.filter((obj) => {
     const key = Object.keys(obj)[0];
     return isStoryBookPkg(key) && Object.values(obj)[0] === pkgName;
   });
-
+  return traversedData;
+};
+export const mergePkgsObj = (pkgName) => {
+  const relevantGraph = traverseGraph(pkgName);
+  const transitive = [];
+  for (const obj of relevantGraph) {
+    transitive.push(traverseGraph(Object.keys(obj)[0]));
+  }
+  for (const arr of transitive) {
+    for (const obj_tr of arr) {
+      const transitive_keys = Object.keys(obj_tr)[0];
+      let isPresent = 0;
+      for (const obj_rel of relevantGraph) {
+        const rel_keys = Object.keys(obj_rel)[0];
+        if (transitive_keys === rel_keys) {
+          isPresent = 1;
+        }
+      }
+      if (isPresent === 0) {
+        relevantGraph.push(obj_tr);
+      }
+    }
+  }
+  return relevantGraph;
+};
+export const getIndirectDps = async (pkgName) => {
+  const relevantGraph = mergePkgsObj(pkgName);
   const promises = relevantGraph.map(async (obj) => {
     const key = Object.keys(obj)[0];
     const result = await getReasons(
