@@ -1,4 +1,4 @@
-import type { AllHTMLAttributes, ReactNode } from 'react';
+import type { ComponentProps, ReactNode } from 'react';
 
 import { prependClassName } from '../../helpers/prependClassName';
 import Box from '../Box/Box';
@@ -12,10 +12,12 @@ type TagProps = {
     | 'danger'
     | 'warning'
     | 'secondary-danger'
+    | 'secondary-warning'
+    | 'secondary-info'
     | 'featured';
   disabled?: boolean;
   icon?: ReactNode;
-} & Omit<AllHTMLAttributes<HTMLSpanElement | HTMLAnchorElement>, 'is'>;
+} & Omit<ComponentProps<typeof Box>, 'is'>;
 
 /**
  * Used for mentions

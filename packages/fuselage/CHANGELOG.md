@@ -1,5 +1,39 @@
 # Change Log
 
+## 0.66.1
+
+### Patch Changes
+
+- [#1733](https://github.com/RocketChat/fuselage/pull/1733) [`fcf1f7d`](https://github.com/RocketChat/fuselage/commit/fcf1f7d1c95363fc3577e9a1681d361fe1934ffb) Thanks [@aleksandernsilva](https://github.com/aleksandernsilva)! - feat(fuselage): Made index available to OptionsPaginated rendered items
+
+## 0.66.0
+
+### Minor Changes
+
+- [#1725](https://github.com/RocketChat/fuselage/pull/1725) [`0534e6b`](https://github.com/RocketChat/fuselage/commit/0534e6b8e323151af8524d4cefe08ff9315578ac) Thanks [@dougfabris](https://github.com/dougfabris)! - feat(fuselage): Add new Tag secondary variants
+
+- [#1723](https://github.com/RocketChat/fuselage/pull/1723) [`1170251`](https://github.com/RocketChat/fuselage/commit/11702517a6c243d7ba9b52636d86c01bcaaf8320) Thanks [@yash-rajpal](https://github.com/yash-rajpal)! - feat(fuselage): Adjust SidebarItemContent styles
+
+## 0.65.0
+
+### Minor Changes
+
+- [#1701](https://github.com/RocketChat/fuselage/pull/1701) [`3837986`](https://github.com/RocketChat/fuselage/commit/3837986eef96d8c8e6571002cfd10e59f1691615) Thanks [@dougfabris](https://github.com/dougfabris)! - feat(fuselage): Sidepanel visual updates
+
+- [#1720](https://github.com/RocketChat/fuselage/pull/1720) [`db64417`](https://github.com/RocketChat/fuselage/commit/db6441744523a460ef7f8052c355822f8d8b96ba) Thanks [@dougfabris](https://github.com/dougfabris)! - feat(fuselage): Allow StatesAction to receive variant prop
+
+- [#1715](https://github.com/RocketChat/fuselage/pull/1715) [`aa29684`](https://github.com/RocketChat/fuselage/commit/aa2968428e1e98e8e61b7847d4be424a5cf400fe) Thanks [@tassoevan](https://github.com/tassoevan)! - feat(fuselage): Remove deprecated `Modal.*` component namespace
+
+- [#1719](https://github.com/RocketChat/fuselage/pull/1719) [`178abe3`](https://github.com/RocketChat/fuselage/commit/178abe3b400060066c3fc4bfbe70aed1b9b15da6) Thanks [@dougfabris](https://github.com/dougfabris)! - feat(fuselage): Update SidePanel header title scale and color
+
+### Patch Changes
+
+- [#1704](https://github.com/RocketChat/fuselage/pull/1704) [`56b43b3`](https://github.com/RocketChat/fuselage/commit/56b43b3d2453cabae9fba1060f5f4e6da2e02db7) Thanks [@aleksandernsilva](https://github.com/aleksandernsilva)! - fix(fuselage): AutoComplete's disabled property not working
+
+- [#1703](https://github.com/RocketChat/fuselage/pull/1703) [`33f6797`](https://github.com/RocketChat/fuselage/commit/33f67971392057420b3b3b49e35f567ac2af7319) Thanks [@aleksandernsilva](https://github.com/aleksandernsilva)! - fix(fuselage): FieldLabel required prop ignored when 'is' prop is set
+
+- [#1712](https://github.com/RocketChat/fuselage/pull/1712) [`b82fb37`](https://github.com/RocketChat/fuselage/commit/b82fb37bc389b8cfc4ef9fa35b0f89f79a42e0c7) Thanks [@aleksandernsilva](https://github.com/aleksandernsilva)! - fix(fuselage): Placeholder not being displayed in PaginatedSelectFiltered
+
 ## 0.64.0
 
 ### Minor Changes

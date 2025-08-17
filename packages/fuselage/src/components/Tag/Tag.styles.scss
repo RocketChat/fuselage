@@ -72,6 +72,32 @@ $tag-colors-secondary-danger-hover-background-color: theme(
   colors.button(secondary-danger-hover)
 );
 
+$tag-colors-secondary-warning-color: theme(
+  'tag-colors-secondary-warning-color',
+  colors.status-font(on-warning)
+);
+$tag-colors-secondary-warning-background-color: theme(
+  'tag-colors-secondary-warning-background-color',
+  colors.button(secondary-default)
+);
+$tag-colors-secondary-warning-hover-background-color: theme(
+  'tag-colors-secondary-warning-hover-background-color',
+  colors.button(secondary-hover)
+);
+
+$tag-colors-secondary-info-color: theme(
+  'tag-colors-secondary-info-color',
+  colors.status-font(on-info)
+);
+$tag-colors-secondary-info-background-color: theme(
+  'tag-colors-secondary-info-background-color',
+  colors.button(secondary-default)
+);
+$tag-colors-secondary-info-hover-background-color: theme(
+  'tag-colors-secondary-info-hover-background-color',
+  colors.button(secondary-hover)
+);
+
 $tag-colors-warning-color: theme(
   'tag-colors-warning-color',
   colors.button(on-warning)
@@ -186,16 +212,6 @@ $tag-colors-disabled-background-color: theme(
     );
   }
 
-  &--secondary-danger {
-    color: $tag-colors-secondary-danger-color;
-    background-color: $tag-colors-secondary-danger-background-color;
-
-    @include use-clickable-colors(
-      $tag-colors-secondary-danger-color,
-      $tag-colors-secondary-danger-hover-background-color
-    );
-  }
-
   &--warning {
     color: $tag-colors-warning-color;
     background-color: $tag-colors-warning-background-color;
@@ -213,6 +229,36 @@ $tag-colors-disabled-background-color: theme(
     @include use-clickable-colors(
       $tag-colors-featured-color,
       $tag-colors-featured-hover-background-color
+    );
+  }
+
+  &--secondary-danger {
+    color: $tag-colors-secondary-danger-color;
+    background-color: $tag-colors-secondary-danger-background-color;
+
+    @include use-clickable-colors(
+      $tag-colors-secondary-danger-color,
+      $tag-colors-secondary-danger-hover-background-color
+    );
+  }
+
+  &--secondary-warning {
+    color: $tag-colors-secondary-warning-color;
+    background-color: $tag-colors-secondary-warning-background-color;
+
+    @include use-clickable-colors(
+      $tag-colors-secondary-warning-color,
+      $tag-colors-secondary-warning-hover-background-color
+    );
+  }
+
+  &--secondary-info {
+    color: $tag-colors-secondary-info-color;
+    background-color: $tag-colors-secondary-info-background-color;
+
+    @include use-clickable-colors(
+      $tag-colors-secondary-info-color,
+      $tag-colors-secondary-info-hover-background-color
     );
   }
 

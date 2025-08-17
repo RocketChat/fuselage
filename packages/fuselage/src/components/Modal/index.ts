@@ -13,24 +13,8 @@ import { ModalTagline } from './ModalTagline';
 import { ModalThumb } from './ModalThumb';
 import { ModalTitle } from './ModalTitle';
 
-/* @deprecated use named exports */
-export default Object.assign(Modal, {
-  Backdrop: ModalBackdrop,
-  Close: ModalClose,
-  Content: ModalContent,
-  Footer: ModalFooter,
-  Header: ModalHeader,
-  Icon: ModalIcon,
-  Thumb: ModalThumb,
-  Title: ModalTitle,
-  Tagline: ModalTagline,
-  HeaderText: ModalHeaderText,
-  HeroImage: ModalHeroImage,
-  FooterControllers: ModalFooterControllers,
-  FooterAnnotation: ModalFooterAnnotation,
-});
-
 export {
+  Modal,
   ModalBackdrop,
   ModalClose,
   ModalContent,
