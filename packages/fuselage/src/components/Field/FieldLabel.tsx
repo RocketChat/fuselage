@@ -1,4 +1,5 @@
 import type { ComponentPropsWithoutRef } from 'react';
+import { forwardRef } from 'react';
 
 import WithErrorWrapper from '../../helpers/WithErrorWrapper';
 import { Label } from '../Label';
@@ -7,20 +8,21 @@ import { FieldContext } from './Field';
 
 type FieldLabelProps = ComponentPropsWithoutRef<typeof Label>;
 
-export const FieldLabel = (props: FieldLabelProps) => {
-  const component = <Label rcx-field__label {...props} />;
+export const FieldLabel = forwardRef<HTMLElement, FieldLabelProps>(
+  function FieldLabel(props, ref) {
+    const component = <Label rcx-field__label {...props} ref={ref} />;
+    if (process.env.NODE_ENV === 'development') {
+      return (
+        <WithErrorWrapper
+          context={FieldContext}
+          parentComponent='Field'
+          componentName={FieldLabel.name}
+        >
+          {component}
+        </WithErrorWrapper>
+      );
+    }
 
-  if (process.env.NODE_ENV === 'development') {
-    return (
-      <WithErrorWrapper
-        context={FieldContext}
-        parentComponent='Field'
-        componentName={FieldLabel.name}
-      >
-        {component}
-      </WithErrorWrapper>
-    );
-  }
-
-  return component;
-};
+    return component;
+  },
+);

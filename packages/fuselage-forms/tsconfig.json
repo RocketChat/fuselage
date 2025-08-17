@@ -1,0 +1,23 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "module": "ESNext",
+    "outDir": "./dist/esm",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "jsx": "react-jsx"
+  },
+  "typedocOptions": {
+    "entryPoints": ["src/index.ts"],
+    "out": "../../static/fuselage-forms"
+  },
+  "include": [
+    "src/**/*",
+    "./.storybook/**/*",
+    "./jest.config.ts",
+    "./jest-setup.ts"
+  ],
+  "exclude": ["node_modules", "dist"]
+}

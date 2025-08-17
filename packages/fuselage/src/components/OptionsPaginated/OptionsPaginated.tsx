@@ -66,6 +66,7 @@ export const OptionsPaginated = forwardRef(
       return (
         <OptionComponent
           {...(withTitle && { title: label })}
+          index={index}
           role='option'
           label={label}
           onMouseDown={(e: SyntheticEvent) => {
