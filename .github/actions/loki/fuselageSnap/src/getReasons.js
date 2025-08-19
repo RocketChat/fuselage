@@ -19,7 +19,7 @@ export const getResonsLogic = async (name, statsPath) => {
 
     for (const module of stats.modules) {
       if (!module.name) continue;
-      if (module.name.includes('+')) continue;
+      if (module.name.includes('./src/components/index.ts + 32 modules')) continue;
 
       if (module.name.includes(file)) {
         if (module.name.includes('.stories')) {
