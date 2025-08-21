@@ -5567,6 +5567,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@rocket.chat/fuselage-forms@workspace:packages/fuselage-forms"
   dependencies:
+    "@rocket.chat/emitter": "workspace:~"
     "@rocket.chat/fuselage": "npm:*"
     "@rocket.chat/fuselage-tokens": "workspace:~"
     "@storybook/addon-docs": "npm:~9.0.18"
@@ -5575,6 +5576,7 @@ __metadata:
     "@storybook/types": "npm:~8.6.14"
     "@testing-library/jest-dom": "npm:~6.6.3"
     "@testing-library/react": "npm:~16.3.0"
+    "@testing-library/user-event": "npm:~14.6.1"
     "@types/jest": "npm:~29.5.14"
     "@types/jest-axe": "npm:~3.5.9"
     "@types/react": "npm:~18.3.23"
@@ -5597,6 +5599,7 @@ __metadata:
     webpack: "npm:~5.100.2"
   peerDependencies:
     "@rocket.chat/fuselage": "*"
+    "@rocket.chat/fuselage-hooks": "workspace:~"
     react: "*"
     react-dom: "*"
   languageName: unknown
