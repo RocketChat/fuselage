@@ -1004,5 +1004,8 @@
   },
   "inbox": {
     "start": "\ue165"
+  },
+  "phone-plus": {
+    "start": "\ue167"
   }
 }
