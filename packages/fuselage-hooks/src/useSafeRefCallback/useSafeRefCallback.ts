@@ -1,9 +1,6 @@
-import { useCallback, useRef } from 'react';
+import { useMemo } from 'react';
 
-type CallbackRefWithCleanup<T> = (node: T) => () => void;
-type CallbackRef<T> = (node: T) => void;
-
-type SafeCallbackRef<T> = CallbackRefWithCleanup<T> | CallbackRef<T>;
+type SafeCallbackRef<T> = (node: T) => (() => void) | undefined;
 
 /**
  * useSafeRefCallback will call a cleanup function (returned from the passed callback)
@@ -29,25 +26,19 @@ type SafeCallbackRef<T> = CallbackRefWithCleanup<T> | CallbackRef<T>;
  */
 export const useSafeRefCallback = <T extends HTMLElement>(
   callback: SafeCallbackRef<T>,
-) => {
-  const cleanupRef = useRef<(() => void) | null>(null);
+) =>
+  useMemo(() => {
+    let cleanup: (() => void) | null = null;
 
-  const callbackRef = useCallback(
-    (node: T | null): void => {
+    return (node: T | null): void => {
       if (node === null) {
-        if (typeof cleanupRef.current === 'function') {
-          cleanupRef.current();
-          cleanupRef.current = null;
+        if (typeof cleanup === 'function') {
+          cleanup();
+          cleanup = null;
         }
         return;
       }
 
-      const cleanup = callback(node);
-
-      cleanupRef.current = cleanup || null;
-    },
-    [callback],
-  );
-
-  return callbackRef;
-};
+      cleanup = callback(node) || null;
+    };
+  }, [callback]);
