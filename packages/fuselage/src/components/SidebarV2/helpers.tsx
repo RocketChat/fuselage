@@ -1,3 +1,4 @@
+import isLokiRunning from '@loki/is-loki-running';
 import type { Decorator } from '@storybook/react-webpack5';
 import type { ComponentProps, ReactElement } from 'react';
 
@@ -25,6 +26,10 @@ import {
   SidebarV2ItemTitle,
   SidebarV2ListItem,
 } from '.';
+
+const child_count = () => {
+  return isLokiRunning() ? 1 : Math.floor(Math.random() * 10) + 1;
+};
 
 export const leterAvatarUrls = [
   "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3e%3crect width='100%25' height='100%25' fill='%2310529E'/%3e%3ctext x='50%25' y='50%25' dy='0.36em' text-anchor='middle' pointer-events='none' fill='white' font-size='125' font-family='Helvetica%2c sans-serif'%3eB%3c/text%3e%3c/svg%3e",
@@ -65,10 +70,7 @@ export const GenericCondensedItem = ({ i = 0 }: { i: number }) => (
         {names[i % 10]}
       </SidebarV2ItemTitle>
       {i % 2 !== 0 && (
-        <SidebarV2ItemBadge
-          title='unread messages'
-          children={Math.floor(Math.random() * 10) + 1}
-        />
+        <SidebarV2ItemBadge title='unread messages' children={child_count()} />
       )}
       {i === 0 && (
         <SidebarV2Actions>
@@ -92,10 +94,7 @@ export const GenericNoAvatarItem = ({ i = 0 }: { i: number }) => (
     <SidebarV2Item href='#'>
       <SidebarV2ItemStatusBullet status='online' />
       <SidebarV2ItemTitle>{names[i % 10]}</SidebarV2ItemTitle>
-      <SidebarV2ItemBadge
-        title='unread messages'
-        children={Math.floor(Math.random() * 10) + 1}
-      />
+      <SidebarV2ItemBadge title='unread messages' children={child_count()} />
       <SidebarV2ItemMenu children={<MenuTemplate />} />
     </SidebarV2Item>
   </SidebarV2ListItem>
@@ -109,10 +108,7 @@ export const GenericMediumItem = ({ i = 0 }: { i: number }) => (
       </SidebarV2ItemAvatarWrapper>
       <SidebarV2ItemIcon icon='team' />
       <SidebarV2ItemTitle>{names[i % 10]}</SidebarV2ItemTitle>
-      <SidebarV2ItemBadge
-        title='unread messages'
-        children={Math.floor(Math.random() * 10) + 1}
-      />
+      <SidebarV2ItemBadge title='unread messages' children={child_count()} />
       <SidebarV2ItemMenu children={<MenuTemplate />} />
     </SidebarV2Item>
   </SidebarV2ListItem>
@@ -136,7 +132,7 @@ export const GenericExtendedItem = ({ i = 0 }: { i: number }) => (
           <SidebarV2ItemContent>No messages yet</SidebarV2ItemContent>
           <SidebarV2ItemBadge
             title='unread messages'
-            children={Math.floor(Math.random() * 10) + 1}
+            children={child_count()}
           />
           <SidebarV2ItemMenu children={<MenuTemplate />} />
         </SidebarV2ItemRow>
