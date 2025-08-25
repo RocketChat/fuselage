@@ -1,9 +1,11 @@
 {
   "compilerOptions": {
-    "target": "ES5",
+    "target": "es2024",
+    "module": "es2022",
     "sourceMap": true,
     "declaration": true,
     "declarationMap": true,
+    "esModuleInterop": true,
     "allowJs": false,
     "noImplicitReturns": true,
     "noImplicitThis": true,

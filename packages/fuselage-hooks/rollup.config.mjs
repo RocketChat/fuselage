@@ -29,14 +29,6 @@ export default defineConfig({
       format: 'es',
       sourcemap: true,
     },
-    {
-      dir: dirname(pkg.unpkg),
-      entryFileNames: basename(pkg.unpkg),
-      format: 'umd',
-      name: 'FuselageHooks',
-      sourcemap: true,
-      globals,
-    },
   ],
   plugins: [
     terser({
