@@ -106,12 +106,17 @@ export function AutoComplete({
       (item) => item.value !== event.currentTarget.value,
     );
 
-    const filteredValue = value.filter(
-      (item) => item !== event.currentTarget.value,
-    );
+    if (multiple) {
+      const filteredValue = Array.isArray(value)
+        ? value.filter((item) => item !== event.currentTarget.value)
+        : [];
+      setSelected(filtered);
+      onChange(filteredValue);
+    } else {
+      setSelected([]);
+      onChange('');
+    }
 
-    setSelected(filtered);
-    onChange(filteredValue);
     hide();
   });
 
