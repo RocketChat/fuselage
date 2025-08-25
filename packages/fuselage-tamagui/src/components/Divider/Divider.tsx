@@ -7,33 +7,52 @@ type DividerProps = GetProps<typeof StyledDivider> & {
   vertical?: boolean
 }
 
-const dividerColor = '$borderColor' // swap with your theme color or use tokens
-const dividerDangerColor = '$danger' // swap with your theme color or use tokens
-
 const StyledDivider = styled(Stack, {
   name: 'Divider',
-  borderColor: dividerColor,
+  borderColor: '#E4E7EA', // Light grey border color
   borderTopWidth: 1,
-  marginVertical: '$2',
+  marginVertical: 8,
   width: '100%',
+  minHeight: 1,
+  
   variants: {
     vertical: {
       true: {
         borderTopWidth: 0,
         borderLeftWidth: 1,
         height: 20,
-        width: 0,
-        marginHorizontal: '$2',
+        width: 1,
+        marginHorizontal: 8,
         marginVertical: 0,
+        minHeight: 20,
       },
       false: {},
     },
     variation: {
       danger: {
-        borderColor: dividerDangerColor,
+        borderColor: '#E03B44', // Danger red color
       },
     },
   } as const,
+})
+
+const DividerBar = styled(YStack, {
+  flex: 1,
+  height: 1,
+  backgroundColor: '#E4E7EA',
+  
+  variants: {
+    variation: {
+      danger: {
+        backgroundColor: '#E03B44',
+      },
+    },
+  } as const,
+})
+
+const DividerWrapper = styled(YStack, {
+  marginVertical: 8,
+  paddingHorizontal: 8,
 })
 
 export function Divider({ variation, children, vertical, ...props }: DividerProps) {
@@ -47,17 +66,20 @@ export function Divider({ variation, children, vertical, ...props }: DividerProp
       />
     )
   }
+  
   // With children: show bars and text, horizontal only
   return (
     <XStack
       alignItems="center"
       width="100%"
+      accessibilityRole="separator"
       {...props}
-      // style for danger variant if needed
     >
-      <YStack flex={1} height={1} bg={variation === 'danger' ? dividerDangerColor : dividerColor} />
-      <Text mx="$2">{children}</Text>
-      <YStack flex={1} height={1} bg={variation === 'danger' ? dividerDangerColor : dividerColor} />
+      <DividerBar variation={variation} />
+      <DividerWrapper>
+        <Text color="#1F2329" fontSize="$2">{children}</Text>
+      </DividerWrapper>
+      <DividerBar variation={variation} />
     </XStack>
   )
 }

@@ -10,21 +10,18 @@ type AnimatedVisibilityProps = {
 };
 
 const AnimatedStack = styled(Stack, {
-  animation: '230ms',
   opacity: 1,
-  transform: [{ translateY: 0 }],
-
+  y: 0,
+  animation: 'visibility',
   variants: {
     visibility: {
       hiding: {
-        animation: 'quick',
         opacity: 0,
-        transform: [{ translateY: 16 }],
+        y: 16,
       },
       unhiding: {
-        animation: 'quick',
         opacity: 1,
-        transform: [{ translateY: 0 }],
+        y: 0,
       },
     },
   } as const,
@@ -39,7 +36,7 @@ const Visibility = {
 
 export const AnimatedVisibility = ({
   children,
-  visibility: propVisibility = 'visible',
+  visibility: propVisibility = 'hidden',
 }: AnimatedVisibilityProps) => {
   const [visibility, setVisibility] =
     useState<VisibilityType>(propVisibility);

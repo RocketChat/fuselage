@@ -1,0 +1,130 @@
+import type { Meta, StoryFn } from "@storybook/react"
+import { Button } from "./Button"
+import { Spinner, XStack, YStack, Anchor, Text, Stack } from 'tamagui'
+import { useState } from "react"
+
+const meta: Meta<typeof Button> = {
+  title: "INPUTS/Button",
+  component: Button,
+  parameters: {
+    layout: "centered",
+  },
+  tags: ["autodocs"],
+}
+
+export default meta
+
+interface ButtonStateProps {
+  variant?: 'primary' | 'secondary' | 'danger' | 'secondary-danger' | 'warning' | 'secondary-warning' | 'success' | 'secondary-success'
+  state?: 'default' | 'hover' | 'active' | 'focus' | 'disabled'
+  size?: '$sm' | '$md'
+  withIcon?: boolean
+}
+
+const ButtonState = ({ variant, state, size = '$md', withIcon }: ButtonStateProps) => {
+  const stateProps = {
+    ...(state === 'hover' && { className: 'hover' }),
+    ...(state === 'active' && { className: 'active' }),
+    ...(state === 'focus' && { className: 'focus focus-visible' }),
+    ...(state === 'disabled' && { disabled: true })
+  }
+
+  const variantProps = {
+    ...(variant === 'primary' && { Primary: true }),
+    ...(variant === 'secondary' && { Secondary: true }),
+    ...(variant === 'danger' && { Danger: true }),
+    ...(variant === 'secondary-danger' && { SecondaryDanger: true }),
+    ...(variant === 'warning' && { Warning: true }),
+    ...(variant === 'secondary-warning' && { SecondaryWarning: true }),
+    ...(variant === 'success' && { Success: true }),
+    ...(variant === 'secondary-success' && { SecondarySuccess: true })
+  }
+
+  return (
+    <Button
+      size={size}
+      icon={withIcon ? 'balloon-text' : undefined}
+      borderRadius="$sm"
+      backgroundColor={state === 'disabled' ? '$disabled' : undefined}
+      {...stateProps}
+      {...variantProps}
+    >
+      Button
+    </Button>
+  )
+}
+
+export const States: StoryFn<typeof Button> = () => {
+  const variants = [
+    { label: 'icon + text', withIcon: true },
+    { label: 'text' },
+    { label: 'primary', variant: 'primary' },
+    { label: 'secondary', variant: 'secondary' },
+    { label: 'danger', variant: 'danger' },
+    { label: 'secondary-danger', variant: 'secondary-danger' },
+    { label: 'warning', variant: 'warning' },
+    { label: 'secondary-warning', variant: 'secondary-warning' },
+    { label: 'success', variant: 'success' },
+    { label: 'secondary-success', variant: 'secondary-success' }
+  ]
+
+  const ButtonGrid = ({ size }: { size?: '$sm' | '$md' }) => (
+    <YStack space="$4">
+      {variants.map(({ label, variant, withIcon }) => (
+        <XStack key={`${label}-${size}`} alignItems="center">
+          <Stack width={150} justifyContent="center">
+            <Text color="$text" fontSize="$3" textAlign="right">
+              {label}
+            </Text>
+          </Stack>
+          <XStack flex={1} justifyContent="space-around" paddingHorizontal="$4">
+            <ButtonState variant={variant} state="default" size={size} withIcon={withIcon} />
+            <ButtonState variant={variant} state="hover" size={size} withIcon={withIcon} />
+            <ButtonState variant={variant} state="active" size={size} withIcon={withIcon} />
+            <ButtonState variant={variant} state="focus" size={size} withIcon={withIcon} />
+            <ButtonState variant={variant} state="disabled" size={size} withIcon={withIcon} />
+          </XStack>
+        </XStack>
+      ))}
+    </YStack>
+  )
+
+  return (
+    <Stack padding="$4">
+      <Text fontSize="$6" marginBottom="$4">States</Text>
+      <YStack backgroundColor="$surface" padding="$4" borderRadius="$2" space="$8">
+        {/* Header */}
+        <XStack alignItems="center">
+          <Stack width={150} />
+          <XStack flex={1} justifyContent="space-around" paddingHorizontal="$4">
+            <Text color="$text" fontSize="$3">default</Text>
+            <Text color="$text" fontSize="$3">hover</Text>
+            <Text color="$text" fontSize="$3">active</Text>
+            <Text color="$text" fontSize="$3">focus</Text>
+            <Text color="$text" fontSize="$3">disabled</Text>
+          </XStack>
+        </XStack>
+
+        {/* Regular size buttons */}
+        <ButtonGrid />
+
+        {/* Small size buttons */}
+        <ButtonGrid size="$sm" />
+      </YStack>
+    </Stack>
+  )
+}
+
+export const Sizes: StoryFn<typeof Button> = () => (
+  <XStack space="$sm" alignItems="center">
+    <Button borderRadius="$sm" size="$sm">Small</Button>
+    <Button borderRadius="$sm" size="$md">Medium</Button>
+    <Button borderRadius="$sm">Default</Button>
+  </XStack>
+)
+
+export const AsLink: StoryFn<typeof Button> = () => (
+  <Anchor href="https://open.rocket.chat" target="_blank" textDecorationLine="none">
+    <Button borderRadius="$sm">Button</Button>
+  </Anchor>
+)

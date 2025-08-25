@@ -12,5 +12,5 @@ export const FieldHint = (props: FieldHintProps) => {
     throw new Error('FieldHint should be used as children of Field Component')
   }
 
-  return <Text color="$color2" fontSize="$2" {...props} />
+  return <Text color="#6c757d" fontSize="14px" fontFamily="system-ui, -apple-system, sans-serif" lineHeight="1.4" {...props} />
 }

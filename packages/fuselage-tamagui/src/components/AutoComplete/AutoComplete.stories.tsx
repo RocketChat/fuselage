@@ -1,95 +1,152 @@
-import type { Meta, StoryFn } from '@storybook/react';
-import { useState } from 'react';
-import { YStack } from 'tamagui';
+import type { Meta, StoryFn } from "@storybook/react"
+import { AutoComplete } from "./AutoComplete"
+import { useState } from "react"
+import { XStack, YStack, Text } from 'tamagui'
 
-import { Avatar } from '../Avatar';
-import { Chip } from '../Chip';
-import { Option } from '../Option';
-import { AutoComplete } from './AutoComplete';
-
-const exampleAvatar = 'https://avatars.githubusercontent.com/u/1024025?v=4';
-const DECORATOR_LABEL = 'AutoComplete';
-
-export default {
-  title: 'Inputs/AutoComplete',
+const meta: Meta<typeof AutoComplete> = {
+  title: "INPUTS/AutoComplete",
   component: AutoComplete,
-  parameters: {
-    layout: 'centered',
+  parameters:{
+    layout:"centered",
   },
-} satisfies Meta<typeof AutoComplete>;
+  tags: ["autodocs"],
+};
 
-const options = [
-  { value: '1', label: 'test1' },
-  { value: '2', label: 'test2' },
-  { value: '3', label: 'test3' },
-  { value: '4', label: 'test4' },
+export default meta;
+
+const sampleOptions = [
+  { value: 'test1', label: 'test1' },
+  { value: 'test2', label: 'test2' },
+  { value: 'test3', label: 'test3' },
+  { value: 'test4', label: 'test4' },
+  { value: 'test5', label: 'test5' },
 ];
 
-const Template: StoryFn<typeof AutoComplete> = ({
-  value: defaultValue,
-  ...args
-}) => {
+export const Default: StoryFn<typeof AutoComplete> = () => {
   const [filter, setFilter] = useState('');
-  const [value, setValue] = useState<string | string[]>(defaultValue || []);
-
-  const handleChangeRooms = (value: string | string[]) => setValue(value);
+  const [selected, setSelected] = useState<string[]>([]);
 
   return (
-    <AutoComplete
-      {...args}
-      value={value}
-      filter={filter}
-      setFilter={setFilter}
-      options={options}
-      onChange={handleChangeRooms}
-      aria-label={DECORATOR_LABEL}
-    />
+    <YStack space="$4" width={400}>
+      <AutoComplete
+        value={selected}
+        filter={filter}
+        setFilter={setFilter}
+        options={sampleOptions}
+        placeholder="Search..."
+        onChange={setSelected}
+      />
+    </YStack>
   );
 };
 
-export const Default = Template.bind({});
+export const CustomSelected: StoryFn<typeof AutoComplete> = () => {
+  const [filter, setFilter] = useState('');
+  const [selected, setSelected] = useState<string[]>(['test1']);
 
-export const CustomSelected = Template.bind({});
-CustomSelected.args = {
-  value: '1',
-  renderSelected: ({ selected: { label } }) => (
-    <YStack>
-      <Avatar size={20} url={exampleAvatar} /> {label}
+  return (
+    <YStack space="$4" width={400}>
+      <AutoComplete
+        value={selected}
+        filter={filter}
+        setFilter={setFilter}
+        options={sampleOptions}
+        placeholder="Search..."
+        onChange={setSelected}
+      />
     </YStack>
-  ),
+  );
 };
 
-export const Multiple = Template.bind({});
-Multiple.args = {
-  value: ['1', '3'],
-  multiple: true,
+export const Multiple: StoryFn<typeof AutoComplete> = () => {
+  const [filter, setFilter] = useState('');
+  const [selected, setSelected] = useState<string[]>(['test1', 'test3']);
+
+  return (
+    <YStack space="$4" width={400}>
+      <AutoComplete
+        value={selected}
+        filter={filter}
+        setFilter={setFilter}
+        options={sampleOptions}
+        placeholder="Search..."
+        onChange={setSelected}
+        multiple={true}
+      />
+    </YStack>
+  );
 };
 
-export const MultipleCustomSelected = Template.bind({});
-MultipleCustomSelected.args = {
-  value: ['1', '3'],
-  multiple: true,
-  renderSelected: ({ selected: { value, label }, onRemove }) => (
-    <Chip key={value} onPress={onRemove} margin={4}>
-      <Avatar size={20} url={exampleAvatar} />
-      {label}
-    </Chip>
-  ),
+export const MultipleCustomSelected: StoryFn<typeof AutoComplete> = () => {
+  const [filter, setFilter] = useState('');
+  const [selected, setSelected] = useState<string[]>(['test1', 'test3']);
+
+  return (
+    <YStack space="$4" width={400}>
+      <AutoComplete
+        value={selected}
+        filter={filter}
+        setFilter={setFilter}
+        options={sampleOptions}
+        placeholder="Search..."
+        onChange={setSelected}
+        multiple={true}
+      />
+    </YStack>
+  );
 };
 
-export const CustomItem = Template.bind({});
-CustomItem.args = {
-  renderItem: ({ value, label, ...props }) => (
-    <Option
-      {...props}
-      key={value}
-      label={label}
-      avatar={<Avatar size={20} url={exampleAvatar} />}
-    />
-  ),
+export const CustomItem: StoryFn<typeof AutoComplete> = () => {
+  const [filter, setFilter] = useState('');
+  const [selected, setSelected] = useState<string[]>([]);
+
+  return (
+    <YStack space="$4" width={400}>
+      <AutoComplete
+        value={selected}
+        filter={filter}
+        setFilter={setFilter}
+        options={sampleOptions}
+        placeholder="Search..."
+        onChange={setSelected}
+      />
+    </YStack>
+  );
 };
 
-export const WithPlaceholder = Template.bind({});
-WithPlaceholder.args = {
-  placeholder: 'Search...',
+export const WithPlaceholder: StoryFn<typeof AutoComplete> = () => {
+  const [filter, setFilter] = useState('');
+  const [selected, setSelected] = useState<string[]>([]);
+
+  return (
+    <YStack space="$4" width={400}>
+      <AutoComplete
+        value={selected}
+        filter={filter}
+        setFilter={setFilter}
+        options={sampleOptions}
+        placeholder="Search..."
+        onChange={setSelected}
+      />
+    </YStack>
+  );
+};
+
+export const Disabled: StoryFn<typeof AutoComplete> = () => {
+  const [filter, setFilter] = useState('');
+  const [selected, setSelected] = useState<string[]>(['test1']);
+
+  return (
+    <YStack space="$4" width={400}>
+      <AutoComplete
+        value={selected}
+        filter={filter}
+        setFilter={setFilter}
+        options={sampleOptions}
+        placeholder="Search..."
+        onChange={setSelected}
+        disabled={true}
+      />
+    </YStack>
+  );
 };

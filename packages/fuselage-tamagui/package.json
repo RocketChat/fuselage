@@ -1,7 +1,12 @@
 {
   "name": "fuselage-tamagui",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
   "packageManager": "yarn@4.6.0",
   "devDependencies": {
+    "@babel/core": "^7.22.5",
+    "@babel/preset-react": "^7.22.5",
+    "@babel/preset-typescript": "^7.22.5",
     "@storybook/addon-essentials": "^8.6.12",
     "@storybook/addon-interactions": "^8.6.12",
     "@storybook/addon-onboarding": "^8.6.12",
@@ -9,9 +14,11 @@
     "@storybook/react": "^8.6.12",
     "@storybook/react-webpack5": "^8.6.12",
     "@storybook/test": "^8.6.12",
+    "@tamagui/babel-plugin": "^1.74.3",
     "@types/node": "~24.0.10",
     "@types/react": "~19.1.8",
     "@types/react-native-web": "^0",
+    "babel-loader": "^9.1.2",
     "storybook": "^8.6.12",
     "ts-loader": "~9.5.2",
     "typescript": "~5.8.3"
@@ -21,6 +28,10 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@rocket.chat/fuselage-hooks": "workspace:~",
+    "@rocket.chat/fuselage-tamagui-tokens": "workspace:~",
+    "@rocket.chat/fuselage-tokens": "workspace:~",
+    "@tamagui/animations-react-native": "~1.132.20",
     "@tamagui/core": "~1.126.5",
     "@tamagui/get-button-sized": "~1.130.8",
     "@tamagui/get-font-sized": "~1.130.8",

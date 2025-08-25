@@ -1,10 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Divider } from './Divider'
 import { XStack, Button } from 'tamagui'
+import { Icon } from '../Icon/Icon'
 
 const meta: Meta<typeof Divider> = {
   title: 'Data Display/Divider',
   component: Divider,
+  parameters: {
+    layout: 'centered',
+  },
+  tags: ['autodocs'],
 }
 export default meta
 
@@ -18,26 +23,18 @@ export const WithText: Story = {
   render: () => <Divider>Divider</Divider>
 }
 
-export const Danger: Story = {
-  render: () => <Divider variation="danger">Danger Divider</Divider>
-}
-
 export const Vertical: Story = {
   render: () => (
-    <XStack ai="center" gap="$2">
-      <Button>Left</Button>
-      <Divider vertical />
-      <Button>Right</Button>
-    </XStack>
+    <Divider vertical />
   )
 }
 
 export const AsButtonSeparator: Story = {
   render: () => (
-    <XStack ai="center" gap="$2">
-      <Button icon="phone" />
+    <XStack alignItems="center" gap="$2">
+      <Button secondary icon={<Icon name="phone" />} />
       <Divider vertical />
-      <Button icon="user" />
+      <Button secondary icon={<Icon name="user" />} />
     </XStack>
   )
 }

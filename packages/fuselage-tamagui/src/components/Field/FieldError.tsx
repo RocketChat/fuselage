@@ -12,5 +12,5 @@ export const FieldError = (props: FieldErrorProps) => {
     throw new Error('FieldError should be used as children of Field Component')
   }
 
-  return <Text color="$red10" fontSize="$2" {...props} />
+  return <Text color="#dc3545" fontSize="14px" fontFamily="system-ui, -apple-system, sans-serif" lineHeight="1.4" {...props} />
 }

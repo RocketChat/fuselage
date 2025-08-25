@@ -1,6 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
 
 import { Label } from './Label';
+import { LabelInfo } from './LabelInfo';
 
 // Meta export must be the default export
 const meta: Meta<typeof Label> = {
@@ -56,36 +57,33 @@ export default meta;
 type Story = StoryObj<typeof Label>;
 
 export const Default: Story = {
-  args: {
-    children: 'Label',
-  },
+  render: () => <Label>Label</Label>,
 };
 
 export const Required: Story = {
-  args: {
-    children: 'Required Label',
-    required: true,
-  },
+  render: () => <Label required>Label</Label>,
 };
 
 export const Info: Story = {
-  args: {
-    children: 'Info Label',
-    info: true,
-  },
+  render: () => (
+    <div style={{ display: 'flex', alignItems: 'center' }}>
+      <Label>Label</Label>
+      <LabelInfo title="Additional information" />
+    </div>
+  ),
 };
 
 export const InfoRequired: Story = {
-  args: {
-    children: 'Info Required Label',
-    info: true,
-    required: true,
-  },
+  render: () => (
+    <div style={{ display: 'flex', alignItems: 'center' }}>
+      <Label required>Label</Label>
+      <div style={{ marginLeft: '8px' }}>
+        <LabelInfo title="Additional information" />
+      </div>
+    </div>
+  ),
 };
 
 export const Disabled: Story = {
-  args: {
-    children: 'Disabled Label',
-    disabled: true,
-  },
+  render: () => <Label disabled>Label</Label>,
 };

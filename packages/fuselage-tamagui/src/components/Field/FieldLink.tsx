@@ -12,5 +12,5 @@ export const FieldLink = (props: FieldLinkProps) => {
     throw new Error('FieldLink should be used as children of Field Component')
   }
 
-  return <Anchor target="_blank" color="$blue10" fontSize="$2" {...props} />
+  return <Anchor target="_blank" color="#007bff" fontSize="14px" fontFamily="system-ui, -apple-system, sans-serif" lineHeight="1.4" textDecoration="underline" {...props} />
 }

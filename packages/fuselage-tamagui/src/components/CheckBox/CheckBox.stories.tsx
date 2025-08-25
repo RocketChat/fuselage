@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useState } from 'react';
-import { YStack, XStack } from 'tamagui';
+import { YStack, XStack, Text } from 'tamagui';
 
 import { CheckBox } from './CheckBox';
 
@@ -66,62 +66,50 @@ export const DisabledChecked: Story = {
   },
 };
 
-export const Small: Story = {
-  args: {
-    'aria-label': 'Small checkbox',
-    'size': 'small',
-  },
-};
-
-export const Medium: Story = {
-  args: {
-    'aria-label': 'Medium checkbox',
-    'size': 'medium',
-  },
-};
-
-export const Large: Story = {
-  args: {
-    'aria-label': 'Large checkbox',
-    'size': 'large',
-  },
-};
-
-export const Controlled: Story = {
-  render: () => {
-    const [checked, setChecked] = useState(false);
-    return (
-      <CheckBox
-        checked={checked}
-        onChange={(e) => setChecked(e.target.checked)}
-        aria-label='Controlled checkbox'
-      />
-    );
-  },
-};
-
 export const States: Story = {
   render: () => (
-    <YStack space='$4'>
-      <CheckBox defaultChecked aria-label='Checked checkbox' />
-      <CheckBox indeterminate aria-label='Indeterminate checkbox' />
-      <CheckBox disabled aria-label='Disabled checkbox' />
-      <CheckBox disabled checked aria-label='Disabled checked checkbox' />
-      <CheckBox
-        disabled
-        indeterminate
-        aria-label='Disabled indeterminate checkbox'
-      />
+    <YStack space={10} alignItems="center">
+      <XStack space={10} alignItems="center">
+        <Text width={100} fontSize="$2" color="#9EA2A8" textAlign="center">checked</Text>
+        <Text width={100} fontSize="$2" color="#9EA2A8" textAlign="center">unchecked</Text>
+      </XStack>
+      
+      <YStack space={10}>
+        {/* Default row */}
+        <XStack space={10} alignItems="center">
+          <Text width={100} fontSize="$2" color="#9EA2A8" textAlign="left">default</Text>
+          <CheckBox checked aria-label='Default checked checkbox' />
+          <CheckBox aria-label='Default unchecked checkbox' />
+        </XStack>
+        
+        {/* Hover row */}
+        <XStack space={10} alignItems="center">
+          <Text width={100} fontSize="$2" color="#9EA2A8" textAlign="left">hover</Text>
+          <CheckBox checked aria-label='Hover checked checkbox' />
+          <CheckBox aria-label='Hover unchecked checkbox' />
+        </XStack>
+        
+        {/* Active row */}
+        <XStack space={10} alignItems="center">
+          <Text width={100} fontSize="$2" color="#9EA2A8" textAlign="left">active</Text>
+          <CheckBox checked aria-label='Active checked checkbox' />
+          <CheckBox aria-label='Active unchecked checkbox' />
+        </XStack>
+        
+        {/* Focus row */}
+        <XStack space={10} alignItems="center">
+          <Text width={100} fontSize="$2" color="#9EA2A8" textAlign="left">focus</Text>
+          <CheckBox checked aria-label='Focus checked checkbox' />
+          <CheckBox aria-label='Focus unchecked checkbox' />
+        </XStack>
+        
+        {/* Disabled row */}
+        <XStack space={10} alignItems="center">
+          <Text width={100} fontSize="$2" color="#9EA2A8" textAlign="left">disabled</Text>
+          <CheckBox disabled checked aria-label='Disabled checked checkbox' />
+          <CheckBox disabled aria-label='Disabled unchecked checkbox' />
+        </XStack>
+      </YStack>
     </YStack>
-  ),
-};
-
-export const AllSizes: Story = {
-  render: () => (
-    <XStack space='$4' alignItems='center'>
-      <CheckBox size='small' aria-label='Small checkbox' />
-      <CheckBox size='medium' aria-label='Medium checkbox' />
-      <CheckBox size='large' aria-label='Large checkbox' />
-    </XStack>
   ),
 };

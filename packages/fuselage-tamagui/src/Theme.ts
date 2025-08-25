@@ -1,48 +1,8 @@
-import { createTokens } from 'tamagui';
-import type { Token } from 'tamagui';
+import { tokens } from '@rocket.chat/fuselage-tamagui-tokens';
 
-// Define your theme tokens
-export const tokens = createTokens({
-  color: {
-    white: '#FFFFFF',
-    black: '#000000',
-    // Add your color tokens here
-  },
-  space: {
-    0: 0,
-    1: 4,
-    2: 8,
-    3: 16,
-    4: 24,
-    5: 32,
-    6: 40,
-    // Add your spacing tokens here
-  },
-  size: {
-    0: 0,
-    1: 4,
-    2: 8,
-    3: 16,
-    4: 24,
-    5: 32,
-    6: 40,
-    // Add your size tokens here
-  },
-  radius: {
-    0: 0,
-    1: 4,
-    2: 8,
-    3: 16,
-    // Add your border radius tokens here
-  },
-  zIndex: {
-    0: 0,
-    1: 100,
-    2: 200,
-    3: 300,
-    // Add your z-index tokens here
-  },
-});
+// Re-export tokens from the shared package
+export { tokens };
+export type { Theme } from '@rocket.chat/fuselage-tamagui-tokens';
 
 export type ThemeTokens = typeof tokens;
 export type TokenKeys = keyof typeof tokens;

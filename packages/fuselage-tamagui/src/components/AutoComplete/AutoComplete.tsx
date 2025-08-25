@@ -1,4 +1,3 @@
-import { useResizeObserver, useEffectEvent } from '@rocket.chat/fuselage-hooks';
 import type {
   AllHTMLAttributes,
   ComponentProps,
@@ -6,23 +5,98 @@ import type {
   ReactElement,
 } from 'react';
 import { useMemo, useRef, useState, useEffect } from 'react';
-import type { View } from 'react-native';
 import {
   Input,
   YStack,
   Text,
   AnimatePresence,
-  SizableText,
-  Theme,
-  Button,
   XStack,
+  styled,
 } from 'tamagui';
 
-import { Chip } from '../Chip';
 import { Icon } from '../Icon';
 import { Options, useCursor } from '../Options';
 
-const Addon = (props: ComponentProps<typeof XStack>) => <XStack {...props} />;
+// Styled container to match the search bar in the image
+const SearchBarContainer = styled(XStack, {
+  name: 'SearchBarContainer',
+  position: 'relative',
+  display: 'inline-flex',
+  alignItems: 'center',
+  width: 300,
+  height: 40,
+  backgroundColor: '#FFFFFF',
+  borderWidth: 1,
+  borderStyle: 'solid',
+  borderColor: '#E4E7EA',
+  borderRadius: 6,
+  fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+  fontSize: 14,
+  lineHeight: 20,
+  fontWeight: '400',
+  color: '#1F2329',
+  cursor: 'text',
+  overflow: 'visible',
+  
+  // Focus state - blue border like in the image
+  focusStyle: {
+    borderColor: '#156FF5',
+  },
+  
+  // Error state
+  variants: {
+    error: {
+      true: {
+        borderColor: '#EC0D2A',
+      },
+    },
+    disabled: {
+      true: {
+        backgroundColor: '#F7F8FA',
+        borderColor: '#E4E7EA',
+        color: '#9EA2A8',
+        cursor: 'not-allowed',
+        opacity: 0.5,
+        pointerEvents: 'none',
+      },
+    },
+  } as const,
+});
+
+// Styled input to be clean and simple
+const SearchInput = styled(Input, {
+  name: 'SearchInput',
+  flex: 1,
+  borderWidth: 0,
+  backgroundColor: 'transparent',
+  paddingHorizontal: 16,
+  paddingVertical: 8,
+  outline: 'none',
+  fontFamily: 'inherit',
+  fontSize: 'inherit',
+  lineHeight: 'inherit',
+  fontWeight: 'inherit',
+  color: 'inherit',
+  
+  // Placeholder styling
+  placeholderTextColor: '#9EA2A8',
+  
+  // Remove default input styling
+  '&:focus': {
+    outline: 'none',
+    borderWidth: 0,
+  },
+  
+  // Disabled state
+  variants: {
+    disabled: {
+      true: {
+        color: '#9EA2A8',
+        cursor: 'not-allowed',
+      },
+    },
+  } as const,
+});
 
 type AutoCompleteOption = {
   value: string;
@@ -30,89 +104,46 @@ type AutoCompleteOption = {
 };
 
 type AutoCompleteProps = {
-  value?: string | string[];
-  filter: string;
-  setFilter?: (filter: string) => void;
-  options?: AutoCompleteOption[];
+  value?: string[];
+  filter?: string;
+  setFilter: (filter: string) => void;
+  options: AutoCompleteOption[];
   renderItem?: ElementType;
   renderSelected?: ElementType;
-  onChange: (value: string | string[]) => void;
+  onChange?: (value: string[]) => void;
   renderEmpty?: ElementType;
   placeholder?: string;
   error?: boolean;
   disabled?: boolean;
-  multiple?: boolean;
-} & Omit<AllHTMLAttributes<HTMLInputElement>, 'onChange'>;
-
-const getSelected = (
-  value: string | string[],
-  options: AutoCompleteOption[]
-) => {
-  if (!value) {
-    return [];
-  }
-  return typeof value === 'string'
-    ? options.filter((option) => option.value === value)
-    : options?.filter((option) => value.includes(option.value));
-};
+  'aria-label'?: string;
+} & Omit<AllHTMLAttributes<HTMLInputElement>, 'onChange' | 'aria-label'>;
 
 export function AutoComplete({
-  value,
-  filter,
+  value = [],
+  filter = '',
   setFilter,
   options = [],
   renderItem,
   renderSelected: RenderSelected,
-  onChange,
+  onChange = () => {},
   renderEmpty,
-  placeholder,
+  placeholder = 'Search...',
   error,
   disabled,
-  multiple,
+  'aria-label': ariaLabel,
   onBlur: onBlurAction = () => {},
   ...props
 }: AutoCompleteProps): ReactElement {
-  const ref = useRef<View>(null);
-  const { ref: containerRef, borderBoxSize } = useResizeObserver();
+  const ref = useRef<any>(null);
+  const [hasFocus, setHasFocus] = useState(false);
+  const [hasInteracted, setHasInteracted] = useState(false);
 
-  const [selected, setSelected] = useState(
-    () => getSelected(value, options) || []
-  );
-
-  const handleSelect = useEffectEvent(([currentValue]) => {
-    if (selected?.some((item) => item.value === currentValue)) {
-      hide();
-      return;
-    }
-
-    if (multiple) {
-      setSelected([...selected, ...getSelected(currentValue, options)]);
-      onChange([...value, currentValue]);
-    } else {
-      setSelected(getSelected(currentValue, options));
-      onChange(currentValue);
-    }
-
+  const handleSelect = (currentValue: any) => {
+    onChange([currentValue]);
     setFilter('');
     hide();
-  });
-
-  const handleRemove = useEffectEvent((event) => {
-    event.stopPropagation();
-    event.preventDefault();
-
-    const filtered = selected.filter(
-      (item) => item.value !== event.currentTarget.value
-    );
-
-    const filteredValue = value.filter(
-      (item) => item !== event.currentTarget.value
-    );
-
-    setSelected(filtered);
-    onChange(filteredValue);
-    hide();
-  });
+    setHasInteracted(false);
+  };
 
   const memoizedOptions = useMemo(
     () => options.map(({ value, label }) => [value, label]),
@@ -122,83 +153,114 @@ export function AutoComplete({
   const [cursor, handleKeyDown, , reset, [optionsAreVisible, hide, show]] =
     useCursor(value, memoizedOptions, handleSelect);
 
-  const handleOnBlur = useEffectEvent((event) => {
+  const handleOnBlur = (event: any) => {
+    setHasFocus(false);
     hide();
+    setHasInteracted(false);
     onBlurAction(event);
-  });
+  };
+
+  const handleFocus = () => {
+    setHasFocus(true);
+    setHasInteracted(true);
+    show();
+  };
+
+  const handleClick = () => {
+    ref.current?.focus();
+  };
+
+  const handleClear = () => {
+    setFilter('');
+    ref.current?.focus();
+  };
 
   useEffect(reset, [filter]);
 
+  // Only show dropdown if user has interacted and there are options
+  const shouldShowDropdown = hasInteracted && optionsAreVisible && options.length > 0;
+
   return (
-    <XStack
-      ref={containerRef}
-      onPress={useEffectEvent(() => ref.current.focus())}
-      flexGrow={1}
-      borderColor={error ? 'red' : '#ccc'}
-      borderWidth={1}
-      borderRadius={4}
-      padding={8}
-      opacity={disabled ? 0.5 : 1}
-      alignItems='center'
-    >
-      <XStack flexGrow={1} flexWrap='wrap' alignItems='center' marginHorizontal={-4}>
-        <Input
-          ref={ref}
-          onChangeText={setFilter}
-          onBlur={handleOnBlur}
-          onFocus={show}
-          onKeyPress={handleKeyDown}
-          placeholder={!value ? placeholder : undefined}
-          flex={1}
-          borderWidth={0}
-          value={filter}
-          {...props}
-        />
-        {selected?.length > 0 &&
-          selected.map((itemSelected) =>
-            RenderSelected ? (
-              <RenderSelected
-                key={itemSelected.value}
-                selected={itemSelected}
-                onRemove={handleRemove}
-              />
-            ) : (
-              <Chip
-                key={itemSelected.value}
-                value={itemSelected.value}
-                onPress={handleRemove}
-                margin={4}
-              >
-                {itemSelected.label}
-              </Chip>
-            )
-          )}
-      </XStack>
-      <Addon paddingLeft={4}>
-        <Icon
-          name={
-            optionsAreVisible
-              ? 'cross'
-              : 'magnifier'
-          }
-          size={20}
-          color='#333'
-        />
-      </Addon>
+    <YStack position="relative" overflow="visible">
+      <SearchBarContainer
+        role="combobox"
+        aria-expanded={shouldShowDropdown}
+        aria-haspopup="listbox"
+        aria-controls="autocomplete-options"
+        aria-label={ariaLabel}
+        onPress={handleClick}
+        error={error}
+        disabled={disabled}
+        focused={hasFocus}
+      >
+        {/* Search Input */}
+        <SearchInput
+            ref={ref}
+            role="searchbox"
+            aria-autocomplete="list"
+            aria-controls="autocomplete-options"
+            onChangeText={setFilter}
+            onBlur={handleOnBlur}
+            onFocus={handleFocus}
+            onKeyPress={handleKeyDown}
+          placeholder={placeholder}
+            value={filter}
+            disabled={disabled}
+            {...props}
+          />
+        
+        {/* Search Icon or Clear Button */}
+        <XStack 
+          marginRight="$3"
+          alignItems="center"
+          justifyContent="center"
+          width={20}
+          height={20}
+          onPress={filter ? handleClear : undefined}
+          cursor={filter ? 'pointer' : 'default'}
+        >
+          {filter ? (
+            <Text fontSize={16} color="#9EA2A8">×</Text>
+          ) : (
+            <svg 
+              width="16" 
+              height="16" 
+              viewBox="0 0 24 24" 
+              fill="none" 
+              stroke="#1F2329" 
+              strokeWidth="2" 
+              strokeLinecap="round" 
+              strokeLinejoin="round"
+            >
+              <circle cx="11" cy="11" r="8"/>
+              <path d="m21 21-4.35-4.35"/>
+            </svg>
+            )}
+        </XStack>
+      </SearchBarContainer>
+
+      {/* Dropdown Options */}
       <AnimatePresence>
-        {optionsAreVisible && (
+        {shouldShowDropdown && (
           <YStack
-            position='absolute'
-            top={borderBoxSize.blockSize}
+            id="autocomplete-options"
+            role="listbox"
+            aria-label="Options"
+            position="absolute"
+            top="100%"
             left={0}
             right={0}
-            backgroundColor='#fff'
+            marginTop="$1"
+            backgroundColor="#FFFFFF"
             borderWidth={1}
-            borderColor='#ccc'
-            borderRadius={4}
+            borderColor="#E4E7EA"
+            borderRadius={6}
+            elevation={2}
             maxHeight={200}
-            overflow='scroll'
+            overflow="auto"
             zIndex={9999}
+            enterStyle={{ opacity: 0, scale: 0.95 }}
+            exitStyle={{ opacity: 0, scale: 0.95 }}
           >
             <Options
               onSelect={handleSelect}
@@ -207,16 +269,13 @@ export function AutoComplete({
               cursor={cursor}
               value={value}
               options={memoizedOptions}
+              role="option"
             />
           </YStack>
         )}
       </AnimatePresence>
-    </XStack>
+    </YStack>
   );
 }
 
 AutoComplete.displayName = 'AutoComplete';
-
-AutoComplete.Item = Options.Item;
-
-AutoComplete.Empty = Options.Empty;

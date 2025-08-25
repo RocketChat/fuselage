@@ -1,4 +1,4 @@
-import { styled, Stack, GetProps, YStack, Theme } from 'tamagui'
+import { styled, Stack, GetProps, YStack } from 'tamagui'
 import type { ComponentProps } from 'react'
 import { forwardRef, useLayoutEffect, useRef, useCallback } from 'react'
 
@@ -23,50 +23,56 @@ const CheckBoxWrapper = styled(YStack, {
   },
 })
 
-const CheckBoxInput = styled(Stack, {
-  position: 'absolute',
-  width: '100%',
-  height: '100%',
-  opacity: 0,
-  cursor: 'pointer',
-  zIndex: 1,
-
-  hoverStyle: {
-    backgroundColor: '$backgroundHover',
-  },
-  pressStyle: {
-    backgroundColor: '$backgroundPress',
-  },
-})
-
 const CheckBoxFake = styled(Stack, {
   position: 'relative',
   width: '100%',
   height: '100%',
   borderWidth: 2,
-  borderColor: '$border',
-  borderRadius: '$1',
-  backgroundColor: 'transparent',
+  borderColor: '#E4E7EA',
+  borderRadius: 4,
+  backgroundColor: '#FFFFFF',
   alignItems: 'center',
   justifyContent: 'center',
+  transition: 'all 0.2s ease',
+
+  // Hover state
+  hoverStyle: {
+    borderColor: '#156FF5',
+  },
+
+  // Focus state
+  focusStyle: {
+    borderColor: '#156FF5',
+    outline: '2px solid #156FF5',
+    outlineOffset: 2,
+  },
 
   variants: {
     checked: {
       true: {
-        backgroundColor: '$primary',
-        borderColor: '$primary',
+        backgroundColor: '#156FF5',
+        borderColor: '#156FF5',
       },
     },
     indeterminate: {
       true: {
-        backgroundColor: '$primary',
-        borderColor: '$primary',
+        backgroundColor: '#156FF5',
+        borderColor: '#156FF5',
       },
     },
     disabled: {
       true: {
         opacity: 0.5,
         cursor: 'not-allowed',
+        backgroundColor: '#F7F8FA',
+        borderColor: '#E4E7EA',
+        hoverStyle: {
+          borderColor: '#E4E7EA',
+        },
+        focusStyle: {
+          borderColor: '#E4E7EA',
+          outline: 'none',
+        },
       },
     },
   } as const,
@@ -75,17 +81,15 @@ const CheckBoxFake = styled(Stack, {
 const CheckMark = styled(Stack, {
   width: '60%',
   height: '60%',
-  borderColor: '$background',
-  borderWidth: 2,
-  borderTop: 0,
-  borderRight: 0,
-  transform: 'rotate(-45deg) translate(10%, -10%)',
+  alignItems: 'center',
+  justifyContent: 'center',
 })
 
 const IndeterminateMark = styled(Stack, {
   width: '60%',
   height: 2,
-  backgroundColor: '$background',
+  backgroundColor: '#FFFFFF',
+  borderRadius: 1,
 })
 
 export type CheckBoxProps = GetProps<typeof CheckBoxWrapper> & {
@@ -127,41 +131,77 @@ export const CheckBox = forwardRef<HTMLInputElement, CheckBoxProps>(function Che
     }
   }, [indeterminate])
 
-  const handleChange = useCallback(
+  const handleInputChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
       if (innerRef.current && indeterminate !== undefined) {
         innerRef.current.indeterminate = indeterminate
       }
-      onChange?.(event)
+      if (onChange) {
+        onChange(event)
+      }
     },
     [indeterminate, onChange]
   )
 
+  const handleWrapperClick = useCallback((e: React.MouseEvent) => {
+    if (innerRef.current && !disabled) {
+      innerRef.current.checked = !innerRef.current.checked
+      const event = new Event('change', { bubbles: true })
+      innerRef.current.dispatchEvent(event)
+    }
+  }, [disabled])
+
   return (
-    <Theme name="light">
-      <CheckBoxWrapper size={size} {...props}>
-        <CheckBoxInput
-          as="input"
-          type="checkbox"
-          ref={mergedRef}
-          checked={checked}
-          defaultChecked={defaultChecked}
-          disabled={disabled}
-          onChange={handleChange}
-          aria-label={ariaLabel}
-        />
-        <CheckBoxFake 
-          checked={checked} 
-          indeterminate={indeterminate}
-          disabled={disabled}
-        >
-          {indeterminate ? (
-            <IndeterminateMark />
-          ) : checked ? (
-            <CheckMark />
-          ) : null}
-        </CheckBoxFake>
-      </CheckBoxWrapper>
-    </Theme>
+    <CheckBoxWrapper size={size} {...props} onClick={handleWrapperClick}>
+      <input
+        type="checkbox"
+        ref={mergedRef}
+        checked={checked}
+        defaultChecked={defaultChecked}
+        disabled={disabled}
+        onChange={handleInputChange}
+        aria-label={ariaLabel}
+        style={{
+          position: 'absolute',
+          width: '100%',
+          height: '100%',
+          opacity: 0,
+          cursor: 'pointer',
+          zIndex: 10,
+          top: 0,
+          left: 0,
+          margin: 0,
+          padding: 0,
+          border: 0,
+          outline: 'none',
+        }}
+      />
+      <CheckBoxFake 
+        checked={checked} 
+        indeterminate={indeterminate}
+        disabled={disabled}
+      >
+        {indeterminate ? (
+          <IndeterminateMark />
+        ) : checked ? (
+          <CheckMark>
+            <svg 
+              width="60%" 
+              height="60%" 
+              viewBox="0 0 24 24" 
+              fill="none" 
+              stroke="#FFFFFF" 
+              strokeWidth="2" 
+              strokeLinecap="round" 
+              strokeLinejoin="round"
+            >
+              <polyline points="20,6 9,17 4,12"></polyline>
+            </svg>
+          </CheckMark>
+        ) : null}
+      </CheckBoxFake>
+    </CheckBoxWrapper>
   )
 })
+
+CheckBox.displayName = 'CheckBox'

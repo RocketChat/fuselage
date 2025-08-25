@@ -1,34 +1,31 @@
 import { styled, Text, GetProps } from 'tamagui';
+import { Stack } from 'tamagui';
 
 const StyledLabel = styled(Text, {
   name: 'Label',
-  color: '$color',
-  fontSize: '$3',
-  lineHeight: '$3',
+  color: '#495057',
+  fontSize: '16px',
+  lineHeight: '1.4',
   fontWeight: '500',
+  fontFamily: 'system-ui, -apple-system, sans-serif',
 
   variants: {
-    required: {
-      true: {
-        after: {
-          content: '*',
-          color: '$error',
-          marginLeft: '$1',
-        },
-      },
-    },
-    info: {
-      true: {
-        color: '$textMuted',
-      },
-    },
     disabled: {
       true: {
-        color: '$textDisabled',
+        color: '#6c757d',
         cursor: 'not-allowed',
       },
     },
   } as const,
+});
+
+const RequiredAsterisk = styled(Text, {
+  name: 'RequiredAsterisk',
+  color: '#dc3545',
+  fontSize: '12px',
+  position: 'absolute',
+  top: '-2px',
+  right: '-8px',
 });
 
 export type LabelProps = GetProps<typeof StyledLabel> & {
@@ -37,6 +34,18 @@ export type LabelProps = GetProps<typeof StyledLabel> & {
   borderBlock?: string | number;
   borderBlockStart?: string | number;
   borderBlockEnd?: string | number;
+  required?: boolean;
 };
 
-export const Label = StyledLabel;
+export const Label = ({ required, children, ...props }: LabelProps) => {
+  if (required) {
+    return (
+      <div style={{ position: 'relative', display: 'inline-block' }}>
+        <StyledLabel {...props}>{children}</StyledLabel>
+        <RequiredAsterisk>*</RequiredAsterisk>
+      </div>
+    );
+  }
+  
+  return <StyledLabel {...props}>{children}</StyledLabel>;
+};

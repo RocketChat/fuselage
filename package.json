@@ -60,6 +60,8 @@
     "yarn": "4.9.2"
   },
   "dependencies": {
+    "@rocket.chat/fuselage-tamagui-tokens": "workspace:~",
+    "@tamagui/animations-react-native": "~1.132.20",
     "@tamagui/core": "~1.130.8",
     "@tamagui/portal": "~1.130.8",
     "@tamagui/stacks": "~1.130.8",

@@ -1,7 +1,62 @@
 import type { Meta, StoryFn } from "@storybook/react"
 import {Button} from "./Button"
-import { Spinner , XStack, YStack, Anchor} from 'tamagui'
+import { Spinner, XStack, YStack, Anchor, Text, Stack } from 'tamagui'
 import { useState } from "react"
+
+const ButtonState = ({ 
+  variant, 
+  state, 
+  size = 'medium',
+  withIcon
+}: { 
+  variant?: 'primary' | 'secondary' | 'danger' | 'secondary-danger' | 'warning' | 'secondary-warning' | 'success' | 'secondary-success';
+  state?: 'default' | 'hover' | 'active' | 'focus' | 'disabled';
+  size?: 'tiny' | 'mini' | 'small' | 'medium' | 'large';
+  withIcon?: boolean;
+}) => {
+  const getStateProps = () => {
+    const baseProps = {
+      disabled: state === 'disabled',
+    };
+
+    return baseProps;
+  };
+
+  const getVariantProps = () => {
+    switch(variant) {
+      case 'primary':
+        return { primary: true };
+      case 'secondary':
+        return { secondary: true };
+      case 'danger':
+        return { danger: true };
+      case 'secondary-danger':
+        return { secondary: true, danger: true };
+      case 'warning':
+        return { warning: true };
+      case 'secondary-warning':
+        return { secondary: true, warning: true };
+      case 'success':
+        return { success: true };
+      case 'secondary-success':
+        return { secondary: true, success: true };
+      default:
+        return {};
+    }
+  };
+
+  return (
+    <Button
+      size={size}
+      icon={withIcon ? 'balloon-text' : undefined}
+      {...getStateProps()}
+      {...getVariantProps()}
+    >
+      Button
+    </Button>
+  );
+};
+
 const meta: Meta<typeof Button> = {
   title: "INPUTS/Button",
   component: Button,
@@ -15,19 +70,19 @@ export default meta;
 
 export const Default: StoryFn<typeof Button> = () => {
   return (
-      <Button borderRadius='$sm'>Button</Button>
+      <Button>Button</Button>
     )
 };
 
 export const Loading: StoryFn<typeof Button> = () => {
   return (
-  <Button disabled borderRadius="$sm" >
-  <Spinner color="#6C727A"></Spinner>
-  Button
+  <Button loading>
+    <XStack alignItems="center" space="$2">
+      <Spinner size="small" color="#6C727A" />
+      <Text>Button</Text>
+    </XStack>
   </Button>);
 };
-
-
 
 export const LoadingInteraction: StoryFn<typeof Button> = () => {
   const [loading, setLoading] = useState(false);
@@ -35,46 +90,46 @@ export const LoadingInteraction: StoryFn<typeof Button> = () => {
   const handlePress = () => {
     setLoading(true);
     // after 2 seconds, set loading to false
-    // setTimeout(() => {
-    //   setLoading(false);
-    // }, 2000);
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
   };
-  if(loading){
-    return (
-      <Button disabled borderRadius="$sm" >
-        <Spinner color="#6C727A"></Spinner>
-        Button
-      </Button>
-    )
-  }
+  
   return (
-    <Button onPress={handlePress} borderRadius="$sm">
-      Button
+    <Button onPress={handlePress} loading={loading}>
+      {loading ? (
+        <XStack alignItems="center" space="$2">
+          <Spinner size="small" color="#6C727A" />
+          <Text>Button</Text>
+        </XStack>
+      ) : (
+        "Button"
+      )}
     </Button>
   );
 };
 
 export const Variants: StoryFn<typeof Button> = () => {
   return (
-    <YStack space="$sm">
-      <XStack space="$sm">
-        <Button  Primary borderRadius="$sm" >Primary</Button>
-        <Button  Secondary borderRadius="$sm">Secondary</Button>
+    <YStack>
+      <XStack style={{ marginBottom: 24 }}>
+        <Button primary style={{ marginRight: 16 }}>Primary</Button>
+        <Button secondary>Secondary</Button>
       </XStack>
 
-      <XStack space="$sm">
-        <Button  Danger borderRadius="$sm">Danger</Button>
-        <Button  SecondaryDanger borderRadius="$sm">Secondary Danger</Button>
+      <XStack style={{ marginBottom: 24 }}>
+        <Button danger style={{ marginRight: 16 }}>Danger</Button>
+        <Button secondary danger>Secondary Danger</Button>
       </XStack>
 
-      <XStack space="$sm">
-        <Button  Warning borderRadius="$sm">Warning</Button>
-        <Button  SecondaryWarning borderRadius="$sm">Secondary Warning</Button>
+      <XStack style={{ marginBottom: 24 }}>
+        <Button warning style={{ marginRight: 16 }}>Warning</Button>
+        <Button secondary warning>Secondary Warning</Button>
       </XStack>
       
-      <XStack space="$sm">
-        <Button  Success borderRadius="$sm">Success</Button>
-        <Button  SecondarySuccess borderRadius="$sm">
+      <XStack style={{ marginBottom: 24 }}>
+        <Button success style={{ marginRight: 16 }}>Success</Button>
+        <Button secondary success>
         Secondary Success
         </Button>
       </XStack>
@@ -83,134 +138,136 @@ export const Variants: StoryFn<typeof Button> = () => {
   )
 };
 
-
-
 export const Sizes: StoryFn<typeof Button> = () => {
-  return <>
-    <XStack space='$sm' alignItems='center'>
-      <Button borderRadius="$sm" size='$sm'>Small</Button>
-      <Button borderRadius="$sm" size='$md'>Medium</Button>
-      <Button borderRadius="$sm" >Default</Button>
+  return (
+    <XStack alignItems='center'>
+      <Button size='small' style={{ marginRight: 16 }}>Small</Button>
+      <Button size='medium' style={{ marginRight: 16 }}>Medium</Button>
+      <Button size='large'>Default</Button>
     </XStack>
-  </>
+  )
 };
 
 export const AsLink: StoryFn<typeof Button> = () => {
   return (
-      <Anchor href="https://open.rocket.chat" target="_blank" textDecorationLine="none">
-        <Button borderRadius='$sm'>
-          Button
-        </Button>
-      </Anchor>
-)
-};
-
-
-export const States: StoryFn<typeof Button> = () => {
-  return (
-    <YStack space="$sm">
-      <XStack space="$sm">
-        <Button borderRadius="$sm" onPress={() => {}} className="hover">
-          Hover
-        </Button>
-        <Button borderRadius="$sm" onPress={() => {}} className="active">
-          Active
-        </Button>
-      </XStack>
-
-      <XStack space="$sm">
-        <Button borderRadius="$sm" onPress={() => {}} className="focus">
-          Focus
-        </Button>
-        <Button borderRadius="$sm" onPress={() => {}} className="focus-visible">
-          Focus Visible
-        </Button>
-      </XStack>
-
-      <XStack space="$md">
-        <Button borderRadius="$sm" disabled>
-          Disabled
-        </Button>
-      </XStack>
-
-      {/* Button Variations (Primary, Secondary, etc.) */}
-      <XStack space="$md">
-        <Button borderRadius="$sm" primary>
-          Primary
-        </Button>
-        <Button borderRadius="$sm" secondary>
-          Secondary
-        </Button>
-      </XStack>
-
-      <XStack space="$md">
-        <Button borderRadius="$sm" danger>
-          Danger
-        </Button>
-        <Button borderRadius="$sm" secondaryDanger>
-          Secondary Danger
-        </Button>
-      </XStack>
-
-      <XStack space="$md">
-        <Button borderRadius="$sm" warning>
-          Warning
-        </Button>
-        <Button borderRadius="$sm" secondaryWarning>
-          Secondary Warning
-        </Button>
-      </XStack>
-
-      <XStack space="$md">
-        <Button borderRadius="$sm" success>
-          Success
-        </Button>
-        <Button borderRadius="$sm" secondarySuccess>
-          Secondary Success
-        </Button>
-      </XStack>
-
-      {/* Small Button Variations */}
-      <XStack space="$md">
-        <Button borderRadius="$sm" size="$sm" onPress={() => {}} className="hover">
-          Hover
-        </Button>
-        <Button borderRadius="$sm" size="$sm" onPress={() => {}} className="active">
-          Active
-        </Button>
-      </XStack>
-
-      <XStack space="$md">
-        <Button borderRadius="$sm" size="$sm" onPress={() => {}} className="focus">
-          Focus
-        </Button>
-        <Button borderRadius="$sm" size="$sm" onPress={() => {}} className="focus-visible">
-          Focus Visible
-        </Button>
-      </XStack>
-
-      <XStack space="$md">
-        <Button borderRadius="$sm" size="$sm" disabled>
-          Disabled
-        </Button>
-      </XStack>
-
-      <XStack space="$md">
-        <Button borderRadius="$sm" size="$sm" primary>
-          Primary
-        </Button>
-        <Button borderRadius="$sm" size="$sm" secondary>
-          Secondary
-        </Button>
-      </XStack>
-    </YStack>
-  );
+    <Button secondary asLink href="https://open.rocket.chat" target="_blank">
+      Button
+    </Button>
+  )
 };
 
 export const AsIconButton: StoryFn<typeof Button> = () => {
   return (
-    <Button borderRadius="$sm">
-      Button
-    </Button>
-)
+    <div style={{ 
+      display: 'flex', 
+      alignItems: 'center', 
+      justifyContent: 'center',
+      width: '100%',
+      height: '100px'
+    }}>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1F2329" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M19 12H5M12 19l-7-7 7-7"/>
+      </svg>
+    </div>
+  )
+};
+
+export const States: StoryFn<typeof Button> = () => {
+  return (
+    <Stack padding="$4">
+      <Text fontSize="$6" marginBottom="$4">Button States</Text>
+      
+      <YStack backgroundColor="$surface" padding="$4" borderRadius="$2">
+        {/* Header */}
+        <XStack>
+          <Stack width={250}></Stack>
+          <XStack flex={1} justifyContent="space-around" paddingHorizontal="$4">
+            <Text color="$text" fontSize="$3">default</Text>
+            <Text color="$text" fontSize="$3">hover</Text>
+            <Text color="$text" fontSize="$3">active</Text>
+            <Text color="$text" fontSize="$3">focus</Text>
+            <Text color="$text" fontSize="$3">disabled</Text>
+          </XStack>
+        </XStack>
+
+        {/* Button Rows */}
+        <YStack style={{ marginTop: 16 }}>
+          {[
+            { label: 'icon + text', withIcon: true },
+            { label: 'text' },
+            { label: 'primary', variant: 'primary' },
+            { label: 'secondary', variant: 'secondary' },
+            { label: 'danger', variant: 'danger' },
+            { label: 'secondary-danger', variant: 'secondary-danger' },
+            { label: 'warning', variant: 'warning' },
+            { label: 'secondary-warning', variant: 'secondary-warning' },
+            { label: 'success', variant: 'success' },
+            { label: 'secondary-success', variant: 'secondary-success' },
+          ].map(({ label, variant, withIcon }, index) => (
+            <XStack key={label} style={{ marginBottom: index < 9 ? 24 : 0 }}>
+              <Stack width={250} justifyContent="center">
+                <Text color="$text" fontSize="$3" textAlign="right">{label}</Text>
+              </Stack>
+              <XStack flex={1} justifyContent="space-around" paddingHorizontal="$4">
+                <Stack style={{ marginRight: 16 }}>
+                  <ButtonState variant={variant as any} state="default" withIcon={withIcon} />
+                </Stack>
+                <Stack style={{ marginRight: 16 }}>
+                  <ButtonState variant={variant as any} state="hover" withIcon={withIcon} />
+                </Stack>
+                <Stack style={{ marginRight: 16 }}>
+                  <ButtonState variant={variant as any} state="active" withIcon={withIcon} />
+                </Stack>
+                <Stack style={{ marginRight: 16 }}>
+                  <ButtonState variant={variant as any} state="focus" withIcon={withIcon} />
+                </Stack>
+                <Stack>
+                  <ButtonState variant={variant as any} state="disabled" withIcon={withIcon} />
+                </Stack>
+              </XStack>
+            </XStack>
+          ))}
+        </YStack>
+
+        {/* Small Size Buttons */}
+        <YStack style={{ marginTop: 32 }}>
+          {[
+            { label: 'icon + text', withIcon: true },
+            { label: 'text' },
+            { label: 'primary', variant: 'primary' },
+            { label: 'secondary', variant: 'secondary' },
+            { label: 'danger', variant: 'danger' },
+            { label: 'secondary-danger', variant: 'secondary-danger' },
+            { label: 'warning', variant: 'warning' },
+            { label: 'secondary-warning', variant: 'secondary-warning' },
+            { label: 'success', variant: 'success' },
+            { label: 'secondary-success', variant: 'secondary-success' },
+          ].map(({ label, variant, withIcon }, index) => (
+            <XStack key={label + '-small'} style={{ marginBottom: index < 9 ? 24 : 0 }}>
+              <Stack width={250} justifyContent="center">
+                <Text color="$text" fontSize="$3" textAlign="right">{label}</Text>
+              </Stack>
+              <XStack flex={1} justifyContent="space-around" paddingHorizontal="$4">
+                <Stack style={{ marginRight: 16 }}>
+                  <ButtonState variant={variant as any} state="default" size="small" withIcon={withIcon} />
+                </Stack>
+                <Stack style={{ marginRight: 16 }}>
+                  <ButtonState variant={variant as any} state="hover" size="small" withIcon={withIcon} />
+                </Stack>
+                <Stack style={{ marginRight: 16 }}>
+                  <ButtonState variant={variant as any} state="active" size="small" withIcon={withIcon} />
+                </Stack>
+                <Stack style={{ marginRight: 16 }}>
+                  <ButtonState variant={variant as any} state="focus" size="small" withIcon={withIcon} />
+                </Stack>
+                <Stack>
+                  <ButtonState variant={variant as any} state="disabled" size="small" withIcon={withIcon} />
+                </Stack>
+              </XStack>
+            </XStack>
+          ))}
+        </YStack>
+      </YStack>
+    </Stack>
+  );
 };
