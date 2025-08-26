@@ -36,15 +36,15 @@ $sidebar-color-font-active: theme(
   }
 }
 
-%highlighted {
+%highlightedV2 {
   color: $sidebar-item-color-highlighted;
 
-  font-weight: 600;
+  font-weight: 500;
 }
 
-@mixin highlighted {
+@mixin highlightedV2 {
   &--highlighted {
-    @extend %highlighted;
+    @extend %highlightedV2;
   }
 }
 
@@ -80,7 +80,7 @@ $sidebar-color-font-active: theme(
   }
 
   &__title {
-    @include highlighted;
+    @include highlightedV2;
 
     overflow: hidden;
     flex: 1 0 0;
@@ -97,7 +97,7 @@ $sidebar-color-font-active: theme(
   }
 
   &__icon {
-    @include highlighted;
+    @include highlightedV2;
 
     display: flex;
     justify-content: center;
@@ -108,7 +108,7 @@ $sidebar-color-font-active: theme(
   }
 
   &__subtitle {
-    @include highlighted;
+    @include highlightedV2;
 
     flex: 1 1 0;
     @include typography.use-font-scale(c1);
@@ -116,7 +116,9 @@ $sidebar-color-font-active: theme(
   }
 
   &__timestamp {
-    @include typography.use-font-scale(c2);
+    @include highlightedV2;
+    
+    @include typography.use-font-scale(micro);
   }
 
   &__content {
@@ -143,7 +145,6 @@ $sidebar-color-font-active: theme(
     flex-direction: column;
 
     width: lengths.size(full);
-    gap: lengths.padding(4);
   }
 
   &__menu-wrapper {
