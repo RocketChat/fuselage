@@ -42,7 +42,7 @@ $sidebar-color-font-active: theme(
   font-weight: 500;
 }
 
-@mixin highlightedV2 {
+@mixin highlighted {
   &--highlighted {
     @extend %highlightedV2;
   }
@@ -80,7 +80,7 @@ $sidebar-color-font-active: theme(
   }
 
   &__title {
-    @include highlightedV2;
+    @include highlighted;
 
     overflow: hidden;
     flex: 1 0 0;
@@ -97,7 +97,7 @@ $sidebar-color-font-active: theme(
   }
 
   &__icon {
-    @include highlightedV2;
+    @include highlighted;
 
     display: flex;
     justify-content: center;
@@ -108,7 +108,7 @@ $sidebar-color-font-active: theme(
   }
 
   &__subtitle {
-    @include highlightedV2;
+    @include highlighted;
 
     flex: 1 1 0;
     @include typography.use-font-scale(c1);
@@ -116,8 +116,8 @@ $sidebar-color-font-active: theme(
   }
 
   &__timestamp {
-    @include highlightedV2;
-    
+    @include highlighted;
+
     @include typography.use-font-scale(micro);
   }
 
