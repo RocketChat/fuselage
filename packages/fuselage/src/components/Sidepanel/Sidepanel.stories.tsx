@@ -6,11 +6,16 @@ import {
   Icon,
   IconButton,
   InputBox,
-  SidebarItem,
-  SidebarItemBadge,
-  SidebarItemIcon,
-  SidebarItemMenu,
-  SidebarItemTitle,
+  SidebarV2ItemTitle,
+  SidebarV2ItemCol,
+  SidebarV2ItemBadge,
+  SidebarV2ItemIcon,
+  SidebarV2ItemMenu,
+  SidebarV2ItemContent,
+  SidebarV2ItemRow,
+  SidebarV2Item,
+  SidebarV2ItemTimestamp,
+  Tag,
 } from '../..';
 import { SidebarItemAvatarWrapper } from '../SidebarV2/SidebarItem/SidebarItemAvatarWrapper';
 import { MenuTemplate, leterAvatarUrls, names } from '../SidebarV2/helpers';
@@ -53,23 +58,52 @@ const Template: StoryFn<typeof Sidepanel> = (args) => (
     </SidepanelSection>
     <Box overflowY='auto' height='full'>
       <SidepanelList>
-        {new Array(20).fill(null).map((_, index) => (
-          <SidepanelListItem key={index}>
-            <SidebarItem href='#'>
-              <SidebarItemAvatarWrapper>
-                <Avatar
-                  size='x20'
-                  url={leterAvatarUrls[index % 4]}
-                  alt='avatar'
-                />
-              </SidebarItemAvatarWrapper>
-              <SidebarItemIcon icon='team' />
-              <SidebarItemTitle>{names[index % 10]}</SidebarItemTitle>
-              <SidebarItemBadge title='unread messages' children={index + 3} />
-              <SidebarItemMenu children={<MenuTemplate />} />
-            </SidebarItem>
-          </SidepanelListItem>
-        ))}
+        {new Array(20).fill(null).map((_, index) => {
+          return (
+            <SidepanelListItem key={index}>
+              <SidebarV2Item href='#'>
+                <SidebarV2ItemCol>
+                  <SidebarV2ItemRow>
+                    <SidebarItemAvatarWrapper>
+                      <Avatar
+                        size='x20'
+                        url={leterAvatarUrls[index % 4]}
+                        alt='avatar'
+                      />
+                    </SidebarItemAvatarWrapper>
+                    <SidebarV2ItemIcon
+                      highlighted={Boolean(index === 0)}
+                      icon='team'
+                    />
+                    <SidebarV2ItemTitle unread={Boolean(index === 0)}>
+                      {names[index % 10]}
+                    </SidebarV2ItemTitle>
+                    <SidebarV2ItemTimestamp>11:22:21 AM</SidebarV2ItemTimestamp>
+                  </SidebarV2ItemRow>
+                  <SidebarV2ItemRow>
+                    <SidebarV2ItemContent unread={Boolean(index === 0)}>
+                      Lorem Ipsum Indolor Dolor Ipsum Ipsum
+                    </SidebarV2ItemContent>
+                    <Tag
+                      role='button'
+                      maxWidth='50%'
+                      flexShrink={1}
+                      flexGrow={0}
+                    >
+                      <Icon size='x12' mie={4} name='team' />
+                      Team title
+                    </Tag>
+                    <SidebarV2ItemBadge
+                      title='unread messages'
+                      children={index + 3}
+                    />
+                    <SidebarV2ItemMenu children={<MenuTemplate />} />
+                  </SidebarV2ItemRow>
+                </SidebarV2ItemCol>
+              </SidebarV2Item>
+            </SidepanelListItem>
+          );
+        })}
       </SidepanelList>
     </Box>
   </Sidepanel>

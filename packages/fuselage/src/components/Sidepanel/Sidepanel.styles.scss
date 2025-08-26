@@ -48,5 +48,9 @@ $sidepanel-color-default: colors.font(default);
 
   &-list {
     padding-block: lengths.padding(8);
+
+    &__item {
+      padding-block: lengths.padding(4);
+    }
   }
 }
