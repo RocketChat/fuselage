@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.66.2
+
+### Patch Changes
+
+- [#1742](https://github.com/RocketChat/fuselage/pull/1742) [`6f1e8de`](https://github.com/RocketChat/fuselage/commit/6f1e8ded438478f3fc985c0efaa2322c017ca3a8) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): SidebarItemV2 visual regressions
+
 ## 0.66.1
 
 ### Patch Changes
