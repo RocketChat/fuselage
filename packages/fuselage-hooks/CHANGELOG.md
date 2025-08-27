@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.37.2
+
+### Patch Changes
+
+- [#1741](https://github.com/RocketChat/fuselage/pull/1741) [`5bbd461`](https://github.com/RocketChat/fuselage/commit/5bbd461c1bbe321c780fbfd1588625b65aacd45f) Thanks [@gabriellsh](https://github.com/gabriellsh)! - refactor(fuselage-hooks): `useSafeRefCallback` reimplemented callback/cleanup order
+
 ## 0.37.1
 
 ### Patch Changes
