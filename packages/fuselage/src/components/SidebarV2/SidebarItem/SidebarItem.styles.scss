@@ -36,15 +36,15 @@ $sidebar-color-font-active: theme(
   }
 }
 
-%highlighted {
+%highlightedV2 {
   color: $sidebar-item-color-highlighted;
 
-  font-weight: 600;
+  font-weight: 500;
 }
 
 @mixin highlighted {
   &--highlighted {
-    @extend %highlighted;
+    @extend %highlightedV2;
   }
 }
 
@@ -116,7 +116,9 @@ $sidebar-color-font-active: theme(
   }
 
   &__timestamp {
-    @include typography.use-font-scale(c2);
+    @include highlighted;
+
+    @include typography.use-font-scale(micro);
   }
 
   &__content {
@@ -143,7 +145,6 @@ $sidebar-color-font-active: theme(
     flex-direction: column;
 
     width: lengths.size(full);
-    gap: lengths.padding(4);
   }
 
   &__menu-wrapper {
