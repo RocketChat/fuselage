@@ -61,7 +61,7 @@ const Template: StoryFn<typeof Sidepanel> = (args) => (
         {new Array(20).fill(null).map((_, index) => {
           return (
             <SidepanelListItem key={index}>
-              <SidebarV2Item href='#'>
+              <SidebarV2Item level={2} href='#'>
                 <SidebarV2ItemCol>
                   <SidebarV2ItemRow>
                     <SidebarItemAvatarWrapper>

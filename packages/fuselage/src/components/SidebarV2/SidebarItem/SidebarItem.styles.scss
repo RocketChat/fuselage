@@ -70,6 +70,10 @@ $sidebar-color-font-active: theme(
   text-decoration: none;
   gap: lengths.padding(4);
 
+  &--level-2 {
+    padding-block: calc(lengths.padding(8) - lengths.border-width('default'));
+  }
+
   &:active {
     color: $sidebar-color-font-active;
   }
