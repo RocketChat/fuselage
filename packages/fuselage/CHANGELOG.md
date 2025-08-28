@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.66.3
+
+### Patch Changes
+
+- [#1744](https://github.com/RocketChat/fuselage/pull/1744) [`bafacf2`](https://github.com/RocketChat/fuselage/commit/bafacf207836e199bb9bf64588e43cb3802de19c) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): SidebarV2Item padding
+
 ## 0.66.2
 
 ### Patch Changes
