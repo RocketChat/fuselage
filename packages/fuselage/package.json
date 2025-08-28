@@ -81,7 +81,7 @@
     "cssnano": "~7.1.0",
     "es-check": "~9.1.4",
     "eslint": "~9.29.0",
-    "jest": "~30.0.0",
+    "jest": "~30.0.5",
     "jest-axe": "~10.0.0",
     "jest-environment-jsdom": "~30.0.5",
     "lint-all": "workspace:~",
