@@ -47,5 +47,71 @@ jobs:
           name: 'storybooks-${{ github.event.number }}'
           path: |
             packages/fuselage/storybook-static
+            packages/fuselage-toastbar/storybook-static
             packages/onboarding-ui/storybook-static
             packages/layout/storybook-static
+  test-with-loki:
+    name: Test with Loki
+    runs-on: ubuntu-latest
+    env:
+      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+      TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
+    needs:
+      - build-and-test
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22.16.0"
+      - uses: actions/checkout@v4
+        with: 
+          fetch-depth: 0
+      - uses: actions/cache@v4
+        id: yarn-cache
+        with:
+          path: |
+            **/node_modules
+            .yarn/cache
+          key: ${{ runner.os }}-modules-${{ hashFiles('yarn.lock') }}
+      - run: yarn install
+        if: steps.yarn-cache.outputs.cache-hit != 'true'
+      - uses: actions/download-artifact@v4
+        with:
+          name: 'storybooks-${{ github.event.number }}'
+          path: packages
+      - name: Turbo Cache
+        id: turbo-cache
+        uses: actions/cache@v4
+        with:
+          path: .turbo
+          key: turbo-${{ runner.os }}-${{ github.job }}
+          restore-keys: |
+            turbo-${{ runner.os }}- 
+      - name: build
+        run: yarn build
+        working-directory: ./.github/actions/loki/fuselageSnap
+      - uses: ./.github/actions/loki/fuselageSnap
+        id: fuselageSnap
+      - name: fuselage visual test
+        if: always()
+        uses: ./.github/actions/loki/test
+        with: 
+          fuselage: ${{steps.fuselageSnap.outputs.fuselage }}
+          pkg-name: "fuselage"
+      - name: fuselage-toastbar visual test
+        if: always()
+        uses: ./.github/actions/loki/test
+        with: 
+          fuselage-toastbar: ${{steps.fuselageSnap.outputs.fuselage-toastbar }}
+          pkg-name: "fuselage-toastbar"
+      - name: layout visual test
+        if: always()
+        uses: ./.github/actions/loki/test
+        with: 
+          layout: ${{steps.fuselageSnap.outputs.layout }}
+          pkg-name: "layout"
+      - name: onboarding-ui visual test
+        if: always()
+        uses: ./.github/actions/loki/test
+        with: 
+          onboarding-ui: ${{steps.fuselageSnap.outputs.onboarding-ui }}
+          pkg-name: "onboarding-ui"

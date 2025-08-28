@@ -38,7 +38,15 @@
     "test": "jest --runInBand",
     "watch": "jest --watch",
     "docs": "cross-env NODE_ENV=production storybook build -o ../../static/fuselage",
-    "build-storybook": "cross-env NODE_ENV=production storybook build"
+    "build-storybook": "cross-env NODE_ENV=production storybook build --stats-json",
+    "update-storybook": "run-s .:update-storybook:build-storybook .:update-storybook:purge-refs .:update-storybook:loki-update resolve",
+    "resolve": "resolve-loki",
+    ".:update-storybook:build-storybook": "run-s build-storybook",
+    ".:update-storybook:purge-refs": "rimraf .loki/reference",
+    ".:update-storybook:loki-update": "loki update --chromeDockerImage=zenika/alpine-chrome --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --verboseRenderer --requireReference --reactUri file:./storybook-static",
+    "prettier-format": "prettier 'src/**/*.{ts,tsx,js,jsx}' --write",
+    "loki:test-ci": "loki test --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --requireReference --verboseRenderer --reactUri file:./storybook-static ",
+    "loki:test": "loki test --chromeDockerImage=zenika/alpine-chrome --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --verboseRenderer --requireReference --reactUri file:./storybook-static"
   },
   "dependencies": {
     "@rocket.chat/css-in-js": "workspace:~",
@@ -56,6 +64,8 @@
     "@babel/plugin-transform-runtime": "~7.28.0",
     "@babel/preset-env": "~7.28.0",
     "@babel/preset-react": "~7.27.1",
+    "@loki/create-async-callback": "~0.35.1",
+    "@loki/is-loki-running": "~0.35.0",
     "@rocket.chat/fuselage-hooks": "workspace:~",
     "@rocket.chat/fuselage-polyfills": "workspace:~",
     "@rocket.chat/icons": "workspace:~",
@@ -69,6 +79,7 @@
     "@testing-library/jest-dom": "~6.6.3",
     "@testing-library/react": "~16.3.0",
     "@testing-library/user-event": "~14.6.1",
+    "@types/express": "^4",
     "@types/invariant": "^2.2.37",
     "@types/jest-axe": "~3.5.9",
     "@types/react": "~18.3.23",
@@ -81,10 +92,12 @@
     "cssnano": "~7.1.0",
     "es-check": "~9.1.4",
     "eslint": "~9.29.0",
+    "express": "^4.18.2",
     "jest": "~30.0.0",
     "jest-axe": "~10.0.0",
     "jest-environment-jsdom": "~30.0.5",
     "lint-all": "workspace:~",
+    "loki": "~0.35.1",
     "mini-css-extract-plugin": "~2.9.2",
     "normalize.css": "^8.0.1",
     "npm-run-all": "^4.1.5",
@@ -100,6 +113,7 @@
     "react": "~18.3.1",
     "react-dom": "~18.3.1",
     "react-virtuoso": "~4.13.0",
+    "resolve-loki": "workspace:~",
     "resolve-url-loader": "~5.0.0",
     "rimraf": "~6.0.1",
     "sass": "~1.89.2",
@@ -133,5 +147,30 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "loki": {
+    "configurations": {
+      "desktop": {
+        "target": "chrome.docker",
+        "width": 1440,
+        "height": 896,
+        "deviceScaleFactor": 1,
+        "mobile": false,
+        "fitWindow": false
+      },
+      "tablet": {
+        "target": "chrome.docker",
+        "width": 768,
+        "height": 970,
+        "deviceScaleFactor": 1,
+        "mobile": false,
+        "fitWindow": false
+      },
+      "mobile": {
+        "target": "chrome.docker",
+        "preset": "iPhone 7"
+      }
+    },
+    "fetchFailIgnore": ".*"
   }
 }

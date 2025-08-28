@@ -3,7 +3,8 @@
   "private": true,
   "workspaces": [
     "packages/*",
-    "tools/*"
+    "tools/*",
+    ".github/actions/loki/fuselageSnap"
   ],
   "scripts": {
     "build": "yarn turbo run build",
@@ -23,7 +24,11 @@
     "release-next": "yarn workspaces foreach --no-private -v npm publish --tag next --tolerate-republish",
     "resolve-workspace-deps": "yarn workspace scripts run resolve-workspace-deps",
     "test": "yarn turbo run test",
-    "update-readme": "update-readme"
+    "update-storybook": "yarn turbo run update-storybook",
+    "loki:test": "yarn turbo run loki:test --cache-dir=\".turbo\"",
+    "loki:test-ci": "yarn turbo run loki:test-ci --cache-dir=\".turbo\"",
+    "update-readme": "update-readme",
+    "fuselageSnap": "fuselagesnap-local"
   },
   "devDependencies": {
     "@changesets/changelog-github": "~0.5.1",
@@ -39,6 +44,8 @@
     "eslint-plugin-react": "~7.37.5",
     "eslint-plugin-react-hooks": "~5.2.0",
     "eslint-plugin-storybook": "~9.0.18",
+    "execa": "~9.6.0",
+    "fuselagesnap-local": "workspace:~",
     "globals": "~16.3.0",
     "husky": "~9.1.7",
     "hygen": "~6.2.11",
@@ -57,5 +64,11 @@
   "volta": {
     "node": "22.16.0",
     "yarn": "4.9.2"
+  },
+  "resolutions": {
+    "@loki/browser@npm:^0.35.0": "patch:@loki/browser@npm%3A0.35.0#~/.yarn/patches/@loki-browser-npm-0.35.0-56c1d62186.patch",
+    "@loki/target-chrome-docker@npm:^0.35.0": "patch:@loki/target-chrome-docker@npm%3A0.35.0#~/.yarn/patches/@loki-target-chrome-docker-npm-0.35.0-e5bcaa6a12.patch",
+    "@loki/core@npm:^0.35.0": "patch:@loki/core@npm%3A0.35.0#~/.yarn/patches/@loki-core-npm-0.35.0-2f7ae66155.patch",
+    "@loki/target-chrome-app@npm:^0.35.0": "patch:@loki/target-chrome-app@npm%3A0.35.0#~/.yarn/patches/@loki-target-chrome-app-npm-0.35.0-b92d860c00.patch"
   }
 }

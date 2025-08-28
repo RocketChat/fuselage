@@ -35,7 +35,15 @@
     "test": "jest --runInBand",
     "docs": "typedoc",
     "storybook": "storybook dev -p 6006 --no-version-updates",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build --stats-json",
+    "update-storybook": "run-s .:update-storybook:build-storybook .:update-storybook:purge-refs .:update-storybook:loki-update resolve",
+    "resolve": "resolve-loki",
+    ".:update-storybook:build-storybook": "run-s build-storybook",
+    ".:update-storybook:purge-refs": "rimraf .loki/reference",
+    ".:update-storybook:loki-update": "loki update --chromeDockerImage=zenika/alpine-chrome --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --verboseRenderer --requireReference --reactUri file:./storybook-static",
+    "prettier-format": "prettier 'src/**/*.{ts,tsx,js,jsx}' --write",
+    "loki:test-ci": "loki test --chromeConcurrency=2 --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --requireReference --verboseRenderer --reactUri file:./storybook-static",
+    "loki:test": "loki test --chromeDockerImage=zenika/alpine-chrome --chromeFlags='--headless --no-sandbox --disable-gpu --disable-features=VizDisplayCompositor' --verboseRenderer --requireReference --reactUri file:./storybook-static"
   },
   "dependencies": {
     "i18next": "~23.4.9",
@@ -56,18 +64,22 @@
     "@storybook/react-webpack5": "~9.0.18",
     "@testing-library/dom": "~10.4.0",
     "@testing-library/react": "~16.3.0",
+    "@types/express": "^4",
     "@types/react": "~18.3.23",
     "@types/react-dom": "~18.3.7",
     "countries-list": "^3.1.1",
     "eslint": "~9.29.0",
+    "express": "^4.18.2",
     "jest": "~30.0.0",
     "jest-environment-jsdom": "~30.0.5",
     "lint-all": "workspace:~",
+    "loki": "~0.35.1",
     "npm-run-all": "^4.1.5",
     "prettier": "~3.5.3",
     "react": "~18.3.1",
     "react-dom": "~18.3.1",
     "react-i18next": "~13.2.2",
+    "resolve-loki": "workspace:~",
     "rimraf": "~6.0.1",
     "storybook": "~9.0.18",
     "storybook-dark-mode": "patch:storybook-dark-mode@npm%3A4.0.2#~/.yarn/patches/storybook-dark-mode-npm-4.0.2-1acb0927fb.patch",
@@ -92,5 +104,29 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "loki": {
+    "configurations": {
+      "desktop": {
+        "target": "chrome.docker",
+        "width": 1440,
+        "height": 896,
+        "deviceScaleFactor": 1,
+        "mobile": false,
+        "fitWindow": false
+      },
+      "tablet": {
+        "target": "chrome.docker",
+        "width": 768,
+        "height": 970,
+        "deviceScaleFactor": 1,
+        "mobile": false,
+        "fitWindow": false
+      },
+      "mobile": {
+        "target": "chrome.docker",
+        "preset": "iPhone 7"
+      }
+    }
   }
 }
