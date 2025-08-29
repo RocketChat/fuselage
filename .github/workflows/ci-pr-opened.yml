@@ -53,10 +53,10 @@ jobs:
       name: github-pages
       url: 'https://rocketchat.github.io/fuselage/fuselage/${{ needs.download-artifact.outputs.pr-number }}'
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           ref: gh-pages
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v5
         with:
           name: storybooks
           path: packages
