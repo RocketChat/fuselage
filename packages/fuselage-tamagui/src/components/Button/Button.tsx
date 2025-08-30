@@ -11,94 +11,6 @@ import {
 import { isValidElement } from 'react'
 import './button.css'
 
-/**
- * Button component props interface
- */
-export interface ButtonProps {
-  /** Primary button variant - blue background */
-  primary?: boolean;
-  /** Secondary button variant - grey background */
-  secondary?: boolean;
-  /** Danger button variant - red background */
-  danger?: boolean;
-  /** Warning button variant - yellow background */
-  warning?: boolean;
-  /** Success button variant - green background */
-  success?: boolean;
-  /** Info button variant - blue background (same as primary) */
-  info?: boolean;
-  /** Disabled state */
-  disabled?: boolean;
-  /** Loading state with spinner */
-  loading?: boolean;
-  /** External link - adds noopener noreferrer */
-  external?: boolean;
-  /** Square button variant */
-  square?: boolean;
-  /** Link URL */
-  href?: string;
-  /** Render as link */
-  asLink?: boolean;
-  /** Icon element */
-  icon?: any;
-  /** Tiny size variant */
-  tiny?: boolean;
-  /** Mini size variant */
-  mini?: boolean;
-  /** Small size variant */
-  small?: boolean;
-  /** Medium size variant */
-  medium?: boolean;
-  /** Large size variant */
-  large?: boolean;
-  /** Button content */
-  children?: React.ReactNode;
-  /** Click handler */
-  onPress?: () => void;
-  /** HTML element type */
-  is?: 'button' | 'a';
-}
-
-/**
- * IconButton component props interface
- */
-export interface IconButtonProps {
-  /** Icon element or name */
-  icon: any;
-  /** Primary button variant - blue background */
-  primary?: boolean;
-  /** Secondary button variant - grey background */
-  secondary?: boolean;
-  /** Danger button variant - red background */
-  danger?: boolean;
-  /** Warning button variant - yellow background */
-  warning?: boolean;
-  /** Success button variant - green background */
-  success?: boolean;
-  /** Info button variant - blue background */
-  info?: boolean;
-  /** Pressed state */
-  pressed?: boolean;
-  /** Disabled state */
-  disabled?: boolean;
-  /** Tiny size variant */
-  tiny?: boolean;
-  /** Mini size variant */
-  mini?: boolean;
-  /** Small size variant */
-  small?: boolean;
-  /** Medium size variant */
-  medium?: boolean;
-  /** Large size variant */
-  large?: boolean;
-  /** Button content */
-  children?: React.ReactNode;
-  /** Click handler */
-  onPress?: () => void;
-  /** Accessibility label */
-  'aria-label'?: string;
-}
-
 export const ButtonContext = createStyledContext({
   size: 'medium' as SizeTokens,
 })
@@ -585,6 +497,26 @@ export const ButtonFrame = styled(View, {
     size: 'default',
   },
 })
+
+type ButtonProps = GetProps<typeof ButtonFrame> & {
+  icon?: any;
+  loading?: boolean;
+  external?: boolean;
+  square?: boolean;
+  href?: string;
+  asLink?: boolean;
+  primary?: boolean;
+  secondary?: boolean;
+  danger?: boolean;
+  warning?: boolean;
+  success?: boolean;
+  info?: boolean;
+  tiny?: boolean;
+  mini?: boolean;
+  small?: boolean;
+  medium?: boolean;
+  large?: boolean;
+};
 
 export const ButtonText = styled(Text, {
   name: 'ButtonText',

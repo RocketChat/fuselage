@@ -1,192 +1,8 @@
 import type { Meta, StoryFn } from "@storybook/react"
-import { Button, IconButton } from "./Button"
+import { Button } from "./Button"
 import { Spinner, XStack, YStack, Anchor, Text, Stack, View } from 'tamagui'
 import { useState } from "react"
 import { action } from '@storybook/addon-actions'
-
-const meta: Meta<typeof Button> = {
-  title: "INPUTS/Button",
-  component: Button,
-  parameters: {
-    layout: "centered",
-  },
-  tags: ["autodocs"],
-  argTypes: {
-    primary: {
-      description: 'Primary button variant - blue background',
-      control: 'boolean',
-    },
-    secondary: {
-      description: 'Secondary button variant - grey background',
-      control: 'boolean',
-    },
-    danger: {
-      description: 'Danger button variant - red background',
-      control: 'boolean',
-    },
-    warning: {
-      description: 'Warning button variant - yellow background',
-      control: 'boolean',
-    },
-    success: {
-      description: 'Success button variant - green background',
-      control: 'boolean',
-    },
-    info: {
-      description: 'Info button variant - blue background (same as primary)',
-      control: 'boolean',
-    },
-    disabled: {
-      description: 'Disabled state',
-      control: 'boolean',
-    },
-    loading: {
-      description: 'Loading state with spinner',
-      control: 'boolean',
-    },
-    external: {
-      description: 'External link - adds noopener noreferrer',
-      control: 'boolean',
-    },
-    square: {
-      description: 'Square button variant',
-      control: 'boolean',
-    },
-    href: {
-      description: 'Link URL',
-      control: 'text',
-    },
-    asLink: {
-      description: 'Render as link',
-      control: 'boolean',
-    },
-    icon: {
-      description: 'Icon element',
-      control: 'object',
-    },
-    tiny: {
-      description: 'Tiny size variant',
-      control: 'boolean',
-    },
-    mini: {
-      description: 'Mini size variant',
-      control: 'boolean',
-    },
-    small: {
-      description: 'Small size variant',
-      control: 'boolean',
-    },
-    medium: {
-      description: 'Medium size variant',
-      control: 'boolean',
-    },
-    large: {
-      description: 'Large size variant',
-      control: 'boolean',
-    },
-    onPress: {
-      description: 'Click handler',
-      action: 'pressed',
-    },
-    is: {
-      description: 'HTML element type',
-      control: { type: 'select' },
-      options: ['button', 'a'],
-    },
-  },
-};
-
-export default meta;
-
-export const Default: StoryFn<typeof Button> = () => (
-  <Button onPress={action('click')}>Button</Button>
-);
-
-export const Loading: StoryFn<typeof Button> = () => (
-  <Button loading onPress={action('click')}>
-    Button
-  </Button>
-);
-
-export const LoadingInteraction: StoryFn<typeof Button> = () => {
-  const [isLoading, setIsLoading] = useState(false);
-  
-  return (
-    <Button
-      icon={<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
-        <circle cx="9" cy="7" r="4"/>
-        <path d="M18 4h.01"/>
-        <path d="M18 8h.01"/>
-        <path d="M22 4h.01"/>
-        <path d="M22 8h.01"/>
-        <path d="M18 4h4"/>
-        <path d="M18 8h4"/>
-        <path d="M20 2v4"/>
-        <path d="M20 6v4"/>
-      </svg>}
-      loading={isLoading}
-      onPress={() => setIsLoading(!isLoading)}
-    >
-      Button
-    </Button>
-  );
-};
-
-LoadingInteraction.parameters = {
-  docs: {
-    description: {
-      story: 'Click the button to see the loading state.',
-    },
-  },
-};
-
-export const Truncated: StoryFn<typeof Button> = () => (
-  <Stack maxWidth={160} justifyContent="center">
-    <Button onPress={action('click')}>Button with loooooooooooong text</Button>
-  </Stack>
-);
-
-export const Variants: StoryFn<typeof Button> = () => (
-  <YStack padding="$2">
-    <XStack style={{ marginBottom: 16 }}>
-        <Button primary style={{ marginRight: 16 }}>Primary</Button>
-        <Button secondary>Secondary</Button>
-      </XStack>
-    <XStack style={{ marginBottom: 16 }}>
-        <Button danger style={{ marginRight: 16 }}>Danger</Button>
-      <Button secondary danger>
-        Secondary Danger
-      </Button>
-      </XStack>
-    <XStack style={{ marginBottom: 16 }}>
-        <Button warning style={{ marginRight: 16 }}>Warning</Button>
-      <Button secondary warning>
-        Secondary Warning
-      </Button>
-      </XStack>
-    <XStack style={{ marginBottom: 16 }}>
-        <Button success style={{ marginRight: 16 }}>Success</Button>
-        <Button secondary success>
-          Secondary Success
-        </Button>
-      </XStack>
-    </YStack>
-);
-
-export const Sizes: StoryFn<typeof Button> = () => (
-    <XStack alignItems='center'>
-    <Button small style={{ marginRight: 16 }}>Small</Button>
-    <Button medium style={{ marginRight: 16 }}>Medium</Button>
-    <Button>Default</Button>
-    </XStack>
-);
-
-export const AsLink: StoryFn<typeof Button> = () => (
-  <Button is='a' href='https://rocket.chat' external>
-    Button
-  </Button>
-);
 
 // PropsVariationSection equivalent for Tamagui - matching Fuselage exactly
 const PropsVariationSection = ({ 
@@ -286,11 +102,111 @@ const PropsVariationSection = ({
   );
 };
 
+const meta: Meta<typeof Button> = {
+  title: "INPUTS/Button",
+  component: Button,
+  parameters: {
+    layout: "centered",
+  },
+  tags: ["autodocs"],
+};
+
+export default meta;
+
+export const Default: StoryFn<typeof Button> = () => (
+  <Button onPress={action('click')}>Button</Button>
+);
+
+export const Loading: StoryFn<typeof Button> = () => (
+  <Button loading onPress={action('click')}>
+    Button
+  </Button>
+);
+
+export const LoadingInteraction: StoryFn<typeof Button> = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  return (
+    <Button
+      icon={<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+        <circle cx="9" cy="7" r="4"/>
+        <path d="M18 4h.01"/>
+        <path d="M18 8h.01"/>
+        <path d="M22 4h.01"/>
+        <path d="M22 8h.01"/>
+        <path d="M18 4h4"/>
+        <path d="M18 8h4"/>
+        <path d="M20 2v4"/>
+        <path d="M20 6v4"/>
+      </svg>}
+      loading={isLoading}
+      onPress={() => setIsLoading(!isLoading)}
+    >
+      Button
+    </Button>
+  );
+};
+
+LoadingInteraction.parameters = {
+  docs: {
+    description: {
+      story: 'Click the button to see the loading state.',
+    },
+  },
+};
+
+export const Truncated: StoryFn<typeof Button> = () => (
+  <Stack maxWidth={160} justifyContent="center">
+    <Button onPress={action('click')}>Button with loooooooooooong text</Button>
+  </Stack>
+);
+
+export const Variants: StoryFn<typeof Button> = () => (
+  <YStack padding="$2">
+    <XStack style={{ marginBottom: 16 }}>
+        <Button primary style={{ marginRight: 16 }}>Primary</Button>
+        <Button secondary>Secondary</Button>
+      </XStack>
+    <XStack style={{ marginBottom: 16 }}>
+        <Button danger style={{ marginRight: 16 }}>Danger</Button>
+      <Button secondary danger>
+        Secondary Danger
+      </Button>
+      </XStack>
+    <XStack style={{ marginBottom: 16 }}>
+        <Button warning style={{ marginRight: 16 }}>Warning</Button>
+      <Button secondary warning>
+        Secondary Warning
+      </Button>
+      </XStack>
+    <XStack style={{ marginBottom: 16 }}>
+        <Button success style={{ marginRight: 16 }}>Success</Button>
+        <Button secondary success>
+        Secondary Success
+        </Button>
+      </XStack>
+    </YStack>
+);
+
+export const Sizes: StoryFn<typeof Button> = () => (
+    <XStack alignItems='center'>
+    <Button small style={{ marginRight: 16 }}>Small</Button>
+    <Button medium style={{ marginRight: 16 }}>Medium</Button>
+    <Button>Default</Button>
+    </XStack>
+);
+
+export const AsLink: StoryFn<typeof Button> = () => (
+  <Button is='a' href='https://rocket.chat' external>
+    Button
+  </Button>
+);
+
 export const States = () => (
   <>
     <PropsVariationSection
       component={Button}
-      common={{ onPress: action('click') }}
+      common={{ onClick: action('click') }}
       xAxis={{
         default: {},
         hover: { className: 'hover' },
@@ -349,7 +265,7 @@ export const States = () => (
       component={Button}
       common={{
         small: true,
-        onPress: action('click'),
+        onClick: action('click'),
       }}
       xAxis={{
         default: {},
@@ -439,7 +355,6 @@ export const AsIconButton: StoryFn<typeof Button> = () => (
       </svg>
     </div>
 );
-
 AsIconButton.parameters = {
   docs: {
     description: {
