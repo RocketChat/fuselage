@@ -9,6 +9,95 @@ import {
   withStaticProperties,
 } from '@tamagui/web'
 import { isValidElement } from 'react'
+import './button.css'
+
+/**
+ * Button component props interface
+ */
+export interface ButtonProps {
+  /** Primary button variant - blue background */
+  primary?: boolean;
+  /** Secondary button variant - grey background */
+  secondary?: boolean;
+  /** Danger button variant - red background */
+  danger?: boolean;
+  /** Warning button variant - yellow background */
+  warning?: boolean;
+  /** Success button variant - green background */
+  success?: boolean;
+  /** Info button variant - blue background (same as primary) */
+  info?: boolean;
+  /** Disabled state */
+  disabled?: boolean;
+  /** Loading state with spinner */
+  loading?: boolean;
+  /** External link - adds noopener noreferrer */
+  external?: boolean;
+  /** Square button variant */
+  square?: boolean;
+  /** Link URL */
+  href?: string;
+  /** Render as link */
+  asLink?: boolean;
+  /** Icon element */
+  icon?: any;
+  /** Tiny size variant */
+  tiny?: boolean;
+  /** Mini size variant */
+  mini?: boolean;
+  /** Small size variant */
+  small?: boolean;
+  /** Medium size variant */
+  medium?: boolean;
+  /** Large size variant */
+  large?: boolean;
+  /** Button content */
+  children?: React.ReactNode;
+  /** Click handler */
+  onPress?: () => void;
+  /** HTML element type */
+  is?: 'button' | 'a';
+}
+
+/**
+ * IconButton component props interface
+ */
+export interface IconButtonProps {
+  /** Icon element or name */
+  icon: any;
+  /** Primary button variant - blue background */
+  primary?: boolean;
+  /** Secondary button variant - grey background */
+  secondary?: boolean;
+  /** Danger button variant - red background */
+  danger?: boolean;
+  /** Warning button variant - yellow background */
+  warning?: boolean;
+  /** Success button variant - green background */
+  success?: boolean;
+  /** Info button variant - blue background */
+  info?: boolean;
+  /** Pressed state */
+  pressed?: boolean;
+  /** Disabled state */
+  disabled?: boolean;
+  /** Tiny size variant */
+  tiny?: boolean;
+  /** Mini size variant */
+  mini?: boolean;
+  /** Small size variant */
+  small?: boolean;
+  /** Medium size variant */
+  medium?: boolean;
+  /** Large size variant */
+  large?: boolean;
+  /** Button content */
+  children?: React.ReactNode;
+  /** Click handler */
+  onPress?: () => void;
+  /** Accessibility label */
+  'aria-label'?: string;
+}
 
 export const ButtonContext = createStyledContext({
   size: 'medium' as SizeTokens,
@@ -19,7 +108,7 @@ export const ButtonFrame = styled(View, {
   context: ButtonContext,
   display: 'inline-flex',
   alignItems: 'center',
-  justifyContent: 'flex-start',
+  justifyContent: 'center',
   flexDirection: 'row',
   textAlign: 'center',
   whiteSpace: 'nowrap',
@@ -31,70 +120,72 @@ export const ButtonFrame = styled(View, {
   userSelect: 'none',
   fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
   fontWeight: '500',
+  appearance: 'none',
   
-  // Default secondary button styling (gray)
+  // Default secondary button styling (matching Fuselage exactly)
   backgroundColor: '#EBECEF',
   borderColor: '#E4E7EA',
   color: '#1F2329',
   
   hoverStyle: {
-    backgroundColor: '#EEEFF1',
-    borderColor: '#D7DBE0',
+    backgroundColor: '#D7DBE0',
+    borderColor: '#CBCED1',
     cursor: 'pointer',
   },
   pressStyle: {
-    backgroundColor: '#E4E7EA',
-    borderColor: '#CBCED1',
+    backgroundColor: '#CBCED1',
+    borderColor: '#B8BEC4',
   },
   focusVisibleStyle: {
-    backgroundColor: '#EEEFF1',
+    backgroundColor: '#EBECEF',
     borderColor: '#1F2329',
-    outline: '2px solid #1F2329',
-    outlineOffset: 2,
+    color: '#1F2329',
+    borderWidth: 2,
+    boxShadow: '0 0 0 2px #156FF5',
   },
 
   variants: {
-    // Size variants matching original Fuselage
+    // Size variants matching original Fuselage exactly
     size: {
+      default: {
+        height: 48,
+        paddingHorizontal: 24,
+        minWidth: 96, // 2 * height
+        fontSize: 18,
+        lineHeight: 28,
+      },
       tiny: {
         height: 24,
         paddingHorizontal: 8,
-        minWidth: 24,
+        minWidth: 48, // 2 * height
         fontSize: 12,
         lineHeight: 16,
       },
       mini: {
         height: 20,
         paddingHorizontal: 8,
-        minWidth: 20,
+        minWidth: 40, // 2 * height
         fontSize: 12,
         lineHeight: 16,
       },
       small: {
         height: 28,
         paddingHorizontal: 8,
-        minWidth: 56,
+        minWidth: 56, // 2 * height
         fontSize: 14,
         lineHeight: 16,
       },
       medium: {
         height: 32,
         paddingHorizontal: 12,
-        minWidth: 64,
+        minWidth: 64, // 2 * height
         fontSize: 14,
         lineHeight: 16,
       },
       large: {
         height: 48,
         paddingHorizontal: 24,
-        minWidth: 96,
-        fontSize: 18,
-        lineHeight: 28,
-      },
-      $true: {
-        height: 40,
-        paddingHorizontal: 16,
-        minWidth: 80,
+        minWidth: 96, // 2 * height
         fontSize: 18,
         lineHeight: 28,
       },
@@ -104,25 +195,135 @@ export const ButtonFrame = styled(View, {
         aspectRatio: 1,
         paddingHorizontal: 0,
         minWidth: 'auto',
+        width: 'auto',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexShrink: 0,
+      },
+    },
+    // Square size variants matching Fuselage exactly
+    'tiny-square': {
+      true: {
+        width: 24,
+        minWidth: 24,
+        height: 24,
+        padding: 0,
+      },
+    },
+    'mini-square': {
+      true: {
+        width: 20,
+        minWidth: 20,
+        height: 20,
+        padding: 0,
+      },
+    },
+    'small-square': {
+      true: {
+        width: 28,
+        minWidth: 28,
+        height: 28,
+        padding: 0,
+      },
+    },
+    'medium-square': {
+      true: {
+        width: 32,
+        minWidth: 32,
+        height: 32,
+        padding: 0,
+      },
+    },
+    'large-square': {
+      true: {
+        width: 40,
+        minWidth: 40,
+        height: 40,
+        padding: 0,
       },
     },
     loading: {
       true: {
-        opacity: 0.5,
+        opacity: 0.6,
         pointerEvents: 'none',
+        backgroundColor: '#F7F8FA',
+        borderColor: '#F2F3F5',
+        color: '#9EA2A8',
       },
     },
     disabled: {
       true: {
-        opacity: 0.4,
+        opacity: 1,
         cursor: 'not-allowed',
         pointerEvents: 'none',
-        backgroundColor: '#EEEFF1',
+      },
+    },
+    // Disabled variants for different button types
+    'disabled-primary': {
+      true: {
+        backgroundColor: '#D1EBFE',
+        borderColor: '#D1EBFE',
+        color: '#FFFFFF',
+      },
+    },
+    'disabled-secondary': {
+      true: {
+        backgroundColor: '#EBECEF',
         borderColor: '#E4E7EA',
         color: '#9EA2A8',
       },
     },
-    // Button variants matching original Fuselage
+    'disabled-danger': {
+      true: {
+        backgroundColor: '#FFC1C9',
+        borderColor: '#FFC1C9',
+        color: '#FFFFFF',
+      },
+    },
+    'disabled-warning': {
+      true: {
+        backgroundColor: '#C0F6E4',
+        borderColor: '#C0F6E4',
+        color: '#FFFFFF',
+      },
+    },
+    'disabled-success': {
+      true: {
+        backgroundColor: '#C0F6E4',
+        borderColor: '#C0F6E4',
+        color: '#FFFFFF',
+      },
+    },
+    'disabled-secondary-danger': {
+      true: {
+        backgroundColor: '#EBECEF',
+        borderColor: '#E4E7EA',
+        color: '#F98F9D',
+      },
+    },
+    'disabled-secondary-warning': {
+      true: {
+        backgroundColor: '#EBECEF',
+        borderColor: '#E4E7EA',
+        color: '#F7B27B',
+      },
+    },
+    'disabled-secondary-success': {
+      true: {
+        backgroundColor: '#EBECEF',
+        borderColor: '#E4E7EA',
+        color: '#96F0D2',
+      },
+    },
+    'disabled-secondary-info': {
+      true: {
+        backgroundColor: '#EBECEF',
+        borderColor: '#E4E7EA',
+        color: '#76B7FC',
+      },
+    },
+    // Button variants matching original Fuselage exactly
     primary: {
       true: {
         backgroundColor: '#156FF5',
@@ -134,14 +335,15 @@ export const ButtonFrame = styled(View, {
           cursor: 'pointer',
         },
         pressStyle: {
-          backgroundColor: '#10529E',
-          borderColor: '#10529E',
+          backgroundColor: '#0747A6',
+          borderColor: '#0747A6',
         },
         focusVisibleStyle: {
-          backgroundColor: '#095AD2',
+          backgroundColor: '#156FF5',
           borderColor: '#1F2329',
-          outline: '2px solid #1F2329',
-          outlineOffset: 2,
+          color: '#FFFFFF',
+          borderWidth: 2,
+          boxShadow: '0 0 0 2px #156FF5',
         },
       },
     },
@@ -151,19 +353,20 @@ export const ButtonFrame = styled(View, {
         borderColor: '#E4E7EA',
         color: '#1F2329',
         hoverStyle: {
-          backgroundColor: '#EEEFF1',
-          borderColor: '#D7DBE0',
+          backgroundColor: '#D7DBE0',
+          borderColor: '#CBCED1',
           cursor: 'pointer',
         },
         pressStyle: {
-          backgroundColor: '#E4E7EA',
-          borderColor: '#CBCED1',
+          backgroundColor: '#CBCED1',
+          borderColor: '#B8BEC4',
         },
         focusVisibleStyle: {
-          backgroundColor: '#EEEFF1',
-          borderColor: '#156FF5',
-          outline: '2px solid #156FF5',
-          outlineOffset: 2,
+          backgroundColor: '#EBECEF',
+          borderColor: '#1F2329',
+          color: '#1F2329',
+          borderWidth: 2,
+          boxShadow: '0 0 0 2px #1F2329',
         },
       },
     },
@@ -178,14 +381,15 @@ export const ButtonFrame = styled(View, {
           cursor: 'pointer',
         },
         pressStyle: {
-          backgroundColor: '#BB0B21',
-          borderColor: '#BB0B21',
+          backgroundColor: '#A5091C',
+          borderColor: '#A5091C',
         },
         focusVisibleStyle: {
-          backgroundColor: '#D40C26',
-          borderColor: '#EC0D2A',
-          outline: '2px solid #EC0D2A',
-          outlineOffset: 2,
+          backgroundColor: '#EC0D2A',
+          borderColor: '#1F2329',
+          color: '#FFFFFF',
+          borderWidth: 2,
+          boxShadow: '0 0 0 2px #EC0D2A',
         },
       },
     },
@@ -200,14 +404,15 @@ export const ButtonFrame = styled(View, {
           cursor: 'pointer',
         },
         pressStyle: {
-          backgroundColor: '#DFAC00',
-          borderColor: '#DFAC00',
+          backgroundColor: '#C99A00',
+          borderColor: '#C99A00',
         },
         focusVisibleStyle: {
-          backgroundColor: '#F3BE08',
-          borderColor: '#FFD031',
-          outline: '2px solid #FFD031',
-          outlineOffset: 2,
+          backgroundColor: '#FFD031',
+          borderColor: '#1F2329',
+          color: '#1F2329',
+          borderWidth: 2,
+          boxShadow: '0 0 0 2px #FFD031',
         },
       },
     },
@@ -222,14 +427,15 @@ export const ButtonFrame = styled(View, {
           cursor: 'pointer',
         },
         pressStyle: {
-          backgroundColor: '#19AC7C',
-          borderColor: '#19AC7C',
+          backgroundColor: '#0F9B6B',
+          borderColor: '#0F9B6B',
         },
         focusVisibleStyle: {
-          backgroundColor: '#1ECB92',
-          borderColor: '#2DE0A5',
-          outline: '2px solid #2DE0A5',
-          outlineOffset: 2,
+          backgroundColor: '#2DE0A5',
+          borderColor: '#1F2329',
+          color: '#FFFFFF',
+          borderWidth: 2,
+          boxShadow: '0 0 0 2px #2DE0A5',
         },
       },
     },
@@ -244,14 +450,15 @@ export const ButtonFrame = styled(View, {
           cursor: 'pointer',
         },
         pressStyle: {
-          backgroundColor: '#10529E',
-          borderColor: '#10529E',
+          backgroundColor: '#0747A6',
+          borderColor: '#0747A6',
         },
         focusVisibleStyle: {
-          backgroundColor: '#095AD2',
-          borderColor: '#156FF5',
-          outline: '2px solid #156FF5',
-          outlineOffset: 2,
+          backgroundColor: '#156FF5',
+          borderColor: '#1F2329',
+          color: '#FFFFFF',
+          borderWidth: 2,
+          boxShadow: '0 0 0 2px #156FF5',
         },
       },
     },
@@ -262,19 +469,20 @@ export const ButtonFrame = styled(View, {
         borderColor: '#E4E7EA',
         color: '#EC0D2A',
         hoverStyle: {
-          backgroundColor: '#EEEFF1',
-          borderColor: '#D7DBE0',
+          backgroundColor: '#D7DBE0',
+          borderColor: '#CBCED1',
           cursor: 'pointer',
         },
         pressStyle: {
-          backgroundColor: '#E4E7EA',
-          borderColor: '#CBCED1',
+          backgroundColor: '#CBCED1',
+          borderColor: '#B8BEC4',
         },
         focusVisibleStyle: {
-          backgroundColor: '#EEEFF1',
-          borderColor: '#EC0D2A',
-          outline: '2px solid #EC0D2A',
-          outlineOffset: 2,
+          backgroundColor: '#EBECEF',
+          borderColor: '#1F2329',
+          color: '#EC0D2A',
+          borderWidth: 2,
+          boxShadow: '0 0 0 2px #EC0D2A',
         },
       },
     },
@@ -284,19 +492,20 @@ export const ButtonFrame = styled(View, {
         borderColor: '#E4E7EA',
         color: '#F3BE08',
         hoverStyle: {
-          backgroundColor: '#EEEFF1',
-          borderColor: '#D7DBE0',
+          backgroundColor: '#D7DBE0',
+          borderColor: '#CBCED1',
           cursor: 'pointer',
         },
         pressStyle: {
-          backgroundColor: '#E4E7EA',
-          borderColor: '#CBCED1',
+          backgroundColor: '#CBCED1',
+          borderColor: '#B8BEC4',
         },
         focusVisibleStyle: {
-          backgroundColor: '#EEEFF1',
-          borderColor: '#F3BE08',
-          outline: '2px solid #F3BE08',
-          outlineOffset: 2,
+          backgroundColor: '#EBECEF',
+          borderColor: '#1F2329',
+          color: '#F3BE08',
+          borderWidth: 2,
+          boxShadow: '0 0 0 2px #FFD031',
         },
       },
     },
@@ -306,19 +515,20 @@ export const ButtonFrame = styled(View, {
         borderColor: '#E4E7EA',
         color: '#2DE0A5',
         hoverStyle: {
-          backgroundColor: '#EEEFF1',
-          borderColor: '#D7DBE0',
+          backgroundColor: '#D7DBE0',
+          borderColor: '#CBCED1',
           cursor: 'pointer',
         },
         pressStyle: {
-          backgroundColor: '#E4E7EA',
-          borderColor: '#CBCED1',
+          backgroundColor: '#CBCED1',
+          borderColor: '#B8BEC4',
         },
         focusVisibleStyle: {
-          backgroundColor: '#EEEFF1',
-          borderColor: '#2DE0A5',
-          outline: '2px solid #2DE0A5',
-          outlineOffset: 2,
+          backgroundColor: '#EBECEF',
+          borderColor: '#1F2329',
+          color: '#2DE0A5',
+          borderWidth: 2,
+          boxShadow: '0 0 0 2px #2DE0A5',
         },
       },
     },
@@ -328,19 +538,20 @@ export const ButtonFrame = styled(View, {
         borderColor: '#E4E7EA',
         color: '#156FF5',
         hoverStyle: {
-          backgroundColor: '#EEEFF1',
-          borderColor: '#D7DBE0',
+          backgroundColor: '#D7DBE0',
+          borderColor: '#CBCED1',
           cursor: 'pointer',
         },
         pressStyle: {
-          backgroundColor: '#E4E7EA',
-          borderColor: '#CBCED1',
+          backgroundColor: '#CBCED1',
+          borderColor: '#B8BEC4',
         },
         focusVisibleStyle: {
-          backgroundColor: '#EEEFF1',
-          borderColor: '#156FF5',
-          outline: '2px solid #156FF5',
-          outlineOffset: 2,
+          backgroundColor: '#EBECEF',
+          borderColor: '#1F2329',
+          color: '#156FF5',
+          borderWidth: 2,
+          boxShadow: '0 0 0 2px #156FF5',
         },
       },
     },
@@ -364,37 +575,16 @@ export const ButtonFrame = styled(View, {
         focusVisibleStyle: {
           backgroundColor: 'transparent',
           borderColor: 'transparent',
-          outline: '2px solid #156FF5',
-          outlineOffset: 2,
+          boxShadow: '0 0 0 2px #156FF5',
         },
       },
     },
   } as const,
 
   defaultVariants: {
-    size: 'medium',
+    size: 'default',
   },
 })
-
-type ButtonProps = GetProps<typeof ButtonFrame> & {
-  icon?: any;
-  loading?: boolean;
-  external?: boolean;
-  square?: boolean;
-  href?: string;
-  asLink?: boolean;
-  primary?: boolean;
-  secondary?: boolean;
-  danger?: boolean;
-  warning?: boolean;
-  success?: boolean;
-  info?: boolean;
-  tiny?: boolean;
-  mini?: boolean;
-  small?: boolean;
-  medium?: boolean;
-  large?: boolean;
-};
 
 export const ButtonText = styled(Text, {
   name: 'ButtonText',
@@ -406,11 +596,24 @@ export const ButtonText = styled(Text, {
   textAlign: 'center',
   whiteSpace: 'nowrap',
   textDecoration: 'none',
+  width: '100%',
+  overflow: 'hidden',
+  textOverflow: 'ellipsis',
 })
 
 const ButtonIcon = (props: { children: any }) => {
   return isValidElement(props.children) ? props.children : null
 }
+
+// Add User icon component matching Fuselage
+const AddUserIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+    <circle cx="9" cy="7" r="4"/>
+    <path d="m22 21-2-2"/>
+    <path d="M16 3.13a6 6 0 0 1 0 11.75"/>
+  </svg>
+)
 
 const ButtonComponent = ({ 
   icon, 
@@ -420,6 +623,7 @@ const ButtonComponent = ({
   disabled,
   href,
   asLink,
+  is = 'button',
   primary,
   secondary,
   danger,
@@ -439,19 +643,38 @@ const ButtonComponent = ({
                      mini ? 'mini' : 
                      small ? 'small' : 
                      medium ? 'medium' : 
-                     large ? 'large' : 'medium';
+                     large ? 'large' : 'default';
 
-  // Determine button variant
+  // Determine button variant (matching Fuselage logic exactly)
   const buttonVariant = primary ? 'primary' :
-                       secondary && danger ? 'secondary-danger' :
-                       secondary && warning ? 'secondary-warning' :
                        secondary && success ? 'secondary-success' :
-                       secondary && info ? 'secondary-info' :
-                       danger ? 'danger' :
-                       warning ? 'warning' :
+                       secondary && warning ? 'secondary-warning' :
+                       secondary && danger ? 'secondary-danger' :
                        success ? 'success' :
-                       info ? 'info' :
+                       warning ? 'warning' :
+                       danger ? 'danger' :
                        secondary ? 'secondary' : undefined;
+
+  // Determine square variants
+  const squareVariants = square ? {
+    'tiny-square': tiny,
+    'mini-square': mini,
+    'small-square': small,
+    'medium-square': medium,
+    'large-square': large,
+  } : {};
+
+  // Determine disabled variants
+  const isDisabled = disabled || loading;
+  const disabledVariant = isDisabled ? 
+    (primary ? 'disabled-primary' :
+     secondary && success ? 'disabled-secondary-success' :
+     secondary && warning ? 'disabled-secondary-warning' :
+     secondary && danger ? 'disabled-secondary-danger' :
+     success ? 'disabled-success' :
+     warning ? 'disabled-warning' :
+     danger ? 'disabled-danger' :
+     secondary ? 'disabled-secondary' : undefined) : undefined;
 
   const extraProps = {
     ...(external ? {
@@ -459,7 +682,7 @@ const ButtonComponent = ({
       target: '_blank',
     } : {}),
     ...(href ? { href } : {}),
-    ...(asLink ? { tag: 'a' } : {}),
+    ...(asLink || is === 'a' ? { tag: 'a' } : {}),
   };
 
   return (
@@ -469,24 +692,51 @@ const ButtonComponent = ({
       size={sizeVariant}
       square={square}
       loading={loading}
-      disabled={disabled || loading}
-      asLink={asLink || !!href}
+      disabled={isDisabled}
+      asLink={asLink && is !== 'a'}
       primary={primary}
       secondary={secondary}
       danger={danger}
       warning={warning}
       success={success}
       info={info}
+      data-primary={primary || undefined}
+      data-secondary={secondary || undefined}
+      data-danger={danger || undefined}
+      data-warning={warning || undefined}
+      data-success={success || undefined}
+      data-info={info || undefined}
+      data-secondary-danger={secondary && danger || undefined}
+      data-secondary-warning={secondary && warning || undefined}
+      data-secondary-success={secondary && success || undefined}
+      data-secondary-info={secondary && info || undefined}
       {...(buttonVariant ? { [buttonVariant]: true } : {})}
+      {...(disabledVariant ? { [disabledVariant]: true } : {})}
+      {...squareVariants}
     >
-      <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+      <View style={{ 
+        display: 'flex',
+        width: '100%',
+        flexDirection: 'row', 
+        alignItems: 'center', 
+        gap: 4,
+        overflow: 'hidden',
+        minWidth: 0
+      }}>
         {icon && !loading && <ButtonIcon>{icon}</ButtonIcon>}
-        {loading && <ButtonIcon>loading</ButtonIcon>}
-        {typeof children === 'string' ? (
-          <ButtonText>{children}</ButtonText>
-        ) : (
-          children
+        {loading && (
+          <View
+            style={{
+              width: 16,
+              height: 16,
+              border: '2px solid transparent',
+              borderTop: '2px solid currentColor',
+              borderRadius: '50%',
+              animation: 'spin 0.8s linear infinite',
+            }}
+          />
         )}
+        <ButtonText style={{ flex: 1, minWidth: 0 }}>{children}</ButtonText>
       </View>
     </ButtonFrame>
   );

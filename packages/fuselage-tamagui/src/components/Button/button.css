@@ -28,3 +28,209 @@
   padding: 12px 24px;
   font-size: 16px;
 }
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Default button states */
+.hover {
+  background-color: #D7DBE0 !important;
+  border-color: #CBCED1 !important;
+}
+
+.active {
+  background-color: #CBCED1 !important;
+  border-color: #B8BEC4 !important;
+}
+
+/* Primary button states */
+[data-primary="true"].hover {
+  background-color: #095AD2 !important;
+  border-color: #095AD2 !important;
+}
+
+[data-primary="true"].active {
+  background-color: #0747A6 !important;
+  border-color: #0747A6 !important;
+}
+
+/* Secondary button states */
+[data-secondary="true"].hover {
+  background-color: #D7DBE0 !important;
+  border-color: #CBCED1 !important;
+}
+
+[data-secondary="true"].active {
+  background-color: #CBCED1 !important;
+  border-color: #B8BEC4 !important;
+}
+
+/* Danger button states */
+[data-danger="true"].hover {
+  background-color: #D40C26 !important;
+  border-color: #D40C26 !important;
+}
+
+[data-danger="true"].active {
+  background-color: #A5091C !important;
+  border-color: #A5091C !important;
+}
+
+/* Warning button states */
+[data-warning="true"].hover {
+  background-color: #F3BE08 !important;
+  border-color: #F3BE08 !important;
+}
+
+[data-warning="true"].active {
+  background-color: #C99A00 !important;
+  border-color: #C99A00 !important;
+}
+
+/* Success button states */
+[data-success="true"].hover {
+  background-color: #1ECB92 !important;
+  border-color: #1ECB92 !important;
+}
+
+[data-success="true"].active {
+  background-color: #0F9B6B !important;
+  border-color: #0F9B6B !important;
+}
+
+/* Info button states */
+[data-info="true"].hover {
+  background-color: #095AD2 !important;
+  border-color: #095AD2 !important;
+}
+
+[data-info="true"].active {
+  background-color: #0747A6 !important;
+  border-color: #0747A6 !important;
+}
+
+/* Secondary-danger button states */
+[data-secondary-danger="true"].hover {
+  background-color: #D7DBE0 !important;
+  border-color: #CBCED1 !important;
+}
+
+[data-secondary-danger="true"].active {
+  background-color: #CBCED1 !important;
+  border-color: #B8BEC4 !important;
+}
+
+/* Secondary-warning button states */
+[data-secondary-warning="true"].hover {
+  background-color: #D7DBE0 !important;
+  border-color: #CBCED1 !important;
+}
+
+[data-secondary-warning="true"].active {
+  background-color: #CBCED1 !important;
+  border-color: #B8BEC4 !important;
+}
+
+/* Secondary-success button states */
+[data-secondary-success="true"].hover {
+  background-color: #D7DBE0 !important;
+  border-color: #CBCED1 !important;
+}
+
+[data-secondary-success="true"].active {
+  background-color: #CBCED1 !important;
+  border-color: #B8BEC4 !important;
+}
+
+/* Secondary-info button states */
+[data-secondary-info="true"].hover {
+  background-color: #D7DBE0 !important;
+  border-color: #CBCED1 !important;
+}
+
+[data-secondary-info="true"].active {
+  background-color: #CBCED1 !important;
+  border-color: #B8BEC4 !important;
+}
+
+/* Focus state styles for button variants */
+.focus.focus-visible {
+  border: 2px solid #1F2329 !important;
+  box-shadow: 0 0 0 2px !important;
+}
+
+/* Default/Secondary button focus */
+.focus.focus-visible {
+  background-color: #EBECEF !important;
+  color: #1F2329 !important;
+  box-shadow: 0 0 0 2px #156FF5 !important;
+}
+
+/* Primary button focus - keeps blue background */
+[data-primary="true"].focus.focus-visible {
+  background-color: #156FF5 !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 0 0 2px #156FF5 !important;
+}
+
+/* Danger button focus - keeps red background */
+[data-danger="true"].focus.focus-visible {
+  background-color: #EC0D2A !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 0 0 2px #EC0D2A !important;
+}
+
+/* Warning button focus - keeps yellow background */
+[data-warning="true"].focus.focus-visible {
+  background-color: #FFD031 !important;
+  color: #1F2329 !important;
+  box-shadow: 0 0 0 2px #FFD031 !important;
+}
+
+/* Success button focus - keeps green background */
+[data-success="true"].focus.focus-visible {
+  background-color: #2DE0A5 !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 0 0 2px #2DE0A5 !important;
+}
+
+/* Info button focus - keeps blue background */
+[data-info="true"].focus.focus-visible {
+  background-color: #156FF5 !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 0 0 2px #156FF5 !important;
+}
+
+/* Secondary-danger button focus - grey background with red text */
+[data-secondary-danger="true"].focus.focus-visible {
+  background-color: #EBECEF !important;
+  color: #EC0D2A !important;
+  box-shadow: 0 0 0 2px #EC0D2A !important;
+}
+
+/* Secondary-warning button focus - grey background with yellow text */
+[data-secondary-warning="true"].focus.focus-visible {
+  background-color: #EBECEF !important;
+  color: #F3BE08 !important;
+  box-shadow: 0 0 0 2px #FFD031 !important;
+}
+
+/* Secondary-success button focus - grey background with green text */
+[data-secondary-success="true"].focus.focus-visible {
+  background-color: #EBECEF !important;
+  color: #2DE0A5 !important;
+  box-shadow: 0 0 0 2px #2DE0A5 !important;
+}
+
+/* Secondary-info button focus - grey background with blue text */
+[data-secondary-info="true"].focus.focus-visible {
+  background-color: #EBECEF !important;
+  color: #156FF5 !important;
+  box-shadow: 0 0 0 2px #156FF5 !important;
+}
