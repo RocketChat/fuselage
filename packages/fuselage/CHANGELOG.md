@@ -1,5 +1,23 @@
 # Change Log
 
+## 0.66.3
+
+### Patch Changes
+
+- [#1744](https://github.com/RocketChat/fuselage/pull/1744) [`bafacf2`](https://github.com/RocketChat/fuselage/commit/bafacf207836e199bb9bf64588e43cb3802de19c) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): SidebarV2Item padding
+
+## 0.66.2
+
+### Patch Changes
+
+- [#1742](https://github.com/RocketChat/fuselage/pull/1742) [`6f1e8de`](https://github.com/RocketChat/fuselage/commit/6f1e8ded438478f3fc985c0efaa2322c017ca3a8) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): SidebarItemV2 visual regressions
+
+## 0.66.1
+
+### Patch Changes
+
+- [#1733](https://github.com/RocketChat/fuselage/pull/1733) [`fcf1f7d`](https://github.com/RocketChat/fuselage/commit/fcf1f7d1c95363fc3577e9a1681d361fe1934ffb) Thanks [@aleksandernsilva](https://github.com/aleksandernsilva)! - feat(fuselage): Made index available to OptionsPaginated rendered items
+
 ## 0.66.0
 
 ### Minor Changes
