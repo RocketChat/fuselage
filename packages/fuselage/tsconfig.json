@@ -12,7 +12,9 @@
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "allowJs": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "erasableSyntaxOnly": true,
+    "isolatedModules": true
   },
   "include": [
     "./src",
