@@ -2,97 +2,114 @@ import { Emitter } from '@rocket.chat/emitter';
 import type { Dispatch, MutableRefObject, SetStateAction } from 'react';
 import { useRef, useCallback, useSyncExternalStore, useState } from 'react';
 
-const getStorageItem = (
-  key: string,
-  initialValue: any,
-  storage?: Storage,
-): any => {
-  if (!storage) {
-    return initialValue;
+const ee = new Emitter<Record<`fuselage-${string}`, any>>();
+
+const getKeyPrefix = (storage: Storage | undefined) => {
+  if (storage === globalThis.window?.sessionStorage) {
+    return 'fuselage-sessionStorage' as const;
   }
 
-  const item = storage.getItem(key);
-  return item ? JSON.parse(item) : initialValue;
+  if (storage === globalThis.window?.localStorage) {
+    return 'fuselage-localStorage' as const;
+  }
+
+  return 'fuselage-unknownStorage' as const;
 };
 
-function makeStorageHook(
-  storageFactory: Storage | (() => Storage),
-  name: string,
-): <T>(key: string, initialValue: T) => [T, Dispatch<SetStateAction<T>>] {
-  let storage: Storage | undefined = undefined;
+const getStorageItem = <T>(
+  storedKey: `fuselage-${string}`,
+  fallbackValue: T,
+  storage?: Storage,
+): T => {
+  if (!storage) return fallbackValue;
 
-  if (typeof window !== 'undefined') {
-    storage =
-      typeof storageFactory === 'function' ? storageFactory() : storageFactory;
-  }
+  const item = storage.getItem(storedKey);
+  return item ? JSON.parse(item) : fallbackValue;
+};
 
-  const getKey = (key: string): string => `fuselage-${name}-${key}`;
+const setStorageItem = <T>(
+  storedKey: `fuselage-${string}`,
+  value: T,
+  storage?: Storage,
+): void => {
+  if (!storage) return;
 
-  const ee = new Emitter();
+  storage.setItem(storedKey, JSON.stringify(value));
+  ee.emit(storedKey, value);
+};
 
-  return <T>(
-    key: string,
-    initialValue: T,
-  ): [T, Dispatch<SetStateAction<T>>] => {
-    const initialValueRef = useRef(initialValue);
-    initialValueRef.current = initialValue;
+/**
+ * Generic hook to deal with web storage
+ *
+ * @param storage - the storage to use (localStorage or sessionStorage); if undefined, the hook will be a no-op
+ * @param key - the key to associate with the value
+ * @param fallbackValue - the value to return if the key is not found
+ * @returns a state and a setter function
+ */
+export const useStorage = <T>(
+  storage: Storage | undefined,
+  key: string,
+  fallbackValue: T,
+): [T, Dispatch<SetStateAction<T>>] => {
+  const storedKey = `${getKeyPrefix(storage)}-${key}` as const;
 
-    const [valueRef] = useState<MutableRefObject<T>>(() => ({
-      current: getStorageItem(getKey(key), initialValue, storage),
-    }));
+  const fallbackValueRef = useRef(fallbackValue);
+  fallbackValueRef.current = fallbackValue;
 
-    const getSnapshot = useCallback(() => valueRef.current, [valueRef]);
+  const [valueRef] = useState<MutableRefObject<T>>(() => ({
+    current: getStorageItem(storedKey, fallbackValue, storage),
+  }));
 
-    const getServerSnapshot = useCallback(() => initialValueRef.current, []);
+  const getSnapshot = useCallback(() => valueRef.current, [valueRef]);
 
-    const subscribe = useCallback(
-      (cb: () => void) => {
-        const handleEvent = (event: StorageEvent): void => {
-          if (event.key !== getKey(key)) {
-            return;
-          }
-          ee.emit(
-            key,
-            event.newValue
-              ? JSON.parse(event.newValue)
-              : initialValueRef.current,
-          );
-        };
+  const getServerSnapshot = useCallback(() => fallbackValueRef.current, []);
 
-        const offCb = ee.on(key, (value: T): void => {
-          valueRef.current = value;
-          cb();
-        });
+  const subscribe = useCallback(
+    (cb: () => void) => {
+      const handleEvent = (event: StorageEvent): void => {
+        if (event.storageArea !== storage) return;
+        if (event.key !== storedKey) return;
 
-        window.addEventListener('storage', handleEvent);
-        return () => {
-          offCb();
-          window.removeEventListener('storage', handleEvent);
-        };
-      },
-      [key, valueRef],
-    );
+        ee.emit(
+          storedKey,
+          event.newValue
+            ? JSON.parse(event.newValue)
+            : fallbackValueRef.current,
+        );
+      };
 
-    const storedValue = useSyncExternalStore(
-      subscribe,
-      getSnapshot,
-      getServerSnapshot,
-    );
+      const offCb = ee.on(storedKey, (value: T): void => {
+        valueRef.current = value;
+        cb();
+      });
 
-    const setValue: Dispatch<SetStateAction<T>> = useCallback(
-      (value) => {
-        const valueToStore: T =
-          value instanceof Function ? value(valueRef.current) : value;
-        storage?.setItem(getKey(key), JSON.stringify(valueToStore));
-        ee.emit(key, valueToStore);
-        return valueToStore;
-      },
-      [key, valueRef],
-    );
+      window.addEventListener('storage', handleEvent);
+      return () => {
+        offCb();
+        window.removeEventListener('storage', handleEvent);
+      };
+    },
+    [storage, storedKey, valueRef],
+  );
 
-    return [storedValue, setValue];
-  };
-}
+  const storedValue = useSyncExternalStore(
+    subscribe,
+    getSnapshot,
+    getServerSnapshot,
+  );
+
+  const setValue: Dispatch<SetStateAction<T>> = useCallback(
+    (value) => {
+      const valueToStore: T =
+        value instanceof Function ? value(valueRef.current) : value;
+      setStorageItem(storedKey, valueToStore, storage);
+      return valueToStore;
+    },
+    [storage, storedKey, valueRef],
+  );
+
+  return [storedValue, setValue];
+};
 
 /**
  * Hook to deal with localStorage
@@ -101,9 +118,9 @@ function makeStorageHook(
  * @returns a state and a setter function
  * @public
  */
-export const useLocalStorage = makeStorageHook(
-  () => window.localStorage,
-  'localStorage',
+export const useLocalStorage = useStorage.bind(
+  null,
+  typeof window !== 'undefined' ? window.localStorage : undefined,
 );
 
 /**
@@ -113,7 +130,7 @@ export const useLocalStorage = makeStorageHook(
  * @returns a state and a setter function
  * @public
  */
-export const useSessionStorage = makeStorageHook(
-  () => window.sessionStorage,
-  'sessionStorage',
+export const useSessionStorage = useStorage.bind(
+  null,
+  typeof window !== 'undefined' ? window.sessionStorage : undefined,
 );
