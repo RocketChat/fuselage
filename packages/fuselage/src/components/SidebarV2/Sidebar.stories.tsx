@@ -1,3 +1,4 @@
+import isLokiRunning from '@loki/is-loki-running';
 import type { Meta, StoryFn } from '@storybook/react-webpack5';
 import { action } from 'storybook/actions';
 
@@ -28,8 +29,10 @@ export default {
   component: Sidebar,
 } as Meta<typeof Sidebar>;
 
+const getBoxHeight = () => (isLokiRunning() ? '210vh' : '90vh');
+
 export const Default: StoryFn<typeof Sidebar> = (props) => (
-  <Box h='90vh' w='x280'>
+  <Box h={getBoxHeight()} w='x280'>
     <Sidebar {...props}>
       <SidebarBanner
         title='You’ve reached the limit active contacts this month'

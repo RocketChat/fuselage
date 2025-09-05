@@ -19,6 +19,15 @@
     "build-storybook": {
       "dependsOn": ["^build"],
       "outputs": ["storybook-static/**"]
+    },
+    "update-storybook": {
+      "dependsOn": [
+        "build"
+      ],
+      "outputs": []
+    },
+    "loki:test-ci": {
+      "outputs": []
     }
   }
 }

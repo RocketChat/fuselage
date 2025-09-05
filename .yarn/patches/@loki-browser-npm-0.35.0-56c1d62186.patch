@@ -1,0 +1,47 @@
+diff --git a/src/get-stories.js b/src/get-stories.js
+index 8d62d36f60e6161f4a00a6d198089a3380810387..d75a66e78a1ae5b55fe22a8b0be207c71b400da4 100644
+--- a/src/get-stories.js
++++ b/src/get-stories.js
+@@ -6,6 +6,9 @@ const getStories = async (window) => {
+     (window.__STORYBOOK_PREVIEW__ &&
+       window.__STORYBOOK_PREVIEW__.extract &&
+       window.__STORYBOOK_PREVIEW__.storyStore.raw) ||
++    (window.__STORYBOOK_PREVIEW__ &&
++      window.__STORYBOOK_PREVIEW__.extract &&
++      window.__STORYBOOK_PREVIEW__.ready) ||
+     (window.loki && window.loki.getStorybook);
+   if (!getStorybook) {
+     throw new Error(
+@@ -31,6 +34,32 @@ const getStories = async (window) => {
+     }
+   };
+ 
++  if (
++    window.__STORYBOOK_PREVIEW__ &&
++    window.__STORYBOOK_PREVIEW__.extract &&
++    window.__STORYBOOK_PREVIEW__.ready
++  ) {
++    await window.__STORYBOOK_PREVIEW__.ready();
++
++    const stories = await window.__STORYBOOK_PREVIEW__.extract();
++
++    return Object.values(stories)
++      .map((component) => ({
++        id: component.id,
++        kind: component.kind,
++        story: component.story,
++        parameters: Object.fromEntries(
++          Object.entries(component.parameters || {}).filter(
++            ([key, value]) =>
++              !key.startsWith('__') &&
++              !blockedParams.includes(key) &&
++              isSerializable(value)
++          )
++        ),
++      }))
++      .filter(({ parameters }) => !parameters.loki || !parameters.loki.skip);
++  }
++
+   if (window.__STORYBOOK_PREVIEW__ && window.__STORYBOOK_PREVIEW__.extract) {
+     // New official API to extract stories from preview
+     await window.__STORYBOOK_PREVIEW__.extract();
