@@ -1,4 +1,4 @@
-import type { StoryFn, Meta } from '@storybook/react-webpack5';
+import type { StoryFn, Meta,StoryContext } from '@storybook/react-webpack5';
 import { cloneElement } from 'react';
 import flattenChildren from 'react-keyed-flatten-children';
 
@@ -32,9 +32,9 @@ export const SurfaceColors: StoryFn<typeof Box> = () => (
   </>
 );
 SurfaceColors.decorators = [
-  (_: any, context: any) => (
+  (_: any, context: StoryContext) => (
     <Box display='flex' flexWrap='wrap' alignItems='center'>
-      {flattenChildren(context.originalStoryFn(context.args)).map(
+      {flattenChildren(context.originalStoryFn(context.args, context)).map(
         (child: any) =>
           cloneElement(
             child,
@@ -68,9 +68,9 @@ export const StatusColors: StoryFn<typeof Box> = () => (
   </>
 );
 StatusColors.decorators = [
-  (_: any, context: any) => (
+  (_: any, context: StoryContext) => (
     <Box display='flex' flexWrap='wrap' alignItems='center' overflow='hidden'>
-      {flattenChildren(context.originalStoryFn(context.args)).map(
+      {flattenChildren(context.originalStoryFn(context.args, context)).map(
         (child: any) =>
           cloneElement(
             child,
@@ -105,9 +105,9 @@ export const StrokeColors: StoryFn<typeof Box> = () => (
   </>
 );
 StrokeColors.decorators = [
-  (_: any, context: any) => (
+  (_: any, context: StoryContext) => (
     <Box display='flex' flexWrap='wrap' alignItems='center' overflow='hidden'>
-      {flattenChildren(context.originalStoryFn(context.args)).map(
+      {flattenChildren(context.originalStoryFn(context.args, context)).map(
         (child: any) =>
           cloneElement(
             child,
@@ -144,14 +144,14 @@ export const FontColors: StoryFn<typeof Box> = () => (
   </>
 );
 FontColors.decorators = [
-  (_: any, context: any) => (
+  (_: any, context: StoryContext) => (
     <Box
       display='flex'
       alignItems='flex-start'
       overflow='hidden'
       flexDirection='column'
     >
-      {flattenChildren(context.originalStoryFn(context.args)).map(
+      {flattenChildren(context.originalStoryFn(context.args, context)).map(
         (child: any) =>
           cloneElement(child, { m: 'x4', p: 'x4' }, child.props.color),
       )}
