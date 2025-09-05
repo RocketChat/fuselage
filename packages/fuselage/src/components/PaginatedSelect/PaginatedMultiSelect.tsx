@@ -1,5 +1,5 @@
 import { useEffectEvent, useResizeObserver } from '@rocket.chat/fuselage-hooks';
-import { type ComponentProps, useState, useRef, ElementType } from 'react';
+import { type ComponentProps, useState, useRef, type ElementType } from 'react';
 
 import { prevent } from '../../helpers/prevent';
 import AnimatedVisibility from '../AnimatedVisibility';

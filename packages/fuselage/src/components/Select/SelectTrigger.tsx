@@ -1,6 +1,6 @@
 import type { AllHTMLAttributes, RefObject } from 'react';
 import { forwardRef } from 'react';
-import { useButton, AriaButtonProps } from 'react-aria';
+import { useButton, type AriaButtonProps } from 'react-aria';
 
 import Box from '../Box';
 

@@ -1,4 +1,4 @@
-import { Falsy } from '../types/Falsy';
+import type { Falsy } from '../types/Falsy';
 
 import { exhaustiveCheck } from './exhaustiveCheck';
 
