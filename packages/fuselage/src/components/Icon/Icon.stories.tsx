@@ -54,8 +54,15 @@ export const AvailableIcons: StoryFn<typeof Icon> = () => {
         height='90vh'
         overflow='auto'
       >
-        {filteredIcons.map((name) => (
-          <Box mb='x32' mi='x8' flexShrink={0} flexGrow={0} flexBasis='128px'>
+        {filteredIcons.map((name, index) => (
+          <Box
+            key={index}
+            mb='x32'
+            mi='x8'
+            flexShrink={0}
+            flexGrow={0}
+            flexBasis='128px'
+          >
             <Box>
               <Icon name={name} size='x40' color='default' />
             </Box>
