@@ -1,5 +1,5 @@
 import type { StoryFn, Meta } from '@storybook/react-webpack5';
-import { ComponentType } from 'react';
+import type { ComponentType } from 'react';
 
 import { PropsVariationSection } from '../../../.storybook/helpers';
 import { Icon } from '../Icon';
