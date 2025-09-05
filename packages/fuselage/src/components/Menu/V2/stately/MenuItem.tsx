@@ -1,5 +1,5 @@
 import type { ItemProps } from '@react-types/shared';
-import { Children, ReactElement } from 'react';
+import { Children, type ReactElement } from 'react';
 
 import type { PartialNode } from './PartialNode';
 
