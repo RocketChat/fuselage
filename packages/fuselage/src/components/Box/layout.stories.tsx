@@ -324,7 +324,7 @@ Widths.decorators = [
   (_: any, context: StoryContext) => (
     <Box display='flex' flexWrap='wrap' alignItems='center'>
       {flattenChildren(
-        context.originalStoryFn(context.args,context).props.children,
+        context.originalStoryFn(context.args, context).props.children,
       ).map((child: any) =>
         cloneElement(child, { bg: 'neutral', h: 'x32', m: 'x4' }),
       )}

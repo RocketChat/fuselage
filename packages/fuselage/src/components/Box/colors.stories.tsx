@@ -1,4 +1,4 @@
-import type { StoryFn, Meta,StoryContext } from '@storybook/react-webpack5';
+import type { StoryFn, Meta, StoryContext } from '@storybook/react-webpack5';
 import { cloneElement } from 'react';
 import flattenChildren from 'react-keyed-flatten-children';
 
