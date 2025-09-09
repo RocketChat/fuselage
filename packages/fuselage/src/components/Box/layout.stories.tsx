@@ -51,7 +51,7 @@ export const Borders: StoryFn<typeof Box> = () => (
   </>
 );
 Borders.decorators = [
-  (_: any, context: StoryContext) => (
+  (_: StoryFn, context: StoryContext) => (
     <Box display='flex' flexWrap='wrap' alignItems='center'>
       {flattenChildren(context.originalStoryFn(context.args, context)).map(
         (child: any) =>
@@ -75,7 +75,7 @@ export const BorderRadii: StoryFn<typeof Box> = () => (
   </>
 );
 BorderRadii.decorators = [
-  (_: any, context: StoryContext) => (
+  (_: StoryFn, context: StoryContext) => (
     <Box display='flex' flexWrap='wrap' alignItems='center'>
       {flattenChildren(context.originalStoryFn(context.args, context)).map(
         (child: any) =>
@@ -100,7 +100,7 @@ export const Display: StoryFn<typeof Box> = () => (
   </>
 );
 Display.decorators = [
-  (_: any, context: StoryContext) => (
+  (_: StoryFn, context: StoryContext) => (
     <Box color='default'>
       {flattenChildren(context.originalStoryFn(context.args, context)).map(
         (child: any) =>
@@ -126,7 +126,7 @@ export const Elevation: StoryFn<typeof Box> = () => (
   </>
 );
 Elevation.decorators = [
-  (_: any, context: StoryContext) => (
+  (_: StoryFn, context: StoryContext) => (
     <Box display='flex' flexWrap='wrap' alignItems='center'>
       {flattenChildren(context.originalStoryFn(context.args, context)).map(
         (child: any) =>
@@ -149,7 +149,7 @@ export const Heights: StoryFn<typeof Box> = () => (
   </>
 );
 Heights.decorators = [
-  (_: any, context: StoryContext) => (
+  (_: StoryFn, context: StoryContext) => (
     <Box display='flex' flexWrap='wrap' alignItems='center'>
       {flattenChildren(context.originalStoryFn(context.args, context)).map(
         (child: any) =>
@@ -176,7 +176,7 @@ export const Insets: StoryFn<typeof Box> = () => (
   </>
 );
 Insets.decorators = [
-  (_: any, context: StoryContext) => (
+  (_: StoryFn, context: StoryContext) => (
     <Box display='flex' flexWrap='wrap' alignItems='center'>
       {flattenChildren(
         context.originalStoryFn(context.args, context).props.children,
@@ -222,7 +222,7 @@ export const Margins: StoryFn<typeof Box> = () => (
   </>
 );
 Margins.decorators = [
-  (_: any, context: StoryContext) => (
+  (_: StoryFn, context: StoryContext) => (
     <Box display='flex' flexWrap='wrap' alignItems='center'>
       {flattenChildren(
         context.originalStoryFn(context.args, context).props.children,
@@ -271,7 +271,7 @@ export const Paddings: StoryFn<typeof Box> = () => (
   </>
 );
 Paddings.decorators = [
-  (_: any, context: StoryContext) => (
+  (_: StoryFn, context: StoryContext) => (
     <Box display='flex' flexWrap='wrap' alignItems='center'>
       {flattenChildren(
         context.originalStoryFn(context.args, context).props.children,
@@ -297,7 +297,7 @@ export const Position: StoryFn<typeof Box> = () => (
   </>
 );
 Position.decorators = [
-  (_: any, context: StoryContext) => (
+  (_: StoryFn, context: StoryContext) => (
     <Box display='flex' flexWrap='wrap' alignItems='center'>
       {flattenChildren(
         context.originalStoryFn(context.args, context).props.children,
@@ -321,7 +321,7 @@ export const Widths: StoryFn<typeof Box> = () => (
   </>
 );
 Widths.decorators = [
-  (_: any, context: StoryContext) => (
+  (_: StoryFn, context: StoryContext) => (
     <Box display='flex' flexWrap='wrap' alignItems='center'>
       {flattenChildren(
         context.originalStoryFn(context.args, context).props.children,
@@ -340,7 +340,7 @@ export const Sizes: StoryFn<typeof Box> = () => (
   </>
 );
 Sizes.decorators = [
-  (_: any, context: StoryContext) => (
+  (_: StoryFn, context: StoryContext) => (
     <Box display='flex' flexWrap='wrap' alignItems='center'>
       {flattenChildren(
         context.originalStoryFn(context.args, context).props.children,
@@ -374,7 +374,7 @@ export const VerticalAlign: StoryFn<typeof Box> = () => (
   </>
 );
 VerticalAlign.decorators = [
-  (_: any, context: StoryContext) => (
+  (_: StoryFn, context: StoryContext) => (
     <Box>
       {flattenChildren(
         context.originalStoryFn(context.args, context).props.children,
@@ -403,7 +403,7 @@ export const ZIndex: StoryFn<typeof Box> = () => (
   </>
 );
 ZIndex.decorators = [
-  (_: any, context: StoryContext) => (
+  (_: StoryFn, context: StoryContext) => (
     <Box display='flex' flexWrap='wrap' alignItems='center'>
       {flattenChildren(
         context.originalStoryFn(context.args, context).props.children,

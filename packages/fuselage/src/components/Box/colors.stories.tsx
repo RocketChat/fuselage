@@ -32,7 +32,7 @@ export const SurfaceColors: StoryFn<typeof Box> = () => (
   </>
 );
 SurfaceColors.decorators = [
-  (_: any, context: StoryContext) => (
+  (_: StoryFn, context: StoryContext) => (
     <Box display='flex' flexWrap='wrap' alignItems='center'>
       {flattenChildren(context.originalStoryFn(context.args, context)).map(
         (child: any) =>
@@ -68,7 +68,7 @@ export const StatusColors: StoryFn<typeof Box> = () => (
   </>
 );
 StatusColors.decorators = [
-  (_: any, context: StoryContext) => (
+  (_: StoryFn, context: StoryContext) => (
     <Box display='flex' flexWrap='wrap' alignItems='center' overflow='hidden'>
       {flattenChildren(context.originalStoryFn(context.args, context)).map(
         (child: any) =>
@@ -105,7 +105,7 @@ export const StrokeColors: StoryFn<typeof Box> = () => (
   </>
 );
 StrokeColors.decorators = [
-  (_: any, context: StoryContext) => (
+  (_: StoryFn, context: StoryContext) => (
     <Box display='flex' flexWrap='wrap' alignItems='center' overflow='hidden'>
       {flattenChildren(context.originalStoryFn(context.args, context)).map(
         (child: any) =>
@@ -144,7 +144,7 @@ export const FontColors: StoryFn<typeof Box> = () => (
   </>
 );
 FontColors.decorators = [
-  (_: any, context: StoryContext) => (
+  (_: StoryFn, context: StoryContext) => (
     <Box
       display='flex'
       alignItems='flex-start'
