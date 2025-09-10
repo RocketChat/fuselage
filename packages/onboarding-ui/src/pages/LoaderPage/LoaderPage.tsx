@@ -1,3 +1,4 @@
+import isLokiRunning from '@loki/is-loki-running';
 import { Box, Margins, ProgressBar } from '@rocket.chat/fuselage';
 import { BackgroundLayer, LayoutLogo } from '@rocket.chat/layout';
 import type { ReactElement } from 'react';
@@ -19,10 +20,13 @@ const LoaderPage = ({
   const timeFraction = 100 / subtitles.length;
 
   const [percentage, setPercentage] = useState(() => (isReady ? 100 : 0));
-
   useEffect(() => {
     if (isReady) {
       setPercentage(100);
+      return;
+    }
+    if (isLokiRunning()) {
+      setPercentage(99);
       return;
     }
 
@@ -37,7 +41,6 @@ const LoaderPage = ({
   }, [isReady]);
 
   const subtitleIndex = Math.floor(percentage / timeFraction);
-
   return (
     <BackgroundLayer>
       <Box
