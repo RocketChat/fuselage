@@ -1,5 +1,5 @@
 import type { Meta, StoryFn } from '@storybook/react-webpack5';
-import { useState } from 'react';
+import { useState, useId } from 'react';
 
 import { Avatar } from '../Avatar';
 import Box from '../Box';
@@ -862,7 +862,7 @@ export const LotsOfReactions: StoryFn<typeof Message> = () => (
         <MessageReactions>
           {Array.from({ length: 100 }).map((_, index) => (
             <MessageReactions.Reaction
-              key={index}
+              key={useId()}
               counter={index}
               mine={!(index % 3)}
             />
