@@ -1,7 +1,7 @@
 import type { Keys } from '@rocket.chat/icons';
 import nameToCharacterMapping from '@rocket.chat/icons';
 import type { StoryFn, Meta } from '@storybook/react-webpack5';
-import { useState, useId } from 'react';
+import { useState } from 'react';
 
 import Box from '../Box';
 import { Divider } from '../Divider';
@@ -54,9 +54,9 @@ export const AvailableIcons: StoryFn<typeof Icon> = () => {
         height='90vh'
         overflow='auto'
       >
-        {filteredIcons.map((name) => (
+        {filteredIcons.map((name, index) => (
           <Box
-            key={useId()}
+            key={index}
             mb='x32'
             mi='x8'
             flexShrink={0}
