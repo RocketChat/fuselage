@@ -3,7 +3,7 @@ import { axe } from 'jest-axe';
 
 import { render } from '../../testing';
 
-import * as stories from './Sidepanel.stories';
+import * as stories from './SidebarItem.stories';
 
 const testCases = Object.values(composeStories(stories)).map((Story) => [
   Story.storyName || 'Story',

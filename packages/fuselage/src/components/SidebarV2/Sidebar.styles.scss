@@ -77,12 +77,6 @@ $sidebar-banner-color-danger: theme(
   colors.status-font(on-danger)
 );
 
-%highlighted {
-  color: $sidebar-item-color-highlighted;
-
-  font-weight: 500;
-}
-
 .rcx-sidebar-v2 {
   position: relative;
 
