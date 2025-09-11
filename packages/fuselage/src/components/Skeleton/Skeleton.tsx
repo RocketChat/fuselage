@@ -1,7 +1,7 @@
-import { AllHTMLAttributes } from 'react';
+import type { AllHTMLAttributes } from 'react';
 
 import { cx, cxx } from '../../helpers/composeClassNames';
-import { StylingBox, StylingBoxProps } from '../Box';
+import { StylingBox, type StylingBoxProps } from '../Box';
 
 type SkeletonProps = Omit<StylingBoxProps, 'children'> & {
   variant?: 'text' | 'rect' | 'circle';
