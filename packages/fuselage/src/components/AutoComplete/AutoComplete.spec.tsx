@@ -51,4 +51,45 @@ describe('[Autocomplete functionality]', () => {
     const input = screen.getByRole('textbox');
     expect(input).toBeDisabled();
   });
+
+  it('should remove selected item when clicking on the remove button (multiple)', async () => {
+    const onChange = jest.fn();
+    render(
+      <AutoComplete
+        value={['1', '2']}
+        filter='test'
+        setFilter={() => {}}
+        options={[
+          { value: '1', label: 'test1' },
+          { value: '2', label: 'test2' },
+        ]}
+        onChange={onChange}
+        multiple
+      />,
+    );
+
+    const removeButton = screen.getByRole('button', { name: 'test1' });
+
+    await removeButton.click();
+
+    expect(onChange).toHaveBeenCalledWith(['2']);
+  });
+
+  it('should remove selected item when clicking on the remove button (single)', async () => {
+    const onChange = jest.fn();
+    render(
+      <AutoComplete
+        value='1'
+        filter='test'
+        setFilter={() => {}}
+        options={[{ value: '1', label: 'test1' }]}
+        onChange={onChange}
+      />,
+    );
+
+    const removeButton = screen.getByRole('button', { name: 'test1' });
+    await removeButton.click();
+
+    expect(onChange).toHaveBeenCalledWith('');
+  });
 });
