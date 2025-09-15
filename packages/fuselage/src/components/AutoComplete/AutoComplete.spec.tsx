@@ -1,5 +1,6 @@
 import { composeStories } from '@storybook/react-webpack5';
 import { screen } from '@testing-library/dom';
+import userEvent from '@testing-library/user-event';
 import { axe } from 'jest-axe';
 import { withResizeObserverMock } from 'testing-utils/mocks/withResizeObserverMock';
 
@@ -70,7 +71,7 @@ describe('[Autocomplete functionality]', () => {
 
     const removeButton = screen.getByRole('button', { name: 'test1' });
 
-    await removeButton.click();
+    await userEvent.click(removeButton);
 
     expect(onChange).toHaveBeenCalledWith(['2']);
   });
@@ -88,7 +89,7 @@ describe('[Autocomplete functionality]', () => {
     );
 
     const removeButton = screen.getByRole('button', { name: 'test1' });
-    await removeButton.click();
+    await userEvent.click(removeButton);
 
     expect(onChange).toHaveBeenCalledWith('');
   });
