@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.38.0
+
+### Minor Changes
+
+- [#1751](https://github.com/RocketChat/fuselage/pull/1751) [`b02bbea`](https://github.com/RocketChat/fuselage/commit/b02bbea768e265fdfe7a9340536f016543ad7bed) Thanks [@tassoevan](https://github.com/tassoevan)! - Exposes the `useStorage` hook as an alternative for the specialized ones (`useLocalStorage` and `useSessionStorage`).
+
 ## 0.37.2
 
 ### Patch Changes

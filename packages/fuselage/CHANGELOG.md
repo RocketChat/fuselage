@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.66.4
+
+### Patch Changes
+
+- [#1755](https://github.com/RocketChat/fuselage/pull/1755) [`ca03562`](https://github.com/RocketChat/fuselage/commit/ca03562593c5600830e5af2a97f6a85ba8b72212) Thanks [@aleksandernsilva](https://github.com/aleksandernsilva)! - fix: AutoComplete unable to remove selected item in single mode
+
+- [#1756](https://github.com/RocketChat/fuselage/pull/1756) [`8d7afb0`](https://github.com/RocketChat/fuselage/commit/8d7afb034f5c14f7337c16f88b4425d2ee3328c6) Thanks [@aleksandernsilva](https://github.com/aleksandernsilva)! - fix: AutoComplete selected items not being updated when value changes
+
 ## 0.66.3
 
 ### Patch Changes
