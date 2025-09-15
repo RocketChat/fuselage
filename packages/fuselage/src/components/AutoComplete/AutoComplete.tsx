@@ -113,9 +113,10 @@ export function AutoComplete({
         (item) => item.value !== event.currentTarget.value,
       );
 
-      const filteredValue = value.filter(
-        (item) => item !== event.currentTarget.value,
-      );
+      const filteredValue =
+        multiple && Array.isArray(value)
+          ? value?.filter((item) => item !== event.currentTarget.value) || []
+          : '';
 
       setSelected(filtered);
       onChange(filteredValue);
