@@ -210,7 +210,6 @@ exports[`[AutoComplete Rendering] renders Multiple without crashing 1`] = `
         />
         <button
           class="rcx-box rcx-chip rcx-css-trljwa"
-          label="test1"
           type="button"
           value="1"
         >
@@ -228,7 +227,6 @@ exports[`[AutoComplete Rendering] renders Multiple without crashing 1`] = `
         </button>
         <button
           class="rcx-box rcx-chip rcx-css-trljwa"
-          label="test3"
           type="button"
           value="3"
         >
