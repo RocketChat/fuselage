@@ -60,6 +60,17 @@ const getSelected = (
     : options?.filter((option) => value.includes(option.value));
 };
 
+const isSelectedValid =
+  (value: string | string[] | undefined) => (selected: AutoCompleteOption) => {
+    if (!value) {
+      return false;
+    }
+
+    return typeof value === 'string'
+      ? selected.value === value
+      : value.includes(selected.value);
+  };
+
 /**
  * An input for selection of options.
  */
@@ -86,8 +97,17 @@ export function AutoComplete({
     () => getSelected(value, options) || [],
   );
 
+  useEffect(() => {
+    // Validates if selected items are still valid after value changes
+    setSelected((selected) => {
+      return !selected.every(isSelectedValid(value))
+        ? selected.filter(isSelectedValid(value))
+        : selected;
+    });
+  }, [value]);
+
   const handleSelect = useEffectEvent(([newValue]: OptionType) => {
-    if (selected?.some((item) => item.value === newValue)) {
+    if (selected.some((item) => item.value === newValue)) {
       hide();
       return;
     }

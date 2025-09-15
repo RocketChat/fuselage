@@ -93,4 +93,35 @@ describe('[Autocomplete functionality]', () => {
 
     expect(onChange).toHaveBeenCalledWith('');
   });
+
+  it('should update selected items based on the value prop', () => {
+    const { rerender } = render(
+      <AutoComplete
+        value={['1']}
+        filter='test'
+        setFilter={() => {}}
+        options={[{ value: '1', label: 'test1' }]}
+        onChange={() => {}}
+        multiple
+      />,
+    );
+
+    expect(screen.getByRole('button', { name: 'test1' })).toBeInTheDocument();
+
+    rerender(
+      <AutoComplete
+        value={[]}
+        filter='test'
+        setFilter={() => {}}
+        options={[
+          { value: '1', label: 'test1' },
+          { value: '2', label: 'test2' },
+        ]}
+        onChange={() => {}}
+      />,
+    );
+    expect(
+      screen.queryByRole('button', { name: 'test1' }),
+    ).not.toBeInTheDocument();
+  });
 });
