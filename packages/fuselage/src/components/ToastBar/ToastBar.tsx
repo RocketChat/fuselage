@@ -46,7 +46,7 @@ export function ToastBar({
 
   const progressBar = keyframes`
     from {
-      width: 0%;
+      width: 0;
     }
 
     to {
@@ -60,7 +60,7 @@ export function ToastBar({
 
   const progressBarAnimation = css`
     &::after {
-      width: 0%;
+      width: 0;
       animation: ${progressBar} ${time}s;
       animation-fill-mode: forwards;
       animation-play-state: ${isPaused ? 'paused' : 'running'};
@@ -86,7 +86,12 @@ export function ToastBar({
           size='x20'
           name={iconName}
         />
-        <div role='alert' className='rcx-toastbar_content'>
+        <div
+          role='alert'
+          className='rcx-toastbar_content'
+          aria-live='assertive'
+          aria-atomic='true'
+        >
           {children}
         </div>
         {onClose && (
