@@ -121,7 +121,7 @@ export const useStorage = <T>(
 export const useLocalStorage = useStorage.bind(
   null,
   typeof window !== 'undefined' ? window.localStorage : undefined,
-);
+) as <T>(key: string, fallbackValue: T) => [T, Dispatch<SetStateAction<T>>];
 
 /**
  * Hook to deal with sessionStorage
@@ -133,4 +133,4 @@ export const useLocalStorage = useStorage.bind(
 export const useSessionStorage = useStorage.bind(
   null,
   typeof window !== 'undefined' ? window.sessionStorage : undefined,
-);
+) as <T>(key: string, fallbackValue: T) => [T, Dispatch<SetStateAction<T>>];
