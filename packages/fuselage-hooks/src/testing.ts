@@ -1,10 +1,10 @@
-import {
+import type {
   queries,
   Queries,
   RenderHookOptions,
   RenderHookResult,
-  renderHook as _renderHook,
 } from '@testing-library/react';
+import { renderHook as _renderHook } from '@testing-library/react';
 import { createElement } from 'react';
 import { renderToString } from 'react-dom/server';
 

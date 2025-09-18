@@ -17,7 +17,8 @@ import Chip from '../Chip';
 import { Icon } from '../Icon';
 import { InputBox } from '../InputBox';
 import Margins from '../Margins';
-import { useCursor, Options, OptionType } from '../Options';
+import type { OptionType } from '../Options';
+import { useCursor, Options } from '../Options';
 import PositionAnimated from '../PositionAnimated';
 
 const Addon = (props: ComponentProps<typeof Box>) => (
