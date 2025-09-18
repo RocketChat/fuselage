@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.67.0
+
+### Minor Changes
+
+- [#1754](https://github.com/RocketChat/fuselage/pull/1754) [`210f7e4`](https://github.com/RocketChat/fuselage/commit/210f7e4aee6551232753654def39e5e0d2a3d9b9) Thanks [@tassoevan](https://github.com/tassoevan)! - Reduces the bundle size of `@rocket.chat/fuselage` by externalizing more dependencies and increasing the ECMAScript version.
+
 ## 0.66.4
 
 ### Patch Changes
