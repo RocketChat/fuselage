@@ -1,7 +1,9 @@
-import { useState, useCallback, ReactNode } from 'react';
+import type { ReactNode } from 'react';
+import { useState, useCallback } from 'react';
 import { useId } from 'react-aria';
 
-import { FieldContext, LabelTypes, FieldType } from './FieldContext';
+import type { LabelTypes, FieldType } from './FieldContext';
+import { FieldContext } from './FieldContext';
 
 type FieldProviderProps = { children: ReactNode };
 

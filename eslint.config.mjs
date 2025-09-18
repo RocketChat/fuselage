@@ -426,10 +426,12 @@ export default tseslint.config(
       },
     },
   },
+  tseslint.configs.eslintRecommended,
   ...tseslint.configs.recommended,
   {
     files: ['**/*.{ts,tsx,cts,ctsx,mts,mtsx}'],
     rules: {
+      '@typescript-eslint/consistent-type-imports': 'error',
       '@typescript-eslint/no-dupe-class-members': 'error',
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/no-unused-vars': [
