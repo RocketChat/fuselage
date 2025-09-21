@@ -1,3 +1,4 @@
+import { useSafeRefCallback } from '@rocket.chat/fuselage-hooks';
 import type { ReactNode, RefCallback } from 'react';
 import {
   createContext,
@@ -15,6 +16,8 @@ type FieldContextValue = {
   id: string;
   fieldType: FieldType;
   setFieldType: (fieldType: FieldType) => void;
+  emitAction: () => void;
+  onAction: (cb: () => void) => void;
 };
 
 export const FieldContext = createContext<FieldContextValue>({
@@ -25,6 +28,8 @@ export const FieldContext = createContext<FieldContextValue>({
   id: '',
   fieldType: 'referencedByLabel',
   setFieldType: () => {},
+  emitAction: () => {},
+  onAction: () => {},
 });
 
 export type LabelTypes = 'hint' | 'description' | 'error' | 'placeholder';
@@ -34,28 +39,43 @@ export type FieldType =
   | 'referencedByLabel'
   | 'referencedByInput';
 
+const getTextFromNode = (node: HTMLElement) => {
+  if (!node.textContent) {
+    return null;
+  }
+
+  const text = [];
+  const treeWalker = node.ownerDocument.createTreeWalker(
+    node,
+    NodeFilter.SHOW_TEXT,
+  );
+
+  while (treeWalker.nextNode()) {
+    text.push(treeWalker.currentNode.textContent);
+  }
+
+  return text.join(' ');
+};
+
 export const useFieldLabel = (): [RefCallback<HTMLElement>, string] => {
-  const { setLabel, id } = useContext(FieldContext);
+  const { setLabel, id, emitAction } = useContext(FieldContext);
 
-  const setLabelRef = useCallback(
-    (node: HTMLElement) => {
-      if (!node || !node.textContent) {
-        setLabel(null);
-        return;
-      }
-      const text = [];
-      const treeWalker = node.ownerDocument.createTreeWalker(
-        node,
-        NodeFilter.SHOW_TEXT,
-      );
+  const setLabelRef = useSafeRefCallback(
+    useCallback(
+      (node: HTMLElement) => {
+        if (!node) {
+          return;
+        }
+        setLabel(getTextFromNode(node));
 
-      while (treeWalker.nextNode()) {
-        text.push(treeWalker.currentNode.textContent);
-      }
+        const onClick = () => emitAction();
 
-      setLabel(text.join(' '));
-    },
-    [setLabel],
+        node.addEventListener('click', onClick);
+
+        return () => node.removeEventListener('click', onClick);
+      },
+      [setLabel, emitAction],
+    ),
   );
 
   return [setLabelRef, `${id}-label`];
@@ -139,13 +159,35 @@ export const useFieldReferencedByLabel = () => {
 // label is rendered visually hidden inside the inputs wrapper label
 export const useFieldWrappedByInputLabel = (): [
   ReactNode,
-  { 'aria-describedby': string },
+  {
+    'aria-describedby': string;
+    'id': string;
+    'aria-invalid': 'true' | 'false';
+  },
+  RefCallback<HTMLElement>,
 ] => {
-  const { id, label, descriptors, setFieldType } = useContext(FieldContext);
+  const { id, label, descriptors, setFieldType, onAction } =
+    useContext(FieldContext);
 
   useEffect(() => {
     setFieldType('wrappedByLabel');
   }, [setFieldType]);
+
+  const refCallback = useSafeRefCallback(
+    useCallback(
+      (node: HTMLElement) => {
+        if (!node) {
+          return;
+        }
+
+        onAction(() => {
+          node.focus();
+          node.click();
+        });
+      },
+      [onAction],
+    ),
+  );
 
   return useMemo(
     () => [
@@ -155,7 +197,8 @@ export const useFieldWrappedByInputLabel = (): [
         'id': getInputId(id, descriptors),
         ...getAriaInvalid(descriptors),
       },
+      refCallback,
     ],
-    [label, id, descriptors],
+    [label, descriptors, id, refCallback],
   );
 };

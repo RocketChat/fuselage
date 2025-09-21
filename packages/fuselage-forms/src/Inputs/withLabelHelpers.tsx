@@ -45,11 +45,12 @@ function withVisuallyHiddenLabel<TProps>(
   Component: ForwardRefExoticComponent<TProps & WithChildrenLabel>,
 ) {
   const WrappedComponent = function (props: TProps) {
-    const [label, labelProps] = useFieldWrappedByInputLabel();
+    const [label, labelProps, labelRef] = useFieldWrappedByInputLabel();
     return (
       <Component
         {...props}
         {...labelProps}
+        ref={labelRef}
         labelChildren={<VisuallyHidden>{label}</VisuallyHidden>}
       />
     );
