@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 
-type SafeCallbackRef<T> = (node: T) => (() => void) | undefined;
+type SafeCallbackRef<T> = (node: T) => (() => void) | void;
 
 /**
  * useSafeRefCallback will call a cleanup function (returned from the passed callback)

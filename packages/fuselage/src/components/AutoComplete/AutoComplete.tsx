@@ -1,11 +1,13 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
 import { useEffectEvent, useResizeObserver } from '@rocket.chat/fuselage-hooks';
 import type {
   AllHTMLAttributes,
+  ChangeEvent,
   ComponentProps,
   ElementType,
+  FocusEvent,
+  MouseEvent,
   ReactElement,
+  ReactNode,
 } from 'react';
 import { useEffect, useRef, useMemo, useState } from 'react';
 
@@ -15,6 +17,7 @@ import Chip from '../Chip';
 import { Icon } from '../Icon';
 import { InputBox } from '../InputBox';
 import Margins from '../Margins';
+import type { OptionType } from '../Options';
 import { useCursor, Options } from '../Options';
 import PositionAnimated from '../PositionAnimated';
 
@@ -24,11 +27,14 @@ const Addon = (props: ComponentProps<typeof Box>) => (
 
 type AutoCompleteOption = {
   value: string;
+  // TODO: label type shoudn't be unknown
   label: unknown;
 };
 
-type AutoCompleteProps = {
-  value?: string | string[];
+type AutoCompleteProps = Omit<
+  AllHTMLAttributes<HTMLInputElement>,
+  'value' | 'onChange' | 'is'
+> & {
   filter: string;
   setFilter?: (filter: string) => void;
   options?: AutoCompleteOption[];
@@ -40,10 +46,11 @@ type AutoCompleteProps = {
   error?: boolean;
   disabled?: boolean;
   multiple?: boolean;
-} & Omit<AllHTMLAttributes<HTMLInputElement>, 'onChange'>;
+  value?: string | string[];
+};
 
 const getSelected = (
-  value: string | string[],
+  value: string | string[] | undefined,
   options: AutoCompleteOption[],
 ) => {
   if (!value) {
@@ -53,6 +60,17 @@ const getSelected = (
     ? options.filter((option) => option.value === value)
     : options?.filter((option) => value.includes(option.value));
 };
+
+const isSelectedValid =
+  (value: string | string[] | undefined) => (selected: AutoCompleteOption) => {
+    if (!value) {
+      return false;
+    }
+
+    return typeof value === 'string'
+      ? selected.value === value
+      : value.includes(selected.value);
+  };
 
 /**
  * An input for selection of options.
@@ -73,68 +91,85 @@ export function AutoComplete({
   onBlur: onBlurAction = () => {},
   ...props
 }: AutoCompleteProps): ReactElement {
-  const ref = useRef();
+  const ref = useRef<HTMLInputElement>();
   const { ref: containerRef, borderBoxSize } = useResizeObserver();
 
   const [selected, setSelected] = useState(
     () => getSelected(value, options) || [],
   );
 
-  const handleSelect = useEffectEvent(([currentValue]) => {
-    if (selected?.some((item) => item.value === currentValue)) {
+  useEffect(() => {
+    // Validates if selected items are still valid after value changes
+    setSelected((selected) => {
+      return !selected.every(isSelectedValid(value))
+        ? selected.filter(isSelectedValid(value))
+        : selected;
+    });
+  }, [value]);
+
+  const handleSelect = useEffectEvent(([newValue]: OptionType) => {
+    if (selected.some((item) => item.value === newValue)) {
       hide();
       return;
     }
 
     if (multiple) {
-      setSelected([...selected, ...getSelected(currentValue, options)]);
-      onChange([...value, currentValue]);
+      setSelected([...selected, ...getSelected(newValue as string, options)]);
+      onChange([...(value || []), newValue as string]);
     } else {
-      setSelected(getSelected(currentValue, options));
-      onChange(currentValue);
+      setSelected(getSelected(newValue as string, options));
+      onChange(newValue as string);
     }
 
-    setFilter('');
+    setFilter?.('');
     hide();
   });
 
-  const handleRemove = useEffectEvent((event) => {
-    event.stopPropagation();
-    event.preventDefault();
+  const handleRemove = useEffectEvent(
+    (event: MouseEvent<HTMLButtonElement>) => {
+      event.stopPropagation();
+      event.preventDefault();
 
-    const filtered = selected.filter(
-      (item) => item.value !== event.currentTarget.value,
-    );
+      const filtered = selected.filter(
+        (item) => item.value !== event.currentTarget.value,
+      );
 
-    const filteredValue = value.filter(
-      (item) => item !== event.currentTarget.value,
-    );
+      const filteredValue =
+        multiple && Array.isArray(value)
+          ? value?.filter((item) => item !== event.currentTarget.value) || []
+          : '';
 
-    setSelected(filtered);
-    onChange(filteredValue);
-    hide();
-  });
+      setSelected(filtered);
+      onChange(filteredValue);
+      hide();
+    },
+  );
 
-  const memoizedOptions = useMemo(
-    () => options.map(({ value, label }) => [value, label]),
+  const memoizedOptions = useMemo<OptionType[]>(
+    () => options.map(({ value, label }) => [value, label as ReactNode]),
     [options],
   );
 
-  const [cursor, handleKeyDown, , reset, [optionsAreVisible, hide, show]] =
-    useCursor(value, memoizedOptions, handleSelect);
+  const firstSelectedIndex = useMemo(
+    () => options.findIndex((option) => selected[0]?.value === option.value),
+    [options, selected],
+  );
 
-  const handleOnBlur = useEffectEvent((event) => {
+  const [cursor, handleKeyDown, , reset, [optionsAreVisible, hide, show]] =
+    useCursor(firstSelectedIndex, memoizedOptions, handleSelect);
+
+  const handleOnBlur = useEffectEvent((event: FocusEvent<HTMLInputElement>) => {
     hide();
     onBlurAction(event);
   });
 
-  useEffect(reset, [filter]);
+  useEffect(reset, [filter, reset]);
 
   return (
     <Box
       rcx-autocomplete
       ref={containerRef}
-      onClick={useEffectEvent(() => ref.current.focus())}
+      onClick={useEffectEvent(() => ref.current?.focus())}
       flexGrow={1}
       className={useMemo(
         () => [error && 'invalid', disabled && 'disabled'],
@@ -152,7 +187,9 @@ export function AutoComplete({
         <Margins all='x4'>
           <InputBox.Input
             ref={ref}
-            onChange={useEffectEvent((e) => setFilter(e.currentTarget.value))}
+            onChange={useEffectEvent((e: ChangeEvent<HTMLInputElement>) =>
+              setFilter?.(e.currentTarget.value),
+            )}
             onBlur={handleOnBlur}
             onFocus={show}
             onKeyDown={handleKeyDown}
@@ -167,25 +204,22 @@ export function AutoComplete({
             disabled={disabled}
             {...props}
           />
-          {selected?.length > 0 &&
-            selected.map((itemSelected) =>
-              RenderSelected ? (
-                <RenderSelected
-                  key={itemSelected.value}
-                  selected={itemSelected}
-                  onRemove={handleRemove}
-                />
-              ) : (
-                <Chip
-                  key={itemSelected.value}
-                  value={itemSelected.value}
-                  label={itemSelected.label}
-                  children={itemSelected.label}
-                  onClick={handleRemove}
-                  selected={selected}
-                />
-              ),
-            )}
+          {selected.map((itemSelected) =>
+            RenderSelected ? (
+              <RenderSelected
+                key={itemSelected.value}
+                selected={itemSelected}
+                onRemove={handleRemove}
+              />
+            ) : (
+              <Chip
+                key={itemSelected.value}
+                value={itemSelected.value}
+                children={itemSelected.label as ReactNode}
+                onClick={handleRemove}
+              />
+            ),
+          )}
         </Margins>
       </Box>
       <Addon

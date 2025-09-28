@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.44.0
+
+### Minor Changes
+
+- [#1735](https://github.com/RocketChat/fuselage/pull/1735) [`6491003`](https://github.com/RocketChat/fuselage/commit/649100377de493107403024524d5a4163d60b499) Thanks [@gabriellsh](https://github.com/gabriellsh)! - feat(icons): Add `phone-plus` icon and update existing phone related icons
+
 ## 0.43.0
 
 ### Minor Changes

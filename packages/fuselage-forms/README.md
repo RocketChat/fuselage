@@ -25,11 +25,11 @@
 Firstly, install the peer dependencies (prerequisites):
 
 ```sh
-npm i @rocket.chat/fuselage react react-dom
+npm i @rocket.chat/fuselage @rocket.chat/fuselage-hooks react react-dom
 
 # or, if you are using yarn:
 
-yarn add @rocket.chat/fuselage react react-dom
+yarn add @rocket.chat/fuselage @rocket.chat/fuselage-hooks react react-dom
 ```
 
 Add `@rocket.chat/fuselage-forms` as a dependency:

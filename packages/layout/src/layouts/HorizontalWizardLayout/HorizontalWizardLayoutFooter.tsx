@@ -1,5 +1,5 @@
 import { Box } from '@rocket.chat/fuselage';
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 const HorizontalWizardLayoutFooter = ({
   children,

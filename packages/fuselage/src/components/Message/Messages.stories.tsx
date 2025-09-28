@@ -861,7 +861,11 @@ export const LotsOfReactions: StoryFn<typeof Message> = () => (
         </Message.Body>
         <MessageReactions>
           {Array.from({ length: 100 }).map((_, index) => (
-            <MessageReactions.Reaction counter={index} mine={!(index % 3)} />
+            <MessageReactions.Reaction
+              key={index}
+              counter={index}
+              mine={!(index % 3)}
+            />
           ))}
           <MessageReactions.Action />
         </MessageReactions>

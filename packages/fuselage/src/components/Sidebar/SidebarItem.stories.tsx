@@ -30,6 +30,20 @@ export default {
   },
 } satisfies Meta<typeof SidebarItem>;
 
+const sidebarItemActions = (
+  <SidebarItemActions>
+    <SidebarItemAction aria-label='accept' secondary success icon='phone' />
+    <SidebarItemAction
+      aria-label='cancel'
+      secondary
+      danger
+      icon='circle-cross'
+    />
+    <SidebarItemAction aria-label='delete' secondary info icon='trash' />
+    <SidebarItemAction aria-label='accept' secondary icon='phone' />
+  </SidebarItemActions>
+);
+
 export const Default: StoryFn<typeof SidebarItem> = () => (
   <>
     <SidebarItem>
@@ -50,14 +64,7 @@ export const Default: StoryFn<typeof SidebarItem> = () => (
           </SidebarItemTitle>
         </SidebarItemWrapper>
       </SidebarItemContent>
-      <SidebarItemContainer>
-        <SidebarItemActions>
-          <SidebarItemAction secondary success icon='phone' />
-          <SidebarItemAction secondary danger icon='circle-cross' />
-          <SidebarItemAction secondary info icon='trash' />
-          <SidebarItemAction secondary icon='phone' />
-        </SidebarItemActions>
-      </SidebarItemContainer>
+      <SidebarItemContainer>{sidebarItemActions}</SidebarItemContainer>
     </SidebarItem>
 
     <SidebarItem highlighted is='a'>
@@ -75,14 +82,7 @@ export const Default: StoryFn<typeof SidebarItem> = () => (
           <SidebarItemTitle>highlighted</SidebarItemTitle>
         </SidebarItemWrapper>
       </SidebarItemContent>
-      <SidebarItemContainer>
-        <SidebarItemActions>
-          <SidebarItemAction secondary success icon='phone' />
-          <SidebarItemAction secondary danger icon='circle-cross' />
-          <SidebarItemAction secondary info icon='trash' />
-          <SidebarItemAction secondary icon='phone' />
-        </SidebarItemActions>
-      </SidebarItemContainer>
+      <SidebarItemContainer />
     </SidebarItem>
     <SidebarItem selected is='a'>
       <SidebarItemAvatar>
@@ -102,14 +102,7 @@ export const Default: StoryFn<typeof SidebarItem> = () => (
           </SidebarItemTitle>
         </SidebarItemWrapper>
       </SidebarItemContent>
-      <SidebarItemContainer>
-        <SidebarItemActions>
-          <SidebarItemAction secondary success icon='phone' />
-          <SidebarItemAction secondary danger icon='circle-cross' />
-          <SidebarItemAction secondary info icon='trash' />
-          <SidebarItemAction secondary icon='phone' />
-        </SidebarItemActions>
-      </SidebarItemContainer>
+      <SidebarItemContainer>{sidebarItemActions}</SidebarItemContainer>
     </SidebarItem>
     <SidebarItem is='a'>
       <SidebarItemAvatar>
@@ -140,12 +133,7 @@ export const Default: StoryFn<typeof SidebarItem> = () => (
         </SidebarItemContent>
       </SidebarItemContent>
       <SidebarItemContainer>
-        <SidebarItemActions>
-          <SidebarItemAction secondary success icon='phone' />
-          <SidebarItemAction secondary danger icon='circle-cross' />
-          <SidebarItemAction secondary info icon='trash' />
-          <SidebarItemAction secondary icon='phone' />
-        </SidebarItemActions>
+        <SidebarItemContainer>{sidebarItemActions}</SidebarItemContainer>
       </SidebarItemContainer>
     </SidebarItem>
   </>

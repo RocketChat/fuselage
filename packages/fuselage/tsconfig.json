@@ -1,18 +1,20 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "rootDirs": ["./src", "./.storybook"],
-    "target": "ES5",
-    "module": "CommonJS",
+    "target": "es2024",
+    "module": "es2022",
+    "moduleResolution": "bundler",
+    "verbatimModuleSyntax": true,
     "lib": ["ES2020", "DOM"],
     "downlevelIteration": true,
     "outDir": "./dist",
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "moduleResolution": "node",
     "resolveJsonModule": true,
     "allowJs": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "erasableSyntaxOnly": true,
+    "isolatedModules": true
   },
   "include": [
     "./src",

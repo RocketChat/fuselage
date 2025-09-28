@@ -1,4 +1,4 @@
-import { ReactElement, ReactNode } from 'react';
+import type { ReactElement, ReactNode } from 'react';
 
 import * as FormPageLayout from '../../components/FormPageLayout/FormPageLayout.styles';
 import LayoutLogo from '../../components/LayoutLogo';

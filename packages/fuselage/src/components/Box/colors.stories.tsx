@@ -1,4 +1,4 @@
-import type { StoryFn, Meta } from '@storybook/react-webpack5';
+import type { StoryFn, Meta, StoryContext } from '@storybook/react-webpack5';
 import { cloneElement } from 'react';
 import flattenChildren from 'react-keyed-flatten-children';
 
@@ -32,25 +32,26 @@ export const SurfaceColors: StoryFn<typeof Box> = () => (
   </>
 );
 SurfaceColors.decorators = [
-  (story: any) => (
+  (_: StoryFn, context: StoryContext) => (
     <Box display='flex' flexWrap='wrap' alignItems='center'>
-      {flattenChildren(story().props.children).map((child: any) =>
-        cloneElement(
-          child,
-          {
-            m: 'x4',
-            size: 'x122',
-            color: 'annotation',
-            border: '2px solid',
-            borderColor: 'stroke light',
-            borderRadius: 4,
-            textAlign: 'center',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          },
-          child.props.bg,
-        ),
+      {flattenChildren(context.originalStoryFn(context.args, context)).map(
+        (child: any) =>
+          cloneElement(
+            child,
+            {
+              m: 'x4',
+              size: 'x122',
+              color: 'annotation',
+              border: '2px solid',
+              borderColor: 'stroke light',
+              borderRadius: 4,
+              textAlign: 'center',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            },
+            child.props.bg,
+          ),
       )}
     </Box>
   ),
@@ -72,23 +73,24 @@ export const StatusColors: StoryFn<typeof Box> = () => (
   </>
 );
 StatusColors.decorators = [
-  (story: any) => (
+  (_: StoryFn, context: StoryContext) => (
     <Box display='flex' flexWrap='wrap' alignItems='center' overflow='hidden'>
-      {flattenChildren(story().props.children).map((child: any) =>
-        cloneElement(
-          child,
-          {
-            m: 'x4',
-            size: 'x122',
-            border: '2px solid',
-            borderRadius: 4,
-            textAlign: 'center',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          },
-          child.props.bg.replace('status-background-', ''),
-        ),
+      {flattenChildren(context.originalStoryFn(context.args, context)).map(
+        (child: any) =>
+          cloneElement(
+            child,
+            {
+              m: 'x4',
+              size: 'x122',
+              border: '2px solid',
+              borderRadius: 4,
+              textAlign: 'center',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            },
+            child.props.bg.replace('status-background-', ''),
+          ),
       )}
     </Box>
   ),
@@ -113,25 +115,26 @@ export const StrokeColors: StoryFn<typeof Box> = () => (
   </>
 );
 StrokeColors.decorators = [
-  (story: any) => (
+  (_: StoryFn, context: StoryContext) => (
     <Box display='flex' flexWrap='wrap' alignItems='center' overflow='hidden'>
-      {flattenChildren(story().props.children).map((child: any) =>
-        cloneElement(
-          child,
-          {
-            m: 'x4',
-            textAlign: 'center',
-            size: 'x122',
-            color: 'default',
-            borderWidth: 'x8',
-            borderRadius: 4,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            p: 8,
-          },
-          child.props.borderColor,
-        ),
+      {flattenChildren(context.originalStoryFn(context.args, context)).map(
+        (child: any) =>
+          cloneElement(
+            child,
+            {
+              m: 'x4',
+              textAlign: 'center',
+              size: 'x122',
+              color: 'default',
+              borderWidth: 'x8',
+              borderRadius: 4,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              p: 8,
+            },
+            child.props.borderColor,
+          ),
       )}
     </Box>
   ),
@@ -156,15 +159,16 @@ export const FontColors: StoryFn<typeof Box> = () => (
   </>
 );
 FontColors.decorators = [
-  (story: any) => (
+  (_: StoryFn, context: StoryContext) => (
     <Box
       display='flex'
       alignItems='flex-start'
       overflow='hidden'
       flexDirection='column'
     >
-      {flattenChildren(story().props.children).map((child: any) =>
-        cloneElement(child, { m: 'x4', p: 'x4' }, child.props.color),
+      {flattenChildren(context.originalStoryFn(context.args, context)).map(
+        (child: any) =>
+          cloneElement(child, { m: 'x4', p: 'x4' }, child.props.color),
       )}
     </Box>
   ),

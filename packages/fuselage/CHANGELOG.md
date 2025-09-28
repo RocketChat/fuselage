@@ -1,5 +1,25 @@
 # Change Log
 
+## 0.66.4
+
+### Patch Changes
+
+- [#1755](https://github.com/RocketChat/fuselage/pull/1755) [`ca03562`](https://github.com/RocketChat/fuselage/commit/ca03562593c5600830e5af2a97f6a85ba8b72212) Thanks [@aleksandernsilva](https://github.com/aleksandernsilva)! - fix: AutoComplete unable to remove selected item in single mode
+
+- [#1756](https://github.com/RocketChat/fuselage/pull/1756) [`8d7afb0`](https://github.com/RocketChat/fuselage/commit/8d7afb034f5c14f7337c16f88b4425d2ee3328c6) Thanks [@aleksandernsilva](https://github.com/aleksandernsilva)! - fix: AutoComplete selected items not being updated when value changes
+
+## 0.66.3
+
+### Patch Changes
+
+- [#1744](https://github.com/RocketChat/fuselage/pull/1744) [`bafacf2`](https://github.com/RocketChat/fuselage/commit/bafacf207836e199bb9bf64588e43cb3802de19c) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): SidebarV2Item padding
+
+## 0.66.2
+
+### Patch Changes
+
+- [#1742](https://github.com/RocketChat/fuselage/pull/1742) [`6f1e8de`](https://github.com/RocketChat/fuselage/commit/6f1e8ded438478f3fc985c0efaa2322c017ca3a8) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): SidebarItemV2 visual regressions
+
 ## 0.66.1
 
 ### Patch Changes

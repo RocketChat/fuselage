@@ -26,7 +26,7 @@ const BackgroundLayer = ({ children }: BackgroundLayerProps): ReactElement => {
           <BackgroundImage backgroundColor={backgroundColor} />,
         ),
       )}`,
-    [backgroundColor],
+    [background, backgroundColor, backgroundDark, darkMode],
   );
 
   return (

@@ -51,15 +51,6 @@ module.exports = (env, { mode = 'production' }) => ({
         use: [
           MiniCssExtractPlugin.loader,
           'babel-loader',
-          // {
-          //   loader: 'style-loader',
-          //   options: {
-          //     attributes: {
-          //       id: 'fuselage-style',
-          //     },
-          //     injectType: 'lazySingletonStyleTag',
-          //   },
-          // },
           {
             loader: 'css-loader',
             options: {
@@ -90,25 +81,12 @@ module.exports = (env, { mode = 'production' }) => ({
     extensions: ['.tsx', '.ts', '.jsx', '.js', '.json'],
   },
   externals: [
-    {
-      react: {
-        commonjs: 'react',
-        commonjs2: 'react',
-        amd: 'react',
-        root: 'React',
-      },
-    },
-    'react-virtuoso',
-    'react-dom',
-    '@rocket.chat/icons',
-    '@rocket.chat/fuselage-hooks',
-    'react-aria',
-    'react-stately',
-    '@rocket.chat/css-in-js',
-    '@rocket.chat/css-supports',
-    '@rocket.chat/fuselage-tokens',
-    '@rocket.chat/memo',
-    '@rocket.chat/styled',
+    ...Object.keys(pkg.dependencies ?? {}).map(
+      (dep) => new RegExp(`^${dep}(/.+)?$`),
+    ),
+    ...Object.keys(pkg.peerDependencies ?? {}).map(
+      (dep) => new RegExp(`^${dep}(/.+)?$`),
+    ),
   ],
   plugins: [
     new MiniCssExtractPlugin(),
