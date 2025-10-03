@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@juggle/resize-observer": "^3.4.0",
-    "clipboard-polyfill": "^3.0.3",
+    "clipboard-polyfill": "^4.1.1",
     "element-closest-polyfill": "^1.0.7",
     "focus-visible": "^5.2.1",
     "focus-within-polyfill": "^5.2.1",
