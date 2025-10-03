@@ -5277,7 +5277,7 @@ __metadata:
     storybook-dark-mode: "patch:storybook-dark-mode@npm%3A4.0.2#~/.yarn/patches/storybook-dark-mode-npm-4.0.2-1acb0927fb.patch"
     ts-jest: "npm:~29.4.4"
     typescript: "npm:~5.9.3"
-    webpack: "npm:~5.100.2"
+    webpack: "npm:~5.102.0"
   peerDependencies:
     "@rocket.chat/fuselage": "*"
     "@rocket.chat/fuselage-hooks": "workspace:~"
@@ -5509,7 +5509,7 @@ __metadata:
     ts-jest: "npm:~29.4.4"
     ts-loader: "npm:~9.5.4"
     typescript: "npm:~5.9.3"
-    webpack: "npm:~5.100.2"
+    webpack: "npm:~5.102.0"
     webpack-bundle-analyzer: "npm:~4.10.2"
     webpack-cli: "npm:~6.0.1"
     wrapper-webpack-plugin: "npm:~2.2.2"
@@ -5712,7 +5712,7 @@ __metadata:
     rimraf: "npm:~6.0.1"
     ts-jest: "npm:~29.4.4"
     typescript: "npm:~5.9.3"
-    webpack: "npm:~5.100.2"
+    webpack: "npm:~5.102.0"
   peerDependencies:
     peggy: "*"
     webpack: "*"
@@ -10316,13 +10316,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"enhanced-resolve@npm:^5.17.2":
-  version: 5.18.2
-  resolution: "enhanced-resolve@npm:5.18.2"
+"enhanced-resolve@npm:^5.17.3":
+  version: 5.18.3
+  resolution: "enhanced-resolve@npm:5.18.3"
   dependencies:
     graceful-fs: "npm:^4.2.4"
     tapable: "npm:^2.2.0"
-  checksum: 10/d1b517c908b69d1afbf87b476bbe7dd8d1daf11070127b9ec4f8553f0c6020d30f79103c938776645d569e954e4e04c326f408d2ea3820ade71e72798fb7d36f
+  checksum: 10/a4d0a1eacba3079f617b68c8f7e17583c3cbc572055c2edca41c0fa0230a49f6e9b2c6ffd4128cc5f84e15ea6cc313ae2b01e1057fcd252fabef70220a5d9f6a
   languageName: node
   linkType: hard
 
@@ -19082,6 +19082,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"tapable@npm:^2.2.3":
+  version: 2.3.0
+  resolution: "tapable@npm:2.3.0"
+  checksum: 10/496a841039960533bb6e44816a01fffc2a1eb428bb2051ecab9e87adf07f19e1f937566cbbbb09dceff31163c0ffd81baafcad84db900b601f0155dd0b37e9f2
+  languageName: node
+  linkType: hard
+
 "tar@npm:^6.0.2":
   version: 6.2.1
   resolution: "tar@npm:6.2.1"
@@ -20382,6 +20389,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"watchpack@npm:^2.4.4":
+  version: 2.4.4
+  resolution: "watchpack@npm:2.4.4"
+  dependencies:
+    glob-to-regexp: "npm:^0.4.1"
+    graceful-fs: "npm:^4.1.2"
+  checksum: 10/cfa3473fc12a1a1b88123056941e90c462a67aedc10b242229eeeccdd45ed0b763c3b591caaffb0f7d77295b539b5518bb1ad3bcd891ae6505dfeae4cf51fd15
+  languageName: node
+  linkType: hard
+
 "wcwidth@npm:^1.0.1":
   version: 1.0.1
   resolution: "wcwidth@npm:1.0.1"
@@ -20556,9 +20573,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"webpack@npm:~5.100.2":
-  version: 5.100.2
-  resolution: "webpack@npm:5.100.2"
+"webpack@npm:~5.102.0":
+  version: 5.102.0
+  resolution: "webpack@npm:5.102.0"
   dependencies:
     "@types/eslint-scope": "npm:^3.7.7"
     "@types/estree": "npm:^1.0.8"
@@ -20568,9 +20585,9 @@ __metadata:
     "@webassemblyjs/wasm-parser": "npm:^1.14.1"
     acorn: "npm:^8.15.0"
     acorn-import-phases: "npm:^1.0.3"
-    browserslist: "npm:^4.24.0"
+    browserslist: "npm:^4.24.5"
     chrome-trace-event: "npm:^1.0.2"
-    enhanced-resolve: "npm:^5.17.2"
+    enhanced-resolve: "npm:^5.17.3"
     es-module-lexer: "npm:^1.2.1"
     eslint-scope: "npm:5.1.1"
     events: "npm:^3.2.0"
@@ -20581,16 +20598,16 @@ __metadata:
     mime-types: "npm:^2.1.27"
     neo-async: "npm:^2.6.2"
     schema-utils: "npm:^4.3.2"
-    tapable: "npm:^2.1.1"
+    tapable: "npm:^2.2.3"
     terser-webpack-plugin: "npm:^5.3.11"
-    watchpack: "npm:^2.4.1"
+    watchpack: "npm:^2.4.4"
     webpack-sources: "npm:^3.3.3"
   peerDependenciesMeta:
     webpack-cli:
       optional: true
   bin:
     webpack: bin/webpack.js
-  checksum: 10/e643fd67de9086ff6c726f39e893b299470eb25d35cfc3736e6cc8cfe95d77a46334d44cb7f9c6cb9e7acf5e03e48541e95f9f88612559de926e2fe30c2d78cf
+  checksum: 10/a76f9136c1c470e75a870b0f52b91f819224b21edf9f1959e0501cd17d38c9689e0ccd3ee6d0f7f0b764866d5bc6a1c6c9a38b235d75e2bfbc7ac25c94796da8
   languageName: node
   linkType: hard
 
