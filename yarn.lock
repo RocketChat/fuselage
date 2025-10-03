@@ -5702,7 +5702,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@rocket.chat/peggy-loader@workspace:packages/peggy-loader"
   dependencies:
-    "@types/node": "npm:~22.15.35"
+    "@types/node": "npm:~22.18.8"
     eslint: "npm:~9.37.0"
     jest: "npm:~30.2.0"
     lint-all: "workspace:~"
@@ -6935,12 +6935,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:~22.15.35":
-  version: 22.15.35
-  resolution: "@types/node@npm:22.15.35"
+"@types/node@npm:~22.18.8":
+  version: 22.18.8
+  resolution: "@types/node@npm:22.18.8"
   dependencies:
     undici-types: "npm:~6.21.0"
-  checksum: 10/68cbfe4bcfc20397956af69d6c01096ded6dadd87c2ae5cfd61e0a43537c09741f125738268787455b87ba831c3fbefbceb1189c09fec1c94fc6276ef7563018
+  checksum: 10/dc8e883680993bebf45ac641af6648fd88a8d6ec0e375ff737221eef6c93b6a4d20311dfc070bb595095adbf9a2a411a9b3d9230a763eb744bb1d8ca831c331c
   languageName: node
   linkType: hard
 
@@ -17877,7 +17877,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "scripts@workspace:tools/scripts"
   dependencies:
-    "@types/node": "npm:~22.15.35"
+    "@types/node": "npm:~22.18.8"
     cross-env: "npm:^7.0.3"
     endent: "npm:^2.1.0"
     eslint: "npm:~9.37.0"

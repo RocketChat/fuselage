@@ -36,7 +36,7 @@
     "lint-and-fix": "lint-and-fix"
   },
   "devDependencies": {
-    "@types/node": "~22.15.35",
+    "@types/node": "~22.18.8",
     "eslint": "~9.37.0",
     "jest": "~30.2.0",
     "lint-all": "workspace:~",
