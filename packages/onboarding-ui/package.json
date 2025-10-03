@@ -59,7 +59,7 @@
     "@types/react": "~18.3.25",
     "@types/react-dom": "~18.3.7",
     "countries-list": "^3.1.1",
-    "eslint": "~9.29.0",
+    "eslint": "~9.37.0",
     "jest": "~30.0.5",
     "jest-environment-jsdom": "~30.0.5",
     "lint-all": "workspace:~",
