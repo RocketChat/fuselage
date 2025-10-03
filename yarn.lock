@@ -5426,7 +5426,7 @@ __metadata:
     postcss-scss: "npm:~4.0.9"
     prettier: "npm:~3.5.3"
     rimraf: "npm:~6.0.1"
-    style-dictionary: "npm:~5.0.4"
+    style-dictionary: "npm:~5.1.0"
     stylelint: "npm:~16.25.0"
     stylelint-order: "npm:~7.0.0"
     stylelint-prettier: "npm:~5.0.3"
@@ -18729,9 +18729,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"style-dictionary@npm:~5.0.4":
-  version: 5.0.4
-  resolution: "style-dictionary@npm:5.0.4"
+"style-dictionary@npm:~5.1.0":
+  version: 5.1.0
+  resolution: "style-dictionary@npm:5.1.0"
   dependencies:
     "@bundled-es-modules/deepmerge": "npm:^4.3.1"
     "@bundled-es-modules/glob": "npm:^11.0.3"
@@ -18747,7 +18747,7 @@ __metadata:
     tinycolor2: "npm:^1.6.0"
   bin:
     style-dictionary: bin/style-dictionary.js
-  checksum: 10/d17fe1e58e4bef6aeed1616a99b8ed889a1e2d81b2d091cb313ccef00e168300b3ea811c0ce8f53601f43bf1f89da54c4d49fabb23e8080387d63e9e1f2877c8
+  checksum: 10/708748783da16be2aa38a6cc1a8192de5e036f51d012d9d5f5f869f8460b3e6be563b25db5214ea84e095ab9ae535dfcc9b51dfeffcef48ca5665137e28714b7
   languageName: node
   linkType: hard
 
