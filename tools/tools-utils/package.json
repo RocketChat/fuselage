@@ -13,7 +13,7 @@
   "devDependencies": {
     "eslint": "~9.37.0",
     "lint-all": "workspace:~",
-    "prettier": "~3.5.3"
+    "prettier": "~3.6.2"
   },
   "peerDependencies": {
     "eslint": "*",
