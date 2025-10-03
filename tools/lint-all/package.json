@@ -10,7 +10,7 @@
     "@prettier/plugin-xml": "~3.4.2",
     "eslint": "~9.37.0",
     "prettier": "~3.5.3",
-    "stylelint": "~16.20.0",
+    "stylelint": "~16.25.0",
     "zx": "8.8.4"
   }
 }
