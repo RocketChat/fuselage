@@ -5564,7 +5564,7 @@ __metadata:
     stylis: "npm:~4.3.6"
     ts-jest: "npm:~29.4.4"
     typedoc: "npm:~0.28.13"
-    typescript: "npm:~5.8.3"
+    typescript: "npm:~5.9.3"
   languageName: unknown
   linkType: soft
 
@@ -5578,7 +5578,7 @@ __metadata:
     prettier: "npm:~3.5.3"
     rimraf: "npm:~6.0.1"
     typedoc: "npm:~0.28.13"
-    typescript: "npm:~5.8.3"
+    typescript: "npm:~5.9.3"
   languageName: unknown
   linkType: soft
 
@@ -5599,7 +5599,7 @@ __metadata:
     rollup: "npm:~4.45.3"
     ts-jest: "npm:~29.4.4"
     typedoc: "npm:~0.28.13"
-    typescript: "npm:~5.8.3"
+    typescript: "npm:~5.9.3"
   languageName: unknown
   linkType: soft
 
@@ -5635,7 +5635,7 @@ __metadata:
     storybook: "npm:~9.0.18"
     storybook-dark-mode: "patch:storybook-dark-mode@npm%3A4.0.2#~/.yarn/patches/storybook-dark-mode-npm-4.0.2-1acb0927fb.patch"
     ts-jest: "npm:~29.4.4"
-    typescript: "npm:~5.8.3"
+    typescript: "npm:~5.9.3"
     webpack: "npm:~5.100.2"
   peerDependencies:
     "@rocket.chat/fuselage": "*"
@@ -5675,7 +5675,7 @@ __metadata:
     testing-utils: "workspace:~"
     ts-jest: "npm:~29.4.4"
     typedoc: "npm:~0.28.13"
-    typescript: "npm:~5.8.3"
+    typescript: "npm:~5.9.3"
   peerDependencies:
     "@rocket.chat/emitter": "*"
     "@rocket.chat/fuselage-tokens": "*"
@@ -5707,7 +5707,7 @@ __metadata:
     prettier: "npm:~3.5.3"
     storybook: "npm:~9.0.18"
     turbo: "npm:~2.5.8"
-    typescript: "npm:~5.8.3"
+    typescript: "npm:~5.9.3"
     typescript-eslint: "npm:~8.45.0"
     update-readme: "workspace:~"
   languageName: unknown
@@ -5761,7 +5761,7 @@ __metadata:
     storybook-dark-mode: "patch:storybook-dark-mode@npm%3A4.0.2#~/.yarn/patches/storybook-dark-mode-npm-4.0.2-1acb0927fb.patch"
     ts-jest: "npm:~29.4.4"
     typedoc: "npm:~0.28.13"
-    typescript: "npm:~5.8.3"
+    typescript: "npm:~5.9.3"
   peerDependencies:
     "@rocket.chat/fuselage": "*"
     "@rocket.chat/fuselage-hooks": "*"
@@ -5867,7 +5867,7 @@ __metadata:
     testing-utils: "workspace:~"
     ts-jest: "npm:~29.4.4"
     ts-loader: "npm:~9.5.4"
-    typescript: "npm:~5.8.3"
+    typescript: "npm:~5.9.3"
     webpack: "npm:~5.100.2"
     webpack-bundle-analyzer: "npm:~4.10.2"
     webpack-cli: "npm:~6.0.1"
@@ -5928,7 +5928,7 @@ __metadata:
     storybook-dark-mode: "patch:storybook-dark-mode@npm%3A4.0.2#~/.yarn/patches/storybook-dark-mode-npm-4.0.2-1acb0927fb.patch"
     ts-jest: "npm:~29.4.4"
     typedoc: "npm:~0.28.13"
-    typescript: "npm:~5.8.3"
+    typescript: "npm:~5.9.3"
   peerDependencies:
     "@rocket.chat/fuselage": "*"
     react: "*"
@@ -5960,7 +5960,7 @@ __metadata:
     rimraf: "npm:~6.0.1"
     ts-jest: "npm:~29.4.4"
     typedoc: "npm:~0.28.13"
-    typescript: "npm:~5.8.3"
+    typescript: "npm:~5.9.3"
   peerDependencies:
     react: "*"
     react-dom: "*"
@@ -5978,7 +5978,7 @@ __metadata:
     rimraf: "npm:~6.0.1"
     ts-jest: "npm:~29.4.4"
     typedoc: "npm:~0.28.13"
-    typescript: "npm:~5.8.3"
+    typescript: "npm:~5.9.3"
   languageName: unknown
   linkType: soft
 
@@ -6001,7 +6001,7 @@ __metadata:
     rollup: "npm:~4.45.3"
     ts-jest: "npm:~29.4.4"
     typedoc: "npm:~0.28.13"
-    typescript: "npm:~5.8.3"
+    typescript: "npm:~5.9.3"
   languageName: unknown
   linkType: soft
 
@@ -6042,7 +6042,7 @@ __metadata:
     storybook-dark-mode: "patch:storybook-dark-mode@npm%3A4.0.2#~/.yarn/patches/storybook-dark-mode-npm-4.0.2-1acb0927fb.patch"
     ts-jest: "npm:~29.4.4"
     typedoc: "npm:~0.28.13"
-    typescript: "npm:~5.8.3"
+    typescript: "npm:~5.9.3"
   peerDependencies:
     "@rocket.chat/fuselage": "*"
     "@rocket.chat/fuselage-hooks": "*"
@@ -6070,7 +6070,7 @@ __metadata:
     prettier: "npm:~3.5.3"
     rimraf: "npm:~6.0.1"
     ts-jest: "npm:~29.4.4"
-    typescript: "npm:~5.8.3"
+    typescript: "npm:~5.9.3"
     webpack: "npm:~5.100.2"
   peerDependencies:
     peggy: "*"
@@ -6102,7 +6102,7 @@ __metadata:
     rimraf: "npm:~6.0.1"
     ts-jest: "npm:~29.4.4"
     typedoc: "npm:~0.28.13"
-    typescript: "npm:~5.8.3"
+    typescript: "npm:~5.9.3"
   languageName: unknown
   linkType: soft
 
@@ -6126,7 +6126,7 @@ __metadata:
     rimraf: "npm:~6.0.1"
     ts-jest: "npm:~29.4.4"
     typedoc: "npm:~0.28.13"
-    typescript: "npm:~5.8.3"
+    typescript: "npm:~5.9.3"
   languageName: unknown
   linkType: soft
 
@@ -6144,7 +6144,7 @@ __metadata:
     stylis: "npm:~4.3.6"
     ts-jest: "npm:~29.4.4"
     typedoc: "npm:~0.28.13"
-    typescript: "npm:~5.8.3"
+    typescript: "npm:~5.9.3"
   peerDependencies:
     stylis: ~4.3.6
   languageName: unknown
@@ -18837,7 +18837,7 @@ __metadata:
     npm-run-all: "npm:^4.1.5"
     prettier: "npm:~3.5.3"
     ts-node: "npm:~10.9.2"
-    typescript: "npm:~5.8.3"
+    typescript: "npm:~5.9.3"
   languageName: unknown
   linkType: soft
 
@@ -20726,23 +20726,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:~5.8.3":
-  version: 5.8.3
-  resolution: "typescript@npm:5.8.3"
+"typescript@npm:~5.9.3":
+  version: 5.9.3
+  resolution: "typescript@npm:5.9.3"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10/65c40944c51b513b0172c6710ee62e951b70af6f75d5a5da745cb7fab132c09ae27ffdf7838996e3ed603bb015dadd099006658046941bd0ba30340cc563ae92
+  checksum: 10/c089d9d3da2729fd4ac517f9b0e0485914c4b3c26f80dc0cffcb5de1719a17951e92425d55db59515c1a7ddab65808466debb864d0d56dcf43f27007d0709594
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A~5.8.3#optional!builtin<compat/typescript>":
-  version: 5.8.3
-  resolution: "typescript@patch:typescript@npm%3A5.8.3#optional!builtin<compat/typescript>::version=5.8.3&hash=5786d5"
+"typescript@patch:typescript@npm%3A~5.9.3#optional!builtin<compat/typescript>":
+  version: 5.9.3
+  resolution: "typescript@patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>::version=5.9.3&hash=5786d5"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10/b9b1e73dabac5dc730c041325dbd9c99467c1b0d239f1b74ec3b90d831384af3e2ba973946232df670519147eb51a2c20f6f96163cea2b359f03de1e2091cc4f
+  checksum: 10/696e1b017bc2635f4e0c94eb4435357701008e2f272f553d06e35b494b8ddc60aa221145e286c28ace0c89ee32827a28c2040e3a69bdc108b1a5dc8fb40b72e3
   languageName: node
   linkType: hard
 

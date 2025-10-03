@@ -60,7 +60,7 @@
     "storybook-dark-mode": "patch:storybook-dark-mode@npm%3A4.0.2#~/.yarn/patches/storybook-dark-mode-npm-4.0.2-1acb0927fb.patch",
     "ts-jest": "~29.4.4",
     "typedoc": "~0.28.13",
-    "typescript": "~5.8.3"
+    "typescript": "~5.9.3"
   },
   "peerDependencies": {
     "@rocket.chat/fuselage": "*",

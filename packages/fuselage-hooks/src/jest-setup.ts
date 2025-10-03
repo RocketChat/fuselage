@@ -4,4 +4,4 @@ import { configure } from '@testing-library/react';
 
 configure({ reactStrictMode: true });
 
-global.TextEncoder = TextEncoder;
+Object.assign(globalThis, { TextEncoder });
