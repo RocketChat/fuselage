@@ -1,6 +1,7 @@
 @use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
 @use '../../styles/functions.scss';
+@use '../../styles/mixins/size.scss';
 
 $avatar-stack-background-color: theme(
   'avatar-background-color',
@@ -16,7 +17,7 @@ $sizes: 16, 18, 20, 24, 28, 32, 36, 40, 48, 124, 200, 332;
 
   @each $size in $sizes {
     &--x#{$size} {
-      @include square(functions.to-rem($size));
+      @include size.square(functions.to-rem($size));
     }
   }
 

@@ -1,5 +1,6 @@
 @use '../../styles/lengths.scss';
 @use '../../styles/typography.scss';
+@use '../../styles/mixins/interactivity.scss';
 
 .rcx-select {
   @extend %rcx-input-box;
@@ -31,13 +32,13 @@
 
     appearance: none;
 
-    @include clickable;
+    @include interactivity.clickable;
     @include typography.use-text-ellipsis;
   }
 
   &__addon {
     @extend .rcx-input-box__addon;
-    @include clickable;
+    @include interactivity.clickable;
     padding: initial;
   }
 

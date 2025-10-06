@@ -1,6 +1,7 @@
 @use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
 @use '../../styles/typography.scss';
+@use '../../styles/mixins/interactivity.scss';
 
 .rcx-table {
   display: table;
@@ -72,7 +73,7 @@
 
     &--action:hover,
     &--action:focus {
-      @include clickable();
+      @include interactivity.clickable;
       background-color: colors.surface(hover);
     }
   }
@@ -111,7 +112,7 @@
     }
 
     &--clickable {
-      @include clickable();
+      @include interactivity.clickable;
     }
 
     @each $align in (start, end, center, justify) {

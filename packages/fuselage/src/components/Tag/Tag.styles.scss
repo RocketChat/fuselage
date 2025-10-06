@@ -2,6 +2,7 @@
 @use '../../styles/lengths.scss';
 @use '../../styles/typography.scss';
 @use '../../styles/mixins/templates.scss';
+@use '../../styles/mixins/interactivity.scss';
 
 $tag-colors-default-color: theme(
   'tag-colors-default-color',
@@ -166,7 +167,7 @@ $tag-colors-disabled-background-color: theme(
   @include templates.focus-state;
 
   &--clickable {
-    @include clickable;
+    @include interactivity.clickable;
     @include use-clickable-colors(
       $tag-colors-default-color,
       $tag-colors-default-hover-background-color

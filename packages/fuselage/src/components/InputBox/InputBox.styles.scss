@@ -1,5 +1,6 @@
 @use '../../styles/lengths.scss';
 @use '../../styles/typography.scss';
+@use '../../styles/mixins/interactivity.scss';
 
 .rcx-input-box__wrapper,
 %rcx-input-box {
@@ -40,7 +41,7 @@
 }
 
 .rcx-input-box__addon {
-  @include clickable;
+  @include interactivity.clickable;
 
   flex-flow: row nowrap;
 

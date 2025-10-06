@@ -1,7 +1,8 @@
 @use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
 @use '../../styles/typography.scss';
-@import '../../styles/mixins/all.scss';
+@use '../../styles/mixins/templates.scss';
+@use '../../styles/mixins/interactivity.scss';
 
 @import './SidebarFooter/SidebarFooter.styles.scss';
 @import './SidebarItem/SidebarItem.styles.scss';
@@ -145,8 +146,8 @@ $sidebar-banner-color-danger: theme(
       column-gap: lengths.padding(4);
 
       &[tabindex] {
-        @include clickable;
-        @include focus-state($shadow: false);
+        @include interactivity.clickable;
+        @include templates.focus-state($shadow: false);
 
         &.hover,
         &:hover {
@@ -267,7 +268,7 @@ $sidebar-banner-color-danger: theme(
 
     &__link {
       @include typography.use-font-scale(p2m);
-      @include clickable();
+      @include interactivity.clickable;
 
       display: inline-block;
 

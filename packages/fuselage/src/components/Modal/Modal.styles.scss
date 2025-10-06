@@ -1,6 +1,7 @@
 @use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
 @use '../../styles/typography.scss';
+@use '../../styles/mixins/breakpoints.scss';
 
 $modal-container-margin: theme('modal-container-margin', lengths.size(24));
 
@@ -107,7 +108,7 @@ $modal-margin: theme('modal-margin', auto);
     }
   }
 
-  @include on-breakpoint(sm) {
+  @include breakpoints.on-breakpoint(sm) {
     max-width: lengths.size(640);
     padding: lengths.padding(16);
   }

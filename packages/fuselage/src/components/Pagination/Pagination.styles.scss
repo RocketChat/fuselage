@@ -1,6 +1,8 @@
 @use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
 @use '../../styles/typography.scss';
+@use '../../styles/mixins/breakpoints.scss';
+@use '../../styles/mixins/interactivity.scss';
 
 .rcx-pagination {
   display: flex;
@@ -10,11 +12,11 @@
 
   padding: lengths.padding(12) lengths.padding(24);
 
-  @include on-breakpoint(sm) {
+  @include breakpoints.on-breakpoint(sm) {
     flex-direction: column;
   }
 
-  @include on-breakpoint(md) {
+  @include breakpoints.on-breakpoint(md) {
     flex-direction: row;
   }
 
@@ -53,11 +55,11 @@
 
   margin-inline-start: lengths.margin(none);
 
-  @include on-breakpoint(sm) {
+  @include breakpoints.on-breakpoint(sm) {
     margin-inline-start: auto;
   }
 
-  @include on-breakpoint(md) {
+  @include breakpoints.on-breakpoint(md) {
     margin-inline: lengths.margin(none) auto;
   }
 }
@@ -69,7 +71,7 @@
 
   margin-inline-start: lengths.margin(none);
 
-  @include on-breakpoint(sm) {
+  @include breakpoints.on-breakpoint(sm) {
     flex-flow: row nowrap;
     align-items: center;
 
@@ -103,7 +105,7 @@
 
 .rcx-pagination__link {
   @include typography.use-font-scale(c1);
-  @include clickable;
+  @include interactivity.clickable;
   display: inline-flex;
 
   color: colors.font(info);
@@ -126,7 +128,7 @@
 .rcx-pagination__back,
 .rcx-pagination__forward {
   @include typography.use-font-scale(c1);
-  @include clickable;
+  @include interactivity.clickable;
   display: inline-flex;
 
   color: colors.font(secondary-info);

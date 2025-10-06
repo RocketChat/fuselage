@@ -22,8 +22,8 @@
       @include button.kind-variant(buttonColors.$secondary);
     }
 
-    @include clickable;
-    @include click-animation;
+    @include interactivity.clickable;
+    @include interactivity.click-animation;
   }
 
   &__item {

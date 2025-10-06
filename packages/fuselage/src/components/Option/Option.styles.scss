@@ -1,6 +1,7 @@
 @use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
 @use '../../styles/typography.scss';
+@use '../../styles/mixins/interactivity.scss';
 
 $variants: (
   'success': colors.status-font(on-success),
@@ -16,7 +17,7 @@ $variants: (
 }
 
 .rcx-option {
-  @include clickable;
+  @include interactivity.clickable;
   @include typography.use-font-scale(p2);
 
   display: list-item;

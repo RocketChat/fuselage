@@ -1,6 +1,7 @@
 @use '../../styles/lengths.scss';
 @use '../../styles/colors.scss';
 @use '../../styles/typography.scss';
+@use '../../styles/mixins/interactivity.scss';
 
 $tabs-background-color: theme('tabs-background-color', transparent);
 $tabs-border-color: theme('tabs-border-color', transparent);
@@ -92,7 +93,7 @@ $tabs-disabled-selected-border-color: theme(
   border-color: transparent;
   background-color: transparent;
 
-  @include clickable;
+  @include interactivity.clickable;
   @include typography.use-font-scale(h4);
 
   &.hover,

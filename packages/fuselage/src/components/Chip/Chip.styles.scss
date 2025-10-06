@@ -3,6 +3,7 @@
 @use '../../styles/typography.scss';
 @use '../../styles/functions';
 @use '../../styles/primitives/button.scss';
+@use '../../styles/mixins/interactivity.scss';
 
 // to do: replace button with stroke
 
@@ -76,7 +77,7 @@ $chip-disabled-color: functions.theme(
     )
   );
 
-  @include clickable;
+  @include interactivity.clickable;
   @include typography.use-font-scale('p2');
 
   display: flex;

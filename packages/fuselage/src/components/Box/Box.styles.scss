@@ -1,3 +1,5 @@
+@use '../../styles/mixins/templates.scss';
+
 .rcx-box {
   @extend %box;
 
@@ -29,6 +31,6 @@
   }
 
   &--focusable {
-    @include focus-state();
+    @include templates.focus-state();
   }
 }
