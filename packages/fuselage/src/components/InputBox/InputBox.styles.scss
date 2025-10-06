@@ -1,6 +1,7 @@
 @use '../../styles/lengths.scss';
 @use '../../styles/typography.scss';
 @use '../../styles/mixins/interactivity.scss';
+@use '../../styles/variables/input-colors.scss';
 
 .rcx-input-box__wrapper,
 %rcx-input-box {
@@ -165,7 +166,7 @@
       color: transparent;
       background: transparent;
     }
-    -webkit-text-fill-color: $input-colors-color;
+    -webkit-text-fill-color: input-colors.$input-colors-color;
   }
 
   &--type-select {
@@ -220,28 +221,28 @@
   }
 
   @include with-colors(
-    $color: $input-colors-color,
-    $placeholder-color: $input-colors-placeholder-color,
-    $focus-caret-color: $input-colors-focus-caret-color,
-    $active-caret-color: $input-colors-active-caret-color,
-    $disabled-color: $input-colors-disabled-color
+    $color: input-colors.$input-colors-color,
+    $placeholder-color: input-colors.$input-colors-placeholder-color,
+    $focus-caret-color: input-colors.$input-colors-focus-caret-color,
+    $active-caret-color: input-colors.$input-colors-active-caret-color,
+    $disabled-color: input-colors.$input-colors-disabled-color
   );
 
   &:invalid,
   &.invalid {
     @include with-colors(
-      $color: $input-colors-invalid-color,
-      $placeholder-color: $input-colors-invalid-placeholder-color,
-      $focus-caret-color: $input-colors-invalid-focus-caret-color,
-      $active-caret-color: $input-colors-invalid-active-caret-color,
-      $disabled-color: $input-colors-invalid-disabled-color
+      $color: input-colors.$input-colors-invalid-color,
+      $placeholder-color: input-colors.$input-colors-invalid-placeholder-color,
+      $focus-caret-color: input-colors.$input-colors-invalid-focus-caret-color,
+      $active-caret-color: input-colors.$input-colors-invalid-active-caret-color,
+      $disabled-color: input-colors.$input-colors-invalid-disabled-color
     );
 
     @include with-icon-addon-colors(
-      $color: $input-colors-invalid-color,
-      $focus-caret-color: $input-colors-invalid-focus-caret-color,
-      $focus-icon-color: $input-colors-invalid-focus-icon-color,
-      $disabled-color: $input-colors-invalid-disabled-color
+      $color: input-colors.$input-colors-invalid-color,
+      $focus-caret-color: input-colors.$input-colors-invalid-focus-caret-color,
+      $focus-icon-color: input-colors.$input-colors-invalid-focus-icon-color,
+      $disabled-color: input-colors.$input-colors-invalid-disabled-color
     );
   }
 
@@ -252,10 +253,10 @@
   }
 
   @include with-icon-addon-colors(
-    $color: $input-colors-color,
-    $focus-caret-color: $input-colors-focus-caret-color,
-    $focus-icon-color: $input-colors-focus-icon-color,
-    $disabled-color: $input-colors-disabled-color
+    $color: input-colors.$input-colors-color,
+    $focus-caret-color: input-colors.$input-colors-focus-caret-color,
+    $focus-icon-color: input-colors.$input-colors-focus-icon-color,
+    $disabled-color: input-colors.$input-colors-disabled-color
   );
 
   *:disabled & + .rcx-input-box__addon,
@@ -279,7 +280,7 @@
   white-space: nowrap;
 
   @include typography.use-font-scale(p2m);
-  color: #{$input-colors-placeholder-color};
+  color: #{input-colors.$input-colors-placeholder-color};
 }
 
 .rcx-input-box__option {
@@ -287,7 +288,7 @@
   white-space: nowrap;
 
   @include typography.use-font-scale(p2m);
-  color: #{$input-colors-color};
+  color: #{input-colors.$input-colors-color};
 }
 
 .rcx-skeleton__input {
@@ -303,12 +304,12 @@
 
   vertical-align: baseline;
 
-  color: #{$input-colors-color};
+  color: #{input-colors.$input-colors-color};
 
   border-width: lengths.border-width(default);
-  border-color: #{$input-colors-border-color};
+  border-color: #{input-colors.$input-colors-border-color};
   border-radius: theme('input-border-radius', lengths.border-radius(medium));
-  background-color: #{$input-colors-background-color};
+  background-color: #{input-colors.$input-colors-background-color};
 
   @include typography.use-font-scale(p2m);
   @include typography.use-text-ellipsis;

@@ -1,118 +1,119 @@
 @use '../colors.scss';
+@use '../functions.scss';
 
-$input-colors-background-color: theme(
+$input-colors-background-color: functions.theme(
   'input-colors-background-color',
   colors.surface(light)
 );
 
-$input-colors-border-color: theme(
+$input-colors-border-color: functions.theme(
   'input-colors-border-color',
   colors.stroke(light)
 );
 
-$input-colors-color: theme('input-colors-color', colors.font(default));
+$input-colors-color: functions.theme('input-colors-color', colors.font(default));
 
-$input-colors-placeholder-color: theme(
+$input-colors-placeholder-color: functions.theme(
   'input-colors-placeholder-color',
   colors.font(annotation)
 );
 
-$input-colors-hover-border-color: theme(
+$input-colors-hover-border-color: functions.theme(
   'input-colors-hover-border-color',
   colors.stroke(light)
 );
-$input-colors-focus-border-color: theme(
+$input-colors-focus-border-color: functions.theme(
   'input-colors-focus-border-color',
   colors.stroke(highlight)
 );
-$input-colors-focus-shadow-color: theme(
+$input-colors-focus-shadow-color: functions.theme(
   'input-colors-focus-shadow-color',
   colors.shadow(highlight)
 );
 
-$input-colors-focus-icon-color: theme(
+$input-colors-focus-icon-color: functions.theme(
   'input-colors-focus-icon-color',
   colors.font(info)
 );
 
-$input-colors-focus-caret-color: theme(
+$input-colors-focus-caret-color: functions.theme(
   'input-colors-focus-caret-color',
   colors.font(info)
 );
-$input-colors-active-border-color: theme(
+$input-colors-active-border-color: functions.theme(
   'input-colors-active-border-color',
   colors.stroke(medium)
 );
-$input-colors-active-caret-color: theme(
+$input-colors-active-caret-color: functions.theme(
   'input-colors-active-caret-color',
   colors.stroke(medium)
 );
-$input-colors-disabled-background-color: theme(
+$input-colors-disabled-background-color: functions.theme(
   'input-colors-disabled-background-color',
   colors.surface(disabled)
 );
-$input-colors-disabled-border-color: theme(
+$input-colors-disabled-border-color: functions.theme(
   'input-colors-disabled-border-color',
   colors.stroke(light)
 );
-$input-colors-disabled-color: theme(
+$input-colors-disabled-color: functions.theme(
   'input-colors-disabled-color',
   colors.font(default)
 );
 
-$input-colors-invalid-background-color: theme(
+$input-colors-invalid-background-color: functions.theme(
   'input-colors-invalid-background-color',
   colors.surface(light)
 );
-$input-colors-invalid-border-color: theme(
+$input-colors-invalid-border-color: functions.theme(
   'input-colors-invalid-border-color',
   colors.stroke(danger)
 );
-$input-colors-invalid-color: theme(
+$input-colors-invalid-color: functions.theme(
   'input-colors-invalid-color',
   colors.font(danger)
 );
-$input-colors-invalid-placeholder-color: theme(
+$input-colors-invalid-placeholder-color: functions.theme(
   'input-colors-invalid-placeholder-color',
   colors.font(annotation)
 );
-$input-colors-invalid-hover-border-color: theme(
+$input-colors-invalid-hover-border-color: functions.theme(
   'input-colors-invalid-hover-border-color',
   colors.stroke(danger)
 );
-$input-colors-invalid-focus-border-color: theme(
+$input-colors-invalid-focus-border-color: functions.theme(
   'input-colors-invalid-focus-border-color',
   colors.stroke(danger)
 );
-$input-colors-invalid-focus-shadow-color: theme(
+$input-colors-invalid-focus-shadow-color: functions.theme(
   'input-colors-invalid-focus-shadow-color',
   colors.shadow(danger)
 );
-$input-colors-invalid-focus-caret-color: theme(
+$input-colors-invalid-focus-caret-color: functions.theme(
   'input-colors-invalid-focus-caret-color',
   colors.font(danger)
 );
-$input-colors-invalid-focus-icon-color: theme(
+$input-colors-invalid-focus-icon-color: functions.theme(
   'input-colors-invalid-focus-icon-color',
   colors.font(danger)
 );
-$input-colors-invalid-active-border-color: theme(
+$input-colors-invalid-active-border-color: functions.theme(
   'input-colors-invalid-active-border-color',
   colors.stroke(medium)
 );
-$input-colors-invalid-active-caret-color: theme(
+$input-colors-invalid-active-caret-color: functions.theme(
   'input-colors-invalid-active-caret-color',
   colors.font(annotation)
 );
-$input-colors-invalid-disabled-background-color: theme(
+$input-colors-invalid-disabled-background-color: functions.theme(
   'input-colors-invalid-disabled-background-color',
   colors.surface(disabled)
 );
-$input-colors-invalid-disabled-border-color: theme(
+$input-colors-invalid-disabled-border-color: functions.theme(
   'input-colors-invalid-disabled-border-color',
   colors.stroke(light)
 );
-$input-colors-invalid-disabled-color: theme(
+$input-colors-invalid-disabled-color: functions.theme(
   'input-colors-invalid-disabled-color',
   colors.font(default)
 );

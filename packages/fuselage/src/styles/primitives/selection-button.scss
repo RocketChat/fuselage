@@ -1,5 +1,6 @@
 @use '../lengths.scss';
 @use '../mixins/interactivity.scss';
+@use '../variables/input-colors.scss';
 
 %selection-button__input {
   @extend %--visually-hidden;
@@ -34,7 +35,7 @@
 %selection-button__fake--empty--focused {
   border-color: $button-empty-focus-border-color;
   background-color: $button-empty-focus-background-color;
-  @include use-focus-shadow($input-colors-focus-shadow-color);
+  @include use-focus-shadow(input-colors.$input-colors-focus-shadow-color);
 }
 
 %selection-button__fake--empty--disabled {
@@ -64,7 +65,7 @@
 %selection-button__fake--off--focused {
   border-color: $button-off-focus-border-color;
   background-color: $button-off-focus-background-color;
-  @include use-focus-shadow($input-colors-focus-shadow-color);
+  @include use-focus-shadow(input-colors.$input-colors-focus-shadow-color);
 }
 
 %selection-button__fake--off--disabled {
@@ -94,7 +95,7 @@
 %selection-button__fake--primary--focused {
   border-color: $button-primary-focus-border-color;
   background-color: $button-primary-focus-background-color;
-  @include use-focus-shadow($input-colors-focus-shadow-color);
+  @include use-focus-shadow(input-colors.$input-colors-focus-shadow-color);
 }
 
 %selection-button__fake--primary--disabled {

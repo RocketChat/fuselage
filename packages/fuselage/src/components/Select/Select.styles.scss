@@ -1,6 +1,7 @@
 @use '../../styles/lengths.scss';
 @use '../../styles/typography.scss';
 @use '../../styles/mixins/interactivity.scss';
+@use '../../styles/variables/input-colors.scss';
 
 .rcx-select {
   @extend %rcx-input-box;
@@ -72,18 +73,18 @@
   &:invalid,
   &.invalid {
     @include with-colors(
-      $color: $input-colors-invalid-color,
-      $placeholder-color: $input-colors-invalid-placeholder-color,
-      $focus-caret-color: $input-colors-invalid-focus-caret-color,
-      $active-caret-color: $input-colors-invalid-active-caret-color,
-      $disabled-color: $input-colors-invalid-disabled-color
+      $color: input-colors.$input-colors-invalid-color,
+      $placeholder-color: input-colors.$input-colors-invalid-placeholder-color,
+      $focus-caret-color: input-colors.$input-colors-invalid-focus-caret-color,
+      $active-caret-color: input-colors.$input-colors-invalid-active-caret-color,
+      $disabled-color: input-colors.$input-colors-invalid-disabled-color
     );
 
     @include with-icon-addon-colors(
-      $color: $input-colors-invalid-color,
-      $focus-caret-color: $input-colors-invalid-focus-caret-color,
-      $focus-icon-color: $input-colors-invalid-focus-icon-color,
-      $disabled-color: $input-colors-invalid-disabled-color
+      $color: input-colors.$input-colors-invalid-color,
+      $focus-caret-color: input-colors.$input-colors-invalid-focus-caret-color,
+      $focus-icon-color: input-colors.$input-colors-invalid-focus-icon-color,
+      $disabled-color: input-colors.$input-colors-invalid-disabled-color
     );
   }
 }
