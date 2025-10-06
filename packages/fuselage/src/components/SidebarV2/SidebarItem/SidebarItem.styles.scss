@@ -1,19 +1,21 @@
 @use '../../../styles/colors.scss';
+@use '../../../styles/functions.scss';
 @use '../../../styles/lengths.scss';
 @use '../../../styles/typography.scss';
-@use '../../../styles/mixins/templates.scss';
 @use '../../../styles/mixins/interactivity.scss';
+@use '../../../styles/mixins/states.scss';
+@use '../../../styles/mixins/templates.scss';
 
-$sidebar-color-surface-hover: theme(
+$sidebar-color-surface-hover: functions.theme(
   'sidebar-color-surface-hover',
   colors.surface(hover)
 );
-$sidebar-color-surface-selected: theme(
+$sidebar-color-surface-selected: functions.theme(
   'sidebar-color-surface-selected',
   colors.surface(selected)
 );
 
-$sidebar-color-font-active: theme(
+$sidebar-color-font-active: functions.theme(
   'sidebar-color-font-active',
   colors.font(titles-labels)
 );
@@ -32,7 +34,7 @@ $sidebar-color-font-active: theme(
 
 %sidebar-item-clickable {
   @include interactivity.clickable;
-  @include on-hover {
+  @include states.on-hover {
     background-color: $sidebar-color-surface-hover;
   }
 }

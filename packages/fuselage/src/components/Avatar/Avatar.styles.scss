@@ -1,9 +1,9 @@
 @use '../../styles/colors.scss';
-@use '../../styles/lengths.scss';
 @use '../../styles/functions.scss';
+@use '../../styles/lengths.scss';
 @use '../../styles/mixins/size.scss';
 
-$avatar-stack-background-color: theme(
+$avatar-stack-background-color: functions.theme(
   'avatar-background-color',
   colors.surface(light)
 );
@@ -29,17 +29,17 @@ $sizes: 16, 18, 20, 24, 28, 32, 36, 40, 48, 124, 200, 332;
     @each $size in $sizes {
       &--x#{$size} {
         @if $size <= 18 {
-          border-radius: theme(
+          border-radius: functions.theme(
             'avatar-border-radius-#{$size}',
             lengths.border-radius(small)
           );
         } @else if $size == 332 {
-          border-radius: theme(
+          border-radius: functions.theme(
             'avatar-border-radius-#{$size}',
             lengths.border-radius(large)
           );
         } @else {
-          border-radius: theme(
+          border-radius: functions.theme(
             'avatar-border-radius-#{$size}',
             lengths.border-radius(medium)
           );
@@ -52,7 +52,7 @@ $sizes: 16, 18, 20, 24, 28, 32, 36, 40, 48, 124, 200, 332;
     }
 
     &--rounded {
-      border-radius: theme(
+      border-radius: functions.theme(
         'avatar-border-radius-rounded',
         lengths.border-radius(full)
       );

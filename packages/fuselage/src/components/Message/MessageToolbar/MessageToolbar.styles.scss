@@ -1,5 +1,6 @@
-@use '../../../styles/lengths.scss';
 @use '../../../styles/colors.scss';
+@use '../../../styles/functions.scss';
+@use '../../../styles/lengths.scss';
 @use '../../../styles/typography.scss';
 @use '../mixins.scss';
 
@@ -8,7 +9,7 @@
   padding: lengths.padding(2);
 
   border: lengths.border-width(default) solid colors.stroke(extra-light);
-  border-radius: theme(
+  border-radius: functions.theme(
     'message-toolbar-border-radius',
     lengths.border-radius(medium)
   );

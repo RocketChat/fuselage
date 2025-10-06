@@ -1,51 +1,54 @@
-@use '../../styles/lengths.scss';
 @use '../../styles/colors.scss';
+@use '../../styles/functions.scss';
+@use '../../styles/lengths.scss';
 @use '../../styles/typography.scss';
 @use '../../styles/mixins/interactivity.scss';
+@use '../../styles/mixins/shadows.scss';
+@use '../../styles/mixins/states.scss';
 
-$tabs-background-color: theme('tabs-background-color', transparent);
-$tabs-border-color: theme('tabs-border-color', transparent);
-$tabs-color: theme('tabs-color', colors.font(hint));
+$tabs-background-color: functions.theme('tabs-background-color', transparent);
+$tabs-border-color: functions.theme('tabs-border-color', transparent);
+$tabs-color: functions.theme('tabs-color', colors.font(hint));
 
-$tabs-hover-color: theme('tabs-hover-border-color', colors.font(default));
+$tabs-hover-color: functions.theme('tabs-hover-border-color', colors.font(default));
 
-$tabs-selected-color: theme('tabs-selected-color', colors.font(info));
-$tabs-selected-border-color: theme(
+$tabs-selected-color: functions.theme('tabs-selected-color', colors.font(info));
+$tabs-selected-border-color: functions.theme(
   'tabs-selected-border-color',
   colors.font(info)
 );
-$tabs-hover-selected-color: theme(
+$tabs-hover-selected-color: functions.theme(
   'tabs-hover-selected-color',
   colors.button(primary-hover)
 );
-$tabs-hover-selected-border-color: theme(
+$tabs-hover-selected-border-color: functions.theme(
   'tabs-hover-selected-border-color',
   colors.button(primary-hover)
 );
-$tabs-active-color: theme('tabs-active-color', colors.font(titles-labels));
+$tabs-active-color: functions.theme('tabs-active-color', colors.font(titles-labels));
 
-$tabs-active-selected-color: theme(
+$tabs-active-selected-color: functions.theme(
   'tabs-active-selected-color',
   colors.button(primary-press)
 );
-$tabs-active-selected-border-color: theme(
+$tabs-active-selected-border-color: functions.theme(
   'tabs-active-selected-border-color',
   colors.button(primary-press)
 );
-$tabs-focus-border-color: theme(
+$tabs-focus-border-color: functions.theme(
   'tabs-focus-border-color',
   colors.button(primary-default)
 );
-$tabs-focus-shadow-color: theme(
+$tabs-focus-shadow-color: functions.theme(
   'tabs-focus-shadow-color',
   colors.stroke(extra-light-highlight)
 );
-$tabs-disabled-color: theme('tabs-disabled-color', colors.font(disabled));
-$tabs-disabled-selected-color: theme(
+$tabs-disabled-color: functions.theme('tabs-disabled-color', colors.font(disabled));
+$tabs-disabled-selected-color: functions.theme(
   'tabs-disabled-selected-color',
   colors.status-background(info)
 );
-$tabs-disabled-selected-border-color: theme(
+$tabs-disabled-selected-border-color: functions.theme(
   'tabs-disabled-selected-border-color',
   colors.status-background(info)
 );
@@ -110,11 +113,11 @@ $tabs-disabled-selected-border-color: theme(
     border-block-end-width: lengths.border-width(4);
   }
 
-  @include on-focus-visible {
+  @include states.on-focus-visible {
     border-color: $tabs-focus-border-color;
-    border-radius: theme('tabs-border-radius', lengths.border-radius(medium));
+    border-radius: functions.theme('tabs-border-radius', lengths.border-radius(medium));
 
-    @include use-button-focus-shadow($tabs-focus-shadow-color);
+    @include shadows.use-button-focus-shadow($tabs-focus-shadow-color);
   }
 
   &--disabled {

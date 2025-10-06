@@ -4,6 +4,7 @@
 @use '../../styles/functions';
 @use '../../styles/primitives/button.scss';
 @use '../../styles/mixins/interactivity.scss';
+@use '../../styles/variables/button-colors.scss';
 
 // to do: replace button with stroke
 
@@ -90,9 +91,9 @@ $chip-disabled-color: functions.theme(
 
   &.disabled,
   &:disabled {
-    color: $button-secondary-color;
-    border-color: $button-secondary-border-color;
-    background-color: $button-secondary-background-color;
+    color: button-colors.$button-secondary-color;
+    border-color: button-colors.$button-secondary-border-color;
+    background-color: button-colors.$button-secondary-background-color;
   }
 
   &__text {

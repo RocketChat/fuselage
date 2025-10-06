@@ -1,3 +1,4 @@
+@use '../functions.scss';
 @use '../lengths.scss';
 @use '../mixins/shadows.scss';
 @use '../mixins/states.scss';
@@ -16,7 +17,7 @@
   border-width: lengths.border-width(default);
 
   border-color: #{$border-color};
-  border-radius: theme('input-border-radius', lengths.border-radius(medium));
+  border-radius: functions.theme('input-border-radius', lengths.border-radius(medium));
   background-color: #{$background-color};
   @include shadows.use-no-shadow;
 

@@ -1,4 +1,5 @@
 @use '../../styles/colors.scss';
+@use '../../styles/functions.scss';
 @use '../../styles/lengths.scss';
 @use '../../styles/typography.scss';
 @use '../../styles/mixins/breakpoints.scss';
@@ -33,7 +34,7 @@
 
       content: '';
 
-      border-radius: theme(
+      border-radius: functions.theme(
         'pagination-border-radius',
         lengths.border-radius(small)
       );

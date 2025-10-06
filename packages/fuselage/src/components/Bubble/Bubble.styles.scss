@@ -2,9 +2,10 @@
 @use '../../styles/lengths.scss';
 @use '../../styles/typography.scss';
 
-@use '../../styles/variables/buttons.scss' as buttonColors;
 @use '../../styles/primitives/button.scss';
 @use '../../styles/mixins/interactivity.scss';
+@use '../../styles/variables/buttons.scss';
+@use '../../styles/variables/button-colors.scss';
 
 .rcx-bubble {
   display: flex;
@@ -15,11 +16,11 @@
 
   &__button {
     &--primary {
-      @include button.kind-variant(buttonColors.$primary);
+      @include button.kind-variant(buttons.$primary);
     }
 
     &--secondary {
-      @include button.kind-variant(buttonColors.$secondary);
+      @include button.kind-variant(buttons.$secondary);
     }
 
     @include interactivity.clickable;
@@ -28,13 +29,13 @@
 
   &__item {
     &--primary {
-      color: buttonColors.$button-primary-color;
-      background-color: buttonColors.$button-primary-background-color;
+      color: button-colors.$button-primary-color;
+      background-color: button-colors.$button-primary-background-color;
     }
 
     &--secondary {
-      color: buttonColors.$button-secondary-color;
-      background-color: buttonColors.$button-secondary-background-color;
+      color: button-colors.$button-secondary-color;
+      background-color: button-colors.$button-secondary-background-color;
     }
   }
 

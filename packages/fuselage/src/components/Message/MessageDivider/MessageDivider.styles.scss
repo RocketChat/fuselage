@@ -1,33 +1,34 @@
 @use '../../../styles/colors.scss';
+@use '../../../styles/functions.scss';
 @use '../../../styles/lengths.scss';
 @use '../../../styles/typography.scss';
 
-$message-background-color: theme(
+$message-background-color: functions.theme(
   'message-background-color',
   colors.surface(room)
 );
 
-$message-divider-background-color: theme(
+$message-divider-background-color: functions.theme(
   'message-divider-background-color',
   colors.stroke(extra-light)
 );
-$message-divider-color: theme('message-divider-color', colors.font(default));
+$message-divider-color: functions.theme('message-divider-color', colors.font(default));
 
-$message-divider-color-unread: theme(
+$message-divider-color-unread: functions.theme(
   'message-divider-color-unread',
   colors.font(danger)
 );
-$message-divider-background-color-unread: theme(
+$message-divider-background-color-unread: functions.theme(
   'message-divider-background-color-unread',
   colors.stroke(error)
 );
 
-$message-divider-size: theme(
+$message-divider-size: functions.theme(
   'message-divider-size',
   lengths.border-width(default)
 );
 
-$message-divider-size-neg: theme(
+$message-divider-size-neg: functions.theme(
   'message-divider-size-neg',
   lengths.margin(-1)
 );

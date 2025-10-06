@@ -1,6 +1,7 @@
 @use 'sass:math';
 @use '~@rocket.chat/fuselage-tokens/breakpoints.scss';
 @use '../../styles/mixins/breakpoints.scss' as breakpoints-mixins;
+@use '../../styles/functions.scss';
 
 $breakpoint-names: map-keys(breakpoints.$breakpoints);
 
@@ -25,7 +26,7 @@ $breakpoint-names: map-keys(breakpoints.$breakpoints);
   @each $breakpoint-name in $breakpoint-names {
     @include when-item-is-on-breakpoint($breakpoint-name) {
       margin-block: calc(
-        #{to-rem(
+        #{functions.to-rem(
             map-get(
               map-get(breakpoints.$breakpoints, $breakpoint-name),
               gutter-width
@@ -34,7 +35,7 @@ $breakpoint-names: map-keys(breakpoints.$breakpoints);
           -2
       );
       margin-inline: calc(
-        #{to-rem(
+        #{functions.to-rem(
             map-get(
               map-get(breakpoints.$breakpoints, $breakpoint-name),
               gutter-width
@@ -52,7 +53,7 @@ $breakpoint-names: map-keys(breakpoints.$breakpoints);
   @each $breakpoint-name in $breakpoint-names {
     @include when-item-is-on-breakpoint($breakpoint-name) {
       padding-block: calc(
-        #{to-rem(
+        #{functions.to-rem(
             map-get(
               map-get(breakpoints.$breakpoints, $breakpoint-name),
               gutter-width
@@ -61,7 +62,7 @@ $breakpoint-names: map-keys(breakpoints.$breakpoints);
           2
       );
       padding-inline: calc(
-        #{to-rem(
+        #{functions.to-rem(
             map-get(
               map-get(breakpoints.$breakpoints, $breakpoint-name),
               gutter-width
