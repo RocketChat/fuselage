@@ -22,6 +22,6 @@ beforeAll(() => {
   window.ResizeObserver = ResizeObserverMock;
 });
 
-global.TextEncoder = TextEncoder;
+Object.assign(globalThis, { TextEncoder });
 
 expect.extend(toHaveNoViolations);

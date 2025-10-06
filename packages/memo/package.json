@@ -43,14 +43,14 @@
     ]
   },
   "devDependencies": {
-    "eslint": "~9.29.0",
-    "jest": "~30.0.0",
+    "eslint": "~9.37.0",
+    "jest": "~30.2.0",
     "lint-all": "workspace:~",
-    "prettier": "~3.5.3",
+    "prettier": "~3.6.2",
     "rimraf": "~6.0.1",
-    "ts-jest": "~29.4.0",
-    "typedoc": "~0.28.7",
-    "typescript": "~5.8.3"
+    "ts-jest": "~29.4.4",
+    "typedoc": "~0.28.13",
+    "typescript": "~5.9.3"
   },
   "publishConfig": {
     "access": "public"
