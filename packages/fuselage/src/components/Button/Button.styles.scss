@@ -5,7 +5,7 @@
 @use '../../styles/primitives/button.scss';
 @use '../../styles/mixins/size.scss';
 @use '../../styles/mixins/interactivity.scss';
-@import '../../styles/mixins/states.scss';
+@use '../../styles/mixins/states.scss';
 
 .rcx-button {
   @mixin with-rectangular-size($height, $padding-x, $line-height) {
