@@ -77,7 +77,6 @@
   "peerDependencies": {
     "@rocket.chat/fuselage": "*",
     "@rocket.chat/fuselage-hooks": "*",
-    "@rocket.chat/fuselage-polyfills": "*",
     "@rocket.chat/styled": "*",
     "react": "*",
     "react-dom": "*"

@@ -53,7 +53,6 @@
     "@babel/preset-env": "~7.28.3",
     "@babel/preset-react": "~7.27.1",
     "@rocket.chat/fuselage-hooks": "workspace:~",
-    "@rocket.chat/fuselage-polyfills": "workspace:~",
     "@rocket.chat/icons": "workspace:~",
     "@storybook/addon-a11y": "~9.1.10",
     "@storybook/addon-docs": "~9.1.10",
@@ -117,7 +116,6 @@
   },
   "peerDependencies": {
     "@rocket.chat/fuselage-hooks": "*",
-    "@rocket.chat/fuselage-polyfills": "*",
     "@rocket.chat/icons": "*",
     "react": "*",
     "react-dom": "*",
