@@ -21,7 +21,6 @@
     "lint-and-fix": "lint-and-fix"
   },
   "dependencies": {
-    "clipboard-polyfill": "^4.1.1",
     "element-closest-polyfill": "^1.0.7",
     "new-event-polyfill": "^1.0.1"
   },

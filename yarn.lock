@@ -5374,7 +5374,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@rocket.chat/fuselage-polyfills@workspace:packages/fuselage-polyfills"
   dependencies:
-    clipboard-polyfill: "npm:^4.1.1"
     element-closest-polyfill: "npm:^1.0.7"
     eslint: "npm:~9.37.0"
     lint-all: "workspace:~"
@@ -9139,13 +9138,6 @@ __metadata:
   version: 2.9.2
   resolution: "cli-spinners@npm:2.9.2"
   checksum: 10/a0a863f442df35ed7294424f5491fa1756bd8d2e4ff0c8736531d886cec0ece4d85e8663b77a5afaf1d296e3cbbebff92e2e99f52bbea89b667cbe789b994794
-  languageName: node
-  linkType: hard
-
-"clipboard-polyfill@npm:^4.1.1":
-  version: 4.1.1
-  resolution: "clipboard-polyfill@npm:4.1.1"
-  checksum: 10/5e1f901709ab8eaa1e3fda377c51946f76953ed79dbdb063490cc267ce4d4969566019d60dabf8d4b1e7246b684a05f05d77f37444c66f7b6c1a292c7d2d1c6e
   languageName: node
   linkType: hard
 
