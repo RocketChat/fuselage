@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
-require('focus-visible');
 window.ResizeObserver =
   window.ResizeObserver || require('@juggle/resize-observer').ResizeObserver;
 
