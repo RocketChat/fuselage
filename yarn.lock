@@ -5386,7 +5386,6 @@ __metadata:
     element-closest-polyfill: "npm:^1.0.7"
     eslint: "npm:~9.37.0"
     focus-visible: "npm:^5.2.1"
-    focus-within-polyfill: "npm:^5.2.1"
     lint-all: "workspace:~"
     new-event-polyfill: "npm:^1.0.1"
     prettier: "npm:~3.6.2"
@@ -11546,13 +11545,6 @@ __metadata:
   version: 5.2.1
   resolution: "focus-visible@npm:5.2.1"
   checksum: 10/b42a900fbccc05497b48a537b73c2ec41a209376f3df06ae908e151703921d0e62ae704a2e3a87bf86208e7f36a88fa3a672abdd629b5d7a6861c9ee3a399dca
-  languageName: node
-  linkType: hard
-
-"focus-within-polyfill@npm:^5.2.1":
-  version: 5.2.1
-  resolution: "focus-within-polyfill@npm:5.2.1"
-  checksum: 10/fe7ce8715791b7778134e23a01ece66e52078b0a88285322b97079b345fe5ee30376680e07914721a23d1abcfd03e947931e69c561a27a50c642cbaa403a34fd
   languageName: node
   linkType: hard
 

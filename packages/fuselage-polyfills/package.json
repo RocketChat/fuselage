@@ -25,7 +25,6 @@
     "clipboard-polyfill": "^4.1.1",
     "element-closest-polyfill": "^1.0.7",
     "focus-visible": "^5.2.1",
-    "focus-within-polyfill": "^5.2.1",
     "new-event-polyfill": "^1.0.1"
   },
   "devDependencies": {

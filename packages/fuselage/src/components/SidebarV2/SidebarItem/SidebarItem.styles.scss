@@ -163,7 +163,6 @@ $sidebar-color-font-active: theme(
   }
 
   &:hover &__menu-wrapper,
-  &.focus-within &__menu-wrapper,
   &:focus-within &__menu-wrapper {
     display: flex;
     align-items: center;
