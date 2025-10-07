@@ -5374,7 +5374,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@rocket.chat/fuselage-polyfills@workspace:packages/fuselage-polyfills"
   dependencies:
-    element-closest-polyfill: "npm:^1.0.7"
     eslint: "npm:~9.37.0"
     lint-all: "workspace:~"
     new-event-polyfill: "npm:^1.0.1"
@@ -10291,13 +10290,6 @@ __metadata:
   version: 1.5.105
   resolution: "electron-to-chromium@npm:1.5.105"
   checksum: 10/e89768e86b49024210bdf066563b7700e6e2dd9a5dd82738adfc509b2bfe882e34c9645829d7e8d5866b2a7191a74682365a25c0775b89b7026c4bda7ef14b58
-  languageName: node
-  linkType: hard
-
-"element-closest-polyfill@npm:^1.0.7":
-  version: 1.0.7
-  resolution: "element-closest-polyfill@npm:1.0.7"
-  checksum: 10/4b86bd9b84739ff604020edd1e5985a942cfb18632376fc16a4c5840e1258091aba492cd9042536b5f208aca8d1da6537fe690231a6629ccef56520d1a510eeb
   languageName: node
   linkType: hard
 
