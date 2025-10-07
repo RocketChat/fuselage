@@ -21,7 +21,6 @@
     "lint-and-fix": "lint-and-fix"
   },
   "dependencies": {
-    "@juggle/resize-observer": "^3.4.0",
     "clipboard-polyfill": "^4.1.1",
     "element-closest-polyfill": "^1.0.7",
     "new-event-polyfill": "^1.0.1"

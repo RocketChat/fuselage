@@ -3329,13 +3329,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@juggle/resize-observer@npm:^3.4.0":
-  version: 3.4.0
-  resolution: "@juggle/resize-observer@npm:3.4.0"
-  checksum: 10/73d1d00ee9132fb6f0aea0531940a6b93603e935590bd450fc6285a328d906102eeeb95dea77b2edac0e779031a9708aa8c82502bd298ee4dd26e7dff48f397a
-  languageName: node
-  linkType: hard
-
 "@keyv/bigmap@npm:^1.0.2":
   version: 1.0.2
   resolution: "@keyv/bigmap@npm:1.0.2"
@@ -5381,7 +5374,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@rocket.chat/fuselage-polyfills@workspace:packages/fuselage-polyfills"
   dependencies:
-    "@juggle/resize-observer": "npm:^3.4.0"
     clipboard-polyfill: "npm:^4.1.1"
     element-closest-polyfill: "npm:^1.0.7"
     eslint: "npm:~9.37.0"
