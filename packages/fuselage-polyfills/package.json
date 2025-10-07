@@ -20,9 +20,6 @@
     "lint": "lint",
     "lint-and-fix": "lint-and-fix"
   },
-  "dependencies": {
-    "new-event-polyfill": "^1.0.1"
-  },
   "devDependencies": {
     "eslint": "~9.37.0",
     "lint-all": "workspace:~",

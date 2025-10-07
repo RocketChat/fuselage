@@ -5376,7 +5376,6 @@ __metadata:
   dependencies:
     eslint: "npm:~9.37.0"
     lint-all: "workspace:~"
-    new-event-polyfill: "npm:^1.0.1"
     prettier: "npm:~3.6.2"
   languageName: unknown
   linkType: soft
@@ -15272,13 +15271,6 @@ __metadata:
   version: 2.6.2
   resolution: "neo-async@npm:2.6.2"
   checksum: 10/1a7948fea86f2b33ec766bc899c88796a51ba76a4afc9026764aedc6e7cde692a09067031e4a1bf6db4f978ccd99e7f5b6c03fe47ad9865c3d4f99050d67e002
-  languageName: node
-  linkType: hard
-
-"new-event-polyfill@npm:^1.0.1":
-  version: 1.0.1
-  resolution: "new-event-polyfill@npm:1.0.1"
-  checksum: 10/4c58d2b0505132b2b75d47d82e6ce4f11839f9fa13f89c22bc9cbfe6a60e18df6046b86da5bc8699dae3077beb3a9e503e76bc56a797b76379db07b44bb6952c
   languageName: node
   linkType: hard
 
