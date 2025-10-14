@@ -4,7 +4,7 @@ import { action } from 'storybook/actions';
 
 import Box from '../Box';
 import Button from '../Button';
-import Field, { FieldLabel, FieldRow } from '../Field';
+import { Field, FieldLabel, FieldRow } from '../Field';
 import { FieldGroup } from '../FieldGroup';
 import { TextInput } from '../TextInput';
 
