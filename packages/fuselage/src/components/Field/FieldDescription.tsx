@@ -5,9 +5,9 @@ import Box from '../Box';
 
 import { FieldContext } from './Field';
 
-type FieldDescriptionProps = ComponentPropsWithoutRef<typeof Box>;
+export type FieldDescriptionProps = ComponentPropsWithoutRef<typeof Box>;
 
-export const FieldDescription = (props: FieldDescriptionProps) => {
+const FieldDescription = (props: FieldDescriptionProps) => {
   const component = <Box is='span' rcx-field__description {...props} />;
 
   if (process.env.NODE_ENV === 'development') {
@@ -24,3 +24,5 @@ export const FieldDescription = (props: FieldDescriptionProps) => {
 
   return component;
 };
+
+export default FieldDescription;

@@ -5,9 +5,9 @@ import Box from '../Box';
 
 import { FieldContext } from './Field';
 
-type FieldHintProps = ComponentPropsWithoutRef<typeof Box>;
+export type FieldHintProps = ComponentPropsWithoutRef<typeof Box>;
 
-export const FieldHint = (props: FieldHintProps) => {
+const FieldHint = (props: FieldHintProps) => {
   const component = <Box is='span' rcx-field__hint {...props} />;
 
   if (process.env.NODE_ENV === 'development') {
@@ -24,3 +24,5 @@ export const FieldHint = (props: FieldHintProps) => {
 
   return component;
 };
+
+export default FieldHint;
