@@ -60,7 +60,10 @@
     &--mine {
       color: functions.theme('message-reaction-color', colors.font(default));
       border-width: lengths.border-width(default);
-      border-color: functions.theme('message-reaction-border-color', colors.stroke(dark));
+      border-color: functions.theme(
+        'message-reaction-border-color',
+        colors.stroke(dark)
+      );
       background-color: functions.theme(
         'message-reaction-background-color',
         colors.surface(selected)

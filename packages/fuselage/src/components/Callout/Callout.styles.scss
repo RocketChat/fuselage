@@ -11,7 +11,10 @@ $callout-default-color: functions.theme(
   'callout-default-color',
   colors.font(secondary-info)
 );
-$callout-info-color: functions.theme('callout-info-color', colors.status-font(on-info));
+$callout-info-color: functions.theme(
+  'callout-info-color',
+  colors.status-font(on-info)
+);
 $callout-success-color: functions.theme(
   'callout-success-color',
   colors.status-font(on-success)
@@ -24,7 +27,10 @@ $callout-danger-color: functions.theme(
   'callout-danger-color',
   colors.status-font(on-danger)
 );
-$callout-text-color: functions.theme('callout-text-color', colors.font(default));
+$callout-text-color: functions.theme(
+  'callout-text-color',
+  colors.font(default)
+);
 
 .rcx-callout {
   display: flex;
@@ -37,7 +43,10 @@ $callout-text-color: functions.theme('callout-text-color', colors.font(default))
   border-style: solid;
   border-color: $callout-default-color;
 
-  border-radius: functions.theme('callout-border-radius', lengths.border-radius(medium));
+  border-radius: functions.theme(
+    'callout-border-radius',
+    lengths.border-radius(medium)
+  );
 
   background-color: $callout-background-color;
 

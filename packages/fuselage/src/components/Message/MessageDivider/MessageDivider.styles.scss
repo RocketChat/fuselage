@@ -12,7 +12,10 @@ $message-divider-background-color: functions.theme(
   'message-divider-background-color',
   colors.stroke(extra-light)
 );
-$message-divider-color: functions.theme('message-divider-color', colors.font(default));
+$message-divider-color: functions.theme(
+  'message-divider-color',
+  colors.font(default)
+);
 
 $message-divider-color-unread: functions.theme(
   'message-divider-color-unread',

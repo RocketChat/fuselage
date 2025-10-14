@@ -309,7 +309,10 @@
 
   border-width: lengths.border-width(default);
   border-color: #{input-colors.$input-colors-border-color};
-  border-radius: functions.theme('input-border-radius', lengths.border-radius(medium));
+  border-radius: functions.theme(
+    'input-border-radius',
+    lengths.border-radius(medium)
+  );
   background-color: #{input-colors.$input-colors-background-color};
 
   @include typography.use-font-scale(p2m);

@@ -10,7 +10,10 @@ $tabs-background-color: functions.theme('tabs-background-color', transparent);
 $tabs-border-color: functions.theme('tabs-border-color', transparent);
 $tabs-color: functions.theme('tabs-color', colors.font(hint));
 
-$tabs-hover-color: functions.theme('tabs-hover-border-color', colors.font(default));
+$tabs-hover-color: functions.theme(
+  'tabs-hover-border-color',
+  colors.font(default)
+);
 
 $tabs-selected-color: functions.theme('tabs-selected-color', colors.font(info));
 $tabs-selected-border-color: functions.theme(
@@ -25,7 +28,10 @@ $tabs-hover-selected-border-color: functions.theme(
   'tabs-hover-selected-border-color',
   colors.button(primary-hover)
 );
-$tabs-active-color: functions.theme('tabs-active-color', colors.font(titles-labels));
+$tabs-active-color: functions.theme(
+  'tabs-active-color',
+  colors.font(titles-labels)
+);
 
 $tabs-active-selected-color: functions.theme(
   'tabs-active-selected-color',
@@ -43,7 +49,10 @@ $tabs-focus-shadow-color: functions.theme(
   'tabs-focus-shadow-color',
   colors.stroke(extra-light-highlight)
 );
-$tabs-disabled-color: functions.theme('tabs-disabled-color', colors.font(disabled));
+$tabs-disabled-color: functions.theme(
+  'tabs-disabled-color',
+  colors.font(disabled)
+);
 $tabs-disabled-selected-color: functions.theme(
   'tabs-disabled-selected-color',
   colors.status-background(info)
@@ -115,7 +124,10 @@ $tabs-disabled-selected-border-color: functions.theme(
 
   @include states.on-focus-visible {
     border-color: $tabs-focus-border-color;
-    border-radius: functions.theme('tabs-border-radius', lengths.border-radius(medium));
+    border-radius: functions.theme(
+      'tabs-border-radius',
+      lengths.border-radius(medium)
+    );
 
     @include shadows.use-button-focus-shadow($tabs-focus-shadow-color);
   }

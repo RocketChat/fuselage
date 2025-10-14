@@ -10,7 +10,10 @@ $button-primary-border-color: functions.theme(
   'button-primary-border-color',
   colors.button(primary-default)
 );
-$button-primary-color: functions.theme('button-primary-color', colors.button(on-primary));
+$button-primary-color: functions.theme(
+  'button-primary-color',
+  colors.button(on-primary)
+);
 $button-primary-hover-background-color: functions.theme(
   'button-primary-hover-background-color',
   colors.button(primary-hover)
@@ -115,7 +118,10 @@ $button-danger-border-color: functions.theme(
   'button-danger-border-color',
   colors.button(danger-default)
 );
-$button-danger-color: functions.theme('button-danger-color', colors.button(on-danger));
+$button-danger-color: functions.theme(
+  'button-danger-color',
+  colors.button(on-danger)
+);
 $button-danger-hover-background-color: functions.theme(
   'button-danger-hover-background-color',
   colors.button(danger-hover)
@@ -220,7 +226,10 @@ $button-warning-border-color: functions.theme(
   'button-warning-border-color',
   colors.button(warning-default)
 );
-$button-warning-color: functions.theme('button-warning-color', colors.button(on-warning));
+$button-warning-color: functions.theme(
+  'button-warning-color',
+  colors.button(on-warning)
+);
 $button-warning-hover-background-color: functions.theme(
   'button-warning-hover-background-color',
   colors.button(warning-hover)
@@ -325,7 +334,10 @@ $button-success-border-color: functions.theme(
   'button-success-border-color',
   colors.button(success-default)
 );
-$button-success-color: functions.theme('button-success-color', colors.button(on-success));
+$button-success-color: functions.theme(
+  'button-success-color',
+  colors.button(on-success)
+);
 $button-success-hover-background-color: functions.theme(
   'button-success-hover-background-color',
   colors.button(success-hover)

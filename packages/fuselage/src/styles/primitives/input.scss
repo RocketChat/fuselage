@@ -17,7 +17,10 @@
   border-width: lengths.border-width(default);
 
   border-color: #{$border-color};
-  border-radius: functions.theme('input-border-radius', lengths.border-radius(medium));
+  border-radius: functions.theme(
+    'input-border-radius',
+    lengths.border-radius(medium)
+  );
   background-color: #{$background-color};
   @include shadows.use-no-shadow;
 
@@ -49,7 +52,8 @@
     $focus-border-color: input-colors.$input-colors-focus-border-color,
     $focus-shadow-color: input-colors.$input-colors-focus-shadow-color,
     $active-border-color: input-colors.$input-colors-active-border-color,
-    $disabled-background-color: input-colors.$input-colors-disabled-background-color,
+    $disabled-background-color:
+      input-colors.$input-colors-disabled-background-color,
     $disabled-border-color: input-colors.$input-colors-disabled-border-color
   );
 }
@@ -62,7 +66,9 @@
     $focus-border-color: input-colors.$input-colors-invalid-focus-border-color,
     $focus-shadow-color: input-colors.$input-colors-invalid-focus-shadow-color,
     $active-border-color: input-colors.$input-colors-invalid-active-border-color,
-    $disabled-background-color: input-colors.$input-colors-invalid-disabled-background-color,
-    $disabled-border-color: input-colors.$input-colors-invalid-disabled-border-color
+    $disabled-background-color:
+      input-colors.$input-colors-invalid-disabled-background-color,
+    $disabled-border-color:
+      input-colors.$input-colors-invalid-disabled-border-color
   );
 }

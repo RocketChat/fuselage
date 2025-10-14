@@ -7,10 +7,16 @@
 
 @mixin kind-variant($colors) {
   color: map.get($colors, color);
-  border-width: functions.theme('button-border-width', lengths.border-width('default'));
+  border-width: functions.theme(
+    'button-border-width',
+    lengths.border-width('default')
+  );
   border-style: solid;
   border-color: map.get($colors, border-color);
-  border-radius: functions.theme('button-border-radius', lengths.border-radius(medium));
+  border-radius: functions.theme(
+    'button-border-radius',
+    lengths.border-radius(medium)
+  );
   background-color: map.get($colors, background-color);
 
   appearance: none;
@@ -18,7 +24,9 @@
   @include states.on-focus-visible {
     border-color: map.get($colors, focus-border-color);
     background-color: map.get($colors, focus-background-color);
-    @include shadows.use-button-focus-shadow(map.get($colors, focus-shadow-color));
+    @include shadows.use-button-focus-shadow(
+      map.get($colors, focus-shadow-color)
+    );
   }
 
   @include states.on-hover {

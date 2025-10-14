@@ -77,7 +77,10 @@ $badge-colors-disabled-background-color: functions.theme(
 
   word-break: keep-all;
 
-  border-radius: functions.theme('badge-border-radius', lengths.border-radius(full));
+  border-radius: functions.theme(
+    'badge-border-radius',
+    lengths.border-radius(full)
+  );
 
   @include typography.use-font-scale(micro);
 

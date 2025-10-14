@@ -11,7 +11,10 @@ $input-colors-border-color: functions.theme(
   colors.stroke(light)
 );
 
-$input-colors-color: functions.theme('input-colors-color', colors.font(default));
+$input-colors-color: functions.theme(
+  'input-colors-color',
+  colors.font(default)
+);
 
 $input-colors-placeholder-color: functions.theme(
   'input-colors-placeholder-color',

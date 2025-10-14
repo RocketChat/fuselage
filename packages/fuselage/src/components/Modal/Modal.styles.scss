@@ -4,7 +4,10 @@
 @use '../../styles/typography.scss';
 @use '../../styles/mixins/breakpoints.scss';
 
-$modal-container-margin: functions.theme('modal-container-margin', lengths.size(24));
+$modal-container-margin: functions.theme(
+  'modal-container-margin',
+  lengths.size(24)
+);
 
 $modal-margin: functions.theme('modal-margin', auto);
 
@@ -30,7 +33,10 @@ $modal-margin: functions.theme('modal-margin', auto);
     padding: 0;
 
     color: colors.font(default);
-    border-radius: functions.theme('modal-border-radius', lengths.border-radius(large));
+    border-radius: functions.theme(
+      'modal-border-radius',
+      lengths.border-radius(large)
+    );
     background-color: colors.surface(light);
     @include typography.use-font-scale(p2);
   }

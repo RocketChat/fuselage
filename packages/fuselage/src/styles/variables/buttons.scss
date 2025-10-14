@@ -36,7 +36,8 @@ $primary: (
   focus-background-color: button-colors.$button-primary-focus-background-color,
   focus-border-color: button-colors.$button-primary-focus-border-color,
   focus-shadow-color: button-colors.$button-primary-focus-shadow-color,
-  disabled-background-color: button-colors.$button-primary-disabled-background-color,
+  disabled-background-color:
+    button-colors.$button-primary-disabled-background-color,
   disabled-border-color: button-colors.$button-primary-disabled-border-color,
   disabled-color: button-colors.$button-primary-disabled-color,
 );
@@ -47,12 +48,14 @@ $secondary: (
   color: button-colors.$button-secondary-color,
   hover-background-color: button-colors.$button-secondary-hover-background-color,
   hover-border-color: button-colors.$button-secondary-hover-border-color,
-  active-background-color: button-colors.$button-secondary-active-background-color,
+  active-background-color:
+    button-colors.$button-secondary-active-background-color,
   active-border-color: button-colors.$button-secondary-active-border-color,
   focus-background-color: button-colors.$button-secondary-focus-background-color,
   focus-border-color: button-colors.$button-secondary-focus-border-color,
   focus-shadow-color: button-colors.$button-secondary-focus-shadow-color,
-  disabled-background-color: button-colors.$button-secondary-disabled-background-color,
+  disabled-background-color:
+    button-colors.$button-secondary-disabled-background-color,
   disabled-border-color: button-colors.$button-secondary-disabled-border-color,
   disabled-color: button-colors.$button-secondary-disabled-color,
 );
@@ -68,7 +71,8 @@ $danger: (
   focus-background-color: button-colors.$button-danger-focus-background-color,
   focus-border-color: button-colors.$button-danger-focus-border-color,
   focus-shadow-color: button-colors.$button-danger-focus-shadow-color,
-  disabled-background-color: button-colors.$button-danger-disabled-background-color,
+  disabled-background-color:
+    button-colors.$button-danger-disabled-background-color,
   disabled-border-color: button-colors.$button-danger-disabled-border-color,
   disabled-color: button-colors.$button-danger-disabled-color,
 );
@@ -77,15 +81,21 @@ $secondary-danger: (
   background-color: button-colors.$button-secondary-danger-background-color,
   border-color: button-colors.$button-secondary-danger-border-color,
   color: button-colors.$button-secondary-danger-color,
-  hover-background-color: button-colors.$button-secondary-danger-hover-background-color,
+  hover-background-color:
+    button-colors.$button-secondary-danger-hover-background-color,
   hover-border-color: button-colors.$button-secondary-danger-hover-border-color,
-  active-background-color: button-colors.$button-secondary-danger-active-background-color,
-  active-border-color: button-colors.$button-secondary-danger-active-border-color,
-  focus-background-color: button-colors.$button-secondary-danger-focus-background-color,
+  active-background-color:
+    button-colors.$button-secondary-danger-active-background-color,
+  active-border-color:
+    button-colors.$button-secondary-danger-active-border-color,
+  focus-background-color:
+    button-colors.$button-secondary-danger-focus-background-color,
   focus-border-color: button-colors.$button-secondary-danger-focus-border-color,
   focus-shadow-color: button-colors.$button-secondary-danger-focus-shadow-color,
-  disabled-background-color: button-colors.$button-secondary-danger-disabled-background-color,
-  disabled-border-color: button-colors.$button-secondary-danger-disabled-border-color,
+  disabled-background-color:
+    button-colors.$button-secondary-danger-disabled-background-color,
+  disabled-border-color:
+    button-colors.$button-secondary-danger-disabled-border-color,
   disabled-color: button-colors.$button-secondary-danger-disabled-color,
 );
 
@@ -100,7 +110,8 @@ $warning: (
   focus-background-color: button-colors.$button-warning-focus-background-color,
   focus-border-color: button-colors.$button-warning-focus-border-color,
   focus-shadow-color: button-colors.$button-warning-focus-shadow-color,
-  disabled-background-color: button-colors.$button-warning-disabled-background-color,
+  disabled-background-color:
+    button-colors.$button-warning-disabled-background-color,
   disabled-border-color: button-colors.$button-warning-disabled-border-color,
   disabled-color: button-colors.$button-warning-disabled-color,
 );
@@ -109,15 +120,21 @@ $secondary-warning: (
   background-color: button-colors.$button-secondary-warning-background-color,
   border-color: button-colors.$button-secondary-warning-border-color,
   color: button-colors.$button-secondary-warning-color,
-  hover-background-color: button-colors.$button-secondary-warning-hover-background-color,
+  hover-background-color:
+    button-colors.$button-secondary-warning-hover-background-color,
   hover-border-color: button-colors.$button-secondary-warning-hover-border-color,
-  active-background-color: button-colors.$button-secondary-warning-active-background-color,
-  active-border-color: button-colors.$button-secondary-warning-active-border-color,
-  focus-background-color: button-colors.$button-secondary-warning-focus-background-color,
+  active-background-color:
+    button-colors.$button-secondary-warning-active-background-color,
+  active-border-color:
+    button-colors.$button-secondary-warning-active-border-color,
+  focus-background-color:
+    button-colors.$button-secondary-warning-focus-background-color,
   focus-border-color: button-colors.$button-secondary-warning-focus-border-color,
   focus-shadow-color: button-colors.$button-secondary-warning-focus-shadow-color,
-  disabled-background-color: button-colors.$button-secondary-warning-disabled-background-color,
-  disabled-border-color: button-colors.$button-secondary-warning-disabled-border-color,
+  disabled-background-color:
+    button-colors.$button-secondary-warning-disabled-background-color,
+  disabled-border-color:
+    button-colors.$button-secondary-warning-disabled-border-color,
   disabled-color: button-colors.$button-secondary-warning-disabled-color,
 );
 
@@ -132,7 +149,8 @@ $success: (
   focus-background-color: button-colors.$button-success-focus-background-color,
   focus-border-color: button-colors.$button-success-focus-border-color,
   focus-shadow-color: button-colors.$button-success-focus-shadow-color,
-  disabled-background-color: button-colors.$button-success-disabled-background-color,
+  disabled-background-color:
+    button-colors.$button-success-disabled-background-color,
   disabled-border-color: button-colors.$button-success-disabled-border-color,
   disabled-color: button-colors.$button-success-disabled-color,
 );
@@ -141,15 +159,21 @@ $secondary-success: (
   background-color: button-colors.$button-secondary-success-background-color,
   border-color: button-colors.$button-secondary-success-border-color,
   color: button-colors.$button-secondary-success-color,
-  hover-background-color: button-colors.$button-secondary-success-hover-background-color,
+  hover-background-color:
+    button-colors.$button-secondary-success-hover-background-color,
   hover-border-color: button-colors.$button-secondary-success-hover-border-color,
-  active-background-color: button-colors.$button-secondary-success-active-background-color,
-  active-border-color: button-colors.$button-secondary-success-active-border-color,
-  focus-background-color: button-colors.$button-secondary-success-focus-background-color,
+  active-background-color:
+    button-colors.$button-secondary-success-active-background-color,
+  active-border-color:
+    button-colors.$button-secondary-success-active-border-color,
+  focus-background-color:
+    button-colors.$button-secondary-success-focus-background-color,
   focus-border-color: button-colors.$button-secondary-success-focus-border-color,
   focus-shadow-color: button-colors.$button-secondary-success-focus-shadow-color,
-  disabled-background-color: button-colors.$button-secondary-success-disabled-background-color,
-  disabled-border-color: button-colors.$button-secondary-success-disabled-border-color,
+  disabled-background-color:
+    button-colors.$button-secondary-success-disabled-background-color,
+  disabled-border-color:
+    button-colors.$button-secondary-success-disabled-border-color,
   disabled-color: button-colors.$button-secondary-success-disabled-color,
 );
 

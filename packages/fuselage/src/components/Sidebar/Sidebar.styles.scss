@@ -34,7 +34,10 @@ $sidebar-color-stroke-default: functions.theme(
   'sidebar-color-stroke-default',
   colors.stroke(light)
 );
-$sidebar-item-color: functions.theme('sidebar-item-color', colors.font(secondary-info));
+$sidebar-item-color: functions.theme(
+  'sidebar-item-color',
+  colors.font(secondary-info)
+);
 $sidebar-item-color-highlighted: functions.theme(
   'sidebar-item-color-highlighted',
   colors.font(titles-labels)

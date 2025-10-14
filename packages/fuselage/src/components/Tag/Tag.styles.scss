@@ -161,7 +161,10 @@ $tag-colors-disabled-background-color: functions.theme(
   word-break: keep-all;
 
   color: $tag-colors-default-color;
-  border-radius: functions.theme('tag-border-radius', lengths.border-radius(small));
+  border-radius: functions.theme(
+    'tag-border-radius',
+    lengths.border-radius(small)
+  );
   background-color: $tag-colors-default-background-color;
 
   @include typography.use-font-scale(micro);

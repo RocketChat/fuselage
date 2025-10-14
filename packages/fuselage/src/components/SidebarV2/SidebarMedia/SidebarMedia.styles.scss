@@ -3,7 +3,10 @@
 @use '../../../styles/lengths.scss';
 @use '../../../styles/typography.scss';
 
-$sidebar-media-color: functions.theme('sidebar-media-color', colors.font(titles-labels));
+$sidebar-media-color: functions.theme(
+  'sidebar-media-color',
+  colors.font(titles-labels)
+);
 
 $sidebar-media-border-color: functions.theme(
   'sidebar-media-border-color',

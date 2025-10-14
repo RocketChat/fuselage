@@ -32,7 +32,10 @@ $sidebar-accordion-border-color: functions.theme(
   colors.stroke(light)
 );
 
-$sidebar-link-color: functions.theme('sidebar-link-color', colors.font(titles-labels));
+$sidebar-link-color: functions.theme(
+  'sidebar-link-color',
+  colors.font(titles-labels)
+);
 
 $sidebar-banner-background-default: functions.theme(
   'sidebar-banner-background-default',
