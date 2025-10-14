@@ -2,7 +2,7 @@
 
 // @ts-check
 
-import pluginImport from 'eslint-plugin-import';
+import { importX } from 'eslint-plugin-import-x';
 import pluginJsxA11y from 'eslint-plugin-jsx-a11y';
 import * as mdx from 'eslint-plugin-mdx';
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
@@ -10,7 +10,6 @@ import pluginReact from 'eslint-plugin-react';
 import pluginReactHooks from 'eslint-plugin-react-hooks';
 import storybook from 'eslint-plugin-storybook';
 import globals from 'globals';
-// eslint-disable-next-line import/no-unresolved
 import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
@@ -344,23 +343,23 @@ export default tseslint.config(
       },
     },
     plugins: {
-      import: pluginImport,
+      'import-x': importX,
     },
     settings: {
-      'import/resolver': {
+      'import-x/resolver': {
         node: {
           extensions: ['.mjs', '.js', '.json'],
         },
       },
-      'import/extensions': ['.js', '.mjs', '.jsx'],
-      'import/core-modules': [],
-      'import/ignore': [
+      'import-x/extensions': ['.js', '.mjs', '.jsx'],
+      'import-x/core-modules': [],
+      'import-x/ignore': [
         'node_modules',
         '\\.(coffee|scss|css|less|hbs|svg|json)$',
       ],
     },
     rules: {
-      'import/no-unresolved': [
+      'import-x/no-unresolved': [
         'error',
         {
           commonjs: true,
@@ -369,15 +368,15 @@ export default tseslint.config(
           ignore: ['^meteor/.+$'],
         },
       ],
-      'import/named': 'off',
-      'import/default': 'off',
-      'import/namespace': 'off',
-      'import/export': 'error',
-      'import/no-named-as-default': 'off',
-      'import/no-named-as-default-member': 'off',
-      'import/first': 'error',
-      'import/no-duplicates': 'error',
-      'import/order': [
+      'import-x/named': 'off',
+      'import-x/default': 'off',
+      'import-x/namespace': 'off',
+      'import-x/export': 'error',
+      'import-x/no-named-as-default': 'off',
+      'import-x/no-named-as-default-member': 'off',
+      'import-x/first': 'error',
+      'import-x/no-duplicates': 'error',
+      'import-x/order': [
         'error',
         {
           'newlines-between': 'always',
@@ -397,12 +396,12 @@ export default tseslint.config(
           },
         },
       ],
-      'import/newline-after-import': 'error',
-      'import/no-absolute-path': 'error',
-      'import/no-dynamic-require': 'error',
-      'import/no-self-import': 'error',
-      'import/no-cycle': 'off',
-      'import/no-useless-path-segments': 'error',
+      'import-x/newline-after-import': 'error',
+      'import-x/no-absolute-path': 'error',
+      'import-x/no-dynamic-require': 'error',
+      'import-x/no-self-import': 'error',
+      'import-x/no-cycle': 'off',
+      'import-x/no-useless-path-segments': 'error',
     },
   },
   eslintPluginPrettierRecommended,
@@ -447,7 +446,7 @@ export default tseslint.config(
       'no-useless-constructor': 'off',
     },
     settings: {
-      'import/resolver': {
+      'import-x/resolver': {
         node: {
           extensions: ['.js', '.jsx', '.ts', '.tsx'],
         },
@@ -528,10 +527,10 @@ export default tseslint.config(
   {
     files: ['packages/fuselage/**/*.{js,mdx}'],
     rules: {
-      'import/no-unresolved': 'off',
+      'import-x/no-unresolved': 'off',
     },
     settings: {
-      'import/resolver': {
+      'import-x/resolver': {
         node: {
           extensions: ['.js', '.jsx', '.ts', '.tsx'],
         },
