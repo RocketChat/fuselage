@@ -18,7 +18,7 @@ export type AvatarContainerProps = {
     | 'x332';
 } & HTMLAttributes<HTMLElement>;
 
-export const AvatarContainer = ({
+const AvatarContainer = ({
   size = 'x36',
   children,
   ...props
@@ -32,3 +32,5 @@ export const AvatarContainer = ({
 
   return <figure {...props}>{children}</figure>;
 };
+
+export default AvatarContainer;
