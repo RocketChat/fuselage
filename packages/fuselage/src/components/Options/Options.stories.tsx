@@ -4,8 +4,7 @@ import { createRef } from 'react';
 import Box from '../Box';
 import { Option, CheckOption } from '../Option';
 
-import type { OptionType } from './Options';
-import { Options } from './Options';
+import { Options, type OptionType } from '.';
 
 export default {
   title: 'Navigation/Options',
