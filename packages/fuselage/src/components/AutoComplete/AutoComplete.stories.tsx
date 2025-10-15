@@ -5,7 +5,7 @@ import { exampleAvatar, DECORATOR_LABEL } from '../../../.storybook/helpers';
 import { Avatar } from '../Avatar';
 import Box from '../Box';
 import Chip from '../Chip';
-import Option from '../Option';
+import { Option } from '../Option';
 
 import { AutoComplete } from './AutoComplete';
 

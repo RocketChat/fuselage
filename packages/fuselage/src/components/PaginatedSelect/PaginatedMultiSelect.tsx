@@ -8,7 +8,7 @@ import Chip from '../Chip';
 import Flex from '../Flex';
 import { Icon } from '../Icon';
 import Margins from '../Margins';
-import Option from '../Option';
+import { Option } from '../Option';
 import { useVisible } from '../Options/useVisible';
 import { OptionsPaginated } from '../OptionsPaginated';
 import Position from '../Position';

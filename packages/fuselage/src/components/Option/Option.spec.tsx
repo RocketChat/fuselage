@@ -1,7 +1,8 @@
 import { prevent } from '../../helpers/prevent';
 import { render } from '../../testing';
 
-import Option, { OptionContent } from '.';
+import Option from './Option';
+import OptionContent from './OptionContent';
 
 jest.mock('../../helpers/prevent');
 

@@ -2,8 +2,7 @@ import type { StoryFn, Meta } from '@storybook/react-webpack5';
 import { createRef } from 'react';
 
 import Box from '../Box';
-import Option from '../Option';
-import { CheckOption } from '../Option/CheckOption';
+import { Option, CheckOption } from '../Option';
 
 import type { OptionType } from './Options';
 import { Options } from './Options';

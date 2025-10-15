@@ -1,6 +1,6 @@
 import type { StoryFn, Meta } from '@storybook/react-webpack5';
 
-import Option, { OptionDescription } from '../Option';
+import { Option, OptionDescription } from '../Option';
 
 import { PaginatedSelectFiltered } from './PaginatedSelectFiltered';
 
