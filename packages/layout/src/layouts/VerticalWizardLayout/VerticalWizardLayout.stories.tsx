@@ -5,7 +5,7 @@ import {
   FieldHint,
   FieldLabel,
   FieldRow,
-  InputBox,
+  InputBoxSkeleton,
 } from '@rocket.chat/fuselage';
 import type { Meta, StoryFn } from '@storybook/react-webpack5';
 
@@ -42,7 +42,7 @@ export const Default: StoryFn<typeof VerticalWizardLayout> = () => (
             <FieldLabel>Label</FieldLabel>
             <FieldDescription>Description</FieldDescription>
             <FieldRow>
-              <InputBox.Skeleton />
+              <InputBoxSkeleton />
             </FieldRow>
             <FieldError>Error</FieldError>
             <FieldHint>Hint</FieldHint>
@@ -71,7 +71,7 @@ export const WithScroll: StoryFn<typeof VerticalWizardLayout> = () => (
             <FieldLabel>Label</FieldLabel>
             <FieldDescription>Description</FieldDescription>
             <FieldRow>
-              <InputBox.Skeleton />
+              <InputBoxSkeleton />
             </FieldRow>
             <FieldError>Error</FieldError>
             <FieldHint>Hint</FieldHint>
@@ -80,7 +80,7 @@ export const WithScroll: StoryFn<typeof VerticalWizardLayout> = () => (
             <FieldLabel>Label</FieldLabel>
             <FieldDescription>Description</FieldDescription>
             <FieldRow>
-              <InputBox.Skeleton />
+              <InputBoxSkeleton />
             </FieldRow>
             <FieldError>Error</FieldError>
             <FieldHint>Hint</FieldHint>
@@ -89,7 +89,7 @@ export const WithScroll: StoryFn<typeof VerticalWizardLayout> = () => (
             <FieldLabel>Label</FieldLabel>
             <FieldDescription>Description</FieldDescription>
             <FieldRow>
-              <InputBox.Skeleton />
+              <InputBoxSkeleton />
             </FieldRow>
             <FieldError>Error</FieldError>
             <FieldHint>Hint</FieldHint>
@@ -98,7 +98,7 @@ export const WithScroll: StoryFn<typeof VerticalWizardLayout> = () => (
             <FieldLabel>Label</FieldLabel>
             <FieldDescription>Description</FieldDescription>
             <FieldRow>
-              <InputBox.Skeleton />
+              <InputBoxSkeleton />
             </FieldRow>
             <FieldError>Error</FieldError>
             <FieldHint>Hint</FieldHint>
@@ -107,7 +107,7 @@ export const WithScroll: StoryFn<typeof VerticalWizardLayout> = () => (
             <FieldLabel>Label</FieldLabel>
             <FieldDescription>Description</FieldDescription>
             <FieldRow>
-              <InputBox.Skeleton />
+              <InputBoxSkeleton />
             </FieldRow>
             <FieldError>Error</FieldError>
             <FieldHint>Hint</FieldHint>
@@ -116,7 +116,7 @@ export const WithScroll: StoryFn<typeof VerticalWizardLayout> = () => (
             <FieldLabel>Label</FieldLabel>
             <FieldDescription>Description</FieldDescription>
             <FieldRow>
-              <InputBox.Skeleton />
+              <InputBoxSkeleton />
             </FieldRow>
             <FieldError>Error</FieldError>
             <FieldHint>Hint</FieldHint>
@@ -125,7 +125,7 @@ export const WithScroll: StoryFn<typeof VerticalWizardLayout> = () => (
             <FieldLabel>Label</FieldLabel>
             <FieldDescription>Description</FieldDescription>
             <FieldRow>
-              <InputBox.Skeleton />
+              <InputBoxSkeleton />
             </FieldRow>
             <FieldError>Error</FieldError>
             <FieldHint>Hint</FieldHint>
@@ -134,7 +134,7 @@ export const WithScroll: StoryFn<typeof VerticalWizardLayout> = () => (
             <FieldLabel>Label</FieldLabel>
             <FieldDescription>Description</FieldDescription>
             <FieldRow>
-              <InputBox.Skeleton />
+              <InputBoxSkeleton />
             </FieldRow>
             <FieldError>Error</FieldError>
             <FieldHint>Hint</FieldHint>
@@ -143,7 +143,7 @@ export const WithScroll: StoryFn<typeof VerticalWizardLayout> = () => (
             <FieldLabel>Label</FieldLabel>
             <FieldDescription>Description</FieldDescription>
             <FieldRow>
-              <InputBox.Skeleton />
+              <InputBoxSkeleton />
             </FieldRow>
             <FieldError>Error</FieldError>
             <FieldHint>Hint</FieldHint>
@@ -152,7 +152,7 @@ export const WithScroll: StoryFn<typeof VerticalWizardLayout> = () => (
             <FieldLabel>Label</FieldLabel>
             <FieldDescription>Description</FieldDescription>
             <FieldRow>
-              <InputBox.Skeleton />
+              <InputBoxSkeleton />
             </FieldRow>
             <FieldError>Error</FieldError>
             <FieldHint>Hint</FieldHint>
@@ -161,7 +161,7 @@ export const WithScroll: StoryFn<typeof VerticalWizardLayout> = () => (
             <FieldLabel>Label</FieldLabel>
             <FieldDescription>Description</FieldDescription>
             <FieldRow>
-              <InputBox.Skeleton />
+              <InputBoxSkeleton />
             </FieldRow>
             <FieldError>Error</FieldError>
             <FieldHint>Hint</FieldHint>
@@ -170,7 +170,7 @@ export const WithScroll: StoryFn<typeof VerticalWizardLayout> = () => (
             <FieldLabel>Label</FieldLabel>
             <FieldDescription>Description</FieldDescription>
             <FieldRow>
-              <InputBox.Skeleton />
+              <InputBoxSkeleton />
             </FieldRow>
             <FieldError>Error</FieldError>
             <FieldHint>Hint</FieldHint>
@@ -179,7 +179,7 @@ export const WithScroll: StoryFn<typeof VerticalWizardLayout> = () => (
             <FieldLabel>Label</FieldLabel>
             <FieldDescription>Description</FieldDescription>
             <FieldRow>
-              <InputBox.Skeleton />
+              <InputBoxSkeleton />
             </FieldRow>
             <FieldError>Error</FieldError>
             <FieldHint>Hint</FieldHint>

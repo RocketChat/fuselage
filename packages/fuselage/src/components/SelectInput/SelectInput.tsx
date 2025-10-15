@@ -1,12 +1,14 @@
-import type { ComponentProps, FormEvent, ReactNode, Ref } from 'react';
+import type { FormEvent, ReactNode, Ref } from 'react';
 import { forwardRef, useState, useCallback } from 'react';
 
 import { Icon } from '../Icon';
-import { InputBox } from '../InputBox';
+import { InputBox, type InputBoxProps } from '../InputBox';
+
+import SelectInputPlaceholder from './SelectInputPlaceholder';
 
 type SelectInputOptions = readonly (readonly [string, string])[];
 
-type SelectInputProps = Omit<ComponentProps<typeof InputBox>, 'type'> & {
+export type SelectInputProps = Omit<InputBoxProps, 'type'> & {
   error?: string;
   options?: SelectInputOptions;
   htmlSize?: number;
@@ -16,7 +18,7 @@ type SelectInputProps = Omit<ComponentProps<typeof InputBox>, 'type'> & {
 /**
  * An input for selection of options.
  */
-export const SelectInput = forwardRef(function SelectInput(
+const SelectInput = forwardRef(function SelectInput(
   { children, multiple, placeholder, onChange, ...props }: SelectInputProps,
   ref: Ref<HTMLElement>,
 ) {
@@ -53,9 +55,11 @@ export const SelectInput = forwardRef(function SelectInput(
       onChange={handleChange}
     >
       {placeholder && (
-        <InputBox.Placeholder value=''>{placeholder}</InputBox.Placeholder>
+        <SelectInputPlaceholder value=''>{placeholder}</SelectInputPlaceholder>
       )}
       {children}
     </InputBox>
   );
 });
+
+export default SelectInput;

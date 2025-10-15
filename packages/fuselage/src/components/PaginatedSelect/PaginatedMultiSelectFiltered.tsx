@@ -2,7 +2,7 @@ import type { ComponentProps, Ref, FormEvent } from 'react';
 import { useCallback, forwardRef } from 'react';
 
 import Flex from '../Flex';
-import { InputBox } from '../InputBox';
+import { Input, type InputProps } from '../InputBox';
 
 import PaginatedMultiSelect from './PaginatedMultiSelect';
 
@@ -21,15 +21,11 @@ export const PaginatedMultiSelectFiltered = ({
   const anchor = useCallback(
     forwardRef(
       (
-        {
-          children: _children,
-          filter,
-          ...props
-        }: ComponentProps<typeof InputBox>,
+        { children: _children, filter, ...props }: InputProps,
         ref: Ref<HTMLInputElement>,
       ) => (
         <Flex.Item grow={1}>
-          <InputBox.Input
+          <Input
             ref={ref}
             placeholder={placeholder}
             value={filter}

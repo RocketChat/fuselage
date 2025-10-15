@@ -1,20 +1,18 @@
 import type { StoryFn, Meta } from '@storybook/react-webpack5';
-import type { ComponentType } from 'react';
 
 import Box from '../Box';
 import Margins from '../Margins';
 
-import { Avatar } from './Avatar';
-import { AvatarContainer } from './AvatarContainer';
-import { AvatarStack } from './AvatarStack';
+import Avatar from './Avatar';
+import AvatarContainer from './AvatarContainer';
+import AvatarStack from './AvatarStack';
 
 export default {
   title: 'Data Display/Avatar',
   component: Avatar,
   subcomponents: {
-    'Avatar.Stack': Avatar.Stack as ComponentType<any>,
-    'AvatarStack': AvatarStack as ComponentType<any>,
-    'AvatarContainer': AvatarContainer as ComponentType<any>,
+    AvatarStack,
+    AvatarContainer,
   },
 } satisfies Meta<typeof Avatar>;
 
@@ -61,11 +59,11 @@ const StackTemplate: StoryFn<typeof Avatar> = (args) => (
   <Margins all='x16'>
     {sizes.map((size, i) => (
       <Box key={i}>
-        <Avatar.Stack className={args.className}>
+        <AvatarStack className={args.className}>
           <Avatar url={args.url} size={size} rounded={args.rounded} alt='' />
           <Avatar url={args.url} size={size} rounded={args.rounded} alt='' />
           <Avatar url={args.url} size={size} rounded={args.rounded} alt='' />
-        </Avatar.Stack>
+        </AvatarStack>
       </Box>
     ))}
   </Margins>

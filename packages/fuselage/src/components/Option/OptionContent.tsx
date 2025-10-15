@@ -1,6 +1,8 @@
 import type { HTMLAttributes } from 'react';
 
-const OptionContent = (props: HTMLAttributes<HTMLDivElement>) => (
+export type OptionContentProps = HTMLAttributes<HTMLDivElement>;
+
+const OptionContent = (props: OptionContentProps) => (
   <div className='rcx-option__content' {...props} />
 );
 

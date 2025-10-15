@@ -7,7 +7,7 @@ import type {
 } from 'react';
 
 export type SelectAnchorParams = {
-  ref: Ref<Element>;
+  ref: Ref<HTMLInputElement>;
   children: ReactNode;
   disabled: boolean;
   onClick: MouseEventHandler;

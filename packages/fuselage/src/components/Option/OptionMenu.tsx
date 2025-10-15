@@ -1,8 +1,6 @@
-import type { HTMLAttributes, ReactNode } from 'react';
+import type { HTMLAttributes } from 'react';
 
-type OptionMenuProps = {
-  children?: ReactNode;
-} & HTMLAttributes<HTMLDivElement>;
+export type OptionMenuProps = HTMLAttributes<HTMLDivElement>;
 
 const OptionMenu = (props: OptionMenuProps) => (
   <div className='rcx-box--animated rcx-option__menu-wrapper' {...props} />

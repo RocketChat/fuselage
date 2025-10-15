@@ -5,9 +5,9 @@ import { LabelInfo } from '../Label/LabelInfo';
 
 import { FieldContext } from './Field';
 
-type FieldLabelInfoProps = ComponentProps<typeof LabelInfo>;
+export type FieldLabelInfoProps = ComponentProps<typeof LabelInfo>;
 
-export const FieldLabelInfo = (props: FieldLabelInfoProps) => {
+const FieldLabelInfo = (props: FieldLabelInfoProps) => {
   const component = <LabelInfo {...props} />;
 
   if (process.env.NODE_ENV === 'development') {
@@ -24,3 +24,5 @@ export const FieldLabelInfo = (props: FieldLabelInfoProps) => {
 
   return component;
 };
+
+export default FieldLabelInfo;

@@ -6,18 +6,27 @@ import { TextAreaInput } from '../TextAreaInput';
 import { TextInput } from '../TextInput';
 import { ToggleSwitch } from '../ToggleSwitch';
 
-import { Field } from './Field';
-import { FieldDescription } from './FieldDescription';
-import { FieldError } from './FieldError';
-import { FieldHint } from './FieldHint';
-import { FieldLabel } from './FieldLabel';
-import { FieldLabelInfo } from './FieldLabelInfo';
-import { FieldLink } from './FieldLink';
-import { FieldRow } from './FieldRow';
+import Field from './Field';
+import FieldDescription from './FieldDescription';
+import FieldError from './FieldError';
+import FieldHint from './FieldHint';
+import FieldLabel from './FieldLabel';
+import FieldLabelInfo from './FieldLabelInfo';
+import FieldLink from './FieldLink';
+import FieldRow from './FieldRow';
 
 export default {
   title: 'Inputs/Field',
   component: Field,
+  subcomponents: {
+    FieldDescription,
+    FieldError,
+    FieldHint,
+    FieldLabel,
+    FieldLabelInfo,
+    FieldLink,
+    FieldRow,
+  },
 } satisfies Meta<typeof Field>;
 
 export const WithTextInput: StoryFn<typeof Field> = () => (
