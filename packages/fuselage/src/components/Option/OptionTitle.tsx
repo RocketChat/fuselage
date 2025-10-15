@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 
-type OptionTitleProps = {
+export type OptionTitleProps = {
   children?: ReactNode;
 };
 

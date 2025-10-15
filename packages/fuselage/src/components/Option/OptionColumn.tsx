@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 
-type OptionColumnProps = {
+export type OptionColumnProps = {
   children?: ReactNode;
 };
 

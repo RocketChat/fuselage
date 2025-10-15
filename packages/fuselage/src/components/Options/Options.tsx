@@ -9,7 +9,7 @@ import { forwardRef, memo, useLayoutEffect, useMemo, useRef } from 'react';
 
 import { prevent } from '../../helpers/prevent';
 import Box from '../Box';
-import Option, { OptionHeader, OptionDivider } from '../Option';
+import { Option, OptionHeader, OptionDivider } from '../Option';
 import Scrollable from '../Scrollable';
 import Tile from '../Tile';
 

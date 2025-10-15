@@ -7,7 +7,7 @@ import { prevent } from '../../helpers/prevent';
 import AnimatedVisibility from '../AnimatedVisibility';
 import Box from '../Box';
 import { CheckBox } from '../CheckBox';
-import Option from '../Option';
+import { Option } from '../Option';
 import Tile from '../Tile';
 
 type OptionsPaginatedProps = Omit<ComponentProps<typeof Box>, 'onSelect'> & {
