@@ -5,9 +5,9 @@ import Box from '../Box';
 
 import { FieldContext } from './Field';
 
-type FieldErrorProps = ComponentPropsWithoutRef<typeof Box>;
+export type FieldErrorProps = ComponentPropsWithoutRef<typeof Box>;
 
-export const FieldError = (props: FieldErrorProps) => {
+const FieldError = (props: FieldErrorProps) => {
   const component = <Box is='span' rcx-field__error {...props} />;
 
   if (process.env.NODE_ENV === 'development') {
@@ -24,3 +24,5 @@ export const FieldError = (props: FieldErrorProps) => {
 
   return component;
 };
+
+export default FieldError;

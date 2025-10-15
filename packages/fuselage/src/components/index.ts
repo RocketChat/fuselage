@@ -23,7 +23,6 @@ export { default as Chip } from './Chip';
 export * from './Divider';
 export * from './Dropdown';
 export * from './EmailInput';
-export { default as Field } from './Field';
 export * from './Field';
 export * from './FieldGroup';
 export * from './FramedIcon';

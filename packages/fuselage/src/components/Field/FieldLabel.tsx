@@ -6,9 +6,9 @@ import { Label } from '../Label';
 
 import { FieldContext } from './Field';
 
-type FieldLabelProps = ComponentPropsWithoutRef<typeof Label>;
+export type FieldLabelProps = ComponentPropsWithoutRef<typeof Label>;
 
-export const FieldLabel = forwardRef<HTMLElement, FieldLabelProps>(
+const FieldLabel = forwardRef<HTMLElement, FieldLabelProps>(
   function FieldLabel(props, ref) {
     const component = <Label rcx-field__label {...props} ref={ref} />;
     if (process.env.NODE_ENV === 'development') {
@@ -26,3 +26,5 @@ export const FieldLabel = forwardRef<HTMLElement, FieldLabelProps>(
     return component;
   },
 );
+
+export default FieldLabel;
