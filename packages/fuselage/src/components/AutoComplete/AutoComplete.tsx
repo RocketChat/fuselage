@@ -15,7 +15,7 @@ import AnimatedVisibility from '../AnimatedVisibility';
 import Box from '../Box';
 import Chip from '../Chip';
 import { Icon } from '../Icon';
-import { InputBox } from '../InputBox';
+import { Input } from '../InputBox';
 import Margins from '../Margins';
 import type { OptionType } from '../Options';
 import { useCursor, Options } from '../Options';
@@ -91,7 +91,7 @@ export function AutoComplete({
   onBlur: onBlurAction = () => {},
   ...props
 }: AutoCompleteProps): ReactElement {
-  const ref = useRef<HTMLInputElement>();
+  const ref = useRef<HTMLInputElement>(null);
   const { ref: containerRef, borderBoxSize } = useResizeObserver();
 
   const [selected, setSelected] = useState(
@@ -185,7 +185,7 @@ export function AutoComplete({
         role='group'
       >
         <Margins all='x4'>
-          <InputBox.Input
+          <Input
             ref={ref}
             onChange={useEffectEvent((e: ChangeEvent<HTMLInputElement>) =>
               setFilter?.(e.currentTarget.value),

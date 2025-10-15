@@ -1,9 +1,9 @@
-import type { ComponentProps, Ref } from 'react';
+import type { Ref } from 'react';
 import { forwardRef } from 'react';
 
-import { InputBox } from '../InputBox';
+import { InputBox, type InputBoxProps } from '../InputBox';
 
-type UrlInputProps = Omit<ComponentProps<typeof InputBox>, 'type'>;
+type UrlInputProps = Omit<InputBoxProps, 'type'>;
 
 const UrlInput = forwardRef(function UrlInput(
   props: UrlInputProps,

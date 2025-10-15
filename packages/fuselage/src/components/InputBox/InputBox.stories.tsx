@@ -4,11 +4,15 @@ import { action } from 'storybook/actions';
 import Box from '../Box';
 import { Icon } from '../Icon';
 
-import { InputBox } from './InputBox';
+import { Input, InputBox, InputBoxSkeleton } from '.';
 
 export default {
   title: 'Inputs/InputBox',
   component: InputBox,
+  subcomponents: {
+    InputBoxSkeleton,
+    Input,
+  },
 } satisfies Meta<typeof InputBox>;
 
 const Template: StoryFn<typeof InputBox> = (args) => (
@@ -59,8 +63,8 @@ WithPlaceholder.args = {
   placeholder: 'Placeholder',
   onChange: action('change'),
 };
-export const Skeleton: StoryFn<typeof InputBox> = () => <InputBox.Skeleton />;
-Skeleton.storyName = 'InputBox.Skeleton';
+export const Skeleton: StoryFn<typeof InputBox> = () => <InputBoxSkeleton />;
+Skeleton.storyName = 'InputBoxSkeleton';
 
 export const SmallVariants: StoryFn<typeof InputBox> = () => (
   <Box

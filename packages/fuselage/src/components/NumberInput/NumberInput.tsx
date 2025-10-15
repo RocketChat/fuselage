@@ -1,9 +1,9 @@
-import type { ComponentProps, Ref } from 'react';
+import type { Ref } from 'react';
 import { forwardRef } from 'react';
 
-import { InputBox } from '../InputBox';
+import { InputBox, type InputBoxProps } from '../InputBox';
 
-type NumberInputProps = Omit<ComponentProps<typeof InputBox>, 'type'>;
+type NumberInputProps = Omit<InputBoxProps, 'type'>;
 
 /**
  * An input for numbers.

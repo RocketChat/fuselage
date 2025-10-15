@@ -9,7 +9,7 @@ import type {
 import { forwardRef } from 'react';
 
 import Flex from '../Flex';
-import { InputBox } from '../InputBox';
+import { Input } from '../InputBox';
 
 type MultiSelectFilteredAnchorProps = {
   children: ReactNode;
@@ -31,11 +31,11 @@ const MultiSelectFilteredAnchor = forwardRef(function MultiSelectFilteredAnchor(
     placeholder,
     ...props
   }: MultiSelectFilteredAnchorProps,
-  ref: Ref<Element>,
+  ref: Ref<HTMLInputElement>,
 ) {
   return (
     <Flex.Item grow={1}>
-      <InputBox.Input
+      <Input
         ref={ref}
         placeholder={placeholder}
         value={filter}

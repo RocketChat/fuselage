@@ -4,8 +4,7 @@ import type { ComponentType } from 'react';
 import { PropsVariationSection } from '../../../.storybook/helpers';
 import { Icon } from '../Icon';
 
-import { SelectInputOption } from '.';
-import { SelectInput } from './SelectInput';
+import { SelectInputOption, SelectInput } from '.';
 
 export default {
   title: 'Inputs/SelectInput',
