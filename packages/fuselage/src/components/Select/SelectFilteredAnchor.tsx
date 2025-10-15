@@ -8,7 +8,7 @@ import type {
 } from 'react';
 import { forwardRef } from 'react';
 
-import { InputBox } from '../InputBox';
+import { Input } from '../InputBox';
 
 type SelectFilteredAnchorProps = {
   children: ReactNode;
@@ -30,10 +30,10 @@ const SelectFilteredAnchor = forwardRef(function SelectFilteredAnchor(
     placeholder,
     ...props
   }: SelectFilteredAnchorProps,
-  ref: Ref<Element>,
+  ref: Ref<HTMLInputElement>,
 ) {
   return (
-    <InputBox.Input
+    <Input
       mi={4}
       flexGrow={1}
       className='rcx-select__focus'

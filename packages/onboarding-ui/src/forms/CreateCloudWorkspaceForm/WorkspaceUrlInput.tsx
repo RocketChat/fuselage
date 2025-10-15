@@ -1,8 +1,9 @@
+import type { InputBoxProps } from '@rocket.chat/fuselage';
 import { Box, InputBox } from '@rocket.chat/fuselage';
-import type { ComponentProps, ReactNode, Ref } from 'react';
+import type { ReactNode, Ref } from 'react';
 import { forwardRef } from 'react';
 
-type WorkspaceUrlInputProps = Omit<ComponentProps<typeof InputBox>, 'type'> & {
+type WorkspaceUrlInputProps = Omit<InputBoxProps, 'type'> & {
   addon?: ReactNode;
   error?: string | undefined;
   domain: string;

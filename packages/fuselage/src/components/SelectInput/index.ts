@@ -1,5 +1,5 @@
-import { Option } from '../InputBox/Option';
-
-export * from './SelectInput';
-
-export const SelectInputOption = Option;
+export { default as SelectInput, type SelectInputProps } from './SelectInput';
+export {
+  default as SelectInputOption,
+  type SelectInputOptionProps,
+} from './SelectInputOption';

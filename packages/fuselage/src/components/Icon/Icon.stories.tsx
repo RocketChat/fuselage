@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 import Box from '../Box';
 import { Divider } from '../Divider';
-import InputBox from '../InputBox';
+import { InputBox } from '../InputBox';
 
 import { Icon } from './Icon';
 
