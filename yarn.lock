@@ -3329,13 +3329,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@juggle/resize-observer@npm:^3.4.0":
-  version: 3.4.0
-  resolution: "@juggle/resize-observer@npm:3.4.0"
-  checksum: 10/73d1d00ee9132fb6f0aea0531940a6b93603e935590bd450fc6285a328d906102eeeb95dea77b2edac0e779031a9708aa8c82502bd298ee4dd26e7dff48f397a
-  languageName: node
-  linkType: hard
-
 "@keyv/bigmap@npm:^1.0.2":
   version: 1.0.2
   resolution: "@keyv/bigmap@npm:1.0.2"
@@ -5377,22 +5370,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/fuselage-polyfills@workspace:packages/fuselage-polyfills, @rocket.chat/fuselage-polyfills@workspace:~":
-  version: 0.0.0-use.local
-  resolution: "@rocket.chat/fuselage-polyfills@workspace:packages/fuselage-polyfills"
-  dependencies:
-    "@juggle/resize-observer": "npm:^3.4.0"
-    clipboard-polyfill: "npm:^4.1.1"
-    element-closest-polyfill: "npm:^1.0.7"
-    eslint: "npm:~9.37.0"
-    focus-visible: "npm:^5.2.1"
-    focus-within-polyfill: "npm:^5.2.1"
-    lint-all: "workspace:~"
-    new-event-polyfill: "npm:^1.0.1"
-    prettier: "npm:~3.6.2"
-  languageName: unknown
-  linkType: soft
-
 "@rocket.chat/fuselage-toastbar@workspace:packages/fuselage-toastbar":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/fuselage-toastbar@workspace:packages/fuselage-toastbar"
@@ -5429,7 +5406,6 @@ __metadata:
   peerDependencies:
     "@rocket.chat/fuselage": "*"
     "@rocket.chat/fuselage-hooks": "*"
-    "@rocket.chat/fuselage-polyfills": "*"
     "@rocket.chat/styled": "*"
     react: "*"
     react-dom: "*"
@@ -5468,7 +5444,6 @@ __metadata:
     "@rocket.chat/css-in-js": "workspace:~"
     "@rocket.chat/css-supports": "workspace:~"
     "@rocket.chat/fuselage-hooks": "workspace:~"
-    "@rocket.chat/fuselage-polyfills": "workspace:~"
     "@rocket.chat/fuselage-tokens": "workspace:~"
     "@rocket.chat/icons": "workspace:~"
     "@rocket.chat/memo": "workspace:~"
@@ -5538,7 +5513,6 @@ __metadata:
     wrapper-webpack-plugin: "npm:~2.2.2"
   peerDependencies:
     "@rocket.chat/fuselage-hooks": "*"
-    "@rocket.chat/fuselage-polyfills": "*"
     "@rocket.chat/icons": "*"
     react: "*"
     react-dom: "*"
@@ -5675,7 +5649,6 @@ __metadata:
   dependencies:
     "@rocket.chat/fuselage": "workspace:~"
     "@rocket.chat/fuselage-hooks": "workspace:~"
-    "@rocket.chat/fuselage-polyfills": "workspace:~"
     "@rocket.chat/fuselage-tokens": "workspace:~"
     "@rocket.chat/icons": "workspace:~"
     "@rocket.chat/layout": "workspace:~"
@@ -5710,7 +5683,6 @@ __metadata:
   peerDependencies:
     "@rocket.chat/fuselage": "*"
     "@rocket.chat/fuselage-hooks": "*"
-    "@rocket.chat/fuselage-polyfills": "*"
     "@rocket.chat/icons": "*"
     "@rocket.chat/layout": "*"
     "@rocket.chat/logo": "*"
@@ -9237,13 +9209,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"clipboard-polyfill@npm:^4.1.1":
-  version: 4.1.1
-  resolution: "clipboard-polyfill@npm:4.1.1"
-  checksum: 10/5e1f901709ab8eaa1e3fda377c51946f76953ed79dbdb063490cc267ce4d4969566019d60dabf8d4b1e7246b684a05f05d77f37444c66f7b6c1a292c7d2d1c6e
-  languageName: node
-  linkType: hard
-
 "cliui@npm:^8.0.1":
   version: 8.0.1
   resolution: "cliui@npm:8.0.1"
@@ -10395,13 +10360,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"element-closest-polyfill@npm:^1.0.7":
-  version: 1.0.7
-  resolution: "element-closest-polyfill@npm:1.0.7"
-  checksum: 10/4b86bd9b84739ff604020edd1e5985a942cfb18632376fc16a4c5840e1258091aba492cd9042536b5f208aca8d1da6537fe690231a6629ccef56520d1a510eeb
-  languageName: node
-  linkType: hard
-
 "emittery@npm:^0.13.1":
   version: 0.13.1
   resolution: "emittery@npm:0.13.1"
@@ -11540,20 +11498,6 @@ __metadata:
   version: 1.0.3
   resolution: "flatten@npm:1.0.3"
   checksum: 10/5c57379816f1692aaa79fbc6390e0a0644e5e8442c5783ed57c6d315468eddbc53a659eaa03c9bb1e771b0f4a9bd8dd8a2620286bf21fd6538a7857321fdfb20
-  languageName: node
-  linkType: hard
-
-"focus-visible@npm:^5.2.1":
-  version: 5.2.1
-  resolution: "focus-visible@npm:5.2.1"
-  checksum: 10/b42a900fbccc05497b48a537b73c2ec41a209376f3df06ae908e151703921d0e62ae704a2e3a87bf86208e7f36a88fa3a672abdd629b5d7a6861c9ee3a399dca
-  languageName: node
-  linkType: hard
-
-"focus-within-polyfill@npm:^5.2.1":
-  version: 5.2.1
-  resolution: "focus-within-polyfill@npm:5.2.1"
-  checksum: 10/fe7ce8715791b7778134e23a01ece66e52078b0a88285322b97079b345fe5ee30376680e07914721a23d1abcfd03e947931e69c561a27a50c642cbaa403a34fd
   languageName: node
   linkType: hard
 
@@ -15295,13 +15239,6 @@ __metadata:
   version: 2.6.2
   resolution: "neo-async@npm:2.6.2"
   checksum: 10/1a7948fea86f2b33ec766bc899c88796a51ba76a4afc9026764aedc6e7cde692a09067031e4a1bf6db4f978ccd99e7f5b6c03fe47ad9865c3d4f99050d67e002
-  languageName: node
-  linkType: hard
-
-"new-event-polyfill@npm:^1.0.1":
-  version: 1.0.1
-  resolution: "new-event-polyfill@npm:1.0.1"
-  checksum: 10/4c58d2b0505132b2b75d47d82e6ce4f11839f9fa13f89c22bc9cbfe6a60e18df6046b86da5bc8699dae3077beb3a9e503e76bc56a797b76379db07b44bb6952c
   languageName: node
   linkType: hard
 

@@ -12,7 +12,6 @@ import logo from './logo.svg';
 
 import 'normalize.css/normalize.css';
 import '@rocket.chat/icons/dist/rocketchat.css';
-import '@rocket.chat/fuselage-polyfills';
 
 export default {
   parameters: {
