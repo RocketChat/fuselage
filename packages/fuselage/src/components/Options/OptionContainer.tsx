@@ -17,11 +17,6 @@ const OptionContainer = forwardRef<HTMLElement, OptionContainerProps>(
               elevation='0'
               padding='none'
               maxHeight='x240'
-              // onMouseDown={prevent}
-              // onClick={prevent}
-              // is='ol'
-              // aria-multiselectable={multiple || true}
-              // role='listbox'
               {...props}
             >
               {children}
