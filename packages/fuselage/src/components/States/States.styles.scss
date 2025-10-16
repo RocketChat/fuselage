@@ -32,7 +32,7 @@ $variants: (
 
     @each $name, $color in $variants {
       &--#{$name} {
-        color: theme('states-icons-color-#{$name}', $color);
+        color: functions.theme('states-icons-color-#{$name}', $color);
       }
     }
   }

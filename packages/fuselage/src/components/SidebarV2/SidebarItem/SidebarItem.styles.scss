@@ -1,18 +1,21 @@
 @use '../../../styles/colors.scss';
+@use '../../../styles/functions.scss';
 @use '../../../styles/lengths.scss';
 @use '../../../styles/typography.scss';
-@import '../../../styles/mixins/all.scss';
+@use '../../../styles/mixins/interactivity.scss';
+@use '../../../styles/mixins/states.scss';
+@use '../../../styles/mixins/templates.scss';
 
-$sidebar-color-surface-hover: theme(
+$sidebar-color-surface-hover: functions.theme(
   'sidebar-color-surface-hover',
   colors.surface(hover)
 );
-$sidebar-color-surface-selected: theme(
+$sidebar-color-surface-selected: functions.theme(
   'sidebar-color-surface-selected',
   colors.surface(selected)
 );
 
-$sidebar-color-font-active: theme(
+$sidebar-color-font-active: functions.theme(
   'sidebar-color-font-active',
   colors.font(titles-labels)
 );
@@ -20,7 +23,7 @@ $sidebar-color-font-active: theme(
 %sidebar-item-base {
   @include use-link-colors($color: colors.font(default));
   @include typography.use-font-scale(p2);
-  @include focus-state($shadow: false);
+  @include templates.focus-state($shadow: false);
 
   display: flex;
 
@@ -30,8 +33,8 @@ $sidebar-color-font-active: theme(
 }
 
 %sidebar-item-clickable {
-  @include clickable;
-  @include on-hover {
+  @include interactivity.clickable;
+  @include states.on-hover {
     background-color: $sidebar-color-surface-hover;
   }
 }
