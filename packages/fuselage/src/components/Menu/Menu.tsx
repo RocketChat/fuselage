@@ -4,7 +4,7 @@ import { useRef, useCallback, useEffect } from 'react';
 
 import type Box from '../Box';
 import { IconButton } from '../Button';
-import Options, { useCursor, type OptionType } from '../Options';
+import { Options, useCursor, type OptionType } from '../Options';
 import PositionAnimated from '../PositionAnimated';
 
 type MenuProps = Omit<ComponentProps<typeof IconButton>, 'icon'> & {

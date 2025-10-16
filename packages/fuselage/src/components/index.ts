@@ -39,7 +39,6 @@ export * from './Modal';
 export * from './MultiSelect';
 export * from './NavBar';
 export * from './NumberInput';
-export { default as Options } from './Options';
 export * from './Options';
 export * from './Option';
 export * from './Pagination';
