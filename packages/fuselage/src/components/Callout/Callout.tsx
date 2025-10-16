@@ -41,6 +41,7 @@ export const Callout = ({
     <Box
       ref={ref}
       is='section'
+      aria-live='polite'
       className={['rcx-callout', type && `rcx-callout--${type}`, className]
         .filter(Boolean)
         .join(' ')}
