@@ -1,5 +1,23 @@
 # Change Log
 
+## 0.67.0
+
+### Minor Changes
+
+- [#1770](https://github.com/RocketChat/fuselage/pull/1770) [`aba9c50`](https://github.com/RocketChat/fuselage/commit/aba9c50945dcd003e75dc0fc0e6fb424cda15208) Thanks [@tassoevan](https://github.com/tassoevan)! - feat(fuselage): Remove deprecated `Option.*` component namespace
+
+- [#1771](https://github.com/RocketChat/fuselage/pull/1771) [`5cbc83d`](https://github.com/RocketChat/fuselage/commit/5cbc83d0668e0123944519a32c53246dfee70e51) Thanks [@tassoevan](https://github.com/tassoevan)! - feat(fuselage): Remove deprecated `Options.*` component namespace
+
+- [#1762](https://github.com/RocketChat/fuselage/pull/1762) [`cce8e7f`](https://github.com/RocketChat/fuselage/commit/cce8e7f7ae5bb261e95936c586ac831366579b7d) Thanks [@tassoevan](https://github.com/tassoevan)! - Deletes the `@rocket.chat/fuselage-polyfills` package
+
+- [#1767](https://github.com/RocketChat/fuselage/pull/1767) [`faea5fe`](https://github.com/RocketChat/fuselage/commit/faea5fe9ba0073220632e8850dc0828477582e6b) Thanks [@tassoevan](https://github.com/tassoevan)! - feat(fuselage): Remove deprecated `Avatar.*` component namespace
+
+- [#1768](https://github.com/RocketChat/fuselage/pull/1768) [`25555b8`](https://github.com/RocketChat/fuselage/commit/25555b8b197cacca0e5fd29d68b9f8bea3769628) Thanks [@tassoevan](https://github.com/tassoevan)! - feat(fuselage): Remove deprecated `Field.*` component namespace
+
+- [#1769](https://github.com/RocketChat/fuselage/pull/1769) [`e0b2dd1`](https://github.com/RocketChat/fuselage/commit/e0b2dd135e5a99c6638341c84a5ca60dfc4f413e) Thanks [@tassoevan](https://github.com/tassoevan)! - feat(fuselage): Remove deprecated `InputBox.*` component namespace
+
+- [#1754](https://github.com/RocketChat/fuselage/pull/1754) [`210f7e4`](https://github.com/RocketChat/fuselage/commit/210f7e4aee6551232753654def39e5e0d2a3d9b9) Thanks [@tassoevan](https://github.com/tassoevan)! - Reduces the bundle size of `@rocket.chat/fuselage` by externalizing more dependencies and increasing the ECMAScript version.
+
 ## 0.66.4
 
 ### Patch Changes
