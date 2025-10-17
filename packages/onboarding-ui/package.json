@@ -39,7 +39,7 @@
   },
   "dependencies": {
     "i18next": "~23.4.9",
-    "react-hook-form": "~7.54.2"
+    "react-hook-form": "~7.65.0"
   },
   "devDependencies": {
     "@rocket.chat/fuselage": "workspace:~",
