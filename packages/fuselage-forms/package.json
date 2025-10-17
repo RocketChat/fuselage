@@ -78,6 +78,6 @@
   },
   "dependencies": {
     "@rocket.chat/emitter": "workspace:~",
-    "react-aria": "~3.37.0"
+    "react-aria": "~3.44.0"
   }
 }
