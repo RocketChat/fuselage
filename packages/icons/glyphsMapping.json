@@ -1007,5 +1007,11 @@
   },
   "phone-plus": {
     "start": "\ue167"
+  },
+  "team-abac": {
+    "start": "\ue169"
+  },
+  "hash-abac": {
+    "start": "\ue16b"
   }
 }
