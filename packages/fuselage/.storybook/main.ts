@@ -10,63 +10,63 @@ export default {
   addons: [
     getAbsolutePath('@storybook/addon-a11y'),
     getAbsolutePath('storybook-dark-mode'),
-    getAbsolutePath('@storybook/addon-webpack5-compiler-swc'),
-    {
-      name: getAbsolutePath('@storybook/addon-styling-webpack'),
+    // getAbsolutePath('@storybook/addon-webpack5-compiler-swc'),
+    // {
+    //   name: getAbsolutePath('@storybook/addon-styling-webpack'),
 
-      options: {
-        rules: [
-          {
-            test: /\.css$/,
-            sideEffects: true,
-            use: [
-              require.resolve('style-loader'),
-              {
-                loader: require.resolve('css-loader'),
-                options: {
-                  importLoaders: 1,
-                },
-              },
-              {
-                loader: require.resolve('postcss-loader'),
-                options: {
-                  implementation: require.resolve('postcss'),
-                },
-              },
-            ],
-          },
-          {
-            test: /\.s[ac]ss$/,
-            sideEffects: true,
-            use: [
-              require.resolve('style-loader'),
-              {
-                loader: require.resolve('css-loader'),
-                options: {
-                  importLoaders: 3,
-                },
-              },
-              {
-                loader: require.resolve('postcss-loader'),
-                options: {
-                  implementation: require.resolve('postcss'),
-                },
-              },
-              require.resolve('resolve-url-loader'),
-              {
-                loader: require.resolve('sass-loader'),
-                options: {
-                  // Want to add more Sass options? Read more here: https://webpack.js.org/loaders/sass-loader/#options
-                  implementation: require.resolve('sass'),
-                  sourceMap: true,
-                  sassOptions: {},
-                },
-              },
-            ],
-          },
-        ],
-      },
-    },
+    //   options: {
+    //     rules: [
+    //       {
+    //         test: /\.css$/,
+    //         sideEffects: true,
+    //         use: [
+    //           require.resolve('style-loader'),
+    //           {
+    //             loader: require.resolve('css-loader'),
+    //             options: {
+    //               importLoaders: 1,
+    //             },
+    //           },
+    //           {
+    //             loader: require.resolve('postcss-loader'),
+    //             options: {
+    //               implementation: require.resolve('postcss'),
+    //             },
+    //           },
+    //         ],
+    //       },
+    //       {
+    //         test: /\.s[ac]ss$/,
+    //         sideEffects: true,
+    //         use: [
+    //           require.resolve('style-loader'),
+    //           {
+    //             loader: require.resolve('css-loader'),
+    //             options: {
+    //               importLoaders: 3,
+    //             },
+    //           },
+    //           {
+    //             loader: require.resolve('postcss-loader'),
+    //             options: {
+    //               implementation: require.resolve('postcss'),
+    //             },
+    //           },
+    //           require.resolve('resolve-url-loader'),
+    //           {
+    //             loader: require.resolve('sass-loader'),
+    //             options: {
+    //               // Want to add more Sass options? Read more here: https://webpack.js.org/loaders/sass-loader/#options
+    //               implementation: require.resolve('sass'),
+    //               sourceMap: true,
+    //               sassOptions: {},
+    //             },
+    //           },
+    //         ],
+    //       },
+    //     ],
+    //   },
+    // },
     getAbsolutePath('@storybook/addon-docs'),
   ],
 

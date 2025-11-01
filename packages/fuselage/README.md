@@ -12,7 +12,7 @@
 
 ---
 
-[![npm@latest](https://img.shields.io/npm/v/@rocket.chat/fuselage/latest?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/fuselage/v/latest) [![npm@next](https://img.shields.io/npm/v/@rocket.chat/fuselage/next?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/fuselage/v/next) ![react version](https://img.shields.io/npm/dependency-version/@rocket.chat/fuselage/peer/react?style=flat-square) [![Storybook](https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg)](https://rocketchat.github.io/fuselage/fuselage) ![npm downloads](https://img.shields.io/npm/dw/@rocket.chat/fuselage?style=flat-square) ![License: MIT](https://img.shields.io/npm/l/@rocket.chat/fuselage?style=flat-square)
+[![npm@latest](https://img.shields.io/npm/v/@rocket.chat/fuselage/latest?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/fuselage/v/latest) [![npm@next](https://img.shields.io/npm/v/@rocket.chat/fuselage/next?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/fuselage/v/next) ![react version](https://img.shields.io/npm/dependency-version/@rocket.chat/fuselage/peer/react?style=flat-square) ![npm downloads](https://img.shields.io/npm/dw/@rocket.chat/fuselage?style=flat-square) ![License: MIT](https://img.shields.io/npm/l/@rocket.chat/fuselage?style=flat-square)
 
 ![deps](https://img.shields.io/librariesio/release/npm/@rocket.chat/fuselage?style=flat-square) ![npm bundle size](https://img.shields.io/bundlephobia/min/@rocket.chat/fuselage?style=flat-square)
 

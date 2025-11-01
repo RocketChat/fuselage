@@ -24,7 +24,7 @@
     "/index.js"
   ],
   "scripts": {
-    "start": "webpack --watch --mode development",
+    "start": "vite --mode development",
     "storybook": "storybook dev -p 6006 --no-version-updates",
     "build": "run-s .:build:clean .:build:dev .:build:prod",
     ".:build:clean": "rimraf dist",
@@ -55,13 +55,10 @@
     "@babel/preset-react": "~7.27.1",
     "@rocket.chat/fuselage-hooks": "workspace:~",
     "@rocket.chat/icons": "workspace:~",
-    "@storybook/addon-a11y": "~9.1.10",
-    "@storybook/addon-docs": "~9.1.10",
-    "@storybook/addon-links": "~9.1.10",
-    "@storybook/addon-styling-webpack": "~2.0.0",
-    "@storybook/addon-webpack5-compiler-swc": "~4.0.1",
+    "@storybook/addon-a11y": "~10.0.2",
+    "@storybook/addon-docs": "~10.0.2",
+    "@storybook/addon-links": "~10.0.2",
     "@storybook/react-vite": "^10.0.2",
-    "@storybook/react-webpack5": "~9.1.10",
     "@testing-library/dom": "~10.4.1",
     "@testing-library/jest-dom": "~6.9.1",
     "@testing-library/react": "~16.3.0",
@@ -112,11 +109,7 @@
     "ts-loader": "~9.5.4",
     "typescript": "~5.9.3",
     "vite": "^7.1.12",
-    "vite-plugin-dts": "^4.5.4",
-    "webpack": "~5.102.0",
-    "webpack-bundle-analyzer": "~4.10.2",
-    "webpack-cli": "~6.0.1",
-    "wrapper-webpack-plugin": "~2.2.2"
+    "vite-plugin-dts": "^4.5.4"
   },
   "peerDependencies": {
     "@rocket.chat/fuselage-hooks": "*",
