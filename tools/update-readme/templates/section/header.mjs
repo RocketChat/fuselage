@@ -25,7 +25,7 @@ export const header = (pkg) =>
       npmVersionBadge(pkg, 'latest'),
       npmVersionBadge(pkg, 'next'),
       pkg.peerDependencies?.react && npmPeerDepVersionBadge(pkg, 'react'),
-      pkg.devDependencies?.['@storybook/react-webpack5'] && storybookBadge(pkg),
+      pkg.devDependencies?.['@storybook/react-vite'] && storybookBadge(pkg),
       npmDownloadsBadge(pkg),
       licenseBadge(pkg),
     )}

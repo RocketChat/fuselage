@@ -12,7 +12,7 @@
 
 ---
 
-[![npm@latest](https://img.shields.io/npm/v/@rocket.chat/onboarding-ui/latest?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/onboarding-ui/v/latest) [![npm@next](https://img.shields.io/npm/v/@rocket.chat/onboarding-ui/next?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/onboarding-ui/v/next) ![react version](https://img.shields.io/npm/dependency-version/@rocket.chat/onboarding-ui/peer/react?style=flat-square) ![npm downloads](https://img.shields.io/npm/dw/@rocket.chat/onboarding-ui?style=flat-square) ![License: MIT](https://img.shields.io/npm/l/@rocket.chat/onboarding-ui?style=flat-square)
+[![npm@latest](https://img.shields.io/npm/v/@rocket.chat/onboarding-ui/latest?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/onboarding-ui/v/latest) [![npm@next](https://img.shields.io/npm/v/@rocket.chat/onboarding-ui/next?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/onboarding-ui/v/next) ![react version](https://img.shields.io/npm/dependency-version/@rocket.chat/onboarding-ui/peer/react?style=flat-square) [![Storybook](https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg)](https://rocketchat.github.io/fuselage/onboarding-ui) ![npm downloads](https://img.shields.io/npm/dw/@rocket.chat/onboarding-ui?style=flat-square) ![License: MIT](https://img.shields.io/npm/l/@rocket.chat/onboarding-ui?style=flat-square)
 
 ![deps](https://img.shields.io/librariesio/release/npm/@rocket.chat/onboarding-ui?style=flat-square) ![npm bundle size](https://img.shields.io/bundlephobia/min/@rocket.chat/onboarding-ui?style=flat-square)
 

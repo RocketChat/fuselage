@@ -5,16 +5,12 @@ import type { StorybookConfig } from '@storybook/react-vite';
 const config: StorybookConfig = {
   addons: [
     getAbsolutePath('storybook-dark-mode'),
-    getAbsolutePath('@storybook/addon-webpack5-compiler-swc'),
     getAbsolutePath('@storybook/addon-docs'),
   ],
 
   stories: ['../src/**/*.stories.tsx', '../src/**/stories.tsx'],
 
-  framework: {
-    name: getAbsolutePath('@storybook/react-webpack5'),
-    options: {},
-  },
+  framework: '@storybook/react-vite',
   swc: () => ({
     jsc: {
       transform: {
