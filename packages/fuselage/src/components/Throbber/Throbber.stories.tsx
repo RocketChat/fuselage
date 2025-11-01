@@ -1,4 +1,4 @@
-import type { StoryFn, Meta } from '@storybook/react-webpack5';
+import type { StoryFn, Meta } from '@storybook/react-vite';
 import { action } from 'storybook/actions';
 
 import { PropsVariationSection } from '../../../.storybook/helpers';

@@ -1,4 +1,4 @@
-import type { Meta } from '@storybook/react-webpack5';
+import type { Meta } from '@storybook/react-vite';
 import type { ComponentType } from 'react';
 
 import Tile from '../Tile';

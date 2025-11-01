@@ -1,4 +1,4 @@
-import type { Meta, StoryFn } from '@storybook/react-webpack5';
+import type { Meta, StoryFn } from '@storybook/react-vite';
 import type { ReactNode } from 'react';
 
 import Message from '..';

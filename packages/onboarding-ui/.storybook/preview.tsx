@@ -1,7 +1,7 @@
 import { PaletteStyleTag } from '@rocket.chat/fuselage';
 import surface from '@rocket.chat/fuselage-tokens/dist/surface.json';
 import { DarkModeProvider } from '@rocket.chat/layout';
-import type { Preview } from '@storybook/react-webpack5';
+import type { Preview } from '@storybook/react-vite';
 import i18next from 'i18next';
 import { Suspense } from 'react';
 import { I18nextProvider, initReactI18next } from 'react-i18next';

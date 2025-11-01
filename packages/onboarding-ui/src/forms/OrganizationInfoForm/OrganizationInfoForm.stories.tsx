@@ -1,4 +1,4 @@
-import type { StoryFn, Meta } from '@storybook/react-webpack5';
+import type { StoryFn, Meta } from '@storybook/react-vite';
 import { countries } from 'countries-list';
 
 import OrganizationInfoForm from './OrganizationInfoForm';

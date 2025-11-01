@@ -1,4 +1,4 @@
-import type { Meta, StoryFn } from '@storybook/react-webpack5';
+import type { Meta, StoryFn } from '@storybook/react-vite';
 
 import HeroLayout from './HeroLayout';
 import HeroLayoutSubtitle from './HeroLayoutSubtitle';

@@ -1,4 +1,4 @@
-import type { StoryFn, Meta } from '@storybook/react-webpack5';
+import type { StoryFn, Meta } from '@storybook/react-vite';
 
 import { Label } from './Label';
 import { LabelInfo } from './LabelInfo';

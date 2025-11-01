@@ -1,6 +1,6 @@
 import surface from '@rocket.chat/fuselage-tokens/dist/surface.json';
 import { DarkModeProvider } from '@rocket.chat/layout';
-import type { Preview } from '@storybook/react-webpack5';
+import type { Preview } from '@storybook/react-vite';
 import { Suspense } from 'react';
 import { themes } from 'storybook/theming';
 import { useDarkMode } from 'storybook-dark-mode';

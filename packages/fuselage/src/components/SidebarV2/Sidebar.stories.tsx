@@ -1,4 +1,4 @@
-import type { Meta, StoryFn } from '@storybook/react-webpack5';
+import type { Meta, StoryFn } from '@storybook/react-vite';
 import { action } from 'storybook/actions';
 
 import { IconButton, TextInput, Icon, Box } from '../..';

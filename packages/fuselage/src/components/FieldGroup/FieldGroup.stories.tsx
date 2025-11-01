@@ -1,4 +1,4 @@
-import type { StoryFn, Meta } from '@storybook/react-webpack5';
+import type { StoryFn, Meta } from '@storybook/react-vite';
 
 import { Field, FieldHint, FieldLabel, FieldRow } from '../Field';
 import { InputBoxSkeleton } from '../InputBox';

@@ -1,4 +1,4 @@
-import { composeStories } from '@storybook/react-webpack5';
+import { composeStories } from '@storybook/react-vite';
 import { screen } from '@testing-library/dom';
 import userEvent from '@testing-library/user-event';
 import { axe } from 'jest-axe';
