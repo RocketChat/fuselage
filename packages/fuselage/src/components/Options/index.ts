@@ -1,7 +1,7 @@
-export { default as Options, type OptionsProps } from './Options';
+export { default as Options, type OptionsProps } from './Options.js';
 export {
   default as OptionContainer,
   type OptionContainerProps,
-} from './OptionContainer';
-export type { OptionType } from './OptionType';
-export { useCursor } from './useCursor';
+} from './OptionContainer.js';
+export type { OptionType } from './OptionType.js';
+export { useCursor } from './useCursor.js';

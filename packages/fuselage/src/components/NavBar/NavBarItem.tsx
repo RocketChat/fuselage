@@ -1,9 +1,9 @@
 import type { ComponentProps, HTMLAttributes } from 'react';
 import { forwardRef } from 'react';
 
-import { appendClassName } from '../../helpers/appendClassName';
-import { patchChildren } from '../../helpers/patchChildren';
-import { IconButton } from '../Button';
+import { appendClassName } from '../../helpers/appendClassName.js';
+import { patchChildren } from '../../helpers/patchChildren.js';
+import { IconButton } from '../Button/index.js';
 
 type NavbarItemProps = Partial<ComponentProps<typeof IconButton>>;
 

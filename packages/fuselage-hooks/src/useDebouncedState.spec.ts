@@ -1,4 +1,4 @@
-import { renderHook, act } from './testing';
+import { renderHook, act } from './testing.ts';
 import { useDebouncedState } from './useDebouncedState';
 
 beforeAll(() => {

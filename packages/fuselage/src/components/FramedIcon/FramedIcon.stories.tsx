@@ -1,6 +1,6 @@
 import type { Meta, StoryFn } from '@storybook/react-vite';
 
-import { FramedIcon } from './FramedIcon';
+import { FramedIcon } from './FramedIcon.js';
 
 export default {
   title: 'Data Display/FramedIcon',

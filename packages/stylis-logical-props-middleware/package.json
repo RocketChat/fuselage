@@ -3,6 +3,7 @@
   "version": "0.31.25",
   "description": "Stylis middleware to handle CSS Logical Properties and their fallbacks",
   "homepage": "https://github.com/RocketChat/fuselage#readme",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/RocketChat/fuselage/issues"
   },
@@ -16,17 +17,19 @@
     "name": "Rocket.Chat",
     "url": "https://rocket.chat/"
   },
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "types": "dist/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/esm/index.d.ts",
+      "import": "./dist/esm/index.js"
+    }
+  },
   "files": [
     "/dist"
   ],
   "scripts": {
-    "build": "run-s .:build:clean .:build:esm .:build:cjs",
+    "build": "run-s .:build:clean .:build:esm",
     ".:build:clean": "rimraf dist",
     ".:build:esm": "tsc -p tsconfig-esm.json",
-    ".:build:cjs": "tsc -p tsconfig-cjs.json",
     "lint": "lint",
     "lint-and-fix": "lint-and-fix",
     "test": "jest --runInBand --passWithNoTests",

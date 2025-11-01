@@ -3,8 +3,8 @@ import type { DOMAttributes, MutableRefObject, ReactNode } from 'react';
 import { useMemo } from 'react';
 import type { SliderState } from 'react-stately';
 
-import { Palette } from '../../Theme';
-import { useStyle } from '../../hooks/useStyle';
+import { Palette } from '../../Theme.js';
+import { useStyle } from '../../hooks/useStyle.js';
 
 type SliderTrackProps = {
   trackProps: DOMAttributes<Element>;

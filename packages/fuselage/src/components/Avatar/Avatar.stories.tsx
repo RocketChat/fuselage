@@ -1,11 +1,11 @@
 import type { StoryFn, Meta } from '@storybook/react-vite';
 
-import Box from '../Box';
-import Margins from '../Margins';
+import Box from '../Box/Box.js';
+import Margins from '../Margins/index.js';
 
-import Avatar from './Avatar';
-import AvatarContainer from './AvatarContainer';
-import AvatarStack from './AvatarStack';
+import Avatar from './Avatar.js';
+import AvatarContainer from './AvatarContainer.js';
+import AvatarStack from './AvatarStack.js';
 
 export default {
   title: 'Data Display/Avatar',

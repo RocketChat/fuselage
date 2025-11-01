@@ -1,14 +1,14 @@
 import type { Meta, StoryFn } from '@storybook/react-vite';
 
-import Message, { MessageStatusIndicatorItem } from '..';
-import { Avatar } from '../../Avatar';
-import Box from '../../Box';
-import { MessageDivider } from '../MessageDivider';
-import MessageReactions from '../MessageReactions';
-import MessageToolbar from '../MessageToolbar';
+import { Avatar } from '../../Avatar/index.js';
+import Box from '../../Box/index.js';
+import { MessageDivider } from '../MessageDivider/index.js';
+import MessageReactions from '../MessageReactions/index.js';
+import MessageToolbar from '../MessageToolbar/index.js';
+import Message, { MessageStatusIndicatorItem } from '../index.js';
 
-import { MessageStatusIndicator } from './MessageStatusIndicator';
-import { MessageStatusIndicatorText } from './MessageStatusIndicatorText';
+import { MessageStatusIndicator } from './MessageStatusIndicator.js';
+import { MessageStatusIndicatorText } from './MessageStatusIndicatorText.js';
 
 export default {
   title: 'Message/MessageStatusIndicator',

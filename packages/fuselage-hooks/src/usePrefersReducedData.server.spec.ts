@@ -1,4 +1,4 @@
-import { renderHook } from './testing';
+import { renderHook } from './testing.ts';
 import { usePrefersReducedData } from './usePrefersReducedData';
 
 it('should return false on the initial call', () => {

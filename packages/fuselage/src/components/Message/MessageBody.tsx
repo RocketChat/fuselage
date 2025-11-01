@@ -1,6 +1,6 @@
 import type { HTMLAttributes, ReactElement } from 'react';
 
-import { prependClassName } from '../../helpers/prependClassName';
+import { prependClassName } from '../../helpers/prependClassName.js';
 
 type MessageBodyProps = HTMLAttributes<HTMLDivElement> & {
   clamp?: 2 | 3 | 4;

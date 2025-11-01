@@ -1,1 +1,1 @@
-export * from './FramedIcon';
+export * from './FramedIcon.js'

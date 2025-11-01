@@ -2,13 +2,13 @@ import type { StoryFn, Meta } from '@storybook/react-vite';
 import type { ComponentProps, ReactNode, Ref } from 'react';
 import { forwardRef, useState } from 'react';
 
-import Box from '../../Box';
-import { IconButton } from '../../Button';
-import { ButtonGroup } from '../../ButtonGroup';
-import { CheckBox } from '../../CheckBox';
-import { RadioButton } from '../../RadioButton';
-import Sidebar from '../../Sidebar';
-import { ToggleSwitch } from '../../ToggleSwitch';
+import Box from '../../Box/index.js';
+import { IconButton } from '../../Button/index.js';
+import { ButtonGroup } from '../../ButtonGroup/index.js';
+import { CheckBox } from '../../CheckBox/index.js';
+import { RadioButton } from '../../RadioButton/index.js';
+import Sidebar from '../../Sidebar/index.js';
+import { ToggleSwitch } from '../../ToggleSwitch/index.js';
 
 import {
   MenuV2 as Menu,
@@ -17,7 +17,7 @@ import {
   MenuItemContent,
   MenuItemIcon,
   MenuItemInput,
-} from '.';
+} from './index.js';
 
 export default {
   title: 'Navigation/Menu/v2',
@@ -35,7 +35,7 @@ export default {
       </Box>
     ),
   ],
-} satisfies Meta<typeof Menu>;
+} as Meta<typeof Menu>;
 
 export const Simple: StoryFn<typeof Menu> = (args) => (
   <Menu {...args} placement='right-start'>

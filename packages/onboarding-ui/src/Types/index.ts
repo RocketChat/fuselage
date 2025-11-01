@@ -1,3 +1,3 @@
 import type { FormPageLayoutStyleProps } from './FormPageLayoutStyleProps';
 
-export { FormPageLayoutStyleProps };
+export type { FormPageLayoutStyleProps };

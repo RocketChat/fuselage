@@ -1,4 +1,4 @@
-import { renderHook } from './testing';
+import { renderHook } from './testing.ts';
 import { useMediaQueries } from './useMediaQueries';
 
 it('returns empty array for undefined media query', () => {

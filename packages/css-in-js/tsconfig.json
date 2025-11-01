@@ -2,13 +2,13 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "rootDir": "./src",
+    "target": "esnext",
     "module": "ESNext",
     "lib": ["dom", "es6"],
     "declarationDir": "./dist",
     "outDir": "./dist",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "noEmit": true,
-    "esModuleInterop": true,
     "skipLibCheck": true
   },
   "include": ["src"],

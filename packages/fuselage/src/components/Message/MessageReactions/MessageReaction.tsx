@@ -1,8 +1,8 @@
 import type { HTMLAttributes, ReactNode, Ref } from 'react';
 import { forwardRef } from 'react';
 
-import { MessageReactionCounter } from './MessageReactionCounter';
-import { MessageReactionEmoji } from './MessageReactionEmoji';
+import { MessageReactionCounter } from './MessageReactionCounter.js';
+import { MessageReactionEmoji } from './MessageReactionEmoji.js';
 
 type MessageReactionProps = {
   name?: string;

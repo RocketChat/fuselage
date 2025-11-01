@@ -18,24 +18,10 @@ export default defineConfig({
   input: 'src/index.ts',
   output: [
     {
-      dir: dirname(pkg.main),
-      entryFileNames: basename(pkg.main),
-      format: 'cjs',
-      sourcemap: true,
-    },
-    {
-      dir: dirname(pkg.module),
-      entryFileNames: basename(pkg.module),
+      dir: dirname(pkg.exports['.'].import),
+      entryFileNames: basename(pkg.exports['.'].import),
       format: 'es',
       sourcemap: true,
-    },
-    {
-      dir: dirname(pkg.unpkg),
-      entryFileNames: basename(pkg.unpkg),
-      format: 'umd',
-      name: 'FuselageHooks',
-      sourcemap: true,
-      globals,
     },
   ],
   plugins: [

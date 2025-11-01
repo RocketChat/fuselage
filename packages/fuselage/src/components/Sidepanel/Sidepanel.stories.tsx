@@ -16,9 +16,9 @@ import {
   SidebarV2Item,
   SidebarV2ItemTimestamp,
   Tag,
-} from '../..';
-import { SidebarItemAvatarWrapper } from '../SidebarV2/SidebarItem/SidebarItemAvatarWrapper';
-import { MenuTemplate, leterAvatarUrls, names } from '../SidebarV2/helpers';
+} from '../../index.js';
+import { SidebarItemAvatarWrapper } from '../SidebarV2/SidebarItem/SidebarItemAvatarWrapper.js';
+import { MenuTemplate, leterAvatarUrls, names } from '../SidebarV2/helpers.js';
 
 import {
   Sidepanel,
@@ -27,7 +27,7 @@ import {
   SidepanelHeaderTitle,
   SidepanelList,
   SidepanelListItem,
-} from '.';
+} from './index.js';
 
 export default {
   title: 'Navigation/Sidepanel',

@@ -2,7 +2,7 @@ import type { StoryFn, Meta } from '@storybook/react-vite';
 import type { ComponentType } from 'react';
 import { action } from 'storybook/actions';
 
-import { Avatar, Icon, Box, Tag, Divider, SidebarBanner } from '../..';
+import { Avatar, Icon, Box, Tag, Divider, SidebarBanner } from '../../index.js';
 
 import Sidebar, {
   SidebarItemContainer,
@@ -20,7 +20,7 @@ import Sidebar, {
   TopBarAction,
   SidebarFooterHighlight,
   SidebarItemIcon,
-} from '.';
+} from './index.js';
 
 export default {
   title: 'Sidebar/Sidebar',

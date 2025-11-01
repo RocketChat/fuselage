@@ -1,7 +1,7 @@
 import type { DetailedHTMLProps, HTMLAttributes } from 'react';
-import flattenChildren from 'react-keyed-flatten-children';
 
-import { prependClassName } from '../../helpers/prependClassName';
+import { flattenChildren } from '../../helpers/flattenChildren.js';
+import { prependClassName } from '../../helpers/prependClassName.js';
 
 export type AvatarStackProps = DetailedHTMLProps<
   HTMLAttributes<HTMLDivElement>,

@@ -13,7 +13,7 @@ import {
   TelephoneInput,
   NumberInput,
   UrlInput,
-} from '../Inputs';
+} from '../Inputs/index.js';
 
 import {
   Field,
@@ -24,7 +24,7 @@ import {
   FieldLabelInfo,
   FieldLink,
   FieldRow,
-} from '.';
+} from './index.js';
 
 export default {
   title: 'Inputs/Field',

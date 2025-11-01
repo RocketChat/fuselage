@@ -1,9 +1,9 @@
 import { composeStories } from '@storybook/react-vite';
 import { axe, toHaveNoViolations } from 'jest-axe';
 
-import { render } from '../../testing';
+import { render } from '../../testing.js';
 
-import * as stories from './CodeSnippet.stories';
+import * as stories from './CodeSnippet.stories.js';
 
 expect.extend(toHaveNoViolations);
 

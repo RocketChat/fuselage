@@ -1,6 +1,6 @@
 import type { Meta } from '@storybook/react-vite';
 
-import Tile from './Tile';
+import Tile from './Tile.js';
 
 export default {
   title: 'Containers/Tile',

@@ -1,1 +1,1 @@
-export { default } from './PositionAnimated';
+export { default } from './PositionAnimated.js';

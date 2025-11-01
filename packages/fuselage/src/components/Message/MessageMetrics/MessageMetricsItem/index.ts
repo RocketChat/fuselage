@@ -1,8 +1,8 @@
-import { MessageMetricsItem } from './MessageMetricsItem';
-import { MessageMetricsItemAvatarRow } from './MessageMetricsItemAvatarRow';
-import { MessageMetricsItemAvatarRowContent } from './MessageMetricsItemAvatarRowContent';
-import { MessageMetricsItemIcon } from './MessageMetricsItemIcon';
-import { MessageMetricsItemLabel } from './MessageMetricsItemLabel';
+import { MessageMetricsItem } from './MessageMetricsItem.js';
+import { MessageMetricsItemAvatarRow } from './MessageMetricsItemAvatarRow.js';
+import { MessageMetricsItemAvatarRowContent } from './MessageMetricsItemAvatarRowContent.js';
+import { MessageMetricsItemIcon } from './MessageMetricsItemIcon.js';
+import { MessageMetricsItemLabel } from './MessageMetricsItemLabel.js';
 
 export default Object.assign(MessageMetricsItem, {
   /**

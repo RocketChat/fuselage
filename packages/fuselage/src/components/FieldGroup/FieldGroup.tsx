@@ -1,8 +1,8 @@
 import type { ComponentProps } from 'react';
 
-import { appendClassName } from '../../helpers/appendClassName';
-import { patchChildren } from '../../helpers/patchChildren';
-import Box from '../Box';
+import { appendClassName } from '../../helpers/appendClassName.js';
+import { patchChildren } from '../../helpers/patchChildren.js';
+import Box from '../Box/index.js';
 
 type FieldGroupProps = ComponentProps<typeof Box>;
 

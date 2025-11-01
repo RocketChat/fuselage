@@ -1,6 +1,6 @@
 import { withClipboardMock } from 'testing-utils/mocks/withClipboardMock';
 
-import { renderHook, act } from './testing';
+import { renderHook, act } from './testing.ts';
 import { useClipboard } from './useClipboard';
 
 let container: Element | undefined;

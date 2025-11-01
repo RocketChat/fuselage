@@ -1,6 +1,6 @@
 import type { Meta, StoryFn } from '@storybook/react-vite';
 
-import ActionLink from './ActionLink';
+import ActionLink from './ActionLink.js';
 
 export default {
   title: 'components/ActionLink',

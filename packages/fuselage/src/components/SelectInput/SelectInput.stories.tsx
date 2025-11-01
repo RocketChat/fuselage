@@ -1,10 +1,10 @@
 import type { StoryFn, Meta } from '@storybook/react-vite';
 import type { ComponentType } from 'react';
 
-import { PropsVariationSection } from '../../../.storybook/helpers';
-import { Icon } from '../Icon';
+import { PropsVariationSection } from '../../../.storybook/helpers.js';
+import { Icon } from '../Icon/index.js';
 
-import { SelectInputOption, SelectInput } from '.';
+import { SelectInputOption, SelectInput } from './index.js';
 
 export default {
   title: 'Inputs/SelectInput',

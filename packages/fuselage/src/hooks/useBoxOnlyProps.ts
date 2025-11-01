@@ -1,6 +1,6 @@
 import type { AllHTMLAttributes } from 'react';
 
-import { prependClassName } from '../helpers/prependClassName';
+import { prependClassName } from '../helpers/prependClassName.js';
 
 export const useBoxOnlyProps = <
   T extends {

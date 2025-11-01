@@ -1,7 +1,7 @@
 import type { ComponentProps, ReactElement, ElementType, Ref } from 'react';
 import { createContext, forwardRef, useContext } from 'react';
 
-import Box from '../Box';
+import Box from '../Box/index.js';
 
 const LabelContext = createContext(false);
 

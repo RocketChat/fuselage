@@ -2,7 +2,7 @@ import { css } from '@rocket.chat/css-in-js';
 import type { ComponentProps, Ref } from 'react';
 import { forwardRef } from 'react';
 
-import Box from '../Box';
+import Box from '../Box/index.js';
 
 type ThrobberProps = Omit<ComponentProps<typeof Box>, 'disabled'> & {
   circleCount?: number;

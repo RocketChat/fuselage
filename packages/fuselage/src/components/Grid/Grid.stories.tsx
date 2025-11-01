@@ -1,10 +1,16 @@
 import type { StoryFn, Meta } from '@storybook/react-vite';
 import { Fragment } from 'react';
 
-import { Table, TableBody, TableCell, TableHead, TableRow } from '../Table';
-import Tile from '../Tile';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableRow,
+} from '../Table/index.js';
+import Tile from '../Tile/index.js';
 
-import { Grid } from './Grid';
+import { Grid } from './Grid.js';
 
 export default {
   title: 'Layout/Grid',

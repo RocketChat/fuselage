@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { renderHook, act } from './testing';
+import { renderHook, act } from './testing.ts';
 import { useSafely } from './useSafely';
 
 it('returns a new dispatcher that invokes the previous one', () => {

@@ -1,1 +1,1 @@
-export * from './TextAreaInput';
+export * from './TextAreaInput.js'

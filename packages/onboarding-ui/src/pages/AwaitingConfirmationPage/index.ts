@@ -1,1 +1,1 @@
-export { default } from './AwaitingConfirmationPage';
+export { default } from './AwaitingConfirmationPage.js';

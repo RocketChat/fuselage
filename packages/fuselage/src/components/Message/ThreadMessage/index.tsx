@@ -1,14 +1,14 @@
-import { MessageLeftContainer } from '../MessageLeftContainer';
+import { MessageLeftContainer } from '../MessageLeftContainer.js';
 
-import { ThreadMessage } from './ThreadMessage';
-import { ThreadMessageBody } from './ThreadMessageBody';
-import { ThreadMessageContainer } from './ThreadMessageContainer';
-import { ThreadMessageEmoji } from './ThreadMessageEmoji';
-import { ThreadMessageFollow } from './ThreadMessageFollow';
-import { ThreadMessageIconThread } from './ThreadMessageIconThread';
-import { ThreadMessageOrigin } from './ThreadMessageOrigin';
-import { ThreadMessageRow } from './ThreadMessageRow';
-import { ThreadMessageUnfollow } from './ThreadMessageUnfollow';
+import { ThreadMessage } from './ThreadMessage.js';
+import { ThreadMessageBody } from './ThreadMessageBody.js';
+import { ThreadMessageContainer } from './ThreadMessageContainer.js';
+import { ThreadMessageEmoji } from './ThreadMessageEmoji.js';
+import { ThreadMessageFollow } from './ThreadMessageFollow.js';
+import { ThreadMessageIconThread } from './ThreadMessageIconThread.js';
+import { ThreadMessageOrigin } from './ThreadMessageOrigin.js';
+import { ThreadMessageRow } from './ThreadMessageRow.js';
+import { ThreadMessageUnfollow } from './ThreadMessageUnfollow.js';
 
 const ThreadMessageLeftContainer = MessageLeftContainer;
 

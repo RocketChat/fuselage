@@ -9,6 +9,7 @@
     "skipLibCheck": true,
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
+    "verbatimModuleSyntax": true,
     "jsx": "react-jsx"
   },
   "include": ["./src", "./.jest/**/*", "./.storybook/**/*"],

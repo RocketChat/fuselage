@@ -1,10 +1,10 @@
 import type { Meta } from '@storybook/react-vite';
 
-import { Avatar } from '../../Avatar';
-import Box from '../../Box';
+import { Avatar } from '../../Avatar/index.js';
+import Box from '../../Box/index.js';
 
-import ThreadMessage from '.';
-import { ThreadMessageEmoji } from './ThreadMessageEmoji';
+import { ThreadMessageEmoji } from './ThreadMessageEmoji.js';
+import ThreadMessage from './index.js';
 
 export default {
   title: 'Message/ThreadMessage',

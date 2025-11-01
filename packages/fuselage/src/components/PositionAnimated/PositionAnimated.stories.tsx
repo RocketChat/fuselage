@@ -1,10 +1,10 @@
 import type { StoryFn, Meta } from '@storybook/react-vite';
 import { useRef } from 'react';
 
-import AnimatedVisibility from '../AnimatedVisibility';
-import Tile from '../Tile';
+import AnimatedVisibility from '../AnimatedVisibility/index.js';
+import Tile from '../Tile/index.js';
 
-import PositionAnimated from './PositionAnimated';
+import PositionAnimated from './PositionAnimated.js';
 
 export default {
   title: 'Layout/PositionAnimated',

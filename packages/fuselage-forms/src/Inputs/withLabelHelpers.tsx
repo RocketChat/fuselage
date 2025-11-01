@@ -1,15 +1,15 @@
 // Disabled this flag since we need to wrap multiple components
 /* eslint-disable react/no-multi-comp */
-import type { ReactNode, ForwardRefExoticComponent } from 'react';
+import type { ForwardRefExoticComponent } from 'react';
 import { VisuallyHidden } from 'react-aria';
 
 import {
   useFieldReferencedByInput,
   useFieldReferencedByLabel,
   useFieldWrappedByInputLabel,
-} from '../Field/FieldContext';
+} from '../Field/FieldContext.js';
 
-type WithLabelId = { id?: string };
+export type WithLabelId = { id?: string };
 
 function withLabelId<TProps>(
   Component: ForwardRefExoticComponent<TProps & WithLabelId>,
@@ -39,7 +39,7 @@ function withAriaLabelledBy<TProps>(
   return WrappedComponent;
 }
 
-type WithChildrenLabel = { labelChildren: ReactNode };
+type WithChildrenLabel = { labelChildren: JSX.Element };
 
 function withVisuallyHiddenLabel<TProps>(
   Component: ForwardRefExoticComponent<TProps & WithChildrenLabel>,

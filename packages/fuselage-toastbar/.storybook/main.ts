@@ -1,6 +1,9 @@
-import { dirname, join } from 'path';
+import { createRequire } from 'node:module';
+import { dirname, join } from 'node:path';
 
 import type { StorybookConfig } from '@storybook/react-vite';
+
+const require = createRequire(import.meta.url);
 
 const config: StorybookConfig = {
   addons: [
@@ -11,15 +14,15 @@ const config: StorybookConfig = {
   stories: ['../src/**/*.stories.tsx', '../src/**/stories.tsx'],
 
   framework: '@storybook/react-vite',
-  swc: () => ({
-    jsc: {
-      transform: {
-        react: {
-          runtime: 'automatic',
-        },
-      },
-    },
-  }),
+  // swc: () => ({
+  //   jsc: {
+  //     transform: {
+  //       react: {
+  //         runtime: 'automatic',
+  //       },
+  //     },
+  //   },
+  // }),
 
   docs: {},
 

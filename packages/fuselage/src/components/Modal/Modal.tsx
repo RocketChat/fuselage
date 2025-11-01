@@ -1,7 +1,7 @@
 import type { ComponentProps, Ref, ElementType, ReactNode } from 'react';
 import { createElement, forwardRef } from 'react';
 
-import Box from '../Box';
+import Box from '../Box/index.js';
 
 type ModalProps = {
   wrapperFunction?: (

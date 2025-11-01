@@ -1,8 +1,8 @@
 import type { StoryFn, Meta } from '@storybook/react-vite';
 
-import Box from '../Box';
+import Box from '../Box/index.js';
 
-import { StatusBullet } from './StatusBullet';
+import { StatusBullet } from './StatusBullet.js';
 
 export default {
   title: 'Data Display/StatusBullet',

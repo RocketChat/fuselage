@@ -1,6 +1,6 @@
-import { Icon, type IconProps } from '../Icon';
+import { Icon, type IconProps } from '../Icon/index.js';
 
-import OptionColumn from './OptionColumn';
+import OptionColumn from './OptionColumn.js';
 
 export type OptionIconProps = IconProps;
 

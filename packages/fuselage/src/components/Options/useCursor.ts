@@ -2,10 +2,10 @@ import { useEffectEvent } from '@rocket.chat/fuselage-hooks';
 import type { KeyboardEvent } from 'react';
 import { useState } from 'react';
 
-import AnimatedVisibility from '../AnimatedVisibility';
+import AnimatedVisibility from '../AnimatedVisibility/index.js';
 
-import type { OptionType } from './OptionType';
-import { useVisible } from './useVisible';
+import type { OptionType } from './OptionType.js';
+import { useVisible } from './useVisible.js';
 
 const keyCodes = {
   ESC: 27,

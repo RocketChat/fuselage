@@ -1,6 +1,6 @@
 import type { HTMLAttributes } from 'react';
 
-import { MessageMetricsContentItem } from './MessageMetricsContentItem';
+import { MessageMetricsContentItem } from './MessageMetricsContentItem.js';
 
 type MessageMetricsProps = HTMLAttributes<HTMLDivElement>;
 

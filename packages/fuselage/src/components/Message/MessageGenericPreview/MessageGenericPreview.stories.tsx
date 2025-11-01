@@ -1,18 +1,18 @@
 import type { Meta, StoryFn } from '@storybook/react-vite';
 import type { ReactNode } from 'react';
 
-import Message from '..';
-import { Avatar } from '../../Avatar';
-import Box from '../../Box';
+import { Avatar } from '../../Avatar/index.js';
+import Box from '../../Box/index.js';
+import Message from '../index.js';
 
-import { MessageGenericPreview } from './MessageGenericPreview';
-import { MessageGenericPreviewContent } from './MessageGenericPreviewContent';
-import { MessageGenericPreviewCoverImage } from './MessageGenericPreviewCoverImage';
-import { MessageGenericPreviewDescription } from './MessageGenericPreviewDescription';
-import { MessageGenericPreviewIcon } from './MessageGenericPreviewIcon';
-import { MessageGenericPreviewImage } from './MessageGenericPreviewImage';
-import { MessageGenericPreviewThumb } from './MessageGenericPreviewThumb';
-import { MessageGenericPreviewTitle } from './MessageGenericPreviewTitle';
+import { MessageGenericPreview } from './MessageGenericPreview.js';
+import { MessageGenericPreviewContent } from './MessageGenericPreviewContent.js';
+import { MessageGenericPreviewCoverImage } from './MessageGenericPreviewCoverImage.js';
+import { MessageGenericPreviewDescription } from './MessageGenericPreviewDescription.js';
+import { MessageGenericPreviewIcon } from './MessageGenericPreviewIcon.js';
+import { MessageGenericPreviewImage } from './MessageGenericPreviewImage.js';
+import { MessageGenericPreviewThumb } from './MessageGenericPreviewThumb.js';
+import { MessageGenericPreviewTitle } from './MessageGenericPreviewTitle.js';
 
 export default {
   title: 'Message/MessageGenericPreview',

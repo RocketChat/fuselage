@@ -1,1 +1,1 @@
-export { default } from './CheckYourEmailPage';
+export { default } from './CheckYourEmailPage.js';

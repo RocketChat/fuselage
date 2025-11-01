@@ -1,11 +1,11 @@
 import type { StoryFn, Meta } from '@storybook/react-vite';
 import { action } from 'storybook/actions';
 
-import Box from '../Box';
-import { ButtonGroup } from '../ButtonGroup';
-import { Icon } from '../Icon';
+import Box from '../Box/index.js';
+import { ButtonGroup } from '../ButtonGroup/index.js';
+import { Icon } from '../Icon/index.js';
 
-import { Tag } from './Tag';
+import { Tag } from './Tag.js';
 
 export default {
   title: 'Data Display/Tag',

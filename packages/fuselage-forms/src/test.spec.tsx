@@ -1,9 +1,10 @@
 import { composeStories } from '@storybook/react-vite';
 import { render } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { userEvent } from '@testing-library/user-event';
 import { axe } from 'jest-axe';
+import { test } from 'vitest';
 
-import * as _stories from './Field/Field.stories';
+import * as _stories from './Field/Field.stories.js';
 
 // TODO: Fix select a11y violations
 // "Interactive controls must not be nested (nested-interactive)"

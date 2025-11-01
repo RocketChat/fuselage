@@ -1,6 +1,7 @@
 {
   "name": "@rocket.chat/css-in-js",
   "version": "0.31.25",
+  "type": "module",
   "description": "Toolset to transpile and use CSS on runtime",
   "keywords": [
     "rocket.chat",
@@ -20,11 +21,13 @@
     "name": "Rocket.Chat",
     "url": "https://rocket.chat/"
   },
-  "main": "dist/index.js",
-  "unpkg": "dist/index.umd.js",
-  "module": "dist/index.module.js",
-  "source": "src/index.ts",
-  "types": "dist/index.d.ts",
+  "module": "dist/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
   "files": [
     "/dist",
     "/logicalProperties"
@@ -34,7 +37,7 @@
     "docs": "typedoc",
     "lint": "lint",
     "lint-and-fix": "lint-and-fix",
-    "test": "jest --runInBand"
+    "test": "vitest --run"
   },
   "dependencies": {
     "@emotion/hash": "^0.9.2",
@@ -57,7 +60,8 @@
     "rollup": "~4.52.4",
     "ts-jest": "~29.4.4",
     "typedoc": "~0.28.13",
-    "typescript": "~5.9.3"
+    "typescript": "~5.9.3",
+    "vitest": "^4.0.6"
   },
   "publishConfig": {
     "access": "public"

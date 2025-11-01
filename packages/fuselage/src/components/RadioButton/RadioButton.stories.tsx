@@ -4,9 +4,9 @@ import { action } from 'storybook/actions';
 import {
   PropsVariationSection,
   DECORATOR_LABEL,
-} from '../../../.storybook/helpers';
+} from '../../../.storybook/helpers.js';
 
-import { RadioButton } from './RadioButton';
+import { RadioButton } from './RadioButton.js';
 
 export default {
   title: 'Inputs/RadioButton',

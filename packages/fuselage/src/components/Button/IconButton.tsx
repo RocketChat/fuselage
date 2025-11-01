@@ -1,8 +1,8 @@
 import type { ComponentProps, ReactElement, Ref } from 'react';
 import { isValidElement, useMemo, forwardRef } from 'react';
 
-import Box from '../Box';
-import { Icon } from '../Icon';
+import Box from '../Box/index.js';
+import { Icon } from '../Icon/index.js';
 
 type ButtonSize = {
   large?: boolean;

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { renderHook, act } from './testing';
+import { renderHook, act } from './testing.ts';
 import { useDebouncedUpdates } from './useDebouncedUpdates';
 
 beforeAll(() => {

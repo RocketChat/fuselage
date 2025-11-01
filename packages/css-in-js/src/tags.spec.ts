@@ -1,4 +1,6 @@
-import { css, keyframes } from '.';
+import { describe, it, expect } from 'vitest';
+
+import { css, keyframes } from './index.js';
 import { holdContext } from './tags';
 
 describe('tags', () => {

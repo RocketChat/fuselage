@@ -7,7 +7,7 @@ import type {
 } from 'react';
 import { forwardRef } from 'react';
 
-import SelectFocus from '../Select/SelectFocus';
+import SelectFocus from '../Select/SelectFocus.js';
 
 type MultiSelectAnchorProps = {
   children: ReactNode;

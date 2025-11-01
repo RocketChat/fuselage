@@ -1,8 +1,8 @@
 import { composeStories } from '@storybook/react-vite';
 
-import { render } from '../../testing';
+import { render } from '../../testing.js';
 
-import * as stories from './Options.stories';
+import * as stories from './Options.stories.js';
 
 const { Default } = composeStories(stories);
 

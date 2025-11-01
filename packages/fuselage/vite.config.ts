@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
 
-import pkg from './package.json';
+import pkg from './package.json' with { type: 'json' };
 
 export default defineConfig({
   plugins: [
@@ -20,7 +20,7 @@ export default defineConfig({
   build: {
     lib: {
       entry: ['src/index.ts'],
-      name: 'RocketChatFuselage',
+      formats: ['es'],
     },
     rollupOptions: {
       external: [

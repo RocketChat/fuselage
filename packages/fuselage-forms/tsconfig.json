@@ -1,13 +1,14 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "module": "ESNext",
+    "module": "nodenext",
     "target": "esnext",
     "outDir": "./dist/esm",
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "moduleResolution": "bundler",
+    "moduleResolution": "nodenext",
     "resolveJsonModule": true,
+    "verbatimModuleSyntax": true,
     "jsx": "react-jsx"
   },
   "typedocOptions": {
@@ -18,7 +19,8 @@
     "src/**/*",
     "./.storybook/**/*",
     "./jest.config.ts",
-    "./jest-setup.ts"
+    "./jest-setup.ts",
+    "./vite.config.ts"
   ],
   "exclude": ["node_modules", "dist"]
 }

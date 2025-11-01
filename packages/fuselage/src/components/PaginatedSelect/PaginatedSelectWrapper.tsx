@@ -1,7 +1,7 @@
 import type { ComponentProps, Ref } from 'react';
 import { forwardRef } from 'react';
 
-import Box from '../Box';
+import Box from '../Box/index.js';
 
 type PaginatedSelectWrapperProps = ComponentProps<typeof Box>;
 

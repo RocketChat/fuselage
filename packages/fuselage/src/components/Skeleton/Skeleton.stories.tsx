@@ -1,6 +1,6 @@
 import type { StoryFn, Meta } from '@storybook/react-vite';
 
-import { Skeleton } from './Skeleton';
+import { Skeleton } from './Skeleton.js';
 
 export default {
   title: 'Layout/Skeleton',

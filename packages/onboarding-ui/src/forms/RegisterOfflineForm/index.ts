@@ -1,1 +1,1 @@
-export { default } from './RegisterOfflineForm';
+export { default } from './RegisterOfflineForm.js';

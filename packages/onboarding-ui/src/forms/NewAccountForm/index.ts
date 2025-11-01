@@ -1,1 +1,1 @@
-export { default } from './NewAccountForm';
+export { default } from './NewAccountForm.js';

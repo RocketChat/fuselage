@@ -1,19 +1,19 @@
 import type { StoryFn, Meta } from '@storybook/react-vite';
 
-import { CheckBox } from '../CheckBox';
-import { RadioButton } from '../RadioButton';
-import { TextAreaInput } from '../TextAreaInput';
-import { TextInput } from '../TextInput';
-import { ToggleSwitch } from '../ToggleSwitch';
+import { CheckBox } from '../CheckBox/index.js';
+import { RadioButton } from '../RadioButton/index.js';
+import { TextAreaInput } from '../TextAreaInput/index.js';
+import { TextInput } from '../TextInput/index.js';
+import { ToggleSwitch } from '../ToggleSwitch/index.js';
 
-import Field from './Field';
-import FieldDescription from './FieldDescription';
-import FieldError from './FieldError';
-import FieldHint from './FieldHint';
-import FieldLabel from './FieldLabel';
-import FieldLabelInfo from './FieldLabelInfo';
-import FieldLink from './FieldLink';
-import FieldRow from './FieldRow';
+import Field from './Field.js';
+import FieldDescription from './FieldDescription.js';
+import FieldError from './FieldError.js';
+import FieldHint from './FieldHint.js';
+import FieldLabel from './FieldLabel.js';
+import FieldLabelInfo from './FieldLabelInfo.js';
+import FieldLink from './FieldLink.js';
+import FieldRow from './FieldRow.js';
 
 export default {
   title: 'Inputs/Field',

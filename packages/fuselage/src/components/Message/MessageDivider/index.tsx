@@ -1,1 +1,1 @@
-export * from './MessageDivider';
+export * from './MessageDivider.js'

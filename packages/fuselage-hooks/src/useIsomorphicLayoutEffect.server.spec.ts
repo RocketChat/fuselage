@@ -1,4 +1,4 @@
-import { renderHook } from './testing';
+import { renderHook } from './testing.ts';
 import { useIsomorphicLayoutEffect } from './useIsomorphicLayoutEffect';
 
 it('performs a useEffect', () => {

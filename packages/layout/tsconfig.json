@@ -3,12 +3,12 @@
   "compilerOptions": {
     "rootDirs": ["./src", "./.storybook"],
     "target": "esnext",
-    "module": "esnext",
-
+    "module": "nodenext",
+    "verbatimModuleSyntax": true,
     "outDir": "./dist",
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "moduleResolution": "bundler",
+    "moduleResolution": "nodenext",
     "resolveJsonModule": true,
     "jsx": "react-jsx"
   },

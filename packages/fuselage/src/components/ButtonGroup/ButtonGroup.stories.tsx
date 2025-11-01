@@ -1,8 +1,8 @@
 import type { StoryFn, Meta } from '@storybook/react-vite';
 
-import Button from '../Button';
+import Button from '../Button/index.js';
 
-import { ButtonGroup } from './ButtonGroup';
+import { ButtonGroup } from './ButtonGroup.js';
 
 export default {
   title: 'Inputs/ButtonGroup',

@@ -1,15 +1,15 @@
-import Contextualbar from './Contextualbar';
-import ContextualbarAction from './ContextualbarAction';
-import ContextualbarActions from './ContextualbarActions';
-import ContextualbarButton from './ContextualbarButton';
-import ContextualbarContent from './ContextualbarContent';
-import ContextualbarEmptyContent from './ContextualbarEmptyContent';
-import ContextualbarFooter from './ContextualbarFooter';
-import ContextualbarHeader from './ContextualbarHeader';
-import ContextualbarIcon from './ContextualbarIcon';
-import ContextualbarSection from './ContextualbarSection';
-import ContextualbarSkeleton from './ContextualbarSkeleton';
-import ContextualbarTitle from './ContextualbarTitle';
+import Contextualbar from './Contextualbar.js';
+import ContextualbarAction from './ContextualbarAction.js';
+import ContextualbarActions from './ContextualbarActions.js';
+import ContextualbarButton from './ContextualbarButton.js';
+import ContextualbarContent from './ContextualbarContent.js';
+import ContextualbarEmptyContent from './ContextualbarEmptyContent.js';
+import ContextualbarFooter from './ContextualbarFooter.js';
+import ContextualbarHeader from './ContextualbarHeader.js';
+import ContextualbarIcon from './ContextualbarIcon.js';
+import ContextualbarSection from './ContextualbarSection.js';
+import ContextualbarSkeleton from './ContextualbarSkeleton.js';
+import ContextualbarTitle from './ContextualbarTitle.js';
 
 export {
   Contextualbar as ContextualbarV2,

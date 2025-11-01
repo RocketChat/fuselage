@@ -1,7 +1,7 @@
 import type { AllHTMLAttributes, ComponentProps, ReactNode, Ref } from 'react';
 import { forwardRef } from 'react';
 
-import Box from '../Box';
+import Box from '../Box/index.js';
 
 type ToggleSwitchProps = ComponentProps<typeof Box> &
   AllHTMLAttributes<HTMLInputElement> & {

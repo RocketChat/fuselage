@@ -2,23 +2,23 @@ import type { StoryFn, Meta } from '@storybook/react-vite';
 import type { ComponentType } from 'react';
 import { action } from 'storybook/actions';
 
-import Box from '../Box';
-import Button, { IconButton } from '../Button';
-import { ButtonGroup } from '../ButtonGroup';
-import { Icon } from '../Icon';
-import { InputBox } from '../InputBox';
+import Box from '../Box/index.js';
+import Button, { IconButton } from '../Button/index.js';
+import { ButtonGroup } from '../ButtonGroup/index.js';
+import { Icon } from '../Icon/index.js';
+import { InputBox } from '../InputBox/index.js';
 
-import Contextualbar from './Contextualbar';
-import ContextualbarAction from './ContextualbarAction';
-import ContextualbarActions from './ContextualbarActions';
-import ContextualbarButton from './ContextualbarButton';
-import ContextualbarContent from './ContextualbarContent';
-import ContextualbarEmptyContent from './ContextualbarEmptyContent';
-import ContextualbarFooter from './ContextualbarFooter';
-import ContextualbarHeader from './ContextualbarHeader';
-import ContextualbarSection from './ContextualbarSection';
-import ContextualbarSkeleton from './ContextualbarSkeleton';
-import ContextualbarTitle from './ContextualbarTitle';
+import Contextualbar from './Contextualbar.js';
+import ContextualbarAction from './ContextualbarAction.js';
+import ContextualbarActions from './ContextualbarActions.js';
+import ContextualbarButton from './ContextualbarButton.js';
+import ContextualbarContent from './ContextualbarContent.js';
+import ContextualbarEmptyContent from './ContextualbarEmptyContent.js';
+import ContextualbarFooter from './ContextualbarFooter.js';
+import ContextualbarHeader from './ContextualbarHeader.js';
+import ContextualbarSection from './ContextualbarSection.js';
+import ContextualbarSkeleton from './ContextualbarSkeleton.js';
+import ContextualbarTitle from './ContextualbarTitle.js';
 
 export default {
   title: 'Containers/Contextualbar',

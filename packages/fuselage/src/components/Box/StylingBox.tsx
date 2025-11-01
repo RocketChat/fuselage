@@ -2,11 +2,11 @@ import type { cssFn } from '@rocket.chat/css-in-js';
 import type { ReactElement } from 'react';
 import { cloneElement } from 'react';
 
-import { useArrayLikeClassNameProp } from '../../hooks/useArrayLikeClassNameProp';
-import type { Falsy } from '../../types/Falsy';
+import { useArrayLikeClassNameProp } from '../../hooks/useArrayLikeClassNameProp.js';
+import type { Falsy } from '../../types/Falsy.js';
 
-import type { StylingProps } from './stylingProps';
-import { useStylingProps } from './useStylingProps';
+import type { StylingProps } from './stylingProps.js';
+import { useStylingProps } from './useStylingProps.js';
 
 export type StylingBoxProps = {
   children: ReactElement<{ className?: string }>;

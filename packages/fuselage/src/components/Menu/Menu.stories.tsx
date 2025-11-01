@@ -1,10 +1,10 @@
 import type { StoryFn, Meta } from '@storybook/react-vite';
 import { action } from 'storybook/actions';
 
-import Box from '../Box';
-import { Icon } from '../Icon';
+import Box from '../Box/index.js';
+import { Icon } from '../Icon/index.js';
 
-import { Menu } from './Menu';
+import { Menu } from './Menu.js';
 
 export default {
   title: 'Navigation/Menu',
@@ -19,7 +19,7 @@ export default {
       </Box>
     ),
   ],
-} satisfies Meta<typeof Menu>;
+} as Meta<typeof Menu>;
 
 const Template: StoryFn<typeof Menu> = (args) => <Menu {...args} />;
 

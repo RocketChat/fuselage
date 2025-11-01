@@ -1,7 +1,7 @@
 import type { HTMLAttributes } from 'react';
 
-import { appendClassName } from '../../../helpers/appendClassName';
-import { patchChildren } from '../../../helpers/patchChildren';
+import { appendClassName } from '../../../helpers/appendClassName.js';
+import { patchChildren } from '../../../helpers/patchChildren.js';
 
 export const SidebarItemMenu = ({
   children,

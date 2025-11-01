@@ -1,6 +1,6 @@
 import type { ComponentProps } from 'react';
 
-import Box from '../../Box';
+import Box from '../../Box/index.js';
 
 export const SidebarFooterContent = ({
   children,

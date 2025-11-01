@@ -1,7 +1,7 @@
 import type { StoryFn, Meta } from '@storybook/react-vite';
 import type { ComponentType } from 'react';
 
-import { Avatar } from '../Avatar';
+import { Avatar } from '../Avatar/index.js';
 
 import {
   SidebarItem,
@@ -14,7 +14,7 @@ import {
   SidebarItemSubtitle,
   SidebarItemTitle,
   SidebarItemWrapper,
-} from './Item';
+} from './Item.js';
 
 export default {
   title: 'Sidebar/Item',

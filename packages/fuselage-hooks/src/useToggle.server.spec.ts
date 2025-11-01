@@ -1,4 +1,4 @@
-import { renderHook } from './testing';
+import { renderHook } from './testing.ts';
 import { useToggle } from './useToggle';
 
 it('has false value when an initial value is undefined', () => {

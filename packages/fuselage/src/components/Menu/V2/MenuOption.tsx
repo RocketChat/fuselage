@@ -7,8 +7,8 @@ import type {
 } from 'react';
 import { forwardRef, memo } from 'react';
 
-import { prevent } from '../../../helpers/prevent';
-import type Box from '../../Box/Box';
+import { prevent } from '../../../helpers/prevent.js';
+import type Box from '../../Box/Box.js';
 
 export type MenuOptionProps = {
   is?: ComponentProps<typeof Box>['is'];

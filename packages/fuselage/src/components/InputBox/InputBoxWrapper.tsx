@@ -1,5 +1,5 @@
-import Box, { type BoxProps } from '../Box';
-import { Label } from '../Label';
+import Box, { type BoxProps } from '../Box/index.js';
+import { Label } from '../Label/index.js';
 
 export type InputBoxWrapperProps = BoxProps;
 

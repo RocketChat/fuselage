@@ -1,6 +1,6 @@
 import type { AllHTMLAttributes, ComponentProps } from 'react';
 
-import { Icon } from '../..';
+import { Icon } from '../../index.js';
 
 type MessageStatusIndicatorItemProps = {
   name: ComponentProps<typeof Icon>['name'];

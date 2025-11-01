@@ -1,7 +1,7 @@
 import type { SectionProps } from '@react-types/shared';
 import { Children } from 'react';
 
-import type { PartialNode } from './PartialNode';
+import type { PartialNode } from './PartialNode.js';
 
 function MenuSection<T>(_props: SectionProps<T>) {
   return null;

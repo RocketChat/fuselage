@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 
-import { renderHook } from './testing';
+import { renderHook } from './testing.ts';
 import { useBorderBoxSize } from './useBorderBoxSize';
 
 it('immediately returns zero size', () => {

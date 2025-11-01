@@ -6,7 +6,7 @@
       "import { render } from '@testing-library/react';",
       "import React from 'react';",
       "",
-      "import { $1 } from '.';",
+      "import { $1 } from './index.js';",
       "",
       "it('renders without crashing', () => {",
       "  render(<$1 />);",

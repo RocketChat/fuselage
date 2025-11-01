@@ -1,6 +1,6 @@
 import { createRef } from 'react';
 
-import { renderHook } from './testing';
+import { renderHook } from './testing.ts';
 import { useMergedRefs } from './useMergedRefs';
 
 it('returns a callback ref', () => {

@@ -2,11 +2,11 @@ import type { Node } from '@react-types/shared';
 import { useMenuSection, useSeparator } from 'react-aria';
 import type { TreeState } from 'react-stately';
 
-import Box from '../../Box/Box';
-import { Divider } from '../../Divider';
-import { OptionTitle } from '../../Option';
+import Box from '../../Box/Box.js';
+import { Divider } from '../../Divider/index.js';
+import { OptionTitle } from '../../Option/index.js';
 
-import MenuItem from './MenuItem';
+import MenuItem from './MenuItem.js';
 
 type MenuSectionProps<T extends object> = {
   section: Node<T>;

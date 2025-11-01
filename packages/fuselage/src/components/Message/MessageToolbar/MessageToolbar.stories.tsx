@@ -1,11 +1,11 @@
 import type { Meta } from '@storybook/react-vite';
 import type { ComponentType } from 'react';
 
-import Box from '../../Box';
-import { BasicMessageTemplate } from '../helpers';
+import Box from '../../Box/index.js';
+import { BasicMessageTemplate } from '../helpers.js';
 
-import { MessageToolbar } from './MessageToolbar';
-import { MessageToolbarItem } from './MessageToolbarItem';
+import { MessageToolbar } from './MessageToolbar.js';
+import { MessageToolbarItem } from './MessageToolbarItem.js';
 
 export default {
   title: 'Message/MessageToolbar',

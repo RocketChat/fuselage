@@ -5,13 +5,13 @@ import { forwardRef } from 'react';
 import { useSelect, HiddenSelect, mergeProps, useFocusRing } from 'react-aria';
 import { useSelectState } from 'react-stately';
 
-import Box from '../Box/Box';
-import { Icon } from '../Icon';
-import { OptionContainer } from '../Options';
-import { Popover } from '../Popover';
+import Box from '../Box/Box.js';
+import { Icon } from '../Icon/index.js';
+import { OptionContainer } from '../Options/index.js';
+import { Popover } from '../Popover/index.js';
 
-import { ListBox } from './Listbox';
-import { SelectTrigger } from './SelectTrigger';
+import { ListBox } from './Listbox.js';
+import { SelectTrigger } from './SelectTrigger.js';
 
 export { Item } from 'react-stately';
 

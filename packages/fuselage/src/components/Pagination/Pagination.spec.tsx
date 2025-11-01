@@ -1,6 +1,6 @@
-import { render } from '../../testing';
+import { render } from '../../testing.js';
 
-import { Pagination } from './Pagination';
+import { Pagination } from './Pagination.js';
 
 describe('[Pagination Component]', () => {
   it('renders without crashing', () => {

@@ -1,4 +1,4 @@
-import { renderHook, act } from './testing';
+import { renderHook, act } from './testing.ts';
 import { useLocalStorage } from './useStorage';
 
 it('returns a default value', () => {

@@ -1,7 +1,7 @@
 import type { ComponentProps } from 'react';
 import { forwardRef, memo } from 'react';
 
-import { Box } from '..';
+import { Box } from '../index.js';
 
 const ContextualbarSection = forwardRef<
   HTMLElement,

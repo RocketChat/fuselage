@@ -1,1 +1,1 @@
-export { default } from './ActionLink';
+export { default } from './ActionLink.js';

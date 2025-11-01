@@ -1,11 +1,11 @@
 import type { ComponentProps, Dispatch, Ref, SetStateAction } from 'react';
 import { forwardRef, useState } from 'react';
 
-import type { Icon } from '..';
+import type { Icon } from '../index.js';
 
-import { SelectLegacy } from '.';
-import type { SelectAnchorParams } from './SelectAnchorParams';
-import SelectFilteredAnchor from './SelectFilteredAnchor';
+import type { SelectAnchorParams } from './SelectAnchorParams.js';
+import SelectFilteredAnchor from './SelectFilteredAnchor.js';
+import { SelectLegacy } from './index.js';
 
 export type SelectFilteredProps = ComponentProps<typeof SelectLegacy> & {
   filter?: string;

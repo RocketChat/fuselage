@@ -1,9 +1,9 @@
 import type { StoryFn, Meta } from '@storybook/react-vite';
 
-import { PropsVariationSection } from '../../../.storybook/helpers';
-import { Icon } from '../Icon';
+import { PropsVariationSection } from '../../../.storybook/helpers.js';
+import { Icon } from '../Icon/index.js';
 
-import { EmailInput } from './EmailInput';
+import { EmailInput } from './EmailInput.js';
 
 export default {
   title: 'Inputs/EmailInput',

@@ -3,12 +3,12 @@ import type { ComponentProps, ElementType, Ref, SyntheticEvent } from 'react';
 import { forwardRef, memo } from 'react';
 import { Virtuoso } from 'react-virtuoso';
 
-import { prevent } from '../../helpers/prevent';
-import AnimatedVisibility from '../AnimatedVisibility';
-import Box from '../Box';
-import { CheckBox } from '../CheckBox';
-import { Option } from '../Option';
-import Tile from '../Tile';
+import { prevent } from '../../helpers/prevent.js';
+import AnimatedVisibility from '../AnimatedVisibility/index.js';
+import Box from '../Box/index.js';
+import { CheckBox } from '../CheckBox/index.js';
+import { Option } from '../Option/index.js';
+import Tile from '../Tile/index.js';
 
 type OptionsPaginatedProps = Omit<ComponentProps<typeof Box>, 'onSelect'> & {
   multiple?: boolean;

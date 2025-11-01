@@ -1,6 +1,6 @@
-import { render } from '../../../testing';
+import { render } from '../../../testing.js';
 
-import ThreadMessage from '.';
+import ThreadMessage from './index.js';
 
 it('renders without crashing', () => {
   render(<ThreadMessage />);

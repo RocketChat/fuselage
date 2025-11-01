@@ -17,7 +17,7 @@ import {
   withLabelId,
   withAriaLabelledBy,
   withVisuallyHiddenLabel,
-} from './withLabelHelpers';
+} from './withLabelHelpers.js';
 
 // TODO: Some inputs are still not supported due to requiring a different a11y approach
 

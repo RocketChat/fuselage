@@ -1,17 +1,16 @@
 {
   "compilerOptions": {
-    "rootDir": "./src",
-    "target": "es5",
-    "module": "ESNext",
+    "target": "esnext",
+    "module": "nodenext",
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
     "outDir": "./dist/esm",
     "strict": true,
-    "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "moduleResolution": "node",
+    "moduleResolution": "nodenext",
+    "esModuleInterop": true,
     "resolveJsonModule": true,
     "jsx": "react-jsx"
   }

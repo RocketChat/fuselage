@@ -1,10 +1,10 @@
 import type { ComponentProps, Ref, FormEvent } from 'react';
 import { useCallback, forwardRef } from 'react';
 
-import Flex from '../Flex';
-import { Input, type InputProps } from '../InputBox';
+import Flex from '../Flex/index.js';
+import { Input, type InputProps } from '../InputBox/index.js';
 
-import PaginatedMultiSelect from './PaginatedMultiSelect';
+import PaginatedMultiSelect from './PaginatedMultiSelect.js';
 
 type PaginatedMultiSelectFilteredProps = {
   setFilter?: (value: string) => void;

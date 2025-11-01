@@ -11,15 +11,15 @@ import type {
 } from 'react';
 import { useEffect, useRef, useMemo, useState } from 'react';
 
-import AnimatedVisibility from '../AnimatedVisibility';
-import Box from '../Box';
-import Chip from '../Chip';
-import { Icon } from '../Icon';
-import { Input } from '../InputBox';
-import Margins from '../Margins';
-import type { OptionType } from '../Options';
-import { useCursor, Options } from '../Options';
-import PositionAnimated from '../PositionAnimated';
+import AnimatedVisibility from '../AnimatedVisibility/index.js';
+import Box from '../Box/index.js';
+import Chip from '../Chip/index.js';
+import { Icon } from '../Icon/index.js';
+import { Input } from '../InputBox/index.js';
+import Margins from '../Margins/index.js';
+import type { OptionType } from '../Options/index.js';
+import { useCursor, Options } from '../Options/index.js';
+import PositionAnimated from '../PositionAnimated/index.js';
 
 const Addon = (props: ComponentProps<typeof Box>) => (
   <Box rcx-autocomplete__addon {...props} />

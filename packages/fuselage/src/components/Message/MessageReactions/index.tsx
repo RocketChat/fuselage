@@ -1,8 +1,8 @@
-import { MessageReaction } from './MessageReaction';
-import { MessageReactionAction } from './MessageReactionAction';
-import { MessageReactionCounter } from './MessageReactionCounter';
-import { MessageReactionEmoji } from './MessageReactionEmoji';
-import { MessageReactions } from './MessageReactions';
+import { MessageReaction } from './MessageReaction.js';
+import { MessageReactionAction } from './MessageReactionAction.js';
+import { MessageReactionCounter } from './MessageReactionCounter.js';
+import { MessageReactionEmoji } from './MessageReactionEmoji.js';
+import { MessageReactions } from './MessageReactions.js';
 
 export default Object.assign(MessageReactions, {
   /**

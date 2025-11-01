@@ -1,7 +1,7 @@
 import type { StoryFn, Meta } from '@storybook/react-vite';
 import { action } from 'storybook/actions';
 
-import CodeSnippet from './CodeSnippet';
+import CodeSnippet from './CodeSnippet.js';
 
 export default {
   title: 'Data Display/CodeSnippet',

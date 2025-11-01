@@ -1,7 +1,7 @@
 import type { Ref } from 'react';
 import { forwardRef } from 'react';
 
-import { InputBox, type InputBoxProps } from '../InputBox';
+import { InputBox, type InputBoxProps } from '../InputBox/index.js';
 
 type NumberInputProps = Omit<InputBoxProps, 'type'>;
 

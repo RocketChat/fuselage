@@ -1,6 +1,6 @@
 import type { ElementType, HTMLAttributes } from 'react';
 
-import { prependClassName } from '../../helpers/prependClassName';
+import { prependClassName } from '../../helpers/prependClassName.js';
 
 export type MessageHighlightProps = {
   is?: ElementType;

@@ -1,18 +1,18 @@
 import type { Meta, StoryFn } from '@storybook/react-vite';
 import type { ComponentType } from 'react';
 
-import { CheckBox } from '../CheckBox';
+import { CheckBox } from '../CheckBox/index.js';
 
-import { Table } from './Table';
-import { TableBody } from './TableBody';
-import { TableCell } from './TableCell';
-import { TableHead } from './TableHead';
-import { TableRow } from './TableRow';
+import { Table } from './Table.js';
+import { TableBody } from './TableBody.js';
+import { TableCell } from './TableCell.js';
+import { TableHead } from './TableHead.js';
+import { TableRow } from './TableRow.js';
 import {
   TableSelection,
   TableSelectionButton,
   TableSelectionButtonGroup,
-} from './TableSelection';
+} from './TableSelection/index.js';
 
 export default {
   title: 'Data Display/Table',

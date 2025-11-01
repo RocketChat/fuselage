@@ -1,10 +1,10 @@
 import type { StoryFn, Meta } from '@storybook/react-vite';
 import { createRef } from 'react';
 
-import Box from '../Box';
-import { Option, CheckOption } from '../Option';
+import Box from '../Box/index.js';
+import { Option, CheckOption } from '../Option/index.js';
 
-import { Options, type OptionType } from '.';
+import { Options, type OptionType } from './index.js';
 
 export default {
   title: 'Navigation/Options',

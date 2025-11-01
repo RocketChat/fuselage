@@ -1,10 +1,10 @@
 import type { StoryFn, Meta } from '@storybook/react-vite';
 import type { ComponentType } from 'react';
 
-import Box from '../Box';
+import Box from '../Box/Box.js';
 
-import Accordion from './Accordion';
-import AccordionItem from './AccordionItem';
+import Accordion from './Accordion.js';
+import AccordionItem from './AccordionItem.js';
 
 export default {
   title: 'Containers/Accordion',

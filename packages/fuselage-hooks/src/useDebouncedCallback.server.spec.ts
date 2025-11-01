@@ -1,4 +1,4 @@
-import { renderHook } from './testing';
+import { renderHook } from './testing.ts';
 import { useDebouncedCallback } from './useDebouncedCallback';
 
 beforeAll(() => {

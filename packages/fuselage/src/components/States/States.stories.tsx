@@ -1,8 +1,8 @@
 import type { Meta } from '@storybook/react-vite';
 import type { ComponentType } from 'react';
 
-import Box from '../Box';
-import { Icon } from '../Icon';
+import Box from '../Box/index.js';
+import { Icon } from '../Icon/index.js';
 
 import {
   States,
@@ -16,7 +16,7 @@ import {
   StatesActions,
   StatesAction,
   StatesLink,
-} from '.';
+} from './index.js';
 
 export default {
   title: 'Feedback/States',

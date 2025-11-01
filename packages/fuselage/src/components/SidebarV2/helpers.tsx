@@ -1,7 +1,13 @@
 import type { Decorator } from '@storybook/react-vite';
 import type { ComponentProps, ReactElement } from 'react';
 
-import { Avatar, Box, IconButton, MenuV2 as Menu, MenuItem } from '../..';
+import {
+  Avatar,
+  Box,
+  IconButton,
+  MenuV2 as Menu,
+  MenuItem,
+} from '../../index.js';
 
 import {
   SidebarV2,
@@ -24,7 +30,7 @@ import {
   SidebarV2ItemTimestamp,
   SidebarV2ItemTitle,
   SidebarV2ListItem,
-} from '.';
+} from './index.js';
 
 export const leterAvatarUrls = [
   "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3e%3crect width='100%25' height='100%25' fill='%2310529E'/%3e%3ctext x='50%25' y='50%25' dy='0.36em' text-anchor='middle' pointer-events='none' fill='white' font-size='125' font-family='Helvetica%2c sans-serif'%3eB%3c/text%3e%3c/svg%3e",

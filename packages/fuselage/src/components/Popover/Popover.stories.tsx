@@ -3,10 +3,10 @@ import { cloneElement, isValidElement, useRef } from 'react';
 import { useOverlayTrigger } from 'react-aria';
 import { useOverlayTriggerState } from 'react-stately';
 
-import Button from '../Button';
-import Tile from '../Tile';
+import Button from '../Button/index.js';
+import Tile from '../Tile/index.js';
 
-import { Popover } from './Popover';
+import { Popover } from './Popover.js';
 
 export default {
   title: 'Layout/Popover',

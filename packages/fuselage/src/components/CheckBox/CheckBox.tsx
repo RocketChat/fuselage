@@ -8,7 +8,7 @@ import type {
 } from 'react';
 import { forwardRef, useLayoutEffect, useRef, useCallback } from 'react';
 
-import Box from '../Box';
+import Box from '../Box/index.js';
 
 type CheckBoxProps = ComponentProps<typeof Box> & {
   indeterminate?: boolean;

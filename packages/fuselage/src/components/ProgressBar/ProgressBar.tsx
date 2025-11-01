@@ -1,7 +1,7 @@
 import type { AllHTMLAttributes } from 'react';
 import { forwardRef } from 'react';
 
-import Box from '../Box';
+import Box from '../Box/index.js';
 
 const getWidth = (percentage: number): string =>
   `${Math.min(Math.max(0, percentage), 100).toFixed(1)}%`;

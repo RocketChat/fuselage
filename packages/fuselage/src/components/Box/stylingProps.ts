@@ -2,9 +2,9 @@ import type { cssFn } from '@rocket.chat/css-in-js';
 import { css } from '@rocket.chat/css-in-js';
 import type { CSSProperties } from 'react';
 
-import type { Var } from '../../Theme';
-import { Palette } from '../../Theme';
-import { fromCamelToKebab } from '../../helpers/fromCamelToKebab';
+import type { Var } from '../../Theme.js';
+import { Palette } from '../../Theme.js';
+import { fromCamelToKebab } from '../../helpers/fromCamelToKebab.js';
 import {
   borderRadius,
   borderWidth,
@@ -17,7 +17,7 @@ import {
   padding,
   size,
   strokeColor,
-} from '../../styleTokens';
+} from '../../styleTokens.js';
 
 type FontScale =
   | 'hero'

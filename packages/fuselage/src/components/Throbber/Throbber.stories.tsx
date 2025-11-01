@@ -1,11 +1,11 @@
 import type { StoryFn, Meta } from '@storybook/react-vite';
 import { action } from 'storybook/actions';
 
-import { PropsVariationSection } from '../../../.storybook/helpers';
-import Box from '../Box';
-import Button from '../Button';
+import { PropsVariationSection } from '../../../.storybook/helpers.js';
+import Box from '../Box/index.js';
+import Button from '../Button/index.js';
 
-import { Throbber } from './Throbber';
+import { Throbber } from './Throbber.js';
 
 export default {
   title: 'Data Display/Throbber',

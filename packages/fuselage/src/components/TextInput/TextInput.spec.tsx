@@ -1,9 +1,9 @@
 import { composeStories } from '@storybook/react-vite';
 import { axe } from 'jest-axe';
 
-import { render } from '../../testing';
+import { render } from '../../testing.js';
 
-import * as stories from './TextInput.stories';
+import * as stories from './TextInput.stories.js';
 
 const { Default } = composeStories(stories);
 

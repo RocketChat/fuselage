@@ -8,6 +8,7 @@
     "./**/*.stories.tsx",
     "./**/*.spec.tsx",
     "./jest.config.ts",
-    "./jest-setup.ts"
+    "./jest-setup.ts",
+    "./vite.config.ts"
   ]
 }

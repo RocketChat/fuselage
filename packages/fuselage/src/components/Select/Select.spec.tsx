@@ -1,9 +1,9 @@
 import { composeStories } from '@storybook/react-vite';
 import { withResizeObserverMock } from 'testing-utils/mocks/withResizeObserverMock';
 
-import { render } from '../../testing';
+import { render } from '../../testing.js';
 
-import * as stories from './Select.stories';
+import * as stories from './Select.stories.js';
 
 const { Default } = composeStories(stories);
 

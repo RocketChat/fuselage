@@ -1,9 +1,9 @@
 import { composeStories } from '@storybook/react-vite';
 import { axe } from 'jest-axe';
 
-import { render } from '../../testing';
+import { render } from '../../testing.js';
 
-import * as stories from './Label.stories';
+import * as stories from './Label.stories.js';
 
 const testCases = Object.values(composeStories(stories)).map((Story) => [
   Story.storyName || 'Story',

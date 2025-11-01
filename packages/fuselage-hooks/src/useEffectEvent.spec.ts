@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { act, renderHook } from './testing';
+import { act, renderHook } from './testing.ts';
 import { useEffectEvent } from './useEffectEvent';
 
 it('returns a stable callback', () => {

@@ -1,11 +1,11 @@
 import type { Meta } from '@storybook/react-vite';
 import type { ComponentType } from 'react';
 
-import Tile from '../Tile';
+import Tile from '../Tile/index.js';
 
-import Flex from '.';
-import FlexContainer from './FlexContainer';
-import FlexItem from './FlexItem';
+import FlexContainer from './FlexContainer.js';
+import FlexItem from './FlexItem.js';
+import Flex from './index.js';
 
 export default {
   title: 'Layout/Flex',

@@ -1,9 +1,9 @@
 import type { StoryFn, Meta } from '@storybook/react-vite';
 
-import { PropsVariationSection } from '../../../.storybook/helpers';
-import { Icon } from '../Icon';
+import { PropsVariationSection } from '../../../.storybook/helpers.js';
+import { Icon } from '../Icon/index.js';
 
-import { SearchInput } from './SearchInput';
+import { SearchInput } from './SearchInput.js';
 
 export default {
   title: 'Inputs/SearchInput',

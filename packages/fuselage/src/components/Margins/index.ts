@@ -1,3 +1,3 @@
-import { Margins } from './Margins';
+import { Margins } from './Margins.js';
 
 export default Margins;

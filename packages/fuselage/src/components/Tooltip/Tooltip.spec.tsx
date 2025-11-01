@@ -1,6 +1,6 @@
-import { render } from '../../testing';
+import { render } from '../../testing.js';
 
-import * as stories from './Tooltip.stories';
+import * as stories from './Tooltip.stories.js';
 
 const { Default, LightTooltip } = stories;
 

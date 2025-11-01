@@ -1,12 +1,12 @@
-import { SidebarDivider as TopBarDivider } from '../SidebarDivider';
+import { SidebarDivider as TopBarDivider } from '../SidebarDivider.js';
 
-import { TopBar } from './TopBar';
-import { TopBarAction } from './TopBarAction';
-import { TopBarActions } from './TopBarActions';
-import { TopBarSection } from './TopBarSection';
-import { TopBarTitle } from './TopBarTitle';
-import { TopBarToolBox } from './TopBarToolBox';
-import { TopBarWrapper } from './TopBarWrapper';
+import { TopBar } from './TopBar.js';
+import { TopBarAction } from './TopBarAction.js';
+import { TopBarActions } from './TopBarActions.js';
+import { TopBarSection } from './TopBarSection.js';
+import { TopBarTitle } from './TopBarTitle.js';
+import { TopBarToolBox } from './TopBarToolBox.js';
+import { TopBarWrapper } from './TopBarWrapper.js';
 
 const Avatar: { size: 'x24' } = { size: 'x24' };
 
@@ -31,11 +31,11 @@ export default Object.assign(TopBar, {
   Title: TopBarTitle,
 });
 
-export * from './TopBar';
-export * from './TopBarV2';
-export * from './TopBarAction';
-export * from './TopBarActions';
-export * from './TopBarSection';
-export * from './TopBarTitle';
-export * from './TopBarToolBox';
-export * from './TopBarWrapper';
+export * from './TopBar.js';
+export * from './TopBarV2.js';
+export * from './TopBarAction.js';
+export * from './TopBarActions.js';
+export * from './TopBarSection.js';
+export * from './TopBarTitle.js';
+export * from './TopBarToolBox.js';
+export * from './TopBarWrapper.js';

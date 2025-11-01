@@ -2,11 +2,11 @@ import type { Meta, StoryFn } from '@storybook/react-vite';
 import type { ComponentProps } from 'react';
 import { action } from 'storybook/actions';
 
-import Box from '../Box';
-import Button from '../Button';
-import { Field, FieldLabel, FieldRow } from '../Field';
-import { FieldGroup } from '../FieldGroup';
-import { TextInput } from '../TextInput';
+import Box from '../Box/index.js';
+import Button from '../Button/index.js';
+import { Field, FieldLabel, FieldRow } from '../Field/index.js';
+import { FieldGroup } from '../FieldGroup/index.js';
+import { TextInput } from '../TextInput/index.js';
 
 import {
   Modal,
@@ -22,7 +22,7 @@ import {
   ModalTagline,
   ModalThumb,
   ModalTitle,
-} from '.';
+} from './index.js';
 
 export default {
   title: 'Containers/Modal',

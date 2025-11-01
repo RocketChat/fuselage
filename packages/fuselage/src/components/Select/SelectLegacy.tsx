@@ -13,18 +13,18 @@ import type {
 } from 'react';
 import { useState, useRef, useEffect, forwardRef, useMemo } from 'react';
 
-import { isForwardRefType } from '../../helpers/isForwardRefType';
-import AnimatedVisibility from '../AnimatedVisibility';
-import Box from '../Box';
-import { Icon } from '../Icon';
-import Margins from '../Margins';
-import type { OptionType } from '../Options';
-import { Options, useCursor } from '../Options';
-import PositionAnimated from '../PositionAnimated';
+import { isForwardRefType } from '../../helpers/isForwardRefType.js';
+import AnimatedVisibility from '../AnimatedVisibility/index.js';
+import Box from '../Box/index.js';
+import { Icon } from '../Icon/index.js';
+import Margins from '../Margins/index.js';
+import type { OptionType } from '../Options/index.js';
+import { Options, useCursor } from '../Options/index.js';
+import PositionAnimated from '../PositionAnimated/index.js';
 
-import SelectAddon from './SelectAddon';
-import type { SelectAnchorParams } from './SelectAnchorParams';
-import SelectFocus from './SelectFocus';
+import SelectAddon from './SelectAddon.js';
+import type { SelectAnchorParams } from './SelectAnchorParams.js';
+import SelectFocus from './SelectFocus.js';
 
 export type SelectOption = readonly [
   value: string,

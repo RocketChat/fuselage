@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "ESNext",
+    "target": "esnext",
+    "module": "nodenext",
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
@@ -10,7 +10,7 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "moduleResolution": "node",
+    "moduleResolution": "nodenext",
     "resolveJsonModule": true
   }
 }

@@ -1,4 +1,4 @@
-import { renderHook } from './testing';
+import { renderHook } from './testing.ts';
 import { useSessionStorage } from './useStorage';
 
 it('returns a default value', () => {

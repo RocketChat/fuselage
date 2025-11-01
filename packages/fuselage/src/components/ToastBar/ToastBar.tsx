@@ -1,9 +1,9 @@
 import { css, keyframes } from '@rocket.chat/css-in-js';
 import { type ReactNode, type AllHTMLAttributes, useId } from 'react';
 
-import Box from '../Box';
-import { IconButton } from '../Button';
-import { Icon } from '../Icon';
+import Box from '../Box/index.js';
+import { IconButton } from '../Button/index.js';
+import { Icon } from '../Icon/index.js';
 
 export type ToastBarProps = {
   variant?: 'info' | 'success' | 'error';

@@ -1,6 +1,6 @@
 import type { ComponentProps } from 'react';
 
-import { Icon } from '../Icon';
+import { Icon } from '../Icon/index.js';
 
 type StatesIconProps = {
   variation?: 'danger' | 'success' | 'warning' | 'primary';

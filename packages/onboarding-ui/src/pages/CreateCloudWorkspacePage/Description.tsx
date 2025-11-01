@@ -1,5 +1,5 @@
 import { Box, Icon } from '@rocket.chat/fuselage';
-import colors from '@rocket.chat/fuselage-tokens/colors.json';
+import colors from '@rocket.chat/fuselage-tokens/colors.json' with { type: 'json' };
 import { List, DarkModeProvider } from '@rocket.chat/layout';
 import type { ReactElement } from 'react';
 import { useMemo } from 'react';

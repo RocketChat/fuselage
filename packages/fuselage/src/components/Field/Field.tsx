@@ -1,7 +1,7 @@
 import type { ComponentPropsWithoutRef } from 'react';
 import { createContext } from 'react';
 
-import Box from '../Box';
+import Box from '../Box/index.js';
 
 export const FieldContext = createContext(false);
 

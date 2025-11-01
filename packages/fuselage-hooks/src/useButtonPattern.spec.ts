@@ -1,4 +1,4 @@
-import { renderHook } from './testing';
+import { renderHook } from './testing.ts';
 import { useButtonPattern } from './useButtonPattern';
 
 it('should return the button props', () => {

@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 
-import Box, { type BoxProps } from '../Box';
+import Box, { type BoxProps } from '../Box/index.js';
 
 export type DividerProps = BoxProps & {
   variation?: 'danger';

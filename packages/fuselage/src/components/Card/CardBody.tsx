@@ -5,7 +5,7 @@ import type {
   ReactNode,
 } from 'react';
 
-import Box from '../Box/Box';
+import Box from '../Box/index.js';
 
 type CardBodyProps = {
   flexDirection?: CSSProperties['flexDirection'];

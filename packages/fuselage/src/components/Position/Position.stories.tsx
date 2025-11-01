@@ -1,9 +1,9 @@
 import type { StoryFn, Meta } from '@storybook/react-vite';
 import { useRef } from 'react';
 
-import Tile from '../Tile';
+import Tile from '../Tile/index.js';
 
-import Position from './Position';
+import Position from './Position.js';
 
 export default {
   title: 'Layout/Position',

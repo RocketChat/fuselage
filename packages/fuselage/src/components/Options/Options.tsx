@@ -1,14 +1,14 @@
 import type { ElementType, SyntheticEvent } from 'react';
 import { forwardRef, useLayoutEffect, useMemo, useRef } from 'react';
 
-import { prevent } from '../../helpers/prevent';
-import Box, { type BoxProps } from '../Box';
-import { Option, OptionHeader, OptionDivider } from '../Option';
-import Scrollable from '../Scrollable';
-import Tile from '../Tile';
+import { prevent } from '../../helpers/prevent.js';
+import Box, { type BoxProps } from '../Box/index.js';
+import { Option, OptionHeader, OptionDivider } from '../Option/index.js';
+import Scrollable from '../Scrollable/index.js';
+import Tile from '../Tile/index.js';
 
-import type { OptionType } from './OptionType';
-import OptionsEmpty from './OptionsEmpty';
+import type { OptionType } from './OptionType.js';
+import OptionsEmpty from './OptionsEmpty.js';
 
 export type OptionsProps = Omit<BoxProps, 'onSelect'> & {
   multiple?: boolean;

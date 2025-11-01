@@ -2,12 +2,12 @@ import { useMergedRefs } from '@rocket.chat/fuselage-hooks';
 import type { FormEvent, ReactNode, Ref } from 'react';
 import { forwardRef, useCallback, useLayoutEffect, useRef } from 'react';
 
-import type { BoxProps } from '../Box';
-import { Icon } from '../Icon';
+import type { BoxProps } from '../Box/index.js';
+import { Icon } from '../Icon/index.js';
 
-import Input from './Input';
-import InputBoxAddon from './InputBoxAddon';
-import InputBoxWrapper from './InputBoxWrapper';
+import Input from './Input.js';
+import InputBoxAddon from './InputBoxAddon.js';
+import InputBoxWrapper from './InputBoxWrapper.js';
 
 export type InputBoxProps = BoxProps & {
   addon?: ReactNode;

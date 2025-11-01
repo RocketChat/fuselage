@@ -3,7 +3,7 @@ import { usePosition } from '@rocket.chat/fuselage-hooks';
 import type { ReactNode, Ref, RefObject } from 'react';
 import { forwardRef } from 'react';
 
-import { DropdownDesktop } from './DropdownDesktop';
+import { DropdownDesktop } from './DropdownDesktop.js';
 
 export const DropdownDesktopWrapper = forwardRef(
   function DropdownDesktopWrapper<T extends HTMLElement, R extends HTMLElement>(

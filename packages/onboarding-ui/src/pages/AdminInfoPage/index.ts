@@ -1,1 +1,1 @@
-export { default } from './AdminInfoPage';
+export { default } from './AdminInfoPage.js';

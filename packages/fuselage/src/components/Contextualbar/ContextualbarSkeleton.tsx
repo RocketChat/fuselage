@@ -1,11 +1,11 @@
 import type { ReactElement, ComponentProps } from 'react';
 import { memo } from 'react';
 
-import Box from '../Box';
-import { Skeleton } from '../Skeleton';
+import Box from '../Box/index.js';
+import { Skeleton } from '../Skeleton/index.js';
 
-import Contextualbar from './Contextualbar';
-import ContextualbarHeader from './ContextualbarHeader';
+import Contextualbar from './Contextualbar.js';
+import ContextualbarHeader from './ContextualbarHeader.js';
 
 const ContextualbarSkeleton = (
   props: ComponentProps<typeof Box>,

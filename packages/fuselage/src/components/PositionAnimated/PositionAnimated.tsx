@@ -1,7 +1,7 @@
 import type { ComponentProps } from 'react';
 
-import AnimatedVisibility from '../AnimatedVisibility';
-import Position from '../Position';
+import AnimatedVisibility from '../AnimatedVisibility/index.js';
+import Position from '../Position/index.js';
 
 type PositionAnimatedProps = {
   visible?: 'hidden' | 'visible' | 'hiding' | 'unhiding';

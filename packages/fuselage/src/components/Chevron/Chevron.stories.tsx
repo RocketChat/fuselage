@@ -1,8 +1,8 @@
 import type { StoryFn, Meta } from '@storybook/react-vite';
 
-import Box from '../Box';
+import Box from '../Box/index.js';
 
-import { Chevron } from './Chevron';
+import { Chevron } from './Chevron.js';
 
 export default {
   title: 'Data Display/Chevron',
