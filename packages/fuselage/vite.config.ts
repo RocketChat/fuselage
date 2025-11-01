@@ -1,10 +1,22 @@
 import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
+
 import pkg from './package.json';
+
 export default defineConfig({
-    plugins: [dts({
-        tsconfigPath: './tsconfig.build.json',
-    })],
+  plugins: [
+    dts({
+      tsconfigPath: './tsconfig.build.json',
+    }),
+  ],
+  css: {
+    preprocessorOptions: {
+      scss: {
+        verbose: false,
+        // additionalData: `@import "./src/styles/primitives/link.scss";`,
+      },
+    },
+  },
   build: {
     lib: {
       entry: ['src/index.ts'],
