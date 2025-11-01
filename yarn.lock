@@ -5078,7 +5078,6 @@ __metadata:
     storybook-dark-mode: "patch:storybook-dark-mode@npm%3A4.0.2#~/.yarn/patches/storybook-dark-mode-npm-4.0.2-1acb0927fb.patch"
     ts-jest: "npm:~29.4.4"
     typescript: "npm:~5.9.3"
-    webpack: "npm:~5.102.0"
   peerDependencies:
     "@rocket.chat/fuselage": "*"
     "@rocket.chat/fuselage-hooks": "workspace:~"
