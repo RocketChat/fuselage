@@ -1,6 +1,6 @@
 import breakpointTokens from '@rocket.chat/fuselage-tokens/breakpoints.json';
 import surface from '@rocket.chat/fuselage-tokens/dist/surface.json';
-import type { Preview } from '@storybook/react-webpack5';
+import type { Preview } from '@storybook/react-vite';
 import { themes } from 'storybook/theming';
 import { useDarkMode } from 'storybook-dark-mode';
 
@@ -40,7 +40,7 @@ export default {
       },
     },
     viewport: {
-      viewports: breakpointTokens.reduce(
+      options: breakpointTokens.reduce(
         (obj, { name, minViewportWidth }) => ({
           ...obj,
           [name]: {

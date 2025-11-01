@@ -1,6 +1,10 @@
+// This file has been automatically migrated to valid ESM format by Storybook.
+import { createRequire } from "node:module";
 import { dirname, join } from 'path';
 
-import type { StorybookConfig } from '@storybook/react-webpack5';
+import type { StorybookConfig } from '@storybook/react-vite';
+
+const require = createRequire(import.meta.url);
 
 export default {
   addons: [
@@ -68,10 +72,7 @@ export default {
 
   stories: ['../src/**/*.stories.{mdx,js,tsx}', '../src/**/*.mdx'],
 
-  framework: {
-    name: getAbsolutePath('@storybook/react-webpack5'),
-    options: {},
-  },
+  framework: '@storybook/react-vite',
   swc: () => ({
     jsc: {
       transform: {
