@@ -1,6 +1,7 @@
 import { composeStories } from '@storybook/react-vite';
 import { render } from '@testing-library/react';
 import { axe } from 'jest-axe';
+import { test, expect } from 'vitest';
 
 import * as stories from './ActionLink.stories.js';
 
