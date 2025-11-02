@@ -1,2 +1,2 @@
-export * from './Tabs.js'
-export * from './TabsItem.js'
+export * from './Tabs.js';
+export * from './TabsItem.js';

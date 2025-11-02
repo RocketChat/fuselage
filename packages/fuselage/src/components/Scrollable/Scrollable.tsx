@@ -5,7 +5,10 @@ import { useRef, useCallback } from 'react';
 
 import { appendClassName } from '../../helpers/appendClassName.js';
 import { useStyle } from '../../hooks/useStyle.js';
-import { BoxTransforms, useComposedBoxTransform } from '../Box/BoxTransforms.js';
+import {
+  BoxTransforms,
+  useComposedBoxTransform,
+} from '../Box/BoxTransforms.js';
 
 type ScrollableProps = PropsWithChildren<{
   horizontal?: boolean;

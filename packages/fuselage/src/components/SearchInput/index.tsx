@@ -1,1 +1,1 @@
-export * from './SearchInput.js'
+export * from './SearchInput.js';

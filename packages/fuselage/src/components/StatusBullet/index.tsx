@@ -1,1 +1,1 @@
-export * from './StatusBullet.js'
+export * from './StatusBullet.js';

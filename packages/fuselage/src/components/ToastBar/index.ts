@@ -1,1 +1,1 @@
-export * from './ToastBar.js'
+export * from './ToastBar.js';

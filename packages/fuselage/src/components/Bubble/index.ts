@@ -1,1 +1,1 @@
-export * from './Bubble.js'
+export * from './Bubble.js';

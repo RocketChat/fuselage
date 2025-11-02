@@ -1,1 +1,1 @@
-export * from './AutoComplete.js'
+export * from './AutoComplete.js';

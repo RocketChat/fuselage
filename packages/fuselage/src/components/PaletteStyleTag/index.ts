@@ -1,1 +1,1 @@
-export * from './PaletteStyleTag.js'
+export * from './PaletteStyleTag.js';
