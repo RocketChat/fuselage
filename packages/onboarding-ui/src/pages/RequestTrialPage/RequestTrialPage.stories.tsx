@@ -1,7 +1,7 @@
 import type { StoryFn, Meta } from '@storybook/react-vite';
 import { countries } from 'countries-list';
 
-import RequestTrialPage from './RequestTrialPage';
+import RequestTrialPage from './RequestTrialPage.js';
 
 export default {
   title: 'pages/RequestTrialPage',

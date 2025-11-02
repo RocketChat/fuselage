@@ -1,6 +1,7 @@
 {
   "name": "@rocket.chat/onboarding-ui",
   "version": "0.36.0",
+  "type": "module",
   "description": "Set of components and functions for the onboarding experience on Rocket.Chat",
   "keywords": [
     "rocketchat"
@@ -19,9 +20,12 @@
     "name": "Rocket.Chat",
     "url": "https://rocket.chat/"
   },
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "types": "dist/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/esm/index.d.ts",
+      "import": "./dist/esm/index.js"
+    }
+  },
   "files": [
     "/dist"
   ],

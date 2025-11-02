@@ -1,4 +1,52 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`[Contextualbar Rendering] > renders Skeleton without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-css-1ucnmmp"
+    >
+      <div
+        class="rcx-box rcx-box--full rcx-vertical-bar rcx-css-dnnq8h"
+      >
+        <div
+          class="rcx-box rcx-box--full rcx-css-5a9eaq"
+        >
+          <div
+            class="rcx-box rcx-box--full rcx-css-1bdyjik rcx-css-1tmbvtv"
+          >
+            <span
+              class="rcx-skeleton rcx-skeleton--text rcx-css-1qcz93u"
+            />
+          </div>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-css-m843eh"
+        >
+          <span
+            class="rcx-skeleton rcx-skeleton--rect rcx-css-kq1jj5"
+          />
+          <span
+            class="rcx-skeleton rcx-skeleton--text"
+          />
+          <span
+            class="rcx-skeleton rcx-skeleton--text"
+          />
+          <span
+            class="rcx-skeleton rcx-skeleton--text"
+          />
+          <span
+            class="rcx-skeleton rcx-skeleton--text"
+          />
+          <span
+            class="rcx-skeleton rcx-skeleton--text"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
 
 exports[`[Contextualbar Rendering] renders Default without crashing 1`] = `
 <body>

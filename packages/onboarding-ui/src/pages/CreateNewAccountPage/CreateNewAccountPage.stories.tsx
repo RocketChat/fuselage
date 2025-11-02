@@ -1,6 +1,6 @@
 import type { StoryFn, Meta } from '@storybook/react-vite';
 
-import CreateNewAccountPage from './CreateNewAccountPage';
+import CreateNewAccountPage from './CreateNewAccountPage.js';
 
 export default {
   title: 'pages/CreateNewAccountPage',

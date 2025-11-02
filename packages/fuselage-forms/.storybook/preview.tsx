@@ -10,7 +10,8 @@ import manifest from '../package.json' with { type: 'json' };
 import DocsContainer from './DocsContainer.js';
 import logo from './logo.svg';
 
-import '@rocket.chat/fuselage/fuselage.css';
+// eslint-disable-next-line import-x/no-unresolved
+import '@rocket.chat/fuselage/dist/fuselage.css';
 import '@rocket.chat/icons/dist/rocketchat.css';
 
 export default {

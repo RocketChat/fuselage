@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 
-import LoginLinkEmailPage from './LoginLinkEmailPage';
+import LoginLinkEmailPage from './LoginLinkEmailPage.js';
 
 it('renders without crashing', () => {
   render(

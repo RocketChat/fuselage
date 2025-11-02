@@ -5,7 +5,7 @@ export * from './AutoComplete/index.js';
 export * from './Avatar/index.js';
 export * from './Badge/index.js';
 export { default as Banner } from './Banner/index.js';
-export { default as Box } from './Box/index.js';
+export { default as Box, type BoxProps } from './Box/index.js';
 export { useArrayLikeClassNameProp } from '../hooks/useArrayLikeClassNameProp.js';
 export { default as Button, ActionButton, IconButton } from './Button/index.js';
 export * from './Bubble/index.js';

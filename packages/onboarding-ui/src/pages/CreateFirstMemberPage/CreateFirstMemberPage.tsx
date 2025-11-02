@@ -1,11 +1,11 @@
 import { BackgroundLayer } from '@rocket.chat/layout';
 import type { ComponentProps, ReactElement } from 'react';
 
-import type { FormPageLayoutStyleProps } from '../../Types';
-import FormPageLayout from '../../common/FormPageLayout';
-import CreateFirstMemberForm from '../../forms/CreateFirstMemberForm';
+import type { FormPageLayoutStyleProps } from '../../Types/index.js';
+import FormPageLayout from '../../common/FormPageLayout.js';
+import CreateFirstMemberForm from '../../forms/CreateFirstMemberForm/index.js';
 
-import TitleCreateFirstMemberPage from './TitleCreateFirstMemberPage';
+import TitleCreateFirstMemberPage from './TitleCreateFirstMemberPage.js';
 
 type CreateCloudWorkspacePageProps = ComponentProps<
   typeof CreateFirstMemberForm

@@ -1,7 +1,7 @@
 import type { Meta, StoryFn } from '@storybook/react-vite';
 import { action } from 'storybook/actions';
 
-import CreateFirstMemberForm from './CreateFirstMemberForm';
+import CreateFirstMemberForm from './CreateFirstMemberForm.js';
 
 export default {
   title: 'forms/CreateFirstMemberForm',

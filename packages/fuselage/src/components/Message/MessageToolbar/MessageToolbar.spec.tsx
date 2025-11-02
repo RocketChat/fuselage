@@ -1,5 +1,6 @@
 import { composeStories } from '@storybook/react-vite';
 import { axe } from 'jest-axe';
+import { test, expect, describe } from 'vitest';
 
 import { render } from '../../../testing.js';
 
@@ -9,6 +10,10 @@ const testCases = Object.values(composeStories(stories)).map((Story) => [
   Story.storyName || 'Story',
   Story,
 ]);
+
+test.afterEach(() => {
+  document.body.innerHTML = '';
+});
 
 describe('[MessageToolbar Rendering]', () => {
   test.each(testCases)(

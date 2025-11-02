@@ -1,8 +1,13 @@
-import { defineConfig } from 'vite';
+import { defineConfig } from 'vitest/config';
 
 import pkg from './package.json' with { type: 'json' };
 
 export default defineConfig({
+  test: {
+    environment: 'jsdom',
+    setupFiles: ['./jest-setup.ts'],
+    globals: true,
+  },
   css: {
     preprocessorOptions: {
       scss: {

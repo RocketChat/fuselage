@@ -10,7 +10,7 @@ import type { ReactElement, ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 
 // import { OnboardingLogo } from './OnboardingLogo';
-import type { FormPageLayoutStyleProps } from '../Types';
+import type { FormPageLayoutStyleProps } from '../Types/index.js';
 
 type FormPageLayoutProps = {
   logo?: ReactNode;

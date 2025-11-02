@@ -3,12 +3,13 @@
   "compilerOptions": {
     "rootDirs": ["./src", "./.storybook"],
     "target": "esnext",
-    "module": "esnext",
+    "module": "nodenext",
     "outDir": "./dist",
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "moduleResolution": "bundler",
+    "moduleResolution": "nodenext",
     "resolveJsonModule": true,
+    "resolvePackageJsonExports": true,
     "jsx": "react-jsx"
   },
   "include": [

@@ -4,10 +4,10 @@ import type { ReactElement } from 'react';
 import type { FieldPathValue, SubmitHandler, Validate } from 'react-hook-form';
 import { Trans, useTranslation } from 'react-i18next';
 
-import type { FormPageLayoutStyleProps } from '../../Types';
-import FormPageLayout from '../../common/FormPageLayout';
-import ResetPasswordForm from '../../forms/ResetPasswordForm';
-import type { ResetPasswordFormPayload } from '../../forms/ResetPasswordForm/ResetPasswordForm';
+import type { FormPageLayoutStyleProps } from '../../Types/index.js';
+import FormPageLayout from '../../common/FormPageLayout.js';
+import type { ResetPasswordFormPayload } from '../../forms/ResetPasswordForm/ResetPasswordForm.js';
+import ResetPasswordForm from '../../forms/ResetPasswordForm/index.js';
 
 type ResetPasswordPageProps = {
   initialValues?: ResetPasswordFormPayload;

@@ -1,14 +1,12 @@
-import '@testing-library/jest-dom';
 import { toHaveNoViolations } from 'jest-axe';
+import { expect, vi } from 'vitest';
+import '@testing-library/jest-dom/vitest';
 
 const cssInJsClassRegex = /^rcx-css-[a-z0-9]+$/;
 
-declare global {
-  // eslint-disable-next-line @typescript-eslint/no-namespace
-  namespace jest {
-    interface Matchers<R> {
-      toHaveCssInJsClass(): R;
-    }
+declare module 'vitest' {
+  interface Assertion {
+    toHaveCssInJsClass(): void;
   }
 }
 
@@ -43,7 +41,7 @@ expect.extend({
 
 expect.extend(toHaveNoViolations);
 
-window.ResizeObserver = jest.fn().mockImplementation(() => ({
+window.ResizeObserver = vi.fn().mockImplementation(() => ({
   observe: jest.fn(),
   unobserve: jest.fn(),
   disconnect: jest.fn(),

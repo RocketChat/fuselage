@@ -22,8 +22,8 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
     },
-    "./*": {
-      "import": "./dist/*.js"
+    "./dist/fuselage.css": {
+      "import": "./fuselage.css"
     }
   },
   "files": [

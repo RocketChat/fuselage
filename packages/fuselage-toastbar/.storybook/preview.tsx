@@ -11,6 +11,7 @@ import ToastBarProvider from '../src/ToastBarProvider';
 import DocsContainer from './DocsContainer';
 import logo from './logo.svg';
 
+// eslint-disable-next-line import-x/no-unresolved
 import '@rocket.chat/fuselage/dist/fuselage.css';
 import '@rocket.chat/icons/dist/rocketchat.css';
 

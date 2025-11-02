@@ -1,6 +1,6 @@
 import type { Meta, StoryFn } from '@storybook/react-vite';
 
-import ResetPasswordConfirmationPage from './ResetPasswordConfirmationPage';
+import ResetPasswordConfirmationPage from './ResetPasswordConfirmationPage.js';
 
 export default {
   title: 'pages/ResetPasswordConfirmationPage',

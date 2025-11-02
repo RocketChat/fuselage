@@ -1,4 +1,430 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`[Table Rendering] > renders Default without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-table__wrapper"
+    >
+      <table
+        class="rcx-box rcx-box--full rcx-table"
+      >
+        <thead
+          class="rcx-box rcx-box--full rcx-table__head"
+        >
+          <tr
+            class="rcx-box rcx-box--full rcx-table__row"
+          >
+            <th
+              class="rcx-box rcx-box--full rcx-table__cell--header rcx-table__cell"
+            >
+              Dessert (100g serving)
+            </th>
+            <th
+              class="rcx-box rcx-box--full rcx-table__cell--header rcx-table__cell--align-end rcx-table__cell"
+            >
+              Calories
+            </th>
+            <th
+              class="rcx-box rcx-box--full rcx-table__cell--header rcx-table__cell--align-end rcx-table__cell"
+            >
+              Fat (g)
+            </th>
+            <th
+              class="rcx-box rcx-box--full rcx-table__cell--header rcx-table__cell--align-end rcx-table__cell"
+            >
+              Carbs (g)
+            </th>
+            <th
+              class="rcx-box rcx-box--full rcx-table__cell--header rcx-table__cell--align-end rcx-table__cell"
+            >
+              Protein (g)
+            </th>
+          </tr>
+        </thead>
+        <tbody
+          class="rcx-box rcx-box--full rcx-table__body"
+        >
+          <tr
+            class="rcx-box rcx-box--full rcx-table__row--action rcx-table__row"
+          >
+            <th
+              class="rcx-box rcx-box--full rcx-table__cell"
+              scope="row"
+            >
+              Frozen yoghurt
+            </th>
+            <td
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+            >
+              159
+            </td>
+            <td
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+            >
+              6
+            </td>
+            <td
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+            >
+              24
+            </td>
+            <td
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+            >
+              4
+            </td>
+          </tr>
+          <tr
+            class="rcx-box rcx-box--full rcx-table__row"
+          >
+            <th
+              class="rcx-box rcx-box--full rcx-table__cell"
+              scope="row"
+            >
+              Ice cream sandwich
+            </th>
+            <td
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+            >
+              237
+            </td>
+            <td
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+            >
+              9
+            </td>
+            <td
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+            >
+              37
+            </td>
+            <td
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+            >
+              4.3
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`[Table Rendering] > renders Fixed without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-table__wrapper"
+    >
+      <table
+        class="rcx-box rcx-box--full rcx-table--fixed rcx-table"
+      >
+        <thead
+          class="rcx-box rcx-box--full rcx-table__head"
+        >
+          <tr
+            class="rcx-box rcx-box--full rcx-table__row"
+          >
+            <th
+              class="rcx-box rcx-box--full rcx-table__cell--header rcx-table__cell"
+            >
+              Dessert (100g serving)
+            </th>
+            <th
+              class="rcx-box rcx-box--full rcx-table__cell--header rcx-table__cell--align-end rcx-table__cell"
+            >
+              Calories
+            </th>
+            <th
+              class="rcx-box rcx-box--full rcx-table__cell--header rcx-table__cell--align-end rcx-table__cell"
+            >
+              Fat (g)
+            </th>
+            <th
+              class="rcx-box rcx-box--full rcx-table__cell--header rcx-table__cell--align-end rcx-table__cell"
+            >
+              Carbs (g)
+            </th>
+            <th
+              class="rcx-box rcx-box--full rcx-table__cell--header rcx-table__cell--align-end rcx-table__cell"
+            >
+              Protein (g)
+            </th>
+          </tr>
+        </thead>
+        <tbody
+          class="rcx-box rcx-box--full rcx-table__body"
+        >
+          <tr
+            class="rcx-box rcx-box--full rcx-table__row"
+          >
+            <th
+              class="rcx-box rcx-box--full rcx-table__cell"
+              scope="row"
+            >
+              Frozen yoghurt
+            </th>
+            <td
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+            >
+              159
+            </td>
+            <td
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+            >
+              6
+            </td>
+            <td
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+            >
+              24
+            </td>
+            <td
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+            >
+              4
+            </td>
+          </tr>
+          <tr
+            class="rcx-box rcx-box--full rcx-table__row"
+          >
+            <th
+              class="rcx-box rcx-box--full rcx-table__cell"
+              scope="row"
+            >
+              Ice cream sandwich
+            </th>
+            <td
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+            >
+              237
+            </td>
+            <td
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+            >
+              9
+            </td>
+            <td
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+            >
+              37
+            </td>
+            <td
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+            >
+              4.3
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`[Table Rendering] > renders Striped without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-table__wrapper"
+    >
+      <table
+        class="rcx-box rcx-box--full rcx-table--striped rcx-table--sticky rcx-table--fixed rcx-table"
+      >
+        <thead
+          class="rcx-box rcx-box--full rcx-table__head"
+        >
+          <tr
+            class="rcx-box rcx-box--full rcx-table__row"
+          >
+            <th
+              class="rcx-box rcx-box--full rcx-table__cell--header rcx-table__cell"
+            >
+              Dessert (100g serving)
+            </th>
+            <th
+              class="rcx-box rcx-box--full rcx-table__cell--header rcx-table__cell--align-end rcx-table__cell"
+            >
+              Calories
+            </th>
+            <th
+              class="rcx-box rcx-box--full rcx-table__cell--header rcx-table__cell--align-end rcx-table__cell"
+            >
+              Fat (g)
+            </th>
+            <th
+              class="rcx-box rcx-box--full rcx-table__cell--header rcx-table__cell--align-end rcx-table__cell"
+            >
+              Carbs (g)
+            </th>
+            <th
+              class="rcx-box rcx-box--full rcx-table__cell--header rcx-table__cell--align-end rcx-table__cell"
+            >
+              Protein (g)
+            </th>
+          </tr>
+        </thead>
+        <tbody
+          class="rcx-box rcx-box--full rcx-table__body"
+        >
+          <tr
+            class="rcx-box rcx-box--full rcx-table__row"
+          >
+            <th
+              class="rcx-box rcx-box--full rcx-table__cell"
+              scope="row"
+            >
+              Frozen yoghurt
+            </th>
+            <td
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+            >
+              159
+            </td>
+            <td
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+            >
+              6
+            </td>
+            <td
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+            >
+              24
+            </td>
+            <td
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+            >
+              4
+            </td>
+          </tr>
+          <tr
+            class="rcx-box rcx-box--full rcx-table__row"
+          >
+            <th
+              class="rcx-box rcx-box--full rcx-table__cell"
+              scope="row"
+            >
+              Frozen yoghurt
+            </th>
+            <td
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+            >
+              159
+            </td>
+            <td
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+            >
+              6
+            </td>
+            <td
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+            >
+              24
+            </td>
+            <td
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+            >
+              4
+            </td>
+          </tr>
+          <tr
+            class="rcx-box rcx-box--full rcx-table__row"
+          >
+            <th
+              class="rcx-box rcx-box--full rcx-table__cell"
+              scope="row"
+            >
+              Frozen yoghurt
+            </th>
+            <td
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+            >
+              159
+            </td>
+            <td
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+            >
+              6
+            </td>
+            <td
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+            >
+              24
+            </td>
+            <td
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+            >
+              4
+            </td>
+          </tr>
+          <tr
+            class="rcx-box rcx-box--full rcx-table__row"
+          >
+            <th
+              class="rcx-box rcx-box--full rcx-table__cell"
+              scope="row"
+            >
+              Frozen yoghurt
+            </th>
+            <td
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+            >
+              159
+            </td>
+            <td
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+            >
+              6
+            </td>
+            <td
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+            >
+              24
+            </td>
+            <td
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+            >
+              4
+            </td>
+          </tr>
+          <tr
+            class="rcx-box rcx-box--full rcx-table__row"
+          >
+            <th
+              class="rcx-box rcx-box--full rcx-table__cell"
+              scope="row"
+            >
+              Ice cream sandwich
+            </th>
+            <td
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+            >
+              237
+            </td>
+            <td
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+            >
+              9
+            </td>
+            <td
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+            >
+              37
+            </td>
+            <td
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+            >
+              4.3
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+`;
 
 exports[`[Table Rendering] renders Default without crashing 1`] = `
 <body>

@@ -5338,6 +5338,7 @@ __metadata:
     ts-jest: "npm:~29.4.4"
     typedoc: "npm:~0.28.13"
     typescript: "npm:~5.9.3"
+    vitest: "npm:^4.0.6"
   peerDependencies:
     "@rocket.chat/fuselage": "*"
     react: "*"

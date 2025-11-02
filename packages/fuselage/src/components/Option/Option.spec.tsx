@@ -1,10 +1,12 @@
+import { describe, it, vi, expect } from 'vitest';
+
 import { prevent } from '../../helpers/prevent.js';
 import { render } from '../../testing.js';
 
 import Option from './Option.js';
 import OptionContent from './OptionContent.js';
 
-jest.mock('../../helpers/prevent');
+vi.mock('../../helpers/prevent.js');
 
 describe('Option', () => {
   it('renders without crashing', () => {

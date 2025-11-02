@@ -3,7 +3,7 @@ import { BackgroundLayer, LayoutLogo } from '@rocket.chat/layout';
 import type { ReactElement } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 
-import EmailCodeFallback from '../../common/EmailCodeFallback';
+import EmailCodeFallback from '../../common/EmailCodeFallback.js';
 
 type LoginLinkEmailProps = {
   onResendEmailRequest: () => void;

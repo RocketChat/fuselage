@@ -1,7 +1,7 @@
 import type { Meta, StoryFn } from '@storybook/react-vite';
 import { countries } from 'countries-list';
 
-import RequestTrialForm from './RequestTrialForm';
+import RequestTrialForm from './RequestTrialForm.js';
 
 export default {
   title: 'forms/RequestTrialForm',

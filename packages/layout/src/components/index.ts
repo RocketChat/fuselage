@@ -1,4 +1,4 @@
-import { Form } from './FormPageLayout/index.js';
+import Form from './FormPageLayout/index.js';
 import List from './List/index.js';
 
 export { default as TooltipWrapper } from './TooltipWrapper/index.js';

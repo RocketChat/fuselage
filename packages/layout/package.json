@@ -32,7 +32,7 @@
     ".:build:esm": "tsc -p tsconfig.esm.json",
     "lint": "lint",
     "lint-and-fix": "lint-and-fix",
-    "test": "jest --runInBand",
+    "test": "vitest --run",
     "docs": "typedoc",
     "storybook": "storybook dev -p 6006 --no-version-updates",
     "build-storybook": "storybook build"
@@ -62,7 +62,8 @@
     "storybook-dark-mode": "patch:storybook-dark-mode@npm%3A4.0.2#~/.yarn/patches/storybook-dark-mode-npm-4.0.2-1acb0927fb.patch",
     "ts-jest": "~29.4.4",
     "typedoc": "~0.28.13",
-    "typescript": "~5.9.3"
+    "typescript": "~5.9.3",
+    "vitest": "^4.0.6"
   },
   "peerDependencies": {
     "@rocket.chat/fuselage": "*",
