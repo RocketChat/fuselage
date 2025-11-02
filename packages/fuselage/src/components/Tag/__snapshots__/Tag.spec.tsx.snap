@@ -261,6 +261,182 @@ exports[`[Tag Rendering] > renders Secondary without crashing 1`] = `
 </body>
 `;
 
+exports[`[Tag Rendering] > renders Variants without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-button-group rcx-button-group--align-start"
+      role="group"
+    >
+      <span
+        class="rcx-box rcx-box--full rcx-tag  rcx-button-group__item"
+      >
+        <span
+          class="rcx-tag__inner"
+        >
+          john.doe
+        </span>
+      </span>
+      <span
+        class="rcx-box rcx-box--full rcx-tag rcx-tag--primary rcx-button-group__item"
+      >
+        <span
+          class="rcx-tag__inner"
+        >
+          john.doe
+        </span>
+      </span>
+      <span
+        class="rcx-box rcx-box--full rcx-tag rcx-tag--danger rcx-button-group__item"
+      >
+        <span
+          class="rcx-tag__inner"
+        >
+          john.doe
+        </span>
+      </span>
+      <span
+        class="rcx-box rcx-box--full rcx-tag rcx-tag--warning rcx-button-group__item"
+      >
+        <span
+          class="rcx-tag__inner"
+        >
+          john.doe
+        </span>
+      </span>
+      <span
+        class="rcx-box rcx-box--full rcx-tag rcx-tag--featured rcx-button-group__item"
+      >
+        <span
+          class="rcx-tag__inner"
+        >
+          john.doe
+        </span>
+      </span>
+      <span
+        class="rcx-box rcx-box--full rcx-tag rcx-tag--secondary-danger rcx-button-group__item"
+      >
+        <span
+          class="rcx-tag__inner"
+        >
+          john.doe
+        </span>
+      </span>
+      <span
+        class="rcx-box rcx-box--full rcx-tag rcx-tag--secondary-warning rcx-button-group__item"
+      >
+        <span
+          class="rcx-tag__inner"
+        >
+          john.doe
+        </span>
+      </span>
+      <span
+        class="rcx-box rcx-box--full rcx-tag rcx-tag--secondary-info rcx-button-group__item"
+      >
+        <span
+          class="rcx-tag__inner"
+        >
+          john.doe
+        </span>
+      </span>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`[Tag Rendering] > renders VariantsAsLinks without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-button-group rcx-button-group--align-start"
+      role="group"
+    >
+      <a
+        class="rcx-box rcx-box--full rcx-tag rcx-tag--clickable rcx-button-group__item"
+        href="#"
+      >
+        <span
+          class="rcx-tag__inner"
+        >
+          john.doe
+        </span>
+      </a>
+      <a
+        class="rcx-box rcx-box--full rcx-tag rcx-tag--primary rcx-tag--clickable rcx-button-group__item"
+        href="#"
+      >
+        <span
+          class="rcx-tag__inner"
+        >
+          john.doe
+        </span>
+      </a>
+      <a
+        class="rcx-box rcx-box--full rcx-tag rcx-tag--danger rcx-tag--clickable rcx-button-group__item"
+        href="#"
+      >
+        <span
+          class="rcx-tag__inner"
+        >
+          john.doe
+        </span>
+      </a>
+      <a
+        class="rcx-box rcx-box--full rcx-tag rcx-tag--warning rcx-tag--clickable rcx-button-group__item"
+        href="#"
+      >
+        <span
+          class="rcx-tag__inner"
+        >
+          john.doe
+        </span>
+      </a>
+      <a
+        class="rcx-box rcx-box--full rcx-tag rcx-tag--featured rcx-tag--clickable rcx-button-group__item"
+        href="#"
+      >
+        <span
+          class="rcx-tag__inner"
+        >
+          john.doe
+        </span>
+      </a>
+      <a
+        class="rcx-box rcx-box--full rcx-tag rcx-tag--secondary-danger rcx-tag--clickable rcx-button-group__item"
+        href="#"
+      >
+        <span
+          class="rcx-tag__inner"
+        >
+          john.doe
+        </span>
+      </a>
+      <a
+        class="rcx-box rcx-box--full rcx-tag rcx-tag--secondary-warning rcx-tag--clickable rcx-button-group__item"
+        href="#"
+      >
+        <span
+          class="rcx-tag__inner"
+        >
+          john.doe
+        </span>
+      </a>
+      <a
+        class="rcx-box rcx-box--full rcx-tag rcx-tag--secondary-info rcx-tag--clickable rcx-button-group__item"
+        href="#"
+      >
+        <span
+          class="rcx-tag__inner"
+        >
+          john.doe
+        </span>
+      </a>
+    </div>
+  </div>
+</body>
+`;
+
 exports[`[Tag Rendering] > renders Warning without crashing 1`] = `
 <body>
   <div>
