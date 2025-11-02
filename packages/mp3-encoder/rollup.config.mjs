@@ -1,5 +1,3 @@
-import { basename, dirname } from 'node:path';
-
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
 import typescript from '@rollup/plugin-typescript';
@@ -11,14 +9,7 @@ export default defineConfig({
   input: 'src/index.ts',
   output: [
     {
-      dir: dirname(pkg.main),
-      entryFileNames: basename(pkg.main),
-      format: 'cjs',
-      sourcemap: true,
-      strict: false,
-    },
-    {
-      file: pkg.module,
+      file: pkg.exports['.'].import,
       format: 'esm',
       sourcemap: true,
     },

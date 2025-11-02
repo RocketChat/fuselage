@@ -1,5 +1,7 @@
-import { render } from '../../../testing.js';
 import { it } from 'vitest';
+
+import { render } from '../../../testing.js';
+
 import ThreadMessage from './index.js';
 
 it('renders without crashing', () => {

@@ -12,6 +12,7 @@
     "noUnusedParameters": true,
     "strictNullChecks": true,
     "strict": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true
   }
 }

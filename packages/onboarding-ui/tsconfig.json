@@ -14,6 +14,12 @@
     "resolvePackageJsonExports": true,
     "jsx": "react-jsx"
   },
-  "include": ["./src", "./.jest/**/*", "./.storybook/**/*", "./vite.config.ts", "./vitest.setup.ts"],
+  "include": [
+    "./src",
+    "./.jest/**/*",
+    "./.storybook/**/*",
+    "./vite.config.ts",
+    "./vitest.setup.ts"
+  ],
   "exclude": ["./dist"]
 }

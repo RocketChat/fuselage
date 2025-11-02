@@ -9,8 +9,6 @@
     "**/*.spec.ts",
     "**/*.spec.tsx",
     "**/*.stories.tsx",
-    "./jest.config.ts",
-    "./jest-setup.ts",
     "./vite.config.ts",
     "./vitest.setup.ts"
   ]

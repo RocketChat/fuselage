@@ -1,7 +1,7 @@
 import { composeStories } from '@storybook/react-vite';
-import { getByRole, screen } from '@testing-library/react';
+import { cleanup, getByRole, screen } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
-import { describe, expect, test } from 'vitest';
+import { beforeEach, describe, expect, test } from 'vitest';
 
 import * as stories from './ToastBar.stories.js';
 import ToastBarProvider from './ToastBarProvider.js';
@@ -26,6 +26,10 @@ const topStartStyle = {
   top: '0',
   left: '0',
 };
+
+beforeEach(() => {
+  cleanup();
+});
 
 describe('[fuselage-toastbar rendering]', () => {
   test('should display ToastBar on the top right of the screen by default', async () => {

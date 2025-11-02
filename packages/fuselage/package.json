@@ -23,7 +23,8 @@
       "import": "./dist/index.js"
     },
     "./dist/fuselage.css": {
-      "import": "./fuselage.css"
+      "types": "./dist/fuselage.css.d.ts",
+      "import": "./dist/fuselage.css"
     }
   },
   "files": [

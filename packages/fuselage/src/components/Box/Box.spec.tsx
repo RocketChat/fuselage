@@ -1,4 +1,5 @@
 import { css } from '@rocket.chat/css-in-js';
+import { describe, it, expect } from 'vitest';
 
 import { render } from '../../testing.js';
 

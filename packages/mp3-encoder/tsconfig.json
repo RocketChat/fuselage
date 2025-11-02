@@ -9,5 +9,5 @@
     "moduleResolution": "nodenext",
     "skipLibCheck": true
   },
-  "include": ["src", "./vitest.setup.ts", "./vite.config.ts"],
+  "include": ["src", "./vitest.setup.ts", "./vite.config.ts"]
 }

@@ -1,6 +1,6 @@
 import { basename, dirname } from 'node:path';
 
-import commonjs from '@rollup/plugin-commonjs';
+// import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
 import nodeResolve from '@rollup/plugin-node-resolve';
 import terser from '@rollup/plugin-terser';
@@ -35,7 +35,7 @@ export default defineConfig({
     }),
     json(),
     nodeResolve(),
-    commonjs(),
+    // commonjs(),
     typescript({
       tsconfig: 'tsconfig.build.json',
     }),

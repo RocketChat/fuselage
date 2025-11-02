@@ -22,8 +22,6 @@
   "include": [
     "./src",
     "./.storybook/**/*",
-    "./jest.config.ts",
-    "./jest-setup.ts",
     "./vite.config.ts",
     "./vitest.setup.ts"
   ],

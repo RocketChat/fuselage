@@ -5,5 +5,10 @@
     "outDir": "./dist/esm"
   },
   "include": ["./src"],
-  "exclude": ["**/*.spec.ts", "**/*.stories.tsx", "./vite.config.ts", "./vitest.setup.ts"]
+  "exclude": [
+    "**/*.spec.ts",
+    "**/*.stories.tsx",
+    "./vite.config.ts",
+    "./vitest.setup.ts"
+  ]
 }

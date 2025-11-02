@@ -73,15 +73,15 @@ export default {
   stories: ['../src/**/*.stories.{mdx,js,tsx}', '../src/**/*.mdx'],
 
   framework: '@storybook/react-vite',
-  swc: () => ({
-    jsc: {
-      transform: {
-        react: {
-          runtime: 'automatic',
-        },
-      },
-    },
-  }),
+  // swc: () => ({
+  //   jsc: {
+  //     transform: {
+  //       react: {
+  //         runtime: 'automatic',
+  //       },
+  //     },
+  //   },
+  // }),
 
   docs: {},
 
