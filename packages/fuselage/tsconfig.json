@@ -15,7 +15,8 @@
     "erasableSyntaxOnly": true,
     "resolvePackageJsonImports": true,
     "esModuleInterop": true,
-    "allowArbitraryExtensions": true
+    "allowArbitraryExtensions": true,
+    "emitDeclarationOnly": true
   },
   "include": [
     "./src",

@@ -5042,7 +5042,7 @@ __metadata:
   resolution: "@rocket.chat/fuselage-forms@workspace:packages/fuselage-forms"
   dependencies:
     "@rocket.chat/emitter": "workspace:~"
-    "@rocket.chat/fuselage": "npm:*"
+    "@rocket.chat/fuselage": "workspace:~"
     "@rocket.chat/fuselage-tokens": "workspace:~"
     "@storybook/addon-docs": "npm:~10.0.2"
     "@storybook/react-vite": "npm:~10.0.2"
@@ -5208,7 +5208,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/fuselage@npm:*, @rocket.chat/fuselage@workspace:packages/fuselage, @rocket.chat/fuselage@workspace:~":
+"@rocket.chat/fuselage@workspace:packages/fuselage, @rocket.chat/fuselage@workspace:~":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/fuselage@workspace:packages/fuselage"
   dependencies:

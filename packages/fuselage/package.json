@@ -22,8 +22,8 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
     },
-    "./dist/rocketchat.css": {
-      "import": "./dist/rocketchat.css"
+    "./*": {
+      "import": "./dist/*.js"
     }
   },
   "files": [
@@ -32,10 +32,11 @@
   "scripts": {
     "start": "vite --mode development",
     "storybook": "storybook dev -p 6006 --no-version-updates",
-    "build": "run-s .:build:clean .:build:dev .:build:prod",
+    "build": "run-s .:build:clean .:build:dev .:build:prod .:build:types",
     ".:build:clean": "rimraf dist",
     ".:build:prod": "vite build",
     ".:build:dev": "vite build --mode development",
+    ".:build:types": "tsc -p tsconfig.build.json",
     "lint": "lint",
     "lint-and-fix": "lint-and-fix",
     "test": "vitest --run",

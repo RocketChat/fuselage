@@ -4,10 +4,11 @@
     "module": "nodenext",
     "target": "esnext",
     "outDir": "./dist/esm",
-    "esModuleInterop": true,
+    // "esModuleInterop": true,
     "skipLibCheck": true,
     "moduleResolution": "nodenext",
     "resolveJsonModule": true,
+    "resolvePackageJsonExports": true,
     "verbatimModuleSyntax": true,
     "jsx": "react-jsx"
   },
