@@ -29,7 +29,7 @@ import {
 export default {
   title: 'Inputs/Field',
   component: Field,
-} satisfies Meta<typeof Field>;
+} as Meta<typeof Field>;
 
 export const WithTextInput: StoryFn<typeof Field> = () => (
   <Field>

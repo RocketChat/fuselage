@@ -2,7 +2,7 @@ import { composeStories } from '@storybook/react-vite';
 import { render } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
 import { axe } from 'jest-axe';
-import { test } from 'vitest';
+import { expect, test } from 'vitest';
 
 import * as _stories from './Field/Field.stories.js';
 
@@ -22,10 +22,9 @@ const {
 } = composedStories;
 
 const mapStories = (stories: Partial<typeof composedStories>) =>
-  Object.values(stories).map((Story: any) => [
-    Story.storyName || 'Story',
-    Story,
-  ]);
+  Object.values(stories).map(
+    (Story) => [Story.storyName || 'Story', Story] as const,
+  );
 
 const allTestCases = mapStories(composedStories);
 
@@ -35,6 +34,10 @@ const wrappedInputs = mapStories({
   WithCheckbox,
   WithRadioButton,
   WithToggleSwitch,
+});
+
+test.afterEach(() => {
+  document.body.innerHTML = '';
 });
 
 test.each(allTestCases)(
