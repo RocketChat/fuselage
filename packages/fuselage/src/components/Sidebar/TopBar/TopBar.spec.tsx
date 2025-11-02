@@ -1,5 +1,6 @@
 import { composeStories } from '@storybook/react-vite';
 import { axe } from 'jest-axe';
+import { describe, test, expect } from 'vitest';
 
 import { render } from '../../../testing.js';
 

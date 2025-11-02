@@ -12,16 +12,3 @@ exports[`[NumberInput Component] > renders without crashing 1`] = `
   </div>
 </body>
 `;
-
-exports[`[NumberInput Component] renders without crashing 1`] = `
-<body>
-  <div>
-    <input
-      aria-label="number"
-      class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--type-number rcx-input-box"
-      size="1"
-      type="number"
-    />
-  </div>
-</body>
-`;

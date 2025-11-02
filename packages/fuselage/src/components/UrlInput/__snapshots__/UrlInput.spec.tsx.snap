@@ -12,16 +12,3 @@ exports[`[UrlInput Component] > renders without crashing 1`] = `
   </div>
 </body>
 `;
-
-exports[`[UrlInput Component] renders without crashing 1`] = `
-<body>
-  <div>
-    <input
-      aria-label="url"
-      class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--type-url rcx-input-box"
-      size="1"
-      type="url"
-    />
-  </div>
-</body>
-`;

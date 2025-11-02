@@ -1,6 +1,6 @@
 import { cleanup } from '@testing-library/react';
 import { toHaveNoViolations } from 'jest-axe';
-import { expect, vi, afterEach } from 'vitest';
+import { expect, vi, afterEach, beforeAll } from 'vitest';
 import '@testing-library/jest-dom/vitest';
 
 const cssInJsClassRegex = /^rcx-css-[a-z0-9]+$/;
@@ -46,8 +46,15 @@ expect.extend({
 
 expect.extend(toHaveNoViolations);
 
-window.ResizeObserver = vi.fn().mockImplementation(() => ({
-  observe: vi.fn(),
-  unobserve: vi.fn(),
-  disconnect: vi.fn(),
-}));
+// Mocking ResizeObserver
+class ResizeObserver {
+  observe() {}
+
+  unobserve() {}
+
+  disconnect() {}
+}
+
+beforeAll(() => {
+  vi.stubGlobal('ResizeObserver', ResizeObserver);
+});

@@ -6,9 +6,7 @@ export default defineConfig({
   test: {
     environment: 'jsdom',
     setupFiles: ['./vitest.setup.ts'],
-    sequence: {
-      hooks: 'list',
-    },
+    globals: true,
   },
   css: {
     preprocessorOptions: {
