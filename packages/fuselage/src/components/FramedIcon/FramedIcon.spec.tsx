@@ -6,10 +6,9 @@ import { render } from '../../testing.js';
 
 import * as stories from './FramedIcon.stories.js';
 
-const testCases = Object.values(composeStories(stories)).map((Story) => [
-  Story.storyName || 'Story',
-  Story,
-]);
+const testCases = Object.values(composeStories(stories)).map(
+  (Story) => [Story.storyName || 'Story', Story] as const,
+);
 
 describe('[FramedIcon rendering]', () => {
   test.each(testCases)(

@@ -2,6 +2,8 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "rootDirs": ["./src", "./.storybook"],
+    "types": [],
+    "strict": true,
     "target": "esnext",
     "module": "nodenext",
     "outDir": "./dist",

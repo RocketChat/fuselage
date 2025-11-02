@@ -12,16 +12,3 @@ exports[`[TextInput Component] > renders without crashing 1`] = `
   </div>
 </body>
 `;
-
-exports[`[TextInput Component] renders without crashing 1`] = `
-<body>
-  <div>
-    <input
-      aria-label="text"
-      class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--type-text rcx-input-box"
-      size="1"
-      type="text"
-    />
-  </div>
-</body>
-`;

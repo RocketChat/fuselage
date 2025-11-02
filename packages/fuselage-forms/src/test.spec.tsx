@@ -36,10 +36,6 @@ const wrappedInputs = mapStories({
   WithToggleSwitch,
 });
 
-test.afterEach(() => {
-  document.body.innerHTML = '';
-});
-
 test.each(allTestCases)(
   `renders %s without crashing`,
   async (_storyname, Story) => {

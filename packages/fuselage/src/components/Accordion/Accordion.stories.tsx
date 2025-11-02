@@ -1,7 +1,7 @@
 import type { StoryFn, Meta } from '@storybook/react-vite';
 import type { ComponentType } from 'react';
 
-import Box from '../Box/Box.js';
+import Box from '../Box/index.js';
 
 import Accordion from './Accordion.js';
 import AccordionItem from './AccordionItem.js';

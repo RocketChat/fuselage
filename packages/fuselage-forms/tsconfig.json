@@ -21,7 +21,8 @@
     "./.storybook/**/*",
     "./jest.config.ts",
     "./jest-setup.ts",
-    "./vite.config.ts"
+    "./vite.config.ts",
+    "./vitest.setup.ts"
   ],
   "exclude": ["node_modules", "dist"]
 }

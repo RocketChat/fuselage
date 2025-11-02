@@ -1,5 +1,5 @@
 import { PaletteStyleTag } from '@rocket.chat/fuselage';
-import surface from '@rocket.chat/fuselage-tokens/dist/surface.json';
+import surface from '@rocket.chat/fuselage-tokens/dist/surface.json' with { type: 'json' };
 import { DarkModeProvider } from '@rocket.chat/layout';
 import type { Preview } from '@storybook/react-vite';
 import i18next from 'i18next';
@@ -8,12 +8,12 @@ import { I18nextProvider, initReactI18next } from 'react-i18next';
 import { themes } from 'storybook/theming';
 import { useDarkMode } from 'storybook-dark-mode';
 
-import manifest from '../package.json';
+import manifest from '../package.json' with { type: 'json' };
 
-import DocsContainer from './DocsContainer';
+import DocsContainer from './DocsContainer.js';
 import logo from './logo.svg';
 
-import '@rocket.chat/fuselage/dist/fuselage.css';
+// import '@rocket.chat/fuselage/dist/fuselage.css';
 import '@rocket.chat/icons/dist/rocketchat.css';
 
 const getI18n = () => {

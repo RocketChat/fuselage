@@ -1,6 +1,3 @@
-/**
- * @vitest-environment node
- */
 import { it, expect, vi } from 'vitest';
 
 import { renderHook } from './testing.ts';

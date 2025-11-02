@@ -1,6 +1,6 @@
 import type { StoryFn, Meta } from '@storybook/react-vite';
 
-import Box from '../Box/Box.js';
+import Box from '../Box/index.js';
 import Margins from '../Margins/index.js';
 
 import Avatar from './Avatar.js';

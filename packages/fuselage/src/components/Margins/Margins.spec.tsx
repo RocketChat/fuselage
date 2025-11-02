@@ -1,3 +1,5 @@
+import { describe, it, expect } from 'vitest';
+
 import { render } from '../../testing.js';
 
 import Margins from './index.js';

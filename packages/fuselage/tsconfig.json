@@ -6,6 +6,7 @@
     "moduleResolution": "nodenext",
     "verbatimModuleSyntax": true,
     "lib": ["ES2020", "DOM"],
+    "types": [],
     "downlevelIteration": true,
     "outDir": "./dist",
     "skipLibCheck": true,
@@ -23,7 +24,8 @@
     "./.storybook/**/*",
     "./jest.config.ts",
     "./jest-setup.ts",
-    "./vite.config.ts"
+    "./vite.config.ts",
+    "./vitest.setup.ts"
   ],
   "exclude": ["./dist", "./storybook-static/", "./*.js"]
 }

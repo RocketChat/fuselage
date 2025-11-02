@@ -5,8 +5,10 @@ import pkg from './package.json' with { type: 'json' };
 export default defineConfig({
   test: {
     environment: 'jsdom',
-    setupFiles: ['./jest-setup.ts'],
-    globals: true,
+    setupFiles: ['./vitest.setup.ts'],
+    sequence: {
+      hooks: 'list',
+    },
   },
   css: {
     preprocessorOptions: {

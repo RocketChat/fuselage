@@ -9,6 +9,7 @@
     "./**/*.spec.tsx",
     "./jest.config.ts",
     "./jest-setup.ts",
-    "./vite.config.ts"
+    "./vite.config.ts",
+    "./vitest.setup.ts"
   ]
 }

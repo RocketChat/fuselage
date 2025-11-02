@@ -10,6 +10,7 @@
     "./.storybook",
     "./jest*",
     "**/*.stories*",
-    "vite.config.*"
+    "vite.config.*",
+    "vitest.setup.*"
   ]
 }

@@ -1,6 +1,6 @@
 // Disabled this flag since we need to wrap multiple components
 /* eslint-disable react/no-multi-comp */
-import type { ForwardRefExoticComponent, ReactNode } from 'react';
+import type { ReactNode, ForwardRefExoticComponent } from 'react';
 import { VisuallyHidden } from 'react-aria';
 
 import {
@@ -9,10 +9,10 @@ import {
   useFieldWrappedByInputLabel,
 } from '../Field/FieldContext.js';
 
-export type WithLabelId = { id?: string | undefined };
+type WithLabelId = { id?: string };
 
 function withLabelId<TProps>(
-  Component: React.ComponentType<TProps & WithLabelId>,
+  Component: ForwardRefExoticComponent<TProps & WithLabelId>,
 ) {
   const WrappedComponent = function (props: TProps) {
     const labelProps = useFieldReferencedByInput();
@@ -21,7 +21,7 @@ function withLabelId<TProps>(
 
   WrappedComponent.displayName = `withLabelId(${Component.displayName ?? Component.name ?? 'InputComponent'})`;
 
-  return WrappedComponent as typeof Component;
+  return WrappedComponent;
 }
 
 type WithLablledBy = { 'aria-labelledby'?: string };
@@ -39,7 +39,7 @@ function withAriaLabelledBy<TProps>(
   return WrappedComponent;
 }
 
-type WithChildrenLabel = { labelChildren?: ReactNode };
+type WithChildrenLabel = { labelChildren: ReactNode };
 
 function withVisuallyHiddenLabel<TProps>(
   Component: ForwardRefExoticComponent<TProps & WithChildrenLabel>,
@@ -58,7 +58,7 @@ function withVisuallyHiddenLabel<TProps>(
 
   WrappedComponent.displayName = `withVisuallyHiddenLabel(${Component.displayName ?? Component.name ?? 'InputComponent'})`;
 
-  return WrappedComponent as typeof Component;
+  return WrappedComponent;
 }
 
 export { withLabelId, withAriaLabelledBy, withVisuallyHiddenLabel };
