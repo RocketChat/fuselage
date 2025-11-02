@@ -4,7 +4,7 @@ import { userEvent } from '@testing-library/user-event';
 import { describe, expect, test } from 'vitest';
 
 import * as stories from './ToastBar.stories.js';
-import ToastBarProvider from './ToastBarProvider';
+import ToastBarProvider from './ToastBarProvider.js';
 import { render } from './testing.js';
 
 const { Default, TopEnd } = composeStories(stories, {

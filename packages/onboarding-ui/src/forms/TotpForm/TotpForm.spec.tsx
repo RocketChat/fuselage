@@ -1,4 +1,5 @@
 import { render } from '@testing-library/react';
+import { it } from 'vitest';
 
 import TotpForm from './TotpForm.js';
 

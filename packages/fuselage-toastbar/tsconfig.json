@@ -1,7 +1,6 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "rootDirs": ["./src", "./.storybook"],
     "types": [],
     "strict": true,
     "target": "esnext",
@@ -18,7 +17,9 @@
     "./src",
     "./.storybook/**/*",
     "./jest.config.ts",
-    "./jest-setup.ts"
+    "./jest-setup.ts",
+    "./vite.config.ts",
+    "./vitest.setup.ts"
   ],
   "exclude": ["./dist"]
 }

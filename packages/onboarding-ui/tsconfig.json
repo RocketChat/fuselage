@@ -6,6 +6,7 @@
     "module": "nodenext",
     "outDir": "./dist",
     "esModuleInterop": true,
+    "types": [],
     "skipLibCheck": true,
     "moduleResolution": "nodenext",
     "resolveJsonModule": true,
@@ -13,6 +14,6 @@
     "resolvePackageJsonExports": true,
     "jsx": "react-jsx"
   },
-  "include": ["./src", "./.jest/**/*", "./.storybook/**/*"],
+  "include": ["./src", "./.jest/**/*", "./.storybook/**/*", "./vite.config.ts", "./vitest.setup.ts"],
   "exclude": ["./dist"]
 }

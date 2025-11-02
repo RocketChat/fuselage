@@ -1,14 +1,14 @@
-import surface from '@rocket.chat/fuselage-tokens/dist/surface.json';
+import surface from '@rocket.chat/fuselage-tokens/dist/surface.json' with { type: 'json' };
 import { DarkModeProvider } from '@rocket.chat/layout';
 import type { Preview } from '@storybook/react-vite';
 import { Suspense } from 'react';
 import { themes } from 'storybook/theming';
 import { useDarkMode } from 'storybook-dark-mode';
 
-import manifest from '../package.json';
-import ToastBarProvider from '../src/ToastBarProvider';
+import manifest from '../package.json' with { type: 'json' };
+import ToastBarProvider from '../src/ToastBarProvider.js';
 
-import DocsContainer from './DocsContainer';
+import DocsContainer from './DocsContainer.js';
 import logo from './logo.svg';
 
 // eslint-disable-next-line import-x/no-unresolved
