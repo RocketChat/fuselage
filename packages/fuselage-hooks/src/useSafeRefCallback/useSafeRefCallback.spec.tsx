@@ -1,4 +1,5 @@
 import { render } from '@testing-library/react';
+import { describe, it, expect, vi } from 'vitest';
 
 import { useSafeRefCallback } from './useSafeRefCallback';
 
@@ -19,17 +20,17 @@ const TestComponent = ({
 
 describe('useSafeRefCallback', () => {
   it('should work as a regular callbackRef if cleanup is not provided', () => {
-    const callback = jest.fn();
+    const callback = vi.fn();
 
     const { rerender, unmount } = render(<TestComponent callback={callback} />);
 
     expect(callback).toHaveBeenCalledTimes(1);
-    expect(callback.mock.lastCall[0]).toBeInstanceOf(HTMLDivElement);
+    expect(callback).toHaveBeenLastCalledWith(expect.any(HTMLDivElement));
 
     rerender(<TestComponent callback={callback} renderSpan />);
 
     expect(callback).toHaveBeenCalledTimes(2);
-    expect(callback.mock.lastCall[0]).toBeInstanceOf(HTMLSpanElement);
+    expect(callback).toHaveBeenLastCalledWith(expect.any(HTMLSpanElement));
 
     unmount();
 
@@ -37,26 +38,26 @@ describe('useSafeRefCallback', () => {
   });
 
   it('should run again when callback reference changes', () => {
-    const callback = jest.fn();
+    const callback = vi.fn();
 
     const { rerender, unmount } = render(<TestComponent callback={callback} />);
 
     expect(callback).toHaveBeenCalledTimes(1);
-    expect(callback.mock.lastCall[0]).toBeInstanceOf(HTMLDivElement);
+    expect(callback).toHaveBeenLastCalledWith(expect.any(HTMLDivElement));
 
-    const callback2 = jest.fn();
+    const callback2 = vi.fn();
 
     rerender(<TestComponent callback={callback2} />);
 
     expect(callback).toHaveBeenCalledTimes(1);
 
     expect(callback2).toHaveBeenCalledTimes(1);
-    expect(callback2.mock.lastCall[0]).toBeInstanceOf(HTMLDivElement);
+    expect(callback2).toHaveBeenLastCalledWith(expect.any(HTMLDivElement));
 
     rerender(<TestComponent callback={callback2} renderSpan />);
 
     expect(callback2).toHaveBeenCalledTimes(2);
-    expect(callback2.mock.lastCall[0]).toBeInstanceOf(HTMLSpanElement);
+    expect(callback2).toHaveBeenLastCalledWith(expect.any(HTMLSpanElement));
 
     unmount();
 
@@ -64,34 +65,34 @@ describe('useSafeRefCallback', () => {
   });
 
   it('should call cleanup if callback changes', () => {
-    const cleanup = jest.fn();
-    const callback = jest.fn<() => void, any>(() => cleanup);
+    const cleanup = vi.fn();
+    const callback = vi.fn<() => void>(() => cleanup);
 
     const { rerender, unmount } = render(<TestComponent callback={callback} />);
 
     expect(callback).toHaveBeenCalledTimes(1);
-    expect(callback.mock.lastCall[0]).toBeInstanceOf(HTMLDivElement);
+    expect(callback).toHaveBeenLastCalledWith(expect.any(HTMLDivElement));
     expect(cleanup).not.toHaveBeenCalled();
 
-    const cleanup2 = jest.fn();
-    const callback2 = jest.fn<() => void, any>(() => cleanup2);
+    const cleanup2 = vi.fn();
+    const callback2 = vi.fn<() => void>(() => cleanup2);
 
     rerender(<TestComponent callback={callback2} />);
 
     // Ensure first callback has been properly unmounted
     expect(callback).toHaveBeenCalledTimes(1);
-    expect(callback.mock.lastCall[0]).toBeInstanceOf(HTMLDivElement);
+    expect(callback).toHaveBeenLastCalledWith(expect.any(HTMLDivElement));
 
     expect(cleanup).toHaveBeenCalledTimes(1);
 
     expect(callback2).toHaveBeenCalledTimes(1);
-    expect(callback2.mock.lastCall[0]).toBeInstanceOf(HTMLDivElement);
+    expect(callback2).toHaveBeenLastCalledWith(expect.any(HTMLDivElement));
     expect(cleanup2).not.toHaveBeenCalled();
 
     rerender(<TestComponent callback={callback2} renderSpan />);
 
     expect(callback2).toHaveBeenCalledTimes(2);
-    expect(callback2.mock.lastCall[0]).toBeInstanceOf(HTMLSpanElement);
+    expect(callback2).toHaveBeenLastCalledWith(expect.any(HTMLSpanElement));
 
     expect(cleanup2).toHaveBeenCalledTimes(1);
 
@@ -103,25 +104,25 @@ describe('useSafeRefCallback', () => {
   });
 
   it('should call cleanup with previous value on rerender', () => {
-    const cleanup = jest.fn();
-    const callback = jest.fn<() => void, any>(() => cleanup);
+    const cleanup = vi.fn();
+    const callback = vi.fn<() => void>(() => cleanup);
 
     const { rerender, unmount } = render(<TestComponent callback={callback} />);
 
     expect(callback).toHaveBeenCalledTimes(1);
-    expect(callback.mock.lastCall[0]).toBeInstanceOf(HTMLDivElement);
+    expect(callback).toHaveBeenLastCalledWith(expect.any(HTMLDivElement));
 
     expect(cleanup).not.toHaveBeenCalled();
 
     rerender(<TestComponent callback={callback} renderSpan />);
 
     expect(callback).toHaveBeenCalledTimes(2);
-    expect(callback.mock.lastCall[0]).toBeInstanceOf(HTMLSpanElement);
+    expect(callback).toHaveBeenLastCalledWith(expect.any(HTMLSpanElement));
 
     expect(cleanup).toHaveBeenCalledTimes(1);
 
-    const cleanup2 = jest.fn();
-    const callback2 = jest.fn<() => void, any>(() => cleanup2);
+    const cleanup2 = vi.fn();
+    const callback2 = vi.fn<() => void>(() => cleanup2);
 
     rerender(<TestComponent callback={callback2} renderSpan />);
 
@@ -129,14 +130,14 @@ describe('useSafeRefCallback', () => {
     expect(cleanup).toHaveBeenCalledTimes(2);
 
     expect(callback2).toHaveBeenCalledTimes(1);
-    expect(callback2.mock.lastCall[0]).toBeInstanceOf(HTMLSpanElement);
+    expect(callback2).toHaveBeenLastCalledWith(expect.any(HTMLSpanElement));
 
     expect(cleanup2).not.toHaveBeenCalled();
 
     rerender(<TestComponent callback={callback2} />);
 
     expect(callback2).toHaveBeenCalledTimes(2);
-    expect(callback2.mock.lastCall[0]).toBeInstanceOf(HTMLDivElement);
+    expect(callback2).toHaveBeenLastCalledWith(expect.any(HTMLDivElement));
 
     expect(cleanup2).toHaveBeenCalledTimes(1);
 

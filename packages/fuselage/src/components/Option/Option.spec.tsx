@@ -18,7 +18,7 @@ describe('Option', () => {
   });
 
   it('should call onClick when click', () => {
-    const click = jest.fn();
+    const click = vi.fn();
 
     const { getByText } = render(
       <Option onClick={click}>
@@ -32,7 +32,7 @@ describe('Option', () => {
   });
 
   it('should call prevent when click on disabled', () => {
-    const click = jest.fn();
+    const click = vi.fn();
 
     const { getByText } = render(
       <Option disabled onClick={click}>

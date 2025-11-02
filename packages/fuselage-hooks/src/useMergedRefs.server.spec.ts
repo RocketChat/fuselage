@@ -1,4 +1,5 @@
 import { createRef } from 'react';
+import { it, expect, vi } from 'vitest';
 
 import { renderHook } from './testing.ts';
 import { useMergedRefs } from './useMergedRefs';
@@ -10,7 +11,7 @@ it('returns a callback ref', () => {
 });
 
 it('works without any arguments', () => {
-  const { result } = renderHook(() => jest.fn(useMergedRefs()));
+  const { result } = renderHook(() => vi.fn(useMergedRefs()));
 
   const value = Symbol();
   result.current(value);
@@ -41,7 +42,7 @@ it('works with many refs', () => {
 });
 
 it('works with callback ref', () => {
-  const callbackRef = jest.fn();
+  const callbackRef = vi.fn();
 
   const { result } = renderHook(() => useMergedRefs(callbackRef));
 
@@ -53,7 +54,7 @@ it('works with callback ref', () => {
 
 it('works with refs and callback refs', () => {
   const refs = Array.from({ length: 5 }).map(() => createRef());
-  const callbackRefs = Array.from({ length: 5 }).map(() => jest.fn());
+  const callbackRefs = Array.from({ length: 5 }).map(() => vi.fn());
 
   const { result } = renderHook(() => useMergedRefs(...refs, ...callbackRefs));
 

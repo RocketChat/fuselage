@@ -1,19 +1,24 @@
 {
   "name": "testing-utils",
   "version": "0.31.25",
+  "type": "module",
   "private": true,
   "exports": {
     "./*": {
-      "require": "./*.js",
-      "types": "./*.d.ts"
+      "types": "./*.d.ts",
+      "import": "./*.js"
     }
   },
   "dependencies": {
     "css-mediaquery": "^0.1.2"
   },
   "devDependencies": {
+    "@types/css-mediaquery": "^0.1.4",
     "eslint": "~9.37.0",
     "lint-all": "workspace:~",
     "prettier": "~3.6.2"
+  },
+  "peerDependencies": {
+    "vitest": "*"
   }
 }

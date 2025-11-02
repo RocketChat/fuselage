@@ -1,4 +1,6 @@
-const withClipboardMock = () => {
+import { beforeAll, afterAll, afterEach } from 'vitest';
+
+export const withClipboardMock = () => {
   const clipboard = {
     writeText: () => Promise.resolve(),
   };
@@ -20,8 +22,4 @@ const withClipboardMock = () => {
   return (fn) => {
     clipboard.writeText = fn;
   };
-};
-
-module.exports = {
-  withClipboardMock,
 };

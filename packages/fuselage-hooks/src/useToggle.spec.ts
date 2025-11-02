@@ -1,3 +1,5 @@
+import { it, expect } from 'vitest';
+
 import { renderHook, act } from './testing.ts';
 import { useToggle } from './useToggle';
 

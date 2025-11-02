@@ -1,9 +1,10 @@
 import { useImperativeHandle, useState } from 'react';
+import { it, expect, vi, afterEach } from 'vitest';
 
 import { renderHook, act } from './testing.ts';
 import { useAutoFocus } from './useAutoFocus';
 
-const focus = jest.fn();
+const focus = vi.fn();
 
 afterEach(() => {
   focus.mockClear();

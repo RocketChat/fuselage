@@ -1,4 +1,5 @@
 import { withClipboardMock } from 'testing-utils/mocks/withClipboardMock';
+import { it, expect, vi, beforeAll, beforeEach, afterEach } from 'vitest';
 
 import { renderHook, act } from './testing.ts';
 import { useClipboard } from './useClipboard';
@@ -6,7 +7,7 @@ import { useClipboard } from './useClipboard';
 let container: Element | undefined;
 
 beforeAll(() => {
-  jest.useFakeTimers();
+  vi.useFakeTimers();
 });
 
 beforeEach(() => {
@@ -57,21 +58,21 @@ it('reverts hasCopied to false', async () => {
   expect(result.current.hasCopied).toBe(true);
 
   act(() => {
-    jest.advanceTimersByTime(halfDelay);
+    vi.advanceTimersByTime(halfDelay);
   });
 
   expect(result.current.hasCopied).toBe(true);
 
   act(() => {
-    jest.advanceTimersByTime(halfDelay);
+    vi.advanceTimersByTime(halfDelay);
   });
 
   expect(result.current.hasCopied).toBe(false);
 });
 
 it('runs only success function receiving event object', async () => {
-  const onCopySuccess = jest.fn();
-  const onCopyError = jest.fn();
+  const onCopySuccess = vi.fn();
+  const onCopyError = vi.fn();
 
   const { result } = renderHook(() =>
     useClipboard('Lorem Ipsum', {
@@ -95,8 +96,8 @@ it('runs only error function receiving error object', async () => {
   const rejection = new Error('rejected');
   withWriteText(() => Promise.reject(rejection));
 
-  const onCopyError = jest.fn();
-  const onCopySuccess = jest.fn();
+  const onCopyError = vi.fn();
+  const onCopySuccess = vi.fn();
 
   const { result } = renderHook(() =>
     useClipboard('Lorem Ipsum', {

@@ -1,4 +1,5 @@
 import { withMatchMediaMock } from 'testing-utils/mocks/withMatchMediaMock';
+import { it, expect } from 'vitest';
 
 import { renderHook, act } from './testing.ts';
 import { useMediaQueries } from './useMediaQueries';

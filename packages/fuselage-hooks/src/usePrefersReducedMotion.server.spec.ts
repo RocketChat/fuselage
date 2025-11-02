@@ -1,3 +1,5 @@
+import { it, expect } from 'vitest';
+
 import { renderHook } from './testing.ts';
 import { usePrefersReducedMotion } from './usePrefersReducedMotion';
 

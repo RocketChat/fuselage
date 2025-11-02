@@ -1,3 +1,9 @@
+// @ts-check
+import { beforeAll, vi } from 'vitest';
+
+/**
+ * @param {string | number | undefined} value
+ */
 const getSizeInPixels = (value) =>
   (typeof value === 'string' && parseInt(value, 10)) ||
   (typeof value === 'number' && value) ||
@@ -219,11 +225,11 @@ class ResizeObserverMock {
     this.callback = callback;
   }
 
-  disconnect = jest.fn(() => {
+  disconnect = vi.fn(() => {
     this.callback = () => undefined;
   });
 
-  observe = jest.fn((target) => {
+  observe = vi.fn((target) => {
     const mutationObserver = new MutationObserver((mutations) => {
       for (const mutation of mutations) {
         if (!(mutation.target instanceof Element)) {
@@ -256,7 +262,7 @@ class ResizeObserverMock {
     this.mutationObservers.set(target, mutationObserver);
   });
 
-  unobserve = jest.fn((target) => {
+  unobserve = vi.fn((target) => {
     this.mutationObservers.get(target)?.disconnect();
     this.mutationObservers.delete(target);
   });

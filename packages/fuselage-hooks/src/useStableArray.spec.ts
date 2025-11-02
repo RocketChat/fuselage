@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { it, expect } from 'vitest';
 
 import { renderHook, act } from './testing.ts';
 import { useStableArray } from './useStableArray';

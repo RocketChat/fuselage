@@ -1,4 +1,5 @@
 import { withMatchMediaMock } from 'testing-utils/mocks/withMatchMediaMock';
+import { it, expect } from 'vitest';
 
 import { renderHook } from './testing.ts';
 import { usePrefersColorScheme } from './usePrefersColorScheme';

@@ -42,7 +42,7 @@ expect.extend({
 expect.extend(toHaveNoViolations);
 
 window.ResizeObserver = vi.fn().mockImplementation(() => ({
-  observe: jest.fn(),
-  unobserve: jest.fn(),
-  disconnect: jest.fn(),
+  observe: vi.fn(),
+  unobserve: vi.fn(),
+  disconnect: vi.fn(),
 }));
