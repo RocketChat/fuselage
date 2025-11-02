@@ -1,7 +1,7 @@
+import '@testing-library/jest-dom/vitest';
 import { cleanup } from '@testing-library/react';
 import { toHaveNoViolations } from 'jest-axe';
 import { expect, vi, afterEach, beforeAll } from 'vitest';
-import '@testing-library/jest-dom/vitest';
 
 const cssInJsClassRegex = /^rcx-css-[a-z0-9]+$/;
 

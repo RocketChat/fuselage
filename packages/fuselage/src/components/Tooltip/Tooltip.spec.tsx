@@ -1,3 +1,5 @@
+import { expect, it } from 'vitest';
+
 import { render } from '../../testing.js';
 
 import * as stories from './Tooltip.stories.js';

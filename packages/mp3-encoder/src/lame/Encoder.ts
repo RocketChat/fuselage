@@ -1,12 +1,12 @@
-import type { BitStream } from './BitStream';
-import { III_psy_ratio } from './III_psy_ratio';
-import type { LameGlobalFlags } from './LameGlobalFlags';
-import type { LameInternalFlags } from './LameInternalFlags';
-import { MPEGMode } from './MPEGMode';
-import { NewMDCT } from './NewMDCT';
-import type { PsyModel } from './PsyModel';
-import { VbrMode } from './VbrMode';
-import { assert } from './assert';
+import type { BitStream } from './BitStream.js';
+import { III_psy_ratio } from './III_psy_ratio.js';
+import type { LameGlobalFlags } from './LameGlobalFlags.js';
+import type { LameInternalFlags } from './LameInternalFlags.js';
+import { MPEGMode } from './MPEGMode.js';
+import { NewMDCT } from './NewMDCT.js';
+import type { PsyModel } from './PsyModel.js';
+import { VbrMode } from './VbrMode.js';
+import { assert } from './assert.js';
 import {
   BLKSIZE,
   FFTOFFSET,
@@ -14,7 +14,7 @@ import {
   MPG_MD_MS_LR,
   NORM_TYPE,
   SHORT_TYPE,
-} from './constants';
+} from './constants.js';
 
 export class Encoder {
   private readonly bs: BitStream;

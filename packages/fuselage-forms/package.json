@@ -60,7 +60,6 @@
     "rimraf": "~6.0.1",
     "storybook": "~10.0.2",
     "storybook-dark-mode": "patch:storybook-dark-mode@npm%3A4.0.2#~/.yarn/patches/storybook-dark-mode-npm-4.0.2-1acb0927fb.patch",
-    "ts-jest": "~29.4.4",
     "typescript": "~5.9.3",
     "vitest": "^4.0.6"
   },

@@ -4,11 +4,11 @@ import '@testing-library/jest-dom/vitest';
 
 const cssInJsClassRegex = /^rcx-css-[a-z0-9]+$/;
 
-declare module 'vitest' {
-  interface Assertion {
-    toHaveCssInJsClass(): void;
-  }
-}
+// declare module 'vitest' {
+//   interface Assertion {
+//     toHaveCssInJsClass(): void;
+//   }
+// }
 
 expect.extend({
   toHaveCssInJsClass: (received: Element | null) => {

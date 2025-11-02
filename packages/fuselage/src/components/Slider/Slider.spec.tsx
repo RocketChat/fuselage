@@ -1,6 +1,7 @@
 import { composeStories } from '@storybook/react-vite';
 import { screen } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
+import { describe, it, expect } from 'vitest';
 
 import { render } from '../../testing.js';
 

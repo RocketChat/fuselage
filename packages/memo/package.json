@@ -26,31 +26,22 @@
     "/dist"
   ],
   "scripts": {
-    ".:build:cjs": "tsc -p tsconfig-cjs.json",
     ".:build:esm": "tsc -p tsconfig-esm.json",
-    "build": "run .:build:esm && run .:build:cjs",
+    "build": "run .:build:esm",
     "clean": "rimraf dist",
     "docs": "typedoc",
     "lint": "lint",
     "lint-and-fix": "lint-and-fix",
-    "test": "jest --runInBand"
-  },
-  "jest": {
-    "errorOnDeprecated": true,
-    "preset": "ts-jest",
-    "testMatch": [
-      "<rootDir>/src/**/*.spec.ts"
-    ]
+    "test": "vitest --run"
   },
   "devDependencies": {
     "eslint": "~9.37.0",
-    "jest": "~30.2.0",
     "lint-all": "workspace:~",
     "prettier": "~3.6.2",
     "rimraf": "~6.0.1",
-    "ts-jest": "~29.4.4",
     "typedoc": "~0.28.13",
-    "typescript": "~5.9.3"
+    "typescript": "~5.9.3",
+    "vitest": "^4.0.6"
   },
   "publishConfig": {
     "access": "public"
