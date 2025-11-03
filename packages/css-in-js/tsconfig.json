@@ -3,13 +3,14 @@
   "compilerOptions": {
     "rootDir": "./src",
     "target": "esnext",
-    "module": "ESNext",
+    "module": "nodenext",
     "lib": ["dom", "es6"],
     "declarationDir": "./dist",
     "outDir": "./dist",
-    "moduleResolution": "bundler",
+    "moduleResolution": "nodenext",
     "noEmit": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "verbatimModuleSyntax": true
   },
   "include": ["src"],
   "exclude": ["dist", "node_modules"]

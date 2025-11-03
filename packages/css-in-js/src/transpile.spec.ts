@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 
-import { transpile, createTranspileMiddleware } from './transpile';
+import { transpile, createTranspileMiddleware } from './transpile.js';
 
 it('transpiles simple properties', () => {
   expect(transpile('div', 'color: inherit;')).toMatch('div{color:inherit;}');
