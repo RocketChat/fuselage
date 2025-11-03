@@ -1013,5 +1013,8 @@
   },
   "hash-abac": {
     "start": "\ue16b"
+  },
+  "hash-shield": {
+    "start": "\ue16d"
   }
 }
