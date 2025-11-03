@@ -268,7 +268,7 @@ class ResizeObserverMock {
   });
 }
 
-const withResizeObserverMock = () => {
+export const withResizeObserverMock = () => {
   beforeAll(() => {
     if (window.ResizeObserver === ResizeObserverMock) {
       return;
@@ -277,8 +277,4 @@ const withResizeObserverMock = () => {
     window.ResizeObserver = ResizeObserverMock;
     Object.defineProperties(window.HTMLElement.prototype, sizeMock);
   });
-};
-
-module.exports = {
-  withResizeObserverMock,
 };
