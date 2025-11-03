@@ -20,8 +20,8 @@ export default defineConfig({
   input: 'src/index.ts',
   output: [
     {
-      dir: dirname(pkg.module),
-      entryFileNames: basename(pkg.module),
+      dir: dirname(pkg.exports['.'].import),
+      entryFileNames: basename(pkg.exports['.'].import),
       format: 'es',
       sourcemap: true,
     },

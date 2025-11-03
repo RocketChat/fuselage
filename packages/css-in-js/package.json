@@ -21,7 +21,6 @@
     "name": "Rocket.Chat",
     "url": "https://rocket.chat/"
   },
-  "module": "dist/index.js",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",

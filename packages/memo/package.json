@@ -2,6 +2,7 @@
   "name": "@rocket.chat/memo",
   "version": "0.31.25",
   "description": "Memoization utilities",
+  "type": "module",
   "keywords": [
     "memoize"
   ],
@@ -19,9 +20,12 @@
     "name": "Rocket.Chat",
     "url": "https://rocket.chat/"
   },
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "types": "dist/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/esm/index.d.ts",
+      "import": "./dist/esm/index.js"
+    }
+  },
   "files": [
     "/dist"
   ],
