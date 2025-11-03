@@ -1,7 +1,7 @@
 import { composeStories } from '@storybook/react-vite';
-import { cleanup, getByRole, screen } from '@testing-library/react';
+import { getByRole, screen } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
-import { beforeEach, describe, expect, test } from 'vitest';
+import { describe, expect, test } from 'vitest';
 
 import * as stories from './ToastBar.stories.js';
 import ToastBarProvider from './ToastBarProvider.js';
