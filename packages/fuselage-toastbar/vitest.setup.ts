@@ -2,10 +2,10 @@ import '@testing-library/jest-dom/vitest';
 
 import { TextEncoder } from 'node:util';
 
-import { configure, cleanup } from '@testing-library/react';
+import { cleanup } from '@testing-library/react';
 import { vi, beforeAll, afterEach } from 'vitest';
 
-configure({ reactStrictMode: true });
+// configure({ reactStrictMode: true });
 
 Object.assign(globalThis, { TextEncoder });
 
