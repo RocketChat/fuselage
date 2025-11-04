@@ -2,4 +2,4 @@
 "@rocket.chat/icons": minor
 ---
 
-Adds the `team-abac` and `hash-abac` icons to fuselage
+Adds the `team-shield` and `hash-shield` icons to fuselage
