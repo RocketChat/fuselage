@@ -1008,16 +1008,10 @@
   "phone-plus": {
     "start": "\ue167"
   },
-  "team-abac": {
+  "team-shield": {
     "start": "\ue169"
   },
-  "hash-abac": {
-    "start": "\ue16b"
-  },
   "hash-shield": {
-    "start": "\ue16d"
-  },
-  "team-shield": {
-    "start": "\ue16f"
+    "start": "\ue16b"
   }
 }
