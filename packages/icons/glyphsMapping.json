@@ -1016,5 +1016,8 @@
   },
   "hash-shield": {
     "start": "\ue16d"
+  },
+  "team-shield": {
+    "start": "\ue16f"
   }
 }
