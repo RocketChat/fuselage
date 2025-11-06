@@ -41,7 +41,6 @@ const Template: StoryFn<typeof NavBar> = (args) => (
         <NavBarItem icon='document-eye' title='audit' />
         <NavBarItem icon='address-book' title='contacts' />
       </NavBarGroup>
-      <NavBarDivider />
       <NavBarGroup role='toolbar'>
         <NavBarItem>
           <MenuDisplayExample small icon='sort' title='sort' />
@@ -56,7 +55,6 @@ const Template: StoryFn<typeof NavBar> = (args) => (
           </MenuSection>
         </Menu>
       </NavBarGroup>
-      <NavBarDivider />
       <NavBarGroup role='toolbar'>
         <NavBarItem icon='dialpad' title='dialpad' />
         <NavBarItem icon='live' title='live' />
