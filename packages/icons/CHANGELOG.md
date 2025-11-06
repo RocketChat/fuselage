@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.45.0
+
+### Minor Changes
+
+- [#1776](https://github.com/RocketChat/fuselage/pull/1776) [`0570354`](https://github.com/RocketChat/fuselage/commit/05703544cffbda62a86ebe60e4415d658a5131e3) Thanks [@MartinSchoeler](https://github.com/MartinSchoeler)! - Adds the `team-shield` and `hash-shield` icons to fuselage
+
 ## 0.44.0
 
 ### Minor Changes
