@@ -10,7 +10,7 @@
     "stylelint": "~16.25.0"
   },
   "devDependencies": {
-    "eslint": "~9.37.0",
+    "eslint": "~9.39.1",
     "lint-all": "workspace:~",
     "prettier": "~3.6.2",
     "tools-utils": "workspace:~"
