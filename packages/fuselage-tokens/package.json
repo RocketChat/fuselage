@@ -36,10 +36,10 @@
     ".:build:clean": "rimraf dist"
   },
   "devDependencies": {
-    "build-design-tokens": "workspace:~",
+    "build-design-tokens": "^0.31.25",
     "eslint": "~9.37.0",
     "eslint-config-prettier": "~10.1.8",
-    "lint-all": "workspace:~",
+    "lint-all": "^0.31.25",
     "npm-run-all": "^4.1.5",
     "postcss": "~8.5.6",
     "postcss-scss": "~4.0.9",

@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.68.0
+
+### Minor Changes
+
+- [#1779](https://github.com/RocketChat/fuselage/pull/1779) [`a6e5f37`](https://github.com/RocketChat/fuselage/commit/a6e5f37b43720ac6bf12b23bd31d09557488e0af) Thanks [@dougfabris](https://github.com/dougfabris)! - feat(fuselage): Render Divider between NavbarSection childs
+
 ## 0.67.0
 
 ### Minor Changes

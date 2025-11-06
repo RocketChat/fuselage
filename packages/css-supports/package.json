@@ -30,11 +30,11 @@
     "lint-and-fix": "lint-and-fix"
   },
   "dependencies": {
-    "@rocket.chat/memo": "workspace:~"
+    "@rocket.chat/memo": "^0.31.25"
   },
   "devDependencies": {
     "eslint": "~9.37.0",
-    "lint-all": "workspace:~",
+    "lint-all": "^0.31.25",
     "prettier": "~3.6.2",
     "rimraf": "~6.0.1",
     "typedoc": "~0.28.13",
