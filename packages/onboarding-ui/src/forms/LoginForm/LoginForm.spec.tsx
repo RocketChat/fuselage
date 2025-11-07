@@ -1,6 +1,7 @@
 import { render } from '@testing-library/react';
+import { it } from 'vitest';
 
-import LoginForm from './LoginForm';
+import LoginForm from './LoginForm.js';
 
 it('renders without crashing', () => {
   render(

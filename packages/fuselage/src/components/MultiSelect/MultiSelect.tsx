@@ -13,22 +13,22 @@ import type {
 } from 'react';
 import { useState, useRef, useEffect, forwardRef } from 'react';
 
-import type { SelectOption } from '..';
-import { isForwardRefType } from '../../helpers/isForwardRefType';
-import { prevent } from '../../helpers/prevent';
-import AnimatedVisibility from '../AnimatedVisibility';
-import Box from '../Box';
-import Flex from '../Flex';
-import { Icon } from '../Icon';
-import Margins from '../Margins';
-import { CheckOption } from '../Option';
-import { Options, useCursor } from '../Options';
-import Position from '../Position';
-import SelectAddon from '../Select/SelectAddon';
+import { isForwardRefType } from '../../helpers/isForwardRefType.js';
+import { prevent } from '../../helpers/prevent.js';
+import AnimatedVisibility from '../AnimatedVisibility/index.js';
+import Box from '../Box/index.js';
+import Flex from '../Flex/index.js';
+import { Icon } from '../Icon/index.js';
+import Margins from '../Margins/index.js';
+import { CheckOption } from '../Option/index.js';
+import { Options, useCursor } from '../Options/index.js';
+import Position from '../Position/index.js';
+import SelectAddon from '../Select/SelectAddon.js';
+import type { SelectOption } from '../index.js';
 
-import MultiSelectAnchor from './MultiSelectAnchor';
-import type { MultiSelectAnchorParams } from './MultiSelectAnchorParams';
-import { SelectedOptions } from './SelectedOptions';
+import MultiSelectAnchor from './MultiSelectAnchor.js';
+import type { MultiSelectAnchorParams } from './MultiSelectAnchorParams.js';
+import { SelectedOptions } from './SelectedOptions.js';
 
 type MultiSelectProps = Omit<
   ComponentProps<typeof Box>,

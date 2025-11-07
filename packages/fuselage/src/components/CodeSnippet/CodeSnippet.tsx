@@ -1,8 +1,8 @@
 import type { ComponentProps, ReactElement } from 'react';
 
-import Box from '../Box';
-import { Button } from '../Button';
-import { Skeleton } from '../Skeleton';
+import Box from '../Box/index.js';
+import { Button } from '../Button/index.js';
+import { Skeleton } from '../Skeleton/index.js';
 
 type CodeSnippetProps = ComponentProps<typeof Box> & {
   children: string;

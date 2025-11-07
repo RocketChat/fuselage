@@ -1,6 +1,6 @@
 import type { ReactElement, ReactNode } from 'react';
 
-import * as FormPageLayout from '../../components/FormPageLayout/FormPageLayout.styles';
+import * as FormPageLayout from '../../components/FormPageLayout/FormPageLayout.styles.js';
 
 const HorizontalWizardLayoutContent = ({
   children,

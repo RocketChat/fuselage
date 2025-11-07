@@ -1,6 +1,7 @@
 import { render } from '@testing-library/react';
+import { it } from 'vitest';
 
-import OrganizationInfoForm from './OrganizationInfoForm';
+import OrganizationInfoForm from './OrganizationInfoForm.js';
 
 it('renders without crashing', () => {
   render(

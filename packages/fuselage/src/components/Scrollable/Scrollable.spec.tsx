@@ -1,6 +1,6 @@
-import { render } from '../../testing';
+import { render } from '../../testing.js';
 
-import { Scrollable } from './Scrollable';
+import { Scrollable } from './Scrollable.js';
 
 describe('Scrollabe Component', () => {
   it('renders without crashing', () => {

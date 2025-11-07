@@ -1,1 +1,1 @@
-export * from './Throbber';
+export * from './Throbber.js';

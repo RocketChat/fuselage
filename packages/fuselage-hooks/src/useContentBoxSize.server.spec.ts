@@ -1,6 +1,7 @@
 import { useRef } from 'react';
+import { it, expect } from 'vitest';
 
-import { renderHook } from './testing';
+import { renderHook } from './testing.ts';
 import { useContentBoxSize } from './useContentBoxSize';
 
 it('immediately returns zero size', () => {

@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`[Table Rendering] renders Default without crashing 1`] = `
+exports[`[Table Rendering] > renders Default without crashing 1`] = `
 <body>
   <div>
     <div
@@ -112,7 +112,7 @@ exports[`[Table Rendering] renders Default without crashing 1`] = `
 </body>
 `;
 
-exports[`[Table Rendering] renders Fixed without crashing 1`] = `
+exports[`[Table Rendering] > renders Fixed without crashing 1`] = `
 <body>
   <div>
     <div
@@ -224,7 +224,7 @@ exports[`[Table Rendering] renders Fixed without crashing 1`] = `
 </body>
 `;
 
-exports[`[Table Rendering] renders Striped without crashing 1`] = `
+exports[`[Table Rendering] > renders Striped without crashing 1`] = `
 <body>
   <div>
     <div
@@ -426,7 +426,7 @@ exports[`[Table Rendering] renders Striped without crashing 1`] = `
 </body>
 `;
 
-exports[`[Table Rendering] renders WithSelection without crashing 1`] = `
+exports[`[Table Rendering] > renders WithSelection without crashing 1`] = `
 <body>
   <div>
     <div

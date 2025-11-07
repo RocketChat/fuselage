@@ -1,15 +1,15 @@
-import type { StoryFn, Meta } from '@storybook/react-webpack5';
+import type { StoryFn, Meta } from '@storybook/react-vite';
 import type { ComponentType } from 'react';
 import { useState } from 'react';
 import { action } from 'storybook/actions';
 
-import { PropsVariationSection } from '../../../.storybook/helpers';
-import Box from '../Box';
-import { ButtonGroup } from '../ButtonGroup';
-import Margins from '../Margins';
+import { PropsVariationSection } from '../../../.storybook/helpers.js';
+import Box from '../Box/index.js';
+import { ButtonGroup } from '../ButtonGroup/index.js';
+import Margins from '../Margins/index.js';
 
-import Button from './Button';
-import { IconButton } from './IconButton';
+import Button from './Button.js';
+import { IconButton } from './IconButton.js';
 
 export default {
   title: 'Inputs/Button',

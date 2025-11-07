@@ -1,7 +1,7 @@
 import type { ReactElement, ComponentProps } from 'react';
 import { memo } from 'react';
 
-import { Box } from '..';
+import { Box } from '../index.js';
 
 const ContextualbarTitle = (
   props: ComponentProps<typeof Box>,

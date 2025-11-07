@@ -4,10 +4,10 @@ import type { ReactElement } from 'react';
 import type { FieldPathValue, SubmitHandler, Validate } from 'react-hook-form';
 import { Trans, useTranslation } from 'react-i18next';
 
-import type { FormPageLayoutStyleProps } from '../../Types';
-import FormPageLayout from '../../common/FormPageLayout';
-import CreateNewPasswordForm from '../../forms/CreateNewPassword';
-import type { CreateNewPasswordPayload } from '../../forms/CreateNewPassword/CreateNewPassword';
+import type { FormPageLayoutStyleProps } from '../../Types/index.js';
+import FormPageLayout from '../../common/FormPageLayout.js';
+import type { CreateNewPasswordPayload } from '../../forms/CreateNewPassword/CreateNewPassword.js';
+import CreateNewPasswordForm from '../../forms/CreateNewPassword/index.js';
 
 type CreateNewPasswordPageProps = {
   initialValues?: CreateNewPasswordPayload;

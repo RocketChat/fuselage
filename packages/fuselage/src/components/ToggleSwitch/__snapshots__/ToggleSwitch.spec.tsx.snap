@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`[ToggleSwitch Rendering] renders Checked without crashing 1`] = `
+exports[`[ToggleSwitch Rendering] > renders Checked without crashing 1`] = `
 <body>
   <div>
     <label
@@ -21,7 +21,7 @@ exports[`[ToggleSwitch Rendering] renders Checked without crashing 1`] = `
 </body>
 `;
 
-exports[`[ToggleSwitch Rendering] renders Default without crashing 1`] = `
+exports[`[ToggleSwitch Rendering] > renders Default without crashing 1`] = `
 <body>
   <div>
     <label
@@ -41,7 +41,7 @@ exports[`[ToggleSwitch Rendering] renders Default without crashing 1`] = `
 </body>
 `;
 
-exports[`[ToggleSwitch Rendering] renders Disabled without crashing 1`] = `
+exports[`[ToggleSwitch Rendering] > renders Disabled without crashing 1`] = `
 <body>
   <div>
     <label
@@ -62,7 +62,7 @@ exports[`[ToggleSwitch Rendering] renders Disabled without crashing 1`] = `
 </body>
 `;
 
-exports[`[ToggleSwitch Rendering] renders States without crashing 1`] = `
+exports[`[ToggleSwitch Rendering] > renders States without crashing 1`] = `
 <body>
   <div>
     <table

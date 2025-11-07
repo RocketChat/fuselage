@@ -1,10 +1,10 @@
 import type { ComponentProps, Ref } from 'react';
 import { forwardRef } from 'react';
 
-import { Icon } from '../Icon';
+import { Icon } from '../Icon/index.js';
 
-import { Button } from '.';
-import type { ButtonProps } from './Button';
+import type { ButtonProps } from './Button.js';
+import { Button } from './index.js';
 
 type ButtonSize = {
   mini?: boolean;

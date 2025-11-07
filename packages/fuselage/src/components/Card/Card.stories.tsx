@@ -1,20 +1,20 @@
-import type { Meta, StoryFn } from '@storybook/react-webpack5';
+import type { Meta, StoryFn } from '@storybook/react-vite';
 import type { ComponentType } from 'react';
 
-import { Avatar } from '../Avatar';
-import { Badge } from '../Badge';
-import Box from '../Box/Box';
-import { Button, IconButton } from '../Button';
-import { FramedIcon } from '../FramedIcon';
-import { Tag } from '../Tag';
+import { Avatar } from '../Avatar/index.js';
+import { Badge } from '../Badge/index.js';
+import Box from '../Box/index.js';
+import { Button, IconButton } from '../Button/index.js';
+import { FramedIcon } from '../FramedIcon/index.js';
+import { Tag } from '../Tag/index.js';
 
-import Card from './Card';
-import CardBody from './CardBody';
-import CardCol from './CardCol';
-import CardControls from './CardControls';
-import CardHeader from './CardHeader';
-import CardRow from './CardRow';
-import CardTitle from './CardTitle';
+import Card from './Card.js';
+import CardBody from './CardBody.js';
+import CardCol from './CardCol.js';
+import CardControls from './CardControls.js';
+import CardHeader from './CardHeader.js';
+import CardRow from './CardRow.js';
+import CardTitle from './CardTitle.js';
 
 export default {
   title: 'Containers/Card',

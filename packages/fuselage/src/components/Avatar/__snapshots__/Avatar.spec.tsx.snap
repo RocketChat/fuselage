@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`[Avatar Component] renders Default without crashing 1`] = `
+exports[`[Avatar Component] > renders Default without crashing 1`] = `
 <body>
   <div>
     <div
@@ -124,7 +124,7 @@ exports[`[Avatar Component] renders Default without crashing 1`] = `
 </body>
 `;
 
-exports[`[Avatar Component] renders Rounded without crashing 1`] = `
+exports[`[Avatar Component] > renders Rounded without crashing 1`] = `
 <body>
   <div>
     <div
@@ -248,7 +248,7 @@ exports[`[Avatar Component] renders Rounded without crashing 1`] = `
 </body>
 `;
 
-exports[`[Avatar Component] renders Stack without crashing 1`] = `
+exports[`[Avatar Component] > renders Stack without crashing 1`] = `
 <body>
   <div>
     <div
@@ -570,7 +570,7 @@ exports[`[Avatar Component] renders Stack without crashing 1`] = `
 </body>
 `;
 
-exports[`[Avatar Component] renders StackRounded without crashing 1`] = `
+exports[`[Avatar Component] > renders StackRounded without crashing 1`] = `
 <body>
   <div>
     <div

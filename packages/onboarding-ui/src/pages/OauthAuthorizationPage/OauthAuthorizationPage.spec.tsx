@@ -1,6 +1,7 @@
 import { render } from '@testing-library/react';
+import { it } from 'vitest';
 
-import OauthAuthorizationPage from './OauthAuthorizationPage';
+import OauthAuthorizationPage from './OauthAuthorizationPage.js';
 
 it('renders without crashing', () => {
   render(

@@ -1,9 +1,9 @@
-import { composeStories } from '@storybook/react-webpack5';
+import { composeStories } from '@storybook/react-vite';
 import { axe } from 'jest-axe';
 
-import { render } from '../../testing';
+import { render } from '../../testing.js';
 
-import * as stories from './UrlInput.stories';
+import * as stories from './UrlInput.stories.js';
 
 const { Default } = composeStories(stories);
 

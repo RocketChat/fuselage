@@ -1,11 +1,11 @@
-import type { StoryFn, Meta } from '@storybook/react-webpack5';
+import type { StoryFn, Meta } from '@storybook/react-vite';
 import type { Key } from 'react';
 import { useState } from 'react';
 
-import PropsVariationSection from '../../../.storybook/PropsVariation';
+import PropsVariationSection from '../../../.storybook/PropsVariation.js';
 
-import { Select } from './Select';
-import type { SelectOption } from './SelectLegacy';
+import { Select } from './Select.js';
+import type { SelectOption } from './SelectLegacy.js';
 
 export default {
   title: 'Inputs/Select',

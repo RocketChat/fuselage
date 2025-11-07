@@ -1,13 +1,14 @@
-import { composeStories } from '@storybook/react-webpack5';
+import { composeStories } from '@storybook/react-vite';
 import { screen } from '@testing-library/dom';
-import userEvent from '@testing-library/user-event';
+import { userEvent } from '@testing-library/user-event';
 import { axe } from 'jest-axe';
 import { withResizeObserverMock } from 'testing-utils/mocks/withResizeObserverMock';
+import { describe, test, expect, it, vi } from 'vitest';
 
-import { render } from '../../testing';
+import { render } from '../../testing.js';
 
-import { AutoComplete } from './AutoComplete';
-import * as stories from './AutoComplete.stories';
+import { AutoComplete } from './AutoComplete.js';
+import * as stories from './AutoComplete.stories.js';
 
 const testCases = Object.values(composeStories(stories)).map((Story) => [
   Story.storyName || 'Story',
@@ -54,7 +55,7 @@ describe('[Autocomplete functionality]', () => {
   });
 
   it('should remove selected item when clicking on the remove button (multiple)', async () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     render(
       <AutoComplete
         value={['1', '2']}
@@ -77,7 +78,7 @@ describe('[Autocomplete functionality]', () => {
   });
 
   it('should remove selected item when clicking on the remove button (single)', async () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     render(
       <AutoComplete
         value='1'

@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`renders WithCheckbox without crashing 1`] = `
 <body>
@@ -40,15 +40,15 @@ exports[`renders WithCheckbox without crashing 1`] = `
           class="rcx-box rcx-box--full rcx-check-box"
         >
           <div
-            style="border: 0px; clip-path: inset(50%); height: 1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+            style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
           >
             Example Checkbox with extra info in a tooltip  *
           </div>
           <input
-            aria-describedby="react-aria-:r7:-description react-aria-:r7:-error react-aria-:r7:-hint"
+            aria-describedby="react-aria-:rf:-description react-aria-:rf:-error react-aria-:rf:-hint"
             aria-invalid="true"
             class="rcx-box rcx-box--full rcx-check-box__input"
-            id="react-aria-:r7:-label"
+            id="react-aria-:rf:-label"
             type="checkbox"
           />
           <i
@@ -59,13 +59,13 @@ exports[`renders WithCheckbox without crashing 1`] = `
       </span>
       <span
         class="rcx-box rcx-box--full rcx-field__description"
-        id="react-aria-:r7:-description"
+        id="react-aria-:rf:-description"
       >
         You can select multiple options
       </span>
       <span
         class="rcx-box rcx-box--full rcx-field__error"
-        id="react-aria-:r7:-error"
+        id="react-aria-:rf:-error"
       >
         You failed to enter a valid value
       </span>
@@ -74,7 +74,7 @@ exports[`renders WithCheckbox without crashing 1`] = `
       >
         <span
           class="rcx-box rcx-box--full rcx-field__hint"
-          id="react-aria-:r7:-hint"
+          id="react-aria-:rf:-hint"
         >
           This should help the user enter a valid value
         </span>
@@ -99,7 +99,7 @@ exports[`renders WithEmailInput without crashing 1`] = `
     >
       <label
         class="rcx-box rcx-box--full rcx-field__label rcx-label"
-        for="react-aria-:r1:-label"
+        for="react-aria-:r3:-label"
       >
         Example Email Input
         <span
@@ -127,7 +127,7 @@ exports[`renders WithEmailInput without crashing 1`] = `
       </label>
       <span
         class="rcx-box rcx-box--full rcx-field__description"
-        id="react-aria-:r1:-description"
+        id="react-aria-:r3:-description"
       >
         This field requires a valid email address
       </span>
@@ -135,17 +135,17 @@ exports[`renders WithEmailInput without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-field__row"
       >
         <input
-          aria-describedby="react-aria-:r1:-description react-aria-:r1:-error react-aria-:r1:-hint"
+          aria-describedby="react-aria-:r3:-description react-aria-:r3:-error react-aria-:r3:-hint"
           aria-invalid="true"
           class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--type-email rcx-input-box"
-          id="react-aria-:r1:-label"
+          id="react-aria-:r3:-label"
           size="1"
           type="email"
         />
       </span>
       <span
         class="rcx-box rcx-box--full rcx-field__error"
-        id="react-aria-:r1:-error"
+        id="react-aria-:r3:-error"
       >
         You failed to enter a valid value
       </span>
@@ -154,7 +154,7 @@ exports[`renders WithEmailInput without crashing 1`] = `
       >
         <span
           class="rcx-box rcx-box--full rcx-field__hint"
-          id="react-aria-:r1:-hint"
+          id="react-aria-:r3:-hint"
         >
           This should help the user enter a valid value
         </span>
@@ -179,7 +179,7 @@ exports[`renders WithNumberInput without crashing 1`] = `
     >
       <label
         class="rcx-box rcx-box--full rcx-field__label rcx-label"
-        for="react-aria-:r9:-label"
+        for="react-aria-:rj:-label"
       >
         Example Number Input
         <span
@@ -207,7 +207,7 @@ exports[`renders WithNumberInput without crashing 1`] = `
       </label>
       <span
         class="rcx-box rcx-box--full rcx-field__description"
-        id="react-aria-:r9:-description"
+        id="react-aria-:rj:-description"
       >
         This field requires a valid number
       </span>
@@ -215,17 +215,17 @@ exports[`renders WithNumberInput without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-field__row"
       >
         <input
-          aria-describedby="react-aria-:r9:-description react-aria-:r9:-error react-aria-:r9:-hint"
+          aria-describedby="react-aria-:rj:-description react-aria-:rj:-error react-aria-:rj:-hint"
           aria-invalid="true"
           class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--type-number rcx-input-box"
-          id="react-aria-:r9:-label"
+          id="react-aria-:rj:-label"
           size="1"
           type="number"
         />
       </span>
       <span
         class="rcx-box rcx-box--full rcx-field__error"
-        id="react-aria-:r9:-error"
+        id="react-aria-:rj:-error"
       >
         You failed to enter a valid value
       </span>
@@ -234,7 +234,7 @@ exports[`renders WithNumberInput without crashing 1`] = `
       >
         <span
           class="rcx-box rcx-box--full rcx-field__hint"
-          id="react-aria-:r9:-hint"
+          id="react-aria-:rj:-hint"
         >
           This should help the user enter a valid value
         </span>
@@ -259,7 +259,7 @@ exports[`renders WithPasswordInput without crashing 1`] = `
     >
       <label
         class="rcx-box rcx-box--full rcx-field__label rcx-label"
-        for="react-aria-:r2:-label"
+        for="react-aria-:r5:-label"
       >
         Example Password Input
         <span
@@ -287,7 +287,7 @@ exports[`renders WithPasswordInput without crashing 1`] = `
       </label>
       <span
         class="rcx-box rcx-box--full rcx-field__description"
-        id="react-aria-:r2:-description"
+        id="react-aria-:r5:-description"
       >
         This field requires a valid password
       </span>
@@ -298,10 +298,10 @@ exports[`renders WithPasswordInput without crashing 1`] = `
           class="rcx-box rcx-box--full rcx-label rcx-box rcx-box--full rcx-box--animated rcx-input-box__wrapper"
         >
           <input
-            aria-describedby="react-aria-:r2:-description react-aria-:r2:-error react-aria-:r2:-hint"
+            aria-describedby="react-aria-:r5:-description react-aria-:r5:-error react-aria-:r5:-hint"
             aria-invalid="true"
             class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--undecorated rcx-input-box--type-password rcx-input-box"
-            id="react-aria-:r2:-label"
+            id="react-aria-:r5:-label"
             size="1"
             type="password"
           />
@@ -319,7 +319,7 @@ exports[`renders WithPasswordInput without crashing 1`] = `
       </span>
       <span
         class="rcx-box rcx-box--full rcx-field__error"
-        id="react-aria-:r2:-error"
+        id="react-aria-:r5:-error"
       >
         You failed to enter a valid value
       </span>
@@ -328,7 +328,7 @@ exports[`renders WithPasswordInput without crashing 1`] = `
       >
         <span
           class="rcx-box rcx-box--full rcx-field__hint"
-          id="react-aria-:r2:-hint"
+          id="react-aria-:r5:-hint"
         >
           This should help the user enter a valid value
         </span>
@@ -385,15 +385,15 @@ exports[`renders WithRadioButton without crashing 1`] = `
           class="rcx-box rcx-box--full rcx-radio-button"
         >
           <div
-            style="border: 0px; clip-path: inset(50%); height: 1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+            style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
           >
             Example Radio Button with extra info in a tooltip  *
           </div>
           <input
-            aria-describedby="react-aria-:r5:-description react-aria-:r5:-error react-aria-:r5:-hint"
+            aria-describedby="react-aria-:rb:-description react-aria-:rb:-error react-aria-:rb:-hint"
             aria-invalid="true"
             class="rcx-box rcx-box--full rcx-radio-button__input"
-            id="react-aria-:r5:-label"
+            id="react-aria-:rb:-label"
             type="radio"
           />
           <i
@@ -404,13 +404,13 @@ exports[`renders WithRadioButton without crashing 1`] = `
       </span>
       <span
         class="rcx-box rcx-box--full rcx-field__description"
-        id="react-aria-:r5:-description"
+        id="react-aria-:rb:-description"
       >
         You can only select a single option
       </span>
       <span
         class="rcx-box rcx-box--full rcx-field__error"
-        id="react-aria-:r5:-error"
+        id="react-aria-:rb:-error"
       >
         You failed to enter a valid value
       </span>
@@ -419,7 +419,7 @@ exports[`renders WithRadioButton without crashing 1`] = `
       >
         <span
           class="rcx-box rcx-box--full rcx-field__hint"
-          id="react-aria-:r5:-hint"
+          id="react-aria-:rb:-hint"
         >
           This should help the user enter a valid value
         </span>
@@ -444,7 +444,7 @@ exports[`renders WithSearchInput without crashing 1`] = `
     >
       <label
         class="rcx-box rcx-box--full rcx-field__label rcx-label"
-        for="react-aria-:r3:-label"
+        for="react-aria-:r7:-label"
       >
         Example Search Input
         <span
@@ -472,7 +472,7 @@ exports[`renders WithSearchInput without crashing 1`] = `
       </label>
       <span
         class="rcx-box rcx-box--full rcx-field__description"
-        id="react-aria-:r3:-description"
+        id="react-aria-:r7:-description"
       >
         You can use this field to search for things
       </span>
@@ -480,17 +480,17 @@ exports[`renders WithSearchInput without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-field__row"
       >
         <input
-          aria-describedby="react-aria-:r3:-description react-aria-:r3:-error react-aria-:r3:-hint"
+          aria-describedby="react-aria-:r7:-description react-aria-:r7:-error react-aria-:r7:-hint"
           aria-invalid="true"
           class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--type-search rcx-input-box"
-          id="react-aria-:r3:-label"
+          id="react-aria-:r7:-label"
           size="1"
           type="search"
         />
       </span>
       <span
         class="rcx-box rcx-box--full rcx-field__error"
-        id="react-aria-:r3:-error"
+        id="react-aria-:r7:-error"
       >
         You failed to enter a valid value
       </span>
@@ -499,7 +499,7 @@ exports[`renders WithSearchInput without crashing 1`] = `
       >
         <span
           class="rcx-box rcx-box--full rcx-field__hint"
-          id="react-aria-:r3:-hint"
+          id="react-aria-:r7:-hint"
         >
           This should help the user enter a valid value
         </span>
@@ -524,7 +524,7 @@ exports[`renders WithTelephoneInput without crashing 1`] = `
     >
       <label
         class="rcx-box rcx-box--full rcx-field__label rcx-label"
-        for="react-aria-:r8:-label"
+        for="react-aria-:rh:-label"
       >
         Example Telephone Input
         <span
@@ -552,7 +552,7 @@ exports[`renders WithTelephoneInput without crashing 1`] = `
       </label>
       <span
         class="rcx-box rcx-box--full rcx-field__description"
-        id="react-aria-:r8:-description"
+        id="react-aria-:rh:-description"
       >
         This field requires a valid telephone number
       </span>
@@ -560,17 +560,17 @@ exports[`renders WithTelephoneInput without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-field__row"
       >
         <input
-          aria-describedby="react-aria-:r8:-description react-aria-:r8:-error react-aria-:r8:-hint"
+          aria-describedby="react-aria-:rh:-description react-aria-:rh:-error react-aria-:rh:-hint"
           aria-invalid="true"
           class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--type-tel rcx-input-box"
-          id="react-aria-:r8:-label"
+          id="react-aria-:rh:-label"
           size="1"
           type="tel"
         />
       </span>
       <span
         class="rcx-box rcx-box--full rcx-field__error"
-        id="react-aria-:r8:-error"
+        id="react-aria-:rh:-error"
       >
         You failed to enter a valid value
       </span>
@@ -579,7 +579,7 @@ exports[`renders WithTelephoneInput without crashing 1`] = `
       >
         <span
           class="rcx-box rcx-box--full rcx-field__hint"
-          id="react-aria-:r8:-hint"
+          id="react-aria-:rh:-hint"
         >
           This should help the user enter a valid value
         </span>
@@ -604,7 +604,7 @@ exports[`renders WithTextArea without crashing 1`] = `
     >
       <label
         class="rcx-box rcx-box--full rcx-field__label rcx-label"
-        for="react-aria-:r4:-label"
+        for="react-aria-:r9:-label"
       >
         Example Text Area
         <span
@@ -632,7 +632,7 @@ exports[`renders WithTextArea without crashing 1`] = `
       </label>
       <span
         class="rcx-box rcx-box--full rcx-field__description"
-        id="react-aria-:r4:-description"
+        id="react-aria-:r9:-description"
       >
         You can use this field to enter multi-line text
       </span>
@@ -640,17 +640,17 @@ exports[`renders WithTextArea without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-field__row"
       >
         <textarea
-          aria-describedby="react-aria-:r4:-description react-aria-:r4:-error react-aria-:r4:-hint"
+          aria-describedby="react-aria-:r9:-description react-aria-:r9:-error react-aria-:r9:-hint"
           aria-invalid="true"
           class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--type-textarea rcx-input-box"
           cols="1"
-          id="react-aria-:r4:-label"
+          id="react-aria-:r9:-label"
           size="1"
         />
       </span>
       <span
         class="rcx-box rcx-box--full rcx-field__error"
-        id="react-aria-:r4:-error"
+        id="react-aria-:r9:-error"
       >
         You failed to enter a valid value
       </span>
@@ -659,7 +659,7 @@ exports[`renders WithTextArea without crashing 1`] = `
       >
         <span
           class="rcx-box rcx-box--full rcx-field__hint"
-          id="react-aria-:r4:-hint"
+          id="react-aria-:r9:-hint"
         >
           This should help the user enter a valid value
         </span>
@@ -684,7 +684,7 @@ exports[`renders WithTextInput without crashing 1`] = `
     >
       <label
         class="rcx-box rcx-box--full rcx-field__label rcx-label"
-        for="react-aria-:r0:-label"
+        for="react-aria-:r1:-label"
       >
         Example Text Input
         <span
@@ -712,7 +712,7 @@ exports[`renders WithTextInput without crashing 1`] = `
       </label>
       <span
         class="rcx-box rcx-box--full rcx-field__description"
-        id="react-aria-:r0:-description"
+        id="react-aria-:r1:-description"
       >
         Text inputs are used to enter a single line of text.
       </span>
@@ -720,17 +720,17 @@ exports[`renders WithTextInput without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-field__row"
       >
         <input
-          aria-describedby="react-aria-:r0:-description react-aria-:r0:-error react-aria-:r0:-hint"
+          aria-describedby="react-aria-:r1:-description react-aria-:r1:-error react-aria-:r1:-hint"
           aria-invalid="true"
           class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--type-text rcx-input-box"
-          id="react-aria-:r0:-label"
+          id="react-aria-:r1:-label"
           size="1"
           type="text"
         />
       </span>
       <span
         class="rcx-box rcx-box--full rcx-field__error"
-        id="react-aria-:r0:-error"
+        id="react-aria-:r1:-error"
       >
         You failed to enter a valid value
       </span>
@@ -739,7 +739,7 @@ exports[`renders WithTextInput without crashing 1`] = `
       >
         <span
           class="rcx-box rcx-box--full rcx-field__hint"
-          id="react-aria-:r0:-hint"
+          id="react-aria-:r1:-hint"
         >
           This should help the user enter a valid value
         </span>
@@ -796,15 +796,15 @@ exports[`renders WithToggleSwitch without crashing 1`] = `
           class="rcx-box rcx-box--full rcx-toggle-switch"
         >
           <div
-            style="border: 0px; clip-path: inset(50%); height: 1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+            style="border: 0px; clip: rect(0px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
           >
             Example Toggle Switch with extra info in a tooltip  *
           </div>
           <input
-            aria-describedby="react-aria-:r6:-description react-aria-:r6:-error react-aria-:r6:-hint"
+            aria-describedby="react-aria-:rd:-description react-aria-:rd:-error react-aria-:rd:-hint"
             aria-invalid="true"
             class="rcx-box rcx-box--full rcx-toggle-switch__input"
-            id="react-aria-:r6:-label"
+            id="react-aria-:rd:-label"
             type="checkbox"
           />
           <i
@@ -815,13 +815,13 @@ exports[`renders WithToggleSwitch without crashing 1`] = `
       </span>
       <span
         class="rcx-box rcx-box--full rcx-field__description"
-        id="react-aria-:r6:-description"
+        id="react-aria-:rd:-description"
       >
         This field represents a boolean value
       </span>
       <span
         class="rcx-box rcx-box--full rcx-field__error"
-        id="react-aria-:r6:-error"
+        id="react-aria-:rd:-error"
       >
         You failed to enter a valid value
       </span>
@@ -830,7 +830,7 @@ exports[`renders WithToggleSwitch without crashing 1`] = `
       >
         <span
           class="rcx-box rcx-box--full rcx-field__hint"
-          id="react-aria-:r6:-hint"
+          id="react-aria-:rd:-hint"
         >
           This should help the user enter a valid value
         </span>
@@ -855,7 +855,7 @@ exports[`renders WithUrlInput without crashing 1`] = `
     >
       <label
         class="rcx-box rcx-box--full rcx-field__label rcx-label"
-        for="react-aria-:ra:-label"
+        for="react-aria-:rl:-label"
       >
         Example URL Input
         <span
@@ -883,7 +883,7 @@ exports[`renders WithUrlInput without crashing 1`] = `
       </label>
       <span
         class="rcx-box rcx-box--full rcx-field__description"
-        id="react-aria-:ra:-description"
+        id="react-aria-:rl:-description"
       >
         This field requires a valid URL
       </span>
@@ -891,17 +891,17 @@ exports[`renders WithUrlInput without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-field__row"
       >
         <input
-          aria-describedby="react-aria-:ra:-description react-aria-:ra:-error react-aria-:ra:-hint"
+          aria-describedby="react-aria-:rl:-description react-aria-:rl:-error react-aria-:rl:-hint"
           aria-invalid="true"
           class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--type-url rcx-input-box"
-          id="react-aria-:ra:-label"
+          id="react-aria-:rl:-label"
           size="1"
           type="url"
         />
       </span>
       <span
         class="rcx-box rcx-box--full rcx-field__error"
-        id="react-aria-:ra:-error"
+        id="react-aria-:rl:-error"
       >
         You failed to enter a valid value
       </span>
@@ -910,7 +910,7 @@ exports[`renders WithUrlInput without crashing 1`] = `
       >
         <span
           class="rcx-box rcx-box--full rcx-field__hint"
-          id="react-aria-:ra:-hint"
+          id="react-aria-:rl:-hint"
         >
           This should help the user enter a valid value
         </span>

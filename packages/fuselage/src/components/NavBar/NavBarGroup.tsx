@@ -1,7 +1,7 @@
 import type { ComponentProps } from 'react';
 import { forwardRef } from 'react';
 
-import { ButtonGroup } from '../ButtonGroup';
+import { ButtonGroup } from '../ButtonGroup/index.js';
 
 export const NavBarGroup = forwardRef<
   HTMLDivElement,

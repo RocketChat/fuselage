@@ -9,7 +9,7 @@ import {
   FieldRow,
   FieldError,
 } from '@rocket.chat/fuselage';
-import { Form } from '@rocket.chat/layout';
+import { Form, FormContainer, FormFooter } from '@rocket.chat/layout';
 import type { ReactElement } from 'react';
 import type { FieldPathValue, SubmitHandler, Validate } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
@@ -48,7 +48,7 @@ const ResetPasswordForm = ({
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
-      <Form.Container>
+      <FormContainer>
         <FieldGroup>
           <Field>
             <FieldLabel>
@@ -71,8 +71,8 @@ const ResetPasswordForm = ({
             {errors.email && <FieldError>{errors.email.message}</FieldError>}
           </Field>
         </FieldGroup>
-      </Form.Container>
-      <Form.Footer>
+      </FormContainer>
+      <FormFooter>
         <ButtonGroup>
           <Button
             type='submit'
@@ -83,7 +83,7 @@ const ResetPasswordForm = ({
             {t('form.resetPasswordForm.action.submit')}
           </Button>
         </ButtonGroup>
-      </Form.Footer>
+      </FormFooter>
     </Form>
   );
 };

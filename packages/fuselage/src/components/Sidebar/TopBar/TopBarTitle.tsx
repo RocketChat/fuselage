@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 
-import Box from '../../Box';
+import Box from '../../Box/index.js';
 
 type TopBarTitleProps = {
   children?: ReactNode;

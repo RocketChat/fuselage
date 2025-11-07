@@ -1,10 +1,10 @@
 import type { cssFn } from '@rocket.chat/css-in-js';
 import { css } from '@rocket.chat/css-in-js';
 
-import { appendClassName } from '../helpers/appendClassName';
-import type { Falsy } from '../types/Falsy';
+import { appendClassName } from '../helpers/appendClassName.js';
+import type { Falsy } from '../types/Falsy.js';
 
-import { useStyle } from './useStyle';
+import { useStyle } from './useStyle.js';
 
 export const useArrayLikeClassNameProp = <
   T extends {

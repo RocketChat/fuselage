@@ -1,1 +1,1 @@
-export { default } from './RedirectPage';
+export { default } from './RedirectPage.js';

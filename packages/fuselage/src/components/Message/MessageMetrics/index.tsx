@@ -1,12 +1,12 @@
-import { MessageMetrics } from './MessageMetrics';
-import { MessageMetricsFollowing } from './MessageMetricsFollowing';
+import { MessageMetrics } from './MessageMetrics.js';
+import { MessageMetricsFollowing } from './MessageMetricsFollowing.js';
 import MessageMetricsItem, {
   MessageMetricsItemIcon,
   MessageMetricsItemAvatarRowContent,
   MessageMetricsItemAvatarRow,
   MessageMetricsItemLabel,
-} from './MessageMetricsItem';
-import { MessageMetricsReply } from './MessageMetricsReply';
+} from './MessageMetricsItem/index.js';
+import { MessageMetricsReply } from './MessageMetricsReply.js';
 
 export default Object.assign(MessageMetrics, {
   /**

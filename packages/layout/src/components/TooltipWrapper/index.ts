@@ -1,1 +1,1 @@
-export { default } from './TooltipWrapper';
+export { default } from './TooltipWrapper.js';

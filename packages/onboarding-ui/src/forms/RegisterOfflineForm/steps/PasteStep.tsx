@@ -5,7 +5,7 @@ import type { ReactElement } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { Trans, useTranslation } from 'react-i18next';
 
-import { Steps } from '../RegisterOfflineForm';
+import { Steps } from '../RegisterOfflineForm.js';
 
 type PasteStepProps = {
   setStep: (step: string) => void;

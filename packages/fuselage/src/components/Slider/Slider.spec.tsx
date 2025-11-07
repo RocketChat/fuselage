@@ -1,10 +1,11 @@
-import { composeStories } from '@storybook/react-webpack5';
+import { composeStories } from '@storybook/react-vite';
 import { screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { userEvent } from '@testing-library/user-event';
+import { describe, it, expect } from 'vitest';
 
-import { render } from '../../testing';
+import { render } from '../../testing.js';
 
-import * as stories from './Slider.stories';
+import * as stories from './Slider.stories.js';
 
 const { Default, WithLabel, MultiThumb, WithDefaultValue } =
   composeStories(stories);

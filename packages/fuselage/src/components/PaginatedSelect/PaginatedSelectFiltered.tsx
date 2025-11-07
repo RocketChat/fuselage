@@ -2,10 +2,10 @@ import { useEffectEvent } from '@rocket.chat/fuselage-hooks';
 import type { FormEvent, Ref } from 'react';
 import { useMemo, forwardRef } from 'react';
 
-import { Input } from '../InputBox';
+import { Input } from '../InputBox/index.js';
 
-import type { PaginatedSelectProps } from './PaginatedSelect';
-import { PaginatedSelect } from './PaginatedSelect';
+import type { PaginatedSelectProps } from './PaginatedSelect.js';
+import { PaginatedSelect } from './PaginatedSelect.js';
 
 type PaginatedSelectFilteredProps = Omit<PaginatedSelectProps, 'setFilter'> & {
   setFilter: (value: string | undefined | number) => void;

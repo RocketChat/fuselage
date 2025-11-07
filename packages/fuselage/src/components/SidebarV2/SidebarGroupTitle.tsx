@@ -1,7 +1,7 @@
 import type { HTMLAttributes } from 'react';
 import React from 'react';
 
-import { Chevron } from '../Chevron';
+import { Chevron } from '../Chevron/index.js';
 
 type SidebarGroupTitleProps = {
   expanded?: boolean;

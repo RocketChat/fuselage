@@ -1,9 +1,10 @@
-import { composeStories } from '@storybook/react-webpack5';
+import { composeStories } from '@storybook/react-vite';
 import { axe } from 'jest-axe';
+import { describe, test, expect } from 'vitest';
 
-import { render } from '../../../testing';
+import { render } from '../../../testing.js';
 
-import * as stories from './TopBar.stories';
+import * as stories from './TopBar.stories.js';
 
 const testCases = Object.values(composeStories(stories)).map((Story) => [
   Story.storyName || 'Story',

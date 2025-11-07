@@ -1,6 +1,7 @@
 import { render } from '@testing-library/react';
+import { it } from 'vitest';
 
-import CreateNewAccountPage from './CreateNewAccountPage';
+import CreateNewAccountPage from './CreateNewAccountPage.js';
 
 it('renders without crashing', () => {
   render(

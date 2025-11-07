@@ -1,5 +1,5 @@
-import FlexContainer from './FlexContainer';
-import FlexItem from './FlexItem';
+import FlexContainer from './FlexContainer.js';
+import FlexItem from './FlexItem.js';
 
 export default {
   Container: FlexContainer,

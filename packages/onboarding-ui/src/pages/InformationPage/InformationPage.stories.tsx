@@ -1,6 +1,6 @@
-import type { StoryFn, Meta } from '@storybook/react-webpack5';
+import type { StoryFn, Meta } from '@storybook/react-vite';
 
-import InformationPage from './InformationPage';
+import InformationPage from './InformationPage.js';
 
 export default {
   title: 'pages/InformationPage',

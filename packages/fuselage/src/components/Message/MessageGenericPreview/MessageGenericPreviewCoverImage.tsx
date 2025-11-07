@@ -1,4 +1,4 @@
-import { prependClassName } from '../../../helpers/prependClassName';
+import { prependClassName } from '../../../helpers/prependClassName.js';
 
 type MessageGenericPreviewCoverImageProps = {
   url: string;

@@ -1,6 +1,6 @@
-import { render } from '../../testing';
+import { render } from '../../testing.js';
 
-import { Icon } from '.';
+import { Icon } from './index.js';
 
 describe('[Icon Component]', () => {
   it('renders without crashing', () => {

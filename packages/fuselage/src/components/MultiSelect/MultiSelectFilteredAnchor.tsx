@@ -8,8 +8,8 @@ import type {
 } from 'react';
 import { forwardRef } from 'react';
 
-import Flex from '../Flex';
-import { Input } from '../InputBox';
+import Flex from '../Flex/index.js';
+import { Input } from '../InputBox/index.js';
 
 type MultiSelectFilteredAnchorProps = {
   children: ReactNode;

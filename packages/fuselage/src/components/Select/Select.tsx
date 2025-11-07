@@ -3,7 +3,7 @@ import type { AllHTMLAttributes, ComponentProps, Key, Ref } from 'react';
 import { forwardRef } from 'react';
 import { Item } from 'react-stately';
 
-import { SelectAria } from './SelectAria';
+import { SelectAria } from './SelectAria.js';
 
 type SelectOption = readonly [value: string, label: string, selected?: boolean];
 

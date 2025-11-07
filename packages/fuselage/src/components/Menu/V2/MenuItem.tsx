@@ -4,9 +4,9 @@ import { useRef } from 'react';
 import { mergeProps, useMenuItem } from 'react-aria';
 import type { TreeState } from 'react-stately';
 
-import { MenuItemDescription } from '.';
-import type { MenuOptionProps } from './MenuOption';
-import MenuOption from './MenuOption';
+import type { MenuOptionProps } from './MenuOption.js';
+import MenuOption from './MenuOption.js';
+import { MenuItemDescription } from './index.js';
 
 type MenuItemProps = {
   item: Node<{

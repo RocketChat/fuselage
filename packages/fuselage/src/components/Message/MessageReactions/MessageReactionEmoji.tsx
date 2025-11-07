@@ -1,6 +1,6 @@
 import type { ComponentProps } from 'react';
 
-import { MessageEmojiBase } from '../MessageEmojiBase';
+import { MessageEmojiBase } from '../MessageEmojiBase.js';
 
 export const MessageReactionEmoji = ({
   className,

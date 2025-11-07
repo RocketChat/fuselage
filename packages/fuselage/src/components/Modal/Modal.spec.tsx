@@ -1,11 +1,11 @@
-import { composeStories } from '@storybook/react-webpack5';
+import { composeStories } from '@storybook/react-vite';
 import { screen } from '@testing-library/react';
 import { axe } from 'jest-axe';
 
-import { render } from '../../testing';
+import { render } from '../../testing.js';
 
-import * as stories from './Modal.stories';
-import { Default } from './Modal.stories';
+import * as stories from './Modal.stories.js';
+import { Default } from './Modal.stories.js';
 
 const testCases = Object.values(composeStories(stories)).map((Story) => [
   Story.storyName || 'Story',

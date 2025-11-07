@@ -1,6 +1,6 @@
 import type { ComponentProps } from 'react';
 
-import Message from '..';
+import Message from '../index.js';
 
 type ThreadMessageProps = ComponentProps<typeof Message>;
 

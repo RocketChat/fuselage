@@ -1,7 +1,7 @@
 import type { ComponentProps, ReactNode } from 'react';
 
-import { prependClassName } from '../../helpers/prependClassName';
-import Box from '../Box/Box';
+import { prependClassName } from '../../helpers/prependClassName.js';
+import Box from '../Box/Box.js';
 
 type TagProps = {
   medium?: boolean;

@@ -1,6 +1,6 @@
-import type { StoryFn, Meta } from '@storybook/react-webpack5';
+import type { StoryFn, Meta } from '@storybook/react-vite';
 
-import SomethingWentWrongPage from './SomethingWentWrongPage';
+import SomethingWentWrongPage from './SomethingWentWrongPage.js';
 
 export default {
   title: 'pages/SomethingWentWrongPage',

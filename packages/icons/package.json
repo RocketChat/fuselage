@@ -2,6 +2,7 @@
   "name": "@rocket.chat/icons",
   "version": "0.45.0",
   "description": "Rocket.Chat's Icons",
+  "type": "module",
   "homepage": "https://github.com/RocketChat/fuselage#readme",
   "bugs": {
     "url": "https://github.com/RocketChat/fuselage/issues"
@@ -16,7 +17,15 @@
     "name": "Rocket.Chat",
     "url": "https://rocket.chat/"
   },
-  "main": "dist/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs"
+    },
+    "./dist/rocketchat.css": {
+      "import": "./dist/rocketchat.css"
+    }
+  },
   "files": [
     "/dist"
   ],

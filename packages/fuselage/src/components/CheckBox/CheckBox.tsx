@@ -1,19 +1,18 @@
 import { useMergedRefs } from '@rocket.chat/fuselage-hooks';
-import type {
-  ComponentProps,
-  Ref,
-  FormEvent,
-  AllHTMLAttributes,
-  ReactNode,
-} from 'react';
+import type { ReactNode, Ref, FormEvent } from 'react';
 import { forwardRef, useLayoutEffect, useRef, useCallback } from 'react';
 
-import Box from '../Box';
+import { Box, type BoxProps } from '../Box/Box.js';
 
-type CheckBoxProps = ComponentProps<typeof Box> & {
+// type CheckBoxProps = ComponentProps<typeof Box> & {
+//   indeterminate?: boolean;
+//   labelChildren?: ReactNode;
+// } & AllHTMLAttributes<HTMLInputElement>;
+
+export interface CheckBoxProps extends Omit<BoxProps, 'is'> {
   indeterminate?: boolean;
   labelChildren?: ReactNode;
-} & AllHTMLAttributes<HTMLInputElement>;
+}
 
 export const CheckBox = forwardRef(function CheckBox(
   {
@@ -59,3 +58,18 @@ export const CheckBox = forwardRef(function CheckBox(
     </Box>
   );
 });
+
+// type NumberInputProps = Omit<InputBoxProps, 'type'> & {
+//   addon?: ReactNode;
+//   error?: string;
+// };
+
+// /**
+//  * An input for numbers.
+//  */
+// export const NumberInput = forwardRef(function NumberInput(
+//   props: NumberInputProps,
+//   ref: Ref<HTMLInputElement>,
+// ) {
+//   return <InputBox type='number' ref={ref} {...props} />;
+// });

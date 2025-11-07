@@ -1,13 +1,13 @@
 import type { Keys } from '@rocket.chat/icons';
 import nameToCharacterMapping from '@rocket.chat/icons';
-import type { StoryFn, Meta } from '@storybook/react-webpack5';
+import type { StoryFn, Meta } from '@storybook/react-vite';
 import { useState } from 'react';
 
-import Box from '../Box';
-import { Divider } from '../Divider';
-import { InputBox } from '../InputBox';
+import Box from '../Box/index.js';
+import { Divider } from '../Divider/index.js';
+import { InputBox } from '../InputBox/index.js';
 
-import { Icon } from './Icon';
+import { Icon } from './Icon.js';
 
 export default {
   title: 'Data Display/Icon',

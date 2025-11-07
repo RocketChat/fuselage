@@ -1,10 +1,12 @@
-import { prevent } from '../../helpers/prevent';
-import { render } from '../../testing';
+import { describe, it, vi, expect } from 'vitest';
 
-import Option from './Option';
-import OptionContent from './OptionContent';
+import { prevent } from '../../helpers/prevent.js';
+import { render } from '../../testing.js';
 
-jest.mock('../../helpers/prevent');
+import Option from './Option.js';
+import OptionContent from './OptionContent.js';
+
+vi.mock('../../helpers/prevent.js');
 
 describe('Option', () => {
   it('renders without crashing', () => {
@@ -16,7 +18,7 @@ describe('Option', () => {
   });
 
   it('should call onClick when click', () => {
-    const click = jest.fn();
+    const click = vi.fn();
 
     const { getByText } = render(
       <Option onClick={click}>
@@ -30,7 +32,7 @@ describe('Option', () => {
   });
 
   it('should call prevent when click on disabled', () => {
-    const click = jest.fn();
+    const click = vi.fn();
 
     const { getByText } = render(
       <Option disabled onClick={click}>

@@ -1,6 +1,6 @@
-import type { Meta } from '@storybook/react-webpack5';
+import type { Meta } from '@storybook/react-vite';
 
-import { AudioPlayer } from './AudioPlayer';
+import { AudioPlayer } from './AudioPlayer.js';
 
 export default {
   title: 'Media/AudioPlayer',

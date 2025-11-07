@@ -1,10 +1,10 @@
 import type { ComponentPropsWithoutRef } from 'react';
 import { forwardRef } from 'react';
 
-import WithErrorWrapper from '../../helpers/WithErrorWrapper';
-import { Label } from '../Label';
+import WithErrorWrapper from '../../helpers/WithErrorWrapper.js';
+import { Label } from '../Label/index.js';
 
-import { FieldContext } from './Field';
+import { FieldContext } from './Field.js';
 
 export type FieldLabelProps = ComponentPropsWithoutRef<typeof Label>;
 

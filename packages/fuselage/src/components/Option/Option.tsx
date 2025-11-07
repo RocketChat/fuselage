@@ -1,14 +1,14 @@
 import type { Ref, ReactNode, MouseEvent, AllHTMLAttributes } from 'react';
 import { forwardRef, memo } from 'react';
 
-import { prevent } from '../../helpers/prevent';
-import type { BoxProps } from '../Box';
-import type { IconProps } from '../Icon';
+import { prevent } from '../../helpers/prevent.js';
+import type { BoxProps } from '../Box/index.js';
+import type { IconProps } from '../Icon/index.js';
 
-import OptionAvatar from './OptionAvatar';
-import OptionColumn from './OptionColumn';
-import OptionContent from './OptionContent';
-import OptionIcon from './OptionIcon';
+import OptionAvatar from './OptionAvatar.js';
+import OptionColumn from './OptionColumn.js';
+import OptionContent from './OptionContent.js';
+import OptionIcon from './OptionIcon.js';
 
 export type OptionProps = {
   is?: BoxProps['is'];

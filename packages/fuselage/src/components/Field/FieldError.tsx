@@ -1,9 +1,9 @@
 import type { ComponentPropsWithoutRef } from 'react';
 
-import WithErrorWrapper from '../../helpers/WithErrorWrapper';
-import Box from '../Box';
+import WithErrorWrapper from '../../helpers/WithErrorWrapper.js';
+import Box from '../Box/index.js';
 
-import { FieldContext } from './Field';
+import { FieldContext } from './Field.js';
 
 export type FieldErrorProps = ComponentPropsWithoutRef<typeof Box>;
 

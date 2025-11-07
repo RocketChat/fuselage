@@ -1,19 +1,19 @@
 import { useEffectEvent, useResizeObserver } from '@rocket.chat/fuselage-hooks';
 import { type ComponentProps, useState, useRef, type ElementType } from 'react';
 
-import { prevent } from '../../helpers/prevent';
-import AnimatedVisibility from '../AnimatedVisibility';
-import Box from '../Box';
-import Chip from '../Chip';
-import Flex from '../Flex';
-import { Icon } from '../Icon';
-import Margins from '../Margins';
-import { Option } from '../Option';
-import { useVisible } from '../Options/useVisible';
-import { OptionsPaginated } from '../OptionsPaginated';
-import Position from '../Position';
-import SelectAddon from '../Select/SelectAddon';
-import SelectFocus from '../Select/SelectFocus';
+import { prevent } from '../../helpers/prevent.js';
+import AnimatedVisibility from '../AnimatedVisibility/index.js';
+import Box from '../Box/index.js';
+import Chip from '../Chip/index.js';
+import Flex from '../Flex/index.js';
+import { Icon } from '../Icon/index.js';
+import Margins from '../Margins/index.js';
+import { Option } from '../Option/index.js';
+import { useVisible } from '../Options/useVisible.js';
+import { OptionsPaginated } from '../OptionsPaginated/index.js';
+import Position from '../Position/index.js';
+import SelectAddon from '../Select/SelectAddon.js';
+import SelectFocus from '../Select/SelectFocus.js';
 
 export type PaginatedMultiSelectOption = {
   value: string | number;

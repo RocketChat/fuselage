@@ -1,6 +1,6 @@
-import { render } from '../../../testing';
+import { render } from '../../../testing.js';
 
-import { MessageStatusIndicator, MessageStatusIndicatorItem } from '.';
+import { MessageStatusIndicator, MessageStatusIndicatorItem } from './index.js';
 
 it('renders without crashing', () => {
   render(

@@ -1,1 +1,1 @@
-export { default } from './RequestTrialForm';
+export { default } from './RequestTrialForm.js';

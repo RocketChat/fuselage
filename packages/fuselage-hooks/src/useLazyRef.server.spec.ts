@@ -1,4 +1,6 @@
-import { renderHook } from './testing';
+import { it, expect } from 'vitest';
+
+import { renderHook } from './testing.ts';
 import { useLazyRef } from './useLazyRef';
 
 it('returns the computed value immediately', () => {

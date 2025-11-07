@@ -1,6 +1,6 @@
 import { basename, dirname } from 'node:path';
 
-import commonjs from '@rollup/plugin-commonjs';
+// import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
 import nodeResolve from '@rollup/plugin-node-resolve';
 import terser from '@rollup/plugin-terser';
@@ -18,24 +18,10 @@ export default defineConfig({
   input: 'src/index.ts',
   output: [
     {
-      dir: dirname(pkg.main),
-      entryFileNames: basename(pkg.main),
-      format: 'cjs',
-      sourcemap: true,
-    },
-    {
-      dir: dirname(pkg.module),
-      entryFileNames: basename(pkg.module),
+      dir: dirname(pkg.exports['.'].import),
+      entryFileNames: basename(pkg.exports['.'].import),
       format: 'es',
       sourcemap: true,
-    },
-    {
-      dir: dirname(pkg.unpkg),
-      entryFileNames: basename(pkg.unpkg),
-      format: 'umd',
-      name: 'FuselageHooks',
-      sourcemap: true,
-      globals,
     },
   ],
   plugins: [
@@ -49,7 +35,7 @@ export default defineConfig({
     }),
     json(),
     nodeResolve(),
-    commonjs(),
+    // commonjs(),
     typescript({
       tsconfig: 'tsconfig.build.json',
     }),

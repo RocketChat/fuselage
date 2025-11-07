@@ -1,8 +1,8 @@
-import type { StoryFn, Meta } from '@storybook/react-webpack5';
+import type { StoryFn, Meta } from '@storybook/react-vite';
 
-import Tile from '../Tile';
+import Tile from '../Tile/index.js';
 
-import AnimatedVisibility from '.';
+import AnimatedVisibility from './index.js';
 
 export default {
   title: 'Layout/AnimatedVisibility',

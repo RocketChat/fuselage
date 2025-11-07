@@ -1,7 +1,10 @@
 import type { ReactNode } from 'react';
 import { useCallback } from 'react';
 
-import { BoxTransforms, useComposedBoxTransform } from '../Box/BoxTransforms';
+import {
+  BoxTransforms,
+  useComposedBoxTransform,
+} from '../Box/BoxTransforms.js';
 
 type FlexItemProps = {
   children?: ReactNode;

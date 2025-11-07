@@ -1,6 +1,7 @@
 import { render } from '@testing-library/react';
+import { it } from 'vitest';
 
-import AwaitConfirmationForm from './AwaitConfirmationForm';
+import AwaitConfirmationForm from './AwaitConfirmationForm.js';
 
 it('renders without crashing', () => {
   render(

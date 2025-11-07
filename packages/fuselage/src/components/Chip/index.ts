@@ -1,5 +1,5 @@
-import { withBoxStyling } from '../Box/withBoxStyling';
+import { withBoxStyling } from '../Box/withBoxStyling.js';
 
-import { Chip } from './Chip';
+import { Chip } from './Chip.js';
 
 export default withBoxStyling(Chip);

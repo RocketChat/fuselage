@@ -8,13 +8,13 @@ import type {
 } from 'react';
 import { createElement, forwardRef, memo } from 'react';
 
-import { useArrayLikeClassNameProp } from '../../hooks/useArrayLikeClassNameProp';
-import { useBoxOnlyProps } from '../../hooks/useBoxOnlyProps';
-import type { Falsy } from '../../types/Falsy';
+import { useArrayLikeClassNameProp } from '../../hooks/useArrayLikeClassNameProp.js';
+import { useBoxOnlyProps } from '../../hooks/useBoxOnlyProps.js';
+import type { Falsy } from '../../types/Falsy.js';
 
-import { useBoxTransform, BoxTransforms } from './BoxTransforms';
-import type { StylingProps } from './stylingProps';
-import { useStylingProps } from './useStylingProps';
+import { useBoxTransform, BoxTransforms } from './BoxTransforms.js';
+import type { StylingProps } from './stylingProps.js';
+import { useStylingProps } from './useStylingProps.js';
 
 export interface BoxProps
   extends Partial<StylingProps>,

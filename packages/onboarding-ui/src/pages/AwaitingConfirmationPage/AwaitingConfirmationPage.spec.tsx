@@ -1,6 +1,7 @@
 import { render } from '@testing-library/react';
+import { it } from 'vitest';
 
-import AwaitingConfirmationPage from './AwaitingConfirmationPage';
+import AwaitingConfirmationPage from './AwaitingConfirmationPage.js';
 
 it('renders without crashing', () => {
   render(

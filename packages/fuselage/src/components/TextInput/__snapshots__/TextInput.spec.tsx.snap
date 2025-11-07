@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`[TextInput Component] renders without crashing 1`] = `
+exports[`[TextInput Component] > renders without crashing 1`] = `
 <body>
   <div>
     <input

@@ -1,6 +1,6 @@
 import type { ComponentProps } from 'react';
 
-import { Badge } from '../../Badge';
+import { Badge } from '../../Badge/index.js';
 
 export const SidebarItemBadge = ({
   className,

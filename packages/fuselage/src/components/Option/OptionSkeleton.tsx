@@ -1,6 +1,6 @@
-import { Skeleton } from '../Skeleton';
+import { Skeleton } from '../Skeleton/index.js';
 
-import Option from './Option';
+import Option from './Option.js';
 
 const OptionSkeleton = () => (
   <Option>

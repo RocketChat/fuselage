@@ -2,8 +2,8 @@ import { css } from '@rocket.chat/css-in-js';
 import type { LabelHTMLAttributes, OutputHTMLAttributes } from 'react';
 import type { SliderState } from 'react-stately';
 
-import { useStyle } from '../../hooks/useStyle';
-import { Label } from '../Label';
+import { useStyle } from '../../hooks/useStyle.js';
+import { Label } from '../Label/index.js';
 
 type SliderHeadProps = {
   state: SliderState;

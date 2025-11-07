@@ -1,4 +1,6 @@
-import { renderHook } from './testing';
+import { it, expect } from 'vitest';
+
+import { renderHook } from './testing.ts';
 import { useUniqueId } from './useUniqueId';
 
 it('returns a string', () => {

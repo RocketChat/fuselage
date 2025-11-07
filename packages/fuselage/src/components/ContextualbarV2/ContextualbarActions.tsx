@@ -1,7 +1,7 @@
 import type { ReactElement, ComponentProps } from 'react';
 import { memo } from 'react';
 
-import { ButtonGroup } from '..';
+import { ButtonGroup } from '../index.js';
 
 const ContextualbarActions = (
   props: ComponentProps<typeof ButtonGroup>,

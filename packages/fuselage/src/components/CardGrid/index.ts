@@ -1,1 +1,1 @@
-export * from './CardGrid';
+export * from './CardGrid.js';

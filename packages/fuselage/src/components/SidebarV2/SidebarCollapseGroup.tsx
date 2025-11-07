@@ -1,8 +1,8 @@
 import type { HTMLAttributes, ReactNode } from 'react';
 import { forwardRef } from 'react';
 
-import { SidebarGroupTitle } from './SidebarGroupTitle';
-import { useCollapse } from './hooks/useCollapse';
+import { SidebarGroupTitle } from './SidebarGroupTitle.js';
+import { useCollapse } from './hooks/useCollapse.js';
 
 type SidebarCollapseGroupProps = {
   expanded?: boolean;

@@ -1,6 +1,7 @@
 import { useState } from 'react';
+import { it, expect } from 'vitest';
 
-import { renderHook, act } from './testing';
+import { renderHook, act } from './testing.ts';
 import { useStableArray } from './useStableArray';
 
 it('uses same-value equality by default', () => {

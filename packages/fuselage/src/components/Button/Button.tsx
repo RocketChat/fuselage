@@ -1,8 +1,8 @@
 import type { AllHTMLAttributes, ComponentProps, Ref } from 'react';
 import { forwardRef, useMemo } from 'react';
 
-import Box from '../Box';
-import { Icon } from '../Icon';
+import Box from '../Box/index.js';
+import { Icon } from '../Icon/index.js';
 
 export type ButtonProps = ComponentProps<typeof Box> & {
   primary?: boolean;

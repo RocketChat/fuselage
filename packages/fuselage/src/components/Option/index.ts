@@ -1,35 +1,44 @@
-export { default as CheckOption, type CheckOptionProps } from './CheckOption';
-export { default as Option, type OptionProps } from './Option';
+export {
+  default as CheckOption,
+  type CheckOptionProps,
+} from './CheckOption.js';
+export { default as Option, type OptionProps } from './Option.js';
 export {
   default as OptionAvatar,
   type OptionAvatarProps,
-} from './OptionAvatar';
+} from './OptionAvatar.js';
 export {
   default as OptionColumn,
   type OptionColumnProps,
-} from './OptionColumn';
+} from './OptionColumn.js';
 export {
   default as OptionContent,
   type OptionContentProps,
-} from './OptionContent';
+} from './OptionContent.js';
 export {
   default as OptionDescription,
   type OptionDescriptionProps,
-} from './OptionDescription';
+} from './OptionDescription.js';
 export {
   default as OptionDescriptionBlock,
   type OptionDescriptionBlockProps,
-} from './OptionDescriptionBlock';
+} from './OptionDescriptionBlock.js';
 export {
   default as OptionDivider,
   type OptionDividerProps,
-} from './OptionDivider';
-export { default as OptionIcon, type OptionIconProps } from './OptionIcon';
-export { default as OptionInput, type OptionInputProps } from './OptionInput';
-export { default as OptionMenu, type OptionMenuProps } from './OptionMenu';
-export { default as OptionSkeleton } from './OptionSkeleton';
-export { default as OptionTitle, type OptionTitleProps } from './OptionTitle';
+} from './OptionDivider.js';
+export { default as OptionIcon, type OptionIconProps } from './OptionIcon.js';
+export {
+  default as OptionInput,
+  type OptionInputProps,
+} from './OptionInput.js';
+export { default as OptionMenu, type OptionMenuProps } from './OptionMenu.js';
+export { default as OptionSkeleton } from './OptionSkeleton.js';
+export {
+  default as OptionTitle,
+  type OptionTitleProps,
+} from './OptionTitle.js';
 export {
   default as OptionHeader,
   type OptionHeaderProps,
-} from './OptionHeader';
+} from './OptionHeader.js';

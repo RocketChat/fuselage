@@ -1,11 +1,16 @@
 import './index';
+import { describe, it, expect, beforeEach, vi } from 'vitest';
 
-declare const self: any;
+declare const self: DedicatedWorkerGlobalScope &
+  typeof globalThis & {
+    onmessage: (this: DedicatedWorkerGlobalScope, ev: MessageEvent) => any;
+    postMessage: (message: any) => void;
+  };
 
 describe('web worker messages', () => {
   beforeEach(() => {
-    self.onmessage = jest.fn(self.onmessage);
-    self.postMessage = jest.fn();
+    self.onmessage = vi.fn(self.onmessage);
+    self.postMessage = vi.fn();
   });
 
   it('handles init message', () => {

@@ -3,8 +3,8 @@ import type { AriaMenuProps } from 'react-aria';
 import { useMenu } from 'react-aria';
 import { useTreeState } from 'react-stately';
 
-import MenuItem from './MenuItem';
-import MenuSection from './MenuSection';
+import MenuItem from './MenuItem.js';
+import MenuSection from './MenuSection.js';
 
 function MenuDropDown<T extends object>(props: AriaMenuProps<T>) {
   const state = useTreeState(props);

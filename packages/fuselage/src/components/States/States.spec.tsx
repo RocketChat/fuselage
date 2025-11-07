@@ -1,6 +1,6 @@
-import { render } from '../../testing';
+import { render } from '../../testing.js';
 
-import States from './States';
+import States from './States.js';
 
 describe('[States Component]', () => {
   it('renders without crashing', () => {

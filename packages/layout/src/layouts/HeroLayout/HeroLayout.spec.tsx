@@ -1,13 +1,13 @@
-import { composeStories } from '@storybook/react-webpack5';
+import { composeStories } from '@storybook/react-vite';
 import { render } from '@testing-library/react';
 import { axe } from 'jest-axe';
+import { test, expect } from 'vitest';
 
-import * as stories from './HeroLayout.stories';
+import * as stories from './HeroLayout.stories.js';
 
-const testCases = Object.values(composeStories(stories)).map((Story) => [
-  Story.storyName || 'Story',
-  Story,
-]);
+const testCases = Object.values(composeStories(stories)).map(
+  (Story) => [Story.storyName || 'Story', Story] as const,
+);
 
 test.each(testCases)(
   `renders %s without crashing`,
@@ -17,9 +17,9 @@ test.each(testCases)(
   },
 );
 
-test.each(testCases)(
+test.for(testCases)(
   '%s should have no a11y violations',
-  async (_storyname, Story) => {
+  async ([_storyname, Story]) => {
     const { container } = render(<Story />);
 
     const results = await axe(container);

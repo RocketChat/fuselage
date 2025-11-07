@@ -1,12 +1,12 @@
 import type { ComponentProps } from 'react';
 
-import Box from '../Box';
+import Box from '../Box/index.js';
 
-import SidebarItem from './Item';
-import SidebarSection from './Section';
-import { SidebarBanner } from './SidebarBanner';
-import { SidebarDivider } from './SidebarDivider';
-import SidebarTopBar from './TopBar';
+import SidebarItem from './Item.js';
+import SidebarSection from './Section.js';
+import { SidebarBanner } from './SidebarBanner.js';
+import { SidebarDivider } from './SidebarDivider.js';
+import SidebarTopBar from './TopBar/index.js';
 
 type SidebarProps = ComponentProps<typeof Box>;
 
@@ -20,13 +20,13 @@ export default Object.assign(Sidebar, {
   Banner: SidebarBanner,
 });
 
-export { default as SidebarItem } from './Item';
-export * from './Item';
-export { default as SidebarSection } from './Section';
-export * from './Section';
-export { default as SidebarTopBar } from './TopBar';
-export * from './TopBar';
-export * from './SidebarBanner';
-export * from './SidebarFooter';
+export { default as SidebarItem } from './Item.js';
+export * from './Item.js';
+export { default as SidebarSection } from './Section.js';
+export * from './Section.js';
+export { default as SidebarTopBar } from './TopBar/index.js';
+export * from './TopBar/index.js';
+export * from './SidebarBanner.js';
+export * from './SidebarFooter.js';
 
 export { SidebarDivider };

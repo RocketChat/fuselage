@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`[Label Component] renders Default without crashing 1`] = `
+exports[`[Label Component] > renders Default without crashing 1`] = `
 <body>
   <div>
     <label
@@ -12,7 +12,7 @@ exports[`[Label Component] renders Default without crashing 1`] = `
 </body>
 `;
 
-exports[`[Label Component] renders Disabled without crashing 1`] = `
+exports[`[Label Component] > renders Disabled without crashing 1`] = `
 <body>
   <div>
     <label
@@ -24,7 +24,7 @@ exports[`[Label Component] renders Disabled without crashing 1`] = `
 </body>
 `;
 
-exports[`[Label Component] renders Info without crashing 1`] = `
+exports[`[Label Component] > renders Info without crashing 1`] = `
 <body>
   <div>
     <label
@@ -52,7 +52,7 @@ exports[`[Label Component] renders Info without crashing 1`] = `
 </body>
 `;
 
-exports[`[Label Component] renders InfoRequired without crashing 1`] = `
+exports[`[Label Component] > renders InfoRequired without crashing 1`] = `
 <body>
   <div>
     <label
@@ -86,7 +86,7 @@ exports[`[Label Component] renders InfoRequired without crashing 1`] = `
 </body>
 `;
 
-exports[`[Label Component] renders Required without crashing 1`] = `
+exports[`[Label Component] > renders Required without crashing 1`] = `
 <body>
   <div>
     <label

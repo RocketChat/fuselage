@@ -1,14 +1,16 @@
-import { renderHook } from './testing';
+import { it, expect, vi, beforeAll } from 'vitest';
+
+import { renderHook } from './testing.ts';
 import { useDebouncedCallback } from './useDebouncedCallback';
 
 beforeAll(() => {
-  jest.useFakeTimers();
+  vi.useFakeTimers();
 });
 
 it('returns a debounced callback', () => {
   const halfDelay = 50;
   const delay = 2 * halfDelay;
-  const fn = jest.fn();
+  const fn = vi.fn();
 
   const { result } = renderHook(() => useDebouncedCallback(fn, delay));
 
@@ -19,11 +21,11 @@ it('returns a debounced callback', () => {
 
   debouncedCallback();
 
-  jest.advanceTimersByTime(halfDelay);
+  vi.advanceTimersByTime(halfDelay);
 
   expect(fn).toHaveBeenCalledTimes(0);
 
-  jest.advanceTimersByTime(halfDelay);
+  vi.advanceTimersByTime(halfDelay);
 
   expect(fn).toHaveBeenCalledTimes(1);
 });

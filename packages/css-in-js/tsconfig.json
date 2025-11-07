@@ -2,14 +2,15 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "rootDir": "./src",
-    "module": "ESNext",
+    "target": "esnext",
+    "module": "nodenext",
     "lib": ["dom", "es6"],
     "declarationDir": "./dist",
     "outDir": "./dist",
-    "moduleResolution": "node",
+    "moduleResolution": "nodenext",
     "noEmit": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "verbatimModuleSyntax": true
   },
   "include": ["src"],
   "exclude": ["dist", "node_modules"]

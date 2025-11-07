@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`[MessageMetrics Rendering] renders Default without crashing 1`] = `
+exports[`[MessageMetrics Rendering] > renders Default without crashing 1`] = `
 <body>
   <div>
     <div
@@ -172,7 +172,7 @@ exports[`[MessageMetrics Rendering] renders Default without crashing 1`] = `
 </body>
 `;
 
-exports[`[MessageMetrics Rendering] renders ThreadMetrics without crashing 1`] = `
+exports[`[MessageMetrics Rendering] > renders ThreadMetrics without crashing 1`] = `
 <body>
   <div>
     <div

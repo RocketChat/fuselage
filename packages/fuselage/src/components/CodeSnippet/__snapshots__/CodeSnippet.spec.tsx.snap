@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`[CodeSnippet Rendering] renders CopyButton without crashing 1`] = `
+exports[`[CodeSnippet Rendering] > renders CopyButton without crashing 1`] = `
 <body>
   <div>
     <pre
@@ -31,7 +31,7 @@ exports[`[CodeSnippet Rendering] renders CopyButton without crashing 1`] = `
 </body>
 `;
 
-exports[`[CodeSnippet Rendering] renders CustomButtonName without crashing 1`] = `
+exports[`[CodeSnippet Rendering] > renders CustomButtonName without crashing 1`] = `
 <body>
   <div>
     <pre
@@ -62,7 +62,7 @@ exports[`[CodeSnippet Rendering] renders CustomButtonName without crashing 1`] =
 </body>
 `;
 
-exports[`[CodeSnippet Rendering] renders Default without crashing 1`] = `
+exports[`[CodeSnippet Rendering] > renders Default without crashing 1`] = `
 <body>
   <div>
     <pre
@@ -79,7 +79,7 @@ exports[`[CodeSnippet Rendering] renders Default without crashing 1`] = `
 </body>
 `;
 
-exports[`[CodeSnippet Rendering] renders DisabledButton without crashing 1`] = `
+exports[`[CodeSnippet Rendering] > renders DisabledButton without crashing 1`] = `
 <body>
   <div>
     <pre
@@ -111,7 +111,7 @@ exports[`[CodeSnippet Rendering] renders DisabledButton without crashing 1`] = `
 </body>
 `;
 
-exports[`[CodeSnippet Rendering] renders LoadingCode without crashing 1`] = `
+exports[`[CodeSnippet Rendering] > renders LoadingCode without crashing 1`] = `
 <body>
   <div>
     <pre

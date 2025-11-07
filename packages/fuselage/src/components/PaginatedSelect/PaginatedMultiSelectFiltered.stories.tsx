@@ -1,7 +1,7 @@
-import type { StoryFn, Meta } from '@storybook/react-webpack5';
+import type { StoryFn, Meta } from '@storybook/react-vite';
 import { useArgs } from 'storybook/preview-api';
 
-import { PaginatedMultiSelectFiltered } from './PaginatedMultiSelectFiltered';
+import { PaginatedMultiSelectFiltered } from './PaginatedMultiSelectFiltered.js';
 
 export default {
   title: 'Inputs/PaginatedMultiSelectFiltered',

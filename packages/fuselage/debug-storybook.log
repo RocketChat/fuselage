@@ -1,0 +1,638 @@
+[09:57:12.738] [INFO] Storybook Upgrade - v10.0.2
+[09:57:12.750] [INFO] detect-projects-spinner-start: Detecting projects...
+[09:57:12.750] [DEBUG] Finding Storybook projects...
+[09:57:12.774] [DEBUG] Found 1 Storybook projects
+[09:57:12.775] [INFO] detect-projects-spinner: Detecting projects: 1 projects
+[09:57:12.775] [DEBUG] Getting Storybook data...
+[09:57:12.775] [DEBUG] Getting Storybook info...
+[09:57:12.778] [DEBUG] Loading main config...
+[09:57:13.006] [INFO] Loading main config failed as the file does not seem to be valid ESM. Trying a temporary fix, please ensure the main config is valid ESM.
+[09:57:13.021] [DEBUG] Getting stories paths...
+[09:57:13.037] [DEBUG] Getting package manager...
+[09:57:13.278] [DEBUG] Getting Storybook version...
+[09:57:13.279] [DEBUG] /packages/fuselage/.storybook - Validating before version... 9.1.10
+[09:57:13.279] [DEBUG] /packages/fuselage/.storybook - Validating upgrade compatibility...
+[09:57:13.279] [DEBUG] /packages/fuselage/.storybook - Fetching NPM version information...
+[09:57:13.279] [DEBUG] Getting CLI versions from NPM for storybook...
+[09:57:13.280] [DEBUG] Getting CLI versions from NPM for storybook@next...
+[09:57:14.500] [DEBUG] /packages/fuselage/.storybook - Evaluating blockers...
+[09:57:14.506] [DEBUG] Getting installed version for @storybook/experimental-addon-test...
+[09:57:14.813] [INFO] detect-projects-spinner-stop: 1 project detected
+[09:57:14.813] [DEBUG] Found 1 valid projects and 0 error projects
+[09:57:14.813] [INFO] Upgrading from 9.1.10 to 10.0.2
+[09:57:14.823] [INFO] upgrade-dependencies-task-start: Fetching versions to update package.json files..
+[09:57:14.823] [DEBUG] Updating dependencies in /packages/fuselage/.storybook...
+[09:57:14.832] [INFO] upgrade-dependencies-task: /packages/fuselage/package.json
+/package.json
+[09:57:14.832] [DEBUG] Getting CLI versions from NPM for @storybook/addon-webpack5-compiler-swc...
+[09:57:15.494] [DEBUG] {
+  "upgradedDependencies": []
+}
+[09:57:15.494] [DEBUG] {
+  "upgradedDevDependencies": [
+    "@storybook/addon-a11y@~10.0.2",
+    "@storybook/addon-docs@~10.0.2",
+    "@storybook/addon-links@~10.0.2",
+    "@storybook/react-webpack5@~10.0.2",
+    "storybook@~10.0.2",
+    "@storybook/addon-webpack5-compiler-swc@~4.0.1"
+  ]
+}
+[09:57:15.494] [DEBUG] {
+  "upgradedPeerDependencies": []
+}
+[09:57:15.496] [DEBUG] Getting CLI versions from NPM for @storybook/addon-a11y...
+[09:57:16.241] [DEBUG] Getting CLI versions from NPM for @storybook/addon-docs...
+[09:57:17.262] [DEBUG] Getting CLI versions from NPM for @storybook/addon-links...
+[09:57:18.031] [DEBUG] Getting CLI versions from NPM for @storybook/react-webpack5...
+[09:57:18.775] [DEBUG] Using cached version for storybook...
+[09:57:18.775] [DEBUG] Using cached version for @storybook/addon-webpack5-compiler-swc...
+[09:57:18.776] [DEBUG] {
+  "upgradedDependencies": []
+}
+[09:57:18.776] [DEBUG] {
+  "upgradedDevDependencies": [
+    "eslint-plugin-storybook@~10.0.2",
+    "storybook@~10.0.2"
+  ]
+}
+[09:57:18.776] [DEBUG] {
+  "upgradedPeerDependencies": []
+}
+[09:57:18.777] [DEBUG] Getting CLI versions from NPM for eslint-plugin-storybook...
+[09:57:19.339] [DEBUG] Using cached version for storybook...
+[09:57:19.340] [INFO] upgrade-dependencies-task-success: Updated package versions in package.json files
+[09:57:19.340] [INFO] detect-automigrations-task-start: Detecting automigrations...
+[09:57:19.340] [DEBUG] Starting automigration collection across 1 projects and 18 fixes...
+[09:57:19.348] [INFO] detect-automigrations-task: Checking automigrations for /packages/fuselage/.storybook...
+[09:57:19.348] [DEBUG] Processing project: /packages/fuselage/.storybook
+[09:57:19.348] [DEBUG] Checking fix eslintPlugin for project /packages/fuselage/.storybook...
+[09:57:19.349] [DEBUG] Checking fix addon-mdx-gfm-remove for project /packages/fuselage/.storybook...
+[09:57:19.349] [DEBUG] Checking fix addon-storysource-code-panel for project /packages/fuselage/.storybook...
+[09:57:19.349] [DEBUG] Checking fix upgrade-storybook-related-dependencies for project /packages/fuselage/.storybook...
+[09:57:19.349] [DEBUG] Checking for incompatible storybook packages...
+[09:57:19.351] [DEBUG] Skipping storybook-dark-mode as it does not have a valid version type: patch:storybook-dark-mode@npm%3A4.0.2#~/.yarn/patches/storybook-dark-mode-npm-4.0.2-1acb0927fb.patch
+[09:57:19.351] [DEBUG] Getting installed version for @storybook/addon-styling-webpack...
+[09:57:19.667] [DEBUG] Getting CLI versions from NPM for @storybook/addon-styling-webpack...
+[09:57:21.542] [DEBUG] Checking fix initial-globals for project /packages/fuselage/.storybook...
+[09:57:21.559] [DEBUG] Checking fix addon-globals-api for project /packages/fuselage/.storybook...
+[09:57:21.564] [DEBUG] Checking fix addon-a11y-addon-test for project /packages/fuselage/.storybook...
+[09:57:21.564] [DEBUG] Checking fix consolidated-imports for project /packages/fuselage/.storybook...
+[09:57:21.564] [DEBUG] Checking fix addon-experimental-test for project /packages/fuselage/.storybook...
+[09:57:21.564] [DEBUG] Using cached installed version for @storybook/experimental-addon-test...
+[09:57:21.564] [DEBUG] Checking fix rnstorybook-config for project /packages/fuselage/.storybook...
+[09:57:21.564] [DEBUG] Checking fix migrate-addon-console for project /packages/fuselage/.storybook...
+[09:57:21.564] [DEBUG] Checking fix remove-addon-interactions for project /packages/fuselage/.storybook...
+[09:57:21.565] [DEBUG] Checking fix renderer-to-framework for project /packages/fuselage/.storybook...
+[09:57:21.565] [DEBUG] Checking fix remove-essential-addons for project /packages/fuselage/.storybook...
+[09:57:21.565] [DEBUG] Checking fix addon-a11y-parameters for project /packages/fuselage/.storybook...
+[09:57:21.565] [DEBUG] Checking fix remove-docs-autodocs for project /packages/fuselage/.storybook...
+[09:57:21.570] [DEBUG] Checking fix wrap-getAbsolutePath for project /packages/fuselage/.storybook...
+[09:57:21.574] [DEBUG] Checking fix fix-faux-esm-require for project /packages/fuselage/.storybook...
+[09:57:21.584] [INFO] detect-automigrations-task: 
+Automigrations detected:
+[09:57:21.594] [INFO] detect-automigrations-task: ✔ addon-globals-api
+[09:57:21.602] [INFO] detect-automigrations-task: ✔ fix-faux-esm-require
+[09:57:21.603] [INFO] detect-automigrations-task-success: 2 automigration(s) detected
+[09:57:45.456] [PROMPT] Select automigrations to run {"choice":["fix-faux-esm-require","addon-globals-api"]}
+[09:57:45.457] [INFO] automigrate-/packages/fuselage/.storybook-task-start: Running automigrations for /packages/fuselage/.storybook
+[09:57:45.699] [INFO] automigrate-/packages/fuselage/.storybook-task: ✔ addon-globals-api
+[09:57:45.712] [INFO] automigrate-/packages/fuselage/.storybook-task: ✔ fix-faux-esm-require
+[09:57:45.712] [INFO] automigrate-/packages/fuselage/.storybook-task-success: Completed automigrations for /packages/fuselage/.storybook
+[09:57:45.712] [INFO] Installing dependencies...
+[09:57:45.712] [INFO] install-dependencies-task-start: Installing dependencies...
+[09:57:45.994] [INFO] ➤ YN0000: · Yarn 4.10.3
+[09:57:46.004] [INFO] install-dependencies-task: ➤ YN0000: · Yarn 4.10.3
+[09:57:46.004] [INFO] ➤ YN0000: ┌ Resolution step
+[09:57:46.013] [INFO] install-dependencies-task: ➤ YN0000: ┌ Resolution step
+[09:57:48.344] [INFO] ➤ YN0085: │ + @storybook/addon-a11y@npm:10.0.2, @storybook/addon-docs@npm:10.0.2, @storybook/addon-links@npm:10.0.2, @storybook/react-webpack5@npm:10.0.2, and 13 more.
+[09:57:48.356] [INFO] install-dependencies-task: ➤ YN0085: │ + @storybook/addon-a11y@npm:10.0.2,
+@storybook/addon-docs@npm:10.0.2, @storybook/addon-links@npm:10.0.2,
+@storybook/react-webpack5@npm:10.0.2, and 13 more.
+[09:57:48.356] [INFO] ➤ YN0085: │ - @storybook/addon-links@npm:9.1.10, eslint-plugin-storybook@npm:9.1.10
+[09:57:48.367] [INFO] install-dependencies-task: ➤ YN0085: │ - @storybook/addon-links@npm:9.1.10,
+eslint-plugin-storybook@npm:9.1.10
+[09:57:48.384] [INFO] ➤ YN0000: └ Completed in 2s 385ms
+[09:57:48.394] [INFO] install-dependencies-task: ➤ YN0000: └ Completed in 2s 385ms
+[09:57:48.394] [INFO] ➤ YN0000: ┌ Post-resolution validation
+➤ YN0060: │ storybook is listed by your project with version 10.0.2 (p047536), which doesn't satisfy what @storybook/addon-styling-webpack and other dependencies request (but they have non-overlapping ranges!).
+➤ YN0060: │ storybook is listed by your project with version 10.0.2 (p6eb36c), which doesn't satisfy what @storybook/addon-styling-webpack and other dependencies request (but they have non-overlapping ranges!).
+➤ YN0060: │ storybook is listed by your project with version 10.0.2 (p981d95), which doesn't satisfy what @storybook/addon-styling-webpack and other dependencies request (but they have non-overlapping ranges!).
+➤ YN0060: │ storybook is listed by your project with version 9.1.10 (p28f979), which doesn't satisfy what @storybook/types and other dependencies request (but they have non-overlapping ranges!).
+➤ YN0002: │ @rocket.chat/fuselage-forms@workspace:packages/fuselage-forms doesn't provide @testing-library/dom (p9968b2), requested by @testing-library/react and other dependencies.
+➤ YN0086: │ Some peer dependencies are incorrectly met by your project; run yarn explain peer-requirements <hash> for details, where <hash> is the six-letter p-prefixed code.
+➤ YN0086: │ Some peer dependencies are incorrectly met by dependencies; run yarn explain peer-requirements for details.
+➤ YN0000: └ Completed
+➤ YN0000: ┌ Fetch step
+[09:57:48.405] [INFO] install-dependencies-task: ➤ YN0000: ┌ Post-resolution validation
+➤ YN0060: │ storybook is listed by your project with version 10.0.2 (p047536),
+which doesn't satisfy what @storybook/addon-styling-webpack and other
+dependencies request (but they have non-overlapping ranges!).
+➤ YN0060: │ storybook is listed by your project with version 10.0.2 (p6eb36c),
+which doesn't satisfy what @storybook/addon-styling-webpack and other
+dependencies request (but they have non-overlapping ranges!).
+➤ YN0060: │ storybook is listed by your project with version 10.0.2 (p981d95),
+which doesn't satisfy what @storybook/addon-styling-webpack and other
+dependencies request (but they have non-overlapping ranges!).
+➤ YN0060: │ storybook is listed by your project with version 9.1.10 (p28f979),
+which doesn't satisfy what @storybook/types and other dependencies request (but
+they have non-overlapping ranges!).
+➤ YN0002: │ @rocket.chat/fuselage-forms@workspace:packages/fuselage-forms
+doesn't provide @testing-library/dom (p9968b2), requested by
+@testing-library/react and other dependencies.
+➤ YN0086: │ Some peer dependencies are incorrectly met by your project; run yarn
+explain peer-requirements <hash> for details, where <hash> is the six-letter
+p-prefixed code.
+➤ YN0086: │ Some peer dependencies are incorrectly met by dependencies; run yarn
+explain peer-requirements for details.
+➤ YN0000: └ Completed
+➤ YN0000: ┌ Fetch step
+[09:57:49.579] [INFO] ➤ YN0013: │ 17 packages were added to the project, and 2 were removed (+ 6.64 MiB).
+[09:57:49.589] [INFO] install-dependencies-task: ➤ YN0013: │ 17 packages were added to the project, and 2 were removed (+ 6.64
+MiB).
+[09:57:49.589] [INFO] ➤ YN0000: └ Completed in 1s 194ms
+[09:57:49.598] [INFO] install-dependencies-task: ➤ YN0000: └ Completed in 1s 194ms
+[09:57:49.608] [INFO] ➤ YN0000: ┌ Link step
+[09:57:49.617] [INFO] install-dependencies-task: ➤ YN0000: ┌ Link step
+[09:57:51.379] [INFO] ➤ YN0008: │ @rocket.chat/fuselage-monorepo@workspace:. must be rebuilt because its dependency tree changed
+[09:57:51.388] [INFO] install-dependencies-task: ➤ YN0008: │ @rocket.chat/fuselage-monorepo@workspace:. must be rebuilt because
+its dependency tree changed
+[09:58:36.301] [INFO] ➤ YN0000: └ Completed in 46s 693ms
+[09:58:36.312] [INFO] install-dependencies-task: ➤ YN0000: └ Completed in 46s 693ms
+[09:58:36.407] [INFO] ➤ YN0000: · Done with warnings in 50s 414ms
+[09:58:36.417] [INFO] install-dependencies-task: ➤ YN0000: · Done with warnings in 50s 414ms
+[09:58:36.432] [INFO] Dependencies installed
+[09:58:36.432] [INFO] install-dependencies-task-success: Dependencies installed
+[09:58:36.433] [WARN] Since you are in a monorepo, we advise you to deduplicate your dependencies. We can do this for you but it might take some time.
+[09:59:16.203] [PROMPT] Execute yarn dedupe? {"choice":true}
+[09:59:16.203] [INFO] Deduplicating dependencies...
+[09:59:16.203] [INFO] dedupe-dependencies-task-start: Deduplicating dependencies...
+[09:59:16.509] [INFO] ➤ YN0000: ┌ Deduplication step
+[09:59:16.519] [INFO] dedupe-dependencies-task: ➤ YN0000: ┌ Deduplication step
+[09:59:16.553] [INFO] ➤ YN0000: │ @babel/compat-data@npm:^7.27.2 can be deduped from @babel/compat-data@npm:7.27.2 to @babel/compat-data@npm:7.28.0
+[09:59:16.565] [INFO] dedupe-dependencies-task: ➤ YN0000: │ @babel/compat-data@npm:^7.27.2 can be deduped from
+@babel/compat-data@npm:7.27.2 to @babel/compat-data@npm:7.28.0
+[09:59:16.565] [INFO] ➤ YN0000: │ @jridgewell/sourcemap-codec@npm:^1.4.10 can be deduped from @jridgewell/sourcemap-codec@npm:1.5.0 to @jridgewell/sourcemap-codec@npm:1.5.5
+➤ YN0000: │ @jridgewell/sourcemap-codec@npm:^1.4.14 can be deduped from @jridgewell/sourcemap-codec@npm:1.5.0 to @jridgewell/sourcemap-codec@npm:1.5.5
+➤ YN0000: │ @jridgewell/sourcemap-codec@npm:^1.5.0 can be deduped from @jridgewell/sourcemap-codec@npm:1.5.0 to @jridgewell/sourcemap-codec@npm:1.5.5
+➤ YN0000: │ @storybook/icons@npm:^1.2.5 can be deduped from @storybook/icons@npm:1.2.12 to @storybook/icons@npm:1.6.0
+➤ YN0000: │ @types/estree@npm:* can be deduped from @types/estree@npm:1.0.6 to @types/estree@npm:1.0.8
+➤ YN0000: │ @types/estree@npm:^1.0.0 can be deduped from @types/estree@npm:1.0.6 to @types/estree@npm:1.0.8
+➤ YN0000: │ @types/estree@npm:^1.0.6 can be deduped from @types/estree@npm:1.0.6 to @types/estree@npm:1.0.8
+➤ YN0000: │ @typescript-eslint/tsconfig-utils@npm:^8.34.0 can be deduped from @typescript-eslint/tsconfig-utils@npm:8.34.0 to @typescript-eslint/tsconfig-utils@npm:8.45.0
+➤ YN0000: │ @typescript-eslint/types@npm:^8.34.0 can be deduped from @typescript-eslint/types@npm:8.34.0 to @typescript-eslint/types@npm:8.46.1
+➤ YN0000: │ @typescript-eslint/types@npm:^8.45.0 can be deduped from @typescript-eslint/types@npm:8.45.0 to @typescript-eslint/types@npm:8.46.1
+➤ YN0000: │ caniuse-lite@npm:^1.0.0 can be deduped from caniuse-lite@npm:1.0.30001723 to caniuse-lite@npm:1.0.30001747
+➤ YN0000: │ caniuse-lite@npm:^1.0.30001702 can be deduped from caniuse-lite@npm:1.0.30001723 to caniuse-lite@npm:1.0.30001747
+➤ YN0000: │ caniuse-lite@npm:^1.0.30001688 can be deduped from caniuse-lite@npm:1.0.30001707 to caniuse-lite@npm:1.0.30001747
+➤ YN0000: │ caniuse-lite@npm:^1.0.30001716 can be deduped from caniuse-lite@npm:1.0.30001717 to caniuse-lite@npm:1.0.30001747
+➤ YN0000: │ caniuse-lite@npm:^1.0.30001726 can be deduped from caniuse-lite@npm:1.0.30001727 to caniuse-lite@npm:1.0.30001747
+➤ YN0000: │ electron-to-chromium@npm:^1.5.149 can be deduped from electron-to-chromium@npm:1.5.151 to electron-to-chromium@npm:1.5.190
+➤ YN0000: │ electron-to-chromium@npm:^1.5.73 can be deduped from electron-to-chromium@npm:1.5.105 to electron-to-chromium@npm:1.5.190
+➤ YN0000: │ fdir@npm:^6.2.0 can be deduped from fdir@npm:6.4.4 to fdir@npm:6.5.0
+➤ YN0000: │ fdir@npm:^6.4.4 can be deduped from fdir@npm:6.4.4 to fdir@npm:6.5.0
+➤ YN0000: │ loupe@npm:^3.1.0 can be deduped from loupe@npm:3.1.3 to loupe@npm:3.2.0
+➤ YN0000: │ picomatch@npm:^4.0.2 can be deduped from picomatch@npm:4.0.2 to picomatch@npm:4.0.3
+➤ YN0000: │ prettier@npm:^3.3.3 can be deduped from prettier@npm:3.5.3 to prettier@npm:3.6.2
+➤ YN0000: │ sax@npm:>=0.6.0 can be deduped from sax@npm:1.2.4 to sax@npm:1.4.1
+➤ YN0000: │ sax@npm:^1.2.1 can be deduped from sax@npm:1.2.4 to sax@npm:1.4.1
+➤ YN0000: │ tapable@npm:^2.0.0 can be deduped from tapable@npm:2.2.1 to tapable@npm:2.3.0
+➤ YN0000: │ tapable@npm:^2.1.1 can be deduped from tapable@npm:2.2.1 to tapable@npm:2.3.0
+➤ YN0000: │ tapable@npm:^2.2.0 can be deduped from tapable@npm:2.2.1 to tapable@npm:2.3.0
+➤ YN0000: │ tapable@npm:^2.2.1 can be deduped from tapable@npm:2.2.1 to tapable@npm:2.3.0
+➤ YN0000: │ webpack-sources@npm:^3.2.3 can be deduped from webpack-sources@npm:3.2.3 to webpack-sources@npm:3.3.3
+➤ YN0000: │ yaml@npm:^2.0.0 can be deduped from yaml@npm:2.7.1 to yaml@npm:2.8.1
+➤ YN0000: │ @babel/helper-annotate-as-pure@npm:^7.27.1 can be deduped from @babel/helper-annotate-as-pure@npm:7.27.1 to @babel/helper-annotate-as-pure@npm:7.27.3
+➤ YN0000: │ @babel/parser@npm:^7.1.0 can be deduped from @babel/parser@npm:7.27.5 to @babel/parser@npm:7.28.4
+➤ YN0000: │ @babel/parser@npm:^7.20.7 can be deduped from @babel/parser@npm:7.27.5 to @babel/parser@npm:7.28.4
+➤ YN0000: │ @babel/parser@npm:^7.23.9 can be deduped from @babel/parser@npm:7.27.5 to @babel/parser@npm:7.28.4
+➤ YN0000: │ @babel/parser@npm:^7.27.4 can be deduped from @babel/parser@npm:7.27.5 to @babel/parser@npm:7.28.4
+➤ YN0000: │ @babel/parser@npm:^7.27.5 can be deduped from @babel/parser@npm:7.27.5 to @babel/parser@npm:7.28.4
+➤ YN0000: │ @babel/parser@npm:^7.27.1 can be deduped from @babel/parser@npm:7.27.2 to @babel/parser@npm:7.28.4
+➤ YN0000: │ @babel/parser@npm:^7.27.2 can be deduped from @babel/parser@npm:7.27.2 to @babel/parser@npm:7.28.4
+➤ YN0000: │ @babel/parser@npm:^7.27.3 can be deduped from @babel/parser@npm:7.27.3 to @babel/parser@npm:7.28.4
+➤ YN0000: │ @babel/parser@npm:^7.28.0 can be deduped from @babel/parser@npm:7.28.0 to @babel/parser@npm:7.28.4
+➤ YN0000: │ @emnapi/runtime@npm:^1.4.3 can be deduped from @emnapi/runtime@npm:1.4.3 to @emnapi/runtime@npm:1.5.0
+➤ YN0000: │ @eslint-community/eslint-utils@npm:^4.7.0 can be deduped from @eslint-community/eslint-utils@npm:4.7.0 to @eslint-community/eslint-utils@npm:4.9.0
+➤ YN0000: │ @types/node@npm:* can be deduped from @types/node@npm:22.15.31 to @types/node@npm:22.18.8
+➤ YN0000: │ @types/node@npm:^22.0.0 can be deduped from @types/node@npm:22.15.31 to @types/node@npm:22.18.8
+➤ YN0000: │ @types/yargs@npm:^17.0.8 can be deduped from @types/yargs@npm:17.0.10 to @types/yargs@npm:17.0.33
+➤ YN0000: │ chokidar@npm:^4.0.0 can be deduped from chokidar@npm:4.0.1 to chokidar@npm:4.0.3
+➤ YN0000: │ debug@npm:4 can be deduped from debug@npm:4.4.1 to debug@npm:4.4.3
+➤ YN0000: │ debug@npm:^4.0.0 can be deduped from debug@npm:4.4.1 to debug@npm:4.4.3
+➤ YN0000: │ debug@npm:^4.1.0 can be deduped from debug@npm:4.4.1 to debug@npm:4.4.3
+➤ YN0000: │ debug@npm:^4.1.1 can be deduped from debug@npm:4.4.1 to debug@npm:4.4.3
+➤ YN0000: │ debug@npm:^4.3.1 can be deduped from debug@npm:4.4.1 to debug@npm:4.4.3
+➤ YN0000: │ debug@npm:^4.3.2 can be deduped from debug@npm:4.4.1 to debug@npm:4.4.3
+➤ YN0000: │ debug@npm:^4.3.3 can be deduped from debug@npm:4.4.1 to debug@npm:4.4.3
+➤ YN0000: │ debug@npm:^4.3.4 can be deduped from debug@npm:4.4.1 to debug@npm:4.4.3
+➤ YN0000: │ debug@npm:^4.3.6 can be deduped from debug@npm:4.4.1 to debug@npm:4.4.3
+➤ YN0000: │ debug@npm:^4.4.1 can be deduped from debug@npm:4.4.1 to debug@npm:4.4.3
+➤ YN0000: │ is-core-module@npm:^2.13.0 can be deduped from is-core-module@npm:2.15.1 to is-core-module@npm:2.16.1
+➤ YN0000: │ jackspeak@npm:^4.0.1 can be deduped from jackspeak@npm:4.1.0 to jackspeak@npm:4.1.1
+➤ YN0000: │ magic-string@npm:^0.30.3 can be deduped from magic-string@npm:0.30.17 to magic-string@npm:0.30.19
+➤ YN0000: │ magic-string@npm:^0.30.5 can be deduped from magic-string@npm:0.30.17 to magic-string@npm:0.30.19
+➤ YN0000: │ minimatch@npm:^10.0.0 can be deduped from minimatch@npm:10.0.1 to minimatch@npm:10.0.3
+➤ YN0000: │ @babel/helpers@npm:^7.27.4 can be deduped from @babel/helpers@npm:7.27.6 to @babel/helpers@npm:7.28.4
+➤ YN0000: │ @babel/types@npm:^7.0.0 can be deduped from @babel/types@npm:7.27.6 to @babel/types@npm:7.28.4
+➤ YN0000: │ @babel/types@npm:^7.18.9 can be deduped from @babel/types@npm:7.27.6 to @babel/types@npm:7.28.4
+➤ YN0000: │ @babel/types@npm:^7.20.7 can be deduped from @babel/types@npm:7.27.6 to @babel/types@npm:7.28.4
+➤ YN0000: │ @babel/types@npm:^7.27.6 can be deduped from @babel/types@npm:7.27.6 to @babel/types@npm:7.28.4
+➤ YN0000: │ @babel/types@npm:^7.4.4 can be deduped from @babel/types@npm:7.27.6 to @babel/types@npm:7.28.4
+➤ YN0000: │ @babel/types@npm:^7.27.1 can be deduped from @babel/types@npm:7.27.1 to @babel/types@npm:7.28.4
+➤ YN0000: │ @babel/types@npm:^7.27.3 can be deduped from @babel/types@npm:7.27.3 to @babel/types@npm:7.28.4
+➤ YN0000: │ @babel/types@npm:^7.28.0 can be deduped from @babel/types@npm:7.28.2 to @babel/types@npm:7.28.4
+➤ YN0000: │ @babel/types@npm:^7.28.2 can be deduped from @babel/types@npm:7.28.2 to @babel/types@npm:7.28.4
+➤ YN0000: │ @jridgewell/gen-mapping@npm:^0.3.0 can be deduped from @jridgewell/gen-mapping@npm:0.3.5 to @jridgewell/gen-mapping@npm:0.3.12
+➤ YN0000: │ @jridgewell/gen-mapping@npm:^0.3.5 can be deduped from @jridgewell/gen-mapping@npm:0.3.5 to @jridgewell/gen-mapping@npm:0.3.12
+➤ YN0000: │ @jridgewell/trace-mapping@npm:^0.3.12 can be deduped from @jridgewell/trace-mapping@npm:0.3.25 to @jridgewell/trace-mapping@npm:0.3.29
+➤ YN0000: │ @jridgewell/trace-mapping@npm:^0.3.23 can be deduped from @jridgewell/trace-mapping@npm:0.3.25 to @jridgewell/trace-mapping@npm:0.3.29
+➤ YN0000: │ @jridgewell/trace-mapping@npm:^0.3.24 can be deduped from @jridgewell/trace-mapping@npm:0.3.25 to @jridgewell/trace-mapping@npm:0.3.29
+➤ YN0000: │ @jridgewell/trace-mapping@npm:^0.3.25 can be deduped from @jridgewell/trace-mapping@npm:0.3.25 to @jridgewell/trace-mapping@npm:0.3.29
+➤ YN0000: │ @jridgewell/trace-mapping@npm:^0.3.9 can be deduped from @jridgewell/trace-mapping@npm:0.3.25 to @jridgewell/trace-mapping@npm:0.3.29
+➤ YN0000: │ @types/jest@npm:* can be deduped from @types/jest@npm:29.5.14 to @types/jest@npm:30.0.0
+➤ YN0000: │ enhanced-resolve@npm:^5.0.0 can be deduped from enhanced-resolve@npm:5.17.1 to enhanced-resolve@npm:5.18.3
+➤ YN0000: │ enhanced-resolve@npm:^5.17.1 can be deduped from enhanced-resolve@npm:5.17.1 to enhanced-resolve@npm:5.18.3
+➤ YN0000: │ eslint-import-context@npm:^0.1.8 can be deduped from eslint-import-context@npm:0.1.8 to eslint-import-context@npm:0.1.9
+➤ YN0000: │ foreground-child@npm:^3.1.0 can be deduped from foreground-child@npm:3.3.0 to foreground-child@npm:3.3.1
+➤ YN0000: │ tinyglobby@npm:^0.2.12 can be deduped from tinyglobby@npm:0.2.14 to tinyglobby@npm:0.2.15
+➤ YN0000: │ tinyglobby@npm:^0.2.14 can be deduped from tinyglobby@npm:0.2.14 to tinyglobby@npm:0.2.15
+➤ YN0000: │ update-browserslist-db@npm:^1.1.1 can be deduped from update-browserslist-db@npm:1.1.1 to update-browserslist-db@npm:1.1.3
+➤ YN0000: │ watchpack@npm:^2.4.1 can be deduped from watchpack@npm:2.4.1 to watchpack@npm:2.4.4
+➤ YN0000: │ @babel/helper-module-transforms@npm:^7.27.1 can be deduped from @babel/helper-module-transforms@npm:7.27.3 to @babel/helper-module-transforms@npm:7.28.3
+➤ YN0000: │ @babel/helper-module-transforms@npm:^7.27.3 can be deduped from @babel/helper-module-transforms@npm:7.27.3 to @babel/helper-module-transforms@npm:7.28.3
+➤ YN0000: │ resolve@npm:^1.10.0 can be deduped from resolve@npm:1.22.8 to resolve@npm:1.22.10
+➤ YN0000: │ resolve@npm:^1.20.0 can be deduped from resolve@npm:1.22.8 to resolve@npm:1.22.10
+➤ YN0000: │ resolve@npm:^1.22.1 can be deduped from resolve@npm:1.22.8 to resolve@npm:1.22.10
+➤ YN0000: │ resolve@npm:^1.22.8 can be deduped from resolve@npm:1.22.8 to resolve@npm:1.22.10
+➤ YN0000: │ @typescript-eslint/utils@npm:^8.8.1 can be deduped from @typescript-eslint/utils@npm:8.34.0 to @typescript-eslint/utils@npm:8.45.0
+➤ YN0000: │ browserslist@npm:^4.0.0 can be deduped from browserslist@npm:4.24.4 to browserslist@npm:4.25.1
+➤ YN0000: │ browserslist@npm:^4.24.0 can be deduped from browserslist@npm:4.24.4 to browserslist@npm:4.25.1
+➤ YN0000: │ browserslist@npm:^4.24.4 can be deduped from browserslist@npm:4.24.4 to browserslist@npm:4.25.1
+➤ YN0000: │ browserslist@npm:^4.24.5 can be deduped from browserslist@npm:4.24.5 to browserslist@npm:4.25.1
+➤ YN0000: │ @babel/generator@npm:^7.27.1 can be deduped from @babel/generator@npm:7.27.1 to @babel/generator@npm:7.28.3
+➤ YN0000: │ @babel/generator@npm:^7.27.3 can be deduped from @babel/generator@npm:7.27.5 to @babel/generator@npm:7.28.3
+➤ YN0000: │ @babel/generator@npm:^7.27.5 can be deduped from @babel/generator@npm:7.27.5 to @babel/generator@npm:7.28.3
+➤ YN0000: │ @babel/generator@npm:^7.28.0 can be deduped from @babel/generator@npm:7.28.0 to @babel/generator@npm:7.28.3
+➤ YN0000: │ terser-webpack-plugin@npm:^5.3.1 can be deduped from terser-webpack-plugin@npm:5.3.11 to terser-webpack-plugin@npm:5.3.14
+➤ YN0000: │ terser-webpack-plugin@npm:^5.3.11 can be deduped from terser-webpack-plugin@npm:5.3.11 to terser-webpack-plugin@npm:5.3.14
+➤ YN0000: │ @testing-library/jest-dom@npm:^6.6.3 can be deduped from @testing-library/jest-dom@npm:6.6.3 to @testing-library/jest-dom@npm:6.9.1
+➤ YN0000: │ glob@npm:^11.0.0 can be deduped from glob@npm:11.0.1 to glob@npm:11.0.3
+➤ YN0000: │ @babel/helper-create-class-features-plugin@npm:^7.27.1 can be deduped from @babel/helper-create-class-features-plugin@npm:7.27.1 to @babel/helper-create-class-features-plugin@npm:7.28.3
+➤ YN0000: │ @babel/traverse@npm:^7.18.9 can be deduped from @babel/traverse@npm:7.27.4 to @babel/traverse@npm:7.28.4
+➤ YN0000: │ @babel/traverse@npm:^7.27.4 can be deduped from @babel/traverse@npm:7.27.4 to @babel/traverse@npm:7.28.4
+➤ YN0000: │ @babel/traverse@npm:^7.27.1 can be deduped from @babel/traverse@npm:7.27.1 to @babel/traverse@npm:7.28.4
+➤ YN0000: │ @babel/traverse@npm:^7.27.3 can be deduped from @babel/traverse@npm:7.27.3 to @babel/traverse@npm:7.28.4
+➤ YN0000: │ @babel/traverse@npm:^7.28.0 can be deduped from @babel/traverse@npm:7.28.0 to @babel/traverse@npm:7.28.4
+➤ YN0000: │ @babel/core@npm:^7.18.9 can be deduped from @babel/core@npm:7.27.4 to @babel/core@npm:7.28.4
+➤ YN0000: │ @babel/core@npm:^7.23.9 can be deduped from @babel/core@npm:7.27.4 to @babel/core@npm:7.28.4
+➤ YN0000: │ @babel/core@npm:^7.27.4 can be deduped from @babel/core@npm:7.27.4 to @babel/core@npm:7.28.4
+[09:59:16.579] [INFO] dedupe-dependencies-task: ➤ YN0000: │ @jridgewell/sourcemap-codec@npm:^1.4.10 can be deduped from
+@jridgewell/sourcemap-codec@npm:1.5.0 to @jridgewell/sourcemap-codec@npm:1.5.5
+➤ YN0000: │ @jridgewell/sourcemap-codec@npm:^1.4.14 can be deduped from
+@jridgewell/sourcemap-codec@npm:1.5.0 to @jridgewell/sourcemap-codec@npm:1.5.5
+➤ YN0000: │ @jridgewell/sourcemap-codec@npm:^1.5.0 can be deduped from
+@jridgewell/sourcemap-codec@npm:1.5.0 to @jridgewell/sourcemap-codec@npm:1.5.5
+➤ YN0000: │ @storybook/icons@npm:^1.2.5 can be deduped from
+@storybook/icons@npm:1.2.12 to @storybook/icons@npm:1.6.0
+➤ YN0000: │ @types/estree@npm:* can be deduped from @types/estree@npm:1.0.6 to
+@types/estree@npm:1.0.8
+➤ YN0000: │ @types/estree@npm:^1.0.0 can be deduped from @types/estree@npm:1.0.6
+to @types/estree@npm:1.0.8
+➤ YN0000: │ @types/estree@npm:^1.0.6 can be deduped from @types/estree@npm:1.0.6
+to @types/estree@npm:1.0.8
+➤ YN0000: │ @typescript-eslint/tsconfig-utils@npm:^8.34.0 can be deduped from
+@typescript-eslint/tsconfig-utils@npm:8.34.0 to
+@typescript-eslint/tsconfig-utils@npm:8.45.0
+➤ YN0000: │ @typescript-eslint/types@npm:^8.34.0 can be deduped from
+@typescript-eslint/types@npm:8.34.0 to @typescript-eslint/types@npm:8.46.1
+➤ YN0000: │ @typescript-eslint/types@npm:^8.45.0 can be deduped from
+@typescript-eslint/types@npm:8.45.0 to @typescript-eslint/types@npm:8.46.1
+➤ YN0000: │ caniuse-lite@npm:^1.0.0 can be deduped from
+caniuse-lite@npm:1.0.30001723 to caniuse-lite@npm:1.0.30001747
+➤ YN0000: │ caniuse-lite@npm:^1.0.30001702 can be deduped from
+caniuse-lite@npm:1.0.30001723 to caniuse-lite@npm:1.0.30001747
+➤ YN0000: │ caniuse-lite@npm:^1.0.30001688 can be deduped from
+caniuse-lite@npm:1.0.30001707 to caniuse-lite@npm:1.0.30001747
+➤ YN0000: │ caniuse-lite@npm:^1.0.30001716 can be deduped from
+caniuse-lite@npm:1.0.30001717 to caniuse-lite@npm:1.0.30001747
+➤ YN0000: │ caniuse-lite@npm:^1.0.30001726 can be deduped from
+caniuse-lite@npm:1.0.30001727 to caniuse-lite@npm:1.0.30001747
+➤ YN0000: │ electron-to-chromium@npm:^1.5.149 can be deduped from
+electron-to-chromium@npm:1.5.151 to electron-to-chromium@npm:1.5.190
+➤ YN0000: │ electron-to-chromium@npm:^1.5.73 can be deduped from
+electron-to-chromium@npm:1.5.105 to electron-to-chromium@npm:1.5.190
+➤ YN0000: │ fdir@npm:^6.2.0 can be deduped from fdir@npm:6.4.4 to fdir@npm:6.5.0
+➤ YN0000: │ fdir@npm:^6.4.4 can be deduped from fdir@npm:6.4.4 to fdir@npm:6.5.0
+➤ YN0000: │ loupe@npm:^3.1.0 can be deduped from loupe@npm:3.1.3 to
+loupe@npm:3.2.0
+➤ YN0000: │ picomatch@npm:^4.0.2 can be deduped from picomatch@npm:4.0.2 to
+picomatch@npm:4.0.3
+➤ YN0000: │ prettier@npm:^3.3.3 can be deduped from prettier@npm:3.5.3 to
+prettier@npm:3.6.2
+➤ YN0000: │ sax@npm:>=0.6.0 can be deduped from sax@npm:1.2.4 to sax@npm:1.4.1
+➤ YN0000: │ sax@npm:^1.2.1 can be deduped from sax@npm:1.2.4 to sax@npm:1.4.1
+➤ YN0000: │ tapable@npm:^2.0.0 can be deduped from tapable@npm:2.2.1 to
+tapable@npm:2.3.0
+➤ YN0000: │ tapable@npm:^2.1.1 can be deduped from tapable@npm:2.2.1 to
+tapable@npm:2.3.0
+➤ YN0000: │ tapable@npm:^2.2.0 can be deduped from tapable@npm:2.2.1 to
+tapable@npm:2.3.0
+➤ YN0000: │ tapable@npm:^2.2.1 can be deduped from tapable@npm:2.2.1 to
+tapable@npm:2.3.0
+➤ YN0000: │ webpack-sources@npm:^3.2.3 can be deduped from
+webpack-sources@npm:3.2.3 to webpack-sources@npm:3.3.3
+➤ YN0000: │ yaml@npm:^2.0.0 can be deduped from yaml@npm:2.7.1 to yaml@npm:2.8.1
+➤ YN0000: │ @babel/helper-annotate-as-pure@npm:^7.27.1 can be deduped from
+@babel/helper-annotate-as-pure@npm:7.27.1 to
+@babel/helper-annotate-as-pure@npm:7.27.3
+➤ YN0000: │ @babel/parser@npm:^7.1.0 can be deduped from
+@babel/parser@npm:7.27.5 to @babel/parser@npm:7.28.4
+➤ YN0000: │ @babel/parser@npm:^7.20.7 can be deduped from
+@babel/parser@npm:7.27.5 to @babel/parser@npm:7.28.4
+➤ YN0000: │ @babel/parser@npm:^7.23.9 can be deduped from
+@babel/parser@npm:7.27.5 to @babel/parser@npm:7.28.4
+➤ YN0000: │ @babel/parser@npm:^7.27.4 can be deduped from
+@babel/parser@npm:7.27.5 to @babel/parser@npm:7.28.4
+➤ YN0000: │ @babel/parser@npm:^7.27.5 can be deduped from
+@babel/parser@npm:7.27.5 to @babel/parser@npm:7.28.4
+➤ YN0000: │ @babel/parser@npm:^7.27.1 can be deduped from
+@babel/parser@npm:7.27.2 to @babel/parser@npm:7.28.4
+➤ YN0000: │ @babel/parser@npm:^7.27.2 can be deduped from
+@babel/parser@npm:7.27.2 to @babel/parser@npm:7.28.4
+➤ YN0000: │ @babel/parser@npm:^7.27.3 can be deduped from
+@babel/parser@npm:7.27.3 to @babel/parser@npm:7.28.4
+➤ YN0000: │ @babel/parser@npm:^7.28.0 can be deduped from
+@babel/parser@npm:7.28.0 to @babel/parser@npm:7.28.4
+➤ YN0000: │ @emnapi/runtime@npm:^1.4.3 can be deduped from
+@emnapi/runtime@npm:1.4.3 to @emnapi/runtime@npm:1.5.0
+➤ YN0000: │ @eslint-community/eslint-utils@npm:^4.7.0 can be deduped from
+@eslint-community/eslint-utils@npm:4.7.0 to
+@eslint-community/eslint-utils@npm:4.9.0
+➤ YN0000: │ @types/node@npm:* can be deduped from @types/node@npm:22.15.31 to
+@types/node@npm:22.18.8
+➤ YN0000: │ @types/node@npm:^22.0.0 can be deduped from @types/node@npm:22.15.31
+to @types/node@npm:22.18.8
+➤ YN0000: │ @types/yargs@npm:^17.0.8 can be deduped from
+@types/yargs@npm:17.0.10 to @types/yargs@npm:17.0.33
+➤ YN0000: │ chokidar@npm:^4.0.0 can be deduped from chokidar@npm:4.0.1 to
+chokidar@npm:4.0.3
+➤ YN0000: │ debug@npm:4 can be deduped from debug@npm:4.4.1 to debug@npm:4.4.3
+➤ YN0000: │ debug@npm:^4.0.0 can be deduped from debug@npm:4.4.1 to
+debug@npm:4.4.3
+➤ YN0000: │ debug@npm:^4.1.0 can be deduped from debug@npm:4.4.1 to
+debug@npm:4.4.3
+➤ YN0000: │ debug@npm:^4.1.1 can be deduped from debug@npm:4.4.1 to
+debug@npm:4.4.3
+➤ YN0000: │ debug@npm:^4.3.1 can be deduped from debug@npm:4.4.1 to
+debug@npm:4.4.3
+➤ YN0000: │ debug@npm:^4.3.2 can be deduped from debug@npm:4.4.1 to
+debug@npm:4.4.3
+➤ YN0000: │ debug@npm:^4.3.3 can be deduped from debug@npm:4.4.1 to
+debug@npm:4.4.3
+➤ YN0000: │ debug@npm:^4.3.4 can be deduped from debug@npm:4.4.1 to
+debug@npm:4.4.3
+➤ YN0000: │ debug@npm:^4.3.6 can be deduped from debug@npm:4.4.1 to
+debug@npm:4.4.3
+➤ YN0000: │ debug@npm:^4.4.1 can be deduped from debug@npm:4.4.1 to
+debug@npm:4.4.3
+➤ YN0000: │ is-core-module@npm:^2.13.0 can be deduped from
+is-core-module@npm:2.15.1 to is-core-module@npm:2.16.1
+➤ YN0000: │ jackspeak@npm:^4.0.1 can be deduped from jackspeak@npm:4.1.0 to
+jackspeak@npm:4.1.1
+➤ YN0000: │ magic-string@npm:^0.30.3 can be deduped from
+magic-string@npm:0.30.17 to magic-string@npm:0.30.19
+➤ YN0000: │ magic-string@npm:^0.30.5 can be deduped from
+magic-string@npm:0.30.17 to magic-string@npm:0.30.19
+➤ YN0000: │ minimatch@npm:^10.0.0 can be deduped from minimatch@npm:10.0.1 to
+minimatch@npm:10.0.3
+➤ YN0000: │ @babel/helpers@npm:^7.27.4 can be deduped from
+@babel/helpers@npm:7.27.6 to @babel/helpers@npm:7.28.4
+➤ YN0000: │ @babel/types@npm:^7.0.0 can be deduped from @babel/types@npm:7.27.6
+to @babel/types@npm:7.28.4
+➤ YN0000: │ @babel/types@npm:^7.18.9 can be deduped from @babel/types@npm:7.27.6
+to @babel/types@npm:7.28.4
+➤ YN0000: │ @babel/types@npm:^7.20.7 can be deduped from @babel/types@npm:7.27.6
+to @babel/types@npm:7.28.4
+➤ YN0000: │ @babel/types@npm:^7.27.6 can be deduped from @babel/types@npm:7.27.6
+to @babel/types@npm:7.28.4
+➤ YN0000: │ @babel/types@npm:^7.4.4 can be deduped from @babel/types@npm:7.27.6
+to @babel/types@npm:7.28.4
+➤ YN0000: │ @babel/types@npm:^7.27.1 can be deduped from @babel/types@npm:7.27.1
+to @babel/types@npm:7.28.4
+➤ YN0000: │ @babel/types@npm:^7.27.3 can be deduped from @babel/types@npm:7.27.3
+to @babel/types@npm:7.28.4
+➤ YN0000: │ @babel/types@npm:^7.28.0 can be deduped from @babel/types@npm:7.28.2
+to @babel/types@npm:7.28.4
+➤ YN0000: │ @babel/types@npm:^7.28.2 can be deduped from @babel/types@npm:7.28.2
+to @babel/types@npm:7.28.4
+➤ YN0000: │ @jridgewell/gen-mapping@npm:^0.3.0 can be deduped from
+@jridgewell/gen-mapping@npm:0.3.5 to @jridgewell/gen-mapping@npm:0.3.12
+➤ YN0000: │ @jridgewell/gen-mapping@npm:^0.3.5 can be deduped from
+@jridgewell/gen-mapping@npm:0.3.5 to @jridgewell/gen-mapping@npm:0.3.12
+➤ YN0000: │ @jridgewell/trace-mapping@npm:^0.3.12 can be deduped from
+@jridgewell/trace-mapping@npm:0.3.25 to @jridgewell/trace-mapping@npm:0.3.29
+➤ YN0000: │ @jridgewell/trace-mapping@npm:^0.3.23 can be deduped from
+@jridgewell/trace-mapping@npm:0.3.25 to @jridgewell/trace-mapping@npm:0.3.29
+➤ YN0000: │ @jridgewell/trace-mapping@npm:^0.3.24 can be deduped from
+@jridgewell/trace-mapping@npm:0.3.25 to @jridgewell/trace-mapping@npm:0.3.29
+➤ YN0000: │ @jridgewell/trace-mapping@npm:^0.3.25 can be deduped from
+@jridgewell/trace-mapping@npm:0.3.25 to @jridgewell/trace-mapping@npm:0.3.29
+➤ YN0000: │ @jridgewell/trace-mapping@npm:^0.3.9 can be deduped from
+@jridgewell/trace-mapping@npm:0.3.25 to @jridgewell/trace-mapping@npm:0.3.29
+➤ YN0000: │ @types/jest@npm:* can be deduped from @types/jest@npm:29.5.14 to
+@types/jest@npm:30.0.0
+➤ YN0000: │ enhanced-resolve@npm:^5.0.0 can be deduped from
+enhanced-resolve@npm:5.17.1 to enhanced-resolve@npm:5.18.3
+➤ YN0000: │ enhanced-resolve@npm:^5.17.1 can be deduped from
+enhanced-resolve@npm:5.17.1 to enhanced-resolve@npm:5.18.3
+➤ YN0000: │ eslint-import-context@npm:^0.1.8 can be deduped from
+eslint-import-context@npm:0.1.8 to eslint-import-context@npm:0.1.9
+➤ YN0000: │ foreground-child@npm:^3.1.0 can be deduped from
+foreground-child@npm:3.3.0 to foreground-child@npm:3.3.1
+➤ YN0000: │ tinyglobby@npm:^0.2.12 can be deduped from tinyglobby@npm:0.2.14 to
+tinyglobby@npm:0.2.15
+➤ YN0000: │ tinyglobby@npm:^0.2.14 can be deduped from tinyglobby@npm:0.2.14 to
+tinyglobby@npm:0.2.15
+➤ YN0000: │ update-browserslist-db@npm:^1.1.1 can be deduped from
+update-browserslist-db@npm:1.1.1 to update-browserslist-db@npm:1.1.3
+➤ YN0000: │ watchpack@npm:^2.4.1 can be deduped from watchpack@npm:2.4.1 to
+watchpack@npm:2.4.4
+➤ YN0000: │ @babel/helper-module-transforms@npm:^7.27.1 can be deduped from
+@babel/helper-module-transforms@npm:7.27.3 to
+@babel/helper-module-transforms@npm:7.28.3
+➤ YN0000: │ @babel/helper-module-transforms@npm:^7.27.3 can be deduped from
+@babel/helper-module-transforms@npm:7.27.3 to
+@babel/helper-module-transforms@npm:7.28.3
+➤ YN0000: │ resolve@npm:^1.10.0 can be deduped from resolve@npm:1.22.8 to
+resolve@npm:1.22.10
+➤ YN0000: │ resolve@npm:^1.20.0 can be deduped from resolve@npm:1.22.8 to
+resolve@npm:1.22.10
+➤ YN0000: │ resolve@npm:^1.22.1 can be deduped from resolve@npm:1.22.8 to
+resolve@npm:1.22.10
+➤ YN0000: │ resolve@npm:^1.22.8 can be deduped from resolve@npm:1.22.8 to
+resolve@npm:1.22.10
+➤ YN0000: │ @typescript-eslint/utils@npm:^8.8.1 can be deduped from
+@typescript-eslint/utils@npm:8.34.0 to @typescript-eslint/utils@npm:8.45.0
+➤ YN0000: │ browserslist@npm:^4.0.0 can be deduped from browserslist@npm:4.24.4
+to browserslist@npm:4.25.1
+➤ YN0000: │ browserslist@npm:^4.24.0 can be deduped from browserslist@npm:4.24.4
+to browserslist@npm:4.25.1
+➤ YN0000: │ browserslist@npm:^4.24.4 can be deduped from browserslist@npm:4.24.4
+to browserslist@npm:4.25.1
+➤ YN0000: │ browserslist@npm:^4.24.5 can be deduped from browserslist@npm:4.24.5
+to browserslist@npm:4.25.1
+➤ YN0000: │ @babel/generator@npm:^7.27.1 can be deduped from
+@babel/generator@npm:7.27.1 to @babel/generator@npm:7.28.3
+➤ YN0000: │ @babel/generator@npm:^7.27.3 can be deduped from
+@babel/generator@npm:7.27.5 to @babel/generator@npm:7.28.3
+➤ YN0000: │ @babel/generator@npm:^7.27.5 can be deduped from
+@babel/generator@npm:7.27.5 to @babel/generator@npm:7.28.3
+➤ YN0000: │ @babel/generator@npm:^7.28.0 can be deduped from
+@babel/generator@npm:7.28.0 to @babel/generator@npm:7.28.3
+➤ YN0000: │ terser-webpack-plugin@npm:^5.3.1 can be deduped from
+terser-webpack-plugin@npm:5.3.11 to terser-webpack-plugin@npm:5.3.14
+➤ YN0000: │ terser-webpack-plugin@npm:^5.3.11 can be deduped from
+terser-webpack-plugin@npm:5.3.11 to terser-webpack-plugin@npm:5.3.14
+➤ YN0000: │ @testing-library/jest-dom@npm:^6.6.3 can be deduped from
+@testing-library/jest-dom@npm:6.6.3 to @testing-library/jest-dom@npm:6.9.1
+➤ YN0000: │ glob@npm:^11.0.0 can be deduped from glob@npm:11.0.1 to
+glob@npm:11.0.3
+➤ YN0000: │ @babel/helper-create-class-features-plugin@npm:^7.27.1 can be
+deduped from @babel/helper-create-class-features-plugin@npm:7.27.1 to
+@babel/helper-create-class-features-plugin@npm:7.28.3
+➤ YN0000: │ @babel/traverse@npm:^7.18.9 can be deduped from
+@babel/traverse@npm:7.27.4 to @babel/traverse@npm:7.28.4
+➤ YN0000: │ @babel/traverse@npm:^7.27.4 can be deduped from
+@babel/traverse@npm:7.27.4 to @babel/traverse@npm:7.28.4
+➤ YN0000: │ @babel/traverse@npm:^7.27.1 can be deduped from
+@babel/traverse@npm:7.27.1 to @babel/traverse@npm:7.28.4
+➤ YN0000: │ @babel/traverse@npm:^7.27.3 can be deduped from
+@babel/traverse@npm:7.27.3 to @babel/traverse@npm:7.28.4
+➤ YN0000: │ @babel/traverse@npm:^7.28.0 can be deduped from
+@babel/traverse@npm:7.28.0 to @babel/traverse@npm:7.28.4
+➤ YN0000: │ @babel/core@npm:^7.18.9 can be deduped from @babel/core@npm:7.27.4
+to @babel/core@npm:7.28.4
+➤ YN0000: │ @babel/core@npm:^7.23.9 can be deduped from @babel/core@npm:7.27.4
+to @babel/core@npm:7.28.4
+➤ YN0000: │ @babel/core@npm:^7.27.4 can be deduped from @babel/core@npm:7.27.4
+to @babel/core@npm:7.28.4
+[09:59:16.579] [INFO] ➤ YN0000: │ unrs-resolver@npm:^1.7.11 can be deduped from unrs-resolver@npm:1.9.0 to unrs-resolver@npm:1.11.1
+➤ YN0000: │ rollup@npm:~4.52.4 can be deduped from rollup@npm:4.52.4 to rollup@npm:4.52.5
+➤ YN0000: │ webpack@npm:5 can be deduped from webpack@npm:5.99.9 to webpack@npm:5.102.0
+➤ YN0000: │ esbuild@npm:^0.18.0 || ^0.19.0 || ^0.20.0 || ^0.21.0 || ^0.22.0 || ^0.23.0 || ^0.24.0 || ^0.25.0 can be deduped from esbuild@npm:0.25.0 to esbuild@npm:0.25.11
+➤ YN0000: │ 120 packages can be deduped using the highest strategy
+➤ YN0000: └ Completed
+➤ YN0000: · Yarn 4.10.3
+➤ YN0000: ┌ Resolution step
+[09:59:16.589] [INFO] dedupe-dependencies-task: ➤ YN0000: │ unrs-resolver@npm:^1.7.11 can be deduped from
+unrs-resolver@npm:1.9.0 to unrs-resolver@npm:1.11.1
+➤ YN0000: │ rollup@npm:~4.52.4 can be deduped from rollup@npm:4.52.4 to
+rollup@npm:4.52.5
+➤ YN0000: │ webpack@npm:5 can be deduped from webpack@npm:5.99.9 to
+webpack@npm:5.102.0
+➤ YN0000: │ esbuild@npm:^0.18.0 || ^0.19.0 || ^0.20.0 || ^0.21.0 || ^0.22.0 ||
+^0.23.0 || ^0.24.0 || ^0.25.0 can be deduped from esbuild@npm:0.25.0 to
+esbuild@npm:0.25.11
+➤ YN0000: │ 120 packages can be deduped using the highest strategy
+➤ YN0000: └ Completed
+➤ YN0000: · Yarn 4.10.3
+➤ YN0000: ┌ Resolution step
+[09:59:16.628] [INFO] ➤ YN0085: │ - @ampproject/remapping@npm:2.2.1, @babel/compat-data@npm:7.27.2, @babel/core@npm:7.27.4, @babel/generator@npm:7.27.1, @babel/generator@npm:7.27.5, and 147 more.
+[09:59:16.638] [INFO] dedupe-dependencies-task: ➤ YN0085: │ - @ampproject/remapping@npm:2.2.1, @babel/compat-data@npm:7.27.2,
+@babel/core@npm:7.27.4, @babel/generator@npm:7.27.1,
+@babel/generator@npm:7.27.5, and 147 more.
+[09:59:16.662] [INFO] ➤ YN0000: └ Completed
+[09:59:16.672] [INFO] dedupe-dependencies-task: ➤ YN0000: └ Completed
+[09:59:16.672] [INFO] ➤ YN0000: ┌ Post-resolution validation
+➤ YN0060: │ storybook is listed by your project with version 10.0.2 (p047536), which doesn't satisfy what @storybook/addon-styling-webpack and other dependencies request (but they have non-overlapping ranges!).
+➤ YN0060: │ storybook is listed by your project with version 10.0.2 (p6eb36c), which doesn't satisfy what @storybook/addon-styling-webpack and other dependencies request (but they have non-overlapping ranges!).
+➤ YN0060: │ storybook is listed by your project with version 10.0.2 (p981d95), which doesn't satisfy what @storybook/addon-styling-webpack and other dependencies request (but they have non-overlapping ranges!).
+➤ YN0060: │ storybook is listed by your project with version 9.1.10 (p28f979), which doesn't satisfy what @storybook/types and other dependencies request (but they have non-overlapping ranges!).
+➤ YN0002: │ @rocket.chat/fuselage-forms@workspace:packages/fuselage-forms doesn't provide @testing-library/dom (p9968b2), requested by @testing-library/react and other dependencies.
+➤ YN0086: │ Some peer dependencies are incorrectly met by your project; run yarn explain peer-requirements <hash> for details, where <hash> is the six-letter p-prefixed code.
+➤ YN0086: │ Some peer dependencies are incorrectly met by dependencies; run yarn explain peer-requirements for details.
+➤ YN0000: └ Completed
+➤ YN0000: ┌ Fetch step
+[09:59:16.681] [INFO] dedupe-dependencies-task: ➤ YN0000: ┌ Post-resolution validation
+➤ YN0060: │ storybook is listed by your project with version 10.0.2 (p047536),
+which doesn't satisfy what @storybook/addon-styling-webpack and other
+dependencies request (but they have non-overlapping ranges!).
+➤ YN0060: │ storybook is listed by your project with version 10.0.2 (p6eb36c),
+which doesn't satisfy what @storybook/addon-styling-webpack and other
+dependencies request (but they have non-overlapping ranges!).
+➤ YN0060: │ storybook is listed by your project with version 10.0.2 (p981d95),
+which doesn't satisfy what @storybook/addon-styling-webpack and other
+dependencies request (but they have non-overlapping ranges!).
+➤ YN0060: │ storybook is listed by your project with version 9.1.10 (p28f979),
+which doesn't satisfy what @storybook/types and other dependencies request (but
+they have non-overlapping ranges!).
+➤ YN0002: │ @rocket.chat/fuselage-forms@workspace:packages/fuselage-forms
+doesn't provide @testing-library/dom (p9968b2), requested by
+@testing-library/react and other dependencies.
+➤ YN0086: │ Some peer dependencies are incorrectly met by your project; run yarn
+explain peer-requirements <hash> for details, where <hash> is the six-letter
+p-prefixed code.
+➤ YN0086: │ Some peer dependencies are incorrectly met by dependencies; run yarn
+explain peer-requirements for details.
+➤ YN0000: └ Completed
+➤ YN0000: ┌ Fetch step
+[09:59:16.827] [INFO] ➤ YN0013: │ No new packages added to the project, but 89 were removed (- 20.85 MiB).
+[09:59:16.836] [INFO] dedupe-dependencies-task: ➤ YN0013: │ No new packages added to the project, but 89 were removed (- 20.85
+MiB).
+[09:59:16.837] [INFO] ➤ YN0000: └ Completed
+[09:59:16.846] [INFO] dedupe-dependencies-task: ➤ YN0000: └ Completed
+[09:59:16.856] [INFO] ➤ YN0000: ┌ Link step
+[09:59:16.865] [INFO] dedupe-dependencies-task: ➤ YN0000: ┌ Link step
+[09:59:20.734] [INFO] ➤ YN0008: │ unrs-resolver@npm:1.11.1 must be rebuilt because its dependency tree changed
+[09:59:20.742] [INFO] dedupe-dependencies-task: ➤ YN0008: │ unrs-resolver@npm:1.11.1 must be rebuilt because its dependency tree
+changed
+[09:59:20.742] [INFO] ➤ YN0008: │ esbuild@npm:0.25.11 must be rebuilt because its dependency tree changed
+➤ YN0008: │ ttf2woff2@npm:8.0.0 must be rebuilt because its dependency tree changed
+[09:59:20.750] [INFO] dedupe-dependencies-task: ➤ YN0008: │ esbuild@npm:0.25.11 must be rebuilt because its dependency tree
+changed
+➤ YN0008: │ ttf2woff2@npm:8.0.0 must be rebuilt because its dependency tree
+changed
+[09:59:22.006] [INFO] ➤ YN0008: │ @rocket.chat/fuselage-monorepo@workspace:. must be rebuilt because its dependency tree changed
+[09:59:22.016] [INFO] dedupe-dependencies-task: ➤ YN0008: │ @rocket.chat/fuselage-monorepo@workspace:. must be rebuilt because
+its dependency tree changed
+[10:00:03.981] [INFO] ➤ YN0000: └ Completed in 47s 124ms
+[10:00:03.991] [INFO] dedupe-dependencies-task: ➤ YN0000: └ Completed in 47s 124ms
+[10:00:04.080] [INFO] ➤ YN0000: · Done with warnings in 47s 514ms
+[10:00:04.090] [INFO] dedupe-dependencies-task: ➤ YN0000: · Done with warnings in 47s 514ms
+[10:00:04.102] [INFO] Dependencies deduplicated
+[10:00:04.102] [INFO] dedupe-dependencies-task-success: Dependencies deduplicated
+[10:00:04.103] [INFO] Checking the health of your project(s)..
+[10:00:04.433] [WARN] /packages/fuselage/.storybook: 1 issue found
+[10:00:04.442] [INFO] You are currently using Storybook 10.0.2 but you have packages which are incompatible with it:
+
+- @storybook/addon-styling-webpack@2.0.0 which depends on ^9.0.0
+
+Please consider updating your packages or contacting the maintainers for compatibility details.
+
+For more on Storybook 9 compatibility, see the linked GitHub issue:
+https://github.com/storybookjs/storybook/issues/30944
+[10:00:04.442] [INFO] Incompatible Packages
+[10:00:04.451] [INFO] You are currently using Storybook 10.0.2 but you have packages which are incompatible with it:
+
+- @storybook/addon-styling-webpack@2.0.0 which depends on ^9.0.0
+
+Please consider updating your packages or contacting the maintainers for compatibility details.
+
+For more on Storybook 9 compatibility, see the linked GitHub issue:
+https://github.com/storybookjs/storybook/issues/30944
+[10:00:04.460] [INFO] Storybook doctor is complete!
+[10:00:04.470] [INFO] You can always recheck the health of your project(s) by running:
+npx storybook doctor
+[10:00:04.479] [INFO] The upgrade is complete!
+[10:00:04.487] [INFO] Your project(s) have been upgraded successfully, but some issues were found which need your attention, please check Storybook doctor logs above.
+[10:00:04.518] [INFO] If you want to learn more about the automigrations that executed in your project(s), please check the following links:
+
+• addon-globals-api
+• fix-faux-esm-require
+[10:00:04.529] [INFO] For a full list of changes, please check our migration guide: https://storybook.js.org/docs/releases/migration-guide?ref=upgrade
+[10:00:04.541] [INFO] Attention: Storybook now collects completely anonymous telemetry regarding usage. This information is used to shape Storybook's roadmap and prioritize features.
+[10:00:04.550] [INFO] You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+[10:00:04.559] [INFO] https://storybook.js.org/telemetry
+[10:00:04.567] [INFO] 
+[10:00:04.581] [INFO] Loading main config failed as the file does not seem to be valid ESM. Trying a temporary fix, please ensure the main config is valid ESM.

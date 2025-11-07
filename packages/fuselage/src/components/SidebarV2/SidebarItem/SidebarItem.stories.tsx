@@ -1,12 +1,12 @@
-import type { Meta, StoryFn } from '@storybook/react-webpack5';
+import type { Meta, StoryFn } from '@storybook/react-vite';
 
-import { SidebarV2ListItem as SidebarListItem } from '../..';
+import { SidebarV2ListItem as SidebarListItem } from '../../index.js';
 import {
   GenericCondensedItem,
   GenericExtendedItem,
   GenericMediumItem,
   decorators,
-} from '../helpers';
+} from '../helpers.js';
 
 export default {
   title: 'Navigation/SidebarV2/Item',

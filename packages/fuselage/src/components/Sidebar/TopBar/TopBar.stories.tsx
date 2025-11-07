@@ -1,8 +1,8 @@
-import type { StoryFn, Meta } from '@storybook/react-webpack5';
+import type { StoryFn, Meta } from '@storybook/react-vite';
 import type { ComponentType } from 'react';
 
-import { Avatar } from '../../Avatar';
-import { SidebarSection } from '../Section';
+import { Avatar } from '../../Avatar/index.js';
+import { SidebarSection } from '../Section.js';
 
 import {
   TopBar,
@@ -11,7 +11,7 @@ import {
   TopBarAvatar,
   TopBarTitle,
   TopBarToolBox,
-} from '.';
+} from './index.js';
 
 export default {
   title: 'Sidebar/TopBar',

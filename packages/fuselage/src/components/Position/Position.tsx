@@ -4,7 +4,7 @@ import type { RefObject, ComponentProps, ReactElement } from 'react';
 import { useRef, useMemo, cloneElement, useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 
-import type Box from '../Box';
+import type Box from '../Box/index.js';
 
 type PositionProps = {
   anchor: RefObject<Element>;

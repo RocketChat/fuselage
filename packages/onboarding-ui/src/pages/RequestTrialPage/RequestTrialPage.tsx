@@ -5,10 +5,10 @@ import {
 import type { ComponentProps, ReactElement } from 'react';
 import { useTranslation, Trans } from 'react-i18next';
 
-import FormPageLayout from '../../common/FormPageLayout';
-import RequestTrialForm from '../../forms/RequestTrialForm';
+import FormPageLayout from '../../common/FormPageLayout.js';
+import RequestTrialForm from '../../forms/RequestTrialForm/index.js';
 
-import Description from './Description';
+import Description from './Description.js';
 
 type RequestTrialPageProps = ComponentProps<typeof RequestTrialForm>;
 

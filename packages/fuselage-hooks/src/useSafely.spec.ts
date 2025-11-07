@@ -1,11 +1,12 @@
 import { useState } from 'react';
+import { it, expect, vi } from 'vitest';
 
-import { renderHook, act } from './testing';
+import { renderHook, act } from './testing.ts';
 import { useSafely } from './useSafely';
 
 it('returns a new dispatcher that invokes the previous one', () => {
   const state = Symbol();
-  const dispatcher = jest.fn();
+  const dispatcher = vi.fn();
 
   const { result } = renderHook(() => useSafely([state, dispatcher]));
   const [, newDispatcher] = result.current;
@@ -19,7 +20,7 @@ it('returns a new dispatcher that invokes the previous one', () => {
 
 it('returns a new dispatcher that can be called after unmount', () => {
   const state = Symbol();
-  const dispatcher = jest.fn();
+  const dispatcher = vi.fn();
 
   const { result, unmount } = renderHook(() => useSafely([state, dispatcher]));
   const [, newDispatcher] = result.current;

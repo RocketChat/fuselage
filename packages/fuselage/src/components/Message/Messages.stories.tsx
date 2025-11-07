@@ -1,17 +1,17 @@
-import type { Meta, StoryFn } from '@storybook/react-webpack5';
+import type { Meta, StoryFn } from '@storybook/react-vite';
 import { useState } from 'react';
 
-import { Avatar } from '../Avatar';
-import Box from '../Box';
+import { Avatar } from '../Avatar/index.js';
+import Box from '../Box/index.js';
 
-import Message from '.';
-import { MessageDivider } from './MessageDivider';
-import { MessageEmoji } from './MessageEmoji';
-import MessageMetrics from './MessageMetrics';
-import MessageReactions from './MessageReactions';
-import MessageToolbar from './MessageToolbar';
-import ThreadMessage, { ThreadMessageEmoji } from './ThreadMessage';
-import { avatarUrl } from './helpers';
+import { MessageDivider } from './MessageDivider/index.js';
+import { MessageEmoji } from './MessageEmoji.js';
+import MessageMetrics from './MessageMetrics/index.js';
+import MessageReactions from './MessageReactions/index.js';
+import MessageToolbar from './MessageToolbar/index.js';
+import ThreadMessage, { ThreadMessageEmoji } from './ThreadMessage/index.js';
+import { avatarUrl } from './helpers.js';
+import Message from './index.js';
 
 export default {
   title: 'Message/Message',

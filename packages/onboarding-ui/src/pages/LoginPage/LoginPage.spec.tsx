@@ -1,6 +1,7 @@
 import { render } from '@testing-library/react';
+import { it } from 'vitest';
 
-import LoginPage from './LoginPage';
+import LoginPage from './LoginPage.js';
 
 it('renders without crashing', () => {
   render(

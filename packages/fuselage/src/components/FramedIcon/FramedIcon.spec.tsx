@@ -1,14 +1,14 @@
-import { composeStories } from '@storybook/react-webpack5';
+import { composeStories } from '@storybook/react-vite';
 import { axe } from 'jest-axe';
+import { describe, test, expect } from 'vitest';
 
-import { render } from '../../testing';
+import { render } from '../../testing.js';
 
-import * as stories from './FramedIcon.stories';
+import * as stories from './FramedIcon.stories.js';
 
-const testCases = Object.values(composeStories(stories)).map((Story) => [
-  Story.storyName || 'Story',
-  Story,
-]);
+const testCases = Object.values(composeStories(stories)).map(
+  (Story) => [Story.storyName || 'Story', Story] as const,
+);
 
 describe('[FramedIcon rendering]', () => {
   test.each(testCases)(

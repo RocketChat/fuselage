@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`[AutoComplete Rendering] renders CustomItem without crashing 1`] = `
+exports[`[AutoComplete Rendering] > renders CustomItem without crashing 1`] = `
 <body>
   <div>
     <div
@@ -31,7 +31,7 @@ exports[`[AutoComplete Rendering] renders CustomItem without crashing 1`] = `
 </body>
 `;
 
-exports[`[AutoComplete Rendering] renders CustomSelected without crashing 1`] = `
+exports[`[AutoComplete Rendering] > renders CustomSelected without crashing 1`] = `
 <body>
   <div>
     <div
@@ -130,7 +130,7 @@ v/L21v8BT/ZVoe1UItsAAAAASUVORK5CYII="
 </body>
 `;
 
-exports[`[AutoComplete Rendering] renders Default without crashing 1`] = `
+exports[`[AutoComplete Rendering] > renders Default without crashing 1`] = `
 <body>
   <div>
     <div
@@ -161,7 +161,7 @@ exports[`[AutoComplete Rendering] renders Default without crashing 1`] = `
 </body>
 `;
 
-exports[`[AutoComplete Rendering] renders Disabled without crashing 1`] = `
+exports[`[AutoComplete Rendering] > renders Disabled without crashing 1`] = `
 <body>
   <div>
     <div
@@ -193,7 +193,7 @@ exports[`[AutoComplete Rendering] renders Disabled without crashing 1`] = `
 </body>
 `;
 
-exports[`[AutoComplete Rendering] renders Multiple without crashing 1`] = `
+exports[`[AutoComplete Rendering] > renders Multiple without crashing 1`] = `
 <body>
   <div>
     <div
@@ -258,7 +258,7 @@ exports[`[AutoComplete Rendering] renders Multiple without crashing 1`] = `
 </body>
 `;
 
-exports[`[AutoComplete Rendering] renders MultipleCustomSelected without crashing 1`] = `
+exports[`[AutoComplete Rendering] > renders MultipleCustomSelected without crashing 1`] = `
 <body>
   <div>
     <div
@@ -457,7 +457,7 @@ v/L21v8BT/ZVoe1UItsAAAAASUVORK5CYII="
 </body>
 `;
 
-exports[`[AutoComplete Rendering] renders WithPlaceholder without crashing 1`] = `
+exports[`[AutoComplete Rendering] > renders WithPlaceholder without crashing 1`] = `
 <body>
   <div>
     <div

@@ -1,6 +1,6 @@
-import type { Meta, StoryFn } from '@storybook/react-webpack5';
+import type { Meta, StoryFn } from '@storybook/react-vite';
 
-import ResetPasswordForm from './ResetPasswordForm';
+import ResetPasswordForm from './ResetPasswordForm.js';
 
 export default {
   title: 'forms/ResetPasswordForm',

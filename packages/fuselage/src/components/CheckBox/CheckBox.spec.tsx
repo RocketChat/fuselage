@@ -1,10 +1,10 @@
-import { composeStories } from '@storybook/react-webpack5';
+import { composeStories } from '@storybook/react-vite';
 import { fireEvent, getByRole } from '@testing-library/react';
 import { axe } from 'jest-axe';
 
-import { render } from '../../testing';
+import { render } from '../../testing.js';
 
-import * as stories from './CheckBox.stories';
+import * as stories from './CheckBox.stories.js';
 
 const { Default, Indeterminate, Disabled, DefaultChecked } =
   composeStories(stories);

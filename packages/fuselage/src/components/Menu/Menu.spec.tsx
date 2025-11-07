@@ -1,15 +1,15 @@
-import { composeStories } from '@storybook/react-webpack5';
+import { composeStories } from '@storybook/react-vite';
 import {
   screen,
   waitFor,
   waitForElementToBeRemoved,
 } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { userEvent } from '@testing-library/user-event';
 import { withResizeObserverMock } from 'testing-utils/mocks/withResizeObserverMock';
 
-import { render } from '../../testing';
+import { render } from '../../testing.js';
 
-import * as stories from './Menu.stories';
+import * as stories from './Menu.stories.js';
 
 withResizeObserverMock();
 

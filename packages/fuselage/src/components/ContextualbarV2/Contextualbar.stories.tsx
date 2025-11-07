@@ -1,12 +1,12 @@
-import type { StoryFn, Meta } from '@storybook/react-webpack5';
+import type { StoryFn, Meta } from '@storybook/react-vite';
 import type { ComponentType } from 'react';
 import { action } from 'storybook/actions';
 
-import Box from '../Box';
-import Button, { IconButton } from '../Button';
-import { ButtonGroup } from '../ButtonGroup';
-import { Icon } from '../Icon';
-import { InputBox } from '../InputBox';
+import Box from '../Box/index.js';
+import Button, { IconButton } from '../Button/index.js';
+import { ButtonGroup } from '../ButtonGroup/index.js';
+import { Icon } from '../Icon/index.js';
+import { InputBox } from '../InputBox/index.js';
 
 import {
   ContextualbarV2,
@@ -20,7 +20,7 @@ import {
   ContextualbarV2Section,
   ContextualbarV2Skeleton,
   ContextualbarV2Title,
-} from '.';
+} from './index.js';
 
 export default {
   title: 'Containers/ContextualbarV2',

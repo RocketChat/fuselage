@@ -1,1 +1,1 @@
-export { default } from './CodeSnippet';
+export { default } from './CodeSnippet.js';

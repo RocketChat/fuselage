@@ -1,11 +1,11 @@
 import type { ComponentProps, Dispatch, SetStateAction } from 'react';
 import { useState } from 'react';
 
-import type { Icon } from '..';
+import type { Icon } from '../index.js';
 
-import { MultiSelect } from './MultiSelect';
-import type { MultiSelectAnchorParams } from './MultiSelectAnchorParams';
-import MultiSelectFilteredAnchor from './MultiSelectFilteredAnchor';
+import { MultiSelect } from './MultiSelect.js';
+import type { MultiSelectAnchorParams } from './MultiSelectAnchorParams.js';
+import MultiSelectFilteredAnchor from './MultiSelectFilteredAnchor.js';
 
 type MultiSelectFilteredProps = ComponentProps<typeof MultiSelect> & {
   filter?: string;

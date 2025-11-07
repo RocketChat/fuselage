@@ -1,8 +1,10 @@
-import { renderHook, act } from './testing';
+import { it, expect, vi, beforeAll } from 'vitest';
+
+import { renderHook, act } from './testing.ts';
 import { useDebouncedReducer } from './useDebouncedReducer';
 
 beforeAll(() => {
-  jest.useFakeTimers();
+  vi.useFakeTimers();
 });
 
 const delay = 100;
@@ -10,9 +12,9 @@ const delay = 100;
 it('is a debounced state updater', () => {
   const initialState = Symbol('initial');
   const newState = Symbol('new');
-  const reducer = jest.fn(() => newState);
+  const reducer = vi.fn(() => newState);
   const initialArg = initialState;
-  const init = jest.fn((state) => state);
+  const init = vi.fn((state) => state);
 
   const { result } = renderHook(() =>
     useDebouncedReducer(reducer, initialArg, init, delay),
@@ -28,7 +30,7 @@ it('is a debounced state updater', () => {
   expect(result.current[0]).toBe(initialState);
 
   act(() => {
-    jest.advanceTimersByTime(delay);
+    vi.advanceTimersByTime(delay);
   });
 
   expect(reducer).toHaveBeenCalledWith(initialState, undefined);

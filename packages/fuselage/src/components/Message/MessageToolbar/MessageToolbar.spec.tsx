@@ -1,14 +1,19 @@
-import { composeStories } from '@storybook/react-webpack5';
+import { composeStories } from '@storybook/react-vite';
 import { axe } from 'jest-axe';
+import { test, expect, describe } from 'vitest';
 
-import { render } from '../../../testing';
+import { render } from '../../../testing.js';
 
-import * as stories from './MessageToolbar.stories';
+import * as stories from './MessageToolbar.stories.js';
 
 const testCases = Object.values(composeStories(stories)).map((Story) => [
   Story.storyName || 'Story',
   Story,
 ]);
+
+test.afterEach(() => {
+  document.body.innerHTML = '';
+});
 
 describe('[MessageToolbar Rendering]', () => {
   test.each(testCases)(

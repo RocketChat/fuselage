@@ -1,11 +1,11 @@
-import type { StoryFn, Meta } from '@storybook/react-webpack5';
+import type { StoryFn, Meta } from '@storybook/react-vite';
 import type { ComponentType } from 'react';
 import { action } from 'storybook/actions';
 
-import type { SelectOption } from '../Select';
+import type { SelectOption } from '../Select/index.js';
 
-import { MultiSelect } from './MultiSelect';
-import { MultiSelectFiltered } from './MultiSelectFiltered';
+import { MultiSelect } from './MultiSelect.js';
+import { MultiSelectFiltered } from './MultiSelectFiltered.js';
 
 export default {
   title: 'Inputs/MultiSelect',

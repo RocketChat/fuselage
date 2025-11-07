@@ -1,9 +1,9 @@
-import type { StoryFn, Meta } from '@storybook/react-webpack5';
+import type { StoryFn, Meta } from '@storybook/react-vite';
 
-import { IconButton } from '../Button';
-import { ButtonGroup } from '../ButtonGroup';
+import { IconButton } from '../Button/index.js';
+import { ButtonGroup } from '../ButtonGroup/index.js';
 
-import { Divider } from './Divider';
+import { Divider } from './Divider.js';
 
 export default {
   title: 'Data Display/Divider',

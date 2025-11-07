@@ -1,7 +1,8 @@
-/* eslint-disable @typescript-eslint/no-require-imports */
-const mediaQuery = require('css-mediaquery');
+// @ts-check
+import { match } from 'css-mediaquery';
+import { vi, beforeAll, beforeEach, afterEach } from 'vitest';
 
-const withMatchMediaMock = () => {
+export const withMatchMediaMock = () => {
   let viewport = {
     'type': 'screen',
     'width': 1024,
@@ -24,7 +25,7 @@ const withMatchMediaMock = () => {
     }
 
     get matches() {
-      return mediaQuery.match(this._media, viewport);
+      return match(this._media, viewport);
     }
 
     get media() {
@@ -74,10 +75,10 @@ const withMatchMediaMock = () => {
     }
   }
 
-  const matchMediaMock = jest.fn((media) => {
+  const matchMediaMock = vi.fn((media) => {
     const mql = new MediaQueryListMock(media);
-    jest.spyOn(mql, 'addEventListener');
-    jest.spyOn(mql, 'removeEventListener');
+    vi.spyOn(mql, 'addEventListener');
+    vi.spyOn(mql, 'removeEventListener');
     return mql;
   });
 
@@ -112,8 +113,4 @@ const withMatchMediaMock = () => {
   });
 
   return setViewport;
-};
-
-module.exports = {
-  withMatchMediaMock,
 };

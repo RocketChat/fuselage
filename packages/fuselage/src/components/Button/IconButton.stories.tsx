@@ -1,14 +1,14 @@
 import { css } from '@rocket.chat/css-in-js';
-import type { StoryFn, Meta } from '@storybook/react-webpack5';
+import type { StoryFn, Meta } from '@storybook/react-vite';
 
-import { PropsVariationSection } from '../../../.storybook/helpers';
-import { Avatar } from '../Avatar';
-import { Badge } from '../Badge';
-import Box from '../Box/Box';
-import { ButtonGroup } from '../ButtonGroup';
-import { avatarUrl } from '../Message/helpers';
+import { PropsVariationSection } from '../../../.storybook/helpers.js';
+import { Avatar } from '../Avatar/index.js';
+import { Badge } from '../Badge/index.js';
+import Box from '../Box/index.js';
+import { ButtonGroup } from '../ButtonGroup/index.js';
+import { avatarUrl } from '../Message/helpers.js';
 
-import { IconButton } from './IconButton';
+import { IconButton } from './IconButton.js';
 
 export default {
   title: 'Inputs/IconButton',

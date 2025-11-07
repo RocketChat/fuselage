@@ -1,22 +1,22 @@
-import type { StoryFn, Meta } from '@storybook/react-webpack5';
+import type { StoryFn, Meta } from '@storybook/react-vite';
 import { action } from 'storybook/actions';
 
-import { exampleAvatar, menuOptions } from '../../../.storybook/helpers';
-import { Avatar } from '../Avatar';
-import Box from '../Box';
-import { Menu } from '../Menu';
-import { MenuItem, MenuV2 } from '../Menu/V2';
-import { StatusBullet } from '../StatusBullet';
-import Tile from '../Tile';
+import { exampleAvatar, menuOptions } from '../../../.storybook/helpers.js';
+import { Avatar } from '../Avatar/index.js';
+import Box from '../Box/index.js';
+import { MenuItem, MenuV2 } from '../Menu/V2/index.js';
+import { Menu } from '../Menu/index.js';
+import { StatusBullet } from '../StatusBullet/index.js';
+import Tile from '../Tile/index.js';
 
-import Option from './Option';
-import OptionAvatar from './OptionAvatar';
-import OptionColumn from './OptionColumn';
-import OptionContent from './OptionContent';
-import OptionDescription from './OptionDescription';
-import OptionIcon from './OptionIcon';
-import OptionMenu from './OptionMenu';
-import OptionSkeleton from './OptionSkeleton';
+import Option from './Option.js';
+import OptionAvatar from './OptionAvatar.js';
+import OptionColumn from './OptionColumn.js';
+import OptionContent from './OptionContent.js';
+import OptionDescription from './OptionDescription.js';
+import OptionIcon from './OptionIcon.js';
+import OptionMenu from './OptionMenu.js';
+import OptionSkeleton from './OptionSkeleton.js';
 
 export default {
   title: 'Navigation/Option',

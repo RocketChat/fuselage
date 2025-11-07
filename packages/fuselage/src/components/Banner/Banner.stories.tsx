@@ -1,8 +1,8 @@
 import { action } from 'storybook/actions';
 
-import { Icon } from '../Icon';
+import { Icon } from '../Icon/index.js';
 
-import Banner from './Banner';
+import Banner from './Banner.js';
 
 export default {
   title: 'Feedback/Banner',

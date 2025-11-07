@@ -1,3 +1,3 @@
-export { PaginatedSelectFiltered } from './PaginatedSelectFiltered';
-export type { PaginatedMultiSelectOption } from './PaginatedMultiSelect';
-export { PaginatedMultiSelectFiltered } from './PaginatedMultiSelectFiltered';
+export { PaginatedSelectFiltered } from './PaginatedSelectFiltered.js';
+export type { PaginatedMultiSelectOption } from './PaginatedMultiSelect.js';
+export { PaginatedMultiSelectFiltered } from './PaginatedMultiSelectFiltered.js';

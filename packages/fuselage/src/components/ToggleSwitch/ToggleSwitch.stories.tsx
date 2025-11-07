@@ -1,12 +1,12 @@
-import type { StoryFn, Meta } from '@storybook/react-webpack5';
+import type { StoryFn, Meta } from '@storybook/react-vite';
 import { action } from 'storybook/actions';
 
 import {
   DECORATOR_LABEL,
   PropsVariationSection,
-} from '../../../.storybook/helpers';
+} from '../../../.storybook/helpers.js';
 
-import { ToggleSwitch } from './ToggleSwitch';
+import { ToggleSwitch } from './ToggleSwitch.js';
 
 export default {
   title: 'Inputs/ToggleSwitch',

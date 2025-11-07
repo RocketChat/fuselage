@@ -1,8 +1,8 @@
-import type { StoryFn, Meta } from '@storybook/react-webpack5';
+import type { StoryFn, Meta } from '@storybook/react-vite';
 
-import { Divider } from '../Divider';
+import { Divider } from '../Divider/index.js';
 
-import Box from './Box';
+import Box from './Box.js';
 
 export default {
   title: 'Layout/Box/Typography',

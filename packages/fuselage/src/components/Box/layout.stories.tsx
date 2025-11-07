@@ -1,10 +1,10 @@
-import type { StoryFn, Meta, StoryContext } from '@storybook/react-webpack5';
+import type { StoryFn, Meta, StoryContext } from '@storybook/react-vite';
 import { cloneElement } from 'react';
-import flattenChildren from 'react-keyed-flatten-children';
 
-import { Divider } from '../Divider';
+import { flattenChildren } from '../../helpers/flattenChildren.js';
+import { Divider } from '../Divider/Divider.js';
 
-import Box from './Box';
+import Box from './Box.js';
 
 export default {
   title: 'Layout/Box/Layout',

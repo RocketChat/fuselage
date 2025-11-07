@@ -1,8 +1,8 @@
-import type { StoryFn, Meta } from '@storybook/react-webpack5';
+import type { StoryFn, Meta } from '@storybook/react-vite';
 
-import Button from '../Button';
+import Button from '../Button/index.js';
 
-import Box from './Box';
+import Box from './Box.js';
 
 export default {
   title: 'Layout/Box/is',

@@ -1,7 +1,7 @@
 import type { Keys } from '@rocket.chat/icons';
 import type { AllHTMLAttributes } from 'react';
 
-import { Icon } from '../Icon';
+import { Icon } from '../Icon/index.js';
 
 type FramedIconProps = {
   info?: boolean;

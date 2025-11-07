@@ -1,16 +1,18 @@
 import { Button } from '@rocket.chat/fuselage';
-import type { Meta, StoryFn } from '@storybook/react-webpack5';
+import type { Meta, StoryFn } from '@storybook/react-vite';
 import { useEffect, useState } from 'react';
 
-import { useToastBarDispatch } from './ToastBarContext';
+import { useToastBarDispatch } from './ToastBarContext.js';
 
-export default {
+const meta: Meta = {
   title: 'view/ToastBar',
   parameters: {
     layout: 'centered',
     actions: { argTypesRegex: '^on.*' },
   },
-} satisfies Meta;
+};
+
+export default meta;
 
 const DEFAULT_MESSAGE = 'Lorem Ipsum';
 

@@ -1,6 +1,7 @@
 import { render } from '@testing-library/react';
+import { it } from 'vitest';
 
-import RegisterOfflineForm from './RegisterOfflineForm';
+import RegisterOfflineForm from './RegisterOfflineForm.js';
 
 it('renders without crashing', () => {
   render(

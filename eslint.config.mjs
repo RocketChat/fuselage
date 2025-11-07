@@ -545,11 +545,6 @@ export default tseslint.config(
   },
   {
     files: ['tools/testing-utils/**/*.js'],
-    languageOptions: {
-      globals: {
-        ...globals.jest,
-      },
-    },
   },
   storybook.configs['flat/recommended'],
 );

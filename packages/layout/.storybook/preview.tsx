@@ -1,16 +1,17 @@
 import { PaletteStyleTag } from '@rocket.chat/fuselage';
-import surface from '@rocket.chat/fuselage-tokens/dist/surface.json';
-import type { Preview } from '@storybook/react-webpack5';
+import surface from '@rocket.chat/fuselage-tokens/dist/surface.json' with { type: 'json' };
+import type { Preview } from '@storybook/react-vite';
 import { Suspense } from 'react';
 import { themes } from 'storybook/theming';
 import { useDarkMode } from 'storybook-dark-mode';
 
-import manifest from '../package.json';
-import DarkModeProvider from '../src/DarkModeProvider';
+import manifest from '../package.json' with { type: 'json' };
+import DarkModeProvider from '../src/DarkModeProvider.js';
 
-import DocsContainer from './DocsContainer';
+import DocsContainer from './DocsContainer.js';
 import logo from './logo.svg';
 
+// eslint-disable-next-line import-x/no-unresolved
 import '@rocket.chat/fuselage/dist/fuselage.css';
 import '@rocket.chat/icons/dist/rocketchat.css';
 

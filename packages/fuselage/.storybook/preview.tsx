@@ -1,13 +1,13 @@
-import breakpointTokens from '@rocket.chat/fuselage-tokens/breakpoints.json';
-import surface from '@rocket.chat/fuselage-tokens/dist/surface.json';
-import type { Preview } from '@storybook/react-webpack5';
+import breakpointTokens from '@rocket.chat/fuselage-tokens/breakpoints.json' with { type: 'json' };
+import surface from '@rocket.chat/fuselage-tokens/dist/surface.json' with { type: 'json' };
+import type { Preview } from '@storybook/react-vite';
 import { themes } from 'storybook/theming';
 import { useDarkMode } from 'storybook-dark-mode';
 
-import manifest from '../package.json';
-import { PaletteStyleTag } from '../src';
+import manifest from '../package.json' with { type: 'json' };
+import { PaletteStyleTag } from '../src/index.js';
 
-import DocsContainer from './DocsContainer';
+import DocsContainer from './DocsContainer.js';
 import logo from './logo.svg';
 
 import 'normalize.css/normalize.css';
@@ -40,7 +40,7 @@ export default {
       },
     },
     viewport: {
-      viewports: breakpointTokens.reduce(
+      options: breakpointTokens.reduce(
         (obj, { name, minViewportWidth }) => ({
           ...obj,
           [name]: {

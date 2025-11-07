@@ -1,6 +1,6 @@
-import { Grid } from './Grid';
+import { Grid } from './Grid.js';
 
-export * from './Grid';
-export * from './GridItem';
+export * from './Grid.js';
+export * from './GridItem.js';
 
 export default Grid;

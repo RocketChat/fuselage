@@ -1,4 +1,6 @@
-import { renderHook } from './testing';
+import { it, expect } from 'vitest';
+
+import { renderHook } from './testing.ts';
 import { useResizeObserver } from './useResizeObserver';
 
 it('immediately returns undefined sizes', () => {

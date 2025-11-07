@@ -1,9 +1,9 @@
 import type { ButtonHTMLAttributes, ReactNode } from 'react';
 
-import { Avatar, Box } from '..';
-import { prependClassName } from '../../helpers/prependClassName';
-import { Icon } from '../Icon';
-import Margins from '../Margins';
+import { prependClassName } from '../../helpers/prependClassName.js';
+import { Icon } from '../Icon/index.js';
+import Margins from '../Margins/index.js';
+import { Avatar, Box } from '../index.js';
 
 type ChipProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type'> & {
   thumbUrl?: string;

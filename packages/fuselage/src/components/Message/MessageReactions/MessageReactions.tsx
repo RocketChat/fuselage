@@ -1,7 +1,7 @@
 import type { HTMLAttributes, Ref } from 'react';
 import { forwardRef } from 'react';
 
-import { MessageBlock } from '../MessageBlock';
+import { MessageBlock } from '../MessageBlock.js';
 
 export const MessageReactions = forwardRef(function MessageReactions(
   props: HTMLAttributes<HTMLDivElement>,

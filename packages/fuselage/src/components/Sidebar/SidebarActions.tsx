@@ -1,8 +1,8 @@
 import type { ComponentProps, Ref } from 'react';
 import { forwardRef } from 'react';
 
-import { IconButton } from '../Button';
-import { ButtonGroup } from '../ButtonGroup';
+import { IconButton } from '../Button/index.js';
+import { ButtonGroup } from '../ButtonGroup/index.js';
 
 type SidebarActionsProps = ComponentProps<typeof ButtonGroup>;
 

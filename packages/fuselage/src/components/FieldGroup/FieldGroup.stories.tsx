@@ -1,9 +1,9 @@
-import type { StoryFn, Meta } from '@storybook/react-webpack5';
+import type { StoryFn, Meta } from '@storybook/react-vite';
 
-import { Field, FieldHint, FieldLabel, FieldRow } from '../Field';
-import { InputBoxSkeleton } from '../InputBox';
+import { Field, FieldHint, FieldLabel, FieldRow } from '../Field/index.js';
+import { InputBoxSkeleton } from '../InputBox/index.js';
 
-import { FieldGroup } from './FieldGroup';
+import { FieldGroup } from './FieldGroup.js';
 
 export default {
   title: 'Inputs/FieldGroup',

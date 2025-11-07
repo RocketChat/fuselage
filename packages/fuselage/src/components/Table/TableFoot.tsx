@@ -1,6 +1,6 @@
-import Box from '../Box';
+import Box from '../Box/index.js';
 
-import type { TableProps } from './Table';
+import type { TableProps } from './Table.js';
 
 type TableFootProps = TableProps;
 

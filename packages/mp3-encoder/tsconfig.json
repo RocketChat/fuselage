@@ -1,13 +1,13 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "rootDir": "./src",
-    "module": "ESNext",
-    "lib": ["ES2015", "WebWorker"],
+    "target": "esnext",
+    "module": "nodenext",
+    "lib": ["es2024", "WebWorker", "WebWorker.AsyncIterable"],
     "outDir": "./dist",
     "esModuleInterop": true,
-    "moduleResolution": "node",
+    "moduleResolution": "nodenext",
     "skipLibCheck": true
   },
-  "include": ["src"]
+  "include": ["src", "./vitest.setup.ts", "./vite.config.ts"]
 }

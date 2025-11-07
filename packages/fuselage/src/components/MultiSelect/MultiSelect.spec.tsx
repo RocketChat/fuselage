@@ -1,9 +1,9 @@
-import { composeStories } from '@storybook/react-webpack5';
+import { composeStories } from '@storybook/react-vite';
 import { withResizeObserverMock } from 'testing-utils/mocks/withResizeObserverMock';
 
-import { render } from '../../testing';
+import { render } from '../../testing.js';
 
-import * as stories from './MultiSelect.stories';
+import * as stories from './MultiSelect.stories.js';
 
 const { Default } = composeStories(stories);
 

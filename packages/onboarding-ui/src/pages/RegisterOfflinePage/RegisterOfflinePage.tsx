@@ -2,10 +2,10 @@ import { BackgroundLayer } from '@rocket.chat/layout';
 import type { ReactElement } from 'react';
 import type { SubmitHandler } from 'react-hook-form';
 
-import type { FormPageLayoutStyleProps } from '../../Types';
-import FormPageLayout from '../../common/FormPageLayout';
-import RegisterOfflineForm from '../../forms/RegisterOfflineForm';
-import type { RegisterOfflinePayload } from '../../forms/RegisterOfflineForm/RegisterOfflineForm';
+import type { FormPageLayoutStyleProps } from '../../Types/index.js';
+import FormPageLayout from '../../common/FormPageLayout.js';
+import type { RegisterOfflinePayload } from '../../forms/RegisterOfflineForm/RegisterOfflineForm.js';
+import RegisterOfflineForm from '../../forms/RegisterOfflineForm/index.js';
 
 type RegisterOfflinePageProps = {
   termsHref: string;

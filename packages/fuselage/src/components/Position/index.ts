@@ -1,1 +1,1 @@
-export { default } from './Position';
+export { default } from './Position.js';

@@ -1,11 +1,11 @@
-import type { Meta, StoryFn } from '@storybook/react-webpack5';
+import type { Meta, StoryFn } from '@storybook/react-vite';
 import { useRef } from 'react';
 
-import Box from '../Box';
-import { IconButton } from '../Button';
-import { Option } from '../Option';
+import Box from '../Box/index.js';
+import { IconButton } from '../Button/index.js';
+import { Option } from '../Option/index.js';
 
-import { Dropdown } from './Dropdown';
+import { Dropdown } from './Dropdown.js';
 
 export default {
   title: 'Navigation/Dropdown',

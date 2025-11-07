@@ -1,4 +1,4 @@
-import type { StoryFn, Meta } from '@storybook/react-webpack5';
+import type { StoryFn, Meta } from '@storybook/react-vite';
 
 import {
   SidebarV2 as Sidebar,
@@ -7,8 +7,8 @@ import {
   SidebarV2MediaController as SidebarMediaController,
   Box,
   IconButton,
-} from '../..';
-import { GenericCallItem } from '../helpers';
+} from '../../index.js';
+import { GenericCallItem } from '../helpers.js';
 
 export default {
   title: 'Navigation/SidebarV2/Media',

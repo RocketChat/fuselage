@@ -1,7 +1,7 @@
 @use '../colors.scss';
 @use 'sass:map';
-@use '~@rocket.chat/fuselage-tokens/dist/button.scss';
-@use '~@rocket.chat/fuselage-tokens/dist/stroke.scss';
+@use '@rocket.chat/fuselage-tokens/dist/button.scss';
+@use '@rocket.chat/fuselage-tokens/dist/stroke.scss';
 @import './button-colors.scss';
 
 @function -color($type, $name, $value) {

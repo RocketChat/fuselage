@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`[PaginatedSelectFiltered Component] renders Disabled without crashing 1`] = `
+exports[`[PaginatedSelectFiltered Component] > renders Disabled without crashing 1`] = `
 <body>
   <div>
     <div
@@ -33,7 +33,7 @@ exports[`[PaginatedSelectFiltered Component] renders Disabled without crashing 1
 </body>
 `;
 
-exports[`[PaginatedSelectFiltered Component] renders Errored without crashing 1`] = `
+exports[`[PaginatedSelectFiltered Component] > renders Errored without crashing 1`] = `
 <body>
   <div>
     <div
@@ -64,7 +64,7 @@ exports[`[PaginatedSelectFiltered Component] renders Errored without crashing 1`
 </body>
 `;
 
-exports[`[PaginatedSelectFiltered Component] renders Normal without crashing 1`] = `
+exports[`[PaginatedSelectFiltered Component] > renders Normal without crashing 1`] = `
 <body>
   <div>
     <div
@@ -95,7 +95,7 @@ exports[`[PaginatedSelectFiltered Component] renders Normal without crashing 1`]
 </body>
 `;
 
-exports[`[PaginatedSelectFiltered Component] renders WithRenderItem without crashing 1`] = `
+exports[`[PaginatedSelectFiltered Component] > renders WithRenderItem without crashing 1`] = `
 <body>
   <div>
     <div

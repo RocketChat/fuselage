@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   plugins: [
     ['@babel/plugin-transform-private-property-in-object', { loose: true }],
     ['@babel/plugin-transform-private-methods', { loose: true }],

@@ -1,7 +1,7 @@
 import type { ReactNode, Ref } from 'react';
 import { forwardRef } from 'react';
 
-import { InputBox, type InputBoxProps } from '../InputBox';
+import { InputBox, type InputBoxProps } from '../InputBox/index.js';
 
 type SearchInputProps = Omit<InputBoxProps, 'type'> & {
   addon?: ReactNode;

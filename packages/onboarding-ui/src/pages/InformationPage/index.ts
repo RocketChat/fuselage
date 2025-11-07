@@ -1,1 +1,1 @@
-export { default } from './InformationPage';
+export { default } from './InformationPage.js';

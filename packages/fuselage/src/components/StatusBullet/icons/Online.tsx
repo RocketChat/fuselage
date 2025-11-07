@@ -1,4 +1,4 @@
-import type { StatusBulletProps } from '../StatusBullet';
+import type { StatusBulletProps } from '../StatusBullet.js';
 
 const Online = ({ size, className, ...props }: StatusBulletProps) => (
   <svg

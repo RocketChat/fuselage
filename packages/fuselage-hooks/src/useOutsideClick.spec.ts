@@ -1,14 +1,15 @@
-import userEvent from '@testing-library/user-event';
+import { userEvent } from '@testing-library/user-event';
 import type { MutableRefObject } from 'react';
+import { it, expect, vi } from 'vitest';
 
-import { renderHook } from './testing';
+import { renderHook } from './testing.ts';
 import { useOutsideClick } from './useOutsideClick';
 
 it('it should call the callback when the user clicked outside the element', async () => {
   const ref: MutableRefObject<HTMLElement> = {
     current: document.createElement('div'),
   };
-  const cb = jest.fn();
+  const cb = vi.fn();
   renderHook(() => useOutsideClick([ref], cb));
 
   const sibling = document.createElement('div');
@@ -26,7 +27,7 @@ it('it should call the callback when the user clicked outside the elements', asy
     current: document.createElement('div'),
   };
   const ref2: MutableRefObject<HTMLElement | null> = { current: null };
-  const cb = jest.fn();
+  const cb = vi.fn();
   renderHook(() => useOutsideClick([ref, ref2], cb));
 
   const element2 = document.createElement('div');
@@ -46,7 +47,7 @@ it('it should not call the callback when the user clicked inside the element', a
   const ref: MutableRefObject<HTMLElement> = {
     current: document.createElement('div'),
   };
-  const cb = jest.fn();
+  const cb = vi.fn();
   renderHook(() => useOutsideClick([ref], cb));
 
   document.body.appendChild(ref.current);
@@ -61,7 +62,7 @@ it('it should not call the callback when the user clicked inside the elements', 
     current: document.createElement('div'),
   };
   const ref2: MutableRefObject<HTMLElement | null> = { current: null };
-  const cb = jest.fn();
+  const cb = vi.fn();
   renderHook(() => useOutsideClick([ref, ref2], cb));
   const element2 = document.createElement('div');
   ref2.current = element2;
@@ -78,7 +79,7 @@ it('it should not call the callback when the user clicked inside the element and
   const ref: MutableRefObject<HTMLElement> = {
     current: document.createElement('div'),
   };
-  const cb = jest.fn();
+  const cb = vi.fn();
   renderHook(() => useOutsideClick([ref], cb));
   const child = document.createElement('div');
 
@@ -96,7 +97,7 @@ it('it should not call the callback when the user clicked inside of some given e
     current: document.createElement('div'),
   };
   const ref2: MutableRefObject<HTMLElement | null> = { current: null };
-  const cb = jest.fn();
+  const cb = vi.fn();
   renderHook(() => useOutsideClick([ref, ref2], cb));
   const element2 = document.createElement('div');
   const child = document.createElement('div');

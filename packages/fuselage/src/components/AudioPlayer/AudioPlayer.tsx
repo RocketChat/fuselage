@@ -2,8 +2,8 @@ import { useMergedRefs, useResizeObserver } from '@rocket.chat/fuselage-hooks';
 import type { TrackHTMLAttributes } from 'react';
 import { useState, useRef, forwardRef } from 'react';
 
-import { Box, Button, IconButton, Margins } from '../..';
-import { Slider } from '../Slider';
+import { Box, Button, IconButton, Margins } from '../../index.js';
+import { Slider } from '../Slider/Slider.js';
 
 const getMaskTime = (durationTime: number) =>
   new Date(durationTime * 1000)

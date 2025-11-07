@@ -1,6 +1,6 @@
 import type { ComponentProps } from 'react';
 
-import { StatusBullet } from '../../StatusBullet';
+import { StatusBullet } from '../../StatusBullet/index.js';
 
 export const SidebarItemStatusBullet = (
   props: ComponentProps<typeof StatusBullet>,

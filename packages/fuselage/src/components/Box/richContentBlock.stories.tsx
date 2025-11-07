@@ -1,6 +1,6 @@
-import type { StoryFn, Meta } from '@storybook/react-webpack5';
+import type { StoryFn, Meta } from '@storybook/react-vite';
 
-import Box from './Box';
+import Box from './Box.js';
 
 export default {
   title: 'Layout/Box/Rich content/Block',

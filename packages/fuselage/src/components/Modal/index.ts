@@ -1,17 +1,17 @@
-import { Modal } from './Modal';
-import { ModalBackdrop } from './ModalBackdrop';
-import { ModalClose } from './ModalClose';
-import { ModalContent } from './ModalContent';
-import { ModalFooter } from './ModalFooter';
-import { ModalFooterAnnotation } from './ModalFooterAnnotation';
-import { ModalFooterControllers } from './ModalFooterControllers';
-import { ModalHeader } from './ModalHeader';
-import { ModalHeaderText } from './ModalHeaderText';
-import { ModalHeroImage } from './ModalHeroImage';
-import { ModalIcon } from './ModalIcon';
-import { ModalTagline } from './ModalTagline';
-import { ModalThumb } from './ModalThumb';
-import { ModalTitle } from './ModalTitle';
+import { Modal } from './Modal.js';
+import { ModalBackdrop } from './ModalBackdrop.js';
+import { ModalClose } from './ModalClose.js';
+import { ModalContent } from './ModalContent.js';
+import { ModalFooter } from './ModalFooter.js';
+import { ModalFooterAnnotation } from './ModalFooterAnnotation.js';
+import { ModalFooterControllers } from './ModalFooterControllers.js';
+import { ModalHeader } from './ModalHeader.js';
+import { ModalHeaderText } from './ModalHeaderText.js';
+import { ModalHeroImage } from './ModalHeroImage.js';
+import { ModalIcon } from './ModalIcon.js';
+import { ModalTagline } from './ModalTagline.js';
+import { ModalThumb } from './ModalThumb.js';
+import { ModalTitle } from './ModalTitle.js';
 
 export {
   Modal,

@@ -1,11 +1,11 @@
-import type { Meta, StoryFn } from '@storybook/react-webpack5';
+import type { Meta, StoryFn } from '@storybook/react-vite';
 import type { ComponentProps } from 'react';
 import { createRef } from 'react';
 
-import Box from '../Box';
-import { Option } from '../Option';
+import Box from '../Box/index.js';
+import { Option } from '../Option/index.js';
 
-import { CheckOption, OptionsPaginated } from './OptionsPaginated';
+import { CheckOption, OptionsPaginated } from './OptionsPaginated.js';
 
 export default {
   title: 'Navigation/Options/OptionsPaginated',

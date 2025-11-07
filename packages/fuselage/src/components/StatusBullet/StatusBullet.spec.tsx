@@ -1,6 +1,6 @@
-import { render } from '../../testing';
+import { render } from '../../testing.js';
 
-import { StatusBullet } from './StatusBullet';
+import { StatusBullet } from './StatusBullet.js';
 
 describe('[StatusBullet Component]', () => {
   it('renders without crashing', () => {

@@ -1,6 +1,6 @@
 import type { ComponentProps } from 'react';
 
-import type { MessageName } from '../MessageName';
+import type { MessageName } from '../MessageName.js';
 
 type MessageSystemNameProps = ComponentProps<typeof MessageName>;
 

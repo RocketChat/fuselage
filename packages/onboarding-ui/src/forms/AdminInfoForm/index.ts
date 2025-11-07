@@ -1,1 +1,1 @@
-export { default } from './AdminInfoForm';
+export { default } from './AdminInfoForm.js';

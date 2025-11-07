@@ -1,4 +1,4 @@
-import typography from '@rocket.chat/fuselage-tokens/dist/typography.json';
+import typography from '@rocket.chat/fuselage-tokens/dist/typography.json' with { type: 'json' };
 
 const getTokenFontFamily = (
   name: keyof typeof typography.fontFamilies,

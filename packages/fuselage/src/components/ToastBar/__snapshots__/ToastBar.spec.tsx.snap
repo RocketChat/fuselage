@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`[ToastBar Rendering] renders Default without crashing 1`] = `
+exports[`[ToastBar Rendering] > renders Default without crashing 1`] = `
 <body>
   <div>
     <div
@@ -32,7 +32,7 @@ exports[`[ToastBar Rendering] renders Default without crashing 1`] = `
 </body>
 `;
 
-exports[`[ToastBar Rendering] renders Error without crashing 1`] = `
+exports[`[ToastBar Rendering] > renders Error without crashing 1`] = `
 <body>
   <div>
     <div
@@ -64,7 +64,7 @@ exports[`[ToastBar Rendering] renders Error without crashing 1`] = `
 </body>
 `;
 
-exports[`[ToastBar Rendering] renders Success without crashing 1`] = `
+exports[`[ToastBar Rendering] > renders Success without crashing 1`] = `
 <body>
   <div>
     <div
@@ -96,7 +96,7 @@ exports[`[ToastBar Rendering] renders Success without crashing 1`] = `
 </body>
 `;
 
-exports[`[ToastBar Rendering] renders TinyText without crashing 1`] = `
+exports[`[ToastBar Rendering] > renders TinyText without crashing 1`] = `
 <body>
   <div>
     <div
@@ -126,7 +126,7 @@ exports[`[ToastBar Rendering] renders TinyText without crashing 1`] = `
 </body>
 `;
 
-exports[`[ToastBar Rendering] renders WithCloseButton without crashing 1`] = `
+exports[`[ToastBar Rendering] > renders WithCloseButton without crashing 1`] = `
 <body>
   <div>
     <div

@@ -1,10 +1,10 @@
-import type { StoryFn, Meta } from '@storybook/react-webpack5';
+import type { StoryFn, Meta } from '@storybook/react-vite';
 import { action } from 'storybook/actions';
 
-import Box from '../Box';
-import { Icon } from '../Icon';
+import Box from '../Box/index.js';
+import { Icon } from '../Icon/index.js';
 
-import { Input, InputBox, InputBoxSkeleton } from '.';
+import { Input, InputBox, InputBoxSkeleton } from './index.js';
 
 export default {
   title: 'Inputs/InputBox',

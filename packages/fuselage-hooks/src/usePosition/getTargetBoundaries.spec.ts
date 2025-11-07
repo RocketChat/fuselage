@@ -1,4 +1,5 @@
 import { withResizeObserverMock } from 'testing-utils/mocks/withResizeObserverMock';
+import { it, expect } from 'vitest';
 
 import { getTargetBoundaries } from './getTargetBoundaries';
 

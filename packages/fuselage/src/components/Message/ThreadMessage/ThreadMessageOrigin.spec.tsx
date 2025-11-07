@@ -1,8 +1,9 @@
 import { screen } from '@testing-library/react';
+import { describe, it, expect } from 'vitest';
 
-import { render } from '../../../testing';
+import { render } from '../../../testing.js';
 
-import { ThreadMessageOrigin } from './ThreadMessageOrigin';
+import { ThreadMessageOrigin } from './ThreadMessageOrigin.js';
 
 describe('ThreadMessageOrigin', () => {
   it('renders without crashing', () => {

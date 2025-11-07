@@ -1,6 +1,6 @@
-import { render } from '../../testing';
+import { render } from '../../testing.js';
 
-import Tile from './Tile';
+import Tile from './Tile.js';
 
 describe('[Tile Component]', () => {
   it('renders without crashing', () => {

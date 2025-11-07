@@ -1,11 +1,11 @@
-import type { StoryFn, Meta } from '@storybook/react-webpack5';
+import type { StoryFn, Meta } from '@storybook/react-vite';
 
-import Box from '../Box';
-import Button from '../Button';
-import { ButtonGroup } from '../ButtonGroup';
-import Tile from '../Tile';
+import Box from '../Box/index.js';
+import Button from '../Button/index.js';
+import { ButtonGroup } from '../ButtonGroup/index.js';
+import Tile from '../Tile/index.js';
 
-import { Margins } from './Margins';
+import { Margins } from './Margins.js';
 
 export default {
   title: 'Layout/Margins',

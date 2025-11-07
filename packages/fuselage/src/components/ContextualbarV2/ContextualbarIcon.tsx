@@ -1,7 +1,7 @@
 import type { ReactElement, ComponentProps } from 'react';
 import { memo } from 'react';
 
-import { Icon } from '..';
+import { Icon } from '../index.js';
 
 const ContextualbarIcon = (
   props: ComponentProps<typeof Icon>,

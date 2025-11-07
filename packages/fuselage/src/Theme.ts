@@ -1,7 +1,7 @@
-import tokenColors from '@rocket.chat/fuselage-tokens/colors.json';
+import tokenColors from '@rocket.chat/fuselage-tokens/colors.json' with { type: 'json' };
 
-import { getPaletteColor } from './getPaletteColor';
-import { toCSSColorValue } from './helpers/toCSSValue';
+import { getPaletteColor } from './getPaletteColor.js';
+import { toCSSColorValue } from './helpers/toCSSValue.js';
 
 export class Var {
   private name: string;

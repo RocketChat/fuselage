@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`[CardGrid Rendering] renders _CardGrid without crashing 1`] = `
+exports[`[CardGrid Rendering] > renders _CardGrid without crashing 1`] = `
 <body>
   <div>
     <div

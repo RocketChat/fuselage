@@ -1,7 +1,7 @@
 import type { ReactNode, Ref } from 'react';
 import { forwardRef } from 'react';
 
-import { Box, Tile } from '..';
+import { Box, Tile } from '../index.js';
 
 export const DropdownMobile = forwardRef(function DropdownMobile<
   R extends HTMLElement,

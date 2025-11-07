@@ -1,11 +1,11 @@
-import type { Meta } from '@storybook/react-webpack5';
+import type { Meta } from '@storybook/react-vite';
 import type { ComponentType } from 'react';
 
-import { BasicMessageTemplate } from '../helpers';
+import { BasicMessageTemplate } from '../helpers.js';
 
-import { MessageReaction } from './MessageReaction';
-import { MessageReactionAction } from './MessageReactionAction';
-import { MessageReactions } from './MessageReactions';
+import { MessageReaction } from './MessageReaction.js';
+import { MessageReactionAction } from './MessageReactionAction.js';
+import { MessageReactions } from './MessageReactions.js';
 
 export default {
   title: 'Message/MessageReactions',

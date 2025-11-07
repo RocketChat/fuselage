@@ -1,10 +1,10 @@
-import { composeStories } from '@storybook/react-webpack5';
+import { composeStories } from '@storybook/react-vite';
 import { axe } from 'jest-axe';
 import { SSRProvider } from 'react-aria';
 
-import { render } from '../../testing';
+import { render } from '../../testing.js';
 
-import * as stories from './NavBar.stories';
+import * as stories from './NavBar.stories.js';
 
 const testCases = Object.values(composeStories(stories)).map((Story) => [
   Story.storyName || 'Story',

@@ -1,11 +1,13 @@
-import { dirname, join } from 'path';
+import { createRequire } from 'node:module';
+import { dirname, join } from 'node:path';
 
-import type { StorybookConfig } from '@storybook/react-webpack5';
+import type { StorybookConfig } from '@storybook/react-vite';
+
+const require = createRequire(import.meta.url);
 
 export default {
   addons: [
     getAbsolutePath('storybook-dark-mode'),
-    getAbsolutePath('@storybook/addon-webpack5-compiler-swc'),
     getAbsolutePath('@storybook/addon-a11y'),
     getAbsolutePath('@storybook/addon-docs'),
   ],
@@ -13,10 +15,7 @@ export default {
 
   stories: ['../src/**/*.stories.tsx', '../src/**/stories.tsx'],
 
-  framework: {
-    name: getAbsolutePath('@storybook/react-webpack5'),
-    options: {},
-  },
+  framework: '@storybook/react-vite',
   swc: () => ({
     jsc: {
       transform: {

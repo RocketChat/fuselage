@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`[CheckBox Rendering] renders CustomIcon without crashing 1`] = `
+exports[`[CheckBox Rendering] > renders CustomIcon without crashing 1`] = `
 <body>
   <div>
     <section
@@ -35,7 +35,7 @@ exports[`[CheckBox Rendering] renders CustomIcon without crashing 1`] = `
 </body>
 `;
 
-exports[`[CheckBox Rendering] renders Danger without crashing 1`] = `
+exports[`[CheckBox Rendering] > renders Danger without crashing 1`] = `
 <body>
   <div>
     <section
@@ -70,7 +70,7 @@ exports[`[CheckBox Rendering] renders Danger without crashing 1`] = `
 </body>
 `;
 
-exports[`[CheckBox Rendering] renders Default without crashing 1`] = `
+exports[`[CheckBox Rendering] > renders Default without crashing 1`] = `
 <body>
   <div>
     <section
@@ -105,7 +105,7 @@ exports[`[CheckBox Rendering] renders Default without crashing 1`] = `
 </body>
 `;
 
-exports[`[CheckBox Rendering] renders Info without crashing 1`] = `
+exports[`[CheckBox Rendering] > renders Info without crashing 1`] = `
 <body>
   <div>
     <section
@@ -140,7 +140,7 @@ exports[`[CheckBox Rendering] renders Info without crashing 1`] = `
 </body>
 `;
 
-exports[`[CheckBox Rendering] renders Success without crashing 1`] = `
+exports[`[CheckBox Rendering] > renders Success without crashing 1`] = `
 <body>
   <div>
     <section
@@ -175,7 +175,7 @@ exports[`[CheckBox Rendering] renders Success without crashing 1`] = `
 </body>
 `;
 
-exports[`[CheckBox Rendering] renders Warning without crashing 1`] = `
+exports[`[CheckBox Rendering] > renders Warning without crashing 1`] = `
 <body>
   <div>
     <section
@@ -210,7 +210,7 @@ exports[`[CheckBox Rendering] renders Warning without crashing 1`] = `
 </body>
 `;
 
-exports[`[CheckBox Rendering] renders WithActions without crashing 1`] = `
+exports[`[CheckBox Rendering] > renders WithActions without crashing 1`] = `
 <body>
   <div>
     <section
@@ -274,7 +274,7 @@ exports[`[CheckBox Rendering] renders WithActions without crashing 1`] = `
 </body>
 `;
 
-exports[`[CheckBox Rendering] renders WithDescriptionOnly without crashing 1`] = `
+exports[`[CheckBox Rendering] > renders WithDescriptionOnly without crashing 1`] = `
 <body>
   <div>
     <section

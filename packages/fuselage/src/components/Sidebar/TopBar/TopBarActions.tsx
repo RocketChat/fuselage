@@ -1,7 +1,7 @@
 import type { ComponentProps, Ref } from 'react';
 import { forwardRef } from 'react';
 
-import { SidebarActions } from '../SidebarActions';
+import { SidebarActions } from '../SidebarActions.js';
 
 type TopBarActionsProps = ComponentProps<typeof SidebarActions>;
 

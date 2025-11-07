@@ -1,7 +1,7 @@
 import type { ComponentProps } from 'react';
 
-import Box from '../Box/Box';
-import { Icon } from '../Icon';
+import Box from '../Box/index.js';
+import { Icon } from '../Icon/index.js';
 
 type LabelInfoProps = {
   title: string;

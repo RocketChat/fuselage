@@ -1,8 +1,9 @@
 import { screen } from '@testing-library/react';
+import { describe, it, expect } from 'vitest';
 
-import { render } from '../../../testing';
+import { render } from '../../../testing.js';
 
-import { MessageGenericPreviewImage } from './MessageGenericPreviewImage';
+import { MessageGenericPreviewImage } from './MessageGenericPreviewImage.js';
 
 describe('MessageGenericPreviewImage', () => {
   it('renders without crashing', () => {

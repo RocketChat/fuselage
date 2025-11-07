@@ -1,4 +1,6 @@
-import { createAnimationName, createClassName, escapeName } from './names';
+import { describe, it, expect } from 'vitest';
+
+import { createAnimationName, createClassName, escapeName } from './names.js';
 
 describe('names', () => {
   describe('createAnimationName', () => {

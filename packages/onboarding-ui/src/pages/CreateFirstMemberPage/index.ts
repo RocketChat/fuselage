@@ -1,1 +1,1 @@
-export { default } from './CreateFirstMemberPage';
+export { default } from './CreateFirstMemberPage.js';

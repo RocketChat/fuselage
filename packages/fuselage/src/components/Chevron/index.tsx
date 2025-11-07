@@ -1,1 +1,1 @@
-export * from './Chevron';
+export * from './Chevron.js';

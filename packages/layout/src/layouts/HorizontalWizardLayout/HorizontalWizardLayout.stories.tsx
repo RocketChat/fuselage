@@ -7,9 +7,9 @@ import {
   FieldRow,
   InputBoxSkeleton,
 } from '@rocket.chat/fuselage';
-import type { Meta, StoryFn } from '@storybook/react-webpack5';
+import type { Meta, StoryFn } from '@storybook/react-vite';
 
-import ActionLink from '../../components/ActionLink/ActionLink';
+import ActionLink from '../../components/ActionLink/ActionLink.js';
 import {
   Form,
   FormHeader,
@@ -17,15 +17,15 @@ import {
   FormContainer,
   FormTitle,
   FormSubtitle,
-} from '../../components/FormPageLayout';
+} from '../../components/FormPageLayout/index.js';
 
-import HorizontalWizardLayout from './HorizontalWizardLayout';
-import HorizontalWizardLayoutAside from './HorizontalWizardLayoutAside';
-import HorizontalWizardLayoutContent from './HorizontalWizardLayoutContent';
-import HorizontalWizardLayoutDescription from './HorizontalWizardLayoutDescription';
-import HorizontalWizardLayoutSubtitle from './HorizontalWizardLayoutSubtitle';
-import HorizontalWizardLayoutTitle from './HorizontalWizardLayoutTitle';
-import HorizontalWizardTextHighlight from './HorizontalWizardTextHighlight';
+import HorizontalWizardLayout from './HorizontalWizardLayout.js';
+import HorizontalWizardLayoutAside from './HorizontalWizardLayoutAside.js';
+import HorizontalWizardLayoutContent from './HorizontalWizardLayoutContent.js';
+import HorizontalWizardLayoutDescription from './HorizontalWizardLayoutDescription.js';
+import HorizontalWizardLayoutSubtitle from './HorizontalWizardLayoutSubtitle.js';
+import HorizontalWizardLayoutTitle from './HorizontalWizardLayoutTitle.js';
+import HorizontalWizardTextHighlight from './HorizontalWizardTextHighlight.js';
 
 export default {
   title: 'layouts/HorizontalWizardLayout',

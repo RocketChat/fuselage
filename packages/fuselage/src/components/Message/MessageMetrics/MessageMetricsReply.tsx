@@ -1,8 +1,8 @@
 import type { ComponentProps } from 'react';
 
-import { Button } from '../..';
+import { Button } from '../../index.js';
 
-import MessageMetricsItem from './MessageMetricsItem';
+import MessageMetricsItem from './MessageMetricsItem/index.js';
 
 type MessageMetricsReplyProps = ComponentProps<typeof Button>;
 

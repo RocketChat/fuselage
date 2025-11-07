@@ -1,6 +1,5 @@
-import { Box } from '@rocket.chat/fuselage';
-import type { ComponentProps } from 'react';
+import { Box, type BoxProps } from '@rocket.chat/fuselage';
 
-const FormContainer = (props: ComponentProps<typeof Box>) => <Box {...props} />;
+const FormContainer = (props: BoxProps) => <Box {...props} />;
 
 export default FormContainer;

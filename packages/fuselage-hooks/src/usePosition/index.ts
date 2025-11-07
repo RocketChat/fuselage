@@ -7,7 +7,7 @@ import { useSafely } from '../useSafely';
 
 import type { Placement } from './Placement';
 import type { PlacementVariant } from './PlacementVariant';
-import type { Position } from './Position';
+import type { Position } from './Position.js';
 import type { TargetBoundaries } from './getTargetBoundaries';
 import { getTargetBoundaries } from './getTargetBoundaries';
 import type { VariantBoundaries } from './getVariantBoundaries';
