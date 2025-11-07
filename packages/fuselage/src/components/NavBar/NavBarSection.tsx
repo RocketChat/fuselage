@@ -1,17 +1,30 @@
-import type { HTMLAttributes } from 'react';
+import type { HTMLAttributes, ReactElement } from 'react';
 import { Fragment, Children, isValidElement } from 'react';
 
 import { NavBarDivider } from './NavBarDivider';
+import { NavBarGroup } from './NavBarGroup';
 
-export const NavBarSection = ({
-  children,
-  ...props
-}: HTMLAttributes<HTMLSpanElement>) => {
-  const validChildren = Children.toArray(children).filter(isValidElement);
+type ComponentWithDisplayName = {
+  displayName?: string;
+  props?: Record<string, unknown>;
+} & React.ComponentType;
+
+type NavbarSectionProps = HTMLAttributes<HTMLSpanElement>;
+
+const isNavBarGroup = (
+  child: unknown,
+): child is ReactElement<NavbarSectionProps, ComponentWithDisplayName> => {
+  if (!isValidElement(child)) return false;
+  const component = child.type as ComponentWithDisplayName;
+  return component.displayName === NavBarGroup.displayName;
+};
+
+export const NavBarSection = ({ children, ...props }: NavbarSectionProps) => {
+  const validChildren = Children.toArray(children).filter(isNavBarGroup);
 
   return (
     <span className='rcx-navbar-section' {...props}>
-      {validChildren.map((child, index) => (
+      {Children.toArray(children).map((child, index) => (
         <Fragment key={index}>
           {child}
           {index < validChildren.length - 1 && <NavBarDivider />}
