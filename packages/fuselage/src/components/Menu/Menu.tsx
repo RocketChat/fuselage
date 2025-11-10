@@ -21,8 +21,8 @@ type MenuProps = Omit<ComponentProps<typeof IconButton>, 'icon'> & {
   placement?: UsePositionOptions['placement'];
   renderItem?: ComponentType<{
     role?: string;
-    label?: ReactNode;
-    value?: string | number;
+    label: ReactNode;
+    value: string | number;
     selected?: boolean;
     focus?: boolean;
   }>;
