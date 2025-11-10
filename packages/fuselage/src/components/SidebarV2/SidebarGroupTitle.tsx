@@ -1,5 +1,4 @@
-import type { HTMLAttributes } from 'react';
-import React from 'react';
+import type { AriaAttributes, HTMLAttributes, ReactNode } from 'react';
 
 import { Chevron } from '../Chevron';
 
@@ -7,8 +6,8 @@ type SidebarGroupTitleProps = {
   expanded?: boolean;
   title?: string;
   titleId?: string;
-  badge?: React.ReactNode;
-  barProps?: React.AriaAttributes;
+  badge?: ReactNode;
+  barProps?: AriaAttributes;
 } & HTMLAttributes<HTMLDivElement>;
 export const SidebarGroupTitle = ({
   title,

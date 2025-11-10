@@ -1,5 +1,5 @@
 import colors from '@rocket.chat/fuselage-tokens/colors.json';
-import type { ReactElement } from 'react';
+import type { HTMLAttributes, ReactElement } from 'react';
 
 import RocketChatLogo from '../RocketChatLogo';
 
@@ -9,7 +9,7 @@ type TaggedRocketChatLogoProps = {
   tagTitle?: string;
   tagBackground?: string;
   color?: string;
-} & React.HTMLAttributes<HTMLDivElement>;
+} & HTMLAttributes<HTMLDivElement>;
 
 const TaggedRocketChatLogo = ({
   tagTitle,

@@ -1,4 +1,4 @@
-import type { HTMLAttributes, ReactElement } from 'react';
+import type { ComponentType, HTMLAttributes, ReactElement } from 'react';
 import { Fragment, Children, isValidElement } from 'react';
 
 import { NavBarDivider } from './NavBarDivider';
@@ -7,7 +7,7 @@ import { NavBarGroup } from './NavBarGroup';
 type ComponentWithDisplayName = {
   displayName?: string;
   props?: Record<string, unknown>;
-} & React.ComponentType;
+} & ComponentType;
 
 type NavbarSectionProps = HTMLAttributes<HTMLSpanElement>;
 

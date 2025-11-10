@@ -1,4 +1,4 @@
-import type { AllHTMLAttributes } from 'react';
+import type { AllHTMLAttributes, ElementType } from 'react';
 
 export const SidebarItem = ({
   selected,
@@ -10,7 +10,7 @@ export const SidebarItem = ({
 }: {
   selected?: boolean;
   level?: number;
-  is?: React.ElementType;
+  is?: ElementType;
 } & AllHTMLAttributes<HTMLAnchorElement>) => (
   <Tag
     className={[
