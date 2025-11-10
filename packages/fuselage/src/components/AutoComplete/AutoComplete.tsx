@@ -3,7 +3,7 @@ import type {
   AllHTMLAttributes,
   ChangeEvent,
   ComponentProps,
-  ElementType,
+  ComponentType,
   FocusEvent,
   MouseEvent,
   ReactElement,
@@ -27,8 +27,7 @@ const Addon = (props: ComponentProps<typeof Box>) => (
 
 type AutoCompleteOption = {
   value: string;
-  // TODO: label type shoudn't be unknown
-  label: unknown;
+  label: ReactNode;
 };
 
 type AutoCompleteProps = Omit<
@@ -38,10 +37,21 @@ type AutoCompleteProps = Omit<
   filter: string;
   setFilter?: (filter: string) => void;
   options?: AutoCompleteOption[];
-  renderItem?: ElementType;
-  renderSelected?: ElementType;
+  renderSelected?: ComponentType<{
+    selected: AutoCompleteOption;
+    onRemove?: (event: MouseEvent<HTMLButtonElement>) => void;
+  }>;
   onChange: (value: string | string[]) => void;
-  renderEmpty?: ElementType;
+  renderItem?: ComponentType<{
+    role?: string;
+    label?: ReactNode;
+    value?: string | number;
+    selected?: boolean;
+    focus?: boolean;
+  }>;
+  renderEmpty?: ComponentType<{
+    customEmpty?: string;
+  }>;
   placeholder?: string;
   error?: boolean;
   disabled?: boolean;

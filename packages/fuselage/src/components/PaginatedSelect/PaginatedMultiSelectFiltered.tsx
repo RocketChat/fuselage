@@ -1,4 +1,4 @@
-import type { ComponentProps, Ref, FormEvent } from 'react';
+import type { FormEvent, ComponentPropsWithoutRef } from 'react';
 import { useCallback, forwardRef } from 'react';
 
 import Flex from '../Flex';
@@ -8,7 +8,7 @@ import PaginatedMultiSelect from './PaginatedMultiSelect';
 
 type PaginatedMultiSelectFilteredProps = {
   setFilter?: (value: string) => void;
-} & ComponentProps<typeof PaginatedMultiSelect>;
+} & ComponentPropsWithoutRef<typeof PaginatedMultiSelect>;
 
 export const PaginatedMultiSelectFiltered = ({
   filter,
@@ -19,11 +19,8 @@ export const PaginatedMultiSelectFiltered = ({
 }: PaginatedMultiSelectFilteredProps) => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const anchor = useCallback(
-    forwardRef(
-      (
-        { children: _children, filter, ...props }: InputProps,
-        ref: Ref<HTMLInputElement>,
-      ) => (
+    forwardRef<HTMLInputElement, InputProps>(
+      ({ children: _children, filter, ...props }, ref) => (
         <Flex.Item grow={1}>
           <Input
             ref={ref}

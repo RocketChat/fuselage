@@ -24,16 +24,34 @@ export type OptionProps = {
   avatar?: ReactNode;
   title?: string;
   disabled?: boolean;
-  value?: string;
+  value?: string | number;
   variant?: 'danger' | 'success' | 'warning' | 'primary';
   onClick?: (event: MouseEvent<HTMLElement>) => void;
   description?: ReactNode;
-} & Omit<AllHTMLAttributes<HTMLElement>, 'label'>;
+} & Omit<
+  AllHTMLAttributes<HTMLElement>,
+  | 'is'
+  | 'id'
+  | 'children'
+  | 'label'
+  | 'selected'
+  | 'className'
+  | 'ref'
+  | 'icon'
+  | 'gap'
+  | 'avatar'
+  | 'title'
+  | 'disabled'
+  | 'value'
+  | 'variant'
+  | 'onClick'
+  | 'description'
+>;
 
 /**
  * The generic `Option` item of options. Can be freely used or inside the `Options` as well.
  */
-const Option = forwardRef(function Option(
+const Option = forwardRef<Element, OptionProps>(function Option(
   {
     is: Tag = 'li',
     id,

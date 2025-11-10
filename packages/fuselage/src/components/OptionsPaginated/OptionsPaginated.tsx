@@ -1,5 +1,13 @@
 import { useEffectEvent, useDebouncedState } from '@rocket.chat/fuselage-hooks';
-import type { ComponentProps, ElementType, Ref, SyntheticEvent } from 'react';
+import type {
+  ComponentProps,
+  ComponentType,
+  ElementType,
+  MouseEvent,
+  ReactNode,
+  Ref,
+  SyntheticEvent,
+} from 'react';
 import { forwardRef, memo } from 'react';
 import { Virtuoso } from 'react-virtuoso';
 
@@ -12,13 +20,22 @@ import Tile from '../Tile';
 
 type OptionsPaginatedProps = Omit<ComponentProps<typeof Box>, 'onSelect'> & {
   multiple?: boolean;
-  options: { value: unknown; label: string; selected?: boolean }[];
+  options: { value: string | number; label: string; selected?: boolean }[];
   cursor: number;
   withTitle?: boolean;
-  renderItem?: ElementType;
-  renderEmpty?: ElementType;
+  renderItem?: ComponentType<{
+    role?: string;
+    label?: ReactNode;
+    title?: string;
+    selected?: boolean;
+    index?: number;
+    focus?: boolean;
+    value?: string | number;
+    onMouseDown?: (e: MouseEvent<HTMLElement>) => void;
+  }>;
+  renderEmpty?: ElementType<object>;
   onSelect: (option: [unknown, string]) => void;
-  endReached?: (index: number) => void;
+  endReached?: (start?: number | undefined, end?: number | undefined) => void;
 };
 
 export const Empty = memo(() => <Option label='Empty' />);
@@ -76,8 +93,8 @@ export const OptionsPaginated = forwardRef(
           }}
           key={value}
           value={value}
-          selected={selected || (multiple !== true && null)}
-          focus={cursor === index || null}
+          selected={selected || (multiple !== true && undefined)} // FIXME: undefined???
+          focus={cursor === index || undefined} // FIXME: undefined???
         />
       );
     };

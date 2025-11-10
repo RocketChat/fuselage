@@ -1,4 +1,4 @@
-import type { ElementType, SyntheticEvent } from 'react';
+import type { ComponentType, ReactNode, SyntheticEvent } from 'react';
 import { forwardRef, useLayoutEffect, useMemo, useRef } from 'react';
 
 import { prevent } from '../../helpers/prevent';
@@ -14,8 +14,16 @@ export type OptionsProps = Omit<BoxProps, 'onSelect'> & {
   multiple?: boolean;
   options: OptionType[];
   cursor: number;
-  renderItem?: ElementType;
-  renderEmpty?: ElementType;
+  renderItem?: ComponentType<{
+    role?: string;
+    label?: ReactNode;
+    value?: string | number;
+    selected?: boolean;
+    focus?: boolean;
+  }>;
+  renderEmpty?: ComponentType<{
+    customEmpty?: string;
+  }>;
   onSelect: (option: OptionType) => void;
   customEmpty?: string;
 };
@@ -80,9 +88,9 @@ const Options = forwardRef<HTMLElement, OptionsProps>(function Options(
                 }}
                 key={value}
                 value={value}
-                selected={selected || (multiple !== true && null)}
+                selected={selected || (multiple !== true && undefined)} // TODO: undefined?
                 disabled={disabled}
-                focus={cursor === i || null}
+                focus={cursor === i || undefined} // TODO: undefined?
               />
             );
         }
