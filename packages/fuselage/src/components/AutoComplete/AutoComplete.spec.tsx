@@ -6,7 +6,7 @@ import { withResizeObserverMock } from 'testing-utils/mocks/withResizeObserverMo
 
 import { render } from '../../testing';
 
-import { AutoComplete } from './AutoComplete';
+import AutoComplete from './AutoComplete';
 import * as stories from './AutoComplete.stories';
 
 const testCases = Object.values(composeStories(stories)).map((Story) => [

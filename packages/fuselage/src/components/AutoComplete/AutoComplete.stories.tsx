@@ -7,7 +7,7 @@ import Box from '../Box';
 import Chip from '../Chip';
 import { Option } from '../Option';
 
-import { AutoComplete } from './AutoComplete';
+import AutoComplete from './AutoComplete';
 
 export default {
   title: 'Inputs/AutoComplete',
@@ -15,7 +15,7 @@ export default {
   parameters: {
     layout: 'centered',
   },
-} satisfies Meta<typeof AutoComplete>;
+} satisfies Meta<typeof AutoComplete<ReactNode>>;
 
 const options = [
   { value: '1', label: 'test1' },

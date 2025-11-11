@@ -23,7 +23,7 @@ type AutoCompleteOption<TLabel> = {
   label: TLabel;
 };
 
-type AutoCompleteProps<TLabel> = Omit<
+export type AutoCompleteProps<TLabel> = Omit<
   AllHTMLAttributes<HTMLInputElement>,
   'value' | 'onChange' | 'is'
 > & {
@@ -79,7 +79,7 @@ const isSelectedValid =
 /**
  * An input for selection of options.
  */
-export function AutoComplete<TLabel = ReactNode>({
+function AutoComplete<TLabel = ReactNode>({
   value,
   filter,
   setFilter,
@@ -256,3 +256,5 @@ export function AutoComplete<TLabel = ReactNode>({
     </Box>
   );
 }
+
+export default AutoComplete;
