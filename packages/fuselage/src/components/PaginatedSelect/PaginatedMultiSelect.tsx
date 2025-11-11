@@ -1,5 +1,13 @@
 import { useEffectEvent, useResizeObserver } from '@rocket.chat/fuselage-hooks';
-import { type ComponentProps, useState, useRef, type ElementType } from 'react';
+import {
+  type ComponentProps,
+  useState,
+  useRef,
+  type ComponentType,
+  type ReactNode,
+  type MouseEvent,
+  type CSSProperties,
+} from 'react';
 
 import { prevent } from '../../helpers/prevent';
 import AnimatedVisibility from '../AnimatedVisibility';
@@ -31,8 +39,37 @@ type PaginatedMultiSelectProps = Omit<
   endReached?: (start?: number, end?: number) => void;
   value?: PaginatedMultiSelectOption[];
   onChange: (values: PaginatedMultiSelectOption[]) => void;
-  renderOptions?: ElementType<ComponentProps<typeof OptionsPaginated>>;
-  renderItem?: ElementType<ComponentProps<typeof Option>>;
+  renderOptions?: ComponentType<{
+    width?: CSSProperties['width'];
+    multiple?: boolean;
+    filter?: string;
+    role?: string;
+    options: PaginatedMultiSelectOption[];
+    cursor: number;
+    endReached?: (start?: number, end?: number) => void;
+    renderItem?: ComponentType<{
+      role?: string;
+      label?: ReactNode;
+      title?: string;
+      selected?: boolean;
+      index?: number;
+      focus?: boolean;
+      value?: string | number;
+      onMouseDown?: (e: MouseEvent<HTMLElement>) => void;
+    }>;
+    onSelect: (option: [unknown, string]) => void;
+    onMouseDown?: (e: MouseEvent<HTMLElement>) => void;
+  }>;
+  renderItem?: ComponentType<{
+    role?: string;
+    label?: ReactNode;
+    title?: string;
+    selected?: boolean;
+    index?: number;
+    focus?: boolean;
+    value?: string | number;
+    onMouseDown?: (e: MouseEvent<HTMLElement>) => void;
+  }>;
   anchor?: any;
 };
 

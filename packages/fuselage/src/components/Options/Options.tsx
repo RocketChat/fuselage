@@ -1,4 +1,11 @@
-import type { ElementType, SyntheticEvent } from 'react';
+import type {
+  ComponentType,
+  ForwardRefExoticComponent,
+  PropsWithoutRef,
+  ReactNode,
+  RefAttributes,
+  SyntheticEvent,
+} from 'react';
 import { forwardRef, useLayoutEffect, useMemo, useRef } from 'react';
 
 import { prevent } from '../../helpers/prevent';
@@ -10,13 +17,24 @@ import Tile from '../Tile';
 import type { OptionType } from './OptionType';
 import OptionsEmpty from './OptionsEmpty';
 
-export type OptionsProps = Omit<BoxProps, 'onSelect'> & {
+export type OptionsProps<TValue = string | number, TLabel = ReactNode> = Omit<
+  BoxProps,
+  'onSelect'
+> & {
   multiple?: boolean;
-  options: OptionType[];
+  options: OptionType<TValue, TLabel>[];
   cursor: number;
-  renderItem?: ElementType;
-  renderEmpty?: ElementType;
-  onSelect: (option: OptionType) => void;
+  renderItem?: ComponentType<{
+    role?: string;
+    label: TLabel;
+    value: TValue;
+    selected?: boolean;
+    focus?: boolean;
+  }>;
+  renderEmpty?: ComponentType<{
+    customEmpty?: string;
+  }>;
+  onSelect: (option: OptionType<TValue, TLabel>) => void;
   customEmpty?: string;
 };
 
@@ -80,9 +98,9 @@ const Options = forwardRef<HTMLElement, OptionsProps>(function Options(
                 }}
                 key={value}
                 value={value}
-                selected={selected || (multiple !== true && null)}
+                selected={selected || (multiple !== true && undefined)} // TODO: undefined?
                 disabled={disabled}
-                focus={cursor === i || null}
+                focus={cursor === i || undefined} // TODO: undefined?
               />
             );
         }
@@ -117,6 +135,13 @@ const Options = forwardRef<HTMLElement, OptionsProps>(function Options(
       </Tile>
     </Box>
   );
-});
+}) as ForwardRefExoticComponent<
+  PropsWithoutRef<OptionsProps> & RefAttributes<HTMLElement>
+> & {
+  <TValue = string | number, TLabel = ReactNode>(
+    props: PropsWithoutRef<OptionsProps<TValue, TLabel>> &
+      RefAttributes<HTMLElement>,
+  ): JSX.Element;
+};
 
 export default Options;
