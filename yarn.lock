@@ -5768,7 +5768,7 @@ __metadata:
     "@testing-library/react": "npm:~16.3.0"
     "@types/react": "npm:~18.3.26"
     "@types/react-dom": "npm:~18.3.7"
-    countries-list: "npm:^3.1.1"
+    countries-list: "npm:^3.2.0"
     eslint: "npm:~9.37.0"
     i18next: "npm:~23.4.9"
     jest: "npm:~30.2.0"
@@ -9623,10 +9623,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"countries-list@npm:^3.1.1":
-  version: 3.1.1
-  resolution: "countries-list@npm:3.1.1"
-  checksum: 10/4519de861c55b4424a089d5335a0094ddca47086ca98a910eac0f4682a582a52fb4453ed067beb4b81fcf7c62e93ea41919d6ad290f36b7e5cb777b84b9e4b9b
+"countries-list@npm:^3.2.0":
+  version: 3.2.0
+  resolution: "countries-list@npm:3.2.0"
+  checksum: 10/1d41318f07938f3335da4bf29b954211c096c750a055290a48c54917778043226b864fdd8b0031fef4b2e913edd5b0640962fd57dd809d71dcfed77527a979c9
   languageName: node
   linkType: hard
 
