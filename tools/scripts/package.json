@@ -11,7 +11,7 @@
     "lint-and-fix": "eslint --fix ."
   },
   "devDependencies": {
-    "@types/node": "~22.18.8",
+    "@types/node": "~22.18.13",
     "cross-env": "^10.1.0",
     "endent": "^2.1.0",
     "eslint": "~9.37.0",

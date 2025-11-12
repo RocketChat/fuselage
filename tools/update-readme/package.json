@@ -5,7 +5,7 @@
   "bin": "./update-readme.mjs",
   "dependencies": {
     "outdent": "^0.8.0",
-    "zx": "8.8.4"
+    "zx": "8.8.5"
   },
   "devDependencies": {
     "eslint": "~9.37.0",
