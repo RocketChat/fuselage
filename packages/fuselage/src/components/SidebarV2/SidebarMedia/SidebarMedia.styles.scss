@@ -1,11 +1,14 @@
 @use '../../../styles/colors.scss';
+@use '../../../styles/functions.scss';
 @use '../../../styles/lengths.scss';
 @use '../../../styles/typography.scss';
-@import '../../../styles/mixins/all.scss';
 
-$sidebar-media-color: theme('sidebar-media-color', colors.font(titles-labels));
+$sidebar-media-color: functions.theme(
+  'sidebar-media-color',
+  colors.font(titles-labels)
+);
 
-$sidebar-media-border-color: theme(
+$sidebar-media-border-color: functions.theme(
   'sidebar-media-border-color',
   colors.stroke(light)
 );

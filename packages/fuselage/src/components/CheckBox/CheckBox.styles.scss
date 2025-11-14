@@ -1,4 +1,5 @@
 @use 'sass:math';
+@use '../../styles/functions.scss';
 @use '../../styles/lengths.scss';
 
 .rcx-check-box {
@@ -12,8 +13,8 @@
     @extend %selection-button__input;
   }
 
-  $icon-smoothness: to-rem(1);
-  $icon-thickness: to-rem(2);
+  $icon-smoothness: functions.to-rem(1);
+  $icon-thickness: functions.to-rem(2);
   $icon-size: 0.6;
 
   &__fake {
@@ -22,7 +23,7 @@
     justify-content: center;
     align-items: center;
 
-    border-radius: theme(
+    border-radius: functions.theme(
       'check-box-border-radius',
       lengths.border-radius(small)
     );
