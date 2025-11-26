@@ -13,21 +13,17 @@
 
   &--info {
     color: colors.status-font(on-info);
-    background-color: colors.status-background(info);
   }
 
   &--success {
     color: colors.status-font(on-success);
-    background-color: colors.status-background(success);
   }
 
   &--warning {
     color: colors.status-font(on-warning);
-    background-color: colors.status-background(warning);
   }
 
   &--danger {
     color: colors.status-font(on-danger);
-    background-color: colors.status-background(danger);
   }
 }
