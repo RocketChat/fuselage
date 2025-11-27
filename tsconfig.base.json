@@ -32,6 +32,7 @@
     "stripInternal": true,
 
     "allowJs": false,
+
     "forceConsistentCasingInFileNames": true
   }
 }

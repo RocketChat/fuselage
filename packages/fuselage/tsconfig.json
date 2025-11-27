@@ -7,7 +7,6 @@
     "outDir": "./dist",
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "allowJs": true,
     "jsx": "react-jsx",
     "erasableSyntaxOnly": true,
     "isolatedModules": true
