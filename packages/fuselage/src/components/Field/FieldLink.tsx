@@ -10,7 +10,7 @@ export type FieldLinkProps = ComponentPropsWithoutRef<typeof Box>;
 const FieldLink = (props: FieldLinkProps) => {
   const component = <Box is='a' target='_blank' rcx-field__link {...props} />;
 
-  if (process.env.NODE_ENV === 'development') {
+  if (process.env['NODE_ENV'] === 'development') {
     return (
       <WithErrorWrapper
         context={FieldContext}

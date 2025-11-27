@@ -22,7 +22,7 @@ const setAnchorRefCount = (
   anchorElement: HTMLElement,
   refCount: number,
 ): void => {
-  anchorElement.dataset.refCount = String(refCount);
+  anchorElement.dataset['refCount'] = String(refCount);
 };
 
 const refAnchorElement = (anchorElement: HTMLElement): void => {
