@@ -2,15 +2,14 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "target": "ES2015",
-    "module": "CommonJS",
+    "module": "commonjs",
+    "moduleResolution": "node",
     "lib": ["ES2020"],
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "moduleResolution": "node",
-    "resolveJsonModule": true
+    "forceConsistentCasingInFileNames": true
   }
 }

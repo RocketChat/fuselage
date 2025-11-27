@@ -3,12 +3,11 @@
   "compilerOptions": {
     "rootDirs": ["./src", "./.storybook"],
     "target": "ES5",
-    "module": "CommonJS",
+    "module": "commonjs",
+    "moduleResolution": "node",
     "outDir": "./dist",
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
     "jsx": "react-jsx"
   },
   "include": [
