@@ -1,8 +1,8 @@
 import outdent from 'outdent';
 
-import { depsBadge } from './badges/depsBadge.mjs';
-import { npmVersionBadge } from './badges/npmVersionBadge.mjs';
-import { rocketChatLogo } from './rocketChatLogo.mjs';
+import { depsBadge } from './badges/depsBadge.js';
+import { npmVersionBadge } from './badges/npmVersionBadge.js';
+import { rocketChatLogo } from './rocketChatLogo.js';
 
 const pkgIcon = '\ud83d\udce6';
 

@@ -1,6 +1,6 @@
 import outdent from 'outdent';
 
-import { addDeps } from './addDeps.mjs';
+import { addDeps } from './addDeps.js';
 
 const peerDeps = (pkg, type) =>
   pkg.peerDependencies

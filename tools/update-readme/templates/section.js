@@ -1,9 +1,9 @@
 import outdent from 'outdent';
 
-import { contributingMessage } from './section/contributingMessage.mjs';
-import { header } from './section/header.mjs';
-import { install } from './section/install.mjs';
-import { yarnCmd } from './section/yarnCmd.mjs';
+import { contributingMessage } from './section/contributingMessage.js';
+import { header } from './section/header.js';
+import { install } from './section/install.js';
+import { yarnCmd } from './section/yarnCmd.js';
 
 const mapping = {
   'header': (pkg) => header(pkg),

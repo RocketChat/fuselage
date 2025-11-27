@@ -11,7 +11,7 @@ import {
   buildSvgImages,
   buildFont,
   buildDefinition,
-} from './build.mjs';
+} from './build.js';
 
 const fromSourceToIcon = async (path) => {
   const [, name, , type] = /^(.*?)(\.([a-z]+))?$/.exec(basename(path, '.svg'));

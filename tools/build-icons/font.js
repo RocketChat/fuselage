@@ -7,8 +7,8 @@ import ttf2eot from 'ttf2eot';
 import ttf2woff from 'ttf2woff';
 import ttf2woff2 from 'ttf2woff2';
 
-import { nextCharactersFor } from './glyphs.mjs';
-import { mirrorSvg } from './svg.mjs';
+import { nextCharactersFor } from './glyphs.js';
+import { mirrorSvg } from './svg.js';
 
 const createReadableFromString = (content) => {
   const stream = new Readable();

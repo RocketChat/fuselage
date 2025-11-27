@@ -1,14 +1,14 @@
 import outdent from 'outdent';
 
-import { bundleSizeBadge } from '../badges/bundleSizeBadge.mjs';
-import { depsBadge } from '../badges/depsBadge.mjs';
-import { licenseBadge } from '../badges/licenseBadge.mjs';
-import { npmDownloadsBadge } from '../badges/npmDownloadsBadge.mjs';
-import { npmPeerDepVersionBadge } from '../badges/npmPeerDepVersionBadge.mjs';
-import { npmVersionBadge } from '../badges/npmVersionBadge.mjs';
-import { storybookBadge } from '../badges/storybookBadge.mjs';
-import { badges } from '../badges.mjs';
-import { rocketChatLogo } from '../rocketChatLogo.mjs';
+import { bundleSizeBadge } from '../badges/bundleSizeBadge.js';
+import { depsBadge } from '../badges/depsBadge.js';
+import { licenseBadge } from '../badges/licenseBadge.js';
+import { npmDownloadsBadge } from '../badges/npmDownloadsBadge.js';
+import { npmPeerDepVersionBadge } from '../badges/npmPeerDepVersionBadge.js';
+import { npmVersionBadge } from '../badges/npmVersionBadge.js';
+import { storybookBadge } from '../badges/storybookBadge.js';
+import { badges } from '../badges.js';
+import { rocketChatLogo } from '../rocketChatLogo.js';
 
 export const header = (pkg) =>
   [

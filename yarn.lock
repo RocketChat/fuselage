@@ -8811,7 +8811,7 @@ __metadata:
     eslint: "*"
     prettier: "*"
   bin:
-    build-design-tokens: ./index.mjs
+    build-design-tokens: ./index.js
   languageName: unknown
   linkType: soft
 
@@ -8832,7 +8832,7 @@ __metadata:
     unicode: "npm:~14.0.0"
     xml2js: "npm:~0.6.2"
   bin:
-    build-icons: ./index.mjs
+    build-icons: ./index.js
   languageName: unknown
   linkType: soft
 
@@ -8849,7 +8849,7 @@ __metadata:
     stylelint: "npm:~16.25.0"
     tools-utils: "workspace:~"
   bin:
-    build-logo: ./index.mjs
+    build-logo: ./index.js
   languageName: unknown
   linkType: soft
 
@@ -13894,8 +13894,8 @@ __metadata:
     stylelint: "npm:~16.25.0"
     zx: "npm:8.8.5"
   bin:
-    lint: ./lint.mjs
-    lint-and-fix: ./lint-and-fix.mjs
+    lint: ./lint.js
+    lint-and-fix: ./lint-and-fix.js
   languageName: unknown
   linkType: soft
 
@@ -19933,7 +19933,7 @@ __metadata:
     prettier: "npm:~3.6.2"
     zx: "npm:8.8.5"
   bin:
-    update-readme: ./update-readme.mjs
+    update-readme: ./update-readme.js
   languageName: unknown
   linkType: soft
 

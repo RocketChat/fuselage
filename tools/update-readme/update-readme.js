@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 import { $, fs, glob, path } from 'zx';
 
-import { pkgReadme } from './templates/pkgReadme.mjs';
-import { rootReadme } from './templates/rootReadme.mjs';
-import { replaceSections } from './templates/section.mjs';
+import { pkgReadme } from './templates/pkgReadme.js';
+import { rootReadme } from './templates/rootReadme.js';
+import { replaceSections } from './templates/section.js';
 
 $.verbose = true;
 

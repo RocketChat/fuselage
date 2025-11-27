@@ -8,9 +8,9 @@ import {
   createWoffBuffer,
   createWoff2Buffer,
   createEotBuffer,
-} from './font.mjs';
-import { getMappedGlyphs } from './glyphs.mjs';
-import { createSvgSprite, createSvgIcons } from './svg.mjs';
+} from './font.js';
+import { getMappedGlyphs } from './glyphs.js';
+import { createSvgSprite, createSvgIcons } from './svg.js';
 
 const filterOtherIconsOut = (icons) =>
   icons.filter(({ type }) => type !== 'other');
