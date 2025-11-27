@@ -14,6 +14,14 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
 
+    "allowArbitraryExtensions": true,
+    "allowImportingTsExtensions": false,
+    "allowUmdGlobalAccess": false,
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "noUncheckedSideEffectImports": true,
+    "resolveJsonModule": true,
+
     "sourceMap": true,
     "declaration": true,
     "declarationMap": true,
