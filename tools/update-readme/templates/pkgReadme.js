@@ -1,6 +1,6 @@
 import outdent from 'outdent';
 
-import { section } from './section.mjs';
+import { section } from './section.js';
 
 export const pkgReadme = (pkg) =>
   outdent`
