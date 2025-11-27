@@ -22,11 +22,16 @@
     "noUncheckedSideEffectImports": true,
     "resolveJsonModule": true,
 
-    "sourceMap": true,
     "declaration": true,
     "declarationMap": true,
-    "allowJs": false,
+    "downlevelIteration": false,
+    "inlineSourceMap": false,
+    "inlineSources": false,
+    "removeComments": true,
+    "sourceMap": true,
+    "stripInternal": true,
 
+    "allowJs": false,
     "forceConsistentCasingInFileNames": true
   }
 }
