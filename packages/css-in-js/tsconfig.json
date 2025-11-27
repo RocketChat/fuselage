@@ -3,9 +3,7 @@
   "compilerOptions": {
     "rootDir": "./src",
     "lib": ["dom", "es6"],
-    "declarationDir": "./dist",
     "outDir": "./dist",
-    "noEmit": true,
     "esModuleInterop": true,
     "skipLibCheck": true
   },

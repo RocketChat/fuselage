@@ -2,10 +2,9 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "rootDir": "./src",
+    "outDir": "./dist",
     "target": "ES5",
     "lib": ["dom", "ES2015"],
-    "declarationDir": "./dist",
-    "outDir": "./dist",
     "esModuleInterop": true,
     "skipLibCheck": true
   },

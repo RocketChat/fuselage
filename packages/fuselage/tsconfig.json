@@ -4,7 +4,6 @@
     "target": "es2024",
     "verbatimModuleSyntax": false,
     "lib": ["ES2020", "DOM"],
-    "downlevelIteration": true,
     "outDir": "./dist",
     "esModuleInterop": true,
     "skipLibCheck": true,

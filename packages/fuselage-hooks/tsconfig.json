@@ -2,7 +2,6 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "lib": ["DOM", "ES2015"],
-    "declarationDir": "./dist",
     "outDir": "./dist",
     "esModuleInterop": true,
     "jsx": "react-jsx"
