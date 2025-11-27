@@ -10,7 +10,7 @@ export type FieldLabelInfoProps = ComponentProps<typeof LabelInfo>;
 const FieldLabelInfo = (props: FieldLabelInfoProps) => {
   const component = <LabelInfo {...props} />;
 
-  if (process.env.NODE_ENV === 'development') {
+  if (process.env['NODE_ENV'] === 'development') {
     return (
       <WithErrorWrapper
         context={FieldContext}

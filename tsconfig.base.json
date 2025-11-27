@@ -1,17 +1,24 @@
 {
   "compilerOptions": {
-    "target": "ES5",
+    "target": "es2024",
+
+    "strict": true,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "exactOptionalPropertyTypes": false,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUncheckedIndexedAccess": false,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+
     "sourceMap": true,
     "declaration": true,
     "declarationMap": true,
     "allowJs": false,
-    "noImplicitReturns": true,
-    "noImplicitThis": true,
-    "noImplicitAny": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "strictNullChecks": true,
-    "strict": true,
+
     "forceConsistentCasingInFileNames": true
   }
 }

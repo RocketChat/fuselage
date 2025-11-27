@@ -7,7 +7,9 @@
     "outDir": "./dist",
     "esModuleInterop": true,
     "moduleResolution": "node",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+
+    "noFallthroughCasesInSwitch": false
   },
   "include": ["src"]
 }
