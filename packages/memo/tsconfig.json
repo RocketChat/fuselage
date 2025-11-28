@@ -3,9 +3,7 @@
   "compilerOptions": {
     "target": "es5",
     "outDir": "./dist/esm",
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "skipLibCheck": true
   },
   "include": ["src/**/*"],
   "typedocOptions": {

@@ -33,6 +33,11 @@
 
     "allowJs": false,
 
-    "forceConsistentCasingInFileNames": true
+    "erasableSyntaxOnly": false,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedDeclarations": false,
+    "isolatedModules": true,
+    "preserveSymlinks": false,
+    "verbatimModuleSyntax": false
   }
 }
