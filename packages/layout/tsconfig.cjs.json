@@ -3,6 +3,7 @@
   "compilerOptions": {
     "module": "commonjs",
     "moduleResolution": "node",
+    "esModuleInterop": true,
     "rootDir": "./src",
     "outDir": "./dist/cjs"
   },

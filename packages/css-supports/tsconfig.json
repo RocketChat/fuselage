@@ -3,7 +3,6 @@
   "compilerOptions": {
     "rootDir": "./src",
     "outDir": "./dist/esm",
-    "esModuleInterop": true,
     "skipLibCheck": true
   },
   "include": ["src/**/*"],
