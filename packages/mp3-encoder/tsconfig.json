@@ -4,8 +4,6 @@
     "rootDir": "./src",
     "lib": ["ES2015", "WebWorker"],
     "outDir": "./dist",
-    "skipLibCheck": true,
-
     "erasableSyntaxOnly": false,
     "noFallthroughCasesInSwitch": false
   },
