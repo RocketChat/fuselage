@@ -3,7 +3,6 @@
   "compilerOptions": {
     "rootDir": "./src",
     "outDir": "./dist",
-    "target": "ES5",
     "lib": ["dom", "ES2015"],
     "skipLibCheck": true
   },

@@ -1,7 +1,5 @@
 {
   "compilerOptions": {
-    "target": "es2024",
-
     "strict": true,
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
@@ -38,6 +36,10 @@
     "isolatedDeclarations": false,
     "isolatedModules": true,
     "preserveSymlinks": false,
-    "verbatimModuleSyntax": false
+    "verbatimModuleSyntax": false,
+
+    "jsx": "react-jsx",
+    "lib": ["ES2024"],
+    "target": "es2024"
   }
 }
