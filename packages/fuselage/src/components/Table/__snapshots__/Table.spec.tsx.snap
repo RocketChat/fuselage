@@ -731,7 +731,7 @@ exports[`[Table Rendering] renders WithSelection without crashing 1`] = `
       </table>
     </div>
     <div
-      class="rcx-box rcx-box--full rcx-table__selection rcx-css-15fugf6"
+      class="rcx-box rcx-box--full rcx-table__selection rcx-css-7awnbo"
     >
       <div
         class="rcx-box rcx-box--full rcx-css-1vmb5x3"
