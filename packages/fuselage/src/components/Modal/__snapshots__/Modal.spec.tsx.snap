@@ -9,7 +9,7 @@ exports[`[Modal Component] _WithAnnotation should match the snapshot 1`] = `
       open=""
     >
       <div
-        class="rcx-box rcx-box--full rcx-modal__inner rcx-css-1e2ego0"
+        class="rcx-box rcx-box--full rcx-modal__inner rcx-css-1euli2f"
       >
         <header
           class="rcx-box rcx-box--full rcx-modal__header"
@@ -98,7 +98,7 @@ exports[`[Modal Component] _WithForm should match the snapshot 1`] = `
       open=""
     >
       <form
-        class="rcx-box rcx-box--full rcx-modal__inner rcx-css-1e2ego0"
+        class="rcx-box rcx-box--full rcx-modal__inner rcx-css-1euli2f"
       >
         <header
           class="rcx-box rcx-box--full rcx-modal__header"
@@ -205,7 +205,7 @@ exports[`[Modal Component] _WithHeroImage should match the snapshot 1`] = `
       open=""
     >
       <div
-        class="rcx-box rcx-box--full rcx-modal__inner rcx-css-1e2ego0"
+        class="rcx-box rcx-box--full rcx-modal__inner rcx-css-1euli2f"
       >
         <header
           class="rcx-box rcx-box--full rcx-modal__header"
@@ -297,7 +297,7 @@ exports[`[Modal Component] _WithIcon should match the snapshot 1`] = `
       open=""
     >
       <div
-        class="rcx-box rcx-box--full rcx-modal__inner rcx-css-1e2ego0"
+        class="rcx-box rcx-box--full rcx-modal__inner rcx-css-1euli2f"
       >
         <header
           class="rcx-box rcx-box--full rcx-modal__header"
@@ -391,7 +391,7 @@ exports[`[Modal Component] _WithIconAndTagline should match the snapshot 1`] = `
       open=""
     >
       <div
-        class="rcx-box rcx-box--full rcx-modal__inner rcx-css-1e2ego0"
+        class="rcx-box rcx-box--full rcx-modal__inner rcx-css-1euli2f"
       >
         <header
           class="rcx-box rcx-box--full rcx-modal__header"
@@ -490,7 +490,7 @@ exports[`[Modal Component] _WithTagline should match the snapshot 1`] = `
       open=""
     >
       <div
-        class="rcx-box rcx-box--full rcx-modal__inner rcx-css-1e2ego0"
+        class="rcx-box rcx-box--full rcx-modal__inner rcx-css-1euli2f"
       >
         <header
           class="rcx-box rcx-box--full rcx-modal__header"
@@ -579,7 +579,7 @@ exports[`[Modal Component] _WithThumb should match the snapshot 1`] = `
       open=""
     >
       <div
-        class="rcx-box rcx-box--full rcx-modal__inner rcx-css-1e2ego0"
+        class="rcx-box rcx-box--full rcx-modal__inner rcx-css-1euli2f"
       >
         <header
           class="rcx-box rcx-box--full rcx-modal__header"
@@ -676,7 +676,7 @@ exports[`[Modal Component] Default should match the snapshot 1`] = `
       open=""
     >
       <div
-        class="rcx-box rcx-box--full rcx-modal__inner rcx-css-1e2ego0"
+        class="rcx-box rcx-box--full rcx-modal__inner rcx-css-1euli2f"
       >
         <header
           class="rcx-box rcx-box--full rcx-modal__header"

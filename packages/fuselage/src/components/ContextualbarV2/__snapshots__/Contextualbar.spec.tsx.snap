@@ -4,13 +4,13 @@ exports[`[Contextualbar Rendering] renders Default without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-css-1ucnmmp"
+      class="rcx-box rcx-box--full rcx-css-k3k951"
     >
       <div
-        class="rcx-box rcx-box--full rcx-vertical-bar rcx-css-dnnq8h"
+        class="rcx-box rcx-box--full rcx-vertical-bar rcx-css-37ac0e"
       >
         <div
-          class="rcx-box rcx-box--full rcx-css-5a9eaq"
+          class="rcx-box rcx-box--full rcx-css-1usi2qo"
         >
           <div
             class="rcx-box rcx-box--full rcx-css-1bdyjik rcx-css-1tmbvtv"
@@ -76,7 +76,7 @@ exports[`[Contextualbar Rendering] renders Default without crashing 1`] = `
           </div>
         </div>
         <div
-          class="rcx-box rcx-box--full rcx-vertical-bar__section rcx-css-14bkbcs"
+          class="rcx-box rcx-box--full rcx-vertical-bar__section rcx-css-16mbly4"
         >
           <label
             class="rcx-box rcx-box--full rcx-label rcx-box rcx-box--full rcx-box--animated rcx-input-box__wrapper"
@@ -153,13 +153,13 @@ exports[`[Contextualbar Rendering] renders Empty without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-css-1ucnmmp"
+      class="rcx-box rcx-box--full rcx-css-k3k951"
     >
       <div
-        class="rcx-box rcx-box--full rcx-vertical-bar rcx-css-dnnq8h"
+        class="rcx-box rcx-box--full rcx-vertical-bar rcx-css-37ac0e"
       >
         <div
-          class="rcx-box rcx-box--full rcx-css-5a9eaq"
+          class="rcx-box rcx-box--full rcx-css-1usi2qo"
         >
           <div
             class="rcx-box rcx-box--full rcx-css-1bdyjik rcx-css-1tmbvtv"
@@ -234,13 +234,13 @@ exports[`[Contextualbar Rendering] renders Skeleton without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-css-1ucnmmp"
+      class="rcx-box rcx-box--full rcx-css-k3k951"
     >
       <div
-        class="rcx-box rcx-box--full rcx-vertical-bar rcx-css-dnnq8h"
+        class="rcx-box rcx-box--full rcx-vertical-bar rcx-css-37ac0e"
       >
         <div
-          class="rcx-box rcx-box--full rcx-css-5a9eaq"
+          class="rcx-box rcx-box--full rcx-css-1usi2qo"
         >
           <div
             class="rcx-box rcx-box--full rcx-css-1bdyjik rcx-css-1tmbvtv"
