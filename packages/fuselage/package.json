@@ -88,7 +88,6 @@
     "postcss-loader": "~8.2.0",
     "postcss-logical": "~8.1.0",
     "postcss-scss": "~4.0.9",
-    "postcss-svg": "~3.0.0",
     "prettier": "~3.6.2",
     "react": "~18.3.1",
     "react-dom": "~18.3.1",

@@ -62,7 +62,6 @@ module.exports = (env, { mode = 'production' }) => ({
             options: {
               postcssOptions: {
                 plugins: [
-                  require('postcss-svg')(),
                   require('postcss-logical')({ preserve: true }),
                   require('postcss-dir-pseudo-class')({ dir: 'ltr' }),
                   require('autoprefixer')(),
