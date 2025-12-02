@@ -1,11 +1,12 @@
-import type { ComponentProps, Ref } from 'react';
+import type { Ref } from 'react';
 import { forwardRef } from 'react';
 
+import type { BoxProps } from '../Box';
 import Box from '../Box';
 
 type MessageBlockProps = {
   fixedWidth?: boolean;
-} & ComponentProps<typeof Box>;
+} & BoxProps;
 
 export const MessageBlock = forwardRef(
   (

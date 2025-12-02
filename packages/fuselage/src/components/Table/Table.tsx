@@ -1,8 +1,7 @@
-import type { ComponentProps } from 'react';
-
+import type { BoxProps } from '../Box';
 import Box from '../Box';
 
-export type TableProps = ComponentProps<typeof Box> & {
+export type TableProps = BoxProps & {
   striped?: boolean;
   sticky?: boolean;
   fixed?: boolean;

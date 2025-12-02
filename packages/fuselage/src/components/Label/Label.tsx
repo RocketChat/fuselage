@@ -1,11 +1,12 @@
-import type { ComponentProps, ReactElement, ElementType, Ref } from 'react';
+import type { ReactElement, ElementType, Ref } from 'react';
 import { createContext, forwardRef, useContext } from 'react';
 
+import type { BoxProps } from '../Box';
 import Box from '../Box';
 
 const LabelContext = createContext(false);
 
-type LabelProps = Omit<ComponentProps<typeof Box>, 'is'> & {
+type LabelProps = Omit<BoxProps, 'is'> & {
   disabled?: boolean;
   required?: boolean;
   is?: (ElementType<any> & string) | undefined;

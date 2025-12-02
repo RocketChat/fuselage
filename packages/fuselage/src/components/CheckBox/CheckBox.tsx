@@ -1,16 +1,11 @@
 import { useMergedRefs } from '@rocket.chat/fuselage-hooks';
-import type {
-  ComponentProps,
-  Ref,
-  FormEvent,
-  AllHTMLAttributes,
-  ReactNode,
-} from 'react';
+import type { Ref, FormEvent, AllHTMLAttributes, ReactNode } from 'react';
 import { forwardRef, useLayoutEffect, useRef, useCallback } from 'react';
 
+import type { BoxProps } from '../Box';
 import Box from '../Box';
 
-type CheckBoxProps = ComponentProps<typeof Box> & {
+type CheckBoxProps = BoxProps & {
   indeterminate?: boolean;
   labelChildren?: ReactNode;
 } & AllHTMLAttributes<HTMLInputElement>;

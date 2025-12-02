@@ -1,10 +1,10 @@
-import type { ComponentProps } from 'react';
 import { memo } from 'react';
 
+import type { BoxProps } from '../Box';
 import Box from '../Box';
 import Margins from '../Margins';
 
-type ContextualbarHeaderProps = ComponentProps<typeof Box>;
+type ContextualbarHeaderProps = BoxProps;
 
 const ContextualbarHeader = ({
   children,
