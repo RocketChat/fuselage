@@ -1,8 +1,7 @@
-import type { ComponentProps } from 'react';
-
+import type { ButtonGroupProps } from '..';
 import { ButtonGroup } from '..';
 
-export type ModalFooterControllersProps = ComponentProps<typeof ButtonGroup>;
+export type ModalFooterControllersProps = ButtonGroupProps;
 
 export const ModalFooterControllers = ({
   children,

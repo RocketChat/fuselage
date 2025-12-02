@@ -1,9 +1,10 @@
-import type { ComponentProps, ForwardedRef } from 'react';
+import type { ForwardedRef } from 'react';
 import { forwardRef } from 'react';
 
+import type { ButtonGroupProps } from '../..';
 import { ButtonGroup } from '../..';
 
-type MessageToolbarProps = ComponentProps<typeof ButtonGroup>;
+type MessageToolbarProps = ButtonGroupProps;
 
 export const MessageToolbar = forwardRef(function MessageToolbar(
   props: MessageToolbarProps,
