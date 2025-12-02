@@ -1,5 +1,5 @@
 import type { UsePositionOptions } from '@rocket.chat/fuselage-hooks';
-import type { ComponentProps, ElementType, ReactElement } from 'react';
+import type { ElementType, ReactElement } from 'react';
 import { cloneElement, useRef } from 'react';
 import type { AriaMenuProps } from 'react-aria';
 import { useButton, useMenuTrigger } from 'react-aria';
@@ -9,13 +9,14 @@ import { useMenuTriggerState } from 'react-stately';
 
 import type { BoxProps } from '../../Box';
 import { IconButton } from '../../Button';
+import type { IconButtonProps } from '../../Button/IconButton';
 
 import MenuDropDown from './MenuDropdown';
 import MenuPopover from './MenuPopover';
 import { getPlacement } from './helpers/helpers';
 
 export interface MenuButtonProps<T> extends AriaMenuProps<T>, MenuTriggerProps {
-  icon?: ComponentProps<typeof IconButton>['icon'];
+  icon?: IconButtonProps['icon'];
   large?: boolean;
   medium?: boolean;
   small?: boolean;

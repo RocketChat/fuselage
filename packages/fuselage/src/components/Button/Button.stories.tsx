@@ -9,7 +9,7 @@ import { ButtonGroup } from '../ButtonGroup';
 import Margins from '../Margins';
 
 import Button from './Button';
-import { IconButton } from './IconButton';
+import IconButton from './IconButton';
 
 export default {
   title: 'Inputs/Button',
