@@ -1,5 +1,4 @@
 import type { StoryFn, Meta } from '@storybook/react-webpack5';
-import type { ComponentType } from 'react';
 import { useState } from 'react';
 import { action } from 'storybook/actions';
 
@@ -14,7 +13,7 @@ import IconButton from './IconButton';
 export default {
   title: 'Inputs/Button',
   component: Button,
-  subcomponents: { IconButton: IconButton as ComponentType<any> },
+  subcomponents: { IconButton },
 } satisfies Meta<typeof Button>;
 
 export const Default: StoryFn<typeof Button> = () => (
