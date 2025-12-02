@@ -1,11 +1,10 @@
-import type { ComponentProps } from 'react';
-
 import WithErrorWrapper from '../../helpers/WithErrorWrapper';
+import type { LabelInfoProps } from '../Label/LabelInfo';
 import { LabelInfo } from '../Label/LabelInfo';
 
 import { FieldContext } from './Field';
 
-export type FieldLabelInfoProps = ComponentProps<typeof LabelInfo>;
+export type FieldLabelInfoProps = LabelInfoProps;
 
 const FieldLabelInfo = (props: FieldLabelInfoProps) => {
   const component = <LabelInfo {...props} />;

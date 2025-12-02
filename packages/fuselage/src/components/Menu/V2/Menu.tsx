@@ -15,7 +15,7 @@ import MenuDropDown from './MenuDropdown';
 import MenuPopover from './MenuPopover';
 import { getPlacement } from './helpers/helpers';
 
-export interface MenuButtonProps<T> extends AriaMenuProps<T>, MenuTriggerProps {
+export interface MenuProps<T> extends AriaMenuProps<T>, MenuTriggerProps {
   icon?: IconButtonProps['icon'];
   large?: boolean;
   medium?: boolean;
@@ -49,7 +49,7 @@ const Menu = <T extends object>({
   button,
   detached,
   ...props
-}: MenuButtonProps<T>) => {
+}: MenuProps<T>) => {
   const state = useMenuTriggerState(props);
 
   const ref = useRef(null);

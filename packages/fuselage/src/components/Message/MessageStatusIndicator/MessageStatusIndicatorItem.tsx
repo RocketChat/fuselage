@@ -3,7 +3,7 @@ import type { AllHTMLAttributes } from 'react';
 import type { IconProps } from '../..';
 import { Icon } from '../..';
 
-type MessageStatusIndicatorItemProps = {
+export type MessageStatusIndicatorItemProps = {
   name: IconProps['name'];
   variant?: 'success' | 'danger' | 'warning' | 'primary';
 } & Omit<AllHTMLAttributes<HTMLElement>, 'is'>;

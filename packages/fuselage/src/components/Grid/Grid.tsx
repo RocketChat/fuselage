@@ -1,7 +1,7 @@
 import type { BoxProps } from '../Box';
 import Box from '../Box';
 
-import { GridItem } from './GridItem';
+import GridItem from './GridItem';
 
 type GridProps = BoxProps & {
   xs?: boolean;

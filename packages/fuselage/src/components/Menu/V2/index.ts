@@ -1,3 +1,4 @@
+import type { OptionIconProps } from '../../Option';
 import {
   OptionIcon,
   OptionAvatar,
@@ -18,6 +19,7 @@ export {
   OptionColumn as MenuItemColumn,
   OptionContent as MenuItemContent,
   OptionIcon as MenuItemIcon,
+  type OptionIconProps as MenuItemIconProps,
   OptionInput as MenuItemInput,
   OptionSkeleton as MenuItemSkeleton,
   OptionTitle as MenuItemTitle,

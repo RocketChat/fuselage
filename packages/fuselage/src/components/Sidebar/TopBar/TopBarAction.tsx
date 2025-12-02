@@ -1,9 +1,10 @@
-import type { ComponentProps, Ref } from 'react';
+import type { Ref } from 'react';
 import { forwardRef } from 'react';
 
+import type { SidebarActionProps } from '../SidebarActions';
 import { SidebarAction } from '../SidebarActions';
 
-type TopBarActionProps = ComponentProps<typeof SidebarAction>;
+type TopBarActionProps = SidebarActionProps;
 
 export const TopBarAction = forwardRef(function TopBarAction(
   props: TopBarActionProps,

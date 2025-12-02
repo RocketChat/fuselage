@@ -6,7 +6,7 @@ import type { IconButtonProps } from '../Button/IconButton';
 import type { ButtonGroupProps } from '../ButtonGroup';
 import { ButtonGroup } from '../ButtonGroup';
 
-type SidebarActionsProps = ButtonGroupProps;
+export type SidebarActionsProps = ButtonGroupProps;
 
 export const SidebarActions = forwardRef(function SidebarActions(
   props: SidebarActionsProps,
@@ -15,7 +15,7 @@ export const SidebarActions = forwardRef(function SidebarActions(
   return <ButtonGroup ref={ref} {...props} />;
 });
 
-type SidebarActionProps = IconButtonProps;
+export type SidebarActionProps = IconButtonProps;
 
 export const SidebarAction = forwardRef(function SidebarAction(
   props: SidebarActionProps,

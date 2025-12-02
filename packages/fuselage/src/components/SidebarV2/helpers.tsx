@@ -1,5 +1,5 @@
 import type { Decorator } from '@storybook/react-webpack5';
-import type { ComponentProps, ReactElement } from 'react';
+import type { ReactElement } from 'react';
 
 import { Avatar, Box, IconButton, MenuV2 as Menu, MenuItem } from '../..';
 
@@ -25,6 +25,7 @@ import {
   SidebarV2ItemTitle,
   SidebarV2ListItem,
 } from '.';
+import type { SidebarV2ItemProps } from './SidebarItem/SidebarItem';
 
 export const leterAvatarUrls = [
   "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3e%3crect width='100%25' height='100%25' fill='%2310529E'/%3e%3ctext x='50%25' y='50%25' dy='0.36em' text-anchor='middle' pointer-events='none' fill='white' font-size='125' font-family='Helvetica%2c sans-serif'%3eB%3c/text%3e%3c/svg%3e",
@@ -148,7 +149,7 @@ export const GenericExtendedItem = ({ i = 0 }: { i: number }) => (
 export const GenericCallItem = ({
   i = 0,
   ...props
-}: { i?: number } & ComponentProps<typeof SidebarV2Item>) => (
+}: { i?: number } & SidebarV2ItemProps) => (
   <SidebarV2Item {...props}>
     <SidebarV2ItemAvatarWrapper>
       <Avatar size='x36' url={leterAvatarUrls[i % 4]} alt='avatar' />

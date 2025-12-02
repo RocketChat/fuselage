@@ -15,13 +15,13 @@ import { SelectTrigger } from './SelectTrigger';
 
 export { Item } from 'react-stately';
 
-type SelectAriaProps<T extends object> = AriaSelectProps<T> & {
+export type SelectAriaProps<T extends object> = AriaSelectProps<T> & {
   error?: string;
   placeholder?: string;
   value?: Key | null;
   onChange?: (key: Key) => void;
   small?: boolean;
-};
+} & AllHTMLAttributes<HTMLElement>;
 
 export const SelectAria = forwardRef(function SelectAria<T extends object>(
   {
@@ -34,7 +34,7 @@ export const SelectAria = forwardRef(function SelectAria<T extends object>(
     disabled,
     id,
     ...props
-  }: SelectAriaProps<T> & AllHTMLAttributes<HTMLElement>,
+  }: SelectAriaProps<T>,
   outerRef: Ref<HTMLElement>,
 ) {
   const isDisabled = isDisabledProps || disabled;

@@ -6,7 +6,7 @@ import { createPortal } from 'react-dom';
 
 import type { BoxProps } from '../Box';
 
-type PositionProps = {
+export type PositionProps = {
   anchor: RefObject<Element>;
   children: ReactElement;
   margin?: number;
