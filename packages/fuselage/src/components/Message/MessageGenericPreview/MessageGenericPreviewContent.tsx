@@ -1,11 +1,11 @@
 import type { ReactElement, ReactNode } from 'react';
 
-type MessageGenericPreviewContentProps = {
+export type MessageGenericPreviewContentProps = {
   children?: ReactNode;
   thumb?: ReactElement;
 };
 
-export const MessageGenericPreviewContent = ({
+const MessageGenericPreviewContent = ({
   thumb,
   ...props
 }: MessageGenericPreviewContentProps) => (
@@ -14,3 +14,5 @@ export const MessageGenericPreviewContent = ({
     <div className='rcx-message-generic-preview__content-wrapper' {...props} />
   </div>
 );
+
+export default MessageGenericPreviewContent;

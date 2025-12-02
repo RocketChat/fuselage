@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 import { Children } from 'react';
 
 import type { GridItemProps } from '../Grid';
-import Grid, { GridItem } from '../Grid';
+import { Grid, GridItem } from '../Grid';
 
 export type CardGridProps = {
   children: ReactNode;

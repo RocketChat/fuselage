@@ -2,12 +2,12 @@ import type { ReactNode } from 'react';
 
 import type { MessageStatusIndicatorItemProps } from './MessageStatusIndicatorItem';
 
-type MessageStatusPrivateIndicatorProps = {
+export type MessageStatusPrivateIndicatorProps = {
   children?: ReactNode;
   variant?: MessageStatusIndicatorItemProps['variant'];
 };
 
-export const MessageStatusPrivateIndicator = ({
+const MessageStatusPrivateIndicator = ({
   children,
   variant,
 }: MessageStatusPrivateIndicatorProps) => (
@@ -22,3 +22,5 @@ export const MessageStatusPrivateIndicator = ({
     {children}
   </span>
 );
+
+export default MessageStatusPrivateIndicator;

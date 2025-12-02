@@ -4,7 +4,7 @@ import type { StoryFn, Meta } from '@storybook/react-webpack5';
 import { PropsVariationSection } from '../../../.storybook/helpers';
 import { Avatar } from '../Avatar';
 import { Badge } from '../Badge';
-import Box from '../Box/Box';
+import { Box } from '../Box';
 import { ButtonGroup } from '../ButtonGroup';
 import { avatarUrl } from '../Message/helpers';
 

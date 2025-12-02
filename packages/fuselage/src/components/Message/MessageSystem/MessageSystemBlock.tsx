@@ -1,9 +1,11 @@
 import type { ReactNode } from 'react';
 
-type MessageSystemBlockProps = {
+export type MessageSystemBlockProps = {
   children?: ReactNode;
 };
 
-export const MessageSystemBlock = (props: MessageSystemBlockProps) => (
+const MessageSystemBlock = (props: MessageSystemBlockProps) => (
   <div className='rcx-message-system__block' {...props} />
 );
+
+export default MessageSystemBlock;

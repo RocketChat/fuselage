@@ -1,10 +1,10 @@
-import type { ReactElement } from 'react';
 import { memo } from 'react';
 
-import { Button } from '..';
-import type { ButtonProps } from '../Button/Button';
+import { Button, type ButtonProps } from '../Button';
 
-const ContextualbarButton = (props: ButtonProps): ReactElement => (
+export type ContextualbarButtonProps = ButtonProps;
+
+const ContextualbarButton = (props: ContextualbarButtonProps) => (
   <Button {...props} />
 );
 

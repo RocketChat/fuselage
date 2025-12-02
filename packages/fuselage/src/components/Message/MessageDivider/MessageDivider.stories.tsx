@@ -1,8 +1,8 @@
 import type { StoryFn, Meta } from '@storybook/react-webpack5';
 
-import Box from '../../Box';
+import { Box } from '../../Box';
 
-import { MessageDivider } from './MessageDivider';
+import MessageDivider from './MessageDivider';
 
 export default {
   title: 'Message/MessageDivider',

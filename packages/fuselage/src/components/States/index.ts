@@ -1,25 +1,32 @@
-import States from './States';
-import StatesAction from './StatesAction';
-import StatesActions from './StatesActions';
-import StatesLink from './StatesLink';
-import StatesSubtitle from './StatesSubtitle';
-import StatesSuggestion from './StatesSuggestion';
-import StatesSuggestionList from './StatesSuggestionList';
-import StatesSuggestionListItem from './StatesSuggestionListItem';
-import StatesSuggestionText from './StatesSuggestionText';
-import StatesTitle from './StatesTitle';
-
+export { default as States, type StatesProps } from './States';
 export { default as StatesIcon, type StatesIconProps } from './StatesIcon';
-
 export {
-  States,
-  StatesAction,
-  StatesActions,
-  StatesLink,
-  StatesSubtitle,
-  StatesSuggestion,
-  StatesSuggestionList,
-  StatesSuggestionListItem,
-  StatesSuggestionText,
-  StatesTitle,
-};
+  default as StatesAction,
+  type StatesActionProps,
+} from './StatesAction';
+export {
+  default as StatesActions,
+  type StatesActionsProps,
+} from './StatesActions';
+export { default as StatesLink, type StatesLinkProps } from './StatesLink';
+export {
+  default as StatesSubtitle,
+  type StatesSubtitleProps,
+} from './StatesSubtitle';
+export {
+  default as StatesSuggestion,
+  type StatesSuggestionProps,
+} from './StatesSuggestion';
+export {
+  default as StatesSuggestionList,
+  type StatesSuggestionListProps,
+} from './StatesSuggestionList';
+export {
+  default as StatesSuggestionListItem,
+  type StatesSuggestionListItemProps,
+} from './StatesSuggestionListItem';
+export {
+  default as StatesSuggestionText,
+  type StatesSuggestionTextProps,
+} from './StatesSuggestionText';
+export { default as StatesTitle, type StatesTitleProps } from './StatesTitle';

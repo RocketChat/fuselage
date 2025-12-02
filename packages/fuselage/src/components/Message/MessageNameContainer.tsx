@@ -1,9 +1,11 @@
 import type { HTMLAttributes } from 'react';
 import { forwardRef } from 'react';
 
-export const MessageNameContainer = forwardRef<
+export type MessageNameContainerProps = HTMLAttributes<HTMLSpanElement>;
+
+const MessageNameContainer = forwardRef<
   HTMLSpanElement,
-  HTMLAttributes<HTMLSpanElement>
+  MessageNameContainerProps
 >(function MessageNameContainer(props, ref) {
   return (
     <span
@@ -13,3 +15,5 @@ export const MessageNameContainer = forwardRef<
     />
   );
 });
+
+export default MessageNameContainer;

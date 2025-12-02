@@ -1,6 +1,6 @@
 import type { StoryFn, Meta } from '@storybook/react-webpack5';
 
-import { Skeleton } from './Skeleton';
+import Skeleton from './Skeleton';
 
 export default {
   title: 'Layout/Skeleton',

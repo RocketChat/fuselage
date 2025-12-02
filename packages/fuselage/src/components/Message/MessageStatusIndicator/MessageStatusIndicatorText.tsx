@@ -1,13 +1,15 @@
 import type { ReactNode } from 'react';
 
-type MessageStatusIndicatorTextProps = {
+export type MessageStatusIndicatorTextProps = {
   children: ReactNode;
 };
 
-export const MessageStatusIndicatorText = ({
+const MessageStatusIndicatorText = ({
   children,
 }: MessageStatusIndicatorTextProps) => (
   <span className='rcx-message-status-indicator__text' aria-hidden>
     {children}
   </span>
 );
+
+export default MessageStatusIndicatorText;

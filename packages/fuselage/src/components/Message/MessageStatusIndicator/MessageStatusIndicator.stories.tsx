@@ -1,14 +1,15 @@
 import type { Meta, StoryFn } from '@storybook/react-webpack5';
 
-import Message, { MessageStatusIndicatorItem } from '..';
 import { Avatar } from '../../Avatar';
-import Box from '../../Box';
+import { Box } from '../../Box';
+import Message from '../Message';
 import { MessageDivider } from '../MessageDivider';
 import MessageReactions from '../MessageReactions';
-import MessageToolbar from '../MessageToolbar';
+import { MessageToolbar } from '../MessageToolbar';
 
-import { MessageStatusIndicator } from './MessageStatusIndicator';
-import { MessageStatusIndicatorText } from './MessageStatusIndicatorText';
+import MessageStatusIndicator from './MessageStatusIndicator';
+import MessageStatusIndicatorItem from './MessageStatusIndicatorItem';
+import MessageStatusIndicatorText from './MessageStatusIndicatorText';
 
 export default {
   title: 'Message/MessageStatusIndicator',

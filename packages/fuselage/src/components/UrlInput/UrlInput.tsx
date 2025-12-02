@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 
 import { InputBox, type InputBoxProps } from '../InputBox';
 
-type UrlInputProps = Omit<InputBoxProps, 'type'>;
+export type UrlInputProps = Omit<InputBoxProps, 'type'>;
 
 const UrlInput = forwardRef<HTMLElement, UrlInputProps>(
   function UrlInput(props, ref) {

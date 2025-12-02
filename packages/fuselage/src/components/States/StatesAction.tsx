@@ -1,7 +1,6 @@
-import { Button } from '..';
-import type { ButtonProps } from '../Button/Button';
+import { Button, type ButtonProps } from '../Button';
 
-type StatesActionProps = ButtonProps;
+export type StatesActionProps = ButtonProps;
 
 const StatesAction = ({ primary = true, ...props }: StatesActionProps) => (
   <Button {...props} primary={primary} />

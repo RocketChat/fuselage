@@ -1,7 +1,7 @@
 import type { StoryFn, Meta } from '@storybook/react-webpack5';
 
-import { Tabs } from './Tabs';
-import { TabsItem } from './TabsItem';
+import Tabs from './Tabs';
+import TabsItem from './TabsItem';
 
 export default {
   title: 'Navigation/Tabs',

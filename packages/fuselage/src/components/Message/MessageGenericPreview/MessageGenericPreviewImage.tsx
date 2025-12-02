@@ -2,12 +2,12 @@ import type { ImgHTMLAttributes } from 'react';
 
 import { prependClassName } from '../../../helpers/prependClassName';
 
-type MessageGenericPreviewImageProps = {
+export type MessageGenericPreviewImageProps = {
   url: string;
   className?: string;
 } & ImgHTMLAttributes<HTMLImageElement>;
 
-export const MessageGenericPreviewImage = ({
+const MessageGenericPreviewImage = ({
   url,
   className,
   ...props
@@ -22,3 +22,5 @@ export const MessageGenericPreviewImage = ({
     {...props}
   />
 );
+
+export default MessageGenericPreviewImage;

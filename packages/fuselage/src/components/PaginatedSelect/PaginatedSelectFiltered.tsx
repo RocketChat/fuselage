@@ -7,11 +7,14 @@ import { Input } from '../InputBox';
 import type { PaginatedSelectProps } from './PaginatedSelect';
 import { PaginatedSelect } from './PaginatedSelect';
 
-type PaginatedSelectFilteredProps = Omit<PaginatedSelectProps, 'setFilter'> & {
+export type PaginatedSelectFilteredProps = Omit<
+  PaginatedSelectProps,
+  'setFilter'
+> & {
   setFilter: (value: string | undefined | number) => void;
 };
 
-export const PaginatedSelectFiltered = ({
+const PaginatedSelectFiltered = ({
   filter,
   setFilter,
   options,
@@ -50,3 +53,5 @@ export const PaginatedSelectFiltered = ({
     />
   );
 };
+
+export default PaginatedSelectFiltered;

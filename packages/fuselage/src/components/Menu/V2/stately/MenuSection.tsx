@@ -3,12 +3,14 @@ import { Children } from 'react';
 
 import type { PartialNode } from './PartialNode';
 
-function MenuSection<T>(_props: SectionProps<T>) {
+export type MenuSectionProps<T> = SectionProps<T>;
+
+function MenuSection<T>(_props: MenuSectionProps<T>) {
   return null;
 }
 
 MenuSection.getCollectionNode = function* getCollectionNode<T>(
-  props: SectionProps<T>,
+  props: MenuSectionProps<T>,
 ): Generator<PartialNode<T>> {
   const { children, title, items } = props;
   yield {

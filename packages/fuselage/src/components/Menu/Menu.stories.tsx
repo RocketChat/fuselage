@@ -1,10 +1,10 @@
 import type { StoryFn, Meta } from '@storybook/react-webpack5';
 import { action } from 'storybook/actions';
 
-import Box from '../Box';
+import { Box } from '../Box';
 import { Icon } from '../Icon';
 
-import { Menu } from './Menu';
+import Menu from './Menu';
 
 export default {
   title: 'Navigation/Menu',

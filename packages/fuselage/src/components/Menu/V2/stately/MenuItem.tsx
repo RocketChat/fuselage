@@ -3,12 +3,14 @@ import { Children, type ReactElement } from 'react';
 
 import type { PartialNode } from './PartialNode';
 
-function MenuItem<T>(_props: ItemProps<T>) {
+export type MenuItemProps<T> = ItemProps<T>;
+
+function MenuItem<T>(_props: MenuItemProps<T>) {
   return null;
 }
 
 MenuItem.getCollectionNode = function* getCollectionNode<T>(
-  props: ItemProps<T>,
+  props: MenuItemProps<T>,
   context: any,
 ): Generator<PartialNode<T>> {
   const { childItems, title, children } = props;
@@ -56,7 +58,7 @@ MenuItem.getCollectionNode = function* getCollectionNode<T>(
   };
 };
 
-function hasChildItems<T>(props: ItemProps<T>) {
+function hasChildItems<T>(props: MenuItemProps<T>) {
   if (props.hasChildItems != null) {
     return props.hasChildItems;
   }

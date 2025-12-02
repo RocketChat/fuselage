@@ -1,8 +1,7 @@
 import type { ReactNode } from 'react';
 
 import { prependClassName } from '../../helpers/prependClassName';
-import type { BoxProps } from '../Box';
-import Box from '../Box/Box';
+import { Box, type BoxProps } from '../Box';
 
 export type TagProps = {
   medium?: boolean;
@@ -23,7 +22,7 @@ export type TagProps = {
 /**
  * Used for mentions
  */
-export const Tag = ({
+const Tag = ({
   large,
   medium,
   className,
@@ -60,3 +59,5 @@ export const Tag = ({
     </Box>
   );
 };
+
+export default Tag;

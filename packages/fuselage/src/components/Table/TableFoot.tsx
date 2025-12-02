@@ -1,9 +1,11 @@
-import Box from '../Box';
+import { Box } from '../Box';
 
 import type { TableProps } from './Table';
 
-type TableFootProps = TableProps;
+export type TableFootProps = TableProps;
 
-export const TableFoot = (props: TableFootProps) => (
+const TableFoot = (props: TableFootProps) => (
   <Box is='tfoot' rcx-table__foot {...props} />
 );
+
+export default TableFoot;

@@ -1,8 +1,9 @@
-import { Button } from '../../Button';
-import type { ButtonProps } from '../../Button/Button';
+import { Button, type ButtonProps } from '../../Button';
 
-type TableSelectionButtonProps = ButtonProps;
+export type TableSelectionButtonProps = ButtonProps;
 
-export const TableSelectionButton = (props: TableSelectionButtonProps) => (
+const TableSelectionButton = (props: TableSelectionButtonProps) => (
   <Button small flexShrink={0} {...props} />
 );
+
+export default TableSelectionButton;

@@ -3,7 +3,7 @@ import type { StoryFn, Meta } from '@storybook/react-webpack5';
 import { IconButton } from '../Button';
 import { ButtonGroup } from '../ButtonGroup';
 
-import { Divider } from './Divider';
+import Divider from './Divider';
 
 export default {
   title: 'Data Display/Divider',
