@@ -1,14 +1,14 @@
-import type { HTMLAttributes, Ref } from 'react';
+import type { HTMLAttributes } from 'react';
 import { forwardRef } from 'react';
 
 type MessageToolbarWrapperProps = HTMLAttributes<HTMLDivElement> & {
   visible?: boolean;
 };
 
-export const MessageToolbarWrapper = forwardRef(function MessageToolbarWrapper(
-  { className, visible, ...props }: MessageToolbarWrapperProps,
-  ref: Ref<HTMLDivElement>,
-) {
+export const MessageToolbarWrapper = forwardRef<
+  HTMLDivElement,
+  MessageToolbarWrapperProps
+>(function MessageToolbarWrapper({ className, visible, ...props }, ref) {
   return (
     <div
       ref={ref}

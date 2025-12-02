@@ -1,4 +1,4 @@
-import type { Ref, ElementType, ReactNode } from 'react';
+import type { ElementType, ReactNode } from 'react';
 import { createElement, forwardRef } from 'react';
 
 import type { BoxProps } from '../Box';
@@ -11,11 +11,8 @@ type ModalProps = {
   wrapper?: ElementType<Pick<BoxProps, 'elevation' | 'className' | 'children'>>;
 } & BoxProps;
 
-export const Modal = forwardRef(
-  (
-    { children, wrapper = Box, wrapperFunction, ...props }: ModalProps,
-    ref: Ref<Element>,
-  ) => {
+export const Modal = forwardRef<Element, ModalProps>(
+  ({ children, wrapper = Box, wrapperFunction, ...props }, ref) => {
     const wrapperProps = {
       children,
       className: 'rcx-modal__inner',

@@ -4,7 +4,6 @@ import type {
   ElementType,
   RefAttributes,
   SVGAttributes,
-  Ref,
 } from 'react';
 import { createElement, forwardRef, memo } from 'react';
 
@@ -37,9 +36,9 @@ export interface BoxProps
   focusable?: boolean;
 }
 
-export const Box = forwardRef(function Box(
-  { is = 'div', children, ...props }: BoxProps,
-  ref: Ref<any>,
+export const Box = forwardRef<any, BoxProps>(function Box(
+  { is = 'div', children, ...props },
+  ref,
 ) {
   const propsWithRef: BoxProps & RefAttributes<any> = props;
 

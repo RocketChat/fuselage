@@ -1,8 +1,9 @@
 import type { StoryFn, Meta } from '@storybook/react-webpack5';
-import type { ReactNode, Ref } from 'react';
+import type { ReactNode } from 'react';
 import { forwardRef, useState } from 'react';
 
 import Box from '../../Box';
+import type { IconButtonProps } from '../../Button';
 import { IconButton } from '../../Button';
 import { ButtonGroup } from '../../ButtonGroup';
 import { CheckBox } from '../../CheckBox';
@@ -420,7 +421,7 @@ export const Sizes = () => (
   </ButtonGroup>
 );
 
-const CustomButton = forwardRef((props, ref: Ref<HTMLElement>) => (
+const CustomButton = forwardRef<HTMLElement, IconButtonProps>((props, ref) => (
   <IconButton ref={ref} {...props} icon='kebab' secondary small={false} />
 ));
 

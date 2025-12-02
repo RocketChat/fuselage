@@ -1,4 +1,4 @@
-import type { ReactElement, ElementType, Ref } from 'react';
+import type { ReactElement, ElementType } from 'react';
 import { createContext, forwardRef, useContext } from 'react';
 
 import type { BoxProps } from '../Box';
@@ -15,9 +15,9 @@ export type LabelProps = Omit<BoxProps, 'is'> & {
 /**
  * A caption for an input component.
  */
-const Label = forwardRef(function Label(
-  { disabled, is, required, children, ...props }: LabelProps,
-  ref: Ref<HTMLElement>,
+const Label = forwardRef<HTMLElement, LabelProps>(function Label(
+  { disabled, is, required, children, ...props },
+  ref,
 ): ReactElement {
   const isInsideLabel = useContext(LabelContext);
   const component = is || (isInsideLabel && 'span') || 'label';
