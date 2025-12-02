@@ -1,5 +1,4 @@
 import type { StoryFn, Meta } from '@storybook/react-webpack5';
-import type { ComponentType } from 'react';
 import { action } from 'storybook/actions';
 
 import { Avatar, Icon, Box, Tag, Divider, SidebarBanner } from '../..';
@@ -26,20 +25,20 @@ export default {
   title: 'Sidebar/Sidebar',
   component: Sidebar,
   subcomponents: {
-    SidebarItemAvatar: SidebarItemAvatar as ComponentType<any>,
-    SidebarItemContent: SidebarItemContent as ComponentType<any>,
-    SidebarItemContainer: SidebarItemContainer as ComponentType<any>,
-    SidebarItemIcon: SidebarItemIcon as ComponentType<any>,
-    SidebarItemSubtitle: SidebarItemSubtitle as ComponentType<any>,
-    SidebarItemTitle: SidebarItemTitle as ComponentType<any>,
-    SidebarItemWrapper: SidebarItemWrapper as ComponentType<any>,
-    SidebarFooterHighlight: SidebarFooterHighlight as ComponentType<any>,
-    SidebarItemActions: SidebarItemActions as ComponentType<any>,
-    SidebarItemAction: SidebarItemAction as ComponentType<any>,
-    SidebarFooter: SidebarFooter as ComponentType<any>,
-    SidebarSectionTitle: SidebarSectionTitle as ComponentType<any>,
-    SidebarItem: SidebarItem as ComponentType<any>,
-    SidebarSection: SidebarSection as ComponentType<any>,
+    SidebarItemAvatar,
+    SidebarItemContent,
+    SidebarItemContainer,
+    SidebarItemIcon,
+    SidebarItemSubtitle,
+    SidebarItemTitle,
+    SidebarItemWrapper,
+    SidebarFooterHighlight,
+    SidebarItemActions,
+    SidebarItemAction,
+    SidebarFooter,
+    SidebarSectionTitle,
+    SidebarItem,
+    SidebarSection,
   },
 } satisfies Meta<typeof Sidebar>;
 

@@ -1,5 +1,4 @@
 import type { Meta, StoryFn } from '@storybook/react-webpack5';
-import type { ComponentType } from 'react';
 
 import { Avatar } from '../Avatar';
 import { Badge } from '../Badge';
@@ -20,12 +19,12 @@ export default {
   title: 'Containers/Card',
   component: Card,
   subcomponents: {
-    CardHeader: CardHeader as ComponentType<any>,
-    CardTitle: CardTitle as ComponentType<any>,
-    CardCol: CardCol as ComponentType<any>,
-    CardRow: CardRow as ComponentType<any>,
-    CardBody: CardBody as ComponentType<any>,
-    CardControls: CardControls as ComponentType<any>,
+    CardHeader,
+    CardTitle,
+    CardCol,
+    CardRow,
+    CardBody,
+    CardControls,
   },
   parameters: {
     backgrounds: { default: 'dark' },

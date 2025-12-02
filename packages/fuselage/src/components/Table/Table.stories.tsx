@@ -1,5 +1,4 @@
 import type { Meta, StoryFn } from '@storybook/react-webpack5';
-import type { ComponentType } from 'react';
 
 import { CheckBox } from '../CheckBox';
 
@@ -18,13 +17,13 @@ export default {
   title: 'Data Display/Table',
   component: Table,
   subcomponents: {
-    TableHead: TableHead as ComponentType<any>,
-    TableRow: TableRow as ComponentType<any>,
-    TableCell: TableCell as ComponentType<any>,
-    TableBody: TableBody as ComponentType<any>,
-    TableSelection: TableSelection as ComponentType<any>,
-    TableSelectionButton: TableSelectionButton as ComponentType<any>,
-    TableSelectionButtonGroup: TableSelectionButtonGroup as ComponentType<any>,
+    TableHead,
+    TableRow,
+    TableCell,
+    TableBody,
+    TableSelection,
+    TableSelectionButton,
+    TableSelectionButtonGroup,
   },
 } satisfies Meta<typeof Table>;
 

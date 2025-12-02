@@ -1,5 +1,4 @@
 import type { StoryFn, Meta } from '@storybook/react-webpack5';
-import type { ComponentType } from 'react';
 
 import { Avatar } from '../Avatar';
 
@@ -20,13 +19,13 @@ export default {
   title: 'Sidebar/Item',
   component: SidebarItem,
   subcomponents: {
-    SidebarItemAvatar: SidebarItemAvatar as ComponentType<any>,
-    SidebarItemContent: SidebarItemContent as ComponentType<any>,
-    SidebarItemContainer: SidebarItemContainer as ComponentType<any>,
-    SidebarItemIcon: SidebarItemIcon as ComponentType<any>,
-    SidebarItemSubtitle: SidebarItemSubtitle as ComponentType<any>,
-    SidebarItemTitle: SidebarItemTitle as ComponentType<any>,
-    SidebarItemWrapper: SidebarItemWrapper as ComponentType<any>,
+    SidebarItemAvatar,
+    SidebarItemContent,
+    SidebarItemContainer,
+    SidebarItemIcon,
+    SidebarItemSubtitle,
+    SidebarItemTitle,
+    SidebarItemWrapper,
   },
 } satisfies Meta<typeof SidebarItem>;
 

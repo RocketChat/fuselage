@@ -1,5 +1,4 @@
 import type { Meta } from '@storybook/react-webpack5';
-import type { ComponentType } from 'react';
 
 import Box from '../Box';
 import { Icon } from '../Icon';
@@ -22,16 +21,16 @@ export default {
   title: 'Feedback/States',
   component: States,
   subcomponents: {
-    StatesSubtitle: StatesSubtitle as ComponentType<any>,
-    StatesIcon: StatesIcon as ComponentType<any>,
-    StatesTitle: StatesTitle as ComponentType<any>,
-    StatesSuggestionList: StatesSuggestionList as ComponentType<any>,
-    StatesSuggestionListItem: StatesSuggestionListItem as ComponentType<any>,
-    StatesSuggestion: StatesSuggestion as ComponentType<any>,
-    StatesSuggestionText: StatesSuggestionText as ComponentType<any>,
-    StatesActions: StatesActions as ComponentType<any>,
-    StatesAction: StatesAction as ComponentType<any>,
-    StatesLink: StatesLink as ComponentType<any>,
+    StatesSubtitle,
+    StatesIcon,
+    StatesTitle,
+    StatesSuggestionList,
+    StatesSuggestionListItem,
+    StatesSuggestion,
+    StatesSuggestionText,
+    StatesActions,
+    StatesAction,
+    StatesLink,
   },
 } satisfies Meta<typeof States>;
 

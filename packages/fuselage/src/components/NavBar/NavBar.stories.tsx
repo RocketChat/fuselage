@@ -1,5 +1,4 @@
 import type { StoryFn, Meta } from '@storybook/react-webpack5';
-import type { ComponentType } from 'react';
 
 import { Avatar } from '../Avatar';
 import Box from '../Box';
@@ -17,10 +16,10 @@ export default {
   title: 'Navigation/Navbar',
   component: NavBar,
   subcomponents: {
-    NavBarItem: NavBarItem as ComponentType<any>,
-    NavBarSection: NavBarSection as ComponentType<any>,
-    NavBarDivider: NavBarDivider as ComponentType<any>,
-    NavBarGroup: NavBarGroup as ComponentType<any>,
+    NavBarItem,
+    NavBarSection,
+    NavBarDivider,
+    NavBarGroup,
   },
   decorators: [
     (Story) => (

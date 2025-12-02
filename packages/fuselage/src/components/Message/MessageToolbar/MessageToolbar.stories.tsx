@@ -1,5 +1,4 @@
 import type { Meta } from '@storybook/react-webpack5';
-import type { ComponentType } from 'react';
 
 import Box from '../../Box';
 import { BasicMessageTemplate } from '../helpers';
@@ -11,7 +10,7 @@ export default {
   title: 'Message/MessageToolbar',
   component: MessageToolbar,
   subcomponents: {
-    MessageToolbarItem: MessageToolbarItem as ComponentType<any>,
+    MessageToolbarItem,
   },
 } satisfies Meta<typeof MessageToolbar>;
 

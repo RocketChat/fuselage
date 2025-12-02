@@ -1,5 +1,4 @@
 import type { Meta } from '@storybook/react-webpack5';
-import type { ComponentType } from 'react';
 import { action } from 'storybook/actions';
 
 import { Avatar } from '../../Avatar';
@@ -23,15 +22,13 @@ export default {
   title: 'Message/MessageMetrics',
   component: MessageMetrics,
   subcomponents: {
-    MessageMetricsReply: MessageMetricsReply as ComponentType<any>,
-    MessageMetricsItem: MessageMetricsItem as ComponentType<any>,
-    MessageMetricsFollowing: MessageMetricsFollowing as ComponentType<any>,
-    MessageMetricsItemIcon: MessageMetricsItemIcon as ComponentType<any>,
-    MessageMetricsItemLabel: MessageMetricsItemLabel as ComponentType<any>,
-    MessageMetricsItemAvatarRowContent:
-      MessageMetricsItemAvatarRowContent as ComponentType<any>,
-    MessageMetricsItemAvatarRow:
-      MessageMetricsItemAvatarRow as ComponentType<any>,
+    MessageMetricsReply,
+    MessageMetricsItem,
+    MessageMetricsFollowing,
+    MessageMetricsItemIcon,
+    MessageMetricsItemLabel,
+    MessageMetricsItemAvatarRowContent,
+    MessageMetricsItemAvatarRow,
   },
 } satisfies Meta<typeof MessageMetrics>;
 

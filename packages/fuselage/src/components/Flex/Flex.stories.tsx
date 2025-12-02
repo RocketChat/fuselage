@@ -1,5 +1,4 @@
 import type { Meta } from '@storybook/react-webpack5';
-import type { ComponentType } from 'react';
 
 import Tile from '../Tile';
 
@@ -10,10 +9,8 @@ import FlexItem from './FlexItem';
 export default {
   title: 'Layout/Flex',
   subcomponents: {
-    'FlexContainer': FlexContainer as ComponentType<any>,
-    'FlexItem': FlexItem as ComponentType<any>,
-    'Flex.Container': Flex.Container as ComponentType<any>,
-    'Flex.Item': Flex.Item as ComponentType<any>,
+    FlexContainer,
+    FlexItem,
   },
 } satisfies Meta;
 
