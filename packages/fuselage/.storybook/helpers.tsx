@@ -123,7 +123,7 @@ AAAAAALAAAAAABAAEAAAICRAEAOw==`;
 export const DECORATOR_ID = 'decoratorId';
 export const DECORATOR_LABEL = 'Decorator Label';
 
-export const menuOptions = {
+export const menuOptions = () => ({
   makeAdmin: {
     label: (
       <Box display='flex' alignItems='center'>
@@ -142,7 +142,7 @@ export const menuOptions = {
     ),
     action: () => console.log('[...] no longer exists'),
   },
-};
+});
 
 export const surface = {
   sidebar: dark['surface-sidebar'],
