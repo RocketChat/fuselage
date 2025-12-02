@@ -1,11 +1,10 @@
-import type { ComponentProps } from 'react';
-
 import type { BoxProps } from '../Box';
 import Box from '../Box';
+import type { IconProps } from '../Icon';
 import { Icon } from '../Icon';
 
 export type ModalIconProps = BoxProps & {
-  name: ComponentProps<typeof Icon>['name'];
+  name: IconProps['name'];
 };
 
 export const ModalIcon = ({

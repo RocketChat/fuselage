@@ -4,19 +4,14 @@ import {
   useResizeObserver,
   useOutsideClick,
 } from '@rocket.chat/fuselage-hooks';
-import type {
-  ComponentProps,
-  DependencyList,
-  Ref,
-  ElementType,
-  ReactNode,
-} from 'react';
+import type { DependencyList, Ref, ElementType, ReactNode } from 'react';
 import { useState, useRef, useEffect, forwardRef, useMemo } from 'react';
 
 import { isForwardRefType } from '../../helpers/isForwardRefType';
 import AnimatedVisibility from '../AnimatedVisibility';
 import type { BoxProps } from '../Box';
 import Box from '../Box';
+import type { IconProps } from '../Icon';
 import { Icon } from '../Icon';
 import Margins from '../Margins';
 import type { OptionType } from '../Options';
@@ -63,7 +58,7 @@ export type SelectProps = Omit<BoxProps, 'onChange'> & {
   renderItem?: ElementType;
   renderSelected?: ElementType;
   customEmpty?: string;
-  addonIcon?: ComponentProps<typeof Icon>['name'];
+  addonIcon?: IconProps['name'];
 };
 
 export const SelectLegacy = forwardRef(

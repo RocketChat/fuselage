@@ -4,16 +4,10 @@ import {
   useResizeObserver,
   useOutsideClick,
 } from '@rocket.chat/fuselage-hooks';
-import type {
-  ComponentProps,
-  SyntheticEvent,
-  ElementType,
-  Ref,
-  ReactNode,
-} from 'react';
+import type { SyntheticEvent, ElementType, Ref, ReactNode } from 'react';
 import { useState, useRef, useEffect, forwardRef } from 'react';
 
-import type { SelectOption } from '..';
+import type { IconProps, SelectOption } from '..';
 import { isForwardRefType } from '../../helpers/isForwardRefType';
 import { prevent } from '../../helpers/prevent';
 import AnimatedVisibility from '../AnimatedVisibility';
@@ -45,7 +39,7 @@ type MultiSelectProps = Omit<BoxProps, 'onChange' | 'value'> & {
   renderOptions?: ElementType;
   renderItem?: ElementType;
   renderSelected?: ElementType;
-  addonIcon?: ComponentProps<typeof Icon>['name'];
+  addonIcon?: IconProps['name'];
   setFilter?: (filter: string) => void;
 };
 
