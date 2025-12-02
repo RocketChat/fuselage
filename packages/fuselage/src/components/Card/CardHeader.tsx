@@ -1,9 +1,10 @@
 import type { AllHTMLAttributes, ReactNode } from 'react';
 
-const CardHeader = ({
-  children,
-  ...props
-}: { children: ReactNode } & AllHTMLAttributes<HTMLElement>) => (
+export type CardHeaderProps = {
+  children: ReactNode;
+} & AllHTMLAttributes<HTMLElement>;
+
+const CardHeader = ({ children, ...props }: CardHeaderProps) => (
   <div className='rcx-card__header' {...props}>
     {children}
   </div>

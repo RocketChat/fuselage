@@ -13,37 +13,30 @@ export type VisibilityType =
   | 'unhiding'
   | undefined;
 
-type AnimatedVisibilityProps = {
+export type AnimatedVisibilityProps = {
   children: ReactNode;
   visibility?: VisibilityType;
 };
 
-const Visibility = {
-  HIDDEN: 'hidden' as VisibilityType,
-  VISIBLE: 'visible' as VisibilityType,
-  HIDING: 'hiding' as VisibilityType,
-  UNHIDING: 'unhiding' as VisibilityType,
-};
-
 const AnimatedVisibility = (props: AnimatedVisibilityProps) => {
-  const propVisibility = props.visibility || Visibility.HIDDEN;
+  const propVisibility = props.visibility || AnimatedVisibility.HIDDEN;
 
   const [visibility, setVisibility] = useState<VisibilityType>(propVisibility);
 
   useEffect(() => {
     setVisibility((visibility) => {
       if (
-        propVisibility === Visibility.VISIBLE &&
+        propVisibility === AnimatedVisibility.VISIBLE &&
         visibility !== propVisibility
       ) {
-        return Visibility.UNHIDING;
+        return AnimatedVisibility.UNHIDING;
       }
 
       if (
-        propVisibility === Visibility.HIDDEN &&
+        propVisibility === AnimatedVisibility.HIDDEN &&
         visibility !== propVisibility
       ) {
-        return Visibility.HIDING;
+        return AnimatedVisibility.HIDING;
       }
 
       return visibility;
@@ -54,7 +47,7 @@ const AnimatedVisibility = (props: AnimatedVisibilityProps) => {
     css`
       animation-duration: 230ms;
 
-      ${visibility === Visibility.HIDING &&
+      ${visibility === AnimatedVisibility.HIDING &&
       css`
         animation-name: ${keyframes`
         from {
@@ -69,7 +62,7 @@ const AnimatedVisibility = (props: AnimatedVisibilityProps) => {
       `};
       `}
 
-      ${visibility === Visibility.UNHIDING &&
+      ${visibility === AnimatedVisibility.UNHIDING &&
       css`
         animation-name: ${keyframes`
         from {
@@ -90,12 +83,12 @@ const AnimatedVisibility = (props: AnimatedVisibilityProps) => {
   const handleAnimationEnd = useCallback(
     () =>
       setVisibility((visibility) => {
-        if (visibility === Visibility.HIDING) {
-          return Visibility.HIDDEN;
+        if (visibility === AnimatedVisibility.HIDING) {
+          return AnimatedVisibility.HIDDEN;
         }
 
-        if (visibility === Visibility.UNHIDING) {
-          return Visibility.VISIBLE;
+        if (visibility === AnimatedVisibility.UNHIDING) {
+          return AnimatedVisibility.VISIBLE;
         }
 
         return visibility;
@@ -116,7 +109,7 @@ const AnimatedVisibility = (props: AnimatedVisibilityProps) => {
   );
 
   const composedFn = useComposedBoxTransform(transformFn);
-  if (visibility === Visibility.HIDDEN) {
+  if (visibility === AnimatedVisibility.HIDDEN) {
     return null;
   }
 
@@ -124,5 +117,10 @@ const AnimatedVisibility = (props: AnimatedVisibilityProps) => {
     <BoxTransforms.Provider children={props.children} value={composedFn} />
   );
 };
+
+AnimatedVisibility.HIDDEN = 'hidden' as VisibilityType;
+AnimatedVisibility.VISIBLE = 'visible' as VisibilityType;
+AnimatedVisibility.HIDING = 'hiding' as VisibilityType;
+AnimatedVisibility.UNHIDING = 'unhiding' as VisibilityType;
 
 export default AnimatedVisibility;

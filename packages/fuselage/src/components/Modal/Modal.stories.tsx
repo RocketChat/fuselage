@@ -1,9 +1,8 @@
 import type { Meta, StoryFn } from '@storybook/react-webpack5';
 import { action } from 'storybook/actions';
 
-import type { BoxProps } from '../Box';
-import Box from '../Box';
-import Button from '../Button';
+import { Box, type BoxProps } from '../Box';
+import { Button } from '../Button';
 import { Field, FieldLabel, FieldRow } from '../Field';
 import { FieldGroup } from '../FieldGroup';
 import { TextInput } from '../TextInput';

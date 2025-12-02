@@ -8,7 +8,7 @@ import { SelectAria } from './SelectAria';
 
 type SelectOption = readonly [value: string, label: string, selected?: boolean];
 
-type SelectProps<T, V extends Key> = Omit<
+export type SelectProps<T, V extends Key> = Omit<
   AriaSelectProps<T>,
   'value' | 'onChange' | 'children'
 > & {
@@ -23,7 +23,7 @@ type SelectProps<T, V extends Key> = Omit<
 /**
  * An input for selection of options.
  */
-export const Select = forwardRef<HTMLElement, SelectProps<object, Key>>(
+const Select = forwardRef<HTMLElement, SelectProps<object, Key>>(
   function Select({ options, ...props }, ref) {
     return (
       <SelectAria ref={ref} {...(props as SelectAriaProps<object>)}>
@@ -40,3 +40,5 @@ export const Select = forwardRef<HTMLElement, SelectProps<object, Key>>(
     );
   },
 );
+
+export default Select;

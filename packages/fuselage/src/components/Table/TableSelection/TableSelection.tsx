@@ -1,16 +1,11 @@
-import type { BoxProps } from '../../Box';
-import Box from '../../Box';
-import Margins from '../../Margins';
+import { Box, type BoxProps } from '../../Box';
+import { Margins } from '../../Margins';
 
-type TableSelectionProps = BoxProps & {
+export type TableSelectionProps = BoxProps & {
   text?: string;
 };
 
-export const TableSelection = ({
-  children,
-  text,
-  ...props
-}: TableSelectionProps) => (
+const TableSelection = ({ children, text, ...props }: TableSelectionProps) => (
   <Box
     rcx-table__selection
     display='flex'
@@ -30,3 +25,5 @@ export const TableSelection = ({
     )}
   </Box>
 );
+
+export default TableSelection;

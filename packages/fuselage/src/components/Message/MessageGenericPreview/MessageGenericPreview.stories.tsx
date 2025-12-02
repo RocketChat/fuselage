@@ -1,18 +1,18 @@
 import type { Meta, StoryFn } from '@storybook/react-webpack5';
 import type { ReactNode } from 'react';
 
-import Message from '..';
 import { Avatar } from '../../Avatar';
-import Box from '../../Box';
+import { Box } from '../../Box';
+import Message from '../Message';
 
-import { MessageGenericPreview } from './MessageGenericPreview';
-import { MessageGenericPreviewContent } from './MessageGenericPreviewContent';
-import { MessageGenericPreviewCoverImage } from './MessageGenericPreviewCoverImage';
-import { MessageGenericPreviewDescription } from './MessageGenericPreviewDescription';
-import { MessageGenericPreviewIcon } from './MessageGenericPreviewIcon';
-import { MessageGenericPreviewImage } from './MessageGenericPreviewImage';
-import { MessageGenericPreviewThumb } from './MessageGenericPreviewThumb';
-import { MessageGenericPreviewTitle } from './MessageGenericPreviewTitle';
+import MessageGenericPreview from './MessageGenericPreview';
+import MessageGenericPreviewContent from './MessageGenericPreviewContent';
+import MessageGenericPreviewCoverImage from './MessageGenericPreviewCoverImage';
+import MessageGenericPreviewDescription from './MessageGenericPreviewDescription';
+import MessageGenericPreviewIcon from './MessageGenericPreviewIcon';
+import MessageGenericPreviewImage from './MessageGenericPreviewImage';
+import MessageGenericPreviewThumb from './MessageGenericPreviewThumb';
+import MessageGenericPreviewTitle from './MessageGenericPreviewTitle';
 
 export default {
   title: 'Message/MessageGenericPreview',

@@ -1,16 +1,12 @@
-import type { HTMLAttributes, ReactElement } from 'react';
+import type { HTMLAttributes } from 'react';
 
 import { prependClassName } from '../../helpers/prependClassName';
 
-type MessageBodyProps = HTMLAttributes<HTMLDivElement> & {
+export type MessageBodyProps = HTMLAttributes<HTMLDivElement> & {
   clamp?: 2 | 3 | 4;
 };
 
-export const MessageBody = ({
-  clamp,
-  className,
-  ...props
-}: MessageBodyProps): ReactElement => (
+const MessageBody = ({ clamp, className, ...props }: MessageBodyProps) => (
   <div
     className={
       prependClassName(
@@ -26,3 +22,5 @@ export const MessageBody = ({
     {...props}
   />
 );
+
+export default MessageBody;

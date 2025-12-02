@@ -1,16 +1,31 @@
 import { forwardRef } from 'react';
 
-import type { ButtonGroupProps } from '../..';
-import { ButtonGroup } from '../..';
+import { ButtonGroup, type ButtonGroupProps } from '../../ButtonGroup';
+import { Menu } from '../../Menu';
 
-type MessageToolbarProps = ButtonGroupProps;
+import MessageToolbarItem from './MessageToolbarItem';
+import MessageToolbarWrapper from './MessageToolbarWrapper';
 
-export const MessageToolbar = forwardRef<HTMLDivElement, MessageToolbarProps>(
-  function MessageToolbar(props, ref) {
-    return (
-      <div className='rcx-box rcx-box--full rcx-message-toolbar'>
-        <ButtonGroup role='toolbar' ref={ref} small {...props} />
-      </div>
-    );
+export type MessageToolbarProps = ButtonGroupProps;
+
+const MessageToolbar = Object.assign(
+  forwardRef<HTMLDivElement, MessageToolbarProps>(
+    function MessageToolbar(props, ref) {
+      return (
+        <div className='rcx-box rcx-box--full rcx-message-toolbar'>
+          <ButtonGroup role='toolbar' ref={ref} small {...props} />
+        </div>
+      );
+    },
+  ),
+  {
+    /** @deprecated prefer using named imports */
+    Item: MessageToolbarItem,
+    /** @deprecated prefer using named imports */
+    Wrapper: MessageToolbarWrapper,
+    /** @deprecated prefer using named imports */
+    Menu,
   },
 );
+
+export default MessageToolbar;

@@ -3,7 +3,7 @@ import type { StoryFn, Meta } from '@storybook/react-webpack5';
 import { Field, FieldHint, FieldLabel, FieldRow } from '../Field';
 import { InputBoxSkeleton } from '../InputBox';
 
-import { FieldGroup } from './FieldGroup';
+import FieldGroup from './FieldGroup';
 
 export default {
   title: 'Inputs/FieldGroup',

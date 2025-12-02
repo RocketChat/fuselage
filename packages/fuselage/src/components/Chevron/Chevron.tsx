@@ -1,11 +1,10 @@
 import type { ReactElement } from 'react';
 import { useMemo } from 'react';
 
-import type { BoxProps } from '../Box';
-import Box from '../Box';
+import { Box, type BoxProps } from '../Box';
 import { Icon } from '../Icon';
 
-type ChevronProps = Omit<BoxProps, 'size'> & {
+export type ChevronProps = Omit<BoxProps, 'size'> & {
   size?: BoxProps['width'];
   up?: boolean;
   right?: boolean;
@@ -15,7 +14,7 @@ type ChevronProps = Omit<BoxProps, 'size'> & {
   bottom?: boolean;
 };
 
-export function Chevron({
+function Chevron({
   up,
   right,
   down,
@@ -41,3 +40,5 @@ export function Chevron({
     />
   );
 }
+
+export default Chevron;

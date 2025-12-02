@@ -1,1 +1,1 @@
-export * from './AudioPlayer';
+export { default as AudioPlayer, type AudioPlayerProps } from './AudioPlayer';

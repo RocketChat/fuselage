@@ -3,7 +3,7 @@ import { forwardRef, memo } from 'react';
 import { Box } from '..';
 import type { BoxProps } from '../Box';
 
-type ContextualbarProps = BoxProps;
+export type ContextualbarProps = BoxProps;
 
 /**
  * The `Contextualbar` has the purpose to persist and input information about the scope of the related page.

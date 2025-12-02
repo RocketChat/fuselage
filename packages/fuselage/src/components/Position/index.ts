@@ -1,1 +1,1 @@
-export { default, default as Position, type PositionProps } from './Position';
+export { default as Position, type PositionProps } from './Position';

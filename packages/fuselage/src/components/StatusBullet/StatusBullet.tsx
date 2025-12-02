@@ -31,4 +31,5 @@ const StatusBullet = ({ status = 'loading', ...props }: StatusBulletProps) => {
       return <Loading {...props} />;
   }
 };
-export { StatusBullet };
+
+export default StatusBullet;

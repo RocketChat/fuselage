@@ -1,14 +1,13 @@
 import { appendClassName } from '../../helpers/appendClassName';
 import { patchChildren } from '../../helpers/patchChildren';
-import type { BoxProps } from '../Box';
-import Box from '../Box';
+import { Box, type BoxProps } from '../Box';
 
-type FieldGroupProps = BoxProps;
+export type FieldGroupProps = BoxProps;
 
 /**
  * A container for grouping fields that semantically share a common data context.
  */
-export const FieldGroup = ({ children, ...props }: FieldGroupProps) => (
+const FieldGroup = ({ children, ...props }: FieldGroupProps) => (
   <Box is='fieldset' rcx-field-group role='group' {...props}>
     {patchChildren(
       children,
@@ -21,3 +20,5 @@ export const FieldGroup = ({ children, ...props }: FieldGroupProps) => (
     )}
   </Box>
 );
+
+export default FieldGroup;

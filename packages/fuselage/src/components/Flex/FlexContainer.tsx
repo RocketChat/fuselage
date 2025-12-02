@@ -3,7 +3,7 @@ import { useCallback } from 'react';
 
 import { BoxTransforms, useComposedBoxTransform } from '../Box/BoxTransforms';
 
-type FlexContainerProps = {
+export type FlexContainerProps = {
   children?: ReactNode;
   inline?: boolean;
   direction?: 'row' | 'row-reverse' | 'column' | 'column-reverse';

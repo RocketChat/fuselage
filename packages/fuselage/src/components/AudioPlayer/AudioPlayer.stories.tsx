@@ -1,6 +1,6 @@
 import type { Meta } from '@storybook/react-webpack5';
 
-import { AudioPlayer } from './AudioPlayer';
+import AudioPlayer from './AudioPlayer';
 
 export default {
   title: 'Media/AudioPlayer',

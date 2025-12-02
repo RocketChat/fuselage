@@ -2,7 +2,7 @@ import { useEffectEvent } from '@rocket.chat/fuselage-hooks';
 import type { KeyboardEvent } from 'react';
 import { useState } from 'react';
 
-import AnimatedVisibility from '../AnimatedVisibility';
+import { AnimatedVisibility } from '../AnimatedVisibility';
 
 import type { OptionType } from './OptionType';
 import { useVisible } from './useVisible';

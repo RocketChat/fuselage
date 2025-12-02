@@ -4,7 +4,7 @@ import { Chevron } from '../Chevron';
 
 import { useCollapse } from './hooks/useCollapse';
 
-type SidebarAccordionItemProps = {
+export type SidebarAccordionItemProps = {
   children?: ReactNode;
   className?: string;
   defaultExpanded?: boolean;
@@ -15,7 +15,7 @@ type SidebarAccordionItemProps = {
   badge?: ReactNode;
 } & HTMLAttributes<HTMLElement>;
 
-export const SidebarAccordionItem = ({
+const SidebarAccordionItem = ({
   children,
   title,
   badge,
@@ -78,3 +78,5 @@ export const SidebarAccordionItem = ({
     </section>
   );
 };
+
+export default SidebarAccordionItem;

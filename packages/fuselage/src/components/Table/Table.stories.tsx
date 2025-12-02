@@ -2,11 +2,11 @@ import type { Meta, StoryFn } from '@storybook/react-webpack5';
 
 import { CheckBox } from '../CheckBox';
 
-import { Table } from './Table';
-import { TableBody } from './TableBody';
-import { TableCell } from './TableCell';
-import { TableHead } from './TableHead';
-import { TableRow } from './TableRow';
+import Table from './Table';
+import TableBody from './TableBody';
+import TableCell from './TableCell';
+import TableHead from './TableHead';
+import TableRow from './TableRow';
 import {
   TableSelection,
   TableSelectionButton,

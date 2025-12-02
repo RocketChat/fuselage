@@ -12,7 +12,7 @@ export type DropdownProps<T extends HTMLElement> = {
   children: ReactNode;
 };
 
-export const Dropdown = forwardRef<HTMLElement, DropdownProps<HTMLElement>>(
+const Dropdown = forwardRef<HTMLElement, DropdownProps<HTMLElement>>(
   function Dropdown({ children, reference, placement = 'bottom-start' }, ref) {
     const notSmall = useMediaQuery('(min-width: 500px)');
 
@@ -28,3 +28,5 @@ export const Dropdown = forwardRef<HTMLElement, DropdownProps<HTMLElement>>(
     );
   },
 );
+
+export default Dropdown;

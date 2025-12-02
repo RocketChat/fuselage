@@ -1,8 +1,8 @@
 import type { StoryFn, Meta } from '@storybook/react-webpack5';
 import { action } from 'storybook/actions';
 
-import Box from '../Box';
-import Button, { IconButton } from '../Button';
+import { Box } from '../Box';
+import { Button, IconButton } from '../Button';
 import { ButtonGroup } from '../ButtonGroup';
 import { Icon } from '../Icon';
 import { InputBox } from '../InputBox';

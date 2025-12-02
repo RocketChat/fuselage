@@ -4,7 +4,7 @@ import type { AllHTMLAttributes, ButtonHTMLAttributes, ReactNode } from 'react';
 import { BubbleButton } from './BubbleButton';
 import { BubbleItem } from './BubbleItem';
 
-type BubbleProps = {
+export type BubbleProps = {
   secondary?: boolean;
   children: ReactNode;
   small?: boolean;
@@ -15,7 +15,7 @@ type BubbleProps = {
   dismissProps?: Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onClick'>;
 } & Omit<AllHTMLAttributes<HTMLDivElement>, 'onClick'>;
 
-export const Bubble = ({
+const Bubble = ({
   secondary,
   children,
   onClick,
@@ -62,3 +62,5 @@ export const Bubble = ({
     )}
   </div>
 );
+
+export default Bubble;

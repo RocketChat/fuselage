@@ -3,7 +3,7 @@ import { forwardRef } from 'react';
 
 import { InputBox, type InputBoxProps } from '../InputBox';
 
-type EmailInputProps = Omit<InputBoxProps, 'type'> & {
+export type EmailInputProps = Omit<InputBoxProps, 'type'> & {
   addon?: ReactNode;
   error?: string;
 };
@@ -41,8 +41,10 @@ const type: InputType = 'email';
 /**
  * An input for email addresses.
  */
-export const EmailInput = forwardRef<HTMLElement, EmailInputProps>(
+const EmailInput = forwardRef<HTMLElement, EmailInputProps>(
   function EmailInput(props, ref) {
     return <InputBox type={type} ref={ref} {...props} />;
   },
 );
+
+export default EmailInput;

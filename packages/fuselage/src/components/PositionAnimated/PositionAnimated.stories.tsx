@@ -1,8 +1,8 @@
 import type { StoryFn, Meta } from '@storybook/react-webpack5';
 import { useRef } from 'react';
 
-import AnimatedVisibility from '../AnimatedVisibility';
-import Tile from '../Tile';
+import { AnimatedVisibility } from '../AnimatedVisibility';
+import { Tile } from '../Tile';
 
 import PositionAnimated from './PositionAnimated';
 

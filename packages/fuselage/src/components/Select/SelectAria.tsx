@@ -5,7 +5,7 @@ import { forwardRef } from 'react';
 import { useSelect, HiddenSelect, mergeProps, useFocusRing } from 'react-aria';
 import { useSelectState } from 'react-stately';
 
-import Box from '../Box/Box';
+import { Box } from '../Box';
 import { Icon } from '../Icon';
 import { OptionContainer } from '../Options';
 import { Popover } from '../Popover';

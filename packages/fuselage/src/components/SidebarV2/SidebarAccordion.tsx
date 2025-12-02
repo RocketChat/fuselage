@@ -1,10 +1,12 @@
 import type { HTMLAttributes } from 'react';
 
-export const SidebarAccordion = ({
+export type SidebarAccordionProps = HTMLAttributes<HTMLDivElement>;
+
+const SidebarAccordion = ({
   className,
   children,
   ...props
-}: HTMLAttributes<HTMLDivElement>) => (
+}: SidebarAccordionProps) => (
   <div
     className={[
       'rcx-box rcx-box--full rcx-sidebar-v2-accordion rcx-box--animated',
@@ -17,3 +19,5 @@ export const SidebarAccordion = ({
     <div className='rcx-sidebar-v2-accordion__wrapper'>{children}</div>
   </div>
 );
+
+export default SidebarAccordion;

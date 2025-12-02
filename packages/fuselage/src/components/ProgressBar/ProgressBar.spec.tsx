@@ -1,6 +1,6 @@
 import { render } from '../../testing';
 
-import { ProgressBar } from './ProgressBar';
+import ProgressBar from './ProgressBar';
 
 describe('[ProgressBar Component]', () => {
   it('renders without crashing', () => {

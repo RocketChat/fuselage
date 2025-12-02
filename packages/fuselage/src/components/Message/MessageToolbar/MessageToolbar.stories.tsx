@@ -1,10 +1,10 @@
 import type { Meta } from '@storybook/react-webpack5';
 
-import Box from '../../Box';
+import { Box } from '../../Box';
 import { BasicMessageTemplate } from '../helpers';
 
-import { MessageToolbar } from './MessageToolbar';
-import { MessageToolbarItem } from './MessageToolbarItem';
+import MessageToolbar from './MessageToolbar';
+import MessageToolbarItem from './MessageToolbarItem';
 
 export default {
   title: 'Message/MessageToolbar',

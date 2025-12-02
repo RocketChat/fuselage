@@ -3,14 +3,14 @@ import { type ElementType, useState, useRef, useMemo } from 'react';
 
 import type { OptionType, SelectOption, SelectProps } from '..';
 import { prevent } from '../../helpers/prevent';
-import AnimatedVisibility from '../AnimatedVisibility';
-import Box from '../Box';
+import { AnimatedVisibility } from '../AnimatedVisibility';
+import { Box } from '../Box';
 import { Icon } from '../Icon';
-import Margins from '../Margins';
+import { Margins } from '../Margins';
 import { Option } from '../Option';
 import { useVisible } from '../Options/useVisible';
 import { OptionsPaginated } from '../OptionsPaginated';
-import PositionAnimated from '../PositionAnimated';
+import { PositionAnimated } from '../PositionAnimated';
 import SelectAddon from '../Select/SelectAddon';
 import SelectFocus from '../Select/SelectFocus';
 

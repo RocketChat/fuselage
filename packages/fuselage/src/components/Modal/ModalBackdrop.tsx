@@ -1,8 +1,9 @@
-import type { BoxProps } from '../Box';
-import Box from '../Box';
+import { Box, type BoxProps } from '../Box';
 
 export type ModalBackdropProps = BoxProps;
 
-export const ModalBackdrop = (props: ModalBackdropProps) => (
+const ModalBackdrop = (props: ModalBackdropProps) => (
   <Box rcx-modal__backdrop {...props} />
 );
+
+export default ModalBackdrop;

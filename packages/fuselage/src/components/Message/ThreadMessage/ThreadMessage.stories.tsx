@@ -1,10 +1,10 @@
 import type { Meta } from '@storybook/react-webpack5';
 
 import { Avatar } from '../../Avatar';
-import Box from '../../Box';
+import { Box } from '../../Box';
 
-import ThreadMessage from '.';
-import { ThreadMessageEmoji } from './ThreadMessageEmoji';
+import ThreadMessage from './ThreadMessage';
+import ThreadMessageEmoji from './ThreadMessageEmoji';
 
 export default {
   title: 'Message/ThreadMessage',

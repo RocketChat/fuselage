@@ -1,4 +1,4 @@
-import { SidebarDivider as TopBarDivider } from '../SidebarDivider';
+import TopBarDivider from '../SidebarDivider';
 
 import { TopBar } from './TopBar';
 import { TopBarAction } from './TopBarAction';

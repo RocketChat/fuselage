@@ -3,11 +3,11 @@ import { action } from 'storybook/actions';
 
 import { exampleAvatar, menuOptions } from '../../../.storybook/helpers';
 import { Avatar } from '../Avatar';
-import Box from '../Box';
+import { Box } from '../Box';
 import { Menu } from '../Menu';
 import { MenuItem, MenuV2 } from '../Menu/V2';
 import { StatusBullet } from '../StatusBullet';
-import Tile from '../Tile';
+import { Tile } from '../Tile';
 
 import Option from './Option';
 import OptionAvatar from './OptionAvatar';

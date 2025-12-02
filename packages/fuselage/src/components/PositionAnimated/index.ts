@@ -1,1 +1,4 @@
-export { default } from './PositionAnimated';
+export {
+  default as PositionAnimated,
+  type PositionAnimatedProps,
+} from './PositionAnimated';

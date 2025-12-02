@@ -6,7 +6,7 @@ import type { BoxProps } from '../Box';
 
 import ContextualbarContent from './ContextualbarContent';
 
-type ContextualbarEmptyContentProps = BoxProps & {
+export type ContextualbarEmptyContentProps = BoxProps & {
   icon?: StatesIconProps['name'];
   title?: string;
   subtitle?: string;
