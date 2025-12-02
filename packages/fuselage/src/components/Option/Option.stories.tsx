@@ -108,7 +108,7 @@ export const WithMenu: StoryFn<typeof Option> = () => (
     <Option onClick={action('click')}>
       <OptionContent>Lorem Ipsum Lorem</OptionContent>
       <OptionMenu>
-        <Menu options={menuOptions} />
+        <Menu options={menuOptions()} />
       </OptionMenu>
     </Option>
     <Option>
@@ -122,7 +122,7 @@ export const WithMenu: StoryFn<typeof Option> = () => (
         Lorem Ipsum Lorem Lorem Ipsum Lorem Lorem Ipsum Lorem Lorem Ipsum Lorem
       </OptionContent>
       <OptionMenu>
-        <Menu options={menuOptions} />
+        <Menu options={menuOptions()} />
       </OptionMenu>
     </Option>
   </>
@@ -164,7 +164,7 @@ export const WithIcon: StoryFn<typeof Option> = () => (
       <OptionIcon name='bell' />
       <OptionContent>Lorem Ipsum Lorem</OptionContent>
       <OptionMenu>
-        <Menu options={menuOptions} />
+        <Menu options={menuOptions()} />
       </OptionMenu>
     </Option>
     <Option>
@@ -179,7 +179,7 @@ export const WithIcon: StoryFn<typeof Option> = () => (
         Lorem Ipsum Lorem Lorem Ipsum Lorem Lorem Ipsum Lorem Lorem Ipsum Lorem
       </OptionContent>
       <OptionMenu>
-        <Menu options={menuOptions} />
+        <Menu options={menuOptions()} />
       </OptionMenu>
     </Option>
   </>
@@ -231,7 +231,7 @@ export const AsUserItem: StoryFn<typeof Option> = () => (
         </Box>
       </OptionContent>
       <OptionMenu>
-        <Menu options={menuOptions} />
+        <Menu options={menuOptions()} />
       </OptionMenu>
     </Option>
   </>
