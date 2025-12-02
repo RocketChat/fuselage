@@ -5,18 +5,20 @@ import { appendClassName } from '../../helpers/appendClassName';
 import { patchChildren } from '../../helpers/patchChildren';
 import { Icon } from '../Icon';
 
-export const SidebarLink = ({
+export type SidebarLinkProps = {
+  selected?: boolean;
+  icon?: Icons;
+  badge?: ReactNode;
+  menu?: ReactNode;
+} & LinkHTMLAttributes<HTMLAnchorElement>;
+
+const SidebarLink = ({
   selected,
   icon,
   badge,
   menu,
   ...props
-}: {
-  selected?: boolean;
-  icon?: Icons;
-  badge?: ReactNode;
-  menu?: ReactNode;
-} & LinkHTMLAttributes<HTMLAnchorElement>) => (
+}: SidebarLinkProps) => (
   <a
     role='link'
     tabIndex={0}
@@ -53,3 +55,5 @@ export const SidebarLink = ({
       )}
   </a>
 );
+
+export default SidebarLink;

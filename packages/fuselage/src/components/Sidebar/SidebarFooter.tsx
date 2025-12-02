@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 
-type SidebarFooterProps = {
+export type SidebarFooterProps = {
   children?: ReactNode;
   elevated?: boolean;
 };
@@ -17,7 +17,7 @@ export const SidebarFooter = ({ elevated, ...props }: SidebarFooterProps) => (
   />
 );
 
-type SidebarFooterHighlightProps = {
+export type SidebarFooterHighlightProps = {
   children?: ReactNode;
 };
 

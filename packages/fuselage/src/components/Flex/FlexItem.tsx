@@ -3,7 +3,7 @@ import { useCallback } from 'react';
 
 import { BoxTransforms, useComposedBoxTransform } from '../Box/BoxTransforms';
 
-type FlexItemProps = {
+export type FlexItemProps = {
   children?: ReactNode;
   order?: number;
   grow?: number;

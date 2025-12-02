@@ -3,7 +3,7 @@ import type { StoryFn, Meta } from '@storybook/react-webpack5';
 import { PropsVariationSection } from '../../../.storybook/helpers';
 import { Icon } from '../Icon';
 
-import { EmailInput } from './EmailInput';
+import EmailInput from './EmailInput';
 
 export default {
   title: 'Inputs/EmailInput',

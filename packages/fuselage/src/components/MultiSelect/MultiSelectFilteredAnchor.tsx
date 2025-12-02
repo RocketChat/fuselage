@@ -7,7 +7,7 @@ import type {
 } from 'react';
 import { forwardRef } from 'react';
 
-import Flex from '../Flex';
+import { FlexItem } from '../Flex';
 import { Input } from '../InputBox';
 
 type MultiSelectFilteredAnchorProps = {
@@ -30,7 +30,7 @@ const MultiSelectFilteredAnchor = forwardRef<
   ref,
 ) {
   return (
-    <Flex.Item grow={1}>
+    <FlexItem grow={1}>
       <Input
         ref={ref}
         placeholder={placeholder}
@@ -43,7 +43,7 @@ const MultiSelectFilteredAnchor = forwardRef<
         aria-haspopup='listbox'
         order={1}
       />
-    </Flex.Item>
+    </FlexItem>
   );
 });
 

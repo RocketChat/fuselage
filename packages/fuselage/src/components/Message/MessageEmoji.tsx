@@ -1,11 +1,11 @@
 import type { MessageEmojiBaseProps } from './MessageEmojiBase';
 import { MessageEmojiBase } from './MessageEmojiBase';
 
-type MessageEmojiProps = MessageEmojiBaseProps & {
+export type MessageEmojiProps = MessageEmojiBaseProps & {
   big?: boolean;
 };
 
-export const MessageEmoji = ({
+const MessageEmoji = ({
   name,
   className,
   image,
@@ -25,3 +25,5 @@ export const MessageEmoji = ({
     {...props}
   />
 );
+
+export default MessageEmoji;

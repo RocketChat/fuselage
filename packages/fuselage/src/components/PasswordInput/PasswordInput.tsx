@@ -6,7 +6,7 @@ import { InputBox, type InputBoxProps } from '../InputBox';
 
 // TODO: fix a11y issues
 
-type PasswordInputProps = Omit<InputBoxProps, 'type'>;
+export type PasswordInputProps = Omit<InputBoxProps, 'type'>;
 
 const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
   function PasswordInput(props, ref) {

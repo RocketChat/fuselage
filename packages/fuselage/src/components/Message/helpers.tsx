@@ -2,9 +2,9 @@ import type { StoryFn } from '@storybook/react-webpack5';
 import type { ReactNode } from 'react';
 
 import { Avatar } from '../Avatar';
-import Box from '../Box';
+import { Box } from '../Box';
 
-import Message from '.';
+import Message from './Message';
 import { MessageDivider } from './MessageDivider';
 
 export const avatarUrl =

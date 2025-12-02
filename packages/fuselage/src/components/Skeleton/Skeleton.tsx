@@ -4,7 +4,7 @@ import { cx, cxx } from '../../helpers/composeClassNames';
 import type { StylingBoxProps } from '../Box';
 import { StylingBox } from '../Box';
 
-type SkeletonProps = Omit<StylingBoxProps, 'children'> & {
+export type SkeletonProps = Omit<StylingBoxProps, 'children'> & {
   variant?: 'text' | 'rect' | 'circle';
 } & AllHTMLAttributes<HTMLSpanElement>;
 
@@ -21,4 +21,5 @@ const Skeleton = ({ variant = 'text', ...props }: SkeletonProps) => (
     />
   </StylingBox>
 );
-export { Skeleton };
+
+export default Skeleton;

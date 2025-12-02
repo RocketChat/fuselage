@@ -1,10 +1,9 @@
 import { memo } from 'react';
 
-import type { BoxProps } from '../Box';
-import Box from '../Box';
-import Margins from '../Margins';
+import { Box, type BoxProps } from '../Box';
+import { Margins } from '../Margins';
 
-type ContextualbarHeaderProps = BoxProps;
+export type ContextualbarHeaderProps = BoxProps;
 
 const ContextualbarHeader = ({
   children,

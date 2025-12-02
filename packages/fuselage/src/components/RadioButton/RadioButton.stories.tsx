@@ -6,7 +6,7 @@ import {
   DECORATOR_LABEL,
 } from '../../../.storybook/helpers';
 
-import { RadioButton } from './RadioButton';
+import RadioButton from './RadioButton';
 
 export default {
   title: 'Inputs/RadioButton',

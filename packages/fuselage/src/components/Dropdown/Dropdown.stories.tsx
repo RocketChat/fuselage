@@ -1,11 +1,11 @@
 import type { Meta, StoryFn } from '@storybook/react-webpack5';
 import { useRef } from 'react';
 
-import Box from '../Box';
+import { Box } from '../Box';
 import { IconButton } from '../Button';
 import { Option } from '../Option';
 
-import { Dropdown } from './Dropdown';
+import Dropdown from './Dropdown';
 
 export default {
   title: 'Navigation/Dropdown',

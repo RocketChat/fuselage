@@ -2,7 +2,7 @@ import type { Meta, StoryFn } from '@storybook/react-webpack5';
 
 import { Avatar } from '../Avatar';
 import { Badge } from '../Badge';
-import Box from '../Box/Box';
+import { Box } from '../Box';
 import { Button, IconButton } from '../Button';
 import { FramedIcon } from '../FramedIcon';
 import { Tag } from '../Tag';

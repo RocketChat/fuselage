@@ -3,7 +3,7 @@ import { screen } from '@testing-library/react';
 
 import { render } from '../../testing';
 
-import { Badge } from './Badge';
+import Badge from './Badge';
 import * as stories from './Badge.stories';
 
 const { Default, Primary, Secondary, Danger, Warning, Disabled } =

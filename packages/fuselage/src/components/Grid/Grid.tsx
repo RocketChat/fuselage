@@ -1,9 +1,8 @@
-import type { BoxProps } from '../Box';
-import Box from '../Box';
+import { Box, type BoxProps } from '../Box';
 
 import GridItem from './GridItem';
 
-type GridProps = BoxProps & {
+export type GridProps = BoxProps & {
   xs?: boolean;
   sm?: boolean;
   md?: boolean;
@@ -11,7 +10,7 @@ type GridProps = BoxProps & {
   xl?: boolean;
 };
 
-export const Grid = ({ xs, sm, md, lg, xl, ...props }: GridProps) => (
+const Grid = ({ xs, sm, md, lg, xl, ...props }: GridProps) => (
   <Box rcx-grid__wrapper>
     <Box
       rcx-grid
@@ -26,3 +25,5 @@ export const Grid = ({ xs, sm, md, lg, xl, ...props }: GridProps) => (
 );
 
 Grid.Item = GridItem;
+
+export default Grid;

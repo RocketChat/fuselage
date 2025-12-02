@@ -6,12 +6,13 @@ import { patchChildren } from '../../helpers/patchChildren';
 import { IconButton } from '../Button';
 import type { IconButtonProps } from '../Button/IconButton';
 
-type NavbarItemProps = Partial<IconButtonProps>;
+export type NavbarItemProps = HTMLAttributes<HTMLElement> &
+  Partial<IconButtonProps>;
 
-export const NavBarItem = forwardRef<
-  HTMLElement,
-  HTMLAttributes<HTMLElement> & NavbarItemProps
->(function NavBarItem({ children, icon, ...props }, ref) {
+const NavBarItem = forwardRef<HTMLElement, NavbarItemProps>(function NavBarItem(
+  { children, icon, ...props },
+  ref,
+) {
   return (
     <>
       {icon ? (
@@ -29,3 +30,5 @@ export const NavBarItem = forwardRef<
     </>
   );
 });
+
+export default NavBarItem;

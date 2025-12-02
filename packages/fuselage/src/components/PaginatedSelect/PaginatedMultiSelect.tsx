@@ -9,17 +9,16 @@ import {
 } from 'react';
 
 import { prevent } from '../../helpers/prevent';
-import AnimatedVisibility from '../AnimatedVisibility';
-import type { BoxProps } from '../Box';
-import Box from '../Box';
-import Chip from '../Chip';
-import Flex from '../Flex';
+import { AnimatedVisibility } from '../AnimatedVisibility';
+import { Box, type BoxProps } from '../Box';
+import { Chip } from '../Chip';
+import { FlexContainer, FlexItem } from '../Flex';
 import { Icon } from '../Icon';
-import Margins from '../Margins';
+import { Margins } from '../Margins';
 import { Option } from '../Option';
 import { useVisible } from '../Options/useVisible';
 import { OptionsPaginated } from '../OptionsPaginated';
-import Position from '../Position';
+import { Position } from '../Position';
 import SelectAddon from '../Select/SelectAddon';
 import SelectFocus from '../Select/SelectFocus';
 
@@ -145,9 +144,9 @@ const PaginatedMultiSelect = ({
       disabled={disabled}
       {...props}
     >
-      <Flex.Item grow={1}>
+      <FlexItem grow={1}>
         <Margins inline='x4'>
-          <Flex.Container>
+          <FlexContainer>
             <Box is='div'>
               <Box
                 is='div'
@@ -188,10 +187,10 @@ const PaginatedMultiSelect = ({
                 </Margins>
               </Box>
             </Box>
-          </Flex.Container>
+          </FlexContainer>
         </Margins>
-      </Flex.Item>
-      <Flex.Item grow={0} shrink={0}>
+      </FlexItem>
+      <FlexItem grow={0} shrink={0}>
         <Margins inline='x4'>
           <SelectAddon
             children={
@@ -206,7 +205,7 @@ const PaginatedMultiSelect = ({
             }
           />
         </Margins>
-      </Flex.Item>
+      </FlexItem>
       <AnimatedVisibility visibility={visible}>
         <Position anchor={containerRef}>
           <OptionsComponent

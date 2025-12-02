@@ -1,3 +1,9 @@
-export { PaginatedSelectFiltered } from './PaginatedSelectFiltered';
+export {
+  default as PaginatedSelectFiltered,
+  type PaginatedSelectFilteredProps,
+} from './PaginatedSelectFiltered';
 export type { PaginatedMultiSelectOption } from './PaginatedMultiSelect';
-export { PaginatedMultiSelectFiltered } from './PaginatedMultiSelectFiltered';
+export {
+  default as PaginatedMultiSelectFiltered,
+  type PaginatedMultiSelectFilteredProps,
+} from './PaginatedMultiSelectFiltered';

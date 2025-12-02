@@ -3,7 +3,7 @@ import type { AllHTMLAttributes } from 'react';
 
 import { Icon } from '../Icon';
 
-type FramedIconProps = {
+export type FramedIconProps = {
   info?: boolean;
   success?: boolean;
   warning?: boolean;
@@ -12,7 +12,7 @@ type FramedIconProps = {
   icon: Keys;
 } & Omit<AllHTMLAttributes<HTMLElement>, 'is'>;
 
-export const FramedIcon = ({
+const FramedIcon = ({
   info,
   success,
   warning,
@@ -35,3 +35,5 @@ export const FramedIcon = ({
     size={20}
   />
 );
+
+export default FramedIcon;

@@ -3,7 +3,7 @@ import nameToCharacterMapping from '@rocket.chat/icons';
 import type { StoryFn, Meta } from '@storybook/react-webpack5';
 import { useState } from 'react';
 
-import Box from '../Box';
+import { Box } from '../Box';
 import { Divider } from '../Divider';
 import { InputBox } from '../InputBox';
 

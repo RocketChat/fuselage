@@ -1,6 +1,6 @@
 import type { StoryFn, Meta } from '@storybook/react-webpack5';
 
-import Box from '../Box';
+import { Box } from '../Box';
 
 import Accordion from './Accordion';
 import AccordionItem from './AccordionItem';

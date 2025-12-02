@@ -4,7 +4,7 @@ import { BasicMessageTemplate } from '../helpers';
 
 import { MessageReaction } from './MessageReaction';
 import { MessageReactionAction } from './MessageReactionAction';
-import { MessageReactions } from './MessageReactions';
+import MessageReactions from './MessageReactions';
 
 export default {
   title: 'Message/MessageReactions',

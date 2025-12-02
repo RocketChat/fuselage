@@ -2,15 +2,15 @@ import type { Meta, StoryFn } from '@storybook/react-webpack5';
 import { useState } from 'react';
 
 import { Avatar } from '../Avatar';
-import Box from '../Box';
+import { Box } from '../Box';
 
-import Message from '.';
+import Message from './Message';
 import { MessageDivider } from './MessageDivider';
-import { MessageEmoji } from './MessageEmoji';
-import MessageMetrics from './MessageMetrics';
+import MessageEmoji from './MessageEmoji';
+import { MessageMetrics } from './MessageMetrics';
 import MessageReactions from './MessageReactions';
-import MessageToolbar from './MessageToolbar';
-import ThreadMessage, { ThreadMessageEmoji } from './ThreadMessage';
+import { MessageToolbar } from './MessageToolbar';
+import { ThreadMessage, ThreadMessageEmoji } from './ThreadMessage';
 import { avatarUrl } from './helpers';
 
 export default {

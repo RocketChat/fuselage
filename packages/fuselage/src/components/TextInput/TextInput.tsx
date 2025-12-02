@@ -11,8 +11,10 @@ export type TextInputProps = Omit<InputBoxProps, 'type'> & {
 /**
  * An input for any kind of single-line text.
  */
-export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
+const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
   function TextInput(props, ref) {
     return <InputBox type='text' ref={ref} {...props} />;
   },
 );
+
+export default TextInput;
