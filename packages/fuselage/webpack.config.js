@@ -1,12 +1,13 @@
-import { createRequire } from 'node:module';
 import { resolve } from 'node:path';
 
+import autoprefixer from 'autoprefixer';
+import cssnanoPlugin from 'cssnano';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import postcssDirPseudoClass from 'postcss-dir-pseudo-class';
+import postcssLogical from 'postcss-logical';
 import WrapperPlugin from 'wrapper-webpack-plugin';
 
 import pkg from './package.json' with { type: 'json' };
-
-const require = createRequire(import.meta.url);
 
 export default (env, { mode = 'production' }) =>
   /** @type {import('webpack').Configuration} */ ({
@@ -16,17 +17,10 @@ export default (env, { mode = 'production' }) =>
     output: {
       filename: `[name].${mode}.js`,
       path: resolve(import.meta.dirname, 'dist'),
-      library: 'RocketChatFuselage',
-      libraryTarget: 'umd',
-      umdNamedDefine: true,
-      environment: {
-        arrowFunction: false,
-        bigIntLiteral: false,
-        const: false,
-        destructuring: false,
-        dynamicImport: false,
-        forOf: false,
-        module: false,
+      library: {
+        name: 'RocketChatFuselage',
+        type: 'umd',
+        umdNamedDefine: true,
       },
     },
     devtool: mode === 'production' ? false : 'source-map',
@@ -63,10 +57,10 @@ export default (env, { mode = 'production' }) =>
               options: {
                 postcssOptions: {
                   plugins: [
-                    require('postcss-logical')({ preserve: true }),
-                    require('postcss-dir-pseudo-class')({ dir: 'ltr' }),
-                    require('autoprefixer')(),
-                    mode === 'production' && require('cssnano'),
+                    postcssLogical({ preserve: true }),
+                    postcssDirPseudoClass({ dir: 'ltr' }),
+                    autoprefixer(),
+                    mode === 'production' && cssnanoPlugin,
                   ].filter(Boolean),
                 },
               },
