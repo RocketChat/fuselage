@@ -1,5 +1,5 @@
 import { useEffectEvent } from '@rocket.chat/fuselage-hooks';
-import type { FormEvent, Ref } from 'react';
+import type { FormEvent } from 'react';
 import { useMemo, forwardRef } from 'react';
 
 import { Input } from '../InputBox';
@@ -20,15 +20,8 @@ export const PaginatedSelectFiltered = ({
 }: PaginatedSelectFilteredProps) => {
   const anchor = useMemo(
     () =>
-      forwardRef(
-        (
-          {
-            filter,
-            onChange: _onChange,
-            ...props
-          }: PaginatedSelectFilteredProps,
-          ref: Ref<HTMLInputElement>,
-        ) => (
+      forwardRef<HTMLInputElement, PaginatedSelectFilteredProps>(
+        ({ filter, onChange: _onChange, ...props }, ref) => (
           <Input
             mi={4}
             flexGrow={1}

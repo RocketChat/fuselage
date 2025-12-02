@@ -4,7 +4,6 @@ import type {
   KeyboardEventHandler,
   MouseEventHandler,
   ReactNode,
-  Ref,
 } from 'react';
 import { forwardRef } from 'react';
 
@@ -23,15 +22,12 @@ type MultiSelectFilteredAnchorProps = {
   onKeyDown: KeyboardEventHandler;
 };
 
-const MultiSelectFilteredAnchor = forwardRef(function MultiSelectFilteredAnchor(
-  {
-    children: _children,
-    filter,
-    onChangeFilter,
-    placeholder,
-    ...props
-  }: MultiSelectFilteredAnchorProps,
-  ref: Ref<HTMLInputElement>,
+const MultiSelectFilteredAnchor = forwardRef<
+  HTMLInputElement,
+  MultiSelectFilteredAnchorProps
+>(function MultiSelectFilteredAnchor(
+  { children: _children, filter, onChangeFilter, placeholder, ...props },
+  ref,
 ) {
   return (
     <Flex.Item grow={1}>

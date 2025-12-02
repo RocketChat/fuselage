@@ -4,7 +4,7 @@ import {
   useResizeObserver,
   useOutsideClick,
 } from '@rocket.chat/fuselage-hooks';
-import type { SyntheticEvent, ElementType, Ref, ReactNode } from 'react';
+import type { SyntheticEvent, ElementType, ReactNode } from 'react';
 import { useState, useRef, useEffect, forwardRef } from 'react';
 
 import type { IconProps, SelectOption } from '..';
@@ -46,7 +46,7 @@ export type MultiSelectProps = Omit<BoxProps, 'onChange' | 'value'> & {
 /**
  * An input for selection of options.
  */
-export const MultiSelect = forwardRef(
+export const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
   (
     {
       value,
@@ -66,8 +66,8 @@ export const MultiSelect = forwardRef(
       renderSelected: RenderSelected,
       addonIcon,
       ...props
-    }: MultiSelectProps,
-    ref: Ref<HTMLInputElement>,
+    },
+    ref,
   ) => {
     const [internalValue, setInternalValue] = useState<SelectOption[0][]>(
       value || [],

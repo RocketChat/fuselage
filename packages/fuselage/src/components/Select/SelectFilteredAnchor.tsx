@@ -4,7 +4,6 @@ import type {
   KeyboardEventHandler,
   MouseEventHandler,
   ReactNode,
-  Ref,
 } from 'react';
 import { forwardRef } from 'react';
 
@@ -22,15 +21,12 @@ type SelectFilteredAnchorProps = {
   onKeyDown: KeyboardEventHandler;
 };
 
-const SelectFilteredAnchor = forwardRef(function SelectFilteredAnchor(
-  {
-    children: _children,
-    filter,
-    onChangeFilter,
-    placeholder,
-    ...props
-  }: SelectFilteredAnchorProps,
-  ref: Ref<HTMLInputElement>,
+const SelectFilteredAnchor = forwardRef<
+  HTMLInputElement,
+  SelectFilteredAnchorProps
+>(function SelectFilteredAnchor(
+  { children: _children, filter, onChangeFilter, placeholder, ...props },
+  ref,
 ) {
   return (
     <Input

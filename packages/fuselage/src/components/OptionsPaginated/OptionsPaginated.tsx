@@ -4,7 +4,6 @@ import type {
   ElementType,
   MouseEvent,
   ReactNode,
-  Ref,
   SyntheticEvent,
 } from 'react';
 import { forwardRef, memo } from 'react';
@@ -58,7 +57,7 @@ export const CheckOption = memo(function CheckOption({
 /**
  * An input for selection of options.
  */
-export const OptionsPaginated = forwardRef(
+export const OptionsPaginated = forwardRef<Element, OptionsPaginatedProps>(
   (
     {
       withTitle,
@@ -70,8 +69,8 @@ export const OptionsPaginated = forwardRef(
       onSelect,
       endReached,
       ...props
-    }: OptionsPaginatedProps,
-    ref: Ref<Element>,
+    },
+    ref,
   ) => {
     const OptionsComponentWithData = ({
       index,

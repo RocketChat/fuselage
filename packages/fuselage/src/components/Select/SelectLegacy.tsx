@@ -4,7 +4,7 @@ import {
   useResizeObserver,
   useOutsideClick,
 } from '@rocket.chat/fuselage-hooks';
-import type { DependencyList, Ref, ElementType, ReactNode } from 'react';
+import type { DependencyList, ElementType, ReactNode } from 'react';
 import { useState, useRef, useEffect, forwardRef, useMemo } from 'react';
 
 import { isForwardRefType } from '../../helpers/isForwardRefType';
@@ -30,7 +30,7 @@ export type SelectOption = readonly [
 
 type WrapperProps = BoxProps;
 
-const Wrapper = forwardRef((props: WrapperProps, ref: Ref<HTMLDivElement>) => (
+const Wrapper = forwardRef<HTMLDivElement, WrapperProps>((props, ref) => (
   <Box is='div' rcx-select__wrapper ref={ref} {...props} />
 ));
 
@@ -61,7 +61,7 @@ export type SelectProps = Omit<BoxProps, 'onChange'> & {
   addonIcon?: IconProps['name'];
 };
 
-export const SelectLegacy = forwardRef(
+export const SelectLegacy = forwardRef<HTMLInputElement, SelectProps>(
   (
     {
       value,
@@ -80,8 +80,8 @@ export const SelectLegacy = forwardRef(
       addonIcon,
       customEmpty,
       ...props
-    }: SelectProps,
-    ref: Ref<HTMLInputElement>,
+    },
+    ref,
   ) => {
     const [internalValue, setInternalValue] = useState(value || '');
 

@@ -1,5 +1,5 @@
 import type { AriaSelectProps } from '@react-types/select';
-import type { AllHTMLAttributes, Key, Ref } from 'react';
+import type { AllHTMLAttributes, Key } from 'react';
 import { forwardRef } from 'react';
 import { Item } from 'react-stately';
 
@@ -23,21 +23,20 @@ type SelectProps<T, V extends Key> = Omit<
 /**
  * An input for selection of options.
  */
-export const Select = forwardRef(function Select<
-  T extends object,
-  V extends Key,
->({ options, ...props }: SelectProps<T, V>, ref: Ref<HTMLElement>) {
-  return (
-    <SelectAria ref={ref} {...(props as SelectAriaProps<object>)}>
-      {options.map((option) => (
-        <Item
-          title={option[1] ?? option[0]}
-          textValue={option[0]}
-          key={option[0]}
-        >
-          {option[1] ?? option[0]}
-        </Item>
-      ))}
-    </SelectAria>
-  );
-});
+export const Select = forwardRef<HTMLElement, SelectProps<object, Key>>(
+  function Select({ options, ...props }, ref) {
+    return (
+      <SelectAria ref={ref} {...(props as SelectAriaProps<object>)}>
+        {options.map((option) => (
+          <Item
+            title={option[1] ?? option[0]}
+            textValue={option[0]}
+            key={option[0]}
+          >
+            {option[1] ?? option[0]}
+          </Item>
+        ))}
+      </SelectAria>
+    );
+  },
+);
