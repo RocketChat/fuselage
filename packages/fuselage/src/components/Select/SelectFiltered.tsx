@@ -1,7 +1,7 @@
 import type { ComponentProps, Dispatch, Ref, SetStateAction } from 'react';
 import { forwardRef, useState } from 'react';
 
-import type { Icon } from '..';
+import type { IconProps } from '..';
 
 import { SelectLegacy } from '.';
 import type { SelectAnchorParams } from './SelectAnchorParams';
@@ -10,7 +10,7 @@ import SelectFilteredAnchor from './SelectFilteredAnchor';
 export type SelectFilteredProps = ComponentProps<typeof SelectLegacy> & {
   filter?: string;
   setFilter?: Dispatch<SetStateAction<string>>;
-  addonIcon?: ComponentProps<typeof Icon>['name'];
+  addonIcon?: IconProps['name'];
 };
 
 export const SelectFiltered = forwardRef(function SelectFiltered(

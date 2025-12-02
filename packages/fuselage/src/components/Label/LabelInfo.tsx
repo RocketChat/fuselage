@@ -1,12 +1,11 @@
-import type { ComponentProps } from 'react';
-
 import Box from '../Box/Box';
+import type { IconProps } from '../Icon';
 import { Icon } from '../Icon';
 
 type LabelInfoProps = {
   title: string;
   id?: string;
-} & Omit<ComponentProps<typeof Icon>, 'name'>;
+} & Omit<IconProps, 'name'>;
 
 export const LabelInfo = ({ title, id, ...props }: LabelInfoProps) => (
   <Box is='span' mi={2} rcx-label__info>

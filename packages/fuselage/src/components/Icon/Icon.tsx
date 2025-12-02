@@ -1,6 +1,5 @@
 import type { Keys as IconName } from '@rocket.chat/icons';
 import nameToCharacterMapping from '@rocket.chat/icons';
-import type { Ref } from 'react';
 import { forwardRef } from 'react';
 
 import type { BoxProps } from '../Box';
@@ -11,9 +10,9 @@ export type IconProps = Omit<BoxProps, 'name' | 'size'> & {
   size?: BoxProps['width'];
 };
 
-export const Icon = forwardRef(function Icon(
-  { name, size, ...props }: IconProps,
-  ref: Ref<HTMLElement>,
+const Icon = forwardRef<HTMLElement, IconProps>(function Icon(
+  { name, size, ...props },
+  ref,
 ) {
   return (
     <Box
@@ -28,3 +27,5 @@ export const Icon = forwardRef(function Icon(
     />
   );
 });
+
+export default Icon;

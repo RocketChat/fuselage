@@ -1,11 +1,11 @@
 import type { ReactElement, ComponentProps } from 'react';
 import { memo } from 'react';
 
-import type { Icon } from '..';
+import type { IconProps } from '..';
 import { IconButton } from '..';
 
 type ContextualbarActionProps = {
-  name: ComponentProps<typeof Icon>['name'];
+  name: IconProps['name'];
 } & Omit<ComponentProps<typeof IconButton>, 'icon'>;
 
 const ContextualbarAction = ({
