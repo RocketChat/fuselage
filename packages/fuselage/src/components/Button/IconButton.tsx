@@ -1,5 +1,5 @@
 import type { Keys as IconName } from '@rocket.chat/icons';
-import type { ReactElement, Ref } from 'react';
+import type { ReactElement } from 'react';
 import { isValidElement, useMemo, forwardRef } from 'react';
 
 import type { BoxProps } from '../Box';
@@ -15,7 +15,7 @@ type ButtonSize = {
   mini?: boolean;
 };
 
-type IconButtonProps = {
+export type IconButtonProps = {
   icon: IconName | ReactElement;
   primary?: boolean;
   secondary?: boolean;
@@ -44,7 +44,7 @@ const getPressedClass = (variant: string) => {
   return variantClass;
 };
 
-export const IconButton = forwardRef(
+const IconButton = forwardRef<HTMLElement, IconButtonProps>(
   (
     {
       icon,
@@ -62,8 +62,8 @@ export const IconButton = forwardRef(
       pressed,
       children,
       ...props
-    }: IconButtonProps,
-    ref: Ref<HTMLElement>,
+    },
+    ref,
   ) => {
     const variant = useMemo(
       () =>
@@ -136,3 +136,5 @@ export const IconButton = forwardRef(
     );
   },
 );
+
+export default IconButton;
