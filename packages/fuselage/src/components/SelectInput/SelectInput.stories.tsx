@@ -1,5 +1,4 @@
 import type { StoryFn, Meta } from '@storybook/react-webpack5';
-import type { ComponentType } from 'react';
 
 import { PropsVariationSection } from '../../../.storybook/helpers';
 import { Icon } from '../Icon';
@@ -10,7 +9,7 @@ export default {
   title: 'Inputs/SelectInput',
   component: SelectInput,
   subcomponents: {
-    SelectInputOption: SelectInputOption as ComponentType<any>,
+    SelectInputOption,
   },
 } satisfies Meta<typeof SelectInput>;
 

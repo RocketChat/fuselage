@@ -1,5 +1,4 @@
 import type { StoryFn, Meta } from '@storybook/react-webpack5';
-import type { ComponentType } from 'react';
 import { action } from 'storybook/actions';
 
 import Box from '../Box';
@@ -26,17 +25,16 @@ export default {
   title: 'Containers/ContextualbarV2',
   component: ContextualbarV2,
   subcomponents: {
-    ContextualbarV2Action: ContextualbarV2Action as ComponentType<any>,
-    ContextualbarV2Actions: ContextualbarV2Actions as ComponentType<any>,
-    ContextualbarV2Button: ContextualbarV2Button as ComponentType<any>,
-    ContextualbarV2Content: ContextualbarV2Content as ComponentType<any>,
-    ContextualbarV2EmptyContent:
-      ContextualbarV2EmptyContent as ComponentType<any>,
-    ContextualbarV2Footer: ContextualbarV2Footer as ComponentType<any>,
-    ContextualbarV2Header: ContextualbarV2Header as ComponentType<any>,
-    ContextualbarV2Section: ContextualbarV2Section as ComponentType<any>,
-    ContextualbarV2Skeleton: ContextualbarV2Skeleton as ComponentType<any>,
-    ContextualbarV2Title: ContextualbarV2Title as ComponentType<any>,
+    ContextualbarV2Action,
+    ContextualbarV2Actions,
+    ContextualbarV2Button,
+    ContextualbarV2Content,
+    ContextualbarV2EmptyContent,
+    ContextualbarV2Footer,
+    ContextualbarV2Header,
+    ContextualbarV2Section,
+    ContextualbarV2Skeleton,
+    ContextualbarV2Title,
   },
   decorators: [
     (storyFn) => (
