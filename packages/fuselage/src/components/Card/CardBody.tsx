@@ -3,7 +3,7 @@ import type { AllHTMLAttributes, CSSProperties, ReactNode } from 'react';
 import type { BoxProps } from '../Box/Box';
 import Box from '../Box/Box';
 
-type CardBodyProps = {
+export type CardBodyProps = {
   flexDirection?: CSSProperties['flexDirection'];
   height?: BoxProps['height'];
   children: ReactNode;
