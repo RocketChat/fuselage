@@ -4,7 +4,7 @@ import { prependClassName } from '../../helpers/prependClassName';
 import type { BoxProps } from '../Box';
 import Box from '../Box/Box';
 
-type TagProps = {
+export type TagProps = {
   medium?: boolean;
   large?: boolean;
   variant?:

@@ -1,14 +1,15 @@
-import type { FormEvent, ComponentPropsWithoutRef } from 'react';
+import type { FormEvent } from 'react';
 import { useCallback, forwardRef } from 'react';
 
 import Flex from '../Flex';
 import { Input, type InputProps } from '../InputBox';
 
+import type { PaginatedMultiSelectProps } from './PaginatedMultiSelect';
 import PaginatedMultiSelect from './PaginatedMultiSelect';
 
 type PaginatedMultiSelectFilteredProps = {
   setFilter?: (value: string) => void;
-} & ComponentPropsWithoutRef<typeof PaginatedMultiSelect>;
+} & PaginatedMultiSelectProps;
 
 export const PaginatedMultiSelectFiltered = ({
   filter,

@@ -28,7 +28,7 @@ export type PaginatedMultiSelectOption = {
   label: string;
 };
 
-type PaginatedMultiSelectProps = Omit<BoxProps, 'onChange' | 'value'> & {
+export type PaginatedMultiSelectProps = Omit<BoxProps, 'onChange' | 'value'> & {
   error?: boolean;
   options: PaginatedMultiSelectOption[];
   withTitle?: boolean;

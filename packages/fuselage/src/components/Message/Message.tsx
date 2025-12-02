@@ -3,7 +3,7 @@ import { forwardRef } from 'react';
 
 import { prependClassName } from '../../helpers/prependClassName';
 
-type MessageProps = AllHTMLAttributes<HTMLDivElement> & {
+export type MessageProps = AllHTMLAttributes<HTMLDivElement> & {
   clickable?: boolean;
   sequential?: boolean;
   className?: string;

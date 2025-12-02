@@ -25,7 +25,7 @@ import MultiSelectAnchor from './MultiSelectAnchor';
 import type { MultiSelectAnchorParams } from './MultiSelectAnchorParams';
 import { SelectedOptions } from './SelectedOptions';
 
-type MultiSelectProps = Omit<BoxProps, 'onChange' | 'value'> & {
+export type MultiSelectProps = Omit<BoxProps, 'onChange' | 'value'> & {
   value?: SelectOption[0][];
   error?: string;
   options: SelectOption[];

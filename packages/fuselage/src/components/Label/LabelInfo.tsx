@@ -2,7 +2,7 @@ import Box from '../Box/Box';
 import type { IconProps } from '../Icon';
 import { Icon } from '../Icon';
 
-type LabelInfoProps = {
+export type LabelInfoProps = {
   title: string;
   id?: string;
 } & Omit<IconProps, 'name'>;

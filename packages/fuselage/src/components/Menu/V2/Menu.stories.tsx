@@ -1,5 +1,5 @@
 import type { StoryFn, Meta } from '@storybook/react-webpack5';
-import type { ComponentProps, ReactNode, Ref } from 'react';
+import type { ReactNode, Ref } from 'react';
 import { forwardRef, useState } from 'react';
 
 import Box from '../../Box';
@@ -10,6 +10,7 @@ import { RadioButton } from '../../RadioButton';
 import Sidebar from '../../Sidebar';
 import { ToggleSwitch } from '../../ToggleSwitch';
 
+import type { MenuItemIconProps } from '.';
 import {
   MenuV2 as Menu,
   MenuItem,
@@ -18,6 +19,7 @@ import {
   MenuItemIcon,
   MenuItemInput,
 } from '.';
+import type { MenuProps } from './Menu';
 
 export default {
   title: 'Navigation/Menu/v2',
@@ -93,7 +95,7 @@ WithSections.parameters = {
 };
 
 export const MenuDisplayExample = (
-  args: Omit<ComponentProps<typeof Menu>, 'children'>,
+  args: Omit<MenuProps<object>, 'children'>,
 ) => {
   const [display, setDisplay] = useState('condensed');
   const [avatarDisplay, setAvatarDisplay] = useState(false);
@@ -207,7 +209,7 @@ export const MenuDisplayExample = (
 
 type Item = {
   name: string;
-  icon: ComponentProps<typeof MenuItemIcon>['name'];
+  icon: MenuItemIconProps['name'];
   input?: ReactNode;
   description?: string;
   variant?: string;

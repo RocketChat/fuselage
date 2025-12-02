@@ -1,6 +1,5 @@
 import { useEffectEvent, useDebouncedState } from '@rocket.chat/fuselage-hooks';
 import type {
-  ComponentProps,
   ComponentType,
   ElementType,
   MouseEvent,
@@ -16,10 +15,11 @@ import AnimatedVisibility from '../AnimatedVisibility';
 import type { BoxProps } from '../Box';
 import Box from '../Box';
 import { CheckBox } from '../CheckBox';
+import type { OptionProps } from '../Option';
 import { Option } from '../Option';
 import Tile from '../Tile';
 
-type OptionsPaginatedProps = Omit<BoxProps, 'onSelect'> & {
+export type OptionsPaginatedProps = Omit<BoxProps, 'onSelect'> & {
   multiple?: boolean;
   options: { value: string | number; label: string; selected?: boolean }[];
   cursor: number;
@@ -41,7 +41,7 @@ type OptionsPaginatedProps = Omit<BoxProps, 'onSelect'> & {
 
 export const Empty = memo(() => <Option label='Empty' />);
 
-type CheckOptionProps = ComponentProps<typeof Option>;
+type CheckOptionProps = OptionProps;
 
 export const CheckOption = memo(function CheckOption({
   selected,

@@ -1,11 +1,10 @@
-import type { ComponentProps } from 'react';
-
+import type { MessageEmojiBaseProps } from '../MessageEmojiBase';
 import { MessageEmojiBase } from '../MessageEmojiBase';
 
 export const MessageReactionEmoji = ({
   className,
   ...props
-}: ComponentProps<typeof MessageEmojiBase>) => (
+}: MessageEmojiBaseProps) => (
   <MessageEmojiBase
     className={`rcx-message-reactions__emoji ${className || ''}`}
     {...props}
