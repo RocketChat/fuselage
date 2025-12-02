@@ -1,6 +1,6 @@
 import type { AllHTMLAttributes, ComponentProps, ReactNode } from 'react';
 
-import type Box from '../Box';
+import type { BoxProps } from '../Box';
 import { Icon as FuselageIcon } from '../Icon';
 
 import { SidebarAction, SidebarActions } from './SidebarActions';
@@ -10,7 +10,7 @@ type SidebarItemProps = {
   highlighted?: boolean;
   clickable?: boolean;
   featured?: boolean;
-  is?: ComponentProps<typeof Box>['is'];
+  is?: BoxProps['is'];
   children?: ReactNode;
 } & AllHTMLAttributes<HTMLElement>;
 

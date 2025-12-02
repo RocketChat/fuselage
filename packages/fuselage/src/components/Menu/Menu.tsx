@@ -3,7 +3,7 @@ import type { Keys as IconName } from '@rocket.chat/icons';
 import type { ComponentProps, ComponentType, ReactNode } from 'react';
 import { useRef, useCallback, useEffect } from 'react';
 
-import type Box from '../Box';
+import type { BoxProps } from '../Box';
 import { IconButton } from '../Button';
 import { Options, useCursor, type OptionType } from '../Options';
 import PositionAnimated from '../PositionAnimated';
@@ -17,7 +17,7 @@ type MenuProps = Omit<ComponentProps<typeof IconButton>, 'icon'> & {
       disabled?: boolean;
     };
   };
-  optionWidth?: ComponentProps<typeof Box>['width'];
+  optionWidth?: BoxProps['width'];
   placement?: UsePositionOptions['placement'];
   renderItem?: ComponentType<{
     role?: string;

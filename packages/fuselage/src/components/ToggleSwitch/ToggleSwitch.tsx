@@ -1,9 +1,10 @@
-import type { AllHTMLAttributes, ComponentProps, ReactNode, Ref } from 'react';
+import type { AllHTMLAttributes, ReactNode, Ref } from 'react';
 import { forwardRef } from 'react';
 
+import type { BoxProps } from '../Box';
 import Box from '../Box';
 
-type ToggleSwitchProps = ComponentProps<typeof Box> &
+type ToggleSwitchProps = BoxProps &
   AllHTMLAttributes<HTMLInputElement> & {
     labelChildren?: ReactNode;
   };

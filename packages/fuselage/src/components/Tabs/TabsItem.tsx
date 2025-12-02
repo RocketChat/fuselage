@@ -1,9 +1,10 @@
-import type { ComponentProps, Ref } from 'react';
+import type { Ref } from 'react';
 import { forwardRef } from 'react';
 
+import type { BoxProps } from '../Box';
 import Box from '../Box';
 
-type TabsItemProps = ComponentProps<typeof Box> & {
+type TabsItemProps = BoxProps & {
   selected?: boolean;
   disabled?: boolean;
 };

@@ -1,9 +1,10 @@
-import type { AllHTMLAttributes, ComponentProps, ReactNode, Ref } from 'react';
+import type { AllHTMLAttributes, ReactNode, Ref } from 'react';
 import { forwardRef } from 'react';
 
+import type { BoxProps } from '../Box';
 import Box from '../Box';
 
-type RadioButtonProps = ComponentProps<typeof Box> &
+type RadioButtonProps = BoxProps &
   AllHTMLAttributes<HTMLInputElement> & {
     labelChildren?: ReactNode;
   };

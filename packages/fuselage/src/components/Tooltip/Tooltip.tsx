@@ -1,6 +1,7 @@
-import type { ComponentProps, Ref } from 'react';
+import type { Ref } from 'react';
 import { forwardRef } from 'react';
 
+import type { BoxProps } from '../Box';
 import Box from '../Box';
 
 const parsePlacement = (placement: string | null | undefined) => {
@@ -15,7 +16,7 @@ const parsePlacement = (placement: string | null | undefined) => {
   return [direction, position];
 };
 
-type TooltipProps = ComponentProps<typeof Box> & {
+type TooltipProps = BoxProps & {
   variation?: 'dark' | 'light';
   placement?:
     | 'top-start'

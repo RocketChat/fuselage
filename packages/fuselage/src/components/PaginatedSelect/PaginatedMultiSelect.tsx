@@ -1,6 +1,5 @@
 import { useEffectEvent, useResizeObserver } from '@rocket.chat/fuselage-hooks';
 import {
-  type ComponentProps,
   useState,
   useRef,
   type ComponentType,
@@ -11,6 +10,7 @@ import {
 
 import { prevent } from '../../helpers/prevent';
 import AnimatedVisibility from '../AnimatedVisibility';
+import type { BoxProps } from '../Box';
 import Box from '../Box';
 import Chip from '../Chip';
 import Flex from '../Flex';
@@ -28,10 +28,7 @@ export type PaginatedMultiSelectOption = {
   label: string;
 };
 
-type PaginatedMultiSelectProps = Omit<
-  ComponentProps<typeof Box>,
-  'onChange' | 'value'
-> & {
+type PaginatedMultiSelectProps = Omit<BoxProps, 'onChange' | 'value'> & {
   error?: boolean;
   options: PaginatedMultiSelectOption[];
   withTitle?: boolean;

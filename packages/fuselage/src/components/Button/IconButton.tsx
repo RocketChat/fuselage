@@ -2,6 +2,7 @@ import type { Keys as IconName } from '@rocket.chat/icons';
 import type { ComponentProps, ReactElement, Ref } from 'react';
 import { isValidElement, useMemo, forwardRef } from 'react';
 
+import type { BoxProps } from '../Box';
 import Box from '../Box';
 import { Icon } from '../Icon';
 
@@ -23,7 +24,7 @@ type IconButtonProps = {
   success?: boolean;
   pressed?: boolean;
 } & ButtonSize &
-  ComponentProps<typeof Box>;
+  BoxProps;
 
 const getVariantClass = (variant: string) => {
   if (variant) {
