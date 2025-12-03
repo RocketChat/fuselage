@@ -32,7 +32,9 @@ function MenuPopover({
 
   return (
     <Popover state={state} offset={offset} {...props}>
-      <DropdownDesktop maxWidth={maxWidth}>{children}</DropdownDesktop>
+      <DropdownDesktop maxHeight='80vh' overflowY='auto' maxWidth={maxWidth}>
+        {children}
+      </DropdownDesktop>
     </Popover>
   );
 }
