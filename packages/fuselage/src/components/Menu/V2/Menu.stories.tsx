@@ -439,3 +439,10 @@ export const WithCustomButton = () => (
     </Menu>
   </ButtonGroup>
 );
+
+export const Scrollable = () => {
+  const items = Array.from({ length: 30 }, (_, i) => (
+    <MenuItem key={i}>Item {i + 1}</MenuItem>
+  ));
+  return <Menu>{items}</Menu>;
+};
