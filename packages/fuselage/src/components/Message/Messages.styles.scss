@@ -51,35 +51,35 @@ $message-background-color-highlight: functions.theme(
   colors.status-background(warning-2)
 );
 
-$message-highlight-colors-critical-color: theme(
+$message-highlight-colors-critical-color: functions.theme(
   'message-highlight-colors-critical-color',
   colors.font(pure-white)
 );
-$message-highlight-colors-background-critical-color: theme(
+$message-highlight-colors-background-critical-color: functions.theme(
   'message-highlight-colors-background-critical-color',
   colors.badge('level-4')
 );
 
-$message-highlight-colors-relevant-color: theme(
+$message-highlight-colors-relevant-color: functions.theme(
   'message-highlight-colors-relevant-color',
   colors.font(pure-white)
 );
-$message-highlight-colors-background-relevant-color: theme(
+$message-highlight-colors-background-relevant-color: functions.theme(
   'message-highlight-colors-background-relevant-color',
   colors.badge('level-3')
 );
 
-$message-highlight-colors-other-color: theme(
+$message-highlight-colors-other-color: functions.theme(
   'message-highlight-colors-other-color',
   colors.font(default)
 );
 
-$message-highlight-colors-other-link-color: theme(
+$message-highlight-colors-other-link-color: functions.theme(
   'message-highlight-colors-other-color',
   colors.font(info)
 );
 
-$message-highlight-colors-background-other-color: theme(
+$message-highlight-colors-background-other-color: functions.theme(
   'message-highlight-colors-background-other-color',
   colors.badge('level-0')
 );
@@ -384,7 +384,7 @@ $message-highlight-colors-background-other-color: theme(
 
       transform: translateY(lengths.margin(1)) translateX(lengths.margin(-2));
 
-      border-radius: theme(
+      border-radius: functions.theme(
         'message-highlight-border-radius',
         lengths.border-radius(medium)
       );

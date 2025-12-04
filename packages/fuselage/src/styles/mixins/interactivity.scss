@@ -1,3 +1,5 @@
+@use './states.scss';
+
 @mixin clickable {
   cursor: pointer;
 
@@ -10,7 +12,7 @@
 }
 
 @mixin click-animation($excludeRole: false) {
-  @include on-active {
+  @include states.on-active {
     > *:not([role='#{$excludeRole}']) {
       transform: translateY(1px);
     }
