@@ -1,5 +1,15 @@
 # Change Log
 
+## 0.69.0
+
+### Minor Changes
+
+- [#1787](https://github.com/RocketChat/fuselage/pull/1787) [`fb34f69`](https://github.com/RocketChat/fuselage/commit/fb34f69d9cb7627457d9fff3f23b7f92d397e8d0) Thanks [@gabriellsh](https://github.com/gabriellsh)! - Updates `FramedIcon` component styles to improve contrast and design system compliance
+
+### Patch Changes
+
+- [#1793](https://github.com/RocketChat/fuselage/pull/1793) [`c702714`](https://github.com/RocketChat/fuselage/commit/c702714478d543a9b456f2c7385e9f8d1a4f6df9) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): Missing scroll on `Menu` with many items
+
 ## 0.68.1
 
 ### Patch Changes
