@@ -1,3 +1,5 @@
+import { describe, expect, it } from 'vitest';
+
 import { css, keyframes } from '.';
 import { holdContext } from './tags';
 

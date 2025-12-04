@@ -1,3 +1,5 @@
+import { describe, expect, it, vi, beforeEach } from 'vitest';
+
 import { Emitter } from './index';
 
 const times = (n: number, fn: () => void): number => {
@@ -9,7 +11,7 @@ let handler: () => void;
 let emitter: Emitter;
 
 beforeEach(() => {
-  handler = jest.fn();
+  handler = vi.fn();
   emitter = new Emitter();
 });
 
@@ -88,8 +90,8 @@ describe('`off` method', () => {
   });
 
   it('should remove only the specified handler', () => {
-    const handler = jest.fn();
-    const unusedHandler = jest.fn();
+    const handler = vi.fn();
+    const unusedHandler = vi.fn();
 
     emitter.on('test', handler);
     emitter.off('test', unusedHandler);

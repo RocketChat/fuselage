@@ -4,5 +4,6 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "outDir": "./dist/cjs"
-  }
+  },
+  "exclude": ["vitest.config.ts", "**/*.spec.ts"]
 }
