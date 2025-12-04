@@ -48,7 +48,7 @@
     "typescript-eslint": "~8.46.4",
     "update-readme": "workspace:~"
   },
-  "packageManager": "yarn@4.11.0",
+  "packageManager": "yarn@4.12.0",
   "volta": {
     "node": "22.20.0",
     "yarn": "4.10.3"
