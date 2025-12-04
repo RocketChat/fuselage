@@ -30,7 +30,7 @@
     "build": "run-s .:build:clean .:build:esm .:build:cjs",
     ".:build:clean": "rimraf dist",
     ".:build:esm": "tsc -p tsconfig.json",
-    ".:build:cjs": "tsc -p tsconfig-cjs.json",
+    ".:build:cjs": "tsc -p tsconfig.cjs.json",
     "lint": "lint",
     "lint-and-fix": "lint-and-fix",
     "test": "jest --runInBand",
