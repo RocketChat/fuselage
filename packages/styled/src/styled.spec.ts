@@ -1,5 +1,6 @@
 import { render } from '@testing-library/react';
 import { createElement } from 'react';
+import { it, expect } from 'vitest';
 
 import styled from './styled';
 
