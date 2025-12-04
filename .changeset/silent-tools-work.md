@@ -2,4 +2,4 @@
 '@rocket.chat/fuselage': patch
 ---
 
-fix(fuselage): Missing scroll on menu with many items
+fix(fuselage): Missing scroll on `Menu` with many items
