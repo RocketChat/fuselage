@@ -31,10 +31,10 @@ const pollTouchingEdges = (
 
   const dirty =
     touchingEdges &&
-    (touchingEdges.top !== newTouchingEdges.top ||
-      touchingEdges.bottom !== newTouchingEdges.bottom ||
-      touchingEdges.left !== newTouchingEdges.left ||
-      touchingEdges.right !== newTouchingEdges.right);
+    (touchingEdges['top'] !== newTouchingEdges.top ||
+      touchingEdges['bottom'] !== newTouchingEdges.bottom ||
+      touchingEdges['left'] !== newTouchingEdges.left ||
+      touchingEdges['right'] !== newTouchingEdges.right);
 
   if (dirty) {
     touchingEdgesRef.current = newTouchingEdges;

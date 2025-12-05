@@ -11,7 +11,7 @@ export type FieldLabelProps = ComponentPropsWithoutRef<typeof Label>;
 const FieldLabel = forwardRef<HTMLElement, FieldLabelProps>(
   function FieldLabel(props, ref) {
     const component = <Label rcx-field__label {...props} ref={ref} />;
-    if (process.env.NODE_ENV === 'development') {
+    if (process.env['NODE_ENV'] === 'development') {
       return (
         <WithErrorWrapper
           context={FieldContext}
