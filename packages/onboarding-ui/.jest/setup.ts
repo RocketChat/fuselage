@@ -4,6 +4,8 @@ import i18next from 'i18next';
 import { toHaveNoViolations } from 'jest-axe';
 import { initReactI18next } from 'react-i18next';
 
+import en from '../.i18n/en.i18n.json';
+
 import ResizeObserverMock from './ResizeObserverMock';
 
 beforeAll(async () => {
@@ -12,7 +14,7 @@ beforeAll(async () => {
     debug: false,
     resources: {
       en: {
-        translation: await import('../.i18n/en.i18n.json'),
+        translation: en,
       },
     },
   });

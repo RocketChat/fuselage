@@ -1,14 +1,14 @@
 import { useResizeObserver } from '@rocket.chat/fuselage-hooks';
-import type { ComponentProps, ReactElement, ReactNode } from 'react';
+import type { ReactElement, ReactNode } from 'react';
 
-import Box from '../Box';
-import { Icon } from '../Icon';
+import { Box, type BoxProps } from '../Box';
+import { Icon, type IconProps } from '../Icon';
 
-type CalloutProps = Omit<ComponentProps<typeof Box>, 'type' | 'name'> & {
+export type CalloutProps = Omit<BoxProps, 'type' | 'name'> & {
   type?: 'info' | 'success' | 'warning' | 'danger';
   title?: ReactNode;
   children?: ReactNode;
-  icon?: ComponentProps<typeof Icon>['name'];
+  icon?: IconProps['name'];
   actions?: ReactElement;
 };
 
@@ -17,7 +17,7 @@ const WRAPPER_LIMIT_SIZE = 420;
 /**
  * The `Callout` is used to get the user's attention explaining something important in the content of the current page.
  */
-export const Callout = ({
+const Callout = ({
   type,
   title,
   children,
@@ -61,3 +61,5 @@ export const Callout = ({
     </Box>
   );
 };
+
+export default Callout;

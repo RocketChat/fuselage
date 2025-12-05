@@ -1,31 +1,35 @@
-import { Modal } from './Modal';
-import { ModalBackdrop } from './ModalBackdrop';
-import { ModalClose } from './ModalClose';
-import { ModalContent } from './ModalContent';
-import { ModalFooter } from './ModalFooter';
-import { ModalFooterAnnotation } from './ModalFooterAnnotation';
-import { ModalFooterControllers } from './ModalFooterControllers';
-import { ModalHeader } from './ModalHeader';
-import { ModalHeaderText } from './ModalHeaderText';
-import { ModalHeroImage } from './ModalHeroImage';
-import { ModalIcon } from './ModalIcon';
-import { ModalTagline } from './ModalTagline';
-import { ModalThumb } from './ModalThumb';
-import { ModalTitle } from './ModalTitle';
-
+export { default as Modal, type ModalProps } from './Modal';
 export {
-  Modal,
-  ModalBackdrop,
-  ModalClose,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
-  ModalThumb,
-  ModalTitle,
-  ModalIcon,
-  ModalTagline,
-  ModalHeaderText,
-  ModalHeroImage,
-  ModalFooterControllers,
-  ModalFooterAnnotation,
-};
+  default as ModalBackdrop,
+  type ModalBackdropProps,
+} from './ModalBackdrop';
+export { default as ModalClose, type ModalCloseProps } from './ModalClose';
+export {
+  default as ModalContent,
+  type ModalContentProps,
+} from './ModalContent';
+export { default as ModalFooter, type ModalFooterProps } from './ModalFooter';
+export {
+  default as ModalFooterAnnotation,
+  type ModalFooterAnnotationProps,
+} from './ModalFooterAnnotation';
+export {
+  default as ModalFooterControllers,
+  type ModalFooterControllersProps,
+} from './ModalFooterControllers';
+export { default as ModalHeader, type ModalHeaderProps } from './ModalHeader';
+export {
+  default as ModalHeaderText,
+  type ModalHeaderTextProps,
+} from './ModalHeaderText';
+export {
+  default as ModalHeroImage,
+  type ModalHeroImageProps,
+} from './ModalHeroImage';
+export { default as ModalIcon, type ModalIconProps } from './ModalIcon';
+export {
+  default as ModalTagline,
+  type ModalTaglineProps,
+} from './ModalTagline';
+export { default as ModalThumb, type ModalThumbProps } from './ModalThumb';
+export { default as ModalTitle, type ModalTitleProps } from './ModalTitle';

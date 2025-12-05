@@ -1,5 +1,5 @@
 import { useMergedRefs } from '@rocket.chat/fuselage-hooks';
-import type { FormEvent, ReactNode, Ref } from 'react';
+import type { FormEvent, ReactNode } from 'react';
 import { forwardRef, useCallback, useLayoutEffect, useRef } from 'react';
 
 import type { BoxProps } from '../Box';
@@ -52,7 +52,7 @@ export type InputBoxProps = BoxProps & {
  * components over this one because it works as a construction block for them.
  */
 // eslint-disable-next-line complexity
-const InputBox = forwardRef(function InputBox(
+const InputBox = forwardRef<any, InputBoxProps>(function InputBox(
   {
     className,
     addon,
@@ -65,8 +65,8 @@ const InputBox = forwardRef(function InputBox(
     small,
     onChange,
     ...props
-  }: InputBoxProps,
-  ref: Ref<any>,
+  },
+  ref,
 ) {
   const innerRef = useRef<
     HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement

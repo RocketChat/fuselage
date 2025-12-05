@@ -2,10 +2,10 @@ import type { StoryFn, Meta } from '@storybook/react-webpack5';
 import { action } from 'storybook/actions';
 
 import { PropsVariationSection } from '../../../.storybook/helpers';
-import Box from '../Box';
-import Button from '../Button';
+import { Box } from '../Box';
+import { Button } from '../Button';
 
-import { Throbber } from './Throbber';
+import Throbber from './Throbber';
 
 export default {
   title: 'Data Display/Throbber',

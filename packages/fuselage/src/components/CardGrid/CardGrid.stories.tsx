@@ -1,11 +1,11 @@
 import type { Meta, StoryFn } from '@storybook/react-webpack5';
-import type { ComponentProps } from 'react';
 
 import { Button } from '../Button';
+import type { CardProps } from '../Card';
 import { Card, CardBody, CardControls, CardHeader, CardTitle } from '../Card';
 import { Icon } from '../Icon';
 
-import { CardGrid } from './CardGrid';
+import CardGrid from './CardGrid';
 
 export default {
   title: 'Containers/CardGrid',
@@ -17,7 +17,7 @@ export default {
   },
 } satisfies Meta<typeof CardGrid>;
 
-const CardItem = (props: ComponentProps<typeof Card>) => (
+const CardItem = (props: CardProps) => (
   <Card {...props}>
     <CardHeader>
       <Icon name='address-book' size='x24' />
@@ -39,9 +39,7 @@ const CardItem = (props: ComponentProps<typeof Card>) => (
   </Card>
 );
 
-export const _CardGrid: StoryFn<typeof CardGrid> = (
-  args: ComponentProps<typeof CardGrid>,
-) => (
+export const _CardGrid: StoryFn<typeof CardGrid> = (args) => (
   <CardGrid {...args} breakpoints={{ xs: 4, sm: 4, md: 4, lg: 3, xl: 3 }}>
     {Array.from(new Array(9)).map((_, index) => (
       <CardItem key={index} />

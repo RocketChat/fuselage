@@ -1,30 +1,28 @@
 import type { UsePositionOptions } from '@rocket.chat/fuselage-hooks';
 import { usePosition } from '@rocket.chat/fuselage-hooks';
-import type { ReactNode, Ref, RefObject } from 'react';
+import type { ReactNode, RefObject } from 'react';
 import { forwardRef } from 'react';
 
 import { DropdownDesktop } from './DropdownDesktop';
 
-export const DropdownDesktopWrapper = forwardRef(
-  function DropdownDesktopWrapper<T extends HTMLElement, R extends HTMLElement>(
-    {
-      children,
-      reference,
-      placement = 'bottom-start',
-      ...props
-    }: {
-      reference: RefObject<T>;
-      placement?: UsePositionOptions['placement'];
-      children: ReactNode;
-    },
-    ref: Ref<R>,
-  ) {
-    const { style } = usePosition(reference, ref as RefObject<R>, {
-      placement,
-    });
+export type DropdownDesktopWrapperProps<T extends HTMLElement> = {
+  reference: RefObject<T>;
+  placement?: UsePositionOptions['placement'];
+  children: ReactNode;
+};
 
-    return (
-      <DropdownDesktop style={style} children={children} ref={ref} {...props} />
-    );
-  },
-);
+export const DropdownDesktopWrapper = forwardRef<
+  HTMLElement,
+  DropdownDesktopWrapperProps<HTMLElement>
+>(function DropdownDesktopWrapper(
+  { children, reference, placement = 'bottom-start', ...props },
+  ref,
+) {
+  const { style } = usePosition(reference, ref as RefObject<HTMLElement>, {
+    placement,
+  });
+
+  return (
+    <DropdownDesktop style={style} children={children} ref={ref} {...props} />
+  );
+});

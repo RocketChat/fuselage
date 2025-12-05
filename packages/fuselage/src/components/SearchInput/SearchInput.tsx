@@ -1,9 +1,9 @@
-import type { ReactNode, Ref } from 'react';
+import type { ReactNode } from 'react';
 import { forwardRef } from 'react';
 
 import { InputBox, type InputBoxProps } from '../InputBox';
 
-type SearchInputProps = Omit<InputBoxProps, 'type'> & {
+export type SearchInputProps = Omit<InputBoxProps, 'type'> & {
   addon?: ReactNode;
   error?: string;
 };
@@ -11,9 +11,10 @@ type SearchInputProps = Omit<InputBoxProps, 'type'> & {
 /**
  * An input for search queries.
  */
-export const SearchInput = forwardRef(function SearchInput(
-  props: SearchInputProps,
-  ref: Ref<HTMLInputElement>,
-) {
-  return <InputBox type='search' ref={ref} {...props} />;
-});
+const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
+  function SearchInput(props, ref) {
+    return <InputBox type='search' ref={ref} {...props} />;
+  },
+);
+
+export default SearchInput;

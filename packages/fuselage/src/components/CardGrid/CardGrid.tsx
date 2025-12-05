@@ -1,18 +1,15 @@
-import type { ComponentProps, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import { Children } from 'react';
 
-import Grid, { GridItem } from '../Grid';
+import type { GridItemProps } from '../Grid';
+import { Grid, GridItem } from '../Grid';
 
-type CardGridProps = {
+export type CardGridProps = {
   children: ReactNode;
-  breakpoints?: ComponentProps<typeof GridItem>;
+  breakpoints?: GridItemProps;
 };
 
-export const CardGrid = ({
-  children,
-  breakpoints,
-  ...props
-}: CardGridProps) => (
+const CardGrid = ({ children, breakpoints, ...props }: CardGridProps) => (
   <Grid rcx-card-grid m={-8} {...props}>
     {Children.map(children, (child) => (
       <GridItem rcx-card-grid__item p={8} {...breakpoints}>
@@ -21,3 +18,5 @@ export const CardGrid = ({
     ))}
   </Grid>
 );
+
+export default CardGrid;

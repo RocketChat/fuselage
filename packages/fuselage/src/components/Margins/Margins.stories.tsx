@@ -1,11 +1,11 @@
 import type { StoryFn, Meta } from '@storybook/react-webpack5';
 
-import Box from '../Box';
-import Button from '../Button';
+import { Box } from '../Box';
+import { Button } from '../Button';
 import { ButtonGroup } from '../ButtonGroup';
-import Tile from '../Tile';
+import { Tile } from '../Tile';
 
-import { Margins } from './Margins';
+import Margins from './Margins';
 
 export default {
   title: 'Layout/Margins',

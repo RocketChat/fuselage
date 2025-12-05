@@ -2,26 +2,30 @@ import type { StoryFn, Meta } from '@storybook/react-webpack5';
 import { Fragment } from 'react';
 
 import { Table, TableBody, TableCell, TableHead, TableRow } from '../Table';
-import Tile from '../Tile';
+import { Tile } from '../Tile';
 
-import { Grid } from './Grid';
+import Grid from './Grid';
+import GridItem from './GridItem';
 
 export default {
   title: 'Layout/Grid',
   component: Grid,
+  subcomponents: {
+    GridItem,
+  },
 } satisfies Meta<typeof Grid>;
 
 const Template: StoryFn<typeof Grid> = () => (
   <Grid>
-    <Grid.Item>
+    <GridItem>
       <Tile />
-    </Grid.Item>
-    <Grid.Item>
+    </GridItem>
+    <GridItem>
       <Tile />
-    </Grid.Item>
-    <Grid.Item>
+    </GridItem>
+    <GridItem>
       <Tile />
-    </Grid.Item>
+    </GridItem>
   </Grid>
 );
 
@@ -92,13 +96,13 @@ export const ExtraSmall: StoryFn<typeof Grid> = () => {
         .map((_, i) => (i + 1) as ColumnsType)
         .map((columns) => (
           <Fragment key={columns}>
-            <Grid.Item xs={columns}>
+            <GridItem xs={columns}>
               <Tile>xs={columns}</Tile>
-            </Grid.Item>
+            </GridItem>
             {4 - columns > 0 && (
-              <Grid.Item xs={(4 - columns) as ColumnsType}>
+              <GridItem xs={(4 - columns) as ColumnsType}>
                 <Tile>xs={4 - columns}</Tile>
-              </Grid.Item>
+              </GridItem>
             )}
           </Fragment>
         ))}
@@ -115,13 +119,13 @@ export const Small: StoryFn<typeof Grid> = () => {
         .map((_, i) => (i + 1) as ColumnsType)
         .map((columns) => (
           <Fragment key={columns}>
-            <Grid.Item sm={columns}>
+            <GridItem sm={columns}>
               <Tile>sm={columns}</Tile>
-            </Grid.Item>
+            </GridItem>
             {8 - columns > 0 && (
-              <Grid.Item sm={(8 - columns) as ColumnsType}>
+              <GridItem sm={(8 - columns) as ColumnsType}>
                 <Tile>sm={8 - columns}</Tile>
-              </Grid.Item>
+              </GridItem>
             )}
           </Fragment>
         ))}
@@ -138,13 +142,13 @@ export const Medium: StoryFn<typeof Grid> = () => {
         .map((_, i) => (i + 1) as ColumnsType)
         .map((columns) => (
           <Fragment key={columns}>
-            <Grid.Item md={columns}>
+            <GridItem md={columns}>
               <Tile>md={columns}</Tile>
-            </Grid.Item>
+            </GridItem>
             {8 - columns > 0 && (
-              <Grid.Item md={(8 - columns) as ColumnsType}>
+              <GridItem md={(8 - columns) as ColumnsType}>
                 <Tile>md={8 - columns}</Tile>
-              </Grid.Item>
+              </GridItem>
             )}
           </Fragment>
         ))}
@@ -161,13 +165,13 @@ export const Large: StoryFn<typeof Grid> = () => {
         .map((_, i) => (i + 1) as ColumnsType)
         .map((columns) => (
           <Fragment key={columns}>
-            <Grid.Item lg={columns}>
+            <GridItem lg={columns}>
               <Tile>lg={columns}</Tile>
-            </Grid.Item>
+            </GridItem>
             {12 - columns > 0 && (
-              <Grid.Item lg={(12 - columns) as ColumnsType}>
+              <GridItem lg={(12 - columns) as ColumnsType}>
                 <Tile>lg={12 - columns}</Tile>
-              </Grid.Item>
+              </GridItem>
             )}
           </Fragment>
         ))}
@@ -184,13 +188,13 @@ export const ExtraLarge: StoryFn<typeof Grid> = () => {
         .map((_, i) => (i + 1) as ColumnsType)
         .map((columns) => (
           <Fragment key={columns}>
-            <Grid.Item xl={columns}>
+            <GridItem xl={columns}>
               <Tile>xl={columns}</Tile>
-            </Grid.Item>
+            </GridItem>
             {12 - columns > 0 && (
-              <Grid.Item xl={(12 - columns) as ColumnsType}>
+              <GridItem xl={(12 - columns) as ColumnsType}>
                 <Tile>xl={12 - columns}</Tile>
-              </Grid.Item>
+              </GridItem>
             )}
           </Fragment>
         ))}

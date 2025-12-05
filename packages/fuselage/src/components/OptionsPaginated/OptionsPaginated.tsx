@@ -1,24 +1,23 @@
 import { useEffectEvent, useDebouncedState } from '@rocket.chat/fuselage-hooks';
 import type {
-  ComponentProps,
   ComponentType,
   ElementType,
   MouseEvent,
   ReactNode,
-  Ref,
   SyntheticEvent,
 } from 'react';
 import { forwardRef, memo } from 'react';
 import { Virtuoso } from 'react-virtuoso';
 
 import { prevent } from '../../helpers/prevent';
-import AnimatedVisibility from '../AnimatedVisibility';
-import Box from '../Box';
+import { AnimatedVisibility } from '../AnimatedVisibility';
+import { Box, type BoxProps } from '../Box';
 import { CheckBox } from '../CheckBox';
+import type { OptionProps } from '../Option';
 import { Option } from '../Option';
-import Tile from '../Tile';
+import { Tile } from '../Tile';
 
-type OptionsPaginatedProps = Omit<ComponentProps<typeof Box>, 'onSelect'> & {
+export type OptionsPaginatedProps = Omit<BoxProps, 'onSelect'> & {
   multiple?: boolean;
   options: { value: string | number; label: string; selected?: boolean }[];
   cursor: number;
@@ -40,7 +39,7 @@ type OptionsPaginatedProps = Omit<ComponentProps<typeof Box>, 'onSelect'> & {
 
 export const Empty = memo(() => <Option label='Empty' />);
 
-type CheckOptionProps = ComponentProps<typeof Option>;
+type CheckOptionProps = OptionProps;
 
 export const CheckOption = memo(function CheckOption({
   selected,
@@ -57,7 +56,7 @@ export const CheckOption = memo(function CheckOption({
 /**
  * An input for selection of options.
  */
-export const OptionsPaginated = forwardRef(
+export const OptionsPaginated = forwardRef<Element, OptionsPaginatedProps>(
   (
     {
       withTitle,
@@ -69,8 +68,8 @@ export const OptionsPaginated = forwardRef(
       onSelect,
       endReached,
       ...props
-    }: OptionsPaginatedProps,
-    ref: Ref<Element>,
+    },
+    ref,
   ) => {
     const OptionsComponentWithData = ({
       index,

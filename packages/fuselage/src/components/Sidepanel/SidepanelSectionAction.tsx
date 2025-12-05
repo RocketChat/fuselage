@@ -1,9 +1,11 @@
 import type { HTMLAttributes } from 'react';
 
-export const SidepanelSectionAction = ({
+export type SidepanelSectionActionProps = HTMLAttributes<HTMLDivElement>;
+
+const SidepanelSectionAction = ({
   className,
   ...props
-}: HTMLAttributes<HTMLDivElement>) => (
+}: SidepanelSectionActionProps) => (
   <div
     className={['rcx-sidepanel-section__action', className]
       .filter(Boolean)
@@ -11,3 +13,5 @@ export const SidepanelSectionAction = ({
     {...props}
   />
 );
+
+export default SidepanelSectionAction;

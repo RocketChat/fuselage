@@ -1,17 +1,17 @@
 import type { UsePositionOptions } from '@rocket.chat/fuselage-hooks';
 import { usePosition } from '@rocket.chat/fuselage-hooks';
-import type { RefObject, ComponentProps, ReactElement } from 'react';
+import type { RefObject, ReactElement } from 'react';
 import { useRef, useMemo, cloneElement, useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 
-import type Box from '../Box';
+import type { BoxProps } from '../Box';
 
-type PositionProps = {
+export type PositionProps = {
   anchor: RefObject<Element>;
   children: ReactElement;
   margin?: number;
   placement?: UsePositionOptions['placement'];
-} & Omit<ComponentProps<typeof Box>, 'children' | 'margin'>;
+} & Omit<BoxProps, 'children' | 'margin'>;
 
 const Position = ({
   anchor,

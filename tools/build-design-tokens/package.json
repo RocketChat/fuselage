@@ -2,7 +2,8 @@
   "name": "build-design-tokens",
   "version": "0.31.25",
   "private": true,
-  "bin": "./index.mjs",
+  "type": "module",
+  "bin": "./index.js",
   "dependencies": {
     "stylelint": "~16.25.0",
     "tools-utils": "workspace:~"

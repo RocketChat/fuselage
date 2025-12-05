@@ -1,11 +1,11 @@
 import type { StoryFn, Meta } from '@storybook/react-webpack5';
 import { action } from 'storybook/actions';
 
-import Box from '../Box';
+import { Box } from '../Box';
 import { ButtonGroup } from '../ButtonGroup';
 import { Icon } from '../Icon';
 
-import { Tag } from './Tag';
+import Tag from './Tag';
 
 export default {
   title: 'Data Display/Tag',

@@ -7,7 +7,7 @@ import { VirtuosoMockContext } from 'react-virtuoso';
 import { render } from '../../testing';
 import { Option } from '../Option';
 
-import { PaginatedSelectFiltered } from './PaginatedSelectFiltered';
+import PaginatedSelectFiltered from './PaginatedSelectFiltered';
 import * as stories from './PaginatedSelectFiltered.stories';
 
 const testCases = Object.values(composeStories(stories)).map((Story) => [

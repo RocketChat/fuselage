@@ -1,1 +1,1 @@
-export { default } from './UrlInput';
+export { default as UrlInput, type UrlInputProps } from './UrlInput';

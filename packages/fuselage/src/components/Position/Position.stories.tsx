@@ -1,7 +1,7 @@
 import type { StoryFn, Meta } from '@storybook/react-webpack5';
 import { useRef } from 'react';
 
-import Tile from '../Tile';
+import { Tile } from '../Tile';
 
 import Position from './Position';
 

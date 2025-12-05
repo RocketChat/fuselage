@@ -1,7 +1,6 @@
-import type { ComponentProps, Ref } from 'react';
 import { forwardRef } from 'react';
 
-import { Icon } from '../Icon';
+import { Icon, type IconProps } from '../Icon';
 
 import { Button } from '.';
 import type { ButtonProps } from './Button';
@@ -11,9 +10,10 @@ type ButtonSize = {
   tiny?: boolean;
   small?: boolean;
 };
-type ActionButtonProps = ButtonProps &
+
+export type ActionButtonProps = ButtonProps &
   ButtonSize & {
-    icon: ComponentProps<typeof Icon>['name'];
+    icon: IconProps['name'];
   };
 
 const getSize = ({ tiny, mini, small }: ButtonSize) => {
@@ -26,11 +26,13 @@ const getSize = ({ tiny, mini, small }: ButtonSize) => {
   return 'x20';
 };
 
-export const ActionButton = forwardRef(
-  ({ icon, children, ...props }: ActionButtonProps, ref: Ref<HTMLElement>) => (
+const ActionButton = forwardRef<HTMLButtonElement, ActionButtonProps>(
+  ({ icon, children, ...props }, ref) => (
     <Button ref={ref} square flexShrink={0} {...props}>
       {children}
       <Icon name={icon} size={getSize(props)} />
     </Button>
   ),
 );
+
+export default ActionButton;

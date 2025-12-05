@@ -1,3 +1,5 @@
+import { describe, expect, it } from 'vitest';
+
 import { transpile, createTranspileMiddleware } from './transpile';
 
 it('transpiles simple properties', () => {
@@ -13,7 +15,7 @@ it('transpiles with vendor prefixing', () => {
 const property = (
   property: string,
   ...characteristics: ((property: string) => void)[]
-): void =>
+) =>
   describe(property, () => {
     for (const characteristic of characteristics) {
       characteristic(property);

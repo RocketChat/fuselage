@@ -2,9 +2,9 @@ import type { AllHTMLAttributes, ReactNode } from 'react';
 
 import { appendClassName } from '../../helpers/appendClassName';
 import { patchChildren } from '../../helpers/patchChildren';
-import Box from '../Box';
+import { Box } from '../Box';
 
-type CardGroupProps = {
+export type CardGroupProps = {
   align?: 'start' | 'center' | 'end';
   stretch?: boolean;
   wrap?: boolean;
@@ -14,7 +14,7 @@ type CardGroupProps = {
   children?: ReactNode;
 } & Omit<AllHTMLAttributes<HTMLElement>, 'is' | 'wrap'>;
 
-export const CardGroup = ({
+const CardGroup = ({
   align = 'start',
   children,
   stretch,
@@ -42,3 +42,5 @@ export const CardGroup = ({
     )}
   </Box>
 );
+
+export default CardGroup;

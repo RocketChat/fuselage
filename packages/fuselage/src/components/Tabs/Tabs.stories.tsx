@@ -1,14 +1,13 @@
 import type { StoryFn, Meta } from '@storybook/react-webpack5';
-import type { ComponentType } from 'react';
 
-import { Tabs } from './Tabs';
-import { TabsItem } from './TabsItem';
+import Tabs from './Tabs';
+import TabsItem from './TabsItem';
 
 export default {
   title: 'Navigation/Tabs',
   component: Tabs,
   subcomponents: {
-    TabsItem: TabsItem as ComponentType<any>,
+    TabsItem,
   },
 } satisfies Meta<typeof Tabs>;
 

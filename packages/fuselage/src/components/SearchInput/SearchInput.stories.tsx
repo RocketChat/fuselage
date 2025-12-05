@@ -3,7 +3,7 @@ import type { StoryFn, Meta } from '@storybook/react-webpack5';
 import { PropsVariationSection } from '../../../.storybook/helpers';
 import { Icon } from '../Icon';
 
-import { SearchInput } from './SearchInput';
+import SearchInput from './SearchInput';
 
 export default {
   title: 'Inputs/SearchInput',

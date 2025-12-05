@@ -3,11 +3,11 @@ import { action } from 'storybook/actions';
 
 import { exampleAvatar, menuOptions } from '../../../.storybook/helpers';
 import { Avatar } from '../Avatar';
-import Box from '../Box';
+import { Box } from '../Box';
 import { Menu } from '../Menu';
 import { MenuItem, MenuV2 } from '../Menu/V2';
 import { StatusBullet } from '../StatusBullet';
-import Tile from '../Tile';
+import { Tile } from '../Tile';
 
 import Option from './Option';
 import OptionAvatar from './OptionAvatar';
@@ -108,7 +108,7 @@ export const WithMenu: StoryFn<typeof Option> = () => (
     <Option onClick={action('click')}>
       <OptionContent>Lorem Ipsum Lorem</OptionContent>
       <OptionMenu>
-        <Menu options={menuOptions} />
+        <Menu options={menuOptions()} />
       </OptionMenu>
     </Option>
     <Option>
@@ -122,7 +122,7 @@ export const WithMenu: StoryFn<typeof Option> = () => (
         Lorem Ipsum Lorem Lorem Ipsum Lorem Lorem Ipsum Lorem Lorem Ipsum Lorem
       </OptionContent>
       <OptionMenu>
-        <Menu options={menuOptions} />
+        <Menu options={menuOptions()} />
       </OptionMenu>
     </Option>
   </>
@@ -164,7 +164,7 @@ export const WithIcon: StoryFn<typeof Option> = () => (
       <OptionIcon name='bell' />
       <OptionContent>Lorem Ipsum Lorem</OptionContent>
       <OptionMenu>
-        <Menu options={menuOptions} />
+        <Menu options={menuOptions()} />
       </OptionMenu>
     </Option>
     <Option>
@@ -179,7 +179,7 @@ export const WithIcon: StoryFn<typeof Option> = () => (
         Lorem Ipsum Lorem Lorem Ipsum Lorem Lorem Ipsum Lorem Lorem Ipsum Lorem
       </OptionContent>
       <OptionMenu>
-        <Menu options={menuOptions} />
+        <Menu options={menuOptions()} />
       </OptionMenu>
     </Option>
   </>
@@ -231,7 +231,7 @@ export const AsUserItem: StoryFn<typeof Option> = () => (
         </Box>
       </OptionContent>
       <OptionMenu>
-        <Menu options={menuOptions} />
+        <Menu options={menuOptions()} />
       </OptionMenu>
     </Option>
   </>

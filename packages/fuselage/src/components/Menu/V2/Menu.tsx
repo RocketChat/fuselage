@@ -1,5 +1,5 @@
 import type { UsePositionOptions } from '@rocket.chat/fuselage-hooks';
-import type { ComponentProps, ElementType, ReactElement } from 'react';
+import type { ElementType, ReactElement } from 'react';
 import { cloneElement, useRef } from 'react';
 import type { AriaMenuProps } from 'react-aria';
 import { useButton, useMenuTrigger } from 'react-aria';
@@ -7,15 +7,16 @@ import { createPortal } from 'react-dom';
 import type { MenuTriggerProps } from 'react-stately';
 import { useMenuTriggerState } from 'react-stately';
 
-import type Box from '../../Box/Box';
+import type { BoxProps } from '../../Box';
 import { IconButton } from '../../Button';
+import type { IconButtonProps } from '../../Button/IconButton';
 
 import MenuDropDown from './MenuDropdown';
 import MenuPopover from './MenuPopover';
 import { getPlacement } from './helpers/helpers';
 
-export interface MenuButtonProps<T> extends AriaMenuProps<T>, MenuTriggerProps {
-  icon?: ComponentProps<typeof IconButton>['icon'];
+export interface MenuProps<T> extends AriaMenuProps<T>, MenuTriggerProps {
+  icon?: IconButtonProps['icon'];
   large?: boolean;
   medium?: boolean;
   small?: boolean;
@@ -28,7 +29,7 @@ export interface MenuButtonProps<T> extends AriaMenuProps<T>, MenuTriggerProps {
    * A component that renders an IconButton
    */
   is?: ElementType;
-  className?: ComponentProps<typeof Box>['className'];
+  className?: BoxProps['className'];
   pressed?: boolean;
   maxWidth?: string;
   button?: ReactElement;
@@ -48,7 +49,7 @@ const Menu = <T extends object>({
   button,
   detached,
   ...props
-}: MenuButtonProps<T>) => {
+}: MenuProps<T>) => {
   const state = useMenuTriggerState(props);
 
   const ref = useRef(null);

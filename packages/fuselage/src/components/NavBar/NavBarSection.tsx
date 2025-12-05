@@ -1,15 +1,15 @@
 import type { ComponentType, HTMLAttributes, ReactElement } from 'react';
 import { Fragment, Children, isValidElement } from 'react';
 
-import { NavBarDivider } from './NavBarDivider';
-import { NavBarGroup } from './NavBarGroup';
+import NavBarDivider from './NavBarDivider';
+import NavBarGroup from './NavBarGroup';
 
 type ComponentWithDisplayName = {
   displayName?: string;
   props?: Record<string, unknown>;
 } & ComponentType;
 
-type NavbarSectionProps = HTMLAttributes<HTMLSpanElement>;
+export type NavbarSectionProps = HTMLAttributes<HTMLSpanElement>;
 
 const isNavBarGroup = (
   child: unknown,
@@ -19,7 +19,7 @@ const isNavBarGroup = (
   return component.displayName === NavBarGroup.displayName;
 };
 
-export const NavBarSection = ({ children, ...props }: NavbarSectionProps) => {
+const NavBarSection = ({ children, ...props }: NavbarSectionProps) => {
   const validChildren = Children.toArray(children).filter(isNavBarGroup);
 
   return (
@@ -33,3 +33,5 @@ export const NavBarSection = ({ children, ...props }: NavbarSectionProps) => {
     </span>
   );
 };
+
+export default NavBarSection;

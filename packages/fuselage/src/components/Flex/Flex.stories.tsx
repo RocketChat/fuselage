@@ -1,170 +1,166 @@
 import type { Meta } from '@storybook/react-webpack5';
-import type { ComponentType } from 'react';
 
-import Tile from '../Tile';
+import { Tile } from '../Tile';
 
-import Flex from '.';
 import FlexContainer from './FlexContainer';
 import FlexItem from './FlexItem';
 
 export default {
   title: 'Layout/Flex',
   subcomponents: {
-    'FlexContainer': FlexContainer as ComponentType<any>,
-    'FlexItem': FlexItem as ComponentType<any>,
-    'Flex.Container': Flex.Container as ComponentType<any>,
-    'Flex.Item': Flex.Item as ComponentType<any>,
+    FlexContainer,
+    FlexItem,
   },
 } satisfies Meta;
 
 export const Example = () => (
-  <Flex.Container>
+  <FlexContainer>
     <Tile>
       {Array.from({ length: 3 }, (_, i) => (
-        <Flex.Item key={i}>
+        <FlexItem key={i}>
           <Tile>#{i + 1}</Tile>
-        </Flex.Item>
+        </FlexItem>
       ))}
     </Tile>
-  </Flex.Container>
+  </FlexContainer>
 );
 
 export const Direction = () => (
-  <Flex.Container direction='row-reverse'>
+  <FlexContainer direction='row-reverse'>
     <Tile>
       {Array.from({ length: 3 }, (_, i) => (
-        <Flex.Item key={i}>
+        <FlexItem key={i}>
           <Tile>#{i + 1}</Tile>
-        </Flex.Item>
+        </FlexItem>
       ))}
     </Tile>
-  </Flex.Container>
+  </FlexContainer>
 );
 
 export const Wrap = () => (
-  <Flex.Container wrap='wrap'>
+  <FlexContainer wrap='wrap'>
     <Tile>
       {Array.from({ length: 12 }, (_, i) => (
-        <Flex.Item key={i}>
+        <FlexItem key={i}>
           <Tile>#{i + 1}</Tile>
-        </Flex.Item>
+        </FlexItem>
       ))}
     </Tile>
-  </Flex.Container>
+  </FlexContainer>
 );
 
 export const JustifyContent = () => (
-  <Flex.Container justifyContent='space-around'>
+  <FlexContainer justifyContent='space-around'>
     <Tile>
       {Array.from({ length: 3 }, (_, i) => (
-        <Flex.Item key={i}>
+        <FlexItem key={i}>
           <Tile>#{i + 1}</Tile>
-        </Flex.Item>
+        </FlexItem>
       ))}
     </Tile>
-  </Flex.Container>
+  </FlexContainer>
 );
 
 export const AlignItems = () => (
-  <Flex.Container alignItems='end'>
+  <FlexContainer alignItems='end'>
     <Tile>
       {Array.from({ length: 3 }, (_, i) => (
-        <Flex.Item key={i}>
+        <FlexItem key={i}>
           <Tile style={{ height: i * 100 }}>#{i + 1}</Tile>
-        </Flex.Item>
+        </FlexItem>
       ))}
     </Tile>
-  </Flex.Container>
+  </FlexContainer>
 );
 
 export const AlignContent = () => (
-  <Flex.Container wrap='wrap' alignContent='end'>
+  <FlexContainer wrap='wrap' alignContent='end'>
     <Tile style={{ minHeight: 400 }}>
       {Array.from({ length: 12 }, (_, i) => (
-        <Flex.Item key={i}>
+        <FlexItem key={i}>
           <Tile>#{i + 1}</Tile>
-        </Flex.Item>
+        </FlexItem>
       ))}
     </Tile>
-  </Flex.Container>
+  </FlexContainer>
 );
 
 export const Order = () => (
-  <Flex.Container>
+  <FlexContainer>
     <Tile>
-      <Flex.Item>
+      <FlexItem>
         <Tile>#1</Tile>
-      </Flex.Item>
-      <Flex.Item order={1}>
+      </FlexItem>
+      <FlexItem order={1}>
         <Tile>#2</Tile>
-      </Flex.Item>
-      <Flex.Item>
+      </FlexItem>
+      <FlexItem>
         <Tile>#3</Tile>
-      </Flex.Item>
+      </FlexItem>
     </Tile>
-  </Flex.Container>
+  </FlexContainer>
 );
 
 export const Grow = () => (
-  <Flex.Container>
+  <FlexContainer>
     <Tile>
-      <Flex.Item>
+      <FlexItem>
         <Tile>#1</Tile>
-      </Flex.Item>
-      <Flex.Item grow={1}>
+      </FlexItem>
+      <FlexItem grow={1}>
         <Tile>#2</Tile>
-      </Flex.Item>
-      <Flex.Item>
+      </FlexItem>
+      <FlexItem>
         <Tile>#3</Tile>
-      </Flex.Item>
+      </FlexItem>
     </Tile>
-  </Flex.Container>
+  </FlexContainer>
 );
 
 export const Shrink = () => (
-  <Flex.Container>
+  <FlexContainer>
     <Tile>
-      <Flex.Item>
+      <FlexItem>
         <Tile>#1</Tile>
-      </Flex.Item>
-      <Flex.Item shrink={1}>
+      </FlexItem>
+      <FlexItem shrink={1}>
         <Tile width='full'>#2</Tile>
-      </Flex.Item>
-      <Flex.Item>
+      </FlexItem>
+      <FlexItem>
         <Tile>#3</Tile>
-      </Flex.Item>
+      </FlexItem>
     </Tile>
-  </Flex.Container>
+  </FlexContainer>
 );
 
 export const Basis = () => (
-  <Flex.Container>
+  <FlexContainer>
     <Tile>
-      <Flex.Item>
+      <FlexItem>
         <Tile>#1</Tile>
-      </Flex.Item>
-      <Flex.Item basis='400px'>
+      </FlexItem>
+      <FlexItem basis='400px'>
         <Tile>#2</Tile>
-      </Flex.Item>
-      <Flex.Item>
+      </FlexItem>
+      <FlexItem>
         <Tile>#3</Tile>
-      </Flex.Item>
+      </FlexItem>
     </Tile>
-  </Flex.Container>
+  </FlexContainer>
 );
 
 export const Align = () => (
-  <Flex.Container alignItems='center'>
+  <FlexContainer alignItems='center'>
     <Tile style={{ minHeight: 400 }}>
-      <Flex.Item>
+      <FlexItem>
         <Tile>#1</Tile>
-      </Flex.Item>
-      <Flex.Item align='end'>
+      </FlexItem>
+      <FlexItem align='end'>
         <Tile>#2</Tile>
-      </Flex.Item>
-      <Flex.Item>
+      </FlexItem>
+      <FlexItem>
         <Tile>#3</Tile>
-      </Flex.Item>
+      </FlexItem>
     </Tile>
-  </Flex.Container>
+  </FlexContainer>
 );

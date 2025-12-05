@@ -2,12 +2,10 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "rootDir": "./src",
-    "module": "ESNext",
     "lib": ["ES2015", "WebWorker"],
     "outDir": "./dist",
-    "esModuleInterop": true,
-    "moduleResolution": "node",
-    "skipLibCheck": true
+    "erasableSyntaxOnly": false,
+    "noFallthroughCasesInSwitch": false
   },
   "include": ["src"]
 }

@@ -1,5 +1,11 @@
-export * from './NavBar';
-export * from './NavBarGroup';
-export * from './NavBarItem';
-export * from './NavBarDivider';
-export * from './NavBarSection';
+export { default as NavBar, type NavBarProps } from './NavBar';
+export { default as NavBarGroup, type NavBarGroupProps } from './NavBarGroup';
+export { default as NavBarItem, type NavbarItemProps } from './NavBarItem';
+export {
+  default as NavBarDivider,
+  type NavBarDividerProps,
+} from './NavBarDivider';
+export {
+  default as NavBarSection,
+  type NavbarSectionProps,
+} from './NavBarSection';

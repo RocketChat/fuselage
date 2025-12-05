@@ -1,7 +1,7 @@
 import type { Meta, StoryFn } from '@storybook/react-webpack5';
 import { action } from 'storybook/actions';
 
-import { Bubble } from './Bubble';
+import Bubble from './Bubble';
 
 export default {
   title: 'Data Display/Bubble',

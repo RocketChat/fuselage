@@ -1,17 +1,16 @@
 import type { StoryFn, Meta } from '@storybook/react-webpack5';
-import type { ComponentType } from 'react';
 import { action } from 'storybook/actions';
 
 import type { SelectOption } from '../Select';
 
-import { MultiSelect } from './MultiSelect';
-import { MultiSelectFiltered } from './MultiSelectFiltered';
+import MultiSelect from './MultiSelect';
+import MultiSelectFiltered from './MultiSelectFiltered';
 
 export default {
   title: 'Inputs/MultiSelect',
   component: MultiSelect,
   subcomponents: {
-    MultiSelectFiltered: MultiSelectFiltered as ComponentType<any>,
+    MultiSelectFiltered,
   },
 } satisfies Meta<typeof MultiSelect>;
 

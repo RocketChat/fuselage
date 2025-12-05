@@ -1,5 +1,4 @@
 import type { StoryFn, Meta } from '@storybook/react-webpack5';
-import type { ComponentType } from 'react';
 
 import { Avatar } from '../../Avatar';
 import { SidebarSection } from '../Section';
@@ -17,10 +16,10 @@ export default {
   title: 'Sidebar/TopBar',
   component: TopBar,
   subcomponents: {
-    TopBarAction: TopBarAction as ComponentType<any>,
-    TopBarActions: TopBarActions as ComponentType<any>,
-    TopBarTitle: TopBarTitle as ComponentType<any>,
-    TopBarToolBox: TopBarToolBox as ComponentType<any>,
+    TopBarAction,
+    TopBarActions,
+    TopBarTitle,
+    TopBarToolBox,
   },
 } satisfies Meta<typeof TopBar>;
 

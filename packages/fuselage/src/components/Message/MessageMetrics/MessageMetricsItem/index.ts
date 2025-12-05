@@ -1,24 +1,20 @@
-import { MessageMetricsItem } from './MessageMetricsItem';
-import { MessageMetricsItemAvatarRow } from './MessageMetricsItemAvatarRow';
-import { MessageMetricsItemAvatarRowContent } from './MessageMetricsItemAvatarRowContent';
-import { MessageMetricsItemIcon } from './MessageMetricsItemIcon';
-import { MessageMetricsItemLabel } from './MessageMetricsItemLabel';
-
-export default Object.assign(MessageMetricsItem, {
-  /**
-   * @deprecated prefer using named imports
-   * */
-  Icon: MessageMetricsItemIcon,
-  /**
-   * @deprecated prefer using named imports
-   * */
-  Label: MessageMetricsItemLabel,
-});
-
 export {
-  MessageMetricsItem,
-  MessageMetricsItemIcon,
-  MessageMetricsItemLabel,
-  MessageMetricsItemAvatarRowContent,
-  MessageMetricsItemAvatarRow,
-};
+  default as MessageMetricsItem,
+  type MessageMetricsItemProps,
+} from './MessageMetricsItem';
+export {
+  default as MessageMetricsItemAvatarRow,
+  type MessageMetricsItemProps as MessageMetricsItemAvatarRowProps,
+} from './MessageMetricsItemAvatarRow';
+export {
+  default as MessageMetricsItemAvatarRowContent,
+  type MessageMetricsItemAvatarRowContentProps,
+} from './MessageMetricsItemAvatarRowContent';
+export {
+  default as MessageMetricsItemIcon,
+  type MessageMetricsItemIconProps,
+} from './MessageMetricsItemIcon';
+export {
+  default as MessageMetricsItemLabel,
+  type MessageMetricsItemLabelProps,
+} from './MessageMetricsItemLabel';

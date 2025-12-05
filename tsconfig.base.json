@@ -1,17 +1,45 @@
 {
   "compilerOptions": {
-    "target": "ES5",
-    "sourceMap": true,
-    "declaration": true,
-    "declarationMap": true,
-    "allowJs": false,
+    "strict": true,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "exactOptionalPropertyTypes": false,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
     "noImplicitReturns": true,
-    "noImplicitThis": true,
-    "noImplicitAny": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUncheckedIndexedAccess": false,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "strictNullChecks": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true
+
+    "allowArbitraryExtensions": true,
+    "allowImportingTsExtensions": false,
+    "allowUmdGlobalAccess": false,
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "noUncheckedSideEffectImports": true,
+    "resolveJsonModule": true,
+
+    "declaration": true,
+    "declarationMap": true,
+    "downlevelIteration": false,
+    "inlineSourceMap": false,
+    "inlineSources": false,
+    "removeComments": true,
+    "sourceMap": true,
+    "stripInternal": true,
+
+    "allowJs": false,
+
+    "erasableSyntaxOnly": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedDeclarations": false,
+    "isolatedModules": true,
+    "preserveSymlinks": false,
+    "verbatimModuleSyntax": false,
+
+    "jsx": "react-jsx",
+    "lib": ["ES2024"],
+    "target": "es2024"
   }
 }

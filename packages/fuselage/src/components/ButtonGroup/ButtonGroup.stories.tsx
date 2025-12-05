@@ -1,8 +1,8 @@
 import type { StoryFn, Meta } from '@storybook/react-webpack5';
 
-import Button from '../Button';
+import { Button } from '../Button';
 
-import { ButtonGroup } from './ButtonGroup';
+import ButtonGroup from './ButtonGroup';
 
 export default {
   title: 'Inputs/ButtonGroup',

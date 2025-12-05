@@ -1,12 +1,12 @@
-import type { ComponentProps } from 'react';
+import { Avatar, type AvatarProps } from '../Avatar';
+import { Box } from '../Box';
 
-import { Avatar } from '../Avatar';
-import Box from '../Box';
+export type ModalThumbProps = AvatarProps;
 
-export type ModalThumbProps = ComponentProps<typeof Avatar>;
-
-export const ModalThumb = (props: ModalThumbProps) => (
+const ModalThumb = (props: ModalThumbProps) => (
   <Box>
     <Avatar size='x28' {...props} />
   </Box>
 );
+
+export default ModalThumb;

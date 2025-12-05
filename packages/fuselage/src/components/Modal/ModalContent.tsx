@@ -1,13 +1,11 @@
-import type { ComponentProps } from 'react';
+import { Box, type BoxProps } from '../Box';
+import { Scrollable } from '../Scrollable';
 
-import Box from '../Box';
-import Scrollable from '../Scrollable';
-
-export type ModalContentProps = ComponentProps<typeof Box> & {
+export type ModalContentProps = BoxProps & {
   onScrollContent?: ((touching: { top: boolean }) => void) | undefined;
 };
 
-export const ModalContent = ({
+const ModalContent = ({
   children,
   onScrollContent,
   ...props
@@ -20,3 +18,5 @@ export const ModalContent = ({
     </Box>
   </Scrollable>
 );
+
+export default ModalContent;

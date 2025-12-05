@@ -12,20 +12,7 @@ const themes = {
   'high-contrast': highContrast,
 };
 
-/**
- * Style tag to handle the theme of the application.
- *
- * Import `PaletteStyleTag` and use it on the application informing the desired theme.
- *
- * Toggle the theme on Storybook's Control panel to see the color changes.
- */
-export const PaletteStyleTag = memo(function PaletteStyleTag({
-  theme = 'light',
-  tagId = 'main-palette',
-  prefix = '--rcx-color',
-  selector,
-  palette,
-}: {
+export type PaletteStyleTagProps = {
   theme?: Themes;
   /**
    * Default is `main-palette`.
@@ -43,10 +30,25 @@ export const PaletteStyleTag = memo(function PaletteStyleTag({
    * CSS containing custom palette styles to be used.
    */
   palette?: string;
-}) {
+};
+
+/**
+ * Style tag to handle the theme of the application.
+ *
+ * Import `PaletteStyleTag` and use it on the application informing the desired theme.
+ *
+ * Toggle the theme on Storybook's Control panel to see the color changes.
+ */
+function PaletteStyleTag({
+  theme = 'light',
+  tagId = 'main-palette',
+  prefix = '--rcx-color',
+  selector,
+  palette,
+}: PaletteStyleTagProps) {
   const themePalette = palette || convertToCss(themes[theme], prefix, selector);
 
   return <>{createPortal(themePalette, useCreateStyleContainer(tagId))}</>;
-});
+}
 
-export default PaletteStyleTag;
+export default memo(PaletteStyleTag);

@@ -4,12 +4,12 @@ import type { AriaPopoverProps } from 'react-aria';
 import { usePopover, DismissButton, Overlay } from 'react-aria';
 import type { OverlayTriggerState } from 'react-stately';
 
-interface PopoverProps extends Omit<AriaPopoverProps, 'popoverRef'> {
+export interface PopoverProps extends Omit<AriaPopoverProps, 'popoverRef'> {
   children: ReactNode;
   state: OverlayTriggerState;
 }
 
-export function Popover(props: PopoverProps) {
+function Popover(props: PopoverProps) {
   const popoverRef = useRef<HTMLDivElement>(null);
   const { state, children, isNonModal } = props;
 
@@ -32,3 +32,5 @@ export function Popover(props: PopoverProps) {
     </Overlay>
   );
 }
+
+export default Popover;

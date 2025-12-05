@@ -1,18 +1,17 @@
 import type { Meta } from '@storybook/react-webpack5';
-import type { ComponentType } from 'react';
 
 import { BasicMessageTemplate } from '../helpers';
 
 import { MessageReaction } from './MessageReaction';
 import { MessageReactionAction } from './MessageReactionAction';
-import { MessageReactions } from './MessageReactions';
+import MessageReactions from './MessageReactions';
 
 export default {
   title: 'Message/MessageReactions',
   component: MessageReactions,
   subcomponents: {
-    MessageReaction: MessageReaction as ComponentType<any>,
-    MessageReactionAction: MessageReactionAction as ComponentType<any>,
+    MessageReaction,
+    MessageReactionAction,
   },
 } satisfies Meta<typeof MessageReactions>;
 

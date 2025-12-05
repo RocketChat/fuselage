@@ -1,11 +1,14 @@
-import type { ComponentProps } from 'react';
 import { forwardRef } from 'react';
 
+import type { ButtonGroupProps } from '../ButtonGroup';
 import { ButtonGroup } from '../ButtonGroup';
 
-export const NavBarGroup = forwardRef<
-  HTMLDivElement,
-  ComponentProps<typeof ButtonGroup>
->((props, ref) => (
-  <ButtonGroup className='rcx-navbar-group' ref={ref} {...props} />
-));
+export type NavBarGroupProps = ButtonGroupProps;
+
+const NavBarGroup = forwardRef<HTMLDivElement, NavBarGroupProps>(
+  (props, ref) => (
+    <ButtonGroup className='rcx-navbar-group' ref={ref} {...props} />
+  ),
+);
+
+export default NavBarGroup;

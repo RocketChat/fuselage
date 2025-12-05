@@ -7,7 +7,7 @@ import { appendClassName } from '../../helpers/appendClassName';
 import { useStyle } from '../../hooks/useStyle';
 import { BoxTransforms, useComposedBoxTransform } from '../Box/BoxTransforms';
 
-type ScrollableProps = PropsWithChildren<{
+export type ScrollableProps = PropsWithChildren<{
   horizontal?: boolean;
   vertical?: boolean;
   smooth?: boolean;
@@ -31,10 +31,10 @@ const pollTouchingEdges = (
 
   const dirty =
     touchingEdges &&
-    (touchingEdges.top !== newTouchingEdges.top ||
-      touchingEdges.bottom !== newTouchingEdges.bottom ||
-      touchingEdges.left !== newTouchingEdges.left ||
-      touchingEdges.right !== newTouchingEdges.right);
+    (touchingEdges['top'] !== newTouchingEdges.top ||
+      touchingEdges['bottom'] !== newTouchingEdges.bottom ||
+      touchingEdges['left'] !== newTouchingEdges.left ||
+      touchingEdges['right'] !== newTouchingEdges.right);
 
   if (dirty) {
     touchingEdgesRef.current = newTouchingEdges;
@@ -45,7 +45,7 @@ const pollTouchingEdges = (
 /**
  * Add scroll capability to the wrapped component.
  */
-export const Scrollable = ({
+const Scrollable = ({
   children,
   horizontal,
   vertical,
@@ -139,3 +139,5 @@ export const Scrollable = ({
     />
   );
 };
+
+export default Scrollable;

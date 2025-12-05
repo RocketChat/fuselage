@@ -1,16 +1,14 @@
-import type { ComponentPropsWithoutRef } from 'react';
-
 import WithErrorWrapper from '../../helpers/WithErrorWrapper';
-import Box from '../Box';
+import { Box, type BoxProps } from '../Box';
 
 import { FieldContext } from './Field';
 
-export type FieldLinkProps = ComponentPropsWithoutRef<typeof Box>;
+export type FieldLinkProps = BoxProps;
 
 const FieldLink = (props: FieldLinkProps) => {
   const component = <Box is='a' target='_blank' rcx-field__link {...props} />;
 
-  if (process.env.NODE_ENV === 'development') {
+  if (process.env['NODE_ENV'] === 'development') {
     return (
       <WithErrorWrapper
         context={FieldContext}

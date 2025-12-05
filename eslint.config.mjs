@@ -440,6 +440,7 @@ export default tseslint.config(
           ignoreRestSiblings: true,
         },
       ],
+      'dot-notation': 'off',
       'no-dupe-class-members': 'off',
       'no-empty-function': 'off',
       'no-use-before-define': 'off',

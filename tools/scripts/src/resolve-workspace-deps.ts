@@ -1,9 +1,10 @@
-import { readFile, writeFile } from 'fs/promises';
-import { join } from 'path';
+import { readFile, writeFile } from 'node:fs/promises';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 import fg from 'fast-glob';
 
-const rootDir = join(__dirname, '../../..');
+const rootDir = join(dirname(fileURLToPath(import.meta.url)), '../../..');
 
 type PackageList = {
   [packageName: string]: string;

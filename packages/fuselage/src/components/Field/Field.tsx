@@ -1,11 +1,10 @@
-import type { ComponentPropsWithoutRef } from 'react';
 import { createContext } from 'react';
 
-import Box from '../Box';
+import { Box, type BoxProps } from '../Box';
 
 export const FieldContext = createContext(false);
 
-export type FieldProps = ComponentPropsWithoutRef<typeof Box>;
+export type FieldProps = BoxProps;
 
 /**
  * A `Field` is a wrapper representing an entry in a form.

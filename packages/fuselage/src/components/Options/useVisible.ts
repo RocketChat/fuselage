@@ -1,6 +1,6 @@
 import { useEffectEvent, useDebouncedState } from '@rocket.chat/fuselage-hooks';
 
-import AnimatedVisibility from '../AnimatedVisibility';
+import { AnimatedVisibility } from '../AnimatedVisibility';
 
 export const useVisible = (
   initialVisibility:
