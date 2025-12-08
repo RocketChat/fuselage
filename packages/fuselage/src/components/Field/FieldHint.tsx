@@ -10,7 +10,7 @@ export type FieldHintProps = ComponentPropsWithoutRef<typeof Box>;
 const FieldHint = (props: FieldHintProps) => {
   const component = <Box is='span' rcx-field__hint {...props} />;
 
-  if (process.env.NODE_ENV === 'development') {
+  if (process.env['NODE_ENV'] === 'development') {
     return (
       <WithErrorWrapper
         context={FieldContext}

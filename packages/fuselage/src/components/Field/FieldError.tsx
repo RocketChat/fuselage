@@ -10,7 +10,7 @@ export type FieldErrorProps = ComponentPropsWithoutRef<typeof Box>;
 const FieldError = (props: FieldErrorProps) => {
   const component = <Box is='span' rcx-field__error {...props} />;
 
-  if (process.env.NODE_ENV === 'development') {
+  if (process.env['NODE_ENV'] === 'development') {
     return (
       <WithErrorWrapper
         context={FieldContext}

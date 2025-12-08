@@ -2,14 +2,8 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "rootDir": "./src",
-    "module": "ESNext",
-    "target": "ES5",
-    "lib": ["dom", "ES2015"],
-    "declarationDir": "./dist",
     "outDir": "./dist",
-    "moduleResolution": "node",
-    "esModuleInterop": true,
-    "resolveJsonModule": true,
+    "lib": ["dom", "ES2015"],
     "skipLibCheck": true
   },
   "include": ["src"],

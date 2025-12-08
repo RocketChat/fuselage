@@ -10,7 +10,7 @@ export type FieldDescriptionProps = ComponentPropsWithoutRef<typeof Box>;
 const FieldDescription = (props: FieldDescriptionProps) => {
   const component = <Box is='span' rcx-field__description {...props} />;
 
-  if (process.env.NODE_ENV === 'development') {
+  if (process.env['NODE_ENV'] === 'development') {
     return (
       <WithErrorWrapper
         context={FieldContext}

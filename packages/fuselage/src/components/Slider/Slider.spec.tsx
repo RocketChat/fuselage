@@ -44,6 +44,6 @@ describe('[Slider Component]', () => {
     await userEvent.keyboard('{ArrowRight}');
     await userEvent.keyboard('{ArrowRight}');
 
-    expect(slider.value).toBe('4');
+    expect(slider['value']).toBe('4');
   });
 });
