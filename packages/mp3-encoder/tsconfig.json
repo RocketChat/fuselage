@@ -2,7 +2,7 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "rootDir": "./src",
-    "lib": ["ES2015", "WebWorker"],
+    "lib": ["WebWorker"],
     "outDir": "./dist",
     "erasableSyntaxOnly": false,
     "noFallthroughCasesInSwitch": false
