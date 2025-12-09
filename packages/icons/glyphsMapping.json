@@ -1013,5 +1013,14 @@
   },
   "hash-shield": {
     "start": "\ue16b"
+  },
+  "arrow-down-left": {
+    "start": "\ue16d"
+  },
+  "arrow-up-right": {
+    "start": "\ue16f"
+  },
+  "phone-question-mark": {
+    "start": "\ue171"
   }
 }
