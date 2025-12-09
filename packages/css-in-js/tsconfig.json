@@ -3,8 +3,7 @@
   "compilerOptions": {
     "rootDir": "./src",
     "lib": ["dom", "es6"],
-    "outDir": "./dist",
-    "skipLibCheck": true
+    "outDir": "./dist"
   },
   "include": ["src"],
   "exclude": ["dist", "node_modules"]

@@ -31,7 +31,7 @@
 
     "allowJs": false,
 
-    "erasableSyntaxOnly": false,
+    "erasableSyntaxOnly": true,
     "forceConsistentCasingInFileNames": true,
     "isolatedDeclarations": false,
     "isolatedModules": true,
