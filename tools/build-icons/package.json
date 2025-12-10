@@ -8,7 +8,7 @@
     "stylelint": "~16.25.0",
     "svg2ttf": "~6.0.3",
     "svgicons2svgfont": "~15.0.1",
-    "tools-utils": "workspace:~",
+    "tools-utils": "^0.31.25",
     "ttf2eot": "~3.1.0",
     "ttf2woff": "~3.0.0",
     "ttf2woff2": "~8.0.0",
@@ -17,7 +17,7 @@
   },
   "devDependencies": {
     "eslint": "~9.39.1",
-    "lint-all": "workspace:~",
+    "lint-all": "^0.31.25",
     "prettier": "~3.6.2"
   }
 }
