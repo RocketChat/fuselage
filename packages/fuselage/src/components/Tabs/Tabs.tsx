@@ -1,10 +1,9 @@
-import type { ComponentProps } from 'react';
-
+import type { BoxProps } from '../Box';
 import Box from '../Box';
 
 import { TabsItem } from './TabsItem';
 
-type TabsProps = ComponentProps<typeof Box> & { divider?: boolean };
+type TabsProps = BoxProps & { divider?: boolean };
 
 /**
  * Tabs is a component to navigate around the UI using buttons arranged together with the selected tab highlighted.

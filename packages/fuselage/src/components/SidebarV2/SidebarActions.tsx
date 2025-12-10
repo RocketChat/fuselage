@@ -1,13 +1,12 @@
-import type { ComponentProps, Ref } from 'react';
 import { forwardRef } from 'react';
 
+import type { ButtonGroupProps } from '../ButtonGroup';
 import { ButtonGroup } from '../ButtonGroup';
 
-type SidebarActionsProps = ComponentProps<typeof ButtonGroup>;
+type SidebarActionsProps = ButtonGroupProps;
 
-export const SidebarActions = forwardRef(function SidebarActions(
-  props: SidebarActionsProps,
-  ref: Ref<HTMLDivElement>,
-) {
-  return <ButtonGroup ref={ref} {...props} />;
-});
+export const SidebarActions = forwardRef<HTMLDivElement, SidebarActionsProps>(
+  function SidebarActions(props, ref) {
+    return <ButtonGroup ref={ref} {...props} />;
+  },
+);

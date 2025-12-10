@@ -1,6 +1,6 @@
 import type { StoryFn, Meta } from '@storybook/react-webpack5';
 
-import { Label } from './Label';
+import Label from './Label';
 import { LabelInfo } from './LabelInfo';
 
 export default {

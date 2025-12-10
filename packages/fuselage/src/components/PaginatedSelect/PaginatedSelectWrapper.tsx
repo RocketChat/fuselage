@@ -1,14 +1,14 @@
-import type { ComponentProps, Ref } from 'react';
 import { forwardRef } from 'react';
 
+import type { BoxProps } from '../Box';
 import Box from '../Box';
 
-type PaginatedSelectWrapperProps = ComponentProps<typeof Box>;
+type PaginatedSelectWrapperProps = BoxProps;
 
-const PaginatedSelectWrapper = forwardRef(function PaginatedSelectWrapper(
-  props: PaginatedSelectWrapperProps,
-  ref: Ref<HTMLDivElement>,
-) {
+const PaginatedSelectWrapper = forwardRef<
+  HTMLDivElement,
+  PaginatedSelectWrapperProps
+>(function PaginatedSelectWrapper(props, ref) {
   return <Box is='div' rcx-select__wrapper ref={ref} {...props} />;
 });
 

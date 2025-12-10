@@ -1,8 +1,7 @@
-import type { ComponentProps } from 'react';
-
+import type { BoxProps } from '../Box';
 import Box from '../Box';
 
-export type ModalHeroImageProps = ComponentProps<typeof Box>;
+export type ModalHeroImageProps = BoxProps;
 
 export const ModalHeroImage = ({ ...props }: ModalHeroImageProps) => (
   <figure className='rcx-modal__hero-image-wrapper'>

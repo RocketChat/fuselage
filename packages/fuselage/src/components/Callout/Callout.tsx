@@ -1,14 +1,16 @@
 import { useResizeObserver } from '@rocket.chat/fuselage-hooks';
-import type { ComponentProps, ReactElement, ReactNode } from 'react';
+import type { ReactElement, ReactNode } from 'react';
 
+import type { BoxProps } from '../Box';
 import Box from '../Box';
+import type { IconProps } from '../Icon';
 import { Icon } from '../Icon';
 
-type CalloutProps = Omit<ComponentProps<typeof Box>, 'type' | 'name'> & {
+type CalloutProps = Omit<BoxProps, 'type' | 'name'> & {
   type?: 'info' | 'success' | 'warning' | 'danger';
   title?: ReactNode;
   children?: ReactNode;
-  icon?: ComponentProps<typeof Icon>['name'];
+  icon?: IconProps['name'];
   actions?: ReactElement;
 };
 

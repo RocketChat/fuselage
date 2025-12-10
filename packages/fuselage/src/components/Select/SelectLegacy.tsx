@@ -4,18 +4,14 @@ import {
   useResizeObserver,
   useOutsideClick,
 } from '@rocket.chat/fuselage-hooks';
-import type {
-  ComponentProps,
-  DependencyList,
-  Ref,
-  ElementType,
-  ReactNode,
-} from 'react';
+import type { DependencyList, ElementType, ReactNode } from 'react';
 import { useState, useRef, useEffect, forwardRef, useMemo } from 'react';
 
 import { isForwardRefType } from '../../helpers/isForwardRefType';
 import AnimatedVisibility from '../AnimatedVisibility';
+import type { BoxProps } from '../Box';
 import Box from '../Box';
+import type { IconProps } from '../Icon';
 import { Icon } from '../Icon';
 import Margins from '../Margins';
 import type { OptionType } from '../Options';
@@ -32,9 +28,9 @@ export type SelectOption = readonly [
   selected?: boolean,
 ];
 
-type WrapperProps = ComponentProps<typeof Box>;
+type WrapperProps = BoxProps;
 
-const Wrapper = forwardRef((props: WrapperProps, ref: Ref<HTMLDivElement>) => (
+const Wrapper = forwardRef<HTMLDivElement, WrapperProps>((props, ref) => (
   <Box is='div' rcx-select__wrapper ref={ref} {...props} />
 ));
 
@@ -50,7 +46,7 @@ const useDidUpdate = (func: () => void, deps: DependencyList | undefined) => {
   }, deps || []);
 };
 
-export type SelectProps = Omit<ComponentProps<typeof Box>, 'onChange'> & {
+export type SelectProps = Omit<BoxProps, 'onChange'> & {
   anchor?: ElementType;
   error?: string;
   options: SelectOption[];
@@ -62,10 +58,10 @@ export type SelectProps = Omit<ComponentProps<typeof Box>, 'onChange'> & {
   renderItem?: ElementType;
   renderSelected?: ElementType;
   customEmpty?: string;
-  addonIcon?: ComponentProps<typeof Icon>['name'];
+  addonIcon?: IconProps['name'];
 };
 
-export const SelectLegacy = forwardRef(
+export const SelectLegacy = forwardRef<HTMLInputElement, SelectProps>(
   (
     {
       value,
@@ -84,8 +80,8 @@ export const SelectLegacy = forwardRef(
       addonIcon,
       customEmpty,
       ...props
-    }: SelectProps,
-    ref: Ref<HTMLInputElement>,
+    },
+    ref,
   ) => {
     const [internalValue, setInternalValue] = useState(value || '');
 

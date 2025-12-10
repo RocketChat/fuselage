@@ -1,15 +1,14 @@
-import type { ReactElement, ComponentProps } from 'react';
+import type { ReactElement } from 'react';
 import { memo } from 'react';
 
+import type { BoxProps } from '../Box';
 import Box from '../Box';
 import { Skeleton } from '../Skeleton';
 
 import Contextualbar from './Contextualbar';
 import ContextualbarHeader from './ContextualbarHeader';
 
-const ContextualbarSkeleton = (
-  props: ComponentProps<typeof Box>,
-): ReactElement => (
+const ContextualbarSkeleton = (props: BoxProps): ReactElement => (
   <Contextualbar {...props}>
     <ContextualbarHeader>
       <Skeleton width='100%' />

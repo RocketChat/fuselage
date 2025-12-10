@@ -1,9 +1,10 @@
-import type { ComponentProps, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 import { prependClassName } from '../../helpers/prependClassName';
+import type { BoxProps } from '../Box';
 import Box from '../Box/Box';
 
-type TagProps = {
+export type TagProps = {
   medium?: boolean;
   large?: boolean;
   variant?:
@@ -17,7 +18,7 @@ type TagProps = {
     | 'featured';
   disabled?: boolean;
   icon?: ReactNode;
-} & Omit<ComponentProps<typeof Box>, 'is'>;
+} & Omit<BoxProps, 'is'>;
 
 /**
  * Used for mentions

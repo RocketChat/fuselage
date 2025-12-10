@@ -1,4 +1,4 @@
-import type { HTMLAttributes, ReactNode, Ref } from 'react';
+import type { HTMLAttributes, ReactNode } from 'react';
 import { forwardRef } from 'react';
 
 import { MessageReactionCounter } from './MessageReactionCounter';
@@ -11,30 +11,32 @@ type MessageReactionProps = {
   children?: ReactNode;
 } & HTMLAttributes<HTMLDivElement>;
 
-export const MessageReaction = forwardRef(function Reaction(
-  { name, counter, mine, children, className, ...props }: MessageReactionProps,
-  ref: Ref<HTMLDivElement>,
-) {
-  return (
-    <div
-      className={[
-        `rcx-message-reactions__reaction`,
-        mine && 'rcx-message-reactions__reaction--mine',
-        className,
-      ]
-        .filter(Boolean)
-        .join(' ')}
-      ref={ref}
-      role='button'
-      tabIndex={0}
-      {...props}
-    >
-      {children || (
-        <>
-          {name && <MessageReactionEmoji name={name} />}
-          {counter && <MessageReactionCounter counter={counter} />}
-        </>
-      )}
-    </div>
-  );
-});
+export const MessageReaction = forwardRef<HTMLDivElement, MessageReactionProps>(
+  function Reaction(
+    { name, counter, mine, children, className, ...props },
+    ref,
+  ) {
+    return (
+      <div
+        className={[
+          `rcx-message-reactions__reaction`,
+          mine && 'rcx-message-reactions__reaction--mine',
+          className,
+        ]
+          .filter(Boolean)
+          .join(' ')}
+        ref={ref}
+        role='button'
+        tabIndex={0}
+        {...props}
+      >
+        {children || (
+          <>
+            {name && <MessageReactionEmoji name={name} />}
+            {counter && <MessageReactionCounter counter={counter} />}
+          </>
+        )}
+      </div>
+    );
+  },
+);

@@ -7,7 +7,7 @@ import Box from '../Box';
 import { Divider } from '../Divider';
 import { InputBox } from '../InputBox';
 
-import { Icon } from './Icon';
+import Icon from './Icon';
 
 export default {
   title: 'Data Display/Icon',

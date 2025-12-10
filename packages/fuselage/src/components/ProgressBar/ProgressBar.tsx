@@ -41,31 +41,26 @@ type ProgressBarProps = {
 /**
  * The `ProgressBar` is used to inform the user the progress of an operation.
  */
-export const ProgressBar = forwardRef(function ProgressBar(
-  {
-    percentage,
-    variant = 'info',
-    error,
-    animated,
-    light = false,
-    ...props
-  }: ProgressBarProps,
-  ref,
-) {
-  return (
-    <Box
-      ref={ref}
-      rcx-progress-bar
-      title={error || undefined}
-      overflow='hidden'
-      {...props}
-    >
+export const ProgressBar = forwardRef<unknown, ProgressBarProps>(
+  function ProgressBar(
+    { percentage, variant = 'info', error, animated, light = false, ...props },
+    ref,
+  ) {
+    return (
       <Box
-        bg={getColor(light, variant, error)}
-        rcx-progress-bar__fill--animated={animated}
-        rcx-progress-bar__fill
-        width={getWidth(percentage)}
-      />
-    </Box>
-  );
-});
+        ref={ref}
+        rcx-progress-bar
+        title={error || undefined}
+        overflow='hidden'
+        {...props}
+      >
+        <Box
+          bg={getColor(light, variant, error)}
+          rcx-progress-bar__fill--animated={animated}
+          rcx-progress-bar__fill
+          width={getWidth(percentage)}
+        />
+      </Box>
+    );
+  },
+);

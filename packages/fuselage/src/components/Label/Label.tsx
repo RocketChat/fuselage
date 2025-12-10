@@ -1,11 +1,12 @@
-import type { ComponentProps, ReactElement, ElementType, Ref } from 'react';
+import type { ReactElement, ElementType } from 'react';
 import { createContext, forwardRef, useContext } from 'react';
 
+import type { BoxProps } from '../Box';
 import Box from '../Box';
 
 const LabelContext = createContext(false);
 
-type LabelProps = Omit<ComponentProps<typeof Box>, 'is'> & {
+export type LabelProps = Omit<BoxProps, 'is'> & {
   disabled?: boolean;
   required?: boolean;
   is?: (ElementType<any> & string) | undefined;
@@ -14,9 +15,9 @@ type LabelProps = Omit<ComponentProps<typeof Box>, 'is'> & {
 /**
  * A caption for an input component.
  */
-export const Label = forwardRef(function Label(
-  { disabled, is, required, children, ...props }: LabelProps,
-  ref: Ref<HTMLElement>,
+const Label = forwardRef<HTMLElement, LabelProps>(function Label(
+  { disabled, is, required, children, ...props },
+  ref,
 ): ReactElement {
   const isInsideLabel = useContext(LabelContext);
   const component = is || (isInsideLabel && 'span') || 'label';
@@ -40,3 +41,5 @@ export const Label = forwardRef(function Label(
     </LabelContext.Provider>
   );
 });
+
+export default Label;

@@ -1,10 +1,12 @@
-import type { AllHTMLAttributes, ComponentProps, Ref } from 'react';
+import type { AllHTMLAttributes } from 'react';
 import { forwardRef, useMemo } from 'react';
 
+import type { BoxProps } from '../Box';
 import Box from '../Box';
+import type { IconProps } from '../Icon';
 import { Icon } from '../Icon';
 
-export type ButtonProps = ComponentProps<typeof Box> & {
+export type ButtonProps = BoxProps & {
   primary?: boolean;
   secondary?: boolean;
   danger?: boolean;
@@ -19,7 +21,7 @@ export type ButtonProps = ComponentProps<typeof Box> & {
   large?: boolean;
   square?: boolean;
   external?: boolean;
-  icon?: ComponentProps<typeof Icon>['name'];
+  icon?: IconProps['name'];
 } & Omit<
     AllHTMLAttributes<HTMLButtonElement | HTMLAnchorElement>,
     'is' | 'className' | 'size'
@@ -28,7 +30,10 @@ export type ButtonProps = ComponentProps<typeof Box> & {
 /**
  * Indicates an actionable user action.
  */
-export const Button = forwardRef(function Button(
+export const Button = forwardRef<
+  HTMLButtonElement | HTMLAnchorElement,
+  ButtonProps
+>(function Button(
   {
     primary,
     secondary,
@@ -49,8 +54,8 @@ export const Button = forwardRef(function Button(
     disabled,
     children,
     ...props
-  }: ButtonProps,
-  ref: Ref<HTMLButtonElement | HTMLAnchorElement>,
+  },
+  ref,
 ) {
   const extraProps =
     (is === 'a' && {
