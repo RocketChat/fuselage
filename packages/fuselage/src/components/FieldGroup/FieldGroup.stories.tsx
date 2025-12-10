@@ -4,6 +4,7 @@ import { Field, FieldHint, FieldLabel, FieldRow } from '../Field';
 import { InputBoxSkeleton } from '../InputBox';
 
 import { FieldGroup } from './FieldGroup';
+import { FieldLegend } from './FieldLegend';
 
 export default {
   title: 'Inputs/FieldGroup',
@@ -12,6 +13,7 @@ export default {
 
 export const Default: StoryFn<typeof FieldGroup> = () => (
   <FieldGroup>
+    <FieldLegend>This text should be visually hidden but still semantically present</FieldLegend>
     <Field>
       <FieldLabel>Field #1</FieldLabel>
       <FieldRow>
