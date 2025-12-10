@@ -1,5 +1,11 @@
 # @rocket.chat/layout
 
+## 0.34.1
+
+### Patch Changes
+
+- [#1799](https://github.com/RocketChat/fuselage/pull/1799) [`3930b70`](https://github.com/RocketChat/fuselage/commit/3930b7008144a5c6966f0a228a7e07e223bcfc5a) Thanks [@tassoevan](https://github.com/tassoevan)! - feat(fuselage): Use non-polyfilled CSS custom properties
+
 ## 0.34.0
 
 ### Minor Changes
