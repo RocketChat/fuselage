@@ -38,7 +38,7 @@ exports[`renders Default without crashing 1`] = `
           id=":r1:"
         >
           <div
-            class="rcx-box rcx-box--full rcx-css-xuk1lb"
+            class="rcx-box rcx-box--full rcx-css-1fpwtdk"
           >
             Content #1
           </div>
@@ -76,7 +76,7 @@ exports[`renders Default without crashing 1`] = `
           id=":r3:"
         >
           <div
-            class="rcx-box rcx-box--full rcx-css-xuk1lb"
+            class="rcx-box rcx-box--full rcx-css-1fpwtdk"
           >
             Content #2
           </div>
@@ -114,7 +114,7 @@ exports[`renders Default without crashing 1`] = `
           id=":r5:"
         >
           <div
-            class="rcx-box rcx-box--full rcx-css-xuk1lb"
+            class="rcx-box rcx-box--full rcx-css-1fpwtdk"
           >
             Content #3
           </div>
@@ -163,7 +163,7 @@ exports[`renders DisabledItem without crashing 1`] = `
           id=":rd:"
         >
           <div
-            class="rcx-box rcx-box--full rcx-css-xuk1lb"
+            class="rcx-box rcx-box--full rcx-css-1fpwtdk"
           >
             Content #1
           </div>
@@ -200,7 +200,7 @@ exports[`renders DisabledItem without crashing 1`] = `
           id=":rf:"
         >
           <div
-            class="rcx-box rcx-box--full rcx-css-xuk1lb"
+            class="rcx-box rcx-box--full rcx-css-1fpwtdk"
           >
             Content #2
           </div>
@@ -238,7 +238,7 @@ exports[`renders DisabledItem without crashing 1`] = `
           id=":rh:"
         >
           <div
-            class="rcx-box rcx-box--full rcx-css-xuk1lb"
+            class="rcx-box rcx-box--full rcx-css-1fpwtdk"
           >
             Content #3
           </div>
@@ -287,7 +287,7 @@ exports[`renders ExpandedItemByDefault without crashing 1`] = `
           id=":r7:"
         >
           <div
-            class="rcx-box rcx-box--full rcx-css-xuk1lb"
+            class="rcx-box rcx-box--full rcx-css-1fpwtdk"
           >
             Content #1
           </div>
@@ -325,7 +325,7 @@ exports[`renders ExpandedItemByDefault without crashing 1`] = `
           id=":r9:"
         >
           <div
-            class="rcx-box rcx-box--full rcx-css-xuk1lb"
+            class="rcx-box rcx-box--full rcx-css-1fpwtdk"
           >
             Content #2
           </div>
@@ -363,7 +363,7 @@ exports[`renders ExpandedItemByDefault without crashing 1`] = `
           id=":rb:"
         >
           <div
-            class="rcx-box rcx-box--full rcx-css-xuk1lb"
+            class="rcx-box rcx-box--full rcx-css-1fpwtdk"
           >
             Content #3
           </div>
