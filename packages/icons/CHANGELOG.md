@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.46.0
+
+### Minor Changes
+
+- [#1797](https://github.com/RocketChat/fuselage/pull/1797) [`0853dd0`](https://github.com/RocketChat/fuselage/commit/0853dd071a1e6d20975bd3809e5ef68761761311) Thanks [@gabriellsh](https://github.com/gabriellsh)! - feat(icons): Add `arrow-down-left`, `arrow-up-right` & `phone-question-mark` icons
+
 ## 0.45.0
 
 ### Minor Changes
