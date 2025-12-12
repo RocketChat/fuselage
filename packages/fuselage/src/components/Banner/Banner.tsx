@@ -23,7 +23,7 @@ const variants: VariantType[] = [
   'danger',
 ];
 
-type BannerProps = {
+export type BannerProps = {
   actionable?: boolean;
   closeable?: boolean;
   icon?: ReactNode;

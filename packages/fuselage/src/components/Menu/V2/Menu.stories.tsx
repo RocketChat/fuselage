@@ -2,13 +2,13 @@ import type { StoryFn, Meta } from '@storybook/react-webpack5';
 import type { ReactNode } from 'react';
 import { forwardRef, useState } from 'react';
 
-import Box from '../../Box';
+import { Box } from '../../Box';
 import type { IconButtonProps } from '../../Button';
 import { IconButton } from '../../Button';
 import { ButtonGroup } from '../../ButtonGroup';
 import { CheckBox } from '../../CheckBox';
 import { RadioButton } from '../../RadioButton';
-import Sidebar from '../../Sidebar';
+import { Sidebar } from '../../Sidebar';
 import { ToggleSwitch } from '../../ToggleSwitch';
 
 import type { MenuItemIconProps } from '.';

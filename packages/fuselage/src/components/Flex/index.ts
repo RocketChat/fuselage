@@ -1,7 +1,14 @@
 import FlexContainer from './FlexContainer';
 import FlexItem from './FlexItem';
 
-export default {
+export {
+  default as FlexContainer,
+  type FlexContainerProps,
+} from './FlexContainer';
+
+export { default as FlexItem, type FlexItemProps } from './FlexItem';
+
+export const Flex = {
   Container: FlexContainer,
   Item: FlexItem,
 };

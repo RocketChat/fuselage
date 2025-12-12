@@ -2,14 +2,24 @@ import type { HTMLAttributes } from 'react';
 
 import { prependClassName } from '../../../../helpers/prependClassName';
 
-type MessageMetricsItemProps = HTMLAttributes<HTMLDivElement>;
+import MessageMetricsItemIcon from './MessageMetricsItemIcon';
+import MessageMetricsItemLabel from './MessageMetricsItemLabel';
 
-export const MessageMetricsItem = ({
-  className,
-  ...props
-}: MessageMetricsItemProps) => (
-  <div
-    className={prependClassName(className, 'rcx-message-metrics__item')}
-    {...props}
-  />
+export type MessageMetricsItemProps = HTMLAttributes<HTMLDivElement>;
+
+const MessageMetricsItem = Object.assign(
+  ({ className, ...props }: MessageMetricsItemProps) => (
+    <div
+      className={prependClassName(className, 'rcx-message-metrics__item')}
+      {...props}
+    />
+  ),
+  {
+    /** @deprecated prefer using named imports */
+    Icon: MessageMetricsItemIcon,
+    /** @deprecated prefer using named imports */
+    Label: MessageMetricsItemLabel,
+  },
 );
+
+export default MessageMetricsItem;

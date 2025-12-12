@@ -1,11 +1,11 @@
 import type { ReactNode } from 'react';
 
-type ThreadMessageOriginProps = {
+export type ThreadMessageOriginProps = {
   children?: ReactNode;
   system?: boolean;
 };
 
-export const ThreadMessageOrigin = ({
+const ThreadMessageOrigin = ({
   children,
   system,
 }: ThreadMessageOriginProps) => (
@@ -20,3 +20,5 @@ export const ThreadMessageOrigin = ({
     {children}
   </div>
 );
+
+export default ThreadMessageOrigin;

@@ -9,10 +9,10 @@ import type {
 import { forwardRef, useLayoutEffect, useMemo, useRef } from 'react';
 
 import { prevent } from '../../helpers/prevent';
-import Box, { type BoxProps } from '../Box';
+import { Box, type BoxProps } from '../Box';
 import { Option, OptionHeader, OptionDivider } from '../Option';
-import Scrollable from '../Scrollable';
-import Tile from '../Tile';
+import { Scrollable } from '../Scrollable';
+import { Tile } from '../Tile';
 
 import type { OptionType } from './OptionType';
 import OptionsEmpty from './OptionsEmpty';

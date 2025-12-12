@@ -11,7 +11,7 @@ export type MessageHighlightProps = {
   title?: string;
 } & HTMLAttributes<HTMLElement>;
 
-export function MessageHighlight({
+function MessageHighlight({
   is: Tag = 'span',
   variant = 'other',
   className,
@@ -33,3 +33,5 @@ export function MessageHighlight({
     />
   );
 }
+
+export default MessageHighlight;

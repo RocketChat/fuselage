@@ -1,8 +1,7 @@
-import type { ReactElement, ElementType } from 'react';
+import type { ElementType } from 'react';
 import { createContext, forwardRef, useContext } from 'react';
 
-import type { BoxProps } from '../Box';
-import Box from '../Box';
+import { Box, type BoxProps } from '../Box';
 
 const LabelContext = createContext(false);
 
@@ -18,7 +17,7 @@ export type LabelProps = Omit<BoxProps, 'is'> & {
 const Label = forwardRef<HTMLElement, LabelProps>(function Label(
   { disabled, is, required, children, ...props },
   ref,
-): ReactElement {
+) {
   const isInsideLabel = useContext(LabelContext);
   const component = is || (isInsideLabel && 'span') || 'label';
 

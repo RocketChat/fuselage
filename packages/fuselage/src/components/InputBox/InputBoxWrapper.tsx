@@ -1,4 +1,4 @@
-import Box, { type BoxProps } from '../Box';
+import { Box, type BoxProps } from '../Box';
 import { Label } from '../Label';
 
 export type InputBoxWrapperProps = BoxProps;

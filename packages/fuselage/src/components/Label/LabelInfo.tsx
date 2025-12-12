@@ -1,6 +1,5 @@
-import Box from '../Box/Box';
-import type { IconProps } from '../Icon';
-import { Icon } from '../Icon';
+import { Box } from '../Box';
+import { Icon, type IconProps } from '../Icon';
 
 export type LabelInfoProps = {
   title: string;

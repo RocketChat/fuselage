@@ -1,7 +1,6 @@
 import { forwardRef } from 'react';
 
-import type { BoxProps } from '../Box';
-import Box from '../Box';
+import { Box, type BoxProps } from '../Box';
 
 export type TileProps = BoxProps;
 

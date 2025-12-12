@@ -7,7 +7,7 @@ import { appendClassName } from '../../helpers/appendClassName';
 import { useStyle } from '../../hooks/useStyle';
 import { BoxTransforms, useComposedBoxTransform } from '../Box/BoxTransforms';
 
-type ScrollableProps = PropsWithChildren<{
+export type ScrollableProps = PropsWithChildren<{
   horizontal?: boolean;
   vertical?: boolean;
   smooth?: boolean;
@@ -45,7 +45,7 @@ const pollTouchingEdges = (
 /**
  * Add scroll capability to the wrapped component.
  */
-export const Scrollable = ({
+const Scrollable = ({
   children,
   horizontal,
   vertical,
@@ -139,3 +139,5 @@ export const Scrollable = ({
     />
   );
 };
+
+export default Scrollable;

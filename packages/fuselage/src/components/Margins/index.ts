@@ -1,3 +1,1 @@
-import { Margins } from './Margins';
-
-export default Margins;
+export { default as Margins, type MarginsProps } from './Margins';

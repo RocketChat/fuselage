@@ -1,17 +1,16 @@
 import type { Meta } from '@storybook/react-webpack5';
-import type { ComponentType } from 'react';
 
-import Box from '../../Box';
+import { Box } from '../../Box';
 import { BasicMessageTemplate } from '../helpers';
 
-import { MessageToolbar } from './MessageToolbar';
-import { MessageToolbarItem } from './MessageToolbarItem';
+import MessageToolbar from './MessageToolbar';
+import MessageToolbarItem from './MessageToolbarItem';
 
 export default {
   title: 'Message/MessageToolbar',
   component: MessageToolbar,
   subcomponents: {
-    MessageToolbarItem: MessageToolbarItem as ComponentType<any>,
+    MessageToolbarItem,
   },
 } satisfies Meta<typeof MessageToolbar>;
 

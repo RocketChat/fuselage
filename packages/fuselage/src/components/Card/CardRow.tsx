@@ -1,9 +1,10 @@
 import type { AllHTMLAttributes, ReactNode } from 'react';
 
-const CardRow = ({
-  children,
-  ...props
-}: { children: ReactNode } & AllHTMLAttributes<HTMLElement>) => (
+export type CardRowProps = {
+  children: ReactNode;
+} & AllHTMLAttributes<HTMLElement>;
+
+const CardRow = ({ children, ...props }: CardRowProps) => (
   <div className='rcx-card__row' {...props}>
     {children}
   </div>

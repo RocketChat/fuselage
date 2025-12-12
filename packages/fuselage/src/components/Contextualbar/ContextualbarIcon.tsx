@@ -1,10 +1,10 @@
-import type { ReactElement } from 'react';
 import { memo } from 'react';
 
-import type { IconProps } from '..';
-import { Icon } from '..';
+import { Icon, type IconProps } from '../Icon';
 
-const ContextualbarIcon = (props: IconProps): ReactElement => (
+export type ContextualbarIconProps = IconProps;
+
+const ContextualbarIcon = (props: ContextualbarIconProps) => (
   <Icon {...props} pi={2} size='x24' />
 );
 

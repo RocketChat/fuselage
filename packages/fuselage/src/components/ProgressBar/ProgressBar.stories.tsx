@@ -1,6 +1,6 @@
 import type { StoryFn, Meta } from '@storybook/react-webpack5';
 
-import { ProgressBar } from './ProgressBar';
+import ProgressBar from './ProgressBar';
 
 export default {
   title: 'Data Display/ProgressBar',

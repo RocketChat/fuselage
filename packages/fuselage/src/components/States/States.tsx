@@ -1,6 +1,6 @@
 import type { AllHTMLAttributes, ReactNode } from 'react';
 
-type StatesProps = {
+export type StatesProps = {
   children?: ReactNode;
 } & AllHTMLAttributes<HTMLDivElement>;
 

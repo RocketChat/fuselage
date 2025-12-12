@@ -1,7 +1,7 @@
 import type { Meta, StoryFn } from '@storybook/react-webpack5';
 import { createRef } from 'react';
 
-import Box from '../Box';
+import { Box } from '../Box';
 import { Option } from '../Option';
 
 import type { OptionsPaginatedProps } from './OptionsPaginated';

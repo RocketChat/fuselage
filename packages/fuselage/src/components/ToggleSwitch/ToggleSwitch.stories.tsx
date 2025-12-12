@@ -6,7 +6,7 @@ import {
   PropsVariationSection,
 } from '../../../.storybook/helpers';
 
-import { ToggleSwitch } from './ToggleSwitch';
+import ToggleSwitch from './ToggleSwitch';
 
 export default {
   title: 'Inputs/ToggleSwitch',

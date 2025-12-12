@@ -1,12 +1,16 @@
 import type { MessageEmojiBaseProps } from '../MessageEmojiBase';
 import { MessageEmojiBase } from '../MessageEmojiBase';
 
-export const ThreadMessageEmoji = ({
+export type ThreadMessageEmojiProps = MessageEmojiBaseProps;
+
+const ThreadMessageEmoji = ({
   className,
   ...props
-}: MessageEmojiBaseProps) => (
+}: ThreadMessageEmojiProps) => (
   <MessageEmojiBase
     className={`rcx-message-thread__emoji ${className || ''}`}
     {...props}
   />
 );
+
+export default ThreadMessageEmoji;

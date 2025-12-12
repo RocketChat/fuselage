@@ -14,7 +14,7 @@ export type SelectFilteredProps = SelectProps & {
   addonIcon?: IconProps['name'];
 };
 
-export const SelectFiltered = forwardRef<HTMLInputElement, SelectFilteredProps>(
+const SelectFiltered = forwardRef<HTMLInputElement, SelectFilteredProps>(
   function SelectFiltered(
     {
       options,
@@ -46,3 +46,5 @@ export const SelectFiltered = forwardRef<HTMLInputElement, SelectFilteredProps>(
     );
   },
 );
+
+export default SelectFiltered;

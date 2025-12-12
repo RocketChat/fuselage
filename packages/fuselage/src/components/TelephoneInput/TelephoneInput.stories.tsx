@@ -3,7 +3,7 @@ import type { StoryFn, Meta } from '@storybook/react-webpack5';
 import { PropsVariationSection } from '../../../.storybook/helpers';
 import { Icon } from '../Icon';
 
-import { TelephoneInput } from './TelephoneInput';
+import TelephoneInput from './TelephoneInput';
 
 export default {
   title: 'Inputs/TelephoneInput',

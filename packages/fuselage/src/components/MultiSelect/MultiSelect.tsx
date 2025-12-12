@@ -10,15 +10,14 @@ import { useState, useRef, useEffect, forwardRef } from 'react';
 import type { IconProps, SelectOption } from '..';
 import { isForwardRefType } from '../../helpers/isForwardRefType';
 import { prevent } from '../../helpers/prevent';
-import AnimatedVisibility from '../AnimatedVisibility';
-import type { BoxProps } from '../Box';
-import Box from '../Box';
-import Flex from '../Flex';
+import { AnimatedVisibility } from '../AnimatedVisibility';
+import { Box, type BoxProps } from '../Box';
+import { FlexContainer, FlexItem } from '../Flex';
 import { Icon } from '../Icon';
-import Margins from '../Margins';
+import { Margins } from '../Margins';
 import { CheckOption } from '../Option';
 import { Options, useCursor } from '../Options';
-import Position from '../Position';
+import { Position } from '../Position';
 import SelectAddon from '../Select/SelectAddon';
 
 import MultiSelectAnchor from './MultiSelectAnchor';
@@ -46,7 +45,7 @@ export type MultiSelectProps = Omit<BoxProps, 'onChange' | 'value'> & {
 /**
  * An input for selection of options.
  */
-export const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
+const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
   (
     {
       value,
@@ -155,9 +154,9 @@ export const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
         disabled={disabled}
         {...props}
       >
-        <Flex.Item grow={1}>
+        <FlexItem grow={1}>
           <Margins inline='x4'>
-            <Flex.Container>
+            <FlexContainer>
               <Box is='div'>
                 <Box
                   is='div'
@@ -211,10 +210,10 @@ export const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
                   </Margins>
                 </Box>
               </Box>
-            </Flex.Container>
+            </FlexContainer>
           </Margins>
-        </Flex.Item>
-        <Flex.Item grow={0} shrink={0}>
+        </FlexItem>
+        <FlexItem grow={0} shrink={0}>
           <Margins inline='x4'>
             <SelectAddon
               children={
@@ -229,7 +228,7 @@ export const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
               }
             />
           </Margins>
-        </Flex.Item>
+        </FlexItem>
         <AnimatedVisibility visibility={visible}>
           <Position anchor={containerRef}>
             <_Options
@@ -250,3 +249,5 @@ export const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
     );
   },
 );
+
+export default MultiSelect;

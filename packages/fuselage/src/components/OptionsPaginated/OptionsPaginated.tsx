@@ -10,13 +10,12 @@ import { forwardRef, memo } from 'react';
 import { Virtuoso } from 'react-virtuoso';
 
 import { prevent } from '../../helpers/prevent';
-import AnimatedVisibility from '../AnimatedVisibility';
-import type { BoxProps } from '../Box';
-import Box from '../Box';
+import { AnimatedVisibility } from '../AnimatedVisibility';
+import { Box, type BoxProps } from '../Box';
 import { CheckBox } from '../CheckBox';
 import type { OptionProps } from '../Option';
 import { Option } from '../Option';
-import Tile from '../Tile';
+import { Tile } from '../Tile';
 
 export type OptionsPaginatedProps = Omit<BoxProps, 'onSelect'> & {
   multiple?: boolean;

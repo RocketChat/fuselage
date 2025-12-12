@@ -2,7 +2,9 @@ import { MessageReaction } from './MessageReaction';
 import { MessageReactionAction } from './MessageReactionAction';
 import { MessageReactionCounter } from './MessageReactionCounter';
 import { MessageReactionEmoji } from './MessageReactionEmoji';
-import { MessageReactions } from './MessageReactions';
+import MessageReactions, {
+  type MessageReactionsProps,
+} from './MessageReactions';
 
 export default Object.assign(MessageReactions, {
   /**
@@ -17,6 +19,7 @@ export default Object.assign(MessageReactions, {
 
 export {
   MessageReaction,
+  type MessageReactionsProps,
   MessageReactionAction,
   MessageReactions,
   MessageReactionCounter,

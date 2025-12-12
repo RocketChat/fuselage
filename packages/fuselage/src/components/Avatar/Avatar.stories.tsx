@@ -1,7 +1,7 @@
 import type { StoryFn, Meta } from '@storybook/react-webpack5';
 
-import Box from '../Box';
-import Margins from '../Margins';
+import { Box } from '../Box';
+import { Margins } from '../Margins';
 
 import Avatar from './Avatar';
 import AvatarContainer from './AvatarContainer';

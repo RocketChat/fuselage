@@ -1,7 +1,9 @@
 import type { Decorator } from '@storybook/react-webpack5';
-import type { ReactElement } from 'react';
 
-import { Avatar, Box, IconButton, MenuV2 as Menu, MenuItem } from '../..';
+import { MenuV2 as Menu, MenuItem } from '../..';
+import { Avatar } from '../Avatar';
+import { Box } from '../Box';
+import { IconButton } from '../Button';
 
 import {
   SidebarV2,
@@ -176,7 +178,7 @@ export const GenericCallItem = ({
 );
 
 export const decorators: Decorator[] = [
-  (fn): ReactElement => (
+  (fn) => (
     <Box h='90vh' w='x280'>
       <SidebarV2>
         <SidebarV2Accordion>

@@ -3,8 +3,8 @@ import { ButtonGroup } from '..';
 
 export type ModalFooterControllersProps = ButtonGroupProps;
 
-export const ModalFooterControllers = ({
-  children,
-}: ModalFooterControllersProps) => (
+const ModalFooterControllers = ({ children }: ModalFooterControllersProps) => (
   <ButtonGroup align='end'>{children}</ButtonGroup>
 );
+
+export default ModalFooterControllers;

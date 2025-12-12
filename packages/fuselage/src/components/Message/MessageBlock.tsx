@@ -1,13 +1,12 @@
 import { forwardRef } from 'react';
 
-import type { BoxProps } from '../Box';
-import Box from '../Box';
+import { Box, type BoxProps } from '../Box';
 
-type MessageBlockProps = {
+export type MessageBlockProps = {
   fixedWidth?: boolean;
 } & BoxProps;
 
-export const MessageBlock = forwardRef<HTMLDivElement, MessageBlockProps>(
+const MessageBlock = forwardRef<HTMLDivElement, MessageBlockProps>(
   ({ className: _className, fixedWidth, ...props }, ref) => (
     <Box
       rcx-message-block
@@ -17,3 +16,5 @@ export const MessageBlock = forwardRef<HTMLDivElement, MessageBlockProps>(
     />
   ),
 );
+
+export default MessageBlock;

@@ -1,7 +1,6 @@
 import type { StoryFn, Meta } from '@storybook/react-webpack5';
-import type { ComponentType } from 'react';
 
-import Box from '../Box';
+import { Box } from '../Box';
 
 import Accordion from './Accordion';
 import AccordionItem from './AccordionItem';
@@ -10,7 +9,7 @@ export default {
   title: 'Containers/Accordion',
   component: Accordion,
   subcomponents: {
-    AccordionItem: AccordionItem as ComponentType<any>,
+    AccordionItem,
   },
 } satisfies Meta<typeof Accordion>;
 
