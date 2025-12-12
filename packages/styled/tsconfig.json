@@ -1,6 +1,7 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "outDir": "./dist/esm"
+    "outDir": "./dist/esm",
+    "skipLibCheck": true // due to vitest
   }
 }
