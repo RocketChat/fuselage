@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-unresolved
 import StyleDictionary from 'style-dictionary';
 
 console.log('Build started...');
