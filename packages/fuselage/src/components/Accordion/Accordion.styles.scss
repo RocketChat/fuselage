@@ -1,6 +1,8 @@
 @use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
 @use '../../styles/typography.scss';
+@use '../../styles/mixins/interactivity.scss';
+@use '../../styles/mixins/shadows.scss';
 
 .rcx-accordion {
   display: flex;
@@ -30,7 +32,7 @@
   border-color: colors.stroke(extra-light) transparent transparent;
 
   &[tabindex] {
-    @include clickable;
+    @include interactivity.clickable;
 
     &.hover,
     &:hover {
@@ -40,7 +42,7 @@
     &.focus,
     &:focus {
       border-color: colors.stroke(highlight);
-      @include use-focus-shadow(
+      @include shadows.use-focus-shadow(
         $outer-color: colors.stroke(extra-light-highlight)
       );
     }
