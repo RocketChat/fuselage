@@ -33,26 +33,18 @@
     ".:build:cjs": "tsc -p tsconfig.cjs.json",
     "lint": "lint",
     "lint-and-fix": "lint-and-fix",
-    "test": "jest --runInBand",
+    "test": "vitest run",
     "docs": "typedoc"
-  },
-  "jest": {
-    "errorOnDeprecated": true,
-    "preset": "ts-jest",
-    "testMatch": [
-      "<rootDir>/src/**/*.spec.[jt]s?(x)"
-    ]
   },
   "devDependencies": {
     "eslint": "~9.39.1",
-    "jest": "~30.2.0",
     "lint-all": "workspace:~",
     "npm-run-all": "^4.1.5",
     "prettier": "~3.6.2",
     "rimraf": "~6.0.1",
-    "ts-jest": "~29.4.5",
     "typedoc": "~0.28.14",
-    "typescript": "~5.9.3"
+    "typescript": "~5.9.3",
+    "vitest": "~4.0.15"
   },
   "publishConfig": {
     "access": "public"

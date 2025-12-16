@@ -5,5 +5,5 @@
     "moduleResolution": "node",
     "outDir": "./dist/cjs"
   },
-  "exclude": ["**/*.spec.ts"]
+  "exclude": ["vitest.config.ts", "**/*.spec.ts"]
 }
