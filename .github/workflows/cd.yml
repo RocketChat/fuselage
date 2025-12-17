@@ -17,7 +17,7 @@ jobs:
     outputs:
       branch-name: ${{ steps.set-branch-name.outputs.branch-name }}
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - uses: actions/setup-node@v6
         with:
           node-version: '22.20.0'
@@ -61,7 +61,7 @@ jobs:
     needs:
       - build-and-test
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0
       - uses: actions/setup-node@v6
@@ -113,7 +113,7 @@ jobs:
       name: github-pages
       url: 'https://rocketchat.github.io/fuselage/fuselage/${{ needs.build-and-test.outputs.branch-name }}'
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
         with:
           ref: gh-pages
       - uses: actions/download-artifact@v6
