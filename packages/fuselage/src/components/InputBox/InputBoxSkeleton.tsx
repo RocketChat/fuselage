@@ -1,4 +1,4 @@
-import Box, { type BoxProps } from '../Box';
+import { Box, type BoxProps } from '../Box';
 import { Skeleton } from '../Skeleton';
 
 export type InputBoxSkeletonProps = BoxProps;

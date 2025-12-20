@@ -2,10 +2,10 @@ import type { StoryFn, Meta } from '@storybook/react-webpack5';
 import { action } from 'storybook/actions';
 
 import { exampleAvatar, blankAvatar } from '../../../.storybook/helpers';
-import Box from '../Box';
-import Margins from '../Margins';
+import { Box } from '../Box';
+import { Margins } from '../Margins';
 
-import { Chip } from './Chip';
+import Chip from './Chip';
 
 export default {
   title: 'Data Display/Chip',

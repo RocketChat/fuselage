@@ -1,7 +1,7 @@
 import type { ReactNode, SyntheticEvent } from 'react';
 import { memo } from 'react';
 
-import Chip from '../Chip';
+import { Chip } from '../Chip';
 
 type SelectedOptionsProps = {
   children: ReactNode;

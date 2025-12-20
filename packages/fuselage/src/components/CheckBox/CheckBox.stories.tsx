@@ -6,7 +6,7 @@ import {
   PropsVariationSection,
 } from '../../../.storybook/helpers';
 
-import { CheckBox } from './CheckBox';
+import CheckBox from './CheckBox';
 
 export default {
   title: 'Inputs/CheckBox',

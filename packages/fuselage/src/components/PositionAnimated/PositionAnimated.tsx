@@ -1,8 +1,8 @@
-import AnimatedVisibility from '../AnimatedVisibility';
+import { AnimatedVisibility } from '../AnimatedVisibility';
 import type { PositionProps } from '../Position';
-import Position from '../Position';
+import { Position } from '../Position';
 
-type PositionAnimatedProps = {
+export type PositionAnimatedProps = {
   visible?: 'hidden' | 'visible' | 'hiding' | 'unhiding';
 } & PositionProps;
 

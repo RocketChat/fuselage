@@ -1,6 +1,6 @@
 import type { Meta, StoryFn } from '@storybook/react-webpack5';
 
-import { FramedIcon } from './FramedIcon';
+import FramedIcon from './FramedIcon';
 
 export default {
   title: 'Data Display/FramedIcon',

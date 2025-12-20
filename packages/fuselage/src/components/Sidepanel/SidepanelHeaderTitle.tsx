@@ -1,9 +1,11 @@
 import type { HTMLAttributes } from 'react';
 
-export const SidepanelHeaderTitle = ({
+export type SidepanelHeaderTitleProps = HTMLAttributes<HTMLDivElement>;
+
+const SidepanelHeaderTitle = ({
   className,
   ...props
-}: HTMLAttributes<HTMLDivElement>) => (
+}: SidepanelHeaderTitleProps) => (
   <div
     className={['rcx-sidepanel-header__title', className]
       .filter(Boolean)
@@ -11,3 +13,5 @@ export const SidepanelHeaderTitle = ({
     {...props}
   />
 );
+
+export default SidepanelHeaderTitle;

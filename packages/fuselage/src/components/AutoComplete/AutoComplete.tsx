@@ -9,14 +9,14 @@ import type {
 } from 'react';
 import { useEffect, useRef, useMemo, useState } from 'react';
 
-import AnimatedVisibility from '../AnimatedVisibility';
-import Box from '../Box';
-import Chip from '../Chip';
+import { AnimatedVisibility } from '../AnimatedVisibility';
+import { Box } from '../Box';
+import { Chip } from '../Chip';
 import { Icon } from '../Icon';
 import { Input } from '../InputBox';
-import Margins from '../Margins';
+import { Margins } from '../Margins';
 import { useCursor, Options, type OptionType } from '../Options';
-import PositionAnimated from '../PositionAnimated';
+import { PositionAnimated } from '../PositionAnimated';
 
 type AutoCompleteOption<TLabel> = {
   value: string;

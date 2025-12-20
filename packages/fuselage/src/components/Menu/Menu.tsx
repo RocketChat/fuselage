@@ -7,9 +7,9 @@ import type { BoxProps } from '../Box';
 import { IconButton } from '../Button';
 import type { IconButtonProps } from '../Button/IconButton';
 import { Options, useCursor, type OptionType } from '../Options';
-import PositionAnimated from '../PositionAnimated';
+import { PositionAnimated } from '../PositionAnimated';
 
-type MenuProps = Omit<IconButtonProps, 'icon'> & {
+export type MenuProps = Omit<IconButtonProps, 'icon'> & {
   options: {
     [id: string]: {
       type?: 'option' | 'heading' | 'divider';
@@ -49,7 +49,7 @@ const mapOptions = (options: MenuProps['options']): OptionType[] =>
 /**
  * Kebab Menu
  */
-export const Menu = ({
+const Menu = ({
   tiny,
   mini,
   small = !(tiny || mini),
@@ -132,3 +132,5 @@ export const Menu = ({
     </>
   );
 };
+
+export default Menu;

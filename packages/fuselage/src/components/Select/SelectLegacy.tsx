@@ -8,15 +8,13 @@ import type { DependencyList, ElementType, ReactNode } from 'react';
 import { useState, useRef, useEffect, forwardRef, useMemo } from 'react';
 
 import { isForwardRefType } from '../../helpers/isForwardRefType';
-import AnimatedVisibility from '../AnimatedVisibility';
-import type { BoxProps } from '../Box';
-import Box from '../Box';
-import type { IconProps } from '../Icon';
-import { Icon } from '../Icon';
-import Margins from '../Margins';
+import { AnimatedVisibility } from '../AnimatedVisibility';
+import { Box, type BoxProps } from '../Box';
+import { Icon, type IconProps } from '../Icon';
+import { Margins } from '../Margins';
 import type { OptionType } from '../Options';
 import { Options, useCursor } from '../Options';
-import PositionAnimated from '../PositionAnimated';
+import { PositionAnimated } from '../PositionAnimated';
 
 import SelectAddon from './SelectAddon';
 import type { SelectAnchorParams } from './SelectAnchorParams';
@@ -61,8 +59,8 @@ export type SelectProps = Omit<BoxProps, 'onChange'> & {
   addonIcon?: IconProps['name'];
 };
 
-export const SelectLegacy = forwardRef<HTMLInputElement, SelectProps>(
-  (
+const SelectLegacy = forwardRef<HTMLInputElement, SelectProps>(
+  function SelectLegacy(
     {
       value,
       filter,
@@ -82,7 +80,7 @@ export const SelectLegacy = forwardRef<HTMLInputElement, SelectProps>(
       ...props
     },
     ref,
-  ) => {
+  ) {
     const [internalValue, setInternalValue] = useState(value || '');
 
     const internalChangedByKeyboard = useEffectEvent(([value]: OptionType) => {
@@ -238,3 +236,5 @@ export const SelectLegacy = forwardRef<HTMLInputElement, SelectProps>(
     );
   },
 );
+
+export default SelectLegacy;

@@ -1,8 +1,8 @@
 import type { StoryFn, Meta } from '@storybook/react-webpack5';
 
-import Box from '../Box';
+import { Box } from '../Box';
 
-import { Chevron } from './Chevron';
+import Chevron from './Chevron';
 
 export default {
   title: 'Data Display/Chevron',

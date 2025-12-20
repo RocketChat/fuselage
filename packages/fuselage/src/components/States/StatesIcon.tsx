@@ -1,5 +1,4 @@
-import type { IconProps } from '../Icon';
-import { Icon } from '../Icon';
+import { Icon, type IconProps } from '../Icon';
 
 export type StatesIconProps = {
   variation?: 'danger' | 'success' | 'warning' | 'primary';

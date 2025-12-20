@@ -1,7 +1,7 @@
 import type { StoryFn, Meta } from '@storybook/react-webpack5';
 import { action } from 'storybook/actions';
 
-import { ToastBar } from './ToastBar';
+import ToastBar from './ToastBar';
 
 export default {
   title: 'Feedback/ToastBar',

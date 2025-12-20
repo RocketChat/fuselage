@@ -1,13 +1,13 @@
 import { prependClassName } from '../../../helpers/prependClassName';
 
-type MessageGenericPreviewCoverImageProps = {
+export type MessageGenericPreviewCoverImageProps = {
   url: string;
   width: number;
   height: number;
   className?: string;
 };
 
-export const MessageGenericPreviewCoverImage = ({
+const MessageGenericPreviewCoverImage = ({
   url,
   width,
   height,
@@ -26,3 +26,5 @@ export const MessageGenericPreviewCoverImage = ({
     <div style={{ paddingTop: `${(height / width) * 100}%` }} />
   </div>
 );
+
+export default MessageGenericPreviewCoverImage;

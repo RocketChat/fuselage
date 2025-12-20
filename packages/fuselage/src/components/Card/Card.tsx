@@ -1,7 +1,7 @@
 import { useBreakpoints } from '@rocket.chat/fuselage-hooks';
 import type { AllHTMLAttributes } from 'react';
 
-import Box from '../Box/Box';
+import { Box } from '../Box';
 
 export type CardProps = {
   horizontal?: boolean;

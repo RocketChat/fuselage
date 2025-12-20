@@ -15,7 +15,7 @@ import {
 import { Icon } from '../Icon';
 import { Tag } from '../Tag';
 
-import { CardGroup } from './CardGroup';
+import CardGroup from './CardGroup';
 
 export default {
   title: 'Containers/CardGroup',

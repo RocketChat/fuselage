@@ -1,18 +1,18 @@
 import type { Meta, StoryFn } from '@storybook/react-webpack5';
 
 import { Avatar } from '../../Avatar';
-import Box from '../../Box';
+import { Box } from '../../Box';
 import { MessageDivider } from '../MessageDivider';
-import { MessageNameContainer } from '../MessageNameContainer';
-import { MessageUsername } from '../MessageUsername';
+import MessageNameContainer from '../MessageNameContainer';
+import MessageUsername from '../MessageUsername';
 
 import { MessageSystemLeftContainer } from '.';
-import { MessageSystem } from './MessageSystem';
-import { MessageSystemBlock } from './MessageSystemBlock';
-import { MessageSystemBody } from './MessageSystemBody';
-import { MessageSystemContainer } from './MessageSystemContainer';
-import { MessageSystemName } from './MessageSystemName';
-import { MessageSystemTimestamp } from './MessageSystemTimestamp';
+import MessageSystem from './MessageSystem';
+import MessageSystemBlock from './MessageSystemBlock';
+import MessageSystemBody from './MessageSystemBody';
+import MessageSystemContainer from './MessageSystemContainer';
+import MessageSystemName from './MessageSystemName';
+import MessageSystemTimestamp from './MessageSystemTimestamp';
 
 export default {
   title: 'Message/MessageSystem',

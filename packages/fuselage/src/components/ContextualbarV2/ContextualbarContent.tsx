@@ -1,9 +1,10 @@
 import { forwardRef, memo } from 'react';
 
-import { Box } from '..';
-import type { BoxProps } from '../Box';
+import { Box, type BoxProps } from '../Box';
 
-const ContextualbarContent = forwardRef<HTMLElement, BoxProps>(
+export type ContextualbarContentProps = BoxProps;
+
+const ContextualbarContent = forwardRef<HTMLElement, ContextualbarContentProps>(
   function ContextualbarContent(props, ref) {
     return (
       <Box

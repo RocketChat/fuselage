@@ -1,12 +1,14 @@
 import type { ReactNode } from 'react';
 
-type ThreadMessageBodyProps = {
+export type ThreadMessageBodyProps = {
   children?: ReactNode;
 };
 
-export const ThreadMessageBody = (props: ThreadMessageBodyProps) => (
+const ThreadMessageBody = (props: ThreadMessageBodyProps) => (
   <div
     className='rcx-box rcx-box--full rcx-message-thread__message'
     {...props}
   />
 );
+
+export default ThreadMessageBody;

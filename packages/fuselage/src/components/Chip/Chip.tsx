@@ -1,11 +1,16 @@
 import type { ButtonHTMLAttributes, ReactNode } from 'react';
 
-import { Avatar, Box } from '..';
 import { prependClassName } from '../../helpers/prependClassName';
+import { Avatar } from '../Avatar';
+import { Box } from '../Box';
+import { withBoxStyling } from '../Box/withBoxStyling';
 import { Icon } from '../Icon';
-import Margins from '../Margins';
+import { Margins } from '../Margins';
 
-type ChipProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type'> & {
+export type ChipProps = Omit<
+  ButtonHTMLAttributes<HTMLButtonElement>,
+  'type'
+> & {
   thumbUrl?: string;
   renderThumb?: (props: { url: string }) => ReactNode;
   renderDismissSymbol?: () => ReactNode;
@@ -18,7 +23,7 @@ const defaultRenderThumb = ({ url }: { url: string }) => (
 );
 const defaultRenderDismissSymbol = () => <Icon name='cross' size='x16' />;
 
-export const Chip = ({
+const Chip = ({
   children,
   className,
   thumbUrl,
@@ -47,4 +52,4 @@ export const Chip = ({
   );
 };
 
-Chip.displayName = 'Chip';
+export default withBoxStyling(Chip);

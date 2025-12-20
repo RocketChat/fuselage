@@ -1,8 +1,8 @@
 import type { StoryFn, Meta } from '@storybook/react-webpack5';
 
-import Box from '../Box';
+import { Box } from '../Box';
 
-import { StatusBullet } from './StatusBullet';
+import StatusBullet from './StatusBullet';
 
 export default {
   title: 'Data Display/StatusBullet',

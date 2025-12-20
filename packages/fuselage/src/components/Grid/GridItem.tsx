@@ -1,5 +1,4 @@
-import type { BoxProps } from '../Box';
-import Box from '../Box';
+import { Box, type BoxProps } from '../Box';
 
 export type GridItemProps = BoxProps & {
   xs?: 1 | 2 | 3 | 4;

@@ -1,5 +1,4 @@
-import type { BadgeProps } from '../../Badge';
-import { Badge } from '../../Badge';
+import { Badge, type BadgeProps } from '../../Badge';
 
 export const SidebarItemBadge = ({ className, ...props }: BadgeProps) => (
   <Badge

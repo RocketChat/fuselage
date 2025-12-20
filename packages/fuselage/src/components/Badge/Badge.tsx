@@ -15,7 +15,7 @@ export type BadgeProps = {
 /**
  * Communicates notification’s amount and types.
  */
-export function Badge({
+function Badge({
   is: Tag = 'span',
   variant = 'secondary',
   small,
@@ -38,3 +38,5 @@ export function Badge({
     />
   );
 }
+
+export default Badge;

@@ -1,1 +1,4 @@
-export * from './PaletteStyleTag';
+export {
+  default as PaletteStyleTag,
+  type PaletteStyleTagProps,
+} from './PaletteStyleTag';

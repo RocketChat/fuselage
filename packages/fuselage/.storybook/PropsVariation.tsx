@@ -1,6 +1,6 @@
 import type { ComponentType } from 'react';
 
-import Box from '../src/components/Box';
+import { Box } from '../src/components/Box';
 
 function PropsVariation({
   component: Component,

@@ -1,12 +1,11 @@
 import type { StoryFn, Meta } from '@storybook/react-webpack5';
-import type { ComponentType } from 'react';
 import { useState } from 'react';
 import { action } from 'storybook/actions';
 
 import { PropsVariationSection } from '../../../.storybook/helpers';
-import Box from '../Box';
+import { Box } from '../Box';
 import { ButtonGroup } from '../ButtonGroup';
-import Margins from '../Margins';
+import { Margins } from '../Margins';
 
 import Button from './Button';
 import IconButton from './IconButton';
@@ -14,7 +13,7 @@ import IconButton from './IconButton';
 export default {
   title: 'Inputs/Button',
   component: Button,
-  subcomponents: { IconButton: IconButton as ComponentType<any> },
+  subcomponents: { IconButton },
 } satisfies Meta<typeof Button>;
 
 export const Default: StoryFn<typeof Button> = () => (

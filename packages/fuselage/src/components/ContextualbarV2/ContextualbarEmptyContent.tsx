@@ -1,12 +1,17 @@
 import { forwardRef, memo } from 'react';
 
-import type { StatesIconProps } from '..';
-import { StatesIcon, States, StatesTitle, StatesSubtitle } from '..';
-import type { BoxProps } from '../Box';
+import {
+  StatesIcon,
+  States,
+  StatesTitle,
+  StatesSubtitle,
+  type StatesIconProps,
+} from '../States';
 
+import type { ContextualbarContentProps } from './ContextualbarContent';
 import ContextualbarContent from './ContextualbarContent';
 
-type ContextualbarEmptyContentProps = BoxProps & {
+export type ContextualbarEmptyContentProps = ContextualbarContentProps & {
   icon?: StatesIconProps['name'];
   title?: string;
   subtitle?: string;

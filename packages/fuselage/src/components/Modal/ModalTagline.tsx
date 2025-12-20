@@ -1,10 +1,11 @@
-import type { BoxProps } from '../Box';
-import Box from '../Box';
+import { Box, type BoxProps } from '../Box';
 
 export type ModalTaglineProps = BoxProps;
 
-export const ModalTagline = ({ children, ...props }: ModalTaglineProps) => (
+const ModalTagline = ({ children, ...props }: ModalTaglineProps) => (
   <Box rcx-modal__tagline {...props}>
     {children}
   </Box>
 );
+
+export default ModalTagline;
