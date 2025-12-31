@@ -1,0 +1,5 @@
+*:has(> .docblock-argstable) {
+    width: 100%;
+    overflow-x: auto;
+    display: block;
+  }

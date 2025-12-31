@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { addons } from 'storybook/preview-api';
 import { themes } from 'storybook/theming';
 import { DARK_MODE_EVENT_NAME } from 'storybook-dark-mode';
+import './preview.css';
 
 const channel = addons.getChannel();
 
