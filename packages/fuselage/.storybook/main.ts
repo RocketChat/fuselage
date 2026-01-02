@@ -2,7 +2,9 @@ import { dirname, join } from 'path';
 
 import type { StorybookConfig } from '@storybook/react-webpack5';
 
-export default {
+const { TamaguiPlugin } = require('tamagui-loader');
+
+const config: StorybookConfig = {
   addons: [
     getAbsolutePath('@storybook/addon-a11y'),
     getAbsolutePath('storybook-dark-mode'),
@@ -87,7 +89,99 @@ export default {
   typescript: {
     reactDocgen: 'react-docgen-typescript',
   },
-} satisfies StorybookConfig;
+
+  webpackFinal: (config) => {
+    if (!config.plugins) {
+      config.plugins = [];
+    }
+
+    // Find existing DefinePlugin
+    const existingDefinePluginIndex = config.plugins.findIndex(
+      (plugin) =>
+        plugin &&
+        plugin.constructor &&
+        plugin.constructor.name === 'DefinePlugin',
+    );
+
+    const processEnvDefinitions = {
+      DEV: process.env['NODE_ENV'] === 'development' ? 'true' : 'false',
+      NODE_ENV: JSON.stringify(process.env['NODE_ENV'] || 'development'),
+      TAMAGUI_POSITION_STATIC: JSON.stringify('1'),
+      TAMAGUI_TARGET: JSON.stringify('web'),
+    };
+
+    if (existingDefinePluginIndex >= 0) {
+      // Modify existing DefinePlugin's definitions directly to avoid version mismatch
+      const existingPlugin = config.plugins[existingDefinePluginIndex] as any;
+      if (!existingPlugin.definitions) {
+        existingPlugin.definitions = {};
+      }
+
+      // Extract existing process.env if it exists
+      let existingProcessEnv = {};
+      if (existingPlugin.definitions.process) {
+        if (typeof existingPlugin.definitions.process === 'string') {
+          try {
+            existingProcessEnv =
+              JSON.parse(existingPlugin.definitions.process)?.env || {};
+          } catch {
+            existingProcessEnv = {};
+          }
+        } else {
+          existingProcessEnv = existingPlugin.definitions.process?.env || {};
+        }
+      }
+
+      // Merge process definitions
+      existingPlugin.definitions.process = {
+        env: {
+          ...existingProcessEnv,
+          ...processEnvDefinitions,
+        },
+      };
+    } else {
+      // Try to get webpack from Storybook's builder, fallback to regular webpack
+      let webpackModule: typeof import('webpack');
+      try {
+        // Try to resolve webpack from Storybook's builder first
+        const webpackPath = require.resolve('webpack', {
+          paths: [require.resolve('@storybook/builder-webpack5/package.json')],
+        });
+        webpackModule = require(webpackPath);
+      } catch {
+        // Fallback to regular webpack
+        webpackModule = require('webpack');
+      }
+
+      // Resolve tamagui config path relative to this file
+      const tamaguiConfigPath = join(
+        dirname(require.resolve('./main.ts')),
+        '../tamagui.config.ts',
+      );
+
+      config.plugins.unshift(
+        new TamaguiPlugin({
+          config: tamaguiConfigPath,
+          components: ['tamagui', '@rocket.chat/fuselage-core'],
+          // disable: true,
+        }),
+      );
+
+      // Create new DefinePlugin
+      config.plugins.unshift(
+        new webpackModule.DefinePlugin({
+          process: {
+            env: processEnvDefinitions,
+          },
+        }) as any,
+      );
+    }
+
+    return config;
+  },
+};
+
+export default config;
 
 function getAbsolutePath(value: string): any {
   return dirname(require.resolve(join(value, 'package.json')));

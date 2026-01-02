@@ -5,6 +5,14 @@
     "packages/*",
     "tools/*"
   ],
+  "resolutions": {
+    "tamagui": "1.142.0",
+    "@tamagui/core": "1.142.0",
+    "@tamagui/web": "1.142.0",
+    "@tamagui/static": "1.142.0",
+    "tamagui-loader": "1.142.0",
+    "@tamagui/create-theme": "1.142.0"
+  },
   "scripts": {
     "build": "yarn turbo run build",
     "build-storybook": "yarn turbo run build-storybook --cache-dir=\".turbo\"",
