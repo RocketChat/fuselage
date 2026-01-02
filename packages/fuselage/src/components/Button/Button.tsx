@@ -39,6 +39,7 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
       external,
       icon,
       is = 'button',
+      type = 'button', // Defaulting to 'button' here for safety
       rel: _rel,
       tiny,
       mini,
@@ -53,15 +54,20 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
     },
     ref,
   ) {
-    const extraProps =
-      (is === 'a' && {
-        rel: external ? 'noopener noreferrer' : undefined,
-        target: external ? '_blank' : undefined,
-      }) ||
-      (is === 'button' && {
-        type: 'button',
-      }) ||
-      {};
+    const extraProps = useMemo(() => {
+      if (is === 'a') {
+        return {
+          rel: external ? 'noopener noreferrer' : undefined,
+          target: external ? '_blank' : undefined,
+        };
+      }
+
+      if (is === 'button') {
+        return { type }; // Uses the 'type' prop (default 'button')
+      }
+
+      return {};
+    }, [is, external, type]);
 
     const kindAndVariantProps = useMemo(() => {
       const variant =
@@ -102,7 +108,6 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
     return (
       <Box
         is={is}
-        type='button'
         rcx-button
         {...kindAndVariantProps}
         rcx-button--small={small}
