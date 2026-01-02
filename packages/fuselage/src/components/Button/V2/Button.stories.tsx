@@ -1,100 +1,77 @@
-import {
-  MyComponent,
-  Button,
-  config,
-  TamaguiProvider,
-} from '@rocket.chat/fuselage-core/src';
-import { action } from '@storybook/addon-actions';
-import {
-  Title,
-  Subtitle,
-  Description,
-  Primary as PrimaryStory,
-  ArgsTable,
-  Stories,
-  PRIMARY_STORY,
-} from '@storybook/addon-docs';
-import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import React from 'react';
+import type { StoryFn, Meta } from '@storybook/react-webpack5';
+import { useState } from 'react';
+import { action } from 'storybook/actions';
 
 import { PropsVariationSection } from '../../../../.storybook/helpers';
+import { Box } from '../../Box';
 import { ButtonGroup } from '../../ButtonGroup';
-import Margins from '../../Margins';
+import { Margins } from '../../Margins';
 
-// import type { ButtonGroup } from '../..';
-// import { IconButton, Margins } from '../..';
+import IconButton from '../IconButton';
+import { Button, config, TamaguiProvider } from '@rocket.chat/fuselage-core';
 
 export default {
   title: 'Inputs/Button/V2',
   component: Button,
-  parameters: {
-    docs: {
-      description: {
-        component: 'Indicates an actionable user action.',
-      },
-      page: () => (
-        <>
-          <Title />
-          <Subtitle />
-          <Description />
-          <PrimaryStory />
-          <Stories title={''} />
-          <ArgsTable story={PRIMARY_STORY} />
-        </>
-      ),
+  subcomponents: { IconButton },
+  decorators: [
+    (Story) => (
+      <TamaguiProvider config={config} defaultTheme='light'>
+        <Story />
+      </TamaguiProvider>
+    ),
+  ],
+} satisfies Meta<typeof Button>;
+
+export const Default: StoryFn<typeof Button> = () => (
+  <Button onClick={action('click')}>Button</Button>
+);
+
+export const Loading: StoryFn<typeof Button> = () => (
+  <Button loading onClick={action('click')}>
+    Button
+  </Button>
+);
+export const LoadingInteraction: StoryFn<typeof Button> = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  return (
+    <Button
+      icon='add-user'
+      loading={isLoading}
+      onClick={() => setIsLoading(!isLoading)}
+    >
+      Button
+    </Button>
+  );
+};
+
+export const Truncated: StoryFn<typeof Button> = () => (
+  <Box maxWidth={160} display='flex' justifyContent='center'>
+    <Button onClick={action('click')}>Button with loooooooooooong text</Button>
+  </Box>
+);
+
+LoadingInteraction.parameters = {
+  docs: {
+    description: {
+      story: 'Click the button to see the loading state.',
     },
   },
-} as ComponentMeta<typeof ButtonGroup>;
+};
 
-export const Default: ComponentStory<typeof Button> = () => (
-  <TamaguiProvider config={config} defaultTheme='light'>
-    <Button danger>Button</Button>
-  </TamaguiProvider>
-);
-
-export const MyComponents: ComponentStory<typeof MyComponent> = () => (
-  <TamaguiProvider config={config} defaultTheme='light'>
-    <MyComponent>Button</MyComponent>
-  </TamaguiProvider>
-);
-
-// export const Loading: ComponentStory<typeof Button> = () => (
-//   <Button>Button</Button>
-// );
-// export const LoadingInteraction: ComponentStory<typeof Button> = () => {
-//   const [isLoading, setIsLoading] = React.useState(false);
-//   return (
-//     <Button
-//       icon='add-user'
-//       loading={isLoading}
-//       onClick={() => setIsLoading(!isLoading)}
-//     >
-//       Button
-//     </Button>
-//   );
-// };
-
-// LoadingInteraction.parameters = {
-//   docs: {
-//     description: {
-//       story: 'Click the button to see the loading state.',
-//     },
-//   },
-// };
-
-export const Variants: ComponentStory<typeof Button> = () => (
+export const Variants: StoryFn<typeof Button> = () => (
   <Margins all='x8'>
     <ButtonGroup>
       <Button primary>Primary</Button>
-      {/* <Button secondary>Secondary</Button> */}
+      <Button secondary>Secondary</Button>
     </ButtonGroup>
     <ButtonGroup>
-      {/* <Button danger>Danger</Button> */}
-      {/* <Button secondary danger>
+      <Button danger>Danger</Button>
+      <Button secondary danger>
         Secondary Danger
-      </Button> */}
+      </Button>
     </ButtonGroup>
-    {/* <ButtonGroup>
+    <ButtonGroup>
       <Button warning>Warning</Button>
       <Button secondary warning>
         Secondary Warning
@@ -105,26 +82,26 @@ export const Variants: ComponentStory<typeof Button> = () => (
       <Button secondary success>
         Secondary Success
       </Button>
-    </ButtonGroup> */}
+    </ButtonGroup>
   </Margins>
 );
 
-// export const Sizes: ComponentStory<typeof ButtonGroup> = () => (
-//   <ButtonGroup marginBlockEnd={12}>
-//     <Button small>Small</Button>
-//     <Button medium>Medium</Button>
-//     <Button>Default</Button>
-//   </ButtonGroup>
-// );
+export const Sizes: StoryFn<typeof ButtonGroup> = () => (
+  <ButtonGroup>
+    <Button small>Small</Button>
+    <Button medium>Medium</Button>
+    <Button>Default</Button>
+  </ButtonGroup>
+);
 
-// export const AsLink: ComponentStory<typeof Button> = () => (
-//   <Button is='a' href='https://rocket.chat' external>
-//     Button
-//   </Button>
-// );
+export const AsLink: StoryFn<typeof Button> = () => (
+  <Button is='a' href='https://rocket.chat' external>
+    Button
+  </Button>
+);
 
 export const States = () => (
-  <TamaguiProvider config={config} defaultTheme='light'>
+  <>
     <PropsVariationSection
       component={Button}
       common={{ onClick: action('click') }}
@@ -183,7 +160,6 @@ export const States = () => (
     <PropsVariationSection
       component={Button}
       common={{
-        size: '$sm',
         small: true,
         onClick: action('click'),
       }}
@@ -239,18 +215,17 @@ export const States = () => (
         },
       }}
     />
-  </TamaguiProvider>
+  </>
 );
 
-// export const AsIconButton: ComponentStory<typeof IconButton> = (args) => (
-//   <IconButton {...args} icon='arrow-back' onClick={action('click')} />
-// );
-
-// AsIconButton.parameters = {
-//   docs: {
-//     description: {
-//       story:
-//         'See full IconButton documentation [here](../?path=/docs/inputs-iconbutton)',
-//     },
-//   },
-// };
+export const AsIconButton: StoryFn<typeof IconButton> = (args) => (
+  <IconButton {...args} icon='arrow-back' onClick={action('click')} />
+);
+AsIconButton.parameters = {
+  docs: {
+    description: {
+      story:
+        'See full IconButton documentation [here](../?path=/docs/inputs-iconbutton)',
+    },
+  },
+};

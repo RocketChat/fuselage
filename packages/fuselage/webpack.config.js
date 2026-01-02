@@ -83,9 +83,18 @@ export default (env, { mode = 'production' }) =>
       ),
     ],
     plugins: [
+      new webpack.DefinePlugin({
+        process: {
+          env: {
+            DEV: process.env.NODE_ENV === 'development' ? 'true' : 'false',
+            NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+            TAMAGUI_POSITION_STATIC: JSON.stringify('1'),
+            TAMAGUI_TARGET: JSON.stringify('web'),          },
+        },
+      }),
       new TamaguiPlugin({
         config: './tamagui.config.ts',
-        components: ['tamagui', '@fuselage/fuselage-core'],
+        components: ['tamagui', '@rocket.chat/fuselage-core'],
         // disable: true,
       }),
       new MiniCssExtractPlugin(),
