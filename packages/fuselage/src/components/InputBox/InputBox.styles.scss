@@ -36,6 +36,8 @@
   &.disabled {
     cursor: not-allowed;
     pointer-events: none;
+    // Added background-color to match design system standards for disabled inputs
+    background-color: #{$input-colors-disabled-background-color} !important;
   }
 }
 
@@ -80,6 +82,8 @@
   &:disabled,
   &.disabled {
     color: #{$disabled-color};
+    // Ensures textareas and inputs get the disabled background color
+    background-color: #{$input-colors-disabled-background-color};
   }
 }
 
@@ -248,6 +252,7 @@
   &:disabled,
   &.disabled {
     cursor: not-allowed;
+    background-color: #{$input-colors-disabled-background-color};
   }
 
   @include with-icon-addon-colors(
