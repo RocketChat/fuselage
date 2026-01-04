@@ -10,7 +10,12 @@ export type MessageMetricsProps = HTMLAttributes<HTMLDivElement>;
 const MessageMetrics = Object.assign(
   (props: MessageMetricsProps) => (
     <MessageMetricsContentItem>
-      <div className='rcx-message-metrics__content-wrapper' {...props} />
+      <div 
+        className='rcx-message-metrics__content-wrapper'
+        role='group'
+        aria-label='Message metrics'
+        {...props} 
+      />
     </MessageMetricsContentItem>
   ),
   {

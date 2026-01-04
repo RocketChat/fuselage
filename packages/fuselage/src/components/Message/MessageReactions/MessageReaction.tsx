@@ -13,9 +13,17 @@ type MessageReactionProps = {
 
 export const MessageReaction = forwardRef<HTMLDivElement, MessageReactionProps>(
   function Reaction(
-    { name, counter, mine, children, className, ...props },
+    { name, counter, mine, children, className, onClick, onKeyDown, ...props },
     ref,
   ) {
+    const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        onClick?.(event as any);
+      }
+      onKeyDown?.(event);
+    };
+
     return (
       <div
         className={[
@@ -28,6 +36,10 @@ export const MessageReaction = forwardRef<HTMLDivElement, MessageReactionProps>(
         ref={ref}
         role='button'
         tabIndex={0}
+        aria-label={`${name || 'Reaction'}${counter ? `, ${counter} reactions` : ''}${mine ? ', you reacted' : ''}`}
+        aria-pressed={mine}
+        onClick={onClick}
+        onKeyDown={handleKeyDown}
         {...props}
       >
         {children || (

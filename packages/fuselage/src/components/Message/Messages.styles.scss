@@ -4,6 +4,7 @@
 @use '../../styles/mixins/size.scss';
 @use '../../styles/mixins/templates.scss';
 @use '../../styles/typography.scss';
+@use '../../styles/mixins/breakpoints.scss';
 @use './mixins.scss';
 
 @import './MessageMetrics/MessageMetrics.styles.scss';
@@ -96,7 +97,7 @@ $message-highlight-colors-background-other-color: theme(
 
   padding-block: lengths.padding(8) lengths.padding(4);
 
-  padding-inline: lengths.padding(20);
+  padding-inline: clamp(lengths.padding(8), 3vw, lengths.padding(20));
 
   // background-color: $message-background-color;
 
@@ -141,6 +142,20 @@ $message-highlight-colors-background-other-color: theme(
 
   &--clickable {
     cursor: pointer;
+  }
+
+  // Responsive layout adjustments
+  @include breakpoints.on-breakpoint(xs) {
+    flex-direction: column;
+    padding-inline: lengths.padding(8);
+    
+    .rcx-message-left-container {
+      margin-bottom: lengths.margin(2);
+    }
+  }
+
+  @include breakpoints.on-breakpoint(sm) {
+    flex-direction: row;
   }
 
   &-header {
@@ -225,6 +240,10 @@ $message-highlight-colors-background-other-color: theme(
     opacity: 1;
 
     color: colors.font(default);
+
+    // Responsive font size
+    font-size: clamp(0.875rem, 2.5vw, 1rem);
+    line-height: 1.5;
 
     & h1 {
       @include typography.use-font-scale(h1);
