@@ -98,9 +98,9 @@ const Options = forwardRef<HTMLElement, OptionsProps>(function Options(
                 }}
                 key={value}
                 value={value}
-                selected={selected || (multiple !== true && undefined)} // TODO: undefined?
+                selected={selected ? true : undefined}
                 disabled={disabled}
-                focus={cursor === i || undefined} // TODO: undefined?
+                focus={cursor === i ? true : undefined}
               />
             );
         }
@@ -119,6 +119,12 @@ const Options = forwardRef<HTMLElement, OptionsProps>(function Options(
             maxHeight={maxHeight}
             onMouseDown={prevent}
             onClick={prevent}
+            onMouseLeave={() => {
+              // Force browser to recalculate hover states when mouse leaves menu
+              if (liRef.current) {
+                void liRef.current.offsetHeight;
+              }
+            }}
             is='ol'
             aria-multiselectable={multiple || true}
             role='listbox'
