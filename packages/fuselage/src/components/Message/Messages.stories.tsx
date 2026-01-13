@@ -5,6 +5,7 @@ import { Avatar } from '../Avatar';
 import { Box } from '../Box';
 
 import Message from './Message';
+import MessageBlock from './MessageBlock';
 import { MessageDivider } from './MessageDivider';
 import MessageEmoji from './MessageEmoji';
 import { MessageMetrics } from './MessageMetrics';
@@ -869,6 +870,48 @@ export const LotsOfReactions: StoryFn<typeof Message> = () => (
           ))}
           <MessageReactions.Action />
         </MessageReactions>
+      </Message.Container>
+      <MessageToolbar.Wrapper>
+        <MessageToolbar>
+          <MessageToolbar.Item icon='quote' />
+          <MessageToolbar.Item icon='clock' />
+          <MessageToolbar.Item icon='thread' />
+        </MessageToolbar>
+      </MessageToolbar.Wrapper>
+    </Message>
+  </Box>
+);
+
+export const BlockAfterHeader: StoryFn<typeof Message> = () => (
+  <Box>
+    <MessageDivider>May, 24, 2020</MessageDivider>
+    <Message className='customclass' clickable>
+      <Message.LeftContainer>
+        <Avatar url={avatarUrl} size={'x36'} />
+      </Message.LeftContainer>
+      <Message.Container>
+        <Message.Header>
+          <Message.NameContainer>
+            <Message.Name>Haylie George</Message.Name>{' '}
+            <Message.Username>@haylie.george</Message.Username>
+          </Message.NameContainer>
+          <Message.Roles>
+            <Message.Role>Admin</Message.Role>
+            <Message.Role>User</Message.Role>
+            <Message.Role>Owner</Message.Role>
+          </Message.Roles>
+          <Message.Timestamp>12:00 PM</Message.Timestamp>
+        </Message.Header>
+        <MessageBlock>
+          <Box
+            width='full'
+            bg='status-background-success'
+            height='200px'
+            border='1px solid'
+            borderColor='stroke-extra-light'
+            borderRadius='4px'
+          />
+        </MessageBlock>
       </Message.Container>
       <MessageToolbar.Wrapper>
         <MessageToolbar>
