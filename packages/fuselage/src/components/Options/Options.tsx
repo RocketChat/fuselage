@@ -98,9 +98,9 @@ const Options = forwardRef<HTMLElement, OptionsProps>(function Options(
                 }}
                 key={value}
                 value={value}
-                selected={selected || (multiple !== true && undefined)} // TODO: undefined?
+                selected={selected ? true : undefined}
                 disabled={disabled}
-                focus={cursor === i || undefined} // TODO: undefined?
+                focus={cursor === i ? true : undefined}
               />
             );
         }
