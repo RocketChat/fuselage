@@ -1,29 +1,36 @@
 @use '../../styles/colors.scss';
+@use '../../styles/functions.scss';
 @use '../../styles/lengths.scss';
 @use '../../styles/typography.scss';
 
-$callout-background-color: theme(
+$callout-background-color: functions.theme(
   'callout-background-color',
   colors.surface(light)
 );
-$callout-default-color: theme(
+$callout-default-color: functions.theme(
   'callout-default-color',
   colors.font(secondary-info)
 );
-$callout-info-color: theme('callout-info-color', colors.status-font(on-info));
-$callout-success-color: theme(
+$callout-info-color: functions.theme(
+  'callout-info-color',
+  colors.status-font(on-info)
+);
+$callout-success-color: functions.theme(
   'callout-success-color',
   colors.status-font(on-success)
 );
-$callout-warning-color: theme(
+$callout-warning-color: functions.theme(
   'callout-warning-color',
   colors.status-font(on-warning)
 );
-$callout-danger-color: theme(
+$callout-danger-color: functions.theme(
   'callout-danger-color',
   colors.status-font(on-danger)
 );
-$callout-text-color: theme('callout-text-color', colors.font(default));
+$callout-text-color: functions.theme(
+  'callout-text-color',
+  colors.font(default)
+);
 
 .rcx-callout {
   display: flex;
@@ -36,7 +43,10 @@ $callout-text-color: theme('callout-text-color', colors.font(default));
   border-style: solid;
   border-color: $callout-default-color;
 
-  border-radius: theme('callout-border-radius', lengths.border-radius(medium));
+  border-radius: functions.theme(
+    'callout-border-radius',
+    lengths.border-radius(medium)
+  );
 
   background-color: $callout-background-color;
 

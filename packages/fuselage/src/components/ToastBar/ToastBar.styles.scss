@@ -1,30 +1,31 @@
 @use '../../styles/colors.scss';
+@use '../../styles/functions.scss';
 @use '../../styles/lengths.scss';
 @use '../../styles/typography.scss';
 
-$toastbar-color: theme('toastbar-color', colors.font(default));
+$toastbar-color: functions.theme('toastbar-color', colors.font(default));
 
-$toastbar-border-radius: theme(
+$toastbar-border-radius: functions.theme(
   'toastbar-border-radius',
   lengths.border-radius(medium)
 );
 
-$toastbar-success-color: theme(
+$toastbar-success-color: functions.theme(
   'toastbar-success-color',
   colors.status-font(on-success)
 );
 
-$toastbar-error-color: theme(
+$toastbar-error-color: functions.theme(
   'toastbar-error-color',
   colors.status-font(on-danger)
 );
 
-$toastbar-background-color: theme(
+$toastbar-background-color: functions.theme(
   'toastbar-background-color',
   colors.surface(tint)
 );
 
-$toastbar-progressbar-background-color: theme(
+$toastbar-progressbar-background-color: functions.theme(
   'toastbar-progressbar-background-color',
   colors.surface(neutral)
 );

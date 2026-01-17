@@ -1,6 +1,8 @@
 @use '../../styles/colors.scss';
+@use '../../styles/functions.scss';
 @use '../../styles/lengths.scss';
 @use '../../styles/typography.scss';
+@use '../../styles/mixins/interactivity.scss';
 
 .rcx-table {
   display: table;
@@ -17,7 +19,7 @@
 
   &__selection {
     color: colors.font(titles-labels);
-    border-radius: theme(
+    border-radius: functions.theme(
       'table-selected-border-radius',
       lengths.border-radius(medium)
     );
@@ -72,7 +74,7 @@
 
     &--action:hover,
     &--action:focus {
-      @include clickable();
+      @include interactivity.clickable;
       background-color: colors.surface(hover);
     }
   }
@@ -111,7 +113,7 @@
     }
 
     &--clickable {
-      @include clickable();
+      @include interactivity.clickable;
     }
 
     @each $align in (start, end, center, justify) {
