@@ -6,12 +6,47 @@ import { Box } from '../Box';
 
 import Message from './Message';
 import MessageBlock from './MessageBlock';
+import MessageBody from './MessageBody';
+import MessageContainer from './MessageContainer';
 import { MessageDivider } from './MessageDivider';
 import MessageEmoji from './MessageEmoji';
-import { MessageMetrics } from './MessageMetrics';
-import MessageReactions from './MessageReactions';
-import { MessageToolbar } from './MessageToolbar';
-import { ThreadMessage, ThreadMessageEmoji } from './ThreadMessage';
+import MessageHeader from './MessageHeader';
+import MessageHighlight from './MessageHighlight';
+import MessageLeftContainer from './MessageLeftContainer';
+import {
+  MessageMetrics,
+  MessageMetricsFollowing,
+  MessageMetricsItem,
+  MessageMetricsItemIcon,
+  MessageMetricsItemLabel,
+  MessageMetricsReply,
+} from './MessageMetrics';
+import MessageName from './MessageName';
+import MessageNameContainer from './MessageNameContainer';
+import MessageReactions, {
+  MessageReaction,
+  MessageReactionAction,
+} from './MessageReactions';
+import MessageRole from './MessageRole';
+import MessageRoles from './MessageRoles';
+import MessageTimestamp from './MessageTimestamp';
+import {
+  MessageToolbar,
+  MessageToolbarItem,
+  MessageToolbarWrapper,
+} from './MessageToolbar';
+import MessageUsername from './MessageUsername';
+import {
+  ThreadMessage,
+  ThreadMessageBody,
+  ThreadMessageContainer,
+  ThreadMessageEmoji,
+  ThreadMessageIconThread,
+  ThreadMessageLeftContainer,
+  ThreadMessageOrigin,
+  ThreadMessageRow,
+  ThreadMessageUnfollow,
+} from './ThreadMessage';
 import { avatarUrl } from './helpers';
 
 export default {
@@ -23,80 +58,80 @@ export const Default: StoryFn<typeof Message> = () => (
   <Box>
     <MessageDivider>May, 24, 2020</MessageDivider>
     <Message className='customclass' clickable>
-      <Message.LeftContainer>
+      <MessageLeftContainer>
         <Avatar url={avatarUrl} size={'x36'} />
-      </Message.LeftContainer>
-      <Message.Container>
-        <Message.Header>
-          <Message.NameContainer>
-            <Message.Name>Haylie George</Message.Name>{' '}
-            <Message.Username>@haylie.george</Message.Username>
-          </Message.NameContainer>
-          <Message.Roles>
-            <Message.Role>Admin</Message.Role>
-            <Message.Role>User</Message.Role>
-            <Message.Role>Owner</Message.Role>
-          </Message.Roles>
-          <Message.Timestamp>12:00 PM</Message.Timestamp>
-        </Message.Header>
-        <Message.Body>
+      </MessageLeftContainer>
+      <MessageContainer>
+        <MessageHeader>
+          <MessageNameContainer>
+            <MessageName>Haylie George</MessageName>{' '}
+            <MessageUsername>@haylie.george</MessageUsername>
+          </MessageNameContainer>
+          <MessageRoles>
+            <MessageRole>Admin</MessageRole>
+            <MessageRole>User</MessageRole>
+            <MessageRole>Owner</MessageRole>
+          </MessageRoles>
+          <MessageTimestamp>12:00 PM</MessageTimestamp>
+        </MessageHeader>
+        <MessageBody>
           Ut enim ad minim veniam,{' '}
-          <Message.Highlight clickable variant='other'>
+          <MessageHighlight clickable variant='other'>
             channel
-          </Message.Highlight>{' '}
+          </MessageHighlight>{' '}
           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
           commodo consequat a duis aute irure dolor in{' '}
-          <Message.Highlight clickable variant='critical'>
+          <MessageHighlight clickable variant='critical'>
             Haylie George
-          </Message.Highlight>{' '}
-          <Message.Highlight clickable variant='critical'>
+          </MessageHighlight>{' '}
+          <MessageHighlight clickable variant='critical'>
             Haylie George
-          </Message.Highlight>{' '}
-          <Message.Highlight clickable variant='critical'>
+          </MessageHighlight>{' '}
+          <MessageHighlight clickable variant='critical'>
             Haylie George
-          </Message.Highlight>{' '}
-          <Message.Highlight clickable variant='critical'>
+          </MessageHighlight>{' '}
+          <MessageHighlight clickable variant='critical'>
             Haylie George
-          </Message.Highlight>{' '}
-          <Message.Highlight clickable variant='critical'>
+          </MessageHighlight>{' '}
+          <MessageHighlight clickable variant='critical'>
             Haylie George
-          </Message.Highlight>{' '}
+          </MessageHighlight>{' '}
           commodo consequat a duis aute irure dolor in reprehenderit in
           voluptate velit esse cillum dolore eu fugiat nulla pariatur.
           Consectetur adipiscing commodo consequat a duis aute irure dolor in
           reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
           pariatur. Consectetur adipiscing{' '}
-          <Message.Highlight variant='critical'>
+          <MessageHighlight variant='critical'>
             highlighted text
-          </Message.Highlight>
+          </MessageHighlight>
           touching text.{' '}
-          <Message.Highlight clickable variant='relevant'>
+          <MessageHighlight clickable variant='relevant'>
             all
-          </Message.Highlight>
+          </MessageHighlight>
           . elit, sed do eiusmod tempor incididunt
-          <Message.Highlight clickable variant='link'>
+          <MessageHighlight clickable variant='link'>
             Room Name
-          </Message.Highlight>
+          </MessageHighlight>
           ut labore et dolore magna
-          <Message.Highlight clickable variant='other'>
+          <MessageHighlight clickable variant='other'>
             Gabriel.Henriques
-          </Message.Highlight>
+          </MessageHighlight>
           . aliqua. Ut enim ad minim veniam...
-        </Message.Body>
+        </MessageBody>
         <MessageReactions>
-          <MessageReactions.Reaction mine counter={1} />
-          <MessageReactions.Reaction counter={2} />
-          <MessageReactions.Reaction counter={3} />
-          <MessageReactions.Action />
+          <MessageReaction mine counter={1} />
+          <MessageReaction counter={2} />
+          <MessageReaction counter={3} />
+          <MessageReactionAction />
         </MessageReactions>
-      </Message.Container>
-      <MessageToolbar.Wrapper>
+      </MessageContainer>
+      <MessageToolbarWrapper>
         <MessageToolbar>
-          <MessageToolbar.Item icon='quote' />
-          <MessageToolbar.Item icon='clock' />
-          <MessageToolbar.Item icon='thread' />
+          <MessageToolbarItem icon='quote' />
+          <MessageToolbarItem icon='clock' />
+          <MessageToolbarItem icon='thread' />
         </MessageToolbar>
-      </MessageToolbar.Wrapper>
+      </MessageToolbarWrapper>
     </Message>
   </Box>
 );
@@ -105,113 +140,113 @@ export const WithSequential: StoryFn<typeof Message> = () => (
   <Box>
     <MessageDivider>May, 24, 2020</MessageDivider>
     <Message className='customclass' clickable>
-      <Message.LeftContainer>
+      <MessageLeftContainer>
         <Avatar url={avatarUrl} size={'x36'} />
-      </Message.LeftContainer>
-      <Message.Container>
-        <Message.Header>
-          <Message.NameContainer>
-            <Message.Name>Haylie George</Message.Name>{' '}
-            <Message.Username>@haylie.george</Message.Username>
-          </Message.NameContainer>
-          <Message.Roles>
-            <Message.Role>Admin</Message.Role>
-            <Message.Role>User</Message.Role>
-            <Message.Role>Owner</Message.Role>
-          </Message.Roles>
-          <Message.Timestamp>12:00 PM</Message.Timestamp>
-        </Message.Header>
-        <Message.Body>
+      </MessageLeftContainer>
+      <MessageContainer>
+        <MessageHeader>
+          <MessageNameContainer>
+            <MessageName>Haylie George</MessageName>{' '}
+            <MessageUsername>@haylie.george</MessageUsername>
+          </MessageNameContainer>
+          <MessageRoles>
+            <MessageRole>Admin</MessageRole>
+            <MessageRole>User</MessageRole>
+            <MessageRole>Owner</MessageRole>
+          </MessageRoles>
+          <MessageTimestamp>12:00 PM</MessageTimestamp>
+        </MessageHeader>
+        <MessageBody>
           Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
           nisi ut aliquip ex ea commodo consequat a duis aute irure dolor in
           reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
           pariatur. Consectetur adipiscing elit, sed do eiusmod tempor
           incididunt ut labore et dolore magna aliqua. Ut enim ad minim
           veniam...
-        </Message.Body>
+        </MessageBody>
         <MessageReactions>
-          <MessageReactions.Reaction counter={1} />
-          <MessageReactions.Reaction counter={2} />
-          <MessageReactions.Reaction counter={3} />
-          <MessageReactions.Action />
+          <MessageReaction counter={1} />
+          <MessageReaction counter={2} />
+          <MessageReaction counter={3} />
+          <MessageReactionAction />
         </MessageReactions>
-      </Message.Container>
-      <MessageToolbar.Wrapper>
+      </MessageContainer>
+      <MessageToolbarWrapper>
         <MessageToolbar>
-          <MessageToolbar.Item icon='quote' />
-          <MessageToolbar.Item icon='clock' />
-          <MessageToolbar.Item icon='thread' />
+          <MessageToolbarItem icon='quote' />
+          <MessageToolbarItem icon='clock' />
+          <MessageToolbarItem icon='thread' />
         </MessageToolbar>
-      </MessageToolbar.Wrapper>
+      </MessageToolbarWrapper>
     </Message>
     <Message className='customclass' clickable sequential>
-      <Message.LeftContainer />
-      <Message.Container>
-        <Message.Body>
+      <MessageLeftContainer />
+      <MessageContainer>
+        <MessageBody>
           Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
-        </Message.Body>
-      </Message.Container>
-      <MessageToolbar.Wrapper>
+        </MessageBody>
+      </MessageContainer>
+      <MessageToolbarWrapper>
         <MessageToolbar>
-          <MessageToolbar.Item icon='quote' />
-          <MessageToolbar.Item icon='clock' />
-          <MessageToolbar.Item icon='thread' />
+          <MessageToolbarItem icon='quote' />
+          <MessageToolbarItem icon='clock' />
+          <MessageToolbarItem icon='thread' />
         </MessageToolbar>
-      </MessageToolbar.Wrapper>
+      </MessageToolbarWrapper>
     </Message>
     <Message className='customclass' clickable sequential>
-      <Message.LeftContainer />
-      <Message.Container>
-        <Message.Body>
+      <MessageLeftContainer />
+      <MessageContainer>
+        <MessageBody>
           Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
-        </Message.Body>
-      </Message.Container>
+        </MessageBody>
+      </MessageContainer>
     </Message>
     <Message className='customclass' clickable sequential>
-      <Message.LeftContainer />
-      <Message.Container>
-        <Message.Body>
+      <MessageLeftContainer />
+      <MessageContainer>
+        <MessageBody>
           Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
-        </Message.Body>
-      </Message.Container>
-      <MessageToolbar.Wrapper>
+        </MessageBody>
+      </MessageContainer>
+      <MessageToolbarWrapper>
         <MessageToolbar>
-          <MessageToolbar.Item icon='quote' />
-          <MessageToolbar.Item icon='clock' />
-          <MessageToolbar.Item icon='thread' />
+          <MessageToolbarItem icon='quote' />
+          <MessageToolbarItem icon='clock' />
+          <MessageToolbarItem icon='thread' />
         </MessageToolbar>
-      </MessageToolbar.Wrapper>
+      </MessageToolbarWrapper>
     </Message>
     <Message className='customclass' clickable sequential>
-      <Message.LeftContainer />
-      <Message.Container>
-        <Message.Body>
+      <MessageLeftContainer />
+      <MessageContainer>
+        <MessageBody>
           {'Test Message Emoji ->'}{' '}
           <MessageEmoji name='test' image={`url(${avatarUrl})`} />
-        </Message.Body>
-      </Message.Container>
-      <MessageToolbar.Wrapper>
+        </MessageBody>
+      </MessageContainer>
+      <MessageToolbarWrapper>
         <MessageToolbar>
-          <MessageToolbar.Item icon='quote' />
-          <MessageToolbar.Item icon='clock' />
-          <MessageToolbar.Item icon='thread' />
+          <MessageToolbarItem icon='quote' />
+          <MessageToolbarItem icon='clock' />
+          <MessageToolbarItem icon='thread' />
         </MessageToolbar>
-      </MessageToolbar.Wrapper>
+      </MessageToolbarWrapper>
     </Message>
     <Message className='customclass' clickable sequential>
-      <Message.LeftContainer />
-      <Message.Container>
-        <Message.Body>
+      <MessageLeftContainer />
+      <MessageContainer>
+        <MessageBody>
           <MessageEmoji big name='test' image={`url(${avatarUrl})`} />
-        </Message.Body>
-      </Message.Container>
-      <MessageToolbar.Wrapper>
+        </MessageBody>
+      </MessageContainer>
+      <MessageToolbarWrapper>
         <MessageToolbar>
-          <MessageToolbar.Item icon='quote' />
-          <MessageToolbar.Item icon='clock' />
-          <MessageToolbar.Item icon='thread' />
+          <MessageToolbarItem icon='quote' />
+          <MessageToolbarItem icon='clock' />
+          <MessageToolbarItem icon='thread' />
         </MessageToolbar>
-      </MessageToolbar.Wrapper>
+      </MessageToolbarWrapper>
     </Message>
   </Box>
 );
@@ -220,106 +255,106 @@ export const MessageWithThread: StoryFn<typeof Message> = () => (
   <Box>
     <MessageDivider unreadLabel='Unread'>May, 24, 2020</MessageDivider>
     <Message className='customclass' clickable>
-      <Message.LeftContainer>
+      <MessageLeftContainer>
         <Avatar url={avatarUrl} size={'x36'} />
-      </Message.LeftContainer>
-      <Message.Container>
-        <Message.Header>
-          <Message.NameContainer>
-            <Message.Name>Haylie George</Message.Name>{' '}
-            <Message.Username>@haylie.george</Message.Username>
-          </Message.NameContainer>
-          <Message.Roles>
-            <Message.Role>Admin</Message.Role>
-            <Message.Role>User</Message.Role>
-            <Message.Role>Owner</Message.Role>
-          </Message.Roles>
-          <Message.Timestamp>12:00 PM</Message.Timestamp>
-        </Message.Header>
-        <Message.Body>
+      </MessageLeftContainer>
+      <MessageContainer>
+        <MessageHeader>
+          <MessageNameContainer>
+            <MessageName>Haylie George</MessageName>{' '}
+            <MessageUsername>@haylie.george</MessageUsername>
+          </MessageNameContainer>
+          <MessageRoles>
+            <MessageRole>Admin</MessageRole>
+            <MessageRole>User</MessageRole>
+            <MessageRole>Owner</MessageRole>
+          </MessageRoles>
+          <MessageTimestamp>12:00 PM</MessageTimestamp>
+        </MessageHeader>
+        <MessageBody>
           Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
           nisi ut aliquip ex ea commodo consequat a duis aute irure dolor in
           reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
           pariatur. Consectetur adipiscing elit, sed do eiusmod tempor
           incididunt ut labore et dolore magna aliqua. Ut enim ad minim
           veniam...
-        </Message.Body>
+        </MessageBody>
         <MessageReactions>
-          <MessageReactions.Reaction counter={1} />
-          <MessageReactions.Reaction counter={2} />
-          <MessageReactions.Reaction counter={3} />
-          <MessageReactions.Action />
+          <MessageReaction counter={1} />
+          <MessageReaction counter={2} />
+          <MessageReaction counter={3} />
+          <MessageReactionAction />
         </MessageReactions>
-      </Message.Container>
-      <MessageToolbar.Wrapper>
+      </MessageContainer>
+      <MessageToolbarWrapper>
         <MessageToolbar>
-          <MessageToolbar.Item icon='quote' />
-          <MessageToolbar.Item icon='clock' />
-          <MessageToolbar.Item icon='thread' />
+          <MessageToolbarItem icon='quote' />
+          <MessageToolbarItem icon='clock' />
+          <MessageToolbarItem icon='thread' />
         </MessageToolbar>
-      </MessageToolbar.Wrapper>
+      </MessageToolbarWrapper>
     </Message>
     <Message className='customclass' clickable sequential>
-      <Message.LeftContainer />
-      <Message.Container>
-        <Message.Body>
+      <MessageLeftContainer />
+      <MessageContainer>
+        <MessageBody>
           Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
-        </Message.Body>
-      </Message.Container>
-      <MessageToolbar.Wrapper>
+        </MessageBody>
+      </MessageContainer>
+      <MessageToolbarWrapper>
         <MessageToolbar>
-          <MessageToolbar.Item icon='quote' />
-          <MessageToolbar.Item icon='clock' />
-          <MessageToolbar.Item icon='thread' />
+          <MessageToolbarItem icon='quote' />
+          <MessageToolbarItem icon='clock' />
+          <MessageToolbarItem icon='thread' />
         </MessageToolbar>
-      </MessageToolbar.Wrapper>
+      </MessageToolbarWrapper>
     </Message>
     <Message className='customclass' clickable sequential>
-      <Message.LeftContainer />
-      <Message.Container>
-        <Message.Body>
+      <MessageLeftContainer />
+      <MessageContainer>
+        <MessageBody>
           Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
-        </Message.Body>
-      </Message.Container>
+        </MessageBody>
+      </MessageContainer>
     </Message>
     <Message className='customclass' clickable sequential>
-      <Message.LeftContainer />
-      <Message.Container>
-        <Message.Body>
+      <MessageLeftContainer />
+      <MessageContainer>
+        <MessageBody>
           Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
-        </Message.Body>
-      </Message.Container>
-      <MessageToolbar.Wrapper>
+        </MessageBody>
+      </MessageContainer>
+      <MessageToolbarWrapper>
         <MessageToolbar>
-          <MessageToolbar.Item icon='quote' />
-          <MessageToolbar.Item icon='clock' />
-          <MessageToolbar.Item icon='thread' />
+          <MessageToolbarItem icon='quote' />
+          <MessageToolbarItem icon='clock' />
+          <MessageToolbarItem icon='thread' />
         </MessageToolbar>
-      </MessageToolbar.Wrapper>
+      </MessageToolbarWrapper>
     </Message>
     <ThreadMessage>
-      <ThreadMessage.Row>
-        <ThreadMessage.LeftContainer>
-          <ThreadMessage.Icon />
-        </ThreadMessage.LeftContainer>
-        <ThreadMessage.Container>
-          <ThreadMessage.Origin>
+      <ThreadMessageRow>
+        <ThreadMessageLeftContainer>
+          <ThreadMessageIconThread />
+        </ThreadMessageLeftContainer>
+        <ThreadMessageContainer>
+          <ThreadMessageOrigin>
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
             nisi ut aliquip ex ea commodo consequat a duis aute irure dolor in
             reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
             pariatur. Consectetur adipiscing elit, sed do eiusmod tempor
             incididunt ut labore et dolore magna aliqua. Ut enim ad minim
             veniam...
-          </ThreadMessage.Origin>
-          <ThreadMessage.Unfollow />
-        </ThreadMessage.Container>
-      </ThreadMessage.Row>
-      <ThreadMessage.Row>
-        <ThreadMessage.LeftContainer>
+          </ThreadMessageOrigin>
+          <ThreadMessageUnfollow />
+        </ThreadMessageContainer>
+      </ThreadMessageRow>
+      <ThreadMessageRow>
+        <ThreadMessageLeftContainer>
           <Avatar url={avatarUrl} size='x16' />
-        </ThreadMessage.LeftContainer>
-        <ThreadMessage.Container>
-          <ThreadMessage.Message>
+        </ThreadMessageLeftContainer>
+        <ThreadMessageContainer>
+          <ThreadMessageBody>
             <ThreadMessageEmoji image={`url(${avatarUrl})`} name='test' />
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
             nisi ut aliquip ex ea commodo consequat a duis aute irure dolor in
@@ -327,9 +362,9 @@ export const MessageWithThread: StoryFn<typeof Message> = () => (
             pariatur. Consectetur adipiscing elit, sed do eiusmod tempor
             incididunt ut labore et dolore magna aliqua. Ut enim ad minim
             veniam...
-          </ThreadMessage.Message>
-        </ThreadMessage.Container>
-      </ThreadMessage.Row>
+          </ThreadMessageBody>
+        </ThreadMessageContainer>
+      </ThreadMessageRow>
     </ThreadMessage>
   </Box>
 );
@@ -344,7 +379,7 @@ export const MessageSelected: StoryFn<typeof Message> = () => {
         onClick={() => setSelected(!selected)}
         isSelected={selected}
       >
-        <Message.LeftContainer>
+        <MessageLeftContainer>
           <Avatar
             url='data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC
                   4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMj
@@ -359,35 +394,35 @@ export const MessageSelected: StoryFn<typeof Message> = () => {
                   UH2oorkV10pRc7b1zXb/hZOzuJvM86QWEXeELxOzHSIPcmiiiunVlF2RNTpRkrs//Z'
             size={'x36'}
           />
-        </Message.LeftContainer>
-        <Message.Container>
-          <Message.Header>
-            <Message.NameContainer>
-              <Message.Name>Haylie George</Message.Name>{' '}
-              <Message.Username>@haylie.george</Message.Username>
-            </Message.NameContainer>
-            <Message.Roles>
-              <Message.Role>Admin</Message.Role>
-              <Message.Role>User</Message.Role>
-              <Message.Role>Owner</Message.Role>
-            </Message.Roles>
-            <Message.Timestamp>12:00 PM</Message.Timestamp>
-          </Message.Header>
-          <Message.Body>
+        </MessageLeftContainer>
+        <MessageContainer>
+          <MessageHeader>
+            <MessageNameContainer>
+              <MessageName>Haylie George</MessageName>{' '}
+              <MessageUsername>@haylie.george</MessageUsername>
+            </MessageNameContainer>
+            <MessageRoles>
+              <MessageRole>Admin</MessageRole>
+              <MessageRole>User</MessageRole>
+              <MessageRole>Owner</MessageRole>
+            </MessageRoles>
+            <MessageTimestamp>12:00 PM</MessageTimestamp>
+          </MessageHeader>
+          <MessageBody>
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
             nisi ut aliquip ex ea commodo consequat a duis aute irure dolor in
             reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
             pariatur. Consectetur adipiscing elit, sed do eiusmod tempor
             incididunt ut labore et dolore magna aliqua. Ut enim ad minim
             veniam...
-          </Message.Body>
+          </MessageBody>
           <MessageReactions>
-            <MessageReactions.Reaction counter={1} />
-            <MessageReactions.Reaction counter={2} />
-            <MessageReactions.Reaction counter={3} />
-            <MessageReactions.Action />
+            <MessageReaction counter={1} />
+            <MessageReaction counter={2} />
+            <MessageReaction counter={3} />
+            <MessageReactionAction />
           </MessageReactions>
-        </Message.Container>
+        </MessageContainer>
       </Message>
     </Box>
   );
@@ -397,82 +432,82 @@ export const MessageEditing: StoryFn<typeof Message> = () => (
   <Box>
     <MessageDivider>May, 24, 2020</MessageDivider>
     <Message className='customclass' clickable>
-      <Message.LeftContainer>
+      <MessageLeftContainer>
         <Avatar url={avatarUrl} size={'x36'} />
-      </Message.LeftContainer>
-      <Message.Container>
-        <Message.Header>
-          <Message.NameContainer>
-            <Message.Name>Haylie George</Message.Name>{' '}
-            <Message.Username>@haylie.george</Message.Username>
-          </Message.NameContainer>
-          <Message.Roles>
-            <Message.Role>Admin</Message.Role>
-            <Message.Role>User</Message.Role>
-            <Message.Role>Owner</Message.Role>
-          </Message.Roles>
-          <Message.Timestamp>12:00 PM</Message.Timestamp>
-        </Message.Header>
-        <Message.Body>
+      </MessageLeftContainer>
+      <MessageContainer>
+        <MessageHeader>
+          <MessageNameContainer>
+            <MessageName>Haylie George</MessageName>{' '}
+            <MessageUsername>@haylie.george</MessageUsername>
+          </MessageNameContainer>
+          <MessageRoles>
+            <MessageRole>Admin</MessageRole>
+            <MessageRole>User</MessageRole>
+            <MessageRole>Owner</MessageRole>
+          </MessageRoles>
+          <MessageTimestamp>12:00 PM</MessageTimestamp>
+        </MessageHeader>
+        <MessageBody>
           Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
           nisi ut aliquip ex ea commodo consequat a duis aute irure dolor in
           reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
           pariatur. Consectetur adipiscing elit, sed do eiusmod tempor
           incididunt ut labore et dolore magna aliqua. Ut enim ad minim
           veniam...
-        </Message.Body>
+        </MessageBody>
         <MessageReactions>
-          <MessageReactions.Reaction counter={1} />
-          <MessageReactions.Reaction counter={2} />
-          <MessageReactions.Reaction counter={3} />
-          <MessageReactions.Action />
+          <MessageReaction counter={1} />
+          <MessageReaction counter={2} />
+          <MessageReaction counter={3} />
+          <MessageReactionAction />
         </MessageReactions>
-      </Message.Container>
-      <MessageToolbar.Wrapper>
+      </MessageContainer>
+      <MessageToolbarWrapper>
         <MessageToolbar>
-          <MessageToolbar.Item icon='quote' />
-          <MessageToolbar.Item icon='clock' />
-          <MessageToolbar.Item icon='thread' />
+          <MessageToolbarItem icon='quote' />
+          <MessageToolbarItem icon='clock' />
+          <MessageToolbarItem icon='thread' />
         </MessageToolbar>
-      </MessageToolbar.Wrapper>
+      </MessageToolbarWrapper>
     </Message>
     <Message className='customclass' clickable sequential isEditing>
-      <Message.LeftContainer />
-      <Message.Container>
-        <Message.Body>
+      <MessageLeftContainer />
+      <MessageContainer>
+        <MessageBody>
           Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
-        </Message.Body>
-      </Message.Container>
-      <MessageToolbar.Wrapper>
+        </MessageBody>
+      </MessageContainer>
+      <MessageToolbarWrapper>
         <MessageToolbar>
-          <MessageToolbar.Item icon='quote' />
-          <MessageToolbar.Item icon='clock' />
-          <MessageToolbar.Item icon='thread' />
+          <MessageToolbarItem icon='quote' />
+          <MessageToolbarItem icon='clock' />
+          <MessageToolbarItem icon='thread' />
         </MessageToolbar>
-      </MessageToolbar.Wrapper>
+      </MessageToolbarWrapper>
     </Message>
     <Message className='customclass' clickable sequential>
-      <Message.LeftContainer />
-      <Message.Container>
-        <Message.Body>
+      <MessageLeftContainer />
+      <MessageContainer>
+        <MessageBody>
           Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
-        </Message.Body>
-      </Message.Container>
+        </MessageBody>
+      </MessageContainer>
     </Message>
     <Message className='customclass' clickable sequential>
-      <Message.LeftContainer />
-      <Message.Container>
-        <Message.Body>
+      <MessageLeftContainer />
+      <MessageContainer>
+        <MessageBody>
           Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
-        </Message.Body>
-      </Message.Container>
-      <MessageToolbar.Wrapper>
+        </MessageBody>
+      </MessageContainer>
+      <MessageToolbarWrapper>
         <MessageToolbar>
-          <MessageToolbar.Item icon='quote' />
-          <MessageToolbar.Item icon='clock' />
-          <MessageToolbar.Item icon='thread' />
+          <MessageToolbarItem icon='quote' />
+          <MessageToolbarItem icon='clock' />
+          <MessageToolbarItem icon='thread' />
         </MessageToolbar>
-      </MessageToolbar.Wrapper>
+      </MessageToolbarWrapper>
     </Message>
   </Box>
 );
@@ -481,44 +516,44 @@ export const MessageUnorderedList: StoryFn<typeof Message> = () => (
   <Box>
     <MessageDivider>May, 24, 2020</MessageDivider>
     <Message className='customclass' clickable>
-      <Message.LeftContainer>
+      <MessageLeftContainer>
         <Avatar url={avatarUrl} size={'x36'} />
-      </Message.LeftContainer>
-      <Message.Container>
-        <Message.Header>
-          <Message.NameContainer>
-            <Message.Name>Haylie George</Message.Name>{' '}
-            <Message.Username>@haylie.george</Message.Username>
-          </Message.NameContainer>
-          <Message.Roles>
-            <Message.Role>Admin</Message.Role>
-            <Message.Role>User</Message.Role>
-            <Message.Role>Owner</Message.Role>
-          </Message.Roles>
-          <Message.Timestamp>12:00 PM</Message.Timestamp>
-        </Message.Header>
-        <Message.Body>
+      </MessageLeftContainer>
+      <MessageContainer>
+        <MessageHeader>
+          <MessageNameContainer>
+            <MessageName>Haylie George</MessageName>{' '}
+            <MessageUsername>@haylie.george</MessageUsername>
+          </MessageNameContainer>
+          <MessageRoles>
+            <MessageRole>Admin</MessageRole>
+            <MessageRole>User</MessageRole>
+            <MessageRole>Owner</MessageRole>
+          </MessageRoles>
+          <MessageTimestamp>12:00 PM</MessageTimestamp>
+        </MessageHeader>
+        <MessageBody>
           Unordered list:
           <ul>
             <li>Ut enim ad minim</li>
             <li>Incididunt ut labore</li>
             <li>Labore et dolore</li>
           </ul>
-        </Message.Body>
+        </MessageBody>
         <MessageReactions>
-          <MessageReactions.Reaction counter={1} />
-          <MessageReactions.Reaction counter={2} />
-          <MessageReactions.Reaction counter={3} />
-          <MessageReactions.Action />
+          <MessageReaction counter={1} />
+          <MessageReaction counter={2} />
+          <MessageReaction counter={3} />
+          <MessageReactionAction />
         </MessageReactions>
-      </Message.Container>
-      <MessageToolbar.Wrapper>
+      </MessageContainer>
+      <MessageToolbarWrapper>
         <MessageToolbar>
-          <MessageToolbar.Item icon='quote' />
-          <MessageToolbar.Item icon='clock' />
-          <MessageToolbar.Item icon='thread' />
+          <MessageToolbarItem icon='quote' />
+          <MessageToolbarItem icon='clock' />
+          <MessageToolbarItem icon='thread' />
         </MessageToolbar>
-      </MessageToolbar.Wrapper>
+      </MessageToolbarWrapper>
     </Message>
   </Box>
 );
@@ -527,44 +562,44 @@ export const MessageOrderedList: StoryFn<typeof Message> = () => (
   <Box>
     <MessageDivider>May, 24, 2020</MessageDivider>
     <Message className='customclass' clickable>
-      <Message.LeftContainer>
+      <MessageLeftContainer>
         <Avatar url={avatarUrl} size={'x36'} />
-      </Message.LeftContainer>
-      <Message.Container>
-        <Message.Header>
-          <Message.NameContainer>
-            <Message.Name>Haylie George</Message.Name>{' '}
-            <Message.Username>@haylie.george</Message.Username>
-          </Message.NameContainer>
-          <Message.Roles>
-            <Message.Role>Admin</Message.Role>
-            <Message.Role>User</Message.Role>
-            <Message.Role>Owner</Message.Role>
-          </Message.Roles>
-          <Message.Timestamp>12:00 PM</Message.Timestamp>
-        </Message.Header>
-        <Message.Body>
+      </MessageLeftContainer>
+      <MessageContainer>
+        <MessageHeader>
+          <MessageNameContainer>
+            <MessageName>Haylie George</MessageName>{' '}
+            <MessageUsername>@haylie.george</MessageUsername>
+          </MessageNameContainer>
+          <MessageRoles>
+            <MessageRole>Admin</MessageRole>
+            <MessageRole>User</MessageRole>
+            <MessageRole>Owner</MessageRole>
+          </MessageRoles>
+          <MessageTimestamp>12:00 PM</MessageTimestamp>
+        </MessageHeader>
+        <MessageBody>
           Ordered list:
           <ol>
             <li value={1}>Ut enim ad minim</li>
             <li value={2}>Incididunt ut labore</li>
             <li value={6}>Labore et dolore</li>
           </ol>
-        </Message.Body>
+        </MessageBody>
         <MessageReactions>
-          <MessageReactions.Reaction counter={1} />
-          <MessageReactions.Reaction counter={2} />
-          <MessageReactions.Reaction counter={3} />
-          <MessageReactions.Action />
+          <MessageReaction counter={1} />
+          <MessageReaction counter={2} />
+          <MessageReaction counter={3} />
+          <MessageReactionAction />
         </MessageReactions>
-      </Message.Container>
-      <MessageToolbar.Wrapper>
+      </MessageContainer>
+      <MessageToolbarWrapper>
         <MessageToolbar>
-          <MessageToolbar.Item icon='quote' />
-          <MessageToolbar.Item icon='clock' />
-          <MessageToolbar.Item icon='thread' />
+          <MessageToolbarItem icon='quote' />
+          <MessageToolbarItem icon='clock' />
+          <MessageToolbarItem icon='thread' />
         </MessageToolbar>
-      </MessageToolbar.Wrapper>
+      </MessageToolbarWrapper>
     </Message>
   </Box>
 );
@@ -573,82 +608,82 @@ export const MessageHighlighted: StoryFn<typeof Message> = () => (
   <Box>
     <MessageDivider>May, 24, 2020</MessageDivider>
     <Message className='customclass' highlight>
-      <Message.LeftContainer>
+      <MessageLeftContainer>
         <Avatar url={avatarUrl} size={'x36'} />
-      </Message.LeftContainer>
-      <Message.Container>
-        <Message.Header>
-          <Message.NameContainer>
-            <Message.Name>Haylie George</Message.Name>{' '}
-            <Message.Username>@haylie.george</Message.Username>
-          </Message.NameContainer>
-          <Message.Roles>
-            <Message.Role>Admin</Message.Role>
-            <Message.Role>User</Message.Role>
-            <Message.Role>Owner</Message.Role>
-          </Message.Roles>
-          <Message.Timestamp>12:00 PM</Message.Timestamp>
-        </Message.Header>
-        <Message.Body>
+      </MessageLeftContainer>
+      <MessageContainer>
+        <MessageHeader>
+          <MessageNameContainer>
+            <MessageName>Haylie George</MessageName>{' '}
+            <MessageUsername>@haylie.george</MessageUsername>
+          </MessageNameContainer>
+          <MessageRoles>
+            <MessageRole>Admin</MessageRole>
+            <MessageRole>User</MessageRole>
+            <MessageRole>Owner</MessageRole>
+          </MessageRoles>
+          <MessageTimestamp>12:00 PM</MessageTimestamp>
+        </MessageHeader>
+        <MessageBody>
           Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
           nisi ut aliquip ex ea commodo consequat a duis aute irure dolor in
           reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
           pariatur. Consectetur adipiscing elit, sed do eiusmod tempor
           incididunt ut labore et dolore magna aliqua. Ut enim ad minim
           veniam...
-        </Message.Body>
+        </MessageBody>
         <MessageReactions>
-          <MessageReactions.Reaction counter={1} />
-          <MessageReactions.Reaction counter={2} />
-          <MessageReactions.Reaction counter={3} />
-          <MessageReactions.Action />
+          <MessageReaction counter={1} />
+          <MessageReaction counter={2} />
+          <MessageReaction counter={3} />
+          <MessageReactionAction />
         </MessageReactions>
-      </Message.Container>
-      <MessageToolbar.Wrapper>
+      </MessageContainer>
+      <MessageToolbarWrapper>
         <MessageToolbar>
-          <MessageToolbar.Item icon='quote' />
-          <MessageToolbar.Item icon='clock' />
-          <MessageToolbar.Item icon='thread' />
+          <MessageToolbarItem icon='quote' />
+          <MessageToolbarItem icon='clock' />
+          <MessageToolbarItem icon='thread' />
         </MessageToolbar>
-      </MessageToolbar.Wrapper>
+      </MessageToolbarWrapper>
     </Message>
     <Message className='customclass' sequential>
-      <Message.LeftContainer />
-      <Message.Container>
-        <Message.Body>
+      <MessageLeftContainer />
+      <MessageContainer>
+        <MessageBody>
           Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
-        </Message.Body>
-      </Message.Container>
-      <MessageToolbar.Wrapper>
+        </MessageBody>
+      </MessageContainer>
+      <MessageToolbarWrapper>
         <MessageToolbar>
-          <MessageToolbar.Item icon='quote' />
-          <MessageToolbar.Item icon='clock' />
-          <MessageToolbar.Item icon='thread' />
+          <MessageToolbarItem icon='quote' />
+          <MessageToolbarItem icon='clock' />
+          <MessageToolbarItem icon='thread' />
         </MessageToolbar>
-      </MessageToolbar.Wrapper>
+      </MessageToolbarWrapper>
     </Message>
     <Message className='customclass' sequential>
-      <Message.LeftContainer />
-      <Message.Container>
-        <Message.Body>
+      <MessageLeftContainer />
+      <MessageContainer>
+        <MessageBody>
           Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
-        </Message.Body>
-      </Message.Container>
+        </MessageBody>
+      </MessageContainer>
     </Message>
     <Message className='customclass' sequential>
-      <Message.LeftContainer />
-      <Message.Container>
-        <Message.Body>
+      <MessageLeftContainer />
+      <MessageContainer>
+        <MessageBody>
           Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
-        </Message.Body>
-      </Message.Container>
-      <MessageToolbar.Wrapper>
+        </MessageBody>
+      </MessageContainer>
+      <MessageToolbarWrapper>
         <MessageToolbar>
-          <MessageToolbar.Item icon='quote' />
-          <MessageToolbar.Item icon='clock' />
-          <MessageToolbar.Item icon='thread' />
+          <MessageToolbarItem icon='quote' />
+          <MessageToolbarItem icon='clock' />
+          <MessageToolbarItem icon='thread' />
         </MessageToolbar>
-      </MessageToolbar.Wrapper>
+      </MessageToolbarWrapper>
     </Message>
   </Box>
 );
@@ -657,76 +692,76 @@ export const MessagePending: StoryFn<typeof Message> = () => (
   <Box>
     <MessageDivider>May, 24, 2020</MessageDivider>
     <Message className='customclass' isPending>
-      <Message.LeftContainer>
+      <MessageLeftContainer>
         <Avatar url={avatarUrl} size={'x36'} />
-      </Message.LeftContainer>
-      <Message.Container>
-        <Message.Header>
-          <Message.NameContainer>
-            <Message.Name>Haylie George</Message.Name>{' '}
-            <Message.Username>@haylie.george</Message.Username>
-          </Message.NameContainer>
-          <Message.Roles>
-            <Message.Role>Admin</Message.Role>
-            <Message.Role>User</Message.Role>
-            <Message.Role>Owner</Message.Role>
-          </Message.Roles>
-          <Message.Timestamp>12:00 PM</Message.Timestamp>
-        </Message.Header>
-        <Message.Body>
+      </MessageLeftContainer>
+      <MessageContainer>
+        <MessageHeader>
+          <MessageNameContainer>
+            <MessageName>Haylie George</MessageName>{' '}
+            <MessageUsername>@haylie.george</MessageUsername>
+          </MessageNameContainer>
+          <MessageRoles>
+            <MessageRole>Admin</MessageRole>
+            <MessageRole>User</MessageRole>
+            <MessageRole>Owner</MessageRole>
+          </MessageRoles>
+          <MessageTimestamp>12:00 PM</MessageTimestamp>
+        </MessageHeader>
+        <MessageBody>
           Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
           nisi ut aliquip ex ea commodo consequat a duis aute irure dolor in
           reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
           pariatur. Consectetur adipiscing elit, sed do eiusmod tempor
           incididunt ut labore et dolore magna aliqua. Ut enim ad minim
           veniam...
-        </Message.Body>
-      </Message.Container>
-      <MessageToolbar.Wrapper>
+        </MessageBody>
+      </MessageContainer>
+      <MessageToolbarWrapper>
         <MessageToolbar>
-          <MessageToolbar.Item icon='quote' />
-          <MessageToolbar.Item icon='clock' />
-          <MessageToolbar.Item icon='thread' />
+          <MessageToolbarItem icon='quote' />
+          <MessageToolbarItem icon='clock' />
+          <MessageToolbarItem icon='thread' />
         </MessageToolbar>
-      </MessageToolbar.Wrapper>
+      </MessageToolbarWrapper>
     </Message>
     <Message className='customclass' isPending sequential>
-      <Message.LeftContainer />
-      <Message.Container>
-        <Message.Body>
+      <MessageLeftContainer />
+      <MessageContainer>
+        <MessageBody>
           Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
-        </Message.Body>
-      </Message.Container>
-      <MessageToolbar.Wrapper>
+        </MessageBody>
+      </MessageContainer>
+      <MessageToolbarWrapper>
         <MessageToolbar>
-          <MessageToolbar.Item icon='quote' />
-          <MessageToolbar.Item icon='clock' />
-          <MessageToolbar.Item icon='thread' />
+          <MessageToolbarItem icon='quote' />
+          <MessageToolbarItem icon='clock' />
+          <MessageToolbarItem icon='thread' />
         </MessageToolbar>
-      </MessageToolbar.Wrapper>
+      </MessageToolbarWrapper>
     </Message>
     <Message className='customclass' isPending sequential>
-      <Message.LeftContainer />
-      <Message.Container>
-        <Message.Body>
+      <MessageLeftContainer />
+      <MessageContainer>
+        <MessageBody>
           Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
-        </Message.Body>
-      </Message.Container>
+        </MessageBody>
+      </MessageContainer>
     </Message>
     <Message className='customclass' isPending sequential>
-      <Message.LeftContainer />
-      <Message.Container>
-        <Message.Body>
+      <MessageLeftContainer />
+      <MessageContainer>
+        <MessageBody>
           Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
-        </Message.Body>
-      </Message.Container>
-      <MessageToolbar.Wrapper>
+        </MessageBody>
+      </MessageContainer>
+      <MessageToolbarWrapper>
         <MessageToolbar>
-          <MessageToolbar.Item icon='quote' />
-          <MessageToolbar.Item icon='clock' />
-          <MessageToolbar.Item icon='thread' />
+          <MessageToolbarItem icon='quote' />
+          <MessageToolbarItem icon='clock' />
+          <MessageToolbarItem icon='thread' />
         </MessageToolbar>
-      </MessageToolbar.Wrapper>
+      </MessageToolbarWrapper>
     </Message>
   </Box>
 );
@@ -735,51 +770,51 @@ export const MessageWithMetrics: StoryFn<typeof Message> = () => (
   <Box>
     <MessageDivider>May, 24, 2020</MessageDivider>
     <Message className='customclass'>
-      <Message.LeftContainer>
+      <MessageLeftContainer>
         <Avatar url={avatarUrl} size={'x36'} />
-      </Message.LeftContainer>
-      <Message.Container>
-        <Message.Header>
-          <Message.NameContainer>
-            <Message.Name>Haylie George</Message.Name>{' '}
-            <Message.Username>@haylie.george</Message.Username>
-          </Message.NameContainer>
-          <Message.Roles>
-            <Message.Role>Admin</Message.Role>
-            <Message.Role>User</Message.Role>
-            <Message.Role>Owner</Message.Role>
-          </Message.Roles>
-          <Message.Timestamp>12:00 PM</Message.Timestamp>
-        </Message.Header>
-        <Message.Body>
+      </MessageLeftContainer>
+      <MessageContainer>
+        <MessageHeader>
+          <MessageNameContainer>
+            <MessageName>Haylie George</MessageName>{' '}
+            <MessageUsername>@haylie.george</MessageUsername>
+          </MessageNameContainer>
+          <MessageRoles>
+            <MessageRole>Admin</MessageRole>
+            <MessageRole>User</MessageRole>
+            <MessageRole>Owner</MessageRole>
+          </MessageRoles>
+          <MessageTimestamp>12:00 PM</MessageTimestamp>
+        </MessageHeader>
+        <MessageBody>
           Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
-        </Message.Body>
-        <Message.Block>
+        </MessageBody>
+        <MessageBlock>
           <MessageMetrics>
-            <MessageMetrics.Reply>Reply</MessageMetrics.Reply>
-            <MessageMetrics.Item>
-              <MessageMetrics.Item.Icon name='thread' />
-              <MessageMetrics.Item.Label>1</MessageMetrics.Item.Label>
-            </MessageMetrics.Item>
-            <MessageMetrics.Item>
-              <MessageMetrics.Item.Icon name='user' />
-              <MessageMetrics.Item.Label>2</MessageMetrics.Item.Label>
-            </MessageMetrics.Item>
-            <MessageMetrics.Item>
-              <MessageMetrics.Item.Icon name='clock' />
-              <MessageMetrics.Item.Label>12:30 PM</MessageMetrics.Item.Label>
-            </MessageMetrics.Item>
-            <MessageMetrics.Following name='bell' />
+            <MessageMetricsReply>Reply</MessageMetricsReply>
+            <MessageMetricsItem>
+              <MessageMetricsItemIcon name='thread' />
+              <MessageMetricsItemLabel>1</MessageMetricsItemLabel>
+            </MessageMetricsItem>
+            <MessageMetricsItem>
+              <MessageMetricsItemIcon name='user' />
+              <MessageMetricsItemLabel>2</MessageMetricsItemLabel>
+            </MessageMetricsItem>
+            <MessageMetricsItem>
+              <MessageMetricsItemIcon name='clock' />
+              <MessageMetricsItemLabel>12:30 PM</MessageMetricsItemLabel>
+            </MessageMetricsItem>
+            <MessageMetricsFollowing name='bell' />
           </MessageMetrics>
-        </Message.Block>
-      </Message.Container>
-      <MessageToolbar.Wrapper>
+        </MessageBlock>
+      </MessageContainer>
+      <MessageToolbarWrapper>
         <MessageToolbar>
-          <MessageToolbar.Item icon='quote' />
-          <MessageToolbar.Item icon='clock' />
-          <MessageToolbar.Item icon='thread' />
+          <MessageToolbarItem icon='quote' />
+          <MessageToolbarItem icon='clock' />
+          <MessageToolbarItem icon='thread' />
         </MessageToolbar>
-      </MessageToolbar.Wrapper>
+      </MessageToolbarWrapper>
     </Message>
   </Box>
 );
@@ -788,23 +823,23 @@ export const MessageWithHeadings: StoryFn<typeof Message> = () => (
   <Box>
     <MessageDivider>May, 24, 2020</MessageDivider>
     <Message className='customclass' clickable>
-      <Message.LeftContainer>
+      <MessageLeftContainer>
         <Avatar url={avatarUrl} size={'x36'} />
-      </Message.LeftContainer>
-      <Message.Container>
-        <Message.Header>
-          <Message.NameContainer>
-            <Message.Name>Haylie George</Message.Name>{' '}
-            <Message.Username>@haylie.george</Message.Username>
-          </Message.NameContainer>
-          <Message.Roles>
-            <Message.Role>Admin</Message.Role>
-            <Message.Role>User</Message.Role>
-            <Message.Role>Owner</Message.Role>
-          </Message.Roles>
-          <Message.Timestamp>12:00 PM</Message.Timestamp>
-        </Message.Header>
-        <Message.Body>
+      </MessageLeftContainer>
+      <MessageContainer>
+        <MessageHeader>
+          <MessageNameContainer>
+            <MessageName>Haylie George</MessageName>{' '}
+            <MessageUsername>@haylie.george</MessageUsername>
+          </MessageNameContainer>
+          <MessageRoles>
+            <MessageRole>Admin</MessageRole>
+            <MessageRole>User</MessageRole>
+            <MessageRole>Owner</MessageRole>
+          </MessageRoles>
+          <MessageTimestamp>12:00 PM</MessageTimestamp>
+        </MessageHeader>
+        <MessageBody>
           <h1 style={{ marginTop: 0 }}>Heading 1</h1>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
@@ -819,15 +854,15 @@ export const MessageWithHeadings: StoryFn<typeof Message> = () => (
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           <h4>Heading 4</h4>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-        </Message.Body>
-      </Message.Container>
-      <MessageToolbar.Wrapper>
+        </MessageBody>
+      </MessageContainer>
+      <MessageToolbarWrapper>
         <MessageToolbar>
-          <MessageToolbar.Item icon='quote' />
-          <MessageToolbar.Item icon='clock' />
-          <MessageToolbar.Item icon='thread' />
+          <MessageToolbarItem icon='quote' />
+          <MessageToolbarItem icon='clock' />
+          <MessageToolbarItem icon='thread' />
         </MessageToolbar>
-      </MessageToolbar.Wrapper>
+      </MessageToolbarWrapper>
     </Message>
   </Box>
 );
@@ -836,48 +871,44 @@ export const LotsOfReactions: StoryFn<typeof Message> = () => (
   <Box>
     <MessageDivider>May, 24, 2020</MessageDivider>
     <Message className='customclass' clickable>
-      <Message.LeftContainer>
+      <MessageLeftContainer>
         <Avatar url={avatarUrl} size={'x36'} />
-      </Message.LeftContainer>
-      <Message.Container>
-        <Message.Header>
-          <Message.NameContainer>
-            <Message.Name>Haylie George</Message.Name>{' '}
-            <Message.Username>@haylie.george</Message.Username>
-          </Message.NameContainer>
-          <Message.Roles>
-            <Message.Role>Admin</Message.Role>
-            <Message.Role>User</Message.Role>
-            <Message.Role>Owner</Message.Role>
-          </Message.Roles>
-          <Message.Timestamp>12:00 PM</Message.Timestamp>
-        </Message.Header>
-        <Message.Body>
+      </MessageLeftContainer>
+      <MessageContainer>
+        <MessageHeader>
+          <MessageNameContainer>
+            <MessageName>Haylie George</MessageName>{' '}
+            <MessageUsername>@haylie.george</MessageUsername>
+          </MessageNameContainer>
+          <MessageRoles>
+            <MessageRole>Admin</MessageRole>
+            <MessageRole>User</MessageRole>
+            <MessageRole>Owner</MessageRole>
+          </MessageRoles>
+          <MessageTimestamp>12:00 PM</MessageTimestamp>
+        </MessageHeader>
+        <MessageBody>
           Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
           nisi ut aliquip ex ea commodo consequat a duis aute irure dolor in
           reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
           pariatur. Consectetur adipiscing elit, sed do eiusmod tempor
           incididunt ut labore et dolore magna aliqua. Ut enim ad minim
           veniam...
-        </Message.Body>
+        </MessageBody>
         <MessageReactions>
           {Array.from({ length: 100 }).map((_, index) => (
-            <MessageReactions.Reaction
-              key={index}
-              counter={index}
-              mine={!(index % 3)}
-            />
+            <MessageReaction key={index} counter={index} mine={!(index % 3)} />
           ))}
-          <MessageReactions.Action />
+          <MessageReactionAction />
         </MessageReactions>
-      </Message.Container>
-      <MessageToolbar.Wrapper>
+      </MessageContainer>
+      <MessageToolbarWrapper>
         <MessageToolbar>
-          <MessageToolbar.Item icon='quote' />
-          <MessageToolbar.Item icon='clock' />
-          <MessageToolbar.Item icon='thread' />
+          <MessageToolbarItem icon='quote' />
+          <MessageToolbarItem icon='clock' />
+          <MessageToolbarItem icon='thread' />
         </MessageToolbar>
-      </MessageToolbar.Wrapper>
+      </MessageToolbarWrapper>
     </Message>
   </Box>
 );
@@ -886,22 +917,22 @@ export const BlockAfterHeader: StoryFn<typeof Message> = () => (
   <Box>
     <MessageDivider>May, 24, 2020</MessageDivider>
     <Message className='customclass' clickable>
-      <Message.LeftContainer>
+      <MessageLeftContainer>
         <Avatar url={avatarUrl} size={'x36'} />
-      </Message.LeftContainer>
-      <Message.Container>
-        <Message.Header>
-          <Message.NameContainer>
-            <Message.Name>Haylie George</Message.Name>{' '}
-            <Message.Username>@haylie.george</Message.Username>
-          </Message.NameContainer>
-          <Message.Roles>
-            <Message.Role>Admin</Message.Role>
-            <Message.Role>User</Message.Role>
-            <Message.Role>Owner</Message.Role>
-          </Message.Roles>
-          <Message.Timestamp>12:00 PM</Message.Timestamp>
-        </Message.Header>
+      </MessageLeftContainer>
+      <MessageContainer>
+        <MessageHeader>
+          <MessageNameContainer>
+            <MessageName>Haylie George</MessageName>{' '}
+            <MessageUsername>@haylie.george</MessageUsername>
+          </MessageNameContainer>
+          <MessageRoles>
+            <MessageRole>Admin</MessageRole>
+            <MessageRole>User</MessageRole>
+            <MessageRole>Owner</MessageRole>
+          </MessageRoles>
+          <MessageTimestamp>12:00 PM</MessageTimestamp>
+        </MessageHeader>
         <MessageBlock>
           <Box
             width='full'
@@ -912,14 +943,14 @@ export const BlockAfterHeader: StoryFn<typeof Message> = () => (
             borderRadius='4px'
           />
         </MessageBlock>
-      </Message.Container>
-      <MessageToolbar.Wrapper>
+      </MessageContainer>
+      <MessageToolbarWrapper>
         <MessageToolbar>
-          <MessageToolbar.Item icon='quote' />
-          <MessageToolbar.Item icon='clock' />
-          <MessageToolbar.Item icon='thread' />
+          <MessageToolbarItem icon='quote' />
+          <MessageToolbarItem icon='clock' />
+          <MessageToolbarItem icon='thread' />
         </MessageToolbar>
-      </MessageToolbar.Wrapper>
+      </MessageToolbarWrapper>
     </Message>
   </Box>
 );
