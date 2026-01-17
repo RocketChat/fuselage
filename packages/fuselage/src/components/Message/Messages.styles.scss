@@ -208,6 +208,10 @@ $message-highlight-colors-background-other-color: theme(
     &__role {
       @extend %rcx-margins-header;
     }
+
+    & + .rcx-message-block {
+      margin-block-start: lengths.margin(4);
+    }
   }
 
   &-body {
