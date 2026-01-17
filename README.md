@@ -12,6 +12,7 @@
 
 | Package | Description | Version | Dependencies |
 |---------|-------------|---------|--------------|
+| 📦 [`@rocket.chat/fuselage-core`](/packages/core) |  | [![npm](https://img.shields.io/npm/v/@rocket.chat/fuselage-core?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/fuselage-core) | ![deps](https://img.shields.io/librariesio/release/npm/@rocket.chat/fuselage-core?style=flat-square) |
 | 📦 [`@rocket.chat/css-in-js`](/packages/css-in-js) | Toolset to transpile and use CSS on runtime | [![npm](https://img.shields.io/npm/v/@rocket.chat/css-in-js?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/css-in-js) | ![deps](https://img.shields.io/librariesio/release/npm/@rocket.chat/css-in-js?style=flat-square) |
 | 📦 [`@rocket.chat/css-supports`](/packages/css-supports) | Memoized and SSR-compatible facade of CSS.supports API | [![npm](https://img.shields.io/npm/v/@rocket.chat/css-supports?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/css-supports) | ![deps](https://img.shields.io/librariesio/release/npm/@rocket.chat/css-supports?style=flat-square) |
 | 📦 [`@rocket.chat/emitter`](/packages/emitter) | Event Emitter by Rocket.Chat | [![npm](https://img.shields.io/npm/v/@rocket.chat/emitter?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/emitter) | ![deps](https://img.shields.io/librariesio/release/npm/@rocket.chat/emitter?style=flat-square) |

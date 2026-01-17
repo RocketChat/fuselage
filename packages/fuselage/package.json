@@ -39,6 +39,7 @@
   "dependencies": {
     "@rocket.chat/css-in-js": "workspace:~",
     "@rocket.chat/css-supports": "workspace:~",
+    "@rocket.chat/fuselage-core": "workspace:~",
     "@rocket.chat/fuselage-tokens": "workspace:~",
     "@rocket.chat/memo": "workspace:~",
     "@rocket.chat/styled": "workspace:~",
@@ -103,6 +104,7 @@
     "stylelint-order": "~7.0.0",
     "stylelint-prettier": "~5.0.3",
     "stylelint-scss": "~6.12.1",
+    "tamagui-loader": "1.142.0",
     "testing-utils": "workspace:~",
     "ts-jest": "~29.4.5",
     "ts-loader": "~9.5.4",

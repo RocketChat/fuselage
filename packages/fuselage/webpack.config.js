@@ -1,6 +1,7 @@
 import { resolve } from 'node:path';
 
 import autoprefixer from 'autoprefixer';
+import { TamaguiPlugin } from 'tamagui-loader';
 import cssnanoPlugin from 'cssnano';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import postcssDirPseudoClass from 'postcss-dir-pseudo-class';
@@ -82,6 +83,20 @@ export default (env, { mode = 'production' }) =>
       ),
     ],
     plugins: [
+      new webpack.DefinePlugin({
+        process: {
+          env: {
+            DEV: process.env.NODE_ENV === 'development' ? 'true' : 'false',
+            NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+            TAMAGUI_POSITION_STATIC: JSON.stringify('1'),
+            TAMAGUI_TARGET: JSON.stringify('web'),          },
+        },
+      }),
+      new TamaguiPlugin({
+        config: './tamagui.config.ts',
+        components: ['tamagui', '@rocket.chat/fuselage-core'],
+        // disable: true,
+      }),
       new MiniCssExtractPlugin(),
       mode !== 'production' &&
         new WrapperPlugin({
