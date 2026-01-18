@@ -5,7 +5,11 @@ import { Box } from '../../Box';
 import Message from '../Message';
 import { MessageDivider } from '../MessageDivider';
 import MessageReactions from '../MessageReactions';
-import { MessageToolbar } from '../MessageToolbar';
+import {
+  MessageToolbar,
+  MessageToolbarItem,
+  MessageToolbarWrapper,
+} from '../MessageToolbar';
 
 import MessageStatusIndicator from './MessageStatusIndicator';
 import MessageStatusIndicatorItem from './MessageStatusIndicatorItem';
@@ -72,13 +76,13 @@ export const Default: StoryFn = () => (
           <MessageReactions.Action />
         </MessageReactions>
       </Message.Container>
-      <MessageToolbar.Wrapper>
+      <MessageToolbarWrapper>
         <MessageToolbar>
-          <MessageToolbar.Item icon='quote' />
-          <MessageToolbar.Item icon='clock' />
-          <MessageToolbar.Item icon='thread' />
+          <MessageToolbarItem icon='quote' />
+          <MessageToolbarItem icon='clock' />
+          <MessageToolbarItem icon='thread' />
         </MessageToolbar>
-      </MessageToolbar.Wrapper>
+      </MessageToolbarWrapper>
     </Message>
     <Message className='customclass' clickable sequential>
       <Message.LeftContainer>
@@ -98,13 +102,13 @@ export const Default: StoryFn = () => (
           Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
         </Message.Body>
       </Message.Container>
-      <MessageToolbar.Wrapper>
+      <MessageToolbarWrapper>
         <MessageToolbar>
-          <MessageToolbar.Item icon='quote' />
-          <MessageToolbar.Item icon='clock' />
-          <MessageToolbar.Item icon='thread' />
+          <MessageToolbarItem icon='quote' />
+          <MessageToolbarItem icon='clock' />
+          <MessageToolbarItem icon='thread' />
         </MessageToolbar>
-      </MessageToolbar.Wrapper>
+      </MessageToolbarWrapper>
     </Message>
     <Message className='customclass' clickable sequential>
       <Message.LeftContainer>
@@ -119,13 +123,13 @@ export const Default: StoryFn = () => (
           Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
         </Message.Body>
       </Message.Container>
-      <MessageToolbar.Wrapper>
+      <MessageToolbarWrapper>
         <MessageToolbar>
-          <MessageToolbar.Item icon='quote' />
-          <MessageToolbar.Item icon='clock' />
-          <MessageToolbar.Item icon='thread' />
+          <MessageToolbarItem icon='quote' />
+          <MessageToolbarItem icon='clock' />
+          <MessageToolbarItem icon='thread' />
         </MessageToolbar>
-      </MessageToolbar.Wrapper>
+      </MessageToolbarWrapper>
     </Message>
   </Box>
 );
