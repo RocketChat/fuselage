@@ -6,16 +6,7 @@ import MessageReactions, {
   type MessageReactionsProps,
 } from './MessageReactions';
 
-export default Object.assign(MessageReactions, {
-  /**
-   * @deprecated prefer using named imports
-   * */
-  Reaction: MessageReaction,
-  /**
-   * @deprecated prefer using named imports
-   * */
-  Action: MessageReactionAction,
-});
+export default MessageReactions;
 
 export {
   MessageReaction,

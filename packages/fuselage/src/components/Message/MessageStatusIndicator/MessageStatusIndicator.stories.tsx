@@ -4,7 +4,10 @@ import { Avatar } from '../../Avatar';
 import { Box } from '../../Box';
 import Message from '../Message';
 import { MessageDivider } from '../MessageDivider';
-import MessageReactions from '../MessageReactions';
+import MessageReactions, {
+  MessageReaction,
+  MessageReactionAction,
+} from '../MessageReactions';
 import {
   MessageToolbar,
   MessageToolbarItem,
@@ -70,10 +73,10 @@ export const Default: StoryFn = () => (
           veniam...
         </Message.Body>
         <MessageReactions>
-          <MessageReactions.Reaction counter={1} />
-          <MessageReactions.Reaction counter={2} />
-          <MessageReactions.Reaction counter={3} />
-          <MessageReactions.Action />
+          <MessageReaction counter={1} />
+          <MessageReaction counter={2} />
+          <MessageReaction counter={3} />
+          <MessageReactionAction />
         </MessageReactions>
       </Message.Container>
       <MessageToolbarWrapper>
