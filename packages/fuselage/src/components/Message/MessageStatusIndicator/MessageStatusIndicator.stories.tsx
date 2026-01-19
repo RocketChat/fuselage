@@ -3,16 +3,25 @@ import type { Meta, StoryFn } from '@storybook/react-webpack5';
 import { Avatar } from '../../Avatar';
 import { Box } from '../../Box';
 import Message from '../Message';
+import MessageBody from '../MessageBody';
+import MessageContainer from '../MessageContainer';
 import { MessageDivider } from '../MessageDivider';
+import MessageHeader from '../MessageHeader';
+import MessageLeftContainer from '../MessageLeftContainer';
+import MessageName from '../MessageName';
+import MessageNameContainer from '../MessageNameContainer';
 import MessageReactions, {
   MessageReaction,
   MessageReactionAction,
 } from '../MessageReactions';
+import MessageRole from '../MessageRole';
+import MessageTimestamp from '../MessageTimestamp';
 import {
   MessageToolbar,
   MessageToolbarItem,
   MessageToolbarWrapper,
 } from '../MessageToolbar';
+import MessageUsername from '../MessageUsername';
 
 import MessageStatusIndicator from './MessageStatusIndicator';
 import MessageStatusIndicatorItem from './MessageStatusIndicatorItem';
@@ -27,7 +36,7 @@ export const Default: StoryFn = () => (
   <Box>
     <MessageDivider>May, 24, 2020</MessageDivider>
     <Message clickable>
-      <Message.LeftContainer>
+      <MessageLeftContainer>
         <Avatar
           url='data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC
                 4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMj
@@ -42,17 +51,17 @@ export const Default: StoryFn = () => (
                 UH2oorkV10pRc7b1zXb/hZOzuJvM86QWEXeELxOzHSIPcmiiiunVlF2RNTpRkrs//Z'
           size={'x36'}
         />
-      </Message.LeftContainer>
-      <Message.Container>
-        <Message.Header>
-          <Message.NameContainer>
-            <Message.Name>Haylie George</Message.Name>{' '}
-            <Message.Username>@haylie.george</Message.Username>
-          </Message.NameContainer>
-          <Message.Role>Admin</Message.Role>
-          <Message.Role>User</Message.Role>
-          <Message.Role>Owner</Message.Role>
-          <Message.Timestamp>12:00 PM</Message.Timestamp>
+      </MessageLeftContainer>
+      <MessageContainer>
+        <MessageHeader>
+          <MessageNameContainer>
+            <MessageName>Haylie George</MessageName>{' '}
+            <MessageUsername>@haylie.george</MessageUsername>
+          </MessageNameContainer>
+          <MessageRole>Admin</MessageRole>
+          <MessageRole>User</MessageRole>
+          <MessageRole>Owner</MessageRole>
+          <MessageTimestamp>12:00 PM</MessageTimestamp>
           <MessageStatusIndicator>
             <MessageStatusIndicatorItem name='star' variant='success' />
             <MessageStatusIndicatorItem name='star' variant='danger' />
@@ -63,22 +72,22 @@ export const Default: StoryFn = () => (
               data-title={'starred'}
             />
           </MessageStatusIndicator>
-        </Message.Header>
-        <Message.Body>
+        </MessageHeader>
+        <MessageBody>
           Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
           nisi ut aliquip ex ea commodo consequat a duis aute irure dolor in
           reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
           pariatur. Consectetur adipiscing elit, sed do eiusmod tempor
           incididunt ut labore et dolore magna aliqua. Ut enim ad minim
           veniam...
-        </Message.Body>
+        </MessageBody>
         <MessageReactions>
           <MessageReaction counter={1} />
           <MessageReaction counter={2} />
           <MessageReaction counter={3} />
           <MessageReactionAction />
         </MessageReactions>
-      </Message.Container>
+      </MessageContainer>
       <MessageToolbarWrapper>
         <MessageToolbar>
           <MessageToolbarItem icon='quote' />
@@ -88,7 +97,7 @@ export const Default: StoryFn = () => (
       </MessageToolbarWrapper>
     </Message>
     <Message className='customclass' clickable sequential>
-      <Message.LeftContainer>
+      <MessageLeftContainer>
         <MessageStatusIndicator>
           <MessageStatusIndicatorItem name='star-filled' />
           <MessageStatusIndicatorItem name='star-filled' />
@@ -99,12 +108,12 @@ export const Default: StoryFn = () => (
             data-title={'starred'}
           />
         </MessageStatusIndicator>
-      </Message.LeftContainer>
-      <Message.Container>
-        <Message.Body>
+      </MessageLeftContainer>
+      <MessageContainer>
+        <MessageBody>
           Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
-        </Message.Body>
-      </Message.Container>
+        </MessageBody>
+      </MessageContainer>
       <MessageToolbarWrapper>
         <MessageToolbar>
           <MessageToolbarItem icon='quote' />
@@ -114,18 +123,18 @@ export const Default: StoryFn = () => (
       </MessageToolbarWrapper>
     </Message>
     <Message className='customclass' clickable sequential>
-      <Message.LeftContainer>
+      <MessageLeftContainer>
         <MessageStatusIndicator>
           <MessageStatusIndicatorText>
             <MessageStatusIndicatorItem name='star-filled' /> Status
           </MessageStatusIndicatorText>
         </MessageStatusIndicator>
-      </Message.LeftContainer>
-      <Message.Container>
-        <Message.Body>
+      </MessageLeftContainer>
+      <MessageContainer>
+        <MessageBody>
           Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
-        </Message.Body>
-      </Message.Container>
+        </MessageBody>
+      </MessageContainer>
       <MessageToolbarWrapper>
         <MessageToolbar>
           <MessageToolbarItem icon='quote' />
