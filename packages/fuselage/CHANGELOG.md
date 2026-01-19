@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.70.1
+
+### Patch Changes
+
+- [#1832](https://github.com/RocketChat/fuselage/pull/1832) [`957a55c`](https://github.com/RocketChat/fuselage/commit/957a55cd6b31452a7f788c0d4af51bdccffcf89c) Thanks [@gabriellsh](https://github.com/gabriellsh)! - chore(fuselage): Increase `MessageBlock` margins when placed directly bellow `MessageHeader`
+
 ## 0.70.0
 
 ### Minor Changes
