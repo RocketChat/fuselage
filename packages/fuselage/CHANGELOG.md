@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.70.2
+
+### Patch Changes
+
+- [#1839](https://github.com/RocketChat/fuselage/pull/1839) [`1904f3c`](https://github.com/RocketChat/fuselage/commit/1904f3cf71c40b8d80be9cd447bb645eec87d347) Thanks [@gabriellsh](https://github.com/gabriellsh)! - fix(fuselage): MessageReactions subcomponents export missing
+
 ## 0.70.1
 
 ### Patch Changes
