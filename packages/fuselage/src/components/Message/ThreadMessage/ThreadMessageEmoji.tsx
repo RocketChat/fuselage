@@ -1,5 +1,5 @@
 import type { MessageEmojiBaseProps } from '../MessageEmojiBase';
-import { MessageEmojiBase } from '../MessageEmojiBase';
+import MessageEmojiBase from '../MessageEmojiBase';
 
 export type ThreadMessageEmojiProps = MessageEmojiBaseProps;
 

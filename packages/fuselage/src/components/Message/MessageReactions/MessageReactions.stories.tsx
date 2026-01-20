@@ -2,8 +2,8 @@ import type { Meta } from '@storybook/react-webpack5';
 
 import { BasicMessageTemplate } from '../helpers';
 
-import { MessageReaction } from './MessageReaction';
-import { MessageReactionAction } from './MessageReactionAction';
+import MessageReaction from './MessageReaction';
+import MessageReactionAction from './MessageReactionAction';
 import MessageReactions from './MessageReactions';
 
 export default {
