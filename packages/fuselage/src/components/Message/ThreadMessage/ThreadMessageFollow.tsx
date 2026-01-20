@@ -1,4 +1,4 @@
-import { ThreadMessageIcon } from './ThreadMessageIcon';
+import ThreadMessageIcon from './ThreadMessageIcon';
 
 const ThreadMessageFollow = () => (
   <ThreadMessageIcon
