@@ -12,6 +12,8 @@ const MessageReactions = forwardRef<HTMLDivElement, MessageReactionsProps>(
         <div
           ref={ref}
           className='rcx-message-reactions__container'
+          role='group'
+          aria-label='Message reactions'
           {...props}
         />
       </MessageBlock>

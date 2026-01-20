@@ -28,6 +28,7 @@ export type MessageProps = AllHTMLAttributes<HTMLDivElement> & {
   isEditing?: boolean;
   isPending?: boolean;
   highlight?: boolean;
+  'aria-label'?: string;
 };
 
 const Message = Object.assign(
@@ -40,6 +41,7 @@ const Message = Object.assign(
       isEditing,
       isPending,
       highlight,
+      'aria-label': ariaLabel,
       ...props
     },
     ref,
@@ -47,6 +49,11 @@ const Message = Object.assign(
     return (
       <div
         ref={ref}
+        role="article"
+        aria-label={ariaLabel || 'Message'}
+        aria-busy={isPending}
+        aria-selected={isSelected}
+        tabIndex={clickable || props.onClick ? 0 : undefined}
         className={prependClassName(
           className,
           [

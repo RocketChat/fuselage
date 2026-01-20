@@ -8,6 +8,8 @@ export type MessageBodyProps = HTMLAttributes<HTMLDivElement> & {
 
 const MessageBody = ({ clamp, className, ...props }: MessageBodyProps) => (
   <div
+    role="region"
+    aria-label="Message content"
     className={
       prependClassName(
         className,
