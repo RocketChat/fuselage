@@ -1,5 +1,0 @@
-/dist
-/storybook-static
-/**/*.mdx
-/bundle-report-dev.html
-/bundle-report.html
