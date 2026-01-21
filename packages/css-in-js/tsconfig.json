@@ -6,5 +6,9 @@
     "outDir": "./dist"
   },
   "include": ["src"],
-  "exclude": ["dist", "node_modules"]
+  "exclude": ["dist", "node_modules"],
+  "typedocOptions": {
+    "entryPoints": ["src/index.ts"],
+    "out": "../../static/css-in-js"
+  }
 }

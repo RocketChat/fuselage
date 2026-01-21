@@ -5,5 +5,9 @@
     "outDir": "./dist"
   },
   "include": ["src", "./jest.config.ts"],
-  "exclude": ["dist", "node_modules"]
+  "exclude": ["dist", "node_modules"],
+  "typedocOptions": {
+    "entryPoints": ["src/index.ts"],
+    "out": "../../static/fuselage-hooks"
+  }
 }

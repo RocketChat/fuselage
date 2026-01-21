@@ -6,5 +6,9 @@
     "skipLibCheck": true
   },
   "include": ["./src", "./.jest/**/*", "./.storybook/**/*"],
-  "exclude": ["./dist"]
+  "exclude": ["./dist"],
+  "typedocOptions": {
+    "entryPoints": ["src/index.ts"],
+    "out": "../../static/onboarding-ui"
+  }
 }

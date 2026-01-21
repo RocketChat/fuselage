@@ -3,5 +3,9 @@
   "compilerOptions": {
     "rootDir": "./src",
     "outDir": "./dist/esm"
+  },
+  "typedocOptions": {
+    "entryPoints": ["src/index.ts"],
+    "out": "../../static/logo"
   }
 }
