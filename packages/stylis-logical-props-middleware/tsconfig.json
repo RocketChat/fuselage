@@ -6,5 +6,7 @@
   "typedocOptions": {
     "entryPoints": ["src/index.ts"],
     "out": "../../static/stylis-logical-props-middleware"
-  }
+  },
+  "exclude": ["./dist", "./jest.config.ts"],
+  "include": ["src/**/*"]
 }

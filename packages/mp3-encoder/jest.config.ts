@@ -1,6 +1,7 @@
-module.exports = {
+import type { Config } from 'jest';
+
+export default {
   preset: 'ts-jest',
-  errorOnDeprecated: true,
   testMatch: ['<rootDir>/src/**/*.spec.ts'],
   testEnvironment: 'jsdom',
-};
+} satisfies Config;

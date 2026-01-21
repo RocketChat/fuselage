@@ -2,5 +2,5 @@ import type { Config } from 'jest';
 
 export default {
   preset: 'ts-jest',
-  testMatch: ['<rootDir>/src/**/*.spec.ts'],
+  testMatch: ['**/src/**/*.spec.[jt]s?(x)'],
 } satisfies Config;

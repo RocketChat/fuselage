@@ -2,7 +2,6 @@ import type { Config } from 'jest';
 
 export default {
   preset: 'ts-jest',
-  errorOnDeprecated: true,
   testMatch: ['<rootDir>/src/**/*.spec.[jt]s?(x)'],
   testEnvironment: 'jsdom',
   setupFilesAfterEnv: [

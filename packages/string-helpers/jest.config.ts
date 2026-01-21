@@ -1,5 +1,6 @@
+import type { Config } from 'jest';
+
 export default {
-  errorOnDeprecated: true,
   preset: 'ts-jest',
   testMatch: ['<rootDir>/src/**/*.spec.[jt]s?(x)'],
-};
+} satisfies Config;
