@@ -3,6 +3,7 @@
   "compilerOptions": {
     "outDir": "./dist/esm"
   },
+  "exclude": ["**/*.spec.ts", "jest.config.*"],
   "typedocOptions": {
     "entryPoints": ["src/index.ts"],
     "out": "../../static/styled"
