@@ -41,7 +41,7 @@ export default {
 } satisfies Meta<typeof Menu>;
 
 export const Simple: StoryFn<typeof Menu> = (args) => (
-  <Menu {...args} placement='right-start'>
+  <Menu placement='right-start' title='Simple Menu' {...args}>
     <MenuItem key='1'>Profile</MenuItem>
     <MenuItem key='2'>Chats</MenuItem>
     <MenuItem key='3'>Settings</MenuItem>
@@ -49,16 +49,16 @@ export const Simple: StoryFn<typeof Menu> = (args) => (
 );
 
 export const Complex: StoryFn<typeof Menu> = (args) => (
-  <Menu {...args}>
-    <MenuItem key='profile'>
+  <Menu title='Complex Menu' {...args}>
+    <MenuItem key='profile' textValue='Profile'>
       <MenuItemIcon name='user' />
       <MenuItemContent>Profile</MenuItemContent>
     </MenuItem>
-    <MenuItem key='chats'>
+    <MenuItem key='chats' textValue='Chats'>
       <MenuItemIcon name='chat' />
       <MenuItemContent>Chats</MenuItemContent>
     </MenuItem>
-    <MenuItem key='settings'>
+    <MenuItem key='settings' textValue='Settings'>
       <MenuItemIcon name='cog' color='font-info' />
       <MenuItemContent>Settings</MenuItemContent>
     </MenuItem>
@@ -74,7 +74,7 @@ Complex.parameters = {
 };
 
 export const WithSections: StoryFn<typeof Menu> = (args) => (
-  <Menu {...args}>
+  <Menu title='Menu with Sections' {...args}>
     <MenuSection title='Styles'>
       <MenuItem key='bold'>Bold</MenuItem>
       <MenuItem key='underline'>Underline</MenuItem>
@@ -106,7 +106,12 @@ export const MenuDisplayExample = (
   const [groupByTypes, setGroupByTypes] = useState(false);
 
   return (
-    <Menu selectionMode='multiple' placement='top-start' {...args}>
+    <Menu
+      selectionMode='multiple'
+      placement='top-start'
+      title='Menu Display Example'
+      {...args}
+    >
       <MenuSection title='Display'>
         <MenuItem key='extended'>
           <MenuItemIcon name='extended-view' />
@@ -292,7 +297,7 @@ export const MenuMapGenericItem = () => {
   ];
 
   return (
-    <Menu selectionMode='multiple'>
+    <Menu selectionMode='multiple' title='Menu with mapped items'>
       <MenuSection title='Sort by' items={sortByItems}>
         {(item) => (
           <MenuItem key={item.name}>
@@ -345,7 +350,7 @@ export const ControlledOpenState = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <Menu isOpen={isOpen} onOpenChange={setIsOpen}>
+    <Menu isOpen={isOpen} onOpenChange={setIsOpen} title='Controlled Menu'>
       <MenuItem key='1'>Profile</MenuItem>
       <MenuItem key='2'>Chats</MenuItem>
       <MenuItem key='3'>Settings</MenuItem>
@@ -354,7 +359,7 @@ export const ControlledOpenState = () => {
 };
 
 export const ItemVariants = () => (
-  <Menu>
+  <Menu title='Item Variants'>
     <MenuSection
       items={[
         {
@@ -393,27 +398,27 @@ export const ItemVariants = () => (
 
 export const Sizes = () => (
   <ButtonGroup>
-    <Menu large>
+    <Menu large title='Large Menu'>
       <MenuItem key='1'>Profile</MenuItem>
       <MenuItem key='2'>Chats</MenuItem>
       <MenuItem key='3'>Settings</MenuItem>
     </Menu>
-    <Menu medium>
+    <Menu medium title='Medium Menu'>
       <MenuItem key='1'>Profile</MenuItem>
       <MenuItem key='2'>Chats</MenuItem>
       <MenuItem key='3'>Settings</MenuItem>
     </Menu>
-    <Menu small>
+    <Menu small title='Small Menu'>
       <MenuItem key='1'>Profile</MenuItem>
       <MenuItem key='2'>Chats</MenuItem>
       <MenuItem key='3'>Settings</MenuItem>
     </Menu>
-    <Menu tiny>
+    <Menu tiny title='Tiny Menu'>
       <MenuItem key='1'>Profile</MenuItem>
       <MenuItem key='2'>Chats</MenuItem>
       <MenuItem key='3'>Settings</MenuItem>
     </Menu>
-    <Menu mini>
+    <Menu mini title='Mini Menu'>
       <MenuItem key='1'>Profile</MenuItem>
       <MenuItem key='2'>Chats</MenuItem>
       <MenuItem key='3'>Settings</MenuItem>
@@ -447,5 +452,5 @@ export const Scrollable = () => {
   const items = Array.from({ length: 30 }, (_, i) => (
     <MenuItem key={i}>Item {i + 1}</MenuItem>
   ));
-  return <Menu>{items}</Menu>;
+  return <Menu title='Scrollable Menu'>{items}</Menu>;
 };
