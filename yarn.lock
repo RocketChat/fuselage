@@ -5768,6 +5768,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@rocket.chat/memo@workspace:packages/memo"
   dependencies:
+    "@jest/globals": "npm:~30.2.0"
+    "@types/jest": "npm:~30.0.0"
     eslint: "npm:~9.39.2"
     jest: "npm:~30.2.0"
     lint-all: "workspace:~"
