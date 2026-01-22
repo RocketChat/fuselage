@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
-exports[`[Menu V2 Component] renders AsSidebarTopbarActions without crashing 1`] = `
+exports[`[Menu Component] renders AsSidebarTopbarActions without crashing 1`] = `
 <body>
   <div>
     <div
@@ -72,7 +72,7 @@ exports[`[Menu V2 Component] renders AsSidebarTopbarActions without crashing 1`]
 </body>
 `;
 
-exports[`[Menu V2 Component] renders Complex without crashing 1`] = `
+exports[`[Menu Component] renders Complex without crashing 1`] = `
 <body>
   <div>
     <div
@@ -99,7 +99,7 @@ exports[`[Menu V2 Component] renders Complex without crashing 1`] = `
 </body>
 `;
 
-exports[`[Menu V2 Component] renders ControlledOpenState without crashing 1`] = `
+exports[`[Menu Component] renders ControlledOpenState without crashing 1`] = `
 <body>
   <div>
     <div
@@ -126,7 +126,7 @@ exports[`[Menu V2 Component] renders ControlledOpenState without crashing 1`] = 
 </body>
 `;
 
-exports[`[Menu V2 Component] renders ItemVariants without crashing 1`] = `
+exports[`[Menu Component] renders ItemVariants without crashing 1`] = `
 <body>
   <div>
     <div
@@ -153,7 +153,7 @@ exports[`[Menu V2 Component] renders ItemVariants without crashing 1`] = `
 </body>
 `;
 
-exports[`[Menu V2 Component] renders MenuDisplayExample without crashing 1`] = `
+exports[`[Menu Component] renders MenuDisplayExample without crashing 1`] = `
 <body>
   <div>
     <div
@@ -180,7 +180,7 @@ exports[`[Menu V2 Component] renders MenuDisplayExample without crashing 1`] = `
 </body>
 `;
 
-exports[`[Menu V2 Component] renders MenuMapGenericItem without crashing 1`] = `
+exports[`[Menu Component] renders MenuMapGenericItem without crashing 1`] = `
 <body>
   <div>
     <div
@@ -207,7 +207,7 @@ exports[`[Menu V2 Component] renders MenuMapGenericItem without crashing 1`] = `
 </body>
 `;
 
-exports[`[Menu V2 Component] renders Scrollable without crashing 1`] = `
+exports[`[Menu Component] renders Scrollable without crashing 1`] = `
 <body>
   <div>
     <div
@@ -234,7 +234,7 @@ exports[`[Menu V2 Component] renders Scrollable without crashing 1`] = `
 </body>
 `;
 
-exports[`[Menu V2 Component] renders Simple without crashing 1`] = `
+exports[`[Menu Component] renders Simple without crashing 1`] = `
 <body>
   <div>
     <div
@@ -261,7 +261,7 @@ exports[`[Menu V2 Component] renders Simple without crashing 1`] = `
 </body>
 `;
 
-exports[`[Menu V2 Component] renders Sizes without crashing 1`] = `
+exports[`[Menu Component] renders Sizes without crashing 1`] = `
 <body>
   <div>
     <div
@@ -357,7 +357,7 @@ exports[`[Menu V2 Component] renders Sizes without crashing 1`] = `
 </body>
 `;
 
-exports[`[Menu V2 Component] renders WithCustomButton without crashing 1`] = `
+exports[`[Menu Component] renders WithCustomButton without crashing 1`] = `
 <body>
   <div>
     <div
@@ -405,7 +405,7 @@ exports[`[Menu V2 Component] renders WithCustomButton without crashing 1`] = `
 </body>
 `;
 
-exports[`[Menu V2 Component] renders WithSections without crashing 1`] = `
+exports[`[Menu Component] renders WithSections without crashing 1`] = `
 <body>
   <div>
     <div

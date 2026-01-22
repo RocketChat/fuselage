@@ -3,9 +3,9 @@ import type { ReactNode } from 'react';
 import type { AriaPopoverProps } from 'react-aria';
 import type { OverlayTriggerState } from 'react-stately';
 
-import { DropdownDesktop } from '../../Dropdown/DropdownDesktop';
-import { DropdownMobile } from '../../Dropdown/DropdownMobile';
-import { Popover } from '../../Popover';
+import { DropdownDesktop } from '../Dropdown/DropdownDesktop';
+import { DropdownMobile } from '../Dropdown/DropdownMobile';
+import { Popover } from '../Popover';
 
 interface MenuPopoverProps extends Omit<AriaPopoverProps, 'popoverRef'> {
   children: ReactNode;

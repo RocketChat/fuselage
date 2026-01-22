@@ -1,8 +1,8 @@
 import type { Ref, ReactNode, MouseEvent, AllHTMLAttributes } from 'react';
 import { forwardRef, memo } from 'react';
 
-import { prevent } from '../../../helpers/prevent';
-import type { BoxProps } from '../../Box';
+import { prevent } from '../../helpers/prevent';
+import type { BoxProps } from '../Box';
 
 export type MenuOptionProps = {
   is?: BoxProps['is'];
