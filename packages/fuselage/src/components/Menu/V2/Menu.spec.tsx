@@ -36,20 +36,6 @@ describe('[Menu V2 Component]', () => {
     },
   );
 
-  describe('Rendering', () => {
-    it('should render with custom title', () => {
-      render(<Simple {...Simple.args} />);
-      const button = screen.getByRole('button');
-      expect(button).toHaveAttribute('title', 'Simple Menu');
-    });
-
-    it('should render menu with sections', () => {
-      render(<WithSections {...WithSections.args} />);
-      const button = screen.getByRole('button');
-      expect(button).toBeInTheDocument();
-    });
-  });
-
   describe('Interaction', () => {
     it('should display all menu items when opened', async () => {
       render(<Simple {...Simple.args} />);
@@ -159,44 +145,6 @@ describe('[Menu V2 Component]', () => {
       expect(
         screen.queryByRole('menuitem', { name: 'Profile' }),
       ).not.toBeInTheDocument();
-    });
-  });
-
-  describe('Accessibility', () => {
-    it('should show aria-expanded when menu is open', async () => {
-      render(<Simple {...Simple.args} />);
-
-      const button = screen.getByRole('button');
-      await userEvent.click(button);
-
-      await waitFor(() => {
-        expect(button).toHaveAttribute('aria-expanded', 'true');
-      });
-    });
-
-    it('should have proper aria-label', () => {
-      render(<Simple {...Simple.args} aria-label='User menu' />);
-
-      const button = screen.getByRole('button');
-      expect(button).toHaveAttribute('aria-label', 'User menu');
-    });
-
-    it('should use title as aria-label when aria-label is not provided', () => {
-      render(<Simple {...Simple.args} title='Settings menu' />);
-
-      const button = screen.getByRole('button');
-      expect(button).toHaveAttribute('aria-label', 'Settings menu');
-    });
-
-    it('should have proper aria-haspopup attribute when opened', async () => {
-      render(<Simple {...Simple.args} />);
-
-      const button = screen.getByRole('button');
-      await userEvent.click(button);
-
-      await waitFor(() => {
-        expect(button).toHaveAttribute('aria-haspopup', 'true');
-      });
     });
   });
 

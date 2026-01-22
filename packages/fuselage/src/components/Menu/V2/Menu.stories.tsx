@@ -50,15 +50,15 @@ export const Simple: StoryFn<typeof Menu> = (args) => (
 
 export const Complex: StoryFn<typeof Menu> = (args) => (
   <Menu title='Complex Menu' {...args}>
-    <MenuItem key='profile' textValue='Profile'>
+    <MenuItem key='profile' aria-label='Profile'>
       <MenuItemIcon name='user' />
       <MenuItemContent>Profile</MenuItemContent>
     </MenuItem>
-    <MenuItem key='chats' textValue='Chats'>
+    <MenuItem key='chats' aria-label='Chats'>
       <MenuItemIcon name='chat' />
       <MenuItemContent>Chats</MenuItemContent>
     </MenuItem>
-    <MenuItem key='settings' textValue='Settings'>
+    <MenuItem key='settings' aria-label='Settings'>
       <MenuItemIcon name='cog' color='font-info' />
       <MenuItemContent>Settings</MenuItemContent>
     </MenuItem>
