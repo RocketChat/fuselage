@@ -10,4 +10,18 @@ export default {
   moduleNameMapper: {
     '\\.scss$': 'testing-utils/lazySingletonStyleTagModule',
   },
+  transformIgnorePatterns: [
+    'node_modules/(?!@rocket\\.chat/(memo|css-supports))',
+  ],
+  transform: {
+    '^.+\\.(tsx?|m?js)$': [
+      'ts-jest',
+      {
+        tsconfig: {
+          module: 'commonjs',
+          esModuleInterop: true,
+        },
+      },
+    ],
+  },
 } satisfies Config;

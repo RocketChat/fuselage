@@ -1,4 +1,6 @@
-import { memoize, clear } from './memoize';
+import { jest, describe, it, expect } from '@jest/globals';
+
+import { memoize, clear } from './memoize.js';
 
 it('should memoize a function that takes no parameter', () => {
   const fn = jest.fn(() => 'foo');

@@ -7,4 +7,18 @@ export default {
     '<rootDir>/jest-setup.ts',
     'testing-utils/setup/noErrorsLogged',
   ],
+  transformIgnorePatterns: [
+    'node_modules/(?!@rocket\\.chat/(memo|css-supports))',
+  ],
+  transform: {
+    '^.+\\.(tsx?|m?js)$': [
+      'ts-jest',
+      {
+        tsconfig: {
+          module: 'commonjs',
+          esModuleInterop: true,
+        },
+      },
+    ],
+  },
 } satisfies Config;
