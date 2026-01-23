@@ -13,7 +13,7 @@ exports[`[Contextualbar Rendering] renders Default without crashing 1`] = `
           class="rcx-box rcx-box--full rcx-css-1usi2qo"
         >
           <div
-            class="rcx-box rcx-box--full rcx-css-1bdyjik rcx-css-1tmbvtv"
+            class="rcx-box rcx-box--full rcx-css-1bdyjik rcx-css-kvy00o"
           >
             <button
               class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button rcx-css-ue04py"
@@ -162,7 +162,7 @@ exports[`[Contextualbar Rendering] renders Empty without crashing 1`] = `
           class="rcx-box rcx-box--full rcx-css-1usi2qo"
         >
           <div
-            class="rcx-box rcx-box--full rcx-css-1bdyjik rcx-css-1tmbvtv"
+            class="rcx-box rcx-box--full rcx-css-1bdyjik rcx-css-kvy00o"
           >
             <button
               class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button rcx-css-ue04py"
@@ -243,7 +243,7 @@ exports[`[Contextualbar Rendering] renders Skeleton without crashing 1`] = `
           class="rcx-box rcx-box--full rcx-css-1usi2qo"
         >
           <div
-            class="rcx-box rcx-box--full rcx-css-1bdyjik rcx-css-1tmbvtv"
+            class="rcx-box rcx-box--full rcx-css-1bdyjik rcx-css-kvy00o"
           >
             <span
               class="rcx-skeleton rcx-skeleton--text rcx-css-1qcz93u"
