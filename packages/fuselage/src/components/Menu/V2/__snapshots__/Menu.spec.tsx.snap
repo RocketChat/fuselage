@@ -1,0 +1,433 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`[Menu V2 Component] renders AsSidebarTopbarActions without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-css-1g0mbnm"
+    >
+      <div
+        class="rcx-button-group rcx-button-group--align-start"
+        role="group"
+      >
+        <button
+          class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button rcx-button-group__item"
+          title="user"
+          type="button"
+        >
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-user rcx-icon rcx-css-4pvxx3"
+          >
+            
+          </i>
+        </button>
+        <button
+          class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button rcx-button-group__item"
+          title="book"
+          type="button"
+        >
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-book rcx-icon rcx-css-4pvxx3"
+          >
+            
+          </i>
+        </button>
+        <button
+          aria-expanded="false"
+          aria-haspopup="true"
+          aria-label="test"
+          class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button rcx-button-group__item"
+          id="react-aria-:ra:"
+          title="test"
+          type="button"
+        >
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-4pvxx3"
+          >
+            
+          </i>
+        </button>
+        <button
+          aria-expanded="false"
+          aria-haspopup="true"
+          aria-label="sort"
+          class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button rcx-button-group__item"
+          id="react-aria-:rc:"
+          title="sort"
+          type="button"
+        >
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-sort rcx-icon rcx-css-4pvxx3"
+          >
+            
+          </i>
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`[Menu V2 Component] renders Complex without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-css-1g0mbnm"
+    >
+      <button
+        aria-expanded="false"
+        aria-haspopup="true"
+        aria-label="Complex Menu"
+        class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
+        id="react-aria-:r2:"
+        title="Complex Menu"
+        type="button"
+      >
+        <i
+          aria-hidden="true"
+          class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-4pvxx3"
+        >
+          
+        </i>
+      </button>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`[Menu V2 Component] renders ControlledOpenState without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-css-1g0mbnm"
+    >
+      <button
+        aria-expanded="false"
+        aria-haspopup="true"
+        aria-label="Controlled Menu"
+        class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
+        id="react-aria-:re:"
+        title="Controlled Menu"
+        type="button"
+      >
+        <i
+          aria-hidden="true"
+          class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-4pvxx3"
+        >
+          
+        </i>
+      </button>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`[Menu V2 Component] renders ItemVariants without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-css-1g0mbnm"
+    >
+      <button
+        aria-expanded="false"
+        aria-haspopup="true"
+        aria-label="Item Variants"
+        class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
+        id="react-aria-:rg:"
+        title="Item Variants"
+        type="button"
+      >
+        <i
+          aria-hidden="true"
+          class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-4pvxx3"
+        >
+          
+        </i>
+      </button>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`[Menu V2 Component] renders MenuDisplayExample without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-css-1g0mbnm"
+    >
+      <button
+        aria-expanded="false"
+        aria-haspopup="true"
+        aria-label="Menu Display Example"
+        class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
+        id="react-aria-:r6:"
+        title="Menu Display Example"
+        type="button"
+      >
+        <i
+          aria-hidden="true"
+          class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-4pvxx3"
+        >
+          
+        </i>
+      </button>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`[Menu V2 Component] renders MenuMapGenericItem without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-css-1g0mbnm"
+    >
+      <button
+        aria-expanded="false"
+        aria-haspopup="true"
+        aria-label="Menu with mapped items"
+        class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
+        id="react-aria-:r8:"
+        title="Menu with mapped items"
+        type="button"
+      >
+        <i
+          aria-hidden="true"
+          class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-4pvxx3"
+        >
+          
+        </i>
+      </button>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`[Menu V2 Component] renders Scrollable without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-css-1g0mbnm"
+    >
+      <button
+        aria-expanded="false"
+        aria-haspopup="true"
+        aria-label="Scrollable Menu"
+        class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
+        id="react-aria-:r10:"
+        title="Scrollable Menu"
+        type="button"
+      >
+        <i
+          aria-hidden="true"
+          class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-4pvxx3"
+        >
+          
+        </i>
+      </button>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`[Menu V2 Component] renders Simple without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-css-1g0mbnm"
+    >
+      <button
+        aria-expanded="false"
+        aria-haspopup="true"
+        aria-label="Simple Menu"
+        class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
+        id="react-aria-:r0:"
+        title="Simple Menu"
+        type="button"
+      >
+        <i
+          aria-hidden="true"
+          class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-4pvxx3"
+        >
+          
+        </i>
+      </button>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`[Menu V2 Component] renders Sizes without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-css-1g0mbnm"
+    >
+      <div
+        class="rcx-button-group rcx-button-group--align-start"
+        role="group"
+      >
+        <button
+          aria-expanded="false"
+          aria-haspopup="true"
+          aria-label="Large Menu"
+          class="rcx-box rcx-box--full rcx-button--large-square rcx-button--square rcx-button--icon rcx-button rcx-button-group__item"
+          id="react-aria-:ri:"
+          title="Large Menu"
+          type="button"
+        >
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1x2l7ts"
+          >
+            
+          </i>
+        </button>
+        <button
+          aria-expanded="false"
+          aria-haspopup="true"
+          aria-label="Medium Menu"
+          class="rcx-box rcx-box--full rcx-button--medium-square rcx-button--square rcx-button--icon rcx-button rcx-button-group__item"
+          id="react-aria-:rk:"
+          title="Medium Menu"
+          type="button"
+        >
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-f8dsuo"
+          >
+            
+          </i>
+        </button>
+        <button
+          aria-expanded="false"
+          aria-haspopup="true"
+          aria-label="Small Menu"
+          class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button rcx-button-group__item"
+          id="react-aria-:rm:"
+          title="Small Menu"
+          type="button"
+        >
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-4pvxx3"
+          >
+            
+          </i>
+        </button>
+        <button
+          aria-expanded="false"
+          aria-haspopup="true"
+          aria-label="Tiny Menu"
+          class="rcx-box rcx-box--full rcx-button--tiny-square rcx-button--square rcx-button--icon rcx-button rcx-button-group__item"
+          id="react-aria-:ro:"
+          title="Tiny Menu"
+          type="button"
+        >
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1g87xs3"
+          >
+            
+          </i>
+        </button>
+        <button
+          aria-expanded="false"
+          aria-haspopup="true"
+          aria-label="Mini Menu"
+          class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button rcx-button-group__item"
+          id="react-aria-:rq:"
+          title="Mini Menu"
+          type="button"
+        >
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1tg7yd0"
+          >
+            
+          </i>
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`[Menu V2 Component] renders WithCustomButton without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-css-1g0mbnm"
+    >
+      <div
+        class="rcx-button-group rcx-button-group--align-start"
+        role="group"
+      >
+        <button
+          aria-expanded="false"
+          aria-haspopup="true"
+          aria-label="using prop customButton"
+          class="rcx-box rcx-box--full rcx-button--large-square rcx-button--icon-secondary rcx-button--square rcx-button--icon rcx-button rcx-button-group__item"
+          id="react-aria-:rs:"
+          title="using prop customButton"
+          type="button"
+        >
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1x2l7ts"
+          >
+            
+          </i>
+        </button>
+        <button
+          aria-expanded="false"
+          aria-haspopup="true"
+          aria-label="using prop is"
+          class="rcx-box rcx-box--full rcx-button--large-square rcx-button--icon-secondary rcx-button--square rcx-button--icon rcx-button rcx-button-group__item"
+          id="react-aria-:ru:"
+          title="using prop is"
+          type="button"
+        >
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-1x2l7ts"
+          >
+            
+          </i>
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`[Menu V2 Component] renders WithSections without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-css-1g0mbnm"
+    >
+      <button
+        aria-expanded="false"
+        aria-haspopup="true"
+        aria-label="Menu with Sections"
+        class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
+        id="react-aria-:r4:"
+        title="Menu with Sections"
+        type="button"
+      >
+        <i
+          aria-hidden="true"
+          class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-4pvxx3"
+        >
+          
+        </i>
+      </button>
+    </div>
+  </div>
+</body>
+`;
