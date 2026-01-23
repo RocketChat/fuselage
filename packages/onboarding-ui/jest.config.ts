@@ -5,7 +5,7 @@ export default {
   testEnvironment: 'jsdom',
   setupFilesAfterEnv: ['<rootDir>/.jest/setup.ts'],
   transformIgnorePatterns: [
-    'node_modules/(?!@rocket\\.chat/(memo|css-supports))',
+    'node_modules/(?!@rocket\.chat/(memo|css-supports|stylis-logical-props-middleware))',
   ],
   transform: {
     '^.+\\.(tsx?|m?js)$': [
