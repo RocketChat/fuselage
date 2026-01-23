@@ -1,4 +1,6 @@
-import './index';
+import { jest, describe, it, expect, beforeEach } from '@jest/globals';
+
+import './index.js';
 
 declare const self: any;
 
