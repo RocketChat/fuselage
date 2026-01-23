@@ -8,7 +8,7 @@ export default {
     'testing-utils/setup/noErrorsLogged',
   ],
   transformIgnorePatterns: [
-    'node_modules/(?!@rocket\\.chat/(memo|css-supports))',
+    'node_modules/(?!@rocket\.chat/(memo|css-supports|stylis-logical-props-middleware))',
   ],
   transform: {
     '^.+\\.(tsx?|m?js)$': [

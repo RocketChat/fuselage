@@ -1,12 +1,16 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "outDir": "./dist/esm"
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "verbatimModuleSyntax": true
   },
   "typedocOptions": {
     "entryPoints": ["src/index.ts"],
     "out": "../../static/stylis-logical-props-middleware"
   },
-  "exclude": ["./dist", "./jest.config.ts"],
+  "exclude": ["./dist"],
   "include": ["src/**/*"]
 }
