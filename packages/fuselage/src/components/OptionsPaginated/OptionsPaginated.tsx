@@ -92,8 +92,8 @@ export const OptionsPaginated = forwardRef<Element, OptionsPaginatedProps>(
           }}
           key={value}
           value={value}
-          selected={selected || (multiple !== true && undefined)} // FIXME: undefined???
-          focus={cursor === index || undefined} // FIXME: undefined???
+          selected={selected ? true : undefined}
+          focus={cursor === index ? true : undefined}
         />
       );
     };
