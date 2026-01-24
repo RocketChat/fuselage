@@ -6,8 +6,7 @@
   },
   "include": ["./src"],
   "exclude": [
-    "**/*.spec.ts",
-    "**/*.spec.tsx",
+    "**/*.spec.*",
     "**/*.stories.tsx",
     "./jest.config.ts",
     "./jest-setup.ts"
