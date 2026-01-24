@@ -44,7 +44,7 @@
   "devDependencies": {
     "@rocket.chat/fuselage-tokens": "workspace:~",
     "@testing-library/dom": "~10.4.1",
-    "@testing-library/react": "~16.3.1",
+    "@testing-library/react": "~16.3.2",
     "@types/react": "~18.3.27",
     "@types/react-dom": "~18.3.7",
     "build-logo": "workspace:~",
