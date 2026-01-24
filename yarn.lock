@@ -5921,13 +5921,11 @@ __metadata:
   dependencies:
     "@rocket.chat/css-supports": "workspace:~"
     eslint: "npm:~9.39.2"
-    jest: "npm:~30.2.0"
     lint-all: "workspace:~"
     npm-run-all: "npm:^4.1.5"
     prettier: "npm:~3.6.2"
     rimraf: "npm:~6.0.1"
     stylis: "npm:~4.3.6"
-    ts-jest: "npm:~29.4.6"
     typedoc: "npm:~0.28.16"
     typescript: "npm:~5.9.3"
   peerDependencies:
