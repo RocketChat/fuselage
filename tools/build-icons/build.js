@@ -68,7 +68,7 @@ export const buildEsmModule = (icons) =>
     .then(fromIconDescriptorsToCharacters)
     .then((characters) => `export default ${encodeJson(characters)};`)
     .then(runEslint('index.mjs'))
-    .then(writeSource('dist/index.mjs'));
+    .then(writeSource('dist/index.js'));
 
 export const buildFont = (icons) =>
   Promise.resolve(icons)
