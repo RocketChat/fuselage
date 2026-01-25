@@ -1,20 +1,12 @@
 import type { Config } from 'jest';
 
 export default {
-  preset: 'ts-jest',
+  preset: 'ts-jest/presets/default-esm',
   testEnvironment: 'jsdom',
-  transformIgnorePatterns: [
-    'node_modules/(?!@rocket\.chat/(memo|css-supports|stylis-logical-props-middleware))',
-  ],
-  transform: {
-    '^.+\\.(tsx?|m?js)$': [
-      'ts-jest',
-      {
-        tsconfig: {
-          module: 'commonjs',
-          esModuleInterop: true,
-        },
-      },
-    ],
+  moduleNameMapper: {
+    '^(\\.\\.?\\/.*)\\.js$': '$1',
   },
+  transformIgnorePatterns: [
+    'node_modules/(?!@rocket\\.chat/(memo|css-supports|stylis-logical-props-middleware|styled|fuselage-hooks))',
+  ],
 } satisfies Config;
