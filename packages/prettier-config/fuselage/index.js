@@ -1,4 +1,4 @@
-module.exports = /** @type {import('prettier').Options} */ ({
+export default /** @type {import('prettier').Options} */ ({
   semi: true,
   bracketSpacing: true,
   arrowParens: 'always',
