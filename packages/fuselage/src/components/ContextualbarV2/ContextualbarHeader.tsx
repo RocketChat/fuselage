@@ -25,6 +25,9 @@ const ContextualbarHeader = ({
       justifyContent='space-between'
       flexGrow={1}
       height='100%'
+      overflow='hidden'
+      mi={-4}
+      pi={4}
       className={css`
         gap: 8px;
       `}
