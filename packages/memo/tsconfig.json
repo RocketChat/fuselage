@@ -5,7 +5,9 @@
     "outDir": "./dist",
     "module": "nodenext",
     "moduleResolution": "nodenext",
-    "verbatimModuleSyntax": true
+    "verbatimModuleSyntax": true,
+    "types": [],
+    "lib": ["ES2024", "DOM"]
   },
   "include": ["src"],
   "exclude": ["dist", "node_modules"],
