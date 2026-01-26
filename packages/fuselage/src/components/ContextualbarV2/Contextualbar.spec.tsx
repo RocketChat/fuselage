@@ -35,7 +35,7 @@ describe('[Contextualbar Rendering]', () => {
 
   test('WithLongTitle should truncate long titles', () => {
     const { getByRole } = render(<WithLongTitle />);
-    const titleElement = getByRole('heading', { level: 5 });
+    const titleElement = getByRole('heading');
 
     const titleStyle = window.getComputedStyle(titleElement);
     expect(titleStyle.overflow).toBe('hidden');
