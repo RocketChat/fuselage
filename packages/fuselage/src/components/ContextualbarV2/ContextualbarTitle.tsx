@@ -8,7 +8,7 @@ const ContextualbarTitle = (props: ContextualbarTitleProps) => (
   <Box
     flexShrink={1}
     flexGrow={1}
-    role='heading'
+    fontScale='h5'
     withTruncatedText
     is='h5'
     {...props}

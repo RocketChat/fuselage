@@ -28,8 +28,7 @@ exports[`[Contextualbar Rendering] renders Default without crashing 1`] = `
               </i>
             </button>
             <h5
-              class="rcx-box rcx-box--full rcx-css-1v0lbqs"
-              role="heading"
+              class="rcx-box rcx-box--full rcx-css-1spko5i"
             >
               ContextualbarV2 Title
             </h5>
@@ -178,8 +177,7 @@ exports[`[Contextualbar Rendering] renders Empty without crashing 1`] = `
               </i>
             </button>
             <h5
-              class="rcx-box rcx-box--full rcx-css-1v0lbqs"
-              role="heading"
+              class="rcx-box rcx-box--full rcx-css-1spko5i"
             >
               ContextualbarV2 Empty
             </h5>
@@ -308,8 +306,7 @@ exports[`[Contextualbar Rendering] renders WithLongTitle without crashing 1`] = 
               </i>
             </button>
             <h5
-              class="rcx-box rcx-box--full rcx-css-1v0lbqs"
-              role="heading"
+              class="rcx-box rcx-box--full rcx-css-1spko5i"
             >
               ContextualbarV2 Long Title ContextualbarV2 Long Title ContextualbarV2 Long Title ContextualbarV2 Long Title ContextualbarV2 Long Title ContextualbarV2 Long Title ContextualbarV2 Long Title ContextualbarV2 Long Title ContextualbarV2 Long Title
             </h5>
