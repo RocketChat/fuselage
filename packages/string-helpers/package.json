@@ -36,13 +36,6 @@
     "test": "jest --runInBand",
     "docs": "typedoc"
   },
-  "jest": {
-    "errorOnDeprecated": true,
-    "preset": "ts-jest",
-    "testMatch": [
-      "<rootDir>/src/**/*.spec.[jt]s?(x)"
-    ]
-  },
   "devDependencies": {
     "eslint": "~9.39.2",
     "jest": "~30.2.0",

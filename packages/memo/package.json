@@ -35,13 +35,6 @@
     "lint-and-fix": "lint-and-fix",
     "test": "jest --runInBand"
   },
-  "jest": {
-    "errorOnDeprecated": true,
-    "preset": "ts-jest",
-    "testMatch": [
-      "<rootDir>/src/**/*.spec.ts"
-    ]
-  },
   "devDependencies": {
     "eslint": "~9.39.2",
     "jest": "~30.2.0",

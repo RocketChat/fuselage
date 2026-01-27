@@ -6,7 +6,7 @@
     "skipLibCheck": true
   },
   "include": ["./src", "./.jest/**/*", "./.storybook/**/*"],
-  "exclude": ["./dist"],
+  "exclude": ["./dist", "**/*.spec.ts", "jest.config.*"],
   "typedocOptions": {
     "entryPoints": ["src/index.ts"],
     "out": "../../static/onboarding-ui"
