@@ -6,5 +6,7 @@
   "typedocOptions": {
     "entryPoints": ["src/index.ts"],
     "out": "../../static/styled"
-  }
+  },
+  "include": ["src/**/*"],
+  "exclude": ["./dist"]
 }
