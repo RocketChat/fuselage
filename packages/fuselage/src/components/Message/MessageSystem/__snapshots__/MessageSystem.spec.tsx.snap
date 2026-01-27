@@ -371,7 +371,7 @@ exports[`renders WithLongTopic without crashing 1`] = `
               <span
                 class="rcx-box rcx-box--full rcx-message-system__name"
               >
-                Haylie George Haylie George Haylie George Haylie George
+                Haylie George
               </span>
                
               <span
