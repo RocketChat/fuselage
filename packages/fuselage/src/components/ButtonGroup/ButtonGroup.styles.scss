@@ -51,10 +51,36 @@
 
   &:first-of-type {
     margin-inline-start: lengths.margin(none);
+
+    [dir='rtl'] & {
+      margin-inline-end: lengths.margin(none);
+      margin-inline-start: lengths.margin(4);
+    }
+
+    .rcx-button-group--small[dir='rtl'] & {
+      margin-inline-start: lengths.margin(2);
+    }
+
+    .rcx-button-group--large[dir='rtl'] & {
+      margin-inline-start: lengths.margin(8);
+    }
   }
 
   &:last-of-type {
     margin-inline-end: lengths.margin(none);
+
+    [dir='rtl'] & {
+      margin-inline-start: lengths.margin(none);
+      margin-inline-end: lengths.margin(4);
+    }
+
+    .rcx-button-group--small[dir='rtl'] & {
+      margin-inline-end: lengths.margin(2);
+    }
+
+    .rcx-button-group--large[dir='rtl'] & {
+      margin-inline-end: lengths.margin(8);
+    }
   }
 
   .rcx-button-group--wrap > & {
