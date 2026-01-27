@@ -2,9 +2,9 @@ import type { Node } from '@react-types/shared';
 import { useMenuSection, useSeparator } from 'react-aria';
 import type { TreeState } from 'react-stately';
 
-import { Box } from '../../Box';
-import { Divider } from '../../Divider';
-import { OptionTitle } from '../../Option';
+import { Box } from '../Box';
+import { Divider } from '../Divider';
+import { OptionTitle } from '../Option';
 
 import MenuItem from './MenuItem';
 
