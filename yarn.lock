@@ -5439,7 +5439,6 @@ __metadata:
     "@storybook/addon-docs": "npm:~9.1.17"
     "@storybook/addon-webpack5-compiler-swc": "npm:~4.0.2"
     "@storybook/react-webpack5": "npm:~9.1.17"
-    "@storybook/types": "npm:~8.6.15"
     "@testing-library/jest-dom": "npm:~6.9.1"
     "@testing-library/react": "npm:~16.3.2"
     "@testing-library/user-event": "npm:~14.6.1"
@@ -6511,15 +6510,6 @@ __metadata:
     typescript:
       optional: true
   checksum: 10/8b6be8cc93c53ce2ccc942a54ae76f4f3652060887f46649f8ea1311fe271753435d675ac3aae76ec2f41a8f8bb0c6a88389d2bbb9a2e6875f2a0b2e655df63a
-  languageName: node
-  linkType: hard
-
-"@storybook/types@npm:~8.6.15":
-  version: 8.6.15
-  resolution: "@storybook/types@npm:8.6.15"
-  peerDependencies:
-    storybook: ^8.2.0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
-  checksum: 10/72587e50380b75e3384dfbd153e0a043706e5b27b0fbc0a8865fb545c3950dbd2370ad788386629d1e6d9c570c75ad8861a95f7b7106def350719a6218d7a4e9
   languageName: node
   linkType: hard
 
