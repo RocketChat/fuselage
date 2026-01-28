@@ -1,9 +1,6 @@
 import type { HTMLAttributes } from 'react';
 import { forwardRef } from 'react';
 
-import { appendClassName } from '../../helpers/appendClassName';
-import { patchChildren } from '../../helpers/patchChildren';
-
 export type ButtonGroupProps = {
   align?: 'start' | 'center' | 'end';
   stretch?: boolean;
@@ -49,15 +46,7 @@ const ButtonGroup = forwardRef<HTMLDivElement, ButtonGroupProps>(
         role='group'
         {...props}
       >
-        {patchChildren(
-          children,
-          (childProps: { className: string | string[] }) => ({
-            className: appendClassName(
-              childProps.className,
-              'rcx-button-group__item',
-            ),
-          }),
-        )}
+        {children}
       </div>
     );
   },
