@@ -62,7 +62,7 @@ exports[`[Modal Component] _WithAnnotation should match the snapshot 1`] = `
             role="group"
           >
             <button
-              class="rcx-box rcx-box--full rcx-button rcx-button-group__item"
+              class="rcx-box rcx-box--full rcx-button"
               type="button"
             >
               <span
@@ -72,7 +72,7 @@ exports[`[Modal Component] _WithAnnotation should match the snapshot 1`] = `
               </span>
             </button>
             <button
-              class="rcx-box rcx-box--full rcx-button--primary rcx-button rcx-button-group__item"
+              class="rcx-box rcx-box--full rcx-button--primary rcx-button"
               type="button"
             >
               <span
@@ -169,7 +169,7 @@ exports[`[Modal Component] _WithForm should match the snapshot 1`] = `
             role="group"
           >
             <button
-              class="rcx-box rcx-box--full rcx-button rcx-button-group__item"
+              class="rcx-box rcx-box--full rcx-button"
               type="button"
             >
               <span
@@ -179,7 +179,7 @@ exports[`[Modal Component] _WithForm should match the snapshot 1`] = `
               </span>
             </button>
             <button
-              class="rcx-box rcx-box--full rcx-button--primary rcx-button rcx-button-group__item"
+              class="rcx-box rcx-box--full rcx-button--primary rcx-button"
               type="submit"
             >
               <span
@@ -261,7 +261,7 @@ exports[`[Modal Component] _WithHeroImage should match the snapshot 1`] = `
             role="group"
           >
             <button
-              class="rcx-box rcx-box--full rcx-button rcx-button-group__item"
+              class="rcx-box rcx-box--full rcx-button"
               type="button"
             >
               <span
@@ -271,7 +271,7 @@ exports[`[Modal Component] _WithHeroImage should match the snapshot 1`] = `
               </span>
             </button>
             <button
-              class="rcx-box rcx-box--full rcx-button--primary rcx-button rcx-button-group__item"
+              class="rcx-box rcx-box--full rcx-button--primary rcx-button"
               type="button"
             >
               <span
@@ -355,7 +355,7 @@ exports[`[Modal Component] _WithIcon should match the snapshot 1`] = `
             role="group"
           >
             <button
-              class="rcx-box rcx-box--full rcx-button rcx-button-group__item"
+              class="rcx-box rcx-box--full rcx-button"
               type="button"
             >
               <span
@@ -365,7 +365,7 @@ exports[`[Modal Component] _WithIcon should match the snapshot 1`] = `
               </span>
             </button>
             <button
-              class="rcx-box rcx-box--full rcx-button--primary rcx-button rcx-button-group__item"
+              class="rcx-box rcx-box--full rcx-button--primary rcx-button"
               type="button"
             >
               <span
@@ -454,7 +454,7 @@ exports[`[Modal Component] _WithIconAndTagline should match the snapshot 1`] = `
             role="group"
           >
             <button
-              class="rcx-box rcx-box--full rcx-button rcx-button-group__item"
+              class="rcx-box rcx-box--full rcx-button"
               type="button"
             >
               <span
@@ -464,7 +464,7 @@ exports[`[Modal Component] _WithIconAndTagline should match the snapshot 1`] = `
               </span>
             </button>
             <button
-              class="rcx-box rcx-box--full rcx-button--primary rcx-button rcx-button-group__item"
+              class="rcx-box rcx-box--full rcx-button--primary rcx-button"
               type="button"
             >
               <span
@@ -543,7 +543,7 @@ exports[`[Modal Component] _WithTagline should match the snapshot 1`] = `
             role="group"
           >
             <button
-              class="rcx-box rcx-box--full rcx-button rcx-button-group__item"
+              class="rcx-box rcx-box--full rcx-button"
               type="button"
             >
               <span
@@ -553,7 +553,7 @@ exports[`[Modal Component] _WithTagline should match the snapshot 1`] = `
               </span>
             </button>
             <button
-              class="rcx-box rcx-box--full rcx-button--primary rcx-button rcx-button-group__item"
+              class="rcx-box rcx-box--full rcx-button--primary rcx-button"
               type="button"
             >
               <span
@@ -640,7 +640,7 @@ exports[`[Modal Component] _WithThumb should match the snapshot 1`] = `
             role="group"
           >
             <button
-              class="rcx-box rcx-box--full rcx-button rcx-button-group__item"
+              class="rcx-box rcx-box--full rcx-button"
               type="button"
             >
               <span
@@ -650,7 +650,7 @@ exports[`[Modal Component] _WithThumb should match the snapshot 1`] = `
               </span>
             </button>
             <button
-              class="rcx-box rcx-box--full rcx-button--primary rcx-button rcx-button-group__item"
+              class="rcx-box rcx-box--full rcx-button--primary rcx-button"
               type="button"
             >
               <span
@@ -724,7 +724,7 @@ exports[`[Modal Component] Default should match the snapshot 1`] = `
             role="group"
           >
             <button
-              class="rcx-box rcx-box--full rcx-button rcx-button-group__item"
+              class="rcx-box rcx-box--full rcx-button"
               type="button"
             >
               <span
@@ -734,7 +734,7 @@ exports[`[Modal Component] Default should match the snapshot 1`] = `
               </span>
             </button>
             <button
-              class="rcx-box rcx-box--full rcx-button--primary rcx-button rcx-button-group__item"
+              class="rcx-box rcx-box--full rcx-button--primary rcx-button"
               type="button"
             >
               <span
