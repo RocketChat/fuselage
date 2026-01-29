@@ -14,6 +14,28 @@ export default {
         'testing-utils/setup/noErrorsLogged',
         '<rootDir>/src/jest-setup.ts',
       ],
+      transformIgnorePatterns: ['node_modules/(?!@rocket\\.chat/emitter)'],
+      transform: {
+        '^.+\\.tsx?$': [
+          'ts-jest',
+          {
+            tsconfig: {
+              module: 'commonjs',
+              esModuleInterop: true,
+            },
+          },
+        ],
+        '^.+\\.m?js$': [
+          'ts-jest',
+          {
+            tsconfig: {
+              module: 'commonjs',
+              esModuleInterop: true,
+              allowJs: true,
+            },
+          },
+        ],
+      },
     },
     {
       displayName: 'ssr',
@@ -24,6 +46,28 @@ export default {
         'testing-utils/setup/noErrorsLogged',
         '<rootDir>/src/jest-setup.ts',
       ],
+      transformIgnorePatterns: ['node_modules/(?!@rocket\\.chat/emitter)'],
+      transform: {
+        '^.+\\.tsx?$': [
+          'ts-jest',
+          {
+            tsconfig: {
+              module: 'commonjs',
+              esModuleInterop: true,
+            },
+          },
+        ],
+        '^.+\\.m?js$': [
+          'ts-jest',
+          {
+            tsconfig: {
+              module: 'commonjs',
+              esModuleInterop: true,
+              allowJs: true,
+            },
+          },
+        ],
+      },
     },
   ],
 } satisfies Config;

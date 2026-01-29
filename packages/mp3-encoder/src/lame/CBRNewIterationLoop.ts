@@ -1,15 +1,15 @@
-import type { III_psy_ratio } from './III_psy_ratio';
-import type { LameGlobalFlags } from './LameGlobalFlags';
-import { MeanBits } from './MeanBits';
-import type { Quantize } from './Quantize';
-import { assert } from './assert';
+import type { III_psy_ratio } from './III_psy_ratio.js';
+import type { LameGlobalFlags } from './LameGlobalFlags.js';
+import { MeanBits } from './MeanBits.js';
+import type { Quantize } from './Quantize.js';
+import { assert } from './assert.js';
 import {
   MAX_BITS_PER_CHANNEL,
   MAX_BITS_PER_GRANULE,
   MPG_MD_MS_LR,
   SFBMAX,
   SHORT_TYPE,
-} from './constants';
+} from './constants.js';
 
 export class CBRNewIterationLoop {
   constructor(public quantize: Quantize) {}

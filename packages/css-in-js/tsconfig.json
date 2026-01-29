@@ -1,12 +1,8 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "rootDir": "./src",
-    "lib": ["dom", "es6"],
     "outDir": "./dist"
   },
-  "include": ["src"],
-  "exclude": ["dist", "node_modules"],
   "typedocOptions": {
     "entryPoints": ["src/index.ts"],
     "out": "../../static/css-in-js"

@@ -1,5 +1,5 @@
 function managerEntries(entry = []) {
-  return [...entry, require.resolve('./dist/esm/preset/manager')];
+  return [...entry, require.resolve('./dist/preset/manager')];
 }
 
 module.exports = {
