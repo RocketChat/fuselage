@@ -1,5 +1,23 @@
 # Change Log
 
+## 0.71.0
+
+### Minor Changes
+
+- [#1837](https://github.com/RocketChat/fuselage/pull/1837) [`28172f1`](https://github.com/RocketChat/fuselage/commit/28172f198f382af076842f99205ac13338a72f02) Thanks [@tassoevan](https://github.com/tassoevan)! - feat(fuselage): Remove deprecated `Message.*` component namespace
+
+- [#1717](https://github.com/RocketChat/fuselage/pull/1717) [`1179d3f`](https://github.com/RocketChat/fuselage/commit/1179d3f3fb954f00741fd99ddd979b00f39c937e) Thanks [@tassoevan](https://github.com/tassoevan)! - feat: ES2024 standard requirement
+
+- [#1854](https://github.com/RocketChat/fuselage/pull/1854) [`9695ec7`](https://github.com/RocketChat/fuselage/commit/9695ec74eb6fbc8dbb0eea431884b13e418229bc) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage): add `ButtonGroup` `rtl` support
+
+### Patch Changes
+
+- [#1846](https://github.com/RocketChat/fuselage/pull/1846) [`7c1f866`](https://github.com/RocketChat/fuselage/commit/7c1f86616a6cb0dd581801acb1670bbe9fa32842) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): `ContextualbarHeader` style overlapping with button focus style
+
+- [#1849](https://github.com/RocketChat/fuselage/pull/1849) [`99b319c`](https://github.com/RocketChat/fuselage/commit/99b319c6c2ef1015d1d1edb027068c23dc1e29d9) Thanks [@tassoevan](https://github.com/tassoevan)! - feat(storybook-dark-mode): Fork `storybook-dark-mode`
+
+- [#1850](https://github.com/RocketChat/fuselage/pull/1850) [`a5028b6`](https://github.com/RocketChat/fuselage/commit/a5028b6471def411b60dc91c08290d1c3ad72d1a) Thanks [@dodaa08](https://github.com/dodaa08)! - fix(fuselage): prevent username truncation in system messages with long topics
+
 ## 0.70.2
 
 ### Patch Changes
