@@ -116,7 +116,7 @@ const RequestTrialForm = ({
                   placeholder={t(
                     'form.requestTrialForm.fields.organizationSize.placeholder',
                   )}
-                  error={errors?.email?.message || undefined}
+                  error={errors?.organizationSize?.message || undefined}
                 />
               )}
               defaultValue={defaultValues?.organizationSize}
@@ -156,8 +156,9 @@ const RequestTrialForm = ({
               fontScale='c1'
               lineHeight={20}
             >
-              <CheckBox mie={8} {...register('updates')} />{' '}
-              <Box is='label' htmlFor='updates'>
+              <CheckBox id="updates" {...register('updates')} />{' '}
+              {/* FIX: mis={16} pushes the LABEL away from the checkbox */}
+              <Box is='label' htmlFor='updates' mis={16}>
                 {t('form.registeredServerForm.keepInformed')}
               </Box>
             </Box>
@@ -170,10 +171,11 @@ const RequestTrialForm = ({
               lineHeight={20}
             >
               <CheckBox
-                mie={8}
+                id="agreement"
                 {...register('agreement', { required: true })}
               />{' '}
-              <Box is='label' htmlFor='agreement' withRichContent>
+             
+              <Box is='label' htmlFor='agreement' withRichContent mis={16}>
                 <Trans i18nKey='component.form.termsAndConditions'>
                   I agree with
                   <a href={termsHref} target='_blank' rel='noopener noreferrer'>
