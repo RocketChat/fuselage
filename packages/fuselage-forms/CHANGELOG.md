@@ -1,5 +1,15 @@
 # @rocket.chat/fuselage-forms
 
+## 1.0.0
+
+### Patch Changes
+
+- [#1849](https://github.com/RocketChat/fuselage/pull/1849) [`99b319c`](https://github.com/RocketChat/fuselage/commit/99b319c6c2ef1015d1d1edb027068c23dc1e29d9) Thanks [@tassoevan](https://github.com/tassoevan)! - feat(storybook-dark-mode): Fork `storybook-dark-mode`
+
+- Updated dependencies [[`1179d3f`](https://github.com/RocketChat/fuselage/commit/1179d3f3fb954f00741fd99ddd979b00f39c937e)]:
+  - @rocket.chat/fuselage-hooks@0.39.0
+  - @rocket.chat/emitter@0.32.0
+
 ## 0.1.1
 
 ### Patch Changes
