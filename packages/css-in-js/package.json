@@ -38,9 +38,9 @@
   },
   "dependencies": {
     "@emotion/hash": "^0.9.2",
-    "@rocket.chat/css-supports": "workspace:~",
-    "@rocket.chat/memo": "workspace:~",
-    "@rocket.chat/stylis-logical-props-middleware": "workspace:~",
+    "@rocket.chat/css-supports": "^0.31.25",
+    "@rocket.chat/memo": "^0.31.25",
+    "@rocket.chat/stylis-logical-props-middleware": "^0.31.25",
     "stylis": "~4.3.6"
   },
   "devDependencies": {
@@ -52,7 +52,7 @@
     "@types/stylis": "^4.2.7",
     "eslint": "~9.39.2",
     "jest": "~30.2.0",
-    "lint-all": "workspace:~",
+    "lint-all": "^0.31.25",
     "prettier": "~3.6.2",
     "rollup": "~4.52.5",
     "ts-jest": "~29.4.6",

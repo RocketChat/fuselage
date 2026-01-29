@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.36.2
+
+### Patch Changes
+
+- [#1849](https://github.com/RocketChat/fuselage/pull/1849) [`99b319c`](https://github.com/RocketChat/fuselage/commit/99b319c6c2ef1015d1d1edb027068c23dc1e29d9) Thanks [@tassoevan](https://github.com/tassoevan)! - feat(storybook-dark-mode): Fork `storybook-dark-mode`
+
 ## 0.36.1
 
 ### Patch Changes
