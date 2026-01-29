@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/emitter",
-  "version": "0.31.25",
+  "version": "0.32.0",
   "description": "Event Emitter by Rocket.Chat",
   "keywords": [
     "rocket.chat"

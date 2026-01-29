@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.39.0
+
+### Minor Changes
+
+- [#1717](https://github.com/RocketChat/fuselage/pull/1717) [`1179d3f`](https://github.com/RocketChat/fuselage/commit/1179d3f3fb954f00741fd99ddd979b00f39c937e) Thanks [@tassoevan](https://github.com/tassoevan)! - feat: ES2024 standard requirement
+
 ## 0.38.1
 
 ### Patch Changes
