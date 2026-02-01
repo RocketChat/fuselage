@@ -104,6 +104,7 @@ const AudioPlayer = forwardRef<HTMLAudioElement, AudioPlayerProps>(
   ) => {
     const audioRef = useRef<HTMLAudioElement>(null);
     const refs = useMergedRefs(ref, audioRef);
+    const [isReady, setIsReady] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
     const [isPlaying, setIsPlaying] = useState(false);
     const [currentTime, setCurrentTime] = useState(0);
@@ -175,7 +176,7 @@ const AudioPlayer = forwardRef<HTMLAudioElement, AudioPlayerProps>(
               showOutput={false}
               value={currentTime}
               maxValue={durationTime}
-              disabled={isLoading}
+              disabled={!isReady}
               onChange={(value) => {
                 if (audioRef.current) {
                   audioRef.current.currentTime = value;
@@ -229,7 +230,14 @@ const AudioPlayer = forwardRef<HTMLAudioElement, AudioPlayerProps>(
 
             getDurationForInfinityDurationAudioFile(src, setDurationTime);
           }}
+          onSeeking={() => {
+            setIsLoading(true);
+          }}
+          onSeeked={() => {
+            setIsLoading(false);
+          }}
           onCanPlay={() => {
+            setIsReady(true);
             setIsLoading(false);
           }}
           onEnded={() => setIsPlaying(false)}
