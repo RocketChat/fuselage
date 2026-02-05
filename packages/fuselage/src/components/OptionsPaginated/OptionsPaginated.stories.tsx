@@ -1,10 +1,10 @@
 import type { Meta, StoryFn } from '@storybook/react-webpack5';
-import type { ComponentProps } from 'react';
 import { createRef } from 'react';
 
-import Box from '../Box';
-import Option from '../Option';
+import { Box } from '../Box';
+import { Option } from '../Option';
 
+import type { OptionsPaginatedProps } from './OptionsPaginated';
 import { CheckOption, OptionsPaginated } from './OptionsPaginated';
 
 export default {
@@ -12,7 +12,7 @@ export default {
   component: OptionsPaginated,
 } satisfies Meta<typeof OptionsPaginated>;
 
-const options: ComponentProps<typeof OptionsPaginated>['options'] = Array.from({
+const options: OptionsPaginatedProps['options'] = Array.from({
   length: 90,
 }).map((_: unknown, i: number) => ({
   value: 1 + i,

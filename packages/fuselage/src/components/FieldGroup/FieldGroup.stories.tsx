@@ -1,9 +1,9 @@
 import type { StoryFn, Meta } from '@storybook/react-webpack5';
 
-import Field, { FieldHint, FieldLabel, FieldRow } from '../Field';
-import InputBox from '../InputBox';
+import { Field, FieldHint, FieldLabel, FieldRow } from '../Field';
+import { InputBoxSkeleton } from '../InputBox';
 
-import { FieldGroup } from './FieldGroup';
+import FieldGroup from './FieldGroup';
 
 export default {
   title: 'Inputs/FieldGroup',
@@ -15,20 +15,20 @@ export const Default: StoryFn<typeof FieldGroup> = () => (
     <Field>
       <FieldLabel>Field #1</FieldLabel>
       <FieldRow>
-        <InputBox.Skeleton />
+        <InputBoxSkeleton />
       </FieldRow>
     </Field>
     <Field>
       <FieldLabel>Field #2</FieldLabel>
       <FieldRow>
-        <InputBox.Skeleton />
+        <InputBoxSkeleton />
       </FieldRow>
       <FieldHint>Help text</FieldHint>
     </Field>
     <Field>
       <FieldLabel>Field #3</FieldLabel>
       <FieldRow>
-        <InputBox.Skeleton />
+        <InputBoxSkeleton />
       </FieldRow>
     </Field>
   </FieldGroup>

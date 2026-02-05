@@ -1,13 +1,13 @@
-import type { AllHTMLAttributes, ComponentProps } from 'react';
+import type { AllHTMLAttributes } from 'react';
 
-import { Icon } from '../..';
+import { Icon, type IconProps } from '../../Icon';
 
-type MessageStatusIndicatorItemProps = {
-  name: ComponentProps<typeof Icon>['name'];
+export type MessageStatusIndicatorItemProps = {
+  name: IconProps['name'];
   variant?: 'success' | 'danger' | 'warning' | 'primary';
 } & Omit<AllHTMLAttributes<HTMLElement>, 'is'>;
 
-export const MessageStatusIndicatorItem = ({
+const MessageStatusIndicatorItem = ({
   name,
   variant,
   ...props
@@ -24,3 +24,5 @@ export const MessageStatusIndicatorItem = ({
     {...props}
   />
 );
+
+export default MessageStatusIndicatorItem;

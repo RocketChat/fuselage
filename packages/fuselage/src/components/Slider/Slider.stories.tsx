@@ -2,9 +2,9 @@ import type { Meta, StoryFn } from '@storybook/react-webpack5';
 import { useState } from 'react';
 import { screen, userEvent } from 'storybook/test';
 
-import Box from '../Box';
+import { Box } from '../Box';
 
-import { Slider } from './Slider';
+import Slider from './Slider';
 
 export default {
   title: 'Inputs/Slider',

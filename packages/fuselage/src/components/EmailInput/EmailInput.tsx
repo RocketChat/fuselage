@@ -1,9 +1,9 @@
-import type { ComponentProps, ReactNode, Ref } from 'react';
+import type { ReactNode } from 'react';
 import { forwardRef } from 'react';
 
-import { InputBox } from '../InputBox';
+import { InputBox, type InputBoxProps } from '../InputBox';
 
-type EmailInputProps = Omit<ComponentProps<typeof InputBox>, 'type'> & {
+export type EmailInputProps = Omit<InputBoxProps, 'type'> & {
   addon?: ReactNode;
   error?: string;
 };
@@ -41,9 +41,10 @@ const type: InputType = 'email';
 /**
  * An input for email addresses.
  */
-export const EmailInput = forwardRef(function EmailInput(
-  props: EmailInputProps,
-  ref: Ref<HTMLElement>,
-) {
-  return <InputBox type={type} ref={ref} {...props} />;
-});
+const EmailInput = forwardRef<HTMLElement, EmailInputProps>(
+  function EmailInput(props, ref) {
+    return <InputBox type={type} ref={ref} {...props} />;
+  },
+);
+
+export default EmailInput;

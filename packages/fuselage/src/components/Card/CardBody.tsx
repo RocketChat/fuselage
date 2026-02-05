@@ -1,15 +1,10 @@
-import type {
-  AllHTMLAttributes,
-  CSSProperties,
-  ComponentProps,
-  ReactNode,
-} from 'react';
+import type { AllHTMLAttributes, CSSProperties, ReactNode } from 'react';
 
-import Box from '../Box/Box';
+import { Box, type BoxProps } from '../Box';
 
-type CardBodyProps = {
+export type CardBodyProps = {
   flexDirection?: CSSProperties['flexDirection'];
-  height?: ComponentProps<typeof Box>['height'];
+  height?: BoxProps['height'];
   children: ReactNode;
 } & Omit<AllHTMLAttributes<HTMLElement>, 'is'>;
 

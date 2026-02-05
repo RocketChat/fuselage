@@ -2,9 +2,9 @@ import type { HTMLAttributes } from 'react';
 
 import { prependClassName } from '../../../../helpers/prependClassName';
 
-type MessageMetricsItemProps = HTMLAttributes<HTMLDivElement>;
+export type MessageMetricsItemProps = HTMLAttributes<HTMLDivElement>;
 
-export const MessageMetricsItem = ({
+const MessageMetricsItem = ({
   className,
   ...props
 }: MessageMetricsItemProps) => (
@@ -13,3 +13,5 @@ export const MessageMetricsItem = ({
     {...props}
   />
 );
+
+export default MessageMetricsItem;

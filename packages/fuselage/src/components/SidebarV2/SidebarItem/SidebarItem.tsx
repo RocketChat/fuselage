@@ -1,4 +1,10 @@
-import type { AllHTMLAttributes } from 'react';
+import type { AllHTMLAttributes, ElementType } from 'react';
+
+export type SidebarV2ItemProps = {
+  selected?: boolean;
+  level?: number;
+  is?: ElementType;
+} & AllHTMLAttributes<HTMLAnchorElement>;
 
 export const SidebarItem = ({
   selected,
@@ -7,11 +13,7 @@ export const SidebarItem = ({
   children,
   is: Tag = 'a',
   ...props
-}: {
-  selected?: boolean;
-  level?: number;
-  is?: React.ElementType;
-} & AllHTMLAttributes<HTMLAnchorElement>) => (
+}: SidebarV2ItemProps) => (
   <Tag
     className={[
       'rcx-box rcx-box--full rcx-sidebar-v2-item',

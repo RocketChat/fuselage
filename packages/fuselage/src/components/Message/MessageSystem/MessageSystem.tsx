@@ -6,14 +6,14 @@ import type {
 
 import './MessageSystem.styles.scss';
 
-type MessageSystemProps = {
+export type MessageSystemProps = {
   children?: ReactNode;
   title?: string;
   isSelected?: boolean;
   onClick?: (e: ReactMouseEvent<HTMLDivElement, MouseEvent>) => void;
 } & AllHTMLAttributes<HTMLDivElement>;
 
-export const MessageSystem = ({
+const MessageSystem = ({
   children,
   title,
   isSelected,
@@ -32,3 +32,5 @@ export const MessageSystem = ({
     {children}
   </div>
 );
+
+export default MessageSystem;

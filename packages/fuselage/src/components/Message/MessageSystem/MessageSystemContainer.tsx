@@ -1,12 +1,14 @@
 import type { ReactNode } from 'react';
 
-type MessageSystemContainerProps = {
+export type MessageSystemContainerProps = {
   children?: ReactNode;
 };
 
-export const MessageSystemContainer = (props: MessageSystemContainerProps) => (
+const MessageSystemContainer = (props: MessageSystemContainerProps) => (
   <div
     className='rcx-box rcx-box--full rcx-message-system__container'
     {...props}
   />
 );
+
+export default MessageSystemContainer;

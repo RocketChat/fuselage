@@ -4,36 +4,27 @@ import {
   useResizeObserver,
   useOutsideClick,
 } from '@rocket.chat/fuselage-hooks';
-import type {
-  ComponentProps,
-  SyntheticEvent,
-  ElementType,
-  Ref,
-  ReactNode,
-} from 'react';
+import type { SyntheticEvent, ElementType, ReactNode } from 'react';
 import { useState, useRef, useEffect, forwardRef } from 'react';
 
-import type { SelectOption } from '..';
+import type { IconProps, SelectOption } from '..';
 import { isForwardRefType } from '../../helpers/isForwardRefType';
 import { prevent } from '../../helpers/prevent';
-import AnimatedVisibility from '../AnimatedVisibility';
-import Box from '../Box';
-import Flex from '../Flex';
+import { AnimatedVisibility } from '../AnimatedVisibility';
+import { Box, type BoxProps } from '../Box';
+import { FlexContainer, FlexItem } from '../Flex';
 import { Icon } from '../Icon';
-import Margins from '../Margins';
+import { Margins } from '../Margins';
 import { CheckOption } from '../Option';
 import { Options, useCursor } from '../Options';
-import Position from '../Position';
+import { Position } from '../Position';
 import SelectAddon from '../Select/SelectAddon';
 
 import MultiSelectAnchor from './MultiSelectAnchor';
 import type { MultiSelectAnchorParams } from './MultiSelectAnchorParams';
 import { SelectedOptions } from './SelectedOptions';
 
-type MultiSelectProps = Omit<
-  ComponentProps<typeof Box>,
-  'onChange' | 'value'
-> & {
+export type MultiSelectProps = Omit<BoxProps, 'onChange' | 'value'> & {
   value?: SelectOption[0][];
   error?: string;
   options: SelectOption[];
@@ -47,14 +38,14 @@ type MultiSelectProps = Omit<
   renderOptions?: ElementType;
   renderItem?: ElementType;
   renderSelected?: ElementType;
-  addonIcon?: ComponentProps<typeof Icon>['name'];
+  addonIcon?: IconProps['name'];
   setFilter?: (filter: string) => void;
 };
 
 /**
  * An input for selection of options.
  */
-export const MultiSelect = forwardRef(
+const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
   (
     {
       value,
@@ -74,8 +65,8 @@ export const MultiSelect = forwardRef(
       renderSelected: RenderSelected,
       addonIcon,
       ...props
-    }: MultiSelectProps,
-    ref: Ref<HTMLInputElement>,
+    },
+    ref,
   ) => {
     const [internalValue, setInternalValue] = useState<SelectOption[0][]>(
       value || [],
@@ -163,9 +154,9 @@ export const MultiSelect = forwardRef(
         disabled={disabled}
         {...props}
       >
-        <Flex.Item grow={1}>
+        <FlexItem grow={1}>
           <Margins inline='x4'>
-            <Flex.Container>
+            <FlexContainer>
               <Box is='div'>
                 <Box
                   is='div'
@@ -219,10 +210,10 @@ export const MultiSelect = forwardRef(
                   </Margins>
                 </Box>
               </Box>
-            </Flex.Container>
+            </FlexContainer>
           </Margins>
-        </Flex.Item>
-        <Flex.Item grow={0} shrink={0}>
+        </FlexItem>
+        <FlexItem grow={0} shrink={0}>
           <Margins inline='x4'>
             <SelectAddon
               children={
@@ -237,7 +228,7 @@ export const MultiSelect = forwardRef(
               }
             />
           </Margins>
-        </Flex.Item>
+        </FlexItem>
         <AnimatedVisibility visibility={visible}>
           <Position anchor={containerRef}>
             <_Options
@@ -258,3 +249,5 @@ export const MultiSelect = forwardRef(
     );
   },
 );
+
+export default MultiSelect;

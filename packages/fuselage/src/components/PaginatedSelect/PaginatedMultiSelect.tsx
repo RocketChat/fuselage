@@ -1,17 +1,24 @@
 import { useEffectEvent, useResizeObserver } from '@rocket.chat/fuselage-hooks';
-import { type ComponentProps, useState, useRef, type ElementType } from 'react';
+import {
+  useState,
+  useRef,
+  type ComponentType,
+  type ReactNode,
+  type MouseEvent,
+  type CSSProperties,
+} from 'react';
 
 import { prevent } from '../../helpers/prevent';
-import AnimatedVisibility from '../AnimatedVisibility';
-import Box from '../Box';
-import Chip from '../Chip';
-import Flex from '../Flex';
+import { AnimatedVisibility } from '../AnimatedVisibility';
+import { Box, type BoxProps } from '../Box';
+import { Chip } from '../Chip';
+import { FlexContainer, FlexItem } from '../Flex';
 import { Icon } from '../Icon';
-import Margins from '../Margins';
-import Option from '../Option';
+import { Margins } from '../Margins';
+import { Option } from '../Option';
 import { useVisible } from '../Options/useVisible';
 import { OptionsPaginated } from '../OptionsPaginated';
-import Position from '../Position';
+import { Position } from '../Position';
 import SelectAddon from '../Select/SelectAddon';
 import SelectFocus from '../Select/SelectFocus';
 
@@ -20,10 +27,7 @@ export type PaginatedMultiSelectOption = {
   label: string;
 };
 
-type PaginatedMultiSelectProps = Omit<
-  ComponentProps<typeof Box>,
-  'onChange' | 'value'
-> & {
+export type PaginatedMultiSelectProps = Omit<BoxProps, 'onChange' | 'value'> & {
   error?: boolean;
   options: PaginatedMultiSelectOption[];
   withTitle?: boolean;
@@ -31,8 +35,37 @@ type PaginatedMultiSelectProps = Omit<
   endReached?: (start?: number, end?: number) => void;
   value?: PaginatedMultiSelectOption[];
   onChange: (values: PaginatedMultiSelectOption[]) => void;
-  renderOptions?: ElementType<ComponentProps<typeof OptionsPaginated>>;
-  renderItem?: ElementType<ComponentProps<typeof Option>>;
+  renderOptions?: ComponentType<{
+    width?: CSSProperties['width'];
+    multiple?: boolean;
+    filter?: string;
+    role?: string;
+    options: PaginatedMultiSelectOption[];
+    cursor: number;
+    endReached?: (start?: number, end?: number) => void;
+    renderItem?: ComponentType<{
+      role?: string;
+      label?: ReactNode;
+      title?: string;
+      selected?: boolean;
+      index?: number;
+      focus?: boolean;
+      value?: string | number;
+      onMouseDown?: (e: MouseEvent<HTMLElement>) => void;
+    }>;
+    onSelect: (option: [unknown, string]) => void;
+    onMouseDown?: (e: MouseEvent<HTMLElement>) => void;
+  }>;
+  renderItem?: ComponentType<{
+    role?: string;
+    label?: ReactNode;
+    title?: string;
+    selected?: boolean;
+    index?: number;
+    focus?: boolean;
+    value?: string | number;
+    onMouseDown?: (e: MouseEvent<HTMLElement>) => void;
+  }>;
   anchor?: any;
 };
 
@@ -111,9 +144,9 @@ const PaginatedMultiSelect = ({
       disabled={disabled}
       {...props}
     >
-      <Flex.Item grow={1}>
+      <FlexItem grow={1}>
         <Margins inline='x4'>
-          <Flex.Container>
+          <FlexContainer>
             <Box is='div'>
               <Box
                 is='div'
@@ -154,10 +187,10 @@ const PaginatedMultiSelect = ({
                 </Margins>
               </Box>
             </Box>
-          </Flex.Container>
+          </FlexContainer>
         </Margins>
-      </Flex.Item>
-      <Flex.Item grow={0} shrink={0}>
+      </FlexItem>
+      <FlexItem grow={0} shrink={0}>
         <Margins inline='x4'>
           <SelectAddon
             children={
@@ -172,7 +205,7 @@ const PaginatedMultiSelect = ({
             }
           />
         </Margins>
-      </Flex.Item>
+      </FlexItem>
       <AnimatedVisibility visibility={visible}>
         <Position anchor={containerRef}>
           <OptionsComponent

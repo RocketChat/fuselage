@@ -2,9 +2,9 @@ import { useEffectEvent } from '@rocket.chat/fuselage-hooks';
 import type { KeyboardEvent } from 'react';
 import { useState } from 'react';
 
-import AnimatedVisibility from '../AnimatedVisibility';
+import { AnimatedVisibility } from '../AnimatedVisibility';
 
-import type { OptionType } from './Options';
+import type { OptionType } from './OptionType';
 import { useVisible } from './useVisible';
 
 const keyCodes = {
@@ -58,7 +58,7 @@ const findNextIndex = <T>(
   return -1;
 };
 
-export type UseCursorOnChange<T> = (
+type UseCursorOnChange<T> = (
   option: T,
   visibilityHandler: ReturnType<typeof useVisible>,
 ) => void;

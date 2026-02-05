@@ -1,13 +1,11 @@
-import type { ComponentProps } from 'react';
+import { Box, type BoxProps } from '../Box';
+import { Icon, type IconProps } from '../Icon';
 
-import Box from '../Box';
-import { Icon } from '../Icon';
-
-export type ModalIconProps = ComponentProps<typeof Box> & {
-  name: ComponentProps<typeof Icon>['name'];
+export type ModalIconProps = BoxProps & {
+  name: IconProps['name'];
 };
 
-export const ModalIcon = ({
+const ModalIcon = ({
   size = 'x20',
   name,
   alignItems = 'center',
@@ -17,3 +15,5 @@ export const ModalIcon = ({
     <Icon mb={4} name={name} size={size} />
   </Box>
 );
+
+export default ModalIcon;

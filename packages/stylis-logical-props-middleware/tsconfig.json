@@ -1,16 +1,12 @@
 {
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "target": "es5",
-    "module": "ESNext",
-    "declaration": true,
-    "declarationMap": true,
-    "sourceMap": true,
-    "outDir": "./dist/esm",
-    "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "moduleResolution": "node",
-    "resolveJsonModule": true
-  }
+    "outDir": "./dist/esm"
+  },
+  "typedocOptions": {
+    "entryPoints": ["src/index.ts"],
+    "out": "../../static/stylis-logical-props-middleware"
+  },
+  "exclude": ["./dist", "./jest.config.ts"],
+  "include": ["src/**/*"]
 }

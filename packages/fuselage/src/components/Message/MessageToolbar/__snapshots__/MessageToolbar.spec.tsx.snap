@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`[MessageToolbar Rendering] renders Default without crashing 1`] = `
 <body>
@@ -119,7 +119,7 @@ exports[`[MessageToolbar Rendering] renders Default without crashing 1`] = `
               role="toolbar"
             >
               <button
-                class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button rcx-button-group__item"
+                class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
                 title="Quote"
                 type="button"
               >
@@ -131,7 +131,7 @@ exports[`[MessageToolbar Rendering] renders Default without crashing 1`] = `
                 </i>
               </button>
               <button
-                class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button rcx-button-group__item"
+                class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
                 title="Emoji"
                 type="button"
               >
@@ -143,7 +143,7 @@ exports[`[MessageToolbar Rendering] renders Default without crashing 1`] = `
                 </i>
               </button>
               <button
-                class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button rcx-button-group__item"
+                class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
                 title="Thread"
                 type="button"
               >
@@ -155,7 +155,7 @@ exports[`[MessageToolbar Rendering] renders Default without crashing 1`] = `
                 </i>
               </button>
               <button
-                class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button rcx-button-group__item"
+                class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
                 title="Menu"
                 type="button"
               >

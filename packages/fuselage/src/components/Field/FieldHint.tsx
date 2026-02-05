@@ -1,16 +1,14 @@
-import type { ComponentPropsWithoutRef } from 'react';
-
 import WithErrorWrapper from '../../helpers/WithErrorWrapper';
-import Box from '../Box';
+import { Box, type BoxProps } from '../Box';
 
 import { FieldContext } from './Field';
 
-type FieldHintProps = ComponentPropsWithoutRef<typeof Box>;
+export type FieldHintProps = BoxProps;
 
-export const FieldHint = (props: FieldHintProps) => {
+const FieldHint = (props: FieldHintProps) => {
   const component = <Box is='span' rcx-field__hint {...props} />;
 
-  if (process.env.NODE_ENV === 'development') {
+  if (process.env['NODE_ENV'] === 'development') {
     return (
       <WithErrorWrapper
         context={FieldContext}
@@ -24,3 +22,5 @@ export const FieldHint = (props: FieldHintProps) => {
 
   return component;
 };
+
+export default FieldHint;

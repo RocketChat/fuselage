@@ -1,15 +1,13 @@
-import type { ComponentProps, Ref } from 'react';
 import { forwardRef } from 'react';
 
-import { InputBox } from '../InputBox';
+import { InputBox, type InputBoxProps } from '../InputBox';
 
-type UrlInputProps = Omit<ComponentProps<typeof InputBox>, 'type'>;
+export type UrlInputProps = Omit<InputBoxProps, 'type'>;
 
-const UrlInput = forwardRef(function UrlInput(
-  props: UrlInputProps,
-  ref: Ref<HTMLElement>,
-) {
-  return <InputBox type='url' ref={ref} {...props} />;
-});
+const UrlInput = forwardRef<HTMLElement, UrlInputProps>(
+  function UrlInput(props, ref) {
+    return <InputBox type='url' ref={ref} {...props} />;
+  },
+);
 
 export default UrlInput;

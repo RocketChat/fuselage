@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`[ToggleSwitch Rendering] renders Checked without crashing 1`] = `
 <body>
@@ -80,12 +80,12 @@ exports[`[ToggleSwitch Rendering] renders States without crashing 1`] = `
             class="rcx-box rcx-box--full"
           />
           <th
-            class="rcx-box rcx-box--full rcx-css-11in3rj"
+            class="rcx-box rcx-box--full rcx-css-rdlcsy"
           >
             checked
           </th>
           <th
-            class="rcx-box rcx-box--full rcx-css-11in3rj"
+            class="rcx-box rcx-box--full rcx-css-rdlcsy"
           >
             unchecked
           </th>
@@ -98,7 +98,7 @@ exports[`[ToggleSwitch Rendering] renders States without crashing 1`] = `
           class="rcx-box rcx-box--full"
         >
           <th
-            class="rcx-box rcx-box--full rcx-css-11in3rj"
+            class="rcx-box rcx-box--full rcx-css-rdlcsy"
           >
             default
           </th>
@@ -150,7 +150,7 @@ exports[`[ToggleSwitch Rendering] renders States without crashing 1`] = `
           class="rcx-box rcx-box--full"
         >
           <th
-            class="rcx-box rcx-box--full rcx-css-11in3rj"
+            class="rcx-box rcx-box--full rcx-css-rdlcsy"
           >
             hover
           </th>
@@ -202,7 +202,7 @@ exports[`[ToggleSwitch Rendering] renders States without crashing 1`] = `
           class="rcx-box rcx-box--full"
         >
           <th
-            class="rcx-box rcx-box--full rcx-css-11in3rj"
+            class="rcx-box rcx-box--full rcx-css-rdlcsy"
           >
             active
           </th>
@@ -254,7 +254,7 @@ exports[`[ToggleSwitch Rendering] renders States without crashing 1`] = `
           class="rcx-box rcx-box--full"
         >
           <th
-            class="rcx-box rcx-box--full rcx-css-11in3rj"
+            class="rcx-box rcx-box--full rcx-css-rdlcsy"
           >
             focus
           </th>
@@ -306,7 +306,7 @@ exports[`[ToggleSwitch Rendering] renders States without crashing 1`] = `
           class="rcx-box rcx-box--full"
         >
           <th
-            class="rcx-box rcx-box--full rcx-css-11in3rj"
+            class="rcx-box rcx-box--full rcx-css-rdlcsy"
           >
             disabled
           </th>

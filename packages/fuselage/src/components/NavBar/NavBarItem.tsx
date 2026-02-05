@@ -1,16 +1,18 @@
-import type { ComponentProps, HTMLAttributes } from 'react';
+import type { HTMLAttributes } from 'react';
 import { forwardRef } from 'react';
 
 import { appendClassName } from '../../helpers/appendClassName';
 import { patchChildren } from '../../helpers/patchChildren';
 import { IconButton } from '../Button';
+import type { IconButtonProps } from '../Button/IconButton';
 
-type NavbarItemProps = Partial<ComponentProps<typeof IconButton>>;
+export type NavbarItemProps = HTMLAttributes<HTMLElement> &
+  Partial<IconButtonProps>;
 
-export const NavBarItem = forwardRef<
-  HTMLElement,
-  HTMLAttributes<HTMLElement> & NavbarItemProps
->(function NavBarItem({ children, icon, ...props }, ref) {
+const NavBarItem = forwardRef<HTMLElement, NavbarItemProps>(function NavBarItem(
+  { children, icon, ...props },
+  ref,
+) {
   return (
     <>
       {icon ? (
@@ -28,3 +30,5 @@ export const NavBarItem = forwardRef<
     </>
   );
 });
+
+export default NavBarItem;

@@ -12,8 +12,8 @@
     "css-mediaquery": "^0.1.2"
   },
   "devDependencies": {
-    "eslint": "~9.29.0",
+    "eslint": "~9.39.2",
     "lint-all": "workspace:~",
-    "prettier": "~3.5.3"
+    "prettier": "~3.6.2"
   }
 }

@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`[NavBar Component] renders Default without crashing 1`] = `
 <body>
@@ -17,7 +17,7 @@ exports[`[NavBar Component] renders Default without crashing 1`] = `
             role="toolbar"
           >
             <button
-              class="rcx-box rcx-box--full rcx-navbar-item rcx-button--small-square rcx-button--square rcx-button--icon rcx-button rcx-button-group__item"
+              class="rcx-box rcx-box--full rcx-navbar-item rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
               title="home"
               type="button"
             >
@@ -29,7 +29,7 @@ exports[`[NavBar Component] renders Default without crashing 1`] = `
               </i>
             </button>
             <button
-              class="rcx-box rcx-box--full rcx-navbar-item rcx-button--small-square rcx-button--square rcx-button--icon rcx-button rcx-button-group__item"
+              class="rcx-box rcx-box--full rcx-navbar-item rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
               title="marketplace"
               type="button"
             >
@@ -41,7 +41,7 @@ exports[`[NavBar Component] renders Default without crashing 1`] = `
               </i>
             </button>
             <button
-              class="rcx-box rcx-box--full rcx-navbar-item rcx-button--small-square rcx-button--square rcx-button--icon rcx-button rcx-button-group__item"
+              class="rcx-box rcx-box--full rcx-navbar-item rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
               title="directory"
               type="button"
             >
@@ -53,7 +53,7 @@ exports[`[NavBar Component] renders Default without crashing 1`] = `
               </i>
             </button>
             <button
-              class="rcx-box rcx-box--full rcx-navbar-item rcx-button--small-square rcx-button--square rcx-button--icon rcx-button rcx-button-group__item"
+              class="rcx-box rcx-box--full rcx-navbar-item rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
               title="audit"
               type="button"
             >
@@ -65,7 +65,7 @@ exports[`[NavBar Component] renders Default without crashing 1`] = `
               </i>
             </button>
             <button
-              class="rcx-box rcx-box--full rcx-navbar-item rcx-button--small-square rcx-button--square rcx-button--icon rcx-button rcx-button-group__item"
+              class="rcx-box rcx-box--full rcx-navbar-item rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
               title="contacts"
               type="button"
             >
@@ -88,7 +88,7 @@ exports[`[NavBar Component] renders Default without crashing 1`] = `
               aria-expanded="false"
               aria-haspopup="true"
               aria-label="sort"
-              class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button rcx-button-group__item"
+              class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button rcx-navbar-item"
               id="react-aria-:r0:"
               title="sort"
               type="button"
@@ -101,7 +101,7 @@ exports[`[NavBar Component] renders Default without crashing 1`] = `
               </i>
             </button>
             <button
-              class="rcx-box rcx-box--full rcx-navbar-item rcx-button--small-square rcx-button--square rcx-button--icon rcx-button rcx-button-group__item"
+              class="rcx-box rcx-box--full rcx-navbar-item rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
               title="search"
               type="button"
             >
@@ -116,7 +116,7 @@ exports[`[NavBar Component] renders Default without crashing 1`] = `
               aria-expanded="false"
               aria-haspopup="true"
               aria-label="create new"
-              class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button rcx-button-group__item"
+              class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
               id="react-aria-:r2:"
               title="create new"
               type="button"
@@ -137,7 +137,7 @@ exports[`[NavBar Component] renders Default without crashing 1`] = `
             role="toolbar"
           >
             <button
-              class="rcx-box rcx-box--full rcx-navbar-item rcx-button--small-square rcx-button--square rcx-button--icon rcx-button rcx-button-group__item"
+              class="rcx-box rcx-box--full rcx-navbar-item rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
               title="dialpad"
               type="button"
             >
@@ -149,7 +149,7 @@ exports[`[NavBar Component] renders Default without crashing 1`] = `
               </i>
             </button>
             <button
-              class="rcx-box rcx-box--full rcx-navbar-item rcx-button--small-square rcx-button--square rcx-button--icon rcx-button rcx-button-group__item"
+              class="rcx-box rcx-box--full rcx-navbar-item rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
               title="live"
               type="button"
             >
@@ -161,7 +161,7 @@ exports[`[NavBar Component] renders Default without crashing 1`] = `
               </i>
             </button>
             <button
-              class="rcx-box rcx-box--full rcx-navbar-item rcx-button--small-square rcx-button--square rcx-button--icon rcx-button rcx-button-group__item"
+              class="rcx-box rcx-box--full rcx-navbar-item rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
               title="phone-disabled"
               type="button"
             >
@@ -173,7 +173,7 @@ exports[`[NavBar Component] renders Default without crashing 1`] = `
               </i>
             </button>
             <button
-              class="rcx-box rcx-box--full rcx-navbar-item rcx-button--small-square rcx-button--square rcx-button--icon rcx-button rcx-button-group__item"
+              class="rcx-box rcx-box--full rcx-navbar-item rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
               title="message-disabled"
               type="button"
             >
@@ -194,7 +194,7 @@ exports[`[NavBar Component] renders Default without crashing 1`] = `
             role="group"
           >
             <button
-              class="rcx-box rcx-box--full rcx-navbar-item rcx-button--small-square rcx-button--square rcx-button--icon rcx-button rcx-button-group__item"
+              class="rcx-box rcx-box--full rcx-navbar-item rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
               title="preferences"
               type="button"
             >
@@ -209,7 +209,7 @@ exports[`[NavBar Component] renders Default without crashing 1`] = `
               aria-expanded="false"
               aria-haspopup="true"
               aria-label="profile"
-              class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button rcx-button-group__item"
+              class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button rcx-navbar-item"
               id="react-aria-:r4:"
               title="profile"
               type="button"

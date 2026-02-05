@@ -1,17 +1,10 @@
-import type { ComponentProps } from 'react';
+import { Box, type BoxProps } from '../../Box';
 
-import Box from '../../Box';
-import Margins from '../../Margins';
-
-type TableSelectionProps = ComponentProps<typeof Box> & {
+export type TableSelectionProps = BoxProps & {
   text?: string;
 };
 
-export const TableSelection = ({
-  children,
-  text,
-  ...props
-}: TableSelectionProps) => (
+const TableSelection = ({ children, text, ...props }: TableSelectionProps) => (
   <Box
     rcx-table__selection
     display='flex'
@@ -26,8 +19,10 @@ export const TableSelection = ({
     </Box>
     {children && (
       <Box mi='neg-x8' fontScale='p2m' flexShrink={0}>
-        <Margins inline='x4'>{children}</Margins>
+        {children}
       </Box>
     )}
   </Box>
 );
+
+export default TableSelection;

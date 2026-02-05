@@ -2,14 +2,15 @@
   "name": "update-readme",
   "version": "0.31.25",
   "private": true,
-  "bin": "./update-readme.mjs",
+  "type": "module",
+  "bin": "./update-readme.js",
   "dependencies": {
     "outdent": "^0.8.0",
-    "zx": "8.5.5"
+    "zx": "8.8.5"
   },
   "devDependencies": {
-    "eslint": "~9.29.0",
+    "eslint": "~9.39.2",
     "lint-all": "workspace:~",
-    "prettier": "~3.5.3"
+    "prettier": "~3.6.2"
   }
 }

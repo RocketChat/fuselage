@@ -2,15 +2,13 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "rootDirs": ["./src", "./.storybook"],
-    "target": "ES5",
-    "module": "CommonJS",
     "outDir": "./dist",
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "jsx": "react-jsx"
+    "skipLibCheck": true
   },
   "include": ["./src", "./.jest/**/*", "./.storybook/**/*"],
-  "exclude": ["./dist"]
+  "exclude": ["./dist", "**/*.spec.ts", "jest.config.*"],
+  "typedocOptions": {
+    "entryPoints": ["src/index.ts"],
+    "out": "../../static/onboarding-ui"
+  }
 }

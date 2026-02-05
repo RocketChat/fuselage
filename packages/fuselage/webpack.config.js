@@ -1,118 +1,98 @@
-/* eslint-disable @typescript-eslint/no-require-imports */
-const path = require('path');
+import { resolve } from 'node:path';
 
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const webpack = require('webpack');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-const WrapperPlugin = require('wrapper-webpack-plugin');
+import autoprefixer from 'autoprefixer';
+import cssnanoPlugin from 'cssnano';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import postcssDirPseudoClass from 'postcss-dir-pseudo-class';
+import postcssLogical from 'postcss-logical';
+import WrapperPlugin from 'wrapper-webpack-plugin';
 
-const pkg = require('./package.json');
+import pkg from './package.json' with { type: 'json' };
 
-module.exports = (env, { mode = 'production' }) => ({
-  entry: {
-    fuselage: path.resolve(__dirname, 'src/index.ts'),
-  },
-  output: {
-    filename: `[name].${mode}.js`,
-    path: path.resolve(__dirname, 'dist'),
-    library: 'RocketChatFuselage',
-    libraryTarget: 'umd',
-    umdNamedDefine: true,
-    environment: {
-      arrowFunction: false,
-      bigIntLiteral: false,
-      const: false,
-      destructuring: false,
-      dynamicImport: false,
-      forOf: false,
-      module: false,
+export default (env, { mode = 'production' }) =>
+  /** @type {import('webpack').Configuration} */ ({
+    entry: {
+      fuselage: resolve(import.meta.dirname, 'src/index.ts'),
     },
-  },
-  devtool: mode === 'production' ? false : 'source-map',
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: 'babel-loader',
+    output: {
+      filename: `[name].${mode}.js`,
+      path: resolve(import.meta.dirname, 'dist'),
+      library: {
+        name: 'RocketChatFuselage',
+        type: 'umd',
+        umdNamedDefine: true,
       },
-      {
-        test: /\.tsx?$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'ts-loader',
-          options: {
-            configFile: path.resolve(__dirname, './tsconfig.build.json'),
+    },
+    devtool: mode === 'production' ? false : 'source-map',
+    module: {
+      rules: [
+        {
+          test: /\.js$/,
+          exclude: /node_modules/,
+          use: 'babel-loader',
+        },
+        {
+          test: /\.tsx?$/,
+          exclude: /node_modules/,
+          use: {
+            loader: 'ts-loader',
+            options: {
+              configFile: resolve(import.meta.dirname, './tsconfig.build.json'),
+            },
           },
         },
-      },
-      {
-        test: /\.scss$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          'babel-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              importLoaders: 2,
-            },
-          },
-          {
-            loader: 'postcss-loader',
-            options: {
-              postcssOptions: {
-                plugins: [
-                  require('postcss-svg')(),
-                  require('postcss-custom-properties')(),
-                  require('postcss-logical')({ preserve: true }),
-                  require('postcss-dir-pseudo-class')({ dir: 'ltr' }),
-                  require('autoprefixer')(),
-                  mode === 'production' && require('cssnano'),
-                ].filter(Boolean),
+        {
+          test: /\.scss$/,
+          use: [
+            MiniCssExtractPlugin.loader,
+            'babel-loader',
+            {
+              loader: 'css-loader',
+              options: {
+                importLoaders: 2,
               },
             },
-          },
-          'sass-loader',
-        ],
-      },
+            {
+              loader: 'postcss-loader',
+              options: {
+                postcssOptions: {
+                  plugins: [
+                    postcssLogical({ preserve: true }),
+                    postcssDirPseudoClass({ dir: 'ltr' }),
+                    autoprefixer(),
+                    mode === 'production' && cssnanoPlugin,
+                  ].filter(Boolean),
+                },
+              },
+            },
+            'sass-loader',
+          ],
+        },
+      ],
+    },
+    resolve: {
+      extensions: ['.tsx', '.ts', '.jsx', '.js', '.json'],
+    },
+    externals: [
+      ...Object.keys(pkg.dependencies ?? {}).map(
+        (dep) => new RegExp(`^${dep}(/.+)?$`),
+      ),
+      ...Object.keys(pkg.peerDependencies ?? {}).map(
+        (dep) => new RegExp(`^${dep}(/.+)?$`),
+      ),
     ],
-  },
-  resolve: {
-    extensions: ['.tsx', '.ts', '.jsx', '.js', '.json'],
-  },
-  externals: [
-    ...Object.keys(pkg.dependencies ?? {}).map(
-      (dep) => new RegExp(`^${dep}(/.+)?$`),
-    ),
-    ...Object.keys(pkg.peerDependencies ?? {}).map(
-      (dep) => new RegExp(`^${dep}(/.+)?$`),
-    ),
-  ],
-  plugins: [
-    new MiniCssExtractPlugin(),
-    new webpack.DefinePlugin({
-      'process.env.VERSION': JSON.stringify(pkg.version),
-    }),
-    new BundleAnalyzerPlugin({
-      analyzerMode: 'static',
-      generateStatsFile: false,
-      reportFilename:
-        mode !== 'production'
-          ? '../bundle-report-dev.html'
-          : '../bundle-report.html',
-      openAnalyzer: false,
-    }),
-
-    mode !== 'production' &&
-      new WrapperPlugin({
-        test: /development\.js$/, // only wrap output of bundle files with '.js' extension
-        header: `'use strict';
+    plugins: [
+      new MiniCssExtractPlugin(),
+      mode !== 'production' &&
+        new WrapperPlugin({
+          test: /development\.js$/, // only wrap output of bundle files with '.js' extension
+          header: `'use strict';
 
 if (process.env.NODE_ENV !== "production") {
 (function() {
 `,
-        footer: `\n})();
+          footer: `\n})();
 }`,
-      }),
-  ].filter(Boolean),
-});
+        }),
+    ].filter(Boolean),
+  });

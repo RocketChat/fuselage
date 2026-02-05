@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 
-type OptionHeaderProps = {
+export type OptionHeaderProps = {
   children: ReactNode;
 };
 

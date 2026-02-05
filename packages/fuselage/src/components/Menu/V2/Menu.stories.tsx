@@ -1,15 +1,17 @@
 import type { StoryFn, Meta } from '@storybook/react-webpack5';
-import type { ComponentProps, ReactNode, Ref } from 'react';
+import type { ReactNode } from 'react';
 import { forwardRef, useState } from 'react';
 
-import Box from '../../Box';
+import { Box } from '../../Box';
+import type { IconButtonProps } from '../../Button';
 import { IconButton } from '../../Button';
 import { ButtonGroup } from '../../ButtonGroup';
 import { CheckBox } from '../../CheckBox';
 import { RadioButton } from '../../RadioButton';
-import Sidebar from '../../Sidebar';
+import { Sidebar } from '../../Sidebar';
 import { ToggleSwitch } from '../../ToggleSwitch';
 
+import type { MenuItemIconProps } from '.';
 import {
   MenuV2 as Menu,
   MenuItem,
@@ -18,6 +20,7 @@ import {
   MenuItemIcon,
   MenuItemInput,
 } from '.';
+import type { MenuProps } from './Menu';
 
 export default {
   title: 'Navigation/Menu/v2',
@@ -38,7 +41,7 @@ export default {
 } satisfies Meta<typeof Menu>;
 
 export const Simple: StoryFn<typeof Menu> = (args) => (
-  <Menu {...args} placement='right-start'>
+  <Menu placement='right-start' title='Simple Menu' {...args}>
     <MenuItem key='1'>Profile</MenuItem>
     <MenuItem key='2'>Chats</MenuItem>
     <MenuItem key='3'>Settings</MenuItem>
@@ -46,16 +49,16 @@ export const Simple: StoryFn<typeof Menu> = (args) => (
 );
 
 export const Complex: StoryFn<typeof Menu> = (args) => (
-  <Menu {...args}>
-    <MenuItem key='profile'>
+  <Menu title='Complex Menu' {...args}>
+    <MenuItem key='profile' aria-label='Profile'>
       <MenuItemIcon name='user' />
       <MenuItemContent>Profile</MenuItemContent>
     </MenuItem>
-    <MenuItem key='chats'>
+    <MenuItem key='chats' aria-label='Chats'>
       <MenuItemIcon name='chat' />
       <MenuItemContent>Chats</MenuItemContent>
     </MenuItem>
-    <MenuItem key='settings'>
+    <MenuItem key='settings' aria-label='Settings'>
       <MenuItemIcon name='cog' color='font-info' />
       <MenuItemContent>Settings</MenuItemContent>
     </MenuItem>
@@ -71,7 +74,7 @@ Complex.parameters = {
 };
 
 export const WithSections: StoryFn<typeof Menu> = (args) => (
-  <Menu {...args}>
+  <Menu title='Menu with Sections' {...args}>
     <MenuSection title='Styles'>
       <MenuItem key='bold'>Bold</MenuItem>
       <MenuItem key='underline'>Underline</MenuItem>
@@ -93,7 +96,7 @@ WithSections.parameters = {
 };
 
 export const MenuDisplayExample = (
-  args: Omit<ComponentProps<typeof Menu>, 'children'>,
+  args: Omit<MenuProps<object>, 'children'>,
 ) => {
   const [display, setDisplay] = useState('condensed');
   const [avatarDisplay, setAvatarDisplay] = useState(false);
@@ -103,7 +106,12 @@ export const MenuDisplayExample = (
   const [groupByTypes, setGroupByTypes] = useState(false);
 
   return (
-    <Menu selectionMode='multiple' placement='top-start' {...args}>
+    <Menu
+      selectionMode='multiple'
+      placement='top-start'
+      title='Menu Display Example'
+      {...args}
+    >
       <MenuSection title='Display'>
         <MenuItem key='extended'>
           <MenuItemIcon name='extended-view' />
@@ -207,7 +215,7 @@ export const MenuDisplayExample = (
 
 type Item = {
   name: string;
-  icon: ComponentProps<typeof MenuItemIcon>['name'];
+  icon: MenuItemIconProps['name'];
   input?: ReactNode;
   description?: string;
   variant?: string;
@@ -289,7 +297,7 @@ export const MenuMapGenericItem = () => {
   ];
 
   return (
-    <Menu selectionMode='multiple'>
+    <Menu selectionMode='multiple' title='Menu with mapped items'>
       <MenuSection title='Sort by' items={sortByItems}>
         {(item) => (
           <MenuItem key={item.name}>
@@ -342,7 +350,7 @@ export const ControlledOpenState = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <Menu isOpen={isOpen} onOpenChange={setIsOpen}>
+    <Menu isOpen={isOpen} onOpenChange={setIsOpen} title='Controlled Menu'>
       <MenuItem key='1'>Profile</MenuItem>
       <MenuItem key='2'>Chats</MenuItem>
       <MenuItem key='3'>Settings</MenuItem>
@@ -351,7 +359,7 @@ export const ControlledOpenState = () => {
 };
 
 export const ItemVariants = () => (
-  <Menu>
+  <Menu title='Item Variants'>
     <MenuSection
       items={[
         {
@@ -390,27 +398,27 @@ export const ItemVariants = () => (
 
 export const Sizes = () => (
   <ButtonGroup>
-    <Menu large>
+    <Menu large title='Large Menu'>
       <MenuItem key='1'>Profile</MenuItem>
       <MenuItem key='2'>Chats</MenuItem>
       <MenuItem key='3'>Settings</MenuItem>
     </Menu>
-    <Menu medium>
+    <Menu medium title='Medium Menu'>
       <MenuItem key='1'>Profile</MenuItem>
       <MenuItem key='2'>Chats</MenuItem>
       <MenuItem key='3'>Settings</MenuItem>
     </Menu>
-    <Menu small>
+    <Menu small title='Small Menu'>
       <MenuItem key='1'>Profile</MenuItem>
       <MenuItem key='2'>Chats</MenuItem>
       <MenuItem key='3'>Settings</MenuItem>
     </Menu>
-    <Menu tiny>
+    <Menu tiny title='Tiny Menu'>
       <MenuItem key='1'>Profile</MenuItem>
       <MenuItem key='2'>Chats</MenuItem>
       <MenuItem key='3'>Settings</MenuItem>
     </Menu>
-    <Menu mini>
+    <Menu mini title='Mini Menu'>
       <MenuItem key='1'>Profile</MenuItem>
       <MenuItem key='2'>Chats</MenuItem>
       <MenuItem key='3'>Settings</MenuItem>
@@ -418,7 +426,7 @@ export const Sizes = () => (
   </ButtonGroup>
 );
 
-const CustomButton = forwardRef((props, ref: Ref<HTMLElement>) => (
+const CustomButton = forwardRef<HTMLElement, IconButtonProps>((props, ref) => (
   <IconButton ref={ref} {...props} icon='kebab' secondary small={false} />
 ));
 
@@ -439,3 +447,10 @@ export const WithCustomButton = () => (
     </Menu>
   </ButtonGroup>
 );
+
+export const Scrollable = () => {
+  const items = Array.from({ length: 30 }, (_, i) => (
+    <MenuItem key={i}>Item {i + 1}</MenuItem>
+  ));
+  return <Menu title='Scrollable Menu'>{items}</Menu>;
+};

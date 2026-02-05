@@ -1,17 +1,20 @@
 import { useEffectEvent } from '@rocket.chat/fuselage-hooks';
-import type { FormEvent, Ref } from 'react';
+import type { FormEvent } from 'react';
 import { useMemo, forwardRef } from 'react';
 
-import { InputBox } from '../InputBox';
+import { Input } from '../InputBox';
 
 import type { PaginatedSelectProps } from './PaginatedSelect';
 import { PaginatedSelect } from './PaginatedSelect';
 
-type PaginatedSelectFilteredProps = Omit<PaginatedSelectProps, 'setFilter'> & {
+export type PaginatedSelectFilteredProps = Omit<
+  PaginatedSelectProps,
+  'setFilter'
+> & {
   setFilter: (value: string | undefined | number) => void;
 };
 
-export const PaginatedSelectFiltered = ({
+const PaginatedSelectFiltered = ({
   filter,
   setFilter,
   options,
@@ -20,16 +23,9 @@ export const PaginatedSelectFiltered = ({
 }: PaginatedSelectFilteredProps) => {
   const anchor = useMemo(
     () =>
-      forwardRef(
-        (
-          {
-            filter,
-            onChange: _onChange,
-            ...props
-          }: PaginatedSelectFilteredProps,
-          ref: Ref<HTMLInputElement>,
-        ) => (
-          <InputBox.Input
+      forwardRef<HTMLInputElement, PaginatedSelectFilteredProps>(
+        ({ filter, onChange: _onChange, ...props }, ref) => (
+          <Input
             mi={4}
             flexGrow={1}
             className='rcx-select__focus'
@@ -57,3 +53,5 @@ export const PaginatedSelectFiltered = ({
     />
   );
 };
+
+export default PaginatedSelectFiltered;

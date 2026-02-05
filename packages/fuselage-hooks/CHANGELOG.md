@@ -1,5 +1,19 @@
 # Change Log
 
+## 0.39.0
+
+### Minor Changes
+
+- [#1717](https://github.com/RocketChat/fuselage/pull/1717) [`1179d3f`](https://github.com/RocketChat/fuselage/commit/1179d3f3fb954f00741fd99ddd979b00f39c937e) Thanks [@tassoevan](https://github.com/tassoevan)! - feat: ES2024 standard requirement
+
+## 0.38.1
+
+### Patch Changes
+
+- [#1740](https://github.com/RocketChat/fuselage/pull/1740) [`fd4847a`](https://github.com/RocketChat/fuselage/commit/fd4847a9a62b33a4c73d5b234c515ec92d9b6c27) Thanks [@gabriellsh](https://github.com/gabriellsh)! - fix(fuselage-forms): Clicking on label does not focus on input
+
+- [#1757](https://github.com/RocketChat/fuselage/pull/1757) [`a1bcbe8`](https://github.com/RocketChat/fuselage/commit/a1bcbe87cec75e4ad3561571e837e3bb0da28886) Thanks [@tassoevan](https://github.com/tassoevan)! - Preserves the generic type of `useLocalStorage` and `useSessionStorage`'
+
 ## 0.38.0
 
 ### Minor Changes

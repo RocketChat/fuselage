@@ -26,8 +26,8 @@
     "/dist"
   ],
   "scripts": {
-    ".:build:cjs": "tsc -p tsconfig-cjs.json",
-    ".:build:esm": "tsc -p tsconfig-esm.json",
+    ".:build:cjs": "tsc -p tsconfig.cjs.json",
+    ".:build:esm": "tsc -p tsconfig.esm.json",
     "build": "run .:build:esm && run .:build:cjs",
     "clean": "rimraf dist",
     "docs": "typedoc",
@@ -35,22 +35,15 @@
     "lint-and-fix": "lint-and-fix",
     "test": "jest --runInBand"
   },
-  "jest": {
-    "errorOnDeprecated": true,
-    "preset": "ts-jest",
-    "testMatch": [
-      "<rootDir>/src/**/*.spec.ts"
-    ]
-  },
   "devDependencies": {
-    "eslint": "~9.29.0",
-    "jest": "~30.0.0",
+    "eslint": "~9.39.2",
+    "jest": "~30.2.0",
     "lint-all": "workspace:~",
-    "prettier": "~3.5.3",
+    "prettier": "~3.6.2",
     "rimraf": "~6.0.1",
-    "ts-jest": "~29.4.0",
-    "typedoc": "~0.28.7",
-    "typescript": "~5.8.3"
+    "ts-jest": "~29.4.6",
+    "typedoc": "~0.28.16",
+    "typescript": "~5.9.3"
   },
   "publishConfig": {
     "access": "public"

@@ -1,7 +1,7 @@
 import isLokiRunning from '@loki/is-loki-running';
 import type { Meta } from '@storybook/react-webpack5';
 
-import { AudioPlayer } from './AudioPlayer';
+import AudioPlayer from './AudioPlayer';
 
 export default {
   title: 'Media/AudioPlayer',

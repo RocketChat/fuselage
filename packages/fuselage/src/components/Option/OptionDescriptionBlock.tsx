@@ -1,10 +1,10 @@
 import type { ReactNode } from 'react';
 
-type OptionDescriptionProps = {
+export type OptionDescriptionBlockProps = {
   children?: ReactNode;
 };
 
-const OptionDescriptionBlock = (props: OptionDescriptionProps) => (
+const OptionDescriptionBlock = (props: OptionDescriptionBlockProps) => (
   <div className='rcx-option__description-block' {...props} />
 );
 

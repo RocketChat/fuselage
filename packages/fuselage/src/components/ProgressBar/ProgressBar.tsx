@@ -1,7 +1,7 @@
 import type { AllHTMLAttributes } from 'react';
 import { forwardRef } from 'react';
 
-import Box from '../Box';
+import { Box } from '../Box';
 
 const getWidth = (percentage: number): string =>
   `${Math.min(Math.max(0, percentage), 100).toFixed(1)}%`;
@@ -30,7 +30,7 @@ const getColor = (
   return isLight ? lightColors[variant] : colors[variant];
 };
 
-type ProgressBarProps = {
+export type ProgressBarProps = {
   percentage: number;
   variant?: 'info' | 'success' | 'warning' | 'danger';
   error?: string;
@@ -41,15 +41,8 @@ type ProgressBarProps = {
 /**
  * The `ProgressBar` is used to inform the user the progress of an operation.
  */
-export const ProgressBar = forwardRef(function ProgressBar(
-  {
-    percentage,
-    variant = 'info',
-    error,
-    animated,
-    light = false,
-    ...props
-  }: ProgressBarProps,
+const ProgressBar = forwardRef<unknown, ProgressBarProps>(function ProgressBar(
+  { percentage, variant = 'info', error, animated, light = false, ...props },
   ref,
 ) {
   return (
@@ -69,3 +62,5 @@ export const ProgressBar = forwardRef(function ProgressBar(
     </Box>
   );
 });
+
+export default ProgressBar;

@@ -1,4 +1,5 @@
-import { MultiSelect } from './MultiSelect';
-import { MultiSelectFiltered } from './MultiSelectFiltered';
-
-export { MultiSelect, MultiSelectFiltered };
+export { default as MultiSelect, type MultiSelectProps } from './MultiSelect';
+export {
+  default as MultiSelectFiltered,
+  type MultiSelectFilteredProps,
+} from './MultiSelectFiltered';

@@ -1,16 +1,14 @@
-import type { ComponentPropsWithoutRef } from 'react';
-
 import WithErrorWrapper from '../../helpers/WithErrorWrapper';
-import Box from '../Box';
+import { Box, type BoxProps } from '../Box';
 
 import { FieldContext } from './Field';
 
-type FieldErrorProps = ComponentPropsWithoutRef<typeof Box>;
+export type FieldErrorProps = BoxProps;
 
-export const FieldError = (props: FieldErrorProps) => {
+const FieldError = (props: FieldErrorProps) => {
   const component = <Box is='span' rcx-field__error {...props} />;
 
-  if (process.env.NODE_ENV === 'development') {
+  if (process.env['NODE_ENV'] === 'development') {
     return (
       <WithErrorWrapper
         context={FieldContext}
@@ -24,3 +22,5 @@ export const FieldError = (props: FieldErrorProps) => {
 
   return component;
 };
+
+export default FieldError;

@@ -4,23 +4,17 @@ import {
   useResizeObserver,
   useOutsideClick,
 } from '@rocket.chat/fuselage-hooks';
-import type {
-  ComponentProps,
-  DependencyList,
-  Ref,
-  ElementType,
-  ReactNode,
-} from 'react';
+import type { DependencyList, ElementType, ReactNode } from 'react';
 import { useState, useRef, useEffect, forwardRef, useMemo } from 'react';
 
 import { isForwardRefType } from '../../helpers/isForwardRefType';
-import AnimatedVisibility from '../AnimatedVisibility';
-import Box from '../Box';
-import { Icon } from '../Icon';
-import Margins from '../Margins';
+import { AnimatedVisibility } from '../AnimatedVisibility';
+import { Box, type BoxProps } from '../Box';
+import { Icon, type IconProps } from '../Icon';
+import { Margins } from '../Margins';
 import type { OptionType } from '../Options';
 import { Options, useCursor } from '../Options';
-import PositionAnimated from '../PositionAnimated';
+import { PositionAnimated } from '../PositionAnimated';
 
 import SelectAddon from './SelectAddon';
 import type { SelectAnchorParams } from './SelectAnchorParams';
@@ -32,9 +26,9 @@ export type SelectOption = readonly [
   selected?: boolean,
 ];
 
-type WrapperProps = ComponentProps<typeof Box>;
+type WrapperProps = BoxProps;
 
-const Wrapper = forwardRef((props: WrapperProps, ref: Ref<HTMLDivElement>) => (
+const Wrapper = forwardRef<HTMLDivElement, WrapperProps>((props, ref) => (
   <Box is='div' rcx-select__wrapper ref={ref} {...props} />
 ));
 
@@ -50,7 +44,7 @@ const useDidUpdate = (func: () => void, deps: DependencyList | undefined) => {
   }, deps || []);
 };
 
-export type SelectProps = Omit<ComponentProps<typeof Box>, 'onChange'> & {
+export type SelectProps = Omit<BoxProps, 'onChange'> & {
   anchor?: ElementType;
   error?: string;
   options: SelectOption[];
@@ -62,11 +56,11 @@ export type SelectProps = Omit<ComponentProps<typeof Box>, 'onChange'> & {
   renderItem?: ElementType;
   renderSelected?: ElementType;
   customEmpty?: string;
-  addonIcon?: ComponentProps<typeof Icon>['name'];
+  addonIcon?: IconProps['name'];
 };
 
-export const SelectLegacy = forwardRef(
-  (
+const SelectLegacy = forwardRef<HTMLInputElement, SelectProps>(
+  function SelectLegacy(
     {
       value,
       filter,
@@ -84,9 +78,9 @@ export const SelectLegacy = forwardRef(
       addonIcon,
       customEmpty,
       ...props
-    }: SelectProps,
-    ref: Ref<HTMLInputElement>,
-  ) => {
+    },
+    ref,
+  ) {
     const [internalValue, setInternalValue] = useState(value || '');
 
     const internalChangedByKeyboard = useEffectEvent(([value]: OptionType) => {
@@ -242,3 +236,5 @@ export const SelectLegacy = forwardRef(
     );
   },
 );
+
+export default SelectLegacy;

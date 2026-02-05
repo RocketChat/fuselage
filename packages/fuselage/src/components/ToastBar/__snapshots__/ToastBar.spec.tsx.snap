@@ -1,10 +1,10 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`[ToastBar Rendering] renders Default without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-css-fnyeze rcx-toastbar rcx-toastbar--info  rcx-css-1h96jes"
+      class="rcx-box rcx-box--full rcx-css-fnyeze rcx-toastbar rcx-toastbar--info  rcx-css-a5p6bf"
     >
       <div
         class="rcx-toastbar_inner"
@@ -36,7 +36,7 @@ exports[`[ToastBar Rendering] renders Error without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-css-fnyeze rcx-toastbar rcx-toastbar--error  rcx-css-1h96jes"
+      class="rcx-box rcx-box--full rcx-css-fnyeze rcx-toastbar rcx-toastbar--error  rcx-css-a5p6bf"
     >
       <div
         class="rcx-toastbar_inner"
@@ -68,7 +68,7 @@ exports[`[ToastBar Rendering] renders Success without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-css-fnyeze rcx-toastbar rcx-toastbar--success  rcx-css-1h96jes"
+      class="rcx-box rcx-box--full rcx-css-fnyeze rcx-toastbar rcx-toastbar--success  rcx-css-a5p6bf"
     >
       <div
         class="rcx-toastbar_inner"
@@ -100,7 +100,7 @@ exports[`[ToastBar Rendering] renders TinyText without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-css-fnyeze rcx-toastbar rcx-toastbar--info  rcx-css-1h96jes"
+      class="rcx-box rcx-box--full rcx-css-fnyeze rcx-toastbar rcx-toastbar--info  rcx-css-a5p6bf"
     >
       <div
         class="rcx-toastbar_inner"
@@ -130,7 +130,7 @@ exports[`[ToastBar Rendering] renders WithCloseButton without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-css-fnyeze rcx-toastbar rcx-toastbar--info  rcx-css-1h96jes"
+      class="rcx-box rcx-box--full rcx-css-fnyeze rcx-toastbar rcx-toastbar--info  rcx-css-a5p6bf"
     >
       <div
         class="rcx-toastbar_inner"

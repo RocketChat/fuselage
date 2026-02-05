@@ -1,11 +1,10 @@
-import type { ComponentProps } from 'react';
+import { AnimatedVisibility } from '../AnimatedVisibility';
+import type { PositionProps } from '../Position';
+import { Position } from '../Position';
 
-import AnimatedVisibility from '../AnimatedVisibility';
-import Position from '../Position';
-
-type PositionAnimatedProps = {
+export type PositionAnimatedProps = {
   visible?: 'hidden' | 'visible' | 'hiding' | 'unhiding';
-} & ComponentProps<typeof Position>;
+} & PositionProps;
 
 const PositionAnimated = ({
   width: _width,

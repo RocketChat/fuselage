@@ -1,8 +1,8 @@
 import type { Meta, StoryFn } from '@storybook/react-webpack5';
-import type { ComponentProps } from 'react';
 
 import { Badge } from '../Badge';
 import { Button, IconButton } from '../Button';
+import type { CardProps } from '../Card';
 import {
   Card,
   CardBody,
@@ -15,7 +15,7 @@ import {
 import { Icon } from '../Icon';
 import { Tag } from '../Tag';
 
-import { CardGroup } from './CardGroup';
+import CardGroup from './CardGroup';
 
 export default {
   title: 'Containers/CardGroup',
@@ -27,7 +27,7 @@ export default {
   },
 } satisfies Meta<typeof CardGroup>;
 
-const CardItem = (props: ComponentProps<typeof Card>) => (
+const CardItem = (props: CardProps) => (
   <Card {...props}>
     <CardHeader>
       <Icon name='address-book' size='x24' />

@@ -1,8 +1,10 @@
 import isLokiRunning from '@loki/is-loki-running';
 import type { Decorator } from '@storybook/react-webpack5';
-import type { ComponentProps, ReactElement } from 'react';
 
-import { Avatar, Box, IconButton, MenuV2 as Menu, MenuItem } from '../..';
+import { MenuV2 as Menu, MenuItem } from '../..';
+import { Avatar } from '../Avatar';
+import { Box } from '../Box';
+import { IconButton } from '../Button';
 
 import {
   SidebarV2,
@@ -26,6 +28,7 @@ import {
   SidebarV2ItemTitle,
   SidebarV2ListItem,
 } from '.';
+import type { SidebarV2ItemProps } from './SidebarItem/SidebarItem';
 
 const child_count = () => {
   return isLokiRunning() ? 1 : Math.floor(Math.random() * 10) + 1;
@@ -144,7 +147,7 @@ export const GenericExtendedItem = ({ i = 0 }: { i: number }) => (
 export const GenericCallItem = ({
   i = 0,
   ...props
-}: { i?: number } & ComponentProps<typeof SidebarV2Item>) => (
+}: { i?: number } & SidebarV2ItemProps) => (
   <SidebarV2Item {...props}>
     <SidebarV2ItemAvatarWrapper>
       <Avatar size='x36' url={leterAvatarUrls[i % 4]} alt='avatar' />
@@ -171,7 +174,7 @@ export const GenericCallItem = ({
 );
 
 export const decorators: Decorator[] = [
-  (fn): ReactElement => (
+  (fn) => (
     <Box h='90vh' w='x280'>
       <SidebarV2>
         <SidebarV2Accordion>

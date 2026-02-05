@@ -1,10 +1,9 @@
 import type { Meta, StoryFn } from '@storybook/react-webpack5';
-import type { ComponentProps } from 'react';
 import { action } from 'storybook/actions';
 
-import Box from '../Box';
-import Button from '../Button';
-import Field, { FieldLabel, FieldRow } from '../Field';
+import { Box, type BoxProps } from '../Box';
+import { Button } from '../Button';
+import { Field, FieldLabel, FieldRow } from '../Field';
 import { FieldGroup } from '../FieldGroup';
 import { TextInput } from '../TextInput';
 
@@ -201,7 +200,7 @@ export const _WithHeroImage: StoryFn<typeof Modal> = () => (
   </Modal>
 );
 
-const FormContainer = (props: ComponentProps<typeof Box>) => (
+const FormContainer = (props: BoxProps) => (
   <Box
     {...props}
     is='form'

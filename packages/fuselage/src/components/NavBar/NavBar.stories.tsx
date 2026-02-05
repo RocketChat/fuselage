@@ -1,26 +1,25 @@
 import type { StoryFn, Meta } from '@storybook/react-webpack5';
-import type { ComponentType } from 'react';
 
 import { Avatar } from '../Avatar';
-import Box from '../Box';
+import { Box } from '../Box';
 import { MenuV2 as Menu, MenuItem, MenuSection } from '../Menu';
 import { MenuDisplayExample } from '../Menu/V2/Menu.stories';
 import { avatarUrl } from '../Message/helpers';
 
-import { NavBar } from './NavBar';
-import { NavBarDivider } from './NavBarDivider';
-import { NavBarGroup } from './NavBarGroup';
-import { NavBarItem } from './NavBarItem';
-import { NavBarSection } from './NavBarSection';
+import NavBar from './NavBar';
+import NavBarDivider from './NavBarDivider';
+import NavBarGroup from './NavBarGroup';
+import NavBarItem from './NavBarItem';
+import NavBarSection from './NavBarSection';
 
 export default {
   title: 'Navigation/Navbar',
   component: NavBar,
   subcomponents: {
-    NavBarItem: NavBarItem as ComponentType<any>,
-    NavBarSection: NavBarSection as ComponentType<any>,
-    NavBarDivider: NavBarDivider as ComponentType<any>,
-    NavBarGroup: NavBarGroup as ComponentType<any>,
+    NavBarItem,
+    NavBarSection,
+    NavBarDivider,
+    NavBarGroup,
   },
   decorators: [
     (Story) => (
@@ -41,7 +40,6 @@ const Template: StoryFn<typeof NavBar> = (args) => (
         <NavBarItem icon='document-eye' title='audit' />
         <NavBarItem icon='address-book' title='contacts' />
       </NavBarGroup>
-      <NavBarDivider />
       <NavBarGroup role='toolbar'>
         <NavBarItem>
           <MenuDisplayExample small icon='sort' title='sort' />
@@ -56,7 +54,6 @@ const Template: StoryFn<typeof NavBar> = (args) => (
           </MenuSection>
         </Menu>
       </NavBarGroup>
-      <NavBarDivider />
       <NavBarGroup role='toolbar'>
         <NavBarItem icon='dialpad' title='dialpad' />
         <NavBarItem icon='live' title='live' />

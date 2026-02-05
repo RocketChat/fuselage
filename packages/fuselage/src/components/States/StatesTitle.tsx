@@ -1,6 +1,6 @@
 import type { AllHTMLAttributes, ReactNode } from 'react';
 
-type StatesTitleProps = {
+export type StatesTitleProps = {
   children?: ReactNode;
 } & AllHTMLAttributes<HTMLHeadingElement>;
 

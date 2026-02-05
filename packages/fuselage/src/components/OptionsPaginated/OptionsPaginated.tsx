@@ -1,29 +1,45 @@
 import { useEffectEvent, useDebouncedState } from '@rocket.chat/fuselage-hooks';
-import type { ComponentProps, ElementType, Ref, SyntheticEvent } from 'react';
+import type {
+  ComponentType,
+  ElementType,
+  MouseEvent,
+  ReactNode,
+  SyntheticEvent,
+} from 'react';
 import { forwardRef, memo } from 'react';
 import { Virtuoso } from 'react-virtuoso';
 
 import { prevent } from '../../helpers/prevent';
-import AnimatedVisibility from '../AnimatedVisibility';
-import Box from '../Box';
+import { AnimatedVisibility } from '../AnimatedVisibility';
+import { Box, type BoxProps } from '../Box';
 import { CheckBox } from '../CheckBox';
-import Option from '../Option';
-import Tile from '../Tile';
+import type { OptionProps } from '../Option';
+import { Option } from '../Option';
+import { Tile } from '../Tile';
 
-type OptionsPaginatedProps = Omit<ComponentProps<typeof Box>, 'onSelect'> & {
+export type OptionsPaginatedProps = Omit<BoxProps, 'onSelect'> & {
   multiple?: boolean;
-  options: { value: unknown; label: string; selected?: boolean }[];
+  options: { value: string | number; label: string; selected?: boolean }[];
   cursor: number;
   withTitle?: boolean;
-  renderItem?: ElementType;
-  renderEmpty?: ElementType;
+  renderItem?: ComponentType<{
+    role?: string;
+    label?: ReactNode;
+    title?: string;
+    selected?: boolean;
+    index?: number;
+    focus?: boolean;
+    value?: string | number;
+    onMouseDown?: (e: MouseEvent<HTMLElement>) => void;
+  }>;
+  renderEmpty?: ElementType<object>;
   onSelect: (option: [unknown, string]) => void;
-  endReached?: (index: number) => void;
+  endReached?: (start?: number | undefined, end?: number | undefined) => void;
 };
 
 export const Empty = memo(() => <Option label='Empty' />);
 
-type CheckOptionProps = ComponentProps<typeof Option>;
+type CheckOptionProps = OptionProps;
 
 export const CheckOption = memo(function CheckOption({
   selected,
@@ -40,7 +56,7 @@ export const CheckOption = memo(function CheckOption({
 /**
  * An input for selection of options.
  */
-export const OptionsPaginated = forwardRef(
+export const OptionsPaginated = forwardRef<Element, OptionsPaginatedProps>(
   (
     {
       withTitle,
@@ -52,8 +68,8 @@ export const OptionsPaginated = forwardRef(
       onSelect,
       endReached,
       ...props
-    }: OptionsPaginatedProps,
-    ref: Ref<Element>,
+    },
+    ref,
   ) => {
     const OptionsComponentWithData = ({
       index,
@@ -76,8 +92,8 @@ export const OptionsPaginated = forwardRef(
           }}
           key={value}
           value={value}
-          selected={selected || (multiple !== true && null)}
-          focus={cursor === index || null}
+          selected={selected || (multiple !== true && undefined)} // FIXME: undefined???
+          focus={cursor === index || undefined} // FIXME: undefined???
         />
       );
     };

@@ -1,9 +1,9 @@
 import type { Keys as IconKeys } from '@rocket.chat/icons';
-import { isValidElement, type ComponentProps, type ReactElement } from 'react';
+import { isValidElement, type ReactElement } from 'react';
 
-import { Icon } from '../../Icon';
+import { Icon, type IconProps } from '../../Icon';
 
-type SidebarItemIconProps = Omit<ComponentProps<typeof Icon>, 'name'> & {
+type SidebarItemIconProps = Omit<IconProps, 'name'> & {
   icon: IconKeys | ReactElement;
   highlighted?: boolean;
 };

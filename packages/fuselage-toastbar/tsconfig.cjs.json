@@ -1,14 +1,14 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "module": "CommonJS",
+    "module": "commonjs",
+    "moduleResolution": "node",
     "rootDir": "./src",
     "outDir": "./dist/cjs"
   },
   "include": ["./src"],
   "exclude": [
-    "**/*.spec.ts",
-    "**/*.spec.tsx",
+    "**/*.spec.*",
     "**/*.stories.tsx",
     "./jest.config.ts",
     "./jest-setup.ts"

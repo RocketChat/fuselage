@@ -4,12 +4,11 @@ import type {
   KeyboardEventHandler,
   MouseEventHandler,
   ReactNode,
-  Ref,
 } from 'react';
 import { forwardRef } from 'react';
 
-import Flex from '../Flex';
-import { InputBox } from '../InputBox';
+import { FlexItem } from '../Flex';
+import { Input } from '../InputBox';
 
 type MultiSelectFilteredAnchorProps = {
   children: ReactNode;
@@ -23,19 +22,16 @@ type MultiSelectFilteredAnchorProps = {
   onKeyDown: KeyboardEventHandler;
 };
 
-const MultiSelectFilteredAnchor = forwardRef(function MultiSelectFilteredAnchor(
-  {
-    children: _children,
-    filter,
-    onChangeFilter,
-    placeholder,
-    ...props
-  }: MultiSelectFilteredAnchorProps,
-  ref: Ref<Element>,
+const MultiSelectFilteredAnchor = forwardRef<
+  HTMLInputElement,
+  MultiSelectFilteredAnchorProps
+>(function MultiSelectFilteredAnchor(
+  { children: _children, filter, onChangeFilter, placeholder, ...props },
+  ref,
 ) {
   return (
-    <Flex.Item grow={1}>
-      <InputBox.Input
+    <FlexItem grow={1}>
+      <Input
         ref={ref}
         placeholder={placeholder}
         value={filter}
@@ -47,7 +43,7 @@ const MultiSelectFilteredAnchor = forwardRef(function MultiSelectFilteredAnchor(
         aria-haspopup='listbox'
         order={1}
       />
-    </Flex.Item>
+    </FlexItem>
   );
 });
 

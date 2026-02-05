@@ -1,6 +1,6 @@
 import type { AllHTMLAttributes, ReactNode } from 'react';
 
-type StatesSubtitleProps = {
+export type StatesSubtitleProps = {
   children?: ReactNode;
 } & AllHTMLAttributes<HTMLDivElement>;
 

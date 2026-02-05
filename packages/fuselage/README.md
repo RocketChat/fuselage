@@ -25,11 +25,11 @@
 Firstly, install the peer dependencies (prerequisites):
 
 ```sh
-npm i @rocket.chat/fuselage-hooks @rocket.chat/fuselage-polyfills @rocket.chat/icons react react-dom react-virtuoso
+npm i @rocket.chat/fuselage-hooks @rocket.chat/icons react react-dom react-virtuoso
 
 # or, if you are using yarn:
 
-yarn add @rocket.chat/fuselage-hooks @rocket.chat/fuselage-polyfills @rocket.chat/icons react react-dom react-virtuoso
+yarn add @rocket.chat/fuselage-hooks @rocket.chat/icons react react-dom react-virtuoso
 ```
 
 Add `@rocket.chat/fuselage` as a dependency:

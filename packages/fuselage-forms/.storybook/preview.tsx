@@ -1,9 +1,9 @@
 import { PaletteStyleTag } from '@rocket.chat/fuselage';
 import breakpointTokens from '@rocket.chat/fuselage-tokens/breakpoints.json';
 import surface from '@rocket.chat/fuselage-tokens/dist/surface.json';
+import { useDarkMode } from '@rocket.chat/storybook-dark-mode';
 import type { Preview } from '@storybook/react-webpack5';
 import { themes } from 'storybook/theming';
-import { useDarkMode } from 'storybook-dark-mode';
 
 import manifest from '../package.json';
 
@@ -12,7 +12,6 @@ import logo from './logo.svg';
 
 import '@rocket.chat/fuselage/dist/fuselage.css';
 import '@rocket.chat/icons/dist/rocketchat.css';
-import '@rocket.chat/fuselage-polyfills';
 
 export default {
   parameters: {

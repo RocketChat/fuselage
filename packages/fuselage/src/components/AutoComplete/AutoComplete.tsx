@@ -2,46 +2,49 @@ import { useEffectEvent, useResizeObserver } from '@rocket.chat/fuselage-hooks';
 import type {
   AllHTMLAttributes,
   ChangeEvent,
-  ComponentProps,
-  ElementType,
+  ComponentType,
   FocusEvent,
   MouseEvent,
-  ReactElement,
   ReactNode,
 } from 'react';
 import { useEffect, useRef, useMemo, useState } from 'react';
 
-import AnimatedVisibility from '../AnimatedVisibility';
-import Box from '../Box';
-import Chip from '../Chip';
+import { AnimatedVisibility } from '../AnimatedVisibility';
+import { Box } from '../Box';
+import { Chip } from '../Chip';
 import { Icon } from '../Icon';
-import { InputBox } from '../InputBox';
-import Margins from '../Margins';
-import type { OptionType } from '../Options';
-import { useCursor, Options } from '../Options';
-import PositionAnimated from '../PositionAnimated';
+import { Input } from '../InputBox';
+import { Margins } from '../Margins';
+import { useCursor, Options, type OptionType } from '../Options';
+import { PositionAnimated } from '../PositionAnimated';
 
-const Addon = (props: ComponentProps<typeof Box>) => (
-  <Box rcx-autocomplete__addon {...props} />
-);
-
-type AutoCompleteOption = {
+type AutoCompleteOption<TLabel> = {
   value: string;
-  // TODO: label type shoudn't be unknown
-  label: unknown;
+  label: TLabel;
 };
 
-type AutoCompleteProps = Omit<
+export type AutoCompleteProps<TLabel> = Omit<
   AllHTMLAttributes<HTMLInputElement>,
   'value' | 'onChange' | 'is'
 > & {
   filter: string;
   setFilter?: (filter: string) => void;
-  options?: AutoCompleteOption[];
-  renderItem?: ElementType;
-  renderSelected?: ElementType;
+  options?: AutoCompleteOption<TLabel>[];
+  renderSelected?: ComponentType<{
+    selected: AutoCompleteOption<TLabel>;
+    onRemove?: (event: MouseEvent<HTMLButtonElement>) => void;
+  }>;
   onChange: (value: string | string[]) => void;
-  renderEmpty?: ElementType;
+  renderItem?: ComponentType<{
+    role?: string;
+    label: TLabel;
+    value: string;
+    selected?: boolean;
+    focus?: boolean;
+  }>;
+  renderEmpty?: ComponentType<{
+    customEmpty?: string;
+  }>;
   placeholder?: string;
   error?: boolean;
   disabled?: boolean;
@@ -49,9 +52,9 @@ type AutoCompleteProps = Omit<
   value?: string | string[];
 };
 
-const getSelected = (
+const getSelected = <TLabel,>(
   value: string | string[] | undefined,
-  options: AutoCompleteOption[],
+  options: AutoCompleteOption<TLabel>[],
 ) => {
   if (!value) {
     return [];
@@ -62,7 +65,8 @@ const getSelected = (
 };
 
 const isSelectedValid =
-  (value: string | string[] | undefined) => (selected: AutoCompleteOption) => {
+  <TLabel,>(value: string | string[] | undefined) =>
+  (selected: AutoCompleteOption<TLabel>) => {
     if (!value) {
       return false;
     }
@@ -75,7 +79,7 @@ const isSelectedValid =
 /**
  * An input for selection of options.
  */
-export function AutoComplete({
+function AutoComplete<TLabel = ReactNode>({
   value,
   filter,
   setFilter,
@@ -90,8 +94,8 @@ export function AutoComplete({
   multiple,
   onBlur: onBlurAction = () => {},
   ...props
-}: AutoCompleteProps): ReactElement {
-  const ref = useRef<HTMLInputElement>();
+}: AutoCompleteProps<TLabel>) {
+  const ref = useRef<HTMLInputElement>(null);
   const { ref: containerRef, borderBoxSize } = useResizeObserver();
 
   const [selected, setSelected] = useState(
@@ -107,23 +111,25 @@ export function AutoComplete({
     });
   }, [value]);
 
-  const handleSelect = useEffectEvent(([newValue]: OptionType) => {
-    if (selected.some((item) => item.value === newValue)) {
+  const handleSelect = useEffectEvent(
+    ([newValue]: OptionType<string, TLabel>) => {
+      if (selected.some((item) => item.value === newValue)) {
+        hide();
+        return;
+      }
+
+      if (multiple) {
+        setSelected([...selected, ...getSelected(newValue as string, options)]);
+        onChange([...(value || []), newValue as string]);
+      } else {
+        setSelected(getSelected(newValue as string, options));
+        onChange(newValue as string);
+      }
+
+      setFilter?.('');
       hide();
-      return;
-    }
-
-    if (multiple) {
-      setSelected([...selected, ...getSelected(newValue as string, options)]);
-      onChange([...(value || []), newValue as string]);
-    } else {
-      setSelected(getSelected(newValue as string, options));
-      onChange(newValue as string);
-    }
-
-    setFilter?.('');
-    hide();
-  });
+    },
+  );
 
   const handleRemove = useEffectEvent(
     (event: MouseEvent<HTMLButtonElement>) => {
@@ -145,8 +151,11 @@ export function AutoComplete({
     },
   );
 
-  const memoizedOptions = useMemo<OptionType[]>(
-    () => options.map(({ value, label }) => [value, label as ReactNode]),
+  const memoizedOptions = useMemo(
+    () =>
+      options.map(
+        ({ value, label }): OptionType<string, TLabel> => [value, label],
+      ),
     [options],
   );
 
@@ -185,7 +194,7 @@ export function AutoComplete({
         role='group'
       >
         <Margins all='x4'>
-          <InputBox.Input
+          <Input
             ref={ref}
             onChange={useEffectEvent((e: ChangeEvent<HTMLInputElement>) =>
               setFilter?.(e.currentTarget.value),
@@ -222,19 +231,17 @@ export function AutoComplete({
           )}
         </Margins>
       </Box>
-      <Addon
-        children={
-          <Icon
-            name={
-              optionsAreVisible === AnimatedVisibility.VISIBLE
-                ? 'cross'
-                : 'magnifier'
-            }
-            size='x20'
-            color='default'
-          />
-        }
-      />
+      <Box rcx-autocomplete__addon>
+        <Icon
+          name={
+            optionsAreVisible === AnimatedVisibility.VISIBLE
+              ? 'cross'
+              : 'magnifier'
+          }
+          size='x20'
+          color='default'
+        />
+      </Box>
       <PositionAnimated visible={optionsAreVisible} anchor={containerRef}>
         <Options
           width={borderBoxSize.inlineSize}
@@ -249,3 +256,5 @@ export function AutoComplete({
     </Box>
   );
 }
+
+export default AutoComplete;

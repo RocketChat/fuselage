@@ -1,15 +1,14 @@
-import type { AllHTMLAttributes, ComponentProps } from 'react';
+import type { AllHTMLAttributes } from 'react';
 
-import { AvatarContainer } from './AvatarContainer';
-import { AvatarStack } from './AvatarStack';
+import AvatarContainer, { type AvatarContainerProps } from './AvatarContainer';
 
-export type AvatarProps = ComponentProps<typeof AvatarContainer> & {
+export type AvatarProps = AvatarContainerProps & {
   rounded?: boolean;
   objectFit?: boolean;
   url: string;
 } & Omit<AllHTMLAttributes<HTMLImageElement>, 'size'>;
 
-export const Avatar = ({
+const Avatar = ({
   size = 'x36',
   rounded = false,
   objectFit = false,
@@ -34,7 +33,4 @@ export const Avatar = ({
   );
 };
 
-/**
- * @deprecated Use named import instead
- */
-Avatar.Stack = AvatarStack;
+export default Avatar;

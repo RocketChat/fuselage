@@ -3,7 +3,7 @@ import type { ElementType, HTMLAttributes } from 'react';
 import { prependClassName } from '../../helpers/prependClassName';
 
 export type BadgeProps = {
-  is?: ElementType;
+  is?: ElementType<HTMLAttributes<HTMLSpanElement>>;
   variant?: 'secondary' | 'primary' | 'danger' | 'warning' | 'ghost';
   small?: boolean;
   disabled?: boolean;
@@ -15,7 +15,7 @@ export type BadgeProps = {
 /**
  * Communicates notification’s amount and types.
  */
-export function Badge({
+function Badge({
   is: Tag = 'span',
   variant = 'secondary',
   small,
@@ -38,3 +38,5 @@ export function Badge({
     />
   );
 }
+
+export default Badge;

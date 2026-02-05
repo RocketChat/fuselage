@@ -1,22 +1,16 @@
-import type {
-  Ref,
-  ComponentProps,
-  ReactNode,
-  MouseEvent,
-  AllHTMLAttributes,
-} from 'react';
+import type { Ref, ReactNode, MouseEvent, AllHTMLAttributes } from 'react';
 import { forwardRef, memo } from 'react';
 
 import { prevent } from '../../../helpers/prevent';
-import type Box from '../../Box/Box';
+import type { BoxProps } from '../../Box';
 
 export type MenuOptionProps = {
-  is?: ComponentProps<typeof Box>['is'];
+  is?: BoxProps['is'];
   id?: string;
   children?: ReactNode;
   focus?: boolean;
   selected?: boolean;
-  className?: ComponentProps<typeof Box>['className'];
+  className?: BoxProps['className'];
   ref?: Ref<Element>;
   title?: string;
   disabled?: boolean;
@@ -26,54 +20,52 @@ export type MenuOptionProps = {
   description?: ReactNode;
 } & Omit<AllHTMLAttributes<HTMLElement>, 'label'>;
 
-const MenuOption = memo(
-  forwardRef(
-    (
-      {
-        is: Tag = 'li',
-        id,
-        children,
-        focus,
-        selected,
+const MenuOption = forwardRef<unknown, MenuOptionProps>(function MenuOption(
+  {
+    is: Tag = 'li',
+    id,
+    children,
+    focus,
+    selected,
+    className,
+    title,
+    disabled,
+    variant,
+    onClick,
+    ...props
+  }: MenuOptionProps,
+  ref,
+) {
+  return (
+    <Tag
+      {...props}
+      key={id}
+      id={id}
+      ref={ref}
+      aria-selected={!!selected}
+      aria-disabled={!!disabled}
+      title={title}
+      onClick={(e: MouseEvent<HTMLDivElement>) => {
+        if (disabled) {
+          prevent(e);
+          return;
+        }
+        onClick?.(e);
+      }}
+      className={[
+        'rcx-option',
         className,
-        title,
-        disabled,
-        variant,
-        onClick,
-        ...props
-      }: MenuOptionProps,
-      ref,
-    ) => (
-      <Tag
-        {...props}
-        key={id}
-        id={id}
-        ref={ref}
-        aria-selected={!!selected}
-        aria-disabled={!!disabled}
-        title={title}
-        onClick={(e: MouseEvent<HTMLDivElement>) => {
-          if (disabled) {
-            prevent(e);
-            return;
-          }
-          onClick?.(e);
-        }}
-        className={[
-          'rcx-option',
-          className,
-          focus && 'rcx-option--focus',
-          selected && 'rcx-option--selected',
-          disabled && 'rcx-option--disabled',
-          variant && `rcx-option--${variant}`,
-        ]
-          .filter(Boolean)
-          .join(' ')}
-      >
-        {children}
-      </Tag>
-    ),
-  ),
-);
+        focus && 'rcx-option--focus',
+        selected && 'rcx-option--selected',
+        disabled && 'rcx-option--disabled',
+        variant && `rcx-option--${variant}`,
+      ]
+        .filter(Boolean)
+        .join(' ')}
+    >
+      {children}
+    </Tag>
+  );
+});
 
-export default MenuOption;
+export default memo(MenuOption);

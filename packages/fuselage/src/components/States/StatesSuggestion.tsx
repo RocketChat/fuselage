@@ -1,6 +1,6 @@
 import type { ReactNode, AllHTMLAttributes } from 'react';
 
-type StatesSuggestionProps = {
+export type StatesSuggestionProps = {
   children?: ReactNode;
 } & AllHTMLAttributes<HTMLDivElement>;
 

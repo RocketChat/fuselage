@@ -3,11 +3,11 @@ import nameToCharacterMapping from '@rocket.chat/icons';
 import type { StoryFn, Meta } from '@storybook/react-webpack5';
 import { useState } from 'react';
 
-import Box from '../Box';
+import { Box } from '../Box';
 import { Divider } from '../Divider';
-import InputBox from '../InputBox';
+import { InputBox } from '../InputBox';
 
-import { Icon } from './Icon';
+import Icon from './Icon';
 
 export default {
   title: 'Data Display/Icon',

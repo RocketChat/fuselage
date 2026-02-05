@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`[CheckBox Rendering] renders CustomIcon without crashing 1`] = `
 <body>
@@ -247,7 +247,7 @@ exports[`[CheckBox Rendering] renders WithActions without crashing 1`] = `
             role="group"
           >
             <button
-              class="rcx-box rcx-box--full rcx-button--small rcx-button rcx-button-group__item"
+              class="rcx-box rcx-box--full rcx-button--small rcx-button"
               type="button"
             >
               <span
@@ -257,7 +257,7 @@ exports[`[CheckBox Rendering] renders WithActions without crashing 1`] = `
               </span>
             </button>
             <button
-              class="rcx-box rcx-box--full rcx-button--small rcx-button rcx-button-group__item"
+              class="rcx-box rcx-box--full rcx-button--small rcx-button"
               type="button"
             >
               <span

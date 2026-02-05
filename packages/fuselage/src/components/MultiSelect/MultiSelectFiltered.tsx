@@ -1,19 +1,20 @@
-import type { ComponentProps, Dispatch, SetStateAction } from 'react';
+import type { Dispatch, SetStateAction } from 'react';
 import { useState } from 'react';
 
-import type { Icon } from '..';
+import type { IconProps } from '../Icon';
 
-import { MultiSelect } from './MultiSelect';
+import type { MultiSelectProps } from './MultiSelect';
+import MultiSelect from './MultiSelect';
 import type { MultiSelectAnchorParams } from './MultiSelectAnchorParams';
 import MultiSelectFilteredAnchor from './MultiSelectFilteredAnchor';
 
-type MultiSelectFilteredProps = ComponentProps<typeof MultiSelect> & {
+export type MultiSelectFilteredProps = MultiSelectProps & {
   filter?: string;
   setFilter?: Dispatch<SetStateAction<string>>;
-  addonIcon?: ComponentProps<typeof Icon>['name'];
+  addonIcon?: IconProps['name'];
 };
 
-export const MultiSelectFiltered = ({
+const MultiSelectFiltered = ({
   options,
   placeholder,
   filter: propFilter,
@@ -39,3 +40,5 @@ export const MultiSelectFiltered = ({
     />
   );
 };
+
+export default MultiSelectFiltered;

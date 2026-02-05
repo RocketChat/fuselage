@@ -1,7 +1,7 @@
 import { css, keyframes } from '@rocket.chat/css-in-js';
 import { type ReactNode, type AllHTMLAttributes, useId } from 'react';
 
-import Box from '../Box';
+import { Box } from '../Box';
 import { IconButton } from '../Button';
 import { Icon } from '../Icon';
 
@@ -19,7 +19,7 @@ export type ToastBarProps = {
 /**
  * Shows alerts in a toast component.
  */
-export function ToastBar({
+function ToastBar({
   children,
   className = '',
   variant = 'info',
@@ -104,3 +104,5 @@ export function ToastBar({
     </Box>
   );
 }
+
+export default ToastBar;

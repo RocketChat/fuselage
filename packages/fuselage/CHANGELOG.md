@@ -1,5 +1,81 @@
 # Change Log
 
+## 0.71.0
+
+### Minor Changes
+
+- [#1837](https://github.com/RocketChat/fuselage/pull/1837) [`28172f1`](https://github.com/RocketChat/fuselage/commit/28172f198f382af076842f99205ac13338a72f02) Thanks [@tassoevan](https://github.com/tassoevan)! - feat(fuselage): Remove deprecated `Message.*` component namespace
+
+- [#1717](https://github.com/RocketChat/fuselage/pull/1717) [`1179d3f`](https://github.com/RocketChat/fuselage/commit/1179d3f3fb954f00741fd99ddd979b00f39c937e) Thanks [@tassoevan](https://github.com/tassoevan)! - feat: ES2024 standard requirement
+
+- [#1854](https://github.com/RocketChat/fuselage/pull/1854) [`9695ec7`](https://github.com/RocketChat/fuselage/commit/9695ec74eb6fbc8dbb0eea431884b13e418229bc) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage): add `ButtonGroup` `rtl` support
+
+### Patch Changes
+
+- [#1846](https://github.com/RocketChat/fuselage/pull/1846) [`7c1f866`](https://github.com/RocketChat/fuselage/commit/7c1f86616a6cb0dd581801acb1670bbe9fa32842) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): `ContextualbarHeader` style overlapping with button focus style
+
+- [#1849](https://github.com/RocketChat/fuselage/pull/1849) [`99b319c`](https://github.com/RocketChat/fuselage/commit/99b319c6c2ef1015d1d1edb027068c23dc1e29d9) Thanks [@tassoevan](https://github.com/tassoevan)! - feat(storybook-dark-mode): Fork `storybook-dark-mode`
+
+- [#1850](https://github.com/RocketChat/fuselage/pull/1850) [`a5028b6`](https://github.com/RocketChat/fuselage/commit/a5028b6471def411b60dc91c08290d1c3ad72d1a) Thanks [@dodaa08](https://github.com/dodaa08)! - fix(fuselage): prevent username truncation in system messages with long topics
+
+## 0.70.2
+
+### Patch Changes
+
+- [#1839](https://github.com/RocketChat/fuselage/pull/1839) [`1904f3c`](https://github.com/RocketChat/fuselage/commit/1904f3cf71c40b8d80be9cd447bb645eec87d347) Thanks [@gabriellsh](https://github.com/gabriellsh)! - fix(fuselage): MessageReactions subcomponents export missing
+
+## 0.70.1
+
+### Patch Changes
+
+- [#1832](https://github.com/RocketChat/fuselage/pull/1832) [`957a55c`](https://github.com/RocketChat/fuselage/commit/957a55cd6b31452a7f788c0d4af51bdccffcf89c) Thanks [@gabriellsh](https://github.com/gabriellsh)! - chore(fuselage): Increase `MessageBlock` margins when placed directly bellow `MessageHeader`
+
+## 0.70.0
+
+### Minor Changes
+
+- [#1799](https://github.com/RocketChat/fuselage/pull/1799) [`3930b70`](https://github.com/RocketChat/fuselage/commit/3930b7008144a5c6966f0a228a7e07e223bcfc5a) Thanks [@tassoevan](https://github.com/tassoevan)! - feat(fuselage): Use non-polyfilled CSS custom properties
+
+## 0.69.0
+
+### Minor Changes
+
+- [#1787](https://github.com/RocketChat/fuselage/pull/1787) [`fb34f69`](https://github.com/RocketChat/fuselage/commit/fb34f69d9cb7627457d9fff3f23b7f92d397e8d0) Thanks [@gabriellsh](https://github.com/gabriellsh)! - Updates `FramedIcon` component styles to improve contrast and design system compliance
+
+### Patch Changes
+
+- [#1793](https://github.com/RocketChat/fuselage/pull/1793) [`c702714`](https://github.com/RocketChat/fuselage/commit/c702714478d543a9b456f2c7385e9f8d1a4f6df9) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): Missing scroll on `Menu` with many items
+
+## 0.68.1
+
+### Patch Changes
+
+- [#1781](https://github.com/RocketChat/fuselage/pull/1781) [`ff70bf5`](https://github.com/RocketChat/fuselage/commit/ff70bf545ee0cbb903c0405a4221f2ce6e1edf32) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): Check for `NavbarGroup` to render divider between childs in `NavbarSection`
+
+## 0.68.0
+
+### Minor Changes
+
+- [#1779](https://github.com/RocketChat/fuselage/pull/1779) [`a6e5f37`](https://github.com/RocketChat/fuselage/commit/a6e5f37b43720ac6bf12b23bd31d09557488e0af) Thanks [@dougfabris](https://github.com/dougfabris)! - feat(fuselage): Render Divider between NavbarSection childs
+
+## 0.67.0
+
+### Minor Changes
+
+- [#1770](https://github.com/RocketChat/fuselage/pull/1770) [`aba9c50`](https://github.com/RocketChat/fuselage/commit/aba9c50945dcd003e75dc0fc0e6fb424cda15208) Thanks [@tassoevan](https://github.com/tassoevan)! - feat(fuselage): Remove deprecated `Option.*` component namespace
+
+- [#1771](https://github.com/RocketChat/fuselage/pull/1771) [`5cbc83d`](https://github.com/RocketChat/fuselage/commit/5cbc83d0668e0123944519a32c53246dfee70e51) Thanks [@tassoevan](https://github.com/tassoevan)! - feat(fuselage): Remove deprecated `Options.*` component namespace
+
+- [#1762](https://github.com/RocketChat/fuselage/pull/1762) [`cce8e7f`](https://github.com/RocketChat/fuselage/commit/cce8e7f7ae5bb261e95936c586ac831366579b7d) Thanks [@tassoevan](https://github.com/tassoevan)! - Deletes the `@rocket.chat/fuselage-polyfills` package
+
+- [#1767](https://github.com/RocketChat/fuselage/pull/1767) [`faea5fe`](https://github.com/RocketChat/fuselage/commit/faea5fe9ba0073220632e8850dc0828477582e6b) Thanks [@tassoevan](https://github.com/tassoevan)! - feat(fuselage): Remove deprecated `Avatar.*` component namespace
+
+- [#1768](https://github.com/RocketChat/fuselage/pull/1768) [`25555b8`](https://github.com/RocketChat/fuselage/commit/25555b8b197cacca0e5fd29d68b9f8bea3769628) Thanks [@tassoevan](https://github.com/tassoevan)! - feat(fuselage): Remove deprecated `Field.*` component namespace
+
+- [#1769](https://github.com/RocketChat/fuselage/pull/1769) [`e0b2dd1`](https://github.com/RocketChat/fuselage/commit/e0b2dd135e5a99c6638341c84a5ca60dfc4f413e) Thanks [@tassoevan](https://github.com/tassoevan)! - feat(fuselage): Remove deprecated `InputBox.*` component namespace
+
+- [#1754](https://github.com/RocketChat/fuselage/pull/1754) [`210f7e4`](https://github.com/RocketChat/fuselage/commit/210f7e4aee6551232753654def39e5e0d2a3d9b9) Thanks [@tassoevan](https://github.com/tassoevan)! - Reduces the bundle size of `@rocket.chat/fuselage` by externalizing more dependencies and increasing the ECMAScript version.
+
 ## 0.66.4
 
 ### Patch Changes

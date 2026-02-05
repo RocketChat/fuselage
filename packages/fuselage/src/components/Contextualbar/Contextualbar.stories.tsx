@@ -1,12 +1,11 @@
 import type { StoryFn, Meta } from '@storybook/react-webpack5';
-import type { ComponentType } from 'react';
 import { action } from 'storybook/actions';
 
-import Box from '../Box';
-import Button, { IconButton } from '../Button';
+import { Box } from '../Box';
+import { Button, IconButton } from '../Button';
 import { ButtonGroup } from '../ButtonGroup';
 import { Icon } from '../Icon';
-import InputBox from '../InputBox';
+import { InputBox } from '../InputBox';
 
 import Contextualbar from './Contextualbar';
 import ContextualbarAction from './ContextualbarAction';
@@ -24,16 +23,16 @@ export default {
   title: 'Containers/Contextualbar',
   component: Contextualbar,
   subcomponents: {
-    ContextualbarAction: ContextualbarAction as ComponentType<any>,
-    ContextualbarActions: ContextualbarActions as ComponentType<any>,
-    ContextualbarButton: ContextualbarButton as ComponentType<any>,
-    ContextualbarContent: ContextualbarContent as ComponentType<any>,
-    ContextualbarEmptyContent: ContextualbarEmptyContent as ComponentType<any>,
-    ContextualbarFooter: ContextualbarFooter as ComponentType<any>,
-    ContextualbarHeader: ContextualbarHeader as ComponentType<any>,
-    ContextualbarSection: ContextualbarSection as ComponentType<any>,
-    ContextualbarSkeleton: ContextualbarSkeleton as ComponentType<any>,
-    ContextualbarTitle: ContextualbarTitle as ComponentType<any>,
+    ContextualbarAction,
+    ContextualbarActions,
+    ContextualbarButton,
+    ContextualbarContent,
+    ContextualbarEmptyContent,
+    ContextualbarFooter,
+    ContextualbarHeader,
+    ContextualbarSection,
+    ContextualbarSkeleton,
+    ContextualbarTitle,
   },
   decorators: [
     (storyFn) => (

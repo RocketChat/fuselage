@@ -1,15 +1,13 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "module": "ESNext",
-    "lib": ["DOM", "ES2015"],
-    "declarationDir": "./dist",
-    "outDir": "./dist",
-    "moduleResolution": "node",
-    "esModuleInterop": true,
-    "resolveJsonModule": true,
-    "jsx": "react-jsx"
+    "lib": ["DOM"],
+    "outDir": "./dist"
   },
   "include": ["src", "./jest.config.ts"],
-  "exclude": ["dist", "node_modules"]
+  "exclude": ["dist", "node_modules"],
+  "typedocOptions": {
+    "entryPoints": ["src/index.ts"],
+    "out": "../../static/fuselage-hooks"
+  }
 }

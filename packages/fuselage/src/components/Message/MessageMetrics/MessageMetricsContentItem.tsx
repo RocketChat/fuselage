@@ -1,5 +1,9 @@
 import type { HTMLAttributes } from 'react';
 
-export const MessageMetricsContentItem = (
-  props: HTMLAttributes<HTMLDivElement>,
-) => <div className='rcx-message-metrics__content-item' {...props} />;
+export type MessageMetricsContentItemProps = HTMLAttributes<HTMLDivElement>;
+
+const MessageMetricsContentItem = (props: MessageMetricsContentItemProps) => (
+  <div className='rcx-message-metrics__content-item' {...props} />
+);
+
+export default MessageMetricsContentItem;

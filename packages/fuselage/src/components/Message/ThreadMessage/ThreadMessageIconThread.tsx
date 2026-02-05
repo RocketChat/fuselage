@@ -1,5 +1,5 @@
-import { ThreadMessageIcon } from './ThreadMessageIcon';
+import ThreadMessageIcon from './ThreadMessageIcon';
 
-export const ThreadMessageIconThread = () => (
-  <ThreadMessageIcon name='thread' />
-);
+const ThreadMessageIconThread = () => <ThreadMessageIcon name='thread' />;
+
+export default ThreadMessageIconThread;

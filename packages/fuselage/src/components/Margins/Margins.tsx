@@ -1,29 +1,29 @@
 import { css } from '@rocket.chat/css-in-js';
-import type { ComponentProps, PropsWithChildren } from 'react';
+import type { PropsWithChildren } from 'react';
 import { useCallback } from 'react';
 
 import { appendClassName } from '../../helpers/appendClassName';
 import { patchChildren } from '../../helpers/patchChildren';
 import { useStyle } from '../../hooks/useStyle';
 import { margin } from '../../styleTokens';
-import type Box from '../Box';
+import type { BoxProps } from '../Box';
 import { BoxTransforms, useComposedBoxTransform } from '../Box/BoxTransforms';
 
-type MarginsProps = PropsWithChildren<{
-  all?: ComponentProps<typeof Box>['margin'];
-  block?: ComponentProps<typeof Box>['marginBlock'];
-  blockStart?: ComponentProps<typeof Box>['marginBlockStart'];
-  blockEnd?: ComponentProps<typeof Box>['marginBlockEnd'];
-  inline?: ComponentProps<typeof Box>['marginInline'];
-  inlineStart?: ComponentProps<typeof Box>['marginInlineStart'];
-  inlineEnd?: ComponentProps<typeof Box>['marginInlineEnd'];
+export type MarginsProps = PropsWithChildren<{
+  all?: BoxProps['margin'];
+  block?: BoxProps['marginBlock'];
+  blockStart?: BoxProps['marginBlockStart'];
+  blockEnd?: BoxProps['marginBlockEnd'];
+  inline?: BoxProps['marginInline'];
+  inlineStart?: BoxProps['marginInlineStart'];
+  inlineEnd?: BoxProps['marginInlineEnd'];
   className?: string;
 }>;
 
 /**
  * Add margins to the wrapped component.
  */
-export const Margins = (props: MarginsProps) => {
+const Margins = (props: MarginsProps) => {
   const {
     children,
     className,
@@ -127,3 +127,5 @@ export const Margins = (props: MarginsProps) => {
     />
   );
 };
+
+export default Margins;

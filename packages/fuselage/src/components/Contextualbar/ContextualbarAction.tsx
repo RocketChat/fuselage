@@ -1,17 +1,14 @@
-import type { ReactElement, ComponentProps } from 'react';
 import { memo } from 'react';
 
-import type { Icon } from '..';
+import type { IconProps } from '..';
 import { IconButton } from '..';
+import type { IconButtonProps } from '../Button/IconButton';
 
-type ContextualbarActionProps = {
-  name: ComponentProps<typeof Icon>['name'];
-} & Omit<ComponentProps<typeof IconButton>, 'icon'>;
+export type ContextualbarActionProps = {
+  name: IconProps['name'];
+} & Omit<IconButtonProps, 'icon'>;
 
-const ContextualbarAction = ({
-  name,
-  ...props
-}: ContextualbarActionProps): ReactElement => (
+const ContextualbarAction = ({ name, ...props }: ContextualbarActionProps) => (
   <IconButton {...props} small flexShrink={0} icon={name} />
 );
 

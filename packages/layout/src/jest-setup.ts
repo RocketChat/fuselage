@@ -2,6 +2,6 @@ import { TextEncoder } from 'node:util';
 
 import { toHaveNoViolations } from 'jest-axe';
 
-globalThis.TextEncoder = TextEncoder;
+Object.assign(globalThis, { TextEncoder });
 
 expect.extend(toHaveNoViolations);

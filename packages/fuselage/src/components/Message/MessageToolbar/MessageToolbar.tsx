@@ -1,17 +1,17 @@
-import type { ComponentProps, ForwardedRef } from 'react';
 import { forwardRef } from 'react';
 
-import { ButtonGroup } from '../..';
+import { ButtonGroup, type ButtonGroupProps } from '../../ButtonGroup';
 
-type MessageToolbarProps = ComponentProps<typeof ButtonGroup>;
+export type MessageToolbarProps = ButtonGroupProps;
 
-export const MessageToolbar = forwardRef(function MessageToolbar(
-  props: MessageToolbarProps,
-  ref: ForwardedRef<HTMLDivElement>,
-) {
-  return (
-    <div className='rcx-box rcx-box--full rcx-message-toolbar'>
-      <ButtonGroup role='toolbar' ref={ref} small {...props} />
-    </div>
-  );
-});
+const MessageToolbar = forwardRef<HTMLDivElement, MessageToolbarProps>(
+  function MessageToolbar(props, ref) {
+    return (
+      <div className='rcx-box rcx-box--full rcx-message-toolbar'>
+        <ButtonGroup role='toolbar' ref={ref} small {...props} />
+      </div>
+    );
+  },
+);
+
+export default MessageToolbar;

@@ -1,10 +1,8 @@
-import type { ComponentProps } from 'react';
+import { Box, type BoxProps } from '../Box';
 
-import Box from '../Box';
+export type ModalFooterProps = BoxProps;
 
-export type ModalFooterProps = ComponentProps<typeof Box>;
-
-export const ModalFooter = ({
+const ModalFooter = ({
   children,
   justifyContent = 'end',
 }: ModalFooterProps) => (
@@ -12,3 +10,5 @@ export const ModalFooter = ({
     {children}
   </Box>
 );
+
+export default ModalFooter;

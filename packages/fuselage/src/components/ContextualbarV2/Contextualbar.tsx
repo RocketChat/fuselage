@@ -1,9 +1,8 @@
-import type { ComponentProps } from 'react';
 import { forwardRef, memo } from 'react';
 
-import { Box } from '..';
+import { Box, type BoxProps } from '../Box';
 
-type ContextualbarProps = ComponentProps<typeof Box>;
+export type ContextualbarProps = BoxProps;
 
 /**
  * The `Contextualbar` has the purpose to persist and input information about the scope of the related page.

@@ -58,7 +58,7 @@ const getDurationForInfinityDurationAudioFile = (
 /**
  * A Fuselage’s custom AudioPlayer.
  */
-type AudioPlayerProps = {
+export type AudioPlayerProps = {
   src: string;
   type?: string;
   maxPlaybackSpeed?: number;
@@ -73,7 +73,7 @@ type AudioPlayerProps = {
   trackProps?: TrackHTMLAttributes<HTMLTrackElement>;
 };
 
-export const AudioPlayer = forwardRef<HTMLAudioElement, AudioPlayerProps>(
+const AudioPlayer = forwardRef<HTMLAudioElement, AudioPlayerProps>(
   (
     {
       src,
@@ -230,3 +230,5 @@ export const AudioPlayer = forwardRef<HTMLAudioElement, AudioPlayerProps>(
     );
   },
 );
+
+export default AudioPlayer;

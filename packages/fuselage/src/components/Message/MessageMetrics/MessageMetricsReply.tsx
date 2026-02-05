@@ -1,13 +1,13 @@
-import type { ComponentProps } from 'react';
+import { Button, type ButtonProps } from '../../Button';
 
-import { Button } from '../..';
+import { MessageMetricsItem } from './MessageMetricsItem';
 
-import MessageMetricsItem from './MessageMetricsItem';
+export type MessageMetricsReplyProps = ButtonProps;
 
-type MessageMetricsReplyProps = ComponentProps<typeof Button>;
-
-export const MessageMetricsReply = (props: MessageMetricsReplyProps) => (
+const MessageMetricsReply = (props: MessageMetricsReplyProps) => (
   <MessageMetricsItem>
     <Button primary {...props} small />
   </MessageMetricsItem>
 );
+
+export default MessageMetricsReply;

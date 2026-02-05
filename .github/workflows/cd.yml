@@ -17,10 +17,10 @@ jobs:
     outputs:
       branch-name: ${{ steps.set-branch-name.outputs.branch-name }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v6
         with:
-          node-version: '22.19.0'
+          node-version: '22.20.0'
           cache: 'yarn'
       - uses: actions/cache@v4
         id: yarn-cache
@@ -33,7 +33,7 @@ jobs:
         if: steps.yarn-cache.outputs.cache-hit != 'true'
       - run: yarn run ci
       - run: yarn run docs
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         with:
           name: storybooks
           path: |
@@ -41,7 +41,7 @@ jobs:
             packages/onboarding-ui/storybook-static
             packages/layout/storybook-static
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         with:
           name: docs
           path: |
@@ -50,7 +50,7 @@ jobs:
           ref='${{ github.ref }}'
           echo "::set-output name=branch-name::$(echo "${ref:11}")"
         id: set-branch-name
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         with:
           name: build
           path: packages/**/dist/*
@@ -61,12 +61,12 @@ jobs:
     needs:
       - build-and-test
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
-          node-version: '22.19.0'
+          node-version: '22.20.0'
           registry-url: 'https://registry.npmjs.org'
           scope: '@rocket.chat'
           cache: 'yarn'
@@ -77,7 +77,7 @@ jobs:
             **/node_modules
             .yarn/cache
           key: ${{ runner.os }}-modules-${{ hashFiles('yarn.lock') }}
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v6
         with:
           name: build
           path: packages
@@ -113,15 +113,15 @@ jobs:
       name: github-pages
       url: 'https://rocketchat.github.io/fuselage/fuselage/${{ needs.build-and-test.outputs.branch-name }}'
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           ref: gh-pages
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v6
         with:
           name: storybooks
           path: packages
 
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v6
         with:
           name: docs
           path: .

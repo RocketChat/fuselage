@@ -1,9 +1,9 @@
-import type { AllHTMLAttributes, Ref } from 'react';
+import type { AllHTMLAttributes } from 'react';
 import { forwardRef } from 'react';
 
 import { prependClassName } from '../../helpers/prependClassName';
 
-type MessageProps = AllHTMLAttributes<HTMLDivElement> & {
+export type MessageProps = AllHTMLAttributes<HTMLDivElement> & {
   clickable?: boolean;
   sequential?: boolean;
   className?: string;
@@ -13,7 +13,7 @@ type MessageProps = AllHTMLAttributes<HTMLDivElement> & {
   highlight?: boolean;
 };
 
-export const Message = forwardRef(function Message(
+const Message = forwardRef<HTMLDivElement, MessageProps>(function Message(
   {
     className,
     clickable,
@@ -23,8 +23,8 @@ export const Message = forwardRef(function Message(
     isPending,
     highlight,
     ...props
-  }: MessageProps,
-  ref: Ref<HTMLDivElement>,
+  },
+  ref,
 ) {
   return (
     <div
@@ -47,3 +47,5 @@ export const Message = forwardRef(function Message(
     />
   );
 });
+
+export default Message;

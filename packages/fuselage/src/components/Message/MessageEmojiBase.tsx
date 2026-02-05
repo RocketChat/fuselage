@@ -1,11 +1,11 @@
 import type { HTMLAttributes } from 'react';
 
-type MessageEmojiBaseProps = {
+export type MessageEmojiBaseProps = {
   name: string;
   image?: string;
 } & HTMLAttributes<HTMLSpanElement>;
 
-export const MessageEmojiBase = ({
+const MessageEmojiBase = ({
   name,
   image,
   className,
@@ -17,3 +17,5 @@ export const MessageEmojiBase = ({
     {...props}
   />
 );
+
+export default MessageEmojiBase;

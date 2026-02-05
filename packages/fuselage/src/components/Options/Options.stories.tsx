@@ -1,17 +1,15 @@
 import type { StoryFn, Meta } from '@storybook/react-webpack5';
-import { createRef } from 'react';
+import { createRef, type ReactNode } from 'react';
 
-import Box from '../Box';
-import Option from '../Option';
-import { CheckOption } from '../Option/CheckOption';
+import { Box } from '../Box';
+import { Option, CheckOption } from '../Option';
 
-import type { OptionType } from './Options';
-import { Options } from './Options';
+import { Options, type OptionType } from '.';
 
 export default {
   title: 'Navigation/Options',
   component: Options,
-} satisfies Meta<typeof Options>;
+} satisfies Meta<typeof Options<string | number, ReactNode>>;
 
 const options: OptionType[] = [
   [1, 'a teste 1'],
@@ -23,19 +21,21 @@ const options: OptionType[] = [
   ],
 ];
 
-const Template: StoryFn<typeof Options> = (args) => (
+const Template: StoryFn<typeof Options<string | number, ReactNode>> = (
+  args,
+) => (
   <Box position='relative' maxWidth={250}>
     <Options {...args} ref={createRef()} />
   </Box>
 );
 
-export const Default: StoryFn<typeof Options> = Template.bind({});
+export const Default = Template.bind({});
 Default.args = {
   cursor: 1,
   options,
 };
 
-export const OptionStory: StoryFn<typeof Options> = Template.bind({});
+export const OptionStory = Template.bind({});
 OptionStory.args = {
   renderItem: Option,
   cursor: 1,
@@ -43,7 +43,7 @@ OptionStory.args = {
 };
 OptionStory.storyName = 'Option';
 
-export const CheckOptionStory: StoryFn<typeof Options> = Template.bind({});
+export const CheckOptionStory = Template.bind({});
 CheckOptionStory.args = {
   renderItem: CheckOption,
   value: ['1'],
@@ -52,13 +52,13 @@ CheckOptionStory.args = {
 };
 CheckOptionStory.storyName = 'CheckOption';
 
-export const EmptyOptions: StoryFn<typeof Options> = Template.bind({});
+export const EmptyOptions = Template.bind({});
 EmptyOptions.args = {
   cursor: 1,
   options: [],
 };
 
-export const CustomEmpty: StoryFn<typeof Options> = Template.bind({});
+export const CustomEmpty = Template.bind({});
 CustomEmpty.args = {
   cursor: 1,
   options: [],

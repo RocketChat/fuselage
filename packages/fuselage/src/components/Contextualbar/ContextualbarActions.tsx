@@ -1,10 +1,11 @@
-import type { ReactElement, ComponentProps } from 'react';
 import { memo } from 'react';
 
-import { ButtonGroup } from '..';
+import { ButtonGroup, type ButtonGroupProps } from '../ButtonGroup';
 
-const ContextualbarActions = (
-  props: ComponentProps<typeof ButtonGroup>,
-): ReactElement => <ButtonGroup {...props} />;
+export type ContextualbarActionsProps = ButtonGroupProps;
+
+const ContextualbarActions = (props: ContextualbarActionsProps) => (
+  <ButtonGroup {...props} />
+);
 
 export default memo(ContextualbarActions);

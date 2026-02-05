@@ -1,5 +1,17 @@
 # Change Log
 
+## 0.46.0
+
+### Minor Changes
+
+- [#1797](https://github.com/RocketChat/fuselage/pull/1797) [`0853dd0`](https://github.com/RocketChat/fuselage/commit/0853dd071a1e6d20975bd3809e5ef68761761311) Thanks [@gabriellsh](https://github.com/gabriellsh)! - feat(icons): Add `arrow-down-left`, `arrow-up-right` & `phone-question-mark` icons
+
+## 0.45.0
+
+### Minor Changes
+
+- [#1776](https://github.com/RocketChat/fuselage/pull/1776) [`0570354`](https://github.com/RocketChat/fuselage/commit/05703544cffbda62a86ebe60e4415d658a5131e3) Thanks [@MartinSchoeler](https://github.com/MartinSchoeler)! - Adds the `team-shield` and `hash-shield` icons to fuselage
+
 ## 0.44.0
 
 ### Minor Changes

@@ -1,13 +1,15 @@
 import type { UsePositionOptions } from '@rocket.chat/fuselage-hooks';
-import type { ComponentProps, ElementType, ReactNode } from 'react';
+import type { Keys as IconName } from '@rocket.chat/icons';
+import type { ComponentType, ReactNode } from 'react';
 import { useRef, useCallback, useEffect } from 'react';
 
-import type Box from '../Box';
+import type { BoxProps } from '../Box';
 import { IconButton } from '../Button';
-import Options, { useCursor, type OptionType } from '../Options';
-import PositionAnimated from '../PositionAnimated';
+import type { IconButtonProps } from '../Button/IconButton';
+import { Options, useCursor, type OptionType } from '../Options';
+import { PositionAnimated } from '../PositionAnimated';
 
-type MenuProps = Omit<ComponentProps<typeof IconButton>, 'icon'> & {
+export type MenuProps = Omit<IconButtonProps, 'icon'> & {
   options: {
     [id: string]: {
       type?: 'option' | 'heading' | 'divider';
@@ -16,10 +18,16 @@ type MenuProps = Omit<ComponentProps<typeof IconButton>, 'icon'> & {
       disabled?: boolean;
     };
   };
-  optionWidth?: ComponentProps<typeof Box>['width'];
+  optionWidth?: BoxProps['width'];
   placement?: UsePositionOptions['placement'];
-  renderItem?: ElementType;
-  icon?: ComponentProps<typeof IconButton>['icon'];
+  renderItem?: ComponentType<{
+    role?: string;
+    label: ReactNode;
+    value: string | number;
+    selected?: boolean;
+    focus?: boolean;
+  }>;
+  icon?: IconName;
   maxHeight?: string | number;
 };
 
@@ -41,7 +49,7 @@ const mapOptions = (options: MenuProps['options']): OptionType[] =>
 /**
  * Kebab Menu
  */
-export const Menu = ({
+const Menu = ({
   tiny,
   mini,
   small = !(tiny || mini),
@@ -124,3 +132,5 @@ export const Menu = ({
     </>
   );
 };
+
+export default Menu;

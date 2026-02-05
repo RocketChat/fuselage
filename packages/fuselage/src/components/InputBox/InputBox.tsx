@@ -1,24 +1,15 @@
 import { useMergedRefs } from '@rocket.chat/fuselage-hooks';
-import type {
-  ComponentProps,
-  FormEvent,
-  ForwardRefExoticComponent,
-  ReactNode,
-  Ref,
-} from 'react';
+import type { FormEvent, ReactNode } from 'react';
 import { forwardRef, useCallback, useLayoutEffect, useRef } from 'react';
 
-import type Box from '../Box';
+import type { BoxProps } from '../Box';
 import { Icon } from '../Icon';
 
-import { Addon } from './Addon';
-import { Input } from './Input';
-import type { InputBoxSkeleton } from './InputBoxSkeleton';
-import type { Option } from './Option';
-import type { Placeholder } from './Placeholder';
-import { Wrapper } from './Wrapper';
+import Input from './Input';
+import InputBoxAddon from './InputBoxAddon';
+import InputBoxWrapper from './InputBoxWrapper';
 
-type InputBoxProps = ComponentProps<typeof Box> & {
+export type InputBoxProps = BoxProps & {
   addon?: ReactNode;
   input?: ReactNode;
   multiple?: boolean;
@@ -61,7 +52,7 @@ type InputBoxProps = ComponentProps<typeof Box> & {
  * components over this one because it works as a construction block for them.
  */
 // eslint-disable-next-line complexity
-export const InputBox = forwardRef(function InputBox(
+const InputBox = forwardRef<any, InputBoxProps>(function InputBox(
   {
     className,
     addon,
@@ -74,8 +65,8 @@ export const InputBox = forwardRef(function InputBox(
     small,
     onChange,
     ...props
-  }: InputBoxProps,
-  ref: Ref<any> | null,
+  },
+  ref,
 ) {
   const innerRef = useRef<
     HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
@@ -150,7 +141,7 @@ export const InputBox = forwardRef(function InputBox(
   }
 
   return (
-    <Wrapper
+    <InputBoxWrapper
       className={[
         props.disabled && 'disabled',
         ...(Array.isArray(className) ? className : [className]),
@@ -180,12 +171,9 @@ export const InputBox = forwardRef(function InputBox(
         rcx-input-box--small={small}
         {...props}
       />
-      <Addon children={addon} />
-    </Wrapper>
+      <InputBoxAddon children={addon} />
+    </InputBoxWrapper>
   );
-}) as unknown as ForwardRefExoticComponent<InputBoxProps> & {
-  Input: ForwardRefExoticComponent<ComponentProps<typeof Box>>;
-  Skeleton: ForwardRefExoticComponent<ComponentProps<typeof InputBoxSkeleton>>;
-  Option: ForwardRefExoticComponent<ComponentProps<typeof Option>>;
-  Placeholder: ForwardRefExoticComponent<ComponentProps<typeof Placeholder>>;
-};
+});
+
+export default InputBox;

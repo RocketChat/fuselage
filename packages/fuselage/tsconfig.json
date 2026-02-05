@@ -1,20 +1,8 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "target": "es2024",
-    "module": "es2022",
-    "moduleResolution": "bundler",
-    "verbatimModuleSyntax": true,
-    "lib": ["ES2020", "DOM"],
-    "downlevelIteration": true,
-    "outDir": "./dist",
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "resolveJsonModule": true,
-    "allowJs": true,
-    "jsx": "react-jsx",
-    "erasableSyntaxOnly": true,
-    "isolatedModules": true
+    "lib": ["DOM"],
+    "outDir": "./dist"
   },
   "include": [
     "./src",
