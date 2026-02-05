@@ -41,6 +41,16 @@ jobs:
             turbo-${{ runner.os }}-
       - run: yarn
         if: steps.yarn-cache.outputs.cache-hit != 'true'
+      
+      - name: Setup Playwright
+        uses: actions/cache@v4
+        id: playwright-cache
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.arch }}-${{ runner.os }}-1.58.1
+      - name: Install Playwright
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        run: yarn workspace @rocket.chat/fuselage playwright install
       - run: yarn run ci
       - uses: actions/upload-artifact@v5
         with:

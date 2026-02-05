@@ -9,7 +9,7 @@
     "build": "yarn turbo run build",
     "build-storybook": "yarn turbo run build-storybook --cache-dir=\".turbo\"",
     "changeset": "changeset",
-    "ci": "yarn turbo run build lint test build-storybook --cache-dir=\".turbo\"",
+    "ci": "yarn turbo run build lint test build-storybook test-storybook --cache-dir=\".turbo\"",
     "clean": "yarn workspaces foreach -vA run clean",
     "docs": "yarn turbo run docs",
     "postinstall": "husky install && yarn build",
