@@ -68,10 +68,7 @@ export const GenericCondensedItem = ({ i = 0 }: { i: number }) => (
         {names[i % 10]}
       </SidebarV2ItemTitle>
       {i % 2 !== 0 && (
-        <SidebarV2ItemBadge
-          title='unread messages'
-          children={Math.floor(Math.random() * 10) + 1}
-        />
+        <SidebarV2ItemBadge title='unread messages' children={5} />
       )}
       {i === 0 && (
         <SidebarV2Actions>
@@ -95,10 +92,7 @@ export const GenericNoAvatarItem = ({ i = 0 }: { i: number }) => (
     <SidebarV2Item href='#'>
       <SidebarV2ItemStatusBullet status='online' />
       <SidebarV2ItemTitle>{names[i % 10]}</SidebarV2ItemTitle>
-      <SidebarV2ItemBadge
-        title='unread messages'
-        children={Math.floor(Math.random() * 10) + 1}
-      />
+      <SidebarV2ItemBadge title='unread messages' children={5} />
       <SidebarV2ItemMenu children={<MenuTemplate />} />
     </SidebarV2Item>
   </SidebarV2ListItem>
@@ -112,10 +106,7 @@ export const GenericMediumItem = ({ i = 0 }: { i: number }) => (
       </SidebarV2ItemAvatarWrapper>
       <SidebarV2ItemIcon icon='team' />
       <SidebarV2ItemTitle>{names[i % 10]}</SidebarV2ItemTitle>
-      <SidebarV2ItemBadge
-        title='unread messages'
-        children={Math.floor(Math.random() * 10) + 1}
-      />
+      <SidebarV2ItemBadge title='unread messages' children={5} />
       <SidebarV2ItemMenu children={<MenuTemplate />} />
     </SidebarV2Item>
   </SidebarV2ListItem>
@@ -137,10 +128,7 @@ export const GenericExtendedItem = ({ i = 0 }: { i: number }) => (
 
         <SidebarV2ItemRow>
           <SidebarV2ItemContent>No messages yet</SidebarV2ItemContent>
-          <SidebarV2ItemBadge
-            title='unread messages'
-            children={Math.floor(Math.random() * 10) + 1}
-          />
+          <SidebarV2ItemBadge title='unread messages' children={5} />
           <SidebarV2ItemMenu children={<MenuTemplate />} />
         </SidebarV2ItemRow>
       </SidebarV2ItemCol>
