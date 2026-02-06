@@ -12,7 +12,7 @@ const stories = Object.values(storybook.entries).filter(
 for (const story of stories) {
   test(`${story.title} ${story.name} should not have visual regressions`, async ({
     page,
-  }, workerInfo) => {
+  }) => {
     const params = new URLSearchParams({
       id: story.id,
       viewMode: 'story',
@@ -20,15 +20,10 @@ for (const story of stories) {
 
     await page.goto(`/iframe.html?${params.toString()}`);
     await page.waitForLoadState('domcontentloaded');
-    // await page.waitForSelector('#storybook-root');
-    // await page.waitForLoadState('networkidle');
 
-    await expect(page).toHaveScreenshot(
-      `${story.id}-${workerInfo.project.name}-${process.platform}.png`,
-      {
-        fullPage: true,
-        animations: 'disabled',
-      },
-    );
+    await expect(page).toHaveScreenshot(`${story.id}.png`, {
+      fullPage: true,
+      animations: 'disabled',
+    });
   });
 }

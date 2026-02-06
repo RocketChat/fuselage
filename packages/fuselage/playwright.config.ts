@@ -6,6 +6,7 @@ export default defineConfig({
   testDir: './test',
   fullyParallel: true,
   workers: 4,
+  snapshotPathTemplate: './test/snapshots/{arg}-{projectName}.png',
   // ...
   // Using the `html` reporter for visual diffing.
   reporter: process.env.CI ? 'html' : 'dot',
