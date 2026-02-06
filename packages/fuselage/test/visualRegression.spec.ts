@@ -6,7 +6,7 @@ import storybook from '../storybook-static/index.json' with { type: 'json' };
 
 // Only run tests on stories, not other documentation pages.
 const stories = Object.values(storybook.entries).filter(
-  (e) => e.type === 'story',
+  (e) => e.type === 'story' && !e.tags.includes('no-visual'),
 );
 
 for (const story of stories) {
@@ -18,8 +18,11 @@ for (const story of stories) {
       viewMode: 'story',
     });
 
-    await page.goto(`/iframe.html?${params.toString()}`);
-    await page.waitForLoadState('domcontentloaded');
+    await page.goto(`/iframe.html?${params.toString()}`, {
+      waitUntil: 'domcontentloaded',
+    });
+
+    await page.locator('#storybook-root').waitFor({ state: 'visible' });
 
     await expect(page).toHaveScreenshot(`${story.id}.png`, {
       fullPage: true,

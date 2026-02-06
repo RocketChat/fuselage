@@ -9,7 +9,8 @@ export default defineConfig({
   snapshotPathTemplate: './test/snapshots/{arg}-{projectName}.png',
   // ...
   // Using the `html` reporter for visual diffing.
-  reporter: process.env.CI ? 'html' : 'dot',
+  reporter: undefined,
+  //   reporter: process.env.CI ? 'html' : 'dot',
   // ...
   use: {
     baseURL: BASE_URL,
