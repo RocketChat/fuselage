@@ -20,10 +20,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
+
       - uses: actions/setup-node@v6
         with:
           node-version: '22.20.0'
           cache: 'yarn'
+
       - uses: actions/cache@v4
         id: yarn-cache
         with:
@@ -31,6 +33,7 @@ jobs:
             **/node_modules
             .yarn/cache
           key: ${{ runner.os }}-modules-${{ hashFiles('yarn.lock') }}
+
       - name: Turbo Cache
         id: turbo-cache
         uses: actions/cache@v4
@@ -39,10 +42,14 @@ jobs:
           key: turbo-${{ runner.os }}-${{ github.job }}
           restore-keys: |
             turbo-${{ runner.os }}-
+
       - run: yarn
         if: steps.yarn-cache.outputs.cache-hit != 'true'
+
       - uses: ./.github/actions/setup-playwright
+
       - run: yarn run ci
+
       - uses: actions/upload-artifact@v5
         with:
           name: 'storybooks-${{ github.event.number }}'
@@ -50,3 +57,9 @@ jobs:
             packages/fuselage/storybook-static
             packages/onboarding-ui/storybook-static
             packages/layout/storybook-static
+      
+      - uses: actions/upload-artifact@v5
+        with:
+          name: 'playwright-visual-results-${{ github.event.number }}'
+          path: |
+            packages/fuselage/test-results
