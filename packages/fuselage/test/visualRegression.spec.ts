@@ -49,6 +49,8 @@ for (const story of stories) {
       clip: box || undefined,
       fullPage: true,
       animations: 'disabled',
+      // @ts-expect-error - comparator is not a valid option
+      _comparator: 'ssim-cie94',
     });
   });
 }
