@@ -23,7 +23,7 @@
     "/index.js"
   ],
   "scripts": {
-    "visual-regression": "npx concurrently -k -s first -n \"SB,TEST\" \"yarn storybook --ci\" \"npx wait-on tcp:127.0.0.1:6006 && yarn playwright test\"",
+    "visual-regression": "npx concurrently -k -s first -n \"SB,TEST\" \"npx http-server storybook-static -p 6006\" \"npx wait-on tcp:127.0.0.1:6006 && yarn playwright test\"",
     "visual-regression-update": "npx concurrently -k -s first -n \"SB,TEST\" \"yarn storybook --ci\" \"npx wait-on tcp:127.0.0.1:6006 && yarn playwright test --update-snapshots\"",
     "start": "webpack --watch --mode development",
     "storybook": "storybook dev -p 6006 --no-version-updates",
