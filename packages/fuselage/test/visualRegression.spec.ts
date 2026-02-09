@@ -13,7 +13,9 @@ const stories = Object.values(storybook.entries).filter(
 );
 
 for (const story of stories) {
-  test(`${story.name} should not have visual regressions`, async ({ page }) => {
+  test(`${story.title} ${story.name} should not have visual regressions`, async ({
+    page,
+  }) => {
     const params = new URLSearchParams({
       id: story.id,
       viewMode: 'story',
