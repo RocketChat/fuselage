@@ -17,7 +17,18 @@ export default defineConfig({
   projects: [
     {
       name: 'desktop',
-      use: { ...devices['Desktop Chrome'] },
+      use: {
+        ...devices['Desktop Chrome'],
+        launchOptions: {
+          args: [
+            '--disable-lcd-text',
+            // Other useful flags for VRT consistency
+            '--font-render-hinting=none',
+            '--disable-skia-runtime-opts',
+            '--disable-font-subpixel-positioning',
+          ],
+        },
+      },
     },
   ],
 });

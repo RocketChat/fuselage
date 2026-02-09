@@ -43,7 +43,10 @@ for (const story of stories) {
     loaded_fonts_all.push([story.name, loaded_fonts]);
     console.log('loaded_fonts', loaded_fonts);
 
+    const box = await page.locator('#storybook-root').boundingBox();
+
     await expect(page).toHaveScreenshot(`${story.id}.png`, {
+      clip: box || undefined,
       fullPage: true,
       animations: 'disabled',
     });
