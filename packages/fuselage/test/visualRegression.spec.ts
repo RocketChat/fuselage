@@ -25,6 +25,36 @@ for (const story of stories) {
       waitUntil: 'domcontentloaded',
     });
 
+    await page.evaluate(() => document.fonts.ready);
+
+    const selector = '#storybook-root'; // Replace with your target selector
+
+    const renderedFont = await page.evaluate((sel) => {
+      const element = document.querySelector(sel);
+      if (!element) return null;
+
+      // Get the computed font-family value (e.g., "Montserrat, Helvetica, sans-serif")
+      const computedFontFamily = window.getComputedStyle(element).fontFamily;
+
+      // Split the list of fonts and check which one is actually used by the browser
+      const fonts = computedFontFamily
+        .split(',')
+        .map((font) => font.trim().replace(/['"]/g, ''));
+
+      // Use document.fonts.check to find the first working font
+      for (const font of fonts) {
+        // Check if a 10px tall text can be rendered with this specific font
+        if (document.fonts.check(`10px ${font}`)) {
+          return font;
+        }
+      }
+
+      // Fallback or if no specific font is matched
+      return 'System/Fallback Font';
+    }, selector);
+
+    console.log(`The actual rendered font is: ${renderedFont}`);
+
     const storybookRoot = page.locator('#storybook-root');
     await storybookRoot.waitFor({ state: 'visible' });
 
