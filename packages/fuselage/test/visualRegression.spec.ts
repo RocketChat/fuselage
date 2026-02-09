@@ -12,15 +12,8 @@ const stories = Object.values(storybook.entries).filter(
   (e) => e.type === 'story' && !e.tags.includes('no-visual'),
 );
 
-// const PATH_USED_FONTS = path.join(process.cwd(), 'usedFonts');
-// await fs.promises.mkdir(PATH_USED_FONTS, { recursive: true });
-
-const loaded_fonts_all: unknown[][] = [];
-
 for (const story of stories) {
-  test(`${story.title} ${story.name} should not have visual regressions`, async ({
-    page,
-  }) => {
+  test(`${story.name} should not have visual regressions`, async ({ page }) => {
     const params = new URLSearchParams({
       id: story.id,
       viewMode: 'story',
@@ -30,20 +23,10 @@ for (const story of stories) {
       waitUntil: 'domcontentloaded',
     });
 
-    await page.locator('#storybook-root').waitFor({ state: 'visible' });
+    const storybookRoot = page.locator('#storybook-root');
+    await storybookRoot.waitFor({ state: 'visible' });
 
-    const loaded_fonts = await page.evaluate(async () => {
-      await document.fonts.ready; // Ensure all fonts are loaded
-      const fontFamilies = new Set();
-      for (const fontFace of document.fonts.values()) {
-        fontFamilies.add(fontFace.family);
-      }
-      return Array.from(fontFamilies);
-    });
-    loaded_fonts_all.push([story.name, loaded_fonts]);
-    console.log('loaded_fonts', loaded_fonts);
-
-    const box = await page.locator('#storybook-root').boundingBox();
+    const box = await storybookRoot.boundingBox();
 
     await expect(page).toHaveScreenshot(`${story.id}.png`, {
       clip: box || undefined,
@@ -54,10 +37,3 @@ for (const story of stories) {
     });
   });
 }
-
-// test.afterAll(async () => {
-//   await fs.promises.writeFile(
-//     path.join(PATH_USED_FONTS, 'loaded_fonts_all.json'),
-//     JSON.stringify(loaded_fonts_all, null, 2),
-//   );
-// });
