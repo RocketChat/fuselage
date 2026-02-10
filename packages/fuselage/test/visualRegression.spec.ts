@@ -30,10 +30,10 @@ for (const story of stories) {
     const storybookRoot = page.locator('#storybook-root');
     await storybookRoot.waitFor({ state: 'visible' });
 
-    const box = await storybookRoot.boundingBox();
+    // const box = await storybookRoot.boundingBox();
 
     await expect(page).toHaveScreenshot(`${story.id}.png`, {
-      clip: box || undefined,
+      // clip: box || undefined,
       fullPage: true,
       animations: 'disabled',
       // @ts-expect-error - comparator is not a valid option
