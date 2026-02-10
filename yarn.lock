@@ -5636,7 +5636,6 @@ __metadata:
     css-loader: "npm:~7.1.2"
     cssnano: "npm:~7.1.2"
     eslint: "npm:~9.39.2"
-    inter-ui: "npm:~4.1.1"
     invariant: "npm:^2.2.4"
     jest: "npm:~30.2.0"
     jest-axe: "npm:~10.0.0"
@@ -12234,13 +12233,6 @@ __metadata:
   version: 4.1.3
   resolution: "ini@npm:4.1.3"
   checksum: 10/f536b414d1442e5b233429e2b56efcdb354109b2d65ddd489e5939d8f0f5ad23c88aa2b19c92987249d0dd63ba8192e9aeb1a02b0459549c5a9ff31acd729a5d
-  languageName: node
-  linkType: hard
-
-"inter-ui@npm:~4.1.1":
-  version: 4.1.1
-  resolution: "inter-ui@npm:4.1.1"
-  checksum: 10/4c5438a85ea037c6c9e89a80ea7f5d7f31293c91110934a4faffd28da53577cc92480845a7959eb3501f243b58774f5f32b2a7aee597b49b5fc5455880186061
   languageName: node
   linkType: hard
 

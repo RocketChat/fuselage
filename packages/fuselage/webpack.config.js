@@ -56,7 +56,7 @@ export default (env, { mode = 'production' }) =>
             {
               loader: 'css-loader',
               options: {
-                importLoaders: 2,
+                importLoaders: 3,
               },
             },
             {
@@ -72,24 +72,24 @@ export default (env, { mode = 'production' }) =>
                 },
               },
             },
-            'sass-loader',
+            'resolve-url-loader',
+            {
+              loader: 'sass-loader',
+              options: {
+                sourceMap: true,
+              },
+            },
           ],
         },
       ],
     },
     resolve: {
       extensions: ['.tsx', '.ts', '.jsx', '.js', '.json'],
-      alias: {
-        '~inter-ui': resolve(
-          import.meta.dirname,
-          '../../node_modules/inter-ui',
-        ),
-      },
     },
     externals: [
-      ...Object.keys(pkg.dependencies ?? {})
-        .filter((dep) => dep !== 'inter-ui')
-        .map((dep) => new RegExp(`^${dep}(/.+)?$`)),
+      ...Object.keys(pkg.dependencies ?? {}).map(
+        (dep) => new RegExp(`^${dep}(/.+)?$`),
+      ),
       ...Object.keys(pkg.peerDependencies ?? {}).map(
         (dep) => new RegExp(`^${dep}(/.+)?$`),
       ),

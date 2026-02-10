@@ -1,4 +1,4 @@
-import { dirname, join, resolve } from 'path';
+import { dirname, join } from 'path';
 
 import type { StorybookConfig } from '@storybook/react-webpack5';
 
@@ -8,12 +8,6 @@ const config: StorybookConfig = {
       test: /\.woff2$/,
       type: 'asset/resource',
     });
-
-    config.resolve = config.resolve || {};
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      '~inter-ui': resolve(__dirname, '../../../node_modules/inter-ui'),
-    };
 
     return config;
   },
