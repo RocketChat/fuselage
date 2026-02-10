@@ -42,6 +42,13 @@ export default (env, { mode = 'production' }) =>
           },
         },
         {
+          test: /\.woff2$/,
+          type: 'asset/resource',
+          generator: {
+            filename: 'fonts/[name][ext]',
+          },
+        },
+        {
           test: /\.scss$/,
           use: [
             MiniCssExtractPlugin.loader,
@@ -72,11 +79,17 @@ export default (env, { mode = 'production' }) =>
     },
     resolve: {
       extensions: ['.tsx', '.ts', '.jsx', '.js', '.json'],
+      alias: {
+        '~inter-ui': resolve(
+          import.meta.dirname,
+          '../../node_modules/inter-ui',
+        ),
+      },
     },
     externals: [
-      ...Object.keys(pkg.dependencies ?? {}).map(
-        (dep) => new RegExp(`^${dep}(/.+)?$`),
-      ),
+      ...Object.keys(pkg.dependencies ?? {})
+        .filter((dep) => dep !== 'inter-ui')
+        .map((dep) => new RegExp(`^${dep}(/.+)?$`)),
       ...Object.keys(pkg.peerDependencies ?? {}).map(
         (dep) => new RegExp(`^${dep}(/.+)?$`),
       ),

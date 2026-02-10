@@ -1,8 +1,22 @@
-import { dirname, join } from 'path';
+import { dirname, join, resolve } from 'path';
 
 import type { StorybookConfig } from '@storybook/react-webpack5';
 
-export default {
+const config: StorybookConfig = {
+  webpackFinal: async (config) => {
+    config.module?.rules?.push({
+      test: /\.woff2$/,
+      type: 'asset/resource',
+    });
+
+    config.resolve = config.resolve || {};
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '~inter-ui': resolve(__dirname, '../../../node_modules/inter-ui'),
+    };
+
+    return config;
+  },
   addons: [
     getAbsolutePath('@storybook/addon-a11y'),
     getAbsolutePath('@rocket.chat/storybook-dark-mode'),
@@ -87,7 +101,9 @@ export default {
   typescript: {
     reactDocgen: 'react-docgen-typescript',
   },
-} satisfies StorybookConfig;
+};
+
+export default config;
 
 function getAbsolutePath(value: string): any {
   return dirname(require.resolve(join(value, 'package.json')));
