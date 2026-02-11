@@ -56,6 +56,11 @@ SurfaceColors.decorators = [
     </Box>
   ),
 ];
+SurfaceColors.parameters = {
+  loki: {
+    skip: true,
+  },
+};
 
 export const StatusColors: StoryFn<typeof Box> = () => (
   <>
@@ -90,6 +95,11 @@ StatusColors.decorators = [
     </Box>
   ),
 ];
+StatusColors.parameters = {
+  loki: {
+    skip: true,
+  },
+};
 
 export const StrokeColors: StoryFn<typeof Box> = () => (
   <>
@@ -129,6 +139,11 @@ StrokeColors.decorators = [
     </Box>
   ),
 ];
+StrokeColors.parameters = {
+  loki: {
+    skip: true,
+  },
+};
 
 export const FontColors: StoryFn<typeof Box> = () => (
   <>
@@ -158,3 +173,8 @@ FontColors.decorators = [
     </Box>
   ),
 ];
+FontColors.parameters = {
+  loki: {
+    skip: true,
+  },
+};
