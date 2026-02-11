@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.72.0
+
+### Minor Changes
+
+- [#1861](https://github.com/RocketChat/fuselage/pull/1861) [`789d6a8`](https://github.com/RocketChat/fuselage/commit/789d6a85877fa325b0d3dfc4d82e8038edbd2096) Thanks [@tassoevan](https://github.com/tassoevan)! - feat(fuselage): Integrate Inter font
+
 ## 0.71.0
 
 ### Minor Changes
