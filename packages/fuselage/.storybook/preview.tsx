@@ -81,6 +81,11 @@ export default {
 
       return (
         <>
+          <style>
+            {
+              '* { -webkit-font-smoothing: none !important; font-smooth: never !important; }'
+            }
+          </style>
           <PaletteStyleTag theme={dark ? 'dark' : 'light'} />
           <Story />
         </>
