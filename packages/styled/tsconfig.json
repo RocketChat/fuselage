@@ -1,12 +1,10 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "outDir": "./dist/esm"
+    "outDir": "./dist"
   },
   "typedocOptions": {
     "entryPoints": ["src/index.ts"],
     "out": "../../static/styled"
-  },
-  "include": ["src/**/*"],
-  "exclude": ["./dist"]
+  }
 }

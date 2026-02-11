@@ -16,6 +16,7 @@
     "name": "Rocket.Chat",
     "url": "https://rocket.chat/"
   },
+  "type": "module",
   "main": "default/index.js",
   "files": [
     "/default",

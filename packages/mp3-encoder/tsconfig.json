@@ -5,7 +5,11 @@
     "lib": ["WebWorker"],
     "outDir": "./dist",
     "erasableSyntaxOnly": false,
-    "noFallthroughCasesInSwitch": false
+    "noFallthroughCasesInSwitch": false,
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "verbatimModuleSyntax": true,
+    "skipLibCheck": true
   },
   "include": ["src/**/*"],
   "typedocOptions": {
