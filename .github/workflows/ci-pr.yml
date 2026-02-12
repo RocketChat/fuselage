@@ -12,8 +12,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build-and-test:
-    name: Build and Test
+  build-and-lint:
+    name: Build and Lint
     env:
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
       TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
@@ -26,7 +26,61 @@ jobs:
           node-version: '22.20.0'
           cache: 'yarn'
 
-      - uses: actions/cache@v4
+
+      - name: Yarn Cache
+        id: yarn-cache
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            **/node_modules
+            .yarn/cache
+          key: ${{ runner.os }}-modules-${{ hashFiles('yarn.lock') }}
+
+      - name: Turbo Cache
+        id: turbo-cache
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            .turbo
+            **/dist
+          key: turbo-${{ runner.os }}-${{ github.event.number }}
+          restore-keys: |
+            turbo-${{ runner.os }}-
+
+
+      - run: yarn
+        if: steps.yarn-cache.outputs.cache-hit != 'true'
+
+      - name: Build and Lint
+        run: yarn run .ci-build-lint
+
+      - name: Upload Storybooks
+        uses: actions/upload-artifact@v5
+        with:
+          name: 'storybooks-${{ github.event.number }}'
+          path: |
+            packages/fuselage/storybook-static
+            packages/onboarding-ui/storybook-static
+            packages/layout/storybook-static
+
+  build-and-test:
+    name: Test
+    env:
+      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+      TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
+    runs-on: ubuntu-latest
+    needs:
+      - build-and-lint
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22.20.0'
+          cache: 'yarn'
+
+      - name: Yarn Cache
+        uses: actions/cache/restore@v4
         id: yarn-cache
         with:
           path: |
@@ -36,38 +90,44 @@ jobs:
 
       - name: Turbo Cache
         id: turbo-cache
-        uses: actions/cache@v4
+        uses: actions/cache/restore@v4
         with:
           path: .turbo
-          key: turbo-${{ runner.os }}-${{ github.job }}
+          key: turbo-${{ runner.os }}-${{ github.event.number }}
           restore-keys: |
             turbo-${{ runner.os }}-
 
-      - run: yarn
-        if: steps.yarn-cache.outputs.cache-hit != 'true'
-
       - name: Run CI
-        run: yarn run ci
-
-      - uses: actions/upload-artifact@v5
-        with:
-          name: 'storybooks-${{ github.event.number }}'
-          path: |
-            packages/fuselage/storybook-static
-            packages/onboarding-ui/storybook-static
-            packages/layout/storybook-static
+        run: yarn run .ci-test
 
   visual-regression:
     name: Visual Regression
     runs-on: ubuntu-latest
     needs:
-      - build-and-test
+      - build-and-lint
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v6
         with:
           node-version: '22.20.0'
           cache: 'yarn'
+
+      - name: Yarn Cache
+        uses: actions/cache/restore@v4
+        id: yarn-cache
+        with:
+          path: ./.
+          key: ${{ runner.os }}-modules-${{ hashFiles('yarn.lock') }}
+
+      - name: Turbo Cache
+        id: turbo-cache
+        uses: actions/cache/restore@v4
+        with:
+          path: .
+          key: turbo-${{ runner.os }}-${{ github.event.number }}
+          restore-keys: |
+            turbo-${{ runner.os }}-
+  
 
       - uses: actions/download-artifact@v5
         with:
@@ -90,7 +150,7 @@ jobs:
 
       - name: Run Visual Regression Tests
         id: visual-regression-tests
-        run: yarn turbo run visual-regression
+        run: yarn run .ci-visual-regression
 
       - uses: actions/upload-artifact@v5
         if: steps.visual-regression-tests.outcome != 'success'
