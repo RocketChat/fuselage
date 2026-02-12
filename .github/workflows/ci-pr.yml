@@ -116,7 +116,9 @@ jobs:
         uses: actions/cache/restore@v4
         id: yarn-cache
         with:
-          path: ./.
+          path: |
+            **/node_modules
+            .yarn/cache
           key: ${{ runner.os }}-modules-${{ hashFiles('yarn.lock') }}
 
       - name: Turbo Cache
