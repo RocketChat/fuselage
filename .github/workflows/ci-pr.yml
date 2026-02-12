@@ -69,26 +69,11 @@ jobs:
           node-version: '22.20.0'
           cache: 'yarn'
 
-      - uses: actions/cache@v4
-        id: yarn-cache
+      - uses: actions/download-artifact@v5
         with:
+          name: 'storybooks-${{ github.event.number }}'
           path: |
-            **/node_modules
-            .yarn/cache
-          key: ${{ runner.os }}-modules-${{ hashFiles('yarn.lock') }}
-
-      - name: Turbo Cache
-        id: turbo-cache
-        uses: actions/cache@v4
-        with:
-          path: .turbo
-          key: turbo-${{ runner.os }}-${{ github.job }}
-          restore-keys: |
-            turbo-${{ runner.os }}-
-
-      - run: yarn
-        if: steps.yarn-cache.outputs.cache-hit != 'true'
-
+            ./packages
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
