@@ -125,7 +125,7 @@ jobs:
         id: turbo-cache
         uses: actions/cache/restore@v4
         with:
-          path: .
+          path: .turbo
           key: turbo-${{ runner.os }}-${{ github.event.number }}
           restore-keys: |
             turbo-${{ runner.os }}-
