@@ -27,6 +27,7 @@ export default defineConfig({
             '--disable-skia-runtime-opts',
             '--disable-font-subpixel-positioning',
             '--disable-accelerated-2d-canvas',
+            '--disable-gpu',
           ],
         },
       },
