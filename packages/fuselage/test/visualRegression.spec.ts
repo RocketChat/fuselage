@@ -1,10 +1,7 @@
-// import * as fs from 'fs';
-// import * as path from 'path';
-
 import { expect, test } from '@playwright/test';
 
 // This file is created by Storybook
-// when we run `npm run build`
+// when we run `yarn workspace @rocket.chat/fuselage build-storybook`
 import storybook from '../storybook-static/index.json' with { type: 'json' };
 
 // Only run tests on stories, not other documentation pages.
@@ -30,14 +27,9 @@ for (const story of stories) {
     const storybookRoot = page.locator('#storybook-root');
     await storybookRoot.waitFor({ state: 'visible' });
 
-    // const box = await storybookRoot.boundingBox();
-
     await expect(page).toHaveScreenshot(`${story.id}.png`, {
-      // clip: box || undefined,
       fullPage: true,
       animations: 'disabled',
-      // @ts-expect-error - comparator is not a valid option
-      _comparator: 'ssim-cie94',
     });
   });
 }
