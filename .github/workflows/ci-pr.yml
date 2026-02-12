@@ -50,13 +50,13 @@ jobs:
 
       - run: yarn run ci
 
-      # - uses: actions/upload-artifact@v5
-      #   with:
-      #     name: 'storybooks-${{ github.event.number }}'
-      #     path: |
-      #       packages/fuselage/storybook-static
-      #       packages/onboarding-ui/storybook-static
-      #       packages/layout/storybook-static
+      - uses: actions/upload-artifact@v5
+        with:
+          name: 'storybooks-${{ github.event.number }}'
+          path: |
+            packages/fuselage/storybook-static
+            packages/onboarding-ui/storybook-static
+            packages/layout/storybook-static
       
       - uses: actions/upload-artifact@v5
         if: always()
