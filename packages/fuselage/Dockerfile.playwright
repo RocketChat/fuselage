@@ -1,0 +1,19 @@
+# Use official Playwright Docker image
+# This image includes Playwright browsers, system dependencies, and Node.js
+FROM mcr.microsoft.com/playwright:v1.58.1-noble
+
+# Set working directory
+WORKDIR /app
+
+# Copy the entire monorepo structure
+# .dockerignore will exclude unnecessary files like node_modules, dist, etc.
+# This ensures Yarn can properly resolve all workspace dependencies
+COPY . .
+
+# Install dependencies from monorepo root
+# This will install all workspace dependencies now that the full structure is present
+RUN yarn install
+
+# Set working directory to fuselage package where tests will run
+WORKDIR /app/packages/fuselage
+
