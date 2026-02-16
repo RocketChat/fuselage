@@ -199,8 +199,9 @@ Insets.decorators = [
   ),
 ];
 
-export const Invisible: StoryFn<typeof Box> = () => <Box invisible />;
-Invisible.tags = ['no-visual'];
+export const Invisible: StoryFn<typeof Box> = () => (
+  <Box invisible>Invisible</Box>
+);
 
 export const Margins: StoryFn<typeof Box> = () => (
   <>
