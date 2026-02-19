@@ -16,3 +16,4 @@ node_modules/
 **/.storybook/jest-results.json
 **/bundle-report.html
 .env
+**/playwright-report
