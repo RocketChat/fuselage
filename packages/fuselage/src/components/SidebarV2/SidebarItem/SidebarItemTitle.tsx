@@ -3,6 +3,7 @@ import type { HTMLAttributes } from 'react';
 export const SidebarItemTitle = ({
   className,
   unread,
+  onMouseEnter,
   ...props
 }: { unread?: boolean } & HTMLAttributes<HTMLDivElement>) => (
   <div
@@ -13,6 +14,15 @@ export const SidebarItemTitle = ({
     ]
       .filter(Boolean)
       .join(' ')}
+    onMouseEnter={(e) => {
+      const { currentTarget } = e;
+      if (currentTarget.scrollWidth > currentTarget.clientWidth) {
+        currentTarget.title = currentTarget.textContent ?? '';
+      } else {
+        currentTarget.title = '';
+      }
+      onMouseEnter?.(e);
+    }}
     {...props}
   />
 );
