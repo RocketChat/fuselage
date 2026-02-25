@@ -1,4 +1,7 @@
-import { useEffectEvent, useResizeObserver } from '@rocket.chat/fuselage-hooks';
+import {
+  useStableCallback,
+  useResizeObserver,
+} from '@rocket.chat/fuselage-hooks';
 import type {
   AllHTMLAttributes,
   ChangeEvent,
@@ -111,7 +114,7 @@ function AutoComplete<TLabel = ReactNode>({
     });
   }, [value]);
 
-  const handleSelect = useEffectEvent(
+  const handleSelect = useStableCallback(
     ([newValue]: OptionType<string, TLabel>) => {
       if (selected.some((item) => item.value === newValue)) {
         hide();
@@ -131,7 +134,7 @@ function AutoComplete<TLabel = ReactNode>({
     },
   );
 
-  const handleRemove = useEffectEvent(
+  const handleRemove = useStableCallback(
     (event: MouseEvent<HTMLButtonElement>) => {
       event.stopPropagation();
       event.preventDefault();
@@ -167,10 +170,12 @@ function AutoComplete<TLabel = ReactNode>({
   const [cursor, handleKeyDown, , reset, [optionsAreVisible, hide, show]] =
     useCursor(firstSelectedIndex, memoizedOptions, handleSelect);
 
-  const handleOnBlur = useEffectEvent((event: FocusEvent<HTMLInputElement>) => {
-    hide();
-    onBlurAction(event);
-  });
+  const handleOnBlur = useStableCallback(
+    (event: FocusEvent<HTMLInputElement>) => {
+      hide();
+      onBlurAction(event);
+    },
+  );
 
   useEffect(reset, [filter, reset]);
 
@@ -178,7 +183,7 @@ function AutoComplete<TLabel = ReactNode>({
     <Box
       rcx-autocomplete
       ref={containerRef}
-      onClick={useEffectEvent(() => ref.current?.focus())}
+      onClick={useStableCallback(() => ref.current?.focus())}
       flexGrow={1}
       className={useMemo(
         () => [error && 'invalid', disabled && 'disabled'],
@@ -196,7 +201,7 @@ function AutoComplete<TLabel = ReactNode>({
         <Margins all='x4'>
           <Input
             ref={ref}
-            onChange={useEffectEvent((e: ChangeEvent<HTMLInputElement>) =>
+            onChange={useStableCallback((e: ChangeEvent<HTMLInputElement>) =>
               setFilter?.(e.currentTarget.value),
             )}
             onBlur={handleOnBlur}
