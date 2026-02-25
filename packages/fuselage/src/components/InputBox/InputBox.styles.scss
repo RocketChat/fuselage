@@ -1,53 +1,6 @@
 @use '../../styles/lengths.scss';
 @use '../../styles/typography.scss';
 
-.rcx-input-box__wrapper,
-%rcx-input-box {
-  position: relative;
-
-  display: inline-flex;
-
-  flex-flow: row nowrap;
-
-  align-items: flex-start;
-
-  flex-grow: 1;
-
-  min-width: lengths.size(144);
-
-  padding-block: lengths.padding(8);
-  padding-inline: lengths.padding(16) - lengths.border-width(default, rem);
-
-  vertical-align: baseline;
-
-  word-break: break-all;
-
-  outline: 0;
-
-  @extend %input;
-
-  &:invalid,
-  &.invalid {
-    @extend %input--invalid;
-  }
-
-  *:disabled &,
-  &:disabled,
-  &.disabled {
-    cursor: not-allowed;
-    pointer-events: none;
-  }
-}
-
-.rcx-input-box__addon {
-  @include clickable;
-
-  flex-flow: row nowrap;
-
-  align-items: flex-start;
-  flex: 0 0 auto;
-}
-
 @mixin with-colors(
   $color,
   $placeholder-color,
@@ -113,6 +66,68 @@
   .rcx-input-box__wrapper.disabled > & + .rcx-input-box__addon {
     color: #{$disabled-color};
   }
+}
+
+.rcx-input-box__wrapper,
+%rcx-input-box {
+  position: relative;
+
+  display: inline-flex;
+
+  flex-flow: row nowrap;
+
+  align-items: flex-start;
+
+  flex-grow: 1;
+
+  min-width: lengths.size(144);
+
+  padding-block: lengths.padding(8);
+  padding-inline: lengths.padding(16) - lengths.border-width(default, rem);
+
+  vertical-align: baseline;
+
+  word-break: break-all;
+
+  outline: 0;
+
+  @extend %input;
+
+  &:invalid,
+  &.invalid {
+    @extend %input--invalid;
+
+    @include with-colors(
+      $color: $input-colors-invalid-color,
+      $placeholder-color: $input-colors-invalid-placeholder-color,
+      $focus-caret-color: $input-colors-invalid-focus-caret-color,
+      $active-caret-color: $input-colors-invalid-active-caret-color,
+      $disabled-color: $input-colors-invalid-disabled-color
+    );
+
+    @include with-icon-addon-colors(
+      $color: $input-colors-invalid-color,
+      $focus-caret-color: $input-colors-invalid-focus-caret-color,
+      $focus-icon-color: $input-colors-invalid-focus-icon-color,
+      $disabled-color: $input-colors-invalid-disabled-color
+    );
+  }
+
+  *:disabled &,
+  &:disabled,
+  &.disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+.rcx-input-box__addon {
+  @include clickable;
+
+  flex-flow: row nowrap;
+
+  align-items: flex-start;
+  flex: 0 0 auto;
 }
 
 .rcx-input-box {
