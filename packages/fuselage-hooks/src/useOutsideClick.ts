@@ -1,7 +1,7 @@
 import type { RefObject } from 'react';
 import { useEffect } from 'react';
 
-import { useEffectEvent } from './useEffectEvent';
+import { useStableCallback } from './useStableCallback';
 
 /**
  * Hook to verify if the user clicked outside the element.
@@ -14,7 +14,7 @@ export function useOutsideClick<T extends Element>(
   elements: RefObject<T | null>[],
   cb: (e: MouseEvent) => void,
 ): void {
-  const handleClickOutside = useEffectEvent(function handleClickOutside(
+  const handleClickOutside = useStableCallback(function handleClickOutside(
     event: MouseEvent,
   ): void {
     if (
