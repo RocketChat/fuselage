@@ -9,7 +9,7 @@ export * from './useDebouncedReducer';
 export * from './useDebouncedState';
 export * from './useDebouncedUpdates';
 export * from './useDebouncedValue';
-export * from './useEffectEvent';
+export * from './useStableCallback';
 export * from './useIsomorphicLayoutEffect';
 export * from './useLazyRef';
 export * from './useMediaQueries';

@@ -1,6 +1,6 @@
 import {
   useMergedRefs,
-  useEffectEvent,
+  useStableCallback,
   useResizeObserver,
   useOutsideClick,
 } from '@rocket.chat/fuselage-hooks';
@@ -34,7 +34,7 @@ const Wrapper = forwardRef<HTMLDivElement, WrapperProps>((props, ref) => (
 
 const useDidUpdate = (func: () => void, deps: DependencyList | undefined) => {
   const didMount = useRef(false);
-  const fn = useEffectEvent(func);
+  const fn = useStableCallback(func);
 
   useEffect(() => {
     if (didMount.current) {
@@ -83,10 +83,12 @@ const SelectLegacy = forwardRef<HTMLInputElement, SelectProps>(
   ) {
     const [internalValue, setInternalValue] = useState(value || '');
 
-    const internalChangedByKeyboard = useEffectEvent(([value]: OptionType) => {
-      setInternalValue(value);
-      onChange(value as SelectOption[0]); // FIXME
-    });
+    const internalChangedByKeyboard = useStableCallback(
+      ([value]: OptionType) => {
+        setInternalValue(value);
+        onChange(value as SelectOption[0]); // FIXME
+      },
+    );
 
     const option = options.find(
       (option) => getValue(option) === internalValue,
@@ -117,7 +119,7 @@ const SelectLegacy = forwardRef<HTMLInputElement, SelectProps>(
     const removeFocusClass = () =>
       innerRef.current?.classList.remove('focus-visible');
 
-    const internalChangedByClick = useEffectEvent(([value]: OptionType) => {
+    const internalChangedByClick = useStableCallback(([value]: OptionType) => {
       setInternalValue(value);
       onChange(value as SelectOption[0]); // FIXME
       removeFocusClass();
@@ -147,7 +149,7 @@ const SelectLegacy = forwardRef<HTMLInputElement, SelectProps>(
       (filter === undefined || visible === AnimatedVisibility.HIDDEN) &&
       (valueLabel || placeholder || typeof placeholder === 'string');
 
-    const handleClick = useEffectEvent(() => {
+    const handleClick = useStableCallback(() => {
       if (innerRef.current?.classList.contains('focus-visible')) {
         removeFocusClass();
         return hide();
