@@ -93,6 +93,22 @@ const Menu = ({
   );
 
   useEffect(() => {
+    const handleWheel = (e: any) => {
+      if (visible === 'visible') {
+        e.preventDefault();
+      }
+    };
+
+    if (visible === 'visible') {
+      document.addEventListener('wheel', handleWheel, { passive: false });
+    }
+
+    return () => {
+      document.removeEventListener('wheel', handleWheel);
+    };
+  }, [visible]);
+
+  useEffect(() => {
     if (visible === 'hidden') {
       ref.current?.classList.remove('focus-visible');
     }
