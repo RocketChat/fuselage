@@ -1,6 +1,6 @@
 import {
   useMergedRefs,
-  useEffectEvent,
+  useStableCallback,
   useResizeObserver,
   useOutsideClick,
 } from '@rocket.chat/fuselage-hooks';
@@ -136,7 +136,7 @@ const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
       return null;
     };
 
-    const handleClick = useEffectEvent(() => {
+    const handleClick = useStableCallback(() => {
       if (visible === AnimatedVisibility.VISIBLE) {
         return hide();
       }
