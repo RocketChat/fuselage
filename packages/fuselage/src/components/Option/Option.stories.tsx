@@ -1,11 +1,10 @@
 import type { StoryFn, Meta } from '@storybook/react-webpack5';
 import { action } from 'storybook/actions';
 
-import { exampleAvatar, menuOptions } from '../../../.storybook/helpers';
+import { exampleAvatar } from '../../../.storybook/helpers';
 import { Avatar } from '../Avatar';
 import { Box } from '../Box';
-import { Menu } from '../Menu';
-import { MenuItem, MenuV2 } from '../Menu/V2';
+import { MenuItem, Menu } from '../Menu';
 import { StatusBullet } from '../StatusBullet';
 import { Tile } from '../Tile';
 
@@ -29,6 +28,14 @@ export default {
     ),
   ],
 } satisfies Meta<typeof Option>;
+
+const MenuExample = () => (
+  <Menu detached small items={[{ id: '1', label: 'Option', icon: 'hashtag' }]}>
+    <MenuItem key='1'>Profile</MenuItem>
+    <MenuItem key='2'>Chats</MenuItem>
+    <MenuItem key='3'>Settings</MenuItem>
+  </Menu>
+);
 
 export const Default: StoryFn<typeof Option> = () => (
   <>
@@ -107,9 +114,6 @@ export const WithMenu: StoryFn<typeof Option> = () => (
   <>
     <Option onClick={action('click')}>
       <OptionContent>Lorem Ipsum Lorem</OptionContent>
-      <OptionMenu>
-        <Menu options={menuOptions()} />
-      </OptionMenu>
     </Option>
     <Option>
       <OptionAvatar>
@@ -122,29 +126,7 @@ export const WithMenu: StoryFn<typeof Option> = () => (
         Lorem Ipsum Lorem Lorem Ipsum Lorem Lorem Ipsum Lorem Lorem Ipsum Lorem
       </OptionContent>
       <OptionMenu>
-        <Menu options={menuOptions()} />
-      </OptionMenu>
-    </Option>
-  </>
-);
-
-export const WithMenuV2: StoryFn<typeof Option> = () => (
-  <>
-    <Option onClick={action('click')}>
-      <OptionContent>Lorem Ipsum Lorem</OptionContent>
-    </Option>
-    <Option>
-      <OptionAvatar>
-        <Avatar url={exampleAvatar} size='x28' />
-      </OptionAvatar>
-      <OptionColumn>
-        <StatusBullet />
-      </OptionColumn>
-      <OptionContent>
-        Lorem Ipsum Lorem Lorem Ipsum Lorem Lorem Ipsum Lorem Lorem Ipsum Lorem
-      </OptionContent>
-      <OptionMenu>
-        <MenuV2
+        <Menu
           detached
           small
           items={[{ id: '1', label: 'Option', icon: 'hashtag' }]}
@@ -152,7 +134,7 @@ export const WithMenuV2: StoryFn<typeof Option> = () => (
           <MenuItem key='1'>Profile</MenuItem>
           <MenuItem key='2'>Chats</MenuItem>
           <MenuItem key='3'>Settings</MenuItem>
-        </MenuV2>
+        </Menu>
       </OptionMenu>
     </Option>
   </>
@@ -164,7 +146,7 @@ export const WithIcon: StoryFn<typeof Option> = () => (
       <OptionIcon name='bell' />
       <OptionContent>Lorem Ipsum Lorem</OptionContent>
       <OptionMenu>
-        <Menu options={menuOptions()} />
+        <MenuExample />
       </OptionMenu>
     </Option>
     <Option>
@@ -179,7 +161,7 @@ export const WithIcon: StoryFn<typeof Option> = () => (
         Lorem Ipsum Lorem Lorem Ipsum Lorem Lorem Ipsum Lorem Lorem Ipsum Lorem
       </OptionContent>
       <OptionMenu>
-        <Menu options={menuOptions()} />
+        <MenuExample />
       </OptionMenu>
     </Option>
   </>
@@ -231,7 +213,7 @@ export const AsUserItem: StoryFn<typeof Option> = () => (
         </Box>
       </OptionContent>
       <OptionMenu>
-        <Menu options={menuOptions()} />
+        <MenuExample />
       </OptionMenu>
     </Option>
   </>
