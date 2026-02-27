@@ -36,6 +36,7 @@
   },
   "devDependencies": {
     "@rocket.chat/fuselage": "*",
+    "@rocket.chat/fuselage-hooks": "workspace:~",
     "@rocket.chat/fuselage-tokens": "workspace:~",
     "@rocket.chat/storybook-dark-mode": "workspace:~",
     "@storybook/addon-docs": "~9.1.17",
