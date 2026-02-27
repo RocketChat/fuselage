@@ -86,7 +86,7 @@ const InputBox = forwardRef<any, InputBoxProps>(function InputBox(
         !innerRef.current.checkValidity(),
       );
     }
-  }, []);
+  }, [addon, error]);
 
   const handleChange = useCallback(
     (event: FormEvent<HTMLElement>) => {
