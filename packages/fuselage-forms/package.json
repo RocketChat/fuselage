@@ -35,7 +35,8 @@
     "test": "jest --runInBand"
   },
   "devDependencies": {
-    "@rocket.chat/fuselage": "*",
+    "@rocket.chat/fuselage": "workspace:~",
+    "@rocket.chat/fuselage-hooks": "workspace:~",
     "@rocket.chat/fuselage-tokens": "workspace:~",
     "@rocket.chat/storybook-dark-mode": "workspace:~",
     "@storybook/addon-docs": "~9.1.17",
@@ -65,7 +66,7 @@
   },
   "peerDependencies": {
     "@rocket.chat/fuselage": "*",
-    "@rocket.chat/fuselage-hooks": "workspace:~",
+    "@rocket.chat/fuselage-hooks": "*",
     "react": "*",
     "react-dom": "*"
   },
