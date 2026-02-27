@@ -1,5 +1,24 @@
 # Change Log
 
+## 0.72.0
+
+### Minor Changes
+
+- [#1861](https://github.com/RocketChat/fuselage/pull/1861) [`789d6a8`](https://github.com/RocketChat/fuselage/commit/789d6a85877fa325b0d3dfc4d82e8038edbd2096) Thanks [@tassoevan](https://github.com/tassoevan)! - feat(fuselage): Integrate Inter font
+
+- [#1843](https://github.com/RocketChat/fuselage/pull/1843) [`c3bd7f8`](https://github.com/RocketChat/fuselage/commit/c3bd7f8c5fd5a6f8faea3378ebff26338a6ef470) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage): promote `MenuV2` to `Menu`
+
+### Patch Changes
+
+- [#1868](https://github.com/RocketChat/fuselage/pull/1868) [`84d8d59`](https://github.com/RocketChat/fuselage/commit/84d8d59e3e16b5fc23a3321795e2061f09ca43ac) Thanks [@tassoevan](https://github.com/tassoevan)! - feat(fuselage-hooks): Deprecate `useEffectEvent` in favor of `useStableCallback`
+
+  The `useEffectEvent` hook has been renamed to `useStableCallback` to better reflect its purpose and behavior. The new
+  name emphasizes that the hook provides a stable callback function that maintains a consistent identity across renders
+  while always having access to the latest values of props and state. It differs from `useEffectEvent` from React 19,
+  which returns functions that can only be called from inside effects and other effect events.
+
+- [#1867](https://github.com/RocketChat/fuselage/pull/1867) [`717169f`](https://github.com/RocketChat/fuselage/commit/717169f8e0b92df45d9a0e4e72357fcb12e12e09) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): Wrong color in invalid input border
+
 ## 0.71.0
 
 ### Minor Changes

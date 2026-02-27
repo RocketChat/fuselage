@@ -1,5 +1,16 @@
 # Change Log
 
+## 0.40.0
+
+### Minor Changes
+
+- [#1868](https://github.com/RocketChat/fuselage/pull/1868) [`84d8d59`](https://github.com/RocketChat/fuselage/commit/84d8d59e3e16b5fc23a3321795e2061f09ca43ac) Thanks [@tassoevan](https://github.com/tassoevan)! - feat(fuselage-hooks): Deprecate `useEffectEvent` in favor of `useStableCallback`
+
+  The `useEffectEvent` hook has been renamed to `useStableCallback` to better reflect its purpose and behavior. The new
+  name emphasizes that the hook provides a stable callback function that maintains a consistent identity across renders
+  while always having access to the latest values of props and state. It differs from `useEffectEvent` from React 19,
+  which returns functions that can only be called from inside effects and other effect events.
+
 ## 0.39.0
 
 ### Minor Changes
