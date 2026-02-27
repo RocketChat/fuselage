@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.72.1
+
+### Patch Changes
+
+- [#1872](https://github.com/RocketChat/fuselage/pull/1872) [`ab46b78`](https://github.com/RocketChat/fuselage/commit/ab46b784c4aac7441916acef9be7c575e2e9e054) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): `InputBox` not reactive to async errors
+
 ## 0.72.0
 
 ### Minor Changes
