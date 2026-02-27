@@ -1,11 +1,6 @@
 import type { Meta, StoryFn } from '@storybook/react-webpack5';
-import { useState } from 'react';
 
 import { PropsVariationSection } from '../../../.storybook/helpers';
-import { Box } from '../Box';
-import { Button } from '../Button';
-import { ButtonGroup } from '../ButtonGroup';
-import { Field, FieldDescription, FieldError } from '../Field';
 import { Icon } from '../Icon';
 
 import PasswordInput from './PasswordInput';
@@ -87,35 +82,3 @@ export const States = () => (
     />
   </>
 );
-
-export const WithProgrammaticError: StoryFn<typeof PasswordInput> = () => {
-  const [error, setError] = useState<string | undefined>(undefined);
-  const [value, setValue] = useState('');
-
-  return (
-    <Box display='flex' flexDirection='column' style={{ gap: '8px' }}>
-      <Field>
-        <FieldDescription>
-          Click &quot;Set Error&quot; to programmatically set an error. The
-          input should immediately show a red border.
-        </FieldDescription>
-        <PasswordInput
-          aria-label='password'
-          value={value}
-          onChange={(e) => setValue((e.target as HTMLInputElement).value)}
-          error={error}
-          placeholder='Enter password'
-        />
-        <FieldError>{error}</FieldError>
-      </Field>
-      <ButtonGroup>
-        <Button onClick={() => setError('Invalid credentials')} secondary>
-          Set Error
-        </Button>
-        <Button onClick={() => setError(undefined)} secondary>
-          Clear Error
-        </Button>
-      </ButtonGroup>
-    </Box>
-  );
-};
