@@ -199,7 +199,9 @@ Insets.decorators = [
   ),
 ];
 
-export const Invisible: StoryFn<typeof Box> = () => <Box invisible />;
+export const Invisible: StoryFn<typeof Box> = () => (
+  <Box invisible>Invisible</Box>
+);
 
 export const Margins: StoryFn<typeof Box> = () => (
   <>
