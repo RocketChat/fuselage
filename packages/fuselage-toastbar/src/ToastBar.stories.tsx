@@ -1,6 +1,7 @@
+import isLokiRunning from '@loki/is-loki-running';
 import { Button } from '@rocket.chat/fuselage';
 import type { Meta, StoryFn } from '@storybook/react-webpack5';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback, useMemo } from 'react';
 
 import { useToastBarDispatch } from './ToastBarContext';
 
@@ -18,13 +19,16 @@ export const Default: StoryFn = () => {
   const [counter, setCounter] = useState(0);
   const dispatchToastMessage = useToastBarDispatch();
 
-  const messageArray = [
-    'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam nihi Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam nihi',
-    'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam nihi Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam nihi',
-    'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam nihi Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam nihi',
-    DEFAULT_MESSAGE,
-    'Lorem ipsum dolor, sit amet consectetur adipisicing elit.',
-  ];
+  const messageArray = useMemo(
+    () => [
+      'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam nihi Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam nihi',
+      'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam nihi Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam nihi',
+      'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam nihi Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam nihi',
+      DEFAULT_MESSAGE,
+      'Lorem ipsum dolor, sit amet consectetur adipisicing elit.',
+    ],
+    [],
+  );
 
   const handleToast = () => {
     dispatchToastMessage({
@@ -45,7 +49,25 @@ export const Default: StoryFn = () => {
 
     return setCounter((prevState) => prevState + 1);
   };
+  const handleToastLoki = useCallback(() => {
+    dispatchToastMessage({
+      type: 'success',
+      message: messageArray[0],
+      time: 10,
+    });
 
+    dispatchToastMessage({
+      type: 'error',
+      message: messageArray[0],
+      position: 'bottom-start',
+    });
+  }, [messageArray, dispatchToastMessage]);
+
+  useEffect(() => {
+    if (isLokiRunning()) {
+      handleToastLoki();
+    }
+  }, [handleToastLoki]);
   return (
     <Button primary onClick={handleToast}>
       Dispatch ToastBar

@@ -1,0 +1,44 @@
+name: Loki
+branding:
+  icon: 'check'
+  color: 'green'
+inputs:
+  working_dir:
+    required: true
+    default: .
+  react_uri:
+    required: true
+    default: ./storybook-static
+  fuselage:
+    description: 'fuselage components regex'
+    required: true
+  fuselage-toastbar:
+    description: 'fuselage-toastbar components regex'
+    required: true
+  layout:
+    description: 'layout components regex'
+    required: true
+  onboarding-ui:
+    description: 'onboarding-ui components regex'
+    required: true
+  pkg-name:
+    description: 'storybook containing packages'
+    required: true
+# outputs:
+# fuselage:
+#   description: A regex of fuselage components
+# fuselage-toastbar:
+#   description: A regex of fuselage-toastbar components
+# layout:
+#   description: A regex of layout components
+# onboarding-ui:
+#   description: A regex of onboarding-ui components
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.fuselage }}
+    - ${{ inputs.fuselage-toastbar }}
+    - ${{ inputs.layout }}
+    - ${{ inputs.onboarding-ui }}
+    - ${{ inputs.pkg-name }}

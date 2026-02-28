@@ -1,0 +1,16 @@
+{
+  "private": true,
+  "name": "fuselagesnap-local",
+  "scripts": {
+    "lint": "lint .",
+    "lint-and-fix": "lint-and-fix"
+  },
+  "type": "module",
+  "bin": "bin/index.js",
+  "devDependencies": {
+    "eslint": "^9.29.0",
+    "lint-all": "workspace:~",
+    "prettier": "~3.5.3"
+  },
+  "version": "0.0.1"
+}

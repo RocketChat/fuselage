@@ -1,0 +1,14 @@
+diff --git a/src/create-chrome-docker-target.js b/src/create-chrome-docker-target.js
+index d00e06201878f469e0446de8a011063bf52e858e..3dd3b7f13124a19a4bd47e8ab8c338b370c58c66 100644
+--- a/src/create-chrome-docker-target.js
++++ b/src/create-chrome-docker-target.js
+@@ -90,8 +90,7 @@ function createChromeDockerTarget({
+ 
+     debuggerPort = getRandomPort();
+     if (isLocalFile) {
+-      staticServer = createStaticServer(staticServerPath);
+-      staticServer.listen(staticServerPort);
++      staticServer = createStaticServer(staticServerPath).listen(staticServerPort);
+       debug(`Starting static file server at ${dockerUrl}`);
+     }
+ 
