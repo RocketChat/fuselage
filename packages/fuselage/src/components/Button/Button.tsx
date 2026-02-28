@@ -1,5 +1,5 @@
 import type { AllHTMLAttributes } from 'react';
-import { forwardRef, useMemo } from 'react';
+import { forwardRef, useMemo, Children } from 'react';
 
 import { Box, type BoxProps } from '../Box';
 import { Icon, type IconProps } from '../Icon';
@@ -39,6 +39,7 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
       external,
       icon,
       is = 'button',
+      type = 'button', // Defaulting to 'button' here for safety
       rel: _rel,
       tiny,
       mini,
@@ -53,15 +54,20 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
     },
     ref,
   ) {
-    const extraProps =
-      (is === 'a' && {
-        rel: external ? 'noopener noreferrer' : undefined,
-        target: external ? '_blank' : undefined,
-      }) ||
-      (is === 'button' && {
-        type: 'button',
-      }) ||
-      {};
+    const extraProps = useMemo(() => {
+      if (is === 'a') {
+        return {
+          rel: external ? 'noopener noreferrer' : undefined,
+          target: external ? '_blank' : undefined,
+        };
+      }
+
+      if (is === 'button') {
+        return { type }; // Uses the 'type' prop (default 'button')
+      }
+
+      return {};
+    }, [is, external, type]);
 
     const kindAndVariantProps = useMemo(() => {
       const variant =
@@ -83,10 +89,25 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
       return {};
     }, [primary, secondary, danger, warning, success]);
 
+    // --- Accessibility Check (Dev Only) ---
+    if (process.env.NODE_ENV !== 'production') {
+      const childrenArray = Children.toArray(children);
+      const hasTextContent = childrenArray.some(
+        (child) => typeof child === 'string' && child.trim().length > 0
+      );
+
+      const isVisualOnly = !hasTextContent && (!!icon || !!loading || square);
+
+      if (isVisualOnly && !props['aria-label'] && !props['aria-labelledby']) {
+        console.warn(
+          `Fuselage [Button]: Buttons without visible text (icon-only or square buttons) must provide an 'aria-label' or 'aria-labelledby' prop for accessibility.`
+        );
+      }
+    }
+
     return (
       <Box
         is={is}
-        type='button'
         rcx-button
         {...kindAndVariantProps}
         rcx-button--small={small}
