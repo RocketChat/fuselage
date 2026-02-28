@@ -52,4 +52,22 @@ describe('[IconButton Component]', () => {
     const results = await axe(container);
     expect(results).toHaveNoViolations();
   });
+
+  it('should default to type="button" to prevent accidental form submissions', () => {
+    const { getByRole } = render(<Default />);
+    const button = getByRole('button');
+    expect(button).toHaveAttribute('type', 'button');
+  });
+
+  it('should allow overriding type attribute when explicitly passed', () => {
+    const { getByRole } = render(<Default type='submit' />);
+    const button = getByRole('button');
+    expect(button).toHaveAttribute('type', 'submit');
+  });
+
+  it('should render as anchor tag when is="a" prop is passed', () => {
+    const { getByRole } = render(<Default is='a' href='#' />);
+    const link = getByRole('link');
+    expect(link.tagName).toBe('A');
+  });
 });
