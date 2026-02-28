@@ -12,7 +12,7 @@
     "ci": "yarn turbo run build lint test build-storybook --cache-dir=\".turbo\"",
     "clean": "yarn workspaces foreach -vA run clean",
     "docs": "yarn turbo run docs",
-    "postinstall": "husky install && yarn build",
+    "postinstall": "husky install",
     "lint": "yarn turbo run lint",
     "lint-and-fix": "yarn workspaces foreach -v --topological-dev --all run lint-and-fix",
     "prepack": "pinst --disable",
