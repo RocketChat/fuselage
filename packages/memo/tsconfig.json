@@ -1,9 +1,16 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "outDir": "./dist/esm"
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "verbatimModuleSyntax": true,
+    "types": [],
+    "lib": ["ES2024", "DOM"]
   },
-  "include": ["src/**/*"],
+  "include": ["src"],
+  "exclude": ["dist", "node_modules"],
   "typedocOptions": {
     "entryPoints": ["src/index.ts"],
     "out": "../../static/memo"

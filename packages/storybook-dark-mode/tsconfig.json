@@ -1,14 +1,13 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "target": "ES2020",
     "jsx": "react",
-    "lib": ["ES2020", "DOM"],
-    "module": "ESNext",
-    "moduleResolution": "bundler",
+    "lib": ["DOM"],
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
     "esModuleInterop": true,
     "isolatedModules": false,
     "types": ["node"]
   },
-  "include": ["src/**/*"]
+  "include": ["src"]
 }

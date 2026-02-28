@@ -1,8 +1,14 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "outDir": "./dist"
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "verbatimModuleSyntax": true
   },
+  "include": ["src"],
+  "exclude": ["dist", "node_modules"],
   "typedocOptions": {
     "entryPoints": ["src/index.ts"],
     "out": "../../static/string-helpers"

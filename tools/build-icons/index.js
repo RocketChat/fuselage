@@ -6,7 +6,6 @@ import { removeFile, listFiles } from 'tools-utils/files';
 
 import {
   buildCss,
-  buildCommonJsModule,
   buildEsmModule,
   buildSvgImages,
   buildFont,
@@ -44,7 +43,6 @@ const icons = await fromSourcesToIcons(sources);
 
 await Promise.all([
   buildCss(),
-  buildCommonJsModule(icons),
   buildEsmModule(icons),
   buildSvgImages(icons),
   buildFont(icons),

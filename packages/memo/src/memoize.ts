@@ -6,7 +6,7 @@ interface Options {
 }
 
 const store = new WeakMap<
-  MemoizableFunction<unknown, unknown, unknown>,
+  MemoizableFunction<any, any, any>,
   Map<unknown, unknown>
 >();
 
@@ -18,7 +18,7 @@ const isCachedValue = <A, R>(
 
 export const memoize = <T, A, R>(
   fn: MemoizableFunction<T, A, R>,
-  _options?: Options,
+  options?: Options,
 ): MemoizedFunction<T, A, R> => {
   const cache = new Map<A, R>();
   const cacheTimers = new Map<A, ReturnType<typeof setTimeout>>();
@@ -37,8 +37,8 @@ export const memoize = <T, A, R>(
         clearTimeout(oldTimer);
       }
 
-      if (_options) {
-        const timer = setTimeout(cleanUp, _options.maxAge);
+      if (options) {
+        const timer = setTimeout(cleanUp, options.maxAge);
         cacheTimers.set(arg, timer);
       }
 
@@ -49,15 +49,15 @@ export const memoize = <T, A, R>(
 
     cache.set(arg, result);
 
-    if (_options) {
-      const timer = setTimeout(cleanUp, _options.maxAge);
+    if (options) {
+      const timer = setTimeout(cleanUp, options.maxAge);
       cacheTimers.set(arg, timer);
     }
 
     return result;
   };
 
-  store.set(memoized as MemoizableFunction<unknown, unknown, unknown>, cache);
+  store.set(memoized, cache);
 
   return memoized;
 };

@@ -1,4 +1,6 @@
-import { Emitter } from './index';
+import { jest, describe, it, expect, beforeEach } from '@jest/globals';
+
+import { Emitter } from './index.js';
 
 const times = (n: number, fn: () => void): number => {
   Array.from({ length: n }, () => fn());

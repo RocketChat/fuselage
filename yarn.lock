@@ -1158,19 +1158,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-transform-modules-commonjs@npm:^7.27.1":
-  version: 7.27.1
-  resolution: "@babel/plugin-transform-modules-commonjs@npm:7.27.1"
-  dependencies:
-    "@babel/helper-module-transforms": "npm:^7.27.1"
-    "@babel/helper-plugin-utils": "npm:^7.27.1"
-  peerDependencies:
-    "@babel/core": ^7.0.0-0
-  checksum: 10/9059243a977bc1f13e3dccfc6feb6508890e7c7bb191f7eb56626b20672b4b12338051ca835ab55426875a473181502c8f35b4df58ba251bef63b25866d995fe
-  languageName: node
-  linkType: hard
-
-"@babel/plugin-transform-modules-commonjs@npm:^7.28.6":
+"@babel/plugin-transform-modules-commonjs@npm:^7.27.1, @babel/plugin-transform-modules-commonjs@npm:^7.28.6":
   version: 7.28.6
   resolution: "@babel/plugin-transform-modules-commonjs@npm:7.28.6"
   dependencies:
@@ -1688,7 +1676,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/preset-typescript@npm:~7.28.5":
+"@babel/preset-typescript@npm:~7.28.4":
   version: 7.28.5
   resolution: "@babel/preset-typescript@npm:7.28.5"
   dependencies:
@@ -3210,7 +3198,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jest/globals@npm:30.2.0":
+"@jest/globals@npm:30.2.0, @jest/globals@npm:~30.2.0":
   version: 30.2.0
   resolution: "@jest/globals@npm:30.2.0"
   dependencies:
@@ -5375,17 +5363,12 @@ __metadata:
     "@rocket.chat/css-supports": "workspace:~"
     "@rocket.chat/memo": "workspace:~"
     "@rocket.chat/stylis-logical-props-middleware": "workspace:~"
-    "@rollup/plugin-commonjs": "npm:~28.0.9"
-    "@rollup/plugin-json": "npm:~6.1.0"
-    "@rollup/plugin-node-resolve": "npm:~16.0.3"
-    "@rollup/plugin-terser": "npm:~0.4.4"
-    "@rollup/plugin-typescript": "npm:~12.1.4"
     "@types/stylis": "npm:^4.2.7"
     eslint: "npm:~9.39.2"
     jest: "npm:~30.2.0"
     lint-all: "workspace:~"
     prettier: "npm:~3.6.2"
-    rollup: "npm:~4.52.5"
+    rimraf: "npm:~6.0.1"
     stylis: "npm:~4.3.6"
     ts-jest: "npm:~29.4.6"
     typedoc: "npm:~0.28.16"
@@ -5411,17 +5394,13 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@rocket.chat/emitter@workspace:packages/emitter"
   dependencies:
-    "@rollup/plugin-commonjs": "npm:~28.0.9"
-    "@rollup/plugin-json": "npm:~6.1.0"
-    "@rollup/plugin-node-resolve": "npm:~16.0.3"
-    "@rollup/plugin-terser": "npm:~0.4.4"
-    "@rollup/plugin-typescript": "npm:~12.1.4"
+    "@jest/globals": "npm:~30.2.0"
+    "@types/jest": "npm:~30.0.0"
     eslint: "npm:~9.39.2"
     jest: "npm:~30.2.0"
     lint-all: "workspace:~"
-    npm-run-all: "npm:^4.1.5"
     prettier: "npm:~3.6.2"
-    rollup: "npm:~4.52.5"
+    rimraf: "npm:~6.0.1"
     ts-jest: "npm:~29.4.6"
     typedoc: "npm:~0.28.16"
     typescript: "npm:~5.9.3"
@@ -5607,6 +5586,7 @@ __metadata:
     "@babel/plugin-transform-runtime": "npm:~7.28.5"
     "@babel/preset-env": "npm:~7.28.6"
     "@babel/preset-react": "npm:~7.28.5"
+    "@babel/preset-typescript": "npm:~7.28.4"
     "@rocket.chat/css-in-js": "workspace:~"
     "@rocket.chat/css-supports": "workspace:~"
     "@rocket.chat/fuselage-hooks": "workspace:~"
@@ -5754,7 +5734,6 @@ __metadata:
     jest: "npm:~30.2.0"
     jest-environment-jsdom: "npm:~30.2.0"
     lint-all: "workspace:~"
-    npm-run-all: "npm:^4.1.5"
     prettier: "npm:~3.6.2"
     react: "npm:~18.3.1"
     react-dom: "npm:~18.3.1"
@@ -5772,6 +5751,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@rocket.chat/memo@workspace:packages/memo"
   dependencies:
+    "@jest/globals": "npm:~30.2.0"
+    "@types/jest": "npm:~30.0.0"
     eslint: "npm:~9.39.2"
     jest: "npm:~30.2.0"
     lint-all: "workspace:~"
@@ -5787,19 +5768,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@rocket.chat/mp3-encoder@workspace:packages/mp3-encoder"
   dependencies:
-    "@babel/core": "npm:~7.28.6"
-    "@babel/plugin-transform-runtime": "npm:~7.28.5"
-    "@babel/preset-env": "npm:~7.28.6"
-    "@babel/preset-typescript": "npm:~7.28.5"
-    "@rollup/plugin-commonjs": "npm:~28.0.9"
-    "@rollup/plugin-node-resolve": "npm:~16.0.3"
-    "@rollup/plugin-typescript": "npm:~12.1.4"
     eslint: "npm:~9.39.2"
     jest: "npm:~30.2.0"
     jest-environment-jsdom: "npm:~30.2.0"
     lint-all: "workspace:~"
     prettier: "npm:~3.6.2"
-    rollup: "npm:~4.52.5"
+    rimraf: "npm:~6.0.1"
     ts-jest: "npm:~29.4.6"
     typedoc: "npm:~0.28.16"
     typescript: "npm:~5.9.3"
@@ -5894,7 +5868,6 @@ __metadata:
     eslint: "npm:~9.39.2"
     jest: "npm:~30.2.0"
     lint-all: "workspace:~"
-    npm-run-all: "npm:^4.1.5"
     prettier: "npm:~3.6.2"
     rimraf: "npm:~6.0.1"
     ts-jest: "npm:~29.4.6"
@@ -5916,7 +5889,6 @@ __metadata:
     jest: "npm:~30.2.0"
     jest-environment-jsdom: "npm:~30.2.0"
     lint-all: "workspace:~"
-    npm-run-all: "npm:^4.1.5"
     prettier: "npm:~3.6.2"
     react: "npm:~18.3.1"
     react-dom: "npm:~18.3.1"
@@ -5934,7 +5906,6 @@ __metadata:
     "@rocket.chat/css-supports": "workspace:~"
     eslint: "npm:~9.39.2"
     lint-all: "workspace:~"
-    npm-run-all: "npm:^4.1.5"
     prettier: "npm:~3.6.2"
     rimraf: "npm:~6.0.1"
     stylis: "npm:~4.3.6"
