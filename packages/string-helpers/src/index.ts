@@ -1,4 +1,4 @@
-export { capitalize } from './capitalize';
-export { escapeHTML } from './escapeHTML';
-export { escapeRegExp } from './escapeRegExp';
-export { unescapeHTML } from './unescapeHTML';
+export { capitalize } from './capitalize.js';
+export { escapeHTML } from './escapeHTML.js';
+export { escapeRegExp } from './escapeRegExp.js';
+export { unescapeHTML } from './unescapeHTML.js';
