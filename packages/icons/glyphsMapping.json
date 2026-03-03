@@ -1022,5 +1022,11 @@
   },
   "phone-question-mark": {
     "start": "\ue171"
+  },
+  "desktop-cross": {
+    "start": "\ue173"
+  },
+  "desktop-arrow-up": {
+    "start": "\ue175"
   }
 }
