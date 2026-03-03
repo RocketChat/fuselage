@@ -1028,5 +1028,8 @@
   },
   "desktop-arrow-up": {
     "start": "\ue175"
+  },
+  "pin-filled": {
+    "start": "\ue177"
   }
 }
