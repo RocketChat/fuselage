@@ -23,6 +23,8 @@
     "/index.js"
   ],
   "scripts": {
+    "visual-regression": "npx concurrently -k -s first -n \"SB,TEST\" \"npx http-server storybook-static -s -p 6006\" \"npx wait-on tcp:127.0.0.1:6006 && ./scripts/run-playwright-docker.sh\"",
+    "visual-regression-update": "npx concurrently -k -s first -n \"SB,TEST\" \"yarn storybook --ci\" \"npx wait-on tcp:127.0.0.1:6006 && ./scripts/run-playwright-docker.sh --update-snapshots\"",
     "start": "webpack --watch --mode development",
     "storybook": "storybook dev -p 6006 --no-version-updates",
     "build": "run-s .:build:clean .:build:dev .:build:prod",
@@ -52,6 +54,7 @@
     "@babel/plugin-transform-runtime": "~7.28.5",
     "@babel/preset-env": "~7.28.6",
     "@babel/preset-react": "~7.28.5",
+    "@playwright/test": "~1.58.1",
     "@rocket.chat/fuselage-hooks": "workspace:~",
     "@rocket.chat/icons": "workspace:~",
     "@rocket.chat/storybook-dark-mode": "workspace:~",
