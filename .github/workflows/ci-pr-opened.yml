@@ -73,4 +73,4 @@ jobs:
           commit_message: 'Deploy to Github Pages [skip ci]'
           jekyll: false
         env:
-          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
