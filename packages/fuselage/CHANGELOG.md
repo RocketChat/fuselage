@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.73.0
+
+### Minor Changes
+
+- [#1880](https://github.com/RocketChat/fuselage/pull/1880) [`c312238`](https://github.com/RocketChat/fuselage/commit/c3122389dfe5ba4970ddc59d57b1ddc70464f7dc) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage): improve `Toastbar` accessibility
+
 ## 0.72.1
 
 ### Patch Changes
