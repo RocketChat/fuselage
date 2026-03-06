@@ -1,4 +1,4 @@
-import type { ElementType, HTMLAttributes } from 'react';
+import type { ElementType, HTMLAttributes, ReactNode } from 'react';
 
 import { prependClassName } from '../../helpers/prependClassName';
 
@@ -8,8 +8,8 @@ export type BadgeProps = {
   small?: boolean;
   disabled?: boolean;
   className?: string;
-  children?: any;
-  title?: any;
+  children?: ReactNode;
+  title?: string;
 } & HTMLAttributes<HTMLSpanElement>;
 
 /**
