@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.47.0
+
+### Minor Changes
+
+- [#1882](https://github.com/RocketChat/fuselage/pull/1882) [`8a5295f`](https://github.com/RocketChat/fuselage/commit/8a5295f2276ac8fbc91c4a25577ab87ee1438bb9) Thanks [@gabriellsh](https://github.com/gabriellsh)! - feat(icons): add `desktop-arrow-up`, `desktop-cross`, `pin-filled` and update `pin`
+
 ## 0.46.0
 
 ### Minor Changes
