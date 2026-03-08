@@ -93,3 +93,19 @@ export const States: StoryFn<typeof SearchInput> = () => (
     />
   </>
 );
+States.parameters = {
+  docs: {
+    description: {
+      story: `
+This story visualizes the **SearchInput** across all supported interactive states and sizes.
+
+- **Default**: The standard resting state of the component.
+- **Hover**: Triggered when the mouse cursor is positioned over the input field.
+- **Active**: Triggered momentarily while the user is clicking or pressing down on the input.
+- **Focus**: Triggered when the user selects the input (via click or keyboard \`Tab\`). This state highlights the border to indicate it is ready for typing.
+- **Disabled**: The input is non-interactive and visually dimmed to indicate unavailability.
+- **Errored**: Indicates a validation failure, typically changing the border color to red.
+      `,
+    },
+  },
+};
