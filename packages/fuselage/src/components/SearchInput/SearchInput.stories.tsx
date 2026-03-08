@@ -93,3 +93,28 @@ export const States: StoryFn<typeof SearchInput> = () => (
     />
   </>
 );
+States.parameters = {
+	docs: {
+		description: {
+			story: `
+### Visual States and Interaction Documentation
+This story demonstrates the **SearchInput** component's appearance across different state combinations and sizes.
+
+#### Y-Axis: Component States
+The vertical axis illustrates how the input responds to different interaction and validation logic:
+- **Default / Small:** The base state of the component.
+- **Hover:** The visual style when the user's cursor is over the input.
+- **Active:** The state when the input is being actively pressed or clicked.
+- **Focus:** The state when the component is selected via mouse or keyboard (**Tab** key), showing the focus ring for accessibility.
+- **Disabled:** Prevents interaction and reduces opacity to signal the input is unavailable.
+- **Errored:** Applies a validation error style (red border). The story also shows combined states (e.g., **Errored + Focus**) to ensure accessibility is maintained even during validation failures.
+
+#### X-Axis: Content Variations
+The horizontal axis shows how states interact with different internal configurations:
+- **With Placeholder:** Showing the hint text style.
+- **With Value:** Showing standard typed text.
+- **With Icon:** Showing the alignment and spacing when an 'addon' (magnifier icon) is present.
+`,
+		},
+	},
+};
