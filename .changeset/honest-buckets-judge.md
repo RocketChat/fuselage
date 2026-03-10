@@ -2,4 +2,4 @@
 "@rocket.chat/fuselage-hooks": minor
 ---
 
-chore: Deprecate `useUniqueId`
+chore(fuselage-hooks): Remove deprecated `useUniqueId`
