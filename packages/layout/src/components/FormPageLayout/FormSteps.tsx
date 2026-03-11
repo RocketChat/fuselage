@@ -7,7 +7,7 @@ type FormStepsProps = {
   stepCount: number;
 };
 
-const FormSteps = ({
+export const FormSteps = ({
   currentStep,
   stepCount,
 }: FormStepsProps): ReactElement => {
@@ -20,4 +20,4 @@ const FormSteps = ({
   );
 };
 
-export default FormSteps;
+
