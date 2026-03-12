@@ -4,7 +4,7 @@ import type { StorybookConfig } from '@storybook/react-webpack5';
 
 const config: StorybookConfig = {
   addons: [
-    getAbsolutePath('storybook-dark-mode'),
+    getAbsolutePath('@rocket.chat/storybook-dark-mode'),
     getAbsolutePath('@storybook/addon-webpack5-compiler-swc'),
     getAbsolutePath('@storybook/addon-docs'),
   ],

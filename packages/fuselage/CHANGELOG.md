@@ -1,5 +1,66 @@
 # Change Log
 
+## 0.73.0
+
+### Minor Changes
+
+- [#1880](https://github.com/RocketChat/fuselage/pull/1880) [`c312238`](https://github.com/RocketChat/fuselage/commit/c3122389dfe5ba4970ddc59d57b1ddc70464f7dc) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage): improve `Toastbar` accessibility
+
+## 0.72.1
+
+### Patch Changes
+
+- [#1872](https://github.com/RocketChat/fuselage/pull/1872) [`ab46b78`](https://github.com/RocketChat/fuselage/commit/ab46b784c4aac7441916acef9be7c575e2e9e054) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): `InputBox` not reactive to async errors
+
+## 0.72.0
+
+### Minor Changes
+
+- [#1861](https://github.com/RocketChat/fuselage/pull/1861) [`789d6a8`](https://github.com/RocketChat/fuselage/commit/789d6a85877fa325b0d3dfc4d82e8038edbd2096) Thanks [@tassoevan](https://github.com/tassoevan)! - feat(fuselage): Integrate Inter font
+
+- [#1843](https://github.com/RocketChat/fuselage/pull/1843) [`c3bd7f8`](https://github.com/RocketChat/fuselage/commit/c3bd7f8c5fd5a6f8faea3378ebff26338a6ef470) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage): promote `MenuV2` to `Menu`
+
+### Patch Changes
+
+- [#1868](https://github.com/RocketChat/fuselage/pull/1868) [`84d8d59`](https://github.com/RocketChat/fuselage/commit/84d8d59e3e16b5fc23a3321795e2061f09ca43ac) Thanks [@tassoevan](https://github.com/tassoevan)! - feat(fuselage-hooks): Deprecate `useEffectEvent` in favor of `useStableCallback`
+
+  The `useEffectEvent` hook has been renamed to `useStableCallback` to better reflect its purpose and behavior. The new
+  name emphasizes that the hook provides a stable callback function that maintains a consistent identity across renders
+  while always having access to the latest values of props and state. It differs from `useEffectEvent` from React 19,
+  which returns functions that can only be called from inside effects and other effect events.
+
+- [#1867](https://github.com/RocketChat/fuselage/pull/1867) [`717169f`](https://github.com/RocketChat/fuselage/commit/717169f8e0b92df45d9a0e4e72357fcb12e12e09) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): Wrong color in invalid input border
+
+## 0.71.0
+
+### Minor Changes
+
+- [#1837](https://github.com/RocketChat/fuselage/pull/1837) [`28172f1`](https://github.com/RocketChat/fuselage/commit/28172f198f382af076842f99205ac13338a72f02) Thanks [@tassoevan](https://github.com/tassoevan)! - feat(fuselage): Remove deprecated `Message.*` component namespace
+
+- [#1717](https://github.com/RocketChat/fuselage/pull/1717) [`1179d3f`](https://github.com/RocketChat/fuselage/commit/1179d3f3fb954f00741fd99ddd979b00f39c937e) Thanks [@tassoevan](https://github.com/tassoevan)! - feat: ES2024 standard requirement
+
+- [#1854](https://github.com/RocketChat/fuselage/pull/1854) [`9695ec7`](https://github.com/RocketChat/fuselage/commit/9695ec74eb6fbc8dbb0eea431884b13e418229bc) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage): add `ButtonGroup` `rtl` support
+
+### Patch Changes
+
+- [#1846](https://github.com/RocketChat/fuselage/pull/1846) [`7c1f866`](https://github.com/RocketChat/fuselage/commit/7c1f86616a6cb0dd581801acb1670bbe9fa32842) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): `ContextualbarHeader` style overlapping with button focus style
+
+- [#1849](https://github.com/RocketChat/fuselage/pull/1849) [`99b319c`](https://github.com/RocketChat/fuselage/commit/99b319c6c2ef1015d1d1edb027068c23dc1e29d9) Thanks [@tassoevan](https://github.com/tassoevan)! - feat(storybook-dark-mode): Fork `storybook-dark-mode`
+
+- [#1850](https://github.com/RocketChat/fuselage/pull/1850) [`a5028b6`](https://github.com/RocketChat/fuselage/commit/a5028b6471def411b60dc91c08290d1c3ad72d1a) Thanks [@dodaa08](https://github.com/dodaa08)! - fix(fuselage): prevent username truncation in system messages with long topics
+
+## 0.70.2
+
+### Patch Changes
+
+- [#1839](https://github.com/RocketChat/fuselage/pull/1839) [`1904f3c`](https://github.com/RocketChat/fuselage/commit/1904f3cf71c40b8d80be9cd447bb645eec87d347) Thanks [@gabriellsh](https://github.com/gabriellsh)! - fix(fuselage): MessageReactions subcomponents export missing
+
+## 0.70.1
+
+### Patch Changes
+
+- [#1832](https://github.com/RocketChat/fuselage/pull/1832) [`957a55c`](https://github.com/RocketChat/fuselage/commit/957a55cd6b31452a7f788c0d4af51bdccffcf89c) Thanks [@gabriellsh](https://github.com/gabriellsh)! - chore(fuselage): Increase `MessageBlock` margins when placed directly bellow `MessageHeader`
+
 ## 0.70.0
 
 ### Minor Changes

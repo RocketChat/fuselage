@@ -1,9 +1,9 @@
-import { ThreadMessageIcon } from './ThreadMessageIcon';
+import ThreadMessageIcon from './ThreadMessageIcon';
 
 const ThreadMessageUnfollow = () => (
   <ThreadMessageIcon
     className='rcx-box rcx-box--full rcx-message-thread__icon rcx-message-thread__icon--unfollow'
-    {...({ name: 'bell-off' } as any)}
+    name='bell-off'
   />
 );
 

@@ -4,7 +4,14 @@ import { Avatar } from '../../Avatar';
 import { Box } from '../../Box';
 
 import ThreadMessage from './ThreadMessage';
+import ThreadMessageBody from './ThreadMessageBody';
+import ThreadMessageContainer from './ThreadMessageContainer';
 import ThreadMessageEmoji from './ThreadMessageEmoji';
+import ThreadMessageIconThread from './ThreadMessageIconThread';
+import ThreadMessageLeftContainer from './ThreadMessageLeftContainer';
+import ThreadMessageOrigin from './ThreadMessageOrigin';
+import ThreadMessageRow from './ThreadMessageRow';
+import ThreadMessageUnfollow from './ThreadMessageUnfollow';
 
 export default {
   title: 'Message/ThreadMessage',
@@ -17,37 +24,37 @@ const avatarUrl =
 export const Default = () => (
   <Box>
     <ThreadMessage>
-      <ThreadMessage.Row>
-        <ThreadMessage.LeftContainer>
-          <ThreadMessage.Icon />
-        </ThreadMessage.LeftContainer>
-        <ThreadMessage.Container>
-          <ThreadMessage.Origin>
+      <ThreadMessageRow>
+        <ThreadMessageLeftContainer>
+          <ThreadMessageIconThread />
+        </ThreadMessageLeftContainer>
+        <ThreadMessageContainer>
+          <ThreadMessageOrigin>
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
             nisi ut aliquip ex ea commodo consequat a duis aute irure dolor in
             reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
             pariatur. Consectetur adipiscing elit, sed do eiusmod tempor
             incididunt ut labore et dolore magna aliqua. Ut enim ad minim
             veniam...
-          </ThreadMessage.Origin>
-          <ThreadMessage.Unfollow />
-        </ThreadMessage.Container>
-      </ThreadMessage.Row>
-      <ThreadMessage.Row>
-        <ThreadMessage.LeftContainer>
+          </ThreadMessageOrigin>
+          <ThreadMessageUnfollow />
+        </ThreadMessageContainer>
+      </ThreadMessageRow>
+      <ThreadMessageRow>
+        <ThreadMessageLeftContainer>
           <Avatar url={avatarUrl} size='x16' />
-        </ThreadMessage.LeftContainer>
-        <ThreadMessage.Container>
-          <ThreadMessage.Message>
+        </ThreadMessageLeftContainer>
+        <ThreadMessageContainer>
+          <ThreadMessageBody>
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
             nisi ut aliquip ex ea commodo consequat a duis aute irure dolor in
             reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
             pariatur. Consectetur adipiscing elit, sed do eiusmod tempor
             incididunt ut labore et dolore magna aliqua. Ut enim ad minim
             veniam...
-          </ThreadMessage.Message>
-        </ThreadMessage.Container>
-      </ThreadMessage.Row>
+          </ThreadMessageBody>
+        </ThreadMessageContainer>
+      </ThreadMessageRow>
     </ThreadMessage>
   </Box>
 );
@@ -55,33 +62,33 @@ export const Default = () => (
 export const WithEmoji = () => (
   <Box>
     <ThreadMessage>
-      <ThreadMessage.Row>
-        <ThreadMessage.LeftContainer>
-          <ThreadMessage.Icon />
-        </ThreadMessage.LeftContainer>
-        <ThreadMessage.Container>
-          <ThreadMessage.Origin>
+      <ThreadMessageRow>
+        <ThreadMessageLeftContainer>
+          <ThreadMessageIconThread />
+        </ThreadMessageLeftContainer>
+        <ThreadMessageContainer>
+          <ThreadMessageOrigin>
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
             nisi ut aliquip ex ea commodo consequat a duis aute irure dolor in
             reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
             pariatur. Consectetur adipiscing elit, sed do eiusmod tempor
             incididunt ut labore et dolore magna aliqua. Ut enim ad minim
             veniam...
-          </ThreadMessage.Origin>
-          <ThreadMessage.Unfollow />
-        </ThreadMessage.Container>
-      </ThreadMessage.Row>
-      <ThreadMessage.Row>
-        <ThreadMessage.LeftContainer>
+          </ThreadMessageOrigin>
+          <ThreadMessageUnfollow />
+        </ThreadMessageContainer>
+      </ThreadMessageRow>
+      <ThreadMessageRow>
+        <ThreadMessageLeftContainer>
           <Avatar url={avatarUrl} size='x16' />
-        </ThreadMessage.LeftContainer>
-        <ThreadMessage.Container>
-          <ThreadMessage.Message>
+        </ThreadMessageLeftContainer>
+        <ThreadMessageContainer>
+          <ThreadMessageBody>
             Thread Emoji test:{' '}
             <ThreadMessageEmoji name='test' image={`url(${avatarUrl})`} />
-          </ThreadMessage.Message>
-        </ThreadMessage.Container>
-      </ThreadMessage.Row>
+          </ThreadMessageBody>
+        </ThreadMessageContainer>
+      </ThreadMessageRow>
     </ThreadMessage>
   </Box>
 );
@@ -89,30 +96,30 @@ export const WithEmoji = () => (
 export const WithSystemMessage = () => (
   <Box>
     <ThreadMessage>
-      <ThreadMessage.Row>
-        <ThreadMessage.LeftContainer>
-          <ThreadMessage.Icon />
-        </ThreadMessage.LeftContainer>
-        <ThreadMessage.Container>
-          <ThreadMessage.Origin system>system message</ThreadMessage.Origin>
-          <ThreadMessage.Unfollow />
-        </ThreadMessage.Container>
-      </ThreadMessage.Row>
-      <ThreadMessage.Row>
-        <ThreadMessage.LeftContainer>
+      <ThreadMessageRow>
+        <ThreadMessageLeftContainer>
+          <ThreadMessageIconThread />
+        </ThreadMessageLeftContainer>
+        <ThreadMessageContainer>
+          <ThreadMessageOrigin system>system message</ThreadMessageOrigin>
+          <ThreadMessageUnfollow />
+        </ThreadMessageContainer>
+      </ThreadMessageRow>
+      <ThreadMessageRow>
+        <ThreadMessageLeftContainer>
           <Avatar url={avatarUrl} size='x16' />
-        </ThreadMessage.LeftContainer>
-        <ThreadMessage.Container>
-          <ThreadMessage.Message>
+        </ThreadMessageLeftContainer>
+        <ThreadMessageContainer>
+          <ThreadMessageBody>
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
             nisi ut aliquip ex ea commodo consequat a duis aute irure dolor in
             reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
             pariatur. Consectetur adipiscing elit, sed do eiusmod tempor
             incididunt ut labore et dolore magna aliqua. Ut enim ad minim
             veniam...
-          </ThreadMessage.Message>
-        </ThreadMessage.Container>
-      </ThreadMessage.Row>
+          </ThreadMessageBody>
+        </ThreadMessageContainer>
+      </ThreadMessageRow>
     </ThreadMessage>
   </Box>
 );

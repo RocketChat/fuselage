@@ -5,7 +5,6 @@ export default {
     {
       displayName: 'csr',
       preset: 'ts-jest',
-      errorOnDeprecated: true,
       testMatch: [
         '<rootDir>/src/**/*.spec.{ts,tsx}',
         '!**/*.server.spec.{ts,tsx}',
@@ -19,7 +18,6 @@ export default {
     {
       displayName: 'ssr',
       preset: 'ts-jest',
-      errorOnDeprecated: true,
       testMatch: ['<rootDir>/src/**/*.server.spec.{ts,tsx}'],
       testEnvironment: 'node',
       setupFilesAfterEnv: [

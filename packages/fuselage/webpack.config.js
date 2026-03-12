@@ -42,6 +42,13 @@ export default (env, { mode = 'production' }) =>
           },
         },
         {
+          test: /\.woff2$/,
+          type: 'asset/resource',
+          generator: {
+            filename: 'fonts/[name][ext]',
+          },
+        },
+        {
           test: /\.scss$/,
           use: [
             MiniCssExtractPlugin.loader,
@@ -49,7 +56,7 @@ export default (env, { mode = 'production' }) =>
             {
               loader: 'css-loader',
               options: {
-                importLoaders: 2,
+                importLoaders: 3,
               },
             },
             {
@@ -65,7 +72,13 @@ export default (env, { mode = 'production' }) =>
                 },
               },
             },
-            'sass-loader',
+            'resolve-url-loader',
+            {
+              loader: 'sass-loader',
+              options: {
+                sourceMap: true,
+              },
+            },
           ],
         },
       ],

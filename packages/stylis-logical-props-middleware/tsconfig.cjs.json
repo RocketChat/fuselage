@@ -5,5 +5,5 @@
     "moduleResolution": "node",
     "outDir": "./dist/cjs"
   },
-  "exclude": ["**/*.spec.ts"]
+  "exclude": ["**/*.spec.*", "jest.config.*"]
 }

@@ -7,7 +7,6 @@
 /.pnp.*
 /static
 node_modules/
-storybook-static/
 *.sublime-project
 *.sublime-workspace
 *.swp

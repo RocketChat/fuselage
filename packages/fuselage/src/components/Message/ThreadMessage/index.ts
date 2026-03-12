@@ -27,5 +27,5 @@ export {
 export { default as ThreadMessageUnfollow } from './ThreadMessageUnfollow';
 export {
   default as ThreadMessageLeftContainer,
-  type MessageLeftContainerProps as ThreadMessageLeftContainerProps,
-} from '../MessageLeftContainer';
+  type ThreadMessageLeftContainerProps,
+} from './ThreadMessageLeftContainer';

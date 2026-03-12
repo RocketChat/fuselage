@@ -1,4 +1,7 @@
-import { useEffectEvent, useDebouncedState } from '@rocket.chat/fuselage-hooks';
+import {
+  useStableCallback,
+  useDebouncedState,
+} from '@rocket.chat/fuselage-hooks';
 
 import { AnimatedVisibility } from '../AnimatedVisibility';
 
@@ -18,8 +21,8 @@ export const useVisible = (
   show: () => void,
 ] => {
   const [visible, setVisible] = useDebouncedState(initialVisibility, 10);
-  const hide = useEffectEvent(() => setVisible(AnimatedVisibility.HIDDEN));
-  const show = useEffectEvent(() => setVisible(AnimatedVisibility.VISIBLE));
+  const hide = useStableCallback(() => setVisible(AnimatedVisibility.HIDDEN));
+  const show = useStableCallback(() => setVisible(AnimatedVisibility.VISIBLE));
 
   return [visible, hide, show];
 };

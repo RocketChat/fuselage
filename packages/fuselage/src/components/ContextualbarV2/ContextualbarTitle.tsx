@@ -10,6 +10,7 @@ const ContextualbarTitle = (props: ContextualbarTitleProps) => (
     flexGrow={1}
     fontScale='h5'
     withTruncatedText
+    is='h5'
     {...props}
   />
 );

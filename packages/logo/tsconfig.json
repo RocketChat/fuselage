@@ -3,5 +3,11 @@
   "compilerOptions": {
     "rootDir": "./src",
     "outDir": "./dist/esm"
-  }
+  },
+  "typedocOptions": {
+    "entryPoints": ["src/index.ts"],
+    "out": "../../static/logo"
+  },
+  "exclude": ["./dist", "./jest.config.ts"],
+  "include": ["src/**/*"]
 }

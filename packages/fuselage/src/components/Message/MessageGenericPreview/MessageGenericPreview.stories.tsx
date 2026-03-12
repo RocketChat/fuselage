@@ -4,6 +4,16 @@ import type { ReactNode } from 'react';
 import { Avatar } from '../../Avatar';
 import { Box } from '../../Box';
 import Message from '../Message';
+import MessageBlock from '../MessageBlock';
+import MessageBody from '../MessageBody';
+import MessageContainer from '../MessageContainer';
+import MessageHeader from '../MessageHeader';
+import MessageLeftContainer from '../MessageLeftContainer';
+import MessageName from '../MessageName';
+import MessageNameContainer from '../MessageNameContainer';
+import MessageRole from '../MessageRole';
+import MessageTimestamp from '../MessageTimestamp';
+import MessageUsername from '../MessageUsername';
 
 import MessageGenericPreview from './MessageGenericPreview';
 import MessageGenericPreviewContent from './MessageGenericPreviewContent';
@@ -21,7 +31,7 @@ export default {
     (storyFn: () => ReactNode) => (
       <Box>
         <Message>
-          <Message.LeftContainer>
+          <MessageLeftContainer>
             <Avatar
               url='data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC
                 4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMj
@@ -36,22 +46,22 @@ export default {
                 UH2oorkV10pRc7b1zXb/hZOzuJvM86QWEXeELxOzHSIPcmiiiunVlF2RNTpRkrs//Z'
               size={'x36'}
             />
-          </Message.LeftContainer>
-          <Message.Container>
-            <Message.Header>
-              <Message.NameContainer>
-                <Message.Name>Haylie George</Message.Name>{' '}
-                <Message.Username>@haylie.george</Message.Username>
-              </Message.NameContainer>
-              <Message.Role>Admin</Message.Role>
-              <Message.Role>User</Message.Role>
-              <Message.Role>Owner</Message.Role>
-              <Message.Timestamp>12:00 PM</Message.Timestamp>
-            </Message.Header>
-            <Message.Body>
-              <Message.Block> {storyFn()}</Message.Block>
-            </Message.Body>
-          </Message.Container>
+          </MessageLeftContainer>
+          <MessageContainer>
+            <MessageHeader>
+              <MessageNameContainer>
+                <MessageName>Haylie George</MessageName>{' '}
+                <MessageUsername>@haylie.george</MessageUsername>
+              </MessageNameContainer>
+              <MessageRole>Admin</MessageRole>
+              <MessageRole>User</MessageRole>
+              <MessageRole>Owner</MessageRole>
+              <MessageTimestamp>12:00 PM</MessageTimestamp>
+            </MessageHeader>
+            <MessageBody>
+              <MessageBlock> {storyFn()}</MessageBlock>
+            </MessageBody>
+          </MessageContainer>
         </Message>
       </Box>
     ),

@@ -181,6 +181,7 @@ $message-highlight-colors-background-other-color: theme(
       @extend %rcx-margins-header;
 
       @include templates.focus-state;
+      flex-shrink: 0;
     }
 
     &__name {
@@ -207,6 +208,10 @@ $message-highlight-colors-background-other-color: theme(
 
     &__role {
       @extend %rcx-margins-header;
+    }
+
+    & + .rcx-message-block {
+      margin-block-start: lengths.margin(4);
     }
   }
 

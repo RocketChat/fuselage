@@ -1,5 +1,4 @@
 import { Box, type BoxProps } from '../../Box';
-import { Margins } from '../../Margins';
 
 export type TableSelectionProps = BoxProps & {
   text?: string;
@@ -20,7 +19,7 @@ const TableSelection = ({ children, text, ...props }: TableSelectionProps) => (
     </Box>
     {children && (
       <Box mi='neg-x8' fontScale='p2m' flexShrink={0}>
-        <Margins inline='x4'>{children}</Margins>
+        {children}
       </Box>
     )}
   </Box>

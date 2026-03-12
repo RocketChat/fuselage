@@ -11,7 +11,7 @@
     "stylelint": "~16.25.0"
   },
   "devDependencies": {
-    "eslint": "~9.39.1",
+    "eslint": "~9.39.2",
     "lint-all": "workspace:~",
     "prettier": "~3.6.2",
     "tools-utils": "workspace:~"

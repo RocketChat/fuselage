@@ -37,10 +37,7 @@ export {
   default as MessageNameContainer,
   type MessageNameContainerProps,
 } from './MessageNameContainer';
-export {
-  default as MessageReactions,
-  type MessageReactionsProps,
-} from './MessageReactions';
+export * from './MessageReactions';
 export { default as MessageRole, type MessageRoleProps } from './MessageRole';
 export {
   default as MessageRoles,

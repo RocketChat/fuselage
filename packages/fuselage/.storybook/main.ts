@@ -2,10 +2,18 @@ import { dirname, join } from 'path';
 
 import type { StorybookConfig } from '@storybook/react-webpack5';
 
-export default {
+const config: StorybookConfig = {
+  webpackFinal: async (config) => {
+    config.module?.rules?.push({
+      test: /\.woff2$/,
+      type: 'asset/resource',
+    });
+
+    return config;
+  },
   addons: [
     getAbsolutePath('@storybook/addon-a11y'),
-    getAbsolutePath('storybook-dark-mode'),
+    getAbsolutePath('@rocket.chat/storybook-dark-mode'),
     getAbsolutePath('@storybook/addon-webpack5-compiler-swc'),
     {
       name: getAbsolutePath('@storybook/addon-styling-webpack'),
@@ -87,7 +95,9 @@ export default {
   typescript: {
     reactDocgen: 'react-docgen-typescript',
   },
-} satisfies StorybookConfig;
+};
+
+export default config;
 
 function getAbsolutePath(value: string): any {
   return dirname(require.resolve(join(value, 'package.json')));

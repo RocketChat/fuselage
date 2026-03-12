@@ -58,7 +58,7 @@ exports[`renders Default without crashing 1`] = `
           >
             <button
               aria-label="accept"
-              class="rcx-box rcx-box--full rcx-button--small-square rcx-button--icon-secondary-success rcx-button--square rcx-button--icon rcx-button rcx-button-group__item"
+              class="rcx-box rcx-box--full rcx-button--small-square rcx-button--icon-secondary-success rcx-button--square rcx-button--icon rcx-button"
               type="button"
             >
               <i
@@ -70,7 +70,7 @@ exports[`renders Default without crashing 1`] = `
             </button>
             <button
               aria-label="cancel"
-              class="rcx-box rcx-box--full rcx-button--small-square rcx-button--icon-secondary-danger rcx-button--square rcx-button--icon rcx-button rcx-button-group__item"
+              class="rcx-box rcx-box--full rcx-button--small-square rcx-button--icon-secondary-danger rcx-button--square rcx-button--icon rcx-button"
               type="button"
             >
               <i
@@ -82,7 +82,7 @@ exports[`renders Default without crashing 1`] = `
             </button>
             <button
               aria-label="delete"
-              class="rcx-box rcx-box--full rcx-button--small-square rcx-button--icon-secondary-info rcx-button--square rcx-button--icon rcx-button rcx-button-group__item"
+              class="rcx-box rcx-box--full rcx-button--small-square rcx-button--icon-secondary-info rcx-button--square rcx-button--icon rcx-button"
               type="button"
             >
               <i
@@ -94,7 +94,7 @@ exports[`renders Default without crashing 1`] = `
             </button>
             <button
               aria-label="accept"
-              class="rcx-box rcx-box--full rcx-button--small-square rcx-button--icon-secondary rcx-button--square rcx-button--icon rcx-button rcx-button-group__item"
+              class="rcx-box rcx-box--full rcx-button--small-square rcx-button--icon-secondary rcx-button--square rcx-button--icon rcx-button"
               type="button"
             >
               <i
@@ -214,7 +214,7 @@ exports[`renders Default without crashing 1`] = `
           >
             <button
               aria-label="accept"
-              class="rcx-box rcx-box--full rcx-button--small-square rcx-button--icon-secondary-success rcx-button--square rcx-button--icon rcx-button rcx-button-group__item"
+              class="rcx-box rcx-box--full rcx-button--small-square rcx-button--icon-secondary-success rcx-button--square rcx-button--icon rcx-button"
               type="button"
             >
               <i
@@ -226,7 +226,7 @@ exports[`renders Default without crashing 1`] = `
             </button>
             <button
               aria-label="cancel"
-              class="rcx-box rcx-box--full rcx-button--small-square rcx-button--icon-secondary-danger rcx-button--square rcx-button--icon rcx-button rcx-button-group__item"
+              class="rcx-box rcx-box--full rcx-button--small-square rcx-button--icon-secondary-danger rcx-button--square rcx-button--icon rcx-button"
               type="button"
             >
               <i
@@ -238,7 +238,7 @@ exports[`renders Default without crashing 1`] = `
             </button>
             <button
               aria-label="delete"
-              class="rcx-box rcx-box--full rcx-button--small-square rcx-button--icon-secondary-info rcx-button--square rcx-button--icon rcx-button rcx-button-group__item"
+              class="rcx-box rcx-box--full rcx-button--small-square rcx-button--icon-secondary-info rcx-button--square rcx-button--icon rcx-button"
               type="button"
             >
               <i
@@ -250,7 +250,7 @@ exports[`renders Default without crashing 1`] = `
             </button>
             <button
               aria-label="accept"
-              class="rcx-box rcx-box--full rcx-button--small-square rcx-button--icon-secondary rcx-button--square rcx-button--icon rcx-button rcx-button-group__item"
+              class="rcx-box rcx-box--full rcx-button--small-square rcx-button--icon-secondary rcx-button--square rcx-button--icon rcx-button"
               type="button"
             >
               <i
@@ -339,7 +339,7 @@ exports[`renders Default without crashing 1`] = `
             >
               <button
                 aria-label="accept"
-                class="rcx-box rcx-box--full rcx-button--small-square rcx-button--icon-secondary-success rcx-button--square rcx-button--icon rcx-button rcx-button-group__item"
+                class="rcx-box rcx-box--full rcx-button--small-square rcx-button--icon-secondary-success rcx-button--square rcx-button--icon rcx-button"
                 type="button"
               >
                 <i
@@ -351,7 +351,7 @@ exports[`renders Default without crashing 1`] = `
               </button>
               <button
                 aria-label="cancel"
-                class="rcx-box rcx-box--full rcx-button--small-square rcx-button--icon-secondary-danger rcx-button--square rcx-button--icon rcx-button rcx-button-group__item"
+                class="rcx-box rcx-box--full rcx-button--small-square rcx-button--icon-secondary-danger rcx-button--square rcx-button--icon rcx-button"
                 type="button"
               >
                 <i
@@ -363,7 +363,7 @@ exports[`renders Default without crashing 1`] = `
               </button>
               <button
                 aria-label="delete"
-                class="rcx-box rcx-box--full rcx-button--small-square rcx-button--icon-secondary-info rcx-button--square rcx-button--icon rcx-button rcx-button-group__item"
+                class="rcx-box rcx-box--full rcx-button--small-square rcx-button--icon-secondary-info rcx-button--square rcx-button--icon rcx-button"
                 type="button"
               >
                 <i
@@ -375,7 +375,7 @@ exports[`renders Default without crashing 1`] = `
               </button>
               <button
                 aria-label="accept"
-                class="rcx-box rcx-box--full rcx-button--small-square rcx-button--icon-secondary rcx-button--square rcx-button--icon rcx-button rcx-button-group__item"
+                class="rcx-box rcx-box--full rcx-button--small-square rcx-button--icon-secondary rcx-button--square rcx-button--icon rcx-button"
                 type="button"
               >
                 <i
