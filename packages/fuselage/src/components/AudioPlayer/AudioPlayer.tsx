@@ -95,15 +95,15 @@ const AudioPlayer = forwardRef<HTMLAudioElement, AudioPlayerProps>(
     const refs = useMergedRefs(ref, audioRef);
     const [isPlaying, setIsPlaying] = useState(false);
     const [currentTime, setCurrentTime] = useState(0);
+    const [sliderTime, setSliderTime] = useState(0);
     const [durationTime, setDurationTime] = useState(0);
     const [playbackSpeed, setPlaybackSpeed] = useState(1);
+    const isSeekingRef = useRef(false);
+    const wasPlayingRef = useRef(false);
     const { ref: containerRef } = useResizeObserver();
-
     const handlePlay = () => {
-      const isPlaying = audioRef.current?.paused;
-
-      if (isPlaying) {
-        audioRef.current?.play();
+      if (audioRef.current?.paused) {
+        audioRef.current.play();
       } else {
         audioRef.current?.pause();
       }
@@ -154,16 +154,33 @@ const AudioPlayer = forwardRef<HTMLAudioElement, AudioPlayerProps>(
               ? getMaskTime(currentTime)
               : getMaskTime(durationTime)}
           </Box>
-          <Box mi={16} w='full'>
+          <Box
+            mi={16}
+            w='full'
+            onPointerDown={() => {
+              isSeekingRef.current = true;
+              wasPlayingRef.current = !audioRef.current?.paused;
+              audioRef.current?.pause();
+            }}
+            onPointerUp={() => {
+              isSeekingRef.current = false;
+
+              if (audioRef.current) {
+                audioRef.current.currentTime = sliderTime;
+
+                if (wasPlayingRef.current) {
+                  audioRef.current.play();
+                }
+              }
+            }}
+          >
             <Slider
               aria-label={audioPlaybackRangeLabel}
               showOutput={false}
-              value={currentTime}
+              value={isSeekingRef.current ? sliderTime : currentTime}
               maxValue={durationTime}
               onChange={(value) => {
-                if (audioRef.current) {
-                  audioRef.current.currentTime = value;
-                }
+                setSliderTime(value);
               }}
             />
           </Box>
@@ -198,6 +215,9 @@ const AudioPlayer = forwardRef<HTMLAudioElement, AudioPlayerProps>(
         <audio
           style={{ display: 'none' }}
           onTimeUpdate={(e) => {
+            if (isSeekingRef.current) {
+              return;
+            }
             setCurrentTime((e.target as HTMLAudioElement).currentTime);
           }}
           onLoadedMetadata={(e) => {
