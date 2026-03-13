@@ -1,4 +1,4 @@
-import type { Meta } from '@storybook/react-webpack5';
+import type { Meta, StoryFn } from '@storybook/react-webpack5';
 
 import AudioPlayer from './AudioPlayer';
 
@@ -10,4 +10,17 @@ export default {
 const AUDIO_URL =
   'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-17.mp3';
 
-export const AudioPlayerDefault = () => <AudioPlayer src={AUDIO_URL} />;
+const Template: StoryFn<typeof AudioPlayer> = (args) => (
+  <AudioPlayer {...args} />
+);
+
+export const AudioPlayerDefault = Template.bind({});
+AudioPlayerDefault.args = {
+  src: AUDIO_URL,
+};
+
+export const AudioPlayerWithDownload = Template.bind({});
+AudioPlayerWithDownload.args = {
+  src: AUDIO_URL,
+  download: true,
+};
