@@ -15,6 +15,7 @@ import {
   NumberInput,
   UrlInput,
   MultiSelect,
+  Slider,
 } from '../Inputs';
 
 import {
@@ -298,6 +299,29 @@ export const WithMultiSelect: StoryFn<typeof Field> = () => {
           value={value}
           onChange={setValue}
         />
+      </FieldRow>
+      <FieldError>You failed to enter a valid value</FieldError>
+      <FieldRow>
+        <FieldHint>This should help the user enter a valid value</FieldHint>
+        <FieldLink href='#'>Link to more information</FieldLink>
+      </FieldRow>
+    </Field>
+  );
+};
+
+export const WithSlider: StoryFn<typeof Field> = () => {
+  const [value, setValue] = useState<number>(20);
+  return (
+    <Field>
+      <FieldLabel required>
+        Example Slider
+        <FieldLabelInfo title='with extra info in a tooltip' />
+      </FieldLabel>
+      <FieldDescription>
+        You can use the slider to select a value from a range of values
+      </FieldDescription>
+      <FieldRow>
+        <Slider label='Range' value={value} onChange={setValue} />
       </FieldRow>
       <FieldError>You failed to enter a valid value</FieldError>
       <FieldRow>
