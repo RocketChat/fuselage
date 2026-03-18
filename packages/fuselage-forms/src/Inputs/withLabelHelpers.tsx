@@ -11,6 +11,17 @@ import {
 
 type WithLabelId = { id?: string };
 
+// Overload for generic components with call signatures (like Slider)
+function withLabelId<
+  TComponent extends ForwardRefExoticComponent<any> & {
+    (props: any): JSX.Element;
+  },
+>(Component: TComponent): TComponent;
+// Regular overload for non-generic components
+function withLabelId<TProps>(
+  Component: ForwardRefExoticComponent<TProps & WithLabelId>,
+): (props: TProps) => JSX.Element;
+
 function withLabelId<TProps>(
   Component: ForwardRefExoticComponent<TProps & WithLabelId>,
 ) {
