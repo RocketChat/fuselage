@@ -51,7 +51,9 @@ export type SliderProps<T extends number | number[]> = AriaAttributes & {
   );
 
 function Slider<T extends number | [min: number, max: number]>(
-  props: SliderProps<T>,
+  props: T extends number
+    ? SliderProps<number>
+    : SliderProps<[min: number, max: number]>,
   ref: Ref<HTMLDivElement>,
 ) {
   const {
