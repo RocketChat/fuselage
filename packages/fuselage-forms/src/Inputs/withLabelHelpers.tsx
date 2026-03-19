@@ -11,16 +11,6 @@ import {
 
 type WithLabelId = { id?: string };
 
-function withLabelId<
-  TComponent extends ForwardRefExoticComponent<any> & {
-    (props: any): JSX.Element;
-  },
->(Component: TComponent): TComponent;
-
-function withLabelId<TProps>(
-  Component: ForwardRefExoticComponent<TProps & WithLabelId>,
-): (props: TProps) => JSX.Element;
-
 function withLabelId<TProps>(
   Component: ForwardRefExoticComponent<TProps & WithLabelId>,
 ) {
@@ -35,16 +25,6 @@ function withLabelId<TProps>(
 }
 
 type WithLablledBy = { 'aria-labelledby'?: string };
-
-function withAriaLabelledBy<
-  TComponent extends ForwardRefExoticComponent<any> & {
-    (props: any): JSX.Element;
-  },
->(Component: TComponent): TComponent;
-
-function withAriaLabelledBy<TProps>(
-  Component: ForwardRefExoticComponent<TProps & WithLablledBy>,
-): (props: TProps) => JSX.Element;
 
 function withAriaLabelledBy<TProps>(
   Component: ForwardRefExoticComponent<TProps & WithLablledBy>,
