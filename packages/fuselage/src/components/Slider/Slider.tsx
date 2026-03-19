@@ -1,10 +1,5 @@
 import { css } from '@rocket.chat/css-in-js';
-import type {
-  AriaAttributes,
-  ForwardRefExoticComponent,
-  Ref,
-  RefAttributes,
-} from 'react';
+import type { AriaAttributes, Ref } from 'react';
 import { forwardRef, useMemo, useRef } from 'react';
 import type { AriaSliderProps } from 'react-aria';
 import { useNumberFormatter, useSlider } from 'react-aria';
@@ -55,7 +50,7 @@ export type SliderProps<T extends number | number[]> = AriaAttributes & {
       }
   );
 
-function SliderInner<T extends number | [min: number, max: number]>(
+function Slider<T extends number | [min: number, max: number]>(
   props: SliderProps<T>,
   ref: Ref<HTMLDivElement>,
 ) {
@@ -158,17 +153,4 @@ function SliderInner<T extends number | [min: number, max: number]>(
   );
 }
 
-// The actual forwardRef component
-const SliderRefComponent = forwardRef(SliderInner);
-
-// Type that combines generic call signature (for type inference) with ForwardRefExoticComponent (for wrappers)
-const Slider: {
-  <T extends number | [min: number, max: number]>(
-    props: SliderProps<T> & RefAttributes<HTMLDivElement>,
-  ): JSX.Element;
-} & ForwardRefExoticComponent<
-  SliderProps<number | [min: number, max: number]> &
-    RefAttributes<HTMLDivElement>
-> = SliderRefComponent as any;
-
-export default Slider;
+export default forwardRef(Slider);
