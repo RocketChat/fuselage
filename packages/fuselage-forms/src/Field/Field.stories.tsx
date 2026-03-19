@@ -282,7 +282,7 @@ export const WithSlider: StoryFn<typeof Field> = () => {
         You can use the slider to select a value from a range of values
       </FieldDescription>
       <FieldRow>
-        <Slider label='Range' value={value} onChange={setValue} />
+        <Slider value={value} onChange={setValue} />
       </FieldRow>
       <FieldError>You failed to enter a valid value</FieldError>
       <FieldRow>
