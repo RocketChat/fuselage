@@ -18,6 +18,7 @@ const {
   WithToggleSwitch,
   WithTextArea,
   WithMultiSelect,
+  WithSlider,
   ...restStories
 } = composedStories;
 

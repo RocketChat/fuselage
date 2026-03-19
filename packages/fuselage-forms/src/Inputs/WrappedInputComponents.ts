@@ -32,11 +32,11 @@ export const TextAreaInput = withLabelId(TextAreaComponent);
 export const TelephoneInput = withLabelId(TelephoneInputComponent);
 export const NumberInput = withLabelId(NumberInputComponent);
 export const UrlInput = withLabelId(UrlInputComponent);
-export const Slider = withLabelId(SliderComponent);
 
 // with aria-labelledby
 export const Select = withAriaLabelledBy(SelectComponent);
 export const MultiSelect = withAriaLabelledBy(MultiSelectComponent);
+export const Slider = withAriaLabelledBy(SliderComponent);
 
 // with visually hidden label
 export const CheckBox = withVisuallyHiddenLabel(CheckBoxComponent);

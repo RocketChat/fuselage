@@ -11,13 +11,12 @@ import {
 
 type WithLabelId = { id?: string };
 
-// Overload for generic components with call signatures (like Slider)
 function withLabelId<
   TComponent extends ForwardRefExoticComponent<any> & {
     (props: any): JSX.Element;
   },
 >(Component: TComponent): TComponent;
-// Regular overload for non-generic components
+
 function withLabelId<TProps>(
   Component: ForwardRefExoticComponent<TProps & WithLabelId>,
 ): (props: TProps) => JSX.Element;
@@ -36,6 +35,16 @@ function withLabelId<TProps>(
 }
 
 type WithLablledBy = { 'aria-labelledby'?: string };
+
+function withAriaLabelledBy<
+  TComponent extends ForwardRefExoticComponent<any> & {
+    (props: any): JSX.Element;
+  },
+>(Component: TComponent): TComponent;
+
+function withAriaLabelledBy<TProps>(
+  Component: ForwardRefExoticComponent<TProps & WithLablledBy>,
+): (props: TProps) => JSX.Element;
 
 function withAriaLabelledBy<TProps>(
   Component: ForwardRefExoticComponent<TProps & WithLablledBy>,
