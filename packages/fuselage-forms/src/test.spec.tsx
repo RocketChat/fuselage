@@ -17,6 +17,7 @@ const {
   WithRadioButton,
   WithToggleSwitch,
   WithTextArea,
+  WithMultiSelect,
   ...restStories
 } = composedStories;
 
