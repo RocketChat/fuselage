@@ -1,5 +1,14 @@
 # @rocket.chat/fuselage-forms
 
+## 1.1.0
+
+### Minor Changes
+
+- [#1900](https://github.com/RocketChat/fuselage/pull/1900) [`1b23670`](https://github.com/RocketChat/fuselage/commit/1b23670e2f0d7aa454d9b2d0d18f59994281e858) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage-forms): add `Slider` component
+
+- [#1901](https://github.com/RocketChat/fuselage/pull/1901) [`e5c02b9`](https://github.com/RocketChat/fuselage/commit/e5c02b9a29aa5ccad16fd62d4748042145368519) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage-forms): add `MultiSelect` component
+  feat(fuselage): improve `MultiSelect` a11y
+
 ## 1.0.0
 
 ### Patch Changes

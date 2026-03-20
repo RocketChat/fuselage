@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.41.0
+
+### Minor Changes
+
+- [#1897](https://github.com/RocketChat/fuselage/pull/1897) [`b164747`](https://github.com/RocketChat/fuselage/commit/b1647471957d25eadbe7578f11e03526e49fd9b9) Thanks [@gabriellsh](https://github.com/gabriellsh)! - chore(fuselage-hooks): Remove deprecated `useUniqueId`
+
 ## 0.40.0
 
 ### Minor Changes
