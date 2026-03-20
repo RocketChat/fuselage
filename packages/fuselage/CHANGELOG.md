@@ -1,5 +1,12 @@
 # Change Log
 
+## 0.74.0
+
+### Minor Changes
+
+- [#1901](https://github.com/RocketChat/fuselage/pull/1901) [`e5c02b9`](https://github.com/RocketChat/fuselage/commit/e5c02b9a29aa5ccad16fd62d4748042145368519) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage-forms): add `MultiSelect` component
+  feat(fuselage): improve `MultiSelect` a11y
+
 ## 0.73.0
 
 ### Minor Changes
