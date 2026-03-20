@@ -11,6 +11,7 @@ import {
   NumberInput as NumberInputComponent,
   TelephoneInput as TelephoneInputComponent,
   UrlInput as UrlInputComponent,
+  MultiSelect as MultiSelectComponent,
 } from '@rocket.chat/fuselage';
 
 import {
@@ -33,6 +34,7 @@ export const UrlInput = withLabelId(UrlInputComponent);
 
 // with aria-labelledby
 export const Select = withAriaLabelledBy(SelectComponent);
+export const MultiSelect = withAriaLabelledBy(MultiSelectComponent);
 
 // with visually hidden label
 export const CheckBox = withVisuallyHiddenLabel(CheckBoxComponent);

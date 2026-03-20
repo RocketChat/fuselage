@@ -164,17 +164,19 @@ const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
                   alignItems='center'
                   flexWrap='wrap'
                   margin='-x8'
-                  role='listbox'
                 >
                   <Margins all='x4'>
                     {renderAnchor({
-                      ref: anchorRef,
-                      children: internalValue.length === 0 ? placeholder : null,
-                      disabled: disabled ?? false,
-                      onClick: show,
-                      onBlur: hide,
-                      onKeyDown: handleKeyDown,
-                      onKeyUp: handleKeyUp,
+                      'ref': anchorRef,
+                      'children':
+                        internalValue.length === 0 ? placeholder : null,
+                      'disabled': disabled ?? false,
+                      'onClick': show,
+                      'onBlur': hide,
+                      'onKeyDown': handleKeyDown,
+                      'onKeyUp': handleKeyUp,
+                      'aria-expanded': visible === AnimatedVisibility.VISIBLE,
+                      'aria-labelledby': props['aria-labelledby'],
                     })}
                     {internalValue.map((value: SelectOption[0]) => {
                       const currentOption = options.find(
@@ -182,7 +184,6 @@ const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
                       ) as SelectOption;
                       return RenderSelected ? (
                         <RenderSelected
-                          role='option'
                           value={value}
                           key={value}
                           label={getLabel(currentOption)}
@@ -196,7 +197,6 @@ const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
                       ) : (
                         <SelectedOptions
                           tabIndex={-1}
-                          role='option'
                           key={String(value)}
                           onMouseDown={(e: SyntheticEvent) => {
                             prevent(e);
