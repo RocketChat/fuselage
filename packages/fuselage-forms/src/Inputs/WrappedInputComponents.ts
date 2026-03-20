@@ -12,6 +12,7 @@ import {
   TelephoneInput as TelephoneInputComponent,
   UrlInput as UrlInputComponent,
   MultiSelect as MultiSelectComponent,
+  Slider as SliderComponent,
 } from '@rocket.chat/fuselage';
 
 import {
@@ -35,6 +36,9 @@ export const UrlInput = withLabelId(UrlInputComponent);
 // with aria-labelledby
 export const Select = withAriaLabelledBy(SelectComponent);
 export const MultiSelect = withAriaLabelledBy(MultiSelectComponent);
+export const Slider = withAriaLabelledBy(
+  SliderComponent,
+) as typeof SliderComponent;
 
 // with visually hidden label
 export const CheckBox = withVisuallyHiddenLabel(CheckBoxComponent);

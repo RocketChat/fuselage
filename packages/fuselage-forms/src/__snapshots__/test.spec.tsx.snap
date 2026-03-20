@@ -654,6 +654,127 @@ exports[`renders WithSearchInput without crashing 1`] = `
 </body>
 `;
 
+exports[`renders WithSlider without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-field"
+    >
+      <span
+        class="rcx-box rcx-box--full rcx-field__label rcx-label"
+        id="react-aria-:rc:-label"
+      >
+        Example Slider
+        <span
+          class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+        >
+          <span
+            hidden=""
+          >
+            with extra info in a tooltip
+          </span>
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+            title="with extra info in a tooltip"
+          >
+            
+          </i>
+        </span>
+        <span
+          aria-hidden="true"
+          class="rcx-box rcx-box--full rcx-label__required rcx-css-b7g1a9"
+        >
+          *
+        </span>
+      </span>
+      <span
+        class="rcx-box rcx-box--full rcx-field__description"
+        id="react-aria-:rc:-description"
+      >
+        You can use the slider to select a value from a range of values
+      </span>
+      <span
+        class="rcx-box rcx-box--full rcx-field__row"
+      >
+        <div
+          aria-labelledby="react-aria-:rc:-label"
+          class="rcx-css-146twpt"
+          id="react-aria-:rd:"
+          role="group"
+        >
+          <label
+            aria-live="off"
+            class="rcx-box rcx-box--full rcx-label"
+            for="react-aria-:rd:-0"
+          >
+            <span
+              aria-live="off"
+              class="rcx-box rcx-box--full rcx-label"
+              data-testid="slider-output"
+              for="react-aria-:rd:-0"
+            >
+              20
+            </span>
+          </label>
+          <div
+            class="rcx-css-uzpikz"
+            style="position: relative;"
+          >
+            <div
+              class="rcx-css-cn88oj"
+              style="position: absolute; left: 20%; transform: translate(-50%, -50%);"
+            >
+              <div
+                style="border: 0px; clip-path: inset(50%); height: 1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+              >
+                <input
+                  aria-describedby="react-aria-:rc:-description react-aria-:rc:-error react-aria-:rc:-hint"
+                  aria-details=""
+                  aria-labelledby="react-aria-:rd:"
+                  aria-orientation="horizontal"
+                  aria-valuetext="20"
+                  id="react-aria-:rd:-0"
+                  max="100"
+                  min="0"
+                  step="1"
+                  tabindex="0"
+                  type="range"
+                  value="20"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </span>
+      <span
+        class="rcx-box rcx-box--full rcx-field__error"
+        id="react-aria-:rc:-error"
+      >
+        You failed to enter a valid value
+      </span>
+      <span
+        class="rcx-box rcx-box--full rcx-field__row"
+      >
+        <span
+          class="rcx-box rcx-box--full rcx-field__hint"
+          id="react-aria-:rc:-hint"
+        >
+          This should help the user enter a valid value
+        </span>
+        <a
+          class="rcx-box rcx-box--full rcx-field__link"
+          href="#"
+          target="_blank"
+        >
+          Link to more information
+        </a>
+      </span>
+    </div>
+  </div>
+</body>
+`;
+
 exports[`renders WithTelephoneInput without crashing 1`] = `
 <body>
   <div>
