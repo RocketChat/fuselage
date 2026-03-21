@@ -11,6 +11,9 @@ import CheckBox from './CheckBox';
 export default {
   title: 'Inputs/CheckBox',
   component: CheckBox,
+  argTypes: {
+    is: { table: { disable: true } },
+  },
 } satisfies Meta<typeof CheckBox>;
 
 const Template: StoryFn<typeof CheckBox> = (args) => (
