@@ -47,7 +47,7 @@ jobs:
         run: yarn run ci
 
       - name: Output build-lint-test success
-        run: "echo \"build-lint-test success: ${{ steps.build-lint-test.outputs.success }}\""
+        run: "echo \"build-lint-test success: ${{ steps.build-lint-test.outputs }}\""
 
       - name: Setup Playwright
         uses: ./.github/actions/setup-playwright
@@ -57,13 +57,15 @@ jobs:
         if: steps.build-lint-test.outputs.success == 'true'
         run: yarn turbo run visual-regression --cache-dir=".turbo" --concurrency=1
 
-      - uses: actions/upload-artifact@v7
+      - name: Upload visual-regression results
+        uses: actions/upload-artifact@v7
         if: failure()
         with:
           name: 'playwright-visual-results-${{ github.event.number }}'
           path: '**/test-results'
 
-      - uses: actions/upload-artifact@v7
+      - name: Upload storybooks
+        uses: actions/upload-artifact@v7
         with:
           name: 'storybooks-${{ github.event.number }}'
           path: |
