@@ -23,7 +23,7 @@ runs:
 
     - name: Cache Playwright binaries
       uses: actions/cache/save@v5
-      if: steps.install-playwright.outputs.success == 'true'
+      if: steps.cache-playwright-restore.outputs.cache-hit != 'true'
       id: cache-playwright-save
       with:
         path: |
