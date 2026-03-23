@@ -4,10 +4,6 @@
   "private": true,
   "type": "module",
   "bin": "./bin/index.js",
-  "scripts": {
-    "visual-regression": "node ./bin/index.js",
-    "visual-regression-update": "node ./bin/index.js --update-snapshots"
-  },
   "dependencies": {
     "@playwright/test": "~1.58.2"
   },
