@@ -41,14 +41,14 @@ jobs:
             turbo-${{ runner.os }}-
       - run: yarn
         if: steps.yarn-cache.outputs.cache-hit != 'true'
-      
-      - name: Setup Playwright
-        uses: ./.github/actions/setup-playwright
 
       - name: Build, lint and test
         id: build-lint-test
         run: yarn run ci
 
+      - name: Setup Playwright
+        uses: ./.github/actions/setup-playwright
+        if: steps.build-lint-test.outputs.success == 'true'
       - name: Visual regression
         id: visual-regression
         if: steps.build-lint-test.outputs.success == 'true'

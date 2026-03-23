@@ -37,6 +37,7 @@ jobs:
 
       - name: Setup Playwright
         uses: ./.github/actions/setup-playwright
+        if: steps.build-lint-test.outputs.success == 'true'
 
       - name: Visual regression
         id: visual-regression
