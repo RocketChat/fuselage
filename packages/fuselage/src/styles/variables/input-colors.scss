@@ -66,7 +66,7 @@ $input-colors-invalid-background-color: theme(
 );
 $input-colors-invalid-border-color: theme(
   'input-colors-invalid-border-color',
-  colors.stroke(danger)
+  colors.stroke(error)
 );
 $input-colors-invalid-color: theme(
   'input-colors-invalid-color',
@@ -78,11 +78,11 @@ $input-colors-invalid-placeholder-color: theme(
 );
 $input-colors-invalid-hover-border-color: theme(
   'input-colors-invalid-hover-border-color',
-  colors.stroke(danger)
+  colors.stroke(error)
 );
 $input-colors-invalid-focus-border-color: theme(
   'input-colors-invalid-focus-border-color',
-  colors.stroke(danger)
+  colors.stroke(error)
 );
 $input-colors-invalid-focus-shadow-color: theme(
   'input-colors-invalid-focus-shadow-color',

@@ -1,10 +1,10 @@
 import { renderHook } from './testing';
-import { useEffectEvent } from './useEffectEvent';
+import { useStableCallback } from './useStableCallback';
 
 it('returns a callback that invokes the mutable one', () => {
   const fn = jest.fn();
 
-  const { result } = renderHook(() => useEffectEvent(fn));
+  const { result } = renderHook(() => useStableCallback(fn));
 
   result.current();
 

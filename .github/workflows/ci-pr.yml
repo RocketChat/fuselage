@@ -70,7 +70,7 @@ jobs:
     needs:
       - build-and-lint
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
 
       - uses: actions/setup-node@v6
         with:
@@ -78,7 +78,7 @@ jobs:
           cache: 'yarn'
 
       - name: Restore Yarn Cache
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v5
         id: yarn-cache
         with:
           path: |
@@ -88,7 +88,7 @@ jobs:
 
       - name: Restore Turbo Cache
         id: turbo-cache
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v5
         with:
           path: .turbo
           key: turbo-${{ runner.os }}-${{ github.event.number }}
@@ -104,14 +104,14 @@ jobs:
     needs:
       - build-and-lint
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - uses: actions/setup-node@v6
         with:
           node-version: '22.20.0'
           cache: 'yarn'
 
       - name: Restore Yarn Cache
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v5
         id: yarn-cache
         with:
           path: |
@@ -121,7 +121,7 @@ jobs:
 
       - name: Restore Turbo Cache
         id: turbo-cache
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v5
         with:
           path: .turbo
           key: turbo-${{ runner.os }}-${{ github.event.number }}
@@ -129,7 +129,7 @@ jobs:
             turbo-${{ runner.os }}-
   
 
-      - uses: actions/download-artifact@v5
+      - uses: actions/download-artifact@v7
         with:
           name: 'storybooks-${{ github.event.number }}'
           path: |
@@ -152,7 +152,7 @@ jobs:
         id: visual-regression-tests
         run: yarn run .ci-visual-regression
 
-      - uses: actions/upload-artifact@v5
+      - uses: actions/upload-artifact@v7
         if: steps.visual-regression-tests.outcome != 'success'
         with:
           name: 'playwright-visual-results-${{ github.event.number }}'

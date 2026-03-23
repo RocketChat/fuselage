@@ -3,18 +3,18 @@ import { useRef } from 'react';
 import { useIsomorphicLayoutEffect } from './useIsomorphicLayoutEffect';
 
 /**
- * Hook that lets you extract non-reactive logic into an *effect event*.
+ * Hook that lets you extract non-reactive logic into a stable callback.
  *
- * An effect event is a function that is a part of an effect logic, but it behaves a lot more like
- * an event handler. The logic inside it is not reactive, and it always “sees” the latest values of
- * your props and state.
+ * A stable callback is a function that has a stable identity across renders,
+ * but always “sees” the latest values of your props and state.
  *
  * @param fn - the mutable callback
  * @returns a stable callback
  * @public
  */
-// eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
-export const useEffectEvent = <TFunction extends Function>(fn: TFunction) => {
+export const useStableCallback = <TFunction extends (...args: any[]) => any>(
+  fn: TFunction,
+) => {
   const fnRef = useRef(fn);
 
   type P = TFunction extends (...args: infer P) => any ? P : never;
@@ -34,9 +34,19 @@ export const useEffectEvent = <TFunction extends Function>(fn: TFunction) => {
 /**
  * Hook to create a stable callback from a mutable one.
  *
- * @deprecated use {@link useEffectEvent} instead
+ * @deprecated use {@link useStableCallback} instead
  * @param fn - the mutable callback
  * @returns a stable callback
  * @public
  */
-export const useMutableCallback = useEffectEvent;
+export const useMutableCallback = useStableCallback;
+
+/**
+ * Hook to create a stable callback from a mutable one.
+ *
+ * @deprecated use {@link useStableCallback} instead
+ * @param fn - the mutable callback
+ * @returns a stable callback
+ * @public
+ */
+export const useEffectEvent = useStableCallback;

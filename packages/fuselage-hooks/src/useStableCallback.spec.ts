@@ -1,12 +1,12 @@
 import { useState } from 'react';
 
 import { act, renderHook } from './testing';
-import { useEffectEvent } from './useEffectEvent';
+import { useStableCallback } from './useStableCallback';
 
 it('returns a stable callback', () => {
   const fn = jest.fn();
 
-  const { result, rerender } = renderHook(() => useEffectEvent(fn));
+  const { result, rerender } = renderHook(() => useStableCallback(fn));
 
   const stableCallbackA = result.current;
 
@@ -20,7 +20,7 @@ it('returns a stable callback', () => {
 it('returns a callback that invokes the mutable one', () => {
   const fn = jest.fn();
 
-  const { result } = renderHook(() => useEffectEvent(fn));
+  const { result } = renderHook(() => useStableCallback(fn));
 
   result.current();
 
@@ -33,7 +33,7 @@ it('handles mutations in callback', () => {
 
   const { result } = renderHook(() => {
     const [callback, setCallback] = useState(() => firstCallback);
-    const stableCallback = useEffectEvent(callback);
+    const stableCallback = useStableCallback(callback);
 
     return { setCallback, stableCallback };
   });
