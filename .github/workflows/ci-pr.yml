@@ -46,6 +46,9 @@ jobs:
         id: build-lint-test
         run: yarn run ci
 
+      - name: Output build-lint-test success
+        run: "echo \"build-lint-test success: ${{ steps.build-lint-test.outputs.success }}\""
+
       - name: Setup Playwright
         uses: ./.github/actions/setup-playwright
         if: steps.build-lint-test.outputs.success == 'true'
