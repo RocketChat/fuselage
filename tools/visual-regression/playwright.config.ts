@@ -1,16 +1,25 @@
+import path from 'path';
+import { fileURLToPath } from 'url';
+
 import { defineConfig, devices } from '@playwright/test';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+// The directory of the consuming package (i.e. where playwright is invoked from)
+const packageDir = process.env.PACKAGE_DIR ?? process.cwd();
 
 const BASE_URL = process.env.TEST_BASE_URL || 'http://localhost:6006';
 
 export default defineConfig({
-  testDir: './test',
+  testDir: path.join(__dirname, 'test'),
   fullyParallel: true,
   workers: process.env.CI ? 2 : 4,
-  snapshotPathTemplate: './test/snapshots/{arg}-{projectName}.png',
-  // ...
-  // Using the `html` reporter for visual diffing.
+  snapshotPathTemplate: path.join(
+    packageDir,
+    'test/snapshots/{arg}-{projectName}.png',
+  ),
+  outputDir: path.join(packageDir, 'test-results'),
   reporter: process.env.CI ? 'html' : 'dot',
-  // ...
   use: {
     baseURL: BASE_URL,
   },
@@ -22,7 +31,6 @@ export default defineConfig({
         launchOptions: {
           args: [
             '--disable-lcd-text',
-            // Other useful flags for VRT consistency
             '--font-render-hinting=none',
             '--disable-skia-runtime-opts',
             '--disable-font-subpixel-positioning',

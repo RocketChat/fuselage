@@ -21,7 +21,7 @@
       "outputs": ["storybook-static/**"]
     },
     "visual-regression": {
-      "dependsOn": ["build"],
+      "dependsOn": ["build-storybook"],
       "outputs": []
     }
   }

@@ -3861,14 +3861,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@playwright/test@npm:~1.58.1":
-  version: 1.58.1
-  resolution: "@playwright/test@npm:1.58.1"
+"@playwright/test@npm:~1.58.2":
+  version: 1.58.2
+  resolution: "@playwright/test@npm:1.58.2"
   dependencies:
-    playwright: "npm:1.58.1"
+    playwright: "npm:1.58.2"
   bin:
     playwright: cli.js
-  checksum: 10/c561923c8f485ec9f0740c3377d400151594df6c1a97a52d89ea82d1fb0fcb10a9564b8f7711587caf8abc1583cb5990f76fa69b7e56181b14b5531ed644f512
+  checksum: 10/58bf90139280a0235eeeb6049e9fb4db6425e98be1bf0cc17913b068eef616cf67be57bfb36dc4cb56bcf116f498ffd0225c4916e85db404b343ea6c5efdae13
   languageName: node
   linkType: hard
 
@@ -5619,7 +5619,6 @@ __metadata:
     "@babel/plugin-transform-runtime": "npm:~7.28.5"
     "@babel/preset-env": "npm:~7.28.6"
     "@babel/preset-react": "npm:~7.28.5"
-    "@playwright/test": "npm:~1.58.1"
     "@rocket.chat/css-in-js": "workspace:~"
     "@rocket.chat/css-supports": "workspace:~"
     "@rocket.chat/fuselage-hooks": "workspace:~"
@@ -5628,6 +5627,7 @@ __metadata:
     "@rocket.chat/memo": "workspace:~"
     "@rocket.chat/storybook-dark-mode": "workspace:~"
     "@rocket.chat/styled": "workspace:~"
+    "@rocket.chat/visual-regression": "workspace:~"
     "@storybook/addon-a11y": "npm:~9.1.17"
     "@storybook/addon-docs": "npm:~9.1.17"
     "@storybook/addon-links": "npm:~9.1.17"
@@ -5954,6 +5954,17 @@ __metadata:
     typescript: "npm:~5.9.3"
   peerDependencies:
     stylis: ~4.3.6
+  languageName: unknown
+  linkType: soft
+
+"@rocket.chat/visual-regression@workspace:tools/visual-regression, @rocket.chat/visual-regression@workspace:~":
+  version: 0.0.0-use.local
+  resolution: "@rocket.chat/visual-regression@workspace:tools/visual-regression"
+  dependencies:
+    "@playwright/test": "npm:~1.58.2"
+    typescript: "npm:~5.9.3"
+  bin:
+    visual-regression: ./bin/index.js
   languageName: unknown
   linkType: soft
 
@@ -15760,27 +15771,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"playwright-core@npm:1.58.1":
-  version: 1.58.1
-  resolution: "playwright-core@npm:1.58.1"
+"playwright-core@npm:1.58.2":
+  version: 1.58.2
+  resolution: "playwright-core@npm:1.58.2"
   bin:
     playwright-core: cli.js
-  checksum: 10/1b627b93798644e2802321866037e222b08ec5975e6bfc0b2a8ca40d7196366834dd3f1e16dc63856d3e7e0b673c3d0f71fd5f1ac5f3c8e6610bedef4fbc31cf
+  checksum: 10/8a98fcf122167e8703d525db2252de0e3da4ab9110ab6ea9951247e52d846310eb25ea2c805e1b7ccb54b4010c44e5adc3a76aae6da02f34324ccc3e76683bb1
   languageName: node
   linkType: hard
 
-"playwright@npm:1.58.1":
-  version: 1.58.1
-  resolution: "playwright@npm:1.58.1"
+"playwright@npm:1.58.2":
+  version: 1.58.2
+  resolution: "playwright@npm:1.58.2"
   dependencies:
     fsevents: "npm:2.3.2"
-    playwright-core: "npm:1.58.1"
+    playwright-core: "npm:1.58.2"
   dependenciesMeta:
     fsevents:
       optional: true
   bin:
     playwright: cli.js
-  checksum: 10/63cf0a858e30d19beef17ec952be427083f3863d1302d53b56f4870972c0083797039a81f909840a903becdbf44285d0940fa74e6c011cfaa4b2bb3448c10536
+  checksum: 10/d89d6c8a32388911b9aff9ee0f1a90076219f15c804f2b287db048b9e9cde182aea3131fac1959051d25189ed4218ec4272b137c83cd7f9cd24781cbc77edd86
   languageName: node
   linkType: hard
 

@@ -17,3 +17,4 @@ node_modules/
 **/bundle-report.html
 .env
 **/playwright-report
+**/test-results

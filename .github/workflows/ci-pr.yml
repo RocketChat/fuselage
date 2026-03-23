@@ -41,8 +41,25 @@ jobs:
             turbo-${{ runner.os }}-
       - run: yarn
         if: steps.yarn-cache.outputs.cache-hit != 'true'
-        id: 'yarn-ci'
-      - run: yarn run ci
+      
+      - name: Setup Playwright
+        uses: ./.github/actions/setup-playwright
+
+      - name: Build, lint and test
+        id: build-lint-test
+        run: yarn run ci
+
+      - name: Visual regression
+        id: visual-regression
+        if: steps.build-lint-test.outputs.success == 'true'
+        run: yarn turbo run visual-regression --cache-dir=".turbo" --concurrency=1
+
+      - uses: actions/upload-artifact@v7
+        if: failure()
+        with:
+          name: 'playwright-visual-results-${{ github.event.number }}'
+          path: '**/test-results'
+
       - uses: actions/upload-artifact@v7
         with:
           name: 'storybooks-${{ github.event.number }}'
@@ -50,9 +67,3 @@ jobs:
             packages/fuselage/storybook-static
             packages/onboarding-ui/storybook-static
             packages/layout/storybook-static
-            
-      - uses: actions/upload-artifact@v7
-        if: steps.yarn-ci.outcome != 'success'
-        with:
-          name: 'playwright-visual-results-${{ github.event.number }}'
-          path: packages/fuselage/test-results

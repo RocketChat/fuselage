@@ -1,15 +1,24 @@
+import fs from 'fs';
+import path from 'path';
+
 import { expect, test } from '@playwright/test';
 
-// This file is created by Storybook
-// when we run `yarn workspace @rocket.chat/fuselage build-storybook`
-import storybook from '../storybook-static/index.json' with { type: 'json' };
+const packageDir = process.env.PACKAGE_DIR ?? process.cwd();
+
+const storybookStaticDir =
+  path.join(packageDir, 'storybook-static') ??
+  path.join(process.cwd(), 'storybook-static');
+
+const storybook = JSON.parse(
+  fs.readFileSync(path.join(storybookStaticDir, 'index.json'), 'utf-8'),
+);
 
 // Only run tests on stories, not other documentation pages.
 const stories = Object.values(storybook.entries).filter(
-  (e) => e.type === 'story',
+  (e: any) => e.type === 'story',
 );
 
-for (const story of stories) {
+for (const story of stories as any[]) {
   test(`${story.title} ${story.name} should not have visual regressions`, async ({
     page,
   }) => {
