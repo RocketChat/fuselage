@@ -46,15 +46,10 @@ jobs:
         id: build-lint-test
         run: yarn run ci
 
-      - name: Output build-lint-test success
-        run: "echo \"build-lint-test success: ${{ steps.build-lint-test.outputs }}\""
-
       - name: Setup Playwright
         uses: ./.github/actions/setup-playwright
-        if: steps.build-lint-test.outputs.success == 'true'
       - name: Visual regression
         id: visual-regression
-        if: steps.build-lint-test.outputs.success == 'true'
         run: yarn turbo run visual-regression --cache-dir=".turbo" --concurrency=1
 
       - name: Upload visual-regression results
