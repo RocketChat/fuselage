@@ -28,8 +28,6 @@ if [[ "$*" == *"--update-snapshots"* ]]; then
   UPDATE_SNAPSHOTS="--update-snapshots"
 fi
 
-echo "Waiting for Storybook to be ready..."
-npx -y wait-on tcp:127.0.0.1:6006
 echo "Running Playwright tests in Docker container for ${REL_PACKAGE_PATH}..."
 docker run --rm \
   --init \

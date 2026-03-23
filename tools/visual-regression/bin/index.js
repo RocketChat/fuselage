@@ -26,7 +26,7 @@ if (process.env.CI) {
   );
 } else {
   execSync(
-    `npx -y concurrently -k -s first -n "SB,TEST" "yarn storybook -p 6006 --ci --host 0.0.0.0" "${toolRoot}/scripts/run-playwright-docker.sh ${updateSnapshots} ${buildDockerImage}"`,
+    `npx -y concurrently -k -s first -n "SB,TEST" "yarn storybook -p 6006 --ci --host 0.0.0.0" "npx -y wait-on tcp:127.0.0.1:6006 && ${toolRoot}/scripts/run-playwright-docker.sh ${updateSnapshots} ${buildDockerImage}"`,
     {
       stdio: 'inherit',
       cwd: packageDir,
