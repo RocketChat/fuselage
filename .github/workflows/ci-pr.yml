@@ -46,8 +46,6 @@ jobs:
         id: build-lint-test
         run: yarn run ci
 
-      - name: Setup Playwright
-        uses: ./.github/actions/setup-playwright
       - name: Visual regression
         id: visual-regression
         run: yarn turbo run visual-regression --cache-dir=".turbo" --concurrency=1
