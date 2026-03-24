@@ -18,17 +18,23 @@ REL_PACKAGE_PATH="$(node -e "console.log(require('path').relative('${MONOREPO_RO
 
 BASE_URL="http://host.docker.internal:6006"
 
-echo "PACKAGE_DIR: ${PACKAGE_DIR}"
-echo "MONOREPO_ROOT: ${MONOREPO_ROOT}"
-echo "REL_PACKAGE_PATH: ${REL_PACKAGE_PATH}"
-
 # Check if update-snapshots flag is passed
 UPDATE_SNAPSHOTS=""
 if [[ "$*" == *"--update-snapshots"* ]]; then
   UPDATE_SNAPSHOTS="--update-snapshots"
 fi
 
-echo "Running Playwright tests in Docker container for ${REL_PACKAGE_PATH}..."
+DOCKER_PW_IMAGE="mcr.microsoft.com/playwright:v1.58.2-noble"
+
+echo "Running Playwright tests in Docker container for ${REL_PACKAGE_PATH} with env:"
+echo "PACKAGE_DIR: ${PACKAGE_DIR}"
+echo "MONOREPO_ROOT: ${MONOREPO_ROOT}"
+echo "REL_PACKAGE_PATH: ${REL_PACKAGE_PATH}"
+echo "TEST_BASE_URL: ${BASE_URL}"
+echo "CI: ${CI:-false}"
+echo "UPDATE_SNAPSHOTS: ${UPDATE_SNAPSHOTS}"
+echo "DOCKER_PW_IMAGE: ${DOCKER_PW_IMAGE}"
+
 docker run --rm \
   --init \
   --ipc=host \
@@ -38,8 +44,7 @@ docker run --rm \
   -e PACKAGE_DIR="/app/${REL_PACKAGE_PATH}" \
   -v "${MONOREPO_ROOT}:/app" \
   -w "/app/${REL_PACKAGE_PATH}" \
-  "mcr.microsoft.com/playwright:v1.58.2-noble" \
+  "${DOCKER_PW_IMAGE}" \
   npx -y playwright@1.58.2 test --config="/app/tools/visual-regression/playwright.config.ts" ${UPDATE_SNAPSHOTS}
-  # npx wait-on ${BASE_URL} && yarn workspace @rocket.chat/visual-regression playwright test --config="./playwright.config.ts" ${UPDATE_SNAPSHOTS}
 
 echo "Playwright tests completed!"
