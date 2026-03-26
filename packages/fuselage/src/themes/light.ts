@@ -125,7 +125,6 @@ export const lightTheme = {
   buttonWarningPressBg: colors.y800,
   buttonWarningFocusBg: colors.y600,
   buttonWarningDisabledBg: colors.y200,
-  buttonWarningColor: colors.n900,
   buttonWarningColor: colors.n900,        // $-button-fonts on-warning = neutral(900)
   buttonWarningDisabledColor: colors.n700,
 
