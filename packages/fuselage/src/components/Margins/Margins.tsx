@@ -5,7 +5,7 @@ import { useCallback } from 'react';
 import { appendClassName } from '../../helpers/appendClassName';
 import { patchChildren } from '../../helpers/patchChildren';
 import { useStyle } from '../../hooks/useStyle';
-import { margin } from '../../styleTokens';
+import { spacing } from '../../styleTokens';
 import type { BoxProps } from '../Box';
 import { BoxTransforms, useComposedBoxTransform } from '../Box/BoxTransforms';
 
@@ -76,31 +76,31 @@ const Margins = (props: MarginsProps) => {
       &:not(.rcx-box--full) {
         ${props.all &&
         css`
-          margin: ${margin(props.all)};
+          margin: ${spacing(props.all)};
         `}
         ${props.inline &&
         css`
-          margin-inline: ${margin(props.inline)};
+          margin-inline: ${spacing(props.inline)};
         `}
       ${props.inlineStart &&
         css`
-          margin-inline-start: ${margin(props.inlineStart)};
+          margin-inline-start: ${spacing(props.inlineStart)};
         `}
       ${props.inlineEnd &&
         css`
-          margin-inline-end: ${margin(props.inlineEnd)};
+          margin-inline-end: ${spacing(props.inlineEnd)};
         `}
       ${props.block &&
         css`
-          margin-block: ${margin(props.block)};
+          margin-block: ${spacing(props.block)};
         `}
       ${props.blockStart &&
         css`
-          margin-block-start: ${margin(props.blockStart)};
+          margin-block-start: ${spacing(props.blockStart)};
         `}
       ${props.blockEnd &&
         css`
-          margin-block-end: ${margin(props.blockEnd)};
+          margin-block-end: ${spacing(props.blockEnd)};
         `}
       }
     `,
