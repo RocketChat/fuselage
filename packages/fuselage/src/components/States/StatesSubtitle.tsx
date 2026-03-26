@@ -11,7 +11,6 @@ const StatesSubtitleFrame = styled(RcxText, {
   alignItems: 'center',
   width: '100%',
   maxWidth: 462,
-  margin: 0,
   padding: 0,
   textAlign: 'center',
   marginBlockEnd: '$x24',
