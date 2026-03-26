@@ -1,7 +1,8 @@
 import { css, keyframes } from '@rocket.chat/css-in-js';
 import { type ReactNode, type AllHTMLAttributes, useId } from 'react';
+import { styled } from 'tamagui';
 
-import { Box } from '../Box';
+import { RcxText, RcxView } from '../../primitives';
 import { IconButton } from '../Button';
 import { Icon } from '../Icon';
 
@@ -15,6 +16,43 @@ export type ToastBarProps = {
   onClose?: (id: string) => void;
   buttonLabel?: string;
 } & Omit<AllHTMLAttributes<HTMLElement>, 'is'>;
+
+const ToastBarFrame = styled(RcxView, {
+  name: 'ToastBar',
+  position: 'relative',
+  minWidth: 232,
+  maxWidth: 416,
+  color: '$fontDefault',
+  borderRadius: '$x4',
+  backgroundColor: '$surfaceTint',
+  boxShadow:
+    '0px 0px 2px rgba(0, 0, 0, 0.16), 0px 0px 12px rgba(0, 0, 0, 0.12)',
+});
+
+const ToastBarInner = styled(RcxView, {
+  name: 'ToastBarInner',
+  display: 'flex',
+  flexDirection: 'row',
+  padding: 16,
+});
+
+const ToastBarContent = styled(RcxText, {
+  name: 'ToastBarContent',
+  fontFamily: '$body',
+  fontSize: '$p2',
+  fontWeight: '$p2',
+  lineHeight: '$p2',
+  letterSpacing: '$p2',
+  width: '100%',
+  margin: 0,
+  marginInline: 16,
+  overflowWrap: 'normal',
+});
+
+const variantColors: Record<string, string> = {
+  success: 'var(--statusFontOnSuccess)',
+  error: 'var(--statusFontOnDanger)',
+};
 
 /**
  * Shows alerts in a toast component.
@@ -58,8 +96,33 @@ function ToastBar({
     animation: ${sideOpen} 0.5s;
   `;
 
-  const progressBarAnimation = css`
+  const topBarStyle = css`
+    &::before {
+      position: absolute;
+      top: 0;
+      display: block;
+      width: 100%;
+      height: 4px;
+      content: '';
+      border-radius: 4px 4px 0 0;
+      background-color: ${variant !== 'info'
+        ? variantColors[variant] || 'transparent'
+        : 'transparent'};
+    }
+  `;
+
+  const progressBarStyle = css`
+    position: absolute;
+    bottom: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 4px;
+    border-radius: 0 0 4px 4px;
     &::after {
+      display: block;
+      height: 100%;
+      content: '';
+      background-color: var(--surfaceNeutral);
       width: 0%;
       animation: ${progressBar} ${time}s;
       animation-fill-mode: forwards;
@@ -73,37 +136,34 @@ function ToastBar({
   const role = variant === 'error' ? 'alert' : 'status';
 
   return (
-    <Box
-      className={[
-        `rcx-toastbar rcx-toastbar--${variant} ${className}`,
-        toastBarAnimation,
-      ]}
-      elevation='2nb'
-      borderRadius='x4'
-      {...props}
+    <ToastBarFrame
+      className={[toastBarAnimation, topBarStyle, className]
+        .filter(Boolean)
+        .join(' ')}
+      {...(props as any)}
     >
-      <div className='rcx-toastbar_inner'>
+      <ToastBarInner>
         <Icon
-          className={`rcx-toastbar_icon--${variant}`}
           size='x20'
           name={iconName}
+          style={
+            variant !== 'info' ? { color: variantColors[variant] } : undefined
+          }
         />
-        <div role={role} className='rcx-toastbar_content'>
-          {children}
-        </div>
+        <ToastBarContent role={role}>{children}</ToastBarContent>
         {onClose && (
-          <div className='rcx-toastbar-close'>
+          <RcxView>
             <IconButton
               tiny
               aria-label={buttonLabel}
               onClick={() => onClose(toastId)}
               icon='cross'
             />
-          </div>
+          </RcxView>
         )}
-      </div>
-      <Box className={[progressBarAnimation, 'rcx-toastbar_progressbar']} />
-    </Box>
+      </ToastBarInner>
+      <div className={progressBarStyle} />
+    </ToastBarFrame>
   );
 }
 
