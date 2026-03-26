@@ -146,15 +146,8 @@ export const darkTheme = {
   buttonSecondaryWarningColor: '#C7AA66',
   buttonSecondaryWarningDisabledColor: '#3C3625',
 
-  // --- Tag tokens (8) ---
-  tagDefaultBg: '#353B45',
-  tagDefaultColor: '#9EA2A8',
-  tagPrimaryBg: '#1A3A6B',
-  tagPrimaryColor: '#739EDE',
-  tagDangerBg: '#3D2126',
-  tagDangerColor: '#D88892',
-  tagWarningBg: '#3C3625',
-  tagWarningColor: '#C7AA66',
+  // Tag tokens removed — Tag now uses button/surface/status tokens directly
+  tagDisabledBg: '#2D3039',
 
   // --- Tamagui standard tokens (15) ---
   background: '#1F2329',
