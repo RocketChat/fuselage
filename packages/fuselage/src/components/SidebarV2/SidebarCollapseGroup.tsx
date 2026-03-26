@@ -1,5 +1,8 @@
 import type { HTMLAttributes, ReactNode } from 'react';
 import { forwardRef } from 'react';
+import { styled } from 'tamagui';
+
+import { RcxView } from '../../primitives';
 
 import { SidebarGroupTitle } from './SidebarGroupTitle';
 import { useCollapse } from './hooks/useCollapse';
@@ -12,6 +15,39 @@ type SidebarCollapseGroupProps = {
   badge?: ReactNode;
   actions?: ReactNode;
 } & HTMLAttributes<HTMLDivElement>;
+
+const CollapseGroupFrame = styled(RcxView, {
+  name: 'SidebarV2CollapseGroup',
+  tag: 'section',
+  display: 'flex',
+  flexDirection: 'column',
+  // @ts-ignore
+  flexWrap: 'nowrap',
+});
+
+const CollapseGroupPanel = styled(RcxView, {
+  name: 'SidebarV2CollapseGroupPanel',
+  // @ts-ignore
+  visibility: 'hidden',
+  overflow: 'hidden',
+  height: 0,
+  margin: 0,
+  padding: 0,
+  // @ts-ignore
+  listStyle: 'none',
+  variants: {
+    expanded: {
+      true: {
+        // @ts-ignore
+        visibility: 'visible',
+        flexGrow: 1,
+        height: '100%',
+        // collapse-group panel has padding:none when expanded, unlike accordion
+        paddingBlock: 0,
+      },
+    },
+  } as const,
+});
 
 export const SidebarCollapseGroup = forwardRef<
   HTMLDivElement,
@@ -38,10 +74,7 @@ export const SidebarCollapseGroup = forwardRef<
     );
 
     return (
-      <section
-        className='rcx-box rcx-box--full rcx-sidebar-v2-collapse-group'
-        {...props}
-      >
+      <CollapseGroupFrame {...(props as any)}>
         <SidebarGroupTitle
           expanded={expanded}
           title={title}
@@ -50,20 +83,15 @@ export const SidebarCollapseGroup = forwardRef<
           barProps={barProps}
           role='button'
         />
-        <div
+        <CollapseGroupPanel
           role='list'
           ref={ref}
-          className={[
-            'rcx-box rcx-box--full rcx-sidebar-v2-collapse-group__panel rcx-box--animated',
-            panelExpanded && 'rcx-sidebar-v2-collapse-group__panel--expanded',
-          ]
-            .filter(Boolean)
-            .join(' ')}
+          expanded={panelExpanded || undefined}
           id={panelId}
         >
           {children}
-        </div>
-      </section>
+        </CollapseGroupPanel>
+      </CollapseGroupFrame>
     );
   },
 );

@@ -1,13 +1,19 @@
 import type { HTMLAttributes } from 'react';
+import { styled } from 'tamagui';
+
+import { RcxView } from '../../../primitives';
+
+const SidebarItemRowFrame = styled(RcxView, {
+  name: 'SidebarV2ItemRow',
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center',
+  gap: 4,
+});
 
 export const SidebarItemRow = ({
-  className,
+  className: _className,
   ...props
 }: HTMLAttributes<HTMLDivElement>) => (
-  <div
-    className={['rcx-box rcx-box--full rcx-sidebar-v2-item__row', className]
-      .filter(Boolean)
-      .join(' ')}
-    {...props}
-  />
+  <SidebarItemRowFrame {...(props as any)} />
 );

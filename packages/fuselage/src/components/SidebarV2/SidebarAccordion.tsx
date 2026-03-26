@@ -1,23 +1,38 @@
 import type { HTMLAttributes } from 'react';
+import { styled } from 'tamagui';
+
+import { RcxView } from '../../primitives';
 
 export type SidebarAccordionProps = HTMLAttributes<HTMLDivElement>;
 
+const SidebarAccordionFrame = styled(RcxView, {
+  name: 'SidebarV2Accordion',
+  display: 'flex',
+  overflow: 'hidden',
+  flexDirection: 'column',
+  // @ts-ignore
+  flexWrap: 'nowrap',
+  justifyContent: 'stretch',
+  flexGrow: 0,
+  flexShrink: 1,
+  height: '100%',
+});
+
+const SidebarAccordionWrapper = styled(RcxView, {
+  name: 'SidebarV2AccordionWrapper',
+  display: 'flex',
+  overflow: 'scroll' as any,
+  flexDirection: 'column',
+});
+
 const SidebarAccordion = ({
-  className,
+  className: _className,
   children,
   ...props
 }: SidebarAccordionProps) => (
-  <div
-    className={[
-      'rcx-box rcx-box--full rcx-sidebar-v2-accordion rcx-box--animated',
-      className,
-    ]
-      .filter(Boolean)
-      .join(' ')}
-    {...props}
-  >
-    <div className='rcx-sidebar-v2-accordion__wrapper'>{children}</div>
-  </div>
+  <SidebarAccordionFrame {...(props as any)}>
+    <SidebarAccordionWrapper>{children}</SidebarAccordionWrapper>
+  </SidebarAccordionFrame>
 );
 
 export default SidebarAccordion;
