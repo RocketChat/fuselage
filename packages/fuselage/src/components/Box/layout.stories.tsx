@@ -241,6 +241,47 @@ Margins.decorators = [
   ),
 ];
 
+export const Gap: StoryFn<typeof Box> = () => (
+  <>
+    <Box display='flex' gap='x4'>
+      <Box bg='neutral-500' size='x16' />
+      <Box bg='neutral-500' size='x16' />
+      <Box bg='neutral-500' size='x16' />
+    </Box>
+    <Box display='flex' gap='x8'>
+      <Box bg='neutral-500' size='x16' />
+      <Box bg='neutral-500' size='x16' />
+      <Box bg='neutral-500' size='x16' />
+    </Box>
+    <Box display='flex' gap='x16'>
+      <Box bg='neutral-500' size='x16' />
+      <Box bg='neutral-500' size='x16' />
+      <Box bg='neutral-500' size='x16' />
+    </Box>
+    <Box display='grid' rowGap='x8' columnGap='x4'>
+      <Box bg='neutral-500' size='x16' />
+      <Box bg='neutral-500' size='x16' />
+      <Box bg='neutral-500' size='x16' />
+      <Box bg='neutral-500' size='x16' />
+      <Box bg='neutral-500' size='x16' />
+      <Box bg='neutral-500' size='x16' />
+    </Box>
+  </>
+);
+Gap.decorators = [
+  (_: StoryFn, context: StoryContext) => (
+    <Box display='flex' flexDirection='column' gap='x16'>
+      {flattenChildren(
+        context.originalStoryFn(context.args, context).props.children,
+      ).map((child: any, i) => (
+        <Box key={i} bg='neutral-200' p='x8'>
+          {child}
+        </Box>
+      ))}
+    </Box>
+  ),
+];
+
 export const Opacity: StoryFn<typeof Box> = () => (
   <Box display='flex'>
     <Box size={32} opacity={0.1} bg='dark' />
