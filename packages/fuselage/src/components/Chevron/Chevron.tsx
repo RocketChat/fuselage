@@ -1,18 +1,36 @@
-import type { ReactElement } from 'react';
+import type { ComponentPropsWithoutRef, ReactElement } from 'react';
 import { useMemo } from 'react';
+import { styled } from 'tamagui';
 
-import { Box, type BoxProps } from '../Box';
+import { RcxView } from '../../primitives';
 import { Icon } from '../Icon';
 
-export type ChevronProps = Omit<BoxProps, 'size'> & {
-  size?: BoxProps['width'];
+const ChevronFrame = styled(RcxView, {
+  name: 'Chevron',
+  display: 'inline-flex',
+  alignSelf: 'center',
+});
+
+export type ChevronProps = ComponentPropsWithoutRef<typeof ChevronFrame> & {
+  size?: ComponentPropsWithoutRef<typeof Icon>['size'];
   up?: boolean;
   right?: boolean;
   left?: boolean;
   down?: boolean;
-  top?: boolean;
-  bottom?: boolean;
 };
+
+function getRotation({
+  up,
+  right,
+  down,
+  left,
+}: Pick<ChevronProps, 'up' | 'right' | 'down' | 'left'>): string {
+  if (up) return '-180deg';
+  if (right) return '-90deg';
+  if (left) return '-270deg';
+  if (down) return '0deg';
+  return '0deg';
+}
 
 function Chevron({
   up,
@@ -21,23 +39,21 @@ function Chevron({
   left,
   size,
   ...props
-}: ChevronProps): ReactElement<ChevronProps> {
+}: ChevronProps): ReactElement {
   const children = useMemo(
     () => <Icon name='chevron-down' size={size} />,
     [size],
   );
 
+  const rotate = getRotation({ up, right, down, left });
+
   return (
-    <Box
-      is='span'
-      children={children}
-      rcx-chevron
-      rcx-chevron--up={up}
-      rcx-chevron--right={right}
-      rcx-chevron--down={down}
-      rcx-chevron--left={left}
+    <ChevronFrame
       {...props}
-    />
+      style={{ transform: `rotate(${rotate})` }}
+    >
+      {children}
+    </ChevronFrame>
   );
 }
 
