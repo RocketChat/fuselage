@@ -1,18 +1,30 @@
 import type { HTMLAttributes } from 'react';
+import { styled } from 'tamagui';
+
+import { RcxText } from '../../../primitives';
+
+const SidebarItemTimestampFrame = styled(RcxText, {
+  name: 'SidebarV2ItemTimestamp',
+  fontFamily: '$body',
+  fontSize: '$micro',
+  fontWeight: '$micro',
+  lineHeight: '$micro',
+  letterSpacing: '$micro',
+  overflowWrap: 'normal',
+  variants: {
+    unread: {
+      true: {
+        color: '$fontTitlesLabels',
+        fontWeight: '500',
+      },
+    },
+  } as const,
+});
 
 export const SidebarItemTimestamp = ({
-  className,
+  className: _className,
   unread,
   ...props
 }: { unread?: boolean } & HTMLAttributes<HTMLDivElement>) => (
-  <div
-    className={[
-      'rcx-box rcx-box--full rcx-sidebar-v2-item__timestamp',
-      unread && 'rcx-sidebar-v2-item__timestamp--highlighted',
-      className,
-    ]
-      .filter(Boolean)
-      .join(' ')}
-    {...props}
-  />
+  <SidebarItemTimestampFrame unread={unread || undefined} {...(props as any)} />
 );

@@ -1,22 +1,37 @@
 import { forwardRef, type HTMLAttributes } from 'react';
+import { styled } from 'tamagui';
+
+import { RcxView } from '../../primitives';
 
 export type SidebarProps = {
   collapsed?: boolean;
 } & HTMLAttributes<HTMLElement>;
 
+const SidebarV2Frame = styled(RcxView, {
+  name: 'SidebarV2',
+  tag: 'nav',
+  position: 'relative',
+  display: 'flex',
+  flexDirection: 'column',
+  height: '100%',
+  color: '$fontDefault',
+  backgroundColor: '$surfaceSidebar',
+  variants: {
+    collapsed: {
+      true: {
+        overflow: 'hidden',
+        width: 48,
+      },
+    },
+  } as const,
+});
+
 export const Sidebar = forwardRef<HTMLElement, SidebarProps>(
-  ({ collapsed, className, ...props }, ref) => (
-    <nav
+  ({ collapsed, className: _className, ...props }, ref) => (
+    <SidebarV2Frame
       ref={ref}
-      className={[
-        'rcx-box rcx-box--full rcx-sidebar-v2',
-        'rcx-box--animated',
-        collapsed && 'rcx-sidebar-v2--collapsed',
-        className,
-      ]
-        .filter(Boolean)
-        .join(' ')}
-      {...props}
+      collapsed={collapsed || undefined}
+      {...(props as any)}
     />
   ),
 );

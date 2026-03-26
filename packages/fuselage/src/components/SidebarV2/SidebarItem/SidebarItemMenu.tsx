@@ -1,26 +1,31 @@
 import type { HTMLAttributes } from 'react';
+import { styled } from 'tamagui';
 
-import { appendClassName } from '../../../helpers/appendClassName';
-import { patchChildren } from '../../../helpers/patchChildren';
+import { RcxView } from '../../../primitives';
+
+const SidebarItemMenuFrame = styled(RcxView, {
+  name: 'SidebarV2ItemMenu',
+  flexShrink: 0,
+  width: 0,
+  height: 20,
+  marginInlineEnd: -4,
+  opacity: 0,
+  '$group-sidebarV2Item-hover': {
+    display: 'flex' as any,
+    flexDirection: 'row' as any,
+    alignItems: 'center' as any,
+    width: 20,
+    height: 20,
+    marginInlineEnd: 0,
+    opacity: 1,
+  },
+});
 
 export const SidebarItemMenu = ({
   children,
   ...props
 }: HTMLAttributes<HTMLDivElement>) => (
-  <div
-    className='rcx-box rcx-box--full rcx-sidebar-v2-item__menu-wrapper rcx-box--animated'
-    {...props}
-  >
-    {patchChildren(
-      <span className='rcx-box rcx-box--full rcx-sidebar-v2-item__menu'>
-        {children}
-      </span>,
-      (childProps: { className: string | string[] }) => ({
-        className: appendClassName(
-          childProps.className,
-          'rcx-sidebar-v2-item__menu',
-        ),
-      }),
-    )}
-  </div>
+  <SidebarItemMenuFrame {...(props as any)}>
+    {children}
+  </SidebarItemMenuFrame>
 );
