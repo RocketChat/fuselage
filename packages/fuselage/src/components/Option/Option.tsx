@@ -1,7 +1,9 @@
 import type { Ref, ReactNode, MouseEvent, AllHTMLAttributes } from 'react';
 import { forwardRef, memo } from 'react';
+import { styled } from 'tamagui';
 
 import { prevent } from '../../helpers/prevent';
+import { RcxText, RcxView } from '../../primitives';
 import type { BoxProps } from '../Box';
 import type { IconProps } from '../Icon';
 
@@ -9,6 +11,86 @@ import OptionAvatar from './OptionAvatar';
 import OptionColumn from './OptionColumn';
 import OptionContent from './OptionContent';
 import OptionIcon from './OptionIcon';
+
+// .rcx-option
+const OptionFrame = styled(RcxText, {
+  name: 'OptionFrame',
+
+  display: 'list-item',
+  cursor: 'pointer',
+
+  paddingBlock: '$x4',
+  paddingInlineStart: '$x12',
+  paddingInlineEnd: '$x24',
+
+  listStyleType: 'none',
+
+  color: '$fontDefault',
+
+  fontFamily: '$body',
+  fontSize: '$p2',
+  fontWeight: '$p2',
+  lineHeight: '$p2',
+  letterSpacing: '$p2',
+
+  hoverStyle: {
+    backgroundColor: '$surfaceHover',
+  },
+
+  variants: {
+    focus: {
+      true: {
+        backgroundColor: '$surfaceHover',
+      },
+    },
+
+    selected: {
+      true: {
+        backgroundColor: '$surfaceSelected',
+      },
+    },
+
+    isDisabled: {
+      true: {
+        cursor: 'not-allowed',
+        color: '$fontDisabled',
+      },
+    },
+
+    variant: {
+      success: {
+        color: '$statusFontOnSuccess',
+      },
+      danger: {
+        color: '$statusFontOnDanger',
+      },
+      warning: {
+        color: '$statusFontOnWarning',
+      },
+      primary: {
+        color: '$statusFontOnInfo',
+      },
+    },
+  } as const,
+});
+
+// .rcx-option__wrapper
+const OptionWrapper = styled(RcxView, {
+  name: 'OptionWrapper',
+
+  display: 'flex',
+  alignItems: 'center',
+
+  marginInline: -2,
+
+  variants: {
+    alignTop: {
+      true: {
+        alignItems: 'flex-start',
+      },
+    },
+  } as const,
+});
 
 export type OptionProps = {
   is?: BoxProps['is'];
@@ -53,7 +135,7 @@ export type OptionProps = {
  */
 const Option = forwardRef<Element, OptionProps>(function Option(
   {
-    is: Tag = 'li',
+    is: Tag,
     id,
     children,
     label,
@@ -73,11 +155,12 @@ const Option = forwardRef<Element, OptionProps>(function Option(
   ref,
 ) {
   return (
-    <Tag
-      {...props}
+    <OptionFrame
+      {...(Tag ? { tag: Tag as any } : {})}
+      {...(props as any)}
       key={id}
       id={id}
-      ref={ref}
+      ref={ref as any}
       aria-selected={!!selected}
       aria-disabled={!!disabled}
       title={title}
@@ -98,22 +181,19 @@ const Option = forwardRef<Element, OptionProps>(function Option(
       ]
         .filter(Boolean)
         .join(' ')}
+      focus={focus || undefined}
+      selected={selected || undefined}
+      isDisabled={disabled || undefined}
+      variant={variant}
     >
-      <div
-        className={[
-          'rcx-option__wrapper',
-          !!description && 'rcx-option__wrapper--align-top',
-        ]
-          .filter(Boolean)
-          .join(' ')}
-      >
+      <OptionWrapper alignTop={!!description || undefined}>
         {avatar && <OptionAvatar>{avatar}</OptionAvatar>}
         {icon && <OptionIcon name={icon} />}
         {gap && <OptionColumn />}
         {label && <OptionContent>{label}</OptionContent>}
         {label !== children && children}
-      </div>
-    </Tag>
+      </OptionWrapper>
+    </OptionFrame>
   );
 });
 
