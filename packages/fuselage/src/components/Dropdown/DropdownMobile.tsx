@@ -1,7 +1,15 @@
 import type { ReactNode } from 'react';
 import { forwardRef } from 'react';
+import { styled } from 'tamagui';
 
-import { Box, Tile } from '..';
+import { RcxView } from '../../primitives';
+import Tile from '../Tile/Tile';
+
+const DropdownContent = styled(RcxView, {
+  name: 'DropdownMobileContent',
+  flexShrink: 1,
+  paddingBottom: 16,
+});
 
 export type DropdownMobileProps = {
   children: ReactNode;
@@ -13,9 +21,9 @@ export const DropdownMobile = forwardRef<HTMLElement, DropdownMobileProps>(
       <Tile
         ref={ref}
         elevation='2'
-        pi='0'
-        pb='0'
-        w='100vw'
+        paddingInline={0}
+        paddingBottom={0}
+        width='100vw'
         maxHeight='80%'
         position='fixed'
         display='flex'
@@ -26,9 +34,9 @@ export const DropdownMobile = forwardRef<HTMLElement, DropdownMobileProps>(
         data-testid='dropdown'
         {...props}
       >
-        <Box flexShrink={1} pb={16}>
+        <DropdownContent>
           {children}
-        </Box>
+        </DropdownContent>
       </Tile>
     );
   },
