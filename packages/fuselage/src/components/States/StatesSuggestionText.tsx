@@ -1,4 +1,14 @@
 import type { AllHTMLAttributes, ReactNode } from 'react';
+import { styled } from 'tamagui';
+
+import { RcxText } from '../../primitives';
+
+const StatesSuggestionTextFrame = styled(RcxText, {
+  name: 'StatesSuggestionText',
+  display: 'block',
+  color: 'inherit',
+  overflowWrap: 'normal',
+});
 
 export type StatesSuggestionTextProps = {
   children?: ReactNode;
@@ -8,9 +18,7 @@ const StatesSuggestionText = ({
   children,
   ...props
 }: StatesSuggestionTextProps) => (
-  <div {...props} className='rcx-states__suggestion-text'>
-    {children}
-  </div>
+  <StatesSuggestionTextFrame {...props}>{children}</StatesSuggestionTextFrame>
 );
 
 export default StatesSuggestionText;

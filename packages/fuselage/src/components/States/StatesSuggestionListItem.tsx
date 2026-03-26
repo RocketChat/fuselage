@@ -1,4 +1,14 @@
 import type { AllHTMLAttributes, ReactNode } from 'react';
+import { styled } from 'tamagui';
+
+import { RcxText } from '../../primitives';
+
+const StatesSuggestionListItemWrapper = styled(RcxText, {
+  name: 'StatesSuggestionListItemWrapper',
+  marginInlineStart: -4,
+  color: 'inherit',
+  overflowWrap: 'normal',
+});
 
 export type StatesSuggestionListItemProps = {
   children?: ReactNode;
@@ -8,8 +18,8 @@ const StatesSuggestionListItem = ({
   children,
   ...props
 }: StatesSuggestionListItemProps) => (
-  <li {...props} className='rcx-states__list-item'>
-    <span className='rcx-states__list-item-wrapper'>{children}</span>
+  <li {...props}>
+    <StatesSuggestionListItemWrapper>{children}</StatesSuggestionListItemWrapper>
   </li>
 );
 
