@@ -1,0 +1,84 @@
+@use '../../styles/colors.scss';
+@use '../../styles/lengths.scss';
+@use '../../styles/typography.scss';
+
+@use '../../styles/variables/buttons.scss' as buttonColors;
+@use '../../styles/primitives/button.scss';
+@use '../../styles/mixins/interactivity.scss';
+
+.rcx-bubble {
+  display: flex;
+
+  overflow: hidden;
+
+  align-items: center;
+
+  &__button {
+    &--primary {
+      @include button.kind-variant(buttonColors.$primary);
+    }
+
+    &--secondary {
+      @include button.kind-variant(buttonColors.$secondary);
+    }
+
+    @include clickable;
+    @include click-animation;
+  }
+
+  &__item {
+    &--primary {
+      color: buttonColors.$button-primary-color;
+      background-color: buttonColors.$button-primary-background-color;
+    }
+
+    &--secondary {
+      color: buttonColors.$button-secondary-color;
+      background-color: buttonColors.$button-secondary-background-color;
+    }
+  }
+
+  &__button,
+  &__item {
+    @include typography.use-font-scale(c2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: lengths.size(28);
+
+    padding-inline: lengths.padding(12);
+    padding-inline-end: lengths.padding(16);
+
+    border-radius: lengths.border-radius(extra-large);
+    column-gap: lengths.padding(8);
+
+    @include typography.use-with-truncated-text;
+
+    > span {
+      @include typography.use-with-truncated-text;
+    }
+  }
+
+  &:not(.rcx-bubble__group) &__item {
+    padding-inline: lengths.padding(8);
+  }
+
+  &--small &__button,
+  &--small &__item {
+    @include typography.use-font-scale(micro);
+    height: lengths.size(20);
+  }
+
+  &__group {
+    :first-child {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    :last-child {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+}

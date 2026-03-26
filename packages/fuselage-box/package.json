@@ -1,0 +1,51 @@
+{
+  "name": "@rocket.chat/fuselage-box",
+  "version": "0.1.0",
+  "description": "Box component and styling utilities extracted from @rocket.chat/fuselage",
+  "homepage": "https://github.com/RocketChat/fuselage#readme",
+  "bugs": {
+    "url": "https://github.com/RocketChat/fuselage/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RocketChat/fuselage.git",
+    "directory": "packages/fuselage-box"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Rocket.Chat",
+    "url": "https://rocket.chat/"
+  },
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "lint": "lint",
+    "lint-and-fix": "lint-and-fix"
+  },
+  "dependencies": {
+    "@rocket.chat/css-in-js": "workspace:~",
+    "@rocket.chat/fuselage-tokens": "workspace:~",
+    "@rocket.chat/memo": "workspace:~",
+    "invariant": "^2.2.4"
+  },
+  "devDependencies": {
+    "@types/invariant": "^2.2.37",
+    "@types/react": "~18.3.27",
+    "typescript": "~5.9.3"
+  },
+  "peerDependencies": {
+    "react": "*"
+  },
+  "volta": {
+    "extends": "../../package.json"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

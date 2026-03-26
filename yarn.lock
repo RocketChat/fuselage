@@ -5740,6 +5740,22 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@rocket.chat/fuselage-box@workspace:packages/fuselage-box, @rocket.chat/fuselage-box@workspace:~":
+  version: 0.0.0-use.local
+  resolution: "@rocket.chat/fuselage-box@workspace:packages/fuselage-box"
+  dependencies:
+    "@rocket.chat/css-in-js": "workspace:~"
+    "@rocket.chat/fuselage-tokens": "workspace:~"
+    "@rocket.chat/memo": "workspace:~"
+    "@types/invariant": "npm:^2.2.37"
+    "@types/react": "npm:~18.3.27"
+    invariant: "npm:^2.2.4"
+    typescript: "npm:~5.9.3"
+  peerDependencies:
+    react: "*"
+  languageName: unknown
+  linkType: soft
+
 "@rocket.chat/fuselage-forms@workspace:packages/fuselage-forms":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/fuselage-forms@workspace:packages/fuselage-forms"
@@ -5922,6 +5938,7 @@ __metadata:
     "@babel/preset-react": "npm:~7.28.5"
     "@rocket.chat/css-in-js": "workspace:~"
     "@rocket.chat/css-supports": "workspace:~"
+    "@rocket.chat/fuselage-box": "workspace:~"
     "@rocket.chat/fuselage-hooks": "workspace:~"
     "@rocket.chat/fuselage-tokens": "workspace:~"
     "@rocket.chat/icons": "workspace:~"

@@ -1,0 +1,103 @@
+@use '../../styles/lengths.scss';
+@use '../../styles/functions.scss';
+@use '../../styles/colors.scss';
+@use '../../styles/typography.scss';
+
+$variants: (
+  'success': colors.status-font(on-success),
+  'danger': colors.status-font(on-danger),
+  'warning': colors.status-font(on-warning),
+  'primary': colors.status-font(on-info),
+);
+
+.rcx-states {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: lengths.padding(16);
+
+  color: colors.font(secondary-info);
+
+  &__icon {
+    margin-block-end: lengths.margin(20);
+    padding: lengths.margin(16);
+
+    color: colors.font(secondary-info);
+
+    border-radius: lengths.border-radius(full);
+
+    background-color: colors.surface(neutral);
+
+    @each $name, $color in $variants {
+      &--#{$name} {
+        color: theme('states-icons-color-#{$name}', $color);
+      }
+    }
+  }
+
+  &__title {
+    margin-block: lengths.margin(0) lengths.margin(8);
+
+    text-align: center;
+
+    color: colors.font(default);
+    @include typography.use-font-scale(h3);
+  }
+
+  &__list,
+  &__suggestion {
+    @include typography.use-font-scale(p2m);
+  }
+
+  &__subtitle {
+    @include typography.use-font-scale(p1);
+  }
+
+  &__subtitle,
+  &__list,
+  &__suggestion {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    max-width: 462px;
+
+    margin: 0;
+    padding: 0;
+
+    list-style-position: inside;
+
+    text-align: center;
+  }
+
+  &__suggestion-text-nomargin {
+    margin: 0;
+  }
+
+  &__suggestion,
+  &__subtitle {
+    margin-block-end: lengths.margin(24);
+  }
+
+  &__list {
+    list-style: initial;
+
+    &-item {
+      &-wrapper {
+        margin-inline-start: lengths.margin(-4);
+      }
+    }
+  }
+
+  &__link {
+    @include typography.use-font-scale(p2);
+    margin-block: lengths.margin(16);
+
+    color: colors.font(info);
+    @extend %--with-inline-elements;
+  }
+}

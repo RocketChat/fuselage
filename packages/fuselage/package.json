@@ -39,6 +39,7 @@
   "dependencies": {
     "@rocket.chat/css-in-js": "workspace:~",
     "@rocket.chat/css-supports": "workspace:~",
+    "@rocket.chat/fuselage-box": "workspace:~",
     "@rocket.chat/fuselage-tokens": "workspace:~",
     "@rocket.chat/memo": "workspace:~",
     "@rocket.chat/styled": "workspace:~",

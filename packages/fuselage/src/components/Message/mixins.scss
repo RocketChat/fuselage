@@ -1,0 +1,56 @@
+@use '../../styles/lengths.scss';
+@use '../../styles/colors.scss';
+
+@mixin container() {
+  &-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-shrink: 1;
+
+    min-width: 1px;
+    margin-block: lengths.margin(-2);
+    margin-inline: lengths.margin(4);
+
+    &--fixed {
+      align-items: center;
+      flex-grow: 0;
+      flex-shrink: 0;
+    }
+
+    &--left {
+      align-items: center;
+      align-items: flex-end;
+      flex-grow: 0;
+      flex-shrink: 0;
+
+      width: lengths.size(36);
+      margin-block: lengths.margin(-2);
+    }
+  }
+}
+
+@mixin visible-on-hover {
+  .rcx-message:not(:hover) & {
+    display: none;
+  }
+}
+
+@mixin message-focus-visible {
+  @content;
+
+  opacity: 0;
+
+  .rcx-message:hover &,
+  .rcx-message:focus-visible & {
+    opacity: 1;
+  }
+
+  /**
+   ** This is a hack to get focus within only for keyboard.
+   ** :has pseudo class are not stable on some Firefox versions
+  **/
+  .rcx-message:has(:focus-visible) & {
+    opacity: 1;
+  }
+}
