@@ -1,9 +1,19 @@
 import type { HTMLAttributes } from 'react';
+import { styled } from 'tamagui';
+
+import { RcxView } from '../../primitives';
+
+const CardControlsFrame = styled(RcxView, {
+  name: 'CardControls',
+  display: 'flex',
+  alignItems: 'center',
+  gap: '$x8',
+});
 
 export type CardControlsProps = HTMLAttributes<HTMLDivElement>;
 
 const CardControls = ({ ...props }: CardControlsProps) => (
-  <div className='rcx-card__controls' {...props} />
+  <CardControlsFrame {...props} />
 );
 
 export default CardControls;
