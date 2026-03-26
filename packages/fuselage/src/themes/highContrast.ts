@@ -146,15 +146,7 @@ export const highContrastTheme = {
   buttonSecondaryWarningColor: colors.y1000,
   buttonSecondaryWarningDisabledColor: colors.y300,
 
-  // --- Tag tokens (8) ---
-  tagDefaultBg: colors.n200,
-  tagDefaultColor: colors.n800,
-  tagPrimaryBg: colors.b200,
-  tagPrimaryColor: colors.b800,
-  tagDangerBg: colors.r200,
-  tagDangerColor: colors.r900,
-  tagWarningBg: colors.y200,
-  tagWarningColor: colors.y1000,
+  // Tag tokens removed — Tag now uses button/surface/status tokens directly
 
   // --- Tamagui standard tokens (15) ---
   background: colors.white,

@@ -119,11 +119,11 @@ export const lightTheme = {
   buttonSuccessColor: colors.white,
   buttonSuccessDisabledColor: colors.white,
 
-  // --- Button Warning (7) ---
-  buttonWarningBg: colors.y600,
-  buttonWarningHoverBg: colors.y700,
-  buttonWarningPressBg: colors.y800,
-  buttonWarningFocusBg: colors.y600,
+  // --- Button Warning (7) — uses yellow(400/500/600) not y600/y700/y800 ---
+  buttonWarningBg: colors.y400,           // warning-default = yellow(400)
+  buttonWarningHoverBg: colors.y500,      // warning-hover = yellow(500)
+  buttonWarningPressBg: colors.y600,      // warning-press = yellow(600)
+  buttonWarningFocusBg: colors.y400,      // warning-focus = yellow(400)
   buttonWarningDisabledBg: colors.y200,
   buttonWarningColor: colors.n900,        // $-button-fonts on-warning = neutral(900)
   buttonWarningDisabledColor: colors.n700,
@@ -146,15 +146,7 @@ export const lightTheme = {
   buttonSecondaryWarningColor: colors.y900,
   buttonSecondaryWarningDisabledColor: colors.y300,
 
-  // --- Tag tokens (8) ---
-  tagDefaultBg: colors.n200,
-  tagDefaultColor: colors.n700,
-  tagPrimaryBg: colors.b200,
-  tagPrimaryColor: colors.b600,
-  tagDangerBg: colors.r200,
-  tagDangerColor: colors.r700,
-  tagWarningBg: colors.y200,
-  tagWarningColor: colors.y900,
+  // Tag tokens removed — Tag now uses button/surface/status tokens directly
 
   // --- Tamagui standard tokens (15) ---
   background: colors.white,
