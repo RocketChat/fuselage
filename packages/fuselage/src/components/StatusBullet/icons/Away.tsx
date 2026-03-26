@@ -1,4 +1,9 @@
 import type { StatusBulletProps } from '../StatusBullet';
+import {
+  statusBulletBaseStyle,
+  statusBulletAwayStyle,
+  statusBulletSmallStyle,
+} from '../StatusBullet';
 
 const Away = ({ size, className, ...props }: StatusBulletProps) => (
   <svg
@@ -6,9 +11,14 @@ const Away = ({ size, className, ...props }: StatusBulletProps) => (
     width='10'
     height='10'
     viewBox='0 0 10 10'
-    className={`rcx-status-bullet rcx-status-bullet--away ${className} ${
-      size === 'small' ? 'rcx-status-bullet--small' : ''
-    }`}
+    className={[
+      statusBulletBaseStyle,
+      statusBulletAwayStyle,
+      size === 'small' && statusBulletSmallStyle,
+      className,
+    ]
+      .filter(Boolean)
+      .join(' ')}
     xmlns='http://www.w3.org/2000/svg'
   >
     <path

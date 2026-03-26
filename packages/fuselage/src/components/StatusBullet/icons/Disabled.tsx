@@ -1,4 +1,9 @@
 import type { StatusBulletProps } from '../StatusBullet';
+import {
+  statusBulletBaseStyle,
+  statusBulletDisabledStyle,
+  statusBulletSmallStyle,
+} from '../StatusBullet';
 
 const Disabled = ({ size, className, ...props }: StatusBulletProps) => (
   <svg
@@ -6,9 +11,14 @@ const Disabled = ({ size, className, ...props }: StatusBulletProps) => (
     width='24'
     height='24'
     viewBox='0 0 24 24'
-    className={`rcx-status-bullet rcx-status-bullet--disabled ${className} ${
-      size === 'small' ? 'rcx-status-bullet--small' : ''
-    }`}
+    className={[
+      statusBulletBaseStyle,
+      statusBulletDisabledStyle,
+      size === 'small' && statusBulletSmallStyle,
+      className,
+    ]
+      .filter(Boolean)
+      .join(' ')}
     xmlns='http://www.w3.org/2000/svg'
   >
     <path
