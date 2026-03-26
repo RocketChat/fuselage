@@ -1,7 +1,5 @@
 import type { ImgHTMLAttributes } from 'react';
 
-import { prependClassName } from '../../../helpers/prependClassName';
-
 export type MessageGenericPreviewImageProps = {
   url: string;
   className?: string;
@@ -9,15 +7,18 @@ export type MessageGenericPreviewImageProps = {
 
 const MessageGenericPreviewImage = ({
   url,
-  className,
+  className: _className,
   ...props
 }: MessageGenericPreviewImageProps) => (
   <img
     src={url}
-    className={prependClassName(
-      className,
-      'rcx-message-generic-preview__image',
-    )}
+    className='rcx-box'
+    style={{
+      width: 'fit-content',
+      maxWidth: 'inherit',
+      maxHeight: 'inherit',
+      cursor: 'pointer',
+    }}
     alt=''
     {...props}
   />

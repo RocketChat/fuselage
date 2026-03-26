@@ -1,9 +1,27 @@
 import type { HTMLAttributes } from 'react';
+import { styled } from 'tamagui';
+
+import { RcxText } from '../../../primitives';
 
 export type MessageSystemBodyProps = HTMLAttributes<HTMLDivElement>;
 
+const SystemBodyFrame = styled(RcxText, {
+  name: 'MessageSystemBody',
+  fontFamily: '$body',
+  fontSize: '$p2',
+  fontWeight: '$p2',
+  lineHeight: '$p2',
+  letterSpacing: '$p2',
+  overflow: 'hidden',
+  // @ts-ignore
+  textOverflow: 'ellipsis',
+  whiteSpace: 'nowrap',
+  overflowWrap: 'normal',
+  marginInline: 2,
+});
+
 const MessageSystemBody = (props: MessageSystemBodyProps) => (
-  <div className='rcx-message-system__body' {...props} />
+  <SystemBodyFrame {...(props as any)} />
 );
 
 export default MessageSystemBody;
