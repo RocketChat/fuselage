@@ -11,7 +11,9 @@ import type {
   ReactNode,
 } from 'react';
 import { useEffect, useRef, useMemo, useState } from 'react';
+import { styled } from 'tamagui';
 
+import { RcxView } from '../../primitives';
 import { AnimatedVisibility } from '../AnimatedVisibility';
 import { Box } from '../Box';
 import { Chip } from '../Chip';
@@ -54,6 +56,94 @@ export type AutoCompleteProps<TLabel> = Omit<
   multiple?: boolean;
   value?: string | string[];
 };
+
+// .rcx-autocomplete — extends .rcx-select which extends %rcx-input-box / %input
+const AutoCompleteFrame = styled(RcxView, {
+  name: 'AutoCompleteFrame',
+
+  position: 'relative',
+
+  display: 'inline-flex',
+  flexDirection: 'row',
+  flexWrap: 'nowrap',
+  flexGrow: 1,
+
+  alignItems: 'center',
+
+  minWidth: 144,
+  minHeight: '$x40',
+
+  paddingBlock: '$x8',
+  paddingInline: 15, // 16px - 1px border
+
+  borderWidth: 1,
+  borderStyle: 'solid',
+  borderColor: '$strokeLight',
+  borderRadius: '$x4',
+  backgroundColor: '$surfaceLight',
+  boxShadow: 'none',
+
+  hoverStyle: {
+    borderColor: '$strokeLight',
+  },
+
+  focusVisibleStyle: {
+    borderColor: '$strokeHighlight',
+    boxShadow: '0 0 0 2px var(--shadowHighlight)',
+  },
+
+  pressStyle: {
+    borderColor: '$strokeMedium',
+    boxShadow: 'none',
+  },
+
+  variants: {
+    isInvalid: {
+      true: {
+        borderColor: '$strokeError',
+
+        hoverStyle: {
+          borderColor: '$strokeError',
+        },
+
+        focusVisibleStyle: {
+          borderColor: '$strokeError',
+          boxShadow: '0 0 0 2px var(--shadowDanger)',
+        },
+
+        pressStyle: {
+          borderColor: '$strokeMedium',
+          boxShadow: 'none',
+        },
+      },
+    },
+
+    isDisabled: {
+      true: {
+        cursor: 'not-allowed',
+        pointerEvents: 'none',
+        borderColor: '$strokeLight',
+        backgroundColor: '$surfaceDisabled',
+      },
+    },
+  } as const,
+});
+
+// .rcx-autocomplete__addon — extends .rcx-input-box__addon
+const AutoCompleteAddon = styled(RcxView, {
+  name: 'AutoCompleteAddon',
+
+  cursor: 'pointer',
+
+  display: 'flex',
+  flexDirection: 'row',
+  flexWrap: 'nowrap',
+  flexGrow: 0,
+  flexShrink: 0,
+  flexBasis: 'auto',
+
+  alignItems: 'flex-start',
+});
 
 const getSelected = <TLabel,>(
   value: string | string[] | undefined,
@@ -180,15 +270,11 @@ function AutoComplete<TLabel = ReactNode>({
   useEffect(reset, [filter, reset]);
 
   return (
-    <Box
-      rcx-autocomplete
-      ref={containerRef}
+    <AutoCompleteFrame
+      ref={containerRef as any}
       onClick={useStableCallback(() => ref.current?.focus())}
-      flexGrow={1}
-      className={useMemo(
-        () => [error && 'invalid', disabled && 'disabled'],
-        [error, disabled],
-      )}
+      isInvalid={error || undefined}
+      isDisabled={disabled || undefined}
     >
       <Box
         display='flex'
@@ -236,7 +322,7 @@ function AutoComplete<TLabel = ReactNode>({
           )}
         </Margins>
       </Box>
-      <Box rcx-autocomplete__addon>
+      <AutoCompleteAddon>
         <Icon
           name={
             optionsAreVisible === AnimatedVisibility.VISIBLE
@@ -246,7 +332,7 @@ function AutoComplete<TLabel = ReactNode>({
           size='x20'
           color='default'
         />
-      </Box>
+      </AutoCompleteAddon>
       <PositionAnimated visible={optionsAreVisible} anchor={containerRef}>
         <Options
           width={borderBoxSize.inlineSize}
@@ -258,7 +344,7 @@ function AutoComplete<TLabel = ReactNode>({
           options={memoizedOptions}
         />
       </PositionAnimated>
-    </Box>
+    </AutoCompleteFrame>
   );
 }
 
