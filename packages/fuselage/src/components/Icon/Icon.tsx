@@ -1,8 +1,28 @@
 import type { Keys as IconName } from '@rocket.chat/icons';
 import nameToCharacterMapping from '@rocket.chat/icons';
 import { forwardRef } from 'react';
+import { styled } from 'tamagui';
 
-import { Box, type BoxProps } from '../Box';
+import type { BoxProps } from '../Box';
+import { RcxText } from '../../primitives';
+
+const StyledIcon = styled(RcxText, {
+  name: 'Icon',
+
+  display: 'inline-block',
+  userSelect: 'none',
+  verticalAlign: 'text-bottom',
+  color: 'inherit',
+
+  letterSpacing: 0,
+  fontFamily: 'RocketChat',
+  fontWeight: '400',
+  fontStyle: 'normal',
+  // fontVariant: 'normal' — not supported as Tamagui prop, handled by rcx-box reset
+  lineHeight: 1,
+  textRendering: 'auto',
+  overflowWrap: 'normal',
+});
 
 export type IconProps = Omit<BoxProps, 'name' | 'size'> & {
   name: IconName;
@@ -14,16 +34,14 @@ const Icon = forwardRef<HTMLElement, IconProps>(function Icon(
   ref,
 ) {
   return (
-    <Box
-      is='i'
-      rcx-icon
-      rcx-icon--name={name}
-      children={nameToCharacterMapping[name]}
+    <StyledIcon
       aria-hidden='true'
-      fontSize={size}
+      fontSize={size as any}
       ref={ref}
-      {...props}
-    />
+      {...(props as any)}
+    >
+      {nameToCharacterMapping[name]}
+    </StyledIcon>
   );
 });
 
