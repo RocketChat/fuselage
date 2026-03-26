@@ -1,9 +1,19 @@
 import type { HTMLAttributes } from 'react';
+import { styled } from 'tamagui';
+
+import { RcxView } from '../../../primitives';
 
 export type MessageMetricsContentItemProps = HTMLAttributes<HTMLDivElement>;
 
+const MetricsContentItemFrame = styled(RcxView, {
+  name: 'MessageMetricsContentItem',
+  display: 'flex',
+  flexDirection: 'row',
+  marginBlock: 4,
+});
+
 const MessageMetricsContentItem = (props: MessageMetricsContentItemProps) => (
-  <div className='rcx-message-metrics__content-item' {...props} />
+  <MetricsContentItemFrame {...(props as any)} />
 );
 
 export default MessageMetricsContentItem;

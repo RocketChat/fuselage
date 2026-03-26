@@ -1,6 +1,5 @@
+import { css } from '@rocket.chat/css-in-js';
 import type { ElementType, HTMLAttributes, ReactNode } from 'react';
-
-import { prependClassName } from '../../helpers/prependClassName';
 
 export type MessageHighlightProps = {
   is?: ElementType;
@@ -11,6 +10,59 @@ export type MessageHighlightProps = {
   title?: string;
 } & HTMLAttributes<HTMLElement>;
 
+const variantStyles = {
+  critical: css`
+    color: var(--fontPureWhite);
+    &::before {
+      background-color: var(--badgeLevel4);
+    }
+  `,
+  relevant: css`
+    color: var(--fontPureWhite);
+    &::before {
+      background-color: var(--badgeLevel3);
+    }
+  `,
+  other: css`
+    color: var(--fontDefault);
+    &::before {
+      background-color: var(--badgeLevel0);
+    }
+  `,
+  link: css`
+    color: var(--fontInfo);
+    &::before {
+      background-color: var(--badgeLevel0);
+    }
+  `,
+};
+
+const baseStyle = css`
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  padding-inline: 2px;
+  white-space: nowrap;
+  word-break: keep-all;
+  font-weight: 500;
+  &::before {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 18px;
+    content: '';
+    transform: translateY(1px) translateX(-2px);
+    border-radius: var(--rcx-border-radius-medium, 4px);
+  }
+`;
+
+const clickableStyle = css`
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
 function MessageHighlight({
   is: Tag = 'span',
   variant = 'other',
@@ -18,17 +70,17 @@ function MessageHighlight({
   clickable,
   ...props
 }: MessageHighlightProps) {
-  const modifiers = [variant, clickable && 'clickable']
-    .filter(Boolean)
-    .map((modifier) => `rcx-message__highlight--${modifier}`)
-    .join(' ');
-
   return (
     <Tag
-      className={prependClassName(
+      className={[
+        'rcx-box rcx-box--full',
+        baseStyle,
+        variantStyles[variant],
+        clickable && clickableStyle,
         className,
-        `rcx-box rcx-box--full rcx-message__highlight ${modifiers}`,
-      )}
+      ]
+        .filter(Boolean)
+        .join(' ')}
       {...props}
     />
   );

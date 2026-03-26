@@ -1,24 +1,31 @@
+import { MessageReaction } from './MessageReaction';
+import { MessageReactionAction } from './MessageReactionAction';
+import { MessageReactionCounter } from './MessageReactionCounter';
+import { MessageReactionEmoji } from './MessageReactionEmoji';
 import MessageReactions, {
   type MessageReactionsProps,
 } from './MessageReactions';
 
-export default MessageReactions;
-
-export { type MessageReactionsProps, MessageReactions };
+export default Object.assign(MessageReactions, {
+  /**
+   * @deprecated prefer using named imports
+   * */
+  Reaction: MessageReaction,
+  /**
+   * @deprecated prefer using named imports
+   * */
+  Action: MessageReactionAction,
+});
 
 export {
-  default as MessageReaction,
+  MessageReaction,
   type MessageReactionProps,
-} from './MessageReaction';
-export {
-  default as MessageReactionAction,
+  type MessageReactionsProps,
+  MessageReactionAction,
   type MessageReactionActionProps,
-} from './MessageReactionAction';
-export {
-  default as MessageReactionCounter,
+  MessageReactions,
+  MessageReactionCounter,
   type MessageReactionCounterProps,
-} from './MessageReactionCounter';
-export {
-  default as MessageReactionEmoji,
+  MessageReactionEmoji,
   type MessageReactionEmojiProps,
-} from './MessageReactionEmoji';
+};

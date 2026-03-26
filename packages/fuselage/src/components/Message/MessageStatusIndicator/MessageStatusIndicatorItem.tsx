@@ -7,6 +7,13 @@ export type MessageStatusIndicatorItemProps = {
   variant?: 'success' | 'danger' | 'warning' | 'primary';
 } & Omit<AllHTMLAttributes<HTMLElement>, 'is'>;
 
+const variantColorMap: Record<string, string> = {
+  success: 'var(--statusFontOnSuccess)',
+  danger: 'var(--statusFontOnDanger)',
+  warning: 'var(--statusFontOnWarning)',
+  primary: 'var(--statusFontOnInfo)',
+};
+
 const MessageStatusIndicatorItem = ({
   name,
   variant,
@@ -15,12 +22,8 @@ const MessageStatusIndicatorItem = ({
   <Icon
     name={name}
     size='x16'
-    className={[
-      'rcx-message-status-indicator__item',
-      variant && `rcx-message-status-indicator__item--${variant}`,
-    ]
-      .filter(Boolean)
-      .join(' ')}
+    color={variant ? undefined : 'secondary-info'}
+    style={variant ? { color: variantColorMap[variant] } : undefined}
     {...props}
   />
 );
