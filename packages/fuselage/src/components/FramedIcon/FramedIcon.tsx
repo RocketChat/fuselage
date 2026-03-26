@@ -1,25 +1,28 @@
 import type { Keys } from '@rocket.chat/icons';
+import nameToCharacterMapping from '@rocket.chat/icons';
 import type { AllHTMLAttributes } from 'react';
 import { styled } from 'tamagui';
 
 import { RcxText } from '../../primitives';
-import { Icon } from '../Icon';
 
-// RcxText because it needs font props (p2m scale affects icon sizing)
+// Single element — original was a single <i> with both framed-icon + icon classes
+// Renders the icon glyph directly (no nested Icon component)
 const FramedIconBase = styled(RcxText, {
   name: 'FramedIcon',
 
-  display: 'inline-flex',
+  display: 'inline-block',
 
   padding: '$x4',
   borderRadius: '$x4',
 
-  // p2m font scale (from original: @include typography.use-font-scale(p2m))
-  fontFamily: '$body',
-  fontSize: '$p2m',
-  fontWeight: '$p2m',
-  lineHeight: '$p2m',
-  letterSpacing: '$p2m',
+  // Icon font (RocketChat glyph font)
+  fontFamily: 'RocketChat',
+  fontWeight: '400',
+  fontStyle: 'normal',
+  fontSize: 20,
+  lineHeight: 20,
+  letterSpacing: 0,
+  userSelect: 'none',
 
   // default: colors.font(secondary-info), bg: colors.surface(tint)
   color: '$fontSecondaryInfo',
@@ -62,8 +65,8 @@ const FramedIcon = ({
     'neutral';
 
   return (
-    <FramedIconBase variant={variant} {...(props as any)}>
-      <Icon name={icon} size={20} />
+    <FramedIconBase variant={variant} aria-hidden='true' {...(props as any)}>
+      {nameToCharacterMapping[icon]}
     </FramedIconBase>
   );
 };

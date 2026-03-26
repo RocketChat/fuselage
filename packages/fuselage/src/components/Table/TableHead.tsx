@@ -1,17 +1,31 @@
-import { createContext } from 'react';
-
-import { Box } from '../Box';
-
-import type { TableProps } from './Table';
+import type { HTMLAttributes, ReactNode } from 'react';
+import { createContext, forwardRef } from 'react';
 
 export const TableHeadContext = createContext(false);
 
-export type TableHeadProps = TableProps;
+export type TableHeadProps = {
+  children?: ReactNode;
+} & HTMLAttributes<HTMLTableSectionElement>;
 
-const TableHead = (props: TableHeadProps) => (
-  <TableHeadContext.Provider value={true}>
-    <Box is='thead' rcx-table__head {...props} />
-  </TableHeadContext.Provider>
+const theadStyle: React.CSSProperties = {
+  display: 'table-header-group',
+};
+
+const TableHead = forwardRef<HTMLTableSectionElement, TableHeadProps>(
+  ({ children, className, style, ...props }, ref) => (
+    <TableHeadContext.Provider value={true}>
+      <thead
+        ref={ref}
+        className={['rcx-box', className].filter(Boolean).join(' ')}
+        style={{ ...theadStyle, ...style }}
+        {...props}
+      >
+        {children}
+      </thead>
+    </TableHeadContext.Provider>
+  ),
 );
+
+TableHead.displayName = 'TableHead';
 
 export default TableHead;

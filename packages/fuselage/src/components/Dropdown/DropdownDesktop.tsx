@@ -7,8 +7,9 @@ import Tile from '../Tile/Tile';
 
 const DropdownContent = styled(RcxView, {
   name: 'DropdownContent',
+  display: 'block',
   flexShrink: 1,
-  paddingBottom: 12,
+  paddingBlock: '$x12',
 });
 
 export type DropdownDesktopProps = {
@@ -26,8 +27,7 @@ export const DropdownDesktop = forwardRef<HTMLElement, DropdownDesktopProps>(
         style={style}
         ref={ref}
         elevation='2'
-        paddingInline={0}
-        paddingBottom={0}
+        padding={0}
         display='flex'
         flexDirection='column'
         overflow='auto'

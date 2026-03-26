@@ -19,6 +19,7 @@ const CardFrame = styled(RcxView, {
   variants: {
     horizontal: {
       true: {
+        flexDirection: 'row',
         alignItems: 'center',
         padding: '$x12',
         gap: '$x16',

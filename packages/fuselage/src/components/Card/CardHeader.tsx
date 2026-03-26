@@ -6,6 +6,7 @@ import { RcxView } from '../../primitives';
 const CardHeaderFrame = styled(RcxView, {
   name: 'CardHeader',
   display: 'flex',
+  flexDirection: 'row',
   alignItems: 'center',
   gap: '$x8',
 });
