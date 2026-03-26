@@ -51,11 +51,13 @@ const CalloutIcon = styled(RcxView, {
 const CalloutWrapper = styled(RcxView, {
   name: 'CalloutWrapper',
 
+  display: 'block',
   overflow: 'hidden',
-  justifyContent: 'space-between',
+  flexGrow: 1,
+  flexShrink: 1,
+  flexBasis: 0,
 
   marginInlineStart: '$x12',
-  gap: '$x12',
 
   variants: {
     large: {
@@ -64,7 +66,6 @@ const CalloutWrapper = styled(RcxView, {
         flexDirection: 'row',
         alignItems: 'center',
         overflow: 'hidden',
-        gap: 0,
       },
     },
   } as const,
@@ -84,6 +85,8 @@ const CalloutWrapperContent = styled(RcxView, {
 const CalloutTitle = styled(RcxText, {
   name: 'CalloutTitle',
 
+  display: 'block',
+  width: '100%' as any,
   whiteSpace: 'nowrap',
   overflow: 'hidden',
   textOverflow: 'ellipsis',
@@ -154,8 +157,8 @@ const Callout = ({
       </CalloutIcon>
       <CalloutWrapper large={isLarge || undefined}>
         <CalloutWrapperContent>
-          {title && <CalloutTitle>{title}</CalloutTitle>}
-          {children && <CalloutContent>{children}</CalloutContent>}
+          {title && <RcxView overflow='hidden'><CalloutTitle>{title}</CalloutTitle></RcxView>}
+          {children && <RcxView><CalloutContent>{children}</CalloutContent></RcxView>}
         </CalloutWrapperContent>
         {actions}
       </CalloutWrapper>

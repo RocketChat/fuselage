@@ -119,11 +119,14 @@ const BannerIcon = styled(RcxView, {
   } as const,
 });
 
-const BannerContent = styled(RcxText, {
-  name: 'BannerContent',
+const BannerContainer = styled(RcxText, {
+  name: 'BannerContainer',
 
   flexGrow: 1,
   alignSelf: 'center',
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '$x4',
 
   fontFamily: '$body',
   fontSize: '$p2',
@@ -170,6 +173,14 @@ const BannerTitle = styled(RcxText, {
   } as const,
 });
 
+const BannerContent = styled(RcxView, {
+  name: 'BannerContent',
+
+  display: 'flex',
+  flexDirection: 'row',
+  gap: '$x4',
+});
+
 const BannerCloseButton = styled(RcxView, {
   name: 'BannerCloseButton',
 
@@ -186,15 +197,10 @@ const BannerCloseButton = styled(RcxView, {
   } as const,
 });
 
-const BannerLink = styled(RcxText, {
-  name: 'BannerLink',
-
-  tag: 'a',
-  paddingLeft: 10,
-
-  color: 'inherit',
-  overflowWrap: 'normal',
-});
+// Functional component — renders real <a> since styled(Text, { tag: 'a' }) doesn't work
+const BannerLink = ({ children, ...props }: { children?: React.ReactNode; href?: string; target?: string }) => (
+  <a style={{ paddingLeft: 10 }} {...props}>{children}</a>
+);
 
 export type BannerProps = {
   actionable?: boolean;
@@ -269,20 +275,20 @@ const Banner = ({
           {icon}
         </BannerIcon>
       )}
-      <BannerContent inline={inline || undefined}>
+      <BannerContainer inline={inline || undefined}>
         {title && (
           <BannerTitle inline={inline || undefined}>{title}</BannerTitle>
         )}
-        {children}
-        {link && (
-          <BannerLink
-            href={link}
-            target={linkTarget}
-          >
-            {linkText}
-          </BannerLink>
-        )}
-      </BannerContent>
+        <BannerContent>
+          {children}
+
+          {link && (
+            <BannerLink href={link} target={linkTarget}>
+              {linkText}
+            </BannerLink>
+          )}
+        </BannerContent>
+      </BannerContainer>
       {closeable && (
         <BannerCloseButton inline={inline || undefined}>
           <IconButton small onClick={handleCloseButtonClick} icon='cross' />
