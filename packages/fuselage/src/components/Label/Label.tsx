@@ -1,14 +1,60 @@
 import type { ElementType } from 'react';
 import { createContext, forwardRef, useContext } from 'react';
 
-import { Box, type BoxProps } from '../Box';
+import { styled, Text } from 'tamagui';
+
+import { RcxText } from '../../primitives';
 
 const LabelContext = createContext(false);
 
-export type LabelProps = Omit<BoxProps, 'is'> & {
+// RcxText — needs font props, renders text content
+const LabelBase = styled(RcxText, {
+  name: 'Label',
+
+  display: 'flex',
+
+  // p2m font scale (from original: @include typography.use-font-scale(p2m))
+  fontFamily: '$body',
+  fontSize: '$p2m',
+  fontWeight: '$p2m',
+  lineHeight: '$p2m',
+  letterSpacing: '$p2m',
+
+  // color: colors.font(default)
+  color: '$fontDefault',
+
+  variants: {
+    isDisabled: {
+      true: {
+        pointerEvents: 'none',
+        color: '$fontSecondaryInfo',
+      },
+    },
+  } as const,
+});
+
+// Required asterisk
+const LabelRequired = styled(Text, {
+  name: 'LabelRequired',
+
+  marginInlineStart: '$x4',
+  color: '$fontDanger',
+});
+
+// Info wrapper (order: 1 in original)
+const LabelInfo = styled(RcxText, {
+  name: 'LabelInfo',
+
+  display: 'flex',
+  alignItems: 'center',
+});
+
+export type LabelProps = {
   disabled?: boolean;
   required?: boolean;
   is?: (ElementType<any> & string) | undefined;
+  children?: React.ReactNode;
+  [key: string]: any;
 };
 
 /**
@@ -19,24 +65,19 @@ const Label = forwardRef<HTMLElement, LabelProps>(function Label(
   ref,
 ) {
   const isInsideLabel = useContext(LabelContext);
-  const component = is || (isInsideLabel && 'span') || 'label';
 
   return (
     <LabelContext.Provider value={true}>
-      <Box
-        is={component}
-        rcx-label
-        rcx-label--disabled={disabled}
-        {...props}
-        ref={ref}
+      <LabelBase
+        isDisabled={disabled || undefined}
+        ref={ref as any}
+        {...(props as any)}
       >
         {children}
         {required && (
-          <Box is='span' rcx-label__required mis='x4' aria-hidden='true'>
-            *
-          </Box>
+          <LabelRequired aria-hidden='true'>*</LabelRequired>
         )}
-      </Box>
+      </LabelBase>
     </LabelContext.Provider>
   );
 });
