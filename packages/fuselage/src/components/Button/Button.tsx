@@ -493,13 +493,17 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
         {...(props as any)}
       >
         <ButtonText>
-          {icon && !loading && <Icon size='x16' name={icon} mie={4} />}
+          {icon && !loading && (
+            <Icon size='x16' name={icon} style={{ marginInlineEnd: 4 }} />
+          )}
           {loading && (
             <Icon
               size='x16'
               name='loading'
-              mie={children ? 4 : undefined}
-              style={{ animation: 'rcx-spin-animation 0.8s linear infinite' }}
+              style={{
+                marginInlineEnd: children ? 4 : undefined,
+                animation: 'rcx-spin-animation 0.8s linear infinite',
+              }}
             />
           )}
           {children}
