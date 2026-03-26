@@ -1,0 +1,34 @@
+.rcx-box {
+  @extend %box;
+
+  &--animated {
+    @extend %box--animated;
+
+    &::before,
+    &::after {
+      @extend %box--animated;
+    }
+  }
+
+  &--full {
+    @extend %box--full;
+
+    &::before,
+    &::after {
+      @extend %box;
+      @extend %box--full;
+    }
+  }
+
+  &--with-inline-elements {
+    @extend %--with-inline-elements;
+  }
+
+  &--with-block-elements {
+    @extend %--with-block-elements;
+  }
+
+  &--focusable {
+    @include focus-state();
+  }
+}

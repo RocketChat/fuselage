@@ -1,0 +1,37 @@
+@use '../../../styles/lengths.scss';
+@use '../../../styles/functions.scss';
+@use '../../../styles/colors.scss';
+@use '../../../styles/typography.scss';
+
+$variants: (
+  'success': colors.status-font(on-success),
+  'danger': colors.status-font(on-danger),
+  'warning': colors.status-font(on-warning),
+  'primary': colors.status-font(on-primary),
+);
+
+.rcx-message-status-indicator {
+  margin-block: lengths.margin(2);
+
+  user-select: none;
+
+  &:empty {
+    display: none;
+  }
+
+  &__text {
+    white-space: nowrap;
+
+    color: colors.font(secondary-info);
+    @include typography.use-font-scale(c1);
+  }
+
+  &__item {
+    color: colors.font(secondary-info);
+    @each $name, $color in $variants {
+      &--#{$name} {
+        color: functions.theme('message-status-variant-color-#{$name}', $color);
+      }
+    }
+  }
+}

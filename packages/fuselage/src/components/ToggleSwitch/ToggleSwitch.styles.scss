@@ -1,0 +1,53 @@
+@use '../../styles/colors.scss';
+@use '../../styles/lengths.scss';
+
+$toggle-switch-border-radius: theme(
+  'toggle-switch-border-radius',
+  lengths.border-radius(full)
+);
+
+.rcx-toggle-switch {
+  @include is-selection-button($checked: 'primary', $unchecked: 'off');
+
+  &__input {
+    @extend %selection-button__input;
+  }
+
+  &__fake {
+    @extend %selection-button__fake;
+
+    width: lengths.size(2 * 18);
+    height: lengths.size(20) - 2 * lengths.border-width(default, rem);
+
+    border-radius: $toggle-switch-border-radius;
+  }
+
+  &__input + &__fake::before {
+    position: absolute;
+
+    top: 50%;
+    inset-inline-start: lengths.inset(1);
+
+    width: lengths.size(16) - 2 * lengths.border-width(default, rem);
+    height: lengths.size(16) - 2 * lengths.border-width(default, rem);
+
+    content: '';
+    transform: translateY(-50%);
+
+    border-radius: $toggle-switch-border-radius;
+
+    background-color: colors.button(on-primary);
+  }
+
+  &__input:disabled + &__fake::before {
+    background-color: colors.button(on-secondary-disabled);
+  }
+
+  &__input:checked + &__fake::before {
+    inset-inline-start: calc(
+      100% - #{lengths.inset(16) - lengths.border-width(default, rem)}
+    );
+
+    background-color: colors.button(on-primary);
+  }
+}
