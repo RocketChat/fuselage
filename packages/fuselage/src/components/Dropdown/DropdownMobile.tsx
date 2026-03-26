@@ -7,8 +7,9 @@ import Tile from '../Tile/Tile';
 
 const DropdownContent = styled(RcxView, {
   name: 'DropdownMobileContent',
+  display: 'block',
   flexShrink: 1,
-  paddingBottom: 16,
+  paddingBlock: '$x16',
 });
 
 export type DropdownMobileProps = {
@@ -21,8 +22,7 @@ export const DropdownMobile = forwardRef<HTMLElement, DropdownMobileProps>(
       <Tile
         ref={ref}
         elevation='2'
-        paddingInline={0}
-        paddingBottom={0}
+        padding={0}
         width='100vw'
         maxHeight='80%'
         position='fixed'

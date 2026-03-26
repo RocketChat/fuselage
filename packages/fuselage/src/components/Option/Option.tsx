@@ -13,10 +13,11 @@ import OptionContent from './OptionContent';
 import OptionIcon from './OptionIcon';
 
 // .rcx-option
-const OptionFrame = styled(RcxText, {
+const OptionFrame = styled(RcxView, {
   name: 'OptionFrame',
 
   display: 'list-item',
+  margin: 0,
   cursor: 'pointer',
 
   paddingBlock: '$x4',
@@ -75,13 +76,14 @@ const OptionFrame = styled(RcxText, {
 });
 
 // .rcx-option__wrapper
-const OptionWrapper = styled(RcxView, {
+const OptionWrapper = styled(RcxText, {
   name: 'OptionWrapper',
 
   display: 'flex',
   alignItems: 'center',
 
   marginInline: -2,
+  paddingInline: '$x4',
 
   variants: {
     alignTop: {
@@ -158,6 +160,7 @@ const Option = forwardRef<Element, OptionProps>(function Option(
     <OptionFrame
       {...(Tag ? { tag: Tag as any } : {})}
       {...(props as any)}
+      style={{ listStyleType: 'none' }}
       key={id}
       id={id}
       ref={ref as any}

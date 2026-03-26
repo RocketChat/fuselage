@@ -2,6 +2,7 @@ import type { AllHTMLAttributes, ReactNode } from 'react';
 import { styled } from 'tamagui';
 
 import { RcxView } from '../../primitives';
+
 import { CardContext } from './Card';
 
 const CardColFrame = styled(RcxView, {
@@ -9,6 +10,7 @@ const CardColFrame = styled(RcxView, {
   context: CardContext,
   display: 'flex',
   flexDirection: 'column',
+  flexShrink: 1,
   gap: '$x8',
 
   variants: {

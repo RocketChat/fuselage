@@ -1,11 +1,27 @@
-import { Box } from '../Box';
+import type { HTMLAttributes, ReactNode } from 'react';
+import { forwardRef } from 'react';
 
-import type { TableProps } from './Table';
+export type TableBodyProps = {
+  children?: ReactNode;
+} & HTMLAttributes<HTMLTableSectionElement>;
 
-export type TableBodyProps = TableProps;
+const tbodyStyle: React.CSSProperties = {
+  display: 'table-row-group',
+};
 
-const TableBody = (props: TableBodyProps) => (
-  <Box is='tbody' rcx-table__body {...props} />
+const TableBody = forwardRef<HTMLTableSectionElement, TableBodyProps>(
+  ({ children, className, style, ...props }, ref) => (
+    <tbody
+      ref={ref}
+      className={['rcx-box', className].filter(Boolean).join(' ')}
+      style={{ ...tbodyStyle, ...style }}
+      {...props}
+    >
+      {children}
+    </tbody>
+  ),
 );
+
+TableBody.displayName = 'TableBody';
 
 export default TableBody;

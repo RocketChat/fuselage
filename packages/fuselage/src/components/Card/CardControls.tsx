@@ -6,6 +6,7 @@ import { RcxView } from '../../primitives';
 const CardControlsFrame = styled(RcxView, {
   name: 'CardControls',
   display: 'flex',
+  flexDirection: 'row',
   alignItems: 'center',
   gap: '$x8',
 });
