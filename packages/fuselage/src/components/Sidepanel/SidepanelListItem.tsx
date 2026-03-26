@@ -1,20 +1,19 @@
 import type { HTMLAttributes } from 'react';
 import { forwardRef } from 'react';
+import { styled } from 'tamagui';
+
+import { RcxView } from '../../primitives';
+
+const SidepanelListItemFrame = styled(RcxView, {
+  name: 'SidepanelListItem',
+  role: 'listitem',
+});
 
 export type SidepanelListItemProps = HTMLAttributes<HTMLDivElement>;
 
 const SidepanelListItem = forwardRef<HTMLDivElement, SidepanelListItemProps>(
-  function SidepanelListItem({ className, ...props }, ref) {
-    return (
-      <div
-        role='listitem'
-        ref={ref}
-        className={['rcx-sidepanel-list__item', className]
-          .filter(Boolean)
-          .join(' ')}
-        {...props}
-      />
-    );
+  function SidepanelListItem(props, ref) {
+    return <SidepanelListItemFrame ref={ref} {...(props as any)} />;
   },
 );
 
