@@ -88,6 +88,9 @@ export type StylingProps = {
   justifySelf: CSSProperties['justifySelf'];
   alignSelf: CSSProperties['alignSelf'];
   order: CSSProperties['order'];
+  gap: CSSProperties['gap'];
+  rowGap: CSSProperties['rowGap'];
+  columnGap: CSSProperties['columnGap'];
 
   w: CSSProperties['width'];
   width: CSSProperties['width'];
@@ -299,6 +302,9 @@ export const propDefs: Record<keyof StylingProps, PropDefinition> = {
   justifySelf: stringProp,
   alignSelf: stringProp,
   order: numberOrStringProp,
+  gap: marginProp,
+  rowGap: marginProp,
+  columnGap: marginProp,
 
   w: aliasOf('width'),
   width: sizeProp,
