@@ -35,3 +35,15 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.rcx-box {
+  @extend %box;
+}
+
+.rcx-box--full {
+  @extend %box--full;
+}
+
+.rcx-box--animated {
+  @extend %box--animated;
+}
