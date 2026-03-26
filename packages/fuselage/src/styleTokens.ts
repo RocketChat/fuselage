@@ -250,23 +250,7 @@ export const size = measure((value: unknown) => {
   return undefined;
 });
 
-export const inset = measure((value: unknown) => {
-  if (value === 'none') {
-    return '0px';
-  }
-
-  return undefined;
-});
-
-export const margin = measure((value: unknown) => {
-  if (value === 'none') {
-    return '0px';
-  }
-
-  return undefined;
-});
-
-export const padding = measure((value: unknown) => {
+export const spacing = measure((value: unknown) => {
   if (value === 'none') {
     return '0px';
   }

@@ -12,9 +12,7 @@ import {
   fontColor,
   fontFamily,
   fontScale,
-  inset,
-  margin,
-  padding,
+  spacing,
   size,
   strokeColor,
 } from '../../styleTokens';
@@ -213,15 +211,19 @@ const sizeProp: PropDefinition = {
 };
 
 const insetProp: PropDefinition = {
-  toCSSValue: inset,
+  toCSSValue: spacing,
 };
 
 const marginProp: PropDefinition = {
-  toCSSValue: margin,
+  toCSSValue: spacing,
 };
 
 const paddingProp: PropDefinition = {
-  toCSSValue: padding,
+  toCSSValue: spacing,
+};
+
+const gapProp: PropDefinition = {
+  toCSSValue: spacing,
 };
 
 const fontFamilyProp: PropDefinition = {
@@ -302,9 +304,9 @@ export const propDefs: Record<keyof StylingProps, PropDefinition> = {
   justifySelf: stringProp,
   alignSelf: stringProp,
   order: numberOrStringProp,
-  gap: marginProp,
-  rowGap: marginProp,
-  columnGap: marginProp,
+  gap: gapProp,
+  rowGap: gapProp,
+  columnGap: gapProp,
 
   w: aliasOf('width'),
   width: sizeProp,
