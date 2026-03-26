@@ -1,4 +1,9 @@
 import type { StatusBulletProps } from '../StatusBullet';
+import {
+  statusBulletBaseStyle,
+  statusBulletLoadingStyle,
+  statusBulletSmallStyle,
+} from '../StatusBullet';
 
 const Loading = ({ size, className, ...props }: StatusBulletProps) => (
   <svg
@@ -8,15 +13,20 @@ const Loading = ({ size, className, ...props }: StatusBulletProps) => (
     viewBox='0 0 12 12'
     fill='none'
     xmlns='http://www.w3.org/2000/svg'
-    className={`rcx-status-bullet rcx-status-bullet--loading ${className} ${
-      size === 'small' ? 'rcx-status-bullet--small' : ''
-    }`}
+    className={[
+      statusBulletBaseStyle,
+      statusBulletLoadingStyle,
+      size === 'small' && statusBulletSmallStyle,
+      className,
+    ]
+      .filter(Boolean)
+      .join(' ')}
   >
     <circle
       cx='6'
       cy='6'
       r='5'
-      className='rcx-status-bullet rcx-status-bullet--loading'
+      className={statusBulletLoadingStyle}
       strokeWidth='2'
       strokeDasharray='2 2'
     />
