@@ -22,7 +22,6 @@ const StyledIcon = styled(RcxText, {
   // lineHeight: 1 in CSS means 1×fontSize (unitless), but Tamagui treats 1 as 1px
   // Set dynamically via prop to match fontSize
   textRendering: 'auto',
-  overflowWrap: 'normal',
 });
 
 export type IconProps = Omit<BoxProps, 'name' | 'size'> & {

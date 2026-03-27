@@ -1,5 +1,4 @@
-import type { ElementType, HTMLAttributes, ReactNode } from 'react';
-import { forwardRef } from 'react';
+import type { ElementType, HTMLAttributes, ReactNode, Ref } from 'react';
 import { styled } from 'tamagui';
 
 import { RcxText } from '../../primitives';
@@ -22,7 +21,6 @@ export const BadgeFrame = styled(RcxText, {
   whiteSpace: 'nowrap',
   textDecorationLine: 'none',
   textOverflow: 'ellipsis',
-  wordBreak: 'keep-all',
 
   borderRadius: '$full',
 
@@ -90,8 +88,20 @@ export type BadgeProps = {
  * Communicates notification's amount and types.
  * Uses .styleable() so Tamagui compiler can optimize it at build time.
  */
+// @ts-expect-error styled() frame exposes styleable; Tamagui types lose it through RcxText
 const Badge = BadgeFrame.styleable<BadgeProps>(
-  forwardRef(({ is, variant = 'secondary', small, disabled, children, title, ...props }, ref) => (
+  (
+    {
+      is,
+      variant = 'secondary',
+      small,
+      disabled,
+      children,
+      title,
+      ...props
+    }: BadgeProps,
+    ref: Ref<HTMLSpanElement>,
+  ) => (
     <BadgeFrame
       ref={ref}
       variant={variant}
@@ -102,7 +112,7 @@ const Badge = BadgeFrame.styleable<BadgeProps>(
     >
       {children}
     </BadgeFrame>
-  )),
+  ),
 );
 
 export default Badge;

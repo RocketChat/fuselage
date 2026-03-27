@@ -16,7 +16,6 @@ const CardBodyFrameContent = styled(RcxView, {
 const CardBodyFrameText = styled(RcxText, {
   name: 'CardBodyText',
   display: 'flex',
-  wordBreak: 'break-word',
   gap: '$x8',
   fontFamily: '$body',
   fontSize: '$p2m',
