@@ -1,9 +1,10 @@
 import type { ElementType, HTMLAttributes, ReactNode } from 'react';
+import { forwardRef } from 'react';
 import { styled } from 'tamagui';
 
 import { RcxText } from '../../primitives';
 
-const StyledBadge = styled(RcxText, {
+export const BadgeFrame = styled(RcxText, {
   name: 'Badge',
 
   display: 'flex',
@@ -87,18 +88,12 @@ export type BadgeProps = {
 
 /**
  * Communicates notification's amount and types.
+ * Uses .styleable() so Tamagui compiler can optimize it at build time.
  */
-function Badge({
-  is,
-  variant = 'secondary',
-  small,
-  disabled,
-  children,
-  title,
-  ...props
-}: BadgeProps) {
-  return (
-    <StyledBadge
+const Badge = BadgeFrame.styleable<BadgeProps>(
+  forwardRef(({ is, variant = 'secondary', small, disabled, children, title, ...props }, ref) => (
+    <BadgeFrame
+      ref={ref}
       variant={variant}
       small={small || undefined}
       disabled={disabled || undefined}
@@ -106,8 +101,8 @@ function Badge({
       {...props}
     >
       {children}
-    </StyledBadge>
-  );
-}
+    </BadgeFrame>
+  )),
+);
 
 export default Badge;
