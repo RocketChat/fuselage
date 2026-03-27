@@ -41,8 +41,24 @@ jobs:
             turbo-${{ runner.os }}-
       - run: yarn
         if: steps.yarn-cache.outputs.cache-hit != 'true'
-      - run: yarn run ci
-      - uses: actions/upload-artifact@v7
+
+      - name: Build, lint and test
+        id: build-lint-test
+        run: yarn run ci
+
+      - name: Visual regression
+        id: visual-regression
+        run: yarn turbo run visual-regression --cache-dir=".turbo" --concurrency=1
+
+      - name: Upload visual-regression results
+        uses: actions/upload-artifact@v7
+        if: failure()
+        with:
+          name: 'playwright-visual-results-${{ github.event.number }}'
+          path: '**/test-results'
+
+      - name: Upload storybooks
+        uses: actions/upload-artifact@v7
         with:
           name: 'storybooks-${{ github.event.number }}'
           path: |

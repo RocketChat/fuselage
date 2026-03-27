@@ -23,6 +23,8 @@
     "/index.js"
   ],
   "scripts": {
+    "visual-regression": "visual-regression",
+    "visual-regression-update": "visual-regression --update-snapshots",
     "start": "webpack --watch --mode development",
     "storybook": "storybook dev -p 6006 --no-version-updates",
     "build": "run-s .:build:clean .:build:dev .:build:prod",
@@ -55,6 +57,7 @@
     "@rocket.chat/fuselage-hooks": "workspace:~",
     "@rocket.chat/icons": "workspace:~",
     "@rocket.chat/storybook-dark-mode": "workspace:~",
+    "@rocket.chat/visual-regression": "workspace:~",
     "@storybook/addon-a11y": "~9.1.17",
     "@storybook/addon-docs": "~9.1.17",
     "@storybook/addon-links": "~9.1.17",
