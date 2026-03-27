@@ -331,3 +331,18 @@ export const WithSlider: StoryFn<typeof Field> = () => {
     </Field>
   );
 };
+
+export const WithFieldLink: StoryFn<typeof Field> = () => (
+  <Field>
+    <FieldLabel>
+      Example Field Link
+      <FieldLabelInfo title='with extra info in a tooltip' />
+    </FieldLabel>
+    <FieldDescription>
+      This is an example of how to use the FieldLink component
+    </FieldDescription>
+    <FieldRow>
+      <FieldLink href='https://www.rocket.chat'>Go to Rocket.Chat</FieldLink>
+    </FieldRow>
+  </Field>
+);
