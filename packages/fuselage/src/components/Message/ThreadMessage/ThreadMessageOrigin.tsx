@@ -16,6 +16,7 @@ const ThreadMessageOrigin = ({
     ]
       .filter(Boolean)
       .join(' ')}
+    dir='auto'
   >
     {children}
   </div>
