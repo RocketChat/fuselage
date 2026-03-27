@@ -58,13 +58,13 @@ export function createButtonSubThemes(baseTheme: BaseTheme) {
       backgroundPress: pressBg || bg,
       backgroundFocus: focusBg || bg,
       backgroundDisabled: disabledBg || bg,
-      color: color || baseTheme.color || '#000',
-      colorDisabled: disabledColor || color || baseTheme.color || '#000',
+      color: color || baseTheme['color'] || '#000',
+      colorDisabled: disabledColor || color || baseTheme['color'] || '#000',
       // Border = background for buttons
       borderColor: bg,
       borderColorHover: hoverBg || bg,
       borderColorPress: pressBg || bg,
-      borderColorFocus: baseTheme.strokeExtraDark || '#000',
+      borderColorFocus: baseTheme['strokeExtraDark'] || '#000',
       borderColorDisabled: disabledBg || bg,
       // Focus shadow
       shadowColor: FOCUS_SHADOW[variant] || '0 0 0 2px var(--shadowHighlight)',
