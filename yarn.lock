@@ -6367,7 +6367,10 @@ __metadata:
     "@rocket.chat/memo": "workspace:~"
     "@types/invariant": "npm:^2.2.37"
     "@types/react": "npm:~18.3.27"
+    eslint: "npm:~9.39.2"
     invariant: "npm:^2.2.4"
+    lint-all: "workspace:~"
+    prettier: "npm:~3.6.2"
     typescript: "npm:~5.9.3"
   peerDependencies:
     react: "*"
