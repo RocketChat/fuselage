@@ -14,7 +14,10 @@
       "@rocket.chat/fuselage": ["../../packages/fuselage/src/index.ts"],
       "@rocket.chat/fuselage/*": ["../../packages/fuselage/src/*"],
       "@rocket.chat/fuselage-ui": ["../../packages/fuselage-ui/src/index.ts"],
-      "@rocket.chat/fuselage-admin": ["../../packages/fuselage-admin/src/index.ts"]
+      "@rocket.chat/fuselage-admin": [
+        "../../packages/fuselage-admin/src/index.ts"
+      ],
+      "@rocket.chat/fuselage-box": ["../../packages/fuselage-box/src/index.ts"]
     }
   },
   "include": ["src"]
