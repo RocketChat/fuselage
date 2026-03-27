@@ -3,7 +3,9 @@
   "compilerOptions": {
     "rootDirs": ["./src", "./.storybook"],
     "outDir": "./dist",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "module": "esnext",
+    "moduleResolution": "bundler"
   },
   "include": ["./src", "./.storybook/**/*"],
   "exclude": ["./dist"],
