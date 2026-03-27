@@ -38,7 +38,6 @@ export default (env, { mode = 'production' }) =>
             loader: 'ts-loader',
             options: {
               configFile: resolve(import.meta.dirname, './tsconfig.build.json'),
-              transpileOnly: true,
             },
           },
         },
