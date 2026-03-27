@@ -1,4 +1,11 @@
-export { Box, StylingBox, withBoxStyling, BoxTransforms, useBoxTransform, useComposedBoxTransform } from './components/Box';
+export {
+  Box,
+  StylingBox,
+  withBoxStyling,
+  BoxTransforms,
+  useBoxTransform,
+  useComposedBoxTransform,
+} from './components/Box';
 export type { BoxProps, StylingBoxProps } from './components/Box';
 export * from './styleTokens';
 export {

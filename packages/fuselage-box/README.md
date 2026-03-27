@@ -67,7 +67,7 @@ yarn build
 
 ### Linting
 
-To ensure the source is matching our coding style, we perform [linting](https://en.wikipedia.org/wiki/Lint_(software)).
+To ensure the source is matching our coding style, we perform [linting](<https://en.wikipedia.org/wiki/Lint_(software)>).
 Before commiting, check if your code fits our style by running:
 
 <!--yarn(lint)-->
@@ -87,6 +87,3 @@ yarn lint-and-fix
 ```
 
 <!--/yarn(lint-and-fix)-->
-
-
-
