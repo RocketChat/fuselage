@@ -14,7 +14,6 @@
   "exclude": [
     "./dist",
     "./storybook-static/",
-    "./*.js",
-    "./node_modules/**/tamagui/src/**"
+    "./*.js"
   ]
 }
