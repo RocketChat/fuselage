@@ -4,7 +4,7 @@ import { Tag } from '../Tag';
 export type MessageRoleProps = TagProps;
 
 const MessageRole = (props: MessageRoleProps) => (
-  <Tag className='rcx-box rcx-box--full rcx-message-header__role' {...props} />
+  <Tag {...props} />
 );
 
 export default MessageRole;

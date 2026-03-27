@@ -8,7 +8,14 @@ const ThreadMessageEmoji = ({
   ...props
 }: ThreadMessageEmojiProps) => (
   <MessageEmojiBase
-    className={`rcx-message-thread__emoji ${className || ''}`}
+    className={className}
+    style={{
+      display: 'inline-block',
+      marginInline: 2,
+      backgroundSize: 'contain',
+      width: 12,
+      height: 12,
+    }}
     {...props}
   />
 );

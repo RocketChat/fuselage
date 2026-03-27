@@ -32,7 +32,7 @@ const SelectFilteredAnchor = forwardRef<
     <Input
       mi={4}
       flexGrow={1}
-      className='rcx-select__focus'
+      flexShrink={1}
       ref={ref}
       placeholder={placeholder}
       value={filter}
@@ -40,7 +40,6 @@ const SelectFilteredAnchor = forwardRef<
         onChangeFilter(e.currentTarget.value)
       }
       {...props}
-      rcx-input-box--undecorated
     />
   );
 });

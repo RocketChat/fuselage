@@ -1,6 +1,8 @@
 import type { Keys as IconKeys } from '@rocket.chat/icons';
 import { isValidElement, type ReactElement } from 'react';
+import { styled } from 'tamagui';
 
+import { RcxView } from '../../../primitives';
 import { Icon, type IconProps } from '../../Icon';
 
 type SidebarItemIconProps = Omit<IconProps, 'name'> & {
@@ -8,25 +10,35 @@ type SidebarItemIconProps = Omit<IconProps, 'name'> & {
   highlighted?: boolean;
 };
 
+const SidebarItemIconFrame = styled(RcxView, {
+  name: 'SidebarV2ItemIcon',
+  display: 'flex',
+  flexDirection: 'row',
+  justifyContent: 'center',
+  alignItems: 'center',
+  width: 20,
+  height: 20,
+  variants: {
+    highlighted: {
+      true: {
+        color: '$fontTitlesLabels',
+        fontWeight: '500',
+      },
+    },
+  } as const,
+});
+
 export const SidebarItemIcon = ({
   icon,
-  className,
+  className: _className,
   highlighted,
   ...props
 }: SidebarItemIconProps) => (
-  <div
-    className={[
-      'rcx-box rcx-box--full rcx-sidebar-v2-item__icon',
-      highlighted && 'rcx-sidebar-v2-item__icon--highlighted',
-      className,
-    ]
-      .filter(Boolean)
-      .join(' ')}
-  >
+  <SidebarItemIconFrame highlighted={highlighted || undefined}>
     {isValidElement(icon) ? (
       icon
     ) : (
       <Icon name={icon as IconKeys} size='x20' {...props} />
     )}
-  </div>
+  </SidebarItemIconFrame>
 );

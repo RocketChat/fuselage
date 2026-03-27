@@ -1,5 +1,3 @@
-import { prependClassName } from '../../../helpers/prependClassName';
-
 export type MessageGenericPreviewCoverImageProps = {
   url: string;
   width: number;
@@ -11,15 +9,24 @@ const MessageGenericPreviewCoverImage = ({
   url,
   width,
   height,
-  className,
+  className: _className,
   ...props
 }: MessageGenericPreviewCoverImageProps) => (
   <div
-    className={prependClassName(
-      className,
-      'rcx-message-generic-preview__preview',
-    )}
-    style={{ backgroundImage: `url(${url})`, maxWidth: '100%' }}
+    className='rcx-box'
+    style={{
+      display: 'inline-block',
+      overflow: 'hidden',
+      width: '100%',
+      height: '100%',
+      whiteSpace: 'nowrap',
+      textIndent: '100%',
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: '50%',
+      backgroundSize: 'cover',
+      backgroundImage: `url(${url})`,
+      maxWidth: '100%',
+    }}
     data-testid='preview-image'
     {...props}
   >

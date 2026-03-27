@@ -7,11 +7,13 @@ import {
 import type { DependencyList, ElementType, ReactNode } from 'react';
 import { useState, useRef, useEffect, forwardRef, useMemo } from 'react';
 
+import { styled } from 'tamagui';
+
 import { isForwardRefType } from '../../helpers/isForwardRefType';
+import { RcxView, RcxText } from '../../primitives';
 import { AnimatedVisibility } from '../AnimatedVisibility';
-import { Box, type BoxProps } from '../Box';
+import type { BoxProps } from '../Box';
 import { Icon, type IconProps } from '../Icon';
-import { Margins } from '../Margins';
 import type { OptionType } from '../Options';
 import { Options, useCursor } from '../Options';
 import { PositionAnimated } from '../PositionAnimated';
@@ -26,10 +28,114 @@ export type SelectOption = readonly [
   selected?: boolean,
 ];
 
-type WrapperProps = BoxProps;
+// .rcx-select — extends %rcx-input-box which extends %input
+// This is the outer container that provides border/bg/focus states
+const SelectFrame = styled(RcxView, {
+  name: 'SelectLegacy',
+
+  position: 'relative',
+  display: 'inline-flex',
+  flexDirection: 'row',
+  flexWrap: 'nowrap',
+  alignItems: 'center',
+  flexGrow: 1,
+
+  minWidth: 144,
+  minHeight: 40,
+
+  paddingBlock: 8,
+  paddingInline: 15, // 16 - 1px border
+
+  // %input styles
+  borderWidth: 1,
+  borderStyle: 'solid',
+  borderColor: '$strokeLight',
+  borderRadius: '$x4',
+  backgroundColor: '$surfaceLight',
+  boxShadow: 'none',
+
+  cursor: 'pointer',
+
+  hoverStyle: {
+    borderColor: '$strokeLight',
+  },
+
+  variants: {
+    invalid: {
+      true: {
+        borderColor: '$strokeError',
+        hoverStyle: {
+          borderColor: '$strokeError',
+        },
+      },
+    },
+    focused: {
+      true: {
+        borderColor: '$strokeHighlight',
+        boxShadow: '0 0 0 2px var(--shadowHighlight)',
+      },
+    },
+  } as const,
+
+  disabledStyle: {
+    borderColor: '$strokeLight',
+    backgroundColor: '$surfaceDisabled',
+    cursor: 'not-allowed',
+    pointerEvents: 'none',
+  },
+});
+
+// .rcx-select__wrapper — inner flex row container
+const SelectWrapperFrame = styled(RcxView, {
+  name: 'SelectWrapper',
+
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center',
+  flexGrow: 1,
+  flexShrink: 1,
+
+  minWidth: 0,
+
+  userSelect: 'none',
+  whiteSpace: 'nowrap',
+  opacity: 1,
+
+  variants: {
+    hidden: {
+      true: {},
+    },
+  } as const,
+});
+
+// .rcx-select__item — text display of selected value
+const SelectItemText = styled(RcxText, {
+  name: 'SelectItem',
+
+  flexGrow: 1,
+  marginInline: 4,
+
+  fontFamily: '$body',
+  fontSize: '$p2',
+  fontWeight: '$p2',
+  lineHeight: '$p2',
+  letterSpacing: '$p2',
+
+  overflow: 'hidden',
+  textOverflow: 'ellipsis',
+  whiteSpace: 'nowrap',
+  overflowWrap: 'normal',
+});
+
+type WrapperProps = {
+  hidden?: boolean;
+  children?: ReactNode;
+  display?: string;
+  [key: string]: any;
+};
 
 const Wrapper = forwardRef<HTMLDivElement, WrapperProps>((props, ref) => (
-  <Box is='div' rcx-select__wrapper ref={ref} {...props} />
+  <SelectWrapperFrame ref={ref} {...(props as any)} />
 ));
 
 const useDidUpdate = (func: () => void, deps: DependencyList | undefined) => {
@@ -161,21 +267,16 @@ const SelectLegacy = forwardRef<HTMLInputElement, SelectProps>(
     });
 
     return (
-      <Box
-        rcx-select
-        disabled={disabled}
+      <SelectFrame
+        disabled={disabled || undefined}
         ref={containerRef}
-        onClick={handleClick}
-        className={useMemo(
-          () => [error && 'invalid', disabled && 'disabled'],
-          [error, disabled],
-        )}
-        {...props}
+        onPress={handleClick}
+        invalid={!!error || undefined}
+        {...(props as any)}
       >
         <Wrapper
           display='flex'
-          mi='neg-x4'
-          rcx-select__wrapper--hidden={!!visibleText}
+          hidden={!!visibleText || undefined}
         >
           {visibleText &&
             (RenderSelected ? (
@@ -187,16 +288,11 @@ const SelectLegacy = forwardRef<HTMLInputElement, SelectProps>(
                 onClick={internalChangedByClick}
               />
             ) : (
-              <Box
-                flexGrow={1}
-                is='span'
-                mi={4}
-                rcx-select__item
-                fontScale='p2'
-                color={valueLabel ? 'default' : 'hint'}
+              <SelectItemText
+                color={valueLabel ? '$fontDefault' : '$fontHint'}
               >
                 {visibleText}
-              </Box>
+              </SelectItemText>
             ))}
           {renderAnchor({
             ref: anchorRef,
@@ -207,20 +303,19 @@ const SelectLegacy = forwardRef<HTMLInputElement, SelectProps>(
             onKeyDown: handleKeyDown,
             onKeyUp: handleKeyUp,
           })}
-          <Margins inline='x4'>
-            <SelectAddon
-              children={
-                <Icon
-                  name={
-                    visible === AnimatedVisibility.VISIBLE
-                      ? 'chevron-up'
-                      : addonIcon || 'chevron-down'
-                  }
-                  size='x20'
-                />
-              }
-            />
-          </Margins>
+          <SelectAddon
+            marginInline={4}
+            children={
+              <Icon
+                name={
+                  visible === AnimatedVisibility.VISIBLE
+                    ? 'chevron-up'
+                    : addonIcon || 'chevron-down'
+                }
+                size='x20'
+              />
+            }
+          />
         </Wrapper>
         <PositionAnimated visible={visible} anchor={containerRef}>
           <_Options
@@ -234,7 +329,7 @@ const SelectLegacy = forwardRef<HTMLInputElement, SelectProps>(
             customEmpty={customEmpty}
           />
         </PositionAnimated>
-      </Box>
+      </SelectFrame>
     );
   },
 );

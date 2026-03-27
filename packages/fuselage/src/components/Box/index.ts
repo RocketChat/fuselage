@@ -1,2 +1,1 @@
-export { default as Box, type BoxProps } from './Box';
-export { default as StylingBox, type StylingBoxProps } from './StylingBox';
+export { Box, type BoxProps, StylingBox, type StylingBoxProps } from '@rocket.chat/fuselage-box';

@@ -1,8 +1,9 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "lib": ["DOM"],
-    "outDir": "./dist"
+    "lib": ["ES2020", "DOM"],
+    "outDir": "./dist",
+    "skipLibCheck": true
   },
   "include": [
     "./src",
@@ -10,5 +11,9 @@
     "./jest.config.ts",
     "./jest-setup.ts"
   ],
-  "exclude": ["./dist", "./storybook-static/", "./*.js"]
+  "exclude": [
+    "./dist",
+    "./storybook-static/",
+    "./*.js"
+  ]
 }

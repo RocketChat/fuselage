@@ -1,7 +1,25 @@
 import type { DetailedHTMLProps, HTMLAttributes } from 'react';
 import flattenChildren from 'react-keyed-flatten-children';
+import { styled } from 'tamagui';
 
-import { prependClassName } from '../../helpers/prependClassName';
+import { RcxView } from '../../primitives';
+
+const StyledAvatarStack = styled(RcxView, {
+  name: 'AvatarStack',
+
+  display: 'flex',
+  flexDirection: 'row-reverse',
+  justifyContent: 'center',
+
+  backgroundColor: '$surfaceLight',
+});
+
+const AvatarStackItem = styled(RcxView, {
+  name: 'AvatarStackItem',
+
+  marginBlock: 'auto',
+  marginInline: -2,
+});
 
 export type AvatarStackProps = DetailedHTMLProps<
   HTMLAttributes<HTMLDivElement>,
@@ -9,8 +27,15 @@ export type AvatarStackProps = DetailedHTMLProps<
 >;
 
 const AvatarStack = ({ children, ...props }: AvatarStackProps) => {
-  props.className = prependClassName(props.className, 'rcx-avatar-stack');
-  return <div {...props}>{flattenChildren(children).reverse()}</div>;
+  const reversed = flattenChildren(children).reverse();
+
+  return (
+    <StyledAvatarStack {...(props as any)}>
+      {reversed.map((child, index) => (
+        <AvatarStackItem key={index}>{child}</AvatarStackItem>
+      ))}
+    </StyledAvatarStack>
+  );
 };
 
 export default AvatarStack;

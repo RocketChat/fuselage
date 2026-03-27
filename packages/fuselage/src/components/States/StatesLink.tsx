@@ -1,11 +1,30 @@
-import type { AllHTMLAttributes } from 'react';
+import type { AllHTMLAttributes, ReactNode } from 'react';
+import { styled } from 'tamagui';
 
-import { Box, type BoxProps } from '../Box';
+import { RcxText } from '../../primitives';
 
-export type StatesLinkProps = BoxProps & AllHTMLAttributes<HTMLAnchorElement>;
+const StatesLinkText = styled(RcxText, {
+  name: 'StatesLinkText',
+  fontFamily: '$body',
+  fontSize: '$p2',
+  fontWeight: '$p2',
+  lineHeight: '$p2',
+  letterSpacing: '$p2',
+  color: '$fontInfo',
+  overflowWrap: 'normal',
+});
 
-const StatesLink = (props: StatesLinkProps) => (
-  <Box is='a' rcx-states__link {...props} />
+export type StatesLinkProps = {
+  children?: ReactNode;
+} & AllHTMLAttributes<HTMLAnchorElement>;
+
+const StatesLink = ({ children, ...props }: StatesLinkProps) => (
+  <a
+    {...props}
+    style={{ marginBlockStart: 16, marginBlockEnd: 16, textDecoration: 'none' }}
+  >
+    <StatesLinkText>{children}</StatesLinkText>
+  </a>
 );
 
 export default StatesLink;

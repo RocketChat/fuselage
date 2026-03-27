@@ -1,12 +1,33 @@
 import { forwardRef } from 'react';
 
-import { Box, type BoxProps } from '../Box';
+import { styled } from 'tamagui';
 
-type AddonProps = BoxProps;
+import { RcxText } from '../../primitives';
 
-const SelectAddon = forwardRef<HTMLDivElement, AddonProps>(
+// .rcx-select__addon extends .rcx-input-box__addon + clickable
+const SelectAddonFrame = styled(RcxText, {
+  name: 'SelectAddon',
+
+  display: 'flex',
+  flexDirection: 'row',
+  flexWrap: 'nowrap',
+  alignItems: 'flex-start',
+  flexGrow: 0,
+  flexShrink: 0,
+
+  cursor: 'pointer',
+  outline: 0,
+  padding: 0,
+});
+
+type SelectAddonProps = {
+  children?: React.ReactNode;
+  [key: string]: any;
+};
+
+const SelectAddon = forwardRef<HTMLSpanElement, SelectAddonProps>(
   function SelectAddon(props, ref) {
-    return <Box is='div' rcx-select__addon ref={ref} {...props} />;
+    return <SelectAddonFrame ref={ref} {...(props as any)} />;
   },
 );
 

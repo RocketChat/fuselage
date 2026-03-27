@@ -1,8 +1,9 @@
 import type { ReactNode } from 'react';
+import { styled } from 'tamagui';
 
+import { RcxView } from '../../../primitives';
 import SidebarDivider from '../SidebarDivider';
 
-import { TopBar } from './TopBar';
 import { TopBarWrapper } from './TopBarWrapper';
 
 type TopBarToolBoxProps = {
@@ -10,18 +11,22 @@ type TopBarToolBoxProps = {
   className?: string;
 };
 
+const TopBarToolBoxFrame = styled(RcxView, {
+  name: 'SidebarTopBarToolBox',
+  display: 'flex',
+  flexDirection: 'column',
+  flexShrink: 0,
+  height: 56,
+  color: '$fontSecondaryInfo',
+});
+
 export const TopBarToolBox = ({
   children,
-  className,
+  className: _className,
   ...props
 }: TopBarToolBoxProps) => (
-  <TopBar
-    className={['rcx-sidebar-topbar--toolbox', className]
-      .filter(Boolean)
-      .join(' ')}
-    {...props}
-  >
+  <TopBarToolBoxFrame {...(props as any)}>
     <TopBarWrapper children={children} />
     <SidebarDivider />
-  </TopBar>
+  </TopBarToolBoxFrame>
 );

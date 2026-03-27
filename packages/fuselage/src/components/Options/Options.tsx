@@ -7,15 +7,23 @@ import type {
   SyntheticEvent,
 } from 'react';
 import { forwardRef, useLayoutEffect, useMemo, useRef } from 'react';
+import { styled } from 'tamagui';
 
 import { prevent } from '../../helpers/prevent';
-import { Box, type BoxProps } from '../Box';
+import { RcxView } from '../../primitives';
+import { type BoxProps } from '../Box';
 import { Option, OptionHeader, OptionDivider } from '../Option';
 import { Scrollable } from '../Scrollable';
 import { Tile } from '../Tile';
 
 import type { OptionType } from './OptionType';
 import OptionsEmpty from './OptionsEmpty';
+
+// .rcx-options — on hover, clears focus bg from non-hovered non-selected items
+// This behavior is handled via CSS class still applied to children.
+const OptionsFrame = styled(RcxView, {
+  name: 'OptionsFrame',
+});
 
 export type OptionsProps<TValue = string | number, TLabel = ReactNode> = Omit<
   BoxProps,
@@ -109,7 +117,7 @@ const Options = forwardRef<HTMLElement, OptionsProps>(function Options(
   );
 
   return (
-    <Box rcx-options {...props} ref={ref}>
+    <OptionsFrame className='rcx-options' {...(props as any)} ref={ref as any}>
       <Tile padding={0} paddingBlock={'x12'} paddingInline={0} elevation='2'>
         <Scrollable vertical smooth>
           <Tile
@@ -133,7 +141,7 @@ const Options = forwardRef<HTMLElement, OptionsProps>(function Options(
           </Tile>
         </Scrollable>
       </Tile>
-    </Box>
+    </OptionsFrame>
   );
 }) as ForwardRefExoticComponent<
   PropsWithoutRef<OptionsProps> & RefAttributes<HTMLElement>

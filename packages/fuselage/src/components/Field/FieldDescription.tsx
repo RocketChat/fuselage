@@ -1,12 +1,34 @@
+import { styled } from 'tamagui';
+
+import { RcxText } from '../../primitives';
 import WithErrorWrapper from '../../helpers/WithErrorWrapper';
-import { Box, type BoxProps } from '../Box';
 
 import { FieldContext } from './Field';
 
-export type FieldDescriptionProps = BoxProps;
+const FieldDescriptionBase = styled(RcxText, {
+  name: 'FieldDescription',
+
+  display: 'block',
+
+  // p2 font scale
+  fontFamily: '$body',
+  fontSize: '$p2',
+  fontWeight: '$p2',
+  lineHeight: '$p2',
+  letterSpacing: '$p2',
+
+  marginBlock: '$x2',
+
+  color: '$fontSecondaryInfo',
+});
+
+export type FieldDescriptionProps = {
+  children?: React.ReactNode;
+  [key: string]: any;
+};
 
 const FieldDescription = (props: FieldDescriptionProps) => {
-  const component = <Box is='span' rcx-field__description {...props} />;
+  const component = <FieldDescriptionBase {...props} />;
 
   if (process.env['NODE_ENV'] === 'development') {
     return (

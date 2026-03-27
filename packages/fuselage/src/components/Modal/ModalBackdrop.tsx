@@ -1,9 +1,23 @@
-import { Box, type BoxProps } from '../Box';
+import type { AllHTMLAttributes } from 'react';
+import { styled } from 'tamagui';
 
-export type ModalBackdropProps = BoxProps;
+import { RcxView } from '../../primitives';
+
+const ModalBackdropFrame = styled(RcxView, {
+  name: 'ModalBackdrop',
+  position: 'fixed',
+  zIndex: '$x100',
+  // @ts-ignore - inset shorthand
+  inset: 0,
+  display: 'flex',
+  flexDirection: 'column',
+  backgroundColor: '$surfaceOverlay',
+});
+
+export type ModalBackdropProps = AllHTMLAttributes<HTMLElement>;
 
 const ModalBackdrop = (props: ModalBackdropProps) => (
-  <Box rcx-modal__backdrop {...props} />
+  <ModalBackdropFrame {...(props as any)} />
 );
 
 export default ModalBackdrop;

@@ -13,15 +13,16 @@ const MessageEmoji = ({
   ...props
 }: MessageEmojiProps) => (
   <MessageEmojiBase
-    className={[
-      'rcx-message__emoji',
-      className,
-      big && 'rcx-message__emoji--big',
-    ]
-      .filter(Boolean)
-      .join(' ')}
+    className={className}
     name={name}
     image={image}
+    style={{
+      display: 'inline-block',
+      marginInline: 2,
+      backgroundSize: 'contain',
+      width: big ? 44 : 24,
+      height: big ? 44 : 24,
+    }}
     {...props}
   />
 );
