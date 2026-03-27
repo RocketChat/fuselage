@@ -2,6 +2,7 @@
   "name": "@rocket.chat/fuselage-monorepo",
   "private": true,
   "workspaces": [
+    "apps/*",
     "packages/*",
     "tools/*"
   ],
@@ -29,6 +30,7 @@
     "@changesets/cli": "~2.30.0",
     "@eslint/js": "~9.39.2",
     "@rocket.chat/prettier-config": "workspace:~",
+    "@tamagui/vite-plugin": "2.0.0-rc.31",
     "eslint": "~9.39.2",
     "eslint-import-resolver-typescript": "~4.4.4",
     "eslint-plugin-import-x": "~4.16.2",

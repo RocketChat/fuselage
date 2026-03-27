@@ -2,6 +2,7 @@ import colors from '@rocket.chat/fuselage-tokens/colors.json';
 import { createFont, createTamagui, createTokens } from 'tamagui';
 
 import { darkTheme, highContrastTheme, lightTheme } from './themes';
+import { createButtonSubThemes } from './themes/buttonSubThemes';
 
 // ---------------------------------------------------------------------------
 // Tokens
@@ -354,6 +355,16 @@ export const tamaguiConfig = createTamagui({
     light: lightTheme,
     dark: darkTheme,
     'high-contrast': highContrastTheme,
+    // Button sub-themes: allows <Theme name="Button_primary"> to control colors
+    ...Object.fromEntries(
+      Object.entries(createButtonSubThemes(lightTheme)).map(([k, v]) => [`light_${k}`, v]),
+    ),
+    ...Object.fromEntries(
+      Object.entries(createButtonSubThemes(darkTheme)).map(([k, v]) => [`dark_${k}`, v]),
+    ),
+    ...Object.fromEntries(
+      Object.entries(createButtonSubThemes(highContrastTheme)).map(([k, v]) => [`high-contrast_${k}`, v]),
+    ),
   },
   fonts: {
     body: sansFont,
