@@ -11,9 +11,9 @@ $sidepanel-color-default: colors.font(default);
   gap: lengths.padding(8);
 }
 
+// Static display/flex-direction moved to Sidepanel.tsx.
+
 .rcx-sidepanel {
-  display: flex;
-  flex-direction: column;
   flex: 1 0 auto;
 
   height: lengths.size(full);

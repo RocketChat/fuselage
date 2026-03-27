@@ -4,16 +4,16 @@ exports[`[NavBar Component] renders Default without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-css-1qvl0ud"
+      class="rcx-box rcx-box--full rcx-d-flex"
     >
       <nav
-        class="rcx-navbar"
+        class="rcx-navbar rcx-d-flex rcx-justify-space-between rcx-items-center rcx-w-full"
       >
         <span
-          class="rcx-navbar-section"
+          class="rcx-navbar-section rcx-d-flex rcx-items-center"
         >
           <div
-            class="rcx-button-group rcx-button-group--align-start rcx-navbar-group"
+            class="rcx-button-group rcx-d-flex rcx-flex-row rcx-flex-nowrap rcx-items-center rcx-button-group--align-start rcx-navbar-group"
             role="toolbar"
           >
             <button
@@ -78,10 +78,10 @@ exports[`[NavBar Component] renders Default without crashing 1`] = `
             </button>
           </div>
           <hr
-            class="rcx-box rcx-box--full rcx-navbar-divider rcx-divider--vertical rcx-divider"
+            class="rcx-box rcx-box--full rcx-navbar-divider rcx-divider--vertical rcx-divider rcx-mi-8"
           />
           <div
-            class="rcx-button-group rcx-button-group--align-start rcx-navbar-group"
+            class="rcx-button-group rcx-d-flex rcx-flex-row rcx-flex-nowrap rcx-items-center rcx-button-group--align-start rcx-navbar-group"
             role="toolbar"
           >
             <button
@@ -130,10 +130,10 @@ exports[`[NavBar Component] renders Default without crashing 1`] = `
             </button>
           </div>
           <hr
-            class="rcx-box rcx-box--full rcx-navbar-divider rcx-divider--vertical rcx-divider"
+            class="rcx-box rcx-box--full rcx-navbar-divider rcx-divider--vertical rcx-divider rcx-mi-8"
           />
           <div
-            class="rcx-button-group rcx-button-group--align-start rcx-navbar-group"
+            class="rcx-button-group rcx-d-flex rcx-flex-row rcx-flex-nowrap rcx-items-center rcx-button-group--align-start rcx-navbar-group"
             role="toolbar"
           >
             <button
@@ -187,10 +187,10 @@ exports[`[NavBar Component] renders Default without crashing 1`] = `
           </div>
         </span>
         <span
-          class="rcx-navbar-section"
+          class="rcx-navbar-section rcx-d-flex rcx-items-center"
         >
           <div
-            class="rcx-button-group rcx-button-group--align-start rcx-navbar-group"
+            class="rcx-button-group rcx-d-flex rcx-flex-row rcx-flex-nowrap rcx-items-center rcx-button-group--align-start rcx-navbar-group"
             role="group"
           >
             <button

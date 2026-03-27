@@ -2,13 +2,12 @@
 @use '../../styles/lengths.scss';
 @use '../../styles/typography.scss';
 
+// Static display/width moved to Table*.tsx. Remaining: table-specific display
+// values, interactive states, pseudo-elements, theme variables.
+
 .rcx-table {
   display: table;
-
-  width: 100%;
-
   border-spacing: lengths.padding(none) lengths.padding(2);
-
   border-collapse: collapse;
 
   &--fixed {
@@ -22,10 +21,6 @@
       lengths.border-radius(medium)
     );
     background-color: colors.surface(neutral);
-  }
-
-  &__wrapper {
-    position: relative;
   }
 
   &__head {
@@ -51,7 +46,6 @@
       position: sticky;
       z-index: 10;
       top: 0;
-
       background-color: colors.surface(light);
     }
   }
@@ -79,21 +73,13 @@
 
   &__cell {
     display: table-cell;
-
-    padding: lengths.padding(8);
-
     user-select: text;
     text-align: unset;
     vertical-align: middle;
 
-    color: colors.font(secondary-info);
-    @include typography.use-font-scale(p2);
-
     &--header {
       position: relative;
-
       @include typography.use-font-scale(c2);
-      color: colors.font(secondary-info);
 
       &::after {
         position: absolute;
@@ -101,9 +87,7 @@
         inset-inline: lengths.inset(none);
         left: 0;
         right: 0;
-
         display: flex;
-
         content: '';
         border-block-end: lengths.border-width(default) solid
           colors.stroke(light);

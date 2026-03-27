@@ -3,145 +3,10 @@
 @use '../../styles/typography.scss';
 @use '../../styles/mixins/templates.scss';
 
-$tag-colors-default-color: theme(
-  'tag-colors-default-color',
-  colors.button(on-secondary)
-);
-$tag-colors-default-hover-color: theme(
-  'tag-colors-default-hover-color',
-  colors.button(on-secondary)
-);
-$tag-colors-default-background-color: theme(
-  'tag-colors-default-background-color',
-  colors.button(secondary-default)
-);
-$tag-colors-default-hover-background-color: theme(
-  'tag-colors-default-hover-background-color',
-  colors.button(secondary-hover)
-);
-
-$tag-colors-primary-color: theme(
-  'tag-colors-primary-color',
-  colors.button(on-primary)
-);
-$tag-colors-primary-background-color: theme(
-  'tag-colors-primary-background-color',
-  colors.button(primary-default)
-);
-$tag-colors-primary-hover-background-color: theme(
-  'tag-colors-primary-hover-background-color',
-  colors.button(primary-hover)
-);
-
-$tag-colors-secondary-color: theme(
-  'tag-colors-secondary-color',
-  colors.button(on-secondary)
-);
-$tag-colors-secondary-background-color: theme(
-  'tag-colors-secondary-background-color',
-  colors.button(secondary-default)
-);
-$tag-colors-secondary-hover-background-color: theme(
-  'tag-colors-secondary-hover-background-color',
-  colors.button(secondary-hover)
-);
-
-$tag-colors-danger-color: theme(
-  'tag-colors-danger-color',
-  colors.button(on-danger)
-);
-$tag-colors-danger-background-color: theme(
-  'tag-colors-danger-background-color',
-  colors.button(danger-default)
-);
-$tag-colors-danger-hover-background-color: theme(
-  'tag-colors-danger-hover-background-color',
-  colors.button(danger-hover)
-);
-
-$tag-colors-secondary-danger-color: theme(
-  'tag-colors-secondary-danger-color',
-  colors.button(on-secondary-danger)
-);
-$tag-colors-secondary-danger-background-color: theme(
-  'tag-colors-secondary-danger-background-color',
-  colors.button(secondary-danger-default)
-);
-$tag-colors-secondary-danger-hover-background-color: theme(
-  'tag-colors-secondary-danger-hover-background-color',
-  colors.button(secondary-danger-hover)
-);
-
-$tag-colors-secondary-warning-color: theme(
-  'tag-colors-secondary-warning-color',
-  colors.status-font(on-warning)
-);
-$tag-colors-secondary-warning-background-color: theme(
-  'tag-colors-secondary-warning-background-color',
-  colors.button(secondary-default)
-);
-$tag-colors-secondary-warning-hover-background-color: theme(
-  'tag-colors-secondary-warning-hover-background-color',
-  colors.button(secondary-hover)
-);
-
-$tag-colors-secondary-info-color: theme(
-  'tag-colors-secondary-info-color',
-  colors.status-font(on-info)
-);
-$tag-colors-secondary-info-background-color: theme(
-  'tag-colors-secondary-info-background-color',
-  colors.button(secondary-default)
-);
-$tag-colors-secondary-info-hover-background-color: theme(
-  'tag-colors-secondary-info-hover-background-color',
-  colors.button(secondary-hover)
-);
-
-$tag-colors-warning-color: theme(
-  'tag-colors-warning-color',
-  colors.button(on-warning)
-);
-$tag-colors-warning-background-color: theme(
-  'tag-colors-warning-background-color',
-  colors.button(warning-default)
-);
-$tag-colors-warning-hover-background-color: theme(
-  'tag-colors-warning-hover-background-color',
-  colors.button(warning-hover)
-);
-
-$tag-colors-featured-color: theme(
-  'tag-colors-featured-color',
-  colors.button(on-primary)
-);
-$tag-colors-featured-background-color: theme(
-  'tag-colors-featured-background-color',
-  colors.surface(featured)
-);
-$tag-colors-featured-hover-background-color: theme(
-  'tag-colors-featured-hover-background-color',
-  colors.surface(featured-hover)
-);
-
-$tag-colors-disabled-color: theme(
-  'tag-colors-disabled-color',
-  colors.font(secondary-info)
-);
-$tag-colors-disabled-background-color: theme(
-  'tag-colors-disabled-background-color',
-  colors.surface(neutral)
-);
-
-@mixin use-clickable-colors($color, $background-color) {
-  &.rcx-tag--clickable {
-    @include use-link-colors($color);
-
-    &:hover {
-      background-color: $background-color;
-    }
-  }
-}
+// ════════════════════════════════════════════════════════════════
+// Tag — CSS Custom Properties variant system
+// Base rule references --rcx-tag-* vars; each variant sets them.
+// ════════════════════════════════════════════════════════════════
 
 .rcx-tag {
   display: flex;
@@ -152,123 +17,95 @@ $tag-colors-disabled-background-color: theme(
   padding: lengths.padding(2) lengths.padding(4);
 
   white-space: nowrap;
-
   text-decoration: none;
   text-overflow: ellipsis;
-
   word-break: keep-all;
 
-  color: $tag-colors-default-color;
+  color: var(--rcx-tag-color);
   border-radius: theme('tag-border-radius', lengths.border-radius(small));
-  background-color: $tag-colors-default-background-color;
+  background-color: var(--rcx-tag-bg);
+
+  // Default variant values
+  --rcx-tag-color: #{theme('tag-colors-default-color', colors.button(on-secondary))};
+  --rcx-tag-bg: #{theme('tag-colors-default-background-color', colors.button(secondary-default))};
+  --rcx-tag-hover-bg: #{theme('tag-colors-default-hover-background-color', colors.button(secondary-hover))};
 
   @include typography.use-font-scale(micro);
   @include templates.focus-state;
 
+  // ── Clickable state (uses CSS var for hover) ──
   &--clickable {
     @include clickable;
-    @include use-clickable-colors(
-      $tag-colors-default-color,
-      $tag-colors-default-hover-background-color
-    );
+    @include use-link-colors(var(--rcx-tag-color));
+
+    &:hover {
+      background-color: var(--rcx-tag-hover-bg);
+    }
   }
 
   &__inner {
     overflow: hidden;
-
     min-width: 0;
-
     white-space: nowrap;
     text-overflow: ellipsis;
   }
 
+  // ── Variants (only set CSS var values) ──
   &--primary {
-    color: $tag-colors-primary-color;
-    background-color: $tag-colors-primary-background-color;
-
-    @include use-clickable-colors(
-      $tag-colors-primary-color,
-      $tag-colors-primary-hover-background-color
-    );
+    --rcx-tag-color: #{theme('tag-colors-primary-color', colors.button(on-primary))};
+    --rcx-tag-bg: #{theme('tag-colors-primary-background-color', colors.button(primary-default))};
+    --rcx-tag-hover-bg: #{theme('tag-colors-primary-hover-background-color', colors.button(primary-hover))};
   }
 
   &--secondary {
-    color: $tag-colors-secondary-color;
-    background-color: $tag-colors-secondary-background-color;
-
-    @include use-clickable-colors(
-      $tag-colors-secondary-color,
-      $tag-colors-secondary-hover-background-color
-    );
+    --rcx-tag-color: #{theme('tag-colors-secondary-color', colors.button(on-secondary))};
+    --rcx-tag-bg: #{theme('tag-colors-secondary-background-color', colors.button(secondary-default))};
+    --rcx-tag-hover-bg: #{theme('tag-colors-secondary-hover-background-color', colors.button(secondary-hover))};
   }
 
   &--danger {
-    color: $tag-colors-danger-color;
-    background-color: $tag-colors-danger-background-color;
-
-    @include use-clickable-colors(
-      $tag-colors-danger-color,
-      $tag-colors-danger-hover-background-color
-    );
+    --rcx-tag-color: #{theme('tag-colors-danger-color', colors.button(on-danger))};
+    --rcx-tag-bg: #{theme('tag-colors-danger-background-color', colors.button(danger-default))};
+    --rcx-tag-hover-bg: #{theme('tag-colors-danger-hover-background-color', colors.button(danger-hover))};
   }
 
   &--warning {
-    color: $tag-colors-warning-color;
-    background-color: $tag-colors-warning-background-color;
-
-    @include use-clickable-colors(
-      $tag-colors-warning-color,
-      $tag-colors-warning-hover-background-color
-    );
+    --rcx-tag-color: #{theme('tag-colors-warning-color', colors.button(on-warning))};
+    --rcx-tag-bg: #{theme('tag-colors-warning-background-color', colors.button(warning-default))};
+    --rcx-tag-hover-bg: #{theme('tag-colors-warning-hover-background-color', colors.button(warning-hover))};
   }
 
   &--featured {
-    color: $tag-colors-featured-color;
-    background-color: $tag-colors-featured-background-color;
-
-    @include use-clickable-colors(
-      $tag-colors-featured-color,
-      $tag-colors-featured-hover-background-color
-    );
+    --rcx-tag-color: #{theme('tag-colors-featured-color', colors.button(on-primary))};
+    --rcx-tag-bg: #{theme('tag-colors-featured-background-color', colors.surface(featured))};
+    --rcx-tag-hover-bg: #{theme('tag-colors-featured-hover-background-color', colors.surface(featured-hover))};
   }
 
   &--secondary-danger {
-    color: $tag-colors-secondary-danger-color;
-    background-color: $tag-colors-secondary-danger-background-color;
-
-    @include use-clickable-colors(
-      $tag-colors-secondary-danger-color,
-      $tag-colors-secondary-danger-hover-background-color
-    );
+    --rcx-tag-color: #{theme('tag-colors-secondary-danger-color', colors.button(on-secondary-danger))};
+    --rcx-tag-bg: #{theme('tag-colors-secondary-danger-background-color', colors.button(secondary-danger-default))};
+    --rcx-tag-hover-bg: #{theme('tag-colors-secondary-danger-hover-background-color', colors.button(secondary-danger-hover))};
   }
 
   &--secondary-warning {
-    color: $tag-colors-secondary-warning-color;
-    background-color: $tag-colors-secondary-warning-background-color;
-
-    @include use-clickable-colors(
-      $tag-colors-secondary-warning-color,
-      $tag-colors-secondary-warning-hover-background-color
-    );
+    --rcx-tag-color: #{theme('tag-colors-secondary-warning-color', colors.status-font(on-warning))};
+    --rcx-tag-bg: #{theme('tag-colors-secondary-warning-background-color', colors.button(secondary-default))};
+    --rcx-tag-hover-bg: #{theme('tag-colors-secondary-warning-hover-background-color', colors.button(secondary-hover))};
   }
 
   &--secondary-info {
-    color: $tag-colors-secondary-info-color;
-    background-color: $tag-colors-secondary-info-background-color;
-
-    @include use-clickable-colors(
-      $tag-colors-secondary-info-color,
-      $tag-colors-secondary-info-hover-background-color
-    );
+    --rcx-tag-color: #{theme('tag-colors-secondary-info-color', colors.status-font(on-info))};
+    --rcx-tag-bg: #{theme('tag-colors-secondary-info-background-color', colors.button(secondary-default))};
+    --rcx-tag-hover-bg: #{theme('tag-colors-secondary-info-hover-background-color', colors.button(secondary-hover))};
   }
 
   &--disabled {
     cursor: not-allowed;
-
-    color: $tag-colors-disabled-color;
-    background-color: $tag-colors-disabled-background-color;
+    --rcx-tag-color: #{theme('tag-colors-disabled-color', colors.font(secondary-info))};
+    --rcx-tag-bg: #{theme('tag-colors-disabled-background-color', colors.surface(neutral))};
   }
 
+  // ── Size variants ──
   &--medium {
     @include typography.use-font-scale(c2);
   }

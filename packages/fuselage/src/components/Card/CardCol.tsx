@@ -5,7 +5,7 @@ export type CardColProps = {
 } & AllHTMLAttributes<HTMLElement>;
 
 const CardCol = ({ children, ...props }: CardColProps) => (
-  <div className='rcx-card__col' {...props}>
+  <div className='rcx-card__col rcx-d-flex rcx-flex-column' {...props}>
     {children}
   </div>
 );

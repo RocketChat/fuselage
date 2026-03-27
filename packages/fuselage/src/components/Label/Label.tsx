@@ -27,6 +27,9 @@ const Label = forwardRef<HTMLElement, LabelProps>(function Label(
         is={component}
         rcx-label
         rcx-label--disabled={disabled}
+        display='flex'
+        fontScale='p2m'
+        color='font-default'
         {...props}
         ref={ref}
       >

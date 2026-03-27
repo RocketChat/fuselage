@@ -1,13 +1,13 @@
 @use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
-@use '../../styles/typography.scss';
+
+// Theme-aware variables and pseudo-elements must stay.
+// Static spacing moved to Divider.tsx via Box props where possible.
 
 $divider-size: theme('divider-size', lengths.border-width(default));
 $divider-color: theme('divider-color', colors.stroke(extra-light));
 
 .rcx-divider {
-  margin-block: lengths.margin(8);
-
   border-top: $divider-size solid $divider-color;
 
   &--danger {
@@ -15,31 +15,17 @@ $divider-color: theme('divider-color', colors.stroke(extra-light));
   }
 
   &__bar {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    flex-grow: 1;
-
     &::after {
       flex-grow: 1;
-
       content: '';
-
       border: $divider-size solid $divider-color;
     }
-  }
-
-  &__wrapper {
-    margin-block: lengths.margin(8);
-    padding-inline: lengths.padding(8);
   }
 
   &--vertical {
     width: 0;
     height: lengths.size(20);
     margin-block: 0;
-    margin-inline: lengths.margin(8);
-
     border-left: $divider-size solid $divider-color;
   }
 }

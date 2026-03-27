@@ -10,7 +10,18 @@ export type FieldLabelProps = LabelProps;
 
 const FieldLabel = forwardRef<HTMLElement, FieldLabelProps>(
   function FieldLabel(props, ref) {
-    const component = <Label rcx-field__label {...props} ref={ref} />;
+    const component = (
+      <Label
+        rcx-field__label
+        fontScale='p2m'
+        alignSelf='flex-start'
+        marginBlock='x2'
+        marginInlineEnd='x8'
+        color='font-default'
+        {...props}
+        ref={ref}
+      />
+    );
     if (process.env['NODE_ENV'] === 'development') {
       return (
         <WithErrorWrapper

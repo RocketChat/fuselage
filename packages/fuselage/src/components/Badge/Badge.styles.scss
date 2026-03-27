@@ -1,6 +1,9 @@
 @use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
-@use '../../styles/typography.scss';
+
+// Static layout props (display, overflow, justify, padding, text-align,
+// font-scale, border-radius) moved to Badge.tsx utility classes.
+// Remaining: theme-aware color variants and props not coverable by utilities.
 
 $badge-colors-primary-color: theme(
   'badge-colors-primary-color',
@@ -57,28 +60,13 @@ $badge-colors-disabled-background-color: theme(
 );
 
 .rcx-badge {
-  display: flex;
-  overflow: hidden;
-  justify-content: center;
-
   width: fit-content;
   min-width: lengths.size(16);
   min-height: lengths.size(16);
-
-  padding: lengths.padding(2) lengths.padding(4);
-
-  text-align: center;
-
   white-space: nowrap;
-
   text-decoration: none;
   text-overflow: ellipsis;
-
   word-break: keep-all;
-
-  border-radius: theme('badge-border-radius', lengths.border-radius(full));
-
-  @include typography.use-font-scale(micro);
 
   &--primary {
     color: $badge-colors-primary-color;

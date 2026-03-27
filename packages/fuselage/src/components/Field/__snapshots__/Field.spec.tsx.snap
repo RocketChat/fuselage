@@ -4,13 +4,13 @@ exports[`[Field Component] renders WithCheckbox without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-field"
+      class="rcx-box rcx-box--full rcx-field rcx-css-w18bmj"
     >
       <span
-        class="rcx-box rcx-box--full rcx-field__row"
+        class="rcx-box rcx-box--full rcx-field__row rcx-d-flex rcx-flex-row rcx-flex-nowrap rcx-justify-space-between rcx-items-center rcx-mbs-4 rcx-mbe-2 rcx-color-font-secondary-info"
       >
         <label
-          class="rcx-box rcx-box--full rcx-field__label rcx-label"
+          class="rcx-box rcx-box--full rcx-field__label rcx-label rcx-css-6cnl9o"
           for="fieldWithCheckbox"
         >
           Label
@@ -33,7 +33,7 @@ exports[`[Field Component] renders WithCheckbox without crashing 1`] = `
           </span>
           <span
             aria-hidden="true"
-            class="rcx-box rcx-box--full rcx-label__required rcx-css-b7g1a9"
+            class="rcx-box rcx-box--full rcx-label__required rcx-mis-4"
           >
             *
           </span>
@@ -54,25 +54,25 @@ exports[`[Field Component] renders WithCheckbox without crashing 1`] = `
         </label>
       </span>
       <span
-        class="rcx-box rcx-box--full rcx-field__description"
+        class="rcx-box rcx-box--full rcx-field__description rcx-font-p2 rcx-mb-2 rcx-color-font-secondary-info"
       >
         Description
       </span>
       <span
-        class="rcx-box rcx-box--full rcx-field__error"
+        class="rcx-box rcx-box--full rcx-field__error rcx-font-c1 rcx-mb-2 rcx-color-font-danger"
       >
         Error feedback
       </span>
       <span
-        class="rcx-box rcx-box--full rcx-field__row"
+        class="rcx-box rcx-box--full rcx-field__row rcx-d-flex rcx-flex-row rcx-flex-nowrap rcx-justify-space-between rcx-items-center rcx-mbs-4 rcx-mbe-2 rcx-color-font-secondary-info"
       >
         <span
-          class="rcx-box rcx-box--full rcx-field__hint"
+          class="rcx-box rcx-box--full rcx-field__hint rcx-font-c1 rcx-mb-2 rcx-color-font-secondary-info"
         >
           Hint
         </span>
         <a
-          class="rcx-box rcx-box--full rcx-field__link"
+          class="rcx-box rcx-box--full rcx-field__link rcx-font-c1 rcx-mb-2 rcx-color-font-info"
           href="#"
           target="_blank"
         >
@@ -88,13 +88,13 @@ exports[`[Field Component] renders WithRadioButton without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-field"
+      class="rcx-box rcx-box--full rcx-field rcx-css-w18bmj"
     >
       <span
-        class="rcx-box rcx-box--full rcx-field__row"
+        class="rcx-box rcx-box--full rcx-field__row rcx-d-flex rcx-flex-row rcx-flex-nowrap rcx-justify-space-between rcx-items-center rcx-mbs-4 rcx-mbe-2 rcx-color-font-secondary-info"
       >
         <label
-          class="rcx-box rcx-box--full rcx-field__label rcx-label"
+          class="rcx-box rcx-box--full rcx-field__label rcx-label rcx-css-6cnl9o"
           for="fieldWithRadio"
         >
           Label
@@ -117,7 +117,7 @@ exports[`[Field Component] renders WithRadioButton without crashing 1`] = `
           </span>
           <span
             aria-hidden="true"
-            class="rcx-box rcx-box--full rcx-label__required rcx-css-b7g1a9"
+            class="rcx-box rcx-box--full rcx-label__required rcx-mis-4"
           >
             *
           </span>
@@ -138,25 +138,25 @@ exports[`[Field Component] renders WithRadioButton without crashing 1`] = `
         </label>
       </span>
       <span
-        class="rcx-box rcx-box--full rcx-field__description"
+        class="rcx-box rcx-box--full rcx-field__description rcx-font-p2 rcx-mb-2 rcx-color-font-secondary-info"
       >
         Description
       </span>
       <span
-        class="rcx-box rcx-box--full rcx-field__error"
+        class="rcx-box rcx-box--full rcx-field__error rcx-font-c1 rcx-mb-2 rcx-color-font-danger"
       >
         Error feedback
       </span>
       <span
-        class="rcx-box rcx-box--full rcx-field__row"
+        class="rcx-box rcx-box--full rcx-field__row rcx-d-flex rcx-flex-row rcx-flex-nowrap rcx-justify-space-between rcx-items-center rcx-mbs-4 rcx-mbe-2 rcx-color-font-secondary-info"
       >
         <span
-          class="rcx-box rcx-box--full rcx-field__hint"
+          class="rcx-box rcx-box--full rcx-field__hint rcx-font-c1 rcx-mb-2 rcx-color-font-secondary-info"
         >
           Hint
         </span>
         <a
-          class="rcx-box rcx-box--full rcx-field__link"
+          class="rcx-box rcx-box--full rcx-field__link rcx-font-c1 rcx-mb-2 rcx-color-font-info"
           href="#"
           target="_blank"
         >
@@ -172,10 +172,10 @@ exports[`[Field Component] renders WithTextArea without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-field"
+      class="rcx-box rcx-box--full rcx-field rcx-css-w18bmj"
     >
       <label
-        class="rcx-box rcx-box--full rcx-field__label rcx-label"
+        class="rcx-box rcx-box--full rcx-field__label rcx-label rcx-css-6cnl9o"
         for="fieldWithTextArea"
       >
         Label
@@ -198,18 +198,18 @@ exports[`[Field Component] renders WithTextArea without crashing 1`] = `
         </span>
         <span
           aria-hidden="true"
-          class="rcx-box rcx-box--full rcx-label__required rcx-css-b7g1a9"
+          class="rcx-box rcx-box--full rcx-label__required rcx-mis-4"
         >
           *
         </span>
       </label>
       <span
-        class="rcx-box rcx-box--full rcx-field__description"
+        class="rcx-box rcx-box--full rcx-field__description rcx-font-p2 rcx-mb-2 rcx-color-font-secondary-info"
       >
         Description
       </span>
       <span
-        class="rcx-box rcx-box--full rcx-field__row"
+        class="rcx-box rcx-box--full rcx-field__row rcx-d-flex rcx-flex-row rcx-flex-nowrap rcx-justify-space-between rcx-items-center rcx-mbs-4 rcx-mbe-2 rcx-color-font-secondary-info"
       >
         <textarea
           aria-describedby="fieldWithTextAreaInfo"
@@ -220,20 +220,20 @@ exports[`[Field Component] renders WithTextArea without crashing 1`] = `
         />
       </span>
       <span
-        class="rcx-box rcx-box--full rcx-field__error"
+        class="rcx-box rcx-box--full rcx-field__error rcx-font-c1 rcx-mb-2 rcx-color-font-danger"
       >
         Error feedback
       </span>
       <span
-        class="rcx-box rcx-box--full rcx-field__row"
+        class="rcx-box rcx-box--full rcx-field__row rcx-d-flex rcx-flex-row rcx-flex-nowrap rcx-justify-space-between rcx-items-center rcx-mbs-4 rcx-mbe-2 rcx-color-font-secondary-info"
       >
         <span
-          class="rcx-box rcx-box--full rcx-field__hint"
+          class="rcx-box rcx-box--full rcx-field__hint rcx-font-c1 rcx-mb-2 rcx-color-font-secondary-info"
         >
           Hint
         </span>
         <a
-          class="rcx-box rcx-box--full rcx-field__link"
+          class="rcx-box rcx-box--full rcx-field__link rcx-font-c1 rcx-mb-2 rcx-color-font-info"
           href="#"
           target="_blank"
         >
@@ -249,10 +249,10 @@ exports[`[Field Component] renders WithTextInput without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-field"
+      class="rcx-box rcx-box--full rcx-field rcx-css-w18bmj"
     >
       <label
-        class="rcx-box rcx-box--full rcx-field__label rcx-label"
+        class="rcx-box rcx-box--full rcx-field__label rcx-label rcx-css-6cnl9o"
         for="fieldWithText"
       >
         Label
@@ -275,18 +275,18 @@ exports[`[Field Component] renders WithTextInput without crashing 1`] = `
         </span>
         <span
           aria-hidden="true"
-          class="rcx-box rcx-box--full rcx-label__required rcx-css-b7g1a9"
+          class="rcx-box rcx-box--full rcx-label__required rcx-mis-4"
         >
           *
         </span>
       </label>
       <span
-        class="rcx-box rcx-box--full rcx-field__description"
+        class="rcx-box rcx-box--full rcx-field__description rcx-font-p2 rcx-mb-2 rcx-color-font-secondary-info"
       >
         Description
       </span>
       <span
-        class="rcx-box rcx-box--full rcx-field__row"
+        class="rcx-box rcx-box--full rcx-field__row rcx-d-flex rcx-flex-row rcx-flex-nowrap rcx-justify-space-between rcx-items-center rcx-mbs-4 rcx-mbe-2 rcx-color-font-secondary-info"
       >
         <input
           aria-describedby="fieldWithTextInfo"
@@ -297,20 +297,20 @@ exports[`[Field Component] renders WithTextInput without crashing 1`] = `
         />
       </span>
       <span
-        class="rcx-box rcx-box--full rcx-field__error"
+        class="rcx-box rcx-box--full rcx-field__error rcx-font-c1 rcx-mb-2 rcx-color-font-danger"
       >
         Error feedback
       </span>
       <span
-        class="rcx-box rcx-box--full rcx-field__row"
+        class="rcx-box rcx-box--full rcx-field__row rcx-d-flex rcx-flex-row rcx-flex-nowrap rcx-justify-space-between rcx-items-center rcx-mbs-4 rcx-mbe-2 rcx-color-font-secondary-info"
       >
         <span
-          class="rcx-box rcx-box--full rcx-field__hint"
+          class="rcx-box rcx-box--full rcx-field__hint rcx-font-c1 rcx-mb-2 rcx-color-font-secondary-info"
         >
           Hint
         </span>
         <a
-          class="rcx-box rcx-box--full rcx-field__link"
+          class="rcx-box rcx-box--full rcx-field__link rcx-font-c1 rcx-mb-2 rcx-color-font-info"
           href="#"
           target="_blank"
         >
@@ -326,13 +326,13 @@ exports[`[Field Component] renders WithToggleSwitch without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-field"
+      class="rcx-box rcx-box--full rcx-field rcx-css-w18bmj"
     >
       <span
-        class="rcx-box rcx-box--full rcx-field__row"
+        class="rcx-box rcx-box--full rcx-field__row rcx-d-flex rcx-flex-row rcx-flex-nowrap rcx-justify-space-between rcx-items-center rcx-mbs-4 rcx-mbe-2 rcx-color-font-secondary-info"
       >
         <label
-          class="rcx-box rcx-box--full rcx-field__label rcx-label"
+          class="rcx-box rcx-box--full rcx-field__label rcx-label rcx-css-6cnl9o"
           for="fieldWithToggle"
         >
           Label
@@ -355,7 +355,7 @@ exports[`[Field Component] renders WithToggleSwitch without crashing 1`] = `
           </span>
           <span
             aria-hidden="true"
-            class="rcx-box rcx-box--full rcx-label__required rcx-css-b7g1a9"
+            class="rcx-box rcx-box--full rcx-label__required rcx-mis-4"
           >
             *
           </span>
@@ -376,25 +376,25 @@ exports[`[Field Component] renders WithToggleSwitch without crashing 1`] = `
         </label>
       </span>
       <span
-        class="rcx-box rcx-box--full rcx-field__description"
+        class="rcx-box rcx-box--full rcx-field__description rcx-font-p2 rcx-mb-2 rcx-color-font-secondary-info"
       >
         Description
       </span>
       <span
-        class="rcx-box rcx-box--full rcx-field__error"
+        class="rcx-box rcx-box--full rcx-field__error rcx-font-c1 rcx-mb-2 rcx-color-font-danger"
       >
         Error feedback
       </span>
       <span
-        class="rcx-box rcx-box--full rcx-field__row"
+        class="rcx-box rcx-box--full rcx-field__row rcx-d-flex rcx-flex-row rcx-flex-nowrap rcx-justify-space-between rcx-items-center rcx-mbs-4 rcx-mbe-2 rcx-color-font-secondary-info"
       >
         <span
-          class="rcx-box rcx-box--full rcx-field__hint"
+          class="rcx-box rcx-box--full rcx-field__hint rcx-font-c1 rcx-mb-2 rcx-color-font-secondary-info"
         >
           Hint
         </span>
         <a
-          class="rcx-box rcx-box--full rcx-field__link"
+          class="rcx-box rcx-box--full rcx-field__link rcx-font-c1 rcx-mb-2 rcx-color-font-info"
           href="#"
           target="_blank"
         >

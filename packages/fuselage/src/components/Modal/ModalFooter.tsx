@@ -6,7 +6,7 @@ const ModalFooter = ({
   children,
   justifyContent = 'end',
 }: ModalFooterProps) => (
-  <Box justifyContent={justifyContent} rcx-modal__footer>
+  <Box justifyContent={justifyContent} display='flex' alignItems='center' rcx-modal__footer>
     {children}
   </Box>
 );

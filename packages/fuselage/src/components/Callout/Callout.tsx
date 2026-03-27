@@ -41,6 +41,8 @@ const Callout = ({
     <Box
       ref={ref}
       is='section'
+      display='flex'
+      padding='x12'
       className={['rcx-callout', type && `rcx-callout--${type}`, className]
         .filter(Boolean)
         .join(' ')}
@@ -51,10 +53,28 @@ const Callout = ({
         name={icon || defaultIcon}
         size='x20'
       />
-      <Box rcx-callout__wrapper rcx-callout__wrapper--large={isLarge}>
-        <Box rcx-callout__wrapper-content>
+      <Box
+        rcx-callout__wrapper
+        rcx-callout__wrapper--large={isLarge}
+        overflow='hidden'
+        justifyContent='space-between'
+        flexGrow={1}
+        flexShrink={1}
+        flexBasis='0'
+        marginInlineStart='x12'
+        display={isLarge ? 'flex' : undefined}
+        flexDirection={isLarge ? 'row' : undefined}
+        alignItems={isLarge ? 'center' : undefined}
+      >
+        <Box
+          rcx-callout__wrapper-content
+          display='flex'
+          overflow='hidden'
+          flexDirection='column'
+          flexWrap='nowrap'
+        >
           {title && <Box rcx-callout__title>{title}</Box>}
-          {children && <Box rcx-callout__content>{children}</Box>}
+          {children && <Box rcx-callout__content display='block'>{children}</Box>}
         </Box>
         {actions && <Box rcx-callout__actions>{actions}</Box>}
       </Box>

@@ -32,7 +32,7 @@ function Badge({
     <Tag
       className={prependClassName(
         className,
-        `rcx-box rcx-box--full rcx-badge ${modifiers}`,
+        `rcx-box rcx-box--full rcx-badge rcx-d-flex rcx-overflow-hidden rcx-justify-center rcx-text-center rcx-rounded-full rcx-font-micro rcx-pbs-2 rcx-pbe-2 rcx-pis-4 rcx-pie-4 ${modifiers}`,
       )}
       {...props}
     />

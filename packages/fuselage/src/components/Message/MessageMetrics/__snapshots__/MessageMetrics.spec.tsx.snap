@@ -150,7 +150,7 @@ exports[`[MessageMetrics Rendering] renders Default without crashing 1`] = `
                   class="rcx-message-metrics__item"
                 >
                   <button
-                    class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button rcx-css-ll6zd0"
+                    class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button rcx-position-relative rcx-overflow-visible"
                     title="Following"
                     type="button"
                   >
@@ -292,7 +292,7 @@ exports[`[MessageMetrics Rendering] renders ThreadMetrics without crashing 1`] =
                   class="rcx-message-metrics__item"
                 >
                   <button
-                    class="rcx-box rcx-box--full rcx-button--small rcx-button--primary rcx-button rcx-css-yendf2"
+                    class="rcx-box rcx-box--full rcx-button--small rcx-button--primary rcx-button rcx-overflow-visible"
                     type="button"
                   >
                     <span
@@ -306,7 +306,7 @@ exports[`[MessageMetrics Rendering] renders ThreadMetrics without crashing 1`] =
                   class="rcx-message-metrics__item"
                 >
                   <button
-                    class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button rcx-css-ll6zd0"
+                    class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button rcx-position-relative rcx-overflow-visible"
                     title="Following"
                     type="button"
                   >
@@ -320,7 +320,7 @@ exports[`[MessageMetrics Rendering] renders ThreadMetrics without crashing 1`] =
                       class="rcx-message-metrics__item__follow-badge"
                     >
                       <span
-                        class="rcx-box rcx-box--full rcx-badge rcx-badge--danger rcx-badge--small"
+                        class="rcx-box rcx-box--full rcx-badge rcx-d-flex rcx-overflow-hidden rcx-justify-center rcx-text-center rcx-rounded-full rcx-font-micro rcx-pbs-2 rcx-pbe-2 rcx-pis-4 rcx-pie-4 rcx-badge--danger rcx-badge--small"
                       />
                     </div>
                   </button>

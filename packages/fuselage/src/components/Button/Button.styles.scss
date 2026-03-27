@@ -1,56 +1,51 @@
 @use 'sass:map';
 @use '../../styles/lengths.scss';
 @use '../../styles/typography.scss';
-@use '../../styles/variables/buttons.scss' as colors;
-@use '../../styles/primitives/button.scss';
-@use '../../styles/mixins/size.scss';
-@use '../../styles/mixins/interactivity.scss';
+@use '../../styles/variables/buttons.scss' as btn-colors;
 @import '../../styles/mixins/states.scss';
 
+// ════════════════════════════════════════════════════════════════
+// Button — CSS Custom Properties variant system
+//
+// Instead of expanding kind-variant() 19 times (generating ~285 CSS props),
+// we define ONE set of state rules that reference internal CSS vars,
+// and each variant class only sets those vars.
+//
+// Result: ~25 selector blocks instead of ~177
+// ════════════════════════════════════════════════════════════════
+
+// ─── Size mixins (unchanged) ─────────────────────────────────
+
+@mixin with-rectangular-size($height, $padding-x, $line-height) {
+  min-width: calc(lengths.size($height) * 2);
+  height: lengths.size($height);
+  padding: calc((lengths.padding($height) - $line-height) / 2 - 2px)
+    calc(lengths.padding($padding-x) - 2px);
+  padding-block: calc((lengths.padding($height) - $line-height) / 2 - 2px);
+  padding-inline: calc(lengths.padding($padding-x) - 2px);
+}
+
+@mixin with-squared-size($size) {
+  width: lengths.size($size);
+  min-width: lengths.size($size);
+  height: lengths.size($size);
+  padding: 0;
+
+  &::before,
+  &::after {
+    display: inline-block;
+    height: 100%;
+    content: '';
+  }
+}
+
+// ─── Base button with internal CSS vars ──────────────────────
+
 .rcx-button {
-  @mixin with-rectangular-size($height, $padding-x, $line-height) {
-    min-width: calc(lengths.size($height) * 2);
-    height: lengths.size($height);
-    padding: calc((lengths.padding($height) - $line-height) / 2 - 2px)
-      calc(lengths.padding($padding-x) - 2px);
-    padding-block: calc((lengths.padding($height) - $line-height) / 2 - 2px);
-
-    padding-inline: calc(lengths.padding($padding-x) - 2px);
-  }
-
-  @mixin with-squared-size($size) {
-    width: lengths.size($size);
-    min-width: lengths.size($size);
-    height: lengths.size($size);
-    padding: 0;
-
-    &::before,
-    &::after {
-      display: inline-block;
-
-      height: 100%;
-
-      content: '';
-    }
-  }
-
   display: inline-block;
-
   text-align: center;
   white-space: nowrap;
   text-decoration: none;
-
-  @include click-animation($excludeRole: 'status');
-
-  .rcx-button--content {
-    display: inline-block;
-
-    width: 100%;
-
-    vertical-align: top;
-
-    @include typography.use-with-truncated-text();
-  }
 
   @include clickable;
   @include typography.use-font-scale(p2m);
@@ -62,17 +57,74 @@
     $line-height: typography.line-height(p2)
   );
 
-  @include button.kind-variant(colors.$secondary);
+  // ── State rules using internal CSS vars ──
+  // These are set ONCE. Variants only change the var values.
 
+  color: var(--rcx-btn-color);
+  border-width: theme('button-border-width', lengths.border-width('default'));
+  border-style: solid;
+  border-color: var(--rcx-btn-border);
+  border-radius: theme('button-border-radius', lengths.border-radius(medium));
+  background-color: var(--rcx-btn-bg);
+  appearance: none;
+
+  @include on-hover {
+    border-color: var(--rcx-btn-hover-border);
+    background-color: var(--rcx-btn-hover-bg);
+    box-shadow: none;
+  }
+
+  @include on-focus-visible {
+    border-color: var(--rcx-btn-focus-border);
+    background-color: var(--rcx-btn-focus-bg);
+    box-shadow: 0 0 0 #{lengths.border-width('medium')} var(--rcx-btn-focus-shadow);
+  }
+
+  @include on-active {
+    border-color: var(--rcx-btn-active-border);
+    background-color: var(--rcx-btn-active-bg);
+    box-shadow: none;
+  }
+
+  @include on-pressed {
+    color: var(--rcx-btn-pressed-color, var(--rcx-btn-color));
+    border-color: var(--rcx-btn-pressed-border, var(--rcx-btn-active-border));
+    background-color: var(--rcx-btn-pressed-bg, var(--rcx-btn-active-bg));
+  }
+
+  @include on-disabled {
+    color: var(--rcx-btn-disabled-color);
+    border-color: var(--rcx-btn-disabled-border);
+    background-color: var(--rcx-btn-disabled-bg);
+
+    .rcx-button--content {
+      transform: none !important;
+    }
+  }
+
+  // click animation
+  &:not([role='status']):active:not(:disabled) > .rcx-button--content {
+    transform: translateY(1px);
+  }
+
+  // ── Content wrapper ──
+  .rcx-button--content {
+    display: inline-block;
+    width: 100%;
+    vertical-align: top;
+    @include typography.use-with-truncated-text();
+  }
+
+  // ── Loading ──
   &--loading {
     .rcx-icon--name-loading {
       animation: spin-animation 0.8s linear infinite;
     }
   }
 
+  // ── Size variants ──
   &--small {
     @include typography.use-font-scale(c2);
-
     @include with-rectangular-size(
       $height: 28,
       $padding-x: 8,
@@ -82,7 +134,6 @@
 
   &--medium {
     @include typography.use-font-scale(c2);
-
     @include with-rectangular-size(
       $height: 32,
       $padding-x: 12,
@@ -92,7 +143,6 @@
 
   &--large {
     @include typography.use-font-scale(p2);
-
     @include with-rectangular-size(
       $height: 48,
       $padding-x: 24,
@@ -108,110 +158,81 @@
     flex-shrink: 0;
   }
 
+  &--mini-square { @include with-squared-size($size: 20); }
+  &--tiny-square { @include with-squared-size($size: 24); }
+  &--small-square { @include with-squared-size($size: 28); }
+  &--medium-square { @include with-squared-size($size: 32); }
+  &--large-square { @include with-squared-size($size: 40); }
+
+  // ── Icon button base ──
   &--icon {
-    @include button.kind-variant(colors.$icon);
-    @include click-animation('status');
-
     padding: 0;
-
     line-height: 0;
 
-    &-secondary {
-      @include button.kind-variant(colors.$secondary);
+    // click animation for icon buttons uses status role
+    &:active:not(:disabled) > .rcx-button--content {
+      transform: translateY(1px);
     }
-
-    &-info {
-      @include button.kind-variant(colors.$icon-info);
-    }
-
-    &-success {
-      @include button.kind-variant(colors.$icon-success);
-    }
-
-    &-warning {
-      @include button.kind-variant(colors.$icon-warning);
-    }
-
-    &-danger {
-      @include button.kind-variant(colors.$icon-danger);
-    }
-
-    &-secondary-info {
-      @include button.kind-variant(colors.$primary);
-    }
-
-    &-secondary-success {
-      @include button.kind-variant(colors.$success);
-    }
-
-    &-secondary-warning {
-      @include button.kind-variant(colors.$warning);
-    }
-
-    &-secondary-danger {
-      @include button.kind-variant(colors.$danger);
-    }
-  }
-
-  &--mini-square {
-    @include with-squared-size($size: 20);
-  }
-
-  &--tiny-square {
-    @include with-squared-size($size: 24);
-  }
-
-  &--small-square {
-    @include with-squared-size($size: 28);
-  }
-
-  &--medium-square {
-    @include with-squared-size($size: 32);
-  }
-
-  &--large-square {
-    @include with-squared-size($size: 40);
-  }
-
-  &--primary {
-    @include button.kind-variant(colors.$primary);
-  }
-
-  &--secondary {
-    @include button.kind-variant(colors.$secondary);
-  }
-
-  &--secondary-danger {
-    @include button.kind-variant(colors.$secondary-danger);
-  }
-
-  &--danger {
-    @include button.kind-variant(colors.$danger);
-  }
-
-  &--warning {
-    @include button.kind-variant(colors.$warning);
-  }
-
-  &--secondary-warning {
-    @include button.kind-variant(colors.$secondary-warning);
-  }
-
-  &--success {
-    @include button.kind-variant(colors.$success);
-  }
-
-  &--secondary-success {
-    @include button.kind-variant(colors.$secondary-success);
   }
 }
 
-@keyframes spin-animation {
-  from {
-    transform: rotate(0deg);
-  }
+// ════════════════════════════════════════════════════════════════
+// VARIANT DEFINITIONS — each only sets CSS var values
+// ════════════════════════════════════════════════════════════════
 
-  to {
-    transform: rotate(360deg);
-  }
+// Helper mixin: maps a SCSS color map to internal CSS vars
+@mixin button-variant($colors) {
+  --rcx-btn-color: #{map.get($colors, color)};
+  --rcx-btn-border: #{map.get($colors, border-color)};
+  --rcx-btn-bg: #{map.get($colors, background-color)};
+  --rcx-btn-hover-border: #{map.get($colors, hover-border-color)};
+  --rcx-btn-hover-bg: #{map.get($colors, hover-background-color)};
+  --rcx-btn-focus-border: #{map.get($colors, focus-border-color)};
+  --rcx-btn-focus-bg: #{map.get($colors, focus-background-color)};
+  --rcx-btn-focus-shadow: #{map.get($colors, focus-shadow-color)};
+  --rcx-btn-active-border: #{map.get($colors, active-border-color)};
+  --rcx-btn-active-bg: #{map.get($colors, active-background-color)};
+  --rcx-btn-disabled-color: #{map.get($colors, disabled-color)};
+  --rcx-btn-disabled-border: #{map.get($colors, disabled-border-color)};
+  --rcx-btn-disabled-bg: #{map.get($colors, disabled-background-color)};
+
+  $pressed-color: map.get($colors, pressed-color);
+  $pressed-border: map.get($colors, pressed-border-color);
+  $pressed-bg: map.get($colors, pressed-background-color);
+
+  @if $pressed-color { --rcx-btn-pressed-color: #{$pressed-color}; }
+  @if $pressed-border { --rcx-btn-pressed-border: #{$pressed-border}; }
+  @if $pressed-bg { --rcx-btn-pressed-bg: #{$pressed-bg}; }
+}
+
+// Default (secondary)
+.rcx-button { @include button-variant(btn-colors.$secondary); }
+
+// Named variants
+.rcx-button--primary { @include button-variant(btn-colors.$primary); }
+.rcx-button--secondary { @include button-variant(btn-colors.$secondary); }
+.rcx-button--danger { @include button-variant(btn-colors.$danger); }
+.rcx-button--secondary-danger { @include button-variant(btn-colors.$secondary-danger); }
+.rcx-button--warning { @include button-variant(btn-colors.$warning); }
+.rcx-button--secondary-warning { @include button-variant(btn-colors.$secondary-warning); }
+.rcx-button--success { @include button-variant(btn-colors.$success); }
+.rcx-button--secondary-success { @include button-variant(btn-colors.$secondary-success); }
+
+// Icon variants
+.rcx-button--icon { @include button-variant(btn-colors.$icon); }
+.rcx-button--icon-secondary { @include button-variant(btn-colors.$secondary); }
+.rcx-button--icon-info { @include button-variant(btn-colors.$icon-info); }
+.rcx-button--icon-success { @include button-variant(btn-colors.$icon-success); }
+.rcx-button--icon-warning { @include button-variant(btn-colors.$icon-warning); }
+.rcx-button--icon-danger { @include button-variant(btn-colors.$icon-danger); }
+
+// Icon with secondary variants (used when icon + secondary + danger/etc)
+.rcx-button--icon-secondary-info { @include button-variant(btn-colors.$primary); }
+.rcx-button--icon-secondary-success { @include button-variant(btn-colors.$success); }
+.rcx-button--icon-secondary-warning { @include button-variant(btn-colors.$warning); }
+.rcx-button--icon-secondary-danger { @include button-variant(btn-colors.$danger); }
+
+@keyframes spin-animation {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }

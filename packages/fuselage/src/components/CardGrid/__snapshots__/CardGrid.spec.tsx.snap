@@ -13,10 +13,10 @@ exports[`[CardGrid Rendering] renders _CardGrid without crashing 1`] = `
           class="rcx-box rcx-box--full rcx-card-grid__item rcx-grid__item--xl-3 rcx-grid__item--lg-3 rcx-grid__item--md-4 rcx-grid__item--sm-4 rcx-grid__item--xs-4 rcx-grid__item rcx-css-itjqln"
         >
           <div
-            class="rcx-box rcx-box--full rcx-card__vertical rcx-card"
+            class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-d-flex rcx-rounded-8"
           >
             <div
-              class="rcx-card__header"
+              class="rcx-card__header rcx-d-flex rcx-items-center"
             >
               <i
                 aria-hidden="true"
@@ -25,7 +25,7 @@ exports[`[CardGrid Rendering] renders _CardGrid without crashing 1`] = `
                 
               </i>
               <h3
-                class="rcx-box rcx-box--full rcx-card__title rcx-css-1sfto34"
+                class="rcx-box rcx-box--full rcx-card__title rcx-font-h3"
               >
                 Heading 3
                 <span
@@ -52,7 +52,7 @@ exports[`[CardGrid Rendering] renders _CardGrid without crashing 1`] = `
               Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
             </div>
             <div
-              class="rcx-card__controls"
+              class="rcx-card__controls rcx-d-flex rcx-items-center"
             >
               <button
                 class="rcx-box rcx-box--full rcx-button--medium rcx-button--primary rcx-button"
@@ -81,10 +81,10 @@ exports[`[CardGrid Rendering] renders _CardGrid without crashing 1`] = `
           class="rcx-box rcx-box--full rcx-card-grid__item rcx-grid__item--xl-3 rcx-grid__item--lg-3 rcx-grid__item--md-4 rcx-grid__item--sm-4 rcx-grid__item--xs-4 rcx-grid__item rcx-css-itjqln"
         >
           <div
-            class="rcx-box rcx-box--full rcx-card__vertical rcx-card"
+            class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-d-flex rcx-rounded-8"
           >
             <div
-              class="rcx-card__header"
+              class="rcx-card__header rcx-d-flex rcx-items-center"
             >
               <i
                 aria-hidden="true"
@@ -93,7 +93,7 @@ exports[`[CardGrid Rendering] renders _CardGrid without crashing 1`] = `
                 
               </i>
               <h3
-                class="rcx-box rcx-box--full rcx-card__title rcx-css-1sfto34"
+                class="rcx-box rcx-box--full rcx-card__title rcx-font-h3"
               >
                 Heading 3
                 <span
@@ -120,7 +120,7 @@ exports[`[CardGrid Rendering] renders _CardGrid without crashing 1`] = `
               Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
             </div>
             <div
-              class="rcx-card__controls"
+              class="rcx-card__controls rcx-d-flex rcx-items-center"
             >
               <button
                 class="rcx-box rcx-box--full rcx-button--medium rcx-button--primary rcx-button"
@@ -149,10 +149,10 @@ exports[`[CardGrid Rendering] renders _CardGrid without crashing 1`] = `
           class="rcx-box rcx-box--full rcx-card-grid__item rcx-grid__item--xl-3 rcx-grid__item--lg-3 rcx-grid__item--md-4 rcx-grid__item--sm-4 rcx-grid__item--xs-4 rcx-grid__item rcx-css-itjqln"
         >
           <div
-            class="rcx-box rcx-box--full rcx-card__vertical rcx-card"
+            class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-d-flex rcx-rounded-8"
           >
             <div
-              class="rcx-card__header"
+              class="rcx-card__header rcx-d-flex rcx-items-center"
             >
               <i
                 aria-hidden="true"
@@ -161,7 +161,7 @@ exports[`[CardGrid Rendering] renders _CardGrid without crashing 1`] = `
                 
               </i>
               <h3
-                class="rcx-box rcx-box--full rcx-card__title rcx-css-1sfto34"
+                class="rcx-box rcx-box--full rcx-card__title rcx-font-h3"
               >
                 Heading 3
                 <span
@@ -188,7 +188,7 @@ exports[`[CardGrid Rendering] renders _CardGrid without crashing 1`] = `
               Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
             </div>
             <div
-              class="rcx-card__controls"
+              class="rcx-card__controls rcx-d-flex rcx-items-center"
             >
               <button
                 class="rcx-box rcx-box--full rcx-button--medium rcx-button--primary rcx-button"
@@ -217,10 +217,10 @@ exports[`[CardGrid Rendering] renders _CardGrid without crashing 1`] = `
           class="rcx-box rcx-box--full rcx-card-grid__item rcx-grid__item--xl-3 rcx-grid__item--lg-3 rcx-grid__item--md-4 rcx-grid__item--sm-4 rcx-grid__item--xs-4 rcx-grid__item rcx-css-itjqln"
         >
           <div
-            class="rcx-box rcx-box--full rcx-card__vertical rcx-card"
+            class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-d-flex rcx-rounded-8"
           >
             <div
-              class="rcx-card__header"
+              class="rcx-card__header rcx-d-flex rcx-items-center"
             >
               <i
                 aria-hidden="true"
@@ -229,7 +229,7 @@ exports[`[CardGrid Rendering] renders _CardGrid without crashing 1`] = `
                 
               </i>
               <h3
-                class="rcx-box rcx-box--full rcx-card__title rcx-css-1sfto34"
+                class="rcx-box rcx-box--full rcx-card__title rcx-font-h3"
               >
                 Heading 3
                 <span
@@ -256,7 +256,7 @@ exports[`[CardGrid Rendering] renders _CardGrid without crashing 1`] = `
               Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
             </div>
             <div
-              class="rcx-card__controls"
+              class="rcx-card__controls rcx-d-flex rcx-items-center"
             >
               <button
                 class="rcx-box rcx-box--full rcx-button--medium rcx-button--primary rcx-button"
@@ -285,10 +285,10 @@ exports[`[CardGrid Rendering] renders _CardGrid without crashing 1`] = `
           class="rcx-box rcx-box--full rcx-card-grid__item rcx-grid__item--xl-3 rcx-grid__item--lg-3 rcx-grid__item--md-4 rcx-grid__item--sm-4 rcx-grid__item--xs-4 rcx-grid__item rcx-css-itjqln"
         >
           <div
-            class="rcx-box rcx-box--full rcx-card__vertical rcx-card"
+            class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-d-flex rcx-rounded-8"
           >
             <div
-              class="rcx-card__header"
+              class="rcx-card__header rcx-d-flex rcx-items-center"
             >
               <i
                 aria-hidden="true"
@@ -297,7 +297,7 @@ exports[`[CardGrid Rendering] renders _CardGrid without crashing 1`] = `
                 
               </i>
               <h3
-                class="rcx-box rcx-box--full rcx-card__title rcx-css-1sfto34"
+                class="rcx-box rcx-box--full rcx-card__title rcx-font-h3"
               >
                 Heading 3
                 <span
@@ -324,7 +324,7 @@ exports[`[CardGrid Rendering] renders _CardGrid without crashing 1`] = `
               Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
             </div>
             <div
-              class="rcx-card__controls"
+              class="rcx-card__controls rcx-d-flex rcx-items-center"
             >
               <button
                 class="rcx-box rcx-box--full rcx-button--medium rcx-button--primary rcx-button"
@@ -353,10 +353,10 @@ exports[`[CardGrid Rendering] renders _CardGrid without crashing 1`] = `
           class="rcx-box rcx-box--full rcx-card-grid__item rcx-grid__item--xl-3 rcx-grid__item--lg-3 rcx-grid__item--md-4 rcx-grid__item--sm-4 rcx-grid__item--xs-4 rcx-grid__item rcx-css-itjqln"
         >
           <div
-            class="rcx-box rcx-box--full rcx-card__vertical rcx-card"
+            class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-d-flex rcx-rounded-8"
           >
             <div
-              class="rcx-card__header"
+              class="rcx-card__header rcx-d-flex rcx-items-center"
             >
               <i
                 aria-hidden="true"
@@ -365,7 +365,7 @@ exports[`[CardGrid Rendering] renders _CardGrid without crashing 1`] = `
                 
               </i>
               <h3
-                class="rcx-box rcx-box--full rcx-card__title rcx-css-1sfto34"
+                class="rcx-box rcx-box--full rcx-card__title rcx-font-h3"
               >
                 Heading 3
                 <span
@@ -392,7 +392,7 @@ exports[`[CardGrid Rendering] renders _CardGrid without crashing 1`] = `
               Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
             </div>
             <div
-              class="rcx-card__controls"
+              class="rcx-card__controls rcx-d-flex rcx-items-center"
             >
               <button
                 class="rcx-box rcx-box--full rcx-button--medium rcx-button--primary rcx-button"
@@ -421,10 +421,10 @@ exports[`[CardGrid Rendering] renders _CardGrid without crashing 1`] = `
           class="rcx-box rcx-box--full rcx-card-grid__item rcx-grid__item--xl-3 rcx-grid__item--lg-3 rcx-grid__item--md-4 rcx-grid__item--sm-4 rcx-grid__item--xs-4 rcx-grid__item rcx-css-itjqln"
         >
           <div
-            class="rcx-box rcx-box--full rcx-card__vertical rcx-card"
+            class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-d-flex rcx-rounded-8"
           >
             <div
-              class="rcx-card__header"
+              class="rcx-card__header rcx-d-flex rcx-items-center"
             >
               <i
                 aria-hidden="true"
@@ -433,7 +433,7 @@ exports[`[CardGrid Rendering] renders _CardGrid without crashing 1`] = `
                 
               </i>
               <h3
-                class="rcx-box rcx-box--full rcx-card__title rcx-css-1sfto34"
+                class="rcx-box rcx-box--full rcx-card__title rcx-font-h3"
               >
                 Heading 3
                 <span
@@ -460,7 +460,7 @@ exports[`[CardGrid Rendering] renders _CardGrid without crashing 1`] = `
               Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
             </div>
             <div
-              class="rcx-card__controls"
+              class="rcx-card__controls rcx-d-flex rcx-items-center"
             >
               <button
                 class="rcx-box rcx-box--full rcx-button--medium rcx-button--primary rcx-button"
@@ -489,10 +489,10 @@ exports[`[CardGrid Rendering] renders _CardGrid without crashing 1`] = `
           class="rcx-box rcx-box--full rcx-card-grid__item rcx-grid__item--xl-3 rcx-grid__item--lg-3 rcx-grid__item--md-4 rcx-grid__item--sm-4 rcx-grid__item--xs-4 rcx-grid__item rcx-css-itjqln"
         >
           <div
-            class="rcx-box rcx-box--full rcx-card__vertical rcx-card"
+            class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-d-flex rcx-rounded-8"
           >
             <div
-              class="rcx-card__header"
+              class="rcx-card__header rcx-d-flex rcx-items-center"
             >
               <i
                 aria-hidden="true"
@@ -501,7 +501,7 @@ exports[`[CardGrid Rendering] renders _CardGrid without crashing 1`] = `
                 
               </i>
               <h3
-                class="rcx-box rcx-box--full rcx-card__title rcx-css-1sfto34"
+                class="rcx-box rcx-box--full rcx-card__title rcx-font-h3"
               >
                 Heading 3
                 <span
@@ -528,7 +528,7 @@ exports[`[CardGrid Rendering] renders _CardGrid without crashing 1`] = `
               Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
             </div>
             <div
-              class="rcx-card__controls"
+              class="rcx-card__controls rcx-d-flex rcx-items-center"
             >
               <button
                 class="rcx-box rcx-box--full rcx-button--medium rcx-button--primary rcx-button"
@@ -557,10 +557,10 @@ exports[`[CardGrid Rendering] renders _CardGrid without crashing 1`] = `
           class="rcx-box rcx-box--full rcx-card-grid__item rcx-grid__item--xl-3 rcx-grid__item--lg-3 rcx-grid__item--md-4 rcx-grid__item--sm-4 rcx-grid__item--xs-4 rcx-grid__item rcx-css-itjqln"
         >
           <div
-            class="rcx-box rcx-box--full rcx-card__vertical rcx-card"
+            class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-d-flex rcx-rounded-8"
           >
             <div
-              class="rcx-card__header"
+              class="rcx-card__header rcx-d-flex rcx-items-center"
             >
               <i
                 aria-hidden="true"
@@ -569,7 +569,7 @@ exports[`[CardGrid Rendering] renders _CardGrid without crashing 1`] = `
                 
               </i>
               <h3
-                class="rcx-box rcx-box--full rcx-card__title rcx-css-1sfto34"
+                class="rcx-box rcx-box--full rcx-card__title rcx-font-h3"
               >
                 Heading 3
                 <span
@@ -596,7 +596,7 @@ exports[`[CardGrid Rendering] renders _CardGrid without crashing 1`] = `
               Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
             </div>
             <div
-              class="rcx-card__controls"
+              class="rcx-card__controls rcx-d-flex rcx-items-center"
             >
               <button
                 class="rcx-box rcx-box--full rcx-button--medium rcx-button--primary rcx-button"

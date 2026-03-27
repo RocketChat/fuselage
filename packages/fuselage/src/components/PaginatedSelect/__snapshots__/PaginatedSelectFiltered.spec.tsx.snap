@@ -8,7 +8,7 @@ exports[`[PaginatedSelectFiltered Component] renders Disabled without crashing 1
       disabled=""
     >
       <div
-        class="rcx-box rcx-box--full rcx-select__wrapper rcx-css-bpb89k"
+        class="rcx-box rcx-box--full rcx-select__wrapper rcx-d-flex rcx-mi-neg-4"
       >
         <input
           aria-haspopup="listbox"
@@ -18,7 +18,7 @@ exports[`[PaginatedSelectFiltered Component] renders Disabled without crashing 1
           value=""
         />
         <div
-          class="rcx-box rcx-box--full rcx-select__addon rcx-css-x7bl3q rcx-css-6bg1ps"
+          class="rcx-box rcx-box--full rcx-select__addon rcx-css-x7bl3q rcx-mi-4"
         >
           <i
             aria-hidden="true"
@@ -40,7 +40,7 @@ exports[`[PaginatedSelectFiltered Component] renders Errored without crashing 1`
       class="rcx-box rcx-box--full rcx-select invalid rcx-css-5gkzmp"
     >
       <div
-        class="rcx-box rcx-box--full rcx-select__wrapper rcx-css-bpb89k"
+        class="rcx-box rcx-box--full rcx-select__wrapper rcx-d-flex rcx-mi-neg-4"
       >
         <input
           aria-haspopup="listbox"
@@ -49,7 +49,7 @@ exports[`[PaginatedSelectFiltered Component] renders Errored without crashing 1`
           value=""
         />
         <div
-          class="rcx-box rcx-box--full rcx-select__addon rcx-css-x7bl3q rcx-css-6bg1ps"
+          class="rcx-box rcx-box--full rcx-select__addon rcx-css-x7bl3q rcx-mi-4"
         >
           <i
             aria-hidden="true"
@@ -71,7 +71,7 @@ exports[`[PaginatedSelectFiltered Component] renders Normal without crashing 1`]
       class="rcx-box rcx-box--full rcx-select rcx-css-5gkzmp"
     >
       <div
-        class="rcx-box rcx-box--full rcx-select__wrapper rcx-css-bpb89k"
+        class="rcx-box rcx-box--full rcx-select__wrapper rcx-d-flex rcx-mi-neg-4"
       >
         <input
           aria-haspopup="listbox"
@@ -80,7 +80,7 @@ exports[`[PaginatedSelectFiltered Component] renders Normal without crashing 1`]
           value=""
         />
         <div
-          class="rcx-box rcx-box--full rcx-select__addon rcx-css-x7bl3q rcx-css-6bg1ps"
+          class="rcx-box rcx-box--full rcx-select__addon rcx-css-x7bl3q rcx-mi-4"
         >
           <i
             aria-hidden="true"
@@ -102,7 +102,7 @@ exports[`[PaginatedSelectFiltered Component] renders WithRenderItem without cras
       class="rcx-box rcx-box--full rcx-select rcx-css-5gkzmp"
     >
       <div
-        class="rcx-box rcx-box--full rcx-select__wrapper rcx-css-bpb89k"
+        class="rcx-box rcx-box--full rcx-select__wrapper rcx-d-flex rcx-mi-neg-4"
       >
         <input
           aria-haspopup="listbox"
@@ -111,7 +111,7 @@ exports[`[PaginatedSelectFiltered Component] renders WithRenderItem without cras
           value=""
         />
         <div
-          class="rcx-box rcx-box--full rcx-select__addon rcx-css-x7bl3q rcx-css-6bg1ps"
+          class="rcx-box rcx-box--full rcx-select__addon rcx-css-x7bl3q rcx-mi-4"
         >
           <i
             aria-hidden="true"

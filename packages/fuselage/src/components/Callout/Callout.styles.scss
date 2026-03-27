@@ -2,6 +2,10 @@
 @use '../../styles/lengths.scss';
 @use '../../styles/typography.scss';
 
+// Static layout props (display, padding) moved to Callout.tsx.
+// Remaining: theme() color variables, type variants, child spacing selectors,
+// text-ellipsis, and typography scales.
+
 $callout-background-color: theme(
   'callout-background-color',
   colors.surface(light)
@@ -26,72 +30,39 @@ $callout-danger-color: theme(
 $callout-text-color: theme('callout-text-color', colors.font(default));
 
 .rcx-callout {
-  display: flex;
-
-  padding: lengths.padding(12);
-
   color: $callout-text-color;
-
   border-width: lengths.border-width(default);
   border-style: solid;
   border-color: $callout-default-color;
-
   border-radius: theme('callout-border-radius', lengths.border-radius(medium));
-
   background-color: $callout-background-color;
 
   &--info {
     border-color: $callout-info-color;
-
-    .rcx-callout__icon {
-      color: $callout-info-color;
-    }
+    .rcx-callout__icon { color: $callout-info-color; }
   }
 
   &--success {
     border-color: $callout-success-color;
-
-    .rcx-callout__icon {
-      color: $callout-success-color;
-    }
+    .rcx-callout__icon { color: $callout-success-color; }
   }
 
   &--warning {
     border-color: $callout-warning-color;
-
-    .rcx-callout__icon {
-      color: $callout-warning-color;
-    }
+    .rcx-callout__icon { color: $callout-warning-color; }
   }
 
   &--danger {
     border-color: $callout-danger-color;
-
-    .rcx-callout__icon {
-      color: $callout-danger-color;
-    }
+    .rcx-callout__icon { color: $callout-danger-color; }
   }
 
   &__wrapper {
-    overflow: hidden;
-
-    justify-content: space-between;
-
-    flex: 1 1 0;
-
-    margin-inline-start: lengths.margin(12);
-
     > :nth-child(2) {
       margin-block-start: lengths.margin(12);
     }
 
     &--large {
-      display: flex;
-
-      overflow: hidden;
-      flex-direction: row;
-      align-items: center;
-
       > :nth-child(2) {
         margin-block-start: lengths.margin(0);
       }
@@ -99,11 +70,6 @@ $callout-text-color: theme('callout-text-color', colors.font(default));
   }
 
   &__wrapper-content {
-    display: flex;
-
-    overflow: hidden;
-    flex-flow: column nowrap;
-
     > :nth-child(2) {
       margin-block-start: lengths.margin(4);
     }
@@ -111,14 +77,11 @@ $callout-text-color: theme('callout-text-color', colors.font(default));
 
   &__title {
     white-space: nowrap;
-
     @include typography.use-font-scale(p2b);
     @include typography.use-text-ellipsis;
   }
 
   &__content {
-    display: block;
-
     @include typography.use-font-scale(p2);
   }
 }

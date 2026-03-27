@@ -8,7 +8,7 @@ export type FieldGroupProps = BoxProps;
  * A container for grouping fields that semantically share a common data context.
  */
 const FieldGroup = ({ children, ...props }: FieldGroupProps) => (
-  <Box is='fieldset' rcx-field-group role='group' {...props}>
+  <Box is='fieldset' rcx-field-group role='group' display='flex' flexDirection='column' flexWrap='nowrap' justifyContent='center' alignItems='stretch' minWidth='none' {...props}>
     {patchChildren(
       children,
       (childProps: { className: string | string[] }) => ({

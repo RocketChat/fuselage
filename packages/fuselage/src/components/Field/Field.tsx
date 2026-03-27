@@ -12,7 +12,16 @@ export type FieldProps = BoxProps;
 function Field(props: FieldProps) {
   return (
     <FieldContext.Provider value={true}>
-      <Box rcx-field {...props} />
+      <Box
+        rcx-field
+        display='flex'
+        flexDirection='column'
+        flexWrap='nowrap'
+        alignItems='stretch'
+        flexShrink={0}
+        width='full'
+        {...props}
+      />
     </FieldContext.Provider>
   );
 }

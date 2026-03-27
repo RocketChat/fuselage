@@ -33,7 +33,7 @@ exports[`[Contextualbar Rendering] renders Default without crashing 1`] = `
               ContextualbarV2 Title
             </div>
             <div
-              class="rcx-button-group rcx-button-group--align-start"
+              class="rcx-button-group rcx-d-flex rcx-flex-row rcx-flex-nowrap rcx-items-center rcx-button-group--align-start"
               role="group"
             >
               <button
@@ -79,7 +79,7 @@ exports[`[Contextualbar Rendering] renders Default without crashing 1`] = `
           class="rcx-box rcx-box--full rcx-vertical-bar__section rcx-css-16mbly4"
         >
           <label
-            class="rcx-box rcx-box--full rcx-label rcx-box rcx-box--full rcx-box--animated rcx-input-box__wrapper"
+            class="rcx-box rcx-box--full rcx-label rcx-box rcx-box--full rcx-box--animated rcx-input-box__wrapper rcx-d-flex rcx-font-p2m rcx-color-font-default"
           >
             <input
               class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--undecorated rcx-input-box--type-text rcx-input-box"
@@ -106,11 +106,11 @@ exports[`[Contextualbar Rendering] renders Default without crashing 1`] = `
           class="rcx-box rcx-box--full rcx-css-f51umh"
         >
           <div
-            class="rcx-button-group rcx-button-group--align-start"
+            class="rcx-button-group rcx-d-flex rcx-flex-row rcx-flex-nowrap rcx-items-center rcx-button-group--align-start"
             role="group"
           >
             <button
-              class="rcx-box rcx-box--full rcx-button--secondary rcx-button rcx-button-group__item rcx-css-1qcz93u"
+              class="rcx-box rcx-box--full rcx-button--secondary rcx-button rcx-button-group__item rcx-w-full"
               type="button"
             >
               <span
@@ -120,7 +120,7 @@ exports[`[Contextualbar Rendering] renders Default without crashing 1`] = `
               </span>
             </button>
             <button
-              class="rcx-box rcx-box--full rcx-button--primary rcx-button rcx-button-group__item rcx-css-1qcz93u"
+              class="rcx-box rcx-box--full rcx-button--primary rcx-button rcx-button-group__item rcx-w-full"
               type="button"
             >
               <span
@@ -182,7 +182,7 @@ exports[`[Contextualbar Rendering] renders Empty without crashing 1`] = `
               ContextualbarV2 Empty
             </div>
             <div
-              class="rcx-button-group rcx-button-group--align-start"
+              class="rcx-button-group rcx-d-flex rcx-flex-row rcx-flex-nowrap rcx-items-center rcx-button-group--align-start"
               role="group"
             >
               <button
@@ -204,7 +204,7 @@ exports[`[Contextualbar Rendering] renders Empty without crashing 1`] = `
           class="rcx-box rcx-box--full rcx-vertical-bar__content rcx-css-r8c38r"
         >
           <div
-            class="rcx-states"
+            class="rcx-states rcx-d-flex rcx-flex-column rcx-justify-center rcx-items-center rcx-p-16"
           >
             <i
               aria-hidden="true"

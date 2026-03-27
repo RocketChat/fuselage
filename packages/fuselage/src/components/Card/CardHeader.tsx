@@ -5,7 +5,7 @@ export type CardHeaderProps = {
 } & AllHTMLAttributes<HTMLElement>;
 
 const CardHeader = ({ children, ...props }: CardHeaderProps) => (
-  <div className='rcx-card__header' {...props}>
+  <div className='rcx-card__header rcx-d-flex rcx-items-center' {...props}>
     {children}
   </div>
 );

@@ -7,13 +7,14 @@ export type TableProps = BoxProps & {
 };
 
 const Table = ({ striped, sticky, fixed = false, ...props }: TableProps) => (
-  <Box rcx-table__wrapper>
+  <Box rcx-table__wrapper position='relative'>
     <Box
       is='table'
       rcx-table
       rcx-table--fixed={fixed}
       rcx-table--sticky={sticky}
       rcx-table--striped={striped}
+      width='full'
       {...props}
     />
   </Box>

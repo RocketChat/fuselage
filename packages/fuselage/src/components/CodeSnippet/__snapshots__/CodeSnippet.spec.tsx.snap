@@ -4,7 +4,7 @@ exports[`[CodeSnippet Rendering] renders CopyButton without crashing 1`] = `
 <body>
   <div>
     <pre
-      class="rcx-box rcx-box--full rcx-code-snippet"
+      class="rcx-box rcx-box--full rcx-code-snippet rcx-d-flex rcx-flex-row rcx-justify-space-between rcx-items-center rcx-w-full rcx-p-16 rcx-color-font-default rcx-bg-surface-neutral"
     >
       <div
         class="rcx-box rcx-box--full rcx-code-snippet__codebox"
@@ -35,7 +35,7 @@ exports[`[CodeSnippet Rendering] renders CustomButtonName without crashing 1`] =
 <body>
   <div>
     <pre
-      class="rcx-box rcx-box--full rcx-code-snippet"
+      class="rcx-box rcx-box--full rcx-code-snippet rcx-d-flex rcx-flex-row rcx-justify-space-between rcx-items-center rcx-w-full rcx-p-16 rcx-color-font-default rcx-bg-surface-neutral"
     >
       <div
         class="rcx-box rcx-box--full rcx-code-snippet__codebox"
@@ -66,7 +66,7 @@ exports[`[CodeSnippet Rendering] renders Default without crashing 1`] = `
 <body>
   <div>
     <pre
-      class="rcx-box rcx-box--full rcx-code-snippet"
+      class="rcx-box rcx-box--full rcx-code-snippet rcx-d-flex rcx-flex-row rcx-justify-space-between rcx-items-center rcx-w-full rcx-p-16 rcx-color-font-default rcx-bg-surface-neutral"
     >
       <div
         class="rcx-box rcx-box--full rcx-code-snippet__codebox"
@@ -83,7 +83,7 @@ exports[`[CodeSnippet Rendering] renders DisabledButton without crashing 1`] = `
 <body>
   <div>
     <pre
-      class="rcx-box rcx-box--full rcx-code-snippet"
+      class="rcx-box rcx-box--full rcx-code-snippet rcx-d-flex rcx-flex-row rcx-justify-space-between rcx-items-center rcx-w-full rcx-p-16 rcx-color-font-default rcx-bg-surface-neutral"
     >
       <div
         class="rcx-box rcx-box--full rcx-code-snippet__codebox"
@@ -115,7 +115,7 @@ exports[`[CodeSnippet Rendering] renders LoadingCode without crashing 1`] = `
 <body>
   <div>
     <pre
-      class="rcx-box rcx-box--full rcx-code-snippet"
+      class="rcx-box rcx-box--full rcx-code-snippet rcx-d-flex rcx-flex-row rcx-justify-space-between rcx-items-center rcx-w-full rcx-p-16 rcx-color-font-default rcx-bg-surface-neutral"
     >
       <span
         aria-busy="true"

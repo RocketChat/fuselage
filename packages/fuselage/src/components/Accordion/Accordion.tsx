@@ -13,7 +13,7 @@ export type AccordionProps = {
  */
 const Accordion = ({ children, ...props }: AccordionProps) => (
   <StylingBox {...props}>
-    <div className={cx(cxx('rcx-box')('full', 'animated'), 'rcx-accordion')}>
+    <div className={cx(cxx('rcx-box')('full', 'animated'), 'rcx-accordion rcx-d-flex rcx-flex-column rcx-flex-nowrap')}>
       {children}
     </div>
   </StylingBox>

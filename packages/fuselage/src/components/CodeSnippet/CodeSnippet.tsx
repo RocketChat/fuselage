@@ -27,14 +27,14 @@ const CodeSnippet = ({
 }: CodeSnippetProps): ReactElement<CodeSnippetProps> => {
   if (!children) {
     return (
-      <Box is='pre' rcx-code-snippet {...props}>
+      <Box is='pre' rcx-code-snippet display='flex' flexDirection='row' justifyContent='space-between' alignItems='center' width='full' padding='x16' color='font-default' backgroundColor='surface-neutral' {...props}>
         <Skeleton w='100%' aria-hidden aria-busy />
       </Box>
     );
   }
 
   return (
-    <Box is='pre' rcx-code-snippet {...props}>
+    <Box is='pre' rcx-code-snippet display='flex' flexDirection='row' justifyContent='space-between' alignItems='center' width='full' padding='x16' color='font-default' backgroundColor='surface-neutral' {...props}>
       <Box role='code' rcx-code-snippet__codebox>
         {children}
       </Box>

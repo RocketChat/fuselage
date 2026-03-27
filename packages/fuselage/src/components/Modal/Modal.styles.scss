@@ -2,78 +2,36 @@
 @use '../../styles/lengths.scss';
 @use '../../styles/typography.scss';
 
-$modal-container-margin: theme('modal-container-margin', lengths.size(24));
+// Static layout props moved to Modal*.tsx via Box props.
+// Remaining: theme() variables, text-ellipsis, hero-image negative margins,
+// breakpoint queries, and z-index.
 
+$modal-container-margin: theme('modal-container-margin', lengths.size(24));
 $modal-margin: theme('modal-margin', auto);
 
 .rcx-modal {
-  position: static;
-
-  display: flex;
-
-  width: 100%;
-  max-height: 100%;
   margin: $modal-margin;
-
   background: none;
 
   &__inner {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-
-    width: 100%;
-
     min-width: 0;
-    padding: 0;
-
-    color: colors.font(default);
     border-radius: theme('modal-border-radius', lengths.border-radius(large));
-    background-color: colors.surface(light);
-    @include typography.use-font-scale(p2);
   }
 
   &__header {
     margin: $modal-container-margin;
 
     &-text {
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-      flex-shrink: 1;
       @include typography.use-text-ellipsis;
     }
   }
 
-  &__header-inner {
-    display: flex;
-    flex-wrap: nowrap;
-
-    margin: -4px;
-  }
-
   &__title {
     @include typography.use-text-ellipsis;
-    flex-grow: 1;
-    flex-shrink: 1;
-
     white-space: nowrap;
-
-    color: colors.font(default);
-    @include typography.use-font-scale(h2);
-  }
-
-  &__tagline {
-    color: colors.font(default);
-
-    @include typography.use-font-scale(c2);
   }
 
   &__hero-image {
-    display: block;
-
-    width: 100%;
-    height: auto;
     object-fit: contain;
 
     &-wrapper {
@@ -84,21 +42,10 @@ $modal-margin: theme('modal-margin', auto);
   }
 
   &__backdrop {
-    position: fixed;
-
     z-index: 100;
-    inset: 0;
-
-    display: flex;
-    flex-direction: column;
-
-    background-color: colors.surface(overlay);
   }
 
   &__footer {
-    display: flex;
-    align-items: center;
-
     margin: $modal-container-margin;
 
     &-annotation {

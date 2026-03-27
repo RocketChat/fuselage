@@ -4,10 +4,10 @@ exports[`[Table Rendering] renders Default without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-table__wrapper"
+      class="rcx-box rcx-box--full rcx-table__wrapper rcx-position-relative"
     >
       <table
-        class="rcx-box rcx-box--full rcx-table"
+        class="rcx-box rcx-box--full rcx-table rcx-w-full"
       >
         <thead
           class="rcx-box rcx-box--full rcx-table__head"
@@ -16,27 +16,27 @@ exports[`[Table Rendering] renders Default without crashing 1`] = `
             class="rcx-box rcx-box--full rcx-table__row"
           >
             <th
-              class="rcx-box rcx-box--full rcx-table__cell--header rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--header rcx-table__cell rcx-p-8 rcx-color-font-secondary-info"
             >
               Dessert (100g serving)
             </th>
             <th
-              class="rcx-box rcx-box--full rcx-table__cell--header rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--header rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info"
             >
               Calories
             </th>
             <th
-              class="rcx-box rcx-box--full rcx-table__cell--header rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--header rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info"
             >
               Fat (g)
             </th>
             <th
-              class="rcx-box rcx-box--full rcx-table__cell--header rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--header rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info"
             >
               Carbs (g)
             </th>
             <th
-              class="rcx-box rcx-box--full rcx-table__cell--header rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--header rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info"
             >
               Protein (g)
             </th>
@@ -49,28 +49,28 @@ exports[`[Table Rendering] renders Default without crashing 1`] = `
             class="rcx-box rcx-box--full rcx-table__row--action rcx-table__row"
           >
             <th
-              class="rcx-box rcx-box--full rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
               scope="row"
             >
               Frozen yoghurt
             </th>
             <td
-              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
             >
               159
             </td>
             <td
-              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
             >
               6
             </td>
             <td
-              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
             >
               24
             </td>
             <td
-              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
             >
               4
             </td>
@@ -79,28 +79,28 @@ exports[`[Table Rendering] renders Default without crashing 1`] = `
             class="rcx-box rcx-box--full rcx-table__row"
           >
             <th
-              class="rcx-box rcx-box--full rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
               scope="row"
             >
               Ice cream sandwich
             </th>
             <td
-              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
             >
               237
             </td>
             <td
-              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
             >
               9
             </td>
             <td
-              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
             >
               37
             </td>
             <td
-              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
             >
               4.3
             </td>
@@ -116,10 +116,10 @@ exports[`[Table Rendering] renders Fixed without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-table__wrapper"
+      class="rcx-box rcx-box--full rcx-table__wrapper rcx-position-relative"
     >
       <table
-        class="rcx-box rcx-box--full rcx-table--fixed rcx-table"
+        class="rcx-box rcx-box--full rcx-table--fixed rcx-table rcx-w-full"
       >
         <thead
           class="rcx-box rcx-box--full rcx-table__head"
@@ -128,27 +128,27 @@ exports[`[Table Rendering] renders Fixed without crashing 1`] = `
             class="rcx-box rcx-box--full rcx-table__row"
           >
             <th
-              class="rcx-box rcx-box--full rcx-table__cell--header rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--header rcx-table__cell rcx-p-8 rcx-color-font-secondary-info"
             >
               Dessert (100g serving)
             </th>
             <th
-              class="rcx-box rcx-box--full rcx-table__cell--header rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--header rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info"
             >
               Calories
             </th>
             <th
-              class="rcx-box rcx-box--full rcx-table__cell--header rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--header rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info"
             >
               Fat (g)
             </th>
             <th
-              class="rcx-box rcx-box--full rcx-table__cell--header rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--header rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info"
             >
               Carbs (g)
             </th>
             <th
-              class="rcx-box rcx-box--full rcx-table__cell--header rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--header rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info"
             >
               Protein (g)
             </th>
@@ -161,28 +161,28 @@ exports[`[Table Rendering] renders Fixed without crashing 1`] = `
             class="rcx-box rcx-box--full rcx-table__row"
           >
             <th
-              class="rcx-box rcx-box--full rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
               scope="row"
             >
               Frozen yoghurt
             </th>
             <td
-              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
             >
               159
             </td>
             <td
-              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
             >
               6
             </td>
             <td
-              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
             >
               24
             </td>
             <td
-              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
             >
               4
             </td>
@@ -191,28 +191,28 @@ exports[`[Table Rendering] renders Fixed without crashing 1`] = `
             class="rcx-box rcx-box--full rcx-table__row"
           >
             <th
-              class="rcx-box rcx-box--full rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
               scope="row"
             >
               Ice cream sandwich
             </th>
             <td
-              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
             >
               237
             </td>
             <td
-              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
             >
               9
             </td>
             <td
-              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
             >
               37
             </td>
             <td
-              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
             >
               4.3
             </td>
@@ -228,10 +228,10 @@ exports[`[Table Rendering] renders Striped without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-table__wrapper"
+      class="rcx-box rcx-box--full rcx-table__wrapper rcx-position-relative"
     >
       <table
-        class="rcx-box rcx-box--full rcx-table--striped rcx-table--sticky rcx-table--fixed rcx-table"
+        class="rcx-box rcx-box--full rcx-table--striped rcx-table--sticky rcx-table--fixed rcx-table rcx-w-full"
       >
         <thead
           class="rcx-box rcx-box--full rcx-table__head"
@@ -240,27 +240,27 @@ exports[`[Table Rendering] renders Striped without crashing 1`] = `
             class="rcx-box rcx-box--full rcx-table__row"
           >
             <th
-              class="rcx-box rcx-box--full rcx-table__cell--header rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--header rcx-table__cell rcx-p-8 rcx-color-font-secondary-info"
             >
               Dessert (100g serving)
             </th>
             <th
-              class="rcx-box rcx-box--full rcx-table__cell--header rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--header rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info"
             >
               Calories
             </th>
             <th
-              class="rcx-box rcx-box--full rcx-table__cell--header rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--header rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info"
             >
               Fat (g)
             </th>
             <th
-              class="rcx-box rcx-box--full rcx-table__cell--header rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--header rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info"
             >
               Carbs (g)
             </th>
             <th
-              class="rcx-box rcx-box--full rcx-table__cell--header rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--header rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info"
             >
               Protein (g)
             </th>
@@ -273,28 +273,28 @@ exports[`[Table Rendering] renders Striped without crashing 1`] = `
             class="rcx-box rcx-box--full rcx-table__row"
           >
             <th
-              class="rcx-box rcx-box--full rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
               scope="row"
             >
               Frozen yoghurt
             </th>
             <td
-              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
             >
               159
             </td>
             <td
-              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
             >
               6
             </td>
             <td
-              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
             >
               24
             </td>
             <td
-              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
             >
               4
             </td>
@@ -303,28 +303,28 @@ exports[`[Table Rendering] renders Striped without crashing 1`] = `
             class="rcx-box rcx-box--full rcx-table__row"
           >
             <th
-              class="rcx-box rcx-box--full rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
               scope="row"
             >
               Frozen yoghurt
             </th>
             <td
-              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
             >
               159
             </td>
             <td
-              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
             >
               6
             </td>
             <td
-              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
             >
               24
             </td>
             <td
-              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
             >
               4
             </td>
@@ -333,28 +333,28 @@ exports[`[Table Rendering] renders Striped without crashing 1`] = `
             class="rcx-box rcx-box--full rcx-table__row"
           >
             <th
-              class="rcx-box rcx-box--full rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
               scope="row"
             >
               Frozen yoghurt
             </th>
             <td
-              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
             >
               159
             </td>
             <td
-              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
             >
               6
             </td>
             <td
-              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
             >
               24
             </td>
             <td
-              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
             >
               4
             </td>
@@ -363,28 +363,28 @@ exports[`[Table Rendering] renders Striped without crashing 1`] = `
             class="rcx-box rcx-box--full rcx-table__row"
           >
             <th
-              class="rcx-box rcx-box--full rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
               scope="row"
             >
               Frozen yoghurt
             </th>
             <td
-              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
             >
               159
             </td>
             <td
-              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
             >
               6
             </td>
             <td
-              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
             >
               24
             </td>
             <td
-              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
             >
               4
             </td>
@@ -393,28 +393,28 @@ exports[`[Table Rendering] renders Striped without crashing 1`] = `
             class="rcx-box rcx-box--full rcx-table__row"
           >
             <th
-              class="rcx-box rcx-box--full rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
               scope="row"
             >
               Ice cream sandwich
             </th>
             <td
-              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
             >
               237
             </td>
             <td
-              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
             >
               9
             </td>
             <td
-              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
             >
               37
             </td>
             <td
-              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
             >
               4.3
             </td>
@@ -430,10 +430,10 @@ exports[`[Table Rendering] renders WithSelection without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-table__wrapper"
+      class="rcx-box rcx-box--full rcx-table__wrapper rcx-position-relative"
     >
       <table
-        class="rcx-box rcx-box--full rcx-table"
+        class="rcx-box rcx-box--full rcx-table rcx-w-full"
       >
         <thead
           class="rcx-box rcx-box--full rcx-table__head"
@@ -442,7 +442,7 @@ exports[`[Table Rendering] renders WithSelection without crashing 1`] = `
             class="rcx-box rcx-box--full rcx-table__row"
           >
             <th
-              class="rcx-box rcx-box--full rcx-table__cell--header rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--header rcx-table__cell rcx-p-8 rcx-color-font-secondary-info"
             >
               <label
                 class="rcx-box rcx-box--full rcx-check-box"
@@ -459,27 +459,27 @@ exports[`[Table Rendering] renders WithSelection without crashing 1`] = `
               </label>
             </th>
             <th
-              class="rcx-box rcx-box--full rcx-table__cell--header rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--header rcx-table__cell rcx-p-8 rcx-color-font-secondary-info"
             >
               Dessert (100g serving)
             </th>
             <th
-              class="rcx-box rcx-box--full rcx-table__cell--header rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--header rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info"
             >
               Calories
             </th>
             <th
-              class="rcx-box rcx-box--full rcx-table__cell--header rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--header rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info"
             >
               Fat (g)
             </th>
             <th
-              class="rcx-box rcx-box--full rcx-table__cell--header rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--header rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info"
             >
               Carbs (g)
             </th>
             <th
-              class="rcx-box rcx-box--full rcx-table__cell--header rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--header rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info"
             >
               Protein (g)
             </th>
@@ -492,7 +492,7 @@ exports[`[Table Rendering] renders WithSelection without crashing 1`] = `
             class="rcx-box rcx-box--full rcx-table__row--selected rcx-table__row"
           >
             <td
-              class="rcx-box rcx-box--full rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
             >
               <label
                 class="rcx-box rcx-box--full rcx-check-box"
@@ -510,28 +510,28 @@ exports[`[Table Rendering] renders WithSelection without crashing 1`] = `
               </label>
             </td>
             <th
-              class="rcx-box rcx-box--full rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
               scope="row"
             >
               Frozen yoghurt
             </th>
             <td
-              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
             >
               159
             </td>
             <td
-              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
             >
               6
             </td>
             <td
-              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
             >
               24
             </td>
             <td
-              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
             >
               4
             </td>
@@ -540,7 +540,7 @@ exports[`[Table Rendering] renders WithSelection without crashing 1`] = `
             class="rcx-box rcx-box--full rcx-table__row--selected rcx-table__row"
           >
             <td
-              class="rcx-box rcx-box--full rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
             >
               <label
                 class="rcx-box rcx-box--full rcx-check-box"
@@ -558,28 +558,28 @@ exports[`[Table Rendering] renders WithSelection without crashing 1`] = `
               </label>
             </td>
             <th
-              class="rcx-box rcx-box--full rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
               scope="row"
             >
               Frozen yoghurt
             </th>
             <td
-              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
             >
               159
             </td>
             <td
-              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
             >
               6
             </td>
             <td
-              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
             >
               24
             </td>
             <td
-              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
             >
               4
             </td>
@@ -588,7 +588,7 @@ exports[`[Table Rendering] renders WithSelection without crashing 1`] = `
             class="rcx-box rcx-box--full rcx-table__row"
           >
             <td
-              class="rcx-box rcx-box--full rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
             >
               <label
                 class="rcx-box rcx-box--full rcx-check-box"
@@ -605,28 +605,28 @@ exports[`[Table Rendering] renders WithSelection without crashing 1`] = `
               </label>
             </td>
             <th
-              class="rcx-box rcx-box--full rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
               scope="row"
             >
               Frozen yoghurt
             </th>
             <td
-              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
             >
               159
             </td>
             <td
-              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
             >
               6
             </td>
             <td
-              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
             >
               24
             </td>
             <td
-              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
             >
               4
             </td>
@@ -635,7 +635,7 @@ exports[`[Table Rendering] renders WithSelection without crashing 1`] = `
             class="rcx-box rcx-box--full rcx-table__row--selected rcx-table__row"
           >
             <td
-              class="rcx-box rcx-box--full rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
             >
               <label
                 class="rcx-box rcx-box--full rcx-check-box"
@@ -653,28 +653,28 @@ exports[`[Table Rendering] renders WithSelection without crashing 1`] = `
               </label>
             </td>
             <th
-              class="rcx-box rcx-box--full rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
               scope="row"
             >
               Frozen yoghurt
             </th>
             <td
-              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
             >
               159
             </td>
             <td
-              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
             >
               6
             </td>
             <td
-              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
             >
               24
             </td>
             <td
-              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
             >
               4
             </td>
@@ -683,7 +683,7 @@ exports[`[Table Rendering] renders WithSelection without crashing 1`] = `
             class="rcx-box rcx-box--full rcx-table__row--selected rcx-table__row"
           >
             <td
-              class="rcx-box rcx-box--full rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
             >
               <label
                 class="rcx-box rcx-box--full rcx-check-box"
@@ -701,28 +701,28 @@ exports[`[Table Rendering] renders WithSelection without crashing 1`] = `
               </label>
             </td>
             <th
-              class="rcx-box rcx-box--full rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
               scope="row"
             >
               Frozen yoghurt
             </th>
             <td
-              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
             >
               159
             </td>
             <td
-              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
             >
               6
             </td>
             <td
-              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
             >
               24
             </td>
             <td
-              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell"
+              class="rcx-box rcx-box--full rcx-table__cell--align-end rcx-table__cell rcx-p-8 rcx-color-font-secondary-info rcx-font-p2"
             >
               4
             </td>
@@ -742,7 +742,7 @@ exports[`[Table Rendering] renders WithSelection without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-css-1tmdf8e"
       >
         <div
-          class="rcx-button-group rcx-button-group--align-start rcx-css-x7bl3q"
+          class="rcx-button-group rcx-d-flex rcx-flex-row rcx-flex-nowrap rcx-items-center rcx-button-group--align-start rcx-css-x7bl3q"
           role="group"
         >
           <button

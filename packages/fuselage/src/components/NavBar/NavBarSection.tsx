@@ -23,7 +23,7 @@ const NavBarSection = ({ children, ...props }: NavbarSectionProps) => {
   const validChildren = Children.toArray(children).filter(isNavBarGroup);
 
   return (
-    <span className='rcx-navbar-section' {...props}>
+    <span className='rcx-navbar-section rcx-d-flex rcx-items-center' {...props}>
       {Children.toArray(children).map((child, index) => (
         <Fragment key={index}>
           {child}

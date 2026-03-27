@@ -4,7 +4,7 @@ exports[`[SelectInput Component] renders without crashing 1`] = `
 <body>
   <div>
     <label
-      class="rcx-box rcx-box--full rcx-label rcx-box rcx-box--full rcx-box--animated rcx-input-box__wrapper"
+      class="rcx-box rcx-box--full rcx-label rcx-box rcx-box--full rcx-box--animated rcx-input-box__wrapper rcx-d-flex rcx-font-p2m rcx-color-font-default"
     >
       <select
         aria-label="select"

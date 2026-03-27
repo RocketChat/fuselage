@@ -252,7 +252,7 @@ exports[`[Avatar Component] renders Stack without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-css-ocknv2 rcx-css-lqbnj0"
+      class="rcx-box rcx-box--full rcx-css-ocknv2 rcx-m-16"
     >
       <div
         class="rcx-avatar-stack"
@@ -287,7 +287,7 @@ exports[`[Avatar Component] renders Stack without crashing 1`] = `
       </div>
     </div>
     <div
-      class="rcx-box rcx-box--full rcx-css-ocknv2 rcx-css-lqbnj0"
+      class="rcx-box rcx-box--full rcx-css-ocknv2 rcx-m-16"
     >
       <div
         class="rcx-avatar-stack"
@@ -322,7 +322,7 @@ exports[`[Avatar Component] renders Stack without crashing 1`] = `
       </div>
     </div>
     <div
-      class="rcx-box rcx-box--full rcx-css-ocknv2 rcx-css-lqbnj0"
+      class="rcx-box rcx-box--full rcx-css-ocknv2 rcx-m-16"
     >
       <div
         class="rcx-avatar-stack"
@@ -357,7 +357,7 @@ exports[`[Avatar Component] renders Stack without crashing 1`] = `
       </div>
     </div>
     <div
-      class="rcx-box rcx-box--full rcx-css-ocknv2 rcx-css-lqbnj0"
+      class="rcx-box rcx-box--full rcx-css-ocknv2 rcx-m-16"
     >
       <div
         class="rcx-avatar-stack"
@@ -392,7 +392,7 @@ exports[`[Avatar Component] renders Stack without crashing 1`] = `
       </div>
     </div>
     <div
-      class="rcx-box rcx-box--full rcx-css-ocknv2 rcx-css-lqbnj0"
+      class="rcx-box rcx-box--full rcx-css-ocknv2 rcx-m-16"
     >
       <div
         class="rcx-avatar-stack"
@@ -427,7 +427,7 @@ exports[`[Avatar Component] renders Stack without crashing 1`] = `
       </div>
     </div>
     <div
-      class="rcx-box rcx-box--full rcx-css-ocknv2 rcx-css-lqbnj0"
+      class="rcx-box rcx-box--full rcx-css-ocknv2 rcx-m-16"
     >
       <div
         class="rcx-avatar-stack"
@@ -462,7 +462,7 @@ exports[`[Avatar Component] renders Stack without crashing 1`] = `
       </div>
     </div>
     <div
-      class="rcx-box rcx-box--full rcx-css-ocknv2 rcx-css-lqbnj0"
+      class="rcx-box rcx-box--full rcx-css-ocknv2 rcx-m-16"
     >
       <div
         class="rcx-avatar-stack"
@@ -497,7 +497,7 @@ exports[`[Avatar Component] renders Stack without crashing 1`] = `
       </div>
     </div>
     <div
-      class="rcx-box rcx-box--full rcx-css-ocknv2 rcx-css-lqbnj0"
+      class="rcx-box rcx-box--full rcx-css-ocknv2 rcx-m-16"
     >
       <div
         class="rcx-avatar-stack"
@@ -532,7 +532,7 @@ exports[`[Avatar Component] renders Stack without crashing 1`] = `
       </div>
     </div>
     <div
-      class="rcx-box rcx-box--full rcx-css-ocknv2 rcx-css-lqbnj0"
+      class="rcx-box rcx-box--full rcx-css-ocknv2 rcx-m-16"
     >
       <div
         class="rcx-avatar-stack"
@@ -574,7 +574,7 @@ exports[`[Avatar Component] renders StackRounded without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-css-ocknv2 rcx-css-lqbnj0"
+      class="rcx-box rcx-box--full rcx-css-ocknv2 rcx-m-16"
     >
       <div
         class="rcx-avatar-stack"
@@ -609,7 +609,7 @@ exports[`[Avatar Component] renders StackRounded without crashing 1`] = `
       </div>
     </div>
     <div
-      class="rcx-box rcx-box--full rcx-css-ocknv2 rcx-css-lqbnj0"
+      class="rcx-box rcx-box--full rcx-css-ocknv2 rcx-m-16"
     >
       <div
         class="rcx-avatar-stack"
@@ -644,7 +644,7 @@ exports[`[Avatar Component] renders StackRounded without crashing 1`] = `
       </div>
     </div>
     <div
-      class="rcx-box rcx-box--full rcx-css-ocknv2 rcx-css-lqbnj0"
+      class="rcx-box rcx-box--full rcx-css-ocknv2 rcx-m-16"
     >
       <div
         class="rcx-avatar-stack"
@@ -679,7 +679,7 @@ exports[`[Avatar Component] renders StackRounded without crashing 1`] = `
       </div>
     </div>
     <div
-      class="rcx-box rcx-box--full rcx-css-ocknv2 rcx-css-lqbnj0"
+      class="rcx-box rcx-box--full rcx-css-ocknv2 rcx-m-16"
     >
       <div
         class="rcx-avatar-stack"
@@ -714,7 +714,7 @@ exports[`[Avatar Component] renders StackRounded without crashing 1`] = `
       </div>
     </div>
     <div
-      class="rcx-box rcx-box--full rcx-css-ocknv2 rcx-css-lqbnj0"
+      class="rcx-box rcx-box--full rcx-css-ocknv2 rcx-m-16"
     >
       <div
         class="rcx-avatar-stack"
@@ -749,7 +749,7 @@ exports[`[Avatar Component] renders StackRounded without crashing 1`] = `
       </div>
     </div>
     <div
-      class="rcx-box rcx-box--full rcx-css-ocknv2 rcx-css-lqbnj0"
+      class="rcx-box rcx-box--full rcx-css-ocknv2 rcx-m-16"
     >
       <div
         class="rcx-avatar-stack"
@@ -784,7 +784,7 @@ exports[`[Avatar Component] renders StackRounded without crashing 1`] = `
       </div>
     </div>
     <div
-      class="rcx-box rcx-box--full rcx-css-ocknv2 rcx-css-lqbnj0"
+      class="rcx-box rcx-box--full rcx-css-ocknv2 rcx-m-16"
     >
       <div
         class="rcx-avatar-stack"
@@ -819,7 +819,7 @@ exports[`[Avatar Component] renders StackRounded without crashing 1`] = `
       </div>
     </div>
     <div
-      class="rcx-box rcx-box--full rcx-css-ocknv2 rcx-css-lqbnj0"
+      class="rcx-box rcx-box--full rcx-css-ocknv2 rcx-m-16"
     >
       <div
         class="rcx-avatar-stack"
@@ -854,7 +854,7 @@ exports[`[Avatar Component] renders StackRounded without crashing 1`] = `
       </div>
     </div>
     <div
-      class="rcx-box rcx-box--full rcx-css-ocknv2 rcx-css-lqbnj0"
+      class="rcx-box rcx-box--full rcx-css-ocknv2 rcx-m-16"
     >
       <div
         class="rcx-avatar-stack"

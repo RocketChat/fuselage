@@ -4,14 +4,14 @@ exports[`[CardGroup Rendering] renders Default without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-card-group--align-start rcx-card-group"
+      class="rcx-box rcx-box--full rcx-card-group--align-start rcx-card-group rcx-d-flex rcx-flex-row rcx-flex-nowrap rcx-items-center"
       role="group"
     >
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-10z3v89"
       >
         <div
-          class="rcx-card__header"
+          class="rcx-card__header rcx-d-flex rcx-items-center"
         >
           <i
             aria-hidden="true"
@@ -20,7 +20,7 @@ exports[`[CardGroup Rendering] renders Default without crashing 1`] = `
             
           </i>
           <h4
-            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+            class="rcx-box rcx-box--full rcx-card__title rcx-font-h4"
           >
             Heading
             <span
@@ -47,7 +47,7 @@ exports[`[CardGroup Rendering] renders Default without crashing 1`] = `
           Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
-          class="rcx-card__controls"
+          class="rcx-card__controls rcx-d-flex rcx-items-center"
         >
           <button
             class="rcx-box rcx-box--full rcx-button--medium rcx-button--primary rcx-button"
@@ -72,10 +72,10 @@ exports[`[CardGroup Rendering] renders Default without crashing 1`] = `
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-10z3v89"
       >
         <div
-          class="rcx-card__header"
+          class="rcx-card__header rcx-d-flex rcx-items-center"
         >
           <i
             aria-hidden="true"
@@ -84,7 +84,7 @@ exports[`[CardGroup Rendering] renders Default without crashing 1`] = `
             
           </i>
           <h4
-            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+            class="rcx-box rcx-box--full rcx-card__title rcx-font-h4"
           >
             Heading
             <span
@@ -111,7 +111,7 @@ exports[`[CardGroup Rendering] renders Default without crashing 1`] = `
           Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
-          class="rcx-card__controls"
+          class="rcx-card__controls rcx-d-flex rcx-items-center"
         >
           <button
             class="rcx-box rcx-box--full rcx-button--medium rcx-button--primary rcx-button"
@@ -136,10 +136,10 @@ exports[`[CardGroup Rendering] renders Default without crashing 1`] = `
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-10z3v89"
       >
         <div
-          class="rcx-card__header"
+          class="rcx-card__header rcx-d-flex rcx-items-center"
         >
           <i
             aria-hidden="true"
@@ -148,7 +148,7 @@ exports[`[CardGroup Rendering] renders Default without crashing 1`] = `
             
           </i>
           <h4
-            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+            class="rcx-box rcx-box--full rcx-card__title rcx-font-h4"
           >
             Heading
             <span
@@ -175,7 +175,7 @@ exports[`[CardGroup Rendering] renders Default without crashing 1`] = `
           Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
-          class="rcx-card__controls"
+          class="rcx-card__controls rcx-d-flex rcx-items-center"
         >
           <button
             class="rcx-box rcx-box--full rcx-button--medium rcx-button--primary rcx-button"
@@ -200,10 +200,10 @@ exports[`[CardGroup Rendering] renders Default without crashing 1`] = `
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-10z3v89"
       >
         <div
-          class="rcx-card__header"
+          class="rcx-card__header rcx-d-flex rcx-items-center"
         >
           <i
             aria-hidden="true"
@@ -212,7 +212,7 @@ exports[`[CardGroup Rendering] renders Default without crashing 1`] = `
             
           </i>
           <h4
-            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+            class="rcx-box rcx-box--full rcx-card__title rcx-font-h4"
           >
             Heading
             <span
@@ -239,7 +239,7 @@ exports[`[CardGroup Rendering] renders Default without crashing 1`] = `
           Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
-          class="rcx-card__controls"
+          class="rcx-card__controls rcx-d-flex rcx-items-center"
         >
           <button
             class="rcx-box rcx-box--full rcx-button--medium rcx-button--primary rcx-button"
@@ -264,10 +264,10 @@ exports[`[CardGroup Rendering] renders Default without crashing 1`] = `
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-10z3v89"
       >
         <div
-          class="rcx-card__header"
+          class="rcx-card__header rcx-d-flex rcx-items-center"
         >
           <i
             aria-hidden="true"
@@ -276,7 +276,7 @@ exports[`[CardGroup Rendering] renders Default without crashing 1`] = `
             
           </i>
           <h4
-            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+            class="rcx-box rcx-box--full rcx-card__title rcx-font-h4"
           >
             Heading
             <span
@@ -303,7 +303,7 @@ exports[`[CardGroup Rendering] renders Default without crashing 1`] = `
           Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
-          class="rcx-card__controls"
+          class="rcx-card__controls rcx-d-flex rcx-items-center"
         >
           <button
             class="rcx-box rcx-box--full rcx-button--medium rcx-button--primary rcx-button"
@@ -328,10 +328,10 @@ exports[`[CardGroup Rendering] renders Default without crashing 1`] = `
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-10z3v89"
       >
         <div
-          class="rcx-card__header"
+          class="rcx-card__header rcx-d-flex rcx-items-center"
         >
           <i
             aria-hidden="true"
@@ -340,7 +340,7 @@ exports[`[CardGroup Rendering] renders Default without crashing 1`] = `
             
           </i>
           <h4
-            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+            class="rcx-box rcx-box--full rcx-card__title rcx-font-h4"
           >
             Heading
             <span
@@ -367,7 +367,7 @@ exports[`[CardGroup Rendering] renders Default without crashing 1`] = `
           Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
-          class="rcx-card__controls"
+          class="rcx-card__controls rcx-d-flex rcx-items-center"
         >
           <button
             class="rcx-box rcx-box--full rcx-button--medium rcx-button--primary rcx-button"
@@ -392,10 +392,10 @@ exports[`[CardGroup Rendering] renders Default without crashing 1`] = `
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-10z3v89"
       >
         <div
-          class="rcx-card__header"
+          class="rcx-card__header rcx-d-flex rcx-items-center"
         >
           <i
             aria-hidden="true"
@@ -404,7 +404,7 @@ exports[`[CardGroup Rendering] renders Default without crashing 1`] = `
             
           </i>
           <h4
-            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+            class="rcx-box rcx-box--full rcx-card__title rcx-font-h4"
           >
             Heading
             <span
@@ -431,7 +431,7 @@ exports[`[CardGroup Rendering] renders Default without crashing 1`] = `
           Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
-          class="rcx-card__controls"
+          class="rcx-card__controls rcx-d-flex rcx-items-center"
         >
           <button
             class="rcx-box rcx-box--full rcx-button--medium rcx-button--primary rcx-button"
@@ -456,10 +456,10 @@ exports[`[CardGroup Rendering] renders Default without crashing 1`] = `
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-10z3v89"
       >
         <div
-          class="rcx-card__header"
+          class="rcx-card__header rcx-d-flex rcx-items-center"
         >
           <i
             aria-hidden="true"
@@ -468,7 +468,7 @@ exports[`[CardGroup Rendering] renders Default without crashing 1`] = `
             
           </i>
           <h4
-            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+            class="rcx-box rcx-box--full rcx-card__title rcx-font-h4"
           >
             Heading
             <span
@@ -495,7 +495,7 @@ exports[`[CardGroup Rendering] renders Default without crashing 1`] = `
           Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
-          class="rcx-card__controls"
+          class="rcx-card__controls rcx-d-flex rcx-items-center"
         >
           <button
             class="rcx-box rcx-box--full rcx-button--medium rcx-button--primary rcx-button"
@@ -520,10 +520,10 @@ exports[`[CardGroup Rendering] renders Default without crashing 1`] = `
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-10z3v89"
       >
         <div
-          class="rcx-card__header"
+          class="rcx-card__header rcx-d-flex rcx-items-center"
         >
           <i
             aria-hidden="true"
@@ -532,7 +532,7 @@ exports[`[CardGroup Rendering] renders Default without crashing 1`] = `
             
           </i>
           <h4
-            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+            class="rcx-box rcx-box--full rcx-card__title rcx-font-h4"
           >
             Heading
             <span
@@ -559,7 +559,7 @@ exports[`[CardGroup Rendering] renders Default without crashing 1`] = `
           Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
-          class="rcx-card__controls"
+          class="rcx-card__controls rcx-d-flex rcx-items-center"
         >
           <button
             class="rcx-box rcx-box--full rcx-button--medium rcx-button--primary rcx-button"
@@ -592,14 +592,14 @@ exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashi
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-card-group--vertical rcx-card-group--stretch rcx-card-group--align-start rcx-card-group"
+      class="rcx-box rcx-box--full rcx-card-group--vertical rcx-card-group--stretch rcx-card-group--align-start rcx-card-group rcx-d-flex rcx-flex-row rcx-flex-nowrap rcx-items-center"
       role="group"
     >
       <div
-        class="rcx-box rcx-box--full rcx-card__clickable rcx-card__horizontal--wrap rcx-card__horizontal rcx-card rcx-card-group__item rcx-css-1qcz93u"
+        class="rcx-box rcx-box--full rcx-card__clickable rcx-card__horizontal--wrap rcx-card__horizontal rcx-card rcx-card-group__item rcx-d-flex rcx-rounded-8 rcx-w-full"
       >
         <div
-          class="rcx-card__row"
+          class="rcx-card__row rcx-d-flex rcx-items-center rcx-grow-1 rcx-shrink-1"
         >
           <i
             aria-hidden="true"
@@ -608,10 +608,10 @@ exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashi
             
           </i>
           <div
-            class="rcx-card__col"
+            class="rcx-card__col rcx-d-flex rcx-flex-column"
           >
             <h3
-              class="rcx-box rcx-box--full rcx-card__title rcx-css-1sfto34"
+              class="rcx-box rcx-box--full rcx-card__title rcx-font-h3"
             >
               Heading 3
             </h3>
@@ -623,10 +623,10 @@ exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashi
           </div>
         </div>
         <div
-          class="rcx-card__controls"
+          class="rcx-card__controls rcx-d-flex rcx-items-center"
         >
           <span
-            class="rcx-box rcx-box--full rcx-badge rcx-badge--primary rcx-badge--small"
+            class="rcx-box rcx-box--full rcx-badge rcx-d-flex rcx-overflow-hidden rcx-justify-center rcx-text-center rcx-rounded-full rcx-font-micro rcx-pbs-2 rcx-pbe-2 rcx-pis-4 rcx-pie-4 rcx-badge--primary rcx-badge--small"
           />
           <span
             class="rcx-box rcx-box--full rcx-tag "
@@ -652,10 +652,10 @@ exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashi
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__clickable rcx-card__horizontal--wrap rcx-card__horizontal rcx-card rcx-card-group__item rcx-css-1qcz93u"
+        class="rcx-box rcx-box--full rcx-card__clickable rcx-card__horizontal--wrap rcx-card__horizontal rcx-card rcx-card-group__item rcx-d-flex rcx-rounded-8 rcx-w-full"
       >
         <div
-          class="rcx-card__row"
+          class="rcx-card__row rcx-d-flex rcx-items-center rcx-grow-1 rcx-shrink-1"
         >
           <i
             aria-hidden="true"
@@ -664,10 +664,10 @@ exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashi
             
           </i>
           <div
-            class="rcx-card__col"
+            class="rcx-card__col rcx-d-flex rcx-flex-column"
           >
             <h3
-              class="rcx-box rcx-box--full rcx-card__title rcx-css-1sfto34"
+              class="rcx-box rcx-box--full rcx-card__title rcx-font-h3"
             >
               Heading 3
             </h3>
@@ -679,10 +679,10 @@ exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashi
           </div>
         </div>
         <div
-          class="rcx-card__controls"
+          class="rcx-card__controls rcx-d-flex rcx-items-center"
         >
           <span
-            class="rcx-box rcx-box--full rcx-badge rcx-badge--primary rcx-badge--small"
+            class="rcx-box rcx-box--full rcx-badge rcx-d-flex rcx-overflow-hidden rcx-justify-center rcx-text-center rcx-rounded-full rcx-font-micro rcx-pbs-2 rcx-pbe-2 rcx-pis-4 rcx-pie-4 rcx-badge--primary rcx-badge--small"
           />
           <span
             class="rcx-box rcx-box--full rcx-tag "
@@ -708,10 +708,10 @@ exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashi
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__clickable rcx-card__horizontal--wrap rcx-card__horizontal rcx-card rcx-card-group__item rcx-css-1qcz93u"
+        class="rcx-box rcx-box--full rcx-card__clickable rcx-card__horizontal--wrap rcx-card__horizontal rcx-card rcx-card-group__item rcx-d-flex rcx-rounded-8 rcx-w-full"
       >
         <div
-          class="rcx-card__row"
+          class="rcx-card__row rcx-d-flex rcx-items-center rcx-grow-1 rcx-shrink-1"
         >
           <i
             aria-hidden="true"
@@ -720,10 +720,10 @@ exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashi
             
           </i>
           <div
-            class="rcx-card__col"
+            class="rcx-card__col rcx-d-flex rcx-flex-column"
           >
             <h3
-              class="rcx-box rcx-box--full rcx-card__title rcx-css-1sfto34"
+              class="rcx-box rcx-box--full rcx-card__title rcx-font-h3"
             >
               Heading 3
             </h3>
@@ -735,10 +735,10 @@ exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashi
           </div>
         </div>
         <div
-          class="rcx-card__controls"
+          class="rcx-card__controls rcx-d-flex rcx-items-center"
         >
           <span
-            class="rcx-box rcx-box--full rcx-badge rcx-badge--primary rcx-badge--small"
+            class="rcx-box rcx-box--full rcx-badge rcx-d-flex rcx-overflow-hidden rcx-justify-center rcx-text-center rcx-rounded-full rcx-font-micro rcx-pbs-2 rcx-pbe-2 rcx-pis-4 rcx-pie-4 rcx-badge--primary rcx-badge--small"
           />
           <span
             class="rcx-box rcx-box--full rcx-tag "
@@ -764,10 +764,10 @@ exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashi
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__clickable rcx-card__horizontal--wrap rcx-card__horizontal rcx-card rcx-card-group__item rcx-css-1qcz93u"
+        class="rcx-box rcx-box--full rcx-card__clickable rcx-card__horizontal--wrap rcx-card__horizontal rcx-card rcx-card-group__item rcx-d-flex rcx-rounded-8 rcx-w-full"
       >
         <div
-          class="rcx-card__row"
+          class="rcx-card__row rcx-d-flex rcx-items-center rcx-grow-1 rcx-shrink-1"
         >
           <i
             aria-hidden="true"
@@ -776,10 +776,10 @@ exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashi
             
           </i>
           <div
-            class="rcx-card__col"
+            class="rcx-card__col rcx-d-flex rcx-flex-column"
           >
             <h3
-              class="rcx-box rcx-box--full rcx-card__title rcx-css-1sfto34"
+              class="rcx-box rcx-box--full rcx-card__title rcx-font-h3"
             >
               Heading 3
             </h3>
@@ -791,10 +791,10 @@ exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashi
           </div>
         </div>
         <div
-          class="rcx-card__controls"
+          class="rcx-card__controls rcx-d-flex rcx-items-center"
         >
           <span
-            class="rcx-box rcx-box--full rcx-badge rcx-badge--primary rcx-badge--small"
+            class="rcx-box rcx-box--full rcx-badge rcx-d-flex rcx-overflow-hidden rcx-justify-center rcx-text-center rcx-rounded-full rcx-font-micro rcx-pbs-2 rcx-pbe-2 rcx-pis-4 rcx-pie-4 rcx-badge--primary rcx-badge--small"
           />
           <span
             class="rcx-box rcx-box--full rcx-tag "
@@ -820,10 +820,10 @@ exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashi
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__clickable rcx-card__horizontal--wrap rcx-card__horizontal rcx-card rcx-card-group__item rcx-css-1qcz93u"
+        class="rcx-box rcx-box--full rcx-card__clickable rcx-card__horizontal--wrap rcx-card__horizontal rcx-card rcx-card-group__item rcx-d-flex rcx-rounded-8 rcx-w-full"
       >
         <div
-          class="rcx-card__row"
+          class="rcx-card__row rcx-d-flex rcx-items-center rcx-grow-1 rcx-shrink-1"
         >
           <i
             aria-hidden="true"
@@ -832,10 +832,10 @@ exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashi
             
           </i>
           <div
-            class="rcx-card__col"
+            class="rcx-card__col rcx-d-flex rcx-flex-column"
           >
             <h3
-              class="rcx-box rcx-box--full rcx-card__title rcx-css-1sfto34"
+              class="rcx-box rcx-box--full rcx-card__title rcx-font-h3"
             >
               Heading 3
             </h3>
@@ -847,10 +847,10 @@ exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashi
           </div>
         </div>
         <div
-          class="rcx-card__controls"
+          class="rcx-card__controls rcx-d-flex rcx-items-center"
         >
           <span
-            class="rcx-box rcx-box--full rcx-badge rcx-badge--primary rcx-badge--small"
+            class="rcx-box rcx-box--full rcx-badge rcx-d-flex rcx-overflow-hidden rcx-justify-center rcx-text-center rcx-rounded-full rcx-font-micro rcx-pbs-2 rcx-pbe-2 rcx-pis-4 rcx-pie-4 rcx-badge--primary rcx-badge--small"
           />
           <span
             class="rcx-box rcx-box--full rcx-tag "
@@ -876,10 +876,10 @@ exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashi
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__clickable rcx-card__horizontal--wrap rcx-card__horizontal rcx-card rcx-card-group__item rcx-css-1qcz93u"
+        class="rcx-box rcx-box--full rcx-card__clickable rcx-card__horizontal--wrap rcx-card__horizontal rcx-card rcx-card-group__item rcx-d-flex rcx-rounded-8 rcx-w-full"
       >
         <div
-          class="rcx-card__row"
+          class="rcx-card__row rcx-d-flex rcx-items-center rcx-grow-1 rcx-shrink-1"
         >
           <i
             aria-hidden="true"
@@ -888,10 +888,10 @@ exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashi
             
           </i>
           <div
-            class="rcx-card__col"
+            class="rcx-card__col rcx-d-flex rcx-flex-column"
           >
             <h3
-              class="rcx-box rcx-box--full rcx-card__title rcx-css-1sfto34"
+              class="rcx-box rcx-box--full rcx-card__title rcx-font-h3"
             >
               Heading 3
             </h3>
@@ -903,10 +903,10 @@ exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashi
           </div>
         </div>
         <div
-          class="rcx-card__controls"
+          class="rcx-card__controls rcx-d-flex rcx-items-center"
         >
           <span
-            class="rcx-box rcx-box--full rcx-badge rcx-badge--primary rcx-badge--small"
+            class="rcx-box rcx-box--full rcx-badge rcx-d-flex rcx-overflow-hidden rcx-justify-center rcx-text-center rcx-rounded-full rcx-font-micro rcx-pbs-2 rcx-pbe-2 rcx-pis-4 rcx-pie-4 rcx-badge--primary rcx-badge--small"
           />
           <span
             class="rcx-box rcx-box--full rcx-tag "
@@ -932,10 +932,10 @@ exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashi
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__clickable rcx-card__horizontal--wrap rcx-card__horizontal rcx-card rcx-card-group__item rcx-css-1qcz93u"
+        class="rcx-box rcx-box--full rcx-card__clickable rcx-card__horizontal--wrap rcx-card__horizontal rcx-card rcx-card-group__item rcx-d-flex rcx-rounded-8 rcx-w-full"
       >
         <div
-          class="rcx-card__row"
+          class="rcx-card__row rcx-d-flex rcx-items-center rcx-grow-1 rcx-shrink-1"
         >
           <i
             aria-hidden="true"
@@ -944,10 +944,10 @@ exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashi
             
           </i>
           <div
-            class="rcx-card__col"
+            class="rcx-card__col rcx-d-flex rcx-flex-column"
           >
             <h3
-              class="rcx-box rcx-box--full rcx-card__title rcx-css-1sfto34"
+              class="rcx-box rcx-box--full rcx-card__title rcx-font-h3"
             >
               Heading 3
             </h3>
@@ -959,10 +959,10 @@ exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashi
           </div>
         </div>
         <div
-          class="rcx-card__controls"
+          class="rcx-card__controls rcx-d-flex rcx-items-center"
         >
           <span
-            class="rcx-box rcx-box--full rcx-badge rcx-badge--primary rcx-badge--small"
+            class="rcx-box rcx-box--full rcx-badge rcx-d-flex rcx-overflow-hidden rcx-justify-center rcx-text-center rcx-rounded-full rcx-font-micro rcx-pbs-2 rcx-pbe-2 rcx-pis-4 rcx-pie-4 rcx-badge--primary rcx-badge--small"
           />
           <span
             class="rcx-box rcx-box--full rcx-tag "
@@ -988,10 +988,10 @@ exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashi
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__clickable rcx-card__horizontal--wrap rcx-card__horizontal rcx-card rcx-card-group__item rcx-css-1qcz93u"
+        class="rcx-box rcx-box--full rcx-card__clickable rcx-card__horizontal--wrap rcx-card__horizontal rcx-card rcx-card-group__item rcx-d-flex rcx-rounded-8 rcx-w-full"
       >
         <div
-          class="rcx-card__row"
+          class="rcx-card__row rcx-d-flex rcx-items-center rcx-grow-1 rcx-shrink-1"
         >
           <i
             aria-hidden="true"
@@ -1000,10 +1000,10 @@ exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashi
             
           </i>
           <div
-            class="rcx-card__col"
+            class="rcx-card__col rcx-d-flex rcx-flex-column"
           >
             <h3
-              class="rcx-box rcx-box--full rcx-card__title rcx-css-1sfto34"
+              class="rcx-box rcx-box--full rcx-card__title rcx-font-h3"
             >
               Heading 3
             </h3>
@@ -1015,10 +1015,10 @@ exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashi
           </div>
         </div>
         <div
-          class="rcx-card__controls"
+          class="rcx-card__controls rcx-d-flex rcx-items-center"
         >
           <span
-            class="rcx-box rcx-box--full rcx-badge rcx-badge--primary rcx-badge--small"
+            class="rcx-box rcx-box--full rcx-badge rcx-d-flex rcx-overflow-hidden rcx-justify-center rcx-text-center rcx-rounded-full rcx-font-micro rcx-pbs-2 rcx-pbe-2 rcx-pis-4 rcx-pie-4 rcx-badge--primary rcx-badge--small"
           />
           <span
             class="rcx-box rcx-box--full rcx-tag "
@@ -1044,10 +1044,10 @@ exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashi
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__clickable rcx-card__horizontal--wrap rcx-card__horizontal rcx-card rcx-card-group__item rcx-css-1qcz93u"
+        class="rcx-box rcx-box--full rcx-card__clickable rcx-card__horizontal--wrap rcx-card__horizontal rcx-card rcx-card-group__item rcx-d-flex rcx-rounded-8 rcx-w-full"
       >
         <div
-          class="rcx-card__row"
+          class="rcx-card__row rcx-d-flex rcx-items-center rcx-grow-1 rcx-shrink-1"
         >
           <i
             aria-hidden="true"
@@ -1056,10 +1056,10 @@ exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashi
             
           </i>
           <div
-            class="rcx-card__col"
+            class="rcx-card__col rcx-d-flex rcx-flex-column"
           >
             <h3
-              class="rcx-box rcx-box--full rcx-card__title rcx-css-1sfto34"
+              class="rcx-box rcx-box--full rcx-card__title rcx-font-h3"
             >
               Heading 3
             </h3>
@@ -1071,10 +1071,10 @@ exports[`[CardGroup Rendering] renders VerticalWithHorizontalCard without crashi
           </div>
         </div>
         <div
-          class="rcx-card__controls"
+          class="rcx-card__controls rcx-d-flex rcx-items-center"
         >
           <span
-            class="rcx-box rcx-box--full rcx-badge rcx-badge--primary rcx-badge--small"
+            class="rcx-box rcx-box--full rcx-badge rcx-d-flex rcx-overflow-hidden rcx-justify-center rcx-text-center rcx-rounded-full rcx-font-micro rcx-pbs-2 rcx-pbe-2 rcx-pis-4 rcx-pie-4 rcx-badge--primary rcx-badge--small"
           />
           <span
             class="rcx-box rcx-box--full rcx-tag "
@@ -1108,14 +1108,14 @@ exports[`[CardGroup Rendering] renders Wrap without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-card-group--wrap rcx-card-group--align-start rcx-card-group"
+      class="rcx-box rcx-box--full rcx-card-group--wrap rcx-card-group--align-start rcx-card-group rcx-d-flex rcx-flex-row rcx-flex-nowrap rcx-items-center"
       role="group"
     >
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-10z3v89"
       >
         <div
-          class="rcx-card__header"
+          class="rcx-card__header rcx-d-flex rcx-items-center"
         >
           <i
             aria-hidden="true"
@@ -1124,7 +1124,7 @@ exports[`[CardGroup Rendering] renders Wrap without crashing 1`] = `
             
           </i>
           <h4
-            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+            class="rcx-box rcx-box--full rcx-card__title rcx-font-h4"
           >
             Heading
             <span
@@ -1151,7 +1151,7 @@ exports[`[CardGroup Rendering] renders Wrap without crashing 1`] = `
           Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
-          class="rcx-card__controls"
+          class="rcx-card__controls rcx-d-flex rcx-items-center"
         >
           <button
             class="rcx-box rcx-box--full rcx-button--medium rcx-button--primary rcx-button"
@@ -1176,10 +1176,10 @@ exports[`[CardGroup Rendering] renders Wrap without crashing 1`] = `
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-10z3v89"
       >
         <div
-          class="rcx-card__header"
+          class="rcx-card__header rcx-d-flex rcx-items-center"
         >
           <i
             aria-hidden="true"
@@ -1188,7 +1188,7 @@ exports[`[CardGroup Rendering] renders Wrap without crashing 1`] = `
             
           </i>
           <h4
-            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+            class="rcx-box rcx-box--full rcx-card__title rcx-font-h4"
           >
             Heading
             <span
@@ -1215,7 +1215,7 @@ exports[`[CardGroup Rendering] renders Wrap without crashing 1`] = `
           Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
-          class="rcx-card__controls"
+          class="rcx-card__controls rcx-d-flex rcx-items-center"
         >
           <button
             class="rcx-box rcx-box--full rcx-button--medium rcx-button--primary rcx-button"
@@ -1240,10 +1240,10 @@ exports[`[CardGroup Rendering] renders Wrap without crashing 1`] = `
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-10z3v89"
       >
         <div
-          class="rcx-card__header"
+          class="rcx-card__header rcx-d-flex rcx-items-center"
         >
           <i
             aria-hidden="true"
@@ -1252,7 +1252,7 @@ exports[`[CardGroup Rendering] renders Wrap without crashing 1`] = `
             
           </i>
           <h4
-            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+            class="rcx-box rcx-box--full rcx-card__title rcx-font-h4"
           >
             Heading
             <span
@@ -1279,7 +1279,7 @@ exports[`[CardGroup Rendering] renders Wrap without crashing 1`] = `
           Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
-          class="rcx-card__controls"
+          class="rcx-card__controls rcx-d-flex rcx-items-center"
         >
           <button
             class="rcx-box rcx-box--full rcx-button--medium rcx-button--primary rcx-button"
@@ -1304,10 +1304,10 @@ exports[`[CardGroup Rendering] renders Wrap without crashing 1`] = `
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-10z3v89"
       >
         <div
-          class="rcx-card__header"
+          class="rcx-card__header rcx-d-flex rcx-items-center"
         >
           <i
             aria-hidden="true"
@@ -1316,7 +1316,7 @@ exports[`[CardGroup Rendering] renders Wrap without crashing 1`] = `
             
           </i>
           <h4
-            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+            class="rcx-box rcx-box--full rcx-card__title rcx-font-h4"
           >
             Heading
             <span
@@ -1343,7 +1343,7 @@ exports[`[CardGroup Rendering] renders Wrap without crashing 1`] = `
           Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
-          class="rcx-card__controls"
+          class="rcx-card__controls rcx-d-flex rcx-items-center"
         >
           <button
             class="rcx-box rcx-box--full rcx-button--medium rcx-button--primary rcx-button"
@@ -1368,10 +1368,10 @@ exports[`[CardGroup Rendering] renders Wrap without crashing 1`] = `
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-10z3v89"
       >
         <div
-          class="rcx-card__header"
+          class="rcx-card__header rcx-d-flex rcx-items-center"
         >
           <i
             aria-hidden="true"
@@ -1380,7 +1380,7 @@ exports[`[CardGroup Rendering] renders Wrap without crashing 1`] = `
             
           </i>
           <h4
-            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+            class="rcx-box rcx-box--full rcx-card__title rcx-font-h4"
           >
             Heading
             <span
@@ -1407,7 +1407,7 @@ exports[`[CardGroup Rendering] renders Wrap without crashing 1`] = `
           Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
-          class="rcx-card__controls"
+          class="rcx-card__controls rcx-d-flex rcx-items-center"
         >
           <button
             class="rcx-box rcx-box--full rcx-button--medium rcx-button--primary rcx-button"
@@ -1432,10 +1432,10 @@ exports[`[CardGroup Rendering] renders Wrap without crashing 1`] = `
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-10z3v89"
       >
         <div
-          class="rcx-card__header"
+          class="rcx-card__header rcx-d-flex rcx-items-center"
         >
           <i
             aria-hidden="true"
@@ -1444,7 +1444,7 @@ exports[`[CardGroup Rendering] renders Wrap without crashing 1`] = `
             
           </i>
           <h4
-            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+            class="rcx-box rcx-box--full rcx-card__title rcx-font-h4"
           >
             Heading
             <span
@@ -1471,7 +1471,7 @@ exports[`[CardGroup Rendering] renders Wrap without crashing 1`] = `
           Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
-          class="rcx-card__controls"
+          class="rcx-card__controls rcx-d-flex rcx-items-center"
         >
           <button
             class="rcx-box rcx-box--full rcx-button--medium rcx-button--primary rcx-button"
@@ -1496,10 +1496,10 @@ exports[`[CardGroup Rendering] renders Wrap without crashing 1`] = `
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-10z3v89"
       >
         <div
-          class="rcx-card__header"
+          class="rcx-card__header rcx-d-flex rcx-items-center"
         >
           <i
             aria-hidden="true"
@@ -1508,7 +1508,7 @@ exports[`[CardGroup Rendering] renders Wrap without crashing 1`] = `
             
           </i>
           <h4
-            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+            class="rcx-box rcx-box--full rcx-card__title rcx-font-h4"
           >
             Heading
             <span
@@ -1535,7 +1535,7 @@ exports[`[CardGroup Rendering] renders Wrap without crashing 1`] = `
           Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
-          class="rcx-card__controls"
+          class="rcx-card__controls rcx-d-flex rcx-items-center"
         >
           <button
             class="rcx-box rcx-box--full rcx-button--medium rcx-button--primary rcx-button"
@@ -1560,10 +1560,10 @@ exports[`[CardGroup Rendering] renders Wrap without crashing 1`] = `
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-10z3v89"
       >
         <div
-          class="rcx-card__header"
+          class="rcx-card__header rcx-d-flex rcx-items-center"
         >
           <i
             aria-hidden="true"
@@ -1572,7 +1572,7 @@ exports[`[CardGroup Rendering] renders Wrap without crashing 1`] = `
             
           </i>
           <h4
-            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+            class="rcx-box rcx-box--full rcx-card__title rcx-font-h4"
           >
             Heading
             <span
@@ -1599,7 +1599,7 @@ exports[`[CardGroup Rendering] renders Wrap without crashing 1`] = `
           Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
-          class="rcx-card__controls"
+          class="rcx-card__controls rcx-d-flex rcx-items-center"
         >
           <button
             class="rcx-box rcx-box--full rcx-button--medium rcx-button--primary rcx-button"
@@ -1624,10 +1624,10 @@ exports[`[CardGroup Rendering] renders Wrap without crashing 1`] = `
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-10z3v89"
       >
         <div
-          class="rcx-card__header"
+          class="rcx-card__header rcx-d-flex rcx-items-center"
         >
           <i
             aria-hidden="true"
@@ -1636,7 +1636,7 @@ exports[`[CardGroup Rendering] renders Wrap without crashing 1`] = `
             
           </i>
           <h4
-            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+            class="rcx-box rcx-box--full rcx-card__title rcx-font-h4"
           >
             Heading
             <span
@@ -1663,7 +1663,7 @@ exports[`[CardGroup Rendering] renders Wrap without crashing 1`] = `
           Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
-          class="rcx-card__controls"
+          class="rcx-card__controls rcx-d-flex rcx-items-center"
         >
           <button
             class="rcx-box rcx-box--full rcx-button--medium rcx-button--primary rcx-button"
@@ -1696,14 +1696,14 @@ exports[`[CardGroup Rendering] renders WrapAlignCenter without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-card-group--wrap rcx-card-group--align-center rcx-card-group"
+      class="rcx-box rcx-box--full rcx-card-group--wrap rcx-card-group--align-center rcx-card-group rcx-d-flex rcx-flex-row rcx-flex-nowrap rcx-items-center"
       role="group"
     >
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-10z3v89"
       >
         <div
-          class="rcx-card__header"
+          class="rcx-card__header rcx-d-flex rcx-items-center"
         >
           <i
             aria-hidden="true"
@@ -1712,7 +1712,7 @@ exports[`[CardGroup Rendering] renders WrapAlignCenter without crashing 1`] = `
             
           </i>
           <h4
-            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+            class="rcx-box rcx-box--full rcx-card__title rcx-font-h4"
           >
             Heading
             <span
@@ -1739,7 +1739,7 @@ exports[`[CardGroup Rendering] renders WrapAlignCenter without crashing 1`] = `
           Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
-          class="rcx-card__controls"
+          class="rcx-card__controls rcx-d-flex rcx-items-center"
         >
           <button
             class="rcx-box rcx-box--full rcx-button--medium rcx-button--primary rcx-button"
@@ -1764,10 +1764,10 @@ exports[`[CardGroup Rendering] renders WrapAlignCenter without crashing 1`] = `
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-10z3v89"
       >
         <div
-          class="rcx-card__header"
+          class="rcx-card__header rcx-d-flex rcx-items-center"
         >
           <i
             aria-hidden="true"
@@ -1776,7 +1776,7 @@ exports[`[CardGroup Rendering] renders WrapAlignCenter without crashing 1`] = `
             
           </i>
           <h4
-            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+            class="rcx-box rcx-box--full rcx-card__title rcx-font-h4"
           >
             Heading
             <span
@@ -1803,7 +1803,7 @@ exports[`[CardGroup Rendering] renders WrapAlignCenter without crashing 1`] = `
           Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
-          class="rcx-card__controls"
+          class="rcx-card__controls rcx-d-flex rcx-items-center"
         >
           <button
             class="rcx-box rcx-box--full rcx-button--medium rcx-button--primary rcx-button"
@@ -1828,10 +1828,10 @@ exports[`[CardGroup Rendering] renders WrapAlignCenter without crashing 1`] = `
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-10z3v89"
       >
         <div
-          class="rcx-card__header"
+          class="rcx-card__header rcx-d-flex rcx-items-center"
         >
           <i
             aria-hidden="true"
@@ -1840,7 +1840,7 @@ exports[`[CardGroup Rendering] renders WrapAlignCenter without crashing 1`] = `
             
           </i>
           <h4
-            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+            class="rcx-box rcx-box--full rcx-card__title rcx-font-h4"
           >
             Heading
             <span
@@ -1867,7 +1867,7 @@ exports[`[CardGroup Rendering] renders WrapAlignCenter without crashing 1`] = `
           Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
-          class="rcx-card__controls"
+          class="rcx-card__controls rcx-d-flex rcx-items-center"
         >
           <button
             class="rcx-box rcx-box--full rcx-button--medium rcx-button--primary rcx-button"
@@ -1892,10 +1892,10 @@ exports[`[CardGroup Rendering] renders WrapAlignCenter without crashing 1`] = `
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-10z3v89"
       >
         <div
-          class="rcx-card__header"
+          class="rcx-card__header rcx-d-flex rcx-items-center"
         >
           <i
             aria-hidden="true"
@@ -1904,7 +1904,7 @@ exports[`[CardGroup Rendering] renders WrapAlignCenter without crashing 1`] = `
             
           </i>
           <h4
-            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+            class="rcx-box rcx-box--full rcx-card__title rcx-font-h4"
           >
             Heading
             <span
@@ -1931,7 +1931,7 @@ exports[`[CardGroup Rendering] renders WrapAlignCenter without crashing 1`] = `
           Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
-          class="rcx-card__controls"
+          class="rcx-card__controls rcx-d-flex rcx-items-center"
         >
           <button
             class="rcx-box rcx-box--full rcx-button--medium rcx-button--primary rcx-button"
@@ -1956,10 +1956,10 @@ exports[`[CardGroup Rendering] renders WrapAlignCenter without crashing 1`] = `
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-10z3v89"
       >
         <div
-          class="rcx-card__header"
+          class="rcx-card__header rcx-d-flex rcx-items-center"
         >
           <i
             aria-hidden="true"
@@ -1968,7 +1968,7 @@ exports[`[CardGroup Rendering] renders WrapAlignCenter without crashing 1`] = `
             
           </i>
           <h4
-            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+            class="rcx-box rcx-box--full rcx-card__title rcx-font-h4"
           >
             Heading
             <span
@@ -1995,7 +1995,7 @@ exports[`[CardGroup Rendering] renders WrapAlignCenter without crashing 1`] = `
           Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
-          class="rcx-card__controls"
+          class="rcx-card__controls rcx-d-flex rcx-items-center"
         >
           <button
             class="rcx-box rcx-box--full rcx-button--medium rcx-button--primary rcx-button"
@@ -2020,10 +2020,10 @@ exports[`[CardGroup Rendering] renders WrapAlignCenter without crashing 1`] = `
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-10z3v89"
       >
         <div
-          class="rcx-card__header"
+          class="rcx-card__header rcx-d-flex rcx-items-center"
         >
           <i
             aria-hidden="true"
@@ -2032,7 +2032,7 @@ exports[`[CardGroup Rendering] renders WrapAlignCenter without crashing 1`] = `
             
           </i>
           <h4
-            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+            class="rcx-box rcx-box--full rcx-card__title rcx-font-h4"
           >
             Heading
             <span
@@ -2059,7 +2059,7 @@ exports[`[CardGroup Rendering] renders WrapAlignCenter without crashing 1`] = `
           Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
-          class="rcx-card__controls"
+          class="rcx-card__controls rcx-d-flex rcx-items-center"
         >
           <button
             class="rcx-box rcx-box--full rcx-button--medium rcx-button--primary rcx-button"
@@ -2084,10 +2084,10 @@ exports[`[CardGroup Rendering] renders WrapAlignCenter without crashing 1`] = `
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-10z3v89"
       >
         <div
-          class="rcx-card__header"
+          class="rcx-card__header rcx-d-flex rcx-items-center"
         >
           <i
             aria-hidden="true"
@@ -2096,7 +2096,7 @@ exports[`[CardGroup Rendering] renders WrapAlignCenter without crashing 1`] = `
             
           </i>
           <h4
-            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+            class="rcx-box rcx-box--full rcx-card__title rcx-font-h4"
           >
             Heading
             <span
@@ -2123,7 +2123,7 @@ exports[`[CardGroup Rendering] renders WrapAlignCenter without crashing 1`] = `
           Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
-          class="rcx-card__controls"
+          class="rcx-card__controls rcx-d-flex rcx-items-center"
         >
           <button
             class="rcx-box rcx-box--full rcx-button--medium rcx-button--primary rcx-button"
@@ -2148,10 +2148,10 @@ exports[`[CardGroup Rendering] renders WrapAlignCenter without crashing 1`] = `
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-10z3v89"
       >
         <div
-          class="rcx-card__header"
+          class="rcx-card__header rcx-d-flex rcx-items-center"
         >
           <i
             aria-hidden="true"
@@ -2160,7 +2160,7 @@ exports[`[CardGroup Rendering] renders WrapAlignCenter without crashing 1`] = `
             
           </i>
           <h4
-            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+            class="rcx-box rcx-box--full rcx-card__title rcx-font-h4"
           >
             Heading
             <span
@@ -2187,7 +2187,7 @@ exports[`[CardGroup Rendering] renders WrapAlignCenter without crashing 1`] = `
           Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
-          class="rcx-card__controls"
+          class="rcx-card__controls rcx-d-flex rcx-items-center"
         >
           <button
             class="rcx-box rcx-box--full rcx-button--medium rcx-button--primary rcx-button"
@@ -2212,10 +2212,10 @@ exports[`[CardGroup Rendering] renders WrapAlignCenter without crashing 1`] = `
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-10z3v89"
       >
         <div
-          class="rcx-card__header"
+          class="rcx-card__header rcx-d-flex rcx-items-center"
         >
           <i
             aria-hidden="true"
@@ -2224,7 +2224,7 @@ exports[`[CardGroup Rendering] renders WrapAlignCenter without crashing 1`] = `
             
           </i>
           <h4
-            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+            class="rcx-box rcx-box--full rcx-card__title rcx-font-h4"
           >
             Heading
             <span
@@ -2251,7 +2251,7 @@ exports[`[CardGroup Rendering] renders WrapAlignCenter without crashing 1`] = `
           Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
-          class="rcx-card__controls"
+          class="rcx-card__controls rcx-d-flex rcx-items-center"
         >
           <button
             class="rcx-box rcx-box--full rcx-button--medium rcx-button--primary rcx-button"
@@ -2284,14 +2284,14 @@ exports[`[CardGroup Rendering] renders WrapStretch without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-card-group--wrap rcx-card-group--stretch rcx-card-group--align-start rcx-card-group"
+      class="rcx-box rcx-box--full rcx-card-group--wrap rcx-card-group--stretch rcx-card-group--align-start rcx-card-group rcx-d-flex rcx-flex-row rcx-flex-nowrap rcx-items-center"
       role="group"
     >
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-10z3v89"
       >
         <div
-          class="rcx-card__header"
+          class="rcx-card__header rcx-d-flex rcx-items-center"
         >
           <i
             aria-hidden="true"
@@ -2300,7 +2300,7 @@ exports[`[CardGroup Rendering] renders WrapStretch without crashing 1`] = `
             
           </i>
           <h4
-            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+            class="rcx-box rcx-box--full rcx-card__title rcx-font-h4"
           >
             Heading
             <span
@@ -2327,7 +2327,7 @@ exports[`[CardGroup Rendering] renders WrapStretch without crashing 1`] = `
           Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
-          class="rcx-card__controls"
+          class="rcx-card__controls rcx-d-flex rcx-items-center"
         >
           <button
             class="rcx-box rcx-box--full rcx-button--medium rcx-button--primary rcx-button"
@@ -2352,10 +2352,10 @@ exports[`[CardGroup Rendering] renders WrapStretch without crashing 1`] = `
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-10z3v89"
       >
         <div
-          class="rcx-card__header"
+          class="rcx-card__header rcx-d-flex rcx-items-center"
         >
           <i
             aria-hidden="true"
@@ -2364,7 +2364,7 @@ exports[`[CardGroup Rendering] renders WrapStretch without crashing 1`] = `
             
           </i>
           <h4
-            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+            class="rcx-box rcx-box--full rcx-card__title rcx-font-h4"
           >
             Heading
             <span
@@ -2391,7 +2391,7 @@ exports[`[CardGroup Rendering] renders WrapStretch without crashing 1`] = `
           Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
-          class="rcx-card__controls"
+          class="rcx-card__controls rcx-d-flex rcx-items-center"
         >
           <button
             class="rcx-box rcx-box--full rcx-button--medium rcx-button--primary rcx-button"
@@ -2416,10 +2416,10 @@ exports[`[CardGroup Rendering] renders WrapStretch without crashing 1`] = `
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-10z3v89"
       >
         <div
-          class="rcx-card__header"
+          class="rcx-card__header rcx-d-flex rcx-items-center"
         >
           <i
             aria-hidden="true"
@@ -2428,7 +2428,7 @@ exports[`[CardGroup Rendering] renders WrapStretch without crashing 1`] = `
             
           </i>
           <h4
-            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+            class="rcx-box rcx-box--full rcx-card__title rcx-font-h4"
           >
             Heading
             <span
@@ -2455,7 +2455,7 @@ exports[`[CardGroup Rendering] renders WrapStretch without crashing 1`] = `
           Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
-          class="rcx-card__controls"
+          class="rcx-card__controls rcx-d-flex rcx-items-center"
         >
           <button
             class="rcx-box rcx-box--full rcx-button--medium rcx-button--primary rcx-button"
@@ -2480,10 +2480,10 @@ exports[`[CardGroup Rendering] renders WrapStretch without crashing 1`] = `
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-10z3v89"
       >
         <div
-          class="rcx-card__header"
+          class="rcx-card__header rcx-d-flex rcx-items-center"
         >
           <i
             aria-hidden="true"
@@ -2492,7 +2492,7 @@ exports[`[CardGroup Rendering] renders WrapStretch without crashing 1`] = `
             
           </i>
           <h4
-            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+            class="rcx-box rcx-box--full rcx-card__title rcx-font-h4"
           >
             Heading
             <span
@@ -2519,7 +2519,7 @@ exports[`[CardGroup Rendering] renders WrapStretch without crashing 1`] = `
           Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
-          class="rcx-card__controls"
+          class="rcx-card__controls rcx-d-flex rcx-items-center"
         >
           <button
             class="rcx-box rcx-box--full rcx-button--medium rcx-button--primary rcx-button"
@@ -2544,10 +2544,10 @@ exports[`[CardGroup Rendering] renders WrapStretch without crashing 1`] = `
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-10z3v89"
       >
         <div
-          class="rcx-card__header"
+          class="rcx-card__header rcx-d-flex rcx-items-center"
         >
           <i
             aria-hidden="true"
@@ -2556,7 +2556,7 @@ exports[`[CardGroup Rendering] renders WrapStretch without crashing 1`] = `
             
           </i>
           <h4
-            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+            class="rcx-box rcx-box--full rcx-card__title rcx-font-h4"
           >
             Heading
             <span
@@ -2583,7 +2583,7 @@ exports[`[CardGroup Rendering] renders WrapStretch without crashing 1`] = `
           Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
-          class="rcx-card__controls"
+          class="rcx-card__controls rcx-d-flex rcx-items-center"
         >
           <button
             class="rcx-box rcx-box--full rcx-button--medium rcx-button--primary rcx-button"
@@ -2608,10 +2608,10 @@ exports[`[CardGroup Rendering] renders WrapStretch without crashing 1`] = `
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-10z3v89"
       >
         <div
-          class="rcx-card__header"
+          class="rcx-card__header rcx-d-flex rcx-items-center"
         >
           <i
             aria-hidden="true"
@@ -2620,7 +2620,7 @@ exports[`[CardGroup Rendering] renders WrapStretch without crashing 1`] = `
             
           </i>
           <h4
-            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+            class="rcx-box rcx-box--full rcx-card__title rcx-font-h4"
           >
             Heading
             <span
@@ -2647,7 +2647,7 @@ exports[`[CardGroup Rendering] renders WrapStretch without crashing 1`] = `
           Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
-          class="rcx-card__controls"
+          class="rcx-card__controls rcx-d-flex rcx-items-center"
         >
           <button
             class="rcx-box rcx-box--full rcx-button--medium rcx-button--primary rcx-button"
@@ -2672,10 +2672,10 @@ exports[`[CardGroup Rendering] renders WrapStretch without crashing 1`] = `
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-10z3v89"
       >
         <div
-          class="rcx-card__header"
+          class="rcx-card__header rcx-d-flex rcx-items-center"
         >
           <i
             aria-hidden="true"
@@ -2684,7 +2684,7 @@ exports[`[CardGroup Rendering] renders WrapStretch without crashing 1`] = `
             
           </i>
           <h4
-            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+            class="rcx-box rcx-box--full rcx-card__title rcx-font-h4"
           >
             Heading
             <span
@@ -2711,7 +2711,7 @@ exports[`[CardGroup Rendering] renders WrapStretch without crashing 1`] = `
           Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
-          class="rcx-card__controls"
+          class="rcx-card__controls rcx-d-flex rcx-items-center"
         >
           <button
             class="rcx-box rcx-box--full rcx-button--medium rcx-button--primary rcx-button"
@@ -2736,10 +2736,10 @@ exports[`[CardGroup Rendering] renders WrapStretch without crashing 1`] = `
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-10z3v89"
       >
         <div
-          class="rcx-card__header"
+          class="rcx-card__header rcx-d-flex rcx-items-center"
         >
           <i
             aria-hidden="true"
@@ -2748,7 +2748,7 @@ exports[`[CardGroup Rendering] renders WrapStretch without crashing 1`] = `
             
           </i>
           <h4
-            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+            class="rcx-box rcx-box--full rcx-card__title rcx-font-h4"
           >
             Heading
             <span
@@ -2775,7 +2775,7 @@ exports[`[CardGroup Rendering] renders WrapStretch without crashing 1`] = `
           Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
-          class="rcx-card__controls"
+          class="rcx-card__controls rcx-d-flex rcx-items-center"
         >
           <button
             class="rcx-box rcx-box--full rcx-button--medium rcx-button--primary rcx-button"
@@ -2800,10 +2800,10 @@ exports[`[CardGroup Rendering] renders WrapStretch without crashing 1`] = `
         </div>
       </div>
       <div
-        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-1x36761"
+        class="rcx-box rcx-box--full rcx-card__vertical rcx-card rcx-card-group__item rcx-css-10z3v89"
       >
         <div
-          class="rcx-card__header"
+          class="rcx-card__header rcx-d-flex rcx-items-center"
         >
           <i
             aria-hidden="true"
@@ -2812,7 +2812,7 @@ exports[`[CardGroup Rendering] renders WrapStretch without crashing 1`] = `
             
           </i>
           <h4
-            class="rcx-box rcx-box--full rcx-card__title rcx-css-2eyztw"
+            class="rcx-box rcx-box--full rcx-card__title rcx-font-h4"
           >
             Heading
             <span
@@ -2839,7 +2839,7 @@ exports[`[CardGroup Rendering] renders WrapStretch without crashing 1`] = `
           Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur. Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem praesentium earum ut consectetur.
         </div>
         <div
-          class="rcx-card__controls"
+          class="rcx-card__controls rcx-d-flex rcx-items-center"
         >
           <button
             class="rcx-box rcx-box--full rcx-button--medium rcx-button--primary rcx-button"

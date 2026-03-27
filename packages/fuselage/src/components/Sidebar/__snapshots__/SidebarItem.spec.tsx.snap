@@ -53,7 +53,7 @@ exports[`renders Default without crashing 1`] = `
           class="rc-box rcx-box--full rcx-sidebar-item__container"
         >
           <div
-            class="rcx-button-group rcx-button-group--align-start"
+            class="rcx-button-group rcx-d-flex rcx-flex-row rcx-flex-nowrap rcx-items-center rcx-button-group--align-start"
             role="group"
           >
             <button
@@ -209,7 +209,7 @@ exports[`renders Default without crashing 1`] = `
           class="rc-box rcx-box--full rcx-sidebar-item__container"
         >
           <div
-            class="rcx-button-group rcx-button-group--align-start"
+            class="rcx-button-group rcx-d-flex rcx-flex-row rcx-flex-nowrap rcx-items-center rcx-button-group--align-start"
             role="group"
           >
             <button
@@ -334,7 +334,7 @@ exports[`renders Default without crashing 1`] = `
             class="rc-box rcx-box--full rcx-sidebar-item__container"
           >
             <div
-              class="rcx-button-group rcx-button-group--align-start"
+              class="rcx-button-group rcx-d-flex rcx-flex-row rcx-flex-nowrap rcx-items-center rcx-button-group--align-start"
               role="group"
             >
               <button

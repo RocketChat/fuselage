@@ -4,7 +4,7 @@ exports[`[CheckBox Rendering] renders CustomIcon without crashing 1`] = `
 <body>
   <div>
     <section
-      class="rcx-box rcx-box--full rcx-callout"
+      class="rcx-box rcx-box--full rcx-callout rcx-d-flex rcx-p-12"
     >
       <i
         aria-hidden="true"
@@ -13,10 +13,10 @@ exports[`[CheckBox Rendering] renders CustomIcon without crashing 1`] = `
         
       </i>
       <div
-        class="rcx-box rcx-box--full rcx-callout__wrapper"
+        class="rcx-box rcx-box--full rcx-callout__wrapper rcx-css-1ybltqs"
       >
         <div
-          class="rcx-box rcx-box--full rcx-callout__wrapper-content"
+          class="rcx-box rcx-box--full rcx-callout__wrapper-content rcx-d-flex rcx-overflow-hidden rcx-flex-column rcx-flex-nowrap"
         >
           <div
             class="rcx-box rcx-box--full rcx-callout__title"
@@ -24,7 +24,7 @@ exports[`[CheckBox Rendering] renders CustomIcon without crashing 1`] = `
             This is a message with custom icon
           </div>
           <div
-            class="rcx-box rcx-box--full rcx-callout__content"
+            class="rcx-box rcx-box--full rcx-callout__content rcx-d-block"
           >
             This is a generic description.
           </div>
@@ -39,7 +39,7 @@ exports[`[CheckBox Rendering] renders Danger without crashing 1`] = `
 <body>
   <div>
     <section
-      class="rcx-box rcx-box--full rcx-callout rcx-callout--danger"
+      class="rcx-box rcx-box--full rcx-callout rcx-callout--danger rcx-d-flex rcx-p-12"
     >
       <i
         aria-hidden="true"
@@ -48,10 +48,10 @@ exports[`[CheckBox Rendering] renders Danger without crashing 1`] = `
         
       </i>
       <div
-        class="rcx-box rcx-box--full rcx-callout__wrapper"
+        class="rcx-box rcx-box--full rcx-callout__wrapper rcx-css-1ybltqs"
       >
         <div
-          class="rcx-box rcx-box--full rcx-callout__wrapper-content"
+          class="rcx-box rcx-box--full rcx-callout__wrapper-content rcx-d-flex rcx-overflow-hidden rcx-flex-column rcx-flex-nowrap"
         >
           <div
             class="rcx-box rcx-box--full rcx-callout__title"
@@ -59,7 +59,7 @@ exports[`[CheckBox Rendering] renders Danger without crashing 1`] = `
             This is a danger message
           </div>
           <div
-            class="rcx-box rcx-box--full rcx-callout__content"
+            class="rcx-box rcx-box--full rcx-callout__content rcx-d-block"
           >
             This is a generic description.
           </div>
@@ -74,7 +74,7 @@ exports[`[CheckBox Rendering] renders Default without crashing 1`] = `
 <body>
   <div>
     <section
-      class="rcx-box rcx-box--full rcx-callout"
+      class="rcx-box rcx-box--full rcx-callout rcx-d-flex rcx-p-12"
     >
       <i
         aria-hidden="true"
@@ -83,10 +83,10 @@ exports[`[CheckBox Rendering] renders Default without crashing 1`] = `
         
       </i>
       <div
-        class="rcx-box rcx-box--full rcx-callout__wrapper"
+        class="rcx-box rcx-box--full rcx-callout__wrapper rcx-css-1ybltqs"
       >
         <div
-          class="rcx-box rcx-box--full rcx-callout__wrapper-content"
+          class="rcx-box rcx-box--full rcx-callout__wrapper-content rcx-d-flex rcx-overflow-hidden rcx-flex-column rcx-flex-nowrap"
         >
           <div
             class="rcx-box rcx-box--full rcx-callout__title"
@@ -94,7 +94,7 @@ exports[`[CheckBox Rendering] renders Default without crashing 1`] = `
             This is a generic title
           </div>
           <div
-            class="rcx-box rcx-box--full rcx-callout__content"
+            class="rcx-box rcx-box--full rcx-callout__content rcx-d-block"
           >
             This is a generic description.
           </div>
@@ -109,7 +109,7 @@ exports[`[CheckBox Rendering] renders Info without crashing 1`] = `
 <body>
   <div>
     <section
-      class="rcx-box rcx-box--full rcx-callout rcx-callout--info"
+      class="rcx-box rcx-box--full rcx-callout rcx-callout--info rcx-d-flex rcx-p-12"
     >
       <i
         aria-hidden="true"
@@ -118,10 +118,10 @@ exports[`[CheckBox Rendering] renders Info without crashing 1`] = `
         
       </i>
       <div
-        class="rcx-box rcx-box--full rcx-callout__wrapper"
+        class="rcx-box rcx-box--full rcx-callout__wrapper rcx-css-1ybltqs"
       >
         <div
-          class="rcx-box rcx-box--full rcx-callout__wrapper-content"
+          class="rcx-box rcx-box--full rcx-callout__wrapper-content rcx-d-flex rcx-overflow-hidden rcx-flex-column rcx-flex-nowrap"
         >
           <div
             class="rcx-box rcx-box--full rcx-callout__title"
@@ -129,7 +129,7 @@ exports[`[CheckBox Rendering] renders Info without crashing 1`] = `
             This is a info message
           </div>
           <div
-            class="rcx-box rcx-box--full rcx-callout__content"
+            class="rcx-box rcx-box--full rcx-callout__content rcx-d-block"
           >
             This is a generic description.
           </div>
@@ -144,7 +144,7 @@ exports[`[CheckBox Rendering] renders Success without crashing 1`] = `
 <body>
   <div>
     <section
-      class="rcx-box rcx-box--full rcx-callout rcx-callout--success"
+      class="rcx-box rcx-box--full rcx-callout rcx-callout--success rcx-d-flex rcx-p-12"
     >
       <i
         aria-hidden="true"
@@ -153,10 +153,10 @@ exports[`[CheckBox Rendering] renders Success without crashing 1`] = `
         
       </i>
       <div
-        class="rcx-box rcx-box--full rcx-callout__wrapper"
+        class="rcx-box rcx-box--full rcx-callout__wrapper rcx-css-1ybltqs"
       >
         <div
-          class="rcx-box rcx-box--full rcx-callout__wrapper-content"
+          class="rcx-box rcx-box--full rcx-callout__wrapper-content rcx-d-flex rcx-overflow-hidden rcx-flex-column rcx-flex-nowrap"
         >
           <div
             class="rcx-box rcx-box--full rcx-callout__title"
@@ -164,7 +164,7 @@ exports[`[CheckBox Rendering] renders Success without crashing 1`] = `
             This is a success message
           </div>
           <div
-            class="rcx-box rcx-box--full rcx-callout__content"
+            class="rcx-box rcx-box--full rcx-callout__content rcx-d-block"
           >
             This is a generic description.
           </div>
@@ -179,7 +179,7 @@ exports[`[CheckBox Rendering] renders Warning without crashing 1`] = `
 <body>
   <div>
     <section
-      class="rcx-box rcx-box--full rcx-callout rcx-callout--warning"
+      class="rcx-box rcx-box--full rcx-callout rcx-callout--warning rcx-d-flex rcx-p-12"
     >
       <i
         aria-hidden="true"
@@ -188,10 +188,10 @@ exports[`[CheckBox Rendering] renders Warning without crashing 1`] = `
         
       </i>
       <div
-        class="rcx-box rcx-box--full rcx-callout__wrapper"
+        class="rcx-box rcx-box--full rcx-callout__wrapper rcx-css-1ybltqs"
       >
         <div
-          class="rcx-box rcx-box--full rcx-callout__wrapper-content"
+          class="rcx-box rcx-box--full rcx-callout__wrapper-content rcx-d-flex rcx-overflow-hidden rcx-flex-column rcx-flex-nowrap"
         >
           <div
             class="rcx-box rcx-box--full rcx-callout__title"
@@ -199,7 +199,7 @@ exports[`[CheckBox Rendering] renders Warning without crashing 1`] = `
             This is a warning message
           </div>
           <div
-            class="rcx-box rcx-box--full rcx-callout__content"
+            class="rcx-box rcx-box--full rcx-callout__content rcx-d-block"
           >
             This is a generic description.
           </div>
@@ -214,7 +214,7 @@ exports[`[CheckBox Rendering] renders WithActions without crashing 1`] = `
 <body>
   <div>
     <section
-      class="rcx-box rcx-box--full rcx-callout"
+      class="rcx-box rcx-box--full rcx-callout rcx-d-flex rcx-p-12"
     >
       <i
         aria-hidden="true"
@@ -223,10 +223,10 @@ exports[`[CheckBox Rendering] renders WithActions without crashing 1`] = `
         
       </i>
       <div
-        class="rcx-box rcx-box--full rcx-callout__wrapper"
+        class="rcx-box rcx-box--full rcx-callout__wrapper rcx-css-1ybltqs"
       >
         <div
-          class="rcx-box rcx-box--full rcx-callout__wrapper-content"
+          class="rcx-box rcx-box--full rcx-callout__wrapper-content rcx-d-flex rcx-overflow-hidden rcx-flex-column rcx-flex-nowrap"
         >
           <div
             class="rcx-box rcx-box--full rcx-callout__title"
@@ -234,7 +234,7 @@ exports[`[CheckBox Rendering] renders WithActions without crashing 1`] = `
             This is a generic title
           </div>
           <div
-            class="rcx-box rcx-box--full rcx-callout__content"
+            class="rcx-box rcx-box--full rcx-callout__content rcx-d-block"
           >
             This is a generic description.
           </div>
@@ -243,7 +243,7 @@ exports[`[CheckBox Rendering] renders WithActions without crashing 1`] = `
           class="rcx-box rcx-box--full rcx-callout__actions"
         >
           <div
-            class="rcx-button-group rcx-button-group--align-start"
+            class="rcx-button-group rcx-d-flex rcx-flex-row rcx-flex-nowrap rcx-items-center rcx-button-group--align-start"
             role="group"
           >
             <button
@@ -278,7 +278,7 @@ exports[`[CheckBox Rendering] renders WithDescriptionOnly without crashing 1`] =
 <body>
   <div>
     <section
-      class="rcx-box rcx-box--full rcx-callout"
+      class="rcx-box rcx-box--full rcx-callout rcx-d-flex rcx-p-12"
     >
       <i
         aria-hidden="true"
@@ -287,13 +287,13 @@ exports[`[CheckBox Rendering] renders WithDescriptionOnly without crashing 1`] =
         
       </i>
       <div
-        class="rcx-box rcx-box--full rcx-callout__wrapper"
+        class="rcx-box rcx-box--full rcx-callout__wrapper rcx-css-1ybltqs"
       >
         <div
-          class="rcx-box rcx-box--full rcx-callout__wrapper-content"
+          class="rcx-box rcx-box--full rcx-callout__wrapper-content rcx-d-flex rcx-overflow-hidden rcx-flex-column rcx-flex-nowrap"
         >
           <div
-            class="rcx-box rcx-box--full rcx-callout__content"
+            class="rcx-box rcx-box--full rcx-callout__content rcx-d-block"
           >
             This is a generic description.
           </div>

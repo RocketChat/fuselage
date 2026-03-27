@@ -83,13 +83,14 @@ const AccordionItem = ({
 
   return (
     <StylingBox {...props}>
-      <section className={cx(cxx('rcx-box')('full'), 'rcx-accordion-item')}>
+      <section className={cx(cxx('rcx-box')('full'), 'rcx-accordion-item rcx-d-flex rcx-flex-column rcx-flex-nowrap')}>
         {title && (
           <div
             role='button'
             className={cx(
               cxx('rcx-box')('full', 'animated'),
               cxx('rcx-accordion-item__bar')({ disabled }),
+              'rcx-d-flex rcx-flex-row rcx-flex-nowrap',
             )}
             {...barProps}
           >

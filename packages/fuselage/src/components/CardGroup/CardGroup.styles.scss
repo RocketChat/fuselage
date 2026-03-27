@@ -1,13 +1,8 @@
 @use '../../styles/lengths.scss';
 
+// Static display/flex/align moved to CardGroup.tsx.
+
 .rcx-card-group {
-  display: flex;
-
-  flex-flow: row nowrap;
-  justify-content: flex-start;
-
-  align-items: center;
-
   &--wrap {
     flex-wrap: wrap;
 

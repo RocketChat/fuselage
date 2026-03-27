@@ -6,7 +6,17 @@ import { FieldContext } from './Field';
 export type FieldLinkProps = BoxProps;
 
 const FieldLink = (props: FieldLinkProps) => {
-  const component = <Box is='a' target='_blank' rcx-field__link {...props} />;
+  const component = (
+    <Box
+      is='a'
+      target='_blank'
+      rcx-field__link
+      fontScale='c1'
+      marginBlock='x2'
+      color='font-info'
+      {...props}
+    />
+  );
 
   if (process.env['NODE_ENV'] === 'development') {
     return (

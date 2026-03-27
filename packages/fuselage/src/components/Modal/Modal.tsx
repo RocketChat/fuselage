@@ -19,7 +19,7 @@ const Modal = forwardRef<Element, ModalProps>(
     } as const;
 
     return (
-      <Box is='dialog' open aria-modal='true' rcx-modal ref={ref} {...props}>
+      <Box is='dialog' open aria-modal='true' rcx-modal ref={ref} position='static' display='flex' width='full' maxHeight='full' {...props}>
         {wrapperFunction
           ? wrapperFunction(wrapperProps)
           : createElement(wrapper, wrapperProps)}

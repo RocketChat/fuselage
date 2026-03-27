@@ -1,18 +1,10 @@
 @use '../../styles/lengths.scss';
 
-.rcx-field-group {
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: stretch;
-
-  min-width: lengths.size(none);
-}
+// Static display/flex moved to FieldGroup.tsx.
 
 .rcx-field-group__item {
   .rcx-field-group > & {
     flex: 0 0 auto;
-
     width: lengths.size(full);
   }
 

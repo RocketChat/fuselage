@@ -121,12 +121,12 @@ exports[`[CheckBox Rendering] renders States without crashing 1`] = `
             class="rcx-box rcx-box--full"
           />
           <th
-            class="rcx-box rcx-box--full rcx-css-rdlcsy"
+            class="rcx-box rcx-box--full rcx-color-font-hint rcx-font-c1"
           >
             checked
           </th>
           <th
-            class="rcx-box rcx-box--full rcx-css-rdlcsy"
+            class="rcx-box rcx-box--full rcx-color-font-hint rcx-font-c1"
           >
             unchecked
           </th>
@@ -139,7 +139,7 @@ exports[`[CheckBox Rendering] renders States without crashing 1`] = `
           class="rcx-box rcx-box--full"
         >
           <th
-            class="rcx-box rcx-box--full rcx-css-rdlcsy"
+            class="rcx-box rcx-box--full rcx-color-font-hint rcx-font-c1"
           >
             default
           </th>
@@ -147,7 +147,7 @@ exports[`[CheckBox Rendering] renders States without crashing 1`] = `
             class="rcx-box rcx-box--full rcx-css-yoolx6"
           >
             <div
-              class="rcx-box rcx-box--full rcx-css-7rd89h"
+              class="rcx-box rcx-box--full rcx-d-flex rcx-items-center rcx-justify-center"
             >
               <label
                 class="rcx-box rcx-box--full rcx-check-box"
@@ -169,7 +169,7 @@ exports[`[CheckBox Rendering] renders States without crashing 1`] = `
             class="rcx-box rcx-box--full rcx-css-yoolx6"
           >
             <div
-              class="rcx-box rcx-box--full rcx-css-7rd89h"
+              class="rcx-box rcx-box--full rcx-d-flex rcx-items-center rcx-justify-center"
             >
               <label
                 class="rcx-box rcx-box--full rcx-check-box"
@@ -191,7 +191,7 @@ exports[`[CheckBox Rendering] renders States without crashing 1`] = `
           class="rcx-box rcx-box--full"
         >
           <th
-            class="rcx-box rcx-box--full rcx-css-rdlcsy"
+            class="rcx-box rcx-box--full rcx-color-font-hint rcx-font-c1"
           >
             hover
           </th>
@@ -199,7 +199,7 @@ exports[`[CheckBox Rendering] renders States without crashing 1`] = `
             class="rcx-box rcx-box--full rcx-css-yoolx6"
           >
             <div
-              class="rcx-box rcx-box--full rcx-css-7rd89h"
+              class="rcx-box rcx-box--full rcx-d-flex rcx-items-center rcx-justify-center"
             >
               <label
                 class="rcx-box rcx-box--full rcx-check-box is-hovered"
@@ -221,7 +221,7 @@ exports[`[CheckBox Rendering] renders States without crashing 1`] = `
             class="rcx-box rcx-box--full rcx-css-yoolx6"
           >
             <div
-              class="rcx-box rcx-box--full rcx-css-7rd89h"
+              class="rcx-box rcx-box--full rcx-d-flex rcx-items-center rcx-justify-center"
             >
               <label
                 class="rcx-box rcx-box--full rcx-check-box is-hovered"
@@ -243,7 +243,7 @@ exports[`[CheckBox Rendering] renders States without crashing 1`] = `
           class="rcx-box rcx-box--full"
         >
           <th
-            class="rcx-box rcx-box--full rcx-css-rdlcsy"
+            class="rcx-box rcx-box--full rcx-color-font-hint rcx-font-c1"
           >
             active
           </th>
@@ -251,7 +251,7 @@ exports[`[CheckBox Rendering] renders States without crashing 1`] = `
             class="rcx-box rcx-box--full rcx-css-yoolx6"
           >
             <div
-              class="rcx-box rcx-box--full rcx-css-7rd89h"
+              class="rcx-box rcx-box--full rcx-d-flex rcx-items-center rcx-justify-center"
             >
               <label
                 class="rcx-box rcx-box--full rcx-check-box is-active"
@@ -273,7 +273,7 @@ exports[`[CheckBox Rendering] renders States without crashing 1`] = `
             class="rcx-box rcx-box--full rcx-css-yoolx6"
           >
             <div
-              class="rcx-box rcx-box--full rcx-css-7rd89h"
+              class="rcx-box rcx-box--full rcx-d-flex rcx-items-center rcx-justify-center"
             >
               <label
                 class="rcx-box rcx-box--full rcx-check-box is-active"
@@ -295,7 +295,7 @@ exports[`[CheckBox Rendering] renders States without crashing 1`] = `
           class="rcx-box rcx-box--full"
         >
           <th
-            class="rcx-box rcx-box--full rcx-css-rdlcsy"
+            class="rcx-box rcx-box--full rcx-color-font-hint rcx-font-c1"
           >
             focus
           </th>
@@ -303,7 +303,7 @@ exports[`[CheckBox Rendering] renders States without crashing 1`] = `
             class="rcx-box rcx-box--full rcx-css-yoolx6"
           >
             <div
-              class="rcx-box rcx-box--full rcx-css-7rd89h"
+              class="rcx-box rcx-box--full rcx-d-flex rcx-items-center rcx-justify-center"
             >
               <label
                 class="rcx-box rcx-box--full rcx-check-box is-focused"
@@ -325,7 +325,7 @@ exports[`[CheckBox Rendering] renders States without crashing 1`] = `
             class="rcx-box rcx-box--full rcx-css-yoolx6"
           >
             <div
-              class="rcx-box rcx-box--full rcx-css-7rd89h"
+              class="rcx-box rcx-box--full rcx-d-flex rcx-items-center rcx-justify-center"
             >
               <label
                 class="rcx-box rcx-box--full rcx-check-box is-focused"
@@ -347,7 +347,7 @@ exports[`[CheckBox Rendering] renders States without crashing 1`] = `
           class="rcx-box rcx-box--full"
         >
           <th
-            class="rcx-box rcx-box--full rcx-css-rdlcsy"
+            class="rcx-box rcx-box--full rcx-color-font-hint rcx-font-c1"
           >
             disabled
           </th>
@@ -355,7 +355,7 @@ exports[`[CheckBox Rendering] renders States without crashing 1`] = `
             class="rcx-box rcx-box--full rcx-css-yoolx6"
           >
             <div
-              class="rcx-box rcx-box--full rcx-css-7rd89h"
+              class="rcx-box rcx-box--full rcx-d-flex rcx-items-center rcx-justify-center"
             >
               <label
                 class="rcx-box rcx-box--full rcx-check-box"
@@ -378,7 +378,7 @@ exports[`[CheckBox Rendering] renders States without crashing 1`] = `
             class="rcx-box rcx-box--full rcx-css-yoolx6"
           >
             <div
-              class="rcx-box rcx-box--full rcx-css-7rd89h"
+              class="rcx-box rcx-box--full rcx-d-flex rcx-items-center rcx-justify-center"
             >
               <label
                 class="rcx-box rcx-box--full rcx-check-box"

@@ -16,7 +16,7 @@ exports[`[TopBar Rendering] renders Default without crashing 1`] = `
         />
       </figure>
       <div
-        class="rcx-button-group rcx-button-group--align-start"
+        class="rcx-button-group rcx-d-flex rcx-flex-row rcx-flex-nowrap rcx-items-center rcx-button-group--align-start"
         role="group"
       >
         <button
@@ -88,12 +88,12 @@ exports[`[TopBar Rendering] renders Default without crashing 1`] = `
         class="rc-box rc-box--full rcx-sidebar-topbar__wrapper"
       >
         <div
-          class="rcx-box rcx-box--full rcx-sidebar-topbar__title rcx-css-1te28na"
+          class="rcx-box rcx-box--full rcx-sidebar-topbar__title rcx-truncate"
         >
           Title
         </div>
         <div
-          class="rcx-button-group rcx-button-group--align-start"
+          class="rcx-button-group rcx-d-flex rcx-flex-row rcx-flex-nowrap rcx-items-center rcx-button-group--align-start"
           role="group"
         >
           <button
@@ -123,7 +123,7 @@ exports[`[TopBar Rendering] renders Default without crashing 1`] = `
         </div>
       </div>
       <hr
-        class="rcx-box rcx-box--full rcx-sidebar--divider rcx-divider rcx-css-emj6cu"
+        class="rcx-box rcx-box--full rcx-sidebar--divider rcx-divider rcx-css-1o7n0w7"
       />
     </div>
     <div
@@ -133,12 +133,12 @@ exports[`[TopBar Rendering] renders Default without crashing 1`] = `
         class="rc-box rc-box--full rcx-sidebar-topbar__wrapper"
       >
         <div
-          class="rcx-box rcx-box--full rcx-sidebar-topbar__title rcx-css-1te28na"
+          class="rcx-box rcx-box--full rcx-sidebar-topbar__title rcx-truncate"
         >
           Long Title Long Title Long Title Long Title Long Title Long Title Long Title Long Title Long Title Long Title Long Title Long Title Long Title Long Title Long Title Long Title Long Title Long Title Long Title Long Title Long Title
         </div>
         <div
-          class="rcx-button-group rcx-button-group--align-start"
+          class="rcx-button-group rcx-d-flex rcx-flex-row rcx-flex-nowrap rcx-items-center rcx-button-group--align-start"
           role="group"
         >
           <button
@@ -204,7 +204,7 @@ exports[`[TopBar Rendering] renders Default without crashing 1`] = `
         </div>
       </div>
       <hr
-        class="rcx-box rcx-box--full rcx-sidebar--divider rcx-divider rcx-css-emj6cu"
+        class="rcx-box rcx-box--full rcx-sidebar--divider rcx-divider rcx-css-1o7n0w7"
       />
     </div>
   </div>

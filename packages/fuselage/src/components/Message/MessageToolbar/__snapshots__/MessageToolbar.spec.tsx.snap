@@ -115,7 +115,7 @@ exports[`[MessageToolbar Rendering] renders Default without crashing 1`] = `
             class="rcx-box rcx-box--full rcx-message-toolbar"
           >
             <div
-              class="rcx-button-group rcx-button-group--align-start rcx-button-group--small"
+              class="rcx-button-group rcx-d-flex rcx-flex-row rcx-flex-nowrap rcx-items-center rcx-button-group--align-start rcx-button-group--small"
               role="toolbar"
             >
               <button

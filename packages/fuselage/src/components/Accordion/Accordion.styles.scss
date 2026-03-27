@@ -2,21 +2,14 @@
 @use '../../styles/lengths.scss';
 @use '../../styles/typography.scss';
 
+// Static display/flex moved to Accordion*.tsx.
+
 .rcx-accordion {
-  display: flex;
-  flex-flow: column nowrap;
   border-block-end-color: colors.stroke(extra-light);
   border-block-end-width: lengths.border-width(default);
 }
 
-.rcx-accordion-item {
-  display: flex;
-  flex-flow: column nowrap;
-}
-
 .rcx-accordion-item__bar {
-  display: flex;
-  flex-flow: row nowrap;
 
   min-height: lengths.size(2 * 32 + 24);
   padding: (lengths.padding(32) - lengths.border-width(default, rem))

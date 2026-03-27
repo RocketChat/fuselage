@@ -6,7 +6,16 @@ import { FieldContext } from './Field';
 export type FieldErrorProps = BoxProps;
 
 const FieldError = (props: FieldErrorProps) => {
-  const component = <Box is='span' rcx-field__error {...props} />;
+  const component = (
+    <Box
+      is='span'
+      rcx-field__error
+      fontScale='c1'
+      marginBlock='x2'
+      color='font-danger'
+      {...props}
+    />
+  );
 
   if (process.env['NODE_ENV'] === 'development') {
     return (

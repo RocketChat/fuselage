@@ -49,11 +49,9 @@ $tabs-disabled-selected-border-color: theme(
   colors.status-background(info)
 );
 
+// Static props (display, flex, position, overflow) partially moved to Tabs.tsx.
+
 .rcx-tabs__scroll-box {
-  position: relative;
-
-  overflow: auto;
-
   margin-block: lengths.margin(-4);
   -ms-overflow-style: none;
 
@@ -63,12 +61,7 @@ $tabs-disabled-selected-border-color: theme(
 }
 
 .rcx-tabs__wrapper {
-  display: flex;
-
-  flex-wrap: nowrap;
-
   margin: lengths.margin(none) lengths.margin(12);
-
   padding: lengths.padding(4) lengths.padding(none);
 }
 

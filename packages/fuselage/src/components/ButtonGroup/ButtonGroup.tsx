@@ -35,7 +35,7 @@ const ButtonGroup = forwardRef<HTMLDivElement, ButtonGroupProps>(
       <div
         ref={ref}
         className={[
-          'rcx-button-group',
+          'rcx-button-group rcx-d-flex rcx-flex-row rcx-flex-nowrap rcx-items-center',
           stretch && 'rcx-button-group--stretch',
           vertical && 'rcx-button-group--vertical',
           align && `rcx-button-group--align-${align}`,

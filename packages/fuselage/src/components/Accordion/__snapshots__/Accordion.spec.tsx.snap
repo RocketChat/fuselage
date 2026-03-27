@@ -4,15 +4,15 @@ exports[`renders Default without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-box--animated rcx-accordion"
+      class="rcx-box rcx-box--full rcx-box--animated rcx-accordion rcx-d-flex rcx-flex-column rcx-flex-nowrap"
     >
       <section
-        class="rcx-box rcx-box--full rcx-accordion-item"
+        class="rcx-box rcx-box--full rcx-accordion-item rcx-d-flex rcx-flex-column rcx-flex-nowrap"
       >
         <div
           aria-controls=":r1:"
           aria-expanded="false"
-          class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__bar"
+          class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__bar rcx-d-flex rcx-flex-row rcx-flex-nowrap"
           role="button"
           tabindex="0"
         >
@@ -45,12 +45,12 @@ exports[`renders Default without crashing 1`] = `
         </div>
       </section>
       <section
-        class="rcx-box rcx-box--full rcx-accordion-item"
+        class="rcx-box rcx-box--full rcx-accordion-item rcx-d-flex rcx-flex-column rcx-flex-nowrap"
       >
         <div
           aria-controls=":r3:"
           aria-expanded="false"
-          class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__bar"
+          class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__bar rcx-d-flex rcx-flex-row rcx-flex-nowrap"
           role="button"
           tabindex="0"
         >
@@ -83,12 +83,12 @@ exports[`renders Default without crashing 1`] = `
         </div>
       </section>
       <section
-        class="rcx-box rcx-box--full rcx-accordion-item"
+        class="rcx-box rcx-box--full rcx-accordion-item rcx-d-flex rcx-flex-column rcx-flex-nowrap"
       >
         <div
           aria-controls=":r5:"
           aria-expanded="false"
-          class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__bar"
+          class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__bar rcx-d-flex rcx-flex-row rcx-flex-nowrap"
           role="button"
           tabindex="0"
         >
@@ -129,15 +129,15 @@ exports[`renders DisabledItem without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-box--animated rcx-accordion"
+      class="rcx-box rcx-box--full rcx-box--animated rcx-accordion rcx-d-flex rcx-flex-column rcx-flex-nowrap"
     >
       <section
-        class="rcx-box rcx-box--full rcx-accordion-item"
+        class="rcx-box rcx-box--full rcx-accordion-item rcx-d-flex rcx-flex-column rcx-flex-nowrap"
       >
         <div
           aria-controls=":rd:"
           aria-expanded="false"
-          class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__bar"
+          class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__bar rcx-d-flex rcx-flex-row rcx-flex-nowrap"
           role="button"
           tabindex="0"
         >
@@ -170,12 +170,12 @@ exports[`renders DisabledItem without crashing 1`] = `
         </div>
       </section>
       <section
-        class="rcx-box rcx-box--full rcx-accordion-item"
+        class="rcx-box rcx-box--full rcx-accordion-item rcx-d-flex rcx-flex-column rcx-flex-nowrap"
       >
         <div
           aria-controls=":rf:"
           aria-expanded="false"
-          class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__bar rcx-accordion-item__bar--disabled"
+          class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__bar rcx-accordion-item__bar--disabled rcx-d-flex rcx-flex-row rcx-flex-nowrap"
           role="button"
         >
           <h2
@@ -207,12 +207,12 @@ exports[`renders DisabledItem without crashing 1`] = `
         </div>
       </section>
       <section
-        class="rcx-box rcx-box--full rcx-accordion-item"
+        class="rcx-box rcx-box--full rcx-accordion-item rcx-d-flex rcx-flex-column rcx-flex-nowrap"
       >
         <div
           aria-controls=":rh:"
           aria-expanded="false"
-          class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__bar"
+          class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__bar rcx-d-flex rcx-flex-row rcx-flex-nowrap"
           role="button"
           tabindex="0"
         >
@@ -253,15 +253,15 @@ exports[`renders ExpandedItemByDefault without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-box--animated rcx-accordion"
+      class="rcx-box rcx-box--full rcx-box--animated rcx-accordion rcx-d-flex rcx-flex-column rcx-flex-nowrap"
     >
       <section
-        class="rcx-box rcx-box--full rcx-accordion-item"
+        class="rcx-box rcx-box--full rcx-accordion-item rcx-d-flex rcx-flex-column rcx-flex-nowrap"
       >
         <div
           aria-controls=":r7:"
           aria-expanded="false"
-          class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__bar"
+          class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__bar rcx-d-flex rcx-flex-row rcx-flex-nowrap"
           role="button"
           tabindex="0"
         >
@@ -294,12 +294,12 @@ exports[`renders ExpandedItemByDefault without crashing 1`] = `
         </div>
       </section>
       <section
-        class="rcx-box rcx-box--full rcx-accordion-item"
+        class="rcx-box rcx-box--full rcx-accordion-item rcx-d-flex rcx-flex-column rcx-flex-nowrap"
       >
         <div
           aria-controls=":r9:"
           aria-expanded="true"
-          class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__bar"
+          class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__bar rcx-d-flex rcx-flex-row rcx-flex-nowrap"
           role="button"
           tabindex="0"
         >
@@ -332,12 +332,12 @@ exports[`renders ExpandedItemByDefault without crashing 1`] = `
         </div>
       </section>
       <section
-        class="rcx-box rcx-box--full rcx-accordion-item"
+        class="rcx-box rcx-box--full rcx-accordion-item rcx-d-flex rcx-flex-column rcx-flex-nowrap"
       >
         <div
           aria-controls=":rb:"
           aria-expanded="false"
-          class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__bar"
+          class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__bar rcx-d-flex rcx-flex-row rcx-flex-nowrap"
           role="button"
           tabindex="0"
         >

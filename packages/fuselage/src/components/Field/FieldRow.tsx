@@ -6,7 +6,21 @@ import { FieldContext } from './Field';
 export type FieldRowProps = BoxProps;
 
 const FieldRow = (props: FieldRowProps) => {
-  const component = <Box is='span' rcx-field__row {...props} />;
+  const component = (
+    <Box
+      is='span'
+      rcx-field__row
+      display='flex'
+      flexDirection='row'
+      flexWrap='nowrap'
+      justifyContent='space-between'
+      alignItems='center'
+      marginBlockStart='x4'
+      marginBlockEnd='x2'
+      color='font-secondary-info'
+      {...props}
+    />
+  );
 
   if (process.env['NODE_ENV'] === 'development') {
     return (

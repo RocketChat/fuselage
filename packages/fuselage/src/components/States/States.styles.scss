@@ -10,13 +10,9 @@ $variants: (
   'primary': colors.status-font(on-info),
 );
 
-.rcx-states {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+// Static display/flex/padding moved to States.tsx utility classes.
 
-  padding: lengths.padding(16);
+.rcx-states {
 
   color: colors.font(secondary-info);
 

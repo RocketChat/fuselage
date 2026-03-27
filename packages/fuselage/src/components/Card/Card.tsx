@@ -21,6 +21,8 @@ const Card = ({ horizontal, hero, clickable, ...props }: CardProps) => {
       rcx-card__hero={hero}
       rcx-card__horizontal--wrap={horizontal && isMobile}
       rcx-card__clickable={clickable}
+      display='flex'
+      borderRadius='x8'
       {...props}
     />
   );

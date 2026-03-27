@@ -24,6 +24,11 @@ const FramedIcon = ({
   <Icon
     {...props}
     rcx-framed-icon
+    fontScale='p2m'
+    padding='x4'
+    color='font-secondary-info'
+    borderRadius='x4'
+    backgroundColor='surface-tint'
     rcx-framed-icon--info={info}
     rcx-framed-icon--success={success}
     rcx-framed-icon--warning={warning}

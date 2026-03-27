@@ -13,6 +13,11 @@ const Tile = forwardRef<HTMLElement, TileProps>(function Tile(
       ref={ref}
       rcx-tile
       rcx-tile--elevation={elevation}
+      display='block'
+      color='font-default'
+      backgroundColor='surface-light'
+      fontScale='p2'
+      borderRadius='x4'
       padding={padding}
       {...props}
     />

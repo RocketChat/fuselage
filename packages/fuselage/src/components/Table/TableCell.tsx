@@ -31,6 +31,9 @@ const TableCell = ({
       rcx-table__cell--align={align}
       rcx-table__cell--header={isInsideHead}
       rcx-table__cell--clickable={clickable}
+      padding='x8'
+      color='font-secondary-info'
+      fontScale={isInsideHead ? undefined : 'p2'}
       children={innerElement}
       {...props}
     />

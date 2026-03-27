@@ -6,7 +6,16 @@ import { FieldContext } from './Field';
 export type FieldHintProps = BoxProps;
 
 const FieldHint = (props: FieldHintProps) => {
-  const component = <Box is='span' rcx-field__hint {...props} />;
+  const component = (
+    <Box
+      is='span'
+      rcx-field__hint
+      fontScale='c1'
+      marginBlock='x2'
+      color='font-secondary-info'
+      {...props}
+    />
+  );
 
   if (process.env['NODE_ENV'] === 'development') {
     return (

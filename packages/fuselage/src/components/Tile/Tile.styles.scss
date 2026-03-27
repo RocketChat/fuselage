@@ -1,21 +1,9 @@
-@use '../../styles/colors.scss';
-@use '../../styles/lengths.scss';
-@use '../../styles/typography.scss';
-@use '../../styles/functions.scss';
 @use '../../styles/mixins/elevation.scss';
 
+// Static props (display, color, bg, border-radius, font-scale) moved to Tile.tsx via Box props.
+// Remaining: elevation mixins that use complex shadow + theme() values.
+
 .rcx-tile {
-  display: block;
-
-  color: colors.font(default);
-  border-radius: functions.theme(
-    'tile-border-radius',
-    lengths.border-radius(medium)
-  );
-  background-color: colors.surface(light);
-
-  @include typography.use-font-scale(p2);
-
   &--elevation-0 {
     box-shadow: none;
   }

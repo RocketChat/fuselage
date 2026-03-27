@@ -24,6 +24,10 @@ const CardGroup = ({
 }: CardGroupProps) => (
   <Box
     rcx-card-group
+    display='flex'
+    flexDirection='row'
+    flexWrap='nowrap'
+    alignItems='center'
     rcx-card-group--align={align}
     rcx-card-group--stretch={stretch}
     rcx-card-group--vertical={vertical}
