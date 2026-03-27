@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.75.0
+
+### Minor Changes
+
+- [#1912](https://github.com/RocketChat/fuselage/pull/1912) [`ee9f242`](https://github.com/RocketChat/fuselage/commit/ee9f24215b261c228781c540e9bbdda1f23c6e59) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage): add `gap` styling prop to `Box`
+
 ## 0.74.0
 
 ### Minor Changes
