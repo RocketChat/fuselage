@@ -42,6 +42,28 @@ export default (env, { mode = 'production' }) =>
           },
         },
         {
+          test: /\.css$/,
+          use: [
+            MiniCssExtractPlugin.loader,
+            {
+              loader: 'css-loader',
+              options: {
+                importLoaders: 1,
+              },
+            },
+            {
+              loader: 'postcss-loader',
+              options: {
+                postcssOptions: {
+                  plugins: [
+                    mode === 'production' && cssnanoPlugin,
+                  ].filter(Boolean),
+                },
+              },
+            },
+          ],
+        },
+        {
           test: /\.scss$/,
           use: [
             MiniCssExtractPlugin.loader,

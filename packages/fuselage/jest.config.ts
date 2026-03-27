@@ -11,5 +11,6 @@ export default {
   ],
   moduleNameMapper: {
     '\\.scss$': 'testing-utils/lazySingletonStyleTagModule',
+    '\\.css$': 'testing-utils/lazySingletonStyleTagModule',
   },
 } satisfies Config;

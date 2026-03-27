@@ -13,7 +13,7 @@ import type { Falsy } from '../../types/Falsy';
 
 import { useBoxTransform, BoxTransforms } from './BoxTransforms';
 import type { StylingProps } from './stylingProps';
-import { useStylingProps } from './useStylingProps';
+import { useFastStylingProps } from '../../utilities/useFastStylingProps';
 
 export interface BoxProps
   extends Partial<StylingProps>,
@@ -53,7 +53,7 @@ export const Box = forwardRef<any, BoxProps>(function Box(
     propsWithStringClassName = transformFn(propsWithStringClassName);
   }
 
-  const propsWithoutStylingProps = useStylingProps(propsWithStringClassName);
+  const propsWithoutStylingProps = useFastStylingProps(propsWithStringClassName);
   const propsWithoutBoxOnlyProps = useBoxOnlyProps(propsWithoutStylingProps);
 
   const element = createElement(is, propsWithoutBoxOnlyProps, children);

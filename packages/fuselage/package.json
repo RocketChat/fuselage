@@ -25,8 +25,9 @@
   "scripts": {
     "start": "webpack --watch --mode development",
     "storybook": "storybook dev -p 6006 --no-version-updates",
-    "build": "run-s .:build:clean .:build:dev .:build:prod",
+    "build": "run-s .:build:clean .:build:utilities .:build:dev .:build:prod",
     ".:build:clean": "rimraf dist",
+    ".:build:utilities": "node src/utilities/buildUtilities.mjs",
     ".:build:prod": "webpack --mode production",
     ".:build:dev": "webpack --mode development",
     "lint": "lint",
