@@ -117,6 +117,7 @@ const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
     useEffect(reset, [filter]);
 
     const innerRef = useRef<HTMLElement>(null);
+    const wasVisibleOnMouseDownRef = useRef(false);
     const anchorRef = useMergedRefs(ref, innerRef);
 
     const { ref: containerRef, borderBoxSize } = useResizeObserver();
@@ -136,8 +137,18 @@ const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
       return null;
     };
 
+    const handleMouseDown = useStableCallback(() => {
+      wasVisibleOnMouseDownRef.current = visible === AnimatedVisibility.VISIBLE;
+    });
+
     const handleClick = useStableCallback(() => {
-      if (visible === AnimatedVisibility.VISIBLE) {
+      const shouldHide =
+        wasVisibleOnMouseDownRef.current ||
+        visible === AnimatedVisibility.VISIBLE;
+
+      wasVisibleOnMouseDownRef.current = false;
+
+      if (shouldHide) {
         return hide();
       }
       innerRef.current?.focus();
@@ -150,6 +161,7 @@ const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
         rcx-select
         className={[error && 'invalid', disabled && 'disabled']}
         ref={containerRef}
+        onMouseDown={handleMouseDown}
         onClick={handleClick}
         disabled={disabled}
         {...props}
