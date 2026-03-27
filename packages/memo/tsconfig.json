@@ -1,9 +1,11 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "outDir": "./dist/esm"
+    "outDir": "./dist/esm",
+    "types": []
   },
   "include": ["src/**/*"],
+  "exclude": ["src/**/*.spec.*"],
   "typedocOptions": {
     "entryPoints": ["src/index.ts"],
     "out": "../../static/memo"
