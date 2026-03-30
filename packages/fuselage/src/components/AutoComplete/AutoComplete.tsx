@@ -7,6 +7,7 @@ import type {
   ChangeEvent,
   ComponentType,
   FocusEvent,
+  KeyboardEvent,
   MouseEvent,
   ReactNode,
 } from 'react';
@@ -106,7 +107,6 @@ function AutoComplete<TLabel = ReactNode>({
   );
 
   useEffect(() => {
-    // Validates if selected items are still valid after value changes
     setSelected((selected) => {
       return !selected.every(isSelectedValid(value))
         ? selected.filter(isSelectedValid(value))
@@ -163,12 +163,39 @@ function AutoComplete<TLabel = ReactNode>({
   );
 
   const firstSelectedIndex = useMemo(
-    () => options.findIndex((option) => selected[0]?.value === option.value),
-    [options, selected],
-  );
+  () =>
+    filter
+      ? options.findIndex((option) =>
+    String(option.label)
+      .toLowerCase()
+      .includes(filter.toLowerCase()),
+  )
+      : options.findIndex((option) => selected[0]?.value === option.value),
+  [options, selected, filter],
+);
 
   const [cursor, handleKeyDown, , reset, [optionsAreVisible, hide, show]] =
     useCursor(firstSelectedIndex, memoizedOptions, handleSelect);
+
+  const handleKeyDownWrapper = useStableCallback(
+    (event: KeyboardEvent<HTMLInputElement>) => {
+      if (event.key === 'Backspace' && filter === '') {
+        if (selected.length > 0) {
+          const lastSelected = selected[selected.length - 1];
+          const filtered = selected.slice(0, -1);
+          const filteredValue =
+            multiple && Array.isArray(value)
+              ? value.filter((item) => item !== lastSelected.value)
+              : '';
+          setSelected(filtered);
+          onChange(filteredValue);
+          hide();
+          return;
+        }
+      }
+      handleKeyDown(event);
+    },
+  );
 
   const handleOnBlur = useStableCallback(
     (event: FocusEvent<HTMLInputElement>) => {
@@ -177,7 +204,9 @@ function AutoComplete<TLabel = ReactNode>({
     },
   );
 
-  useEffect(reset, [filter, reset]);
+   useEffect(() => {
+    reset();
+    }, [filter, reset]);
 
   return (
     <Box
@@ -206,7 +235,7 @@ function AutoComplete<TLabel = ReactNode>({
             )}
             onBlur={handleOnBlur}
             onFocus={show}
-            onKeyDown={handleKeyDown}
+            onKeyDown={handleKeyDownWrapper}
             placeholder={
               optionsAreVisible === AnimatedVisibility.HIDDEN || !value
                 ? placeholder
