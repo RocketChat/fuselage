@@ -13,7 +13,7 @@ import manifest from '../package.json';
 import DocsContainer from './DocsContainer';
 import logo from './logo.svg';
 
-// import '@rocket.chat/fuselage/dist/fuselage.css';
+import '@rocket.chat/fuselage/dist/fuselage.css';
 import '@rocket.chat/icons/dist/rocketchat.css';
 
 const getI18n = () => {

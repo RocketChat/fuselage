@@ -3,10 +3,6 @@ import './index.scss';
 export * from './components';
 export * from './styleTokens';
 
-export {
-  Palette,
-  __setThrowErrorOnInvalidToken__,
-} from '@rocket.chat/fuselage-box';
 export { useArrayLikeClassNameProp } from '@rocket.chat/fuselage-box';
 
 // Tamagui v3 exports
@@ -19,3 +15,5 @@ export {
   RcxInteractive,
   RcxInteractiveText,
 } from './primitives';
+
+export * from '@rocket.chat/fuselage-box';
