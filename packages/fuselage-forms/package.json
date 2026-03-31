@@ -26,10 +26,10 @@
     ".:build:clean": "rimraf dist",
     ".:build:cjs": "tsc -p tsconfig.cjs.json",
     ".:build:esm": "tsc -p tsconfig.esm.json",
-    "storybook": "storybook dev -p 6006 --no-version-updates",
+    "storybook": "yarn workspace @rocket.chat/storybook-dark-mode run build && storybook dev -p 6006 --no-version-updates",
     "build": "run .:build:clean && run .:build:esm && run .:build:cjs",
     "clean": "rimraf dist",
-    "docs": "cross-env NODE_ENV=production storybook build -o ../../static/fuselage-forms",
+    "docs": "yarn workspace @rocket.chat/storybook-dark-mode run build && cross-env NODE_ENV=production storybook build -o ../../static/fuselage-forms",
     "lint": "lint",
     "lint-and-fix": "lint-and-fix",
     "test": "jest --runInBand"
