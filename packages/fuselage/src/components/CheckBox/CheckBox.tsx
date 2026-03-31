@@ -1,8 +1,9 @@
 import { useMergedRefs } from '@rocket.chat/fuselage-hooks';
-import type { FormEvent, AllHTMLAttributes, ReactNode } from 'react';
+import type { CSSProperties, FormEvent, AllHTMLAttributes, ReactNode } from 'react';
 import {
   forwardRef,
   useLayoutEffect,
+  useMemo,
   useRef,
   useCallback,
   useState,
@@ -10,6 +11,8 @@ import {
 import { styled } from 'tamagui';
 
 import { RcxView } from '../../primitives';
+import type { BoxCompatProps } from '../../utilities/boxCompat';
+import { extractBoxProps } from '../../utilities/boxCompat';
 
 // --- Styled components ---
 
@@ -246,15 +249,23 @@ export type CheckBoxProps = {
   indeterminate?: boolean;
   labelChildren?: ReactNode;
   className?: string;
-} & Omit<AllHTMLAttributes<HTMLInputElement>, 'is'>;
+  style?: CSSProperties;
+} & Omit<AllHTMLAttributes<HTMLInputElement>, 'is'>
+  & Partial<BoxCompatProps>;
 
 // --- Component ---
 
 const CheckBox = forwardRef<HTMLInputElement, CheckBoxProps>(
   function CheckBox(
-    { indeterminate, onChange, className, labelChildren, checked, disabled, ...props },
+    { indeterminate, onChange, className, labelChildren, checked, disabled, style: styleProp, ...props },
     ref,
   ) {
+    const { style: boxStyle, rest: inputProps } = extractBoxProps(props as Record<string, unknown>);
+    const wrapperStyle = useMemo(() => {
+      const hasBoxStyle = Object.keys(boxStyle).length > 0;
+      if (!hasBoxStyle && !styleProp) return undefined;
+      return { ...boxStyle, ...styleProp };
+    }, [boxStyle, styleProp]);
     const innerRef = useRef<HTMLInputElement>(null);
     const mergedRef = useMergedRefs(ref, innerRef);
 
@@ -288,6 +299,7 @@ const CheckBox = forwardRef<HTMLInputElement, CheckBoxProps>(
       <CheckBoxWrapper
         className={className}
         isDisabled={disabled || undefined}
+        style={wrapperStyle}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => {
           setIsHovered(false);
@@ -316,7 +328,7 @@ const CheckBox = forwardRef<HTMLInputElement, CheckBoxProps>(
             whiteSpace: 'nowrap',
             borderWidth: 0,
           }}
-          {...props}
+          {...(inputProps as any)}
         />
         <CheckBoxFake
           aria-hidden='true'

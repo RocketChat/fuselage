@@ -1,10 +1,11 @@
 import type { Keys as IconName } from '@rocket.chat/icons';
 import nameToCharacterMapping from '@rocket.chat/icons';
-import { forwardRef } from 'react';
+import { forwardRef, useMemo } from 'react';
 import { styled } from 'tamagui';
 
 import type { BoxProps } from '../Box';
 import { RcxText } from '../../primitives';
+import { extractBoxProps } from '../../utilities/boxCompat';
 
 const StyledIcon = styled(RcxText, {
   name: 'Icon',
@@ -40,17 +41,25 @@ const resolveSize = (size: any): number | undefined => {
 };
 
 const Icon = forwardRef<HTMLElement, IconProps>(function Icon(
-  { name, size, ...props },
+  { name, size, style: styleProp, ...props },
   ref,
 ) {
   const resolvedSize = resolveSize(size);
+  const { style: boxStyle, rest } = extractBoxProps(props as Record<string, unknown>);
+  const mergedStyle = useMemo(() => {
+    const hasBoxStyle = Object.keys(boxStyle).length > 0;
+    if (!hasBoxStyle && !styleProp) return undefined;
+    return { ...boxStyle, ...styleProp };
+  }, [boxStyle, styleProp]);
+
   return (
     <StyledIcon
       aria-hidden='true'
       fontSize={resolvedSize}
       lineHeight={resolvedSize}
       ref={ref}
-      {...(props as any)}
+      style={mergedStyle}
+      {...(rest as any)}
     >
       {nameToCharacterMapping[name]}
     </StyledIcon>

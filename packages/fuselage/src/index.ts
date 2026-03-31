@@ -17,3 +17,7 @@ export {
 } from './primitives';
 
 export * from '@rocket.chat/fuselage-box';
+
+// Compatibility layer for Box props on Tamagui styled() components
+export { withBoxProps, extractBoxProps } from './utilities/boxCompat';
+export type { BoxCompatProps } from './utilities/boxCompat';

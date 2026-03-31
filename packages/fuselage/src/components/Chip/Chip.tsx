@@ -1,8 +1,10 @@
 import type { ButtonHTMLAttributes, ReactNode } from 'react';
-
+import { useMemo } from 'react';
 import { styled, Text } from 'tamagui';
 
 import { RcxText } from '../../primitives';
+import type { BoxCompatProps } from '../../utilities/boxCompat';
+import { extractBoxProps } from '../../utilities/boxCompat';
 import { Avatar } from '../Avatar';
 import { Icon } from '../Icon';
 
@@ -87,7 +89,7 @@ export type ChipProps = Omit<
   thumbUrl?: string;
   renderThumb?: (props: { url: string }) => ReactNode;
   renderDismissSymbol?: () => ReactNode;
-};
+} & Partial<BoxCompatProps>;
 
 const defaultRenderThumb = ({ url }: { url: string }) => (
   <Avatar size='x20' url={url} />
@@ -103,15 +105,23 @@ const Chip = ({
   renderThumb = defaultRenderThumb,
   renderDismissSymbol = defaultRenderDismissSymbol,
   disabled,
+  style: styleProp,
   ...rest
 }: ChipProps) => {
   const onDismiss = onClick || onMouseDown;
+  const { style: boxStyle, rest: cleanProps } = extractBoxProps(rest as Record<string, unknown>);
+  const mergedStyle = useMemo(() => {
+    const hasBoxStyle = Object.keys(boxStyle).length > 0;
+    if (!hasBoxStyle && !styleProp) return undefined;
+    return { ...boxStyle, ...styleProp };
+  }, [boxStyle, styleProp]);
 
   return (
     <ChipBase
       disabled={!onDismiss || disabled || undefined}
       onClick={onDismiss}
-      {...(rest as any)}
+      style={mergedStyle}
+      {...(cleanProps as any)}
     >
       {thumbUrl && renderThumb && renderThumb({ url: thumbUrl })}
       {children && <ChipText>{children}</ChipText>}
