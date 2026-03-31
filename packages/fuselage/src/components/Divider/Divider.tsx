@@ -1,7 +1,10 @@
-import type { ReactNode } from 'react';
+import type { CSSProperties, ReactNode } from 'react';
+import { useMemo } from 'react';
 import { styled } from 'tamagui';
 
 import { RcxView, RcxText } from '../../primitives';
+import type { BoxCompatProps } from '../../utilities/boxCompat';
+import { extractBoxProps } from '../../utilities/boxCompat';
 
 const DividerHr = styled(RcxView, {
   name: 'DividerHr',
@@ -68,9 +71,17 @@ export type DividerProps = {
   variation?: 'danger';
   children?: ReactNode;
   vertical?: boolean;
-};
+  style?: CSSProperties;
+} & Partial<BoxCompatProps>;
 
-const Divider = ({ variation, children, vertical, ...props }: DividerProps) => {
+const Divider = ({ variation, children, vertical, style: styleProp, ...props }: DividerProps) => {
+  const { style: boxStyle, rest } = extractBoxProps(props as Record<string, unknown>);
+  const mergedStyle = useMemo(() => {
+    const hasBoxStyle = Object.keys(boxStyle).length > 0;
+    if (!hasBoxStyle && !styleProp) return undefined;
+    return { ...boxStyle, ...styleProp };
+  }, [boxStyle, styleProp]);
+
   if (!children) {
     return (
       <DividerHr
@@ -78,12 +89,13 @@ const Divider = ({ variation, children, vertical, ...props }: DividerProps) => {
         danger={variation === 'danger' || undefined}
         vertical={vertical || undefined}
         {...(vertical && variation === 'danger' && { borderLeftColor: '$strokeError' })}
-        {...props}
+        style={mergedStyle}
+        {...rest}
       />
     );
   }
   return (
-    <DividerContainer role='separator' {...props}>
+    <DividerContainer role='separator' style={mergedStyle} {...rest}>
       <DividerBar />
       <DividerWrapper>{children}</DividerWrapper>
       <DividerBar />
