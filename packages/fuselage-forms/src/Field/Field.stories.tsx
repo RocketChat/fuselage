@@ -235,12 +235,13 @@ export const WithUrlInput: StoryFn<typeof Field> = () => (
 
 export const WithSelect: StoryFn<typeof Field> = () => (
   <Field>
-    <FieldRow>
-      <FieldLabel required>
-        Example Select
-        <FieldLabelInfo title='with extra info in a tooltip' />
-      </FieldLabel>
-    </FieldRow>
+    <FieldLabel required>
+      Example Select
+      <FieldLabelInfo title='with extra info in a tooltip' />
+    </FieldLabel>
+    <FieldDescription>
+      You can select a single option from a list of options
+    </FieldDescription>
     <FieldRow>
       <Select
         options={[
@@ -257,13 +258,7 @@ export const WithSelect: StoryFn<typeof Field> = () => (
         ]}
       />
     </FieldRow>
-
-    <FieldRow>
-      <FieldDescription>
-        You can select a single option from a list of options
-      </FieldDescription>
-      <FieldError>You failed to enter a valid value</FieldError>
-    </FieldRow>
+    <FieldError>You failed to enter a valid value</FieldError>
     <FieldRow>
       <FieldHint>This should help the user enter a valid value</FieldHint>
       <FieldLink href='#'>Link to more information</FieldLink>
