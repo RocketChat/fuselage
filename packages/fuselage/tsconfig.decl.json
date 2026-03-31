@@ -7,9 +7,6 @@
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "noImplicitAny": false,
-    "noPropertyAccessFromIndexSignature": false,
-    "paths": {
-      "react-native": ["./src/react-native-shim.d.ts"]
-    }
+    "noPropertyAccessFromIndexSignature": false
   }
 }
