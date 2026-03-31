@@ -1,4 +1,4 @@
-import { PaletteStyleTag } from '@rocket.chat/fuselage';
+import { FuselageProvider, PaletteStyleTag } from '@rocket.chat/fuselage';
 import surface from '@rocket.chat/fuselage-tokens/dist/surface.json';
 import { DarkModeProvider } from '@rocket.chat/layout';
 import { useDarkMode } from '@rocket.chat/storybook-dark-mode';
@@ -13,7 +13,7 @@ import manifest from '../package.json';
 import DocsContainer from './DocsContainer';
 import logo from './logo.svg';
 
-import '@rocket.chat/fuselage/dist/fuselage.css';
+// import '@rocket.chat/fuselage/dist/fuselage.css';
 import '@rocket.chat/icons/dist/rocketchat.css';
 
 const getI18n = () => {
@@ -75,15 +75,19 @@ export default {
     (Story) => {
       const dark = useDarkMode();
 
+      const theme = dark ? 'dark' : 'light';
+
       return (
-        <Suspense fallback={null}>
-          <I18nextProvider i18n={getI18n()}>
-            <DarkModeProvider.default forcedDarkMode={dark}>
-              <PaletteStyleTag theme={dark ? 'dark' : 'light'} />
-              <Story />
-            </DarkModeProvider.default>
-          </I18nextProvider>
-        </Suspense>
+        <FuselageProvider theme={theme}>
+          <Suspense fallback={null}>
+            <I18nextProvider i18n={getI18n()}>
+              <DarkModeProvider.default forcedDarkMode={dark}>
+                <PaletteStyleTag theme={theme} />
+                <Story />
+              </DarkModeProvider.default>
+            </I18nextProvider>
+          </Suspense>
+        </FuselageProvider>
       );
     },
   ],
