@@ -6,6 +6,8 @@
   @include typography.use-font-scale(p2m);
   display: flex;
 
+  cursor: default;
+
   color: colors.font(default);
 
   &--disabled {
