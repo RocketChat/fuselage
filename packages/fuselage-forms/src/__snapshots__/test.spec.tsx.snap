@@ -66,6 +66,7 @@ exports[`renders WithCheckbox without crashing 1`] = `
       <span
         class="rcx-box rcx-box--full rcx-field__error"
         id="react-aria-:r7:-error"
+        role="alert"
       >
         You failed to enter a valid value
       </span>
@@ -146,6 +147,7 @@ exports[`renders WithEmailInput without crashing 1`] = `
       <span
         class="rcx-box rcx-box--full rcx-field__error"
         id="react-aria-:r1:-error"
+        role="alert"
       >
         You failed to enter a valid value
       </span>
@@ -284,6 +286,7 @@ exports[`renders WithMultiSelect without crashing 1`] = `
       <span
         class="rcx-box rcx-box--full rcx-field__error"
         id="react-aria-:rb:-error"
+        role="alert"
       >
         You failed to enter a valid value
       </span>
@@ -364,6 +367,7 @@ exports[`renders WithNumberInput without crashing 1`] = `
       <span
         class="rcx-box rcx-box--full rcx-field__error"
         id="react-aria-:r9:-error"
+        role="alert"
       >
         You failed to enter a valid value
       </span>
@@ -458,6 +462,7 @@ exports[`renders WithPasswordInput without crashing 1`] = `
       <span
         class="rcx-box rcx-box--full rcx-field__error"
         id="react-aria-:r2:-error"
+        role="alert"
       >
         You failed to enter a valid value
       </span>
@@ -549,6 +554,7 @@ exports[`renders WithRadioButton without crashing 1`] = `
       <span
         class="rcx-box rcx-box--full rcx-field__error"
         id="react-aria-:r5:-error"
+        role="alert"
       >
         You failed to enter a valid value
       </span>
@@ -629,6 +635,7 @@ exports[`renders WithSearchInput without crashing 1`] = `
       <span
         class="rcx-box rcx-box--full rcx-field__error"
         id="react-aria-:r3:-error"
+        role="alert"
       >
         You failed to enter a valid value
       </span>
@@ -750,6 +757,7 @@ exports[`renders WithSlider without crashing 1`] = `
       <span
         class="rcx-box rcx-box--full rcx-field__error"
         id="react-aria-:rc:-error"
+        role="alert"
       >
         You failed to enter a valid value
       </span>
@@ -830,6 +838,7 @@ exports[`renders WithTelephoneInput without crashing 1`] = `
       <span
         class="rcx-box rcx-box--full rcx-field__error"
         id="react-aria-:r8:-error"
+        role="alert"
       >
         You failed to enter a valid value
       </span>
@@ -910,6 +919,7 @@ exports[`renders WithTextArea without crashing 1`] = `
       <span
         class="rcx-box rcx-box--full rcx-field__error"
         id="react-aria-:r4:-error"
+        role="alert"
       >
         You failed to enter a valid value
       </span>
@@ -990,6 +1000,7 @@ exports[`renders WithTextInput without crashing 1`] = `
       <span
         class="rcx-box rcx-box--full rcx-field__error"
         id="react-aria-:r0:-error"
+        role="alert"
       >
         You failed to enter a valid value
       </span>
@@ -1081,6 +1092,7 @@ exports[`renders WithToggleSwitch without crashing 1`] = `
       <span
         class="rcx-box rcx-box--full rcx-field__error"
         id="react-aria-:r6:-error"
+        role="alert"
       >
         You failed to enter a valid value
       </span>
@@ -1161,6 +1173,7 @@ exports[`renders WithUrlInput without crashing 1`] = `
       <span
         class="rcx-box rcx-box--full rcx-field__error"
         id="react-aria-:ra:-error"
+        role="alert"
       >
         You failed to enter a valid value
       </span>
