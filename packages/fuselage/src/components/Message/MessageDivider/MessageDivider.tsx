@@ -1,85 +1,102 @@
-import { css } from '@rocket.chat/css-in-js';
+import { styled } from '@tamagui/core';
 import type { ReactNode } from 'react';
+
+import { RcxText, RcxView } from '../../../primitives';
 
 export type MessageDividerProps = {
   children?: ReactNode;
   unreadLabel?: string;
 };
 
-const dividerStyle = css`
-  position: relative;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  margin-bottom: -1px;
-  padding-inline: 20px;
-  font-family: var(--f-family-body);
-  font-size: var(--f-font-size-c2, 12px);
-  font-weight: var(--f-font-weight-c2, 700);
-  line-height: var(--f-line-height-c2, 16px);
-  color: var(--fontDefault);
-`;
+const DividerContainer = styled(RcxView, {
+  name: 'MessageDivider',
 
-const barStyle = css`
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  flex-grow: 1;
-  &::after {
-    flex-grow: 1;
-    height: 1px;
-    content: '';
-    background: var(--strokeExtraLight);
-  }
-`;
+  position: 'relative',
+  zIndex: 1,
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center',
+  marginBottom: -1,
+  paddingInline: 20,
+});
 
-const barUnreadStyle = css`
-  &::after {
-    background: var(--strokeError);
-  }
-`;
+const DividerBar = styled(RcxView, {
+  name: 'MessageDividerBar',
 
-const wrapperStyle = css`
-  margin-block: 8px;
-  padding-inline: 8px;
-  background-color: var(--surfaceRoom);
-`;
+  display: 'flex',
+  flexDirection: 'row',
+  justifyContent: 'flex-end',
+  alignItems: 'center',
+  flexGrow: 1,
+});
 
-const wrapperUnreadStyle = css`
-  position: absolute;
-  z-index: 1;
-  order: 1;
-  padding-inline-start: 8px;
-  color: var(--fontDanger);
-  background-color: var(--surfaceRoom);
-`;
+const DividerLine = styled(RcxView, {
+  name: 'MessageDividerLine',
+
+  flexGrow: 1,
+  height: 1,
+  backgroundColor: '$strokeExtraLight',
+
+  variants: {
+    unread: {
+      true: {
+        backgroundColor: '$strokeError',
+      },
+    },
+  } as const,
+});
+
+const DividerWrapper = styled(RcxText, {
+  name: 'MessageDividerWrapper',
+
+  display: 'block',
+  marginBlock: '$x8',
+  paddingInline: '$x8',
+  backgroundColor: '$surfaceRoom',
+
+  fontFamily: '$body',
+  fontSize: '$c2',
+  fontWeight: '$c2',
+  lineHeight: '$c2',
+  color: '$fontDefault',
+});
+
+const UnreadWrapper = styled(RcxText, {
+  name: 'MessageDividerUnread',
+
+  display: 'block',
+  position: 'absolute',
+  zIndex: 1,
+  order: 1,
+  paddingInlineStart: '$x8',
+  color: '$fontDanger',
+  backgroundColor: '$surfaceRoom',
+
+  fontFamily: '$body',
+  fontSize: '$c2',
+  fontWeight: '$c2',
+  lineHeight: '$c2',
+});
 
 const MessageDivider = ({
   children,
   unreadLabel,
   ...props
 }: MessageDividerProps) => (
-  <div
-    role='separator'
-    className={['rcx-box rcx-box--full', dividerStyle].join(' ')}
-    {...props}
-  >
+  <DividerContainer role='separator' {...props}>
     {children && (
       <>
-        <div className={barStyle} />
-        <div className={wrapperStyle}>{children}</div>{' '}
+        <DividerBar>
+          <DividerLine unread={!!unreadLabel || undefined} />
+        </DividerBar>
+        <DividerWrapper>{children}</DividerWrapper>{' '}
       </>
     )}
-    <div
-      className={[barStyle, unreadLabel ? barUnreadStyle : '']
-        .filter(Boolean)
-        .join(' ')}
-    >
-      {unreadLabel && (
-        <div className={wrapperUnreadStyle}>{unreadLabel}</div>
-      )}
-    </div>
-  </div>
+    <DividerBar>
+      {unreadLabel && <UnreadWrapper>{unreadLabel}</UnreadWrapper>}
+      <DividerLine unread={!!unreadLabel || undefined} />
+    </DividerBar>
+  </DividerContainer>
 );
 
 export default MessageDivider;
