@@ -24,4 +24,12 @@ describe('[Pagination Component]', () => {
     const results = await axe(container);
     expect(results).toHaveNoViolations();
   });
+
+  it('should override with custom aria-label', () => {
+    const { getByLabelText } = render(
+      <Default aria-label='Custom Pagination Navigation' />,
+    );
+
+    expect(getByLabelText('Custom Pagination Navigation')).toBeInTheDocument();
+  });
 });

@@ -22,10 +22,6 @@ export type PaginationProps = {
   }) => string;
   onSetCurrent?: Dispatch<SetStateAction<number>>;
   onSetItemsPerPage?: Dispatch<SetStateAction<ItemsPerPage>>;
-  paginationAriaLabel?: string;
-  pageAriaLabel?: string;
-  previousPageAriaLabel?: string;
-  nextPageAriaLabel?: string;
 } & HTMLAttributes<HTMLElement>;
 
 const defaultItemsPerPageLabel = () => 'Items per page:';
@@ -55,10 +51,6 @@ const Pagination = ({
   onSetItemsPerPage,
   onSetCurrent,
   divider,
-  paginationAriaLabel = 'Pagination navigation',
-  pageAriaLabel,
-  previousPageAriaLabel = 'Previous page',
-  nextPageAriaLabel = 'Next page',
   ...props
 }: PaginationProps) => {
   const paginationResultLabelId = useId();
@@ -114,7 +106,7 @@ const Pagination = ({
       ]
         .filter(Boolean)
         .join(' ')}
-      aria-label={paginationAriaLabel}
+      aria-label='Pagination Navigation'
       {...props}
     >
       {hasItemsPerPageSelection && (
@@ -157,7 +149,7 @@ const Pagination = ({
             <button
               className='rcx-box rcx-box--full rcx-pagination__back'
               disabled={currentPage === 0}
-              aria-label={previousPageAriaLabel}
+              aria-label='Previous page'
               onClick={handleSetPageLinkClick(currentPage - 1)}
             >
               <Chevron left size='x16' />
@@ -171,7 +163,7 @@ const Pagination = ({
                 <button
                   className='rcx-box rcx-box--full rcx-pagination__link'
                   disabled={currentPage === page}
-                  aria-label={`${pageAriaLabel} ${Number(page) + 1}`}
+                  aria-label={`Page ${Number(page) + 1}`}
                   onClick={handleSetPageLinkClick(Number(page))}
                 >
                   {Number(page) + 1}
@@ -183,7 +175,7 @@ const Pagination = ({
             <button
               className='rcx-box rcx-box--full rcx-pagination__forward'
               disabled={currentPage === pages - 1}
-              aria-label={nextPageAriaLabel}
+              aria-label='Next page'
               onClick={handleSetPageLinkClick(currentPage + 1)}
             >
               <Chevron right size='x16' />
