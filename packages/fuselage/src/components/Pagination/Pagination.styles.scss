@@ -80,7 +80,7 @@
 .rcx-pagination__label {
   @include typography.use-font-scale(c1);
 
-  color: colors.font(secondary-info);
+  color: colors.font(annotation);
 }
 
 .rcx-pagination__list {

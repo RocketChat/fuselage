@@ -1,5 +1,5 @@
 import type { Dispatch, SetStateAction } from 'react';
-import { useMemo } from 'react';
+import { useId, useMemo } from 'react';
 
 import { Box, type BoxProps } from '../Box';
 import { Chevron } from '../Chevron';
@@ -25,6 +25,8 @@ export type PaginationProps = BoxProps & {
   onSetItemsPerPage?: Dispatch<SetStateAction<ItemsPerPage>>;
   paginationAriaLabel?: string;
   pageAriaLabel?: string;
+  previousPageAriaLabel?: string;
+  nextPageAriaLabel?: string;
 };
 
 const defaultItemsPerPageLabel = () => 'Items per page:';
@@ -43,17 +45,7 @@ const defaultShowingResultsLabel = ({
     count,
   )} of ${count}`;
 
-const itemsPerPageOptions = [25, 50, 100] as ItemsPerPage[];
-
-function getPageAriaLabel(
-  pageAriaLabel: string | undefined,
-  pageNumber: number,
-) {
-  if (pageAriaLabel) {
-    return `${pageAriaLabel} ${pageNumber}`;
-  }
-  return undefined;
-}
+const itemsPerPageOptions = [25, 50, 100] as const;
 
 const Pagination = ({
   count,
@@ -64,10 +56,15 @@ const Pagination = ({
   onSetItemsPerPage,
   onSetCurrent,
   divider,
-  paginationAriaLabel,
+  paginationAriaLabel = 'Pagination navigation',
   pageAriaLabel,
+  previousPageAriaLabel = 'Previous page',
+  nextPageAriaLabel = 'Next page',
   ...props
 }: PaginationProps) => {
+  const paginationResultLabelId = useId();
+  const itemsPerPageLabelId = useId();
+
   const hasItemsPerPageSelection = itemsPerPageOptions.length > 1;
   const currentPage = Math.floor(current / itemsPerPage);
   const pages = Math.ceil(count / itemsPerPage);
@@ -115,16 +112,19 @@ const Pagination = ({
       is='nav'
       rcx-pagination
       rcx-pagination--divider={divider}
-      role='navigation'
-      aria-label={`${paginationAriaLabel ?? undefined}`}
+      aria-label={paginationAriaLabel}
       {...props}
     >
       {hasItemsPerPageSelection && (
         <Box rcx-pagination__left>
-          <Box is='span' rcx-pagination__label>
+          <Box is='span' rcx-pagination__label id={itemsPerPageLabelId}>
             {itemsPerPageLabel(renderingContext)}
           </Box>
-          <Box is='ol' rcx-pagination__list>
+          <Box
+            is='ol'
+            rcx-pagination__list
+            aria-labelledby={itemsPerPageLabelId}
+          >
             {itemsPerPageOptions.map((itemsPerPageOption) => (
               <Box key={itemsPerPageOption} is='li' rcx-pagination__list-item>
                 <Box
@@ -132,6 +132,7 @@ const Pagination = ({
                   rcx-pagination__link
                   tabIndex={itemsPerPage === itemsPerPageOption ? -1 : 0}
                   disabled={itemsPerPage === itemsPerPageOption}
+                  aria-label={`Show ${itemsPerPageOption} items per page`}
                   onClick={handleSetItemsPerPageLinkClick(itemsPerPageOption)}
                 >
                   {itemsPerPageOption}
@@ -142,24 +143,20 @@ const Pagination = ({
         </Box>
       )}
       <Box rcx-pagination__right>
-        <Box is='span' rcx-pagination__label id='paginationResultLabelId'>
+        <Box is='span' rcx-pagination__label id={paginationResultLabelId}>
           {showingResultsLabel(renderingContext)}
         </Box>
         <Box
           is='ol'
           rcx-pagination__list
-          aria-describedby='paginationResultLabelId'
+          aria-labelledby={paginationResultLabelId}
         >
           <Box is='li' rcx-pagination__list-item>
             <Box
               is='button'
               rcx-pagination__back
               disabled={currentPage === 0}
-              aria-label={
-                currentPage === 0
-                  ? undefined
-                  : getPageAriaLabel(pageAriaLabel, currentPage)
-              }
+              aria-label={previousPageAriaLabel}
               onClick={handleSetPageLinkClick(currentPage - 1)}
             >
               <Chevron left size='x16' />
@@ -174,13 +171,10 @@ const Pagination = ({
                   is='button'
                   rcx-pagination__link
                   disabled={currentPage === page}
-                  aria-label={getPageAriaLabel(
-                    pageAriaLabel,
-                    (page as number) + 1,
-                  )}
-                  onClick={handleSetPageLinkClick(page as number)}
+                  aria-label={`${pageAriaLabel} ${Number(page) + 1}`}
+                  onClick={handleSetPageLinkClick(Number(page))}
                 >
-                  {(page as number) + 1}
+                  {Number(page) + 1}
                 </Box>
               )}
             </Box>
@@ -190,11 +184,7 @@ const Pagination = ({
               is='button'
               rcx-pagination__forward
               disabled={currentPage === pages - 1}
-              aria-label={
-                currentPage === pages - 1
-                  ? undefined
-                  : getPageAriaLabel(pageAriaLabel, currentPage + 2)
-              }
+              aria-label={nextPageAriaLabel}
               onClick={handleSetPageLinkClick(currentPage + 1)}
             >
               <Chevron right size='x16' />
