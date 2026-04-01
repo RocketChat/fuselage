@@ -258,6 +258,30 @@ export const spacing = measure((value: unknown) => {
   return undefined;
 });
 
+export const inset = measure((value: unknown) => {
+  if (value === 'none') {
+    return '0px';
+  }
+
+  return undefined;
+});
+
+export const margin = measure((value: unknown) => {
+  if (value === 'none') {
+    return '0px';
+  }
+
+  return undefined;
+});
+
+export const padding = measure((value: unknown) => {
+  if (value === 'none') {
+    return '0px';
+  }
+
+  return undefined;
+});
+
 type FontFamily = keyof typeof tokenTypography.fontFamilies;
 
 const isFontFamily = (value: unknown): value is FontFamily =>
