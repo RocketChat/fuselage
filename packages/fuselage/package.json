@@ -35,7 +35,7 @@
     "test": "jest --runInBand",
     "watch": "jest --watch",
     "docs": "yarn workspace @rocket.chat/storybook-dark-mode run build && cross-env NODE_ENV=production storybook build -o ../../static/fuselage",
-    "build-storybook": "yarn workspace @rocket.chat/storybook-dark-mode run build && cross-env NODE_ENV=production storybook build"
+    "build-storybook": "cross-env NODE_ENV=production storybook build"
   },
   "dependencies": {
     "@rocket.chat/css-in-js": "workspace:~",

@@ -32,7 +32,7 @@
     "test": "jest --runInBand",
     "docs": "typedoc",
     "storybook": "yarn workspace @rocket.chat/storybook-dark-mode run build && storybook dev -p 6006 --no-version-updates",
-    "build-storybook": "yarn workspace @rocket.chat/storybook-dark-mode run build && storybook build"
+    "build-storybook": "storybook build"
   },
   "devDependencies": {
     "@rocket.chat/fuselage": "workspace:~",

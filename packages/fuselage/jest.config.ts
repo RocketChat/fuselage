@@ -10,4 +10,7 @@ export default {
   moduleNameMapper: {
     '\\.scss$': 'testing-utils/lazySingletonStyleTagModule',
   },
+  transformIgnorePatterns: [
+    'node_modules/(?!(@rocket\\.chat/fuselage-box|tamagui|@tamagui)/)',
+  ],
 } satisfies Config;
