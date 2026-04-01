@@ -2,4 +2,4 @@
 '@rocket.chat/fuselage': minor
 ---
 
-feat(fuselage): `Pagination` a11y
+feat(fuselage): Add accessibility improvements to `Pagination`
