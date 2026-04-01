@@ -1,6 +1,6 @@
 import type { Keys as IconKeys } from '@rocket.chat/icons';
 import { isValidElement, type ReactElement } from 'react';
-import { styled } from 'tamagui';
+import { styled } from '@tamagui/core';
 
 import { RcxView } from '../../../primitives';
 import { Icon, type IconProps } from '../../Icon';

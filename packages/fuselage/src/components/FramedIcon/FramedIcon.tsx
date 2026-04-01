@@ -1,7 +1,7 @@
 import type { Keys } from '@rocket.chat/icons';
 import nameToCharacterMapping from '@rocket.chat/icons';
 import type { AllHTMLAttributes } from 'react';
-import { styled } from 'tamagui';
+import { styled } from '@tamagui/core';
 
 import { RcxText } from '../../primitives';
 

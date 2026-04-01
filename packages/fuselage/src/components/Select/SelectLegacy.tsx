@@ -7,7 +7,7 @@ import {
 import type { DependencyList, ElementType, ReactNode } from 'react';
 import { useState, useRef, useEffect, forwardRef, useMemo } from 'react';
 
-import { styled } from 'tamagui';
+import { styled } from '@tamagui/core';
 
 import { isForwardRefType } from '../../helpers/isForwardRefType';
 import { RcxView, RcxText } from '../../primitives';

@@ -1,6 +1,6 @@
 import type { ComponentType, HTMLAttributes, ReactElement } from 'react';
 import { Fragment, Children, isValidElement } from 'react';
-import { styled } from 'tamagui';
+import { styled } from '@tamagui/core';
 
 import { RcxView } from '../../primitives';
 import NavBarDivider from './NavBarDivider';

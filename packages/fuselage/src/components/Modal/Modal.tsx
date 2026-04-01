@@ -1,6 +1,6 @@
 import type { ElementType, ReactNode } from 'react';
 import { createElement, forwardRef } from 'react';
-import { styled } from 'tamagui';
+import { styled } from '@tamagui/core';
 
 import { RcxView } from '../../primitives';
 import { Box, type BoxProps } from '../Box';

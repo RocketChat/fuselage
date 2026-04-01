@@ -1,5 +1,5 @@
 import { forwardRef } from 'react';
-import { styled } from 'tamagui';
+import { styled } from '@tamagui/core';
 
 import { RcxView } from '../../../primitives';
 import { ButtonGroup, type ButtonGroupProps } from '../../ButtonGroup';

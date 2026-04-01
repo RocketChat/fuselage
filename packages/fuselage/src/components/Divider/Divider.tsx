@@ -1,6 +1,6 @@
 import type { CSSProperties, ReactNode } from 'react';
 import { useMemo } from 'react';
-import { styled } from 'tamagui';
+import { styled } from '@tamagui/core';
 
 import { RcxView, RcxText } from '../../primitives';
 import type { BoxCompatProps } from '../../utilities/boxCompat';

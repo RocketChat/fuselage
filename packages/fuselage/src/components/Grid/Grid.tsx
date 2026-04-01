@@ -1,7 +1,7 @@
 import { useMediaQuery } from '@rocket.chat/fuselage-hooks';
 import type { ComponentPropsWithoutRef, ReactNode } from 'react';
 import { createContext, useContext } from 'react';
-import { styled } from 'tamagui';
+import { styled } from '@tamagui/core';
 
 import { RcxView } from '../../primitives';
 

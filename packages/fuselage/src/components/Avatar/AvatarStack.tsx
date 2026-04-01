@@ -1,6 +1,6 @@
 import type { DetailedHTMLProps, HTMLAttributes } from 'react';
 import flattenChildren from 'react-keyed-flatten-children';
-import { styled } from 'tamagui';
+import { styled } from '@tamagui/core';
 
 import { RcxView } from '../../primitives';
 

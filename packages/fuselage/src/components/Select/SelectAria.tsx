@@ -5,7 +5,7 @@ import { forwardRef } from 'react';
 import { useSelect, HiddenSelect, mergeProps, useFocusRing } from 'react-aria';
 import { useSelectState } from 'react-stately';
 
-import { styled } from 'tamagui';
+import { styled } from '@tamagui/core';
 
 import { RcxText } from '../../primitives';
 import { Icon } from '../Icon';

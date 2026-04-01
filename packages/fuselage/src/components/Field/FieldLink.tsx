@@ -1,4 +1,4 @@
-import { useTheme } from 'tamagui';
+import { useTheme } from '@tamagui/core';
 
 import WithErrorWrapper from '../../helpers/WithErrorWrapper';
 

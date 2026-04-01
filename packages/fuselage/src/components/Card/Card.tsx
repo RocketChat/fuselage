@@ -1,6 +1,6 @@
 import { useBreakpoints } from '@rocket.chat/fuselage-hooks';
 import type { AllHTMLAttributes } from 'react';
-import { styled, createStyledContext } from 'tamagui';
+import { styled, createStyledContext } from '@tamagui/core';
 
 import { RcxInteractive, RcxView } from '../../primitives';
 

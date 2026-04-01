@@ -1,5 +1,5 @@
 import colors from '@rocket.chat/fuselage-tokens/colors.json';
-import { createFont, createTamagui, createTokens } from 'tamagui';
+import { createFont, createTamagui, createTokens } from '@tamagui/core';
 
 import { darkTheme, highContrastTheme, lightTheme } from './themes';
 import { createButtonSubThemes } from './themes/buttonSubThemes';
@@ -383,6 +383,6 @@ export const tamaguiConfig = createTamagui({
 
 export type AppConfig = typeof tamaguiConfig;
 
-declare module 'tamagui' {
+declare module '@tamagui/core' {
   interface TamaguiCustomConfig extends AppConfig {}
 }

@@ -1,7 +1,7 @@
 import type { ElementType } from 'react';
 import { createContext, forwardRef, useContext } from 'react';
 
-import { styled, Text } from 'tamagui';
+import { styled, Text } from '@tamagui/core';
 
 import { RcxText } from '../../primitives';
 

@@ -1,4 +1,4 @@
-import { styled } from 'tamagui';
+import { styled } from '@tamagui/core';
 
 import { RcxText, RcxView } from '../../../primitives';
 import { Icon, type IconProps } from '../../Icon';

@@ -1,6 +1,6 @@
 import type { AllHTMLAttributes, ReactNode } from 'react';
 import { forwardRef, useState } from 'react';
-import { styled } from 'tamagui';
+import { styled } from '@tamagui/core';
 
 import { RcxView } from '../../primitives';
 

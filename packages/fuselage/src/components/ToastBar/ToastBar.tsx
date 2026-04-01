@@ -1,6 +1,6 @@
 import { css, keyframes } from '@rocket.chat/css-in-js';
 import { type ReactNode, type AllHTMLAttributes, useId } from 'react';
-import { styled } from 'tamagui';
+import { styled } from '@tamagui/core';
 
 import { RcxText, RcxView } from '../../primitives';
 import { IconButton } from '../Button';

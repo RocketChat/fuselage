@@ -1,6 +1,6 @@
 import type { HTMLAttributes } from 'react';
 import { forwardRef } from 'react';
-import { styled } from 'tamagui';
+import { styled } from '@tamagui/core';
 
 import { RcxView } from '../../../primitives';
 import MessageBlock from '../MessageBlock';

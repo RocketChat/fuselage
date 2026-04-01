@@ -7,7 +7,7 @@ import type {
   SyntheticEvent,
 } from 'react';
 import { forwardRef, useLayoutEffect, useMemo, useRef } from 'react';
-import { styled } from 'tamagui';
+import { styled } from '@tamagui/core';
 
 import { prevent } from '../../helpers/prevent';
 import { RcxView } from '../../primitives';

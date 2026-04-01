@@ -1,6 +1,6 @@
 import { useResizeObserver } from '@rocket.chat/fuselage-hooks';
 import type { ReactElement, ReactNode } from 'react';
-import { styled, Text } from 'tamagui';
+import { styled, Text } from '@tamagui/core';
 
 import { RcxView, RcxText } from '../../primitives';
 import { Icon, type IconProps } from '../Icon';

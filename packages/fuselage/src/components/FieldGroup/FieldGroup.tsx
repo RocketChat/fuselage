@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import { Children, isValidElement } from 'react';
 
-import { styled } from 'tamagui';
+import { styled } from '@tamagui/core';
 
 import { RcxView } from '../../primitives';
 

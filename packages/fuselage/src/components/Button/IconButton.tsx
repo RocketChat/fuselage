@@ -2,7 +2,7 @@ import type { Keys as IconName } from '@rocket.chat/icons';
 import type { ReactElement } from 'react';
 import { isValidElement, useMemo, forwardRef } from 'react';
 
-import { styled } from 'tamagui';
+import { styled } from '@tamagui/core';
 
 import { RcxInteractive } from '../../primitives';
 import type { BoxProps } from '../Box';

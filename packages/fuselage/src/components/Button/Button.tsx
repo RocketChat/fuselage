@@ -1,7 +1,7 @@
 import type { AllHTMLAttributes } from 'react';
 import { forwardRef, useMemo } from 'react';
 
-import { styled, createStyledContext, Text } from 'tamagui';
+import { styled, createStyledContext, Text } from '@tamagui/core';
 
 import { RcxInteractive, RcxText } from '../../primitives';
 import type { BoxProps } from '../Box';

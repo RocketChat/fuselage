@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import { forwardRef } from 'react';
-import { styled } from 'tamagui';
+import { styled } from '@tamagui/core';
 
 import { RcxView } from '../../primitives';
 import Tile from '../Tile/Tile';

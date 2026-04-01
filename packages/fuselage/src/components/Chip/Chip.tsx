@@ -1,6 +1,6 @@
 import type { ButtonHTMLAttributes, ReactNode } from 'react';
 import { useMemo } from 'react';
-import { styled, Text } from 'tamagui';
+import { styled, Text } from '@tamagui/core';
 
 import { RcxText } from '../../primitives';
 import type { BoxCompatProps } from '../../utilities/boxCompat';

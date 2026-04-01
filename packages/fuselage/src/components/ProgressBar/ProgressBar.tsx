@@ -2,7 +2,7 @@ import type { AllHTMLAttributes } from 'react';
 import { forwardRef } from 'react';
 
 import { css, keyframes } from '@rocket.chat/css-in-js';
-import { styled } from 'tamagui';
+import { styled } from '@tamagui/core';
 
 import { RcxView } from '../../primitives';
 

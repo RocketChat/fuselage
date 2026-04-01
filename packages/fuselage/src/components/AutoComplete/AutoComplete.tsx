@@ -11,7 +11,7 @@ import type {
   ReactNode,
 } from 'react';
 import { useEffect, useRef, useMemo, useState } from 'react';
-import { styled } from 'tamagui';
+import { styled } from '@tamagui/core';
 
 import { RcxView } from '../../primitives';
 import { AnimatedVisibility } from '../AnimatedVisibility';

@@ -1,4 +1,4 @@
-import { styled } from 'tamagui';
+import { styled } from '@tamagui/core';
 
 import { RcxText } from '../../../primitives';
 import type { MessageNameProps } from '../MessageName';

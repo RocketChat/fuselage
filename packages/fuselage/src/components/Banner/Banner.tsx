@@ -9,7 +9,7 @@ import type {
   MouseEvent,
 } from 'react';
 import { useRef, useCallback, useMemo } from 'react';
-import { styled } from 'tamagui';
+import { styled } from '@tamagui/core';
 
 import { RcxView, RcxText } from '../../primitives';
 import { IconButton } from '../Button';

@@ -1,6 +1,6 @@
 import type { ReactElement } from 'react';
 
-import { styled, Text } from 'tamagui';
+import { styled, Text } from '@tamagui/core';
 
 import { RcxView } from '../../primitives';
 import { Button } from '../Button';

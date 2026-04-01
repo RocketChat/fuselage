@@ -1,4 +1,4 @@
-import { styled, Text, View } from 'tamagui';
+import { styled, Text, View } from '@tamagui/core';
 
 // Only use 'rcx-box' (NOT 'rcx-box--full') to avoid margin/padding/border
 // conflicts with SCSS classes from non-migrated components.

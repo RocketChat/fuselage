@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { TamaguiProvider } from 'tamagui';
+import { TamaguiProvider } from '@tamagui/core';
 
 import { tamaguiConfig } from '../tamagui.config';
 

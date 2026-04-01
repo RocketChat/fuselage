@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 
-import { styled } from 'tamagui';
+import { styled } from '@tamagui/core';
 
 import { RcxInteractiveText } from '../../primitives';
 import type { BoxProps } from '../Box';

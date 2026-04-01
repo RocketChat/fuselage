@@ -2,7 +2,7 @@ import type { AllHTMLAttributes, RefObject } from 'react';
 import { forwardRef } from 'react';
 import { useButton, type AriaButtonProps } from 'react-aria';
 
-import { styled } from 'tamagui';
+import { styled } from '@tamagui/core';
 
 import { RcxInteractive } from '../../primitives';
 

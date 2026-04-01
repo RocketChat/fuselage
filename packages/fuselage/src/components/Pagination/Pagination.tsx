@@ -1,7 +1,7 @@
 import { useMediaQuery } from '@rocket.chat/fuselage-hooks';
 import type { ComponentPropsWithoutRef, Dispatch, ReactNode, SetStateAction } from 'react';
 import { useMemo } from 'react';
-import { styled } from 'tamagui';
+import { styled } from '@tamagui/core';
 
 import { RcxInteractiveText, RcxText, RcxView } from '../../primitives';
 import { Chevron } from '../Chevron';

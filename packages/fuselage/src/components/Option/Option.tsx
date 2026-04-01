@@ -1,6 +1,6 @@
 import type { Ref, ReactNode, MouseEvent, AllHTMLAttributes } from 'react';
 import { forwardRef, memo } from 'react';
-import { styled } from 'tamagui';
+import { styled } from '@tamagui/core';
 
 import { prevent } from '../../helpers/prevent';
 import { RcxText, RcxView } from '../../primitives';

@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { createStyledContext, styled } from 'tamagui';
+import { createStyledContext, styled } from '@tamagui/core';
 
 import { RcxText, RcxView } from '../../primitives';
 

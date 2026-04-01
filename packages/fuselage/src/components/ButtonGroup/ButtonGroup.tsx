@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import { Children, forwardRef } from 'react';
-import { styled, createStyledContext, type GetProps } from 'tamagui';
+import { styled, createStyledContext, type GetProps } from '@tamagui/core';
 
 import { RcxView } from '../../primitives';
 

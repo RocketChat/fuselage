@@ -1,5 +1,5 @@
 import type { ElementType, HTMLAttributes, ReactNode, Ref } from 'react';
-import { styled } from 'tamagui';
+import { styled } from '@tamagui/core';
 
 import { RcxText } from '../../primitives';
 

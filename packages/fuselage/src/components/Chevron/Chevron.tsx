@@ -1,6 +1,6 @@
 import type { ComponentPropsWithoutRef, ReactElement } from 'react';
 import { useMemo } from 'react';
-import { styled } from 'tamagui';
+import { styled } from '@tamagui/core';
 
 import { RcxView } from '../../primitives';
 import { Icon } from '../Icon';

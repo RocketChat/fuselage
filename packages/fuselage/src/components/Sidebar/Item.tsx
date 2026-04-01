@@ -1,5 +1,5 @@
 import type { AllHTMLAttributes, ReactNode } from 'react';
-import { styled } from 'tamagui';
+import { styled } from '@tamagui/core';
 
 import { RcxInteractive, RcxText, RcxView } from '../../primitives';
 import type { BoxProps } from '../Box';

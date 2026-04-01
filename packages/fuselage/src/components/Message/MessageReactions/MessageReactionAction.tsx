@@ -1,5 +1,5 @@
 import type { HTMLAttributes } from 'react';
-import { styled } from 'tamagui';
+import { styled } from '@tamagui/core';
 
 import { RcxInteractive } from '../../../primitives';
 import { Icon } from '../../Icon';

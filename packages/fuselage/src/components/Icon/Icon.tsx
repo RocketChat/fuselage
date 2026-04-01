@@ -1,7 +1,7 @@
 import type { Keys as IconName } from '@rocket.chat/icons';
 import nameToCharacterMapping from '@rocket.chat/icons';
 import { forwardRef, useMemo } from 'react';
-import { styled } from 'tamagui';
+import { styled } from '@tamagui/core';
 
 import type { BoxProps } from '../Box';
 import { RcxText } from '../../primitives';

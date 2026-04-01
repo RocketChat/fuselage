@@ -1,5 +1,5 @@
 import type { AriaAttributes, HTMLAttributes, ReactNode } from 'react';
-import { styled } from 'tamagui';
+import { styled } from '@tamagui/core';
 
 import { RcxInteractive, RcxText, RcxView } from '../../primitives';
 import { Chevron } from '../Chevron';
