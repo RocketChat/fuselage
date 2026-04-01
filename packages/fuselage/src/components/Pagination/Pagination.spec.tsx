@@ -12,24 +12,22 @@ jest.mock('react', () => ({
   useId: () => 'test-id',
 }));
 
-describe('[Pagination Component]', () => {
-  it('renders without crashing', () => {
-    const tree = render(<Default />);
-    expect(tree.baseElement).toMatchSnapshot();
-  });
+it('renders without crashing', () => {
+  const tree = render(<Default />);
+  expect(tree.baseElement).toMatchSnapshot();
+});
 
-  it('%s should have no a11y violations', async () => {
-    const { container } = render(<Default />);
+it('%s should have no a11y violations', async () => {
+  const { container } = render(<Default />);
 
-    const results = await axe(container);
-    expect(results).toHaveNoViolations();
-  });
+  const results = await axe(container);
+  expect(results).toHaveNoViolations();
+});
 
-  it('should override with custom aria-label', () => {
-    const { getByLabelText } = render(
-      <Default aria-label='Custom Pagination Navigation' />,
-    );
+it('should override with custom aria-label', () => {
+  const { getByLabelText } = render(
+    <Default aria-label='Custom Pagination Navigation' />,
+  );
 
-    expect(getByLabelText('Custom Pagination Navigation')).toBeInTheDocument();
-  });
+  expect(getByLabelText('Custom Pagination Navigation')).toBeInTheDocument();
 });
