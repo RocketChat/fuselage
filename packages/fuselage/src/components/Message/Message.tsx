@@ -37,10 +37,10 @@ const MessageFrame = styled(RcxView, {
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'flex-start',
-  marginInline: 2,
-  paddingBlockStart: 8,
-  paddingBlockEnd: 4,
-  paddingInline: 20,
+  marginInline: '$x2',
+  paddingBlockStart: '$x8',
+  paddingBlockEnd: '$x4',
+  paddingInline: '$x20',
   hoverStyle: {
     backgroundColor: '$surfaceHover',
   },
@@ -56,7 +56,7 @@ const MessageFrame = styled(RcxView, {
     },
     sequential: {
       true: {
-        paddingBlock: 4,
+        paddingBlock: '$x4',
       },
     },
     isSelected: {

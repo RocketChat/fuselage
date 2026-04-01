@@ -1,5 +1,5 @@
-import type { HTMLAttributes } from 'react';
 import { styled } from '@tamagui/core';
+import type { HTMLAttributes } from 'react';
 
 import { RcxView } from '../../primitives';
 
@@ -13,7 +13,7 @@ const MessageContainerFrame = styled(RcxView, {
   flexShrink: 1,
   minWidth: 1,
   marginBlock: -2,
-  marginInline: 4,
+  marginInline: '$x4',
 });
 
 const MessageContainer = (props: MessageContainerProps) => (

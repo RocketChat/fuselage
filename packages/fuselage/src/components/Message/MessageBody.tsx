@@ -1,113 +1,81 @@
-import { css } from '@rocket.chat/css-in-js';
+import { styled } from '@tamagui/core';
 import type { HTMLAttributes } from 'react';
+
+import { RcxText, RcxView } from '../../primitives';
 
 export type MessageBodyProps = HTMLAttributes<HTMLDivElement> & {
   clamp?: 2 | 3 | 4;
 };
 
-const bodyStyle = css`
-  margin-block: 2px;
-  font-family: var(--f-family-body);
-  font-size: var(--f-font-size-p2, 14px);
-  font-weight: var(--f-font-weight-p2, 400);
-  line-height: var(--f-line-height-p2, 20px);
-  overflow: hidden;
-  flex-shrink: 1;
-  transition: opacity 0.3s linear;
-  word-break: break-word;
-  opacity: 1;
-  color: var(--fontDefault);
+const MessageBodyFrame = styled(RcxView, {
+  name: 'MessageBody',
 
-  & h1 {
-    font-size: var(--f-font-size-h1, 32px);
-    font-weight: var(--f-font-weight-h1, 700);
-    line-height: var(--f-line-height-h1, 40px);
-  }
-  & h2 {
-    font-size: var(--f-font-size-h2, 24px);
-    font-weight: var(--f-font-weight-h2, 700);
-    line-height: var(--f-line-height-h2, 32px);
-  }
-  & h3 {
-    font-size: var(--f-font-size-h3, 20px);
-    font-weight: var(--f-font-weight-h3, 700);
-    line-height: var(--f-line-height-h3, 28px);
-  }
-  & h4 {
-    font-size: var(--f-font-size-h4, 16px);
-    font-weight: var(--f-font-weight-h4, 700);
-    line-height: var(--f-line-height-h4, 24px);
-  }
-  & ul,
-  ol {
-    margin: 0;
-    padding-block: 4px 0;
-    padding-inline: 0;
-    list-style: none;
-  }
-  & ul li::before {
-    padding: 0 8px;
-    content: '\u2022';
-    font-weight: bold;
-  }
-  & ol li::before {
-    padding: 0 8px;
-    content: attr(value) '.';
-    font-weight: bold;
-  }
-  & blockquote {
-    padding-inline: 8px;
-    border: 1px solid var(--strokeExtraLight);
-    border-radius: 2px;
-    background-color: var(--surfaceTint);
-    border-inline-start-color: var(--strokeMedium);
-  }
-  & blockquote:hover,
-  & blockquote:focus {
-    border-color: var(--strokeLight);
-    background-color: var(--surfaceHover);
-    border-inline-start-color: var(--strokeMedium);
-  }
-  & ul.task-list {
-    margin-inline-start: 0;
-    padding-inline-start: 0;
-    list-style: none;
-  }
-  & ul.task-list > li::before {
-    display: none;
-  }
-`;
+  marginBlock: '$x2',
+  overflow: 'hidden',
+  flexShrink: 1,
+  opacity: 1,
 
-const clampStyle = css`
-  display: -webkit-box;
-  overflow: hidden;
-  word-break: break-word;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-`;
+  variants: {
+    clamp: {
+      2: {
+        display: '-webkit-box' as any,
+        overflow: 'hidden',
+        // @ts-expect-error — vendor prefix, not in CSSProperties
+        WebkitBoxOrient: 'vertical',
+        WebkitLineClamp: 2,
+      },
+      3: {
+        display: '-webkit-box' as any,
+        overflow: 'hidden',
+        WebkitBoxOrient: 'vertical',
+        WebkitLineClamp: 3,
+      },
+      4: {
+        display: '-webkit-box' as any,
+        overflow: 'hidden',
+        WebkitBoxOrient: 'vertical',
+        WebkitLineClamp: 4,
+      },
+    },
+  } as const,
+});
 
-const clamp3Style = css`
-  -webkit-line-clamp: 3;
-`;
+const MessageBodyText = styled(RcxText, {
+  name: 'MessageBodyText',
+  fontFamily: '$body',
+  fontSize: '$p2',
+  fontWeight: '$p2',
+  lineHeight: '$p2',
+  color: '$fontDefault',
+});
 
-const clamp4Style = css`
-  -webkit-line-clamp: 4;
-`;
-
-const MessageBody = ({ clamp, className, ...props }: MessageBodyProps) => (
-  <div
-    className={[
-      'rcx-box rcx-box--full',
-      bodyStyle,
-      clamp && clampStyle,
-      clamp === 3 && clamp3Style,
-      clamp === 4 && clamp4Style,
-      className,
-    ]
-      .filter(Boolean)
-      .join(' ')}
-    {...props}
-  />
+/**
+ * Descendant styles (h1–h4, ul/ol, blockquote, task-list) can't be
+ * expressed with Tamagui styled(). We use a plain CSS class injected
+ * via the SCSS pipeline (styles/primitives) for those.
+ *
+ * The base container props (font, margin, overflow, clamp) are handled
+ * by the Tamagui frame above.
+ */
+const MessageBody = ({
+  clamp,
+  className,
+  style,
+  children,
+  ...props
+}: MessageBodyProps) => (
+  <MessageBodyFrame
+    clamp={clamp}
+    className={['rcx-message-body', className].filter(Boolean).join(' ')}
+    style={{
+      wordBreak: 'break-word',
+      transition: 'opacity 0.3s linear',
+      ...style,
+    }}
+    {...(props as any)}
+  >
+    <MessageBodyText>{children}</MessageBodyText>
+  </MessageBodyFrame>
 );
 
 export default MessageBody;

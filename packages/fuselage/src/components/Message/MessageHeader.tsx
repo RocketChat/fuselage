@@ -1,5 +1,5 @@
-import type { HTMLAttributes } from 'react';
 import { styled } from '@tamagui/core';
+import type { HTMLAttributes } from 'react';
 
 import { RcxView } from '../../primitives';
 
@@ -12,7 +12,7 @@ const MessageHeaderFrame = styled(RcxView, {
   flexGrow: 0,
   flexShrink: 1,
   minWidth: 1,
-  marginBlock: 2,
+  marginBlock: '$x2',
 });
 
 const MessageHeaderWrapper = styled(RcxView, {
@@ -23,8 +23,10 @@ const MessageHeaderWrapper = styled(RcxView, {
   flexGrow: 1,
   flexShrink: 1,
   minWidth: 1,
+
   marginBlock: -4,
   marginInline: -2,
+  gap: '$x2',
 });
 
 const MessageHeader = ({ children, ...props }: MessageHeaderProps) => (
