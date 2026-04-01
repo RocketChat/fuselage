@@ -1,3 +1,4 @@
+import { FuselageProvider } from '@rocket.chat/fuselage';
 import surface from '@rocket.chat/fuselage-tokens/dist/surface.json';
 import { DarkModeProvider } from '@rocket.chat/layout';
 import { useDarkMode } from '@rocket.chat/storybook-dark-mode';
@@ -55,14 +56,18 @@ export default {
     (Story) => {
       const dark = useDarkMode();
 
+      const theme = dark ? 'dark' : 'light';
+
       return (
-        <Suspense fallback={null}>
-          <DarkModeProvider.default forcedDarkMode={dark}>
-            <ToastBarProvider>
-              <Story />
-            </ToastBarProvider>
-          </DarkModeProvider.default>
-        </Suspense>
+        <FuselageProvider theme={theme}>
+          <Suspense fallback={null}>
+            <DarkModeProvider.default forcedDarkMode={dark}>
+              <ToastBarProvider>
+                <Story />
+              </ToastBarProvider>
+            </DarkModeProvider.default>
+          </Suspense>
+        </FuselageProvider>
       );
     },
   ],

@@ -1,17 +1,31 @@
 import type { HTMLAttributes } from 'react';
+import { styled } from '@tamagui/core';
 
+import { RcxView } from '../../primitives';
 import SidepanelDivider from './SidepanelDivider';
+
+const SidepanelHeaderWrapper = styled(RcxView, {
+  name: 'SidepanelHeaderWrapper',
+});
+
+const SidepanelHeaderFrame = styled(RcxView, {
+  name: 'SidepanelHeader',
+  display: 'flex',
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  gap: '$x8',
+  height: 44,
+  paddingInline: '$x16',
+});
 
 export type SidepanelHeaderProps = HTMLAttributes<HTMLDivElement>;
 
-const SidepanelHeader = ({ className, ...props }: SidepanelHeaderProps) => (
-  <div className='rcx-sidepanel-header-wrapper'>
-    <div
-      className={['rcx-sidepanel-header', className].filter(Boolean).join(' ')}
-      {...props}
-    />
+const SidepanelHeader = (props: SidepanelHeaderProps) => (
+  <SidepanelHeaderWrapper>
+    <SidepanelHeaderFrame {...(props as any)} />
     <SidepanelDivider />
-  </div>
+  </SidepanelHeaderWrapper>
 );
 
 export default SidepanelHeader;

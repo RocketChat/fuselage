@@ -1,12 +1,39 @@
+import { useTheme } from '@tamagui/core';
+
 import WithErrorWrapper from '../../helpers/WithErrorWrapper';
-import { Box, type BoxProps } from '../Box';
 
 import { FieldContext } from './Field';
 
-export type FieldLinkProps = BoxProps;
+export type FieldLinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
+  children?: React.ReactNode;
+  [key: string]: any;
+};
+
+const FieldLinkInner = ({ style, ...props }: FieldLinkProps) => {
+  const theme = useTheme();
+
+  return (
+    <a
+      target='_blank'
+      className='rcx-box rcx-box--full'
+      style={{
+        display: 'block',
+        // c1 font scale
+        fontSize: 12,
+        fontWeight: 400,
+        lineHeight: '16px',
+        letterSpacing: 0,
+        marginBlock: 2,
+        color: theme.fontInfo.get(),
+        ...style,
+      }}
+      {...props}
+    />
+  );
+};
 
 const FieldLink = (props: FieldLinkProps) => {
-  const component = <Box is='a' target='_blank' rcx-field__link {...props} />;
+  const component = <FieldLinkInner {...props} />;
 
   if (process.env['NODE_ENV'] === 'development') {
     return (

@@ -34,7 +34,7 @@
     "lint-and-fix": "lint-and-fix",
     "test": "jest --runInBand",
     "docs": "typedoc",
-    "storybook": "storybook dev -p 6006 --no-version-updates",
+    "storybook": "yarn workspace @rocket.chat/storybook-dark-mode run build && storybook dev -p 6006 --no-version-updates",
     "build-storybook": "storybook build"
   },
   "dependencies": {

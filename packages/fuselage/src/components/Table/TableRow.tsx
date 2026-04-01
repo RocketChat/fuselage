@@ -1,18 +1,41 @@
-import { Box, type BoxProps } from '../Box';
+import type { HTMLAttributes, ReactNode } from 'react';
+import { forwardRef, useMemo } from 'react';
 
-export type TableRowProps = Omit<BoxProps, 'action'> & {
+export type TableRowProps = {
   action?: boolean;
-  hasAction?: boolean;
+  selected?: boolean;
+  children?: ReactNode;
+} & HTMLAttributes<HTMLTableRowElement>;
+
+const rowBaseStyle: React.CSSProperties = {
+  display: 'table-row',
 };
 
-const TableRow = ({ action, selected, ...props }: TableRowProps) => (
-  <Box
-    is='tr'
-    rcx-table__row
-    rcx-table__row--selected={selected}
-    rcx-table__row--action={action}
-    {...props}
-  />
+const TableRow = forwardRef<HTMLTableRowElement, TableRowProps>(
+  ({ action, selected, children, className, style, ...props }, ref) => {
+    const mergedStyle = useMemo<React.CSSProperties>(
+      () => ({
+        ...rowBaseStyle,
+        ...(selected ? { backgroundColor: 'var(--surfaceTint)' } : undefined),
+        ...(action ? { cursor: 'pointer' } : undefined),
+        ...style,
+      }),
+      [action, selected, style],
+    );
+
+    return (
+      <tr
+        ref={ref}
+        className={['rcx-box', className].filter(Boolean).join(' ')}
+        style={mergedStyle}
+        {...props}
+      >
+        {children}
+      </tr>
+    );
+  },
 );
+
+TableRow.displayName = 'TableRow';
 
 export default TableRow;

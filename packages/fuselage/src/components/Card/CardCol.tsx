@@ -1,13 +1,34 @@
 import type { AllHTMLAttributes, ReactNode } from 'react';
+import { styled } from '@tamagui/core';
+
+import { RcxView } from '../../primitives';
+
+import { CardContext } from './Card';
+
+const CardColFrame = styled(RcxView, {
+  name: 'CardCol',
+  context: CardContext,
+  display: 'flex',
+  flexDirection: 'column',
+  flexShrink: 1,
+  gap: '$x8',
+
+  variants: {
+    horizontal: {
+      true: {
+        rowGap: '$x4',
+      },
+      false: {},
+    },
+  } as const,
+});
 
 export type CardColProps = {
   children: ReactNode;
 } & AllHTMLAttributes<HTMLElement>;
 
 const CardCol = ({ children, ...props }: CardColProps) => (
-  <div className='rcx-card__col' {...props}>
-    {children}
-  </div>
+  <CardColFrame {...props}>{children}</CardColFrame>
 );
 
 export default CardCol;

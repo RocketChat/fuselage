@@ -1,21 +1,21 @@
 import type { HTMLAttributes } from 'react';
+import { styled } from '@tamagui/core';
 
-import { prependClassName } from '../../../../helpers/prependClassName';
+import { RcxView } from '../../../../primitives';
 
 export type MessageMetricsItemAvatarRowContentProps =
   HTMLAttributes<HTMLDivElement>;
 
+const AvatarRowContentFrame = styled(RcxView, {
+  name: 'MessageMetricsItemAvatarRowContent',
+  marginInline: 2,
+});
+
 const MessageMetricsItemAvatarRowContent = ({
-  className,
+  className: _className,
   ...props
 }: MessageMetricsItemAvatarRowContentProps) => (
-  <div
-    className={prependClassName(
-      className,
-      'rcx-message-metrics__avatar-row__content',
-    )}
-    {...props}
-  />
+  <AvatarRowContentFrame {...(props as any)} />
 );
 
 export default MessageMetricsItemAvatarRowContent;

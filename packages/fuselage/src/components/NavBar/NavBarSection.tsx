@@ -1,8 +1,18 @@
 import type { ComponentType, HTMLAttributes, ReactElement } from 'react';
 import { Fragment, Children, isValidElement } from 'react';
+import { styled } from '@tamagui/core';
 
+import { RcxView } from '../../primitives';
 import NavBarDivider from './NavBarDivider';
 import NavBarGroup from './NavBarGroup';
+
+const NavBarSectionFrame = styled(RcxView, {
+  name: 'NavBarSection',
+  tag: 'span',
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center',
+});
 
 type ComponentWithDisplayName = {
   displayName?: string;
@@ -23,14 +33,14 @@ const NavBarSection = ({ children, ...props }: NavbarSectionProps) => {
   const validChildren = Children.toArray(children).filter(isNavBarGroup);
 
   return (
-    <span className='rcx-navbar-section' {...props}>
+    <NavBarSectionFrame {...(props as any)}>
       {Children.toArray(children).map((child, index) => (
         <Fragment key={index}>
           {child}
           {index < validChildren.length - 1 && <NavBarDivider />}
         </Fragment>
       ))}
-    </span>
+    </NavBarSectionFrame>
   );
 };
 

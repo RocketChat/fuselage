@@ -1,5 +1,71 @@
-import type { HTMLAttributes } from 'react';
-import { forwardRef } from 'react';
+import type { ReactNode } from 'react';
+import { Children, forwardRef } from 'react';
+import { styled, createStyledContext, type GetProps } from '@tamagui/core';
+
+import { RcxView } from '../../primitives';
+
+const ButtonGroupContext = createStyledContext({
+  stretch: false as boolean,
+});
+
+const ButtonGroupFrame = styled(RcxView, {
+  name: 'ButtonGroup',
+  context: ButtonGroupContext,
+  role: 'group',
+
+  display: 'flex',
+  flexDirection: 'row',
+  flexWrap: 'nowrap',
+  justifyContent: 'flex-start',
+  alignItems: 'center',
+  gap: '$x8',
+
+  variants: {
+    wrap: {
+      true: {
+        flexWrap: 'wrap',
+      },
+    },
+
+    stretch: {
+      true: {
+        justifyContent: 'stretch',
+        alignItems: 'stretch',
+        flexGrow: 1,
+      },
+    },
+
+    vertical: {
+      true: {
+        flexDirection: 'column',
+      },
+    },
+
+    align: {
+      start: {
+        justifyContent: 'flex-start',
+      },
+      center: {
+        justifyContent: 'center',
+      },
+      end: {
+        justifyContent: 'flex-end',
+      },
+    },
+
+    small: {
+      true: {
+        gap: '$x4',
+      },
+    },
+
+    large: {
+      true: {
+        gap: '$x16',
+      },
+    },
+  } as const,
+});
 
 export type ButtonGroupProps = {
   align?: 'start' | 'center' | 'end';
@@ -8,7 +74,12 @@ export type ButtonGroupProps = {
   vertical?: boolean;
   small?: boolean;
   large?: boolean;
-} & HTMLAttributes<HTMLDivElement>;
+  children?: ReactNode;
+  className?: string;
+} & Omit<
+  GetProps<typeof ButtonGroupFrame>,
+  'align' | 'stretch' | 'wrap' | 'vertical' | 'small' | 'large'
+>;
 
 /**
  * A container for grouping buttons that semantically share a common action context.
@@ -23,31 +94,23 @@ const ButtonGroup = forwardRef<HTMLDivElement, ButtonGroupProps>(
       wrap,
       small,
       large,
-      className,
       ...props
     },
     ref,
   ) {
     return (
-      <div
+      <ButtonGroupFrame
         ref={ref}
-        className={[
-          'rcx-button-group',
-          stretch && 'rcx-button-group--stretch',
-          vertical && 'rcx-button-group--vertical',
-          align && `rcx-button-group--align-${align}`,
-          small && 'rcx-button-group--small',
-          large && 'rcx-button-group--large',
-          wrap && 'rcx-button-group--wrap',
-          className,
-        ]
-          .filter(Boolean)
-          .join(' ')}
-        role='group'
+        align={align}
+        stretch={stretch || undefined}
+        vertical={vertical || undefined}
+        wrap={wrap || undefined}
+        small={small || undefined}
+        large={large || undefined}
         {...props}
       >
         {children}
-      </div>
+      </ButtonGroupFrame>
     );
   },
 );

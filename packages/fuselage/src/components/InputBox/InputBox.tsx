@@ -1,6 +1,12 @@
 import { useMergedRefs } from '@rocket.chat/fuselage-hooks';
 import type { FormEvent, ReactNode } from 'react';
-import { forwardRef, useCallback, useLayoutEffect, useRef } from 'react';
+import {
+  forwardRef,
+  useCallback,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from 'react';
 
 import type { BoxProps } from '../Box';
 import { Icon } from '../Icon';
@@ -45,11 +51,53 @@ export type InputBoxProps = BoxProps & {
     | 'select';
 };
 
+// Common input styles (previously from .rcx-input-box SCSS)
+const inputBaseStyles: BoxProps = {
+  position: 'relative',
+  display: 'inline-flex',
+  flexGrow: 1,
+  flexShrink: 0,
+  minWidth: 128,
+  verticalAlign: 'baseline',
+  whiteSpace: 'nowrap',
+  outline: 0,
+  backgroundColor: 'transparent',
+  fontScale: 'p2m',
+  textOverflow: 'ellipsis',
+  overflow: 'hidden',
+  color: 'default',
+};
+
+// Decorated input styles (standalone, no wrapper — includes border)
+const decoratedStyles: BoxProps = {
+  minHeight: 40,
+  borderWidth: '1px',
+  borderStyle: 'solid',
+  borderColor: 'var(--rcx-color-stroke-light, var(--strokeLight))',
+  borderRadius: 4,
+  bg: 'surface-light',
+  padding: '8px 15px', // 16 - 1px border
+};
+
+// Small input styles
+const smallInputStyles: BoxProps = {
+  fontScale: 'c1',
+};
+
+const smallDecoratedStyles: BoxProps = {
+  minWidth: 112,
+  minHeight: 28,
+  padding: '4px 7px', // 8 - 1px border
+};
+
+// Inside wrapper, input has no min-width or border
+const wrappedInputStyles: BoxProps = {
+  width: 0,
+  minWidth: 0,
+};
+
 /**
  * A decorated input control with support for addons.
- *
- * Usually you'll perfer to use `-Input` (e.g. <LinkTo kind='Forms/TextInput' story='Default'>`TextInput`</LinkTo>)
- * components over this one because it works as a construction block for them.
  */
 // eslint-disable-next-line complexity
 const InputBox = forwardRef<any, InputBoxProps>(function InputBox(
@@ -72,35 +120,23 @@ const InputBox = forwardRef<any, InputBoxProps>(function InputBox(
     HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
   >(null);
   const mergedRef = useMergedRefs(ref, innerRef);
+  const [isFocused, setIsFocused] = useState(false);
 
   useLayoutEffect(() => {
     if (innerRef.current && innerRef.current.setCustomValidity) {
       innerRef.current.setCustomValidity(error || '');
     }
-  }, [error]);
-
-  useLayoutEffect(() => {
-    if (addon && innerRef.current && innerRef.current.parentElement) {
-      innerRef.current.parentElement.classList.toggle(
-        'invalid',
-        !innerRef.current.checkValidity(),
-      );
-    }
   }, [addon, error]);
 
   const handleChange = useCallback(
     (event: FormEvent<HTMLElement>) => {
-      if (addon && innerRef.current && innerRef.current.parentElement) {
-        innerRef.current.parentElement.classList.toggle(
-          'invalid',
-          !innerRef.current.checkValidity(),
-        );
-      }
-
       onChange?.call(event.currentTarget, event);
     },
-    [addon, onChange],
+    [onChange],
   );
+
+  const handleFocus = useCallback(() => setIsFocused(true), []);
+  const handleBlur = useCallback(() => setIsFocused(false), []);
 
   const handleAddonClick = () =>
     (innerRef.current as HTMLInputElement).showPicker();
@@ -131,10 +167,10 @@ const InputBox = forwardRef<any, InputBoxProps>(function InputBox(
         }
         type={type === 'textarea' || type === 'select' ? undefined : type}
         onChange={handleChange}
-        rcx-input-box--multiple={multiple}
-        rcx-input-box--placeholder-visible={placeholderVisible}
-        rcx-input-box--type={type}
-        rcx-input-box--small={small}
+        {...inputBaseStyles}
+        {...decoratedStyles}
+        {...(small ? { ...smallInputStyles, ...smallDecoratedStyles } : {})}
+        {...(placeholderVisible ? { color: 'hint' } : {})}
         {...props}
       />
     );
@@ -142,12 +178,12 @@ const InputBox = forwardRef<any, InputBoxProps>(function InputBox(
 
   return (
     <InputBoxWrapper
-      className={[
-        props.disabled && 'disabled',
-        ...(Array.isArray(className) ? className : [className]),
-      ]}
       hidden={hidden}
       invisible={invisible}
+      disabled={props.disabled || undefined}
+      invalid={!!error || undefined}
+      focused={isFocused || undefined}
+      small={small || undefined}
     >
       <Input
         is={
@@ -164,11 +200,12 @@ const InputBox = forwardRef<any, InputBoxProps>(function InputBox(
         }
         type={type === 'textarea' || type === 'select' ? undefined : type}
         onChange={handleChange}
-        rcx-input-box--multiple={multiple}
-        rcx-input-box--placeholder-visible={placeholderVisible}
-        rcx-input-box--type={type}
-        rcx-input-box--undecorated
-        rcx-input-box--small={small}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
+        {...inputBaseStyles}
+        {...wrappedInputStyles}
+        {...(small ? { ...smallInputStyles, padding: 0 } : {})}
+        {...(placeholderVisible ? { color: 'hint' } : {})}
         {...props}
       />
       <InputBoxAddon children={addon} />

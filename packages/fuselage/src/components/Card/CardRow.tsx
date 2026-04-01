@@ -1,13 +1,24 @@
 import type { AllHTMLAttributes, ReactNode } from 'react';
+import { styled } from '@tamagui/core';
+
+import { RcxView } from '../../primitives';
+
+const CardRowFrame = styled(RcxView, {
+  name: 'CardRow',
+  display: 'flex',
+  alignItems: 'center',
+  flexDirection: 'row',
+  gap: '$x8',
+  flexGrow: 1,
+  flexShrink: 1,
+});
 
 export type CardRowProps = {
   children: ReactNode;
 } & AllHTMLAttributes<HTMLElement>;
 
 const CardRow = ({ children, ...props }: CardRowProps) => (
-  <div className='rcx-card__row' {...props}>
-    {children}
-  </div>
+  <CardRowFrame {...props}>{children}</CardRowFrame>
 );
 
 export default CardRow;

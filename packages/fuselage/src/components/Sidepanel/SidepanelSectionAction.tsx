@@ -1,17 +1,16 @@
 import type { HTMLAttributes } from 'react';
+import { styled } from '@tamagui/core';
+
+import { RcxView } from '../../primitives';
+
+const SidepanelSectionActionFrame = styled(RcxView, {
+  name: 'SidepanelSectionAction',
+});
 
 export type SidepanelSectionActionProps = HTMLAttributes<HTMLDivElement>;
 
-const SidepanelSectionAction = ({
-  className,
-  ...props
-}: SidepanelSectionActionProps) => (
-  <div
-    className={['rcx-sidepanel-section__action', className]
-      .filter(Boolean)
-      .join(' ')}
-    {...props}
-  />
+const SidepanelSectionAction = (props: SidepanelSectionActionProps) => (
+  <SidepanelSectionActionFrame {...(props as any)} />
 );
 
 export default SidepanelSectionAction;

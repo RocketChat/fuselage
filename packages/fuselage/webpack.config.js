@@ -27,6 +27,10 @@ export default (env, { mode = 'production' }) =>
     module: {
       rules: [
         {
+          test: /\.m?js$/,
+          resolve: { fullySpecified: false },
+        },
+        {
           test: /\.js$/,
           exclude: /node_modules/,
           use: 'babel-loader',
@@ -38,6 +42,7 @@ export default (env, { mode = 'production' }) =>
             loader: 'ts-loader',
             options: {
               configFile: resolve(import.meta.dirname, './tsconfig.build.json'),
+              transpileOnly: true,
             },
           },
         },
@@ -87,12 +92,17 @@ export default (env, { mode = 'production' }) =>
       extensions: ['.tsx', '.ts', '.jsx', '.js', '.json'],
     },
     externals: [
-      ...Object.keys(pkg.dependencies ?? {}).map(
-        (dep) => new RegExp(`^${dep}(/.+)?$`),
-      ),
-      ...Object.keys(pkg.peerDependencies ?? {}).map(
-        (dep) => new RegExp(`^${dep}(/.+)?$`),
-      ),
+      ...[
+        ...Object.keys(pkg.dependencies ?? {}),
+        ...Object.keys(pkg.peerDependencies ?? {}),
+      ]
+        .filter(
+          (dep) =>
+            !dep.startsWith('tamagui') &&
+            !dep.startsWith('@tamagui') &&
+            dep !== '@rocket.chat/fuselage-box',
+        )
+        .map((dep) => new RegExp(`^${dep}(/.+)?$`)),
     ],
     plugins: [
       new MiniCssExtractPlugin(),

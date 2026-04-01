@@ -1,12 +1,150 @@
-import type { Dispatch, SetStateAction } from 'react';
+import { useMediaQuery } from '@rocket.chat/fuselage-hooks';
+import type { ComponentPropsWithoutRef, Dispatch, ReactNode, SetStateAction } from 'react';
 import { useMemo } from 'react';
+import { styled } from '@tamagui/core';
 
-import { Box, type BoxProps } from '../Box';
+import { RcxInteractiveText, RcxText, RcxView } from '../../primitives';
 import { Chevron } from '../Chevron';
 
 type ItemsPerPage = 25 | 50 | 100;
 
-export type PaginationProps = BoxProps & {
+// --- Styled components ---
+
+const PaginationNav = styled(RcxView, {
+  name: 'Pagination',
+  role: 'navigation',
+  display: 'flex',
+  flexDirection: 'column-reverse',
+  flexWrap: 'nowrap',
+  alignItems: 'center',
+  paddingBlock: 12,
+  paddingInline: 24,
+});
+
+const PaginationDividerLine = styled(RcxView, {
+  name: 'PaginationDividerLine',
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  right: 0,
+  height: 1,
+  borderRadius: '$x2',
+  backgroundColor: '$strokeExtraLight',
+});
+
+const PaginationLeft = styled(RcxView, {
+  name: 'PaginationLeft',
+  display: 'flex',
+  flexDirection: 'row',
+  flexWrap: 'nowrap',
+  alignItems: 'center',
+  flexGrow: 0,
+  flexShrink: 1,
+  justifyContent: 'center',
+  marginInlineStart: 0,
+});
+
+const PaginationRight = styled(RcxView, {
+  name: 'PaginationRight',
+  display: 'flex',
+  flexDirection: 'column',
+  flexWrap: 'nowrap',
+  alignItems: 'center',
+  flexGrow: 0,
+  flexShrink: 1,
+  marginInlineStart: 0,
+});
+
+const PaginationLabel = styled(RcxText, {
+  name: 'PaginationLabel',
+  display: 'block',
+  fontFamily: '$body',
+  fontSize: '$c1',
+  fontWeight: '$c1',
+  lineHeight: '$c1',
+  letterSpacing: '$c1',
+  color: '$fontSecondaryInfo',
+  overflowWrap: 'normal',
+});
+
+const PaginationList = styled(RcxView, {
+  name: 'PaginationList',
+  role: 'list',
+  display: 'flex',
+  flexDirection: 'row',
+  flexWrap: 'nowrap',
+  alignItems: 'center',
+  marginInline: 4,
+});
+
+const PaginationListItem = styled(RcxText, {
+  name: 'PaginationListItem',
+  role: 'listitem',
+  display: 'flex',
+  marginInline: 2,
+  padding: 4,
+  fontFamily: '$body',
+  fontSize: '$c1',
+  fontWeight: '$c1',
+  lineHeight: '$c1',
+  letterSpacing: '$c1',
+  color: '$fontSecondaryInfo',
+  overflowWrap: 'normal',
+});
+
+const PaginationLink = styled(RcxInteractiveText, {
+  name: 'PaginationLink',
+  role: 'button',
+  display: 'inline-flex',
+  fontFamily: '$body',
+  fontSize: '$c1',
+  fontWeight: '$c1',
+  lineHeight: '$c1',
+  letterSpacing: '$c1',
+  color: '$fontInfo',
+  backgroundColor: 'transparent',
+  borderWidth: 0,
+  overflowWrap: 'normal',
+
+  hoverStyle: {
+    textDecorationLine: 'underline',
+  },
+
+  focusVisibleStyle: {
+    textDecorationLine: 'underline',
+  },
+
+  disabledStyle: {
+    fontWeight: '$c2',
+    color: '$fontDefault',
+    cursor: 'default',
+    textDecorationLine: 'none',
+  },
+});
+
+const PaginationNavButton = styled(RcxInteractiveText, {
+  name: 'PaginationNavButton',
+  role: 'button',
+  display: 'inline-flex',
+  fontFamily: '$body',
+  fontSize: '$c1',
+  fontWeight: '$c1',
+  lineHeight: '$c1',
+  letterSpacing: '$c1',
+  color: '$fontSecondaryInfo',
+  backgroundColor: 'transparent',
+  borderWidth: 0,
+  overflowWrap: 'normal',
+
+  disabledStyle: {
+    color: '$fontSecondaryInfo',
+    cursor: 'not-allowed',
+  },
+});
+
+// --- Component ---
+
+export type PaginationProps = ComponentPropsWithoutRef<typeof PaginationNav> & {
   count: number;
   current?: number;
   divider?: boolean;
@@ -23,6 +161,7 @@ export type PaginationProps = BoxProps & {
   }) => string;
   onSetCurrent?: Dispatch<SetStateAction<number>>;
   onSetItemsPerPage?: Dispatch<SetStateAction<ItemsPerPage>>;
+  children?: ReactNode;
 };
 
 const defaultItemsPerPageLabel = () => 'Items per page:';
@@ -54,26 +193,25 @@ const Pagination = ({
   divider,
   ...props
 }: PaginationProps) => {
+  const isSm = useMediaQuery('(min-width: 600px)');
+  const isMd = useMediaQuery('(min-width: 768px)');
+
   const hasItemsPerPageSelection = itemsPerPageOptions.length > 1;
   const currentPage = Math.floor(current / itemsPerPage);
   const pages = Math.ceil(count / itemsPerPage);
   const displayedPages = useMemo(() => {
     if (pages <= 7) {
-      // 0 1 2 3 4 5 6
       return Array.from({ length: pages }, (_, i) => i);
     }
 
     if (currentPage < 5) {
-      // 0 1 2 3 4 ... N
       return [0, 1, 2, 3, 4, '⋯', pages - 1];
     }
 
     if (currentPage > pages - 5) {
-      // 0 ... N-4 N-3 N-2 N-1 N
       return [0, '⋯', pages - 5, pages - 4, pages - 3, pages - 2, pages - 1];
     }
 
-    // 0 ... x-1 x x-2 ... N
     return [
       0,
       '⋯',
@@ -96,74 +234,88 @@ const Pagination = ({
     onSetCurrent?.(page * itemsPerPage);
   };
 
+  // Responsive direction: column-reverse default, column at sm, row at md
+  const flexDirection = isMd ? 'row' : isSm ? 'column' : 'column-reverse';
+
+  // Responsive left section margin
+  const leftMarginInlineStart = isSm ? 'auto' : 0;
+  const leftMarginInlineEnd = isMd ? 'auto' : undefined;
+
+  // Responsive right section
+  const rightFlexDirection = isSm ? 'row' : 'column';
+  const rightMarginInlineStart = isSm ? 'auto' : 0;
+
   return (
-    <Box is='nav' rcx-pagination rcx-pagination--divider={divider} {...props}>
+    <PaginationNav
+      position={divider ? 'relative' : undefined}
+      flexDirection={flexDirection as any}
+      {...props}
+    >
+      {divider && <PaginationDividerLine />}
       {hasItemsPerPageSelection && (
-        <Box rcx-pagination__left>
-          <Box is='span' rcx-pagination__label>
+        <PaginationLeft
+          marginInlineStart={leftMarginInlineStart}
+          marginInlineEnd={leftMarginInlineEnd}
+        >
+          <PaginationLabel>
             {itemsPerPageLabel(renderingContext)}
-          </Box>
-          <Box is='ol' rcx-pagination__list>
+          </PaginationLabel>
+          <PaginationList>
             {itemsPerPageOptions.map((itemsPerPageOption) => (
-              <Box key={itemsPerPageOption} is='li' rcx-pagination__list-item>
-                <Box
-                  is='button'
-                  rcx-pagination__link
+              <PaginationListItem key={itemsPerPageOption}>
+                <PaginationLink
                   tabIndex={itemsPerPage === itemsPerPageOption ? -1 : 0}
                   disabled={itemsPerPage === itemsPerPageOption}
-                  onClick={handleSetItemsPerPageLinkClick(itemsPerPageOption)}
+                  onPress={handleSetItemsPerPageLinkClick(itemsPerPageOption)}
                 >
                   {itemsPerPageOption}
-                </Box>
-              </Box>
+                </PaginationLink>
+              </PaginationListItem>
             ))}
-          </Box>
-        </Box>
+          </PaginationList>
+        </PaginationLeft>
       )}
-      <Box rcx-pagination__right>
-        <Box is='span' rcx-pagination__label>
+      <PaginationRight
+        flexDirection={rightFlexDirection as any}
+        marginInlineStart={rightMarginInlineStart}
+      >
+        <PaginationLabel>
           {showingResultsLabel(renderingContext)}
-        </Box>
-        <Box is='ol' rcx-pagination__list>
-          <Box is='li' rcx-pagination__list-item>
-            <Box
-              is='button'
-              rcx-pagination__back
+        </PaginationLabel>
+        <PaginationList>
+          <PaginationListItem>
+            <PaginationNavButton
               disabled={currentPage === 0}
-              onClick={handleSetPageLinkClick(currentPage - 1)}
+              onPress={handleSetPageLinkClick(currentPage - 1)}
             >
               <Chevron left size='x16' />
-            </Box>
-          </Box>
+            </PaginationNavButton>
+          </PaginationListItem>
           {displayedPages.map((page, i) => (
-            <Box key={i} is='li' rcx-pagination__list-item>
+            <PaginationListItem key={i}>
               {page === '⋯' ? (
                 '⋯'
               ) : (
-                <Box
-                  is='button'
-                  rcx-pagination__link
+                <PaginationLink
                   disabled={currentPage === page}
-                  onClick={handleSetPageLinkClick(page as number)}
+                  onPress={handleSetPageLinkClick(page as number)}
                 >
                   {(page as number) + 1}
-                </Box>
+                </PaginationLink>
               )}
-            </Box>
+            </PaginationListItem>
           ))}
-          <Box is='li' rcx-pagination__list-item>
-            <Box
-              is='button'
-              rcx-pagination__forward
+          <PaginationListItem>
+            <PaginationNavButton
               disabled={currentPage === pages - 1}
-              onClick={handleSetPageLinkClick(currentPage + 1)}
+              onPress={handleSetPageLinkClick(currentPage + 1)}
             >
               <Chevron right size='x16' />
-            </Box>
-          </Box>
-        </Box>
-      </Box>
-    </Box>
+            </PaginationNavButton>
+          </PaginationListItem>
+        </PaginationList>
+      </PaginationRight>
+    </PaginationNav>
   );
 };
 

@@ -1,5 +1,7 @@
 @use '../lengths.scss';
 @use '../typography.scss';
+@import './traits/all.scss';
+@import '../mixins/all.scss';
 
 %box {
   flex: 0 1 auto;
@@ -34,4 +36,39 @@
   font-family: typography.font-family('sans');
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.rcx-box {
+  @extend %box;
+
+  &--animated {
+    @extend %box--animated;
+
+    &::before,
+    &::after {
+      @extend %box--animated;
+    }
+  }
+
+  &--full {
+    @extend %box--full;
+
+    &::before,
+    &::after {
+      @extend %box;
+      @extend %box--full;
+    }
+  }
+
+  &--with-inline-elements {
+    @extend %--with-inline-elements !optional;
+  }
+
+  &--with-block-elements {
+    @extend %--with-block-elements !optional;
+  }
+
+  &--focusable {
+    @include focus-state();
+  }
 }

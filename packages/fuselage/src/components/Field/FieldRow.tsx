@@ -1,12 +1,32 @@
+import { styled } from '@tamagui/core';
+
+import { RcxView } from '../../primitives';
 import WithErrorWrapper from '../../helpers/WithErrorWrapper';
-import { Box, type BoxProps } from '../Box';
 
 import { FieldContext } from './Field';
 
-export type FieldRowProps = BoxProps;
+const FieldRowBase = styled(RcxView, {
+  name: 'FieldRow',
+
+  display: 'flex',
+  flexDirection: 'row',
+  flexWrap: 'nowrap',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+
+  marginBlockStart: '$x4',
+  marginBlockEnd: '$x2',
+
+  color: '$fontSecondaryInfo',
+});
+
+export type FieldRowProps = {
+  children?: React.ReactNode;
+  [key: string]: any;
+};
 
 const FieldRow = (props: FieldRowProps) => {
-  const component = <Box is='span' rcx-field__row {...props} />;
+  const component = <FieldRowBase {...props} />;
 
   if (process.env['NODE_ENV'] === 'development') {
     return (

@@ -7,7 +7,7 @@ export type LabelInfoProps = {
 } & Omit<IconProps, 'name'>;
 
 export const LabelInfo = ({ title, id, ...props }: LabelInfoProps) => (
-  <Box is='span' mi={2} rcx-label__info>
+  <Box is='span' mi={2} rcx-label__info display='flex'>
     <span hidden id={id}>
       {title}
     </span>

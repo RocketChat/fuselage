@@ -7,17 +7,22 @@ export type MessageStatusPrivateIndicatorProps = {
   variant?: MessageStatusIndicatorItemProps['variant'];
 };
 
+const variantColorMap: Record<string, string> = {
+  success: 'var(--statusFontOnSuccess)',
+  danger: 'var(--statusFontOnDanger)',
+  warning: 'var(--statusFontOnWarning)',
+  primary: 'var(--statusFontOnInfo)',
+};
+
 const MessageStatusPrivateIndicator = ({
   children,
   variant,
 }: MessageStatusPrivateIndicatorProps) => (
   <span
-    className={[
-      'rcx-message-status-indicator__item `rcx-message-status-indicator__item--private',
-      variant && `rcx-message-status-indicator__item--${variant}`,
-    ]
-      .filter(Boolean)
-      .join(' ')}
+    className='rcx-box'
+    style={{
+      color: variant ? variantColorMap[variant] : 'var(--fontSecondaryInfo)',
+    }}
   >
     {children}
   </span>

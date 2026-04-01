@@ -5,7 +5,9 @@ import { forwardRef } from 'react';
 import { useSelect, HiddenSelect, mergeProps, useFocusRing } from 'react-aria';
 import { useSelectState } from 'react-stately';
 
-import { Box } from '../Box';
+import { styled } from '@tamagui/core';
+
+import { RcxText } from '../../primitives';
 import { Icon } from '../Icon';
 import { OptionContainer } from '../Options';
 import { Popover } from '../Popover';
@@ -14,6 +16,33 @@ import { ListBox } from './Listbox';
 import { SelectTrigger } from './SelectTrigger';
 
 export { Item } from 'react-stately';
+
+// Value text display — replaces <Box is='span' ...valueProps>
+const SelectValueText = styled(RcxText, {
+  name: 'SelectValue',
+
+  fontFamily: '$body',
+  fontSize: '$p2',
+  fontWeight: '$p2',
+  lineHeight: '$p2',
+  letterSpacing: '$p2',
+
+  overflow: 'hidden',
+  textOverflow: 'ellipsis',
+  whiteSpace: 'nowrap',
+  overflowWrap: 'normal',
+
+  variants: {
+    small: {
+      true: {
+        fontSize: '$c1',
+        fontWeight: '$c1',
+        lineHeight: '$c1',
+        letterSpacing: '$c1',
+      },
+    },
+  } as const,
+});
 
 export type SelectAriaProps<T extends object> = AriaSelectProps<T> & {
   error?: string;
@@ -75,14 +104,13 @@ export const SelectAria = forwardRef<HTMLElement, SelectAriaProps<object>>(
             name={props.name}
             isDisabled={isDisabled}
           />
-          <Box
-            is='span'
-            color={state.selectedItem ? 'default' : 'hint'}
-            {...valueProps}
-            {...(small && { fontScale: 'c1' })}
+          <SelectValueText
+            color={state.selectedItem ? '$fontDefault' : '$fontHint'}
+            small={small || undefined}
+            {...(valueProps as any)}
           >
             {state.selectedItem ? state.selectedItem.rendered : placeholder}
-          </Box>
+          </SelectValueText>
           <Icon
             color='default'
             name={state.isOpen ? 'chevron-up' : 'chevron-down'}

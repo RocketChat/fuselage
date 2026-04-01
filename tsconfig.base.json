@@ -40,6 +40,9 @@
 
     "jsx": "react-jsx",
     "lib": ["ES2024"],
-    "target": "es2024"
+    "target": "es2024",
+    "paths": {
+      "react-native": ["./react-native-shim.d.ts"]
+    }
   }
 }

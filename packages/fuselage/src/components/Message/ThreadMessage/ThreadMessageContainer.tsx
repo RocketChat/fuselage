@@ -1,14 +1,27 @@
 import type { ReactNode } from 'react';
+import { styled } from '@tamagui/core';
+
+import { RcxView } from '../../../primitives';
 
 export type ThreadMessageContainerProps = {
   children?: ReactNode;
 };
 
+const ContainerFrame = styled(RcxView, {
+  name: 'ThreadMessageContainer',
+  display: 'flex',
+  flexDirection: 'row',
+  flexShrink: 1,
+  width: '100%',
+  margin: 4,
+  overflow: 'hidden',
+  // @ts-ignore
+  textOverflow: 'ellipsis',
+  whiteSpace: 'nowrap',
+});
+
 const ThreadMessageContainer = (props: ThreadMessageContainerProps) => (
-  <div
-    className='rcx-box rcx-box--full rcx-message-thread__container'
-    {...props}
-  />
+  <ContainerFrame {...(props as any)} />
 );
 
 export default ThreadMessageContainer;

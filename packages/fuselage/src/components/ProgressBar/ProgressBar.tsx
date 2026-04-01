@@ -1,22 +1,77 @@
 import type { AllHTMLAttributes } from 'react';
 import { forwardRef } from 'react';
 
-import { Box } from '../Box';
+import { css, keyframes } from '@rocket.chat/css-in-js';
+import { styled } from '@tamagui/core';
+
+import { RcxView } from '../../primitives';
 
 const getWidth = (percentage: number): string =>
   `${Math.min(Math.max(0, percentage), 100).toFixed(1)}%`;
 
+const progressBarAnimation = keyframes`
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    width: inherit;
+    opacity: 0;
+  }
+`;
+
+const animatedClass = css`
+  position: relative;
+
+  &::before {
+    position: absolute;
+    inset: 0;
+
+    width: inherit;
+
+    content: '';
+    animation: ${progressBarAnimation} 2s ease-out infinite;
+
+    opacity: 0;
+    border-radius: 0.5rem;
+    background: var(--surfaceLight);
+  }
+`;
+
+const ProgressBarTrack = styled(RcxView, {
+  name: 'ProgressBar',
+
+  display: 'block',
+  overflow: 'hidden',
+  width: '100%' as any,
+  height: 8,
+  borderRadius: '$x8',
+  backgroundColor: '$surfaceNeutral',
+});
+
+const ProgressBarFill = styled(RcxView, {
+  name: 'ProgressBarFill',
+
+  display: 'block',
+  height: 8,
+  borderRadius: '$x8',
+});
+
 const colors = {
-  info: 'status-font-on-info',
-  success: 'status-font-on-success',
-  warning: 'status-font-on-warning',
-  danger: 'status-font-on-danger',
+  info: '$statusFontOnInfo',
+  success: '$statusFontOnSuccess',
+  warning: '$statusFontOnWarning',
+  danger: '$statusFontOnDanger',
 };
+
 const lightColors = {
-  info: 'status-background-info',
-  success: 'status-background-success',
-  warning: 'status-background-warning',
-  danger: 'status-background-danger',
+  info: '$statusBgInfo',
+  success: '$statusBgSuccess',
+  warning: '$statusBgWarning',
+  danger: '$statusBgDanger',
 };
 
 const getColor = (
@@ -45,21 +100,22 @@ const ProgressBar = forwardRef<unknown, ProgressBarProps>(function ProgressBar(
   { percentage, variant = 'info', error, animated, light = false, ...props },
   ref,
 ) {
+  const fillColor = getColor(light, variant, error);
+
   return (
-    <Box
+    <ProgressBarTrack
       ref={ref}
-      rcx-progress-bar
       title={error || undefined}
-      overflow='hidden'
-      {...props}
+      {...(props as any)}
     >
-      <Box
-        bg={getColor(light, variant, error)}
-        rcx-progress-bar__fill--animated={animated}
-        rcx-progress-bar__fill
-        width={getWidth(percentage)}
+      <ProgressBarFill
+        className={animated ? animatedClass : undefined}
+        style={{
+          width: getWidth(percentage),
+          backgroundColor: `var(--${fillColor.slice(1)})`,
+        }}
       />
-    </Box>
+    </ProgressBarTrack>
   );
 });
 

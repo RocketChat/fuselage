@@ -3,14 +3,13 @@ import MessageEmojiBase from '../MessageEmojiBase';
 
 export type MessageReactionEmojiProps = MessageEmojiBaseProps;
 
-const MessageReactionEmoji = ({
+export const MessageReactionEmoji = ({
   className,
   ...props
 }: MessageReactionEmojiProps) => (
   <MessageEmojiBase
-    className={`rcx-message-reactions__emoji ${className || ''}`}
+    className={className}
+    style={{ display: 'block', width: 16, height: 16 }}
     {...props}
   />
 );
-
-export default MessageReactionEmoji;

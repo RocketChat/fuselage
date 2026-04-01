@@ -1,18 +1,36 @@
-import { forwardRef } from 'react';
+import { forwardRef, type ReactNode } from 'react';
+import { styled } from '@tamagui/core';
 
-import { Box, type BoxProps } from '../Box';
+import { RcxView } from '../../primitives';
 
 export type MessageBlockProps = {
   fixedWidth?: boolean;
-} & BoxProps;
+  children?: ReactNode;
+  className?: string;
+};
+
+const MessageBlockFrame = styled(RcxView, {
+  name: 'MessageBlock',
+  display: 'flex',
+  flexDirection: 'column',
+  variants: {
+    fixedWidth: {
+      true: {
+        flexGrow: 0,
+        flexShrink: 1,
+        width: 100,
+        maxWidth: 368,
+      },
+    },
+  } as const,
+});
 
 const MessageBlock = forwardRef<HTMLDivElement, MessageBlockProps>(
   ({ className: _className, fixedWidth, ...props }, ref) => (
-    <Box
-      rcx-message-block
-      rcx-message-block--width-fixed={fixedWidth}
+    <MessageBlockFrame
       ref={ref}
-      {...props}
+      fixedWidth={fixedWidth || undefined}
+      {...(props as any)}
     />
   ),
 );

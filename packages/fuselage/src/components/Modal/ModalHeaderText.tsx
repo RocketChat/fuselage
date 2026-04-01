@@ -1,11 +1,24 @@
-import { Box, type BoxProps } from '../Box';
+import type { AllHTMLAttributes } from 'react';
+import { styled } from '@tamagui/core';
 
-export type ModalHeaderTextProps = BoxProps;
+import { RcxView } from '../../primitives';
+
+const ModalHeaderTextFrame = styled(RcxView, {
+  name: 'ModalHeaderText',
+  display: 'flex',
+  flexDirection: 'column',
+  flexGrow: 1,
+  flexShrink: 1,
+  overflow: 'hidden',
+  textOverflow: 'ellipsis',
+});
+
+export type ModalHeaderTextProps = AllHTMLAttributes<HTMLElement>;
 
 const ModalHeaderText = ({ children, ...props }: ModalHeaderTextProps) => (
-  <Box rcx-modal__header-text {...props}>
+  <ModalHeaderTextFrame {...(props as any)}>
     {children}
-  </Box>
+  </ModalHeaderTextFrame>
 );
 
 export default ModalHeaderText;

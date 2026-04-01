@@ -1,12 +1,22 @@
 import type { ReactNode } from 'react';
+import { styled } from '@tamagui/core';
+
+import { RcxView } from '../../../primitives';
 
 type TopBarWrapperProps = {
   children?: ReactNode;
 };
 
+const TopBarWrapperFrame = styled(RcxView, {
+  name: 'SidebarTopBarWrapper',
+  display: 'flex',
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  flexGrow: 1,
+  paddingInline: 16,
+});
+
 export const TopBarWrapper = ({ children }: TopBarWrapperProps) => (
-  <div
-    className='rc-box rc-box--full rcx-sidebar-topbar__wrapper'
-    children={children}
-  />
+  <TopBarWrapperFrame>{children}</TopBarWrapperFrame>
 );

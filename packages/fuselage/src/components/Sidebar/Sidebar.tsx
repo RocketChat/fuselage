@@ -1,4 +1,7 @@
-import { Box, type BoxProps } from '../Box';
+import { styled } from '@tamagui/core';
+
+import { RcxView } from '../../primitives';
+import type { BoxProps } from '../Box';
 
 import { SidebarItem } from './Item';
 import { SidebarSection } from './Section';
@@ -8,8 +11,14 @@ import SidebarTopBar from './TopBar';
 
 export type SidebarProps = BoxProps;
 
+const SidebarFrame = styled(RcxView, {
+  name: 'Sidebar',
+  color: '$fontDefault',
+  backgroundColor: '$surfaceSidebar',
+});
+
 const Sidebar = Object.assign(
-  (props: SidebarProps) => <Box rcx-sidebar {...props} />,
+  (props: SidebarProps) => <SidebarFrame {...(props as any)} />,
   {
     TopBar: SidebarTopBar,
     Item: SidebarItem,

@@ -1,10 +1,23 @@
 import type { HTMLAttributes } from 'react';
+import { styled } from '@tamagui/core';
+
+import { RcxView } from '../../primitives';
 
 import { SidebarDivider } from './SidebarDivider';
 
+const SidebarSectionFrame = styled(RcxView, {
+  name: 'SidebarV2Section',
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center',
+  height: 44,
+  paddingInline: 16,
+  gap: 8,
+});
+
 export const SidebarSection = (props: HTMLAttributes<HTMLDivElement>) => (
-  <div>
-    <div className='rcx-box rcx-box--full rcx-sidebar-v2-section' {...props} />
+  <RcxView>
+    <SidebarSectionFrame {...(props as any)} />
     <SidebarDivider />
-  </div>
+  </RcxView>
 );

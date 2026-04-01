@@ -1,29 +1,68 @@
 import type { Keys as IconName } from '@rocket.chat/icons';
 import nameToCharacterMapping from '@rocket.chat/icons';
-import { forwardRef } from 'react';
+import { forwardRef, useMemo } from 'react';
+import { styled } from '@tamagui/core';
 
-import { Box, type BoxProps } from '../Box';
+import type { BoxProps } from '../Box';
+import { RcxText } from '../../primitives';
+import { extractBoxProps } from '../../utilities/boxCompat';
+
+const StyledIcon = styled(RcxText, {
+  name: 'Icon',
+
+  display: 'inline-block',
+  userSelect: 'none',
+  verticalAlign: 'text-bottom',
+  color: 'inherit',
+
+  letterSpacing: 0,
+  fontFamily: 'RocketChat',
+  fontWeight: '400',
+  fontStyle: 'normal',
+  // fontVariant: 'normal' — not supported as Tamagui prop, handled by rcx-box reset
+  // lineHeight: 1 in CSS means 1×fontSize (unitless), but Tamagui treats 1 as 1px
+  // Set dynamically via prop to match fontSize
+  textRendering: 'auto',
+});
 
 export type IconProps = Omit<BoxProps, 'name' | 'size'> & {
   name: IconName;
   size?: BoxProps['width'];
 };
 
+// Convert 'x16' → 16, 'x20' → 20, or pass number directly
+const resolveSize = (size: any): number | undefined => {
+  if (typeof size === 'number') return size;
+  if (typeof size === 'string') {
+    const match = /^x(\d+)$/.exec(size);
+    if (match) return parseInt(match[1], 10);
+  }
+  return size;
+};
+
 const Icon = forwardRef<HTMLElement, IconProps>(function Icon(
-  { name, size, ...props },
+  { name, size, style: styleProp, ...props },
   ref,
 ) {
+  const resolvedSize = resolveSize(size);
+  const { style: boxStyle, rest } = extractBoxProps(props as Record<string, unknown>);
+  const mergedStyle = useMemo(() => {
+    const hasBoxStyle = Object.keys(boxStyle).length > 0;
+    if (!hasBoxStyle && !styleProp) return undefined;
+    return { ...boxStyle, ...styleProp };
+  }, [boxStyle, styleProp]);
+
   return (
-    <Box
-      is='i'
-      rcx-icon
-      rcx-icon--name={name}
-      children={nameToCharacterMapping[name]}
+    <StyledIcon
       aria-hidden='true'
-      fontSize={size}
+      fontSize={resolvedSize}
+      lineHeight={resolvedSize}
       ref={ref}
-      {...props}
-    />
+      style={mergedStyle}
+      {...(rest as any)}
+    >
+      {nameToCharacterMapping[name]}
+    </StyledIcon>
   );
 });
 

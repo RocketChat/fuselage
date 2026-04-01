@@ -1,14 +1,31 @@
-import { Box, type BoxProps } from '../Box';
+import type { AllHTMLAttributes } from 'react';
+import { styled } from '@tamagui/core';
+
+import { RcxView } from '../../primitives';
 import { Margins } from '../Margins';
 
-export type ModalHeaderProps = BoxProps;
+const ModalHeaderFrame = styled(RcxView, {
+  name: 'ModalHeader',
+  tag: 'header',
+  margin: '$x24',
+});
+
+const ModalHeaderInner = styled(RcxView, {
+  name: 'ModalHeaderInner',
+  display: 'flex',
+  flexDirection: 'row',
+  flexWrap: 'nowrap',
+  margin: -4,
+});
+
+export type ModalHeaderProps = AllHTMLAttributes<HTMLElement>;
 
 const ModalHeader = ({ children, ...props }: ModalHeaderProps) => (
-  <Box rcx-modal__header is='header' {...props}>
-    <Box rcx-modal__header-inner>
+  <ModalHeaderFrame {...(props as any)}>
+    <ModalHeaderInner>
       <Margins all='x4'>{children}</Margins>
-    </Box>
-  </Box>
+    </ModalHeaderInner>
+  </ModalHeaderFrame>
 );
 
 export default ModalHeader;

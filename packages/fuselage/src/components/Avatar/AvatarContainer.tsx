@@ -1,6 +1,35 @@
 import type { HTMLAttributes } from 'react';
+import { styled } from '@tamagui/core';
 
-import { prependClassName } from '../../helpers/prependClassName';
+import { RcxView } from '../../primitives';
+
+const StyledAvatarContainer = styled(RcxView, {
+  name: 'AvatarContainer',
+
+  display: 'inline-flex',
+  verticalAlign: 'middle',
+
+  variants: {
+    size: {
+      x16: { width: 16, height: 16 },
+      x18: { width: 18, height: 18 },
+      x20: { width: 20, height: 20 },
+      x24: { width: 24, height: 24 },
+      x28: { width: 28, height: 28 },
+      x32: { width: 32, height: 32 },
+      x36: { width: 36, height: 36 },
+      x40: { width: 40, height: 40 },
+      x48: { width: 48, height: 48 },
+      x124: { width: 124, height: 124 },
+      x200: { width: 200, height: 200 },
+      x332: { width: 332, height: 332 },
+    },
+  } as const,
+
+  defaultVariants: {
+    size: 'x36',
+  },
+});
 
 export type AvatarContainerProps = {
   size?:
@@ -23,14 +52,11 @@ const AvatarContainer = ({
   children,
   ...props
 }: AvatarContainerProps) => {
-  props.className = prependClassName(
-    props.className,
-    ['rcx-box rcx-box--full rcx-avatar', size && `rcx-avatar--${size}`]
-      .filter(Boolean)
-      .join(' '),
+  return (
+    <StyledAvatarContainer role='figure' size={size} {...(props as any)}>
+      {children}
+    </StyledAvatarContainer>
   );
-
-  return <figure {...props}>{children}</figure>;
 };
 
 export default AvatarContainer;

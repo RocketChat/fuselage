@@ -1,41 +1,90 @@
-import { css } from '@rocket.chat/css-in-js';
+import { css, keyframes } from '@rocket.chat/css-in-js';
 import { forwardRef } from 'react';
+import { styled } from '@tamagui/core';
 
-import { Box, type BoxProps } from '../Box';
+import { RcxView } from '../../primitives';
+
+const bounceAnimation = keyframes`
+  0%, 80%, 100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
+`;
+
+const ThrobberFrame = styled(RcxView, {
+  name: 'Throbber',
+
+  display: 'flex',
+  flexDirection: 'row',
+  justifyContent: 'center',
+  marginBlock: -1,
+});
+
+const ThrobberCircle = styled(RcxView, {
+  name: 'ThrobberCircle',
+
+  marginInline: 1,
+  borderRadius: '$full',
+  backgroundColor: '$buttonPrimaryBg',
+
+  variants: {
+    disabled: {
+      true: {
+        backgroundColor: '$buttonSecondaryBg',
+      },
+    },
+  } as const,
+});
 
 type CircleProps = {
   circleCount: number;
   iteration: number;
   inheritColor?: boolean;
   disabled?: boolean;
-} & Pick<BoxProps, 'size'>;
+  size?: string;
+};
 
 function Circle({
   disabled,
   circleCount,
   iteration,
   inheritColor,
+  size = 'x16',
   ...props
 }: CircleProps) {
+  const animationClass = css`
+    animation: ${bounceAnimation} ${circleCount * 0.466}s infinite ease-in-out
+      both;
+    animation-delay: ${iteration * 0.16}s;
+  `;
+
+  const inheritColorClass = inheritColor
+    ? css`
+        background-color: currentColor;
+      `
+    : undefined;
+
+  const sizeNum = parseInt(size.replace('x', ''), 10) || 16;
+
   return (
-    <Box
-      is='span'
-      className={css`
-        animation-duration: ${circleCount * 0.466}s;
-        animation-delay: ${iteration * 0.16}s;
-      `}
-      rcx-throbber__circle
-      rcx-throbber__circle--disabled={disabled}
-      rcx-throbber__circle--inherit-color={inheritColor}
+    <ThrobberCircle
+      disabled={disabled}
+      className={[animationClass, inheritColorClass].filter(Boolean).join(' ')}
+      width={sizeNum}
+      height={sizeNum}
       {...props}
     />
   );
 }
 
-export type ThrobberProps = Omit<BoxProps, 'disabled'> & {
+export type ThrobberProps = {
   circleCount?: number;
   disabled?: boolean;
   inheritColor?: boolean;
+  size?: string;
+  [key: string]: any;
 };
 
 /**
@@ -46,7 +95,7 @@ const Throbber = forwardRef<HTMLElement, ThrobberProps>(function Throbber(
   ref,
 ) {
   return (
-    <Box rcx-throbber ref={ref} {...props}>
+    <ThrobberFrame ref={ref} {...props}>
       {Array.from({ length: circleCount || 3 }, (_, iteration) => (
         <Circle
           key={iteration}
@@ -57,7 +106,7 @@ const Throbber = forwardRef<HTMLElement, ThrobberProps>(function Throbber(
           inheritColor={!!inheritColor}
         />
       ))}
-    </Box>
+    </ThrobberFrame>
   );
 });
 

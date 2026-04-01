@@ -1,14 +1,28 @@
-import { Box, type BoxProps } from '../Box';
+import type { AllHTMLAttributes } from 'react';
+import { styled } from '@tamagui/core';
 
-export type ModalFooterProps = BoxProps;
+import { RcxView } from '../../primitives';
+
+const ModalFooterFrame = styled(RcxView, {
+  name: 'ModalFooter',
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center',
+  margin: '$x24',
+});
+
+export type ModalFooterProps = {
+  justifyContent?: 'start' | 'center' | 'end' | 'space-between';
+} & AllHTMLAttributes<HTMLElement>;
 
 const ModalFooter = ({
   children,
   justifyContent = 'end',
+  ...props
 }: ModalFooterProps) => (
-  <Box justifyContent={justifyContent} rcx-modal__footer>
+  <ModalFooterFrame justifyContent={justifyContent as any} {...(props as any)}>
     {children}
-  </Box>
+  </ModalFooterFrame>
 );
 
 export default ModalFooter;

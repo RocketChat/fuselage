@@ -1,11 +1,21 @@
 import type { HTMLAttributes } from 'react';
+import { styled } from '@tamagui/core';
+
+import { RcxView } from '../../../primitives';
+
+const SidebarMediaFrame = styled(RcxView, {
+  name: 'SidebarV2Media',
+  paddingBlock: 8,
+  color: '$fontTitlesLabels',
+  borderBottomWidth: 1,
+  borderBottomStyle: 'solid',
+  borderBottomColor: '$strokeLight',
+  backgroundColor: '$surfaceSidebar',
+});
 
 export const SidebarMedia = ({
-  className,
+  className: _className,
   ...props
 }: HTMLAttributes<HTMLDivElement>) => (
-  <div
-    className={['rcx-sidebar-v2-media', className].filter(Boolean).join(' ')}
-    {...props}
-  />
+  <SidebarMediaFrame {...(props as any)} />
 );

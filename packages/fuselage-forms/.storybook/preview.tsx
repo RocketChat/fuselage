@@ -1,4 +1,4 @@
-import { PaletteStyleTag } from '@rocket.chat/fuselage';
+import { FuselageProvider, PaletteStyleTag } from '@rocket.chat/fuselage';
 import breakpointTokens from '@rocket.chat/fuselage-tokens/breakpoints.json';
 import surface from '@rocket.chat/fuselage-tokens/dist/surface.json';
 import { useDarkMode } from '@rocket.chat/storybook-dark-mode';
@@ -79,11 +79,13 @@ export default {
     (Story) => {
       const dark = useDarkMode();
 
+      const theme = dark ? 'dark' : 'light';
+
       return (
-        <>
-          <PaletteStyleTag theme={dark ? 'dark' : 'light'} />
+        <FuselageProvider theme={theme}>
+          <PaletteStyleTag theme={theme} />
           <Story />
-        </>
+        </FuselageProvider>
       );
     },
   ],

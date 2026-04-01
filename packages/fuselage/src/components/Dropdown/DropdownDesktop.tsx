@@ -1,7 +1,16 @@
 import type { CSSProperties, ReactNode } from 'react';
 import { forwardRef } from 'react';
+import { styled } from '@tamagui/core';
 
-import { Box, Tile } from '..';
+import { RcxView } from '../../primitives';
+import Tile from '../Tile/Tile';
+
+const DropdownContent = styled(RcxView, {
+  name: 'DropdownContent',
+  display: 'block',
+  flexShrink: 1,
+  paddingBlock: '$x12',
+});
 
 export type DropdownDesktopProps = {
   children: ReactNode;
@@ -18,17 +27,16 @@ export const DropdownDesktop = forwardRef<HTMLElement, DropdownDesktopProps>(
         style={style}
         ref={ref}
         elevation='2'
-        pi='0'
-        pb='0'
+        padding={0}
         display='flex'
         flexDirection='column'
         overflow='auto'
         data-testid='dropdown'
         {...props}
       >
-        <Box flexShrink={1} pb={12}>
+        <DropdownContent>
           {style?.visibility === 'hidden' ? null : children}
-        </Box>
+        </DropdownContent>
       </Tile>
     );
   },

@@ -1,18 +1,18 @@
 import type { ReactNode } from 'react';
+import { styled } from '@tamagui/core';
+
+import { RcxView } from '../../../primitives';
 
 type TopBarProps = {
   children?: ReactNode;
   className?: string;
 };
 
-export const TopBarV2 = ({ className, ...props }: TopBarProps) => (
-  <div
-    className={[
-      'rc-box rc-box--full rcx-sidebar-topbar-v2 rcx-sidebar-topbar-v2',
-      className,
-    ]
-      .filter(Boolean)
-      .join(' ')}
-    {...props}
-  />
+const TopBarV2Frame = styled(RcxView, {
+  name: 'SidebarTopBarV2',
+  height: 44,
+});
+
+export const TopBarV2 = ({ className: _className, ...props }: TopBarProps) => (
+  <TopBarV2Frame {...(props as any)} />
 );

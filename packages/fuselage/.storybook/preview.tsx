@@ -5,7 +5,7 @@ import type { Preview } from '@storybook/react-webpack5';
 import { themes } from 'storybook/theming';
 
 import manifest from '../package.json';
-import { PaletteStyleTag } from '../src';
+import { FuselageProvider, PaletteStyleTag } from '../src';
 
 import DocsContainer from './DocsContainer';
 import logo from './logo.svg';
@@ -78,12 +78,13 @@ export default {
   decorators: [
     (Story) => {
       const dark = useDarkMode();
+      const theme = dark ? 'dark' : 'light';
 
       return (
-        <>
-          <PaletteStyleTag theme={dark ? 'dark' : 'light'} />
+        <FuselageProvider theme={theme}>
+          <PaletteStyleTag theme={theme} />
           <Story />
-        </>
+        </FuselageProvider>
       );
     },
   ],
