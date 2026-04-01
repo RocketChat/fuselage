@@ -1,5 +1,5 @@
-import type { HTMLAttributes } from 'react';
 import { styled } from '@tamagui/core';
+import type { HTMLAttributes } from 'react';
 
 import { RcxView } from '../../primitives';
 
@@ -11,9 +11,9 @@ const MessageRolesFrame = styled(RcxView, {
   flexDirection: 'row',
   flexShrink: 1,
   overflow: 'hidden',
-  // @ts-ignore
   textOverflow: 'ellipsis',
   whiteSpace: 'nowrap',
+  gap: '$x4',
 });
 
 const MessageRoles = (props: MessageRolesProps) => (

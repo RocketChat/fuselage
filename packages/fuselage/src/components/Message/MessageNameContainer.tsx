@@ -14,7 +14,6 @@ const MessageNameContainerFrame = styled(RcxText, {
   textOverflow: 'ellipsis',
   whiteSpace: 'nowrap',
   overflowWrap: 'normal',
-  marginInline: 2,
 });
 
 const MessageNameContainer = forwardRef<

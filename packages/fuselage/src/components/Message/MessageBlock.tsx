@@ -13,7 +13,6 @@ const MessageBlockFrame = styled(RcxView, {
   name: 'MessageBlock',
   display: 'flex',
   flexDirection: 'column',
-  marginBlock: 2,
   variants: {
     fixedWidth: {
       true: {

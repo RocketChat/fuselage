@@ -12,7 +12,6 @@ const MessageHeaderFrame = styled(RcxView, {
   flexGrow: 0,
   flexShrink: 1,
   minWidth: 1,
-  marginBlock: '$x2',
 });
 
 const MessageHeaderWrapper = styled(RcxView, {
@@ -20,13 +19,11 @@ const MessageHeaderWrapper = styled(RcxView, {
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'center',
+  flexWrap: 'wrap',
   flexGrow: 1,
   flexShrink: 1,
   minWidth: 1,
-
-  marginBlock: -4,
-  marginInline: -2,
-  gap: '$x2',
+  gap: '$x4',
 });
 
 const MessageHeader = ({ children, ...props }: MessageHeaderProps) => (

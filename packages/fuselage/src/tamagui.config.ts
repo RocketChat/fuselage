@@ -13,7 +13,6 @@ const space = {
   x1: 1,
   x2: 2,
   x4: 4,
-  x6: 6,
   x8: 8,
   x10: 10,
   x12: 12,
@@ -352,18 +351,27 @@ const media = {
 export const tamaguiConfig = createTamagui({
   tokens,
   themes: {
-    light: lightTheme,
-    dark: darkTheme,
+    'light': lightTheme,
+    'dark': darkTheme,
     'high-contrast': highContrastTheme,
     // Button sub-themes: allows <Theme name="Button_primary"> to control colors
     ...Object.fromEntries(
-      Object.entries(createButtonSubThemes(lightTheme)).map(([k, v]) => [`light_${k}`, v]),
+      Object.entries(createButtonSubThemes(lightTheme)).map(([k, v]) => [
+        `light_${k}`,
+        v,
+      ]),
     ),
     ...Object.fromEntries(
-      Object.entries(createButtonSubThemes(darkTheme)).map(([k, v]) => [`dark_${k}`, v]),
+      Object.entries(createButtonSubThemes(darkTheme)).map(([k, v]) => [
+        `dark_${k}`,
+        v,
+      ]),
     ),
     ...Object.fromEntries(
-      Object.entries(createButtonSubThemes(highContrastTheme)).map(([k, v]) => [`high-contrast_${k}`, v]),
+      Object.entries(createButtonSubThemes(highContrastTheme)).map(([k, v]) => [
+        `high-contrast_${k}`,
+        v,
+      ]),
     ),
   },
   fonts: {

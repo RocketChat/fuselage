@@ -1,6 +1,6 @@
+import { styled } from '@tamagui/core';
 import type { AllHTMLAttributes } from 'react';
 import { forwardRef } from 'react';
-import { styled } from '@tamagui/core';
 
 import { RcxView } from '../../primitives';
 
@@ -37,10 +37,10 @@ const MessageFrame = styled(RcxView, {
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'flex-start',
-  marginInline: '$x2',
   paddingBlockStart: '$x8',
   paddingBlockEnd: '$x4',
   paddingInline: '$x20',
+  gap: '$x8',
   hoverStyle: {
     backgroundColor: '$surfaceHover',
   },
@@ -92,7 +92,7 @@ const Message = Object.assign(
       <MessageFrame
         ref={ref}
         group='message'
-        clickable={(clickable || !!props.onClick) || undefined}
+        clickable={clickable || !!props.onClick || undefined}
         sequential={sequential || undefined}
         isSelected={isSelected || undefined}
         isEditing={isEditing || undefined}

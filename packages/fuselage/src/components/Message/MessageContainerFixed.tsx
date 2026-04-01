@@ -13,8 +13,8 @@ const MessageContainerFixedFrame = styled(RcxView, {
   flexShrink: 0,
   alignItems: 'center',
   minWidth: 1,
-  marginBlock: -2,
-  marginInline: 4,
+  marginInline: '$x4',
+  gap: '$x4',
 });
 
 const MessageContainerFixed = (props: MessageContainerFixedProps) => (

@@ -10,7 +10,6 @@ export type MessageBodyProps = HTMLAttributes<HTMLDivElement> & {
 const MessageBodyFrame = styled(RcxView, {
   name: 'MessageBody',
 
-  marginBlock: '$x2',
   overflow: 'hidden',
   flexShrink: 1,
   opacity: 1,

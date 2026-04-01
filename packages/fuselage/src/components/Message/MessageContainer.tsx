@@ -12,8 +12,7 @@ const MessageContainerFrame = styled(RcxView, {
   flexGrow: 1,
   flexShrink: 1,
   minWidth: 1,
-  marginBlock: -2,
-  marginInline: '$x4',
+  gap: '$x2',
 });
 
 const MessageContainer = (props: MessageContainerProps) => (

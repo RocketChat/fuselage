@@ -13,7 +13,6 @@ const MessageLeftContainerFrame = styled(RcxView, {
   flexGrow: 0,
   flexShrink: 0,
   width: '$x36',
-  marginBlock: -2,
   marginInline: '$x4',
 });
 

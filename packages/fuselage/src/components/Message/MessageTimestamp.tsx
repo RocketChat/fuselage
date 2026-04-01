@@ -19,7 +19,6 @@ const MessageTimestampFrame = styled(RcxText, {
   overflowWrap: 'normal',
   flexShrink: 0,
   color: '$fontDefault',
-  marginInline: 2,
 });
 
 const MessageTimestamp = (props: MessageTimestampProps) => (
