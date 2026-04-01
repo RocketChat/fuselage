@@ -3,7 +3,7 @@ import type { AllHTMLAttributes } from 'react';
 import { css, keyframes } from '@rocket.chat/css-in-js';
 import { styled } from 'tamagui';
 
-import { RcxView } from '../../primitives';
+import { RcxText } from '../../primitives';
 
 const skeletonAnimation = keyframes`
   0% { background-position: 0 0; }
@@ -21,7 +21,7 @@ const shimmerClass = css`
     );
 `;
 
-const SkeletonBase = styled(RcxView, {
+const SkeletonBase = styled(RcxText, {
   name: 'Skeleton',
 
   display: 'block',
