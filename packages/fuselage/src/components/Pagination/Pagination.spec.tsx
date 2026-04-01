@@ -1,9 +1,27 @@
+import { composeStories } from '@storybook/react-webpack5';
+import { axe } from 'jest-axe';
+
 import { render } from '../../testing';
 
-import Pagination from './Pagination';
+import * as stories from './Pagination.stories';
+
+const { Default } = composeStories(stories);
+
+jest.mock('react', () => ({
+  ...jest.requireActual('react'),
+  useId: () => 'test-id',
+}));
 
 describe('[Pagination Component]', () => {
   it('renders without crashing', () => {
-    render(<Pagination count={0} />);
+    const tree = render(<Default />);
+    expect(tree.baseElement).toMatchSnapshot();
+  });
+
+  it('%s should have no a11y violations', async () => {
+    const { container } = render(<Default />);
+
+    const results = await axe(container);
+    expect(results).toHaveNoViolations();
   });
 });
