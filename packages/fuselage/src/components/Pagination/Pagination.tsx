@@ -1,12 +1,11 @@
-import type { Dispatch, SetStateAction } from 'react';
+import type { Dispatch, HTMLAttributes, SetStateAction } from 'react';
 import { useId, useMemo } from 'react';
 
-import { Box, type BoxProps } from '../Box';
 import { Chevron } from '../Chevron';
 
 type ItemsPerPage = 25 | 50 | 100;
 
-export type PaginationProps = BoxProps & {
+export type PaginationProps = {
   count: number;
   current?: number;
   divider?: boolean;
@@ -27,7 +26,7 @@ export type PaginationProps = BoxProps & {
   pageAriaLabel?: string;
   previousPageAriaLabel?: string;
   nextPageAriaLabel?: string;
-};
+} & HTMLAttributes<HTMLElement>;
 
 const defaultItemsPerPageLabel = () => 'Items per page:';
 
@@ -108,91 +107,91 @@ const Pagination = ({
   };
 
   return (
-    <Box
-      is='nav'
-      rcx-pagination
-      rcx-pagination--divider={divider}
+    <nav
+      className={[
+        'rcx-box rcx-box--full rcx-pagination',
+        divider && 'rcx-pagination--divider',
+      ]
+        .filter(Boolean)
+        .join(' ')}
       aria-label={paginationAriaLabel}
       {...props}
     >
       {hasItemsPerPageSelection && (
-        <Box rcx-pagination__left>
-          <Box is='span' rcx-pagination__label id={itemsPerPageLabelId}>
+        <div className='rcx-pagination__left'>
+          <span className='rcx-pagination__label' id={itemsPerPageLabelId}>
             {itemsPerPageLabel(renderingContext)}
-          </Box>
-          <Box
-            is='ol'
-            rcx-pagination__list
+          </span>
+          <ol
+            className='rcx-box rcx-box--full rcx-pagination__list'
             aria-labelledby={itemsPerPageLabelId}
           >
             {itemsPerPageOptions.map((itemsPerPageOption) => (
-              <Box key={itemsPerPageOption} is='li' rcx-pagination__list-item>
-                <Box
-                  is='button'
-                  rcx-pagination__link
+              <li
+                key={itemsPerPageOption}
+                className='rcx-pagination__list-item'
+              >
+                <button
+                  className='rcx-box rcx-box--full rcx-pagination__link'
                   tabIndex={itemsPerPage === itemsPerPageOption ? -1 : 0}
                   disabled={itemsPerPage === itemsPerPageOption}
                   aria-label={`Show ${itemsPerPageOption} items per page`}
                   onClick={handleSetItemsPerPageLinkClick(itemsPerPageOption)}
                 >
                   {itemsPerPageOption}
-                </Box>
-              </Box>
+                </button>
+              </li>
             ))}
-          </Box>
-        </Box>
+          </ol>
+        </div>
       )}
-      <Box rcx-pagination__right>
-        <Box is='span' rcx-pagination__label id={paginationResultLabelId}>
+      <div className='rcx-pagination__right'>
+        <span className='rcx-pagination__label' id={paginationResultLabelId}>
           {showingResultsLabel(renderingContext)}
-        </Box>
-        <Box
-          is='ol'
-          rcx-pagination__list
+        </span>
+        <ol
+          className='rcx-box rcx-box--full rcx-pagination__list'
           aria-labelledby={paginationResultLabelId}
         >
-          <Box is='li' rcx-pagination__list-item>
-            <Box
-              is='button'
-              rcx-pagination__back
+          <li className='rcx-pagination__list-item'>
+            <button
+              className='rcx-box rcx-box--full rcx-pagination__back'
               disabled={currentPage === 0}
               aria-label={previousPageAriaLabel}
               onClick={handleSetPageLinkClick(currentPage - 1)}
             >
               <Chevron left size='x16' />
-            </Box>
-          </Box>
+            </button>
+          </li>
           {displayedPages.map((page, i) => (
-            <Box key={i} is='li' rcx-pagination__list-item>
+            <li key={i} className='rcx-pagination__list-item'>
               {page === '⋯' ? (
                 '⋯'
               ) : (
-                <Box
-                  is='button'
-                  rcx-pagination__link
+                <button
+                  className='rcx-box rcx-box--full rcx-pagination__link'
                   disabled={currentPage === page}
                   aria-label={`${pageAriaLabel} ${Number(page) + 1}`}
                   onClick={handleSetPageLinkClick(Number(page))}
                 >
                   {Number(page) + 1}
-                </Box>
+                </button>
               )}
-            </Box>
+            </li>
           ))}
-          <Box is='li' rcx-pagination__list-item>
-            <Box
-              is='button'
-              rcx-pagination__forward
+          <li className='rcx-pagination__list-item'>
+            <button
+              className='rcx-box rcx-box--full rcx-pagination__forward'
               disabled={currentPage === pages - 1}
               aria-label={nextPageAriaLabel}
               onClick={handleSetPageLinkClick(currentPage + 1)}
             >
               <Chevron right size='x16' />
-            </Box>
-          </Box>
-        </Box>
-      </Box>
-    </Box>
+            </button>
+          </li>
+        </ol>
+      </div>
+    </nav>
   );
 };
 
