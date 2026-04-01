@@ -6,6 +6,8 @@ export * from './styleTokens';
 export { useArrayLikeClassNameProp } from '@rocket.chat/fuselage-box';
 
 // Tamagui v3 exports
+export { styled, View, Text, createStyledContext } from '@tamagui/core';
+export type { GetProps } from '@tamagui/core';
 export { FuselageProvider } from './providers/FuselageProvider';
 export { tamaguiConfig, tokens } from './tamagui.config';
 export { lightTheme, darkTheme, highContrastTheme } from './themes';
