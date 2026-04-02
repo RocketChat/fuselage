@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.76.0
+
+### Minor Changes
+
+- [#1685](https://github.com/RocketChat/fuselage/pull/1685) [`2d6b78c`](https://github.com/RocketChat/fuselage/commit/2d6b78cdc43dc7b03c2cf0766242def14bd0bcb8) Thanks [@ergot-rp](https://github.com/ergot-rp)! - feat(fuselage): Add accessibility improvements to `Pagination`
+
 ## 0.75.0
 
 ### Minor Changes
