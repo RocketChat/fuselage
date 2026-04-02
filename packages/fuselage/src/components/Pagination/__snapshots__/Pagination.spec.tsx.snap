@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
-exports[`[Pagination Component] renders without crashing 1`] = `
+exports[`renders without crashing 1`] = `
 <body>
   <div>
     <nav
