@@ -102,8 +102,8 @@
       "fontOnPrimary": { "value": "#FFFFFF" },
       "fontOnPrimaryDisabled": { "value": "#6C727A" },
 
-      "backgroundSecondaryDefault": { "value": "#353B45" },
-      "backgroundSecondaryHover": { "value": "#404754" },
+      "backgroundSecondaryDefault": { "value": "#404754" },
+      "backgroundSecondaryHover": { "value": "#4B5362" },
       "backgroundSecondaryPress": { "value": "#4C5362" },
       "backgroundSecondaryFocus": { "value": "#353B45" },
       "backgroundSecondaryKeyfocus": { "value": "#353B45" },
@@ -111,8 +111,8 @@
       "fontOnSecondary": { "value": "#E4E7EA" },
       "fontOnSecondaryDisabled": { "value": "#6C727A" },
 
-      "backgroundSecondaryDangerDefault": { "value": "#353B45" },
-      "backgroundSecondaryDangerHover": { "value": "#404754" },
+      "backgroundSecondaryDangerDefault": { "value": "#404754" },
+      "backgroundSecondaryDangerHover": { "value": "#4B5362" },
       "backgroundSecondaryDangerPress": { "value": "#4C5362" },
       "backgroundSecondaryDangerFocus": { "value": "#353B45" },
       "backgroundSecondaryDangerKeyfocus": { "value": "#353B45" },
