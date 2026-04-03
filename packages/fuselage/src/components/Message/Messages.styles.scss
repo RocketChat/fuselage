@@ -125,6 +125,10 @@ $message-highlight-colors-background-other-color: theme(
     }
   }
 
+  .rcx-message-body {
+    text-align: left;
+  }
+
   &--sequential {
     padding-block: lengths.padding(4);
   }
