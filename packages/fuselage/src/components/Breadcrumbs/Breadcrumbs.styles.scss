@@ -1,0 +1,51 @@
+@use '../../styles/colors.scss';
+@use '../../styles/lengths.scss';
+@use '../../styles/typography.scss';
+
+.rcx-breadcrumbs {
+  @include typography.use-font-scale(p2);
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+
+  color: colors.font(default);
+
+  &__list {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+
+    &-link {
+      color: colors.font(hint);
+      text-decoration: none;
+      cursor: pointer;
+
+      &:hover,
+      &:focus {
+        color: colors.font(default);
+      }
+
+      &--selected {
+        color: colors.font(default);
+        cursor: default;
+        pointer-events: none;
+      }
+    }
+  }
+
+  &__separator {
+    display: flex;
+    align-items: center;
+    margin: 0 lengths.margin(8);
+    color: colors.font(hint);
+  }
+}
