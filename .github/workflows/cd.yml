@@ -31,7 +31,20 @@ jobs:
           key: ${{ runner.os }}-modules-${{ hashFiles('yarn.lock') }}
       - run: yarn
         if: steps.yarn-cache.outputs.cache-hit != 'true'
-      - run: yarn run ci
+      - name: Build, lint and test
+        id: build-lint-test
+        run: yarn run ci
+
+      - name: Visual regression
+        id: visual-regression
+        run: yarn turbo run visual-regression --cache-dir=".turbo" --concurrency=1
+
+      - uses: actions/upload-artifact@v7
+        if: failure()
+        with:
+          name: playwright-visual-results
+          path: '**/test-results'
+
       - run: yarn run docs
       - uses: actions/upload-artifact@v7
         with:
