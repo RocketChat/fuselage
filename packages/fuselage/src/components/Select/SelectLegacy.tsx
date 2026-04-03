@@ -86,7 +86,7 @@ const SelectLegacy = forwardRef<HTMLInputElement, SelectProps>(
     const internalChangedByKeyboard = useStableCallback(
       ([value]: OptionType) => {
         setInternalValue(value);
-        onChange(value as SelectOption[0]); // FIXME
+        onChange(value); // FIXME
       },
     );
 
@@ -121,7 +121,7 @@ const SelectLegacy = forwardRef<HTMLInputElement, SelectProps>(
 
     const internalChangedByClick = useStableCallback(([value]: OptionType) => {
       setInternalValue(value);
-      onChange(value as SelectOption[0]); // FIXME
+      onChange(value); // FIXME
       removeFocusClass();
       hide();
     });
