@@ -4,7 +4,7 @@ import { forwardRef } from 'react';
 import { Icon } from '../Icon';
 import { InputBox, type InputBoxProps } from '../InputBox';
 
-// TODO: fix a11y issues
+
 
 export type PasswordInputProps = Omit<InputBoxProps, 'type'>;
 
@@ -23,6 +23,10 @@ const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
             name={hidden ? 'eye-off' : 'eye'}
             size={20}
             onClick={handleAddonClick}
+            role="button"
+            tabIndex={0}
+            aria-label={hidden ? "Show password" : "Hide password"}
+            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleAddonClick(); } }}
           />
         }
         ref={ref}
