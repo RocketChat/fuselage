@@ -144,20 +144,25 @@ const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
       return show();
     });
 
+    const handleAddonClick = useEffectEvent((e: SyntheticEvent) => {
+      e.stopPropagation();
+      e.preventDefault();
+      handleClick();
+    });
+
     return (
       <Box
         is='div'
         rcx-select
         className={[error && 'invalid', disabled && 'disabled']}
         ref={containerRef}
-        onClick={handleClick}
         disabled={disabled}
         {...props}
       >
         <FlexItem grow={1}>
           <Margins inline='x4'>
             <FlexContainer>
-              <Box is='div'>
+              <Box is='div' onClick={handleClick}>
                 <Box
                   is='div'
                   display='flex'
@@ -216,6 +221,8 @@ const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
         <FlexItem grow={0} shrink={0}>
           <Margins inline='x4'>
             <SelectAddon
+              onMouseDown={(e) => e.preventDefault()}
+              onClick={handleAddonClick}
               children={
                 <Icon
                   name={
