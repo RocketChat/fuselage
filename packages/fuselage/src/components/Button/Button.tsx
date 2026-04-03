@@ -1,5 +1,5 @@
 import type { AllHTMLAttributes } from 'react';
-import { forwardRef, useMemo } from 'react';
+import { forwardRef, useMemo, Children } from 'react';
 
 import { Box, type BoxProps } from '../Box';
 import { Icon, type IconProps } from '../Icon';
@@ -82,6 +82,22 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
 
       return {};
     }, [primary, secondary, danger, warning, success]);
+
+    // --- Accessibility Check (Dev Only) ---
+    if (process.env.NODE_ENV !== 'production') {
+      const childrenArray = Children.toArray(children);
+      const hasTextContent = childrenArray.some(
+        (child) => typeof child === 'string' && child.trim().length > 0
+      );
+
+      const isVisualOnly = !hasTextContent && (!!icon || !!loading || square);
+
+      if (isVisualOnly && !props['aria-label'] && !props['aria-labelledby']) {
+        console.warn(
+          `Fuselage [Button]: Buttons without visible text (icon-only or square buttons) must provide an 'aria-label' or 'aria-labelledby' prop for accessibility.`
+        );
+      }
+    }
 
     return (
       <Box
