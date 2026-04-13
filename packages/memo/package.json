@@ -41,8 +41,8 @@
     "lint-all": "workspace:~",
     "prettier": "~3.6.2",
     "rimraf": "~6.0.1",
-    "ts-jest": "~29.4.6",
-    "typedoc": "~0.28.18",
+    "ts-jest": "~29.4.9",
+    "typedoc": "~0.28.19",
     "typescript": "~5.9.3"
   },
   "publishConfig": {
