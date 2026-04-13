@@ -10,7 +10,7 @@
   },
   "devDependencies": {
     "eslint": "~9.39.2",
-    "lint-all": "workspace:~",
+    "lint-all": "^0.31.25",
     "prettier": "~3.6.2"
   }
 }
