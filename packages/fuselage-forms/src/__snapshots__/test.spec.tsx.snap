@@ -82,7 +82,6 @@ exports[`renders WithCheckbox without crashing 1`] = `
         <a
           class="rcx-box rcx-box--full rcx-field__link"
           href="#"
-          target="_blank"
         >
           Link to more information
         </a>
@@ -163,7 +162,6 @@ exports[`renders WithEmailInput without crashing 1`] = `
         <a
           class="rcx-box rcx-box--full rcx-field__link"
           href="#"
-          target="_blank"
         >
           Link to more information
         </a>
@@ -302,7 +300,6 @@ exports[`renders WithMultiSelect without crashing 1`] = `
         <a
           class="rcx-box rcx-box--full rcx-field__link"
           href="#"
-          target="_blank"
         >
           Link to more information
         </a>
@@ -383,7 +380,6 @@ exports[`renders WithNumberInput without crashing 1`] = `
         <a
           class="rcx-box rcx-box--full rcx-field__link"
           href="#"
-          target="_blank"
         >
           Link to more information
         </a>
@@ -478,7 +474,6 @@ exports[`renders WithPasswordInput without crashing 1`] = `
         <a
           class="rcx-box rcx-box--full rcx-field__link"
           href="#"
-          target="_blank"
         >
           Link to more information
         </a>
@@ -570,7 +565,6 @@ exports[`renders WithRadioButton without crashing 1`] = `
         <a
           class="rcx-box rcx-box--full rcx-field__link"
           href="#"
-          target="_blank"
         >
           Link to more information
         </a>
@@ -651,7 +645,6 @@ exports[`renders WithSearchInput without crashing 1`] = `
         <a
           class="rcx-box rcx-box--full rcx-field__link"
           href="#"
-          target="_blank"
         >
           Link to more information
         </a>
@@ -773,7 +766,6 @@ exports[`renders WithSlider without crashing 1`] = `
         <a
           class="rcx-box rcx-box--full rcx-field__link"
           href="#"
-          target="_blank"
         >
           Link to more information
         </a>
@@ -854,7 +846,6 @@ exports[`renders WithTelephoneInput without crashing 1`] = `
         <a
           class="rcx-box rcx-box--full rcx-field__link"
           href="#"
-          target="_blank"
         >
           Link to more information
         </a>
@@ -935,7 +926,6 @@ exports[`renders WithTextArea without crashing 1`] = `
         <a
           class="rcx-box rcx-box--full rcx-field__link"
           href="#"
-          target="_blank"
         >
           Link to more information
         </a>
@@ -1016,7 +1006,6 @@ exports[`renders WithTextInput without crashing 1`] = `
         <a
           class="rcx-box rcx-box--full rcx-field__link"
           href="#"
-          target="_blank"
         >
           Link to more information
         </a>
@@ -1108,7 +1097,6 @@ exports[`renders WithToggleSwitch without crashing 1`] = `
         <a
           class="rcx-box rcx-box--full rcx-field__link"
           href="#"
-          target="_blank"
         >
           Link to more information
         </a>
@@ -1189,7 +1177,6 @@ exports[`renders WithUrlInput without crashing 1`] = `
         <a
           class="rcx-box rcx-box--full rcx-field__link"
           href="#"
-          target="_blank"
         >
           Link to more information
         </a>
