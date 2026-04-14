@@ -11,13 +11,13 @@
     "tools-utils": "workspace:~",
     "ttf2eot": "~3.1.0",
     "ttf2woff": "~3.0.0",
-    "ttf2woff2": "~8.0.0",
+    "ttf2woff2": "~8.0.1",
     "unicode": "~14.0.0",
     "xml2js": "~0.6.2"
   },
   "devDependencies": {
     "eslint": "~9.39.2",
     "lint-all": "workspace:~",
-    "prettier": "~3.6.2"
+    "prettier": "~3.8.2"
   }
 }
