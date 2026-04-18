@@ -1,4 +1,5 @@
 import type { StoryFn, Meta } from '@storybook/react-webpack5';
+import { useState } from 'react';
 
 import {
   TextInput,
@@ -13,6 +14,8 @@ import {
   TelephoneInput,
   NumberInput,
   UrlInput,
+  MultiSelect,
+  Slider,
 } from '../Inputs';
 
 import {
@@ -232,12 +235,13 @@ export const WithUrlInput: StoryFn<typeof Field> = () => (
 
 export const WithSelect: StoryFn<typeof Field> = () => (
   <Field>
-    <FieldRow>
-      <FieldLabel required>
-        Example Select
-        <FieldLabelInfo title='with extra info in a tooltip' />
-      </FieldLabel>
-    </FieldRow>
+    <FieldLabel required>
+      Example Select
+      <FieldLabelInfo title='with extra info in a tooltip' />
+    </FieldLabel>
+    <FieldDescription>
+      You can select a single option from a list of options
+    </FieldDescription>
     <FieldRow>
       <Select
         options={[
@@ -254,16 +258,71 @@ export const WithSelect: StoryFn<typeof Field> = () => (
         ]}
       />
     </FieldRow>
-
-    <FieldRow>
-      <FieldDescription>
-        You can select a single option from a list of options
-      </FieldDescription>
-      <FieldError>You failed to enter a valid value</FieldError>
-    </FieldRow>
+    <FieldError>You failed to enter a valid value</FieldError>
     <FieldRow>
       <FieldHint>This should help the user enter a valid value</FieldHint>
       <FieldLink href='#'>Link to more information</FieldLink>
     </FieldRow>
   </Field>
 );
+
+export const WithMultiSelect: StoryFn<typeof Field> = () => {
+  const [value, setValue] = useState<string[]>(['1', '3']);
+  return (
+    <Field>
+      <FieldLabel required>
+        Example MultiSelect
+        <FieldLabelInfo title='with extra info in a tooltip' />
+      </FieldLabel>
+      <FieldDescription>
+        You can select multiple options from a list of options
+      </FieldDescription>
+      <FieldRow>
+        <MultiSelect
+          options={[
+            ['1', 'item 1'],
+            ['2', 'item 2'],
+            ['3', 'item 3'],
+            ['4', 'item 4'],
+            ['5', 'item 5'],
+            ['6', 'item 6'],
+            ['7', 'item 7'],
+            ['8', 'item 8'],
+            ['9', 'item 9'],
+            ['10', 'item 10'],
+          ]}
+          value={value}
+          onChange={setValue}
+        />
+      </FieldRow>
+      <FieldError>You failed to enter a valid value</FieldError>
+      <FieldRow>
+        <FieldHint>This should help the user enter a valid value</FieldHint>
+        <FieldLink href='#'>Link to more information</FieldLink>
+      </FieldRow>
+    </Field>
+  );
+};
+
+export const WithSlider: StoryFn<typeof Field> = () => {
+  const [value, setValue] = useState<number>(20);
+  return (
+    <Field>
+      <FieldLabel required>
+        Example Slider
+        <FieldLabelInfo title='with extra info in a tooltip' />
+      </FieldLabel>
+      <FieldDescription>
+        You can use the slider to select a value from a range of values
+      </FieldDescription>
+      <FieldRow>
+        <Slider value={value} onChange={setValue} />
+      </FieldRow>
+      <FieldError>You failed to enter a valid value</FieldError>
+      <FieldRow>
+        <FieldHint>This should help the user enter a valid value</FieldHint>
+        <FieldLink href='#'>Link to more information</FieldLink>
+      </FieldRow>
+    </Field>
+  );
+};
