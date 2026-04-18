@@ -66,6 +66,7 @@ exports[`renders WithCheckbox without crashing 1`] = `
       <span
         class="rcx-box rcx-box--full rcx-field__error"
         id="react-aria-:r7:-error"
+        role="alert"
       >
         You failed to enter a valid value
       </span>
@@ -81,7 +82,6 @@ exports[`renders WithCheckbox without crashing 1`] = `
         <a
           class="rcx-box rcx-box--full rcx-field__link"
           href="#"
-          target="_blank"
         >
           Link to more information
         </a>
@@ -146,6 +146,7 @@ exports[`renders WithEmailInput without crashing 1`] = `
       <span
         class="rcx-box rcx-box--full rcx-field__error"
         id="react-aria-:r1:-error"
+        role="alert"
       >
         You failed to enter a valid value
       </span>
@@ -161,7 +162,144 @@ exports[`renders WithEmailInput without crashing 1`] = `
         <a
           class="rcx-box rcx-box--full rcx-field__link"
           href="#"
-          target="_blank"
+        >
+          Link to more information
+        </a>
+      </span>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`renders WithMultiSelect without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-field"
+    >
+      <span
+        class="rcx-box rcx-box--full rcx-field__label rcx-label"
+        id="react-aria-:rb:-label"
+      >
+        Example MultiSelect
+        <span
+          class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+        >
+          <span
+            hidden=""
+          >
+            with extra info in a tooltip
+          </span>
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+            title="with extra info in a tooltip"
+          >
+            
+          </i>
+        </span>
+        <span
+          aria-hidden="true"
+          class="rcx-box rcx-box--full rcx-label__required rcx-css-b7g1a9"
+        >
+          *
+        </span>
+      </span>
+      <span
+        class="rcx-box rcx-box--full rcx-field__description"
+        id="react-aria-:rb:-description"
+      >
+        You can select multiple options from a list of options
+      </span>
+      <span
+        class="rcx-box rcx-box--full rcx-field__row"
+      >
+        <div
+          aria-describedby="react-aria-:rb:-description react-aria-:rb:-error react-aria-:rb:-hint"
+          aria-invalid="true"
+          aria-labelledby="react-aria-:rb:-label"
+          class="rcx-box rcx-box--full rcx-select"
+        >
+          <div
+            class="rcx-box rcx-box--full rcx-css-1sr8su7"
+          >
+            <div
+              class="rcx-box rcx-box--full rcx-css-w398ts"
+            >
+              <button
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-labelledby="react-aria-:rb:-label"
+                class="rcx-box rcx-box--full rcx-input-box--undecorated rcx-select__focus rcx-css-trljwa rcx-css-3fq6z9"
+                type="button"
+              />
+              <button
+                class="rcx-box rcx-chip rcx-css-trljwa"
+                tabindex="-1"
+                type="button"
+              >
+                <span
+                  class="rcx-box rcx-chip__text rcx-css-trljwa"
+                >
+                  item 1
+                </span>
+                <i
+                  aria-hidden="true"
+                  class="rcx-box rcx-box--full rcx-icon--name-cross rcx-icon rcx-css-trljwa rcx-css-1wv1vf9"
+                >
+                  
+                </i>
+              </button>
+              <button
+                class="rcx-box rcx-chip rcx-css-trljwa"
+                tabindex="-1"
+                type="button"
+              >
+                <span
+                  class="rcx-box rcx-chip__text rcx-css-trljwa"
+                >
+                  item 3
+                </span>
+                <i
+                  aria-hidden="true"
+                  class="rcx-box rcx-box--full rcx-icon--name-cross rcx-icon rcx-css-trljwa rcx-css-1wv1vf9"
+                >
+                  
+                </i>
+              </button>
+            </div>
+          </div>
+          <div
+            class="rcx-box rcx-box--full rcx-select__addon rcx-css-x7bl3q rcx-css-1bprq55"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-4pvxx3"
+            >
+              
+            </i>
+          </div>
+        </div>
+      </span>
+      <span
+        class="rcx-box rcx-box--full rcx-field__error"
+        id="react-aria-:rb:-error"
+        role="alert"
+      >
+        You failed to enter a valid value
+      </span>
+      <span
+        class="rcx-box rcx-box--full rcx-field__row"
+      >
+        <span
+          class="rcx-box rcx-box--full rcx-field__hint"
+          id="react-aria-:rb:-hint"
+        >
+          This should help the user enter a valid value
+        </span>
+        <a
+          class="rcx-box rcx-box--full rcx-field__link"
+          href="#"
         >
           Link to more information
         </a>
@@ -226,6 +364,7 @@ exports[`renders WithNumberInput without crashing 1`] = `
       <span
         class="rcx-box rcx-box--full rcx-field__error"
         id="react-aria-:r9:-error"
+        role="alert"
       >
         You failed to enter a valid value
       </span>
@@ -241,7 +380,6 @@ exports[`renders WithNumberInput without crashing 1`] = `
         <a
           class="rcx-box rcx-box--full rcx-field__link"
           href="#"
-          target="_blank"
         >
           Link to more information
         </a>
@@ -320,6 +458,7 @@ exports[`renders WithPasswordInput without crashing 1`] = `
       <span
         class="rcx-box rcx-box--full rcx-field__error"
         id="react-aria-:r2:-error"
+        role="alert"
       >
         You failed to enter a valid value
       </span>
@@ -335,7 +474,6 @@ exports[`renders WithPasswordInput without crashing 1`] = `
         <a
           class="rcx-box rcx-box--full rcx-field__link"
           href="#"
-          target="_blank"
         >
           Link to more information
         </a>
@@ -411,6 +549,7 @@ exports[`renders WithRadioButton without crashing 1`] = `
       <span
         class="rcx-box rcx-box--full rcx-field__error"
         id="react-aria-:r5:-error"
+        role="alert"
       >
         You failed to enter a valid value
       </span>
@@ -426,7 +565,6 @@ exports[`renders WithRadioButton without crashing 1`] = `
         <a
           class="rcx-box rcx-box--full rcx-field__link"
           href="#"
-          target="_blank"
         >
           Link to more information
         </a>
@@ -491,6 +629,7 @@ exports[`renders WithSearchInput without crashing 1`] = `
       <span
         class="rcx-box rcx-box--full rcx-field__error"
         id="react-aria-:r3:-error"
+        role="alert"
       >
         You failed to enter a valid value
       </span>
@@ -506,7 +645,127 @@ exports[`renders WithSearchInput without crashing 1`] = `
         <a
           class="rcx-box rcx-box--full rcx-field__link"
           href="#"
-          target="_blank"
+        >
+          Link to more information
+        </a>
+      </span>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`renders WithSlider without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-field"
+    >
+      <span
+        class="rcx-box rcx-box--full rcx-field__label rcx-label"
+        id="react-aria-:rc:-label"
+      >
+        Example Slider
+        <span
+          class="rcx-box rcx-box--full rcx-label__info rcx-css-wcp0mp"
+        >
+          <span
+            hidden=""
+          >
+            with extra info in a tooltip
+          </span>
+          <i
+            aria-hidden="true"
+            class="rcx-box rcx-box--full rcx-icon--name-info-circled rcx-icon"
+            title="with extra info in a tooltip"
+          >
+            
+          </i>
+        </span>
+        <span
+          aria-hidden="true"
+          class="rcx-box rcx-box--full rcx-label__required rcx-css-b7g1a9"
+        >
+          *
+        </span>
+      </span>
+      <span
+        class="rcx-box rcx-box--full rcx-field__description"
+        id="react-aria-:rc:-description"
+      >
+        You can use the slider to select a value from a range of values
+      </span>
+      <span
+        class="rcx-box rcx-box--full rcx-field__row"
+      >
+        <div
+          aria-labelledby="react-aria-:rc:-label"
+          class="rcx-css-146twpt"
+          id="react-aria-:rd:"
+          role="group"
+        >
+          <label
+            aria-live="off"
+            class="rcx-box rcx-box--full rcx-label"
+            for="react-aria-:rd:-0"
+          >
+            <span
+              aria-live="off"
+              class="rcx-box rcx-box--full rcx-label"
+              data-testid="slider-output"
+              for="react-aria-:rd:-0"
+            >
+              20
+            </span>
+          </label>
+          <div
+            class="rcx-css-uzpikz"
+            style="position: relative;"
+          >
+            <div
+              class="rcx-css-cn88oj"
+              style="position: absolute; left: 20%; transform: translate(-50%, -50%);"
+            >
+              <div
+                style="border: 0px; clip-path: inset(50%); height: 1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+              >
+                <input
+                  aria-describedby="react-aria-:rc:-description react-aria-:rc:-error react-aria-:rc:-hint"
+                  aria-details=""
+                  aria-labelledby="react-aria-:rd:"
+                  aria-orientation="horizontal"
+                  aria-valuetext="20"
+                  id="react-aria-:rd:-0"
+                  max="100"
+                  min="0"
+                  step="1"
+                  tabindex="0"
+                  type="range"
+                  value="20"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </span>
+      <span
+        class="rcx-box rcx-box--full rcx-field__error"
+        id="react-aria-:rc:-error"
+        role="alert"
+      >
+        You failed to enter a valid value
+      </span>
+      <span
+        class="rcx-box rcx-box--full rcx-field__row"
+      >
+        <span
+          class="rcx-box rcx-box--full rcx-field__hint"
+          id="react-aria-:rc:-hint"
+        >
+          This should help the user enter a valid value
+        </span>
+        <a
+          class="rcx-box rcx-box--full rcx-field__link"
+          href="#"
         >
           Link to more information
         </a>
@@ -571,6 +830,7 @@ exports[`renders WithTelephoneInput without crashing 1`] = `
       <span
         class="rcx-box rcx-box--full rcx-field__error"
         id="react-aria-:r8:-error"
+        role="alert"
       >
         You failed to enter a valid value
       </span>
@@ -586,7 +846,6 @@ exports[`renders WithTelephoneInput without crashing 1`] = `
         <a
           class="rcx-box rcx-box--full rcx-field__link"
           href="#"
-          target="_blank"
         >
           Link to more information
         </a>
@@ -651,6 +910,7 @@ exports[`renders WithTextArea without crashing 1`] = `
       <span
         class="rcx-box rcx-box--full rcx-field__error"
         id="react-aria-:r4:-error"
+        role="alert"
       >
         You failed to enter a valid value
       </span>
@@ -666,7 +926,6 @@ exports[`renders WithTextArea without crashing 1`] = `
         <a
           class="rcx-box rcx-box--full rcx-field__link"
           href="#"
-          target="_blank"
         >
           Link to more information
         </a>
@@ -731,6 +990,7 @@ exports[`renders WithTextInput without crashing 1`] = `
       <span
         class="rcx-box rcx-box--full rcx-field__error"
         id="react-aria-:r0:-error"
+        role="alert"
       >
         You failed to enter a valid value
       </span>
@@ -746,7 +1006,6 @@ exports[`renders WithTextInput without crashing 1`] = `
         <a
           class="rcx-box rcx-box--full rcx-field__link"
           href="#"
-          target="_blank"
         >
           Link to more information
         </a>
@@ -822,6 +1081,7 @@ exports[`renders WithToggleSwitch without crashing 1`] = `
       <span
         class="rcx-box rcx-box--full rcx-field__error"
         id="react-aria-:r6:-error"
+        role="alert"
       >
         You failed to enter a valid value
       </span>
@@ -837,7 +1097,6 @@ exports[`renders WithToggleSwitch without crashing 1`] = `
         <a
           class="rcx-box rcx-box--full rcx-field__link"
           href="#"
-          target="_blank"
         >
           Link to more information
         </a>
@@ -902,6 +1161,7 @@ exports[`renders WithUrlInput without crashing 1`] = `
       <span
         class="rcx-box rcx-box--full rcx-field__error"
         id="react-aria-:ra:-error"
+        role="alert"
       >
         You failed to enter a valid value
       </span>
@@ -917,7 +1177,6 @@ exports[`renders WithUrlInput without crashing 1`] = `
         <a
           class="rcx-box rcx-box--full rcx-field__link"
           href="#"
-          target="_blank"
         >
           Link to more information
         </a>

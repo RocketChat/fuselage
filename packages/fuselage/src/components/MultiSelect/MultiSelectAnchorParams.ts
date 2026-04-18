@@ -1,4 +1,5 @@
 import type {
+  AriaAttributes,
   FocusEventHandler,
   KeyboardEventHandler,
   MouseEventHandler,
@@ -14,4 +15,4 @@ export type MultiSelectAnchorParams = {
   onBlur: FocusEventHandler;
   onKeyUp: KeyboardEventHandler;
   onKeyDown: KeyboardEventHandler;
-};
+} & AriaAttributes;

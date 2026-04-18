@@ -1,5 +1,32 @@
 # Change Log
 
+## 0.76.0
+
+### Minor Changes
+
+- [#1685](https://github.com/RocketChat/fuselage/pull/1685) [`2d6b78c`](https://github.com/RocketChat/fuselage/commit/2d6b78cdc43dc7b03c2cf0766242def14bd0bcb8) Thanks [@ergot-rp](https://github.com/ergot-rp)! - feat(fuselage): Add accessibility improvements to `Pagination`
+
+### Patch Changes
+
+- [#1934](https://github.com/RocketChat/fuselage/pull/1934) [`04d477a`](https://github.com/RocketChat/fuselage/commit/04d477a9a20d4b75011c5b6e447ca8fdd22da51f) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): Remove target `_blank` as default on `FieldLink`
+
+## 0.75.0
+
+### Minor Changes
+
+- [#1912](https://github.com/RocketChat/fuselage/pull/1912) [`ee9f242`](https://github.com/RocketChat/fuselage/commit/ee9f24215b261c228781c540e9bbdda1f23c6e59) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage): add `gap` styling prop to `Box`
+
+### Patch Changes
+
+- [#1923](https://github.com/RocketChat/fuselage/pull/1923) [`c223ca1`](https://github.com/RocketChat/fuselage/commit/c223ca16c837daccc5a320ca787b0bba646ba086) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): Set default cursor style for Label component
+
+## 0.74.0
+
+### Minor Changes
+
+- [#1901](https://github.com/RocketChat/fuselage/pull/1901) [`e5c02b9`](https://github.com/RocketChat/fuselage/commit/e5c02b9a29aa5ccad16fd62d4748042145368519) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage-forms): add `MultiSelect` component
+  feat(fuselage): improve `MultiSelect` a11y
+
 ## 0.73.0
 
 ### Minor Changes

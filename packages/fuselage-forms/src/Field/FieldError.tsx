@@ -9,9 +9,8 @@ type FieldErrorProps = { children: ReactNode } & ComponentProps<
 
 const FieldError = ({ children, ...props }: FieldErrorProps) => {
   const id = useFieldDescriptorId('error');
-
   return (
-    <FieldErrorComponent {...props} id={id}>
+    <FieldErrorComponent {...props} id={id} role='alert'>
       {children}
     </FieldErrorComponent>
   );
