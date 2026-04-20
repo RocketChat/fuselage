@@ -2,4 +2,4 @@
 '@rocket.chat/fuselage': patch
 ---
 
-fix(fuselage): improve `Select` a11y
+fix(fuselage): move `HiddenSelect` out of `SelectTrigger`
