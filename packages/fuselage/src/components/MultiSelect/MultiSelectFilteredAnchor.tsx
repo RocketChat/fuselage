@@ -40,7 +40,6 @@ const MultiSelectFilteredAnchor = forwardRef<
         }
         {...props}
         rcx-input-box--undecorated
-        aria-haspopup='listbox'
         order={1}
       />
     </FlexItem>

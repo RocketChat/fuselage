@@ -68,6 +68,15 @@ const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
     },
     ref,
   ) => {
+    const {
+      'aria-required': ariaRequired,
+      'aria-describedby': ariaDescribedby,
+      'aria-label': ariaLabel,
+      'aria-labelledby': ariaLabelledby,
+      'name': inputName,
+      ...comboboxProps
+    } = props;
+
     const [internalValue, setInternalValue] = useState<SelectOption[0][]>(
       value || [],
     );
@@ -144,15 +153,23 @@ const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
       return show();
     });
 
+    const listboxId = comboboxProps.id
+      ? `${comboboxProps.id}-listbox`
+      : undefined;
+
     return (
       <Box
         is='div'
         rcx-select
+        role='combobox'
+        aria-expanded={visible === AnimatedVisibility.VISIBLE}
+        aria-haspopup='listbox'
+        aria-controls={listboxId}
         className={[error && 'invalid', disabled && 'disabled']}
         ref={containerRef}
         onClick={handleClick}
         disabled={disabled}
-        {...props}
+        {...comboboxProps}
       >
         <FlexItem grow={1}>
           <Margins inline='x4'>
@@ -175,8 +192,11 @@ const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
                       'onBlur': hide,
                       'onKeyDown': handleKeyDown,
                       'onKeyUp': handleKeyUp,
-                      'aria-expanded': visible === AnimatedVisibility.VISIBLE,
-                      'aria-labelledby': props['aria-labelledby'],
+                      'aria-labelledby': ariaLabelledby,
+                      'aria-label': ariaLabel,
+                      'aria-required': ariaRequired,
+                      'aria-describedby': ariaDescribedby,
+                      'name': inputName,
                     })}
                     {internalValue.map((value: SelectOption[0]) => {
                       const currentOption = options.find(
@@ -238,6 +258,7 @@ const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
               filter={filter}
               renderItem={renderItem || CheckOption}
               role='listbox'
+              id={listboxId}
               options={filteredOptions}
               onSelect={internalChanged}
               cursor={cursor}

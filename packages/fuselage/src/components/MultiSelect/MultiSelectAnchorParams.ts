@@ -15,4 +15,5 @@ export type MultiSelectAnchorParams = {
   onBlur: FocusEventHandler;
   onKeyUp: KeyboardEventHandler;
   onKeyDown: KeyboardEventHandler;
+  name?: string;
 } & AriaAttributes;
