@@ -18,15 +18,11 @@ type MultiSelectAnchorProps = {
 };
 
 const MultiSelectAnchor = forwardRef<Element, MultiSelectAnchorProps>(
-  function MultiSelectAnchor(props, ref) {
+  function MultiSelectAnchor({ children, ...props }, ref) {
     return (
-      <SelectFocus
-        rcx-input-box--undecorated
-        ref={ref}
-        aria-haspopup='listbox'
-        order={1}
-        {...props}
-      />
+      <SelectFocus rcx-input-box--undecorated ref={ref} order={1} {...props}>
+        {children}
+      </SelectFocus>
     );
   },
 );

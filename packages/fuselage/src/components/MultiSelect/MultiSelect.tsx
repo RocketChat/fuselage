@@ -68,14 +68,9 @@ const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
     },
     ref,
   ) => {
-    // Extract input-specific attributes that should go to the input element
-    // Keep aria-label and aria-labelledby on the combobox container as required by ARIA
-    const {
-      'aria-required': ariaRequired,
-      'aria-describedby': ariaDescribedby,
-      'name': inputName,
-      ...comboboxProps
-    } = props;
+    // Extract input-specific attributes
+    // aria-describedby and aria-required will be on the combobox container
+    const { name: inputName, ...comboboxProps } = props;
 
     const [internalValue, setInternalValue] = useState<SelectOption[0][]>(
       value || [],
@@ -184,17 +179,13 @@ const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
                 >
                   <Margins all='x4'>
                     {renderAnchor({
-                      'ref': anchorRef,
-                      'children':
-                        internalValue.length === 0 ? placeholder : null,
-                      'disabled': disabled ?? false,
-                      'onClick': show,
-                      'onBlur': hide,
-                      'onKeyDown': handleKeyDown,
-                      'onKeyUp': handleKeyUp,
-                      'aria-required': ariaRequired,
-                      'aria-describedby': ariaDescribedby,
-                      'name': inputName,
+                      ref: anchorRef,
+                      children: internalValue.length === 0 ? placeholder : null,
+                      disabled: disabled ?? false,
+                      onClick: show,
+                      onBlur: hide,
+                      onKeyDown: handleKeyDown,
+                      onKeyUp: handleKeyUp,
                     })}
                     {internalValue.map((value: SelectOption[0]) => {
                       const currentOption = options.find(

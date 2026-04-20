@@ -16,13 +16,12 @@ exports[`[MultiSelect Component] renders without crashing 1`] = `
         <div
           class="rcx-box rcx-box--full rcx-css-w398ts"
         >
-          <button
-            aria-haspopup="listbox"
+          <div
             class="rcx-box rcx-box--full rcx-input-box--undecorated rcx-select__focus rcx-css-trljwa rcx-css-3fq6z9"
-            type="button"
+            tabindex="0"
           >
             Placeholder here...
-          </button>
+          </div>
         </div>
       </div>
       <div
