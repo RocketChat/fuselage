@@ -68,11 +68,11 @@ const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
     },
     ref,
   ) => {
+    // Extract input-specific attributes that should go to the input element
+    // Keep aria-label and aria-labelledby on the combobox container as required by ARIA
     const {
       'aria-required': ariaRequired,
       'aria-describedby': ariaDescribedby,
-      'aria-label': ariaLabel,
-      'aria-labelledby': ariaLabelledby,
       'name': inputName,
       ...comboboxProps
     } = props;
@@ -192,8 +192,6 @@ const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
                       'onBlur': hide,
                       'onKeyDown': handleKeyDown,
                       'onKeyUp': handleKeyUp,
-                      'aria-labelledby': ariaLabelledby,
-                      'aria-label': ariaLabel,
                       'aria-required': ariaRequired,
                       'aria-describedby': ariaDescribedby,
                       'name': inputName,
