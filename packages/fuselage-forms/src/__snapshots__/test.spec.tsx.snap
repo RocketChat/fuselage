@@ -215,13 +215,7 @@ exports[`renders WithMultiSelect without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-field__row"
       >
         <div
-          aria-describedby="react-aria-:rb:-description react-aria-:rb:-error react-aria-:rb:-hint"
-          aria-expanded="false"
-          aria-haspopup="listbox"
-          aria-invalid="true"
-          aria-labelledby="react-aria-:rb:-label"
           class="rcx-box rcx-box--full rcx-select"
-          role="combobox"
         >
           <div
             class="rcx-box rcx-box--full rcx-css-1sr8su7"
@@ -230,7 +224,13 @@ exports[`renders WithMultiSelect without crashing 1`] = `
               class="rcx-box rcx-box--full rcx-css-w398ts"
             >
               <div
+                aria-describedby="react-aria-:rb:-description react-aria-:rb:-error react-aria-:rb:-hint"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-invalid="true"
+                aria-labelledby="react-aria-:rb:-label"
                 class="rcx-box rcx-box--full rcx-input-box--undecorated rcx-select__focus rcx-css-trljwa rcx-css-3fq6z9"
+                role="combobox"
                 tabindex="0"
               />
               <button
