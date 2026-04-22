@@ -156,6 +156,25 @@ export const useFieldReferencedByLabel = () => {
   );
 };
 
+// label has id and input is aria-labelledby + has id for aria-controls
+export const useFieldReferencedByLabelWithId = () => {
+  const { id, descriptors, setFieldType } = useContext(FieldContext);
+
+  useEffect(() => {
+    setFieldType('referencedByLabel');
+  }, [setFieldType]);
+
+  return useMemo(
+    () => ({
+      id,
+      'aria-labelledby': getInputId(id, descriptors),
+      'aria-describedby': getDescribedBy(descriptors, id),
+      ...getAriaInvalid(descriptors),
+    }),
+    [descriptors, id],
+  );
+};
+
 // label is rendered visually hidden inside the inputs wrapper label
 export const useFieldWrappedByInputLabel = (): [
   ReactNode,
