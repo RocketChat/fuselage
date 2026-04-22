@@ -1,4 +1,5 @@
 import type {
+  AriaAttributes,
   FocusEventHandler,
   KeyboardEventHandler,
   MouseEventHandler,
@@ -15,7 +16,10 @@ type MultiSelectAnchorProps = {
   onBlur: FocusEventHandler;
   onKeyUp: KeyboardEventHandler;
   onKeyDown: KeyboardEventHandler;
-};
+  role?: string;
+  id?: string;
+  name?: string;
+} & AriaAttributes;
 
 const MultiSelectAnchor = forwardRef<Element, MultiSelectAnchorProps>(
   function MultiSelectAnchor({ children, ...props }, ref) {

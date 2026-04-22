@@ -146,19 +146,26 @@ const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
 
     const listboxId = props.id ? `${props.id}-listbox` : undefined;
 
+    const {
+      id,
+      name,
+      'aria-label': ariaLabel,
+      'aria-labelledby': ariaLabelledBy,
+      'aria-describedby': ariaDescribedBy,
+      'aria-invalid': ariaInvalid,
+      'aria-required': ariaRequired,
+      ...containerProps
+    } = props;
+
     return (
       <Box
         is='div'
         rcx-select
-        role='combobox'
-        aria-expanded={visible === AnimatedVisibility.VISIBLE}
-        aria-haspopup='listbox'
-        aria-controls={listboxId}
         className={[error && 'invalid', disabled && 'disabled']}
         ref={containerRef}
         onClick={handleClick}
         disabled={disabled}
-        {...props}
+        {...containerProps}
       >
         <FlexItem grow={1}>
           <Margins inline='x4'>
@@ -173,13 +180,25 @@ const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
                 >
                   <Margins all='x4'>
                     {renderAnchor({
-                      ref: anchorRef,
-                      children: internalValue.length === 0 ? placeholder : null,
-                      disabled: disabled ?? false,
-                      onClick: show,
-                      onBlur: hide,
-                      onKeyDown: handleKeyDown,
-                      onKeyUp: handleKeyUp,
+                      'ref': anchorRef,
+                      'children':
+                        internalValue.length === 0 ? placeholder : null,
+                      'disabled': disabled ?? false,
+                      'onClick': show,
+                      'onBlur': hide,
+                      'onKeyDown': handleKeyDown,
+                      'onKeyUp': handleKeyUp,
+                      'role': 'combobox',
+                      'aria-expanded': visible === AnimatedVisibility.VISIBLE,
+                      'aria-haspopup': 'listbox',
+                      'aria-controls': listboxId,
+                      id,
+                      name,
+                      'aria-label': ariaLabel,
+                      'aria-labelledby': ariaLabelledBy,
+                      'aria-describedby': ariaDescribedBy,
+                      'aria-invalid': ariaInvalid,
+                      'aria-required': ariaRequired,
                     })}
                     {internalValue.map((value: SelectOption[0]) => {
                       const currentOption = options.find(

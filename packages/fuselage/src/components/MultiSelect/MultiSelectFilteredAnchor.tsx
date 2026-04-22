@@ -1,4 +1,5 @@
 import type {
+  AriaAttributes,
   FocusEventHandler,
   FormEvent,
   KeyboardEventHandler,
@@ -20,7 +21,10 @@ type MultiSelectFilteredAnchorProps = {
   onBlur: FocusEventHandler;
   onKeyUp: KeyboardEventHandler;
   onKeyDown: KeyboardEventHandler;
-};
+  role?: string;
+  id?: string;
+  name?: string;
+} & AriaAttributes;
 
 const MultiSelectFilteredAnchor = forwardRef<
   HTMLInputElement,
