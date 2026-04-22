@@ -1,0 +1,13 @@
+{
+  "name": "@rocket.chat/visual-regression",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "bin": "./bin/index.js",
+  "dependencies": {
+    "@playwright/test": "~1.58.2"
+  },
+  "devDependencies": {
+    "typescript": "~5.9.3"
+  }
+}
