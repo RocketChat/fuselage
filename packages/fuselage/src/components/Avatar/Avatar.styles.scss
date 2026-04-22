@@ -47,7 +47,25 @@ $sizes: 16, 18, 20, 24, 28, 32, 36, 40, 48, 124, 200, 332;
     }
 
     &--object-fit {
-      object-fit: contain;
+      &--contain {
+        object-fit: contain;
+      }
+
+      &--cover {
+        object-fit: cover;
+      }
+
+      &--fill {
+        object-fit: fill;
+      }
+
+      &--none {
+        object-fit: none;
+      }
+
+      &--scale-down {
+        object-fit: scale-down;
+      }
     }
 
     &--rounded {
