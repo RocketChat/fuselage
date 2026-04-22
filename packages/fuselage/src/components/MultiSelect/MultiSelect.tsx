@@ -240,7 +240,6 @@ const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
               multiple
               filter={filter}
               renderItem={renderItem || CheckOption}
-              role='listbox'
               id={listboxId}
               options={filteredOptions}
               onSelect={internalChanged}
