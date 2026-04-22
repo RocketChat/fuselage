@@ -68,10 +68,6 @@ const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
     },
     ref,
   ) => {
-    // Extract input-specific attributes
-    // aria-describedby and aria-required will be on the combobox container
-    const { name: inputName, ...comboboxProps } = props;
-
     const [internalValue, setInternalValue] = useState<SelectOption[0][]>(
       value || [],
     );
@@ -148,9 +144,7 @@ const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
       return show();
     });
 
-    const listboxId = comboboxProps.id
-      ? `${comboboxProps.id}-listbox`
-      : undefined;
+    const listboxId = props.id ? `${props.id}-listbox` : undefined;
 
     return (
       <Box
@@ -164,7 +158,7 @@ const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
         ref={containerRef}
         onClick={handleClick}
         disabled={disabled}
-        {...comboboxProps}
+        {...props}
       >
         <FlexItem grow={1}>
           <Margins inline='x4'>
