@@ -4,11 +4,7 @@ exports[`[MultiSelect Component] renders without crashing 1`] = `
 <body>
   <div>
     <div
-      aria-expanded="false"
-      aria-haspopup="listbox"
-      aria-label="MultiSelect"
       class="rcx-box rcx-box--full rcx-select"
-      role="combobox"
     >
       <div
         class="rcx-box rcx-box--full rcx-css-1sr8su7"
@@ -17,7 +13,11 @@ exports[`[MultiSelect Component] renders without crashing 1`] = `
           class="rcx-box rcx-box--full rcx-css-w398ts"
         >
           <div
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-label="MultiSelect"
             class="rcx-box rcx-box--full rcx-input-box--undecorated rcx-select__focus rcx-css-trljwa rcx-css-3fq6z9"
+            role="combobox"
             tabindex="0"
           >
             Placeholder here...
