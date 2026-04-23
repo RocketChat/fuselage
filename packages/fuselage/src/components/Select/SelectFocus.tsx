@@ -12,8 +12,8 @@ const SelectFocus = forwardRef<Element, SelectFocusProps>(
         fontScale='p2m'
         color='hint'
         rcx-select__focus
-        is='div'
-        tabIndex={0}
+        is='button'
+        type='button'
         {...props}
       />
     );
