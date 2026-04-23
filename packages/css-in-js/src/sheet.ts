@@ -1,20 +1,27 @@
 import hash from '@emotion/hash';
 
 const elementId = 'rcx-styles';
-let element: HTMLStyleElement;
-const getStyleTag = (): HTMLStyleElement => {
+const documentStyleElementMap = new WeakMap<Document, HTMLStyleElement>();
+
+const getStyleTag = (document: Document): HTMLStyleElement => {
+  let element = documentStyleElementMap.get(document);
+
   if (!element) {
     const el = document.getElementById(elementId) as HTMLStyleElement;
     if (el) {
-      element = el;
-      return element;
+      documentStyleElementMap.set(document, el);
+      return el;
     }
   }
 
   if (!element) {
     element = document.createElement('style');
+
+    documentStyleElementMap.set(document, element);
+
     element.id = elementId;
     element.appendChild(document.createTextNode(''));
+
     if (document.head) {
       document.head.appendChild(element);
     }
@@ -23,10 +30,12 @@ const getStyleTag = (): HTMLStyleElement => {
   return element;
 };
 
-let styleSheet: CSSStyleSheet;
-const getStyleSheet = (): CSSStyleSheet => {
+const documentStyleSheetMap = new WeakMap<Document, CSSStyleSheet>();
+const getStyleSheet = (document: Document): CSSStyleSheet => {
+  let styleSheet = documentStyleSheetMap.get(document);
+
   if (!styleSheet) {
-    const styleTag = getStyleTag();
+    const styleTag = getStyleTag(document);
     const _styleSheet =
       styleTag.sheet ||
       Array.from(document.styleSheets).find(
@@ -40,15 +49,25 @@ const getStyleSheet = (): CSSStyleSheet => {
     styleSheet = _styleSheet;
   }
 
+  documentStyleSheetMap.set(document, styleSheet);
+
   return styleSheet;
 };
 
-type RuleAttacher = (rules: string) => () => void;
+type StrictRuleAttacher = (
+  rules: string,
+  options: { document: Document },
+) => () => void;
+
+type RuleAttacher = (
+  rules: string,
+  options?: { document?: Document },
+) => () => void;
 
 const discardRules: RuleAttacher = () => () => undefined;
 
-const attachRulesIntoElement: RuleAttacher = (rules) => {
-  const element = getStyleTag();
+const attachRulesIntoElement: StrictRuleAttacher = (rules, { document }) => {
+  const element = getStyleTag(document);
 
   const textNode = document.createTextNode(rules);
   element.appendChild(textNode);
@@ -56,8 +75,8 @@ const attachRulesIntoElement: RuleAttacher = (rules) => {
   return () => textNode.remove();
 };
 
-const attachRulesIntoStyleSheet: RuleAttacher = (rules) => {
-  const styleSheet = getStyleSheet();
+const attachRulesIntoStyleSheet: StrictRuleAttacher = (rules, { document }) => {
+  const styleSheet = getStyleSheet(document);
   const index = styleSheet.insertRule(
     `@media all{${rules}}`,
     styleSheet.cssRules.length,
@@ -73,8 +92,10 @@ const attachRulesIntoStyleSheet: RuleAttacher = (rules) => {
   };
 };
 
-const wrapReferenceCounting = (attacher: RuleAttacher): RuleAttacher => {
-  const refs: Record<string, { ref(): void; unref(): void }> = {};
+type RefCounter = Record<string, { ref(): void; unref(): void }>;
+
+const wrapReferenceCounting = (attacher: StrictRuleAttacher): RuleAttacher => {
+  const refDocumentMap = new WeakMap<Document, RefCounter>();
 
   const queueMicrotask = (fn: () => void): void => {
     if (
@@ -88,11 +109,21 @@ const wrapReferenceCounting = (attacher: RuleAttacher): RuleAttacher => {
     window.queueMicrotask(fn);
   };
 
-  const enhancedAttacher: RuleAttacher = (content: string) => {
+  const enhancedAttacher: RuleAttacher = (content, options = {}) => {
     const id = hash(content);
+    const document = options.document ? options.document : window.document;
+
+    const refs = refDocumentMap.get(document) || {};
+
+    if (!refDocumentMap.has(document)) {
+      refDocumentMap.set(document, refs);
+    }
 
     if (!refs[id]) {
-      const detach = attacher(content);
+      const detach = attacher(content, {
+        ...options,
+        document: options.document ? options.document : window.document,
+      });
       let count = 0;
 
       const ref = (): void => {
