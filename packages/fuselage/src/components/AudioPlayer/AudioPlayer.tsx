@@ -195,7 +195,7 @@ const AudioPlayer = forwardRef<HTMLAudioElement, AudioPlayerProps>(
             medium
             onClick={(e) => {
               const { host } = new URL(src);
-              if (host !== window.location.host) {
+              if (host !== targetDocument.defaultView?.location.host) {
                 e.preventDefault();
                 forceDownload(targetDocument, src);
               }
