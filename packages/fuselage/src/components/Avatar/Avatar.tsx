@@ -11,7 +11,7 @@ export type AvatarProps = AvatarContainerProps & {
 const Avatar = ({
   size = 'x36',
   rounded = false,
-  objectFit,
+  objectFit = 'contain',
   url,
   className,
   alt,
