@@ -1,4 +1,8 @@
 @use '../lengths.scss';
+@use '../variables/input-colors.scss' as *;
+@use '../functions.scss' as *;
+@use '../mixins/shadows.scss' as *;
+@use '../mixins/states.scss' as *;
 
 @mixin as-input(
   $background-color,

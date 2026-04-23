@@ -4,7 +4,7 @@
 
 @use '../../styles/variables/buttons.scss' as buttonColors;
 @use '../../styles/primitives/button.scss';
-@use '../../styles/mixins/interactivity.scss';
+@use '../../styles/mixins/interactivity.scss' as *;
 
 .rcx-bubble {
   display: flex;

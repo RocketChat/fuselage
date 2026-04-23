@@ -1,5 +1,5 @@
 @use '../../styles/lengths.scss';
-@use '../../styles/functions.scss';
+@use '../../styles/functions.scss' as *;
 @use '../../styles/colors.scss';
 @use '../../styles/mixins/size.scss';
 @use '../../styles/mixins/templates.scss';
@@ -22,31 +22,31 @@
   margin-block: lengths.margin(2);
 }
 
-$message-background-color: functions.theme(
+$message-background-color: theme(
   'message-background-color',
   colors.surface(room)
 );
 
-$message-background-color-hover: functions.theme(
+$message-background-color-hover: theme(
   'message-background-color-hover',
   colors.surface(hover)
 );
 
-$message-background-color-selected: functions.theme(
+$message-background-color-selected: theme(
   'message-background-color-selected',
   colors.surface(selected)
 );
 
-$message-background-color-editing: functions.theme(
+$message-background-color-editing: theme(
   'message-background-color-editing',
   colors.status-background(warning-2)
 );
-$message-color-editing: functions.theme(
+$message-color-editing: theme(
   'message-background-color-editing',
   colors.status-font(on-warning-2)
 );
 
-$message-background-color-highlight: functions.theme(
+$message-background-color-highlight: theme(
   'message-background-color-highlight',
   colors.status-background(warning-2)
 );
@@ -337,7 +337,7 @@ $message-highlight-colors-background-other-color: theme(
       flex-shrink: 1;
 
       width: 100;
-      max-width: functions.theme('message-block-width-fixed', 368px);
+      max-width: theme('message-block-width-fixed', 368px);
     }
   }
 

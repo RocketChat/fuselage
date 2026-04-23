@@ -2,6 +2,7 @@
 @use '../../styles/lengths.scss';
 @use '../../styles/typography.scss';
 @use '../../styles/mixins/templates.scss';
+@use '../../styles/mixins/interactivity.scss' as *;
 
 $tag-colors-default-color: theme(
   'tag-colors-default-color',

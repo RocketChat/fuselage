@@ -1,7 +1,8 @@
 @use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
 @use '../../styles/typography.scss';
-@import '../../styles/mixins/all.scss';
+@use '../../styles/mixins/interactivity.scss' as *;
+@use '../../styles/mixins/templates.scss' as *;
 
 @import './SidebarFooter/SidebarFooter.styles.scss';
 @import './SidebarItem/SidebarItem.styles.scss';

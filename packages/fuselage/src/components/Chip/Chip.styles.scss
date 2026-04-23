@@ -3,6 +3,8 @@
 @use '../../styles/typography.scss';
 @use '../../styles/functions';
 @use '../../styles/primitives/button.scss';
+@use '../../styles/variables/button-colors.scss' as *;
+@use '../../styles/mixins/interactivity.scss' as *;
 
 // to do: replace button with stroke
 

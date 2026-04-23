@@ -1,7 +1,8 @@
 @use '../../../styles/colors.scss';
 @use '../../../styles/lengths.scss';
 @use '../../../styles/typography.scss';
-@import '../../../styles/mixins/all.scss';
+@use '../../../styles/mixins/interactivity.scss' as *;
+@use '../../../styles/mixins/templates.scss' as *;
 
 $sidebar-color-surface-hover: theme(
   'sidebar-color-surface-hover',

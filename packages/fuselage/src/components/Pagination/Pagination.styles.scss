@@ -1,6 +1,8 @@
 @use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
 @use '../../styles/typography.scss';
+@use '../../styles/mixins/breakpoints.scss' as *;
+@use '../../styles/mixins/interactivity.scss' as *;
 
 .rcx-pagination {
   display: flex;

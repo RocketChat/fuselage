@@ -1,9 +1,9 @@
 @use 'sass:map';
-@use '../lengths';
-
-@import '../mixins/states.scss';
-@import '../mixins/shadows.scss';
-@import '../variables/button-colors';
+@use '../lengths.scss';
+@use '../functions.scss' as *;
+@use '../mixins/states.scss' as *;
+@use '../mixins/shadows.scss' as *;
+@use '../variables/button-colors.scss';
 
 @mixin kind-variant($colors) {
   color: map.get($colors, color);

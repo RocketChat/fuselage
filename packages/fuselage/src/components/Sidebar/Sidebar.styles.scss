@@ -1,7 +1,7 @@
 @use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
 @use '../../styles/typography.scss';
-@import '../../styles/mixins/all.scss';
+@use '../../styles/mixins/interactivity.scss' as *;
 
 $sidebar-color-surface-default: theme(
   'sidebar-color-surface-default',
