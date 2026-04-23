@@ -8,6 +8,7 @@ $avatar-stack-background-color: theme(
 );
 
 $sizes: 16, 18, 20, 24, 28, 32, 36, 40, 48, 124, 200, 332;
+$object-fit-values: contain, cover, fill, none, scale-down;
 
 .rcx-avatar {
   display: inline-flex;
@@ -47,7 +48,11 @@ $sizes: 16, 18, 20, 24, 28, 32, 36, 40, 48, 124, 200, 332;
     }
 
     &--object-fit {
-      object-fit: contain;
+      @each $value in $object-fit-values {
+        &-#{$value} {
+          object-fit: $value;
+        }
+      }
     }
 
     &--rounded {
