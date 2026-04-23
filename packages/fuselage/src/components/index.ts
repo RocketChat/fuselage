@@ -6,6 +6,8 @@ export * from './Avatar';
 export * from './Badge';
 export * from './Banner';
 export * from './Box';
+export * from './Breadcrumbs';
+
 export * from './Bubble';
 export * from './Button';
 export * from './ButtonGroup';
