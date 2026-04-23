@@ -1,5 +1,6 @@
 @use 'sass:math';
 @use '../../styles/lengths.scss';
+@use '../../styles/functions.scss' as *;
 
 .rcx-check-box {
   @include is-selection-button(

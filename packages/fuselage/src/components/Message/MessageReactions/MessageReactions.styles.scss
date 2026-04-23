@@ -6,6 +6,7 @@
 @use '../../../styles/variables/buttons.scss';
 @use '../../../styles/primitives/button.scss';
 @use '../mixins.scss';
+@use '../../../styles/functions.scss' as *;
 
 .rcx-message-reactions {
   &__container {

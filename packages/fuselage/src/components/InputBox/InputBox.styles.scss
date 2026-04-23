@@ -2,6 +2,7 @@
 @use '../../styles/typography.scss';
 @use '../../styles/variables/input-colors.scss' as *;
 @use '../../styles/mixins/interactivity.scss' as *;
+@use '../../styles/functions.scss' as *;
 
 .rcx-input-box__wrapper,
 %rcx-input-box {

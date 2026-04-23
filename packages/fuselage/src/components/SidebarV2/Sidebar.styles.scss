@@ -3,6 +3,7 @@
 @use '../../styles/typography.scss';
 @use '../../styles/mixins/interactivity.scss' as *;
 @use '../../styles/mixins/templates.scss' as *;
+@use '../../styles/functions.scss' as *;
 
 @import './SidebarFooter/SidebarFooter.styles.scss';
 @import './SidebarItem/SidebarItem.styles.scss';

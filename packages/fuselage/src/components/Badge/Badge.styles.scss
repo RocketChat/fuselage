@@ -1,6 +1,7 @@
 @use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
 @use '../../styles/typography.scss';
+@use '../../styles/functions.scss' as *;
 
 $badge-colors-primary-color: theme(
   'badge-colors-primary-color',

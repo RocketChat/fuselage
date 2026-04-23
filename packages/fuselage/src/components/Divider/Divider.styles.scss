@@ -1,6 +1,7 @@
 @use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
 @use '../../styles/typography.scss';
+@use '../../styles/functions.scss' as *;
 
 $divider-size: theme('divider-size', lengths.border-width(default));
 $divider-color: theme('divider-color', colors.stroke(extra-light));

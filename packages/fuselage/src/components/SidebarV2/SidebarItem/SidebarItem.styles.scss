@@ -3,6 +3,7 @@
 @use '../../../styles/typography.scss';
 @use '../../../styles/mixins/interactivity.scss' as *;
 @use '../../../styles/mixins/templates.scss' as *;
+@use '../../../styles/functions.scss' as *;
 
 $sidebar-color-surface-hover: theme(
   'sidebar-color-surface-hover',

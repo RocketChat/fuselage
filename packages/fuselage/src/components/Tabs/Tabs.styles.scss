@@ -3,6 +3,7 @@
 @use '../../styles/typography.scss';
 @use '../../styles/mixins/interactivity.scss' as *;
 @use '../../styles/mixins/shadows.scss' as *;
+@use '../../styles/functions.scss' as *;
 
 $tabs-background-color: theme('tabs-background-color', transparent);
 $tabs-border-color: theme('tabs-border-color', transparent);

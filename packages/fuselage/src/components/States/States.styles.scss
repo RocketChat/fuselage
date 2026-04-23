@@ -1,6 +1,7 @@
 @use '../../styles/lengths.scss';
 @use '../../styles/colors.scss';
 @use '../../styles/typography.scss';
+@use '../../styles/functions.scss' as *;
 
 $variants: (
   'success': colors.status-font(on-success),

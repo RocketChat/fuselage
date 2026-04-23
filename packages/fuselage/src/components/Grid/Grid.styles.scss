@@ -2,6 +2,7 @@
 @use 'sass:map';
 @use '~@rocket.chat/fuselage-tokens/breakpoints.scss';
 @use '../../styles/mixins/breakpoints.scss' as *;
+@use '../../styles/functions.scss' as *;
 
 $breakpoint-names: map.keys(breakpoints.$breakpoints);
 

@@ -1,5 +1,6 @@
 @use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
+@use '../../styles/functions.scss' as *;
 
 $toggle-switch-border-radius: theme(
   'toggle-switch-border-radius',

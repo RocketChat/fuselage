@@ -2,6 +2,7 @@
 @use '../../styles/lengths.scss';
 @use '../../styles/typography.scss';
 @use '../../styles/mixins/interactivity.scss' as *;
+@use '../../styles/functions.scss' as *;
 
 $sidebar-color-surface-default: theme(
   'sidebar-color-surface-default',
