@@ -282,6 +282,91 @@ Gap.decorators = [
   ),
 ];
 
+export const ObjectFit: StoryFn<typeof Box> = () => {
+  const testImage =
+    'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8IS0tIEJhY2tncm91bmQgLS0+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNmNWY1ZjUiLz4KICAKICA8IS0tIENvcm5lciBzcXVhcmVzIHRvIHNob3cgb3JpZW50YXRpb24gLS0+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjgwIiBoZWlnaHQ9IjgwIiBmaWxsPSIjZmYwMDAwIi8+CiAgPHJlY3QgeD0iMzIwIiB5PSIwIiB3aWR0aD0iODAiIGhlaWdodD0iODAiIGZpbGw9IiMwMGZmMDAiLz4KICA8cmVjdCB4PSIwIiB5PSIxMjAiIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgZmlsbD0iIzAwMDBmZiIvPgogIDxyZWN0IHg9IjMyMCIgeT0iMTIwIiB3aWR0aD0iODAiIGhlaWdodD0iODAiIGZpbGw9IiNmZmZmMDAiLz4KICAKICA8IS0tIENlbnRlciBjaXJjbGUgLS0+CiAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMTAwIiByPSI0MCIgZmlsbD0iI2ZmNjYwMCIgc3Ryb2tlPSIjMzMzIiBzdHJva2Utd2lkdGg9IjMiLz4KICAKICA8IS0tIEJvcmRlciAtLT4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjYiLz4KICAKICA8IS0tIExhYmVscyAtLT4KICA8dGV4dCB4PSI0MCIgeT0iNTAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IiNmZmYiPjQwMHgyMDA8L3RleHQ+CiAgPHRleHQgeD0iMTYwIiB5PSIxMTAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyMCIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IiMzMzMiPk9iamVjdCBGaXQ8L3RleHQ+Cjwvc3ZnPg==';
+
+  return (
+    <Box display='flex' flexWrap='wrap' gap='x16' alignItems='flex-start'>
+      <Box display='flex' flexDirection='column' alignItems='center' gap='x8'>
+        <Box color='default' fontScale='c2'>
+          fill
+        </Box>
+        <Box
+          is='img'
+          src={testImage}
+          alt='fill'
+          objectFit='fill'
+          width='100px'
+          height='100px'
+          border='1px solid'
+          borderColor='stroke-light'
+        />
+      </Box>
+      <Box display='flex' flexDirection='column' alignItems='center' gap='x8'>
+        <Box color='default' fontScale='c2'>
+          contain
+        </Box>
+        <Box
+          is='img'
+          src={testImage}
+          alt='contain'
+          objectFit='contain'
+          width='100px'
+          height='100px'
+          border='1px solid'
+          borderColor='stroke-light'
+        />
+      </Box>
+      <Box display='flex' flexDirection='column' alignItems='center' gap='x8'>
+        <Box color='default' fontScale='c2'>
+          cover
+        </Box>
+        <Box
+          is='img'
+          src={testImage}
+          alt='cover'
+          objectFit='cover'
+          width='100px'
+          height='100px'
+          border='1px solid'
+          borderColor='stroke-light'
+        />
+      </Box>
+      <Box display='flex' flexDirection='column' alignItems='center' gap='x8'>
+        <Box color='default' fontScale='c2'>
+          none
+        </Box>
+        <Box
+          is='img'
+          src={testImage}
+          alt='none'
+          objectFit='none'
+          width='100px'
+          height='100px'
+          border='1px solid'
+          borderColor='stroke-light'
+        />
+      </Box>
+      <Box display='flex' flexDirection='column' alignItems='center' gap='x8'>
+        <Box color='default' fontScale='c2'>
+          scale-down
+        </Box>
+        <Box
+          is='img'
+          src={testImage}
+          alt='scale-down'
+          objectFit='scale-down'
+          width='100px'
+          height='100px'
+          border='1px solid'
+          borderColor='stroke-light'
+        />
+      </Box>
+    </Box>
+  );
+};
+
 export const Opacity: StoryFn<typeof Box> = () => (
   <Box display='flex'>
     <Box size={32} opacity={0.1} bg='dark' />
