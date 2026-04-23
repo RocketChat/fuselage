@@ -5870,7 +5870,6 @@ __metadata:
     "@rocket.chat/icons": "workspace:~"
     "@rocket.chat/memo": "workspace:~"
     "@rocket.chat/storybook-dark-mode": "workspace:~"
-    "@rocket.chat/styled": "workspace:~"
     "@storybook/addon-a11y": "npm:~9.1.17"
     "@storybook/addon-docs": "npm:~9.1.17"
     "@storybook/addon-links": "npm:~9.1.17"
