@@ -22,6 +22,8 @@ import {
   useInsertionEffect,
 } from 'react';
 
+import { useTargetDocument } from './TargetDocument';
+
 export const attachClassName = <P extends { className?: string }>(
   props: P,
   additionalClassName: string,
@@ -85,18 +87,19 @@ const styled =
 
           useDebugValue(computedClassName);
 
+          const { document } = useTargetDocument();
           useInsertionEffect(() => {
             const escapedClassName = escapeName(computedClassName);
             const transpiledContent = transpile(
               `.${escapedClassName}`,
               content,
             );
-            const detach = attachRules(transpiledContent);
+            const detach = attachRules(transpiledContent, { document });
 
             return () => {
               setTimeout(detach, 1000);
             };
-          }, [computedClassName, content]);
+          }, [computedClassName, content, document]);
 
           const newProps = attachClassName(
             { ref, ...props },
