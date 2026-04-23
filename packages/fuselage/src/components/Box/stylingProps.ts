@@ -103,6 +103,7 @@ export type StylingProps = {
   overflow: CSSProperties['overflow'];
   overflowX: CSSProperties['overflowX'];
   overflowY: CSSProperties['overflowY'];
+  objectFit: CSSProperties['objectFit'];
 
   position: CSSProperties['position'];
   zIndex: CSSProperties['zIndex'];
@@ -321,6 +322,7 @@ export const propDefs: Record<keyof StylingProps, PropDefinition> = {
   overflow: stringProp,
   overflowX: stringProp,
   overflowY: stringProp,
+  objectFit: stringProp,
 
   position: stringProp,
   zIndex: numberOrStringProp,
