@@ -21,7 +21,7 @@ const Avatar = ({
     'rcx-avatar__element',
     size && `rcx-avatar__element--${size}`,
     rounded && 'rcx-avatar__element--rounded',
-    objectFit && `rcx-avatar__element--object-fit--${objectFit}`,
+    objectFit && `rcx-avatar__element--object-fit-${objectFit}`,
   ]
     .filter(Boolean)
     .join(' ');
