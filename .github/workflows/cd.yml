@@ -17,12 +17,12 @@ jobs:
     outputs:
       branch-name: ${{ steps.set-branch-name.outputs.branch-name }}
     steps:
-      - uses: actions/checkout@v6
-      - uses: actions/setup-node@v6
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
         with:
           node-version: '22.20.0'
           cache: 'yarn'
-      - uses: actions/cache@v5
+      - uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
         id: yarn-cache
         with:
           path: |
@@ -33,7 +33,7 @@ jobs:
         if: steps.yarn-cache.outputs.cache-hit != 'true'
       - run: yarn run ci
       - run: yarn run docs
-      - uses: actions/upload-artifact@v7
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: storybooks
           path: |
@@ -41,7 +41,7 @@ jobs:
             packages/onboarding-ui/storybook-static
             packages/layout/storybook-static
 
-      - uses: actions/upload-artifact@v7
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: docs
           path: |
@@ -50,7 +50,7 @@ jobs:
           ref='${{ github.ref }}'
           echo "::set-output name=branch-name::$(echo "${ref:11}")"
         id: set-branch-name
-      - uses: actions/upload-artifact@v7
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: build
           path: packages/**/dist/*
@@ -61,23 +61,23 @@ jobs:
     needs:
       - build-and-test
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
         with:
           node-version: '22.20.0'
           registry-url: 'https://registry.npmjs.org'
           scope: '@rocket.chat'
           cache: 'yarn'
-      - uses: actions/cache@v5
+      - uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
         id: yarn-cache
         with:
           path: |
             **/node_modules
             .yarn/cache
           key: ${{ runner.os }}-modules-${{ hashFiles('yarn.lock') }}
-      - uses: actions/download-artifact@v8
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
         with:
           name: build
           path: packages
@@ -86,7 +86,7 @@ jobs:
 
       - name: Create Release Pull Request
         id: changesets
-        uses: changesets/action@v1
+        uses: changesets/action@6a0a831ff30acef54f2c6aa1cbbc1096b066edaf # v1.7.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -96,7 +96,7 @@ jobs:
 
       - name: Publish to npm
         if: steps.changesets.outputs.hasChangesets == 'false'
-        uses: changesets/action@v1
+        uses: changesets/action@6a0a831ff30acef54f2c6aa1cbbc1096b066edaf # v1.7.0
         with:
           publish: yarn release
         env:
@@ -113,15 +113,15 @@ jobs:
       name: github-pages
       url: 'https://rocketchat.github.io/fuselage/fuselage/${{ needs.build-and-test.outputs.branch-name }}'
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           ref: gh-pages
-      - uses: actions/download-artifact@v8
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
         with:
           name: storybooks
           path: packages
 
-      - uses: actions/download-artifact@v8
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
         with:
           name: docs
           path: .
@@ -131,7 +131,7 @@ jobs:
           mv -v "packages/onboarding-ui/storybook-static" "onboarding-ui/${{ needs.build-and-test.outputs.branch-name }}"
           mv -v "packages/layout/storybook-static" "layout/${{ needs.build-and-test.outputs.branch-name }}"
           rm -rf packages
-      - uses: crazy-max/ghaction-github-pages@v5
+      - uses: crazy-max/ghaction-github-pages@1d6ee9b181a81033a16bd707a1401afa978daab4 # v5.0.0
         with:
           target_branch: gh-pages
           build_dir: .
