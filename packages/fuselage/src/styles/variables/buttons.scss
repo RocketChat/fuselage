@@ -9,20 +9,20 @@
 }
 
 @function palette-color($name) {
-  @return map-get(stroke.$stroke, $name);
+  @return map.get(stroke.$stroke, $name);
 }
 
 @function palette-button-color($name) {
-  @return map-get(button.$button, $name);
+  @return map.get(button.$button, $name);
 }
 
 @function color($type) {
   $button-type: 'on-' + $type;
-  @return map-get(button.$button, $button-type);
+  @return map.get(button.$button, $button-type);
 }
 @function hover($type) {
   $button-type: 'hover-' + $type;
-  @return map-get(button.$button, $button-type);
+  @return map.get(button.$button, $button-type);
 }
 
 $primary: (
