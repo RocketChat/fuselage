@@ -1,8 +1,8 @@
 @use 'sass:map';
 @use '../lengths.scss';
 @use '../functions.scss' as *;
-@use '../mixins/states.scss' as *;
-@use '../mixins/shadows.scss' as *;
+@use './states.scss' as *;
+@use './shadows.scss' as *;
 @use '../variables/button-colors.scss';
 
 @mixin kind-variant($colors) {

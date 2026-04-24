@@ -1,11 +1,11 @@
 @use 'sass:map';
 @use '../../styles/lengths.scss';
-@use '../../styles/typography.scss';
+@use '../../styles/typography.scss' as *;
 @use '../../styles/variables/buttons.scss' as colors;
-@use '../../styles/primitives/button.scss';
+@use '../../styles/mixins/button.scss';
 @use '../../styles/mixins/size.scss';
 @use '../../styles/mixins/interactivity.scss' as *;
-@import '../../styles/mixins/states.scss';
+@use '../../styles/mixins/states.scss' as *;
 
 .rcx-button {
   @mixin with-rectangular-size($height, $padding-x, $line-height) {
@@ -49,17 +49,17 @@
 
     vertical-align: top;
 
-    @include typography.use-with-truncated-text();
+    @include use-with-truncated-text();
   }
 
   @include clickable;
-  @include typography.use-font-scale(p2m);
-  @include typography.use-text-ellipsis;
+  @include use-font-scale(p2m);
+  @include use-text-ellipsis;
 
   @include with-rectangular-size(
     $height: 40,
     $padding-x: 16,
-    $line-height: typography.line-height(p2)
+    $line-height: line-height(p2)
   );
 
   @include button.kind-variant(colors.$secondary);
@@ -71,32 +71,32 @@
   }
 
   &--small {
-    @include typography.use-font-scale(c2);
+    @include use-font-scale(c2);
 
     @include with-rectangular-size(
       $height: 28,
       $padding-x: 8,
-      $line-height: typography.line-height(c1)
+      $line-height: line-height(c1)
     );
   }
 
   &--medium {
-    @include typography.use-font-scale(c2);
+    @include use-font-scale(c2);
 
     @include with-rectangular-size(
       $height: 32,
       $padding-x: 12,
-      $line-height: typography.line-height(c1)
+      $line-height: line-height(c1)
     );
   }
 
   &--large {
-    @include typography.use-font-scale(p2);
+    @include use-font-scale(p2);
 
     @include with-rectangular-size(
       $height: 48,
       $padding-x: 24,
-      $line-height: typography.line-height(p2)
+      $line-height: line-height(p2)
     );
   }
 

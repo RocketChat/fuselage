@@ -1,6 +1,6 @@
 @use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
-@use '../../styles/typography.scss';
+@use '../../styles/typography.scss' as *;
 @use '../../styles/functions.scss' as *;
 
 $tooltip-dark-background-color: theme(
@@ -83,7 +83,7 @@ $tooltip-light-text-color: theme(
 
   background-color: $tooltip-dark-background-color;
 
-  @include typography.use-font-scale(p2m);
+  @include use-font-scale(p2m);
 
   &--dir-top {
     @include triangle-direction('top');

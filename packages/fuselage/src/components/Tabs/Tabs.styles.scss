@@ -1,8 +1,9 @@
 @use '../../styles/lengths.scss';
 @use '../../styles/colors.scss';
-@use '../../styles/typography.scss';
+@use '../../styles/typography.scss' as *;
 @use '../../styles/mixins/interactivity.scss' as *;
 @use '../../styles/mixins/shadows.scss' as *;
+@use '../../styles/mixins/states.scss' as *;
 @use '../../styles/functions.scss' as *;
 
 $tabs-background-color: theme('tabs-background-color', transparent);
@@ -96,7 +97,7 @@ $tabs-disabled-selected-border-color: theme(
   background-color: transparent;
 
   @include clickable;
-  @include typography.use-font-scale(h4);
+  @include use-font-scale(h4);
 
   &.hover,
   &:hover {

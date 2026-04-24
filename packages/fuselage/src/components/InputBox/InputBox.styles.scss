@@ -3,6 +3,7 @@
 @use '../../styles/variables/input-colors.scss' as *;
 @use '../../styles/mixins/interactivity.scss' as *;
 @use '../../styles/functions.scss' as *;
+@use './mixins.scss' as *;
 
 .rcx-input-box__wrapper,
 %rcx-input-box {
@@ -51,73 +52,6 @@
   flex: 0 0 auto;
 }
 
-@mixin with-colors(
-  $color,
-  $placeholder-color,
-  $focus-caret-color,
-  $active-caret-color,
-  $disabled-color
-) {
-  color: #{$color};
-
-  // TODO: fix placeholder performance issue
-  // &::placeholder {
-  //   color: #{ $placeholder-color };
-  // }
-
-  &.rcx-input-box--placeholder-visible {
-    color: #{$placeholder-color};
-  }
-
-  &:focus,
-  &.focus {
-    caret-color: #{$focus-caret-color};
-  }
-
-  &:active,
-  &.active {
-    caret-color: #{$active-caret-color};
-  }
-
-  *:disabled &,
-  &:disabled,
-  &.disabled {
-    color: #{$disabled-color};
-  }
-}
-
-@mixin with-icon-addon-colors(
-  $color,
-  $focus-caret-color,
-  $focus-icon-color,
-  $disabled-color
-) {
-  & + .rcx-input-box__addon {
-    color: #{$color};
-  }
-
-  .rcx-input-box__wrapper.focus > & {
-    caret-color: #{$focus-caret-color};
-  }
-
-  &:focus + .rcx-input-box__addon,
-  &.focus + .rcx-input-box__addon,
-  .rcx-input-box__wrapper.focus > & + .rcx-input-box__addon {
-    color: #{$focus-icon-color};
-  }
-
-  .rcx-input-box__wrapper.disabled > & {
-    color: #{$disabled-color};
-  }
-
-  *:disabled & + .rcx-input-box__addon,
-  &:disabled + .rcx-input-box__addon,
-  &.disabled + .rcx-input-box__addon,
-  .rcx-input-box__wrapper.disabled > & + .rcx-input-box__addon {
-    color: #{$disabled-color};
-  }
-}
-
 .rcx-input-box {
   position: relative;
 
@@ -143,7 +77,7 @@
   @include typography.use-text-ellipsis;
 
   &--type-textarea {
-    @extend %--with-scrollbars;
+    @extend %with-scrollbars;
 
     overflow: auto;
 
@@ -171,7 +105,7 @@
   }
 
   &--type-select {
-    @extend %--with-scrollbars;
+    @extend %with-scrollbars;
 
     overflow: auto;
     appearance: none;

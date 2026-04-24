@@ -1,9 +1,12 @@
 @use '../../../styles/colors.scss';
 @use '../../../styles/lengths.scss';
-@use '../../../styles/typography.scss';
+@use '../../../styles/typography.scss' as *;
 @use '../../../styles/mixins/interactivity.scss' as *;
 @use '../../../styles/mixins/templates.scss' as *;
+@use '../../../styles/mixins/states.scss' as *;
 @use '../../../styles/functions.scss' as *;
+@use '../../../styles/mixins/link.scss' as *;
+@use '../variables.scss' as *;
 
 $sidebar-color-surface-hover: theme(
   'sidebar-color-surface-hover',
@@ -21,7 +24,7 @@ $sidebar-color-font-active: theme(
 
 %sidebar-item-base {
   @include use-link-colors($color: colors.font(default));
-  @include typography.use-font-scale(p2);
+  @include use-font-scale(p2);
   @include focus-state($shadow: false);
 
   display: flex;
@@ -57,8 +60,8 @@ $sidebar-color-font-active: theme(
   &:is(div[role='button']) {
     @extend %sidebar-item-clickable;
   }
-  @include typography.use-font-scale(p2);
-  @include typography.use-text-ellipsis;
+  @include use-font-scale(p2);
+  @include use-text-ellipsis;
 
   justify-content: flex-start;
 
@@ -95,7 +98,7 @@ $sidebar-color-font-active: theme(
 
     white-space: nowrap;
 
-    @include typography.use-text-ellipsis;
+    @include use-text-ellipsis;
   }
 
   &__avatar {
@@ -117,14 +120,14 @@ $sidebar-color-font-active: theme(
     @include highlighted;
 
     flex: 1 1 0;
-    @include typography.use-font-scale(c1);
-    @include typography.use-with-truncated-text;
+    @include use-font-scale(c1);
+    @include use-with-truncated-text;
   }
 
   &__timestamp {
     @include highlighted;
 
-    @include typography.use-font-scale(micro);
+    @include use-font-scale(micro);
   }
 
   &__content {

@@ -1,6 +1,6 @@
 @use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
-@use '../../styles/typography.scss';
+@use '../../styles/typography.scss' as *;
 @use '../../styles/functions.scss' as *;
 
 $badge-colors-primary-color: theme(
@@ -79,7 +79,7 @@ $badge-colors-disabled-background-color: theme(
 
   border-radius: theme('badge-border-radius', lengths.border-radius(full));
 
-  @include typography.use-font-scale(micro);
+  @include use-font-scale(micro);
 
   &--primary {
     color: $badge-colors-primary-color;

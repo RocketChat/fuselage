@@ -3,7 +3,8 @@
 @use '../../../styles/colors.scss';
 @use '../../../styles/typography.scss';
 @use '../../../styles/mixins/size.scss';
-@use '../../../styles/primitives/traits/rich-text.scss';
+@use '../../../styles/mixins/link.scss' as *;
+@use '../../../styles/primitives/rich-text.scss';
 @import '../../../styles/primitives/link.scss';
 
 $message-generic-preview-border-color: theme(
@@ -93,7 +94,7 @@ $message-generic-preview-icon-background-color: theme(
     color: $message-generic-preview-title-color;
 
     &-link {
-      @include use-link-colors();
+      @include use-link-colors;
     }
   }
 

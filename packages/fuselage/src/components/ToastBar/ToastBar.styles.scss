@@ -1,6 +1,6 @@
 @use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
-@use '../../styles/typography.scss';
+@use '../../styles/typography.scss' as *;
 @use '../../styles/functions.scss' as *;
 
 $toastbar-color: theme('toastbar-color', colors.font(default));
@@ -42,7 +42,7 @@ $toastbar-progressbar-background-color: theme(
 
   background-color: $toastbar-background-color;
 
-  @include typography.use-font-scale(p2);
+  @include use-font-scale(p2);
 
   &::before {
     position: absolute;

@@ -1,6 +1,6 @@
 @use '../../styles/lengths.scss';
 @use '../../styles/colors.scss';
-@use '../../styles/typography.scss';
+@use '../../styles/typography.scss' as *;
 @use '../../styles/functions.scss' as *;
 
 $variants: (
@@ -43,16 +43,16 @@ $variants: (
     text-align: center;
 
     color: colors.font(default);
-    @include typography.use-font-scale(h3);
+    @include use-font-scale(h3);
   }
 
   &__list,
   &__suggestion {
-    @include typography.use-font-scale(p2m);
+    @include use-font-scale(p2m);
   }
 
   &__subtitle {
-    @include typography.use-font-scale(p1);
+    @include use-font-scale(p1);
   }
 
   &__subtitle,
@@ -94,10 +94,10 @@ $variants: (
   }
 
   &__link {
-    @include typography.use-font-scale(p2);
+    @include use-font-scale(p2);
     margin-block: lengths.margin(16);
 
     color: colors.font(info);
-    @extend %--with-inline-elements;
+    @extend %with-inline-elements;
   }
 }

@@ -1,6 +1,6 @@
 @use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
-@use '../../styles/typography.scss';
+@use '../../styles/typography.scss' as *;
 @use '../../styles/mixins/interactivity.scss' as *;
 @use '../../styles/functions.scss' as *;
 
@@ -89,12 +89,12 @@
     vertical-align: middle;
 
     color: colors.font(secondary-info);
-    @include typography.use-font-scale(p2);
+    @include use-font-scale(p2);
 
     &--header {
       position: relative;
 
-      @include typography.use-font-scale(c2);
+      @include use-font-scale(c2);
       color: colors.font(secondary-info);
 
       &::after {

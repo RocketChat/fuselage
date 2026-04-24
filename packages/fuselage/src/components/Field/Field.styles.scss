@@ -25,7 +25,7 @@
     margin-block: lengths.margin(2);
 
     color: colors.font(secondary-info);
-    @extend %--with-inline-elements;
+    @extend %with-inline-elements;
   }
 
   &__row {
@@ -44,7 +44,7 @@
     margin-block: lengths.margin(2);
 
     color: colors.font(secondary-info);
-    @extend %--with-inline-elements;
+    @extend %with-inline-elements;
   }
 
   &__error {
@@ -52,7 +52,7 @@
     margin-block: lengths.margin(2);
 
     color: colors.font(danger);
-    @extend %--with-inline-elements;
+    @extend %with-inline-elements;
   }
 
   &__link {
@@ -60,6 +60,6 @@
     margin-block: lengths.margin(2);
 
     color: colors.font(info);
-    @extend %--with-inline-elements;
+    @extend %with-inline-elements;
   }
 }
