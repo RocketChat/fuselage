@@ -13,6 +13,7 @@ import { VisuallyHidden } from 'react-aria';
 import {
   useFieldReferencedByInput,
   useFieldReferencedByLabel,
+  useFieldReferencedByLabelWithId,
   useFieldWrappedByInputLabel,
 } from '../Field/FieldContext';
 
@@ -62,6 +63,29 @@ function withAriaLabelledBy<TProps, TRef>(
   return WrappedComponent;
 }
 
+type WithLabelledByAndId = { 'aria-labelledby'?: string; 'id'?: string };
+
+function withAriaLabelledByAndId<TProps, TRef>(
+  Component: ForwardRefExoticComponent<
+    TProps & WithLabelledByAndId & RefAttributes<TRef>
+  >,
+) {
+  const WrappedComponent = forwardRef<TRef, TProps>(function (props, ref) {
+    const labelProps = useFieldReferencedByLabelWithId();
+    return (
+      <Component
+        {...(props as TProps & WithLabelledByAndId)}
+        {...labelProps}
+        ref={ref}
+      />
+    );
+  });
+
+  WrappedComponent.displayName = `withAriaLabelledByAndId(${Component.displayName ?? Component.name ?? 'InputComponent'})`;
+
+  return WrappedComponent;
+}
+
 type WithChildrenLabel = { labelChildren: ReactNode };
 
 function withVisuallyHiddenLabel<TProps, TRef>(
@@ -87,4 +111,9 @@ function withVisuallyHiddenLabel<TProps, TRef>(
   return WrappedComponent;
 }
 
-export { withLabelId, withAriaLabelledBy, withVisuallyHiddenLabel };
+export {
+  withLabelId,
+  withAriaLabelledBy,
+  withAriaLabelledByAndId,
+  withVisuallyHiddenLabel,
+};
