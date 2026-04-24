@@ -160,6 +160,18 @@ $sidebar-color-font-active: theme(
     margin-inline-end: -4px;
 
     opacity: 0;
+
+    &:has([aria-expanded='true']) {
+      display: flex;
+      align-items: center;
+
+      width: lengths.size(20);
+      height: lengths.size(20);
+
+      margin-inline-end: lengths.margin(none);
+
+      opacity: 1;
+    }
   }
 
   &:hover &__menu-wrapper,
