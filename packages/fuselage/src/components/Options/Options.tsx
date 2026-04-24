@@ -51,6 +51,7 @@ const Options = forwardRef<HTMLElement, OptionsProps>(function Options(
     renderItem: OptionComponent = Option,
     onSelect,
     customEmpty,
+    id,
     ...props
   },
   ref,
@@ -122,6 +123,7 @@ const Options = forwardRef<HTMLElement, OptionsProps>(function Options(
             is='ol'
             aria-multiselectable={multiple || true}
             role='listbox'
+            id={id}
             aria-activedescendant={
               options?.[cursor]?.[0]
                 ? String(options?.[cursor]?.[0])

@@ -28,7 +28,7 @@ const options: SelectOption[] = [
 ];
 
 const Template: StoryFn<typeof MultiSelect> = (args) => (
-  <MultiSelect {...args} />
+  <MultiSelect aria-label='MultiSelect' {...args} />
 );
 
 export const Default: StoryFn<typeof MultiSelect> = Template.bind({});
