@@ -335,16 +335,6 @@ $sidebar-banner-color-danger: theme(
       height: 100%;
 
       opacity: 0;
-
-      &:has([aria-expanded='true']) {
-        position: static;
-
-        width: lengths.size(20);
-
-        margin-inline: lengths.margin(4);
-
-        opacity: 1;
-      }
     }
   }
 
