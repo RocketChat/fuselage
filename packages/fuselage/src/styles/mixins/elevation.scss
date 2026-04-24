@@ -11,16 +11,8 @@
   }
   @if $level == 2 {
     box-shadow:
-      0
-        0
-        2px
-        0
-        theme('color-shadow-elevation-2x', colors.elevation('2x')),
-      0
-        0
-        12px
-        0
-        theme('color-shadow-elevation-2y', colors.elevation('2y'));
+      0 0 2px 0 theme('color-shadow-elevation-2x', colors.elevation('2x')),
+      0 0 12px 0 theme('color-shadow-elevation-2y', colors.elevation('2y'));
   }
   @if $border {
     border: 1px

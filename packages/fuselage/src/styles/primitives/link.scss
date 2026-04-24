@@ -12,17 +12,11 @@
 
     color: theme('link-focus-color', colors.font(info));
     border-radius: lengths.border-radius(small);
-    outline: theme(
-        'link-focus-outline-color',
-        colors.stroke(highlight)
-      )
-      solid 1px;
+    outline: theme('link-focus-outline-color', colors.stroke(highlight)) solid
+      1px;
     outline-offset: 0;
     box-shadow: 0 0 0 2px
-      theme(
-        'link-focus-outline-color',
-        colors.stroke(extra-light-highlight)
-      );
+      theme('link-focus-outline-color', colors.stroke(extra-light-highlight));
   }
 
   &:where(:visited),
