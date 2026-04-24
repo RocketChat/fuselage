@@ -2,7 +2,7 @@ import { Box } from '@rocket.chat/fuselage';
 import type { FormHTMLAttributes, ReactNode } from 'react';
 import { forwardRef } from 'react';
 
-const FormFooter = forwardRef<
+export const FormFooter = forwardRef<
   HTMLElement,
   Omit<FormHTMLAttributes<HTMLElement>, 'is'> & {
     children: ReactNode;
@@ -19,4 +19,4 @@ const FormFooter = forwardRef<
   />
 ));
 
-export default FormFooter;
+
