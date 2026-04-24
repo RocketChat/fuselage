@@ -57,7 +57,7 @@ export const PaginatedSelect = ({
 
   const internalChangedByClick = useStableCallback(([value]: OptionType) => {
     setInternalValue(value);
-    onChange(value as SelectOption[0]); // FIXME
+    onChange(value); // FIXME
     hide();
   });
 
