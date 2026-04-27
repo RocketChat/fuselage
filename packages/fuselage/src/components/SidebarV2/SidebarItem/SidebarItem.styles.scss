@@ -152,6 +152,8 @@ $sidebar-color-font-active: theme(
   }
 
   &__menu-wrapper {
+    display: flex;
+    align-items: center;
     flex-shrink: 0;
 
     width: 0;
@@ -162,9 +164,6 @@ $sidebar-color-font-active: theme(
     opacity: 0;
 
     &:has([aria-expanded='true']) {
-      display: flex;
-      align-items: center;
-
       width: lengths.size(20);
 
       margin-inline-end: lengths.margin(none);
@@ -175,9 +174,6 @@ $sidebar-color-font-active: theme(
 
   &:hover &__menu-wrapper,
   &:focus-within &__menu-wrapper {
-    display: flex;
-    align-items: center;
-
     width: lengths.size(20);
     height: lengths.size(20);
 
