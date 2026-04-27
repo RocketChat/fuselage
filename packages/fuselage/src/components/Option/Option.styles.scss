@@ -1,6 +1,6 @@
 @use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
-@use '../../styles/typography.scss';
+@use '../../styles/typography.scss' as *;
 @use '../../styles/mixins/interactivity.scss' as *;
 @use '../../styles/functions.scss' as *;
 
@@ -19,7 +19,7 @@ $variants: (
 
 .rcx-option {
   @include clickable;
-  @include typography.use-font-scale(p2);
+  @include use-font-scale(p2);
 
   display: list-item;
 
@@ -31,7 +31,7 @@ $variants: (
   color: colors.font(default);
 
   &__title {
-    @include typography.use-font-scale(c2);
+    @include use-font-scale(c2);
 
     padding-block: lengths.padding(8) lengths.padding(4);
     padding-inline: lengths.padding(12) lengths.padding(24);
@@ -59,7 +59,7 @@ $variants: (
   }
 
   &__content {
-    @include typography.use-text-ellipsis;
+    @include use-text-ellipsis;
     @extend %column;
     flex: 1 1 100%;
 
@@ -69,7 +69,7 @@ $variants: (
   }
 
   &__header {
-    @include typography.use-font-scale(micro);
+    @include use-font-scale(micro);
 
     padding-block: lengths.padding(8);
     padding-inline: lengths.padding(16);
@@ -118,7 +118,7 @@ $variants: (
   }
 
   &__description {
-    @include typography.use-font-scale(p2);
+    @include use-font-scale(p2);
     @extend %column;
     display: inline;
 
@@ -126,7 +126,7 @@ $variants: (
   }
 
   &__description-block {
-    @include typography.use-font-scale(p2);
+    @include use-font-scale(p2);
 
     padding: lengths.margin(4);
 

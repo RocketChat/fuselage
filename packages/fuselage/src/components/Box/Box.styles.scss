@@ -1,4 +1,6 @@
 @use '../../styles/mixins/templates.scss' as *;
+@use '../../styles/primitives/box.scss';
+@use '../../styles/primitives/rich-text.scss';
 
 .rcx-box {
   @extend %box;

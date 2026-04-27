@@ -1,6 +1,6 @@
 @use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
-@use '../../styles/typography.scss';
+@use '../../styles/typography.scss' as *;
 @use '../../styles/functions.scss' as *;
 
 $callout-background-color: theme(
@@ -113,13 +113,13 @@ $callout-text-color: theme('callout-text-color', colors.font(default));
   &__title {
     white-space: nowrap;
 
-    @include typography.use-font-scale(p2b);
-    @include typography.use-text-ellipsis;
+    @include use-font-scale(p2b);
+    @include use-text-ellipsis;
   }
 
   &__content {
     display: block;
 
-    @include typography.use-font-scale(p2);
+    @include use-font-scale(p2);
   }
 }

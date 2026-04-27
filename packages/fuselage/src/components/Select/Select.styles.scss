@@ -3,6 +3,7 @@
 @use '../../styles/variables/input-colors.scss' as *;
 @use '../../styles/mixins/interactivity.scss' as *;
 @use '../InputBox/mixins.scss' as *;
+@use '../InputBox/InputBox.styles.scss' as *;
 
 .rcx-select {
   @extend %rcx-input-box;

@@ -5,6 +5,7 @@
 @use '../../styles/mixins/interactivity.scss' as *;
 @use '../../styles/functions.scss' as *;
 @use '../../styles/mixins/link.scss' as *;
+@use '../../styles/primitives/link.scss';
 
 $tag-colors-default-color: theme(
   'tag-colors-default-color',

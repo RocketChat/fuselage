@@ -1,10 +1,11 @@
 @use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
-@use '../../styles/typography.scss';
+@use '../../styles/typography.scss' as *;
 @use '../../styles/mixins/interactivity.scss' as *;
 @use '../../styles/functions.scss' as *;
 @use '../../styles/mixins/link.scss' as *;
 @use '../../styles/mixins/states.scss' as *;
+@use '../../styles/primitives/link.scss';
 
 $-sidebar-color-surface-default: theme(
   'sidebar-color-surface-default',
@@ -146,7 +147,7 @@ $-sidebar-banner-color-danger: theme(
   align-items: center;
 
   border-radius: lengths.border-radius(small);
-  @include typography.use-font-scale(p2);
+  @include use-font-scale(p2);
 }
 
 %highlighted {
@@ -197,7 +198,7 @@ $-sidebar-banner-color-danger: theme(
     }
 
     &__title {
-      @include typography.use-font-scale(p2m);
+      @include use-font-scale(p2m);
       color: $-sidebar-color-font-title;
     }
   }
@@ -219,7 +220,7 @@ $-sidebar-banner-color-danger: theme(
 
     &__wrapper {
       @extend %sidebar-base;
-      @include typography.use-with-truncated-text();
+      @include use-with-truncated-text();
       flex: 1 0;
 
       margin-inline: lengths.margin(-2);
@@ -258,7 +259,7 @@ $-sidebar-banner-color-danger: theme(
       display: flex;
       flex: 0 0 auto;
 
-      @include typography.use-with-truncated-text();
+      @include use-with-truncated-text();
     }
 
     &__container {
@@ -269,7 +270,7 @@ $-sidebar-banner-color-danger: theme(
     }
 
     &__icon {
-      @include typography.use-with-truncated-text();
+      @include use-with-truncated-text();
       @include highlighted;
 
       display: flex;
@@ -280,7 +281,7 @@ $-sidebar-banner-color-danger: theme(
     }
 
     &__content {
-      @include typography.use-with-truncated-text();
+      @include use-with-truncated-text();
       flex-wrap: wrap;
       flex: 1 1 100%;
     }
@@ -288,7 +289,7 @@ $-sidebar-banner-color-danger: theme(
     &__title,
     &__subtitle {
       @extend %sidebar-base;
-      @include typography.use-with-truncated-text();
+      @include use-with-truncated-text();
       display: block;
       flex: 1 1 1%;
 
@@ -296,11 +297,11 @@ $-sidebar-banner-color-danger: theme(
     }
 
     &__subtitle {
-      @include typography.use-font-scale(c1);
+      @include use-font-scale(c1);
     }
 
     &__time {
-      @include typography.use-font-scale(micro);
+      @include use-font-scale(micro);
       margin-inline: lengths.margin(4);
     }
 
@@ -342,8 +343,8 @@ $-sidebar-banner-color-danger: theme(
   }
 
   &-title {
-    @include typography.use-font-scale(c2);
-    @include typography.use-with-truncated-text();
+    @include use-font-scale(c2);
+    @include use-with-truncated-text();
 
     color: $-sidebar-color-font-default;
   }
@@ -376,11 +377,11 @@ $-sidebar-banner-color-danger: theme(
     }
 
     &--text {
-      @include typography.use-font-scale(h5);
+      @include use-font-scale(h5);
     }
 
     &--description {
-      @include typography.use-font-scale(p2m);
+      @include use-font-scale(p2m);
       display: inline-block;
 
       color: currentColor;
@@ -422,7 +423,7 @@ $-sidebar-banner-color-danger: theme(
     }
 
     &__highlights {
-      @include typography.use-font-scale(c1);
+      @include use-font-scale(c1);
 
       display: flex;
       justify-content: center;

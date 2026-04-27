@@ -2,6 +2,7 @@
 @use '../../styles/colors.scss';
 @use '../../styles/typography.scss' as *;
 @use '../../styles/functions.scss' as *;
+@use '../../styles/primitives/traits.scss';
 
 $variants: (
   'success': colors.status-font(on-success),

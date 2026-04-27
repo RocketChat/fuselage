@@ -1,15 +1,14 @@
 @use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
-@use '../../styles/typography.scss';
+@use '../../styles/typography.scss' as *;
 @use '../../styles/mixins/interactivity.scss' as *;
 @use '../../styles/mixins/templates.scss' as *;
 @use '../../styles/functions.scss' as *;
 @use '../../styles/mixins/link.scss' as *;
 @use './variables.scss' as *;
-
-@import './SidebarFooter/SidebarFooter.styles.scss';
-@import './SidebarItem/SidebarItem.styles.scss';
-@import './SidebarMedia/SidebarMedia.styles.scss';
+@use './SidebarFooter/SidebarFooter.styles.scss';
+@use './SidebarItem/SidebarItem.styles.scss';
+@use './SidebarMedia/SidebarMedia.styles.scss';
 
 .rcx-sidebar-v2 {
   position: relative;
@@ -103,8 +102,8 @@
 
       white-space: nowrap;
 
-      @include typography.use-text-ellipsis;
-      @include typography.use-font-scale(c2);
+      @include use-text-ellipsis;
+      @include use-font-scale(c2);
     }
 
     &__panel {
@@ -166,7 +165,7 @@
     }
 
     &__title {
-      @include typography.use-font-scale(h5);
+      @include use-font-scale(h5);
     }
   }
 
@@ -196,11 +195,11 @@
       margin: 0;
       padding: 0;
 
-      @include typography.use-font-scale(h5);
+      @include use-font-scale(h5);
     }
 
     &__link {
-      @include typography.use-font-scale(p2m);
+      @include use-font-scale(p2m);
       @include clickable;
 
       display: inline-block;

@@ -1,5 +1,6 @@
 @use '../../styles/lengths.scss';
 @use '../../styles/mixins/selection-button.scss' as *;
+@use '../../styles/primitives/selection-button.scss';
 
 .rcx-radio-button {
   @include is-selection-button($checked: 'primary', $unchecked: 'empty');

@@ -3,6 +3,7 @@
 @use '../variables/input-colors.scss' as *;
 @use '../mixins/interactivity.scss' as *;
 @use '../mixins/shadows.scss' as *;
+@use './traits.scss';
 
 %selection-button__input {
   @extend %visually-hidden;

@@ -1,11 +1,11 @@
-@use '../../../styles/lengths.scss';
-@use '../../../styles/functions.scss' as *;
 @use '../../../styles/colors.scss';
-@use '../../../styles/typography.scss';
-@use '../../../styles/mixins/size.scss';
+@use '../../../styles/functions.scss' as *;
+@use '../../../styles/lengths.scss';
 @use '../../../styles/mixins/link.scss' as *;
+@use '../../../styles/mixins/size.scss';
+@use '../../../styles/primitives/link.scss';
 @use '../../../styles/primitives/rich-text.scss';
-@import '../../../styles/primitives/link.scss';
+@use '../../../styles/typography.scss' as *;
 
 $message-generic-preview-border-color: theme(
   'message-generic-preview-border-color',
@@ -58,7 +58,7 @@ $message-generic-preview-icon-background-color: theme(
     font-size: 0;
 
     &-wrapper {
-      @include typography.use-with-truncated-text();
+      @include use-with-truncated-text();
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -85,8 +85,8 @@ $message-generic-preview-icon-background-color: theme(
   }
 
   &__title {
-    @include typography.use-with-truncated-text();
-    @include typography.use-font-scale(p2);
+    @include use-with-truncated-text();
+    @include use-font-scale(p2);
     display: block;
 
     margin-block-end: lengths.margin(4);
@@ -99,7 +99,7 @@ $message-generic-preview-icon-background-color: theme(
   }
 
   &__description {
-    @include typography.use-font-scale(c1);
+    @include use-font-scale(c1);
     margin-block-end: lengths.margin(4);
 
     white-space: normal;
@@ -107,7 +107,7 @@ $message-generic-preview-icon-background-color: theme(
     color: $message-generic-preview-description-color;
 
     &:not(&--clamp) {
-      @include typography.use-with-truncated-text();
+      @include use-with-truncated-text();
     }
 
     &--clamp {
@@ -119,8 +119,8 @@ $message-generic-preview-icon-background-color: theme(
   }
 
   &__footer {
-    @include typography.use-with-truncated-text();
-    @include typography.use-font-scale(c1);
+    @include use-with-truncated-text();
+    @include use-font-scale(c1);
     width: 100%;
 
     color: $message-generic-preview-context-color;
@@ -162,8 +162,8 @@ $message-generic-preview-icon-background-color: theme(
     background-color: $message-generic-preview-icon-background-color;
 
     &-title {
-      @include typography.use-with-truncated-text();
-      @include typography.use-font-scale(micro);
+      @include use-with-truncated-text();
+      @include use-font-scale(micro);
 
       max-width: lengths.size(40);
 

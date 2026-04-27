@@ -1,19 +1,18 @@
-@use '../../styles/lengths.scss';
-@use '../../styles/functions.scss' as *;
 @use '../../styles/colors.scss';
+@use '../../styles/functions.scss' as *;
+@use '../../styles/lengths.scss';
 @use '../../styles/mixins/size.scss';
 @use '../../styles/mixins/templates.scss';
-@use '../../styles/typography.scss';
+@use '../../styles/typography.scss' as *;
+@use './MessageDivider/MessageDivider.styles.scss';
+@use './MessageGenericPreview/MessageGenericPreview.styles.scss';
+@use './MessageMetrics/MessageMetrics.styles.scss';
+@use './MessageReactions/MessageReactions.styles.scss';
+@use './MessageStatusIndicator/MessageStatusIndicator.styles.scss';
+@use './MessageSystem/MessageSystem.styles.scss';
+@use './MessageToolbar/MessageToolbar.styles.scss';
+@use './ThreadMessage/ThreadMessage.styles.scss';
 @use './mixins.scss';
-
-@import './MessageMetrics/MessageMetrics.styles.scss';
-@import './MessageToolbar/MessageToolbar.styles.scss';
-@import './MessageReactions/MessageReactions.styles.scss';
-@import './ThreadMessage/ThreadMessage.styles.scss';
-@import './MessageDivider/MessageDivider.styles.scss';
-@import './MessageStatusIndicator/MessageStatusIndicator.styles.scss';
-@import './MessageSystem/MessageSystem.styles.scss';
-@import './MessageGenericPreview/MessageGenericPreview.styles.scss';
 
 %rcx-margins-header {
   margin-inline: lengths.margin(2);
@@ -166,8 +165,8 @@ $message-highlight-colors-background-other-color: theme(
 
     &__time {
       @extend %rcx-margins-header;
-      @include typography.use-with-truncated-text();
-      @include typography.use-font-scale(c1);
+      @include use-with-truncated-text();
+      @include use-font-scale(c1);
       flex-shrink: 0;
 
       color: colors.font(default);
@@ -176,7 +175,7 @@ $message-highlight-colors-background-other-color: theme(
     &__name-container {
       display: inline;
 
-      @include typography.use-with-truncated-text();
+      @include use-with-truncated-text();
 
       @extend %rcx-margins-header;
 
@@ -185,16 +184,16 @@ $message-highlight-colors-background-other-color: theme(
     }
 
     &__name {
-      @include typography.use-font-scale(h5);
-      @include typography.use-with-truncated-text();
+      @include use-font-scale(h5);
+      @include use-with-truncated-text();
       flex-shrink: 1;
 
       color: colors.font(default);
     }
 
     &__username {
-      @include typography.use-font-scale(p2);
-      @include typography.use-with-truncated-text();
+      @include use-font-scale(p2);
+      @include use-with-truncated-text();
       flex-shrink: 1;
 
       color: colors.font(default);
@@ -203,7 +202,7 @@ $message-highlight-colors-background-other-color: theme(
     &__roles {
       display: flex;
       flex-shrink: 1;
-      @include typography.use-with-truncated-text();
+      @include use-with-truncated-text();
     }
 
     &__role {
@@ -217,7 +216,7 @@ $message-highlight-colors-background-other-color: theme(
 
   &-body {
     @extend %rcx-margins-block;
-    @include typography.use-font-scale(p2);
+    @include use-font-scale(p2);
 
     overflow: hidden;
 
@@ -232,19 +231,19 @@ $message-highlight-colors-background-other-color: theme(
     color: colors.font(default);
 
     & h1 {
-      @include typography.use-font-scale(h1);
+      @include use-font-scale(h1);
     }
 
     & h2 {
-      @include typography.use-font-scale(h2);
+      @include use-font-scale(h2);
     }
 
     & h3 {
-      @include typography.use-font-scale(h3);
+      @include use-font-scale(h3);
     }
 
     & h4 {
-      @include typography.use-font-scale(h4);
+      @include use-font-scale(h4);
     }
 
     & ul,

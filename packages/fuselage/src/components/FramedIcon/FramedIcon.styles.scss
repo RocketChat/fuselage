@@ -1,9 +1,9 @@
 @use '../../styles/colors.scss';
-@use '../../styles/typography.scss';
+@use '../../styles/typography.scss' as *;
 @use '../../styles/lengths.scss';
 
 .rcx-framed-icon {
-  @include typography.use-font-scale(p2m);
+  @include use-font-scale(p2m);
 
   padding: lengths.padding(4);
 

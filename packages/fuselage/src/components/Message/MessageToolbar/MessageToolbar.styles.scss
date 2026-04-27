@@ -1,8 +1,7 @@
-@use '../../../styles/lengths.scss';
 @use '../../../styles/colors.scss';
-@use '../../../styles/typography.scss';
-@use '../mixins.scss';
 @use '../../../styles/functions.scss' as *;
+@use '../../../styles/lengths.scss';
+@use '../mixins.scss';
 
 .rcx-message-toolbar {
   margin-inline: lengths.margin(20);

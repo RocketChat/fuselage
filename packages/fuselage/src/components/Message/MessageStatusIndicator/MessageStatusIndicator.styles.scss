@@ -1,7 +1,7 @@
-@use '../../../styles/lengths.scss';
-@use '../../../styles/functions.scss' as *;
 @use '../../../styles/colors.scss';
-@use '../../../styles/typography.scss';
+@use '../../../styles/functions.scss' as *;
+@use '../../../styles/lengths.scss';
+@use '../../../styles/typography.scss' as *;
 
 $variants: (
   'success': colors.status-font(on-success),
@@ -23,7 +23,7 @@ $variants: (
     white-space: nowrap;
 
     color: colors.font(secondary-info);
-    @include typography.use-font-scale(c1);
+    @include use-font-scale(c1);
   }
 
   &__item {

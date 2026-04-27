@@ -6,6 +6,7 @@
 @use '../../../styles/mixins/states.scss' as *;
 @use '../../../styles/functions.scss' as *;
 @use '../../../styles/mixins/link.scss' as *;
+@use '../../../styles/primitives/link.scss';
 @use '../variables.scss' as *;
 
 $sidebar-color-surface-hover: theme(

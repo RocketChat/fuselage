@@ -1,8 +1,10 @@
 @use '../../styles/lengths.scss';
-@use '../../styles/typography.scss';
+@use '../../styles/typography.scss' as *;
 @use '../../styles/variables/input-colors.scss' as *;
 @use '../../styles/mixins/interactivity.scss' as *;
 @use '../../styles/functions.scss' as *;
+@use '../../styles/primitives/input.scss';
+@use '../../styles/primitives/traits.scss';
 @use './mixins.scss' as *;
 
 .rcx-input-box__wrapper,
@@ -73,8 +75,8 @@
 
   background-color: transparent;
 
-  @include typography.use-font-scale(p2m);
-  @include typography.use-text-ellipsis;
+  @include use-font-scale(p2m);
+  @include use-text-ellipsis;
 
   &--type-textarea {
     @extend %with-scrollbars;
@@ -139,7 +141,7 @@
   }
 
   &--small {
-    @include typography.use-font-scale(c1);
+    @include use-font-scale(c1);
 
     &:not(.rcx-input-box--undecorated) {
       @extend %input;
@@ -211,18 +213,18 @@
 }
 
 .rcx-input-box__placeholder {
-  @include typography.use-text-ellipsis;
+  @include use-text-ellipsis;
   white-space: nowrap;
 
-  @include typography.use-font-scale(p2m);
+  @include use-font-scale(p2m);
   color: #{$input-colors-placeholder-color};
 }
 
 .rcx-input-box__option {
-  @include typography.use-text-ellipsis;
+  @include use-text-ellipsis;
   white-space: nowrap;
 
-  @include typography.use-font-scale(p2m);
+  @include use-font-scale(p2m);
   color: #{$input-colors-color};
 }
 
@@ -246,6 +248,6 @@
   border-radius: theme('input-border-radius', lengths.border-radius(medium));
   background-color: #{$input-colors-background-color};
 
-  @include typography.use-font-scale(p2m);
-  @include typography.use-text-ellipsis;
+  @include use-font-scale(p2m);
+  @include use-text-ellipsis;
 }

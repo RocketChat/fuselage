@@ -1,12 +1,12 @@
-@use '../../../styles/lengths.scss';
 @use '../../../styles/colors.scss';
-@use '../../../styles/typography.scss';
+@use '../../../styles/functions.scss' as *;
+@use '../../../styles/lengths.scss';
+@use '../../../styles/mixins/button.scss';
 @use '../../../styles/mixins/size.scss';
 @use '../../../styles/mixins/templates.scss';
+@use '../../../styles/typography.scss' as *;
 @use '../../../styles/variables/buttons.scss';
-@use '../../../styles/mixins/button.scss';
 @use '../mixins.scss';
-@use '../../../styles/functions.scss' as *;
 
 .rcx-message-reactions {
   &__container {
@@ -18,7 +18,7 @@
   }
 
   &__reaction {
-    @include typography.use-font-scale(c1);
+    @include use-font-scale(c1);
     display: inline-flex;
     align-items: center;
 
@@ -78,7 +78,7 @@
   }
 
   &__counter {
-    @include typography.use-font-scale(c1);
+    @include use-font-scale(c1);
     margin-inline: lengths.margin(2);
   }
 }

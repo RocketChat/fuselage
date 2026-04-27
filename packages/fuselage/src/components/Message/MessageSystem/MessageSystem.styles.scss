@@ -1,8 +1,8 @@
-@use '../../../styles/lengths.scss';
-@use '../../../styles/functions.scss' as *;
 @use '../../../styles/colors.scss';
-@use '../../../styles/typography.scss';
+@use '../../../styles/functions.scss' as *;
+@use '../../../styles/lengths.scss';
 @use '../../../styles/mixins/templates.scss';
+@use '../../../styles/typography.scss' as *;
 @use '../mixins.scss';
 
 $message-system-background-color-selected: theme(
@@ -11,8 +11,8 @@ $message-system-background-color-selected: theme(
 );
 
 .rcx-message-system {
-  @include typography.use-font-scale(c1);
-  @include typography.use-with-truncated-text();
+  @include use-font-scale(c1);
+  @include use-with-truncated-text();
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -29,7 +29,7 @@ $message-system-background-color-selected: theme(
   }
 
   &__container {
-    @include typography.use-with-truncated-text();
+    @include use-with-truncated-text();
     display: flex;
     flex-direction: column;
     flex-shrink: 1;
@@ -40,20 +40,20 @@ $message-system-background-color-selected: theme(
   }
 
   &__body {
-    @include typography.use-font-scale(p2);
-    @include typography.use-with-truncated-text();
+    @include use-font-scale(p2);
+    @include use-with-truncated-text();
     margin-inline: lengths.margin(2);
   }
 
   &__name {
-    @include typography.use-font-scale(p2b);
-    @include typography.use-with-truncated-text();
+    @include use-font-scale(p2b);
+    @include use-with-truncated-text();
     flex-shrink: 0;
   }
 
   &__time {
-    @include typography.use-with-truncated-text();
-    @include typography.use-font-scale(c1);
+    @include use-with-truncated-text();
+    @include use-font-scale(c1);
     flex-shrink: 0;
 
     margin-inline: lengths.margin(2);
