@@ -162,18 +162,11 @@ $sidebar-color-font-active: theme(
     margin-inline-end: -4px;
 
     opacity: 0;
-
-    &:has([aria-expanded='true']) {
-      width: lengths.size(20);
-
-      margin-inline-end: lengths.margin(none);
-
-      opacity: 1;
-    }
   }
 
   &:hover &__menu-wrapper,
-  &:focus-within &__menu-wrapper {
+  &:focus-within &__menu-wrapper ,
+  &:has([aria-expanded='true']) &__menu-wrapper {
     width: lengths.size(20);
     height: lengths.size(20);
 
