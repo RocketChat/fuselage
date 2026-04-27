@@ -165,7 +165,7 @@ $sidebar-color-font-active: theme(
   }
 
   &:hover &__menu-wrapper,
-  &:focus-within &__menu-wrapper ,
+  &:focus-within &__menu-wrapper,
   &:has([aria-expanded='true']) &__menu-wrapper {
     width: lengths.size(20);
     height: lengths.size(20);
