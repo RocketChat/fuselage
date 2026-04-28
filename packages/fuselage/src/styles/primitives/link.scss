@@ -3,32 +3,42 @@
 @use '../../styles/functions.scss' as *;
 @use '../../styles/mixins/shadows.scss' as *;
 
+$link-color: theme('link-color', colors.font(info));
+$link-focus-color: theme('link-focus-color', colors.font(info));
+$link-focus-outline-color: theme(
+  'link-focus-outline-color',
+  colors.stroke(highlight)
+);
+$link-focus-outline-color: theme(
+  'link-focus-outline-color',
+  colors.stroke(extra-light-highlight)
+);
+$link-visited-color: theme('link-visited-color', colors.font(info));
+$link-active-color: theme('link-active-color', colors.font(info));
+
 %link {
-  color: theme('link-color', colors.font(info));
+  color: $link-color;
 
   &:focus-visible,
   &.is-focused,
   &.focus {
     text-decoration: none;
 
-    color: theme('link-focus-color', colors.font(info));
+    color: $link-focus-color;
     border-radius: lengths.border-radius(small);
-    outline: theme('link-focus-outline-color', colors.stroke(highlight)) solid
-      1px;
+    outline: $link-focus-outline-color solid 1px;
     outline-offset: 0;
-    @include use-focus-shadow(
-      theme('link-focus-outline-color', colors.stroke(extra-light-highlight))
-    );
+    @include use-focus-shadow($link-focus-outline-color);
   }
 
   &:where(:visited),
   &:where(.is-visited) {
-    color: theme('link-visited-color', colors.font(info));
+    color: $link-visited-color;
   }
 
   &:where(:active),
   &:where(.active),
   &:where(.is-active) {
-    color: theme('link-active-color', colors.font(info));
+    color: $link-active-color;
   }
 }

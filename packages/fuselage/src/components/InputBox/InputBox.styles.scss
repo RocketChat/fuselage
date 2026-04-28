@@ -7,6 +7,11 @@
 @use '../../styles/primitives/traits.scss';
 @use './mixins.scss' as *;
 
+$input-border-radius: theme(
+  'input-border-radius',
+  lengths.border-radius(medium)
+);
+
 .rcx-input-box__wrapper,
 %rcx-input-box {
   position: relative;
@@ -217,7 +222,7 @@
   white-space: nowrap;
 
   @include use-font-scale(p2m);
-  color: #{$input-colors-placeholder-color};
+  color: $input-colors-placeholder-color;
 }
 
 .rcx-input-box__option {
@@ -225,7 +230,7 @@
   white-space: nowrap;
 
   @include use-font-scale(p2m);
-  color: #{$input-colors-color};
+  color: $input-colors-color;
 }
 
 .rcx-skeleton__input {
@@ -241,12 +246,12 @@
 
   vertical-align: baseline;
 
-  color: #{$input-colors-color};
+  color: $input-colors-color;
 
   border-width: lengths.border-width(default);
-  border-color: #{$input-colors-border-color};
-  border-radius: theme('input-border-radius', lengths.border-radius(medium));
-  background-color: #{$input-colors-background-color};
+  border-color: $input-colors-border-color;
+  border-radius: $input-border-radius;
+  background-color: $input-colors-background-color;
 
   @include use-font-scale(p2m);
   @include use-text-ellipsis;

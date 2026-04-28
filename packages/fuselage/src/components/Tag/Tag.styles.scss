@@ -136,6 +136,7 @@ $tag-colors-disabled-background-color: theme(
   'tag-colors-disabled-background-color',
   colors.surface(neutral)
 );
+$tag-border-radius: theme('tag-border-radius', lengths.border-radius(small));
 
 @mixin use-clickable-colors($color, $background-color) {
   &.rcx-tag--clickable {
@@ -163,7 +164,7 @@ $tag-colors-disabled-background-color: theme(
   word-break: keep-all;
 
   color: $tag-colors-default-color;
-  border-radius: theme('tag-border-radius', lengths.border-radius(small));
+  border-radius: $tag-border-radius;
   background-color: $tag-colors-default-background-color;
 
   @include use-font-scale(micro);

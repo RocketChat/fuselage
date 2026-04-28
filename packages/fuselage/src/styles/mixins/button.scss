@@ -5,12 +5,21 @@
 @use './shadows.scss' as *;
 @use '../variables/button-colors.scss';
 
+$button-border-width: theme(
+  'button-border-width',
+  lengths.border-width('default')
+);
+$button-border-radius: theme(
+  'button-border-radius',
+  lengths.border-radius(medium)
+);
+
 @mixin kind-variant($colors) {
   color: map.get($colors, color);
-  border-width: theme('button-border-width', lengths.border-width('default'));
+  border-width: $button-border-width;
   border-style: solid;
   border-color: map.get($colors, border-color);
-  border-radius: theme('button-border-radius', lengths.border-radius(medium));
+  border-radius: $button-border-radius;
   background-color: map.get($colors, background-color);
 
   appearance: none;

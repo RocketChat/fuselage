@@ -10,6 +10,11 @@
 @use './SidebarItem/SidebarItem.styles.scss';
 @use './SidebarMedia/SidebarMedia.styles.scss';
 
+$sidebar-color-stroke-extra-light: theme(
+  'sidebar-color-stroke-extra-light',
+  colors.stroke(light)
+);
+
 .rcx-sidebar-v2 {
   position: relative;
 
@@ -22,10 +27,7 @@
   background-color: $sidebar-color-surface-default;
 
   &--divider {
-    border-color: theme(
-      'sidebar-color-stroke-extra-light',
-      colors.stroke(light)
-    );
+    border-color: $sidebar-color-stroke-extra-light;
   }
 
   &-section {

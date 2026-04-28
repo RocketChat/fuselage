@@ -10,7 +10,7 @@
   $active-caret-color,
   $disabled-color
 ) {
-  color: #{$color};
+  color: $color;
 
   // TODO: fix placeholder performance issue
   // &::placeholder {
@@ -18,23 +18,23 @@
   // }
 
   &.rcx-input-box--placeholder-visible {
-    color: #{$placeholder-color};
+    color: $placeholder-color;
   }
 
   &:focus,
   &.focus {
-    caret-color: #{$focus-caret-color};
+    caret-color: $focus-caret-color;
   }
 
   &:active,
   &.active {
-    caret-color: #{$active-caret-color};
+    caret-color: $active-caret-color;
   }
 
   *:disabled &,
   &:disabled,
   &.disabled {
-    color: #{$disabled-color};
+    color: $disabled-color;
   }
 }
 
@@ -45,27 +45,27 @@
   $disabled-color
 ) {
   & + .rcx-input-box__addon {
-    color: #{$color};
+    color: $color;
   }
 
   .rcx-input-box__wrapper.focus > & {
-    caret-color: #{$focus-caret-color};
+    caret-color: $focus-caret-color;
   }
 
   &:focus + .rcx-input-box__addon,
   &.focus + .rcx-input-box__addon,
   .rcx-input-box__wrapper.focus > & + .rcx-input-box__addon {
-    color: #{$focus-icon-color};
+    color: $focus-icon-color;
   }
 
   .rcx-input-box__wrapper.disabled > & {
-    color: #{$disabled-color};
+    color: $disabled-color;
   }
 
   *:disabled & + .rcx-input-box__addon,
   &:disabled + .rcx-input-box__addon,
   &.disabled + .rcx-input-box__addon,
   .rcx-input-box__wrapper.disabled > & + .rcx-input-box__addon {
-    color: #{$disabled-color};
+    color: $disabled-color;
   }
 }

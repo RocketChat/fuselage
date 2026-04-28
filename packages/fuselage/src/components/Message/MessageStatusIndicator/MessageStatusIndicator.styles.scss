@@ -3,11 +3,21 @@
 @use '../../../styles/lengths.scss';
 @use '../../../styles/typography.scss' as *;
 
-$variants: (
-  'success': colors.status-font(on-success),
-  'danger': colors.status-font(on-danger),
-  'warning': colors.status-font(on-warning),
-  'primary': colors.status-font(on-primary),
+$message-status-variant-color-success: theme(
+  'message-status-variant-color-success',
+  colors.status-font(on-success)
+);
+$message-status-variant-color-danger: theme(
+  'message-status-variant-color-danger',
+  colors.status-font(on-danger)
+);
+$message-status-variant-color-warning: theme(
+  'message-status-variant-color-warning',
+  colors.status-font(on-warning)
+);
+$message-status-variant-color-primary: theme(
+  'message-status-variant-color-primary',
+  colors.status-font(on-primary)
 );
 
 .rcx-message-status-indicator {
@@ -28,10 +38,21 @@ $variants: (
 
   &__item {
     color: colors.font(secondary-info);
-    @each $name, $color in $variants {
-      &--#{$name} {
-        color: theme('message-status-variant-color-#{$name}', $color);
-      }
+
+    &--success {
+      color: $message-status-variant-color-success;
+    }
+
+    &--danger {
+      color: $message-status-variant-color-danger;
+    }
+
+    &--warning {
+      color: $message-status-variant-color-warning;
+    }
+
+    &--primary {
+      color: $message-status-variant-color-primary;
     }
   }
 }

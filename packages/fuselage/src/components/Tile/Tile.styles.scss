@@ -4,11 +4,13 @@
 @use '../../styles/functions.scss' as *;
 @use '../../styles/mixins/elevation.scss' as *;
 
+$tile-border-radius: theme('tile-border-radius', lengths.border-radius(medium));
+
 .rcx-tile {
   display: block;
 
   color: colors.font(default);
-  border-radius: theme('tile-border-radius', lengths.border-radius(medium));
+  border-radius: $tile-border-radius;
   background-color: colors.surface(light);
 
   @include use-font-scale(p2);

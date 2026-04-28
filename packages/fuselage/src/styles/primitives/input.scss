@@ -4,6 +4,11 @@
 @use '../mixins/shadows.scss' as *;
 @use '../mixins/states.scss' as *;
 
+$input-border-radius: theme(
+  'input-border-radius',
+  lengths.border-radius(medium)
+);
+
 @mixin as-input(
   $background-color,
   $border-color,
@@ -16,9 +21,9 @@
 ) {
   border-width: lengths.border-width(default);
 
-  border-color: #{$border-color};
-  border-radius: theme('input-border-radius', lengths.border-radius(medium));
-  background-color: #{$background-color};
+  border-color: $border-color;
+  border-radius: $input-border-radius;
+  background-color: $background-color;
   box-shadow: none;
 
   @include on-hover {
@@ -31,13 +36,13 @@
   }
 
   @include on-active {
-    border-color: #{$active-border-color};
+    border-color: $active-border-color;
     box-shadow: none;
   }
 
   @include on-disabled {
-    border-color: #{$disabled-border-color};
-    background-color: #{$disabled-background-color};
+    border-color: $disabled-border-color;
+    background-color: $disabled-background-color;
   }
 }
 

@@ -5,6 +5,11 @@
 @use '../../styles/mixins/interactivity.scss' as *;
 @use '../../styles/functions.scss' as *;
 
+$pagination-border-radius: theme(
+  'pagination-border-radius',
+  lengths.border-radius(small)
+);
+
 .rcx-pagination {
   display: flex;
   flex-flow: column-reverse nowrap;
@@ -34,10 +39,7 @@
 
       content: '';
 
-      border-radius: theme(
-        'pagination-border-radius',
-        lengths.border-radius(small)
-      );
+      border-radius: $pagination-border-radius;
       background-color: colors.stroke(extra-light);
     }
   }

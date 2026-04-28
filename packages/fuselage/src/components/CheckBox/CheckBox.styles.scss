@@ -4,6 +4,11 @@
 @use '../../styles/mixins/selection-button.scss' as *;
 @use '../../styles/primitives/selection-button.scss';
 
+$check-box-border-radius: theme(
+  'check-box-border-radius',
+  lengths.border-radius(small)
+);
+
 .rcx-check-box {
   @include is-selection-button(
     $checked: 'primary',
@@ -25,10 +30,7 @@
     justify-content: center;
     align-items: center;
 
-    border-radius: theme(
-      'check-box-border-radius',
-      lengths.border-radius(small)
-    );
+    border-radius: $check-box-border-radius;
     inline-size: lengths.size(20);
 
     &::before,

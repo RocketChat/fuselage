@@ -34,7 +34,7 @@
       }
     ],
     "scss/at-mixin-pattern": "^-?([a-z][a-z0-9]+-)*[a-z][a-z0-9]+$",
-    "scss/dollar-variable-pattern": "^-?([a-z][a-z0-9]+-)*[a-z][a-z0-9]+$",
+    "scss/dollar-variable-pattern": "^-?([a-z][a-z0-9]+-)*[a-z0-9]+$",
     "scss/no-duplicate-mixins": true,
     "selector-pseudo-class-no-unknown": [
       true,

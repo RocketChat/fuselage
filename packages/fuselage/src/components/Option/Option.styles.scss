@@ -4,11 +4,21 @@
 @use '../../styles/mixins/interactivity.scss' as *;
 @use '../../styles/functions.scss' as *;
 
-$variants: (
-  'success': colors.status-font(on-success),
-  'danger': colors.status-font(on-danger),
-  'warning': colors.status-font(on-warning),
-  'primary': colors.status-font(on-primary),
+$option-color-variant-success: theme(
+  'option-color-variant-success',
+  colors.status-font(on-success)
+);
+$option-color-variant-danger: theme(
+  'option-color-variant-danger',
+  colors.status-font(on-danger)
+);
+$option-color-variant-warning: theme(
+  'option-color-variant-warning',
+  colors.status-font(on-warning)
+);
+$option-color-variant-primary: theme(
+  'option-color-variant-primary',
+  colors.status-font(on-primary)
 );
 
 %column {
@@ -161,9 +171,19 @@ $variants: (
     opacity: 1;
   }
 
-  @each $name, $color in $variants {
-    &--#{$name} {
-      color: theme('option-color-variant-#{$name}', $color);
-    }
+  &--success {
+    color: $option-color-variant-success;
+  }
+
+  &--danger {
+    color: $option-color-variant-danger;
+  }
+
+  &--warning {
+    color: $option-color-variant-warning;
+  }
+
+  &--primary {
+    color: $option-color-variant-primary;
   }
 }

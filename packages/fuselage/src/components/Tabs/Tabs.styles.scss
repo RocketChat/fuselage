@@ -52,6 +52,7 @@ $tabs-disabled-selected-border-color: theme(
   'tabs-disabled-selected-border-color',
   colors.status-background(info)
 );
+$tabs-border-radius: theme('tabs-border-radius', lengths.border-radius(medium));
 
 .rcx-tabs__scroll-box {
   position: relative;
@@ -115,7 +116,7 @@ $tabs-disabled-selected-border-color: theme(
 
   @include on-focus-visible {
     border-color: $tabs-focus-border-color;
-    border-radius: theme('tabs-border-radius', lengths.border-radius(medium));
+    border-radius: $tabs-border-radius;
 
     @include use-focus-shadow($tabs-focus-shadow-color);
   }

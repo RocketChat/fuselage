@@ -7,37 +7,37 @@
 @use '../../styles/mixins/states.scss' as *;
 @use '../../styles/primitives/link.scss';
 
-$-sidebar-color-surface-default: theme(
+$sidebar-color-surface-default: theme(
   'sidebar-color-surface-default',
   colors.surface(sidebar)
 );
 
-$-sidebar-color-surface-hover: theme(
+$sidebar-color-surface-hover: theme(
   'sidebar-color-surface-hover',
   colors.surface(hover)
 );
 
-$-sidebar-color-surface-selected: theme(
+$sidebar-color-surface-selected: theme(
   'sidebar-color-surface-selected',
   colors.surface(selected)
 );
 
-$-sidebar-color-font-default: theme(
+$sidebar-color-font-default: theme(
   'sidebar-color-font-default',
   colors.font(default)
 );
 
-$-sidebar-color-font-title: theme(
+$sidebar-color-font-title: theme(
   'sidebar-color-font-title',
   colors.font(titles-labels)
 );
 
-$-sidebar-color-stroke-default: theme(
+$sidebar-color-stroke-default: theme(
   'sidebar-color-stroke-default',
   colors.stroke(light)
 );
-$-sidebar-item-color: theme('sidebar-item-color', colors.font(secondary-info));
-$-sidebar-item-color-highlighted: theme(
+$sidebar-item-color: theme('sidebar-item-color', colors.font(secondary-info));
+$sidebar-item-color-highlighted: theme(
   'sidebar-item-color-highlighted',
   colors.font(titles-labels)
 );
@@ -96,49 +96,53 @@ $sidebar-footer-highlight-color: theme(
 );
 
 // sidebar-banner-colors
-$-sidebar-banner-background-default: theme(
+$sidebar-banner-background-default: theme(
   'sidebar-banner-background-default',
   colors.surface(hover)
 );
-$-sidebar-banner-color-default: theme(
+$sidebar-banner-color-default: theme(
   'sidebar-banner-color-default',
   colors.font(titles-labels)
 );
 
-$-sidebar-banner-background-info: theme(
+$sidebar-banner-background-info: theme(
   'sidebar-banner-background-info',
   colors.status-background(info)
 );
-$-sidebar-banner-color-info: theme(
+$sidebar-banner-color-info: theme(
   'sidebar-banner-background-info',
   colors.status-font(on-info)
 );
 
-$-sidebar-banner-background-success: theme(
+$sidebar-banner-background-success: theme(
   'sidebar-banner-background-success',
   colors.status-background(success)
 );
-$-sidebar-banner-color-success: theme(
+$sidebar-banner-color-success: theme(
   'sidebar-banner-background-success',
   colors.status-font(on-success)
 );
 
-$-sidebar-banner-background-warning: theme(
+$sidebar-banner-background-warning: theme(
   'sidebar-banner-background-warning',
   colors.status-background(warning)
 );
-$-sidebar-banner-color-warning: theme(
+$sidebar-banner-color-warning: theme(
   'sidebar-banner-background-warning',
   colors.status-font(on-warning)
 );
 
-$-sidebar-banner-background-danger: theme(
+$sidebar-banner-background-danger: theme(
   'sidebar-banner-background-danger',
   colors.status-background(danger)
 );
-$-sidebar-banner-color-danger: theme(
+$sidebar-banner-color-danger: theme(
   'sidebar-banner-background-danger',
   colors.status-font(on-danger)
+);
+$sidebar-color-stroke-extra-light: theme(
+  'sidebar-color-stroke-extra-light',
+  colors.stroke(light)
 );
 
 %sidebar-base {
@@ -151,7 +155,7 @@ $-sidebar-banner-color-danger: theme(
 }
 
 %highlighted {
-  color: $-sidebar-item-color-highlighted;
+  color: $sidebar-item-color-highlighted;
 
   font-weight: 600;
 }
@@ -163,14 +167,11 @@ $-sidebar-banner-color-danger: theme(
 }
 
 .rcx-sidebar {
-  color: $-sidebar-color-font-default;
-  background: $-sidebar-color-surface-default;
+  color: $sidebar-color-font-default;
+  background: $sidebar-color-surface-default;
 
   &--divider {
-    border-color: theme(
-      'sidebar-color-stroke-extra-light',
-      colors.stroke(light)
-    );
+    border-color: $sidebar-color-stroke-extra-light;
   }
 
   &-topbar {
@@ -181,7 +182,7 @@ $-sidebar-banner-color-danger: theme(
 
     height: $sidebar-header-height;
 
-    color: $-sidebar-item-color;
+    color: $sidebar-item-color;
 
     &--toolbox {
       height: $sidebar-section-height;
@@ -199,7 +200,7 @@ $-sidebar-banner-color-danger: theme(
 
     &__title {
       @include use-font-scale(p2m);
-      color: $-sidebar-color-font-title;
+      color: $sidebar-color-font-title;
     }
   }
 
@@ -216,7 +217,7 @@ $-sidebar-banner-color-danger: theme(
 
     text-decoration: none;
 
-    color: $-sidebar-color-font-default;
+    color: $sidebar-color-font-default;
 
     &__wrapper {
       @extend %sidebar-base;
@@ -231,7 +232,7 @@ $-sidebar-banner-color-danger: theme(
       @include use-link-colors($color: colors.font(default));
 
       @include on-hover {
-        background-color: $-sidebar-color-surface-hover;
+        background-color: $sidebar-color-surface-hover;
       }
 
       @include on-focus {
@@ -242,7 +243,7 @@ $-sidebar-banner-color-danger: theme(
 
     &:active,
     &--selected {
-      background-color: $-sidebar-color-surface-selected;
+      background-color: $sidebar-color-surface-selected;
     }
 
     &--featured {
@@ -346,7 +347,7 @@ $-sidebar-banner-color-danger: theme(
     @include use-font-scale(c2);
     @include use-with-truncated-text();
 
-    color: $-sidebar-color-font-default;
+    color: $sidebar-color-font-default;
   }
 
   &-section {
@@ -367,8 +368,8 @@ $-sidebar-banner-color-danger: theme(
     height: 100px;
     padding: lengths.padding(16);
 
-    color: $-sidebar-banner-color-default;
-    background-color: $-sidebar-banner-background-default;
+    color: $sidebar-banner-color-default;
+    background-color: $sidebar-banner-background-default;
     column-gap: 0.25rem;
 
     &__actions {
@@ -395,23 +396,23 @@ $-sidebar-banner-color-danger: theme(
     }
 
     &--info {
-      color: $-sidebar-banner-color-info;
-      background-color: $-sidebar-banner-background-info;
+      color: $sidebar-banner-color-info;
+      background-color: $sidebar-banner-background-info;
     }
 
     &--success {
-      color: $-sidebar-banner-color-success;
-      background-color: $-sidebar-banner-background-success;
+      color: $sidebar-banner-color-success;
+      background-color: $sidebar-banner-background-success;
     }
 
     &--warning {
-      color: $-sidebar-banner-color-warning;
-      background-color: $-sidebar-banner-background-warning;
+      color: $sidebar-banner-color-warning;
+      background-color: $sidebar-banner-background-warning;
     }
 
     &--danger {
-      color: $-sidebar-banner-color-danger;
-      background-color: $-sidebar-banner-background-danger;
+      color: $sidebar-banner-color-danger;
+      background-color: $sidebar-banner-background-danger;
     }
   }
 

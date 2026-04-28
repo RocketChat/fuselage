@@ -4,6 +4,11 @@
 @use '../../styles/mixins/interactivity.scss' as *;
 @use '../../styles/functions.scss' as *;
 
+$table-selected-border-radius: theme(
+  'table-selected-border-radius',
+  lengths.border-radius(medium)
+);
+
 .rcx-table {
   display: table;
 
@@ -19,10 +24,7 @@
 
   &__selection {
     color: colors.font(titles-labels);
-    border-radius: theme(
-      'table-selected-border-radius',
-      lengths.border-radius(medium)
-    );
+    border-radius: $table-selected-border-radius;
     background-color: colors.surface(neutral);
   }
 

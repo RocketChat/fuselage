@@ -56,6 +56,7 @@ $badge-colors-disabled-background-color: theme(
   'badge-colors-disabled-background-color',
   colors.surface(neutral)
 );
+$badge-border-radius: theme('badge-border-radius', lengths.border-radius(full));
 
 .rcx-badge {
   display: flex;
@@ -77,7 +78,7 @@ $badge-colors-disabled-background-color: theme(
 
   word-break: keep-all;
 
-  border-radius: theme('badge-border-radius', lengths.border-radius(full));
+  border-radius: $badge-border-radius;
 
   @include use-font-scale(micro);
 

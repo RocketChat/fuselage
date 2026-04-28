@@ -25,6 +25,10 @@ $callout-danger-color: theme(
   colors.status-font(on-danger)
 );
 $callout-text-color: theme('callout-text-color', colors.font(default));
+$callout-border-radius: theme(
+  'callout-border-radius',
+  lengths.border-radius(medium)
+);
 
 .rcx-callout {
   display: flex;
@@ -37,7 +41,7 @@ $callout-text-color: theme('callout-text-color', colors.font(default));
   border-style: solid;
   border-color: $callout-default-color;
 
-  border-radius: theme('callout-border-radius', lengths.border-radius(medium));
+  border-radius: $callout-border-radius;
 
   background-color: $callout-background-color;
 

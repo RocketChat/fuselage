@@ -14,13 +14,6 @@
 @use './ThreadMessage/ThreadMessage.styles.scss';
 @use './mixins.scss';
 
-%rcx-margins-header {
-  margin-inline: lengths.margin(2);
-}
-%rcx-margins-block {
-  margin-block: lengths.margin(2);
-}
-
 $message-background-color: theme(
   'message-background-color',
   colors.surface(room)
@@ -82,6 +75,21 @@ $message-highlight-colors-background-other-color: theme(
   'message-highlight-colors-background-other-color',
   colors.badge('level-0')
 );
+
+$message-block-width-fixed: theme('message-block-width-fixed', 368px);
+
+$message-highlight-border-radius: theme(
+  'message-highlight-border-radius',
+  lengths.border-radius(medium)
+);
+
+%rcx-margins-header {
+  margin-inline: lengths.margin(2);
+}
+
+%rcx-margins-block {
+  margin-block: lengths.margin(2);
+}
 
 .rcx-message {
   &-container {
@@ -362,7 +370,7 @@ $message-highlight-colors-background-other-color: theme(
       flex-shrink: 1;
 
       width: 100;
-      max-width: theme('message-block-width-fixed', 368px);
+      max-width: $message-block-width-fixed;
     }
   }
 
@@ -414,10 +422,7 @@ $message-highlight-colors-background-other-color: theme(
 
       transform: translateY(lengths.margin(1)) translateX(lengths.margin(-2));
 
-      border-radius: theme(
-        'message-highlight-border-radius',
-        lengths.border-radius(medium)
-      );
+      border-radius: $message-highlight-border-radius;
     }
 
     &--critical {

@@ -1,39 +1,39 @@
-@use '../../styles/functions';
 @use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
+@use '../../styles/functions' as *;
 @use '../../styles/typography.scss' as *;
 @use '../../styles/mixins/elevation.scss';
 
 // neutral
-$banner-colors-neutral-color: functions.theme(
+$banner-colors-neutral-color: theme(
   'banner-colors-neutral-color',
   colors.font(default)
 );
-$banner-colors-neutral-background-color: functions.theme(
+$banner-colors-neutral-background-color: theme(
   'banner-colors-neutral-background-color',
   colors.surface(tint)
 );
 
 // info
-$banner-colors-info-color: functions.theme(
+$banner-colors-info-color: theme(
   'banner-colors-info-color',
   colors.status-font(on-info)
 );
 
 // success
-$banner-colors-success-color: functions.theme(
+$banner-colors-success-color: theme(
   'banner-colors-success-color',
   colors.status-font(on-success)
 );
 
 // warning
-$banner-colors-warning-color: functions.theme(
+$banner-colors-warning-color: theme(
   'banner-colors-warning-color',
   colors.status-font(on-warning)
 );
 
 // danger
-$banner-colors-danger-color: functions.theme(
+$banner-colors-danger-color: theme(
   'banner-colors-danger-color',
   colors.status-font(on-danger)
 );

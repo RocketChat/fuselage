@@ -5,8 +5,11 @@
 @use '../../styles/functions.scss' as *;
 
 $modal-container-margin: theme('modal-container-margin', lengths.size(24));
-
 $modal-margin: theme('modal-margin', auto);
+$modal-border-radius: theme(
+  'modal-border-radius',
+  lengths.border-radius(large)
+);
 
 .rcx-modal {
   position: static;
@@ -30,7 +33,7 @@ $modal-margin: theme('modal-margin', auto);
     padding: 0;
 
     color: colors.font(default);
-    border-radius: theme('modal-border-radius', lengths.border-radius(large));
+    border-radius: $modal-border-radius;
     background-color: colors.surface(light);
     @include use-font-scale(p2);
   }
