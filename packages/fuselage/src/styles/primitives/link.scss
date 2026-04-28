@@ -16,7 +16,9 @@
     outline: theme('link-focus-outline-color', colors.stroke(highlight)) solid
       1px;
     outline-offset: 0;
-    @include use-focus-shadow(theme('link-focus-outline-color', colors.stroke(extra-light-highlight)));
+    @include use-focus-shadow(
+      theme('link-focus-outline-color', colors.stroke(extra-light-highlight))
+    );
   }
 
   &:where(:visited),

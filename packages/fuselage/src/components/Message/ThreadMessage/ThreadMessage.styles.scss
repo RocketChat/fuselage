@@ -71,7 +71,9 @@
     }
 
     &--unfollow {
-      @include mixins.visible-on-hover();
+      .rcx-message:not(:hover) & {
+        display: none;
+      }
     }
   }
 
