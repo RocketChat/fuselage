@@ -1,6 +1,6 @@
 @use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
-@use '../../styles/primitives/box.scss';
+@use '../Box/Box.styles.scss';
 
 .rcx-skeleton {
   display: block;
@@ -37,8 +37,7 @@
     border-radius: lengths.border-radius(full);
   }
 
-  @extend %box;
-  @extend %box--full;
+  @extend .rcx-box;
 }
 
 @keyframes rcx-skeleton__animation {

@@ -1,11 +1,12 @@
+@use './Box/Box.styles.scss' as *;
+
 @use './Accordion/Accordion.styles.scss' as *;
 @use './AutoComplete/AutoComplete.styles.scss' as *;
 @use './Avatar/Avatar.styles.scss' as *;
 @use './Badge/Badge.styles.scss' as *;
 @use './Banner/Banner.styles.scss' as *;
-@use './Box/Box.styles.scss' as *;
-@use './Button/Button.styles.scss' as *;
 @use './Bubble/Bubble.styles.scss' as *;
+@use './Button/Button.styles.scss' as *;
 @use './ButtonGroup/ButtonGroup.styles.scss' as *;
 @use './Callout/Callout.styles.scss' as *;
 @use './Card/Card.styles.scss' as *;
@@ -31,11 +32,11 @@
 @use './Pagination/Pagination.styles.scss' as *;
 @use './ProgressBar/ProgressBar.styles.scss' as *;
 @use './RadioButton/RadioButton.styles.scss' as *;
-@use './Select/Select.styles.scss';
+@use './Select/Select.styles.scss' as *;
 @use './Sidebar/Sidebar.styles.scss' as *;
 @use './SidebarV2/Sidebar.styles.scss' as *;
 @use './Sidepanel/Sidepanel.styles.scss' as *;
-@use './Skeleton/Skeleton.styles.scss';
+@use './Skeleton/Skeleton.styles.scss' as *;
 @use './States/States.styles.scss' as *;
 @use './StatusBullet/StatusBullet.styles.scss' as *;
 @use './Table/Table.styles.scss' as *;
