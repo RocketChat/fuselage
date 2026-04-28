@@ -1,5 +1,28 @@
 # Change Log
 
+## 0.77.0
+
+### Minor Changes
+
+- [#1946](https://github.com/RocketChat/fuselage/pull/1946) [`4f90c69`](https://github.com/RocketChat/fuselage/commit/4f90c696e0ce6815342aa755f20cac3f6d4b41ec) Thanks [@tassoevan](https://github.com/tassoevan)! - fix(fuselage): remove incorrect dependency on `@rocket.chat/styled`
+
+- [#1943](https://github.com/RocketChat/fuselage/pull/1943) [`cff98b1`](https://github.com/RocketChat/fuselage/commit/cff98b1b6035591c96ef0b03f05a72f68e4f1653) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage): accept all `objectFit` css properties on `Avatar` component
+
+- [#1945](https://github.com/RocketChat/fuselage/pull/1945) [`6797e0f`](https://github.com/RocketChat/fuselage/commit/6797e0f5c877ce6890644170d80f848692e605ab) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage): add `objectFit` to `Box` styling props
+
+- [#1949](https://github.com/RocketChat/fuselage/pull/1949) [`78ba393`](https://github.com/RocketChat/fuselage/commit/78ba393a7d7ce8d6c20512467a82e99a193d1ceb) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage): Keep sidebar item menu button visible while expanded
+
+- [#1942](https://github.com/RocketChat/fuselage/pull/1942) [`ef9dedd`](https://github.com/RocketChat/fuselage/commit/ef9dedd02084073731bd9cc008e1268e23b4b9a0) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage-forms): Add `MultiSelectFiltered` component
+
+### Patch Changes
+
+- [#1939](https://github.com/RocketChat/fuselage/pull/1939) [`b12a0a2`](https://github.com/RocketChat/fuselage/commit/b12a0a28eb6c61bdf9f1ef8717461093ec9b20b7) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): move `HiddenSelect` out of `SelectTrigger`
+
+- [#1940](https://github.com/RocketChat/fuselage/pull/1940) [`9574ce2`](https://github.com/RocketChat/fuselage/commit/9574ce29f68950671a5d113fdcb2f3bc3be9f528) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): improve a11y for `MultiSelect` components
+
+- Updated dependencies [[`00052dc`](https://github.com/RocketChat/fuselage/commit/00052dc976bbe72664ec2d3b97f9ba2ba2d4f3c7)]:
+  - @rocket.chat/css-in-js@0.32.0
+
 ## 0.76.0
 
 ### Minor Changes

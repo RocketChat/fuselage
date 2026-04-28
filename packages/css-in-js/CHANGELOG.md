@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.32.0
+
+### Minor Changes
+
+- [#1933](https://github.com/RocketChat/fuselage/pull/1933) [`00052dc`](https://github.com/RocketChat/fuselage/commit/00052dc976bbe72664ec2d3b97f9ba2ba2d4f3c7) Thanks [@gabriellsh](https://github.com/gabriellsh)! - feat(css-in-js): Allow passing a target `document` to rule attacher
+
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
