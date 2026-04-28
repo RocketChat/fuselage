@@ -26,13 +26,13 @@
 %selection-button__fake--empty--hovered {
   border-color: $button-empty-hover-border-color;
   background-color: $button-empty-hover-background-color;
-  @include use-no-shadow;
+  box-shadow: none;
 }
 
 %selection-button__fake--empty--active {
   border-color: $button-empty-active-border-color;
   background-color: $button-empty-active-background-color;
-  @include use-no-shadow;
+  box-shadow: none;
 }
 
 %selection-button__fake--empty--focused {
@@ -56,13 +56,13 @@
 %selection-button__fake--off--hovered {
   border-color: $button-off-hover-border-color;
   background-color: $button-off-hover-background-color;
-  @include use-no-shadow;
+  box-shadow: none;
 }
 
 %selection-button__fake--off--active {
   border-color: $button-off-active-border-color;
   background-color: $button-off-active-background-color;
-  @include use-no-shadow;
+  box-shadow: none;
 }
 
 %selection-button__fake--off--focused {
@@ -86,13 +86,13 @@
 %selection-button__fake--primary--hovered {
   border-color: $button-primary-hover-border-color;
   background-color: $button-primary-hover-background-color;
-  @include use-no-shadow;
+  box-shadow: none;
 }
 
 %selection-button__fake--primary--active {
   border-color: $button-primary-active-border-color;
   background-color: $button-primary-active-background-color;
-  @include use-no-shadow;
+  box-shadow: none;
 }
 
 %selection-button__fake--primary--focused {

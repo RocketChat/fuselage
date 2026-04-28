@@ -19,7 +19,7 @@
   border-color: #{$border-color};
   border-radius: theme('input-border-radius', lengths.border-radius(medium));
   background-color: #{$background-color};
-  @include use-no-shadow;
+  box-shadow: none;
 
   @include on-hover {
     border-color: $hover-border-color;
@@ -32,7 +32,7 @@
 
   @include on-active {
     border-color: #{$active-border-color};
-    @include use-no-shadow;
+    box-shadow: none;
   }
 
   @include on-disabled {

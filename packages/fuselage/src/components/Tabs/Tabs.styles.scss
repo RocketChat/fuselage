@@ -117,7 +117,7 @@ $tabs-disabled-selected-border-color: theme(
     border-color: $tabs-focus-border-color;
     border-radius: theme('tabs-border-radius', lengths.border-radius(medium));
 
-    @include use-button-focus-shadow($tabs-focus-shadow-color);
+    @include use-focus-shadow($tabs-focus-shadow-color);
   }
 
   &--disabled {

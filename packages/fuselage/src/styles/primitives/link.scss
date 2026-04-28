@@ -1,6 +1,7 @@
 @use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
 @use '../../styles/functions.scss' as *;
+@use '../../styles/mixins/shadows.scss' as *;
 
 %link {
   color: theme('link-color', colors.font(info));
@@ -15,8 +16,7 @@
     outline: theme('link-focus-outline-color', colors.stroke(highlight)) solid
       1px;
     outline-offset: 0;
-    box-shadow: 0 0 0 2px
-      theme('link-focus-outline-color', colors.stroke(extra-light-highlight));
+    @include use-focus-shadow(theme('link-focus-outline-color', colors.stroke(extra-light-highlight)));
   }
 
   &:where(:visited),

@@ -18,19 +18,19 @@
   @include on-focus-visible {
     border-color: map.get($colors, focus-border-color);
     background-color: map.get($colors, focus-background-color);
-    @include use-button-focus-shadow(map.get($colors, focus-shadow-color));
+    @include use-focus-shadow(map.get($colors, focus-shadow-color));
   }
 
   @include on-hover {
     border-color: map.get($colors, hover-border-color);
     background-color: map.get($colors, hover-background-color);
-    @include use-no-shadow;
+    box-shadow: none;
   }
 
   @include on-active {
     border-color: map.get($colors, active-border-color);
     background-color: map.get($colors, active-background-color);
-    @include use-no-shadow;
+    box-shadow: none;
   }
 
   @include on-pressed {
