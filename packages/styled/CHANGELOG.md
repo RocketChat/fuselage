@@ -1,5 +1,12 @@
 # Change Log
 
+## 0.32.1
+
+### Patch Changes
+
+- Updated dependencies [[`00052dc`](https://github.com/RocketChat/fuselage/commit/00052dc976bbe72664ec2d3b97f9ba2ba2d4f3c7)]:
+  - @rocket.chat/css-in-js@0.32.0
+
 ## 0.32.0
 
 ### Minor Changes
