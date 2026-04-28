@@ -65,7 +65,7 @@
     "testing-utils": "workspace:~",
     "ts-jest": "~29.4.6",
     "typedoc": "~0.28.18",
-    "typescript": "~5.9.3"
+    "typescript": "~6.0.3"
   },
   "peerDependencies": {
     "@rocket.chat/emitter": "*",
