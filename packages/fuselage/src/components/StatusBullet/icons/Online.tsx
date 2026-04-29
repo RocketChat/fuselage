@@ -6,6 +6,7 @@ const Online = ({ size, className, ...props }: StatusBulletProps) => (
     width='24'
     height='24'
     viewBox='0 0 24 24'
+    aria-hidden='true'
     className={`rcx-status-bullet rcx-status-bullet--online ${className} ${
       size === 'small' ? 'rcx-status-bullet--small' : ''
     }`}
