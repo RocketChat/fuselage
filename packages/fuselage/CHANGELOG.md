@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.77.1
+
+### Patch Changes
+
+- [#1951](https://github.com/RocketChat/fuselage/pull/1951) [`76d62c0`](https://github.com/RocketChat/fuselage/commit/76d62c03dacdca4b893e58d1c44f4dfcbf8c0ba6) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): Add `aria-hidden` attribute to `StatusBullet`
+
 ## 0.77.0
 
 ### Minor Changes
