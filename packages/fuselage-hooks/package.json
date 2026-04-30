@@ -61,10 +61,10 @@
     "react": "~18.3.1",
     "react-dom": "~18.3.1",
     "rimraf": "~6.0.1",
-    "rollup": "~4.60.0",
+    "rollup": "~4.60.2",
     "testing-utils": "workspace:~",
-    "ts-jest": "~29.4.6",
-    "typedoc": "~0.28.18",
+    "ts-jest": "~29.4.9",
+    "typedoc": "~0.28.19",
     "typescript": "~5.9.3"
   },
   "peerDependencies": {
