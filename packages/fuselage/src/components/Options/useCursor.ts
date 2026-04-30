@@ -1,6 +1,6 @@
 import { useStableCallback } from '@rocket.chat/fuselage-hooks';
 import type { KeyboardEvent } from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import { AnimatedVisibility } from '../AnimatedVisibility';
 
@@ -83,10 +83,13 @@ export const useCursor = <
   reset: () => void,
   visibilityHandler: ReturnType<typeof useVisible>,
 ] => {
-  const [cursor, setCursor] = useState(initial);
+ const [cursor, setCursor] = useState(initial);
+  useEffect(() => {
+  setCursor(initial);
+}, [initial]);
   const visibilityHandler = useVisible();
   const [visibility, hide, show] = visibilityHandler;
-  const reset = useStableCallback(() => setCursor(0));
+  const reset = useStableCallback(() => setCursor(initial));
   const handleKeyUp = useStableCallback((e: KeyboardEvent) => {
     const { keyCode } = e;
     if (AnimatedVisibility.HIDDEN === visibility && keyCode === keyCodes.TAB) {
@@ -140,8 +143,11 @@ export const useCursor = <
           e.nativeEvent.stopImmediatePropagation(); // TODO
           e.stopPropagation();
         }
-        hide();
-        onChange(options[cursor], visibilityHandler);
+        const targetIndex = cursor >= 0 ? cursor : 0;
+        if (options[targetIndex]) {
+          hide();
+          onChange(options[targetIndex], visibilityHandler);
+        }
         return;
 
       case keyCodes.ESC:
