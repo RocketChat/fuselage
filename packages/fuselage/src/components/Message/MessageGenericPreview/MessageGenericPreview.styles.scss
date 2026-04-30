@@ -1,37 +1,38 @@
-@use '../../../styles/lengths.scss';
-@use '../../../styles/functions.scss';
 @use '../../../styles/colors.scss';
-@use '../../../styles/typography.scss';
+@use '../../../styles/functions.scss' as *;
+@use '../../../styles/lengths.scss';
+@use '../../../styles/mixins/link.scss' as *;
 @use '../../../styles/mixins/size.scss';
-@use '../../../styles/primitives/traits/rich-text.scss';
-@import '../../../styles/primitives/link.scss';
+@use '../../../styles/primitives/link.scss';
+@use '../../../styles/primitives/rich-text.scss';
+@use '../../../styles/typography.scss' as *;
 
-$message-generic-preview-border-color: functions.theme(
+$message-generic-preview-border-color: theme(
   'message-generic-preview-border-color',
   colors.stroke(extra-light)
 );
 
-$message-generic-preview-title-color: functions.theme(
+$message-generic-preview-title-color: theme(
   'message-generic-preview-title-color',
   colors.font(default)
 );
 
-$message-generic-preview-context-color: functions.theme(
+$message-generic-preview-context-color: theme(
   'message-generic-preview-context-color',
   colors.font(secondary-info)
 );
 
-$message-generic-preview-description-color: functions.theme(
+$message-generic-preview-description-color: theme(
   'message-generic-preview-description-color',
   colors.font(default)
 );
 
-$message-generic-preview-content-background-color: functions.theme(
+$message-generic-preview-content-background-color: theme(
   'message-generic-preview-content-background-color',
   colors.surface(tint)
 );
 
-$message-generic-preview-icon-background-color: functions.theme(
+$message-generic-preview-icon-background-color: theme(
   'message-generic-preview-icon-background-color',
   colors.surface(neutral)
 );
@@ -57,7 +58,7 @@ $message-generic-preview-icon-background-color: functions.theme(
     font-size: 0;
 
     &-wrapper {
-      @include typography.use-with-truncated-text();
+      @include use-with-truncated-text();
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -84,8 +85,8 @@ $message-generic-preview-icon-background-color: functions.theme(
   }
 
   &__title {
-    @include typography.use-with-truncated-text();
-    @include typography.use-font-scale(p2);
+    @include use-with-truncated-text();
+    @include use-font-scale(p2);
     display: block;
 
     margin-block-end: lengths.margin(4);
@@ -93,12 +94,12 @@ $message-generic-preview-icon-background-color: functions.theme(
     color: $message-generic-preview-title-color;
 
     &-link {
-      @include use-link-colors();
+      @include use-link-colors;
     }
   }
 
   &__description {
-    @include typography.use-font-scale(c1);
+    @include use-font-scale(c1);
     margin-block-end: lengths.margin(4);
 
     white-space: normal;
@@ -106,7 +107,7 @@ $message-generic-preview-icon-background-color: functions.theme(
     color: $message-generic-preview-description-color;
 
     &:not(&--clamp) {
-      @include typography.use-with-truncated-text();
+      @include use-with-truncated-text();
     }
 
     &--clamp {
@@ -118,8 +119,8 @@ $message-generic-preview-icon-background-color: functions.theme(
   }
 
   &__footer {
-    @include typography.use-with-truncated-text();
-    @include typography.use-font-scale(c1);
+    @include use-with-truncated-text();
+    @include use-font-scale(c1);
     width: 100%;
 
     color: $message-generic-preview-context-color;
@@ -161,8 +162,8 @@ $message-generic-preview-icon-background-color: functions.theme(
     background-color: $message-generic-preview-icon-background-color;
 
     &-title {
-      @include typography.use-with-truncated-text();
-      @include typography.use-font-scale(micro);
+      @include use-with-truncated-text();
+      @include use-font-scale(micro);
 
       max-width: lengths.size(40);
 

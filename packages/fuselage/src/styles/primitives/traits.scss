@@ -1,8 +1,8 @@
-@use '../../colors.scss';
-@use '../../lengths.scss';
+@use '../colors.scss';
+@use '../lengths.scss';
 @use './rich-text.scss';
 
-%--visually-hidden {
+%visually-hidden {
   position: absolute;
 
   overflow: hidden;
@@ -19,7 +19,7 @@
   clip-path: inset(50%);
 }
 
-%--with-scrollbars {
+%with-scrollbars {
   &::-webkit-scrollbar {
     width: lengths.size(4);
     height: lengths.size(4);

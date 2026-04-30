@@ -1,61 +1,44 @@
 @use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
-@use '../../styles/mixins/states.scss';
-@use '../../styles//functions.scss';
-@import '../../styles/mixins/states.scss';
+@use '../../styles/functions.scss' as *;
+@use '../../styles/mixins/shadows.scss' as *;
+
+$link-color: theme('link-color', colors.font(info));
+$link-focus-color: theme('link-focus-color', colors.font(info));
+$link-focus-outline-color: theme(
+  'link-focus-outline-color',
+  colors.stroke(highlight)
+);
+$link-focus-outline-color: theme(
+  'link-focus-outline-color',
+  colors.stroke(extra-light-highlight)
+);
+$link-visited-color: theme('link-visited-color', colors.font(info));
+$link-active-color: theme('link-active-color', colors.font(info));
 
 %link {
-  color: functions.theme('link-color', colors.font(info));
+  color: $link-color;
 
   &:focus-visible,
   &.is-focused,
   &.focus {
     text-decoration: none;
 
-    color: functions.theme('link-focus-color', colors.font(info));
+    color: $link-focus-color;
     border-radius: lengths.border-radius(small);
-    outline: functions.theme(
-        'link-focus-outline-color',
-        colors.stroke(highlight)
-      )
-      solid 1px;
+    outline: $link-focus-outline-color solid 1px;
     outline-offset: 0;
-    box-shadow: 0 0 0 2px
-      functions.theme(
-        'link-focus-outline-color',
-        colors.stroke(extra-light-highlight)
-      );
+    @include use-focus-shadow($link-focus-outline-color);
   }
 
   &:where(:visited),
   &:where(.is-visited) {
-    color: functions.theme('link-visited-color', colors.font(info));
+    color: $link-visited-color;
   }
 
   &:where(:active),
   &:where(.active),
   &:where(.is-active) {
-    color: functions.theme('link-active-color', colors.font(info));
-  }
-}
-
-@mixin use-link-colors($color: colors.font(info)) {
-  @extend %link;
-
-  color: functions.theme('link-color', $color);
-
-  @include on-focus {
-    color: functions.theme('link-focus-color', $color);
-  }
-
-  &:where(:visited),
-  &:where(.is-visited) {
-    color: functions.theme('link-visited-color', $color);
-  }
-
-  &:where(:active),
-  &:where(.active),
-  &:where(.is-active) {
-    color: functions.theme('link-active-color', $color);
+    color: $link-active-color;
   }
 }

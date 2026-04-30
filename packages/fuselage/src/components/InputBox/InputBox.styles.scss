@@ -1,5 +1,16 @@
 @use '../../styles/lengths.scss';
-@use '../../styles/typography.scss';
+@use '../../styles/typography.scss' as *;
+@use '../../styles/variables/input-colors.scss' as *;
+@use '../../styles/mixins/interactivity.scss' as *;
+@use '../../styles/functions.scss' as *;
+@use '../../styles/primitives/input.scss';
+@use '../../styles/primitives/traits.scss';
+@use './mixins.scss' as *;
+
+$input-border-radius: theme(
+  'input-border-radius',
+  lengths.border-radius(medium)
+);
 
 .rcx-input-box__wrapper,
 %rcx-input-box {
@@ -48,73 +59,6 @@
   flex: 0 0 auto;
 }
 
-@mixin with-colors(
-  $color,
-  $placeholder-color,
-  $focus-caret-color,
-  $active-caret-color,
-  $disabled-color
-) {
-  color: #{$color};
-
-  // TODO: fix placeholder performance issue
-  // &::placeholder {
-  //   color: #{ $placeholder-color };
-  // }
-
-  &.rcx-input-box--placeholder-visible {
-    color: #{$placeholder-color};
-  }
-
-  &:focus,
-  &.focus {
-    caret-color: #{$focus-caret-color};
-  }
-
-  &:active,
-  &.active {
-    caret-color: #{$active-caret-color};
-  }
-
-  *:disabled &,
-  &:disabled,
-  &.disabled {
-    color: #{$disabled-color};
-  }
-}
-
-@mixin with-icon-addon-colors(
-  $color,
-  $focus-caret-color,
-  $focus-icon-color,
-  $disabled-color
-) {
-  & + .rcx-input-box__addon {
-    color: #{$color};
-  }
-
-  .rcx-input-box__wrapper.focus > & {
-    caret-color: #{$focus-caret-color};
-  }
-
-  &:focus + .rcx-input-box__addon,
-  &.focus + .rcx-input-box__addon,
-  .rcx-input-box__wrapper.focus > & + .rcx-input-box__addon {
-    color: #{$focus-icon-color};
-  }
-
-  .rcx-input-box__wrapper.disabled > & {
-    color: #{$disabled-color};
-  }
-
-  *:disabled & + .rcx-input-box__addon,
-  &:disabled + .rcx-input-box__addon,
-  &.disabled + .rcx-input-box__addon,
-  .rcx-input-box__wrapper.disabled > & + .rcx-input-box__addon {
-    color: #{$disabled-color};
-  }
-}
-
 .rcx-input-box {
   position: relative;
 
@@ -136,11 +80,11 @@
 
   background-color: transparent;
 
-  @include typography.use-font-scale(p2m);
-  @include typography.use-text-ellipsis;
+  @include use-font-scale(p2m);
+  @include use-text-ellipsis;
 
   &--type-textarea {
-    @extend %--with-scrollbars;
+    @extend %with-scrollbars;
 
     overflow: auto;
 
@@ -168,7 +112,7 @@
   }
 
   &--type-select {
-    @extend %--with-scrollbars;
+    @extend %with-scrollbars;
 
     overflow: auto;
     appearance: none;
@@ -202,7 +146,7 @@
   }
 
   &--small {
-    @include typography.use-font-scale(c1);
+    @include use-font-scale(c1);
 
     &:not(.rcx-input-box--undecorated) {
       @extend %input;
@@ -274,19 +218,19 @@
 }
 
 .rcx-input-box__placeholder {
-  @include typography.use-text-ellipsis;
+  @include use-text-ellipsis;
   white-space: nowrap;
 
-  @include typography.use-font-scale(p2m);
-  color: #{$input-colors-placeholder-color};
+  @include use-font-scale(p2m);
+  color: $input-colors-placeholder-color;
 }
 
 .rcx-input-box__option {
-  @include typography.use-text-ellipsis;
+  @include use-text-ellipsis;
   white-space: nowrap;
 
-  @include typography.use-font-scale(p2m);
-  color: #{$input-colors-color};
+  @include use-font-scale(p2m);
+  color: $input-colors-color;
 }
 
 .rcx-skeleton__input {
@@ -302,13 +246,13 @@
 
   vertical-align: baseline;
 
-  color: #{$input-colors-color};
+  color: $input-colors-color;
 
   border-width: lengths.border-width(default);
-  border-color: #{$input-colors-border-color};
-  border-radius: theme('input-border-radius', lengths.border-radius(medium));
-  background-color: #{$input-colors-background-color};
+  border-color: $input-colors-border-color;
+  border-radius: $input-border-radius;
+  background-color: $input-colors-background-color;
 
-  @include typography.use-font-scale(p2m);
-  @include typography.use-text-ellipsis;
+  @include use-font-scale(p2m);
+  @include use-text-ellipsis;
 }

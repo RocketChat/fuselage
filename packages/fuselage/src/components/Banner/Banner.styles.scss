@@ -1,40 +1,39 @@
-@use 'sass:map';
-@use '../../styles/functions';
 @use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
-@use '../../styles/typography.scss';
+@use '../../styles/functions' as *;
+@use '../../styles/typography.scss' as *;
 @use '../../styles/mixins/elevation.scss';
 
 // neutral
-$banner-colors-neutral-color: functions.theme(
+$banner-colors-neutral-color: theme(
   'banner-colors-neutral-color',
   colors.font(default)
 );
-$banner-colors-neutral-background-color: functions.theme(
+$banner-colors-neutral-background-color: theme(
   'banner-colors-neutral-background-color',
   colors.surface(tint)
 );
 
 // info
-$banner-colors-info-color: functions.theme(
+$banner-colors-info-color: theme(
   'banner-colors-info-color',
   colors.status-font(on-info)
 );
 
 // success
-$banner-colors-success-color: functions.theme(
+$banner-colors-success-color: theme(
   'banner-colors-success-color',
   colors.status-font(on-success)
 );
 
 // warning
-$banner-colors-warning-color: functions.theme(
+$banner-colors-warning-color: theme(
   'banner-colors-warning-color',
   colors.status-font(on-warning)
 );
 
 // danger
-$banner-colors-danger-color: functions.theme(
+$banner-colors-danger-color: theme(
   'banner-colors-danger-color',
   colors.status-font(on-danger)
 );
@@ -58,7 +57,7 @@ $banner-colors-danger-color: functions.theme(
 
   background-color: $banner-colors-neutral-background-color;
 
-  font-family: typography.font-family('sans');
+  font-family: font-family('sans');
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
@@ -120,17 +119,17 @@ $banner-colors-danger-color: functions.theme(
     flex-grow: 1;
     align-self: center;
 
-    @include typography.use-font-scale(p2);
+    @include use-font-scale(p2);
 
     &--inline {
-      @include typography.use-with-truncated-text;
+      @include use-with-truncated-text;
     }
   }
 
   &__title {
     margin: 0;
     padding: 0;
-    @include typography.use-font-scale(h5);
+    @include use-font-scale(h5);
 
     &--inline {
       display: inline;

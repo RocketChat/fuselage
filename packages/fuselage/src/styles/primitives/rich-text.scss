@@ -1,9 +1,9 @@
-@use '../../colors.scss';
-@use '../../lengths.scss';
-@use '../../typography.scss';
-@import '../link.scss';
+@use '../colors.scss';
+@use '../lengths.scss';
+@use '../typography.scss' as *;
+@use './link.scss' as *;
 
-%--with-inline-elements {
+%with-inline-elements {
   abbr,
   b,
   cite,
@@ -136,10 +136,10 @@
 
     font: inherit;
 
-    font-family: typography.font-family(mono);
+    font-family: font-family(mono);
     direction: ltr;
     -webkit-font-smoothing: auto;
-    @include typography.use-font-scale(c2);
+    @include use-font-scale(c2);
 
     unicode-bidi: embed;
   }
@@ -216,7 +216,7 @@
     border-radius: lengths.border-radius(small);
 
     font: inherit;
-    font-family: typography.font-family(mono);
+    font-family: font-family(mono);
     -webkit-font-smoothing: auto;
   }
 
@@ -235,31 +235,31 @@
   }
 }
 
-%--with-block-elements {
+%with-block-elements {
   font: inherit;
 
   h1 {
-    @include typography.use-font-scale(h2);
+    @include use-font-scale(h2);
   }
 
   h2 {
-    @include typography.use-font-scale(h4);
+    @include use-font-scale(h4);
   }
 
   h3 {
-    @include typography.use-font-scale(p2m);
+    @include use-font-scale(p2m);
   }
 
   h4 {
-    @include typography.use-font-scale(c2);
+    @include use-font-scale(c2);
   }
 
   h5 {
-    @include typography.use-font-scale(micro);
+    @include use-font-scale(micro);
   }
 
   h6 {
-    @include typography.use-font-scale(micro);
+    @include use-font-scale(micro);
   }
 
   h1,
@@ -274,7 +274,7 @@
   }
 
   p {
-    @include typography.use-font-scale(p2);
+    @include use-font-scale(p2);
 
     display: block;
 
@@ -292,12 +292,12 @@
   }
 
   ul {
-    @include typography.use-font-scale(p2);
+    @include use-font-scale(p2);
     list-style-type: disc;
   }
 
   ol {
-    @include typography.use-font-scale(p2);
+    @include use-font-scale(p2);
     list-style-type: decimal;
   }
 
@@ -321,7 +321,7 @@
     letter-spacing: inherit;
 
     font: inherit;
-    font-family: typography.font-family(mono);
+    font-family: font-family(mono);
 
     code {
       display: block;

@@ -1,12 +1,12 @@
-@use '../../../styles/lengths.scss';
 @use '../../../styles/colors.scss';
-@use '../../../styles/typography.scss';
+@use '../../../styles/lengths.scss';
 @use '../../../styles/mixins/size.scss';
+@use '../../../styles/typography.scss' as *;
 @use '../mixins.scss';
 
 .rcx-message.rcx-message-thread {
-  @include typography.use-font-scale(c1);
-  @include typography.use-with-truncated-text();
+  @include use-font-scale(c1);
+  @include use-with-truncated-text();
   display: flex;
   flex-direction: column;
 
@@ -17,7 +17,7 @@
 
 .rcx-message-thread {
   &__container {
-    @include typography.use-with-truncated-text();
+    @include use-with-truncated-text();
     display: flex;
     flex-shrink: 1;
 
@@ -26,7 +26,7 @@
   }
 
   &__row {
-    @include typography.use-with-truncated-text();
+    @include use-with-truncated-text();
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -39,12 +39,12 @@
 
   &__message {
     color: colors.font(default);
-    @include typography.use-with-truncated-text();
+    @include use-with-truncated-text();
   }
 
   &__origin {
-    @include typography.use-font-scale(c1);
-    @include typography.use-with-truncated-text();
+    @include use-font-scale(c1);
+    @include use-with-truncated-text();
     flex-shrink: 1;
 
     cursor: pointer;
@@ -71,7 +71,9 @@
     }
 
     &--unfollow {
-      @include mixins.visible-on-hover();
+      .rcx-message:not(:hover) & {
+        display: none;
+      }
     }
   }
 

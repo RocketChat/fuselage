@@ -1,52 +1,44 @@
-@use '../../styles/lengths.scss';
-@use '../../styles/functions.scss';
 @use '../../styles/colors.scss';
+@use '../../styles/functions.scss' as *;
+@use '../../styles/lengths.scss';
 @use '../../styles/mixins/size.scss';
 @use '../../styles/mixins/templates.scss';
-@use '../../styles/typography.scss';
+@use '../../styles/typography.scss' as *;
+@use './MessageDivider/MessageDivider.styles.scss';
+@use './MessageGenericPreview/MessageGenericPreview.styles.scss';
+@use './MessageMetrics/MessageMetrics.styles.scss';
+@use './MessageReactions/MessageReactions.styles.scss';
+@use './MessageStatusIndicator/MessageStatusIndicator.styles.scss';
+@use './MessageSystem/MessageSystem.styles.scss';
+@use './MessageToolbar/MessageToolbar.styles.scss';
+@use './ThreadMessage/ThreadMessage.styles.scss';
 @use './mixins.scss';
 
-@import './MessageMetrics/MessageMetrics.styles.scss';
-@import './MessageToolbar/MessageToolbar.styles.scss';
-@import './MessageReactions/MessageReactions.styles.scss';
-@import './ThreadMessage/ThreadMessage.styles.scss';
-@import './MessageDivider/MessageDivider.styles.scss';
-@import './MessageStatusIndicator/MessageStatusIndicator.styles.scss';
-@import './MessageSystem/MessageSystem.styles.scss';
-@import './MessageGenericPreview/MessageGenericPreview.styles.scss';
-
-%rcx-margins-header {
-  margin-inline: lengths.margin(2);
-}
-%rcx-margins-block {
-  margin-block: lengths.margin(2);
-}
-
-$message-background-color: functions.theme(
+$message-background-color: theme(
   'message-background-color',
   colors.surface(room)
 );
 
-$message-background-color-hover: functions.theme(
+$message-background-color-hover: theme(
   'message-background-color-hover',
   colors.surface(hover)
 );
 
-$message-background-color-selected: functions.theme(
+$message-background-color-selected: theme(
   'message-background-color-selected',
   colors.surface(selected)
 );
 
-$message-background-color-editing: functions.theme(
+$message-background-color-editing: theme(
   'message-background-color-editing',
   colors.status-background(warning-2)
 );
-$message-color-editing: functions.theme(
+$message-color-editing: theme(
   'message-background-color-editing',
   colors.status-font(on-warning-2)
 );
 
-$message-background-color-highlight: functions.theme(
+$message-background-color-highlight: theme(
   'message-background-color-highlight',
   colors.status-background(warning-2)
 );
@@ -84,8 +76,49 @@ $message-highlight-colors-background-other-color: theme(
   colors.badge('level-0')
 );
 
+$message-block-width-fixed: theme('message-block-width-fixed', 368px);
+
+$message-highlight-border-radius: theme(
+  'message-highlight-border-radius',
+  lengths.border-radius(medium)
+);
+
+%rcx-margins-header {
+  margin-inline: lengths.margin(2);
+}
+
+%rcx-margins-block {
+  margin-block: lengths.margin(2);
+}
+
 .rcx-message {
-  @include mixins.container();
+  &-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-shrink: 1;
+
+    min-width: 1px;
+    margin-block: lengths.margin(-2);
+    margin-inline: lengths.margin(4);
+
+    &--fixed {
+      align-items: center;
+      flex-grow: 0;
+      flex-shrink: 0;
+    }
+
+    &--left {
+      align-items: center;
+      align-items: flex-end;
+      flex-grow: 0;
+      flex-shrink: 0;
+
+      width: lengths.size(36);
+      margin-block: lengths.margin(-2);
+    }
+  }
+
   position: relative;
 
   display: flex;
@@ -166,8 +199,8 @@ $message-highlight-colors-background-other-color: theme(
 
     &__time {
       @extend %rcx-margins-header;
-      @include typography.use-with-truncated-text();
-      @include typography.use-font-scale(c1);
+      @include use-with-truncated-text();
+      @include use-font-scale(c1);
       flex-shrink: 0;
 
       color: colors.font(default);
@@ -176,7 +209,7 @@ $message-highlight-colors-background-other-color: theme(
     &__name-container {
       display: inline;
 
-      @include typography.use-with-truncated-text();
+      @include use-with-truncated-text();
 
       @extend %rcx-margins-header;
 
@@ -185,16 +218,16 @@ $message-highlight-colors-background-other-color: theme(
     }
 
     &__name {
-      @include typography.use-font-scale(h5);
-      @include typography.use-with-truncated-text();
+      @include use-font-scale(h5);
+      @include use-with-truncated-text();
       flex-shrink: 1;
 
       color: colors.font(default);
     }
 
     &__username {
-      @include typography.use-font-scale(p2);
-      @include typography.use-with-truncated-text();
+      @include use-font-scale(p2);
+      @include use-with-truncated-text();
       flex-shrink: 1;
 
       color: colors.font(default);
@@ -203,7 +236,7 @@ $message-highlight-colors-background-other-color: theme(
     &__roles {
       display: flex;
       flex-shrink: 1;
-      @include typography.use-with-truncated-text();
+      @include use-with-truncated-text();
     }
 
     &__role {
@@ -217,7 +250,7 @@ $message-highlight-colors-background-other-color: theme(
 
   &-body {
     @extend %rcx-margins-block;
-    @include typography.use-font-scale(p2);
+    @include use-font-scale(p2);
 
     overflow: hidden;
 
@@ -232,19 +265,19 @@ $message-highlight-colors-background-other-color: theme(
     color: colors.font(default);
 
     & h1 {
-      @include typography.use-font-scale(h1);
+      @include use-font-scale(h1);
     }
 
     & h2 {
-      @include typography.use-font-scale(h2);
+      @include use-font-scale(h2);
     }
 
     & h3 {
-      @include typography.use-font-scale(h3);
+      @include use-font-scale(h3);
     }
 
     & h4 {
-      @include typography.use-font-scale(h4);
+      @include use-font-scale(h4);
     }
 
     & ul,
@@ -337,7 +370,7 @@ $message-highlight-colors-background-other-color: theme(
       flex-shrink: 1;
 
       width: 100;
-      max-width: functions.theme('message-block-width-fixed', 368px);
+      max-width: $message-block-width-fixed;
     }
   }
 
@@ -389,10 +422,7 @@ $message-highlight-colors-background-other-color: theme(
 
       transform: translateY(lengths.margin(1)) translateX(lengths.margin(-2));
 
-      border-radius: theme(
-        'message-highlight-border-radius',
-        lengths.border-radius(medium)
-      );
+      border-radius: $message-highlight-border-radius;
     }
 
     &--critical {

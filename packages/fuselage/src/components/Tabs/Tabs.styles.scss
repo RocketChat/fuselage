@@ -1,6 +1,10 @@
 @use '../../styles/lengths.scss';
 @use '../../styles/colors.scss';
-@use '../../styles/typography.scss';
+@use '../../styles/typography.scss' as *;
+@use '../../styles/mixins/interactivity.scss' as *;
+@use '../../styles/mixins/shadows.scss' as *;
+@use '../../styles/mixins/states.scss' as *;
+@use '../../styles/functions.scss' as *;
 
 $tabs-background-color: theme('tabs-background-color', transparent);
 $tabs-border-color: theme('tabs-border-color', transparent);
@@ -48,6 +52,7 @@ $tabs-disabled-selected-border-color: theme(
   'tabs-disabled-selected-border-color',
   colors.status-background(info)
 );
+$tabs-border-radius: theme('tabs-border-radius', lengths.border-radius(medium));
 
 .rcx-tabs__scroll-box {
   position: relative;
@@ -93,7 +98,7 @@ $tabs-disabled-selected-border-color: theme(
   background-color: transparent;
 
   @include clickable;
-  @include typography.use-font-scale(h4);
+  @include use-font-scale(h4);
 
   &.hover,
   &:hover {
@@ -111,9 +116,9 @@ $tabs-disabled-selected-border-color: theme(
 
   @include on-focus-visible {
     border-color: $tabs-focus-border-color;
-    border-radius: theme('tabs-border-radius', lengths.border-radius(medium));
+    border-radius: $tabs-border-radius;
 
-    @include use-button-focus-shadow($tabs-focus-shadow-color);
+    @include use-focus-shadow($tabs-focus-shadow-color);
   }
 
   &--disabled {

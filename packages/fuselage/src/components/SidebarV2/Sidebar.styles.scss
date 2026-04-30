@@ -1,80 +1,18 @@
 @use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
-@use '../../styles/typography.scss';
-@import '../../styles/mixins/all.scss';
+@use '../../styles/typography.scss' as *;
+@use '../../styles/mixins/interactivity.scss' as *;
+@use '../../styles/mixins/templates.scss' as *;
+@use '../../styles/functions.scss' as *;
+@use '../../styles/mixins/link.scss' as *;
+@use './variables.scss' as *;
+@use './SidebarFooter/SidebarFooter.styles.scss';
+@use './SidebarItem/SidebarItem.styles.scss';
+@use './SidebarMedia/SidebarMedia.styles.scss';
 
-@import './SidebarFooter/SidebarFooter.styles.scss';
-@import './SidebarItem/SidebarItem.styles.scss';
-@import './SidebarMedia/SidebarMedia.styles.scss';
-
-$sidebar-color-surface-default: theme(
-  'sidebar-color-surface-default',
-  colors.surface(sidebar)
-);
-$sidebar-color-surface-hover: theme(
-  'sidebar-color-surface-hover',
-  colors.surface(hover)
-);
-$sidebar-color-surface-selected: theme(
-  'sidebar-color-surface-selected',
-  colors.surface(selected)
-);
-
-$sidebar-color-font-default: theme(
-  'sidebar-color-font-default',
-  colors.font(default)
-);
-
-$sidebar-accordion-border-color: theme(
-  'sidebar-accordion-border-color',
+$sidebar-color-stroke-extra-light: theme(
+  'sidebar-color-stroke-extra-light',
   colors.stroke(light)
-);
-
-$sidebar-link-color: theme('sidebar-link-color', colors.font(titles-labels));
-
-$sidebar-banner-background-default: theme(
-  'sidebar-banner-background-default',
-  colors.surface(sidebar)
-);
-$sidebar-banner-color-default: theme(
-  'sidebar-banner-color-default',
-  colors.font(titles-labels)
-);
-
-$sidebar-banner-background-info: theme(
-  'sidebar-banner-background-info',
-  colors.status-background(info)
-);
-$sidebar-banner-color-info: theme(
-  'sidebar-banner-background-info',
-  colors.status-font(on-info)
-);
-
-$sidebar-banner-background-success: theme(
-  'sidebar-banner-background-success',
-  colors.status-background(success)
-);
-$sidebar-banner-color-success: theme(
-  'sidebar-banner-background-success',
-  colors.status-font(on-success)
-);
-
-$sidebar-banner-background-warning: theme(
-  'sidebar-banner-background-warning',
-  colors.status-background(warning)
-);
-$sidebar-banner-color-warning: theme(
-  'sidebar-banner-background-warning',
-  colors.status-font(on-warning)
-);
-
-$sidebar-banner-background-danger: theme(
-  'sidebar-banner-background-danger',
-  colors.status-background(danger)
-);
-$sidebar-banner-color-danger: theme(
-  'sidebar-banner-background-danger',
-  colors.status-font(on-danger)
 );
 
 .rcx-sidebar-v2 {
@@ -89,10 +27,7 @@ $sidebar-banner-color-danger: theme(
   background-color: $sidebar-color-surface-default;
 
   &--divider {
-    border-color: theme(
-      'sidebar-color-stroke-extra-light',
-      colors.stroke(light)
-    );
+    border-color: $sidebar-color-stroke-extra-light;
   }
 
   &-section {
@@ -169,8 +104,8 @@ $sidebar-banner-color-danger: theme(
 
       white-space: nowrap;
 
-      @include typography.use-text-ellipsis;
-      @include typography.use-font-scale(c2);
+      @include use-text-ellipsis;
+      @include use-font-scale(c2);
     }
 
     &__panel {
@@ -232,7 +167,7 @@ $sidebar-banner-color-danger: theme(
     }
 
     &__title {
-      @include typography.use-font-scale(h5);
+      @include use-font-scale(h5);
     }
   }
 
@@ -262,12 +197,12 @@ $sidebar-banner-color-danger: theme(
       margin: 0;
       padding: 0;
 
-      @include typography.use-font-scale(h5);
+      @include use-font-scale(h5);
     }
 
     &__link {
-      @include typography.use-font-scale(p2m);
-      @include clickable();
+      @include use-font-scale(p2m);
+      @include clickable;
 
       display: inline-block;
 

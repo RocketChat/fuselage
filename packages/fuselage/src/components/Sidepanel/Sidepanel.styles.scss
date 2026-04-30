@@ -1,6 +1,6 @@
 @use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
-@use '../../styles/typography.scss';
+@use '../../styles/typography.scss' as *;
 
 $sidepanel-color-default: colors.font(default);
 
@@ -37,8 +37,8 @@ $sidepanel-color-default: colors.font(default);
 
     &__title {
       color: colors.font(titles-labels);
-      @include typography.use-with-truncated-text;
-      @include typography.use-font-scale(h5);
+      @include use-with-truncated-text;
+      @include use-font-scale(h5);
     }
   }
 

@@ -1,5 +1,9 @@
 @use '../../styles/lengths.scss';
-@use '../../styles/typography.scss';
+@use '../../styles/typography.scss' as *;
+@use '../../styles/variables/input-colors.scss' as *;
+@use '../../styles/mixins/interactivity.scss' as *;
+@use '../InputBox/mixins.scss' as *;
+@use '../InputBox/InputBox.styles.scss' as *;
 
 .rcx-select {
   @extend %rcx-input-box;
@@ -11,7 +15,7 @@
 
   // TODO move to .rcx-input-box
   &__item {
-    @include typography.use-text-ellipsis;
+    @include use-text-ellipsis;
   }
 
   &__focus,
@@ -32,7 +36,7 @@
     appearance: none;
 
     @include clickable;
-    @include typography.use-text-ellipsis;
+    @include use-text-ellipsis;
   }
 
   &__addon {
