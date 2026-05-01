@@ -7,6 +7,8 @@ import {
 } from '@rocket.chat/css-in-js';
 import { useDebugValue, useInsertionEffect, useMemo } from 'react';
 
+import { useOwnerDocument } from '../contexts';
+
 export const useStyle = (cssFn: cssFn | undefined, arg: unknown) => {
   const content = useMemo(() => (cssFn ? cssFn(arg) : undefined), [arg, cssFn]);
 
@@ -20,6 +22,8 @@ export const useStyle = (cssFn: cssFn | undefined, arg: unknown) => {
 
   useDebugValue(className);
 
+  const { document } = useOwnerDocument();
+
   useInsertionEffect(() => {
     if (!content || !className) {
       return;
@@ -27,12 +31,12 @@ export const useStyle = (cssFn: cssFn | undefined, arg: unknown) => {
 
     const escapedClassName = escapeName(className);
     const transpiledContent = transpile(`.${escapedClassName}`, content);
-    const detach = attachRules(transpiledContent);
+    const detach = attachRules(transpiledContent, { document });
 
     return () => {
       setTimeout(detach, 1000);
     };
-  }, [className, content]);
+  }, [className, content, document]);
 
   return className;
 };
