@@ -1,2 +1,2 @@
 export { default } from './styled';
-export * from './TargetDocument';
+export * from './OwnerDocument';
