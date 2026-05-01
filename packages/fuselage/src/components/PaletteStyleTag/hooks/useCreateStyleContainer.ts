@@ -1,25 +1,25 @@
 import { useMemo } from 'react';
 
-import { useTargetDocument } from '../../../contexts';
+import { useOwnerDocument } from '../../../contexts';
 
 export const useCreateStyleContainer = (id: string) => {
-  const { document: targetDocument } = useTargetDocument();
+  const { document: ownerDocument } = useOwnerDocument();
   return useMemo(() => {
     const refElement =
-      targetDocument.getElementById('rcx-styles') ||
-      targetDocument.head.lastChild;
+      ownerDocument.getElementById('rcx-styles') ||
+      ownerDocument.head.lastChild;
 
-    const el = targetDocument.getElementById(id);
+    const el = ownerDocument.getElementById(id);
 
     if (el) {
       return el;
     }
 
-    const styleElement = targetDocument.createElement('style');
+    const styleElement = ownerDocument.createElement('style');
     styleElement.setAttribute('id', id);
 
-    targetDocument.head.insertBefore(styleElement, refElement);
-    targetDocument.head.appendChild(targetDocument.createElement('style'));
+    ownerDocument.head.insertBefore(styleElement, refElement);
+    ownerDocument.head.appendChild(ownerDocument.createElement('style'));
     return styleElement;
-  }, [id, targetDocument]);
+  }, [id, ownerDocument]);
 };

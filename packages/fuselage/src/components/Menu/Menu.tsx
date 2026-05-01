@@ -7,7 +7,7 @@ import { createPortal } from 'react-dom';
 import type { MenuTriggerProps } from 'react-stately';
 import { useMenuTriggerState } from 'react-stately';
 
-import { useTargetDocument } from '../../contexts';
+import { useOwnerDocument } from '../../contexts';
 import type { BoxProps } from '../Box';
 import { IconButton } from '../Button';
 import type { IconButtonProps } from '../Button/IconButton';
@@ -66,7 +66,7 @@ const Menu = <T extends object>({
   const sizes = { large, medium, tiny, mini };
   const defaultSmall = !large && !medium && !tiny && !mini;
 
-  const { document: targetDocument } = useTargetDocument();
+  const { document: ownerDocument } = useOwnerDocument();
 
   const popover = state.isOpen && (
     <MenuPopover
@@ -103,7 +103,7 @@ const Menu = <T extends object>({
         />
       )}
       {detached
-        ? createPortal(popover, targetDocument?.body || document.body)
+        ? createPortal(popover, ownerDocument?.body || document.body)
         : popover}
     </>
   );

@@ -1,1 +1,1 @@
-export * from './TargetDocument';
+export * from './OwnerDocument';

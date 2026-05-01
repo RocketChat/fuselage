@@ -7,7 +7,7 @@ import {
 } from '@rocket.chat/css-in-js';
 import { useDebugValue, useInsertionEffect, useMemo } from 'react';
 
-import { useTargetDocument } from '../contexts';
+import { useOwnerDocument } from '../contexts';
 
 export const useStyle = (cssFn: cssFn | undefined, arg: unknown) => {
   const content = useMemo(() => (cssFn ? cssFn(arg) : undefined), [arg, cssFn]);
@@ -22,7 +22,7 @@ export const useStyle = (cssFn: cssFn | undefined, arg: unknown) => {
 
   useDebugValue(className);
 
-  const { document } = useTargetDocument();
+  const { document } = useOwnerDocument();
 
   useInsertionEffect(() => {
     if (!content || !className) {

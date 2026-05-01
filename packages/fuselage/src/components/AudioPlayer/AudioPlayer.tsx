@@ -3,7 +3,7 @@ import type { TrackHTMLAttributes } from 'react';
 import { useState, useRef, forwardRef } from 'react';
 
 import { Box, Button, IconButton, Margins } from '../..';
-import { useTargetDocument } from '../../contexts';
+import { useOwnerDocument } from '../../contexts';
 import { Slider } from '../Slider';
 
 const getMaskTime = (durationTime: number) =>
@@ -12,7 +12,7 @@ const getMaskTime = (durationTime: number) =>
     .slice(durationTime > 60 * 60 ? 11 : 14, 19);
 
 function forceDownload(
-  targetDocument: Document,
+  ownerDocument: Document,
   url: string,
   fileName?: string,
 ) {
@@ -22,14 +22,14 @@ function forceDownload(
   xhr.onload = function () {
     const urlCreator = window.URL || window.webkitURL;
     const imageUrl = urlCreator.createObjectURL(this.response);
-    const tag = targetDocument.createElement('a');
+    const tag = ownerDocument.createElement('a');
     tag.href = imageUrl;
     if (fileName) {
       tag.download = fileName;
     }
-    targetDocument.body.appendChild(tag);
+    ownerDocument.body.appendChild(tag);
     tag.click();
-    targetDocument.body.removeChild(tag);
+    ownerDocument.body.removeChild(tag);
   };
   xhr.send();
 }
@@ -131,7 +131,7 @@ const AudioPlayer = forwardRef<HTMLAudioElement, AudioPlayerProps>(
       handlePlaybackSpeed(1);
     };
 
-    const { document: targetDocument } = useTargetDocument();
+    const { document: ownerDocument } = useOwnerDocument();
 
     return (
       <Box
@@ -195,9 +195,9 @@ const AudioPlayer = forwardRef<HTMLAudioElement, AudioPlayerProps>(
             medium
             onClick={(e) => {
               const { host } = new URL(src);
-              if (host !== targetDocument.defaultView?.location.host) {
+              if (host !== ownerDocument.defaultView?.location.host) {
                 e.preventDefault();
-                forceDownload(targetDocument, src);
+                forceDownload(ownerDocument, src);
               }
             }}
           />

@@ -4,7 +4,7 @@ import type { RefObject, ReactElement } from 'react';
 import { useRef, useMemo, cloneElement, useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 
-import { useTargetDocument } from '../../contexts';
+import { useOwnerDocument } from '../../contexts';
 import type { BoxProps } from '../Box';
 
 export type PositionProps = {
@@ -35,28 +35,28 @@ const Position = ({
     [positionStyle],
   );
 
-  const { document: targetDocument } = useTargetDocument();
+  const { document: ownerDocument } = useOwnerDocument();
 
   const [portalContainer] = useState(() => {
-    const prev = targetDocument.getElementById('position-container');
+    const prev = ownerDocument.getElementById('position-container');
     if (prev) {
       return prev;
     }
-    const element = targetDocument.createElement('div');
+    const element = ownerDocument.createElement('div');
 
     element.id = 'position-container';
 
-    targetDocument.body.appendChild(element);
+    ownerDocument.body.appendChild(element);
     return element;
   });
 
   useEffect(
     () => () => {
       if (portalContainer.childNodes.length === 0) {
-        targetDocument.body.removeChild(portalContainer);
+        ownerDocument.body.removeChild(portalContainer);
       }
     },
-    [portalContainer, targetDocument],
+    [portalContainer, ownerDocument],
   );
 
   return createPortal(
