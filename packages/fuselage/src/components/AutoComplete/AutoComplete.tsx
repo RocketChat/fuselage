@@ -1,16 +1,21 @@
 import {
   useStableCallback,
   useResizeObserver,
+  useMergedRefs,
 } from '@rocket.chat/fuselage-hooks';
 import type {
   AllHTMLAttributes,
   ChangeEvent,
   ComponentType,
   FocusEvent,
+  ForwardRefExoticComponent,
   MouseEvent,
+  ReactElement,
   ReactNode,
+  Ref,
+  RefAttributes,
 } from 'react';
-import { useEffect, useRef, useMemo, useState } from 'react';
+import { useEffect, useRef, useMemo, useState, forwardRef } from 'react';
 
 import { AnimatedVisibility } from '../AnimatedVisibility';
 import { Box } from '../Box';
@@ -53,7 +58,9 @@ export type AutoCompleteProps<TLabel> = Omit<
   disabled?: boolean;
   multiple?: boolean;
   value?: string | string[];
-};
+} & RefAttributes<HTMLInputElement>;
+
+// export type AutoCompleteProps<TLabel> = AutoComplete<TLabel>;
 
 const getSelected = <TLabel,>(
   value: string | string[] | undefined,
@@ -82,23 +89,27 @@ const isSelectedValid =
 /**
  * An input for selection of options.
  */
-function AutoComplete<TLabel = ReactNode>({
-  value,
-  filter,
-  setFilter,
-  options = [],
-  renderItem,
-  renderSelected: RenderSelected,
-  onChange,
-  renderEmpty,
-  placeholder,
-  error,
-  disabled,
-  multiple,
-  onBlur: onBlurAction = () => {},
-  ...props
-}: AutoCompleteProps<TLabel>) {
-  const ref = useRef<HTMLInputElement>(null);
+function AutoComplete<TLabel = ReactNode>(
+  {
+    value,
+    filter,
+    setFilter,
+    options = [],
+    renderItem,
+    renderSelected: RenderSelected,
+    onChange,
+    renderEmpty,
+    placeholder,
+    error,
+    disabled,
+    multiple,
+    onBlur: onBlurAction = () => {},
+    ...props
+  }: AutoCompleteProps<TLabel>,
+  ref: Ref<HTMLInputElement>,
+) {
+  const innerRef = useRef<HTMLInputElement>(null);
+  const mergedRefs = useMergedRefs(ref, innerRef);
   const { ref: containerRef, borderBoxSize } = useResizeObserver();
 
   const [selected, setSelected] = useState(
@@ -183,7 +194,7 @@ function AutoComplete<TLabel = ReactNode>({
     <Box
       rcx-autocomplete
       ref={containerRef}
-      onClick={useStableCallback(() => ref.current?.focus())}
+      onClick={useStableCallback(() => innerRef.current?.focus())}
       flexGrow={1}
       className={useMemo(
         () => [error && 'invalid', disabled && 'disabled'],
@@ -200,7 +211,7 @@ function AutoComplete<TLabel = ReactNode>({
       >
         <Margins all='x4'>
           <Input
-            ref={ref}
+            ref={mergedRefs}
             onChange={useStableCallback((e: ChangeEvent<HTMLInputElement>) =>
               setFilter?.(e.currentTarget.value),
             )}
@@ -262,4 +273,12 @@ function AutoComplete<TLabel = ReactNode>({
   );
 }
 
-export default AutoComplete;
+// Type definition that preserves both ForwardRefExoticComponent structure and generic signature
+interface AutoCompleteComponent
+  extends ForwardRefExoticComponent<AutoCompleteProps<any>> {
+  <TLabel = ReactNode>(
+    props: AutoCompleteProps<TLabel> & RefAttributes<HTMLInputElement>,
+  ): ReactElement;
+}
+
+export default forwardRef(AutoComplete) as AutoCompleteComponent;
