@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.33.0
+
+### Minor Changes
+
+- [#1948](https://github.com/RocketChat/fuselage/pull/1948) [`09ef890`](https://github.com/RocketChat/fuselage/commit/09ef89014ffe9e42f74f5cde6f1442b2f4088438) Thanks [@gabriellsh](https://github.com/gabriellsh)! - feat(styled): Implement `OwnerDocument` context and update `document` references
+
 ## 0.32.1
 
 ### Patch Changes
