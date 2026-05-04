@@ -1,5 +1,11 @@
 # @rocket.chat/fuselage-forms
 
+## 1.3.0
+
+### Minor Changes
+
+- [#1956](https://github.com/RocketChat/fuselage/pull/1956) [`3a7c41d`](https://github.com/RocketChat/fuselage/commit/3a7c41d4d23b88a7867bd260f2fe5832085716f5) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage-forms): add `AutoComplete` component
+
 ## 1.2.0
 
 ### Minor Changes
