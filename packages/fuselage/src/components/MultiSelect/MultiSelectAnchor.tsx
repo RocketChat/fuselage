@@ -1,4 +1,5 @@
 import type {
+  AriaAttributes,
   FocusEventHandler,
   KeyboardEventHandler,
   MouseEventHandler,
@@ -15,18 +16,17 @@ type MultiSelectAnchorProps = {
   onBlur: FocusEventHandler;
   onKeyUp: KeyboardEventHandler;
   onKeyDown: KeyboardEventHandler;
-};
+  role?: string;
+  id?: string;
+  name?: string;
+} & AriaAttributes;
 
 const MultiSelectAnchor = forwardRef<Element, MultiSelectAnchorProps>(
-  function MultiSelectAnchor(props, ref) {
+  function MultiSelectAnchor({ children, ...props }, ref) {
     return (
-      <SelectFocus
-        rcx-input-box--undecorated
-        ref={ref}
-        aria-haspopup='listbox'
-        order={1}
-        {...props}
-      />
+      <SelectFocus rcx-input-box--undecorated ref={ref} order={1} {...props}>
+        {children}
+      </SelectFocus>
     );
   },
 );

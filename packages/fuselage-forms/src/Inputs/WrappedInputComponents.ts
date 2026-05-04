@@ -12,12 +12,14 @@ import {
   TelephoneInput as TelephoneInputComponent,
   UrlInput as UrlInputComponent,
   MultiSelect as MultiSelectComponent,
+  MultiSelectFiltered as MultiSelectFilteredComponent,
   Slider as SliderComponent,
 } from '@rocket.chat/fuselage';
 
 import {
   withLabelId,
   withAriaLabelledBy,
+  withAriaLabelledByAndId,
   withVisuallyHiddenLabel,
 } from './withLabelHelpers';
 
@@ -35,7 +37,12 @@ export const UrlInput = withLabelId(UrlInputComponent);
 
 // with aria-labelledby
 export const Select = withAriaLabelledBy(SelectComponent);
-export const MultiSelect = withAriaLabelledBy(MultiSelectComponent);
+
+// with aria-labelledby + id for aria-controls
+export const MultiSelect = withAriaLabelledByAndId(MultiSelectComponent);
+export const MultiSelectFiltered = withAriaLabelledByAndId(
+  MultiSelectFilteredComponent,
+);
 export const Slider = withAriaLabelledBy(
   SliderComponent,
 ) as typeof SliderComponent;

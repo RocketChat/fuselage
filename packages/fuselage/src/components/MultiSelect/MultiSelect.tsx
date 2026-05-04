@@ -144,6 +144,19 @@ const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
       return show();
     });
 
+    const listboxId = props.id ? `${props.id}-listbox` : undefined;
+
+    const {
+      id,
+      name,
+      'aria-label': ariaLabel,
+      'aria-labelledby': ariaLabelledBy,
+      'aria-describedby': ariaDescribedBy,
+      'aria-invalid': ariaInvalid,
+      'aria-required': ariaRequired,
+      ...containerProps
+    } = props;
+
     return (
       <Box
         is='div'
@@ -152,7 +165,7 @@ const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
         ref={containerRef}
         onClick={handleClick}
         disabled={disabled}
-        {...props}
+        {...containerProps}
       >
         <FlexItem grow={1}>
           <Margins inline='x4'>
@@ -175,8 +188,17 @@ const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
                       'onBlur': hide,
                       'onKeyDown': handleKeyDown,
                       'onKeyUp': handleKeyUp,
+                      'role': 'combobox',
                       'aria-expanded': visible === AnimatedVisibility.VISIBLE,
-                      'aria-labelledby': props['aria-labelledby'],
+                      'aria-haspopup': 'listbox',
+                      'aria-controls': listboxId,
+                      id,
+                      name,
+                      'aria-label': ariaLabel,
+                      'aria-labelledby': ariaLabelledBy,
+                      'aria-describedby': ariaDescribedBy,
+                      'aria-invalid': ariaInvalid,
+                      'aria-required': ariaRequired,
                     })}
                     {internalValue.map((value: SelectOption[0]) => {
                       const currentOption = options.find(
@@ -237,7 +259,7 @@ const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
               multiple
               filter={filter}
               renderItem={renderItem || CheckOption}
-              role='listbox'
+              id={listboxId}
               options={filteredOptions}
               onSelect={internalChanged}
               cursor={cursor}

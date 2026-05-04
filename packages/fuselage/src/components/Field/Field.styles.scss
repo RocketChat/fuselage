@@ -1,6 +1,7 @@
 @use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
-@use '../../styles/typography.scss';
+@use '../../styles/typography.scss' as *;
+@use '../../styles/primitives/rich-text.scss';
 
 .rcx-field {
   display: flex;
@@ -11,7 +12,7 @@
   width: 100%;
 
   &__label {
-    @include typography.use-font-scale(p2m);
+    @include use-font-scale(p2m);
     align-self: flex-start;
 
     margin-block: lengths.margin(2);
@@ -21,11 +22,11 @@
   }
 
   &__description {
-    @include typography.use-font-scale(p2);
+    @include use-font-scale(p2);
     margin-block: lengths.margin(2);
 
     color: colors.font(secondary-info);
-    @extend %--with-inline-elements;
+    @extend %with-inline-elements;
   }
 
   &__row {
@@ -40,26 +41,26 @@
   }
 
   &__hint {
-    @include typography.use-font-scale(c1);
+    @include use-font-scale(c1);
     margin-block: lengths.margin(2);
 
     color: colors.font(secondary-info);
-    @extend %--with-inline-elements;
+    @extend %with-inline-elements;
   }
 
   &__error {
-    @include typography.use-font-scale(c1);
+    @include use-font-scale(c1);
     margin-block: lengths.margin(2);
 
     color: colors.font(danger);
-    @extend %--with-inline-elements;
+    @extend %with-inline-elements;
   }
 
   &__link {
-    @include typography.use-font-scale(c1);
+    @include use-font-scale(c1);
     margin-block: lengths.margin(2);
 
     color: colors.font(info);
-    @extend %--with-inline-elements;
+    @extend %with-inline-elements;
   }
 }
