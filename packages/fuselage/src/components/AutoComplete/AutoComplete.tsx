@@ -274,7 +274,7 @@ function AutoComplete<TLabel = ReactNode>(
 }
 
 // Type definition that preserves both ForwardRefExoticComponent structure and generic signature
-interface AutoCompleteComponent
+export interface AutoCompleteComponent
   extends ForwardRefExoticComponent<AutoCompleteProps<any>> {
   <TLabel = ReactNode>(
     props: AutoCompleteProps<TLabel> & RefAttributes<HTMLInputElement>,
