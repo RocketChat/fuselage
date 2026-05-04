@@ -11,6 +11,7 @@ import {
   NumberInput as NumberInputComponent,
   TelephoneInput as TelephoneInputComponent,
   UrlInput as UrlInputComponent,
+  AutoComplete as AutoCompleteComponent,
   MultiSelect as MultiSelectComponent,
   MultiSelectFiltered as MultiSelectFilteredComponent,
   Slider as SliderComponent,
@@ -39,6 +40,9 @@ export const UrlInput = withLabelId(UrlInputComponent);
 export const Select = withAriaLabelledBy(SelectComponent);
 
 // with aria-labelledby + id for aria-controls
+export const AutoComplete = withAriaLabelledByAndId(
+  AutoCompleteComponent,
+) as typeof AutoCompleteComponent;
 export const MultiSelect = withAriaLabelledByAndId(MultiSelectComponent);
 export const MultiSelectFiltered = withAriaLabelledByAndId(
   MultiSelectFilteredComponent,
