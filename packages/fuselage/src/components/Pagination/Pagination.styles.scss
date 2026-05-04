@@ -1,6 +1,14 @@
 @use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
-@use '../../styles/typography.scss';
+@use '../../styles/typography.scss' as *;
+@use '../../styles/mixins/breakpoints.scss' as *;
+@use '../../styles/mixins/interactivity.scss' as *;
+@use '../../styles/functions.scss' as *;
+
+$pagination-border-radius: theme(
+  'pagination-border-radius',
+  lengths.border-radius(small)
+);
 
 .rcx-pagination {
   display: flex;
@@ -31,10 +39,7 @@
 
       content: '';
 
-      border-radius: theme(
-        'pagination-border-radius',
-        lengths.border-radius(small)
-      );
+      border-radius: $pagination-border-radius;
       background-color: colors.stroke(extra-light);
     }
   }
@@ -78,7 +83,7 @@
 }
 
 .rcx-pagination__label {
-  @include typography.use-font-scale(c1);
+  @include use-font-scale(c1);
 
   color: colors.font(annotation);
 }
@@ -92,7 +97,7 @@
 }
 
 .rcx-pagination__list-item {
-  @include typography.use-font-scale(c1);
+  @include use-font-scale(c1);
   display: flex;
 
   margin-inline: lengths.margin(2);
@@ -102,7 +107,7 @@
 }
 
 .rcx-pagination__link {
-  @include typography.use-font-scale(c1);
+  @include use-font-scale(c1);
   @include clickable;
   display: inline-flex;
 
@@ -116,7 +121,7 @@
 
   &.disabled,
   &:disabled {
-    @include typography.use-font-scale(c2);
+    @include use-font-scale(c2);
     cursor: default;
 
     color: colors.font(default);
@@ -125,7 +130,7 @@
 
 .rcx-pagination__back,
 .rcx-pagination__forward {
-  @include typography.use-font-scale(c1);
+  @include use-font-scale(c1);
   @include clickable;
   display: inline-flex;
 

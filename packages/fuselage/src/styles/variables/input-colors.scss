@@ -1,4 +1,5 @@
 @use '../colors.scss';
+@use '../functions.scss' as *;
 
 $input-colors-background-color: theme(
   'input-colors-background-color',

@@ -6,6 +6,7 @@ const Busy = ({ size, className, ...props }: StatusBulletProps) => (
     width='10'
     height='10'
     viewBox='0 0 10 10'
+    aria-hidden='true'
     className={`rcx-status-bullet rcx-status-bullet--busy ${className} ${
       size === 'small' ? 'rcx-status-bullet--small' : ''
     }`}

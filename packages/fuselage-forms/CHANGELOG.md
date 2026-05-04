@@ -1,5 +1,11 @@
 # @rocket.chat/fuselage-forms
 
+## 1.2.0
+
+### Minor Changes
+
+- [#1942](https://github.com/RocketChat/fuselage/pull/1942) [`ef9dedd`](https://github.com/RocketChat/fuselage/commit/ef9dedd02084073731bd9cc008e1268e23b4b9a0) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage-forms): Add `MultiSelectFiltered` component
+
 ## 1.1.1
 
 ### Patch Changes

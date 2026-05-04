@@ -1,6 +1,7 @@
 @use '../../../styles/colors.scss';
+@use '../../../styles/functions.scss' as *;
 @use '../../../styles/lengths.scss';
-@use '../../../styles/typography.scss';
+@use '../../../styles/typography.scss' as *;
 
 $message-background-color: theme(
   'message-background-color',
@@ -33,7 +34,7 @@ $message-divider-size-neg: theme(
 );
 
 .rcx-message-divider {
-  @include typography.use-font-scale(c2);
+  @include use-font-scale(c2);
 
   position: relative;
   z-index: 1;
@@ -68,12 +69,6 @@ $message-divider-size-neg: theme(
       background: $message-divider-background-color-unread;
     }
   }
-
-  // &--unread {
-  //   &:after,
-  //   &:before {
-  //   }
-  // }
 
   &__wrapper {
     margin-block: lengths.margin(8);

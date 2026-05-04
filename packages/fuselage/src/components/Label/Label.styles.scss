@@ -1,9 +1,9 @@
 @use '../../styles/colors.scss';
-@use '../../styles/typography.scss';
 @use '../../styles/lengths.scss';
+@use '../../styles/typography.scss' as *;
 
 .rcx-label {
-  @include typography.use-font-scale(p2m);
+  @include use-font-scale(p2m);
   display: flex;
 
   cursor: default;
