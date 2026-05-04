@@ -60,8 +60,6 @@ export type AutoCompleteProps<TLabel> = Omit<
   value?: string | string[];
 } & RefAttributes<HTMLInputElement>;
 
-// export type AutoCompleteProps<TLabel> = AutoComplete<TLabel>;
-
 const getSelected = <TLabel,>(
   value: string | string[] | undefined,
   options: AutoCompleteOption<TLabel>[],
@@ -273,7 +271,6 @@ function AutoComplete<TLabel = ReactNode>(
   );
 }
 
-// Type definition that preserves both ForwardRefExoticComponent structure and generic signature
 export interface AutoCompleteComponent
   extends ForwardRefExoticComponent<AutoCompleteProps<any>> {
   <TLabel = ReactNode>(
