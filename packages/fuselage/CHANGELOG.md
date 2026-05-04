@@ -1,5 +1,17 @@
 # Change Log
 
+## 0.78.0
+
+### Minor Changes
+
+- [#1947](https://github.com/RocketChat/fuselage/pull/1947) [`3620915`](https://github.com/RocketChat/fuselage/commit/3620915b5fede3d4cef6f1bad832f93aad62a6fd) Thanks [@gabriellsh](https://github.com/gabriellsh)! - feat(fuselage): Implement `OwnerDocument` context and update `document` references
+
+- [#1956](https://github.com/RocketChat/fuselage/pull/1956) [`3a7c41d`](https://github.com/RocketChat/fuselage/commit/3a7c41d4d23b88a7867bd260f2fe5832085716f5) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage-forms): add `AutoComplete` component
+
+### Patch Changes
+
+- [#1951](https://github.com/RocketChat/fuselage/pull/1951) [`76d62c0`](https://github.com/RocketChat/fuselage/commit/76d62c03dacdca4b893e58d1c44f4dfcbf8c0ba6) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): Add `aria-hidden` attribute to `StatusBullet`
+
 ## 0.77.0
 
 ### Minor Changes
