@@ -19,6 +19,8 @@ const {
   WithTextArea,
   WithMultiSelect,
   WithSlider,
+  WithAutoComplete,
+  WithAutoCompleteMultiple,
   ...restStories
 } = composedStories;
 

@@ -1,60 +1,82 @@
 @use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
-@use '../../styles/typography.scss';
-@use '../../styles/functions.scss';
+@use '../../styles/typography.scss' as *;
+@use '../../styles/functions.scss' as *;
 
-$tooltip-dark-background-color: functions.theme(
+$tooltip-border-radius: theme(
+  'tooltip-border-radius',
+  lengths.border-radius(medium)
+);
+$tooltip-dark-background-color: theme(
   'tooltip-dark-background-color',
   colors.surface(dark)
 );
-$tooltip-dark-text-color: functions.theme(
-  'tooltip-dark-text-color',
-  colors.font(white)
-);
-$tooltip-light-background-color: functions.theme(
+$tooltip-dark-text-color: theme('tooltip-dark-text-color', colors.font(white));
+$tooltip-light-background-color: theme(
   'tooltip-light-background-color',
   colors.surface(neutral)
 );
-$tooltip-light-text-color: functions.theme(
+$tooltip-light-text-color: theme(
   'tooltip-light-text-color',
   colors.font(default)
 );
 
-@mixin triangle-direction($direction) {
-  &::after {
-    position: absolute;
+.rcx-tooltip {
+  position: relative;
 
-    box-sizing: border-box;
+  display: inline-block;
 
-    content: ' ';
+  max-width: 240px;
+  padding: 8px 12px;
 
-    border-width: 4px;
-    border-color: transparent transparent $tooltip-dark-background-color
-      $tooltip-dark-background-color;
-    border-radius: 0 0 0 (2px);
+  user-select: none;
+  word-break: break-word;
+  pointer-events: none;
 
-    block-size: 0;
-    inline-size: 0;
+  color: $tooltip-dark-text-color;
+  border-radius: $tooltip-border-radius;
+  background-color: $tooltip-dark-background-color;
 
-    @if $direction == 'bottom' {
-      inset-block-start: -4px;
+  @include use-font-scale(p2m);
 
-      transform: rotate(135deg);
+  &--dir-top,
+  &--dir-bottom,
+  &--dir-left,
+  &--dir-right {
+    &::after {
+      position: absolute;
+
+      box-sizing: border-box;
+
+      content: ' ';
+
+      border-width: 4px;
+      border-color: transparent transparent $tooltip-dark-background-color
+        $tooltip-dark-background-color;
+      border-radius: 0 0 0 (2px);
+      block-size: 0;
+      inline-size: 0;
     }
-    @if $direction == 'top' {
+  }
+
+  &--dir-top {
+    &::after {
       inset-block-end: -4px;
 
       transform: rotate(-45deg);
     }
-    @if $direction == 'right' {
-      inset-block-start: 50%;
-      inset-inline-start: -4px;
+  }
 
-      margin-block-start: -4px;
+  &--dir-bottom {
+    &::after {
+      inset-block-start: -4px;
 
-      transform: rotate(45deg);
+      transform: rotate(135deg);
     }
-    @if $direction == 'left' {
+  }
+
+  &--dir-left {
+    &::after {
       inset-block-start: 50%;
       inset-inline-end: -4px;
 
@@ -63,48 +85,16 @@ $tooltip-light-text-color: functions.theme(
       transform: rotate(-135deg);
     }
   }
-}
-
-.rcx-tooltip {
-  position: relative;
-
-  display: inline-block;
-
-  max-width: 240px;
-
-  padding: 8px 12px;
-
-  user-select: none;
-
-  word-break: break-word;
-
-  pointer-events: none;
-
-  color: $tooltip-dark-text-color;
-
-  border-radius: functions.theme(
-    'tooltip-border-radius',
-    lengths.border-radius(medium)
-  );
-
-  background-color: $tooltip-dark-background-color;
-
-  @include typography.use-font-scale(p2m);
-
-  &--dir-top {
-    @include triangle-direction('top');
-  }
-
-  &--dir-bottom {
-    @include triangle-direction('bottom');
-  }
-
-  &--dir-left {
-    @include triangle-direction('left');
-  }
 
   &--dir-right {
-    @include triangle-direction('right');
+    &::after {
+      inset-block-start: 50%;
+      inset-inline-start: -4px;
+
+      margin-block-start: -4px;
+
+      transform: rotate(45deg);
+    }
   }
 
   &--dark {

@@ -1,8 +1,8 @@
 @use '../colors.scss';
 @use '../lengths.scss';
 
-@import './shadows.scss';
-@import './states.scss';
+@use './shadows.scss' as *;
+@use './states.scss' as *;
 
 @mixin focus-state($shadow: true) {
   border-width: lengths.border-width('default');

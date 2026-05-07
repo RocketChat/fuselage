@@ -60,6 +60,13 @@ export const SelectAria = forwardRef<HTMLElement, SelectAriaProps<object>>(
 
     return (
       <>
+        <HiddenSelect
+          state={state}
+          triggerRef={ref}
+          label={props.label}
+          name={props.name}
+          isDisabled={isDisabled}
+        />
         <SelectTrigger
           {...mergeProps(focusProps, triggerProps)}
           ref={mergedRef}
@@ -68,13 +75,6 @@ export const SelectAria = forwardRef<HTMLElement, SelectAriaProps<object>>(
           error={error}
           id={id}
         >
-          <HiddenSelect
-            state={state}
-            triggerRef={ref}
-            label={props.label}
-            name={props.name}
-            isDisabled={isDisabled}
-          />
           <Box
             is='span'
             color={state.selectedItem ? 'default' : 'hint'}

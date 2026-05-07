@@ -1,10 +1,15 @@
 @use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
-@use '../../styles/typography.scss';
+@use '../../styles/typography.scss' as *;
+@use '../../styles/mixins/breakpoints.scss' as *;
+@use '../../styles/functions.scss' as *;
 
 $modal-container-margin: theme('modal-container-margin', lengths.size(24));
-
 $modal-margin: theme('modal-margin', auto);
+$modal-border-radius: theme(
+  'modal-border-radius',
+  lengths.border-radius(large)
+);
 
 .rcx-modal {
   position: static;
@@ -28,9 +33,9 @@ $modal-margin: theme('modal-margin', auto);
     padding: 0;
 
     color: colors.font(default);
-    border-radius: theme('modal-border-radius', lengths.border-radius(large));
+    border-radius: $modal-border-radius;
     background-color: colors.surface(light);
-    @include typography.use-font-scale(p2);
+    @include use-font-scale(p2);
   }
 
   &__header {
@@ -41,7 +46,7 @@ $modal-margin: theme('modal-margin', auto);
       flex-direction: column;
       flex-grow: 1;
       flex-shrink: 1;
-      @include typography.use-text-ellipsis;
+      @include use-text-ellipsis;
     }
   }
 
@@ -53,20 +58,20 @@ $modal-margin: theme('modal-margin', auto);
   }
 
   &__title {
-    @include typography.use-text-ellipsis;
+    @include use-text-ellipsis;
     flex-grow: 1;
     flex-shrink: 1;
 
     white-space: nowrap;
 
     color: colors.font(default);
-    @include typography.use-font-scale(h2);
+    @include use-font-scale(h2);
   }
 
   &__tagline {
     color: colors.font(default);
 
-    @include typography.use-font-scale(c2);
+    @include use-font-scale(c2);
   }
 
   &__hero-image {
@@ -103,7 +108,7 @@ $modal-margin: theme('modal-margin', auto);
 
     &-annotation {
       color: colors.font(secondary-info);
-      @include typography.use-font-scale(c1);
+      @include use-font-scale(c1);
     }
   }
 

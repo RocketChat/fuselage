@@ -1,6 +1,13 @@
 @use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
-@use '../../styles/typography.scss';
+@use '../../styles/typography.scss' as *;
+@use '../../styles/mixins/interactivity.scss' as *;
+@use '../../styles/functions.scss' as *;
+
+$table-selected-border-radius: theme(
+  'table-selected-border-radius',
+  lengths.border-radius(medium)
+);
 
 .rcx-table {
   display: table;
@@ -17,10 +24,7 @@
 
   &__selection {
     color: colors.font(titles-labels);
-    border-radius: theme(
-      'table-selected-border-radius',
-      lengths.border-radius(medium)
-    );
+    border-radius: $table-selected-border-radius;
     background-color: colors.surface(neutral);
   }
 
@@ -72,7 +76,7 @@
 
     &--action:hover,
     &--action:focus {
-      @include clickable();
+      @include clickable;
       background-color: colors.surface(hover);
     }
   }
@@ -87,12 +91,12 @@
     vertical-align: middle;
 
     color: colors.font(secondary-info);
-    @include typography.use-font-scale(p2);
+    @include use-font-scale(p2);
 
     &--header {
       position: relative;
 
-      @include typography.use-font-scale(c2);
+      @include use-font-scale(c2);
       color: colors.font(secondary-info);
 
       &::after {
@@ -111,7 +115,7 @@
     }
 
     &--clickable {
-      @include clickable();
+      @include clickable;
     }
 
     @each $align in (start, end, center, justify) {

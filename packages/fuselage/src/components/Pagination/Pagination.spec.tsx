@@ -1,9 +1,33 @@
+import { composeStories } from '@storybook/react-webpack5';
+import { axe } from 'jest-axe';
+
 import { render } from '../../testing';
 
-import Pagination from './Pagination';
+import * as stories from './Pagination.stories';
 
-describe('[Pagination Component]', () => {
-  it('renders without crashing', () => {
-    render(<Pagination count={0} />);
-  });
+const { Default } = composeStories(stories);
+
+jest.mock('react', () => ({
+  ...jest.requireActual('react'),
+  useId: () => 'test-id',
+}));
+
+it('renders without crashing', () => {
+  const tree = render(<Default />);
+  expect(tree.baseElement).toMatchSnapshot();
+});
+
+it('%s should have no a11y violations', async () => {
+  const { container } = render(<Default />);
+
+  const results = await axe(container);
+  expect(results).toHaveNoViolations();
+});
+
+it('should override with custom aria-label', () => {
+  const { getByLabelText } = render(
+    <Default aria-label='Custom Pagination Navigation' />,
+  );
+
+  expect(getByLabelText('Custom Pagination Navigation')).toBeInTheDocument();
 });

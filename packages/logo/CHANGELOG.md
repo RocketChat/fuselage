@@ -1,5 +1,12 @@
 # Change Log
 
+## 0.32.5
+
+### Patch Changes
+
+- Updated dependencies [[`09ef890`](https://github.com/RocketChat/fuselage/commit/09ef89014ffe9e42f74f5cde6f1442b2f4088438)]:
+  - @rocket.chat/styled@0.33.0
+
 ## 0.32.4
 
 ### Patch Changes

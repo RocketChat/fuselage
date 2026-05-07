@@ -16,6 +16,7 @@ import {
   UrlInput,
   MultiSelect,
   Slider,
+  AutoComplete,
 } from '../Inputs';
 
 import {
@@ -235,12 +236,13 @@ export const WithUrlInput: StoryFn<typeof Field> = () => (
 
 export const WithSelect: StoryFn<typeof Field> = () => (
   <Field>
-    <FieldRow>
-      <FieldLabel required>
-        Example Select
-        <FieldLabelInfo title='with extra info in a tooltip' />
-      </FieldLabel>
-    </FieldRow>
+    <FieldLabel required>
+      Example Select
+      <FieldLabelInfo title='with extra info in a tooltip' />
+    </FieldLabel>
+    <FieldDescription>
+      You can select a single option from a list of options
+    </FieldDescription>
     <FieldRow>
       <Select
         options={[
@@ -257,13 +259,7 @@ export const WithSelect: StoryFn<typeof Field> = () => (
         ]}
       />
     </FieldRow>
-
-    <FieldRow>
-      <FieldDescription>
-        You can select a single option from a list of options
-      </FieldDescription>
-      <FieldError>You failed to enter a valid value</FieldError>
-    </FieldRow>
+    <FieldError>You failed to enter a valid value</FieldError>
     <FieldRow>
       <FieldHint>This should help the user enter a valid value</FieldHint>
       <FieldLink href='#'>Link to more information</FieldLink>
@@ -322,6 +318,99 @@ export const WithSlider: StoryFn<typeof Field> = () => {
       </FieldDescription>
       <FieldRow>
         <Slider value={value} onChange={setValue} />
+      </FieldRow>
+      <FieldError>You failed to enter a valid value</FieldError>
+      <FieldRow>
+        <FieldHint>This should help the user enter a valid value</FieldHint>
+        <FieldLink href='#'>Link to more information</FieldLink>
+      </FieldRow>
+    </Field>
+  );
+};
+
+export const WithAutoComplete: StoryFn<typeof Field> = () => {
+  const [filter, setFilter] = useState('');
+  const [value, setValue] = useState<string>('');
+
+  const options = [
+    { value: '1', label: 'Option 1' },
+    { value: '2', label: 'Option 2' },
+    { value: '3', label: 'Option 3' },
+    { value: '4', label: 'Option 4' },
+    { value: '5', label: 'Option 5' },
+  ];
+
+  const handleChange = (newValue: string | string[]) => {
+    if (typeof newValue === 'string') {
+      setValue(newValue);
+    }
+  };
+
+  return (
+    <Field>
+      <FieldLabel required>
+        Example AutoComplete
+        <FieldLabelInfo title='with extra info in a tooltip' />
+      </FieldLabel>
+      <FieldDescription>
+        You can search and select a single option from a list
+      </FieldDescription>
+      <FieldRow>
+        <AutoComplete
+          value={value}
+          filter={filter}
+          setFilter={setFilter}
+          options={options}
+          onChange={handleChange}
+          placeholder='Search...'
+        />
+      </FieldRow>
+      <FieldError>You failed to enter a valid value</FieldError>
+      <FieldRow>
+        <FieldHint>This should help the user enter a valid value</FieldHint>
+        <FieldLink href='#'>Link to more information</FieldLink>
+      </FieldRow>
+    </Field>
+  );
+};
+
+export const WithAutoCompleteMultiple: StoryFn<typeof Field> = () => {
+  const [filter, setFilter] = useState('');
+  const [value, setValue] = useState<string[]>(['1', '3']);
+
+  const options = [
+    { value: '1', label: 'Option 1' },
+    { value: '2', label: 'Option 2' },
+    { value: '3', label: 'Option 3' },
+    { value: '4', label: 'Option 4' },
+    { value: '5', label: 'Option 5' },
+  ];
+
+  const handleChange = (newValue: string | string[]) => {
+    if (Array.isArray(newValue)) {
+      setValue(newValue);
+    }
+  };
+
+  return (
+    <Field>
+      <FieldLabel required>
+        Example AutoComplete (Multiple)
+        <FieldLabelInfo title='with extra info in a tooltip' />
+      </FieldLabel>
+      <FieldDescription>
+        You can search and select multiple options from a list
+      </FieldDescription>
+      <FieldRow>
+        <AutoComplete
+          multiple
+          value={value}
+          filter={filter}
+          setFilter={setFilter}
+          options={options}
+          onChange={handleChange}
+          placeholder='Search...'
+        />
       </FieldRow>
       <FieldError>You failed to enter a valid value</FieldError>
       <FieldRow>
