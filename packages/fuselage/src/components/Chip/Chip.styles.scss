@@ -5,6 +5,7 @@
 @use '../../styles/mixins/button.scss';
 @use '../../styles/variables/button-colors.scss' as *;
 @use '../../styles/mixins/interactivity.scss' as *;
+@use '../Box/Box.styles.scss';
 
 // to do: replace button with stroke
 
@@ -56,6 +57,8 @@ $chip-disabled-border-color: theme(
 $chip-disabled-color: theme('chip-disabled-color', colors.font(disabled));
 
 .rcx-chip {
+  @extend %box--full;
+
   @include button.kind-variant(
     (
       background-color: $chip-background-color,
