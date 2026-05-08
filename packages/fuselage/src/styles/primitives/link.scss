@@ -9,8 +9,8 @@ $link-focus-outline-color: theme(
   'link-focus-outline-color',
   colors.stroke(highlight)
 );
-$link-focus-outline-color: theme(
-  'link-focus-outline-color',
+$link-focus-box-shadow-color: theme(
+  'link-focus-box-shadow-color',
   colors.stroke(extra-light-highlight)
 );
 $link-visited-color: theme('link-visited-color', colors.font(info));
@@ -28,7 +28,7 @@ $link-active-color: theme('link-active-color', colors.font(info));
     border-radius: lengths.border-radius(small);
     outline: $link-focus-outline-color solid 1px;
     outline-offset: 0;
-    @include use-focus-shadow($link-focus-outline-color);
+    @include use-focus-shadow($link-focus-box-shadow-color);
   }
 
   &:where(:visited),
