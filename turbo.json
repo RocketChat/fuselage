@@ -3,7 +3,8 @@
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["dist/**", "storybook-static/**"]
+      "inputs": ["$TURBO_DEFAULT$", "!*.api.md"],
+      "outputs": ["dist/**", "storybook-static/**", "*.api.md"]
     },
     "test": {
       "dependsOn": ["build"],
