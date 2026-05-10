@@ -5680,6 +5680,7 @@ __metadata:
   resolution: "@rocket.chat/css-in-js@workspace:packages/css-in-js"
   dependencies:
     "@emotion/hash": "npm:^0.9.2"
+    "@microsoft/api-extractor": "npm:~7.58.7"
     "@rocket.chat/css-supports": "workspace:~"
     "@rocket.chat/memo": "workspace:~"
     "@rocket.chat/stylis-logical-props-middleware": "workspace:~"
@@ -5705,6 +5706,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@rocket.chat/css-supports@workspace:packages/css-supports"
   dependencies:
+    "@microsoft/api-extractor": "npm:~7.58.7"
     "@rocket.chat/memo": "workspace:~"
     eslint: "npm:~9.39.2"
     lint-all: "workspace:~"
@@ -5719,6 +5721,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@rocket.chat/emitter@workspace:packages/emitter"
   dependencies:
+    "@microsoft/api-extractor": "npm:~7.58.7"
     "@rollup/plugin-commonjs": "npm:~28.0.9"
     "@rollup/plugin-json": "npm:~6.1.0"
     "@rollup/plugin-node-resolve": "npm:~16.0.3"
@@ -5740,6 +5743,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@rocket.chat/fuselage-forms@workspace:packages/fuselage-forms"
   dependencies:
+    "@microsoft/api-extractor": "npm:~7.58.7"
     "@rocket.chat/emitter": "workspace:~"
     "@rocket.chat/fuselage": "workspace:~"
     "@rocket.chat/fuselage-hooks": "workspace:~"
@@ -5782,6 +5786,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@rocket.chat/fuselage-hooks@workspace:packages/fuselage-hooks"
   dependencies:
+    "@microsoft/api-extractor": "npm:~7.58.7"
     "@rocket.chat/emitter": "workspace:~"
     "@rocket.chat/fuselage-tokens": "workspace:~"
     "@rollup/plugin-commonjs": "npm:~28.0.9"
@@ -5849,6 +5854,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@rocket.chat/fuselage-toastbar@workspace:packages/fuselage-toastbar"
   dependencies:
+    "@microsoft/api-extractor": "npm:~7.58.7"
     "@rocket.chat/fuselage": "workspace:~"
     "@rocket.chat/fuselage-hooks": "workspace:~"
     "@rocket.chat/fuselage-tokens": "workspace:~"
@@ -6013,6 +6019,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@rocket.chat/layout@workspace:packages/layout"
   dependencies:
+    "@microsoft/api-extractor": "npm:~7.58.7"
     "@rocket.chat/fuselage": "workspace:~"
     "@rocket.chat/fuselage-tokens": "workspace:~"
     "@rocket.chat/storybook-dark-mode": "workspace:~"
@@ -6080,6 +6087,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@rocket.chat/memo@workspace:packages/memo"
   dependencies:
+    "@microsoft/api-extractor": "npm:~7.58.7"
     eslint: "npm:~9.39.2"
     jest: "npm:~30.3.0"
     lint-all: "workspace:~"
@@ -6118,6 +6126,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@rocket.chat/onboarding-ui@workspace:packages/onboarding-ui"
   dependencies:
+    "@microsoft/api-extractor": "npm:~7.58.7"
     "@rocket.chat/fuselage": "workspace:~"
     "@rocket.chat/fuselage-hooks": "workspace:~"
     "@rocket.chat/fuselage-tokens": "workspace:~"
@@ -6199,6 +6208,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@rocket.chat/string-helpers@workspace:packages/string-helpers"
   dependencies:
+    "@microsoft/api-extractor": "npm:~7.58.7"
     eslint: "npm:~9.39.2"
     jest: "npm:~30.3.0"
     lint-all: "workspace:~"
@@ -6215,6 +6225,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@rocket.chat/styled@workspace:packages/styled"
   dependencies:
+    "@microsoft/api-extractor": "npm:~7.58.7"
     "@rocket.chat/css-in-js": "workspace:~"
     "@testing-library/dom": "npm:~10.4.1"
     "@testing-library/react": "npm:~16.3.2"

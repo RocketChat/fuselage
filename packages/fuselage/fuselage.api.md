@@ -97,7 +97,7 @@ large?: boolean;
 square?: boolean;
 external?: boolean;
 icon?: IconProps["name"];
-} & Omit<AllHTMLAttributes<HTMLAnchorElement | HTMLButtonElement>, "size" | "is" | "className"> & ButtonSize & {
+} & Omit<AllHTMLAttributes<HTMLAnchorElement | HTMLButtonElement>, "is" | "size" | "className"> & ButtonSize & {
 icon: IconProps["name"];
 } & RefAttributes<HTMLButtonElement>>;
 
@@ -290,7 +290,7 @@ large?: boolean;
 square?: boolean;
 external?: boolean;
 icon?: IconProps["name"];
-} & Omit<AllHTMLAttributes<HTMLAnchorElement | HTMLButtonElement>, "size" | "is" | "className"> & RefAttributes<HTMLAnchorElement | HTMLButtonElement>>;
+} & Omit<AllHTMLAttributes<HTMLAnchorElement | HTMLButtonElement>, "is" | "size" | "className"> & RefAttributes<HTMLAnchorElement | HTMLButtonElement>>;
 
 // @public (undocumented)
 export const ButtonGroup: ForwardRefExoticComponent<    {
@@ -837,7 +837,7 @@ export type GridProps = BoxProps & {
 };
 
 // @public (undocumented)
-export const Icon: ForwardRefExoticComponent<Omit<BoxProps, "size" | "name"> & {
+export const Icon: ForwardRefExoticComponent<Omit<BoxProps, "name" | "size"> & {
 name: Keys;
 size?: BoxProps["width"];
 } & RefAttributes<HTMLElement>>;

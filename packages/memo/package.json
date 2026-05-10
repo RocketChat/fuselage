@@ -28,7 +28,8 @@
   "scripts": {
     ".:build:cjs": "tsc -p tsconfig.cjs.json",
     ".:build:esm": "tsc -p tsconfig.esm.json",
-    "build": "run .:build:esm && run .:build:cjs",
+    ".:build:api": "api-extractor run --local",
+    "build": "run .:build:esm && run .:build:cjs && api-extractor run --local",
     "clean": "rimraf dist",
     "docs": "typedoc",
     "lint": "lint",
@@ -36,6 +37,7 @@
     "test": "jest --runInBand"
   },
   "devDependencies": {
+    "@microsoft/api-extractor": "~7.58.7",
     "eslint": "~9.39.2",
     "jest": "~30.3.0",
     "lint-all": "workspace:~",

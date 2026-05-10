@@ -27,16 +27,18 @@
     "/dist"
   ],
   "scripts": {
-    "build": "run-s .:build:clean .:build:esm .:build:cjs",
+    "build": "run-s .:build:clean .:build:esm .:build:cjs .:build:api",
     ".:build:clean": "rimraf dist",
     ".:build:esm": "tsc -p tsconfig.esm.json",
     ".:build:cjs": "tsc -p tsconfig.cjs.json",
+    ".:build:api": "api-extractor run --local",
     "lint": "lint",
     "lint-and-fix": "lint-and-fix",
     "test": "jest --runInBand",
     "docs": "typedoc"
   },
   "devDependencies": {
+    "@microsoft/api-extractor": "~7.58.7",
     "eslint": "~9.39.2",
     "jest": "~30.3.0",
     "lint-all": "workspace:~",

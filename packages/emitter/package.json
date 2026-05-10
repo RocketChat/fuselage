@@ -27,13 +27,15 @@
     "/dist"
   ],
   "scripts": {
-    "build": "rollup -c",
+    "build": "rollup -c && api-extractor run --local",
+    ".:build:api": "api-extractor run --local",
     "lint": "lint",
     "lint-and-fix": "lint-and-fix",
     "test": "jest --runInBand",
     "docs": "typedoc"
   },
   "devDependencies": {
+    "@microsoft/api-extractor": "~7.58.7",
     "@rollup/plugin-commonjs": "~28.0.9",
     "@rollup/plugin-json": "~6.1.0",
     "@rollup/plugin-node-resolve": "~16.0.3",
