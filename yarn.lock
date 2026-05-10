@@ -6022,6 +6022,7 @@ __metadata:
     "@microsoft/api-extractor": "npm:~7.58.7"
     "@rocket.chat/fuselage": "workspace:~"
     "@rocket.chat/fuselage-tokens": "workspace:~"
+    "@rocket.chat/logo": "workspace:~"
     "@rocket.chat/storybook-dark-mode": "workspace:~"
     "@storybook/addon-a11y": "npm:~9.1.17"
     "@storybook/addon-docs": "npm:~9.1.17"
@@ -6048,6 +6049,7 @@ __metadata:
     typescript: "npm:~5.9.3"
   peerDependencies:
     "@rocket.chat/fuselage": "*"
+    "@rocket.chat/logo": "*"
     react: "*"
     react-dom: "*"
     react-i18next: "*"
