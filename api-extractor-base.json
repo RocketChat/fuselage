@@ -1,0 +1,51 @@
+/**
+ * Shared base config file for API Extractor in the fuselage monorepo.
+ * For more info, please visit: https://api-extractor.com
+ *
+ * Each package should create its own api-extractor.json that extends this file:
+ *
+ *   {
+ *     "extends": "../../api-extractor-base.json",
+ *     "mainEntryPointFilePath": "<projectFolder>/dist/index.d.ts"
+ *   }
+ */
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/api-extractor/v7/api-extractor.schema.json",
+
+  "bundledPackages": [],
+
+  "compiler": {},
+
+  "apiReport": {
+    "enabled": true,
+    "reportFolder": "<projectFolder>/"
+  },
+
+  "docModel": {
+    "enabled": false
+  },
+
+  "dtsRollup": {
+    "enabled": false
+  },
+
+  "tsdocMetadata": {},
+
+  "messages": {
+    "compilerMessageReporting": {
+      "default": {
+        "logLevel": "warning"
+      }
+    },
+    "extractorMessageReporting": {
+      "default": {
+        "logLevel": "warning"
+      }
+    },
+    "tsdocMessageReporting": {
+      "default": {
+        "logLevel": "warning"
+      }
+    }
+  }
+}
