@@ -5,7 +5,7 @@
  * Each package should create its own api-extractor.json that extends this file:
  *
  *   {
- *     "extends": "../../api-extractor-base.json",
+ *     "extends": "../../api-extractor.json",
  *     "mainEntryPointFilePath": "<projectFolder>/dist/index.d.ts"
  *   }
  */
