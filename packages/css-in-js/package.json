@@ -30,7 +30,8 @@
     "/logicalProperties"
   ],
   "scripts": {
-    "build": "rollup -c",
+    "build": "rollup -c && api-extractor run --local",
+    ".:build:api": "api-extractor run --local",
     "docs": "typedoc",
     "lint": "lint",
     "lint-and-fix": "lint-and-fix",
@@ -44,6 +45,7 @@
     "stylis": "~4.3.6"
   },
   "devDependencies": {
+    "@microsoft/api-extractor": "~7.58.7",
     "@rollup/plugin-commonjs": "~28.0.9",
     "@rollup/plugin-json": "~6.1.0",
     "@rollup/plugin-node-resolve": "~16.0.3",

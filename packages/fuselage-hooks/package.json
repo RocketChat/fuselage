@@ -31,14 +31,16 @@
     "/dist"
   ],
   "scripts": {
-    "build": "run-s .:build:clean .:build:rollup",
+    "build": "run-s .:build:clean .:build:rollup .:build:api",
     ".:build:clean": "rimraf dist",
     ".:build:rollup": "rollup -c",
+    ".:build:api": "api-extractor run --local",
     "lint": "lint",
     "lint-and-fix": "lint-and-fix",
     "test": "jest --runInBand"
   },
   "devDependencies": {
+    "@microsoft/api-extractor": "~7.58.7",
     "@rocket.chat/emitter": "workspace:~",
     "@rocket.chat/fuselage-tokens": "workspace:~",
     "@rollup/plugin-commonjs": "~28.0.9",
