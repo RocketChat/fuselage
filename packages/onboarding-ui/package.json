@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "i18next": "~23.4.9",
-    "react-hook-form": "~7.54.2"
+    "react-hook-form": "~7.75.0"
   },
   "devDependencies": {
     "@microsoft/api-extractor": "~7.58.7",
@@ -65,11 +65,11 @@
     "jest": "~30.3.0",
     "jest-environment-jsdom": "~30.3.0",
     "lint-all": "workspace:~",
-    "prettier": "~3.6.2",
+    "prettier": "~3.8.3",
     "react": "~18.3.1",
     "react-dom": "~18.3.1",
     "react-i18next": "~13.2.2",
-    "rimraf": "~6.0.1",
+    "rimraf": "~6.1.3",
     "storybook": "~9.1.19",
     "ts-jest": "~29.4.6",
     "typedoc": "~0.28.18",
