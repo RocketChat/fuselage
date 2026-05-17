@@ -1,13 +1,21 @@
-import { useEffectEvent, useResizeObserver } from '@rocket.chat/fuselage-hooks';
+import {
+  useStableCallback,
+  useResizeObserver,
+  useMergedRefs,
+} from '@rocket.chat/fuselage-hooks';
 import type {
   AllHTMLAttributes,
   ChangeEvent,
   ComponentType,
   FocusEvent,
+  ForwardRefExoticComponent,
   MouseEvent,
+  ReactElement,
   ReactNode,
+  Ref,
+  RefAttributes,
 } from 'react';
-import { useEffect, useRef, useMemo, useState } from 'react';
+import { useEffect, useRef, useMemo, useState, forwardRef } from 'react';
 
 import { AnimatedVisibility } from '../AnimatedVisibility';
 import { Box } from '../Box';
@@ -50,7 +58,7 @@ export type AutoCompleteProps<TLabel> = Omit<
   disabled?: boolean;
   multiple?: boolean;
   value?: string | string[];
-};
+} & RefAttributes<HTMLInputElement>;
 
 const getSelected = <TLabel,>(
   value: string | string[] | undefined,
@@ -79,23 +87,27 @@ const isSelectedValid =
 /**
  * An input for selection of options.
  */
-function AutoComplete<TLabel = ReactNode>({
-  value,
-  filter,
-  setFilter,
-  options = [],
-  renderItem,
-  renderSelected: RenderSelected,
-  onChange,
-  renderEmpty,
-  placeholder,
-  error,
-  disabled,
-  multiple,
-  onBlur: onBlurAction = () => {},
-  ...props
-}: AutoCompleteProps<TLabel>) {
-  const ref = useRef<HTMLInputElement>(null);
+function AutoComplete<TLabel = ReactNode>(
+  {
+    value,
+    filter,
+    setFilter,
+    options = [],
+    renderItem,
+    renderSelected: RenderSelected,
+    onChange,
+    renderEmpty,
+    placeholder,
+    error,
+    disabled,
+    multiple,
+    onBlur: onBlurAction = () => {},
+    ...props
+  }: AutoCompleteProps<TLabel>,
+  ref: Ref<HTMLInputElement>,
+) {
+  const innerRef = useRef<HTMLInputElement>(null);
+  const mergedRefs = useMergedRefs(ref, innerRef);
   const { ref: containerRef, borderBoxSize } = useResizeObserver();
 
   const [selected, setSelected] = useState(
@@ -111,7 +123,7 @@ function AutoComplete<TLabel = ReactNode>({
     });
   }, [value]);
 
-  const handleSelect = useEffectEvent(
+  const handleSelect = useStableCallback(
     ([newValue]: OptionType<string, TLabel>) => {
       if (selected.some((item) => item.value === newValue)) {
         hide();
@@ -131,7 +143,7 @@ function AutoComplete<TLabel = ReactNode>({
     },
   );
 
-  const handleRemove = useEffectEvent(
+  const handleRemove = useStableCallback(
     (event: MouseEvent<HTMLButtonElement>) => {
       event.stopPropagation();
       event.preventDefault();
@@ -167,10 +179,12 @@ function AutoComplete<TLabel = ReactNode>({
   const [cursor, handleKeyDown, , reset, [optionsAreVisible, hide, show]] =
     useCursor(firstSelectedIndex, memoizedOptions, handleSelect);
 
-  const handleOnBlur = useEffectEvent((event: FocusEvent<HTMLInputElement>) => {
-    hide();
-    onBlurAction(event);
-  });
+  const handleOnBlur = useStableCallback(
+    (event: FocusEvent<HTMLInputElement>) => {
+      hide();
+      onBlurAction(event);
+    },
+  );
 
   useEffect(reset, [filter, reset]);
 
@@ -178,7 +192,7 @@ function AutoComplete<TLabel = ReactNode>({
     <Box
       rcx-autocomplete
       ref={containerRef}
-      onClick={useEffectEvent(() => ref.current?.focus())}
+      onClick={useStableCallback(() => innerRef.current?.focus())}
       flexGrow={1}
       className={useMemo(
         () => [error && 'invalid', disabled && 'disabled'],
@@ -195,8 +209,8 @@ function AutoComplete<TLabel = ReactNode>({
       >
         <Margins all='x4'>
           <Input
-            ref={ref}
-            onChange={useEffectEvent((e: ChangeEvent<HTMLInputElement>) =>
+            ref={mergedRefs}
+            onChange={useStableCallback((e: ChangeEvent<HTMLInputElement>) =>
               setFilter?.(e.currentTarget.value),
             )}
             onBlur={handleOnBlur}
@@ -257,4 +271,11 @@ function AutoComplete<TLabel = ReactNode>({
   );
 }
 
-export default AutoComplete;
+export interface AutoCompleteComponent
+  extends ForwardRefExoticComponent<AutoCompleteProps<any>> {
+  <TLabel = ReactNode>(
+    props: AutoCompleteProps<TLabel> & RefAttributes<HTMLInputElement>,
+  ): ReactElement;
+}
+
+export default forwardRef(AutoComplete) as AutoCompleteComponent;

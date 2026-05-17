@@ -2,8 +2,8 @@ import type { StoryFn, Meta } from '@storybook/react-webpack5';
 
 import { Avatar } from '../Avatar';
 import { Box } from '../Box';
-import { MenuV2 as Menu, MenuItem, MenuSection } from '../Menu';
-import { MenuDisplayExample } from '../Menu/V2/Menu.stories';
+import { Menu, MenuItem, MenuSection } from '../Menu';
+import { MenuDisplayExample } from '../Menu/Menu.stories';
 import { avatarUrl } from '../Message/helpers';
 
 import NavBar from './NavBar';

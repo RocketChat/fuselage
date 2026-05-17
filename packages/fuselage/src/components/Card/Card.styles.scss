@@ -1,5 +1,5 @@
 @use '../../styles/colors.scss';
-@use '../../styles/functions';
+@use '../../styles/functions' as *;
 @use '../../styles/lengths.scss';
 
 $card-spacing: lengths.margin(8);
@@ -9,17 +9,16 @@ $card-horizontal-padding: lengths.padding(12);
 $card-horizontal-gap: lengths.padding(16);
 $card-horizontal-row-gap: lengths.padding(4);
 $card-hero-padding: lengths.padding(28);
+$card-color: theme('card-color', colors.font(default));
+$card-background-color: theme('card-background-color', colors.surface(light));
 
 .rcx-card {
   display: flex;
 
-  color: functions.theme('card-color', colors.font(default));
+  color: $card-color;
   border-radius: lengths.border-radius(large);
 
-  background-color: functions.theme(
-    'card-background-color',
-    colors.surface(light)
-  );
+  background-color: $card-background-color;
 
   &__clickable {
     &:hover,

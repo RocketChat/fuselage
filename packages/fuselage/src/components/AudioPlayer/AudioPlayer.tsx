@@ -3,6 +3,7 @@ import type { TrackHTMLAttributes } from 'react';
 import { useState, useRef, forwardRef } from 'react';
 
 import { Box, Button, IconButton, Margins } from '../..';
+import { useOwnerDocument } from '../../contexts';
 import { Slider } from '../Slider';
 import './AudioPlayer.styles.scss';
 
@@ -11,21 +12,25 @@ const getMaskTime = (durationTime: number) =>
     .toISOString()
     .slice(durationTime > 60 * 60 ? 11 : 14, 19);
 
-function forceDownload(url: string, fileName?: string) {
+function forceDownload(
+  ownerDocument: Document,
+  url: string,
+  fileName?: string,
+) {
   const xhr = new XMLHttpRequest();
   xhr.open('GET', url, true);
   xhr.responseType = 'blob';
   xhr.onload = function () {
     const urlCreator = window.URL || window.webkitURL;
     const imageUrl = urlCreator.createObjectURL(this.response);
-    const tag = document.createElement('a');
+    const tag = ownerDocument.createElement('a');
     tag.href = imageUrl;
     if (fileName) {
       tag.download = fileName;
     }
-    document.body.appendChild(tag);
+    ownerDocument.body.appendChild(tag);
     tag.click();
-    document.body.removeChild(tag);
+    ownerDocument.body.removeChild(tag);
   };
   xhr.send();
 }
@@ -139,6 +144,8 @@ const AudioPlayer = forwardRef<HTMLAudioElement, AudioPlayerProps>(
       handlePlaybackSpeed(1);
     };
 
+    const { document: ownerDocument } = useOwnerDocument();
+
     return (
       <Box
         rcx-audio-player
@@ -206,9 +213,9 @@ const AudioPlayer = forwardRef<HTMLAudioElement, AudioPlayerProps>(
             medium
             onClick={(e) => {
               const { host } = new URL(src);
-              if (host !== window.location.host) {
+              if (host !== ownerDocument.defaultView?.location.host) {
                 e.preventDefault();
-                forceDownload(src);
+                forceDownload(ownerDocument, src);
               }
             }}
           />

@@ -1,4 +1,4 @@
-import { useEffectEvent } from '@rocket.chat/fuselage-hooks';
+import { useStableCallback } from '@rocket.chat/fuselage-hooks';
 import type { FormEvent } from 'react';
 import { useMemo, forwardRef } from 'react';
 
@@ -32,7 +32,7 @@ const PaginatedSelectFiltered = ({
             ref={ref}
             placeholder={placeholder}
             value={filter}
-            onChange={useEffectEvent((e: FormEvent<HTMLInputElement>) => {
+            onChange={useStableCallback((e: FormEvent<HTMLInputElement>) => {
               setFilter(e.currentTarget.value);
             })}
             {...props}

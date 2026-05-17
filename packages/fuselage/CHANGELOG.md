@@ -1,5 +1,98 @@
 # Change Log
 
+## 0.78.0
+
+### Minor Changes
+
+- [#1947](https://github.com/RocketChat/fuselage/pull/1947) [`3620915`](https://github.com/RocketChat/fuselage/commit/3620915b5fede3d4cef6f1bad832f93aad62a6fd) Thanks [@gabriellsh](https://github.com/gabriellsh)! - feat(fuselage): Implement `OwnerDocument` context and update `document` references
+
+- [#1956](https://github.com/RocketChat/fuselage/pull/1956) [`3a7c41d`](https://github.com/RocketChat/fuselage/commit/3a7c41d4d23b88a7867bd260f2fe5832085716f5) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage-forms): add `AutoComplete` component
+
+### Patch Changes
+
+- [#1951](https://github.com/RocketChat/fuselage/pull/1951) [`76d62c0`](https://github.com/RocketChat/fuselage/commit/76d62c03dacdca4b893e58d1c44f4dfcbf8c0ba6) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): Add `aria-hidden` attribute to `StatusBullet`
+
+## 0.77.0
+
+### Minor Changes
+
+- [#1946](https://github.com/RocketChat/fuselage/pull/1946) [`4f90c69`](https://github.com/RocketChat/fuselage/commit/4f90c696e0ce6815342aa755f20cac3f6d4b41ec) Thanks [@tassoevan](https://github.com/tassoevan)! - fix(fuselage): remove incorrect dependency on `@rocket.chat/styled`
+
+- [#1943](https://github.com/RocketChat/fuselage/pull/1943) [`cff98b1`](https://github.com/RocketChat/fuselage/commit/cff98b1b6035591c96ef0b03f05a72f68e4f1653) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage): accept all `objectFit` css properties on `Avatar` component
+
+- [#1945](https://github.com/RocketChat/fuselage/pull/1945) [`6797e0f`](https://github.com/RocketChat/fuselage/commit/6797e0f5c877ce6890644170d80f848692e605ab) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage): add `objectFit` to `Box` styling props
+
+- [#1949](https://github.com/RocketChat/fuselage/pull/1949) [`78ba393`](https://github.com/RocketChat/fuselage/commit/78ba393a7d7ce8d6c20512467a82e99a193d1ceb) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage): Keep sidebar item menu button visible while expanded
+
+- [#1942](https://github.com/RocketChat/fuselage/pull/1942) [`ef9dedd`](https://github.com/RocketChat/fuselage/commit/ef9dedd02084073731bd9cc008e1268e23b4b9a0) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage-forms): Add `MultiSelectFiltered` component
+
+### Patch Changes
+
+- [#1939](https://github.com/RocketChat/fuselage/pull/1939) [`b12a0a2`](https://github.com/RocketChat/fuselage/commit/b12a0a28eb6c61bdf9f1ef8717461093ec9b20b7) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): move `HiddenSelect` out of `SelectTrigger`
+
+- [#1940](https://github.com/RocketChat/fuselage/pull/1940) [`9574ce2`](https://github.com/RocketChat/fuselage/commit/9574ce29f68950671a5d113fdcb2f3bc3be9f528) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): improve a11y for `MultiSelect` components
+
+- Updated dependencies [[`00052dc`](https://github.com/RocketChat/fuselage/commit/00052dc976bbe72664ec2d3b97f9ba2ba2d4f3c7)]:
+  - @rocket.chat/css-in-js@0.32.0
+
+## 0.76.0
+
+### Minor Changes
+
+- [#1685](https://github.com/RocketChat/fuselage/pull/1685) [`2d6b78c`](https://github.com/RocketChat/fuselage/commit/2d6b78cdc43dc7b03c2cf0766242def14bd0bcb8) Thanks [@ergot-rp](https://github.com/ergot-rp)! - feat(fuselage): Add accessibility improvements to `Pagination`
+
+### Patch Changes
+
+- [#1934](https://github.com/RocketChat/fuselage/pull/1934) [`04d477a`](https://github.com/RocketChat/fuselage/commit/04d477a9a20d4b75011c5b6e447ca8fdd22da51f) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): Remove target `_blank` as default on `FieldLink`
+
+## 0.75.0
+
+### Minor Changes
+
+- [#1912](https://github.com/RocketChat/fuselage/pull/1912) [`ee9f242`](https://github.com/RocketChat/fuselage/commit/ee9f24215b261c228781c540e9bbdda1f23c6e59) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage): add `gap` styling prop to `Box`
+
+### Patch Changes
+
+- [#1923](https://github.com/RocketChat/fuselage/pull/1923) [`c223ca1`](https://github.com/RocketChat/fuselage/commit/c223ca16c837daccc5a320ca787b0bba646ba086) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): Set default cursor style for Label component
+
+## 0.74.0
+
+### Minor Changes
+
+- [#1901](https://github.com/RocketChat/fuselage/pull/1901) [`e5c02b9`](https://github.com/RocketChat/fuselage/commit/e5c02b9a29aa5ccad16fd62d4748042145368519) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage-forms): add `MultiSelect` component
+  feat(fuselage): improve `MultiSelect` a11y
+
+## 0.73.0
+
+### Minor Changes
+
+- [#1880](https://github.com/RocketChat/fuselage/pull/1880) [`c312238`](https://github.com/RocketChat/fuselage/commit/c3122389dfe5ba4970ddc59d57b1ddc70464f7dc) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage): improve `Toastbar` accessibility
+
+## 0.72.1
+
+### Patch Changes
+
+- [#1872](https://github.com/RocketChat/fuselage/pull/1872) [`ab46b78`](https://github.com/RocketChat/fuselage/commit/ab46b784c4aac7441916acef9be7c575e2e9e054) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage): `InputBox` not reactive to async errors
+
+## 0.72.0
+
+### Minor Changes
+
+- [#1861](https://github.com/RocketChat/fuselage/pull/1861) [`789d6a8`](https://github.com/RocketChat/fuselage/commit/789d6a85877fa325b0d3dfc4d82e8038edbd2096) Thanks [@tassoevan](https://github.com/tassoevan)! - feat(fuselage): Integrate Inter font
+
+- [#1843](https://github.com/RocketChat/fuselage/pull/1843) [`c3bd7f8`](https://github.com/RocketChat/fuselage/commit/c3bd7f8c5fd5a6f8faea3378ebff26338a6ef470) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage): promote `MenuV2` to `Menu`
+
+### Patch Changes
+
+- [#1868](https://github.com/RocketChat/fuselage/pull/1868) [`84d8d59`](https://github.com/RocketChat/fuselage/commit/84d8d59e3e16b5fc23a3321795e2061f09ca43ac) Thanks [@tassoevan](https://github.com/tassoevan)! - feat(fuselage-hooks): Deprecate `useEffectEvent` in favor of `useStableCallback`
+
+  The `useEffectEvent` hook has been renamed to `useStableCallback` to better reflect its purpose and behavior. The new
+  name emphasizes that the hook provides a stable callback function that maintains a consistent identity across renders
+  while always having access to the latest values of props and state. It differs from `useEffectEvent` from React 19,
+  which returns functions that can only be called from inside effects and other effect events.
+
+- [#1867](https://github.com/RocketChat/fuselage/pull/1867) [`717169f`](https://github.com/RocketChat/fuselage/commit/717169f8e0b92df45d9a0e4e72357fcb12e12e09) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): Wrong color in invalid input border
+
 ## 0.71.0
 
 ### Minor Changes

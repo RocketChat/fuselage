@@ -6,7 +6,6 @@ import { Chip } from '../Chip';
 type SelectedOptionsProps = {
   children: ReactNode;
   tabIndex: number;
-  role: string;
   key: string;
   onMouseDown: (e: SyntheticEvent) => void;
 };

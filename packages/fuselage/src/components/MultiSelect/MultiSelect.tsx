@@ -1,6 +1,6 @@
 import {
   useMergedRefs,
-  useEffectEvent,
+  useStableCallback,
   useResizeObserver,
   useOutsideClick,
 } from '@rocket.chat/fuselage-hooks';
@@ -136,13 +136,26 @@ const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
       return null;
     };
 
-    const handleClick = useEffectEvent(() => {
+    const handleClick = useStableCallback(() => {
       if (visible === AnimatedVisibility.VISIBLE) {
         return hide();
       }
       innerRef.current?.focus();
       return show();
     });
+
+    const listboxId = props.id ? `${props.id}-listbox` : undefined;
+
+    const {
+      id,
+      name,
+      'aria-label': ariaLabel,
+      'aria-labelledby': ariaLabelledBy,
+      'aria-describedby': ariaDescribedBy,
+      'aria-invalid': ariaInvalid,
+      'aria-required': ariaRequired,
+      ...containerProps
+    } = props;
 
     return (
       <Box
@@ -152,7 +165,7 @@ const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
         ref={containerRef}
         onClick={handleClick}
         disabled={disabled}
-        {...props}
+        {...containerProps}
       >
         <FlexItem grow={1}>
           <Margins inline='x4'>
@@ -164,17 +177,28 @@ const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
                   alignItems='center'
                   flexWrap='wrap'
                   margin='-x8'
-                  role='listbox'
                 >
                   <Margins all='x4'>
                     {renderAnchor({
-                      ref: anchorRef,
-                      children: internalValue.length === 0 ? placeholder : null,
-                      disabled: disabled ?? false,
-                      onClick: show,
-                      onBlur: hide,
-                      onKeyDown: handleKeyDown,
-                      onKeyUp: handleKeyUp,
+                      'ref': anchorRef,
+                      'children':
+                        internalValue.length === 0 ? placeholder : null,
+                      'disabled': disabled ?? false,
+                      'onClick': show,
+                      'onBlur': hide,
+                      'onKeyDown': handleKeyDown,
+                      'onKeyUp': handleKeyUp,
+                      'role': 'combobox',
+                      'aria-expanded': visible === AnimatedVisibility.VISIBLE,
+                      'aria-haspopup': 'listbox',
+                      'aria-controls': listboxId,
+                      id,
+                      name,
+                      'aria-label': ariaLabel,
+                      'aria-labelledby': ariaLabelledBy,
+                      'aria-describedby': ariaDescribedBy,
+                      'aria-invalid': ariaInvalid,
+                      'aria-required': ariaRequired,
                     })}
                     {internalValue.map((value: SelectOption[0]) => {
                       const currentOption = options.find(
@@ -182,7 +206,6 @@ const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
                       ) as SelectOption;
                       return RenderSelected ? (
                         <RenderSelected
-                          role='option'
                           value={value}
                           key={value}
                           label={getLabel(currentOption)}
@@ -196,7 +219,6 @@ const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
                       ) : (
                         <SelectedOptions
                           tabIndex={-1}
-                          role='option'
                           key={String(value)}
                           onMouseDown={(e: SyntheticEvent) => {
                             prevent(e);
@@ -237,7 +259,7 @@ const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
               multiple
               filter={filter}
               renderItem={renderItem || CheckOption}
-              role='listbox'
+              id={listboxId}
               options={filteredOptions}
               onSelect={internalChanged}
               cursor={cursor}

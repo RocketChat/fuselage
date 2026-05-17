@@ -1,6 +1,6 @@
 import { css } from '@rocket.chat/css-in-js';
-import type { AriaAttributes } from 'react';
-import { useMemo, useRef } from 'react';
+import type { AriaAttributes, Ref } from 'react';
+import { forwardRef, useMemo, useRef } from 'react';
 import type { AriaSliderProps } from 'react-aria';
 import { useNumberFormatter, useSlider } from 'react-aria';
 import { useSliderState } from 'react-stately';
@@ -16,6 +16,10 @@ export type SliderProps<T extends number | number[]> = AriaAttributes & {
    * The display format of the value output.
    */
   formatOptions?: Intl.NumberFormatOptions;
+  /**
+   * The id of the slider input element, used to connect with an external label.
+   */
+  id?: string;
   label?: string;
   showOutput?: boolean;
   /**
@@ -47,7 +51,10 @@ export type SliderProps<T extends number | number[]> = AriaAttributes & {
   );
 
 function Slider<T extends number | [min: number, max: number]>(
-  props: SliderProps<T>,
+  props: T extends number
+    ? SliderProps<number>
+    : SliderProps<[min: number, max: number]>,
+  ref: Ref<HTMLDivElement>,
 ) {
   const {
     label,
@@ -124,7 +131,7 @@ function Slider<T extends number | [min: number, max: number]>(
   );
 
   return (
-    <div {...groupProps} className={slider}>
+    <div {...groupProps} ref={ref} className={slider}>
       <SliderHead
         labelProps={labelProps}
         outputProps={outputProps}
@@ -148,4 +155,4 @@ function Slider<T extends number | [min: number, max: number]>(
   );
 }
 
-export default Slider;
+export default forwardRef(Slider);

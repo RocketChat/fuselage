@@ -1,4 +1,4 @@
-import type { ElementType, HTMLAttributes } from 'react';
+import type { ElementType, HTMLAttributes, ReactNode } from 'react';
 
 import { prependClassName } from '../../helpers/prependClassName';
 
@@ -7,7 +7,7 @@ export type MessageHighlightProps = {
   clickable?: boolean;
   variant?: 'critical' | 'relevant' | 'other' | 'link';
   className?: string;
-  children: any;
+  children: ReactNode;
   title?: string;
 } & HTMLAttributes<HTMLElement>;
 

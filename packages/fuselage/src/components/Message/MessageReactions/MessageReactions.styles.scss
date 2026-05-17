@@ -1,11 +1,38 @@
-@use '../../../styles/lengths.scss';
 @use '../../../styles/colors.scss';
-@use '../../../styles/typography.scss';
+@use '../../../styles/functions.scss' as *;
+@use '../../../styles/lengths.scss';
+@use '../../../styles/mixins/button.scss';
 @use '../../../styles/mixins/size.scss';
 @use '../../../styles/mixins/templates.scss';
+@use '../../../styles/typography.scss' as *;
 @use '../../../styles/variables/buttons.scss';
-@use '../../../styles/primitives/button.scss';
 @use '../mixins.scss';
+
+$message-reaction-border-radius: theme(
+  'message-reaction-border-radius',
+  lengths.border-radius(medium)
+);
+$message-reaction-hover-background-color: theme(
+  'message-reaction-hover-background-color',
+  colors.surface(tint)
+);
+$message-reaction-hover-border-color: theme(
+  'message-reaction-hover-border-color',
+  colors.stroke(dark)
+);
+$message-reaction-hover-background-color: theme(
+  'message-reaction-hover-background-color',
+  colors.surface(hover)
+);
+$message-reaction-color: theme('message-reaction-color', colors.font(default));
+$message-reaction-border-color: theme(
+  'message-reaction-border-color',
+  colors.stroke(dark)
+);
+$message-reaction-background-color: theme(
+  'message-reaction-background-color',
+  colors.surface(selected)
+);
 
 .rcx-message-reactions {
   &__container {
@@ -17,7 +44,7 @@
   }
 
   &__reaction {
-    @include typography.use-font-scale(c1);
+    @include use-font-scale(c1);
     display: inline-flex;
     align-items: center;
 
@@ -29,24 +56,12 @@
 
     color: colors.font(hint);
     border: lengths.border-width(default) solid colors.stroke(light);
-    border-radius: theme(
-      'message-reaction-border-radius',
-      lengths.border-radius(medium)
-    );
-    background-color: theme(
-      'message-reaction-hover-background-color',
-      colors.surface(tint)
-    );
+    border-radius: $message-reaction-border-radius;
+    background-color: $message-reaction-hover-background-color;
 
     &:hover {
-      border-color: theme(
-        'message-reaction-hover-border-color',
-        colors.stroke(dark)
-      );
-      background-color: theme(
-        'message-reaction-hover-background-color',
-        colors.surface(hover)
-      );
+      border-color: $message-reaction-hover-border-color;
+      background-color: $message-reaction-hover-background-color;
     }
 
     &--action {
@@ -57,13 +72,10 @@
     }
 
     &--mine {
-      color: theme('message-reaction-color', colors.font(default));
+      color: $message-reaction-color;
       border-width: lengths.border-width(default);
-      border-color: theme('message-reaction-border-color', colors.stroke(dark));
-      background-color: theme(
-        'message-reaction-background-color',
-        colors.surface(selected)
-      );
+      border-color: $message-reaction-border-color;
+      background-color: $message-reaction-background-color;
     }
 
     @include templates.focus-state {
@@ -77,7 +89,7 @@
   }
 
   &__counter {
-    @include typography.use-font-scale(c1);
+    @include use-font-scale(c1);
     margin-inline: lengths.margin(2);
   }
 }

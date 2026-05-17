@@ -27,26 +27,27 @@
     "/dist"
   ],
   "scripts": {
-    "build": "rollup -c",
+    "build": "rollup -c && api-extractor run --local",
+    ".:build:api": "api-extractor run --local",
     "lint": "lint",
     "lint-and-fix": "lint-and-fix",
     "test": "jest --runInBand",
     "docs": "typedoc"
   },
   "devDependencies": {
+    "@microsoft/api-extractor": "~7.58.7",
     "@rollup/plugin-commonjs": "~28.0.9",
     "@rollup/plugin-json": "~6.1.0",
     "@rollup/plugin-node-resolve": "~16.0.3",
     "@rollup/plugin-terser": "~0.4.4",
-    "@rollup/plugin-typescript": "~12.1.4",
+    "@rollup/plugin-typescript": "~12.3.0",
     "eslint": "~9.39.2",
-    "jest": "~30.2.0",
+    "jest": "~30.3.0",
     "lint-all": "workspace:~",
-    "npm-run-all": "^4.1.5",
     "prettier": "~3.6.2",
-    "rollup": "~4.52.5",
+    "rollup": "~4.60.0",
     "ts-jest": "~29.4.6",
-    "typedoc": "~0.28.16",
+    "typedoc": "~0.28.18",
     "typescript": "~5.9.3"
   },
   "publishConfig": {

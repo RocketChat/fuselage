@@ -1022,5 +1022,20 @@
   },
   "phone-question-mark": {
     "start": "\ue171"
+  },
+  "desktop-cross": {
+    "start": "\ue173"
+  },
+  "desktop-arrow-up": {
+    "start": "\ue175"
+  },
+  "pin-filled": {
+    "start": "\ue177"
+  },
+  "arrow-from-cross-box": {
+    "start": "\ue17d"
+  },
+  "arrow-to-square-box": {
+    "start": "\ue17f"
   }
 }

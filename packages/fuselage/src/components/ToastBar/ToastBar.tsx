@@ -70,6 +70,8 @@ function ToastBar({
   const uniqueId = useId();
   const toastId = id || uniqueId;
 
+  const role = variant === 'error' ? 'alert' : 'status';
+
   return (
     <Box
       className={[
@@ -86,7 +88,7 @@ function ToastBar({
           size='x20'
           name={iconName}
         />
-        <div role='alert' className='rcx-toastbar_content'>
+        <div role={role} className='rcx-toastbar_content'>
           {children}
         </div>
         {onClose && (

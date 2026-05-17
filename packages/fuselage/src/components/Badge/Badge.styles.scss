@@ -1,6 +1,7 @@
 @use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
-@use '../../styles/typography.scss';
+@use '../../styles/typography.scss' as *;
+@use '../../styles/functions.scss' as *;
 
 $badge-colors-primary-color: theme(
   'badge-colors-primary-color',
@@ -55,6 +56,7 @@ $badge-colors-disabled-background-color: theme(
   'badge-colors-disabled-background-color',
   colors.surface(neutral)
 );
+$badge-border-radius: theme('badge-border-radius', lengths.border-radius(full));
 
 .rcx-badge {
   display: flex;
@@ -76,9 +78,9 @@ $badge-colors-disabled-background-color: theme(
 
   word-break: keep-all;
 
-  border-radius: theme('badge-border-radius', lengths.border-radius(full));
+  border-radius: $badge-border-radius;
 
-  @include typography.use-font-scale(micro);
+  @include use-font-scale(micro);
 
   &--primary {
     color: $badge-colors-primary-color;

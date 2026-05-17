@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { useEffectEvent } from './useEffectEvent';
+import { useStableCallback } from './useStableCallback';
 
 type UseClipboardParams = {
   clearTime?: number;
@@ -29,7 +29,7 @@ export const useClipboard = (
 ): UseClipboardReturn => {
   const [hasCopied, setHasCopied] = useState(false);
 
-  const copy = useEffectEvent(async (e?: Event) => {
+  const copy = useStableCallback(async (e?: Event) => {
     e?.preventDefault();
     try {
       await navigator.clipboard.writeText(text);

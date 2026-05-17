@@ -8,8 +8,9 @@ export default {
   component: Pagination,
 } satisfies Meta<typeof Pagination>;
 
-export const Default: StoryFn<typeof Pagination> = () => (
+export const Default: StoryFn<typeof Pagination> = (args) => (
   <Pagination
+    {...args}
     count={500}
     onSetItemsPerPage={action('setItemsPerPage')}
     onSetCurrent={action('setCurrent')}
