@@ -3015,6 +3015,9 @@ export type TextInputProps = Omit<InputBoxProps, 'type'> & {
 };
 
 // @public (undocumented)
+export type Themes = 'light' | 'dark' | 'high-contrast';
+
+// @public (undocumented)
 export const ThreadMessage: (props: ThreadMessageProps) => JSX_2.Element;
 
 // @public (undocumented)
@@ -3224,7 +3227,6 @@ export type VisibilityType = 'hidden' | 'visible' | 'hiding' | 'unhiding' | unde
 // src/Theme.ts:255:1 - (ae-forgotten-export) The symbol "Var" needs to be exported by the entry point index.d.ts
 // src/components/MultiSelect/MultiSelect.tsx:35:3 - (ae-forgotten-export) The symbol "MultiSelectAnchorParams" needs to be exported by the entry point index.d.ts
 // src/components/Pagination/Pagination.tsx:12:3 - (ae-forgotten-export) The symbol "ItemsPerPage" needs to be exported by the entry point index.d.ts
-// src/components/PaletteStyleTag/PaletteStyleTag.tsx:16:3 - (ae-forgotten-export) The symbol "Themes" needs to be exported by the entry point index.d.ts
 // src/components/Select/Select.tsx:19:1 - (ae-forgotten-export) The symbol "SelectOption_2" needs to be exported by the entry point index.d.ts
 // src/components/SelectInput/SelectInput.tsx:13:3 - (ae-forgotten-export) The symbol "SelectInputOptions" needs to be exported by the entry point index.d.ts
 // src/components/Sidebar/SidebarBanner.tsx:11:3 - (ae-forgotten-export) The symbol "VariantType" needs to be exported by the entry point index.d.ts
