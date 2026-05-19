@@ -1556,6 +1556,20 @@ setFilter?: (filter: string) => void;
 } & RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
+export type MultiSelectAnchorParams = {
+    ref: Ref<HTMLInputElement>;
+    children: ReactNode;
+    disabled: boolean;
+    onClick: MouseEventHandler;
+    onBlur: FocusEventHandler;
+    onKeyUp: KeyboardEventHandler;
+    onKeyDown: KeyboardEventHandler;
+    role?: string;
+    id?: string;
+    name?: string;
+} & AriaAttributes;
+
+// @public (undocumented)
 export const MultiSelectFiltered: ForwardRefExoticComponent<Omit<BoxProps, "value" | "onChange"> & {
 value?: SelectOption[0][];
 error?: string;
@@ -3232,7 +3246,6 @@ export type VisibilityType = 'hidden' | 'visible' | 'hiding' | 'unhiding' | unde
 // Warnings were encountered during analysis:
 //
 // src/Theme.ts:255:1 - (ae-forgotten-export) The symbol "Var" needs to be exported by the entry point index.d.ts
-// src/components/MultiSelect/MultiSelect.tsx:35:3 - (ae-forgotten-export) The symbol "MultiSelectAnchorParams" needs to be exported by the entry point index.d.ts
 // src/components/Pagination/Pagination.tsx:12:3 - (ae-forgotten-export) The symbol "ItemsPerPage" needs to be exported by the entry point index.d.ts
 // src/components/Sidebar/SidebarBanner.tsx:11:3 - (ae-forgotten-export) The symbol "VariantType" needs to be exported by the entry point index.d.ts
 

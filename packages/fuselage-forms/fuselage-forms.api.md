@@ -27,7 +27,7 @@ import { IconProps } from '@rocket.chat/fuselage';
 import { InputBoxProps } from '@rocket.chat/fuselage';
 import { JSX as JSX_2 } from 'react/jsx-runtime';
 import { Key } from 'react';
-import { MultiSelectAnchorParams } from '@rocket.chat/fuselage/dist/components/MultiSelect/MultiSelectAnchorParams';
+import { MultiSelectAnchorParams } from '@rocket.chat/fuselage';
 import { NumberInputProps } from '@rocket.chat/fuselage';
 import { PasswordInputProps } from '@rocket.chat/fuselage';
 import { ReactNode } from 'react';
