@@ -3177,10 +3177,12 @@ export const useOwnerDocument: () => {
     document: Document;
 };
 
+// @public (undocumented)
+export type VisibilityType = 'hidden' | 'visible' | 'hiding' | 'unhiding' | undefined;
+
 // Warnings were encountered during analysis:
 //
 // src/Theme.ts:255:1 - (ae-forgotten-export) The symbol "Var" needs to be exported by the entry point index.d.ts
-// src/components/AnimatedVisibility/AnimatedVisibility.tsx:22:28 - (ae-forgotten-export) The symbol "VisibilityType" needs to be exported by the entry point index.d.ts
 // src/components/AutoComplete/AutoComplete.tsx:40:3 - (ae-forgotten-export) The symbol "AutoCompleteOption" needs to be exported by the entry point index.d.ts
 // src/components/Banner/Banner.tsx:37:3 - (ae-forgotten-export) The symbol "VariantType" needs to be exported by the entry point index.d.ts
 // src/components/MultiSelect/MultiSelect.tsx:35:3 - (ae-forgotten-export) The symbol "MultiSelectAnchorParams" needs to be exported by the entry point index.d.ts
