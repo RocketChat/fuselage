@@ -3272,16 +3272,20 @@ export const useArrayLikeClassNameProp: <T extends {
     className: string;
 };
 
-// Warning: (ae-forgotten-export) The symbol "UseCursorOnChange" needs to be exported by the entry point index.d.ts
-// Warning: (ae-forgotten-export) The symbol "useVisible" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
-export const useCursor: <T extends readonly [value: unknown, label: unknown, selected?: unknown, disabled?: unknown, type?: OptionType[4], url?: string] = OptionType>(initial: number, options: Array<T>, onChange: UseCursorOnChange<T>) => [cursor: number, handleKeyDown: (e: KeyboardEvent_2) => void, handleKeyUp: (e: KeyboardEvent_2) => void, reset: () => void, visibilityHandler: ReturnType<typeof useVisible>];
+export const useCursor: <T extends readonly [value: unknown, label: unknown, selected?: unknown, disabled?: unknown, type?: OptionType[4], url?: string] = OptionType>(initial: number, options: Array<T>, onChange: (option: T, visibilityHandler: VisibilityHandler) => void) => [cursor: number, handleKeyDown: (e: KeyboardEvent_2) => void, handleKeyUp: (e: KeyboardEvent_2) => void, reset: () => void, visibilityHandler: VisibilityHandler];
 
 // @public (undocumented)
 export const useOwnerDocument: () => {
     document: Document;
 };
+
+// @public (undocumented)
+export type VisibilityHandler = [
+visible: typeof AnimatedVisibility.HIDDEN | typeof AnimatedVisibility.HIDING | typeof AnimatedVisibility.VISIBLE | typeof AnimatedVisibility.UNHIDING,
+hide: () => void,
+show: () => void
+];
 
 // @public (undocumented)
 export type VisibilityType = 'hidden' | 'visible' | 'hiding' | 'unhiding' | undefined;
