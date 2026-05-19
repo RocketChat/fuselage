@@ -234,8 +234,11 @@ export type BannerProps = {
     onAction?: () => void;
     onClose?: () => void;
     title?: string;
-    variant?: VariantType;
+    variant?: BannerVariant;
 } & AllHTMLAttributes<HTMLElement>;
+
+// @public (undocumented)
+export type BannerVariant = 'neutral' | 'info' | 'success' | 'warning' | 'danger';
 
 // @public (undocumented)
 export const borderRadius: (this: unknown, arg: unknown) => string | undefined;
@@ -2234,7 +2237,7 @@ export type SidebarBannerProps = {
     text?: ReactNode;
     description?: ReactNode;
     onClick?: () => void;
-    variant?: VariantType_2;
+    variant?: VariantType;
     onClose?: () => void;
     children?: ReactNode;
     addon?: ReactNode;
@@ -3189,13 +3192,12 @@ export type VisibilityType = 'hidden' | 'visible' | 'hiding' | 'unhiding' | unde
 // Warnings were encountered during analysis:
 //
 // src/Theme.ts:255:1 - (ae-forgotten-export) The symbol "Var" needs to be exported by the entry point index.d.ts
-// src/components/Banner/Banner.tsx:37:3 - (ae-forgotten-export) The symbol "VariantType" needs to be exported by the entry point index.d.ts
 // src/components/MultiSelect/MultiSelect.tsx:35:3 - (ae-forgotten-export) The symbol "MultiSelectAnchorParams" needs to be exported by the entry point index.d.ts
 // src/components/Pagination/Pagination.tsx:12:3 - (ae-forgotten-export) The symbol "ItemsPerPage" needs to be exported by the entry point index.d.ts
 // src/components/PaletteStyleTag/PaletteStyleTag.tsx:16:3 - (ae-forgotten-export) The symbol "Themes" needs to be exported by the entry point index.d.ts
 // src/components/Select/Select.tsx:19:1 - (ae-forgotten-export) The symbol "SelectOption_2" needs to be exported by the entry point index.d.ts
 // src/components/SelectInput/SelectInput.tsx:13:3 - (ae-forgotten-export) The symbol "SelectInputOptions" needs to be exported by the entry point index.d.ts
-// src/components/Sidebar/SidebarBanner.tsx:11:3 - (ae-forgotten-export) The symbol "VariantType_2" needs to be exported by the entry point index.d.ts
+// src/components/Sidebar/SidebarBanner.tsx:11:3 - (ae-forgotten-export) The symbol "VariantType" needs to be exported by the entry point index.d.ts
 
 // (No @packageDocumentation comment for this package)
 

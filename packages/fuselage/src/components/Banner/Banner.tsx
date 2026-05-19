@@ -13,9 +13,14 @@ import { useRef, useCallback, useMemo } from 'react';
 import { composeClassNames as cx } from '../../helpers/composeClassNames';
 import { IconButton } from '../Button';
 
-type VariantType = 'neutral' | 'info' | 'success' | 'warning' | 'danger';
+export type BannerVariant =
+  | 'neutral'
+  | 'info'
+  | 'success'
+  | 'warning'
+  | 'danger';
 
-const variants: VariantType[] = [
+const variants: BannerVariant[] = [
   'neutral',
   'info',
   'success',
@@ -34,7 +39,7 @@ export type BannerProps = {
   onAction?: () => void;
   onClose?: () => void;
   title?: string;
-  variant?: VariantType;
+  variant?: BannerVariant;
 } & AllHTMLAttributes<HTMLElement>;
 
 const Banner = ({
