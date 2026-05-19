@@ -1846,8 +1846,6 @@ document: Document;
 // @public (undocumented)
 export const PaginatedMultiSelectFiltered: (input: PaginatedMultiSelectFilteredProps) => JSX_2.Element;
 
-// Warning: (ae-forgotten-export) The symbol "PaginatedMultiSelectProps" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
 export type PaginatedMultiSelectFilteredProps = {
     setFilter?: (value: string) => void;
@@ -1860,13 +1858,69 @@ export type PaginatedMultiSelectOption = {
 };
 
 // @public (undocumented)
+export type PaginatedMultiSelectProps = Omit<BoxProps, 'onChange' | 'value'> & {
+    error?: boolean;
+    options: PaginatedMultiSelectOption[];
+    withTitle?: boolean;
+    placeholder?: string;
+    endReached?: (start?: number, end?: number) => void;
+    value?: PaginatedMultiSelectOption[];
+    onChange: (values: PaginatedMultiSelectOption[]) => void;
+    renderOptions?: ComponentType<{
+        width?: CSSProperties['width'];
+        multiple?: boolean;
+        filter?: string;
+        role?: string;
+        options: PaginatedMultiSelectOption[];
+        cursor: number;
+        endReached?: (start?: number, end?: number) => void;
+        renderItem?: ComponentType<{
+            role?: string;
+            label?: ReactNode;
+            title?: string;
+            selected?: boolean;
+            index?: number;
+            focus?: boolean;
+            value?: string | number;
+            onMouseDown?: (e: MouseEvent_2<HTMLElement>) => void;
+        }>;
+        onSelect: (option: [unknown, string]) => void;
+        onMouseDown?: (e: MouseEvent_2<HTMLElement>) => void;
+    }>;
+    renderItem?: ComponentType<{
+        role?: string;
+        label?: ReactNode;
+        title?: string;
+        selected?: boolean;
+        index?: number;
+        focus?: boolean;
+        value?: string | number;
+        onMouseDown?: (e: MouseEvent_2<HTMLElement>) => void;
+    }>;
+    anchor?: any;
+};
+
+// @public (undocumented)
+export type PaginatedOptionType = {
+    value: string | number;
+    label: string;
+};
+
+// @public (undocumented)
 export const PaginatedSelectFiltered: (input: PaginatedSelectFilteredProps) => JSX_2.Element;
 
-// Warning: (ae-forgotten-export) The symbol "PaginatedSelectProps" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
 export type PaginatedSelectFilteredProps = Omit<PaginatedSelectProps, 'setFilter'> & {
     setFilter: (value: string | undefined | number) => void;
+};
+
+// @public (undocumented)
+export type PaginatedSelectProps = Omit<SelectProps, 'options'> & {
+    anchor?: ElementType;
+    options: PaginatedOptionType[];
+    withTitle?: boolean;
+    endReached?: (index: number) => void;
+    setFilter?: (value: string | undefined | number) => void;
 };
 
 // @public (undocumented)
