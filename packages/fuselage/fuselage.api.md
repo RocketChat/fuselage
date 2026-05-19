@@ -1060,8 +1060,12 @@ export type MessageDividerProps = {
 // @public (undocumented)
 export const MessageEmoji: (input: MessageEmojiProps) => JSX_2.Element;
 
-// Warning: (ae-forgotten-export) The symbol "MessageEmojiBaseProps" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export type MessageEmojiBaseProps = {
+    name: string;
+    image?: string;
+} & HTMLAttributes<HTMLSpanElement>;
+
 // @public (undocumented)
 export type MessageEmojiProps = MessageEmojiBaseProps & {
     big?: boolean;
