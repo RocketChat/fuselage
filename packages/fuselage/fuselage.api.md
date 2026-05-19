@@ -735,8 +735,6 @@ is?: (ElementType<any> & string) | undefined;
 // @public (undocumented)
 export const FieldLabelInfo: (props: FieldLabelInfoProps) => JSX_2.Element;
 
-// Warning: (ae-forgotten-export) The symbol "LabelInfoProps" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
 export type FieldLabelInfoProps = LabelInfoProps;
 
@@ -928,6 +926,12 @@ disabled?: boolean;
 required?: boolean;
 is?: (ElementType<any> & string) | undefined;
 } & RefAttributes<HTMLElement>>;
+
+// @public (undocumented)
+export type LabelInfoProps = {
+    title: string;
+    id?: string;
+} & Omit<IconProps, 'name'>;
 
 // @public (undocumented)
 export type LabelProps = Omit<BoxProps, 'is'> & {
