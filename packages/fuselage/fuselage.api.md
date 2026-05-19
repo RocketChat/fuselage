@@ -956,9 +956,7 @@ export function MenuItem<T>(_props: MenuItemProps<T>): null;
 
 // @public (undocumented)
 export namespace MenuItem {
-    var // Warning: (ae-forgotten-export) The symbol "PartialNode" needs to be exported by the entry point index.d.ts
-    //
-    // (undocumented)
+    var // (undocumented)
     getCollectionNode: <T>(props: MenuItemProps<T>, context: any) => Generator<PartialNode<T>>;
 }
 
@@ -1962,6 +1960,38 @@ export type PaletteStyleTagProps = {
     selector?: string;
     palette?: string;
 };
+
+// @public (undocumented)
+export interface PartialNode<T> {
+    // (undocumented)
+    'aria-label'?: string;
+    // (undocumented)
+    'childNodes'?: () => IterableIterator<PartialNode<T>>;
+    // (undocumented)
+    'element'?: ReactElement;
+    // (undocumented)
+    'hasChildNodes'?: boolean;
+    // (undocumented)
+    'index'?: number;
+    // (undocumented)
+    'key'?: Key;
+    // (undocumented)
+    'props'?: any;
+    // (undocumented)
+    'rendered'?: ReactNode;
+    // (undocumented)
+    'renderer'?: (item: T) => ReactElement;
+    // (undocumented)
+    'shouldInvalidate'?: (context: unknown) => boolean;
+    // (undocumented)
+    'textValue'?: string;
+    // (undocumented)
+    'type'?: string;
+    // (undocumented)
+    'value'?: T;
+    // (undocumented)
+    'wrapper'?: (element: ReactElement) => ReactElement;
+}
 
 // @public (undocumented)
 export const PasswordInput: ForwardRefExoticComponent<PasswordInputProps & RefAttributes<HTMLInputElement>>;
