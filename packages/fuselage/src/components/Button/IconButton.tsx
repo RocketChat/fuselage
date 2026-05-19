@@ -5,7 +5,7 @@ import { isValidElement, useMemo, forwardRef } from 'react';
 import { Box, type BoxProps } from '../Box';
 import { Icon, type IconProps } from '../Icon';
 
-type ButtonSize = {
+export type IconButtonSize = {
   large?: boolean;
   medium?: boolean;
   small?: boolean;
@@ -22,7 +22,7 @@ export type IconButtonProps = {
   warning?: boolean;
   success?: boolean;
   pressed?: boolean;
-} & ButtonSize &
+} & IconButtonSize &
   BoxProps;
 
 const getVariantClass = (variant: string) => {

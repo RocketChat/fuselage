@@ -78,8 +78,6 @@ export type AccordionProps = {
     children: ReactNode;
 } & Partial<StylingProps>;
 
-// Warning: (ae-forgotten-export) The symbol "ButtonSize" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
 export const ActionButton: ForwardRefExoticComponent<BoxProps & {
 primary?: boolean;
@@ -97,13 +95,20 @@ large?: boolean;
 square?: boolean;
 external?: boolean;
 icon?: IconProps["name"];
-} & Omit<AllHTMLAttributes<HTMLAnchorElement | HTMLButtonElement>, "className" | "size" | "is"> & ButtonSize & {
+} & Omit<AllHTMLAttributes<HTMLAnchorElement | HTMLButtonElement>, "className" | "size" | "is"> & ActionButtonSize & {
 icon: IconProps["name"];
 } & RefAttributes<HTMLButtonElement>>;
 
 // @public (undocumented)
-export type ActionButtonProps = ButtonProps & ButtonSize & {
+export type ActionButtonProps = ButtonProps & ActionButtonSize & {
     icon: IconProps['name'];
+};
+
+// @public (undocumented)
+export type ActionButtonSize = {
+    mini?: boolean;
+    tiny?: boolean;
+    small?: boolean;
 };
 
 // @public (undocumented)
@@ -849,8 +854,6 @@ name: Keys;
 size?: BoxProps["width"];
 } & RefAttributes<HTMLElement>>;
 
-// Warning: (ae-forgotten-export) The symbol "ButtonSize_2" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
 export const IconButton: ForwardRefExoticComponent<    {
 icon: Keys | ReactElement;
@@ -861,7 +864,7 @@ danger?: boolean;
 warning?: boolean;
 success?: boolean;
 pressed?: boolean;
-} & ButtonSize_2 & BoxProps & RefAttributes<HTMLElement>>;
+} & IconButtonSize & BoxProps & RefAttributes<HTMLElement>>;
 
 // @public (undocumented)
 export type IconButtonProps = {
@@ -873,7 +876,16 @@ export type IconButtonProps = {
     warning?: boolean;
     success?: boolean;
     pressed?: boolean;
-} & ButtonSize_2 & BoxProps;
+} & IconButtonSize & BoxProps;
+
+// @public (undocumented)
+export type IconButtonSize = {
+    large?: boolean;
+    medium?: boolean;
+    small?: boolean;
+    tiny?: boolean;
+    mini?: boolean;
+};
 
 // @public (undocumented)
 export type IconProps = Omit<BoxProps, 'name' | 'size'> & {
@@ -1419,13 +1431,7 @@ danger?: boolean;
 warning?: boolean;
 success?: boolean;
 pressed?: boolean;
-} & {
-large?: boolean;
-medium?: boolean;
-small?: boolean;
-tiny?: boolean;
-mini?: boolean;
-} & BoxProps & RefAttributes<HTMLButtonElement>>;
+} & IconButtonSize & BoxProps & RefAttributes<HTMLButtonElement>>;
 
 // @public (undocumented)
 export type MessageToolbarItemProps = IconButtonProps;
@@ -2301,13 +2307,7 @@ export const Sidebar: ((props: SidebarProps) => JSX_2.Element) & {
         warning?: boolean;
         success?: boolean;
         pressed?: boolean;
-        } & {
-        large?: boolean;
-        medium?: boolean;
-        small?: boolean;
-        tiny?: boolean;
-        mini?: boolean;
-        } & BoxProps & RefAttributes<HTMLElement>>;
+        } & IconButtonSize & BoxProps & RefAttributes<HTMLElement>>;
         Divider: () => JSX_2.Element;
         Title: (props: {
             children?: ReactNode;
@@ -2572,13 +2572,7 @@ export const SidebarTopBar: ((input: {
     warning?: boolean;
     success?: boolean;
     pressed?: boolean;
-    } & {
-    large?: boolean;
-    medium?: boolean;
-    small?: boolean;
-    tiny?: boolean;
-    mini?: boolean;
-    } & BoxProps & RefAttributes<HTMLElement>>;
+    } & IconButtonSize & BoxProps & RefAttributes<HTMLElement>>;
     Divider: () => JSX_2.Element;
     Title: (props: {
         children?: ReactNode;
@@ -2621,13 +2615,7 @@ danger?: boolean;
 warning?: boolean;
 success?: boolean;
 pressed?: boolean;
-} & {
-large?: boolean;
-medium?: boolean;
-small?: boolean;
-tiny?: boolean;
-mini?: boolean;
-} & BoxProps & RefAttributes<HTMLElement>>;
+} & IconButtonSize & BoxProps & RefAttributes<HTMLElement>>;
 
 // @public (undocumented)
 export type SidebarV2ActionProps = IconButtonProps;
@@ -3229,13 +3217,7 @@ danger?: boolean;
 warning?: boolean;
 success?: boolean;
 pressed?: boolean;
-} & {
-large?: boolean;
-medium?: boolean;
-small?: boolean;
-tiny?: boolean;
-mini?: boolean;
-} & BoxProps & RefAttributes<HTMLElement>>;
+} & IconButtonSize & BoxProps & RefAttributes<HTMLElement>>;
 
 // @public (undocumented)
 export const TopBarActions: ForwardRefExoticComponent<    {
