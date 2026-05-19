@@ -178,7 +178,7 @@ error?: string;
 placeholder?: string;
 value?: Key | null | undefined;
 onChange?: ((key: Key) => any) | undefined;
-options: (readonly [value: string, label: string, selected?: boolean | undefined])[];
+options: SelectOption[];
 small?: boolean;
 } & Omit<AllHTMLAttributes<HTMLElement>, "value" | "onChange"> & RefAttributes<HTMLElement>, "ref"> & RefAttributes<HTMLElement>>;
 
