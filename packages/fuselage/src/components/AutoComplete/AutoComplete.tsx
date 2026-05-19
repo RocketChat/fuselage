@@ -26,12 +26,12 @@ import { Margins } from '../Margins';
 import { useCursor, Options, type OptionType } from '../Options';
 import { PositionAnimated } from '../PositionAnimated';
 
-type AutoCompleteOption<TLabel> = {
+export type AutoCompleteOption<TLabel> = {
   value: string;
   label: TLabel;
 };
 
-export type AutoCompleteProps<TLabel> = Omit<
+export type AutoCompleteProps<TLabel = ReactNode> = Omit<
   AllHTMLAttributes<HTMLInputElement>,
   'value' | 'onChange' | 'is'
 > & {
@@ -87,7 +87,7 @@ const isSelectedValid =
 /**
  * An input for selection of options.
  */
-function AutoComplete<TLabel = ReactNode>(
+const AutoComplete = forwardRef(function AutoComplete<TLabel = ReactNode>(
   {
     value,
     filter,
@@ -269,13 +269,10 @@ function AutoComplete<TLabel = ReactNode>(
       </PositionAnimated>
     </Box>
   );
-}
-
-export interface AutoCompleteComponent
-  extends ForwardRefExoticComponent<AutoCompleteProps<any>> {
+}) as ForwardRefExoticComponent<AutoCompleteProps> & {
   <TLabel = ReactNode>(
     props: AutoCompleteProps<TLabel> & RefAttributes<HTMLInputElement>,
   ): ReactElement;
-}
+};
 
-export default forwardRef(AutoComplete) as AutoCompleteComponent;
+export default AutoComplete;

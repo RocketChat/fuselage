@@ -41,7 +41,7 @@ export const Select = withAriaLabelledBy(SelectComponent);
 
 // with aria-labelledby + id for aria-controls
 export const AutoComplete = withAriaLabelledByAndId(
-  AutoCompleteComponent,
+  AutoCompleteComponent<any>,
 ) as typeof AutoCompleteComponent;
 export const MultiSelect = withAriaLabelledByAndId(MultiSelectComponent);
 export const MultiSelectFiltered = withAriaLabelledByAndId(
