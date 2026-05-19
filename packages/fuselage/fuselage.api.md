@@ -920,6 +920,9 @@ export type InputBoxSkeletonProps = BoxProps;
 export type InputProps = BoxProps;
 
 // @public (undocumented)
+export type ItemsPerPage = 25 | 50 | 100;
+
+// @public (undocumented)
 export const Label: ForwardRefExoticComponent<Omit<BoxProps, "is"> & {
 disabled?: boolean;
 required?: boolean;
@@ -3246,7 +3249,6 @@ export type VisibilityType = 'hidden' | 'visible' | 'hiding' | 'unhiding' | unde
 // Warnings were encountered during analysis:
 //
 // src/Theme.ts:255:1 - (ae-forgotten-export) The symbol "Var" needs to be exported by the entry point index.d.ts
-// src/components/Pagination/Pagination.tsx:12:3 - (ae-forgotten-export) The symbol "ItemsPerPage" needs to be exported by the entry point index.d.ts
 // src/components/Sidebar/SidebarBanner.tsx:11:3 - (ae-forgotten-export) The symbol "VariantType" needs to be exported by the entry point index.d.ts
 
 // (No @packageDocumentation comment for this package)
