@@ -256,8 +256,6 @@ export const Box: MemoExoticComponent<ForwardRefExoticComponent<BoxProps & RefAt
 export interface BoxProps extends Partial<StylingProps>, Omit<AllHTMLAttributes<HTMLElement>, 'ref' | 'is' | 'className' | 'size' | 'elevation' | keyof StylingProps>, Omit<SVGAttributes<SVGElement>, keyof AllHTMLAttributes<HTMLElement> | 'elevation' | keyof StylingProps> {
     // (undocumented)
     animated?: boolean;
-    // Warning: (ae-forgotten-export) The symbol "Falsy" needs to be exported by the entry point index.d.ts
-    //
     // (undocumented)
     className?: string | cssFn | (string | cssFn | Falsy)[];
     // (undocumented)
@@ -700,6 +698,9 @@ export type EmailInputProps = Omit<InputBoxProps, 'type'> & {
     addon?: ReactNode;
     error?: string;
 };
+
+// @public (undocumented)
+export type Falsy = false | 0 | '' | null | undefined;
 
 // @public (undocumented)
 export function Field(props: FieldProps): JSX_2.Element;
@@ -3406,6 +3407,15 @@ export const useOwnerDocument: () => {
 };
 
 // @public (undocumented)
+export class Var {
+    constructor(name: string, value: string);
+    // (undocumented)
+    theme(name: string): Var;
+    // (undocumented)
+    toString(): string;
+}
+
+// @public (undocumented)
 export type VisibilityHandler = [
 visible: typeof AnimatedVisibility.HIDDEN | typeof AnimatedVisibility.HIDING | typeof AnimatedVisibility.VISIBLE | typeof AnimatedVisibility.UNHIDING,
 hide: () => void,
@@ -3417,7 +3427,6 @@ export type VisibilityType = 'hidden' | 'visible' | 'hiding' | 'unhiding' | unde
 
 // Warnings were encountered during analysis:
 //
-// src/Theme.ts:255:1 - (ae-forgotten-export) The symbol "Var" needs to be exported by the entry point index.d.ts
 // src/components/Sidebar/SidebarBanner.tsx:11:3 - (ae-forgotten-export) The symbol "VariantType" needs to be exported by the entry point index.d.ts
 
 // (No @packageDocumentation comment for this package)
