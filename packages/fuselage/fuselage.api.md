@@ -2613,10 +2613,23 @@ large?: boolean;
 // @public (undocumented)
 export type SidebarV2ActionsProps = ButtonGroupProps;
 
-// Warning: (ae-forgotten-export) The symbol "SidebarBannerProps_2" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
-export const SidebarV2Banner: (input: SidebarBannerProps_2) => JSX_2.Element;
+export const SidebarV2Banner: (input: SidebarV2BannerProps) => JSX_2.Element;
+
+// @public (undocumented)
+export type SidebarV2BannerProps = {
+    title?: ReactNode;
+    linkText?: string;
+    linkProps?: AllHTMLAttributes<HTMLAnchorElement>;
+    onClick?: () => void;
+    variant?: SidebarV2BannerVariant;
+    onClose?: () => void;
+    children?: ReactNode;
+    addon?: ReactNode;
+};
+
+// @public (undocumented)
+export type SidebarV2BannerVariant = 'default' | 'info' | 'success' | 'warning' | 'danger';
 
 // @public (undocumented)
 export const SidebarV2ButtonGroup: (input: ButtonGroupProps) => JSX_2.Element;
@@ -2640,13 +2653,18 @@ export const SidebarV2Footer: (input: HTMLAttributes<HTMLElement>) => JSX_2.Elem
 // @public (undocumented)
 export const SidebarV2FooterContent: (input: BoxProps) => JSX_2.Element;
 
-// Warning: (ae-forgotten-export) The symbol "SidebarGroupTitleProps" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
-export const SidebarV2GroupTitle: (input: SidebarGroupTitleProps) => JSX_2.Element;
+export const SidebarV2GroupTitle: (input: SidebarV2GroupTitleProps) => JSX_2.Element;
 
-// Warning: (ae-forgotten-export) The symbol "SidebarV2ItemProps" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export type SidebarV2GroupTitleProps = {
+    expanded?: boolean;
+    title?: string;
+    titleId?: string;
+    badge?: ReactNode;
+    barProps?: AriaAttributes;
+} & HTMLAttributes<HTMLDivElement>;
+
 // @public (undocumented)
 export const SidebarV2Item: (input: SidebarV2ItemProps) => JSX_2.Element;
 
@@ -2670,13 +2688,24 @@ export const SidebarV2ItemContent: (input: {
     unread?: boolean;
 } & HTMLAttributes<HTMLDivElement>) => JSX_2.Element;
 
-// Warning: (ae-forgotten-export) The symbol "SidebarItemIconProps_2" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
-export const SidebarV2ItemIcon: (input: SidebarItemIconProps_2) => JSX_2.Element;
+export const SidebarV2ItemIcon: (input: SidebarV2ItemIconProps) => JSX_2.Element;
+
+// @public (undocumented)
+export type SidebarV2ItemIconProps = Omit<IconProps, 'name'> & {
+    icon: Keys | ReactElement;
+    highlighted?: boolean;
+};
 
 // @public (undocumented)
 export const SidebarV2ItemMenu: (input: HTMLAttributes<HTMLDivElement>) => JSX_2.Element;
+
+// @public (undocumented)
+export type SidebarV2ItemProps = {
+    selected?: boolean;
+    level?: number;
+    is?: ElementType;
+} & AllHTMLAttributes<HTMLAnchorElement>;
 
 // @public (undocumented)
 export const SidebarV2ItemRow: (input: HTMLAttributes<HTMLDivElement>) => JSX_2.Element;
