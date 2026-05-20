@@ -2,13 +2,18 @@ import type { ReactNode } from 'react';
 
 import { IconButton } from '../Button';
 
-type VariantType = 'default' | 'info' | 'success' | 'warning' | 'danger';
+export type SidebarBannerVariant =
+  | 'default'
+  | 'info'
+  | 'success'
+  | 'warning'
+  | 'danger';
 
 export type SidebarBannerProps = {
   text?: ReactNode;
   description?: ReactNode;
   onClick?: () => void;
-  variant?: VariantType;
+  variant?: SidebarBannerVariant;
   onClose?: () => void;
   children?: ReactNode;
   addon?: ReactNode;

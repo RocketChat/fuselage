@@ -2274,21 +2274,10 @@ export type SelectProps = Omit<BoxProps, 'onChange'> & {
 
 // @public (undocumented)
 export const Sidebar: ((props: SidebarProps) => JSX_2.Element) & {
-    TopBar: ((input: {
-        children?: ReactNode;
-        className?: string;
-    }) => JSX_2.Element) & {
-        Section: (input: {
-            children?: ReactNode;
-            className?: string;
-        }) => JSX_2.Element;
-        ToolBox: (input: {
-            children?: ReactNode;
-            className?: string;
-        }) => JSX_2.Element;
-        Wrapper: (input: {
-            children?: ReactNode;
-        }) => JSX_2.Element;
+    TopBar: ((input: TopBarProps) => JSX_2.Element) & {
+        Section: (input: TopBarSectionProps) => JSX_2.Element;
+        ToolBox: (input: TopBarToolBoxProps) => JSX_2.Element;
+        Wrapper: (input: TopBarWrapperProps) => JSX_2.Element;
         Avatar: {
             size: "x24";
         };
@@ -2311,9 +2300,7 @@ export const Sidebar: ((props: SidebarProps) => JSX_2.Element) & {
         pressed?: boolean;
         } & IconButtonSize & BoxProps & RefAttributes<HTMLElement>>;
         Divider: () => JSX_2.Element;
-        Title: (props: {
-            children?: ReactNode;
-        }) => JSX_2.Element;
+        Title: (props: TopBarTitleProps) => JSX_2.Element;
     };
     Item: ((input: SidebarItemProps) => JSX_2.Element) & {
         Menu: (props: SidebarItemMenuProps) => JSX_2.Element;
@@ -2344,6 +2331,9 @@ export const Sidebar: ((props: SidebarProps) => JSX_2.Element) & {
 };
 
 // @public (undocumented)
+export type SidebarActionProps = IconButtonProps;
+
+// @public (undocumented)
 export const SidebarBanner: (input: SidebarBannerProps) => JSX_2.Element;
 
 // @public (undocumented)
@@ -2351,11 +2341,14 @@ export type SidebarBannerProps = {
     text?: ReactNode;
     description?: ReactNode;
     onClick?: () => void;
-    variant?: VariantType;
+    variant?: SidebarBannerVariant;
     onClose?: () => void;
     children?: ReactNode;
     addon?: ReactNode;
 };
+
+// @public (undocumented)
+export type SidebarBannerVariant = 'default' | 'info' | 'success' | 'warning' | 'danger';
 
 // @public (undocumented)
 export const SidebarDivider: () => JSX_2.Element;
@@ -2403,8 +2396,6 @@ export const SidebarItem: ((input: SidebarItemProps) => JSX_2.Element) & {
 // @public (undocumented)
 export const SidebarItemAction: (props: SidebarItemActionProps) => JSX_2.Element;
 
-// Warning: (ae-forgotten-export) The symbol "SidebarActionProps" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
 export type SidebarItemActionProps = SidebarActionProps;
 
@@ -2539,21 +2530,10 @@ export type SidebarSectionTitleProps = {
 };
 
 // @public (undocumented)
-export const SidebarTopBar: ((input: {
-    children?: ReactNode;
-    className?: string;
-}) => JSX_2.Element) & {
-    Section: (input: {
-        children?: ReactNode;
-        className?: string;
-    }) => JSX_2.Element;
-    ToolBox: (input: {
-        children?: ReactNode;
-        className?: string;
-    }) => JSX_2.Element;
-    Wrapper: (input: {
-        children?: ReactNode;
-    }) => JSX_2.Element;
+export const SidebarTopBar: ((input: TopBarProps) => JSX_2.Element) & {
+    Section: (input: TopBarSectionProps) => JSX_2.Element;
+    ToolBox: (input: TopBarToolBoxProps) => JSX_2.Element;
+    Wrapper: (input: TopBarWrapperProps) => JSX_2.Element;
     Avatar: {
         size: "x24";
     };
@@ -2576,9 +2556,7 @@ export const SidebarTopBar: ((input: {
     pressed?: boolean;
     } & IconButtonSize & BoxProps & RefAttributes<HTMLElement>>;
     Divider: () => JSX_2.Element;
-    Title: (props: {
-        children?: ReactNode;
-    }) => JSX_2.Element;
+    Title: (props: TopBarTitleProps) => JSX_2.Element;
 };
 
 // @public (undocumented)
@@ -3328,8 +3306,6 @@ export type TooltipProps = BoxProps & {
     placement?: 'top-start' | 'top-middle' | 'top-end' | 'bottom-start' | 'bottom-middle' | 'bottom-end' | 'top' | 'left' | 'bottom' | 'right' | null;
 };
 
-// Warning: (ae-forgotten-export) The symbol "TopBarProps" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
 export const TopBar: (input: TopBarProps) => JSX_2.Element;
 
@@ -3360,30 +3336,54 @@ export const TopBarAvatar: {
     size: "x24";
 };
 
-// Warning: (ae-forgotten-export) The symbol "TopBarSectionProps" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export type TopBarProps = {
+    children?: ReactNode;
+    className?: string;
+};
+
 // @public (undocumented)
 export const TopBarSection: (input: TopBarSectionProps) => JSX_2.Element;
 
-// Warning: (ae-forgotten-export) The symbol "TopBarTitleProps" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export type TopBarSectionProps = {
+    children?: ReactNode;
+    className?: string;
+};
+
 // @public (undocumented)
 export const TopBarTitle: (props: TopBarTitleProps) => JSX_2.Element;
 
-// Warning: (ae-forgotten-export) The symbol "TopBarToolBoxProps" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export type TopBarTitleProps = {
+    children?: ReactNode;
+};
+
 // @public (undocumented)
 export const TopBarToolBox: (input: TopBarToolBoxProps) => JSX_2.Element;
 
-// Warning: (ae-forgotten-export) The symbol "TopBarProps_2" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
-export const TopBarV2: (input: TopBarProps_2) => JSX_2.Element;
+export type TopBarToolBoxProps = {
+    children?: ReactNode;
+    className?: string;
+};
 
-// Warning: (ae-forgotten-export) The symbol "TopBarWrapperProps" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export const TopBarV2: (input: TopBarV2Props) => JSX_2.Element;
+
+// @public (undocumented)
+export type TopBarV2Props = {
+    children?: ReactNode;
+    className?: string;
+};
+
 // @public (undocumented)
 export const TopBarWrapper: (input: TopBarWrapperProps) => JSX_2.Element;
+
+// @public (undocumented)
+export type TopBarWrapperProps = {
+    children?: ReactNode;
+};
 
 // @public (undocumented)
 export const UrlInput: ForwardRefExoticComponent<UrlInputProps & RefAttributes<HTMLElement>>;
@@ -3424,10 +3424,6 @@ show: () => void
 
 // @public (undocumented)
 export type VisibilityType = 'hidden' | 'visible' | 'hiding' | 'unhiding' | undefined;
-
-// Warnings were encountered during analysis:
-//
-// src/components/Sidebar/SidebarBanner.tsx:11:3 - (ae-forgotten-export) The symbol "VariantType" needs to be exported by the entry point index.d.ts
 
 // (No @packageDocumentation comment for this package)
 

@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 
-type TopBarProps = {
+export type TopBarProps = {
   children?: ReactNode;
   className?: string;
 };
