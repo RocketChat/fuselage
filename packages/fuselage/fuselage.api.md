@@ -1801,7 +1801,7 @@ export type OptionProps = {
 
 // @public (undocumented)
 export const Options: ForwardRefExoticComponent<PropsWithoutRef<OptionsProps> & RefAttributes<HTMLElement>> & {
-    <TValue = string | number, TLabel = ReactNode>(props: PropsWithoutRef<OptionsProps<TValue, TLabel>> & RefAttributes<HTMLElement>): JSX.Element;
+    <TValue = string | number, TLabel = ReactNode>(props: PropsWithoutRef<OptionsProps<TValue, TLabel>> & RefAttributes<HTMLElement>): ReactNode;
 };
 
 // @public (undocumented)
