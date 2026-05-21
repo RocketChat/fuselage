@@ -2,4 +2,4 @@
 '@rocket.chat/fuselage': patch
 ---
 
-fix: add `position: relative` to accordion panel to contain absolutely-positioned descendants
+Fixed `Select` inflating ancestor scrollHeight inside non-positioned containers (collapsed `Accordion`, `Modal`, `Field`, etc.). Regression from 0.77.0 (#1939).
