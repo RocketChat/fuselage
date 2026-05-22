@@ -45,6 +45,7 @@ const MultiSelectFilteredAnchor = forwardRef<
         {...props}
         rcx-input-box--undecorated
         order={1}
+        autoComplete='off'
       />
     </FlexItem>
   );
