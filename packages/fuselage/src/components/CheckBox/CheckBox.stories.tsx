@@ -11,6 +11,11 @@ import CheckBox from './CheckBox';
 export default {
   title: 'Inputs/CheckBox',
   component: CheckBox,
+  argTypes: {
+    labelChildren: {
+      control: false,
+    },
+  },
 } satisfies Meta<typeof CheckBox>;
 
 const Template: StoryFn<typeof CheckBox> = (args) => (
