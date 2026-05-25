@@ -3,7 +3,7 @@ import type { ReactNode, ComponentProps } from 'react';
 
 import { useFieldDescriptorId } from './FieldContext';
 
-type FieldDescriptionProps = { children: ReactNode } & ComponentProps<
+export type FieldDescriptionProps = { children: ReactNode } & ComponentProps<
   typeof FieldDescriptionComponent
 >;
 

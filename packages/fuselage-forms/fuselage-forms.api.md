@@ -53,61 +53,90 @@ addon?: ReactNode;
 error?: string;
 } & RefAttributes<HTMLElement>, "ref"> & RefAttributes<HTMLElement>>;
 
-// Warning: (ae-forgotten-export) The symbol "FieldProps" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
 export function Field(input: FieldProps): JSX_2.Element;
 
-// Warning: (ae-forgotten-export) The symbol "FieldContextValue" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
 export const FieldContext: Context<FieldContextValue>;
 
-// Warning: (ae-forgotten-export) The symbol "FieldDescriptionProps" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export type FieldContextValue = {
+    setDescriptor: (type: LabelTypes, unregister?: boolean) => void;
+    setLabel: (label: ReactNode) => void;
+    descriptors: Set<LabelTypes>;
+    label: ReactNode | null;
+    id: string;
+    fieldType: FieldType;
+    setFieldType: (fieldType: FieldType) => void;
+    emitAction: () => void;
+    onAction: (cb: () => void) => void;
+};
+
 // @public (undocumented)
 export const FieldDescription: (input: FieldDescriptionProps) => JSX_2.Element;
 
-// Warning: (ae-forgotten-export) The symbol "FieldErrorProps" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export type FieldDescriptionProps = {
+    children: ReactNode;
+} & ComponentProps<typeof FieldDescription_2>;
+
 // @public (undocumented)
 export const FieldError: (input: FieldErrorProps) => JSX_2.Element;
 
+// @public (undocumented)
+export type FieldErrorProps = {
+    children: ReactNode;
+} & ComponentProps<typeof FieldError_2>;
+
 export { FieldGroup }
 
-// Warning: (ae-forgotten-export) The symbol "FieldHintProps" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
 export const FieldHint: (input: FieldHintProps) => JSX_2.Element;
 
-// Warning: (ae-forgotten-export) The symbol "FieldLabelProps" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export type FieldHintProps = {
+    children: ReactNode;
+} & ComponentProps<typeof FieldHint_2>;
+
 // @public (undocumented)
 export const FieldLabel: (props: FieldLabelProps) => JSX_2.Element;
 
 export { FieldLabelInfo }
 
+// @public (undocumented)
+export type FieldLabelProps = ComponentPropsWithoutRef<typeof FieldLabel_2>;
+
 export { FieldLink }
 
-// Warning: (ae-forgotten-export) The symbol "FieldProviderProps" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export type FieldProps = {
+    children: ReactNode;
+} & ComponentProps<typeof Field_2>;
+
 // @public (undocumented)
 export function FieldProvider(input: FieldProviderProps): JSX_2.Element;
+
+// @public (undocumented)
+export type FieldProviderProps = {
+    children: ReactNode;
+};
 
 export { FieldRow }
 
 // @public (undocumented)
 export type FieldType = 'wrappedByLabel' | 'referencedByLabel' | 'referencedByInput';
 
-// Warning: (ae-forgotten-export) The symbol "HiddenLabelProps" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
 export const HiddenLabel: (input: HiddenLabelProps) => JSX_2.Element;
 
-// Warning: (ae-forgotten-export) The symbol "LabelForProps" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export type HiddenLabelProps = ComponentProps<typeof FieldLabel_2>;
+
 // @public (undocumented)
 export const LabelFor: (input: LabelForProps) => JSX_2.Element;
+
+// @public (undocumented)
+export type LabelForProps = ComponentProps<typeof FieldLabel_2>;
 
 // @public (undocumented)
 export type LabelTypes = 'hint' | 'description' | 'error' | 'placeholder';
@@ -161,10 +190,11 @@ export const RadioButton: ForwardRefExoticComponent<Omit<BoxProps & AllHTMLAttri
 labelChildren?: ReactNode;
 } & RefAttributes<HTMLInputElement>, "ref"> & RefAttributes<HTMLInputElement>>;
 
-// Warning: (ae-forgotten-export) The symbol "ReferencedLabelProps" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
 export const ReferencedLabel: (input: ReferencedLabelProps) => JSX_2.Element;
+
+// @public (undocumented)
+export type ReferencedLabelProps = ComponentProps<typeof FieldLabel_2>;
 
 // @public (undocumented)
 export const SearchInput: ForwardRefExoticComponent<Omit<Omit<InputBoxProps, "type"> & {
