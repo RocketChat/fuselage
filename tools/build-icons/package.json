@@ -6,18 +6,18 @@
   "bin": "./index.js",
   "dependencies": {
     "stylelint": "~16.25.0",
-    "svg2ttf": "~6.0.3",
+    "svg2ttf": "~6.1.0",
     "svgicons2svgfont": "~15.0.1",
     "tools-utils": "workspace:~",
     "ttf2eot": "~3.1.0",
     "ttf2woff": "~3.0.0",
-    "ttf2woff2": "~8.0.0",
+    "ttf2woff2": "~8.0.1",
     "unicode": "~14.0.0",
     "xml2js": "~0.6.2"
   },
   "devDependencies": {
     "eslint": "~9.39.2",
     "lint-all": "workspace:~",
-    "prettier": "~3.6.2"
+    "prettier": "~3.8.3"
   }
 }
