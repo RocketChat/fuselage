@@ -59,7 +59,7 @@ type StrictRuleAttacher = (
   options: { document: Document },
 ) => () => void;
 
-type RuleAttacher = (
+export type RuleAttacher = (
   rules: string,
   options?: { document?: Document },
 ) => () => void;
