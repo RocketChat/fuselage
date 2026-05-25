@@ -31,6 +31,26 @@ export function getPositionStyle(input: {
     margin?: number;
 }): UsePositionResult;
 
+// @public (undocumented)
+export type Placement = `${Position}-${PlacementVariant}` | Position;
+
+// @public (undocumented)
+export type PlacementVariant = 'start' | 'middle' | 'end';
+
+// @public (undocumented)
+export type Position = 'top' | 'left' | 'bottom' | 'right';
+
+// @public (undocumented)
+export type SafeCallbackRef<T> = (node: T) => (() => void) | void;
+
+// @public (undocumented)
+export type TargetBoundaries = {
+    t: number;
+    b: number;
+    r: number;
+    l: number;
+};
+
 // @public
 export const useAutoFocus: <T extends {
     focus: (options?: FocusOptions) => void;
@@ -55,10 +75,15 @@ export const useButtonPattern: (onPress: (e: MouseEvent_2<Element> | KeyboardEve
     tabIndex: number;
 };
 
-// Warning: (ae-forgotten-export) The symbol "UseClipboardParams" needs to be exported by the entry point index.d.ts
-//
 // @public
 export const useClipboard: (text: string, input?: UseClipboardParams) => UseClipboardReturn;
+
+// @public (undocumented)
+export type UseClipboardParams = {
+    clearTime?: number;
+    onCopySuccess?: (e?: Event) => void;
+    onCopyError?: (e?: Error) => void;
+};
 
 // @public (undocumented)
 export type UseClipboardReturn = {
@@ -198,8 +223,6 @@ export const usePrefersReducedMotion: () => boolean;
 // @public (undocumented)
 export const usePrevious: <T>(value: T) => T | undefined;
 
-// Warning: (ae-forgotten-export) The symbol "UseResizeObserverOptions" needs to be exported by the entry point index.d.ts
-//
 // @public
 export const useResizeObserver: <T extends Element>(input?: UseResizeObserverOptions) => {
     ref: RefObject<T>;
@@ -207,11 +230,14 @@ export const useResizeObserver: <T extends Element>(input?: UseResizeObserverOpt
     borderBoxSize: Partial<ResizeObserverSize>;
 };
 
+// @public (undocumented)
+export type UseResizeObserverOptions = {
+    debounceDelay?: number;
+};
+
 // @public
 export function useSafely<S, D extends DispatchWithoutAction | Dispatch<any>>(input: [state: S, dispatch: D]): [state: S, dispatch: D];
 
-// Warning: (ae-forgotten-export) The symbol "SafeCallbackRef" needs to be exported by the entry point index.d.ts
-//
 // @public
 export const useSafeRefCallback: <T extends HTMLElement>(callback: SafeCallbackRef<T>) => (node: T | null) => void;
 
@@ -230,11 +256,15 @@ export const useStorage: <T>(storage: Storage | undefined, key: string, fallback
 // @public
 export const useToggle: (initialValue?: boolean | (() => boolean)) => [boolean, (forcedValue?: SetStateAction<boolean>) => void];
 
-// Warnings were encountered during analysis:
-//
-// src/usePosition/index.ts:84:3 - (ae-forgotten-export) The symbol "Placement" needs to be exported by the entry point index.d.ts
-// src/usePosition/index.ts:87:3 - (ae-forgotten-export) The symbol "TargetBoundaries" needs to be exported by the entry point index.d.ts
-// src/usePosition/index.ts:88:3 - (ae-forgotten-export) The symbol "VariantBoundaries" needs to be exported by the entry point index.d.ts
+// @public (undocumented)
+export type VariantBoundaries = {
+    vm: number;
+    vs: number;
+    ve: number;
+    hs: number;
+    he: number;
+    hm: number;
+};
 
 // (No @packageDocumentation comment for this package)
 

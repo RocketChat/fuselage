@@ -14,6 +14,12 @@ import type { VariantBoundaries } from './getVariantBoundaries';
 import { getVariantBoundaries } from './getVariantBoundaries';
 import { useBoundingClientRectChanges } from './useBoundingClientRectChanges';
 
+export type { Placement } from './Placement';
+export type { Position } from './Position';
+export type { PlacementVariant } from './PlacementVariant';
+export type { TargetBoundaries } from './getTargetBoundaries';
+export type { VariantBoundaries } from './getVariantBoundaries';
+
 export type UsePositionOptions = {
   margin?: number;
   container?: Element;
