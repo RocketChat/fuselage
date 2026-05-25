@@ -8,7 +8,7 @@ import ToastBarPortal from './ToastBarPortal';
 import ToastBarTimed from './ToastBarTimed';
 import ToastBarZone from './ToastBarZone';
 
-type ToastBarProps = {
+export type ToastBarProps = {
   children?: ReactNode;
 };
 
