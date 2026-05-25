@@ -8,7 +8,7 @@ import {
 import type { ReactElement } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 
-type OauthAuthorizationPageProps = {
+export type OauthAuthorizationPageProps = {
   clientName?: string | undefined;
   onClickAuthorizeOAuth: () => void;
   error: {

@@ -8,7 +8,7 @@ import { useTranslation, Trans } from 'react-i18next';
 
 import EmailCodeFallback from '../../common/EmailCodeFallback';
 
-type CheckYourEmailPageProps = {
+export type CheckYourEmailPageProps = {
   title?: string;
   children?: ReactNode;
   onResendEmailRequest: () => void;

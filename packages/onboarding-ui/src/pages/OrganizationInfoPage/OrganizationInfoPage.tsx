@@ -8,7 +8,7 @@ import FormPageLayout from '../../common/FormPageLayout';
 import OrganizationInfoForm from '../../forms/OrganizationInfoForm';
 import type { OrganizationInfoPayload } from '../../forms/OrganizationInfoForm/OrganizationInfoForm';
 
-type OrganizationInfoPageProps = {
+export type OrganizationInfoPageProps = {
   title?: ReactNode;
   subtitle?: ReactNode;
   description?: ReactNode;

@@ -7,7 +7,7 @@ import FormPageLayout from '../../common/FormPageLayout';
 import RegisterOfflineForm from '../../forms/RegisterOfflineForm';
 import type { RegisterOfflinePayload } from '../../forms/RegisterOfflineForm/RegisterOfflineForm';
 
-type RegisterOfflinePageProps = {
+export type RegisterOfflinePageProps = {
   termsHref: string;
   policyHref: string;
   clientKey: string;

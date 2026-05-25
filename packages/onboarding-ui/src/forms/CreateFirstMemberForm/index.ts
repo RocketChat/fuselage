@@ -1,1 +1,6 @@
-export { default } from './CreateFirstMemberForm';
+export {
+  default,
+  CreateFirstMemberForm,
+  type CreateFirstMemberFormProps,
+  type CreateFirstMemberFormPayload,
+} from './CreateFirstMemberForm';

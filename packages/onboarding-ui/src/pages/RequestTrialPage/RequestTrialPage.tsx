@@ -10,7 +10,7 @@ import RequestTrialForm from '../../forms/RequestTrialForm';
 
 import Description from './Description';
 
-type RequestTrialPageProps = ComponentProps<typeof RequestTrialForm>;
+export type RequestTrialPageProps = ComponentProps<typeof RequestTrialForm>;
 
 const RequestTrialPage = (props: RequestTrialPageProps): ReactElement => {
   const { t } = useTranslation();

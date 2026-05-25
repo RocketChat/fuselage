@@ -1,1 +1,4 @@
-export { default } from './AwaitingConfirmationPage';
+export {
+  default,
+  type AwaitingConfirmationPageProps,
+} from './AwaitingConfirmationPage';

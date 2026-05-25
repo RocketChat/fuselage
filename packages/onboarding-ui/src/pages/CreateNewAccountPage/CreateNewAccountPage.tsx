@@ -12,7 +12,7 @@ import { Trans, useTranslation } from 'react-i18next';
 import NewAccountForm from '../../forms/NewAccountForm';
 import type { NewAccountPayload } from '../../forms/NewAccountForm/NewAccountForm';
 
-type CreateNewAccountPageProps = {
+export type CreateNewAccountPageProps = {
   initialValues?: Omit<NewAccountPayload, 'password'>;
   validateEmail: Validate<
     FieldPathValue<NewAccountPayload, 'email'>,

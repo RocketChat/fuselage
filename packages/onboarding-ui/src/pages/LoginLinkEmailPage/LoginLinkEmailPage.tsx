@@ -5,7 +5,7 @@ import { Trans, useTranslation } from 'react-i18next';
 
 import EmailCodeFallback from '../../common/EmailCodeFallback';
 
-type LoginLinkEmailProps = {
+export type LoginLinkEmailProps = {
   onResendEmailRequest: () => void;
   onChangeEmailRequest: () => void;
 };

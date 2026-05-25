@@ -9,7 +9,7 @@ import CreateCloudWorkspaceForm from '../../forms/CreateCloudWorkspaceForm';
 import Description from './Description';
 import TitleCreateCloudPage from './TitleCreateCloudPage';
 
-type CreateCloudWorkspacePageProps = ComponentProps<
+export type CreateCloudWorkspacePageProps = ComponentProps<
   typeof CreateCloudWorkspaceForm
 >;
 

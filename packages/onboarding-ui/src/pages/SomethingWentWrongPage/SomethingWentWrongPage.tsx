@@ -3,7 +3,7 @@ import { BackgroundLayer, LayoutLogo } from '@rocket.chat/layout';
 import type { ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
 
-type SomethingWentWrongPageProps = {
+export type SomethingWentWrongPageProps = {
   requestId?: string | undefined;
 };
 

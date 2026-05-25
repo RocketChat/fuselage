@@ -25,7 +25,7 @@ import Tooltip from '../../common/InformationTooltipTrigger';
 
 import WorkspaceUrlInput from './WorkspaceUrlInput';
 
-type CreateCloudWorkspaceFormPayload = {
+export type CreateCloudWorkspaceFormPayload = {
   organizationEmail: string;
   workspaceName: string;
   workspaceURL: string;
@@ -35,7 +35,7 @@ type CreateCloudWorkspaceFormPayload = {
   updates: boolean;
 };
 
-type CreateCloudWorkspaceFormProps = {
+export type CreateCloudWorkspaceFormProps = {
   defaultValues?: CreateCloudWorkspaceFormPayload;
   onSubmit: SubmitHandler<CreateCloudWorkspaceFormPayload>;
   serverRegionOptions: SelectOption[];
@@ -52,7 +52,7 @@ type CreateCloudWorkspaceFormProps = {
   >;
 };
 
-const CreateCloudWorkspaceForm = ({
+export const CreateCloudWorkspaceForm = ({
   defaultValues,
   onSubmit,
   domain,
@@ -271,4 +271,4 @@ const CreateCloudWorkspaceForm = ({
   );
 };
 
-export default CreateCloudWorkspaceForm;
+export { CreateCloudWorkspaceForm as default };

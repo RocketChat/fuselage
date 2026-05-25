@@ -14,7 +14,7 @@ import type { LoginFormPayload } from '../../forms/LoginForm/LoginForm';
 import TotpForm from '../../forms/TotpForm';
 import type { TotpFormPayload } from '../../forms/TotpForm/TotpForm';
 
-type TotpFormProps = {
+export type TotpFormProps = {
   initialValues?: TotpFormPayload;
   onChangeTotpForm: () => void;
   isBackupCode?: boolean;
@@ -22,7 +22,7 @@ type TotpFormProps = {
   onSubmit: SubmitHandler<TotpFormPayload>;
 };
 
-type LoginPageProps = {
+export type LoginPageProps = {
   initialValues?: Omit<LoginFormPayload, 'password'>;
   onChangeForm: () => void;
   onResetPassword: () => void;

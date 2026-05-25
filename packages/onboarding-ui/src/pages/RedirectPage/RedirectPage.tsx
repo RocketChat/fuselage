@@ -4,7 +4,7 @@ import type { ReactElement } from 'react';
 import { useEffect, useState } from 'react';
 import { useTranslation, Trans } from 'react-i18next';
 
-type RedirectPageProps = {
+export type RedirectPageProps = {
   title: string;
   countDownSeconds: number;
   onRedirect: () => void;

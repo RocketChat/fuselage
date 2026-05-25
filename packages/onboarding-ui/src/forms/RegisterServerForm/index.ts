@@ -1,1 +1,1 @@
-export { default } from './RegisterServerForm';
+export { default, type RegisterServerPayload } from './RegisterServerForm';
