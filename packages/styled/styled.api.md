@@ -17,8 +17,11 @@ export const OwnerDocument: Context<    {
 document: Document;
 }>;
 
-// Warning: (ae-forgotten-export) The symbol "RefTypes" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export type RefTypes = {
+    [K in keyof JSX.IntrinsicElements]: JSX.IntrinsicElements[K] extends DetailedHTMLProps<HTMLAttributes<infer T>, any> ? T : JSX.IntrinsicElements[K] extends SVGProps<infer T> ? T : never;
+};
+
 // @public (undocumented)
 const styled: <K extends keyof JSX.IntrinsicElements, P>(type: K, filter?: (p: PropsWithoutRef<JSX.IntrinsicElements[K] & P>) => JSX.IntrinsicElements[K]) => (slices: TemplateStringsArray, ...values: readonly (string | ((props: P) => string))[]) => ForwardRefExoticComponent<PropsWithoutRef<JSX.IntrinsicElements[K] & P> & RefAttributes<RefTypes[K]>>;
 export default styled;

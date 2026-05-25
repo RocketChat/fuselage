@@ -34,7 +34,7 @@ export const attachClassName = <P extends { className?: string }>(
     : additionalClassName,
 });
 
-type RefTypes = {
+export type RefTypes = {
   [K in keyof JSX.IntrinsicElements]: JSX.IntrinsicElements[K] extends DetailedHTMLProps<
     HTMLAttributes<infer T>,
     any
