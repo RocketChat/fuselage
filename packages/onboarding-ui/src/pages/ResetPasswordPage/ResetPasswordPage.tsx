@@ -9,7 +9,7 @@ import FormPageLayout from '../../common/FormPageLayout';
 import ResetPasswordForm from '../../forms/ResetPasswordForm';
 import type { ResetPasswordFormPayload } from '../../forms/ResetPasswordForm/ResetPasswordForm';
 
-type ResetPasswordPageProps = {
+export type ResetPasswordPageProps = {
   initialValues?: ResetPasswordFormPayload;
   validateEmail: Validate<
     FieldPathValue<ResetPasswordFormPayload, 'email'>,

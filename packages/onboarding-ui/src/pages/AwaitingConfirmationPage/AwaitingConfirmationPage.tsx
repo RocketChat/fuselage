@@ -5,7 +5,7 @@ import type { FormPageLayoutStyleProps } from '../../Types';
 import FormPageLayout from '../../common/FormPageLayout';
 import AwaitingConfirmationForm from '../../forms/AwaitConfirmationForm';
 
-type AwaitingConfirmationPageProps = {
+export type AwaitingConfirmationPageProps = {
   title?: ReactNode;
   description?: ReactNode;
   currentStep: number;

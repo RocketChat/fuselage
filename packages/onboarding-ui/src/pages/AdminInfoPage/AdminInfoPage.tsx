@@ -7,7 +7,7 @@ import FormPageLayout from '../../common/FormPageLayout';
 import AdminInfoForm from '../../forms/AdminInfoForm';
 import type { AdminInfoPayload } from '../../forms/AdminInfoForm/AdminInfoForm';
 
-type AdminInfoPageProps = {
+export type AdminInfoPageProps = {
   title?: ReactNode;
   description?: ReactNode;
   currentStep: number;

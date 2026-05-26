@@ -2,7 +2,7 @@ import { Box } from '@rocket.chat/fuselage';
 import type { ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
 
-type FormStepsProps = {
+export type FormStepsProps = {
   currentStep: number;
   stepCount: number;
 };

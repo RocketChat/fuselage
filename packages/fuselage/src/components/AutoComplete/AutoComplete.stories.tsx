@@ -1,4 +1,5 @@
 import type { Meta, StoryFn } from '@storybook/react-webpack5';
+import type { ReactNode } from 'react';
 import { useState } from 'react';
 
 import { exampleAvatar, DECORATOR_LABEL } from '../../../.storybook/helpers';
@@ -15,7 +16,7 @@ export default {
   parameters: {
     layout: 'centered',
   },
-} satisfies Meta<typeof AutoComplete>;
+} satisfies Meta<typeof AutoComplete<ReactNode>>;
 
 const options = [
   { value: '1', label: 'test1' },
@@ -24,7 +25,7 @@ const options = [
   { value: '4', label: 'test4' },
 ];
 
-const Template: StoryFn<typeof AutoComplete> = ({
+const Template: StoryFn<typeof AutoComplete<ReactNode>> = ({
   value: defaultValue,
   ...args
 }) => {

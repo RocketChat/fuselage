@@ -12,10 +12,16 @@ import { ToastBar } from '@rocket.chat/fuselage';
 
 export { ToastBar }
 
-// Warning: (ae-forgotten-export) The symbol "ToastBarContextValue" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
 export const ToastBarContext: Context<ToastBarContextValue>;
+
+// @public (undocumented)
+export type ToastBarContextValue = {
+    dispatch: (payload: Omit<ToastBarPayload, 'id' | 'time'> & {
+        time?: number;
+    }) => void;
+    dismiss: (id: ToastBarPayload['id']) => void;
+};
 
 // @public (undocumented)
 export type ToastBarPayload = {
@@ -28,8 +34,11 @@ export type ToastBarPayload = {
     isPersistent?: boolean;
 };
 
-// Warning: (ae-forgotten-export) The symbol "ToastBarProps" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export type ToastBarProps = {
+    children?: ReactNode;
+};
+
 // @public (undocumented)
 export const ToastBarProvider: MemoExoticComponent<(input: ToastBarProps) => ReactElement>;
 

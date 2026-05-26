@@ -1,1 +1,4 @@
-export { default } from './CreateCloudWorkspacePage';
+export {
+  default,
+  type CreateCloudWorkspacePageProps,
+} from './CreateCloudWorkspacePage';

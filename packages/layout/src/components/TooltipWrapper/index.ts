@@ -1,1 +1,5 @@
-export { default } from './TooltipWrapper';
+export {
+  default,
+  type TooltipWrapperProps,
+  type AnchorParams,
+} from './TooltipWrapper';

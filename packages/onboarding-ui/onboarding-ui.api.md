@@ -12,114 +12,388 @@ import type { SelectOption } from '@rocket.chat/fuselage';
 import type { SubmitHandler } from 'react-hook-form';
 import type { Validate } from 'react-hook-form';
 
-// Warning: (ae-forgotten-export) The symbol "AdminInfoPageProps" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
 export const AdminInfoPage: (input: AdminInfoPageProps) => ReactElement;
 
-// Warning: (ae-forgotten-export) The symbol "AwaitingConfirmationPageProps" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export type AdminInfoPageProps = {
+    title?: ReactNode;
+    description?: ReactNode;
+    currentStep: number;
+    stepCount: number;
+    passwordRulesHint: string;
+    keepPosted?: boolean;
+    initialValues?: Omit<AdminInfoPayload, 'password'>;
+    validateUsername: Validate<FieldPathValue<AdminInfoPayload, 'username'>, AdminInfoPayload>;
+    validateEmail: Validate<FieldPathValue<AdminInfoPayload, 'email'>, AdminInfoPayload>;
+    validatePassword: Validate<FieldPathValue<AdminInfoPayload, 'password'>, AdminInfoPayload>;
+    onSubmit: SubmitHandler<AdminInfoPayload>;
+};
+
+// @public (undocumented)
+export type AdminInfoPayload = {
+    fullname: string;
+    username: string;
+    email: string;
+    password: string;
+    keepPosted?: boolean;
+};
+
 // @public (undocumented)
 export const AwaitingConfirmationPage: (input: AwaitingConfirmationPageProps) => ReactElement;
 
-// Warning: (ae-forgotten-export) The symbol "CheckYourEmailPageProps" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export type AwaitingConfirmationPageProps = {
+    title?: ReactNode;
+    description?: ReactNode;
+    currentStep: number;
+    stepCount: number;
+    emailAddress: string;
+    securityCode: string;
+    onResendEmailRequest: () => void;
+    onChangeEmailRequest: () => void;
+};
+
 // @public (undocumented)
 export const CheckYourEmailPage: (input: CheckYourEmailPageProps) => ReactElement;
 
 // @public (undocumented)
+export type CheckYourEmailPageProps = {
+    title?: string;
+    children?: ReactNode;
+    onResendEmailRequest: () => void;
+    onChangeEmailRequest: () => void;
+};
+
+// @public (undocumented)
 export const ConfirmationProcessPage: () => ReactElement;
 
-// Warning: (ae-forgotten-export) The symbol "CreateCloudWorkspacePageProps" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export const CreateCloudWorkspaceForm: (input: CreateCloudWorkspaceFormProps) => ReactElement;
+
+// @public (undocumented)
+export type CreateCloudWorkspaceFormPayload = {
+    organizationEmail: string;
+    workspaceName: string;
+    workspaceURL: string;
+    serverRegion: string;
+    language: string;
+    agreement: boolean;
+    updates: boolean;
+};
+
+// @public (undocumented)
+export type CreateCloudWorkspaceFormProps = {
+    defaultValues?: CreateCloudWorkspaceFormPayload;
+    onSubmit: SubmitHandler<CreateCloudWorkspaceFormPayload>;
+    serverRegionOptions: SelectOption[];
+    languageOptions: SelectOption[];
+    domain: string;
+    onBackButtonClick?: () => void;
+    validateUrl: Validate<FieldPathValue<CreateCloudWorkspaceFormPayload, 'workspaceURL'>, CreateCloudWorkspaceFormPayload>;
+    validateEmail: Validate<FieldPathValue<CreateCloudWorkspaceFormPayload, 'organizationEmail'>, CreateCloudWorkspaceFormPayload>;
+};
+
 // @public (undocumented)
 export const CreateCloudWorkspacePage: (props: CreateCloudWorkspacePageProps) => ReactElement;
 
-// Warning: (ae-forgotten-export) The symbol "CreateCloudWorkspacePageProps_2" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
-export const CreateFirstMemberPage: (props: CreateCloudWorkspacePageProps_2) => ReactElement;
+export type CreateCloudWorkspacePageProps = ComponentProps<typeof CreateCloudWorkspaceForm>;
 
-// Warning: (ae-forgotten-export) The symbol "CreateNewAccountPageProps" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export const CreateFirstMemberForm: (input: CreateFirstMemberFormProps) => ReactElement;
+
+// @public (undocumented)
+export type CreateFirstMemberFormPayload = {
+    username: string;
+    password: string;
+};
+
+// @public (undocumented)
+export type CreateFirstMemberFormProps = {
+    defaultValues?: CreateFirstMemberFormPayload;
+    currentStep: number;
+    stepCount: number;
+    organizationName: string;
+    onSubmit: SubmitHandler<CreateFirstMemberFormPayload>;
+    onBackButtonClick: () => void;
+    validateUsername: Validate<FieldPathValue<CreateFirstMemberFormPayload, 'username'>, CreateFirstMemberFormPayload>;
+    validatePassword: Validate<FieldPathValue<CreateFirstMemberFormPayload, 'password'>, CreateFirstMemberFormPayload>;
+};
+
+// @public (undocumented)
+export const CreateFirstMemberPage: (props: CreateFirstMemberPageProps) => ReactElement;
+
+// @public (undocumented)
+export type CreateFirstMemberPageProps = ComponentProps<typeof CreateFirstMemberForm>;
+
 // @public (undocumented)
 export const CreateNewAccountPage: (input: CreateNewAccountPageProps) => ReactElement;
 
-// Warning: (ae-forgotten-export) The symbol "CreateNewPasswordPageProps" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export type CreateNewAccountPageProps = {
+    initialValues?: Omit<NewAccountPayload, 'password'>;
+    validateEmail: Validate<FieldPathValue<NewAccountPayload, 'email'>, NewAccountPayload>;
+    validatePassword: Validate<FieldPathValue<NewAccountPayload, 'password'>, NewAccountPayload>;
+    validateConfirmationPassword: Validate<FieldPathValue<NewAccountPayload, 'confirmPassword'>, NewAccountPayload>;
+    onSubmit: SubmitHandler<NewAccountPayload>;
+    onLogin: () => void;
+};
+
 // @public (undocumented)
 export const CreateNewPasswordPage: (input: CreateNewPasswordPageProps) => ReactElement;
 
 // @public (undocumented)
+export type CreateNewPasswordPageProps = {
+    initialValues?: CreateNewPasswordPayload;
+    validatePassword: Validate<FieldPathValue<CreateNewPasswordPayload, 'password'>, CreateNewPasswordPayload>;
+    validatePasswordConfirmation: Validate<FieldPathValue<CreateNewPasswordPayload, 'passwordConfirmation'>, CreateNewPasswordPayload>;
+    onSubmit: SubmitHandler<CreateNewPasswordPayload>;
+    onLogin: () => void;
+};
+
+// @public (undocumented)
+export type CreateNewPasswordPayload = {
+    password: string;
+    passwordConfirmation: string;
+};
+
+// @public (undocumented)
 export const EmailConfirmedPage: () => ReactElement;
 
-// Warning: (ae-forgotten-export) The symbol "InformationPageProps" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
 export const InformationPage: (input: InformationPageProps) => ReactElement;
 
-// Warning: (ae-forgotten-export) The symbol "InvalidLinkPageProps" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export type InformationPageProps = {
+    title: string;
+    description?: ReactNode;
+};
+
 // @public (undocumented)
 export const InvalidLinkPage: (input: InvalidLinkPageProps) => ReactElement;
 
-// Warning: (ae-forgotten-export) The symbol "LoaderPageProps" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export type InvalidLinkPageProps = {
+    onRequestNewLink: () => void;
+};
+
 // @public (undocumented)
 export const LoaderPage: (input: LoaderPageProps) => ReactElement;
 
-// Warning: (ae-forgotten-export) The symbol "LoginLinkEmailProps" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export type LoaderPageProps = {
+    title: string;
+    subtitles: string[];
+    isReady: boolean;
+    loadingSeconds?: number;
+};
+
+// @public (undocumented)
+export type LoginFormPayload = {
+    email: string;
+    password?: string;
+};
+
 // @public (undocumented)
 export const LoginLinkEmailPage: (input: LoginLinkEmailProps) => ReactElement;
 
-// Warning: (ae-forgotten-export) The symbol "LoginPageProps" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export type LoginLinkEmailProps = {
+    onResendEmailRequest: () => void;
+    onChangeEmailRequest: () => void;
+};
+
 // @public (undocumented)
 export const LoginPage: (input: LoginPageProps) => ReactElement;
 
-// Warning: (ae-forgotten-export) The symbol "OauthAuthorizationPageProps" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export type LoginPageProps = {
+    initialValues?: Omit<LoginFormPayload, 'password'>;
+    onChangeForm: () => void;
+    onResetPassword: () => void;
+    formError?: string;
+    isPasswordLess: boolean;
+    isMfa: boolean;
+    onCreateAccount: () => void;
+    mfaProps?: TotpFormProps;
+    onSubmit: SubmitHandler<LoginFormPayload>;
+};
+
+// @public (undocumented)
+export type NewAccountPayload = {
+    name: string;
+    email: string;
+    password: string;
+    confirmPassword: string;
+    agreement?: boolean;
+};
+
 // @public (undocumented)
 export const OauthAuthorizationPage: (input: OauthAuthorizationPageProps) => ReactElement;
 
-// Warning: (ae-forgotten-export) The symbol "OrganizationInfoPageProps" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export type OauthAuthorizationPageProps = {
+    clientName?: string | undefined;
+    onClickAuthorizeOAuth: () => void;
+    error: {
+        message?: string;
+        onGoBack?: () => void;
+    };
+};
+
 // @public (undocumented)
 export const OrganizationInfoPage: (input: OrganizationInfoPageProps) => ReactElement;
 
-// Warning: (ae-forgotten-export) The symbol "RedirectPageProps" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export type OrganizationInfoPageProps = {
+    title?: ReactNode;
+    subtitle?: ReactNode;
+    description?: ReactNode;
+    currentStep: number;
+    stepCount: number;
+    organizationIndustryOptions: SelectOption[];
+    organizationSizeOptions: SelectOption[];
+    countryOptions: SelectOption[];
+    initialValues?: OrganizationInfoPayload;
+    nextStep?: ReactNode;
+    onSubmit: SubmitHandler<OrganizationInfoPayload>;
+    onBackButtonClick?: () => void;
+    onClickSkip?: () => void;
+};
+
+// @public (undocumented)
+export type OrganizationInfoPayload = {
+    organizationName: string;
+    organizationIndustry: string;
+    organizationSize: string;
+    country: string;
+};
+
 // @public (undocumented)
 export const RedirectPage: (input: RedirectPageProps) => ReactElement;
 
-// Warning: (ae-forgotten-export) The symbol "RegisterOfflinePageProps" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export type RedirectPageProps = {
+    title: string;
+    countDownSeconds: number;
+    onRedirect: () => void;
+};
+
 // @public (undocumented)
 export const RegisterOfflinePage: (props: RegisterOfflinePageProps) => ReactElement;
 
-// Warning: (ae-forgotten-export) The symbol "RegisterServerPageProps" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export type RegisterOfflinePageProps = {
+    termsHref: string;
+    policyHref: string;
+    clientKey: string;
+    onSubmit: SubmitHandler<RegisterOfflinePayload>;
+    onCopySecurityCode: () => void;
+    onBackButtonClick: () => void;
+};
+
+// @public (undocumented)
+export type RegisterOfflinePayload = {
+    token: string;
+    agreement: boolean;
+};
+
 // @public (undocumented)
 export const RegisterServerPage: (props: RegisterServerPageProps) => ReactElement;
 
-// Warning: (ae-forgotten-export) The symbol "RequestTrialPageProps" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export type RegisterServerPageProps = {
+    currentStep: number;
+    stepCount: number;
+    initialValues?: Partial<RegisterServerPayload>;
+    onSubmit: SubmitHandler<RegisterServerPayload>;
+    onClickRegisterOffline: () => void;
+    offline?: boolean;
+    validateEmail?: Validate<FieldPathValue<RegisterServerPayload, 'email'>, RegisterServerPayload>;
+    termsHref?: string;
+    policyHref?: string;
+};
+
+// @public (undocumented)
+export type RegisterServerPayload = {
+    email: string;
+    agreement: boolean;
+    updates: boolean;
+};
+
+// @public (undocumented)
+export const RequestTrialForm: (input: RequestTrialFormProps) => ReactElement;
+
+// @public (undocumented)
+export type RequestTrialFormProps = {
+    defaultValues?: RequestTrialPayload;
+    organizationSizeOptions: SelectOption[];
+    countryOptions: SelectOption[];
+    onSubmit: SubmitHandler<RequestTrialPayload>;
+    onManageWorkspaceClick: () => void;
+    validateEmail: Validate<FieldPathValue<RequestTrialPayload, 'email'>, RequestTrialPayload>;
+    termsHref?: string;
+    policyHref?: string;
+};
+
 // @public (undocumented)
 export const RequestTrialPage: (props: RequestTrialPageProps) => ReactElement;
 
 // @public (undocumented)
+export type RequestTrialPageProps = ComponentProps<typeof RequestTrialForm>;
+
+// @public (undocumented)
+export type RequestTrialPayload = {
+    email: string;
+    organizationName: string;
+    organizationSize: string;
+    country: string;
+    updates: boolean;
+    agreement: boolean;
+};
+
+// @public (undocumented)
 export const ResetPasswordConfirmationPage: () => ReactElement;
 
-// Warning: (ae-forgotten-export) The symbol "ResetPasswordPageProps" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export type ResetPasswordFormPayload = {
+    email: string;
+};
+
 // @public (undocumented)
 export const ResetPasswordPage: (input: ResetPasswordPageProps) => ReactElement;
 
-// Warning: (ae-forgotten-export) The symbol "SomethingWentWrongPageProps" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export type ResetPasswordPageProps = {
+    initialValues?: ResetPasswordFormPayload;
+    validateEmail: Validate<FieldPathValue<ResetPasswordFormPayload, 'email'>, ResetPasswordFormPayload>;
+    onSubmit: SubmitHandler<ResetPasswordFormPayload>;
+    onLogin: () => void;
+};
+
 // @public (undocumented)
 export const SomethingWentWrongPage: (input: SomethingWentWrongPageProps) => ReactElement;
+
+// @public (undocumented)
+export type SomethingWentWrongPageProps = {
+    requestId?: string | undefined;
+};
+
+// @public (undocumented)
+export type TotpFormPayload = {
+    totpCode: string;
+    backupCode: string;
+};
+
+// @public (undocumented)
+export type TotpFormProps = {
+    initialValues?: TotpFormPayload;
+    onChangeTotpForm: () => void;
+    isBackupCode?: boolean;
+    formError?: string;
+    onSubmit: SubmitHandler<TotpFormPayload>;
+};
 
 // (No @packageDocumentation comment for this package)
 

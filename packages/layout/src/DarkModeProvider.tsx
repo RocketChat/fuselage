@@ -4,7 +4,7 @@ import { createContext, useContext } from 'react';
 
 const DarkModeContext = createContext(true);
 
-type DarkModeProviderProps = {
+export type DarkModeProviderProps = {
   children?: ReactNode;
   forcedDarkMode?: boolean;
 };

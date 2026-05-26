@@ -9,7 +9,7 @@ import FormPageLayout from '../../common/FormPageLayout';
 import CreateNewPasswordForm from '../../forms/CreateNewPassword';
 import type { CreateNewPasswordPayload } from '../../forms/CreateNewPassword/CreateNewPassword';
 
-type CreateNewPasswordPageProps = {
+export type CreateNewPasswordPageProps = {
   initialValues?: CreateNewPasswordPayload;
   validatePassword: Validate<
     FieldPathValue<CreateNewPasswordPayload, 'password'>,

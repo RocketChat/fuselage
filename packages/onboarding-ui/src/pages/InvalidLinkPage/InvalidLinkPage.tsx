@@ -3,7 +3,7 @@ import { BackgroundLayer, LayoutLogo } from '@rocket.chat/layout';
 import type { ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
 
-type InvalidLinkPageProps = {
+export type InvalidLinkPageProps = {
   onRequestNewLink: () => void;
 };
 

@@ -6,7 +6,7 @@ import { InputBox, type InputBoxProps } from '../InputBox';
 
 import SelectInputPlaceholder from './SelectInputPlaceholder';
 
-type SelectInputOptions = readonly (readonly [string, string])[];
+export type SelectInputOptions = readonly (readonly [string, string])[];
 
 export type SelectInputProps = Omit<InputBoxProps, 'type'> & {
   error?: string;

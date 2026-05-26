@@ -7,7 +7,7 @@ import FormPageLayout from '../../common/FormPageLayout';
 import RegisterServerForm from '../../forms/RegisterServerForm';
 import type { RegisterServerPayload } from '../../forms/RegisterServerForm/RegisterServerForm';
 
-type RegisterServerPageProps = {
+export type RegisterServerPageProps = {
   currentStep: number;
   stepCount: number;
   initialValues?: Partial<RegisterServerPayload>;

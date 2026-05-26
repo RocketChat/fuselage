@@ -3,7 +3,7 @@ import { BackgroundLayer, LayoutLogo } from '@rocket.chat/layout';
 import type { ReactElement } from 'react';
 import { useEffect, useState } from 'react';
 
-type LoaderPageProps = {
+export type LoaderPageProps = {
   title: string;
   subtitles: string[];
   isReady: boolean;

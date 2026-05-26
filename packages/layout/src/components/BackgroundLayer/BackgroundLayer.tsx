@@ -9,7 +9,7 @@ import { useLayoutContext } from '../../contexts/LayoutContext';
 import BackgroundImage from './BackgroundImage';
 import { Wrapper } from './BackgroundLayer.styles';
 
-type BackgroundLayerProps = {
+export type BackgroundLayerProps = {
   children?: ReactNode;
 };
 

@@ -22,7 +22,7 @@ import {
   useRef,
 } from 'react';
 
-type AnchorParams = {
+export type AnchorParams = {
   ref: MutableRefObject<null>;
   toggle: Dispatch<SetStateAction<boolean>>;
   id: string;
@@ -58,7 +58,7 @@ const InnerTooltip = forwardRef(function InnerTooltip(
   );
 });
 
-type TooltipWrapperProps = {
+export type TooltipWrapperProps = {
   children: ReactElement | ((props: AnchorParams) => ReactNode);
   text: string;
 };

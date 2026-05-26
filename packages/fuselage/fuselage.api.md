@@ -71,15 +71,11 @@ export type AccordionItemProps = {
     noncollapsible?: boolean;
 };
 
-// Warning: (ae-forgotten-export) The symbol "StylingProps" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
 export type AccordionProps = {
     children: ReactNode;
 } & Partial<StylingProps>;
 
-// Warning: (ae-forgotten-export) The symbol "ButtonSize" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
 export const ActionButton: ForwardRefExoticComponent<BoxProps & {
 primary?: boolean;
@@ -97,13 +93,20 @@ large?: boolean;
 square?: boolean;
 external?: boolean;
 icon?: IconProps["name"];
-} & Omit<AllHTMLAttributes<HTMLAnchorElement | HTMLButtonElement>, "className" | "size" | "is"> & ButtonSize & {
+} & Omit<AllHTMLAttributes<HTMLAnchorElement | HTMLButtonElement>, "className" | "size" | "is"> & ActionButtonSize & {
 icon: IconProps["name"];
 } & RefAttributes<HTMLButtonElement>>;
 
 // @public (undocumented)
-export type ActionButtonProps = ButtonProps & ButtonSize & {
+export type ActionButtonProps = ButtonProps & ActionButtonSize & {
     icon: IconProps['name'];
+};
+
+// @public (undocumented)
+export type ActionButtonSize = {
+    mini?: boolean;
+    tiny?: boolean;
+    small?: boolean;
 };
 
 // @public (undocumented)
@@ -140,13 +143,19 @@ export type AudioPlayerProps = {
     trackProps?: TrackHTMLAttributes<HTMLTrackElement>;
 };
 
-// Warning: (ae-forgotten-export) The symbol "AutoCompleteComponent" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
-export const AutoComplete: AutoCompleteComponent;
+export const AutoComplete: ForwardRefExoticComponent<AutoCompleteProps> & {
+    <TLabel = ReactNode>(props: AutoCompleteProps<TLabel> & RefAttributes<HTMLInputElement>): ReactElement;
+};
 
 // @public (undocumented)
-export type AutoCompleteProps<TLabel> = Omit<AllHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'is'> & {
+export type AutoCompleteOption<TLabel> = {
+    value: string;
+    label: TLabel;
+};
+
+// @public (undocumented)
+export type AutoCompleteProps<TLabel = ReactNode> = Omit<AllHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'is'> & {
     filter: string;
     setFilter?: (filter: string) => void;
     options?: AutoCompleteOption<TLabel>[];
@@ -228,8 +237,11 @@ export type BannerProps = {
     onAction?: () => void;
     onClose?: () => void;
     title?: string;
-    variant?: VariantType;
+    variant?: BannerVariant;
 } & AllHTMLAttributes<HTMLElement>;
+
+// @public (undocumented)
+export type BannerVariant = 'neutral' | 'info' | 'success' | 'warning' | 'danger';
 
 // @public (undocumented)
 export const borderRadius: (this: unknown, arg: unknown) => string | undefined;
@@ -244,8 +256,6 @@ export const Box: MemoExoticComponent<ForwardRefExoticComponent<BoxProps & RefAt
 export interface BoxProps extends Partial<StylingProps>, Omit<AllHTMLAttributes<HTMLElement>, 'ref' | 'is' | 'className' | 'size' | 'elevation' | keyof StylingProps>, Omit<SVGAttributes<SVGElement>, keyof AllHTMLAttributes<HTMLElement> | 'elevation' | keyof StylingProps> {
     // (undocumented)
     animated?: boolean;
-    // Warning: (ae-forgotten-export) The symbol "Falsy" needs to be exported by the entry point index.d.ts
-    //
     // (undocumented)
     className?: string | cssFn | (string | cssFn | Falsy)[];
     // (undocumented)
@@ -690,6 +700,9 @@ export type EmailInputProps = Omit<InputBoxProps, 'type'> & {
 };
 
 // @public (undocumented)
+export type Falsy = false | 0 | '' | null | undefined;
+
+// @public (undocumented)
 export function Field(props: FieldProps): JSX_2.Element;
 
 // @public (undocumented)
@@ -726,8 +739,6 @@ is?: (ElementType<any> & string) | undefined;
 // @public (undocumented)
 export const FieldLabelInfo: (props: FieldLabelInfoProps) => JSX_2.Element;
 
-// Warning: (ae-forgotten-export) The symbol "LabelInfoProps" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
 export type FieldLabelInfoProps = LabelInfoProps;
 
@@ -789,6 +800,9 @@ export const fontColor: (this: unknown, arg: unknown) => string | undefined;
 export const fontFamily: (this: unknown, arg: unknown) => string | undefined;
 
 // @public (undocumented)
+export type FontScale = 'hero' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'p1' | 'p1m' | 'p1b' | 'p2' | 'p2m' | 'p2b' | 'c1' | 'c2' | 'micro';
+
+// @public (undocumented)
 export const fontScale: (this: unknown, arg: unknown) => {
     fontSize: string;
     fontWeight: number;
@@ -842,8 +856,6 @@ name: Keys;
 size?: BoxProps["width"];
 } & RefAttributes<HTMLElement>>;
 
-// Warning: (ae-forgotten-export) The symbol "ButtonSize_2" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
 export const IconButton: ForwardRefExoticComponent<    {
 icon: Keys | ReactElement;
@@ -854,7 +866,7 @@ danger?: boolean;
 warning?: boolean;
 success?: boolean;
 pressed?: boolean;
-} & ButtonSize_2 & BoxProps & RefAttributes<HTMLElement>>;
+} & IconButtonSize & BoxProps & RefAttributes<HTMLElement>>;
 
 // @public (undocumented)
 export type IconButtonProps = {
@@ -866,7 +878,16 @@ export type IconButtonProps = {
     warning?: boolean;
     success?: boolean;
     pressed?: boolean;
-} & ButtonSize_2 & BoxProps;
+} & IconButtonSize & BoxProps;
+
+// @public (undocumented)
+export type IconButtonSize = {
+    large?: boolean;
+    medium?: boolean;
+    small?: boolean;
+    tiny?: boolean;
+    mini?: boolean;
+};
 
 // @public (undocumented)
 export type IconProps = Omit<BoxProps, 'name' | 'size'> & {
@@ -911,11 +932,20 @@ export type InputBoxSkeletonProps = BoxProps;
 export type InputProps = BoxProps;
 
 // @public (undocumented)
+export type ItemsPerPage = 25 | 50 | 100;
+
+// @public (undocumented)
 export const Label: ForwardRefExoticComponent<Omit<BoxProps, "is"> & {
 disabled?: boolean;
 required?: boolean;
 is?: (ElementType<any> & string) | undefined;
 } & RefAttributes<HTMLElement>>;
+
+// @public (undocumented)
+export type LabelInfoProps = {
+    title: string;
+    id?: string;
+} & Omit<IconProps, 'name'>;
 
 // @public (undocumented)
 export type LabelProps = Omit<BoxProps, 'is'> & {
@@ -947,9 +977,7 @@ export function MenuItem<T>(_props: MenuItemProps<T>): null;
 
 // @public (undocumented)
 export namespace MenuItem {
-    var // Warning: (ae-forgotten-export) The symbol "PartialNode" needs to be exported by the entry point index.d.ts
-    //
-    // (undocumented)
+    var // (undocumented)
     getCollectionNode: <T>(props: MenuItemProps<T>, context: any) => Generator<PartialNode<T>>;
 }
 
@@ -1053,8 +1081,12 @@ export type MessageDividerProps = {
 // @public (undocumented)
 export const MessageEmoji: (input: MessageEmojiProps) => JSX_2.Element;
 
-// Warning: (ae-forgotten-export) The symbol "MessageEmojiBaseProps" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export type MessageEmojiBaseProps = {
+    name: string;
+    image?: string;
+} & HTMLAttributes<HTMLSpanElement>;
+
 // @public (undocumented)
 export type MessageEmojiProps = MessageEmojiBaseProps & {
     big?: boolean;
@@ -1401,13 +1433,7 @@ danger?: boolean;
 warning?: boolean;
 success?: boolean;
 pressed?: boolean;
-} & {
-large?: boolean;
-medium?: boolean;
-small?: boolean;
-tiny?: boolean;
-mini?: boolean;
-} & BoxProps & RefAttributes<HTMLButtonElement>>;
+} & IconButtonSize & BoxProps & RefAttributes<HTMLButtonElement>>;
 
 // @public (undocumented)
 export type MessageToolbarItemProps = IconButtonProps;
@@ -1543,6 +1569,20 @@ renderSelected?: ElementType;
 addonIcon?: IconProps["name"];
 setFilter?: (filter: string) => void;
 } & RefAttributes<HTMLInputElement>>;
+
+// @public (undocumented)
+export type MultiSelectAnchorParams = {
+    ref: Ref<HTMLInputElement>;
+    children: ReactNode;
+    disabled: boolean;
+    onClick: MouseEventHandler;
+    onBlur: FocusEventHandler;
+    onKeyUp: KeyboardEventHandler;
+    onKeyDown: KeyboardEventHandler;
+    role?: string;
+    id?: string;
+    name?: string;
+} & AriaAttributes;
 
 // @public (undocumented)
 export const MultiSelectFiltered: ForwardRefExoticComponent<Omit<BoxProps, "value" | "onChange"> & {
@@ -1761,7 +1801,7 @@ export type OptionProps = {
 
 // @public (undocumented)
 export const Options: ForwardRefExoticComponent<PropsWithoutRef<OptionsProps> & RefAttributes<HTMLElement>> & {
-    <TValue = string | number, TLabel = ReactNode>(props: PropsWithoutRef<OptionsProps<TValue, TLabel>> & RefAttributes<HTMLElement>): JSX.Element;
+    <TValue = string | number, TLabel = ReactNode>(props: PropsWithoutRef<OptionsProps<TValue, TLabel>> & RefAttributes<HTMLElement>): ReactNode;
 };
 
 // @public (undocumented)
@@ -1818,8 +1858,6 @@ document: Document;
 // @public (undocumented)
 export const PaginatedMultiSelectFiltered: (input: PaginatedMultiSelectFilteredProps) => JSX_2.Element;
 
-// Warning: (ae-forgotten-export) The symbol "PaginatedMultiSelectProps" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
 export type PaginatedMultiSelectFilteredProps = {
     setFilter?: (value: string) => void;
@@ -1832,13 +1870,69 @@ export type PaginatedMultiSelectOption = {
 };
 
 // @public (undocumented)
+export type PaginatedMultiSelectProps = Omit<BoxProps, 'onChange' | 'value'> & {
+    error?: boolean;
+    options: PaginatedMultiSelectOption[];
+    withTitle?: boolean;
+    placeholder?: string;
+    endReached?: (start?: number, end?: number) => void;
+    value?: PaginatedMultiSelectOption[];
+    onChange: (values: PaginatedMultiSelectOption[]) => void;
+    renderOptions?: ComponentType<{
+        width?: CSSProperties['width'];
+        multiple?: boolean;
+        filter?: string;
+        role?: string;
+        options: PaginatedMultiSelectOption[];
+        cursor: number;
+        endReached?: (start?: number, end?: number) => void;
+        renderItem?: ComponentType<{
+            role?: string;
+            label?: ReactNode;
+            title?: string;
+            selected?: boolean;
+            index?: number;
+            focus?: boolean;
+            value?: string | number;
+            onMouseDown?: (e: MouseEvent_2<HTMLElement>) => void;
+        }>;
+        onSelect: (option: [unknown, string]) => void;
+        onMouseDown?: (e: MouseEvent_2<HTMLElement>) => void;
+    }>;
+    renderItem?: ComponentType<{
+        role?: string;
+        label?: ReactNode;
+        title?: string;
+        selected?: boolean;
+        index?: number;
+        focus?: boolean;
+        value?: string | number;
+        onMouseDown?: (e: MouseEvent_2<HTMLElement>) => void;
+    }>;
+    anchor?: any;
+};
+
+// @public (undocumented)
+export type PaginatedOptionType = {
+    value: string | number;
+    label: string;
+};
+
+// @public (undocumented)
 export const PaginatedSelectFiltered: (input: PaginatedSelectFilteredProps) => JSX_2.Element;
 
-// Warning: (ae-forgotten-export) The symbol "PaginatedSelectProps" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
 export type PaginatedSelectFilteredProps = Omit<PaginatedSelectProps, 'setFilter'> & {
     setFilter: (value: string | undefined | number) => void;
+};
+
+// @public (undocumented)
+export type PaginatedSelectProps = Omit<SelectProps, 'options'> & {
+    anchor?: ElementType;
+    options: PaginatedOptionType[];
+    withTitle?: boolean;
+    endReached?: (index: number) => void;
+    setFilter?: (value: string | undefined | number) => void;
 };
 
 // @public (undocumented)
@@ -1955,6 +2049,38 @@ export type PaletteStyleTagProps = {
 };
 
 // @public (undocumented)
+export interface PartialNode<T> {
+    // (undocumented)
+    'aria-label'?: string;
+    // (undocumented)
+    'childNodes'?: () => IterableIterator<PartialNode<T>>;
+    // (undocumented)
+    'element'?: ReactElement;
+    // (undocumented)
+    'hasChildNodes'?: boolean;
+    // (undocumented)
+    'index'?: number;
+    // (undocumented)
+    'key'?: Key;
+    // (undocumented)
+    'props'?: any;
+    // (undocumented)
+    'rendered'?: ReactNode;
+    // (undocumented)
+    'renderer'?: (item: T) => ReactElement;
+    // (undocumented)
+    'shouldInvalidate'?: (context: unknown) => boolean;
+    // (undocumented)
+    'textValue'?: string;
+    // (undocumented)
+    'type'?: string;
+    // (undocumented)
+    'value'?: T;
+    // (undocumented)
+    'wrapper'?: (element: ReactElement) => ReactElement;
+}
+
+// @public (undocumented)
 export const PasswordInput: ForwardRefExoticComponent<PasswordInputProps & RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
@@ -2051,7 +2177,7 @@ error?: string;
 placeholder?: string;
 value?: Key | null | undefined;
 onChange?: ((key: Key) => any) | undefined;
-options: SelectOption_2[];
+options: SelectOption[];
 small?: boolean;
 } & Omit<AllHTMLAttributes<HTMLElement>, "value" | "onChange"> & RefAttributes<HTMLElement>>;
 
@@ -2095,6 +2221,9 @@ export const SelectInputOption: ForwardRefExoticComponent<BoxProps & RefAttribut
 
 // @public (undocumented)
 export type SelectInputOptionProps = BoxProps;
+
+// @public (undocumented)
+export type SelectInputOptions = readonly (readonly [string, string])[];
 
 // @public (undocumented)
 export type SelectInputProps = Omit<InputBoxProps, 'type'> & {
@@ -2145,21 +2274,10 @@ export type SelectProps = Omit<BoxProps, 'onChange'> & {
 
 // @public (undocumented)
 export const Sidebar: ((props: SidebarProps) => JSX_2.Element) & {
-    TopBar: ((input: {
-        children?: ReactNode;
-        className?: string;
-    }) => JSX_2.Element) & {
-        Section: (input: {
-            children?: ReactNode;
-            className?: string;
-        }) => JSX_2.Element;
-        ToolBox: (input: {
-            children?: ReactNode;
-            className?: string;
-        }) => JSX_2.Element;
-        Wrapper: (input: {
-            children?: ReactNode;
-        }) => JSX_2.Element;
+    TopBar: ((input: TopBarProps) => JSX_2.Element) & {
+        Section: (input: TopBarSectionProps) => JSX_2.Element;
+        ToolBox: (input: TopBarToolBoxProps) => JSX_2.Element;
+        Wrapper: (input: TopBarWrapperProps) => JSX_2.Element;
         Avatar: {
             size: "x24";
         };
@@ -2180,17 +2298,9 @@ export const Sidebar: ((props: SidebarProps) => JSX_2.Element) & {
         warning?: boolean;
         success?: boolean;
         pressed?: boolean;
-        } & {
-        large?: boolean;
-        medium?: boolean;
-        small?: boolean;
-        tiny?: boolean;
-        mini?: boolean;
-        } & BoxProps & RefAttributes<HTMLElement>>;
+        } & IconButtonSize & BoxProps & RefAttributes<HTMLElement>>;
         Divider: () => JSX_2.Element;
-        Title: (props: {
-            children?: ReactNode;
-        }) => JSX_2.Element;
+        Title: (props: TopBarTitleProps) => JSX_2.Element;
     };
     Item: ((input: SidebarItemProps) => JSX_2.Element) & {
         Menu: (props: SidebarItemMenuProps) => JSX_2.Element;
@@ -2221,6 +2331,9 @@ export const Sidebar: ((props: SidebarProps) => JSX_2.Element) & {
 };
 
 // @public (undocumented)
+export type SidebarActionProps = IconButtonProps;
+
+// @public (undocumented)
 export const SidebarBanner: (input: SidebarBannerProps) => JSX_2.Element;
 
 // @public (undocumented)
@@ -2228,11 +2341,14 @@ export type SidebarBannerProps = {
     text?: ReactNode;
     description?: ReactNode;
     onClick?: () => void;
-    variant?: VariantType_2;
+    variant?: SidebarBannerVariant;
     onClose?: () => void;
     children?: ReactNode;
     addon?: ReactNode;
 };
+
+// @public (undocumented)
+export type SidebarBannerVariant = 'default' | 'info' | 'success' | 'warning' | 'danger';
 
 // @public (undocumented)
 export const SidebarDivider: () => JSX_2.Element;
@@ -2280,8 +2396,6 @@ export const SidebarItem: ((input: SidebarItemProps) => JSX_2.Element) & {
 // @public (undocumented)
 export const SidebarItemAction: (props: SidebarItemActionProps) => JSX_2.Element;
 
-// Warning: (ae-forgotten-export) The symbol "SidebarActionProps" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
 export type SidebarItemActionProps = SidebarActionProps;
 
@@ -2416,21 +2530,10 @@ export type SidebarSectionTitleProps = {
 };
 
 // @public (undocumented)
-export const SidebarTopBar: ((input: {
-    children?: ReactNode;
-    className?: string;
-}) => JSX_2.Element) & {
-    Section: (input: {
-        children?: ReactNode;
-        className?: string;
-    }) => JSX_2.Element;
-    ToolBox: (input: {
-        children?: ReactNode;
-        className?: string;
-    }) => JSX_2.Element;
-    Wrapper: (input: {
-        children?: ReactNode;
-    }) => JSX_2.Element;
+export const SidebarTopBar: ((input: TopBarProps) => JSX_2.Element) & {
+    Section: (input: TopBarSectionProps) => JSX_2.Element;
+    ToolBox: (input: TopBarToolBoxProps) => JSX_2.Element;
+    Wrapper: (input: TopBarWrapperProps) => JSX_2.Element;
     Avatar: {
         size: "x24";
     };
@@ -2451,17 +2554,9 @@ export const SidebarTopBar: ((input: {
     warning?: boolean;
     success?: boolean;
     pressed?: boolean;
-    } & {
-    large?: boolean;
-    medium?: boolean;
-    small?: boolean;
-    tiny?: boolean;
-    mini?: boolean;
-    } & BoxProps & RefAttributes<HTMLElement>>;
+    } & IconButtonSize & BoxProps & RefAttributes<HTMLElement>>;
     Divider: () => JSX_2.Element;
-    Title: (props: {
-        children?: ReactNode;
-    }) => JSX_2.Element;
+    Title: (props: TopBarTitleProps) => JSX_2.Element;
 };
 
 // @public (undocumented)
@@ -2500,13 +2595,7 @@ danger?: boolean;
 warning?: boolean;
 success?: boolean;
 pressed?: boolean;
-} & {
-large?: boolean;
-medium?: boolean;
-small?: boolean;
-tiny?: boolean;
-mini?: boolean;
-} & BoxProps & RefAttributes<HTMLElement>>;
+} & IconButtonSize & BoxProps & RefAttributes<HTMLElement>>;
 
 // @public (undocumented)
 export type SidebarV2ActionProps = IconButtonProps;
@@ -2524,10 +2613,23 @@ large?: boolean;
 // @public (undocumented)
 export type SidebarV2ActionsProps = ButtonGroupProps;
 
-// Warning: (ae-forgotten-export) The symbol "SidebarBannerProps_2" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
-export const SidebarV2Banner: (input: SidebarBannerProps_2) => JSX_2.Element;
+export const SidebarV2Banner: (input: SidebarV2BannerProps) => JSX_2.Element;
+
+// @public (undocumented)
+export type SidebarV2BannerProps = {
+    title?: ReactNode;
+    linkText?: string;
+    linkProps?: AllHTMLAttributes<HTMLAnchorElement>;
+    onClick?: () => void;
+    variant?: SidebarV2BannerVariant;
+    onClose?: () => void;
+    children?: ReactNode;
+    addon?: ReactNode;
+};
+
+// @public (undocumented)
+export type SidebarV2BannerVariant = 'default' | 'info' | 'success' | 'warning' | 'danger';
 
 // @public (undocumented)
 export const SidebarV2ButtonGroup: (input: ButtonGroupProps) => JSX_2.Element;
@@ -2551,13 +2653,18 @@ export const SidebarV2Footer: (input: HTMLAttributes<HTMLElement>) => JSX_2.Elem
 // @public (undocumented)
 export const SidebarV2FooterContent: (input: BoxProps) => JSX_2.Element;
 
-// Warning: (ae-forgotten-export) The symbol "SidebarGroupTitleProps" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
-export const SidebarV2GroupTitle: (input: SidebarGroupTitleProps) => JSX_2.Element;
+export const SidebarV2GroupTitle: (input: SidebarV2GroupTitleProps) => JSX_2.Element;
 
-// Warning: (ae-forgotten-export) The symbol "SidebarV2ItemProps" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export type SidebarV2GroupTitleProps = {
+    expanded?: boolean;
+    title?: string;
+    titleId?: string;
+    badge?: ReactNode;
+    barProps?: AriaAttributes;
+} & HTMLAttributes<HTMLDivElement>;
+
 // @public (undocumented)
 export const SidebarV2Item: (input: SidebarV2ItemProps) => JSX_2.Element;
 
@@ -2581,13 +2688,24 @@ export const SidebarV2ItemContent: (input: {
     unread?: boolean;
 } & HTMLAttributes<HTMLDivElement>) => JSX_2.Element;
 
-// Warning: (ae-forgotten-export) The symbol "SidebarItemIconProps_2" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
-export const SidebarV2ItemIcon: (input: SidebarItemIconProps_2) => JSX_2.Element;
+export const SidebarV2ItemIcon: (input: SidebarV2ItemIconProps) => JSX_2.Element;
+
+// @public (undocumented)
+export type SidebarV2ItemIconProps = Omit<IconProps, 'name'> & {
+    icon: Keys | ReactElement;
+    highlighted?: boolean;
+};
 
 // @public (undocumented)
 export const SidebarV2ItemMenu: (input: HTMLAttributes<HTMLDivElement>) => JSX_2.Element;
+
+// @public (undocumented)
+export type SidebarV2ItemProps = {
+    selected?: boolean;
+    level?: number;
+    is?: ElementType;
+} & AllHTMLAttributes<HTMLAnchorElement>;
 
 // @public (undocumented)
 export const SidebarV2ItemRow: (input: HTMLAttributes<HTMLDivElement>) => JSX_2.Element;
@@ -2831,6 +2949,130 @@ export type StylingBoxProps = {
 } & Partial<StylingProps>;
 
 // @public (undocumented)
+export type StylingProps = {
+    border: CSSProperties['border'];
+    borderBlock: CSSProperties['borderBlock'];
+    borderBlockStart: CSSProperties['borderBlockStart'];
+    borderBlockEnd: CSSProperties['borderBlockEnd'];
+    borderInline: CSSProperties['borderInline'];
+    borderInlineStart: CSSProperties['borderInlineStart'];
+    borderInlineEnd: CSSProperties['borderInlineEnd'];
+    borderWidth: CSSProperties['borderWidth'];
+    borderBlockWidth: CSSProperties['borderBlockWidth'];
+    borderBlockStartWidth: CSSProperties['borderBlockStartWidth'];
+    borderBlockEndWidth: CSSProperties['borderBlockEndWidth'];
+    borderInlineWidth: CSSProperties['borderInlineWidth'];
+    borderInlineStartWidth: CSSProperties['borderInlineStartWidth'];
+    borderInlineEndWidth: CSSProperties['borderInlineEndWidth'];
+    borderStyle: CSSProperties['borderStyle'];
+    borderBlockStyle: CSSProperties['borderBlockStyle'];
+    borderBlockStartStyle: CSSProperties['borderBlockStartStyle'];
+    borderBlockEndStyle: CSSProperties['borderBlockEndStyle'];
+    borderInlineStyle: CSSProperties['borderInlineStyle'];
+    borderInlineStartStyle: CSSProperties['borderInlineStartStyle'];
+    borderInlineEndStyle: CSSProperties['borderInlineEndStyle'];
+    borderColor: CSSProperties['borderColor'];
+    borderBlockColor: CSSProperties['borderBlockColor'];
+    borderBlockStartColor: CSSProperties['borderBlockStartColor'];
+    borderBlockEndColor: CSSProperties['borderBlockEndColor'];
+    borderInlineColor: CSSProperties['borderInlineColor'];
+    borderInlineStartColor: CSSProperties['borderInlineStartColor'];
+    borderInlineEndColor: CSSProperties['borderInlineEndColor'];
+    borderRadius: CSSProperties['borderRadius'];
+    borderStartStartRadius: CSSProperties['borderStartStartRadius'];
+    borderStartEndRadius: CSSProperties['borderStartEndRadius'];
+    borderEndStartRadius: CSSProperties['borderEndStartRadius'];
+    borderEndEndRadius: CSSProperties['borderEndEndRadius'];
+    color: CSSProperties['color'] | Var;
+    backgroundColor: CSSProperties['backgroundColor'] | Var;
+    bg: CSSProperties['backgroundColor'] | Var;
+    opacity: CSSProperties['opacity'];
+    alignItems: CSSProperties['alignItems'];
+    alignContent: CSSProperties['alignContent'];
+    justifyItems: CSSProperties['justifyItems'];
+    justifyContent: CSSProperties['justifyContent'];
+    flexWrap: CSSProperties['flexWrap'];
+    flexDirection: CSSProperties['flexDirection'];
+    flexGrow: CSSProperties['flexGrow'];
+    flexShrink: CSSProperties['flexShrink'];
+    flexBasis: CSSProperties['flexBasis'];
+    justifySelf: CSSProperties['justifySelf'];
+    alignSelf: CSSProperties['alignSelf'];
+    order: CSSProperties['order'];
+    gap: CSSProperties['gap'];
+    rowGap: CSSProperties['rowGap'];
+    columnGap: CSSProperties['columnGap'];
+    w: CSSProperties['width'];
+    width: CSSProperties['width'];
+    minWidth: CSSProperties['minWidth'];
+    maxWidth: CSSProperties['maxWidth'];
+    h: CSSProperties['height'];
+    height: CSSProperties['height'];
+    minHeight: CSSProperties['minHeight'];
+    maxHeight: CSSProperties['maxHeight'];
+    display: CSSProperties['display'];
+    verticalAlign: CSSProperties['verticalAlign'];
+    overflow: CSSProperties['overflow'];
+    overflowX: CSSProperties['overflowX'];
+    overflowY: CSSProperties['overflowY'];
+    objectFit: CSSProperties['objectFit'];
+    position: CSSProperties['position'];
+    zIndex: CSSProperties['zIndex'];
+    inset: CSSProperties['inset'];
+    insetBlock: CSSProperties['insetBlock'];
+    insetBlockStart: CSSProperties['insetBlockStart'];
+    insetBlockEnd: CSSProperties['insetBlockEnd'];
+    insetInline: CSSProperties['insetInline'];
+    insetInlineStart: CSSProperties['insetInlineStart'];
+    insetInlineEnd: CSSProperties['insetInlineEnd'];
+    m: CSSProperties['margin'];
+    margin: CSSProperties['margin'];
+    mb: CSSProperties['marginBlock'];
+    marginBlock: CSSProperties['marginBlock'];
+    mbs: CSSProperties['marginBlockStart'];
+    marginBlockStart: CSSProperties['marginBlockStart'];
+    mbe: CSSProperties['marginBlockEnd'];
+    marginBlockEnd: CSSProperties['marginBlockEnd'];
+    mi: CSSProperties['marginInline'];
+    marginInline: CSSProperties['marginInline'];
+    mis: CSSProperties['marginInlineStart'];
+    marginInlineStart: CSSProperties['marginInlineStart'];
+    mie: CSSProperties['marginInlineEnd'];
+    marginInlineEnd: CSSProperties['marginInlineEnd'];
+    p: CSSProperties['padding'];
+    padding: CSSProperties['padding'];
+    pb: CSSProperties['paddingBlock'];
+    paddingBlock: CSSProperties['paddingBlock'];
+    pbs: CSSProperties['paddingBlockStart'];
+    paddingBlockStart: CSSProperties['paddingBlockStart'];
+    pbe: CSSProperties['paddingBlockEnd'];
+    paddingBlockEnd: CSSProperties['paddingBlockEnd'];
+    pi: CSSProperties['paddingInline'];
+    paddingInline: CSSProperties['paddingInline'];
+    pis: CSSProperties['paddingInlineStart'];
+    paddingInlineStart: CSSProperties['paddingInlineStart'];
+    pie: CSSProperties['paddingInlineEnd'];
+    paddingInlineEnd: CSSProperties['paddingInlineEnd'];
+    fontFamily: CSSProperties['fontFamily'] | FontScale;
+    fontSize: CSSProperties['fontSize'] | FontScale;
+    fontStyle: CSSProperties['fontStyle'];
+    fontWeight: CSSProperties['fontWeight'] | FontScale;
+    letterSpacing: CSSProperties['letterSpacing'] | FontScale;
+    lineHeight: CSSProperties['lineHeight'] | FontScale;
+    textAlign: CSSProperties['textAlign'];
+    textTransform: CSSProperties['textTransform'];
+    textDecorationLine: CSSProperties['textDecorationLine'];
+    wordBreak: CSSProperties['wordBreak'];
+    elevation: '0' | '1' | '2' | '1nb' | '2nb';
+    invisible: boolean;
+    withTruncatedText: boolean;
+    size: CSSProperties['blockSize'];
+    minSize: CSSProperties['blockSize'];
+    maxSize: CSSProperties['blockSize'];
+    fontScale: FontScale;
+};
+
+// @public (undocumented)
 export const Table: (input: TableProps) => JSX_2.Element;
 
 // @public (undocumented)
@@ -2976,6 +3218,9 @@ export type TextInputProps = Omit<InputBoxProps, 'type'> & {
 };
 
 // @public (undocumented)
+export type Themes = 'light' | 'dark' | 'high-contrast';
+
+// @public (undocumented)
 export const ThreadMessage: (props: ThreadMessageProps) => JSX_2.Element;
 
 // @public (undocumented)
@@ -3090,8 +3335,6 @@ export type TooltipProps = BoxProps & {
     placement?: 'top-start' | 'top-middle' | 'top-end' | 'bottom-start' | 'bottom-middle' | 'bottom-end' | 'top' | 'left' | 'bottom' | 'right' | null;
 };
 
-// Warning: (ae-forgotten-export) The symbol "TopBarProps" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
 export const TopBar: (input: TopBarProps) => JSX_2.Element;
 
@@ -3105,13 +3348,7 @@ danger?: boolean;
 warning?: boolean;
 success?: boolean;
 pressed?: boolean;
-} & {
-large?: boolean;
-medium?: boolean;
-small?: boolean;
-tiny?: boolean;
-mini?: boolean;
-} & BoxProps & RefAttributes<HTMLElement>>;
+} & IconButtonSize & BoxProps & RefAttributes<HTMLElement>>;
 
 // @public (undocumented)
 export const TopBarActions: ForwardRefExoticComponent<    {
@@ -3128,30 +3365,54 @@ export const TopBarAvatar: {
     size: "x24";
 };
 
-// Warning: (ae-forgotten-export) The symbol "TopBarSectionProps" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export type TopBarProps = {
+    children?: ReactNode;
+    className?: string;
+};
+
 // @public (undocumented)
 export const TopBarSection: (input: TopBarSectionProps) => JSX_2.Element;
 
-// Warning: (ae-forgotten-export) The symbol "TopBarTitleProps" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export type TopBarSectionProps = {
+    children?: ReactNode;
+    className?: string;
+};
+
 // @public (undocumented)
 export const TopBarTitle: (props: TopBarTitleProps) => JSX_2.Element;
 
-// Warning: (ae-forgotten-export) The symbol "TopBarToolBoxProps" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export type TopBarTitleProps = {
+    children?: ReactNode;
+};
+
 // @public (undocumented)
 export const TopBarToolBox: (input: TopBarToolBoxProps) => JSX_2.Element;
 
-// Warning: (ae-forgotten-export) The symbol "TopBarProps_2" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
-export const TopBarV2: (input: TopBarProps_2) => JSX_2.Element;
+export type TopBarToolBoxProps = {
+    children?: ReactNode;
+    className?: string;
+};
 
-// Warning: (ae-forgotten-export) The symbol "TopBarWrapperProps" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export const TopBarV2: (input: TopBarV2Props) => JSX_2.Element;
+
+// @public (undocumented)
+export type TopBarV2Props = {
+    children?: ReactNode;
+    className?: string;
+};
+
 // @public (undocumented)
 export const TopBarWrapper: (input: TopBarWrapperProps) => JSX_2.Element;
+
+// @public (undocumented)
+export type TopBarWrapperProps = {
+    children?: ReactNode;
+};
 
 // @public (undocumented)
 export const UrlInput: ForwardRefExoticComponent<UrlInputProps & RefAttributes<HTMLElement>>;
@@ -3166,29 +3427,32 @@ export const useArrayLikeClassNameProp: <T extends {
     className: string;
 };
 
-// Warning: (ae-forgotten-export) The symbol "UseCursorOnChange" needs to be exported by the entry point index.d.ts
-// Warning: (ae-forgotten-export) The symbol "useVisible" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
-export const useCursor: <T extends readonly [value: unknown, label: unknown, selected?: unknown, disabled?: unknown, type?: OptionType[4], url?: string] = OptionType>(initial: number, options: Array<T>, onChange: UseCursorOnChange<T>) => [cursor: number, handleKeyDown: (e: KeyboardEvent_2) => void, handleKeyUp: (e: KeyboardEvent_2) => void, reset: () => void, visibilityHandler: ReturnType<typeof useVisible>];
+export const useCursor: <T extends readonly [value: unknown, label: unknown, selected?: unknown, disabled?: unknown, type?: OptionType[4], url?: string] = OptionType>(initial: number, options: Array<T>, onChange: (option: T, visibilityHandler: VisibilityHandler) => void) => [cursor: number, handleKeyDown: (e: KeyboardEvent_2) => void, handleKeyUp: (e: KeyboardEvent_2) => void, reset: () => void, visibilityHandler: VisibilityHandler];
 
 // @public (undocumented)
 export const useOwnerDocument: () => {
     document: Document;
 };
 
-// Warnings were encountered during analysis:
-//
-// src/Theme.ts:255:1 - (ae-forgotten-export) The symbol "Var" needs to be exported by the entry point index.d.ts
-// src/components/AnimatedVisibility/AnimatedVisibility.tsx:22:28 - (ae-forgotten-export) The symbol "VisibilityType" needs to be exported by the entry point index.d.ts
-// src/components/AutoComplete/AutoComplete.tsx:40:3 - (ae-forgotten-export) The symbol "AutoCompleteOption" needs to be exported by the entry point index.d.ts
-// src/components/Banner/Banner.tsx:37:3 - (ae-forgotten-export) The symbol "VariantType" needs to be exported by the entry point index.d.ts
-// src/components/MultiSelect/MultiSelect.tsx:35:3 - (ae-forgotten-export) The symbol "MultiSelectAnchorParams" needs to be exported by the entry point index.d.ts
-// src/components/Pagination/Pagination.tsx:12:3 - (ae-forgotten-export) The symbol "ItemsPerPage" needs to be exported by the entry point index.d.ts
-// src/components/PaletteStyleTag/PaletteStyleTag.tsx:16:3 - (ae-forgotten-export) The symbol "Themes" needs to be exported by the entry point index.d.ts
-// src/components/Select/Select.tsx:19:1 - (ae-forgotten-export) The symbol "SelectOption_2" needs to be exported by the entry point index.d.ts
-// src/components/SelectInput/SelectInput.tsx:13:3 - (ae-forgotten-export) The symbol "SelectInputOptions" needs to be exported by the entry point index.d.ts
-// src/components/Sidebar/SidebarBanner.tsx:11:3 - (ae-forgotten-export) The symbol "VariantType_2" needs to be exported by the entry point index.d.ts
+// @public (undocumented)
+export class Var {
+    constructor(name: string, value: string);
+    // (undocumented)
+    theme(name: string): Var;
+    // (undocumented)
+    toString(): string;
+}
+
+// @public (undocumented)
+export type VisibilityHandler = [
+visible: typeof AnimatedVisibility.HIDDEN | typeof AnimatedVisibility.HIDING | typeof AnimatedVisibility.VISIBLE | typeof AnimatedVisibility.UNHIDING,
+hide: () => void,
+show: () => void
+];
+
+// @public (undocumented)
+export type VisibilityType = 'hidden' | 'visible' | 'hiding' | 'unhiding' | undefined;
 
 // (No @packageDocumentation comment for this package)
 

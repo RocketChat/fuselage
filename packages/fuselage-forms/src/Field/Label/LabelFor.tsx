@@ -3,7 +3,7 @@ import type { ComponentProps } from 'react';
 
 import { useFieldLabel } from '../FieldContext';
 
-type LabelForProps = ComponentProps<typeof FieldLabelComponent>;
+export type LabelForProps = ComponentProps<typeof FieldLabelComponent>;
 
 const LabelFor = ({ children, ...props }: LabelForProps) => {
   const [labelRef, id] = useFieldLabel();

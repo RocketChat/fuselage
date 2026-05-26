@@ -1,1 +1,1 @@
-export { default } from './AdminInfoForm';
+export { default, type AdminInfoPayload } from './AdminInfoForm';

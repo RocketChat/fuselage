@@ -5,8 +5,7 @@ import { Item } from 'react-stately';
 
 import type { SelectAriaProps } from './SelectAria';
 import { SelectAria } from './SelectAria';
-
-type SelectOption = readonly [value: string, label: string, selected?: boolean];
+import type { SelectOption } from './SelectLegacy';
 
 export type SelectProps<T, V extends Key> = Omit<
   AriaSelectProps<T>,

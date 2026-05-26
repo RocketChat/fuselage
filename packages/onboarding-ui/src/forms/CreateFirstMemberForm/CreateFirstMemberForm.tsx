@@ -17,12 +17,12 @@ import type { FieldPathValue, SubmitHandler, Validate } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
-type CreateFirstMemberFormPayload = {
+export type CreateFirstMemberFormPayload = {
   username: string;
   password: string;
 };
 
-type CreateFirstMemberFormProps = {
+export type CreateFirstMemberFormProps = {
   defaultValues?: CreateFirstMemberFormPayload;
   currentStep: number;
   stepCount: number;
@@ -39,7 +39,7 @@ type CreateFirstMemberFormProps = {
   >;
 };
 
-const CreateFirstMemberForm = ({
+export const CreateFirstMemberForm = ({
   defaultValues,
   currentStep,
   stepCount,
@@ -131,4 +131,4 @@ const CreateFirstMemberForm = ({
   );
 };
 
-export default CreateFirstMemberForm;
+export { CreateFirstMemberForm as default };

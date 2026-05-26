@@ -5,7 +5,7 @@ import {
 } from '@rocket.chat/layout';
 import type { ReactElement, ReactNode } from 'react';
 
-type InformationPageProps = {
+export type InformationPageProps = {
   title: string;
   description?: ReactNode;
 };
