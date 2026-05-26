@@ -1,1 +1,1 @@
-export { default } from './ActionLink';
+export { default, type ActionLinkProps } from './ActionLink';

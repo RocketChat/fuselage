@@ -25,36 +25,56 @@ import { ReactNode } from 'react';
 import { RefAttributes } from 'react';
 import type { SetStateAction } from 'react';
 
-// Warning: (ae-forgotten-export) The symbol "ActionLinkProps" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
 export const ActionLink: (input: ActionLinkProps) => ReactElement;
+
+// @public (undocumented)
+export type ActionLinkProps = {
+    children: ReactNode;
+    href?: string;
+    fontScale?: ComponentProps<typeof Box>['fontScale'];
+} & AnchorHTMLAttributes<HTMLAnchorElement>;
+
+// @public (undocumented)
+export type AnchorParams = {
+    ref: MutableRefObject<null>;
+    toggle: Dispatch<SetStateAction<boolean>>;
+    id: string;
+};
 
 // @public (undocumented)
 const Aside: ForwardRefExoticComponent<Omit<ClassAttributes<HTMLDivElement> & HTMLAttributes<HTMLDivElement> & {
 justifyContent?: string;
 }, "ref"> & RefAttributes<HTMLDivElement>>;
 
-// Warning: (ae-forgotten-export) The symbol "BackgroundLayerProps" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
 export const BackgroundLayer: (input: BackgroundLayerProps) => ReactElement;
+
+// @public (undocumented)
+export type BackgroundLayerProps = {
+    children?: ReactNode;
+};
 
 // @public (undocumented)
 const Content: ForwardRefExoticComponent<Omit<ClassAttributes<HTMLDivElement> & HTMLAttributes<HTMLDivElement>, "ref"> & RefAttributes<HTMLDivElement>>;
 
 declare namespace DarkModeProvider {
     export {
+        DarkModeProviderProps,
         DarkModeProvider_2 as default,
         useDarkMode
     }
 }
 export { DarkModeProvider }
 
-// Warning: (ae-forgotten-export) The symbol "DarkModeProviderProps" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
 const DarkModeProvider_2: (input: DarkModeProviderProps) => ReactElement;
+
+// @public (undocumented)
+type DarkModeProviderProps = {
+    children?: ReactNode;
+    forcedDarkMode?: boolean;
+};
 
 // @public (undocumented)
 const Description: ForwardRefExoticComponent<Omit<ClassAttributes<HTMLDivElement> & HTMLAttributes<HTMLDivElement>, "ref"> & RefAttributes<HTMLDivElement>>;
@@ -66,10 +86,7 @@ children: ReactNode;
     Header: ForwardRefExoticComponent<Omit<FormHTMLAttributes<HTMLElement>, "is"> & {
     children: ReactNode;
     } & RefAttributes<HTMLElement>>;
-    Steps: (input: {
-        currentStep: number;
-        stepCount: number;
-    }) => ReactElement;
+    Steps: (input: FormStepsProps) => ReactElement;
     Title: ForwardRefExoticComponent<Omit<FormHTMLAttributes<HTMLElement>, "is"> & {
     children: ReactNode;
     } & RefAttributes<HTMLElement>>;
@@ -109,10 +126,14 @@ declare namespace FormPageLayout {
 }
 export { FormPageLayout }
 
-// Warning: (ae-forgotten-export) The symbol "FormStepsProps" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
 export const FormSteps: (input: FormStepsProps) => ReactElement;
+
+// @public (undocumented)
+export type FormStepsProps = {
+    currentStep: number;
+    stepCount: number;
+};
 
 // @public (undocumented)
 export const FormSubtitle: ForwardRefExoticComponent<Omit<FormHTMLAttributes<HTMLElement>, "is"> & {
@@ -124,8 +145,6 @@ export const FormTitle: ForwardRefExoticComponent<Omit<FormHTMLAttributes<HTMLEl
 children: ReactNode;
 } & RefAttributes<HTMLElement>>;
 
-// Warning: (ae-forgotten-export) The symbol "LayoutContextValue" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
 export const HeroLayout: (input: LayoutContextValue & {
     children: ReactNode;
@@ -181,6 +200,15 @@ export const HorizontalWizardTextHighlight: (props: {
 }) => JSX_2.Element;
 
 // @public (undocumented)
+export type LayoutContextValue = {
+    logo?: ReactElement;
+    logoDark?: ReactElement;
+    background?: string;
+    backgroundDark?: string;
+    forceDarkMode?: boolean;
+};
+
+// @public (undocumented)
 export const LayoutLogo: () => ReactElement;
 
 // @public (undocumented)
@@ -231,10 +259,14 @@ fontColor?: string;
 isDark?: boolean;
 }, "ref"> & RefAttributes<HTMLSpanElement>>;
 
-// Warning: (ae-forgotten-export) The symbol "TooltipWrapperProps" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
 export const TooltipWrapper: (input: TooltipWrapperProps) => ReactElement;
+
+// @public (undocumented)
+export type TooltipWrapperProps = {
+    children: ReactElement | ((props: AnchorParams) => ReactNode);
+    text: string;
+};
 
 // @public (undocumented)
 const useDarkMode: () => boolean;
