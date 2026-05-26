@@ -1,1 +1,7 @@
-export { memoize, clear } from './memoize';
+export {
+  memoize,
+  clear,
+  type MemoizableFunction,
+  type MemoizedFunction,
+  type Options,
+} from './memoize';
