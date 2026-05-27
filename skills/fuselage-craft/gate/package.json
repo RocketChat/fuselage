@@ -1,0 +1,23 @@
+{
+  "name": "@rocket.chat/fuselage-craft-gate",
+  "version": "0.1.0",
+  "description": "Lint + type gate for fuselage-craft skill — enforces Fuselage as single source of truth in consumer repos",
+  "type": "module",
+  "private": true,
+  "exports": {
+    ".": "./rules/index.mjs",
+    "./eslint-config": "./eslint.config.mjs"
+  },
+  "scripts": {
+    "test": "node tests/run-tests.mjs",
+    "gate": "node run-gate.mjs"
+  },
+  "peerDependencies": {
+    "eslint": ">=9.0.0",
+    "typescript-eslint": ">=8.0.0"
+  },
+  "devDependencies": {
+    "eslint": "~9.39.2",
+    "typescript-eslint": "~8.57.2"
+  }
+}
