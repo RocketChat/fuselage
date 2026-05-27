@@ -47,9 +47,12 @@ The target repo depends on Fuselage. Resolve against what is actually installed:
 Generated or modified product code MUST:
 
 - **Carry no literal design values.** No hex, no px spacing, no font-size/weight, no
-  `box-shadow`. Use token-name references: `color='font-default'` (illustrative; resolve the live set with `resolve.mjs semantic`), `bg='surface-tint'`,
+  `box-shadow`. Use token-name references: `color='default'`, `bg='surface-tint'` (or bare `bg='tint'`),
   `p='x16'`, `fontScale='h3'`, `elevation='2'`, `borderRadius='large'`. The value resolves
-  inside Fuselage at runtime via `--rcx-*` custom properties.
+  inside Fuselage at runtime via `--rcx-*` custom properties. Important: the Box
+  transforms prepend prefixes — `color=` prepends `font-`, `borderColor=` prepends `stroke-`
+  (so pass the BARE semantic name); `bg=` prepends `surface-` but also accepts the full
+  `surface-*` name. Resolve live names with `resolve.mjs semantic`.
 - **Reach for the component first.** Fuselage component → then `Box` with semantic props
   → never raw styled DOM. Never hand-roll a Button, Modal, input label, or error that
   Fuselage ships (`<Button primary>`, not a styled `<button>`).
@@ -139,6 +142,6 @@ above. Setup (below) runs first either way.
    installed, stop - this skill does not apply.
 2. Load product intent: `PRODUCT.md` if present (register, users, principles). The token
    contract is NOT a local DESIGN.md with values; it is the installed Fuselage package.
-3. Run `node skills/fuselage-craft/resolve.mjs <relevant category>` for the vocabulary the task touches. Treat its output as current truth. Never guess names.
+3. Run `node skills/fuselage-craft/resolve.mjs <relevant category>` for the vocabulary the task touches. Treat its output as current truth. Never guess names. The resolver is cwd-anchored — for an external consumer repo (not the fuselage monorepo) run it as `cd <consumer-repo> && node <abs-path-to-skill>/resolve.mjs <category>`, otherwise it resolves the wrong package and reports "unavailable".
 4. Resolve the specific components / props / tokens the task touches from the package.
 5. Do the work under the laws above. Close with the gate.

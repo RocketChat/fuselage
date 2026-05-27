@@ -10,6 +10,7 @@ import noLiteralDimension from './no-literal-dimension.mjs';
 import noLiteralShadow from './no-literal-shadow.mjs';
 import requireFieldWrapper from './require-field-wrapper.mjs';
 import preferBox from './prefer-box.mjs';
+import validColorToken from './valid-color-token.mjs';
 
 export default {
   meta: {
@@ -21,5 +22,6 @@ export default {
     'no-literal-shadow': noLiteralShadow,
     'require-field-wrapper': requireFieldWrapper,
     'prefer-box': preferBox,
+    'valid-color-token': validColorToken,
   },
 };

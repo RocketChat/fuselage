@@ -11,7 +11,7 @@
  *   node skills/fuselage-craft/resolve.mjs [category] [--json]
  *
  * Categories: colors, semantic, fontscale, breakpoints, spacing,
- *             elevation, radius, components, forms, hooks, all (default)
+ *             elevation, radius, components, forms, inputs, hooks, all (default)
  *
  * Exports: resolveCategory(category), resolveAll()
  */
@@ -373,7 +373,12 @@ async function resolveColors() {
     'colors.js',
   ]);
   if (hit && Object.keys(hit.value).length > 0) {
-    return { status: 'ok', source: hit.source, data: Object.keys(hit.value) };
+    return {
+      status: 'ok',
+      source: hit.source,
+      warning: '⚠ RAW PALETTE — internal theme values, NOT valid color=/bg= prop values. For product code use the `semantic` category instead.',
+      data: Object.keys(hit.value),
+    };
   }
   return {
     status: 'unavailable',
@@ -451,7 +456,62 @@ async function resolveBreakpoints() {
  * Each sub-object (surfaceColors, textIconColors, ...) is also exported directly.
  * We read the Palette object's type properties, and for each, extract the
  * keys of the corresponding sub-object type.
+ *
+ * Post-processes group keys to strip internal prefixes so the resolver emits
+ * the prop-facing bare value, not the internal token key:
+ *   text (font-*)        → color=  bare name   (transform prepends font-)
+ *   surface (surface-*)  → bg=     bare OR full (transform prepends surface-)
+ *   stroke (stroke-*)    → borderColor= bare    (transform prepends stroke-)
  */
+
+/**
+ * Per-group metadata: which CSS prop accepts these tokens, which prefix does
+ * the Box transform prepend (so we know what to strip), and notes for the user.
+ */
+const SEMANTIC_GROUP_META = {
+  text: {
+    prop: 'color=',
+    prefix: 'font-',
+    note: 'bare name only; Box color= prepends font-',
+  },
+  surface: {
+    prop: 'bg= / backgroundColor=',
+    prefix: 'surface-',
+    note: 'bare OR full surface-* name; Box bg= prepends surface- but also accepts full form',
+  },
+  stroke: {
+    prop: 'borderColor=',
+    prefix: 'stroke-',
+    note: 'bare name only; Box borderColor= prepends stroke-',
+  },
+  // status / statusColor / badge: used bare; leave keys as-is
+};
+
+/**
+ * Strip an expected prefix from a token key. If the key doesn't start with
+ * the prefix, return the key unchanged (resilient — don't crash on unexpected data).
+ */
+function stripPrefix(key, prefix) {
+  if (prefix && key.startsWith(prefix)) return key.slice(prefix.length);
+  return key;
+}
+
+/**
+ * Post-process the raw groups object returned from type extraction.
+ * Returns an array of { groupName, meta, keys } where keys are prop-facing values.
+ */
+function postProcessSemanticGroups(rawGroups) {
+  return Object.entries(rawGroups).map(([groupName, keys]) => {
+    const meta = SEMANTIC_GROUP_META[groupName];
+    if (!meta) {
+      // No special handling — pass through as-is
+      return { groupName, meta: null, keys };
+    }
+    const strippedKeys = keys.map((k) => stripPrefix(k, meta.prefix));
+    return { groupName, meta, keys: strippedKeys };
+  });
+}
+
 async function resolveSemantic() {
   const ts = loadTypeScript();
   if (!ts) return TS_DEGRADED;
@@ -483,20 +543,19 @@ async function resolveSemantic() {
   if (paletteSym) {
     const paletteType = checker.getTypeOfSymbol(paletteSym);
     const groupProps = checker.getPropertiesOfType(paletteType);
-    const groups = {};
+    const rawGroups = {};
     for (const groupProp of groupProps) {
       const groupName = groupProp.getName();
       const groupType = checker.getTypeOfSymbol(groupProp);
       const colorProps = checker.getPropertiesOfType(groupType);
-      const keys = colorProps.map((p) => p.getName()).filter((k) => k.startsWith(groupName.replace('Color', '')) || k.length > 0);
       // Filter to only string keys that look like semantic color names (contain '-')
       const colorKeys = colorProps
         .map((p) => p.getName())
         .filter((k) => typeof k === 'string' && k.includes('-'));
-      if (colorKeys.length > 0) groups[groupName] = colorKeys;
+      if (colorKeys.length > 0) rawGroups[groupName] = colorKeys;
     }
-    if (Object.keys(groups).length > 0) {
-      return { status: 'ok', source: entry.source, data: groups };
+    if (Object.keys(rawGroups).length > 0) {
+      return { status: 'ok', source: entry.source, data: postProcessSemanticGroups(rawGroups) };
     }
   }
 
@@ -512,16 +571,16 @@ async function resolveSemantic() {
     ['shadowColors', 'shadow'],
   ];
 
-  const groups = {};
+  const rawGroups = {};
   for (const [exportName, groupKey] of subObjectMap) {
     const sym = exports.find((s) => s.getName() === exportName);
     if (!sym) continue;
     const keys = extractObjectKeys(ts, checker, sym);
-    if (keys.length > 0) groups[groupKey] = keys;
+    if (keys.length > 0) rawGroups[groupKey] = keys;
   }
 
-  if (Object.keys(groups).length > 0) {
-    return { status: 'ok', source: entry.source, data: groups };
+  if (Object.keys(rawGroups).length > 0) {
+    return { status: 'ok', source: entry.source, data: postProcessSemanticGroups(rawGroups) };
   }
 
   return {
@@ -640,15 +699,139 @@ async function resolveComponents() {
   };
 }
 
-async function resolveForms() {
+/**
+ * Collect the raw source text of the source FILES where a symbol is declared.
+ * For symbols re-exported via barrel index (Alias flags), resolves to the
+ * underlying symbol's declarations first.
+ *
+ * WHY full source file text (not just declaration node text):
+ * Function-form components have a short declaration node:
+ *   export declare function AutoComplete(props: AutoCompleteProps): ReactElement;
+ * The props type (AutoCompleteProps with value?: and onChange:) is a type alias
+ * defined earlier in the SAME file, but not part of the function declaration
+ * node's AST text. Reading the full source file captures these local type
+ * definitions and gives accurate structural signals.
+ *
+ * This approach reads the type as WRITTEN in the .d.ts, not the resolved/flattened
+ * type — preserving the distinction the type system loses after flattening:
+ *   AllHTMLAttributes<HTMLInputElement> → explicit form element → input signal
+ *   AllHTMLAttributes<HTMLElement>      → generic Box base → NOT an input signal
+ */
+function getSourceFileTexts(ts, checker, sym) {
+  const texts = [];
+  try {
+    // Resolve aliases so we get the source file declaration, not the re-export
+    let effective = sym;
+    if (sym.getFlags() & ts.SymbolFlags.Alias) {
+      try { effective = checker.getAliasedSymbol(sym); } catch { /* keep original */ }
+    }
+    const decls = effective.getDeclarations?.() ?? [];
+    const seenFiles = new Set();
+    for (const d of decls) {
+      try {
+        const sf = d.getSourceFile();
+        const fileName = sf.fileName;
+        if (!seenFiles.has(fileName)) {
+          seenFiles.add(fileName);
+          texts.push(sf.getText());
+        }
+      } catch { /* skip unreadable */ }
+    }
+  } catch {
+    // defensive — return empty
+  }
+  return texts;
+}
+
+/**
+ * Classify whether a component export is an INPUT primitive using structural
+ * analysis of its raw declaration text (the .d.ts source).
+ *
+ * This approach reads the type as WRITTEN in the .d.ts, not the resolved/flattened
+ * type. This preserves the distinction the type system loses:
+ *   - AllHTMLAttributes<HTMLInputElement> → explicitly named form element → input
+ *   - AllHTMLAttributes<HTMLElement>      → generic Box base → NOT an input signal
+ *   - RefAttributes<HTMLInputElement>     → input ref type  → input signal
+ *   - value?: Key; onChange?: (k) => any → explicit value contract → input
+ *
+ * SIGNAL A: any declaration text contains HTMLInputElement, HTMLSelectElement,
+ *   or HTMLTextAreaElement (covers CheckBox, RadioButton, ToggleSwitch, TextInput,
+ *   NumberInput, PasswordInput, TelephoneInput, MultiSelect, SelectFiltered,
+ *   SelectLegacy, TextAreaInput, AutoComplete via AllHTMLAttributes<HTMLInputElement>
+ *   or RefAttributes<HTMLInputElement> appearing in the .d.ts).
+ *
+ * SIGNAL B: any declaration text contains BOTH an explicit value property pattern
+ *   (value?: or value:) AND an explicit onChange property pattern (onChange?: or
+ *   onChange:) spelled out in the type literal — NOT through AllHTMLAttributes
+ *   inheritance which writes AllHTMLAttributes<HTMLElement> not value?: directly.
+ *   Catches modern Select and Slider where these props appear in the type body.
+ *
+ * SIGNAL C (InputBox fingerprint): the source text contains `placeholderVisible`.
+ *   This prop is unique to InputBox-derived controls (EmailInput, SelectInput,
+ *   NumberInput, PasswordInput, TelephoneInput, TextInput, TextAreaInput, etc.)
+ *   and is absent from every non-input (Button, Card, Accordion, Banner, Badge,
+ *   Box, Chip, Tabs, …). Catches EmailInput and SelectInput whose ref type is
+ *   RefAttributes<HTMLElement> (generic) so Signal A misses them. SearchInput
+ *   also has this prop but is excluded by the name.startsWith('Search') rule.
+ *
+ * BUTTON EXCLUSION: text contains HTMLButtonElement or HTMLAnchorElement as
+ *   element references, AND neither Signal A, B, nor C applies → not an input
+ *   (covers Button, IconButton, Chip, and anchor-based interactive components).
+ *
+ * Defensive: any exception → false (exclude rather than crash).
+ */
+function isInputByDeclarationText(declTexts) {
+  try {
+    const combined = declTexts.join('\n');
+
+    // Signal A: form HTML element in declaration text
+    const hasFormElement =
+      combined.includes('HTMLInputElement') ||
+      combined.includes('HTMLSelectElement') ||
+      combined.includes('HTMLTextAreaElement');
+
+    // Signal B: explicit value+onChange contract spelled out in the type literal.
+    // The regex looks for `value?:` or `value:` and `onChange?:` or `onChange:`
+    // as property names (with word boundary before, and optional ? before colon).
+    // This does NOT match:
+    //   - AllHTMLAttributes<HTMLElement> (no explicit value?: in text)
+    //   - type references like SelectProps["value"] (has value but as indexer)
+    // It DOES match:
+    //   - value?: Key; (Select)
+    //   - value: T; (Slider)
+    //   - onChange?: ((key: Key) => any) (Select)
+    //   - onChange: (value: T) => void (Slider, AutoComplete)
+    const hasExplicitValue = /\bvalue\s*\??\s*:/.test(combined);
+    const hasExplicitOnChange = /\bonChange\s*\??\s*:/.test(combined);
+    const hasValueContract = hasExplicitValue && hasExplicitOnChange;
+
+    // Signal C: InputBox-family fingerprint — placeholderVisible is exclusive to
+    // InputBox-derived input controls across the entire fuselage component tree.
+    const hasInputBoxFingerprint = combined.includes('placeholderVisible');
+
+    // Button exclusion: anchor/button element present, no input signal of any kind
+    const hasButtonElement =
+      combined.includes('HTMLButtonElement') ||
+      combined.includes('HTMLAnchorElement');
+    if (hasButtonElement && !hasFormElement && !hasValueContract && !hasInputBoxFingerprint) return false;
+
+    return hasFormElement || hasValueContract || hasInputBoxFingerprint;
+  } catch {
+    return false;
+  }
+}
+
+async function resolveInputs() {
+  // Access the TS program directly — resolveComponents() only returns names,
+  // not the symbols needed for structural analysis.
   const ts = loadTypeScript();
   if (!ts) return TS_DEGRADED;
 
-  const entry = resolveTypesEntry('@rocket.chat/fuselage-forms');
+  const entry = resolveTypesEntry('@rocket.chat/fuselage');
   if (!entry) {
     return {
       status: 'unavailable',
-      reason: '@rocket.chat/fuselage-forms not installed and not in monorepo',
+      reason: '@rocket.chat/fuselage not installed and not in monorepo',
       data: [],
     };
   }
@@ -657,7 +840,7 @@ async function resolveForms() {
   if (!prog) {
     return {
       status: 'unavailable',
-      reason: 'Could not build TypeScript program for @rocket.chat/fuselage-forms',
+      reason: 'Could not build TypeScript program for @rocket.chat/fuselage',
       data: [],
     };
   }
@@ -665,10 +848,38 @@ async function resolveForms() {
   const { checker, sourceFile } = prog;
   const exports = getExportedSymbols(checker, sourceFile);
 
-  const names = exports
-    .filter((s) => /^[A-Z]/.test(s.getName()) && isValueDeclaration(ts, s))
-    .map((s) => s.getName())
-    .sort();
+  const names = [];
+  for (const sym of exports) {
+    const name = sym.getName();
+
+    // Only PascalCase value exports (components, not types or hooks)
+    if (!/^[A-Z]/.test(name)) continue;
+    // Accept value declarations; also accept Alias if the aliased symbol is a value.
+    if (!isValueDeclaration(ts, sym)) {
+      if (!(sym.getFlags() & ts.SymbolFlags.Alias)) continue;
+      let resolved = sym;
+      try { resolved = checker.getAliasedSymbol(sym); } catch { continue; }
+      if (!isValueDeclaration(ts, resolved)) continue;
+    }
+
+    // Name-based EXCLUSIONS (structural naming rules — acceptable constants):
+    if (name.startsWith('Field')) continue;   // wrapper family (FieldLabel, FieldGroup, etc.)
+    if (name.startsWith('Search')) continue;  // self-labeling toolbar affordance
+    if (name.endsWith('Option')) continue;    // dropdown sub-part (SelectOption, etc.)
+    if (name.endsWith('Skeleton')) continue;  // loading placeholder
+    if (name.endsWith('Group')) continue;     // container/group
+    if (name.endsWith('Item')) continue;      // list sub-part
+
+    // Structural classification via raw source file text
+    const sourceTexts = getSourceFileTexts(ts, checker, sym);
+    if (sourceTexts.length === 0) continue; // cannot read source → exclude (defensive)
+
+    if (isInputByDeclarationText(sourceTexts)) {
+      names.push(name);
+    }
+  }
+
+  names.sort();
 
   if (names.length > 0) {
     return { status: 'ok', source: entry.source, data: names };
@@ -676,7 +887,71 @@ async function resolveForms() {
 
   return {
     status: 'unavailable',
-    reason: 'No PascalCase value exports found in @rocket.chat/fuselage-forms types',
+    reason: 'No input-primitive components found via structural type analysis in @rocket.chat/fuselage',
+    data: [],
+  };
+}
+
+async function resolveForms() {
+  const ts = loadTypeScript();
+  if (!ts) return TS_DEGRADED;
+
+  // Primary: @rocket.chat/fuselage-forms
+  const formsEntry = resolveTypesEntry('@rocket.chat/fuselage-forms');
+  if (formsEntry) {
+    const prog = getTsProgram(formsEntry.path);
+    if (prog) {
+      const { checker, sourceFile } = prog;
+      const exports = getExportedSymbols(checker, sourceFile);
+
+      const names = exports
+        .filter((s) => /^[A-Z]/.test(s.getName()) && isValueDeclaration(ts, s))
+        .map((s) => s.getName())
+        .sort();
+
+      if (names.length > 0) {
+        return { status: 'ok', source: formsEntry.source, data: names };
+      }
+    }
+  }
+
+  // Fallback: Field* components ship in the main @rocket.chat/fuselage package.
+  // Many of these are re-exported via barrel chains (export * from './Field'), so they
+  // arrive as Alias symbols (SymbolFlags.Alias = 2097152) rather than direct value
+  // declarations. Resolve aliases to their underlying symbol before testing value-ness.
+  const mainEntry = resolveTypesEntry('@rocket.chat/fuselage');
+  if (mainEntry) {
+    const prog = getTsProgram(mainEntry.path);
+    if (prog) {
+      const { checker, sourceFile } = prog;
+      const exports = getExportedSymbols(checker, sourceFile);
+
+      const names = exports
+        .filter((s) => {
+          if (!/^Field/.test(s.getName())) return false;
+          // Resolve alias before testing value-ness
+          let effective = s;
+          if (s.getFlags() & ts.SymbolFlags.Alias) {
+            try { effective = checker.getAliasedSymbol(s); } catch { /* keep original */ }
+          }
+          return isValueDeclaration(ts, effective);
+        })
+        .map((s) => s.getName())
+        .sort();
+
+      if (names.length > 0) {
+        return {
+          status: 'ok',
+          source: 'main package (Field*) — @rocket.chat/fuselage-forms not installed',
+          data: names,
+        };
+      }
+    }
+  }
+
+  return {
+    status: 'unavailable',
+    reason: '@rocket.chat/fuselage-forms not installed and Field* not found in @rocket.chat/fuselage',
     data: [],
   };
 }
@@ -742,6 +1017,8 @@ export async function resolveCategory(category) {
       return resolveElevation();
     case 'components':
       return resolveComponents();
+    case 'inputs':
+      return resolveInputs();
     case 'forms':
       return resolveForms();
     case 'hooks':
@@ -749,7 +1026,7 @@ export async function resolveCategory(category) {
     case 'spacing':
       return {
         status: 'rule',
-        data: 'Spacing uses the x<N> scale on a 4px grid (x1=4px, x2=8px, x4=16px, x8=32px, …). Type gate is authoritative for valid spacing tokens.',
+        data: "Spacing uses the x<N> token scale where N is pixels: the Box margin/padding transform matches /^(neg-|-)?x(\\d+)$/ and emits (N/16)rem, so x16=1rem=16px, x24=1.5rem=24px, x4=4px. Negative via neg-x<N>. A bare number prop (e.g. p={24}) emits '24px' — identical to x24. Type gate is authoritative for valid spacing tokens.",
       };
     case 'radius':
       return {
@@ -775,6 +1052,7 @@ export async function resolveAll() {
     'breakpoints',
     'semantic',
     'components',
+    'inputs',
     'forms',
     'hooks',
     'spacing',
@@ -829,6 +1107,7 @@ async function main() {
           'breakpoints',
           'semantic',
           'components',
+          'inputs',
           'forms',
           'hooks',
           'spacing',
@@ -845,10 +1124,23 @@ async function main() {
       process.stdout.write(`  unavailable: ${result.reason}\n`);
     } else if (result.status === 'type-only' || result.status === 'rule') {
       process.stdout.write(`  ${result.data}\n`);
+    } else if (cat === 'colors' && result.status === 'ok') {
+      // Print the drift-trap warning before the raw palette
+      if (result.warning) {
+        process.stdout.write(`  ${result.warning}\n\n`);
+      }
+      for (const name of result.data) {
+        process.stdout.write(`  ${name}\n`);
+      }
     } else if (cat === 'semantic' && result.status === 'ok') {
-      // Grouped output
-      for (const [group, keys] of Object.entries(result.data)) {
-        process.stdout.write(`  [${group}]\n`);
+      // Grouped output with prop-usage headers
+      for (const group of result.data) {
+        const { groupName, meta, keys } = group;
+        if (meta) {
+          process.stdout.write(`  [${groupName} → ${meta.prop}  (${meta.note})]\n`);
+        } else {
+          process.stdout.write(`  [${groupName}]\n`);
+        }
         for (const k of keys) {
           process.stdout.write(`    ${k}\n`);
         }

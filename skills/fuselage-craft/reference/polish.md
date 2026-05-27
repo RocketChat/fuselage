@@ -18,7 +18,7 @@ Final quality pass before shipping. Complete all states, tighten spacing rhythm,
 
 5. **Icon and color pairing.** If color conveys state (danger red), pair it with an icon or text. Never state-by-color-alone.
 
-6. **Dark mode and themes.** Render in light, dark, and high-contrast. All colors must be semantic token names (`font-default`, `surface-tint`, `stroke-error`); the design system resolves them correctly.
+6. **Dark mode and themes.** Render in light, dark, and high-contrast. All colors must be semantic token names passed as bare prop values: `color='default'`, `bg='surface-tint'` (or bare `bg='tint'`), `borderColor='error'`; the design system resolves them correctly. Never pass `color='font-default'` or `borderColor='stroke-error'` — the Box transforms prepend the prefix, so those forms double-prefix and produce invalid tokens.
 
 ## Output
 

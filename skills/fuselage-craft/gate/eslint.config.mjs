@@ -61,6 +61,27 @@ async function resolveParser() {
 
 const tsParser = await resolveParser();
 
+/**
+ * No-op catch-all plugin for foreign rule namespaces.
+ *
+ * Consumer code often has inline-disable directives for plugins that are NOT
+ * loaded by this gate (e.g. react, @typescript-eslint, import, jsx-a11y).
+ * In ESLint 9, an unknown rule namespace in a disable directive is a FATAL
+ * error (not just a warning), even with reportUnusedDisableDirectives:'off'.
+ * Registering the common namespaces as no-op plugins (via a Proxy that returns
+ * an empty rule stub for every lookup) makes the disable directives resolve
+ * without errors, while the gate still enforces ONLY its own fuselage-craft-gate
+ * rules. The linterOptions reportUnusedDisableDirectives:'off' suppresses the
+ * residual "unused disable directive" warning for directives that match no
+ * active rule in this config.
+ */
+const noopPlugin = {
+  rules: new Proxy(
+    {},
+    { get: () => ({ meta: {}, create: () => ({}) }) },
+  ),
+};
+
 /** @type {import('eslint').Linter.Config[]} */
 export default [
   {
@@ -78,6 +99,22 @@ export default [
     files: ['**/*.{ts,tsx,js,jsx,mjs}'],
     plugins: {
       'fuselage-craft-gate': fuselageCraftGate,
+      // Foreign namespaces registered as no-ops so their inline-disable
+      // directives in consumer code don't cause "rule not found" fatal errors.
+      'react': noopPlugin,
+      'react-hooks': noopPlugin,
+      '@typescript-eslint': noopPlugin,
+      'import': noopPlugin,
+      'jsx-a11y': noopPlugin,
+      'unicorn': noopPlugin,
+      'simple-import-sort': noopPlugin,
+      'prettier': noopPlugin,
+      'no-relative-import-paths': noopPlugin,
+    },
+    linterOptions: {
+      // Suppress "unused disable directive" warnings that arise when a directive
+      // references a no-op rule (i.e. a foreign namespace registered above).
+      reportUnusedDisableDirectives: 'off',
     },
     ...(tsParser
       ? {
@@ -102,12 +139,19 @@ export default [
           },
         }),
     rules: {
-      // Errors — literal value bans
+      // Errors — objective drift the type gate cannot see and that is unambiguously wrong.
       'fuselage-craft-gate/no-raw-color': 'error',
       'fuselage-craft-gate/no-literal-dimension': 'error',
       'fuselage-craft-gate/no-literal-shadow': 'error',
-      'fuselage-craft-gate/require-field-wrapper': 'error',
-      // Warning — conservative suggestion
+      // Registered but no-op here — the live `palette` option is injected only by
+      // run-gate.mjs via resolveCategory('semantic'). Under standalone `npx eslint
+      // --config` this rule has no palette and deliberately no-ops (never false-positives).
+      // The authoritative check is always via run-gate.mjs.
+      'fuselage-craft-gate/valid-color-token': 'error',
+      // Warnings — accessibility/idiom recommendations, not hard conformance failures.
+      // A missing Field wrapper is advisory (toolbar/filter inputs legitimately skip it);
+      // it informs without blocking the gate. Reserve errors for objective drift above.
+      'fuselage-craft-gate/require-field-wrapper': 'warn',
       'fuselage-craft-gate/prefer-box': 'warn',
     },
   },

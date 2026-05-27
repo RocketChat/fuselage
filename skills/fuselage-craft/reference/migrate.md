@@ -29,7 +29,7 @@ Convert legacy or non-Fuselage UI into Fuselage components and token references.
    | Field layout | Field + FieldLabel + FieldRow + FieldError | Form field role |
    | Spacing | `p=` / `m=` on x* scale | Layout intent |
    | Text style | `fontScale=` | Typographic role |
-   | Color | `color=` or `bg=` semantic token name | Color role, not hex match |
+   | Color | `color=` bare font name (e.g. `default`, `danger`) / `bg=` surface name (e.g. `surface-tint` or bare `tint`) / `borderColor=` bare stroke name (e.g. `error`, `light`); resolve live via `resolve.mjs semantic` | Color role, not hex match |
    | Shadow | `elevation=` | Depth role |
    | Media query | `useBreakpoints` or `useMediaQuery` | Responsive intent |
 

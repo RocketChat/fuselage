@@ -73,7 +73,7 @@ export default {
     schema: [],
     messages: {
       noRawColor:
-        'Literal color value detected. Use a Box `color=` or `bg=` semantic token name (e.g. color="font-default") so the value resolves from the Fuselage design system at runtime.',
+        'Literal color value detected. Use a Box `color=` or `bg=` semantic token name (e.g. color="default") so the value resolves from the Fuselage design system at runtime.',
     },
   },
 
