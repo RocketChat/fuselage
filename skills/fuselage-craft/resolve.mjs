@@ -2,8 +2,10 @@
 /**
  * resolve.mjs — live source-of-truth resolver for fuselage-craft.
  *
- * Reads @rocket.chat/fuselage* packages at runtime from the consumer's
- * working directory. Zero Fuselage vocabulary is hardcoded here.
+ * Reads @rocket.chat/fuselage* packages from the consumer's working directory.
+ * Uses the TypeScript compiler API against installed .d.ts files (consumer) or
+ * monorepo src/*.ts (in the fuselage monorepo itself). Zero Fuselage vocabulary
+ * is hardcoded here.
  *
  * Usage:
  *   node skills/fuselage-craft/resolve.mjs [category] [--json]
@@ -16,7 +18,7 @@
 
 import { createRequire } from 'module';
 import { pathToFileURL, fileURLToPath } from 'url';
-import { readFileSync, readdirSync } from 'fs';
+import { readFileSync, existsSync } from 'fs';
 import { resolve as pathResolve, dirname, join } from 'path';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -24,37 +26,30 @@ const __dirname = dirname(__filename);
 
 // ─── Resolution root ──────────────────────────────────────────────────────────
 
+const cwd = process.cwd();
+
 /**
- * Build a require() anchored to the consumer's working directory.
- * Falls back to the skill directory if cwd anchor fails.
+ * Build a require() anchored to a given directory.
  */
-function makeCwdRequire() {
-  const cwd = process.cwd();
-  try {
-    return createRequire(pathToFileURL(join(cwd, 'package.json')).href);
-  } catch {
-    return createRequire(pathToFileURL(join(cwd, '_anchor.js')).href);
-  }
+function makeRequire(dir) {
+  return createRequire(pathToFileURL(join(dir, 'package.json')).href);
 }
 
-const cwdRequire = makeCwdRequire();
+const cwdRequire = makeRequire(cwd);
 
 /**
  * Read the `version` field from a package's package.json.
- * Tries require resolution, then monorepo source fallback.
  */
 function readPackageVersion(pkgName) {
-  // Try resolving via node_modules
   try {
     const pkgJson = cwdRequire(`${pkgName}/package.json`);
     if (pkgJson && pkgJson.version) return pkgJson.version;
   } catch {
     // fall through
   }
-  // Monorepo fallback: look in packages/<short-name>/package.json
   const shortName = pkgName.replace('@rocket.chat/', '');
   try {
-    const localPath = pathResolve(process.cwd(), 'packages', shortName, 'package.json');
+    const localPath = pathResolve(cwd, 'packages', shortName, 'package.json');
     const raw = readFileSync(localPath, 'utf8');
     const parsed = JSON.parse(raw);
     if (parsed.version) return parsed.version + ' (monorepo/src)';
@@ -81,396 +76,648 @@ function collectVersions() {
   return versions;
 }
 
-// ─── Monorepo source-scan helpers ────────────────────────────────────────────
+// ─── TypeScript compiler bootstrap ───────────────────────────────────────────
 
 /**
- * Find the local source directory for a package name.
- * Returns null if not found (consumer install scenario — normal resolution handles it).
+ * Resolve the TypeScript module. Try:
+ *   1. Consumer's cwd node_modules
+ *   2. This skill's own directory (gate/node_modules has typescript)
+ * Returns the ts module or null.
  */
-function findLocalSrcDir(pkgName) {
-  const shortName = pkgName.replace('@rocket.chat/', '');
-  const candidate = pathResolve(process.cwd(), 'packages', shortName, 'src');
+let _ts = null;
+let _tsResolved = false;
+
+function loadTypeScript() {
+  if (_tsResolved) return _ts;
+  _tsResolved = true;
+
+  // 1. Try from cwd
   try {
-    readdirSync(candidate);
-    return candidate;
+    _ts = cwdRequire('typescript');
+    return _ts;
   } catch {
-    return null;
-  }
-}
-
-/**
- * Extract capitalized export names from an index.ts/index.js file via regex.
- * Pattern: `export * from './Foo'` or `export { Foo, Bar }` or `export const Foo`
- * Returns array of PascalCase or camelCase names matching the filter fn.
- */
-function extractExportNamesFromSource(filePath, filterFn) {
-  let src;
-  try {
-    src = readFileSync(filePath, 'utf8');
-  } catch {
-    return null; // file not readable
+    // fall through
   }
 
-  const names = new Set();
-
-  // export * from './FooBar' — the path segment is the component name
-  for (const m of src.matchAll(/export \* from ['"]\.\/([^'"]+)['"]/g)) {
-    const segment = m[1];
-    if (filterFn(segment)) names.add(segment);
-  }
-
-  // export { Foo, Bar, ... } — named exports
-  for (const m of src.matchAll(/export \{([^}]+)\}/g)) {
-    for (const raw of m[1].split(',')) {
-      const name = raw.trim().split(/\s+as\s+/).pop().trim();
-      if (filterFn(name)) names.add(name);
+  // 2. Try from skill dir (gate/node_modules has typescript in the monorepo)
+  const candidates = [
+    join(__dirname, 'gate'), // skills/fuselage-craft/gate
+    __dirname, // skills/fuselage-craft
+  ];
+  for (const dir of candidates) {
+    try {
+      _ts = makeRequire(dir)('typescript');
+      return _ts;
+    } catch {
+      // continue
     }
   }
 
-  // export const Foo / export function Foo / export class Foo
-  for (const m of src.matchAll(/export (?:const|function|class) ([A-Za-z_$][A-Za-z0-9_$]*)/g)) {
-    if (filterFn(m[1])) names.add(m[1]);
-  }
-
-  // export default as Foo
-  for (const m of src.matchAll(/export \{ default as ([A-Za-z_$][A-Za-z0-9_$]*)/g)) {
-    if (filterFn(m[1])) names.add(m[1]);
-  }
-
-  return [...names].sort();
+  _ts = null;
+  return null;
 }
 
-/**
- * Scan a directory for component subdirectory names (PascalCase directories).
- */
-function scanComponentDirs(dir) {
-  try {
-    return readdirSync(dir, { withFileTypes: true })
-      .filter((d) => d.isDirectory() && /^[A-Z]/.test(d.name))
-      .map((d) => d.name)
-      .sort();
-  } catch {
-    return null;
-  }
-}
+const TS_DEGRADED = {
+  status: 'type-only',
+  data: 'typescript not resolvable from cwd; validate via the type gate',
+};
+
+// ─── Package entry resolution ─────────────────────────────────────────────────
+
+const PKG_SHORT = {
+  '@rocket.chat/fuselage': 'fuselage',
+  '@rocket.chat/fuselage-forms': 'fuselage-forms',
+  '@rocket.chat/fuselage-hooks': 'fuselage-hooks',
+};
 
 /**
- * Extract string-keyed tokens from a TypeScript source file.
- * Finds object literals like: export const fooColors = { 'key-name': ..., ... }
- * Returns a map of exportName -> string[keys].
+ * Resolve the TypeScript entry point for a package.
+ * Priority:
+ *   1. Installed package's types field (consumer node_modules .d.ts)
+ *   2. Monorepo src/index.ts (in the fuselage monorepo itself)
+ * Returns { path, source } or null.
  */
-function extractStringKeysFromThemeSrc(filePath) {
-  let src;
+function resolveTypesEntry(pkg) {
+  // 1. Installed node_modules
   try {
-    src = readFileSync(filePath, 'utf8');
-  } catch {
-    return null;
-  }
-
-  // Palette is assembled from named sub-objects in Theme.ts
-  // Regex: export const Palette = { subKey: varName, ... }
-  const paletteMatch = src.match(/export const Palette\s*=\s*\{([^}]+)\}/);
-  if (!paletteMatch) return null;
-
-  const paletteBody = paletteMatch[1];
-  // Extract { surface: surfaceColors, text: textIconColors, ... }
-  const subObjects = {};
-  for (const m of paletteBody.matchAll(/(\w+)\s*:\s*(\w+)/g)) {
-    subObjects[m[1]] = m[2]; // e.g. surface -> surfaceColors
-  }
-
-  const result = {};
-  for (const [paletteKey, varName] of Object.entries(subObjects)) {
-    // Find the object declaration: export const varName = { 'key': ..., }
-    const re = new RegExp(
-      `export const ${varName}\\s*=\\s*\\{([^}]+)\\}`,
-      's',
-    );
-    const match = src.match(re);
-    if (!match) continue;
-
-    const keys = [];
-    // Match string literal keys: 'key-name' or "key-name"
-    for (const km of match[1].matchAll(/['"]([a-z][a-z0-9-]+)['"]\s*:/g)) {
-      keys.push(km[1]);
+    const pkgJsonPath = cwdRequire.resolve(`${pkg}/package.json`);
+    const pkgJson = JSON.parse(readFileSync(pkgJsonPath, 'utf8'));
+    const typesField = pkgJson.types || pkgJson.typings;
+    if (typesField) {
+      const pkgDir = dirname(pkgJsonPath);
+      const entry = join(pkgDir, typesField);
+      if (existsSync(entry)) {
+        return { path: entry, source: 'installed .d.ts (types)' };
+      }
     }
-    if (keys.length > 0) result[paletteKey] = keys;
+  } catch {
+    // fall through
   }
 
+  // 2. Monorepo src fallback
+  const short = PKG_SHORT[pkg];
+  if (short) {
+    const srcIndex = pathResolve(cwd, 'packages', short, 'src', 'index.ts');
+    if (existsSync(srcIndex)) {
+      return { path: srcIndex, source: 'monorepo src (types)' };
+    }
+  }
+
+  return null;
+}
+
+// ─── TS Program cache ─────────────────────────────────────────────────────────
+
+const _programCache = new Map();
+
+/**
+ * Build (or retrieve cached) a ts.Program for a given entry file.
+ * Returns { program, checker, sourceFile } or null.
+ */
+function getTsProgram(entryPath) {
+  if (_programCache.has(entryPath)) return _programCache.get(entryPath);
+
+  const ts = loadTypeScript();
+  if (!ts) {
+    _programCache.set(entryPath, null);
+    return null;
+  }
+
+  const compilerOptions = {
+    noEmit: true,
+    skipLibCheck: true,
+    types: [],
+    // Use Bundler when available (TS >=5.0), fall back to NodeNext
+    moduleResolution:
+      ts.ModuleResolutionKind.Bundler ?? ts.ModuleResolutionKind.NodeNext,
+    target: ts.ScriptTarget.ESNext,
+    allowJs: false,
+    // Allow .d.ts programs to pull in .ts source
+    allowImportingTsExtensions: true,
+    noEmitOnError: false,
+  };
+
+  let program;
+  try {
+    program = ts.createProgram([entryPath], compilerOptions);
+  } catch (e) {
+    _programCache.set(entryPath, null);
+    return null;
+  }
+
+  const checker = program.getTypeChecker();
+  const sourceFile = program.getSourceFile(entryPath);
+  if (!sourceFile) {
+    _programCache.set(entryPath, null);
+    return null;
+  }
+
+  const result = { program, checker, sourceFile };
+  _programCache.set(entryPath, result);
   return result;
+}
+
+// ─── TS extraction helpers ────────────────────────────────────────────────────
+
+/**
+ * Get all exported symbols from a module's source file.
+ */
+function getExportedSymbols(checker, sourceFile) {
+  const moduleSymbol = checker.getSymbolAtLocation(sourceFile);
+  if (!moduleSymbol) return [];
+  return checker.getExportsOfModule(moduleSymbol);
+}
+
+/**
+ * Check if a symbol is a value declaration (function, class, variable, const).
+ */
+function isValueDeclaration(ts, symbol) {
+  const flags = symbol.getFlags();
+  return !!(
+    flags & ts.SymbolFlags.Function ||
+    flags & ts.SymbolFlags.Class ||
+    flags & ts.SymbolFlags.Variable ||
+    flags & ts.SymbolFlags.BlockScopedVariable ||
+    flags & ts.SymbolFlags.FunctionScopedVariable
+  );
+}
+
+/**
+ * Extract string literal members from a type alias union.
+ * e.g. type FontScale = 'hero' | 'h1' | 'h2' | ...
+ */
+function extractUnionStringLiterals(ts, checker, symbol) {
+  const decls = symbol.getDeclarations?.() ?? [];
+  for (const decl of decls) {
+    if (!ts.isTypeAliasDeclaration(decl)) continue;
+    const type = checker.getTypeAtLocation(decl.type);
+    if (type.isUnion()) {
+      const literals = [];
+      for (const t of type.types) {
+        if (t.isStringLiteral()) literals.push(t.value);
+      }
+      if (literals.length > 0) return literals;
+    }
+    // single literal (non-union)
+    if (type.isStringLiteral()) return [type.value];
+  }
+  return null;
+}
+
+/**
+ * Extract the keys of an exported const object symbol.
+ * e.g. export const surfaceColors = { 'surface-light': ..., ... }
+ * Returns an array of string keys.
+ */
+function extractObjectKeys(ts, checker, symbol) {
+  const type = checker.getTypeOfSymbol(symbol);
+  const props = checker.getPropertiesOfType(type);
+  const keys = props.map((p) => p.getName());
+  return keys.filter((k) => typeof k === 'string' && k.length > 0);
+}
+
+/**
+ * Extract string literal union members from the `elevation` property
+ * of the StylingProps type exported by the fuselage entry.
+ * Looks for the StylingProps type alias and reads its `elevation` property.
+ */
+function extractElevationLiterals(ts, checker, exports) {
+  // Find StylingProps type alias in exported symbols
+  const stylingPropsSymbol = exports.find((s) => s.getName() === 'StylingProps');
+  if (stylingPropsSymbol) {
+    const decls = stylingPropsSymbol.getDeclarations?.() ?? [];
+    for (const decl of decls) {
+      if (!ts.isTypeAliasDeclaration(decl)) continue;
+      const type = checker.getTypeAtLocation(decl.type);
+      const elevProp = type.getProperty('elevation');
+      if (elevProp) {
+        const elevType = checker.getTypeOfSymbol(elevProp);
+        const literals = extractUnionFromType(ts, elevType);
+        if (literals && literals.length > 0) return literals;
+      }
+    }
+  }
+
+  // Fallback: search all exported interface/type symbols for one with `elevation`
+  for (const sym of exports) {
+    const decls = sym.getDeclarations?.() ?? [];
+    for (const decl of decls) {
+      if (!ts.isTypeAliasDeclaration(decl) && !ts.isInterfaceDeclaration(decl))
+        continue;
+      const type = checker.getTypeAtLocation(decl);
+      const elevProp = type.getProperty('elevation');
+      if (!elevProp) continue;
+      const elevType = checker.getTypeOfSymbol(elevProp);
+      const literals = extractUnionFromType(ts, elevType);
+      if (literals && literals.length > 0) return literals;
+    }
+  }
+
+  return null;
+}
+
+/**
+ * Extract string literal union values from a type (handles union + single).
+ */
+function extractUnionFromType(ts, type) {
+  if (type.isUnion()) {
+    const lits = [];
+    for (const t of type.types) {
+      if (t.isStringLiteral()) lits.push(t.value);
+    }
+    return lits.length > 0 ? lits : null;
+  }
+  if (type.isStringLiteral()) return [type.value];
+  return null;
+}
+
+// ─── Token data import (cwd-anchored, absolute path) ──────────────────────────
+
+/**
+ * Import a package data file (e.g. colors.mjs) from the CONSUMER's node_modules.
+ * A bare `import('pkg/file')` resolves relative to THIS module (the skill repo),
+ * not the consumer's cwd, so subpath data imports silently fail in a consumer.
+ * Resolve the package dir from cwd and import the absolute file URL instead.
+ * Falls back to the monorepo packages/<short>/ location.
+ * Returns { value, source } or null.
+ */
+async function importPkgData(pkg, files) {
+  const candidates = [];
+  try {
+    const pkgDir = dirname(cwdRequire.resolve(`${pkg}/package.json`));
+    for (const f of files) candidates.push([join(pkgDir, f), 'node_modules (data)']);
+  } catch {
+    // not resolvable via node_modules
+  }
+  const short = pkg.replace('@rocket.chat/', '');
+  for (const f of files) {
+    candidates.push([pathResolve(cwd, 'packages', short, f), 'monorepo (data)']);
+  }
+  for (const [abs, source] of candidates) {
+    if (!existsSync(abs)) continue;
+    try {
+      const mod = await import(pathToFileURL(abs).href);
+      if (mod && mod.default) return { value: mod.default, source };
+    } catch {
+      // try next candidate
+    }
+  }
+  return null;
 }
 
 // ─── Category resolvers ───────────────────────────────────────────────────────
 
 async function resolveColors() {
-  // Try: dynamic import from consumer node_modules first
-  try {
-    const mod = await import(
-      /* @vite-ignore */ `@rocket.chat/fuselage-tokens/colors.mjs`
-    ).catch(() => null);
-    if (mod && mod.default && Object.keys(mod.default).length > 0) {
-      return { status: 'ok', source: 'node_modules (ESM)', data: Object.keys(mod.default) };
-    }
-  } catch {
-    // fall through
+  const hit = await importPkgData('@rocket.chat/fuselage-tokens', [
+    'colors.mjs',
+    'colors.js',
+  ]);
+  if (hit && Object.keys(hit.value).length > 0) {
+    return { status: 'ok', source: hit.source, data: Object.keys(hit.value) };
   }
-
-  // Monorepo fallback: import directly from local path
-  const shortName = 'fuselage-tokens';
-  const localMjs = pathResolve(process.cwd(), 'packages', shortName, 'colors.mjs');
-  try {
-    const mod = await import(pathToFileURL(localMjs).href);
-    if (mod && mod.default && Object.keys(mod.default).length > 0) {
-      return { status: 'ok', source: 'monorepo/src', data: Object.keys(mod.default) };
-    }
-  } catch {
-    // fall through
-  }
-
   return {
     status: 'unavailable',
-    reason: '@rocket.chat/fuselage-tokens/colors.mjs could not be loaded',
+    reason: '@rocket.chat/fuselage-tokens colors data could not be loaded',
     data: [],
   };
 }
 
 async function resolveFontScale() {
-  // Try consumer node_modules first
-  try {
-    const mod = await import(
-      /* @vite-ignore */ `@rocket.chat/fuselage-tokens/typography.mjs`
-    ).catch(() => null);
-    if (mod && mod.default && mod.default.fontScales) {
-      return {
-        status: 'ok',
-        source: 'node_modules (ESM)',
-        data: Object.keys(mod.default.fontScales),
-      };
+  const ts = loadTypeScript();
+
+  if (ts) {
+    // Primary: extract FontScale type alias from the fuselage entry
+    const entry = resolveTypesEntry('@rocket.chat/fuselage');
+    if (entry) {
+      const prog = getTsProgram(entry.path);
+      if (prog) {
+        const { checker, sourceFile } = prog;
+        const exports = getExportedSymbols(checker, sourceFile);
+        const fontScaleSym = exports.find((s) => s.getName() === 'FontScale');
+        if (fontScaleSym) {
+          const literals = extractUnionStringLiterals(ts, checker, fontScaleSym);
+          if (literals && literals.length > 0) {
+            return { status: 'ok', source: entry.source, data: literals };
+          }
+        }
+      }
     }
-  } catch {
-    // fall through
   }
 
-  // Monorepo fallback
-  const localMjs = pathResolve(process.cwd(), 'packages', 'fuselage-tokens', 'typography.mjs');
-  try {
-    const mod = await import(pathToFileURL(localMjs).href);
-    if (mod && mod.default && mod.default.fontScales) {
-      return {
-        status: 'ok',
-        source: 'monorepo/src',
-        data: Object.keys(mod.default.fontScales),
-      };
-    }
-  } catch {
-    // fall through
+  // Data fallback: typography tokens
+  const hit = await importPkgData('@rocket.chat/fuselage-tokens', [
+    'typography.mjs',
+    'typography.js',
+  ]);
+  if (hit && hit.value && hit.value.fontScales) {
+    return {
+      status: 'ok',
+      source: hit.source,
+      data: Object.keys(hit.value.fontScales),
+    };
   }
+
+  if (!ts) return TS_DEGRADED;
 
   return {
     status: 'unavailable',
-    reason: '@rocket.chat/fuselage-tokens/typography.mjs could not be loaded',
+    reason: 'FontScale type not found and typography data unavailable',
     data: [],
   };
 }
 
 async function resolveBreakpoints() {
-  // Try consumer node_modules first
-  try {
-    const mod = await import(
-      /* @vite-ignore */ `@rocket.chat/fuselage-tokens/breakpoints.mjs`
-    ).catch(() => null);
-    if (mod && mod.default && Object.keys(mod.default).length > 0) {
-      return {
-        status: 'ok',
-        source: 'node_modules (ESM)',
-        data: Object.keys(mod.default),
-      };
-    }
-  } catch {
-    // fall through
-  }
-
-  // Monorepo fallback
-  const localMjs = pathResolve(
-    process.cwd(),
-    'packages',
-    'fuselage-tokens',
+  const hit = await importPkgData('@rocket.chat/fuselage-tokens', [
     'breakpoints.mjs',
-  );
-  try {
-    const mod = await import(pathToFileURL(localMjs).href);
-    if (mod && mod.default && Object.keys(mod.default).length > 0) {
-      return {
-        status: 'ok',
-        source: 'monorepo/src',
-        data: Object.keys(mod.default),
-      };
-    }
-  } catch {
-    // fall through
+    'breakpoints.js',
+  ]);
+  if (hit) {
+    const v = hit.value;
+    const data = Array.isArray(v)
+      ? v.map((b) => b.name).filter(Boolean)
+      : Object.keys(v);
+    if (data.length > 0) return { status: 'ok', source: hit.source, data };
   }
-
   return {
     status: 'unavailable',
-    reason: '@rocket.chat/fuselage-tokens/breakpoints.mjs could not be loaded',
+    reason: '@rocket.chat/fuselage-tokens breakpoints data could not be loaded',
     data: [],
   };
 }
 
+/**
+ * Semantic color groups: read the exported const sub-objects from Theme.ts.
+ * The Palette export is: { surface: surfaceColors, text: textIconColors, ... }
+ * Each sub-object (surfaceColors, textIconColors, ...) is also exported directly.
+ * We read the Palette object's type properties, and for each, extract the
+ * keys of the corresponding sub-object type.
+ */
 async function resolveSemantic() {
-  // Try: dynamic import of built @rocket.chat/fuselage and read Palette
-  try {
-    const mod = await import('@rocket.chat/fuselage').catch(() => null);
-    if (mod && mod.Palette && typeof mod.Palette === 'object') {
-      const groups = {};
-      for (const [group, obj] of Object.entries(mod.Palette)) {
-        if (obj && typeof obj === 'object') {
-          groups[group] = Object.keys(obj);
-        }
-      }
-      if (Object.keys(groups).length > 0) {
-        return { status: 'ok', source: 'node_modules (built Palette)', data: groups };
-      }
-    }
-  } catch {
-    // fall through
+  const ts = loadTypeScript();
+  if (!ts) return TS_DEGRADED;
+
+  const entry = resolveTypesEntry('@rocket.chat/fuselage');
+  if (!entry) {
+    return {
+      status: 'unavailable',
+      reason: '@rocket.chat/fuselage not installed and not in monorepo',
+      data: {},
+    };
   }
 
-  // Monorepo fallback: parse Theme.ts source with regex
-  const localTheme = pathResolve(
-    process.cwd(),
-    'packages',
-    'fuselage',
-    'src',
-    'Theme.ts',
-  );
-  try {
-    const groups = extractStringKeysFromThemeSrc(localTheme);
-    if (groups && Object.keys(groups).length > 0) {
-      return { status: 'ok', source: 'monorepo/src (Theme.ts regex)', data: groups };
+  const prog = getTsProgram(entry.path);
+  if (!prog) {
+    return {
+      status: 'unavailable',
+      reason: 'Could not build TypeScript program for @rocket.chat/fuselage',
+      data: {},
+    };
+  }
+
+  const { checker, sourceFile } = prog;
+  const exports = getExportedSymbols(checker, sourceFile);
+
+  // The Palette const maps group names to sub-object consts.
+  // We can read Palette's type directly: each property's type has the color keys.
+  const paletteSym = exports.find((s) => s.getName() === 'Palette');
+  if (paletteSym) {
+    const paletteType = checker.getTypeOfSymbol(paletteSym);
+    const groupProps = checker.getPropertiesOfType(paletteType);
+    const groups = {};
+    for (const groupProp of groupProps) {
+      const groupName = groupProp.getName();
+      const groupType = checker.getTypeOfSymbol(groupProp);
+      const colorProps = checker.getPropertiesOfType(groupType);
+      const keys = colorProps.map((p) => p.getName()).filter((k) => k.startsWith(groupName.replace('Color', '')) || k.length > 0);
+      // Filter to only string keys that look like semantic color names (contain '-')
+      const colorKeys = colorProps
+        .map((p) => p.getName())
+        .filter((k) => typeof k === 'string' && k.includes('-'));
+      if (colorKeys.length > 0) groups[groupName] = colorKeys;
     }
-  } catch {
-    // fall through
+    if (Object.keys(groups).length > 0) {
+      return { status: 'ok', source: entry.source, data: groups };
+    }
+  }
+
+  // Fallback: read the named sub-object exports directly
+  // Map from export name to palette group key
+  const subObjectMap = [
+    ['surfaceColors', 'surface'],
+    ['textIconColors', 'text'],
+    ['strokeColors', 'stroke'],
+    ['statusBackgroundColors', 'status'],
+    ['statusColors', 'statusColor'],
+    ['badgeBackgroundColors', 'badge'],
+    ['shadowColors', 'shadow'],
+  ];
+
+  const groups = {};
+  for (const [exportName, groupKey] of subObjectMap) {
+    const sym = exports.find((s) => s.getName() === exportName);
+    if (!sym) continue;
+    const keys = extractObjectKeys(ts, checker, sym);
+    if (keys.length > 0) groups[groupKey] = keys;
+  }
+
+  if (Object.keys(groups).length > 0) {
+    return { status: 'ok', source: entry.source, data: groups };
   }
 
   return {
     status: 'unavailable',
-    reason:
-      'semantic palette unavailable in this environment (package not built or import side-effects); ' +
-      'semantic color/bg names: resolve via the type gate',
+    reason: 'Palette and sub-object exports not found in @rocket.chat/fuselage types',
     data: {},
   };
 }
 
-async function resolveComponents() {
-  // Try: dynamic import of built @rocket.chat/fuselage
-  try {
-    const mod = await import('@rocket.chat/fuselage').catch(() => null);
-    if (mod) {
-      const names = Object.keys(mod).filter((k) => /^[A-Z]/.test(k));
-      if (names.length > 0) {
-        return { status: 'ok', source: 'node_modules (built)', data: names.sort() };
-      }
-    }
-  } catch {
-    // fall through
+async function resolveElevation() {
+  const ts = loadTypeScript();
+  if (!ts) return TS_DEGRADED;
+
+  const entry = resolveTypesEntry('@rocket.chat/fuselage');
+  if (!entry) {
+    return {
+      status: 'type-only',
+      data: 'type-only: @rocket.chat/fuselage not found; values are "0"|"1"|"2"|"1nb"|"2nb" in StylingProps',
+    };
   }
 
-  // Monorepo fallback: scan packages/fuselage/src/components/ directories
-  const srcDir = findLocalSrcDir('@rocket.chat/fuselage');
-  if (srcDir) {
-    const componentsDir = join(srcDir, 'components');
-    const dirs = scanComponentDirs(componentsDir);
-    if (dirs && dirs.length > 0) {
-      return { status: 'ok', source: 'monorepo/src (dir scan)', data: dirs };
-    }
-    // Also try scanning the components/index.ts for exports
-    const idxPath = join(componentsDir, 'index.ts');
-    const names = extractExportNamesFromSource(idxPath, (n) => /^[A-Z]/.test(n));
-    if (names && names.length > 0) {
-      return { status: 'ok', source: 'monorepo/src (index.ts scan)', data: names };
+  const prog = getTsProgram(entry.path);
+  if (!prog) {
+    return {
+      status: 'type-only',
+      data: 'type-only: could not build TypeScript program; validate via the type gate',
+    };
+  }
+
+  const { checker, sourceFile } = prog;
+  const exports = getExportedSymbols(checker, sourceFile);
+
+  const literals = extractElevationLiterals(ts, checker, exports);
+  if (literals && literals.length > 0) {
+    return { status: 'ok', source: entry.source, data: literals };
+  }
+
+  // Second approach: build a separate program targeting stylingProps.ts directly
+  const short = PKG_SHORT['@rocket.chat/fuselage'];
+  const stylingPropsPath = pathResolve(
+    cwd,
+    'packages',
+    short,
+    'src',
+    'components',
+    'Box',
+    'stylingProps.ts',
+  );
+  if (existsSync(stylingPropsPath)) {
+    const prog2 = getTsProgram(stylingPropsPath);
+    if (prog2) {
+      const exports2 = getExportedSymbols(prog2.checker, prog2.sourceFile);
+      const stylingPropsSym = exports2.find((s) => s.getName() === 'StylingProps');
+      if (stylingPropsSym) {
+        const decls = stylingPropsSym.getDeclarations?.() ?? [];
+        for (const decl of decls) {
+          if (!ts.isTypeAliasDeclaration(decl)) continue;
+          const type = prog2.checker.getTypeAtLocation(decl.type);
+          const elevProp = type.getProperty('elevation');
+          if (elevProp) {
+            const elevType = prog2.checker.getTypeOfSymbol(elevProp);
+            const lits = extractUnionFromType(ts, elevType);
+            if (lits && lits.length > 0) {
+              return { status: 'ok', source: 'monorepo src (types)', data: lits };
+            }
+          }
+        }
+      }
     }
   }
 
   return {
+    status: 'type-only',
+    data: 'type-only: elevation literals are "0"|"1"|"2"|"1nb"|"2nb" in StylingProps.elevation; validate via the type gate',
+  };
+}
+
+async function resolveComponents() {
+  const ts = loadTypeScript();
+  if (!ts) return TS_DEGRADED;
+
+  const entry = resolveTypesEntry('@rocket.chat/fuselage');
+  if (!entry) {
+    return {
+      status: 'unavailable',
+      reason: '@rocket.chat/fuselage not installed and not in monorepo',
+      data: [],
+    };
+  }
+
+  const prog = getTsProgram(entry.path);
+  if (!prog) {
+    return {
+      status: 'unavailable',
+      reason: 'Could not build TypeScript program for @rocket.chat/fuselage',
+      data: [],
+    };
+  }
+
+  const { checker, sourceFile } = prog;
+  const exports = getExportedSymbols(checker, sourceFile);
+
+  const names = exports
+    .filter((s) => /^[A-Z]/.test(s.getName()) && isValueDeclaration(ts, s))
+    .map((s) => s.getName())
+    .sort();
+
+  if (names.length > 0) {
+    return { status: 'ok', source: entry.source, data: names };
+  }
+
+  return {
     status: 'unavailable',
-    reason: '@rocket.chat/fuselage could not be loaded and no local src found',
+    reason: 'No PascalCase value exports found in @rocket.chat/fuselage types',
     data: [],
   };
 }
 
 async function resolveForms() {
-  // Try: dynamic import of built @rocket.chat/fuselage-forms
-  try {
-    const mod = await import('@rocket.chat/fuselage-forms').catch(() => null);
-    if (mod) {
-      const names = Object.keys(mod).filter((k) => /^[A-Z]/.test(k));
-      if (names.length > 0) {
-        return { status: 'ok', source: 'node_modules (built)', data: names.sort() };
-      }
-    }
-  } catch {
-    // fall through
+  const ts = loadTypeScript();
+  if (!ts) return TS_DEGRADED;
+
+  const entry = resolveTypesEntry('@rocket.chat/fuselage-forms');
+  if (!entry) {
+    return {
+      status: 'unavailable',
+      reason: '@rocket.chat/fuselage-forms not installed and not in monorepo',
+      data: [],
+    };
   }
 
-  // Monorepo fallback: scan leaf source files (not re-export index files, which
-  // produce path-segment false positives like "Inputs" or "WrappedInputComponents").
-  const srcDir = findLocalSrcDir('@rocket.chat/fuselage-forms');
-  if (srcDir) {
-    const namesToCheck = new Set();
+  const prog = getTsProgram(entry.path);
+  if (!prog) {
+    return {
+      status: 'unavailable',
+      reason: 'Could not build TypeScript program for @rocket.chat/fuselage-forms',
+      data: [],
+    };
+  }
 
-    // Leaf files that declare the actual exported component names
-    const leafFiles = [
-      join(srcDir, 'Inputs', 'WrappedInputComponents.ts'),
-      join(srcDir, 'Field', 'index.ts'),
-      join(srcDir, 'Field', 'Label', 'index.ts'),
-    ];
+  const { checker, sourceFile } = prog;
+  const exports = getExportedSymbols(checker, sourceFile);
 
-    for (const file of leafFiles) {
-      const names = extractExportNamesFromSource(file, (n) => /^[A-Z]/.test(n));
-      if (names) names.forEach((n) => namesToCheck.add(n));
-    }
+  const names = exports
+    .filter((s) => /^[A-Z]/.test(s.getName()) && isValueDeclaration(ts, s))
+    .map((s) => s.getName())
+    .sort();
 
-    const data = [...namesToCheck].sort();
-    if (data.length > 0) {
-      return { status: 'ok', source: 'monorepo/src (leaf-file scan)', data };
-    }
+  if (names.length > 0) {
+    return { status: 'ok', source: entry.source, data: names };
   }
 
   return {
     status: 'unavailable',
-    reason: '@rocket.chat/fuselage-forms could not be loaded and no local src found',
+    reason: 'No PascalCase value exports found in @rocket.chat/fuselage-forms types',
     data: [],
   };
 }
 
 async function resolveHooks() {
-  // Try: dynamic import of built @rocket.chat/fuselage-hooks
-  try {
-    const mod = await import('@rocket.chat/fuselage-hooks').catch(() => null);
-    if (mod) {
-      const names = Object.keys(mod).filter((k) => /^use[A-Z]/.test(k));
-      if (names.length > 0) {
-        return { status: 'ok', source: 'node_modules (built)', data: names.sort() };
-      }
-    }
-  } catch {
-    // fall through
+  const ts = loadTypeScript();
+  if (!ts) return TS_DEGRADED;
+
+  const entry = resolveTypesEntry('@rocket.chat/fuselage-hooks');
+  if (!entry) {
+    return {
+      status: 'unavailable',
+      reason: '@rocket.chat/fuselage-hooks not installed and not in monorepo',
+      data: [],
+    };
   }
 
-  // Monorepo fallback: parse src/index.ts
-  const srcDir = findLocalSrcDir('@rocket.chat/fuselage-hooks');
-  if (srcDir) {
-    const indexPath = join(srcDir, 'index.ts');
-    const names = extractExportNamesFromSource(indexPath, (n) => /^use[A-Z]/.test(n));
-    if (names && names.length > 0) {
-      return { status: 'ok', source: 'monorepo/src (index.ts scan)', data: names };
-    }
+  const prog = getTsProgram(entry.path);
+  if (!prog) {
+    return {
+      status: 'unavailable',
+      reason: 'Could not build TypeScript program for @rocket.chat/fuselage-hooks',
+      data: [],
+    };
+  }
+
+  const { checker, sourceFile } = prog;
+  const exports = getExportedSymbols(checker, sourceFile);
+
+  const names = exports
+    .filter((s) => /^use[A-Z]/.test(s.getName()))
+    .map((s) => s.getName())
+    .sort();
+
+  if (names.length > 0) {
+    return { status: 'ok', source: entry.source, data: names };
   }
 
   return {
     status: 'unavailable',
-    reason: '@rocket.chat/fuselage-hooks could not be loaded and no local src found',
+    reason: 'No hook exports found in @rocket.chat/fuselage-hooks types',
     data: [],
   };
 }
@@ -479,7 +726,7 @@ async function resolveHooks() {
 
 /**
  * Resolve a single category.
- * Returns: { status: 'ok'|'unavailable'|'type-only', source?, reason?, data }
+ * Returns: { status: 'ok'|'unavailable'|'type-only'|'rule', source?, reason?, data }
  */
 export async function resolveCategory(category) {
   switch (category) {
@@ -491,6 +738,8 @@ export async function resolveCategory(category) {
       return resolveBreakpoints();
     case 'semantic':
       return resolveSemantic();
+    case 'elevation':
+      return resolveElevation();
     case 'components':
       return resolveComponents();
     case 'forms':
@@ -502,15 +751,10 @@ export async function resolveCategory(category) {
         status: 'rule',
         data: 'Spacing uses the x<N> scale on a 4px grid (x1=4px, x2=8px, x4=16px, x8=32px, …). Type gate is authoritative for valid spacing tokens.',
       };
-    case 'elevation':
-      return {
-        status: 'type-only',
-        data: 'type-only; authoritative validation is the type gate (tsc). Values live in src/components/Box/stylingProps.ts.',
-      };
     case 'radius':
       return {
-        status: 'type-only',
-        data: 'type-only; authoritative validation is the type gate (tsc). Values live in src/components/Box/stylingProps.ts.',
+        status: 'rule',
+        data: 'Border radius is permissive (CSSProperties[\'borderRadius\']); semantic convention is \'none\'|\'full\'|x<N> but this is not enforced by types. Validate via design system conventions.',
       };
     default:
       return { status: 'unavailable', reason: `Unknown category: ${category}`, data: [] };
@@ -522,7 +766,7 @@ export async function resolveCategory(category) {
  * Returns: { resolvedFrom, versions, categories: { [cat]: result } }
  */
 export async function resolveAll() {
-  const resolvedFrom = process.cwd();
+  const resolvedFrom = cwd;
   const versions = collectVersions();
 
   const categoryNames = [
@@ -558,7 +802,7 @@ async function main() {
       categoryArg === 'all'
         ? await resolveAll()
         : {
-            resolvedFrom: process.cwd(),
+            resolvedFrom: cwd,
             versions: collectVersions(),
             categories: { [categoryArg]: await resolveCategory(categoryArg) },
           };
@@ -567,20 +811,31 @@ async function main() {
   }
 
   // Human output
-  const resolvedFrom = process.cwd();
   const versions = collectVersions();
 
   process.stdout.write('\n═══ fuselage-craft resolver ══════════════════════════\n');
-  process.stdout.write(`Resolved from: ${resolvedFrom}\n`);
+  process.stdout.write(`Resolved from: ${cwd}\n`);
   process.stdout.write('Package versions:\n');
   for (const [pkg, ver] of Object.entries(versions)) {
     process.stdout.write(`  ${pkg}: ${ver}\n`);
   }
   process.stdout.write('══════════════════════════════════════════════════════\n\n');
 
-  const cats = categoryArg === 'all'
-    ? ['colors', 'fontscale', 'breakpoints', 'semantic', 'components', 'forms', 'hooks', 'spacing', 'elevation', 'radius']
-    : [categoryArg];
+  const cats =
+    categoryArg === 'all'
+      ? [
+          'colors',
+          'fontscale',
+          'breakpoints',
+          'semantic',
+          'components',
+          'forms',
+          'hooks',
+          'spacing',
+          'elevation',
+          'radius',
+        ]
+      : [categoryArg];
 
   for (const cat of cats) {
     const result = await resolveCategory(cat);
@@ -611,8 +866,7 @@ async function main() {
 // Run CLI only when invoked directly
 const isMain =
   process.argv[1] &&
-  (process.argv[1] === __filename ||
-    process.argv[1].endsWith('/resolve.mjs'));
+  (process.argv[1] === __filename || process.argv[1].endsWith('/resolve.mjs'));
 
 if (isMain) {
   main().catch((err) => {
