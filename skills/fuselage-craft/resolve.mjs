@@ -205,7 +205,6 @@ function extractStringKeysFromThemeSrc(filePath) {
 async function resolveColors() {
   // Try: dynamic import from consumer node_modules first
   try {
-    const cwdStr = process.cwd();
     const mod = await import(
       /* @vite-ignore */ `@rocket.chat/fuselage-tokens/colors.mjs`
     ).catch(() => null);

@@ -10,7 +10,10 @@
  * Zero hardcoded Fuselage values — bans the literal pattern only.
  */
 
-const DIMENSION_RE = /(-?\d+(\.\d+)?(px|rem))/i;
+// Bounded digit runs (no unbounded `+`) so the pattern is linear by
+// construction and cannot backtrack polynomially. No real dimension has more
+// than a handful of digits.
+const DIMENSION_RE = /-?\d{1,9}(?:\.\d{1,9})?(?:px|rem)/i;
 
 const DIMENSION_PROPS = new Set([
   'padding',
