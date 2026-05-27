@@ -11,8 +11,9 @@ result faithful to the design system. It treats the installed Fuselage packages 
 single source of truth and never copies a Fuselage value or name into product code.
 
 Commands: `audit`, `migrate`, `polish`, `harden`, `critique`, `clarify`, `adapt`, `shape`,
-`craft`. See [`fuselage-craft/SKILL.md`](./fuselage-craft/SKILL.md) and its
-[`gate/`](./fuselage-craft/gate/README.md).
+`craft`. See [`fuselage-craft/README.md`](./fuselage-craft/README.md) for the command
+catalog (what each does and produces), plus [`SKILL.md`](./fuselage-craft/SKILL.md) (the
+agent contract) and [`gate/`](./fuselage-craft/gate/README.md).
 
 ## Install into Claude Code (symlink)
 
