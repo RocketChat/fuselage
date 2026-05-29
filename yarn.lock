@@ -5693,9 +5693,9 @@ __metadata:
     eslint: "npm:~9.39.2"
     jest: "npm:~30.3.0"
     lint-all: "workspace:~"
-    prettier: "npm:~3.6.2"
+    prettier: "npm:~3.8.3"
     rollup: "npm:~4.60.0"
-    stylis: "npm:~4.3.6"
+    stylis: "npm:~4.4.0"
     ts-jest: "npm:~29.4.6"
     typedoc: "npm:~0.28.18"
     typescript: "npm:~5.9.3"
@@ -5710,8 +5710,8 @@ __metadata:
     "@rocket.chat/memo": "workspace:~"
     eslint: "npm:~9.39.2"
     lint-all: "workspace:~"
-    prettier: "npm:~3.6.2"
-    rimraf: "npm:~6.0.1"
+    prettier: "npm:~3.8.3"
+    rimraf: "npm:~6.1.3"
     typedoc: "npm:~0.28.18"
     typescript: "npm:~5.9.3"
   languageName: unknown
@@ -5730,7 +5730,7 @@ __metadata:
     eslint: "npm:~9.39.2"
     jest: "npm:~30.3.0"
     lint-all: "workspace:~"
-    prettier: "npm:~3.6.2"
+    prettier: "npm:~3.8.3"
     rollup: "npm:~4.60.0"
     ts-jest: "npm:~29.4.6"
     typedoc: "npm:~0.28.18"
@@ -5764,11 +5764,11 @@ __metadata:
     jest-axe: "npm:~10.0.0"
     jest-environment-jsdom: "npm:~30.3.0"
     lint-all: "workspace:~"
-    prettier: "npm:~3.6.2"
+    prettier: "npm:~3.8.3"
     react: "npm:~18.3.1"
     react-aria: "npm:~3.37.0"
     react-dom: "npm:~18.3.1"
-    rimraf: "npm:~6.0.1"
+    rimraf: "npm:~6.1.3"
     storybook: "npm:~9.1.19"
     ts-jest: "npm:~29.4.6"
     typescript: "npm:~5.9.3"
@@ -5803,10 +5803,10 @@ __metadata:
     jest: "npm:~30.3.0"
     jest-environment-jsdom: "npm:~30.3.0"
     lint-all: "workspace:~"
-    prettier: "npm:~3.6.2"
+    prettier: "npm:~3.8.3"
     react: "npm:~18.3.1"
     react-dom: "npm:~18.3.1"
-    rimraf: "npm:~6.0.1"
+    rimraf: "npm:~6.1.3"
     rollup: "npm:~4.60.0"
     testing-utils: "workspace:~"
     ts-jest: "npm:~29.4.6"
@@ -5839,7 +5839,7 @@ __metadata:
     globals: "npm:~16.5.0"
     husky: "npm:~9.1.7"
     pinst: "npm:~3.0.0"
-    prettier: "npm:~3.6.2"
+    prettier: "npm:~3.8.3"
     storybook: "npm:~9.1.19"
     turbo: "npm:~2.8.20"
     typescript: "npm:~5.9.3"
@@ -5872,11 +5872,11 @@ __metadata:
     jest: "npm:~30.3.0"
     jest-environment-jsdom: "npm:~30.3.0"
     lint-all: "workspace:~"
-    prettier: "npm:~3.6.2"
+    prettier: "npm:~3.8.3"
     react: "npm:~18.3.1"
     react-dom: "npm:~18.3.1"
     react-timing-hooks: "npm:~4.0.2"
-    rimraf: "npm:~6.0.1"
+    rimraf: "npm:~6.1.3"
     storybook: "npm:~9.1.19"
     ts-jest: "npm:~29.4.6"
     typedoc: "npm:~0.28.18"
@@ -5900,8 +5900,8 @@ __metadata:
     lint-all: "workspace:~"
     postcss: "npm:~8.5.10"
     postcss-scss: "npm:~4.0.9"
-    prettier: "npm:~3.6.2"
-    rimraf: "npm:~6.0.1"
+    prettier: "npm:~3.8.3"
+    rimraf: "npm:~6.1.3"
     style-dictionary: "npm:~5.4.0"
     stylelint: "npm:~16.25.0"
     stylelint-order: "npm:~7.0.1"
@@ -5960,7 +5960,7 @@ __metadata:
     postcss-loader: "npm:~8.2.1"
     postcss-logical: "npm:~8.1.0"
     postcss-scss: "npm:~4.0.9"
-    prettier: "npm:~3.6.2"
+    prettier: "npm:~3.8.3"
     react: "npm:~18.3.1"
     react-aria: "npm:~3.37.0"
     react-dom: "npm:~18.3.1"
@@ -5968,7 +5968,7 @@ __metadata:
     react-stately: "npm:~3.35.0"
     react-virtuoso: "npm:~4.18.3"
     resolve-url-loader: "npm:~5.0.0"
-    rimraf: "npm:~6.0.1"
+    rimraf: "npm:~6.1.3"
     sass: "npm:~1.98.0"
     sass-loader: "npm:~16.0.7"
     storybook: "npm:~9.1.19"
@@ -6000,8 +6000,8 @@ __metadata:
     build-icons: "workspace:~"
     eslint: "npm:~9.39.2"
     lint-all: "workspace:~"
-    prettier: "npm:~3.6.2"
-    rimraf: "npm:~6.0.1"
+    prettier: "npm:~3.8.3"
+    rimraf: "npm:~6.1.3"
     stylelint: "npm:~16.25.0"
     stylelint-order: "npm:~7.0.1"
     stylelint-prettier: "npm:~5.0.3"
@@ -6031,11 +6031,11 @@ __metadata:
     jest: "npm:~30.3.0"
     jest-environment-jsdom: "npm:~30.3.0"
     lint-all: "workspace:~"
-    prettier: "npm:~3.6.2"
+    prettier: "npm:~3.8.3"
     react: "npm:~18.3.1"
     react-dom: "npm:~18.3.1"
     react-i18next: "npm:~13.2.2"
-    rimraf: "npm:~6.0.1"
+    rimraf: "npm:~6.1.3"
     storybook: "npm:~9.1.19"
     ts-jest: "npm:~29.4.6"
     typedoc: "npm:~0.28.18"
@@ -6064,10 +6064,10 @@ __metadata:
     jest: "npm:~30.3.0"
     jest-environment-jsdom: "npm:~30.3.0"
     lint-all: "workspace:~"
-    prettier: "npm:~3.6.2"
+    prettier: "npm:~3.8.3"
     react: "npm:~18.3.1"
     react-dom: "npm:~18.3.1"
-    rimraf: "npm:~6.0.1"
+    rimraf: "npm:~6.1.3"
     ts-jest: "npm:~29.4.6"
     typedoc: "npm:~0.28.18"
     typescript: "npm:~5.9.3"
@@ -6085,8 +6085,8 @@ __metadata:
     eslint: "npm:~9.39.2"
     jest: "npm:~30.3.0"
     lint-all: "workspace:~"
-    prettier: "npm:~3.6.2"
-    rimraf: "npm:~6.0.1"
+    prettier: "npm:~3.8.3"
+    rimraf: "npm:~6.1.3"
     ts-jest: "npm:~29.4.6"
     typedoc: "npm:~0.28.18"
     typescript: "npm:~5.9.3"
@@ -6108,7 +6108,7 @@ __metadata:
     jest: "npm:~30.3.0"
     jest-environment-jsdom: "npm:~30.3.0"
     lint-all: "workspace:~"
-    prettier: "npm:~3.6.2"
+    prettier: "npm:~3.8.3"
     rollup: "npm:~4.60.0"
     ts-jest: "npm:~29.4.6"
     typedoc: "npm:~0.28.18"
@@ -6143,12 +6143,12 @@ __metadata:
     jest: "npm:~30.3.0"
     jest-environment-jsdom: "npm:~30.3.0"
     lint-all: "workspace:~"
-    prettier: "npm:~3.6.2"
+    prettier: "npm:~3.8.3"
     react: "npm:~18.3.1"
     react-dom: "npm:~18.3.1"
-    react-hook-form: "npm:~7.54.2"
+    react-hook-form: "npm:~7.76.1"
     react-i18next: "npm:~13.2.2"
-    rimraf: "npm:~6.0.1"
+    rimraf: "npm:~6.1.3"
     storybook: "npm:~9.1.19"
     ts-jest: "npm:~29.4.6"
     typedoc: "npm:~0.28.18"
@@ -6172,7 +6172,7 @@ __metadata:
   dependencies:
     eslint: "npm:~9.39.2"
     lint-all: "workspace:~"
-    prettier: "npm:~3.6.2"
+    prettier: "npm:~3.8.3"
   peerDependencies:
     prettier: "*"
   languageName: unknown
@@ -6188,8 +6188,8 @@ __metadata:
     eslint: "npm:~9.39.2"
     fast-deep-equal: "npm:~3.1.3"
     lint-all: "workspace:~"
-    prettier: "npm:~3.6.2"
-    rimraf: "npm:~6.0.1"
+    prettier: "npm:~3.8.3"
+    rimraf: "npm:~6.1.3"
     typescript: "npm:~5.9.3"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -6205,8 +6205,8 @@ __metadata:
     eslint: "npm:~9.39.2"
     jest: "npm:~30.3.0"
     lint-all: "workspace:~"
-    prettier: "npm:~3.6.2"
-    rimraf: "npm:~6.0.1"
+    prettier: "npm:~3.8.3"
+    rimraf: "npm:~6.1.3"
     ts-jest: "npm:~29.4.6"
     typedoc: "npm:~0.28.18"
     typescript: "npm:~5.9.3"
@@ -6227,10 +6227,10 @@ __metadata:
     jest: "npm:~30.3.0"
     jest-environment-jsdom: "npm:~30.3.0"
     lint-all: "workspace:~"
-    prettier: "npm:~3.6.2"
+    prettier: "npm:~3.8.3"
     react: "npm:~18.3.1"
     react-dom: "npm:~18.3.1"
-    rimraf: "npm:~6.0.1"
+    rimraf: "npm:~6.1.3"
     ts-jest: "npm:~29.4.6"
     typedoc: "npm:~0.28.18"
     typescript: "npm:~5.9.3"
@@ -6244,13 +6244,13 @@ __metadata:
     "@rocket.chat/css-supports": "workspace:~"
     eslint: "npm:~9.39.2"
     lint-all: "workspace:~"
-    prettier: "npm:~3.6.2"
-    rimraf: "npm:~6.0.1"
-    stylis: "npm:~4.3.6"
+    prettier: "npm:~3.8.3"
+    rimraf: "npm:~6.1.3"
+    stylis: "npm:~4.4.0"
     typedoc: "npm:~0.28.18"
     typescript: "npm:~5.9.3"
   peerDependencies:
-    stylis: ~4.3.6
+    stylis: ~4.4.0
   languageName: unknown
   linkType: soft
 
@@ -8366,10 +8366,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xmldom/xmldom@npm:^0.7.2":
-  version: 0.7.13
-  resolution: "@xmldom/xmldom@npm:0.7.13"
-  checksum: 10/a359d15fe3c24fe85a1e1b3bc4cfd23d4f014fb8aa382aa445cccaac545e42958b75e386dd4853c76d82036401400b8d5e33cbcbfb6af7cdadeba769eae6122a
+"@xmldom/xmldom@npm:^0.9.10":
+  version: 0.9.10
+  resolution: "@xmldom/xmldom@npm:0.9.10"
+  checksum: 10/8d39ed498baf33dc8bbc82ec575e7448ddf08a0d6874bcc30a70c001b7519e6df6564f98d13c03836fa8be099c6d74cbc4078cfcfcbcf005681d4e67f1363412
   languageName: node
   linkType: hard
 
@@ -9328,7 +9328,7 @@ __metadata:
   dependencies:
     eslint: "npm:~9.39.2"
     lint-all: "workspace:~"
-    prettier: "npm:~3.6.2"
+    prettier: "npm:~3.8.3"
     stylelint: "npm:~16.25.0"
     tools-utils: "workspace:~"
   peerDependencies:
@@ -9345,14 +9345,14 @@ __metadata:
   dependencies:
     eslint: "npm:~9.39.2"
     lint-all: "workspace:~"
-    prettier: "npm:~3.6.2"
+    prettier: "npm:~3.8.3"
     stylelint: "npm:~16.25.0"
-    svg2ttf: "npm:~6.0.3"
+    svg2ttf: "npm:~6.1.0"
     svgicons2svgfont: "npm:~15.0.1"
     tools-utils: "workspace:~"
     ttf2eot: "npm:~3.1.0"
     ttf2woff: "npm:~3.0.0"
-    ttf2woff2: "npm:~8.0.0"
+    ttf2woff2: "npm:~8.0.1"
     unicode: "npm:~14.0.0"
     xml2js: "npm:~0.6.2"
   bin:
@@ -9366,7 +9366,7 @@ __metadata:
   dependencies:
     eslint: "npm:~9.39.2"
     lint-all: "workspace:~"
-    prettier: "npm:~3.6.2"
+    prettier: "npm:~3.8.3"
     react: "npm:~18.3.1"
     react-dom: "npm:~18.3.1"
     sharp: "npm:~0.34.5"
@@ -12205,7 +12205,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"glob@npm:^13.0.6":
+"glob@npm:^13.0.3, glob@npm:^13.0.6":
   version: 13.0.6
   resolution: "glob@npm:13.0.6"
   dependencies:
@@ -14323,7 +14323,7 @@ __metadata:
   dependencies:
     "@prettier/plugin-xml": "npm:~3.4.2"
     eslint: "npm:~9.39.2"
-    prettier: "npm:~3.6.2"
+    prettier: "npm:~3.8.3"
     stylelint: "npm:~16.25.0"
     zx: "npm:8.8.5"
   bin:
@@ -15949,7 +15949,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"package-json-from-dist@npm:^1.0.0":
+"package-json-from-dist@npm:^1.0.0, package-json-from-dist@npm:^1.0.1":
   version: 1.0.1
   resolution: "package-json-from-dist@npm:1.0.1"
   checksum: 10/58ee9538f2f762988433da00e26acc788036914d57c71c246bf0be1b60cdbd77dd60b6a3e1a30465f0b248aeb80079e0b34cb6050b1dfa18c06953bb1cbc7602
@@ -16766,12 +16766,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:~3.6.2":
-  version: 3.6.2
-  resolution: "prettier@npm:3.6.2"
+"prettier@npm:~3.8.3":
+  version: 3.8.3
+  resolution: "prettier@npm:3.8.3"
   bin:
     prettier: bin/prettier.cjs
-  checksum: 10/1213691706bcef1371d16ef72773c8111106c3533b660b1cc8ec158bd109cdf1462804125f87f981f23c4a3dba053b6efafda30ab0114cc5b4a725606bb9ff26
+  checksum: 10/4b3b12cbb29e4c96bed936e5d070167552500c18d37676fb3e0caae6199c42860662608e4dc116230698f6e2bb0267ef2548158224c92d40f188d309d72fdd6f
   languageName: node
   linkType: hard
 
@@ -17061,12 +17061,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-hook-form@npm:~7.54.2":
-  version: 7.54.2
-  resolution: "react-hook-form@npm:7.54.2"
+"react-hook-form@npm:~7.76.1":
+  version: 7.76.1
+  resolution: "react-hook-form@npm:7.76.1"
   peerDependencies:
     react: ^16.8.0 || ^17 || ^18 || ^19
-  checksum: 10/b156d15b6246c76d0275e5722d9056014693e014d0e3dec06e44bf2672ee549aaba4366de5144d18c4cab29e631f3b2b84269d4fd5727ca17aad9b970fde6960
+  checksum: 10/8fea83f62035b08acf55c0cdb712ad7c74ce120395e3b2ff3af7d3ac5cf9f3100f07a964bb16ffb5e5947dc08a4544a735a4d37d7ccfad5526dc535b83fe95a2
   languageName: node
   linkType: hard
 
@@ -17714,15 +17714,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rimraf@npm:~6.0.1":
-  version: 6.0.1
-  resolution: "rimraf@npm:6.0.1"
+"rimraf@npm:~6.1.3":
+  version: 6.1.3
+  resolution: "rimraf@npm:6.1.3"
   dependencies:
-    glob: "npm:^11.0.0"
-    package-json-from-dist: "npm:^1.0.0"
+    glob: "npm:^13.0.3"
+    package-json-from-dist: "npm:^1.0.1"
   bin:
     rimraf: dist/esm/bin.mjs
-  checksum: 10/0eb7edf08aa39017496c99ba675552dda11a20811ba78f8232da2ba945308c91e9cd673f95998b1a8202bc7436d33390831d23ea38ae52751038d56373ad99e2
+  checksum: 10/dd98ec2ad7cd2cccae1c7110754d472eac8edb2bab8a8b057dce04edfe1433dab246a889b3fd85a66c78ca81caa1429caa0e736c7647f6832b04fd5d4dfb8ab8
   languageName: node
   linkType: hard
 
@@ -18018,7 +18018,7 @@ __metadata:
     endent: "npm:^2.1.0"
     eslint: "npm:~9.39.2"
     fast-glob: "npm:~3.3.3"
-    prettier: "npm:~3.6.2"
+    prettier: "npm:~3.8.3"
     typescript: "npm:~5.9.3"
   languageName: unknown
   linkType: soft
@@ -18909,10 +18909,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stylis@npm:~4.3.6":
-  version: 4.3.6
-  resolution: "stylis@npm:4.3.6"
-  checksum: 10/6ebe8a37827124e0caf0704c13d39c121f6e6a8433eb8c67cfce508477b24a4434d1731198ba0b6e453655022bbf5beda93585f38ff420545e5356f925f83761
+"stylis@npm:~4.4.0":
+  version: 4.4.0
+  resolution: "stylis@npm:4.4.0"
+  checksum: 10/e5a149b571ea88b801b43deb6f6a9f5a5711b7ce501540ac2be18ca63a4cfb3fab86309c661a2f88491a5b98f27f95ef3eb397d412fba532c50f13964d9a1013
   languageName: node
   linkType: hard
 
@@ -18972,11 +18972,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svg2ttf@npm:~6.0.3":
-  version: 6.0.3
-  resolution: "svg2ttf@npm:6.0.3"
+"svg2ttf@npm:~6.1.0":
+  version: 6.1.0
+  resolution: "svg2ttf@npm:6.1.0"
   dependencies:
-    "@xmldom/xmldom": "npm:^0.7.2"
+    "@xmldom/xmldom": "npm:^0.9.10"
     argparse: "npm:^2.0.1"
     cubic2quad: "npm:^1.2.1"
     lodash: "npm:^4.17.10"
@@ -18984,7 +18984,7 @@ __metadata:
     svgpath: "npm:^2.1.5"
   bin:
     svg2ttf: svg2ttf.js
-  checksum: 10/94b7d36df599fc9cd2eeb5a98fbfb284dbf89593bbf95ddd5222f30111d7a3369aaa22a0493b8cdbbb5601ef416ebb9fd8815c8eb382d4073c65dfec985216b3
+  checksum: 10/95360eadb8fccf5b601486bbb00d85d36458fa032ebd70f06b2af51a02a4ae361d9a839a3f59ad55e48015424f1adc658d3ac3d99576ea3a39a5f3c35b26327d
   languageName: node
   linkType: hard
 
@@ -19204,7 +19204,7 @@ __metadata:
     css-mediaquery: "npm:^0.1.2"
     eslint: "npm:~9.39.2"
     lint-all: "workspace:~"
-    prettier: "npm:~3.6.2"
+    prettier: "npm:~3.8.3"
   languageName: unknown
   linkType: soft
 
@@ -19307,8 +19307,8 @@ __metadata:
     fast-glob: "npm:~3.3.3"
     json5: "npm:^2.2.3"
     lint-all: "workspace:~"
-    prettier: "npm:~3.6.2"
-    rimraf: "npm:~6.0.1"
+    prettier: "npm:~3.8.3"
+    rimraf: "npm:~6.1.3"
   peerDependencies:
     eslint: "*"
     prettier: "*"
@@ -19498,9 +19498,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ttf2woff2@npm:~8.0.0":
-  version: 8.0.0
-  resolution: "ttf2woff2@npm:8.0.0"
+"ttf2woff2@npm:~8.0.1":
+  version: 8.0.1
+  resolution: "ttf2woff2@npm:8.0.1"
   dependencies:
     bindings: "npm:^1.5.0"
     bufferstreams: "npm:^4.0.0"
@@ -19510,7 +19510,7 @@ __metadata:
     yerror: "npm:^8.0.0"
   bin:
     ttf2woff2: bin/ttf2woff2.js
-  checksum: 10/0649e4762de4bb0b98103e312c317e6acd6729d52f4c3ed4b3824095be2272aa9aff4c60040c5b19eda6c819cab597c7afaa9185c62c84a08ea52c560aba4add
+  checksum: 10/afdb8c46490349797db1956862d7d66b240e27a6cb65b9555353ad220992be7efc1a06e1c45e33b849212b36af3e3c2558584bc6b5eebf6d7e51c1aaa5fb08a1
   languageName: node
   linkType: hard
 
@@ -20142,7 +20142,7 @@ __metadata:
     eslint: "npm:~9.39.2"
     lint-all: "workspace:~"
     outdent: "npm:^0.8.0"
-    prettier: "npm:~3.6.2"
+    prettier: "npm:~3.8.3"
     zx: "npm:8.8.5"
   bin:
     update-readme: ./update-readme.js
