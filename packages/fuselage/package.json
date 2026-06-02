@@ -71,7 +71,7 @@
     "@types/jest-axe": "~3.5.9",
     "@types/react": "~18.3.29",
     "@types/react-dom": "~18.3.7",
-    "autoprefixer": "~10.4.27",
+    "autoprefixer": "~10.5.0",
     "babel-loader": "~10.1.1",
     "caniuse-lite": "~1.0.30001793",
     "cross-env": "^10.1.0",
