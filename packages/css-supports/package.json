@@ -24,7 +24,6 @@
   ],
   "scripts": {
     "build": "tsc -p tsconfig.esm.json && tsc -p tsconfig.cjs.json && api-extractor run --local",
-    ".:build:api": "api-extractor run --local",
     "clean": "rimraf dist",
     "docs": "typedoc",
     "lint": "lint",

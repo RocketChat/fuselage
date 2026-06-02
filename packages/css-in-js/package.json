@@ -31,7 +31,6 @@
   ],
   "scripts": {
     "build": "rollup -c && api-extractor run --local",
-    ".:build:api": "api-extractor run --local",
     "docs": "typedoc",
     "lint": "lint",
     "lint-and-fix": "lint-and-fix",
