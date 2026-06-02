@@ -6,8 +6,8 @@
   "bin": "./index.js",
   "dependencies": {
     "stylelint": "~17.12.0",
-    "svg2ttf": "~6.0.3",
-    "svgicons2svgfont": "~15.0.1",
+    "svg2ttf": "~6.1.0",
+    "svgicons2svgfont": "~16.0.0",
     "tools-utils": "workspace:~",
     "ttf2eot": "~3.1.0",
     "ttf2woff": "~3.0.0",

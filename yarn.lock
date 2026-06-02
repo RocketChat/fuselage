@@ -7542,10 +7542,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@xmldom/xmldom@npm:^0.7.2":
-  version: 0.7.13
-  resolution: "@xmldom/xmldom@npm:0.7.13"
-  checksum: 10/a359d15fe3c24fe85a1e1b3bc4cfd23d4f014fb8aa382aa445cccaac545e42958b75e386dd4853c76d82036401400b8d5e33cbcbfb6af7cdadeba769eae6122a
+"@xmldom/xmldom@npm:^0.9.10":
+  version: 0.9.10
+  resolution: "@xmldom/xmldom@npm:0.9.10"
+  checksum: 10/8d39ed498baf33dc8bbc82ec575e7448ddf08a0d6874bcc30a70c001b7519e6df6564f98d13c03836fa8be099c6d74cbc4078cfcfcbcf005681d4e67f1363412
   languageName: node
   linkType: hard
 
@@ -8429,8 +8429,8 @@ __metadata:
     lint-all: "workspace:~"
     prettier: "npm:~3.6.2"
     stylelint: "npm:~17.12.0"
-    svg2ttf: "npm:~6.0.3"
-    svgicons2svgfont: "npm:~15.0.1"
+    svg2ttf: "npm:~6.1.0"
+    svgicons2svgfont: "npm:~16.0.0"
     tools-utils: "workspace:~"
     ttf2eot: "npm:~3.1.0"
     ttf2woff: "npm:~3.0.0"
@@ -8878,6 +8878,13 @@ __metadata:
   version: 12.1.0
   resolution: "commander@npm:12.1.0"
   checksum: 10/cdaeb672d979816853a4eed7f1310a9319e8b976172485c2a6b437ed0db0a389a44cfb222bfbde772781efa9f215bdd1b936f80d6b249485b465c6cb906e1f93
+  languageName: node
+  linkType: hard
+
+"commander@npm:^14.0.0":
+  version: 14.0.3
+  resolution: "commander@npm:14.0.3"
+  checksum: 10/dfa9ebe2a433d277de5cb0252d23b10a543d245d892db858d23b516336a835c50fd4f52bee4cd13c705cc8acb6f03dc632c73dd806f7d06d3353eb09953dd17a
   languageName: node
   linkType: hard
 
@@ -16531,10 +16538,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sax@npm:>=0.6.0, sax@npm:^1.4.1, sax@npm:^1.5.0":
-  version: 1.5.0
-  resolution: "sax@npm:1.5.0"
-  checksum: 10/9012ff37dda7a7ac5da45db2143b04036103e8bef8d586c3023afd5df6caf0ebd7f38017eee344ad2e2247eded7d38e9c42cf291d8dd91781352900ac0fd2d9f
+"sax@npm:>=0.6.0, sax@npm:^1.5.0, sax@npm:^1.6.0":
+  version: 1.6.0
+  resolution: "sax@npm:1.6.0"
+  checksum: 10/0909cedcd9f011ceeac80c0240a92d64ef712cf6c04e0f6ee236a8d812f86a59f61bee6bb5da28d75306db050b99e0593051ea77351795822253b984af6cf044
   languageName: node
   linkType: hard
 
@@ -17543,10 +17550,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svg-pathdata@npm:^7.0.0":
-  version: 7.2.0
-  resolution: "svg-pathdata@npm:7.2.0"
-  checksum: 10/799b3c83fc71d47a9eb3d580314599c4403d39221ef68073f51c7b6c82a3804f6f7062423f3cb147388150f21039136693915078ab0b14434b1e79ddf5ee0185
+"svg-pathdata@npm:^9.0.0":
+  version: 9.0.0
+  resolution: "svg-pathdata@npm:9.0.0"
+  checksum: 10/40dc595e3415021bdae93259d434b9a8c73e52afc39901ad1a9c0e77e14c2a4b6cc28badea25cf67ab2c27983c7ec4b63fedc94ec8536e1297c8538fd9f99f95
   languageName: node
   linkType: hard
 
@@ -17557,11 +17564,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svg2ttf@npm:~6.0.3":
-  version: 6.0.3
-  resolution: "svg2ttf@npm:6.0.3"
+"svg2ttf@npm:~6.1.0":
+  version: 6.1.0
+  resolution: "svg2ttf@npm:6.1.0"
   dependencies:
-    "@xmldom/xmldom": "npm:^0.7.2"
+    "@xmldom/xmldom": "npm:^0.9.10"
     argparse: "npm:^2.0.1"
     cubic2quad: "npm:^1.2.1"
     lodash: "npm:^4.17.10"
@@ -17569,25 +17576,25 @@ __metadata:
     svgpath: "npm:^2.1.5"
   bin:
     svg2ttf: svg2ttf.js
-  checksum: 10/94b7d36df599fc9cd2eeb5a98fbfb284dbf89593bbf95ddd5222f30111d7a3369aaa22a0493b8cdbbb5601ef416ebb9fd8815c8eb382d4073c65dfec985216b3
+  checksum: 10/95360eadb8fccf5b601486bbb00d85d36458fa032ebd70f06b2af51a02a4ae361d9a839a3f59ad55e48015424f1adc658d3ac3d99576ea3a39a5f3c35b26327d
   languageName: node
   linkType: hard
 
-"svgicons2svgfont@npm:~15.0.1":
-  version: 15.0.1
-  resolution: "svgicons2svgfont@npm:15.0.1"
+"svgicons2svgfont@npm:~16.0.0":
+  version: 16.0.0
+  resolution: "svgicons2svgfont@npm:16.0.0"
   dependencies:
     "@types/sax": "npm:^1.2.7"
-    commander: "npm:^12.1.0"
+    commander: "npm:^14.0.0"
     debug: "npm:^4.3.6"
-    glob: "npm:^11.0.0"
-    sax: "npm:^1.4.1"
-    svg-pathdata: "npm:^7.0.0"
-    transformation-matrix: "npm:^3.0.0"
-    yerror: "npm:^8.0.0"
+    glob: "npm:^13.0.6"
+    sax: "npm:^1.6.0"
+    svg-pathdata: "npm:^9.0.0"
+    transformation-matrix: "npm:^3.1.0"
+    yerror: "npm:^9.0.0"
   bin:
     svgicons2svgfont: bin/svgicons2svgfont.js
-  checksum: 10/a7c7497edced5714fe1ad3e893623e36926841553b1024f8edc76851e01eca33251c293c885fae842a748ba75d931d85936a9b793de469ef0bf0355df96b65a8
+  checksum: 10/fb2ae25a3d6cae42666c8b90479e5425f1d68baefaaad26218f127d8725fe1fd56529658d0b0ce15218e94d64562ac0129d490e25f56bdd29b3ff41ce374c8be
   languageName: node
   linkType: hard
 
@@ -17888,10 +17895,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"transformation-matrix@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "transformation-matrix@npm:3.0.0"
-  checksum: 10/911845c5c71977412e802df1ce18acedc3f6912a4892b4033354f1f62c7840704f32b3dc7a62df96c0d7999b1de3573d653db34aaf4bbb8d65a1bb2404914cba
+"transformation-matrix@npm:^3.1.0":
+  version: 3.1.0
+  resolution: "transformation-matrix@npm:3.1.0"
+  checksum: 10/ba6f481e114b15ebc953c5a389bb41533897bb46e41a760eaf958fb56fad2e78d1c38ee7e45c8377cbd5a78fff45b7edf148db45a33aa919d9280534afe3d6ce
   languageName: node
   linkType: hard
 
@@ -19263,6 +19270,13 @@ __metadata:
   version: 8.0.0
   resolution: "yerror@npm:8.0.0"
   checksum: 10/afef14ed889cfa1572485e2d82be0d844078c779acd587124b6af37f30d1b522e9eb4a3fb4ac284b9c67ffbc73a3c241357d6dd4a48e883c6e4245f0c49bc00f
+  languageName: node
+  linkType: hard
+
+"yerror@npm:^9.0.0":
+  version: 9.1.1
+  resolution: "yerror@npm:9.1.1"
+  checksum: 10/cc0f1c468d540341d95519cdffcc784c6ee0bb2539b35298e02536ca4d4ac36cf5eb80012f859696c77c812369a837e71ed15908bfd57430b5bc3572f7635db2
   languageName: node
   linkType: hard
 
