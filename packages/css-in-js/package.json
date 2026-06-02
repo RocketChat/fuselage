@@ -51,13 +51,13 @@
     "@rollup/plugin-terser": "~0.4.4",
     "@rollup/plugin-typescript": "~12.3.0",
     "@types/stylis": "^4.2.7",
-    "eslint": "~9.39.2",
+    "eslint": "~9.39.4",
     "jest": "~30.3.0",
     "lint-all": "workspace:~",
     "prettier": "~3.6.2",
-    "rollup": "~4.60.0",
-    "ts-jest": "~29.4.6",
-    "typedoc": "~0.28.18",
+    "rollup": "~4.60.4",
+    "ts-jest": "~29.4.11",
+    "typedoc": "~0.28.19",
     "typescript": "~5.9.3"
   },
   "publishConfig": {

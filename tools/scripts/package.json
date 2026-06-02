@@ -15,7 +15,7 @@
     "@types/node": "~22.18.13",
     "cross-env": "^10.1.0",
     "endent": "^2.1.0",
-    "eslint": "~9.39.2",
+    "eslint": "~9.39.4",
     "fast-glob": "~3.3.3",
     "prettier": "~3.6.2",
     "typescript": "~5.9.3"
