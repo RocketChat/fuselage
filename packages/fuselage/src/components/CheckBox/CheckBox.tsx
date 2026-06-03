@@ -17,33 +17,33 @@ const CheckBox = forwardRef<HTMLInputElement, CheckBoxProps>(function CheckBox(
   const mergedRef = useMergedRefs(ref, innerRef);
 
   useLayoutEffect(() => {
-    if (innerRef && innerRef.current && indeterminate !== undefined) {
+    if (innerRef.current && indeterminate !== undefined) {
       innerRef.current.indeterminate = indeterminate;
     }
-  }, [innerRef, indeterminate]);
+  }, [indeterminate]);
 
   const handleChange = useCallback(
     (event: FormEvent<HTMLInputElement>) => {
-      if (innerRef && innerRef.current && indeterminate !== undefined) {
+      if (innerRef.current && indeterminate !== undefined) {
         innerRef.current.indeterminate = indeterminate;
       }
       onChange?.call(innerRef.current, event);
     },
-    [innerRef, indeterminate, onChange],
+    [indeterminate, onChange],
   );
 
   return (
-    <Box is='label' className={className} rcx-check-box>
+    <Box is={'label' as unknown as React.ElementType} className={className} rcx-check-box>
       {labelChildren}
       <Box
-        is='input'
+        is={'input' as unknown as React.ElementType}
         type='checkbox'
         rcx-check-box__input
         ref={mergedRef}
         onChange={handleChange}
         {...props}
       />
-      <Box is='i' rcx-check-box__fake aria-hidden='true' />
+      <Box is={'i' as unknown as React.ElementType} rcx-check-box__fake aria-hidden='true' />
     </Box>
   );
 });
