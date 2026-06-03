@@ -2,7 +2,7 @@ import { Tile } from '@rocket.chat/fuselage';
 import type { ReactElement, FormHTMLAttributes, ReactNode } from 'react';
 import { forwardRef } from 'react';
 
-const Form = forwardRef<
+export const Form = forwardRef<
   HTMLElement,
   Omit<FormHTMLAttributes<HTMLFormElement>, 'is'> & {
     children: ReactNode;
@@ -23,4 +23,4 @@ const Form = forwardRef<
   ),
 );
 
-export default Form;
+
