@@ -1,6 +1,4 @@
-import type { ReactElement } from 'react';
-
-const PlanFeatureIcon = ({ color }: { color: string }): ReactElement => (
+const PlanFeatureIcon = ({ color }: { color: string }) => (
   <svg
     width='13'
     height='auto'

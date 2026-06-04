@@ -1,5 +1,5 @@
 import { BackgroundLayer } from '@rocket.chat/layout';
-import type { ReactElement, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 import type { FormPageLayoutStyleProps } from '../../Types';
 import FormPageLayout from '../../common/FormPageLayout';
@@ -29,7 +29,7 @@ const AwaitingConfirmationPage = ({
   emailAddress,
   onResendEmailRequest,
   onChangeEmailRequest,
-}: AwaitingConfirmationPageProps): ReactElement => (
+}: AwaitingConfirmationPageProps) => (
   <BackgroundLayer>
     <FormPageLayout
       title={title}

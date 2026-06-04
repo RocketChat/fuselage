@@ -15,7 +15,6 @@ import {
   SelectFiltered,
 } from '@rocket.chat/fuselage';
 import { Form } from '@rocket.chat/layout';
-import type { ReactElement } from 'react';
 import type { FieldPathValue, SubmitHandler, Validate } from 'react-hook-form';
 import { useForm, Controller } from 'react-hook-form';
 import { useTranslation, Trans } from 'react-i18next';
@@ -51,7 +50,7 @@ export const RequestTrialForm = ({
   validateEmail,
   termsHref = 'https://rocket.chat/terms',
   policyHref = 'https://rocket.chat/privacy',
-}: RequestTrialFormProps): ReactElement => {
+}: RequestTrialFormProps) => {
   const { t } = useTranslation();
 
   const {

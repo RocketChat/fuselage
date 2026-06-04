@@ -1,5 +1,5 @@
 import { Form } from '@rocket.chat/layout';
-import { useState, type ReactElement } from 'react';
+import { useState } from 'react';
 import type { SubmitHandler } from 'react-hook-form';
 import { useForm, FormProvider } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
@@ -33,7 +33,7 @@ const RegisterOfflineForm = ({
   onSubmit,
   onCopySecurityCode,
   onBackButtonClick,
-}: RegisterOfflineFormProps): ReactElement => {
+}: RegisterOfflineFormProps) => {
   const { t } = useTranslation();
 
   const [step, setStep] = useState(Steps.COPY);

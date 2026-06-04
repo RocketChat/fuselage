@@ -1,5 +1,4 @@
 import { BackgroundLayer } from '@rocket.chat/layout';
-import type { ReactElement } from 'react';
 import type { SubmitHandler } from 'react-hook-form';
 
 import type { FormPageLayoutStyleProps } from '../../Types';
@@ -20,7 +19,7 @@ const pageLayoutStyleProps: FormPageLayoutStyleProps = {
   justifyContent: 'center',
 };
 
-const RegisterOfflinePage = (props: RegisterOfflinePageProps): ReactElement => (
+const RegisterOfflinePage = (props: RegisterOfflinePageProps) => (
   <BackgroundLayer>
     <FormPageLayout styleProps={pageLayoutStyleProps}>
       <RegisterOfflineForm {...props} />

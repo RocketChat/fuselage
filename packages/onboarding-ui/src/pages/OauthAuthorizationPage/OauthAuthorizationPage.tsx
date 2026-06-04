@@ -5,7 +5,6 @@ import {
   VerticalWizardLayoutTitle,
   VerticalWizardLayoutForm,
 } from '@rocket.chat/layout';
-import type { ReactElement } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 
 export type OauthAuthorizationPageProps = {
@@ -21,7 +20,7 @@ const OauthAuthorizationPage = ({
   clientName,
   onClickAuthorizeOAuth,
   error,
-}: OauthAuthorizationPageProps): ReactElement => {
+}: OauthAuthorizationPageProps) => {
   const { t } = useTranslation();
 
   return (
