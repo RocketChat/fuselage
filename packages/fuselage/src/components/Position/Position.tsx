@@ -9,7 +9,7 @@ import type { BoxProps } from '../Box';
 
 export type PositionProps = {
   anchor: RefObject<Element>;
-  children: ReactElement;
+  children: ReactElement<any>;
   margin?: number;
   placement?: UsePositionOptions['placement'];
 } & Omit<BoxProps, 'children' | 'margin'>;

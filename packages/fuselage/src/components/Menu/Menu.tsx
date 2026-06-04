@@ -33,7 +33,7 @@ export interface MenuProps<T> extends AriaMenuProps<T>, MenuTriggerProps {
   className?: BoxProps['className'];
   pressed?: boolean;
   maxWidth?: string;
-  button?: ReactElement;
+  button?: ReactElement<any>;
 }
 
 const Menu = <T extends object>({

@@ -145,8 +145,8 @@ export type AudioPlayerProps = {
 };
 
 // @public (undocumented)
-export const AutoComplete: ForwardRefExoticComponent<AutoCompleteProps> & {
-    <TLabel = ReactNode>(props: AutoCompleteProps<TLabel> & RefAttributes<HTMLInputElement>): ReactElement;
+export const AutoComplete: Pick<ForwardRefExoticComponent<AutoCompleteProps>, keyof ForwardRefExoticComponent<AutoCompleteProps>> & {
+    <TLabel = ReactNode>(props: AutoCompleteProps<TLabel> & RefAttributes<HTMLInputElement>): ReactNode;
 };
 
 // @public (undocumented)
@@ -351,7 +351,7 @@ export type CalloutProps = Omit<BoxProps, 'type' | 'name'> & {
     title?: ReactNode;
     children?: ReactNode;
     icon?: IconProps['name'];
-    actions?: ReactElement;
+    actions?: ReactNode;
 };
 
 // @public (undocumented)
@@ -859,7 +859,7 @@ size?: BoxProps["width"];
 
 // @public (undocumented)
 export const IconButton: ForwardRefExoticComponent<    {
-icon: Keys | ReactElement;
+icon: Keys | ReactElement<any>;
 primary?: boolean;
 secondary?: boolean;
 info?: boolean;
@@ -871,7 +871,7 @@ pressed?: boolean;
 
 // @public (undocumented)
 export type IconButtonProps = {
-    icon: Keys | ReactElement;
+    icon: Keys | ReactElement<any>;
     primary?: boolean;
     secondary?: boolean;
     info?: boolean;
@@ -988,7 +988,7 @@ export type MenuItemProps<T> = ItemProps<T>;
 // @public (undocumented)
 export interface MenuProps<T> extends AriaMenuProps<T>, MenuTriggerProps {
     // (undocumented)
-    button?: ReactElement;
+    button?: ReactElement<any>;
     // (undocumented)
     className?: BoxProps['className'];
     // (undocumented)
@@ -1102,7 +1102,7 @@ export const MessageGenericPreviewContent: (input: MessageGenericPreviewContentP
 // @public (undocumented)
 export type MessageGenericPreviewContentProps = {
     children?: ReactNode;
-    thumb?: ReactElement;
+    thumb?: ReactNode;
 };
 
 // @public (undocumented)
@@ -1206,7 +1206,7 @@ export const MessageMetricsFollowing: (input: MessageMetricsFollowingProps) => J
 // @public (undocumented)
 export type MessageMetricsFollowingProps = {
     name: 'bell' | 'bell-off';
-    badge?: ReactElement;
+    badge?: ReactNode;
 } & Omit<IconButtonProps, 'icon'>;
 
 // @public (undocumented)
@@ -1426,7 +1426,7 @@ large?: boolean;
 
 // @public (undocumented)
 export const MessageToolbarItem: ForwardRefExoticComponent<    {
-icon: Keys | ReactElement;
+icon: Keys | ReactElement<any>;
 primary?: boolean;
 secondary?: boolean;
 info?: boolean;
@@ -2056,7 +2056,7 @@ export interface PartialNode<T> {
     // (undocumented)
     'childNodes'?: () => IterableIterator<PartialNode<T>>;
     // (undocumented)
-    'element'?: ReactElement;
+    'element'?: ReactNode;
     // (undocumented)
     'hasChildNodes'?: boolean;
     // (undocumented)
@@ -2068,7 +2068,7 @@ export interface PartialNode<T> {
     // (undocumented)
     'rendered'?: ReactNode;
     // (undocumented)
-    'renderer'?: (item: T) => ReactElement;
+    'renderer'?: (item: T) => ReactNode;
     // (undocumented)
     'shouldInvalidate'?: (context: unknown) => boolean;
     // (undocumented)
@@ -2078,7 +2078,7 @@ export interface PartialNode<T> {
     // (undocumented)
     'value'?: T;
     // (undocumented)
-    'wrapper'?: (element: ReactElement) => ReactElement;
+    'wrapper'?: (element: ReactNode) => ReactNode;
 }
 
 // @public (undocumented)
@@ -2114,7 +2114,7 @@ export type PositionAnimatedProps = {
 // @public (undocumented)
 export type PositionProps = {
     anchor: RefObject<Element>;
-    children: ReactElement;
+    children: ReactElement<any>;
     margin?: number;
     placement?: UsePositionOptions['placement'];
 } & Omit<BoxProps, 'children' | 'margin'>;
@@ -2291,7 +2291,7 @@ export const Sidebar: ((props: SidebarProps) => JSX_2.Element) & {
         large?: boolean;
         } & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
         Action: ForwardRefExoticComponent<    {
-        icon: Keys | ReactElement;
+        icon: Keys | ReactElement<any>;
         primary?: boolean;
         secondary?: boolean;
         info?: boolean;
@@ -2547,7 +2547,7 @@ export const SidebarTopBar: ((input: TopBarProps) => JSX_2.Element) & {
     large?: boolean;
     } & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
     Action: ForwardRefExoticComponent<    {
-    icon: Keys | ReactElement;
+    icon: Keys | ReactElement<any>;
     primary?: boolean;
     secondary?: boolean;
     info?: boolean;
@@ -2588,7 +2588,7 @@ export type SidebarV2AccordionProps = HTMLAttributes<HTMLDivElement>;
 
 // @public (undocumented)
 export const SidebarV2Action: ForwardRefExoticComponent<    {
-icon: Keys | ReactElement;
+icon: Keys | ReactElement<any>;
 primary?: boolean;
 secondary?: boolean;
 info?: boolean;
@@ -2694,7 +2694,7 @@ export const SidebarV2ItemIcon: (input: SidebarV2ItemIconProps) => JSX_2.Element
 
 // @public (undocumented)
 export type SidebarV2ItemIconProps = Omit<IconProps, 'name'> & {
-    icon: Keys | ReactElement;
+    icon: Keys | ReactElement<any>;
     highlighted?: boolean;
 };
 
@@ -3341,7 +3341,7 @@ export const TopBar: (input: TopBarProps) => JSX_2.Element;
 
 // @public (undocumented)
 export const TopBarAction: ForwardRefExoticComponent<    {
-icon: Keys | ReactElement;
+icon: Keys | ReactElement<any>;
 primary?: boolean;
 secondary?: boolean;
 info?: boolean;
