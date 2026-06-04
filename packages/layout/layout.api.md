@@ -20,13 +20,13 @@ import { Keys } from '@rocket.chat/icons';
 import { MarginsProps } from '@rocket.chat/fuselage';
 import { MemoExoticComponent } from 'react';
 import type { MutableRefObject } from 'react';
-import { ReactElement } from 'react';
+import type { ReactElement } from 'react';
 import { ReactNode } from 'react';
 import { RefAttributes } from 'react';
 import type { SetStateAction } from 'react';
 
 // @public (undocumented)
-export const ActionLink: (input: ActionLinkProps) => ReactElement;
+export const ActionLink: (input: ActionLinkProps) => JSX_2.Element;
 
 // @public (undocumented)
 export type ActionLinkProps = {
@@ -48,7 +48,7 @@ justifyContent?: string;
 }, "ref"> & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
-export const BackgroundLayer: (input: BackgroundLayerProps) => ReactElement;
+export const BackgroundLayer: (input: BackgroundLayerProps) => JSX_2.Element;
 
 // @public (undocumented)
 export type BackgroundLayerProps = {
@@ -68,7 +68,7 @@ declare namespace DarkModeProvider {
 export { DarkModeProvider }
 
 // @public (undocumented)
-const DarkModeProvider_2: (input: DarkModeProviderProps) => ReactElement;
+const DarkModeProvider_2: (input: DarkModeProviderProps) => JSX_2.Element;
 
 // @public (undocumented)
 type DarkModeProviderProps = {
@@ -86,7 +86,7 @@ children: ReactNode;
     Header: ForwardRefExoticComponent<Omit<FormHTMLAttributes<HTMLElement>, "is"> & {
     children: ReactNode;
     } & RefAttributes<HTMLElement>>;
-    Steps: (input: FormStepsProps) => ReactElement;
+    Steps: (input: FormStepsProps) => JSX_2.Element;
     Title: ForwardRefExoticComponent<Omit<FormHTMLAttributes<HTMLElement>, "is"> & {
     children: ReactNode;
     } & RefAttributes<HTMLElement>>;
@@ -127,7 +127,7 @@ declare namespace FormPageLayout {
 export { FormPageLayout }
 
 // @public (undocumented)
-export const FormSteps: (input: FormStepsProps) => ReactElement;
+export const FormSteps: (input: FormStepsProps) => JSX_2.Element;
 
 // @public (undocumented)
 export type FormStepsProps = {
@@ -148,40 +148,40 @@ children: ReactNode;
 // @public (undocumented)
 export const HeroLayout: (input: LayoutContextValue & {
     children: ReactNode;
-}) => ReactElement;
+}) => JSX_2.Element;
 
 // @public (undocumented)
 export const HeroLayoutSubtitle: (input: {
     children: ReactNode;
-}) => ReactElement;
+}) => JSX_2.Element;
 
 // @public (undocumented)
 export const HeroLayoutTitle: (input: {
     children: ReactNode;
-}) => ReactElement;
+}) => JSX_2.Element;
 
 // @public (undocumented)
 export const HorizontalWizardLayout: (input: LayoutContextValue & {
     children: ReactNode;
-}) => ReactElement;
+}) => JSX_2.Element;
 
 // @public (undocumented)
 export const HorizontalWizardLayoutAside: (input: {
     children: ReactNode;
-}) => ReactElement;
+}) => JSX_2.Element;
 
 // @public (undocumented)
 export const HorizontalWizardLayoutCaption: (input: {
     children: ReactNode;
-}) => ReactElement;
+}) => JSX_2.Element;
 
 // @public (undocumented)
 export const HorizontalWizardLayoutContent: (input: {
     children: ReactNode;
-}) => ReactElement;
+}) => JSX_2.Element;
 
 // @public (undocumented)
-export const HorizontalWizardLayoutDescription: (props: ComponentProps<typeof FormPageLayout.Description>) => ReactElement;
+export const HorizontalWizardLayoutDescription: (props: ComponentProps<typeof FormPageLayout.Description>) => JSX_2.Element;
 
 // @public (undocumented)
 export const HorizontalWizardLayoutFooter: (input: {
@@ -189,10 +189,10 @@ export const HorizontalWizardLayoutFooter: (input: {
 }) => JSX_2.Element;
 
 // @public (undocumented)
-export const HorizontalWizardLayoutSubtitle: (props: ComponentProps<typeof FormPageLayout.Subtitle>) => ReactElement;
+export const HorizontalWizardLayoutSubtitle: (props: ComponentProps<typeof FormPageLayout.Subtitle>) => JSX_2.Element;
 
 // @public (undocumented)
-export const HorizontalWizardLayoutTitle: (props: ComponentProps<typeof FormPageLayout.Title>) => ReactElement;
+export const HorizontalWizardLayoutTitle: (props: ComponentProps<typeof FormPageLayout.Title>) => JSX_2.Element;
 
 // @public (undocumented)
 export const HorizontalWizardTextHighlight: (props: {
@@ -201,15 +201,15 @@ export const HorizontalWizardTextHighlight: (props: {
 
 // @public (undocumented)
 export type LayoutContextValue = {
-    logo?: ReactElement;
-    logoDark?: ReactElement;
+    logo?: ReactNode;
+    logoDark?: ReactNode;
     background?: string;
     backgroundDark?: string;
     forceDarkMode?: boolean;
 };
 
 // @public (undocumented)
-export const LayoutLogo: () => ReactElement;
+export const LayoutLogo: () => JSX_2.Element;
 
 // @public (undocumented)
 export const List: ((input: {
@@ -230,7 +230,7 @@ export const List: ((input: {
         size?: BoxProps["width"];
         } & RefAttributes<HTMLElement>>>["color"];
         fontScale?: ComponentProps<MemoExoticComponent<ForwardRefExoticComponent<BoxProps & RefAttributes<any>>>>["fontScale"];
-    }) => ReactElement;
+    }) => JSX_2.Element;
 };
 
 // @public (undocumented)
@@ -239,7 +239,7 @@ export const ListItem: (input: {
     icon?: ComponentProps<typeof Icon>["name"];
     iconColor?: ComponentProps<typeof Icon>["color"];
     fontScale?: ComponentProps<typeof Box>["fontScale"];
-}) => ReactElement;
+}) => JSX_2.Element;
 
 // @public (undocumented)
 const Logo: ForwardRefExoticComponent<Omit<ClassAttributes<HTMLDivElement> & HTMLAttributes<HTMLDivElement>, "ref"> & RefAttributes<HTMLDivElement>>;
@@ -260,11 +260,11 @@ isDark?: boolean;
 }, "ref"> & RefAttributes<HTMLSpanElement>>;
 
 // @public (undocumented)
-export const TooltipWrapper: (input: TooltipWrapperProps) => ReactElement;
+export const TooltipWrapper: (input: TooltipWrapperProps) => JSX_2.Element;
 
 // @public (undocumented)
 export type TooltipWrapperProps = {
-    children: ReactElement | ((props: AnchorParams) => ReactNode);
+    children: ReactElement<any> | ((props: AnchorParams) => ReactNode);
     text: string;
 };
 
@@ -274,7 +274,7 @@ const useDarkMode: () => boolean;
 // @public (undocumented)
 export const VerticalWizardLayout: (input: LayoutContextValue & {
     children: ReactNode;
-}) => ReactElement;
+}) => JSX_2.Element;
 
 // @public (undocumented)
 export const VerticalWizardLayoutFooter: (input: {
