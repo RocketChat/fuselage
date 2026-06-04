@@ -10,7 +10,6 @@ import type { Dispatch } from 'react';
 import type { DispatchWithoutAction } from 'react';
 import type { KeyboardEvent as KeyboardEvent_2 } from 'react';
 import type { MouseEvent as MouseEvent_2 } from 'react';
-import type { MutableRefObject } from 'react';
 import type { Reducer } from 'react';
 import type { ReducerState } from 'react';
 import type { ReducerWithoutAction } from 'react';
@@ -174,7 +173,7 @@ export const useElementIsVisible: <T extends Element>() => [ref: RefObject<T | n
 export const useIsomorphicLayoutEffect: typeof useEffect;
 
 // @public
-export const useLazyRef: <T>(init: () => T) => MutableRefObject<T>;
+export const useLazyRef: <T>(init: () => T) => RefObject<T>;
 
 // @public
 export const useLocalStorage: <T>(key: string, fallbackValue: T) => [T, Dispatch<SetStateAction<T>>];

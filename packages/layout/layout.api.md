@@ -18,11 +18,11 @@ import { Icon } from '@rocket.chat/fuselage';
 import { JSX } from 'react';
 import { Keys } from '@rocket.chat/icons';
 import { MarginsProps } from '@rocket.chat/fuselage';
-import type { MutableRefObject } from 'react';
 import { NamedExoticComponent } from 'react';
 import type { ReactElement } from 'react';
 import { ReactNode } from 'react';
 import { RefAttributes } from 'react';
+import type { RefObject } from 'react';
 import type { SetStateAction } from 'react';
 
 // @public (undocumented)
@@ -37,7 +37,7 @@ export type ActionLinkProps = {
 
 // @public (undocumented)
 export type AnchorParams = {
-    ref: MutableRefObject<Element | null>;
+    ref: RefObject<Element | null>;
     toggle: Dispatch<SetStateAction<boolean>>;
     id: string;
 };
