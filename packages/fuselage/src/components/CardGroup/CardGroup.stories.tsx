@@ -46,7 +46,8 @@ const CardItem = (props: CardProps) => (
     </CardControls>
   </Card>
 );
-const CardHorizontal: StoryFn<typeof Card> = (props) => (
+
+const CardHorizontal = (props: CardProps) => (
   <Card horizontal {...props}>
     <CardRow>
       <Icon name='document-eye' size='x24' />
@@ -62,6 +63,7 @@ const CardHorizontal: StoryFn<typeof Card> = (props) => (
     </CardControls>
   </Card>
 );
+
 export const Default: StoryFn<typeof CardGroup> = (args) => (
   <CardGroup {...args}>
     {Array.from(new Array(9)).map((_, index) => (

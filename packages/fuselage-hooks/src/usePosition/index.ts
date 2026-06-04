@@ -196,8 +196,8 @@ const UPDATE_DEBOUNCE_DELAY = 30;
  * @public
  */
 export function usePosition<TTarget extends Element, TAnchor extends Element>(
-  anchorRef: RefObject<TAnchor>,
-  targetRef: RefObject<TTarget>,
+  anchorRef: RefObject<TAnchor | null>,
+  targetRef: RefObject<TTarget | null>,
   {
     margin = 8,
     placement = 'bottom-start',

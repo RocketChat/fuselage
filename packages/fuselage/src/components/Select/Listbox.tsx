@@ -8,7 +8,7 @@ import type { ListState } from 'react-stately';
 import { Option } from '../Option';
 
 interface ListBoxProps extends AriaListBoxOptions<unknown> {
-  listBoxRef?: RefObject<HTMLDivElement>;
+  listBoxRef?: RefObject<HTMLDivElement | null>;
   state: ListState<unknown>;
 }
 

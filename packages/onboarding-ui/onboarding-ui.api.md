@@ -6,14 +6,14 @@
 
 import type { ComponentProps } from 'react';
 import type { FieldPathValue } from 'react-hook-form';
-import { JSX as JSX_2 } from 'react/jsx-runtime';
+import { JSX } from 'react';
 import type { ReactNode } from 'react';
 import type { SelectOption } from '@rocket.chat/fuselage';
 import type { SubmitHandler } from 'react-hook-form';
 import type { Validate } from 'react-hook-form';
 
 // @public (undocumented)
-export const AdminInfoPage: (input: AdminInfoPageProps) => JSX_2.Element;
+export const AdminInfoPage: (input: AdminInfoPageProps) => JSX.Element;
 
 // @public (undocumented)
 export type AdminInfoPageProps = {
@@ -40,7 +40,7 @@ export type AdminInfoPayload = {
 };
 
 // @public (undocumented)
-export const AwaitingConfirmationPage: (input: AwaitingConfirmationPageProps) => JSX_2.Element;
+export const AwaitingConfirmationPage: (input: AwaitingConfirmationPageProps) => JSX.Element;
 
 // @public (undocumented)
 export type AwaitingConfirmationPageProps = {
@@ -55,7 +55,7 @@ export type AwaitingConfirmationPageProps = {
 };
 
 // @public (undocumented)
-export const CheckYourEmailPage: (input: CheckYourEmailPageProps) => JSX_2.Element;
+export const CheckYourEmailPage: (input: CheckYourEmailPageProps) => JSX.Element;
 
 // @public (undocumented)
 export type CheckYourEmailPageProps = {
@@ -66,10 +66,10 @@ export type CheckYourEmailPageProps = {
 };
 
 // @public (undocumented)
-export const ConfirmationProcessPage: () => JSX_2.Element;
+export const ConfirmationProcessPage: () => JSX.Element;
 
 // @public (undocumented)
-export const CreateCloudWorkspaceForm: (input: CreateCloudWorkspaceFormProps) => JSX_2.Element;
+export const CreateCloudWorkspaceForm: (input: CreateCloudWorkspaceFormProps) => JSX.Element;
 
 // @public (undocumented)
 export type CreateCloudWorkspaceFormPayload = {
@@ -95,13 +95,13 @@ export type CreateCloudWorkspaceFormProps = {
 };
 
 // @public (undocumented)
-export const CreateCloudWorkspacePage: (props: CreateCloudWorkspacePageProps) => JSX_2.Element;
+export const CreateCloudWorkspacePage: (props: CreateCloudWorkspacePageProps) => JSX.Element;
 
 // @public (undocumented)
 export type CreateCloudWorkspacePageProps = ComponentProps<typeof CreateCloudWorkspaceForm>;
 
 // @public (undocumented)
-export const CreateFirstMemberForm: (input: CreateFirstMemberFormProps) => JSX_2.Element;
+export const CreateFirstMemberForm: (input: CreateFirstMemberFormProps) => JSX.Element;
 
 // @public (undocumented)
 export type CreateFirstMemberFormPayload = {
@@ -122,13 +122,13 @@ export type CreateFirstMemberFormProps = {
 };
 
 // @public (undocumented)
-export const CreateFirstMemberPage: (props: CreateFirstMemberPageProps) => JSX_2.Element;
+export const CreateFirstMemberPage: (props: CreateFirstMemberPageProps) => JSX.Element;
 
 // @public (undocumented)
 export type CreateFirstMemberPageProps = ComponentProps<typeof CreateFirstMemberForm>;
 
 // @public (undocumented)
-export const CreateNewAccountPage: (input: CreateNewAccountPageProps) => JSX_2.Element;
+export const CreateNewAccountPage: (input: CreateNewAccountPageProps) => JSX.Element;
 
 // @public (undocumented)
 export type CreateNewAccountPageProps = {
@@ -141,7 +141,7 @@ export type CreateNewAccountPageProps = {
 };
 
 // @public (undocumented)
-export const CreateNewPasswordPage: (input: CreateNewPasswordPageProps) => JSX_2.Element;
+export const CreateNewPasswordPage: (input: CreateNewPasswordPageProps) => JSX.Element;
 
 // @public (undocumented)
 export type CreateNewPasswordPageProps = {
@@ -159,10 +159,10 @@ export type CreateNewPasswordPayload = {
 };
 
 // @public (undocumented)
-export const EmailConfirmedPage: () => JSX_2.Element;
+export const EmailConfirmedPage: () => JSX.Element;
 
 // @public (undocumented)
-export const InformationPage: (input: InformationPageProps) => JSX_2.Element;
+export const InformationPage: (input: InformationPageProps) => JSX.Element;
 
 // @public (undocumented)
 export type InformationPageProps = {
@@ -171,7 +171,7 @@ export type InformationPageProps = {
 };
 
 // @public (undocumented)
-export const InvalidLinkPage: (input: InvalidLinkPageProps) => JSX_2.Element;
+export const InvalidLinkPage: (input: InvalidLinkPageProps) => JSX.Element;
 
 // @public (undocumented)
 export type InvalidLinkPageProps = {
@@ -179,7 +179,7 @@ export type InvalidLinkPageProps = {
 };
 
 // @public (undocumented)
-export const LoaderPage: (input: LoaderPageProps) => JSX_2.Element;
+export const LoaderPage: (input: LoaderPageProps) => JSX.Element;
 
 // @public (undocumented)
 export type LoaderPageProps = {
@@ -196,7 +196,7 @@ export type LoginFormPayload = {
 };
 
 // @public (undocumented)
-export const LoginLinkEmailPage: (input: LoginLinkEmailProps) => JSX_2.Element;
+export const LoginLinkEmailPage: (input: LoginLinkEmailProps) => JSX.Element;
 
 // @public (undocumented)
 export type LoginLinkEmailProps = {
@@ -205,7 +205,7 @@ export type LoginLinkEmailProps = {
 };
 
 // @public (undocumented)
-export const LoginPage: (input: LoginPageProps) => JSX_2.Element;
+export const LoginPage: (input: LoginPageProps) => JSX.Element;
 
 // @public (undocumented)
 export type LoginPageProps = {
@@ -230,7 +230,7 @@ export type NewAccountPayload = {
 };
 
 // @public (undocumented)
-export const OauthAuthorizationPage: (input: OauthAuthorizationPageProps) => JSX_2.Element;
+export const OauthAuthorizationPage: (input: OauthAuthorizationPageProps) => JSX.Element;
 
 // @public (undocumented)
 export type OauthAuthorizationPageProps = {
@@ -243,7 +243,7 @@ export type OauthAuthorizationPageProps = {
 };
 
 // @public (undocumented)
-export const OrganizationInfoPage: (input: OrganizationInfoPageProps) => JSX_2.Element;
+export const OrganizationInfoPage: (input: OrganizationInfoPageProps) => JSX.Element;
 
 // @public (undocumented)
 export type OrganizationInfoPageProps = {
@@ -271,7 +271,7 @@ export type OrganizationInfoPayload = {
 };
 
 // @public (undocumented)
-export const RedirectPage: (input: RedirectPageProps) => JSX_2.Element;
+export const RedirectPage: (input: RedirectPageProps) => JSX.Element;
 
 // @public (undocumented)
 export type RedirectPageProps = {
@@ -281,7 +281,7 @@ export type RedirectPageProps = {
 };
 
 // @public (undocumented)
-export const RegisterOfflinePage: (props: RegisterOfflinePageProps) => JSX_2.Element;
+export const RegisterOfflinePage: (props: RegisterOfflinePageProps) => JSX.Element;
 
 // @public (undocumented)
 export type RegisterOfflinePageProps = {
@@ -300,7 +300,7 @@ export type RegisterOfflinePayload = {
 };
 
 // @public (undocumented)
-export const RegisterServerPage: (props: RegisterServerPageProps) => JSX_2.Element;
+export const RegisterServerPage: (props: RegisterServerPageProps) => JSX.Element;
 
 // @public (undocumented)
 export type RegisterServerPageProps = {
@@ -323,7 +323,7 @@ export type RegisterServerPayload = {
 };
 
 // @public (undocumented)
-export const RequestTrialForm: (input: RequestTrialFormProps) => JSX_2.Element;
+export const RequestTrialForm: (input: RequestTrialFormProps) => JSX.Element;
 
 // @public (undocumented)
 export type RequestTrialFormProps = {
@@ -338,7 +338,7 @@ export type RequestTrialFormProps = {
 };
 
 // @public (undocumented)
-export const RequestTrialPage: (props: RequestTrialPageProps) => JSX_2.Element;
+export const RequestTrialPage: (props: RequestTrialPageProps) => JSX.Element;
 
 // @public (undocumented)
 export type RequestTrialPageProps = ComponentProps<typeof RequestTrialForm>;
@@ -354,7 +354,7 @@ export type RequestTrialPayload = {
 };
 
 // @public (undocumented)
-export const ResetPasswordConfirmationPage: () => JSX_2.Element;
+export const ResetPasswordConfirmationPage: () => JSX.Element;
 
 // @public (undocumented)
 export type ResetPasswordFormPayload = {
@@ -362,7 +362,7 @@ export type ResetPasswordFormPayload = {
 };
 
 // @public (undocumented)
-export const ResetPasswordPage: (input: ResetPasswordPageProps) => JSX_2.Element;
+export const ResetPasswordPage: (input: ResetPasswordPageProps) => JSX.Element;
 
 // @public (undocumented)
 export type ResetPasswordPageProps = {
@@ -373,7 +373,7 @@ export type ResetPasswordPageProps = {
 };
 
 // @public (undocumented)
-export const SomethingWentWrongPage: (input: SomethingWentWrongPageProps) => JSX_2.Element;
+export const SomethingWentWrongPage: (input: SomethingWentWrongPageProps) => JSX.Element;
 
 // @public (undocumented)
 export type SomethingWentWrongPageProps = {

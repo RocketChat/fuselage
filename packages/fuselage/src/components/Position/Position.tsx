@@ -8,7 +8,7 @@ import { useOwnerDocument } from '../../contexts';
 import type { BoxProps } from '../Box';
 
 export type PositionProps = {
-  anchor: RefObject<Element>;
+  anchor: RefObject<Element | null>;
   children: ReactElement<any>;
   margin?: number;
   placement?: UsePositionOptions['placement'];

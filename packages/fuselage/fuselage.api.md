@@ -24,7 +24,7 @@ import type { HTMLAttributeAnchorTarget } from 'react';
 import { HTMLAttributes } from 'react';
 import type { ImgHTMLAttributes } from 'react';
 import type { ItemProps } from '@react-types/shared';
-import { JSX as JSX_2 } from 'react/jsx-runtime';
+import { JSX } from 'react';
 import { JSXElementConstructor } from 'react';
 import { Key } from 'react';
 import type { KeyboardEvent as KeyboardEvent_2 } from 'react';
@@ -36,6 +36,7 @@ import { MemoizedFunction } from '@rocket.chat/memo';
 import type { MenuTriggerProps } from 'react-stately';
 import { MouseEvent as MouseEvent_2 } from 'react';
 import type { MouseEventHandler } from 'react';
+import { NamedExoticComponent } from 'react';
 import type { OverlayTriggerState } from 'react-stately';
 import type { PropsWithChildren } from 'react';
 import type { PropsWithoutRef } from 'react';
@@ -55,10 +56,10 @@ import type { UsePositionOptions } from '@rocket.chat/fuselage-hooks';
 export const __setThrowErrorOnInvalidToken__: (value: boolean) => void;
 
 // @public (undocumented)
-export const Accordion: (input: AccordionProps) => JSX_2.Element;
+export const Accordion: (input: AccordionProps) => JSX.Element;
 
 // @public (undocumented)
-export const AccordionItem: (input: AccordionItemProps) => JSX_2.Element;
+export const AccordionItem: (input: AccordionItemProps) => JSX.Element;
 
 // @public (undocumented)
 export type AccordionItemProps = {
@@ -112,7 +113,7 @@ export type ActionButtonSize = {
 
 // @public (undocumented)
 export const AnimatedVisibility: {
-    (props: AnimatedVisibilityProps): JSX_2.Element | null;
+    (props: AnimatedVisibilityProps): JSX.Element | null;
     HIDDEN: VisibilityType;
     VISIBLE: VisibilityType;
     HIDING: VisibilityType;
@@ -183,10 +184,10 @@ export type AutoCompleteProps<TLabel = ReactNode> = Omit<AllHTMLAttributes<HTMLI
 } & RefAttributes<HTMLInputElement>;
 
 // @public (undocumented)
-export const Avatar: (input: AvatarProps) => JSX_2.Element;
+export const Avatar: (input: AvatarProps) => JSX.Element;
 
 // @public (undocumented)
-export const AvatarContainer: (input: AvatarContainerProps) => JSX_2.Element;
+export const AvatarContainer: (input: AvatarContainerProps) => JSX.Element;
 
 // @public (undocumented)
 export type AvatarContainerProps = {
@@ -201,7 +202,7 @@ export type AvatarProps = AvatarContainerProps & {
 } & Omit<AllHTMLAttributes<HTMLImageElement>, 'size'>;
 
 // @public (undocumented)
-export const AvatarStack: (input: AvatarStackProps) => JSX_2.Element;
+export const AvatarStack: (input: AvatarStackProps) => JSX.Element;
 
 // @public (undocumented)
 export type AvatarStackProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
@@ -210,7 +211,7 @@ export type AvatarStackProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,
 export const backgroundColor: MemoizedFunction<unknown, unknown, string | undefined>;
 
 // @public (undocumented)
-export function Badge(input: BadgeProps): JSX_2.Element;
+export function Badge(input: BadgeProps): JSX.Element;
 
 // @public (undocumented)
 export type BadgeProps = {
@@ -224,7 +225,7 @@ export type BadgeProps = {
 } & HTMLAttributes<HTMLSpanElement>;
 
 // @public (undocumented)
-export const Banner: (input: BannerProps) => JSX_2.Element;
+export const Banner: (input: BannerProps) => JSX.Element;
 
 // @public (undocumented)
 export type BannerProps = {
@@ -251,7 +252,7 @@ export const borderRadius: MemoizedFunction<unknown, unknown, string | undefined
 export const borderWidth: MemoizedFunction<unknown, unknown, string | undefined>;
 
 // @public (undocumented)
-export const Box: MemoExoticComponent<ForwardRefExoticComponent<BoxProps & RefAttributes<any>>>;
+export const Box: NamedExoticComponent<BoxProps & RefAttributes<any>>;
 
 // @public (undocumented)
 export interface BoxProps extends Partial<StylingProps>, Omit<AllHTMLAttributes<HTMLElement>, 'ref' | 'is' | 'className' | 'size' | 'elevation' | keyof StylingProps>, Omit<SVGAttributes<SVGElement>, keyof AllHTMLAttributes<HTMLElement> | 'elevation' | keyof StylingProps> {
@@ -270,7 +271,7 @@ export interface BoxProps extends Partial<StylingProps>, Omit<AllHTMLAttributes<
 }
 
 // @public (undocumented)
-export const Bubble: (input: BubbleProps) => JSX_2.Element;
+export const Bubble: (input: BubbleProps) => JSX.Element;
 
 // @public (undocumented)
 export type BubbleProps = {
@@ -343,7 +344,7 @@ export type ButtonProps = BoxProps & {
 } & Omit<AllHTMLAttributes<HTMLButtonElement | HTMLAnchorElement>, 'is' | 'className' | 'size'>;
 
 // @public (undocumented)
-export const Callout: (input: CalloutProps) => JSX_2.Element;
+export const Callout: (input: CalloutProps) => JSX.Element;
 
 // @public (undocumented)
 export type CalloutProps = Omit<BoxProps, 'type' | 'name'> & {
@@ -355,10 +356,10 @@ export type CalloutProps = Omit<BoxProps, 'type' | 'name'> & {
 };
 
 // @public (undocumented)
-export const Card: (input: CardProps) => JSX_2.Element;
+export const Card: (input: CardProps) => JSX.Element;
 
 // @public (undocumented)
-export const CardBody: (input: CardBodyProps) => JSX_2.Element;
+export const CardBody: (input: CardBodyProps) => JSX.Element;
 
 // @public (undocumented)
 export type CardBodyProps = {
@@ -368,7 +369,7 @@ export type CardBodyProps = {
 } & Omit<AllHTMLAttributes<HTMLElement>, 'is'>;
 
 // @public (undocumented)
-export const CardCol: (input: CardColProps) => JSX_2.Element;
+export const CardCol: (input: CardColProps) => JSX.Element;
 
 // @public (undocumented)
 export type CardColProps = {
@@ -376,13 +377,13 @@ export type CardColProps = {
 } & AllHTMLAttributes<HTMLElement>;
 
 // @public (undocumented)
-export const CardControls: (input: CardControlsProps) => JSX_2.Element;
+export const CardControls: (input: CardControlsProps) => JSX.Element;
 
 // @public (undocumented)
 export type CardControlsProps = HTMLAttributes<HTMLDivElement>;
 
 // @public (undocumented)
-export const CardGrid: (input: CardGridProps) => JSX_2.Element;
+export const CardGrid: (input: CardGridProps) => JSX.Element;
 
 // @public (undocumented)
 export type CardGridProps = {
@@ -391,7 +392,7 @@ export type CardGridProps = {
 };
 
 // @public (undocumented)
-export const CardGroup: (input: CardGroupProps) => JSX_2.Element;
+export const CardGroup: (input: CardGroupProps) => JSX.Element;
 
 // @public (undocumented)
 export type CardGroupProps = {
@@ -405,7 +406,7 @@ export type CardGroupProps = {
 } & Omit<AllHTMLAttributes<HTMLElement>, 'is' | 'wrap'>;
 
 // @public (undocumented)
-export const CardHeader: (input: CardHeaderProps) => JSX_2.Element;
+export const CardHeader: (input: CardHeaderProps) => JSX.Element;
 
 // @public (undocumented)
 export type CardHeaderProps = {
@@ -420,7 +421,7 @@ export type CardProps = {
 } & Omit<AllHTMLAttributes<HTMLElement>, 'is'>;
 
 // @public (undocumented)
-export const CardRow: (input: CardRowProps) => JSX_2.Element;
+export const CardRow: (input: CardRowProps) => JSX.Element;
 
 // @public (undocumented)
 export type CardRowProps = {
@@ -428,7 +429,7 @@ export type CardRowProps = {
 } & AllHTMLAttributes<HTMLElement>;
 
 // @public (undocumented)
-export const CardTitle: (input: CardTitleProps) => JSX_2.Element;
+export const CardTitle: (input: CardTitleProps) => JSX.Element;
 
 // @public (undocumented)
 export type CardTitleProps = {
@@ -450,7 +451,7 @@ export type CheckBoxProps = BoxProps & {
 } & AllHTMLAttributes<HTMLInputElement>;
 
 // @public (undocumented)
-export const CheckOption: MemoExoticComponent<(input: CheckOptionProps) => JSX_2.Element>;
+export const CheckOption: MemoExoticComponent<(input: CheckOptionProps) => JSX.Element>;
 
 // @public (undocumented)
 export type CheckOptionProps = OptionProps;
@@ -477,7 +478,7 @@ export const Chip: {
             url: string;
         }) => ReactNode;
         renderDismissSymbol?: () => ReactNode;
-    } & Partial<StylingProps>): JSX_2.Element;
+    } & Partial<StylingProps>): JSX.Element;
     displayName: string;
 };
 
@@ -505,10 +506,10 @@ export type CodeSnippetProps = BoxProps & {
 export const color: MemoizedFunction<unknown, unknown, string | undefined>;
 
 // @public (undocumented)
-export const Contextualbar: MemoExoticComponent<ForwardRefExoticComponent<BoxProps & RefAttributes<HTMLElement>>>;
+export const Contextualbar: NamedExoticComponent<BoxProps & RefAttributes<HTMLElement>>;
 
 // @public (undocumented)
-export const ContextualbarAction: MemoExoticComponent<(input: ContextualbarActionProps) => JSX_2.Element>;
+export const ContextualbarAction: MemoExoticComponent<(input: ContextualbarActionProps) => JSX.Element>;
 
 // @public (undocumented)
 export type ContextualbarActionProps = {
@@ -516,29 +517,29 @@ export type ContextualbarActionProps = {
 } & Omit<IconButtonProps, 'icon'>;
 
 // @public (undocumented)
-export const ContextualbarActions: MemoExoticComponent<(props: ContextualbarActionsProps) => JSX_2.Element>;
+export const ContextualbarActions: MemoExoticComponent<(props: ContextualbarActionsProps) => JSX.Element>;
 
 // @public (undocumented)
 export type ContextualbarActionsProps = ButtonGroupProps;
 
 // @public (undocumented)
-export const ContextualbarButton: MemoExoticComponent<(props: ContextualbarButtonProps) => JSX_2.Element>;
+export const ContextualbarButton: MemoExoticComponent<(props: ContextualbarButtonProps) => JSX.Element>;
 
 // @public (undocumented)
 export type ContextualbarButtonProps = ButtonProps;
 
 // @public (undocumented)
-export const ContextualbarContent: MemoExoticComponent<ForwardRefExoticComponent<BoxProps & RefAttributes<HTMLElement>>>;
+export const ContextualbarContent: NamedExoticComponent<BoxProps & RefAttributes<HTMLElement>>;
 
 // @public (undocumented)
 export type ContextualbarContentProps = BoxProps;
 
 // @public (undocumented)
-export const ContextualbarEmptyContent: MemoExoticComponent<ForwardRefExoticComponent<BoxProps & {
+export const ContextualbarEmptyContent: NamedExoticComponent<BoxProps & {
 icon?: StatesIconProps["name"];
 title?: string;
 subtitle?: string;
-} & RefAttributes<HTMLElement>>>;
+} & RefAttributes<HTMLElement>>;
 
 // @public (undocumented)
 export type ContextualbarEmptyContentProps = BoxProps & {
@@ -548,19 +549,19 @@ export type ContextualbarEmptyContentProps = BoxProps & {
 };
 
 // @public (undocumented)
-export const ContextualbarFooter: MemoExoticComponent<ForwardRefExoticComponent<BoxProps & RefAttributes<HTMLElement>>>;
+export const ContextualbarFooter: NamedExoticComponent<BoxProps & RefAttributes<HTMLElement>>;
 
 // @public (undocumented)
 export type ContextualbarFooterProps = BoxProps;
 
 // @public (undocumented)
-export const ContextualbarHeader: MemoExoticComponent<(input: ContextualbarHeaderProps) => JSX_2.Element>;
+export const ContextualbarHeader: MemoExoticComponent<(input: ContextualbarHeaderProps) => JSX.Element>;
 
 // @public (undocumented)
 export type ContextualbarHeaderProps = BoxProps;
 
 // @public (undocumented)
-export const ContextualbarIcon: MemoExoticComponent<(props: ContextualbarIconProps) => JSX_2.Element>;
+export const ContextualbarIcon: MemoExoticComponent<(props: ContextualbarIconProps) => JSX.Element>;
 
 // @public (undocumented)
 export type ContextualbarIconProps = IconProps;
@@ -569,28 +570,28 @@ export type ContextualbarIconProps = IconProps;
 export type ContextualbarProps = BoxProps;
 
 // @public (undocumented)
-export const ContextualbarSection: MemoExoticComponent<ForwardRefExoticComponent<BoxProps & RefAttributes<HTMLElement>>>;
+export const ContextualbarSection: NamedExoticComponent<BoxProps & RefAttributes<HTMLElement>>;
 
 // @public (undocumented)
 export type ContextualbarSectionProps = BoxProps;
 
 // @public (undocumented)
-export const ContextualbarSkeleton: MemoExoticComponent<(props: ContextualbarSkeletonProps) => JSX_2.Element>;
+export const ContextualbarSkeleton: MemoExoticComponent<(props: ContextualbarSkeletonProps) => JSX.Element>;
 
 // @public (undocumented)
 export type ContextualbarSkeletonProps = BoxProps;
 
 // @public (undocumented)
-export const ContextualbarTitle: MemoExoticComponent<(props: ContextualbarTitleProps) => JSX_2.Element>;
+export const ContextualbarTitle: MemoExoticComponent<(props: ContextualbarTitleProps) => JSX.Element>;
 
 // @public (undocumented)
 export type ContextualbarTitleProps = BoxProps;
 
 // @public (undocumented)
-export const ContextualbarV2: MemoExoticComponent<ForwardRefExoticComponent<BoxProps & RefAttributes<HTMLElement>>>;
+export const ContextualbarV2: NamedExoticComponent<BoxProps & RefAttributes<HTMLElement>>;
 
 // @public (undocumented)
-export const ContextualbarV2Action: MemoExoticComponent<(input: ContextualbarV2ActionProps) => JSX_2.Element>;
+export const ContextualbarV2Action: MemoExoticComponent<(input: ContextualbarV2ActionProps) => JSX.Element>;
 
 // @public (undocumented)
 export type ContextualbarV2ActionProps = {
@@ -598,29 +599,29 @@ export type ContextualbarV2ActionProps = {
 } & Omit<IconButtonProps, 'name' | 'icon'>;
 
 // @public (undocumented)
-export const ContextualbarV2Actions: MemoExoticComponent<(props: ContextualbarV2ActionsProps) => JSX_2.Element>;
+export const ContextualbarV2Actions: MemoExoticComponent<(props: ContextualbarV2ActionsProps) => JSX.Element>;
 
 // @public (undocumented)
 export type ContextualbarV2ActionsProps = ButtonGroupProps;
 
 // @public (undocumented)
-export const ContextualbarV2Button: MemoExoticComponent<(props: ContextualbarV2ButtonProps) => JSX_2.Element>;
+export const ContextualbarV2Button: MemoExoticComponent<(props: ContextualbarV2ButtonProps) => JSX.Element>;
 
 // @public (undocumented)
 export type ContextualbarV2ButtonProps = ButtonProps;
 
 // @public (undocumented)
-export const ContextualbarV2Content: MemoExoticComponent<ForwardRefExoticComponent<BoxProps & RefAttributes<HTMLElement>>>;
+export const ContextualbarV2Content: NamedExoticComponent<BoxProps & RefAttributes<HTMLElement>>;
 
 // @public (undocumented)
 export type ContextualbarV2ContentProps = BoxProps;
 
 // @public (undocumented)
-export const ContextualbarV2EmptyContent: MemoExoticComponent<ForwardRefExoticComponent<BoxProps & {
+export const ContextualbarV2EmptyContent: NamedExoticComponent<BoxProps & {
 icon?: StatesIconProps["name"];
 title?: string;
 subtitle?: string;
-} & RefAttributes<HTMLElement>>>;
+} & RefAttributes<HTMLElement>>;
 
 // @public (undocumented)
 export type ContextualbarV2EmptyContentProps = ContextualbarV2ContentProps & {
@@ -630,19 +631,19 @@ export type ContextualbarV2EmptyContentProps = ContextualbarV2ContentProps & {
 };
 
 // @public (undocumented)
-export const ContextualbarV2Footer: MemoExoticComponent<ForwardRefExoticComponent<BoxProps & RefAttributes<HTMLElement>>>;
+export const ContextualbarV2Footer: NamedExoticComponent<BoxProps & RefAttributes<HTMLElement>>;
 
 // @public (undocumented)
 export type ContextualbarV2FooterProps = BoxProps;
 
 // @public (undocumented)
-export const ContextualbarV2Header: MemoExoticComponent<(input: ContextualbarV2HeaderProps) => JSX_2.Element>;
+export const ContextualbarV2Header: MemoExoticComponent<(input: ContextualbarV2HeaderProps) => JSX.Element>;
 
 // @public (undocumented)
 export type ContextualbarV2HeaderProps = BoxProps;
 
 // @public (undocumented)
-export const ContextualbarV2Icon: MemoExoticComponent<(props: ContextualbarV2IconProps) => JSX_2.Element>;
+export const ContextualbarV2Icon: MemoExoticComponent<(props: ContextualbarV2IconProps) => JSX.Element>;
 
 // @public (undocumented)
 export type ContextualbarV2IconProps = IconProps;
@@ -651,25 +652,25 @@ export type ContextualbarV2IconProps = IconProps;
 export type ContextualbarV2Props = BoxProps;
 
 // @public (undocumented)
-export const ContextualbarV2Section: MemoExoticComponent<ForwardRefExoticComponent<BoxProps & RefAttributes<HTMLElement>>>;
+export const ContextualbarV2Section: NamedExoticComponent<BoxProps & RefAttributes<HTMLElement>>;
 
 // @public (undocumented)
 export type ContextualbarV2SectionProps = BoxProps;
 
 // @public (undocumented)
-export const ContextualbarV2Skeleton: MemoExoticComponent<(props: ContextualbarV2SkeletonProps) => JSX_2.Element>;
+export const ContextualbarV2Skeleton: MemoExoticComponent<(props: ContextualbarV2SkeletonProps) => JSX.Element>;
 
 // @public (undocumented)
 export type ContextualbarV2SkeletonProps = BoxProps;
 
 // @public (undocumented)
-export const ContextualbarV2Title: MemoExoticComponent<(props: ContextualbarV2TitleProps) => JSX_2.Element>;
+export const ContextualbarV2Title: MemoExoticComponent<(props: ContextualbarV2TitleProps) => JSX.Element>;
 
 // @public (undocumented)
 export type ContextualbarV2TitleProps = BoxProps;
 
 // @public (undocumented)
-export const Divider: (input: DividerProps) => JSX_2.Element;
+export const Divider: (input: DividerProps) => JSX.Element;
 
 // @public (undocumented)
 export type DividerProps = BoxProps & {
@@ -683,7 +684,7 @@ export const Dropdown: ForwardRefExoticComponent<DropdownProps<HTMLElement> & Re
 
 // @public (undocumented)
 export type DropdownProps<T extends HTMLElement> = {
-    reference: RefObject<T>;
+    reference: RefObject<T | null>;
     placement?: UsePositionOptions['placement'];
     children: ReactNode;
 };
@@ -704,28 +705,28 @@ export type EmailInputProps = Omit<InputBoxProps, 'type'> & {
 export type Falsy = false | 0 | '' | null | undefined;
 
 // @public (undocumented)
-export function Field(props: FieldProps): JSX_2.Element;
+export function Field(props: FieldProps): JSX.Element;
 
 // @public (undocumented)
-export const FieldDescription: (props: FieldDescriptionProps) => JSX_2.Element;
+export const FieldDescription: (props: FieldDescriptionProps) => JSX.Element;
 
 // @public (undocumented)
 export type FieldDescriptionProps = BoxProps;
 
 // @public (undocumented)
-export const FieldError: (props: FieldErrorProps) => JSX_2.Element;
+export const FieldError: (props: FieldErrorProps) => JSX.Element;
 
 // @public (undocumented)
 export type FieldErrorProps = BoxProps;
 
 // @public (undocumented)
-export const FieldGroup: (input: FieldGroupProps) => JSX_2.Element;
+export const FieldGroup: (input: FieldGroupProps) => JSX.Element;
 
 // @public (undocumented)
 export type FieldGroupProps = BoxProps;
 
 // @public (undocumented)
-export const FieldHint: (props: FieldHintProps) => JSX_2.Element;
+export const FieldHint: (props: FieldHintProps) => JSX.Element;
 
 // @public (undocumented)
 export type FieldHintProps = BoxProps;
@@ -738,7 +739,7 @@ is?: (ElementType<any> & string) | undefined;
 } & RefAttributes<HTMLElement>>;
 
 // @public (undocumented)
-export const FieldLabelInfo: (props: FieldLabelInfoProps) => JSX_2.Element;
+export const FieldLabelInfo: (props: FieldLabelInfoProps) => JSX.Element;
 
 // @public (undocumented)
 export type FieldLabelInfoProps = LabelInfoProps;
@@ -747,7 +748,7 @@ export type FieldLabelInfoProps = LabelInfoProps;
 export type FieldLabelProps = LabelProps;
 
 // @public (undocumented)
-export const FieldLink: (props: FieldLinkProps) => JSX_2.Element;
+export const FieldLink: (props: FieldLinkProps) => JSX.Element;
 
 // @public (undocumented)
 export type FieldLinkProps = BoxProps;
@@ -756,7 +757,7 @@ export type FieldLinkProps = BoxProps;
 export type FieldProps = BoxProps;
 
 // @public (undocumented)
-export const FieldRow: (props: FieldRowProps) => JSX_2.Element;
+export const FieldRow: (props: FieldRowProps) => JSX.Element;
 
 // @public (undocumented)
 export type FieldRowProps = BoxProps;
@@ -768,7 +769,7 @@ export const Flex: {
 };
 
 // @public (undocumented)
-export function FlexContainer(input: FlexContainerProps): JSX_2.Element;
+export function FlexContainer(input: FlexContainerProps): JSX.Element;
 
 // @public (undocumented)
 export type FlexContainerProps = {
@@ -782,7 +783,7 @@ export type FlexContainerProps = {
 };
 
 // @public (undocumented)
-export function FlexItem(input: FlexItemProps): JSX_2.Element;
+export function FlexItem(input: FlexItemProps): JSX.Element;
 
 // @public (undocumented)
 export type FlexItemProps = {
@@ -812,7 +813,7 @@ letterSpacing: string;
 } | undefined>;
 
 // @public (undocumented)
-export const FramedIcon: (input: FramedIconProps) => JSX_2.Element;
+export const FramedIcon: (input: FramedIconProps) => JSX.Element;
 
 // @public (undocumented)
 export type FramedIconProps = {
@@ -826,12 +827,12 @@ export type FramedIconProps = {
 
 // @public (undocumented)
 export const Grid: {
-    (input: GridProps): JSX_2.Element;
-    Item: (input: GridItemProps) => JSX_2.Element;
+    (input: GridProps): JSX.Element;
+    Item: (input: GridItemProps) => JSX.Element;
 };
 
 // @public (undocumented)
-export const GridItem: (input: GridItemProps) => JSX_2.Element;
+export const GridItem: (input: GridItemProps) => JSX.Element;
 
 // @public (undocumented)
 export type GridItemProps = BoxProps & {
@@ -928,7 +929,7 @@ export type InputBoxProps = BoxProps & {
 };
 
 // @public (undocumented)
-export const InputBoxSkeleton: (props: InputBoxSkeletonProps) => JSX_2.Element;
+export const InputBoxSkeleton: (props: InputBoxSkeletonProps) => JSX.Element;
 
 // @public (undocumented)
 export type InputBoxSkeletonProps = BoxProps;
@@ -960,7 +961,7 @@ export type LabelProps = Omit<BoxProps, 'is'> & {
 };
 
 // @public (undocumented)
-export const Margins: (props: MarginsProps) => JSX_2.Element;
+export const Margins: (props: MarginsProps) => JSX.Element;
 
 // @public (undocumented)
 export type MarginsProps = PropsWithChildren<{
@@ -975,7 +976,7 @@ export type MarginsProps = PropsWithChildren<{
 }>;
 
 // @public (undocumented)
-export const Menu: <T extends object>(input: MenuProps<T>) => JSX_2.Element;
+export const Menu: <T extends object>(input: MenuProps<T>) => JSX.Element;
 
 // @public (undocumented)
 export function MenuItem<T>(_props: MenuItemProps<T>): null;
@@ -1055,7 +1056,7 @@ export type MessageBlockProps = {
 } & BoxProps;
 
 // @public (undocumented)
-export const MessageBody: (input: MessageBodyProps) => JSX_2.Element;
+export const MessageBody: (input: MessageBodyProps) => JSX.Element;
 
 // @public (undocumented)
 export type MessageBodyProps = HTMLAttributes<HTMLDivElement> & {
@@ -1063,10 +1064,10 @@ export type MessageBodyProps = HTMLAttributes<HTMLDivElement> & {
 };
 
 // @public (undocumented)
-export const MessageContainer: (props: MessageContainerProps) => JSX_2.Element;
+export const MessageContainer: (props: MessageContainerProps) => JSX.Element;
 
 // @public (undocumented)
-export const MessageContainerFixed: (props: MessageContainerFixedProps) => JSX_2.Element;
+export const MessageContainerFixed: (props: MessageContainerFixedProps) => JSX.Element;
 
 // @public (undocumented)
 export type MessageContainerFixedProps = HTMLAttributes<HTMLDivElement>;
@@ -1075,7 +1076,7 @@ export type MessageContainerFixedProps = HTMLAttributes<HTMLDivElement>;
 export type MessageContainerProps = HTMLAttributes<HTMLDivElement>;
 
 // @public (undocumented)
-export const MessageDivider: (input: MessageDividerProps) => JSX_2.Element;
+export const MessageDivider: (input: MessageDividerProps) => JSX.Element;
 
 // @public (undocumented)
 export type MessageDividerProps = {
@@ -1084,7 +1085,7 @@ export type MessageDividerProps = {
 };
 
 // @public (undocumented)
-export const MessageEmoji: (input: MessageEmojiProps) => JSX_2.Element;
+export const MessageEmoji: (input: MessageEmojiProps) => JSX.Element;
 
 // @public (undocumented)
 export type MessageEmojiBaseProps = {
@@ -1098,10 +1099,10 @@ export type MessageEmojiProps = MessageEmojiBaseProps & {
 };
 
 // @public (undocumented)
-export const MessageGenericPreview: (props: MessageGenericPreviewProps) => JSX_2.Element;
+export const MessageGenericPreview: (props: MessageGenericPreviewProps) => JSX.Element;
 
 // @public (undocumented)
-export const MessageGenericPreviewContent: (input: MessageGenericPreviewContentProps) => JSX_2.Element;
+export const MessageGenericPreviewContent: (input: MessageGenericPreviewContentProps) => JSX.Element;
 
 // @public (undocumented)
 export type MessageGenericPreviewContentProps = {
@@ -1110,7 +1111,7 @@ export type MessageGenericPreviewContentProps = {
 };
 
 // @public (undocumented)
-export const MessageGenericPreviewCoverImage: (input: MessageGenericPreviewCoverImageProps) => JSX_2.Element;
+export const MessageGenericPreviewCoverImage: (input: MessageGenericPreviewCoverImageProps) => JSX.Element;
 
 // @public (undocumented)
 export type MessageGenericPreviewCoverImageProps = {
@@ -1121,7 +1122,7 @@ export type MessageGenericPreviewCoverImageProps = {
 };
 
 // @public (undocumented)
-export const MessageGenericPreviewDescription: (input: MessageGenericPreviewDescriptionProps) => JSX_2.Element;
+export const MessageGenericPreviewDescription: (input: MessageGenericPreviewDescriptionProps) => JSX.Element;
 
 // @public (undocumented)
 export type MessageGenericPreviewDescriptionProps = {
@@ -1130,7 +1131,7 @@ export type MessageGenericPreviewDescriptionProps = {
 };
 
 // @public (undocumented)
-export const MessageGenericPreviewFooter: (input: MessageGenericPreviewFooterProps) => JSX_2.Element;
+export const MessageGenericPreviewFooter: (input: MessageGenericPreviewFooterProps) => JSX.Element;
 
 // @public (undocumented)
 export type MessageGenericPreviewFooterProps = {
@@ -1139,7 +1140,7 @@ export type MessageGenericPreviewFooterProps = {
 };
 
 // @public (undocumented)
-export const MessageGenericPreviewIcon: (input: MessageGenericPreviewIconProps) => JSX_2.Element;
+export const MessageGenericPreviewIcon: (input: MessageGenericPreviewIconProps) => JSX.Element;
 
 // @public (undocumented)
 export type MessageGenericPreviewIconProps = IconProps & {
@@ -1147,7 +1148,7 @@ export type MessageGenericPreviewIconProps = IconProps & {
 };
 
 // @public (undocumented)
-export const MessageGenericPreviewImage: (input: MessageGenericPreviewImageProps) => JSX_2.Element;
+export const MessageGenericPreviewImage: (input: MessageGenericPreviewImageProps) => JSX.Element;
 
 // @public (undocumented)
 export type MessageGenericPreviewImageProps = {
@@ -1159,13 +1160,13 @@ export type MessageGenericPreviewImageProps = {
 export type MessageGenericPreviewProps = HTMLAttributes<HTMLDivElement>;
 
 // @public (undocumented)
-export const MessageGenericPreviewThumb: (props: MessageGenericPreviewThumbProps) => JSX_2.Element;
+export const MessageGenericPreviewThumb: (props: MessageGenericPreviewThumbProps) => JSX.Element;
 
 // @public (undocumented)
 export type MessageGenericPreviewThumbProps = HTMLAttributes<HTMLDivElement>;
 
 // @public (undocumented)
-export const MessageGenericPreviewTitle: (input: MessageGenericPreviewTitleProps) => JSX_2.Element;
+export const MessageGenericPreviewTitle: (input: MessageGenericPreviewTitleProps) => JSX.Element;
 
 // @public (undocumented)
 export type MessageGenericPreviewTitleProps = {
@@ -1173,13 +1174,13 @@ export type MessageGenericPreviewTitleProps = {
 } & HTMLAttributes<HTMLSpanElement> & AnchorHTMLAttributes<HTMLAnchorElement>;
 
 // @public (undocumented)
-export const MessageHeader: (input: MessageHeaderProps) => JSX_2.Element;
+export const MessageHeader: (input: MessageHeaderProps) => JSX.Element;
 
 // @public (undocumented)
 export type MessageHeaderProps = HTMLAttributes<HTMLDivElement>;
 
 // @public (undocumented)
-export function MessageHighlight(input: MessageHighlightProps): JSX_2.Element;
+export function MessageHighlight(input: MessageHighlightProps): JSX.Element;
 
 // @public (undocumented)
 export type MessageHighlightProps = {
@@ -1192,7 +1193,7 @@ export type MessageHighlightProps = {
 } & HTMLAttributes<HTMLElement>;
 
 // @public (undocumented)
-const MessageLeftContainer: (props: MessageLeftContainerProps) => JSX_2.Element;
+const MessageLeftContainer: (props: MessageLeftContainerProps) => JSX.Element;
 export { MessageLeftContainer }
 export { MessageLeftContainer as MessageSystemLeftContainer }
 
@@ -1202,10 +1203,10 @@ export { MessageLeftContainerProps }
 export { MessageLeftContainerProps as MessageSystemLeftContainerProps }
 
 // @public (undocumented)
-export const MessageMetrics: (props: MessageMetricsProps) => JSX_2.Element;
+export const MessageMetrics: (props: MessageMetricsProps) => JSX.Element;
 
 // @public (undocumented)
-export const MessageMetricsFollowing: (input: MessageMetricsFollowingProps) => JSX_2.Element;
+export const MessageMetricsFollowing: (input: MessageMetricsFollowingProps) => JSX.Element;
 
 // @public (undocumented)
 export type MessageMetricsFollowingProps = {
@@ -1214,13 +1215,13 @@ export type MessageMetricsFollowingProps = {
 } & Omit<IconButtonProps, 'icon'>;
 
 // @public (undocumented)
-export const MessageMetricsItem: (input: MessageMetricsItemProps) => JSX_2.Element;
+export const MessageMetricsItem: (input: MessageMetricsItemProps) => JSX.Element;
 
 // @public (undocumented)
-export const MessageMetricsItemAvatarRow: (input: MessageMetricsItemAvatarRowProps) => JSX_2.Element;
+export const MessageMetricsItemAvatarRow: (input: MessageMetricsItemAvatarRowProps) => JSX.Element;
 
 // @public (undocumented)
-export const MessageMetricsItemAvatarRowContent: (input: MessageMetricsItemAvatarRowContentProps) => JSX_2.Element;
+export const MessageMetricsItemAvatarRowContent: (input: MessageMetricsItemAvatarRowContentProps) => JSX.Element;
 
 // @public (undocumented)
 export type MessageMetricsItemAvatarRowContentProps = HTMLAttributes<HTMLDivElement>;
@@ -1229,7 +1230,7 @@ export type MessageMetricsItemAvatarRowContentProps = HTMLAttributes<HTMLDivElem
 export type MessageMetricsItemAvatarRowProps = HTMLAttributes<HTMLDivElement>;
 
 // @public (undocumented)
-export const MessageMetricsItemIcon: (props: MessageMetricsItemIconProps) => JSX_2.Element;
+export const MessageMetricsItemIcon: (props: MessageMetricsItemIconProps) => JSX.Element;
 
 // @public (undocumented)
 export type MessageMetricsItemIconProps = {
@@ -1237,7 +1238,7 @@ export type MessageMetricsItemIconProps = {
 } & Omit<IconProps, 'name'>;
 
 // @public (undocumented)
-export const MessageMetricsItemLabel: (props: MessageMetricsItemLabelProps) => JSX_2.Element;
+export const MessageMetricsItemLabel: (props: MessageMetricsItemLabelProps) => JSX.Element;
 
 // @public (undocumented)
 export type MessageMetricsItemLabelProps = HTMLAttributes<HTMLDivElement>;
@@ -1249,13 +1250,13 @@ export type MessageMetricsItemProps = HTMLAttributes<HTMLDivElement>;
 export type MessageMetricsProps = HTMLAttributes<HTMLDivElement>;
 
 // @public (undocumented)
-export const MessageMetricsReply: (props: MessageMetricsReplyProps) => JSX_2.Element;
+export const MessageMetricsReply: (props: MessageMetricsReplyProps) => JSX.Element;
 
 // @public (undocumented)
 export type MessageMetricsReplyProps = ButtonProps;
 
 // @public (undocumented)
-export const MessageName: (props: MessageNameProps) => JSX_2.Element;
+export const MessageName: (props: MessageNameProps) => JSX.Element;
 
 // @public (undocumented)
 export const MessageNameContainer: ForwardRefExoticComponent<MessageNameContainerProps & RefAttributes<HTMLSpanElement>>;
@@ -1286,13 +1287,13 @@ children?: ReactNode;
 } & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
-export const MessageReactionAction: (input: MessageReactionActionProps) => JSX_2.Element;
+export const MessageReactionAction: (input: MessageReactionActionProps) => JSX.Element;
 
 // @public (undocumented)
 export type MessageReactionActionProps = HTMLAttributes<HTMLDivElement>;
 
 // @public (undocumented)
-export const MessageReactionCounter: (input: MessageReactionCounterProps) => JSX_2.Element;
+export const MessageReactionCounter: (input: MessageReactionCounterProps) => JSX.Element;
 
 // @public (undocumented)
 export type MessageReactionCounterProps = {
@@ -1301,7 +1302,7 @@ export type MessageReactionCounterProps = {
 };
 
 // @public (undocumented)
-export const MessageReactionEmoji: (input: MessageReactionEmojiProps) => JSX_2.Element;
+export const MessageReactionEmoji: (input: MessageReactionEmojiProps) => JSX.Element;
 
 // @public (undocumented)
 export type MessageReactionEmojiProps = MessageEmojiBaseProps;
@@ -1321,13 +1322,13 @@ export const MessageReactions: ForwardRefExoticComponent<MessageReactionsProps &
 export type MessageReactionsProps = HTMLAttributes<HTMLDivElement>;
 
 // @public (undocumented)
-export const MessageRole: (props: MessageRoleProps) => JSX_2.Element;
+export const MessageRole: (props: MessageRoleProps) => JSX.Element;
 
 // @public (undocumented)
 export type MessageRoleProps = TagProps;
 
 // @public (undocumented)
-export const MessageRoles: (props: MessageRolesProps) => JSX_2.Element;
+export const MessageRoles: (props: MessageRolesProps) => JSX.Element;
 
 // @public (undocumented)
 export type MessageRolesProps = HTMLAttributes<HTMLDivElement>;
@@ -1336,7 +1337,7 @@ export type MessageRolesProps = HTMLAttributes<HTMLDivElement>;
 export const MessageStatusIndicator: ForwardRefExoticComponent<MessageStatusIndicatorProps & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
-export const MessageStatusIndicatorItem: (input: MessageStatusIndicatorItemProps) => JSX_2.Element;
+export const MessageStatusIndicatorItem: (input: MessageStatusIndicatorItemProps) => JSX.Element;
 
 // @public (undocumented)
 export type MessageStatusIndicatorItemProps = {
@@ -1348,7 +1349,7 @@ export type MessageStatusIndicatorItemProps = {
 export type MessageStatusIndicatorProps = AllHTMLAttributes<HTMLDivElement>;
 
 // @public (undocumented)
-export const MessageStatusIndicatorText: (input: MessageStatusIndicatorTextProps) => JSX_2.Element;
+export const MessageStatusIndicatorText: (input: MessageStatusIndicatorTextProps) => JSX.Element;
 
 // @public (undocumented)
 export type MessageStatusIndicatorTextProps = {
@@ -1356,7 +1357,7 @@ export type MessageStatusIndicatorTextProps = {
 };
 
 // @public (undocumented)
-export const MessageStatusPrivateIndicator: (input: MessageStatusPrivateIndicatorProps) => JSX_2.Element;
+export const MessageStatusPrivateIndicator: (input: MessageStatusPrivateIndicatorProps) => JSX.Element;
 
 // @public (undocumented)
 export type MessageStatusPrivateIndicatorProps = {
@@ -1365,10 +1366,10 @@ export type MessageStatusPrivateIndicatorProps = {
 };
 
 // @public (undocumented)
-export const MessageSystem: (input: MessageSystemProps) => JSX_2.Element;
+export const MessageSystem: (input: MessageSystemProps) => JSX.Element;
 
 // @public (undocumented)
-export const MessageSystemBlock: (props: MessageSystemBlockProps) => JSX_2.Element;
+export const MessageSystemBlock: (props: MessageSystemBlockProps) => JSX.Element;
 
 // @public (undocumented)
 export type MessageSystemBlockProps = {
@@ -1376,13 +1377,13 @@ export type MessageSystemBlockProps = {
 };
 
 // @public (undocumented)
-export const MessageSystemBody: (props: MessageSystemBodyProps) => JSX_2.Element;
+export const MessageSystemBody: (props: MessageSystemBodyProps) => JSX.Element;
 
 // @public (undocumented)
 export type MessageSystemBodyProps = HTMLAttributes<HTMLDivElement>;
 
 // @public (undocumented)
-export const MessageSystemContainer: (props: MessageSystemContainerProps) => JSX_2.Element;
+export const MessageSystemContainer: (props: MessageSystemContainerProps) => JSX.Element;
 
 // @public (undocumented)
 export type MessageSystemContainerProps = {
@@ -1390,7 +1391,7 @@ export type MessageSystemContainerProps = {
 };
 
 // @public (undocumented)
-export const MessageSystemName: (props: MessageSystemNameProps) => JSX_2.Element;
+export const MessageSystemName: (props: MessageSystemNameProps) => JSX.Element;
 
 // @public (undocumented)
 export type MessageSystemNameProps = MessageNameProps;
@@ -1404,7 +1405,7 @@ export type MessageSystemProps = {
 } & AllHTMLAttributes<HTMLDivElement>;
 
 // @public (undocumented)
-export const MessageSystemTimestamp: (props: MessageSystemTimestampProps) => JSX_2.Element;
+export const MessageSystemTimestamp: (props: MessageSystemTimestampProps) => JSX.Element;
 
 // @public (undocumented)
 export type MessageSystemTimestampProps = {
@@ -1413,7 +1414,7 @@ export type MessageSystemTimestampProps = {
 };
 
 // @public (undocumented)
-export const MessageTimestamp: (props: MessageTimestampProps) => JSX_2.Element;
+export const MessageTimestamp: (props: MessageTimestampProps) => JSX.Element;
 
 // @public (undocumented)
 export type MessageTimestampProps = HTMLAttributes<HTMLSpanElement>;
@@ -1457,7 +1458,7 @@ export type MessageToolbarWrapperProps = HTMLAttributes<HTMLDivElement> & {
 };
 
 // @public (undocumented)
-export const MessageUsername: (props: MessageUsernameProps) => JSX_2.Element;
+export const MessageUsername: (props: MessageUsernameProps) => JSX.Element;
 
 // @public (undocumented)
 export type MessageUsernameProps = HTMLAttributes<HTMLSpanElement>;
@@ -1469,19 +1470,19 @@ wrapper?: ElementType<Pick<BoxProps, "elevation" | "className" | "children">>;
 } & BoxProps & RefAttributes<Element>>;
 
 // @public (undocumented)
-export const ModalBackdrop: (props: ModalBackdropProps) => JSX_2.Element;
+export const ModalBackdrop: (props: ModalBackdropProps) => JSX.Element;
 
 // @public (undocumented)
 export type ModalBackdropProps = BoxProps;
 
 // @public (undocumented)
-export const ModalClose: (props: ModalCloseProps) => JSX_2.Element;
+export const ModalClose: (props: ModalCloseProps) => JSX.Element;
 
 // @public (undocumented)
 export type ModalCloseProps = BoxProps;
 
 // @public (undocumented)
-export const ModalContent: (input: ModalContentProps) => JSX_2.Element;
+export const ModalContent: (input: ModalContentProps) => JSX.Element;
 
 // @public (undocumented)
 export type ModalContentProps = BoxProps & {
@@ -1491,16 +1492,16 @@ export type ModalContentProps = BoxProps & {
 };
 
 // @public (undocumented)
-export const ModalFooter: (input: ModalFooterProps) => JSX_2.Element;
+export const ModalFooter: (input: ModalFooterProps) => JSX.Element;
 
 // @public (undocumented)
-export const ModalFooterAnnotation: (input: ModalFooterAnnotationProps) => JSX_2.Element;
+export const ModalFooterAnnotation: (input: ModalFooterAnnotationProps) => JSX.Element;
 
 // @public (undocumented)
 export type ModalFooterAnnotationProps = BoxProps;
 
 // @public (undocumented)
-export const ModalFooterControllers: (input: ModalFooterControllersProps) => JSX_2.Element;
+export const ModalFooterControllers: (input: ModalFooterControllersProps) => JSX.Element;
 
 // @public (undocumented)
 export type ModalFooterControllersProps = ButtonGroupProps;
@@ -1509,25 +1510,25 @@ export type ModalFooterControllersProps = ButtonGroupProps;
 export type ModalFooterProps = BoxProps;
 
 // @public (undocumented)
-export const ModalHeader: (input: ModalHeaderProps) => JSX_2.Element;
+export const ModalHeader: (input: ModalHeaderProps) => JSX.Element;
 
 // @public (undocumented)
 export type ModalHeaderProps = BoxProps;
 
 // @public (undocumented)
-export const ModalHeaderText: (input: ModalHeaderTextProps) => JSX_2.Element;
+export const ModalHeaderText: (input: ModalHeaderTextProps) => JSX.Element;
 
 // @public (undocumented)
 export type ModalHeaderTextProps = BoxProps;
 
 // @public (undocumented)
-export const ModalHeroImage: (input: ModalHeroImageProps) => JSX_2.Element;
+export const ModalHeroImage: (input: ModalHeroImageProps) => JSX.Element;
 
 // @public (undocumented)
 export type ModalHeroImageProps = BoxProps;
 
 // @public (undocumented)
-export const ModalIcon: (input: ModalIconProps) => JSX_2.Element;
+export const ModalIcon: (input: ModalIconProps) => JSX.Element;
 
 // @public (undocumented)
 export type ModalIconProps = BoxProps & {
@@ -1541,19 +1542,19 @@ export type ModalProps = {
 } & BoxProps;
 
 // @public (undocumented)
-export const ModalTagline: (input: ModalTaglineProps) => JSX_2.Element;
+export const ModalTagline: (input: ModalTaglineProps) => JSX.Element;
 
 // @public (undocumented)
 export type ModalTaglineProps = BoxProps;
 
 // @public (undocumented)
-export const ModalThumb: (props: ModalThumbProps) => JSX_2.Element;
+export const ModalThumb: (props: ModalThumbProps) => JSX.Element;
 
 // @public (undocumented)
 export type ModalThumbProps = AvatarProps;
 
 // @public (undocumented)
-export const ModalTitle: (input: ModalTitleProps) => JSX_2.Element;
+export const ModalTitle: (input: ModalTitleProps) => JSX.Element;
 
 // @public (undocumented)
 export type ModalTitleProps = BoxProps;
@@ -1635,10 +1636,10 @@ export type MultiSelectProps = Omit<BoxProps, 'onChange' | 'value'> & {
 };
 
 // @public (undocumented)
-export const NavBar: (props: NavBarProps) => JSX_2.Element;
+export const NavBar: (props: NavBarProps) => JSX.Element;
 
 // @public (undocumented)
-export const NavBarDivider: (props: NavBarDividerProps) => JSX_2.Element;
+export const NavBarDivider: (props: NavBarDividerProps) => JSX.Element;
 
 // @public (undocumented)
 export type NavBarDividerProps = DividerProps;
@@ -1666,7 +1667,7 @@ export type NavbarItemProps = HTMLAttributes<HTMLElement> & Partial<IconButtonPr
 export type NavBarProps = HTMLAttributes<HTMLElement>;
 
 // @public (undocumented)
-export const NavBarSection: (input: NavbarSectionProps) => JSX_2.Element;
+export const NavBarSection: (input: NavbarSectionProps) => JSX.Element;
 
 // @public (undocumented)
 export type NavbarSectionProps = HTMLAttributes<HTMLSpanElement>;
@@ -1678,11 +1679,11 @@ export const NumberInput: ForwardRefExoticComponent<NumberInputProps & RefAttrib
 export type NumberInputProps = Omit<InputBoxProps, 'type'>;
 
 // @public (undocumented)
-const Option_2: MemoExoticComponent<ForwardRefExoticComponent<Omit<OptionProps, "ref"> & RefAttributes<Element>>>;
+const Option_2: NamedExoticComponent<Omit<OptionProps, "ref"> & RefAttributes<Element>>;
 export { Option_2 as Option }
 
 // @public (undocumented)
-const OptionAvatar: (props: OptionAvatarProps) => JSX_2.Element;
+const OptionAvatar: (props: OptionAvatarProps) => JSX.Element;
 export { OptionAvatar as MenuItemAvatar }
 export { OptionAvatar }
 
@@ -1694,7 +1695,7 @@ export { OptionAvatarProps as MenuItemAvatarProps }
 export { OptionAvatarProps }
 
 // @public (undocumented)
-const OptionColumn: (props: OptionColumnProps) => JSX_2.Element;
+const OptionColumn: (props: OptionColumnProps) => JSX.Element;
 export { OptionColumn as MenuItemColumn }
 export { OptionColumn }
 
@@ -1712,7 +1713,7 @@ export const OptionContainer: ForwardRefExoticComponent<BoxProps & RefAttributes
 export type OptionContainerProps = BoxProps;
 
 // @public (undocumented)
-const OptionContent: (props: OptionContentProps) => JSX_2.Element;
+const OptionContent: (props: OptionContentProps) => JSX.Element;
 export { OptionContent as MenuItemContent }
 export { OptionContent }
 
@@ -1722,10 +1723,10 @@ export { OptionContentProps as MenuItemContentProps }
 export { OptionContentProps }
 
 // @public (undocumented)
-export const OptionDescription: (props: OptionDescriptionProps) => JSX_2.Element;
+export const OptionDescription: (props: OptionDescriptionProps) => JSX.Element;
 
 // @public (undocumented)
-const OptionDescriptionBlock: (props: OptionDescriptionBlockProps) => JSX_2.Element;
+const OptionDescriptionBlock: (props: OptionDescriptionBlockProps) => JSX.Element;
 export { OptionDescriptionBlock as MenuItemDescription }
 export { OptionDescriptionBlock }
 
@@ -1742,13 +1743,13 @@ export type OptionDescriptionProps = {
 };
 
 // @public (undocumented)
-export const OptionDivider: (props: OptionDividerProps) => JSX_2.Element;
+export const OptionDivider: (props: OptionDividerProps) => JSX.Element;
 
 // @public (undocumented)
 export type OptionDividerProps = DividerProps;
 
 // @public (undocumented)
-export const OptionHeader: (input: OptionHeaderProps) => JSX_2.Element;
+export const OptionHeader: (input: OptionHeaderProps) => JSX.Element;
 
 // @public (undocumented)
 export type OptionHeaderProps = {
@@ -1756,7 +1757,7 @@ export type OptionHeaderProps = {
 };
 
 // @public (undocumented)
-const OptionIcon: (props: OptionIconProps) => JSX_2.Element;
+const OptionIcon: (props: OptionIconProps) => JSX.Element;
 export { OptionIcon as MenuItemIcon }
 export { OptionIcon }
 
@@ -1766,7 +1767,7 @@ export { OptionIconProps as MenuItemIconProps }
 export { OptionIconProps }
 
 // @public (undocumented)
-const OptionInput: (props: OptionInputProps) => JSX_2.Element;
+const OptionInput: (props: OptionInputProps) => JSX.Element;
 export { OptionInput as MenuItemInput }
 export { OptionInput }
 
@@ -1778,7 +1779,7 @@ export { OptionInputProps as MenuItemInputProps }
 export { OptionInputProps }
 
 // @public (undocumented)
-export const OptionMenu: (props: OptionMenuProps) => JSX_2.Element;
+export const OptionMenu: (props: OptionMenuProps) => JSX.Element;
 
 // @public (undocumented)
 export type OptionMenuProps = HTMLAttributes<HTMLDivElement>;
@@ -1810,7 +1811,7 @@ export const Options: ForwardRefExoticComponent<PropsWithoutRef<OptionsProps> & 
 };
 
 // @public (undocumented)
-const OptionSkeleton: () => JSX_2.Element;
+const OptionSkeleton: () => JSX.Element;
 export { OptionSkeleton as MenuItemSkeleton }
 export { OptionSkeleton }
 
@@ -1834,7 +1835,7 @@ export type OptionsProps<TValue = string | number, TLabel = ReactNode> = Omit<Bo
 };
 
 // @public (undocumented)
-const OptionTitle: (props: OptionTitleProps) => JSX_2.Element;
+const OptionTitle: (props: OptionTitleProps) => JSX.Element;
 export { OptionTitle as MenuItemTitle }
 export { OptionTitle }
 
@@ -1861,7 +1862,7 @@ document: Document;
 }>;
 
 // @public (undocumented)
-export const PaginatedMultiSelectFiltered: (input: PaginatedMultiSelectFilteredProps) => JSX_2.Element;
+export const PaginatedMultiSelectFiltered: (input: PaginatedMultiSelectFilteredProps) => JSX.Element;
 
 // @public (undocumented)
 export type PaginatedMultiSelectFilteredProps = {
@@ -1924,7 +1925,7 @@ export type PaginatedOptionType = {
 };
 
 // @public (undocumented)
-export const PaginatedSelectFiltered: (input: PaginatedSelectFilteredProps) => JSX_2.Element;
+export const PaginatedSelectFiltered: (input: PaginatedSelectFilteredProps) => JSX.Element;
 
 // @public (undocumented)
 export type PaginatedSelectFilteredProps = Omit<PaginatedSelectProps, 'setFilter'> & {
@@ -1941,7 +1942,7 @@ export type PaginatedSelectProps = Omit<SelectProps, 'options'> & {
 };
 
 // @public (undocumented)
-export const Pagination: (input: PaginationProps) => JSX_2.Element;
+export const Pagination: (input: PaginationProps) => JSX.Element;
 
 // @public (undocumented)
 export type PaginationProps = {
@@ -2092,7 +2093,7 @@ export const PasswordInput: ForwardRefExoticComponent<PasswordInputProps & RefAt
 export type PasswordInputProps = Omit<InputBoxProps, 'type'>;
 
 // @public (undocumented)
-export function Popover(input: PopoverProps): JSX_2.Element;
+export function Popover(input: PopoverProps): JSX.Element;
 
 // @public (undocumented)
 export interface PopoverProps extends Omit<AriaPopoverProps, 'popoverRef'> {
@@ -2108,7 +2109,7 @@ export interface PopoverProps extends Omit<AriaPopoverProps, 'popoverRef'> {
 export const Position: (input: PositionProps) => ReactPortal;
 
 // @public (undocumented)
-export const PositionAnimated: (input: PositionAnimatedProps) => JSX_2.Element;
+export const PositionAnimated: (input: PositionAnimatedProps) => JSX.Element;
 
 // @public (undocumented)
 export type PositionAnimatedProps = {
@@ -2117,7 +2118,7 @@ export type PositionAnimatedProps = {
 
 // @public (undocumented)
 export type PositionProps = {
-    anchor: RefObject<Element>;
+    anchor: RefObject<Element | null>;
     children: ReactElement<any>;
     margin?: number;
     placement?: UsePositionOptions['placement'];
@@ -2152,7 +2153,7 @@ export type RadioButtonProps = BoxProps & AllHTMLAttributes<HTMLInputElement> & 
 };
 
 // @public (undocumented)
-export const Scrollable: (input: ScrollableProps) => JSX_2.Element;
+export const Scrollable: (input: ScrollableProps) => JSX.Element;
 
 // @public (undocumented)
 export type ScrollableProps = PropsWithChildren<{
@@ -2278,11 +2279,11 @@ export type SelectProps = Omit<BoxProps, 'onChange'> & {
 };
 
 // @public (undocumented)
-export const Sidebar: ((props: SidebarProps) => JSX_2.Element) & {
-    TopBar: ((input: TopBarProps) => JSX_2.Element) & {
-        Section: (input: TopBarSectionProps) => JSX_2.Element;
-        ToolBox: (input: TopBarToolBoxProps) => JSX_2.Element;
-        Wrapper: (input: TopBarWrapperProps) => JSX_2.Element;
+export const Sidebar: ((props: SidebarProps) => JSX.Element) & {
+    TopBar: ((input: TopBarProps) => JSX.Element) & {
+        Section: (input: TopBarSectionProps) => JSX.Element;
+        ToolBox: (input: TopBarToolBoxProps) => JSX.Element;
+        Wrapper: (input: TopBarWrapperProps) => JSX.Element;
         Avatar: {
             size: "x24";
         };
@@ -2304,19 +2305,19 @@ export const Sidebar: ((props: SidebarProps) => JSX_2.Element) & {
         success?: boolean;
         pressed?: boolean;
         } & IconButtonSize & BoxProps & RefAttributes<HTMLElement>>;
-        Divider: () => JSX_2.Element;
-        Title: (props: TopBarTitleProps) => JSX_2.Element;
+        Divider: () => JSX.Element;
+        Title: (props: TopBarTitleProps) => JSX.Element;
     };
-    Item: ((input: SidebarItemProps) => JSX_2.Element) & {
-        Menu: (props: SidebarItemMenuProps) => JSX_2.Element;
-        Container: (props: SidebarItemContainerProps) => JSX_2.Element;
-        Content: (input: SidebarItemContentProps) => JSX_2.Element;
-        Title: (input: SidebarItemTitleProps) => JSX_2.Element;
-        Subtitle: (input: SidebarItemSubtitleProps) => JSX_2.Element;
-        Time: (input: SidebarItemTimeProps) => JSX_2.Element;
-        Wrapper: (input: SidebarItemWrapperProps) => JSX_2.Element;
-        Icon: (input: SidebarItemIconProps) => JSX_2.Element;
-        Avatar: (input: SidebarItemAvatarProps) => JSX_2.Element;
+    Item: ((input: SidebarItemProps) => JSX.Element) & {
+        Menu: (props: SidebarItemMenuProps) => JSX.Element;
+        Container: (props: SidebarItemContainerProps) => JSX.Element;
+        Content: (input: SidebarItemContentProps) => JSX.Element;
+        Title: (input: SidebarItemTitleProps) => JSX.Element;
+        Subtitle: (input: SidebarItemSubtitleProps) => JSX.Element;
+        Time: (input: SidebarItemTimeProps) => JSX.Element;
+        Wrapper: (input: SidebarItemWrapperProps) => JSX.Element;
+        Icon: (input: SidebarItemIconProps) => JSX.Element;
+        Avatar: (input: SidebarItemAvatarProps) => JSX.Element;
         Actions: ForwardRefExoticComponent<    {
         align?: "start" | "center" | "end";
         stretch?: boolean;
@@ -2325,21 +2326,21 @@ export const Sidebar: ((props: SidebarProps) => JSX_2.Element) & {
         small?: boolean;
         large?: boolean;
         } & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
-        Action: (props: SidebarItemActionProps) => JSX_2.Element;
-        Badge: (input: SidebarItemBadgeProps) => JSX_2.Element;
+        Action: (props: SidebarItemActionProps) => JSX.Element;
+        Badge: (input: SidebarItemBadgeProps) => JSX.Element;
     };
-    Section: ((props: SidebarSectionProps) => JSX_2.Element) & {
-        Title: (props: SidebarSectionTitleProps) => JSX_2.Element;
+    Section: ((props: SidebarSectionProps) => JSX.Element) & {
+        Title: (props: SidebarSectionTitleProps) => JSX.Element;
     };
-    Divider: () => JSX_2.Element;
-    Banner: (input: SidebarBannerProps) => JSX_2.Element;
+    Divider: () => JSX.Element;
+    Banner: (input: SidebarBannerProps) => JSX.Element;
 };
 
 // @public (undocumented)
 export type SidebarActionProps = IconButtonProps;
 
 // @public (undocumented)
-export const SidebarBanner: (input: SidebarBannerProps) => JSX_2.Element;
+export const SidebarBanner: (input: SidebarBannerProps) => JSX.Element;
 
 // @public (undocumented)
 export type SidebarBannerProps = {
@@ -2356,13 +2357,13 @@ export type SidebarBannerProps = {
 export type SidebarBannerVariant = 'default' | 'info' | 'success' | 'warning' | 'danger';
 
 // @public (undocumented)
-export const SidebarDivider: () => JSX_2.Element;
+export const SidebarDivider: () => JSX.Element;
 
 // @public (undocumented)
-export const SidebarFooter: (input: SidebarFooterProps) => JSX_2.Element;
+export const SidebarFooter: (input: SidebarFooterProps) => JSX.Element;
 
 // @public (undocumented)
-export const SidebarFooterHighlight: (input: SidebarFooterHighlightProps) => JSX_2.Element;
+export const SidebarFooterHighlight: (input: SidebarFooterHighlightProps) => JSX.Element;
 
 // @public (undocumented)
 export type SidebarFooterHighlightProps = {
@@ -2376,16 +2377,16 @@ export type SidebarFooterProps = {
 };
 
 // @public (undocumented)
-export const SidebarItem: ((input: SidebarItemProps) => JSX_2.Element) & {
-    Menu: (props: SidebarItemMenuProps) => JSX_2.Element;
-    Container: (props: SidebarItemContainerProps) => JSX_2.Element;
-    Content: (input: SidebarItemContentProps) => JSX_2.Element;
-    Title: (input: SidebarItemTitleProps) => JSX_2.Element;
-    Subtitle: (input: SidebarItemSubtitleProps) => JSX_2.Element;
-    Time: (input: SidebarItemTimeProps) => JSX_2.Element;
-    Wrapper: (input: SidebarItemWrapperProps) => JSX_2.Element;
-    Icon: (input: SidebarItemIconProps) => JSX_2.Element;
-    Avatar: (input: SidebarItemAvatarProps) => JSX_2.Element;
+export const SidebarItem: ((input: SidebarItemProps) => JSX.Element) & {
+    Menu: (props: SidebarItemMenuProps) => JSX.Element;
+    Container: (props: SidebarItemContainerProps) => JSX.Element;
+    Content: (input: SidebarItemContentProps) => JSX.Element;
+    Title: (input: SidebarItemTitleProps) => JSX.Element;
+    Subtitle: (input: SidebarItemSubtitleProps) => JSX.Element;
+    Time: (input: SidebarItemTimeProps) => JSX.Element;
+    Wrapper: (input: SidebarItemWrapperProps) => JSX.Element;
+    Icon: (input: SidebarItemIconProps) => JSX.Element;
+    Avatar: (input: SidebarItemAvatarProps) => JSX.Element;
     Actions: ForwardRefExoticComponent<    {
     align?: "start" | "center" | "end";
     stretch?: boolean;
@@ -2394,12 +2395,12 @@ export const SidebarItem: ((input: SidebarItemProps) => JSX_2.Element) & {
     small?: boolean;
     large?: boolean;
     } & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
-    Action: (props: SidebarItemActionProps) => JSX_2.Element;
-    Badge: (input: SidebarItemBadgeProps) => JSX_2.Element;
+    Action: (props: SidebarItemActionProps) => JSX.Element;
+    Badge: (input: SidebarItemBadgeProps) => JSX.Element;
 };
 
 // @public (undocumented)
-export const SidebarItemAction: (props: SidebarItemActionProps) => JSX_2.Element;
+export const SidebarItemAction: (props: SidebarItemActionProps) => JSX.Element;
 
 // @public (undocumented)
 export type SidebarItemActionProps = SidebarActionProps;
@@ -2415,7 +2416,7 @@ large?: boolean;
 } & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
-export const SidebarItemAvatar: (input: SidebarItemAvatarProps) => JSX_2.Element;
+export const SidebarItemAvatar: (input: SidebarItemAvatarProps) => JSX.Element;
 
 // @public (undocumented)
 export type SidebarItemAvatarProps = {
@@ -2423,7 +2424,7 @@ export type SidebarItemAvatarProps = {
 } & AllHTMLAttributes<HTMLElement>;
 
 // @public (undocumented)
-export const SidebarItemBadge: (input: SidebarItemBadgeProps) => JSX_2.Element;
+export const SidebarItemBadge: (input: SidebarItemBadgeProps) => JSX.Element;
 
 // @public (undocumented)
 export type SidebarItemBadgeProps = {
@@ -2432,7 +2433,7 @@ export type SidebarItemBadgeProps = {
 } & AllHTMLAttributes<HTMLElement>;
 
 // @public (undocumented)
-export const SidebarItemContainer: (props: SidebarItemContainerProps) => JSX_2.Element;
+export const SidebarItemContainer: (props: SidebarItemContainerProps) => JSX.Element;
 
 // @public (undocumented)
 export type SidebarItemContainerProps = {
@@ -2440,7 +2441,7 @@ export type SidebarItemContainerProps = {
 } & AllHTMLAttributes<HTMLElement>;
 
 // @public (undocumented)
-export const SidebarItemContent: (input: SidebarItemContentProps) => JSX_2.Element;
+export const SidebarItemContent: (input: SidebarItemContentProps) => JSX.Element;
 
 // @public (undocumented)
 export type SidebarItemContentProps = {
@@ -2449,7 +2450,7 @@ export type SidebarItemContentProps = {
 } & AllHTMLAttributes<HTMLElement>;
 
 // @public (undocumented)
-export const SidebarItemIcon: (input: SidebarItemIconProps) => JSX_2.Element;
+export const SidebarItemIcon: (input: SidebarItemIconProps) => JSX.Element;
 
 // @public (undocumented)
 export type SidebarItemIconProps = {
@@ -2460,7 +2461,7 @@ export type SidebarItemIconProps = {
 } & Omit<AllHTMLAttributes<HTMLElement>, 'name' | 'is'>;
 
 // @public (undocumented)
-export const SidebarItemMenu: (props: SidebarItemMenuProps) => JSX_2.Element;
+export const SidebarItemMenu: (props: SidebarItemMenuProps) => JSX.Element;
 
 // @public (undocumented)
 export type SidebarItemMenuProps = {
@@ -2478,7 +2479,7 @@ export type SidebarItemProps = {
 } & AllHTMLAttributes<HTMLElement>;
 
 // @public (undocumented)
-export const SidebarItemSubtitle: (input: SidebarItemSubtitleProps) => JSX_2.Element;
+export const SidebarItemSubtitle: (input: SidebarItemSubtitleProps) => JSX.Element;
 
 // @public (undocumented)
 export type SidebarItemSubtitleProps = {
@@ -2487,7 +2488,7 @@ export type SidebarItemSubtitleProps = {
 } & AllHTMLAttributes<HTMLElement>;
 
 // @public (undocumented)
-export const SidebarItemTime: (input: SidebarItemTimeProps) => JSX_2.Element;
+export const SidebarItemTime: (input: SidebarItemTimeProps) => JSX.Element;
 
 // @public (undocumented)
 export type SidebarItemTimeProps = {
@@ -2496,7 +2497,7 @@ export type SidebarItemTimeProps = {
 } & AllHTMLAttributes<HTMLElement>;
 
 // @public (undocumented)
-export const SidebarItemTitle: (input: SidebarItemTitleProps) => JSX_2.Element;
+export const SidebarItemTitle: (input: SidebarItemTitleProps) => JSX.Element;
 
 // @public (undocumented)
 export type SidebarItemTitleProps = {
@@ -2505,7 +2506,7 @@ export type SidebarItemTitleProps = {
 } & AllHTMLAttributes<HTMLElement>;
 
 // @public (undocumented)
-export const SidebarItemWrapper: (input: SidebarItemWrapperProps) => JSX_2.Element;
+export const SidebarItemWrapper: (input: SidebarItemWrapperProps) => JSX.Element;
 
 // @public (undocumented)
 export type SidebarItemWrapperProps = {
@@ -2517,8 +2518,8 @@ export type SidebarItemWrapperProps = {
 export type SidebarProps = BoxProps;
 
 // @public (undocumented)
-export const SidebarSection: ((props: SidebarSectionProps) => JSX_2.Element) & {
-    Title: (props: SidebarSectionTitleProps) => JSX_2.Element;
+export const SidebarSection: ((props: SidebarSectionProps) => JSX.Element) & {
+    Title: (props: SidebarSectionTitleProps) => JSX.Element;
 };
 
 // @public (undocumented)
@@ -2527,7 +2528,7 @@ export type SidebarSectionProps = {
 };
 
 // @public (undocumented)
-export const SidebarSectionTitle: (props: SidebarSectionTitleProps) => JSX_2.Element;
+export const SidebarSectionTitle: (props: SidebarSectionTitleProps) => JSX.Element;
 
 // @public (undocumented)
 export type SidebarSectionTitleProps = {
@@ -2535,10 +2536,10 @@ export type SidebarSectionTitleProps = {
 };
 
 // @public (undocumented)
-export const SidebarTopBar: ((input: TopBarProps) => JSX_2.Element) & {
-    Section: (input: TopBarSectionProps) => JSX_2.Element;
-    ToolBox: (input: TopBarToolBoxProps) => JSX_2.Element;
-    Wrapper: (input: TopBarWrapperProps) => JSX_2.Element;
+export const SidebarTopBar: ((input: TopBarProps) => JSX.Element) & {
+    Section: (input: TopBarSectionProps) => JSX.Element;
+    ToolBox: (input: TopBarToolBoxProps) => JSX.Element;
+    Wrapper: (input: TopBarWrapperProps) => JSX.Element;
     Avatar: {
         size: "x24";
     };
@@ -2560,8 +2561,8 @@ export const SidebarTopBar: ((input: TopBarProps) => JSX_2.Element) & {
     success?: boolean;
     pressed?: boolean;
     } & IconButtonSize & BoxProps & RefAttributes<HTMLElement>>;
-    Divider: () => JSX_2.Element;
-    Title: (props: TopBarTitleProps) => JSX_2.Element;
+    Divider: () => JSX.Element;
+    Title: (props: TopBarTitleProps) => JSX.Element;
 };
 
 // @public (undocumented)
@@ -2570,10 +2571,10 @@ collapsed?: boolean;
 } & HTMLAttributes<HTMLElement> & RefAttributes<HTMLElement>>;
 
 // @public (undocumented)
-export const SidebarV2Accordion: (input: SidebarV2AccordionProps) => JSX_2.Element;
+export const SidebarV2Accordion: (input: SidebarV2AccordionProps) => JSX.Element;
 
 // @public (undocumented)
-export const SidebarV2AccordionItem: (input: SidebarV2AccordionItemProps) => JSX_2.Element;
+export const SidebarV2AccordionItem: (input: SidebarV2AccordionItemProps) => JSX.Element;
 
 // @public (undocumented)
 export type SidebarV2AccordionItemProps = {
@@ -2619,7 +2620,7 @@ large?: boolean;
 export type SidebarV2ActionsProps = ButtonGroupProps;
 
 // @public (undocumented)
-export const SidebarV2Banner: (input: SidebarV2BannerProps) => JSX_2.Element;
+export const SidebarV2Banner: (input: SidebarV2BannerProps) => JSX.Element;
 
 // @public (undocumented)
 export type SidebarV2BannerProps = {
@@ -2637,7 +2638,7 @@ export type SidebarV2BannerProps = {
 export type SidebarV2BannerVariant = 'default' | 'info' | 'success' | 'warning' | 'danger';
 
 // @public (undocumented)
-export const SidebarV2ButtonGroup: (input: ButtonGroupProps) => JSX_2.Element;
+export const SidebarV2ButtonGroup: (input: ButtonGroupProps) => JSX.Element;
 
 // @public (undocumented)
 export const SidebarV2CollapseGroup: ForwardRefExoticComponent<    {
@@ -2650,16 +2651,16 @@ actions?: ReactNode;
 } & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
-export const SidebarV2Divider: () => JSX_2.Element;
+export const SidebarV2Divider: () => JSX.Element;
 
 // @public (undocumented)
-export const SidebarV2Footer: (input: HTMLAttributes<HTMLElement>) => JSX_2.Element;
+export const SidebarV2Footer: (input: HTMLAttributes<HTMLElement>) => JSX.Element;
 
 // @public (undocumented)
-export const SidebarV2FooterContent: (input: BoxProps) => JSX_2.Element;
+export const SidebarV2FooterContent: (input: BoxProps) => JSX.Element;
 
 // @public (undocumented)
-export const SidebarV2GroupTitle: (input: SidebarV2GroupTitleProps) => JSX_2.Element;
+export const SidebarV2GroupTitle: (input: SidebarV2GroupTitleProps) => JSX.Element;
 
 // @public (undocumented)
 export type SidebarV2GroupTitleProps = {
@@ -2671,30 +2672,30 @@ export type SidebarV2GroupTitleProps = {
 } & HTMLAttributes<HTMLDivElement>;
 
 // @public (undocumented)
-export const SidebarV2Item: (input: SidebarV2ItemProps) => JSX_2.Element;
+export const SidebarV2Item: (input: SidebarV2ItemProps) => JSX.Element;
 
 // @public (undocumented)
 export const SidebarV2ItemAction: (input: {
     onClick: (e: Event) => void;
     icon?: Keys;
-} & HTMLAttributes<HTMLDivElement>) => JSX_2.Element;
+} & HTMLAttributes<HTMLDivElement>) => JSX.Element;
 
 // @public (undocumented)
-export const SidebarV2ItemAvatarWrapper: (input: HTMLAttributes<HTMLDivElement>) => JSX_2.Element;
+export const SidebarV2ItemAvatarWrapper: (input: HTMLAttributes<HTMLDivElement>) => JSX.Element;
 
 // @public (undocumented)
-export const SidebarV2ItemBadge: (input: BadgeProps) => JSX_2.Element;
+export const SidebarV2ItemBadge: (input: BadgeProps) => JSX.Element;
 
 // @public (undocumented)
-export const SidebarV2ItemCol: (input: HTMLAttributes<HTMLDivElement>) => JSX_2.Element;
+export const SidebarV2ItemCol: (input: HTMLAttributes<HTMLDivElement>) => JSX.Element;
 
 // @public (undocumented)
 export const SidebarV2ItemContent: (input: {
     unread?: boolean;
-} & HTMLAttributes<HTMLDivElement>) => JSX_2.Element;
+} & HTMLAttributes<HTMLDivElement>) => JSX.Element;
 
 // @public (undocumented)
-export const SidebarV2ItemIcon: (input: SidebarV2ItemIconProps) => JSX_2.Element;
+export const SidebarV2ItemIcon: (input: SidebarV2ItemIconProps) => JSX.Element;
 
 // @public (undocumented)
 export type SidebarV2ItemIconProps = Omit<IconProps, 'name'> & {
@@ -2703,7 +2704,7 @@ export type SidebarV2ItemIconProps = Omit<IconProps, 'name'> & {
 };
 
 // @public (undocumented)
-export const SidebarV2ItemMenu: (input: HTMLAttributes<HTMLDivElement>) => JSX_2.Element;
+export const SidebarV2ItemMenu: (input: HTMLAttributes<HTMLDivElement>) => JSX.Element;
 
 // @public (undocumented)
 export type SidebarV2ItemProps = {
@@ -2713,23 +2714,23 @@ export type SidebarV2ItemProps = {
 } & AllHTMLAttributes<HTMLAnchorElement>;
 
 // @public (undocumented)
-export const SidebarV2ItemRow: (input: HTMLAttributes<HTMLDivElement>) => JSX_2.Element;
+export const SidebarV2ItemRow: (input: HTMLAttributes<HTMLDivElement>) => JSX.Element;
 
 // @public (undocumented)
-export const SidebarV2ItemStatusBullet: (props: StatusBulletProps) => JSX_2.Element;
+export const SidebarV2ItemStatusBullet: (props: StatusBulletProps) => JSX.Element;
 
 // @public (undocumented)
 export const SidebarV2ItemTimestamp: (input: {
     unread?: boolean;
-} & HTMLAttributes<HTMLDivElement>) => JSX_2.Element;
+} & HTMLAttributes<HTMLDivElement>) => JSX.Element;
 
 // @public (undocumented)
 export const SidebarV2ItemTitle: (input: {
     unread?: boolean;
-} & HTMLAttributes<HTMLDivElement>) => JSX_2.Element;
+} & HTMLAttributes<HTMLDivElement>) => JSX.Element;
 
 // @public (undocumented)
-export const SidebarV2Link: (input: SidebarV2LinkProps) => JSX_2.Element;
+export const SidebarV2Link: (input: SidebarV2LinkProps) => JSX.Element;
 
 // @public (undocumented)
 export type SidebarV2LinkProps = {
@@ -2745,15 +2746,15 @@ selected?: boolean;
 } & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
-export const SidebarV2Media: (input: HTMLAttributes<HTMLDivElement>) => JSX_2.Element;
+export const SidebarV2Media: (input: HTMLAttributes<HTMLDivElement>) => JSX.Element;
 
 // @public (undocumented)
 export const SidebarV2MediaController: (input: {
     label?: string;
-} & HTMLAttributes<HTMLDivElement>) => JSX_2.Element;
+} & HTMLAttributes<HTMLDivElement>) => JSX.Element;
 
 // @public (undocumented)
-export const SidebarV2MediaTitle: (input: HTMLAttributes<HTMLDivElement>) => JSX_2.Element;
+export const SidebarV2MediaTitle: (input: HTMLAttributes<HTMLDivElement>) => JSX.Element;
 
 // @public (undocumented)
 export type SidebarV2Props = {
@@ -2761,22 +2762,22 @@ export type SidebarV2Props = {
 } & HTMLAttributes<HTMLElement>;
 
 // @public (undocumented)
-export const SidebarV2Section: (props: HTMLAttributes<HTMLDivElement>) => JSX_2.Element;
+export const SidebarV2Section: (props: HTMLAttributes<HTMLDivElement>) => JSX.Element;
 
 // @public (undocumented)
-export const Sidepanel: (input: SidepanelProps) => JSX_2.Element;
+export const Sidepanel: (input: SidepanelProps) => JSX.Element;
 
 // @public (undocumented)
-export const SidepanelDivider: () => JSX_2.Element;
+export const SidepanelDivider: () => JSX.Element;
 
 // @public (undocumented)
-export const SidepanelHeader: (input: SidepanelHeaderProps) => JSX_2.Element;
+export const SidepanelHeader: (input: SidepanelHeaderProps) => JSX.Element;
 
 // @public (undocumented)
 export type SidepanelHeaderProps = HTMLAttributes<HTMLDivElement>;
 
 // @public (undocumented)
-export const SidepanelHeaderTitle: (input: SidepanelHeaderTitleProps) => JSX_2.Element;
+export const SidepanelHeaderTitle: (input: SidepanelHeaderTitleProps) => JSX.Element;
 
 // @public (undocumented)
 export type SidepanelHeaderTitleProps = HTMLAttributes<HTMLDivElement>;
@@ -2797,10 +2798,10 @@ export type SidepanelListProps = HTMLAttributes<HTMLDivElement>;
 export type SidepanelProps = HTMLAttributes<HTMLDivElement>;
 
 // @public (undocumented)
-export const SidepanelSection: (input: SidepanelSectionProps) => JSX_2.Element;
+export const SidepanelSection: (input: SidepanelSectionProps) => JSX.Element;
 
 // @public (undocumented)
-export const SidepanelSectionAction: (input: SidepanelSectionActionProps) => JSX_2.Element;
+export const SidepanelSectionAction: (input: SidepanelSectionActionProps) => JSX.Element;
 
 // @public (undocumented)
 export type SidepanelSectionActionProps = HTMLAttributes<HTMLDivElement>;
@@ -2812,7 +2813,7 @@ export type SidepanelSectionProps = HTMLAttributes<HTMLDivElement>;
 export const size: MemoizedFunction<unknown, unknown, string | undefined>;
 
 // @public (undocumented)
-export const Skeleton: (input: SkeletonProps) => JSX_2.Element;
+export const Skeleton: (input: SkeletonProps) => JSX.Element;
 
 // @public (undocumented)
 export type SkeletonProps = Omit<StylingBoxProps, 'children'> & {
@@ -2847,22 +2848,22 @@ export type SliderProps<T extends number | number[]> = AriaAttributes & {
 export const spacing: MemoizedFunction<unknown, unknown, string | undefined>;
 
 // @public (undocumented)
-export const States: (input: StatesProps) => JSX_2.Element;
+export const States: (input: StatesProps) => JSX.Element;
 
 // @public (undocumented)
-export const StatesAction: (input: StatesActionProps) => JSX_2.Element;
+export const StatesAction: (input: StatesActionProps) => JSX.Element;
 
 // @public (undocumented)
 export type StatesActionProps = ButtonProps;
 
 // @public (undocumented)
-export const StatesActions: (props: StatesActionsProps) => JSX_2.Element;
+export const StatesActions: (props: StatesActionsProps) => JSX.Element;
 
 // @public (undocumented)
 export type StatesActionsProps = ButtonGroupProps;
 
 // @public (undocumented)
-export const StatesIcon: (input: StatesIconProps) => JSX_2.Element;
+export const StatesIcon: (input: StatesIconProps) => JSX.Element;
 
 // @public (undocumented)
 export type StatesIconProps = {
@@ -2870,7 +2871,7 @@ export type StatesIconProps = {
 } & IconProps;
 
 // @public (undocumented)
-export const StatesLink: (props: StatesLinkProps) => JSX_2.Element;
+export const StatesLink: (props: StatesLinkProps) => JSX.Element;
 
 // @public (undocumented)
 export type StatesLinkProps = BoxProps & AllHTMLAttributes<HTMLAnchorElement>;
@@ -2881,7 +2882,7 @@ export type StatesProps = {
 } & AllHTMLAttributes<HTMLDivElement>;
 
 // @public (undocumented)
-export const StatesSubtitle: (input: StatesSubtitleProps) => JSX_2.Element;
+export const StatesSubtitle: (input: StatesSubtitleProps) => JSX.Element;
 
 // @public (undocumented)
 export type StatesSubtitleProps = {
@@ -2889,13 +2890,13 @@ export type StatesSubtitleProps = {
 } & AllHTMLAttributes<HTMLDivElement>;
 
 // @public (undocumented)
-export const StatesSuggestion: (input: StatesSuggestionProps) => JSX_2.Element;
+export const StatesSuggestion: (input: StatesSuggestionProps) => JSX.Element;
 
 // @public (undocumented)
-export const StatesSuggestionList: (input: StatesSuggestionListProps) => JSX_2.Element;
+export const StatesSuggestionList: (input: StatesSuggestionListProps) => JSX.Element;
 
 // @public (undocumented)
-export const StatesSuggestionListItem: (input: StatesSuggestionListItemProps) => JSX_2.Element;
+export const StatesSuggestionListItem: (input: StatesSuggestionListItemProps) => JSX.Element;
 
 // @public (undocumented)
 export type StatesSuggestionListItemProps = {
@@ -2913,7 +2914,7 @@ export type StatesSuggestionProps = {
 } & AllHTMLAttributes<HTMLDivElement>;
 
 // @public (undocumented)
-export const StatesSuggestionText: (input: StatesSuggestionTextProps) => JSX_2.Element;
+export const StatesSuggestionText: (input: StatesSuggestionTextProps) => JSX.Element;
 
 // @public (undocumented)
 export type StatesSuggestionTextProps = {
@@ -2921,7 +2922,7 @@ export type StatesSuggestionTextProps = {
 } & AllHTMLAttributes<HTMLDivElement>;
 
 // @public (undocumented)
-export const StatesTitle: (input: StatesTitleProps) => JSX_2.Element;
+export const StatesTitle: (input: StatesTitleProps) => JSX.Element;
 
 // @public (undocumented)
 export type StatesTitleProps = {
@@ -2929,7 +2930,7 @@ export type StatesTitleProps = {
 } & AllHTMLAttributes<HTMLHeadingElement>;
 
 // @public (undocumented)
-export const StatusBullet: (input: StatusBulletProps) => JSX_2.Element;
+export const StatusBullet: (input: StatusBulletProps) => JSX.Element;
 
 // @public (undocumented)
 export type StatusBulletProps = {
@@ -3078,16 +3079,16 @@ export type StylingProps = {
 };
 
 // @public (undocumented)
-export const Table: (input: TableProps) => JSX_2.Element;
+export const Table: (input: TableProps) => JSX.Element;
 
 // @public (undocumented)
-export const TableBody: (props: TableBodyProps) => JSX_2.Element;
+export const TableBody: (props: TableBodyProps) => JSX.Element;
 
 // @public (undocumented)
 export type TableBodyProps = TableProps;
 
 // @public (undocumented)
-export const TableCell: (input: TableCellProps) => JSX_2.Element;
+export const TableCell: (input: TableCellProps) => JSX.Element;
 
 // @public (undocumented)
 export type TableCellProps = TableProps & {
@@ -3096,13 +3097,13 @@ export type TableCellProps = TableProps & {
 };
 
 // @public (undocumented)
-export const TableFoot: (props: TableFootProps) => JSX_2.Element;
+export const TableFoot: (props: TableFootProps) => JSX.Element;
 
 // @public (undocumented)
 export type TableFootProps = TableProps;
 
 // @public (undocumented)
-export const TableHead: (props: TableHeadProps) => JSX_2.Element;
+export const TableHead: (props: TableHeadProps) => JSX.Element;
 
 // @public (undocumented)
 export type TableHeadProps = TableProps;
@@ -3115,7 +3116,7 @@ export type TableProps = BoxProps & {
 };
 
 // @public (undocumented)
-export const TableRow: (input: TableRowProps) => JSX_2.Element;
+export const TableRow: (input: TableRowProps) => JSX.Element;
 
 // @public (undocumented)
 export type TableRowProps = Omit<BoxProps, 'action'> & {
@@ -3124,13 +3125,13 @@ export type TableRowProps = Omit<BoxProps, 'action'> & {
 };
 
 // @public (undocumented)
-export const TableSelection: (input: TableSelectionProps) => JSX_2.Element;
+export const TableSelection: (input: TableSelectionProps) => JSX.Element;
 
 // @public (undocumented)
-export const TableSelectionButton: (props: TableSelectionButtonProps) => JSX_2.Element;
+export const TableSelectionButton: (props: TableSelectionButtonProps) => JSX.Element;
 
 // @public (undocumented)
-export const TableSelectionButtonGroup: (props: TableSelectionButtonGroupProps) => JSX_2.Element;
+export const TableSelectionButtonGroup: (props: TableSelectionButtonGroupProps) => JSX.Element;
 
 // @public (undocumented)
 export type TableSelectionButtonGroupProps = ButtonGroupProps;
@@ -3144,7 +3145,7 @@ export type TableSelectionProps = BoxProps & {
 };
 
 // @public (undocumented)
-export function Tabs(input: TabsProps): JSX_2.Element;
+export function Tabs(input: TabsProps): JSX.Element;
 
 // @public (undocumented)
 export namespace Tabs {
@@ -3173,7 +3174,7 @@ export type TabsProps = BoxProps & {
 };
 
 // @public (undocumented)
-export const Tag: (input: TagProps) => JSX_2.Element;
+export const Tag: (input: TagProps) => JSX.Element;
 
 // @public (undocumented)
 export type TagProps = {
@@ -3226,10 +3227,10 @@ export type TextInputProps = Omit<InputBoxProps, 'type'> & {
 export type Themes = 'light' | 'dark' | 'high-contrast';
 
 // @public (undocumented)
-export const ThreadMessage: (props: ThreadMessageProps) => JSX_2.Element;
+export const ThreadMessage: (props: ThreadMessageProps) => JSX.Element;
 
 // @public (undocumented)
-export const ThreadMessageBody: (props: ThreadMessageBodyProps) => JSX_2.Element;
+export const ThreadMessageBody: (props: ThreadMessageBodyProps) => JSX.Element;
 
 // @public (undocumented)
 export type ThreadMessageBodyProps = {
@@ -3237,7 +3238,7 @@ export type ThreadMessageBodyProps = {
 };
 
 // @public (undocumented)
-export const ThreadMessageContainer: (props: ThreadMessageContainerProps) => JSX_2.Element;
+export const ThreadMessageContainer: (props: ThreadMessageContainerProps) => JSX.Element;
 
 // @public (undocumented)
 export type ThreadMessageContainerProps = {
@@ -3245,25 +3246,25 @@ export type ThreadMessageContainerProps = {
 };
 
 // @public (undocumented)
-export const ThreadMessageEmoji: (input: ThreadMessageEmojiProps) => JSX_2.Element;
+export const ThreadMessageEmoji: (input: ThreadMessageEmojiProps) => JSX.Element;
 
 // @public (undocumented)
 export type ThreadMessageEmojiProps = MessageEmojiBaseProps;
 
 // @public (undocumented)
-export const ThreadMessageFollow: () => JSX_2.Element;
+export const ThreadMessageFollow: () => JSX.Element;
 
 // @public (undocumented)
-export const ThreadMessageIconThread: () => JSX_2.Element;
+export const ThreadMessageIconThread: () => JSX.Element;
 
 // @public (undocumented)
-export const ThreadMessageLeftContainer: (props: ThreadMessageLeftContainerProps) => JSX_2.Element;
+export const ThreadMessageLeftContainer: (props: ThreadMessageLeftContainerProps) => JSX.Element;
 
 // @public (undocumented)
 export type ThreadMessageLeftContainerProps = HTMLAttributes<HTMLDivElement>;
 
 // @public (undocumented)
-export const ThreadMessageOrigin: (input: ThreadMessageOriginProps) => JSX_2.Element;
+export const ThreadMessageOrigin: (input: ThreadMessageOriginProps) => JSX.Element;
 
 // @public (undocumented)
 export type ThreadMessageOriginProps = {
@@ -3275,13 +3276,13 @@ export type ThreadMessageOriginProps = {
 export type ThreadMessageProps = MessageProps;
 
 // @public (undocumented)
-export const ThreadMessageRow: (props: ThreadMessageRowProps) => JSX_2.Element;
+export const ThreadMessageRow: (props: ThreadMessageRowProps) => JSX.Element;
 
 // @public (undocumented)
 export type ThreadMessageRowProps = HTMLAttributes<HTMLDivElement>;
 
 // @public (undocumented)
-export const ThreadMessageUnfollow: () => JSX_2.Element;
+export const ThreadMessageUnfollow: () => JSX.Element;
 
 // @public (undocumented)
 export const Throbber: ForwardRefExoticComponent<Omit<BoxProps, "disabled"> & {
@@ -3304,7 +3305,7 @@ export const Tile: ForwardRefExoticComponent<BoxProps & RefAttributes<HTMLElemen
 export type TileProps = BoxProps;
 
 // @public (undocumented)
-export function ToastBar(input: ToastBarProps): JSX_2.Element;
+export function ToastBar(input: ToastBarProps): JSX.Element;
 
 // @public (undocumented)
 export type ToastBarProps = {
@@ -3341,7 +3342,7 @@ export type TooltipProps = BoxProps & {
 };
 
 // @public (undocumented)
-export const TopBar: (input: TopBarProps) => JSX_2.Element;
+export const TopBar: (input: TopBarProps) => JSX.Element;
 
 // @public (undocumented)
 export const TopBarAction: ForwardRefExoticComponent<    {
@@ -3377,7 +3378,7 @@ export type TopBarProps = {
 };
 
 // @public (undocumented)
-export const TopBarSection: (input: TopBarSectionProps) => JSX_2.Element;
+export const TopBarSection: (input: TopBarSectionProps) => JSX.Element;
 
 // @public (undocumented)
 export type TopBarSectionProps = {
@@ -3386,7 +3387,7 @@ export type TopBarSectionProps = {
 };
 
 // @public (undocumented)
-export const TopBarTitle: (props: TopBarTitleProps) => JSX_2.Element;
+export const TopBarTitle: (props: TopBarTitleProps) => JSX.Element;
 
 // @public (undocumented)
 export type TopBarTitleProps = {
@@ -3394,7 +3395,7 @@ export type TopBarTitleProps = {
 };
 
 // @public (undocumented)
-export const TopBarToolBox: (input: TopBarToolBoxProps) => JSX_2.Element;
+export const TopBarToolBox: (input: TopBarToolBoxProps) => JSX.Element;
 
 // @public (undocumented)
 export type TopBarToolBoxProps = {
@@ -3403,7 +3404,7 @@ export type TopBarToolBoxProps = {
 };
 
 // @public (undocumented)
-export const TopBarV2: (input: TopBarV2Props) => JSX_2.Element;
+export const TopBarV2: (input: TopBarV2Props) => JSX.Element;
 
 // @public (undocumented)
 export type TopBarV2Props = {
@@ -3412,7 +3413,7 @@ export type TopBarV2Props = {
 };
 
 // @public (undocumented)
-export const TopBarWrapper: (input: TopBarWrapperProps) => JSX_2.Element;
+export const TopBarWrapper: (input: TopBarWrapperProps) => JSX.Element;
 
 // @public (undocumented)
 export type TopBarWrapperProps = {

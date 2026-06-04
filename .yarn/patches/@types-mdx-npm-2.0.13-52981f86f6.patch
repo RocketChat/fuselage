@@ -1,0 +1,15 @@
+diff --git a/types.d.ts b/types.d.ts
+index 498bb694de2e6a62f14d3fe998dc538aff920fc6..76e4b5500ec30b814d00d28a8f878ca4d2c153a5 100644
+--- a/types.d.ts
++++ b/types.d.ts
+@@ -1,8 +1,7 @@
+ // Internal helper types
+ 
+-/**
+- * This is the global JSX.ElementType if it’s defined, otherwise never.
+- */
++import { JSX } from 'react/jsx-runtime';
++
+ // @ts-ignore JSX runtimes may optionally define JSX.ElementType. The MDX types need to work regardless whether this is
+ // defined or not.
+ type ElementType = any extends JSX.ElementType ? never : JSX.ElementType;

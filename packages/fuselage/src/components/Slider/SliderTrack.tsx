@@ -8,7 +8,7 @@ import { useStyle } from '../../hooks/useStyle';
 
 type SliderTrackProps = {
   trackProps: DOMAttributes<Element>;
-  trackRef: RefObject<HTMLDivElement>;
+  trackRef: RefObject<HTMLDivElement | null>;
   state: SliderState;
   children: ReactNode;
   multiThumb?: boolean;
