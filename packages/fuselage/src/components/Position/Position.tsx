@@ -22,7 +22,7 @@ const Position = ({
   className: _className,
   ...props
 }: PositionProps) => {
-  const target = useRef(null);
+  const target = useRef<Element>(null);
   const { style: positionStyle, placement: positionPlacement } =
     usePosition(
       anchor,

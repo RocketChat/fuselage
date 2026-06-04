@@ -37,7 +37,7 @@ export type ActionLinkProps = {
 
 // @public (undocumented)
 export type AnchorParams = {
-    ref: MutableRefObject<null>;
+    ref: MutableRefObject<Element | null>;
     toggle: Dispatch<SetStateAction<boolean>>;
     id: string;
 };

@@ -23,7 +23,7 @@ import {
 } from 'react';
 
 export type AnchorParams = {
-  ref: MutableRefObject<null>;
+  ref: MutableRefObject<Element | null>;
   toggle: Dispatch<SetStateAction<boolean>>;
   id: string;
 };
@@ -64,7 +64,7 @@ export type TooltipWrapperProps = {
 };
 
 const TooltipWrapper = ({ children, text }: TooltipWrapperProps) => {
-  const anchorRef = useRef(null);
+  const anchorRef = useRef<Element>(null);
   const [open, setOpen] = useDebouncedState(false, 460);
   const toggle = useCallback(
     (open: SetStateAction<boolean>) => {
