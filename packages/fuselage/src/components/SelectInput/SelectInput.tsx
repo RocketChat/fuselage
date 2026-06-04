@@ -1,4 +1,4 @@
-import type { FormEvent, ReactNode } from 'react';
+import type { ChangeEvent, ReactNode } from 'react';
 import { forwardRef, useState, useCallback } from 'react';
 
 import { Icon } from '../Icon';
@@ -27,7 +27,7 @@ const SelectInput = forwardRef<HTMLElement, SelectInputProps>(
       !props.value && !props.defaultValue,
     );
     const handleChange = useCallback(
-      (event: FormEvent<HTMLSelectElement>) => {
+      (event: ChangeEvent<HTMLSelectElement>) => {
         setPlaceholderVisible(!event.currentTarget.value);
         onChange?.call(event.currentTarget, event);
       },
