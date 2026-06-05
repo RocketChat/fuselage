@@ -39,7 +39,7 @@ exports[`[Menu Component] renders AsSidebarTopbarActions without crashing 1`] = 
           aria-haspopup="true"
           aria-label="test"
           class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
-          id="react-aria-:ra:"
+          id="react-aria-_r_a_"
           title="test"
           type="button"
         >
@@ -55,7 +55,7 @@ exports[`[Menu Component] renders AsSidebarTopbarActions without crashing 1`] = 
           aria-haspopup="true"
           aria-label="sort"
           class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
-          id="react-aria-:rc:"
+          id="react-aria-_r_c_"
           title="sort"
           type="button"
         >
@@ -83,7 +83,7 @@ exports[`[Menu Component] renders Complex without crashing 1`] = `
         aria-haspopup="true"
         aria-label="Complex Menu"
         class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
-        id="react-aria-:r2:"
+        id="react-aria-_r_2_"
         title="Complex Menu"
         type="button"
       >
@@ -110,7 +110,7 @@ exports[`[Menu Component] renders ControlledOpenState without crashing 1`] = `
         aria-haspopup="true"
         aria-label="Controlled Menu"
         class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
-        id="react-aria-:re:"
+        id="react-aria-_r_e_"
         title="Controlled Menu"
         type="button"
       >
@@ -137,7 +137,7 @@ exports[`[Menu Component] renders ItemVariants without crashing 1`] = `
         aria-haspopup="true"
         aria-label="Item Variants"
         class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
-        id="react-aria-:rg:"
+        id="react-aria-_r_g_"
         title="Item Variants"
         type="button"
       >
@@ -164,7 +164,7 @@ exports[`[Menu Component] renders MenuDisplayExample without crashing 1`] = `
         aria-haspopup="true"
         aria-label="Menu Display Example"
         class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
-        id="react-aria-:r6:"
+        id="react-aria-_r_6_"
         title="Menu Display Example"
         type="button"
       >
@@ -191,7 +191,7 @@ exports[`[Menu Component] renders MenuMapGenericItem without crashing 1`] = `
         aria-haspopup="true"
         aria-label="Menu with mapped items"
         class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
-        id="react-aria-:r8:"
+        id="react-aria-_r_8_"
         title="Menu with mapped items"
         type="button"
       >
@@ -218,7 +218,7 @@ exports[`[Menu Component] renders Scrollable without crashing 1`] = `
         aria-haspopup="true"
         aria-label="Scrollable Menu"
         class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
-        id="react-aria-:r10:"
+        id="react-aria-_r_10_"
         title="Scrollable Menu"
         type="button"
       >
@@ -245,7 +245,7 @@ exports[`[Menu Component] renders Simple without crashing 1`] = `
         aria-haspopup="true"
         aria-label="Simple Menu"
         class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
-        id="react-aria-:r0:"
+        id="react-aria-_r_0_"
         title="Simple Menu"
         type="button"
       >
@@ -276,7 +276,7 @@ exports[`[Menu Component] renders Sizes without crashing 1`] = `
           aria-haspopup="true"
           aria-label="Large Menu"
           class="rcx-box rcx-box--full rcx-button--large-square rcx-button--square rcx-button--icon rcx-button"
-          id="react-aria-:ri:"
+          id="react-aria-_r_i_"
           title="Large Menu"
           type="button"
         >
@@ -292,7 +292,7 @@ exports[`[Menu Component] renders Sizes without crashing 1`] = `
           aria-haspopup="true"
           aria-label="Medium Menu"
           class="rcx-box rcx-box--full rcx-button--medium-square rcx-button--square rcx-button--icon rcx-button"
-          id="react-aria-:rk:"
+          id="react-aria-_r_k_"
           title="Medium Menu"
           type="button"
         >
@@ -308,7 +308,7 @@ exports[`[Menu Component] renders Sizes without crashing 1`] = `
           aria-haspopup="true"
           aria-label="Small Menu"
           class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
-          id="react-aria-:rm:"
+          id="react-aria-_r_m_"
           title="Small Menu"
           type="button"
         >
@@ -324,7 +324,7 @@ exports[`[Menu Component] renders Sizes without crashing 1`] = `
           aria-haspopup="true"
           aria-label="Tiny Menu"
           class="rcx-box rcx-box--full rcx-button--tiny-square rcx-button--square rcx-button--icon rcx-button"
-          id="react-aria-:ro:"
+          id="react-aria-_r_o_"
           title="Tiny Menu"
           type="button"
         >
@@ -340,7 +340,7 @@ exports[`[Menu Component] renders Sizes without crashing 1`] = `
           aria-haspopup="true"
           aria-label="Mini Menu"
           class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button"
-          id="react-aria-:rq:"
+          id="react-aria-_r_q_"
           title="Mini Menu"
           type="button"
         >
@@ -372,7 +372,7 @@ exports[`[Menu Component] renders WithCustomButton without crashing 1`] = `
           aria-haspopup="true"
           aria-label="using prop customButton"
           class="rcx-box rcx-box--full rcx-button--large-square rcx-button--icon-secondary rcx-button--square rcx-button--icon rcx-button"
-          id="react-aria-:rs:"
+          id="react-aria-_r_s_"
           title="using prop customButton"
           type="button"
         >
@@ -388,7 +388,7 @@ exports[`[Menu Component] renders WithCustomButton without crashing 1`] = `
           aria-haspopup="true"
           aria-label="using prop is"
           class="rcx-box rcx-box--full rcx-button--large-square rcx-button--icon-secondary rcx-button--square rcx-button--icon rcx-button"
-          id="react-aria-:ru:"
+          id="react-aria-_r_u_"
           title="using prop is"
           type="button"
         >
@@ -416,7 +416,7 @@ exports[`[Menu Component] renders WithSections without crashing 1`] = `
         aria-haspopup="true"
         aria-label="Menu with Sections"
         class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
-        id="react-aria-:r4:"
+        id="react-aria-_r_4_"
         title="Menu with Sections"
         type="button"
       >

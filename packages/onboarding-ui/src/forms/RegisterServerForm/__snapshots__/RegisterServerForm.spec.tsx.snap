@@ -4,8 +4,8 @@ exports[`renders _RegisterServerForm without crashing 1`] = `
 <body>
   <div>
     <form
-      aria-describedby=":r0:-informed-disclaimer :r0:-engagement-disclaimer"
-      aria-labelledby=":r0:-title"
+      aria-describedby="_r_0_-informed-disclaimer _r_0_-engagement-disclaimer"
+      aria-labelledby="_r_0_-title"
       class="rcx-box rcx-box--full rcx-tile--elevation-1 rcx-tile rcx-css-1i7nda9"
       tabindex="-1"
     >
@@ -19,7 +19,7 @@ exports[`renders _RegisterServerForm without crashing 1`] = `
         </div>
         <div
           class="rcx-box rcx-box--full rcx-css-18gg2kh"
-          id=":r0:-title"
+          id="_r_0_-title"
         >
           Register your workspace
         </div>
@@ -36,7 +36,7 @@ exports[`renders _RegisterServerForm without crashing 1`] = `
           >
             <label
               class="rcx-box rcx-box--full rcx-field__label rcx-label rcx-css-127j9mz"
-              for=":r1:"
+              for="_r_1_"
             >
               Admin email
               <span
@@ -50,11 +50,11 @@ exports[`renders _RegisterServerForm without crashing 1`] = `
               class="rcx-box rcx-box--full rcx-field__row"
             >
               <input
-                aria-describedby=":r1:-error"
+                aria-describedby="_r_1_-error"
                 aria-invalid="false"
                 aria-required="true"
                 class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--type-email rcx-input-box"
-                id=":r1:"
+                id="_r_1_"
                 name="email"
                 placeholder="Insert your email to continue"
                 size="1"
@@ -73,11 +73,11 @@ exports[`renders _RegisterServerForm without crashing 1`] = `
                 class="rcx-box rcx-box--full rcx-check-box"
               >
                 <input
-                  aria-describedby=":r2:-error"
+                  aria-describedby="_r_2_-error"
                   aria-invalid="false"
                   aria-required="true"
                   class="rcx-box rcx-box--full rcx-check-box__input"
-                  id=":r2:"
+                  id="_r_2_"
                   name="agreement"
                   type="checkbox"
                 />
@@ -88,7 +88,7 @@ exports[`renders _RegisterServerForm without crashing 1`] = `
               </label>
               <label
                 class="rcx-box rcx-box--full rcx-box--with-block-elements rcx-box--with-inline-elements rcx-field__label rcx-label rcx-css-1nlo49l"
-                for=":r2:"
+                for="_r_2_"
               >
                 I agree with 
                 <a
@@ -148,13 +148,13 @@ exports[`renders _RegisterServerForm without crashing 1`] = `
           </div>
           <div
             class="rcx-box rcx-box--full rcx-css-19c5bc1"
-            id=":r0:-engagement-disclaimer"
+            id="_r_0_-engagement-disclaimer"
           >
             Registration allows automatic license updates, notifications of critical vulnerabilities and access to Rocket.Chat Cloud services. No sensitive workspace data is shared; statistics sent to Rocket.Chat are made visible to you within the administration area.
           </div>
           <div
             class="rcx-box rcx-box--full rcx-css-19c5bc1"
-            id=":r0:-informed-disclaimer"
+            id="_r_0_-informed-disclaimer"
           >
             By submitting this form you consent to receive more information about Rocket.Chat products, events and updates, according to our 
             <a
@@ -177,8 +177,8 @@ exports[`renders _RegisterServerFormOffline without crashing 1`] = `
 <body>
   <div>
     <form
-      aria-describedby=":r3:-informed-disclaimer :r3:-engagement-disclaimer"
-      aria-labelledby=":r3:-title"
+      aria-describedby="_r_3_-informed-disclaimer _r_3_-engagement-disclaimer"
+      aria-labelledby="_r_3_-title"
       class="rcx-box rcx-box--full rcx-tile--elevation-1 rcx-tile rcx-css-1i7nda9"
       tabindex="-1"
     >
@@ -192,7 +192,7 @@ exports[`renders _RegisterServerFormOffline without crashing 1`] = `
         </div>
         <div
           class="rcx-box rcx-box--full rcx-css-18gg2kh"
-          id=":r3:-title"
+          id="_r_3_-title"
         >
           Register your workspace
         </div>
@@ -209,7 +209,7 @@ exports[`renders _RegisterServerFormOffline without crashing 1`] = `
           >
             <label
               class="rcx-box rcx-box--full rcx-field__label rcx-label rcx-css-127j9mz"
-              for=":r4:"
+              for="_r_4_"
             >
               Admin email
               <span
@@ -223,11 +223,11 @@ exports[`renders _RegisterServerFormOffline without crashing 1`] = `
               class="rcx-box rcx-box--full rcx-field__row"
             >
               <input
-                aria-describedby=":r4:-error"
+                aria-describedby="_r_4_-error"
                 aria-invalid="false"
                 aria-required="true"
                 class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--type-email rcx-input-box"
-                id=":r4:"
+                id="_r_4_"
                 name="email"
                 placeholder="Insert your email to continue"
                 size="1"
@@ -246,11 +246,11 @@ exports[`renders _RegisterServerFormOffline without crashing 1`] = `
                 class="rcx-box rcx-box--full rcx-check-box"
               >
                 <input
-                  aria-describedby=":r5:-error"
+                  aria-describedby="_r_5_-error"
                   aria-invalid="false"
                   aria-required="true"
                   class="rcx-box rcx-box--full rcx-check-box__input"
-                  id=":r5:"
+                  id="_r_5_"
                   name="agreement"
                   type="checkbox"
                 />
@@ -261,7 +261,7 @@ exports[`renders _RegisterServerFormOffline without crashing 1`] = `
               </label>
               <label
                 class="rcx-box rcx-box--full rcx-box--with-block-elements rcx-box--with-inline-elements rcx-field__label rcx-label rcx-css-1nlo49l"
-                for=":r5:"
+                for="_r_5_"
               >
                 I agree with 
                 <a
@@ -332,13 +332,13 @@ exports[`renders _RegisterServerFormOffline without crashing 1`] = `
           </div>
           <div
             class="rcx-box rcx-box--full rcx-css-19c5bc1"
-            id=":r3:-engagement-disclaimer"
+            id="_r_3_-engagement-disclaimer"
           >
             Registration allows automatic license updates, notifications of critical vulnerabilities and access to Rocket.Chat Cloud services. No sensitive workspace data is shared; statistics sent to Rocket.Chat are made visible to you within the administration area.
           </div>
           <div
             class="rcx-box rcx-box--full rcx-css-19c5bc1"
-            id=":r3:-informed-disclaimer"
+            id="_r_3_-informed-disclaimer"
           >
             By submitting this form you consent to receive more information about Rocket.Chat products, events and updates, according to our 
             <a
