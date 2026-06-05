@@ -185,7 +185,7 @@ export const useMediaQueries: (...queries: string[]) => boolean[];
 export const useMediaQuery: (query?: string) => boolean;
 
 // @public
-export const useMergedRefs: <T>(...refs: Ref<T>[]) => RefCallback<T>;
+export const useMergedRefs: <T>(...refs: (Ref<T> | null | undefined)[]) => RefCallback<T>;
 
 // @public @deprecated
 export const useMutableCallback: <TFunction extends (...args: any[]) => any>(fn: TFunction) => (...args: TFunction extends (...args: infer P) => any ? P : never) => TFunction extends (...args: any) => infer T ? T : never;

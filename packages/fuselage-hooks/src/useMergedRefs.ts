@@ -15,7 +15,9 @@ const isRefObject = <T>(x: unknown): x is RefObject<T> => typeof x === 'object';
  * @return a merged callback ref
  * @public
  */
-export const useMergedRefs = <T>(...refs: Ref<T>[]): RefCallback<T> => {
+export const useMergedRefs = <T>(
+  ...refs: (Ref<T> | null | undefined)[]
+): RefCallback<T> => {
   const refsRef = useRef(refs);
 
   useIsomorphicLayoutEffect(() => {
