@@ -1,5 +1,5 @@
 import { useMergedRefs } from '@rocket.chat/fuselage-hooks';
-import type { FormEvent, AllHTMLAttributes, ReactNode } from 'react';
+import type { AllHTMLAttributes, ChangeEvent, ReactNode } from 'react';
 import { forwardRef, useLayoutEffect, useRef, useCallback } from 'react';
 
 import { Box, type BoxProps } from '../Box';
@@ -23,7 +23,7 @@ const CheckBox = forwardRef<HTMLInputElement, CheckBoxProps>(function CheckBox(
   }, [innerRef, indeterminate]);
 
   const handleChange = useCallback(
-    (event: FormEvent<HTMLInputElement>) => {
+    (event: ChangeEvent<HTMLInputElement>) => {
       if (innerRef && innerRef.current && indeterminate !== undefined) {
         innerRef.current.indeterminate = indeterminate;
       }

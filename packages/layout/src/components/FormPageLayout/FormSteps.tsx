@@ -1,5 +1,4 @@
 import { Box } from '@rocket.chat/fuselage';
-import type { ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
 
 export type FormStepsProps = {
@@ -7,10 +6,7 @@ export type FormStepsProps = {
   stepCount: number;
 };
 
-const FormSteps = ({
-  currentStep,
-  stepCount,
-}: FormStepsProps): ReactElement => {
+const FormSteps = ({ currentStep, stepCount }: FormStepsProps) => {
   const { t } = useTranslation();
 
   return (

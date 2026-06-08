@@ -58,7 +58,7 @@ const Banner = ({
   variant = 'neutral',
   ...props
 }: BannerProps) => {
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement>(null);
   const { inlineSize } = useBorderBoxSize(ref, {
     debounceDelay: 70,
   });

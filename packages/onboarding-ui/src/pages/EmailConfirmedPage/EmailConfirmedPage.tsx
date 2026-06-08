@@ -3,10 +3,9 @@ import {
   HeroLayoutSubtitle,
   HeroLayoutTitle,
 } from '@rocket.chat/layout';
-import type { ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
 
-const EmailConfirmedPage = (): ReactElement => {
+const EmailConfirmedPage = () => {
   const { t } = useTranslation();
 
   return (

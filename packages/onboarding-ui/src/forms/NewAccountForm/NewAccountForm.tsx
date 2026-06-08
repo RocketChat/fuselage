@@ -13,7 +13,6 @@ import {
   FieldError,
 } from '@rocket.chat/fuselage';
 import { Form } from '@rocket.chat/layout';
-import type { ReactElement } from 'react';
 import { useEffect } from 'react';
 import type { FieldPathValue, SubmitHandler, Validate } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
@@ -49,7 +48,7 @@ const NewAccountForm = ({
   validatePassword,
   validateConfirmationPassword,
   onSubmit,
-}: NewAccountFormProps): ReactElement => {
+}: NewAccountFormProps) => {
   const { t } = useTranslation();
 
   const {

@@ -1,4 +1,4 @@
-import type { Node } from '@react-types/shared';
+import type { FocusableElement, Node } from '@react-types/shared';
 import type { ReactNode } from 'react';
 import { useRef } from 'react';
 import { mergeProps, useMenuItem } from 'react-aria';
@@ -17,7 +17,7 @@ type MenuItemProps = {
 };
 
 function MenuItem({ item, state }: MenuItemProps) {
-  const ref = useRef(null);
+  const ref = useRef<FocusableElement>(null);
   const {
     menuItemProps: { onPointerUp, ...menuItemProps },
     isFocused,

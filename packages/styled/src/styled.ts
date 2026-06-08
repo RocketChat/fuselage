@@ -13,6 +13,7 @@ import type {
   PropsWithoutRef,
   RefAttributes,
   SVGProps,
+  JSX,
 } from 'react';
 import {
   createElement,

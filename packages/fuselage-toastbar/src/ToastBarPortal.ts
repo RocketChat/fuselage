@@ -1,4 +1,4 @@
-import type { ReactElement, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import { memo, useLayoutEffect } from 'react';
 import { createPortal } from 'react-dom';
 
@@ -46,7 +46,7 @@ type ToastBarPortalProps = {
   children?: ReactNode;
 };
 
-const ToastBarPortal = ({ children }: ToastBarPortalProps): ReactElement => {
+const ToastBarPortal = ({ children }: ToastBarPortalProps) => {
   const toastBarRoot = ensureAnchorElement('toastBarRoot');
 
   useLayoutEffect(() => {

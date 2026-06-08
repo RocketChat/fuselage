@@ -14,7 +14,7 @@ export const useElementIsVisible = <T extends Element>(): [
   ref: RefObject<T>,
   isVisible: boolean,
 ] => {
-  const innerRef = useRef<T>();
+  const innerRef = useRef<T>(undefined);
 
   const [menuVisibility, setMenuVisibility] = useSafely(
     useDebouncedState(false, 100),

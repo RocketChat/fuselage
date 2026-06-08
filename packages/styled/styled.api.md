@@ -8,6 +8,7 @@ import { Context } from 'react';
 import type { DetailedHTMLProps } from 'react';
 import type { ForwardRefExoticComponent } from 'react';
 import type { HTMLAttributes } from 'react';
+import type { JSX as JSX_2 } from 'react';
 import type { PropsWithoutRef } from 'react';
 import type { RefAttributes } from 'react';
 import type { SVGProps } from 'react';
@@ -19,11 +20,11 @@ document: Document;
 
 // @public (undocumented)
 export type RefTypes = {
-    [K in keyof JSX.IntrinsicElements]: JSX.IntrinsicElements[K] extends DetailedHTMLProps<HTMLAttributes<infer T>, any> ? T : JSX.IntrinsicElements[K] extends SVGProps<infer T> ? T : never;
+    [K in keyof JSX_2.IntrinsicElements]: JSX_2.IntrinsicElements[K] extends DetailedHTMLProps<HTMLAttributes<infer T>, any> ? T : JSX_2.IntrinsicElements[K] extends SVGProps<infer T> ? T : never;
 };
 
 // @public (undocumented)
-const styled: <K extends keyof JSX.IntrinsicElements, P>(type: K, filter?: (p: PropsWithoutRef<JSX.IntrinsicElements[K] & P>) => JSX.IntrinsicElements[K]) => (slices: TemplateStringsArray, ...values: readonly (string | ((props: P) => string))[]) => ForwardRefExoticComponent<PropsWithoutRef<JSX.IntrinsicElements[K] & P> & RefAttributes<RefTypes[K]>>;
+const styled: <K extends keyof JSX_2.IntrinsicElements, P>(type: K, filter?: (p: PropsWithoutRef<JSX_2.IntrinsicElements[K] & P>) => JSX_2.IntrinsicElements[K]) => (slices: TemplateStringsArray, ...values: readonly (string | ((props: P) => string))[]) => ForwardRefExoticComponent<PropsWithoutRef<JSX_2.IntrinsicElements[K] & P> & RefAttributes<RefTypes[K]>>;
 export default styled;
 
 // @public (undocumented)

@@ -1,5 +1,5 @@
 import type { ItemProps } from '@react-types/shared';
-import { Children, type ReactElement } from 'react';
+import { Children } from 'react';
 
 import type { PartialNode } from './PartialNode';
 
@@ -48,7 +48,7 @@ MenuItem.getCollectionNode = function* getCollectionNode<T>(
         Children.forEach(children, (child) => {
           items.push({
             type: 'item',
-            element: child as ReactElement,
+            element: child,
           });
         });
 

@@ -4,7 +4,7 @@ import { isValidElement, type ReactElement } from 'react';
 import { Icon, type IconProps } from '../../Icon';
 
 export type SidebarV2ItemIconProps = Omit<IconProps, 'name'> & {
-  icon: IconKeys | ReactElement;
+  icon: IconKeys | ReactElement<any>;
   highlighted?: boolean;
 };
 

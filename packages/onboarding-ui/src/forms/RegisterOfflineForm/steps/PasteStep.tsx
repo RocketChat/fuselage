@@ -1,7 +1,6 @@
 import { Box, Button, ButtonGroup, Scrollable } from '@rocket.chat/fuselage';
 import { useBreakpoints } from '@rocket.chat/fuselage-hooks';
 import { Form } from '@rocket.chat/layout';
-import type { ReactElement } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { Trans, useTranslation } from 'react-i18next';
 
@@ -11,7 +10,7 @@ type PasteStepProps = {
   setStep: (step: string) => void;
 };
 
-const PasteStep = ({ setStep }: PasteStepProps): ReactElement => {
+const PasteStep = ({ setStep }: PasteStepProps) => {
   const { t } = useTranslation();
   const breakpoints = useBreakpoints();
   const isMobile = !breakpoints.includes('md');
