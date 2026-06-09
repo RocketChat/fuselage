@@ -35,8 +35,8 @@
     "lint-and-fix": "lint-and-fix",
     "test": "jest --runInBand",
     "watch": "jest --watch",
-    "docs": "cross-env NODE_ENV=production storybook build -o ../../static/fuselage",
-    "build-storybook": "cross-env NODE_ENV=production storybook build"
+    "docs": "NODE_ENV=production storybook build -o ../../static/fuselage",
+    "build-storybook": "NODE_ENV=production storybook build"
   },
   "dependencies": {
     "@rocket.chat/css-in-js": "workspace:~",
@@ -74,7 +74,6 @@
     "autoprefixer": "~10.5.0",
     "babel-loader": "~10.1.1",
     "caniuse-lite": "~1.0.30001793",
-    "cross-env": "^10.1.0",
     "css-loader": "~7.1.4",
     "cssnano": "~7.1.9",
     "eslint": "~9.39.4",

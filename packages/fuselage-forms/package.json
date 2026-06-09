@@ -30,7 +30,7 @@
     "storybook": "storybook dev -p 6006 --no-version-updates",
     "build": "run .:build:clean && run .:build:esm && run .:build:cjs && run .:build:api",
     "clean": "rimraf dist",
-    "docs": "cross-env NODE_ENV=production storybook build -o ../../static/fuselage-forms",
+    "docs": "NODE_ENV=production storybook build -o ../../static/fuselage-forms",
     "lint": "lint",
     "lint-and-fix": "lint-and-fix",
     "test": "jest --runInBand"
@@ -51,7 +51,6 @@
     "@types/jest-axe": "~3.5.9",
     "@types/react": "~18.3.29",
     "@types/react-dom": "~18.3.7",
-    "cross-env": "^10.1.0",
     "eslint": "~9.39.4",
     "jest": "~30.4.2",
     "jest-axe": "~10.0.0",
