@@ -14,7 +14,7 @@ const HorizontalWizardLayoutCaption = ({
       display='inline-block'
       flexDirection='row'
       fontScale='c1'
-      color={isDark ? 'font-white' : 'font-secondary-info'}
+      color={isDark ? 'white' : 'secondary-info'}
       mb={16}
       alignItems='center'
     >
