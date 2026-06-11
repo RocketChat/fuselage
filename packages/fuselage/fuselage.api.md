@@ -35,7 +35,7 @@ import { MemoExoticComponent } from 'react';
 import { MemoizedFunction } from '@rocket.chat/memo';
 import type { MenuTriggerProps } from 'react-stately';
 import { MouseEvent as MouseEvent_2 } from 'react';
-import type { MouseEventHandler } from 'react';
+import { MouseEventHandler } from 'react';
 import { NamedExoticComponent } from 'react';
 import type { OverlayTriggerState } from 'react-stately';
 import type { PropsWithChildren } from 'react';
@@ -1571,7 +1571,12 @@ customEmpty?: string;
 anchor?: ElementType<MultiSelectAnchorParams> | ((params: MultiSelectAnchorParams) => ReactNode);
 renderOptions?: ElementType;
 renderItem?: ElementType;
-renderSelected?: ElementType;
+renderSelected?: ElementType<{
+value: SelectOption[0];
+label: SelectOption[1];
+onMouseDown: MouseEventHandler;
+children: ReactNode;
+}>;
 addonIcon?: IconProps["name"];
 setFilter?: (filter: string) => void;
 } & RefAttributes<HTMLInputElement>>;
@@ -1602,7 +1607,12 @@ customEmpty?: string;
 anchor?: ElementType<MultiSelectAnchorParams> | ((params: MultiSelectAnchorParams) => ReactNode);
 renderOptions?: ElementType;
 renderItem?: ElementType;
-renderSelected?: ElementType;
+renderSelected?: ElementType<    {
+value: SelectOption[0];
+label: SelectOption[1];
+onMouseDown: MouseEventHandler;
+children: ReactNode;
+}>;
 addonIcon?: IconProps["name"];
 setFilter?: (filter: string) => void;
 } & {
@@ -1630,7 +1640,12 @@ export type MultiSelectProps = Omit<BoxProps, 'onChange' | 'value'> & {
     anchor?: ElementType<MultiSelectAnchorParams> | ((params: MultiSelectAnchorParams) => ReactNode);
     renderOptions?: ElementType;
     renderItem?: ElementType;
-    renderSelected?: ElementType;
+    renderSelected?: ElementType<{
+        value: SelectOption[0];
+        label: SelectOption[1];
+        onMouseDown: MouseEventHandler;
+        children: ReactNode;
+    }>;
     addonIcon?: IconProps['name'];
     setFilter?: (filter: string) => void;
 };

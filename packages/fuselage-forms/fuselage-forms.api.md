@@ -27,6 +27,7 @@ import { IconProps } from '@rocket.chat/fuselage';
 import { InputBoxProps } from '@rocket.chat/fuselage';
 import { JSX } from 'react';
 import { Key } from 'react';
+import { MouseEventHandler } from 'react';
 import { MultiSelectAnchorParams } from '@rocket.chat/fuselage';
 import { NumberInputProps } from '@rocket.chat/fuselage';
 import { PasswordInputProps } from '@rocket.chat/fuselage';
@@ -153,7 +154,12 @@ customEmpty?: string;
 anchor?: ElementType<MultiSelectAnchorParams> | ((params: MultiSelectAnchorParams) => ReactNode);
 renderOptions?: ElementType;
 renderItem?: ElementType;
-renderSelected?: ElementType;
+renderSelected?: ElementType<    {
+value: SelectOption[0];
+label: SelectOption[1];
+onMouseDown: MouseEventHandler;
+children: ReactNode;
+}>;
 addonIcon?: IconProps["name"];
 setFilter?: (filter: string) => void;
 } & RefAttributes<HTMLInputElement>, "ref"> & RefAttributes<HTMLInputElement>>;
@@ -170,7 +176,12 @@ customEmpty?: string;
 anchor?: ElementType<MultiSelectAnchorParams> | ((params: MultiSelectAnchorParams) => ReactNode);
 renderOptions?: ElementType;
 renderItem?: ElementType;
-renderSelected?: ElementType;
+renderSelected?: ElementType<    {
+value: SelectOption[0];
+label: SelectOption[1];
+onMouseDown: MouseEventHandler;
+children: ReactNode;
+}>;
 addonIcon?: IconProps["name"];
 setFilter?: (filter: string) => void;
 } & {
