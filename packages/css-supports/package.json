@@ -33,7 +33,7 @@
     "@rocket.chat/memo": "workspace:~"
   },
   "devDependencies": {
-    "@microsoft/api-extractor": "~7.58.7",
+    "@microsoft/api-extractor": "~7.58.8",
     "eslint": "~9.39.4",
     "lint-all": "workspace:~",
     "prettier": "~3.6.2",

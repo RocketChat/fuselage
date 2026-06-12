@@ -37,7 +37,7 @@
     "test": "jest --runInBand"
   },
   "devDependencies": {
-    "@microsoft/api-extractor": "~7.58.7",
+    "@microsoft/api-extractor": "~7.58.8",
     "eslint": "~9.39.4",
     "jest": "~30.4.2",
     "lint-all": "workspace:~",
