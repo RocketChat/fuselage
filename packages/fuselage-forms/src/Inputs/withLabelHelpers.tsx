@@ -1,12 +1,7 @@
 // Disabled this flag since we need to wrap multiple components
 /* eslint-disable react/no-multi-comp */
 import { useMergedRefs } from '@rocket.chat/fuselage-hooks';
-import type {
-  ReactNode,
-  ForwardRefExoticComponent,
-  Ref,
-  RefAttributes,
-} from 'react';
+import type { ReactNode, ComponentType, Ref, RefAttributes } from 'react';
 import { forwardRef } from 'react';
 import { VisuallyHidden } from 'react-aria';
 
@@ -20,9 +15,7 @@ import {
 type WithLabelId = { id?: string };
 
 function withLabelId<TProps, TRef>(
-  Component: ForwardRefExoticComponent<
-    TProps & WithLabelId & RefAttributes<TRef>
-  >,
+  Component: ComponentType<TProps & WithLabelId & RefAttributes<TRef>>,
 ) {
   const WrappedComponent = forwardRef<TRef, TProps>(function (props, ref) {
     const labelProps = useFieldReferencedByInput();
@@ -43,9 +36,7 @@ function withLabelId<TProps, TRef>(
 type WithLabelledBy = { 'aria-labelledby'?: string };
 
 function withAriaLabelledBy<TProps, TRef>(
-  Component: ForwardRefExoticComponent<
-    TProps & WithLabelledBy & RefAttributes<TRef>
-  >,
+  Component: ComponentType<TProps & WithLabelledBy & RefAttributes<TRef>>,
 ) {
   const WrappedComponent = forwardRef<TRef, TProps>(function (props, ref) {
     const labelProps = useFieldReferencedByLabel();
@@ -66,9 +57,7 @@ function withAriaLabelledBy<TProps, TRef>(
 type WithLabelledByAndId = { 'aria-labelledby'?: string; 'id'?: string };
 
 function withAriaLabelledByAndId<TProps, TRef>(
-  Component: ForwardRefExoticComponent<
-    TProps & WithLabelledByAndId & RefAttributes<TRef>
-  >,
+  Component: ComponentType<TProps & WithLabelledByAndId & RefAttributes<TRef>>,
 ) {
   const WrappedComponent = forwardRef<TRef, TProps>(function (props, ref) {
     const labelProps = useFieldReferencedByLabelWithId();
@@ -89,9 +78,7 @@ function withAriaLabelledByAndId<TProps, TRef>(
 type WithChildrenLabel = { labelChildren: ReactNode };
 
 function withVisuallyHiddenLabel<TProps, TRef>(
-  Component: ForwardRefExoticComponent<
-    TProps & WithChildrenLabel & RefAttributes<TRef>
-  >,
+  Component: ComponentType<TProps & WithChildrenLabel & RefAttributes<TRef>>,
 ) {
   const WrappedComponent = forwardRef<TRef, TProps>(function (props, ref) {
     const [label, labelProps, labelRef] = useFieldWrappedByInputLabel();

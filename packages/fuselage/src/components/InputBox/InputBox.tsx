@@ -1,5 +1,5 @@
 import { useMergedRefs } from '@rocket.chat/fuselage-hooks';
-import type { FormEvent, ReactNode } from 'react';
+import type { ChangeEvent, ReactNode } from 'react';
 import { forwardRef, useCallback, useLayoutEffect, useRef } from 'react';
 
 import type { BoxProps } from '../Box';
@@ -95,7 +95,7 @@ const InputBox = forwardRef<any, InputBoxProps>(function InputBox(
   }, [defaultAddon, error]);
 
   const handleChange = useCallback(
-    (event: FormEvent<HTMLElement>) => {
+    (event: ChangeEvent<HTMLElement>) => {
       if (defaultAddon && innerRef.current && innerRef.current.parentElement) {
         innerRef.current.parentElement.classList.toggle(
           'invalid',

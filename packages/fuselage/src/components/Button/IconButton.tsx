@@ -3,7 +3,7 @@ import type { ReactElement } from 'react';
 import { isValidElement, useMemo, forwardRef } from 'react';
 
 import { Box, type BoxProps } from '../Box';
-import { Icon, type IconProps } from '../Icon';
+import { Icon } from '../Icon';
 
 export type IconButtonSize = {
   large?: boolean;
@@ -14,7 +14,7 @@ export type IconButtonSize = {
 };
 
 export type IconButtonProps = {
-  icon: IconName | ReactElement;
+  icon: IconName | ReactElement<any>;
   primary?: boolean;
   secondary?: boolean;
   info?: boolean;
@@ -124,10 +124,10 @@ const IconButton = forwardRef<HTMLElement, IconButtonProps>(
         ref={ref}
         {...props}
       >
-        {isValidElement(icon) ? (
+        {isValidElement<any>(icon) ? (
           icon
         ) : (
-          <Icon name={icon as IconProps['name']} size={getIconSize()} />
+          <Icon name={icon} size={getIconSize()} />
         )}
         {children}
       </Box>

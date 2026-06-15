@@ -9,7 +9,6 @@ import {
   FieldError,
 } from '@rocket.chat/fuselage';
 import { ActionLink, Form } from '@rocket.chat/layout';
-import type { ReactElement } from 'react';
 import type { SubmitHandler } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
@@ -34,7 +33,7 @@ const TotpForm = ({
   initialValues,
   isBackupCode = false,
   onChangeTotpForm,
-}: TotpFormProps): ReactElement => {
+}: TotpFormProps) => {
   const { t } = useTranslation();
 
   const {

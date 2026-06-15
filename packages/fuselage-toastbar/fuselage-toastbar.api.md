@@ -5,8 +5,8 @@
 ```ts
 
 import { Context } from 'react';
+import { JSX as JSX_2 } from 'react/jsx-runtime';
 import { MemoExoticComponent } from 'react';
-import type { ReactElement } from 'react';
 import type { ReactNode } from 'react';
 import { ToastBar } from '@rocket.chat/fuselage';
 
@@ -40,7 +40,7 @@ export type ToastBarProps = {
 };
 
 // @public (undocumented)
-export const ToastBarProvider: MemoExoticComponent<(input: ToastBarProps) => ReactElement>;
+export const ToastBarProvider: MemoExoticComponent<(input: ToastBarProps) => JSX_2.Element>;
 
 // @public (undocumented)
 export const useToastBarDismiss: () => ToastBarContextValue["dismiss"];

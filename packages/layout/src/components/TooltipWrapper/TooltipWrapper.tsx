@@ -23,13 +23,13 @@ import {
 } from 'react';
 
 export type AnchorParams = {
-  ref: MutableRefObject<null>;
+  ref: MutableRefObject<Element | null>;
   toggle: Dispatch<SetStateAction<boolean>>;
   id: string;
 };
 
 const getAnchor = (
-  children: ReactElement | ((props: AnchorParams) => ReactNode),
+  children: ReactElement<any> | ((props: AnchorParams) => ReactNode),
   params: AnchorParams,
 ): ReactNode => {
   if (typeof children === 'function') {
@@ -50,7 +50,7 @@ const getAnchor = (
 const InnerTooltip = forwardRef(function InnerTooltip(
   { style, ...props }: ComponentProps<typeof Tooltip>,
   ref: Ref<HTMLDivElement>,
-): ReactElement {
+) {
   return (
     <div ref={ref} style={style}>
       <Tooltip {...props} />
@@ -59,15 +59,12 @@ const InnerTooltip = forwardRef(function InnerTooltip(
 });
 
 export type TooltipWrapperProps = {
-  children: ReactElement | ((props: AnchorParams) => ReactNode);
+  children: ReactElement<any> | ((props: AnchorParams) => ReactNode);
   text: string;
 };
 
-const TooltipWrapper = ({
-  children,
-  text,
-}: TooltipWrapperProps): ReactElement => {
-  const anchorRef = useRef(null);
+const TooltipWrapper = ({ children, text }: TooltipWrapperProps) => {
+  const anchorRef = useRef<Element>(null);
   const [open, setOpen] = useDebouncedState(false, 460);
   const toggle = useCallback(
     (open: SetStateAction<boolean>) => {

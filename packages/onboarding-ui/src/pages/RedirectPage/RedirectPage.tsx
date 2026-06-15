@@ -1,6 +1,5 @@
 import { Box, Margins } from '@rocket.chat/fuselage';
 import { ActionLink, LayoutLogo, BackgroundLayer } from '@rocket.chat/layout';
-import type { ReactElement } from 'react';
 import { useEffect, useState } from 'react';
 import { useTranslation, Trans } from 'react-i18next';
 
@@ -14,7 +13,7 @@ const RedirectPage = ({
   title,
   countDownSeconds,
   onRedirect,
-}: RedirectPageProps): ReactElement => {
+}: RedirectPageProps) => {
   const { t } = useTranslation();
 
   const [seconds, setSeconds] = useState(countDownSeconds);

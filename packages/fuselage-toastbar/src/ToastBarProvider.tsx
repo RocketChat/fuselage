@@ -1,4 +1,4 @@
-import type { ReactNode, ReactElement } from 'react';
+import type { ReactNode } from 'react';
 import { useState, memo, useCallback } from 'react';
 
 import type { ToastBarPayload } from './ToastBarContext';
@@ -12,7 +12,7 @@ export type ToastBarProps = {
   children?: ReactNode;
 };
 
-const ToastBarProvider = ({ children }: ToastBarProps): ReactElement => {
+const ToastBarProvider = ({ children }: ToastBarProps) => {
   const [toasts, setToasts] = useState<ToastBarPayload[]>([]);
 
   const contextValue = {

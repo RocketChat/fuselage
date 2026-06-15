@@ -1915,13 +1915,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@epic-web/invariant@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "@epic-web/invariant@npm:1.0.0"
-  checksum: 10/28b36a7447f60b84f9d6a23571480042170ef4239a577577ad8447f64a2e4f1a4e57e6fe1b592e61534c5ab53ff67776130e6c88a68cbd997eb6e9c9759a5934
-  languageName: node
-  linkType: hard
-
 "@esbuild/aix-ppc64@npm:0.25.0":
   version: 0.25.0
   resolution: "@esbuild/aix-ppc64@npm:0.25.0"
@@ -5196,7 +5189,6 @@ __metadata:
     "@types/jest-axe": "npm:~3.5.9"
     "@types/react": "npm:~18.3.29"
     "@types/react-dom": "npm:~18.3.7"
-    cross-env: "npm:^10.1.0"
     eslint: "npm:~9.39.4"
     jest: "npm:~30.4.2"
     jest-axe: "npm:~10.0.0"
@@ -5381,7 +5373,6 @@ __metadata:
     autoprefixer: "npm:~10.5.0"
     babel-loader: "npm:~10.1.1"
     caniuse-lite: "npm:~1.0.30001793"
-    cross-env: "npm:^10.1.0"
     css-loader: "npm:~7.1.4"
     cssnano: "npm:~7.1.9"
     eslint: "npm:~9.39.4"
@@ -9015,19 +9006,6 @@ __metadata:
   version: 3.3.0
   resolution: "countries-list@npm:3.3.0"
   checksum: 10/5d9982c066842d98acc78dfc61dc491d147e6dd9a3f7514d4dae535edd12e06ead11bc92563829949b36f5f9d05d8897d9665d1585680ece8f800c47d64a3243
-  languageName: node
-  linkType: hard
-
-"cross-env@npm:^10.1.0":
-  version: 10.1.0
-  resolution: "cross-env@npm:10.1.0"
-  dependencies:
-    "@epic-web/invariant": "npm:^1.0.0"
-    cross-spawn: "npm:^7.0.6"
-  bin:
-    cross-env: dist/bin/cross-env.js
-    cross-env-shell: dist/bin/cross-env-shell.js
-  checksum: 10/0e5d8bdefbbcd000460b69755e0eeb22953510abac8375e4f8b638ff7c45406141acfd57b8a4c1d1cf0b5ea42f33451b302062fb9b34408753b4d465e901b845
   languageName: node
   linkType: hard
 
@@ -16564,7 +16542,6 @@ __metadata:
   resolution: "scripts@workspace:tools/scripts"
   dependencies:
     "@types/node": "npm:~22.18.13"
-    cross-env: "npm:^10.1.0"
     endent: "npm:^2.1.0"
     eslint: "npm:~9.39.4"
     fast-glob: "npm:~3.3.3"

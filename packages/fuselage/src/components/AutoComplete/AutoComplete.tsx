@@ -10,7 +10,6 @@ import type {
   FocusEvent,
   ForwardRefExoticComponent,
   MouseEvent,
-  ReactElement,
   ReactNode,
   Ref,
   RefAttributes,
@@ -269,10 +268,13 @@ const AutoComplete = forwardRef(function AutoComplete<TLabel = ReactNode>(
       </PositionAnimated>
     </Box>
   );
-}) as ForwardRefExoticComponent<AutoCompleteProps> & {
+}) as Pick<
+  ForwardRefExoticComponent<AutoCompleteProps>,
+  keyof ForwardRefExoticComponent<AutoCompleteProps>
+> & {
   <TLabel = ReactNode>(
     props: AutoCompleteProps<TLabel> & RefAttributes<HTMLInputElement>,
-  ): ReactElement;
+  ): ReactNode;
 };
 
 export default AutoComplete;
