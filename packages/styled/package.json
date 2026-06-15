@@ -34,7 +34,7 @@
     "docs": "typedoc"
   },
   "dependencies": {
-    "@rocket.chat/css-in-js": "workspace:~"
+    "@rocket.chat/css-in-js": "^0.32.0"
   },
   "devDependencies": {
     "@microsoft/api-extractor": "~7.58.7",
@@ -45,7 +45,7 @@
     "eslint": "~9.39.4",
     "jest": "~30.4.2",
     "jest-environment-jsdom": "~30.4.1",
-    "lint-all": "workspace:~",
+    "lint-all": "^0.31.25",
     "prettier": "~3.6.2",
     "react": "~18.3.1",
     "react-dom": "~18.3.1",
