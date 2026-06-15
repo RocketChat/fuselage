@@ -57,6 +57,15 @@ $input-border-radius: theme(
 
   align-items: flex-start;
   flex: 0 0 auto;
+  display: flex;
+
+  &--start {
+    margin-inline-end: lengths.padding(8);
+  }
+
+  &--end {
+    margin-inline-start: lengths.padding(8);
+  }
 }
 
 .rcx-input-box {
