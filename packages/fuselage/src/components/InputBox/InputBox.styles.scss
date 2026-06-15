@@ -35,6 +35,8 @@ $input-border-radius: theme(
 
   outline: 0;
 
+  gap: lengths.size(8);
+
   @extend %input;
 
   &:invalid,
@@ -52,6 +54,7 @@ $input-border-radius: theme(
 
 .rcx-input-box__addon {
   @include clickable;
+  display: flex;
 
   flex-flow: row nowrap;
 
