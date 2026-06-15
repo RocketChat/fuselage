@@ -2,4 +2,4 @@
 '@rocket.chat/fuselage': minor
 ---
 
-feat(fuselage): Add addonStart prop to InputBox
+feat(fuselage): Add `addonPositionStart` prop to `InputBox`
