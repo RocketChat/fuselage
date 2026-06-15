@@ -18,9 +18,13 @@ $input-border-radius: theme(
 
   display: inline-flex;
 
-  flex-flow: row nowrap;
+  flex-direction: row;
+
+  flex-wrap: nowrap;
 
   align-items: flex-start;
+
+  gap: lengths.size(8);
 
   flex-grow: 1;
 
@@ -48,6 +52,10 @@ $input-border-radius: theme(
     cursor: not-allowed;
     pointer-events: none;
   }
+
+  &--reverse {
+    flex-direction: row-reverse;
+  }
 }
 
 .rcx-input-box__addon {
@@ -58,14 +66,6 @@ $input-border-radius: theme(
   align-items: flex-start;
   flex: 0 0 auto;
   display: flex;
-
-  &--start {
-    margin-inline-end: lengths.padding(8);
-  }
-
-  &--end {
-    margin-inline-start: lengths.padding(8);
-  }
 }
 
 .rcx-input-box {

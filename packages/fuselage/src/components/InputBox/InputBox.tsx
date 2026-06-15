@@ -11,7 +11,7 @@ import InputBoxWrapper from './InputBoxWrapper';
 
 export type InputBoxProps = BoxProps & {
   addon?: ReactNode;
-  addonStart?: boolean;
+  addonPositionStart?: boolean;
   input?: ReactNode;
   multiple?: boolean;
   error?: string;
@@ -57,7 +57,7 @@ const InputBox = forwardRef<any, InputBoxProps>(function InputBox(
   {
     className,
     addon,
-    addonStart,
+    addonPositionStart,
     error,
     hidden,
     invisible,
@@ -148,10 +148,10 @@ const InputBox = forwardRef<any, InputBoxProps>(function InputBox(
         props.disabled && 'disabled',
         ...(Array.isArray(className) ? className : [className]),
       ]}
+      rcx-input-box__wrapper--reverse={addonPositionStart}
       hidden={hidden}
       invisible={invisible}
     >
-      {addonStart && <InputBoxAddon children={addon} addonStart={true} />}
       <Input
         is={
           (type === 'textarea' && 'textarea') ||
@@ -174,7 +174,7 @@ const InputBox = forwardRef<any, InputBoxProps>(function InputBox(
         rcx-input-box--small={small}
         {...props}
       />
-      {!addonStart && <InputBoxAddon children={addon} addonStart={false} />}
+      <InputBoxAddon children={addon} />
     </InputBoxWrapper>
   );
 });
