@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.79.0
+
+### Minor Changes
+
+- [#2017](https://github.com/RocketChat/fuselage/pull/2017) [`752b501`](https://github.com/RocketChat/fuselage/commit/752b5018c3c0991a721f636394b9fab19340a5e3) Thanks [@dougfabris](https://github.com/dougfabris)! - feat(fuselage): Add `startAddon` and `endAddon` to `InputBox`
+
 ## 0.78.1
 
 ### Patch Changes
