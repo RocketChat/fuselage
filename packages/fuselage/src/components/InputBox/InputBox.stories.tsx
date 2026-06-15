@@ -44,10 +44,9 @@ WithAddon.args = {
   addon: <Icon name='send' size='x20' />,
 };
 
-export const WithAddonStart: StoryFn<typeof InputBox> = Template.bind({});
-WithAddonStart.args = {
-  addon: <Icon name='send' size='x20' />,
-  addonPositionStart: true,
+export const WithStartAddon: StoryFn<typeof InputBox> = Template.bind({});
+WithStartAddon.args = {
+  startAddon: <Icon name='send' size='x20' />,
 };
 
 export const Invalid: StoryFn<typeof InputBox> = Template.bind({});

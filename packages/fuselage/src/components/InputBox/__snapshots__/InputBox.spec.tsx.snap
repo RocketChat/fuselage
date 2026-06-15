@@ -180,33 +180,6 @@ exports[`renders WithAddon without crashing 1`] = `
 </body>
 `;
 
-exports[`renders WithAddonStart without crashing 1`] = `
-<body>
-  <div>
-    <label
-      class="rcx-box rcx-box--full rcx-label rcx-box rcx-box--full rcx-box--animated rcx-input-box__wrapper--reverse rcx-input-box__wrapper"
-    >
-      <input
-        aria-label="Value"
-        class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--undecorated rcx-input-box--type-text rcx-input-box"
-        size="1"
-        type="text"
-      />
-      <span
-        class="rcx-box rcx-box--full rcx-input-box__addon"
-      >
-        <i
-          aria-hidden="true"
-          class="rcx-box rcx-box--full rcx-icon--name-send rcx-icon rcx-css-4pvxx3"
-        >
-          〈
-        </i>
-      </span>
-    </label>
-  </div>
-</body>
-`;
-
 exports[`renders WithPlaceholder without crashing 1`] = `
 <body>
   <div>
@@ -217,6 +190,33 @@ exports[`renders WithPlaceholder without crashing 1`] = `
       size="1"
       type="text"
     />
+  </div>
+</body>
+`;
+
+exports[`renders WithStartAddon without crashing 1`] = `
+<body>
+  <div>
+    <label
+      class="rcx-box rcx-box--full rcx-label rcx-box rcx-box--full rcx-box--animated rcx-input-box__wrapper"
+    >
+      <span
+        class="rcx-box rcx-box--full rcx-input-box__addon"
+      >
+        <i
+          aria-hidden="true"
+          class="rcx-box rcx-box--full rcx-icon--name-send rcx-icon rcx-css-4pvxx3"
+        >
+          〈
+        </i>
+      </span>
+      <input
+        aria-label="Value"
+        class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--undecorated rcx-input-box--type-text rcx-input-box"
+        size="1"
+        type="text"
+      />
+    </label>
   </div>
 </body>
 `;

@@ -10,8 +10,10 @@ import InputBoxAddon from './InputBoxAddon';
 import InputBoxWrapper from './InputBoxWrapper';
 
 export type InputBoxProps = BoxProps & {
+  /** @deprecated Prefer using `startAddon` and `endAddon` instead. */
   addon?: ReactNode;
-  addonPositionStart?: boolean;
+  startAddon?: ReactNode;
+  endAddon?: ReactNode;
   input?: ReactNode;
   multiple?: boolean;
   error?: string;
@@ -57,7 +59,8 @@ const InputBox = forwardRef<any, InputBoxProps>(function InputBox(
   {
     className,
     addon,
-    addonPositionStart,
+    startAddon,
+    endAddon,
     error,
     hidden,
     invisible,
@@ -74,6 +77,7 @@ const InputBox = forwardRef<any, InputBoxProps>(function InputBox(
     HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
   >(null);
   const mergedRef = useMergedRefs(ref, innerRef);
+  let defaultAddon = endAddon ?? addon;
 
   useLayoutEffect(() => {
     if (innerRef.current && innerRef.current.setCustomValidity) {
@@ -82,17 +86,17 @@ const InputBox = forwardRef<any, InputBoxProps>(function InputBox(
   }, [error]);
 
   useLayoutEffect(() => {
-    if (addon && innerRef.current && innerRef.current.parentElement) {
+    if (defaultAddon && innerRef.current && innerRef.current.parentElement) {
       innerRef.current.parentElement.classList.toggle(
         'invalid',
         !innerRef.current.checkValidity(),
       );
     }
-  }, [addon, error]);
+  }, [defaultAddon, error]);
 
   const handleChange = useCallback(
     (event: FormEvent<HTMLElement>) => {
-      if (addon && innerRef.current && innerRef.current.parentElement) {
+      if (defaultAddon && innerRef.current && innerRef.current.parentElement) {
         innerRef.current.parentElement.classList.toggle(
           'invalid',
           !innerRef.current.checkValidity(),
@@ -101,20 +105,22 @@ const InputBox = forwardRef<any, InputBoxProps>(function InputBox(
 
       onChange?.call(event.currentTarget, event);
     },
-    [addon, onChange],
+    [defaultAddon, onChange],
   );
 
   const handleAddonClick = () =>
     (innerRef.current as HTMLInputElement).showPicker();
 
   if (type === 'date') {
-    addon = <Icon name='calendar' size='x20' onClick={handleAddonClick} />;
+    defaultAddon = (
+      <Icon name='calendar' size='x20' onClick={handleAddonClick} />
+    );
   }
   if (type === 'time') {
-    addon = <Icon name='clock' size='x20' onClick={handleAddonClick} />;
+    defaultAddon = <Icon name='clock' size='x20' onClick={handleAddonClick} />;
   }
 
-  if (!addon) {
+  if (!defaultAddon && !startAddon) {
     return (
       <Input
         is={
@@ -148,10 +154,10 @@ const InputBox = forwardRef<any, InputBoxProps>(function InputBox(
         props.disabled && 'disabled',
         ...(Array.isArray(className) ? className : [className]),
       ]}
-      rcx-input-box__wrapper--reverse={addonPositionStart}
       hidden={hidden}
       invisible={invisible}
     >
+      {startAddon && <InputBoxAddon children={startAddon} />}
       <Input
         is={
           (type === 'textarea' && 'textarea') ||
@@ -174,7 +180,7 @@ const InputBox = forwardRef<any, InputBoxProps>(function InputBox(
         rcx-input-box--small={small}
         {...props}
       />
-      <InputBoxAddon children={addon} />
+      {defaultAddon && <InputBoxAddon children={defaultAddon} />}
     </InputBoxWrapper>
   );
 });
