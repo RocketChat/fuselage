@@ -47,7 +47,8 @@
     "@rocket.chat/memo": "workspace:~",
     "invariant": "^2.2.4",
     "react-aria": "~3.37.0",
-    "react-keyed-flatten-children": "^1.3.0",
+    "react-is": "~19.2.7",
+    "react-keyed-flatten-children": "~5.1.2",
     "react-stately": "~3.35.0"
   },
   "devDependencies": {
@@ -74,6 +75,7 @@
     "@types/jest-axe": "~3.5.9",
     "@types/react": "~19.2.16",
     "@types/react-dom": "~19.2.3",
+    "@types/react-is": "^19",
     "autoprefixer": "~10.5.0",
     "babel-loader": "~10.1.1",
     "caniuse-lite": "~1.0.30001793",
