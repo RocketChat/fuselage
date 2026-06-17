@@ -24,7 +24,6 @@ $input-border-radius: theme(
 
   flex-grow: 1;
 
-  width: 1px;
   min-width: lengths.size(144);
 
   padding-block: lengths.padding(8);
@@ -35,8 +34,6 @@ $input-border-radius: theme(
   word-break: break-all;
 
   outline: 0;
-
-  gap: lengths.size(8);
 
   @extend %input;
 
@@ -61,6 +58,14 @@ $input-border-radius: theme(
 
   align-items: flex-start;
   flex: 0 0 auto;
+
+  &:has(+ .rcx-input-box) {
+    margin-inline-end: lengths.size(8);
+  }
+
+  .rcx-input-box + & {
+    margin-inline-start: lengths.size(8);
+  }
 }
 
 .rcx-input-box {
@@ -70,7 +75,7 @@ $input-border-radius: theme(
 
   flex: 1 0 auto;
 
-  width: 1px;
+  width: lengths.size(none);
   min-width: lengths.size(128);
 
   user-select: initial;
