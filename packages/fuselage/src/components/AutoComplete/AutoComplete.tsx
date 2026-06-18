@@ -7,7 +7,7 @@ import type {
   MouseEvent,
   ReactNode,
 } from 'react';
-import { useEffect, useRef, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 
 import { AnimatedVisibility } from '../AnimatedVisibility';
 import { Box } from '../Box';
@@ -15,8 +15,9 @@ import { Chip } from '../Chip';
 import { Icon } from '../Icon';
 import { Input } from '../InputBox';
 import { Margins } from '../Margins';
-import { useCursor, Options, type OptionType } from '../Options';
+import { Options, type OptionType } from '../Options';
 import { PositionAnimated } from '../PositionAnimated';
+import { useAutoCompleteCursor } from './useAutoCompleteCursor';
 
 type AutoCompleteOption<TLabel> = {
   value: string;
@@ -52,29 +53,22 @@ export type AutoCompleteProps<TLabel> = Omit<
   value?: string | string[];
 };
 
+/**
+ * Resolves the currently selected options from the controlled `value`.
+ * The selection is always derived — never duplicated in local state — so it
+ * cannot drift from `value`/`options`.
+ */
 const getSelected = <TLabel,>(
   value: string | string[] | undefined,
   options: AutoCompleteOption<TLabel>[],
-) => {
+): AutoCompleteOption<TLabel>[] => {
   if (!value) {
     return [];
   }
   return typeof value === 'string'
     ? options.filter((option) => option.value === value)
-    : options?.filter((option) => value.includes(option.value));
+    : options.filter((option) => value.includes(option.value));
 };
-
-const isSelectedValid =
-  <TLabel,>(value: string | string[] | undefined) =>
-  (selected: AutoCompleteOption<TLabel>) => {
-    if (!value) {
-      return false;
-    }
-
-    return typeof value === 'string'
-      ? selected.value === value
-      : value.includes(selected.value);
-  };
 
 /**
  * An input for selection of options.
@@ -92,63 +86,15 @@ function AutoComplete<TLabel = ReactNode>({
   error,
   disabled,
   multiple,
-  onBlur: onBlurAction = () => {},
+  onBlur: onBlurAction = () => undefined,
   ...props
 }: AutoCompleteProps<TLabel>) {
   const ref = useRef<HTMLInputElement>(null);
   const { ref: containerRef, borderBoxSize } = useResizeObserver();
 
-  const [selected, setSelected] = useState(
-    () => getSelected(value, options) || [],
-  );
-
-  useEffect(() => {
-    // Validates if selected items are still valid after value changes
-    setSelected((selected) => {
-      return !selected.every(isSelectedValid(value))
-        ? selected.filter(isSelectedValid(value))
-        : selected;
-    });
-  }, [value]);
-
-  const handleSelect = useEffectEvent(
-    ([newValue]: OptionType<string, TLabel>) => {
-      if (selected.some((item) => item.value === newValue)) {
-        hide();
-        return;
-      }
-
-      if (multiple) {
-        setSelected([...selected, ...getSelected(newValue as string, options)]);
-        onChange([...(value || []), newValue as string]);
-      } else {
-        setSelected(getSelected(newValue as string, options));
-        onChange(newValue as string);
-      }
-
-      setFilter?.('');
-      hide();
-    },
-  );
-
-  const handleRemove = useEffectEvent(
-    (event: MouseEvent<HTMLButtonElement>) => {
-      event.stopPropagation();
-      event.preventDefault();
-
-      const filtered = selected.filter(
-        (item) => item.value !== event.currentTarget.value,
-      );
-
-      const filteredValue =
-        multiple && Array.isArray(value)
-          ? value?.filter((item) => item !== event.currentTarget.value) || []
-          : '';
-
-      setSelected(filtered);
-      onChange(filteredValue);
-      hide();
-    },
+  const selected = useMemo(
+    () => getSelected(value, options),
+    [value, options],
   );
 
   const memoizedOptions = useMemo(
@@ -164,13 +110,54 @@ function AutoComplete<TLabel = ReactNode>({
     [options, selected],
   );
 
-  const [cursor, handleKeyDown, , reset, [optionsAreVisible, hide, show]] =
-    useCursor(firstSelectedIndex, memoizedOptions, handleSelect);
+  const handleSelect = useEffectEvent(
+    ([newValue]: OptionType<string, TLabel>) => {
+      if (selected.some((item) => item.value === newValue)) {
+        hide();
+        return;
+      }
+
+      if (multiple) {
+        const current = Array.isArray(value) ? value : [];
+        onChange([...current, newValue]);
+      } else {
+        onChange(newValue);
+      }
+
+      setFilter?.('');
+      hide();
+    },
+  );
+
+  const handleRemove = useEffectEvent(
+    (event: MouseEvent<HTMLButtonElement>) => {
+      event.stopPropagation();
+      event.preventDefault();
+
+      const removed = event.currentTarget.value;
+
+      onChange(
+        multiple && Array.isArray(value)
+          ? value.filter((item) => item !== removed)
+          : '',
+      );
+      hide();
+    },
+  );
+
+  const { cursor, visible, show, hide, reset, handleKeyDown } =
+    useAutoCompleteCursor(firstSelectedIndex, memoizedOptions, handleSelect);
 
   const handleOnBlur = useEffectEvent((event: FocusEvent<HTMLInputElement>) => {
     hide();
     onBlurAction(event);
   });
+
+  const handleOnChange = useEffectEvent((e: ChangeEvent<HTMLInputElement>) =>
+    setFilter?.(e.currentTarget.value),
+  );
+
+  const handleClick = useEffectEvent(() => ref.current?.focus());
 
   useEffect(reset, [filter, reset]);
 
@@ -178,7 +165,7 @@ function AutoComplete<TLabel = ReactNode>({
     <Box
       rcx-autocomplete
       ref={containerRef}
-      onClick={useEffectEvent(() => ref.current?.focus())}
+      onClick={handleClick}
       flexGrow={1}
       className={useMemo(
         () => [error && 'invalid', disabled && 'disabled'],
@@ -196,14 +183,12 @@ function AutoComplete<TLabel = ReactNode>({
         <Margins all='x4'>
           <Input
             ref={ref}
-            onChange={useEffectEvent((e: ChangeEvent<HTMLInputElement>) =>
-              setFilter?.(e.currentTarget.value),
-            )}
+            onChange={handleOnChange}
             onBlur={handleOnBlur}
             onFocus={show}
             onKeyDown={handleKeyDown}
             placeholder={
-              optionsAreVisible === AnimatedVisibility.HIDDEN || !value
+              visible === AnimatedVisibility.HIDDEN || !value
                 ? placeholder
                 : undefined
             }
@@ -233,16 +218,12 @@ function AutoComplete<TLabel = ReactNode>({
       </Box>
       <Box rcx-autocomplete__addon>
         <Icon
-          name={
-            optionsAreVisible === AnimatedVisibility.VISIBLE
-              ? 'cross'
-              : 'magnifier'
-          }
+          name={visible === AnimatedVisibility.VISIBLE ? 'cross' : 'magnifier'}
           size='x20'
           color='default'
         />
       </Box>
-      <PositionAnimated visible={optionsAreVisible} anchor={containerRef}>
+      <PositionAnimated visible={visible} anchor={containerRef}>
         <Options
           width={borderBoxSize.inlineSize}
           onSelect={handleSelect}
