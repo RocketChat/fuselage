@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { execSync } from 'child_process';
+import { execFileSync } from 'child_process';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -22,8 +22,12 @@ const runPlaywrightScript = path.join(
 );
 
 if (process.env.CI) {
-  execSync(
-    `${runx} concurrently -k -s first -n "SB,TEST" "${runx} http-server storybook-static -s -p 6006" "${runx} wait-on tcp:127.0.0.1:6006 && ${runPlaywrightScript} ${updateSnapshots}"`,
+  execFileSync(
+    'sh',
+    [
+      '-c',
+      `${runx} concurrently -k -s first -n "SB,TEST" "${runx} http-server storybook-static -s -p 6006" "${runx} wait-on tcp:127.0.0.1:6006 && ${runPlaywrightScript} ${updateSnapshots}"`,
+    ],
     {
       stdio: 'inherit',
       cwd: packageDir,
@@ -31,8 +35,12 @@ if (process.env.CI) {
     },
   );
 } else {
-  execSync(
-    `${runx} concurrently -k -s first -n "SB,TEST" "${run} build-storybook && ${runx} http-server storybook-static -s -p 6006" "${runx} wait-on tcp:127.0.0.1:6006 && ${runPlaywrightScript} ${updateSnapshots}"`,
+  execFileSync(
+    'sh',
+    [
+      '-c',
+      `${runx} concurrently -k -s first -n "SB,TEST" "${run} build-storybook && ${runx} http-server storybook-static -s -p 6006" "${runx} wait-on tcp:127.0.0.1:6006 && ${runPlaywrightScript} ${updateSnapshots}"`,
+    ],
     {
       stdio: 'inherit',
       cwd: packageDir,
