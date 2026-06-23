@@ -24,6 +24,10 @@
     "visual-regression": {
       "dependsOn": ["^build-storybook"],
       "outputs": []
+    },
+    "visual-regression-update": {
+      "dependsOn": ["^build-storybook"],
+      "outputs": []
     }
   }
 }
