@@ -1,4 +1,4 @@
-import type { FormEvent, ReactNode } from 'react';
+import type { ChangeEvent, ReactNode } from 'react';
 import { forwardRef, useState, useCallback } from 'react';
 
 import { Icon } from '../Icon';
@@ -6,7 +6,7 @@ import { InputBox, type InputBoxProps } from '../InputBox';
 
 import SelectInputPlaceholder from './SelectInputPlaceholder';
 
-type SelectInputOptions = readonly (readonly [string, string])[];
+export type SelectInputOptions = readonly (readonly [string, string])[];
 
 export type SelectInputProps = Omit<InputBoxProps, 'type'> & {
   error?: string;
@@ -27,7 +27,7 @@ const SelectInput = forwardRef<HTMLElement, SelectInputProps>(
       !props.value && !props.defaultValue,
     );
     const handleChange = useCallback(
-      (event: FormEvent<HTMLSelectElement>) => {
+      (event: ChangeEvent<HTMLSelectElement>) => {
         setPlaceholderVisible(!event.currentTarget.value);
         onChange?.call(event.currentTarget, event);
       },

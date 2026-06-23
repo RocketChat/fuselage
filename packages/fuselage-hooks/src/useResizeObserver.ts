@@ -10,7 +10,7 @@ import { useDebouncedState } from './useDebouncedState';
 /**
  * @ignore
  */
-type UseResizeObserverOptions = {
+export type UseResizeObserverOptions = {
   debounceDelay?: number;
 };
 

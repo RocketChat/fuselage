@@ -1,6 +1,5 @@
 import { Box } from '@rocket.chat/fuselage';
 import { ActionLink } from '@rocket.chat/layout';
-import type { ReactElement } from 'react';
 import { Trans } from 'react-i18next';
 
 type EmailCodeFallbackProps = {
@@ -11,7 +10,7 @@ type EmailCodeFallbackProps = {
 const EmailCodeFallback = ({
   onResendEmailRequest,
   onChangeEmailRequest,
-}: EmailCodeFallbackProps): ReactElement => (
+}: EmailCodeFallbackProps) => (
   <Box fontScale='p2'>
     <Trans i18nKey='component.emailCodeFallback'>
       Didn’t receive email?

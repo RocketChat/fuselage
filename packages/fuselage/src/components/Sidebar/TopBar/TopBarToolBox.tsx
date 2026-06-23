@@ -5,7 +5,7 @@ import SidebarDivider from '../SidebarDivider';
 import { TopBar } from './TopBar';
 import { TopBarWrapper } from './TopBarWrapper';
 
-type TopBarToolBoxProps = {
+export type TopBarToolBoxProps = {
   children?: ReactNode;
   className?: string;
 };

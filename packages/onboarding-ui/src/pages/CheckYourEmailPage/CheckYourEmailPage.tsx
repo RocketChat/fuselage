@@ -3,12 +3,12 @@ import {
   HeroLayoutTitle,
   HeroLayoutSubtitle,
 } from '@rocket.chat/layout';
-import type { ReactElement, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import { useTranslation, Trans } from 'react-i18next';
 
 import EmailCodeFallback from '../../common/EmailCodeFallback';
 
-type CheckYourEmailPageProps = {
+export type CheckYourEmailPageProps = {
   title?: string;
   children?: ReactNode;
   onResendEmailRequest: () => void;
@@ -28,7 +28,7 @@ const CheckYourEmailPage = ({
   children,
   onResendEmailRequest,
   onChangeEmailRequest,
-}: CheckYourEmailPageProps): ReactElement => {
+}: CheckYourEmailPageProps) => {
   const { t } = useTranslation();
 
   return (

@@ -3,9 +3,9 @@ import type { ReactElement } from 'react';
 import { isValidElement, useMemo, forwardRef } from 'react';
 
 import { Box, type BoxProps } from '../Box';
-import { Icon, type IconProps } from '../Icon';
+import { Icon } from '../Icon';
 
-type ButtonSize = {
+export type IconButtonSize = {
   large?: boolean;
   medium?: boolean;
   small?: boolean;
@@ -14,7 +14,7 @@ type ButtonSize = {
 };
 
 export type IconButtonProps = {
-  icon: IconName | ReactElement;
+  icon: IconName | ReactElement<any>;
   primary?: boolean;
   secondary?: boolean;
   info?: boolean;
@@ -22,7 +22,7 @@ export type IconButtonProps = {
   warning?: boolean;
   success?: boolean;
   pressed?: boolean;
-} & ButtonSize &
+} & IconButtonSize &
   BoxProps;
 
 const getVariantClass = (variant: string) => {
@@ -124,10 +124,10 @@ const IconButton = forwardRef<HTMLElement, IconButtonProps>(
         ref={ref}
         {...props}
       >
-        {isValidElement(icon) ? (
+        {isValidElement<any>(icon) ? (
           icon
         ) : (
-          <Icon name={icon as IconProps['name']} size={getIconSize()} />
+          <Icon name={icon} size={getIconSize()} />
         )}
         {children}
       </Box>

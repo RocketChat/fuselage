@@ -143,7 +143,7 @@ const Options = forwardRef<HTMLElement, OptionsProps>(function Options(
   <TValue = string | number, TLabel = ReactNode>(
     props: PropsWithoutRef<OptionsProps<TValue, TLabel>> &
       RefAttributes<HTMLElement>,
-  ): JSX.Element;
+  ): ReactNode;
 };
 
 export default Options;

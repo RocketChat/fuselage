@@ -3,7 +3,7 @@ import type { ReactNode, ComponentProps } from 'react';
 
 import { useFieldDescriptorId } from './FieldContext';
 
-type FieldErrorProps = { children: ReactNode } & ComponentProps<
+export type FieldErrorProps = { children: ReactNode } & ComponentProps<
   typeof FieldErrorComponent
 >;
 

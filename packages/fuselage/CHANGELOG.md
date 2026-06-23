@@ -1,5 +1,21 @@
 # Change Log
 
+## 0.79.0
+
+### Minor Changes
+
+- [#2017](https://github.com/RocketChat/fuselage/pull/2017) [`752b501`](https://github.com/RocketChat/fuselage/commit/752b5018c3c0991a721f636394b9fab19340a5e3) Thanks [@dougfabris](https://github.com/dougfabris)! - feat(fuselage): Add `startAddon` and `endAddon` to `InputBox`
+
+## 0.78.1
+
+### Patch Changes
+
+- [#1982](https://github.com/RocketChat/fuselage/pull/1982) [`9e055ca`](https://github.com/RocketChat/fuselage/commit/9e055cae7a4247dd4e812b56b9126e471e145869) Thanks [@nazabucciarelli](https://github.com/nazabucciarelli)! - fix(fuselage): autocomplete overlay on MultiSelectFiltered component
+
+- [#1980](https://github.com/RocketChat/fuselage/pull/1980) [`faa9feb`](https://github.com/RocketChat/fuselage/commit/faa9feb879307fce6155d51c8bc0156c03bbb093) Thanks [@ricardogarim](https://github.com/ricardogarim)! - Fixed `Select` inflating ancestor scrollHeight inside non-positioned containers (collapsed `Accordion`, `Modal`, `Field`, etc.). Regression from 0.77.0 ([#1939](https://github.com/RocketChat/fuselage/issues/1939)).
+
+- [#1961](https://github.com/RocketChat/fuselage/pull/1961) [`792c038`](https://github.com/RocketChat/fuselage/commit/792c038bb9d6d0c5bb30b2c45708ff14c6bb8ce6) Thanks [@tassoevan](https://github.com/tassoevan)! - fix(fuselage): issues not caught by visual regression testing after Sass rewrite
+
 ## 0.78.0
 
 ### Minor Changes

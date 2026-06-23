@@ -52,7 +52,7 @@ const Scrollable = ({
   smooth,
   onScrollContent,
 }: ScrollableProps) => {
-  const scrollTimeoutRef = useRef<ReturnType<typeof setTimeout>>();
+  const scrollTimeoutRef = useRef<ReturnType<typeof setTimeout>>(undefined);
   const touchingEdgesRef = useRef({});
 
   const handleScroll = useStableCallback((event: MouseEvent) => {

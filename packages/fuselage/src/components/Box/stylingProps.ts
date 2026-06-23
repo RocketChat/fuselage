@@ -17,7 +17,7 @@ import {
   strokeColor,
 } from '../../styleTokens';
 
-type FontScale =
+export type FontScale =
   | 'hero'
   | 'h1'
   | 'h2'

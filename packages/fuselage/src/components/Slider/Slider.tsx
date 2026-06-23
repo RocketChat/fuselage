@@ -90,7 +90,7 @@ function Slider<T extends number | [min: number, max: number]>(
     isDisabled: props.disabled,
   } as AriaSliderProps<number | number[]>;
 
-  const trackRef = useRef(null);
+  const trackRef = useRef<HTMLDivElement>(null);
   const numberFormatter = useNumberFormatter(formatOptions);
   const sliderState = useSliderState({
     defaultValue,

@@ -26,9 +26,9 @@ $avatar-border-radii: (
   32: theme('avatar-border-radius-32', lengths.border-radius(medium)),
   36: theme('avatar-border-radius-36', lengths.border-radius(medium)),
   40: theme('avatar-border-radius-40', lengths.border-radius(medium)),
-  48: theme('avatar-border-radius-48', lengths.border-radius(large)),
-  124: theme('avatar-border-radius-124', lengths.border-radius(large)),
-  200: theme('avatar-border-radius-200', lengths.border-radius(large)),
+  48: theme('avatar-border-radius-48', lengths.border-radius(medium)),
+  124: theme('avatar-border-radius-124', lengths.border-radius(medium)),
+  200: theme('avatar-border-radius-200', lengths.border-radius(medium)),
   332: theme('avatar-border-radius-332', lengths.border-radius(large)),
 );
 

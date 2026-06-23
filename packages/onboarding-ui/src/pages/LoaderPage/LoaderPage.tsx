@@ -1,9 +1,8 @@
 import { Box, Margins, ProgressBar } from '@rocket.chat/fuselage';
 import { BackgroundLayer, LayoutLogo } from '@rocket.chat/layout';
-import type { ReactElement } from 'react';
 import { useEffect, useState } from 'react';
 
-type LoaderPageProps = {
+export type LoaderPageProps = {
   title: string;
   subtitles: string[];
   isReady: boolean;
@@ -15,7 +14,7 @@ const LoaderPage = ({
   subtitles,
   isReady = false,
   loadingSeconds = 90,
-}: LoaderPageProps): ReactElement => {
+}: LoaderPageProps) => {
   const timeFraction = 100 / subtitles.length;
 
   const [percentage, setPercentage] = useState(() => (isReady ? 100 : 0));

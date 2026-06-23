@@ -1,6 +1,5 @@
 import { Box, Label } from '@rocket.chat/fuselage';
 import { Form } from '@rocket.chat/layout';
-import type { ReactElement } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 
 import EmailCodeFallback from '../../common/EmailCodeFallback';
@@ -21,7 +20,7 @@ const AwaitingConfirmationForm = ({
   emailAddress,
   onResendEmailRequest,
   onChangeEmailRequest,
-}: AwaitingConfirmationFormProps): ReactElement => {
+}: AwaitingConfirmationFormProps) => {
   const { t } = useTranslation();
 
   return (

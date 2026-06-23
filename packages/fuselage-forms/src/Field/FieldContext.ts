@@ -8,7 +8,7 @@ import {
   useMemo,
 } from 'react';
 
-type FieldContextValue = {
+export type FieldContextValue = {
   setDescriptor: (type: LabelTypes, unregister?: boolean) => void;
   setLabel: (label: ReactNode) => void;
   descriptors: Set<LabelTypes>;

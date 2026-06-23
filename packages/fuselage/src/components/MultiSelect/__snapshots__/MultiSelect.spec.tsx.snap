@@ -173,6 +173,7 @@ exports[`renders WithFilter without crashing 1`] = `
           <input
             aria-expanded="false"
             aria-haspopup="listbox"
+            autocomplete="off"
             class="rcx-box rcx-box--full rcx-box--animated rcx-input-box--undecorated rcx-input-box rcx-css-trljwa rcx-css-pqpp8q"
             placeholder="Placeholder here..."
             role="combobox"

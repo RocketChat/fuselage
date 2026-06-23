@@ -1,5 +1,4 @@
 import { BackgroundLayer } from '@rocket.chat/layout';
-import type { ReactElement } from 'react';
 import type { FieldPathValue, SubmitHandler, Validate } from 'react-hook-form';
 
 import type { FormPageLayoutStyleProps } from '../../Types';
@@ -7,7 +6,7 @@ import FormPageLayout from '../../common/FormPageLayout';
 import RegisterServerForm from '../../forms/RegisterServerForm';
 import type { RegisterServerPayload } from '../../forms/RegisterServerForm/RegisterServerForm';
 
-type RegisterServerPageProps = {
+export type RegisterServerPageProps = {
   currentStep: number;
   stepCount: number;
   initialValues?: Partial<RegisterServerPayload>;
@@ -26,7 +25,7 @@ const pageLayoutStyleProps: FormPageLayoutStyleProps = {
   justifyContent: 'center',
 };
 
-const RegisterServerPage = (props: RegisterServerPageProps): ReactElement => (
+const RegisterServerPage = (props: RegisterServerPageProps) => (
   <BackgroundLayer>
     <FormPageLayout styleProps={pageLayoutStyleProps}>
       <RegisterServerForm {...props} />

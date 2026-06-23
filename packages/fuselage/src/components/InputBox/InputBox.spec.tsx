@@ -7,40 +7,49 @@ import { render } from '../../testing';
 
 import * as stories from './InputBox.stories';
 
-const { Default, WithAddon } = composeStories(stories);
+const { WithAddon } = composeStories(stories);
 
-describe('[InputBox Component]', () => {
-  it('renders without crashing', () => {
-    const tree = render(<Default />);
+const testCases = Object.values(composeStories(stories)).map((Story) => [
+  Story.storyName || 'Story',
+  Story,
+]);
+
+test.each(testCases)(
+  `renders %s without crashing`,
+  async (_storyname, Story) => {
+    const tree = render(<Story />);
     expect(tree.baseElement).toMatchSnapshot();
-  });
+  },
+);
 
-  it('%s should have no a11y violations', async () => {
-    const { container } = render(<Default />);
+test.each(testCases)(
+  '%s should have no a11y violations',
+  async (_storyname, Story) => {
+    const { container } = render(<Story />);
 
     const results = await axe(container);
     expect(results).toHaveNoViolations();
-  });
+  },
+);
 
-  it('should update error class when error changes asynchronously', async () => {
-    const TestComponent = () => {
-      const [error, setError] = useState<string | undefined>(undefined);
+it('should update error class when error changes asynchronously', async () => {
+  const TestComponent = () => {
+    const [error, setError] = useState<string | undefined>(undefined);
 
-      useEffect(() => {
-        setTimeout(() => {
-          setError('Error');
-        }, 100);
-      }, []);
+    useEffect(() => {
+      setTimeout(() => {
+        setError('Error');
+      }, 100);
+    }, []);
 
-      return <WithAddon aria-label='test-input' error={error} />;
-    };
+    return <WithAddon aria-label='test-input' error={error} />;
+  };
 
-    const { getByRole } = render(<TestComponent />);
+  const { getByRole } = render(<TestComponent />);
 
-    await waitFor(() => {
-      const input = getByRole('textbox', { name: /test-input/i })
-        .parentElement as HTMLElement;
-      expect(input).toHaveClass('invalid');
-    });
+  await waitFor(() => {
+    const input = getByRole('textbox', { name: /test-input/i })
+      .parentElement as HTMLElement;
+    expect(input).toHaveClass('invalid');
   });
 });

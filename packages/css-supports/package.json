@@ -23,7 +23,7 @@
     "/dist"
   ],
   "scripts": {
-    "build": "tsc -p tsconfig.esm.json && tsc -p tsconfig.cjs.json",
+    "build": "tsc -p tsconfig.esm.json && tsc -p tsconfig.cjs.json && api-extractor run --local",
     "clean": "rimraf dist",
     "docs": "typedoc",
     "lint": "lint",
@@ -33,11 +33,12 @@
     "@rocket.chat/memo": "workspace:~"
   },
   "devDependencies": {
-    "eslint": "~9.39.2",
+    "@microsoft/api-extractor": "~7.58.7",
+    "eslint": "~9.39.4",
     "lint-all": "workspace:~",
     "prettier": "~3.6.2",
-    "rimraf": "~6.0.1",
-    "typedoc": "~0.28.18",
+    "rimraf": "~6.1.3",
+    "typedoc": "~0.28.19",
     "typescript": "~5.9.3"
   },
   "publishConfig": {

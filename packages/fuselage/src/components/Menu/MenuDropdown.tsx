@@ -9,7 +9,7 @@ import MenuSection from './MenuSection';
 function MenuDropDown<T extends object>(props: AriaMenuProps<T>) {
   const state = useTreeState(props);
 
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement>(null);
   const { menuProps } = useMenu(props, state, ref);
 
   return (

@@ -23,7 +23,7 @@ interface OptionProps {
 }
 
 export function ListBox(props: ListBoxProps) {
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement>(null);
   const { listBoxRef = ref, state } = props;
   const { listBoxProps } = useListBox(props, state, listBoxRef);
 

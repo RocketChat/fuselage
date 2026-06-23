@@ -1,10 +1,10 @@
-import type { ReactElement } from 'react';
+import type { ReactNode } from 'react';
 
 import { IconButton, type IconButtonProps } from '../../Button';
 
 export type MessageMetricsFollowingProps = {
   name: 'bell' | 'bell-off';
-  badge?: ReactElement;
+  badge?: ReactNode;
 } & Omit<IconButtonProps, 'icon'>;
 
 const MessageMetricsFollowing = ({

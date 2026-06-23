@@ -11,7 +11,6 @@ import {
 } from '@rocket.chat/fuselage';
 import { useBreakpoints } from '@rocket.chat/fuselage-hooks';
 import { Form } from '@rocket.chat/layout';
-import type { ReactElement } from 'react';
 import { useEffect, useId, useRef } from 'react';
 import type { FieldPathValue, SubmitHandler, Validate } from 'react-hook-form';
 import { Controller, useForm, FormProvider } from 'react-hook-form';
@@ -50,7 +49,7 @@ const RegisterServerForm = ({
   termsHref = 'https://rocket.chat/terms',
   policyHref = 'https://rocket.chat/privacy',
   onClickRegisterOffline,
-}: RegisterServerFormProps): ReactElement => {
+}: RegisterServerFormProps) => {
   const { t } = useTranslation();
 
   const formId = useId();

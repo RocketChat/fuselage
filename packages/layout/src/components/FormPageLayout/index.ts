@@ -44,3 +44,5 @@ export {
   FormTitle,
   FormPageLayout,
 };
+
+export type { FormStepsProps } from './FormSteps';

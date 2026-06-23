@@ -5,18 +5,18 @@ import { Icon, type IconProps } from '../Icon';
 import { Button } from '.';
 import type { ButtonProps } from './Button';
 
-type ButtonSize = {
+export type ActionButtonSize = {
   mini?: boolean;
   tiny?: boolean;
   small?: boolean;
 };
 
 export type ActionButtonProps = ButtonProps &
-  ButtonSize & {
+  ActionButtonSize & {
     icon: IconProps['name'];
   };
 
-const getSize = ({ tiny, mini, small }: ButtonSize) => {
+const getSize = ({ tiny, mini, small }: ActionButtonSize) => {
   if (mini) {
     return 'x16';
   }

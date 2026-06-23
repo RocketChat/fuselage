@@ -5,7 +5,7 @@ import { useIsomorphicLayoutEffect } from './useIsomorphicLayoutEffect';
 
 const isRefCallback = <T>(x: unknown): x is RefCallback<T> =>
   typeof x === 'function';
-const isMutableRefObject = <T>(x: unknown): x is MutableRefObject<T> =>
+const isRefObject = <T>(x: unknown): x is MutableRefObject<T> =>
   typeof x === 'object';
 
 /**
@@ -32,7 +32,7 @@ export const useMergedRefs = <T>(...refs: Ref<T>[]): RefCallback<T> => {
         return;
       }
 
-      if (isMutableRefObject<T>(ref)) {
+      if (isRefObject<T>(ref)) {
         ref.current = refValue;
       }
     });

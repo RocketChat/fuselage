@@ -13,8 +13,8 @@ export default {
 } satisfies Meta<typeof Dropdown>;
 
 export const Default: StoryFn<typeof Dropdown> = () => {
-  const anchor = useRef(null);
-  const target = useRef(null);
+  const anchor = useRef<HTMLElement>(null);
+  const target = useRef<HTMLElement>(null);
 
   const list = Array.from(new Array(20));
 

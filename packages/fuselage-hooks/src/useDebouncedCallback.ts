@@ -21,8 +21,8 @@ export const useDebouncedCallback = <P extends unknown[]>(
   // eslint-disable-next-line react-hooks/exhaustive-deps, react-hooks/rules-of-hooks
   const effectiveCallback = deps ? useMemo(() => callback, deps) : callback;
 
-  const timerCallbackRef = useRef<() => void>();
-  const timerRef = useRef<ReturnType<typeof setTimeout>>();
+  const timerCallbackRef = useRef<() => void>(undefined);
+  const timerRef = useRef<ReturnType<typeof setTimeout>>(undefined);
 
   const debouncedCallback = useCallback(
     (...args: P) => {
