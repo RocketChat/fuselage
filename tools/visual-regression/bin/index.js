@@ -7,9 +7,6 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const toolRoot = path.resolve(__dirname, '..');
 const packageDir = process.cwd();
 
-const runx = 'yarn dlx';
-const run = 'yarn run';
-
 const args = process.argv.slice(2);
 const updateSnapshots = args.includes('--update-snapshots')
   ? '--update-snapshots'
@@ -23,10 +20,17 @@ const runPlaywrightScript = path.join(
 
 if (process.env.CI) {
   execFileSync(
-    'sh',
+    'yarn',
     [
-      '-c',
-      `${runx} concurrently -k -s first -n "SB,TEST" "${runx} http-server storybook-static -s -p 6006" "${runx} wait-on tcp:127.0.0.1:6006 && ${runPlaywrightScript} ${updateSnapshots}"`,
+      'dlx',
+      'concurrently',
+      '-k',
+      '-s',
+      'first',
+      '-n',
+      'SB,TEST',
+      'yarn dlx http-server storybook-static -s -p 6006',
+      `yarn dlx wait-on tcp:127.0.0.1:6006 && sh ${JSON.stringify(runPlaywrightScript)}${updateSnapshots ? ` ${updateSnapshots}` : ''}`,
     ],
     {
       stdio: 'inherit',
@@ -36,10 +40,17 @@ if (process.env.CI) {
   );
 } else {
   execFileSync(
-    'sh',
+    'yarn',
     [
-      '-c',
-      `${runx} concurrently -k -s first -n "SB,TEST" "${run} build-storybook && ${runx} http-server storybook-static -s -p 6006" "${runx} wait-on tcp:127.0.0.1:6006 && ${runPlaywrightScript} ${updateSnapshots}"`,
+      'dlx',
+      'concurrently',
+      '-k',
+      '-s',
+      'first',
+      '-n',
+      'SB,TEST',
+      'yarn run build-storybook && yarn dlx http-server storybook-static -s -p 6006',
+      `yarn dlx wait-on tcp:127.0.0.1:6006 && sh ${JSON.stringify(runPlaywrightScript)}${updateSnapshots ? ` ${updateSnapshots}` : ''}`,
     ],
     {
       stdio: 'inherit',
