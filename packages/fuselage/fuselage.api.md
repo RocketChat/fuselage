@@ -902,6 +902,8 @@ export const Input: ForwardRefExoticComponent<BoxProps & RefAttributes<HTMLInput
 // @public (undocumented)
 export const InputBox: ForwardRefExoticComponent<BoxProps & {
 addon?: ReactNode;
+startAddon?: ReactNode;
+endAddon?: ReactNode;
 input?: ReactNode;
 multiple?: boolean;
 error?: string;
@@ -914,6 +916,8 @@ type: "button" | "checkbox" | "color" | "date" | "datetime" | "datetime-local" |
 // @public (undocumented)
 export type InputBoxProps = BoxProps & {
     addon?: ReactNode;
+    startAddon?: ReactNode;
+    endAddon?: ReactNode;
     input?: ReactNode;
     multiple?: boolean;
     error?: string;

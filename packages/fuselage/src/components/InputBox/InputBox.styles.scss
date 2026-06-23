@@ -35,8 +35,6 @@ $input-border-radius: theme(
 
   outline: 0;
 
-  gap: lengths.size(8);
-
   @extend %input;
 
   &:invalid,
@@ -60,6 +58,14 @@ $input-border-radius: theme(
 
   align-items: flex-start;
   flex: 0 0 auto;
+
+  &:has(+ .rcx-input-box) {
+    margin-inline-end: lengths.size(8);
+  }
+
+  .rcx-input-box + & {
+    margin-inline-start: lengths.size(8);
+  }
 }
 
 .rcx-input-box {
@@ -69,6 +75,7 @@ $input-border-radius: theme(
 
   flex: 1 0 auto;
 
+  width: lengths.size(none);
   min-width: lengths.size(128);
 
   user-select: initial;
