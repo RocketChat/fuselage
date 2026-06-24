@@ -7,13 +7,13 @@
   "dependencies": {
     "react": "~18.3.1",
     "react-dom": "~18.3.1",
-    "sharp": "~0.34.5",
-    "stylelint": "~17.12.0"
+    "sharp": "~0.35.2",
+    "stylelint": "~17.13.0"
   },
   "devDependencies": {
     "eslint": "~9.39.4",
     "lint-all": "workspace:~",
-    "prettier": "~3.6.2",
+    "prettier": "~3.8.4",
     "tools-utils": "workspace:~"
   }
 }
