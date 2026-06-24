@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.79.1
+
+### Patch Changes
+
+- [#2024](https://github.com/RocketChat/fuselage/pull/2024) [`52fdd70`](https://github.com/RocketChat/fuselage/commit/52fdd70b9352c64276a1556275db44f8e1f505e6) Thanks [@ggazzo](https://github.com/ggazzo)! - fix(fuselage): `InputBox` spacing in leading and trailing addons
+
 ## 0.79.0
 
 ### Minor Changes
