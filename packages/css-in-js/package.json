@@ -55,7 +55,7 @@
     "jest": "~30.4.2",
     "lint-all": "workspace:~",
     "prettier": "~3.6.2",
-    "rollup": "~4.60.4",
+    "rollup": "~4.62.2",
     "ts-jest": "~29.4.11",
     "typedoc": "~0.28.19",
     "typescript": "~5.9.3"
