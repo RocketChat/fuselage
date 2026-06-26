@@ -7,7 +7,7 @@ import { DropdownDesktopWrapper } from './DropdownDesktopWrapper';
 import { DropdownMobile } from './DropdownMobile';
 
 export type DropdownProps<T extends HTMLElement> = {
-  reference: RefObject<T>;
+  reference: RefObject<T | null>;
   placement?: UsePositionOptions['placement'];
   children: ReactNode;
 };

@@ -32,7 +32,7 @@ export default {
   },
 } satisfies Meta<typeof SelfHostedRegistration>;
 
-export const SelfHostedRegistration: StoryFn = ({ offline }) => {
+export const SelfHostedRegistration = ({ offline }: { offline?: boolean }) => {
   const [path, navigateTo] =
     useState<`/${
       | 'admin-info'

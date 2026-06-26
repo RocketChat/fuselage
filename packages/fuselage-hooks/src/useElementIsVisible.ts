@@ -11,7 +11,7 @@ declare global {
 }
 
 export const useElementIsVisible = <T extends Element>(): [
-  ref: RefObject<T>,
+  ref: RefObject<T | null>,
   isVisible: boolean,
 ] => {
   const innerRef = useRef<T>(undefined);
@@ -47,7 +47,7 @@ export const useElementIsVisible = <T extends Element>(): [
       observer.observe(innerRef.current);
     },
     [observer, setMenuVisibility],
-  ) as unknown as RefObject<T>;
+  ) as unknown as RefObject<T | null>;
 
   return [ref, menuVisibility];
 };

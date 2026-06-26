@@ -121,6 +121,8 @@ const AudioPlayer = forwardRef<HTMLAudioElement, AudioPlayerProps>(
     };
 
     const handlePlaybackSpeedSingleControl = () => {
+      if (!audioRef.current) return;
+
       const reachedMaxPlaybackSpeed =
         maxPlaybackSpeed === audioRef?.current?.playbackRate;
 

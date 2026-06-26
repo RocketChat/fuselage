@@ -2,13 +2,7 @@ import {
   useStableCallback,
   useDebouncedState,
 } from '@rocket.chat/fuselage-hooks';
-import type {
-  ComponentType,
-  ElementType,
-  MouseEvent,
-  ReactNode,
-  SyntheticEvent,
-} from 'react';
+import type { ComponentType, ElementType, MouseEvent, ReactNode } from 'react';
 import { forwardRef, memo } from 'react';
 import { Virtuoso } from 'react-virtuoso';
 
@@ -88,7 +82,7 @@ export const OptionsPaginated = forwardRef<Element, OptionsPaginatedProps>(
           index={index}
           role='option'
           label={label}
-          onMouseDown={(e: SyntheticEvent) => {
+          onMouseDown={(e) => {
             prevent(e);
             onSelect([value, label]);
             return false;
