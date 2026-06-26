@@ -16,6 +16,7 @@ import {
   Menu,
   MenuItem,
   MenuSection,
+  MenuSubmenuTrigger,
   MenuItemContent,
   MenuItemIcon,
   MenuItemInput,
@@ -453,4 +454,60 @@ export const Scrollable = () => {
     <MenuItem key={i}>Item {i + 1}</MenuItem>
   ));
   return <Menu title='Scrollable Menu'>{items}</Menu>;
+};
+
+export const WithSubmenu: StoryFn<typeof Menu> = (args) => (
+  <Menu title='Menu with Submenu' {...args}>
+    <MenuItem key='profile'>Profile</MenuItem>
+    <MenuItem key='share' title='Share'>
+      <MenuItem key='copy-link'>Copy link</MenuItem>
+      <MenuItem key='email'>Email</MenuItem>
+    </MenuItem>
+    <MenuItem key='settings'>Settings</MenuItem>
+  </Menu>
+);
+WithSubmenu.parameters = {
+  docs: {
+    description: {
+      story:
+        'A `MenuItem` becomes a **submenu trigger** when you give it a `title` (the label shown in the parent menu) and nest other `MenuItem`s as its children. Submenus open on hover/press, support keyboard navigation (`ArrowRight`/`ArrowLeft` to open/close), and can be nested to any depth.',
+    },
+  },
+};
+
+export const WithRichSubmenuTrigger: StoryFn<typeof Menu> = (args) => (
+  <Menu title='Menu with rich submenu triggers' {...args}>
+    <MenuItem key='new' aria-label='New'>
+      <MenuItemIcon name='plus' />
+      <MenuItemContent>New</MenuItemContent>
+    </MenuItem>
+    <MenuSubmenuTrigger key='move-to'>
+      <MenuItem aria-label='Move to'>
+        <MenuItemIcon name='folder' />
+        <MenuItemContent>Move to…</MenuItemContent>
+      </MenuItem>
+      <MenuItem key='inbox'>Inbox</MenuItem>
+      <MenuItem key='archive'>Archive</MenuItem>
+      <MenuSubmenuTrigger key='teams'>
+        <MenuItem aria-label='Teams'>
+          <MenuItemIcon name='team' />
+          <MenuItemContent>Teams…</MenuItemContent>
+        </MenuItem>
+        <MenuItem key='design'>Design</MenuItem>
+        <MenuItem key='engineering'>Engineering</MenuItem>
+      </MenuSubmenuTrigger>
+    </MenuSubmenuTrigger>
+    <MenuItem key='delete' aria-label='Delete'>
+      <MenuItemIcon name='trash' />
+      <MenuItemContent>Delete</MenuItemContent>
+    </MenuItem>
+  </Menu>
+);
+WithRichSubmenuTrigger.parameters = {
+  docs: {
+    description: {
+      story:
+        'Use `<MenuSubmenuTrigger>` when the submenu entry itself needs rich content (icon, avatar, custom layout) instead of a plain string `title`. The **first** child is the trigger item — it may use any of the `MenuItem*` sub-components — and the **remaining** children become the submenu. `MenuSubmenuTrigger`s can be nested for multi-level menus.',
+    },
+  },
 };

@@ -28,7 +28,7 @@ function Popover({ portalContainer, ...props }: PopoverProps) {
   );
 
   return (
-    <Overlay portalContainer={ownerDocument?.body}>
+    <Overlay portalContainer={portalContainer ?? ownerDocument?.body}>
       {!isNonModal && <div {...underlayProps} />}
       <div {...popoverProps} ref={popoverRef}>
         {!isNonModal && <DismissButton onDismiss={state.close} />}
