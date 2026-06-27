@@ -14,6 +14,12 @@ import type { VariantBoundaries } from './getVariantBoundaries';
 import { getVariantBoundaries } from './getVariantBoundaries';
 import { useBoundingClientRectChanges } from './useBoundingClientRectChanges';
 
+export type { Placement } from './Placement';
+export type { Position } from './Position';
+export type { PlacementVariant } from './PlacementVariant';
+export type { TargetBoundaries } from './getTargetBoundaries';
+export type { VariantBoundaries } from './getVariantBoundaries';
+
 export type UsePositionOptions = {
   margin?: number;
   container?: Element;
@@ -190,8 +196,8 @@ const UPDATE_DEBOUNCE_DELAY = 30;
  * @public
  */
 export function usePosition<TTarget extends Element, TAnchor extends Element>(
-  anchorRef: RefObject<TAnchor>,
-  targetRef: RefObject<TTarget>,
+  anchorRef: RefObject<TAnchor | null>,
+  targetRef: RefObject<TTarget | null>,
   {
     margin = 8,
     placement = 'bottom-start',

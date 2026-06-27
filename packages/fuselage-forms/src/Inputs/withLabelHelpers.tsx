@@ -1,64 +1,106 @@
 // Disabled this flag since we need to wrap multiple components
 /* eslint-disable react/no-multi-comp */
-import type { ReactNode, ForwardRefExoticComponent } from 'react';
+import { useMergedRefs } from '@rocket.chat/fuselage-hooks';
+import type { ReactNode, ComponentType, Ref, RefAttributes } from 'react';
+import { forwardRef } from 'react';
 import { VisuallyHidden } from 'react-aria';
 
 import {
   useFieldReferencedByInput,
   useFieldReferencedByLabel,
+  useFieldReferencedByLabelWithId,
   useFieldWrappedByInputLabel,
 } from '../Field/FieldContext';
 
 type WithLabelId = { id?: string };
 
-function withLabelId<TProps>(
-  Component: ForwardRefExoticComponent<TProps & WithLabelId>,
+function withLabelId<TProps, TRef>(
+  Component: ComponentType<TProps & WithLabelId & RefAttributes<TRef>>,
 ) {
-  const WrappedComponent = function (props: TProps) {
+  const WrappedComponent = forwardRef<TRef, TProps>(function (props, ref) {
     const labelProps = useFieldReferencedByInput();
-    return <Component {...props} {...labelProps} />;
-  };
+    return (
+      <Component
+        {...(props as TProps & WithLabelId)}
+        {...labelProps}
+        ref={ref}
+      />
+    );
+  });
 
   WrappedComponent.displayName = `withLabelId(${Component.displayName ?? Component.name ?? 'InputComponent'})`;
 
   return WrappedComponent;
 }
 
-type WithLablledBy = { 'aria-labelledby'?: string };
+type WithLabelledBy = { 'aria-labelledby'?: string };
 
-function withAriaLabelledBy<TProps>(
-  Component: ForwardRefExoticComponent<TProps & WithLablledBy>,
+function withAriaLabelledBy<TProps, TRef>(
+  Component: ComponentType<TProps & WithLabelledBy & RefAttributes<TRef>>,
 ) {
-  const WrappedComponent = function (props: TProps) {
+  const WrappedComponent = forwardRef<TRef, TProps>(function (props, ref) {
     const labelProps = useFieldReferencedByLabel();
-    return <Component {...props} {...labelProps} />;
-  };
+    return (
+      <Component
+        {...(props as TProps & WithLabelledBy)}
+        {...labelProps}
+        ref={ref}
+      />
+    );
+  });
 
   WrappedComponent.displayName = `withAriaLabelledBy(${Component.displayName ?? Component.name ?? 'InputComponent'})`;
 
   return WrappedComponent;
 }
 
-type WithChildrenLabel = { labelChildren: ReactNode };
+type WithLabelledByAndId = { 'aria-labelledby'?: string; 'id'?: string };
 
-function withVisuallyHiddenLabel<TProps>(
-  Component: ForwardRefExoticComponent<TProps & WithChildrenLabel>,
+function withAriaLabelledByAndId<TProps, TRef>(
+  Component: ComponentType<TProps & WithLabelledByAndId & RefAttributes<TRef>>,
 ) {
-  const WrappedComponent = function (props: TProps) {
-    const [label, labelProps, labelRef] = useFieldWrappedByInputLabel();
+  const WrappedComponent = forwardRef<TRef, TProps>(function (props, ref) {
+    const labelProps = useFieldReferencedByLabelWithId();
     return (
       <Component
-        {...props}
+        {...(props as TProps & WithLabelledByAndId)}
         {...labelProps}
-        ref={labelRef}
+        ref={ref}
+      />
+    );
+  });
+
+  WrappedComponent.displayName = `withAriaLabelledByAndId(${Component.displayName ?? Component.name ?? 'InputComponent'})`;
+
+  return WrappedComponent;
+}
+
+type WithChildrenLabel = { labelChildren: ReactNode };
+
+function withVisuallyHiddenLabel<TProps, TRef>(
+  Component: ComponentType<TProps & WithChildrenLabel & RefAttributes<TRef>>,
+) {
+  const WrappedComponent = forwardRef<TRef, TProps>(function (props, ref) {
+    const [label, labelProps, labelRef] = useFieldWrappedByInputLabel();
+    const mergedRef = useMergedRefs(ref, labelRef as Ref<TRef>);
+    return (
+      <Component
+        {...(props as TProps & WithChildrenLabel)}
+        {...labelProps}
+        ref={mergedRef}
         labelChildren={<VisuallyHidden>{label}</VisuallyHidden>}
       />
     );
-  };
+  });
 
   WrappedComponent.displayName = `withVisuallyHiddenLabel(${Component.displayName ?? Component.name ?? 'InputComponent'})`;
 
   return WrappedComponent;
 }
 
-export { withLabelId, withAriaLabelledBy, withVisuallyHiddenLabel };
+export {
+  withLabelId,
+  withAriaLabelledBy,
+  withAriaLabelledByAndId,
+  withVisuallyHiddenLabel,
+};

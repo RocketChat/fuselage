@@ -1,6 +1,6 @@
 import type { SelectOption } from '@rocket.chat/fuselage';
 import { BackgroundLayer } from '@rocket.chat/layout';
-import type { ReactElement, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import type { SubmitHandler } from 'react-hook-form';
 
 import type { FormPageLayoutStyleProps } from '../../Types';
@@ -8,7 +8,7 @@ import FormPageLayout from '../../common/FormPageLayout';
 import OrganizationInfoForm from '../../forms/OrganizationInfoForm';
 import type { OrganizationInfoPayload } from '../../forms/OrganizationInfoForm/OrganizationInfoForm';
 
-type OrganizationInfoPageProps = {
+export type OrganizationInfoPageProps = {
   title?: ReactNode;
   subtitle?: ReactNode;
   description?: ReactNode;
@@ -28,7 +28,7 @@ const OrganizationInfoPage = ({
   title,
   description,
   ...props
-}: OrganizationInfoPageProps): ReactElement => {
+}: OrganizationInfoPageProps) => {
   const pageLayoutStyleProps: FormPageLayoutStyleProps = {
     justifyContent: 'center',
     subTitleProps: {

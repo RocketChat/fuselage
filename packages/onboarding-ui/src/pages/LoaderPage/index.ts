@@ -1,1 +1,1 @@
-export { default } from './LoaderPage';
+export { default, type LoaderPageProps } from './LoaderPage';

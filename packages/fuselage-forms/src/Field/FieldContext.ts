@@ -8,7 +8,7 @@ import {
   useMemo,
 } from 'react';
 
-type FieldContextValue = {
+export type FieldContextValue = {
   setDescriptor: (type: LabelTypes, unregister?: boolean) => void;
   setLabel: (label: ReactNode) => void;
   descriptors: Set<LabelTypes>;
@@ -148,6 +148,25 @@ export const useFieldReferencedByLabel = () => {
 
   return useMemo(
     () => ({
+      'aria-labelledby': getInputId(id, descriptors),
+      'aria-describedby': getDescribedBy(descriptors, id),
+      ...getAriaInvalid(descriptors),
+    }),
+    [descriptors, id],
+  );
+};
+
+// label has id and input is aria-labelledby + has id for aria-controls
+export const useFieldReferencedByLabelWithId = () => {
+  const { id, descriptors, setFieldType } = useContext(FieldContext);
+
+  useEffect(() => {
+    setFieldType('referencedByLabel');
+  }, [setFieldType]);
+
+  return useMemo(
+    () => ({
+      id,
       'aria-labelledby': getInputId(id, descriptors),
       'aria-describedby': getDescribedBy(descriptors, id),
       ...getAriaInvalid(descriptors),

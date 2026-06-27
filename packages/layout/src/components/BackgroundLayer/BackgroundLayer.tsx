@@ -1,5 +1,5 @@
 import colors from '@rocket.chat/fuselage-tokens/colors.json';
-import type { ReactElement, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import { useMemo } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 
@@ -9,11 +9,11 @@ import { useLayoutContext } from '../../contexts/LayoutContext';
 import BackgroundImage from './BackgroundImage';
 import { Wrapper } from './BackgroundLayer.styles';
 
-type BackgroundLayerProps = {
+export type BackgroundLayerProps = {
   children?: ReactNode;
 };
 
-const BackgroundLayer = ({ children }: BackgroundLayerProps): ReactElement => {
+const BackgroundLayer = ({ children }: BackgroundLayerProps) => {
   const { background, backgroundDark = background } = useLayoutContext();
   const darkMode = useDarkMode();
   const backgroundColor = darkMode ? colors.n800 : colors.n200;

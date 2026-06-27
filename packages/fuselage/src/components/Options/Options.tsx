@@ -4,7 +4,6 @@ import type {
   PropsWithoutRef,
   ReactNode,
   RefAttributes,
-  SyntheticEvent,
 } from 'react';
 import { forwardRef, useLayoutEffect, useMemo, useRef } from 'react';
 
@@ -51,6 +50,7 @@ const Options = forwardRef<HTMLElement, OptionsProps>(function Options(
     renderItem: OptionComponent = Option,
     onSelect,
     customEmpty,
+    id,
     ...props
   },
   ref,
@@ -88,7 +88,7 @@ const Options = forwardRef<HTMLElement, OptionsProps>(function Options(
               <OptionComponent
                 role='option'
                 label={label}
-                onMouseDown={(e: SyntheticEvent) => {
+                onMouseDown={(e) => {
                   if (disabled) {
                     return;
                   }
@@ -122,6 +122,7 @@ const Options = forwardRef<HTMLElement, OptionsProps>(function Options(
             is='ol'
             aria-multiselectable={multiple || true}
             role='listbox'
+            id={id}
             aria-activedescendant={
               options?.[cursor]?.[0]
                 ? String(options?.[cursor]?.[0])
@@ -141,7 +142,7 @@ const Options = forwardRef<HTMLElement, OptionsProps>(function Options(
   <TValue = string | number, TLabel = ReactNode>(
     props: PropsWithoutRef<OptionsProps<TValue, TLabel>> &
       RefAttributes<HTMLElement>,
-  ): JSX.Element;
+  ): ReactNode;
 };
 
 export default Options;

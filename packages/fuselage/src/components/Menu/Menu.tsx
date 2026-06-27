@@ -7,6 +7,7 @@ import { createPortal } from 'react-dom';
 import type { MenuTriggerProps } from 'react-stately';
 import { useMenuTriggerState } from 'react-stately';
 
+import { useOwnerDocument } from '../../contexts';
 import type { BoxProps } from '../Box';
 import { IconButton } from '../Button';
 import type { IconButtonProps } from '../Button/IconButton';
@@ -32,7 +33,7 @@ export interface MenuProps<T> extends AriaMenuProps<T>, MenuTriggerProps {
   className?: BoxProps['className'];
   pressed?: boolean;
   maxWidth?: string;
-  button?: ReactElement;
+  button?: ReactElement<any>;
 }
 
 const Menu = <T extends object>({
@@ -49,7 +50,7 @@ const Menu = <T extends object>({
 }: MenuProps<T>) => {
   const state = useMenuTriggerState(props);
 
-  const ref = useRef(null);
+  const ref = useRef<Element>(null);
   const { menuTriggerProps, menuProps } = useMenuTrigger<T>({}, state, ref);
 
   const { buttonProps } = useButton(
@@ -64,6 +65,8 @@ const Menu = <T extends object>({
   const { large, medium, tiny, mini } = props;
   const sizes = { large, medium, tiny, mini };
   const defaultSmall = !large && !medium && !tiny && !mini;
+
+  const { document: ownerDocument } = useOwnerDocument();
 
   const popover = state.isOpen && (
     <MenuPopover
@@ -99,7 +102,9 @@ const Menu = <T extends object>({
           {...sizes}
         />
       )}
-      {detached ? createPortal(popover, document.body) : popover}
+      {detached
+        ? createPortal(popover, ownerDocument?.body || document.body)
+        : popover}
     </>
   );
 };

@@ -1,5 +1,5 @@
 import { useStableCallback } from '@rocket.chat/fuselage-hooks';
-import type { FormEvent } from 'react';
+import type { ChangeEvent } from 'react';
 import { useMemo, forwardRef } from 'react';
 
 import { Input } from '../InputBox';
@@ -32,7 +32,7 @@ const PaginatedSelectFiltered = ({
             ref={ref}
             placeholder={placeholder}
             value={filter}
-            onChange={useStableCallback((e: FormEvent<HTMLInputElement>) => {
+            onChange={useStableCallback((e: ChangeEvent<HTMLInputElement>) => {
               setFilter(e.currentTarget.value);
             })}
             {...props}

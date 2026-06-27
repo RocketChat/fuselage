@@ -12,14 +12,12 @@ import {
   fontColor,
   fontFamily,
   fontScale,
-  inset,
-  margin,
-  padding,
+  spacing,
   size,
   strokeColor,
 } from '../../styleTokens';
 
-type FontScale =
+export type FontScale =
   | 'hero'
   | 'h1'
   | 'h2'
@@ -88,6 +86,9 @@ export type StylingProps = {
   justifySelf: CSSProperties['justifySelf'];
   alignSelf: CSSProperties['alignSelf'];
   order: CSSProperties['order'];
+  gap: CSSProperties['gap'];
+  rowGap: CSSProperties['rowGap'];
+  columnGap: CSSProperties['columnGap'];
 
   w: CSSProperties['width'];
   width: CSSProperties['width'];
@@ -102,6 +103,7 @@ export type StylingProps = {
   overflow: CSSProperties['overflow'];
   overflowX: CSSProperties['overflowX'];
   overflowY: CSSProperties['overflowY'];
+  objectFit: CSSProperties['objectFit'];
 
   position: CSSProperties['position'];
   zIndex: CSSProperties['zIndex'];
@@ -210,15 +212,19 @@ const sizeProp: PropDefinition = {
 };
 
 const insetProp: PropDefinition = {
-  toCSSValue: inset,
+  toCSSValue: spacing,
 };
 
 const marginProp: PropDefinition = {
-  toCSSValue: margin,
+  toCSSValue: spacing,
 };
 
 const paddingProp: PropDefinition = {
-  toCSSValue: padding,
+  toCSSValue: spacing,
+};
+
+const gapProp: PropDefinition = {
+  toCSSValue: spacing,
 };
 
 const fontFamilyProp: PropDefinition = {
@@ -299,6 +305,9 @@ export const propDefs: Record<keyof StylingProps, PropDefinition> = {
   justifySelf: stringProp,
   alignSelf: stringProp,
   order: numberOrStringProp,
+  gap: gapProp,
+  rowGap: gapProp,
+  columnGap: gapProp,
 
   w: aliasOf('width'),
   width: sizeProp,
@@ -313,6 +322,7 @@ export const propDefs: Record<keyof StylingProps, PropDefinition> = {
   overflow: stringProp,
   overflowX: stringProp,
   overflowY: stringProp,
+  objectFit: stringProp,
 
   position: stringProp,
   zIndex: numberOrStringProp,

@@ -17,7 +17,7 @@ export default {
 } satisfies Meta<typeof Popover>;
 
 const Template: StoryFn<typeof Popover> = (args) => {
-  const ref = useRef(null);
+  const ref = useRef<HTMLAnchorElement | HTMLButtonElement>(null);
   const state = useOverlayTriggerState({});
   const { triggerProps, overlayProps } = useOverlayTrigger(
     { type: 'dialog' },

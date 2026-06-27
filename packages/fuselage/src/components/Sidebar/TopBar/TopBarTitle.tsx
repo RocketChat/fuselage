@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 
 import { Box } from '../../Box';
 
-type TopBarTitleProps = {
+export type TopBarTitleProps = {
   children?: ReactNode;
 };
 

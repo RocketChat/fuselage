@@ -1,5 +1,34 @@
 # @rocket.chat/fuselage-forms
 
+## 1.3.0
+
+### Minor Changes
+
+- [#1956](https://github.com/RocketChat/fuselage/pull/1956) [`3a7c41d`](https://github.com/RocketChat/fuselage/commit/3a7c41d4d23b88a7867bd260f2fe5832085716f5) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage-forms): add `AutoComplete` component
+
+## 1.2.0
+
+### Minor Changes
+
+- [#1942](https://github.com/RocketChat/fuselage/pull/1942) [`ef9dedd`](https://github.com/RocketChat/fuselage/commit/ef9dedd02084073731bd9cc008e1268e23b4b9a0) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage-forms): Add `MultiSelectFiltered` component
+
+## 1.1.1
+
+### Patch Changes
+
+- [#1922](https://github.com/RocketChat/fuselage/pull/1922) [`5e50887`](https://github.com/RocketChat/fuselage/commit/5e5088707fd0c1bdfcfd320797422069e87d36cb) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage-forms): withLabelHelpers missing forwardRef
+
+- [#1921](https://github.com/RocketChat/fuselage/pull/1921) [`e0ac8d5`](https://github.com/RocketChat/fuselage/commit/e0ac8d59512ae46ff7d089824a777cdab760c92f) Thanks [@juliajforesti](https://github.com/juliajforesti)! - fix(fuselage-forms): missing `role alert` on `FieldError`
+
+## 1.1.0
+
+### Minor Changes
+
+- [#1900](https://github.com/RocketChat/fuselage/pull/1900) [`1b23670`](https://github.com/RocketChat/fuselage/commit/1b23670e2f0d7aa454d9b2d0d18f59994281e858) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage-forms): add `Slider` component
+
+- [#1901](https://github.com/RocketChat/fuselage/pull/1901) [`e5c02b9`](https://github.com/RocketChat/fuselage/commit/e5c02b9a29aa5ccad16fd62d4748042145368519) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage-forms): add `MultiSelect` component
+  feat(fuselage): improve `MultiSelect` a11y
+
 ## 1.0.0
 
 ### Patch Changes

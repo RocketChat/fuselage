@@ -1,6 +1,7 @@
 import type {
+  AriaAttributes,
   FocusEventHandler,
-  FormEvent,
+  InputEvent,
   KeyboardEventHandler,
   MouseEventHandler,
   ReactNode,
@@ -20,7 +21,10 @@ type MultiSelectFilteredAnchorProps = {
   onBlur: FocusEventHandler;
   onKeyUp: KeyboardEventHandler;
   onKeyDown: KeyboardEventHandler;
-};
+  role?: string;
+  id?: string;
+  name?: string;
+} & AriaAttributes;
 
 const MultiSelectFilteredAnchor = forwardRef<
   HTMLInputElement,
@@ -35,13 +39,13 @@ const MultiSelectFilteredAnchor = forwardRef<
         ref={ref}
         placeholder={placeholder}
         value={filter}
-        onInput={(e: FormEvent<HTMLInputElement>) =>
+        onInput={(e: InputEvent<HTMLInputElement>) =>
           onChangeFilter(e.currentTarget.value)
         }
         {...props}
         rcx-input-box--undecorated
-        aria-haspopup='listbox'
         order={1}
+        autoComplete='off'
       />
     </FlexItem>
   );

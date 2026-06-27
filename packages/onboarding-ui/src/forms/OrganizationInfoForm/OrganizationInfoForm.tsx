@@ -13,7 +13,7 @@ import {
 } from '@rocket.chat/fuselage';
 import { useBreakpoints } from '@rocket.chat/fuselage-hooks';
 import { ActionLink, Form } from '@rocket.chat/layout';
-import type { ReactElement, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import { useRef, useEffect, useId } from 'react';
 import type { SubmitHandler } from 'react-hook-form';
 import { useForm, Controller } from 'react-hook-form';
@@ -50,7 +50,7 @@ const OrganizationInfoForm = ({
   onSubmit,
   onBackButtonClick,
   onClickSkip,
-}: OrganizationInfoFormProps): ReactElement => {
+}: OrganizationInfoFormProps) => {
   const { t } = useTranslation();
   const breakpoints = useBreakpoints();
   const isMobile = !breakpoints.includes('md');

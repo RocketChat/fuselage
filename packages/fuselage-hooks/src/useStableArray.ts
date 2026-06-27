@@ -1,8 +1,8 @@
-import type { MutableRefObject } from 'react';
+import type { RefObject } from 'react';
 import { useRef } from 'react';
 
 const hasChanged = <T extends unknown[]>(
-  ref: MutableRefObject<T>,
+  ref: RefObject<T>,
   array: T,
   compare: <T>(a: T, b: T) => boolean,
 ): boolean => {
@@ -22,7 +22,7 @@ const hasChanged = <T extends unknown[]>(
 };
 
 const getCurrentArray = <T extends unknown[]>(
-  ref: MutableRefObject<T>,
+  ref: RefObject<T>,
   array: T,
   compare: <T>(a: T, b: T) => boolean,
 ): T => {

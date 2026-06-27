@@ -1,6 +1,5 @@
 import { Box } from '@rocket.chat/fuselage';
 import { ActionLink, BackgroundLayer } from '@rocket.chat/layout';
-import type { ReactElement } from 'react';
 import type { FieldPathValue, SubmitHandler, Validate } from 'react-hook-form';
 import { Trans, useTranslation } from 'react-i18next';
 
@@ -9,7 +8,7 @@ import FormPageLayout from '../../common/FormPageLayout';
 import ResetPasswordForm from '../../forms/ResetPasswordForm';
 import type { ResetPasswordFormPayload } from '../../forms/ResetPasswordForm/ResetPasswordForm';
 
-type ResetPasswordPageProps = {
+export type ResetPasswordPageProps = {
   initialValues?: ResetPasswordFormPayload;
   validateEmail: Validate<
     FieldPathValue<ResetPasswordFormPayload, 'email'>,
@@ -23,10 +22,7 @@ const pageLayoutStyleProps: FormPageLayoutStyleProps = {
   justifyContent: 'center',
 };
 
-const ResetPasswordPage = ({
-  onLogin,
-  ...props
-}: ResetPasswordPageProps): ReactElement => {
+const ResetPasswordPage = ({ onLogin, ...props }: ResetPasswordPageProps) => {
   const { t } = useTranslation();
   return (
     <BackgroundLayer>

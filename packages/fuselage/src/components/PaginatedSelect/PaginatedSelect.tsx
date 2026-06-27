@@ -19,10 +19,11 @@ import SelectFocus from '../Select/SelectFocus';
 
 import PaginatedSelectWrapper from './PaginatedSelectWrapper';
 
-type PaginatedOptionType = {
+export type PaginatedOptionType = {
   value: string | number;
   label: string;
 };
+
 export type PaginatedSelectProps = Omit<SelectProps, 'options'> & {
   anchor?: ElementType;
   options: PaginatedOptionType[];

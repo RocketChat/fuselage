@@ -6,7 +6,7 @@ import {
   HorizontalWizardLayoutDescription,
   HorizontalWizardLayoutContent,
 } from '@rocket.chat/layout';
-import type { ReactElement, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 
 // import { OnboardingLogo } from './OnboardingLogo';
@@ -27,7 +27,7 @@ const FormPageLayoutOnboard = ({
   subtitle,
   description,
   children,
-}: FormPageLayoutProps): ReactElement => {
+}: FormPageLayoutProps) => {
   const { t } = useTranslation();
   return (
     <HorizontalWizardLayout>

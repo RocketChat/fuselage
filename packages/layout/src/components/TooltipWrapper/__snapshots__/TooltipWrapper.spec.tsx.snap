@@ -4,7 +4,7 @@ exports[`renders WithElement without crashing 1`] = `
 <body>
   <div>
     <div
-      aria-describedby=":r1:"
+      aria-describedby="_r_1_"
       class="rcx-box rcx-box--full"
       tabindex="0"
     >
@@ -18,7 +18,7 @@ exports[`renders WithRenderProp without crashing 1`] = `
 <body>
   <div>
     <div
-      aria-describedby=":r0:"
+      aria-describedby="_r_0_"
       class="rcx-box rcx-box--full"
       tabindex="0"
     >

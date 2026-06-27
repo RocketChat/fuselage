@@ -1,5 +1,11 @@
 # @rocket.chat/layout
 
+## 0.34.3
+
+### Patch Changes
+
+- [#2010](https://github.com/RocketChat/fuselage/pull/2010) [`6a21baf`](https://github.com/RocketChat/fuselage/commit/6a21baf14375149f5c3d8cb0eb14eacc958c6d32) Thanks [@tassoevan](https://github.com/tassoevan)! - fix(layout): Color in `HorizontalWizardLayoutCaption` issues warning in runtime
+
 ## 0.34.2
 
 ### Patch Changes

@@ -4,11 +4,12 @@ import type { RefObject, ReactElement } from 'react';
 import { useRef, useMemo, cloneElement, useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 
+import { useOwnerDocument } from '../../contexts';
 import type { BoxProps } from '../Box';
 
 export type PositionProps = {
-  anchor: RefObject<Element>;
-  children: ReactElement;
+  anchor: RefObject<Element | null>;
+  children: ReactElement<any>;
   margin?: number;
   placement?: UsePositionOptions['placement'];
 } & Omit<BoxProps, 'children' | 'margin'>;
@@ -21,7 +22,7 @@ const Position = ({
   className: _className,
   ...props
 }: PositionProps) => {
-  const target = useRef(null);
+  const target = useRef<Element>(null);
   const { style: positionStyle, placement: positionPlacement } =
     usePosition(
       anchor,
@@ -33,26 +34,29 @@ const Position = ({
     () => ({ position: 'fixed', ...positionStyle }),
     [positionStyle],
   );
+
+  const { document: ownerDocument } = useOwnerDocument();
+
   const [portalContainer] = useState(() => {
-    const prev = document.getElementById('position-container');
+    const prev = ownerDocument.getElementById('position-container');
     if (prev) {
       return prev;
     }
-    const element = document.createElement('div');
+    const element = ownerDocument.createElement('div');
 
     element.id = 'position-container';
 
-    document.body.appendChild(element);
+    ownerDocument.body.appendChild(element);
     return element;
   });
 
   useEffect(
     () => () => {
       if (portalContainer.childNodes.length === 0) {
-        document.body.removeChild(portalContainer);
+        ownerDocument.body.removeChild(portalContainer);
       }
     },
-    [portalContainer],
+    [portalContainer, ownerDocument],
   );
 
   return createPortal(

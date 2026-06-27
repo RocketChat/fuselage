@@ -6,7 +6,7 @@ import { useDebouncedCallback } from './useDebouncedCallback';
 import { useIsomorphicLayoutEffect } from './useIsomorphicLayoutEffect';
 
 export const useContentBoxSize = (
-  ref: RefObject<HTMLElement>,
+  ref: RefObject<HTMLElement | null>,
   {
     debounceDelay = 0,
   }: {

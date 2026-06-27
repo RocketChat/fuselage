@@ -1,5 +1,6 @@
 import type { Meta, StoryFn } from '@storybook/react-webpack5';
-import { useState, type ReactNode } from 'react';
+import type { ReactNode } from 'react';
+import { useState } from 'react';
 
 import { exampleAvatar, DECORATOR_LABEL } from '../../../.storybook/helpers';
 import { Avatar } from '../Avatar';

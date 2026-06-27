@@ -1,8 +1,14 @@
-export { SidebarItem as SidebarV2Item } from './SidebarItem';
+export {
+  SidebarItem as SidebarV2Item,
+  type SidebarV2ItemProps,
+} from './SidebarItem';
 export { SidebarItemAction as SidebarV2ItemAction } from './SidebarItemAction';
 export { SidebarItemAvatarWrapper as SidebarV2ItemAvatarWrapper } from './SidebarItemAvatarWrapper';
 export { SidebarItemBadge as SidebarV2ItemBadge } from './SidebarItemBadge';
-export { SidebarItemIcon as SidebarV2ItemIcon } from './SidebarItemIcon';
+export {
+  SidebarItemIcon as SidebarV2ItemIcon,
+  type SidebarV2ItemIconProps,
+} from './SidebarItemIcon';
 export { SidebarItemMenu as SidebarV2ItemMenu } from './SidebarItemMenu';
 export { SidebarItemTitle as SidebarV2ItemTitle } from './SidebarItemTitle';
 export { SidebarItemRow as SidebarV2ItemRow } from './SidebarItemRow';

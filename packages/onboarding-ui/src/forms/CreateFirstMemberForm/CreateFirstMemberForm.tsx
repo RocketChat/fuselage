@@ -12,17 +12,16 @@ import {
   FieldError,
 } from '@rocket.chat/fuselage';
 import { Form } from '@rocket.chat/layout';
-import type { ReactElement } from 'react';
 import type { FieldPathValue, SubmitHandler, Validate } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
-type CreateFirstMemberFormPayload = {
+export type CreateFirstMemberFormPayload = {
   username: string;
   password: string;
 };
 
-type CreateFirstMemberFormProps = {
+export type CreateFirstMemberFormProps = {
   defaultValues?: CreateFirstMemberFormPayload;
   currentStep: number;
   stepCount: number;
@@ -39,7 +38,7 @@ type CreateFirstMemberFormProps = {
   >;
 };
 
-const CreateFirstMemberForm = ({
+export const CreateFirstMemberForm = ({
   defaultValues,
   currentStep,
   stepCount,
@@ -48,7 +47,7 @@ const CreateFirstMemberForm = ({
   onBackButtonClick,
   validateUsername,
   validatePassword,
-}: CreateFirstMemberFormProps): ReactElement => {
+}: CreateFirstMemberFormProps) => {
   const { t } = useTranslation();
 
   const {
@@ -131,4 +130,4 @@ const CreateFirstMemberForm = ({
   );
 };
 
-export default CreateFirstMemberForm;
+export { CreateFirstMemberForm as default };

@@ -5,14 +5,13 @@ import {
   VerticalWizardLayoutForm,
   VerticalWizardLayoutTitle,
 } from '@rocket.chat/layout';
-import type { ReactElement } from 'react';
 import type { FieldPathValue, SubmitHandler, Validate } from 'react-hook-form';
 import { Trans, useTranslation } from 'react-i18next';
 
 import NewAccountForm from '../../forms/NewAccountForm';
 import type { NewAccountPayload } from '../../forms/NewAccountForm/NewAccountForm';
 
-type CreateNewAccountPageProps = {
+export type CreateNewAccountPageProps = {
   initialValues?: Omit<NewAccountPayload, 'password'>;
   validateEmail: Validate<
     FieldPathValue<NewAccountPayload, 'email'>,
@@ -33,7 +32,7 @@ type CreateNewAccountPageProps = {
 const CreateNewAccountPage = ({
   onLogin,
   ...props
-}: CreateNewAccountPageProps): ReactElement => {
+}: CreateNewAccountPageProps) => {
   const { t } = useTranslation();
   return (
     <VerticalWizardLayout>

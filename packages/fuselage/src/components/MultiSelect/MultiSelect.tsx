@@ -4,7 +4,7 @@ import {
   useResizeObserver,
   useOutsideClick,
 } from '@rocket.chat/fuselage-hooks';
-import type { SyntheticEvent, ElementType, ReactNode } from 'react';
+import type { ElementType, MouseEventHandler, ReactNode } from 'react';
 import { useState, useRef, useEffect, forwardRef } from 'react';
 
 import type { IconProps, SelectOption } from '..';
@@ -37,7 +37,12 @@ export type MultiSelectProps = Omit<BoxProps, 'onChange' | 'value'> & {
     | ((params: MultiSelectAnchorParams) => ReactNode);
   renderOptions?: ElementType;
   renderItem?: ElementType;
-  renderSelected?: ElementType;
+  renderSelected?: ElementType<{
+    value: SelectOption[0];
+    label: SelectOption[1];
+    onMouseDown: MouseEventHandler;
+    children: ReactNode;
+  }>;
   addonIcon?: IconProps['name'];
   setFilter?: (filter: string) => void;
 };
@@ -144,11 +149,24 @@ const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
       return show();
     });
 
+
     const handleAddonClick = useEffectEvent((e: SyntheticEvent) => {
       e.stopPropagation();
       e.preventDefault();
       handleClick();
     });
+    const listboxId = props.id ? `${props.id}-listbox` : undefined;
+
+    const {
+      id,
+      name,
+      'aria-label': ariaLabel,
+      'aria-labelledby': ariaLabelledBy,
+      'aria-describedby': ariaDescribedBy,
+      'aria-invalid': ariaInvalid,
+      'aria-required': ariaRequired,
+      ...containerProps
+    } = props;
 
     return (
       <Box
@@ -157,7 +175,7 @@ const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
         className={[error && 'invalid', disabled && 'disabled']}
         ref={containerRef}
         disabled={disabled}
-        {...props}
+        {...containerProps}
       >
         <FlexItem grow={1}>
           <Margins inline='x4'>
@@ -169,17 +187,28 @@ const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
                   alignItems='center'
                   flexWrap='wrap'
                   margin='-x8'
-                  role='listbox'
                 >
                   <Margins all='x4'>
                     {renderAnchor({
-                      ref: anchorRef,
-                      children: internalValue.length === 0 ? placeholder : null,
-                      disabled: disabled ?? false,
-                      onClick: show,
-                      onBlur: hide,
-                      onKeyDown: handleKeyDown,
-                      onKeyUp: handleKeyUp,
+                      'ref': anchorRef,
+                      'children':
+                        internalValue.length === 0 ? placeholder : null,
+                      'disabled': disabled ?? false,
+                      'onClick': show,
+                      'onBlur': hide,
+                      'onKeyDown': handleKeyDown,
+                      'onKeyUp': handleKeyUp,
+                      'role': 'combobox',
+                      'aria-expanded': visible === AnimatedVisibility.VISIBLE,
+                      'aria-haspopup': 'listbox',
+                      'aria-controls': listboxId,
+                      id,
+                      name,
+                      'aria-label': ariaLabel,
+                      'aria-labelledby': ariaLabelledBy,
+                      'aria-describedby': ariaDescribedBy,
+                      'aria-invalid': ariaInvalid,
+                      'aria-required': ariaRequired,
                     })}
                     {internalValue.map((value: SelectOption[0]) => {
                       const currentOption = options.find(
@@ -187,11 +216,10 @@ const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
                       ) as SelectOption;
                       return RenderSelected ? (
                         <RenderSelected
-                          role='option'
                           value={value}
                           key={value}
                           label={getLabel(currentOption)}
-                          onMouseDown={(e: SyntheticEvent) => {
+                          onMouseDown={(e) => {
                             prevent(e);
                             internalChanged(currentOption);
                             removeFocusClass();
@@ -201,9 +229,8 @@ const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
                       ) : (
                         <SelectedOptions
                           tabIndex={-1}
-                          role='option'
                           key={String(value)}
-                          onMouseDown={(e: SyntheticEvent) => {
+                          onMouseDown={(e) => {
                             prevent(e);
                             internalChanged(currentOption);
                             removeFocusClass();
@@ -244,7 +271,7 @@ const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
               multiple
               filter={filter}
               renderItem={renderItem || CheckOption}
-              role='listbox'
+              id={listboxId}
               options={filteredOptions}
               onSelect={internalChanged}
               cursor={cursor}

@@ -13,6 +13,7 @@ import type {
   PropsWithoutRef,
   RefAttributes,
   SVGProps,
+  JSX,
 } from 'react';
 import {
   createElement,
@@ -21,6 +22,8 @@ import {
   useDebugValue,
   useInsertionEffect,
 } from 'react';
+
+import { useOwnerDocument } from './OwnerDocument';
 
 export const attachClassName = <P extends { className?: string }>(
   props: P,
@@ -32,7 +35,7 @@ export const attachClassName = <P extends { className?: string }>(
     : additionalClassName,
 });
 
-type RefTypes = {
+export type RefTypes = {
   [K in keyof JSX.IntrinsicElements]: JSX.IntrinsicElements[K] extends DetailedHTMLProps<
     HTMLAttributes<infer T>,
     any
@@ -85,18 +88,19 @@ const styled =
 
           useDebugValue(computedClassName);
 
+          const { document } = useOwnerDocument();
           useInsertionEffect(() => {
             const escapedClassName = escapeName(computedClassName);
             const transpiledContent = transpile(
               `.${escapedClassName}`,
               content,
             );
-            const detach = attachRules(transpiledContent);
+            const detach = attachRules(transpiledContent, { document });
 
             return () => {
               setTimeout(detach, 1000);
             };
-          }, [computedClassName, content]);
+          }, [computedClassName, content, document]);
 
           const newProps = attachClassName(
             { ref, ...props },

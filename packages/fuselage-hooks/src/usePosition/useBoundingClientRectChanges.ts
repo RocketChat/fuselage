@@ -14,7 +14,7 @@ function getAncestors(element: Element): Element[] {
 }
 
 export function useBoundingClientRectChanges(
-  ref: RefObject<Element>,
+  ref: RefObject<Element | null>,
   callback: () => void,
 ): void {
   useEffect(() => {

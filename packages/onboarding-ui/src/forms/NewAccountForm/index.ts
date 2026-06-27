@@ -1,1 +1,1 @@
-export { default } from './NewAccountForm';
+export { default, type NewAccountPayload } from './NewAccountForm';

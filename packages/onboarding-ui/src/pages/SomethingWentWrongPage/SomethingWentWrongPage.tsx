@@ -1,15 +1,14 @@
 import { Box, Margins } from '@rocket.chat/fuselage';
 import { BackgroundLayer, LayoutLogo } from '@rocket.chat/layout';
-import type { ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
 
-type SomethingWentWrongPageProps = {
+export type SomethingWentWrongPageProps = {
   requestId?: string | undefined;
 };
 
 const SomethingWentWrongPage = ({
   requestId = undefined,
-}: SomethingWentWrongPageProps): ReactElement => {
+}: SomethingWentWrongPageProps) => {
   const { t } = useTranslation();
 
   return (

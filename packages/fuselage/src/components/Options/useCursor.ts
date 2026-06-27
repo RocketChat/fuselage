@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { AnimatedVisibility } from '../AnimatedVisibility';
 
 import type { OptionType } from './OptionType';
+import type { VisibilityHandler } from './useVisible';
 import { useVisible } from './useVisible';
 
 const keyCodes = {
@@ -58,11 +59,6 @@ const findNextIndex = <T>(
   return -1;
 };
 
-type UseCursorOnChange<T> = (
-  option: T,
-  visibilityHandler: ReturnType<typeof useVisible>,
-) => void;
-
 export const useCursor = <
   T extends readonly [
     value: unknown,
@@ -75,13 +71,13 @@ export const useCursor = <
 >(
   initial: number,
   options: Array<T>,
-  onChange: UseCursorOnChange<T>,
+  onChange: (option: T, visibilityHandler: VisibilityHandler) => void,
 ): [
   cursor: number,
   handleKeyDown: (e: KeyboardEvent) => void,
   handleKeyUp: (e: KeyboardEvent) => void,
   reset: () => void,
-  visibilityHandler: ReturnType<typeof useVisible>,
+  visibilityHandler: VisibilityHandler,
 ] => {
   const [cursor, setCursor] = useState(initial);
   const visibilityHandler = useVisible();

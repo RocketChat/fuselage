@@ -3,7 +3,6 @@ import type {
   DispatchWithoutAction,
   Reducer,
   ReducerState,
-  ReducerStateWithoutAction,
   ReducerWithoutAction,
 } from 'react';
 import { useReducer } from 'react';
@@ -27,7 +26,7 @@ export function useDebouncedReducer<S, R extends ReducerWithoutAction<S>>(
   init: undefined,
   delay: number,
 ): [
-  ReducerStateWithoutAction<R>,
+  ReducerState<R>,
   DispatchWithoutAction & {
     flush: () => void;
     cancel: () => void;
@@ -48,10 +47,10 @@ export function useDebouncedReducer<S, R extends ReducerWithoutAction<S>>(
 export function useDebouncedReducer<S, R extends ReducerWithoutAction<S>, I>(
   reducer: R,
   initialArg: I,
-  init: (arg: I) => ReducerStateWithoutAction<R>,
+  init: (arg: I) => ReducerState<R>,
   delay: number,
 ): [
-  ReducerStateWithoutAction<R>,
+  ReducerState<R>,
   DispatchWithoutAction & {
     flush: () => void;
     cancel: () => void;

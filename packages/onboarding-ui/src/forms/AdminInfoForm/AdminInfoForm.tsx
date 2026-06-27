@@ -14,7 +14,6 @@ import {
   FieldHint,
 } from '@rocket.chat/fuselage';
 import { Form } from '@rocket.chat/layout';
-import type { ReactElement } from 'react';
 import { useRef, useEffect, useId } from 'react';
 import type { FieldPathValue, SubmitHandler, Validate } from 'react-hook-form';
 import { useForm, Controller } from 'react-hook-form';
@@ -59,7 +58,7 @@ const AdminInfoForm = ({
   validatePassword,
   keepPosted = false,
   onSubmit,
-}: AdminInfoFormProps): ReactElement => {
+}: AdminInfoFormProps) => {
   const { t } = useTranslation();
 
   const formId = useId();

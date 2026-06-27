@@ -24,10 +24,17 @@ export {
 } from './SidebarLink';
 export * from './SidebarItem';
 export { SidebarCollapseGroup as SidebarV2CollapseGroup } from './SidebarCollapseGroup';
-export { SidebarBanner as SidebarV2Banner } from './SidebarBanner';
+export {
+  SidebarBanner as SidebarV2Banner,
+  type SidebarV2BannerProps,
+  type SidebarV2BannerVariant,
+} from './SidebarBanner';
 export * from './SidebarFooter';
 export * from './SidebarMedia';
 export { SidebarButtonGroup as SidebarV2ButtonGroup } from './SidebarButtonGroup';
 export { SidebarSection as SidebarV2Section } from './SidebarSection';
 export { SidebarDivider as SidebarV2Divider } from './SidebarDivider';
-export { SidebarGroupTitle as SidebarV2GroupTitle } from './SidebarGroupTitle';
+export {
+  SidebarGroupTitle as SidebarV2GroupTitle,
+  type SidebarGroupTitleProps as SidebarV2GroupTitleProps,
+} from './SidebarGroupTitle';

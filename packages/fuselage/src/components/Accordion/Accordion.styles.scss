@@ -1,6 +1,8 @@
 @use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
-@use '../../styles/typography.scss';
+@use '../../styles/typography.scss' as *;
+@use '../../styles/mixins/interactivity.scss' as *;
+@use '../../styles/mixins/shadows.scss' as *;
 
 .rcx-accordion {
   display: flex;
@@ -57,10 +59,10 @@
 .rcx-accordion-item__title {
   flex: 1 1 lengths.size(none);
 
-  @include typography.use-text-ellipsis;
+  @include use-text-ellipsis;
   white-space: nowrap;
 
-  @include typography.use-font-scale(h4);
+  @include use-font-scale(h4);
 }
 
 .rcx-accordion-item__panel {
