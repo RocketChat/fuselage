@@ -1,6 +1,7 @@
 import type {
   CollectionChildren,
   FocusableElement,
+  KeyboardEvent,
   Node,
 } from '@react-types/shared';
 import type { RefObject } from 'react';
@@ -54,8 +55,40 @@ function MenuSubmenu({
       triggerRef,
     );
 
+  /** react-aria's submenu hooks bind Escape to `state.closeAll()`, tearing down the whole menu tree. We override Escape so it dismisses only this submenu level — keeping its ancestors open — matching react-aria-components, where Escape closes the latest open submenu one level at a time.
+   **/
+  const closeSubmenu = () => {
+    // Mirror the ArrowLeft behavior: move focus back to the trigger so the parent menu stays keyboard-navigable and a subsequent Escape closes the next level up.
+    triggerRef.current?.focus();
+    submenuTriggerState.close();
+  };
+
+  /** Fires when focus is inside the submenu (keyboard navigation). */
+  const onSubmenuKeyDown = (event: KeyboardEvent) => {
+    if (event.key === 'Escape') {
+      event.stopPropagation();
+      closeSubmenu();
+      return;
+    }
+    submenuProps.onKeyDown?.(event);
+  };
+
+  /** Fires when focus is on the trigger itself (e.g. a hover/press-opened submenu). When this submenu is open, close just it; once it's closed, let Escape bubble so the parent menu handles the next level up.
+   **/
+  const onTriggerKeyDown = (event: KeyboardEvent) => {
+    if (event.key === 'Escape') {
+      if (submenuTriggerState.isOpen) {
+        closeSubmenu();
+        return;
+      }
+      event.continuePropagation();
+      return;
+    }
+    submenuTriggerProps.onKeyDown?.(event);
+  };
+
   const { menuItemProps, isFocused, isDisabled } = useMenuItem(
-    { ...submenuTriggerProps, key: item.key },
+    { ...submenuTriggerProps, onKeyDown: onTriggerKeyDown, key: item.key },
     state,
     triggerRef,
   );
@@ -91,6 +124,7 @@ function MenuSubmenu({
         >
           <MenuDropDown
             {...submenuProps}
+            onKeyDown={onSubmenuKeyDown}
             rootMenuTriggerState={rootMenuTriggerState}
             menuRef={submenuRef}
           >

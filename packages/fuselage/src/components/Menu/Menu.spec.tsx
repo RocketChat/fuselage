@@ -218,6 +218,103 @@ describe('[Menu Component]', () => {
       );
       expect(screen.getByText('New')).toBeInTheDocument();
     });
+
+    it('should close the latest open submenu on Escape, one level at a time, keeping ancestors open', async () => {
+      const user = userEvent.setup();
+      render(<WithRichSubmenuTrigger {...WithRichSubmenuTrigger.args} />);
+
+      await user.click(screen.getByRole('button'));
+      await screen.findAllByRole('menuitem');
+
+      // open the first level submenu ("Move to") then the nested one ("Teams")
+      await user.keyboard('{ArrowDown}{ArrowDown}{ArrowRight}');
+      await waitFor(() =>
+        expect(screen.getByText('Inbox')).toBeInTheDocument(),
+      );
+      await user.keyboard('{ArrowDown}{ArrowDown}{ArrowRight}');
+      await waitFor(() =>
+        expect(screen.getByText('Design')).toBeInTheDocument(),
+      );
+
+      // Escape closes only the nested submenu — level 1 and the root survive
+      await user.keyboard('{Escape}');
+      await waitFor(() =>
+        expect(screen.queryByText('Design')).not.toBeInTheDocument(),
+      );
+      expect(screen.getByText('Inbox')).toBeInTheDocument();
+      expect(screen.getByText('New')).toBeInTheDocument();
+
+      // Escape again closes level 1 — the root menu is still open
+      await user.keyboard('{Escape}');
+      await waitFor(() =>
+        expect(screen.queryByText('Inbox')).not.toBeInTheDocument(),
+      );
+      expect(screen.getByText('New')).toBeInTheDocument();
+
+      // a final Escape closes the root menu
+      await user.keyboard('{Escape}');
+      await waitFor(() =>
+        expect(screen.queryByText('New')).not.toBeInTheDocument(),
+      );
+    });
+
+    it('should close a hover-opened submenu on Escape without closing the root menu', async () => {
+      const user = userEvent.setup();
+      render(<WithRichSubmenuTrigger {...WithRichSubmenuTrigger.args} />);
+
+      await user.click(screen.getByRole('button'));
+      await screen.findAllByRole('menuitem');
+
+      // open the submenu by hovering its trigger — focus stays on the trigger
+      const trigger = (await screen.findAllByRole('menuitem')).find(
+        (item) => item.getAttribute('aria-haspopup') === 'menu',
+      );
+      await user.hover(trigger!);
+      await waitFor(() =>
+        expect(screen.getByText('Inbox')).toBeInTheDocument(),
+      );
+
+      // Escape closes only the submenu — the root menu stays open
+      await user.keyboard('{Escape}');
+      await waitFor(() =>
+        expect(screen.queryByText('Inbox')).not.toBeInTheDocument(),
+      );
+      expect(screen.getByText('New')).toBeInTheDocument();
+
+      // a second Escape closes the root menu
+      await user.keyboard('{Escape}');
+      await waitFor(() =>
+        expect(screen.queryByText('New')).not.toBeInTheDocument(),
+      );
+    });
+
+    it('should close the entire menu when interacting outside while a submenu is open', async () => {
+      const user = userEvent.setup();
+      render(
+        <div>
+          {/* a non-focusable target: closing must not depend on a blur event */}
+          <div data-testid='outside'>outside</div>
+          <WithRichSubmenuTrigger {...WithRichSubmenuTrigger.args} />
+        </div>,
+      );
+
+      await user.click(screen.getByRole('button'));
+      await screen.findAllByRole('menuitem');
+
+      // open a submenu so it becomes the topmost overlay
+      await user.keyboard('{ArrowDown}{ArrowDown}{ArrowRight}');
+      await waitFor(() =>
+        expect(screen.getByText('Inbox')).toBeInTheDocument(),
+      );
+
+      await user.click(screen.getByTestId('outside'));
+
+      // both the submenu and the root menu close
+      await waitFor(() =>
+        expect(screen.queryByText('Inbox')).not.toBeInTheDocument(),
+      );
+      expect(screen.queryByText('New')).not.toBeInTheDocument();
+    });
   });
 
   describe('Sizing', () => {

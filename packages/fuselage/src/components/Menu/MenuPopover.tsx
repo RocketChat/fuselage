@@ -2,6 +2,7 @@ import { useBreakpoints } from '@rocket.chat/fuselage-hooks';
 import type { ReactNode } from 'react';
 import { useRef } from 'react';
 import type { AriaPopoverProps } from 'react-aria';
+import { useInteractOutside } from 'react-aria';
 import type { OverlayTriggerState } from 'react-stately';
 
 import { DropdownDesktop } from '../Dropdown/DropdownDesktop';
@@ -34,10 +35,31 @@ function MenuPopover({
   const containerRef = useRef<HTMLDivElement>(null);
   const isSubmenu = groupContainer !== null;
 
+  const popoverRef = useRef<HTMLDivElement>(null);
+
+  // react-aria only lets the *topmost* overlay dismiss on an outside click.
+  // While a submenu is open it is topmost, but submenus are non-modal (hence
+  // non-dismissable), so neither the submenu nor the root closes. Since every
+  // open submenu portals into the root popover, the root popover element
+  // contains the entire menu tree — so we close the whole menu on any
+  // interaction outside it (ignoring the trigger, which toggles on its own).
+  useInteractOutside({
+    ref: popoverRef,
+    isDisabled: isSubmenu,
+    onInteractOutside: (event) => {
+      const trigger = props.triggerRef?.current;
+      if (trigger && trigger.contains(event.target as Node)) {
+        return;
+      }
+      state.close();
+    },
+  });
+
   const popover = (
     <Popover
       state={state}
       offset={offset}
+      popoverRef={popoverRef}
       {...props}
       portalContainer={
         isSubmenu ? (groupContainer?.current ?? undefined) : undefined

@@ -1,3 +1,4 @@
+import type { KeyboardEvent } from '@react-types/shared';
 import type { RefObject } from 'react';
 import { useRef } from 'react';
 import type { AriaMenuProps } from 'react-aria';
@@ -19,9 +20,14 @@ export type MenuDropDownProps<T extends object> = AriaMenuProps<T> & {
    * Ref of the menu container. Submenus pass their `submenuRef` here so
    * `useSubmenuTrigger` can wire pointer/keyboard behavior to the right element.
    */
-  menuRef?: RefObject<HTMLDivElement>;
+  menuRef?: RefObject<HTMLDivElement | null>;
   /** The nesting level of the menu, provided by `useSubmenuTrigger` for submenus. */
   submenuLevel?: number;
+  /**
+   * Keydown handler forwarded to the underlying menu element. Submenus use this
+   * to override the Escape behavior so it closes a single level at a time.
+   */
+  onKeyDown?: (event: KeyboardEvent) => void;
 };
 
 function MenuDropDown<T extends object>({
