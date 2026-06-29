@@ -466,14 +466,6 @@ export const WithSubmenu: StoryFn<typeof Menu> = (args) => (
     <MenuItem key='settings'>Settings</MenuItem>
   </Menu>
 );
-WithSubmenu.parameters = {
-  docs: {
-    description: {
-      story:
-        'A `MenuItem` becomes a **submenu trigger** when you give it a `title` (the label shown in the parent menu) and nest other `MenuItem`s as its children. Submenus open on hover/press, support keyboard navigation (`ArrowRight`/`ArrowLeft` to open/close), and can be nested to any depth.',
-    },
-  },
-};
 
 export const WithRichSubmenuTrigger: StoryFn<typeof Menu> = (args) => (
   <Menu title='Menu with rich submenu triggers' {...args}>
@@ -503,11 +495,3 @@ export const WithRichSubmenuTrigger: StoryFn<typeof Menu> = (args) => (
     </MenuItem>
   </Menu>
 );
-WithRichSubmenuTrigger.parameters = {
-  docs: {
-    description: {
-      story:
-        'Use `<MenuSubmenuTrigger>` when the submenu entry itself needs rich content (icon, avatar, custom layout) instead of a plain string `title`. The **first** child is the trigger item — it may use any of the `MenuItem*` sub-components — and the **remaining** children become the submenu. `MenuSubmenuTrigger`s can be nested for multi-level menus.',
-    },
-  },
-};
