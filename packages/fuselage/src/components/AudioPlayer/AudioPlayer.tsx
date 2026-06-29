@@ -5,6 +5,7 @@ import { useState, useRef, forwardRef } from 'react';
 import { Box, Button, IconButton, Margins } from '../..';
 import { useOwnerDocument } from '../../contexts';
 import { Slider } from '../Slider';
+import './AudioPlayer.styles.scss';
 
 const getMaskTime = (durationTime: number) =>
   new Date(durationTime * 1000)
@@ -78,6 +79,16 @@ export type AudioPlayerProps = {
   trackProps?: TrackHTMLAttributes<HTMLTrackElement>;
 };
 
+const getIcon = (isLoading: boolean, isPlaying: boolean) => {
+  if (isLoading) {
+    return 'loading';
+  }
+  if (isPlaying) {
+    return 'pause-shape-filled';
+  }
+  return 'play-shape-filled';
+};
+
 const AudioPlayer = forwardRef<HTMLAudioElement, AudioPlayerProps>(
   (
     {
@@ -98,6 +109,8 @@ const AudioPlayer = forwardRef<HTMLAudioElement, AudioPlayerProps>(
   ) => {
     const audioRef = useRef<HTMLAudioElement>(null);
     const refs = useMergedRefs(ref, audioRef);
+    const [isReady, setIsReady] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
     const [isPlaying, setIsPlaying] = useState(false);
     const [currentTime, setCurrentTime] = useState(0);
     const [durationTime, setDurationTime] = useState(0);
@@ -137,6 +150,8 @@ const AudioPlayer = forwardRef<HTMLAudioElement, AudioPlayerProps>(
 
     return (
       <Box
+        rcx-audio-player
+        rcx-audio-player--loading={isLoading}
         borderWidth='default'
         bg='tint'
         borderColor='extra-light'
@@ -155,7 +170,8 @@ const AudioPlayer = forwardRef<HTMLAudioElement, AudioPlayerProps>(
           medium
           onClick={handlePlay}
           aria-label={isPlaying ? pauseLabel : playLabel}
-          icon={isPlaying ? 'pause-shape-filled' : 'play-shape-filled'}
+          icon={getIcon(isLoading, isPlaying)}
+          disabled={isLoading}
         />
         <Margins inline={8}>
           <Box fontScale='p2' color='secondary-info'>
@@ -169,6 +185,7 @@ const AudioPlayer = forwardRef<HTMLAudioElement, AudioPlayerProps>(
               showOutput={false}
               value={currentTime}
               maxValue={durationTime}
+              disabled={!isReady}
               onChange={(value) => {
                 if (audioRef.current) {
                   audioRef.current.currentTime = value;
@@ -180,6 +197,7 @@ const AudioPlayer = forwardRef<HTMLAudioElement, AudioPlayerProps>(
           <Button
             secondary
             small
+            disabled={isLoading}
             onClick={handlePlaybackSpeedSingleControl}
             aria-label={changePlaybackSpeedLabel}
           >
@@ -209,6 +227,9 @@ const AudioPlayer = forwardRef<HTMLAudioElement, AudioPlayerProps>(
           onTimeUpdate={(e) => {
             setCurrentTime((e.target as HTMLAudioElement).currentTime);
           }}
+          onLoadStart={() => {
+            setIsLoading(true);
+          }}
           onLoadedMetadata={(e) => {
             const { duration } = e.target as HTMLAudioElement;
 
@@ -217,6 +238,16 @@ const AudioPlayer = forwardRef<HTMLAudioElement, AudioPlayerProps>(
             }
 
             getDurationForInfinityDurationAudioFile(src, setDurationTime);
+          }}
+          onSeeking={() => {
+            setIsLoading(true);
+          }}
+          onSeeked={() => {
+            setIsLoading(false);
+          }}
+          onCanPlay={() => {
+            setIsReady(true);
+            setIsLoading(false);
           }}
           onEnded={() => setIsPlaying(false)}
           ref={refs}

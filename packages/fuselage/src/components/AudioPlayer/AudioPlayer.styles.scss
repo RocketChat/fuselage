@@ -1,0 +1,16 @@
+.rcx-audio-player {
+  &--loading {
+    .rcx-icon--name-loading {
+      animation: spin-animation 0.8s linear infinite;
+    }
+  }
+}
+
+@keyframes spin-animation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
