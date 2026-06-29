@@ -10,6 +10,7 @@ type SidebarCollapseGroupProps = {
   tabIndex?: number;
   title: string;
   badge?: ReactNode;
+  menu?: ReactNode;
   actions?: ReactNode;
 } & HTMLAttributes<HTMLDivElement>;
 
@@ -24,6 +25,7 @@ export const SidebarCollapseGroup = forwardRef<
       tabIndex,
       children,
       badge,
+      menu,
       title,
       ...props
     }: SidebarCollapseGroupProps,
@@ -47,6 +49,7 @@ export const SidebarCollapseGroup = forwardRef<
           title={title}
           titleId={titleId}
           badge={badge}
+          menu={menu}
           barProps={barProps}
           role='button'
         />

@@ -179,6 +179,7 @@ export const decorators: Decorator[] = [
               title='Label'
               defaultExpanded
               badge={<SidebarV2ItemBadge children='99+' variant='danger' />}
+              menu={<MenuTemplate />}
             >
               {fn()}
             </SidebarV2CollapseGroup>

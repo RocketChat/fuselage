@@ -24,6 +24,7 @@ export {
 } from './SidebarLink';
 export * from './SidebarItem';
 export { SidebarCollapseGroup as SidebarV2CollapseGroup } from './SidebarCollapseGroup';
+export { SidebarCollapseGroupMenu as SidebarV2CollapseGroupMenu } from './SidebarCollapseGroupMenu';
 export {
   SidebarBanner as SidebarV2Banner,
   type SidebarV2BannerProps,

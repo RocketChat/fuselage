@@ -122,6 +122,7 @@ export const Default: StoryFn<typeof Sidebar> = (props) => (
                 variant='danger'
               />
             }
+            menu={<MenuTemplate />}
           >
             {Array.from({ length: 4 }).map((_, i) => (
               <GenericNoAvatarItem key={i} i={i} />
@@ -137,6 +138,7 @@ export const Default: StoryFn<typeof Sidebar> = (props) => (
                 variant='danger'
               />
             }
+            menu={<MenuTemplate />}
           >
             <Condensed />
             <SidebarListItem>
@@ -155,6 +157,7 @@ export const Default: StoryFn<typeof Sidebar> = (props) => (
                 variant='danger'
               />
             }
+            menu={<MenuTemplate />}
           >
             <Condensed />
             <SidebarListItem>
