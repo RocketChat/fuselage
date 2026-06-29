@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/styled",
-  "version": "0.33.0",
+  "version": "0.34.0",
   "description": "A simple styled API for React components",
   "homepage": "https://github.com/RocketChat/fuselage#readme",
   "bugs": {
