@@ -212,14 +212,14 @@ export type ReferencedLabelProps = ComponentProps<typeof FieldLabel_2>;
 export const SearchInput: ForwardRefExoticComponent<Omit<SearchInputProps, "ref"> & RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
-export const Select: ForwardRefExoticComponent<Omit<Omit<AriaSelectProps<object>, "children" | "value" | "onChange"> & {
+export const Select: ForwardRefExoticComponent<Omit<Omit<AriaSelectProps<unknown>, "children" | "value" | "onChange"> & RefAttributes<HTMLElement> & {
 error?: string;
 placeholder?: string;
 value?: Key | null | undefined;
 onChange?: ((key: Key) => any) | undefined;
 options: SelectOption[];
 small?: boolean;
-} & Omit<AllHTMLAttributes<HTMLElement>, "value" | "onChange"> & RefAttributes<HTMLElement>, "ref"> & RefAttributes<HTMLElement>>;
+} & Omit<AllHTMLAttributes<HTMLElement>, "value" | "onChange">, "ref"> & RefAttributes<HTMLElement>>;
 
 // @public (undocumented)
 export const Slider: typeof Slider_2;

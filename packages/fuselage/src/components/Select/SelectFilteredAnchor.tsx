@@ -4,12 +4,12 @@ import type {
   KeyboardEventHandler,
   MouseEventHandler,
   ReactNode,
+  RefAttributes,
 } from 'react';
-import { forwardRef } from 'react';
 
 import { Input } from '../InputBox';
 
-type SelectFilteredAnchorProps = {
+type SelectFilteredAnchorProps = RefAttributes<HTMLInputElement> & {
   children: ReactNode;
   disabled: boolean;
   filter: string;
@@ -21,19 +21,18 @@ type SelectFilteredAnchorProps = {
   onKeyDown: KeyboardEventHandler;
 };
 
-const SelectFilteredAnchor = forwardRef<
-  HTMLInputElement,
-  SelectFilteredAnchorProps
->(function SelectFilteredAnchor(
-  { children: _children, filter, onChangeFilter, placeholder, ...props },
-  ref,
-) {
+function SelectFilteredAnchor({
+  children: _children,
+  filter,
+  onChangeFilter,
+  placeholder,
+  ...props
+}: SelectFilteredAnchorProps) {
   return (
     <Input
       mi={4}
       flexGrow={1}
       className='rcx-select__focus'
-      ref={ref}
       placeholder={placeholder}
       value={filter}
       onInput={(e: InputEvent<HTMLInputElement>) =>
@@ -43,6 +42,6 @@ const SelectFilteredAnchor = forwardRef<
       rcx-input-box--undecorated
     />
   );
-});
+}
 
 export default SelectFilteredAnchor;

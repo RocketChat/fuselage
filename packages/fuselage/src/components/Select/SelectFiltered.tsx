@@ -1,5 +1,5 @@
 import type { Dispatch, SetStateAction } from 'react';
-import { forwardRef, useState } from 'react';
+import { useState } from 'react';
 
 import type { IconProps } from '..';
 
@@ -14,37 +14,31 @@ export type SelectFilteredProps = SelectProps & {
   addonIcon?: IconProps['name'];
 };
 
-const SelectFiltered = forwardRef<HTMLInputElement, SelectFilteredProps>(
-  function SelectFiltered(
-    {
-      options,
-      placeholder,
-      filter: propFilter,
-      setFilter: propSetFilter,
-      ...props
-    },
-    ref,
-  ) {
-    const [filter, setFilter] = useState('');
+function SelectFiltered({
+  options,
+  placeholder,
+  filter: propFilter,
+  setFilter: propSetFilter,
+  ...props
+}: SelectFilteredProps) {
+  const [filter, setFilter] = useState('');
 
-    return (
-      <SelectLegacy
-        ref={ref}
-        placeholder={placeholder}
-        filter={propFilter || filter}
-        options={options}
-        {...props}
-        anchor={(params: SelectAnchorParams) => (
-          <SelectFilteredAnchor
-            placeholder={placeholder}
-            filter={propFilter || filter}
-            onChangeFilter={propSetFilter || setFilter}
-            {...params}
-          />
-        )}
-      />
-    );
-  },
-);
+  return (
+    <SelectLegacy
+      placeholder={placeholder}
+      filter={propFilter || filter}
+      options={options}
+      {...props}
+      anchor={(params: SelectAnchorParams) => (
+        <SelectFilteredAnchor
+          placeholder={placeholder}
+          filter={propFilter || filter}
+          onChangeFilter={propSetFilter || setFilter}
+          {...params}
+        />
+      )}
+    />
+  );
+}
 
 export default SelectFiltered;

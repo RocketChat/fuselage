@@ -2055,18 +2055,13 @@ export function SearchInput(props: SearchInputProps): JSX.Element;
 // @public (undocumented)
 export type SearchInputProps = Omit<InputBoxProps<HTMLInputElement>, 'type'>;
 
+// Warning: (ae-forgotten-export) The symbol "SelectProps_2" needs to be exported by the entry point index.d.ts
+//
 // @public (undocumented)
-export const Select: ForwardRefExoticComponent<Omit<AriaSelectProps<object>, "value" | "children" | "onChange"> & {
-error?: string;
-placeholder?: string;
-value?: Key | null | undefined;
-onChange?: ((key: Key) => any) | undefined;
-options: SelectOption[];
-small?: boolean;
-} & Omit<AllHTMLAttributes<HTMLElement>, "value" | "onChange"> & RefAttributes<HTMLElement>>;
+export function Select<T, V extends Key>(input: SelectProps_2<T, V>): JSX.Element;
 
 // @public (undocumented)
-export const SelectFiltered: ForwardRefExoticComponent<Omit<SelectFilteredProps, "ref"> & RefAttributes<HTMLInputElement>>;
+export function SelectFiltered(input: SelectFilteredProps): JSX.Element;
 
 // @public (undocumented)
 export type SelectFilteredProps = SelectProps & {
@@ -2549,16 +2544,16 @@ export const SidepanelHeaderTitle: (input: SidepanelHeaderTitleProps) => JSX.Ele
 export type SidepanelHeaderTitleProps = HTMLAttributes<HTMLDivElement>;
 
 // @public (undocumented)
-export const SidepanelList: ForwardRefExoticComponent<SidepanelListProps & RefAttributes<HTMLDivElement>>;
+export function SidepanelList(input: SidepanelListProps): JSX.Element;
 
 // @public (undocumented)
-export const SidepanelListItem: ForwardRefExoticComponent<SidepanelListItemProps & RefAttributes<HTMLDivElement>>;
+export function SidepanelListItem(input: SidepanelListItemProps): JSX.Element;
 
 // @public (undocumented)
-export type SidepanelListItemProps = HTMLAttributes<HTMLDivElement>;
+export type SidepanelListItemProps = HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>;
 
 // @public (undocumented)
-export type SidepanelListProps = HTMLAttributes<HTMLDivElement>;
+export type SidepanelListProps = HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>;
 
 // @public (undocumented)
 export type SidepanelProps = HTMLAttributes<HTMLDivElement>;
