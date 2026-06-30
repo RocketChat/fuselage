@@ -13,6 +13,7 @@ import { CSSProperties } from 'react';
 import type { Dispatch } from 'react';
 import { FormHTMLAttributes } from 'react';
 import { ForwardRefExoticComponent } from 'react';
+import { FunctionComponent } from 'react';
 import { HTMLAttributes } from 'react';
 import { Icon } from '@rocket.chat/fuselage';
 import { JSX } from 'react';
@@ -43,9 +44,9 @@ export type AnchorParams = {
 };
 
 // @public (undocumented)
-const Aside: ForwardRefExoticComponent<Omit<ClassAttributes<HTMLDivElement> & HTMLAttributes<HTMLDivElement> & {
+const Aside: FunctionComponent<ClassAttributes<HTMLDivElement> & HTMLAttributes<HTMLDivElement> & {
 justifyContent?: string;
-}, "ref"> & RefAttributes<HTMLDivElement>>;
+}>;
 
 // @public (undocumented)
 export const BackgroundLayer: (input: BackgroundLayerProps) => JSX.Element;
@@ -56,7 +57,7 @@ export type BackgroundLayerProps = {
 };
 
 // @public (undocumented)
-const Content: ForwardRefExoticComponent<Omit<ClassAttributes<HTMLDivElement> & HTMLAttributes<HTMLDivElement>, "ref"> & RefAttributes<HTMLDivElement>>;
+const Content: FunctionComponent<ClassAttributes<HTMLDivElement> & HTMLAttributes<HTMLDivElement>>;
 
 declare namespace DarkModeProvider {
     export {
@@ -77,7 +78,7 @@ type DarkModeProviderProps = {
 };
 
 // @public (undocumented)
-const Description: ForwardRefExoticComponent<Omit<ClassAttributes<HTMLDivElement> & HTMLAttributes<HTMLDivElement>, "ref"> & RefAttributes<HTMLDivElement>>;
+const Description: FunctionComponent<ClassAttributes<HTMLDivElement> & HTMLAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
 export const Form: ForwardRefExoticComponent<Omit<FormHTMLAttributes<HTMLFormElement>, "is"> & {
@@ -242,22 +243,22 @@ export const ListItem: (input: {
 }) => JSX.Element;
 
 // @public (undocumented)
-const Logo: ForwardRefExoticComponent<Omit<ClassAttributes<HTMLDivElement> & HTMLAttributes<HTMLDivElement>, "ref"> & RefAttributes<HTMLDivElement>>;
+const Logo: FunctionComponent<ClassAttributes<HTMLDivElement> & HTMLAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
-const Subtitle: ForwardRefExoticComponent<Omit<ClassAttributes<HTMLHeadingElement> & HTMLAttributes<HTMLHeadingElement> & {
+const Subtitle: FunctionComponent<ClassAttributes<HTMLHeadingElement> & HTMLAttributes<HTMLHeadingElement> & {
 fontColor?: string;
 fontWeight?: string;
-}, "ref"> & RefAttributes<HTMLHeadingElement>>;
+}>;
 
 // @public (undocumented)
-const Title: ForwardRefExoticComponent<Omit<ClassAttributes<HTMLHeadingElement> & HTMLAttributes<HTMLHeadingElement>, "ref"> & RefAttributes<HTMLHeadingElement>>;
+const Title: FunctionComponent<ClassAttributes<HTMLHeadingElement> & HTMLAttributes<HTMLHeadingElement>>;
 
 // @public (undocumented)
-const TitleHighlight: ForwardRefExoticComponent<Omit<ClassAttributes<HTMLSpanElement> & HTMLAttributes<HTMLSpanElement> & {
+const TitleHighlight: FunctionComponent<ClassAttributes<HTMLSpanElement> & HTMLAttributes<HTMLSpanElement> & {
 fontColor?: string;
 isDark?: boolean;
-}, "ref"> & RefAttributes<HTMLSpanElement>>;
+}>;
 
 // @public (undocumented)
 export const TooltipWrapper: (input: TooltipWrapperProps) => JSX.Element;
@@ -292,7 +293,7 @@ export const VerticalWizardLayoutTitle: (input: {
 }) => JSX.Element;
 
 // @public (undocumented)
-const Wrapper: ForwardRefExoticComponent<Omit<ClassAttributes<HTMLDivElement> & HTMLAttributes<HTMLDivElement>, "ref"> & RefAttributes<HTMLDivElement>>;
+const Wrapper: FunctionComponent<ClassAttributes<HTMLDivElement> & HTMLAttributes<HTMLDivElement>>;
 
 // (No @packageDocumentation comment for this package)
 
