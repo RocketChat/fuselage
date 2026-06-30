@@ -130,6 +130,28 @@ export type AnimatedVisibilityProps = {
 export const AudioPlayer: ForwardRefExoticComponent<AudioPlayerProps & RefAttributes<HTMLAudioElement>>;
 
 // @public (undocumented)
+export const AudioPlayerControls: (input: AudioPlayerControlsProps) => JSX.Element;
+
+// @public (undocumented)
+export type AudioPlayerControlsProps = {
+    isPlaying: boolean;
+    currentTime: number;
+    durationTime: number;
+    playbackSpeed: number;
+    onTogglePlay: () => void;
+    onSeek: (time: number) => void;
+    onChangePlaybackSpeed: () => void;
+    download?: boolean;
+    downloadHref?: string;
+    onDownload?: (event: MouseEvent_2<HTMLElement>) => void;
+    playLabel?: string;
+    pauseLabel?: string;
+    audioPlaybackRangeLabel?: string;
+    changePlaybackSpeedLabel?: string;
+    downloadAudioFileLabel?: string;
+};
+
+// @public (undocumented)
 export type AudioPlayerProps = {
     src: string;
     type?: string;
