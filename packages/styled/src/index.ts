@@ -1,2 +1,2 @@
-export { default, type RefTypes } from './styled';
+export { default } from './styled';
 export * from './OwnerDocument';
