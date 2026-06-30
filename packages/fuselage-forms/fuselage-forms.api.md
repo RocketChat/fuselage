@@ -8,7 +8,6 @@ import { AllHTMLAttributes } from 'react';
 import { AriaSelectProps } from 'react-aria';
 import { AutoComplete as AutoComplete_2 } from '@rocket.chat/fuselage';
 import { BoxProps } from '@rocket.chat/fuselage';
-import { CheckBoxProps } from '@rocket.chat/fuselage';
 import type { ComponentProps } from 'react';
 import { ComponentPropsWithoutRef } from 'react';
 import { Context } from 'react';
@@ -33,7 +32,6 @@ import { MultiSelectAnchorParams } from '@rocket.chat/fuselage';
 import { MultiSelectFilteredProps } from '@rocket.chat/fuselage';
 import { NumberInputProps } from '@rocket.chat/fuselage';
 import { PasswordInputProps } from '@rocket.chat/fuselage';
-import { RadioButtonProps } from '@rocket.chat/fuselage';
 import { ReactNode } from 'react';
 import { RefAttributes } from 'react';
 import type { RefCallback } from 'react';
@@ -42,14 +40,16 @@ import { SelectOption } from '@rocket.chat/fuselage';
 import { Slider as Slider_2 } from '@rocket.chat/fuselage';
 import { TelephoneInputProps } from '@rocket.chat/fuselage';
 import { TextAreaInputProps } from '@rocket.chat/fuselage';
-import { ToggleSwitchProps } from '@rocket.chat/fuselage';
 import { UrlInputProps } from '@rocket.chat/fuselage';
 
 // @public (undocumented)
 export const AutoComplete: typeof AutoComplete_2;
 
 // @public (undocumented)
-export const CheckBox: ForwardRefExoticComponent<Omit<Omit<CheckBoxProps, "ref"> & RefAttributes<HTMLInputElement>, "ref"> & RefAttributes<HTMLInputElement>>;
+export const CheckBox: ForwardRefExoticComponent<Omit<Omit<BoxProps, "ref"> & RefAttributes<HTMLInputElement> & {
+indeterminate?: boolean;
+labelChildren?: ReactNode;
+} & AllHTMLAttributes<HTMLInputElement>, "ref"> & RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
 export const EmailInput: ForwardRefExoticComponent<Omit<EmailInputProps, "ref"> & RefAttributes<HTMLInputElement>>;
@@ -174,7 +174,9 @@ export const NumberInput: ForwardRefExoticComponent<Omit<NumberInputProps, "ref"
 export const PasswordInput: ForwardRefExoticComponent<Omit<PasswordInputProps, "ref"> & RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
-export const RadioButton: ForwardRefExoticComponent<Omit<Omit<RadioButtonProps, "ref"> & RefAttributes<HTMLInputElement>, "ref"> & RefAttributes<HTMLInputElement>>;
+export const RadioButton: ForwardRefExoticComponent<Omit<Omit<BoxProps, "ref"> & RefAttributes<HTMLInputElement> & AllHTMLAttributes<HTMLInputElement> & {
+labelChildren?: ReactNode;
+}, "ref"> & RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
 export const ReferencedLabel: (input: ReferencedLabelProps) => JSX.Element;
@@ -211,7 +213,9 @@ error?: string;
 }, "ref"> & RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
-export const ToggleSwitch: ForwardRefExoticComponent<Omit<Omit<ToggleSwitchProps, "ref"> & RefAttributes<HTMLInputElement>, "ref"> & RefAttributes<HTMLInputElement>>;
+export const ToggleSwitch: ForwardRefExoticComponent<Omit<Omit<BoxProps, "ref"> & RefAttributes<HTMLInputElement> & AllHTMLAttributes<HTMLInputElement> & {
+labelChildren?: ReactNode;
+}, "ref"> & RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
 export const UrlInput: ForwardRefExoticComponent<Omit<UrlInputProps, "ref"> & RefAttributes<HTMLInputElement>>;

@@ -293,17 +293,10 @@ export type BubbleProps = {
 export function Button(input: ButtonProps): JSX.Element;
 
 // @public (undocumented)
-export const ButtonGroup: ForwardRefExoticComponent<    {
-align?: "start" | "center" | "end";
-stretch?: boolean;
-wrap?: boolean;
-vertical?: boolean;
-small?: boolean;
-large?: boolean;
-} & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
+export function ButtonGroup(input: ButtonGroupProps): JSX.Element;
 
 // @public (undocumented)
-export type ButtonGroupProps = {
+export type ButtonGroupProps = RefAttributes<HTMLDivElement> & {
     align?: 'start' | 'center' | 'end';
     stretch?: boolean;
     wrap?: boolean;
@@ -427,10 +420,10 @@ export type CardTitleProps = {
 } & Omit<AllHTMLAttributes<HTMLElement>, 'is'>;
 
 // @public (undocumented)
-export const CheckBox: ForwardRefExoticComponent<Omit<CheckBoxProps, "ref"> & RefAttributes<HTMLInputElement>>;
+export function CheckBox(input: CheckBoxProps): JSX.Element;
 
 // @public (undocumented)
-export type CheckBoxProps = BoxProps & {
+export type CheckBoxProps = Omit<BoxProps, 'ref'> & RefAttributes<HTMLInputElement> & {
     indeterminate?: boolean;
     labelChildren?: ReactNode;
 } & AllHTMLAttributes<HTMLInputElement>;
@@ -820,7 +813,7 @@ export type GridProps = BoxProps & {
 };
 
 // @public (undocumented)
-export const Icon: ForwardRefExoticComponent<Omit<IconProps, "ref"> & RefAttributes<HTMLElement>>;
+export function Icon(input: IconProps): JSX.Element;
 
 // @public (undocumented)
 export function IconButton(input: IconButtonProps): JSX.Element;
@@ -847,7 +840,7 @@ export type IconButtonSize = {
 };
 
 // @public (undocumented)
-export type IconProps = Omit<BoxProps, 'name' | 'size'> & {
+export type IconProps = Omit<BoxProps, 'ref' | 'name' | 'size'> & RefAttributes<HTMLElement> & {
     name: Keys;
     size?: BoxProps['width'];
 };
@@ -885,7 +878,7 @@ export type InputProps<T extends HTMLInputElement | HTMLSelectElement | HTMLText
 export type ItemsPerPage = 25 | 50 | 100;
 
 // @public (undocumented)
-export const Label: ForwardRefExoticComponent<Omit<LabelProps, "ref"> & RefAttributes<HTMLElement>>;
+export function Label(input: LabelProps): JSX.Element;
 
 // @public (undocumented)
 export type LabelInfoProps = {
@@ -894,10 +887,9 @@ export type LabelInfoProps = {
 } & Omit<IconProps, 'name'>;
 
 // @public (undocumented)
-export type LabelProps = Omit<BoxProps, 'is'> & {
+export type LabelProps = Omit<BoxProps, 'ref'> & RefAttributes<HTMLElement> & {
     disabled?: boolean;
     required?: boolean;
-    is?: (ElementType<any> & string) | undefined;
 };
 
 // @public (undocumented)
@@ -1358,14 +1350,7 @@ export const MessageTimestamp: (props: MessageTimestampProps) => JSX.Element;
 export type MessageTimestampProps = HTMLAttributes<HTMLSpanElement>;
 
 // @public (undocumented)
-export const MessageToolbar: ForwardRefExoticComponent<    {
-align?: "start" | "center" | "end";
-stretch?: boolean;
-wrap?: boolean;
-vertical?: boolean;
-small?: boolean;
-large?: boolean;
-} & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
+export const MessageToolbar: ForwardRefExoticComponent<Omit<ButtonGroupProps, "ref"> & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
 export const MessageToolbarItem: ForwardRefExoticComponent<Omit<IconButtonProps, "ref"> & RefAttributes<HTMLButtonElement>>;
@@ -1544,14 +1529,7 @@ export const NavBarDivider: (props: NavBarDividerProps) => JSX.Element;
 export type NavBarDividerProps = DividerProps;
 
 // @public (undocumented)
-export const NavBarGroup: ForwardRefExoticComponent<    {
-align?: "start" | "center" | "end";
-stretch?: boolean;
-wrap?: boolean;
-vertical?: boolean;
-small?: boolean;
-large?: boolean;
-} & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
+export const NavBarGroup: ForwardRefExoticComponent<Omit<ButtonGroupProps, "ref"> & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
 export type NavBarGroupProps = ButtonGroupProps;
@@ -2039,16 +2017,10 @@ export type PositionProps = {
 } & Omit<BoxProps, 'children' | 'margin'>;
 
 // @public (undocumented)
-export const ProgressBar: ForwardRefExoticComponent<    {
-percentage: number;
-variant?: "info" | "success" | "warning" | "danger";
-error?: string;
-animated?: boolean;
-light?: boolean;
-} & Omit<AllHTMLAttributes<HTMLElement>, "is"> & RefAttributes<unknown>>;
+export function ProgressBar(input: ProgressBarProps): JSX.Element;
 
 // @public (undocumented)
-export type ProgressBarProps = {
+export type ProgressBarProps = RefAttributes<unknown> & {
     percentage: number;
     variant?: 'info' | 'success' | 'warning' | 'danger';
     error?: string;
@@ -2057,10 +2029,10 @@ export type ProgressBarProps = {
 } & Omit<AllHTMLAttributes<HTMLElement>, 'is'>;
 
 // @public (undocumented)
-export const RadioButton: ForwardRefExoticComponent<Omit<RadioButtonProps, "ref"> & RefAttributes<HTMLInputElement>>;
+export function RadioButton(input: RadioButtonProps): JSX.Element;
 
 // @public (undocumented)
-export type RadioButtonProps = BoxProps & AllHTMLAttributes<HTMLInputElement> & {
+export type RadioButtonProps = Omit<BoxProps, 'ref'> & RefAttributes<HTMLInputElement> & AllHTMLAttributes<HTMLInputElement> & {
     labelChildren?: ReactNode;
 };
 
@@ -2150,14 +2122,7 @@ export const Sidebar: ((props: SidebarProps) => JSX.Element) & {
         Avatar: {
             size: "x24";
         };
-        Actions: ForwardRefExoticComponent<    {
-        align?: "start" | "center" | "end";
-        stretch?: boolean;
-        wrap?: boolean;
-        vertical?: boolean;
-        small?: boolean;
-        large?: boolean;
-        } & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
+        Actions: ForwardRefExoticComponent<Omit<ButtonGroupProps, "ref"> & RefAttributes<HTMLDivElement>>;
         Action: ForwardRefExoticComponent<Omit<IconButtonProps, "ref"> & RefAttributes<HTMLElement>>;
         Divider: () => JSX.Element;
         Title: (props: TopBarTitleProps) => JSX.Element;
@@ -2172,14 +2137,7 @@ export const Sidebar: ((props: SidebarProps) => JSX.Element) & {
         Wrapper: (input: SidebarItemWrapperProps) => JSX.Element;
         Icon: (input: SidebarItemIconProps) => JSX.Element;
         Avatar: (input: SidebarItemAvatarProps) => JSX.Element;
-        Actions: ForwardRefExoticComponent<    {
-        align?: "start" | "center" | "end";
-        stretch?: boolean;
-        wrap?: boolean;
-        vertical?: boolean;
-        small?: boolean;
-        large?: boolean;
-        } & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
+        Actions: ForwardRefExoticComponent<Omit<ButtonGroupProps, "ref"> & RefAttributes<HTMLDivElement>>;
         Action: (props: SidebarItemActionProps) => JSX.Element;
         Badge: (input: SidebarItemBadgeProps) => JSX.Element;
     };
@@ -2241,14 +2199,7 @@ export const SidebarItem: ((input: SidebarItemProps) => JSX.Element) & {
     Wrapper: (input: SidebarItemWrapperProps) => JSX.Element;
     Icon: (input: SidebarItemIconProps) => JSX.Element;
     Avatar: (input: SidebarItemAvatarProps) => JSX.Element;
-    Actions: ForwardRefExoticComponent<    {
-    align?: "start" | "center" | "end";
-    stretch?: boolean;
-    wrap?: boolean;
-    vertical?: boolean;
-    small?: boolean;
-    large?: boolean;
-    } & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
+    Actions: ForwardRefExoticComponent<Omit<ButtonGroupProps, "ref"> & RefAttributes<HTMLDivElement>>;
     Action: (props: SidebarItemActionProps) => JSX.Element;
     Badge: (input: SidebarItemBadgeProps) => JSX.Element;
 };
@@ -2260,14 +2211,7 @@ export const SidebarItemAction: (props: SidebarItemActionProps) => JSX.Element;
 export type SidebarItemActionProps = SidebarActionProps;
 
 // @public (undocumented)
-export const SidebarItemActions: ForwardRefExoticComponent<    {
-align?: "start" | "center" | "end";
-stretch?: boolean;
-wrap?: boolean;
-vertical?: boolean;
-small?: boolean;
-large?: boolean;
-} & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
+export const SidebarItemActions: ForwardRefExoticComponent<Omit<ButtonGroupProps, "ref"> & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
 export const SidebarItemAvatar: (input: SidebarItemAvatarProps) => JSX.Element;
@@ -2397,14 +2341,7 @@ export const SidebarTopBar: ((input: TopBarProps) => JSX.Element) & {
     Avatar: {
         size: "x24";
     };
-    Actions: ForwardRefExoticComponent<    {
-    align?: "start" | "center" | "end";
-    stretch?: boolean;
-    wrap?: boolean;
-    vertical?: boolean;
-    small?: boolean;
-    large?: boolean;
-    } & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
+    Actions: ForwardRefExoticComponent<Omit<ButtonGroupProps, "ref"> & RefAttributes<HTMLDivElement>>;
     Action: ForwardRefExoticComponent<Omit<IconButtonProps, "ref"> & RefAttributes<HTMLElement>>;
     Divider: () => JSX.Element;
     Title: (props: TopBarTitleProps) => JSX.Element;
@@ -2443,14 +2380,7 @@ export const SidebarV2Action: ForwardRefExoticComponent<Omit<IconButtonProps, "r
 export type SidebarV2ActionProps = IconButtonProps;
 
 // @public (undocumented)
-export const SidebarV2Actions: ForwardRefExoticComponent<    {
-align?: "start" | "center" | "end";
-stretch?: boolean;
-wrap?: boolean;
-vertical?: boolean;
-small?: boolean;
-large?: boolean;
-} & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
+export const SidebarV2Actions: ForwardRefExoticComponent<Omit<ButtonGroupProps, "ref"> & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
 export type SidebarV2ActionsProps = ButtonGroupProps;
@@ -3098,20 +3028,20 @@ export type ThreadMessageRowProps = HTMLAttributes<HTMLDivElement>;
 export const ThreadMessageUnfollow: () => JSX.Element;
 
 // @public (undocumented)
-export const Throbber: ForwardRefExoticComponent<Omit<ThrobberProps, "ref"> & RefAttributes<HTMLElement>>;
+export function Throbber(input: ThrobberProps): JSX.Element;
 
 // @public (undocumented)
-export type ThrobberProps = Omit<BoxProps, 'disabled'> & {
+export type ThrobberProps = Omit<BoxProps, 'ref' | 'disabled'> & RefAttributes<HTMLElement> & {
     circleCount?: number;
     disabled?: boolean;
     inheritColor?: boolean;
 };
 
 // @public (undocumented)
-export const Tile: ForwardRefExoticComponent<Omit<BoxProps, "ref"> & RefAttributes<HTMLElement>>;
+export function Tile(input: TileProps): JSX.Element;
 
 // @public (undocumented)
-export type TileProps = BoxProps;
+export type TileProps = Omit<BoxProps, 'ref'> & RefAttributes<HTMLElement>;
 
 // @public (undocumented)
 export function ToastBar(input: ToastBarProps): JSX.Element;
@@ -3129,18 +3059,18 @@ export type ToastBarProps = {
 } & Omit<AllHTMLAttributes<HTMLElement>, 'is'>;
 
 // @public (undocumented)
-export const ToggleSwitch: ForwardRefExoticComponent<Omit<ToggleSwitchProps, "ref"> & RefAttributes<HTMLInputElement>>;
+export function ToggleSwitch(input: ToggleSwitchProps): JSX.Element;
 
 // @public (undocumented)
-export type ToggleSwitchProps = BoxProps & AllHTMLAttributes<HTMLInputElement> & {
+export type ToggleSwitchProps = Omit<BoxProps, 'ref'> & RefAttributes<HTMLInputElement> & AllHTMLAttributes<HTMLInputElement> & {
     labelChildren?: ReactNode;
 };
 
 // @public (undocumented)
-export const Tooltip: ForwardRefExoticComponent<Omit<TooltipProps, "ref"> & RefAttributes<HTMLElement>>;
+export function Tooltip(input: TooltipProps): JSX.Element;
 
 // @public (undocumented)
-export type TooltipProps = BoxProps & {
+export type TooltipProps = Omit<BoxProps, 'ref'> & RefAttributes<HTMLElement> & {
     variation?: 'dark' | 'light';
     placement?: 'top-start' | 'top-middle' | 'top-end' | 'bottom-start' | 'bottom-middle' | 'bottom-end' | 'top' | 'left' | 'bottom' | 'right' | null;
 };
@@ -3152,14 +3082,7 @@ export const TopBar: (input: TopBarProps) => JSX.Element;
 export const TopBarAction: ForwardRefExoticComponent<Omit<IconButtonProps, "ref"> & RefAttributes<HTMLElement>>;
 
 // @public (undocumented)
-export const TopBarActions: ForwardRefExoticComponent<    {
-align?: "start" | "center" | "end";
-stretch?: boolean;
-wrap?: boolean;
-vertical?: boolean;
-small?: boolean;
-large?: boolean;
-} & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
+export const TopBarActions: ForwardRefExoticComponent<Omit<ButtonGroupProps, "ref"> & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
 export const TopBarAvatar: {

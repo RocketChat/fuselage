@@ -16,7 +16,6 @@ import { ForwardRefExoticComponent } from 'react';
 import { FunctionComponent } from 'react';
 import { HTMLAttributes } from 'react';
 import { Icon } from '@rocket.chat/fuselage';
-import { IconProps } from '@rocket.chat/fuselage';
 import { JSX } from 'react';
 import { MarginsProps } from '@rocket.chat/fuselage';
 import { MemoExoticComponent } from 'react';
@@ -222,8 +221,8 @@ export const List: ((input: {
 }) => JSX.Element) & {
     Item: (input: {
         children: ReactNode;
-        icon?: ComponentProps<ForwardRefExoticComponent<Omit<IconProps, "ref"> & RefAttributes<HTMLElement>>>["name"];
-        iconColor?: ComponentProps<ForwardRefExoticComponent<Omit<IconProps, "ref"> & RefAttributes<HTMLElement>>>["color"];
+        icon?: ComponentProps<Icon>["name"];
+        iconColor?: ComponentProps<Icon>["color"];
         fontScale?: ComponentProps<MemoExoticComponent<(input: BoxProps) => JSX.Element>>["fontScale"];
     }) => JSX.Element;
 };
