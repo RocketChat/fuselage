@@ -8,13 +8,11 @@ import type {
   ChangeEvent,
   ComponentType,
   FocusEvent,
-  ForwardRefExoticComponent,
   MouseEvent,
   ReactNode,
-  Ref,
   RefAttributes,
 } from 'react';
-import { useEffect, useRef, useMemo, useState, forwardRef } from 'react';
+import { useEffect, useRef, useMemo, useState } from 'react';
 
 import { AnimatedVisibility } from '../AnimatedVisibility';
 import { Box } from '../Box';
@@ -29,6 +27,30 @@ export type AutoCompleteOption<TLabel> = {
   value: string;
   label: TLabel;
 };
+
+const getSelected = <TLabel,>(
+  value: string | string[] | undefined,
+  options: AutoCompleteOption<TLabel>[],
+) => {
+  if (!value) {
+    return [];
+  }
+  return typeof value === 'string'
+    ? options.filter((option) => option.value === value)
+    : options?.filter((option) => value.includes(option.value));
+};
+
+const isSelectedValid =
+  <TLabel,>(value: string | string[] | undefined) =>
+  (selected: AutoCompleteOption<TLabel>) => {
+    if (!value) {
+      return false;
+    }
+
+    return typeof value === 'string'
+      ? selected.value === value
+      : value.includes(selected.value);
+  };
 
 export type AutoCompleteProps<TLabel = ReactNode> = Omit<
   AllHTMLAttributes<HTMLInputElement>,
@@ -59,52 +81,26 @@ export type AutoCompleteProps<TLabel = ReactNode> = Omit<
   value?: string | string[];
 } & RefAttributes<HTMLInputElement>;
 
-const getSelected = <TLabel,>(
-  value: string | string[] | undefined,
-  options: AutoCompleteOption<TLabel>[],
-) => {
-  if (!value) {
-    return [];
-  }
-  return typeof value === 'string'
-    ? options.filter((option) => option.value === value)
-    : options?.filter((option) => value.includes(option.value));
-};
-
-const isSelectedValid =
-  <TLabel,>(value: string | string[] | undefined) =>
-  (selected: AutoCompleteOption<TLabel>) => {
-    if (!value) {
-      return false;
-    }
-
-    return typeof value === 'string'
-      ? selected.value === value
-      : value.includes(selected.value);
-  };
-
 /**
  * An input for selection of options.
  */
-const AutoComplete = forwardRef(function AutoComplete<TLabel = ReactNode>(
-  {
-    value,
-    filter,
-    setFilter,
-    options = [],
-    renderItem,
-    renderSelected: RenderSelected,
-    onChange,
-    renderEmpty,
-    placeholder,
-    error,
-    disabled,
-    multiple,
-    onBlur: onBlurAction = () => {},
-    ...props
-  }: AutoCompleteProps<TLabel>,
-  ref: Ref<HTMLInputElement>,
-) {
+function AutoComplete<TLabel = ReactNode>({
+  ref,
+  value,
+  filter,
+  setFilter,
+  options = [],
+  renderItem,
+  renderSelected: RenderSelected,
+  onChange,
+  renderEmpty,
+  placeholder,
+  error,
+  disabled,
+  multiple,
+  onBlur: onBlurAction = () => {},
+  ...props
+}: AutoCompleteProps<TLabel>) {
   const innerRef = useRef<HTMLInputElement>(null);
   const mergedRefs = useMergedRefs(ref, innerRef);
   const { ref: containerRef, borderBoxSize } = useResizeObserver();
@@ -268,13 +264,6 @@ const AutoComplete = forwardRef(function AutoComplete<TLabel = ReactNode>(
       </PositionAnimated>
     </Box>
   );
-}) as Pick<
-  ForwardRefExoticComponent<AutoCompleteProps>,
-  keyof ForwardRefExoticComponent<AutoCompleteProps>
-> & {
-  <TLabel = ReactNode>(
-    props: AutoCompleteProps<TLabel> & RefAttributes<HTMLInputElement>,
-  ): ReactNode;
-};
+}
 
 export default AutoComplete;

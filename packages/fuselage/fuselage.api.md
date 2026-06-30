@@ -150,9 +150,7 @@ export type AudioPlayerProps = {
 };
 
 // @public (undocumented)
-export const AutoComplete: Pick<ForwardRefExoticComponent<AutoCompleteProps>, keyof ForwardRefExoticComponent<AutoCompleteProps>> & {
-    <TLabel = ReactNode>(props: AutoCompleteProps<TLabel> & RefAttributes<HTMLInputElement>): ReactNode;
-};
+export function AutoComplete<TLabel = ReactNode>(input: AutoCompleteProps<TLabel>): JSX.Element;
 
 // @public (undocumented)
 export type AutoCompleteOption<TLabel> = {
