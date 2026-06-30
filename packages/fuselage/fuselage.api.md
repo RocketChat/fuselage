@@ -79,7 +79,7 @@ export type AccordionProps = {
 } & Partial<StylingProps>;
 
 // @public (undocumented)
-export const ActionButton: ForwardRefExoticComponent<Omit<ActionButtonProps, "ref"> & RefAttributes<HTMLButtonElement>>;
+export function ActionButton(input: ActionButtonProps): JSX.Element;
 
 // @public (undocumented)
 export type ActionButtonProps = ButtonProps & ActionButtonSize & {
@@ -292,7 +292,7 @@ export type BubbleProps = {
 } & Omit<AllHTMLAttributes<HTMLDivElement>, 'onClick'>;
 
 // @public (undocumented)
-export const Button: ForwardRefExoticComponent<Omit<ButtonProps, "ref"> & RefAttributes<HTMLAnchorElement | HTMLButtonElement>>;
+export function Button(input: ButtonProps): JSX.Element;
 
 // @public (undocumented)
 export const ButtonGroup: ForwardRefExoticComponent<    {
@@ -315,7 +315,7 @@ export type ButtonGroupProps = {
 } & HTMLAttributes<HTMLDivElement>;
 
 // @public (undocumented)
-export type ButtonProps = BoxProps & {
+export type ButtonProps = Omit<BoxProps, 'ref'> & {
     primary?: boolean;
     secondary?: boolean;
     danger?: boolean;
@@ -331,7 +331,7 @@ export type ButtonProps = BoxProps & {
     square?: boolean;
     external?: boolean;
     icon?: IconProps['name'];
-} & Omit<AllHTMLAttributes<HTMLButtonElement | HTMLAnchorElement>, 'is' | 'className' | 'size'>;
+} & Omit<AllHTMLAttributes<HTMLButtonElement | HTMLAnchorElement>, 'is' | 'className' | 'size'> & RefAttributes<HTMLButtonElement | HTMLAnchorElement>;
 
 // @public (undocumented)
 export const Callout: (input: CalloutProps) => JSX.Element;
@@ -828,7 +828,7 @@ export type GridProps = BoxProps & {
 export const Icon: ForwardRefExoticComponent<Omit<IconProps, "ref"> & RefAttributes<HTMLElement>>;
 
 // @public (undocumented)
-export const IconButton: ForwardRefExoticComponent<Omit<IconButtonProps, "ref"> & RefAttributes<HTMLElement>>;
+export function IconButton(input: IconButtonProps): JSX.Element;
 
 // @public (undocumented)
 export type IconButtonProps = {
