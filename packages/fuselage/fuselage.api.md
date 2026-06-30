@@ -108,7 +108,7 @@ export type AnimatedVisibilityProps = {
 };
 
 // @public (undocumented)
-export const AudioPlayer: ForwardRefExoticComponent<AudioPlayerProps & RefAttributes<HTMLAudioElement>>;
+export const AudioPlayer: (input: AudioPlayerProps) => JSX.Element;
 
 // @public (undocumented)
 export const AudioPlayerControls: (input: AudioPlayerControlsProps) => JSX.Element;
@@ -133,7 +133,7 @@ export type AudioPlayerControlsProps = {
 };
 
 // @public (undocumented)
-export type AudioPlayerProps = {
+export type AudioPlayerProps = RefAttributes<HTMLAudioElement> & {
     src: string;
     type?: string;
     maxPlaybackSpeed?: number;
@@ -696,7 +696,7 @@ export const FieldHint: (props: FieldHintProps) => JSX.Element;
 export type FieldHintProps = BoxProps;
 
 // @public (undocumented)
-export const FieldLabel: ForwardRefExoticComponent<Omit<LabelProps, "ref"> & RefAttributes<HTMLElement>>;
+export function FieldLabel(props: FieldLabelProps): JSX.Element;
 
 // @public (undocumented)
 export const FieldLabelInfo: (props: FieldLabelInfoProps) => JSX.Element;
@@ -1378,7 +1378,7 @@ export const MessageUsername: (props: MessageUsernameProps) => JSX.Element;
 export type MessageUsernameProps = HTMLAttributes<HTMLSpanElement>;
 
 // @public (undocumented)
-export const Modal: ForwardRefExoticComponent<Omit<ModalProps, "ref"> & RefAttributes<Element>>;
+export const Modal: (input: ModalProps) => JSX.Element;
 
 // @public (undocumented)
 export const ModalBackdrop: (props: ModalBackdropProps) => JSX.Element;
@@ -1447,10 +1447,10 @@ export type ModalIconProps = BoxProps & {
 };
 
 // @public (undocumented)
-export type ModalProps = {
+export type ModalProps = Omit<BoxProps, 'ref'> & RefAttributes<Element> & {
     wrapperFunction?: (props: Pick<BoxProps, 'elevation' | 'className' | 'children'>) => ReactNode;
     wrapper?: ElementType<Pick<BoxProps, 'elevation' | 'className' | 'children'>>;
-} & BoxProps;
+};
 
 // @public (undocumented)
 export const ModalTagline: (input: ModalTaglineProps) => JSX.Element;
@@ -1488,7 +1488,7 @@ export type MultiSelectAnchorParams = {
 } & AriaAttributes;
 
 // @public (undocumented)
-export const MultiSelectFiltered: ForwardRefExoticComponent<Omit<MultiSelectFilteredProps, "ref"> & RefAttributes<HTMLInputElement>>;
+export function MultiSelectFiltered(input: MultiSelectFilteredProps): JSX.Element;
 
 // @public (undocumented)
 export type MultiSelectFilteredProps = MultiSelectProps & {
@@ -1529,16 +1529,16 @@ export const NavBarDivider: (props: NavBarDividerProps) => JSX.Element;
 export type NavBarDividerProps = DividerProps;
 
 // @public (undocumented)
-export const NavBarGroup: ForwardRefExoticComponent<Omit<ButtonGroupProps, "ref"> & RefAttributes<HTMLDivElement>>;
+export function NavBarGroup(props: NavBarGroupProps): JSX.Element;
 
 // @public (undocumented)
 export type NavBarGroupProps = ButtonGroupProps;
 
 // @public (undocumented)
-export const NavBarItem: ForwardRefExoticComponent<Omit<NavbarItemProps, "ref"> & RefAttributes<HTMLElement>>;
+export function NavBarItem(input: NavbarItemProps): JSX.Element;
 
 // @public (undocumented)
-export type NavbarItemProps = HTMLAttributes<HTMLElement> & Partial<IconButtonProps>;
+export type NavbarItemProps = HTMLAttributes<HTMLElement> & Partial<Omit<IconButtonProps, 'ref'>> & RefAttributes<HTMLElement>;
 
 // @public (undocumented)
 export type NavBarProps = HTMLAttributes<HTMLElement>;
@@ -1586,10 +1586,10 @@ export { OptionColumnProps as MenuItemColumnProps }
 export { OptionColumnProps }
 
 // @public (undocumented)
-export const OptionContainer: ForwardRefExoticComponent<Omit<BoxProps, "ref"> & RefAttributes<HTMLElement>>;
+export function OptionContainer(props: OptionContainerProps): JSX.Element;
 
 // @public (undocumented)
-export type OptionContainerProps = BoxProps;
+export type OptionContainerProps = Omit<BoxProps, 'ref'> & RefAttributes<HTMLElement>;
 
 // @public (undocumented)
 const OptionContent: (props: OptionContentProps) => JSX.Element;
@@ -1820,7 +1820,7 @@ export type PaginatedOptionType = {
 export const PaginatedSelectFiltered: (input: PaginatedSelectFilteredProps) => JSX.Element;
 
 // @public (undocumented)
-export type PaginatedSelectFilteredProps = Omit<PaginatedSelectProps, 'setFilter'> & {
+export type PaginatedSelectFilteredProps = Omit<PaginatedSelectProps, 'setFilter'> & RefAttributes<HTMLInputElement> & {
     setFilter: (value: string | undefined | number) => void;
 };
 
@@ -2079,10 +2079,10 @@ export type SelectFilteredProps = SelectProps & {
 export function SelectInput(input: SelectInputProps): JSX.Element;
 
 // @public (undocumented)
-export const SelectInputOption: ForwardRefExoticComponent<Omit<BoxProps, "ref"> & RefAttributes<HTMLOptionElement>>;
+export function SelectInputOption(props: SelectInputOptionProps): JSX.Element;
 
 // @public (undocumented)
-export type SelectInputOptionProps = BoxProps;
+export type SelectInputOptionProps = Omit<BoxProps, 'ref'> & RefAttributes<HTMLOptionElement>;
 
 // @public (undocumented)
 export type SelectInputProps = Omit<InputBoxProps<HTMLSelectElement>, 'type'>;
@@ -2916,14 +2916,14 @@ export function Tabs(input: TabsProps): JSX.Element;
 // @public (undocumented)
 export namespace Tabs {
     var // (undocumented)
-    Item: ForwardRefExoticComponent<Omit<TabsItemProps, "ref"> & RefAttributes<HTMLButtonElement>>;
+    Item: typeof TabsItem;
 }
 
 // @public (undocumented)
-export const TabsItem: ForwardRefExoticComponent<Omit<TabsItemProps, "ref"> & RefAttributes<HTMLButtonElement>>;
+export function TabsItem(input: TabsItemProps): JSX.Element;
 
 // @public (undocumented)
-export type TabsItemProps = BoxProps & {
+export type TabsItemProps = Omit<BoxProps, 'ref'> & RefAttributes<HTMLButtonElement> & {
     selected?: boolean;
     disabled?: boolean;
 };

@@ -4,7 +4,7 @@ import type {
   AllHTMLAttributes,
   RefAttributes,
 } from 'react';
-import { forwardRef, memo } from 'react';
+import { memo } from 'react';
 
 import { prevent } from '../../helpers/prevent';
 import type { BoxProps } from '../Box';
@@ -24,28 +24,24 @@ export type MenuOptionProps = RefAttributes<Element> & {
   description?: ReactNode;
 } & Omit<AllHTMLAttributes<HTMLElement>, 'label'>;
 
-const MenuOption = forwardRef<unknown, MenuOptionProps>(function MenuOption(
-  {
-    is: Tag = 'li',
-    id,
-    children,
-    focus,
-    selected,
-    className,
-    title,
-    disabled,
-    variant,
-    onClick,
-    ...props
-  }: MenuOptionProps,
-  ref,
-) {
+function MenuOption({
+  is: Tag = 'li',
+  id,
+  children,
+  focus,
+  selected,
+  className,
+  title,
+  disabled,
+  variant,
+  onClick,
+  ...props
+}: MenuOptionProps) {
   return (
     <Tag
       {...props}
       key={id}
       id={id}
-      ref={ref}
       aria-selected={!!selected}
       aria-disabled={!!disabled}
       title={title}
@@ -70,6 +66,6 @@ const MenuOption = forwardRef<unknown, MenuOptionProps>(function MenuOption(
       {children}
     </Tag>
   );
-});
+}
 
 export default memo(MenuOption);

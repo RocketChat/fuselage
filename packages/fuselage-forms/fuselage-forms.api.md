@@ -11,6 +11,7 @@ import { BoxProps } from '@rocket.chat/fuselage';
 import type { ComponentProps } from 'react';
 import { ComponentPropsWithoutRef } from 'react';
 import { Context } from 'react';
+import { Dispatch } from 'react';
 import { ElementType } from 'react';
 import { EmailInputProps } from '@rocket.chat/fuselage';
 import { Field as Field_2 } from '@rocket.chat/fuselage';
@@ -29,7 +30,6 @@ import { JSX } from 'react';
 import { Key } from 'react';
 import { MouseEventHandler } from 'react';
 import { MultiSelectAnchorParams } from '@rocket.chat/fuselage';
-import { MultiSelectFilteredProps } from '@rocket.chat/fuselage';
 import { NumberInputProps } from '@rocket.chat/fuselage';
 import { PasswordInputProps } from '@rocket.chat/fuselage';
 import { ReactNode } from 'react';
@@ -37,6 +37,7 @@ import { RefAttributes } from 'react';
 import type { RefCallback } from 'react';
 import { SearchInputProps } from '@rocket.chat/fuselage';
 import { SelectOption } from '@rocket.chat/fuselage';
+import { SetStateAction } from 'react';
 import { Slider as Slider_2 } from '@rocket.chat/fuselage';
 import { TelephoneInputProps } from '@rocket.chat/fuselage';
 import { TextAreaInputProps } from '@rocket.chat/fuselage';
@@ -165,7 +166,30 @@ setFilter?: (filter: string) => void;
 }, "ref"> & RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
-export const MultiSelectFiltered: ForwardRefExoticComponent<Omit<Omit<MultiSelectFilteredProps, "ref"> & RefAttributes<HTMLInputElement>, "ref"> & RefAttributes<HTMLInputElement>>;
+export const MultiSelectFiltered: ForwardRefExoticComponent<Omit<Omit<BoxProps, "ref" | "value" | "onChange"> & RefAttributes<HTMLInputElement> & {
+value?: SelectOption[0][];
+error?: string;
+options: SelectOption[];
+onChange: (params: SelectOption[0][]) => void;
+getLabel?: (params: SelectOption) => SelectOption[1];
+getValue?: (params: SelectOption) => SelectOption[0];
+customEmpty?: string;
+anchor?: ElementType<MultiSelectAnchorParams> | ((params: MultiSelectAnchorParams) => ReactNode);
+renderOptions?: ElementType;
+renderItem?: ElementType;
+renderSelected?: ElementType<    {
+value: SelectOption[0];
+label: SelectOption[1];
+onMouseDown: MouseEventHandler;
+children: ReactNode;
+}>;
+addonIcon?: IconProps["name"];
+setFilter?: (filter: string) => void;
+} & {
+filter?: string;
+setFilter?: Dispatch<SetStateAction<string>>;
+addonIcon?: IconProps["name"];
+}, "ref"> & RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
 export const NumberInput: ForwardRefExoticComponent<Omit<NumberInputProps, "ref"> & RefAttributes<HTMLInputElement>>;
