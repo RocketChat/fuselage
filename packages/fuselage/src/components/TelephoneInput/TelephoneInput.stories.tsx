@@ -18,7 +18,7 @@ export const Default: StoryFn<typeof TelephoneInput> = Template.bind({});
 
 export const WithIconAddon = Template.bind({});
 WithIconAddon.args = {
-  addon: <Icon name='send' size='x20' />,
+  endAddon: <Icon name='send' size='x20' />,
 };
 
 export const Invalid = Template.bind({});
@@ -51,7 +51,7 @@ export const States: StoryFn<typeof TelephoneInput> = () => (
         'with placeholder': { placeholder: 'Placeholder' },
         'with value': { value: '+1234567890' },
         'with icon': {
-          addon: <Icon name='mobile' size='x20' />,
+          endAddon: <Icon name='mobile' size='x20' />,
           value: '+1234567890',
         },
       }}
@@ -79,7 +79,7 @@ export const States: StoryFn<typeof TelephoneInput> = () => (
         'with placeholder': { placeholder: 'Placeholder' },
         'with value': { value: '+1234567890' },
         'with icon': {
-          addon: <Icon name='mobile' size='x20' />,
+          endAddon: <Icon name='mobile' size='x20' />,
           value: '+1234567890',
         },
       }}

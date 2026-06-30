@@ -1,20 +1,18 @@
-import type { ReactNode } from 'react';
-import { forwardRef } from 'react';
+import type { ReactNode, RefAttributes } from 'react';
 
 import { InputBox, type InputBoxProps } from '../InputBox';
 
-export type TextInputProps = Omit<InputBoxProps, 'type'> & {
-  addon?: ReactNode;
-  error?: string;
-};
+export type TextInputProps = Omit<InputBoxProps, 'ref' | 'type'> &
+  RefAttributes<HTMLInputElement> & {
+    addon?: ReactNode;
+    error?: string;
+  };
 
 /**
  * An input for any kind of single-line text.
  */
-const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
-  function TextInput(props, ref) {
-    return <InputBox type='text' ref={ref} {...props} />;
-  },
-);
+function TextInput(props: TextInputProps) {
+  return <InputBox type='text' {...props} />;
+}
 
 export default TextInput;

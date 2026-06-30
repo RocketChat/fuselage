@@ -667,13 +667,10 @@ export type DropdownProps<T extends HTMLElement> = {
 };
 
 // @public (undocumented)
-export const EmailInput: ForwardRefExoticComponent<Omit<EmailInputProps, "ref"> & RefAttributes<HTMLElement>>;
+export function EmailInput(props: EmailInputProps): JSX.Element;
 
 // @public (undocumented)
-export type EmailInputProps = Omit<InputBoxProps, 'type'> & {
-    addon?: ReactNode;
-    error?: string;
-};
+export type EmailInputProps = Omit<InputBoxProps<HTMLInputElement>, 'type'>;
 
 // @public (undocumented)
 export type Falsy = false | 0 | '' | null | undefined;
@@ -856,13 +853,13 @@ export type IconProps = Omit<BoxProps, 'name' | 'size'> & {
 };
 
 // @public (undocumented)
-export const Input: ForwardRefExoticComponent<Omit<BoxProps, "ref"> & RefAttributes<HTMLInputElement>>;
+export function Input<T extends HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>(props: InputProps<T>): JSX.Element;
 
 // @public (undocumented)
-export const InputBox: ForwardRefExoticComponent<Omit<InputBoxProps, "ref"> & RefAttributes<any>>;
+export function InputBox<T extends HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>(input: InputBoxProps<T>): JSX.Element;
 
 // @public (undocumented)
-export type InputBoxProps = BoxProps & {
+export type InputBoxProps<T extends HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement = any> = Omit<BoxProps, 'ref'> & RefAttributes<T> & {
     addon?: ReactNode;
     startAddon?: ReactNode;
     endAddon?: ReactNode;
@@ -882,7 +879,7 @@ export const InputBoxSkeleton: (props: InputBoxSkeletonProps) => JSX.Element;
 export type InputBoxSkeletonProps = BoxProps;
 
 // @public (undocumented)
-export type InputProps = BoxProps;
+export type InputProps<T extends HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement> = Omit<BoxProps, 'ref'> & RefAttributes<T>;
 
 // @public (undocumented)
 export type ItemsPerPage = 25 | 50 | 100;
@@ -1575,10 +1572,10 @@ export const NavBarSection: (input: NavbarSectionProps) => JSX.Element;
 export type NavbarSectionProps = HTMLAttributes<HTMLSpanElement>;
 
 // @public (undocumented)
-export const NumberInput: ForwardRefExoticComponent<Omit<NumberInputProps, "ref"> & RefAttributes<HTMLInputElement>>;
+export function NumberInput(props: NumberInputProps): JSX.Element;
 
 // @public (undocumented)
-export type NumberInputProps = Omit<InputBoxProps, 'type'>;
+export type NumberInputProps = Omit<InputBoxProps<HTMLInputElement>, 'type'>;
 
 // Warning: (ae-forgotten-export) The symbol "Option_3" needs to be exported by the entry point index.d.ts
 //
@@ -2005,10 +2002,10 @@ export interface PartialNode<T> {
 }
 
 // @public (undocumented)
-export const PasswordInput: ForwardRefExoticComponent<Omit<PasswordInputProps, "ref"> & RefAttributes<HTMLInputElement>>;
+export function PasswordInput(props: PasswordInputProps): JSX.Element;
 
 // @public (undocumented)
-export type PasswordInputProps = Omit<InputBoxProps, 'type'>;
+export type PasswordInputProps = Omit<InputBoxProps<HTMLInputElement>, 'type'>;
 
 // @public (undocumented)
 export function Popover(input: PopoverProps): JSX.Element;
@@ -2082,13 +2079,10 @@ export type ScrollableProps = PropsWithChildren<{
 }>;
 
 // @public (undocumented)
-export const SearchInput: ForwardRefExoticComponent<Omit<SearchInputProps, "ref"> & RefAttributes<HTMLInputElement>>;
+export function SearchInput(props: SearchInputProps): JSX.Element;
 
 // @public (undocumented)
-export type SearchInputProps = Omit<InputBoxProps, 'type'> & {
-    addon?: ReactNode;
-    error?: string;
-};
+export type SearchInputProps = Omit<InputBoxProps<HTMLInputElement>, 'type'>;
 
 // @public (undocumented)
 export const Select: ForwardRefExoticComponent<Omit<AriaSelectProps<object>, "value" | "children" | "onChange"> & {
@@ -2111,7 +2105,7 @@ export type SelectFilteredProps = SelectProps & {
 };
 
 // @public (undocumented)
-export const SelectInput: ForwardRefExoticComponent<Omit<SelectInputProps, "ref"> & RefAttributes<HTMLElement>>;
+export function SelectInput(input: SelectInputProps): JSX.Element;
 
 // @public (undocumented)
 export const SelectInputOption: ForwardRefExoticComponent<Omit<BoxProps, "ref"> & RefAttributes<HTMLOptionElement>>;
@@ -2120,15 +2114,7 @@ export const SelectInputOption: ForwardRefExoticComponent<Omit<BoxProps, "ref"> 
 export type SelectInputOptionProps = BoxProps;
 
 // @public (undocumented)
-export type SelectInputOptions = readonly (readonly [string, string])[];
-
-// @public (undocumented)
-export type SelectInputProps = Omit<InputBoxProps, 'type'> & {
-    error?: string;
-    options?: SelectInputOptions;
-    htmlSize?: number;
-    addon?: ReactNode;
-};
+export type SelectInputProps = Omit<InputBoxProps<HTMLSelectElement>, 'type'>;
 
 // @public (undocumented)
 export const SelectLegacy: (input: SelectProps) => JSX.Element;
@@ -3031,29 +3017,22 @@ export type TagProps = {
 } & Omit<BoxProps, 'is'>;
 
 // @public (undocumented)
-export const TelephoneInput: ForwardRefExoticComponent<Omit<TelephoneInputProps, "ref"> & RefAttributes<HTMLInputElement>>;
+export function TelephoneInput(props: TelephoneInputProps): JSX.Element;
 
 // @public (undocumented)
-export type TelephoneInputProps = Omit<InputBoxProps, 'type'> & {
-    addon?: ReactNode;
-    input?: ReactNode;
-    error?: string;
-};
+export type TelephoneInputProps = Omit<InputBoxProps<HTMLInputElement>, 'type'>;
 
 // @public (undocumented)
-export const TextAreaInput: ForwardRefExoticComponent<Omit<TextAreaInputProps, "ref"> & RefAttributes<HTMLTextAreaElement>>;
+export function TextAreaInput(props: TextAreaInputProps): JSX.Element;
 
 // @public (undocumented)
-export type TextAreaInputProps = Omit<InputBoxProps, 'type'> & {
-    addon?: ReactNode;
-    error?: string;
-};
+export type TextAreaInputProps = Omit<InputBoxProps<HTMLTextAreaElement>, 'type'>;
 
 // @public (undocumented)
-export const TextInput: ForwardRefExoticComponent<Omit<TextInputProps, "ref"> & RefAttributes<HTMLInputElement>>;
+export function TextInput(props: TextInputProps): JSX.Element;
 
 // @public (undocumented)
-export type TextInputProps = Omit<InputBoxProps, 'type'> & {
+export type TextInputProps = Omit<InputBoxProps, 'ref' | 'type'> & RefAttributes<HTMLInputElement> & {
     addon?: ReactNode;
     error?: string;
 };
@@ -3238,10 +3217,10 @@ export type TopBarWrapperProps = {
 };
 
 // @public (undocumented)
-export const UrlInput: ForwardRefExoticComponent<Omit<UrlInputProps, "ref"> & RefAttributes<HTMLElement>>;
+export function UrlInput(props: UrlInputProps): JSX.Element;
 
 // @public (undocumented)
-export type UrlInputProps = Omit<InputBoxProps, 'type'>;
+export type UrlInputProps = Omit<InputBoxProps<HTMLInputElement>, 'type'>;
 
 // @public (undocumented)
 export const useArrayLikeClassNameProp: <T extends {

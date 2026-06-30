@@ -18,7 +18,7 @@ export const Default: StoryFn<typeof TextAreaInput> = Template.bind({});
 
 export const WithIconAddon: StoryFn<typeof TextAreaInput> = Template.bind({});
 WithIconAddon.args = {
-  addon: <Icon name='send' size='x20' />,
+  endAddon: <Icon name='send' size='x20' />,
 };
 
 export const Invalid: StoryFn<typeof TextAreaInput> = Template.bind({});
@@ -49,7 +49,10 @@ export const States: StoryFn<typeof TextAreaInput> = () => (
       'default': {},
       'with placeholder': { placeholder: 'Placeholder' },
       'with value': { value: 'Value' },
-      'with icon': { addon: <Icon name='edit' size='x20' />, value: 'Value' },
+      'with icon': {
+        endAddon: <Icon name='edit' size='x20' />,
+        value: 'Value',
+      },
     }}
     yAxis={{
       'default': {},

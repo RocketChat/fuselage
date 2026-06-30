@@ -41,7 +41,7 @@ export const AvailableIcons: StoryFn<typeof Icon> = () => {
             value={filter}
             onChange={(e) => setFilter((e.target as HTMLInputElement).value)}
             placeholder='Search icons'
-            addon={<Icon name='magnifier' size='x20' />}
+            endAddon={<Icon name='magnifier' size='x20' />}
           />
         </Box>
       </Box>

@@ -1,16 +1,12 @@
-import { forwardRef } from 'react';
-
 import { InputBox, type InputBoxProps } from '../InputBox';
 
-export type NumberInputProps = Omit<InputBoxProps, 'type'>;
+export type NumberInputProps = Omit<InputBoxProps<HTMLInputElement>, 'type'>;
 
 /**
  * An input for numbers.
  */
-const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
-  function NumberInput(props, ref) {
-    return <InputBox type='number' ref={ref} {...props} />;
-  },
-);
+function NumberInput(props: NumberInputProps) {
+  return <InputBox type='number' {...props} />;
+}
 
 export default NumberInput;

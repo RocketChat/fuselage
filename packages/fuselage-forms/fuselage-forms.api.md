@@ -25,6 +25,7 @@ import { FieldLink } from '@rocket.chat/fuselage';
 import { FieldRow } from '@rocket.chat/fuselage';
 import { ForwardRefExoticComponent } from 'react';
 import { IconProps } from '@rocket.chat/fuselage';
+import { InputBoxProps } from '@rocket.chat/fuselage';
 import { JSX } from 'react';
 import { Key } from 'react';
 import { MouseEventHandler } from 'react';
@@ -41,7 +42,6 @@ import { SelectOption } from '@rocket.chat/fuselage';
 import { Slider as Slider_2 } from '@rocket.chat/fuselage';
 import { TelephoneInputProps } from '@rocket.chat/fuselage';
 import { TextAreaInputProps } from '@rocket.chat/fuselage';
-import { TextInputProps } from '@rocket.chat/fuselage';
 import { ToggleSwitchProps } from '@rocket.chat/fuselage';
 import { UrlInputProps } from '@rocket.chat/fuselage';
 
@@ -52,7 +52,7 @@ export const AutoComplete: typeof AutoComplete_2;
 export const CheckBox: ForwardRefExoticComponent<Omit<Omit<CheckBoxProps, "ref"> & RefAttributes<HTMLInputElement>, "ref"> & RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
-export const EmailInput: ForwardRefExoticComponent<Omit<Omit<EmailInputProps, "ref"> & RefAttributes<HTMLElement>, "ref"> & RefAttributes<HTMLElement>>;
+export const EmailInput: ForwardRefExoticComponent<Omit<EmailInputProps, "ref"> & RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
 export function Field(input: FieldProps): JSX.Element;
@@ -168,10 +168,10 @@ setFilter?: (filter: string) => void;
 export const MultiSelectFiltered: ForwardRefExoticComponent<Omit<Omit<MultiSelectFilteredProps, "ref"> & RefAttributes<HTMLInputElement>, "ref"> & RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
-export const NumberInput: ForwardRefExoticComponent<Omit<Omit<NumberInputProps, "ref"> & RefAttributes<HTMLInputElement>, "ref"> & RefAttributes<HTMLInputElement>>;
+export const NumberInput: ForwardRefExoticComponent<Omit<NumberInputProps, "ref"> & RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
-export const PasswordInput: ForwardRefExoticComponent<Omit<Omit<PasswordInputProps, "ref"> & RefAttributes<HTMLInputElement>, "ref"> & RefAttributes<HTMLInputElement>>;
+export const PasswordInput: ForwardRefExoticComponent<Omit<PasswordInputProps, "ref"> & RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
 export const RadioButton: ForwardRefExoticComponent<Omit<Omit<RadioButtonProps, "ref"> & RefAttributes<HTMLInputElement>, "ref"> & RefAttributes<HTMLInputElement>>;
@@ -183,7 +183,7 @@ export const ReferencedLabel: (input: ReferencedLabelProps) => JSX.Element;
 export type ReferencedLabelProps = ComponentProps<typeof FieldLabel_2>;
 
 // @public (undocumented)
-export const SearchInput: ForwardRefExoticComponent<Omit<Omit<SearchInputProps, "ref"> & RefAttributes<HTMLInputElement>, "ref"> & RefAttributes<HTMLInputElement>>;
+export const SearchInput: ForwardRefExoticComponent<Omit<SearchInputProps, "ref"> & RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
 export const Select: ForwardRefExoticComponent<Omit<Omit<AriaSelectProps<object>, "children" | "value" | "onChange"> & {
@@ -199,19 +199,22 @@ small?: boolean;
 export const Slider: typeof Slider_2;
 
 // @public (undocumented)
-export const TelephoneInput: ForwardRefExoticComponent<Omit<Omit<TelephoneInputProps, "ref"> & RefAttributes<HTMLInputElement>, "ref"> & RefAttributes<HTMLInputElement>>;
+export const TelephoneInput: ForwardRefExoticComponent<Omit<TelephoneInputProps, "ref"> & RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
-export const TextAreaInput: ForwardRefExoticComponent<Omit<Omit<TextAreaInputProps, "ref"> & RefAttributes<HTMLTextAreaElement>, "ref"> & RefAttributes<HTMLTextAreaElement>>;
+export const TextAreaInput: ForwardRefExoticComponent<Omit<TextAreaInputProps, "ref"> & RefAttributes<HTMLTextAreaElement>>;
 
 // @public (undocumented)
-export const TextInput: ForwardRefExoticComponent<Omit<Omit<TextInputProps, "ref"> & RefAttributes<HTMLInputElement>, "ref"> & RefAttributes<HTMLInputElement>>;
+export const TextInput: ForwardRefExoticComponent<Omit<Omit<InputBoxProps, "ref" | "type"> & RefAttributes<HTMLInputElement> & {
+addon?: ReactNode;
+error?: string;
+}, "ref"> & RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
 export const ToggleSwitch: ForwardRefExoticComponent<Omit<Omit<ToggleSwitchProps, "ref"> & RefAttributes<HTMLInputElement>, "ref"> & RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
-export const UrlInput: ForwardRefExoticComponent<Omit<Omit<UrlInputProps, "ref"> & RefAttributes<HTMLElement>, "ref"> & RefAttributes<HTMLElement>>;
+export const UrlInput: ForwardRefExoticComponent<Omit<UrlInputProps, "ref"> & RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
 export const useFieldDescriptorId: (type: LabelTypes) => string;

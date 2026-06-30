@@ -1,69 +1,62 @@
-import type { ChangeEvent, ReactNode } from 'react';
-import { forwardRef, useState, useCallback } from 'react';
+import type { ChangeEvent } from 'react';
+import { useState, useCallback } from 'react';
 
 import { Icon } from '../Icon';
 import { InputBox, type InputBoxProps } from '../InputBox';
 
 import SelectInputPlaceholder from './SelectInputPlaceholder';
 
-export type SelectInputOptions = readonly (readonly [string, string])[];
-
-export type SelectInputProps = Omit<InputBoxProps, 'type'> & {
-  error?: string;
-  options?: SelectInputOptions;
-  htmlSize?: number;
-  addon?: ReactNode;
-};
+export type SelectInputProps = Omit<InputBoxProps<HTMLSelectElement>, 'type'>;
 
 /**
  * An input for selection of options.
  */
-const SelectInput = forwardRef<HTMLElement, SelectInputProps>(
-  function SelectInput(
-    { children, multiple, placeholder, onChange, ...props },
-    ref,
-  ) {
-    const [isPlaceholderVisible, setPlaceholderVisible] = useState(
-      !props.value && !props.defaultValue,
-    );
-    const handleChange = useCallback(
-      (event: ChangeEvent<HTMLSelectElement>) => {
-        setPlaceholderVisible(!event.currentTarget.value);
-        onChange?.call(event.currentTarget, event);
-      },
-      [onChange],
-    );
+function SelectInput({
+  ref,
+  children,
+  multiple,
+  placeholder,
+  onChange,
+  ...props
+}: SelectInputProps) {
+  const [isPlaceholderVisible, setPlaceholderVisible] = useState(
+    !props.value && !props.defaultValue,
+  );
+  const handleChange = useCallback(
+    (event: ChangeEvent<HTMLSelectElement>) => {
+      setPlaceholderVisible(!event.currentTarget.value);
+      onChange?.call(event.currentTarget, event);
+    },
+    [onChange],
+  );
 
-    if (multiple) {
-      return (
-        <InputBox
-          children={children}
-          {...props}
-          multiple
-          type='select'
-          onChange={handleChange}
-        />
-      );
-    }
-
+  if (multiple) {
     return (
       <InputBox
-        placeholderVisible={isPlaceholderVisible ? !!placeholder : undefined}
-        ref={ref}
+        children={children}
         {...props}
-        addon={<Icon name='chevron-down' size='x20' />}
+        multiple
         type='select'
         onChange={handleChange}
-      >
-        {placeholder && (
-          <SelectInputPlaceholder value=''>
-            {placeholder}
-          </SelectInputPlaceholder>
-        )}
-        {children}
-      </InputBox>
+      />
     );
-  },
-);
+  }
+
+  return (
+    <InputBox
+      placeholderVisible={isPlaceholderVisible ? !!placeholder : undefined}
+      ref={ref}
+      {...props}
+      endAddon={<Icon name='chevron-down' size='x20' />}
+      type='select'
+      onChange={handleChange}
+    >
+      {placeholder && (
+        <SelectInputPlaceholder value=''>{placeholder}</SelectInputPlaceholder>
+      )}
+      {children}
+    </InputBox>
+  );
+}
 
 export default SelectInput;
