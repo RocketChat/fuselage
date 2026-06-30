@@ -1686,7 +1686,7 @@ export const OptionMenu: (props: OptionMenuProps) => JSX.Element;
 export type OptionMenuProps = HTMLAttributes<HTMLDivElement>;
 
 // @public (undocumented)
-export type OptionProps<TLabel = ReactNode> = {
+export type OptionProps<TLabel = ReactNode> = RefAttributes<Element> & {
     is?: BoxProps['is'];
     id?: string;
     children?: ReactNode;
@@ -1694,7 +1694,6 @@ export type OptionProps<TLabel = ReactNode> = {
     focus?: boolean;
     selected?: boolean;
     className?: BoxProps['className'];
-    ref?: Ref<Element>;
     icon?: IconProps['name'];
     gap?: boolean;
     avatar?: ReactNode;
@@ -2658,10 +2657,10 @@ export type SkeletonProps = Omit<StylingBoxProps, 'children'> & {
 } & AllHTMLAttributes<HTMLSpanElement>;
 
 // @public (undocumented)
-export const Slider: ForwardRefExoticComponent<(SliderProps<number> | SliderProps<[min: number, max: number]>) & RefAttributes<HTMLDivElement>>;
+export function Slider<T extends number | [min: number, max: number]>(input: T extends number ? SliderProps<number> : SliderProps<[min: number, max: number]>): JSX.Element;
 
 // @public (undocumented)
-export type SliderProps<T extends number | number[]> = AriaAttributes & {
+export type SliderProps<T extends number | number[]> = AriaAttributes & RefAttributes<HTMLDivElement> & {
     formatOptions?: Intl.NumberFormatOptions;
     id?: string;
     label?: string;

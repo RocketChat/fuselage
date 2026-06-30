@@ -1,5 +1,4 @@
 import type {
-  Ref,
   ReactNode,
   MouseEvent,
   AllHTMLAttributes,
@@ -16,7 +15,7 @@ import OptionColumn from './OptionColumn';
 import OptionContent from './OptionContent';
 import OptionIcon from './OptionIcon';
 
-export type OptionProps<TLabel = ReactNode> = {
+export type OptionProps<TLabel = ReactNode> = RefAttributes<Element> & {
   is?: BoxProps['is'];
   id?: string;
   children?: ReactNode;
@@ -24,7 +23,6 @@ export type OptionProps<TLabel = ReactNode> = {
   focus?: boolean;
   selected?: boolean;
   className?: BoxProps['className'];
-  ref?: Ref<Element>;
   icon?: IconProps['name'];
   gap?: boolean;
   avatar?: ReactNode;
@@ -35,24 +33,24 @@ export type OptionProps<TLabel = ReactNode> = {
   onClick?: (event: MouseEvent<HTMLElement>) => void;
   description?: ReactNode;
 } & Omit<
-  AllHTMLAttributes<HTMLElement>,
-  | 'is'
-  | 'id'
-  | 'children'
-  | 'label'
-  | 'selected'
-  | 'className'
-  | 'ref'
-  | 'icon'
-  | 'gap'
-  | 'avatar'
-  | 'title'
-  | 'disabled'
-  | 'value'
-  | 'variant'
-  | 'onClick'
-  | 'description'
-> &
+    AllHTMLAttributes<HTMLElement>,
+    | 'is'
+    | 'id'
+    | 'children'
+    | 'label'
+    | 'selected'
+    | 'className'
+    | 'ref'
+    | 'icon'
+    | 'gap'
+    | 'avatar'
+    | 'title'
+    | 'disabled'
+    | 'value'
+    | 'variant'
+    | 'onClick'
+    | 'description'
+  > &
   RefAttributes<Element>;
 
 /**
