@@ -7,7 +7,7 @@ import { useDebouncedState } from '@rocket.chat/fuselage-hooks';
 import type {
   ComponentProps,
   Dispatch,
-  MutableRefObject,
+  RefObject,
   ReactElement,
   ReactNode,
   Ref,
@@ -23,7 +23,7 @@ import {
 } from 'react';
 
 export type AnchorParams = {
-  ref: MutableRefObject<Element | null>;
+  ref: RefObject<Element | null>;
   toggle: Dispatch<SetStateAction<boolean>>;
   id: string;
 };

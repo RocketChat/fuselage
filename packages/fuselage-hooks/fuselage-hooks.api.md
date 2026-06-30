@@ -10,10 +10,8 @@ import type { Dispatch } from 'react';
 import type { DispatchWithoutAction } from 'react';
 import type { KeyboardEvent as KeyboardEvent_2 } from 'react';
 import type { MouseEvent as MouseEvent_2 } from 'react';
-import type { MutableRefObject } from 'react';
 import type { Reducer } from 'react';
 import type { ReducerState } from 'react';
-import type { ReducerStateWithoutAction } from 'react';
 import type { ReducerWithoutAction } from 'react';
 import type { Ref } from 'react';
 import type { RefCallback } from 'react';
@@ -57,7 +55,7 @@ export const useAutoFocus: <T extends {
 }>(isFocused?: boolean, options?: FocusOptions) => Ref<T>;
 
 // @public (undocumented)
-export const useBorderBoxSize: (ref: RefObject<HTMLElement>, input?: {
+export const useBorderBoxSize: (ref: RefObject<HTMLElement | null>, input?: {
     debounceDelay?: number;
 }) => Readonly<{
     inlineSize: number;
@@ -92,7 +90,7 @@ export type UseClipboardReturn = {
 };
 
 // @public (undocumented)
-export const useContentBoxSize: (ref: RefObject<HTMLElement>, input?: {
+export const useContentBoxSize: (ref: RefObject<HTMLElement | null>, input?: {
     debounceDelay?: number;
 }) => Readonly<{
     inlineSize: number;
@@ -110,7 +108,7 @@ export const useDebouncedCallback: <P extends unknown[]>(callback: (...args: P) 
 
 // @public
 export function useDebouncedReducer<S, R extends ReducerWithoutAction<S>>(reducer: R, initialArg: S, init: undefined, delay: number): [
-ReducerStateWithoutAction<R>,
+ReducerState<R>,
 DispatchWithoutAction & {
     flush: () => void;
     cancel: () => void;
@@ -118,8 +116,8 @@ DispatchWithoutAction & {
 ];
 
 // @public
-export function useDebouncedReducer<S, R extends ReducerWithoutAction<S>, I>(reducer: R, initialArg: I, init: (arg: I) => ReducerStateWithoutAction<R>, delay: number): [
-ReducerStateWithoutAction<R>,
+export function useDebouncedReducer<S, R extends ReducerWithoutAction<S>, I>(reducer: R, initialArg: I, init: (arg: I) => ReducerState<R>, delay: number): [
+ReducerState<R>,
 DispatchWithoutAction & {
     flush: () => void;
     cancel: () => void;
@@ -169,13 +167,13 @@ export const useDebouncedValue: <V>(value: V, delay: number) => V;
 export const useEffectEvent: <TFunction extends (...args: any[]) => any>(fn: TFunction) => (...args: TFunction extends (...args: infer P) => any ? P : never) => TFunction extends (...args: any) => infer T ? T : never;
 
 // @public (undocumented)
-export const useElementIsVisible: <T extends Element>() => [ref: RefObject<T>, isVisible: boolean];
+export const useElementIsVisible: <T extends Element>() => [ref: RefObject<T | null>, isVisible: boolean];
 
 // @public
 export const useIsomorphicLayoutEffect: typeof useEffect;
 
 // @public
-export const useLazyRef: <T>(init: () => T) => MutableRefObject<T>;
+export const useLazyRef: <T>(init: () => T) => RefObject<T>;
 
 // @public
 export const useLocalStorage: <T>(key: string, fallbackValue: T) => [T, Dispatch<SetStateAction<T>>];
@@ -187,7 +185,7 @@ export const useMediaQueries: (...queries: string[]) => boolean[];
 export const useMediaQuery: (query?: string) => boolean;
 
 // @public
-export const useMergedRefs: <T>(...refs: Ref<T>[]) => RefCallback<T>;
+export const useMergedRefs: <T>(...refs: (Ref<T> | null | undefined)[]) => RefCallback<T>;
 
 // @public @deprecated
 export const useMutableCallback: <TFunction extends (...args: any[]) => any>(fn: TFunction) => (...args: TFunction extends (...args: infer P) => any ? P : never) => TFunction extends (...args: any) => infer T ? T : never;
@@ -196,7 +194,7 @@ export const useMutableCallback: <TFunction extends (...args: any[]) => any>(fn:
 export function useOutsideClick<T extends Element>(elements: RefObject<T | null>[], cb: (e: MouseEvent) => void): void;
 
 // @public
-export function usePosition<TTarget extends Element, TAnchor extends Element>(anchorRef: RefObject<TAnchor>, targetRef: RefObject<TTarget>, input?: UsePositionOptions): UsePositionResult;
+export function usePosition<TTarget extends Element, TAnchor extends Element>(anchorRef: RefObject<TAnchor | null>, targetRef: RefObject<TTarget | null>, input?: UsePositionOptions): UsePositionResult;
 
 // @public (undocumented)
 export type UsePositionOptions = {
@@ -225,7 +223,7 @@ export const usePrevious: <T>(value: T) => T | undefined;
 
 // @public
 export const useResizeObserver: <T extends Element>(input?: UseResizeObserverOptions) => {
-    ref: RefObject<T>;
+    ref: RefObject<T | null>;
     contentBoxSize: Partial<ResizeObserverSize>;
     borderBoxSize: Partial<ResizeObserverSize>;
 };

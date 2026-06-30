@@ -24,7 +24,7 @@ export type UseResizeObserverOptions = {
 export const useResizeObserver = <T extends Element>({
   debounceDelay = 0,
 }: UseResizeObserverOptions = {}): {
-  ref: RefObject<T>;
+  ref: RefObject<T | null>;
   contentBoxSize: Partial<ResizeObserverSize>;
   borderBoxSize: Partial<ResizeObserverSize>;
 } => {

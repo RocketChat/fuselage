@@ -142,10 +142,10 @@ const PaginatedMultiSelect = ({
       is='div'
       rcx-select
       className={[error && 'invalid', disabled && 'disabled']}
-      ref={containerRef}
       onClick={handleClick}
       disabled={disabled}
       {...props}
+      ref={containerRef}
     >
       <FlexItem grow={1}>
         <Margins inline='x4'>

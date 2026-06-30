@@ -4,7 +4,7 @@ import {
   useResizeObserver,
   useOutsideClick,
 } from '@rocket.chat/fuselage-hooks';
-import type { SyntheticEvent, ElementType, ReactNode } from 'react';
+import type { ElementType, MouseEventHandler, ReactNode } from 'react';
 import { useState, useRef, useEffect, forwardRef } from 'react';
 
 import type { IconProps, SelectOption } from '..';
@@ -37,7 +37,12 @@ export type MultiSelectProps = Omit<BoxProps, 'onChange' | 'value'> & {
     | ((params: MultiSelectAnchorParams) => ReactNode);
   renderOptions?: ElementType;
   renderItem?: ElementType;
-  renderSelected?: ElementType;
+  renderSelected?: ElementType<{
+    value: SelectOption[0];
+    label: SelectOption[1];
+    onMouseDown: MouseEventHandler;
+    children: ReactNode;
+  }>;
   addonIcon?: IconProps['name'];
   setFilter?: (filter: string) => void;
 };
@@ -209,7 +214,7 @@ const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
                           value={value}
                           key={value}
                           label={getLabel(currentOption)}
-                          onMouseDown={(e: SyntheticEvent) => {
+                          onMouseDown={(e) => {
                             prevent(e);
                             internalChanged(currentOption);
                             removeFocusClass();
@@ -220,7 +225,7 @@ const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
                         <SelectedOptions
                           tabIndex={-1}
                           key={String(value)}
-                          onMouseDown={(e: SyntheticEvent) => {
+                          onMouseDown={(e) => {
                             prevent(e);
                             internalChanged(currentOption);
                             removeFocusClass();

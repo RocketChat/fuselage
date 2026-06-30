@@ -4,7 +4,6 @@ import type {
   PropsWithoutRef,
   ReactNode,
   RefAttributes,
-  SyntheticEvent,
 } from 'react';
 import { forwardRef, useLayoutEffect, useMemo, useRef } from 'react';
 
@@ -89,7 +88,7 @@ const Options = forwardRef<HTMLElement, OptionsProps>(function Options(
               <OptionComponent
                 role='option'
                 label={label}
-                onMouseDown={(e: SyntheticEvent) => {
+                onMouseDown={(e) => {
                   if (disabled) {
                     return;
                   }

@@ -25,8 +25,9 @@ import { FieldRow } from '@rocket.chat/fuselage';
 import { ForwardRefExoticComponent } from 'react';
 import { IconProps } from '@rocket.chat/fuselage';
 import { InputBoxProps } from '@rocket.chat/fuselage';
-import { JSX as JSX_2 } from 'react/jsx-runtime';
+import { JSX } from 'react';
 import { Key } from 'react';
+import { MouseEventHandler } from 'react';
 import { MultiSelectAnchorParams } from '@rocket.chat/fuselage';
 import { NumberInputProps } from '@rocket.chat/fuselage';
 import { PasswordInputProps } from '@rocket.chat/fuselage';
@@ -54,7 +55,7 @@ error?: string;
 } & RefAttributes<HTMLElement>, "ref"> & RefAttributes<HTMLElement>>;
 
 // @public (undocumented)
-export function Field(input: FieldProps): JSX_2.Element;
+export function Field(input: FieldProps): JSX.Element;
 
 // @public (undocumented)
 export const FieldContext: Context<FieldContextValue>;
@@ -73,7 +74,7 @@ export type FieldContextValue = {
 };
 
 // @public (undocumented)
-export const FieldDescription: (input: FieldDescriptionProps) => JSX_2.Element;
+export const FieldDescription: (input: FieldDescriptionProps) => JSX.Element;
 
 // @public (undocumented)
 export type FieldDescriptionProps = {
@@ -81,7 +82,7 @@ export type FieldDescriptionProps = {
 } & ComponentProps<typeof FieldDescription_2>;
 
 // @public (undocumented)
-export const FieldError: (input: FieldErrorProps) => JSX_2.Element;
+export const FieldError: (input: FieldErrorProps) => JSX.Element;
 
 // @public (undocumented)
 export type FieldErrorProps = {
@@ -91,7 +92,7 @@ export type FieldErrorProps = {
 export { FieldGroup }
 
 // @public (undocumented)
-export const FieldHint: (input: FieldHintProps) => JSX_2.Element;
+export const FieldHint: (input: FieldHintProps) => JSX.Element;
 
 // @public (undocumented)
 export type FieldHintProps = {
@@ -99,7 +100,7 @@ export type FieldHintProps = {
 } & ComponentProps<typeof FieldHint_2>;
 
 // @public (undocumented)
-export const FieldLabel: (props: FieldLabelProps) => JSX_2.Element;
+export const FieldLabel: (props: FieldLabelProps) => JSX.Element;
 
 export { FieldLabelInfo }
 
@@ -114,7 +115,7 @@ export type FieldProps = {
 } & ComponentProps<typeof Field_2>;
 
 // @public (undocumented)
-export function FieldProvider(input: FieldProviderProps): JSX_2.Element;
+export function FieldProvider(input: FieldProviderProps): JSX.Element;
 
 // @public (undocumented)
 export type FieldProviderProps = {
@@ -127,13 +128,13 @@ export { FieldRow }
 export type FieldType = 'wrappedByLabel' | 'referencedByLabel' | 'referencedByInput';
 
 // @public (undocumented)
-export const HiddenLabel: (input: HiddenLabelProps) => JSX_2.Element;
+export const HiddenLabel: (input: HiddenLabelProps) => JSX.Element;
 
 // @public (undocumented)
 export type HiddenLabelProps = ComponentProps<typeof FieldLabel_2>;
 
 // @public (undocumented)
-export const LabelFor: (input: LabelForProps) => JSX_2.Element;
+export const LabelFor: (input: LabelForProps) => JSX.Element;
 
 // @public (undocumented)
 export type LabelForProps = ComponentProps<typeof FieldLabel_2>;
@@ -153,7 +154,12 @@ customEmpty?: string;
 anchor?: ElementType<MultiSelectAnchorParams> | ((params: MultiSelectAnchorParams) => ReactNode);
 renderOptions?: ElementType;
 renderItem?: ElementType;
-renderSelected?: ElementType;
+renderSelected?: ElementType<    {
+value: SelectOption[0];
+label: SelectOption[1];
+onMouseDown: MouseEventHandler;
+children: ReactNode;
+}>;
 addonIcon?: IconProps["name"];
 setFilter?: (filter: string) => void;
 } & RefAttributes<HTMLInputElement>, "ref"> & RefAttributes<HTMLInputElement>>;
@@ -170,7 +176,12 @@ customEmpty?: string;
 anchor?: ElementType<MultiSelectAnchorParams> | ((params: MultiSelectAnchorParams) => ReactNode);
 renderOptions?: ElementType;
 renderItem?: ElementType;
-renderSelected?: ElementType;
+renderSelected?: ElementType<    {
+value: SelectOption[0];
+label: SelectOption[1];
+onMouseDown: MouseEventHandler;
+children: ReactNode;
+}>;
 addonIcon?: IconProps["name"];
 setFilter?: (filter: string) => void;
 } & {
@@ -191,7 +202,7 @@ labelChildren?: ReactNode;
 } & RefAttributes<HTMLInputElement>, "ref"> & RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
-export const ReferencedLabel: (input: ReferencedLabelProps) => JSX_2.Element;
+export const ReferencedLabel: (input: ReferencedLabelProps) => JSX.Element;
 
 // @public (undocumented)
 export type ReferencedLabelProps = ComponentProps<typeof FieldLabel_2>;
@@ -203,7 +214,7 @@ error?: string;
 } & RefAttributes<HTMLInputElement>, "ref"> & RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
-export const Select: ForwardRefExoticComponent<Omit<Omit<AriaSelectProps<object>, "value" | "children" | "onChange"> & {
+export const Select: ForwardRefExoticComponent<Omit<Omit<AriaSelectProps<object>, "children" | "value" | "onChange"> & {
 error?: string;
 placeholder?: string;
 value?: Key | null | undefined;

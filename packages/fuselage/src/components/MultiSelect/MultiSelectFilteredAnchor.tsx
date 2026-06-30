@@ -1,7 +1,7 @@
 import type {
   AriaAttributes,
   FocusEventHandler,
-  FormEvent,
+  InputEvent,
   KeyboardEventHandler,
   MouseEventHandler,
   ReactNode,
@@ -39,7 +39,7 @@ const MultiSelectFilteredAnchor = forwardRef<
         ref={ref}
         placeholder={placeholder}
         value={filter}
-        onInput={(e: FormEvent<HTMLInputElement>) =>
+        onInput={(e: InputEvent<HTMLInputElement>) =>
           onChangeFilter(e.currentTarget.value)
         }
         {...props}

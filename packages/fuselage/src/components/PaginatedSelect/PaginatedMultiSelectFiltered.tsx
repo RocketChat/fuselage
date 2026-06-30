@@ -1,4 +1,4 @@
-import type { FormEvent } from 'react';
+import type { InputEvent } from 'react';
 import { useCallback, forwardRef } from 'react';
 
 import { FlexItem } from '../Flex';
@@ -27,7 +27,7 @@ const PaginatedMultiSelectFiltered = ({
             ref={ref}
             placeholder={placeholder}
             value={filter}
-            onInput={(e: FormEvent<HTMLInputElement>) =>
+            onInput={(e: InputEvent<HTMLInputElement>) =>
               setFilter?.(e.currentTarget.value)
             }
             {...props}

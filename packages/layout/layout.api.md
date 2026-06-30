@@ -15,18 +15,18 @@ import { FormHTMLAttributes } from 'react';
 import { ForwardRefExoticComponent } from 'react';
 import { HTMLAttributes } from 'react';
 import { Icon } from '@rocket.chat/fuselage';
-import { JSX as JSX_2 } from 'react/jsx-runtime';
+import { JSX } from 'react';
 import { Keys } from '@rocket.chat/icons';
 import { MarginsProps } from '@rocket.chat/fuselage';
-import { MemoExoticComponent } from 'react';
-import type { MutableRefObject } from 'react';
+import { NamedExoticComponent } from 'react';
 import type { ReactElement } from 'react';
 import { ReactNode } from 'react';
 import { RefAttributes } from 'react';
+import type { RefObject } from 'react';
 import type { SetStateAction } from 'react';
 
 // @public (undocumented)
-export const ActionLink: (input: ActionLinkProps) => JSX_2.Element;
+export const ActionLink: (input: ActionLinkProps) => JSX.Element;
 
 // @public (undocumented)
 export type ActionLinkProps = {
@@ -37,7 +37,7 @@ export type ActionLinkProps = {
 
 // @public (undocumented)
 export type AnchorParams = {
-    ref: MutableRefObject<Element | null>;
+    ref: RefObject<Element | null>;
     toggle: Dispatch<SetStateAction<boolean>>;
     id: string;
 };
@@ -48,7 +48,7 @@ justifyContent?: string;
 }, "ref"> & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
-export const BackgroundLayer: (input: BackgroundLayerProps) => JSX_2.Element;
+export const BackgroundLayer: (input: BackgroundLayerProps) => JSX.Element;
 
 // @public (undocumented)
 export type BackgroundLayerProps = {
@@ -68,7 +68,7 @@ declare namespace DarkModeProvider {
 export { DarkModeProvider }
 
 // @public (undocumented)
-const DarkModeProvider_2: (input: DarkModeProviderProps) => JSX_2.Element;
+const DarkModeProvider_2: (input: DarkModeProviderProps) => JSX.Element;
 
 // @public (undocumented)
 type DarkModeProviderProps = {
@@ -86,21 +86,21 @@ children: ReactNode;
     Header: ForwardRefExoticComponent<Omit<FormHTMLAttributes<HTMLElement>, "is"> & {
     children: ReactNode;
     } & RefAttributes<HTMLElement>>;
-    Steps: (input: FormStepsProps) => JSX_2.Element;
+    Steps: (input: FormStepsProps) => JSX.Element;
     Title: ForwardRefExoticComponent<Omit<FormHTMLAttributes<HTMLElement>, "is"> & {
     children: ReactNode;
     } & RefAttributes<HTMLElement>>;
     Subtitle: ForwardRefExoticComponent<Omit<FormHTMLAttributes<HTMLElement>, "is"> & {
     children: ReactNode;
     } & RefAttributes<HTMLElement>>;
-    Container: (props: ComponentProps<MemoExoticComponent<ForwardRefExoticComponent<BoxProps & RefAttributes<any>>>>) => JSX_2.Element;
+    Container: (props: ComponentProps<NamedExoticComponent<BoxProps & RefAttributes<any>>>) => JSX.Element;
     Footer: ForwardRefExoticComponent<Omit<FormHTMLAttributes<HTMLElement>, "is"> & {
     children: ReactNode;
     } & RefAttributes<HTMLElement>>;
 };
 
 // @public (undocumented)
-export const FormContainer: (props: ComponentProps<typeof Box>) => JSX_2.Element;
+export const FormContainer: (props: ComponentProps<typeof Box>) => JSX.Element;
 
 // @public (undocumented)
 export const FormFooter: ForwardRefExoticComponent<Omit<FormHTMLAttributes<HTMLElement>, "is"> & {
@@ -127,7 +127,7 @@ declare namespace FormPageLayout {
 export { FormPageLayout }
 
 // @public (undocumented)
-export const FormSteps: (input: FormStepsProps) => JSX_2.Element;
+export const FormSteps: (input: FormStepsProps) => JSX.Element;
 
 // @public (undocumented)
 export type FormStepsProps = {
@@ -148,56 +148,56 @@ children: ReactNode;
 // @public (undocumented)
 export const HeroLayout: (input: LayoutContextValue & {
     children: ReactNode;
-}) => JSX_2.Element;
+}) => JSX.Element;
 
 // @public (undocumented)
 export const HeroLayoutSubtitle: (input: {
     children: ReactNode;
-}) => JSX_2.Element;
+}) => JSX.Element;
 
 // @public (undocumented)
 export const HeroLayoutTitle: (input: {
     children: ReactNode;
-}) => JSX_2.Element;
+}) => JSX.Element;
 
 // @public (undocumented)
 export const HorizontalWizardLayout: (input: LayoutContextValue & {
     children: ReactNode;
-}) => JSX_2.Element;
+}) => JSX.Element;
 
 // @public (undocumented)
 export const HorizontalWizardLayoutAside: (input: {
     children: ReactNode;
-}) => JSX_2.Element;
+}) => JSX.Element;
 
 // @public (undocumented)
 export const HorizontalWizardLayoutCaption: (input: {
     children: ReactNode;
-}) => JSX_2.Element;
+}) => JSX.Element;
 
 // @public (undocumented)
 export const HorizontalWizardLayoutContent: (input: {
     children: ReactNode;
-}) => JSX_2.Element;
+}) => JSX.Element;
 
 // @public (undocumented)
-export const HorizontalWizardLayoutDescription: (props: ComponentProps<typeof FormPageLayout.Description>) => JSX_2.Element;
+export const HorizontalWizardLayoutDescription: (props: ComponentProps<typeof FormPageLayout.Description>) => JSX.Element;
 
 // @public (undocumented)
 export const HorizontalWizardLayoutFooter: (input: {
     children: ReactNode;
-}) => JSX_2.Element;
+}) => JSX.Element;
 
 // @public (undocumented)
-export const HorizontalWizardLayoutSubtitle: (props: ComponentProps<typeof FormPageLayout.Subtitle>) => JSX_2.Element;
+export const HorizontalWizardLayoutSubtitle: (props: ComponentProps<typeof FormPageLayout.Subtitle>) => JSX.Element;
 
 // @public (undocumented)
-export const HorizontalWizardLayoutTitle: (props: ComponentProps<typeof FormPageLayout.Title>) => JSX_2.Element;
+export const HorizontalWizardLayoutTitle: (props: ComponentProps<typeof FormPageLayout.Title>) => JSX.Element;
 
 // @public (undocumented)
 export const HorizontalWizardTextHighlight: (props: {
     children: ReactNode;
-}) => JSX_2.Element;
+}) => JSX.Element;
 
 // @public (undocumented)
 export type LayoutContextValue = {
@@ -209,16 +209,16 @@ export type LayoutContextValue = {
 };
 
 // @public (undocumented)
-export const LayoutLogo: () => JSX_2.Element;
+export const LayoutLogo: () => JSX.Element;
 
 // @public (undocumented)
 export const List: ((input: {
     children: ReactNode;
-    spacing?: ComponentProps<(props: MarginsProps) => JSX_2.Element>["block"];
+    spacing?: ComponentProps<(props: MarginsProps) => JSX.Element>["block"];
     listStyleType?: CSSProperties["listStyleType"];
     color?: CSSProperties["color"];
     icon?: string;
-}) => JSX_2.Element) & {
+}) => JSX.Element) & {
     Item: (input: {
         children: ReactNode;
         icon?: ComponentProps<ForwardRefExoticComponent<Omit<BoxProps, "name" | "size"> & {
@@ -229,8 +229,8 @@ export const List: ((input: {
         name: Keys;
         size?: BoxProps["width"];
         } & RefAttributes<HTMLElement>>>["color"];
-        fontScale?: ComponentProps<MemoExoticComponent<ForwardRefExoticComponent<BoxProps & RefAttributes<any>>>>["fontScale"];
-    }) => JSX_2.Element;
+        fontScale?: ComponentProps<NamedExoticComponent<BoxProps & RefAttributes<any>>>["fontScale"];
+    }) => JSX.Element;
 };
 
 // @public (undocumented)
@@ -239,7 +239,7 @@ export const ListItem: (input: {
     icon?: ComponentProps<typeof Icon>["name"];
     iconColor?: ComponentProps<typeof Icon>["color"];
     fontScale?: ComponentProps<typeof Box>["fontScale"];
-}) => JSX_2.Element;
+}) => JSX.Element;
 
 // @public (undocumented)
 const Logo: ForwardRefExoticComponent<Omit<ClassAttributes<HTMLDivElement> & HTMLAttributes<HTMLDivElement>, "ref"> & RefAttributes<HTMLDivElement>>;
@@ -260,7 +260,7 @@ isDark?: boolean;
 }, "ref"> & RefAttributes<HTMLSpanElement>>;
 
 // @public (undocumented)
-export const TooltipWrapper: (input: TooltipWrapperProps) => JSX_2.Element;
+export const TooltipWrapper: (input: TooltipWrapperProps) => JSX.Element;
 
 // @public (undocumented)
 export type TooltipWrapperProps = {
@@ -274,22 +274,22 @@ const useDarkMode: () => boolean;
 // @public (undocumented)
 export const VerticalWizardLayout: (input: LayoutContextValue & {
     children: ReactNode;
-}) => JSX_2.Element;
+}) => JSX.Element;
 
 // @public (undocumented)
 export const VerticalWizardLayoutFooter: (input: {
     children: ReactNode;
-}) => JSX_2.Element;
+}) => JSX.Element;
 
 // @public (undocumented)
 export const VerticalWizardLayoutForm: (input: {
     children: ReactNode;
-}) => JSX_2.Element;
+}) => JSX.Element;
 
 // @public (undocumented)
 export const VerticalWizardLayoutTitle: (input: {
     children: ReactNode;
-}) => JSX_2.Element;
+}) => JSX.Element;
 
 // @public (undocumented)
 const Wrapper: ForwardRefExoticComponent<Omit<ClassAttributes<HTMLDivElement> & HTMLAttributes<HTMLDivElement>, "ref"> & RefAttributes<HTMLDivElement>>;

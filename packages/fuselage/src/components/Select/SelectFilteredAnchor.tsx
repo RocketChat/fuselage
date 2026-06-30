@@ -1,6 +1,6 @@
 import type {
   FocusEventHandler,
-  FormEvent,
+  InputEvent,
   KeyboardEventHandler,
   MouseEventHandler,
   ReactNode,
@@ -36,7 +36,7 @@ const SelectFilteredAnchor = forwardRef<
       ref={ref}
       placeholder={placeholder}
       value={filter}
-      onInput={(e: FormEvent<HTMLInputElement>) =>
+      onInput={(e: InputEvent<HTMLInputElement>) =>
         onChangeFilter(e.currentTarget.value)
       }
       {...props}
