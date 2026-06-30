@@ -39,7 +39,6 @@ import type { MouseEventHandler } from 'react';
 import { NamedExoticComponent } from 'react';
 import type { OverlayTriggerState } from 'react-stately';
 import type { PropsWithChildren } from 'react';
-import type { PropsWithoutRef } from 'react';
 import { ReactElement } from 'react';
 import { ReactNode } from 'react';
 import { ReactPortal } from 'react';
@@ -174,6 +173,7 @@ export type AutoCompleteProps<TLabel = ReactNode> = Omit<AllHTMLAttributes<HTMLI
         value: string;
         selected?: boolean;
         focus?: boolean;
+        onMouseDown: MouseEventHandler;
     }>;
     renderEmpty?: ComponentType<{
         customEmpty?: string;
@@ -1489,7 +1489,7 @@ export const ModalTitle: (input: ModalTitleProps) => JSX.Element;
 export type ModalTitleProps = BoxProps;
 
 // @public (undocumented)
-export const MultiSelect: ForwardRefExoticComponent<Omit<MultiSelectProps, "ref"> & RefAttributes<HTMLInputElement>>;
+export function MultiSelect(input: MultiSelectProps): JSX.Element;
 
 // @public (undocumented)
 export type MultiSelectAnchorParams = {
@@ -1516,7 +1516,7 @@ export type MultiSelectFilteredProps = MultiSelectProps & {
 };
 
 // @public (undocumented)
-export type MultiSelectProps = Omit<BoxProps, 'onChange' | 'value'> & {
+export type MultiSelectProps = Omit<BoxProps, 'ref' | 'onChange' | 'value'> & RefAttributes<HTMLInputElement> & {
     value?: SelectOption[0][];
     error?: string;
     options: SelectOption[];
@@ -1580,8 +1580,10 @@ export const NumberInput: ForwardRefExoticComponent<Omit<NumberInputProps, "ref"
 // @public (undocumented)
 export type NumberInputProps = Omit<InputBoxProps, 'type'>;
 
+// Warning: (ae-forgotten-export) The symbol "Option_3" needs to be exported by the entry point index.d.ts
+//
 // @public (undocumented)
-const Option_2: NamedExoticComponent<Omit<OptionProps, "ref"> & RefAttributes<Element>>;
+const Option_2: MemoExoticComponent<typeof Option_3>;
 export { Option_2 as Option }
 
 // @public (undocumented)
@@ -1687,11 +1689,11 @@ export const OptionMenu: (props: OptionMenuProps) => JSX.Element;
 export type OptionMenuProps = HTMLAttributes<HTMLDivElement>;
 
 // @public (undocumented)
-export type OptionProps = {
+export type OptionProps<TLabel = ReactNode> = {
     is?: BoxProps['is'];
     id?: string;
     children?: ReactNode;
-    label?: ReactNode;
+    label?: TLabel;
     focus?: boolean;
     selected?: boolean;
     className?: BoxProps['className'];
@@ -1705,12 +1707,10 @@ export type OptionProps = {
     variant?: 'danger' | 'success' | 'warning' | 'primary';
     onClick?: (event: MouseEvent_2<HTMLElement>) => void;
     description?: ReactNode;
-} & Omit<AllHTMLAttributes<HTMLElement>, 'is' | 'id' | 'children' | 'label' | 'selected' | 'className' | 'ref' | 'icon' | 'gap' | 'avatar' | 'title' | 'disabled' | 'value' | 'variant' | 'onClick' | 'description'>;
+} & Omit<AllHTMLAttributes<HTMLElement>, 'is' | 'id' | 'children' | 'label' | 'selected' | 'className' | 'ref' | 'icon' | 'gap' | 'avatar' | 'title' | 'disabled' | 'value' | 'variant' | 'onClick' | 'description'> & RefAttributes<Element>;
 
 // @public (undocumented)
-export const Options: ForwardRefExoticComponent<PropsWithoutRef<OptionsProps> & RefAttributes<HTMLElement>> & {
-    <TValue = string | number, TLabel = ReactNode>(props: PropsWithoutRef<OptionsProps<TValue, TLabel>> & RefAttributes<HTMLElement>): ReactNode;
-};
+export function Options<TValue extends string | number = string | number, TLabel = ReactNode>(input: OptionsProps<TValue, TLabel>): JSX.Element;
 
 // @public (undocumented)
 const OptionSkeleton: () => JSX.Element;
@@ -1718,7 +1718,7 @@ export { OptionSkeleton as MenuItemSkeleton }
 export { OptionSkeleton }
 
 // @public (undocumented)
-export type OptionsProps<TValue = string | number, TLabel = ReactNode> = Omit<BoxProps, 'onSelect'> & {
+export type OptionsProps<TValue extends string | number = string | number, TLabel = ReactNode> = Omit<BoxProps, 'ref' | 'onSelect'> & RefAttributes<HTMLElement> & {
     multiple?: boolean;
     options: OptionType<TValue, TLabel>[];
     cursor: number;
@@ -1728,6 +1728,8 @@ export type OptionsProps<TValue = string | number, TLabel = ReactNode> = Omit<Bo
         value: TValue;
         selected?: boolean;
         focus?: boolean;
+        disabled?: boolean;
+        onMouseDown: MouseEventHandler;
     }>;
     renderEmpty?: ComponentType<{
         customEmpty?: string;
@@ -1754,7 +1756,21 @@ value: TValue,
 label: TLabel,
 selected?: boolean,
 disabled?: boolean,
-type?: 'heading' | 'divider' | 'option',
+type?: 'option',
+url?: string
+] | [
+value: TValue,
+label: ReactNode,
+selected: unknown,
+disabled: unknown,
+type: 'heading',
+url?: string
+] | [
+value: TValue,
+label: unknown,
+selected: unknown,
+disabled: unknown,
+type: 'divider',
 url?: string
 ];
 
@@ -2115,7 +2131,7 @@ export type SelectInputProps = Omit<InputBoxProps, 'type'> & {
 };
 
 // @public (undocumented)
-export const SelectLegacy: ForwardRefExoticComponent<Omit<SelectProps, "ref"> & RefAttributes<HTMLInputElement>>;
+export const SelectLegacy: (input: SelectProps) => JSX.Element;
 
 // @public (undocumented)
 export type SelectOption = readonly [
@@ -2125,7 +2141,7 @@ selected?: boolean
 ];
 
 // @public (undocumented)
-export type SelectProps = Omit<BoxProps, 'onChange'> & {
+export type SelectProps = Omit<BoxProps, 'ref' | 'onChange'> & RefAttributes<HTMLInputElement> & {
     anchor?: ElementType;
     error?: string;
     options: SelectOption[];

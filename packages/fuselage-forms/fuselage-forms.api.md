@@ -7,10 +7,12 @@
 import { AllHTMLAttributes } from 'react';
 import { AriaSelectProps } from 'react-aria';
 import { AutoComplete as AutoComplete_2 } from '@rocket.chat/fuselage';
+import { BoxProps } from '@rocket.chat/fuselage';
 import { CheckBoxProps } from '@rocket.chat/fuselage';
 import type { ComponentProps } from 'react';
 import { ComponentPropsWithoutRef } from 'react';
 import { Context } from 'react';
+import { ElementType } from 'react';
 import { EmailInputProps } from '@rocket.chat/fuselage';
 import { Field as Field_2 } from '@rocket.chat/fuselage';
 import { FieldDescription as FieldDescription_2 } from '@rocket.chat/fuselage';
@@ -22,14 +24,16 @@ import { FieldLabelInfo } from '@rocket.chat/fuselage';
 import { FieldLink } from '@rocket.chat/fuselage';
 import { FieldRow } from '@rocket.chat/fuselage';
 import { ForwardRefExoticComponent } from 'react';
+import { IconProps } from '@rocket.chat/fuselage';
 import { JSX } from 'react';
 import { Key } from 'react';
+import { MouseEventHandler } from 'react';
+import { MultiSelectAnchorParams } from '@rocket.chat/fuselage';
 import { MultiSelectFilteredProps } from '@rocket.chat/fuselage';
-import { MultiSelectProps } from '@rocket.chat/fuselage';
 import { NumberInputProps } from '@rocket.chat/fuselage';
 import { PasswordInputProps } from '@rocket.chat/fuselage';
 import { RadioButtonProps } from '@rocket.chat/fuselage';
-import type { ReactNode } from 'react';
+import { ReactNode } from 'react';
 import { RefAttributes } from 'react';
 import type { RefCallback } from 'react';
 import { SearchInputProps } from '@rocket.chat/fuselage';
@@ -139,7 +143,26 @@ export type LabelForProps = ComponentProps<typeof FieldLabel_2>;
 export type LabelTypes = 'hint' | 'description' | 'error' | 'placeholder';
 
 // @public (undocumented)
-export const MultiSelect: ForwardRefExoticComponent<Omit<Omit<MultiSelectProps, "ref"> & RefAttributes<HTMLInputElement>, "ref"> & RefAttributes<HTMLInputElement>>;
+export const MultiSelect: ForwardRefExoticComponent<Omit<Omit<BoxProps, "ref" | "value" | "onChange"> & RefAttributes<HTMLInputElement> & {
+value?: SelectOption[0][];
+error?: string;
+options: SelectOption[];
+onChange: (params: SelectOption[0][]) => void;
+getLabel?: (params: SelectOption) => SelectOption[1];
+getValue?: (params: SelectOption) => SelectOption[0];
+customEmpty?: string;
+anchor?: ElementType<MultiSelectAnchorParams> | ((params: MultiSelectAnchorParams) => ReactNode);
+renderOptions?: ElementType;
+renderItem?: ElementType;
+renderSelected?: ElementType<    {
+value: SelectOption[0];
+label: SelectOption[1];
+onMouseDown: MouseEventHandler;
+children: ReactNode;
+}>;
+addonIcon?: IconProps["name"];
+setFilter?: (filter: string) => void;
+}, "ref"> & RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
 export const MultiSelectFiltered: ForwardRefExoticComponent<Omit<Omit<MultiSelectFilteredProps, "ref"> & RefAttributes<HTMLInputElement>, "ref"> & RefAttributes<HTMLInputElement>>;

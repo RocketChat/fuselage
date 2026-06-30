@@ -9,6 +9,7 @@ import type {
   ComponentType,
   FocusEvent,
   MouseEvent,
+  MouseEventHandler,
   ReactNode,
   RefAttributes,
 } from 'react';
@@ -70,6 +71,7 @@ export type AutoCompleteProps<TLabel = ReactNode> = Omit<
     value: string;
     selected?: boolean;
     focus?: boolean;
+    onMouseDown: MouseEventHandler;
   }>;
   renderEmpty?: ComponentType<{
     customEmpty?: string;
