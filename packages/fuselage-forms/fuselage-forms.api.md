@@ -7,12 +7,11 @@
 import { AllHTMLAttributes } from 'react';
 import { AriaSelectProps } from 'react-aria';
 import { AutoComplete as AutoComplete_2 } from '@rocket.chat/fuselage';
-import { BoxProps } from '@rocket.chat/fuselage';
+import { CheckBoxProps } from '@rocket.chat/fuselage';
 import type { ComponentProps } from 'react';
 import { ComponentPropsWithoutRef } from 'react';
 import { Context } from 'react';
-import { Dispatch } from 'react';
-import { ElementType } from 'react';
+import { EmailInputProps } from '@rocket.chat/fuselage';
 import { Field as Field_2 } from '@rocket.chat/fuselage';
 import { FieldDescription as FieldDescription_2 } from '@rocket.chat/fuselage';
 import { FieldError as FieldError_2 } from '@rocket.chat/fuselage';
@@ -23,36 +22,33 @@ import { FieldLabelInfo } from '@rocket.chat/fuselage';
 import { FieldLink } from '@rocket.chat/fuselage';
 import { FieldRow } from '@rocket.chat/fuselage';
 import { ForwardRefExoticComponent } from 'react';
-import { IconProps } from '@rocket.chat/fuselage';
-import { InputBoxProps } from '@rocket.chat/fuselage';
 import { JSX } from 'react';
 import { Key } from 'react';
-import { MouseEventHandler } from 'react';
-import { MultiSelectAnchorParams } from '@rocket.chat/fuselage';
+import { MultiSelectFilteredProps } from '@rocket.chat/fuselage';
+import { MultiSelectProps } from '@rocket.chat/fuselage';
 import { NumberInputProps } from '@rocket.chat/fuselage';
 import { PasswordInputProps } from '@rocket.chat/fuselage';
-import { ReactNode } from 'react';
+import { RadioButtonProps } from '@rocket.chat/fuselage';
+import type { ReactNode } from 'react';
 import { RefAttributes } from 'react';
 import type { RefCallback } from 'react';
+import { SearchInputProps } from '@rocket.chat/fuselage';
 import { SelectOption } from '@rocket.chat/fuselage';
-import { SetStateAction } from 'react';
 import { Slider as Slider_2 } from '@rocket.chat/fuselage';
+import { TelephoneInputProps } from '@rocket.chat/fuselage';
+import { TextAreaInputProps } from '@rocket.chat/fuselage';
+import { TextInputProps } from '@rocket.chat/fuselage';
+import { ToggleSwitchProps } from '@rocket.chat/fuselage';
 import { UrlInputProps } from '@rocket.chat/fuselage';
 
 // @public (undocumented)
 export const AutoComplete: typeof AutoComplete_2;
 
 // @public (undocumented)
-export const CheckBox: ForwardRefExoticComponent<Omit<BoxProps & {
-indeterminate?: boolean;
-labelChildren?: ReactNode;
-} & AllHTMLAttributes<HTMLInputElement> & RefAttributes<HTMLInputElement>, "ref"> & RefAttributes<HTMLInputElement>>;
+export const CheckBox: ForwardRefExoticComponent<Omit<Omit<CheckBoxProps, "ref"> & RefAttributes<HTMLInputElement>, "ref"> & RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
-export const EmailInput: ForwardRefExoticComponent<Omit<Omit<InputBoxProps, "type"> & {
-addon?: ReactNode;
-error?: string;
-} & RefAttributes<HTMLElement>, "ref"> & RefAttributes<HTMLElement>>;
+export const EmailInput: ForwardRefExoticComponent<Omit<Omit<EmailInputProps, "ref"> & RefAttributes<HTMLElement>, "ref"> & RefAttributes<HTMLElement>>;
 
 // @public (undocumented)
 export function Field(input: FieldProps): JSX.Element;
@@ -143,63 +139,19 @@ export type LabelForProps = ComponentProps<typeof FieldLabel_2>;
 export type LabelTypes = 'hint' | 'description' | 'error' | 'placeholder';
 
 // @public (undocumented)
-export const MultiSelect: ForwardRefExoticComponent<Omit<Omit<BoxProps, "value" | "onChange"> & {
-value?: SelectOption[0][];
-error?: string;
-options: SelectOption[];
-onChange: (params: SelectOption[0][]) => void;
-getLabel?: (params: SelectOption) => SelectOption[1];
-getValue?: (params: SelectOption) => SelectOption[0];
-customEmpty?: string;
-anchor?: ElementType<MultiSelectAnchorParams> | ((params: MultiSelectAnchorParams) => ReactNode);
-renderOptions?: ElementType;
-renderItem?: ElementType;
-renderSelected?: ElementType<    {
-value: SelectOption[0];
-label: SelectOption[1];
-onMouseDown: MouseEventHandler;
-children: ReactNode;
-}>;
-addonIcon?: IconProps["name"];
-setFilter?: (filter: string) => void;
-} & RefAttributes<HTMLInputElement>, "ref"> & RefAttributes<HTMLInputElement>>;
+export const MultiSelect: ForwardRefExoticComponent<Omit<Omit<MultiSelectProps, "ref"> & RefAttributes<HTMLInputElement>, "ref"> & RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
-export const MultiSelectFiltered: ForwardRefExoticComponent<Omit<Omit<BoxProps, "value" | "onChange"> & {
-value?: SelectOption[0][];
-error?: string;
-options: SelectOption[];
-onChange: (params: SelectOption[0][]) => void;
-getLabel?: (params: SelectOption) => SelectOption[1];
-getValue?: (params: SelectOption) => SelectOption[0];
-customEmpty?: string;
-anchor?: ElementType<MultiSelectAnchorParams> | ((params: MultiSelectAnchorParams) => ReactNode);
-renderOptions?: ElementType;
-renderItem?: ElementType;
-renderSelected?: ElementType<    {
-value: SelectOption[0];
-label: SelectOption[1];
-onMouseDown: MouseEventHandler;
-children: ReactNode;
-}>;
-addonIcon?: IconProps["name"];
-setFilter?: (filter: string) => void;
-} & {
-filter?: string;
-setFilter?: Dispatch<SetStateAction<string>>;
-addonIcon?: IconProps["name"];
-} & RefAttributes<HTMLInputElement>, "ref"> & RefAttributes<HTMLInputElement>>;
+export const MultiSelectFiltered: ForwardRefExoticComponent<Omit<Omit<MultiSelectFilteredProps, "ref"> & RefAttributes<HTMLInputElement>, "ref"> & RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
-export const NumberInput: ForwardRefExoticComponent<Omit<NumberInputProps & RefAttributes<HTMLInputElement>, "ref"> & RefAttributes<HTMLInputElement>>;
+export const NumberInput: ForwardRefExoticComponent<Omit<Omit<NumberInputProps, "ref"> & RefAttributes<HTMLInputElement>, "ref"> & RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
-export const PasswordInput: ForwardRefExoticComponent<Omit<PasswordInputProps & RefAttributes<HTMLInputElement>, "ref"> & RefAttributes<HTMLInputElement>>;
+export const PasswordInput: ForwardRefExoticComponent<Omit<Omit<PasswordInputProps, "ref"> & RefAttributes<HTMLInputElement>, "ref"> & RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
-export const RadioButton: ForwardRefExoticComponent<Omit<BoxProps & AllHTMLAttributes<HTMLInputElement> & {
-labelChildren?: ReactNode;
-} & RefAttributes<HTMLInputElement>, "ref"> & RefAttributes<HTMLInputElement>>;
+export const RadioButton: ForwardRefExoticComponent<Omit<Omit<RadioButtonProps, "ref"> & RefAttributes<HTMLInputElement>, "ref"> & RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
 export const ReferencedLabel: (input: ReferencedLabelProps) => JSX.Element;
@@ -208,10 +160,7 @@ export const ReferencedLabel: (input: ReferencedLabelProps) => JSX.Element;
 export type ReferencedLabelProps = ComponentProps<typeof FieldLabel_2>;
 
 // @public (undocumented)
-export const SearchInput: ForwardRefExoticComponent<Omit<Omit<InputBoxProps, "type"> & {
-addon?: ReactNode;
-error?: string;
-} & RefAttributes<HTMLInputElement>, "ref"> & RefAttributes<HTMLInputElement>>;
+export const SearchInput: ForwardRefExoticComponent<Omit<Omit<SearchInputProps, "ref"> & RefAttributes<HTMLInputElement>, "ref"> & RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
 export const Select: ForwardRefExoticComponent<Omit<Omit<AriaSelectProps<object>, "children" | "value" | "onChange"> & {
@@ -227,31 +176,19 @@ small?: boolean;
 export const Slider: typeof Slider_2;
 
 // @public (undocumented)
-export const TelephoneInput: ForwardRefExoticComponent<Omit<Omit<InputBoxProps, "type"> & {
-addon?: ReactNode;
-input?: ReactNode;
-error?: string;
-} & RefAttributes<HTMLInputElement>, "ref"> & RefAttributes<HTMLInputElement>>;
+export const TelephoneInput: ForwardRefExoticComponent<Omit<Omit<TelephoneInputProps, "ref"> & RefAttributes<HTMLInputElement>, "ref"> & RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
-export const TextAreaInput: ForwardRefExoticComponent<Omit<Omit<InputBoxProps, "type"> & {
-addon?: ReactNode;
-error?: string;
-} & RefAttributes<HTMLTextAreaElement>, "ref"> & RefAttributes<HTMLTextAreaElement>>;
+export const TextAreaInput: ForwardRefExoticComponent<Omit<Omit<TextAreaInputProps, "ref"> & RefAttributes<HTMLTextAreaElement>, "ref"> & RefAttributes<HTMLTextAreaElement>>;
 
 // @public (undocumented)
-export const TextInput: ForwardRefExoticComponent<Omit<Omit<InputBoxProps, "type"> & {
-addon?: ReactNode;
-error?: string;
-} & RefAttributes<HTMLInputElement>, "ref"> & RefAttributes<HTMLInputElement>>;
+export const TextInput: ForwardRefExoticComponent<Omit<Omit<TextInputProps, "ref"> & RefAttributes<HTMLInputElement>, "ref"> & RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
-export const ToggleSwitch: ForwardRefExoticComponent<Omit<BoxProps & AllHTMLAttributes<HTMLInputElement> & {
-labelChildren?: ReactNode;
-} & RefAttributes<HTMLInputElement>, "ref"> & RefAttributes<HTMLInputElement>>;
+export const ToggleSwitch: ForwardRefExoticComponent<Omit<Omit<ToggleSwitchProps, "ref"> & RefAttributes<HTMLInputElement>, "ref"> & RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
-export const UrlInput: ForwardRefExoticComponent<Omit<UrlInputProps & RefAttributes<HTMLElement>, "ref"> & RefAttributes<HTMLElement>>;
+export const UrlInput: ForwardRefExoticComponent<Omit<Omit<UrlInputProps, "ref"> & RefAttributes<HTMLElement>, "ref"> & RefAttributes<HTMLElement>>;
 
 // @public (undocumented)
 export const useFieldDescriptorId: (type: LabelTypes) => string;

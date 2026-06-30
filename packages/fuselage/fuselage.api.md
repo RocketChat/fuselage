@@ -29,13 +29,13 @@ import { JSXElementConstructor } from 'react';
 import { Key } from 'react';
 import type { KeyboardEvent as KeyboardEvent_2 } from 'react';
 import type { KeyboardEventHandler } from 'react';
-import { Keys } from '@rocket.chat/icons';
+import type { Keys } from '@rocket.chat/icons';
 import type { LinkHTMLAttributes } from 'react';
 import { MemoExoticComponent } from 'react';
 import { MemoizedFunction } from '@rocket.chat/memo';
 import type { MenuTriggerProps } from 'react-stately';
 import { MouseEvent as MouseEvent_2 } from 'react';
-import { MouseEventHandler } from 'react';
+import type { MouseEventHandler } from 'react';
 import { NamedExoticComponent } from 'react';
 import type { OverlayTriggerState } from 'react-stately';
 import type { PropsWithChildren } from 'react';
@@ -79,25 +79,7 @@ export type AccordionProps = {
 } & Partial<StylingProps>;
 
 // @public (undocumented)
-export const ActionButton: ForwardRefExoticComponent<BoxProps & {
-primary?: boolean;
-secondary?: boolean;
-danger?: boolean;
-warning?: boolean;
-success?: boolean;
-disabled?: boolean;
-loading?: boolean;
-mini?: boolean;
-tiny?: boolean;
-small?: boolean;
-medium?: boolean;
-large?: boolean;
-square?: boolean;
-external?: boolean;
-icon?: IconProps["name"];
-} & Omit<AllHTMLAttributes<HTMLAnchorElement | HTMLButtonElement>, "className" | "size" | "is"> & ActionButtonSize & {
-icon: IconProps["name"];
-} & RefAttributes<HTMLButtonElement>>;
+export const ActionButton: ForwardRefExoticComponent<Omit<ActionButtonProps, "ref"> & RefAttributes<HTMLButtonElement>>;
 
 // @public (undocumented)
 export type ActionButtonProps = ButtonProps & ActionButtonSize & {
@@ -273,11 +255,13 @@ export const borderRadius: MemoizedFunction<unknown, unknown, string | undefined
 // @public (undocumented)
 export const borderWidth: MemoizedFunction<unknown, unknown, string | undefined>;
 
+// Warning: (ae-forgotten-export) The symbol "Box_2" needs to be exported by the entry point index.d.ts
+//
 // @public (undocumented)
-export const Box: NamedExoticComponent<BoxProps & RefAttributes<any>>;
+export const Box: MemoExoticComponent<typeof Box_2>;
 
 // @public (undocumented)
-export interface BoxProps extends Partial<StylingProps>, Omit<AllHTMLAttributes<HTMLElement>, 'ref' | 'is' | 'className' | 'size' | 'elevation' | keyof StylingProps>, Omit<SVGAttributes<SVGElement>, keyof AllHTMLAttributes<HTMLElement> | 'elevation' | keyof StylingProps> {
+export interface BoxProps extends Partial<StylingProps>, Omit<AllHTMLAttributes<HTMLElement>, 'ref' | 'is' | 'className' | 'size' | 'elevation' | keyof StylingProps>, Omit<SVGAttributes<SVGElement>, keyof AllHTMLAttributes<HTMLElement> | 'elevation' | keyof StylingProps>, RefAttributes<any> {
     // (undocumented)
     animated?: boolean;
     // (undocumented)
@@ -308,23 +292,7 @@ export type BubbleProps = {
 } & Omit<AllHTMLAttributes<HTMLDivElement>, 'onClick'>;
 
 // @public (undocumented)
-export const Button: ForwardRefExoticComponent<BoxProps & {
-primary?: boolean;
-secondary?: boolean;
-danger?: boolean;
-warning?: boolean;
-success?: boolean;
-disabled?: boolean;
-loading?: boolean;
-mini?: boolean;
-tiny?: boolean;
-small?: boolean;
-medium?: boolean;
-large?: boolean;
-square?: boolean;
-external?: boolean;
-icon?: IconProps["name"];
-} & Omit<AllHTMLAttributes<HTMLAnchorElement | HTMLButtonElement>, "className" | "size" | "is"> & RefAttributes<HTMLAnchorElement | HTMLButtonElement>>;
+export const Button: ForwardRefExoticComponent<Omit<ButtonProps, "ref"> & RefAttributes<HTMLAnchorElement | HTMLButtonElement>>;
 
 // @public (undocumented)
 export const ButtonGroup: ForwardRefExoticComponent<    {
@@ -461,10 +429,7 @@ export type CardTitleProps = {
 } & Omit<AllHTMLAttributes<HTMLElement>, 'is'>;
 
 // @public (undocumented)
-export const CheckBox: ForwardRefExoticComponent<BoxProps & {
-indeterminate?: boolean;
-labelChildren?: ReactNode;
-} & AllHTMLAttributes<HTMLInputElement> & RefAttributes<HTMLInputElement>>;
+export const CheckBox: ForwardRefExoticComponent<Omit<CheckBoxProps, "ref"> & RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
 export type CheckBoxProps = BoxProps & {
@@ -528,7 +493,7 @@ export type CodeSnippetProps = BoxProps & {
 export const color: MemoizedFunction<unknown, unknown, string | undefined>;
 
 // @public (undocumented)
-export const Contextualbar: NamedExoticComponent<BoxProps & RefAttributes<HTMLElement>>;
+export const Contextualbar: NamedExoticComponent<Omit<BoxProps, "ref"> & RefAttributes<HTMLElement>>;
 
 // @public (undocumented)
 export const ContextualbarAction: MemoExoticComponent<(input: ContextualbarActionProps) => JSX.Element>;
@@ -551,17 +516,13 @@ export const ContextualbarButton: MemoExoticComponent<(props: ContextualbarButto
 export type ContextualbarButtonProps = ButtonProps;
 
 // @public (undocumented)
-export const ContextualbarContent: NamedExoticComponent<BoxProps & RefAttributes<HTMLElement>>;
+export const ContextualbarContent: NamedExoticComponent<Omit<BoxProps, "ref"> & RefAttributes<HTMLElement>>;
 
 // @public (undocumented)
 export type ContextualbarContentProps = BoxProps;
 
 // @public (undocumented)
-export const ContextualbarEmptyContent: NamedExoticComponent<BoxProps & {
-icon?: StatesIconProps["name"];
-title?: string;
-subtitle?: string;
-} & RefAttributes<HTMLElement>>;
+export const ContextualbarEmptyContent: NamedExoticComponent<Omit<ContextualbarEmptyContentProps, "ref"> & RefAttributes<HTMLElement>>;
 
 // @public (undocumented)
 export type ContextualbarEmptyContentProps = BoxProps & {
@@ -571,7 +532,7 @@ export type ContextualbarEmptyContentProps = BoxProps & {
 };
 
 // @public (undocumented)
-export const ContextualbarFooter: NamedExoticComponent<BoxProps & RefAttributes<HTMLElement>>;
+export const ContextualbarFooter: NamedExoticComponent<Omit<BoxProps, "ref"> & RefAttributes<HTMLElement>>;
 
 // @public (undocumented)
 export type ContextualbarFooterProps = BoxProps;
@@ -592,7 +553,7 @@ export type ContextualbarIconProps = IconProps;
 export type ContextualbarProps = BoxProps;
 
 // @public (undocumented)
-export const ContextualbarSection: NamedExoticComponent<BoxProps & RefAttributes<HTMLElement>>;
+export const ContextualbarSection: NamedExoticComponent<Omit<BoxProps, "ref"> & RefAttributes<HTMLElement>>;
 
 // @public (undocumented)
 export type ContextualbarSectionProps = BoxProps;
@@ -610,7 +571,7 @@ export const ContextualbarTitle: MemoExoticComponent<(props: ContextualbarTitleP
 export type ContextualbarTitleProps = BoxProps;
 
 // @public (undocumented)
-export const ContextualbarV2: NamedExoticComponent<BoxProps & RefAttributes<HTMLElement>>;
+export const ContextualbarV2: NamedExoticComponent<Omit<BoxProps, "ref"> & RefAttributes<HTMLElement>>;
 
 // @public (undocumented)
 export const ContextualbarV2Action: MemoExoticComponent<(input: ContextualbarV2ActionProps) => JSX.Element>;
@@ -633,17 +594,13 @@ export const ContextualbarV2Button: MemoExoticComponent<(props: ContextualbarV2B
 export type ContextualbarV2ButtonProps = ButtonProps;
 
 // @public (undocumented)
-export const ContextualbarV2Content: NamedExoticComponent<BoxProps & RefAttributes<HTMLElement>>;
+export const ContextualbarV2Content: NamedExoticComponent<Omit<BoxProps, "ref"> & RefAttributes<HTMLElement>>;
 
 // @public (undocumented)
 export type ContextualbarV2ContentProps = BoxProps;
 
 // @public (undocumented)
-export const ContextualbarV2EmptyContent: NamedExoticComponent<BoxProps & {
-icon?: StatesIconProps["name"];
-title?: string;
-subtitle?: string;
-} & RefAttributes<HTMLElement>>;
+export const ContextualbarV2EmptyContent: NamedExoticComponent<Omit<ContextualbarV2EmptyContentProps, "ref"> & RefAttributes<HTMLElement>>;
 
 // @public (undocumented)
 export type ContextualbarV2EmptyContentProps = ContextualbarV2ContentProps & {
@@ -653,7 +610,7 @@ export type ContextualbarV2EmptyContentProps = ContextualbarV2ContentProps & {
 };
 
 // @public (undocumented)
-export const ContextualbarV2Footer: NamedExoticComponent<BoxProps & RefAttributes<HTMLElement>>;
+export const ContextualbarV2Footer: NamedExoticComponent<Omit<BoxProps, "ref"> & RefAttributes<HTMLElement>>;
 
 // @public (undocumented)
 export type ContextualbarV2FooterProps = BoxProps;
@@ -674,7 +631,7 @@ export type ContextualbarV2IconProps = IconProps;
 export type ContextualbarV2Props = BoxProps;
 
 // @public (undocumented)
-export const ContextualbarV2Section: NamedExoticComponent<BoxProps & RefAttributes<HTMLElement>>;
+export const ContextualbarV2Section: NamedExoticComponent<Omit<BoxProps, "ref"> & RefAttributes<HTMLElement>>;
 
 // @public (undocumented)
 export type ContextualbarV2SectionProps = BoxProps;
@@ -712,10 +669,7 @@ export type DropdownProps<T extends HTMLElement> = {
 };
 
 // @public (undocumented)
-export const EmailInput: ForwardRefExoticComponent<Omit<InputBoxProps, "type"> & {
-addon?: ReactNode;
-error?: string;
-} & RefAttributes<HTMLElement>>;
+export const EmailInput: ForwardRefExoticComponent<Omit<EmailInputProps, "ref"> & RefAttributes<HTMLElement>>;
 
 // @public (undocumented)
 export type EmailInputProps = Omit<InputBoxProps, 'type'> & {
@@ -754,11 +708,7 @@ export const FieldHint: (props: FieldHintProps) => JSX.Element;
 export type FieldHintProps = BoxProps;
 
 // @public (undocumented)
-export const FieldLabel: ForwardRefExoticComponent<Omit<BoxProps, "is"> & {
-disabled?: boolean;
-required?: boolean;
-is?: (ElementType<any> & string) | undefined;
-} & RefAttributes<HTMLElement>>;
+export const FieldLabel: ForwardRefExoticComponent<Omit<LabelProps, "ref"> & RefAttributes<HTMLElement>>;
 
 // @public (undocumented)
 export const FieldLabelInfo: (props: FieldLabelInfoProps) => JSX.Element;
@@ -875,22 +825,10 @@ export type GridProps = BoxProps & {
 };
 
 // @public (undocumented)
-export const Icon: ForwardRefExoticComponent<Omit<BoxProps, "size" | "name"> & {
-name: Keys;
-size?: BoxProps["width"];
-} & RefAttributes<HTMLElement>>;
+export const Icon: ForwardRefExoticComponent<Omit<IconProps, "ref"> & RefAttributes<HTMLElement>>;
 
 // @public (undocumented)
-export const IconButton: ForwardRefExoticComponent<    {
-icon: Keys | ReactElement<any>;
-primary?: boolean;
-secondary?: boolean;
-info?: boolean;
-danger?: boolean;
-warning?: boolean;
-success?: boolean;
-pressed?: boolean;
-} & IconButtonSize & BoxProps & RefAttributes<HTMLElement>>;
+export const IconButton: ForwardRefExoticComponent<Omit<IconButtonProps, "ref"> & RefAttributes<HTMLElement>>;
 
 // @public (undocumented)
 export type IconButtonProps = {
@@ -920,21 +858,10 @@ export type IconProps = Omit<BoxProps, 'name' | 'size'> & {
 };
 
 // @public (undocumented)
-export const Input: ForwardRefExoticComponent<BoxProps & RefAttributes<HTMLInputElement>>;
+export const Input: ForwardRefExoticComponent<Omit<BoxProps, "ref"> & RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
-export const InputBox: ForwardRefExoticComponent<BoxProps & {
-addon?: ReactNode;
-startAddon?: ReactNode;
-endAddon?: ReactNode;
-input?: ReactNode;
-multiple?: boolean;
-error?: string;
-placeholder?: string;
-placeholderVisible?: boolean;
-small?: boolean;
-type: "button" | "checkbox" | "color" | "date" | "datetime" | "datetime-local" | "email" | "file" | "hidden" | "image" | "month" | "number" | "password" | "radio" | "range" | "reset" | "search" | "submit" | "tel" | "text" | "time" | "url" | "week" | "textarea" | "select";
-} & RefAttributes<any>>;
+export const InputBox: ForwardRefExoticComponent<Omit<InputBoxProps, "ref"> & RefAttributes<any>>;
 
 // @public (undocumented)
 export type InputBoxProps = BoxProps & {
@@ -963,11 +890,7 @@ export type InputProps = BoxProps;
 export type ItemsPerPage = 25 | 50 | 100;
 
 // @public (undocumented)
-export const Label: ForwardRefExoticComponent<Omit<BoxProps, "is"> & {
-disabled?: boolean;
-required?: boolean;
-is?: (ElementType<any> & string) | undefined;
-} & RefAttributes<HTMLElement>>;
+export const Label: ForwardRefExoticComponent<Omit<LabelProps, "ref"> & RefAttributes<HTMLElement>>;
 
 // @public (undocumented)
 export type LabelInfoProps = {
@@ -1068,9 +991,7 @@ highlight?: boolean;
 } & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
-export const MessageBlock: ForwardRefExoticComponent<    {
-fixedWidth?: boolean;
-} & BoxProps & RefAttributes<HTMLDivElement>>;
+export const MessageBlock: ForwardRefExoticComponent<Omit<MessageBlockProps, "ref"> & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
 export type MessageBlockProps = {
@@ -1452,16 +1373,7 @@ large?: boolean;
 } & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
-export const MessageToolbarItem: ForwardRefExoticComponent<    {
-icon: Keys | ReactElement<any>;
-primary?: boolean;
-secondary?: boolean;
-info?: boolean;
-danger?: boolean;
-warning?: boolean;
-success?: boolean;
-pressed?: boolean;
-} & IconButtonSize & BoxProps & RefAttributes<HTMLButtonElement>>;
+export const MessageToolbarItem: ForwardRefExoticComponent<Omit<IconButtonProps, "ref"> & RefAttributes<HTMLButtonElement>>;
 
 // @public (undocumented)
 export type MessageToolbarItemProps = IconButtonProps;
@@ -1486,10 +1398,7 @@ export const MessageUsername: (props: MessageUsernameProps) => JSX.Element;
 export type MessageUsernameProps = HTMLAttributes<HTMLSpanElement>;
 
 // @public (undocumented)
-export const Modal: ForwardRefExoticComponent<    {
-wrapperFunction?: (props: Pick<BoxProps, "elevation" | "className" | "children">) => ReactNode;
-wrapper?: ElementType<Pick<BoxProps, "elevation" | "className" | "children">>;
-} & BoxProps & RefAttributes<Element>>;
+export const Modal: ForwardRefExoticComponent<Omit<ModalProps, "ref"> & RefAttributes<Element>>;
 
 // @public (undocumented)
 export const ModalBackdrop: (props: ModalBackdropProps) => JSX.Element;
@@ -1582,26 +1491,7 @@ export const ModalTitle: (input: ModalTitleProps) => JSX.Element;
 export type ModalTitleProps = BoxProps;
 
 // @public (undocumented)
-export const MultiSelect: ForwardRefExoticComponent<Omit<BoxProps, "value" | "onChange"> & {
-value?: SelectOption[0][];
-error?: string;
-options: SelectOption[];
-onChange: (params: SelectOption[0][]) => void;
-getLabel?: (params: SelectOption) => SelectOption[1];
-getValue?: (params: SelectOption) => SelectOption[0];
-customEmpty?: string;
-anchor?: ElementType<MultiSelectAnchorParams> | ((params: MultiSelectAnchorParams) => ReactNode);
-renderOptions?: ElementType;
-renderItem?: ElementType;
-renderSelected?: ElementType<{
-value: SelectOption[0];
-label: SelectOption[1];
-onMouseDown: MouseEventHandler;
-children: ReactNode;
-}>;
-addonIcon?: IconProps["name"];
-setFilter?: (filter: string) => void;
-} & RefAttributes<HTMLInputElement>>;
+export const MultiSelect: ForwardRefExoticComponent<Omit<MultiSelectProps, "ref"> & RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
 export type MultiSelectAnchorParams = {
@@ -1618,30 +1508,7 @@ export type MultiSelectAnchorParams = {
 } & AriaAttributes;
 
 // @public (undocumented)
-export const MultiSelectFiltered: ForwardRefExoticComponent<Omit<BoxProps, "value" | "onChange"> & {
-value?: SelectOption[0][];
-error?: string;
-options: SelectOption[];
-onChange: (params: SelectOption[0][]) => void;
-getLabel?: (params: SelectOption) => SelectOption[1];
-getValue?: (params: SelectOption) => SelectOption[0];
-customEmpty?: string;
-anchor?: ElementType<MultiSelectAnchorParams> | ((params: MultiSelectAnchorParams) => ReactNode);
-renderOptions?: ElementType;
-renderItem?: ElementType;
-renderSelected?: ElementType<    {
-value: SelectOption[0];
-label: SelectOption[1];
-onMouseDown: MouseEventHandler;
-children: ReactNode;
-}>;
-addonIcon?: IconProps["name"];
-setFilter?: (filter: string) => void;
-} & {
-filter?: string;
-setFilter?: Dispatch<SetStateAction<string>>;
-addonIcon?: IconProps["name"];
-} & RefAttributes<HTMLInputElement>>;
+export const MultiSelectFiltered: ForwardRefExoticComponent<Omit<MultiSelectFilteredProps, "ref"> & RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
 export type MultiSelectFilteredProps = MultiSelectProps & {
@@ -1695,7 +1562,7 @@ large?: boolean;
 export type NavBarGroupProps = ButtonGroupProps;
 
 // @public (undocumented)
-export const NavBarItem: ForwardRefExoticComponent<HTMLAttributes<HTMLElement> & Partial<IconButtonProps> & RefAttributes<HTMLElement>>;
+export const NavBarItem: ForwardRefExoticComponent<Omit<NavbarItemProps, "ref"> & RefAttributes<HTMLElement>>;
 
 // @public (undocumented)
 export type NavbarItemProps = HTMLAttributes<HTMLElement> & Partial<IconButtonProps>;
@@ -1710,7 +1577,7 @@ export const NavBarSection: (input: NavbarSectionProps) => JSX.Element;
 export type NavbarSectionProps = HTMLAttributes<HTMLSpanElement>;
 
 // @public (undocumented)
-export const NumberInput: ForwardRefExoticComponent<NumberInputProps & RefAttributes<HTMLInputElement>>;
+export const NumberInput: ForwardRefExoticComponent<Omit<NumberInputProps, "ref"> & RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
 export type NumberInputProps = Omit<InputBoxProps, 'type'>;
@@ -1744,7 +1611,7 @@ export { OptionColumnProps as MenuItemColumnProps }
 export { OptionColumnProps }
 
 // @public (undocumented)
-export const OptionContainer: ForwardRefExoticComponent<BoxProps & RefAttributes<HTMLElement>>;
+export const OptionContainer: ForwardRefExoticComponent<Omit<BoxProps, "ref"> & RefAttributes<HTMLElement>>;
 
 // @public (undocumented)
 export type OptionContainerProps = BoxProps;
@@ -2124,7 +1991,7 @@ export interface PartialNode<T> {
 }
 
 // @public (undocumented)
-export const PasswordInput: ForwardRefExoticComponent<PasswordInputProps & RefAttributes<HTMLInputElement>>;
+export const PasswordInput: ForwardRefExoticComponent<Omit<PasswordInputProps, "ref"> & RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
 export type PasswordInputProps = Omit<InputBoxProps, 'type'>;
@@ -2180,9 +2047,7 @@ export type ProgressBarProps = {
 } & Omit<AllHTMLAttributes<HTMLElement>, 'is'>;
 
 // @public (undocumented)
-export const RadioButton: ForwardRefExoticComponent<BoxProps & AllHTMLAttributes<HTMLInputElement> & {
-labelChildren?: ReactNode;
-} & RefAttributes<HTMLInputElement>>;
+export const RadioButton: ForwardRefExoticComponent<Omit<RadioButtonProps, "ref"> & RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
 export type RadioButtonProps = BoxProps & AllHTMLAttributes<HTMLInputElement> & {
@@ -2203,10 +2068,7 @@ export type ScrollableProps = PropsWithChildren<{
 }>;
 
 // @public (undocumented)
-export const SearchInput: ForwardRefExoticComponent<Omit<InputBoxProps, "type"> & {
-addon?: ReactNode;
-error?: string;
-} & RefAttributes<HTMLInputElement>>;
+export const SearchInput: ForwardRefExoticComponent<Omit<SearchInputProps, "ref"> & RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
 export type SearchInputProps = Omit<InputBoxProps, 'type'> & {
@@ -2225,24 +2087,7 @@ small?: boolean;
 } & Omit<AllHTMLAttributes<HTMLElement>, "value" | "onChange"> & RefAttributes<HTMLElement>>;
 
 // @public (undocumented)
-export const SelectFiltered: ForwardRefExoticComponent<Omit<BoxProps, "onChange"> & {
-anchor?: ElementType;
-error?: string;
-options: SelectOption[];
-onChange: (value: SelectOption[0]) => void;
-getLabel?: (params: SelectOption) => SelectOption[1];
-getValue?: (params: SelectOption) => SelectOption[0];
-filter?: string;
-renderOptions?: ElementType;
-renderItem?: ElementType;
-renderSelected?: ElementType;
-customEmpty?: string;
-addonIcon?: IconProps["name"];
-} & {
-filter?: string;
-setFilter?: Dispatch<SetStateAction<string>>;
-addonIcon?: IconProps["name"];
-} & RefAttributes<HTMLInputElement>>;
+export const SelectFiltered: ForwardRefExoticComponent<Omit<SelectFilteredProps, "ref"> & RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
 export type SelectFilteredProps = SelectProps & {
@@ -2252,15 +2097,10 @@ export type SelectFilteredProps = SelectProps & {
 };
 
 // @public (undocumented)
-export const SelectInput: ForwardRefExoticComponent<Omit<InputBoxProps, "type"> & {
-error?: string;
-options?: SelectInputOptions;
-htmlSize?: number;
-addon?: ReactNode;
-} & RefAttributes<HTMLElement>>;
+export const SelectInput: ForwardRefExoticComponent<Omit<SelectInputProps, "ref"> & RefAttributes<HTMLElement>>;
 
 // @public (undocumented)
-export const SelectInputOption: ForwardRefExoticComponent<BoxProps & RefAttributes<HTMLOptionElement>>;
+export const SelectInputOption: ForwardRefExoticComponent<Omit<BoxProps, "ref"> & RefAttributes<HTMLOptionElement>>;
 
 // @public (undocumented)
 export type SelectInputOptionProps = BoxProps;
@@ -2277,20 +2117,7 @@ export type SelectInputProps = Omit<InputBoxProps, 'type'> & {
 };
 
 // @public (undocumented)
-export const SelectLegacy: ForwardRefExoticComponent<Omit<BoxProps, "onChange"> & {
-anchor?: ElementType;
-error?: string;
-options: SelectOption[];
-onChange: (value: SelectOption[0]) => void;
-getLabel?: (params: SelectOption) => SelectOption[1];
-getValue?: (params: SelectOption) => SelectOption[0];
-filter?: string;
-renderOptions?: ElementType;
-renderItem?: ElementType;
-renderSelected?: ElementType;
-customEmpty?: string;
-addonIcon?: IconProps["name"];
-} & RefAttributes<HTMLInputElement>>;
+export const SelectLegacy: ForwardRefExoticComponent<Omit<SelectProps, "ref"> & RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
 export type SelectOption = readonly [
@@ -2332,16 +2159,7 @@ export const Sidebar: ((props: SidebarProps) => JSX.Element) & {
         small?: boolean;
         large?: boolean;
         } & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
-        Action: ForwardRefExoticComponent<    {
-        icon: Keys | ReactElement<any>;
-        primary?: boolean;
-        secondary?: boolean;
-        info?: boolean;
-        danger?: boolean;
-        warning?: boolean;
-        success?: boolean;
-        pressed?: boolean;
-        } & IconButtonSize & BoxProps & RefAttributes<HTMLElement>>;
+        Action: ForwardRefExoticComponent<Omit<IconButtonProps, "ref"> & RefAttributes<HTMLElement>>;
         Divider: () => JSX.Element;
         Title: (props: TopBarTitleProps) => JSX.Element;
     };
@@ -2588,16 +2406,7 @@ export const SidebarTopBar: ((input: TopBarProps) => JSX.Element) & {
     small?: boolean;
     large?: boolean;
     } & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
-    Action: ForwardRefExoticComponent<    {
-    icon: Keys | ReactElement<any>;
-    primary?: boolean;
-    secondary?: boolean;
-    info?: boolean;
-    danger?: boolean;
-    warning?: boolean;
-    success?: boolean;
-    pressed?: boolean;
-    } & IconButtonSize & BoxProps & RefAttributes<HTMLElement>>;
+    Action: ForwardRefExoticComponent<Omit<IconButtonProps, "ref"> & RefAttributes<HTMLElement>>;
     Divider: () => JSX.Element;
     Title: (props: TopBarTitleProps) => JSX.Element;
 };
@@ -2629,16 +2438,7 @@ export type SidebarV2AccordionItemProps = {
 export type SidebarV2AccordionProps = HTMLAttributes<HTMLDivElement>;
 
 // @public (undocumented)
-export const SidebarV2Action: ForwardRefExoticComponent<    {
-icon: Keys | ReactElement<any>;
-primary?: boolean;
-secondary?: boolean;
-info?: boolean;
-danger?: boolean;
-warning?: boolean;
-success?: boolean;
-pressed?: boolean;
-} & IconButtonSize & BoxProps & RefAttributes<HTMLElement>>;
+export const SidebarV2Action: ForwardRefExoticComponent<Omit<IconButtonProps, "ref"> & RefAttributes<HTMLElement>>;
 
 // @public (undocumented)
 export type SidebarV2ActionProps = IconButtonProps;
@@ -3187,17 +2987,11 @@ export function Tabs(input: TabsProps): JSX.Element;
 // @public (undocumented)
 export namespace Tabs {
     var // (undocumented)
-    Item: ForwardRefExoticComponent<BoxProps & {
-    selected?: boolean;
-    disabled?: boolean;
-    } & RefAttributes<HTMLButtonElement>>;
+    Item: ForwardRefExoticComponent<Omit<TabsItemProps, "ref"> & RefAttributes<HTMLButtonElement>>;
 }
 
 // @public (undocumented)
-export const TabsItem: ForwardRefExoticComponent<BoxProps & {
-selected?: boolean;
-disabled?: boolean;
-} & RefAttributes<HTMLButtonElement>>;
+export const TabsItem: ForwardRefExoticComponent<Omit<TabsItemProps, "ref"> & RefAttributes<HTMLButtonElement>>;
 
 // @public (undocumented)
 export type TabsItemProps = BoxProps & {
@@ -3223,11 +3017,7 @@ export type TagProps = {
 } & Omit<BoxProps, 'is'>;
 
 // @public (undocumented)
-export const TelephoneInput: ForwardRefExoticComponent<Omit<InputBoxProps, "type"> & {
-addon?: ReactNode;
-input?: ReactNode;
-error?: string;
-} & RefAttributes<HTMLInputElement>>;
+export const TelephoneInput: ForwardRefExoticComponent<Omit<TelephoneInputProps, "ref"> & RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
 export type TelephoneInputProps = Omit<InputBoxProps, 'type'> & {
@@ -3237,10 +3027,7 @@ export type TelephoneInputProps = Omit<InputBoxProps, 'type'> & {
 };
 
 // @public (undocumented)
-export const TextAreaInput: ForwardRefExoticComponent<Omit<InputBoxProps, "type"> & {
-addon?: ReactNode;
-error?: string;
-} & RefAttributes<HTMLTextAreaElement>>;
+export const TextAreaInput: ForwardRefExoticComponent<Omit<TextAreaInputProps, "ref"> & RefAttributes<HTMLTextAreaElement>>;
 
 // @public (undocumented)
 export type TextAreaInputProps = Omit<InputBoxProps, 'type'> & {
@@ -3249,10 +3036,7 @@ export type TextAreaInputProps = Omit<InputBoxProps, 'type'> & {
 };
 
 // @public (undocumented)
-export const TextInput: ForwardRefExoticComponent<Omit<InputBoxProps, "type"> & {
-addon?: ReactNode;
-error?: string;
-} & RefAttributes<HTMLInputElement>>;
+export const TextInput: ForwardRefExoticComponent<Omit<TextInputProps, "ref"> & RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
 export type TextInputProps = Omit<InputBoxProps, 'type'> & {
@@ -3322,11 +3106,7 @@ export type ThreadMessageRowProps = HTMLAttributes<HTMLDivElement>;
 export const ThreadMessageUnfollow: () => JSX.Element;
 
 // @public (undocumented)
-export const Throbber: ForwardRefExoticComponent<Omit<BoxProps, "disabled"> & {
-circleCount?: number;
-disabled?: boolean;
-inheritColor?: boolean;
-} & RefAttributes<HTMLElement>>;
+export const Throbber: ForwardRefExoticComponent<Omit<ThrobberProps, "ref"> & RefAttributes<HTMLElement>>;
 
 // @public (undocumented)
 export type ThrobberProps = Omit<BoxProps, 'disabled'> & {
@@ -3336,7 +3116,7 @@ export type ThrobberProps = Omit<BoxProps, 'disabled'> & {
 };
 
 // @public (undocumented)
-export const Tile: ForwardRefExoticComponent<BoxProps & RefAttributes<HTMLElement>>;
+export const Tile: ForwardRefExoticComponent<Omit<BoxProps, "ref"> & RefAttributes<HTMLElement>>;
 
 // @public (undocumented)
 export type TileProps = BoxProps;
@@ -3357,9 +3137,7 @@ export type ToastBarProps = {
 } & Omit<AllHTMLAttributes<HTMLElement>, 'is'>;
 
 // @public (undocumented)
-export const ToggleSwitch: ForwardRefExoticComponent<BoxProps & AllHTMLAttributes<HTMLInputElement> & {
-labelChildren?: ReactNode;
-} & RefAttributes<HTMLInputElement>>;
+export const ToggleSwitch: ForwardRefExoticComponent<Omit<ToggleSwitchProps, "ref"> & RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
 export type ToggleSwitchProps = BoxProps & AllHTMLAttributes<HTMLInputElement> & {
@@ -3367,10 +3145,7 @@ export type ToggleSwitchProps = BoxProps & AllHTMLAttributes<HTMLInputElement> &
 };
 
 // @public (undocumented)
-export const Tooltip: ForwardRefExoticComponent<BoxProps & {
-variation?: "dark" | "light";
-placement?: "top-start" | "top-middle" | "top-end" | "bottom-start" | "bottom-middle" | "bottom-end" | "top" | "left" | "bottom" | "right" | null;
-} & RefAttributes<HTMLElement>>;
+export const Tooltip: ForwardRefExoticComponent<Omit<TooltipProps, "ref"> & RefAttributes<HTMLElement>>;
 
 // @public (undocumented)
 export type TooltipProps = BoxProps & {
@@ -3382,16 +3157,7 @@ export type TooltipProps = BoxProps & {
 export const TopBar: (input: TopBarProps) => JSX.Element;
 
 // @public (undocumented)
-export const TopBarAction: ForwardRefExoticComponent<    {
-icon: Keys | ReactElement<any>;
-primary?: boolean;
-secondary?: boolean;
-info?: boolean;
-danger?: boolean;
-warning?: boolean;
-success?: boolean;
-pressed?: boolean;
-} & IconButtonSize & BoxProps & RefAttributes<HTMLElement>>;
+export const TopBarAction: ForwardRefExoticComponent<Omit<IconButtonProps, "ref"> & RefAttributes<HTMLElement>>;
 
 // @public (undocumented)
 export const TopBarActions: ForwardRefExoticComponent<    {
@@ -3458,7 +3224,7 @@ export type TopBarWrapperProps = {
 };
 
 // @public (undocumented)
-export const UrlInput: ForwardRefExoticComponent<UrlInputProps & RefAttributes<HTMLElement>>;
+export const UrlInput: ForwardRefExoticComponent<Omit<UrlInputProps, "ref"> & RefAttributes<HTMLElement>>;
 
 // @public (undocumented)
 export type UrlInputProps = Omit<InputBoxProps, 'type'>;

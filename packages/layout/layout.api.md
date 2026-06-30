@@ -16,10 +16,10 @@ import { ForwardRefExoticComponent } from 'react';
 import { FunctionComponent } from 'react';
 import { HTMLAttributes } from 'react';
 import { Icon } from '@rocket.chat/fuselage';
+import { IconProps } from '@rocket.chat/fuselage';
 import { JSX } from 'react';
-import { Keys } from '@rocket.chat/icons';
 import { MarginsProps } from '@rocket.chat/fuselage';
-import { NamedExoticComponent } from 'react';
+import { MemoExoticComponent } from 'react';
 import type { ReactElement } from 'react';
 import { ReactNode } from 'react';
 import { RefAttributes } from 'react';
@@ -94,7 +94,7 @@ children: ReactNode;
     Subtitle: ForwardRefExoticComponent<Omit<FormHTMLAttributes<HTMLElement>, "is"> & {
     children: ReactNode;
     } & RefAttributes<HTMLElement>>;
-    Container: (props: ComponentProps<NamedExoticComponent<BoxProps & RefAttributes<any>>>) => JSX.Element;
+    Container: (props: ComponentProps<MemoExoticComponent<(input: BoxProps) => JSX.Element>>) => JSX.Element;
     Footer: ForwardRefExoticComponent<Omit<FormHTMLAttributes<HTMLElement>, "is"> & {
     children: ReactNode;
     } & RefAttributes<HTMLElement>>;
@@ -222,15 +222,9 @@ export const List: ((input: {
 }) => JSX.Element) & {
     Item: (input: {
         children: ReactNode;
-        icon?: ComponentProps<ForwardRefExoticComponent<Omit<BoxProps, "name" | "size"> & {
-        name: Keys;
-        size?: BoxProps["width"];
-        } & RefAttributes<HTMLElement>>>["name"];
-        iconColor?: ComponentProps<ForwardRefExoticComponent<Omit<BoxProps, "name" | "size"> & {
-        name: Keys;
-        size?: BoxProps["width"];
-        } & RefAttributes<HTMLElement>>>["color"];
-        fontScale?: ComponentProps<NamedExoticComponent<BoxProps & RefAttributes<any>>>["fontScale"];
+        icon?: ComponentProps<ForwardRefExoticComponent<Omit<IconProps, "ref"> & RefAttributes<HTMLElement>>>["name"];
+        iconColor?: ComponentProps<ForwardRefExoticComponent<Omit<IconProps, "ref"> & RefAttributes<HTMLElement>>>["color"];
+        fontScale?: ComponentProps<MemoExoticComponent<(input: BoxProps) => JSX.Element>>["fontScale"];
     }) => JSX.Element;
 };
 
