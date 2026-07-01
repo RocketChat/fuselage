@@ -2,14 +2,9 @@ import { useMergedRefs, useResizeObserver } from '@rocket.chat/fuselage-hooks';
 import type { TrackHTMLAttributes } from 'react';
 import { useState, useRef, forwardRef } from 'react';
 
-import { Box, Button, IconButton, Margins } from '../..';
+import { Box } from '../..';
 import { useOwnerDocument } from '../../contexts';
-import { Slider } from '../Slider';
-
-const getMaskTime = (durationTime: number) =>
-  new Date(durationTime * 1000)
-    .toISOString()
-    .slice(durationTime > 60 * 60 ? 11 : 14, 19);
+import AudioPlayerControls from './AudioPlayerControls';
 
 function forceDownload(
   ownerDocument: Document,
@@ -150,60 +145,33 @@ const AudioPlayer = forwardRef<HTMLAudioElement, AudioPlayerProps>(
         display='flex'
         alignItems='center'
       >
-        <IconButton
-          primary
-          medium
-          onClick={handlePlay}
-          aria-label={isPlaying ? pauseLabel : playLabel}
-          icon={isPlaying ? 'pause-shape-filled' : 'play-shape-filled'}
+        <AudioPlayerControls
+          isPlaying={isPlaying}
+          currentTime={currentTime}
+          durationTime={durationTime}
+          playbackSpeed={playbackSpeed}
+          onTogglePlay={handlePlay}
+          onSeek={(time) => {
+            if (audioRef.current) {
+              audioRef.current.currentTime = time;
+            }
+          }}
+          onChangePlaybackSpeed={handlePlaybackSpeedSingleControl}
+          download={download}
+          downloadHref={src}
+          onDownload={(e) => {
+            const { host } = new URL(src);
+            if (host !== ownerDocument.defaultView?.location.host) {
+              e.preventDefault();
+              forceDownload(ownerDocument, src);
+            }
+          }}
+          playLabel={playLabel}
+          pauseLabel={pauseLabel}
+          audioPlaybackRangeLabel={audioPlaybackRangeLabel}
+          changePlaybackSpeedLabel={changePlaybackSpeedLabel}
+          downloadAudioFileLabel={downloadAudioFileLabel}
         />
-        <Margins inline={8}>
-          <Box fontScale='p2' color='secondary-info'>
-            {isPlaying || currentTime > 0
-              ? getMaskTime(currentTime)
-              : getMaskTime(durationTime)}
-          </Box>
-          <Box mi={16} w='full'>
-            <Slider
-              aria-label={audioPlaybackRangeLabel}
-              showOutput={false}
-              value={currentTime}
-              maxValue={durationTime}
-              onChange={(value) => {
-                if (audioRef.current) {
-                  audioRef.current.currentTime = value;
-                }
-              }}
-            />
-          </Box>
-
-          <Button
-            secondary
-            small
-            onClick={handlePlaybackSpeedSingleControl}
-            aria-label={changePlaybackSpeedLabel}
-          >
-            {playbackSpeed}x
-          </Button>
-        </Margins>
-        {download && (
-          <IconButton
-            primary
-            aria-label={downloadAudioFileLabel}
-            is='a'
-            href={src}
-            download
-            icon='download'
-            medium
-            onClick={(e) => {
-              const { host } = new URL(src);
-              if (host !== ownerDocument.defaultView?.location.host) {
-                e.preventDefault();
-                forceDownload(ownerDocument, src);
-              }
-            }}
-          />
-        )}
         <audio
           style={{ display: 'none' }}
           onTimeUpdate={(e) => {
