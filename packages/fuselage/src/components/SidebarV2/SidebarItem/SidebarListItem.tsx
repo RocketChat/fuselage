@@ -1,14 +1,17 @@
-import type { HTMLAttributes } from 'react';
-import { forwardRef } from 'react';
+import type { HTMLAttributes, RefAttributes } from 'react';
 
-type SidebarListItemProps = {
-  selected?: boolean;
-} & HTMLAttributes<HTMLDivElement>;
+type SidebarListItemProps = HTMLAttributes<HTMLDivElement> &
+  RefAttributes<HTMLDivElement> & {
+    selected?: boolean;
+  };
 
-export const SidebarListItem = forwardRef<HTMLDivElement, SidebarListItemProps>(
-  ({ className, children, ...props }, ref) => (
+export function SidebarListItem({
+  className,
+  children,
+  ...props
+}: SidebarListItemProps) {
+  return (
     <div
-      ref={ref}
       role='listitem'
       className={[
         'rcx-box rcx-box--full rcx-sidebar-item__list-item',
@@ -20,5 +23,5 @@ export const SidebarListItem = forwardRef<HTMLDivElement, SidebarListItemProps>(
     >
       {children}
     </div>
-  ),
-);
+  );
+}

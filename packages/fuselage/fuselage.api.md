@@ -19,9 +19,8 @@ import type { DetailedHTMLProps } from 'react';
 import type { Dispatch } from 'react';
 import { ElementType } from 'react';
 import type { FocusEventHandler } from 'react';
-import { ForwardRefExoticComponent } from 'react';
 import type { HTMLAttributeAnchorTarget } from 'react';
-import { HTMLAttributes } from 'react';
+import type { HTMLAttributes } from 'react';
 import type { ImgHTMLAttributes } from 'react';
 import type { ItemProps } from '@react-types/shared';
 import { JSX } from 'react';
@@ -2102,8 +2101,8 @@ export const Sidebar: ((props: SidebarProps) => JSX.Element) & {
         Avatar: {
             size: "x24";
         };
-        Actions: ForwardRefExoticComponent<Omit<ButtonGroupProps, "ref"> & RefAttributes<HTMLDivElement>>;
-        Action: ForwardRefExoticComponent<Omit<IconButtonProps, "ref"> & RefAttributes<HTMLElement>>;
+        Actions: TopBarActions;
+        Action: TopBarAction;
         Divider: () => JSX.Element;
         Title: (props: TopBarTitleProps) => JSX.Element;
     };
@@ -2117,7 +2116,7 @@ export const Sidebar: ((props: SidebarProps) => JSX.Element) & {
         Wrapper: (input: SidebarItemWrapperProps) => JSX.Element;
         Icon: (input: SidebarItemIconProps) => JSX.Element;
         Avatar: (input: SidebarItemAvatarProps) => JSX.Element;
-        Actions: ForwardRefExoticComponent<Omit<ButtonGroupProps, "ref"> & RefAttributes<HTMLDivElement>>;
+        Actions: SidebarActions;
         Action: (props: SidebarItemActionProps) => JSX.Element;
         Badge: (input: SidebarItemBadgeProps) => JSX.Element;
     };
@@ -2129,7 +2128,7 @@ export const Sidebar: ((props: SidebarProps) => JSX.Element) & {
 };
 
 // @public (undocumented)
-export type SidebarActionProps = IconButtonProps;
+export type SidebarActionProps = Omit<IconButtonProps, 'ref'> & RefAttributes<HTMLElement>;
 
 // @public (undocumented)
 export const SidebarBanner: (input: SidebarBannerProps) => JSX.Element;
@@ -2179,7 +2178,7 @@ export const SidebarItem: ((input: SidebarItemProps) => JSX.Element) & {
     Wrapper: (input: SidebarItemWrapperProps) => JSX.Element;
     Icon: (input: SidebarItemIconProps) => JSX.Element;
     Avatar: (input: SidebarItemAvatarProps) => JSX.Element;
-    Actions: ForwardRefExoticComponent<Omit<ButtonGroupProps, "ref"> & RefAttributes<HTMLDivElement>>;
+    Actions: typeof SidebarActions;
     Action: (props: SidebarItemActionProps) => JSX.Element;
     Badge: (input: SidebarItemBadgeProps) => JSX.Element;
 };
@@ -2191,7 +2190,7 @@ export const SidebarItemAction: (props: SidebarItemActionProps) => JSX.Element;
 export type SidebarItemActionProps = SidebarActionProps;
 
 // @public (undocumented)
-export const SidebarItemActions: ForwardRefExoticComponent<Omit<ButtonGroupProps, "ref"> & RefAttributes<HTMLDivElement>>;
+export const SidebarItemActions: typeof SidebarActions;
 
 // @public (undocumented)
 export const SidebarItemAvatar: (input: SidebarItemAvatarProps) => JSX.Element;
@@ -2321,16 +2320,14 @@ export const SidebarTopBar: ((input: TopBarProps) => JSX.Element) & {
     Avatar: {
         size: "x24";
     };
-    Actions: ForwardRefExoticComponent<Omit<ButtonGroupProps, "ref"> & RefAttributes<HTMLDivElement>>;
-    Action: ForwardRefExoticComponent<Omit<IconButtonProps, "ref"> & RefAttributes<HTMLElement>>;
+    Actions: typeof TopBarActions;
+    Action: typeof TopBarAction;
     Divider: () => JSX.Element;
     Title: (props: TopBarTitleProps) => JSX.Element;
 };
 
 // @public (undocumented)
-export const SidebarV2: ForwardRefExoticComponent<    {
-collapsed?: boolean;
-} & HTMLAttributes<HTMLElement> & RefAttributes<HTMLElement>>;
+export function SidebarV2(input: SidebarV2Props): JSX.Element;
 
 // @public (undocumented)
 export const SidebarV2Accordion: (input: SidebarV2AccordionProps) => JSX.Element;
@@ -2354,13 +2351,13 @@ export type SidebarV2AccordionItemProps = {
 export type SidebarV2AccordionProps = HTMLAttributes<HTMLDivElement>;
 
 // @public (undocumented)
-export const SidebarV2Action: ForwardRefExoticComponent<Omit<IconButtonProps, "ref"> & RefAttributes<HTMLElement>>;
+export function SidebarV2Action(props: SidebarV2ActionProps): JSX.Element;
 
 // @public (undocumented)
-export type SidebarV2ActionProps = IconButtonProps;
+export type SidebarV2ActionProps = Omit<IconButtonProps, 'ref'> & RefAttributes<HTMLElement>;
 
 // @public (undocumented)
-export const SidebarV2Actions: ForwardRefExoticComponent<Omit<ButtonGroupProps, "ref"> & RefAttributes<HTMLDivElement>>;
+export function SidebarV2Actions(props: SidebarV2ActionsProps): JSX.Element;
 
 // @public (undocumented)
 export type SidebarV2ActionsProps = ButtonGroupProps;
@@ -2386,15 +2383,10 @@ export type SidebarV2BannerVariant = 'default' | 'info' | 'success' | 'warning' 
 // @public (undocumented)
 export const SidebarV2ButtonGroup: (input: ButtonGroupProps) => JSX.Element;
 
+// Warning: (ae-forgotten-export) The symbol "SidebarCollapseGroupProps" needs to be exported by the entry point index.d.ts
+//
 // @public (undocumented)
-export const SidebarV2CollapseGroup: ForwardRefExoticComponent<    {
-expanded?: boolean;
-defaultExpanded?: boolean;
-tabIndex?: number;
-title: string;
-badge?: ReactNode;
-actions?: ReactNode;
-} & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
+export function SidebarV2CollapseGroup(input: SidebarCollapseGroupProps): JSX.Element;
 
 // @public (undocumented)
 export const SidebarV2Divider: () => JSX.Element;
@@ -2486,10 +2478,10 @@ export type SidebarV2LinkProps = {
     menu?: ReactNode;
 } & LinkHTMLAttributes<HTMLAnchorElement>;
 
+// Warning: (ae-forgotten-export) The symbol "SidebarListItemProps" needs to be exported by the entry point index.d.ts
+//
 // @public (undocumented)
-export const SidebarV2ListItem: ForwardRefExoticComponent<    {
-selected?: boolean;
-} & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
+export function SidebarV2ListItem(input: SidebarListItemProps): JSX.Element;
 
 // @public (undocumented)
 export const SidebarV2Media: (input: HTMLAttributes<HTMLDivElement>) => JSX.Element;
@@ -2503,9 +2495,9 @@ export const SidebarV2MediaController: (input: {
 export const SidebarV2MediaTitle: (input: HTMLAttributes<HTMLDivElement>) => JSX.Element;
 
 // @public (undocumented)
-export type SidebarV2Props = {
+export type SidebarV2Props = HTMLAttributes<HTMLElement> & RefAttributes<HTMLElement> & {
     collapsed?: boolean;
-} & HTMLAttributes<HTMLElement>;
+};
 
 // @public (undocumented)
 export const SidebarV2Section: (props: HTMLAttributes<HTMLDivElement>) => JSX.Element;
@@ -3058,11 +3050,15 @@ export type TooltipProps = Omit<BoxProps, 'ref'> & RefAttributes<HTMLElement> & 
 // @public (undocumented)
 export const TopBar: (input: TopBarProps) => JSX.Element;
 
+// Warning: (ae-forgotten-export) The symbol "TopBarActionProps" needs to be exported by the entry point index.d.ts
+//
 // @public (undocumented)
-export const TopBarAction: ForwardRefExoticComponent<Omit<IconButtonProps, "ref"> & RefAttributes<HTMLElement>>;
+export function TopBarAction(props: TopBarActionProps): JSX.Element;
 
+// Warning: (ae-forgotten-export) The symbol "TopBarActionsProps" needs to be exported by the entry point index.d.ts
+//
 // @public (undocumented)
-export const TopBarActions: ForwardRefExoticComponent<Omit<ButtonGroupProps, "ref"> & RefAttributes<HTMLDivElement>>;
+export function TopBarActions(props: TopBarActionsProps): JSX.Element;
 
 // @public (undocumented)
 export const TopBarAvatar: {
@@ -3157,6 +3153,10 @@ show: () => void
 
 // @public (undocumented)
 export type VisibilityType = 'hidden' | 'visible' | 'hiding' | 'unhiding' | undefined;
+
+// Warnings were encountered during analysis:
+//
+// src/components/Sidebar/Sidebar.tsx:12:23 - (ae-forgotten-export) The symbol "SidebarActions" needs to be exported by the entry point index.d.ts
 
 // (No @packageDocumentation comment for this package)
 
