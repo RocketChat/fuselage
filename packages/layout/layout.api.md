@@ -6,20 +6,18 @@
 
 import type { AnchorHTMLAttributes } from 'react';
 import { Box } from '@rocket.chat/fuselage';
-import { BoxProps } from '@rocket.chat/fuselage';
 import { ClassAttributes } from 'react';
-import { ComponentProps } from 'react';
-import { CSSProperties } from 'react';
+import type { ComponentProps } from 'react';
+import type { CSSProperties } from 'react';
 import type { Dispatch } from 'react';
 import type { FormHTMLAttributes } from 'react';
 import { FunctionComponent } from 'react';
 import { HTMLAttributes } from 'react';
 import { Icon } from '@rocket.chat/fuselage';
 import { JSX } from 'react';
-import { MarginsProps } from '@rocket.chat/fuselage';
-import { MemoExoticComponent } from 'react';
+import { Margins } from '@rocket.chat/fuselage';
 import type { ReactElement } from 'react';
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import type { RefAttributes } from 'react';
 import type { RefObject } from 'react';
 import type { SetStateAction } from 'react';
@@ -78,17 +76,10 @@ type DarkModeProviderProps = {
 // @public (undocumented)
 const Description: FunctionComponent<ClassAttributes<HTMLDivElement> & HTMLAttributes<HTMLDivElement>>;
 
-// Warning: (ae-forgotten-export) The symbol "Form_2" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "FormProps" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export const Form: typeof Form_2 & {
-    Header: typeof FormHeader;
-    Steps: (input: FormStepsProps) => JSX.Element;
-    Title: typeof FormTitle;
-    Subtitle: typeof FormSubtitle;
-    Container: (props: ComponentProps<MemoExoticComponent<(input: BoxProps) => JSX.Element>>) => JSX.Element;
-    Footer: typeof FormFooter;
-};
+export function Form(props: FormProps): JSX.Element;
 
 // @public (undocumented)
 export const FormContainer: (props: ComponentProps<typeof Box>) => JSX.Element;
@@ -203,20 +194,13 @@ export type LayoutContextValue = {
 export const LayoutLogo: () => JSX.Element;
 
 // @public (undocumented)
-export const List: ((input: {
+export const List: (input: {
     children: ReactNode;
-    spacing?: ComponentProps<(props: MarginsProps) => JSX.Element>["block"];
+    spacing?: ComponentProps<typeof Margins>["block"];
     listStyleType?: CSSProperties["listStyleType"];
     color?: CSSProperties["color"];
     icon?: string;
-}) => JSX.Element) & {
-    Item: (input: {
-        children: ReactNode;
-        icon?: ComponentProps<Icon>["name"];
-        iconColor?: ComponentProps<Icon>["color"];
-        fontScale?: ComponentProps<MemoExoticComponent<(input: BoxProps) => JSX.Element>>["fontScale"];
-    }) => JSX.Element;
-};
+}) => JSX.Element;
 
 // @public (undocumented)
 export const ListItem: (input: {

@@ -1,5 +1,12 @@
 import { Box, Label } from '@rocket.chat/fuselage';
-import { Form } from '@rocket.chat/layout';
+import {
+  Form,
+  FormContainer,
+  FormFooter,
+  FormHeader,
+  FormSteps,
+  FormTitle,
+} from '@rocket.chat/layout';
 import { Trans, useTranslation } from 'react-i18next';
 
 import EmailCodeFallback from '../../common/EmailCodeFallback';
@@ -25,11 +32,11 @@ const AwaitingConfirmationForm = ({
 
   return (
     <Form>
-      <Form.Header>
-        <Form.Steps currentStep={currentStep} stepCount={stepCount} />
-        <Form.Title>{t('form.awaitConfirmationForm.title')}</Form.Title>
-      </Form.Header>
-      <Form.Container>
+      <FormHeader>
+        <FormSteps currentStep={currentStep} stepCount={stepCount} />
+        <FormTitle>{t('form.awaitConfirmationForm.title')}</FormTitle>
+      </FormHeader>
+      <FormContainer>
         <Box fontScale='p2' mbe={24}>
           <Trans
             i18nKey='form.awaitConfirmationForm.content.sentEmail'
@@ -53,13 +60,13 @@ const AwaitingConfirmationForm = ({
             {securityCode}
           </Box>
         </Label>
-      </Form.Container>
-      <Form.Footer>
+      </FormContainer>
+      <FormFooter>
         <EmailCodeFallback
           onResendEmailRequest={onResendEmailRequest}
           onChangeEmailRequest={onChangeEmailRequest}
         />
-      </Form.Footer>
+      </FormFooter>
     </Form>
   );
 };

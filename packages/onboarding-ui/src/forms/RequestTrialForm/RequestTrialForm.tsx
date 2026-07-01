@@ -14,7 +14,7 @@ import {
   Select,
   SelectFiltered,
 } from '@rocket.chat/fuselage';
-import { Form } from '@rocket.chat/layout';
+import { Form, FormFooter } from '@rocket.chat/layout';
 import type { FieldPathValue, SubmitHandler, Validate } from 'react-hook-form';
 import { useForm, Controller } from 'react-hook-form';
 import { useTranslation, Trans } from 'react-i18next';
@@ -201,7 +201,7 @@ export const RequestTrialForm = ({
           </FieldDescription>
         </Field>
       </FieldGroup>
-      <Form.Footer>
+      <FormFooter>
         <Button
           type='submit'
           primary
@@ -210,7 +210,7 @@ export const RequestTrialForm = ({
         >
           {t('form.requestTrialForm.button.text')}
         </Button>
-      </Form.Footer>
+      </FormFooter>
     </Form>
   );
 };
