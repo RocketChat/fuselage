@@ -35,14 +35,13 @@ import { MemoizedFunction } from '@rocket.chat/memo';
 import type { MenuTriggerProps } from 'react-stately';
 import { MouseEvent as MouseEvent_2 } from 'react';
 import type { MouseEventHandler } from 'react';
-import { NamedExoticComponent } from 'react';
 import type { OverlayTriggerState } from 'react-stately';
 import type { PropsWithChildren } from 'react';
 import { ReactElement } from 'react';
 import { ReactNode } from 'react';
 import { ReactPortal } from 'react';
 import type { Ref } from 'react';
-import { RefAttributes } from 'react';
+import type { RefAttributes } from 'react';
 import type { RefObject } from 'react';
 import type { SectionProps } from '@react-types/shared';
 import type { SetStateAction } from 'react';
@@ -482,8 +481,10 @@ export type CodeSnippetProps = BoxProps & {
 // @public (undocumented)
 export const color: MemoizedFunction<unknown, unknown, string | undefined>;
 
+// Warning: (ae-forgotten-export) The symbol "Contextualbar_2" needs to be exported by the entry point index.d.ts
+//
 // @public (undocumented)
-export const Contextualbar: NamedExoticComponent<Omit<BoxProps, "ref"> & RefAttributes<HTMLElement>>;
+export const Contextualbar: MemoExoticComponent<typeof Contextualbar_2>;
 
 // @public (undocumented)
 export const ContextualbarAction: MemoExoticComponent<(input: ContextualbarActionProps) => JSX.Element>;
@@ -505,27 +506,33 @@ export const ContextualbarButton: MemoExoticComponent<(props: ContextualbarButto
 // @public (undocumented)
 export type ContextualbarButtonProps = ButtonProps;
 
+// Warning: (ae-forgotten-export) The symbol "ContextualbarContent_2" needs to be exported by the entry point index.d.ts
+//
 // @public (undocumented)
-export const ContextualbarContent: NamedExoticComponent<Omit<BoxProps, "ref"> & RefAttributes<HTMLElement>>;
+export const ContextualbarContent: MemoExoticComponent<typeof ContextualbarContent_2>;
 
 // @public (undocumented)
-export type ContextualbarContentProps = BoxProps;
+export type ContextualbarContentProps = Omit<BoxProps, 'ref'> & RefAttributes<HTMLElement>;
+
+// Warning: (ae-forgotten-export) The symbol "ContextualbarEmptyContent_2" needs to be exported by the entry point index.d.ts
+//
+// @public (undocumented)
+export const ContextualbarEmptyContent: MemoExoticComponent<typeof ContextualbarEmptyContent_2>;
 
 // @public (undocumented)
-export const ContextualbarEmptyContent: NamedExoticComponent<Omit<ContextualbarEmptyContentProps, "ref"> & RefAttributes<HTMLElement>>;
-
-// @public (undocumented)
-export type ContextualbarEmptyContentProps = BoxProps & {
+export type ContextualbarEmptyContentProps = Omit<BoxProps, 'ref'> & RefAttributes<HTMLElement> & {
     icon?: StatesIconProps['name'];
     title?: string;
     subtitle?: string;
 };
 
+// Warning: (ae-forgotten-export) The symbol "ContextualbarFooter_2" needs to be exported by the entry point index.d.ts
+//
 // @public (undocumented)
-export const ContextualbarFooter: NamedExoticComponent<Omit<BoxProps, "ref"> & RefAttributes<HTMLElement>>;
+export const ContextualbarFooter: MemoExoticComponent<typeof ContextualbarFooter_2>;
 
 // @public (undocumented)
-export type ContextualbarFooterProps = BoxProps;
+export type ContextualbarFooterProps = Omit<BoxProps, 'ref'> & RefAttributes<HTMLElement>;
 
 // @public (undocumented)
 export const ContextualbarHeader: MemoExoticComponent<(input: ContextualbarHeaderProps) => JSX.Element>;
@@ -540,13 +547,15 @@ export const ContextualbarIcon: MemoExoticComponent<(props: ContextualbarIconPro
 export type ContextualbarIconProps = IconProps;
 
 // @public (undocumented)
-export type ContextualbarProps = BoxProps;
+export type ContextualbarProps = Omit<BoxProps, 'ref'> & RefAttributes<HTMLElement>;
+
+// Warning: (ae-forgotten-export) The symbol "ContextualbarSection_2" needs to be exported by the entry point index.d.ts
+//
+// @public (undocumented)
+export const ContextualbarSection: MemoExoticComponent<typeof ContextualbarSection_2>;
 
 // @public (undocumented)
-export const ContextualbarSection: NamedExoticComponent<Omit<BoxProps, "ref"> & RefAttributes<HTMLElement>>;
-
-// @public (undocumented)
-export type ContextualbarSectionProps = BoxProps;
+export type ContextualbarSectionProps = Omit<BoxProps, 'ref'> & RefAttributes<HTMLElement>;
 
 // @public (undocumented)
 export const ContextualbarSkeleton: MemoExoticComponent<(props: ContextualbarSkeletonProps) => JSX.Element>;
@@ -560,8 +569,10 @@ export const ContextualbarTitle: MemoExoticComponent<(props: ContextualbarTitleP
 // @public (undocumented)
 export type ContextualbarTitleProps = BoxProps;
 
+// Warning: (ae-forgotten-export) The symbol "Contextualbar_3" needs to be exported by the entry point index.d.ts
+//
 // @public (undocumented)
-export const ContextualbarV2: NamedExoticComponent<Omit<BoxProps, "ref"> & RefAttributes<HTMLElement>>;
+export const ContextualbarV2: MemoExoticComponent<typeof Contextualbar_3>;
 
 // @public (undocumented)
 export const ContextualbarV2Action: MemoExoticComponent<(input: ContextualbarV2ActionProps) => JSX.Element>;
@@ -583,14 +594,18 @@ export const ContextualbarV2Button: MemoExoticComponent<(props: ContextualbarV2B
 // @public (undocumented)
 export type ContextualbarV2ButtonProps = ButtonProps;
 
+// Warning: (ae-forgotten-export) The symbol "ContextualbarContent_3" needs to be exported by the entry point index.d.ts
+//
 // @public (undocumented)
-export const ContextualbarV2Content: NamedExoticComponent<Omit<BoxProps, "ref"> & RefAttributes<HTMLElement>>;
+export const ContextualbarV2Content: MemoExoticComponent<typeof ContextualbarContent_3>;
 
 // @public (undocumented)
-export type ContextualbarV2ContentProps = BoxProps;
+export type ContextualbarV2ContentProps = Omit<BoxProps, 'ref'> & RefAttributes<HTMLElement>;
 
+// Warning: (ae-forgotten-export) The symbol "ContextualbarEmptyContent_3" needs to be exported by the entry point index.d.ts
+//
 // @public (undocumented)
-export const ContextualbarV2EmptyContent: NamedExoticComponent<Omit<ContextualbarV2EmptyContentProps, "ref"> & RefAttributes<HTMLElement>>;
+export const ContextualbarV2EmptyContent: MemoExoticComponent<typeof ContextualbarEmptyContent_3>;
 
 // @public (undocumented)
 export type ContextualbarV2EmptyContentProps = ContextualbarV2ContentProps & {
@@ -599,11 +614,13 @@ export type ContextualbarV2EmptyContentProps = ContextualbarV2ContentProps & {
     subtitle?: string;
 };
 
+// Warning: (ae-forgotten-export) The symbol "ContextualbarFooter_3" needs to be exported by the entry point index.d.ts
+//
 // @public (undocumented)
-export const ContextualbarV2Footer: NamedExoticComponent<Omit<BoxProps, "ref"> & RefAttributes<HTMLElement>>;
+export const ContextualbarV2Footer: MemoExoticComponent<typeof ContextualbarFooter_3>;
 
 // @public (undocumented)
-export type ContextualbarV2FooterProps = BoxProps;
+export type ContextualbarV2FooterProps = Omit<BoxProps, 'ref'> & RefAttributes<HTMLElement>;
 
 // @public (undocumented)
 export const ContextualbarV2Header: MemoExoticComponent<(input: ContextualbarV2HeaderProps) => JSX.Element>;
@@ -618,13 +635,15 @@ export const ContextualbarV2Icon: MemoExoticComponent<(props: ContextualbarV2Ico
 export type ContextualbarV2IconProps = IconProps;
 
 // @public (undocumented)
-export type ContextualbarV2Props = BoxProps;
+export type ContextualbarV2Props = Omit<BoxProps, 'ref'> & RefAttributes<HTMLElement>;
+
+// Warning: (ae-forgotten-export) The symbol "ContextualbarSection_3" needs to be exported by the entry point index.d.ts
+//
+// @public (undocumented)
+export const ContextualbarV2Section: MemoExoticComponent<typeof ContextualbarSection_3>;
 
 // @public (undocumented)
-export const ContextualbarV2Section: NamedExoticComponent<Omit<BoxProps, "ref"> & RefAttributes<HTMLElement>>;
-
-// @public (undocumented)
-export type ContextualbarV2SectionProps = BoxProps;
+export type ContextualbarV2SectionProps = Omit<BoxProps, 'ref'> & RefAttributes<HTMLElement>;
 
 // @public (undocumented)
 export const ContextualbarV2Skeleton: MemoExoticComponent<(props: ContextualbarV2SkeletonProps) => JSX.Element>;
