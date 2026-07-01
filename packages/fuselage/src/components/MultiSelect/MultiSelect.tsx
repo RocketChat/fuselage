@@ -142,9 +142,16 @@ const MultiSelect = forwardRef<HTMLInputElement, MultiSelectProps>(
     };
 
     const handleClick = useStableCallback(() => {
-      if (visible === AnimatedVisibility.VISIBLE) {
+      // Toggle based on the self-managed `focus-visible` class rather than the
+      // `visible` state. The anchor's `onBlur` fires `hide()` during the
+      // mousedown that precedes this click, so reading `visible` here would
+      // already see HIDDEN and re-open the dropdown. This mirrors SelectLegacy.
+      if (innerRef.current?.classList.contains('focus-visible')) {
+        removeFocusClass();
         return hide();
       }
+
+      innerRef.current?.classList.add('focus-visible');
       innerRef.current?.focus();
       return show();
     });
