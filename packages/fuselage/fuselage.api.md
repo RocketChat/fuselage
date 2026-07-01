@@ -52,7 +52,7 @@ import type { UsePositionOptions } from '@rocket.chat/fuselage-hooks';
 // @public (undocumented)
 export const __setThrowErrorOnInvalidToken__: (value: boolean) => void;
 
-// @public (undocumented)
+// @public
 export const Accordion: (input: AccordionProps) => JSX.Element;
 
 // @public (undocumented)
@@ -108,7 +108,7 @@ export type AnimatedVisibilityProps = {
 // @public (undocumented)
 export const AudioPlayer: (input: AudioPlayerProps) => JSX.Element;
 
-// @public (undocumented)
+// @public
 export const AudioPlayerControls: (input: AudioPlayerControlsProps) => JSX.Element;
 
 // @public (undocumented)
@@ -130,7 +130,7 @@ export type AudioPlayerControlsProps = {
     downloadAudioFileLabel?: string;
 };
 
-// @public (undocumented)
+// @public
 export type AudioPlayerProps = RefAttributes<HTMLAudioElement> & {
     src: string;
     type?: string;
@@ -146,7 +146,7 @@ export type AudioPlayerProps = RefAttributes<HTMLAudioElement> & {
     trackProps?: TrackHTMLAttributes<HTMLTrackElement>;
 };
 
-// @public (undocumented)
+// @public
 export function AutoComplete<TLabel = ReactNode>(input: AutoCompleteProps<TLabel>): JSX.Element;
 
 // @public (undocumented)
@@ -210,7 +210,7 @@ export type AvatarStackProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,
 // @public (undocumented)
 export const backgroundColor: MemoizedFunction<unknown, unknown, string | undefined>;
 
-// @public (undocumented)
+// @public
 export function Badge(input: BadgeProps): JSX.Element;
 
 // @public (undocumented)
@@ -266,7 +266,6 @@ export interface BoxProps extends Partial<StylingProps>, Omit<AllHTMLAttributes<
     focusable?: boolean;
     // (undocumented)
     htmlSize?: AllHTMLAttributes<HTMLElement>['size'];
-    // (undocumented)
     is?: ElementType;
     // (undocumented)
     withRichContent?: boolean | 'inlineWithoutBreaks';
@@ -287,10 +286,10 @@ export type BubbleProps = {
     dismissProps?: Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onClick'>;
 } & Omit<AllHTMLAttributes<HTMLDivElement>, 'onClick'>;
 
-// @public (undocumented)
+// @public
 export function Button(input: ButtonProps): JSX.Element;
 
-// @public (undocumented)
+// @public
 export function ButtonGroup(input: ButtonGroupProps): JSX.Element;
 
 // @public (undocumented)
@@ -322,7 +321,7 @@ export type ButtonProps = Omit<BoxProps, 'ref'> & {
     icon?: IconProps['name'];
 } & Omit<AllHTMLAttributes<HTMLButtonElement | HTMLAnchorElement>, 'is' | 'className' | 'size'> & RefAttributes<HTMLButtonElement | HTMLAnchorElement>;
 
-// @public (undocumented)
+// @public
 export const Callout: (input: CalloutProps) => JSX.Element;
 
 // @public (undocumented)
@@ -467,7 +466,7 @@ export type ChipProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type'> & 
     renderDismissSymbol?: () => ReactNode;
 };
 
-// @public (undocumented)
+// @public
 export const CodeSnippet: (input: CodeSnippetProps) => ReactElement<CodeSnippetProps>;
 
 // @public (undocumented)
@@ -478,7 +477,7 @@ export type CodeSnippetProps = BoxProps & {
     onClick?: () => void;
 };
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export const color: MemoizedFunction<unknown, unknown, string | undefined>;
 
 // Warning: (ae-forgotten-export) The symbol "Contextualbar_2" needs to be exported by the entry point index.d.ts
@@ -677,7 +676,7 @@ export type DropdownProps<T extends HTMLElement> = RefAttributes<HTMLElement> & 
     children: ReactNode;
 };
 
-// @public (undocumented)
+// @public
 export function EmailInput(props: EmailInputProps): JSX.Element;
 
 // @public (undocumented)
@@ -686,7 +685,7 @@ export type EmailInputProps = Omit<InputBoxProps<HTMLInputElement>, 'type'>;
 // @public (undocumented)
 export type Falsy = false | 0 | '' | null | undefined;
 
-// @public (undocumented)
+// @public
 export function Field(props: FieldProps): JSX.Element;
 
 // @public (undocumented)
@@ -701,7 +700,7 @@ export const FieldError: (props: FieldErrorProps) => JSX.Element;
 // @public (undocumented)
 export type FieldErrorProps = BoxProps;
 
-// @public (undocumented)
+// @public
 export const FieldGroup: (input: FieldGroupProps) => JSX.Element;
 
 // @public (undocumented)
@@ -866,7 +865,7 @@ export type IconProps = Omit<BoxProps, 'ref' | 'name' | 'size'> & RefAttributes<
 // @public (undocumented)
 export function Input<T extends HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>(props: InputProps<T>): JSX.Element;
 
-// @public (undocumented)
+// @public
 export function InputBox<T extends HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>(input: InputBoxProps<T>): JSX.Element;
 
 // @public (undocumented)
@@ -895,7 +894,7 @@ export type InputProps<T extends HTMLInputElement | HTMLSelectElement | HTMLText
 // @public (undocumented)
 export type ItemsPerPage = 25 | 50 | 100;
 
-// @public (undocumented)
+// @public
 export function Label(input: LabelProps): JSX.Element;
 
 // @public (undocumented)
@@ -910,7 +909,7 @@ export type LabelProps = Omit<BoxProps, 'ref'> & RefAttributes<HTMLElement> & {
     required?: boolean;
 };
 
-// @public (undocumented)
+// @public
 export const Margins: (props: MarginsProps) => JSX.Element;
 
 // @public (undocumented)
@@ -950,7 +949,6 @@ export interface MenuProps<T> extends AriaMenuProps<T>, MenuTriggerProps {
     detached?: boolean;
     // (undocumented)
     icon?: IconButtonProps['icon'];
-    // (undocumented)
     is?: ElementType;
     // (undocumented)
     large?: boolean;
@@ -1473,7 +1471,7 @@ export const ModalTitle: (input: ModalTitleProps) => JSX.Element;
 // @public (undocumented)
 export type ModalTitleProps = BoxProps;
 
-// @public (undocumented)
+// @public
 export function MultiSelect(input: MultiSelectProps): JSX.Element;
 
 // @public (undocumented)
@@ -1552,7 +1550,7 @@ export const NavBarSection: (input: NavbarSectionProps) => JSX.Element;
 // @public (undocumented)
 export type NavbarSectionProps = HTMLAttributes<HTMLSpanElement>;
 
-// @public (undocumented)
+// @public
 export function NumberInput(props: NumberInputProps): JSX.Element;
 
 // @public (undocumented)
@@ -1686,7 +1684,7 @@ export type OptionProps<TLabel = ReactNode> = RefAttributes<Element> & {
     description?: ReactNode;
 } & Omit<AllHTMLAttributes<HTMLElement>, 'is' | 'id' | 'children' | 'label' | 'selected' | 'className' | 'ref' | 'icon' | 'gap' | 'avatar' | 'title' | 'disabled' | 'value' | 'variant' | 'onClick' | 'description'> & RefAttributes<Element>;
 
-// @public (undocumented)
+// @public
 export function Options<TValue extends string | number = string | number, TLabel = ReactNode>(input: OptionsProps<TValue, TLabel>): JSX.Element;
 
 // @public (undocumented)
@@ -2019,7 +2017,7 @@ export type PositionProps = {
     placement?: UsePositionOptions['placement'];
 } & Omit<BoxProps, 'children' | 'margin'>;
 
-// @public (undocumented)
+// @public
 export function ProgressBar(input: ProgressBarProps): JSX.Element;
 
 // @public (undocumented)
@@ -2039,7 +2037,7 @@ export type RadioButtonProps = Omit<BoxProps, 'ref'> & RefAttributes<HTMLInputEl
     labelChildren?: ReactNode;
 };
 
-// @public (undocumented)
+// @public
 export const Scrollable: (input: ScrollableProps) => JSX.Element;
 
 // @public (undocumented)
@@ -2052,7 +2050,7 @@ export type ScrollableProps = PropsWithChildren<{
     }) => void;
 }>;
 
-// @public (undocumented)
+// @public
 export function SearchInput(props: SearchInputProps): JSX.Element;
 
 // @public (undocumented)
@@ -2060,7 +2058,7 @@ export type SearchInputProps = Omit<InputBoxProps<HTMLInputElement>, 'type'>;
 
 // Warning: (ae-forgotten-export) The symbol "SelectProps_2" needs to be exported by the entry point index.d.ts
 //
-// @public (undocumented)
+// @public
 export function Select<T, V extends Key>(input: SelectProps_2<T, V>): JSX.Element;
 
 // @public (undocumented)
@@ -2073,7 +2071,7 @@ export type SelectFilteredProps = SelectProps & {
     addonIcon?: IconProps['name'];
 };
 
-// @public (undocumented)
+// @public
 export function SelectInput(input: SelectInputProps): JSX.Element;
 
 // @public (undocumented)
@@ -2186,7 +2184,7 @@ export type SidebarFooterProps = {
     elevated?: boolean;
 };
 
-// @public (undocumented)
+// @public
 export const SidebarItem: ((input: SidebarItemProps) => JSX.Element) & {
     Menu: (props: SidebarItemMenuProps) => JSX.Element;
     Container: (props: SidebarItemContainerProps) => JSX.Element;
@@ -2686,7 +2684,7 @@ export type StatesTitleProps = {
     children?: ReactNode;
 } & AllHTMLAttributes<HTMLHeadingElement>;
 
-// @public (undocumented)
+// @public
 export const StatusBullet: (input: StatusBulletProps) => JSX.Element;
 
 // @public (undocumented)
@@ -2698,7 +2696,7 @@ export type StatusBulletProps = {
 // @public (undocumented)
 export const strokeColor: MemoizedFunction<unknown, unknown, string | undefined>;
 
-// @public (undocumented)
+// @public
 export const StylingBox: (input: StylingBoxProps) => ReactElement<{
     className?: string;
 }, string | JSXElementConstructor<any>>;
@@ -2901,7 +2899,7 @@ export type TableSelectionProps = BoxProps & {
     text?: string;
 };
 
-// @public (undocumented)
+// @public
 export function Tabs(input: TabsProps): JSX.Element;
 
 // @public (undocumented)
@@ -2924,7 +2922,7 @@ export type TabsProps = BoxProps & {
     divider?: boolean;
 };
 
-// @public (undocumented)
+// @public
 export const Tag: (input: TagProps) => JSX.Element;
 
 // @public (undocumented)
@@ -2936,19 +2934,19 @@ export type TagProps = {
     icon?: ReactNode;
 } & Omit<BoxProps, 'is'>;
 
-// @public (undocumented)
+// @public
 export function TelephoneInput(props: TelephoneInputProps): JSX.Element;
 
 // @public (undocumented)
 export type TelephoneInputProps = Omit<InputBoxProps<HTMLInputElement>, 'type'>;
 
-// @public (undocumented)
+// @public
 export function TextAreaInput(props: TextAreaInputProps): JSX.Element;
 
 // @public (undocumented)
 export type TextAreaInputProps = Omit<InputBoxProps<HTMLTextAreaElement>, 'type'>;
 
-// @public (undocumented)
+// @public
 export function TextInput(props: TextInputProps): JSX.Element;
 
 // @public (undocumented)
@@ -3018,7 +3016,7 @@ export type ThreadMessageRowProps = HTMLAttributes<HTMLDivElement>;
 // @public (undocumented)
 export const ThreadMessageUnfollow: () => JSX.Element;
 
-// @public (undocumented)
+// @public
 export function Throbber(input: ThrobberProps): JSX.Element;
 
 // @public (undocumented)
@@ -3034,7 +3032,7 @@ export function Tile(input: TileProps): JSX.Element;
 // @public (undocumented)
 export type TileProps = Omit<BoxProps, 'ref'> & RefAttributes<HTMLElement>;
 
-// @public (undocumented)
+// @public
 export function ToastBar(input: ToastBarProps): JSX.Element;
 
 // @public (undocumented)
@@ -3066,7 +3064,7 @@ export type TooltipProps = Omit<BoxProps, 'ref'> & RefAttributes<HTMLElement> & 
     placement?: 'top-start' | 'top-middle' | 'top-end' | 'bottom-start' | 'bottom-middle' | 'bottom-end' | 'top' | 'left' | 'bottom' | 'right' | null;
 };
 
-// @public (undocumented)
+// @public
 export const TopBar: (input: TopBarProps) => JSX.Element;
 
 // Warning: (ae-forgotten-export) The symbol "TopBarActionProps" needs to be exported by the entry point index.d.ts

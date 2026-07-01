@@ -25,7 +25,7 @@
     "downlevelIteration": false,
     "inlineSourceMap": false,
     "inlineSources": false,
-    "removeComments": true,
+    "removeComments": false,
     "sourceMap": true,
     "stripInternal": true,
 

@@ -18,19 +18,13 @@ export type AnyEventTypeOf<EventMap extends DefaultEventMap> = keyof EventMap;
 // @public (undocumented)
 export type DefaultEventMap = Record<string | symbol, any>;
 
-// @public (undocumented)
+// @public
 export class Emitter<EventMap extends DefaultEventMap = DefaultEventMap> implements IEmitter<EventMap> {
-    // (undocumented)
     emit<T extends AnyEventOf<EventMap>, EventType extends AnyEventTypeOf<EventMap> = EventTypeOf<EventMap, T>>(type: EventType, ...input: EventOf<EventMap, EventType> extends void ? [undefined?] : [EventOf<EventMap, EventType>]): void;
-    // (undocumented)
     events(): AnyEventTypeOf<EventMap>[];
-    // (undocumented)
     has(key: AnyEventTypeOf<EventMap>): boolean;
-    // (undocumented)
     off<T extends AnyEventOf<EventMap>, EventType extends AnyEventTypeOf<EventMap> = EventTypeOf<EventMap, T>>(type: EventType, handler: EventHandlerOf<EventMap, EventType>): void;
-    // (undocumented)
     on<T extends AnyEventOf<EventMap>, TType extends AnyEventTypeOf<EventMap> = EventTypeOf<EventMap, T>>(type: TType, handler: EventHandlerOf<EventMap, TType>): OffCallbackHandler;
-    // (undocumented)
     once<T extends AnyEventOf<EventMap>, EventType extends AnyEventTypeOf<EventMap> = EventTypeOf<EventMap, T>>(type: EventType, handler: EventHandlerOf<EventMap, EventType>): OffCallbackHandler;
 }
 
