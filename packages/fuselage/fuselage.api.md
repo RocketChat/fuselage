@@ -2903,12 +2903,6 @@ export type TableSelectionProps = BoxProps & {
 export function Tabs(input: TabsProps): JSX.Element;
 
 // @public (undocumented)
-export namespace Tabs {
-    var // (undocumented)
-    Item: typeof TabsItem;
-}
-
-// @public (undocumented)
 export function TabsItem(input: TabsItemProps): JSX.Element;
 
 // @public (undocumented)
