@@ -1,10 +1,10 @@
 import { useToggle } from '@rocket.chat/fuselage-hooks';
 import { forwardRef } from 'react';
 
-import { Icon } from '../Icon';
+import { IconButton } from '../Button';
 import { InputBox, type InputBoxProps } from '../InputBox';
 
-// TODO: fix a11y issues
+
 
 export type PasswordInputProps = Omit<InputBoxProps, 'type'>;
 
@@ -19,10 +19,14 @@ const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
       <InputBox
         type={hidden ? 'password' : 'text'}
         addon={
-          <Icon
-            name={hidden ? 'eye-off' : 'eye'}
-            size={20}
+          <IconButton
+            icon={hidden ? 'eye-off' : 'eye'}
+            mini
             onClick={handleAddonClick}
+            role="button"
+            tabIndex={0}
+            aria-label={hidden ? "Show password" : "Hide password"}
+            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleAddonClick(); } }}
           />
         }
         ref={ref}
