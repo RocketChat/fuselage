@@ -650,10 +650,10 @@ export type DividerProps = BoxProps & {
 };
 
 // @public (undocumented)
-export const Dropdown: ForwardRefExoticComponent<DropdownProps<HTMLElement> & RefAttributes<HTMLElement>>;
+export function Dropdown(input: DropdownProps<HTMLElement>): JSX.Element;
 
 // @public (undocumented)
-export type DropdownProps<T extends HTMLElement> = {
+export type DropdownProps<T extends HTMLElement> = RefAttributes<HTMLElement> & {
     reference: RefObject<T | null>;
     placement?: UsePositionOptions['placement'];
     children: ReactNode;
@@ -967,23 +967,15 @@ export namespace MenuSection {
 export type MenuSectionProps<T> = SectionProps<T>;
 
 // @public (undocumented)
-export const Message: ForwardRefExoticComponent<AllHTMLAttributes<HTMLDivElement> & {
-clickable?: boolean;
-sequential?: boolean;
-className?: string;
-isSelected?: boolean;
-isEditing?: boolean;
-isPending?: boolean;
-highlight?: boolean;
-} & RefAttributes<HTMLDivElement>>;
+export function Message(input: MessageProps): JSX.Element;
 
 // @public (undocumented)
-export const MessageBlock: ForwardRefExoticComponent<Omit<MessageBlockProps, "ref"> & RefAttributes<HTMLDivElement>>;
+export function MessageBlock(input: MessageBlockProps): JSX.Element;
 
 // @public (undocumented)
-export type MessageBlockProps = {
+export type MessageBlockProps = Omit<BoxProps, 'ref'> & RefAttributes<HTMLDivElement> & {
     fixedWidth?: boolean;
-} & BoxProps;
+};
 
 // @public (undocumented)
 export const MessageBody: (input: MessageBodyProps) => JSX.Element;
@@ -1189,16 +1181,16 @@ export type MessageMetricsReplyProps = ButtonProps;
 export const MessageName: (props: MessageNameProps) => JSX.Element;
 
 // @public (undocumented)
-export const MessageNameContainer: ForwardRefExoticComponent<MessageNameContainerProps & RefAttributes<HTMLSpanElement>>;
+export function MessageNameContainer(props: MessageNameContainerProps): JSX.Element;
 
 // @public (undocumented)
-export type MessageNameContainerProps = HTMLAttributes<HTMLSpanElement>;
+export type MessageNameContainerProps = HTMLAttributes<HTMLSpanElement> & RefAttributes<HTMLSpanElement>;
 
 // @public (undocumented)
 export type MessageNameProps = HTMLAttributes<HTMLSpanElement>;
 
 // @public (undocumented)
-export type MessageProps = AllHTMLAttributes<HTMLDivElement> & {
+export type MessageProps = AllHTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement> & {
     clickable?: boolean;
     sequential?: boolean;
     className?: string;
@@ -1209,12 +1201,7 @@ export type MessageProps = AllHTMLAttributes<HTMLDivElement> & {
 };
 
 // @public (undocumented)
-export const MessageReaction: ForwardRefExoticComponent<    {
-name?: string;
-counter?: number;
-mine?: boolean;
-children?: ReactNode;
-} & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
+export function MessageReaction(input: MessageReactionProps): JSX.Element;
 
 // @public (undocumented)
 export const MessageReactionAction: (input: MessageReactionActionProps) => JSX.Element;
@@ -1238,7 +1225,7 @@ export const MessageReactionEmoji: (input: MessageReactionEmojiProps) => JSX.Ele
 export type MessageReactionEmojiProps = MessageEmojiBaseProps;
 
 // @public (undocumented)
-export type MessageReactionProps = {
+export type MessageReactionProps = RefAttributes<HTMLDivElement> & {
     name?: string;
     counter?: number;
     mine?: boolean;
@@ -1246,10 +1233,10 @@ export type MessageReactionProps = {
 } & HTMLAttributes<HTMLDivElement>;
 
 // @public (undocumented)
-export const MessageReactions: ForwardRefExoticComponent<MessageReactionsProps & RefAttributes<HTMLDivElement>>;
+export function MessageReactions(props: MessageReactionsProps): JSX.Element;
 
 // @public (undocumented)
-export type MessageReactionsProps = HTMLAttributes<HTMLDivElement>;
+export type MessageReactionsProps = HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>;
 
 // @public (undocumented)
 export const MessageRole: (props: MessageRoleProps) => JSX.Element;
@@ -1264,7 +1251,7 @@ export const MessageRoles: (props: MessageRolesProps) => JSX.Element;
 export type MessageRolesProps = HTMLAttributes<HTMLDivElement>;
 
 // @public (undocumented)
-export const MessageStatusIndicator: ForwardRefExoticComponent<MessageStatusIndicatorProps & RefAttributes<HTMLDivElement>>;
+export function MessageStatusIndicator(props: MessageStatusIndicatorProps): JSX.Element;
 
 // @public (undocumented)
 export const MessageStatusIndicatorItem: (input: MessageStatusIndicatorItemProps) => JSX.Element;
@@ -1276,7 +1263,7 @@ export type MessageStatusIndicatorItemProps = {
 } & Omit<AllHTMLAttributes<HTMLElement>, 'is'>;
 
 // @public (undocumented)
-export type MessageStatusIndicatorProps = AllHTMLAttributes<HTMLDivElement>;
+export type MessageStatusIndicatorProps = AllHTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>;
 
 // @public (undocumented)
 export const MessageStatusIndicatorText: (input: MessageStatusIndicatorTextProps) => JSX.Element;
@@ -1350,24 +1337,22 @@ export const MessageTimestamp: (props: MessageTimestampProps) => JSX.Element;
 export type MessageTimestampProps = HTMLAttributes<HTMLSpanElement>;
 
 // @public (undocumented)
-export const MessageToolbar: ForwardRefExoticComponent<Omit<ButtonGroupProps, "ref"> & RefAttributes<HTMLDivElement>>;
+export function MessageToolbar(props: MessageToolbarProps): JSX.Element;
 
 // @public (undocumented)
-export const MessageToolbarItem: ForwardRefExoticComponent<Omit<IconButtonProps, "ref"> & RefAttributes<HTMLButtonElement>>;
+export function MessageToolbarItem(props: MessageToolbarItemProps): JSX.Element;
 
 // @public (undocumented)
-export type MessageToolbarItemProps = IconButtonProps;
+export type MessageToolbarItemProps = Omit<IconButtonProps, 'ref'> & RefAttributes<HTMLButtonElement>;
 
 // @public (undocumented)
 export type MessageToolbarProps = ButtonGroupProps;
 
 // @public (undocumented)
-export const MessageToolbarWrapper: ForwardRefExoticComponent<HTMLAttributes<HTMLDivElement> & {
-visible?: boolean;
-} & RefAttributes<HTMLDivElement>>;
+export function MessageToolbarWrapper(input: MessageToolbarWrapperProps): JSX.Element;
 
 // @public (undocumented)
-export type MessageToolbarWrapperProps = HTMLAttributes<HTMLDivElement> & {
+export type MessageToolbarWrapperProps = HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement> & {
     visible?: boolean;
 };
 
