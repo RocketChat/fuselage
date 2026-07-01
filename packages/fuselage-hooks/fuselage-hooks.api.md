@@ -163,9 +163,6 @@ Dispatch<A> & {
 // @public
 export const useDebouncedValue: <V>(value: V, delay: number) => V;
 
-// @public @deprecated
-export const useEffectEvent: <TFunction extends (...args: any[]) => any>(fn: TFunction) => (...args: TFunction extends (...args: infer P) => any ? P : never) => TFunction extends (...args: any) => infer T ? T : never;
-
 // @public (undocumented)
 export const useElementIsVisible: <T extends Element>() => [ref: RefObject<T | null>, isVisible: boolean];
 
@@ -186,9 +183,6 @@ export const useMediaQuery: (query?: string) => boolean;
 
 // @public
 export const useMergedRefs: <T>(...refs: (Ref<T> | null | undefined)[]) => RefCallback<T>;
-
-// @public @deprecated
-export const useMutableCallback: <TFunction extends (...args: any[]) => any>(fn: TFunction) => (...args: TFunction extends (...args: infer P) => any ? P : never) => TFunction extends (...args: any) => infer T ? T : never;
 
 // @public
 export function useOutsideClick<T extends Element>(elements: RefObject<T | null>[], cb: (e: MouseEvent) => void): void;

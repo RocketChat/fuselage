@@ -30,23 +30,3 @@ export const useStableCallback = <TFunction extends (...args: any[]) => any>(
 
   return stableFnRef.current;
 };
-
-/**
- * Hook to create a stable callback from a mutable one.
- *
- * @deprecated use {@link useStableCallback} instead
- * @param fn - the mutable callback
- * @returns a stable callback
- * @public
- */
-export const useMutableCallback = useStableCallback;
-
-/**
- * Hook to create a stable callback from a mutable one.
- *
- * @deprecated use {@link useStableCallback} instead
- * @param fn - the mutable callback
- * @returns a stable callback
- * @public
- */
-export const useEffectEvent = useStableCallback;
