@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.81.0
+
+### Minor Changes
+
+- [#2052](https://github.com/RocketChat/fuselage/pull/2052) [`d20a82f`](https://github.com/RocketChat/fuselage/commit/d20a82fb51ec3620fc22ed23e1a90f26a89967df) Thanks [@ggazzo](https://github.com/ggazzo)! - feat(fuselage): extract controlled AudioPlayerControls from AudioPlayer
+
 ## 0.80.0
 
 ### Minor Changes
