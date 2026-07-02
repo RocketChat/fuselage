@@ -13,8 +13,6 @@ export type InputBoxProps<
   T extends HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement = any,
 > = Omit<BoxProps, 'ref'> &
   RefAttributes<T> & {
-    /** @deprecated Prefer using `startAddon` and `endAddon` instead. */
-    addon?: ReactNode;
     startAddon?: ReactNode;
     endAddon?: ReactNode;
     input?: ReactNode;
@@ -63,7 +61,6 @@ function InputBox<
 >({
   ref,
   className,
-  addon,
   startAddon,
   endAddon,
   error,
@@ -78,7 +75,7 @@ function InputBox<
 }: InputBoxProps<T>) {
   const innerRef = useRef<T>(null);
   const mergedRef = useMergedRefs(ref, innerRef);
-  let defaultAddon = endAddon ?? addon;
+  let defaultAddon = endAddon;
 
   useLayoutEffect(() => {
     if (innerRef.current && innerRef.current.setCustomValidity) {

@@ -1,11 +1,7 @@
 import type { InputBoxProps } from '@rocket.chat/fuselage';
 import { Box, InputBox } from '@rocket.chat/fuselage';
-import type { ReactNode, Ref } from 'react';
 
-type WorkspaceUrlInputProps = Omit<InputBoxProps, 'ref' | 'type'> & {
-  ref?: Ref<HTMLInputElement>;
-  addon?: ReactNode;
-  error?: string | undefined;
+type WorkspaceUrlInputProps = Omit<InputBoxProps, 'type'> & {
   domain: string;
 };
 
@@ -13,7 +9,7 @@ const WorkspaceUrlInput = ({ domain, ...props }: WorkspaceUrlInputProps) => (
   <InputBox
     type='text'
     {...props}
-    addon={
+    endAddon={
       <Box
         borderInlineStart='2px solid'
         mb='neg-x8'

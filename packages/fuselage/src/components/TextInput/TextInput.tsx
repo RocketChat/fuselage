@@ -1,12 +1,6 @@
-import type { ReactNode, RefAttributes } from 'react';
-
 import { InputBox, type InputBoxProps } from '../InputBox';
 
-export type TextInputProps = Omit<InputBoxProps, 'ref' | 'type'> &
-  RefAttributes<HTMLInputElement> & {
-    addon?: ReactNode;
-    error?: string;
-  };
+export type TextInputProps = Omit<InputBoxProps, 'type'>;
 
 /**
  * An input for any kind of single-line text.

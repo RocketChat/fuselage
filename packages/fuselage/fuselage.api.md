@@ -870,7 +870,6 @@ export function InputBox<T extends HTMLInputElement | HTMLSelectElement | HTMLTe
 
 // @public (undocumented)
 export type InputBoxProps<T extends HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement = any> = Omit<BoxProps, 'ref'> & RefAttributes<T> & {
-    addon?: ReactNode;
     startAddon?: ReactNode;
     endAddon?: ReactNode;
     input?: ReactNode;
@@ -2944,10 +2943,7 @@ export type TextAreaInputProps = Omit<InputBoxProps<HTMLTextAreaElement>, 'type'
 export function TextInput(props: TextInputProps): JSX.Element;
 
 // @public (undocumented)
-export type TextInputProps = Omit<InputBoxProps, 'ref' | 'type'> & RefAttributes<HTMLInputElement> & {
-    addon?: ReactNode;
-    error?: string;
-};
+export type TextInputProps = Omit<InputBoxProps, 'type'>;
 
 // @public (undocumented)
 export type Themes = 'light' | 'dark' | 'high-contrast';
