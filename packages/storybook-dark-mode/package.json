@@ -34,7 +34,7 @@
     "@types/react": "~19.2.17",
     "@types/react-dom": "~19.2.3",
     "eslint": "~9.39.4",
-    "lint-all": "workspace:~",
+    "lint-all": "^0.31.25",
     "prettier": "~3.6.2",
     "react": "~19.2.7",
     "react-dom": "~19.2.7",
