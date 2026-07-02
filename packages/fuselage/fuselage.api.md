@@ -2109,39 +2109,7 @@ export type SelectProps = Omit<BoxProps, 'ref' | 'onChange'> & RefAttributes<HTM
 };
 
 // @public (undocumented)
-export const Sidebar: ((props: SidebarProps) => JSX.Element) & {
-    TopBar: ((input: TopBarProps) => JSX.Element) & {
-        Section: (input: TopBarSectionProps) => JSX.Element;
-        ToolBox: (input: TopBarToolBoxProps) => JSX.Element;
-        Wrapper: (input: TopBarWrapperProps) => JSX.Element;
-        Avatar: {
-            size: "x24";
-        };
-        Actions: TopBarActions;
-        Action: TopBarAction;
-        Divider: () => JSX.Element;
-        Title: (props: TopBarTitleProps) => JSX.Element;
-    };
-    Item: ((input: SidebarItemProps) => JSX.Element) & {
-        Menu: (props: SidebarItemMenuProps) => JSX.Element;
-        Container: (props: SidebarItemContainerProps) => JSX.Element;
-        Content: (input: SidebarItemContentProps) => JSX.Element;
-        Title: (input: SidebarItemTitleProps) => JSX.Element;
-        Subtitle: (input: SidebarItemSubtitleProps) => JSX.Element;
-        Time: (input: SidebarItemTimeProps) => JSX.Element;
-        Wrapper: (input: SidebarItemWrapperProps) => JSX.Element;
-        Icon: (input: SidebarItemIconProps) => JSX.Element;
-        Avatar: (input: SidebarItemAvatarProps) => JSX.Element;
-        Actions: SidebarActions;
-        Action: (props: SidebarItemActionProps) => JSX.Element;
-        Badge: (input: SidebarItemBadgeProps) => JSX.Element;
-    };
-    Section: ((props: SidebarSectionProps) => JSX.Element) & {
-        Title: (props: SidebarSectionTitleProps) => JSX.Element;
-    };
-    Divider: () => JSX.Element;
-    Banner: (input: SidebarBannerProps) => JSX.Element;
-};
+export const Sidebar: (props: SidebarProps) => JSX.Element;
 
 // @public (undocumented)
 export type SidebarActionProps = Omit<IconButtonProps, 'ref'> & RefAttributes<HTMLElement>;
@@ -2184,20 +2152,7 @@ export type SidebarFooterProps = {
 };
 
 // @public
-export const SidebarItem: ((input: SidebarItemProps) => JSX.Element) & {
-    Menu: (props: SidebarItemMenuProps) => JSX.Element;
-    Container: (props: SidebarItemContainerProps) => JSX.Element;
-    Content: (input: SidebarItemContentProps) => JSX.Element;
-    Title: (input: SidebarItemTitleProps) => JSX.Element;
-    Subtitle: (input: SidebarItemSubtitleProps) => JSX.Element;
-    Time: (input: SidebarItemTimeProps) => JSX.Element;
-    Wrapper: (input: SidebarItemWrapperProps) => JSX.Element;
-    Icon: (input: SidebarItemIconProps) => JSX.Element;
-    Avatar: (input: SidebarItemAvatarProps) => JSX.Element;
-    Actions: typeof SidebarActions;
-    Action: (props: SidebarItemActionProps) => JSX.Element;
-    Badge: (input: SidebarItemBadgeProps) => JSX.Element;
-};
+export const SidebarItem: (input: SidebarItemProps) => JSX.Element;
 
 // @public (undocumented)
 export const SidebarItemAction: (props: SidebarItemActionProps) => JSX.Element;
@@ -2205,6 +2160,8 @@ export const SidebarItemAction: (props: SidebarItemActionProps) => JSX.Element;
 // @public (undocumented)
 export type SidebarItemActionProps = SidebarActionProps;
 
+// Warning: (ae-forgotten-export) The symbol "SidebarActions" needs to be exported by the entry point index.d.ts
+//
 // @public (undocumented)
 export const SidebarItemActions: typeof SidebarActions;
 
@@ -2311,9 +2268,7 @@ export type SidebarItemWrapperProps = {
 export type SidebarProps = BoxProps;
 
 // @public (undocumented)
-export const SidebarSection: ((props: SidebarSectionProps) => JSX.Element) & {
-    Title: (props: SidebarSectionTitleProps) => JSX.Element;
-};
+export const SidebarSection: (props: SidebarSectionProps) => JSX.Element;
 
 // @public (undocumented)
 export type SidebarSectionProps = {
@@ -2326,20 +2281,6 @@ export const SidebarSectionTitle: (props: SidebarSectionTitleProps) => JSX.Eleme
 // @public (undocumented)
 export type SidebarSectionTitleProps = {
     children?: ReactNode;
-};
-
-// @public (undocumented)
-export const SidebarTopBar: ((input: TopBarProps) => JSX.Element) & {
-    Section: (input: TopBarSectionProps) => JSX.Element;
-    ToolBox: (input: TopBarToolBoxProps) => JSX.Element;
-    Wrapper: (input: TopBarWrapperProps) => JSX.Element;
-    Avatar: {
-        size: "x24";
-    };
-    Actions: typeof TopBarActions;
-    Action: typeof TopBarAction;
-    Divider: () => JSX.Element;
-    Title: (props: TopBarTitleProps) => JSX.Element;
 };
 
 // @public (undocumented)
@@ -3055,22 +2996,30 @@ export type TooltipProps = Omit<BoxProps, 'ref'> & RefAttributes<HTMLElement> & 
 };
 
 // @public
-export const TopBar: (input: TopBarProps) => JSX.Element;
+const TopBar: (input: TopBarProps) => JSX.Element;
+export { TopBar as SidebarTopBar }
+export { TopBar }
 
 // Warning: (ae-forgotten-export) The symbol "TopBarActionProps" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export function TopBarAction(props: TopBarActionProps): JSX.Element;
+function TopBarAction(props: TopBarActionProps): JSX.Element;
+export { TopBarAction as SidebarTopBarAction }
+export { TopBarAction }
 
 // Warning: (ae-forgotten-export) The symbol "TopBarActionsProps" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export function TopBarActions(props: TopBarActionsProps): JSX.Element;
+function TopBarActions(props: TopBarActionsProps): JSX.Element;
+export { TopBarActions as SidebarTopBarActions }
+export { TopBarActions }
 
 // @public (undocumented)
-export const TopBarAvatar: {
+const TopBarAvatar: {
     size: "x24";
 };
+export { TopBarAvatar as SidebarTopBarAvatar }
+export { TopBarAvatar }
 
 // @public (undocumented)
 export type TopBarProps = {
@@ -3088,7 +3037,9 @@ export type TopBarSectionProps = {
 };
 
 // @public (undocumented)
-export const TopBarTitle: (props: TopBarTitleProps) => JSX.Element;
+const TopBarTitle: (props: TopBarTitleProps) => JSX.Element;
+export { TopBarTitle as SidebarTopBarTitle }
+export { TopBarTitle }
 
 // @public (undocumented)
 export type TopBarTitleProps = {
@@ -3096,7 +3047,9 @@ export type TopBarTitleProps = {
 };
 
 // @public (undocumented)
-export const TopBarToolBox: (input: TopBarToolBoxProps) => JSX.Element;
+const TopBarToolBox: (input: TopBarToolBoxProps) => JSX.Element;
+export { TopBarToolBox as SidebarTopBarToolBox }
+export { TopBarToolBox }
 
 // @public (undocumented)
 export type TopBarToolBoxProps = {
@@ -3160,10 +3113,6 @@ show: () => void
 
 // @public (undocumented)
 export type VisibilityType = 'hidden' | 'visible' | 'hiding' | 'unhiding' | undefined;
-
-// Warnings were encountered during analysis:
-//
-// src/components/Sidebar/Sidebar.tsx:12:23 - (ae-forgotten-export) The symbol "SidebarActions" needs to be exported by the entry point index.d.ts
 
 // (No @packageDocumentation comment for this package)
 
