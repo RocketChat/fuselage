@@ -1,6 +1,6 @@
-import type { AriaSelectProps } from '@react-types/select';
 import type { AllHTMLAttributes, Key } from 'react';
 import { forwardRef } from 'react';
+import type { AriaSelectProps } from 'react-aria';
 import { Item } from 'react-stately';
 
 import type { SelectAriaProps } from './SelectAria';
