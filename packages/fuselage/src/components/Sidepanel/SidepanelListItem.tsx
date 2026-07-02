@@ -1,21 +1,18 @@
-import type { HTMLAttributes } from 'react';
-import { forwardRef } from 'react';
+import type { HTMLAttributes, RefAttributes } from 'react';
 
-export type SidepanelListItemProps = HTMLAttributes<HTMLDivElement>;
+export type SidepanelListItemProps = HTMLAttributes<HTMLDivElement> &
+  RefAttributes<HTMLDivElement>;
 
-const SidepanelListItem = forwardRef<HTMLDivElement, SidepanelListItemProps>(
-  function SidepanelListItem({ className, ...props }, ref) {
-    return (
-      <div
-        role='listitem'
-        ref={ref}
-        className={['rcx-sidepanel-list__item', className]
-          .filter(Boolean)
-          .join(' ')}
-        {...props}
-      />
-    );
-  },
-);
+function SidepanelListItem({ className, ...props }: SidepanelListItemProps) {
+  return (
+    <div
+      role='listitem'
+      className={['rcx-sidepanel-list__item', className]
+        .filter(Boolean)
+        .join(' ')}
+      {...props}
+    />
+  );
+}
 
 export default SidepanelListItem;

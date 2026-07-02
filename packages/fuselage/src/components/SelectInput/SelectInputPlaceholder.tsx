@@ -1,14 +1,12 @@
-import { forwardRef } from 'react';
+import type { RefAttributes } from 'react';
 
 import { Box, type BoxProps } from '../Box';
 
-export type SelectInputPlaceholderProps = BoxProps;
+export type SelectInputPlaceholderProps = Omit<BoxProps, 'ref'> &
+  RefAttributes<HTMLOptionElement>;
 
-const SelectInputPlaceholder = forwardRef<
-  HTMLOptionElement,
-  SelectInputPlaceholderProps
->(function Placeholder(props, ref) {
-  return <Box is='option' rcx-input-box__placeholder ref={ref} {...props} />;
-});
+function SelectInputPlaceholder(props: SelectInputPlaceholderProps) {
+  return <Box is='option' rcx-input-box__placeholder {...props} />;
+}
 
 export default SelectInputPlaceholder;

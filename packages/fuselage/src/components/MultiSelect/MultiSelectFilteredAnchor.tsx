@@ -5,13 +5,13 @@ import type {
   KeyboardEventHandler,
   MouseEventHandler,
   ReactNode,
+  RefAttributes,
 } from 'react';
-import { forwardRef } from 'react';
 
 import { FlexItem } from '../Flex';
 import { Input } from '../InputBox';
 
-type MultiSelectFilteredAnchorProps = {
+type MultiSelectFilteredAnchorProps = RefAttributes<HTMLInputElement> & {
   children: ReactNode;
   disabled: boolean;
   filter: string;
@@ -26,17 +26,16 @@ type MultiSelectFilteredAnchorProps = {
   name?: string;
 } & AriaAttributes;
 
-const MultiSelectFilteredAnchor = forwardRef<
-  HTMLInputElement,
-  MultiSelectFilteredAnchorProps
->(function MultiSelectFilteredAnchor(
-  { children: _children, filter, onChangeFilter, placeholder, ...props },
-  ref,
-) {
+function MultiSelectFilteredAnchor({
+  children: _children,
+  filter,
+  onChangeFilter,
+  placeholder,
+  ...props
+}: MultiSelectFilteredAnchorProps) {
   return (
     <FlexItem grow={1}>
       <Input
-        ref={ref}
         placeholder={placeholder}
         value={filter}
         onInput={(e: InputEvent<HTMLInputElement>) =>
@@ -49,6 +48,6 @@ const MultiSelectFilteredAnchor = forwardRef<
       />
     </FlexItem>
   );
-});
+}
 
 export default MultiSelectFilteredAnchor;

@@ -16,7 +16,7 @@ const isNavBarGroup = (
 ): child is ReactElement<NavbarSectionProps, ComponentWithDisplayName> => {
   if (!isValidElement(child)) return false;
   const component = child.type as ComponentWithDisplayName;
-  return component.displayName === NavBarGroup.displayName;
+  return component.name === NavBarGroup.name;
 };
 
 const NavBarSection = ({ children, ...props }: NavbarSectionProps) => {

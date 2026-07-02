@@ -11,18 +11,16 @@ import { ClassAttributes } from 'react';
 import { ComponentProps } from 'react';
 import { CSSProperties } from 'react';
 import type { Dispatch } from 'react';
-import { FormHTMLAttributes } from 'react';
-import { ForwardRefExoticComponent } from 'react';
+import type { FormHTMLAttributes } from 'react';
 import { FunctionComponent } from 'react';
 import { HTMLAttributes } from 'react';
 import { Icon } from '@rocket.chat/fuselage';
 import { JSX } from 'react';
-import { Keys } from '@rocket.chat/icons';
 import { MarginsProps } from '@rocket.chat/fuselage';
-import { NamedExoticComponent } from 'react';
+import { MemoExoticComponent } from 'react';
 import type { ReactElement } from 'react';
 import { ReactNode } from 'react';
-import { RefAttributes } from 'react';
+import type { RefAttributes } from 'react';
 import type { RefObject } from 'react';
 import type { SetStateAction } from 'react';
 
@@ -80,38 +78,30 @@ type DarkModeProviderProps = {
 // @public (undocumented)
 const Description: FunctionComponent<ClassAttributes<HTMLDivElement> & HTMLAttributes<HTMLDivElement>>;
 
+// Warning: (ae-forgotten-export) The symbol "Form_2" needs to be exported by the entry point index.d.ts
+//
 // @public (undocumented)
-export const Form: ForwardRefExoticComponent<Omit<FormHTMLAttributes<HTMLFormElement>, "is"> & {
-children: ReactNode;
-} & RefAttributes<HTMLElement>> & {
-    Header: ForwardRefExoticComponent<Omit<FormHTMLAttributes<HTMLElement>, "is"> & {
-    children: ReactNode;
-    } & RefAttributes<HTMLElement>>;
+export const Form: typeof Form_2 & {
+    Header: typeof FormHeader;
     Steps: (input: FormStepsProps) => JSX.Element;
-    Title: ForwardRefExoticComponent<Omit<FormHTMLAttributes<HTMLElement>, "is"> & {
-    children: ReactNode;
-    } & RefAttributes<HTMLElement>>;
-    Subtitle: ForwardRefExoticComponent<Omit<FormHTMLAttributes<HTMLElement>, "is"> & {
-    children: ReactNode;
-    } & RefAttributes<HTMLElement>>;
-    Container: (props: ComponentProps<NamedExoticComponent<BoxProps & RefAttributes<any>>>) => JSX.Element;
-    Footer: ForwardRefExoticComponent<Omit<FormHTMLAttributes<HTMLElement>, "is"> & {
-    children: ReactNode;
-    } & RefAttributes<HTMLElement>>;
+    Title: typeof FormTitle;
+    Subtitle: typeof FormSubtitle;
+    Container: (props: ComponentProps<MemoExoticComponent<(input: BoxProps) => JSX.Element>>) => JSX.Element;
+    Footer: typeof FormFooter;
 };
 
 // @public (undocumented)
 export const FormContainer: (props: ComponentProps<typeof Box>) => JSX.Element;
 
+// Warning: (ae-forgotten-export) The symbol "FormFooterProps" needs to be exported by the entry point index.d.ts
+//
 // @public (undocumented)
-export const FormFooter: ForwardRefExoticComponent<Omit<FormHTMLAttributes<HTMLElement>, "is"> & {
-children: ReactNode;
-} & RefAttributes<HTMLElement>>;
+export function FormFooter(props: FormFooterProps): JSX.Element;
 
+// Warning: (ae-forgotten-export) The symbol "FormHeaderProps" needs to be exported by the entry point index.d.ts
+//
 // @public (undocumented)
-export const FormHeader: ForwardRefExoticComponent<Omit<FormHTMLAttributes<HTMLElement>, "is"> & {
-children: ReactNode;
-} & RefAttributes<HTMLElement>>;
+export function FormHeader(props: FormHeaderProps): JSX.Element;
 
 declare namespace FormPageLayout {
     export {
@@ -136,15 +126,15 @@ export type FormStepsProps = {
     stepCount: number;
 };
 
+// Warning: (ae-forgotten-export) The symbol "FormSubtitleProps" needs to be exported by the entry point index.d.ts
+//
 // @public (undocumented)
-export const FormSubtitle: ForwardRefExoticComponent<Omit<FormHTMLAttributes<HTMLElement>, "is"> & {
-children: ReactNode;
-} & RefAttributes<HTMLElement>>;
+export function FormSubtitle(props: FormSubtitleProps): JSX.Element;
 
+// Warning: (ae-forgotten-export) The symbol "FormTitleProps" needs to be exported by the entry point index.d.ts
+//
 // @public (undocumented)
-export const FormTitle: ForwardRefExoticComponent<Omit<FormHTMLAttributes<HTMLElement>, "is"> & {
-children: ReactNode;
-} & RefAttributes<HTMLElement>>;
+export function FormTitle(props: FormTitleProps): JSX.Element;
 
 // @public (undocumented)
 export const HeroLayout: (input: LayoutContextValue & {
@@ -222,15 +212,9 @@ export const List: ((input: {
 }) => JSX.Element) & {
     Item: (input: {
         children: ReactNode;
-        icon?: ComponentProps<ForwardRefExoticComponent<Omit<BoxProps, "name" | "size"> & {
-        name: Keys;
-        size?: BoxProps["width"];
-        } & RefAttributes<HTMLElement>>>["name"];
-        iconColor?: ComponentProps<ForwardRefExoticComponent<Omit<BoxProps, "name" | "size"> & {
-        name: Keys;
-        size?: BoxProps["width"];
-        } & RefAttributes<HTMLElement>>>["color"];
-        fontScale?: ComponentProps<NamedExoticComponent<BoxProps & RefAttributes<any>>>["fontScale"];
+        icon?: ComponentProps<Icon>["name"];
+        iconColor?: ComponentProps<Icon>["color"];
+        fontScale?: ComponentProps<MemoExoticComponent<(input: BoxProps) => JSX.Element>>["fontScale"];
     }) => JSX.Element;
 };
 

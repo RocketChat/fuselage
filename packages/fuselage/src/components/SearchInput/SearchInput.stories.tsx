@@ -18,7 +18,7 @@ export const Default: StoryFn<typeof SearchInput> = Template.bind({});
 
 export const WithIconAddon: StoryFn<typeof SearchInput> = Template.bind({});
 WithIconAddon.args = {
-  addon: <Icon name='send' size='x20' />,
+  endAddon: <Icon name='send' size='x20' />,
 };
 
 export const Invalid: StoryFn<typeof SearchInput> = Template.bind({});
@@ -51,7 +51,7 @@ export const States: StoryFn<typeof SearchInput> = () => (
         'with placeholder': { placeholder: 'Placeholder' },
         'with value': { value: 'Value' },
         'with icon': {
-          addon: <Icon name='magnifier' size='x20' />,
+          endAddon: <Icon name='magnifier' size='x20' />,
           value: 'Value',
         },
       }}
@@ -75,7 +75,7 @@ export const States: StoryFn<typeof SearchInput> = () => (
         'with placeholder': { placeholder: 'Placeholder' },
         'with value': { value: 'Value' },
         'with icon': {
-          addon: <Icon name='magnifier' size='x20' />,
+          endAddon: <Icon name='magnifier' size='x20' />,
           value: 'Value',
         },
       }}
