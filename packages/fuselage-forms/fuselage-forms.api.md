@@ -214,7 +214,7 @@ error?: string;
 } & RefAttributes<HTMLInputElement>, "ref"> & RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
-export const Select: ForwardRefExoticComponent<Omit<Omit<AriaSelectProps<object>, "children" | "value" | "onChange"> & {
+export const Select: ForwardRefExoticComponent<Omit<Omit<AriaSelectProps<object, "single">, "children" | "value" | "onChange"> & {
 error?: string;
 placeholder?: string;
 value?: Key | null | undefined;

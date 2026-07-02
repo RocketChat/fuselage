@@ -9,7 +9,7 @@ import type { AnchorHTMLAttributes } from 'react';
 import type { AriaAttributes } from 'react';
 import type { AriaMenuProps } from 'react-aria';
 import type { AriaPopoverProps } from 'react-aria';
-import type { AriaSelectProps } from '@react-types/select';
+import type { AriaSelectProps } from 'react-aria';
 import type { ButtonHTMLAttributes } from 'react';
 import { ComponentType } from 'react';
 import { Context } from 'react';
@@ -128,6 +128,28 @@ export type AnimatedVisibilityProps = {
 
 // @public (undocumented)
 export const AudioPlayer: ForwardRefExoticComponent<AudioPlayerProps & RefAttributes<HTMLAudioElement>>;
+
+// @public (undocumented)
+export const AudioPlayerControls: (input: AudioPlayerControlsProps) => JSX.Element;
+
+// @public (undocumented)
+export type AudioPlayerControlsProps = {
+    isPlaying: boolean;
+    currentTime: number;
+    durationTime: number;
+    playbackSpeed: number;
+    onTogglePlay: () => void;
+    onSeek: (time: number) => void;
+    onChangePlaybackSpeed: () => void;
+    download?: boolean;
+    downloadHref?: string;
+    onDownload?: (event: MouseEvent_2<HTMLElement>) => void;
+    playLabel?: string;
+    pauseLabel?: string;
+    audioPlaybackRangeLabel?: string;
+    changePlaybackSpeedLabel?: string;
+    downloadAudioFileLabel?: string;
+};
 
 // @public (undocumented)
 export type AudioPlayerProps = {
@@ -2193,7 +2215,7 @@ export type SearchInputProps = Omit<InputBoxProps, 'type'> & {
 };
 
 // @public (undocumented)
-export const Select: ForwardRefExoticComponent<Omit<AriaSelectProps<object>, "value" | "children" | "onChange"> & {
+export const Select: ForwardRefExoticComponent<Omit<AriaSelectProps<object, "single">, "value" | "children" | "onChange"> & {
 error?: string;
 placeholder?: string;
 value?: Key | null | undefined;

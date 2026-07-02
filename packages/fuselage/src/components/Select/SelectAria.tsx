@@ -1,7 +1,7 @@
-import type { AriaSelectProps } from '@react-types/select';
 import { useMergedRefs, useResizeObserver } from '@rocket.chat/fuselage-hooks';
 import type { AllHTMLAttributes, Key } from 'react';
 import { forwardRef } from 'react';
+import type { AriaSelectProps } from 'react-aria';
 import { useSelect, HiddenSelect, mergeProps, useFocusRing } from 'react-aria';
 import { useSelectState } from 'react-stately';
 
