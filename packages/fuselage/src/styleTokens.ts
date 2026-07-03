@@ -1,5 +1,6 @@
 import tokenTypography from '@rocket.chat/fuselage-tokens/typography.json';
 import { memoize } from '@rocket.chat/memo';
+import invariant from 'invariant';
 
 import {
   isStatusBackgroundColor,
@@ -7,6 +8,7 @@ import {
   isStrokeColor,
   isSurfaceColor,
   isTextIconColor,
+  neutral,
   statusBackgroundColors,
   strokeColors,
   surfaceColors,
@@ -16,7 +18,12 @@ import {
   isBadgeColor,
   badgeBackgroundColors,
 } from './Theme';
-import { toCSSFontValue } from './helpers/toCSSValue';
+import { getPaletteColor } from './getPaletteColor';
+import {
+  toCSSColorValue,
+  toCSSFontValue,
+  toCSSValue,
+} from './helpers/toCSSValue';
 
 const measure = (
   computeSpecialValue?: (value: string) => null | undefined | string,
@@ -69,15 +76,45 @@ export const borderRadius = measure((value: unknown) => {
   return undefined;
 });
 
-export const strokeColor = memoize((value: unknown): string | undefined => {
+const mapTypeToPrefix = {
+  neutral: 'n',
+  blue: 'b',
+  green: 'g',
+  yellow: 'y',
+  red: 'r',
+  orange: 'o',
+  purple: 'p',
+} as const;
+
+const isPaletteColorType = (
+  type: unknown,
+): type is keyof typeof mapTypeToPrefix =>
+  typeof type === 'string' && type in mapTypeToPrefix;
+
+const isPaletteColorGrade = (
+  grade: unknown,
+): grade is 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 =>
+  typeof grade === 'number' &&
+  grade % 100 === 0 &&
+  grade / 100 >= 1 &&
+  grade / 100 <= 9;
+
+const isPaletteColorAlpha = (alpha: unknown): alpha is number | undefined =>
+  alpha === undefined ||
+  (typeof alpha === 'number' && alpha >= 0 && alpha <= 1);
+
+const paletteColorRegex =
+  /^(neutral|blue|green|yellow|red|orange|purple)-(\d+)(-(\d+))?$/;
+
+export const strokeColor = memoize((value) => {
   const colorName = `stroke-${value}`;
   if (isStrokeColor(colorName)) {
     return strokeColors[colorName].toString();
   }
-  return handleInvalidColor(value);
+  return color(value);
 });
 
-export const backgroundColor = memoize((value: unknown): string | undefined => {
+export const backgroundColor = memoize((value) => {
   const colorName = `surface-${value}`;
 
   if (isSurfaceColor(value)) {
@@ -106,10 +143,10 @@ export const backgroundColor = memoize((value: unknown): string | undefined => {
     return badgeBackgroundColors[value].toString();
   }
 
-  return handleInvalidColor(value);
+  return color(value);
 });
 
-export const fontColor = memoize((value: unknown): string | undefined => {
+export const fontColor = memoize((value) => {
   const colorName = `font-${value}`;
   if (isTextIconColor(colorName)) {
     return textIconColors[colorName].toString();
@@ -117,29 +154,81 @@ export const fontColor = memoize((value: unknown): string | undefined => {
   if (isStatusColor(value)) {
     return statusColors[value].toString();
   }
-  return handleInvalidColor(value);
+  return color(value);
 });
 
-const handleInvalidColor = (value: unknown): string | undefined => {
+/** @deprecated **/
+export const color = memoize((value) => {
   if (typeof value !== 'string') {
     return;
   }
-
   if (
     process.env['NODE_ENV'] !== 'production' &&
     process.env['NODE_ENV'] !== 'test'
   ) {
     console.warn(`invalid color: ${value}`, new Error().stack);
   }
-
   if (throwErrorOnInvalidToken) {
     throw new Error(
       `The color token "${value}" is deprecated. Please use the new color tokens instead.`,
     );
   }
 
-  return undefined;
-};
+  if (isSurfaceColor(value)) {
+    return surfaceColors[value].toString();
+  }
+
+  if (isStatusBackgroundColor(value)) {
+    return statusBackgroundColors[value].toString();
+  }
+
+  if (isStrokeColor(value)) {
+    return strokeColors[value].toString();
+  }
+  if (isTextIconColor(value)) {
+    return textIconColors[value].toString();
+  }
+
+  if (value === 'surface' || value === 'surface-light') {
+    return surfaceColors['surface-light'].toString();
+  }
+
+  if (value === 'surface-tint') {
+    return toCSSColorValue(value, neutral[100]);
+  }
+
+  if (value === 'secondary-info') {
+    return toCSSColorValue(value, neutral[700]);
+  }
+
+  if (value === 'surface-neutral') {
+    return toCSSColorValue(value, neutral[400]);
+  }
+
+  const paletteMatches = paletteColorRegex.exec(String(value));
+  if (
+    typeof paletteMatches?.length === 'number' &&
+    paletteMatches?.length >= 5
+  ) {
+    const [, type, gradeString, , alphaString] = paletteMatches;
+    const grade = parseInt(gradeString, 10);
+    const alpha =
+      alphaString !== undefined ? parseInt(alphaString, 10) / 100 : undefined;
+
+    invariant(isPaletteColorType(type), 'invalid color type');
+    invariant(isPaletteColorGrade(grade), 'invalid color grade');
+    invariant(isPaletteColorAlpha(alpha), 'invalid color alpha');
+
+    const [customProperty, color] = getPaletteColor(type, grade, alpha);
+
+    if (customProperty) {
+      return toCSSValue(customProperty, color);
+    }
+
+    return color;
+  }
+  return value;
+});
 
 export const size = measure((value: unknown) => {
   if (value === 'none') {
