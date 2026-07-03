@@ -18,7 +18,7 @@ export const Default: StoryFn<typeof NumberInput> = Template.bind({});
 
 export const WithIconAddon: StoryFn<typeof NumberInput> = Template.bind({});
 WithIconAddon.args = {
-  addon: <Icon name='send' size='x20' />,
+  endAddon: <Icon name='send' size='x20' />,
 };
 
 export const Invalid: StoryFn<typeof NumberInput> = Template.bind({});
@@ -44,7 +44,7 @@ export const States: StoryFn<typeof NumberInput> = () => (
         'with placeholder': { placeholder: 'Placeholder' },
         'with value': { value: 1024 },
         'with icon': {
-          addon: <Icon name='discover' size='x20' />,
+          endAddon: <Icon name='discover' size='x20' />,
           value: 1024,
         },
       }}
@@ -68,7 +68,7 @@ export const States: StoryFn<typeof NumberInput> = () => (
         'with placeholder': { placeholder: 'Placeholder' },
         'with value': { value: 1024 },
         'with icon': {
-          addon: <Icon name='discover' size='x20' />,
+          endAddon: <Icon name='discover' size='x20' />,
           value: 1024,
         },
       }}

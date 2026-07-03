@@ -1,22 +1,22 @@
 import { Box } from '@rocket.chat/fuselage';
-import type { FormHTMLAttributes, ReactNode } from 'react';
-import { forwardRef } from 'react';
+import type { FormHTMLAttributes, ReactNode, RefAttributes } from 'react';
 
-const FormFooter = forwardRef<
-  HTMLElement,
-  Omit<FormHTMLAttributes<HTMLElement>, 'is'> & {
+export type FormFooterProps = Omit<FormHTMLAttributes<HTMLElement>, 'is'> &
+  RefAttributes<HTMLElement> & {
     children: ReactNode;
-  }
->((props, ref) => (
-  <Box
-    is='footer'
-    mbs={24}
-    display='flex'
-    alignItems='center'
-    justifyContent='space-between'
-    {...props}
-    ref={ref}
-  />
-));
+  };
+
+function FormFooter(props: FormFooterProps) {
+  return (
+    <Box
+      is='footer'
+      mbs={24}
+      display='flex'
+      alignItems='center'
+      justifyContent='space-between'
+      {...props}
+    />
+  );
+}
 
 export default FormFooter;

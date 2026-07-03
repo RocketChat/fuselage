@@ -18,7 +18,7 @@ export const Default: StoryFn<typeof TextInput> = Template.bind({});
 
 export const WithIconAddon: StoryFn<typeof TextInput> = Template.bind({});
 WithIconAddon.args = {
-  addon: <Icon name='send' size='x20' />,
+  endAddon: <Icon name='send' size='x20' />,
 };
 
 export const Invalid: StoryFn<typeof TextInput> = Template.bind({});
@@ -51,7 +51,7 @@ export const States: StoryFn<typeof TextInput> = () => (
         'with placeholder': { placeholder: 'Placeholder' },
         'with value': { value: 'Value' },
         'with icon': {
-          addon: <Icon name='keyboard' size='x20' />,
+          endAddon: <Icon name='keyboard' size='x20' />,
           value: 'Value',
         },
       }}
@@ -75,7 +75,7 @@ export const States: StoryFn<typeof TextInput> = () => (
         'with placeholder': { placeholder: 'Placeholder' },
         'with value': { value: 'Value' },
         'with icon': {
-          addon: <Icon name='keyboard' size='x20' />,
+          endAddon: <Icon name='keyboard' size='x20' />,
           value: 'Value',
         },
       }}

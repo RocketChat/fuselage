@@ -15,7 +15,7 @@ export const Default: StoryFn<typeof UrlInput> = () => (
 );
 
 export const WithIconAddon = () => (
-  <UrlInput aria-label='url' addon={<Icon name='send' size='x20' />} />
+  <UrlInput aria-label='url' endAddon={<Icon name='send' size='x20' />} />
 );
 
 export const Invalid = () => <UrlInput aria-label='url' error='Error' />;
@@ -40,7 +40,7 @@ export const States = () => (
         'with placeholder': { placeholder: 'Placeholder' },
         'with value': { value: 'https://rocket.chat' },
         'with icon': {
-          addon: <Icon name='discover' size='x20' />,
+          endAddon: <Icon name='discover' size='x20' />,
           value: 'https://rocket.chat',
         },
       }}
@@ -68,7 +68,7 @@ export const States = () => (
         'with placeholder': { placeholder: 'Placeholder' },
         'with value': { value: 'https://rocket.chat' },
         'with icon': {
-          addon: <Icon name='discover' size='x20' />,
+          endAddon: <Icon name='discover' size='x20' />,
           value: 'https://rocket.chat',
         },
       }}

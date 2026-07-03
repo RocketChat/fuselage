@@ -5,13 +5,8 @@
 ```ts
 
 import { Context } from 'react';
-import type { DetailedHTMLProps } from 'react';
-import type { ForwardRefExoticComponent } from 'react';
-import type { HTMLAttributes } from 'react';
+import type { FunctionComponent } from 'react';
 import type { JSX } from 'react';
-import type { PropsWithoutRef } from 'react';
-import type { RefAttributes } from 'react';
-import type { SVGProps } from 'react';
 
 // @public (undocumented)
 export const OwnerDocument: Context<    {
@@ -19,12 +14,7 @@ document: Document;
 }>;
 
 // @public (undocumented)
-export type RefTypes = {
-    [K in keyof JSX.IntrinsicElements]: JSX.IntrinsicElements[K] extends DetailedHTMLProps<HTMLAttributes<infer T>, any> ? T : JSX.IntrinsicElements[K] extends SVGProps<infer T> ? T : never;
-};
-
-// @public (undocumented)
-const styled: <K extends keyof JSX.IntrinsicElements, P>(type: K, filter?: (p: PropsWithoutRef<JSX.IntrinsicElements[K] & P>) => JSX.IntrinsicElements[K]) => (slices: TemplateStringsArray, ...values: readonly (string | ((props: P) => string))[]) => ForwardRefExoticComponent<PropsWithoutRef<JSX.IntrinsicElements[K] & P> & RefAttributes<RefTypes[K]>>;
+const styled: <K extends keyof JSX.IntrinsicElements, P>(type: K, filter?: (p: JSX.IntrinsicElements[K] & P) => JSX.IntrinsicElements[K]) => (slices: TemplateStringsArray, ...values: readonly (string | ((props: P) => string))[]) => FunctionComponent<JSX.IntrinsicElements[K] & P>;
 export default styled;
 
 // @public (undocumented)
