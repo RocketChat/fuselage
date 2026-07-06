@@ -12,11 +12,6 @@ export type SidebarSectionProps = {
   children?: ReactNode;
 };
 
-export const SidebarSection = Object.assign(
-  (props: SidebarSectionProps) => (
-    <div className='rcx-box rcx-box--full rcx-sidebar-section' {...props} />
-  ),
-  {
-    Title: SidebarSectionTitle,
-  },
+export const SidebarSection = (props: SidebarSectionProps) => (
+  <div className='rcx-box rcx-box--full rcx-sidebar-section' {...props} />
 );

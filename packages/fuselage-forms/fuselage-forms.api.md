@@ -24,7 +24,6 @@ import { FieldLabelInfo } from '@rocket.chat/fuselage';
 import { FieldLink } from '@rocket.chat/fuselage';
 import { FieldRow } from '@rocket.chat/fuselage';
 import { IconProps } from '@rocket.chat/fuselage';
-import { InputBoxProps } from '@rocket.chat/fuselage';
 import { JSX } from 'react';
 import { Key } from 'react';
 import { MouseEventHandler } from 'react';
@@ -40,6 +39,7 @@ import { SetStateAction } from 'react';
 import { Slider as Slider_2 } from '@rocket.chat/fuselage';
 import { TelephoneInputProps } from '@rocket.chat/fuselage';
 import { TextAreaInputProps } from '@rocket.chat/fuselage';
+import { TextInputProps } from '@rocket.chat/fuselage';
 import { UrlInputProps } from '@rocket.chat/fuselage';
 
 // @public (undocumented)
@@ -264,10 +264,7 @@ export const TextAreaInput: {
 
 // @public (undocumented)
 export const TextInput: {
-    (props: Omit<InputBoxProps, "ref" | "type"> & RefAttributes<HTMLInputElement> & {
-        addon?: ReactNode;
-        error?: string;
-    }): JSX.Element;
+    (props: TextInputProps & RefAttributes<any>): JSX.Element;
     displayName: string;
 };
 

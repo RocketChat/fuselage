@@ -12,7 +12,7 @@ import {
   FieldRow,
   FieldError,
 } from '@rocket.chat/fuselage';
-import { Form } from '@rocket.chat/layout';
+import { Form, FormContainer, FormFooter } from '@rocket.chat/layout';
 import { useEffect } from 'react';
 import type { FieldPathValue, SubmitHandler, Validate } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
@@ -64,7 +64,7 @@ const NewAccountForm = ({
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
-      <Form.Container>
+      <FormContainer>
         <FieldGroup>
           <Field>
             <FieldLabel>
@@ -162,8 +162,8 @@ const NewAccountForm = ({
             )}
           </Field>
         </FieldGroup>
-      </Form.Container>
-      <Form.Footer>
+      </FormContainer>
+      <FormFooter>
         <ButtonGroup>
           <Button
             type='submit'
@@ -174,7 +174,7 @@ const NewAccountForm = ({
             {t('component.form.action.next')}
           </Button>
         </ButtonGroup>
-      </Form.Footer>
+      </FormFooter>
     </Form>
   );
 };

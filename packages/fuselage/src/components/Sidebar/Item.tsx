@@ -176,46 +176,30 @@ export type SidebarItemProps = {
 /**
  * Item component to be used inside Sidebar.
  */
-export const SidebarItem = Object.assign(
-  ({
-    selected,
-    highlighted,
-    clickable,
-    featured,
-    is: Tag = 'div',
-    children,
-    ...props
-  }: SidebarItemProps) => (
-    <Tag
-      className={[
-        'rc-box rcx-box--full rcx-sidebar-item',
-        highlighted && 'rcx-sidebar-item--highlighted',
-        (clickable || Tag === 'a') && 'rcx-sidebar-item--clickable',
-        selected && 'rcx-sidebar-item--selected',
-        featured && 'rcx-sidebar-item--featured',
-      ]
-        .filter(Boolean)
-        .join(' ')}
-      {...props}
-    >
-      <div
-        className='rcx-box rcx-box--full rcx-sidebar-item__wrapper'
-        children={children}
-      />
-    </Tag>
-  ),
-  {
-    Menu: SidebarItemMenu,
-    Container: SidebarItemContainer,
-    Content: SidebarItemContent,
-    Title: SidebarItemTitle,
-    Subtitle: SidebarItemSubtitle,
-    Time: SidebarItemTime,
-    Wrapper: SidebarItemWrapper,
-    Icon: SidebarItemIcon,
-    Avatar: SidebarItemAvatar,
-    Actions: SidebarItemActions,
-    Action: SidebarItemAction,
-    Badge: SidebarItemBadge,
-  },
+export const SidebarItem = ({
+  selected,
+  highlighted,
+  clickable,
+  featured,
+  is: Tag = 'div',
+  children,
+  ...props
+}: SidebarItemProps) => (
+  <Tag
+    className={[
+      'rc-box rcx-box--full rcx-sidebar-item',
+      highlighted && 'rcx-sidebar-item--highlighted',
+      (clickable || Tag === 'a') && 'rcx-sidebar-item--clickable',
+      selected && 'rcx-sidebar-item--selected',
+      featured && 'rcx-sidebar-item--featured',
+    ]
+      .filter(Boolean)
+      .join(' ')}
+    {...props}
+  >
+    <div
+      className='rcx-box rcx-box--full rcx-sidebar-item__wrapper'
+      children={children}
+    />
+  </Tag>
 );
