@@ -1,33 +1,18 @@
-import type {
-  FocusEventHandler,
-  InputEvent,
-  KeyboardEventHandler,
-  MouseEventHandler,
-  ReactNode,
-  RefAttributes,
-} from 'react';
+import { use, type InputEvent } from 'react';
 
 import { Input } from '../InputBox';
 
-type SelectFilteredAnchorProps = RefAttributes<HTMLInputElement> & {
-  children: ReactNode;
-  disabled: boolean;
-  filter: string;
-  onChangeFilter: (filter: string) => void;
-  placeholder?: string;
-  onClick: MouseEventHandler;
-  onBlur: FocusEventHandler;
-  onKeyUp: KeyboardEventHandler;
-  onKeyDown: KeyboardEventHandler;
-};
+import type { SelectAnchorParams } from './SelectAnchorParams';
+import { SelectFilteredContext } from './SelectFilteredContext';
+
+type SelectFilteredAnchorProps = SelectAnchorParams;
 
 function SelectFilteredAnchor({
   children: _children,
-  filter,
-  onChangeFilter,
-  placeholder,
   ...props
 }: SelectFilteredAnchorProps) {
+  const { placeholder, filter, setFilter } = use(SelectFilteredContext);
+
   return (
     <Input
       mi={4}
@@ -36,7 +21,7 @@ function SelectFilteredAnchor({
       placeholder={placeholder}
       value={filter}
       onInput={(e: InputEvent<HTMLInputElement>) =>
-        onChangeFilter(e.currentTarget.value)
+        setFilter?.(e.currentTarget.value)
       }
       {...props}
       rcx-input-box--undecorated

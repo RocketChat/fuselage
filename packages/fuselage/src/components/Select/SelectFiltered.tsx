@@ -3,12 +3,12 @@ import { useState } from 'react';
 
 import type { IconProps } from '..';
 
-import type { SelectProps } from '.';
-import { SelectLegacy } from '.';
-import type { SelectAnchorParams } from './SelectAnchorParams';
 import SelectFilteredAnchor from './SelectFilteredAnchor';
+import { SelectFilteredContext } from './SelectFilteredContext';
+import type { SelectProps } from './SelectLegacy';
+import SelectLegacy from './SelectLegacy';
 
-export type SelectFilteredProps = SelectProps & {
+export type SelectFilteredProps = Omit<SelectProps, 'anchor'> & {
   filter?: string;
   setFilter?: Dispatch<SetStateAction<string>>;
   addonIcon?: IconProps['name'];
@@ -24,20 +24,21 @@ function SelectFiltered({
   const [filter, setFilter] = useState('');
 
   return (
-    <SelectLegacy
-      placeholder={placeholder}
-      filter={propFilter || filter}
-      options={options}
-      {...props}
-      anchor={(params: SelectAnchorParams) => (
-        <SelectFilteredAnchor
-          placeholder={placeholder}
-          filter={propFilter || filter}
-          onChangeFilter={propSetFilter || setFilter}
-          {...params}
-        />
-      )}
-    />
+    <SelectFilteredContext.Provider
+      value={{
+        placeholder,
+        filter: propFilter || filter,
+        setFilter: propSetFilter || setFilter,
+      }}
+    >
+      <SelectLegacy
+        placeholder={placeholder}
+        filter={propFilter || filter}
+        options={options}
+        {...props}
+        anchor={SelectFilteredAnchor}
+      />
+    </SelectFilteredContext.Provider>
   );
 }
 
