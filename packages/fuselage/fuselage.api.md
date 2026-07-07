@@ -477,6 +477,9 @@ export type CodeSnippetProps = BoxProps & {
     onClick?: () => void;
 };
 
+// @public @deprecated (undocumented)
+export const color: MemoizedFunction<unknown, unknown, string | undefined>;
+
 // Warning: (ae-forgotten-export) The symbol "Contextualbar_2" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
