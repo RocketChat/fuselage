@@ -246,7 +246,7 @@ function AutoComplete<TLabel = ReactNode>({
         <Icon
           name={
             optionsAreVisible === AnimatedVisibility.VISIBLE
-              ? 'cross'
+              ? 'chevron-up'
               : 'magnifier'
           }
           size='x20'

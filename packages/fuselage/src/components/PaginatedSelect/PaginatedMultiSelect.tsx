@@ -200,7 +200,7 @@ const PaginatedMultiSelect = ({
               <Icon
                 name={
                   visible === AnimatedVisibility.VISIBLE
-                    ? 'cross'
+                    ? 'chevron-up'
                     : 'chevron-down'
                 }
                 size='x20'
