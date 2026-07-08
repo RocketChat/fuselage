@@ -51,7 +51,6 @@ export * from './RadioButton';
 export * from './Scrollable';
 export * from './SearchInput';
 export * from './Select';
-export * from './SelectInput';
 export * from './Sidebar';
 export * from './SidebarV2';
 export * from './Sidepanel';

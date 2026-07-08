@@ -2055,18 +2055,6 @@ export type SelectFilteredProps = Omit<SelectProps, 'anchor'> & {
     addonIcon?: IconProps['name'];
 };
 
-// @public
-export function SelectInput(input: SelectInputProps): JSX.Element;
-
-// @public (undocumented)
-export function SelectInputOption(props: SelectInputOptionProps): JSX.Element;
-
-// @public (undocumented)
-export type SelectInputOptionProps = Omit<BoxProps, 'ref'> & RefAttributes<HTMLOptionElement>;
-
-// @public (undocumented)
-export type SelectInputProps = Omit<InputBoxProps<HTMLSelectElement>, 'type'>;
-
 // @public (undocumented)
 export function SelectLegacy(input: SelectProps): JSX.Element;
 
