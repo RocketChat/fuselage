@@ -2854,12 +2854,6 @@ export type TagProps = {
 } & Omit<BoxProps, 'is'>;
 
 // @public
-export function TelephoneInput(props: TelephoneInputProps): JSX.Element;
-
-// @public (undocumented)
-export type TelephoneInputProps = Omit<InputBoxProps<HTMLInputElement>, 'type'>;
-
-// @public
 export function TextAreaInput(props: TextAreaInputProps): JSX.Element;
 
 // @public (undocumented)
