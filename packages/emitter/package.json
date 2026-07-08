@@ -19,7 +19,6 @@
     "url": "https://rocket.chat/"
   },
   "main": "dist/index.js",
-  "unpkg": "dist/index.umd.js",
   "module": "dist/index.module.js",
   "source": "src/index.ts",
   "types": "dist/index.d.ts",

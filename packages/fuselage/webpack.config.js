@@ -18,9 +18,7 @@ export default (env, { mode = 'production' }) =>
       filename: `[name].${mode}.js`,
       path: resolve(import.meta.dirname, 'dist'),
       library: {
-        name: 'RocketChatFuselage',
-        type: 'umd',
-        umdNamedDefine: true,
+        type: 'commonjs2',
       },
     },
     devtool: mode === 'production' ? false : 'source-map',

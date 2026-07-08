@@ -9,16 +9,13 @@ import { defineConfig } from 'rollup';
 
 import pkg from './package.json' with { type: 'json' };
 
-const globals = {
-  '@emotion/hash': 'hash',
-  '@rocket.chat/memo': 'memo',
-  '@rocket.chat/css-supports': 'cssSupports',
-  '@rocket.chat/stylis-logical-props-middleware':
-    'stylisLogicalPropsMiddleware',
-};
-
 export default defineConfig({
-  external: Object.keys(globals),
+  external: [
+    '@emotion/hash',
+    '@rocket.chat/memo',
+    '@rocket.chat/css-supports',
+    '@rocket.chat/stylis-logical-props-middleware',
+  ],
   input: 'src/index.ts',
   output: [
     {
@@ -33,14 +30,6 @@ export default defineConfig({
       entryFileNames: basename(pkg.module),
       format: 'es',
       sourcemap: true,
-    },
-    {
-      dir: dirname(pkg.unpkg),
-      entryFileNames: basename(pkg.unpkg),
-      format: 'umd',
-      name: 'cssInJs',
-      sourcemap: true,
-      globals,
     },
   ],
   plugins: [
