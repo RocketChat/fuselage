@@ -21,7 +21,7 @@ import { Margins } from '../Margins';
 import { Option } from '../Option';
 import { useVisible } from '../Options/useVisible';
 import { OptionsPaginated } from '../OptionsPaginated';
-import { Position } from '../Position';
+import { PositionAnimated } from '../PositionAnimated';
 import SelectAddon from '../Select/SelectAddon';
 import SelectFocus from '../Select/SelectFocus';
 
@@ -209,24 +209,22 @@ const PaginatedMultiSelect = ({
           />
         </Margins>
       </FlexItem>
-      <AnimatedVisibility visibility={visible}>
-        <Position anchor={containerRef}>
-          <OptionsComponent
-            width={borderBoxSize.inlineSize}
-            onMouseDown={prevent}
-            multiple
-            filter={filter}
-            role='listbox'
-            options={options}
-            cursor={-1}
-            endReached={endReached}
-            renderItem={renderItem}
-            onSelect={([value]) => {
-              toggleOption(value);
-            }}
-          />
-        </Position>
-      </AnimatedVisibility>
+      <PositionAnimated visibility={visible} anchor={containerRef}>
+        <OptionsComponent
+          width={borderBoxSize.inlineSize}
+          onMouseDown={prevent}
+          multiple
+          filter={filter}
+          role='listbox'
+          options={options}
+          cursor={-1}
+          endReached={endReached}
+          renderItem={renderItem}
+          onSelect={([value]) => {
+            toggleOption(value);
+          }}
+        />
+      </PositionAnimated>
     </Box>
   );
 };

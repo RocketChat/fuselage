@@ -39,7 +39,6 @@ import type { OverlayTriggerState } from 'react-stately';
 import type { PropsWithChildren } from 'react';
 import { ReactElement } from 'react';
 import { ReactNode } from 'react';
-import { ReactPortal } from 'react';
 import type { Ref } from 'react';
 import type { RefAttributes } from 'react';
 import type { RefObject } from 'react';
@@ -1977,23 +1976,16 @@ export interface PopoverProps extends Omit<AriaPopoverProps, 'popoverRef'> {
 }
 
 // @public (undocumented)
-export const Position: (input: PositionProps) => ReactPortal;
-
-// @public (undocumented)
 export const PositionAnimated: (input: PositionAnimatedProps) => JSX.Element;
 
 // @public (undocumented)
-export type PositionAnimatedProps = {
-    visible?: 'hidden' | 'visible' | 'hiding' | 'unhiding';
-} & PositionProps;
-
-// @public (undocumented)
-export type PositionProps = {
+export type PositionAnimatedProps = Omit<BoxProps, 'children' | 'margin'> & {
     anchor: RefObject<Element | null>;
     children: ReactElement<any>;
     margin?: number;
     placement?: UsePositionOptions['placement'];
-} & Omit<BoxProps, 'children' | 'margin'>;
+    visible?: 'hidden' | 'visible' | 'hiding' | 'unhiding';
+};
 
 // @public
 export function ProgressBar(input: ProgressBarProps): JSX.Element;

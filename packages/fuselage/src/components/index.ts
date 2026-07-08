@@ -44,7 +44,6 @@ export * from './Pagination';
 export * from './PaletteStyleTag';
 export * from './PasswordInput';
 export * from './Popover';
-export * from './Position';
 export * from './PositionAnimated';
 export * from './ProgressBar';
 export * from './RadioButton';
