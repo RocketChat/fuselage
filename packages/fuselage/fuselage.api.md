@@ -76,21 +76,6 @@ export type AccordionProps = {
 } & Partial<StylingProps>;
 
 // @public (undocumented)
-export function ActionButton(input: ActionButtonProps): JSX.Element;
-
-// @public (undocumented)
-export type ActionButtonProps = ButtonProps & ActionButtonSize & {
-    icon: IconProps['name'];
-};
-
-// @public (undocumented)
-export type ActionButtonSize = {
-    mini?: boolean;
-    tiny?: boolean;
-    small?: boolean;
-};
-
-// @public (undocumented)
 export const AnimatedVisibility: {
     (props: AnimatedVisibilityProps): JSX.Element | null;
     HIDDEN: VisibilityType;
