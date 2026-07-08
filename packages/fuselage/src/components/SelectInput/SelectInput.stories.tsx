@@ -32,12 +32,12 @@ Multiple.args = {
 
 export const WithAddon = Template.bind({});
 WithAddon.args = {
-  addon: <Icon name='discover' size='x20' />,
+  endAddon: <Icon name='discover' size='x20' />,
 };
 
 export const MultipleWithAddon = Template.bind({});
 MultipleWithAddon.args = {
-  addon: <Icon name='discover' size='x20' />,
+  endAddon: <Icon name='discover' size='x20' />,
   multiple: true,
   htmlSize: 3,
 };

@@ -1,5 +1,5 @@
 import { BackgroundLayer } from '@rocket.chat/layout';
-import type { ReactElement, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import type { FieldPathValue, SubmitHandler, Validate } from 'react-hook-form';
 
 import type { FormPageLayoutStyleProps } from '../../Types';
@@ -38,7 +38,7 @@ const AdminInfoPage = ({
   title,
   description,
   ...props
-}: AdminInfoPageProps): ReactElement => (
+}: AdminInfoPageProps) => (
   <BackgroundLayer>
     <FormPageLayout
       title={title}

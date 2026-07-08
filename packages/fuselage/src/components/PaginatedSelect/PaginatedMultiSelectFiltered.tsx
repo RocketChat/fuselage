@@ -1,5 +1,5 @@
-import type { FormEvent } from 'react';
-import { useCallback, forwardRef } from 'react';
+import { useStableCallback } from '@rocket.chat/fuselage-hooks';
+import type { InputEvent } from 'react';
 
 import { FlexItem } from '../Flex';
 import { Input, type InputProps } from '../InputBox';
@@ -18,25 +18,24 @@ const PaginatedMultiSelectFiltered = ({
   placeholder,
   ...props
 }: PaginatedMultiSelectFilteredProps) => {
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const anchor = useCallback(
-    forwardRef<HTMLInputElement, InputProps>(
-      ({ children: _children, filter, ...props }, ref) => (
-        <FlexItem grow={1}>
-          <Input
-            ref={ref}
-            placeholder={placeholder}
-            value={filter}
-            onInput={(e: FormEvent<HTMLInputElement>) =>
-              setFilter?.(e.currentTarget.value)
-            }
-            {...props}
-            rcx-input-box--undecorated
-          />
-        </FlexItem>
-      ),
+  const anchor = useStableCallback(
+    ({
+      children: _children,
+      filter,
+      ...props
+    }: InputProps<HTMLInputElement>) => (
+      <FlexItem grow={1}>
+        <Input
+          placeholder={placeholder}
+          value={filter}
+          onInput={(e: InputEvent<HTMLInputElement>) =>
+            setFilter?.(e.currentTarget.value)
+          }
+          {...props}
+          rcx-input-box--undecorated
+        />
+      </FlexItem>
     ),
-    [],
   );
 
   return (

@@ -8,8 +8,8 @@ import { useOwnerDocument } from '../../contexts';
 import type { BoxProps } from '../Box';
 
 export type PositionProps = {
-  anchor: RefObject<Element>;
-  children: ReactElement;
+  anchor: RefObject<Element | null>;
+  children: ReactElement<any>;
   margin?: number;
   placement?: UsePositionOptions['placement'];
 } & Omit<BoxProps, 'children' | 'margin'>;
@@ -22,7 +22,7 @@ const Position = ({
   className: _className,
   ...props
 }: PositionProps) => {
-  const target = useRef(null);
+  const target = useRef<Element>(null);
   const { style: positionStyle, placement: positionPlacement } =
     usePosition(
       anchor,

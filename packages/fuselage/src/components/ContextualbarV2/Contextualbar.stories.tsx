@@ -76,7 +76,7 @@ export const Default: StoryFn<typeof ContextualbarV2> = () => (
       <InputBox
         type='text'
         placeholder='Search'
-        addon={<Icon name='magnifier' size='x20' />}
+        endAddon={<Icon name='magnifier' size='x20' />}
       />
     </ContextualbarV2Section>
     <ContextualbarV2Content />
@@ -152,7 +152,7 @@ export const WithLongTitle: StoryFn<typeof ContextualbarV2> = () => (
       <InputBox
         type='text'
         placeholder='Search'
-        addon={<Icon name='magnifier' size='x20' />}
+        endAddon={<Icon name='magnifier' size='x20' />}
       />
     </ContextualbarV2Section>
     <ContextualbarV2Content />

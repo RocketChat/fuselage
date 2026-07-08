@@ -1,5 +1,29 @@
 # Change Log
 
+## 0.81.0
+
+### Minor Changes
+
+- [#2052](https://github.com/RocketChat/fuselage/pull/2052) [`d20a82f`](https://github.com/RocketChat/fuselage/commit/d20a82fb51ec3620fc22ed23e1a90f26a89967df) Thanks [@ggazzo](https://github.com/ggazzo)! - feat(fuselage): extract controlled AudioPlayerControls from AudioPlayer
+
+## 0.80.0
+
+### Minor Changes
+
+- [#1999](https://github.com/RocketChat/fuselage/pull/1999) [`6e37f9d`](https://github.com/RocketChat/fuselage/commit/6e37f9d2fee4c9ebeb8ea2c1601bbd4c89905859) Thanks [@tassoevan](https://github.com/tassoevan)! - feat!: Upgrade to React 19
+
+## 0.79.1
+
+### Patch Changes
+
+- [#2024](https://github.com/RocketChat/fuselage/pull/2024) [`52fdd70`](https://github.com/RocketChat/fuselage/commit/52fdd70b9352c64276a1556275db44f8e1f505e6) Thanks [@ggazzo](https://github.com/ggazzo)! - fix(fuselage): `InputBox` spacing in leading and trailing addons
+
+## 0.79.0
+
+### Minor Changes
+
+- [#2017](https://github.com/RocketChat/fuselage/pull/2017) [`752b501`](https://github.com/RocketChat/fuselage/commit/752b5018c3c0991a721f636394b9fab19340a5e3) Thanks [@dougfabris](https://github.com/dougfabris)! - feat(fuselage): Add `startAddon` and `endAddon` to `InputBox`
+
 ## 0.78.1
 
 ### Patch Changes

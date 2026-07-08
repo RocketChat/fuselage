@@ -20,6 +20,14 @@
     "build-storybook": {
       "dependsOn": ["^build"],
       "outputs": ["storybook-static/**"]
+    },
+    "visual-regression": {
+      "dependsOn": ["^build-storybook"],
+      "outputs": []
+    },
+    "visual-regression-update": {
+      "dependsOn": ["^build-storybook"],
+      "outputs": []
     }
   }
 }

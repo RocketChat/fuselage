@@ -1,5 +1,5 @@
 import { BackgroundLayer } from '@rocket.chat/layout';
-import type { ComponentProps, ReactElement } from 'react';
+import type { ComponentProps } from 'react';
 
 import type { FormPageLayoutStyleProps } from '../../Types';
 import FormPageLayout from '../../common/FormPageLayout';
@@ -11,9 +11,7 @@ export type CreateFirstMemberPageProps = ComponentProps<
   typeof CreateFirstMemberForm
 >;
 
-const CreateFirstMemberPage = (
-  props: CreateFirstMemberPageProps,
-): ReactElement => {
+const CreateFirstMemberPage = (props: CreateFirstMemberPageProps) => {
   const pageLayoutStyleProps: FormPageLayoutStyleProps = {
     justifyContent: 'center',
   };

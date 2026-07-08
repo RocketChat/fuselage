@@ -4,10 +4,9 @@ import {
   useResizeObserver,
   useOutsideClick,
 } from '@rocket.chat/fuselage-hooks';
-import type { DependencyList, ElementType, ReactNode } from 'react';
-import { useState, useRef, useEffect, forwardRef, useMemo } from 'react';
+import type { DependencyList, ElementType, RefAttributes } from 'react';
+import { useState, useRef, useEffect, useMemo } from 'react';
 
-import { isForwardRefType } from '../../helpers/isForwardRefType';
 import { AnimatedVisibility } from '../AnimatedVisibility';
 import { Box, type BoxProps } from '../Box';
 import { Icon, type IconProps } from '../Icon';
@@ -17,7 +16,6 @@ import { Options, useCursor } from '../Options';
 import { PositionAnimated } from '../PositionAnimated';
 
 import SelectAddon from './SelectAddon';
-import type { SelectAnchorParams } from './SelectAnchorParams';
 import SelectFocus from './SelectFocus';
 
 export type SelectOption = readonly [
@@ -28,9 +26,9 @@ export type SelectOption = readonly [
 
 type WrapperProps = BoxProps;
 
-const Wrapper = forwardRef<HTMLDivElement, WrapperProps>((props, ref) => (
-  <Box is='div' rcx-select__wrapper ref={ref} {...props} />
-));
+const Wrapper = (props: WrapperProps) => (
+  <Box is='div' rcx-select__wrapper {...props} />
+);
 
 const useDidUpdate = (func: () => void, deps: DependencyList | undefined) => {
   const didMount = useRef(false);
@@ -44,199 +42,183 @@ const useDidUpdate = (func: () => void, deps: DependencyList | undefined) => {
   }, deps || []);
 };
 
-export type SelectProps = Omit<BoxProps, 'onChange'> & {
-  anchor?: ElementType;
-  error?: string;
-  options: SelectOption[];
-  onChange: (value: SelectOption[0]) => void;
-  getLabel?: (params: SelectOption) => SelectOption[1];
-  getValue?: (params: SelectOption) => SelectOption[0];
-  filter?: string;
-  renderOptions?: ElementType;
-  renderItem?: ElementType;
-  renderSelected?: ElementType;
-  customEmpty?: string;
-  addonIcon?: IconProps['name'];
-};
+export type SelectProps = Omit<BoxProps, 'ref' | 'onChange'> &
+  RefAttributes<HTMLInputElement> & {
+    anchor?: ElementType;
+    error?: string;
+    options: SelectOption[];
+    onChange: (value: SelectOption[0]) => void;
+    getLabel?: (params: SelectOption) => SelectOption[1];
+    getValue?: (params: SelectOption) => SelectOption[0];
+    filter?: string;
+    renderOptions?: ElementType;
+    renderItem?: ElementType;
+    renderSelected?: ElementType;
+    customEmpty?: string;
+    addonIcon?: IconProps['name'];
+  };
 
-const SelectLegacy = forwardRef<HTMLInputElement, SelectProps>(
-  function SelectLegacy(
-    {
-      value,
-      filter,
-      error,
-      disabled,
-      options = [],
-      anchor: Anchor = SelectFocus,
-      onChange = () => {},
-      getValue = ([value] = ['', '']) => value,
-      getLabel = ([, label] = ['', '']) => label,
-      placeholder = '',
-      renderItem,
-      renderSelected: RenderSelected,
-      renderOptions: _Options = Options,
-      addonIcon,
-      customEmpty,
-      ...props
-    },
-    ref,
-  ) {
-    const [internalValue, setInternalValue] = useState(value || '');
+function SelectLegacy({
+  ref,
+  value,
+  filter,
+  error,
+  disabled,
+  options = [],
+  anchor: Anchor = SelectFocus,
+  onChange = () => {},
+  getValue = ([value] = ['', '']) => value,
+  getLabel = ([, label] = ['', '']) => label,
+  placeholder = '',
+  renderItem,
+  renderSelected: RenderSelected,
+  renderOptions: _Options = Options,
+  addonIcon,
+  customEmpty,
+  ...props
+}: SelectProps) {
+  const [internalValue, setInternalValue] = useState(value || '');
 
-    const internalChangedByKeyboard = useStableCallback(
-      ([value]: OptionType) => {
-        setInternalValue(value);
-        onChange(value as SelectOption[0]); // FIXME
-      },
-    );
+  const internalChangedByKeyboard = useStableCallback(([value]: OptionType) => {
+    setInternalValue(value);
+    onChange(value as SelectOption[0]); // FIXME
+  });
 
-    const option = options.find(
-      (option) => getValue(option) === internalValue,
-    ) as SelectOption;
+  const option = options.find(
+    (option) => getValue(option) === internalValue,
+  ) as SelectOption;
 
-    const index = options.indexOf(option);
+  const index = options.indexOf(option);
 
-    const filteredOptions = useMemo<OptionType[]>((): OptionType[] => {
-      const mapOptions = ([value, label]: SelectOption): OptionType => {
-        if (internalValue === value) {
-          return [value, label, true];
-        }
-        return [value, label];
-      };
-
-      const applyFilter = ([, option]: SelectOption) =>
-        !filter || ~option.toLowerCase().indexOf(filter.toLowerCase());
-
-      return options.filter(applyFilter).map(mapOptions);
-    }, [options, internalValue, filter]);
-
-    const [cursor, handleKeyDown, handleKeyUp, reset, [visible, hide, show]] =
-      useCursor(index, filteredOptions, internalChangedByKeyboard);
-
-    const innerRef = useRef<HTMLInputElement | null>(null);
-    const anchorRef = useMergedRefs(ref, innerRef);
-
-    const removeFocusClass = () =>
-      innerRef.current?.classList.remove('focus-visible');
-
-    const internalChangedByClick = useStableCallback(([value]: OptionType) => {
-      setInternalValue(value);
-      onChange(value as SelectOption[0]); // FIXME
-      removeFocusClass();
-      hide();
-    });
-
-    const renderAnchor = (params: SelectAnchorParams) => {
-      if (isForwardRefType(Anchor)) {
-        return <Anchor {...params} />;
+  const filteredOptions = useMemo<OptionType[]>((): OptionType[] => {
+    const mapOptions = ([value, label]: SelectOption): OptionType => {
+      if (internalValue === value) {
+        return [value, label, true];
       }
-
-      if (typeof Anchor === 'function') {
-        return (Anchor as (params: SelectAnchorParams) => ReactNode)(params);
-      }
-
-      return null;
+      return [value, label];
     };
 
-    const { ref: containerRef, borderBoxSize } = useResizeObserver();
+    const applyFilter = ([, option]: SelectOption) =>
+      !filter || ~option.toLowerCase().indexOf(filter.toLowerCase());
 
-    useDidUpdate(reset, [filter, internalValue]);
-    useOutsideClick([containerRef], removeFocusClass);
+    return options.filter(applyFilter).map(mapOptions);
+  }, [options, internalValue, filter]);
 
-    const valueLabel = getLabel(option);
+  const [cursor, handleKeyDown, handleKeyUp, reset, [visible, hide, show]] =
+    useCursor(index, filteredOptions, internalChangedByKeyboard);
 
-    const visibleText =
-      (filter === undefined || visible === AnimatedVisibility.HIDDEN) &&
-      (valueLabel || placeholder || typeof placeholder === 'string');
+  const innerRef = useRef<HTMLInputElement | null>(null);
+  const anchorRef = useMergedRefs(ref, innerRef);
 
-    const handleClick = useStableCallback(() => {
-      if (innerRef.current?.classList.contains('focus-visible')) {
-        removeFocusClass();
-        return hide();
-      }
+  const removeFocusClass = () =>
+    innerRef.current?.classList.remove('focus-visible');
 
-      innerRef.current?.classList.add('focus-visible');
-      innerRef.current?.focus();
-      return show();
-    });
+  const internalChangedByClick = useStableCallback(([value]: OptionType) => {
+    setInternalValue(value);
+    onChange(value as SelectOption[0]); // FIXME
+    removeFocusClass();
+    hide();
+  });
 
-    return (
-      <Box
-        rcx-select
-        disabled={disabled}
-        ref={containerRef}
-        onClick={handleClick}
-        className={useMemo(
-          () => [error && 'invalid', disabled && 'disabled'],
-          [error, disabled],
-        )}
-        {...props}
+  const { ref: containerRef, borderBoxSize } = useResizeObserver();
+
+  useDidUpdate(reset, [filter, internalValue]);
+  useOutsideClick([containerRef], removeFocusClass);
+
+  const valueLabel = getLabel(option);
+
+  const visibleText =
+    (filter === undefined || visible === AnimatedVisibility.HIDDEN) &&
+    (valueLabel || placeholder || typeof placeholder === 'string');
+
+  const handleClick = useStableCallback(() => {
+    if (innerRef.current?.classList.contains('focus-visible')) {
+      removeFocusClass();
+      return hide();
+    }
+
+    innerRef.current?.classList.add('focus-visible');
+    innerRef.current?.focus();
+    return show();
+  });
+
+  return (
+    <Box
+      rcx-select
+      disabled={disabled}
+      ref={containerRef}
+      onClick={handleClick}
+      className={useMemo(
+        () => [error && 'invalid', disabled && 'disabled'],
+        [error, disabled],
+      )}
+      {...props}
+    >
+      <Wrapper
+        display='flex'
+        mi='neg-x4'
+        rcx-select__wrapper--hidden={!!visibleText}
       >
-        <Wrapper
-          display='flex'
-          mi='neg-x4'
-          rcx-select__wrapper--hidden={!!visibleText}
-        >
-          {visibleText &&
-            (RenderSelected ? (
-              <RenderSelected
-                role='option'
-                value={getValue(option)}
-                label={valueLabel}
-                key={getValue(option)}
-                onClick={internalChangedByClick}
-              />
-            ) : (
-              <Box
-                flexGrow={1}
-                is='span'
-                mi={4}
-                rcx-select__item
-                fontScale='p2'
-                color={valueLabel ? 'default' : 'hint'}
-              >
-                {visibleText}
-              </Box>
-            ))}
-          {renderAnchor({
-            ref: anchorRef,
-            children: !value ? option || placeholder : null,
-            disabled: disabled ?? false,
-            onClick: show,
-            onBlur: hide,
-            onKeyDown: handleKeyDown,
-            onKeyUp: handleKeyUp,
-          })}
-          <Margins inline='x4'>
-            <SelectAddon
-              children={
-                <Icon
-                  name={
-                    visible === AnimatedVisibility.VISIBLE
-                      ? 'chevron-up'
-                      : addonIcon || 'chevron-down'
-                  }
-                  size='x20'
-                />
-              }
+        {visibleText &&
+          (RenderSelected ? (
+            <RenderSelected
+              role='option'
+              value={getValue(option)}
+              label={valueLabel}
+              key={getValue(option)}
+              onClick={internalChangedByClick}
             />
-          </Margins>
-        </Wrapper>
-        <PositionAnimated visible={visible} anchor={containerRef}>
-          <_Options
-            width={borderBoxSize.inlineSize}
-            role='listbox'
-            filter={filter}
-            options={filteredOptions}
-            onSelect={internalChangedByClick}
-            renderItem={renderItem}
-            cursor={cursor}
-            customEmpty={customEmpty}
+          ) : (
+            <Box
+              flexGrow={1}
+              is='span'
+              mi={4}
+              rcx-select__item
+              fontScale='p2'
+              color={valueLabel ? 'default' : 'hint'}
+            >
+              {visibleText}
+            </Box>
+          ))}
+        <Anchor
+          ref={anchorRef}
+          disabled={disabled ?? false}
+          onClick={show}
+          onBlur={hide}
+          onKeyDown={handleKeyDown}
+          onKeyUp={handleKeyUp}
+        >
+          {!value ? option || placeholder : null}
+        </Anchor>
+        <Margins inline='x4'>
+          <SelectAddon
+            children={
+              <Icon
+                name={
+                  visible === AnimatedVisibility.VISIBLE
+                    ? 'chevron-up'
+                    : addonIcon || 'chevron-down'
+                }
+                size='x20'
+              />
+            }
           />
-        </PositionAnimated>
-      </Box>
-    );
-  },
-);
+        </Margins>
+      </Wrapper>
+      <PositionAnimated visible={visible} anchor={containerRef}>
+        <_Options
+          width={borderBoxSize.inlineSize}
+          role='listbox'
+          filter={filter}
+          options={filteredOptions}
+          onSelect={internalChangedByClick}
+          renderItem={renderItem}
+          cursor={cursor}
+          customEmpty={customEmpty}
+        />
+      </PositionAnimated>
+    </Box>
+  );
+}
 
 export default SelectLegacy;

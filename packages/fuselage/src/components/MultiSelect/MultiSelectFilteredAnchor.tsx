@@ -1,46 +1,26 @@
-import type {
-  AriaAttributes,
-  FocusEventHandler,
-  FormEvent,
-  KeyboardEventHandler,
-  MouseEventHandler,
-  ReactNode,
-} from 'react';
-import { forwardRef } from 'react';
+import { use, type InputEvent } from 'react';
 
 import { FlexItem } from '../Flex';
 import { Input } from '../InputBox';
 
-type MultiSelectFilteredAnchorProps = {
-  children: ReactNode;
-  disabled: boolean;
-  filter: string;
-  onChangeFilter: (filter: string) => void;
-  placeholder?: string;
-  onClick: MouseEventHandler;
-  onBlur: FocusEventHandler;
-  onKeyUp: KeyboardEventHandler;
-  onKeyDown: KeyboardEventHandler;
-  role?: string;
-  id?: string;
-  name?: string;
-} & AriaAttributes;
+import type { MultiSelectAnchorParams } from './MultiSelectAnchorParams';
+import { MultiSelectFilteredContext } from './MultiSelectFilteredContext';
 
-const MultiSelectFilteredAnchor = forwardRef<
-  HTMLInputElement,
-  MultiSelectFilteredAnchorProps
->(function MultiSelectFilteredAnchor(
-  { children: _children, filter, onChangeFilter, placeholder, ...props },
-  ref,
-) {
+type MultiSelectFilteredAnchorProps = MultiSelectAnchorParams;
+
+function MultiSelectFilteredAnchor({
+  children: _children,
+  ...props
+}: MultiSelectFilteredAnchorProps) {
+  const { placeholder, filter, setFilter } = use(MultiSelectFilteredContext);
+
   return (
     <FlexItem grow={1}>
       <Input
-        ref={ref}
         placeholder={placeholder}
         value={filter}
-        onInput={(e: FormEvent<HTMLInputElement>) =>
-          onChangeFilter(e.currentTarget.value)
+        onInput={(e: InputEvent<HTMLInputElement>) =>
+          setFilter?.(e.currentTarget.value)
         }
         {...props}
         rcx-input-box--undecorated
@@ -49,6 +29,6 @@ const MultiSelectFilteredAnchor = forwardRef<
       />
     </FlexItem>
   );
-});
+}
 
 export default MultiSelectFilteredAnchor;

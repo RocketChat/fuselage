@@ -1,12 +1,13 @@
 import { Box } from '@rocket.chat/fuselage';
-import type { FormHTMLAttributes, ReactNode } from 'react';
-import { forwardRef } from 'react';
+import type { FormHTMLAttributes, ReactNode, RefAttributes } from 'react';
 
-const FormHeader = forwardRef<
-  HTMLElement,
-  Omit<FormHTMLAttributes<HTMLElement>, 'is'> & {
+export type FormHeaderProps = Omit<FormHTMLAttributes<HTMLElement>, 'is'> &
+  RefAttributes<HTMLElement> & {
     children: ReactNode;
-  }
->((props, ref) => <Box is='header' mbe={24} {...props} ref={ref} />);
+  };
+
+function FormHeader(props: FormHeaderProps) {
+  return <Box is='header' mbe={24} {...props} />;
+}
 
 export default FormHeader;

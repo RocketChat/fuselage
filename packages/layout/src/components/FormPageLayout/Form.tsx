@@ -1,16 +1,14 @@
 import { Tile } from '@rocket.chat/fuselage';
-import type { ReactElement, FormHTMLAttributes, ReactNode } from 'react';
-import { forwardRef } from 'react';
+import type { FormHTMLAttributes, ReactNode, RefAttributes } from 'react';
 
-const Form = forwardRef<
-  HTMLElement,
-  Omit<FormHTMLAttributes<HTMLFormElement>, 'is'> & {
+export type FormProps = Omit<FormHTMLAttributes<HTMLFormElement>, 'is'> &
+  RefAttributes<HTMLElement> & {
     children: ReactNode;
-  }
->(
-  ({ ...props }, ref): ReactElement => (
+  };
+
+function Form(props: FormProps) {
+  return (
     <Tile
-      ref={ref}
       is='form'
       backgroundColor='light'
       color='default'
@@ -20,7 +18,7 @@ const Form = forwardRef<
       textAlign='left'
       {...props}
     />
-  ),
-);
+  );
+}
 
 export default Form;

@@ -10,8 +10,14 @@ import {
   FieldGroup,
 } from '@rocket.chat/fuselage';
 import { useBreakpoints } from '@rocket.chat/fuselage-hooks';
-import { Form } from '@rocket.chat/layout';
-import type { ReactElement } from 'react';
+import {
+  Form,
+  FormContainer,
+  FormFooter,
+  FormHeader,
+  FormSteps,
+  FormTitle,
+} from '@rocket.chat/layout';
 import { useEffect, useId, useRef } from 'react';
 import type { FieldPathValue, SubmitHandler, Validate } from 'react-hook-form';
 import { Controller, useForm, FormProvider } from 'react-hook-form';
@@ -50,7 +56,7 @@ const RegisterServerForm = ({
   termsHref = 'https://rocket.chat/terms',
   policyHref = 'https://rocket.chat/privacy',
   onClickRegisterOffline,
-}: RegisterServerFormProps): ReactElement => {
+}: RegisterServerFormProps) => {
   const { t } = useTranslation();
 
   const formId = useId();
@@ -94,13 +100,13 @@ const RegisterServerForm = ({
         aria-describedby={`${formId}-informed-disclaimer ${formId}-engagement-disclaimer`}
         onSubmit={handleSubmit(onSubmit)}
       >
-        <Form.Header>
-          <Form.Steps currentStep={currentStep} stepCount={stepCount} />
-          <Form.Title id={`${formId}-title`}>
+        <FormHeader>
+          <FormSteps currentStep={currentStep} stepCount={stepCount} />
+          <FormTitle id={`${formId}-title`}>
             {t('form.registeredServerForm.title')}
-          </Form.Title>
-        </Form.Header>
-        <Form.Container>
+          </FormTitle>
+        </FormHeader>
+        <FormContainer>
           <FieldGroup>
             <Field>
               <FieldLabel
@@ -148,8 +154,8 @@ const RegisterServerForm = ({
             />
             <input type='hidden' {...register('updates')} />
           </FieldGroup>
-        </Form.Container>
-        <Form.Footer>
+        </FormContainer>
+        <FormFooter>
           <Box display='flex' flexDirection='column' alignItems='flex-start'>
             <ButtonGroup vertical={isMobile}>
               <Button
@@ -184,7 +190,7 @@ const RegisterServerForm = ({
               </Trans>
             </Box>
           </Box>
-        </Form.Footer>
+        </FormFooter>
       </Form>
     </FormProvider>
   );

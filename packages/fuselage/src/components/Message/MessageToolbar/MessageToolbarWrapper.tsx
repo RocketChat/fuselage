@@ -1,17 +1,17 @@
-import type { HTMLAttributes } from 'react';
-import { forwardRef } from 'react';
+import type { HTMLAttributes, RefAttributes } from 'react';
 
-export type MessageToolbarWrapperProps = HTMLAttributes<HTMLDivElement> & {
-  visible?: boolean;
-};
+export type MessageToolbarWrapperProps = HTMLAttributes<HTMLDivElement> &
+  RefAttributes<HTMLDivElement> & {
+    visible?: boolean;
+  };
 
-const MessageToolbarWrapper = forwardRef<
-  HTMLDivElement,
-  MessageToolbarWrapperProps
->(function MessageToolbarWrapper({ className, visible, ...props }, ref) {
+function MessageToolbarWrapper({
+  className,
+  visible,
+  ...props
+}: MessageToolbarWrapperProps) {
   return (
     <div
-      ref={ref}
       className={[
         'rcx-box rcx-box--full rcx-message-toolbar__wrapper',
         visible && 'rcx-message-toolbar__wrapper--visible',
@@ -22,6 +22,6 @@ const MessageToolbarWrapper = forwardRef<
       {...props}
     />
   );
-});
+}
 
 export default MessageToolbarWrapper;

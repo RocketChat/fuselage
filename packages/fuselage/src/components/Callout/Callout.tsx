@@ -1,5 +1,5 @@
 import { useResizeObserver } from '@rocket.chat/fuselage-hooks';
-import type { ReactElement, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 import { Box, type BoxProps } from '../Box';
 import { Icon, type IconProps } from '../Icon';
@@ -9,7 +9,7 @@ export type CalloutProps = Omit<BoxProps, 'type' | 'name'> & {
   title?: ReactNode;
   children?: ReactNode;
   icon?: IconProps['name'];
-  actions?: ReactElement;
+  actions?: ReactNode;
 };
 
 const WRAPPER_LIMIT_SIZE = 420;

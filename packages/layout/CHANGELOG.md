@@ -1,5 +1,17 @@
 # @rocket.chat/layout
 
+## 0.35.0
+
+### Minor Changes
+
+- [#1999](https://github.com/RocketChat/fuselage/pull/1999) [`6e37f9d`](https://github.com/RocketChat/fuselage/commit/6e37f9d2fee4c9ebeb8ea2c1601bbd4c89905859) Thanks [@tassoevan](https://github.com/tassoevan)! - feat!: Upgrade to React 19
+
+## 0.34.3
+
+### Patch Changes
+
+- [#2010](https://github.com/RocketChat/fuselage/pull/2010) [`6a21baf`](https://github.com/RocketChat/fuselage/commit/6a21baf14375149f5c3d8cb0eb14eacc958c6d32) Thanks [@tassoevan](https://github.com/tassoevan)! - fix(layout): Color in `HorizontalWizardLayoutCaption` issues warning in runtime
+
 ## 0.34.2
 
 ### Patch Changes

@@ -5,7 +5,6 @@ import {
   VerticalWizardLayoutForm,
   VerticalWizardLayoutFooter,
 } from '@rocket.chat/layout';
-import type { ReactElement } from 'react';
 import type { SubmitHandler } from 'react-hook-form';
 import { Trans, useTranslation } from 'react-i18next';
 
@@ -34,10 +33,7 @@ export type LoginPageProps = {
   onSubmit: SubmitHandler<LoginFormPayload>;
 };
 
-const LoginPage = ({
-  onCreateAccount,
-  ...props
-}: LoginPageProps): ReactElement => {
+const LoginPage = ({ onCreateAccount, ...props }: LoginPageProps) => {
   const { t } = useTranslation();
   const { isMfa, mfaProps } = props;
 

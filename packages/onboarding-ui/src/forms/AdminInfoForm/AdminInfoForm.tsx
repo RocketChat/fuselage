@@ -13,8 +13,15 @@ import {
   FieldError,
   FieldHint,
 } from '@rocket.chat/fuselage';
-import { Form } from '@rocket.chat/layout';
-import type { ReactElement } from 'react';
+import {
+  Form,
+  FormContainer,
+  FormFooter,
+  FormHeader,
+  FormSteps,
+  FormSubtitle,
+  FormTitle,
+} from '@rocket.chat/layout';
 import { useRef, useEffect, useId } from 'react';
 import type { FieldPathValue, SubmitHandler, Validate } from 'react-hook-form';
 import { useForm, Controller } from 'react-hook-form';
@@ -59,7 +66,7 @@ const AdminInfoForm = ({
   validatePassword,
   keepPosted = false,
   onSubmit,
-}: AdminInfoFormProps): ReactElement => {
+}: AdminInfoFormProps) => {
   const { t } = useTranslation();
 
   const formId = useId();
@@ -97,16 +104,16 @@ const AdminInfoForm = ({
       aria-describedby={`${formId}-description`}
       onSubmit={handleSubmit(onSubmit)}
     >
-      <Form.Header>
-        <Form.Steps currentStep={currentStep} stepCount={stepCount} />
-        <Form.Title id={`${formId}-title`}>
+      <FormHeader>
+        <FormSteps currentStep={currentStep} stepCount={stepCount} />
+        <FormTitle id={`${formId}-title`}>
           {t('form.adminInfoForm.title')}
-        </Form.Title>
-        <Form.Subtitle id={`${formId}-description`}>
+        </FormTitle>
+        <FormSubtitle id={`${formId}-description`}>
           {t('form.adminInfoForm.subtitle')}
-        </Form.Subtitle>
-      </Form.Header>
-      <Form.Container>
+        </FormSubtitle>
+      </FormHeader>
+      <FormContainer>
         <FieldGroup>
           <Field>
             <FieldLabel required htmlFor={fullnameField}>
@@ -245,14 +252,14 @@ const AdminInfoForm = ({
             </Box>
           )}
         </FieldGroup>
-      </Form.Container>
-      <Form.Footer>
+      </FormContainer>
+      <FormFooter>
         <ButtonGroup>
           <Button type='submit' primary loading={isValidating || isSubmitting}>
             {t('component.form.action.next')}
           </Button>
         </ButtonGroup>
-      </Form.Footer>
+      </FormFooter>
     </Form>
   );
 };

@@ -1,50 +1,12 @@
-import type { ReactNode } from 'react';
-import { forwardRef } from 'react';
-
 import { InputBox, type InputBoxProps } from '../InputBox';
 
-export type EmailInputProps = Omit<InputBoxProps, 'type'> & {
-  addon?: ReactNode;
-  error?: string;
-};
-
-// Import from InputBox once it's converted to tsx
-type InputType =
-  | 'button'
-  | 'checkbox'
-  | 'color'
-  | 'date'
-  | 'datetime'
-  | 'datetime-local'
-  | 'email'
-  | 'file'
-  | 'hidden'
-  | 'image'
-  | 'month'
-  | 'number'
-  | 'password'
-  | 'radio'
-  | 'range'
-  | 'reset'
-  | 'search'
-  | 'submit'
-  | 'tel'
-  | 'text'
-  | 'time'
-  | 'url'
-  | 'week'
-  | 'textarea'
-  | 'select';
-
-const type: InputType = 'email';
+export type EmailInputProps = Omit<InputBoxProps<HTMLInputElement>, 'type'>;
 
 /**
  * An input for email addresses.
  */
-const EmailInput = forwardRef<HTMLElement, EmailInputProps>(
-  function EmailInput(props, ref) {
-    return <InputBox type={type} ref={ref} {...props} />;
-  },
-);
+function EmailInput(props: EmailInputProps) {
+  return <InputBox type='email' {...props} />;
+}
 
 export default EmailInput;

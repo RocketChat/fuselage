@@ -7,7 +7,7 @@
 import { cssSupports } from '@rocket.chat/css-supports';
 import type { Middleware } from 'stylis';
 
-// @public (undocumented)
+// @public
 export const attachRules: RuleAttacher;
 
 // @public (undocumented)
@@ -16,7 +16,7 @@ export const createAnimationName: (content: string) => string;
 // @public (undocumented)
 export const createClassName: (content: string) => string;
 
-// @public (undocumented)
+// @public
 export const css: (slices: TemplateStringsArray, ...values: readonly unknown[]) => cssFn;
 
 // @public (undocumented)
@@ -27,10 +27,10 @@ export { cssSupports }
 // @public (undocumented)
 export const escapeName: (animationOrClassName: string) => string;
 
-// @public (undocumented)
+// @public
 export type Evaluable = <T extends readonly unknown[]>(...args: T) => string;
 
-// @public (undocumented)
+// @public
 export const keyframes: (slices: TemplateStringsArray, ...values: unknown[]) => keyframesFn;
 
 // @public (undocumented)
@@ -41,7 +41,7 @@ export type RuleAttacher = (rules: string, options?: {
     document?: Document;
 }) => () => void;
 
-// @public (undocumented)
+// @public
 export const transpile: (selector: string, content: string, middleware?: Middleware) => string;
 
 // (No @packageDocumentation comment for this package)

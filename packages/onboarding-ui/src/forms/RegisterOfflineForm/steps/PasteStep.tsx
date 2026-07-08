@@ -1,7 +1,6 @@
 import { Box, Button, ButtonGroup, Scrollable } from '@rocket.chat/fuselage';
 import { useBreakpoints } from '@rocket.chat/fuselage-hooks';
-import { Form } from '@rocket.chat/layout';
-import type { ReactElement } from 'react';
+import { FormContainer, FormFooter } from '@rocket.chat/layout';
 import { useFormContext } from 'react-hook-form';
 import { Trans, useTranslation } from 'react-i18next';
 
@@ -11,7 +10,7 @@ type PasteStepProps = {
   setStep: (step: string) => void;
 };
 
-const PasteStep = ({ setStep }: PasteStepProps): ReactElement => {
+const PasteStep = ({ setStep }: PasteStepProps) => {
   const { t } = useTranslation();
   const breakpoints = useBreakpoints();
   const isMobile = !breakpoints.includes('md');
@@ -22,7 +21,7 @@ const PasteStep = ({ setStep }: PasteStepProps): ReactElement => {
 
   return (
     <>
-      <Form.Container>
+      <FormContainer>
         <Box mbe='24px' fontScale='p2'>
           <Trans key={'form.registerOfflineForm.pasteStep.description'}>
             1. In <strong>cloud.rocket.chat</strong> get the generated text and
@@ -55,8 +54,8 @@ const PasteStep = ({ setStep }: PasteStepProps): ReactElement => {
             />
           </Scrollable>
         </Box>
-      </Form.Container>
-      <Form.Footer>
+      </FormContainer>
+      <FormFooter>
         <Box display='flex' flexDirection='column'>
           <ButtonGroup vertical={isMobile}>
             <Button
@@ -72,7 +71,7 @@ const PasteStep = ({ setStep }: PasteStepProps): ReactElement => {
             </Button>
           </ButtonGroup>
         </Box>
-      </Form.Footer>
+      </FormFooter>
     </>
   );
 };

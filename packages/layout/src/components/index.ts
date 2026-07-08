@@ -1,6 +1,3 @@
-import Form from './FormPageLayout';
-import List from './List';
-
 export {
   default as TooltipWrapper,
   type TooltipWrapperProps,
@@ -15,5 +12,3 @@ export { default as LayoutLogo } from './LayoutLogo';
 
 export * from './FormPageLayout';
 export * from './List';
-
-export { Form, List };

@@ -1,5 +1,4 @@
 import { BackgroundLayer } from '@rocket.chat/layout';
-import type { ReactElement } from 'react';
 import type { FieldPathValue, SubmitHandler, Validate } from 'react-hook-form';
 
 import type { FormPageLayoutStyleProps } from '../../Types';
@@ -26,7 +25,7 @@ const pageLayoutStyleProps: FormPageLayoutStyleProps = {
   justifyContent: 'center',
 };
 
-const RegisterServerPage = (props: RegisterServerPageProps): ReactElement => (
+const RegisterServerPage = (props: RegisterServerPageProps) => (
   <BackgroundLayer>
     <FormPageLayout styleProps={pageLayoutStyleProps}>
       <RegisterServerForm {...props} />

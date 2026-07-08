@@ -1,18 +1,28 @@
 import { useMergedRefs } from '@rocket.chat/fuselage-hooks';
-import type { FormEvent, AllHTMLAttributes, ReactNode } from 'react';
-import { forwardRef, useLayoutEffect, useRef, useCallback } from 'react';
+import type {
+  AllHTMLAttributes,
+  ChangeEvent,
+  ReactNode,
+  RefAttributes,
+} from 'react';
+import { useLayoutEffect, useRef, useCallback } from 'react';
 
 import { Box, type BoxProps } from '../Box';
 
-export type CheckBoxProps = BoxProps & {
-  indeterminate?: boolean;
-  labelChildren?: ReactNode;
-} & AllHTMLAttributes<HTMLInputElement>;
+export type CheckBoxProps = Omit<BoxProps, 'ref'> &
+  RefAttributes<HTMLInputElement> & {
+    indeterminate?: boolean;
+    labelChildren?: ReactNode;
+  } & AllHTMLAttributes<HTMLInputElement>;
 
-const CheckBox = forwardRef<HTMLInputElement, CheckBoxProps>(function CheckBox(
-  { indeterminate, onChange, className, labelChildren, ...props },
+function CheckBox({
   ref,
-) {
+  indeterminate,
+  onChange,
+  className,
+  labelChildren,
+  ...props
+}: CheckBoxProps) {
   const innerRef = useRef<HTMLInputElement>(null);
   const mergedRef = useMergedRefs(ref, innerRef);
 
@@ -23,7 +33,7 @@ const CheckBox = forwardRef<HTMLInputElement, CheckBoxProps>(function CheckBox(
   }, [innerRef, indeterminate]);
 
   const handleChange = useCallback(
-    (event: FormEvent<HTMLInputElement>) => {
+    (event: ChangeEvent<HTMLInputElement>) => {
       if (innerRef && innerRef.current && indeterminate !== undefined) {
         innerRef.current.indeterminate = indeterminate;
       }
@@ -46,6 +56,6 @@ const CheckBox = forwardRef<HTMLInputElement, CheckBoxProps>(function CheckBox(
       <Box is='i' rcx-check-box__fake aria-hidden='true' />
     </Box>
   );
-});
+}
 
 export default CheckBox;

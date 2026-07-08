@@ -1,4 +1,4 @@
-import type { StoryFn, Meta } from '@storybook/react-webpack5';
+import type { Meta } from '@storybook/react-webpack5';
 
 import { Box } from '../Box';
 import { Margins } from '../Margins';
@@ -10,10 +10,8 @@ export default {
   component: Tooltip,
 } satisfies Meta<typeof Tooltip>;
 
-export const Default: StoryFn<typeof Tooltip> = () => (
-  <Tooltip>An example tooltip</Tooltip>
-);
-export const LightTooltip: StoryFn<typeof Tooltip> = () => (
+export const Default = () => <Tooltip>An example tooltip</Tooltip>;
+export const LightTooltip = () => (
   <Tooltip variation='light'>An example tooltip</Tooltip>
 );
 

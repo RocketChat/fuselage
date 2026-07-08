@@ -1,5 +1,5 @@
 import { css } from '@rocket.chat/css-in-js';
-import type { DOMAttributes, MutableRefObject, ReactNode } from 'react';
+import type { DOMAttributes, RefObject, ReactNode } from 'react';
 import { useMemo } from 'react';
 import type { SliderState } from 'react-stately';
 
@@ -8,7 +8,7 @@ import { useStyle } from '../../hooks/useStyle';
 
 type SliderTrackProps = {
   trackProps: DOMAttributes<Element>;
-  trackRef: MutableRefObject<null>;
+  trackRef: RefObject<HTMLDivElement | null>;
   state: SliderState;
   children: ReactNode;
   multiThumb?: boolean;

@@ -1,14 +1,13 @@
 import { Box } from '@rocket.chat/fuselage';
-import type { FormHTMLAttributes, ReactNode } from 'react';
-import { forwardRef } from 'react';
+import type { FormHTMLAttributes, ReactNode, RefAttributes } from 'react';
 
-const FormTitle = forwardRef<
-  HTMLElement,
-  Omit<FormHTMLAttributes<HTMLElement>, 'is'> & {
+export type FormTitleProps = Omit<FormHTMLAttributes<HTMLElement>, 'is'> &
+  RefAttributes<HTMLElement> & {
     children: ReactNode;
-  }
->((props, ref) => (
-  <Box mbe={8} fontScale='h3' fontWeight={800} {...props} ref={ref} />
-));
+  };
+
+function FormTitle(props: FormTitleProps) {
+  return <Box mbe={8} fontScale='h3' fontWeight={800} {...props} />;
+}
 
 export default FormTitle;

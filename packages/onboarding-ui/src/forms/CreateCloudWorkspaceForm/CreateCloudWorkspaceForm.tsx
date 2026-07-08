@@ -15,8 +15,8 @@ import {
   CheckBox,
   Grid,
 } from '@rocket.chat/fuselage';
-import { Form } from '@rocket.chat/layout';
-import type { ReactElement, FocusEvent } from 'react';
+import { Form, FormFooter, FormHeader, FormTitle } from '@rocket.chat/layout';
+import type { FocusEvent } from 'react';
 import type { FieldPathValue, SubmitHandler, Validate } from 'react-hook-form';
 import { useForm, Controller } from 'react-hook-form';
 import { useTranslation, Trans } from 'react-i18next';
@@ -61,7 +61,7 @@ export const CreateCloudWorkspaceForm = ({
   onBackButtonClick,
   validateUrl,
   validateEmail,
-}: CreateCloudWorkspaceFormProps): ReactElement => {
+}: CreateCloudWorkspaceFormProps) => {
   const { t } = useTranslation();
 
   const {
@@ -80,9 +80,9 @@ export const CreateCloudWorkspaceForm = ({
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
-      <Form.Header>
-        <Form.Title>{t('form.createCloudWorkspace.title')}</Form.Title>
-      </Form.Header>
+      <FormHeader>
+        <FormTitle>{t('form.createCloudWorkspace.title')}</FormTitle>
+      </FormHeader>
 
       <FieldGroup mbs={16}>
         <Field>
@@ -249,7 +249,7 @@ export const CreateCloudWorkspaceForm = ({
         </Field>
       </FieldGroup>
 
-      <Form.Footer>
+      <FormFooter>
         <ButtonGroup>
           {onBackButtonClick && (
             <Button disabled={isSubmitting} onClick={onBackButtonClick}>
@@ -266,7 +266,7 @@ export const CreateCloudWorkspaceForm = ({
             {t('component.form.action.next')}
           </Button>
         </ButtonGroup>
-      </Form.Footer>
+      </FormFooter>
     </Form>
   );
 };

@@ -1,16 +1,14 @@
-import { forwardRef } from 'react';
+import type { RefAttributes } from 'react';
 
 import { Box, type BoxProps } from '../Box';
 
-export type TabsItemProps = BoxProps & {
-  selected?: boolean;
-  disabled?: boolean;
-};
+export type TabsItemProps = Omit<BoxProps, 'ref'> &
+  RefAttributes<HTMLButtonElement> & {
+    selected?: boolean;
+    disabled?: boolean;
+  };
 
-const TabsItem = forwardRef<HTMLButtonElement, TabsItemProps>(function TabsItem(
-  { selected, disabled, ...props },
-  ref,
-) {
+function TabsItem({ selected, disabled, ...props }: TabsItemProps) {
   return (
     <Box
       is='button'
@@ -19,11 +17,10 @@ const TabsItem = forwardRef<HTMLButtonElement, TabsItemProps>(function TabsItem(
       rcx-tabs__item--disabled={disabled}
       rcx-tabs__item--selected--disabled={selected && disabled}
       aria-selected={selected ? 'true' : 'false'}
-      ref={ref}
       role='tab'
       {...props}
     />
   );
-});
+}
 
 export default TabsItem;

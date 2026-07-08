@@ -1,6 +1,6 @@
 import { useMergedRefs } from '@rocket.chat/fuselage-hooks';
-import type { FormEvent, ReactNode } from 'react';
-import { forwardRef, useCallback, useLayoutEffect, useRef } from 'react';
+import type { ChangeEvent, ReactNode, RefAttributes } from 'react';
+import { useCallback, useLayoutEffect, useRef } from 'react';
 
 import type { BoxProps } from '../Box';
 import { Icon } from '../Icon';
@@ -9,41 +9,45 @@ import Input from './Input';
 import InputBoxAddon from './InputBoxAddon';
 import InputBoxWrapper from './InputBoxWrapper';
 
-export type InputBoxProps = BoxProps & {
-  addon?: ReactNode;
-  input?: ReactNode;
-  multiple?: boolean;
-  error?: string;
-  placeholder?: string;
-  placeholderVisible?: boolean;
-  small?: boolean;
-  type:
-    | 'button'
-    | 'checkbox'
-    | 'color'
-    | 'date'
-    | 'datetime'
-    | 'datetime-local'
-    | 'email'
-    | 'file'
-    | 'hidden'
-    | 'image'
-    | 'month'
-    | 'number'
-    | 'password'
-    | 'radio'
-    | 'range'
-    | 'reset'
-    | 'search'
-    | 'submit'
-    | 'tel'
-    | 'text'
-    | 'time'
-    | 'url'
-    | 'week'
-    | 'textarea'
-    | 'select';
-};
+export type InputBoxProps<
+  T extends HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement = any,
+> = Omit<BoxProps, 'ref'> &
+  RefAttributes<T> & {
+    startAddon?: ReactNode;
+    endAddon?: ReactNode;
+    input?: ReactNode;
+    multiple?: boolean;
+    error?: string;
+    placeholder?: string;
+    placeholderVisible?: boolean;
+    small?: boolean;
+    type:
+      | 'button'
+      | 'checkbox'
+      | 'color'
+      | 'date'
+      | 'datetime'
+      | 'datetime-local'
+      | 'email'
+      | 'file'
+      | 'hidden'
+      | 'image'
+      | 'month'
+      | 'number'
+      | 'password'
+      | 'radio'
+      | 'range'
+      | 'reset'
+      | 'search'
+      | 'submit'
+      | 'tel'
+      | 'text'
+      | 'time'
+      | 'url'
+      | 'week'
+      | 'textarea'
+      | 'select';
+  };
 
 /**
  * A decorated input control with support for addons.
@@ -52,26 +56,26 @@ export type InputBoxProps = BoxProps & {
  * components over this one because it works as a construction block for them.
  */
 // eslint-disable-next-line complexity
-const InputBox = forwardRef<any, InputBoxProps>(function InputBox(
-  {
-    className,
-    addon,
-    error,
-    hidden,
-    invisible,
-    multiple,
-    placeholderVisible,
-    type = 'text',
-    small,
-    onChange,
-    ...props
-  },
+function InputBox<
+  T extends HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement,
+>({
   ref,
-) {
-  const innerRef = useRef<
-    HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
-  >(null);
+  className,
+  startAddon,
+  endAddon,
+  error,
+  hidden,
+  invisible,
+  multiple,
+  placeholderVisible,
+  type = 'text',
+  small,
+  onChange,
+  ...props
+}: InputBoxProps<T>) {
+  const innerRef = useRef<T>(null);
   const mergedRef = useMergedRefs(ref, innerRef);
+  let defaultAddon = endAddon;
 
   useLayoutEffect(() => {
     if (innerRef.current && innerRef.current.setCustomValidity) {
@@ -80,17 +84,17 @@ const InputBox = forwardRef<any, InputBoxProps>(function InputBox(
   }, [error]);
 
   useLayoutEffect(() => {
-    if (addon && innerRef.current && innerRef.current.parentElement) {
+    if (defaultAddon && innerRef.current && innerRef.current.parentElement) {
       innerRef.current.parentElement.classList.toggle(
         'invalid',
         !innerRef.current.checkValidity(),
       );
     }
-  }, [addon, error]);
+  }, [defaultAddon, error]);
 
   const handleChange = useCallback(
-    (event: FormEvent<HTMLElement>) => {
-      if (addon && innerRef.current && innerRef.current.parentElement) {
+    (event: ChangeEvent<HTMLElement>) => {
+      if (defaultAddon && innerRef.current && innerRef.current.parentElement) {
         innerRef.current.parentElement.classList.toggle(
           'invalid',
           !innerRef.current.checkValidity(),
@@ -99,20 +103,22 @@ const InputBox = forwardRef<any, InputBoxProps>(function InputBox(
 
       onChange?.call(event.currentTarget, event);
     },
-    [addon, onChange],
+    [defaultAddon, onChange],
   );
 
   const handleAddonClick = () =>
     (innerRef.current as HTMLInputElement).showPicker();
 
   if (type === 'date') {
-    addon = <Icon name='calendar' size='x20' onClick={handleAddonClick} />;
+    defaultAddon = (
+      <Icon name='calendar' size='x20' onClick={handleAddonClick} />
+    );
   }
   if (type === 'time') {
-    addon = <Icon name='clock' size='x20' onClick={handleAddonClick} />;
+    defaultAddon = <Icon name='clock' size='x20' onClick={handleAddonClick} />;
   }
 
-  if (!addon) {
+  if (!defaultAddon && !startAddon) {
     return (
       <Input
         is={
@@ -149,6 +155,7 @@ const InputBox = forwardRef<any, InputBoxProps>(function InputBox(
       hidden={hidden}
       invisible={invisible}
     >
+      {startAddon && <InputBoxAddon children={startAddon} />}
       <Input
         is={
           (type === 'textarea' && 'textarea') ||
@@ -171,9 +178,9 @@ const InputBox = forwardRef<any, InputBoxProps>(function InputBox(
         rcx-input-box--small={small}
         {...props}
       />
-      <InputBoxAddon children={addon} />
+      {defaultAddon && <InputBoxAddon children={defaultAddon} />}
     </InputBoxWrapper>
   );
-});
+}
 
 export default InputBox;

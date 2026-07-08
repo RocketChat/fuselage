@@ -53,7 +53,7 @@ const Template: StoryFn<typeof Sidepanel> = (args) => (
       <InputBox
         type='text'
         placeholder='Search'
-        addon={<Icon name='magnifier' size='x18' />}
+        endAddon={<Icon name='magnifier' size='x18' />}
       />
     </SidepanelSection>
     <Box overflowY='auto' height='full'>
