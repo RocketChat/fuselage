@@ -725,12 +725,6 @@ export const FieldRow: (props: FieldRowProps) => JSX.Element;
 export type FieldRowProps = BoxProps;
 
 // @public (undocumented)
-export const Flex: {
-    Container: typeof FlexContainer;
-    Item: typeof FlexItem;
-};
-
-// @public (undocumented)
 export function FlexContainer(input: FlexContainerProps): JSX.Element;
 
 // @public (undocumented)
