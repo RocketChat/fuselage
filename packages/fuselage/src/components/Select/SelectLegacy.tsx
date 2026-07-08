@@ -58,7 +58,7 @@ export type SelectProps = Omit<BoxProps, 'ref' | 'onChange'> &
     addonIcon?: IconProps['name'];
   };
 
-const SelectLegacy = function SelectLegacy({
+function SelectLegacy({
   ref,
   value,
   filter,
@@ -219,6 +219,6 @@ const SelectLegacy = function SelectLegacy({
       </PositionAnimated>
     </Box>
   );
-};
+}
 
 export default SelectLegacy;

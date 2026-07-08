@@ -1,45 +1,26 @@
-import type {
-  AriaAttributes,
-  FocusEventHandler,
-  InputEvent,
-  KeyboardEventHandler,
-  MouseEventHandler,
-  ReactNode,
-  RefAttributes,
-} from 'react';
+import { use, type InputEvent } from 'react';
 
 import { FlexItem } from '../Flex';
 import { Input } from '../InputBox';
 
-type MultiSelectFilteredAnchorProps = RefAttributes<HTMLInputElement> & {
-  children: ReactNode;
-  disabled: boolean;
-  filter: string;
-  onChangeFilter: (filter: string) => void;
-  placeholder?: string;
-  onClick: MouseEventHandler;
-  onBlur: FocusEventHandler;
-  onKeyUp: KeyboardEventHandler;
-  onKeyDown: KeyboardEventHandler;
-  role?: string;
-  id?: string;
-  name?: string;
-} & AriaAttributes;
+import type { MultiSelectAnchorParams } from './MultiSelectAnchorParams';
+import { MultiSelectFilteredContext } from './MultiSelectFilteredContext';
+
+type MultiSelectFilteredAnchorProps = MultiSelectAnchorParams;
 
 function MultiSelectFilteredAnchor({
   children: _children,
-  filter,
-  onChangeFilter,
-  placeholder,
   ...props
 }: MultiSelectFilteredAnchorProps) {
+  const { placeholder, filter, setFilter } = use(MultiSelectFilteredContext);
+
   return (
     <FlexItem grow={1}>
       <Input
         placeholder={placeholder}
         value={filter}
         onInput={(e: InputEvent<HTMLInputElement>) =>
-          onChangeFilter(e.currentTarget.value)
+          setFilter?.(e.currentTarget.value)
         }
         {...props}
         rcx-input-box--undecorated

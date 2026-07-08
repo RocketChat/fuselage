@@ -158,7 +158,7 @@ export const MultiSelect: {
         getLabel?: (params: SelectOption) => SelectOption[1];
         getValue?: (params: SelectOption) => SelectOption[0];
         customEmpty?: string;
-        anchor?: ElementType<MultiSelectAnchorParams> | ((params: MultiSelectAnchorParams) => ReactNode);
+        anchor?: ElementType<MultiSelectAnchorParams>;
         renderOptions?: ElementType;
         renderItem?: ElementType;
         renderSelected?: ElementType<    {
@@ -183,7 +183,7 @@ export const MultiSelectFiltered: {
         getLabel?: (params: SelectOption) => SelectOption[1];
         getValue?: (params: SelectOption) => SelectOption[0];
         customEmpty?: string;
-        anchor?: ElementType<MultiSelectAnchorParams> | ((params: MultiSelectAnchorParams) => ReactNode);
+        anchor?: ElementType<MultiSelectAnchorParams>;
         renderOptions?: ElementType;
         renderItem?: ElementType;
         renderSelected?: ElementType<    {

@@ -1506,7 +1506,7 @@ export type MultiSelectProps = Omit<BoxProps, 'ref' | 'onChange' | 'value'> & Re
     getLabel?: (params: SelectOption) => SelectOption[1];
     getValue?: (params: SelectOption) => SelectOption[0];
     customEmpty?: string;
-    anchor?: ElementType<MultiSelectAnchorParams> | ((params: MultiSelectAnchorParams) => ReactNode);
+    anchor?: ElementType<MultiSelectAnchorParams>;
     renderOptions?: ElementType;
     renderItem?: ElementType;
     renderSelected?: ElementType<{
@@ -2064,7 +2064,7 @@ export function Select<T, V extends Key>(input: SelectProps_2<T, V>): JSX.Elemen
 export function SelectFiltered(input: SelectFilteredProps): JSX.Element;
 
 // @public (undocumented)
-export type SelectFilteredProps = SelectProps & {
+export type SelectFilteredProps = Omit<SelectProps, 'anchor'> & {
     filter?: string;
     setFilter?: Dispatch<SetStateAction<string>>;
     addonIcon?: IconProps['name'];
@@ -2083,7 +2083,7 @@ export type SelectInputOptionProps = Omit<BoxProps, 'ref'> & RefAttributes<HTMLO
 export type SelectInputProps = Omit<InputBoxProps<HTMLSelectElement>, 'type'>;
 
 // @public (undocumented)
-export const SelectLegacy: (input: SelectProps) => JSX.Element;
+export function SelectLegacy(input: SelectProps): JSX.Element;
 
 // @public (undocumented)
 export type SelectOption = readonly [
