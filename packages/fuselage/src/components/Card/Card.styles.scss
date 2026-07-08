@@ -49,6 +49,10 @@ $card-background-color: theme('card-background-color', colors.surface(light));
     flex-shrink: 1;
   }
 
+  &__controls {
+    flex-wrap: wrap;
+  }
+
   &__horizontal {
     align-items: center;
 
