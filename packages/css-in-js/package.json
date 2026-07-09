@@ -43,7 +43,7 @@
     "stylis": "~4.3.6"
   },
   "devDependencies": {
-    "@microsoft/api-extractor": "~7.58.7",
+    "@microsoft/api-extractor": "~7.58.9",
     "@rollup/plugin-commonjs": "~29.0.3",
     "@rollup/plugin-json": "~6.1.0",
     "@rollup/plugin-node-resolve": "~16.0.3",
@@ -54,9 +54,9 @@
     "jest": "~30.4.2",
     "lint-all": "workspace:~",
     "prettier": "~3.6.2",
-    "rollup": "~4.60.4",
+    "rollup": "~4.62.2",
     "ts-jest": "~29.4.11",
-    "typedoc": "~0.28.19",
+    "typedoc": "~0.28.20",
     "typescript": "~5.9.3"
   },
   "publishConfig": {
