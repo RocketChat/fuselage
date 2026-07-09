@@ -187,7 +187,16 @@ $sidebar-color-stroke-extra-light: theme(
     gap: lengths.padding(12);
 
     &--close-top {
+      position: relative;
+
       align-items: flex-start;
+
+      .rcx-sidebar-v2-banner__addon {
+        position: absolute;
+
+        inset-block-start: lengths.padding(16);
+        inset-inline-end: lengths.padding(16);
+      }
     }
 
     &__content {
