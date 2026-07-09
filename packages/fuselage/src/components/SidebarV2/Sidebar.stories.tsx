@@ -9,6 +9,7 @@ import {
   SidebarV2AccordionItem as SidebarAccordionItem,
   SidebarV2Banner as SidebarBanner,
   SidebarV2CollapseGroup as SidebarCollapseGroup,
+  SidebarV2Divider as SidebarDivider,
   SidebarV2FooterContent as SidebarFooterContent,
   SidebarV2ItemAction as SidebarItemAction,
   SidebarV2Link as SidebarLink,
@@ -38,6 +39,7 @@ export const Default: StoryFn<typeof Sidebar> = (props) => (
         onClick={action('click')}
         addon={<Icon name='warning' color='danger' size='x24' />}
       />
+      <SidebarDivider />
       <SidebarSection>
         <TextInput
           endAddon={<Icon name='magnifier' size='x20' />}

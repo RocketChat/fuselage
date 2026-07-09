@@ -183,8 +183,6 @@ $sidebar-color-stroke-extra-light: theme(
     padding: lengths.padding(16);
 
     color: $sidebar-banner-color-default;
-    border-bottom: lengths.border-width(default) solid
-      $sidebar-accordion-border-color;
     background-color: $sidebar-banner-background-default;
     gap: lengths.padding(12);
 
