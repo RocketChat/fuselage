@@ -12,16 +12,17 @@ import type {
 } from 'react';
 import { useState, useRef, useEffect } from 'react';
 
-import type { IconProps, SelectOption } from '..';
 import { prevent } from '../../helpers/prevent';
 import { AnimatedVisibility } from '../AnimatedVisibility';
 import { Box, type BoxProps } from '../Box';
 import { FlexContainer, FlexItem } from '../Flex';
+import type { IconProps } from '../Icon';
 import { Icon } from '../Icon';
 import { Margins } from '../Margins';
 import { CheckOption } from '../Option';
 import { Options, useCursor } from '../Options';
-import { Position } from '../Position';
+import { PositionAnimated } from '../PositionAnimated';
+import type { SelectOption } from '../Select';
 import SelectAddon from '../Select/SelectAddon';
 
 import MultiSelectAnchor from './MultiSelectAnchor';
@@ -242,22 +243,20 @@ function MultiSelect({
           />
         </Margins>
       </FlexItem>
-      <AnimatedVisibility visibility={visible}>
-        <Position anchor={containerRef}>
-          <_Options
-            width={borderBoxSize.inlineSize}
-            onMouseDown={prevent}
-            multiple
-            filter={filter}
-            renderItem={renderItem || CheckOption}
-            id={listboxId}
-            options={filteredOptions}
-            onSelect={internalChanged}
-            cursor={cursor}
-            customEmpty={customEmpty}
-          />
-        </Position>
-      </AnimatedVisibility>
+      <PositionAnimated visibility={visible} anchor={containerRef}>
+        <_Options
+          width={borderBoxSize.inlineSize}
+          onMouseDown={prevent}
+          multiple
+          filter={filter}
+          renderItem={renderItem || CheckOption}
+          id={listboxId}
+          options={filteredOptions}
+          onSelect={internalChanged}
+          cursor={cursor}
+          customEmpty={customEmpty}
+        />
+      </PositionAnimated>
     </Box>
   );
 }

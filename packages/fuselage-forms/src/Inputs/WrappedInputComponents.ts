@@ -9,7 +9,6 @@ import {
   SearchInput as SearchInputComponent,
   TextAreaInput as TextAreaComponent,
   NumberInput as NumberInputComponent,
-  TelephoneInput as TelephoneInputComponent,
   UrlInput as UrlInputComponent,
   AutoComplete as AutoCompleteComponent,
   MultiSelect as MultiSelectComponent,
@@ -32,7 +31,6 @@ export const EmailInput = withLabelId(EmailInputComponent);
 export const PasswordInput = withLabelId(PasswordInputComponent);
 export const SearchInput = withLabelId(SearchInputComponent);
 export const TextAreaInput = withLabelId(TextAreaComponent);
-export const TelephoneInput = withLabelId(TelephoneInputComponent);
 export const NumberInput = withLabelId(NumberInputComponent);
 export const UrlInput = withLabelId(UrlInputComponent);
 

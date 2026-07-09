@@ -7,12 +7,12 @@ import { createPortal } from 'react-dom';
 import { useOwnerDocument } from '../../contexts';
 import type { BoxProps } from '../Box';
 
-export type PositionProps = {
+export type PositionProps = Omit<BoxProps, 'children' | 'margin'> & {
   anchor: RefObject<Element | null>;
   children: ReactElement<any>;
   margin?: number;
   placement?: UsePositionOptions['placement'];
-} & Omit<BoxProps, 'children' | 'margin'>;
+};
 
 const Position = ({
   anchor,

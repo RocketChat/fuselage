@@ -39,7 +39,6 @@ import type { OverlayTriggerState } from 'react-stately';
 import type { PropsWithChildren } from 'react';
 import { ReactElement } from 'react';
 import { ReactNode } from 'react';
-import { ReactPortal } from 'react';
 import type { Ref } from 'react';
 import type { RefAttributes } from 'react';
 import type { RefObject } from 'react';
@@ -74,21 +73,6 @@ export type AccordionItemProps = {
 export type AccordionProps = {
     children: ReactNode;
 } & Partial<StylingProps>;
-
-// @public (undocumented)
-export function ActionButton(input: ActionButtonProps): JSX.Element;
-
-// @public (undocumented)
-export type ActionButtonProps = ButtonProps & ActionButtonSize & {
-    icon: IconProps['name'];
-};
-
-// @public (undocumented)
-export type ActionButtonSize = {
-    mini?: boolean;
-    tiny?: boolean;
-    small?: boolean;
-};
 
 // @public (undocumented)
 export const AnimatedVisibility: {
@@ -738,12 +722,6 @@ export const FieldRow: (props: FieldRowProps) => JSX.Element;
 
 // @public (undocumented)
 export type FieldRowProps = BoxProps;
-
-// @public (undocumented)
-export const Flex: {
-    Container: typeof FlexContainer;
-    Item: typeof FlexItem;
-};
 
 // @public (undocumented)
 export function FlexContainer(input: FlexContainerProps): JSX.Element;
@@ -1998,23 +1976,16 @@ export interface PopoverProps extends Omit<AriaPopoverProps, 'popoverRef'> {
 }
 
 // @public (undocumented)
-export const Position: (input: PositionProps) => ReactPortal;
-
-// @public (undocumented)
 export const PositionAnimated: (input: PositionAnimatedProps) => JSX.Element;
 
 // @public (undocumented)
-export type PositionAnimatedProps = {
-    visible?: 'hidden' | 'visible' | 'hiding' | 'unhiding';
-} & PositionProps;
-
-// @public (undocumented)
-export type PositionProps = {
+export type PositionAnimatedProps = Omit<BoxProps, 'children' | 'margin'> & {
     anchor: RefObject<Element | null>;
     children: ReactElement<any>;
     margin?: number;
     placement?: UsePositionOptions['placement'];
-} & Omit<BoxProps, 'children' | 'margin'>;
+    visible?: 'hidden' | 'visible' | 'hiding' | 'unhiding';
+};
 
 // @public
 export function ProgressBar(input: ProgressBarProps): JSX.Element;
@@ -2069,18 +2040,6 @@ export type SelectFilteredProps = Omit<SelectProps, 'anchor'> & {
     setFilter?: Dispatch<SetStateAction<string>>;
     addonIcon?: IconProps['name'];
 };
-
-// @public
-export function SelectInput(input: SelectInputProps): JSX.Element;
-
-// @public (undocumented)
-export function SelectInputOption(props: SelectInputOptionProps): JSX.Element;
-
-// @public (undocumented)
-export type SelectInputOptionProps = Omit<BoxProps, 'ref'> & RefAttributes<HTMLOptionElement>;
-
-// @public (undocumented)
-export type SelectInputProps = Omit<InputBoxProps<HTMLSelectElement>, 'type'>;
 
 // @public (undocumented)
 export function SelectLegacy(input: SelectProps): JSX.Element;
@@ -2867,12 +2826,6 @@ export type TagProps = {
     disabled?: boolean;
     icon?: ReactNode;
 } & Omit<BoxProps, 'is'>;
-
-// @public
-export function TelephoneInput(props: TelephoneInputProps): JSX.Element;
-
-// @public (undocumented)
-export type TelephoneInputProps = Omit<InputBoxProps<HTMLInputElement>, 'type'>;
 
 // @public
 export function TextAreaInput(props: TextAreaInputProps): JSX.Element;

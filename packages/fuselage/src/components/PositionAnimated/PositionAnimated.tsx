@@ -1,10 +1,18 @@
-import { AnimatedVisibility } from '../AnimatedVisibility';
-import type { PositionProps } from '../Position';
-import { Position } from '../Position';
+import type { UsePositionOptions } from '@rocket.chat/fuselage-hooks';
+import type { ReactElement, RefObject } from 'react';
 
-export type PositionAnimatedProps = {
+import { AnimatedVisibility } from '../AnimatedVisibility';
+import type { BoxProps } from '../Box';
+
+import Position from './Position';
+
+export type PositionAnimatedProps = Omit<BoxProps, 'children' | 'margin'> & {
+  anchor: RefObject<Element | null>;
+  children: ReactElement<any>;
+  margin?: number;
+  placement?: UsePositionOptions['placement'];
   visible?: 'hidden' | 'visible' | 'hiding' | 'unhiding';
-} & PositionProps;
+};
 
 const PositionAnimated = ({
   width: _width,
