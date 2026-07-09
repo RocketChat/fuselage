@@ -186,8 +186,19 @@ $sidebar-color-stroke-extra-light: theme(
     background-color: $sidebar-banner-background-default;
     gap: lengths.padding(12);
 
+    &--close-top {
+      align-items: flex-start;
+    }
+
+    &__content {
+      flex: 1 1 auto;
+
+      min-width: 0;
+    }
+
     &__addon {
       display: flex;
+      flex: 0 0 auto;
       align-items: center;
     }
 

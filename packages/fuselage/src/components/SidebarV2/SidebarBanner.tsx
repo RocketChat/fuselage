@@ -9,6 +9,8 @@ export type SidebarV2BannerVariant =
   | 'warning'
   | 'danger';
 
+export type SidebarV2BannerVariantPlacement = 'center' | 'top';
+
 export type SidebarV2BannerProps = {
   title?: ReactNode;
   linkText?: string;
@@ -16,6 +18,13 @@ export type SidebarV2BannerProps = {
   onClick?: () => void;
   variant?: SidebarV2BannerVariant;
   onClose?: () => void;
+  /**
+   * Vertical alignment of the close button / addon column. Use `'top'` to align
+   * the close button with the banner header (title) instead of centering it on
+   * the whole banner — useful when the banner has taller content below the title.
+   * @default 'center'
+   */
+  closePlacement?: SidebarV2BannerVariantPlacement;
   children?: ReactNode;
   addon?: ReactNode;
 };
@@ -25,13 +34,20 @@ export const SidebarBanner = ({
   linkText,
   linkProps,
   variant = 'default',
+  closePlacement = 'center',
   addon,
   onClose,
   children,
   ...props
 }: SidebarV2BannerProps) => (
   <div
-    className={`rcx-box rcx-box--full rcx-sidebar-v2-banner rcx-sidebar-v2-banner--${variant}`}
+    className={[
+      'rcx-box rcx-box--full rcx-sidebar-v2-banner',
+      `rcx-sidebar-v2-banner--${variant}`,
+      closePlacement === 'top' && 'rcx-sidebar-v2-banner--close-top',
+    ]
+      .filter(Boolean)
+      .join(' ')}
     {...props}
   >
     <div className='rcx-box rcx-box--full rcx-sidebar-v2-banner__content'>
@@ -50,9 +66,11 @@ export const SidebarBanner = ({
       )}
       {children}
     </div>
-    <div className='rcx-box rcx-box--full rcx-sidebar-v2-banner__addon'>
-      {addon}
-      {onClose && <IconButton onClick={onClose} tiny icon='cross' />}
-    </div>
+    {(addon || onClose) && (
+      <div className='rcx-box rcx-box--full rcx-sidebar-v2-banner__addon'>
+        {addon}
+        {onClose && <IconButton onClick={onClose} tiny icon='cross' />}
+      </div>
+    )}
   </div>
 );
