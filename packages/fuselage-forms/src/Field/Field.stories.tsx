@@ -11,7 +11,6 @@ import {
   CheckBox,
   ToggleSwitch,
   RadioButton,
-  TelephoneInput,
   NumberInput,
   UrlInput,
   MultiSelect,
@@ -179,25 +178,7 @@ export const WithCheckbox: StoryFn<typeof Field> = () => (
     </FieldRow>
   </Field>
 );
-export const WithTelephoneInput: StoryFn<typeof Field> = () => (
-  <Field>
-    <FieldLabel required>
-      Example Telephone Input
-      <FieldLabelInfo title='with extra info in a tooltip' />
-    </FieldLabel>
-    <FieldDescription>
-      This field requires a valid telephone number
-    </FieldDescription>
-    <FieldRow>
-      <TelephoneInput />
-    </FieldRow>
-    <FieldError>You failed to enter a valid value</FieldError>
-    <FieldRow>
-      <FieldHint>This should help the user enter a valid value</FieldHint>
-      <FieldLink href='#'>Link to more information</FieldLink>
-    </FieldRow>
-  </Field>
-);
+
 export const WithNumberInput: StoryFn<typeof Field> = () => (
   <Field>
     <FieldLabel required>
