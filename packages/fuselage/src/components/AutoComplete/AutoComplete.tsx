@@ -36,9 +36,19 @@ const getSelected = <TLabel,>(
   if (!value) {
     return [];
   }
-  return typeof value === 'string'
-    ? options.filter((option) => option.value === value)
-    : options?.filter((option) => value.includes(option.value));
+
+  const values = typeof value === 'string' ? [value] : value;
+
+  return values.map((v) => {
+    const option = options.find((option) => option.value === v);
+
+    return (
+      option ?? {
+        value: v,
+        label: v as TLabel,
+      }
+    );
+  });
 };
 
 const isSelectedValid =
@@ -119,6 +129,11 @@ function AutoComplete<TLabel = ReactNode>({
         : selected;
     });
   }, [value]);
+
+  useEffect(() => {
+    // Sync selected items when options change
+    setSelected(getSelected(value, options) || []);
+  }, [options, value]);
 
   const handleSelect = useStableCallback(
     ([newValue]: OptionType<string, TLabel>) => {
