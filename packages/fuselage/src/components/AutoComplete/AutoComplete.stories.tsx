@@ -112,7 +112,7 @@ const allOptions = [
 
 const AsyncTemplate: StoryFn<typeof AutoComplete<ReactNode>> = (args) => {
   const [filter, setFilter] = useState('');
-  const [value, setValue] = useState<string | string[]>(args.value ?? 'bob');
+  const [value, setValue] = useState<string | string[]>(args.value || []);
   const [options, setOptions] = useState<typeof allOptions>([]);
 
   useEffect(() => {
