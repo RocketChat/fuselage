@@ -85,7 +85,8 @@ export const WithEmoji = () => (
         <ThreadMessageContainer>
           <ThreadMessageBody>
             Thread Emoji test:{' '}
-            <ThreadMessageEmoji name='test' image={`url(${avatarUrl})`} />
+            <ThreadMessageEmoji name='test' image={`url(${avatarUrl})`} />{' '}
+            <ThreadMessageEmoji name='grinning'>😀</ThreadMessageEmoji>
           </ThreadMessageBody>
         </ThreadMessageContainer>
       </ThreadMessageRow>

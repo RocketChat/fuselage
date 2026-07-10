@@ -222,7 +222,8 @@ export const WithSequential: StoryFn<typeof Message> = () => (
       <MessageContainer>
         <MessageBody>
           {'Test Message Emoji ->'}{' '}
-          <MessageEmoji name='test' image={`url(${avatarUrl})`} />
+          <MessageEmoji name='test' image={`url(${avatarUrl})`} />{' '}
+          <MessageEmoji name='grinning'>😀</MessageEmoji>
         </MessageBody>
       </MessageContainer>
       <MessageToolbarWrapper>
@@ -237,7 +238,10 @@ export const WithSequential: StoryFn<typeof Message> = () => (
       <MessageLeftContainer />
       <MessageContainer>
         <MessageBody>
-          <MessageEmoji big name='test' image={`url(${avatarUrl})`} />
+          <MessageEmoji big name='test' image={`url(${avatarUrl})`} />{' '}
+          <MessageEmoji big name='rocket'>
+            🚀
+          </MessageEmoji>
         </MessageBody>
       </MessageContainer>
       <MessageToolbarWrapper>
@@ -356,6 +360,7 @@ export const MessageWithThread: StoryFn<typeof Message> = () => (
         <ThreadMessageContainer>
           <ThreadMessageBody>
             <ThreadMessageEmoji image={`url(${avatarUrl})`} name='test' />
+            <ThreadMessageEmoji name='grinning'>😀</ThreadMessageEmoji>
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
             nisi ut aliquip ex ea commodo consequat a duis aute irure dolor in
             reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla

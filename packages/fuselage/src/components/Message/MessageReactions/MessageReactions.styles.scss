@@ -85,6 +85,10 @@ $message-reaction-background-color: theme(
 
   &__emoji {
     display: block;
+
+    font-size: lengths.size(12);
+    line-height: lengths.size(16);
+
     @include size.square(lengths.size(16));
   }
 
