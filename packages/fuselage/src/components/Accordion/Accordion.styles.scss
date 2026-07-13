@@ -40,7 +40,7 @@
     }
 
     &.focus,
-    &:focus {
+    &:focus-visible {
       border-color: colors.stroke(highlight);
       @include use-focus-shadow(
         $outer-color: colors.stroke(extra-light-highlight)
