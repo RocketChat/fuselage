@@ -1,6 +1,5 @@
 import type { ReactNode, Attributes } from 'react';
-import { cloneElement } from 'react';
-import { isElement } from 'react-is';
+import { cloneElement, isValidElement } from 'react';
 
 import { flattenChildren } from './flattenChildren';
 import { shallowEqual } from './shallowEqual';
@@ -12,7 +11,7 @@ export const patchChildren = <TProps>(
   let dirty = false;
 
   const newChildren = flattenChildren(children).map((child) => {
-    if (!isElement(child)) {
+    if (!isValidElement(child)) {
       return child;
     }
 

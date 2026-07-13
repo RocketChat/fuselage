@@ -1,6 +1,5 @@
 import type { HTMLAttributes } from 'react';
-import { Fragment } from 'react';
-import { isElement } from 'react-is';
+import { Fragment, isValidElement } from 'react';
 import flattenChildren from 'react-keyed-flatten-children';
 
 import NavBarDivider from './NavBarDivider';
@@ -8,7 +7,7 @@ import NavBarDivider from './NavBarDivider';
 export type NavbarSectionProps = HTMLAttributes<HTMLSpanElement>;
 
 const NavBarSection = ({ children, ...props }: NavbarSectionProps) => {
-  const groups = flattenChildren(children).filter(isElement);
+  const groups = flattenChildren(children).filter(isValidElement);
 
   return (
     <span className='rcx-navbar-section' {...props}>
