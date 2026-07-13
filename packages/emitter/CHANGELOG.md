@@ -1,5 +1,15 @@
 # Change Log
 
+## 0.33.0
+
+### Minor Changes
+
+- [#2072](https://github.com/RocketChat/fuselage/pull/2072) [`46e9cc3`](https://github.com/RocketChat/fuselage/commit/46e9cc36b03bcdd8668f6146dd6e326857416a39) Thanks [@tassoevan](https://github.com/tassoevan)! - feat: Remove unused UMD builds from all packages
+
+### Patch Changes
+
+- [#2060](https://github.com/RocketChat/fuselage/pull/2060) [`ee381bb`](https://github.com/RocketChat/fuselage/commit/ee381bb32982d0f4ed9ef26385b5016e0a2e4023) Thanks [@tassoevan](https://github.com/tassoevan)! - feat: Remove deprecations and keep documentation comments
+
 ## 0.32.0
 
 ### Minor Changes

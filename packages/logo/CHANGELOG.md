@@ -1,5 +1,14 @@
 # Change Log
 
+## 0.33.1
+
+### Patch Changes
+
+- [#2060](https://github.com/RocketChat/fuselage/pull/2060) [`ee381bb`](https://github.com/RocketChat/fuselage/commit/ee381bb32982d0f4ed9ef26385b5016e0a2e4023) Thanks [@tassoevan](https://github.com/tassoevan)! - feat: Remove deprecations and keep documentation comments
+
+- Updated dependencies [[`ee381bb`](https://github.com/RocketChat/fuselage/commit/ee381bb32982d0f4ed9ef26385b5016e0a2e4023)]:
+  - @rocket.chat/styled@0.34.1
+
 ## 0.33.0
 
 ### Minor Changes
