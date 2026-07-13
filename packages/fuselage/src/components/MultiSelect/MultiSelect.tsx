@@ -243,7 +243,7 @@ function MultiSelect({
           />
         </Margins>
       </FlexItem>
-      <PositionAnimated visibility={visible} anchor={containerRef}>
+      <PositionAnimated visible={visible} anchor={containerRef}>
         <_Options
           width={borderBoxSize.inlineSize}
           onMouseDown={prevent}

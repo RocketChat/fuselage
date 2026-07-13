@@ -1,5 +1,11 @@
 # @rocket.chat/layout
 
+## 0.36.0
+
+### Minor Changes
+
+- [#2060](https://github.com/RocketChat/fuselage/pull/2060) [`ee381bb`](https://github.com/RocketChat/fuselage/commit/ee381bb32982d0f4ed9ef26385b5016e0a2e4023) Thanks [@tassoevan](https://github.com/tassoevan)! - feat: Remove deprecations and keep documentation comments
+
 ## 0.35.0
 
 ### Minor Changes
