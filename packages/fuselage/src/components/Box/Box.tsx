@@ -15,27 +15,26 @@ import { useBoxTransform, BoxTransforms } from './BoxTransforms';
 import type { StylingProps } from './stylingProps';
 import { useStylingProps } from './useStylingProps';
 
-export interface BoxProps
-  extends Partial<StylingProps>,
-    Omit<
-      AllHTMLAttributes<HTMLElement>,
-      'ref' | 'is' | 'className' | 'size' | 'elevation' | keyof StylingProps
-    >,
-    Omit<
-      SVGAttributes<SVGElement>,
-      keyof AllHTMLAttributes<HTMLElement> | 'elevation' | keyof StylingProps
-    >,
-    RefAttributes<any> {
-  /**
-   * The `is` prop is used to render the Box as a different HTML tag. It can also be used to render a different fuselage component.
-   */
-  is?: ElementType;
-  className?: string | cssFn | (string | cssFn | Falsy)[];
-  animated?: boolean;
-  withRichContent?: boolean | 'inlineWithoutBreaks';
-  htmlSize?: AllHTMLAttributes<HTMLElement>['size'];
-  focusable?: boolean;
-}
+export type BoxProps = Partial<StylingProps> &
+  Omit<
+    AllHTMLAttributes<HTMLElement>,
+    'ref' | 'is' | 'className' | 'size' | 'elevation' | keyof StylingProps
+  > &
+  Omit<
+    SVGAttributes<SVGElement>,
+    keyof AllHTMLAttributes<HTMLElement> | 'elevation' | keyof StylingProps
+  > &
+  RefAttributes<any> & {
+    /**
+     * The `is` prop is used to render the Box as a different HTML tag. It can also be used to render a different fuselage component.
+     */
+    is?: ElementType;
+    className?: string | cssFn | (string | cssFn | Falsy)[];
+    animated?: boolean;
+    withRichContent?: boolean | 'inlineWithoutBreaks';
+    htmlSize?: AllHTMLAttributes<HTMLElement>['size'];
+    focusable?: boolean;
+  };
 
 function Box({ is = 'div', ...props }: BoxProps) {
   let propsWithStringClassName = useArrayLikeClassNameProp(props);
