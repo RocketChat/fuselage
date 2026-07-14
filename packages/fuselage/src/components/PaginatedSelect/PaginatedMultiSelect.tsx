@@ -209,7 +209,7 @@ const PaginatedMultiSelect = ({
           />
         </Margins>
       </FlexItem>
-      <PositionAnimated visibility={visible} anchor={containerRef}>
+      <PositionAnimated visible={visible} anchor={containerRef}>
         <OptionsComponent
           width={borderBoxSize.inlineSize}
           onMouseDown={prevent}
