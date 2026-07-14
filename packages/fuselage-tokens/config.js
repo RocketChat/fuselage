@@ -9,7 +9,7 @@ export default {
       files: tokens.map((tokenCategory) => ({
         destination: `${tokenCategory}.js`,
         format: 'camelCase',
-        filter: (token) => token.filePath.includes(tokenCategory),
+        filter: (token) => token.filePath.startsWith(`src/${tokenCategory}/`),
       })),
     },
     json: {
@@ -23,9 +23,7 @@ export default {
             tokenCategory === 'breakpoints' || tokenCategory === 'colors'
               ? customFormat
               : 'json/nested',
-          filter: (token) =>
-            // console.log(token.filePath.includes(tokenCategory), tokenCategory);
-            token.filePath.includes(tokenCategory),
+          filter: (token) => token.filePath.startsWith(`src/${tokenCategory}/`),
         };
       }),
     },
@@ -37,13 +35,14 @@ export default {
           return {
             destination: `${tokenCategory}.mjs`,
             format: 'custom/colors-mjs',
-            filter: (token) => token.filePath.includes(tokenCategory),
+            filter: (token) =>
+              token.filePath.startsWith(`src/${tokenCategory}/`),
           };
         }
         return {
           destination: `${tokenCategory}.mjs`,
           format: 'custom/mjs',
-          filter: (token) => token.filePath.includes(tokenCategory),
+          filter: (token) => token.filePath.startsWith(`src/${tokenCategory}/`),
         };
       }),
     },
@@ -56,7 +55,7 @@ export default {
           tokenCategory === 'typography'
             ? 'custom/typography-scss'
             : 'custom/scss',
-        filter: (token) => token.filePath.includes(tokenCategory),
+        filter: (token) => token.filePath.startsWith(`src/${tokenCategory}/`),
       })),
     },
   },
