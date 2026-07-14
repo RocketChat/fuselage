@@ -125,6 +125,26 @@ For each frontend change, agents should verify:
 - Unit tests cover changed behavior.
 - Third-party dependency usage aligns with approved list.
 
+## General Code Style
+
+- File naming: camelCase for files, PascalCase for components.
+- Prefer clear names over unnecessary comments.
+- Prefer editing existing files over creating new abstractions unless the new abstraction removes real complexity or matches an existing pattern.
+
+## Writing
+
+- Avoid subjective descriptors like "smart" or "excellent".
+- Do not invent metrics, user counts, or time estimates.
+- PR descriptions should use straightforward language focused on what changed and why.
+
+## Git And Verification
+
+- Never commit or push without explicit user permission.
+- Never commit directly to `main`.
+- Read-only git operations are fine.
+- Show what will be committed before committing.
+- Verify work with the narrowest meaningful checks first, then broader checks when risk or shared behavior justifies it.
+
 ## Source References
 
 - Frontend hub: https://rocketchat.atlassian.net/wiki/spaces/RnD/pages/944668690/Frontend
