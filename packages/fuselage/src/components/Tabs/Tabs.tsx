@@ -1,7 +1,5 @@
 import { Box, type BoxProps } from '../Box';
 
-import TabsItem from './TabsItem';
-
 export type TabsProps = BoxProps & { divider?: boolean };
 
 /**
@@ -16,8 +14,5 @@ function Tabs({ children, divider = true, ...props }: TabsProps) {
     </Box>
   );
 }
-
-/** @deprecated use named export TabsItem instead */
-Tabs.Item = TabsItem;
 
 export default Tabs;

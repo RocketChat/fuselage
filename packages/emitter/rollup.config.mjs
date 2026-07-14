@@ -24,13 +24,6 @@ export default defineConfig({
       format: 'es',
       sourcemap: true,
     },
-    {
-      dir: dirname(pkg.unpkg),
-      entryFileNames: basename(pkg.unpkg),
-      format: 'umd',
-      name: 'Emitter',
-      sourcemap: true,
-    },
   ],
   plugins: [
     terser({

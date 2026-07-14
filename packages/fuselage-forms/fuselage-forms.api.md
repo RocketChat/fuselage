@@ -13,6 +13,7 @@ import { ComponentPropsWithoutRef } from 'react';
 import { Context } from 'react';
 import { Dispatch } from 'react';
 import { ElementType } from 'react';
+import { EmailInputProps } from '@rocket.chat/fuselage';
 import { Field as Field_2 } from '@rocket.chat/fuselage';
 import { FieldDescription as FieldDescription_2 } from '@rocket.chat/fuselage';
 import { FieldError as FieldError_2 } from '@rocket.chat/fuselage';
@@ -22,195 +23,257 @@ import { FieldLabel as FieldLabel_2 } from '@rocket.chat/fuselage';
 import { FieldLabelInfo } from '@rocket.chat/fuselage';
 import { FieldLink } from '@rocket.chat/fuselage';
 import { FieldRow } from '@rocket.chat/fuselage';
-import { ForwardRefExoticComponent } from 'react';
 import { IconProps } from '@rocket.chat/fuselage';
-import { InputBoxProps } from '@rocket.chat/fuselage';
-import { JSX as JSX_2 } from 'react/jsx-runtime';
+import { JSX } from 'react';
 import { Key } from 'react';
-import { MultiSelectAnchorParams } from '@rocket.chat/fuselage/dist/components/MultiSelect/MultiSelectAnchorParams';
+import { MouseEventHandler } from 'react';
+import { MultiSelectAnchorParams } from '@rocket.chat/fuselage';
 import { NumberInputProps } from '@rocket.chat/fuselage';
 import { PasswordInputProps } from '@rocket.chat/fuselage';
 import { ReactNode } from 'react';
 import { RefAttributes } from 'react';
 import type { RefCallback } from 'react';
+import { SearchInputProps } from '@rocket.chat/fuselage';
 import { SelectOption } from '@rocket.chat/fuselage';
 import { SetStateAction } from 'react';
 import { Slider as Slider_2 } from '@rocket.chat/fuselage';
+import { TextAreaInputProps } from '@rocket.chat/fuselage';
+import { TextInputProps } from '@rocket.chat/fuselage';
 import { UrlInputProps } from '@rocket.chat/fuselage';
 
 // @public (undocumented)
 export const AutoComplete: typeof AutoComplete_2;
 
 // @public (undocumented)
-export const CheckBox: ForwardRefExoticComponent<Omit<BoxProps & {
-indeterminate?: boolean;
-labelChildren?: ReactNode;
-} & AllHTMLAttributes<HTMLInputElement> & RefAttributes<HTMLInputElement>, "ref"> & RefAttributes<HTMLInputElement>>;
+export const CheckBox: {
+    (props: Omit<BoxProps, "ref"> & RefAttributes<HTMLInputElement> & {
+        indeterminate?: boolean;
+        labelChildren?: ReactNode;
+    } & AllHTMLAttributes<HTMLInputElement>): JSX.Element;
+    displayName: string;
+};
 
 // @public (undocumented)
-export const EmailInput: ForwardRefExoticComponent<Omit<Omit<InputBoxProps, "type"> & {
-addon?: ReactNode;
-error?: string;
-} & RefAttributes<HTMLElement>, "ref"> & RefAttributes<HTMLElement>>;
+export const EmailInput: {
+    (props: EmailInputProps & RefAttributes<HTMLInputElement>): JSX.Element;
+    displayName: string;
+};
 
-// Warning: (ae-forgotten-export) The symbol "FieldProps" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
-export function Field(input: FieldProps): JSX_2.Element;
+export function Field(input: FieldProps): JSX.Element;
 
-// Warning: (ae-forgotten-export) The symbol "FieldContextValue" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
 export const FieldContext: Context<FieldContextValue>;
 
-// Warning: (ae-forgotten-export) The symbol "FieldDescriptionProps" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
-export const FieldDescription: (input: FieldDescriptionProps) => JSX_2.Element;
+export type FieldContextValue = {
+    setDescriptor: (type: LabelTypes, unregister?: boolean) => void;
+    setLabel: (label: ReactNode) => void;
+    descriptors: Set<LabelTypes>;
+    label: ReactNode | null;
+    id: string;
+    fieldType: FieldType;
+    setFieldType: (fieldType: FieldType) => void;
+    emitAction: () => void;
+    onAction: (cb: () => void) => void;
+};
 
-// Warning: (ae-forgotten-export) The symbol "FieldErrorProps" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
-export const FieldError: (input: FieldErrorProps) => JSX_2.Element;
+export const FieldDescription: (input: FieldDescriptionProps) => JSX.Element;
+
+// @public (undocumented)
+export type FieldDescriptionProps = {
+    children: ReactNode;
+} & ComponentProps<typeof FieldDescription_2>;
+
+// @public (undocumented)
+export const FieldError: (input: FieldErrorProps) => JSX.Element;
+
+// @public (undocumented)
+export type FieldErrorProps = {
+    children: ReactNode;
+} & ComponentProps<typeof FieldError_2>;
 
 export { FieldGroup }
 
-// Warning: (ae-forgotten-export) The symbol "FieldHintProps" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
-export const FieldHint: (input: FieldHintProps) => JSX_2.Element;
+export const FieldHint: (input: FieldHintProps) => JSX.Element;
 
-// Warning: (ae-forgotten-export) The symbol "FieldLabelProps" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
-export const FieldLabel: (props: FieldLabelProps) => JSX_2.Element;
+export type FieldHintProps = {
+    children: ReactNode;
+} & ComponentProps<typeof FieldHint_2>;
+
+// @public (undocumented)
+export const FieldLabel: (props: FieldLabelProps) => JSX.Element;
 
 export { FieldLabelInfo }
 
+// @public (undocumented)
+export type FieldLabelProps = ComponentPropsWithoutRef<typeof FieldLabel_2>;
+
 export { FieldLink }
 
-// Warning: (ae-forgotten-export) The symbol "FieldProviderProps" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
-export function FieldProvider(input: FieldProviderProps): JSX_2.Element;
+export type FieldProps = {
+    children: ReactNode;
+} & ComponentProps<typeof Field_2>;
+
+// @public (undocumented)
+export function FieldProvider(input: FieldProviderProps): JSX.Element;
+
+// @public (undocumented)
+export type FieldProviderProps = {
+    children: ReactNode;
+};
 
 export { FieldRow }
 
 // @public (undocumented)
 export type FieldType = 'wrappedByLabel' | 'referencedByLabel' | 'referencedByInput';
 
-// Warning: (ae-forgotten-export) The symbol "HiddenLabelProps" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
-export const HiddenLabel: (input: HiddenLabelProps) => JSX_2.Element;
+export const HiddenLabel: (input: HiddenLabelProps) => JSX.Element;
 
-// Warning: (ae-forgotten-export) The symbol "LabelForProps" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
-export const LabelFor: (input: LabelForProps) => JSX_2.Element;
+export type HiddenLabelProps = ComponentProps<typeof FieldLabel_2>;
+
+// @public (undocumented)
+export const LabelFor: (input: LabelForProps) => JSX.Element;
+
+// @public (undocumented)
+export type LabelForProps = ComponentProps<typeof FieldLabel_2>;
 
 // @public (undocumented)
 export type LabelTypes = 'hint' | 'description' | 'error' | 'placeholder';
 
 // @public (undocumented)
-export const MultiSelect: ForwardRefExoticComponent<Omit<Omit<BoxProps, "value" | "onChange"> & {
-value?: SelectOption[0][];
-error?: string;
-options: SelectOption[];
-onChange: (params: SelectOption[0][]) => void;
-getLabel?: (params: SelectOption) => SelectOption[1];
-getValue?: (params: SelectOption) => SelectOption[0];
-customEmpty?: string;
-anchor?: ElementType<MultiSelectAnchorParams> | ((params: MultiSelectAnchorParams) => ReactNode);
-renderOptions?: ElementType;
-renderItem?: ElementType;
-renderSelected?: ElementType;
-addonIcon?: IconProps["name"];
-setFilter?: (filter: string) => void;
-} & RefAttributes<HTMLInputElement>, "ref"> & RefAttributes<HTMLInputElement>>;
+export const MultiSelect: {
+    (props: Omit<BoxProps, "ref" | "value" | "onChange"> & RefAttributes<HTMLInputElement> & {
+        value?: SelectOption[0][];
+        error?: string;
+        options: SelectOption[];
+        onChange: (params: SelectOption[0][]) => void;
+        getLabel?: (params: SelectOption) => SelectOption[1];
+        getValue?: (params: SelectOption) => SelectOption[0];
+        customEmpty?: string;
+        anchor?: ElementType<MultiSelectAnchorParams>;
+        renderOptions?: ElementType;
+        renderItem?: ElementType;
+        renderSelected?: ElementType<    {
+        value: SelectOption[0];
+        label: SelectOption[1];
+        onMouseDown: MouseEventHandler;
+        children: ReactNode;
+        }>;
+        addonIcon?: IconProps["name"];
+        setFilter?: (filter: string) => void;
+    }): JSX.Element;
+    displayName: string;
+};
 
 // @public (undocumented)
-export const MultiSelectFiltered: ForwardRefExoticComponent<Omit<Omit<BoxProps, "value" | "onChange"> & {
-value?: SelectOption[0][];
-error?: string;
-options: SelectOption[];
-onChange: (params: SelectOption[0][]) => void;
-getLabel?: (params: SelectOption) => SelectOption[1];
-getValue?: (params: SelectOption) => SelectOption[0];
-customEmpty?: string;
-anchor?: ElementType<MultiSelectAnchorParams> | ((params: MultiSelectAnchorParams) => ReactNode);
-renderOptions?: ElementType;
-renderItem?: ElementType;
-renderSelected?: ElementType;
-addonIcon?: IconProps["name"];
-setFilter?: (filter: string) => void;
-} & {
-filter?: string;
-setFilter?: Dispatch<SetStateAction<string>>;
-addonIcon?: IconProps["name"];
-} & RefAttributes<HTMLInputElement>, "ref"> & RefAttributes<HTMLInputElement>>;
+export const MultiSelectFiltered: {
+    (props: Omit<BoxProps, "ref" | "value" | "onChange"> & RefAttributes<HTMLInputElement> & {
+        value?: SelectOption[0][];
+        error?: string;
+        options: SelectOption[];
+        onChange: (params: SelectOption[0][]) => void;
+        getLabel?: (params: SelectOption) => SelectOption[1];
+        getValue?: (params: SelectOption) => SelectOption[0];
+        customEmpty?: string;
+        anchor?: ElementType<MultiSelectAnchorParams>;
+        renderOptions?: ElementType;
+        renderItem?: ElementType;
+        renderSelected?: ElementType<    {
+        value: SelectOption[0];
+        label: SelectOption[1];
+        onMouseDown: MouseEventHandler;
+        children: ReactNode;
+        }>;
+        addonIcon?: IconProps["name"];
+        setFilter?: (filter: string) => void;
+    } & {
+        filter?: string;
+        setFilter?: Dispatch<SetStateAction<string>>;
+        addonIcon?: IconProps["name"];
+    }): JSX.Element;
+    displayName: string;
+};
 
 // @public (undocumented)
-export const NumberInput: ForwardRefExoticComponent<Omit<NumberInputProps & RefAttributes<HTMLInputElement>, "ref"> & RefAttributes<HTMLInputElement>>;
+export const NumberInput: {
+    (props: NumberInputProps & RefAttributes<HTMLInputElement>): JSX.Element;
+    displayName: string;
+};
 
 // @public (undocumented)
-export const PasswordInput: ForwardRefExoticComponent<Omit<PasswordInputProps & RefAttributes<HTMLInputElement>, "ref"> & RefAttributes<HTMLInputElement>>;
+export const PasswordInput: {
+    (props: PasswordInputProps & RefAttributes<HTMLInputElement>): JSX.Element;
+    displayName: string;
+};
 
 // @public (undocumented)
-export const RadioButton: ForwardRefExoticComponent<Omit<BoxProps & AllHTMLAttributes<HTMLInputElement> & {
-labelChildren?: ReactNode;
-} & RefAttributes<HTMLInputElement>, "ref"> & RefAttributes<HTMLInputElement>>;
-
-// Warning: (ae-forgotten-export) The symbol "ReferencedLabelProps" needs to be exported by the entry point index.d.ts
-//
-// @public (undocumented)
-export const ReferencedLabel: (input: ReferencedLabelProps) => JSX_2.Element;
+export const RadioButton: {
+    (props: Omit<BoxProps, "ref"> & RefAttributes<HTMLInputElement> & AllHTMLAttributes<HTMLInputElement> & {
+        labelChildren?: ReactNode;
+    }): JSX.Element;
+    displayName: string;
+};
 
 // @public (undocumented)
-export const SearchInput: ForwardRefExoticComponent<Omit<Omit<InputBoxProps, "type"> & {
-addon?: ReactNode;
-error?: string;
-} & RefAttributes<HTMLInputElement>, "ref"> & RefAttributes<HTMLInputElement>>;
+export const ReferencedLabel: (input: ReferencedLabelProps) => JSX.Element;
 
 // @public (undocumented)
-export const Select: ForwardRefExoticComponent<Omit<Omit<AriaSelectProps<object>, "value" | "children" | "onChange"> & {
-error?: string;
-placeholder?: string;
-value?: Key | null | undefined;
-onChange?: ((key: Key) => any) | undefined;
-options: (readonly [value: string, label: string, selected?: boolean | undefined])[];
-small?: boolean;
-} & Omit<AllHTMLAttributes<HTMLElement>, "value" | "onChange"> & RefAttributes<HTMLElement>, "ref"> & RefAttributes<HTMLElement>>;
+export type ReferencedLabelProps = ComponentProps<typeof FieldLabel_2>;
+
+// @public (undocumented)
+export const SearchInput: {
+    (props: SearchInputProps & RefAttributes<HTMLInputElement>): JSX.Element;
+    displayName: string;
+};
+
+// @public (undocumented)
+export const Select: {
+    (props: Omit<AriaSelectProps<unknown>, "children" | "value" | "onChange"> & RefAttributes<HTMLElement> & {
+        error?: string;
+        placeholder?: string;
+        value?: Key | null | undefined;
+        onChange?: ((key: Key) => any) | undefined;
+        options: SelectOption[];
+        small?: boolean;
+    } & Omit<AllHTMLAttributes<HTMLElement>, "value" | "onChange">): JSX.Element;
+    displayName: string;
+};
 
 // @public (undocumented)
 export const Slider: typeof Slider_2;
 
 // @public (undocumented)
-export const TelephoneInput: ForwardRefExoticComponent<Omit<Omit<InputBoxProps, "type"> & {
-addon?: ReactNode;
-input?: ReactNode;
-error?: string;
-} & RefAttributes<HTMLInputElement>, "ref"> & RefAttributes<HTMLInputElement>>;
+export const TextAreaInput: {
+    (props: TextAreaInputProps & RefAttributes<HTMLTextAreaElement>): JSX.Element;
+    displayName: string;
+};
 
 // @public (undocumented)
-export const TextAreaInput: ForwardRefExoticComponent<Omit<Omit<InputBoxProps, "type"> & {
-addon?: ReactNode;
-error?: string;
-} & RefAttributes<HTMLTextAreaElement>, "ref"> & RefAttributes<HTMLTextAreaElement>>;
+export const TextInput: {
+    (props: TextInputProps & RefAttributes<any>): JSX.Element;
+    displayName: string;
+};
 
 // @public (undocumented)
-export const TextInput: ForwardRefExoticComponent<Omit<Omit<InputBoxProps, "type"> & {
-addon?: ReactNode;
-error?: string;
-} & RefAttributes<HTMLInputElement>, "ref"> & RefAttributes<HTMLInputElement>>;
+export const ToggleSwitch: {
+    (props: Omit<BoxProps, "ref"> & RefAttributes<HTMLInputElement> & AllHTMLAttributes<HTMLInputElement> & {
+        labelChildren?: ReactNode;
+    }): JSX.Element;
+    displayName: string;
+};
 
 // @public (undocumented)
-export const ToggleSwitch: ForwardRefExoticComponent<Omit<BoxProps & AllHTMLAttributes<HTMLInputElement> & {
-labelChildren?: ReactNode;
-} & RefAttributes<HTMLInputElement>, "ref"> & RefAttributes<HTMLInputElement>>;
-
-// @public (undocumented)
-export const UrlInput: ForwardRefExoticComponent<Omit<UrlInputProps & RefAttributes<HTMLElement>, "ref"> & RefAttributes<HTMLElement>>;
+export const UrlInput: {
+    (props: UrlInputProps & RefAttributes<HTMLInputElement>): JSX.Element;
+    displayName: string;
+};
 
 // @public (undocumented)
 export const useFieldDescriptorId: (type: LabelTypes) => string;

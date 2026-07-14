@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/emitter",
-  "version": "0.32.0",
+  "version": "0.33.0",
   "description": "Event Emitter by Rocket.Chat",
   "keywords": [
     "rocket.chat"
@@ -19,7 +19,6 @@
     "url": "https://rocket.chat/"
   },
   "main": "dist/index.js",
-  "unpkg": "dist/index.umd.js",
   "module": "dist/index.module.js",
   "source": "src/index.ts",
   "types": "dist/index.d.ts",
@@ -28,7 +27,6 @@
   ],
   "scripts": {
     "build": "rollup -c && api-extractor run --local",
-    ".:build:api": "api-extractor run --local",
     "lint": "lint",
     "lint-and-fix": "lint-and-fix",
     "test": "jest --runInBand",
@@ -36,18 +34,18 @@
   },
   "devDependencies": {
     "@microsoft/api-extractor": "~7.58.7",
-    "@rollup/plugin-commonjs": "~28.0.9",
+    "@rollup/plugin-commonjs": "~29.0.3",
     "@rollup/plugin-json": "~6.1.0",
     "@rollup/plugin-node-resolve": "~16.0.3",
-    "@rollup/plugin-terser": "~0.4.4",
+    "@rollup/plugin-terser": "~1.0.0",
     "@rollup/plugin-typescript": "~12.3.0",
-    "eslint": "~9.39.2",
-    "jest": "~30.3.0",
+    "eslint": "~9.39.4",
+    "jest": "~30.4.2",
     "lint-all": "workspace:~",
     "prettier": "~3.6.2",
-    "rollup": "~4.60.0",
-    "ts-jest": "~29.4.6",
-    "typedoc": "~0.28.18",
+    "rollup": "~4.60.4",
+    "ts-jest": "~29.4.11",
+    "typedoc": "~0.28.19",
     "typescript": "~5.9.3"
   },
   "publishConfig": {

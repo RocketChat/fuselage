@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/storybook-dark-mode",
-  "version": "4.1.0",
+  "version": "4.2.1",
   "description": "Toggle between light and dark mode in Storybook (Rocket.Chat fork)",
   "repository": {
     "type": "git",
@@ -27,19 +27,22 @@
   },
   "dependencies": {
     "@storybook/global": "~5.0.0",
-    "@storybook/icons": "~1.2.12",
+    "@storybook/icons": "~1.6.0",
     "fast-deep-equal": "~3.1.3"
   },
   "devDependencies": {
-    "@types/react": "~18.3.27",
-    "eslint": "~9.39.2",
+    "@types/react": "~19.2.17",
+    "@types/react-dom": "~19.2.3",
+    "eslint": "~9.39.4",
     "lint-all": "workspace:~",
     "prettier": "~3.6.2",
-    "rimraf": "~6.0.1",
+    "react": "~19.2.7",
+    "react-dom": "~19.2.7",
+    "rimraf": "~6.1.3",
     "typescript": "~5.9.3"
   },
   "peerDependencies": {
-    "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
-    "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0"
+    "react": "*",
+    "react-dom": "*"
   }
 }

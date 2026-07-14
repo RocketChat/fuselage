@@ -1,1 +1,4 @@
-export { default } from './CreateNewAccountPage';
+export {
+  default,
+  type CreateNewAccountPageProps,
+} from './CreateNewAccountPage';

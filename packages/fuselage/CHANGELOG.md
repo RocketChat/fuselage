@@ -1,5 +1,58 @@
 # Change Log
 
+## 0.82.0
+
+### Minor Changes
+
+- [#2060](https://github.com/RocketChat/fuselage/pull/2060) [`ee381bb`](https://github.com/RocketChat/fuselage/commit/ee381bb32982d0f4ed9ef26385b5016e0a2e4023) Thanks [@tassoevan](https://github.com/tassoevan)! - feat: Remove deprecations and keep documentation comments
+
+- [#2072](https://github.com/RocketChat/fuselage/pull/2072) [`46e9cc3`](https://github.com/RocketChat/fuselage/commit/46e9cc36b03bcdd8668f6146dd6e326857416a39) Thanks [@tassoevan](https://github.com/tassoevan)! - feat: Remove unused UMD builds from all packages
+
+### Patch Changes
+
+- [#2078](https://github.com/RocketChat/fuselage/pull/2078) [`6f06570`](https://github.com/RocketChat/fuselage/commit/6f065708cc5b9ea672ccfe30a7fdb122363d12e1) Thanks [@tassoevan](https://github.com/tassoevan)! - fix: Adapt `NavBarSection` to match previous (accidental) runtime behavior
+
+- [#2069](https://github.com/RocketChat/fuselage/pull/2069) [`4e9188c`](https://github.com/RocketChat/fuselage/commit/4e9188c294806d38bd5755e37238ac9c0e470aee) Thanks [@tassoevan](https://github.com/tassoevan)! - fix: Pass filtered select anchor props via context
+
+- [#2085](https://github.com/RocketChat/fuselage/pull/2085) [`5206e22`](https://github.com/RocketChat/fuselage/commit/5206e22f5004b19333bfe88a1de7cfa43c29c35b) Thanks [@ricardogarim](https://github.com/ricardogarim)! - fix: `MultiSelect`/`MultiSelectFiltered`/`PaginatedMultiSelect` dropdown never opening (pass `visible` instead of `visibility` to `PositionAnimated`)
+
+- Updated dependencies [[`ee381bb`](https://github.com/RocketChat/fuselage/commit/ee381bb32982d0f4ed9ef26385b5016e0a2e4023), [`46e9cc3`](https://github.com/RocketChat/fuselage/commit/46e9cc36b03bcdd8668f6146dd6e326857416a39)]:
+  - @rocket.chat/css-in-js@0.33.0
+
+## 0.81.0
+
+### Minor Changes
+
+- [#2052](https://github.com/RocketChat/fuselage/pull/2052) [`d20a82f`](https://github.com/RocketChat/fuselage/commit/d20a82fb51ec3620fc22ed23e1a90f26a89967df) Thanks [@ggazzo](https://github.com/ggazzo)! - feat(fuselage): extract controlled AudioPlayerControls from AudioPlayer
+
+## 0.80.0
+
+### Minor Changes
+
+- [#1999](https://github.com/RocketChat/fuselage/pull/1999) [`6e37f9d`](https://github.com/RocketChat/fuselage/commit/6e37f9d2fee4c9ebeb8ea2c1601bbd4c89905859) Thanks [@tassoevan](https://github.com/tassoevan)! - feat!: Upgrade to React 19
+
+## 0.79.1
+
+### Patch Changes
+
+- [#2024](https://github.com/RocketChat/fuselage/pull/2024) [`52fdd70`](https://github.com/RocketChat/fuselage/commit/52fdd70b9352c64276a1556275db44f8e1f505e6) Thanks [@ggazzo](https://github.com/ggazzo)! - fix(fuselage): `InputBox` spacing in leading and trailing addons
+
+## 0.79.0
+
+### Minor Changes
+
+- [#2017](https://github.com/RocketChat/fuselage/pull/2017) [`752b501`](https://github.com/RocketChat/fuselage/commit/752b5018c3c0991a721f636394b9fab19340a5e3) Thanks [@dougfabris](https://github.com/dougfabris)! - feat(fuselage): Add `startAddon` and `endAddon` to `InputBox`
+
+## 0.78.1
+
+### Patch Changes
+
+- [#1982](https://github.com/RocketChat/fuselage/pull/1982) [`9e055ca`](https://github.com/RocketChat/fuselage/commit/9e055cae7a4247dd4e812b56b9126e471e145869) Thanks [@nazabucciarelli](https://github.com/nazabucciarelli)! - fix(fuselage): autocomplete overlay on MultiSelectFiltered component
+
+- [#1980](https://github.com/RocketChat/fuselage/pull/1980) [`faa9feb`](https://github.com/RocketChat/fuselage/commit/faa9feb879307fce6155d51c8bc0156c03bbb093) Thanks [@ricardogarim](https://github.com/ricardogarim)! - Fixed `Select` inflating ancestor scrollHeight inside non-positioned containers (collapsed `Accordion`, `Modal`, `Field`, etc.). Regression from 0.77.0 ([#1939](https://github.com/RocketChat/fuselage/issues/1939)).
+
+- [#1961](https://github.com/RocketChat/fuselage/pull/1961) [`792c038`](https://github.com/RocketChat/fuselage/commit/792c038bb9d6d0c5bb30b2c45708ff14c6bb8ce6) Thanks [@tassoevan](https://github.com/tassoevan)! - fix(fuselage): issues not caught by visual regression testing after Sass rewrite
+
 ## 0.78.0
 
 ### Minor Changes

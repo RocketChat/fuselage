@@ -44,7 +44,8 @@
   $focus-icon-color,
   $disabled-color
 ) {
-  & + .rcx-input-box__addon {
+  & + .rcx-input-box__addon,
+  .rcx-input-box__addon:has(+ &) {
     color: $color;
   }
 
@@ -54,7 +55,10 @@
 
   &:focus + .rcx-input-box__addon,
   &.focus + .rcx-input-box__addon,
-  .rcx-input-box__wrapper.focus > & + .rcx-input-box__addon {
+  .rcx-input-box__wrapper.focus > & + .rcx-input-box__addon,
+  .rcx-input-box__addon:has(+ &:focus),
+  .rcx-input-box__addon:has(+ &.focus),
+  .rcx-input-box__wrapper.focus > .rcx-input-box__addon:has(+ &) {
     color: $focus-icon-color;
   }
 
@@ -65,7 +69,10 @@
   *:disabled & + .rcx-input-box__addon,
   &:disabled + .rcx-input-box__addon,
   &.disabled + .rcx-input-box__addon,
-  .rcx-input-box__wrapper.disabled > & + .rcx-input-box__addon {
+  .rcx-input-box__wrapper.disabled > & + .rcx-input-box__addon,
+  .rcx-input-box__addon:has(+ &:disabled),
+  .rcx-input-box__addon:has(+ &.disabled),
+  .rcx-input-box__wrapper.disabled > .rcx-input-box__addon:has(+ &) {
     color: $disabled-color;
   }
 }

@@ -7,9 +7,7 @@
 import { cssSupports } from '@rocket.chat/css-supports';
 import type { Middleware } from 'stylis';
 
-// Warning: (ae-forgotten-export) The symbol "RuleAttacher" needs to be exported by the entry point index.d.ts
-//
-// @public (undocumented)
+// @public
 export const attachRules: RuleAttacher;
 
 // @public (undocumented)
@@ -18,11 +16,9 @@ export const createAnimationName: (content: string) => string;
 // @public (undocumented)
 export const createClassName: (content: string) => string;
 
-// @public (undocumented)
+// @public
 export const css: (slices: TemplateStringsArray, ...values: readonly unknown[]) => cssFn;
 
-// Warning: (ae-forgotten-export) The symbol "Evaluable" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
 export type cssFn = Evaluable;
 
@@ -31,13 +27,21 @@ export { cssSupports }
 // @public (undocumented)
 export const escapeName: (animationOrClassName: string) => string;
 
-// @public (undocumented)
+// @public
+export type Evaluable = <T extends readonly unknown[]>(...args: T) => string;
+
+// @public
 export const keyframes: (slices: TemplateStringsArray, ...values: unknown[]) => keyframesFn;
 
 // @public (undocumented)
 export type keyframesFn = Evaluable;
 
 // @public (undocumented)
+export type RuleAttacher = (rules: string, options?: {
+    document?: Document;
+}) => () => void;
+
+// @public
 export const transpile: (selector: string, content: string, middleware?: Middleware) => string;
 
 // (No @packageDocumentation comment for this package)

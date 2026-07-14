@@ -1,1 +1,1 @@
-export { default } from './RequestTrialPage';
+export { default, type RequestTrialPageProps } from './RequestTrialPage';

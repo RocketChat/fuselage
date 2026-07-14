@@ -10,10 +10,8 @@ import type { Dispatch } from 'react';
 import type { DispatchWithoutAction } from 'react';
 import type { KeyboardEvent as KeyboardEvent_2 } from 'react';
 import type { MouseEvent as MouseEvent_2 } from 'react';
-import type { MutableRefObject } from 'react';
 import type { Reducer } from 'react';
 import type { ReducerState } from 'react';
-import type { ReducerStateWithoutAction } from 'react';
 import type { ReducerWithoutAction } from 'react';
 import type { Ref } from 'react';
 import type { RefCallback } from 'react';
@@ -31,13 +29,33 @@ export function getPositionStyle(input: {
     margin?: number;
 }): UsePositionResult;
 
+// @public (undocumented)
+export type Placement = `${Position}-${PlacementVariant}` | Position;
+
+// @public (undocumented)
+export type PlacementVariant = 'start' | 'middle' | 'end';
+
+// @public (undocumented)
+export type Position = 'top' | 'left' | 'bottom' | 'right';
+
+// @public (undocumented)
+export type SafeCallbackRef<T> = (node: T) => (() => void) | void;
+
+// @public (undocumented)
+export type TargetBoundaries = {
+    t: number;
+    b: number;
+    r: number;
+    l: number;
+};
+
 // @public
 export const useAutoFocus: <T extends {
     focus: (options?: FocusOptions) => void;
 }>(isFocused?: boolean, options?: FocusOptions) => Ref<T>;
 
 // @public (undocumented)
-export const useBorderBoxSize: (ref: RefObject<HTMLElement>, input?: {
+export const useBorderBoxSize: (ref: RefObject<HTMLElement | null>, input?: {
     debounceDelay?: number;
 }) => Readonly<{
     inlineSize: number;
@@ -55,10 +73,15 @@ export const useButtonPattern: (onPress: (e: MouseEvent_2<Element> | KeyboardEve
     tabIndex: number;
 };
 
-// Warning: (ae-forgotten-export) The symbol "UseClipboardParams" needs to be exported by the entry point index.d.ts
-//
 // @public
 export const useClipboard: (text: string, input?: UseClipboardParams) => UseClipboardReturn;
+
+// @public (undocumented)
+export type UseClipboardParams = {
+    clearTime?: number;
+    onCopySuccess?: (e?: Event) => void;
+    onCopyError?: (e?: Error) => void;
+};
 
 // @public (undocumented)
 export type UseClipboardReturn = {
@@ -67,7 +90,7 @@ export type UseClipboardReturn = {
 };
 
 // @public (undocumented)
-export const useContentBoxSize: (ref: RefObject<HTMLElement>, input?: {
+export const useContentBoxSize: (ref: RefObject<HTMLElement | null>, input?: {
     debounceDelay?: number;
 }) => Readonly<{
     inlineSize: number;
@@ -85,7 +108,7 @@ export const useDebouncedCallback: <P extends unknown[]>(callback: (...args: P) 
 
 // @public
 export function useDebouncedReducer<S, R extends ReducerWithoutAction<S>>(reducer: R, initialArg: S, init: undefined, delay: number): [
-ReducerStateWithoutAction<R>,
+ReducerState<R>,
 DispatchWithoutAction & {
     flush: () => void;
     cancel: () => void;
@@ -93,8 +116,8 @@ DispatchWithoutAction & {
 ];
 
 // @public
-export function useDebouncedReducer<S, R extends ReducerWithoutAction<S>, I>(reducer: R, initialArg: I, init: (arg: I) => ReducerStateWithoutAction<R>, delay: number): [
-ReducerStateWithoutAction<R>,
+export function useDebouncedReducer<S, R extends ReducerWithoutAction<S>, I>(reducer: R, initialArg: I, init: (arg: I) => ReducerState<R>, delay: number): [
+ReducerState<R>,
 DispatchWithoutAction & {
     flush: () => void;
     cancel: () => void;
@@ -140,17 +163,14 @@ Dispatch<A> & {
 // @public
 export const useDebouncedValue: <V>(value: V, delay: number) => V;
 
-// @public @deprecated
-export const useEffectEvent: <TFunction extends (...args: any[]) => any>(fn: TFunction) => (...args: TFunction extends (...args: infer P) => any ? P : never) => TFunction extends (...args: any) => infer T ? T : never;
-
 // @public (undocumented)
-export const useElementIsVisible: <T extends Element>() => [ref: RefObject<T>, isVisible: boolean];
+export const useElementIsVisible: <T extends Element>() => [ref: RefObject<T | null>, isVisible: boolean];
 
 // @public
 export const useIsomorphicLayoutEffect: typeof useEffect;
 
 // @public
-export const useLazyRef: <T>(init: () => T) => MutableRefObject<T>;
+export const useLazyRef: <T>(init: () => T) => RefObject<T>;
 
 // @public
 export const useLocalStorage: <T>(key: string, fallbackValue: T) => [T, Dispatch<SetStateAction<T>>];
@@ -162,16 +182,13 @@ export const useMediaQueries: (...queries: string[]) => boolean[];
 export const useMediaQuery: (query?: string) => boolean;
 
 // @public
-export const useMergedRefs: <T>(...refs: Ref<T>[]) => RefCallback<T>;
-
-// @public @deprecated
-export const useMutableCallback: <TFunction extends (...args: any[]) => any>(fn: TFunction) => (...args: TFunction extends (...args: infer P) => any ? P : never) => TFunction extends (...args: any) => infer T ? T : never;
+export const useMergedRefs: <T>(...refs: (Ref<T> | null | undefined)[]) => RefCallback<T>;
 
 // @public
 export function useOutsideClick<T extends Element>(elements: RefObject<T | null>[], cb: (e: MouseEvent) => void): void;
 
 // @public
-export function usePosition<TTarget extends Element, TAnchor extends Element>(anchorRef: RefObject<TAnchor>, targetRef: RefObject<TTarget>, input?: UsePositionOptions): UsePositionResult;
+export function usePosition<TTarget extends Element, TAnchor extends Element>(anchorRef: RefObject<TAnchor | null>, targetRef: RefObject<TTarget | null>, input?: UsePositionOptions): UsePositionResult;
 
 // @public (undocumented)
 export type UsePositionOptions = {
@@ -198,20 +215,21 @@ export const usePrefersReducedMotion: () => boolean;
 // @public (undocumented)
 export const usePrevious: <T>(value: T) => T | undefined;
 
-// Warning: (ae-forgotten-export) The symbol "UseResizeObserverOptions" needs to be exported by the entry point index.d.ts
-//
 // @public
 export const useResizeObserver: <T extends Element>(input?: UseResizeObserverOptions) => {
-    ref: RefObject<T>;
+    ref: RefObject<T | null>;
     contentBoxSize: Partial<ResizeObserverSize>;
     borderBoxSize: Partial<ResizeObserverSize>;
+};
+
+// @public (undocumented)
+export type UseResizeObserverOptions = {
+    debounceDelay?: number;
 };
 
 // @public
 export function useSafely<S, D extends DispatchWithoutAction | Dispatch<any>>(input: [state: S, dispatch: D]): [state: S, dispatch: D];
 
-// Warning: (ae-forgotten-export) The symbol "SafeCallbackRef" needs to be exported by the entry point index.d.ts
-//
 // @public
 export const useSafeRefCallback: <T extends HTMLElement>(callback: SafeCallbackRef<T>) => (node: T | null) => void;
 
@@ -230,11 +248,15 @@ export const useStorage: <T>(storage: Storage | undefined, key: string, fallback
 // @public
 export const useToggle: (initialValue?: boolean | (() => boolean)) => [boolean, (forcedValue?: SetStateAction<boolean>) => void];
 
-// Warnings were encountered during analysis:
-//
-// src/usePosition/index.ts:84:3 - (ae-forgotten-export) The symbol "Placement" needs to be exported by the entry point index.d.ts
-// src/usePosition/index.ts:87:3 - (ae-forgotten-export) The symbol "TargetBoundaries" needs to be exported by the entry point index.d.ts
-// src/usePosition/index.ts:88:3 - (ae-forgotten-export) The symbol "VariantBoundaries" needs to be exported by the entry point index.d.ts
+// @public (undocumented)
+export type VariantBoundaries = {
+    vm: number;
+    vs: number;
+    ve: number;
+    hs: number;
+    he: number;
+    hm: number;
+};
 
 // (No @packageDocumentation comment for this package)
 

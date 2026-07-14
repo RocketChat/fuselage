@@ -5,7 +5,7 @@ import type {
   RefAttributes,
   SVGAttributes,
 } from 'react';
-import { createElement, forwardRef, memo } from 'react';
+import { createElement, memo } from 'react';
 
 import { useArrayLikeClassNameProp } from '../../hooks/useArrayLikeClassNameProp';
 import { useBoxOnlyProps } from '../../hooks/useBoxOnlyProps';
@@ -24,7 +24,8 @@ export interface BoxProps
     Omit<
       SVGAttributes<SVGElement>,
       keyof AllHTMLAttributes<HTMLElement> | 'elevation' | keyof StylingProps
-    > {
+    >,
+    RefAttributes<any> {
   /**
    * The `is` prop is used to render the Box as a different HTML tag. It can also be used to render a different fuselage component.
    */
@@ -36,17 +37,8 @@ export interface BoxProps
   focusable?: boolean;
 }
 
-export const Box = forwardRef<any, BoxProps>(function Box(
-  { is = 'div', children, ...props },
-  ref,
-) {
-  const propsWithRef: BoxProps & RefAttributes<any> = props;
-
-  if (ref) {
-    propsWithRef.ref = ref;
-  }
-
-  let propsWithStringClassName = useArrayLikeClassNameProp(propsWithRef);
+function Box({ is = 'div', ...props }: BoxProps) {
+  let propsWithStringClassName = useArrayLikeClassNameProp(props);
 
   const transformFn = useBoxTransform();
   if (transformFn) {
@@ -56,13 +48,13 @@ export const Box = forwardRef<any, BoxProps>(function Box(
   const propsWithoutStylingProps = useStylingProps(propsWithStringClassName);
   const propsWithoutBoxOnlyProps = useBoxOnlyProps(propsWithoutStylingProps);
 
-  const element = createElement(is, propsWithoutBoxOnlyProps, children);
+  const element = createElement(is, propsWithoutBoxOnlyProps);
 
   if (transformFn) {
     return <BoxTransforms.Provider children={element} value={null} />;
   }
 
   return element;
-});
+}
 
 export default memo(Box);

@@ -1,5 +1,5 @@
-import { Form } from '@rocket.chat/layout';
-import { useState, type ReactElement } from 'react';
+import { Form, FormHeader, FormTitle } from '@rocket.chat/layout';
+import { useState } from 'react';
 import type { SubmitHandler } from 'react-hook-form';
 import { useForm, FormProvider } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
@@ -33,7 +33,7 @@ const RegisterOfflineForm = ({
   onSubmit,
   onCopySecurityCode,
   onBackButtonClick,
-}: RegisterOfflineFormProps): ReactElement => {
+}: RegisterOfflineFormProps) => {
   const { t } = useTranslation();
 
   const [step, setStep] = useState(Steps.COPY);
@@ -51,9 +51,9 @@ const RegisterOfflineForm = ({
   return (
     <FormProvider {...form}>
       <Form onSubmit={handleSubmit(onSubmit)}>
-        <Form.Header>
-          <Form.Title>{t('form.registerOfflineForm.title')}</Form.Title>
-        </Form.Header>
+        <FormHeader>
+          <FormTitle>{t('form.registerOfflineForm.title')}</FormTitle>
+        </FormHeader>
         {step === Steps.COPY ? (
           <CopyStep
             termsHref={termsHref}

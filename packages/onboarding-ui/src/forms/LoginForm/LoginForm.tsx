@@ -9,8 +9,15 @@ import {
   FieldRow,
   FieldError,
 } from '@rocket.chat/fuselage';
-import { Form, ActionLink } from '@rocket.chat/layout';
-import type { ReactElement } from 'react';
+import {
+  ActionLink,
+  Form,
+  FormContainer,
+  FormFooter,
+  FormHeader,
+  FormSubtitle,
+  FormTitle,
+} from '@rocket.chat/layout';
 import type { SubmitHandler } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
 import { Trans, useTranslation } from 'react-i18next';
@@ -38,7 +45,7 @@ const LoginForm = ({
   onChangeForm,
   onResetPassword,
   formError,
-}: LoginFormProps): ReactElement => {
+}: LoginFormProps) => {
   const { t } = useTranslation();
 
   const {
@@ -53,15 +60,15 @@ const LoginForm = ({
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
-      <Form.Header>
-        <Form.Title>{t('form.loginForm.content.logIn')}</Form.Title>
-        <Form.Subtitle>
+      <FormHeader>
+        <FormTitle>{t('form.loginForm.content.logIn')}</FormTitle>
+        <FormSubtitle>
           {!isPasswordLess
             ? t('form.loginForm.content.default')
             : t('form.loginForm.content.passwordLess')}
-        </Form.Subtitle>
-      </Form.Header>
-      <Form.Container>
+        </FormSubtitle>
+      </FormHeader>
+      <FormContainer>
         <FieldGroup>
           <Field>
             <FieldLabel>{t('form.loginForm.fields.email.label')}</FieldLabel>
@@ -94,8 +101,8 @@ const LoginForm = ({
             </Field>
           )}
         </FieldGroup>
-      </Form.Container>
-      <Form.Footer>
+      </FormContainer>
+      <FormFooter>
         <LoginActionsWrapper>
           <Button
             type='submit'
@@ -129,7 +136,7 @@ const LoginForm = ({
             </Trans>
           </Box>
         )}
-      </Form.Footer>
+      </FormFooter>
     </Form>
   );
 };

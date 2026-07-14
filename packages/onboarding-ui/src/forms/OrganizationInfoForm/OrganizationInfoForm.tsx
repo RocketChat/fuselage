@@ -12,8 +12,17 @@ import {
   Box,
 } from '@rocket.chat/fuselage';
 import { useBreakpoints } from '@rocket.chat/fuselage-hooks';
-import { ActionLink, Form } from '@rocket.chat/layout';
-import type { ReactElement, ReactNode } from 'react';
+import {
+  ActionLink,
+  Form,
+  FormContainer,
+  FormFooter,
+  FormHeader,
+  FormSteps,
+  FormSubtitle,
+  FormTitle,
+} from '@rocket.chat/layout';
+import type { ReactNode } from 'react';
 import { useRef, useEffect, useId } from 'react';
 import type { SubmitHandler } from 'react-hook-form';
 import { useForm, Controller } from 'react-hook-form';
@@ -50,7 +59,7 @@ const OrganizationInfoForm = ({
   onSubmit,
   onBackButtonClick,
   onClickSkip,
-}: OrganizationInfoFormProps): ReactElement => {
+}: OrganizationInfoFormProps) => {
   const { t } = useTranslation();
   const breakpoints = useBreakpoints();
   const isMobile = !breakpoints.includes('md');
@@ -86,16 +95,16 @@ const OrganizationInfoForm = ({
       aria-describedby={`${formId}-description`}
       onSubmit={handleSubmit(onSubmit)}
     >
-      <Form.Header>
-        <Form.Steps currentStep={currentStep} stepCount={stepCount} />
-        <Form.Title id={`${formId}-title`}>
+      <FormHeader>
+        <FormSteps currentStep={currentStep} stepCount={stepCount} />
+        <FormTitle id={`${formId}-title`}>
           {t('form.organizationInfoForm.title')}
-        </Form.Title>
-        <Form.Subtitle id={`${formId}-description`}>
+        </FormTitle>
+        <FormSubtitle id={`${formId}-description`}>
           {t('form.organizationInfoForm.subtitle')}
-        </Form.Subtitle>
-      </Form.Header>
-      <Form.Container>
+        </FormSubtitle>
+      </FormHeader>
+      <FormContainer>
         <FieldGroup>
           <Field>
             <FieldLabel required htmlFor={organizationNameField}>
@@ -228,8 +237,8 @@ const OrganizationInfoForm = ({
             )}
           </Field>
         </FieldGroup>
-      </Form.Container>
-      <Form.Footer>
+      </FormContainer>
+      <FormFooter>
         <ButtonGroup vertical={isMobile}>
           {onBackButtonClick && (
             <Button disabled={isSubmitting} onClick={onBackButtonClick}>
@@ -249,7 +258,7 @@ const OrganizationInfoForm = ({
             </Box>
           )}
         </ButtonGroup>
-      </Form.Footer>
+      </FormFooter>
     </Form>
   );
 };

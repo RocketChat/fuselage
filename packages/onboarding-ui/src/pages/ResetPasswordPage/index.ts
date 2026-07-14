@@ -1,1 +1,1 @@
-export { default } from './ResetPasswordPage';
+export { default, type ResetPasswordPageProps } from './ResetPasswordPage';

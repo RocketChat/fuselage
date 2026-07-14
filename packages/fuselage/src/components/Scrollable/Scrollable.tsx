@@ -1,6 +1,6 @@
 import { css } from '@rocket.chat/css-in-js';
 import { useStableCallback } from '@rocket.chat/fuselage-hooks';
-import type { PropsWithChildren, MouseEvent, MutableRefObject } from 'react';
+import type { PropsWithChildren, MouseEvent, RefObject } from 'react';
 import { useRef, useCallback } from 'react';
 
 import { appendClassName } from '../../helpers/appendClassName';
@@ -23,7 +23,7 @@ const getTouchingEdges = (element: Element) => ({
 
 const pollTouchingEdges = (
   element: EventTarget & Element,
-  touchingEdgesRef: MutableRefObject<Record<string, boolean>>,
+  touchingEdgesRef: RefObject<Record<string, boolean>>,
   onScrollContent: ((touching: { top: boolean }) => void) | undefined,
 ) => {
   const touchingEdges = touchingEdgesRef.current;
@@ -52,7 +52,7 @@ const Scrollable = ({
   smooth,
   onScrollContent,
 }: ScrollableProps) => {
-  const scrollTimeoutRef = useRef<ReturnType<typeof setTimeout>>();
+  const scrollTimeoutRef = useRef<ReturnType<typeof setTimeout>>(undefined);
   const touchingEdgesRef = useRef({});
 
   const handleScroll = useStableCallback((event: MouseEvent) => {

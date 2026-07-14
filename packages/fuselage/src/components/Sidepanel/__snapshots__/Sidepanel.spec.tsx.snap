@@ -157,7 +157,7 @@ exports[`renders Default without crashing 1`] = `
                           aria-haspopup="true"
                           aria-label="Options"
                           class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button"
-                          id="react-aria-:r0:"
+                          id="react-aria-_r_0_"
                           title="Options"
                           type="button"
                         >
@@ -263,7 +263,7 @@ exports[`renders Default without crashing 1`] = `
                           aria-haspopup="true"
                           aria-label="Options"
                           class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button"
-                          id="react-aria-:r2:"
+                          id="react-aria-_r_2_"
                           title="Options"
                           type="button"
                         >
@@ -369,7 +369,7 @@ exports[`renders Default without crashing 1`] = `
                           aria-haspopup="true"
                           aria-label="Options"
                           class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button"
-                          id="react-aria-:r4:"
+                          id="react-aria-_r_4_"
                           title="Options"
                           type="button"
                         >
@@ -475,7 +475,7 @@ exports[`renders Default without crashing 1`] = `
                           aria-haspopup="true"
                           aria-label="Options"
                           class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button"
-                          id="react-aria-:r6:"
+                          id="react-aria-_r_6_"
                           title="Options"
                           type="button"
                         >
@@ -581,7 +581,7 @@ exports[`renders Default without crashing 1`] = `
                           aria-haspopup="true"
                           aria-label="Options"
                           class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button"
-                          id="react-aria-:r8:"
+                          id="react-aria-_r_8_"
                           title="Options"
                           type="button"
                         >
@@ -687,7 +687,7 @@ exports[`renders Default without crashing 1`] = `
                           aria-haspopup="true"
                           aria-label="Options"
                           class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button"
-                          id="react-aria-:ra:"
+                          id="react-aria-_r_a_"
                           title="Options"
                           type="button"
                         >
@@ -793,7 +793,7 @@ exports[`renders Default without crashing 1`] = `
                           aria-haspopup="true"
                           aria-label="Options"
                           class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button"
-                          id="react-aria-:rc:"
+                          id="react-aria-_r_c_"
                           title="Options"
                           type="button"
                         >
@@ -899,7 +899,7 @@ exports[`renders Default without crashing 1`] = `
                           aria-haspopup="true"
                           aria-label="Options"
                           class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button"
-                          id="react-aria-:re:"
+                          id="react-aria-_r_e_"
                           title="Options"
                           type="button"
                         >
@@ -1005,7 +1005,7 @@ exports[`renders Default without crashing 1`] = `
                           aria-haspopup="true"
                           aria-label="Options"
                           class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button"
-                          id="react-aria-:rg:"
+                          id="react-aria-_r_g_"
                           title="Options"
                           type="button"
                         >
@@ -1111,7 +1111,7 @@ exports[`renders Default without crashing 1`] = `
                           aria-haspopup="true"
                           aria-label="Options"
                           class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button"
-                          id="react-aria-:ri:"
+                          id="react-aria-_r_i_"
                           title="Options"
                           type="button"
                         >
@@ -1217,7 +1217,7 @@ exports[`renders Default without crashing 1`] = `
                           aria-haspopup="true"
                           aria-label="Options"
                           class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button"
-                          id="react-aria-:rk:"
+                          id="react-aria-_r_k_"
                           title="Options"
                           type="button"
                         >
@@ -1323,7 +1323,7 @@ exports[`renders Default without crashing 1`] = `
                           aria-haspopup="true"
                           aria-label="Options"
                           class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button"
-                          id="react-aria-:rm:"
+                          id="react-aria-_r_m_"
                           title="Options"
                           type="button"
                         >
@@ -1429,7 +1429,7 @@ exports[`renders Default without crashing 1`] = `
                           aria-haspopup="true"
                           aria-label="Options"
                           class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button"
-                          id="react-aria-:ro:"
+                          id="react-aria-_r_o_"
                           title="Options"
                           type="button"
                         >
@@ -1535,7 +1535,7 @@ exports[`renders Default without crashing 1`] = `
                           aria-haspopup="true"
                           aria-label="Options"
                           class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button"
-                          id="react-aria-:rq:"
+                          id="react-aria-_r_q_"
                           title="Options"
                           type="button"
                         >
@@ -1641,7 +1641,7 @@ exports[`renders Default without crashing 1`] = `
                           aria-haspopup="true"
                           aria-label="Options"
                           class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button"
-                          id="react-aria-:rs:"
+                          id="react-aria-_r_s_"
                           title="Options"
                           type="button"
                         >
@@ -1747,7 +1747,7 @@ exports[`renders Default without crashing 1`] = `
                           aria-haspopup="true"
                           aria-label="Options"
                           class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button"
-                          id="react-aria-:ru:"
+                          id="react-aria-_r_u_"
                           title="Options"
                           type="button"
                         >
@@ -1853,7 +1853,7 @@ exports[`renders Default without crashing 1`] = `
                           aria-haspopup="true"
                           aria-label="Options"
                           class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button"
-                          id="react-aria-:r10:"
+                          id="react-aria-_r_10_"
                           title="Options"
                           type="button"
                         >
@@ -1959,7 +1959,7 @@ exports[`renders Default without crashing 1`] = `
                           aria-haspopup="true"
                           aria-label="Options"
                           class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button"
-                          id="react-aria-:r12:"
+                          id="react-aria-_r_12_"
                           title="Options"
                           type="button"
                         >
@@ -2065,7 +2065,7 @@ exports[`renders Default without crashing 1`] = `
                           aria-haspopup="true"
                           aria-label="Options"
                           class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button"
-                          id="react-aria-:r14:"
+                          id="react-aria-_r_14_"
                           title="Options"
                           type="button"
                         >
@@ -2171,7 +2171,7 @@ exports[`renders Default without crashing 1`] = `
                           aria-haspopup="true"
                           aria-label="Options"
                           class="rcx-box rcx-box--full rcx-button--mini-square rcx-button--square rcx-button--icon rcx-button"
-                          id="react-aria-:r16:"
+                          id="react-aria-_r_16_"
                           title="Options"
                           type="button"
                         >

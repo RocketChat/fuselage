@@ -3,7 +3,7 @@ import { useId, useMemo } from 'react';
 
 import { Chevron } from '../Chevron';
 
-type ItemsPerPage = 25 | 50 | 100;
+export type ItemsPerPage = 25 | 50 | 100;
 
 export type PaginationProps = {
   count: number;

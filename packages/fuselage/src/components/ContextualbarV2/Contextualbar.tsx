@@ -1,41 +1,40 @@
-import { forwardRef, memo } from 'react';
+import type { RefAttributes } from 'react';
+import { memo } from 'react';
 
 import { Box, type BoxProps } from '../Box';
 
-export type ContextualbarProps = BoxProps;
+export type ContextualbarProps = Omit<BoxProps, 'ref'> &
+  RefAttributes<HTMLElement>;
 
 /**
  * The `Contextualbar` has the purpose to persist and input information about the scope of the related page.
  */
-const Contextualbar = forwardRef<HTMLElement, ContextualbarProps>(
-  function Contextualbar(
-    { children, width, position, bg = 'room', ...props },
-    ref,
-  ) {
-    return (
-      <Box
-        ref={ref}
-        rcx-vertical-bar
-        bg={bg}
-        color='default'
-        display='flex'
-        flexDirection='column'
-        flexShrink={0}
-        width={width}
-        borderInlineStartWidth='default'
-        borderInlineStartColor='extra-light'
-        borderInlineStartStyle='solid'
-        height='full'
-        position={position}
-        insetInlineEnd='none'
-        insetBlockStart='none'
-        zIndex={10}
-        {...props}
-      >
-        {children}
-      </Box>
-    );
-  },
-);
+function Contextualbar({
+  width,
+  position,
+  bg = 'room',
+  ...props
+}: ContextualbarProps) {
+  return (
+    <Box
+      rcx-vertical-bar
+      bg={bg}
+      color='default'
+      display='flex'
+      flexDirection='column'
+      flexShrink={0}
+      width={width}
+      borderInlineStartWidth='default'
+      borderInlineStartColor='extra-light'
+      borderInlineStartStyle='solid'
+      height='full'
+      position={position}
+      insetInlineEnd='none'
+      insetBlockStart='none'
+      zIndex={10}
+      {...props}
+    />
+  );
+}
 
 export default memo(Contextualbar);

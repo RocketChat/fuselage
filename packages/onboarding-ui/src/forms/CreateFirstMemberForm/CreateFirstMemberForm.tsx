@@ -11,18 +11,23 @@ import {
   FieldRow,
   FieldError,
 } from '@rocket.chat/fuselage';
-import { Form } from '@rocket.chat/layout';
-import type { ReactElement } from 'react';
+import {
+  Form,
+  FormFooter,
+  FormSteps,
+  FormSubtitle,
+  FormTitle,
+} from '@rocket.chat/layout';
 import type { FieldPathValue, SubmitHandler, Validate } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
-type CreateFirstMemberFormPayload = {
+export type CreateFirstMemberFormPayload = {
   username: string;
   password: string;
 };
 
-type CreateFirstMemberFormProps = {
+export type CreateFirstMemberFormProps = {
   defaultValues?: CreateFirstMemberFormPayload;
   currentStep: number;
   stepCount: number;
@@ -39,7 +44,7 @@ type CreateFirstMemberFormProps = {
   >;
 };
 
-const CreateFirstMemberForm = ({
+export const CreateFirstMemberForm = ({
   defaultValues,
   currentStep,
   stepCount,
@@ -48,7 +53,7 @@ const CreateFirstMemberForm = ({
   onBackButtonClick,
   validateUsername,
   validatePassword,
-}: CreateFirstMemberFormProps): ReactElement => {
+}: CreateFirstMemberFormProps) => {
   const { t } = useTranslation();
 
   const {
@@ -59,11 +64,11 @@ const CreateFirstMemberForm = ({
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
-      <Form.Steps currentStep={currentStep} stepCount={stepCount} />
-      <Form.Title>{t('form.createFirstMemberForm.title')}</Form.Title>
-      <Form.Subtitle>
+      <FormSteps currentStep={currentStep} stepCount={stepCount} />
+      <FormTitle>{t('form.createFirstMemberForm.title')}</FormTitle>
+      <FormSubtitle>
         {t('form.createFirstMemberForm.subtitle', { organizationName })}
-      </Form.Subtitle>
+      </FormSubtitle>
 
       <FieldGroup mbs={16}>
         <Field>
@@ -106,7 +111,7 @@ const CreateFirstMemberForm = ({
         </Field>
       </FieldGroup>
 
-      <Form.Footer>
+      <FormFooter>
         <ButtonGroup>
           <Button disabled={isSubmitting} onClick={onBackButtonClick}>
             {t('component.form.action.back')}
@@ -126,9 +131,9 @@ const CreateFirstMemberForm = ({
             )}
           </Button>
         </ButtonGroup>
-      </Form.Footer>
+      </FormFooter>
     </Form>
   );
 };
 
-export default CreateFirstMemberForm;
+export { CreateFirstMemberForm as default };

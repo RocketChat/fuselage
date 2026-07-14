@@ -5,22 +5,16 @@
 ```ts
 
 import { Context } from 'react';
-import type { DetailedHTMLProps } from 'react';
-import type { ForwardRefExoticComponent } from 'react';
-import type { HTMLAttributes } from 'react';
-import type { PropsWithoutRef } from 'react';
-import type { RefAttributes } from 'react';
-import type { SVGProps } from 'react';
+import type { FunctionComponent } from 'react';
+import type { JSX } from 'react';
 
 // @public (undocumented)
 export const OwnerDocument: Context<    {
 document: Document;
 }>;
 
-// Warning: (ae-forgotten-export) The symbol "RefTypes" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
-const styled: <K extends keyof JSX.IntrinsicElements, P>(type: K, filter?: (p: PropsWithoutRef<JSX.IntrinsicElements[K] & P>) => JSX.IntrinsicElements[K]) => (slices: TemplateStringsArray, ...values: readonly (string | ((props: P) => string))[]) => ForwardRefExoticComponent<PropsWithoutRef<JSX.IntrinsicElements[K] & P> & RefAttributes<RefTypes[K]>>;
+const styled: <K extends keyof JSX.IntrinsicElements, P>(type: K, filter?: (p: JSX.IntrinsicElements[K] & P) => JSX.IntrinsicElements[K]) => (slices: TemplateStringsArray, ...values: readonly (string | ((props: P) => string))[]) => FunctionComponent<JSX.IntrinsicElements[K] & P>;
 export default styled;
 
 // @public (undocumented)

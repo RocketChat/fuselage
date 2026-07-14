@@ -8,8 +8,7 @@ import {
   FieldRow,
   FieldError,
 } from '@rocket.chat/fuselage';
-import { Form } from '@rocket.chat/layout';
-import type { ReactElement } from 'react';
+import { Form, FormContainer, FormFooter } from '@rocket.chat/layout';
 import type { FieldPathValue, SubmitHandler, Validate } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
@@ -37,7 +36,7 @@ const CreateNewPassword = ({
   validatePassword,
   validatePasswordConfirmation,
   initialValues,
-}: CreateNewPasswordProps): ReactElement => {
+}: CreateNewPasswordProps) => {
   const { t } = useTranslation();
 
   const {
@@ -53,7 +52,7 @@ const CreateNewPassword = ({
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
-      <Form.Container>
+      <FormContainer>
         <FieldGroup>
           <Field>
             <FieldLabel>
@@ -94,8 +93,8 @@ const CreateNewPassword = ({
             )}
           </Field>
         </FieldGroup>
-      </Form.Container>
-      <Form.Footer>
+      </FormContainer>
+      <FormFooter>
         <ButtonGroup>
           <Button
             type='submit'
@@ -106,7 +105,7 @@ const CreateNewPassword = ({
             {t('form.createPasswordForm.button.text')}
           </Button>
         </ButtonGroup>
-      </Form.Footer>
+      </FormFooter>
     </Form>
   );
 };

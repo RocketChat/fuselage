@@ -4,16 +4,23 @@
 
 ```ts
 
-// Warning: (ae-forgotten-export) The symbol "MemoizedFunction" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
 export const clear: (fn: MemoizedFunction<unknown, unknown, unknown>) => void;
 
-// Warning: (ae-forgotten-export) The symbol "MemoizableFunction" needs to be exported by the entry point index.d.ts
-// Warning: (ae-forgotten-export) The symbol "Options" needs to be exported by the entry point index.d.ts
-//
+// @public (undocumented)
+export type MemoizableFunction<T, A, R> = (this: T, arg: A) => R;
+
 // @public (undocumented)
 export const memoize: <T, A, R>(fn: MemoizableFunction<T, A, R>, _options?: Options) => MemoizedFunction<T, A, R>;
+
+// @public (undocumented)
+export type MemoizedFunction<T, A, R> = (this: T, arg: A) => R;
+
+// @public (undocumented)
+export interface Options {
+    // (undocumented)
+    maxAge: number;
+}
 
 // (No @packageDocumentation comment for this package)
 

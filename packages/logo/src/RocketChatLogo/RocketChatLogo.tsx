@@ -1,13 +1,11 @@
 import colors from '@rocket.chat/fuselage-tokens/colors.json';
-import { useId, type ReactElement, type SVGAttributes } from 'react';
+import { useId, type SVGAttributes } from 'react';
 
 type RocketChatLogoProps = {
   color?: SVGAttributes<SVGSVGElement>['fill'];
 };
 
-const RocketChatLogo = ({
-  color = colors.r400,
-}: RocketChatLogoProps): ReactElement => {
+const RocketChatLogo = ({ color = colors.r400 }: RocketChatLogoProps) => {
   const titleId = useId();
 
   return (

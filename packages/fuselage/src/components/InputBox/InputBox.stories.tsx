@@ -41,7 +41,12 @@ Time.args = {
 
 export const WithAddon: StoryFn<typeof InputBox> = Template.bind({});
 WithAddon.args = {
-  addon: <Icon name='send' size='x20' />,
+  endAddon: <Icon name='send' size='x20' />,
+};
+
+export const WithStartAddon: StoryFn<typeof InputBox> = Template.bind({});
+WithStartAddon.args = {
+  startAddon: <Icon name='send' size='x20' />,
 };
 
 export const Invalid: StoryFn<typeof InputBox> = Template.bind({});
@@ -78,7 +83,7 @@ export const SmallVariants: StoryFn<typeof InputBox> = () => (
       type='text'
       small
       placeholder='Search'
-      addon={<Icon name='magnifier' size='x20' />}
+      endAddon={<Icon name='magnifier' size='x20' />}
       aria-label='Search'
     />
   </Box>

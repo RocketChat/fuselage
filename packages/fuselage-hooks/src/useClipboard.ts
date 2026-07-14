@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { useStableCallback } from './useStableCallback';
 
-type UseClipboardParams = {
+export type UseClipboardParams = {
   clearTime?: number;
   onCopySuccess?: (e?: Event) => void;
   onCopyError?: (e?: Error) => void;

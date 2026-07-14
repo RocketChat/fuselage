@@ -1,4 +1,5 @@
 import { composeStories } from '@storybook/react-webpack5';
+import { screen } from '@testing-library/react';
 import { axe } from 'jest-axe';
 import { withResizeObserverMock } from 'testing-utils/mocks/withResizeObserverMock';
 
@@ -30,3 +31,13 @@ test.each(testCases)(
     expect(results).toHaveNoViolations();
   },
 );
+
+test('MultiSelectFiltered prevents Chrome autocomplete overlay (regression)', () => {
+  const { WithFilter } = composeStories(stories);
+
+  render(<WithFilter />);
+
+  const inputElement = screen.getByRole('combobox');
+
+  expect(inputElement).toHaveAttribute('autocomplete', 'off');
+});

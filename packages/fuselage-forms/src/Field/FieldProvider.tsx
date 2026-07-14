@@ -6,7 +6,7 @@ import { useId } from 'react-aria';
 import type { LabelTypes, FieldType } from './FieldContext';
 import { FieldContext } from './FieldContext';
 
-type FieldProviderProps = { children: ReactNode };
+export type FieldProviderProps = { children: ReactNode };
 
 function FieldProvider({ children }: FieldProviderProps) {
   const id = useId();

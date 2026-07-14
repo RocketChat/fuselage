@@ -1,4 +1,4 @@
-import type { Meta, StoryFn } from '@storybook/react-webpack5';
+import type { Meta } from '@storybook/react-webpack5';
 import { action } from 'storybook/actions';
 
 import { Box, type BoxProps } from '../Box';
@@ -42,7 +42,7 @@ export default {
   },
 } satisfies Meta<typeof Modal>;
 
-export const Default: StoryFn<typeof Modal> = () => (
+export const Default = () => (
   <Modal>
     <ModalHeader>
       <ModalHeaderText>
@@ -62,7 +62,7 @@ export const Default: StoryFn<typeof Modal> = () => (
   </Modal>
 );
 
-export const _WithThumb: StoryFn<typeof Modal> = () => (
+export const _WithThumb = () => (
   <Modal>
     <ModalHeader>
       <ModalThumb url='data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==' />
@@ -83,7 +83,7 @@ export const _WithThumb: StoryFn<typeof Modal> = () => (
   </Modal>
 );
 
-export const _WithIcon: StoryFn<typeof Modal> = () => (
+export const _WithIcon = () => (
   <Modal>
     <ModalHeader>
       <ModalIcon name='info' />
@@ -104,7 +104,7 @@ export const _WithIcon: StoryFn<typeof Modal> = () => (
   </Modal>
 );
 
-export const _WithTagline: StoryFn<typeof Modal> = () => (
+export const _WithTagline = () => (
   <Modal>
     <ModalHeader>
       <ModalHeaderText>
@@ -125,7 +125,7 @@ export const _WithTagline: StoryFn<typeof Modal> = () => (
   </Modal>
 );
 
-export const _WithIconAndTagline: StoryFn<typeof Modal> = () => (
+export const _WithIconAndTagline = () => (
   <Modal>
     <ModalHeader>
       <ModalIcon alignItems='end' name='info' />
@@ -147,7 +147,7 @@ export const _WithIconAndTagline: StoryFn<typeof Modal> = () => (
   </Modal>
 );
 
-export const _WithAnnotation: StoryFn<typeof Modal> = () => (
+export const _WithAnnotation = () => (
   <Modal>
     <ModalHeader>
       <ModalHeaderText>
@@ -168,7 +168,7 @@ export const _WithAnnotation: StoryFn<typeof Modal> = () => (
   </Modal>
 );
 
-export const _WithHeroImage: StoryFn<typeof Modal> = () => (
+export const _WithHeroImage = () => (
   <Modal>
     <ModalHeader>
       <ModalHeaderText>
@@ -211,7 +211,7 @@ const FormContainer = (props: BoxProps) => (
   />
 );
 
-export const _WithForm: StoryFn<typeof Modal> = () => (
+export const _WithForm = () => (
   <Modal wrapper={FormContainer}>
     <ModalHeader>
       <ModalHeaderText>

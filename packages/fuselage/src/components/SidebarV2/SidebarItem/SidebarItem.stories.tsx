@@ -1,4 +1,4 @@
-import type { Meta, StoryFn } from '@storybook/react-webpack5';
+import type { Meta } from '@storybook/react-webpack5';
 
 import { SidebarV2ListItem as SidebarListItem } from '../..';
 import {
@@ -14,7 +14,7 @@ export default {
   decorators,
 } satisfies Meta<typeof SidebarListItem>;
 
-export const Condensed: StoryFn<typeof SidebarListItem> = () => (
+export const Condensed = () => (
   <>
     {Array.from({ length: 8 }).map((_, i) => (
       <GenericCondensedItem key={i} i={i} />
@@ -22,7 +22,7 @@ export const Condensed: StoryFn<typeof SidebarListItem> = () => (
   </>
 );
 
-export const Medium: StoryFn<typeof SidebarListItem> = () => (
+export const Medium = () => (
   <>
     {Array.from({ length: 8 }).map((_, i) => (
       <GenericMediumItem key={i} i={i} />
@@ -30,7 +30,7 @@ export const Medium: StoryFn<typeof SidebarListItem> = () => (
   </>
 );
 
-export const Extended: StoryFn<typeof SidebarListItem> = () => (
+export const Extended = () => (
   <>
     {Array.from({ length: 8 }).map((_, i) => (
       <GenericExtendedItem key={i} i={i} />

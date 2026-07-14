@@ -1,3 +1,4 @@
+import type { TooltipProps } from '@rocket.chat/fuselage';
 import {
   AnimatedVisibility,
   PositionAnimated,
@@ -5,31 +6,23 @@ import {
 } from '@rocket.chat/fuselage';
 import { useDebouncedState } from '@rocket.chat/fuselage-hooks';
 import type {
-  ComponentProps,
   Dispatch,
-  MutableRefObject,
+  RefObject,
   ReactElement,
   ReactNode,
-  Ref,
   SetStateAction,
+  RefAttributes,
 } from 'react';
-import {
-  cloneElement,
-  forwardRef,
-  useCallback,
-  useId,
-  useMemo,
-  useRef,
-} from 'react';
+import { cloneElement, useCallback, useId, useMemo, useRef } from 'react';
 
-type AnchorParams = {
-  ref: MutableRefObject<null>;
+export type AnchorParams = {
+  ref: RefObject<Element | null>;
   toggle: Dispatch<SetStateAction<boolean>>;
   id: string;
 };
 
 const getAnchor = (
-  children: ReactElement | ((props: AnchorParams) => ReactNode),
+  children: ReactElement<any> | ((props: AnchorParams) => ReactNode),
   params: AnchorParams,
 ): ReactNode => {
   if (typeof children === 'function') {
@@ -46,28 +39,25 @@ const getAnchor = (
   });
 };
 
+type InnerTooltipProps = Omit<TooltipProps, 'ref'> &
+  RefAttributes<HTMLDivElement>;
+
 // Workaround to the c̶r̶a̶p̶p̶y̶ not-so-great API of PositionAnimated
-const InnerTooltip = forwardRef(function InnerTooltip(
-  { style, ...props }: ComponentProps<typeof Tooltip>,
-  ref: Ref<HTMLDivElement>,
-): ReactElement {
+function InnerTooltip({ ref, style, ...props }: InnerTooltipProps) {
   return (
     <div ref={ref} style={style}>
       <Tooltip {...props} />
     </div>
   );
-});
+}
 
-type TooltipWrapperProps = {
-  children: ReactElement | ((props: AnchorParams) => ReactNode);
+export type TooltipWrapperProps = {
+  children: ReactElement<any> | ((props: AnchorParams) => ReactNode);
   text: string;
 };
 
-const TooltipWrapper = ({
-  children,
-  text,
-}: TooltipWrapperProps): ReactElement => {
-  const anchorRef = useRef(null);
+const TooltipWrapper = ({ children, text }: TooltipWrapperProps) => {
+  const anchorRef = useRef<Element>(null);
   const [open, setOpen] = useDebouncedState(false, 460);
   const toggle = useCallback(
     (open: SetStateAction<boolean>) => {
