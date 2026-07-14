@@ -124,6 +124,10 @@ For each frontend change, agents should verify:
 - Storybook coverage is updated for new variations.
 - Unit tests cover changed behavior.
 - Third-party dependency usage aligns with approved list.
+- Run `yarn lint` to lint and type-check the affected packages before finishing a change.
+- Run `yarn test` to execute unit tests and confirm changed behavior passes.
+- Run `yarn workspace @rocket.chat/fuselage visual-regression` to confirm visual regression tests pass for changes in Fuselage components.
+- Run `yarn workspace @rocket.chat/fuselage visual-regression-update` to update visual regression snapshots when changes are intentional and approved.
 
 ## General Code Style
 
