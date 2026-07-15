@@ -2626,7 +2626,6 @@ export type StylingProps = {
     gap: CSSProperties['gap'];
     rowGap: CSSProperties['rowGap'];
     columnGap: CSSProperties['columnGap'];
-    w: CSSProperties['width'];
     width: CSSProperties['width'];
     minWidth: CSSProperties['minWidth'];
     maxWidth: CSSProperties['maxWidth'];

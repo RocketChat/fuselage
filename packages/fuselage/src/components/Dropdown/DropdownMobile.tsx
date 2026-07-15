@@ -12,7 +12,7 @@ export function DropdownMobile({ children, ...props }: DropdownMobileProps) {
       elevation='2'
       pi='0'
       pb='0'
-      w='100vw'
+      width='100vw'
       maxHeight='80%'
       position='fixed'
       display='flex'

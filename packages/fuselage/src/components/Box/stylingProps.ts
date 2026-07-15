@@ -89,8 +89,6 @@ export type StylingProps = {
   rowGap: CSSProperties['rowGap'];
   columnGap: CSSProperties['columnGap'];
 
-  /** @deprecated Use width instead */
-  w: CSSProperties['width'];
   width: CSSProperties['width'];
   minWidth: CSSProperties['minWidth'];
   maxWidth: CSSProperties['maxWidth'];
@@ -323,7 +321,6 @@ export const propDefs: Record<keyof StylingProps, PropDefinition> = {
   rowGap: gapProp,
   columnGap: gapProp,
 
-  w: aliasOf('width'),
   width: sizeProp,
   minWidth: sizeProp,
   maxWidth: sizeProp,

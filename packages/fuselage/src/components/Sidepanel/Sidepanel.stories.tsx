@@ -34,7 +34,7 @@ export default {
   component: Sidepanel,
   decorators: [
     (Story) => (
-      <Box h='90vh' w='x276'>
+      <Box h='90vh' width='x276'>
         <Story />
       </Box>
     ),

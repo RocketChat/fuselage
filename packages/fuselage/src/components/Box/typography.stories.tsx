@@ -163,7 +163,7 @@ export const WithTruncatedText: StoryFn<typeof Box> = () => (
   <Box color='default'>
     <Box
       withTruncatedText
-      w='x120'
+      width='x120'
       border='1px solid'
       borderColor='stroke-dark'
       borderRadius={4}

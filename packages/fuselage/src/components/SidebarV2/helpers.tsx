@@ -175,7 +175,7 @@ export const GenericCallItem = ({
 
 export const decorators: Decorator[] = [
   (fn) => (
-    <Box h='90vh' w='x280'>
+    <Box h='90vh' width='x280'>
       <SidebarV2>
         <SidebarV2Accordion>
           <SidebarV2AccordionItem

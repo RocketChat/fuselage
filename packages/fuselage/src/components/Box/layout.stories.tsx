@@ -446,10 +446,10 @@ Position.decorators = [
 
 export const Widths: StoryFn<typeof Box> = () => (
   <>
-    <Box w='x64' />
     <Box width='x64' />
-    <Box w='none' minWidth='x64' />
-    <Box w='sw' maxWidth='x64' />
+    <Box width='x64' />
+    <Box width='none' minWidth='x64' />
+    <Box width='sw' maxWidth='x64' />
   </>
 );
 Widths.decorators = [

@@ -50,7 +50,7 @@ const AudioPlayerControls = ({
   changePlaybackSpeedLabel = 'Change Playback Speed',
   downloadAudioFileLabel = 'Download Audio File',
 }: AudioPlayerControlsProps) => (
-  <Box display='flex' alignItems='center' w='full'>
+  <Box display='flex' alignItems='center' width='full'>
     <IconButton
       primary
       medium
@@ -64,7 +64,7 @@ const AudioPlayerControls = ({
           ? getMaskTime(currentTime)
           : getMaskTime(durationTime)}
       </Box>
-      <Box mi={16} w='full'>
+      <Box mi={16} width='full'>
         <Slider
           aria-label={audioPlaybackRangeLabel}
           showOutput={false}

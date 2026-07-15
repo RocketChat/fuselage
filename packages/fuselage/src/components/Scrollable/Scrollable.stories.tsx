@@ -14,7 +14,7 @@ export default {
 export const Default = () => (
   <Scrollable>
     <Tile padding='none' maxWidth='full' h={100}>
-      <Box w='200%' h='1000%' />
+      <Box width='200%' h='1000%' />
     </Tile>
   </Scrollable>
 );
