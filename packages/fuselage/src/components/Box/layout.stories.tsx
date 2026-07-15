@@ -142,10 +142,10 @@ Elevation.decorators = [
 
 export const Heights: StoryFn<typeof Box> = () => (
   <>
-    <Box h='x64' />
     <Box height='x64' />
-    <Box h='none' minHeight='x64' />
-    <Box h='sw' maxHeight='x64' />
+    <Box height='x64' />
+    <Box height='none' minHeight='x64' />
+    <Box height='sw' maxHeight='x64' />
   </>
 );
 Heights.decorators = [
@@ -458,7 +458,11 @@ Widths.decorators = [
       {flattenChildren(
         context.originalStoryFn(context.args, context).props.children,
       ).map((child: any) =>
-        cloneElement(child, { backgroundColor: 'neutral', h: 'x32', m: 'x4' }),
+        cloneElement(child, {
+          backgroundColor: 'neutral',
+          height: 'x32',
+          m: 'x4',
+        }),
       )}
     </Box>
   ),

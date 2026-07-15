@@ -21,7 +21,7 @@ export const Default: StoryFn<typeof Dropdown> = () => {
   return (
     <Box
       width='400px'
-      h='500px'
+      height='500px'
       display='flex'
       justifyContent='center'
       alignItems='center'

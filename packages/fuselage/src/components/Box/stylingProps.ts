@@ -92,8 +92,6 @@ export type StylingProps = {
   width: CSSProperties['width'];
   minWidth: CSSProperties['minWidth'];
   maxWidth: CSSProperties['maxWidth'];
-  /** @deprecated Use height instead */
-  h: CSSProperties['height'];
   height: CSSProperties['height'];
   minHeight: CSSProperties['minHeight'];
   maxHeight: CSSProperties['maxHeight'];
@@ -324,7 +322,6 @@ export const propDefs: Record<keyof StylingProps, PropDefinition> = {
   width: sizeProp,
   minWidth: sizeProp,
   maxWidth: sizeProp,
-  h: aliasOf('height'),
   height: sizeProp,
   minHeight: sizeProp,
   maxHeight: sizeProp,

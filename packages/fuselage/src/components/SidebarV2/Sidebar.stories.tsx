@@ -29,7 +29,7 @@ export default {
 } as Meta<typeof Sidebar>;
 
 export const Default: StoryFn<typeof Sidebar> = (props) => (
-  <Box h='90vh' width='x280'>
+  <Box height='90vh' width='x280'>
     <Sidebar {...props}>
       <SidebarBanner
         title='You’ve reached the limit active contacts this month'

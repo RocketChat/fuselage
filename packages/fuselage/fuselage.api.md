@@ -2629,7 +2629,6 @@ export type StylingProps = {
     width: CSSProperties['width'];
     minWidth: CSSProperties['minWidth'];
     maxWidth: CSSProperties['maxWidth'];
-    h: CSSProperties['height'];
     height: CSSProperties['height'];
     minHeight: CSSProperties['minHeight'];
     maxHeight: CSSProperties['maxHeight'];
