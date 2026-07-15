@@ -71,6 +71,7 @@ export type StylingProps = {
 
   color: CSSProperties['color'] | Var;
   backgroundColor: CSSProperties['backgroundColor'] | Var;
+  /** @deprecated Use backgroundColor instead */
   bg: CSSProperties['backgroundColor'] | Var;
   opacity: CSSProperties['opacity'];
 
@@ -90,10 +91,12 @@ export type StylingProps = {
   rowGap: CSSProperties['rowGap'];
   columnGap: CSSProperties['columnGap'];
 
+  /** @deprecated Use width instead */
   w: CSSProperties['width'];
   width: CSSProperties['width'];
   minWidth: CSSProperties['minWidth'];
   maxWidth: CSSProperties['maxWidth'];
+  /** @deprecated Use height instead */
   h: CSSProperties['height'];
   height: CSSProperties['height'];
   minHeight: CSSProperties['minHeight'];
@@ -115,32 +118,46 @@ export type StylingProps = {
   insetInlineStart: CSSProperties['insetInlineStart'];
   insetInlineEnd: CSSProperties['insetInlineEnd'];
 
+  /** @deprecated Use margin instead */
   m: CSSProperties['margin'];
   margin: CSSProperties['margin'];
+  /** @deprecated Use marginBlock instead */
   mb: CSSProperties['marginBlock'];
   marginBlock: CSSProperties['marginBlock'];
+  /** @deprecated Use marginBlockStart instead */
   mbs: CSSProperties['marginBlockStart'];
   marginBlockStart: CSSProperties['marginBlockStart'];
+  /** @deprecated Use marginBlockEnd instead */
   mbe: CSSProperties['marginBlockEnd'];
   marginBlockEnd: CSSProperties['marginBlockEnd'];
+  /** @deprecated Use marginInline instead */
   mi: CSSProperties['marginInline'];
   marginInline: CSSProperties['marginInline'];
+  /** @deprecated Use marginInlineStart instead */
   mis: CSSProperties['marginInlineStart'];
   marginInlineStart: CSSProperties['marginInlineStart'];
+  /** @deprecated Use marginInlineEnd instead */
   mie: CSSProperties['marginInlineEnd'];
   marginInlineEnd: CSSProperties['marginInlineEnd'];
+  /** @deprecated Use padding instead */
   p: CSSProperties['padding'];
   padding: CSSProperties['padding'];
+  /** @deprecated Use paddingBlock instead */
   pb: CSSProperties['paddingBlock'];
   paddingBlock: CSSProperties['paddingBlock'];
+  /** @deprecated Use paddingBlockStart instead */
   pbs: CSSProperties['paddingBlockStart'];
   paddingBlockStart: CSSProperties['paddingBlockStart'];
+  /** @deprecated Use paddingBlockEnd instead */
   pbe: CSSProperties['paddingBlockEnd'];
   paddingBlockEnd: CSSProperties['paddingBlockEnd'];
+  /** @deprecated Use paddingInline instead */
   pi: CSSProperties['paddingInline'];
   paddingInline: CSSProperties['paddingInline'];
+  /** @deprecated Use paddingInlineStart instead */
   pis: CSSProperties['paddingInlineStart'];
   paddingInlineStart: CSSProperties['paddingInlineStart'];
+  /** @deprecated Use paddingInlineEnd instead */
   pie: CSSProperties['paddingInlineEnd'];
   paddingInlineEnd: CSSProperties['paddingInlineEnd'];
 
