@@ -18,17 +18,17 @@ export default {
 
 export const SurfaceColors: StoryFn<typeof Box> = () => (
   <>
-    <Box bg='light' />
-    <Box bg='tint' />
-    <Box bg='room' />
-    <Box bg='neutral' />
-    <Box bg='disabled' />
-    <Box bg='hover' />
-    <Box bg='selected' />
-    <Box bg='dark' />
-    <Box bg='featured' />
-    <Box bg='featured-hover' />
-    <Box bg='transparent' />
+    <Box backgroundColor='light' />
+    <Box backgroundColor='tint' />
+    <Box backgroundColor='room' />
+    <Box backgroundColor='neutral' />
+    <Box backgroundColor='disabled' />
+    <Box backgroundColor='hover' />
+    <Box backgroundColor='selected' />
+    <Box backgroundColor='dark' />
+    <Box backgroundColor='featured' />
+    <Box backgroundColor='featured-hover' />
+    <Box backgroundColor='transparent' />
   </>
 );
 SurfaceColors.decorators = [
@@ -50,7 +50,7 @@ SurfaceColors.decorators = [
               alignItems: 'center',
               justifyContent: 'center',
             },
-            child.props.bg,
+            child.props.backgroundColor,
           ),
       )}
     </Box>
@@ -59,12 +59,27 @@ SurfaceColors.decorators = [
 
 export const StatusColors: StoryFn<typeof Box> = () => (
   <>
-    <Box bg='status-background-info' color='status-font-on-info' />
-    <Box bg='status-background-success' color='status-font-on-success' />
-    <Box bg='status-background-danger' color='status-font-on-danger' />
-    <Box bg='status-background-warning' color='status-font-on-warning' />
-    <Box bg='status-background-service-1' color='status-font-on-service-1' />
-    <Box bg='status-background-service-2' color='status-font-on-service-2' />
+    <Box backgroundColor='status-background-info' color='status-font-on-info' />
+    <Box
+      backgroundColor='status-background-success'
+      color='status-font-on-success'
+    />
+    <Box
+      backgroundColor='status-background-danger'
+      color='status-font-on-danger'
+    />
+    <Box
+      backgroundColor='status-background-warning'
+      color='status-font-on-warning'
+    />
+    <Box
+      backgroundColor='status-background-service-1'
+      color='status-font-on-service-1'
+    />
+    <Box
+      backgroundColor='status-background-service-2'
+      color='status-font-on-service-2'
+    />
   </>
 );
 StatusColors.decorators = [
@@ -84,7 +99,7 @@ StatusColors.decorators = [
               alignItems: 'center',
               justifyContent: 'center',
             },
-            child.props.bg.replace('status-background-', ''),
+            child.props.backgroundColor.replace('status-background-', ''),
           ),
       )}
     </Box>
@@ -132,7 +147,7 @@ StrokeColors.decorators = [
 
 export const FontColors: StoryFn<typeof Box> = () => (
   <>
-    <Box color='font-white' bg='dark' borderRadius={4} />
+    <Box color='font-white' backgroundColor='dark' borderRadius={4} />
     <Box color='font-disabled' />
     <Box color='font-annotation' />
     <Box color='font-secondary-info' />

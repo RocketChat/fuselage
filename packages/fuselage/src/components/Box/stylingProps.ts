@@ -71,8 +71,6 @@ export type StylingProps = {
 
   color: CSSProperties['color'] | Var;
   backgroundColor: CSSProperties['backgroundColor'] | Var;
-  /** @deprecated Use backgroundColor instead */
-  bg: CSSProperties['backgroundColor'] | Var;
   opacity: CSSProperties['opacity'];
 
   alignItems: CSSProperties['alignItems'];
@@ -307,7 +305,6 @@ export const propDefs: Record<keyof StylingProps, PropDefinition> = {
 
   color: fontColorProp,
   backgroundColor: backgroundColorProp,
-  bg: aliasOf('backgroundColor'),
   opacity: numberOrStringProp,
 
   alignItems: stringProp,

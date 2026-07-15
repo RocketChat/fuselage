@@ -131,7 +131,7 @@ const AudioPlayer = ({
   return (
     <Box
       borderWidth='default'
-      bg='tint'
+      backgroundColor='tint'
       borderColor='extra-light'
       pb={12}
       pie={8}

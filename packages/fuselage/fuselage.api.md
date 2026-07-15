@@ -2610,7 +2610,6 @@ export type StylingProps = {
     borderEndEndRadius: CSSProperties['borderEndEndRadius'];
     color: CSSProperties['color'] | Var;
     backgroundColor: CSSProperties['backgroundColor'] | Var;
-    bg: CSSProperties['backgroundColor'] | Var;
     opacity: CSSProperties['opacity'];
     alignItems: CSSProperties['alignItems'];
     alignContent: CSSProperties['alignContent'];

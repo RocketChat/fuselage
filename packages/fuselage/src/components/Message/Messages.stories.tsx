@@ -941,7 +941,7 @@ export const BlockAfterHeader: StoryFn<typeof Message> = () => (
         <MessageBlock>
           <Box
             width='full'
-            bg='status-background-success'
+            backgroundColor='status-background-success'
             height='200px'
             border='1px solid'
             borderColor='stroke-extra-light'
