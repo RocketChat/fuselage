@@ -148,6 +148,8 @@ For each frontend change, agents should verify:
 - Read-only git operations are fine.
 - Show what will be committed before committing.
 - Verify work with the narrowest meaningful checks first, then broader checks when risk or shared behavior justifies it.
+- Use conventional commit messages for PRs and commits, following the template in `.github/PULL_REQUEST_TEMPLATE.md`.
+- Use scope prefixes for commits that affect specific packages (for example `fuselage`, `fuselage-hooks`, `icons`, `onboarding-ui`, etc.).
 
 ## Source References
 
