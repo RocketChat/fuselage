@@ -19,7 +19,10 @@ export const WithValue = () => (
 );
 
 export const WithIconAddon = () => (
-  <PasswordInput aria-label='password' addon={<Icon name='send' size={20} />} />
+  <PasswordInput
+    aria-label='password'
+    endAddon={<Icon name='send' size={20} />}
+  />
 );
 
 export const Invalid = () => (
@@ -41,7 +44,10 @@ export const States = () => (
         'default': {},
         'with placeholder': { placeholder: 'Placeholder' },
         'with value': { value: 'Value' },
-        'with icon': { addon: <Icon name='key' size='x20' />, value: 'Value' },
+        'with icon': {
+          endAddon: <Icon name='key' size='x20' />,
+          value: 'Value',
+        },
       }}
       yAxis={{
         'default': {},
@@ -66,7 +72,10 @@ export const States = () => (
         'small': {},
         'with placeholder': { placeholder: 'Placeholder' },
         'with value': { value: 'Value' },
-        'with icon': { addon: <Icon name='key' size='x20' />, value: 'Value' },
+        'with icon': {
+          endAddon: <Icon name='key' size='x20' />,
+          value: 'Value',
+        },
       }}
       yAxis={{
         'small': {},

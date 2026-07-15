@@ -40,7 +40,7 @@ export const Default: StoryFn<typeof Sidebar> = (props) => (
       />
       <SidebarSection>
         <TextInput
-          addon={<Icon name='magnifier' size='x20' />}
+          endAddon={<Icon name='magnifier' size='x20' />}
           small
           placeholder='Search'
         />

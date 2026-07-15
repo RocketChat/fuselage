@@ -1,22 +1,18 @@
-import { forwardRef } from 'react';
+import type { RefAttributes } from 'react';
 
 import { Box, type BoxProps } from '../Box';
 
-export type TileProps = BoxProps;
+export type TileProps = Omit<BoxProps, 'ref'> & RefAttributes<HTMLElement>;
 
-const Tile = forwardRef<HTMLElement, TileProps>(function Tile(
-  { elevation = '1', padding = 16, ...props },
-  ref,
-) {
+function Tile({ elevation = '1', padding = 16, ...props }: TileProps) {
   return (
     <Box
-      ref={ref}
       rcx-tile
       rcx-tile--elevation={elevation}
       padding={padding}
       {...props}
     />
   );
-});
+}
 
 export default Tile;

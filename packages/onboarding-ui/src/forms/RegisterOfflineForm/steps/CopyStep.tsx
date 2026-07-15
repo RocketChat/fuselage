@@ -1,6 +1,6 @@
 import { Box, Button, ButtonGroup, Scrollable } from '@rocket.chat/fuselage';
 import { useBreakpoints, useClipboard } from '@rocket.chat/fuselage-hooks';
-import { Form } from '@rocket.chat/layout';
+import { FormContainer, FormFooter } from '@rocket.chat/layout';
 import { useId } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { Trans, useTranslation } from 'react-i18next';
@@ -39,7 +39,7 @@ const CopyStep = ({
 
   return (
     <>
-      <Form.Container>
+      <FormContainer>
         <Box mbe='24px' fontScale='p2'>
           <Trans key={'form.registerOfflineForm.copyStep.description'}>
             If for any reason your workspace can’t be connected to the internet,
@@ -88,8 +88,8 @@ const CopyStep = ({
           control={control}
           errors={errors}
         />
-      </Form.Container>
-      <Form.Footer>
+      </FormContainer>
+      <FormFooter>
         <Box display='flex' flexDirection='column'>
           <ButtonGroup vertical={isMobile}>
             <Button
@@ -107,7 +107,7 @@ const CopyStep = ({
             </Button>
           </ButtonGroup>
         </Box>
-      </Form.Footer>
+      </FormFooter>
     </>
   );
 };

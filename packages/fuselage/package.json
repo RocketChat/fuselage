@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/fuselage",
-  "version": "0.80.0",
+  "version": "0.82.0",
   "description": "Rocket.Chat's React Components Library",
   "homepage": "https://github.com/RocketChat/fuselage#readme",
   "bugs": {
@@ -73,7 +73,7 @@
     "@testing-library/user-event": "~14.6.1",
     "@types/invariant": "^2.2.37",
     "@types/jest-axe": "~3.5.9",
-    "@types/react": "~19.2.16",
+    "@types/react": "~19.2.17",
     "@types/react-dom": "~19.2.3",
     "@types/react-is": "^19",
     "autoprefixer": "~10.5.0",

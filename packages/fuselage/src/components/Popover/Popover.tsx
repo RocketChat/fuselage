@@ -6,11 +6,11 @@ import type { OverlayTriggerState } from 'react-stately';
 
 import { useOwnerDocument } from '../../contexts';
 
-export interface PopoverProps extends Omit<AriaPopoverProps, 'popoverRef'> {
+export type PopoverProps = Omit<AriaPopoverProps, 'popoverRef'> & {
   children: ReactNode;
   state: OverlayTriggerState;
   portalContainer?: Element;
-}
+};
 
 function Popover({ portalContainer, ...props }: PopoverProps) {
   const popoverRef = useRef<HTMLDivElement>(null);

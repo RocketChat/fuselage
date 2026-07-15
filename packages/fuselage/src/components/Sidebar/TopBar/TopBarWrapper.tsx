@@ -5,8 +5,7 @@ export type TopBarWrapperProps = {
 };
 
 export const TopBarWrapper = ({ children }: TopBarWrapperProps) => (
-  <div
-    className='rc-box rc-box--full rcx-sidebar-topbar__wrapper'
-    children={children}
-  />
+  <div className='rc-box rc-box--full rcx-sidebar-topbar__wrapper'>
+    {children}
+  </div>
 );

@@ -1,15 +1,13 @@
-import { forwardRef } from 'react';
+import type { RefAttributes } from 'react';
 
 import { IconButton } from '../../Button';
 import type { IconButtonProps } from '../../Button/IconButton';
 
-export type MessageToolbarItemProps = IconButtonProps;
+export type MessageToolbarItemProps = Omit<IconButtonProps, 'ref'> &
+  RefAttributes<HTMLButtonElement>;
 
-const MessageToolbarItem = forwardRef<
-  HTMLButtonElement,
-  MessageToolbarItemProps
->(function MessageToolbarItem(props, ref) {
-  return <IconButton ref={ref} small {...props} />;
-});
+function MessageToolbarItem(props: MessageToolbarItemProps) {
+  return <IconButton small {...props} />;
+}
 
 export default MessageToolbarItem;

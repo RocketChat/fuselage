@@ -4,12 +4,12 @@ import type {
   KeyboardEventHandler,
   MouseEventHandler,
   ReactNode,
+  RefAttributes,
 } from 'react';
-import { forwardRef } from 'react';
 
 import SelectFocus from '../Select/SelectFocus';
 
-type MultiSelectAnchorProps = {
+type MultiSelectAnchorProps = RefAttributes<Element> & {
   children: ReactNode;
   disabled: boolean;
   onClick: MouseEventHandler;
@@ -21,14 +21,8 @@ type MultiSelectAnchorProps = {
   name?: string;
 } & AriaAttributes;
 
-const MultiSelectAnchor = forwardRef<Element, MultiSelectAnchorProps>(
-  function MultiSelectAnchor({ children, ...props }, ref) {
-    return (
-      <SelectFocus rcx-input-box--undecorated ref={ref} order={1} {...props}>
-        {children}
-      </SelectFocus>
-    );
-  },
-);
+function MultiSelectAnchor(props: MultiSelectAnchorProps) {
+  return <SelectFocus rcx-input-box--undecorated order={1} {...props} />;
+}
 
 export default MultiSelectAnchor;

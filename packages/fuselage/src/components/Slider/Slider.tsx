@@ -1,6 +1,6 @@
 import { css } from '@rocket.chat/css-in-js';
-import type { AriaAttributes, Ref } from 'react';
-import { forwardRef, useMemo, useRef } from 'react';
+import type { AriaAttributes, RefAttributes } from 'react';
+import { useMemo, useRef } from 'react';
 import type { AriaSliderProps } from 'react-aria';
 import { useNumberFormatter, useSlider } from 'react-aria';
 import { useSliderState } from 'react-stately';
@@ -11,35 +11,36 @@ import { SliderHead } from './SliderHead';
 import { SliderThumb } from './SliderThumb';
 import { SliderTrack } from './SliderTrack';
 
-export type SliderProps<T extends number | number[]> = AriaAttributes & {
-  /**
-   * The display format of the value output.
-   */
-  formatOptions?: Intl.NumberFormatOptions;
-  /**
-   * The id of the slider input element, used to connect with an external label.
-   */
-  id?: string;
-  label?: string;
-  showOutput?: boolean;
-  /**
-   * Slider with multiple thumbs.
-   * @default false
-   */
-  multiThumb?: T extends number[] ? true : false;
-  step?: number;
-  /**
-   * @default 0
-   */
-  minValue?: number;
-  /**
-   * @default 100
-   */
-  maxValue?: number;
-  orientation?: 'horizontal' | 'vertical';
-  disabled?: boolean;
-  defaultValue?: T;
-} & (
+export type SliderProps<T extends number | number[]> = AriaAttributes &
+  RefAttributes<HTMLDivElement> & {
+    /**
+     * The display format of the value output.
+     */
+    formatOptions?: Intl.NumberFormatOptions;
+    /**
+     * The id of the slider input element, used to connect with an external label.
+     */
+    id?: string;
+    label?: string;
+    showOutput?: boolean;
+    /**
+     * Slider with multiple thumbs.
+     * @default false
+     */
+    multiThumb?: T extends number[] ? true : false;
+    step?: number;
+    /**
+     * @default 0
+     */
+    minValue?: number;
+    /**
+     * @default 100
+     */
+    maxValue?: number;
+    orientation?: 'horizontal' | 'vertical';
+    disabled?: boolean;
+    defaultValue?: T;
+  } & (
     | {
         value: T;
         onChange: (value: T) => void;
@@ -50,12 +51,12 @@ export type SliderProps<T extends number | number[]> = AriaAttributes & {
       }
   );
 
-function Slider<T extends number | [min: number, max: number]>(
-  props: T extends number
-    ? SliderProps<number>
-    : SliderProps<[min: number, max: number]>,
-  ref: Ref<HTMLDivElement>,
-) {
+function Slider<T extends number | [min: number, max: number]>({
+  ref,
+  ...props
+}: T extends number
+  ? SliderProps<number>
+  : SliderProps<[min: number, max: number]>) {
   const {
     label,
     formatOptions,
@@ -155,4 +156,4 @@ function Slider<T extends number | [min: number, max: number]>(
   );
 }
 
-export default forwardRef(Slider);
+export default Slider;

@@ -4,6 +4,8 @@ import { BasicMessageTemplate } from '../helpers';
 
 import MessageReaction from './MessageReaction';
 import MessageReactionAction from './MessageReactionAction';
+import MessageReactionCounter from './MessageReactionCounter';
+import MessageReactionEmoji from './MessageReactionEmoji';
 import MessageReactions from './MessageReactions';
 
 export default {
@@ -20,6 +22,14 @@ const reactions = (
     <MessageReaction title='reaction 1' mine counter={1} />
     <MessageReaction title='reaction 2' counter={2} />
     <MessageReaction title='reaction 3' counter={3} />
+    <MessageReaction title='grinning' mine>
+      <MessageReactionEmoji name='grinning'>😀</MessageReactionEmoji>
+      <MessageReactionCounter counter={5} />
+    </MessageReaction>
+    <MessageReaction title='rocket'>
+      <MessageReactionEmoji name='rocket'>🚀</MessageReactionEmoji>
+      <MessageReactionCounter counter={2} />
+    </MessageReaction>
     <MessageReactionAction title='action' />
   </MessageReactions>
 );

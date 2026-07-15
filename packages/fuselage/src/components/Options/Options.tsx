@@ -1,11 +1,10 @@
 import type {
   ComponentType,
-  ForwardRefExoticComponent,
-  PropsWithoutRef,
+  MouseEventHandler,
   ReactNode,
   RefAttributes,
 } from 'react';
-import { forwardRef, useLayoutEffect, useMemo, useRef } from 'react';
+import { useLayoutEffect, useMemo, useRef } from 'react';
 
 import { prevent } from '../../helpers/prevent';
 import { Box, type BoxProps } from '../Box';
@@ -16,45 +15,48 @@ import { Tile } from '../Tile';
 import type { OptionType } from './OptionType';
 import OptionsEmpty from './OptionsEmpty';
 
-export type OptionsProps<TValue = string | number, TLabel = ReactNode> = Omit<
-  BoxProps,
-  'onSelect'
-> & {
-  multiple?: boolean;
-  options: OptionType<TValue, TLabel>[];
-  cursor: number;
-  renderItem?: ComponentType<{
-    role?: string;
-    label: TLabel;
-    value: TValue;
-    selected?: boolean;
-    focus?: boolean;
-  }>;
-  renderEmpty?: ComponentType<{
+export type OptionsProps<
+  TValue extends string | number = string | number,
+  TLabel = ReactNode,
+> = Omit<BoxProps, 'ref' | 'onSelect'> &
+  RefAttributes<HTMLElement> & {
+    multiple?: boolean;
+    options: OptionType<TValue, TLabel>[];
+    cursor: number;
+    renderItem?: ComponentType<{
+      role?: string;
+      label: TLabel;
+      value: TValue;
+      selected?: boolean;
+      focus?: boolean;
+      disabled?: boolean;
+      onMouseDown: MouseEventHandler;
+    }>;
+    renderEmpty?: ComponentType<{
+      customEmpty?: string;
+    }>;
+    onSelect: (option: OptionType<TValue, TLabel>) => void;
     customEmpty?: string;
-  }>;
-  onSelect: (option: OptionType<TValue, TLabel>) => void;
-  customEmpty?: string;
-};
+  };
 
 /**
  * An input for selection of options.
  */
-const Options = forwardRef<HTMLElement, OptionsProps>(function Options(
-  {
-    maxHeight = 'x144',
-    multiple,
-    renderEmpty: EmptyComponent = OptionsEmpty,
-    options,
-    cursor,
-    renderItem: OptionComponent = Option,
-    onSelect,
-    customEmpty,
-    id,
-    ...props
-  },
-  ref,
-) {
+function Options<
+  TValue extends string | number = string | number,
+  TLabel = ReactNode,
+>({
+  maxHeight = 'x144',
+  multiple,
+  renderEmpty: EmptyComponent = OptionsEmpty,
+  options,
+  cursor,
+  renderItem: OptionComponent = Option,
+  onSelect,
+  customEmpty,
+  id,
+  ...props
+}: OptionsProps<TValue, TLabel>) {
   const liRef = useRef<HTMLElement>(null);
 
   useLayoutEffect(() => {
@@ -77,7 +79,7 @@ const Options = forwardRef<HTMLElement, OptionsProps>(function Options(
 
   const optionsMemoized = useMemo(
     () =>
-      options?.map(([value, label, selected, disabled, type, url], i) => {
+      options.map(([value, label, selected, disabled, type, url], i) => {
         switch (type) {
           case 'heading':
             return <OptionHeader key={value}>{label}</OptionHeader>;
@@ -89,27 +91,25 @@ const Options = forwardRef<HTMLElement, OptionsProps>(function Options(
                 role='option'
                 label={label}
                 onMouseDown={(e) => {
-                  if (disabled) {
-                    return;
-                  }
+                  if (disabled) return;
+
                   prevent(e);
                   onSelect([value, label, selected, disabled, type, url]);
-                  return false;
                 }}
                 key={value}
                 value={value}
-                selected={selected || (multiple !== true && undefined)} // TODO: undefined?
+                selected={selected}
                 disabled={disabled}
-                focus={cursor === i || undefined} // TODO: undefined?
+                focus={cursor === i}
               />
             );
         }
       }),
-    [options, multiple, cursor, onSelect, OptionComponent],
+    [options, cursor, onSelect, OptionComponent],
   );
 
   return (
-    <Box rcx-options {...props} ref={ref}>
+    <Box rcx-options {...props}>
       <Tile padding={0} paddingBlock={'x12'} paddingInline={0} elevation='2'>
         <Scrollable vertical smooth>
           <Tile
@@ -136,13 +136,6 @@ const Options = forwardRef<HTMLElement, OptionsProps>(function Options(
       </Tile>
     </Box>
   );
-}) as ForwardRefExoticComponent<
-  PropsWithoutRef<OptionsProps> & RefAttributes<HTMLElement>
-> & {
-  <TValue = string | number, TLabel = ReactNode>(
-    props: PropsWithoutRef<OptionsProps<TValue, TLabel>> &
-      RefAttributes<HTMLElement>,
-  ): ReactNode;
-};
+}
 
 export default Options;

@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/styled",
-  "version": "0.34.0",
+  "version": "0.34.1",
   "description": "A simple styled API for React components",
   "homepage": "https://github.com/RocketChat/fuselage#readme",
   "bugs": {
@@ -40,7 +40,7 @@
     "@microsoft/api-extractor": "~7.58.7",
     "@testing-library/dom": "~10.4.1",
     "@testing-library/react": "~16.3.2",
-    "@types/react": "~19.2.16",
+    "@types/react": "~19.2.17",
     "@types/react-dom": "~19.2.3",
     "eslint": "~9.39.4",
     "jest": "~30.4.2",

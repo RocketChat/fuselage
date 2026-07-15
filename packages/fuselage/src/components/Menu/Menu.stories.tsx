@@ -1,6 +1,6 @@
 import type { StoryFn, Meta } from '@storybook/react-webpack5';
 import type { ReactNode } from 'react';
-import { forwardRef, useState } from 'react';
+import { useState } from 'react';
 
 import { Box } from '../Box';
 import type { IconButtonProps } from '../Button';
@@ -8,7 +8,7 @@ import { IconButton } from '../Button';
 import { ButtonGroup } from '../ButtonGroup';
 import { CheckBox } from '../CheckBox';
 import { RadioButton } from '../RadioButton';
-import { Sidebar } from '../Sidebar';
+import { SidebarTopBarAction, SidebarTopBarActions } from '../Sidebar';
 import { ToggleSwitch } from '../ToggleSwitch';
 
 import type { MenuItemIconProps } from '.';
@@ -328,10 +328,10 @@ export const MenuMapGenericItem = () => {
 };
 
 export const AsSidebarTopbarActions = () => (
-  <Sidebar.TopBar.Actions>
-    <Sidebar.TopBar.Action icon='user' title='user' />
-    <Sidebar.TopBar.Action icon='book' title='book' />
-    <Menu title='test' is={Sidebar.TopBar.Action}>
+  <SidebarTopBarActions>
+    <SidebarTopBarAction icon='user' title='user' />
+    <SidebarTopBarAction icon='book' title='book' />
+    <Menu title='test' is={SidebarTopBarAction}>
       <MenuItem>test</MenuItem>
       <MenuItem>test</MenuItem>
       <MenuItem>test</MenuItem>
@@ -343,7 +343,7 @@ export const AsSidebarTopbarActions = () => (
       <MenuItem>test</MenuItem>
       <MenuItem>test</MenuItem>
     </Menu>
-  </Sidebar.TopBar.Actions>
+  </SidebarTopBarActions>
 );
 
 export const ControlledOpenState = () => {
@@ -426,9 +426,9 @@ export const Sizes = () => (
   </ButtonGroup>
 );
 
-const CustomButton = forwardRef<HTMLElement, IconButtonProps>((props, ref) => (
-  <IconButton ref={ref} {...props} icon='kebab' secondary small={false} />
-));
+const CustomButton = (props: IconButtonProps) => (
+  <IconButton {...props} icon='kebab' secondary small={false} />
+);
 
 export const WithCustomButton = () => (
   <ButtonGroup>

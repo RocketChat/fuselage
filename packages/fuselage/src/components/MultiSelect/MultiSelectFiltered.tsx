@@ -1,12 +1,12 @@
 import type { Dispatch, SetStateAction } from 'react';
-import { useState, forwardRef } from 'react';
+import { useState } from 'react';
 
 import type { IconProps } from '../Icon';
 
 import type { MultiSelectProps } from './MultiSelect';
 import MultiSelect from './MultiSelect';
-import type { MultiSelectAnchorParams } from './MultiSelectAnchorParams';
 import MultiSelectFilteredAnchor from './MultiSelectFilteredAnchor';
+import { MultiSelectFilteredContext } from './MultiSelectFilteredContext';
 
 export type MultiSelectFilteredProps = MultiSelectProps & {
   filter?: string;
@@ -14,40 +14,32 @@ export type MultiSelectFilteredProps = MultiSelectProps & {
   addonIcon?: IconProps['name'];
 };
 
-const MultiSelectFiltered = forwardRef<
-  HTMLInputElement,
-  MultiSelectFilteredProps
->(
-  (
-    {
-      options,
-      placeholder,
-      filter: propFilter,
-      setFilter: propSetFilter,
-      ...props
-    },
-    ref,
-  ) => {
-    const [filter, setFilter] = useState('');
+function MultiSelectFiltered({
+  options,
+  placeholder,
+  filter: propFilter,
+  setFilter: propSetFilter,
+  ...props
+}: MultiSelectFilteredProps) {
+  const [filter, setFilter] = useState('');
 
-    return (
+  return (
+    <MultiSelectFilteredContext.Provider
+      value={{
+        placeholder,
+        filter: propFilter || filter,
+        setFilter: propSetFilter || setFilter,
+      }}
+    >
       <MultiSelect
         {...props}
-        ref={ref}
         filter={propFilter || filter}
         setFilter={propSetFilter || setFilter}
         options={options}
-        anchor={(params: MultiSelectAnchorParams) => (
-          <MultiSelectFilteredAnchor
-            placeholder={placeholder}
-            filter={propFilter || filter}
-            onChangeFilter={propSetFilter || setFilter}
-            {...params}
-          />
-        )}
+        anchor={MultiSelectFilteredAnchor}
       />
-    );
-  },
-);
+    </MultiSelectFilteredContext.Provider>
+  );
+}
 
 export default MultiSelectFiltered;

@@ -30,14 +30,15 @@ function Chevron({
   return (
     <Box
       is='span'
-      children={children}
       rcx-chevron
       rcx-chevron--up={up}
       rcx-chevron--right={right}
       rcx-chevron--down={down}
       rcx-chevron--left={left}
       {...props}
-    />
+    >
+      {children}
+    </Box>
   );
 }
 

@@ -14,7 +14,11 @@ const DarkModeProvider = ({
   forcedDarkMode,
 }: DarkModeProviderProps) => {
   const value = useDarkModeFuselage(forcedDarkMode);
-  return <DarkModeContext.Provider children={children} value={value} />;
+  return (
+    <DarkModeContext.Provider value={value}>
+      {children}
+    </DarkModeContext.Provider>
+  );
 };
 
 export default DarkModeProvider;
