@@ -68,10 +68,9 @@ function FlexContainer({
   );
 
   return (
-    <BoxTransforms.Provider
-      children={children}
-      value={useComposedBoxTransform(transformFn)}
-    />
+    <BoxTransforms.Provider value={useComposedBoxTransform(transformFn)}>
+      {children}
+    </BoxTransforms.Provider>
   );
 }
 

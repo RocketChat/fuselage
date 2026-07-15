@@ -114,7 +114,9 @@ const AnimatedVisibility = (props: AnimatedVisibilityProps) => {
   }
 
   return (
-    <BoxTransforms.Provider children={props.children} value={composedFn} />
+    <BoxTransforms.Provider value={composedFn}>
+      {props.children}
+    </BoxTransforms.Provider>
   );
 };
 

@@ -155,7 +155,7 @@ function InputBox<
       hidden={hidden}
       invisible={invisible}
     >
-      {startAddon && <InputBoxAddon children={startAddon} />}
+      {startAddon && <InputBoxAddon>{startAddon}</InputBoxAddon>}
       <Input
         is={
           (type === 'textarea' && 'textarea') ||
@@ -178,7 +178,7 @@ function InputBox<
         rcx-input-box--small={small}
         {...props}
       />
-      {defaultAddon && <InputBoxAddon children={defaultAddon} />}
+      {defaultAddon && <InputBoxAddon>{defaultAddon}</InputBoxAddon>}
     </InputBoxWrapper>
   );
 }

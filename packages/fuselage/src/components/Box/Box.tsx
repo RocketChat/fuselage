@@ -50,7 +50,9 @@ function Box({ is = 'div', ...props }: BoxProps) {
   const element = createElement(is, propsWithoutBoxOnlyProps);
 
   if (transformFn) {
-    return <BoxTransforms.Provider children={element} value={null} />;
+    return (
+      <BoxTransforms.Provider value={null}>{element}</BoxTransforms.Provider>
+    );
   }
 
   return element;
