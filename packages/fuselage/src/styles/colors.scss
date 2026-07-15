@@ -187,10 +187,7 @@ $-strokes: (
 
 $-badge-backgrounds: (
   level-0: token($badge, level-0),
-  // TODO(design): token value (level-1, neutral-700, #6C737A) diverges from
-  // fuselage's current neutral-600. Keeping the current value until design
-  // confirms which is correct.
-  level-1: primitive(n600),
+  level-1: token($badge, level-1),
   level-2: token($badge, level-2),
   level-3: token($badge, level-3),
   level-4: token($badge, level-4),
