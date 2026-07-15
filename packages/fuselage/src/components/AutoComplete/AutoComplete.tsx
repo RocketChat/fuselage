@@ -235,9 +235,10 @@ function AutoComplete<TLabel = ReactNode>({
               <Chip
                 key={itemSelected.value}
                 value={itemSelected.value}
-                children={itemSelected.label as ReactNode}
                 onClick={handleRemove}
-              />
+              >
+                {itemSelected.label as ReactNode}
+              </Chip>
             ),
           )}
         </Margins>

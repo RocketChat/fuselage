@@ -168,8 +168,9 @@ const PaginatedMultiSelect = ({
                     onBlur={hide}
                     order={1}
                     rcx-input-box--undecorated
-                    children={placeholder ?? null}
-                  />
+                  >
+                    {placeholder ?? null}
+                  </Anchor>
 
                   {selectedOptions.map(({ value, label }, index) => (
                     <Chip
@@ -195,18 +196,16 @@ const PaginatedMultiSelect = ({
       </FlexItem>
       <FlexItem grow={0} shrink={0}>
         <Margins inline='x4'>
-          <SelectAddon
-            children={
-              <Icon
-                name={
-                  visible === AnimatedVisibility.VISIBLE
-                    ? 'cross'
-                    : 'chevron-down'
-                }
-                size='x20'
-              />
-            }
-          />
+          <SelectAddon>
+            <Icon
+              name={
+                visible === AnimatedVisibility.VISIBLE
+                  ? 'cross'
+                  : 'chevron-down'
+              }
+              size='x20'
+            />
+          </SelectAddon>
         </Margins>
       </FlexItem>
       <PositionAnimated visible={visible} anchor={containerRef}>

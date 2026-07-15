@@ -197,9 +197,8 @@ export const SidebarItem = ({
       .join(' ')}
     {...props}
   >
-    <div
-      className='rcx-box rcx-box--full rcx-sidebar-item__wrapper'
-      children={children}
-    />
+    <div className='rcx-box rcx-box--full rcx-sidebar-item__wrapper'>
+      {children}
+    </div>
   </Tag>
 );

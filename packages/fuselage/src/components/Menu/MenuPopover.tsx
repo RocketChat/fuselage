@@ -7,11 +7,11 @@ import { DropdownDesktop } from '../Dropdown/DropdownDesktop';
 import { DropdownMobile } from '../Dropdown/DropdownMobile';
 import { Popover } from '../Popover';
 
-interface MenuPopoverProps extends Omit<AriaPopoverProps, 'popoverRef'> {
+type MenuPopoverProps = Omit<AriaPopoverProps, 'popoverRef'> & {
   children: ReactNode;
   state: OverlayTriggerState;
   maxWidth?: string;
-}
+};
 
 function MenuPopover({
   children,
