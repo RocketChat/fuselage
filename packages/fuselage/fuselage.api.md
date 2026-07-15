@@ -241,19 +241,14 @@ export const borderWidth: MemoizedFunction<unknown, unknown, string | undefined>
 export const Box: MemoExoticComponent<typeof Box_2>;
 
 // @public (undocumented)
-export interface BoxProps extends Partial<StylingProps>, Omit<AllHTMLAttributes<HTMLElement>, 'ref' | 'is' | 'className' | 'size' | 'elevation' | keyof StylingProps>, Omit<SVGAttributes<SVGElement>, keyof AllHTMLAttributes<HTMLElement> | 'elevation' | keyof StylingProps>, RefAttributes<any> {
-    // (undocumented)
-    animated?: boolean;
-    // (undocumented)
-    className?: string | cssFn | (string | cssFn | Falsy)[];
-    // (undocumented)
-    focusable?: boolean;
-    // (undocumented)
-    htmlSize?: AllHTMLAttributes<HTMLElement>['size'];
+export type BoxProps = Partial<StylingProps> & Omit<AllHTMLAttributes<HTMLElement>, 'ref' | 'is' | 'className' | 'size' | 'elevation' | keyof StylingProps> & Omit<SVGAttributes<SVGElement>, keyof AllHTMLAttributes<HTMLElement> | 'elevation' | keyof StylingProps> & RefAttributes<any> & {
     is?: ElementType;
-    // (undocumented)
+    className?: string | cssFn | (string | cssFn | Falsy)[];
+    animated?: boolean;
     withRichContent?: boolean | 'inlineWithoutBreaks';
-}
+    htmlSize?: AllHTMLAttributes<HTMLElement>['size'];
+    focusable?: boolean;
+};
 
 // @public (undocumented)
 export const Bubble: (input: BubbleProps) => JSX.Element;
@@ -917,35 +912,22 @@ export namespace MenuItem {
 export type MenuItemProps<T> = ItemProps<T>;
 
 // @public (undocumented)
-export interface MenuProps<T> extends AriaMenuProps<T>, MenuTriggerProps {
-    // (undocumented)
-    button?: ReactElement<any>;
-    // (undocumented)
-    className?: BoxProps['className'];
-    // (undocumented)
-    detached?: boolean;
-    // (undocumented)
+export type MenuProps<T> = AriaMenuProps<T> & MenuTriggerProps & {
     icon?: IconButtonProps['icon'];
-    is?: ElementType;
-    // (undocumented)
     large?: boolean;
-    // (undocumented)
-    maxWidth?: string;
-    // (undocumented)
     medium?: boolean;
-    // (undocumented)
-    mini?: boolean;
-    // (undocumented)
-    placement?: UsePositionOptions['placement'];
-    // (undocumented)
-    pressed?: boolean;
-    // (undocumented)
     small?: boolean;
-    // (undocumented)
     tiny?: boolean;
-    // (undocumented)
+    mini?: boolean;
+    placement?: UsePositionOptions['placement'];
     title?: string;
-}
+    detached?: boolean;
+    is?: ElementType;
+    className?: BoxProps['className'];
+    pressed?: boolean;
+    maxWidth?: string;
+    button?: ReactElement<any>;
+};
 
 // @public (undocumented)
 export function MenuSection<T>(_props: MenuSectionProps<T>): null;
@@ -1925,36 +1907,22 @@ export type PaletteStyleTagProps = {
 };
 
 // @public (undocumented)
-export interface PartialNode<T> {
-    // (undocumented)
-    'aria-label'?: string;
-    // (undocumented)
-    'childNodes'?: () => IterableIterator<PartialNode<T>>;
-    // (undocumented)
-    'element'?: ReactNode;
-    // (undocumented)
-    'hasChildNodes'?: boolean;
-    // (undocumented)
-    'index'?: number;
-    // (undocumented)
-    'key'?: Key;
-    // (undocumented)
-    'props'?: any;
-    // (undocumented)
-    'rendered'?: ReactNode;
-    // (undocumented)
-    'renderer'?: (item: T) => ReactNode;
-    // (undocumented)
-    'shouldInvalidate'?: (context: unknown) => boolean;
-    // (undocumented)
-    'textValue'?: string;
-    // (undocumented)
+export type PartialNode<T> = {
     'type'?: string;
-    // (undocumented)
+    'key'?: Key;
     'value'?: T;
-    // (undocumented)
+    'element'?: ReactNode;
     'wrapper'?: (element: ReactNode) => ReactNode;
-}
+    'rendered'?: ReactNode;
+    'textValue'?: string;
+    'aria-label'?: string;
+    'index'?: number;
+    'renderer'?: (item: T) => ReactNode;
+    'hasChildNodes'?: boolean;
+    'childNodes'?: () => IterableIterator<PartialNode<T>>;
+    'props'?: any;
+    'shouldInvalidate'?: (context: unknown) => boolean;
+};
 
 // @public (undocumented)
 export function PasswordInput(props: PasswordInputProps): JSX.Element;
@@ -1966,14 +1934,11 @@ export type PasswordInputProps = Omit<InputBoxProps<HTMLInputElement>, 'type'>;
 export function Popover(input: PopoverProps): JSX.Element;
 
 // @public (undocumented)
-export interface PopoverProps extends Omit<AriaPopoverProps, 'popoverRef'> {
-    // (undocumented)
+export type PopoverProps = Omit<AriaPopoverProps, 'popoverRef'> & {
     children: ReactNode;
-    // (undocumented)
-    portalContainer?: Element;
-    // (undocumented)
     state: OverlayTriggerState;
-}
+    portalContainer?: Element;
+};
 
 // @public (undocumented)
 export const PositionAnimated: (input: PositionAnimatedProps) => JSX.Element;

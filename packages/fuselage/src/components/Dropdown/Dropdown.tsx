@@ -23,12 +23,13 @@ function Dropdown({
   return notSmall ? (
     <DropdownDesktopWrapper
       reference={reference}
-      children={children}
       placement={placement}
       ref={ref}
-    />
+    >
+      {children}
+    </DropdownDesktopWrapper>
   ) : (
-    <DropdownMobile children={children} ref={ref} />
+    <DropdownMobile ref={ref}>{children}</DropdownMobile>
   );
 }
 

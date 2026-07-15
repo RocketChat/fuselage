@@ -16,11 +16,12 @@ function Icon({ name, size, ...props }: IconProps) {
       is='i'
       rcx-icon
       rcx-icon--name={name}
-      children={nameToCharacterMapping[name]}
       aria-hidden='true'
       fontSize={size}
       {...props}
-    />
+    >
+      {nameToCharacterMapping[name]}
+    </Box>
   );
 }
 

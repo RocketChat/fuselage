@@ -21,7 +21,7 @@ export const TopBarSection = ({
       .join(' ')}
     {...props}
   >
-    <TopBarWrapper children={children} />
+    <TopBarWrapper>{children}</TopBarWrapper>
     <SidebarDivider />
   </TopBar>
 );

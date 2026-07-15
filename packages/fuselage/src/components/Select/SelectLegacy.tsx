@@ -191,18 +191,16 @@ function SelectLegacy({
           {!value ? option || placeholder : null}
         </Anchor>
         <Margins inline='x4'>
-          <SelectAddon
-            children={
-              <Icon
-                name={
-                  visible === AnimatedVisibility.VISIBLE
-                    ? 'chevron-up'
-                    : addonIcon || 'chevron-down'
-                }
-                size='x20'
-              />
-            }
-          />
+          <SelectAddon>
+            <Icon
+              name={
+                visible === AnimatedVisibility.VISIBLE
+                  ? 'chevron-up'
+                  : addonIcon || 'chevron-down'
+              }
+              size='x20'
+            />
+          </SelectAddon>
         </Margins>
       </Wrapper>
       <PositionAnimated visible={visible} anchor={containerRef}>
