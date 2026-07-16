@@ -70,7 +70,7 @@ export const CreateFirstMemberForm = ({
         {t('form.createFirstMemberForm.subtitle', { organizationName })}
       </FormSubtitle>
 
-      <FieldGroup mbs={16}>
+      <FieldGroup marginBlockStart={16}>
         <Field>
           <FieldLabel>
             <Box display='inline' mie={8}>

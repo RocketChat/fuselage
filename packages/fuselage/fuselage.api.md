@@ -2649,7 +2649,6 @@ export type StylingProps = {
     insetInlineEnd: CSSProperties['insetInlineEnd'];
     margin: CSSProperties['margin'];
     marginBlock: CSSProperties['marginBlock'];
-    mbs: CSSProperties['marginBlockStart'];
     marginBlockStart: CSSProperties['marginBlockStart'];
     mbe: CSSProperties['marginBlockEnd'];
     marginBlockEnd: CSSProperties['marginBlockEnd'];

@@ -146,7 +146,7 @@ export const RequestTrialForm = ({
           </FieldRow>
         </Field>
         <Field>
-          <Box mbs={24}>
+          <Box marginBlockStart={24}>
             <Box
               mbe={8}
               display='flex'

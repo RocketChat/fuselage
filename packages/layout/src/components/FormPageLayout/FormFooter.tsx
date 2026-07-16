@@ -10,7 +10,7 @@ function FormFooter(props: FormFooterProps) {
   return (
     <Box
       is='footer'
-      mbs={24}
+      marginBlockStart={24}
       display='flex'
       alignItems='center'
       justifyContent='space-between'

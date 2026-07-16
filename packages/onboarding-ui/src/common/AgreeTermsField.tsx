@@ -27,7 +27,7 @@ const AgreeTermsField = ({
   const { t } = useTranslation();
 
   return (
-    <Field mbs='24px'>
+    <Field marginBlockStart='24px'>
       <FieldRow justifyContent='initial'>
         <Controller
           name='agreement'

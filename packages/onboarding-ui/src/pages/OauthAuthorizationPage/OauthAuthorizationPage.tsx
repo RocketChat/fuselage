@@ -36,7 +36,7 @@ const OauthAuthorizationPage = ({
                 Error
               </Box>
               {error.message}
-              <Box mbs={24}>
+              <Box marginBlockStart={24}>
                 <Button onClick={error.onGoBack} primary>
                   {t('page.oauthAuthorizationPage.buttons.goBack')}
                 </Button>
@@ -53,7 +53,7 @@ const OauthAuthorizationPage = ({
                 to login with your Rocket.Chat Cloud Account?
               </Trans>
 
-              <Box mbs={24}>
+              <Box marginBlockStart={24}>
                 <Button onClick={onClickAuthorizeOAuth} primary>
                   {t('page.oauthAuthorizationPage.buttons.authorize')}
                 </Button>
