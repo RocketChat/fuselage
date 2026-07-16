@@ -42,6 +42,35 @@ node poc/box-compiler/demo.cjs
 yarn jest src/utilities/boxCompiler.poc.spec.ts
 ```
 
+## See it in Storybook
+
+The plugin is wired into Storybook's webpack as an `enforce: 'pre'` babel pass
+(runs before SWC, keeps JSX), gated behind an env flag so normal Storybook is
+untouched:
+
+```sh
+# build-time compiled (props baked into className, CSS via attachRules)
+BOX_COMPILER=1 yarn storybook -p 6007
+
+# normal Storybook (runtime path; compare with the localStorage toggle)
+yarn storybook -p 6006
+```
+
+On the compiled instance, inspect a `Box` in e.g. `Layout/Borders`: the element
+carries multiple semantic atomic classes (`rcx-display-flex-…`,
+`rcx-padding-…`) even with `localStorage` cleared — proof they came from the
+build, not the runtime. The served `main.iframe.bundle.js` contains
+`attachRules(".rcx-…")` calls injected per module.
+
+The build-time resolver is a bundled snapshot of the real runtime resolver.
+Regenerate it after changing `stylingProps.ts` / `buildAtomicClassName.ts`:
+
+```sh
+node -e "require('esbuild').build({entryPoints:['poc/box-compiler/resolver.entry.ts'],\
+outfile:'poc/box-compiler/resolver.generated.cjs',bundle:true,platform:'node',\
+format:'cjs',external:['@rocket.chat/css-in-js']})"
+```
+
 ## Scope / not done yet
 
 - Only `<Box>` by local name, only literal props. `is` flattening, spreads,

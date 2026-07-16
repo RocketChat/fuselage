@@ -3,14 +3,20 @@
  *
  * For every <Box> whose styling props are static literals, resolve them to
  * atomic class names at build time, strip the props, and add a plain
- * `className`. The matching CSS rules are pushed into an out-of-band sheet.
- * Non-literal props (expressions) are left untouched and handled at runtime.
+ * `className`. Non-literal props (expressions) are left untouched and handled
+ * by the runtime atomic path.
+ *
+ * The resolved CSS rules are surfaced two ways:
+ *   options.sheet  : Map<className, css>  — collected out-of-band (tests/demo)
+ *   options.inject : boolean              — when true, each file gets a top-of-
+ *                    module `attachRules("<its rules>")` call, so the CSS lands
+ *                    in the page at module load with no external asset. Sharing
+ *                    across files is deduped/ref-counted by attachRules.
  *
  * Resolution is injected via options so the plugin reuses Fuselage's real
  * runtime logic (no token duplication):
  *   options.styleProps : string[]  — recognised styling prop names
  *   options.resolve    : (props) => { className, css }[]
- *   options.sheet      : Map<className, css>  — collected rules (deduped)
  */
 module.exports = function boxAtomicPlugin({ types: t }) {
   const staticValue = (node) => {
@@ -30,6 +36,9 @@ module.exports = function boxAtomicPlugin({ types: t }) {
 
   return {
     name: 'fuselage-box-atomic',
+    pre() {
+      this.rules = new Map(); // className -> css, for this file
+    },
     visitor: {
       JSXOpeningElement(path, state) {
         const { styleProps, resolve, sheet } = state.opts;
@@ -59,7 +68,8 @@ module.exports = function boxAtomicPlugin({ types: t }) {
 
         const classNames = resolved.map((r) => r.className);
         for (const { className, css } of resolved) {
-          if (!sheet.has(className)) sheet.set(className, css);
+          if (sheet && !sheet.has(className)) sheet.set(className, css);
+          if (!this.rules.has(className)) this.rules.set(className, css);
         }
 
         path.node.attributes = path.node.attributes.filter(
@@ -100,6 +110,24 @@ module.exports = function boxAtomicPlugin({ types: t }) {
             ),
           );
         }
+      },
+      Program: {
+        exit(path, state) {
+          if (!state.opts.inject || this.rules.size === 0) return;
+
+          const css = [...this.rules.values()].join('\n');
+          const attach = path.scope.generateUidIdentifier('rcxAttach');
+
+          path.unshiftContainer('body', [
+            t.importDeclaration(
+              [t.importSpecifier(attach, t.identifier('attachRules'))],
+              t.stringLiteral('@rocket.chat/css-in-js'),
+            ),
+            t.expressionStatement(
+              t.callExpression(attach, [t.stringLiteral(css)]),
+            ),
+          ]);
+        },
       },
     },
   };
