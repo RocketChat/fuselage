@@ -398,7 +398,7 @@ export const Paddings: StoryFn<typeof Box> = () => (
     <Box paddingInline={16} />
     <Box paddingInlineStart={16} />
     <Box paddingInlineStart={16} />
-    <Box pie={16} />
+    <Box paddingInlineEnd={16} />
     <Box paddingInlineEnd={16} />
   </>
 );

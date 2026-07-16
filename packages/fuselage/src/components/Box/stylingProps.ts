@@ -125,8 +125,6 @@ export type StylingProps = {
   paddingBlockEnd: CSSProperties['paddingBlockEnd'];
   paddingInline: CSSProperties['paddingInline'];
   paddingInlineStart: CSSProperties['paddingInlineStart'];
-  /** @deprecated Use paddingInlineEnd instead */
-  pie: CSSProperties['paddingInlineEnd'];
   paddingInlineEnd: CSSProperties['paddingInlineEnd'];
 
   fontFamily: CSSProperties['fontFamily'] | FontScale;
@@ -153,7 +151,6 @@ type PropDefinition =
   | {
       toCSSValue: (value: unknown) => string | undefined;
     }
-  | { aliasOf: keyof StylingProps }
   | {
       toStyle: (value: unknown) => cssFn | undefined;
     };
@@ -233,10 +230,6 @@ const letterSpacingProp: PropDefinition = {
   toCSSValue: (value) =>
     value ? String(fontScale(value)?.letterSpacing || value) : undefined,
 };
-
-const aliasOf = (propName: keyof StylingProps): PropDefinition => ({
-  aliasOf: propName,
-});
 
 export const propDefs: Record<keyof StylingProps, PropDefinition> = {
   border: stringProp,
@@ -329,7 +322,6 @@ export const propDefs: Record<keyof StylingProps, PropDefinition> = {
   paddingBlockEnd: paddingProp,
   paddingInline: paddingProp,
   paddingInlineStart: paddingProp,
-  pie: aliasOf('paddingInlineEnd'),
   paddingInlineEnd: paddingProp,
 
   fontFamily: fontFamilyProp,
@@ -449,23 +441,6 @@ const compiledPropDefs = new Map(
         stylingProps: Map<keyof StylingProps, cssFn>,
       ) => void,
     ] => {
-      if ('aliasOf' in propDef) {
-        const { aliasOf: effectivePropName } = propDef;
-
-        return [
-          propName,
-          (value, stylingProps) => {
-            if (stylingProps.has(effectivePropName)) {
-              return;
-            }
-
-            const inject = compiledPropDefs.get(effectivePropName);
-
-            inject?.(value, stylingProps);
-          },
-        ];
-      }
-
       if ('toCSSValue' in propDef) {
         const cssProperty = fromCamelToKebab(propName);
         const { toCSSValue } = propDef;

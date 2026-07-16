@@ -2660,7 +2660,6 @@ export type StylingProps = {
     paddingBlockEnd: CSSProperties['paddingBlockEnd'];
     paddingInline: CSSProperties['paddingInline'];
     paddingInlineStart: CSSProperties['paddingInlineStart'];
-    pie: CSSProperties['paddingInlineEnd'];
     paddingInlineEnd: CSSProperties['paddingInlineEnd'];
     fontFamily: CSSProperties['fontFamily'] | FontScale;
     fontSize: CSSProperties['fontSize'] | FontScale;
