@@ -87,7 +87,7 @@ $tabs-border-radius: theme('tabs-border-radius', lengths.border-radius(medium));
   min-height: lengths.size(40);
 
   margin: lengths.margin(none) lengths.margin(12);
-  padding: (lengths.padding(4) + lengths.border-width(default, rem))
+  padding: calc(#{lengths.padding(4)} + #{lengths.border-width(default)})
     lengths.padding(none);
 
   color: $tabs-color;
@@ -104,14 +104,14 @@ $tabs-border-radius: theme('tabs-border-radius', lengths.border-radius(medium));
   &:hover {
     color: $tabs-hover-color;
     border-block-end-color: $tabs-hover-color;
-    border-block-end-width: lengths.border-width(4);
+    border-block-end-width: lengths.border-width(large);
   }
 
   &.active,
   &:active {
     color: $tabs-active-color;
     border-block-end-color: $tabs-active-color;
-    border-block-end-width: lengths.border-width(4);
+    border-block-end-width: lengths.border-width(large);
   }
 
   @include on-focus-visible {

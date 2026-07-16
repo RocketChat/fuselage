@@ -27,7 +27,7 @@
   margin: lengths.margin('none');
   padding: lengths.padding('none');
 
-  border-width: lengths.border-width('none');
+  border-width: lengths.border-width(none);
   border-style: solid;
   border-color: currentColor;
 

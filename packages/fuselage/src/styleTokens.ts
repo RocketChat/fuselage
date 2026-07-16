@@ -63,20 +63,30 @@ const borders = {
     'extra-large': '20px',
     'full': '9999px',
   },
-} satisfies { radius: Record<string, CSSProperties['borderRadius']> };
+  width: {
+    'none': '0',
+    'default': '1px',
+    'medium': '2px',
+    'large': '4px',
+    'extra-large': '8px',
+  },
+} satisfies {
+  radius: Record<string, CSSProperties['borderRadius']>;
+  width: Record<string, CSSProperties['borderWidth']>;
+};
 
-export const borderWidth = measure((value: unknown) => {
-  if (value === 'none') {
-    return '0px';
-  }
-  if (value === 'default') {
-    return borderWidth('x1');
-  }
-
-  return undefined;
-});
-
+export type BorderWidth = keyof typeof borders.width;
 export type BorderRadius = keyof typeof borders.radius;
+
+export const borderWidth = (value: unknown) => {
+  if (typeof value === 'string' && value in borders.width) {
+    return borders.width[value as keyof typeof borders.width];
+  }
+
+  throw new Error(
+    `Invalid borderWidth value: ${value}. Valid values are: ${Object.keys(borders.width).join(', ')}`,
+  );
+};
 
 export const borderRadius = (value: unknown) => {
   if (typeof value === 'string' && value in borders.radius) {

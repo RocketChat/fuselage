@@ -68,8 +68,8 @@ $sidebar-color-font-active: theme(
 
   align-items: center;
 
-  padding: calc(lengths.padding(4) - lengths.border-width('default'))
-    calc(lengths.padding(16) - lengths.border-width('default'));
+  padding: calc(#{lengths.padding(4)} - #{lengths.border-width(default)})
+    calc(#{lengths.padding(16)} - #{lengths.border-width(default)});
 
   white-space: nowrap;
 
@@ -77,7 +77,9 @@ $sidebar-color-font-active: theme(
   gap: lengths.padding(4);
 
   &--level-2 {
-    padding-block: calc(lengths.padding(8) - lengths.border-width('default'));
+    padding-block: calc(
+      #{lengths.padding(8)} - #{lengths.border-width(default)}
+    );
   }
 
   &:active {

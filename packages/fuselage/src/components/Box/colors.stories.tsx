@@ -147,7 +147,7 @@ export const StrokeColors: Story = {
                 textAlign: 'center',
                 size: 'x122',
                 color: 'default',
-                borderWidth: 'x8',
+                borderWidth: 'extra-large',
                 borderRadius: 'medium',
                 display: 'flex',
                 alignItems: 'center',
