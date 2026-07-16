@@ -27,27 +27,27 @@ export const Borders: StoryFn<typeof Box> = () => (
     <Box borderInline='2px solid currentColor' />
     <Box borderInlineStart='2px solid currentColor' />
     <Box borderInlineEnd='2px solid currentColor' />
-    <Box borderWidth='x2' />
-    <Box borderBlockWidth='x2' />
-    <Box borderBlockStartWidth='x2' />
-    <Box borderBlockEndWidth='x2' />
-    <Box borderInlineWidth='x2' />
-    <Box borderInlineStartWidth='x2' />
-    <Box borderInlineEndWidth='x2' />
-    <Box borderWidth='x1' borderStyle='dashed' />
-    <Box borderWidth='x1' borderBlockStyle='dashed' />
-    <Box borderWidth='x1' borderBlockStartStyle='dashed' />
-    <Box borderWidth='x1' borderBlockEndStyle='dashed' />
-    <Box borderWidth='x1' borderInlineStyle='dashed' />
-    <Box borderWidth='x1' borderInlineStartStyle='dashed' />
-    <Box borderWidth='x1' borderInlineEndStyle='dashed' />
-    <Box borderWidth='x4' borderColor='primary-500' />
-    <Box borderWidth='x4' borderBlockColor='primary-500' />
-    <Box borderWidth='x4' borderBlockStartColor='primary-500' />
-    <Box borderWidth='x4' borderBlockEndColor='primary-500' />
-    <Box borderWidth='x4' borderInlineColor='primary-500' />
-    <Box borderWidth='x4' borderInlineStartColor='primary-500' />
-    <Box borderWidth='x4' borderInlineEndColor='primary-500' />
+    <Box borderWidth='medium' />
+    <Box borderBlockWidth='medium' />
+    <Box borderBlockStartWidth='medium' />
+    <Box borderBlockEndWidth='medium' />
+    <Box borderInlineWidth='medium' />
+    <Box borderInlineStartWidth='medium' />
+    <Box borderInlineEndWidth='medium' />
+    <Box borderWidth='default' borderStyle='dashed' />
+    <Box borderWidth='default' borderBlockStyle='dashed' />
+    <Box borderWidth='default' borderBlockStartStyle='dashed' />
+    <Box borderWidth='default' borderBlockEndStyle='dashed' />
+    <Box borderWidth='default' borderInlineStyle='dashed' />
+    <Box borderWidth='default' borderInlineStartStyle='dashed' />
+    <Box borderWidth='default' borderInlineEndStyle='dashed' />
+    <Box borderWidth='large' borderColor='primary-500' />
+    <Box borderWidth='large' borderBlockColor='primary-500' />
+    <Box borderWidth='large' borderBlockStartColor='primary-500' />
+    <Box borderWidth='large' borderBlockEndColor='primary-500' />
+    <Box borderWidth='large' borderInlineColor='primary-500' />
+    <Box borderWidth='large' borderInlineStartColor='primary-500' />
+    <Box borderWidth='large' borderInlineEndColor='primary-500' />
   </>
 );
 Borders.decorators = [
@@ -548,7 +548,7 @@ ZIndex.decorators = [
       ).map((child: any) =>
         cloneElement(child, {
           backgroundColor: 'neutral',
-          borderWidth: 'x4',
+          borderWidth: 'large',
           size: 'x32',
           margin: 'neg-x2',
         }),

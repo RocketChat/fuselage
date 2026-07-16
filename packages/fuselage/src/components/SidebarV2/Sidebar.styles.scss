@@ -69,8 +69,8 @@ $sidebar-color-stroke-extra-light: theme(
 
       min-height: lengths.size(24);
 
-      padding: calc(lengths.padding(8) - lengths.border-width('default'))
-        calc(lengths.padding(16) - lengths.border-width('default'));
+      padding: calc(#{lengths.padding(8)} - #{lengths.border-width(default)})
+        calc(#{lengths.padding(16)} - #{lengths.border-width(default)});
 
       text-align: start;
 

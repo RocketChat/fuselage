@@ -238,7 +238,10 @@ export type BorderRadius = keyof typeof borders.radius;
 export const borderRadius: (value: unknown) => string;
 
 // @public (undocumented)
-export const borderWidth: MemoizedFunction<unknown, unknown, string | undefined>;
+export type BorderWidth = keyof typeof borders.width;
+
+// @public (undocumented)
+export const borderWidth: (value: unknown) => string;
 
 // Warning: (ae-forgotten-export) The symbol "Box_2" needs to be exported by the entry point index.d.ts
 //
@@ -2587,13 +2590,13 @@ export type StylingProps = {
     borderInline: CSSProperties['borderInline'];
     borderInlineStart: CSSProperties['borderInlineStart'];
     borderInlineEnd: CSSProperties['borderInlineEnd'];
-    borderWidth: CSSProperties['borderWidth'];
-    borderBlockWidth: CSSProperties['borderBlockWidth'];
-    borderBlockStartWidth: CSSProperties['borderBlockStartWidth'];
-    borderBlockEndWidth: CSSProperties['borderBlockEndWidth'];
-    borderInlineWidth: CSSProperties['borderInlineWidth'];
-    borderInlineStartWidth: CSSProperties['borderInlineStartWidth'];
-    borderInlineEndWidth: CSSProperties['borderInlineEndWidth'];
+    borderWidth: BorderWidth;
+    borderBlockWidth: BorderWidth;
+    borderBlockStartWidth: BorderWidth;
+    borderBlockEndWidth: BorderWidth;
+    borderInlineWidth: BorderWidth;
+    borderInlineStartWidth: BorderWidth;
+    borderInlineEndWidth: BorderWidth;
     borderStyle: CSSProperties['borderStyle'];
     borderBlockStyle: CSSProperties['borderBlockStyle'];
     borderBlockStartStyle: CSSProperties['borderBlockStartStyle'];

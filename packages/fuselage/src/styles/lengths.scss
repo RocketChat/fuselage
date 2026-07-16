@@ -62,27 +62,6 @@
   }
 }
 
-$border-width-sizes: (
-  'default': 1,
-  'medium': 2,
-  'large': 4,
-);
-
-@function border-width($value, $scape: px) {
-  @if $value == 'none' {
-    @return 0;
-  } @else if $value == 1 or $value == 2 or $value == 4 {
-    @return $value * 1px;
-  } @else if map.get($border-width-sizes, $value) {
-    @if $scape == px {
-      @return map.get($border-width-sizes, $value) * 1px;
-    }
-    @return to-rem(map.get($border-width-sizes, $value));
-  } @else {
-    @error 'value must be none, default, medium, large, 1, 2, or 4';
-  }
-}
-
 $-borders: (
   'radius-none': '0',
   'radius-small': '2px',
@@ -90,8 +69,23 @@ $-borders: (
   'radius-large': '8px',
   'radius-extra-large': '20px',
   'radius-full': '9999px',
+  'width-none': '0',
+  'width-default': '1px',
+  'width-medium': '2px',
+  'width-large': '4px',
+  'width-extra-large': '8px',
 );
 
+@function border-width($value) {
+  @return theme(
+    'border-width-#{$value}',
+    map.get($-borders, 'width-#{$value}')
+  );
+}
+
 @function border-radius($value) {
-  @return theme('border-radius-#{$value}', map.get($-borders, 'radius-#{$value}'));
+  @return theme(
+    'border-radius-#{$value}',
+    map.get($-borders, 'radius-#{$value}')
+  );
 }
