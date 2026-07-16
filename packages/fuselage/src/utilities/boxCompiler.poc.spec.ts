@@ -26,14 +26,14 @@ const resolve = (props: Record<string, unknown>) => {
   });
 };
 
-const compile = (code: string) => {
+const compile = (code: string, opts: Record<string, unknown> = {}) => {
   const sheet = new Map<string, string>();
   const out = transformSync(code, {
     configFile: false,
     babelrc: false,
     plugins: [
       '@babel/plugin-syntax-jsx',
-      [plugin, { styleProps: Object.keys(propDefs), resolve, sheet }],
+      [plugin, { styleProps: Object.keys(propDefs), resolve, sheet, ...opts }],
     ],
   });
   return { code: out?.code ?? '', css: [...sheet.values()].join('\n') };
@@ -61,6 +61,17 @@ describe('PoC build-time Box compiler', () => {
   it('merges into an existing static className', () => {
     const { code } = compile('<Box p="x8" className="foo" />;');
     expect(code).toMatch(/className="rcx-padding-\S+ foo"/);
+  });
+
+  it('keepProps mode retains props for introspection and marks them', () => {
+    const { code } = compile('<Box bg="tint" p="x8" />;', { keepProps: true });
+
+    expect(code).toContain('bg="tint"'); // kept for runtime introspection
+    expect(code).toContain('p="x8"');
+    expect(code).toMatch(/data-rcx-atomic="(bg p|p bg)"/);
+    expect(code).toMatch(
+      /className="rcx-background-color-\S+ rcx-padding-\S+"/,
+    );
   });
 
   it('dedupes shared declarations across many Boxes into one rule', () => {

@@ -36,7 +36,15 @@ const config: StorybookConfig = {
                 ],
               ],
               plugins: [
-                [boxPlugin, { styleProps, resolve: resolveBox, inject: true }],
+                [
+                  boxPlugin,
+                  {
+                    styleProps,
+                    resolve: resolveBox,
+                    inject: true,
+                    keepProps: true,
+                  },
+                ],
               ],
             },
           },

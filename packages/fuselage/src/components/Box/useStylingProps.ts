@@ -55,6 +55,32 @@ const useMergedStylingProps = <TProps extends { className?: string }>(
   return props;
 };
 
-export const useStylingProps = ATOMIC_STYLING
+const useStylingPropsImpl = ATOMIC_STYLING
   ? useAtomicStylingProps
   : useMergedStylingProps;
+
+/**
+ * Drop styling props already compiled at build time (marked via the
+ * `data-rcx-atomic` attribute by the PoC compiler): they are represented by
+ * the precomputed className, so the runtime must not restyle them, but they
+ * are removed here rather than at build so runtime prop introspection
+ * (e.g. `child.props.bg`) keeps working. Inert when the marker is absent.
+ */
+const dropCompiledProps = <TProps extends Record<string, unknown>>(
+  props: TProps,
+): TProps => {
+  const compiled = props['data-rcx-atomic'];
+  if (typeof compiled !== 'string') return props;
+
+  const next: Record<string, unknown> = { ...props };
+  delete next['data-rcx-atomic'];
+  for (const name of compiled.split(' ')) {
+    delete next[name];
+  }
+  return next as TProps;
+};
+
+export const useStylingProps = <TProps extends { className?: string }>(
+  originalProps: TProps,
+): Omit<TProps, keyof StylingProps> =>
+  useStylingPropsImpl(dropCompiledProps(originalProps));

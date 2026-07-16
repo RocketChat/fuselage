@@ -41,7 +41,7 @@ module.exports = function boxAtomicPlugin({ types: t }) {
     },
     visitor: {
       JSXOpeningElement(path, state) {
-        const { styleProps, resolve, sheet } = state.opts;
+        const { styleProps, resolve, sheet, keepProps } = state.opts;
         const propSet = new Set(styleProps);
 
         if (!t.isJSXIdentifier(path.node.name, { name: 'Box' })) return;
@@ -72,9 +72,21 @@ module.exports = function boxAtomicPlugin({ types: t }) {
           if (!this.rules.has(className)) this.rules.set(className, css);
         }
 
-        path.node.attributes = path.node.attributes.filter(
-          (a) => !toRemove.includes(a),
-        );
+        if (keepProps) {
+          // Keep the props on the element so runtime introspection (e.g.
+          // `child.props.bg`, spreads) still works; mark which props are
+          // already compiled so the runtime skips restyling them.
+          path.node.attributes.push(
+            t.jsxAttribute(
+              t.jsxIdentifier('data-rcx-atomic'),
+              t.stringLiteral(Object.keys(collected).join(' ')),
+            ),
+          );
+        } else {
+          path.node.attributes = path.node.attributes.filter(
+            (a) => !toRemove.includes(a),
+          );
+        }
 
         const classString = classNames.join(' ');
         const existing = path.node.attributes.find(
