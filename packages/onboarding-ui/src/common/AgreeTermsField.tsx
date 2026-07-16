@@ -55,7 +55,7 @@ const AgreeTermsField = ({
           withRichContent
           required
           fontScale='c1'
-          mis={4}
+          marginInlineStart={4}
         >
           <Trans i18nKey='component.form.termsAndConditions'>
             I agree with

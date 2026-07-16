@@ -2652,7 +2652,6 @@ export type StylingProps = {
     marginBlockStart: CSSProperties['marginBlockStart'];
     marginBlockEnd: CSSProperties['marginBlockEnd'];
     marginInline: CSSProperties['marginInline'];
-    mis: CSSProperties['marginInlineStart'];
     marginInlineStart: CSSProperties['marginInlineStart'];
     mie: CSSProperties['marginInlineEnd'];
     marginInlineEnd: CSSProperties['marginInlineEnd'];

@@ -117,8 +117,6 @@ export type StylingProps = {
   marginBlockStart: CSSProperties['marginBlockStart'];
   marginBlockEnd: CSSProperties['marginBlockEnd'];
   marginInline: CSSProperties['marginInline'];
-  /** @deprecated Use marginInlineStart instead */
-  mis: CSSProperties['marginInlineStart'];
   marginInlineStart: CSSProperties['marginInlineStart'];
   /** @deprecated Use marginInlineEnd instead */
   mie: CSSProperties['marginInlineEnd'];
@@ -337,7 +335,6 @@ export const propDefs: Record<keyof StylingProps, PropDefinition> = {
   marginBlockStart: marginProp,
   marginBlockEnd: marginProp,
   marginInline: marginProp,
-  mis: aliasOf('marginInlineStart'),
   marginInlineStart: marginProp,
   mie: aliasOf('marginInlineEnd'),
   marginInlineEnd: marginProp,

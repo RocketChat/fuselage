@@ -97,7 +97,7 @@ export const VerticalCustom: StoryFn<typeof Card> = () => (
         {Array.from(new Array(3)).map((_, index) => (
           <Box is='span' display='flex' alignItems='center' key={index}>
             <FramedIcon icon='check' success />
-            <Box mis={8}>Lorem ipsum dolor sit amet.</Box>
+            <Box marginInlineStart={8}>Lorem ipsum dolor sit amet.</Box>
           </Box>
         ))}
       </CardCol>
@@ -105,7 +105,7 @@ export const VerticalCustom: StoryFn<typeof Card> = () => (
         {Array.from(new Array(3)).map((_, index) => (
           <Box is='span' display='flex' alignItems='center' key={index}>
             <FramedIcon icon='cross' danger />
-            <Box mis={8}>Lorem ipsum dolor sit amet.</Box>
+            <Box marginInlineStart={8}>Lorem ipsum dolor sit amet.</Box>
           </Box>
         ))}
       </CardCol>
