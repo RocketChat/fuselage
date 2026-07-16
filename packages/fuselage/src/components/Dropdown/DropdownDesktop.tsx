@@ -20,14 +20,14 @@ export function DropdownDesktop({
       style={style}
       elevation='2'
       pi='0'
-      pb='0'
+      paddingBlock='0'
       display='flex'
       flexDirection='column'
       overflow='auto'
       data-testid='dropdown'
       {...props}
     >
-      <Box flexShrink={1} pb={12}>
+      <Box flexShrink={1} paddingBlock={12}>
         {style?.visibility === 'hidden' ? null : children}
       </Box>
     </Tile>

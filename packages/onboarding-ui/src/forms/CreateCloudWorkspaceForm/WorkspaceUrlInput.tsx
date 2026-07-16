@@ -13,7 +13,7 @@ const WorkspaceUrlInput = ({ domain, ...props }: WorkspaceUrlInputProps) => (
       <Box
         borderInlineStart='2px solid'
         marginBlock='neg-x8'
-        pb={8}
+        paddingBlock={8}
         borderColor='neutral-500'
         color='info'
         pis={12}

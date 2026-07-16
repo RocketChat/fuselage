@@ -2655,7 +2655,6 @@ export type StylingProps = {
     marginInlineStart: CSSProperties['marginInlineStart'];
     marginInlineEnd: CSSProperties['marginInlineEnd'];
     padding: CSSProperties['padding'];
-    pb: CSSProperties['paddingBlock'];
     paddingBlock: CSSProperties['paddingBlock'];
     pbs: CSSProperties['paddingBlockStart'];
     paddingBlockStart: CSSProperties['paddingBlockStart'];

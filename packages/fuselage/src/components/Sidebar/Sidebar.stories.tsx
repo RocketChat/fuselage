@@ -373,25 +373,25 @@ export const Admin: StoryFn<typeof Sidebar> = () => (
     </Box>
     <Divider />
     <SidebarItem is='a' clickable href='#'>
-      <Box display='flex' justifyContent='center' pb={8}>
+      <Box display='flex' justifyContent='center' paddingBlock={8}>
         <Icon name='import' marginInline={4} size='x20' />
         Import
       </Box>
     </SidebarItem>
     <SidebarItem is='a' clickable href='#'>
-      <Box display='flex' justifyContent='center' pb={8}>
+      <Box display='flex' justifyContent='center' paddingBlock={8}>
         <Icon name='user' marginInline={4} size='x20' />
         Users
       </Box>
     </SidebarItem>
     <SidebarItem is='a' clickable href='#'>
-      <Box display='flex' justifyContent='center' pb={8}>
+      <Box display='flex' justifyContent='center' paddingBlock={8}>
         <Icon name='hashtag' marginInline={4} size='x20' />
         Rooms
       </Box>
     </SidebarItem>
     <SidebarItem is='a' clickable href='#'>
-      <Box display='flex' justifyContent='center' pb={8}>
+      <Box display='flex' justifyContent='center' paddingBlock={8}>
         <Icon name='cube' marginInline={4} size='x20' />
         Apps
       </Box>
@@ -417,25 +417,25 @@ export const WithBanner: StoryFn<typeof Sidebar> = () => (
       onClose={action('click')}
     />
     <SidebarItem clickable>
-      <Box display='flex' justifyContent='center' pb={8}>
+      <Box display='flex' justifyContent='center' paddingBlock={8}>
         <Icon name='import' marginInline={4} size='x20' />
         Import
       </Box>
     </SidebarItem>
     <SidebarItem clickable>
-      <Box display='flex' justifyContent='center' pb={8}>
+      <Box display='flex' justifyContent='center' paddingBlock={8}>
         <Icon name='user' marginInline={4} size='x20' />
         Users
       </Box>
     </SidebarItem>
     <SidebarItem clickable>
-      <Box display='flex' justifyContent='center' pb={8}>
+      <Box display='flex' justifyContent='center' paddingBlock={8}>
         <Icon name='hashtag' marginInline={4} size='x20' />
         Rooms
       </Box>
     </SidebarItem>
     <SidebarItem clickable>
-      <Box display='flex' justifyContent='center' pb={8}>
+      <Box display='flex' justifyContent='center' paddingBlock={8}>
         <Icon name='cube' marginInline={4} size='x20' />
         Apps
       </Box>
