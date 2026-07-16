@@ -1,4 +1,4 @@
-import { dirname, join } from 'path';
+import { dirname, join, resolve } from 'path';
 
 import type { StorybookConfig } from '@storybook/react-webpack5';
 
@@ -8,6 +8,49 @@ const config: StorybookConfig = {
       test: /\.woff2$/,
       type: 'asset/resource',
     });
+
+    // PoC: build-time atomic extraction for <Box>. Opt-in via BOX_COMPILER=1.
+    if (process.env.BOX_COMPILER === '1') {
+      /* eslint-disable @typescript-eslint/no-require-imports */
+      const boxPlugin = require('../poc/box-compiler/plugin.cjs');
+      const {
+        styleProps,
+        resolve: resolveBox,
+      } = require('../poc/box-compiler/resolver.generated.cjs');
+      /* eslint-enable @typescript-eslint/no-require-imports */
+
+      config.module?.rules?.unshift({
+        test: /\.tsx$/,
+        include: [resolve(__dirname, '../src')],
+        enforce: 'pre',
+        use: [
+          {
+            loader: require.resolve('babel-loader'),
+            options: {
+              babelrc: false,
+              configFile: false,
+              presets: [
+                [
+                  require.resolve('@babel/preset-typescript'),
+                  { isTSX: true, allExtensions: true },
+                ],
+              ],
+              plugins: [
+                [
+                  boxPlugin,
+                  {
+                    styleProps,
+                    resolve: resolveBox,
+                    inject: true,
+                    keepProps: true,
+                  },
+                ],
+              ],
+            },
+          },
+        ],
+      });
+    }
 
     return config;
   },
