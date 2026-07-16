@@ -167,7 +167,7 @@ export const WithTruncatedText: StoryFn<typeof Box> = () => (
       border='1px solid'
       borderColor='stroke-dark'
       borderRadius={4}
-      p={4}
+      padding={4}
     >
       This text is truncated.
     </Box>

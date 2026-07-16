@@ -13,7 +13,7 @@ const ContextualbarSkeleton = (props: ContextualbarSkeletonProps) => (
     <ContextualbarHeader>
       <Skeleton width='100%' />
     </ContextualbarHeader>
-    <Box p={24}>
+    <Box padding={24}>
       <Skeleton marginBlockEnd={4} width='32px' height='32px' variant='rect' />
       {Array(5)
         .fill(5)

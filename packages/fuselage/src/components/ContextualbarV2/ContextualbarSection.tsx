@@ -10,7 +10,7 @@ function ContextualbarSection(props: ContextualbarSectionProps) {
   return (
     <Box
       rcx-vertical-bar__section
-      p={16}
+      padding={16}
       display='flex'
       alignItems='center'
       flexGrow={1}

@@ -25,7 +25,7 @@ export default {
 } satisfies Meta<typeof PaletteStyleTag>;
 
 export const _PaletteStyleTag: StoryFn<typeof PaletteStyleTag> = (args) => (
-  <Box backgroundColor='neutral' p={24}>
+  <Box backgroundColor='neutral' padding={24}>
     <PaletteStyleTag {...args} />
     <Card>
       <CardHeader>

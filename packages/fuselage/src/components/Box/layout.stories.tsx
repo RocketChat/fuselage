@@ -109,7 +109,7 @@ Display.decorators = [
             border: '1px solid',
             borderColor: 'stroke-light',
             margin: 'x4',
-            p: 'x4',
+            padding: 'x4',
           }),
       )}
     </Box>
@@ -278,7 +278,7 @@ Gap.decorators = [
       {flattenChildren(
         context.originalStoryFn(context.args, context).props.children,
       ).map((child: any, i) => (
-        <Box key={i} backgroundColor='neutral-200' p='x8'>
+        <Box key={i} backgroundColor='neutral-200' padding='x8'>
           {child}
         </Box>
       ))}
@@ -385,7 +385,7 @@ export const Opacity: StoryFn<typeof Box> = () => (
 export const Paddings: StoryFn<typeof Box> = () => (
   <>
     <Box backgroundColor='neutral'>
-      <Box p={16} backgroundColor='tint' size='x16' />
+      <Box padding={16} backgroundColor='tint' size='x16' />
     </Box>
     <Box padding={16} />
     <Box pb={16} />
@@ -525,7 +525,7 @@ VerticalAlign.decorators = [
           borderColor: 'stroke-dark',
           borderRadius: 'x4',
           margin: 'x4',
-          p: 'x4',
+          padding: 'x4',
         }),
       )}
     </Box>

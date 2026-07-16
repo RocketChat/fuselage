@@ -29,7 +29,7 @@ const OauthAuthorizationPage = ({
         {t('page.oauthAuthorizationPage.title')}
       </VerticalWizardLayoutTitle>
       <VerticalWizardLayoutForm>
-        <Box fontScale='p1' p={40} textAlign='start' color={colors.n900}>
+        <Box fontScale='p1' padding={40} textAlign='start' color={colors.n900}>
           {!clientName || error.message ? (
             <>
               <Box fontScale='h1' marginBlockEnd={18}>

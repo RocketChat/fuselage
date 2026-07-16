@@ -136,7 +136,7 @@ StrokeColors.decorators = [
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              p: 8,
+              padding: 8,
             },
             child.props.borderColor,
           ),
@@ -168,7 +168,11 @@ FontColors.decorators = [
     >
       {flattenChildren(context.originalStoryFn(context.args, context)).map(
         (child: any) =>
-          cloneElement(child, { margin: 'x4', p: 'x4' }, child.props.color),
+          cloneElement(
+            child,
+            { margin: 'x4', padding: 'x4' },
+            child.props.color,
+          ),
       )}
     </Box>
   ),
