@@ -124,8 +124,6 @@ export type StylingProps = {
   paddingBlockStart: CSSProperties['paddingBlockStart'];
   paddingBlockEnd: CSSProperties['paddingBlockEnd'];
   paddingInline: CSSProperties['paddingInline'];
-  /** @deprecated Use paddingInlineStart instead */
-  pis: CSSProperties['paddingInlineStart'];
   paddingInlineStart: CSSProperties['paddingInlineStart'];
   /** @deprecated Use paddingInlineEnd instead */
   pie: CSSProperties['paddingInlineEnd'];
@@ -330,7 +328,6 @@ export const propDefs: Record<keyof StylingProps, PropDefinition> = {
   paddingBlockStart: paddingProp,
   paddingBlockEnd: paddingProp,
   paddingInline: paddingProp,
-  pis: aliasOf('paddingInlineStart'),
   paddingInlineStart: paddingProp,
   pie: aliasOf('paddingInlineEnd'),
   paddingInlineEnd: paddingProp,
