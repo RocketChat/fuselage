@@ -29,14 +29,27 @@ export default {
 
 // A cell of varied, STATIC styling props (compilable at build time).
 const Cell = () => (
-  <Box display='flex' alignItems='center' justifyContent='center' p='x8' m='x4'>
-    <Box mi='x4' fontScale='p2' color='default'>
+  <Box
+    display='flex'
+    alignItems='center'
+    justifyContent='center'
+    padding='x8'
+    margin='x4'
+  >
+    <Box marginInline='x4' fontScale='p2' color='default'>
       a
     </Box>
-    <Box mi='x4' fontScale='c1' color='hint' bg='tint' borderRadius={4} pi='x8'>
+    <Box
+      marginInline='x4'
+      fontScale='c1'
+      color='hint'
+      backgroundColor='tint'
+      borderRadius={4}
+      paddingInline='x8'
+    >
       b
     </Box>
-    <Box mis='x8' fontScale='micro' color='annotation'>
+    <Box marginInlineStart='x8' fontScale='micro' color='annotation'>
       c
     </Box>
   </Box>

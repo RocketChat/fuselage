@@ -8,7 +8,7 @@ const contentsFor = (props: Record<string, unknown>) => {
 describe('extractAtomicStylingProps', () => {
   it('emits one cssFn per styling prop and keeps non-styling props', () => {
     const [rest, styles] = extractAtomicStylingProps({
-      p: 'x8',
+      padding: 'x8',
       display: 'flex',
       id: 'keep-me',
     });
@@ -18,8 +18,8 @@ describe('extractAtomicStylingProps', () => {
   });
 
   it('yields identical content for a declaration common to two Boxes (dedup)', () => {
-    const a = contentsFor({ display: 'flex', p: 'x8' });
-    const b = contentsFor({ display: 'flex', p: 'x16' });
+    const a = contentsFor({ display: 'flex', padding: 'x8' });
+    const b = contentsFor({ display: 'flex', padding: 'x16' });
 
     // display:flex → same content on both (one shared class); padding differs
     const shared = a.filter((content) => b.includes(content));
@@ -28,7 +28,7 @@ describe('extractAtomicStylingProps', () => {
   });
 
   it('produces the same declarations as the merged path', () => {
-    const props = { display: 'flex', p: 'x8', color: 'default' };
+    const props = { display: 'flex', padding: 'x8', color: 'default' };
     const [, merged] = extractStylingProps(props);
     const [, atomic] = extractAtomicStylingProps(props);
 

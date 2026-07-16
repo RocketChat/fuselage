@@ -825,9 +825,6 @@ var lineHeightProp = {
 var letterSpacingProp = {
   toCSSValue: (value) => value ? String(fontScale(value)?.letterSpacing || value) : void 0
 };
-var aliasOf = (propName) => ({
-  aliasOf: propName
-});
 var propDefs = {
   border: stringProp,
   borderBlock: stringProp,
@@ -864,7 +861,6 @@ var propDefs = {
   borderEndEndRadius: borderRadiusProp,
   color: fontColorProp,
   backgroundColor: backgroundColorProp,
-  bg: aliasOf("backgroundColor"),
   opacity: numberOrStringProp,
   alignItems: stringProp,
   alignContent: stringProp,
@@ -881,11 +877,9 @@ var propDefs = {
   gap: gapProp,
   rowGap: gapProp,
   columnGap: gapProp,
-  w: aliasOf("width"),
   width: sizeProp,
   minWidth: sizeProp,
   maxWidth: sizeProp,
-  h: aliasOf("height"),
   height: sizeProp,
   minHeight: sizeProp,
   maxHeight: sizeProp,
@@ -904,33 +898,19 @@ var propDefs = {
   insetInline: insetProp,
   insetInlineStart: insetProp,
   insetInlineEnd: insetProp,
-  m: aliasOf("margin"),
   margin: marginProp,
-  mb: aliasOf("marginBlock"),
   marginBlock: marginProp,
-  mbs: aliasOf("marginBlockStart"),
   marginBlockStart: marginProp,
-  mbe: aliasOf("marginBlockEnd"),
   marginBlockEnd: marginProp,
-  mi: aliasOf("marginInline"),
   marginInline: marginProp,
-  mis: aliasOf("marginInlineStart"),
   marginInlineStart: marginProp,
-  mie: aliasOf("marginInlineEnd"),
   marginInlineEnd: marginProp,
-  p: aliasOf("padding"),
   padding: paddingProp,
-  pb: aliasOf("paddingBlock"),
   paddingBlock: paddingProp,
-  pbs: aliasOf("paddingBlockStart"),
   paddingBlockStart: paddingProp,
-  pbe: aliasOf("paddingBlockEnd"),
   paddingBlockEnd: paddingProp,
-  pi: aliasOf("paddingInline"),
   paddingInline: paddingProp,
-  pis: aliasOf("paddingInlineStart"),
   paddingInlineStart: paddingProp,
-  pie: aliasOf("paddingInlineEnd"),
   paddingInlineEnd: paddingProp,
   fontFamily: fontFamilyProp,
   fontSize: fontSizeProp,
@@ -1021,19 +1001,6 @@ var propDefs = {
 var compiledPropDefs = new Map(
   Object.entries(propDefs).map(
     ([propName, propDef]) => {
-      if ("aliasOf" in propDef) {
-        const { aliasOf: effectivePropName } = propDef;
-        return [
-          propName,
-          (value, stylingProps) => {
-            if (stylingProps.has(effectivePropName)) {
-              return;
-            }
-            const inject = compiledPropDefs.get(effectivePropName);
-            inject?.(value, stylingProps);
-          }
-        ];
-      }
       if ("toCSSValue" in propDef) {
         const cssProperty = fromCamelToKebab(propName);
         const { toCSSValue: toCSSValue2 } = propDef;

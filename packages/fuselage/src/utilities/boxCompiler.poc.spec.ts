@@ -41,12 +41,12 @@ const compile = (code: string, opts: Record<string, unknown> = {}) => {
 
 describe('PoC build-time Box compiler', () => {
   it('extracts static styling props into a className and a CSS sheet (keepProps:false strips)', () => {
-    const { code, css } = compile('<Box p="x8" display="flex" />;', {
+    const { code, css } = compile('<Box padding="x8" display="flex" />;', {
       keepProps: false,
     });
 
     expect(code).toMatch(/className="rcx-padding-\S+ rcx-display-flex-\S+"/);
-    expect(code).not.toMatch(/\bp=/);
+    expect(code).not.toMatch(/padding=/);
     expect(code).not.toMatch(/display=/);
 
     expect(css).toContain('padding:0.5rem!important');
@@ -54,23 +54,27 @@ describe('PoC build-time Box compiler', () => {
   });
 
   it('leaves dynamic props to the runtime, extracts the static ones', () => {
-    const { code } = compile('<Box p={spacing} display="flex" />;');
+    const { code } = compile('<Box padding={spacing} display="flex" />;');
 
-    expect(code).toContain('p={spacing}'); // dynamic → untouched
+    expect(code).toContain('padding={spacing}'); // dynamic → untouched
     expect(code).toMatch(/className="rcx-display-flex-\S+"/);
   });
 
   it('merges into an existing static className', () => {
-    const { code } = compile('<Box p="x8" className="foo" />;');
+    const { code } = compile('<Box padding="x8" className="foo" />;');
     expect(code).toMatch(/className="rcx-padding-\S+ foo"/);
   });
 
   it('keepProps mode retains props for introspection and marks them', () => {
-    const { code } = compile('<Box bg="tint" p="x8" />;', { keepProps: true });
+    const { code } = compile('<Box backgroundColor="tint" padding="x8" />;', {
+      keepProps: true,
+    });
 
-    expect(code).toContain('bg="tint"'); // kept for runtime introspection
-    expect(code).toContain('p="x8"');
-    expect(code).toMatch(/data-rcx-atomic="(bg p|p bg)"/);
+    expect(code).toContain('backgroundColor="tint"'); // kept for introspection
+    expect(code).toContain('padding="x8"');
+    expect(code).toMatch(
+      /data-rcx-atomic="(backgroundColor padding|padding backgroundColor)"/,
+    );
     expect(code).toMatch(
       /className="rcx-background-color-\S+ rcx-padding-\S+"/,
     );
@@ -78,7 +82,7 @@ describe('PoC build-time Box compiler', () => {
 
   it('dedupes shared declarations across many Boxes into one rule', () => {
     const { css } = compile(
-      '<><Box display="flex" p="x8" /><Box display="flex" p="x16" /></>;',
+      '<><Box display="flex" padding="x8" /><Box display="flex" padding="x16" /></>;',
     );
     // display:flex emitted once; two paddings → 3 rules total
     expect(css.match(/display:flex!important/g)).toHaveLength(1);

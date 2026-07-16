@@ -7,8 +7,8 @@ import {
 import { buildAtomicClassName } from '../../src/hooks/buildAtomicClassName';
 
 const POOLS: Record<string, unknown[]> = {
-  p: ['x4', 'x8', 'x12', 'x16', 'x24'],
-  m: ['x4', 'x8'],
+  padding: ['x4', 'x8', 'x12', 'x16', 'x24'],
+  margin: ['x4', 'x8'],
   display: ['flex', 'block', 'inline-flex'],
   alignItems: ['center', 'flex-start', 'stretch'],
   justifyContent: ['center', 'space-between', 'flex-end'],
@@ -22,7 +22,10 @@ const makeCorpus = (n: number) => {
   const keys = Object.keys(POOLS);
   const out: Record<string, unknown>[] = [];
   let seed = 1;
-  const rnd = () => (seed = (seed * 1103515245 + 12345) & 0x7fffffff) / 0x7fffffff;
+  const rnd = () => {
+    seed = (seed * 1103515245 + 12345) & 0x7fffffff;
+    return seed / 0x7fffffff;
+  };
   for (let i = 0; i < n; i++) {
     const props: Record<string, unknown> = {};
     for (const k of keys) {
@@ -55,9 +58,11 @@ export const run = (n = 2000, iters = 40) => {
     }
   };
   const compiled = () => {
-    // build-time: classNames precomputed; per render the runtime just carries
-    // the string through (dropCompiledProps). Represented as a no-op pass.
-    for (const p of corpus) void p;
+    // build-time: classNames precomputed; per render the runtime just checks
+    // the marker (dropCompiledProps) — represented as that cheap prop read.
+    for (const p of corpus) {
+      if (p['data-rcx-atomic']) continue;
+    }
   };
 
   // warmup

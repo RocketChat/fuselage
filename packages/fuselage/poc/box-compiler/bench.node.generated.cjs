@@ -824,9 +824,6 @@ var lineHeightProp = {
 var letterSpacingProp = {
   toCSSValue: (value) => value ? String(fontScale(value)?.letterSpacing || value) : void 0
 };
-var aliasOf = (propName) => ({
-  aliasOf: propName
-});
 var propDefs = {
   border: stringProp,
   borderBlock: stringProp,
@@ -863,7 +860,6 @@ var propDefs = {
   borderEndEndRadius: borderRadiusProp,
   color: fontColorProp,
   backgroundColor: backgroundColorProp,
-  bg: aliasOf("backgroundColor"),
   opacity: numberOrStringProp,
   alignItems: stringProp,
   alignContent: stringProp,
@@ -880,11 +876,9 @@ var propDefs = {
   gap: gapProp,
   rowGap: gapProp,
   columnGap: gapProp,
-  w: aliasOf("width"),
   width: sizeProp,
   minWidth: sizeProp,
   maxWidth: sizeProp,
-  h: aliasOf("height"),
   height: sizeProp,
   minHeight: sizeProp,
   maxHeight: sizeProp,
@@ -903,33 +897,19 @@ var propDefs = {
   insetInline: insetProp,
   insetInlineStart: insetProp,
   insetInlineEnd: insetProp,
-  m: aliasOf("margin"),
   margin: marginProp,
-  mb: aliasOf("marginBlock"),
   marginBlock: marginProp,
-  mbs: aliasOf("marginBlockStart"),
   marginBlockStart: marginProp,
-  mbe: aliasOf("marginBlockEnd"),
   marginBlockEnd: marginProp,
-  mi: aliasOf("marginInline"),
   marginInline: marginProp,
-  mis: aliasOf("marginInlineStart"),
   marginInlineStart: marginProp,
-  mie: aliasOf("marginInlineEnd"),
   marginInlineEnd: marginProp,
-  p: aliasOf("padding"),
   padding: paddingProp,
-  pb: aliasOf("paddingBlock"),
   paddingBlock: paddingProp,
-  pbs: aliasOf("paddingBlockStart"),
   paddingBlockStart: paddingProp,
-  pbe: aliasOf("paddingBlockEnd"),
   paddingBlockEnd: paddingProp,
-  pi: aliasOf("paddingInline"),
   paddingInline: paddingProp,
-  pis: aliasOf("paddingInlineStart"),
   paddingInlineStart: paddingProp,
-  pie: aliasOf("paddingInlineEnd"),
   paddingInlineEnd: paddingProp,
   fontFamily: fontFamilyProp,
   fontSize: fontSizeProp,
@@ -1020,19 +1000,6 @@ var propDefs = {
 var compiledPropDefs = new Map(
   Object.entries(propDefs).map(
     ([propName, propDef]) => {
-      if ("aliasOf" in propDef) {
-        const { aliasOf: effectivePropName } = propDef;
-        return [
-          propName,
-          (value, stylingProps) => {
-            if (stylingProps.has(effectivePropName)) {
-              return;
-            }
-            const inject = compiledPropDefs.get(effectivePropName);
-            inject?.(value, stylingProps);
-          }
-        ];
-      }
       if ("toCSSValue" in propDef) {
         const cssProperty = fromCamelToKebab(propName);
         const { toCSSValue: toCSSValue2 } = propDef;
@@ -1113,8 +1080,8 @@ var buildAtomicClassName = (content) => {
 
 // poc/box-compiler/bench.node.entry.ts
 var POOLS = {
-  p: ["x4", "x8", "x12", "x16", "x24"],
-  m: ["x4", "x8"],
+  padding: ["x4", "x8", "x12", "x16", "x24"],
+  margin: ["x4", "x8"],
   display: ["flex", "block", "inline-flex"],
   alignItems: ["center", "flex-start", "stretch"],
   justifyContent: ["center", "space-between", "flex-end"],
@@ -1125,7 +1092,10 @@ var makeCorpus = (n) => {
   const keys = Object.keys(POOLS);
   const out = [];
   let seed = 1;
-  const rnd = () => (seed = seed * 1103515245 + 12345 & 2147483647) / 2147483647;
+  const rnd = () => {
+    seed = seed * 1103515245 + 12345 & 2147483647;
+    return seed / 2147483647;
+  };
   for (let i = 0; i < n; i++) {
     const props = {};
     for (const k of keys) {
@@ -1155,7 +1125,9 @@ var run = (n = 2e3, iters = 40) => {
     }
   };
   const compiled = () => {
-    for (const p of corpus) void p;
+    for (const p of corpus) {
+      if (p["data-rcx-atomic"]) continue;
+    }
   };
   merged();
   atomic();
