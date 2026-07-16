@@ -14,7 +14,7 @@ const TableSelection = ({ children, text, ...props }: TableSelectionProps) => (
     elevation='2'
     {...props}
   >
-    <Box fontScale='p2b' mb={16} flexShrink={1} withTruncatedText>
+    <Box fontScale='p2b' marginBlock={16} flexShrink={1} withTruncatedText>
       {text}
     </Box>
     {children && (

@@ -213,7 +213,7 @@ export const Margins: StoryFn<typeof Box> = () => (
       <Box margin={16} backgroundColor='tint' size='x16' />
     </Box>
     <Box margin={16} />
-    <Box mb={16} />
+    <Box marginBlock={16} />
     <Box marginBlock={16} />
     <Box mbs={16} />
     <Box marginBlockStart={16} />

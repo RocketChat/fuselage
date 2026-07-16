@@ -144,7 +144,7 @@ export const CreateCloudWorkspaceForm = ({
           )}
         </Field>
 
-        <Grid mb={16}>
+        <Grid marginBlock={16}>
           <Grid.Item>
             <Field>
               <FieldLabel>
@@ -208,7 +208,7 @@ export const CreateCloudWorkspaceForm = ({
           </Grid.Item>
         </Grid>
 
-        <Divider mb={0} />
+        <Divider marginBlock={0} />
 
         <Field>
           <FieldRow justifyContent='flex-start'>

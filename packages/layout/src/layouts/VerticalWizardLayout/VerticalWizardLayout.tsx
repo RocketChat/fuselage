@@ -27,7 +27,7 @@ const VerticalWizardLayout = ({
           pb={32}
           pi={16}
         >
-          <Box mb={12}>
+          <Box marginBlock={12}>
             <LayoutLogo />
           </Box>
           {children}
