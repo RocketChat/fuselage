@@ -39,7 +39,7 @@ SurfaceColors.decorators = [
           cloneElement(
             child,
             {
-              m: 'x4',
+              margin: 'x4',
               size: 'x122',
               color: 'annotation',
               border: '2px solid',
@@ -90,7 +90,7 @@ StatusColors.decorators = [
           cloneElement(
             child,
             {
-              m: 'x4',
+              margin: 'x4',
               size: 'x122',
               border: '2px solid',
               borderRadius: 4,
@@ -127,7 +127,7 @@ StrokeColors.decorators = [
           cloneElement(
             child,
             {
-              m: 'x4',
+              margin: 'x4',
               textAlign: 'center',
               size: 'x122',
               color: 'default',
@@ -168,7 +168,7 @@ FontColors.decorators = [
     >
       {flattenChildren(context.originalStoryFn(context.args, context)).map(
         (child: any) =>
-          cloneElement(child, { m: 'x4', p: 'x4' }, child.props.color),
+          cloneElement(child, { margin: 'x4', p: 'x4' }, child.props.color),
       )}
     </Box>
   ),

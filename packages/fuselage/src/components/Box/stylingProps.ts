@@ -112,8 +112,6 @@ export type StylingProps = {
   insetInlineStart: CSSProperties['insetInlineStart'];
   insetInlineEnd: CSSProperties['insetInlineEnd'];
 
-  /** @deprecated Use margin instead */
-  m: CSSProperties['margin'];
   margin: CSSProperties['margin'];
   /** @deprecated Use marginBlock instead */
   mb: CSSProperties['marginBlock'];
@@ -342,7 +340,6 @@ export const propDefs: Record<keyof StylingProps, PropDefinition> = {
   insetInlineStart: insetProp,
   insetInlineEnd: insetProp,
 
-  m: aliasOf('margin'),
   margin: marginProp,
   mb: aliasOf('marginBlock'),
   marginBlock: marginProp,

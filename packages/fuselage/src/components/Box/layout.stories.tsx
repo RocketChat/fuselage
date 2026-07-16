@@ -57,7 +57,7 @@ Borders.decorators = [
         (child: any) =>
           cloneElement(child, {
             size: 'x32',
-            m: 'x16',
+            margin: 'x16',
             borderColor: 'stroke-dark',
           }),
       )}
@@ -82,7 +82,7 @@ BorderRadii.decorators = [
           cloneElement(child, {
             backgroundColor: 'dark',
             size: 'x32',
-            m: 'x16',
+            margin: 'x16',
           }),
       )}
     </Box>
@@ -108,7 +108,7 @@ Display.decorators = [
             children: child.props.display,
             border: '1px solid',
             borderColor: 'stroke-light',
-            m: 'x4',
+            margin: 'x4',
             p: 'x4',
           }),
       )}
@@ -133,7 +133,7 @@ Elevation.decorators = [
           cloneElement(child, {
             backgroundColor: 'light',
             size: 'x32',
-            m: 'x16',
+            margin: 'x16',
           }),
       )}
     </Box>
@@ -156,7 +156,7 @@ Heights.decorators = [
           cloneElement(child, {
             backgroundColor: 'neutral',
             w: 'x32',
-            m: 'x4',
+            margin: 'x4',
           }),
       )}
     </Box>
@@ -189,7 +189,7 @@ Insets.decorators = [
           key={child.key}
           position='relative'
           backgroundColor='selected'
-          m={16}
+          margin={16}
           size='x64'
         >
           {cloneElement(child, {
@@ -210,7 +210,7 @@ export const Invisible: StoryFn<typeof Box> = () => (
 export const Margins: StoryFn<typeof Box> = () => (
   <>
     <Box backgroundColor='neutral'>
-      <Box m={16} backgroundColor='tint' size='x16' />
+      <Box margin={16} backgroundColor='tint' size='x16' />
     </Box>
     <Box margin={16} />
     <Box mb={16} />
@@ -233,7 +233,7 @@ Margins.decorators = [
       {flattenChildren(
         context.originalStoryFn(context.args, context).props.children,
       ).map((child: any, i) => (
-        <Box key={i} backgroundColor='neutral-200' m={16}>
+        <Box key={i} backgroundColor='neutral-200' margin={16}>
           {cloneElement(
             child,
             { backgroundColor: 'primary-200' },
@@ -408,7 +408,7 @@ Paddings.decorators = [
       {flattenChildren(
         context.originalStoryFn(context.args, context).props.children,
       ).map((child: any, i) => (
-        <Box key={i} backgroundColor='neutral-200' m={16}>
+        <Box key={i} backgroundColor='neutral-200' margin={16}>
           {cloneElement(
             child,
             { backgroundColor: 'primary-200' },
@@ -437,7 +437,7 @@ Position.decorators = [
         cloneElement(child, {
           backgroundColor: 'neutral',
           size: 'x32',
-          m: 'x16',
+          margin: 'x16',
         }),
       )}
     </Box>
@@ -461,7 +461,7 @@ Widths.decorators = [
         cloneElement(child, {
           backgroundColor: 'neutral',
           height: 'x32',
-          m: 'x4',
+          margin: 'x4',
         }),
       )}
     </Box>
@@ -481,7 +481,7 @@ Sizes.decorators = [
       {flattenChildren(
         context.originalStoryFn(context.args, context).props.children,
       ).map((child: any) =>
-        cloneElement(child, { backgroundColor: 'neutral', m: 'x4' }),
+        cloneElement(child, { backgroundColor: 'neutral', margin: 'x4' }),
       )}
     </Box>
   ),
@@ -524,7 +524,7 @@ VerticalAlign.decorators = [
           border: '1px solid',
           borderColor: 'stroke-dark',
           borderRadius: 'x4',
-          m: 'x4',
+          margin: 'x4',
           p: 'x4',
         }),
       )}
@@ -550,7 +550,7 @@ ZIndex.decorators = [
           backgroundColor: 'neutral',
           borderWidth: 'x4',
           size: 'x32',
-          m: 'neg-x2',
+          margin: 'neg-x2',
         }),
       )}
     </Box>
