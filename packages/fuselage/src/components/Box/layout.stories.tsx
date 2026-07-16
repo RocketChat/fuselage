@@ -523,7 +523,7 @@ VerticalAlign.decorators = [
           color: 'default',
           border: '1px solid',
           borderColor: 'stroke-dark',
-          borderRadius: 'x4',
+          borderRadius: 'medium',
           margin: 'x4',
           padding: 'x4',
         }),

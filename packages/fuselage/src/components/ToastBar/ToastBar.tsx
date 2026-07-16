@@ -79,7 +79,7 @@ function ToastBar({
         toastBarAnimation,
       ]}
       elevation='2nb'
-      borderRadius='x4'
+      borderRadius='medium'
       {...props}
     >
       <div className='rcx-toastbar_inner'>

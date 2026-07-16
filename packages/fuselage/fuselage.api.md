@@ -229,8 +229,13 @@ export type BannerProps = {
 // @public (undocumented)
 export type BannerVariant = 'neutral' | 'info' | 'success' | 'warning' | 'danger';
 
+// Warning: (ae-forgotten-export) The symbol "borders" needs to be exported by the entry point index.d.ts
+//
 // @public (undocumented)
-export const borderRadius: MemoizedFunction<unknown, unknown, string | undefined>;
+export type BorderRadius = keyof typeof borders.radius;
+
+// @public (undocumented)
+export const borderRadius: (value: unknown) => string;
 
 // @public (undocumented)
 export const borderWidth: MemoizedFunction<unknown, unknown, string | undefined>;
@@ -2603,11 +2608,11 @@ export type StylingProps = {
     borderInlineColor: CSSProperties['borderInlineColor'];
     borderInlineStartColor: CSSProperties['borderInlineStartColor'];
     borderInlineEndColor: CSSProperties['borderInlineEndColor'];
-    borderRadius: CSSProperties['borderRadius'];
-    borderStartStartRadius: CSSProperties['borderStartStartRadius'];
-    borderStartEndRadius: CSSProperties['borderStartEndRadius'];
-    borderEndStartRadius: CSSProperties['borderEndStartRadius'];
-    borderEndEndRadius: CSSProperties['borderEndEndRadius'];
+    borderRadius: BorderRadius;
+    borderStartStartRadius: BorderRadius;
+    borderStartEndRadius: BorderRadius;
+    borderEndStartRadius: BorderRadius;
+    borderEndEndRadius: BorderRadius;
     color: CSSProperties['color'] | Var;
     backgroundColor: CSSProperties['backgroundColor'] | Var;
     opacity: CSSProperties['opacity'];
