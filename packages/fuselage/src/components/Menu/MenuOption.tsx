@@ -1,17 +1,21 @@
-import type { Ref, ReactNode, MouseEvent, AllHTMLAttributes } from 'react';
-import { forwardRef, memo } from 'react';
+import type {
+  ReactNode,
+  MouseEvent,
+  AllHTMLAttributes,
+  RefAttributes,
+} from 'react';
+import { memo } from 'react';
 
 import { prevent } from '../../helpers/prevent';
 import type { BoxProps } from '../Box';
 
-export type MenuOptionProps = {
+export type MenuOptionProps = RefAttributes<Element> & {
   is?: BoxProps['is'];
   id?: string;
   children?: ReactNode;
   focus?: boolean;
   selected?: boolean;
   className?: BoxProps['className'];
-  ref?: Ref<Element>;
   title?: string;
   disabled?: boolean;
   value?: string;
@@ -20,28 +24,24 @@ export type MenuOptionProps = {
   description?: ReactNode;
 } & Omit<AllHTMLAttributes<HTMLElement>, 'label'>;
 
-const MenuOption = forwardRef<unknown, MenuOptionProps>(function MenuOption(
-  {
-    is: Tag = 'li',
-    id,
-    children,
-    focus,
-    selected,
-    className,
-    title,
-    disabled,
-    variant,
-    onClick,
-    ...props
-  }: MenuOptionProps,
-  ref,
-) {
+function MenuOption({
+  is: Tag = 'li',
+  id,
+  children,
+  focus,
+  selected,
+  className,
+  title,
+  disabled,
+  variant,
+  onClick,
+  ...props
+}: MenuOptionProps) {
   return (
     <Tag
       {...props}
       key={id}
       id={id}
-      ref={ref}
       aria-selected={!!selected}
       aria-disabled={!!disabled}
       title={title}
@@ -66,6 +66,6 @@ const MenuOption = forwardRef<unknown, MenuOptionProps>(function MenuOption(
       {children}
     </Tag>
   );
-});
+}
 
 export default memo(MenuOption);

@@ -13,7 +13,9 @@ const ListItem = ({
   fontScale?: ComponentProps<typeof Box>['fontScale'];
 }) => (
   <Box display='flex' is='li' fontScale={fontScale}>
-    {icon && <Icon name={icon} color={iconColor} size='x16' mie={4} />}
+    {icon && (
+      <Icon name={icon} color={iconColor} size='x16' marginInlineEnd={4} />
+    )}
     {children}
   </Box>
 );

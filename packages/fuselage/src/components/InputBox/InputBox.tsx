@@ -1,6 +1,6 @@
 import { useMergedRefs } from '@rocket.chat/fuselage-hooks';
-import type { ChangeEvent, ReactNode } from 'react';
-import { forwardRef, useCallback, useLayoutEffect, useRef } from 'react';
+import type { ChangeEvent, ReactNode, RefAttributes } from 'react';
+import { useCallback, useLayoutEffect, useRef } from 'react';
 
 import type { BoxProps } from '../Box';
 import { Icon } from '../Icon';
@@ -9,44 +9,45 @@ import Input from './Input';
 import InputBoxAddon from './InputBoxAddon';
 import InputBoxWrapper from './InputBoxWrapper';
 
-export type InputBoxProps = BoxProps & {
-  /** @deprecated Prefer using `startAddon` and `endAddon` instead. */
-  addon?: ReactNode;
-  startAddon?: ReactNode;
-  endAddon?: ReactNode;
-  input?: ReactNode;
-  multiple?: boolean;
-  error?: string;
-  placeholder?: string;
-  placeholderVisible?: boolean;
-  small?: boolean;
-  type:
-    | 'button'
-    | 'checkbox'
-    | 'color'
-    | 'date'
-    | 'datetime'
-    | 'datetime-local'
-    | 'email'
-    | 'file'
-    | 'hidden'
-    | 'image'
-    | 'month'
-    | 'number'
-    | 'password'
-    | 'radio'
-    | 'range'
-    | 'reset'
-    | 'search'
-    | 'submit'
-    | 'tel'
-    | 'text'
-    | 'time'
-    | 'url'
-    | 'week'
-    | 'textarea'
-    | 'select';
-};
+export type InputBoxProps<
+  T extends HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement = any,
+> = Omit<BoxProps, 'ref'> &
+  RefAttributes<T> & {
+    startAddon?: ReactNode;
+    endAddon?: ReactNode;
+    input?: ReactNode;
+    multiple?: boolean;
+    error?: string;
+    placeholder?: string;
+    placeholderVisible?: boolean;
+    small?: boolean;
+    type:
+      | 'button'
+      | 'checkbox'
+      | 'color'
+      | 'date'
+      | 'datetime'
+      | 'datetime-local'
+      | 'email'
+      | 'file'
+      | 'hidden'
+      | 'image'
+      | 'month'
+      | 'number'
+      | 'password'
+      | 'radio'
+      | 'range'
+      | 'reset'
+      | 'search'
+      | 'submit'
+      | 'tel'
+      | 'text'
+      | 'time'
+      | 'url'
+      | 'week'
+      | 'textarea'
+      | 'select';
+  };
 
 /**
  * A decorated input control with support for addons.
@@ -55,29 +56,26 @@ export type InputBoxProps = BoxProps & {
  * components over this one because it works as a construction block for them.
  */
 // eslint-disable-next-line complexity
-const InputBox = forwardRef<any, InputBoxProps>(function InputBox(
-  {
-    className,
-    addon,
-    startAddon,
-    endAddon,
-    error,
-    hidden,
-    invisible,
-    multiple,
-    placeholderVisible,
-    type = 'text',
-    small,
-    onChange,
-    ...props
-  },
+function InputBox<
+  T extends HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement,
+>({
   ref,
-) {
-  const innerRef = useRef<
-    HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
-  >(null);
+  className,
+  startAddon,
+  endAddon,
+  error,
+  hidden,
+  invisible,
+  multiple,
+  placeholderVisible,
+  type = 'text',
+  small,
+  onChange,
+  ...props
+}: InputBoxProps<T>) {
+  const innerRef = useRef<T>(null);
   const mergedRef = useMergedRefs(ref, innerRef);
-  let defaultAddon = endAddon ?? addon;
+  let defaultAddon = endAddon;
 
   useLayoutEffect(() => {
     if (innerRef.current && innerRef.current.setCustomValidity) {
@@ -157,7 +155,7 @@ const InputBox = forwardRef<any, InputBoxProps>(function InputBox(
       hidden={hidden}
       invisible={invisible}
     >
-      {startAddon && <InputBoxAddon children={startAddon} />}
+      {startAddon && <InputBoxAddon>{startAddon}</InputBoxAddon>}
       <Input
         is={
           (type === 'textarea' && 'textarea') ||
@@ -180,9 +178,9 @@ const InputBox = forwardRef<any, InputBoxProps>(function InputBox(
         rcx-input-box--small={small}
         {...props}
       />
-      {defaultAddon && <InputBoxAddon children={defaultAddon} />}
+      {defaultAddon && <InputBoxAddon>{defaultAddon}</InputBoxAddon>}
     </InputBoxWrapper>
   );
-});
+}
 
 export default InputBox;

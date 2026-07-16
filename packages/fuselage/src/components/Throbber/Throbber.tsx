@@ -1,5 +1,5 @@
 import { css } from '@rocket.chat/css-in-js';
-import { forwardRef } from 'react';
+import type { RefAttributes } from 'react';
 
 import { Box, type BoxProps } from '../Box';
 
@@ -32,21 +32,25 @@ function Circle({
   );
 }
 
-export type ThrobberProps = Omit<BoxProps, 'disabled'> & {
-  circleCount?: number;
-  disabled?: boolean;
-  inheritColor?: boolean;
-};
+export type ThrobberProps = Omit<BoxProps, 'ref' | 'disabled'> &
+  RefAttributes<HTMLElement> & {
+    circleCount?: number;
+    disabled?: boolean;
+    inheritColor?: boolean;
+  };
 
 /**
  * Indicates content that has not loaded yet.
  */
-const Throbber = forwardRef<HTMLElement, ThrobberProps>(function Throbber(
-  { disabled, size = 'x16', circleCount = 3, inheritColor, ...props },
-  ref,
-) {
+function Throbber({
+  disabled,
+  size = 'x16',
+  circleCount = 3,
+  inheritColor,
+  ...props
+}: ThrobberProps) {
   return (
-    <Box rcx-throbber ref={ref} {...props}>
+    <Box rcx-throbber {...props}>
       {Array.from({ length: circleCount || 3 }, (_, iteration) => (
         <Circle
           key={iteration}
@@ -59,6 +63,6 @@ const Throbber = forwardRef<HTMLElement, ThrobberProps>(function Throbber(
       ))}
     </Box>
   );
-});
+}
 
 export default Throbber;

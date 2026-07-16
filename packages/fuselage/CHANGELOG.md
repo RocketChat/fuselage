@@ -1,5 +1,40 @@
 # Change Log
 
+## 0.83.0
+
+### Minor Changes
+
+- [#2096](https://github.com/RocketChat/fuselage/pull/2096) [`18b421e`](https://github.com/RocketChat/fuselage/commit/18b421ec571d72118fccf3f7705df45b17b16191) Thanks [@tassoevan](https://github.com/tassoevan)! - feat(fuselage): Drop styling props' aliases (`bg`, `w`, `h`, `m`, `mb`, `mbs`, `mbe`, `mi`, `mis`, `mie`, `p`, `pb`, `pbs`, `pbe`, `pi`, `pis`, `pie`) in favor of their full-name counterparts
+
+### Patch Changes
+
+- [#2086](https://github.com/RocketChat/fuselage/pull/2086) [`97ac6aa`](https://github.com/RocketChat/fuselage/commit/97ac6aab3e2049a039c1f60c4435a63833d1a0b5) Thanks [@MartinSchoeler](https://github.com/MartinSchoeler)! - Fixes misaligned unicode emojis by adding font-size and line-height
+
+## 0.82.0
+
+### Minor Changes
+
+- [#2060](https://github.com/RocketChat/fuselage/pull/2060) [`ee381bb`](https://github.com/RocketChat/fuselage/commit/ee381bb32982d0f4ed9ef26385b5016e0a2e4023) Thanks [@tassoevan](https://github.com/tassoevan)! - feat: Remove deprecations and keep documentation comments
+
+- [#2072](https://github.com/RocketChat/fuselage/pull/2072) [`46e9cc3`](https://github.com/RocketChat/fuselage/commit/46e9cc36b03bcdd8668f6146dd6e326857416a39) Thanks [@tassoevan](https://github.com/tassoevan)! - feat: Remove unused UMD builds from all packages
+
+### Patch Changes
+
+- [#2078](https://github.com/RocketChat/fuselage/pull/2078) [`6f06570`](https://github.com/RocketChat/fuselage/commit/6f065708cc5b9ea672ccfe30a7fdb122363d12e1) Thanks [@tassoevan](https://github.com/tassoevan)! - fix: Adapt `NavBarSection` to match previous (accidental) runtime behavior
+
+- [#2069](https://github.com/RocketChat/fuselage/pull/2069) [`4e9188c`](https://github.com/RocketChat/fuselage/commit/4e9188c294806d38bd5755e37238ac9c0e470aee) Thanks [@tassoevan](https://github.com/tassoevan)! - fix: Pass filtered select anchor props via context
+
+- [#2085](https://github.com/RocketChat/fuselage/pull/2085) [`5206e22`](https://github.com/RocketChat/fuselage/commit/5206e22f5004b19333bfe88a1de7cfa43c29c35b) Thanks [@ricardogarim](https://github.com/ricardogarim)! - fix: `MultiSelect`/`MultiSelectFiltered`/`PaginatedMultiSelect` dropdown never opening (pass `visible` instead of `visibility` to `PositionAnimated`)
+
+- Updated dependencies [[`ee381bb`](https://github.com/RocketChat/fuselage/commit/ee381bb32982d0f4ed9ef26385b5016e0a2e4023), [`46e9cc3`](https://github.com/RocketChat/fuselage/commit/46e9cc36b03bcdd8668f6146dd6e326857416a39)]:
+  - @rocket.chat/css-in-js@0.33.0
+
+## 0.81.0
+
+### Minor Changes
+
+- [#2052](https://github.com/RocketChat/fuselage/pull/2052) [`d20a82f`](https://github.com/RocketChat/fuselage/commit/d20a82fb51ec3620fc22ed23e1a90f26a89967df) Thanks [@ggazzo](https://github.com/ggazzo)! - feat(fuselage): extract controlled AudioPlayerControls from AudioPlayer
+
 ## 0.80.0
 
 ### Minor Changes

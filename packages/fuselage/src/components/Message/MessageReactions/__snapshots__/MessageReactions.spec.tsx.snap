@@ -150,6 +150,40 @@ exports[`[MessageReactions Rendering] renders Default without crashing 1`] = `
                 </div>
               </div>
               <div
+                class="rcx-message-reactions__reaction rcx-message-reactions__reaction--mine"
+                role="button"
+                tabindex="0"
+                title="grinning"
+              >
+                <span
+                  class="rcx-message-reactions__emoji  grinning"
+                >
+                  😀
+                </span>
+                <div
+                  class="rcx-message-reactions__counter undefined"
+                >
+                  5
+                </div>
+              </div>
+              <div
+                class="rcx-message-reactions__reaction"
+                role="button"
+                tabindex="0"
+                title="rocket"
+              >
+                <span
+                  class="rcx-message-reactions__emoji  rocket"
+                >
+                  🚀
+                </span>
+                <div
+                  class="rcx-message-reactions__counter undefined"
+                >
+                  2
+                </div>
+              </div>
+              <div
                 class="rcx-message-reactions__reaction rcx-message-reactions__reaction--action"
                 role="button"
                 tabindex="0"

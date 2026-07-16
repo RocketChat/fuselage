@@ -7,20 +7,20 @@ import type { ListState } from 'react-stately';
 
 import { Option } from '../Option';
 
-interface ListBoxProps extends AriaListBoxOptions<unknown> {
+type ListBoxProps = AriaListBoxOptions<unknown> & {
   listBoxRef?: RefObject<HTMLDivElement | null>;
   state: ListState<unknown>;
-}
+};
 
-interface SectionProps {
+type SectionProps = {
   section: Node<unknown>;
   state: ListState<unknown>;
-}
+};
 
-interface OptionProps {
+type OptionProps = {
   item: Node<unknown>;
   state: ListState<unknown>;
-}
+};
 
 export function ListBox(props: ListBoxProps) {
   const ref = useRef<HTMLDivElement>(null);

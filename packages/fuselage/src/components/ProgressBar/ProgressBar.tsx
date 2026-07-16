@@ -1,5 +1,4 @@
-import type { AllHTMLAttributes } from 'react';
-import { forwardRef } from 'react';
+import type { AllHTMLAttributes, RefAttributes } from 'react';
 
 import { Box } from '../Box';
 
@@ -30,7 +29,7 @@ const getColor = (
   return isLight ? lightColors[variant] : colors[variant];
 };
 
-export type ProgressBarProps = {
+export type ProgressBarProps = RefAttributes<unknown> & {
   percentage: number;
   variant?: 'info' | 'success' | 'warning' | 'danger';
   error?: string;
@@ -41,26 +40,29 @@ export type ProgressBarProps = {
 /**
  * The `ProgressBar` is used to inform the user the progress of an operation.
  */
-const ProgressBar = forwardRef<unknown, ProgressBarProps>(function ProgressBar(
-  { percentage, variant = 'info', error, animated, light = false, ...props },
-  ref,
-) {
+function ProgressBar({
+  percentage,
+  variant = 'info',
+  error,
+  animated,
+  light = false,
+  ...props
+}: ProgressBarProps) {
   return (
     <Box
-      ref={ref}
       rcx-progress-bar
       title={error || undefined}
       overflow='hidden'
       {...props}
     >
       <Box
-        bg={getColor(light, variant, error)}
+        backgroundColor={getColor(light, variant, error)}
         rcx-progress-bar__fill--animated={animated}
         rcx-progress-bar__fill
         width={getWidth(percentage)}
       />
     </Box>
   );
-});
+}
 
 export default ProgressBar;

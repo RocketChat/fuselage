@@ -14,7 +14,7 @@ import {
   Select,
   SelectFiltered,
 } from '@rocket.chat/fuselage';
-import { Form } from '@rocket.chat/layout';
+import { Form, FormFooter } from '@rocket.chat/layout';
 import type { FieldPathValue, SubmitHandler, Validate } from 'react-hook-form';
 import { useForm, Controller } from 'react-hook-form';
 import { useTranslation, Trans } from 'react-i18next';
@@ -146,16 +146,16 @@ export const RequestTrialForm = ({
           </FieldRow>
         </Field>
         <Field>
-          <Box mbs={24}>
+          <Box marginBlockStart={24}>
             <Box
-              mbe={8}
+              marginBlockEnd={8}
               display='flex'
               flexDirection='row'
               alignItems='flex-start'
               fontScale='c1'
               lineHeight={20}
             >
-              <CheckBox mie={8} {...register('updates')} />{' '}
+              <CheckBox marginInlineEnd={8} {...register('updates')} />{' '}
               <Box is='label' htmlFor='updates'>
                 {t('form.registeredServerForm.keepInformed')}
               </Box>
@@ -169,7 +169,7 @@ export const RequestTrialForm = ({
               lineHeight={20}
             >
               <CheckBox
-                mie={8}
+                marginInlineEnd={8}
                 {...register('agreement', { required: true })}
               />{' '}
               <Box is='label' htmlFor='agreement' withRichContent>
@@ -201,7 +201,7 @@ export const RequestTrialForm = ({
           </FieldDescription>
         </Field>
       </FieldGroup>
-      <Form.Footer>
+      <FormFooter>
         <Button
           type='submit'
           primary
@@ -210,7 +210,7 @@ export const RequestTrialForm = ({
         >
           {t('form.requestTrialForm.button.text')}
         </Button>
-      </Form.Footer>
+      </FormFooter>
     </Form>
   );
 };

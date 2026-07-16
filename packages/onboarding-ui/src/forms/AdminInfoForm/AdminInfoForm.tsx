@@ -13,7 +13,15 @@ import {
   FieldError,
   FieldHint,
 } from '@rocket.chat/fuselage';
-import { Form } from '@rocket.chat/layout';
+import {
+  Form,
+  FormContainer,
+  FormFooter,
+  FormHeader,
+  FormSteps,
+  FormSubtitle,
+  FormTitle,
+} from '@rocket.chat/layout';
 import { useRef, useEffect, useId } from 'react';
 import type { FieldPathValue, SubmitHandler, Validate } from 'react-hook-form';
 import { useForm, Controller } from 'react-hook-form';
@@ -96,16 +104,16 @@ const AdminInfoForm = ({
       aria-describedby={`${formId}-description`}
       onSubmit={handleSubmit(onSubmit)}
     >
-      <Form.Header>
-        <Form.Steps currentStep={currentStep} stepCount={stepCount} />
-        <Form.Title id={`${formId}-title`}>
+      <FormHeader>
+        <FormSteps currentStep={currentStep} stepCount={stepCount} />
+        <FormTitle id={`${formId}-title`}>
           {t('form.adminInfoForm.title')}
-        </Form.Title>
-        <Form.Subtitle id={`${formId}-description`}>
+        </FormTitle>
+        <FormSubtitle id={`${formId}-description`}>
           {t('form.adminInfoForm.subtitle')}
-        </Form.Subtitle>
-      </Form.Header>
-      <Form.Container>
+        </FormSubtitle>
+      </FormHeader>
+      <FormContainer>
         <FieldGroup>
           <Field>
             <FieldLabel required htmlFor={fullnameField}>
@@ -236,22 +244,26 @@ const AdminInfoForm = ({
             )}
           </Field>
           {keepPosted && (
-            <Box mbe={8} display='block' color='info' fontScale='c1'>
-              <CheckBox id='keepPosted' mie={8} {...register('keepPosted')} />
+            <Box marginBlockEnd={8} display='block' color='info' fontScale='c1'>
+              <CheckBox
+                id='keepPosted'
+                marginInlineEnd={8}
+                {...register('keepPosted')}
+              />
               <label htmlFor='keepPosted'>
                 {t('form.adminInfoForm.fields.keepPosted.label')}
               </label>
             </Box>
           )}
         </FieldGroup>
-      </Form.Container>
-      <Form.Footer>
+      </FormContainer>
+      <FormFooter>
         <ButtonGroup>
           <Button type='submit' primary loading={isValidating || isSubmitting}>
             {t('component.form.action.next')}
           </Button>
         </ButtonGroup>
-      </Form.Footer>
+      </FormFooter>
     </Form>
   );
 };

@@ -24,10 +24,10 @@ const VerticalWizardLayout = ({
           textAlign='center'
           width='100%'
           maxWidth={576}
-          pb={32}
-          pi={16}
+          paddingBlock={32}
+          paddingInline={16}
         >
-          <Box mb={12}>
+          <Box marginBlock={12}>
             <LayoutLogo />
           </Box>
           {children}

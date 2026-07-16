@@ -8,6 +8,13 @@ import { Icon } from '../Icon';
 import { Tag } from '../Tag';
 
 import {
+  SidebarTopBarAction,
+  SidebarTopBarActions,
+  SidebarTopBarAvatar,
+  SidebarTopBarTitle,
+  SidebarTopBarToolBox,
+} from '.';
+import {
   SidebarItem,
   SidebarItemAction,
   SidebarItemActions,
@@ -51,36 +58,36 @@ export const Default: StoryFn<typeof Sidebar> = () => (
     <div className='rcx-sidebar'>
       <SidebarSection>
         <Avatar
-          size={Sidebar.TopBar.Avatar.size}
+          size={SidebarTopBarAvatar.size}
           url={
             'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAoACgDASIAAhEBAxEB/8QAGwAAAgIDAQAAAAAAAAAAAAAAAAcEBgIDBQj/xAAuEAACAQQAAwcEAQUAAAAAAAABAgMABAUREiExBhMUIkFRYQcWcYGhFTJSgpH/xAAYAQADAQEAAAAAAAAAAAAAAAACAwQBAP/EAB4RAAIBBQEBAQAAAAAAAAAAAAABAgMREiExE0HR/9oADAMBAAIRAxEAPwBuXuIkhBuMe5ib/AHQP49q4L3mLitryTLTSpOiHQI5k/HzXa/qbFOEudVTu1dumWvcTaNCZYZ7vU6g6LxqjOU/24dfs1Ouh9FnkMpd3Reeyx83hAxZZEhkdV9/MBrX71WGPvJcqrJBGveKATtuXXqNU0pu02bTHXD/AGvJAluyxxRd6F4x00o+NdKoVrjbzJdvVe1t5cVLc2ck8qjnohgpPtz2v7G6JtPQ2VJwjlcw+37mchpnK6GtIuv5NFWeTsLNPvxWTvpfjvOEfwKKzEVkSct2vscS/BIzSN0YRkeX81UpPqO8masJETu7OOccY4dswYFQeftv096XV5knuJGdm2T1+agvMXj8jEaHX905QihabvcbuS7X566mLWLwSY8PuRnk/u4eZ0deTl71Ef6hY+0yM88TzeNZY4luYwpVYyduOfrvhPTnr0pXSX9y5mCsyJMdyxxvwq599em+taItqCSNc90ChvZRUruUcT0JiO18Elpk7t8v41LWzacxkBSuvjQ/FFJayjDWrCTepAQ2vUH0oo/Jk3ovpwJJeVCP5CN+lFFaaMqy+nAyuChvrTI2kN9JAsi2ZOy4IBHMnkSCP+iqBexSWdxLazoUljJVlPUH2oorkV10pRc7b1zXb/hZOzuJvM86QWEXeELxOzHSIPcmiiiunVlF2RNTpRkrs//Z'
           }
         />
-        <Sidebar.TopBar.Actions>
-          <Sidebar.TopBar.Action icon='home' />
-          <Sidebar.TopBar.Action icon='magnifier' />
-          <Sidebar.TopBar.Action icon='globe' />
-          <Sidebar.TopBar.Action icon='sort' />
-          <Sidebar.TopBar.Action icon='edit-rounded' />
-        </Sidebar.TopBar.Actions>
+        <SidebarTopBarActions>
+          <SidebarTopBarAction icon='home' />
+          <SidebarTopBarAction icon='magnifier' />
+          <SidebarTopBarAction icon='globe' />
+          <SidebarTopBarAction icon='sort' />
+          <SidebarTopBarAction icon='edit-rounded' />
+        </SidebarTopBarActions>
       </SidebarSection>
-      <Sidebar.TopBar.ToolBox>
-        <Sidebar.TopBar.Title>Title</Sidebar.TopBar.Title>
-        <Sidebar.TopBar.Actions>
-          <Sidebar.TopBar.Action success icon='phone' />
-          <Sidebar.TopBar.Action icon='message-disabled' />
-        </Sidebar.TopBar.Actions>
-      </Sidebar.TopBar.ToolBox>
+      <SidebarTopBarToolBox>
+        <SidebarTopBarTitle>Title</SidebarTopBarTitle>
+        <SidebarTopBarActions>
+          <SidebarTopBarAction success icon='phone' />
+          <SidebarTopBarAction icon='message-disabled' />
+        </SidebarTopBarActions>
+      </SidebarTopBarToolBox>
       <SidebarSection>
-        <Sidebar.Section.Title>
+        <SidebarSectionTitle>
           CallssCallssCallssCallssCallssCallssCallssCallssCallssCallssCallssCallssCallssCallssCallssCallssCallssCallssCallssCallssCallssCallssCallssCallssCallssCallss
-        </Sidebar.Section.Title>
-        <Sidebar.TopBar.Actions>
-          <Sidebar.TopBar.Action success icon='phone' />
-          <Sidebar.TopBar.Action icon='message-disabled' />
-        </Sidebar.TopBar.Actions>
+        </SidebarSectionTitle>
+        <SidebarTopBarActions>
+          <SidebarTopBarAction success icon='phone' />
+          <SidebarTopBarAction icon='message-disabled' />
+        </SidebarTopBarActions>
       </SidebarSection>
-      <Sidebar.Item>
+      <SidebarItem>
         <SidebarItemAvatar>
           <Avatar
             size='x16'
@@ -106,8 +113,8 @@ export const Default: StoryFn<typeof Sidebar> = () => (
             <SidebarItemAction icon='phone' secondary />
           </SidebarItemActions>
         </SidebarItemContainer>
-      </Sidebar.Item>
-      <Sidebar.Item selected clickable>
+      </SidebarItem>
+      <SidebarItem selected clickable>
         <SidebarItemAvatar>
           <Avatar
             size='x28'
@@ -133,8 +140,8 @@ export const Default: StoryFn<typeof Sidebar> = () => (
             <SidebarItemAction icon='phone' secondary />
           </SidebarItemActions>
         </SidebarItemContainer>
-      </Sidebar.Item>
-      <Sidebar.Item clickable>
+      </SidebarItem>
+      <SidebarItem clickable>
         <SidebarItemAvatar>
           <Avatar
             size='x36'
@@ -170,7 +177,7 @@ export const Default: StoryFn<typeof Sidebar> = () => (
             <SidebarItemAction icon='phone' secondary />
           </SidebarItemActions>
         </SidebarItemContainer>
-      </Sidebar.Item>
+      </SidebarItem>
     </div>
   </>
 );
@@ -179,36 +186,36 @@ export const WithFooter: StoryFn<typeof Sidebar> = () => (
   <>
     <SidebarSection>
       <Avatar
-        size={Sidebar.TopBar.Avatar.size}
+        size={SidebarTopBarAvatar.size}
         url={
           'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAoACgDASIAAhEBAxEB/8QAGwAAAgIDAQAAAAAAAAAAAAAAAAcEBgIDBQj/xAAuEAACAQQAAwcEAQUAAAAAAAABAgMABAUREiExBhMUIkFRYQcWcYGhFTJSgpH/xAAYAQADAQEAAAAAAAAAAAAAAAACAwQBAP/EAB4RAAIBBQEBAQAAAAAAAAAAAAABAgMREiExE0HR/9oADAMBAAIRAxEAPwBuXuIkhBuMe5ib/AHQP49q4L3mLitryTLTSpOiHQI5k/HzXa/qbFOEudVTu1dumWvcTaNCZYZ7vU6g6LxqjOU/24dfs1Ouh9FnkMpd3Reeyx83hAxZZEhkdV9/MBrX71WGPvJcqrJBGveKATtuXXqNU0pu02bTHXD/AGvJAluyxxRd6F4x00o+NdKoVrjbzJdvVe1t5cVLc2ck8qjnohgpPtz2v7G6JtPQ2VJwjlcw+37mchpnK6GtIuv5NFWeTsLNPvxWTvpfjvOEfwKKzEVkSct2vscS/BIzSN0YRkeX81UpPqO8masJETu7OOccY4dswYFQeftv096XV5knuJGdm2T1+agvMXj8jEaHX905QihabvcbuS7X566mLWLwSY8PuRnk/u4eZ0deTl71Ef6hY+0yM88TzeNZY4luYwpVYyduOfrvhPTnr0pXSX9y5mCsyJMdyxxvwq599em+taItqCSNc90ChvZRUruUcT0JiO18Elpk7t8v41LWzacxkBSuvjQ/FFJayjDWrCTepAQ2vUH0oo/Jk3ovpwJJeVCP5CN+lFFaaMqy+nAyuChvrTI2kN9JAsi2ZOy4IBHMnkSCP+iqBexSWdxLazoUljJVlPUH2oorkV10pRc7b1zXb/hZOzuJvM86QWEXeELxOzHSIPcmiiiunVlF2RNTpRkrs//Z'
         }
       />
-      <Sidebar.TopBar.Actions>
-        <Sidebar.TopBar.Action icon='home' />
-        <Sidebar.TopBar.Action icon='magnifier' />
-        <Sidebar.TopBar.Action icon='globe' />
-        <Sidebar.TopBar.Action icon='sort' />
-        <Sidebar.TopBar.Action icon='edit-rounded' />
-      </Sidebar.TopBar.Actions>
+      <SidebarTopBarActions>
+        <SidebarTopBarAction icon='home' />
+        <SidebarTopBarAction icon='magnifier' />
+        <SidebarTopBarAction icon='globe' />
+        <SidebarTopBarAction icon='sort' />
+        <SidebarTopBarAction icon='edit-rounded' />
+      </SidebarTopBarActions>
     </SidebarSection>
-    <Sidebar.TopBar.ToolBox>
-      <Sidebar.TopBar.Title>Title</Sidebar.TopBar.Title>
-      <Sidebar.TopBar.Actions>
-        <Sidebar.TopBar.Action success icon='phone' />
-        <Sidebar.TopBar.Action icon='message-disabled' />
-      </Sidebar.TopBar.Actions>
-    </Sidebar.TopBar.ToolBox>
+    <SidebarTopBarToolBox>
+      <SidebarTopBarTitle>Title</SidebarTopBarTitle>
+      <SidebarTopBarActions>
+        <SidebarTopBarAction success icon='phone' />
+        <SidebarTopBarAction icon='message-disabled' />
+      </SidebarTopBarActions>
+    </SidebarTopBarToolBox>
     <SidebarSection>
-      <Sidebar.Section.Title>
+      <SidebarSectionTitle>
         CallssCallssCallssCallssCallssCallssCallssCallssCallssCallssCallssCallssCallssCallssCallssCallssCallssCallssCallssCallssCallssCallssCallssCallssCallssCallss
-      </Sidebar.Section.Title>
-      <Sidebar.TopBar.Actions>
-        <Sidebar.TopBar.Action success icon='phone' />
-        <Sidebar.TopBar.Action icon='message-disabled' />
-      </Sidebar.TopBar.Actions>
+      </SidebarSectionTitle>
+      <SidebarTopBarActions>
+        <SidebarTopBarAction success icon='phone' />
+        <SidebarTopBarAction icon='message-disabled' />
+      </SidebarTopBarActions>
     </SidebarSection>
-    <Sidebar.Item>
+    <SidebarItem>
       <SidebarItemAvatar>
         <Avatar
           size='x16'
@@ -234,8 +241,8 @@ export const WithFooter: StoryFn<typeof Sidebar> = () => (
           <SidebarItemAction icon='phone' secondary />
         </SidebarItemActions>
       </SidebarItemContainer>
-    </Sidebar.Item>
-    <Sidebar.Item selected clickable>
+    </SidebarItem>
+    <SidebarItem selected clickable>
       <SidebarItemAvatar>
         <Avatar
           size='x28'
@@ -261,8 +268,8 @@ export const WithFooter: StoryFn<typeof Sidebar> = () => (
           <SidebarItemAction icon='phone' secondary />
         </SidebarItemActions>
       </SidebarItemContainer>
-    </Sidebar.Item>
-    <Sidebar.Item clickable>
+    </SidebarItem>
+    <SidebarItem clickable>
       <SidebarItemAvatar>
         <Avatar
           size='x36'
@@ -298,7 +305,7 @@ export const WithFooter: StoryFn<typeof Sidebar> = () => (
           <SidebarItemAction icon='phone' secondary />
         </SidebarItemActions>
       </SidebarItemContainer>
-    </Sidebar.Item>
+    </SidebarItem>
     <SidebarFooter elevated>
       <SidebarFooterHighlight> 9 Chats enqeued </SidebarFooterHighlight>
       <SidebarSection>
@@ -356,36 +363,42 @@ export const WithFooter: StoryFn<typeof Sidebar> = () => (
 
 export const Admin: StoryFn<typeof Sidebar> = () => (
   <div className='rcx-sidebar'>
-    <Box display='flex' is='header' pbs={16} pbe={8} pi={24}>
+    <Box
+      display='flex'
+      is='header'
+      paddingBlockStart={16}
+      paddingBlockEnd={8}
+      paddingInline={24}
+    >
       <Box fontSize='p2' fontWeight='p2'>
         Administration
       </Box>
-      <Box mi={8}>
+      <Box marginInline={8}>
         <Tag variant='featured'>Development</Tag>
       </Box>
     </Box>
     <Divider />
     <SidebarItem is='a' clickable href='#'>
-      <Box display='flex' justifyContent='center' pb={8}>
-        <Icon name='import' mi={4} size='x20' />
+      <Box display='flex' justifyContent='center' paddingBlock={8}>
+        <Icon name='import' marginInline={4} size='x20' />
         Import
       </Box>
     </SidebarItem>
     <SidebarItem is='a' clickable href='#'>
-      <Box display='flex' justifyContent='center' pb={8}>
-        <Icon name='user' mi={4} size='x20' />
+      <Box display='flex' justifyContent='center' paddingBlock={8}>
+        <Icon name='user' marginInline={4} size='x20' />
         Users
       </Box>
     </SidebarItem>
     <SidebarItem is='a' clickable href='#'>
-      <Box display='flex' justifyContent='center' pb={8}>
-        <Icon name='hashtag' mi={4} size='x20' />
+      <Box display='flex' justifyContent='center' paddingBlock={8}>
+        <Icon name='hashtag' marginInline={4} size='x20' />
         Rooms
       </Box>
     </SidebarItem>
     <SidebarItem is='a' clickable href='#'>
-      <Box display='flex' justifyContent='center' pb={8}>
-        <Icon name='cube' mi={4} size='x20' />
+      <Box display='flex' justifyContent='center' paddingBlock={8}>
+        <Icon name='cube' marginInline={4} size='x20' />
         Apps
       </Box>
     </SidebarItem>
@@ -394,11 +407,17 @@ export const Admin: StoryFn<typeof Sidebar> = () => (
 
 export const WithBanner: StoryFn<typeof Sidebar> = () => (
   <div className='rcx-sidebar'>
-    <Box display='flex' is='header' pbs={16} pbe={8} pi={24}>
+    <Box
+      display='flex'
+      is='header'
+      paddingBlockStart={16}
+      paddingBlockEnd={8}
+      paddingInline={24}
+    >
       <Box fontSize='p2' fontWeight='p2'>
         Administration
       </Box>
-      <Box mi={8}>
+      <Box marginInline={8}>
         <Tag variant='featured'>Development</Tag>
       </Box>
     </Box>
@@ -410,26 +429,26 @@ export const WithBanner: StoryFn<typeof Sidebar> = () => (
       onClose={action('click')}
     />
     <SidebarItem clickable>
-      <Box display='flex' justifyContent='center' pb={8}>
-        <Icon name='import' mi={4} size='x20' />
+      <Box display='flex' justifyContent='center' paddingBlock={8}>
+        <Icon name='import' marginInline={4} size='x20' />
         Import
       </Box>
     </SidebarItem>
     <SidebarItem clickable>
-      <Box display='flex' justifyContent='center' pb={8}>
-        <Icon name='user' mi={4} size='x20' />
+      <Box display='flex' justifyContent='center' paddingBlock={8}>
+        <Icon name='user' marginInline={4} size='x20' />
         Users
       </Box>
     </SidebarItem>
     <SidebarItem clickable>
-      <Box display='flex' justifyContent='center' pb={8}>
-        <Icon name='hashtag' mi={4} size='x20' />
+      <Box display='flex' justifyContent='center' paddingBlock={8}>
+        <Icon name='hashtag' marginInline={4} size='x20' />
         Rooms
       </Box>
     </SidebarItem>
     <SidebarItem clickable>
-      <Box display='flex' justifyContent='center' pb={8}>
-        <Icon name='cube' mi={4} size='x20' />
+      <Box display='flex' justifyContent='center' paddingBlock={8}>
+        <Icon name='cube' marginInline={4} size='x20' />
         Apps
       </Box>
     </SidebarItem>
@@ -439,7 +458,7 @@ export const WithBanner: StoryFn<typeof Sidebar> = () => (
 export const CustomBannerContent: StoryFn<typeof SidebarBanner> = () => (
   <SidebarBanner>
     <Box display='flex' justifyContent='space-between'>
-      <Icon name='modal-warning' size='x20' mi={8} />
+      <Icon name='modal-warning' size='x20' marginInline={8} />
       <div>This is a customized banner content</div>
     </Box>
   </SidebarBanner>

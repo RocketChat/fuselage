@@ -1,45 +1,51 @@
-import type { AllHTMLAttributes, RefObject } from 'react';
-import { forwardRef } from 'react';
+import type { AllHTMLAttributes, RefAttributes, RefObject } from 'react';
 import { useButton, type AriaButtonProps } from 'react-aria';
 
 import { Box } from '../Box';
 
-type SelectTriggerProps = {
-  small?: boolean;
-  error?: string;
-  focus?: boolean;
-} & AriaButtonProps &
-  AllHTMLAttributes<HTMLButtonElement>;
+type SelectTriggerProps = AriaButtonProps &
+  AllHTMLAttributes<HTMLButtonElement> &
+  RefAttributes<HTMLButtonElement> & {
+    small?: boolean;
+    error?: string;
+    focus?: boolean;
+  };
 
-export const SelectTrigger = forwardRef<HTMLButtonElement, SelectTriggerProps>(
-  ({ small, error, isDisabled, focus, id, ...props }, ref) => {
-    const { buttonProps } = useButton(
-      props,
-      ref as RefObject<HTMLButtonElement | null>,
-    );
+export function SelectTrigger({
+  ref,
+  small,
+  error,
+  isDisabled,
+  focus,
+  id,
+  ...props
+}: SelectTriggerProps) {
+  const { buttonProps } = useButton(
+    props,
+    ref as RefObject<HTMLButtonElement | null>,
+  );
 
-    return (
-      <Box
-        {...buttonProps}
-        id={id}
-        rcx-select
-        ref={ref}
-        is='button'
-        display='flex'
-        flexDirection='row'
-        fontScale='p2'
-        justifyContent='space-between'
-        rcx-input-box--small={small}
-        className={[
-          error && 'invalid',
-          isDisabled && 'disabled',
-          focus && 'focus',
-        ]
-          .filter(Boolean)
-          .join(' ')}
-      >
-        {props.children}
-      </Box>
-    );
-  },
-);
+  return (
+    <Box
+      {...buttonProps}
+      id={id}
+      rcx-select
+      ref={ref}
+      is='button'
+      display='flex'
+      flexDirection='row'
+      fontScale='p2'
+      justifyContent='space-between'
+      rcx-input-box--small={small}
+      className={[
+        error && 'invalid',
+        isDisabled && 'disabled',
+        focus && 'focus',
+      ]
+        .filter(Boolean)
+        .join(' ')}
+    >
+      {props.children}
+    </Box>
+  );
+}

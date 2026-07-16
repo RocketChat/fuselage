@@ -1,6 +1,6 @@
 import { Box, Icon } from '@rocket.chat/fuselage';
 import colors from '@rocket.chat/fuselage-tokens/colors.json';
-import { List, DarkModeProvider } from '@rocket.chat/layout';
+import { List, DarkModeProvider, ListItem } from '@rocket.chat/layout';
 import { useMemo } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { useTranslation } from 'react-i18next';
@@ -31,10 +31,10 @@ const Description = () => {
   );
 
   const listItem = (text: string, id: number) => (
-    <List.Item key={id} fontScale='p1'>
-      <Icon name='check' size='x24' mie={12} />
+    <ListItem key={id} fontScale='p1'>
+      <Icon name='check' size='x24' marginInlineEnd={12} />
       {text}
-    </List.Item>
+    </ListItem>
   );
 
   return (

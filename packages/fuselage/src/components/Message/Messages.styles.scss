@@ -380,9 +380,16 @@ $message-highlight-border-radius: theme(
     margin-inline: lengths.margin(2);
 
     background-size: contain;
+
+    font-size: lengths.size(24);
+    line-height: lengths.size(24);
+
     @include size.square(lengths.size(24));
 
     &--big {
+      font-size: lengths.size(44);
+      line-height: lengths.size(48);
+
       @include size.square(lengths.size(44));
     }
   }

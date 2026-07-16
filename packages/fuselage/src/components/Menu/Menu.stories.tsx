@@ -1,6 +1,6 @@
 import type { StoryFn, Meta } from '@storybook/react-webpack5';
 import type { ReactNode } from 'react';
-import { forwardRef, useState } from 'react';
+import { useState } from 'react';
 
 import { Box } from '../Box';
 import type { IconButtonProps } from '../Button';
@@ -8,7 +8,7 @@ import { IconButton } from '../Button';
 import { ButtonGroup } from '../ButtonGroup';
 import { CheckBox } from '../CheckBox';
 import { RadioButton } from '../RadioButton';
-import { Sidebar } from '../Sidebar';
+import { SidebarTopBarAction, SidebarTopBarActions } from '../Sidebar';
 import { ToggleSwitch } from '../ToggleSwitch';
 
 import type { MenuItemIconProps } from '.';
@@ -149,7 +149,7 @@ export const MenuDisplayExample = (
           <MenuItemContent>Avatars</MenuItemContent>
           <MenuItemInput>
             <ToggleSwitch
-              mie={16}
+              marginInlineEnd={16}
               onChange={() => setAvatarDisplay(!avatarDisplay)}
               checked={avatarDisplay}
             />
@@ -241,7 +241,7 @@ export const MenuMapGenericItem = () => {
       icon: 'flag',
       input: (
         <CheckBox
-          mi={16}
+          marginInline={16}
           checked={groupByUnread}
           onChange={() => setGroupByUnread(!groupByUnread)}
         />
@@ -254,7 +254,7 @@ export const MenuMapGenericItem = () => {
         'Group by favorites and unread bla bla balaisudhf ioioasdhoaisdf asdifh oaisdhf aosidhf aisdhf aosdihf',
       input: (
         <CheckBox
-          mi={16}
+          marginInline={16}
           checked={groupByFav}
           onChange={() => setGroupByFav(!groupByFav)}
         />
@@ -265,7 +265,7 @@ export const MenuMapGenericItem = () => {
       icon: 'group-by-type',
       input: (
         <CheckBox
-          mi={16}
+          marginInline={16}
           checked={groupByTypes}
           onChange={() => setGroupByTypes(!groupByTypes)}
         />
@@ -278,7 +278,7 @@ export const MenuMapGenericItem = () => {
       icon: 'clock',
       input: (
         <CheckBox
-          mi={16}
+          marginInline={16}
           onChange={() => setSortBy('activity')}
           checked={sortBy === 'activity'}
         />
@@ -289,7 +289,7 @@ export const MenuMapGenericItem = () => {
       icon: 'sort-az',
       input: (
         <CheckBox
-          mi={16}
+          marginInline={16}
           onChange={() => setSortBy('alphabetical')}
           checked={sortBy === 'alphabetical'}
         />
@@ -329,10 +329,10 @@ export const MenuMapGenericItem = () => {
 };
 
 export const AsSidebarTopbarActions = () => (
-  <Sidebar.TopBar.Actions>
-    <Sidebar.TopBar.Action icon='user' title='user' />
-    <Sidebar.TopBar.Action icon='book' title='book' />
-    <Menu title='test' is={Sidebar.TopBar.Action}>
+  <SidebarTopBarActions>
+    <SidebarTopBarAction icon='user' title='user' />
+    <SidebarTopBarAction icon='book' title='book' />
+    <Menu title='test' is={SidebarTopBarAction}>
       <MenuItem>test</MenuItem>
       <MenuItem>test</MenuItem>
       <MenuItem>test</MenuItem>
@@ -344,7 +344,7 @@ export const AsSidebarTopbarActions = () => (
       <MenuItem>test</MenuItem>
       <MenuItem>test</MenuItem>
     </Menu>
-  </Sidebar.TopBar.Actions>
+  </SidebarTopBarActions>
 );
 
 export const ControlledOpenState = () => {
@@ -427,9 +427,9 @@ export const Sizes = () => (
   </ButtonGroup>
 );
 
-const CustomButton = forwardRef<HTMLElement, IconButtonProps>((props, ref) => (
-  <IconButton ref={ref} {...props} icon='kebab' secondary small={false} />
-));
+const CustomButton = (props: IconButtonProps) => (
+  <IconButton {...props} icon='kebab' secondary small={false} />
+);
 
 export const WithCustomButton = () => (
   <ButtonGroup>

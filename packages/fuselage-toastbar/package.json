@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/fuselage-toastbar",
-  "version": "0.36.0",
+  "version": "0.36.1",
   "description": "Fuselage ToastBar component",
   "keywords": [
     "rocketchat",
@@ -43,7 +43,7 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
-    "react-timing-hooks": "~4.0.2"
+    "react-timing-hooks": "~5.2.0"
   },
   "devDependencies": {
     "@microsoft/api-extractor": "~7.58.7",
@@ -60,7 +60,7 @@
     "@testing-library/jest-dom": "~6.9.1",
     "@testing-library/react": "~16.3.2",
     "@testing-library/user-event": "~14.6.1",
-    "@types/react": "~19.2.16",
+    "@types/react": "~19.2.17",
     "@types/react-dom": "~19.2.3",
     "eslint": "~9.39.4",
     "jest": "~30.4.2",

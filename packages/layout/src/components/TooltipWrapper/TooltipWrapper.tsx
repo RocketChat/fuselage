@@ -1,3 +1,4 @@
+import type { TooltipProps } from '@rocket.chat/fuselage';
 import {
   AnimatedVisibility,
   PositionAnimated,
@@ -5,22 +6,14 @@ import {
 } from '@rocket.chat/fuselage';
 import { useDebouncedState } from '@rocket.chat/fuselage-hooks';
 import type {
-  ComponentProps,
   Dispatch,
   RefObject,
   ReactElement,
   ReactNode,
-  Ref,
   SetStateAction,
+  RefAttributes,
 } from 'react';
-import {
-  cloneElement,
-  forwardRef,
-  useCallback,
-  useId,
-  useMemo,
-  useRef,
-} from 'react';
+import { cloneElement, useCallback, useId, useMemo, useRef } from 'react';
 
 export type AnchorParams = {
   ref: RefObject<Element | null>;
@@ -46,17 +39,17 @@ const getAnchor = (
   });
 };
 
+type InnerTooltipProps = Omit<TooltipProps, 'ref'> &
+  RefAttributes<HTMLDivElement>;
+
 // Workaround to the c̶r̶a̶p̶p̶y̶ not-so-great API of PositionAnimated
-const InnerTooltip = forwardRef(function InnerTooltip(
-  { style, ...props }: ComponentProps<typeof Tooltip>,
-  ref: Ref<HTMLDivElement>,
-) {
+function InnerTooltip({ ref, style, ...props }: InnerTooltipProps) {
   return (
     <div ref={ref} style={style}>
       <Tooltip {...props} />
     </div>
   );
-});
+}
 
 export type TooltipWrapperProps = {
   children: ReactElement<any> | ((props: AnchorParams) => ReactNode);

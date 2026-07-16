@@ -15,7 +15,7 @@ import {
   CheckBox,
   Grid,
 } from '@rocket.chat/fuselage';
-import { Form } from '@rocket.chat/layout';
+import { Form, FormFooter, FormHeader, FormTitle } from '@rocket.chat/layout';
 import type { FocusEvent } from 'react';
 import type { FieldPathValue, SubmitHandler, Validate } from 'react-hook-form';
 import { useForm, Controller } from 'react-hook-form';
@@ -80,11 +80,11 @@ export const CreateCloudWorkspaceForm = ({
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
-      <Form.Header>
-        <Form.Title>{t('form.createCloudWorkspace.title')}</Form.Title>
-      </Form.Header>
+      <FormHeader>
+        <FormTitle>{t('form.createCloudWorkspace.title')}</FormTitle>
+      </FormHeader>
 
-      <FieldGroup mbs={16}>
+      <FieldGroup marginBlockStart={16}>
         <Field>
           <FieldLabel>
             {t('form.createCloudWorkspace.fields.orgEmaillabel')}
@@ -106,7 +106,7 @@ export const CreateCloudWorkspaceForm = ({
 
         <Field>
           <FieldLabel>
-            <Box display='inline' mie={8}>
+            <Box display='inline' marginInlineEnd={8}>
               {t('form.createCloudWorkspace.fields.workspaceNamelabel')}
             </Box>
           </FieldLabel>
@@ -125,7 +125,7 @@ export const CreateCloudWorkspaceForm = ({
 
         <Field>
           <FieldLabel>
-            <Box display='inline' mie={8}>
+            <Box display='inline' marginInlineEnd={8}>
               {t('form.createCloudWorkspace.fields.workspaceUrllabel')}
             </Box>
           </FieldLabel>
@@ -144,11 +144,11 @@ export const CreateCloudWorkspaceForm = ({
           )}
         </Field>
 
-        <Grid mb={16}>
+        <Grid marginBlock={16}>
           <Grid.Item>
             <Field>
               <FieldLabel>
-                <Box display='inline' mie={8}>
+                <Box display='inline' marginInlineEnd={8}>
                   {t('form.createCloudWorkspace.fields.serverRegionlabel')}
                 </Box>
                 <Tooltip
@@ -180,7 +180,7 @@ export const CreateCloudWorkspaceForm = ({
           <Grid.Item>
             <Field>
               <FieldLabel>
-                <Box display='inline' mie={8}>
+                <Box display='inline' marginInlineEnd={8}>
                   {t('form.createCloudWorkspace.fields.languagelabel')}
                 </Box>
                 <Tooltip
@@ -208,11 +208,14 @@ export const CreateCloudWorkspaceForm = ({
           </Grid.Item>
         </Grid>
 
-        <Divider mb={0} />
+        <Divider marginBlock={0} />
 
         <Field>
           <FieldRow justifyContent='flex-start'>
-            <CheckBox {...register('agreement', { required: true })} mie={8} />
+            <CheckBox
+              {...register('agreement', { required: true })}
+              marginInlineEnd={8}
+            />
             <Box is='label' htmlFor='agreement' withRichContent fontScale='c1'>
               <Trans i18nKey='component.form.termsAndConditions'>
                 I agree with
@@ -241,7 +244,7 @@ export const CreateCloudWorkspaceForm = ({
 
         <Field>
           <FieldRow justifyContent='flex-start'>
-            <CheckBox {...register('updates')} mie={8} />
+            <CheckBox {...register('updates')} marginInlineEnd={8} />
             <Box fontScale='c1'>
               {t('form.createCloudWorkspace.fields.keepMeInformed')}
             </Box>
@@ -249,7 +252,7 @@ export const CreateCloudWorkspaceForm = ({
         </Field>
       </FieldGroup>
 
-      <Form.Footer>
+      <FormFooter>
         <ButtonGroup>
           {onBackButtonClick && (
             <Button disabled={isSubmitting} onClick={onBackButtonClick}>
@@ -266,7 +269,7 @@ export const CreateCloudWorkspaceForm = ({
             {t('component.form.action.next')}
           </Button>
         </ButtonGroup>
-      </Form.Footer>
+      </FormFooter>
     </Form>
   );
 };

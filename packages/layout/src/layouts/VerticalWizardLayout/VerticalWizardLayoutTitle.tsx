@@ -5,7 +5,7 @@ const VerticalWizardLayoutTitle = ({ children }: { children: ReactNode }) => (
   <Box
     fontWeight={500}
     width='100%'
-    mbe={18}
+    marginBlockEnd={18}
     fontSize='x42'
     lineHeight='x62'
     fontFamily='sans'

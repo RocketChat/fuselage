@@ -11,11 +11,11 @@ import { Popover } from '../Popover';
 
 import { MenuPortalContext, useMenuPortalContainer } from './MenuPortalContext';
 
-interface MenuPopoverProps extends Omit<AriaPopoverProps, 'popoverRef'> {
+type MenuPopoverProps = Omit<AriaPopoverProps, 'popoverRef'> & {
   children: ReactNode;
   state: OverlayTriggerState;
   maxWidth?: string;
-}
+};
 
 function MenuPopover({
   children,

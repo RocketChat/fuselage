@@ -9,7 +9,15 @@ import {
   FieldRow,
   FieldError,
 } from '@rocket.chat/fuselage';
-import { Form, ActionLink } from '@rocket.chat/layout';
+import {
+  ActionLink,
+  Form,
+  FormContainer,
+  FormFooter,
+  FormHeader,
+  FormSubtitle,
+  FormTitle,
+} from '@rocket.chat/layout';
 import type { SubmitHandler } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
 import { Trans, useTranslation } from 'react-i18next';
@@ -52,15 +60,15 @@ const LoginForm = ({
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
-      <Form.Header>
-        <Form.Title>{t('form.loginForm.content.logIn')}</Form.Title>
-        <Form.Subtitle>
+      <FormHeader>
+        <FormTitle>{t('form.loginForm.content.logIn')}</FormTitle>
+        <FormSubtitle>
           {!isPasswordLess
             ? t('form.loginForm.content.default')
             : t('form.loginForm.content.passwordLess')}
-        </Form.Subtitle>
-      </Form.Header>
-      <Form.Container>
+        </FormSubtitle>
+      </FormHeader>
+      <FormContainer>
         <FieldGroup>
           <Field>
             <FieldLabel>{t('form.loginForm.fields.email.label')}</FieldLabel>
@@ -93,8 +101,8 @@ const LoginForm = ({
             </Field>
           )}
         </FieldGroup>
-      </Form.Container>
-      <Form.Footer>
+      </FormContainer>
+      <FormFooter>
         <LoginActionsWrapper>
           <Button
             type='submit'
@@ -119,7 +127,7 @@ const LoginForm = ({
         </LoginActionsWrapper>
 
         {!isPasswordLess && (
-          <Box mbs={24} fontScale='p2' textAlign='left'>
+          <Box marginBlockStart={24} fontScale='p2' textAlign='left'>
             <Trans i18nKey='form.loginForm.resetPassword'>
               Forgot your password?
               <ActionLink fontScale='p2' onClick={onResetPassword}>
@@ -128,7 +136,7 @@ const LoginForm = ({
             </Trans>
           </Box>
         )}
-      </Form.Footer>
+      </FormFooter>
     </Form>
   );
 };

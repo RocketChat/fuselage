@@ -21,7 +21,7 @@ export const TopBarToolBox = ({
       .join(' ')}
     {...props}
   >
-    <TopBarWrapper children={children} />
+    <TopBarWrapper>{children}</TopBarWrapper>
     <SidebarDivider />
   </TopBar>
 );

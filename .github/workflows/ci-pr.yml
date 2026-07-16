@@ -46,6 +46,14 @@ jobs:
         id: build-lint-test
         run: yarn run ci
 
+      - name: Check for uncommitted API report changes
+        id: check-api-md
+        run: |
+          if ! git diff --exit-code -- '*.api.md'; then
+            echo "::error::*.api.md files are out of date. Run 'yarn run ci' locally and commit the resulting changes."
+            exit 1
+          fi
+
       - name: Visual regression
         id: visual-regression
         run: yarn turbo run visual-regression --cache-dir=".turbo" --concurrency=1

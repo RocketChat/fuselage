@@ -10,15 +10,15 @@ const TableSelection = ({ children, text, ...props }: TableSelectionProps) => (
     display='flex'
     alignItems='center'
     justifyContent='space-between'
-    pi={24}
+    paddingInline={24}
     elevation='2'
     {...props}
   >
-    <Box fontScale='p2b' mb={16} flexShrink={1} withTruncatedText>
+    <Box fontScale='p2b' marginBlock={16} flexShrink={1} withTruncatedText>
       {text}
     </Box>
     {children && (
-      <Box mi='neg-x8' fontScale='p2m' flexShrink={0}>
+      <Box marginInline='neg-x8' fontScale='p2m' flexShrink={0}>
         {children}
       </Box>
     )}

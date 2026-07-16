@@ -17,7 +17,7 @@ const Template: StoryFn<typeof EmailInput> = (args) => (
 export const Default: StoryFn<typeof EmailInput> = Template.bind({});
 
 export const WithIconAddon: StoryFn<typeof EmailInput> = () => (
-  <EmailInput aria-label='email' addon={<Icon name='send' size='x20' />} />
+  <EmailInput aria-label='email' endAddon={<Icon name='send' size='x20' />} />
 );
 
 export const Invalid: StoryFn<typeof EmailInput> = Template.bind({});
@@ -50,7 +50,7 @@ export const States: StoryFn<typeof EmailInput> = () => (
         'with placeholder': { placeholder: 'Placeholder' },
         'with value': { value: 'support@rocket.chat' },
         'with icon': {
-          addon: <Icon name='at' size='x20' />,
+          endAddon: <Icon name='at' size='x20' />,
           value: 'support@rocket.chat',
         },
       }}
@@ -74,7 +74,7 @@ export const States: StoryFn<typeof EmailInput> = () => (
         'with placeholder': { placeholder: 'Placeholder' },
         'with value': { value: 'support@rocket.chat' },
         'with icon': {
-          addon: <Icon name='at' size='x20' />,
+          endAddon: <Icon name='at' size='x20' />,
           value: 'support@rocket.chat',
         },
       }}

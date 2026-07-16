@@ -135,7 +135,7 @@ describe('[Box Component]', () => {
 
     it('accepts a instrinsic SVG element', () => {
       const { container } = render(<Box is='path' />, {
-        wrapper: ({ children }) => <svg children={children} />,
+        wrapper: ({ children }) => <svg>{children}</svg>,
       });
 
       expect(container.firstElementChild?.firstElementChild).toHaveProperty(

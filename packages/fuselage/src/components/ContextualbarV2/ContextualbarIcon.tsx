@@ -5,7 +5,7 @@ import { Icon, type IconProps } from '../Icon';
 export type ContextualbarIconProps = IconProps;
 
 const ContextualbarIcon = (props: ContextualbarIconProps) => (
-  <Icon {...props} pi={2} size='x20' />
+  <Icon {...props} paddingInline={2} size='x20' />
 );
 
 export default memo(ContextualbarIcon);

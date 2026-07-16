@@ -1,13 +1,13 @@
-import { forwardRef, type HTMLAttributes } from 'react';
+import type { RefAttributes, HTMLAttributes } from 'react';
 
-export type SidebarProps = {
-  collapsed?: boolean;
-} & HTMLAttributes<HTMLElement>;
+export type SidebarProps = HTMLAttributes<HTMLElement> &
+  RefAttributes<HTMLElement> & {
+    collapsed?: boolean;
+  };
 
-export const Sidebar = forwardRef<HTMLElement, SidebarProps>(
-  ({ collapsed, className, ...props }, ref) => (
+export function Sidebar({ collapsed, className, ...props }: SidebarProps) {
+  return (
     <nav
-      ref={ref}
       className={[
         'rcx-box rcx-box--full rcx-sidebar-v2',
         'rcx-box--animated',
@@ -18,5 +18,5 @@ export const Sidebar = forwardRef<HTMLElement, SidebarProps>(
         .join(' ')}
       {...props}
     />
-  ),
-);
+  );
+}

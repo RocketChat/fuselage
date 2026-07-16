@@ -34,7 +34,7 @@ export default {
   component: Sidepanel,
   decorators: [
     (Story) => (
-      <Box h='90vh' w='x276'>
+      <Box height='90vh' width='x276'>
         <Story />
       </Box>
     ),
@@ -53,7 +53,7 @@ const Template: StoryFn<typeof Sidepanel> = (args) => (
       <InputBox
         type='text'
         placeholder='Search'
-        addon={<Icon name='magnifier' size='x18' />}
+        endAddon={<Icon name='magnifier' size='x18' />}
       />
     </SidepanelSection>
     <Box overflowY='auto' height='full'>
@@ -90,7 +90,7 @@ const Template: StoryFn<typeof Sidepanel> = (args) => (
                       flexShrink={1}
                       flexGrow={0}
                     >
-                      <Icon size='x12' mie={4} name='team' />
+                      <Icon size='x12' marginInlineEnd={4} name='team' />
                       Team title
                     </Tag>
                     <SidebarV2ItemBadge

@@ -29,7 +29,7 @@ export default {
 } as Meta<typeof Sidebar>;
 
 export const Default: StoryFn<typeof Sidebar> = (props) => (
-  <Box h='90vh' w='x280'>
+  <Box height='90vh' width='x280'>
     <Sidebar {...props}>
       <SidebarBanner
         title='You’ve reached the limit active contacts this month'
@@ -40,7 +40,7 @@ export const Default: StoryFn<typeof Sidebar> = (props) => (
       />
       <SidebarSection>
         <TextInput
-          addon={<Icon name='magnifier' size='x20' />}
+          endAddon={<Icon name='magnifier' size='x20' />}
           small
           placeholder='Search'
         />

@@ -1,9 +1,8 @@
-import type { CSSProperties, ReactNode } from 'react';
-import { forwardRef } from 'react';
+import type { CSSProperties, ReactNode, RefAttributes } from 'react';
 
 import { Box, Tile } from '..';
 
-export type DropdownDesktopProps = {
+export type DropdownDesktopProps = RefAttributes<HTMLElement> & {
   children: ReactNode;
   maxWidth?: string;
   maxHeight?: string;
@@ -11,25 +10,26 @@ export type DropdownDesktopProps = {
   style?: CSSProperties;
 };
 
-export const DropdownDesktop = forwardRef<HTMLElement, DropdownDesktopProps>(
-  function DropdownDesktop({ children, style, ...props }, ref) {
-    return (
-      <Tile
-        style={style}
-        ref={ref}
-        elevation='2'
-        pi='0'
-        pb='0'
-        display='flex'
-        flexDirection='column'
-        overflow='auto'
-        data-testid='dropdown'
-        {...props}
-      >
-        <Box flexShrink={1} pb={12}>
-          {style?.visibility === 'hidden' ? null : children}
-        </Box>
-      </Tile>
-    );
-  },
-);
+export function DropdownDesktop({
+  children,
+  style,
+  ...props
+}: DropdownDesktopProps) {
+  return (
+    <Tile
+      style={style}
+      elevation='2'
+      paddingInline='0'
+      paddingBlock='0'
+      display='flex'
+      flexDirection='column'
+      overflow='auto'
+      data-testid='dropdown'
+      {...props}
+    >
+      <Box flexShrink={1} paddingBlock={12}>
+        {style?.visibility === 'hidden' ? null : children}
+      </Box>
+    </Tile>
+  );
+}
