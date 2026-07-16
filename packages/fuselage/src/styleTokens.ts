@@ -1,6 +1,7 @@
 import tokenTypography from '@rocket.chat/fuselage-tokens/typography.json';
 import { memoize } from '@rocket.chat/memo';
 import invariant from 'invariant';
+import type { CSSProperties } from 'react';
 
 import {
   isStatusBackgroundColor,
@@ -53,6 +54,17 @@ const measure = (
     return value;
   });
 
+const borders = {
+  radius: {
+    'none': '0',
+    'small': '2px',
+    'medium': '4px',
+    'large': '8px',
+    'extra-large': '20px',
+    'full': '9999px',
+  },
+} satisfies { radius: Record<string, CSSProperties['borderRadius']> };
+
 export const borderWidth = measure((value: unknown) => {
   if (value === 'none') {
     return '0px';
@@ -64,17 +76,17 @@ export const borderWidth = measure((value: unknown) => {
   return undefined;
 });
 
-export const borderRadius = measure((value: unknown) => {
-  if (value === 'none') {
-    return '0px';
+export type BorderRadius = keyof typeof borders.radius;
+
+export const borderRadius = (value: unknown) => {
+  if (typeof value === 'string' && value in borders.radius) {
+    return borders.radius[value as keyof typeof borders.radius];
   }
 
-  if (value === 'full') {
-    return '9999px';
-  }
-
-  return undefined;
-});
+  throw new Error(
+    `Invalid borderRadius value: ${value}. Valid values are: ${Object.keys(borders.radius).join(', ')}`,
+  );
+};
 
 const mapTypeToPrefix = {
   neutral: 'n',

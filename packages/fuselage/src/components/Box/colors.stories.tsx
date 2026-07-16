@@ -7,6 +7,7 @@ import type {
 import { cloneElement } from 'react';
 import flattenChildren from 'react-keyed-flatten-children';
 
+import type { BoxProps } from './Box';
 import Box from './Box';
 
 export default {
@@ -52,12 +53,12 @@ export const SurfaceColors: Story = {
                 color: 'annotation',
                 border: '2px solid',
                 borderColor: 'stroke light',
-                borderRadius: 4,
+                borderRadius: 'medium',
                 textAlign: 'center',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-              },
+              } satisfies BoxProps,
               child.props.backgroundColor,
             ),
         )}
@@ -106,12 +107,12 @@ export const StatusColors: Story = {
                 margin: 'x4',
                 size: 'x122',
                 border: '2px solid',
-                borderRadius: 4,
+                borderRadius: 'medium',
                 textAlign: 'center',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-              },
+              } satisfies BoxProps,
               child.props.backgroundColor.replace('status-background-', ''),
             ),
         )}
@@ -147,12 +148,12 @@ export const StrokeColors: Story = {
                 size: 'x122',
                 color: 'default',
                 borderWidth: 'x8',
-                borderRadius: 4,
+                borderRadius: 'medium',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 padding: 8,
-              },
+              } satisfies BoxProps,
               child.props.borderColor,
             ),
         )}
@@ -164,7 +165,7 @@ export const StrokeColors: Story = {
 export const FontColors: Story = {
   render: () => (
     <>
-      <Box color='font-white' backgroundColor='dark' borderRadius={4} />
+      <Box color='font-white' backgroundColor='dark' borderRadius='medium' />
       <Box color='font-disabled' />
       <Box color='font-annotation' />
       <Box color='font-secondary-info' />

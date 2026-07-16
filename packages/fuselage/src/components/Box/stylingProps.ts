@@ -5,6 +5,7 @@ import type { CSSProperties } from 'react';
 import type { Var } from '../../Theme';
 import { Palette } from '../../Theme';
 import { fromCamelToKebab } from '../../helpers/fromCamelToKebab';
+import type { BorderRadius } from '../../styleTokens';
 import {
   borderRadius,
   borderWidth,
@@ -63,11 +64,11 @@ export type StylingProps = {
   borderInlineColor: CSSProperties['borderInlineColor'];
   borderInlineStartColor: CSSProperties['borderInlineStartColor'];
   borderInlineEndColor: CSSProperties['borderInlineEndColor'];
-  borderRadius: CSSProperties['borderRadius'];
-  borderStartStartRadius: CSSProperties['borderStartStartRadius'];
-  borderStartEndRadius: CSSProperties['borderStartEndRadius'];
-  borderEndStartRadius: CSSProperties['borderEndStartRadius'];
-  borderEndEndRadius: CSSProperties['borderEndEndRadius'];
+  borderRadius: BorderRadius;
+  borderStartStartRadius: BorderRadius;
+  borderStartEndRadius: BorderRadius;
+  borderEndStartRadius: BorderRadius;
+  borderEndEndRadius: BorderRadius;
 
   color: CSSProperties['color'] | Var;
   backgroundColor: CSSProperties['backgroundColor'] | Var;

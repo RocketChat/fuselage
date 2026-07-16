@@ -9,6 +9,7 @@ import flattenChildren from 'react-keyed-flatten-children';
 
 import { Divider } from '../Divider';
 
+import type { BoxProps } from './Box';
 import Box from './Box';
 
 export default {
@@ -561,10 +562,10 @@ export const VerticalAlign: Story = {
             color: 'default',
             border: '1px solid',
             borderColor: 'stroke-dark',
-            borderRadius: 'x4',
+            borderRadius: 'medium',
             margin: 'x4',
             padding: 'x4',
-          }),
+          } satisfies BoxProps),
         )}
       </Box>
     ),
