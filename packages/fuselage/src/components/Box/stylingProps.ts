@@ -481,9 +481,9 @@ const compiledPropDefs = new Map(
   ),
 );
 
-export const extractStylingProps = <TProps extends Record<string, unknown>>(
+const collectStylingProps = <TProps extends Record<string, unknown>>(
   props: TProps & Partial<StylingProps>,
-): [props: TProps, styles: cssFn | undefined] => {
+): [props: TProps, styles: Map<keyof StylingProps, cssFn>] => {
   const stylingProps = new Map<keyof StylingProps, cssFn>();
   const newProps: Record<string, unknown> = {};
 
@@ -502,11 +502,35 @@ export const extractStylingProps = <TProps extends Record<string, unknown>>(
     inject(value, stylingProps);
   }
 
+  return [newProps as TProps, stylingProps];
+};
+
+export const extractStylingProps = <TProps extends Record<string, unknown>>(
+  props: TProps & Partial<StylingProps>,
+): [props: TProps, styles: cssFn | undefined] => {
+  const [newProps, stylingProps] = collectStylingProps(props);
+
   const styles = stylingProps.size
     ? css`
         ${Array.from(stylingProps.values())}
       `
     : undefined;
 
-  return [newProps as TProps, styles];
+  return [newProps, styles];
+};
+
+/**
+ * Like extractStylingProps, but returns one cssFn per styling prop instead of a
+ * single merged style. Each cssFn becomes its own atomic (one property) class,
+ * so common declarations (e.g. `display: flex`) are shared across every Box
+ * instead of duplicated inside a per-combination class.
+ */
+export const extractAtomicStylingProps = <
+  TProps extends Record<string, unknown>,
+>(
+  props: TProps & Partial<StylingProps>,
+): [props: TProps, styles: cssFn[]] => {
+  const [newProps, stylingProps] = collectStylingProps(props);
+
+  return [newProps, Array.from(stylingProps.values())];
 };
