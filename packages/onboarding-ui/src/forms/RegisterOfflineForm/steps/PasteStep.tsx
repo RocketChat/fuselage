@@ -22,7 +22,7 @@ const PasteStep = ({ setStep }: PasteStepProps) => {
   return (
     <>
       <FormContainer>
-        <Box mbe='24px' fontScale='p2'>
+        <Box marginBlockEnd='24px' fontScale='p2'>
           <Trans key={'form.registerOfflineForm.pasteStep.description'}>
             1. In <strong>cloud.rocket.chat</strong> get the generated text and
             paste below to complete your registration process

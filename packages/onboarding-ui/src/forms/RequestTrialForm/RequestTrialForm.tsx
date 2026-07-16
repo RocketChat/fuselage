@@ -148,7 +148,7 @@ export const RequestTrialForm = ({
         <Field>
           <Box marginBlockStart={24}>
             <Box
-              mbe={8}
+              marginBlockEnd={8}
               display='flex'
               flexDirection='row'
               alignItems='flex-start'

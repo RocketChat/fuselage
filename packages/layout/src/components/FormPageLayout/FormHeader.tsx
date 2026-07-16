@@ -7,7 +7,7 @@ export type FormHeaderProps = Omit<FormHTMLAttributes<HTMLElement>, 'is'> &
   };
 
 function FormHeader(props: FormHeaderProps) {
-  return <Box is='header' mbe={24} {...props} />;
+  return <Box is='header' marginBlockEnd={24} {...props} />;
 }
 
 export default FormHeader;

@@ -32,7 +32,7 @@ const OauthAuthorizationPage = ({
         <Box fontScale='p1' p={40} textAlign='start' color={colors.n900}>
           {!clientName || error.message ? (
             <>
-              <Box fontScale='h1' mbe={18}>
+              <Box fontScale='h1' marginBlockEnd={18}>
                 Error
               </Box>
               {error.message}
