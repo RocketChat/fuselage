@@ -22,7 +22,7 @@ export default {
   component: Option,
   decorators: [
     (Story) => (
-      <Tile position='relative' maxWidth={250} pi='0'>
+      <Tile position='relative' maxWidth={250} paddingInline='0'>
         <Story />
       </Tile>
     ),

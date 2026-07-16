@@ -8,7 +8,7 @@ export type ContextualbarFooterProps = Omit<BoxProps, 'ref'> &
   RefAttributes<HTMLElement>;
 
 function ContextualbarFooter(props: ContextualbarFooterProps) {
-  return <Box p={24} {...props} />;
+  return <Box padding={24} {...props} />;
 }
 
 export default memo(ContextualbarFooter);

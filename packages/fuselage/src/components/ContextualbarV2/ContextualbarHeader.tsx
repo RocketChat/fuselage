@@ -13,7 +13,7 @@ const ContextualbarHeader = ({
     display='flex'
     alignItems='center'
     height='x44'
-    pi={16}
+    paddingInline={16}
     borderBlockEndWidth='default'
     borderBlockColor='extra-light'
     flexShrink={0}
@@ -26,8 +26,8 @@ const ContextualbarHeader = ({
       flexGrow={1}
       height='100%'
       overflow='hidden'
-      mi={-4}
-      pi={4}
+      marginInline={-4}
+      paddingInline={4}
       className={css`
         gap: 8px;
       `}

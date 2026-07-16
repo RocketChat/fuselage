@@ -56,7 +56,7 @@ function ProgressBar({
       {...props}
     >
       <Box
-        bg={getColor(light, variant, error)}
+        backgroundColor={getColor(light, variant, error)}
         rcx-progress-bar__fill--animated={animated}
         rcx-progress-bar__fill
         width={getWidth(percentage)}

@@ -12,13 +12,13 @@ export type ContextualbarProps = Omit<BoxProps, 'ref'> &
 function Contextualbar({
   width,
   position,
-  bg = 'room',
+  backgroundColor = 'room',
   ...props
 }: ContextualbarProps) {
   return (
     <Box
       rcx-vertical-bar
-      bg={bg}
+      backgroundColor={backgroundColor}
       color='default'
       display='flex'
       flexDirection='column'

@@ -148,7 +148,7 @@ export const MenuDisplayExample = (
           <MenuItemContent>Avatars</MenuItemContent>
           <MenuItemInput>
             <ToggleSwitch
-              mie={16}
+              marginInlineEnd={16}
               onChange={() => setAvatarDisplay(!avatarDisplay)}
               checked={avatarDisplay}
             />
@@ -240,7 +240,7 @@ export const MenuMapGenericItem = () => {
       icon: 'flag',
       input: (
         <CheckBox
-          mi={16}
+          marginInline={16}
           checked={groupByUnread}
           onChange={() => setGroupByUnread(!groupByUnread)}
         />
@@ -253,7 +253,7 @@ export const MenuMapGenericItem = () => {
         'Group by favorites and unread bla bla balaisudhf ioioasdhoaisdf asdifh oaisdhf aosidhf aisdhf aosdihf',
       input: (
         <CheckBox
-          mi={16}
+          marginInline={16}
           checked={groupByFav}
           onChange={() => setGroupByFav(!groupByFav)}
         />
@@ -264,7 +264,7 @@ export const MenuMapGenericItem = () => {
       icon: 'group-by-type',
       input: (
         <CheckBox
-          mi={16}
+          marginInline={16}
           checked={groupByTypes}
           onChange={() => setGroupByTypes(!groupByTypes)}
         />
@@ -277,7 +277,7 @@ export const MenuMapGenericItem = () => {
       icon: 'clock',
       input: (
         <CheckBox
-          mi={16}
+          marginInline={16}
           onChange={() => setSortBy('activity')}
           checked={sortBy === 'activity'}
         />
@@ -288,7 +288,7 @@ export const MenuMapGenericItem = () => {
       icon: 'sort-az',
       input: (
         <CheckBox
-          mi={16}
+          marginInline={16}
           onChange={() => setSortBy('alphabetical')}
           checked={sortBy === 'alphabetical'}
         />

@@ -70,8 +70,14 @@ MultipleCustomSelected.args = {
   value: ['1', '3'],
   multiple: true,
   renderSelected: ({ selected: { value, label }, onRemove }) => (
-    <Chip key={value} height='x20' value={value} onClick={onRemove} mie={4}>
-      <Box is='span' margin='none' mis={4}>
+    <Chip
+      key={value}
+      height='x20'
+      value={value}
+      onClick={onRemove}
+      marginInlineEnd={4}
+    >
+      <Box is='span' margin='none' marginInlineStart={4}>
         <Avatar size='x20' url={exampleAvatar} aria-hidden />
         {'  '}
         {label}

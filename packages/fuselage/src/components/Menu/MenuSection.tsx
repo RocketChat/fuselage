@@ -36,7 +36,7 @@ function MenuSection<T extends object>({
         {section.rendered && (
           <OptionTitle {...headingProps}>{section.rendered}</OptionTitle>
         )}
-        <Box {...groupProps} p='0'>
+        <Box {...groupProps} padding='0'>
           {[...section.childNodes].map((node) => (
             <MenuItem key={node.key} item={node as any} state={state} />
           ))}

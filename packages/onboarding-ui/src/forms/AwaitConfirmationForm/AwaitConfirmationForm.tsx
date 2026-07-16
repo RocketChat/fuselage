@@ -37,7 +37,7 @@ const AwaitingConfirmationForm = ({
         <FormTitle>{t('form.awaitConfirmationForm.title')}</FormTitle>
       </FormHeader>
       <FormContainer>
-        <Box fontScale='p2' mbe={24}>
+        <Box fontScale='p2' marginBlockEnd={24}>
           <Trans
             i18nKey='form.awaitConfirmationForm.content.sentEmail'
             values={{ emailAddress }}

@@ -29,7 +29,7 @@ const PaginatedSelectFiltered = ({
         ...props
       }: PaginatedSelectFilteredProps) => (
         <Input
-          mi={4}
+          marginInline={4}
           flexGrow={1}
           className='rcx-select__focus'
           placeholder={placeholder}

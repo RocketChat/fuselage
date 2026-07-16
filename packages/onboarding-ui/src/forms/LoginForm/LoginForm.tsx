@@ -127,7 +127,7 @@ const LoginForm = ({
         </LoginActionsWrapper>
 
         {!isPasswordLess && (
-          <Box mbs={24} fontScale='p2' textAlign='left'>
+          <Box marginBlockStart={24} fontScale='p2' textAlign='left'>
             <Trans i18nKey='form.loginForm.resetPassword'>
               Forgot your password?
               <ActionLink fontScale='p2' onClick={onResetPassword}>

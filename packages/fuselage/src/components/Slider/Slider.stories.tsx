@@ -17,7 +17,7 @@ const Template: StoryFn<typeof Slider> = (args) => (
   </Box>
 );
 const TemplateVertical: StoryFn<typeof Slider> = (args) => (
-  <Box h='x200' display='flex' alignItems='center'>
+  <Box height='x200' display='flex' alignItems='center'>
     <Slider {...args} />
   </Box>
 );
