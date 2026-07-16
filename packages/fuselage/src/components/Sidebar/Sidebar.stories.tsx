@@ -363,7 +363,7 @@ export const WithFooter: StoryFn<typeof Sidebar> = () => (
 
 export const Admin: StoryFn<typeof Sidebar> = () => (
   <div className='rcx-sidebar'>
-    <Box display='flex' is='header' pbs={16} pbe={8} pi={24}>
+    <Box display='flex' is='header' paddingBlockStart={16} pbe={8} pi={24}>
       <Box fontSize='p2' fontWeight='p2'>
         Administration
       </Box>
@@ -401,7 +401,7 @@ export const Admin: StoryFn<typeof Sidebar> = () => (
 
 export const WithBanner: StoryFn<typeof Sidebar> = () => (
   <div className='rcx-sidebar'>
-    <Box display='flex' is='header' pbs={16} pbe={8} pi={24}>
+    <Box display='flex' is='header' paddingBlockStart={16} pbe={8} pi={24}>
       <Box fontSize='p2' fontWeight='p2'>
         Administration
       </Box>
