@@ -1,5 +1,15 @@
 # Change Log
 
+## 0.83.0
+
+### Minor Changes
+
+- [#2096](https://github.com/RocketChat/fuselage/pull/2096) [`18b421e`](https://github.com/RocketChat/fuselage/commit/18b421ec571d72118fccf3f7705df45b17b16191) Thanks [@tassoevan](https://github.com/tassoevan)! - feat(fuselage): Drop styling props' aliases (`bg`, `w`, `h`, `m`, `mb`, `mbs`, `mbe`, `mi`, `mis`, `mie`, `p`, `pb`, `pbs`, `pbe`, `pi`, `pis`, `pie`) in favor of their full-name counterparts
+
+### Patch Changes
+
+- [#2086](https://github.com/RocketChat/fuselage/pull/2086) [`97ac6aa`](https://github.com/RocketChat/fuselage/commit/97ac6aab3e2049a039c1f60c4435a63833d1a0b5) Thanks [@MartinSchoeler](https://github.com/MartinSchoeler)! - Fixes misaligned unicode emojis by adding font-size and line-height
+
 ## 0.82.0
 
 ### Minor Changes
