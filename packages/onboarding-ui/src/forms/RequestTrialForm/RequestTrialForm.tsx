@@ -155,7 +155,7 @@ export const RequestTrialForm = ({
               fontScale='c1'
               lineHeight={20}
             >
-              <CheckBox mie={8} {...register('updates')} />{' '}
+              <CheckBox marginInlineEnd={8} {...register('updates')} />{' '}
               <Box is='label' htmlFor='updates'>
                 {t('form.registeredServerForm.keepInformed')}
               </Box>
@@ -169,7 +169,7 @@ export const RequestTrialForm = ({
               lineHeight={20}
             >
               <CheckBox
-                mie={8}
+                marginInlineEnd={8}
                 {...register('agreement', { required: true })}
               />{' '}
               <Box is='label' htmlFor='agreement' withRichContent>

@@ -73,7 +73,7 @@ export const CreateFirstMemberForm = ({
       <FieldGroup marginBlockStart={16}>
         <Field>
           <FieldLabel>
-            <Box display='inline' mie={8}>
+            <Box display='inline' marginInlineEnd={8}>
               {t('form.createFirstMemberForm.fields.username.label')}
             </Box>
           </FieldLabel>

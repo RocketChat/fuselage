@@ -223,7 +223,7 @@ export const Margins: StoryFn<typeof Box> = () => (
     <Box marginInline={16} />
     <Box marginInlineStart={16} />
     <Box marginInlineStart={16} />
-    <Box mie={16} />
+    <Box marginInlineEnd={16} />
     <Box marginInlineEnd={16} />
   </>
 );

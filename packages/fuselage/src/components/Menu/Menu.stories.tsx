@@ -148,7 +148,7 @@ export const MenuDisplayExample = (
           <MenuItemContent>Avatars</MenuItemContent>
           <MenuItemInput>
             <ToggleSwitch
-              mie={16}
+              marginInlineEnd={16}
               onChange={() => setAvatarDisplay(!avatarDisplay)}
               checked={avatarDisplay}
             />
