@@ -19,7 +19,7 @@ export function DropdownDesktop({
     <Tile
       style={style}
       elevation='2'
-      pi='0'
+      paddingInline='0'
       paddingBlock='0'
       display='flex'
       flexDirection='column'

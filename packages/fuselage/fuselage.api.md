@@ -2658,7 +2658,6 @@ export type StylingProps = {
     paddingBlock: CSSProperties['paddingBlock'];
     paddingBlockStart: CSSProperties['paddingBlockStart'];
     paddingBlockEnd: CSSProperties['paddingBlockEnd'];
-    pi: CSSProperties['paddingInline'];
     paddingInline: CSSProperties['paddingInline'];
     pis: CSSProperties['paddingInlineStart'];
     paddingInlineStart: CSSProperties['paddingInlineStart'];

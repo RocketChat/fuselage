@@ -25,7 +25,7 @@ const VerticalWizardLayout = ({
           width='100%'
           maxWidth={576}
           paddingBlock={32}
-          pi={16}
+          paddingInline={16}
         >
           <Box marginBlock={12}>
             <LayoutLogo />

@@ -10,7 +10,7 @@ const TableSelection = ({ children, text, ...props }: TableSelectionProps) => (
     display='flex'
     alignItems='center'
     justifyContent='space-between'
-    pi={24}
+    paddingInline={24}
     elevation='2'
     {...props}
   >

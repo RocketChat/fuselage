@@ -368,7 +368,7 @@ export const Admin: StoryFn<typeof Sidebar> = () => (
       is='header'
       paddingBlockStart={16}
       paddingBlockEnd={8}
-      pi={24}
+      paddingInline={24}
     >
       <Box fontSize='p2' fontWeight='p2'>
         Administration
@@ -412,7 +412,7 @@ export const WithBanner: StoryFn<typeof Sidebar> = () => (
       is='header'
       paddingBlockStart={16}
       paddingBlockEnd={8}
-      pi={24}
+      paddingInline={24}
     >
       <Box fontSize='p2' fontWeight='p2'>
         Administration

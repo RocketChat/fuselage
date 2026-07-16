@@ -10,7 +10,7 @@ export function DropdownMobile({ children, ...props }: DropdownMobileProps) {
   return (
     <Tile
       elevation='2'
-      pi='0'
+      paddingInline='0'
       paddingBlock='0'
       width='100vw'
       maxHeight='80%'
