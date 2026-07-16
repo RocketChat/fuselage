@@ -13,11 +13,21 @@
  *                    in the page at module load with no external asset. Sharing
  *                    across files is deduped/ref-counted by attachRules.
  *
- * Resolution is injected via options so the plugin reuses Fuselage's real
- * runtime logic (no token duplication):
+ * Resolution defaults to the bundled snapshot of Fuselage's real runtime
+ * resolver (resolver.generated.cjs) so the plugin is drop-in: a consumer adds
+ * just this plugin, no wiring. Both can be overridden via options for tests:
  *   options.styleProps : string[]  — recognised styling prop names
  *   options.resolve    : (props) => { className, css }[]
  */
+// Lazily loaded so requiring the plugin never fails if the snapshot is absent
+// (e.g. before the first esbuild bundle); only needed when resolve is omitted.
+let bundled;
+const getBundled = () => {
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  if (!bundled) bundled = require('./resolver.generated.cjs');
+  return bundled;
+};
+
 module.exports = function boxAtomicPlugin({ types: t }) {
   const staticValue = (node) => {
     if (node === null) return true; // boolean shorthand: <Box invisible />
@@ -41,7 +51,14 @@ module.exports = function boxAtomicPlugin({ types: t }) {
     },
     visitor: {
       JSXOpeningElement(path, state) {
-        const { styleProps, resolve, sheet, keepProps } = state.opts;
+        const { sheet } = state.opts;
+        // Safe default: keep props on the element (runtime skips them via the
+        // marker, so the render-CPU win is preserved) because whether a prop is
+        // introspected elsewhere (cloneElement, child.props.x, spread) can't be
+        // proven statically. Full stripping is opt-in via keepProps:false.
+        const keepProps = state.opts.keepProps !== false;
+        const resolve = state.opts.resolve || getBundled().resolve;
+        const styleProps = state.opts.styleProps || getBundled().styleProps;
         const propSet = new Set(styleProps);
 
         if (!t.isJSXIdentifier(path.node.name, { name: 'Box' })) return;

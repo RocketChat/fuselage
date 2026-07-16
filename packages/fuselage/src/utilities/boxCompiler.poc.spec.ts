@@ -40,8 +40,10 @@ const compile = (code: string, opts: Record<string, unknown> = {}) => {
 };
 
 describe('PoC build-time Box compiler', () => {
-  it('extracts static styling props into a className and a CSS sheet', () => {
-    const { code, css } = compile('<Box p="x8" display="flex" />;');
+  it('extracts static styling props into a className and a CSS sheet (keepProps:false strips)', () => {
+    const { code, css } = compile('<Box p="x8" display="flex" />;', {
+      keepProps: false,
+    });
 
     expect(code).toMatch(/className="rcx-padding-\S+ rcx-display-flex-\S+"/);
     expect(code).not.toMatch(/\bp=/);
