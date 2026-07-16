@@ -18,7 +18,7 @@ const TableSelection = ({ children, text, ...props }: TableSelectionProps) => (
       {text}
     </Box>
     {children && (
-      <Box mi='neg-x8' fontScale='p2m' flexShrink={0}>
+      <Box marginInline='neg-x8' fontScale='p2m' flexShrink={0}>
         {children}
       </Box>
     )}

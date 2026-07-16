@@ -367,32 +367,32 @@ export const Admin: StoryFn<typeof Sidebar> = () => (
       <Box fontSize='p2' fontWeight='p2'>
         Administration
       </Box>
-      <Box mi={8}>
+      <Box marginInline={8}>
         <Tag variant='featured'>Development</Tag>
       </Box>
     </Box>
     <Divider />
     <SidebarItem is='a' clickable href='#'>
       <Box display='flex' justifyContent='center' pb={8}>
-        <Icon name='import' mi={4} size='x20' />
+        <Icon name='import' marginInline={4} size='x20' />
         Import
       </Box>
     </SidebarItem>
     <SidebarItem is='a' clickable href='#'>
       <Box display='flex' justifyContent='center' pb={8}>
-        <Icon name='user' mi={4} size='x20' />
+        <Icon name='user' marginInline={4} size='x20' />
         Users
       </Box>
     </SidebarItem>
     <SidebarItem is='a' clickable href='#'>
       <Box display='flex' justifyContent='center' pb={8}>
-        <Icon name='hashtag' mi={4} size='x20' />
+        <Icon name='hashtag' marginInline={4} size='x20' />
         Rooms
       </Box>
     </SidebarItem>
     <SidebarItem is='a' clickable href='#'>
       <Box display='flex' justifyContent='center' pb={8}>
-        <Icon name='cube' mi={4} size='x20' />
+        <Icon name='cube' marginInline={4} size='x20' />
         Apps
       </Box>
     </SidebarItem>
@@ -405,7 +405,7 @@ export const WithBanner: StoryFn<typeof Sidebar> = () => (
       <Box fontSize='p2' fontWeight='p2'>
         Administration
       </Box>
-      <Box mi={8}>
+      <Box marginInline={8}>
         <Tag variant='featured'>Development</Tag>
       </Box>
     </Box>
@@ -418,25 +418,25 @@ export const WithBanner: StoryFn<typeof Sidebar> = () => (
     />
     <SidebarItem clickable>
       <Box display='flex' justifyContent='center' pb={8}>
-        <Icon name='import' mi={4} size='x20' />
+        <Icon name='import' marginInline={4} size='x20' />
         Import
       </Box>
     </SidebarItem>
     <SidebarItem clickable>
       <Box display='flex' justifyContent='center' pb={8}>
-        <Icon name='user' mi={4} size='x20' />
+        <Icon name='user' marginInline={4} size='x20' />
         Users
       </Box>
     </SidebarItem>
     <SidebarItem clickable>
       <Box display='flex' justifyContent='center' pb={8}>
-        <Icon name='hashtag' mi={4} size='x20' />
+        <Icon name='hashtag' marginInline={4} size='x20' />
         Rooms
       </Box>
     </SidebarItem>
     <SidebarItem clickable>
       <Box display='flex' justifyContent='center' pb={8}>
-        <Icon name='cube' mi={4} size='x20' />
+        <Icon name='cube' marginInline={4} size='x20' />
         Apps
       </Box>
     </SidebarItem>
@@ -446,7 +446,7 @@ export const WithBanner: StoryFn<typeof Sidebar> = () => (
 export const CustomBannerContent: StoryFn<typeof SidebarBanner> = () => (
   <SidebarBanner>
     <Box display='flex' justifyContent='space-between'>
-      <Icon name='modal-warning' size='x20' mi={8} />
+      <Icon name='modal-warning' size='x20' marginInline={8} />
       <div>This is a customized banner content</div>
     </Box>
   </SidebarBanner>

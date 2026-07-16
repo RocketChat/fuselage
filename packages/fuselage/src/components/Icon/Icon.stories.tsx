@@ -58,7 +58,7 @@ export const AvailableIcons: StoryFn<typeof Icon> = () => {
           <Box
             key={index}
             marginBlock='x32'
-            mi='x8'
+            marginInline='x8'
             flexShrink={0}
             flexGrow={0}
             flexBasis='128px'

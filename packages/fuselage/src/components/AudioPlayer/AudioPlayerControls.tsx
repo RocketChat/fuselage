@@ -64,7 +64,7 @@ const AudioPlayerControls = ({
           ? getMaskTime(currentTime)
           : getMaskTime(durationTime)}
       </Box>
-      <Box mi={16} width='full'>
+      <Box width='full'>
         <Slider
           aria-label={audioPlaybackRangeLabel}
           showOutput={false}
