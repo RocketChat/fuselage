@@ -71,6 +71,37 @@ outfile:'poc/box-compiler/resolver.generated.cjs',bundle:true,platform:'node',\
 format:'cjs',external:['@rocket.chat/css-in-js']})"
 ```
 
+## Benchmark
+
+Two harnesses:
+
+- **Node microbench** (reliable, no browser) — measures the per-render hot path
+  (`extract → css() → hash`) and stylesheet growth across the three modes:
+  ```sh
+  node -e "require('esbuild').build({entryPoints:['poc/box-compiler/bench.node.entry.ts'],\
+  outfile:'poc/box-compiler/bench.node.generated.cjs',bundle:true,platform:'node',\
+  format:'cjs',external:['@rocket.chat/css-in-js']})"
+  node -e "console.log(require('./poc/box-compiler/bench.node.generated.cjs').run(2000,50))"
+  ```
+  Sample (2000 Boxes, median of 50):
+
+  | mode          | per-render CPU | stylesheet rules |
+  | ------------- | -------------- | ---------------- |
+  | merged        | 9.58 ms        | 1883             |
+  | atomic-runtime| 11.07 ms       | 22               |
+  | build-time    | 0.02 ms        | 22               |
+
+  Takeaway: atomic **runtime** is not a render-CPU win (N hashes/box vs 1) but
+  collapses the stylesheet ~85×; the render-CPU win comes from the **build-time**
+  step. Caveats: resolution+hash only (no DOM insertRule, no css-in-js content
+  memoization); `buildAtomicClassName` regex unoptimized.
+
+- **Storybook bench story** (`Layout/Box/Bench`) — in-browser, real React +
+  insertRule. Open the story, hit **run**, compare across `:6006` (merged),
+  `:6006` + `localStorage fuselage-styling=atomic`, and `:6007` (build-time).
+  `poc/box-compiler/bench.run.cjs` is a Playwright driver for it (note: SB dev
+  routes headless loads to the Docs tab; drive it in a real browser for now).
+
 ## Scope / not done yet
 
 - Only `<Box>` by local name, only literal props. `is` flattening, spreads,
