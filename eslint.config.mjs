@@ -19,6 +19,7 @@ export default tseslint.config(
       '.yarn/**',
       '**/storybook-static/**',
       '**/*.api.md',
+      '**/poc/**',
     ],
   },
   {

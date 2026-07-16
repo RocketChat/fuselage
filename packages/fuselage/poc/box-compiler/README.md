@@ -77,19 +77,21 @@ Two harnesses:
 
 - **Node microbench** (reliable, no browser) — measures the per-render hot path
   (`extract → css() → hash`) and stylesheet growth across the three modes:
+
   ```sh
   node -e "require('esbuild').build({entryPoints:['poc/box-compiler/bench.node.entry.ts'],\
   outfile:'poc/box-compiler/bench.node.generated.cjs',bundle:true,platform:'node',\
   format:'cjs',external:['@rocket.chat/css-in-js']})"
   node -e "console.log(require('./poc/box-compiler/bench.node.generated.cjs').run(2000,50))"
   ```
+
   Sample (2000 Boxes, median of 50):
 
-  | mode          | per-render CPU | stylesheet rules |
-  | ------------- | -------------- | ---------------- |
-  | merged        | 9.58 ms        | 1883             |
-  | atomic-runtime| 11.07 ms       | 22               |
-  | build-time    | 0.02 ms        | 22               |
+  | mode           | per-render CPU | stylesheet rules |
+  | -------------- | -------------- | ---------------- |
+  | merged         | 9.58 ms        | 1883             |
+  | atomic-runtime | 11.07 ms       | 22               |
+  | build-time     | 0.02 ms        | 22               |
 
   Takeaway: atomic **runtime** is not a render-CPU win (N hashes/box vs 1) but
   collapses the stylesheet ~85×; the render-CPU win comes from the **build-time**

@@ -78,12 +78,18 @@ touched (they have no `<Box>` anyway, but this keeps the blast radius small):
   ],
   "overrides": [
     {
-      "test": ["./client/**/*.tsx", "./ee/client/**/*.tsx", "./imports/**/*.tsx"],
+      "test": [
+        "./client/**/*.tsx",
+        "./ee/client/**/*.tsx",
+        "./imports/**/*.tsx"
+      ],
       "plugins": [["./.babel/box-atomic/plugin.cjs", { "inject": true }]]
     }
   ],
   "env": {
-    "coverage": { "plugins": [["istanbul", { "exclude": ["**/*.spec.js", "**/*.test.js"] }]] }
+    "coverage": {
+      "plugins": [["istanbul", { "exclude": ["**/*.spec.js", "**/*.test.js"] }]]
+    }
   }
 }
 ```

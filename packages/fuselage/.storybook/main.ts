@@ -10,7 +10,7 @@ const config: StorybookConfig = {
     });
 
     // PoC: build-time atomic extraction for <Box>. Opt-in via BOX_COMPILER=1.
-    if (process.env.BOX_COMPILER === '1') {
+    if (process.env['BOX_COMPILER'] === '1') {
       /* eslint-disable @typescript-eslint/no-require-imports */
       const boxPlugin = require('../poc/box-compiler/plugin.cjs');
       const {
