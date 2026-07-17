@@ -1,0 +1,261 @@
+{
+  "Button": {
+    "Background": {
+      "Primary": {
+        "default": {
+          "$type": "color",
+          "$value": {
+            "hex": "#095AD2"
+          }
+        },
+        "hover": {
+          "$type": "color",
+          "$value": {
+            "hex": "#10529E"
+          }
+        },
+        "press": {
+          "$type": "color",
+          "$value": {
+            "hex": "#01336B"
+          }
+        },
+        "focus": {
+          "$type": "color",
+          "$value": {
+            "hex": "#095AD2"
+          }
+        },
+        "keyfocus": {
+          "$type": "color",
+          "$value": {
+            "hex": "#095AD2"
+          }
+        },
+        "disabled": {
+          "$type": "color",
+          "$value": {
+            "hex": "#012247"
+          }
+        }
+      },
+      "Secondary": {
+        "default": {
+          "$type": "color",
+          "$value": {
+            "hex": "#404754"
+          }
+        },
+        "hover": {
+          "$type": "color",
+          "$value": {
+            "hex": "#4B5362"
+          }
+        },
+        "press": {
+          "$type": "color",
+          "$value": {
+            "hex": "#575F70"
+          }
+        },
+        "focus": {
+          "$type": "color",
+          "$value": {
+            "hex": "#404854"
+          }
+        },
+        "keyfocus": {
+          "$type": "color",
+          "$value": {
+            "hex": "#404854"
+          }
+        },
+        "disabled": {
+          "$type": "color",
+          "$value": {
+            "hex": "#404854"
+          }
+        }
+      },
+      "Secondary danger": {
+        "default": {
+          "$type": "color",
+          "$value": {
+            "hex": "#404754"
+          }
+        },
+        "hover": {
+          "$type": "color",
+          "$value": {
+            "hex": "#4B5362"
+          }
+        },
+        "press": {
+          "$type": "color",
+          "$value": {
+            "hex": "#575F70"
+          }
+        },
+        "focus": {
+          "$type": "color",
+          "$value": {
+            "hex": "#404854"
+          }
+        },
+        "keyfocus": {
+          "$type": "color",
+          "$value": {
+            "hex": "#404854"
+          }
+        },
+        "disabled": {
+          "$type": "color",
+          "$value": {
+            "hex": "#404854"
+          }
+        }
+      },
+      "Danger": {
+        "default": {
+          "$type": "color",
+          "$value": {
+            "hex": "#BB3E4E"
+          }
+        },
+        "hover": {
+          "$type": "color",
+          "$value": {
+            "hex": "#95323F"
+          }
+        },
+        "press": {
+          "$type": "color",
+          "$value": {
+            "hex": "#822C37"
+          }
+        },
+        "focus": {
+          "$type": "color",
+          "$value": {
+            "hex": "#BB3E4E"
+          }
+        },
+        "keyfocus": {
+          "$type": "color",
+          "$value": {
+            "hex": "#BB3E4E"
+          }
+        },
+        "disabled": {
+          "$type": "color",
+          "$value": {
+            "hex": "#3D2126"
+          }
+        }
+      },
+      "Success": {
+        "default": {
+          "$type": "color",
+          "$value": {
+            "hex": "#1D7256"
+          }
+        },
+        "hover": {
+          "$type": "color",
+          "$value": {
+            "hex": "#175943"
+          }
+        },
+        "press": {
+          "$type": "color",
+          "$value": {
+            "hex": "#134937"
+          }
+        },
+        "focus": {
+          "$type": "color",
+          "$value": {
+            "hex": "#1D7256"
+          }
+        },
+        "keyfocus": {
+          "$type": "color",
+          "$value": {
+            "hex": "#1D7256"
+          }
+        },
+        "disabled": {
+          "$type": "color",
+          "$value": {
+            "hex": "#1E4B40"
+          }
+        }
+      }
+    },
+    "Font": {
+      "on-primary": {
+        "$type": "color",
+        "$value": {
+          "hex": "#FFFFFF"
+        }
+      },
+      "on-secondary": {
+        "$type": "color",
+        "$value": {
+          "hex": "#E4E7EA"
+        }
+      },
+      "on-secondary-danger": {
+        "$type": "color",
+        "$value": {
+          "hex": "#FFC1C9"
+        }
+      },
+      "on-danger": {
+        "$type": "color",
+        "$value": {
+          "hex": "#FFFFFF"
+        }
+      },
+      "on-success": {
+        "$type": "color",
+        "$value": {
+          "hex": "#FFFFFF"
+        }
+      },
+      "on-primary-disabled": {
+        "$type": "color",
+        "$value": {
+          "hex": "#6C727A"
+        }
+      },
+      "on-secondary-disabled": {
+        "$type": "color",
+        "$value": {
+          "hex": "#6C727A"
+        }
+      },
+      "on-secondary-danger-disabled": {
+        "$type": "color",
+        "$value": {
+          "hex": "#6B0513"
+        }
+      },
+      "on-danger-disabled": {
+        "$type": "color",
+        "$value": {
+          "hex": "#757575"
+        }
+      },
+      "on-success-disabled": {
+        "$type": "color",
+        "$value": {
+          "hex": "#757575"
+        }
+      }
+    }
+  },
+  "$extensions": {
+    "com.figma.modeName": "Dark"
+  }
+}
