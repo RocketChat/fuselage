@@ -1,4 +1,4 @@
-import type { Node } from '@react-types/shared';
+import type { Key, Node } from '@react-types/shared';
 import type { RefObject } from 'react';
 import { useMenuSection, useSeparator } from 'react-aria';
 import type { RootMenuTriggerState, TreeState } from 'react-stately';
@@ -15,6 +15,7 @@ type MenuSectionProps<T extends object> = {
   state: TreeState<unknown>;
   rootMenuTriggerState: RootMenuTriggerState;
   parentMenuRef: RefObject<HTMLElement | null>;
+  onAction?: (key: Key) => void;
 };
 
 function MenuSection<T extends object>({
@@ -22,6 +23,7 @@ function MenuSection<T extends object>({
   state,
   rootMenuTriggerState,
   parentMenuRef,
+  onAction,
 }: MenuSectionProps<T>) {
   const { itemProps, headingProps, groupProps } = useMenuSection({
     'heading': section.rendered,
@@ -51,6 +53,7 @@ function MenuSection<T extends object>({
                 state={state}
                 rootMenuTriggerState={rootMenuTriggerState}
                 parentMenuRef={parentMenuRef}
+                onAction={onAction}
               />
             ) : (
               <MenuItem key={node.key} item={node as any} state={state} />

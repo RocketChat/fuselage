@@ -2,8 +2,6 @@ import type { ItemProps } from '@react-types/shared';
 import type { ReactElement, ReactNode } from 'react';
 import { isValidElement } from 'react';
 
-import type { MenuOptionProps } from '../MenuOption';
-
 import type { PartialNode } from './PartialNode';
 
 export type MenuSubmenuTriggerProps<T> = Omit<
@@ -18,7 +16,7 @@ export type MenuSubmenuTriggerProps<T> = Omit<
    * …). The **remaining** children populate the submenu that opens beside it.
    */
   children: ReactNode;
-  variant?: MenuOptionProps['variant'];
+  variant?: 'danger' | 'success' | 'warning' | 'primary';
 };
 
 function MenuSubmenuTrigger<T>(_props: MenuSubmenuTriggerProps<T>) {

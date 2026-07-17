@@ -1,6 +1,7 @@
 import type {
   CollectionChildren,
   FocusableElement,
+  Key,
   KeyboardEvent,
   Node,
 } from '@react-types/shared';
@@ -24,6 +25,7 @@ type MenuSubmenuProps = {
   state: TreeState<unknown>;
   rootMenuTriggerState: RootMenuTriggerState;
   parentMenuRef: RefObject<HTMLElement | null>;
+  onAction?: (key: Key) => void;
 };
 
 /**
@@ -39,6 +41,7 @@ function MenuSubmenu({
   state,
   rootMenuTriggerState,
   parentMenuRef,
+  onAction,
 }: MenuSubmenuProps) {
   const triggerRef = useRef<FocusableElement>(null);
   const submenuRef = useRef<HTMLDivElement>(null);
@@ -127,6 +130,7 @@ function MenuSubmenu({
             onKeyDown={onSubmenuKeyDown}
             rootMenuTriggerState={rootMenuTriggerState}
             menuRef={submenuRef}
+            onAction={onAction}
           >
             {item.props?.children as CollectionChildren<object>}
           </MenuDropDown>

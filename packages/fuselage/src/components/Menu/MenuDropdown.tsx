@@ -52,6 +52,7 @@ function MenuDropDown<T extends object>({
               state={state}
               rootMenuTriggerState={rootMenuTriggerState}
               parentMenuRef={ref}
+              onAction={props.onAction}
             />
           );
         }
@@ -64,6 +65,7 @@ function MenuDropDown<T extends object>({
               state={state}
               rootMenuTriggerState={rootMenuTriggerState}
               parentMenuRef={ref}
+              onAction={props.onAction}
             />
           );
         }

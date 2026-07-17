@@ -1,6 +1,7 @@
 import type { StoryFn, Meta } from '@storybook/react-webpack5';
 import type { ReactNode } from 'react';
 import { useState } from 'react';
+import { action } from 'storybook/actions';
 
 import { Box } from '../Box';
 import type { IconButtonProps } from '../Button';
@@ -495,3 +496,6 @@ export const WithRichSubmenuTrigger: StoryFn<typeof Menu> = (args) => (
     </MenuItem>
   </Menu>
 );
+WithRichSubmenuTrigger.args = {
+  onAction: action('click'),
+};
