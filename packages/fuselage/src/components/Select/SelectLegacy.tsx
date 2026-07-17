@@ -156,7 +156,7 @@ function SelectLegacy({
     >
       <Wrapper
         display='flex'
-        mi='neg-x4'
+        marginInline='neg-x4'
         rcx-select__wrapper--hidden={!!visibleText}
       >
         {visibleText &&
@@ -172,7 +172,7 @@ function SelectLegacy({
             <Box
               flexGrow={1}
               is='span'
-              mi={4}
+              marginInline={4}
               rcx-select__item
               fontScale='p2'
               color={valueLabel ? 'default' : 'hint'}

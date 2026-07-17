@@ -40,11 +40,11 @@ const CopyStep = ({
   return (
     <>
       <FormContainer>
-        <Box mbe='24px' fontScale='p2'>
+        <Box marginBlockEnd='24px' fontScale='p2'>
           <Trans key={'form.registerOfflineForm.copyStep.description'}>
             If for any reason your workspace can’t be connected to the internet,
             follow these steps:
-            <Box mbe='24px' />
+            <Box marginBlockEnd='24px' />
             1. Go to: <strong>{'cloud.rocket.chat > Workspaces'}</strong> and
             click “<strong>Register self-managed</strong>”<br />
             2. Click “<strong>Continue offline</strong>”

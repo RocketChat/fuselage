@@ -12,7 +12,7 @@ const ModalIcon = ({
   ...props
 }: ModalIconProps) => (
   <Box {...props} display='flex' alignItems={alignItems}>
-    <Icon mb={4} name={name} size={size} />
+    <Icon marginBlock={4} name={name} size={size} />
   </Box>
 );
 

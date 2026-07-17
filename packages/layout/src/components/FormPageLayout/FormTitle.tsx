@@ -7,7 +7,7 @@ export type FormTitleProps = Omit<FormHTMLAttributes<HTMLElement>, 'is'> &
   };
 
 function FormTitle(props: FormTitleProps) {
-  return <Box mbe={8} fontScale='h3' fontWeight={800} {...props} />;
+  return <Box marginBlockEnd={8} fontScale='h3' fontWeight={800} {...props} />;
 }
 
 export default FormTitle;

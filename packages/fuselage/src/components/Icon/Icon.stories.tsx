@@ -57,8 +57,8 @@ export const AvailableIcons: StoryFn<typeof Icon> = () => {
         {filteredIcons.map((name, index) => (
           <Box
             key={index}
-            mb='x32'
-            mi='x8'
+            marginBlock='x32'
+            marginInline='x8'
             flexShrink={0}
             flexGrow={0}
             flexBasis='128px'
