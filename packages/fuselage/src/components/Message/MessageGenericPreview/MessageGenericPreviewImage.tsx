@@ -13,7 +13,7 @@ const MessageGenericPreviewImage = ({
   ...props
 }: MessageGenericPreviewImageProps) => (
   <img
-    src={url || undefined}
+    src={url}
     className={prependClassName(
       className,
       'rcx-message-generic-preview__image',
