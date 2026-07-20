@@ -43,20 +43,20 @@
     "stylis": "~4.3.6"
   },
   "devDependencies": {
-    "@microsoft/api-extractor": "~7.58.7",
+    "@microsoft/api-extractor": "~7.58.11",
     "@rollup/plugin-commonjs": "~29.0.3",
     "@rollup/plugin-json": "~6.1.0",
     "@rollup/plugin-node-resolve": "~16.0.3",
     "@rollup/plugin-terser": "~1.0.0",
     "@rollup/plugin-typescript": "~12.3.0",
     "@types/stylis": "^4.2.7",
-    "eslint": "~9.39.4",
+    "eslint": "~9.39.5",
     "jest": "~30.4.2",
     "lint-all": "workspace:~",
     "prettier": "~3.6.2",
     "rollup": "~4.60.4",
     "ts-jest": "~29.4.11",
-    "typedoc": "~0.28.19",
+    "typedoc": "~0.28.20",
     "typescript": "~5.9.3"
   },
   "publishConfig": {

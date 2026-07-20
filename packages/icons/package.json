@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "build-icons": "workspace:~",
-    "eslint": "~9.39.4",
+    "eslint": "~9.39.5",
     "lint-all": "workspace:~",
     "prettier": "~3.6.2",
     "rimraf": "~6.1.3",
