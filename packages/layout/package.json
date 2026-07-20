@@ -54,7 +54,7 @@
     "jest": "~30.4.2",
     "jest-environment-jsdom": "~30.4.1",
     "lint-all": "workspace:~",
-    "prettier": "~3.6.2",
+    "prettier": "~3.9.5",
     "react": "~19.2.7",
     "react-dom": "~19.2.7",
     "react-i18next": "~13.2.2",
