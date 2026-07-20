@@ -942,6 +942,21 @@ export namespace MenuSection {
 export type MenuSectionProps<T> = SectionProps<T>;
 
 // @public (undocumented)
+export function MenuSubmenuTrigger<T>(_props: MenuSubmenuTriggerProps<T>): null;
+
+// @public (undocumented)
+export namespace MenuSubmenuTrigger {
+    var // (undocumented)
+    getCollectionNode: <T>(props: MenuSubmenuTriggerProps<T>, context: any) => Generator<PartialNode<T>>;
+}
+
+// @public (undocumented)
+export type MenuSubmenuTriggerProps<T> = Omit<ItemProps<T>, 'title' | 'children'> & {
+    children: ReactNode;
+    variant?: 'danger' | 'success' | 'warning' | 'primary';
+};
+
+// @public (undocumented)
 export function Message(input: MessageProps): JSX.Element;
 
 // @public (undocumented)
@@ -1938,6 +1953,7 @@ export type PopoverProps = Omit<AriaPopoverProps, 'popoverRef'> & {
     children: ReactNode;
     state: OverlayTriggerState;
     portalContainer?: Element;
+    popoverRef?: RefObject<HTMLDivElement | null>;
 };
 
 // @public (undocumented)

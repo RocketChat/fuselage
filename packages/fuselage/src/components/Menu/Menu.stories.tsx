@@ -1,6 +1,7 @@
 import type { StoryFn, Meta } from '@storybook/react-webpack5';
 import type { ReactNode } from 'react';
 import { useState } from 'react';
+import { action } from 'storybook/actions';
 
 import { Box } from '../Box';
 import type { IconButtonProps } from '../Button';
@@ -16,6 +17,7 @@ import {
   Menu,
   MenuItem,
   MenuSection,
+  MenuSubmenuTrigger,
   MenuItemContent,
   MenuItemIcon,
   MenuItemInput,
@@ -453,4 +455,47 @@ export const Scrollable = () => {
     <MenuItem key={i}>Item {i + 1}</MenuItem>
   ));
   return <Menu title='Scrollable Menu'>{items}</Menu>;
+};
+
+export const WithSubmenu: StoryFn<typeof Menu> = (args) => (
+  <Menu title='Menu with Submenu' {...args}>
+    <MenuItem key='profile'>Profile</MenuItem>
+    <MenuItem key='share' title='Share'>
+      <MenuItem key='copy-link'>Copy link</MenuItem>
+      <MenuItem key='email'>Email</MenuItem>
+    </MenuItem>
+    <MenuItem key='settings'>Settings</MenuItem>
+  </Menu>
+);
+
+export const WithRichSubmenuTrigger: StoryFn<typeof Menu> = (args) => (
+  <Menu title='Menu with rich submenu triggers' {...args}>
+    <MenuItem key='new' aria-label='New'>
+      <MenuItemIcon name='plus' />
+      <MenuItemContent>New</MenuItemContent>
+    </MenuItem>
+    <MenuSubmenuTrigger key='move-to'>
+      <MenuItem aria-label='Move to'>
+        <MenuItemIcon name='folder' />
+        <MenuItemContent>Move to…</MenuItemContent>
+      </MenuItem>
+      <MenuItem key='inbox'>Inbox</MenuItem>
+      <MenuItem key='archive'>Archive</MenuItem>
+      <MenuSubmenuTrigger key='teams'>
+        <MenuItem aria-label='Teams'>
+          <MenuItemIcon name='team' />
+          <MenuItemContent>Teams…</MenuItemContent>
+        </MenuItem>
+        <MenuItem key='design'>Design</MenuItem>
+        <MenuItem key='engineering'>Engineering</MenuItem>
+      </MenuSubmenuTrigger>
+    </MenuSubmenuTrigger>
+    <MenuItem key='delete' aria-label='Delete'>
+      <MenuItemIcon name='trash' />
+      <MenuItemContent>Delete</MenuItemContent>
+    </MenuItem>
+  </Menu>
+);
+WithRichSubmenuTrigger.args = {
+  onAction: action('click'),
 };

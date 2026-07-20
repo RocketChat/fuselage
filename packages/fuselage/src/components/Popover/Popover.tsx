@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import type { ReactNode, RefObject } from 'react';
 import { useRef } from 'react';
 import type { AriaPopoverProps } from 'react-aria';
 import { usePopover, DismissButton, Overlay } from 'react-aria';
@@ -10,10 +10,16 @@ export type PopoverProps = Omit<AriaPopoverProps, 'popoverRef'> & {
   children: ReactNode;
   state: OverlayTriggerState;
   portalContainer?: Element;
+  popoverRef?: RefObject<HTMLDivElement | null>;
 };
 
-function Popover({ portalContainer, ...props }: PopoverProps) {
-  const popoverRef = useRef<HTMLDivElement>(null);
+function Popover({
+  portalContainer,
+  popoverRef: popoverRefProp,
+  ...props
+}: PopoverProps) {
+  const fallbackRef = useRef<HTMLDivElement>(null);
+  const popoverRef = popoverRefProp ?? fallbackRef;
   const { state, children, isNonModal } = props;
 
   const { document: ownerDocument } = useOwnerDocument();
@@ -28,7 +34,7 @@ function Popover({ portalContainer, ...props }: PopoverProps) {
   );
 
   return (
-    <Overlay portalContainer={ownerDocument?.body}>
+    <Overlay portalContainer={portalContainer ?? ownerDocument?.body}>
       {!isNonModal && <div {...underlayProps} />}
       <div {...popoverProps} ref={popoverRef}>
         {!isNonModal && <DismissButton onDismiss={state.close} />}
