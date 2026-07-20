@@ -76,7 +76,7 @@ const Menu = <T extends object>({
       placement={getPlacement(placement)}
       maxWidth={maxWidth}
     >
-      <MenuDropDown {...props} {...menuProps} />
+      <MenuDropDown {...props} {...menuProps} rootMenuTriggerState={state} />
     </MenuPopover>
   );
 
