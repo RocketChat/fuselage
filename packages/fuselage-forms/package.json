@@ -64,7 +64,7 @@
     "storybook": "~9.1.20",
     "ts-jest": "~29.4.11",
     "typescript": "~5.9.3",
-    "webpack": "~5.105.4"
+    "webpack": "~5.108.4"
   },
   "peerDependencies": {
     "@rocket.chat/fuselage": "*",
