@@ -39,7 +39,7 @@
     "test": "jest --runInBand"
   },
   "devDependencies": {
-    "@microsoft/api-extractor": "~7.58.7",
+    "@microsoft/api-extractor": "~7.58.11",
     "@rocket.chat/emitter": "workspace:~",
     "@rocket.chat/fuselage-tokens": "workspace:~",
     "@rollup/plugin-commonjs": "~29.0.3",
@@ -53,7 +53,7 @@
     "@types/react": "~19.2.17",
     "@types/react-dom": "~19.2.3",
     "@types/resize-observer-browser": "~0.1.11",
-    "eslint": "~9.39.4",
+    "eslint": "~9.39.5",
     "jest": "~30.4.2",
     "jest-environment-jsdom": "~30.4.1",
     "lint-all": "workspace:~",
@@ -64,7 +64,7 @@
     "rollup": "~4.60.4",
     "testing-utils": "workspace:~",
     "ts-jest": "~29.4.11",
-    "typedoc": "~0.28.19",
+    "typedoc": "~0.28.20",
     "typescript": "~5.9.3"
   },
   "peerDependencies": {
