@@ -5362,7 +5362,6 @@ __metadata:
     "@babel/preset-react": "npm:~7.29.7"
     "@microsoft/api-extractor": "npm:~7.58.11"
     "@rocket.chat/css-in-js": "workspace:~"
-    "@rocket.chat/css-supports": "workspace:~"
     "@rocket.chat/fuselage-hooks": "workspace:~"
     "@rocket.chat/fuselage-tokens": "workspace:~"
     "@rocket.chat/icons": "workspace:~"
