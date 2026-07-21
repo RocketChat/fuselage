@@ -24,7 +24,10 @@ if [[ "$*" == *"--update-snapshots"* ]]; then
   UPDATE_SNAPSHOTS="--update-snapshots"
 fi
 
-DOCKER_PW_IMAGE="mcr.microsoft.com/playwright:v1.58.2-noble"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PLAYWRIGHT_VERSION="$(node -e "console.log(require('${SCRIPT_DIR}/../package.json').dependencies['@playwright/test'].replace(/^[^0-9]*/, ''))")"
+
+DOCKER_PW_IMAGE="mcr.microsoft.com/playwright:v${PLAYWRIGHT_VERSION}-noble"
 
 echo "Running Playwright tests in Docker container for ${REL_PACKAGE_PATH} with env:"
 echo "PACKAGE_DIR: ${PACKAGE_DIR}"
@@ -45,6 +48,6 @@ docker run --rm \
   -v "${MONOREPO_ROOT}:/app" \
   -w "/app/${REL_PACKAGE_PATH}" \
   "${DOCKER_PW_IMAGE}" \
-  npx -y playwright@1.58.2 test --config="/app/tools/visual-regression/playwright.config.ts" ${UPDATE_SNAPSHOTS}
+  npx -y playwright@${PLAYWRIGHT_VERSION} test --config="/app/tools/visual-regression/playwright.config.ts" ${UPDATE_SNAPSHOTS}
 
 echo "Playwright tests completed!"
