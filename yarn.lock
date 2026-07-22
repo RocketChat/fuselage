@@ -5132,7 +5132,7 @@ __metadata:
     lint-all: "workspace:~"
     prettier: "npm:~3.6.2"
     rollup: "npm:~4.60.4"
-    stylis: "npm:~4.3.6"
+    stylis: "npm:~4.4.0"
     ts-jest: "npm:~29.4.11"
     typedoc: "npm:~0.28.20"
     typescript: "npm:~5.9.3"
@@ -5687,11 +5687,11 @@ __metadata:
     lint-all: "workspace:~"
     prettier: "npm:~3.6.2"
     rimraf: "npm:~6.1.3"
-    stylis: "npm:~4.3.6"
+    stylis: "npm:~4.4.0"
     typedoc: "npm:~0.28.20"
     typescript: "npm:~5.9.3"
   peerDependencies:
-    stylis: ~4.3.6
+    stylis: ~4.4.0
   languageName: unknown
   linkType: soft
 
@@ -17610,10 +17610,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stylis@npm:~4.3.6":
-  version: 4.3.6
-  resolution: "stylis@npm:4.3.6"
-  checksum: 10/6ebe8a37827124e0caf0704c13d39c121f6e6a8433eb8c67cfce508477b24a4434d1731198ba0b6e453655022bbf5beda93585f38ff420545e5356f925f83761
+"stylis@npm:~4.4.0":
+  version: 4.4.0
+  resolution: "stylis@npm:4.4.0"
+  checksum: 10/e5a149b571ea88b801b43deb6f6a9f5a5711b7ce501540ac2be18ca63a4cfb3fab86309c661a2f88491a5b98f27f95ef3eb397d412fba532c50f13964d9a1013
   languageName: node
   linkType: hard
 
