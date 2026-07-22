@@ -1778,7 +1778,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@csstools/css-calc@npm:^3.2.0":
+"@csstools/css-calc@npm:^3.2.1":
   version: 3.2.1
   resolution: "@csstools/css-calc@npm:3.2.1"
   peerDependencies:
@@ -1819,15 +1819,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@csstools/css-syntax-patches-for-csstree@npm:^1.1.3":
-  version: 1.1.4
-  resolution: "@csstools/css-syntax-patches-for-csstree@npm:1.1.4"
+"@csstools/css-syntax-patches-for-csstree@npm:^1.1.4, @csstools/css-syntax-patches-for-csstree@npm:^1.1.5":
+  version: 1.1.6
+  resolution: "@csstools/css-syntax-patches-for-csstree@npm:1.1.6"
   peerDependencies:
     css-tree: ^3.2.1
   peerDependenciesMeta:
     css-tree:
       optional: true
-  checksum: 10/f12bfd62737b49e81d12e83f325c58f9c1861739056c0467288890a2b195c2d800c14ee16b09f4e957d2c9df6da371f225b6b6e640fb5fc25fc68bd3a8ced789
+  checksum: 10/8747268b42f1afbe450d38b7f388a4983c810883f8c0716fa24f5b1eef0f9cbaa3a0f4ea72d1e5cbd015dc4fd5af9cc96ade42792912ed2dcc1d4054de102163
   languageName: node
   linkType: hard
 
@@ -5340,10 +5340,10 @@ __metadata:
     prettier: "npm:~3.6.2"
     rimraf: "npm:~6.1.3"
     style-dictionary: "npm:~5.4.4"
-    stylelint: "npm:~17.12.0"
+    stylelint: "npm:~17.14.0"
     stylelint-order: "npm:~8.1.1"
     stylelint-prettier: "npm:~5.0.3"
-    stylelint-scss: "npm:~7.1.1"
+    stylelint-scss: "npm:~7.2.0"
   languageName: unknown
   linkType: soft
 
@@ -5411,10 +5411,10 @@ __metadata:
     sass-loader: "npm:~17.0.0"
     storybook: "npm:~9.1.20"
     style-loader: "npm:~4.0.0"
-    stylelint: "npm:~17.12.0"
+    stylelint: "npm:~17.14.0"
     stylelint-order: "npm:~8.1.1"
     stylelint-prettier: "npm:~5.0.3"
-    stylelint-scss: "npm:~7.1.1"
+    stylelint-scss: "npm:~7.2.0"
     testing-utils: "workspace:~"
     ts-jest: "npm:~29.4.11"
     ts-loader: "npm:~9.6.2"
@@ -5440,10 +5440,10 @@ __metadata:
     lint-all: "workspace:~"
     prettier: "npm:~3.6.2"
     rimraf: "npm:~6.1.3"
-    stylelint: "npm:~17.12.0"
+    stylelint: "npm:~17.14.0"
     stylelint-order: "npm:~8.1.1"
     stylelint-prettier: "npm:~5.0.3"
-    stylelint-scss: "npm:~7.1.1"
+    stylelint-scss: "npm:~7.2.0"
   languageName: unknown
   linkType: soft
 
@@ -8481,7 +8481,7 @@ __metadata:
     eslint: "npm:~10.7.0"
     lint-all: "workspace:~"
     prettier: "npm:~3.6.2"
-    stylelint: "npm:~17.12.0"
+    stylelint: "npm:~17.14.0"
     tools-utils: "workspace:~"
   peerDependencies:
     eslint: "*"
@@ -8498,7 +8498,7 @@ __metadata:
     eslint: "npm:~10.7.0"
     lint-all: "workspace:~"
     prettier: "npm:~3.6.2"
-    stylelint: "npm:~17.12.0"
+    stylelint: "npm:~17.14.0"
     svg2ttf: "npm:~6.1.0"
     svgicons2svgfont: "npm:~16.0.0"
     tools-utils: "workspace:~"
@@ -8522,7 +8522,7 @@ __metadata:
     react: "npm:~19.2.7"
     react-dom: "npm:~19.2.7"
     sharp: "npm:~0.34.5"
-    stylelint: "npm:~17.12.0"
+    stylelint: "npm:~17.14.0"
     tools-utils: "workspace:~"
   bin:
     build-logo: ./index.js
@@ -9062,7 +9062,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cosmiconfig@npm:^9.0.0, cosmiconfig@npm:^9.0.1":
+"cosmiconfig@npm:^9.0.0":
   version: 9.0.1
   resolution: "cosmiconfig@npm:9.0.1"
   dependencies:
@@ -9076,6 +9076,23 @@ __metadata:
     typescript:
       optional: true
   checksum: 10/89fcac84d062f0710091bb2d6a6175bcde22f5448877db9c43429694408191d3d4e215193b3ac4d54f7f89ef188d55cd481c7a2295b0dc572e65b528bf6fec01
+  languageName: node
+  linkType: hard
+
+"cosmiconfig@npm:^9.0.2":
+  version: 9.0.2
+  resolution: "cosmiconfig@npm:9.0.2"
+  dependencies:
+    env-paths: "npm:^2.2.1"
+    import-fresh: "npm:^3.3.0"
+    js-yaml: "npm:^4.1.0"
+    parse-json: "npm:^5.2.0"
+  peerDependencies:
+    typescript: ">=4.9.5"
+  peerDependenciesMeta:
+    typescript:
+      optional: true
+  checksum: 10/e7b08c9c6ed862852bf0ed88c8fa49c57276d976901c9332c87d831926f332c32df3f5ff6a87f3823c3b7c5d6f857a7fd34336e0c2c596fa2d73e6cccbb7bf58
   languageName: node
   linkType: hard
 
@@ -13221,7 +13238,7 @@ __metadata:
     "@prettier/plugin-xml": "npm:~3.4.2"
     eslint: "npm:~10.7.0"
     prettier: "npm:~3.6.2"
-    stylelint: "npm:~17.12.0"
+    stylelint: "npm:~17.14.0"
     zx: "npm:8.8.5"
   bin:
     lint: ./lint.js
@@ -15554,7 +15571,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss-selector-parser@npm:^7.1.2":
+"postcss-selector-parser@npm:^7.1.2, postcss-selector-parser@npm:^7.1.4":
   version: 7.1.4
   resolution: "postcss-selector-parser@npm:7.1.4"
   dependencies:
@@ -15603,7 +15620,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:^8.2.14, postcss@npm:^8.4.33, postcss@npm:^8.4.40, postcss@npm:^8.5.14, postcss@npm:^8.5.8":
+"postcss@npm:^8.2.14, postcss@npm:^8.4.33, postcss@npm:^8.4.40, postcss@npm:^8.5.8":
   version: 8.5.19
   resolution: "postcss@npm:8.5.19"
   dependencies:
@@ -15614,7 +15631,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:~8.5.20":
+"postcss@npm:^8.5.15, postcss@npm:~8.5.20":
   version: 8.5.20
   resolution: "postcss@npm:8.5.20"
   dependencies:
@@ -17555,13 +17572,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stylelint-scss@npm:~7.1.1":
-  version: 7.1.1
-  resolution: "stylelint-scss@npm:7.1.1"
+"stylelint-scss@npm:~7.2.0":
+  version: 7.2.0
+  resolution: "stylelint-scss@npm:7.2.0"
   dependencies:
-    "@csstools/css-calc": "npm:^3.2.0"
+    "@csstools/css-calc": "npm:^3.2.1"
     "@csstools/css-parser-algorithms": "npm:^4.0.0"
-    "@csstools/css-syntax-patches-for-csstree": "npm:^1.1.3"
+    "@csstools/css-syntax-patches-for-csstree": "npm:^1.1.4"
     "@csstools/css-tokenizer": "npm:^4.0.0"
     css-tree: "npm:^3.2.1"
     is-plain-object: "npm:^5.0.0"
@@ -17572,23 +17589,23 @@ __metadata:
     postcss-value-parser: "npm:^4.2.0"
   peerDependencies:
     stylelint: ^16.8.2 || ^17.0.0
-  checksum: 10/e6c6e92e05867bcc0e2ec5428b59ccc3f66002b20aac00775789e643d6c7240bc8ab5baf12709f5cc83543ba5a362b1bb706b67f66ca05b80fa38eba7ac176e5
+  checksum: 10/7ed4ec71c1d1faa708e7840de1b5255e12bf4cdae21e3ca3bddfdfddd339facad7e063b622f48a39cdc9affc3ca44507d1d3f1bcf4405240a9ed5fae39b45e4b
   languageName: node
   linkType: hard
 
-"stylelint@npm:~17.12.0":
-  version: 17.12.0
-  resolution: "stylelint@npm:17.12.0"
+"stylelint@npm:~17.14.0":
+  version: 17.14.0
+  resolution: "stylelint@npm:17.14.0"
   dependencies:
-    "@csstools/css-calc": "npm:^3.2.0"
+    "@csstools/css-calc": "npm:^3.2.1"
     "@csstools/css-parser-algorithms": "npm:^4.0.0"
-    "@csstools/css-syntax-patches-for-csstree": "npm:^1.1.3"
+    "@csstools/css-syntax-patches-for-csstree": "npm:^1.1.5"
     "@csstools/css-tokenizer": "npm:^4.0.0"
     "@csstools/media-query-list-parser": "npm:^5.0.0"
     "@csstools/selector-resolve-nested": "npm:^4.0.0"
     "@csstools/selector-specificity": "npm:^6.0.0"
     colord: "npm:^2.9.3"
-    cosmiconfig: "npm:^9.0.1"
+    cosmiconfig: "npm:^9.0.2"
     css-functions-list: "npm:^3.3.3"
     css-tree: "npm:^3.2.1"
     debug: "npm:^4.4.3"
@@ -17606,9 +17623,9 @@ __metadata:
     micromatch: "npm:^4.0.8"
     normalize-path: "npm:^3.0.0"
     picocolors: "npm:^1.1.1"
-    postcss: "npm:^8.5.14"
+    postcss: "npm:^8.5.15"
     postcss-safe-parser: "npm:^7.0.1"
-    postcss-selector-parser: "npm:^7.1.1"
+    postcss-selector-parser: "npm:^7.1.4"
     postcss-value-parser: "npm:^4.2.0"
     string-width: "npm:^8.2.1"
     supports-hyperlinks: "npm:^4.4.0"
@@ -17617,7 +17634,7 @@ __metadata:
     write-file-atomic: "npm:^7.0.1"
   bin:
     stylelint: bin/stylelint.mjs
-  checksum: 10/30b431ec9703b64d1b7487bb7db331cdbe87df94a54ac27d4664f851cba770639986aa1125cdd5adbda990da480c6c4e437f3dcc9f6e7f8b0bc07015592ad8e1
+  checksum: 10/430e27faa7b4685d25d09b198888c8dc56c6a9a467c21a40ad5b0e603a5442bf20cf4f866c2a3359cb81d7a309fe4498d858efc6831a44731fc23f5d66df1599
   languageName: node
   linkType: hard
 
