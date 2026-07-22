@@ -29,25 +29,26 @@
   "devDependencies": {
     "@changesets/changelog-github": "~0.7.0",
     "@changesets/cli": "~2.31.1",
-    "@eslint/js": "~9.39.5",
+    "@eslint/compat": "~2.1.0",
+    "@eslint/js": "~10.0.1",
     "@rocket.chat/prettier-config": "workspace:~",
-    "eslint": "~9.39.5",
+    "eslint": "~10.7.0",
     "eslint-import-resolver-typescript": "~4.4.5",
-    "eslint-plugin-import-x": "~4.16.2",
+    "eslint-plugin-import-x": "~4.17.1",
     "eslint-plugin-jsx-a11y": "~6.10.2",
-    "eslint-plugin-mdx": "~3.7.1",
+    "eslint-plugin-mdx": "~3.8.1",
     "eslint-plugin-prettier": "~5.5.6",
     "eslint-plugin-react": "~7.37.5",
-    "eslint-plugin-react-hooks": "~5.2.0",
+    "eslint-plugin-react-hooks": "~7.1.1",
     "eslint-plugin-storybook": "~9.1.20",
-    "globals": "~16.5.0",
+    "globals": "~17.7.0",
     "husky": "~9.1.7",
     "pinst": "~3.0.0",
     "prettier": "~3.6.2",
     "storybook": "~9.1.20",
-    "turbo": "~2.9.18",
+    "turbo": "~2.10.5",
     "typescript": "~5.9.3",
-    "typescript-eslint": "~8.57.2",
+    "typescript-eslint": "~8.64.0",
     "update-readme": "workspace:~"
   },
   "packageManager": "yarn@4.12.0",
@@ -56,6 +57,7 @@
     "yarn": "4.12.0"
   },
   "resolutions": {
-    "@types/mdx@npm:^2.0.0": "patch:@types/mdx@npm%3A2.0.13#~/.yarn/patches/@types-mdx-npm-2.0.13-52981f86f6.patch"
+    "@types/mdx@npm:^2.0.0": "patch:@types/mdx@npm%3A2.0.13#~/.yarn/patches/@types-mdx-npm-2.0.13-52981f86f6.patch",
+    "@types/eslint-scope": "~9.1.0"
   }
 }

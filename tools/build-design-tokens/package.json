@@ -5,11 +5,11 @@
   "type": "module",
   "bin": "./index.js",
   "dependencies": {
-    "stylelint": "~17.12.0",
+    "stylelint": "~17.14.0",
     "tools-utils": "workspace:~"
   },
   "devDependencies": {
-    "eslint": "~9.39.5",
+    "eslint": "~10.7.0",
     "lint-all": "workspace:~",
     "prettier": "~3.6.2"
   },
