@@ -20,12 +20,13 @@ BASE_URL="http://host.docker.internal:6006"
 
 # Check if update-snapshots flag is passed
 UPDATE_SNAPSHOTS=""
-if [[ "$*" == *"--update-snapshots"* ]]; then
-  UPDATE_SNAPSHOTS="--update-snapshots"
-fi
+case "$*" in
+  *--update-snapshots*) UPDATE_SNAPSHOTS="--update-snapshots" ;;
+esac
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-PLAYWRIGHT_VERSION="$(node -e "console.log(require('${SCRIPT_DIR}/../package.json').dependencies['@playwright/test'].replace(/^[^0-9]*/, ''))")"
+# Read the Playwright version from this tool's package.json (resolved from the
+# monorepo root so it works regardless of the shell the script runs under).
+PLAYWRIGHT_VERSION="$(node -e "console.log(require('${MONOREPO_ROOT}/tools/visual-regression/package.json').dependencies['@playwright/test'].replace(/^[^0-9]*/, ''))")"
 
 DOCKER_PW_IMAGE="mcr.microsoft.com/playwright:v${PLAYWRIGHT_VERSION}-noble"
 
