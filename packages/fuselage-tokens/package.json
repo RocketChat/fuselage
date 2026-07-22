@@ -37,7 +37,7 @@
   },
   "devDependencies": {
     "build-design-tokens": "workspace:~",
-    "eslint": "~9.39.5",
+    "eslint": "~10.7.0",
     "eslint-config-prettier": "~10.1.8",
     "lint-all": "workspace:~",
     "postcss": "~8.5.19",

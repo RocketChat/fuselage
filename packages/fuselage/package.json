@@ -80,7 +80,7 @@
     "caniuse-lite": "~1.0.30001806",
     "css-loader": "~7.1.4",
     "cssnano": "~7.1.9",
-    "eslint": "~9.39.5",
+    "eslint": "~10.7.0",
     "jest": "~30.4.2",
     "jest-axe": "~10.0.0",
     "jest-environment-jsdom": "~30.4.1",
