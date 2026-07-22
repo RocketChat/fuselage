@@ -1,4 +1,4 @@
-import type { StoryFn, Meta } from '@storybook/react-webpack5';
+import type { Meta, StoryObj } from '@storybook/react-webpack5';
 
 import { IconButton } from '../Button';
 import { ButtonGroup } from '../ButtonGroup';
@@ -8,25 +8,50 @@ import Divider from './Divider';
 export default {
   title: 'Data Display/Divider',
   component: Divider,
+  argTypes: {
+    variation: {
+      control: 'select',
+      options: ['danger'],
+      description: 'Color variation of the divider.',
+      table: { category: 'Kind' },
+    },
+    vertical: {
+      control: 'boolean',
+      description:
+        'Renders the divider along the vertical axis instead of horizontal.',
+      table: { category: 'Layout' },
+    },
+    children: {
+      control: 'text',
+      description:
+        'Text rendered inside the divider; when set, the divider renders as a labeled separator instead of a plain `hr`.',
+      table: { category: 'Content' },
+    },
+  },
 } satisfies Meta<typeof Divider>;
 
-const Template: StoryFn<typeof Divider> = (args) => <Divider {...args} />;
+type Story = StoryObj<typeof Divider>;
 
-export const Default: StoryFn<typeof Divider> = Template.bind({});
-export const WithText: StoryFn<typeof Divider> = Template.bind({});
-WithText.args = {
-  children: 'Divider',
+export const Default: Story = {};
+
+export const WithText: Story = {
+  args: {
+    children: 'Divider',
+  },
 };
 
-export const Vertical: StoryFn<typeof Divider> = Template.bind({});
-Vertical.args = {
-  vertical: true,
+export const Vertical: Story = {
+  args: {
+    vertical: true,
+  },
 };
 
-export const AsButtonSeparator = () => (
-  <ButtonGroup>
-    <IconButton small icon='phone' />
-    <Divider vertical />
-    <IconButton small icon='user' />
-  </ButtonGroup>
-);
+export const AsButtonSeparator: Story = {
+  render: () => (
+    <ButtonGroup>
+      <IconButton small icon='phone' />
+      <Divider vertical />
+      <IconButton small icon='user' />
+    </ButtonGroup>
+  ),
+};

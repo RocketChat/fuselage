@@ -1,4 +1,4 @@
-import type { Meta, StoryFn } from '@storybook/react-webpack5';
+import type { Meta, StoryObj } from '@storybook/react-webpack5';
 
 import { Button } from '../Button';
 import type { CardProps } from '../Card';
@@ -15,7 +15,22 @@ export default {
     layout: 'centered',
     controls: { hideNoControlsWarning: true },
   },
+  argTypes: {
+    children: {
+      control: false,
+      description: 'Card items rendered inside the grid.',
+      table: { category: 'Content' },
+    },
+    breakpoints: {
+      control: 'object',
+      description:
+        'Column span (`xs`, `sm`, `md`, `lg`, `xl`) applied to each grid item at each breakpoint.',
+      table: { category: 'Layout' },
+    },
+  },
 } satisfies Meta<typeof CardGrid>;
+
+type Story = StoryObj<typeof CardGrid>;
 
 const CardItem = (props: CardProps) => (
   <Card {...props}>
@@ -39,10 +54,12 @@ const CardItem = (props: CardProps) => (
   </Card>
 );
 
-export const _CardGrid: StoryFn<typeof CardGrid> = (args) => (
-  <CardGrid {...args} breakpoints={{ xs: 4, sm: 4, md: 4, lg: 3, xl: 3 }}>
-    {Array.from(new Array(9)).map((_, index) => (
-      <CardItem key={index} />
-    ))}
-  </CardGrid>
-);
+export const _CardGrid: Story = {
+  render: (args) => (
+    <CardGrid {...args} breakpoints={{ xs: 4, sm: 4, md: 4, lg: 3, xl: 3 }}>
+      {Array.from(new Array(9)).map((_, index) => (
+        <CardItem key={index} />
+      ))}
+    </CardGrid>
+  ),
+};
