@@ -5,9 +5,12 @@ import { axe } from 'jest-axe';
 import { render } from '../../testing';
 
 import * as stories from './Modal.stories';
-import { Default } from './Modal.stories';
 
-const testCases = Object.values(composeStories(stories)).map((Story) => [
+const composedStories = composeStories(stories);
+
+const { Default } = composedStories;
+
+const testCases = Object.values(composedStories).map((Story) => [
   Story.storyName || 'Story',
   Story,
 ]);

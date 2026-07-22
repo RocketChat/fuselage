@@ -1,4 +1,4 @@
-import type { StoryFn, Meta } from '@storybook/react-webpack5';
+import type { Meta, StoryObj } from '@storybook/react-webpack5';
 import { action } from 'storybook/actions';
 
 import {
@@ -11,42 +11,70 @@ import RadioButton from './RadioButton';
 export default {
   title: 'Inputs/RadioButton',
   component: RadioButton,
+  argTypes: {
+    checked: {
+      control: 'boolean',
+      description: 'Whether the radio button is checked (controlled).',
+      table: { category: 'State' },
+    },
+    disabled: {
+      control: 'boolean',
+      description: 'Disables the radio button and blocks pointer interaction.',
+      table: { category: 'State' },
+    },
+    labelChildren: {
+      control: false,
+      description: 'Content rendered before the radio input, inside its label.',
+      table: { category: 'Content' },
+    },
+    onChange: {
+      control: false,
+      description: 'Called when the checked state changes.',
+      table: { category: 'Events' },
+    },
+  },
 } satisfies Meta<typeof RadioButton>;
 
-const Template: StoryFn<typeof RadioButton> = (args) => (
-  <RadioButton {...args} aria-label={DECORATOR_LABEL} />
-);
+type Story = StoryObj<typeof RadioButton>;
 
-export const Default: StoryFn<typeof RadioButton> = Template.bind({});
-Default.args = {
-  onChange: action('change'),
+export const Default: Story = {
+  args: {
+    'aria-label': DECORATOR_LABEL,
+    'onChange': action('change'),
+  },
 };
 
-export const Checked: StoryFn<typeof RadioButton> = Template.bind({});
-Checked.args = {
-  onChange: action('change'),
-  checked: true,
+export const Checked: Story = {
+  args: {
+    'aria-label': DECORATOR_LABEL,
+    'onChange': action('change'),
+    'checked': true,
+  },
 };
 
-export const Disabled: StoryFn<typeof RadioButton> = Template.bind({});
-Disabled.args = {
-  disabled: true,
+export const Disabled: Story = {
+  args: {
+    'aria-label': DECORATOR_LABEL,
+    'disabled': true,
+  },
 };
 
-export const States: StoryFn<typeof RadioButton> = () => (
-  <PropsVariationSection
-    component={RadioButton}
-    common={{ 'onChange': action('change'), 'aria-label': DECORATOR_LABEL }}
-    xAxis={{
-      checked: { checked: true },
-      unchecked: { checked: false },
-    }}
-    yAxis={{
-      default: {},
-      hover: { className: 'is-hovered' },
-      active: { className: 'is-active' },
-      focus: { className: 'is-focused' },
-      disabled: { disabled: true },
-    }}
-  />
-);
+export const States: Story = {
+  render: () => (
+    <PropsVariationSection
+      component={RadioButton}
+      common={{ 'onChange': action('change'), 'aria-label': DECORATOR_LABEL }}
+      xAxis={{
+        checked: { checked: true },
+        unchecked: { checked: false },
+      }}
+      yAxis={{
+        default: {},
+        hover: { className: 'is-hovered' },
+        active: { className: 'is-active' },
+        focus: { className: 'is-focused' },
+        disabled: { disabled: true },
+      }}
+    />
+  ),
+};
