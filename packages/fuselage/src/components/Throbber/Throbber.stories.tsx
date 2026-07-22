@@ -1,4 +1,4 @@
-import type { StoryFn, Meta } from '@storybook/react-webpack5';
+import type { Meta, StoryObj } from '@storybook/react-webpack5';
 import { action } from 'storybook/actions';
 
 import { PropsVariationSection } from '../../../.storybook/helpers';
@@ -10,47 +10,69 @@ import Throbber from './Throbber';
 export default {
   title: 'Data Display/Throbber',
   component: Throbber,
+  argTypes: {
+    circleCount: {
+      control: 'number',
+      description: 'Number of circles rendered in the animation.',
+      table: { defaultValue: { summary: '3' } },
+    },
+    disabled: {
+      control: 'boolean',
+      description: 'Renders the disabled visual style.',
+    },
+    inheritColor: {
+      control: 'boolean',
+      description: "Makes the circles inherit the surrounding text's color.",
+    },
+  },
 } satisfies Meta<typeof Throbber>;
 
-const Template: StoryFn<typeof Throbber> = (args) => <Throbber {...args} />;
+type Story = StoryObj<typeof Throbber>;
 
-export const Default: StoryFn<typeof Throbber> = Template.bind({});
+export const Default: Story = {};
 
-export const Disabled: StoryFn<typeof Throbber> = Template.bind({});
-Disabled.args = {
-  disabled: true,
+export const Disabled: Story = {
+  args: {
+    disabled: true,
+  },
 };
 
-export const InsideButton: StoryFn<typeof Throbber> = () => (
-  <Button minHeight='x40'>
-    <Throbber size='x12' />
-  </Button>
-);
-
-export const InsideButtonInheritColor = () => (
-  <Box>
-    <Button primary danger minHeight='x40' marginInlineEnd='5px'>
-      <Throbber size='x12' inheritColor />
+export const InsideButton: Story = {
+  render: () => (
+    <Button minHeight='x40'>
+      <Throbber size='x12' />
     </Button>
-    <Button primary minHeight='x40'>
-      <Throbber size='x12' inheritColor />
-    </Button>
-  </Box>
-);
+  ),
+};
 
-export const States: StoryFn<typeof Throbber> = () => (
-  <PropsVariationSection
-    component={Throbber}
-    common={{ onClick: action('click') }}
-    yAxis={{
-      'default': {},
-      '3 circles + x40': { circleCount: 3, size: 'x40' },
-      '5 circles + x32': { circleCount: 5, size: 'x32' },
-      '7 circles + x24': { circleCount: 7, size: 'x24' },
-    }}
-    xAxis={{
-      default: {},
-      disabled: { disabled: true },
-    }}
-  />
-);
+export const InsideButtonInheritColor: Story = {
+  render: () => (
+    <Box>
+      <Button primary danger minHeight='x40' marginInlineEnd='5px'>
+        <Throbber size='x12' inheritColor />
+      </Button>
+      <Button primary minHeight='x40'>
+        <Throbber size='x12' inheritColor />
+      </Button>
+    </Box>
+  ),
+};
+
+export const States: Story = {
+  render: () => (
+    <PropsVariationSection
+      component={Throbber}
+      common={{ onClick: action('click') }}
+      yAxis={{
+        'default': {},
+        '3 circles + x40': { circleCount: 3, size: 'x40' },
+        '5 circles + x32': { circleCount: 5, size: 'x32' },
+        '7 circles + x24': { circleCount: 7, size: 'x24' },
+      }}
+      xAxis={{
+        default: {},
+        disabled: { disabled: true },
+      }}
+    />
+  ),
+};
