@@ -1,4 +1,4 @@
-import type { StoryFn, Meta } from '@storybook/react-webpack5';
+import type { Meta, StoryObj } from '@storybook/react-webpack5';
 
 import { Avatar } from '../Avatar';
 import { Box } from '../Box';
@@ -28,56 +28,66 @@ export default {
       </Box>
     ),
   ],
+  argTypes: {
+    children: {
+      control: false,
+      description:
+        'NavBar sections rendered inside the underlying `<nav>` element.',
+      table: { category: 'Content' },
+    },
+  },
 } satisfies Meta<typeof NavBar>;
 
-const Template: StoryFn<typeof NavBar> = (args) => (
-  <NavBar {...args}>
-    <NavBarSection>
-      <NavBarGroup role='toolbar'>
-        <NavBarItem icon='home' title='home' />
-        <NavBarItem icon='store' title='marketplace' />
-        <NavBarItem icon='notebook-hashtag' title='directory' />
-        <NavBarItem icon='document-eye' title='audit' />
-        <NavBarItem icon='address-book' title='contacts' />
-      </NavBarGroup>
-      <NavBarGroup role='toolbar'>
-        <NavBarItem>
-          <MenuDisplayExample small icon='sort' title='sort' />
-        </NavBarItem>
-        <NavBarItem icon='magnifier' title='search' />
-        <Menu icon='pencil-box' small title='create new'>
-          <MenuSection title='Create new'>
-            <MenuItem key='direct-message'>Direct message</MenuItem>
-            <MenuItem key='discussion'>Discussion</MenuItem>
-            <MenuItem key='channel'>Channel</MenuItem>
-            <MenuItem key='team'>Team</MenuItem>
-          </MenuSection>
-        </Menu>
-      </NavBarGroup>
-      <NavBarGroup role='toolbar'>
-        <NavBarItem icon='dialpad' title='dialpad' />
-        <NavBarItem icon='live' title='live' />
-        <NavBarItem icon='phone-disabled' title='phone-disabled' />
-        <NavBarItem icon='message-disabled' title='message-disabled' />
-      </NavBarGroup>
-    </NavBarSection>
-    <NavBarSection>
-      <NavBarGroup>
-        <NavBarItem icon='cog' title='preferences' />
-        <NavBarItem>
-          <Menu
-            small
-            icon={<Avatar url={avatarUrl} alt='user avatar' size='x28' />}
-            title='profile'
-          >
-            <MenuItem key='1'>Profile</MenuItem>
-            <MenuItem key='2'>Chats</MenuItem>
-            <MenuItem key='3'>Settings</MenuItem>
-          </Menu>
-        </NavBarItem>
-      </NavBarGroup>
-    </NavBarSection>
-  </NavBar>
-);
+type Story = StoryObj<typeof NavBar>;
 
-export const Default: StoryFn<typeof NavBar> = Template.bind({});
+export const Default: Story = {
+  render: (args) => (
+    <NavBar {...args}>
+      <NavBarSection>
+        <NavBarGroup role='toolbar'>
+          <NavBarItem icon='home' title='home' />
+          <NavBarItem icon='store' title='marketplace' />
+          <NavBarItem icon='notebook-hashtag' title='directory' />
+          <NavBarItem icon='document-eye' title='audit' />
+          <NavBarItem icon='address-book' title='contacts' />
+        </NavBarGroup>
+        <NavBarGroup role='toolbar'>
+          <NavBarItem>
+            <MenuDisplayExample small icon='sort' title='sort' />
+          </NavBarItem>
+          <NavBarItem icon='magnifier' title='search' />
+          <Menu icon='pencil-box' small title='create new'>
+            <MenuSection title='Create new'>
+              <MenuItem key='direct-message'>Direct message</MenuItem>
+              <MenuItem key='discussion'>Discussion</MenuItem>
+              <MenuItem key='channel'>Channel</MenuItem>
+              <MenuItem key='team'>Team</MenuItem>
+            </MenuSection>
+          </Menu>
+        </NavBarGroup>
+        <NavBarGroup role='toolbar'>
+          <NavBarItem icon='dialpad' title='dialpad' />
+          <NavBarItem icon='live' title='live' />
+          <NavBarItem icon='phone-disabled' title='phone-disabled' />
+          <NavBarItem icon='message-disabled' title='message-disabled' />
+        </NavBarGroup>
+      </NavBarSection>
+      <NavBarSection>
+        <NavBarGroup>
+          <NavBarItem icon='cog' title='preferences' />
+          <NavBarItem>
+            <Menu
+              small
+              icon={<Avatar url={avatarUrl} alt='user avatar' size='x28' />}
+              title='profile'
+            >
+              <MenuItem key='1'>Profile</MenuItem>
+              <MenuItem key='2'>Chats</MenuItem>
+              <MenuItem key='3'>Settings</MenuItem>
+            </Menu>
+          </NavBarItem>
+        </NavBarGroup>
+      </NavBarSection>
+    </NavBar>
+  ),
+};
