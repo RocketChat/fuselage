@@ -6,11 +6,15 @@ on:
     types:
       - completed
 
+permissions: {}
+
 jobs:
   download-artifact:
     name: Download artifact
     if: ${{ github.event.workflow_run.event == 'pull_request' && github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
+    permissions:
+      actions: read
     outputs:
       pr-number: ${{ steps.set-pr-number.outputs.pr-number }}
     steps:
@@ -49,6 +53,8 @@ jobs:
     needs:
       - download-artifact
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     environment:
       name: github-pages
       url: 'https://rocketchat.github.io/fuselage/fuselage/${{ needs.download-artifact.outputs.pr-number }}'
