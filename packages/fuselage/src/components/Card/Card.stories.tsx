@@ -72,6 +72,27 @@ export const VerticalNoIcon: StoryFn<typeof Card> = () => (
   </Card>
 );
 
+export const ControlsWrap: StoryFn<typeof Card> = () => (
+  <Box width={280}>
+    <Card>
+      <CardTitle variant='h3'>Heading 3</CardTitle>
+      <CardBody>
+        Lorem ipsum dolor sit amet. In adipisci consequatur qui laudantium rem
+        praesentium earum ut consectetur.
+      </CardBody>
+      <CardControls>
+        <Button medium primary>
+          Button
+        </Button>
+        <Button medium>Button</Button>
+        <Button medium>Button</Button>
+        <Button medium>Button</Button>
+      </CardControls>
+    </Card>
+  </Box>
+);
+ControlsWrap.storyName = 'Controls wrap on narrow width';
+
 export const Hero: StoryFn<typeof Card> = () => (
   <Card hero>
     <CardTitle variant='h3'>Heading 3</CardTitle>
