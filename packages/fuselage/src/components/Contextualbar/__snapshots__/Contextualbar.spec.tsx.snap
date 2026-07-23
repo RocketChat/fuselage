@@ -7,10 +7,10 @@ exports[`[Contextualbar Rendering] renders Default without crashing 1`] = `
       class="rcx-box rcx-box--full rcx-css-k3k951"
     >
       <div
-        class="rcx-box rcx-box--full rcx-vertical-bar rcx-css-37ac0e"
+        class="rcx-box rcx-box--full rcx-vertical-bar rcx-css-f38nr5"
       >
         <div
-          class="rcx-box rcx-box--full rcx-css-1bqzsi4"
+          class="rcx-box rcx-box--full rcx-css-1yeh8tz"
         >
           <div
             class="rcx-box rcx-box--full rcx-css-1sl6k6j"
@@ -76,7 +76,7 @@ exports[`[Contextualbar Rendering] renders Default without crashing 1`] = `
           </div>
         </div>
         <div
-          class="rcx-box rcx-box--full rcx-vertical-bar__section rcx-css-137qgp8"
+          class="rcx-box rcx-box--full rcx-vertical-bar__section rcx-css-15kr5bx"
         >
           <label
             class="rcx-box rcx-box--full rcx-label rcx-box rcx-box--full rcx-box--animated rcx-input-box__wrapper"
@@ -156,10 +156,10 @@ exports[`[Contextualbar Rendering] renders Empty without crashing 1`] = `
       class="rcx-box rcx-box--full rcx-css-k3k951"
     >
       <div
-        class="rcx-box rcx-box--full rcx-vertical-bar rcx-css-37ac0e"
+        class="rcx-box rcx-box--full rcx-vertical-bar rcx-css-f38nr5"
       >
         <div
-          class="rcx-box rcx-box--full rcx-css-1bqzsi4"
+          class="rcx-box rcx-box--full rcx-css-1yeh8tz"
         >
           <div
             class="rcx-box rcx-box--full rcx-css-1sl6k6j"
@@ -237,10 +237,10 @@ exports[`[Contextualbar Rendering] renders Skeleton without crashing 1`] = `
       class="rcx-box rcx-box--full rcx-css-k3k951"
     >
       <div
-        class="rcx-box rcx-box--full rcx-vertical-bar rcx-css-37ac0e"
+        class="rcx-box rcx-box--full rcx-vertical-bar rcx-css-f38nr5"
       >
         <div
-          class="rcx-box rcx-box--full rcx-css-1bqzsi4"
+          class="rcx-box rcx-box--full rcx-css-1yeh8tz"
         >
           <div
             class="rcx-box rcx-box--full rcx-css-1sl6k6j"

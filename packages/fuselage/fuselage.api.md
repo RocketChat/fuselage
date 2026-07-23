@@ -229,11 +229,19 @@ export type BannerProps = {
 // @public (undocumented)
 export type BannerVariant = 'neutral' | 'info' | 'success' | 'warning' | 'danger';
 
+// Warning: (ae-forgotten-export) The symbol "borders" needs to be exported by the entry point index.d.ts
+//
 // @public (undocumented)
-export const borderRadius: MemoizedFunction<unknown, unknown, string | undefined>;
+export type BorderRadius = keyof typeof borders.radius;
 
 // @public (undocumented)
-export const borderWidth: MemoizedFunction<unknown, unknown, string | undefined>;
+export const borderRadius: (value: unknown) => string;
+
+// @public (undocumented)
+export type BorderWidth = keyof typeof borders.width;
+
+// @public (undocumented)
+export const borderWidth: (value: unknown) => string;
 
 // Warning: (ae-forgotten-export) The symbol "Box_2" needs to be exported by the entry point index.d.ts
 //
@@ -2598,13 +2606,13 @@ export type StylingProps = {
     borderInline: CSSProperties['borderInline'];
     borderInlineStart: CSSProperties['borderInlineStart'];
     borderInlineEnd: CSSProperties['borderInlineEnd'];
-    borderWidth: CSSProperties['borderWidth'];
-    borderBlockWidth: CSSProperties['borderBlockWidth'];
-    borderBlockStartWidth: CSSProperties['borderBlockStartWidth'];
-    borderBlockEndWidth: CSSProperties['borderBlockEndWidth'];
-    borderInlineWidth: CSSProperties['borderInlineWidth'];
-    borderInlineStartWidth: CSSProperties['borderInlineStartWidth'];
-    borderInlineEndWidth: CSSProperties['borderInlineEndWidth'];
+    borderWidth: BorderWidth;
+    borderBlockWidth: BorderWidth;
+    borderBlockStartWidth: BorderWidth;
+    borderBlockEndWidth: BorderWidth;
+    borderInlineWidth: BorderWidth;
+    borderInlineStartWidth: BorderWidth;
+    borderInlineEndWidth: BorderWidth;
     borderStyle: CSSProperties['borderStyle'];
     borderBlockStyle: CSSProperties['borderBlockStyle'];
     borderBlockStartStyle: CSSProperties['borderBlockStartStyle'];
@@ -2619,11 +2627,11 @@ export type StylingProps = {
     borderInlineColor: CSSProperties['borderInlineColor'];
     borderInlineStartColor: CSSProperties['borderInlineStartColor'];
     borderInlineEndColor: CSSProperties['borderInlineEndColor'];
-    borderRadius: CSSProperties['borderRadius'];
-    borderStartStartRadius: CSSProperties['borderStartStartRadius'];
-    borderStartEndRadius: CSSProperties['borderStartEndRadius'];
-    borderEndStartRadius: CSSProperties['borderEndStartRadius'];
-    borderEndEndRadius: CSSProperties['borderEndEndRadius'];
+    borderRadius: BorderRadius;
+    borderStartStartRadius: BorderRadius;
+    borderStartEndRadius: BorderRadius;
+    borderEndStartRadius: BorderRadius;
+    borderEndEndRadius: BorderRadius;
     color: CSSProperties['color'] | Var;
     backgroundColor: CSSProperties['backgroundColor'] | Var;
     opacity: CSSProperties['opacity'];

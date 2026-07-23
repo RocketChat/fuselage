@@ -44,7 +44,7 @@ SurfaceColors.decorators = [
               color: 'annotation',
               border: '2px solid',
               borderColor: 'stroke light',
-              borderRadius: 4,
+              borderRadius: 'medium',
               textAlign: 'center',
               display: 'flex',
               alignItems: 'center',
@@ -93,7 +93,7 @@ StatusColors.decorators = [
               margin: 'x4',
               size: 'x122',
               border: '2px solid',
-              borderRadius: 4,
+              borderRadius: 'medium',
               textAlign: 'center',
               display: 'flex',
               alignItems: 'center',
@@ -131,8 +131,8 @@ StrokeColors.decorators = [
               textAlign: 'center',
               size: 'x122',
               color: 'default',
-              borderWidth: 'x8',
-              borderRadius: 4,
+              borderWidth: 'extra-large',
+              borderRadius: 'medium',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -147,7 +147,7 @@ StrokeColors.decorators = [
 
 export const FontColors: StoryFn<typeof Box> = () => (
   <>
-    <Box color='font-white' backgroundColor='dark' borderRadius={4} />
+    <Box color='font-white' backgroundColor='dark' borderRadius='medium' />
     <Box color='font-disabled' />
     <Box color='font-annotation' />
     <Box color='font-secondary-info' />

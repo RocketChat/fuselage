@@ -945,7 +945,7 @@ export const BlockAfterHeader: StoryFn<typeof Message> = () => (
             height='200px'
             border='1px solid'
             borderColor='stroke-extra-light'
-            borderRadius='4px'
+            borderRadius='medium'
           />
         </MessageBlock>
       </MessageContainer>
