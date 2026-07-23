@@ -1,4 +1,4 @@
-import type { StoryFn, Meta } from '@storybook/react-webpack5';
+import type { Meta, StoryObj } from '@storybook/react-webpack5';
 import { action } from 'storybook/actions';
 
 import { exampleAvatar, blankAvatar } from '../../../.storybook/helpers';
@@ -10,36 +10,80 @@ import Chip from './Chip';
 export default {
   title: 'Data Display/Chip',
   component: Chip,
-} as Meta<typeof Chip>;
+  argTypes: {
+    children: {
+      control: 'text',
+      description: 'Chip label content.',
+      table: { category: 'Content' },
+    },
+    thumbUrl: {
+      control: 'text',
+      description: 'URL of the avatar image rendered before the label.',
+      table: { category: 'Content' },
+    },
+    renderThumb: {
+      control: false,
+      description: 'Custom renderer for the thumbnail, receiving `{ url }`.',
+      table: { category: 'Content' },
+    },
+    renderDismissSymbol: {
+      control: false,
+      description: 'Custom renderer for the dismiss icon.',
+      table: { category: 'Content' },
+    },
+    disabled: {
+      control: 'boolean',
+      description: 'Disables the chip and blocks pointer interaction.',
+      table: { category: 'State' },
+    },
+    onClick: {
+      control: false,
+      description:
+        'Called when the chip is clicked; the dismiss symbol is only rendered when this (or `onMouseDown`) is provided.',
+      table: { category: 'Events' },
+    },
+  },
+} satisfies Meta<typeof Chip>;
 
-const Template: StoryFn<typeof Chip> = (args) => (
-  <Chip {...args}>Marie Rowe</Chip>
-);
+type Story = StoryObj<typeof Chip>;
 
-export const Default = Template.bind({});
-
-export const WithThumbUrl = Template.bind({});
-WithThumbUrl.args = {
-  thumbUrl: exampleAvatar,
-  onClick: action('click'),
+export const Default: Story = {
+  args: {
+    children: 'Marie Rowe',
+  },
 };
 
-export const Dismissible = Template.bind({});
-Dismissible.args = {
-  onClick: action('click'),
-};
-export const Disabled = Template.bind({});
-Disabled.args = {
-  disabled: true,
+export const WithThumbUrl: Story = {
+  args: {
+    children: 'Marie Rowe',
+    thumbUrl: exampleAvatar,
+    onClick: action('click'),
+  },
 };
 
-export const WithThumb = () => (
-  <Box display='flex' margin='-x4'>
-    <Margins all='x4'>
-      <Chip thumbUrl={blankAvatar}>Chip</Chip>
-      <Chip thumbUrl={blankAvatar} onClick={action('click')}>
-        Chip
-      </Chip>
-    </Margins>
-  </Box>
-);
+export const Dismissible: Story = {
+  args: {
+    children: 'Marie Rowe',
+    onClick: action('click'),
+  },
+};
+
+export const Disabled: Story = {
+  args: {
+    children: 'Marie Rowe',
+    disabled: true,
+  },
+};
+
+export const WithThumb: Story = {
+  render: () => (
+    <Box display='flex' margin='-x4'>
+      <Margins all='x4'>
+        <Chip thumbUrl={blankAvatar}>Chip</Chip>
+        <Chip thumbUrl={blankAvatar} onClick={action('click')}>
+          Chip
+        </Chip>
+      </Margins>
+    </Box>
+  ),
+};
