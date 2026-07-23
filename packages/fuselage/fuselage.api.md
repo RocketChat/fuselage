@@ -2270,6 +2270,7 @@ export type SidebarV2BannerProps = {
     onClick?: () => void;
     variant?: SidebarV2BannerVariant;
     onClose?: () => void;
+    closePlacement?: SidebarV2BannerVariantPlacement;
     children?: ReactNode;
     addon?: ReactNode;
 };
@@ -3030,6 +3031,10 @@ show: () => void
 
 // @public (undocumented)
 export type VisibilityType = 'hidden' | 'visible' | 'hiding' | 'unhiding' | undefined;
+
+// Warnings were encountered during analysis:
+//
+// src/components/SidebarV2/SidebarBanner.tsx:27:3 - (ae-forgotten-export) The symbol "SidebarV2BannerVariantPlacement" needs to be exported by the entry point index.d.ts
 
 // (No @packageDocumentation comment for this package)
 

@@ -9,6 +9,7 @@ import {
   SidebarV2AccordionItem as SidebarAccordionItem,
   SidebarV2Banner as SidebarBanner,
   SidebarV2CollapseGroup as SidebarCollapseGroup,
+  SidebarV2Divider as SidebarDivider,
   SidebarV2FooterContent as SidebarFooterContent,
   SidebarV2ItemAction as SidebarItemAction,
   SidebarV2Link as SidebarLink,
@@ -38,6 +39,7 @@ export const Default: StoryFn<typeof Sidebar> = (props) => (
         onClick={action('click')}
         addon={<Icon name='warning' color='danger' size='x24' />}
       />
+      <SidebarDivider />
       <SidebarSection>
         <TextInput
           endAddon={<Icon name='magnifier' size='x20' />}
@@ -180,6 +182,53 @@ export const Default: StoryFn<typeof Sidebar> = (props) => (
           Free edition
         </SidebarFooterContent>
       </SidebarFooter>
+    </Sidebar>
+  </Box>
+);
+
+export const MediaPlayerBanner: StoryFn<typeof Sidebar> = (props) => (
+  <Box h='90vh' w='x280'>
+    <Sidebar {...props}>
+      <SidebarSection>
+        <TextInput
+          endAddon={<Icon name='magnifier' size='x20' />}
+          small
+          placeholder='Search'
+        />
+      </SidebarSection>
+      <Box flexGrow={1} />
+      <SidebarDivider />
+      <SidebarBanner
+        closePlacement='top'
+        onClose={action('close')}
+        title={
+          <Box display='flex' alignItems='center' style={{ gap: 8 }}>
+            <Icon name='mic' size='x24' />
+            <Box minWidth={0}>
+              <Box fontScale='p2b' color='default' withTruncatedText>
+                Jane Doe
+              </Box>
+              <Box fontScale='micro' color='hint' withTruncatedText>
+                Audio record.mp3 (455.93 kB)
+              </Box>
+            </Box>
+          </Box>
+        }
+      >
+        <Box display='flex' alignItems='center' width='full' style={{ gap: 8 }}>
+          <IconButton small icon='play' onClick={action('play')} />
+          <Box fontScale='c1' color='hint'>
+            00:00
+          </Box>
+          <Box
+            flexGrow={1}
+            height='x4'
+            borderRadius='x4'
+            backgroundColor='surface-selected'
+          />
+          <IconButton small icon='chevron-down' onClick={action('speed')} />
+        </Box>
+      </SidebarBanner>
     </Sidebar>
   </Box>
 );

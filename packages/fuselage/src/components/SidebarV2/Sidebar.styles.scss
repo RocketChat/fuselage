@@ -183,13 +183,31 @@ $sidebar-color-stroke-extra-light: theme(
     padding: lengths.padding(16);
 
     color: $sidebar-banner-color-default;
-    border-bottom: lengths.border-width(default) solid
-      $sidebar-accordion-border-color;
     background-color: $sidebar-banner-background-default;
     gap: lengths.padding(12);
 
+    &--close-top {
+      position: relative;
+
+      align-items: flex-start;
+
+      .rcx-sidebar-v2-banner__addon {
+        position: absolute;
+
+        inset-block-start: lengths.padding(16);
+        inset-inline-end: lengths.padding(16);
+      }
+    }
+
+    &__content {
+      flex: 1 1 auto;
+
+      min-width: 0;
+    }
+
     &__addon {
       display: flex;
+      flex: 0 0 auto;
       align-items: center;
     }
 
