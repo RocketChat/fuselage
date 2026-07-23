@@ -79,6 +79,12 @@ $table-selected-border-radius: theme(
       @include clickable;
       background-color: colors.surface(hover);
     }
+
+    &--cell-align-top {
+      .rcx-table__cell {
+        vertical-align: top;
+      }
+    }
   }
 
   &__cell {
