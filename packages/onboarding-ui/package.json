@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "i18next": "~23.4.9",
-    "react-hook-form": "~7.54.2"
+    "react-hook-form": "~7.82.0"
   },
   "devDependencies": {
     "@microsoft/api-extractor": "~7.58.11",
@@ -65,7 +65,7 @@
     "jest": "~30.4.2",
     "jest-environment-jsdom": "~30.4.1",
     "lint-all": "workspace:~",
-    "prettier": "~3.6.2",
+    "prettier": "~3.9.6",
     "react": "~19.2.7",
     "react-dom": "~19.2.7",
     "react-i18next": "~13.2.2",
