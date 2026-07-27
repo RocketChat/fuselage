@@ -2,4 +2,4 @@
 '@rocket.chat/fuselage': patch
 ---
 
-Fixes message reaction emoji styling
+fix(fuselage): Message reaction emoji sizing
