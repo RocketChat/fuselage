@@ -52,12 +52,6 @@ export default {
         'Error message; when set, marks the input as invalid via `setCustomValidity` and shows the invalid state styling.',
       table: { category: 'State' },
     },
-    multiple: {
-      control: 'boolean',
-      description:
-        'Toggles the native `multiple` attribute and the `rcx-input-box--multiple` state class.',
-      table: { category: 'State' },
-    },
     startAddon: {
       control: false,
       description:
