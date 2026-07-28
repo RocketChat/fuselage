@@ -20,11 +20,15 @@ BASE_URL="http://host.docker.internal:6006"
 
 # Check if update-snapshots flag is passed
 UPDATE_SNAPSHOTS=""
-if [[ "$*" == *"--update-snapshots"* ]]; then
-  UPDATE_SNAPSHOTS="--update-snapshots"
-fi
+case "$*" in
+  *--update-snapshots*) UPDATE_SNAPSHOTS="--update-snapshots" ;;
+esac
 
-DOCKER_PW_IMAGE="mcr.microsoft.com/playwright:v1.58.2-noble"
+# Read the Playwright version from this tool's package.json (resolved from the
+# monorepo root so it works regardless of the shell the script runs under).
+PLAYWRIGHT_VERSION="$(node -e "console.log(require('${MONOREPO_ROOT}/tools/visual-regression/package.json').dependencies['@playwright/test'].replace(/^[^0-9]*/, ''))")"
+
+DOCKER_PW_IMAGE="mcr.microsoft.com/playwright:v${PLAYWRIGHT_VERSION}-noble"
 
 echo "Running Playwright tests in Docker container for ${REL_PACKAGE_PATH} with env:"
 echo "PACKAGE_DIR: ${PACKAGE_DIR}"
@@ -45,6 +49,6 @@ docker run --rm \
   -v "${MONOREPO_ROOT}:/app" \
   -w "/app/${REL_PACKAGE_PATH}" \
   "${DOCKER_PW_IMAGE}" \
-  npx -y playwright@1.58.2 test --config="/app/tools/visual-regression/playwright.config.ts" ${UPDATE_SNAPSHOTS}
+  npx -y playwright@${PLAYWRIGHT_VERSION} test --config="/app/tools/visual-regression/playwright.config.ts" ${UPDATE_SNAPSHOTS}
 
 echo "Playwright tests completed!"
