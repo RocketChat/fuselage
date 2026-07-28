@@ -283,6 +283,8 @@ export type ButtonGroupProps = RefAttributes<HTMLDivElement> & {
 
 // @public (undocumented)
 export type ButtonProps = Omit<BoxProps, 'ref'> & {
+    variant?: 'primary' | 'secondary' | 'danger' | 'warning' | 'success' | 'secondary-danger' | 'secondary-warning' | 'secondary-success';
+    size?: 'mini' | 'tiny' | 'small' | 'medium' | 'large';
     primary?: boolean;
     secondary?: boolean;
     danger?: boolean;
