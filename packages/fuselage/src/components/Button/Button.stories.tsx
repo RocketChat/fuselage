@@ -55,34 +55,28 @@ LoadingInteraction.parameters = {
 export const Variants: StoryFn<typeof Button> = () => (
   <Margins all='x8'>
     <ButtonGroup>
-      <Button primary>Primary</Button>
-      <Button secondary>Secondary</Button>
+      <Button variant='primary'>Primary</Button>
+      <Button variant='secondary'>Secondary</Button>
     </ButtonGroup>
     <ButtonGroup>
-      <Button danger>Danger</Button>
-      <Button secondary danger>
-        Secondary Danger
-      </Button>
+      <Button variant='danger'>Danger</Button>
+      <Button variant='secondary-danger'>Secondary Danger</Button>
     </ButtonGroup>
     <ButtonGroup>
-      <Button warning>Warning</Button>
-      <Button secondary warning>
-        Secondary Warning
-      </Button>
+      <Button variant='warning'>Warning</Button>
+      <Button variant='secondary-warning'>Secondary Warning</Button>
     </ButtonGroup>
     <ButtonGroup>
-      <Button success>Success</Button>
-      <Button secondary success>
-        Secondary Success
-      </Button>
+      <Button variant='success'>Success</Button>
+      <Button variant='secondary-success'>Secondary Success</Button>
     </ButtonGroup>
   </Margins>
 );
 
 export const Sizes: StoryFn<typeof ButtonGroup> = () => (
   <ButtonGroup>
-    <Button small>Small</Button>
-    <Button medium>Medium</Button>
+    <Button size='small'>Small</Button>
+    <Button size='medium'>Medium</Button>
     <Button>Default</Button>
   </ButtonGroup>
 );
@@ -115,45 +109,42 @@ export const States = () => (
         },
         'primary': {
           children: 'Button',
-          primary: true,
+          variant: 'primary',
         },
         'secondary': {
           children: 'Button',
-          secondary: true,
+          variant: 'secondary',
         },
         'danger': {
           children: 'Button',
-          danger: true,
+          variant: 'danger',
         },
         'secondary-danger': {
           children: 'Button',
-          secondary: true,
-          danger: true,
+          variant: 'secondary-danger',
         },
         'warning': {
           children: 'Button',
-          warning: true,
+          variant: 'warning',
         },
         'secondary-warning': {
           children: 'Button',
-          secondary: true,
-          warning: true,
+          variant: 'secondary-warning',
         },
         'success': {
           children: 'Button',
-          success: true,
+          variant: 'success',
         },
         'secondary-success': {
           children: 'Button',
-          secondary: true,
-          success: true,
+          variant: 'secondary-success',
         },
       }}
     />
     <PropsVariationSection
       component={Button}
       common={{
-        small: true,
+        size: 'small',
         onClick: action('click'),
       }}
       xAxis={{
@@ -173,38 +164,35 @@ export const States = () => (
         },
         'primary': {
           children: 'Button',
-          primary: true,
+          variant: 'primary',
         },
         'secondary': {
           children: 'Button',
-          secondary: true,
+          variant: 'secondary',
         },
         'danger': {
           children: 'Button',
-          danger: true,
+          variant: 'danger',
         },
         'secondary-danger': {
           children: 'Button',
-          secondary: true,
-          danger: true,
+          variant: 'secondary-danger',
         },
         'warning': {
           children: 'Button',
-          warning: true,
+          variant: 'warning',
         },
         'secondary-warning': {
           children: 'Button',
-          secondary: true,
-          warning: true,
+          variant: 'secondary-warning',
         },
         'success': {
           children: 'Button',
-          success: true,
+          variant: 'success',
         },
         'secondary-success': {
           children: 'Button',
-          secondary: true,
-          success: true,
+          variant: 'secondary-success',
         },
       }}
     />
