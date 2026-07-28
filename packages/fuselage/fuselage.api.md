@@ -2286,6 +2286,9 @@ export const SidebarV2ButtonGroup: (input: ButtonGroupProps) => JSX.Element;
 export function SidebarV2CollapseGroup(input: SidebarCollapseGroupProps): JSX.Element;
 
 // @public (undocumented)
+export const SidebarV2CollapseGroupMenu: (input: HTMLAttributes<HTMLDivElement>) => JSX.Element;
+
+// @public (undocumented)
 export const SidebarV2Divider: () => JSX.Element;
 
 // @public (undocumented)
@@ -2303,6 +2306,7 @@ export type SidebarV2GroupTitleProps = {
     title?: string;
     titleId?: string;
     badge?: ReactNode;
+    menu?: ReactNode;
     barProps?: AriaAttributes;
 } & HTMLAttributes<HTMLDivElement>;
 
