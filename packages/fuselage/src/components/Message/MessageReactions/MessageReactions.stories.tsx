@@ -1,4 +1,4 @@
-import type { Meta } from '@storybook/react-webpack5';
+import type { Meta, StoryObj } from '@storybook/react-webpack5';
 
 import { BasicMessageTemplate } from '../helpers';
 
@@ -15,7 +15,17 @@ export default {
     MessageReaction,
     MessageReactionAction,
   },
+  argTypes: {
+    children: {
+      control: false,
+      description:
+        'Reaction pills content, composed from MessageReaction and MessageReactionAction subcomponents.',
+      table: { category: 'Content' },
+    },
+  },
 } satisfies Meta<typeof MessageReactions>;
+
+type Story = StoryObj<typeof MessageReactions>;
 
 const reactions = (
   <MessageReactions>
@@ -34,7 +44,6 @@ const reactions = (
   </MessageReactions>
 );
 
-export const Default = BasicMessageTemplate.bind({});
-Default.args = {
-  reactions,
+export const Default: Story = {
+  render: () => <BasicMessageTemplate reactions={reactions} />,
 };
