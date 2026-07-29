@@ -28,7 +28,7 @@ $sidebar-link-color: theme('sidebar-link-color', colors.font(titles-labels));
 
 $sidebar-banner-background-default: theme(
   'sidebar-banner-background-default',
-  colors.surface(sidebar)
+  colors.surface(tint)
 );
 $sidebar-banner-color-default: theme(
   'sidebar-banner-color-default',
