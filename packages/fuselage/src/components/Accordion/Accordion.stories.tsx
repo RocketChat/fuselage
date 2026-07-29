@@ -1,9 +1,9 @@
-import type { StoryFn, Meta } from '@storybook/react-webpack5';
+import type { Meta, StoryObj } from '@storybook/react-webpack5';
 
 import { Box } from '../Box';
 
 import Accordion from './Accordion';
-import AccordionItem from './AccordionItem';
+import AccordionItem, { type AccordionItemProps } from './AccordionItem';
 
 export default {
   title: 'Containers/Accordion',
@@ -11,32 +11,43 @@ export default {
   subcomponents: {
     AccordionItem,
   },
+  argTypes: {
+    children: {
+      control: false,
+      description: 'AccordionItem elements rendered as collapsible sections.',
+      table: { category: 'Content' },
+    },
+  },
 } satisfies Meta<typeof Accordion>;
 
-export const Default: StoryFn<typeof Accordion> = () => (
-  <Accordion>
-    <AccordionItem title='Item #1'>
-      <Box color='default' fontScale='p2' marginBlockEnd={16}>
-        Content #1
-      </Box>
-    </AccordionItem>
-    <AccordionItem title='Item #2'>
-      <Box color='default' fontScale='p2' marginBlockEnd={16}>
-        Content #2
-      </Box>
-    </AccordionItem>
-    <AccordionItem title='Item #3'>
-      <Box color='default' fontScale='p2' marginBlockEnd={16}>
-        Content #3
-      </Box>
-    </AccordionItem>
-  </Accordion>
-);
+type Story = StoryObj<typeof Accordion>;
 
-const ItemTemplate: StoryFn<typeof AccordionItem> = ({
+export const Default: Story = {
+  render: () => (
+    <Accordion>
+      <AccordionItem title='Item #1'>
+        <Box color='default' fontScale='p2' marginBlockEnd={16}>
+          Content #1
+        </Box>
+      </AccordionItem>
+      <AccordionItem title='Item #2'>
+        <Box color='default' fontScale='p2' marginBlockEnd={16}>
+          Content #2
+        </Box>
+      </AccordionItem>
+      <AccordionItem title='Item #3'>
+        <Box color='default' fontScale='p2' marginBlockEnd={16}>
+          Content #3
+        </Box>
+      </AccordionItem>
+    </Accordion>
+  ),
+};
+
+const ItemTemplate = ({
   title = 'Item #2',
   ...args
-}) => (
+}: Partial<AccordionItemProps>) => (
   <Accordion>
     <AccordionItem title='Item #1'>
       <Box color='default' fontScale='p2' marginBlockEnd={16}>
@@ -56,12 +67,10 @@ const ItemTemplate: StoryFn<typeof AccordionItem> = ({
   </Accordion>
 );
 
-export const ExpandedItemByDefault = ItemTemplate.bind({});
-ExpandedItemByDefault.args = {
-  defaultExpanded: true,
+export const ExpandedItemByDefault: Story = {
+  render: () => <ItemTemplate defaultExpanded />,
 };
 
-export const DisabledItem = ItemTemplate.bind({});
-DisabledItem.args = {
-  disabled: true,
+export const DisabledItem: Story = {
+  render: () => <ItemTemplate disabled />,
 };

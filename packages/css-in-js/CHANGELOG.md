@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.33.1
+
+### Patch Changes
+
+- [#2114](https://github.com/RocketChat/fuselage/pull/2114) [`9f17e22`](https://github.com/RocketChat/fuselage/commit/9f17e223eab2a6de551a2c1b453838e658797a8d) Thanks [@tassoevan](https://github.com/tassoevan)! - Bump `stylis` dependency from 4.3.6 to 4.4.0
+
 ## 0.33.0
 
 ### Minor Changes
