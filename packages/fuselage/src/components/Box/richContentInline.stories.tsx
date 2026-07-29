@@ -1,4 +1,4 @@
-import type { StoryFn, Meta } from '@storybook/react-webpack5';
+import type { Meta, StoryObj } from '@storybook/react-webpack5';
 
 import Box from './Box';
 
@@ -14,76 +14,100 @@ export default {
   },
 } satisfies Meta<typeof Box>;
 
-export const Strong: StoryFn<typeof Box> = () => (
-  <strong>strong importance</strong>
-);
-Strong.storyName = 'strong';
+type Story = StoryObj<typeof Box>;
 
-export const Em: StoryFn<typeof Box> = () => <em>emphasis</em>;
-Em.storyName = 'em';
+export const Strong: Story = {
+  name: 'strong',
+  render: () => <strong>strong importance</strong>,
+};
 
-export const B: StoryFn<typeof Box> = () => <b>bring attention</b>;
-B.storyName = 'b';
+export const Em: Story = {
+  name: 'em',
+  render: () => <em>emphasis</em>,
+};
 
-export const I: StoryFn<typeof Box> = () => (
-  <i>
-    technical terms, foreign language phrases, or fictional character thoughts
-  </i>
-);
-I.storyName = 'i';
+export const B: Story = {
+  name: 'b',
+  render: () => <b>bring attention</b>,
+};
 
-export const A: StoryFn<typeof Box> = () => (
-  <>
-    <div>
-      <a href='#any'>Normal</a>
-    </div>
-    <br />
-    <div>
-      <a href='#any' className='is-focused'>
-        Focused
-      </a>
-    </div>
-  </>
-);
-A.storyName = 'a';
+export const I: Story = {
+  name: 'i',
+  render: () => (
+    <i>
+      technical terms, foreign language phrases, or fictional character thoughts
+    </i>
+  ),
+};
 
-export const QAndCite: StoryFn<typeof Box> = () => (
-  <q>
-    The problem with quotes found on the internet is that they are often not
-    true. <cite>Abraham Lincoln</cite>
-  </q>
-);
-QAndCite.storyName = 'q and cite';
+export const A: Story = {
+  name: 'a',
+  render: () => (
+    <>
+      <div>
+        <a href='#any'>Normal</a>
+      </div>
+      <br />
+      <div>
+        <a href='#any' className='is-focused'>
+          Focused
+        </a>
+      </div>
+    </>
+  ),
+};
 
-export const Code: StoryFn<typeof Box> = () => <code>inline code</code>;
-Code.storyName = 'code';
+export const QAndCite: Story = {
+  name: 'q and cite',
+  render: () => (
+    <q>
+      The problem with quotes found on the internet is that they are often not
+      true. <cite>Abraham Lincoln</cite>
+    </q>
+  ),
+};
 
-export const Time: StoryFn<typeof Box> = () => (
-  <time dateTime='20220101 10:00'>January 1th 2022, 10 a.m.</time>
-);
-Time.storyName = 'time';
+export const Code: Story = {
+  name: 'code',
+  render: () => <code>inline code</code>,
+};
 
-export const Dfn: StoryFn<typeof Box> = () => (
-  <>
-    <dfn>Definition:</dfn> description.
-  </>
-);
-Dfn.storyName = 'dfn';
+export const Time: Story = {
+  name: 'time',
+  render: () => (
+    <time dateTime='20220101 10:00'>January 1th 2022, 10 a.m.</time>
+  ),
+};
 
-export const Abbr: StoryFn<typeof Box> = () => (
-  <abbr title='Source Development Kit'>SDK</abbr>
-);
-Abbr.storyName = 'abbr';
+export const Dfn: Story = {
+  name: 'dfn',
+  render: () => (
+    <>
+      <dfn>Definition:</dfn> description.
+    </>
+  ),
+};
 
-export const SupAndSub: StoryFn<typeof Box> = () => (
-  <>
-    <sup>superscript</sup> <sub>subscript</sub>
-  </>
-);
-SupAndSub.storyName = 'sup and sub';
+export const Abbr: Story = {
+  name: 'abbr',
+  render: () => <abbr title='Source Development Kit'>SDK</abbr>,
+};
 
-export const Kbd: StoryFn<typeof Box> = () => <kbd>Ctrl + Alt + Del</kbd>;
-Kbd.storyName = 'kbd';
+export const SupAndSub: Story = {
+  name: 'sup and sub',
+  render: () => (
+    <>
+      <sup>superscript</sup> <sub>subscript</sub>
+    </>
+  ),
+};
 
-export const Small: StoryFn<typeof Box> = () => <small>small text</small>;
-Small.storyName = 'small';
+export const Kbd: Story = {
+  name: 'kbd',
+  render: () => <kbd>Ctrl + Alt + Del</kbd>,
+};
+
+export const Small: Story = {
+  name: 'small',
+  render: () => <small>small text</small>,
+};
