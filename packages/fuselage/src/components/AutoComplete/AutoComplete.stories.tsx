@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-webpack5';
 import type { ReactNode } from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import { exampleAvatar, DECORATOR_LABEL } from '../../../.storybook/helpers';
 import { Avatar } from '../Avatar';
@@ -189,4 +189,44 @@ export const Disabled: Story = {
     disabled: true,
   },
   render: (args) => <AutoCompleteDemo {...args} />,
+};
+
+const allOptions = [
+  { value: 'alice', label: 'Alice Johnson' },
+  { value: 'bob', label: 'Bob Smith' },
+  { value: 'carol', label: 'Carol White' },
+  { value: 'david', label: 'David Brown' },
+  { value: 'eva', label: 'Eva Martinez' },
+];
+
+const AsyncTemplate: StoryFn<typeof AutoComplete<ReactNode>> = (args) => {
+  const [filter, setFilter] = useState('');
+  const [value, setValue] = useState<string | string[]>(args.value || []);
+  const [options, setOptions] = useState<typeof allOptions>([]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setOptions(allOptions);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  return (
+    <AutoComplete
+      {...args}
+      value={value}
+      filter={filter}
+      setFilter={setFilter}
+      options={options}
+      onChange={setValue}
+      aria-label={DECORATOR_LABEL}
+    />
+  );
+};
+
+export const AsyncLoading = AsyncTemplate.bind({});
+AsyncLoading.args = {
+  value: 'bob',
+  placeholder: 'Search users...',
 };

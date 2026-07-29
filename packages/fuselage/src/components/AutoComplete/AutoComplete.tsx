@@ -36,22 +36,20 @@ const getSelected = <TLabel,>(
   if (!value) {
     return [];
   }
-  return typeof value === 'string'
-    ? options.filter((option) => option.value === value)
-    : options?.filter((option) => value.includes(option.value));
+
+  const values = typeof value === 'string' ? [value] : value;
+
+  return values.map((v) => {
+    const option = options.find((option) => option.value === v);
+
+    return (
+      option ?? {
+        value: v,
+        label: v as TLabel,
+      }
+    );
+  });
 };
-
-const isSelectedValid =
-  <TLabel,>(value: string | string[] | undefined) =>
-  (selected: AutoCompleteOption<TLabel>) => {
-    if (!value) {
-      return false;
-    }
-
-    return typeof value === 'string'
-      ? selected.value === value
-      : value.includes(selected.value);
-  };
 
 export type AutoCompleteProps<TLabel = ReactNode> = Omit<
   AllHTMLAttributes<HTMLInputElement>,
@@ -112,13 +110,19 @@ function AutoComplete<TLabel = ReactNode>({
   );
 
   useEffect(() => {
-    // Validates if selected items are still valid after value changes
-    setSelected((selected) => {
-      return !selected.every(isSelectedValid(value))
-        ? selected.filter(isSelectedValid(value))
-        : selected;
+    // Preserves the selected items after options change and don't contain selected items anymore
+    setSelected((currentSelected) => {
+      const mergedOptions = new Map(
+        currentSelected.map((option) => [option.value, option]),
+      );
+
+      options.forEach((option) => {
+        mergedOptions.set(option.value, option);
+      });
+
+      return getSelected(value, [...mergedOptions.values()]);
     });
-  }, [value]);
+  }, [value, options]);
 
   const handleSelect = useStableCallback(
     ([newValue]: OptionType<string, TLabel>) => {

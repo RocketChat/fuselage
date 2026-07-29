@@ -124,4 +124,35 @@ describe('[Autocomplete functionality]', () => {
       screen.queryByRole('button', { name: 'test1' }),
     ).not.toBeInTheDocument();
   });
+
+  it('should show pre-selected value even if options is empty', async () => {
+    render(
+      <AutoComplete
+        value='test1'
+        filter=''
+        setFilter={() => {}}
+        options={[]}
+        onChange={() => {}}
+      />,
+    );
+
+    expect(screen.getByRole('button', { name: 'test1' })).toBeInTheDocument();
+  });
+
+  it('should show pre-selected value even if options does not contain this value', async () => {
+    render(
+      <AutoComplete
+        value='test1'
+        filter=''
+        setFilter={() => {}}
+        options={[
+          { value: 'test2', label: 'test2' },
+          { value: 'test3', label: 'test3' },
+        ]}
+        onChange={() => {}}
+      />,
+    );
+
+    expect(screen.getByRole('button', { name: 'test1' })).toBeInTheDocument();
+  });
 });
