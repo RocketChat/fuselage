@@ -51,10 +51,10 @@
     "typescript-eslint": "~8.64.0",
     "update-readme": "workspace:~"
   },
-  "packageManager": "yarn@4.12.0",
+  "packageManager": "yarn@4.18.0",
   "volta": {
     "node": "22.22.3",
-    "yarn": "4.12.0"
+    "yarn": "4.18.0"
   },
   "resolutions": {
     "@types/mdx@npm:^2.0.0": "patch:@types/mdx@npm%3A2.0.13#~/.yarn/patches/@types-mdx-npm-2.0.13-52981f86f6.patch",
