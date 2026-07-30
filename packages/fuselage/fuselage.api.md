@@ -130,7 +130,7 @@ export type AudioPlayerProps = RefAttributes<HTMLAudioElement> & {
     trackProps?: TrackHTMLAttributes<HTMLTrackElement>;
 };
 
-// @public
+// @public @deprecated
 export function AutoComplete<TLabel = ReactNode>(input: AutoCompleteProps<TLabel>): JSX.Element;
 
 // @public (undocumented)
@@ -139,7 +139,7 @@ export type AutoCompleteOption<TLabel> = {
     label: TLabel;
 };
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export type AutoCompleteProps<TLabel = ReactNode> = Omit<AllHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'is'> & {
     filter: string;
     setFilter?: (filter: string) => void;
