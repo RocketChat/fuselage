@@ -41,7 +41,7 @@ import { TextAreaInputProps } from '@rocket.chat/fuselage';
 import { TextInputProps } from '@rocket.chat/fuselage';
 import { UrlInputProps } from '@rocket.chat/fuselage';
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export const AutoComplete: typeof AutoComplete_2;
 
 // @public (undocumented)
