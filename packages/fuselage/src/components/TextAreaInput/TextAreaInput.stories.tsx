@@ -24,11 +24,6 @@ export default {
       description: 'Placeholder text shown when the textarea is empty.',
       table: { category: 'Content' },
     },
-    multiple: {
-      control: 'boolean',
-      description: 'Allows multiple values to be entered.',
-      table: { category: 'Content' },
-    },
     small: {
       control: 'boolean',
       description: 'Renders the textarea at a smaller size scale.',
