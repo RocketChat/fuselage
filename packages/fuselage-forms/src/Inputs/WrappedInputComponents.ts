@@ -38,6 +38,10 @@ export const UrlInput = withLabelId(UrlInputComponent);
 export const Select = withAriaLabelledBy(SelectComponent);
 
 // with aria-labelledby + id for aria-controls
+/**
+ * @deprecated Use `MultiSelectFiltered` instead, or `SelectFiltered` from
+ * `@rocket.chat/fuselage` for single selection.
+ */
 export const AutoComplete = withAriaLabelledByAndId(
   AutoCompleteComponent<any>,
 ) as typeof AutoCompleteComponent;
