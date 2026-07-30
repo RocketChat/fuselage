@@ -1,4 +1,4 @@
-import type { Meta } from '@storybook/react-webpack5';
+import type { Meta, StoryObj } from '@storybook/react-webpack5';
 import { action } from 'storybook/actions';
 
 import { Avatar } from '../../Avatar';
@@ -31,7 +31,17 @@ export default {
     MessageMetricsItemAvatarRowContent,
     MessageMetricsItemAvatarRow,
   },
+  argTypes: {
+    children: {
+      control: false,
+      description:
+        'Metrics row content, composed from MessageMetrics subcomponents (reply, item, following).',
+      table: { category: 'Content' },
+    },
+  },
 } satisfies Meta<typeof MessageMetrics>;
+
+type Story = StoryObj<typeof MessageMetrics>;
 
 const metrics = (
   <MessageMetrics>
@@ -86,12 +96,10 @@ const metricsThread = (
   </MessageMetrics>
 );
 
-export const Default = BasicMessageTemplate.bind({});
-export const ThreadMetrics = BasicMessageTemplate.bind({});
-
-Default.args = {
-  metrics,
+export const Default: Story = {
+  render: () => <BasicMessageTemplate metrics={metrics} />,
 };
-ThreadMetrics.args = {
-  metrics: metricsThread,
+
+export const ThreadMetrics: Story = {
+  render: () => <BasicMessageTemplate metrics={metricsThread} />,
 };

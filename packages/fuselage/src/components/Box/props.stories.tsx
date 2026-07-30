@@ -1,4 +1,4 @@
-import type { StoryFn, Meta } from '@storybook/react-webpack5';
+import type { Meta, StoryObj } from '@storybook/react-webpack5';
 
 import { Button } from '../Button';
 
@@ -9,25 +9,28 @@ export default {
   component: Box,
 } satisfies Meta<typeof Box>;
 
-const Template: StoryFn<typeof Box> = (args) => <Box {...args} />;
+type Story = StoryObj<typeof Box>;
 
-export const IsButton = Template.bind({});
-IsButton.args = {
-  is: Button,
-  children: 'A Box rendering a Button',
+export const IsButton: Story = {
+  name: 'is Button',
+  args: {
+    is: Button,
+    children: 'A Box rendering a Button',
+  },
 };
-IsButton.storyName = 'is Button';
 
-export const IsSpan = Template.bind({});
-IsSpan.args = {
-  is: 'span',
-  children: 'A Box rendering a span',
+export const IsSpan: Story = {
+  name: 'is span',
+  args: {
+    is: 'span',
+    children: 'A Box rendering a span',
+  },
 };
-IsSpan.storyName = 'is span';
 
-export const IsH4 = Template.bind({});
-IsH4.args = {
-  is: 'h4',
-  children: 'A Box rendering a h4',
+export const IsH4: Story = {
+  name: 'is h4',
+  args: {
+    is: 'h4',
+    children: 'A Box rendering a h4',
+  },
 };
-IsH4.storyName = 'is h4';

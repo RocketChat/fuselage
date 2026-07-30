@@ -108,6 +108,25 @@ $sidebar-color-stroke-extra-light: theme(
       @include use-font-scale(c2);
     }
 
+    &__menu-wrapper {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+
+      width: 0;
+      height: lengths.size(20);
+
+      opacity: 0;
+    }
+
+    &__bar:hover &__menu-wrapper,
+    &__bar:focus-within &__menu-wrapper,
+    &__bar:has(&__menu-wrapper [aria-expanded='true']) &__menu-wrapper {
+      width: lengths.size(20);
+
+      opacity: 1;
+    }
+
     &__panel {
       visibility: hidden;
       overflow: hidden;
@@ -129,8 +148,32 @@ $sidebar-color-stroke-extra-light: theme(
     }
   }
 
-  &-collapse-group__panel--expanded {
-    padding-block: lengths.padding(none);
+  &-collapse-group {
+    &__bar-button {
+      display: flex;
+      align-items: center;
+
+      flex: 1 1 0;
+
+      min-width: 0;
+
+      text-align: start;
+
+      column-gap: lengths.padding(4);
+
+      &[tabindex] {
+        @include clickable;
+        @include focus-state($shadow: false);
+      }
+    }
+
+    &__bar:has(&__bar-button:hover) {
+      background-color: colors.surface(tint);
+    }
+
+    &__panel--expanded {
+      padding-block: lengths.padding(none);
+    }
   }
 
   &-accordion-item {

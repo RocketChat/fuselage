@@ -1,4 +1,4 @@
-import type { Meta, StoryFn } from '@storybook/react-webpack5';
+import type { Meta, StoryObj } from '@storybook/react-webpack5';
 import { action } from 'storybook/actions';
 
 import Bubble from './Bubble';
@@ -6,69 +6,124 @@ import Bubble from './Bubble';
 export default {
   title: 'Data Display/Bubble',
   component: Bubble,
+  argTypes: {
+    children: {
+      control: 'text',
+      description: 'Content of the bubble.',
+      table: { category: 'Content' },
+    },
+    icon: {
+      control: 'text',
+      description: 'Name of the Fuselage icon rendered before the label.',
+      table: { category: 'Content' },
+    },
+    secondary: {
+      control: 'boolean',
+      description: 'Muted, lower-emphasis visual style.',
+      table: { category: 'Kind' },
+    },
+    small: {
+      control: 'boolean',
+      description: 'Small size scale.',
+      table: { category: 'Size' },
+    },
+    onClick: {
+      control: false,
+      description:
+        'Called when the label is activated. When set, the label renders as a button.',
+      table: { category: 'Events' },
+    },
+    onDismiss: {
+      control: false,
+      description:
+        'Called when the dismiss button is activated. When set, a dismiss button is rendered.',
+      table: { category: 'Events' },
+    },
+    contentProps: {
+      control: false,
+      description:
+        'Extra button attributes forwarded to the clickable label element.',
+      table: { category: 'Content' },
+    },
+    dismissProps: {
+      control: false,
+      description:
+        'Extra button attributes forwarded to the dismiss button element.',
+      table: { category: 'Content' },
+    },
+  },
 } satisfies Meta<typeof Bubble>;
 
-const Template: StoryFn<typeof Bubble> = (args) => <Bubble {...args} />;
+type Story = StoryObj<typeof Bubble>;
 
-export const IconAndLabel = Template.bind({});
-IconAndLabel.args = {
-  children: 'New messages',
-  onClick: action('click'),
-  icon: 'arrow-down',
+export const IconAndLabel: Story = {
+  args: {
+    children: 'New messages',
+    onClick: action('click'),
+    icon: 'arrow-down',
+  },
 };
 
-export const Dismissable = Template.bind({});
-Dismissable.args = {
-  children: 'New messages',
-  icon: 'arrow-down',
-  onClick: action('click'),
-  onDismiss: action('dismiss'),
+export const Dismissable: Story = {
+  args: {
+    children: 'New messages',
+    icon: 'arrow-down',
+    onClick: action('click'),
+    onDismiss: action('dismiss'),
+  },
 };
 
-export const LabelOnly = Template.bind({});
-LabelOnly.args = {
-  children: 'See new messages',
-  onClick: action('click'),
+export const LabelOnly: Story = {
+  args: {
+    children: 'See new messages',
+    onClick: action('click'),
+  },
 };
 
-export const Secondary = Template.bind({});
-Secondary.args = {
-  children: 'See new messages',
-  secondary: true,
-  onClick: action('click'),
+export const Secondary: Story = {
+  args: {
+    children: 'See new messages',
+    secondary: true,
+    onClick: action('click'),
+  },
 };
 
-export const SecondaryDismissable = Template.bind({});
-SecondaryDismissable.args = {
-  children: 'New messages',
-  secondary: true,
-  onDismiss: action('dismiss'),
-};
-SecondaryDismissable.parameters = {
-  docs: {
-    description: {
-      story: 'Example with only a dismiss action - the label is not clickable.',
+export const SecondaryDismissable: Story = {
+  args: {
+    children: 'New messages',
+    secondary: true,
+    onDismiss: action('dismiss'),
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Example with only a dismiss action - the label is not clickable.',
+      },
     },
   },
 };
 
-export const WithoutAction = Template.bind({});
-WithoutAction.args = {
-  children: '22 Nov 2023',
-  secondary: true,
+export const WithoutAction: Story = {
+  args: {
+    children: '22 Nov 2023',
+    secondary: true,
+  },
 };
 
-export const WithLargeText = Template.bind({});
-WithLargeText.args = {
-  children:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vestibulum libero viverra nulla varius, a consequat ante malesuada. Fusce bibendum, lacus sed fermentum sagittis, urna erat viverra lacus, eu pellentesque neque est nec nisl. Morbi in lobortis dui, ac consectetur mi.',
-  secondary: true,
-  onClick: action('click'),
+export const WithLargeText: Story = {
+  args: {
+    children:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vestibulum libero viverra nulla varius, a consequat ante malesuada. Fusce bibendum, lacus sed fermentum sagittis, urna erat viverra lacus, eu pellentesque neque est nec nisl. Morbi in lobortis dui, ac consectetur mi.',
+    secondary: true,
+    onClick: action('click'),
+  },
 };
 
-export const Small = Template.bind({});
-Small.args = {
-  children: '22 Nov 2023',
-  secondary: true,
-  small: true,
+export const Small: Story = {
+  args: {
+    children: '22 Nov 2023',
+    secondary: true,
+    small: true,
+  },
 };
