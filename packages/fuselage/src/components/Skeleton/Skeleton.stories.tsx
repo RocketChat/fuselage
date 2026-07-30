@@ -1,31 +1,41 @@
-import type { StoryFn, Meta } from '@storybook/react-webpack5';
+import type { Meta, StoryObj } from '@storybook/react-webpack5';
 
 import Skeleton from './Skeleton';
 
 export default {
   title: 'Layout/Skeleton',
   component: Skeleton,
+  argTypes: {
+    variant: {
+      control: 'select',
+      options: ['text', 'rect', 'circle'],
+      description: 'Shape of the skeleton placeholder.',
+    },
+  },
 } satisfies Meta<typeof Skeleton>;
 
-const Template: StoryFn<typeof Skeleton> = (args) => <Skeleton {...args} />;
+type Story = StoryObj<typeof Skeleton>;
 
-export const Default: StoryFn<typeof Skeleton> = Template.bind({});
+export const Default: Story = {};
 
-export const RectVariant: StoryFn<typeof Skeleton> = Template.bind({});
-RectVariant.args = {
-  variant: 'rect',
-  width: '50%',
-  height: 100,
+export const RectVariant: Story = {
+  args: {
+    variant: 'rect',
+    width: '50%',
+    height: 100,
+  },
 };
 
-export const CircleVariant: StoryFn<typeof Skeleton> = Template.bind({});
-CircleVariant.args = {
-  variant: 'circle',
-  width: 16,
-  height: 16,
+export const CircleVariant: Story = {
+  args: {
+    variant: 'circle',
+    width: 16,
+    height: 16,
+  },
 };
 
-export const TextVariant: StoryFn<typeof Skeleton> = Template.bind({});
-TextVariant.args = {
-  variant: 'text',
+export const TextVariant: Story = {
+  args: {
+    variant: 'text',
+  },
 };
