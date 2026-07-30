@@ -1,8 +1,10 @@
+import { composeStories } from '@storybook/react-webpack5';
+
 import { render } from '../../testing';
 
 import * as stories from './Tooltip.stories';
 
-const { Default, LightTooltip } = stories;
+const { Default, LightTooltip } = composeStories(stories);
 
 describe('[Tooltip Component]', () => {
   it('renders without crashing', () => {

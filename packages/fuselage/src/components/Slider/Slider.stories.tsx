@@ -1,4 +1,4 @@
-import type { Meta, StoryFn } from '@storybook/react-webpack5';
+import type { Meta, StoryObj } from '@storybook/react-webpack5';
 import { useState } from 'react';
 import { screen, userEvent } from 'storybook/test';
 
@@ -9,105 +9,188 @@ import Slider from './Slider';
 export default {
   title: 'Inputs/Slider',
   component: Slider,
+  argTypes: {
+    label: {
+      control: 'text',
+      description: 'Text label associated with the slider.',
+    },
+    formatOptions: {
+      control: false,
+      description: 'Intl.NumberFormat options used to format the output value.',
+    },
+    id: {
+      control: 'text',
+      description:
+        'Id of the slider input element, used to connect with an external label.',
+    },
+    showOutput: {
+      control: 'boolean',
+      description: 'Shows the current value next to the label.',
+      table: { defaultValue: { summary: 'true' } },
+    },
+    multiThumb: {
+      control: 'boolean',
+      description: 'Renders two thumbs to select a range of values.',
+      table: { defaultValue: { summary: 'false' } },
+    },
+    step: {
+      control: 'number',
+      description: 'Increment step between selectable values.',
+    },
+    minValue: {
+      control: 'number',
+      description: 'Minimum selectable value.',
+      table: { defaultValue: { summary: '0' } },
+    },
+    maxValue: {
+      control: 'number',
+      description: 'Maximum selectable value.',
+      table: { defaultValue: { summary: '100' } },
+    },
+    orientation: {
+      control: 'select',
+      options: ['horizontal', 'vertical'],
+      description: 'Layout direction of the slider.',
+    },
+    disabled: {
+      control: 'boolean',
+      description: 'Disables the slider and blocks pointer interaction.',
+    },
+    defaultValue: {
+      control: false,
+      description:
+        'Initial, uncontrolled value (or [min, max] for multiThumb).',
+    },
+    value: {
+      control: false,
+      description: 'Controlled current value (or [min, max] for multiThumb).',
+    },
+    onChange: {
+      control: false,
+      description: 'Called when the value changes.',
+    },
+  },
 } satisfies Meta<typeof Slider>;
 
-const Template: StoryFn<typeof Slider> = (args) => (
+type Story = StoryObj<typeof Slider>;
+
+const render: Story['render'] = (args) => (
   <Box width='x300' display='flex' alignItems='center'>
     <Slider {...args} />
   </Box>
 );
-const TemplateVertical: StoryFn<typeof Slider> = (args) => (
+const renderVertical: Story['render'] = (args) => (
   <Box height='x200' display='flex' alignItems='center'>
     <Slider {...args} />
   </Box>
 );
 
-export const SliderPlayExample: StoryFn<typeof Slider> = Template.bind({});
-SliderPlayExample.args = {
-  'aria-label': 'aria-range-label',
-  'maxValue': 50,
-} as const;
-SliderPlayExample.play = async () => {
-  const slider = screen.getByRole<HTMLFormElement>('slider');
-  userEvent.tab();
-  await userEvent.type(slider, '{arrowright}'.repeat(50), {
-    skipClick: true,
-    delay: 1000,
-  });
+export const SliderPlayExample: Story = {
+  render,
+  args: {
+    'aria-label': 'aria-range-label',
+    'maxValue': 50,
+  },
+  play: async () => {
+    const slider = screen.getByRole<HTMLFormElement>('slider');
+    userEvent.tab();
+    await userEvent.type(slider, '{arrowright}'.repeat(50), {
+      skipClick: true,
+      delay: 1000,
+    });
+  },
 };
 
-export const Disabled = Template.bind({});
-Disabled.args = {
-  disabled: true,
+export const Disabled: Story = {
+  render,
+  args: {
+    disabled: true,
+  },
 };
 
-export const Default: StoryFn<typeof Slider> = Template.bind({});
-Default.args = {
-  'aria-label': 'aria-range-label',
-  'maxValue': 500,
-} as const;
+export const Default: Story = {
+  render,
+  args: {
+    'aria-label': 'aria-range-label',
+    'maxValue': 500,
+  },
+};
 
-export const NoOutput: StoryFn<typeof Slider> = Template.bind({});
-NoOutput.args = {
-  'showOutput': false,
-  'aria-label': 'range',
-} as const;
+export const NoOutput: Story = {
+  render,
+  args: {
+    'showOutput': false,
+    'aria-label': 'range',
+  },
+};
 
-export const WithLabel: StoryFn<typeof Slider> = Template.bind({});
-WithLabel.args = {
-  'label': 'Range',
-  'aria-label': 'range',
-} as const;
+export const WithLabel: Story = {
+  render,
+  args: {
+    'label': 'Range',
+    'aria-label': 'range',
+  },
+};
 
-export const Vertical: StoryFn<typeof Slider> = TemplateVertical.bind({});
-Vertical.args = {
-  'label': 'Range',
-  'aria-label': 'range',
-  'orientation': 'vertical',
-} as const;
+export const Vertical: Story = {
+  render: renderVertical,
+  args: {
+    'label': 'Range',
+    'aria-label': 'range',
+    'orientation': 'vertical',
+  },
+};
 
-export const VerticalMultiThumb: StoryFn<typeof Slider> = TemplateVertical.bind(
-  {},
-);
-VerticalMultiThumb.args = {
-  'label': 'Range',
-  'aria-label': 'range',
-  'orientation': 'vertical',
-  'multiThumb': true,
-} as const;
+export const VerticalMultiThumb: Story = {
+  render: renderVertical,
+  args: {
+    'label': 'Range',
+    'aria-label': 'range',
+    'orientation': 'vertical',
+    'multiThumb': true,
+  },
+};
 
-export const WithDefaultValue: StoryFn<typeof Slider> = Template.bind({});
-WithDefaultValue.args = {
-  'defaultValue': 25,
-  'aria-label': 'range',
-} as const;
+export const WithDefaultValue: Story = {
+  render,
+  args: {
+    'defaultValue': 25,
+    'aria-label': 'range',
+  },
+};
 
-export const MultiThumb: StoryFn<typeof Slider> = Template.bind({});
-MultiThumb.args = {
-  'aria-label': 'range',
-  'multiThumb': true,
-  'maxValue': 500,
-  'step': 10,
-} as const;
+export const MultiThumb: Story = {
+  render,
+  args: {
+    'aria-label': 'range',
+    'multiThumb': true,
+    'maxValue': 500,
+    'step': 10,
+  },
+};
 
-export const ControlledValue: StoryFn<typeof Slider> = () => {
-  const [value, setValue] = useState<number>(20);
-  return (
+export const ControlledValue: Story = {
+  render: () => {
+    const [value, setValue] = useState<number>(20);
+    return (
+      <Box width='500px' height='80px' display='flex' alignItems='center'>
+        <Slider label='Range' value={value} onChange={setValue} />
+      </Box>
+    );
+  },
+};
+
+export const NumberFormatOptions: Story = {
+  render: () => (
     <Box width='500px' height='80px' display='flex' alignItems='center'>
-      <Slider label='Range' value={value} onChange={setValue} />
+      <Slider
+        multiThumb
+        label='Price range'
+        defaultValue={[100, 350]}
+        maxValue={500}
+        step={10}
+        formatOptions={{ style: 'currency', currency: 'USD' }}
+      />
     </Box>
-  );
+  ),
 };
-
-export const NumberFormatOptions: StoryFn<typeof Slider> = () => (
-  <Box width='500px' height='80px' display='flex' alignItems='center'>
-    <Slider
-      multiThumb
-      label='Price range'
-      defaultValue={[100, 350]}
-      maxValue={500}
-      step={10}
-      formatOptions={{ style: 'currency', currency: 'USD' }}
-    />
-  </Box>
-);
