@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "@microsoft/api-extractor": "~7.58.12",
-    "eslint": "~10.7.0",
+    "eslint": "~10.8.0",
     "lint-all": "workspace:~",
     "prettier": "~3.6.2",
     "rimraf": "~6.1.3",
