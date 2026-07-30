@@ -3,6 +3,9 @@ import { memo } from 'react';
 import { Box, type BoxProps } from '../Box';
 import { Margins } from '../Margins';
 
+/**
+ * @deprecated Use `ContextualbarV2HeaderProps` instead.
+ */
 export type ContextualbarHeaderProps = BoxProps;
 
 const ContextualbarHeader = ({
@@ -32,4 +35,7 @@ const ContextualbarHeader = ({
     </Box>
   </Box>
 );
+/**
+ * @deprecated Use `ContextualbarV2Header` instead.
+ */
 export default memo(ContextualbarHeader);

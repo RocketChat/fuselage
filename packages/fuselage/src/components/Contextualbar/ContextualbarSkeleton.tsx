@@ -6,6 +6,9 @@ import { Skeleton } from '../Skeleton';
 import Contextualbar from './Contextualbar';
 import ContextualbarHeader from './ContextualbarHeader';
 
+/**
+ * @deprecated Use `ContextualbarV2SkeletonProps` instead.
+ */
 export type ContextualbarSkeletonProps = BoxProps;
 
 const ContextualbarSkeleton = (props: ContextualbarSkeletonProps) => (
@@ -24,4 +27,7 @@ const ContextualbarSkeleton = (props: ContextualbarSkeletonProps) => (
   </Contextualbar>
 );
 
+/**
+ * @deprecated Use `ContextualbarV2Skeleton` instead.
+ */
 export default memo(ContextualbarSkeleton);
