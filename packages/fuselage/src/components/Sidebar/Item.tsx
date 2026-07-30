@@ -7,10 +7,16 @@ import { Icon as FuselageIcon } from '../Icon';
 import type { SidebarActionProps } from './SidebarActions';
 import { SidebarAction, SidebarActions } from './SidebarActions';
 
+/**
+ * @deprecated Use the `SidebarV2` component family instead.
+ */
 export type SidebarItemContainerProps = {
   children?: ReactNode;
 } & AllHTMLAttributes<HTMLElement>;
 
+/**
+ * @deprecated Use the `SidebarV2` component family instead.
+ */
 export const SidebarItemContainer = (props: SidebarItemContainerProps) => (
   <div
     className='rc-box rcx-box--full rcx-sidebar-item__container'
@@ -18,10 +24,16 @@ export const SidebarItemContainer = (props: SidebarItemContainerProps) => (
   />
 );
 
+/**
+ * @deprecated Use `SidebarV2ItemMenu` instead.
+ */
 export type SidebarItemMenuProps = {
   children?: ReactNode;
 } & AllHTMLAttributes<HTMLElement>;
 
+/**
+ * @deprecated Use `SidebarV2ItemMenu` instead.
+ */
 export const SidebarItemMenu = (props: SidebarItemMenuProps) => (
   <div
     className='rc-box rcx-box--full rcx-box--animated rcx-sidebar-item__menu-wrapper'
@@ -29,11 +41,17 @@ export const SidebarItemMenu = (props: SidebarItemMenuProps) => (
   />
 );
 
+/**
+ * @deprecated Use `SidebarV2ItemContent` instead.
+ */
 export type SidebarItemContentProps = {
   children?: ReactNode;
   className?: string;
 } & AllHTMLAttributes<HTMLElement>;
 
+/**
+ * @deprecated Use `SidebarV2ItemContent` instead.
+ */
 export const SidebarItemContent = ({
   className = '',
   ...props
@@ -44,11 +62,17 @@ export const SidebarItemContent = ({
   />
 );
 
+/**
+ * @deprecated Use `SidebarV2ItemTitle` instead.
+ */
 export type SidebarItemTitleProps = {
   children?: ReactNode;
   className?: string;
 } & AllHTMLAttributes<HTMLElement>;
 
+/**
+ * @deprecated Use `SidebarV2ItemTitle` instead.
+ */
 export const SidebarItemTitle = ({
   className = '',
   ...props
@@ -59,11 +83,17 @@ export const SidebarItemTitle = ({
   />
 );
 
+/**
+ * @deprecated Use `SidebarV2ItemTimestamp` instead.
+ */
 export type SidebarItemTimeProps = {
   children?: ReactNode;
   className?: string;
 } & AllHTMLAttributes<HTMLElement>;
 
+/**
+ * @deprecated Use `SidebarV2ItemTimestamp` instead.
+ */
 export const SidebarItemTime = ({
   className,
   ...props
@@ -74,11 +104,17 @@ export const SidebarItemTime = ({
   />
 );
 
+/**
+ * @deprecated Use `SidebarV2ItemBadge` instead.
+ */
 export type SidebarItemBadgeProps = {
   children?: ReactNode;
   className?: string;
 } & AllHTMLAttributes<HTMLElement>;
 
+/**
+ * @deprecated Use `SidebarV2ItemBadge` instead.
+ */
 export const SidebarItemBadge = ({
   className,
   ...props
@@ -89,11 +125,17 @@ export const SidebarItemBadge = ({
   />
 );
 
+/**
+ * @deprecated Use the `SidebarV2` component family instead.
+ */
 export type SidebarItemSubtitleProps = {
   children?: ReactNode;
   className?: string;
 } & AllHTMLAttributes<HTMLElement>;
 
+/**
+ * @deprecated Use the `SidebarV2` component family instead.
+ */
 export const SidebarItemSubtitle = ({
   className,
   ...props
@@ -104,11 +146,17 @@ export const SidebarItemSubtitle = ({
   />
 );
 
+/**
+ * @deprecated Use the `SidebarV2` component family instead.
+ */
 export type SidebarItemWrapperProps = {
   children?: ReactNode;
   className?: string;
 } & AllHTMLAttributes<HTMLElement>;
 
+/**
+ * @deprecated Use the `SidebarV2` component family instead.
+ */
 export const SidebarItemWrapper = ({
   className = '',
   ...props
@@ -119,6 +167,9 @@ export const SidebarItemWrapper = ({
   />
 );
 
+/**
+ * @deprecated Use `SidebarV2ItemIconProps` instead.
+ */
 export type SidebarItemIconProps = {
   children?: ReactNode;
   className?: string;
@@ -126,6 +177,9 @@ export type SidebarItemIconProps = {
   icon: IconProps['name'];
 } & Omit<AllHTMLAttributes<HTMLElement>, 'name' | 'is'>;
 
+/**
+ * @deprecated Use `SidebarV2ItemIcon` instead.
+ */
 export const SidebarItemIcon = ({
   highlighted,
   children,
@@ -146,24 +200,42 @@ export const SidebarItemIcon = ({
   </div>
 );
 
+/**
+ * @deprecated Use `SidebarV2ItemAvatarWrapper` instead.
+ */
 export type SidebarItemAvatarProps = {
   children?: ReactNode;
 } & AllHTMLAttributes<HTMLElement>;
 
+/**
+ * @deprecated Use `SidebarV2ItemAvatarWrapper` instead.
+ */
 export const SidebarItemAvatar = ({ ...props }: SidebarItemAvatarProps) => (
   <SidebarItemContainer>
     <div className='rc-box rcx-box--full rcx-sidebar-item__avatar' {...props} />
   </SidebarItemContainer>
 );
 
+/**
+ * @deprecated Use `SidebarV2ItemMenu` instead.
+ */
 export const SidebarItemActions = SidebarActions;
 
+/**
+ * @deprecated Use `SidebarV2ItemAction` instead.
+ */
 export type SidebarItemActionProps = SidebarActionProps;
 
+/**
+ * @deprecated Use `SidebarV2ItemAction` instead.
+ */
 export const SidebarItemAction = (props: SidebarItemActionProps) => (
   <SidebarAction {...props} />
 );
 
+/**
+ * @deprecated Use `SidebarV2ItemProps` instead.
+ */
 export type SidebarItemProps = {
   selected?: boolean;
   highlighted?: boolean;
@@ -175,6 +247,8 @@ export type SidebarItemProps = {
 
 /**
  * Item component to be used inside Sidebar.
+ *
+ * @deprecated Use `SidebarV2Item` instead.
  */
 export const SidebarItem = ({
   selected,
