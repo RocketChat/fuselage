@@ -2918,81 +2918,81 @@ export type TooltipProps = Omit<BoxProps, 'ref'> & RefAttributes<HTMLElement> & 
     placement?: 'top-start' | 'top-middle' | 'top-end' | 'bottom-start' | 'bottom-middle' | 'bottom-end' | 'top' | 'left' | 'bottom' | 'right' | null;
 };
 
-// @public
+// @public @deprecated
 const TopBar: (input: TopBarProps) => JSX.Element;
 export { TopBar as SidebarTopBar }
 export { TopBar }
 
 // Warning: (ae-forgotten-export) The symbol "TopBarActionProps" needs to be exported by the entry point index.d.ts
 //
-// @public (undocumented)
+// @public @deprecated (undocumented)
 function TopBarAction(props: TopBarActionProps): JSX.Element;
 export { TopBarAction as SidebarTopBarAction }
 export { TopBarAction }
 
 // Warning: (ae-forgotten-export) The symbol "TopBarActionsProps" needs to be exported by the entry point index.d.ts
 //
-// @public (undocumented)
+// @public @deprecated (undocumented)
 function TopBarActions(props: TopBarActionsProps): JSX.Element;
 export { TopBarActions as SidebarTopBarActions }
 export { TopBarActions }
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 const TopBarAvatar: {
     size: "x24";
 };
 export { TopBarAvatar as SidebarTopBarAvatar }
 export { TopBarAvatar }
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export type TopBarProps = {
     children?: ReactNode;
     className?: string;
 };
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export const TopBarSection: (input: TopBarSectionProps) => JSX.Element;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export type TopBarSectionProps = {
     children?: ReactNode;
     className?: string;
 };
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 const TopBarTitle: (props: TopBarTitleProps) => JSX.Element;
 export { TopBarTitle as SidebarTopBarTitle }
 export { TopBarTitle }
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export type TopBarTitleProps = {
     children?: ReactNode;
 };
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 const TopBarToolBox: (input: TopBarToolBoxProps) => JSX.Element;
 export { TopBarToolBox as SidebarTopBarToolBox }
 export { TopBarToolBox }
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export type TopBarToolBoxProps = {
     children?: ReactNode;
     className?: string;
 };
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export const TopBarV2: (input: TopBarV2Props) => JSX.Element;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export type TopBarV2Props = {
     children?: ReactNode;
     className?: string;
 };
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export const TopBarWrapper: (input: TopBarWrapperProps) => JSX.Element;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export type TopBarWrapperProps = {
     children?: ReactNode;
 };
