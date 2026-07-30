@@ -1,21 +1,21 @@
-import type { RefAttributes } from 'react';
 import { memo } from 'react';
 
-import type { StatesIconProps } from '..';
-import { StatesIcon, States, StatesTitle, StatesSubtitle } from '..';
-import type { BoxProps } from '../Box';
+import {
+  StatesIcon,
+  States,
+  StatesTitle,
+  StatesSubtitle,
+  type StatesIconProps,
+} from '../States';
 
+import type { ContextualbarContentProps } from './ContextualbarContent';
 import ContextualbarContent from './ContextualbarContent';
 
-/**
- * @deprecated Use `ContextualbarV2EmptyContentProps` instead.
- */
-export type ContextualbarEmptyContentProps = Omit<BoxProps, 'ref'> &
-  RefAttributes<HTMLElement> & {
-    icon?: StatesIconProps['name'];
-    title?: string;
-    subtitle?: string;
-  };
+export type ContextualbarEmptyContentProps = ContextualbarContentProps & {
+  icon?: StatesIconProps['name'];
+  title?: string;
+  subtitle?: string;
+};
 
 function ContextualbarEmptyContent({
   icon = 'magnifier',
@@ -34,7 +34,4 @@ function ContextualbarEmptyContent({
   );
 }
 
-/**
- * @deprecated Use `ContextualbarV2EmptyContent` instead.
- */
 export default memo(ContextualbarEmptyContent);

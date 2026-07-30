@@ -7,17 +7,19 @@ import { ButtonGroup } from '../ButtonGroup';
 import { Icon } from '../Icon';
 import { InputBox } from '../InputBox';
 
-import Contextualbar from './Contextualbar';
-import ContextualbarAction from './ContextualbarAction';
-import ContextualbarActions from './ContextualbarActions';
-import ContextualbarButton from './ContextualbarButton';
-import ContextualbarContent from './ContextualbarContent';
-import ContextualbarEmptyContent from './ContextualbarEmptyContent';
-import ContextualbarFooter from './ContextualbarFooter';
-import ContextualbarHeader from './ContextualbarHeader';
-import ContextualbarSection from './ContextualbarSection';
-import ContextualbarSkeleton from './ContextualbarSkeleton';
-import ContextualbarTitle from './ContextualbarTitle';
+import {
+  Contextualbar,
+  ContextualbarAction,
+  ContextualbarActions,
+  ContextualbarButton,
+  ContextualbarContent,
+  ContextualbarEmptyContent,
+  ContextualbarFooter,
+  ContextualbarHeader,
+  ContextualbarSection,
+  ContextualbarSkeleton,
+  ContextualbarTitle,
+} from './index';
 
 export default {
   title: 'Containers/Contextualbar',
@@ -146,6 +148,62 @@ export const Empty: Story = {
       </ContextualbarHeader>
       <ContextualbarEmptyContent />
       <ContextualbarFooter>Footer</ContextualbarFooter>
+    </Contextualbar>
+  ),
+};
+
+export const WithLongTitle: Story = {
+  render: () => (
+    <Contextualbar position='static' height='x540'>
+      <ContextualbarHeader>
+        <ContextualbarAction
+          title='Back'
+          name='arrow-back'
+          onClick={action('click')}
+        />
+        <ContextualbarTitle>
+          Contextualbar Long Title Contextualbar Long Title Contextualbar Long
+          Title Contextualbar Long Title Contextualbar Long Title Contextualbar
+          Long Title Contextualbar Long Title Contextualbar Long Title
+          Contextualbar Long Title
+        </ContextualbarTitle>
+        <ContextualbarActions>
+          <ContextualbarAction
+            title='Title'
+            name='new-window'
+            onClick={action('click')}
+          />
+          <ContextualbarAction
+            title='Add user'
+            name='add-user'
+            onClick={action('click')}
+          />
+          <ContextualbarAction
+            title='Close'
+            name='cross'
+            onClick={action('click')}
+          />
+        </ContextualbarActions>
+      </ContextualbarHeader>
+      <ContextualbarSection>
+        <InputBox
+          type='text'
+          placeholder='Search'
+          endAddon={<Icon name='magnifier' size='x20' />}
+        />
+      </ContextualbarSection>
+      <ContextualbarContent />
+      <ContextualbarFooter>
+        <ButtonGroup>
+          <ContextualbarButton width='full' secondary>
+            Cancel
+          </ContextualbarButton>
+          <Button width='full' primary>
+            Save
+          </Button>
+          <IconButton title='More' icon='menu' secondary />
+        </ButtonGroup>
+      </ContextualbarFooter>
     </Contextualbar>
   ),
 };

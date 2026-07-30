@@ -1,20 +1,13 @@
 import type { RefAttributes } from 'react';
 import { memo } from 'react';
 
-import { Box } from '..';
-import type { BoxProps } from '../Box';
+import { Box, type BoxProps } from '../Box';
 
-/**
- * @deprecated Use `ContextualbarV2FooterProps` instead.
- */
 export type ContextualbarFooterProps = Omit<BoxProps, 'ref'> &
   RefAttributes<HTMLElement>;
 
 function ContextualbarFooter(props: ContextualbarFooterProps) {
-  return <Box padding={24} {...props} />;
+  return <Box paddingInline={16} paddingBlock={20} {...props} />;
 }
 
-/**
- * @deprecated Use `ContextualbarV2Footer` instead.
- */
 export default memo(ContextualbarFooter);
