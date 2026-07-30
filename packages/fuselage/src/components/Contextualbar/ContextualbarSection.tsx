@@ -3,6 +3,9 @@ import { memo } from 'react';
 
 import { Box, type BoxProps } from '../Box';
 
+/**
+ * @deprecated Use `ContextualbarV2SectionProps` instead.
+ */
 export type ContextualbarSectionProps = Omit<BoxProps, 'ref'> &
   RefAttributes<HTMLElement>;
 
@@ -22,4 +25,7 @@ function ContextualbarSection(props: ContextualbarSectionProps) {
   );
 }
 
+/**
+ * @deprecated Use `ContextualbarV2Section` instead.
+ */
 export default memo(ContextualbarSection);

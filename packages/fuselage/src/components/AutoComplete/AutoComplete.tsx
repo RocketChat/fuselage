@@ -53,6 +53,9 @@ const isSelectedValid =
       : value.includes(selected.value);
   };
 
+/**
+ * @deprecated Use `SelectFilteredProps` or `MultiSelectFilteredProps` instead.
+ */
 export type AutoCompleteProps<TLabel = ReactNode> = Omit<
   AllHTMLAttributes<HTMLInputElement>,
   'value' | 'onChange' | 'is'
@@ -85,6 +88,8 @@ export type AutoCompleteProps<TLabel = ReactNode> = Omit<
 
 /**
  * An input for selection of options.
+ *
+ * @deprecated Use `SelectFiltered` or `MultiSelectFiltered` instead.
  */
 function AutoComplete<TLabel = ReactNode>({
   ref,
