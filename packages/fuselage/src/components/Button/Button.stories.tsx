@@ -1,4 +1,4 @@
-import type { StoryFn, Meta } from '@storybook/react-webpack5';
+import type { Meta, StoryObj } from '@storybook/react-webpack5';
 import { useState } from 'react';
 import { action } from 'storybook/actions';
 
@@ -14,199 +14,294 @@ export default {
   title: 'Inputs/Button',
   component: Button,
   subcomponents: { IconButton },
+  argTypes: {
+    children: {
+      control: 'text',
+      description: 'Button label content.',
+    },
+    variant: {
+      control: 'select',
+      options: [
+        'primary',
+        'secondary',
+        'danger',
+        'secondary-danger',
+        'warning',
+        'secondary-warning',
+        'success',
+        'secondary-success',
+      ],
+      description: 'Visual style of the button.',
+    },
+    size: {
+      control: 'select',
+      options: ['small', 'medium', 'large'],
+      description: 'Size scale of the button.',
+    },
+    square: {
+      control: 'boolean',
+      description:
+        'Renders as a square icon-only footprint instead of the default pill shape.',
+      table: { category: 'Shape' },
+    },
+    icon: {
+      control: 'text',
+      description: 'Name of the Fuselage icon rendered before the label.',
+      table: { category: 'Content' },
+    },
+    loading: {
+      control: 'boolean',
+      description:
+        'Shows a spinner in place of the icon and blocks interaction.',
+      table: { category: 'State' },
+    },
+    disabled: {
+      control: 'boolean',
+      description: 'Disables the button and blocks pointer interaction.',
+      table: { category: 'State' },
+    },
+    is: {
+      control: 'select',
+      options: ['button', 'a'],
+      description: 'Underlying element rendered.',
+      table: { category: 'Polymorphism', defaultValue: { summary: 'button' } },
+    },
+    href: {
+      control: 'text',
+      description: 'Link target when `is="a"`.',
+      table: { category: 'Polymorphism' },
+    },
+    external: {
+      control: 'boolean',
+      description:
+        'When `is="a"`, opens the link in a new tab with `rel="noopener noreferrer"`.',
+      table: { category: 'Polymorphism' },
+    },
+    onClick: {
+      control: false,
+      description: 'Called when the button is activated.',
+      table: { category: 'Events' },
+    },
+  },
 } satisfies Meta<typeof Button>;
 
-export const Default: StoryFn<typeof Button> = () => (
-  <Button onClick={action('click')}>Button</Button>
-);
+type Story = StoryObj<typeof Button>;
 
-export const Loading: StoryFn<typeof Button> = () => (
-  <Button loading onClick={action('click')}>
-    Button
-  </Button>
-);
-export const LoadingInteraction: StoryFn<typeof Button> = () => {
-  const [isLoading, setIsLoading] = useState(false);
-  return (
-    <Button
-      icon='add-user'
-      loading={isLoading}
-      onClick={() => setIsLoading(!isLoading)}
-    >
-      Button
-    </Button>
-  );
+export const Default: Story = {
+  args: {
+    children: 'Button',
+    onClick: action('click'),
+  },
 };
 
-export const Truncated: StoryFn<typeof Button> = () => (
-  <Box maxWidth={160} display='flex' justifyContent='center'>
-    <Button onClick={action('click')}>Button with loooooooooooong text</Button>
-  </Box>
-);
+export const Loading: Story = {
+  args: {
+    loading: true,
+    children: 'Button',
+    onClick: action('click'),
+  },
+};
 
-LoadingInteraction.parameters = {
-  docs: {
-    description: {
-      story: 'Click the button to see the loading state.',
+export const LoadingInteraction: Story = {
+  args: {
+    icon: 'add-user',
+  },
+  render: (args) => {
+    const [isLoading, setIsLoading] = useState(false);
+    return (
+      <Button
+        {...args}
+        loading={isLoading}
+        onClick={() => setIsLoading(!isLoading)}
+      >
+        Button
+      </Button>
+    );
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Click the button to see the loading state.',
+      },
     },
   },
 };
 
-export const Variants: StoryFn<typeof Button> = () => (
-  <Margins all='x8'>
-    <ButtonGroup>
-      <Button variant='primary'>Primary</Button>
-      <Button variant='secondary'>Secondary</Button>
-    </ButtonGroup>
-    <ButtonGroup>
-      <Button variant='danger'>Danger</Button>
-      <Button variant='secondary-danger'>Secondary Danger</Button>
-    </ButtonGroup>
-    <ButtonGroup>
-      <Button variant='warning'>Warning</Button>
-      <Button variant='secondary-warning'>Secondary Warning</Button>
-    </ButtonGroup>
-    <ButtonGroup>
-      <Button variant='success'>Success</Button>
-      <Button variant='secondary-success'>Secondary Success</Button>
-    </ButtonGroup>
-  </Margins>
-);
+export const Truncated: Story = {
+  render: () => (
+    <Box maxWidth={160} display='flex' justifyContent='center'>
+      <Button onClick={action('click')}>
+        Button with loooooooooooong text
+      </Button>
+    </Box>
+  ),
+};
 
-export const Sizes: StoryFn<typeof ButtonGroup> = () => (
-  <ButtonGroup>
-    <Button size='small'>Small</Button>
-    <Button size='medium'>Medium</Button>
-    <Button>Default</Button>
-  </ButtonGroup>
-);
+export const Variants: Story = {
+  render: () => (
+    <Margins all='x8'>
+      <ButtonGroup>
+        <Button variant='primary'>Primary</Button>
+        <Button variant='secondary'>Secondary</Button>
+      </ButtonGroup>
+      <ButtonGroup>
+        <Button variant='danger'>Danger</Button>
+        <Button variant='secondary-danger'>Secondary Danger</Button>
+      </ButtonGroup>
+      <ButtonGroup>
+        <Button variant='warning'>Warning</Button>
+        <Button variant='secondary-warning'>Secondary Warning</Button>
+      </ButtonGroup>
+      <ButtonGroup>
+        <Button variant='success'>Success</Button>
+        <Button variant='secondary-success'>Secondary Success</Button>
+      </ButtonGroup>
+    </Margins>
+  ),
+};
 
-export const AsLink: StoryFn<typeof Button> = () => (
-  <Button is='a' href='https://rocket.chat' external>
-    Button
-  </Button>
-);
+export const Sizes: Story = {
+  render: () => (
+    <ButtonGroup>
+      <Button size='small'>Small</Button>
+      <Button size='medium'>Medium</Button>
+      <Button>Default</Button>
+      <Button size='large'>Large</Button>
+    </ButtonGroup>
+  ),
+};
 
-export const States = () => (
-  <>
-    <PropsVariationSection
-      component={Button}
-      common={{ onClick: action('click') }}
-      xAxis={{
-        default: {},
-        hover: { className: 'hover' },
-        active: { className: 'active' },
-        focus: { className: 'focus focus-visible' },
-        disabled: { disabled: true },
-      }}
-      yAxis={{
-        'icon + text': {
-          children: 'Button',
-          icon: 'baloon-text',
-        },
-        'text': {
-          children: 'Button',
-        },
-        'primary': {
-          children: 'Button',
-          variant: 'primary',
-        },
-        'secondary': {
-          children: 'Button',
-          variant: 'secondary',
-        },
-        'danger': {
-          children: 'Button',
-          variant: 'danger',
-        },
-        'secondary-danger': {
-          children: 'Button',
-          variant: 'secondary-danger',
-        },
-        'warning': {
-          children: 'Button',
-          variant: 'warning',
-        },
-        'secondary-warning': {
-          children: 'Button',
-          variant: 'secondary-warning',
-        },
-        'success': {
-          children: 'Button',
-          variant: 'success',
-        },
-        'secondary-success': {
-          children: 'Button',
-          variant: 'secondary-success',
-        },
-      }}
-    />
-    <PropsVariationSection
-      component={Button}
-      common={{
-        size: 'small',
-        onClick: action('click'),
-      }}
-      xAxis={{
-        default: {},
-        hover: { className: 'hover' },
-        active: { className: 'active' },
-        focus: { className: 'focus focus-visible' },
-        disabled: { disabled: true },
-      }}
-      yAxis={{
-        'icon + text': {
-          children: 'Button',
-          icon: 'baloon-text',
-        },
-        'text': {
-          children: 'Button',
-        },
-        'primary': {
-          children: 'Button',
-          variant: 'primary',
-        },
-        'secondary': {
-          children: 'Button',
-          variant: 'secondary',
-        },
-        'danger': {
-          children: 'Button',
-          variant: 'danger',
-        },
-        'secondary-danger': {
-          children: 'Button',
-          variant: 'secondary-danger',
-        },
-        'warning': {
-          children: 'Button',
-          variant: 'warning',
-        },
-        'secondary-warning': {
-          children: 'Button',
-          variant: 'secondary-warning',
-        },
-        'success': {
-          children: 'Button',
-          variant: 'success',
-        },
-        'secondary-success': {
-          children: 'Button',
-          variant: 'secondary-success',
-        },
-      }}
-    />
-  </>
-);
+export const AsLink: Story = {
+  args: {
+    is: 'a',
+    href: 'https://rocket.chat',
+    external: true,
+    children: 'Button',
+  },
+};
 
-export const AsIconButton: StoryFn<typeof IconButton> = (args) => (
-  <IconButton {...args} icon='arrow-back' onClick={action('click')} />
-);
-AsIconButton.parameters = {
-  docs: {
-    description: {
-      story:
-        'See full IconButton documentation [here](../?path=/docs/inputs-iconbutton)',
+export const States: Story = {
+  render: () => (
+    <>
+      <PropsVariationSection
+        component={Button}
+        common={{ onClick: action('click') }}
+        xAxis={{
+          default: {},
+          hover: { className: 'hover' },
+          active: { className: 'active' },
+          focus: { className: 'focus focus-visible' },
+          disabled: { disabled: true },
+        }}
+        yAxis={{
+          'icon + text': {
+            children: 'Button',
+            icon: 'baloon-text',
+          },
+          'text': {
+            children: 'Button',
+          },
+          'primary': {
+            children: 'Button',
+            variant: 'primary',
+          },
+          'secondary': {
+            children: 'Button',
+            variant: 'secondary',
+          },
+          'danger': {
+            children: 'Button',
+            variant: 'danger',
+          },
+          'secondary-danger': {
+            children: 'Button',
+            variant: 'secondary-danger',
+          },
+          'warning': {
+            children: 'Button',
+            variant: 'warning',
+          },
+          'secondary-warning': {
+            children: 'Button',
+            variant: 'secondary-warning',
+          },
+          'success': {
+            children: 'Button',
+            variant: 'success',
+          },
+          'secondary-success': {
+            children: 'Button',
+            variant: 'secondary-success',
+          },
+        }}
+      />
+      <PropsVariationSection
+        component={Button}
+        common={{
+          size: 'small',
+          onClick: action('click'),
+        }}
+        xAxis={{
+          default: {},
+          hover: { className: 'hover' },
+          active: { className: 'active' },
+          focus: { className: 'focus focus-visible' },
+          disabled: { disabled: true },
+        }}
+        yAxis={{
+          'icon + text': {
+            children: 'Button',
+            icon: 'baloon-text',
+          },
+          'text': {
+            children: 'Button',
+          },
+          'primary': {
+            children: 'Button',
+            variant: 'primary',
+          },
+          'secondary': {
+            children: 'Button',
+            variant: 'secondary',
+          },
+          'danger': {
+            children: 'Button',
+            variant: 'danger',
+          },
+          'secondary-danger': {
+            children: 'Button',
+            variant: 'secondary-danger',
+          },
+          'warning': {
+            children: 'Button',
+            variant: 'warning',
+          },
+          'secondary-warning': {
+            children: 'Button',
+            variant: 'secondary-warning',
+          },
+          'success': {
+            children: 'Button',
+            variant: 'success',
+          },
+          'secondary-success': {
+            children: 'Button',
+            variant: 'secondary-success',
+          },
+        }}
+      />
+    </>
+  ),
+};
+
+export const AsIconButton: Story = {
+  render: () => <IconButton icon='arrow-back' onClick={action('click')} />,
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'See full IconButton documentation [here](../?path=/docs/inputs-iconbutton)',
+      },
     },
   },
 };
