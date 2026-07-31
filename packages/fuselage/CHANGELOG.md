@@ -1,5 +1,18 @@
 # Change Log
 
+## 0.84.0
+
+### Minor Changes
+
+- [#2044](https://github.com/RocketChat/fuselage/pull/2044) [`dad21d4`](https://github.com/RocketChat/fuselage/commit/dad21d4166c4ba93f0e7fcc984a90a1b74459a3f) Thanks [@dougfabris](https://github.com/dougfabris)! - feat(fuselage): Add menu support to SidebarCollapseGroup
+
+- [#2038](https://github.com/RocketChat/fuselage/pull/2038) [`e4ad42b`](https://github.com/RocketChat/fuselage/commit/e4ad42b063ea2a6cd3728356a365681879dfa337) Thanks [@dougfabris](https://github.com/dougfabris)! - feat(fuselage): Introduce submenu to Menu component
+
+### Patch Changes
+
+- Updated dependencies [[`9f17e22`](https://github.com/RocketChat/fuselage/commit/9f17e223eab2a6de551a2c1b453838e658797a8d)]:
+  - @rocket.chat/css-in-js@0.33.1
+
 ## 0.83.0
 
 ### Minor Changes

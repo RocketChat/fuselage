@@ -130,7 +130,7 @@ export type AudioPlayerProps = RefAttributes<HTMLAudioElement> & {
     trackProps?: TrackHTMLAttributes<HTMLTrackElement>;
 };
 
-// @public
+// @public @deprecated
 export function AutoComplete<TLabel = ReactNode>(input: AutoCompleteProps<TLabel>): JSX.Element;
 
 // @public (undocumented)
@@ -139,7 +139,7 @@ export type AutoCompleteOption<TLabel> = {
     label: TLabel;
 };
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export type AutoCompleteProps<TLabel = ReactNode> = Omit<AllHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'is'> & {
     filter: string;
     setFilter?: (filter: string) => void;
@@ -283,6 +283,8 @@ export type ButtonGroupProps = RefAttributes<HTMLDivElement> & {
 
 // @public (undocumented)
 export type ButtonProps = Omit<BoxProps, 'ref'> & {
+    variant?: 'primary' | 'secondary' | 'danger' | 'warning' | 'success' | 'secondary-danger' | 'secondary-warning' | 'secondary-success';
+    size?: 'mini' | 'tiny' | 'small' | 'medium' | 'large';
     primary?: boolean;
     secondary?: boolean;
     danger?: boolean;
@@ -461,43 +463,43 @@ export const color: MemoizedFunction<unknown, unknown, string | undefined>;
 
 // Warning: (ae-forgotten-export) The symbol "Contextualbar_2" needs to be exported by the entry point index.d.ts
 //
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export const Contextualbar: MemoExoticComponent<typeof Contextualbar_2>;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export const ContextualbarAction: MemoExoticComponent<(input: ContextualbarActionProps) => JSX.Element>;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export type ContextualbarActionProps = {
     name: IconProps['name'];
 } & Omit<IconButtonProps, 'icon'>;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export const ContextualbarActions: MemoExoticComponent<(props: ContextualbarActionsProps) => JSX.Element>;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export type ContextualbarActionsProps = ButtonGroupProps;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export const ContextualbarButton: MemoExoticComponent<(props: ContextualbarButtonProps) => JSX.Element>;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export type ContextualbarButtonProps = ButtonProps;
 
 // Warning: (ae-forgotten-export) The symbol "ContextualbarContent_2" needs to be exported by the entry point index.d.ts
 //
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export const ContextualbarContent: MemoExoticComponent<typeof ContextualbarContent_2>;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export type ContextualbarContentProps = Omit<BoxProps, 'ref'> & RefAttributes<HTMLElement>;
 
 // Warning: (ae-forgotten-export) The symbol "ContextualbarEmptyContent_2" needs to be exported by the entry point index.d.ts
 //
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export const ContextualbarEmptyContent: MemoExoticComponent<typeof ContextualbarEmptyContent_2>;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export type ContextualbarEmptyContentProps = Omit<BoxProps, 'ref'> & RefAttributes<HTMLElement> & {
     icon?: StatesIconProps['name'];
     title?: string;
@@ -506,45 +508,45 @@ export type ContextualbarEmptyContentProps = Omit<BoxProps, 'ref'> & RefAttribut
 
 // Warning: (ae-forgotten-export) The symbol "ContextualbarFooter_2" needs to be exported by the entry point index.d.ts
 //
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export const ContextualbarFooter: MemoExoticComponent<typeof ContextualbarFooter_2>;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export type ContextualbarFooterProps = Omit<BoxProps, 'ref'> & RefAttributes<HTMLElement>;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export const ContextualbarHeader: MemoExoticComponent<(input: ContextualbarHeaderProps) => JSX.Element>;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export type ContextualbarHeaderProps = BoxProps;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export const ContextualbarIcon: MemoExoticComponent<(props: ContextualbarIconProps) => JSX.Element>;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export type ContextualbarIconProps = IconProps;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export type ContextualbarProps = Omit<BoxProps, 'ref'> & RefAttributes<HTMLElement>;
 
 // Warning: (ae-forgotten-export) The symbol "ContextualbarSection_2" needs to be exported by the entry point index.d.ts
 //
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export const ContextualbarSection: MemoExoticComponent<typeof ContextualbarSection_2>;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export type ContextualbarSectionProps = Omit<BoxProps, 'ref'> & RefAttributes<HTMLElement>;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export const ContextualbarSkeleton: MemoExoticComponent<(props: ContextualbarSkeletonProps) => JSX.Element>;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export type ContextualbarSkeletonProps = BoxProps;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export const ContextualbarTitle: MemoExoticComponent<(props: ContextualbarTitleProps) => JSX.Element>;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export type ContextualbarTitleProps = BoxProps;
 
 // Warning: (ae-forgotten-export) The symbol "Contextualbar_3" needs to be exported by the entry point index.d.ts
@@ -2048,16 +2050,16 @@ export type SelectProps = Omit<BoxProps, 'ref' | 'onChange'> & RefAttributes<HTM
     addonIcon?: IconProps['name'];
 };
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export const Sidebar: (props: SidebarProps) => JSX.Element;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export type SidebarActionProps = Omit<IconButtonProps, 'ref'> & RefAttributes<HTMLElement>;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export const SidebarBanner: (input: SidebarBannerProps) => JSX.Element;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export type SidebarBannerProps = {
     text?: ReactNode;
     description?: ReactNode;
@@ -2068,81 +2070,81 @@ export type SidebarBannerProps = {
     addon?: ReactNode;
 };
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export type SidebarBannerVariant = 'default' | 'info' | 'success' | 'warning' | 'danger';
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export const SidebarDivider: () => JSX.Element;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export const SidebarFooter: (input: SidebarFooterProps) => JSX.Element;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export const SidebarFooterHighlight: (input: SidebarFooterHighlightProps) => JSX.Element;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export type SidebarFooterHighlightProps = {
     children?: ReactNode;
 };
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export type SidebarFooterProps = {
     children?: ReactNode;
     elevated?: boolean;
 };
 
-// @public
+// @public @deprecated
 export const SidebarItem: (input: SidebarItemProps) => JSX.Element;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export const SidebarItemAction: (props: SidebarItemActionProps) => JSX.Element;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export type SidebarItemActionProps = SidebarActionProps;
 
 // Warning: (ae-forgotten-export) The symbol "SidebarActions" needs to be exported by the entry point index.d.ts
 //
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export const SidebarItemActions: typeof SidebarActions;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export const SidebarItemAvatar: (input: SidebarItemAvatarProps) => JSX.Element;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export type SidebarItemAvatarProps = {
     children?: ReactNode;
 } & AllHTMLAttributes<HTMLElement>;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export const SidebarItemBadge: (input: SidebarItemBadgeProps) => JSX.Element;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export type SidebarItemBadgeProps = {
     children?: ReactNode;
     className?: string;
 } & AllHTMLAttributes<HTMLElement>;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export const SidebarItemContainer: (props: SidebarItemContainerProps) => JSX.Element;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export type SidebarItemContainerProps = {
     children?: ReactNode;
 } & AllHTMLAttributes<HTMLElement>;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export const SidebarItemContent: (input: SidebarItemContentProps) => JSX.Element;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export type SidebarItemContentProps = {
     children?: ReactNode;
     className?: string;
 } & AllHTMLAttributes<HTMLElement>;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export const SidebarItemIcon: (input: SidebarItemIconProps) => JSX.Element;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export type SidebarItemIconProps = {
     children?: ReactNode;
     className?: string;
@@ -2150,15 +2152,15 @@ export type SidebarItemIconProps = {
     icon: IconProps['name'];
 } & Omit<AllHTMLAttributes<HTMLElement>, 'name' | 'is'>;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export const SidebarItemMenu: (props: SidebarItemMenuProps) => JSX.Element;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export type SidebarItemMenuProps = {
     children?: ReactNode;
 } & AllHTMLAttributes<HTMLElement>;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export type SidebarItemProps = {
     selected?: boolean;
     highlighted?: boolean;
@@ -2168,57 +2170,57 @@ export type SidebarItemProps = {
     children?: ReactNode;
 } & AllHTMLAttributes<HTMLElement>;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export const SidebarItemSubtitle: (input: SidebarItemSubtitleProps) => JSX.Element;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export type SidebarItemSubtitleProps = {
     children?: ReactNode;
     className?: string;
 } & AllHTMLAttributes<HTMLElement>;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export const SidebarItemTime: (input: SidebarItemTimeProps) => JSX.Element;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export type SidebarItemTimeProps = {
     children?: ReactNode;
     className?: string;
 } & AllHTMLAttributes<HTMLElement>;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export const SidebarItemTitle: (input: SidebarItemTitleProps) => JSX.Element;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export type SidebarItemTitleProps = {
     children?: ReactNode;
     className?: string;
 } & AllHTMLAttributes<HTMLElement>;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export const SidebarItemWrapper: (input: SidebarItemWrapperProps) => JSX.Element;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export type SidebarItemWrapperProps = {
     children?: ReactNode;
     className?: string;
 } & AllHTMLAttributes<HTMLElement>;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export type SidebarProps = BoxProps;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export const SidebarSection: (props: SidebarSectionProps) => JSX.Element;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export type SidebarSectionProps = {
     children?: ReactNode;
 };
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export const SidebarSectionTitle: (props: SidebarSectionTitleProps) => JSX.Element;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export type SidebarSectionTitleProps = {
     children?: ReactNode;
 };
@@ -2286,6 +2288,9 @@ export const SidebarV2ButtonGroup: (input: ButtonGroupProps) => JSX.Element;
 export function SidebarV2CollapseGroup(input: SidebarCollapseGroupProps): JSX.Element;
 
 // @public (undocumented)
+export const SidebarV2CollapseGroupMenu: (input: HTMLAttributes<HTMLDivElement>) => JSX.Element;
+
+// @public (undocumented)
 export const SidebarV2Divider: () => JSX.Element;
 
 // @public (undocumented)
@@ -2303,6 +2308,7 @@ export type SidebarV2GroupTitleProps = {
     title?: string;
     titleId?: string;
     badge?: ReactNode;
+    menu?: ReactNode;
     barProps?: AriaAttributes;
 } & HTMLAttributes<HTMLDivElement>;
 
@@ -2912,81 +2918,81 @@ export type TooltipProps = Omit<BoxProps, 'ref'> & RefAttributes<HTMLElement> & 
     placement?: 'top-start' | 'top-middle' | 'top-end' | 'bottom-start' | 'bottom-middle' | 'bottom-end' | 'top' | 'left' | 'bottom' | 'right' | null;
 };
 
-// @public
+// @public @deprecated
 const TopBar: (input: TopBarProps) => JSX.Element;
 export { TopBar as SidebarTopBar }
 export { TopBar }
 
 // Warning: (ae-forgotten-export) The symbol "TopBarActionProps" needs to be exported by the entry point index.d.ts
 //
-// @public (undocumented)
+// @public @deprecated (undocumented)
 function TopBarAction(props: TopBarActionProps): JSX.Element;
 export { TopBarAction as SidebarTopBarAction }
 export { TopBarAction }
 
 // Warning: (ae-forgotten-export) The symbol "TopBarActionsProps" needs to be exported by the entry point index.d.ts
 //
-// @public (undocumented)
+// @public @deprecated (undocumented)
 function TopBarActions(props: TopBarActionsProps): JSX.Element;
 export { TopBarActions as SidebarTopBarActions }
 export { TopBarActions }
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 const TopBarAvatar: {
     size: "x24";
 };
 export { TopBarAvatar as SidebarTopBarAvatar }
 export { TopBarAvatar }
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export type TopBarProps = {
     children?: ReactNode;
     className?: string;
 };
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export const TopBarSection: (input: TopBarSectionProps) => JSX.Element;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export type TopBarSectionProps = {
     children?: ReactNode;
     className?: string;
 };
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 const TopBarTitle: (props: TopBarTitleProps) => JSX.Element;
 export { TopBarTitle as SidebarTopBarTitle }
 export { TopBarTitle }
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export type TopBarTitleProps = {
     children?: ReactNode;
 };
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 const TopBarToolBox: (input: TopBarToolBoxProps) => JSX.Element;
 export { TopBarToolBox as SidebarTopBarToolBox }
 export { TopBarToolBox }
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export type TopBarToolBoxProps = {
     children?: ReactNode;
     className?: string;
 };
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export const TopBarV2: (input: TopBarV2Props) => JSX.Element;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export type TopBarV2Props = {
     children?: ReactNode;
     className?: string;
 };
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export const TopBarWrapper: (input: TopBarWrapperProps) => JSX.Element;
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export type TopBarWrapperProps = {
     children?: ReactNode;
 };

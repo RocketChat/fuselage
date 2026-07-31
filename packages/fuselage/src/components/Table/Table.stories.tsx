@@ -1,4 +1,4 @@
-import type { Meta, StoryFn } from '@storybook/react-webpack5';
+import type { Meta, StoryObj } from '@storybook/react-webpack5';
 
 import { CheckBox } from '../CheckBox';
 
@@ -25,11 +25,154 @@ export default {
     TableSelectionButton,
     TableSelectionButtonGroup,
   },
+  argTypes: {
+    striped: {
+      control: 'boolean',
+      description: 'Applies alternating row background stripes.',
+    },
+    sticky: {
+      control: 'boolean',
+      description: 'Keeps the table header fixed while the body scrolls.',
+    },
+    fixed: {
+      control: 'boolean',
+      description: 'Uses a fixed table layout algorithm for column widths.',
+    },
+  },
 } satisfies Meta<typeof Table>;
 
-export const Default: StoryFn<typeof Table> = () => (
-  <>
-    <Table>
+type Story = StoryObj<typeof Table>;
+
+export const Default: Story = {
+  render: () => (
+    <>
+      <Table>
+        <TableHead>
+          <TableRow>
+            <TableCell>Dessert (100g serving)</TableCell>
+            <TableCell align='end'>Calories</TableCell>
+            <TableCell align='end'>Fat&nbsp;(g)</TableCell>
+            <TableCell align='end'>Carbs&nbsp;(g)</TableCell>
+            <TableCell align='end'>Protein&nbsp;(g)</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          <TableRow action>
+            <TableCell is='th' scope='row'>
+              Frozen yoghurt
+            </TableCell>
+            <TableCell align='end'>159</TableCell>
+            <TableCell align='end'>6</TableCell>
+            <TableCell align='end'>24</TableCell>
+            <TableCell align='end'>4</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell is='th' scope='row'>
+              Ice cream sandwich
+            </TableCell>
+            <TableCell align='end'>237</TableCell>
+            <TableCell align='end'>9</TableCell>
+            <TableCell align='end'>37</TableCell>
+            <TableCell align='end'>4.3</TableCell>
+          </TableRow>
+        </TableBody>
+      </Table>
+    </>
+  ),
+};
+
+export const WithSelection: Story = {
+  render: () => (
+    <>
+      <Table>
+        <TableHead>
+          <TableRow>
+            <TableCell>
+              <CheckBox aria-label='select all' checked={false} />
+            </TableCell>
+            <TableCell>Dessert (100g serving)</TableCell>
+            <TableCell align='end'>Calories</TableCell>
+            <TableCell align='end'>Fat&nbsp;(g)</TableCell>
+            <TableCell align='end'>Carbs&nbsp;(g)</TableCell>
+            <TableCell align='end'>Protein&nbsp;(g)</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          <TableRow selected>
+            <TableCell>
+              <CheckBox aria-label='select frozen yoghurt' checked />
+            </TableCell>
+            <TableCell is='th' scope='row'>
+              Frozen yoghurt
+            </TableCell>
+            <TableCell align='end'>159</TableCell>
+            <TableCell align='end'>6</TableCell>
+            <TableCell align='end'>24</TableCell>
+            <TableCell align='end'>4</TableCell>
+          </TableRow>
+          <TableRow selected>
+            <TableCell>
+              <CheckBox aria-label='select frozen yoghurt' checked />
+            </TableCell>
+            <TableCell is='th' scope='row'>
+              Frozen yoghurt
+            </TableCell>
+            <TableCell align='end'>159</TableCell>
+            <TableCell align='end'>6</TableCell>
+            <TableCell align='end'>24</TableCell>
+            <TableCell align='end'>4</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell>
+              <CheckBox aria-label='select frozen yoghurt' checked={false} />
+            </TableCell>
+            <TableCell is='th' scope='row'>
+              Frozen yoghurt
+            </TableCell>
+            <TableCell align='end'>159</TableCell>
+            <TableCell align='end'>6</TableCell>
+            <TableCell align='end'>24</TableCell>
+            <TableCell align='end'>4</TableCell>
+          </TableRow>
+          <TableRow selected>
+            <TableCell>
+              <CheckBox aria-label='select frozen yoghurt' checked />
+            </TableCell>
+            <TableCell is='th' scope='row'>
+              Frozen yoghurt
+            </TableCell>
+            <TableCell align='end'>159</TableCell>
+            <TableCell align='end'>6</TableCell>
+            <TableCell align='end'>24</TableCell>
+            <TableCell align='end'>4</TableCell>
+          </TableRow>
+          <TableRow selected>
+            <TableCell>
+              <CheckBox aria-label='select frozen yoghurt' checked />
+            </TableCell>
+            <TableCell is='th' scope='row'>
+              Frozen yoghurt
+            </TableCell>
+            <TableCell align='end'>159</TableCell>
+            <TableCell align='end'>6</TableCell>
+            <TableCell align='end'>24</TableCell>
+            <TableCell align='end'>4</TableCell>
+          </TableRow>
+        </TableBody>
+      </Table>
+      <TableSelection text='5 Items selected'>
+        <TableSelectionButtonGroup>
+          <TableSelectionButton>Delete</TableSelectionButton>
+          <TableSelectionButton>Cancel</TableSelectionButton>
+        </TableSelectionButtonGroup>
+      </TableSelection>
+    </>
+  ),
+};
+
+export const Striped: Story = {
+  render: () => (
+    <Table fixed striped sticky>
       <TableHead>
         <TableRow>
           <TableCell>Dessert (100g serving)</TableCell>
@@ -40,7 +183,34 @@ export const Default: StoryFn<typeof Table> = () => (
         </TableRow>
       </TableHead>
       <TableBody>
-        <TableRow action>
+        <TableRow>
+          <TableCell is='th' scope='row'>
+            Frozen yoghurt
+          </TableCell>
+          <TableCell align='end'>159</TableCell>
+          <TableCell align='end'>6</TableCell>
+          <TableCell align='end'>24</TableCell>
+          <TableCell align='end'>4</TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell is='th' scope='row'>
+            Frozen yoghurt
+          </TableCell>
+          <TableCell align='end'>159</TableCell>
+          <TableCell align='end'>6</TableCell>
+          <TableCell align='end'>24</TableCell>
+          <TableCell align='end'>4</TableCell>
+        </TableRow>
+        <TableRow>
+          <TableCell is='th' scope='row'>
+            Frozen yoghurt
+          </TableCell>
+          <TableCell align='end'>159</TableCell>
+          <TableCell align='end'>6</TableCell>
+          <TableCell align='end'>24</TableCell>
+          <TableCell align='end'>4</TableCell>
+        </TableRow>
+        <TableRow>
           <TableCell is='th' scope='row'>
             Frozen yoghurt
           </TableCell>
@@ -60,17 +230,14 @@ export const Default: StoryFn<typeof Table> = () => (
         </TableRow>
       </TableBody>
     </Table>
-  </>
-);
+  ),
+};
 
-export const WithSelection: StoryFn<typeof Table> = () => (
-  <>
-    <Table>
+export const Fixed: Story = {
+  render: () => (
+    <Table fixed>
       <TableHead>
         <TableRow>
-          <TableCell>
-            <CheckBox aria-label='select all' checked={false} />
-          </TableCell>
           <TableCell>Dessert (100g serving)</TableCell>
           <TableCell align='end'>Calories</TableCell>
           <TableCell align='end'>Fat&nbsp;(g)</TableCell>
@@ -79,22 +246,7 @@ export const WithSelection: StoryFn<typeof Table> = () => (
         </TableRow>
       </TableHead>
       <TableBody>
-        <TableRow selected>
-          <TableCell>
-            <CheckBox aria-label='select frozen yoghurt' checked />
-          </TableCell>
-          <TableCell is='th' scope='row'>
-            Frozen yoghurt
-          </TableCell>
-          <TableCell align='end'>159</TableCell>
-          <TableCell align='end'>6</TableCell>
-          <TableCell align='end'>24</TableCell>
-          <TableCell align='end'>4</TableCell>
-        </TableRow>
-        <TableRow selected>
-          <TableCell>
-            <CheckBox aria-label='select frozen yoghurt' checked />
-          </TableCell>
+        <TableRow>
           <TableCell is='th' scope='row'>
             Frozen yoghurt
           </TableCell>
@@ -104,143 +256,15 @@ export const WithSelection: StoryFn<typeof Table> = () => (
           <TableCell align='end'>4</TableCell>
         </TableRow>
         <TableRow>
-          <TableCell>
-            <CheckBox aria-label='select frozen yoghurt' checked={false} />
-          </TableCell>
           <TableCell is='th' scope='row'>
-            Frozen yoghurt
+            Ice cream sandwich
           </TableCell>
-          <TableCell align='end'>159</TableCell>
-          <TableCell align='end'>6</TableCell>
-          <TableCell align='end'>24</TableCell>
-          <TableCell align='end'>4</TableCell>
-        </TableRow>
-        <TableRow selected>
-          <TableCell>
-            <CheckBox aria-label='select frozen yoghurt' checked />
-          </TableCell>
-          <TableCell is='th' scope='row'>
-            Frozen yoghurt
-          </TableCell>
-          <TableCell align='end'>159</TableCell>
-          <TableCell align='end'>6</TableCell>
-          <TableCell align='end'>24</TableCell>
-          <TableCell align='end'>4</TableCell>
-        </TableRow>
-        <TableRow selected>
-          <TableCell>
-            <CheckBox aria-label='select frozen yoghurt' checked />
-          </TableCell>
-          <TableCell is='th' scope='row'>
-            Frozen yoghurt
-          </TableCell>
-          <TableCell align='end'>159</TableCell>
-          <TableCell align='end'>6</TableCell>
-          <TableCell align='end'>24</TableCell>
-          <TableCell align='end'>4</TableCell>
+          <TableCell align='end'>237</TableCell>
+          <TableCell align='end'>9</TableCell>
+          <TableCell align='end'>37</TableCell>
+          <TableCell align='end'>4.3</TableCell>
         </TableRow>
       </TableBody>
     </Table>
-    <TableSelection text='5 Items selected'>
-      <TableSelectionButtonGroup>
-        <TableSelectionButton>Delete</TableSelectionButton>
-        <TableSelectionButton>Cancel</TableSelectionButton>
-      </TableSelectionButtonGroup>
-    </TableSelection>
-  </>
-);
-
-export const Striped: StoryFn<typeof Table> = () => (
-  <Table fixed striped sticky>
-    <TableHead>
-      <TableRow>
-        <TableCell>Dessert (100g serving)</TableCell>
-        <TableCell align='end'>Calories</TableCell>
-        <TableCell align='end'>Fat&nbsp;(g)</TableCell>
-        <TableCell align='end'>Carbs&nbsp;(g)</TableCell>
-        <TableCell align='end'>Protein&nbsp;(g)</TableCell>
-      </TableRow>
-    </TableHead>
-    <TableBody>
-      <TableRow>
-        <TableCell is='th' scope='row'>
-          Frozen yoghurt
-        </TableCell>
-        <TableCell align='end'>159</TableCell>
-        <TableCell align='end'>6</TableCell>
-        <TableCell align='end'>24</TableCell>
-        <TableCell align='end'>4</TableCell>
-      </TableRow>
-      <TableRow>
-        <TableCell is='th' scope='row'>
-          Frozen yoghurt
-        </TableCell>
-        <TableCell align='end'>159</TableCell>
-        <TableCell align='end'>6</TableCell>
-        <TableCell align='end'>24</TableCell>
-        <TableCell align='end'>4</TableCell>
-      </TableRow>
-      <TableRow>
-        <TableCell is='th' scope='row'>
-          Frozen yoghurt
-        </TableCell>
-        <TableCell align='end'>159</TableCell>
-        <TableCell align='end'>6</TableCell>
-        <TableCell align='end'>24</TableCell>
-        <TableCell align='end'>4</TableCell>
-      </TableRow>
-      <TableRow>
-        <TableCell is='th' scope='row'>
-          Frozen yoghurt
-        </TableCell>
-        <TableCell align='end'>159</TableCell>
-        <TableCell align='end'>6</TableCell>
-        <TableCell align='end'>24</TableCell>
-        <TableCell align='end'>4</TableCell>
-      </TableRow>
-      <TableRow>
-        <TableCell is='th' scope='row'>
-          Ice cream sandwich
-        </TableCell>
-        <TableCell align='end'>237</TableCell>
-        <TableCell align='end'>9</TableCell>
-        <TableCell align='end'>37</TableCell>
-        <TableCell align='end'>4.3</TableCell>
-      </TableRow>
-    </TableBody>
-  </Table>
-);
-
-export const Fixed: StoryFn<typeof Table> = () => (
-  <Table fixed>
-    <TableHead>
-      <TableRow>
-        <TableCell>Dessert (100g serving)</TableCell>
-        <TableCell align='end'>Calories</TableCell>
-        <TableCell align='end'>Fat&nbsp;(g)</TableCell>
-        <TableCell align='end'>Carbs&nbsp;(g)</TableCell>
-        <TableCell align='end'>Protein&nbsp;(g)</TableCell>
-      </TableRow>
-    </TableHead>
-    <TableBody>
-      <TableRow>
-        <TableCell is='th' scope='row'>
-          Frozen yoghurt
-        </TableCell>
-        <TableCell align='end'>159</TableCell>
-        <TableCell align='end'>6</TableCell>
-        <TableCell align='end'>24</TableCell>
-        <TableCell align='end'>4</TableCell>
-      </TableRow>
-      <TableRow>
-        <TableCell is='th' scope='row'>
-          Ice cream sandwich
-        </TableCell>
-        <TableCell align='end'>237</TableCell>
-        <TableCell align='end'>9</TableCell>
-        <TableCell align='end'>37</TableCell>
-        <TableCell align='end'>4.3</TableCell>
-      </TableRow>
-    </TableBody>
-  </Table>
-);
+  ),
+};

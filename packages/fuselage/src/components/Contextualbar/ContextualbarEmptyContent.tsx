@@ -7,6 +7,9 @@ import type { BoxProps } from '../Box';
 
 import ContextualbarContent from './ContextualbarContent';
 
+/**
+ * @deprecated Use `ContextualbarV2EmptyContentProps` instead.
+ */
 export type ContextualbarEmptyContentProps = Omit<BoxProps, 'ref'> &
   RefAttributes<HTMLElement> & {
     icon?: StatesIconProps['name'];
@@ -31,4 +34,7 @@ function ContextualbarEmptyContent({
   );
 }
 
+/**
+ * @deprecated Use `ContextualbarV2EmptyContent` instead.
+ */
 export default memo(ContextualbarEmptyContent);

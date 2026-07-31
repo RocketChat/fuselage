@@ -1,4 +1,4 @@
-import type { Meta } from '@storybook/react-webpack5';
+import type { Meta, StoryObj } from '@storybook/react-webpack5';
 import { action } from 'storybook/actions';
 
 import { Box } from '../Box';
@@ -9,44 +9,85 @@ import Scrollable from './Scrollable';
 export default {
   title: 'Layout/Scrollable',
   component: Scrollable,
+  argTypes: {
+    horizontal: {
+      control: 'boolean',
+      description: 'Forces horizontal-only scrolling (`overflow-x: auto`).',
+      table: { category: 'Direction' },
+    },
+    vertical: {
+      control: 'boolean',
+      description: 'Forces vertical-only scrolling (`overflow-y: auto`).',
+      table: { category: 'Direction' },
+    },
+    smooth: {
+      control: 'boolean',
+      description: 'Enables smooth scrolling behavior.',
+      table: { category: 'Behavior' },
+    },
+    onScrollContent: {
+      control: false,
+      description:
+        'Called with which edges (top/bottom/left/right) are currently touching whenever the scroll position settles.',
+      table: { category: 'Events' },
+    },
+    children: {
+      control: false,
+      description:
+        'Scrollable content; receives the scroll container styling and scroll handler via `BoxTransforms`.',
+      table: { category: 'Content' },
+    },
+  },
 } satisfies Meta<typeof Scrollable>;
 
-export const Default = () => (
-  <Scrollable>
-    <Tile padding='none' maxWidth='full' height={100}>
-      <Box width='200%' height='1000%' />
-    </Tile>
-  </Scrollable>
-);
+type Story = StoryObj<typeof Scrollable>;
 
-export const HorizontalScrolling = () => (
-  <Scrollable horizontal>
-    <Tile padding='none' maxWidth='full'>
-      <Box width='200%' height={100} />
-    </Tile>
-  </Scrollable>
-);
+export const Default: Story = {
+  render: () => (
+    <Scrollable>
+      <Tile padding='none' maxWidth='full' height={100}>
+        <Box width='200%' height='1000%' />
+      </Tile>
+    </Scrollable>
+  ),
+};
 
-export const VerticalScrolling = () => (
-  <Scrollable vertical>
-    <Tile padding='none' height={100}>
-      <Box height='1000%' />
-    </Tile>
-  </Scrollable>
-);
+export const HorizontalScrolling: Story = {
+  render: () => (
+    <Scrollable horizontal>
+      <Tile padding='none' maxWidth='full'>
+        <Box width='200%' height={100} />
+      </Tile>
+    </Scrollable>
+  ),
+};
 
-export const SmoothScrolling = () => (
-  <Scrollable smooth>
-    <Tile padding='none' height={100}>
-      <Box height='1000%' />
-    </Tile>
-  </Scrollable>
-);
+export const VerticalScrolling: Story = {
+  render: () => (
+    <Scrollable vertical>
+      <Tile padding='none' height={100}>
+        <Box height='1000%' />
+      </Tile>
+    </Scrollable>
+  ),
+};
 
-export const OnScrollContentEvent = () => (
-  <Scrollable onScrollContent={action('scrollContent')}>
-    <Tile padding='none' height={100}>
-      <Box height='1000%' />
-    </Tile>
-  </Scrollable>
-);
+export const SmoothScrolling: Story = {
+  render: () => (
+    <Scrollable smooth>
+      <Tile padding='none' height={100}>
+        <Box height='1000%' />
+      </Tile>
+    </Scrollable>
+  ),
+};
+
+export const OnScrollContentEvent: Story = {
+  render: () => (
+    <Scrollable onScrollContent={action('scrollContent')}>
+      <Tile padding='none' height={100}>
+        <Box height='1000%' />
+      </Tile>
+    </Scrollable>
+  ),
+};
