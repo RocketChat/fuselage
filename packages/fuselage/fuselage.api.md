@@ -463,44 +463,44 @@ export const color: MemoizedFunction<unknown, unknown, string | undefined>;
 
 // Warning: (ae-forgotten-export) The symbol "Contextualbar_2" needs to be exported by the entry point index.d.ts
 //
-// @public @deprecated (undocumented)
+// @public (undocumented)
 export const Contextualbar: MemoExoticComponent<typeof Contextualbar_2>;
 
-// @public @deprecated (undocumented)
+// @public (undocumented)
 export const ContextualbarAction: MemoExoticComponent<(input: ContextualbarActionProps) => JSX.Element>;
 
-// @public @deprecated (undocumented)
+// @public (undocumented)
 export type ContextualbarActionProps = {
-    name: IconProps['name'];
-} & Omit<IconButtonProps, 'icon'>;
+    name: IconButtonProps['icon'];
+} & Omit<IconButtonProps, 'name' | 'icon'>;
 
-// @public @deprecated (undocumented)
+// @public (undocumented)
 export const ContextualbarActions: MemoExoticComponent<(props: ContextualbarActionsProps) => JSX.Element>;
 
-// @public @deprecated (undocumented)
+// @public (undocumented)
 export type ContextualbarActionsProps = ButtonGroupProps;
 
-// @public @deprecated (undocumented)
+// @public (undocumented)
 export const ContextualbarButton: MemoExoticComponent<(props: ContextualbarButtonProps) => JSX.Element>;
 
-// @public @deprecated (undocumented)
+// @public (undocumented)
 export type ContextualbarButtonProps = ButtonProps;
 
 // Warning: (ae-forgotten-export) The symbol "ContextualbarContent_2" needs to be exported by the entry point index.d.ts
 //
-// @public @deprecated (undocumented)
+// @public (undocumented)
 export const ContextualbarContent: MemoExoticComponent<typeof ContextualbarContent_2>;
 
-// @public @deprecated (undocumented)
+// @public (undocumented)
 export type ContextualbarContentProps = Omit<BoxProps, 'ref'> & RefAttributes<HTMLElement>;
 
 // Warning: (ae-forgotten-export) The symbol "ContextualbarEmptyContent_2" needs to be exported by the entry point index.d.ts
 //
-// @public @deprecated (undocumented)
+// @public (undocumented)
 export const ContextualbarEmptyContent: MemoExoticComponent<typeof ContextualbarEmptyContent_2>;
 
-// @public @deprecated (undocumented)
-export type ContextualbarEmptyContentProps = Omit<BoxProps, 'ref'> & RefAttributes<HTMLElement> & {
+// @public (undocumented)
+export type ContextualbarEmptyContentProps = ContextualbarContentProps & {
     icon?: StatesIconProps['name'];
     title?: string;
     subtitle?: string;
@@ -508,134 +508,46 @@ export type ContextualbarEmptyContentProps = Omit<BoxProps, 'ref'> & RefAttribut
 
 // Warning: (ae-forgotten-export) The symbol "ContextualbarFooter_2" needs to be exported by the entry point index.d.ts
 //
-// @public @deprecated (undocumented)
+// @public (undocumented)
 export const ContextualbarFooter: MemoExoticComponent<typeof ContextualbarFooter_2>;
 
-// @public @deprecated (undocumented)
+// @public (undocumented)
 export type ContextualbarFooterProps = Omit<BoxProps, 'ref'> & RefAttributes<HTMLElement>;
 
-// @public @deprecated (undocumented)
+// @public (undocumented)
 export const ContextualbarHeader: MemoExoticComponent<(input: ContextualbarHeaderProps) => JSX.Element>;
 
-// @public @deprecated (undocumented)
+// @public (undocumented)
 export type ContextualbarHeaderProps = BoxProps;
 
-// @public @deprecated (undocumented)
+// @public (undocumented)
 export const ContextualbarIcon: MemoExoticComponent<(props: ContextualbarIconProps) => JSX.Element>;
 
-// @public @deprecated (undocumented)
+// @public (undocumented)
 export type ContextualbarIconProps = IconProps;
 
-// @public @deprecated (undocumented)
+// @public (undocumented)
 export type ContextualbarProps = Omit<BoxProps, 'ref'> & RefAttributes<HTMLElement>;
 
 // Warning: (ae-forgotten-export) The symbol "ContextualbarSection_2" needs to be exported by the entry point index.d.ts
 //
-// @public @deprecated (undocumented)
+// @public (undocumented)
 export const ContextualbarSection: MemoExoticComponent<typeof ContextualbarSection_2>;
 
-// @public @deprecated (undocumented)
+// @public (undocumented)
 export type ContextualbarSectionProps = Omit<BoxProps, 'ref'> & RefAttributes<HTMLElement>;
 
-// @public @deprecated (undocumented)
+// @public (undocumented)
 export const ContextualbarSkeleton: MemoExoticComponent<(props: ContextualbarSkeletonProps) => JSX.Element>;
 
-// @public @deprecated (undocumented)
+// @public (undocumented)
 export type ContextualbarSkeletonProps = BoxProps;
 
-// @public @deprecated (undocumented)
+// @public (undocumented)
 export const ContextualbarTitle: MemoExoticComponent<(props: ContextualbarTitleProps) => JSX.Element>;
 
-// @public @deprecated (undocumented)
+// @public (undocumented)
 export type ContextualbarTitleProps = BoxProps;
-
-// Warning: (ae-forgotten-export) The symbol "Contextualbar_3" needs to be exported by the entry point index.d.ts
-//
-// @public (undocumented)
-export const ContextualbarV2: MemoExoticComponent<typeof Contextualbar_3>;
-
-// @public (undocumented)
-export const ContextualbarV2Action: MemoExoticComponent<(input: ContextualbarV2ActionProps) => JSX.Element>;
-
-// @public (undocumented)
-export type ContextualbarV2ActionProps = {
-    name: IconButtonProps['icon'];
-} & Omit<IconButtonProps, 'name' | 'icon'>;
-
-// @public (undocumented)
-export const ContextualbarV2Actions: MemoExoticComponent<(props: ContextualbarV2ActionsProps) => JSX.Element>;
-
-// @public (undocumented)
-export type ContextualbarV2ActionsProps = ButtonGroupProps;
-
-// @public (undocumented)
-export const ContextualbarV2Button: MemoExoticComponent<(props: ContextualbarV2ButtonProps) => JSX.Element>;
-
-// @public (undocumented)
-export type ContextualbarV2ButtonProps = ButtonProps;
-
-// Warning: (ae-forgotten-export) The symbol "ContextualbarContent_3" needs to be exported by the entry point index.d.ts
-//
-// @public (undocumented)
-export const ContextualbarV2Content: MemoExoticComponent<typeof ContextualbarContent_3>;
-
-// @public (undocumented)
-export type ContextualbarV2ContentProps = Omit<BoxProps, 'ref'> & RefAttributes<HTMLElement>;
-
-// Warning: (ae-forgotten-export) The symbol "ContextualbarEmptyContent_3" needs to be exported by the entry point index.d.ts
-//
-// @public (undocumented)
-export const ContextualbarV2EmptyContent: MemoExoticComponent<typeof ContextualbarEmptyContent_3>;
-
-// @public (undocumented)
-export type ContextualbarV2EmptyContentProps = ContextualbarV2ContentProps & {
-    icon?: StatesIconProps['name'];
-    title?: string;
-    subtitle?: string;
-};
-
-// Warning: (ae-forgotten-export) The symbol "ContextualbarFooter_3" needs to be exported by the entry point index.d.ts
-//
-// @public (undocumented)
-export const ContextualbarV2Footer: MemoExoticComponent<typeof ContextualbarFooter_3>;
-
-// @public (undocumented)
-export type ContextualbarV2FooterProps = Omit<BoxProps, 'ref'> & RefAttributes<HTMLElement>;
-
-// @public (undocumented)
-export const ContextualbarV2Header: MemoExoticComponent<(input: ContextualbarV2HeaderProps) => JSX.Element>;
-
-// @public (undocumented)
-export type ContextualbarV2HeaderProps = BoxProps;
-
-// @public (undocumented)
-export const ContextualbarV2Icon: MemoExoticComponent<(props: ContextualbarV2IconProps) => JSX.Element>;
-
-// @public (undocumented)
-export type ContextualbarV2IconProps = IconProps;
-
-// @public (undocumented)
-export type ContextualbarV2Props = Omit<BoxProps, 'ref'> & RefAttributes<HTMLElement>;
-
-// Warning: (ae-forgotten-export) The symbol "ContextualbarSection_3" needs to be exported by the entry point index.d.ts
-//
-// @public (undocumented)
-export const ContextualbarV2Section: MemoExoticComponent<typeof ContextualbarSection_3>;
-
-// @public (undocumented)
-export type ContextualbarV2SectionProps = Omit<BoxProps, 'ref'> & RefAttributes<HTMLElement>;
-
-// @public (undocumented)
-export const ContextualbarV2Skeleton: MemoExoticComponent<(props: ContextualbarV2SkeletonProps) => JSX.Element>;
-
-// @public (undocumented)
-export type ContextualbarV2SkeletonProps = BoxProps;
-
-// @public (undocumented)
-export const ContextualbarV2Title: MemoExoticComponent<(props: ContextualbarV2TitleProps) => JSX.Element>;
-
-// @public (undocumented)
-export type ContextualbarV2TitleProps = BoxProps;
 
 // @public (undocumented)
 export const Divider: (input: DividerProps) => JSX.Element;

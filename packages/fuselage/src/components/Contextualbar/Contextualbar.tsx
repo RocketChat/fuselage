@@ -1,12 +1,8 @@
 import type { RefAttributes } from 'react';
 import { memo } from 'react';
 
-import { Box } from '..';
-import type { BoxProps } from '../Box';
+import { Box, type BoxProps } from '../Box';
 
-/**
- * @deprecated Use `ContextualbarV2Props` instead.
- */
 export type ContextualbarProps = Omit<BoxProps, 'ref'> &
   RefAttributes<HTMLElement>;
 
@@ -41,7 +37,4 @@ function Contextualbar({
   );
 }
 
-/**
- * @deprecated Use `ContextualbarV2` instead.
- */
 export default memo(Contextualbar);
