@@ -1,3 +1,6 @@
+/**
+ * @deprecated Use `NavBar` for app-level navigation instead.
+ */
 export const TopBarAvatar = { size: 'x24' as const };
 export * from './TopBar';
 export * from './TopBarV2';

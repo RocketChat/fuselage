@@ -121,10 +121,9 @@ const Margins = (props: MarginsProps) => {
   );
 
   return (
-    <BoxTransforms.Provider
-      children={patchedChildren}
-      value={useComposedBoxTransform(transformFn)}
-    />
+    <BoxTransforms.Provider value={useComposedBoxTransform(transformFn)}>
+      {patchedChildren}
+    </BoxTransforms.Provider>
   );
 };
 

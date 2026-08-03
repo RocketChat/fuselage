@@ -37,12 +37,11 @@ import { SearchInputProps } from '@rocket.chat/fuselage';
 import { SelectOption } from '@rocket.chat/fuselage';
 import { SetStateAction } from 'react';
 import { Slider as Slider_2 } from '@rocket.chat/fuselage';
-import { TelephoneInputProps } from '@rocket.chat/fuselage';
 import { TextAreaInputProps } from '@rocket.chat/fuselage';
 import { TextInputProps } from '@rocket.chat/fuselage';
 import { UrlInputProps } from '@rocket.chat/fuselage';
 
-// @public (undocumented)
+// @public @deprecated (undocumented)
 export const AutoComplete: typeof AutoComplete_2;
 
 // @public (undocumented)
@@ -249,12 +248,6 @@ export const Select: {
 
 // @public (undocumented)
 export const Slider: typeof Slider_2;
-
-// @public (undocumented)
-export const TelephoneInput: {
-    (props: TelephoneInputProps & RefAttributes<HTMLInputElement>): JSX.Element;
-    displayName: string;
-};
 
 // @public (undocumented)
 export const TextAreaInput: {

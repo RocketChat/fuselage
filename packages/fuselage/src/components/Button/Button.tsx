@@ -5,17 +5,37 @@ import { Box, type BoxProps } from '../Box';
 import { Icon, type IconProps } from '../Icon';
 
 export type ButtonProps = Omit<BoxProps, 'ref'> & {
+  variant?:
+    | 'primary'
+    | 'secondary'
+    | 'danger'
+    | 'warning'
+    | 'success'
+    | 'secondary-danger'
+    | 'secondary-warning'
+    | 'secondary-success';
+  size?: 'mini' | 'tiny' | 'small' | 'medium' | 'large';
+  /** @deprecated Use `variant="primary"` instead. */
   primary?: boolean;
+  /** @deprecated Use `variant="secondary"` instead. */
   secondary?: boolean;
+  /** @deprecated Use `variant="danger"` instead. */
   danger?: boolean;
+  /** @deprecated Use `variant="warning"` instead. */
   warning?: boolean;
+  /** @deprecated Use `variant="success"` instead. */
   success?: boolean;
   disabled?: boolean;
   loading?: boolean;
+  /** @deprecated Use `size="mini"` instead. */
   mini?: boolean;
+  /** @deprecated Use `size="tiny"` instead. */
   tiny?: boolean;
+  /** @deprecated Use `size="small"` instead. */
   small?: boolean;
+  /** @deprecated Use `size="medium"` instead. */
   medium?: boolean;
+  /** @deprecated Use `size="large"` instead. */
   large?: boolean;
   square?: boolean;
   external?: boolean;
@@ -31,6 +51,7 @@ export type ButtonProps = Omit<BoxProps, 'ref'> & {
  */
 function Button({
   ref,
+  variant,
   primary,
   secondary,
   danger,
@@ -40,6 +61,7 @@ function Button({
   icon,
   is = 'button',
   rel: _rel,
+  size,
   tiny,
   mini,
   small,
@@ -62,7 +84,8 @@ function Button({
     {};
 
   const kindAndVariantProps = useMemo(() => {
-    const variant =
+    const kind =
+      variant ||
       (primary && 'primary') ||
       (secondary && success && 'secondary-success') ||
       (secondary && warning && 'secondary-warning') ||
@@ -72,14 +95,23 @@ function Button({
       (danger && 'danger') ||
       (secondary && 'secondary');
 
-    if (variant) {
+    if (kind) {
       return {
-        [`rcx-button--${[variant].filter(Boolean).join('-')}`]: true,
+        [`rcx-button--${kind}`]: true,
       };
     }
 
     return {};
-  }, [primary, secondary, danger, warning, success]);
+  }, [variant, primary, secondary, danger, warning, success]);
+
+  const effectiveSize =
+    size ||
+    (mini && 'mini') ||
+    (tiny && 'tiny') ||
+    (small && 'small') ||
+    (medium && 'medium') ||
+    (large && 'large') ||
+    undefined;
 
   return (
     <Box
@@ -87,15 +119,15 @@ function Button({
       type='button'
       rcx-button
       {...kindAndVariantProps}
-      rcx-button--small={small}
-      rcx-button--medium={medium}
-      rcx-button--large={large}
+      rcx-button--small={effectiveSize === 'small'}
+      rcx-button--medium={effectiveSize === 'medium'}
+      rcx-button--large={effectiveSize === 'large'}
       rcx-button--square={square}
-      rcx-button--tiny-square={tiny && square}
-      rcx-button--mini-square={mini && square}
-      rcx-button--small-square={small && square}
-      rcx-button--medium-square={medium && square}
-      rcx-button--large-square={large && square}
+      rcx-button--tiny-square={effectiveSize === 'tiny' && square}
+      rcx-button--mini-square={effectiveSize === 'mini' && square}
+      rcx-button--small-square={effectiveSize === 'small' && square}
+      rcx-button--medium-square={effectiveSize === 'medium' && square}
+      rcx-button--large-square={effectiveSize === 'large' && square}
       rcx-button--loading={loading}
       disabled={disabled || loading}
       ref={ref}
@@ -103,8 +135,10 @@ function Button({
       {...props}
     >
       <span className='rcx-button--content'>
-        {icon && !loading && <Icon size='x16' name={icon} mie={4} />}
-        {loading && <Icon size='x16' name='loading' mie={4} />}
+        {icon && !loading && (
+          <Icon size='x16' name={icon} marginInlineEnd={4} />
+        )}
+        {loading && <Icon size='x16' name='loading' marginInlineEnd={4} />}
         {children}
       </span>
     </Box>

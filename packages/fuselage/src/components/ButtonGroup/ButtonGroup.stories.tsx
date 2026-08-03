@@ -1,4 +1,4 @@
-import type { StoryFn, Meta } from '@storybook/react-webpack5';
+import type { Meta, StoryFn, StoryObj } from '@storybook/react-webpack5';
 
 import { Button } from '../Button';
 
@@ -7,7 +7,42 @@ import ButtonGroup from './ButtonGroup';
 export default {
   title: 'Inputs/ButtonGroup',
   component: ButtonGroup,
+  argTypes: {
+    align: {
+      control: 'select',
+      options: ['start', 'center', 'end'],
+      description: 'Alignment of the buttons along the main axis.',
+      table: { category: 'Layout', defaultValue: { summary: 'start' } },
+    },
+    stretch: {
+      control: 'boolean',
+      description: 'Stretches every button to share the available space.',
+      table: { category: 'Layout' },
+    },
+    wrap: {
+      control: 'boolean',
+      description: 'Allows buttons to wrap onto multiple lines.',
+      table: { category: 'Layout' },
+    },
+    vertical: {
+      control: 'boolean',
+      description: 'Stacks the buttons vertically instead of horizontally.',
+      table: { category: 'Layout' },
+    },
+    small: {
+      control: 'boolean',
+      description: 'Small size scale for the contained buttons.',
+      table: { category: 'Size' },
+    },
+    large: {
+      control: 'boolean',
+      description: 'Large size scale for the contained buttons.',
+      table: { category: 'Size' },
+    },
+  },
 } satisfies Meta<typeof ButtonGroup>;
+
+type Story = StoryObj<typeof ButtonGroup>;
 
 const Template: StoryFn<typeof ButtonGroup> = (args) => (
   <ButtonGroup {...args}>
@@ -42,62 +77,86 @@ const TemplateMultiple: StoryFn<typeof ButtonGroup> = (args) => (
   </ButtonGroup>
 );
 
-export const Default: StoryFn<typeof ButtonGroup> = Template.bind({});
-
-export const Large: StoryFn<typeof ButtonGroup> = Template.bind({});
-Large.args = {
-  large: true,
+export const Default: Story = {
+  render: Template,
 };
 
-export const Small: StoryFn<typeof ButtonGroup> = Template.bind({});
-Small.args = {
-  small: true,
+export const Large: Story = {
+  render: Template,
+  args: {
+    large: true,
+  },
 };
 
-export const Wrap: StoryFn<typeof ButtonGroup> = TemplateMultiple.bind({});
-Wrap.args = {
-  wrap: true,
+export const Small: Story = {
+  render: Template,
+  args: {
+    small: true,
+  },
 };
 
-export const Stretch: StoryFn<typeof ButtonGroup> = Template.bind({});
-Stretch.args = {
-  stretch: true,
+export const Wrap: Story = {
+  render: TemplateMultiple,
+  args: {
+    wrap: true,
+  },
 };
 
-export const Vertical: StoryFn<typeof ButtonGroup> = Template.bind({});
-Vertical.args = {
-  vertical: true,
+export const Stretch: Story = {
+  render: Template,
+  args: {
+    stretch: true,
+  },
 };
 
-export const VerticalLarge: StoryFn<typeof ButtonGroup> = Template.bind({});
-VerticalLarge.args = {
-  vertical: true,
-  large: true,
+export const Vertical: Story = {
+  render: Template,
+  args: {
+    vertical: true,
+  },
 };
 
-export const VerticalSmall: StoryFn<typeof ButtonGroup> = Template.bind({});
-VerticalSmall.args = {
-  vertical: true,
-  small: true,
+export const VerticalLarge: Story = {
+  render: Template,
+  args: {
+    vertical: true,
+    large: true,
+  },
 };
 
-export const VerticalStretch: StoryFn<typeof ButtonGroup> = Template.bind({});
-VerticalStretch.args = {
-  vertical: true,
-  stretch: true,
+export const VerticalSmall: Story = {
+  render: Template,
+  args: {
+    vertical: true,
+    small: true,
+  },
 };
 
-export const AlignedAtStart: StoryFn<typeof ButtonGroup> = Template.bind({});
-AlignedAtStart.args = {
-  align: 'start',
+export const VerticalStretch: Story = {
+  render: Template,
+  args: {
+    vertical: true,
+    stretch: true,
+  },
 };
 
-export const AlignedAtCenter: StoryFn<typeof ButtonGroup> = Template.bind({});
-AlignedAtCenter.args = {
-  align: 'center',
+export const AlignedAtStart: Story = {
+  render: Template,
+  args: {
+    align: 'start',
+  },
 };
 
-export const AlignedAtEnd: StoryFn<typeof ButtonGroup> = Template.bind({});
-AlignedAtEnd.args = {
-  align: 'end',
+export const AlignedAtCenter: Story = {
+  render: Template,
+  args: {
+    align: 'center',
+  },
+};
+
+export const AlignedAtEnd: Story = {
+  render: Template,
+  args: {
+    align: 'end',
+  },
 };

@@ -29,14 +29,14 @@ const OauthAuthorizationPage = ({
         {t('page.oauthAuthorizationPage.title')}
       </VerticalWizardLayoutTitle>
       <VerticalWizardLayoutForm>
-        <Box fontScale='p1' p={40} textAlign='start' color={colors.n900}>
+        <Box fontScale='p1' padding={40} textAlign='start' color={colors.n900}>
           {!clientName || error.message ? (
             <>
-              <Box fontScale='h1' mbe={18}>
+              <Box fontScale='h1' marginBlockEnd={18}>
                 Error
               </Box>
               {error.message}
-              <Box mbs={24}>
+              <Box marginBlockStart={24}>
                 <Button onClick={error.onGoBack} primary>
                   {t('page.oauthAuthorizationPage.buttons.goBack')}
                 </Button>
@@ -53,7 +53,7 @@ const OauthAuthorizationPage = ({
                 to login with your Rocket.Chat Cloud Account?
               </Trans>
 
-              <Box mbs={24}>
+              <Box marginBlockStart={24}>
                 <Button onClick={onClickAuthorizeOAuth} primary>
                   {t('page.oauthAuthorizationPage.buttons.authorize')}
                 </Button>

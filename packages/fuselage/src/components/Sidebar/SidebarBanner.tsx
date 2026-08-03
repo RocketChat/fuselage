@@ -2,6 +2,9 @@ import type { ReactNode } from 'react';
 
 import { IconButton } from '../Button';
 
+/**
+ * @deprecated Use `SidebarV2BannerVariant` instead.
+ */
 export type SidebarBannerVariant =
   | 'default'
   | 'info'
@@ -9,6 +12,9 @@ export type SidebarBannerVariant =
   | 'warning'
   | 'danger';
 
+/**
+ * @deprecated Use `SidebarV2BannerProps` instead.
+ */
 export type SidebarBannerProps = {
   text?: ReactNode;
   description?: ReactNode;
@@ -19,6 +25,9 @@ export type SidebarBannerProps = {
   addon?: ReactNode;
 };
 
+/**
+ * @deprecated Use `SidebarV2Banner` instead.
+ */
 const SidebarBanner = ({
   text,
   description,

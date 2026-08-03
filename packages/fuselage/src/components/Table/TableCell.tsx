@@ -31,9 +31,10 @@ const TableCell = ({
       rcx-table__cell--align={align}
       rcx-table__cell--header={isInsideHead}
       rcx-table__cell--clickable={clickable}
-      children={innerElement}
       {...props}
-    />
+    >
+      {innerElement}
+    </Box>
   );
 };
 

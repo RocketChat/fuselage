@@ -1,5 +1,9 @@
 export { default as Menu, type MenuProps } from './Menu';
 export { default as MenuItem, type MenuItemProps } from './stately/MenuItem';
+export {
+  default as MenuSubmenuTrigger,
+  type MenuSubmenuTriggerProps,
+} from './stately/MenuSubmenuTrigger';
 export type { PartialNode } from './stately/PartialNode';
 export {
   default as MenuSection,

@@ -12,11 +12,11 @@ const WorkspaceUrlInput = ({ domain, ...props }: WorkspaceUrlInputProps) => (
     endAddon={
       <Box
         borderInlineStart='2px solid'
-        mb='neg-x8'
-        pb={8}
+        marginBlock='neg-x8'
+        paddingBlock={8}
         borderColor='neutral-500'
         color='info'
-        pis={12}
+        paddingInlineStart={12}
       >
         {domain}
       </Box>

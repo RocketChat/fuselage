@@ -176,10 +176,18 @@ const RegisterServerForm = ({
                 </Button>
               )}
             </ButtonGroup>
-            <Box id={`${formId}-engagement-disclaimer`} mbs={24} fontScale='c1'>
+            <Box
+              id={`${formId}-engagement-disclaimer`}
+              marginBlockStart={24}
+              fontScale='c1'
+            >
               {t('form.registeredServerForm.registrationEngagement')}
             </Box>
-            <Box id={`${formId}-informed-disclaimer`} mbs={24} fontScale='c1'>
+            <Box
+              id={`${formId}-informed-disclaimer`}
+              marginBlockStart={24}
+              fontScale='c1'
+            >
               <Trans i18nKey='form.registeredServerForm.registrationKeepInformed'>
                 By submitting this form you consent to receive more information
                 about Rocket.Chat products, events and updates, according to our

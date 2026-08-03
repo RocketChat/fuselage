@@ -71,7 +71,6 @@ export type StylingProps = {
 
   color: CSSProperties['color'] | Var;
   backgroundColor: CSSProperties['backgroundColor'] | Var;
-  bg: CSSProperties['backgroundColor'] | Var;
   opacity: CSSProperties['opacity'];
 
   alignItems: CSSProperties['alignItems'];
@@ -90,11 +89,9 @@ export type StylingProps = {
   rowGap: CSSProperties['rowGap'];
   columnGap: CSSProperties['columnGap'];
 
-  w: CSSProperties['width'];
   width: CSSProperties['width'];
   minWidth: CSSProperties['minWidth'];
   maxWidth: CSSProperties['maxWidth'];
-  h: CSSProperties['height'];
   height: CSSProperties['height'];
   minHeight: CSSProperties['minHeight'];
   maxHeight: CSSProperties['maxHeight'];
@@ -115,33 +112,19 @@ export type StylingProps = {
   insetInlineStart: CSSProperties['insetInlineStart'];
   insetInlineEnd: CSSProperties['insetInlineEnd'];
 
-  m: CSSProperties['margin'];
   margin: CSSProperties['margin'];
-  mb: CSSProperties['marginBlock'];
   marginBlock: CSSProperties['marginBlock'];
-  mbs: CSSProperties['marginBlockStart'];
   marginBlockStart: CSSProperties['marginBlockStart'];
-  mbe: CSSProperties['marginBlockEnd'];
   marginBlockEnd: CSSProperties['marginBlockEnd'];
-  mi: CSSProperties['marginInline'];
   marginInline: CSSProperties['marginInline'];
-  mis: CSSProperties['marginInlineStart'];
   marginInlineStart: CSSProperties['marginInlineStart'];
-  mie: CSSProperties['marginInlineEnd'];
   marginInlineEnd: CSSProperties['marginInlineEnd'];
-  p: CSSProperties['padding'];
   padding: CSSProperties['padding'];
-  pb: CSSProperties['paddingBlock'];
   paddingBlock: CSSProperties['paddingBlock'];
-  pbs: CSSProperties['paddingBlockStart'];
   paddingBlockStart: CSSProperties['paddingBlockStart'];
-  pbe: CSSProperties['paddingBlockEnd'];
   paddingBlockEnd: CSSProperties['paddingBlockEnd'];
-  pi: CSSProperties['paddingInline'];
   paddingInline: CSSProperties['paddingInline'];
-  pis: CSSProperties['paddingInlineStart'];
   paddingInlineStart: CSSProperties['paddingInlineStart'];
-  pie: CSSProperties['paddingInlineEnd'];
   paddingInlineEnd: CSSProperties['paddingInlineEnd'];
 
   fontFamily: CSSProperties['fontFamily'] | FontScale;
@@ -168,7 +151,6 @@ type PropDefinition =
   | {
       toCSSValue: (value: unknown) => string | undefined;
     }
-  | { aliasOf: keyof StylingProps }
   | {
       toStyle: (value: unknown) => cssFn | undefined;
     };
@@ -249,10 +231,6 @@ const letterSpacingProp: PropDefinition = {
     value ? String(fontScale(value)?.letterSpacing || value) : undefined,
 };
 
-const aliasOf = (propName: keyof StylingProps): PropDefinition => ({
-  aliasOf: propName,
-});
-
 export const propDefs: Record<keyof StylingProps, PropDefinition> = {
   border: stringProp,
   borderBlock: stringProp,
@@ -290,7 +268,6 @@ export const propDefs: Record<keyof StylingProps, PropDefinition> = {
 
   color: fontColorProp,
   backgroundColor: backgroundColorProp,
-  bg: aliasOf('backgroundColor'),
   opacity: numberOrStringProp,
 
   alignItems: stringProp,
@@ -309,11 +286,9 @@ export const propDefs: Record<keyof StylingProps, PropDefinition> = {
   rowGap: gapProp,
   columnGap: gapProp,
 
-  w: aliasOf('width'),
   width: sizeProp,
   minWidth: sizeProp,
   maxWidth: sizeProp,
-  h: aliasOf('height'),
   height: sizeProp,
   minHeight: sizeProp,
   maxHeight: sizeProp,
@@ -334,33 +309,19 @@ export const propDefs: Record<keyof StylingProps, PropDefinition> = {
   insetInlineStart: insetProp,
   insetInlineEnd: insetProp,
 
-  m: aliasOf('margin'),
   margin: marginProp,
-  mb: aliasOf('marginBlock'),
   marginBlock: marginProp,
-  mbs: aliasOf('marginBlockStart'),
   marginBlockStart: marginProp,
-  mbe: aliasOf('marginBlockEnd'),
   marginBlockEnd: marginProp,
-  mi: aliasOf('marginInline'),
   marginInline: marginProp,
-  mis: aliasOf('marginInlineStart'),
   marginInlineStart: marginProp,
-  mie: aliasOf('marginInlineEnd'),
   marginInlineEnd: marginProp,
-  p: aliasOf('padding'),
   padding: paddingProp,
-  pb: aliasOf('paddingBlock'),
   paddingBlock: paddingProp,
-  pbs: aliasOf('paddingBlockStart'),
   paddingBlockStart: paddingProp,
-  pbe: aliasOf('paddingBlockEnd'),
   paddingBlockEnd: paddingProp,
-  pi: aliasOf('paddingInline'),
   paddingInline: paddingProp,
-  pis: aliasOf('paddingInlineStart'),
   paddingInlineStart: paddingProp,
-  pie: aliasOf('paddingInlineEnd'),
   paddingInlineEnd: paddingProp,
 
   fontFamily: fontFamilyProp,
@@ -480,23 +441,6 @@ const compiledPropDefs = new Map(
         stylingProps: Map<keyof StylingProps, cssFn>,
       ) => void,
     ] => {
-      if ('aliasOf' in propDef) {
-        const { aliasOf: effectivePropName } = propDef;
-
-        return [
-          propName,
-          (value, stylingProps) => {
-            if (stylingProps.has(effectivePropName)) {
-              return;
-            }
-
-            const inject = compiledPropDefs.get(effectivePropName);
-
-            inject?.(value, stylingProps);
-          },
-        ];
-      }
-
       if ('toCSSValue' in propDef) {
         const cssProperty = fromCamelToKebab(propName);
         const { toCSSValue } = propDef;

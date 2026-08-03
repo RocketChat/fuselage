@@ -32,7 +32,7 @@ const Description = () => {
 
   const listItem = (text: string, id: number) => (
     <ListItem key={id} fontScale='p1'>
-      <Icon name='check' size='x24' mie={12} />
+      <Icon name='check' size='x24' marginInlineEnd={12} />
       {text}
     </ListItem>
   );

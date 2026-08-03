@@ -10,7 +10,7 @@ const FormSteps = ({ currentStep, stepCount }: FormStepsProps) => {
   const { t } = useTranslation();
 
   return (
-    <Box mbe={8} fontScale='c2' color='secondary-info'>
+    <Box marginBlockEnd={8} fontScale='c2' color='secondary-info'>
       {t('component.form.steps', { currentStep, stepCount })}
     </Box>
   );

@@ -25,7 +25,7 @@ const CreateCloudWorkspacePage = (props: CreateCloudWorkspacePageProps) => {
       >
         <CreateCloudWorkspaceForm {...props} />
 
-        <Box mbs={28} display='inline' textAlign='center'>
+        <Box marginBlockStart={28} display='inline' textAlign='center'>
           <Trans i18nKey='page.alreadyHaveAccount'>
             Already have an account?
             <Box

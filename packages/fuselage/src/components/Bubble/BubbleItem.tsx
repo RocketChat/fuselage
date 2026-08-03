@@ -21,7 +21,7 @@ export const BubbleItem = ({
     }`}
     {...props}
   >
-    {icon && <Icon name={icon} size='x16' mie={8} />}
+    {icon && <Icon name={icon} size='x16' marginInlineEnd={8} />}
     {label && <span>{label}</span>}
   </span>
 );

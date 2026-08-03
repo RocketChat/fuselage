@@ -1,8 +1,7 @@
 import type { RefAttributes } from 'react';
 import { memo } from 'react';
 
-import { Box } from '..';
-import type { BoxProps } from '../Box';
+import { Box, type BoxProps } from '../Box';
 
 export type ContextualbarProps = Omit<BoxProps, 'ref'> &
   RefAttributes<HTMLElement>;
@@ -13,13 +12,13 @@ export type ContextualbarProps = Omit<BoxProps, 'ref'> &
 function Contextualbar({
   width,
   position,
-  bg = 'room',
+  backgroundColor = 'room',
   ...props
 }: ContextualbarProps) {
   return (
     <Box
       rcx-vertical-bar
-      bg={bg}
+      backgroundColor={backgroundColor}
       color='default'
       display='flex'
       flexDirection='column'

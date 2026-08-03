@@ -99,14 +99,14 @@ export const PaginatedSelect = ({
     >
       <PaginatedSelectWrapper
         display='flex'
-        mi='neg-x4'
+        marginInline='neg-x4'
         rcx-select__wrapper--hidden={!!visibleText}
       >
         {visibleText && (
           <Box
             flexGrow={1}
             is='span'
-            mi={4}
+            marginInline={4}
             rcx-select__item
             fontScale='p2m'
             color={valueLabel ? 'default' : 'hint'}
