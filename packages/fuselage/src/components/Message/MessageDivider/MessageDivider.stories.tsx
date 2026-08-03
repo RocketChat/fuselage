@@ -7,6 +7,17 @@ import MessageDivider from './MessageDivider';
 export default {
   title: 'Message/MessageDivider',
   component: MessageDivider,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Separates message sections, appearing above them.\n\n' +
+          '**Rules**\n' +
+          '- Use the date to mark when messages were sent; use the unread indicator to highlight new messages.\n' +
+          '- Omit the divider line itself for longer messages likely to wrap multiple lines.',
+      },
+    },
+  },
   argTypes: {
     children: {
       control: 'text',
