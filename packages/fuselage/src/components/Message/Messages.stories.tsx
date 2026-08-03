@@ -1026,7 +1026,7 @@ export const BlockAfterHeader: Story = {
               height='200px'
               border='1px solid'
               borderColor='stroke-extra-light'
-              borderRadius='4px'
+              borderRadius='medium'
             />
           </MessageBlock>
         </MessageContainer>

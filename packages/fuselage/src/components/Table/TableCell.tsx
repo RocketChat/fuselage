@@ -21,7 +21,7 @@ const TableCell = ({
   const innerElement =
     children ??
     (!isInsideHead ? (
-      <Box display='inline-block' is='hr' width='x14' borderWidth={1} />
+      <Box display='inline-block' is='hr' width='x14' borderWidth='default' />
     ) : undefined);
 
   return (

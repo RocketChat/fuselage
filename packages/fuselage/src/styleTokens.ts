@@ -1,6 +1,7 @@
 import tokenTypography from '@rocket.chat/fuselage-tokens/typography.json';
 import { memoize } from '@rocket.chat/memo';
 import invariant from 'invariant';
+import type { CSSProperties } from 'react';
 
 import {
   isStatusBackgroundColor,
@@ -53,28 +54,49 @@ const measure = (
     return value;
   });
 
-export const borderWidth = measure((value: unknown) => {
-  if (value === 'none') {
-    return '0px';
-  }
-  if (value === 'default') {
-    return borderWidth('x1');
+const borders = {
+  radius: {
+    'none': '0',
+    'small': '2px',
+    'medium': '4px',
+    'large': '8px',
+    'extra-large': '20px',
+    'full': '9999px',
+  },
+  width: {
+    'none': '0',
+    'default': '1px',
+    'medium': '2px',
+    'large': '4px',
+    'extra-large': '8px',
+  },
+} satisfies {
+  radius: Record<string, CSSProperties['borderRadius']>;
+  width: Record<string, CSSProperties['borderWidth']>;
+};
+
+export type BorderWidth = keyof typeof borders.width;
+export type BorderRadius = keyof typeof borders.radius;
+
+export const borderWidth = (value: unknown) => {
+  if (typeof value === 'string' && value in borders.width) {
+    return borders.width[value as keyof typeof borders.width];
   }
 
-  return undefined;
-});
+  throw new Error(
+    `Invalid borderWidth value: ${value}. Valid values are: ${Object.keys(borders.width).join(', ')}`,
+  );
+};
 
-export const borderRadius = measure((value: unknown) => {
-  if (value === 'none') {
-    return '0px';
+export const borderRadius = (value: unknown) => {
+  if (typeof value === 'string' && value in borders.radius) {
+    return borders.radius[value as keyof typeof borders.radius];
   }
 
-  if (value === 'full') {
-    return '9999px';
-  }
-
-  return undefined;
-});
+  throw new Error(
+    `Invalid borderRadius value: ${value}. Valid values are: ${Object.keys(borders.radius).join(', ')}`,
+  );
+};
 
 const mapTypeToPrefix = {
   neutral: 'n',
