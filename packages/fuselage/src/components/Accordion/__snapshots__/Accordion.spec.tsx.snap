@@ -373,3 +373,340 @@ exports[`renders ExpandedItemByDefault without crashing 1`] = `
   </div>
 </body>
 `;
+
+exports[`renders LeadingIcon without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-box--animated rcx-accordion"
+    >
+      <section
+        class="rcx-box rcx-box--full rcx-accordion-item"
+      >
+        <div
+          aria-controls="_r_p_"
+          aria-expanded="false"
+          class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__bar"
+          role="button"
+          tabindex="0"
+        >
+          <h2
+            class="rcx-box rcx-box--full rcx-accordion-item__title"
+            id="_r_o_"
+          >
+            <span
+              class="rcx-box rcx-box--full rcx-css-127j9mz"
+            >
+              <i
+                aria-hidden="true"
+                class="rcx-box rcx-box--full rcx-icon--name-doner rcx-icon rcx-css-i37o9p"
+              >
+                
+              </i>
+              <span
+                class="rcx-box rcx-box--full rcx-css-ws1yyr"
+              >
+                Item #1
+              </span>
+            </span>
+          </h2>
+          <span
+            class="rcx-box rcx-box--full rcx-chevron"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-f8dsuo"
+            >
+              
+            </i>
+          </span>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__panel"
+          id="_r_p_"
+        >
+          <div
+            class="rcx-box rcx-box--full rcx-css-1fpwtdk"
+          >
+            Content for 
+            Item #1
+          </div>
+        </div>
+      </section>
+      <section
+        class="rcx-box rcx-box--full rcx-accordion-item"
+      >
+        <div
+          aria-controls="_r_r_"
+          aria-expanded="false"
+          class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__bar"
+          role="button"
+          tabindex="0"
+        >
+          <h2
+            class="rcx-box rcx-box--full rcx-accordion-item__title"
+            id="_r_q_"
+          >
+            <span
+              class="rcx-box rcx-box--full rcx-css-127j9mz"
+            >
+              <i
+                aria-hidden="true"
+                class="rcx-box rcx-box--full rcx-icon--name-doner rcx-icon rcx-css-i37o9p"
+              >
+                
+              </i>
+              <span
+                class="rcx-box rcx-box--full rcx-css-ws1yyr"
+              >
+                Item #2
+              </span>
+            </span>
+          </h2>
+          <span
+            class="rcx-box rcx-box--full rcx-chevron"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-f8dsuo"
+            >
+              
+            </i>
+          </span>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__panel"
+          id="_r_r_"
+        >
+          <div
+            class="rcx-box rcx-box--full rcx-css-1fpwtdk"
+          >
+            Content for 
+            Item #2
+          </div>
+        </div>
+      </section>
+      <section
+        class="rcx-box rcx-box--full rcx-accordion-item"
+      >
+        <div
+          aria-controls="_r_t_"
+          aria-expanded="false"
+          class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__bar"
+          role="button"
+          tabindex="0"
+        >
+          <h2
+            class="rcx-box rcx-box--full rcx-accordion-item__title"
+            id="_r_s_"
+          >
+            <span
+              class="rcx-box rcx-box--full rcx-css-127j9mz"
+            >
+              <i
+                aria-hidden="true"
+                class="rcx-box rcx-box--full rcx-icon--name-doner rcx-icon rcx-css-i37o9p"
+              >
+                
+              </i>
+              <span
+                class="rcx-box rcx-box--full rcx-css-ws1yyr"
+              >
+                Item #3
+              </span>
+            </span>
+          </h2>
+          <span
+            class="rcx-box rcx-box--full rcx-chevron"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-f8dsuo"
+            >
+              
+            </i>
+          </span>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__panel"
+          id="_r_t_"
+        >
+          <div
+            class="rcx-box rcx-box--full rcx-css-1fpwtdk"
+          >
+            Content for 
+            Item #3
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`renders SecondaryTitle without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-box--animated rcx-accordion"
+    >
+      <section
+        class="rcx-box rcx-box--full rcx-accordion-item"
+      >
+        <div
+          aria-controls="_r_j_"
+          aria-expanded="false"
+          class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__bar"
+          role="button"
+          tabindex="0"
+        >
+          <h2
+            class="rcx-box rcx-box--full rcx-accordion-item__title"
+            id="_r_i_"
+          >
+            <span
+              class="rcx-box rcx-box--full rcx-css-hgz81v"
+            >
+              <span
+                class="rcx-box rcx-box--full"
+              >
+                Item #1
+              </span>
+              <span
+                class="rcx-box rcx-box--full rcx-css-82qoia"
+              >
+                Released on Jan 12, 2026
+              </span>
+            </span>
+          </h2>
+          <span
+            class="rcx-box rcx-box--full rcx-chevron"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-f8dsuo"
+            >
+              
+            </i>
+          </span>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__panel"
+          id="_r_j_"
+        >
+          <div
+            class="rcx-box rcx-box--full rcx-css-1fpwtdk"
+          >
+            Content for 
+            Item #1
+          </div>
+        </div>
+      </section>
+      <section
+        class="rcx-box rcx-box--full rcx-accordion-item"
+      >
+        <div
+          aria-controls="_r_l_"
+          aria-expanded="false"
+          class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__bar"
+          role="button"
+          tabindex="0"
+        >
+          <h2
+            class="rcx-box rcx-box--full rcx-accordion-item__title"
+            id="_r_k_"
+          >
+            <span
+              class="rcx-box rcx-box--full rcx-css-hgz81v"
+            >
+              <span
+                class="rcx-box rcx-box--full"
+              >
+                Item #2
+              </span>
+              <span
+                class="rcx-box rcx-box--full rcx-css-82qoia"
+              >
+                Released on Feb 3, 2026
+              </span>
+            </span>
+          </h2>
+          <span
+            class="rcx-box rcx-box--full rcx-chevron"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-f8dsuo"
+            >
+              
+            </i>
+          </span>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__panel"
+          id="_r_l_"
+        >
+          <div
+            class="rcx-box rcx-box--full rcx-css-1fpwtdk"
+          >
+            Content for 
+            Item #2
+          </div>
+        </div>
+      </section>
+      <section
+        class="rcx-box rcx-box--full rcx-accordion-item"
+      >
+        <div
+          aria-controls="_r_n_"
+          aria-expanded="false"
+          class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__bar"
+          role="button"
+          tabindex="0"
+        >
+          <h2
+            class="rcx-box rcx-box--full rcx-accordion-item__title"
+            id="_r_m_"
+          >
+            <span
+              class="rcx-box rcx-box--full rcx-css-hgz81v"
+            >
+              <span
+                class="rcx-box rcx-box--full"
+              >
+                Item #3
+              </span>
+              <span
+                class="rcx-box rcx-box--full rcx-css-82qoia"
+              >
+                Released on Mar 18, 2026
+              </span>
+            </span>
+          </h2>
+          <span
+            class="rcx-box rcx-box--full rcx-chevron"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-f8dsuo"
+            >
+              
+            </i>
+          </span>
+        </div>
+        <div
+          class="rcx-box rcx-box--full rcx-box--animated rcx-accordion-item__panel"
+          id="_r_n_"
+        >
+          <div
+            class="rcx-box rcx-box--full rcx-css-1fpwtdk"
+          >
+            Content for 
+            Item #3
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</body>
+`;

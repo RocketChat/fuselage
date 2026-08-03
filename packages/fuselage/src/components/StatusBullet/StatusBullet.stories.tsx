@@ -7,6 +7,17 @@ import StatusBullet from './StatusBullet';
 export default {
   title: 'Data Display/StatusBullet',
   component: StatusBullet,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "A round icon that shows a user's status, using both color and a smaller icon.\n\n" +
+          '**Rules**\n' +
+          "- Use accompanied by the user's name in proper context, or when the user is setting their own status.\n" +
+          '- Each status color is paired with a smaller icon for accessibility — color is never the only channel.',
+      },
+    },
+  },
   argTypes: {
     status: {
       control: 'select',

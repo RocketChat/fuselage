@@ -26,6 +26,17 @@ import { GenericNoAvatarItem, MenuTemplate } from './helpers';
 export default {
   title: 'Navigation/SidebarV2',
   component: Sidebar,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'The room-list sidebar — rows for rooms (channels/teams/discussions/DMs) grouped into collapsible categories.\n\n' +
+          '**Rules**\n' +
+          '- Build a room list from sidebar items grouped under collapsible categories.\n' +
+          '- Use the unread status to highlight rooms with new activity; use badges for counts.',
+      },
+    },
+  },
   argTypes: {
     collapsed: {
       control: 'boolean',

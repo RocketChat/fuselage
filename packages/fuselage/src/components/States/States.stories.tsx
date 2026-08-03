@@ -32,6 +32,18 @@ export default {
     StatesAction,
     StatesLink,
   },
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Appears when there is no data to display and, if possible, describes what the user can do next.\n\n' +
+          '**Rules**\n' +
+          '- The message should be neutral and helpful, accurately describing the state and suggesting next steps.\n' +
+          '- Prefer a link over a primary button/CTA for the default empty state.\n' +
+          '- The magnifying-glass icon is reserved for search-related empty states; otherwise the icon should reflect the context.',
+      },
+    },
+  },
   argTypes: {
     children: {
       control: false,

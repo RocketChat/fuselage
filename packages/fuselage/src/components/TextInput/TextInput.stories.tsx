@@ -8,6 +8,17 @@ import TextInput from './TextInput';
 export default {
   title: 'Inputs/TextInput',
   component: TextInput,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Lets users input one or multiple string values.\n\n' +
+          '**Rules**\n' +
+          '- Compose text inputs through the Field wrapper to get consistent label/description/hint/error/link.\n' +
+          '- Follow the Field UX-writing rules for all copy (clear labels, actionable error messages, hints for technical terms).',
+      },
+    },
+  },
   argTypes: {
     startAddon: {
       control: false,

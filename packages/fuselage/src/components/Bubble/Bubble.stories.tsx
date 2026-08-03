@@ -6,6 +6,17 @@ import Bubble from './Bubble';
 export default {
   title: 'Data Display/Bubble',
   component: Bubble,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Floating control used in a scrollable feed or dynamic menu without pagination.\n\n' +
+          '**Rules**\n' +
+          '- Use in scrollable feeds or dynamic menus without pagination.\n' +
+          '- Position: 8px below the top of the feed/menu, 8px above the bottom, 8px between two bubbles in the same space.',
+      },
+    },
+  },
   argTypes: {
     children: {
       control: 'text',

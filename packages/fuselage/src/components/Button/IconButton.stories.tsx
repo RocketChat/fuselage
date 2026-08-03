@@ -13,6 +13,20 @@ import IconButton from './IconButton';
 export default {
   title: 'Inputs/IconButton',
   component: IconButton,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'A label-less, icon-only button. More minimalistic than a regular button with text.\n\n' +
+          '**Rules**\n' +
+          '- Use only when a clear, recognizable icon represents the action and no text label is needed.\n' +
+          // '- Do not pair a regular Button with an Icon button — use a regular Button with Icon Only instead, to keep matching properties.\n' +
+          // commented out because we shouldn't have icon-only and IconButton as separate components, but rather have IconButton be a variant of Button. This will be aligned with design team and fixed in the future.
+          '- When the button indicates a status (not just triggers it), use the icon that reflects the current status (e.g. bell = following, bell-off = not following).\n' +
+          "- When paired with a Badge, don't combine mini/tiny icon buttons with large/medium badges.",
+      },
+    },
+  },
   argTypes: {
     icon: {
       control: 'text',

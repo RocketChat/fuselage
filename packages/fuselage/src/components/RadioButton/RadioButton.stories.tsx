@@ -11,6 +11,19 @@ import RadioButton from './RadioButton';
 export default {
   title: 'Inputs/RadioButton',
   component: RadioButton,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Allows users to select only one option from a set of mutually exclusive options.\n\n' +
+          '**Rules**\n' +
+          '- Use only for a single choice from a small set of mutually exclusive options.\n' +
+          '- Avoid when the number of choices is large — consider another control.\n' +
+          '- Do not add links to the radio label.\n' +
+          '- Do not use for accepting terms of service or similar — use a checkbox instead.',
+      },
+    },
+  },
   argTypes: {
     checked: {
       control: 'boolean',

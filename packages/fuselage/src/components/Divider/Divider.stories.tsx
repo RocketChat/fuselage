@@ -8,6 +8,18 @@ import Divider from './Divider';
 export default {
   title: 'Data Display/Divider',
   component: Divider,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Separates sections of content.\n\n' +
+          '**Rules**\n' +
+          '- Use inset to separate related content within a wrapper.\n' +
+          '- For a full-width stroke (e.g. separating a header from page content), use a border, not a divider.\n' +
+          '- Vertical dividers are used between things like a menu and composer; horizontal + text is used e.g. on a login page.',
+      },
+    },
+  },
   argTypes: {
     variation: {
       control: 'select',

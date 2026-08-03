@@ -52,6 +52,17 @@ import { avatarUrl } from './helpers';
 export default {
   title: 'Message/Message',
   component: Message,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'The main unit of information: text plus sender info and interaction elements. Rich text with attachments, threads and reactions.\n\n' +
+          '**Rules**\n' +
+          '- Use the system-message style for one-liner system operations; use the default style for human/bot messages.\n' +
+          '- Bot messages carry special UI Kit content in a separate block.',
+      },
+    },
+  },
   argTypes: {
     children: {
       control: false,

@@ -12,6 +12,17 @@ export default {
   title: 'Navigation/SidebarV2/Item',
   component: SidebarListItem,
   decorators,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'A single room row within the chat sidebar.\n\n' +
+          '**Rules**\n' +
+          '- Use the unread status to highlight rooms with new activity; use badges for counts.\n' +
+          '- Shows the room name, an optional avatar/icon, and a trailing timestamp/status.',
+      },
+    },
+  },
   argTypes: {
     selected: {
       control: 'boolean',

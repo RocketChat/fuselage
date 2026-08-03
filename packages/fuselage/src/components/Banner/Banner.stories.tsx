@@ -8,6 +8,19 @@ import Banner from './Banner';
 export default {
   title: 'Feedback/Banner',
   component: Banner,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "A system-level, non-time-based notification fixed at the top of the viewport. Communicates that something happened or is about to happen. Dismissibility depends on the notification's importance.\n\n" +
+          '**Rules**\n' +
+          '- Use for a whole-window/system condition (e.g. reconnecting, recording consent, blocked permissions) — for inline status tied to specific content use a Callout instead, and for brief action feedback use a Toast.\n' +
+          '- Icon and title are mandatory; description is optional.\n' +
+          '- Only show the "X of Y notifications" counter and prev/next controls when more than one banner is queued.\n' +
+          '- A banner has no action-button slot — if the notification needs a decision, use a Callout instead.',
+      },
+    },
+  },
   argTypes: {
     title: {
       control: 'text',

@@ -6,6 +6,19 @@ import { setStoryDescription } from '../../helpers/setStoryDescription';
 export default {
   title: 'Feedback/Callout',
   component: Callout,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'A non-time-based notification (system- or user-level) that cannot be dismissed by the user and persists until its status changes. May contain links.\n\n' +
+          '**Rules**\n' +
+          '- Cannot be dismissed by the user — use only for status that persists until it changes.\n' +
+          '- Description is mandatory; icon and title are optional.\n' +
+          '- Make copy concise while explicitly naming the event and the affected object.\n' +
+          '- A Callout CAN carry action buttons — use it (not a Banner) when the notification needs a decision.',
+      },
+    },
+  },
   argTypes: {
     type: {
       control: 'select',

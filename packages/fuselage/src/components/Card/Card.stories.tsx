@@ -27,6 +27,16 @@ export default {
     CardControls,
   },
   parameters: {
+    docs: {
+      description: {
+        component:
+          'Displays content in a visually appealing manner.\n\n' +
+          '**Rules**\n' +
+          '- Vertical card — use Regular as the default; use Hero for priority info at the top of a page.\n' +
+          '- Horizontal card — use within a list, among other list items; do NOT use as a stand-alone element.\n' +
+          '- Use the Header/Content sections to compose the card body from other design-system components.',
+      },
+    },
     backgrounds: { default: 'dark' },
     layout: 'centered',
     controls: { hideNoControlsWarning: true },

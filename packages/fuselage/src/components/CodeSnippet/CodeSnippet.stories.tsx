@@ -6,6 +6,17 @@ import CodeSnippet from './CodeSnippet';
 export default {
   title: 'Data Display/CodeSnippet',
   component: CodeSnippet,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'A specific code style developed for easy copy and sharing.\n\n' +
+          '**Rules**\n' +
+          '- Use when the platform needs to make server settings available to users in code form (easy copy/paste).\n' +
+          '- Note: the design system also documents an interactive "Code block" variant (with a reload button and expand/collapse controls) — this component currently only implements static display + a copy button, not those interactive features.',
+      },
+    },
+  },
   argTypes: {
     children: {
       control: 'text',

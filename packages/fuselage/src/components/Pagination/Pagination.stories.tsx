@@ -6,6 +6,16 @@ import Pagination from './Pagination';
 export default {
   title: 'Navigation/Pagination',
   component: Pagination,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Splits data into several pages, with navigation control and items-per-page. Usually used with tables.\n\n' +
+          '**Rules**\n' +
+          '- Use with paginated data sets, typically below a table.',
+      },
+    },
+  },
   argTypes: {
     count: {
       control: 'number',

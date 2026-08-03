@@ -5,6 +5,16 @@ import Skeleton from './Skeleton';
 export default {
   title: 'Layout/Skeleton',
   component: Skeleton,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'A visual loading indicator, used to indicate in-progress loading.\n\n' +
+          '**Rules**\n' +
+          '- Pair the skeleton with the content that is about to appear, matching its shape.',
+      },
+    },
+  },
   argTypes: {
     variant: {
       control: 'select',
