@@ -10,6 +10,17 @@ import Tag from './Tag';
 export default {
   title: 'Data Display/Tag',
   component: Tag,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'A quickly recognizable component used to display set values.\n\n' +
+          '**Rules**\n' +
+          '- Use the Primary type sparingly — it draws the most attention.\n' +
+          '- A leading icon helps recognition and lowers cognitive load — add only when it clarifies the tag.',
+      },
+    },
+  },
   argTypes: {
     children: {
       control: 'text',

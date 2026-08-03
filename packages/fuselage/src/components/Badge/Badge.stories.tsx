@@ -7,6 +7,18 @@ import Badge from './Badge';
 export default {
   title: 'Data Display/Badge',
   component: Badge,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Indicates the type and quantity of notifications, highlighting key events and facilitating user navigation.\n\n' +
+          '**Rules**\n' +
+          '- Pick `variant` by the EVENT semantics it represents (e.g. `primary` for a thread reply, `danger` for a user mention), not by color preference — the options are named by color, but each maps to a specific semantic meaning.\n' +
+          '- Never exceed 3 characters; show "99+" for anything above 99.\n' +
+          "- Use the small dot variant (empty content) when you only need to signal that something new exists, or when the quantity can't be shown.",
+      },
+    },
+  },
   argTypes: {
     children: {
       control: 'text',

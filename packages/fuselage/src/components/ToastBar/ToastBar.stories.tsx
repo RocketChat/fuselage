@@ -6,6 +6,19 @@ import ToastBar from './ToastBar';
 export default {
   title: 'Feedback/ToastBar',
   component: ToastBar,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'A user-level, time-based notification that communicates the status of a performed action. Can be dismissed and may contain links. Disappears after a minimum of 5 seconds.\n\n' +
+          '**Rules**\n' +
+          '- Use only for brief action feedback — never for a persistent condition or a decision.\n' +
+          '- Keep copy concise.\n' +
+          '- For success, be explicit about the action and avoid "successfully"/exclamation marks (e.g. "Link copied", not "Copied!").\n' +
+          '- For errors, include how to resolve the issue in a second line.',
+      },
+    },
+  },
   argTypes: {
     children: {
       control: 'text',

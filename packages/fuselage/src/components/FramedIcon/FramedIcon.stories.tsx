@@ -5,6 +5,18 @@ import FramedIcon from './FramedIcon';
 export default {
   title: 'Data Display/FramedIcon',
   component: FramedIcon,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Draws attention to a specific UI element with an icon inside a rectangular frame; communicates system state.\n\n' +
+          '**Rules**\n' +
+          '- Always use alongside text, never standalone.\n' +
+          '- Not for user actions — use the Icon button for actions.\n' +
+          '- Do not mix multiple color types in the same context.',
+      },
+    },
+  },
   argTypes: {
     icon: {
       control: 'text',

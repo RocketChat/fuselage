@@ -9,6 +9,19 @@ export default {
   subcomponents: {
     TabsItem,
   },
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Lets users move back and forth between groups of related content.\n\n' +
+          '**Rules**\n' +
+          '- Use tabs to group related content; use a tab within the Tabs component, not standalone.\n' +
+          '- Do NOT use tabs to navigate to other pages.\n' +
+          '- The tab bar can scroll horizontally — use as many tabs as needed.\n' +
+          '- Position tabs directly beneath the page header.',
+      },
+    },
+  },
   argTypes: {
     divider: {
       control: 'boolean',

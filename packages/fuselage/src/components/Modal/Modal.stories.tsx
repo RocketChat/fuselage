@@ -40,6 +40,21 @@ export default {
     ModalThumb,
     ModalTitle,
   },
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "A powerful component that temporarily blocks interaction with the main view to capture and hold the user's undivided attention with a distinct prompt or information window.\n\n" +
+          '**Rules**\n' +
+          "- Use for critical information, gathering input when a contextual bar isn't applicable, confirmations/decisions, or interruptive workflows.\n" +
+          '- For low-priority information use a Toast instead; for non-disruptive contextual input prefer the Contextual bar.\n' +
+          '- Title must use sentence case and contain no question mark; keep titles concise.\n' +
+          '- Default the header to title only — hide any icon/thumbnail unless the modal is triggered by a Rocket.Chat app or the title strongly needs visual reinforcement.\n' +
+          '- Never disable the confirmation (Primary) button — allow submit, then show required-field errors after the user clicks confirm.\n' +
+          '- Footer actions use the Button component — typically one Primary (confirm) + one Secondary (cancel); for destructive confirmations the Primary becomes a danger button.',
+      },
+    },
+  },
   argTypes: {
     children: {
       control: false,

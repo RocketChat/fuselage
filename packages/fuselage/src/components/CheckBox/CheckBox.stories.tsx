@@ -11,6 +11,17 @@ import CheckBox from './CheckBox';
 export default {
   title: 'Inputs/CheckBox',
   component: CheckBox,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Allows users to select one or more options from a list. Unlike radio buttons and switches, it also supports an indeterminate state for groups with partial selection.\n\n' +
+          '**Rules**\n' +
+          '- Use a checkbox when more than one option can be selected, or for a single opt-in such as accepting terms of service.\n' +
+          '- Use the indeterminate state only for a parent controlling a group with partial selection.',
+      },
+    },
+  },
   argTypes: {
     checked: {
       control: 'boolean',

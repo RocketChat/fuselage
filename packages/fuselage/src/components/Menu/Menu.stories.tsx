@@ -27,6 +27,19 @@ import type { MenuProps } from './Menu';
 export default {
   title: 'Navigation/Menu',
   component: Menu,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Presents the actions a user can take at a given moment — selection or specific functionality.\n\n' +
+          '**Rules**\n' +
+          '- The item label is mandatory; the trailing element is optional (radio, checkbox, etc.).\n' +
+          '- Use title/divider items to structure groups; mark destructive items as danger; disable items that are unavailable.\n' +
+          '- A device picker / list of selectable options is a Menu with title groups + radio trailing elements — not hand-built rows.\n' +
+          '- Position 4px from the trigger edge on the opening side; align the menu border to the trigger border.',
+      },
+    },
+  },
   decorators: [
     (story) => (
       <Box

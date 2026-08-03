@@ -6,6 +6,19 @@ import { LabelInfo } from './LabelInfo';
 export default {
   title: 'Inputs/Label',
   component: Label,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "The label for an input — names the field and marks whether it's required.\n\n" +
+          '**Rules**\n' +
+          '- May be used standalone, e.g. to label a Checkbox, Radio button or Toggle switch.\n' +
+          '- Accurately describe the information needed; mark required fields with the required indicator.\n' +
+          '- Avoid generic labels or unnecessary ownership wording.\n' +
+          '- Use the info icon only when the field needs a tooltip explanation.',
+      },
+    },
+  },
   argTypes: {
     children: {
       control: 'text',

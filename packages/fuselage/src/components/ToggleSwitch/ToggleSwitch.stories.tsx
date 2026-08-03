@@ -11,6 +11,17 @@ import ToggleSwitch from './ToggleSwitch';
 export default {
   title: 'Inputs/ToggleSwitch',
   component: ToggleSwitch,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Lets users quickly switch between two mutually exclusive states with instant feedback.\n\n' +
+          '**Rules**\n' +
+          '- Use when there are exactly two choices, such as enabling/disabling a setting.\n' +
+          "- The change applies immediately — do not use a toggle when you don't want the interface affected right away (use a checkbox with an explicit save action instead).",
+      },
+    },
+  },
   argTypes: {
     labelChildren: {
       control: false,

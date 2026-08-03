@@ -8,6 +8,19 @@ import Tooltip from './Tooltip';
 export default {
   title: 'Data Display/Tooltip',
   component: Tooltip,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Shows additional, complementary information about an element on hover.\n\n' +
+          '**Rules**\n' +
+          '- Position 4px from the trigger edge on the opening side; center the tooltip on the trigger.\n' +
+          "- Never put vital information only in a tooltip — it's complementary and hover-only (unavailable on touch).\n" +
+          '- Good for ambiguous elements (number badges, mentions) and icon buttons.\n' +
+          '- Keep copy concise; line breaks are allowed.',
+      },
+    },
+  },
   argTypes: {
     children: {
       control: 'text',
@@ -52,6 +65,25 @@ export const LightTooltip: Story = {
   args: {
     variation: 'light',
     children: 'An example tooltip',
+  },
+};
+
+export const WithLineBreak: Story = {
+  args: {
+    children: (
+      <>
+        First line of the tooltip
+        <br />
+        Second line of the tooltip
+      </>
+    ),
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Line breaks are supported for longer or structured copy.',
+      },
+    },
   },
 };
 

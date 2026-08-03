@@ -10,6 +10,18 @@ import Chip from './Chip';
 export default {
   title: 'Data Display/Chip',
   component: Chip,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Used to communicate and manage input-field selections.\n\n' +
+          '**Rules**\n' +
+          '- Text is mandatory.\n' +
+          '- A chip may have either a leading icon or a leading avatar — not both.\n' +
+          '- Keep the close button when the chip represents a removable selection.',
+      },
+    },
+  },
   argTypes: {
     children: {
       control: 'text',

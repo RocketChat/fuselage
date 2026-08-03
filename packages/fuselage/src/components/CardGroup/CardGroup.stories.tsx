@@ -21,6 +21,14 @@ export default {
   title: 'Containers/CardGroup',
   component: CardGroup,
   parameters: {
+    docs: {
+      description: {
+        component:
+          'Arranges Cards together with consistent spacing.\n\n' +
+          '**Rules**\n' +
+          '- Vertical card groups use an 8px gap between cards; horizontal card groups use a 16px gap.',
+      },
+    },
     backgrounds: { default: 'dark' },
     layout: 'padded',
     controls: { hideNoControlsWarning: true },

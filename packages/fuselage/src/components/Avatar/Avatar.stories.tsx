@@ -14,6 +14,19 @@ export default {
     AvatarStack,
     AvatarContainer,
   },
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'A visual, thumbnail representation of a single user or entity.\n\n' +
+          '**Rules**\n' +
+          '- Represents a SINGLE user or entity (not groups).\n' +
+          '- Always provide meaningful alt text for images — critical for screen readers.\n' +
+          '- Choose the size to match the surrounding context.\n' +
+          '- Use the letter (initials) fallback when no image is available.',
+      },
+    },
+  },
   argTypes: {
     url: {
       control: 'text',

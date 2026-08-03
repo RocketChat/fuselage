@@ -5,6 +5,17 @@ import ProgressBar from './ProgressBar';
 export default {
   title: 'Data Display/ProgressBar',
   component: ProgressBar,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Concisely presents consumption or progress statistics.\n\n' +
+          '**Rules**\n' +
+          '- Use the `variant` (info/success/warning/danger) to convey state according to consumption or progress.\n' +
+          '- Note: the design system also documents a "+ info" variant (adding a label + counter) — this component does not implement that variant yet.',
+      },
+    },
+  },
   argTypes: {
     percentage: {
       control: { type: 'number', min: 0, max: 100 },

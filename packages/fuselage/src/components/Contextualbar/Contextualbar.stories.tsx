@@ -36,6 +36,19 @@ export default {
     ContextualbarSkeleton,
     ContextualbarTitle,
   },
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'A persistent UI element showing relevant information and actions for the current page context, letting users input data and act without the page disappearing.\n\n' +
+          '**Rules**\n' +
+          '- Title is mandatory.\n' +
+          '- Provide a mandatory empty state on both navigation levels.\n' +
+          '- Never disable the confirmation button — allow submit, then show required-field errors after confirm.\n' +
+          '- Prefer the contextual bar over a Modal for non-disruptive contextual input.',
+      },
+    },
+  },
   decorators: [
     (storyFn) => (
       <Box width='x400' elevation='2'>

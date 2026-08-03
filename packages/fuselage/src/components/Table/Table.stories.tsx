@@ -25,6 +25,18 @@ export default {
     TableSelectionButton,
     TableSelectionButtonGroup,
   },
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Displays tabular data with sortable columns, selectable rows, and cell content (title/subtitle, tags, actions).\n\n' +
+          '**Rules**\n' +
+          "- Match the header column count to the row's column count.\n" +
+          '- Supports multi-row selection (e.g. "3 items selected") and row actions.\n' +
+          '- Typically paired with Pagination.',
+      },
+    },
+  },
   argTypes: {
     striped: {
       control: 'boolean',

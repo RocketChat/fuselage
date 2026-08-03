@@ -27,6 +27,21 @@ export default {
     FieldLink,
     FieldRow,
   },
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Wraps an input with the supporting copy elements (label, description, hint, link, error) and keeps that copy clear, concise and consistent.\n\n' +
+          '**Rules**\n' +
+          '- Label — accurately describe the information needed; mark required fields with an asterisk.\n' +
+          '- Description — context/instructions that clarify the label; keep it clear and simple.\n' +
+          "- Placeholder — only when an extra hint helps the user, since it disappears on input; don't repeat the label in the placeholder.\n" +
+          '- Error message — explain the problem and give an actionable fix (e.g. "Invalid email address"); avoid vague or apologetic copy.\n' +
+          '- Hint — explain technical terms or behaviors.\n' +
+          '- There is no dedicated Select/Dropdown component — a select is composed from a text Field whose input shows a chevron-down as its trailing icon.',
+      },
+    },
+  },
 } satisfies Meta<typeof Field>;
 
 type Story = StoryObj<typeof Field>;

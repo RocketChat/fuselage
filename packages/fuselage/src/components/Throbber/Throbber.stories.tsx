@@ -10,6 +10,16 @@ import Throbber from './Throbber';
 export default {
   title: 'Data Display/Throbber',
   component: Throbber,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'A visual loading indicator (spinner), used to indicate in-progress loading.\n\n' +
+          '**Rules**\n' +
+          '- Use a spinner for brief, indeterminate waits.',
+      },
+    },
+  },
   argTypes: {
     circleCount: {
       control: 'number',
