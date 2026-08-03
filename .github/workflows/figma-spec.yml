@@ -1,0 +1,68 @@
+name: Figma spec
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'packages/fuselage/src/**'
+      - 'packages/fuselage-tokens/**'
+      - 'tools/figma-sync/**'
+  workflow_dispatch:
+
+# The spec is a build artifact, not a Figma write. Applying it has to be triggered
+# by a human — not because Figma lacks a headless write path (the remote MCP server
+# has one), but because that server is OAuth-only with a client allowlist, and the
+# REST API cannot create or modify nodes at all. This job only keeps the spec fresh.
+jobs:
+  build-spec:
+    name: Extract component spec from Storybook
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      # Pinned to match cd.yml — there is no .nvmrc in this repo.
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.22.3'
+          cache: yarn
+
+      - run: yarn install --immutable
+
+      - name: Build Storybook
+        run: yarn workspace @rocket.chat/fuselage build-storybook
+
+      - name: Install Chromium
+        run: node node_modules/playwright/cli.js install --with-deps chromium
+
+      - name: Extract spec
+        run: |
+          node tools/figma-sync/src/extract.mjs \
+            --static packages/fuselage/storybook-static \
+            --out figma-spec.json
+
+      - name: Summarise
+        run: |
+          node -e "
+            const s = require('./figma-spec.json');
+            const v = s.components.flatMap(c => c.variants);
+            const line = (k) => {
+              const n = v.filter(x => x.bind[k]).length;
+              return \`| \${k} | \${n}/\${v.length} | \${Math.round(n / v.length * 100)}% |\`;
+            };
+            const out = [
+              \`### Figma spec\`,
+              \`\${s.components.length} components, \${v.length} variants\`,
+              '', '| property | bound to a token | |', '|---|---|---|',
+              ...['fill','stroke','textFill','strokeWeight','radius'].map(line),
+            ];
+            if (s.warnings.length) out.push('', '<details><summary>' + s.warnings.length + ' warning(s)</summary>', '', ...s.warnings.map(w => '- ' + w), '', '</details>');
+            require('fs').appendFileSync(process.env.GITHUB_STEP_SUMMARY, out.join('\n') + '\n');
+          "
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: figma-spec
+          path: figma-spec.json

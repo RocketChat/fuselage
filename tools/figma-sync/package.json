@@ -1,0 +1,13 @@
+{
+  "name": "@rocket.chat/figma-sync",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "bin": "./src/extract.mjs",
+  "scripts": {
+    "extract": "node ./src/extract.mjs"
+  },
+  "dependencies": {
+    "playwright": "~1.62.0"
+  }
+}
