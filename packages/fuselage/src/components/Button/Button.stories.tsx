@@ -8,12 +8,10 @@ import { ButtonGroup } from '../ButtonGroup';
 import { Margins } from '../Margins';
 
 import Button from './Button';
-import IconButton from './IconButton';
 
 export default {
   title: 'Inputs/Button',
   component: Button,
-  subcomponents: { IconButton },
   parameters: {
     docs: {
       description: {
@@ -310,16 +308,4 @@ export const States: Story = {
       />
     </>
   ),
-};
-
-export const AsIconButton: Story = {
-  render: () => <IconButton icon='arrow-back' onClick={action('click')} />,
-  parameters: {
-    docs: {
-      description: {
-        story:
-          'See full IconButton documentation [here](../?path=/docs/inputs-iconbutton)',
-      },
-    },
-  },
 };
