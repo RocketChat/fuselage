@@ -14,6 +14,24 @@ export default {
   title: 'Inputs/Button',
   component: Button,
   subcomponents: { IconButton },
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Triggers events and actions. Use for actions that change data or how it is displayed, change a state, trigger an action, or navigate the user within the app or to a different site. Buttons can also link to external URLs.\n\n' +
+          '**Rules**\n' +
+          '- When more than one button is side by side, always wrap them in a Button group with an 8px gap; a lone button needs no group.\n' +
+          '- In a button group, use Primary when the next step is evident, and Secondary when it is unclear; exactly one Primary per group, the rest Secondary.\n' +
+          '- For destructive flows, initiate with a Secondary danger button, then confirm with a Primary danger button.\n' +
+          '- Never rely on color alone to signal danger — keep a clear label (and icon if used).\n' +
+          '- Set a leading icon only when the label needs visual support; skip it when redundant.\n' +
+          '- Do not pair a regular Button with an Icon button — use Icon Only on a regular Button instead if a label-less button is needed beside text buttons.\n' +
+          '- Loading: replace the icon with a spinner, disable the button, and keep the label copy unchanged.\n' +
+          '- Labels: sentence case, no title case, no exclamation marks; avoid vague stand-alone verbs (e.g. "Create channel", not "Create").\n' +
+          '- For lightweight in-text navigation, use a link instead of a Button.',
+      },
+    },
+  },
   argTypes: {
     children: {
       control: 'text',
