@@ -3,17 +3,72 @@
 Generates Fuselage's Figma component library from Storybook. Replaces
 story.to.design with something that understands our token architecture.
 
+## The short version
+
+**Every script here is generic and you never edit one.** The only per-component
+thing is a single entry in `components.json`.
+
+When a component is added to Fuselage, CI fails with `untriaged: <Name>` until
+you put it in one of three buckets. That is the whole maintenance burden: one
+entry per component, once.
+
 ```
-CI                                          apply (human-triggered)
-──                                          ──────────────────────
-build-storybook                             read figma-spec.json
-  ↓                                           ↓
-extract.mjs (Playwright)                    resolve each binding to a variable
-  measures every variant                      ↓
-  reads the var() chain                     create/update the variant set
-  ↓
-figma-spec.json  ──── published ─────────→
+                      ┌─ generic, never edited ────────────────────────┐
+components.json  ───► │ extract.mjs ──► measure.js (runs in the page)  │ ───► figma-spec.json
+  ▲  one entry        │      │                                         │        (build artifact)
+  │  per component    │      └─ writes figma-spec.snapshot.json        │             │
+  │                   │                                                │             ▼
+  │                   │ emit-apply.mjs ──► apply.js (runs in Figma)    │ ◄───────────┘
+  │                   │ selfcheck.mjs   (no browser, no Figma)         │
+  └─ add-component ── │ add-component.mjs                             │
+     proposes it      └────────────────────────────────────────────────┘
 ```
+
+## Which script do I run?
+
+| Script              | Needs     | You run it                                 | What it is                            |
+| ------------------- | --------- | ------------------------------------------ | ------------------------------------- |
+| `add-component.mjs` | Storybook | once, per new component                    | proposes a `components.json` entry    |
+| `extract.mjs`       | Storybook | after changing a component, and CI runs it | measures everything, writes the spec  |
+| `selfcheck.mjs`     | nothing   | CI, every PR (`yarn check`)                | config and invariant checks           |
+| `emit-apply.mjs`    | a spec    | when you want to push to Figma             | generates the apply scripts           |
+| `measure.js`        | —         | never directly                             | library, runs inside the browser page |
+| `apply.js`          | —         | never directly                             | library, runs inside Figma            |
+
+`measure.js` and `apply.js` are the two that do the real work, and neither is
+executable on its own: one is injected into the page by Playwright, the other into
+Figma by the plugin or the MCP call.
+
+## Lifecycle of a new component
+
+1. Someone adds `Foo` to Fuselage. `yarn check` starts failing: `1 untriaged: Foo`.
+2. `node src/add-component.mjs Foo --url http://localhost:6006` prints a proposed
+   entry — story id, root class, candidate axes.
+3. You review the judgement calls it refuses to make (which axes are visual,
+   whether booleans are mutually exclusive, what sample args it needs) and put the
+   entry in `components.json`.
+4. `node src/extract.mjs --url http://localhost:6006 --only Foo`. The checks decide:
+   - clean → keep it, then re-run without `--only` and `--update-snapshot`, commit
+   - `error`-level finding → move it to `skipped` with the reason. Not a failure of
+     the config; three of the known gaps only show up at this point.
+5. To get it into Figma: `node src/emit-apply.mjs`, then run the generated script
+   for that component through the Figma MCP (or the plugin).
+
+Step 4 is the one that matters. The tool never decides that a component is fine —
+it either measures it or refuses.
+
+## What is _not_ generic
+
+The measurement generalises to any component whose appearance lives on one element
+as solid colours. Three gaps decide whether a new component is acceptable, and the
+checks name which one you hit:
+
+- **Child nodes.** ProgressBar's colour is on the child bar; Throbber's dots are
+  children. The root measures identically across variants.
+- **Non-solid paints.** Skeleton is an animated gradient, Tile's elevation is a
+  `box-shadow`. Neither survives a `background-color` read.
+- **SVG and transforms.** StatusBullet's colour is a `path` fill; Chevron's
+  direction is `transform: rotate()`.
 
 All the logic lives in the extractor. The apply step makes no design decisions —
 every value it writes comes from the spec. **If output looks wrong, fix the
