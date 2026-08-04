@@ -1298,6 +1298,88 @@
       ]
     },
     {
+      "name": "InputBox",
+      "storyId": "inputs-inputbox--default",
+      "axes": {
+        "Small": ["false", "true"],
+        "Disabled": ["false", "true"]
+      },
+      "variants": [
+        {
+          "key": "Small=false, Disabled=false",
+          "size": "128x40",
+          "padding": "8 15 8 15",
+          "minWidth": 128,
+          "text": null,
+          "bind": {
+            "stroke": "--rcx-color-stroke-light",
+            "textFill": "--rcx-color-font-default"
+          },
+          "values": {
+            "fill": "rgb(255, 255, 255)",
+            "stroke": "rgb(203, 206, 209)",
+            "textFill": "rgb(47, 52, 61)",
+            "strokeWeight": 1,
+            "radius": 4
+          }
+        },
+        {
+          "key": "Small=false, Disabled=true",
+          "size": "128x40",
+          "padding": "8 15 8 15",
+          "minWidth": 128,
+          "text": null,
+          "bind": {
+            "stroke": "--rcx-color-stroke-light",
+            "textFill": "--rcx-color-font-default"
+          },
+          "values": {
+            "fill": "rgb(247, 248, 250)",
+            "stroke": "rgb(203, 206, 209)",
+            "textFill": "rgb(47, 52, 61)",
+            "strokeWeight": 1,
+            "radius": 4
+          }
+        },
+        {
+          "key": "Small=true, Disabled=false",
+          "size": "112x28",
+          "padding": "4 8 4 8",
+          "minWidth": 112,
+          "text": null,
+          "bind": {
+            "stroke": "--rcx-color-stroke-light",
+            "textFill": "--rcx-color-font-default"
+          },
+          "values": {
+            "fill": "rgb(255, 255, 255)",
+            "stroke": "rgb(203, 206, 209)",
+            "textFill": "rgb(47, 52, 61)",
+            "strokeWeight": 1,
+            "radius": 4
+          }
+        },
+        {
+          "key": "Small=true, Disabled=true",
+          "size": "112x28",
+          "padding": "4 8 4 8",
+          "minWidth": 112,
+          "text": null,
+          "bind": {
+            "stroke": "--rcx-color-stroke-light",
+            "textFill": "--rcx-color-font-default"
+          },
+          "values": {
+            "fill": "rgb(247, 248, 250)",
+            "stroke": "rgb(203, 206, 209)",
+            "textFill": "rgb(47, 52, 61)",
+            "strokeWeight": 1,
+            "radius": 4
+          }
+        }
+      ]
+    },
+    {
       "name": "Label",
       "storyId": "inputs-label--default",
       "axes": {

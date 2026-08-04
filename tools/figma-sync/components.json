@@ -127,6 +127,15 @@
         "children": "Tooltip"
       },
       "rootSelector": ".rcx-tooltip"
+    },
+    {
+      "name": "InputBox",
+      "storyId": "inputs-inputbox--default",
+      "axes": ["small", "disabled"],
+      "args": {
+        "type": "text"
+      },
+      "rootSelector": ".rcx-input-box"
     }
   ],
   "skipped": [
@@ -201,6 +210,100 @@
       "storyId": "layout-skeleton--default",
       "rootSelector": ".rcx-skeleton",
       "reason": "the shimmer is an animated linear-gradient background-image, not a background-color, so background-color reads transparent and the variant ships blank. Needs gradient paint support (Figma GRADIENT_LINEAR) plus a decision on how to represent the animation."
+    },
+    {
+      "name": "Throbber",
+      "storyId": "data-display-throbber--default",
+      "rootSelector": ".rcx-throbber",
+      "reason": "the dots are child elements with their own background-color and a bounce animation; .rcx-throbber itself is a transparent flex wrapper, so all variants measure identically. Needs child-node measurement (Phase B)."
+    },
+    {
+      "name": "Chevron",
+      "storyId": "data-display-chevron--default",
+      "rootSelector": ".rcx-chevron",
+      "reason": "direction is expressed as transform: rotate(), which the extractor does not measure — only 2 of 5 variants render distinctly. Figma would need the rotation applied to the node, not a fill change."
+    }
+  ],
+  "outOfScope": [
+    {
+      "name": "Accordion",
+      "reason": "composite — a list of expandable items; each row is its own component"
+    },
+    {
+      "name": "AutoComplete",
+      "reason": "composite — wraps an input plus a floating Options list"
+    },
+    {
+      "name": "ButtonGroup",
+      "reason": "layout container — its appearance is entirely the Buttons inside it"
+    },
+    {
+      "name": "CardGroup",
+      "reason": "layout container — appearance comes from the Cards inside it"
+    },
+    {
+      "name": "Dropdown",
+      "reason": "composite — a floating surface positioned around a trigger"
+    },
+    {
+      "name": "Field",
+      "reason": "composite — label, input, hint and error rows"
+    },
+    {
+      "name": "FieldGroup",
+      "reason": "layout container for Fields"
+    },
+    {
+      "name": "Grid",
+      "reason": "layout primitive — no visual surface of its own"
+    },
+    {
+      "name": "Modal",
+      "reason": "composite — backdrop, surface, header, content and footer"
+    },
+    {
+      "name": "NavBar",
+      "reason": "composite — a bar of other components"
+    },
+    {
+      "name": "Option",
+      "reason": "row inside Options; measured meaningfully only in that context"
+    },
+    {
+      "name": "Options",
+      "reason": "composite — a scrollable list of Option rows"
+    },
+    {
+      "name": "Pagination",
+      "reason": "composite — buttons plus a page-size Select"
+    },
+    {
+      "name": "Select",
+      "reason": "composite — a trigger plus a floating Options list"
+    },
+    {
+      "name": "Sidebar",
+      "reason": "composite — the largest one; rows, headers, search, banners"
+    },
+    {
+      "name": "Sidepanel",
+      "reason": "composite — a panel shell containing other components"
+    },
+    {
+      "name": "States",
+      "reason": "composite — icon, title, subtitle and actions"
+    },
+    {
+      "name": "Table",
+      "reason": "composite — head, body, rows and cells"
+    },
+    {
+      "name": "Tabs",
+      "reason": "composite — a strip of Tab items"
+    },
+    {
+      "name": "Icon",
+      "reason": "a single glyph with no visual axes; belongs to the icon-sprite work (Phase B), and validateSpec requires at least one axis"
     }
   ]
 }

@@ -56,10 +56,58 @@ check('storyIds are well-formed and unique', () => {
   }
 });
 
-check('no component is both kept and skipped', () => {
-  const kept = new Set(config.components.map((c) => c.name));
-  for (const s of config.skipped) {
-    assert(!kept.has(s.name), `${s.name} is in both lists`);
+check('no component appears in more than one bucket', () => {
+  const seen = new Map();
+  for (const bucket of ['components', 'skipped', 'outOfScope']) {
+    for (const c of config[bucket] || []) {
+      assert(
+        !seen.has(c.name),
+        `${c.name} is in both ${seen.get(c.name)} and ${bucket}`,
+      );
+      seen.set(c.name, bucket);
+    }
+  }
+});
+
+/**
+ * The gap that let a new component go unnoticed: the extractor only looks at
+ * what components.json lists, so anything added to Fuselage was silently absent
+ * rather than reported. Every component with its own stylesheet and stories must
+ * land in exactly one of three buckets — shipped, tried-and-rejected, or
+ * deliberately out of scope — so adding one forces a decision instead of
+ * defaulting to invisible.
+ */
+check('every component with a stylesheet and stories is triaged', () => {
+  const dir = path.join(ROOT, '..', '..', 'packages/fuselage/src/components');
+  const candidates = fs
+    .readdirSync(dir)
+    .filter((d) => fs.statSync(path.join(dir, d)).isDirectory())
+    .filter((d) => {
+      const files = fs.readdirSync(path.join(dir, d));
+      return (
+        files.includes(`${d}.styles.scss`) && files.includes(`${d}.stories.tsx`)
+      );
+    });
+  const triaged = new Set(
+    ['components', 'skipped', 'outOfScope'].flatMap((b) =>
+      (config[b] || []).map((c) => c.name),
+    ),
+  );
+  const untriaged = candidates.filter((c) => !triaged.has(c));
+  assert(
+    untriaged.length === 0,
+    `${untriaged.length} untriaged: ${untriaged.join(', ')}\n` +
+      '        Run `node src/add-component.mjs <Name>` to get a proposed entry, then\n' +
+      '        either keep it, or record it under "skipped" / "outOfScope" with a reason.',
+  );
+});
+
+check('every out-of-scope component records why', () => {
+  for (const c of config.outOfScope || []) {
+    assert(
+      c.reason && c.reason.length > 20,
+      `${c.name}: outOfScope needs a reason`,
+    );
   }
 });
 

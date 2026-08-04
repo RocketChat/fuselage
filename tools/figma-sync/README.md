@@ -95,13 +95,45 @@ First run needs the browser: `node node_modules/playwright/cli.js install chromi
 
 ## Adding a component
 
-First see which args are candidate axes:
+The measurement is generic; the configuration is not. Every component needs a
+`components.json` entry, so a component added to Fuselage does not appear here on
+its own — `yarn check` fails until it is triaged into one of three buckets:
+
+| Bucket       | Meaning                                                              |
+| ------------ | -------------------------------------------------------------------- |
+| `components` | shipped, measures correctly                                          |
+| `skipped`    | tried, the checks rejected it, reason recorded                       |
+| `outOfScope` | a composite or layout container we will not attempt, reason recorded |
+
+Start with the scaffold. It derives the mechanical parts — story id, root class
+from the component's `.styles.scss`, and candidate axes from `argTypes`:
 
 ```bash
-node src/probe-axes.mjs '["data-display-tag--default"]' http://localhost:6006
+node src/add-component.mjs Chip --url http://localhost:6006
+node src/add-component.mjs Chip --url http://localhost:6006 --write
 ```
 
-Then add an entry to `components.json`:
+What it deliberately leaves to you, because guessing wrong here ships a wrong
+library: which axes are actually _visual_ (Tooltip's `placement` has 11 options
+and changes nothing about the component), which booleans are mutually exclusive
+and need `oneOf`, and what sample `args` make it render meaningfully.
+
+Then measure it and let the checks decide:
+
+```bash
+node src/extract.mjs --url http://localhost:6006 --only Chip
+```
+
+An `error`-level finding means it does not measure — move it to `skipped` with
+the reason rather than shipping it. Three real outcomes from doing exactly this:
+
+- **InputBox** measured cleanly and was kept.
+- **Throbber** — all four variants identical. The dots are children with their own
+  background; the root is a transparent flex wrapper.
+- **Chevron** — 2 distinct renderings out of 5, because `direction` is
+  `transform: rotate()`, which the extractor does not measure.
+
+The entry format:
 
 ```json
 {
@@ -222,10 +254,10 @@ them, it does not create them.
 
 ## Scope
 
-Phase A ships 10 components / 98 variants: Button, Tag, Badge, Callout, Banner,
-Chip, Label, FramedIcon, Divider, Tooltip.
+Phase A ships 11 components / 102 variants: Button, Tag, Badge, Callout, Banner,
+Chip, Label, FramedIcon, Divider, Tooltip, InputBox.
 
-Twelve more were tried and rejected — see `skipped` in `components.json`. They
+Fourteen more were tried and rejected — see `skipped` in `components.json`. They
 cluster into three fixable gaps, in rough order of value:
 
 1. **Child-node measurement.** ProgressBar's variant colour is on the child bar;

@@ -8,7 +8,8 @@
     "extract": "node ./src/extract.mjs",
     "emit-apply": "node ./src/emit-apply.mjs",
     "build-plugin": "node ./src/emit-apply.mjs --plugin",
-    "check": "node ./src/selfcheck.mjs"
+    "check": "node ./src/selfcheck.mjs",
+    "add-component": "node ./src/add-component.mjs"
   },
   "dependencies": {
     "playwright": "~1.62.0"
