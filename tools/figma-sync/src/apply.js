@@ -1,12 +1,3 @@
-/* eslint-disable no-undef */
-/**
- * GENERATED FILE — do not edit.
- * Run `node src/emit-apply.mjs --plugin` to regenerate.
- *
- * The apply logic below is inlined verbatim from src/apply.js so the plugin and
- * the MCP path share one implementation.
- */
-
 /**
  * Applies a figma-spec.json to a Figma file. Single source of truth for the
  * apply step — both the plugin (`plugin/code.js`, generated) and the MCP path
@@ -26,7 +17,7 @@
  * Runs inside the Figma plugin sandbox: plain JS, no imports, no Node globals.
  */
 
-function applySpec(figma, spec) {
+export function applySpec(figma, spec) {
   const q = (x) => Math.round(x * 255);
 
   const parseColor = (str) => {
@@ -446,56 +437,3 @@ function applySpec(figma, spec) {
     return report;
   })();
 }
-
-
-figma.showUI(__html__, { width: 420, height: 520 });
-
-figma.ui.onmessage = async (msg) => {
-  if (msg.type !== 'sync') return;
-  try {
-    let spec;
-    if (msg.json) {
-      spec = JSON.parse(msg.json);
-    } else if (msg.url) {
-      const res = await fetch(msg.url);
-      if (!res.ok) throw new Error('fetch ' + msg.url + ' -> HTTP ' + res.status);
-      spec = await res.json();
-    } else {
-      throw new Error('provide a spec URL or paste the JSON');
-    }
-
-    const vars = await figma.variables.getLocalVariablesAsync();
-    if (vars.length === 0) {
-      throw new Error(
-        'this file has no variables — publish the token collections before syncing components',
-      );
-    }
-
-    const report = await applySpec(figma, spec);
-    const results = report.components.map(
-      (c) =>
-        c.name +
-        ': ' +
-        c.created +
-        ' created, ' +
-        c.updated +
-        ' updated, ' +
-        c.variants +
-        ' variants' +
-        (c.orphaned.length ? ', ' + c.orphaned.length + ' orphaned (left alone)' : ''),
-    );
-    const log = [
-      report.changes + ' property write(s)',
-      'bindings: ' +
-        report.resolution.byName +
-        ' by name, ' +
-        report.resolution.byValue +
-        ' by value, ' +
-        report.resolution.unresolved.length +
-        ' unresolved',
-    ];
-    figma.ui.postMessage({ type: 'done', results, log });
-  } catch (e) {
-    figma.ui.postMessage({ type: 'error', message: e.message, log: [] });
-  }
-};

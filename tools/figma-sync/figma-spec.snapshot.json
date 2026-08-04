@@ -1,0 +1,1866 @@
+{
+  "components": [
+    {
+      "name": "Badge",
+      "storyId": "data-display-badge--default",
+      "axes": {
+        "Variant": ["secondary", "primary", "danger", "warning", "ghost"],
+        "Size": ["default", "small"]
+      },
+      "variants": [
+        {
+          "key": "Variant=danger, Size=default",
+          "size": "16x16",
+          "padding": "2 4 2 4",
+          "minWidth": 16,
+          "text": "10/12 w700",
+          "bind": {
+            "fill": "--rcx-color-badge-background-level-4",
+            "textFill": "--rcx-color-font-pure-white"
+          },
+          "values": {
+            "fill": "rgb(236, 13, 42)",
+            "stroke": "rgb(255, 255, 255)",
+            "textFill": "rgb(255, 255, 255)",
+            "strokeWeight": 0,
+            "radius": 9999
+          }
+        },
+        {
+          "key": "Variant=danger, Size=small",
+          "size": "14x16",
+          "padding": "2 4 2 4",
+          "minWidth": 8,
+          "text": "10/12 w700",
+          "bind": {
+            "fill": "--rcx-color-badge-background-level-4",
+            "textFill": "--rcx-color-font-pure-white"
+          },
+          "values": {
+            "fill": "rgb(236, 13, 42)",
+            "stroke": "rgb(255, 255, 255)",
+            "textFill": "rgb(255, 255, 255)",
+            "strokeWeight": 0,
+            "radius": 9999
+          }
+        },
+        {
+          "key": "Variant=ghost, Size=default",
+          "size": "16x16",
+          "padding": "2 4 2 4",
+          "minWidth": 16,
+          "text": "10/12 w700",
+          "bind": {
+            "fill": "--rcx-color-stroke-dark",
+            "textFill": "--rcx-color-font-pure-white"
+          },
+          "values": {
+            "fill": "rgb(108, 115, 122)",
+            "stroke": "rgb(255, 255, 255)",
+            "textFill": "rgb(255, 255, 255)",
+            "strokeWeight": 0,
+            "radius": 9999
+          }
+        },
+        {
+          "key": "Variant=ghost, Size=small",
+          "size": "14x16",
+          "padding": "2 4 2 4",
+          "minWidth": 8,
+          "text": "10/12 w700",
+          "bind": {
+            "fill": "--rcx-color-stroke-dark",
+            "textFill": "--rcx-color-font-pure-white"
+          },
+          "values": {
+            "fill": "rgb(108, 115, 122)",
+            "stroke": "rgb(255, 255, 255)",
+            "textFill": "rgb(255, 255, 255)",
+            "strokeWeight": 0,
+            "radius": 9999
+          }
+        },
+        {
+          "key": "Variant=primary, Size=default",
+          "size": "16x16",
+          "padding": "2 4 2 4",
+          "minWidth": 16,
+          "text": "10/12 w700",
+          "bind": {
+            "fill": "--rcx-color-badge-background-level-2",
+            "textFill": "--rcx-color-font-pure-white"
+          },
+          "values": {
+            "fill": "rgb(21, 111, 245)",
+            "stroke": "rgb(255, 255, 255)",
+            "textFill": "rgb(255, 255, 255)",
+            "strokeWeight": 0,
+            "radius": 9999
+          }
+        },
+        {
+          "key": "Variant=primary, Size=small",
+          "size": "14x16",
+          "padding": "2 4 2 4",
+          "minWidth": 8,
+          "text": "10/12 w700",
+          "bind": {
+            "fill": "--rcx-color-badge-background-level-2",
+            "textFill": "--rcx-color-font-pure-white"
+          },
+          "values": {
+            "fill": "rgb(21, 111, 245)",
+            "stroke": "rgb(255, 255, 255)",
+            "textFill": "rgb(255, 255, 255)",
+            "strokeWeight": 0,
+            "radius": 9999
+          }
+        },
+        {
+          "key": "Variant=secondary, Size=default",
+          "size": "16x16",
+          "padding": "2 4 2 4",
+          "minWidth": 16,
+          "text": "10/12 w700",
+          "bind": {
+            "fill": "--rcx-color-badge-background-level-1",
+            "textFill": "--rcx-color-font-pure-white"
+          },
+          "values": {
+            "fill": "rgb(108, 115, 122)",
+            "stroke": "rgb(255, 255, 255)",
+            "textFill": "rgb(255, 255, 255)",
+            "strokeWeight": 0,
+            "radius": 9999
+          }
+        },
+        {
+          "key": "Variant=secondary, Size=small",
+          "size": "14x16",
+          "padding": "2 4 2 4",
+          "minWidth": 8,
+          "text": "10/12 w700",
+          "bind": {
+            "fill": "--rcx-color-badge-background-level-1",
+            "textFill": "--rcx-color-font-pure-white"
+          },
+          "values": {
+            "fill": "rgb(108, 115, 122)",
+            "stroke": "rgb(255, 255, 255)",
+            "textFill": "rgb(255, 255, 255)",
+            "strokeWeight": 0,
+            "radius": 9999
+          }
+        },
+        {
+          "key": "Variant=warning, Size=default",
+          "size": "16x16",
+          "padding": "2 4 2 4",
+          "minWidth": 16,
+          "text": "10/12 w700",
+          "bind": {
+            "fill": "--rcx-color-badge-background-level-3",
+            "textFill": "--rcx-color-font-pure-white"
+          },
+          "values": {
+            "fill": "rgb(243, 140, 57)",
+            "stroke": "rgb(255, 255, 255)",
+            "textFill": "rgb(255, 255, 255)",
+            "strokeWeight": 0,
+            "radius": 9999
+          }
+        },
+        {
+          "key": "Variant=warning, Size=small",
+          "size": "14x16",
+          "padding": "2 4 2 4",
+          "minWidth": 8,
+          "text": "10/12 w700",
+          "bind": {
+            "fill": "--rcx-color-badge-background-level-3",
+            "textFill": "--rcx-color-font-pure-white"
+          },
+          "values": {
+            "fill": "rgb(243, 140, 57)",
+            "stroke": "rgb(255, 255, 255)",
+            "textFill": "rgb(255, 255, 255)",
+            "strokeWeight": 0,
+            "radius": 9999
+          }
+        }
+      ]
+    },
+    {
+      "name": "Banner",
+      "storyId": "feedback-banner--banner",
+      "axes": {
+        "Variant": ["neutral", "info", "success", "warning", "danger"],
+        "Inline": ["false", "true"]
+      },
+      "variants": [
+        {
+          "key": "Variant=danger, Inline=false",
+          "size": "fluid x73",
+          "padding": "14 16 14 16",
+          "minWidth": 0,
+          "text": "24/24 w400",
+          "bind": {
+            "fill": "--rcx-color-surface-tint",
+            "stroke": "--rcx-color-status-font-on-danger",
+            "textFill": "--rcx-color-font-default"
+          },
+          "values": {
+            "fill": "rgb(247, 248, 250)",
+            "stroke": "rgb(155, 19, 37)",
+            "textFill": "rgb(47, 52, 61)",
+            "strokeWeight": 4,
+            "radius": 0
+          }
+        },
+        {
+          "key": "Variant=danger, Inline=true",
+          "size": "fluid x69",
+          "padding": "12 16 12 16",
+          "minWidth": 0,
+          "text": "24/24 w400",
+          "bind": {
+            "fill": "--rcx-color-surface-tint",
+            "stroke": "--rcx-color-status-font-on-danger",
+            "textFill": "--rcx-color-font-default"
+          },
+          "values": {
+            "fill": "rgb(247, 248, 250)",
+            "stroke": "rgb(155, 19, 37)",
+            "textFill": "rgb(47, 52, 61)",
+            "strokeWeight": 4,
+            "radius": 0
+          }
+        },
+        {
+          "key": "Variant=info, Inline=false",
+          "size": "fluid x73",
+          "padding": "14 16 14 16",
+          "minWidth": 0,
+          "text": "24/24 w400",
+          "bind": {
+            "fill": "--rcx-color-surface-tint",
+            "stroke": "--rcx-color-status-font-on-info",
+            "textFill": "--rcx-color-font-default"
+          },
+          "values": {
+            "fill": "rgb(247, 248, 250)",
+            "stroke": "rgb(9, 90, 210)",
+            "textFill": "rgb(47, 52, 61)",
+            "strokeWeight": 4,
+            "radius": 0
+          }
+        },
+        {
+          "key": "Variant=info, Inline=true",
+          "size": "fluid x69",
+          "padding": "12 16 12 16",
+          "minWidth": 0,
+          "text": "24/24 w400",
+          "bind": {
+            "fill": "--rcx-color-surface-tint",
+            "stroke": "--rcx-color-status-font-on-info",
+            "textFill": "--rcx-color-font-default"
+          },
+          "values": {
+            "fill": "rgb(247, 248, 250)",
+            "stroke": "rgb(9, 90, 210)",
+            "textFill": "rgb(47, 52, 61)",
+            "strokeWeight": 4,
+            "radius": 0
+          }
+        },
+        {
+          "key": "Variant=neutral, Inline=false",
+          "size": "fluid x73",
+          "padding": "14 16 14 16",
+          "minWidth": 0,
+          "text": "24/24 w400",
+          "bind": {
+            "fill": "--rcx-color-surface-tint",
+            "textFill": "--rcx-color-font-default"
+          },
+          "values": {
+            "fill": "rgb(247, 248, 250)",
+            "stroke": "rgba(0, 0, 0, 0)",
+            "textFill": "rgb(47, 52, 61)",
+            "strokeWeight": 4,
+            "radius": 0
+          }
+        },
+        {
+          "key": "Variant=neutral, Inline=true",
+          "size": "fluid x69",
+          "padding": "12 16 12 16",
+          "minWidth": 0,
+          "text": "24/24 w400",
+          "bind": {
+            "fill": "--rcx-color-surface-tint",
+            "textFill": "--rcx-color-font-default"
+          },
+          "values": {
+            "fill": "rgb(247, 248, 250)",
+            "stroke": "rgba(0, 0, 0, 0)",
+            "textFill": "rgb(47, 52, 61)",
+            "strokeWeight": 4,
+            "radius": 0
+          }
+        },
+        {
+          "key": "Variant=success, Inline=false",
+          "size": "fluid x73",
+          "padding": "14 16 14 16",
+          "minWidth": 0,
+          "text": "24/24 w400",
+          "bind": {
+            "fill": "--rcx-color-surface-tint",
+            "stroke": "--rcx-color-status-font-on-success",
+            "textFill": "--rcx-color-font-default"
+          },
+          "values": {
+            "fill": "rgb(247, 248, 250)",
+            "stroke": "rgb(20, 134, 96)",
+            "textFill": "rgb(47, 52, 61)",
+            "strokeWeight": 4,
+            "radius": 0
+          }
+        },
+        {
+          "key": "Variant=success, Inline=true",
+          "size": "fluid x69",
+          "padding": "12 16 12 16",
+          "minWidth": 0,
+          "text": "24/24 w400",
+          "bind": {
+            "fill": "--rcx-color-surface-tint",
+            "stroke": "--rcx-color-status-font-on-success",
+            "textFill": "--rcx-color-font-default"
+          },
+          "values": {
+            "fill": "rgb(247, 248, 250)",
+            "stroke": "rgb(20, 134, 96)",
+            "textFill": "rgb(47, 52, 61)",
+            "strokeWeight": 4,
+            "radius": 0
+          }
+        },
+        {
+          "key": "Variant=warning, Inline=false",
+          "size": "fluid x73",
+          "padding": "14 16 14 16",
+          "minWidth": 0,
+          "text": "24/24 w400",
+          "bind": {
+            "fill": "--rcx-color-surface-tint",
+            "stroke": "--rcx-color-status-font-on-warning",
+            "textFill": "--rcx-color-font-default"
+          },
+          "values": {
+            "fill": "rgb(247, 248, 250)",
+            "stroke": "rgb(142, 99, 0)",
+            "textFill": "rgb(47, 52, 61)",
+            "strokeWeight": 4,
+            "radius": 0
+          }
+        },
+        {
+          "key": "Variant=warning, Inline=true",
+          "size": "fluid x69",
+          "padding": "12 16 12 16",
+          "minWidth": 0,
+          "text": "24/24 w400",
+          "bind": {
+            "fill": "--rcx-color-surface-tint",
+            "stroke": "--rcx-color-status-font-on-warning",
+            "textFill": "--rcx-color-font-default"
+          },
+          "values": {
+            "fill": "rgb(247, 248, 250)",
+            "stroke": "rgb(142, 99, 0)",
+            "textFill": "rgb(47, 52, 61)",
+            "strokeWeight": 4,
+            "radius": 0
+          }
+        }
+      ]
+    },
+    {
+      "name": "Button",
+      "storyId": "inputs-button--default",
+      "axes": {
+        "Variant": [
+          "primary",
+          "secondary",
+          "danger",
+          "secondary-danger",
+          "warning",
+          "secondary-warning",
+          "success",
+          "secondary-success"
+        ],
+        "Size": ["small", "medium", "default", "large"]
+      },
+      "variants": [
+        {
+          "key": "Variant=danger, Size=default",
+          "size": "80x40",
+          "padding": "8 14 8 14",
+          "minWidth": 80,
+          "text": "14/20 w500",
+          "bind": {
+            "fill": "--rcx-color-button-background-danger-default",
+            "stroke": "--rcx-color-button-background-danger-default",
+            "textFill": "--rcx-color-button-font-on-danger"
+          },
+          "values": {
+            "fill": "rgb(236, 13, 42)",
+            "stroke": "rgb(236, 13, 42)",
+            "textFill": "rgb(255, 255, 255)",
+            "strokeWeight": 1,
+            "radius": 4
+          }
+        },
+        {
+          "key": "Variant=danger, Size=large",
+          "size": "96x48",
+          "padding": "12 22 12 22",
+          "minWidth": 96,
+          "text": "14/20 w400",
+          "bind": {
+            "fill": "--rcx-color-button-background-danger-default",
+            "stroke": "--rcx-color-button-background-danger-default",
+            "textFill": "--rcx-color-button-font-on-danger"
+          },
+          "values": {
+            "fill": "rgb(236, 13, 42)",
+            "stroke": "rgb(236, 13, 42)",
+            "textFill": "rgb(255, 255, 255)",
+            "strokeWeight": 1,
+            "radius": 4
+          }
+        },
+        {
+          "key": "Variant=danger, Size=medium",
+          "size": "64x32",
+          "padding": "6 10 6 10",
+          "minWidth": 64,
+          "text": "12/16 w700",
+          "bind": {
+            "fill": "--rcx-color-button-background-danger-default",
+            "stroke": "--rcx-color-button-background-danger-default",
+            "textFill": "--rcx-color-button-font-on-danger"
+          },
+          "values": {
+            "fill": "rgb(236, 13, 42)",
+            "stroke": "rgb(236, 13, 42)",
+            "textFill": "rgb(255, 255, 255)",
+            "strokeWeight": 1,
+            "radius": 4
+          }
+        },
+        {
+          "key": "Variant=danger, Size=small",
+          "size": "56x28",
+          "padding": "4 6 4 6",
+          "minWidth": 56,
+          "text": "12/16 w700",
+          "bind": {
+            "fill": "--rcx-color-button-background-danger-default",
+            "stroke": "--rcx-color-button-background-danger-default",
+            "textFill": "--rcx-color-button-font-on-danger"
+          },
+          "values": {
+            "fill": "rgb(236, 13, 42)",
+            "stroke": "rgb(236, 13, 42)",
+            "textFill": "rgb(255, 255, 255)",
+            "strokeWeight": 1,
+            "radius": 4
+          }
+        },
+        {
+          "key": "Variant=primary, Size=default",
+          "size": "80x40",
+          "padding": "8 14 8 14",
+          "minWidth": 80,
+          "text": "14/20 w500",
+          "bind": {
+            "fill": "--rcx-color-button-background-primary-default",
+            "stroke": "--rcx-color-button-background-primary-default",
+            "textFill": "--rcx-color-button-font-on-primary"
+          },
+          "values": {
+            "fill": "rgb(21, 111, 245)",
+            "stroke": "rgb(21, 111, 245)",
+            "textFill": "rgb(255, 255, 255)",
+            "strokeWeight": 1,
+            "radius": 4
+          }
+        },
+        {
+          "key": "Variant=primary, Size=large",
+          "size": "96x48",
+          "padding": "12 22 12 22",
+          "minWidth": 96,
+          "text": "14/20 w400",
+          "bind": {
+            "fill": "--rcx-color-button-background-primary-default",
+            "stroke": "--rcx-color-button-background-primary-default",
+            "textFill": "--rcx-color-button-font-on-primary"
+          },
+          "values": {
+            "fill": "rgb(21, 111, 245)",
+            "stroke": "rgb(21, 111, 245)",
+            "textFill": "rgb(255, 255, 255)",
+            "strokeWeight": 1,
+            "radius": 4
+          }
+        },
+        {
+          "key": "Variant=primary, Size=medium",
+          "size": "64x32",
+          "padding": "6 10 6 10",
+          "minWidth": 64,
+          "text": "12/16 w700",
+          "bind": {
+            "fill": "--rcx-color-button-background-primary-default",
+            "stroke": "--rcx-color-button-background-primary-default",
+            "textFill": "--rcx-color-button-font-on-primary"
+          },
+          "values": {
+            "fill": "rgb(21, 111, 245)",
+            "stroke": "rgb(21, 111, 245)",
+            "textFill": "rgb(255, 255, 255)",
+            "strokeWeight": 1,
+            "radius": 4
+          }
+        },
+        {
+          "key": "Variant=primary, Size=small",
+          "size": "56x28",
+          "padding": "4 6 4 6",
+          "minWidth": 56,
+          "text": "12/16 w700",
+          "bind": {
+            "fill": "--rcx-color-button-background-primary-default",
+            "stroke": "--rcx-color-button-background-primary-default",
+            "textFill": "--rcx-color-button-font-on-primary"
+          },
+          "values": {
+            "fill": "rgb(21, 111, 245)",
+            "stroke": "rgb(21, 111, 245)",
+            "textFill": "rgb(255, 255, 255)",
+            "strokeWeight": 1,
+            "radius": 4
+          }
+        },
+        {
+          "key": "Variant=secondary-danger, Size=default",
+          "size": "80x40",
+          "padding": "8 14 8 14",
+          "minWidth": 80,
+          "text": "14/20 w500",
+          "bind": {
+            "fill": "--rcx-color-button-background-secondary-danger-default",
+            "stroke": "--rcx-color-button-background-secondary-danger-default",
+            "textFill": "--rcx-color-button-font-on-secondary-danger"
+          },
+          "values": {
+            "fill": "rgb(228, 231, 234)",
+            "stroke": "rgb(228, 231, 234)",
+            "textFill": "rgb(187, 11, 33)",
+            "strokeWeight": 1,
+            "radius": 4
+          }
+        },
+        {
+          "key": "Variant=secondary-danger, Size=large",
+          "size": "96x48",
+          "padding": "12 22 12 22",
+          "minWidth": 96,
+          "text": "14/20 w400",
+          "bind": {
+            "fill": "--rcx-color-button-background-secondary-danger-default",
+            "stroke": "--rcx-color-button-background-secondary-danger-default",
+            "textFill": "--rcx-color-button-font-on-secondary-danger"
+          },
+          "values": {
+            "fill": "rgb(228, 231, 234)",
+            "stroke": "rgb(228, 231, 234)",
+            "textFill": "rgb(187, 11, 33)",
+            "strokeWeight": 1,
+            "radius": 4
+          }
+        },
+        {
+          "key": "Variant=secondary-danger, Size=medium",
+          "size": "64x32",
+          "padding": "6 10 6 10",
+          "minWidth": 64,
+          "text": "12/16 w700",
+          "bind": {
+            "fill": "--rcx-color-button-background-secondary-danger-default",
+            "stroke": "--rcx-color-button-background-secondary-danger-default",
+            "textFill": "--rcx-color-button-font-on-secondary-danger"
+          },
+          "values": {
+            "fill": "rgb(228, 231, 234)",
+            "stroke": "rgb(228, 231, 234)",
+            "textFill": "rgb(187, 11, 33)",
+            "strokeWeight": 1,
+            "radius": 4
+          }
+        },
+        {
+          "key": "Variant=secondary-danger, Size=small",
+          "size": "56x28",
+          "padding": "4 6 4 6",
+          "minWidth": 56,
+          "text": "12/16 w700",
+          "bind": {
+            "fill": "--rcx-color-button-background-secondary-danger-default",
+            "stroke": "--rcx-color-button-background-secondary-danger-default",
+            "textFill": "--rcx-color-button-font-on-secondary-danger"
+          },
+          "values": {
+            "fill": "rgb(228, 231, 234)",
+            "stroke": "rgb(228, 231, 234)",
+            "textFill": "rgb(187, 11, 33)",
+            "strokeWeight": 1,
+            "radius": 4
+          }
+        },
+        {
+          "key": "Variant=secondary-success, Size=default",
+          "size": "80x40",
+          "padding": "8 14 8 14",
+          "minWidth": 80,
+          "text": "14/20 w500",
+          "bind": {},
+          "values": {
+            "fill": "rgb(228, 231, 234)",
+            "stroke": "rgb(228, 231, 234)",
+            "textFill": "rgb(20, 134, 96)",
+            "strokeWeight": 1,
+            "radius": 4
+          }
+        },
+        {
+          "key": "Variant=secondary-success, Size=large",
+          "size": "96x48",
+          "padding": "12 22 12 22",
+          "minWidth": 96,
+          "text": "14/20 w400",
+          "bind": {},
+          "values": {
+            "fill": "rgb(228, 231, 234)",
+            "stroke": "rgb(228, 231, 234)",
+            "textFill": "rgb(20, 134, 96)",
+            "strokeWeight": 1,
+            "radius": 4
+          }
+        },
+        {
+          "key": "Variant=secondary-success, Size=medium",
+          "size": "64x32",
+          "padding": "6 10 6 10",
+          "minWidth": 64,
+          "text": "12/16 w700",
+          "bind": {},
+          "values": {
+            "fill": "rgb(228, 231, 234)",
+            "stroke": "rgb(228, 231, 234)",
+            "textFill": "rgb(20, 134, 96)",
+            "strokeWeight": 1,
+            "radius": 4
+          }
+        },
+        {
+          "key": "Variant=secondary-success, Size=small",
+          "size": "56x28",
+          "padding": "4 6 4 6",
+          "minWidth": 56,
+          "text": "12/16 w700",
+          "bind": {},
+          "values": {
+            "fill": "rgb(228, 231, 234)",
+            "stroke": "rgb(228, 231, 234)",
+            "textFill": "rgb(20, 134, 96)",
+            "strokeWeight": 1,
+            "radius": 4
+          }
+        },
+        {
+          "key": "Variant=secondary-warning, Size=default",
+          "size": "80x40",
+          "padding": "8 14 8 14",
+          "minWidth": 80,
+          "text": "14/20 w500",
+          "bind": {},
+          "values": {
+            "fill": "rgb(228, 231, 234)",
+            "stroke": "rgb(228, 231, 234)",
+            "textFill": "rgb(142, 99, 0)",
+            "strokeWeight": 1,
+            "radius": 4
+          }
+        },
+        {
+          "key": "Variant=secondary-warning, Size=large",
+          "size": "96x48",
+          "padding": "12 22 12 22",
+          "minWidth": 96,
+          "text": "14/20 w400",
+          "bind": {},
+          "values": {
+            "fill": "rgb(228, 231, 234)",
+            "stroke": "rgb(228, 231, 234)",
+            "textFill": "rgb(142, 99, 0)",
+            "strokeWeight": 1,
+            "radius": 4
+          }
+        },
+        {
+          "key": "Variant=secondary-warning, Size=medium",
+          "size": "64x32",
+          "padding": "6 10 6 10",
+          "minWidth": 64,
+          "text": "12/16 w700",
+          "bind": {},
+          "values": {
+            "fill": "rgb(228, 231, 234)",
+            "stroke": "rgb(228, 231, 234)",
+            "textFill": "rgb(142, 99, 0)",
+            "strokeWeight": 1,
+            "radius": 4
+          }
+        },
+        {
+          "key": "Variant=secondary-warning, Size=small",
+          "size": "56x28",
+          "padding": "4 6 4 6",
+          "minWidth": 56,
+          "text": "12/16 w700",
+          "bind": {},
+          "values": {
+            "fill": "rgb(228, 231, 234)",
+            "stroke": "rgb(228, 231, 234)",
+            "textFill": "rgb(142, 99, 0)",
+            "strokeWeight": 1,
+            "radius": 4
+          }
+        },
+        {
+          "key": "Variant=secondary, Size=default",
+          "size": "80x40",
+          "padding": "8 14 8 14",
+          "minWidth": 80,
+          "text": "14/20 w500",
+          "bind": {
+            "fill": "--rcx-color-button-background-secondary-default",
+            "stroke": "--rcx-color-button-background-secondary-default",
+            "textFill": "--rcx-color-button-font-on-secondary"
+          },
+          "values": {
+            "fill": "rgb(228, 231, 234)",
+            "stroke": "rgb(228, 231, 234)",
+            "textFill": "rgb(31, 35, 41)",
+            "strokeWeight": 1,
+            "radius": 4
+          }
+        },
+        {
+          "key": "Variant=secondary, Size=large",
+          "size": "96x48",
+          "padding": "12 22 12 22",
+          "minWidth": 96,
+          "text": "14/20 w400",
+          "bind": {
+            "fill": "--rcx-color-button-background-secondary-default",
+            "stroke": "--rcx-color-button-background-secondary-default",
+            "textFill": "--rcx-color-button-font-on-secondary"
+          },
+          "values": {
+            "fill": "rgb(228, 231, 234)",
+            "stroke": "rgb(228, 231, 234)",
+            "textFill": "rgb(31, 35, 41)",
+            "strokeWeight": 1,
+            "radius": 4
+          }
+        },
+        {
+          "key": "Variant=secondary, Size=medium",
+          "size": "64x32",
+          "padding": "6 10 6 10",
+          "minWidth": 64,
+          "text": "12/16 w700",
+          "bind": {
+            "fill": "--rcx-color-button-background-secondary-default",
+            "stroke": "--rcx-color-button-background-secondary-default",
+            "textFill": "--rcx-color-button-font-on-secondary"
+          },
+          "values": {
+            "fill": "rgb(228, 231, 234)",
+            "stroke": "rgb(228, 231, 234)",
+            "textFill": "rgb(31, 35, 41)",
+            "strokeWeight": 1,
+            "radius": 4
+          }
+        },
+        {
+          "key": "Variant=secondary, Size=small",
+          "size": "56x28",
+          "padding": "4 6 4 6",
+          "minWidth": 56,
+          "text": "12/16 w700",
+          "bind": {
+            "fill": "--rcx-color-button-background-secondary-default",
+            "stroke": "--rcx-color-button-background-secondary-default",
+            "textFill": "--rcx-color-button-font-on-secondary"
+          },
+          "values": {
+            "fill": "rgb(228, 231, 234)",
+            "stroke": "rgb(228, 231, 234)",
+            "textFill": "rgb(31, 35, 41)",
+            "strokeWeight": 1,
+            "radius": 4
+          }
+        },
+        {
+          "key": "Variant=success, Size=default",
+          "size": "80x40",
+          "padding": "8 14 8 14",
+          "minWidth": 80,
+          "text": "14/20 w500",
+          "bind": {
+            "fill": "--rcx-color-button-background-success-default",
+            "stroke": "--rcx-color-button-background-success-default",
+            "textFill": "--rcx-color-button-font-on-success"
+          },
+          "values": {
+            "fill": "rgb(20, 134, 96)",
+            "stroke": "rgb(20, 134, 96)",
+            "textFill": "rgb(255, 255, 255)",
+            "strokeWeight": 1,
+            "radius": 4
+          }
+        },
+        {
+          "key": "Variant=success, Size=large",
+          "size": "96x48",
+          "padding": "12 22 12 22",
+          "minWidth": 96,
+          "text": "14/20 w400",
+          "bind": {
+            "fill": "--rcx-color-button-background-success-default",
+            "stroke": "--rcx-color-button-background-success-default",
+            "textFill": "--rcx-color-button-font-on-success"
+          },
+          "values": {
+            "fill": "rgb(20, 134, 96)",
+            "stroke": "rgb(20, 134, 96)",
+            "textFill": "rgb(255, 255, 255)",
+            "strokeWeight": 1,
+            "radius": 4
+          }
+        },
+        {
+          "key": "Variant=success, Size=medium",
+          "size": "64x32",
+          "padding": "6 10 6 10",
+          "minWidth": 64,
+          "text": "12/16 w700",
+          "bind": {
+            "fill": "--rcx-color-button-background-success-default",
+            "stroke": "--rcx-color-button-background-success-default",
+            "textFill": "--rcx-color-button-font-on-success"
+          },
+          "values": {
+            "fill": "rgb(20, 134, 96)",
+            "stroke": "rgb(20, 134, 96)",
+            "textFill": "rgb(255, 255, 255)",
+            "strokeWeight": 1,
+            "radius": 4
+          }
+        },
+        {
+          "key": "Variant=success, Size=small",
+          "size": "56x28",
+          "padding": "4 6 4 6",
+          "minWidth": 56,
+          "text": "12/16 w700",
+          "bind": {
+            "fill": "--rcx-color-button-background-success-default",
+            "stroke": "--rcx-color-button-background-success-default",
+            "textFill": "--rcx-color-button-font-on-success"
+          },
+          "values": {
+            "fill": "rgb(20, 134, 96)",
+            "stroke": "rgb(20, 134, 96)",
+            "textFill": "rgb(255, 255, 255)",
+            "strokeWeight": 1,
+            "radius": 4
+          }
+        },
+        {
+          "key": "Variant=warning, Size=default",
+          "size": "80x40",
+          "padding": "8 14 8 14",
+          "minWidth": 80,
+          "text": "14/20 w500",
+          "bind": {},
+          "values": {
+            "fill": "rgb(255, 217, 90)",
+            "stroke": "rgb(255, 217, 90)",
+            "textFill": "rgb(31, 35, 41)",
+            "strokeWeight": 1,
+            "radius": 4
+          }
+        },
+        {
+          "key": "Variant=warning, Size=large",
+          "size": "96x48",
+          "padding": "12 22 12 22",
+          "minWidth": 96,
+          "text": "14/20 w400",
+          "bind": {},
+          "values": {
+            "fill": "rgb(255, 217, 90)",
+            "stroke": "rgb(255, 217, 90)",
+            "textFill": "rgb(31, 35, 41)",
+            "strokeWeight": 1,
+            "radius": 4
+          }
+        },
+        {
+          "key": "Variant=warning, Size=medium",
+          "size": "64x32",
+          "padding": "6 10 6 10",
+          "minWidth": 64,
+          "text": "12/16 w700",
+          "bind": {},
+          "values": {
+            "fill": "rgb(255, 217, 90)",
+            "stroke": "rgb(255, 217, 90)",
+            "textFill": "rgb(31, 35, 41)",
+            "strokeWeight": 1,
+            "radius": 4
+          }
+        },
+        {
+          "key": "Variant=warning, Size=small",
+          "size": "56x28",
+          "padding": "4 6 4 6",
+          "minWidth": 56,
+          "text": "12/16 w700",
+          "bind": {},
+          "values": {
+            "fill": "rgb(255, 217, 90)",
+            "stroke": "rgb(255, 217, 90)",
+            "textFill": "rgb(31, 35, 41)",
+            "strokeWeight": 1,
+            "radius": 4
+          }
+        }
+      ]
+    },
+    {
+      "name": "Callout",
+      "storyId": "feedback-callout--default",
+      "axes": {
+        "Type": ["info", "success", "warning", "danger"]
+      },
+      "variants": [
+        {
+          "key": "Type=danger",
+          "size": "fluid x70",
+          "padding": "12 12 12 12",
+          "minWidth": 0,
+          "text": "20/20 w400",
+          "bind": {
+            "fill": "--rcx-color-surface-light",
+            "stroke": "--rcx-color-status-font-on-danger",
+            "textFill": "--rcx-color-font-default"
+          },
+          "values": {
+            "fill": "rgb(255, 255, 255)",
+            "stroke": "rgb(155, 19, 37)",
+            "textFill": "rgb(47, 52, 61)",
+            "strokeWeight": 1,
+            "radius": 4
+          }
+        },
+        {
+          "key": "Type=info",
+          "size": "fluid x70",
+          "padding": "12 12 12 12",
+          "minWidth": 0,
+          "text": "20/20 w400",
+          "bind": {
+            "fill": "--rcx-color-surface-light",
+            "stroke": "--rcx-color-status-font-on-info",
+            "textFill": "--rcx-color-font-default"
+          },
+          "values": {
+            "fill": "rgb(255, 255, 255)",
+            "stroke": "rgb(9, 90, 210)",
+            "textFill": "rgb(47, 52, 61)",
+            "strokeWeight": 1,
+            "radius": 4
+          }
+        },
+        {
+          "key": "Type=success",
+          "size": "fluid x70",
+          "padding": "12 12 12 12",
+          "minWidth": 0,
+          "text": "20/20 w400",
+          "bind": {
+            "fill": "--rcx-color-surface-light",
+            "stroke": "--rcx-color-status-font-on-success",
+            "textFill": "--rcx-color-font-default"
+          },
+          "values": {
+            "fill": "rgb(255, 255, 255)",
+            "stroke": "rgb(20, 134, 96)",
+            "textFill": "rgb(47, 52, 61)",
+            "strokeWeight": 1,
+            "radius": 4
+          }
+        },
+        {
+          "key": "Type=warning",
+          "size": "fluid x70",
+          "padding": "12 12 12 12",
+          "minWidth": 0,
+          "text": "20/20 w400",
+          "bind": {
+            "fill": "--rcx-color-surface-light",
+            "stroke": "--rcx-color-status-font-on-warning",
+            "textFill": "--rcx-color-font-default"
+          },
+          "values": {
+            "fill": "rgb(255, 255, 255)",
+            "stroke": "rgb(142, 99, 0)",
+            "textFill": "rgb(47, 52, 61)",
+            "strokeWeight": 1,
+            "radius": 4
+          }
+        }
+      ]
+    },
+    {
+      "name": "Chip",
+      "storyId": "data-display-chip--default",
+      "axes": {
+        "Disabled": ["false", "true"]
+      },
+      "variants": [
+        {
+          "key": "Disabled=false",
+          "size": "38x28",
+          "padding": "0 0 0 0",
+          "minWidth": 0,
+          "text": "14/20 w400",
+          "bind": {
+            "fill": "--rcx-color-button-background-secondary-default",
+            "stroke": "--rcx-color-button-background-secondary-default",
+            "textFill": "--rcx-color-font-secondary-info"
+          },
+          "values": {
+            "fill": "rgb(228, 231, 234)",
+            "stroke": "rgb(228, 231, 234)",
+            "textFill": "rgb(108, 115, 122)",
+            "strokeWeight": 0,
+            "radius": 4
+          }
+        },
+        {
+          "key": "Disabled=true",
+          "size": "38x28",
+          "padding": "0 0 0 0",
+          "minWidth": 0,
+          "text": "14/20 w400",
+          "bind": {
+            "fill": "--rcx-color-button-background-secondary-default",
+            "stroke": "--rcx-color-button-background-secondary-default",
+            "textFill": "--rcx-color-font-secondary-info"
+          },
+          "values": {
+            "fill": "rgb(228, 231, 234)",
+            "stroke": "rgb(228, 231, 234)",
+            "textFill": "rgb(31, 35, 41)",
+            "strokeWeight": 0,
+            "radius": 4
+          }
+        }
+      ]
+    },
+    {
+      "name": "Divider",
+      "storyId": "data-display-divider--default",
+      "axes": {
+        "Variation": ["default", "danger"],
+        "Vertical": ["false", "true"]
+      },
+      "variants": [
+        {
+          "key": "Variation=danger, Vertical=false",
+          "size": "fluid x1",
+          "padding": "0 0 0 0",
+          "minWidth": 0,
+          "text": null,
+          "bind": {
+            "stroke": "--rcx-color-stroke-error"
+          },
+          "values": {
+            "fill": "rgba(0, 0, 0, 0)",
+            "stroke": "rgb(236, 13, 42)",
+            "textFill": "rgb(128, 128, 128)",
+            "strokeWeight": 1,
+            "radius": 0
+          }
+        },
+        {
+          "key": "Variation=danger, Vertical=true",
+          "size": "1x20",
+          "padding": "0 0 0 0",
+          "minWidth": 0,
+          "text": null,
+          "bind": {
+            "stroke": "--rcx-color-stroke-error"
+          },
+          "values": {
+            "fill": "rgba(0, 0, 0, 0)",
+            "stroke": "rgb(236, 13, 42)",
+            "textFill": "rgb(128, 128, 128)",
+            "strokeWeight": 1,
+            "radius": 0
+          }
+        },
+        {
+          "key": "Variation=default, Vertical=false",
+          "size": "fluid x1",
+          "padding": "0 0 0 0",
+          "minWidth": 0,
+          "text": null,
+          "bind": {},
+          "values": {
+            "fill": "rgba(0, 0, 0, 0)",
+            "stroke": "rgb(235, 236, 239)",
+            "textFill": "rgb(128, 128, 128)",
+            "strokeWeight": 1,
+            "radius": 0
+          }
+        },
+        {
+          "key": "Variation=default, Vertical=true",
+          "size": "1x20",
+          "padding": "0 0 0 0",
+          "minWidth": 0,
+          "text": null,
+          "bind": {},
+          "values": {
+            "fill": "rgba(0, 0, 0, 0)",
+            "stroke": "rgb(235, 236, 239)",
+            "textFill": "rgb(128, 128, 128)",
+            "strokeWeight": 1,
+            "radius": 0
+          }
+        }
+      ]
+    },
+    {
+      "name": "FramedIcon",
+      "storyId": "data-display-framedicon--default",
+      "axes": {
+        "Variant": [
+          "default",
+          "info",
+          "success",
+          "warning",
+          "danger",
+          "neutral"
+        ]
+      },
+      "variants": [
+        {
+          "key": "Variant=danger",
+          "size": "22x28",
+          "padding": "4 4 4 4",
+          "minWidth": 0,
+          "text": "20/20 w400",
+          "bind": {
+            "fill": "--rcx-color-surface-tint",
+            "textFill": "--rcx-color-status-font-on-danger"
+          },
+          "values": {
+            "fill": "rgb(247, 248, 250)",
+            "stroke": "rgb(155, 19, 37)",
+            "textFill": "rgb(155, 19, 37)",
+            "strokeWeight": 0,
+            "radius": 4
+          }
+        },
+        {
+          "key": "Variant=default",
+          "size": "22x28",
+          "padding": "4 4 4 4",
+          "minWidth": 0,
+          "text": "20/20 w400",
+          "bind": {
+            "fill": "--rcx-color-surface-tint",
+            "textFill": "--rcx-color-font-secondary-info"
+          },
+          "values": {
+            "fill": "rgb(247, 248, 250)",
+            "stroke": "rgb(108, 115, 122)",
+            "textFill": "rgb(108, 115, 122)",
+            "strokeWeight": 0,
+            "radius": 4
+          }
+        },
+        {
+          "key": "Variant=info",
+          "size": "22x28",
+          "padding": "4 4 4 4",
+          "minWidth": 0,
+          "text": "20/20 w400",
+          "bind": {
+            "fill": "--rcx-color-surface-tint",
+            "textFill": "--rcx-color-status-font-on-info"
+          },
+          "values": {
+            "fill": "rgb(247, 248, 250)",
+            "stroke": "rgb(9, 90, 210)",
+            "textFill": "rgb(9, 90, 210)",
+            "strokeWeight": 0,
+            "radius": 4
+          }
+        },
+        {
+          "key": "Variant=neutral",
+          "size": "22x28",
+          "padding": "4 4 4 4",
+          "minWidth": 0,
+          "text": "20/20 w400",
+          "bind": {
+            "fill": "--rcx-color-surface-tint",
+            "textFill": "--rcx-color-font-secondary-info"
+          },
+          "values": {
+            "fill": "rgb(247, 248, 250)",
+            "stroke": "rgb(108, 115, 122)",
+            "textFill": "rgb(108, 115, 122)",
+            "strokeWeight": 0,
+            "radius": 4
+          }
+        },
+        {
+          "key": "Variant=success",
+          "size": "22x28",
+          "padding": "4 4 4 4",
+          "minWidth": 0,
+          "text": "20/20 w400",
+          "bind": {
+            "fill": "--rcx-color-surface-tint",
+            "textFill": "--rcx-color-status-font-on-success"
+          },
+          "values": {
+            "fill": "rgb(247, 248, 250)",
+            "stroke": "rgb(20, 134, 96)",
+            "textFill": "rgb(20, 134, 96)",
+            "strokeWeight": 0,
+            "radius": 4
+          }
+        },
+        {
+          "key": "Variant=warning",
+          "size": "22x28",
+          "padding": "4 4 4 4",
+          "minWidth": 0,
+          "text": "20/20 w400",
+          "bind": {
+            "fill": "--rcx-color-surface-tint",
+            "textFill": "--rcx-color-status-font-on-warning"
+          },
+          "values": {
+            "fill": "rgb(247, 248, 250)",
+            "stroke": "rgb(142, 99, 0)",
+            "textFill": "rgb(142, 99, 0)",
+            "strokeWeight": 0,
+            "radius": 4
+          }
+        }
+      ]
+    },
+    {
+      "name": "Label",
+      "storyId": "inputs-label--default",
+      "axes": {
+        "Required": ["false", "true"],
+        "Disabled": ["false", "true"]
+      },
+      "variants": [
+        {
+          "key": "Required=false, Disabled=false",
+          "size": "fluid x20",
+          "padding": "0 0 0 0",
+          "minWidth": 0,
+          "text": "14/20 w500",
+          "bind": {
+            "textFill": "--rcx-color-font-default"
+          },
+          "values": {
+            "fill": "rgba(0, 0, 0, 0)",
+            "stroke": "rgb(47, 52, 61)",
+            "textFill": "rgb(47, 52, 61)",
+            "strokeWeight": 0,
+            "radius": 0
+          }
+        },
+        {
+          "key": "Required=false, Disabled=true",
+          "size": "fluid x20",
+          "padding": "0 0 0 0",
+          "minWidth": 0,
+          "text": "14/20 w500",
+          "bind": {
+            "textFill": "--rcx-color-font-secondary-info"
+          },
+          "values": {
+            "fill": "rgba(0, 0, 0, 0)",
+            "stroke": "rgb(108, 115, 122)",
+            "textFill": "rgb(108, 115, 122)",
+            "strokeWeight": 0,
+            "radius": 0
+          }
+        },
+        {
+          "key": "Required=true, Disabled=false",
+          "size": "fluid x20",
+          "padding": "0 0 0 0",
+          "minWidth": 0,
+          "text": "14/20 w500",
+          "bind": {
+            "textFill": "--rcx-color-font-default"
+          },
+          "values": {
+            "fill": "rgba(0, 0, 0, 0)",
+            "stroke": "rgb(47, 52, 61)",
+            "textFill": "rgb(47, 52, 61)",
+            "strokeWeight": 0,
+            "radius": 0
+          }
+        },
+        {
+          "key": "Required=true, Disabled=true",
+          "size": "fluid x20",
+          "padding": "0 0 0 0",
+          "minWidth": 0,
+          "text": "14/20 w500",
+          "bind": {
+            "textFill": "--rcx-color-font-secondary-info"
+          },
+          "values": {
+            "fill": "rgba(0, 0, 0, 0)",
+            "stroke": "rgb(108, 115, 122)",
+            "textFill": "rgb(108, 115, 122)",
+            "strokeWeight": 0,
+            "radius": 0
+          }
+        }
+      ]
+    },
+    {
+      "name": "Tag",
+      "storyId": "data-display-tag--default",
+      "axes": {
+        "Variant": [
+          "primary",
+          "secondary",
+          "danger",
+          "warning",
+          "secondary-danger",
+          "secondary-warning",
+          "secondary-info",
+          "featured"
+        ],
+        "Size": ["small", "medium", "large"]
+      },
+      "variants": [
+        {
+          "key": "Variant=danger, Size=large",
+          "size": "35x26",
+          "padding": "2 4 2 4",
+          "minWidth": 0,
+          "text": "14/20 w700",
+          "bind": {
+            "fill": "--rcx-color-button-background-danger-default",
+            "textFill": "--rcx-color-button-font-on-danger"
+          },
+          "values": {
+            "fill": "rgb(236, 13, 42)",
+            "stroke": "rgba(0, 0, 0, 0)",
+            "textFill": "rgb(255, 255, 255)",
+            "strokeWeight": 1,
+            "radius": 2
+          }
+        },
+        {
+          "key": "Variant=danger, Size=medium",
+          "size": "32x22",
+          "padding": "2 4 2 4",
+          "minWidth": 0,
+          "text": "12/16 w700",
+          "bind": {
+            "fill": "--rcx-color-button-background-danger-default",
+            "textFill": "--rcx-color-button-font-on-danger"
+          },
+          "values": {
+            "fill": "rgb(236, 13, 42)",
+            "stroke": "rgba(0, 0, 0, 0)",
+            "textFill": "rgb(255, 255, 255)",
+            "strokeWeight": 1,
+            "radius": 2
+          }
+        },
+        {
+          "key": "Variant=danger, Size=small",
+          "size": "28x18",
+          "padding": "2 4 2 4",
+          "minWidth": 0,
+          "text": "10/12 w700",
+          "bind": {
+            "fill": "--rcx-color-button-background-danger-default",
+            "textFill": "--rcx-color-button-font-on-danger"
+          },
+          "values": {
+            "fill": "rgb(236, 13, 42)",
+            "stroke": "rgba(0, 0, 0, 0)",
+            "textFill": "rgb(255, 255, 255)",
+            "strokeWeight": 1,
+            "radius": 2
+          }
+        },
+        {
+          "key": "Variant=featured, Size=large",
+          "size": "35x26",
+          "padding": "2 4 2 4",
+          "minWidth": 0,
+          "text": "14/20 w700",
+          "bind": {
+            "fill": "--rcx-color-surface-featured",
+            "textFill": "--rcx-color-button-font-on-primary"
+          },
+          "values": {
+            "fill": "rgb(95, 20, 119)",
+            "stroke": "rgba(0, 0, 0, 0)",
+            "textFill": "rgb(255, 255, 255)",
+            "strokeWeight": 1,
+            "radius": 2
+          }
+        },
+        {
+          "key": "Variant=featured, Size=medium",
+          "size": "32x22",
+          "padding": "2 4 2 4",
+          "minWidth": 0,
+          "text": "12/16 w700",
+          "bind": {
+            "fill": "--rcx-color-surface-featured",
+            "textFill": "--rcx-color-button-font-on-primary"
+          },
+          "values": {
+            "fill": "rgb(95, 20, 119)",
+            "stroke": "rgba(0, 0, 0, 0)",
+            "textFill": "rgb(255, 255, 255)",
+            "strokeWeight": 1,
+            "radius": 2
+          }
+        },
+        {
+          "key": "Variant=featured, Size=small",
+          "size": "28x18",
+          "padding": "2 4 2 4",
+          "minWidth": 0,
+          "text": "10/12 w700",
+          "bind": {
+            "fill": "--rcx-color-surface-featured",
+            "textFill": "--rcx-color-button-font-on-primary"
+          },
+          "values": {
+            "fill": "rgb(95, 20, 119)",
+            "stroke": "rgba(0, 0, 0, 0)",
+            "textFill": "rgb(255, 255, 255)",
+            "strokeWeight": 1,
+            "radius": 2
+          }
+        },
+        {
+          "key": "Variant=primary, Size=large",
+          "size": "35x26",
+          "padding": "2 4 2 4",
+          "minWidth": 0,
+          "text": "14/20 w700",
+          "bind": {
+            "fill": "--rcx-color-button-background-primary-default",
+            "textFill": "--rcx-color-button-font-on-primary"
+          },
+          "values": {
+            "fill": "rgb(21, 111, 245)",
+            "stroke": "rgba(0, 0, 0, 0)",
+            "textFill": "rgb(255, 255, 255)",
+            "strokeWeight": 1,
+            "radius": 2
+          }
+        },
+        {
+          "key": "Variant=primary, Size=medium",
+          "size": "32x22",
+          "padding": "2 4 2 4",
+          "minWidth": 0,
+          "text": "12/16 w700",
+          "bind": {
+            "fill": "--rcx-color-button-background-primary-default",
+            "textFill": "--rcx-color-button-font-on-primary"
+          },
+          "values": {
+            "fill": "rgb(21, 111, 245)",
+            "stroke": "rgba(0, 0, 0, 0)",
+            "textFill": "rgb(255, 255, 255)",
+            "strokeWeight": 1,
+            "radius": 2
+          }
+        },
+        {
+          "key": "Variant=primary, Size=small",
+          "size": "28x18",
+          "padding": "2 4 2 4",
+          "minWidth": 0,
+          "text": "10/12 w700",
+          "bind": {
+            "fill": "--rcx-color-button-background-primary-default",
+            "textFill": "--rcx-color-button-font-on-primary"
+          },
+          "values": {
+            "fill": "rgb(21, 111, 245)",
+            "stroke": "rgba(0, 0, 0, 0)",
+            "textFill": "rgb(255, 255, 255)",
+            "strokeWeight": 1,
+            "radius": 2
+          }
+        },
+        {
+          "key": "Variant=secondary-danger, Size=large",
+          "size": "35x26",
+          "padding": "2 4 2 4",
+          "minWidth": 0,
+          "text": "14/20 w700",
+          "bind": {
+            "fill": "--rcx-color-button-background-secondary-danger-default",
+            "textFill": "--rcx-color-button-font-on-secondary-danger"
+          },
+          "values": {
+            "fill": "rgb(228, 231, 234)",
+            "stroke": "rgba(0, 0, 0, 0)",
+            "textFill": "rgb(187, 11, 33)",
+            "strokeWeight": 1,
+            "radius": 2
+          }
+        },
+        {
+          "key": "Variant=secondary-danger, Size=medium",
+          "size": "32x22",
+          "padding": "2 4 2 4",
+          "minWidth": 0,
+          "text": "12/16 w700",
+          "bind": {
+            "fill": "--rcx-color-button-background-secondary-danger-default",
+            "textFill": "--rcx-color-button-font-on-secondary-danger"
+          },
+          "values": {
+            "fill": "rgb(228, 231, 234)",
+            "stroke": "rgba(0, 0, 0, 0)",
+            "textFill": "rgb(187, 11, 33)",
+            "strokeWeight": 1,
+            "radius": 2
+          }
+        },
+        {
+          "key": "Variant=secondary-danger, Size=small",
+          "size": "28x18",
+          "padding": "2 4 2 4",
+          "minWidth": 0,
+          "text": "10/12 w700",
+          "bind": {
+            "fill": "--rcx-color-button-background-secondary-danger-default",
+            "textFill": "--rcx-color-button-font-on-secondary-danger"
+          },
+          "values": {
+            "fill": "rgb(228, 231, 234)",
+            "stroke": "rgba(0, 0, 0, 0)",
+            "textFill": "rgb(187, 11, 33)",
+            "strokeWeight": 1,
+            "radius": 2
+          }
+        },
+        {
+          "key": "Variant=secondary-info, Size=large",
+          "size": "35x26",
+          "padding": "2 4 2 4",
+          "minWidth": 0,
+          "text": "14/20 w700",
+          "bind": {
+            "fill": "--rcx-color-button-background-secondary-default",
+            "textFill": "--rcx-color-status-font-on-info"
+          },
+          "values": {
+            "fill": "rgb(228, 231, 234)",
+            "stroke": "rgba(0, 0, 0, 0)",
+            "textFill": "rgb(9, 90, 210)",
+            "strokeWeight": 1,
+            "radius": 2
+          }
+        },
+        {
+          "key": "Variant=secondary-info, Size=medium",
+          "size": "32x22",
+          "padding": "2 4 2 4",
+          "minWidth": 0,
+          "text": "12/16 w700",
+          "bind": {
+            "fill": "--rcx-color-button-background-secondary-default",
+            "textFill": "--rcx-color-status-font-on-info"
+          },
+          "values": {
+            "fill": "rgb(228, 231, 234)",
+            "stroke": "rgba(0, 0, 0, 0)",
+            "textFill": "rgb(9, 90, 210)",
+            "strokeWeight": 1,
+            "radius": 2
+          }
+        },
+        {
+          "key": "Variant=secondary-info, Size=small",
+          "size": "28x18",
+          "padding": "2 4 2 4",
+          "minWidth": 0,
+          "text": "10/12 w700",
+          "bind": {
+            "fill": "--rcx-color-button-background-secondary-default",
+            "textFill": "--rcx-color-status-font-on-info"
+          },
+          "values": {
+            "fill": "rgb(228, 231, 234)",
+            "stroke": "rgba(0, 0, 0, 0)",
+            "textFill": "rgb(9, 90, 210)",
+            "strokeWeight": 1,
+            "radius": 2
+          }
+        },
+        {
+          "key": "Variant=secondary-warning, Size=large",
+          "size": "35x26",
+          "padding": "2 4 2 4",
+          "minWidth": 0,
+          "text": "14/20 w700",
+          "bind": {
+            "fill": "--rcx-color-button-background-secondary-default",
+            "textFill": "--rcx-color-status-font-on-warning"
+          },
+          "values": {
+            "fill": "rgb(228, 231, 234)",
+            "stroke": "rgba(0, 0, 0, 0)",
+            "textFill": "rgb(142, 99, 0)",
+            "strokeWeight": 1,
+            "radius": 2
+          }
+        },
+        {
+          "key": "Variant=secondary-warning, Size=medium",
+          "size": "32x22",
+          "padding": "2 4 2 4",
+          "minWidth": 0,
+          "text": "12/16 w700",
+          "bind": {
+            "fill": "--rcx-color-button-background-secondary-default",
+            "textFill": "--rcx-color-status-font-on-warning"
+          },
+          "values": {
+            "fill": "rgb(228, 231, 234)",
+            "stroke": "rgba(0, 0, 0, 0)",
+            "textFill": "rgb(142, 99, 0)",
+            "strokeWeight": 1,
+            "radius": 2
+          }
+        },
+        {
+          "key": "Variant=secondary-warning, Size=small",
+          "size": "28x18",
+          "padding": "2 4 2 4",
+          "minWidth": 0,
+          "text": "10/12 w700",
+          "bind": {
+            "fill": "--rcx-color-button-background-secondary-default",
+            "textFill": "--rcx-color-status-font-on-warning"
+          },
+          "values": {
+            "fill": "rgb(228, 231, 234)",
+            "stroke": "rgba(0, 0, 0, 0)",
+            "textFill": "rgb(142, 99, 0)",
+            "strokeWeight": 1,
+            "radius": 2
+          }
+        },
+        {
+          "key": "Variant=secondary, Size=large",
+          "size": "35x26",
+          "padding": "2 4 2 4",
+          "minWidth": 0,
+          "text": "14/20 w700",
+          "bind": {
+            "fill": "--rcx-color-button-background-secondary-default",
+            "textFill": "--rcx-color-button-font-on-secondary"
+          },
+          "values": {
+            "fill": "rgb(228, 231, 234)",
+            "stroke": "rgba(0, 0, 0, 0)",
+            "textFill": "rgb(31, 35, 41)",
+            "strokeWeight": 1,
+            "radius": 2
+          }
+        },
+        {
+          "key": "Variant=secondary, Size=medium",
+          "size": "32x22",
+          "padding": "2 4 2 4",
+          "minWidth": 0,
+          "text": "12/16 w700",
+          "bind": {
+            "fill": "--rcx-color-button-background-secondary-default",
+            "textFill": "--rcx-color-button-font-on-secondary"
+          },
+          "values": {
+            "fill": "rgb(228, 231, 234)",
+            "stroke": "rgba(0, 0, 0, 0)",
+            "textFill": "rgb(31, 35, 41)",
+            "strokeWeight": 1,
+            "radius": 2
+          }
+        },
+        {
+          "key": "Variant=secondary, Size=small",
+          "size": "28x18",
+          "padding": "2 4 2 4",
+          "minWidth": 0,
+          "text": "10/12 w700",
+          "bind": {
+            "fill": "--rcx-color-button-background-secondary-default",
+            "textFill": "--rcx-color-button-font-on-secondary"
+          },
+          "values": {
+            "fill": "rgb(228, 231, 234)",
+            "stroke": "rgba(0, 0, 0, 0)",
+            "textFill": "rgb(31, 35, 41)",
+            "strokeWeight": 1,
+            "radius": 2
+          }
+        },
+        {
+          "key": "Variant=warning, Size=large",
+          "size": "35x26",
+          "padding": "2 4 2 4",
+          "minWidth": 0,
+          "text": "14/20 w700",
+          "bind": {},
+          "values": {
+            "fill": "rgb(255, 217, 90)",
+            "stroke": "rgba(0, 0, 0, 0)",
+            "textFill": "rgb(31, 35, 41)",
+            "strokeWeight": 1,
+            "radius": 2
+          }
+        },
+        {
+          "key": "Variant=warning, Size=medium",
+          "size": "32x22",
+          "padding": "2 4 2 4",
+          "minWidth": 0,
+          "text": "12/16 w700",
+          "bind": {},
+          "values": {
+            "fill": "rgb(255, 217, 90)",
+            "stroke": "rgba(0, 0, 0, 0)",
+            "textFill": "rgb(31, 35, 41)",
+            "strokeWeight": 1,
+            "radius": 2
+          }
+        },
+        {
+          "key": "Variant=warning, Size=small",
+          "size": "28x18",
+          "padding": "2 4 2 4",
+          "minWidth": 0,
+          "text": "10/12 w700",
+          "bind": {},
+          "values": {
+            "fill": "rgb(255, 217, 90)",
+            "stroke": "rgba(0, 0, 0, 0)",
+            "textFill": "rgb(31, 35, 41)",
+            "strokeWeight": 1,
+            "radius": 2
+          }
+        }
+      ]
+    },
+    {
+      "name": "Tooltip",
+      "storyId": "data-display-tooltip--default",
+      "axes": {
+        "Variation": ["dark", "light"]
+      },
+      "variants": [
+        {
+          "key": "Variation=dark",
+          "size": "70x36",
+          "padding": "8 12 8 12",
+          "minWidth": 0,
+          "text": "14/20 w500",
+          "bind": {
+            "fill": "--rcx-color-surface-dark",
+            "textFill": "--rcx-color-font-white"
+          },
+          "values": {
+            "fill": "rgb(31, 35, 41)",
+            "stroke": "rgb(255, 255, 255)",
+            "textFill": "rgb(255, 255, 255)",
+            "strokeWeight": 0,
+            "radius": 4
+          }
+        },
+        {
+          "key": "Variation=light",
+          "size": "70x36",
+          "padding": "8 12 8 12",
+          "minWidth": 0,
+          "text": "14/20 w500",
+          "bind": {
+            "fill": "--rcx-color-surface-neutral",
+            "textFill": "--rcx-color-font-default"
+          },
+          "values": {
+            "fill": "rgb(228, 231, 234)",
+            "stroke": "rgb(47, 52, 61)",
+            "textFill": "rgb(47, 52, 61)",
+            "strokeWeight": 0,
+            "radius": 4
+          }
+        }
+      ]
+    }
+  ]
+}

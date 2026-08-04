@@ -5,7 +5,10 @@
   "type": "module",
   "bin": "./src/extract.mjs",
   "scripts": {
-    "extract": "node ./src/extract.mjs"
+    "extract": "node ./src/extract.mjs",
+    "emit-apply": "node ./src/emit-apply.mjs",
+    "build-plugin": "node ./src/emit-apply.mjs --plugin",
+    "check": "node ./src/selfcheck.mjs"
   },
   "dependencies": {
     "playwright": "~1.62.0"

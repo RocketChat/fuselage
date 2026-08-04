@@ -8,16 +8,41 @@ on:
       - 'packages/fuselage/src/**'
       - 'packages/fuselage-tokens/**'
       - 'tools/figma-sync/**'
+  pull_request:
+    paths:
+      - 'packages/fuselage/src/**'
+      - 'packages/fuselage-tokens/**'
+      - 'tools/figma-sync/**'
   workflow_dispatch:
 
 # The spec is a build artifact, not a Figma write. Applying it has to be triggered
 # by a human — not because Figma lacks a headless write path (the remote MCP server
 # has one), but because that server is OAuth-only with a client allowlist, and the
-# REST API cannot create or modify nodes at all. This job only keeps the spec fresh.
+# REST API cannot create or modify nodes at all.
+#
+# What this job does guarantee: the spec is never stale, never malformed, and never
+# changes without a reviewable diff.
 jobs:
+  selfcheck:
+    name: Config and invariant checks
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.22.3'
+          cache: yarn
+      - run: yarn install --immutable
+      # No browser and no Figma needed: config shape, apply.js invariants, and the
+      # committed snapshot's internal consistency.
+      - run: yarn workspace @rocket.chat/figma-sync check
+
   build-spec:
     name: Extract component spec from Storybook
     runs-on: ubuntu-latest
+    needs: selfcheck
     permissions:
       contents: read
     steps:
@@ -34,35 +59,62 @@ jobs:
       - name: Build Storybook
         run: yarn workspace @rocket.chat/fuselage build-storybook
 
+      # The Chromium build is pinned by the playwright version in the lockfile,
+      # which is what makes the measurements reproducible across machines.
       - name: Install Chromium
         run: node node_modules/playwright/cli.js install --with-deps chromium
 
+      # Exits 1 on an `error` finding (a component that measured wrong) and 2 on a
+      # snapshot mismatch (a measured value changed). Both should block a merge
+      # until either the config or the committed snapshot is updated.
       - name: Extract spec
         run: |
           node tools/figma-sync/src/extract.mjs \
             --static packages/fuselage/storybook-static \
             --out figma-spec.json
 
+      - name: Verify the emitted apply scripts fit the use_figma payload cap
+        run: node tools/figma-sync/src/emit-apply.mjs --spec figma-spec.json --out-dir "$RUNNER_TEMP/apply"
+
       - name: Summarise
+        if: always()
         run: |
           node -e "
+            const fs = require('fs');
+            if (!fs.existsSync('./figma-spec.json')) {
+              fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, '### Figma spec\nExtraction failed before writing a spec.\n');
+              process.exit(0);
+            }
             const s = require('./figma-spec.json');
-            const v = s.components.flatMap(c => c.variants);
+            const v = s.components.flatMap((c) => c.variants);
             const line = (k) => {
-              const n = v.filter(x => x.bind[k]).length;
-              return \`| \${k} | \${n}/\${v.length} | \${Math.round(n / v.length * 100)}% |\`;
+              const n = v.filter((x) => x.bind[k]).length;
+              return \`| \${k} | \${n}/\${v.length} | \${Math.round((n / v.length) * 100)}% |\`;
             };
+            const errors = (s.findings || []).filter((f) => f.level === 'error');
+            const infos = (s.findings || []).filter((f) => f.level === 'info');
             const out = [
-              \`### Figma spec\`,
+              '### Figma spec',
               \`\${s.components.length} components, \${v.length} variants\`,
-              '', '| property | bound to a token | |', '|---|---|---|',
-              ...['fill','stroke','textFill','strokeWeight','radius'].map(line),
+              '',
+              '| property | bound by token name | |',
+              '|---|---|---|',
+              ...['fill', 'stroke', 'textFill', 'strokeWeight', 'radius'].map(line),
             ];
-            if (s.warnings.length) out.push('', '<details><summary>' + s.warnings.length + ' warning(s)</summary>', '', ...s.warnings.map(w => '- ' + w), '', '</details>');
-            require('fs').appendFileSync(process.env.GITHUB_STEP_SUMMARY, out.join('\n') + '\n');
+            if (errors.length) {
+              out.push('', \`### \${errors.length} error(s) — do not ship\`, '');
+              out.push(...errors.map((f) => \`- **\${f.component}**: \${f.message}\`));
+            }
+            if (infos.length) {
+              out.push('', '<details><summary>' + infos.length + ' informational note(s)</summary>', '');
+              out.push(...infos.map((f) => \`- \${f.component}: \${f.message}\`));
+              out.push('', '</details>');
+            }
+            fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, out.join('\n') + '\n');
           "
 
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: figma-spec
           path: figma-spec.json

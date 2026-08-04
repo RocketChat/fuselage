@@ -147,6 +147,10 @@ export function measureElement(rootSelector) {
   }
 
   const num = (p) => parseFloat(cs.getPropertyValue(p)) || 0;
+  // A gradient or image background is invisible to a background-color read, so
+  // the element measures as transparent and the emitted component is blank.
+  // Recorded so the extractor can refuse instead of shipping an empty variant.
+  const backgroundImage = cs.getPropertyValue('background-image').trim();
   const textNode =
     [...el.querySelectorAll('*')].find(
       (n) =>
@@ -194,5 +198,9 @@ export function measureElement(rootSelector) {
     bind,
     values,
     unbindable,
+    unsupported:
+      backgroundImage && backgroundImage !== 'none'
+        ? `background-image: ${backgroundImage.slice(0, 60)}`
+        : null,
   };
 }

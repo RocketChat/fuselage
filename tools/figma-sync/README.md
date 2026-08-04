@@ -29,7 +29,7 @@ Two ways, and the choice decides whether `plugin/` is worth keeping.
 | `plugin/`               | anyone, including designers   | yes              | yes                |
 
 The remote Figma MCP server writes to the canvas server-side, with no desktop app
-and no open editor — the 101 variants currently in the file were applied that way,
+and no open editor — the variants currently in the file were applied that way,
 not through the plugin. So if only engineers ever trigger a sync, the plugin is
 redundant.
 
@@ -137,10 +137,49 @@ Then add an entry to `components.json`:
   matches the story canvas. A vertical `Divider` is 1px wide while a horizontal
   one fills, and a per-component flag would stretch both.
 
+## What makes this deterministic
+
+AI and MCP are fine as transport. No claim about correctness is allowed to depend
+on judgement — each one is a check that fails loudly. The design rule:
+
+> AI decides once, config records it, the pipeline replays it.
+
+Picking a `rootSelector`, deciding which args are axes, writing a `subtitle` — all
+good uses of a model. But the answer is frozen into `components.json`, reviewed in
+a PR, and from then on nothing in the hot path decides anything.
+
+| Guarantee                                  | Enforced by                      | Fails how                        |
+| ------------------------------------------ | -------------------------------- | -------------------------------- |
+| Config is well-formed, skips are justified | `yarn check`                     | non-zero exit                    |
+| `plugin/code.js` matches `src/apply.js`    | `yarn check`                     | regenerates, then fails          |
+| `apply.js` keeps its two invariants        | `yarn check`                     | greps the code, not the comments |
+| Spec shape is valid                        | `validateSpec` in `extract.mjs`  | exit 1, names the path           |
+| A component measured wrong                 | `error`-level finding            | exit 1                           |
+| A measured value changed                   | committed snapshot diff          | exit 2, prints the diff          |
+| Re-applying is a no-op                     | `--twice` scripts                | `idempotent: false`              |
+| Measurements reproduce across machines     | Chromium pinned via the lockfile | —                                |
+
+**The idempotency contract is the load-bearing one.** `applySpec` reads before it
+writes and counts real changes, so applying the same spec twice must report
+`changes: 0` the second time. Generate the proof scripts with:
+
+```bash
+node src/emit-apply.mjs --twice   # one script per component, into .apply/
+```
+
+Run one through `use_figma` and check `idempotent: true`. This is what catches
+code that folds current state into the target — the class of bug where output
+silently depends on history.
+
+**The snapshot is the second one.** `figma-spec.snapshot.json` is committed. Any
+change to a measured geometry or token binding fails the extractor with a line
+diff, so it lands as a reviewable change in a PR rather than propagating quietly.
+Re-run with `--update-snapshot` and commit when the change is intended.
+
 ## Gotchas the hard way
 
-Three bugs that produced plausible-looking but wrong output. All three are fixed;
-they are listed because each one passed a naive audit.
+Bugs that produced plausible-looking but wrong output. All fixed; listed because
+each one passed a naive audit, and each now has a check that would catch it.
 
 - **Paints must carry the measured colour AND the alpha.**
   `setBoundVariableForPaint` does not touch the literal colour, and Figma renders
@@ -153,6 +192,9 @@ they are listed because each one passed a naive audit.
 - **Never fold the current node size into the new size.** `Math.max(target,
 comp.width)` makes a re-sync depend on prior state, so a variant can never
   shrink back down.
+- **A gradient or image background reads as a transparent `background-color`.**
+  Skeleton's animated shimmer measured as blank and shipped invisible. Only solid
+  paints are emitted, and the extractor now refuses rather than shipping empty.
 
 Keep the matrix under ~30 variants where you can.
 
@@ -180,10 +222,10 @@ them, it does not create them.
 
 ## Scope
 
-Phase A ships 11 components / 101 variants: Button, Tag, Badge, Callout, Banner,
-Chip, Label, FramedIcon, Skeleton, Divider, Tooltip.
+Phase A ships 10 components / 98 variants: Button, Tag, Badge, Callout, Banner,
+Chip, Label, FramedIcon, Divider, Tooltip.
 
-Eleven more were tried and rejected — see `skipped` in `components.json`. They
+Twelve more were tried and rejected — see `skipped` in `components.json`. They
 cluster into three fixable gaps, in rough order of value:
 
 1. **Child-node measurement.** ProgressBar's variant colour is on the child bar;

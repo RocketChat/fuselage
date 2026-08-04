@@ -105,13 +105,6 @@
       "rootSelector": ".rcx-framed-icon"
     },
     {
-      "name": "Skeleton",
-      "storyId": "layout-skeleton--default",
-      "axes": ["variant"],
-      "rootSelector": ".rcx-skeleton",
-      "fluidWidth": true
-    },
-    {
       "name": "Divider",
       "storyId": "data-display-divider--default",
       "axes": ["variation", "vertical"],
@@ -202,6 +195,12 @@
       "storyId": "data-display-bubble--icon-and-label",
       "rootSelector": ".rcx-bubble",
       "reason": ".rcx-bubble is a layout wrapper: transparent fill, full container width, and unstyled text (measured rgb(0,0,0) — pure black is not in the Fuselage palette). The styled content is in children."
+    },
+    {
+      "name": "Skeleton",
+      "storyId": "layout-skeleton--default",
+      "rootSelector": ".rcx-skeleton",
+      "reason": "the shimmer is an animated linear-gradient background-image, not a background-color, so background-color reads transparent and the variant ships blank. Needs gradient paint support (Figma GRADIENT_LINEAR) plus a decision on how to represent the animation."
     }
   ]
 }
