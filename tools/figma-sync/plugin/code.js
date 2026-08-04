@@ -228,8 +228,6 @@ function applySpec(figma, spec) {
       );
       set(comp, 'primaryAxisAlignItems', 'CENTER', where);
       set(comp, 'counterAxisAlignItems', 'CENTER', where);
-      set(comp, 'primaryAxisSizingMode', 'AUTO', where);
-      set(comp, 'counterAxisSizingMode', 'FIXED', where);
       set(comp, 'paddingTop', L.paddingTop, where);
       set(comp, 'paddingRight', L.paddingRight, where);
       set(comp, 'paddingBottom', L.paddingBottom, where);
@@ -287,6 +285,17 @@ function applySpec(figma, spec) {
           note(`${where}.size`);
         }
       }
+
+      // Sizing modes go AFTER resize, never before: resize() resets them to
+      // FIXED, so setting them first means the next sync reads FIXED, writes
+      // AUTO, resizes, and resets again — the apply never converges. The
+      // idempotency contract is what surfaced this.
+      //
+      // AUTO only makes sense when there is a child to hug. A glyph-only
+      // component like FramedIcon has no text node, so hugging would collapse it
+      // to its padding; its width comes from the spec instead.
+      set(comp, 'primaryAxisSizingMode', label ? 'AUTO' : 'FIXED', where);
+      set(comp, 'counterAxisSizingMode', 'FIXED', where);
 
       const cFill = parseColor(v.values.fill);
       const fv = resolveColor(v.bind.fill, v.values.fill, `${where} fill`);
