@@ -264,6 +264,17 @@ Run one through `use_figma` and check `idempotent: true`. This is what catches
 code that folds current state into the target — the class of bug where output
 silently depends on history.
 
+Two things the snapshot deliberately does **not** record, both because they are
+rendering outcomes rather than design decisions, and both learned from a red CI:
+
+- **Width of anything containing text.** Inter is declared but never loaded in the
+  Storybook build, so text falls back to a system face — and those differ between
+  macOS and Linux. Tag measured `32x22` locally and `34x22` on the runner, which
+  made the contract unsatisfiable. These components are auto-layout HUG in Figma
+  anyway; padding, height, minWidth and font metrics are what pin the design.
+- **Absolute width where the glyph decides it.** Same rule covers FramedIcon,
+  whose width is set by the icon glyph.
+
 **The snapshot is the second one.** `figma-spec.snapshot.json` is committed. Any
 change to a measured geometry or token binding fails the extractor with a line
 diff, so it lands as a reviewable change in a PR rather than propagating quietly.

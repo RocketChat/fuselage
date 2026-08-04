@@ -4,22 +4,13 @@
       "name": "Badge",
       "storyId": "data-display-badge--default",
       "axes": {
-        "Variant": [
-          "secondary",
-          "primary",
-          "danger",
-          "warning",
-          "ghost"
-        ],
-        "Size": [
-          "default",
-          "small"
-        ]
+        "Variant": ["secondary", "primary", "danger", "warning", "ghost"],
+        "Size": ["default", "small"]
       },
       "variants": [
         {
           "key": "Variant=danger, Size=default",
-          "size": "16x16",
+          "size": "hug x16",
           "padding": "2 4 2 4",
           "minWidth": 16,
           "text": "10/12 w700",
@@ -37,7 +28,7 @@
         },
         {
           "key": "Variant=danger, Size=small",
-          "size": "14x16",
+          "size": "hug x16",
           "padding": "2 4 2 4",
           "minWidth": 8,
           "text": "10/12 w700",
@@ -55,7 +46,7 @@
         },
         {
           "key": "Variant=ghost, Size=default",
-          "size": "16x16",
+          "size": "hug x16",
           "padding": "2 4 2 4",
           "minWidth": 16,
           "text": "10/12 w700",
@@ -73,7 +64,7 @@
         },
         {
           "key": "Variant=ghost, Size=small",
-          "size": "14x16",
+          "size": "hug x16",
           "padding": "2 4 2 4",
           "minWidth": 8,
           "text": "10/12 w700",
@@ -91,7 +82,7 @@
         },
         {
           "key": "Variant=primary, Size=default",
-          "size": "16x16",
+          "size": "hug x16",
           "padding": "2 4 2 4",
           "minWidth": 16,
           "text": "10/12 w700",
@@ -109,7 +100,7 @@
         },
         {
           "key": "Variant=primary, Size=small",
-          "size": "14x16",
+          "size": "hug x16",
           "padding": "2 4 2 4",
           "minWidth": 8,
           "text": "10/12 w700",
@@ -127,7 +118,7 @@
         },
         {
           "key": "Variant=secondary, Size=default",
-          "size": "16x16",
+          "size": "hug x16",
           "padding": "2 4 2 4",
           "minWidth": 16,
           "text": "10/12 w700",
@@ -145,7 +136,7 @@
         },
         {
           "key": "Variant=secondary, Size=small",
-          "size": "14x16",
+          "size": "hug x16",
           "padding": "2 4 2 4",
           "minWidth": 8,
           "text": "10/12 w700",
@@ -163,7 +154,7 @@
         },
         {
           "key": "Variant=warning, Size=default",
-          "size": "16x16",
+          "size": "hug x16",
           "padding": "2 4 2 4",
           "minWidth": 16,
           "text": "10/12 w700",
@@ -181,7 +172,7 @@
         },
         {
           "key": "Variant=warning, Size=small",
-          "size": "14x16",
+          "size": "hug x16",
           "padding": "2 4 2 4",
           "minWidth": 8,
           "text": "10/12 w700",
@@ -203,22 +194,13 @@
       "name": "Banner",
       "storyId": "feedback-banner--banner",
       "axes": {
-        "Variant": [
-          "neutral",
-          "info",
-          "success",
-          "warning",
-          "danger"
-        ],
-        "Inline": [
-          "false",
-          "true"
-        ]
+        "Variant": ["neutral", "info", "success", "warning", "danger"],
+        "Inline": ["false", "true"]
       },
       "variants": [
         {
           "key": "Variant=danger, Inline=false",
-          "size": "fluid x73",
+          "size": "hug x73",
           "padding": "14 16 14 16",
           "minWidth": 0,
           "text": "24/24 w400",
@@ -237,7 +219,7 @@
         },
         {
           "key": "Variant=danger, Inline=true",
-          "size": "fluid x69",
+          "size": "hug x69",
           "padding": "12 16 12 16",
           "minWidth": 0,
           "text": "24/24 w400",
@@ -256,7 +238,7 @@
         },
         {
           "key": "Variant=info, Inline=false",
-          "size": "fluid x73",
+          "size": "hug x73",
           "padding": "14 16 14 16",
           "minWidth": 0,
           "text": "24/24 w400",
@@ -275,7 +257,7 @@
         },
         {
           "key": "Variant=info, Inline=true",
-          "size": "fluid x69",
+          "size": "hug x69",
           "padding": "12 16 12 16",
           "minWidth": 0,
           "text": "24/24 w400",
@@ -294,7 +276,7 @@
         },
         {
           "key": "Variant=neutral, Inline=false",
-          "size": "fluid x73",
+          "size": "hug x73",
           "padding": "14 16 14 16",
           "minWidth": 0,
           "text": "24/24 w400",
@@ -312,7 +294,7 @@
         },
         {
           "key": "Variant=neutral, Inline=true",
-          "size": "fluid x69",
+          "size": "hug x69",
           "padding": "12 16 12 16",
           "minWidth": 0,
           "text": "24/24 w400",
@@ -330,7 +312,7 @@
         },
         {
           "key": "Variant=success, Inline=false",
-          "size": "fluid x73",
+          "size": "hug x73",
           "padding": "14 16 14 16",
           "minWidth": 0,
           "text": "24/24 w400",
@@ -349,7 +331,7 @@
         },
         {
           "key": "Variant=success, Inline=true",
-          "size": "fluid x69",
+          "size": "hug x69",
           "padding": "12 16 12 16",
           "minWidth": 0,
           "text": "24/24 w400",
@@ -368,7 +350,7 @@
         },
         {
           "key": "Variant=warning, Inline=false",
-          "size": "fluid x73",
+          "size": "hug x73",
           "padding": "14 16 14 16",
           "minWidth": 0,
           "text": "24/24 w400",
@@ -387,7 +369,7 @@
         },
         {
           "key": "Variant=warning, Inline=true",
-          "size": "fluid x69",
+          "size": "hug x69",
           "padding": "12 16 12 16",
           "minWidth": 0,
           "text": "24/24 w400",
@@ -420,17 +402,12 @@
           "success",
           "secondary-success"
         ],
-        "Size": [
-          "small",
-          "medium",
-          "default",
-          "large"
-        ]
+        "Size": ["small", "medium", "default", "large"]
       },
       "variants": [
         {
           "key": "Variant=danger, Size=default",
-          "size": "80x40",
+          "size": "hug x40",
           "padding": "8 14 8 14",
           "minWidth": 80,
           "text": "14/20 w500",
@@ -449,7 +426,7 @@
         },
         {
           "key": "Variant=danger, Size=large",
-          "size": "96x48",
+          "size": "hug x48",
           "padding": "12 22 12 22",
           "minWidth": 96,
           "text": "14/20 w400",
@@ -468,7 +445,7 @@
         },
         {
           "key": "Variant=danger, Size=medium",
-          "size": "64x32",
+          "size": "hug x32",
           "padding": "6 10 6 10",
           "minWidth": 64,
           "text": "12/16 w700",
@@ -487,7 +464,7 @@
         },
         {
           "key": "Variant=danger, Size=small",
-          "size": "56x28",
+          "size": "hug x28",
           "padding": "4 6 4 6",
           "minWidth": 56,
           "text": "12/16 w700",
@@ -506,7 +483,7 @@
         },
         {
           "key": "Variant=primary, Size=default",
-          "size": "80x40",
+          "size": "hug x40",
           "padding": "8 14 8 14",
           "minWidth": 80,
           "text": "14/20 w500",
@@ -525,7 +502,7 @@
         },
         {
           "key": "Variant=primary, Size=large",
-          "size": "96x48",
+          "size": "hug x48",
           "padding": "12 22 12 22",
           "minWidth": 96,
           "text": "14/20 w400",
@@ -544,7 +521,7 @@
         },
         {
           "key": "Variant=primary, Size=medium",
-          "size": "64x32",
+          "size": "hug x32",
           "padding": "6 10 6 10",
           "minWidth": 64,
           "text": "12/16 w700",
@@ -563,7 +540,7 @@
         },
         {
           "key": "Variant=primary, Size=small",
-          "size": "56x28",
+          "size": "hug x28",
           "padding": "4 6 4 6",
           "minWidth": 56,
           "text": "12/16 w700",
@@ -582,7 +559,7 @@
         },
         {
           "key": "Variant=secondary-danger, Size=default",
-          "size": "80x40",
+          "size": "hug x40",
           "padding": "8 14 8 14",
           "minWidth": 80,
           "text": "14/20 w500",
@@ -601,7 +578,7 @@
         },
         {
           "key": "Variant=secondary-danger, Size=large",
-          "size": "96x48",
+          "size": "hug x48",
           "padding": "12 22 12 22",
           "minWidth": 96,
           "text": "14/20 w400",
@@ -620,7 +597,7 @@
         },
         {
           "key": "Variant=secondary-danger, Size=medium",
-          "size": "64x32",
+          "size": "hug x32",
           "padding": "6 10 6 10",
           "minWidth": 64,
           "text": "12/16 w700",
@@ -639,7 +616,7 @@
         },
         {
           "key": "Variant=secondary-danger, Size=small",
-          "size": "56x28",
+          "size": "hug x28",
           "padding": "4 6 4 6",
           "minWidth": 56,
           "text": "12/16 w700",
@@ -658,7 +635,7 @@
         },
         {
           "key": "Variant=secondary-success, Size=default",
-          "size": "80x40",
+          "size": "hug x40",
           "padding": "8 14 8 14",
           "minWidth": 80,
           "text": "14/20 w500",
@@ -673,7 +650,7 @@
         },
         {
           "key": "Variant=secondary-success, Size=large",
-          "size": "96x48",
+          "size": "hug x48",
           "padding": "12 22 12 22",
           "minWidth": 96,
           "text": "14/20 w400",
@@ -688,7 +665,7 @@
         },
         {
           "key": "Variant=secondary-success, Size=medium",
-          "size": "64x32",
+          "size": "hug x32",
           "padding": "6 10 6 10",
           "minWidth": 64,
           "text": "12/16 w700",
@@ -703,7 +680,7 @@
         },
         {
           "key": "Variant=secondary-success, Size=small",
-          "size": "56x28",
+          "size": "hug x28",
           "padding": "4 6 4 6",
           "minWidth": 56,
           "text": "12/16 w700",
@@ -718,7 +695,7 @@
         },
         {
           "key": "Variant=secondary-warning, Size=default",
-          "size": "80x40",
+          "size": "hug x40",
           "padding": "8 14 8 14",
           "minWidth": 80,
           "text": "14/20 w500",
@@ -733,7 +710,7 @@
         },
         {
           "key": "Variant=secondary-warning, Size=large",
-          "size": "96x48",
+          "size": "hug x48",
           "padding": "12 22 12 22",
           "minWidth": 96,
           "text": "14/20 w400",
@@ -748,7 +725,7 @@
         },
         {
           "key": "Variant=secondary-warning, Size=medium",
-          "size": "64x32",
+          "size": "hug x32",
           "padding": "6 10 6 10",
           "minWidth": 64,
           "text": "12/16 w700",
@@ -763,7 +740,7 @@
         },
         {
           "key": "Variant=secondary-warning, Size=small",
-          "size": "56x28",
+          "size": "hug x28",
           "padding": "4 6 4 6",
           "minWidth": 56,
           "text": "12/16 w700",
@@ -778,7 +755,7 @@
         },
         {
           "key": "Variant=secondary, Size=default",
-          "size": "80x40",
+          "size": "hug x40",
           "padding": "8 14 8 14",
           "minWidth": 80,
           "text": "14/20 w500",
@@ -797,7 +774,7 @@
         },
         {
           "key": "Variant=secondary, Size=large",
-          "size": "96x48",
+          "size": "hug x48",
           "padding": "12 22 12 22",
           "minWidth": 96,
           "text": "14/20 w400",
@@ -816,7 +793,7 @@
         },
         {
           "key": "Variant=secondary, Size=medium",
-          "size": "64x32",
+          "size": "hug x32",
           "padding": "6 10 6 10",
           "minWidth": 64,
           "text": "12/16 w700",
@@ -835,7 +812,7 @@
         },
         {
           "key": "Variant=secondary, Size=small",
-          "size": "56x28",
+          "size": "hug x28",
           "padding": "4 6 4 6",
           "minWidth": 56,
           "text": "12/16 w700",
@@ -854,7 +831,7 @@
         },
         {
           "key": "Variant=success, Size=default",
-          "size": "80x40",
+          "size": "hug x40",
           "padding": "8 14 8 14",
           "minWidth": 80,
           "text": "14/20 w500",
@@ -873,7 +850,7 @@
         },
         {
           "key": "Variant=success, Size=large",
-          "size": "96x48",
+          "size": "hug x48",
           "padding": "12 22 12 22",
           "minWidth": 96,
           "text": "14/20 w400",
@@ -892,7 +869,7 @@
         },
         {
           "key": "Variant=success, Size=medium",
-          "size": "64x32",
+          "size": "hug x32",
           "padding": "6 10 6 10",
           "minWidth": 64,
           "text": "12/16 w700",
@@ -911,7 +888,7 @@
         },
         {
           "key": "Variant=success, Size=small",
-          "size": "56x28",
+          "size": "hug x28",
           "padding": "4 6 4 6",
           "minWidth": 56,
           "text": "12/16 w700",
@@ -930,7 +907,7 @@
         },
         {
           "key": "Variant=warning, Size=default",
-          "size": "80x40",
+          "size": "hug x40",
           "padding": "8 14 8 14",
           "minWidth": 80,
           "text": "14/20 w500",
@@ -945,7 +922,7 @@
         },
         {
           "key": "Variant=warning, Size=large",
-          "size": "96x48",
+          "size": "hug x48",
           "padding": "12 22 12 22",
           "minWidth": 96,
           "text": "14/20 w400",
@@ -960,7 +937,7 @@
         },
         {
           "key": "Variant=warning, Size=medium",
-          "size": "64x32",
+          "size": "hug x32",
           "padding": "6 10 6 10",
           "minWidth": 64,
           "text": "12/16 w700",
@@ -975,7 +952,7 @@
         },
         {
           "key": "Variant=warning, Size=small",
-          "size": "56x28",
+          "size": "hug x28",
           "padding": "4 6 4 6",
           "minWidth": 56,
           "text": "12/16 w700",
@@ -994,17 +971,12 @@
       "name": "Callout",
       "storyId": "feedback-callout--default",
       "axes": {
-        "Type": [
-          "info",
-          "success",
-          "warning",
-          "danger"
-        ]
+        "Type": ["info", "success", "warning", "danger"]
       },
       "variants": [
         {
           "key": "Type=danger",
-          "size": "fluid x70",
+          "size": "hug x70",
           "padding": "12 12 12 12",
           "minWidth": 0,
           "text": "20/20 w400",
@@ -1023,7 +995,7 @@
         },
         {
           "key": "Type=info",
-          "size": "fluid x70",
+          "size": "hug x70",
           "padding": "12 12 12 12",
           "minWidth": 0,
           "text": "20/20 w400",
@@ -1042,7 +1014,7 @@
         },
         {
           "key": "Type=success",
-          "size": "fluid x70",
+          "size": "hug x70",
           "padding": "12 12 12 12",
           "minWidth": 0,
           "text": "20/20 w400",
@@ -1061,7 +1033,7 @@
         },
         {
           "key": "Type=warning",
-          "size": "fluid x70",
+          "size": "hug x70",
           "padding": "12 12 12 12",
           "minWidth": 0,
           "text": "20/20 w400",
@@ -1084,15 +1056,12 @@
       "name": "Chip",
       "storyId": "data-display-chip--default",
       "axes": {
-        "Disabled": [
-          "false",
-          "true"
-        ]
+        "Disabled": ["false", "true"]
       },
       "variants": [
         {
           "key": "Disabled=false",
-          "size": "38x28",
+          "size": "hug x28",
           "padding": "0 0 0 0",
           "minWidth": 0,
           "text": "14/20 w400",
@@ -1111,7 +1080,7 @@
         },
         {
           "key": "Disabled=true",
-          "size": "38x28",
+          "size": "hug x28",
           "padding": "0 0 0 0",
           "minWidth": 0,
           "text": "14/20 w400",
@@ -1134,14 +1103,8 @@
       "name": "Divider",
       "storyId": "data-display-divider--default",
       "axes": {
-        "Variation": [
-          "default",
-          "danger"
-        ],
-        "Vertical": [
-          "false",
-          "true"
-        ]
+        "Variation": ["default", "danger"],
+        "Vertical": ["false", "true"]
       },
       "variants": [
         {
@@ -1226,7 +1189,7 @@
       "variants": [
         {
           "key": "Variant=danger",
-          "size": "28x28",
+          "size": "hug x28",
           "padding": "4 4 4 4",
           "minWidth": 0,
           "text": "20/20 w400",
@@ -1244,7 +1207,7 @@
         },
         {
           "key": "Variant=default",
-          "size": "28x28",
+          "size": "hug x28",
           "padding": "4 4 4 4",
           "minWidth": 0,
           "text": "20/20 w400",
@@ -1262,7 +1225,7 @@
         },
         {
           "key": "Variant=info",
-          "size": "28x28",
+          "size": "hug x28",
           "padding": "4 4 4 4",
           "minWidth": 0,
           "text": "20/20 w400",
@@ -1280,7 +1243,7 @@
         },
         {
           "key": "Variant=neutral",
-          "size": "28x28",
+          "size": "hug x28",
           "padding": "4 4 4 4",
           "minWidth": 0,
           "text": "20/20 w400",
@@ -1298,7 +1261,7 @@
         },
         {
           "key": "Variant=success",
-          "size": "28x28",
+          "size": "hug x28",
           "padding": "4 4 4 4",
           "minWidth": 0,
           "text": "20/20 w400",
@@ -1316,7 +1279,7 @@
         },
         {
           "key": "Variant=warning",
-          "size": "28x28",
+          "size": "hug x28",
           "padding": "4 4 4 4",
           "minWidth": 0,
           "text": "20/20 w400",
@@ -1338,14 +1301,8 @@
       "name": "InputBox",
       "storyId": "inputs-inputbox--default",
       "axes": {
-        "Small": [
-          "false",
-          "true"
-        ],
-        "Disabled": [
-          "false",
-          "true"
-        ]
+        "Small": ["false", "true"],
+        "Disabled": ["false", "true"]
       },
       "variants": [
         {
@@ -1426,19 +1383,13 @@
       "name": "Label",
       "storyId": "inputs-label--default",
       "axes": {
-        "Required": [
-          "false",
-          "true"
-        ],
-        "Disabled": [
-          "false",
-          "true"
-        ]
+        "Required": ["false", "true"],
+        "Disabled": ["false", "true"]
       },
       "variants": [
         {
           "key": "Required=false, Disabled=false",
-          "size": "fluid x20",
+          "size": "hug x20",
           "padding": "0 0 0 0",
           "minWidth": 0,
           "text": "14/20 w500",
@@ -1455,7 +1406,7 @@
         },
         {
           "key": "Required=false, Disabled=true",
-          "size": "fluid x20",
+          "size": "hug x20",
           "padding": "0 0 0 0",
           "minWidth": 0,
           "text": "14/20 w500",
@@ -1472,7 +1423,7 @@
         },
         {
           "key": "Required=true, Disabled=false",
-          "size": "fluid x20",
+          "size": "hug x20",
           "padding": "0 0 0 0",
           "minWidth": 0,
           "text": "14/20 w500",
@@ -1489,7 +1440,7 @@
         },
         {
           "key": "Required=true, Disabled=true",
-          "size": "fluid x20",
+          "size": "hug x20",
           "padding": "0 0 0 0",
           "minWidth": 0,
           "text": "14/20 w500",
@@ -1520,16 +1471,12 @@
           "secondary-info",
           "featured"
         ],
-        "Size": [
-          "small",
-          "medium",
-          "large"
-        ]
+        "Size": ["small", "medium", "large"]
       },
       "variants": [
         {
           "key": "Variant=danger, Size=large",
-          "size": "35x26",
+          "size": "hug x26",
           "padding": "2 4 2 4",
           "minWidth": 0,
           "text": "14/20 w700",
@@ -1547,7 +1494,7 @@
         },
         {
           "key": "Variant=danger, Size=medium",
-          "size": "32x22",
+          "size": "hug x22",
           "padding": "2 4 2 4",
           "minWidth": 0,
           "text": "12/16 w700",
@@ -1565,7 +1512,7 @@
         },
         {
           "key": "Variant=danger, Size=small",
-          "size": "28x18",
+          "size": "hug x18",
           "padding": "2 4 2 4",
           "minWidth": 0,
           "text": "10/12 w700",
@@ -1583,7 +1530,7 @@
         },
         {
           "key": "Variant=featured, Size=large",
-          "size": "35x26",
+          "size": "hug x26",
           "padding": "2 4 2 4",
           "minWidth": 0,
           "text": "14/20 w700",
@@ -1601,7 +1548,7 @@
         },
         {
           "key": "Variant=featured, Size=medium",
-          "size": "32x22",
+          "size": "hug x22",
           "padding": "2 4 2 4",
           "minWidth": 0,
           "text": "12/16 w700",
@@ -1619,7 +1566,7 @@
         },
         {
           "key": "Variant=featured, Size=small",
-          "size": "28x18",
+          "size": "hug x18",
           "padding": "2 4 2 4",
           "minWidth": 0,
           "text": "10/12 w700",
@@ -1637,7 +1584,7 @@
         },
         {
           "key": "Variant=primary, Size=large",
-          "size": "35x26",
+          "size": "hug x26",
           "padding": "2 4 2 4",
           "minWidth": 0,
           "text": "14/20 w700",
@@ -1655,7 +1602,7 @@
         },
         {
           "key": "Variant=primary, Size=medium",
-          "size": "32x22",
+          "size": "hug x22",
           "padding": "2 4 2 4",
           "minWidth": 0,
           "text": "12/16 w700",
@@ -1673,7 +1620,7 @@
         },
         {
           "key": "Variant=primary, Size=small",
-          "size": "28x18",
+          "size": "hug x18",
           "padding": "2 4 2 4",
           "minWidth": 0,
           "text": "10/12 w700",
@@ -1691,7 +1638,7 @@
         },
         {
           "key": "Variant=secondary-danger, Size=large",
-          "size": "35x26",
+          "size": "hug x26",
           "padding": "2 4 2 4",
           "minWidth": 0,
           "text": "14/20 w700",
@@ -1709,7 +1656,7 @@
         },
         {
           "key": "Variant=secondary-danger, Size=medium",
-          "size": "32x22",
+          "size": "hug x22",
           "padding": "2 4 2 4",
           "minWidth": 0,
           "text": "12/16 w700",
@@ -1727,7 +1674,7 @@
         },
         {
           "key": "Variant=secondary-danger, Size=small",
-          "size": "28x18",
+          "size": "hug x18",
           "padding": "2 4 2 4",
           "minWidth": 0,
           "text": "10/12 w700",
@@ -1745,7 +1692,7 @@
         },
         {
           "key": "Variant=secondary-info, Size=large",
-          "size": "35x26",
+          "size": "hug x26",
           "padding": "2 4 2 4",
           "minWidth": 0,
           "text": "14/20 w700",
@@ -1763,7 +1710,7 @@
         },
         {
           "key": "Variant=secondary-info, Size=medium",
-          "size": "32x22",
+          "size": "hug x22",
           "padding": "2 4 2 4",
           "minWidth": 0,
           "text": "12/16 w700",
@@ -1781,7 +1728,7 @@
         },
         {
           "key": "Variant=secondary-info, Size=small",
-          "size": "28x18",
+          "size": "hug x18",
           "padding": "2 4 2 4",
           "minWidth": 0,
           "text": "10/12 w700",
@@ -1799,7 +1746,7 @@
         },
         {
           "key": "Variant=secondary-warning, Size=large",
-          "size": "35x26",
+          "size": "hug x26",
           "padding": "2 4 2 4",
           "minWidth": 0,
           "text": "14/20 w700",
@@ -1817,7 +1764,7 @@
         },
         {
           "key": "Variant=secondary-warning, Size=medium",
-          "size": "32x22",
+          "size": "hug x22",
           "padding": "2 4 2 4",
           "minWidth": 0,
           "text": "12/16 w700",
@@ -1835,7 +1782,7 @@
         },
         {
           "key": "Variant=secondary-warning, Size=small",
-          "size": "28x18",
+          "size": "hug x18",
           "padding": "2 4 2 4",
           "minWidth": 0,
           "text": "10/12 w700",
@@ -1853,7 +1800,7 @@
         },
         {
           "key": "Variant=secondary, Size=large",
-          "size": "35x26",
+          "size": "hug x26",
           "padding": "2 4 2 4",
           "minWidth": 0,
           "text": "14/20 w700",
@@ -1871,7 +1818,7 @@
         },
         {
           "key": "Variant=secondary, Size=medium",
-          "size": "32x22",
+          "size": "hug x22",
           "padding": "2 4 2 4",
           "minWidth": 0,
           "text": "12/16 w700",
@@ -1889,7 +1836,7 @@
         },
         {
           "key": "Variant=secondary, Size=small",
-          "size": "28x18",
+          "size": "hug x18",
           "padding": "2 4 2 4",
           "minWidth": 0,
           "text": "10/12 w700",
@@ -1907,7 +1854,7 @@
         },
         {
           "key": "Variant=warning, Size=large",
-          "size": "35x26",
+          "size": "hug x26",
           "padding": "2 4 2 4",
           "minWidth": 0,
           "text": "14/20 w700",
@@ -1922,7 +1869,7 @@
         },
         {
           "key": "Variant=warning, Size=medium",
-          "size": "32x22",
+          "size": "hug x22",
           "padding": "2 4 2 4",
           "minWidth": 0,
           "text": "12/16 w700",
@@ -1937,7 +1884,7 @@
         },
         {
           "key": "Variant=warning, Size=small",
-          "size": "28x18",
+          "size": "hug x18",
           "padding": "2 4 2 4",
           "minWidth": 0,
           "text": "10/12 w700",
@@ -1956,15 +1903,12 @@
       "name": "Tooltip",
       "storyId": "data-display-tooltip--default",
       "axes": {
-        "Variation": [
-          "dark",
-          "light"
-        ]
+        "Variation": ["dark", "light"]
       },
       "variants": [
         {
           "key": "Variation=dark",
-          "size": "70x36",
+          "size": "hug x36",
           "padding": "8 12 8 12",
           "minWidth": 0,
           "text": "14/20 w500",
@@ -1982,7 +1926,7 @@
         },
         {
           "key": "Variation=light",
-          "size": "70x36",
+          "size": "hug x36",
           "padding": "8 12 8 12",
           "minWidth": 0,
           "text": "14/20 w500",

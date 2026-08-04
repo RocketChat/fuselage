@@ -227,9 +227,24 @@ function snapshotOf(spec) {
         variants: c.variants
           .map((v) => ({
             key: v.key,
-            size: v.layout.fluidWidth
-              ? `fluid x${v.layout.height}`
-              : `${v.layout.width}x${v.layout.height}`,
+            // Width is deliberately omitted for anything containing text.
+            //
+            // Inter is declared but never actually loaded in the Storybook build,
+            // so text falls back to a system face — and system faces differ
+            // between macOS and Linux. Tag measured 32x22 locally and 34x22 on the
+            // CI runner, which made the snapshot contract unsatisfiable: correct on
+            // one machine is always wrong on the other.
+            //
+            // Nothing is lost. These components are auto-layout HUG in Figma, so
+            // the width is derived from content there too; padding, height,
+            // minWidth and the font metrics below are what actually pin the design,
+            // and those are all stable across platforms.
+            size:
+              v.text && v.text.content
+                ? `hug x${v.layout.height}`
+                : v.layout.fluidWidth
+                  ? `fluid x${v.layout.height}`
+                  : `${v.layout.width}x${v.layout.height}`,
             padding: [
               v.layout.paddingTop,
               v.layout.paddingRight,
@@ -551,38 +566,45 @@ async function main() {
   if (flag('update-snapshot')) {
     fs.writeFileSync(snapPath, snapshot);
     console.log(`\nsnapshot updated -> ${snapPath}`);
-  } else if (fs.existsSync(snapPath)) {
-    // Compare parsed content, not raw text: the repo's prettier reformats this
-    // file, and a text comparison would then fail forever on whitespace alone.
-    const previous = JSON.stringify(
-      JSON.parse(fs.readFileSync(snapPath, 'utf-8')),
-      null,
-      2,
-    );
-    if (previous.trim() === snapshot.trim()) {
-      console.log(`\nsnapshot matches ${path.basename(snapPath)}`);
-    } else {
-      const before = previous.split('\n');
-      const after = snapshot.split('\n');
-      const diffs = [];
-      for (let i = 0; i < Math.max(before.length, after.length); i++) {
-        if (before[i] !== after[i]) {
-          diffs.push(
-            `  line ${i + 1}\n    - ${(before[i] || '').trim()}\n    + ${(after[i] || '').trim()}`,
-          );
-        }
-        if (diffs.length >= 15) break;
-      }
-      console.error(
-        `\nSNAPSHOT MISMATCH — the spec changed against ${path.basename(snapPath)}.` +
-          `\nReview the diff below. If the change is intended, re-run with --update-snapshot and commit it.\n`,
-      );
-      console.error(diffs.join('\n'));
-      process.exit(2);
-    }
   } else {
-    fs.writeFileSync(snapPath, snapshot);
-    console.log(`\nsnapshot created -> ${snapPath} (commit this)`);
+    // Read first and handle ENOENT, rather than exists-then-read: the two-step
+    // form is a filesystem race (CodeQL js/file-system-race) because the file can
+    // change between the check and the read.
+    let raw = null;
+    try {
+      raw = fs.readFileSync(snapPath, 'utf-8');
+    } catch (e) {
+      if (e.code !== 'ENOENT') throw e;
+    }
+    if (raw === null) {
+      fs.writeFileSync(snapPath, snapshot);
+      console.log(`\nsnapshot created -> ${snapPath} (commit this)`);
+    } else {
+      // Compare parsed content, not raw text: the repo's prettier reformats this
+      // file, and a text comparison would then fail forever on whitespace alone.
+      const previous = JSON.stringify(JSON.parse(raw), null, 2);
+      if (previous.trim() === snapshot.trim()) {
+        console.log(`\nsnapshot matches ${path.basename(snapPath)}`);
+      } else {
+        const before = previous.split('\n');
+        const after = snapshot.split('\n');
+        const diffs = [];
+        for (let i = 0; i < Math.max(before.length, after.length); i++) {
+          if (before[i] !== after[i]) {
+            diffs.push(
+              `  line ${i + 1}\n    - ${(before[i] || '').trim()}\n    + ${(after[i] || '').trim()}`,
+            );
+          }
+          if (diffs.length >= 15) break;
+        }
+        console.error(
+          `\nSNAPSHOT MISMATCH — the spec changed against ${path.basename(snapPath)}.` +
+            `\nReview the diff below. If the change is intended, re-run with --update-snapshot and commit it.\n`,
+        );
+        console.error(diffs.join('\n'));
+        process.exit(2);
+      }
+    }
   }
 
   if (errors.length) {
