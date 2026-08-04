@@ -65,7 +65,7 @@ exports[`renders WithAutoComplete without crashing 1`] = `
           >
             <i
               aria-hidden="true"
-              class="rcx-box rcx-box--full rcx-icon--name-magnifier rcx-icon rcx-css-1wz6xj9"
+              class="rcx-box rcx-box--full rcx-icon--name-magnifier rcx-icon rcx-css-1ku6woc"
             >
               
             </i>
@@ -199,7 +199,7 @@ exports[`renders WithAutoCompleteMultiple without crashing 1`] = `
           >
             <i
               aria-hidden="true"
-              class="rcx-box rcx-box--full rcx-icon--name-magnifier rcx-icon rcx-css-1wz6xj9"
+              class="rcx-box rcx-box--full rcx-icon--name-magnifier rcx-icon rcx-css-1ku6woc"
             >
               
             </i>
@@ -464,7 +464,7 @@ exports[`renders WithMultiSelect without crashing 1`] = `
                 aria-haspopup="listbox"
                 aria-invalid="true"
                 aria-labelledby="react-aria-_r_a_-label"
-                class="rcx-box rcx-box--full rcx-input-box--undecorated rcx-select__focus rcx-css-trljwa rcx-css-3fq6z9"
+                class="rcx-box rcx-box--full rcx-input-box--undecorated rcx-select__focus rcx-css-trljwa rcx-css-ecyury"
                 id="react-aria-_r_a_"
                 role="combobox"
                 type="button"
@@ -954,11 +954,11 @@ exports[`renders WithSlider without crashing 1`] = `
             </span>
           </label>
           <div
-            class="rcx-css-uzpikz"
+            class="rcx-css-56n8jq"
             style="position: relative;"
           >
             <div
-              class="rcx-css-cn88oj"
+              class="rcx-css-fjdcgm"
               style="position: absolute; left: 20%; transform: translate(-50%, -50%);"
             >
               <div
