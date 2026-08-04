@@ -295,6 +295,7 @@ async function main() {
     findings.push({ level: 'error', component, message });
   const info = (component, message) =>
     findings.push({ level: 'info', component, message });
+  const fontErrors = new Set();
 
   for (const component of components) {
     // argTypes are the source of truth for what each axis can be.
@@ -345,8 +346,23 @@ async function main() {
       const args = { ...(component.args || {}), ...row.__args };
       const url = `${baseUrl}/iframe.html?id=${component.storyId}&viewMode=story&args=${encodeURIComponent(encodeArgs(args))}`;
       await page.goto(url, { waitUntil: 'domcontentloaded' });
-      await page.evaluate(() => document.fonts.ready);
       await page.waitForSelector('#storybook-root > *', { timeout: 30_000 });
+      // Wait for the story to render BEFORE waiting on fonts: a webfont is only
+      // requested once something needs the glyph, so awaiting readiness first
+      // resolves against an empty font set.
+      await page.waitForFunction(() => document.fonts.status === 'loaded', {
+        timeout: 30_000,
+      });
+      // `status === 'loaded'` means "nothing pending", NOT "everything succeeded".
+      // A face that failed sits in `error` and the element silently measures with
+      // fallback metrics — FramedIcon came out 22px instead of 28 because the
+      // RocketChat icon font 404s on the dev server, and 22 looks plausible.
+      const badFonts = await page.evaluate(() =>
+        [...document.fonts]
+          .filter((f) => f.status === 'error')
+          .map((f) => f.family),
+      );
+      if (badFonts.length) fontErrors.add(badFonts.join(', '));
 
       const measured = await page.evaluate(
         measureElement,
@@ -494,6 +510,24 @@ async function main() {
     const n = allVariants.filter((v) => v.bind[p]).length;
     const pct = total ? Math.round((n / total) * 100) : 0;
     console.log(`  ${p.padEnd(13)} ${String(n).padStart(4)}/${total}  ${pct}%`);
+  }
+
+  if (fontErrors.size) {
+    const msg = `web font(s) failed to load: ${[...fontErrors].join('; ')}`;
+    if (flag('allow-font-errors')) {
+      console.warn(
+        `\nWARNING: ${msg}\nMeasurements for anything using those faces are wrong (fallback metrics).`,
+      );
+    } else {
+      console.error(
+        `\n${msg}\nEvery measurement involving those faces is wrong — the element falls back to\n` +
+          `different glyph metrics and the number still looks plausible.\n\n` +
+          `The dev server does not serve the RocketChat icon font; the built Storybook does.\n` +
+          `Use --static packages/fuselage/storybook-static, which is what CI runs.\n` +
+          `Pass --allow-font-errors only for quick iteration on unaffected components.`,
+      );
+      process.exit(3);
+    }
   }
 
   const errors = findings.filter((f) => f.level === 'error');

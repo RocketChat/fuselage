@@ -4,8 +4,17 @@
       "name": "Badge",
       "storyId": "data-display-badge--default",
       "axes": {
-        "Variant": ["secondary", "primary", "danger", "warning", "ghost"],
-        "Size": ["default", "small"]
+        "Variant": [
+          "secondary",
+          "primary",
+          "danger",
+          "warning",
+          "ghost"
+        ],
+        "Size": [
+          "default",
+          "small"
+        ]
       },
       "variants": [
         {
@@ -194,8 +203,17 @@
       "name": "Banner",
       "storyId": "feedback-banner--banner",
       "axes": {
-        "Variant": ["neutral", "info", "success", "warning", "danger"],
-        "Inline": ["false", "true"]
+        "Variant": [
+          "neutral",
+          "info",
+          "success",
+          "warning",
+          "danger"
+        ],
+        "Inline": [
+          "false",
+          "true"
+        ]
       },
       "variants": [
         {
@@ -402,7 +420,12 @@
           "success",
           "secondary-success"
         ],
-        "Size": ["small", "medium", "default", "large"]
+        "Size": [
+          "small",
+          "medium",
+          "default",
+          "large"
+        ]
       },
       "variants": [
         {
@@ -971,7 +994,12 @@
       "name": "Callout",
       "storyId": "feedback-callout--default",
       "axes": {
-        "Type": ["info", "success", "warning", "danger"]
+        "Type": [
+          "info",
+          "success",
+          "warning",
+          "danger"
+        ]
       },
       "variants": [
         {
@@ -1056,7 +1084,10 @@
       "name": "Chip",
       "storyId": "data-display-chip--default",
       "axes": {
-        "Disabled": ["false", "true"]
+        "Disabled": [
+          "false",
+          "true"
+        ]
       },
       "variants": [
         {
@@ -1103,8 +1134,14 @@
       "name": "Divider",
       "storyId": "data-display-divider--default",
       "axes": {
-        "Variation": ["default", "danger"],
-        "Vertical": ["false", "true"]
+        "Variation": [
+          "default",
+          "danger"
+        ],
+        "Vertical": [
+          "false",
+          "true"
+        ]
       },
       "variants": [
         {
@@ -1189,7 +1226,7 @@
       "variants": [
         {
           "key": "Variant=danger",
-          "size": "22x28",
+          "size": "28x28",
           "padding": "4 4 4 4",
           "minWidth": 0,
           "text": "20/20 w400",
@@ -1207,7 +1244,7 @@
         },
         {
           "key": "Variant=default",
-          "size": "22x28",
+          "size": "28x28",
           "padding": "4 4 4 4",
           "minWidth": 0,
           "text": "20/20 w400",
@@ -1225,7 +1262,7 @@
         },
         {
           "key": "Variant=info",
-          "size": "22x28",
+          "size": "28x28",
           "padding": "4 4 4 4",
           "minWidth": 0,
           "text": "20/20 w400",
@@ -1243,7 +1280,7 @@
         },
         {
           "key": "Variant=neutral",
-          "size": "22x28",
+          "size": "28x28",
           "padding": "4 4 4 4",
           "minWidth": 0,
           "text": "20/20 w400",
@@ -1261,7 +1298,7 @@
         },
         {
           "key": "Variant=success",
-          "size": "22x28",
+          "size": "28x28",
           "padding": "4 4 4 4",
           "minWidth": 0,
           "text": "20/20 w400",
@@ -1279,7 +1316,7 @@
         },
         {
           "key": "Variant=warning",
-          "size": "22x28",
+          "size": "28x28",
           "padding": "4 4 4 4",
           "minWidth": 0,
           "text": "20/20 w400",
@@ -1301,8 +1338,14 @@
       "name": "InputBox",
       "storyId": "inputs-inputbox--default",
       "axes": {
-        "Small": ["false", "true"],
-        "Disabled": ["false", "true"]
+        "Small": [
+          "false",
+          "true"
+        ],
+        "Disabled": [
+          "false",
+          "true"
+        ]
       },
       "variants": [
         {
@@ -1383,8 +1426,14 @@
       "name": "Label",
       "storyId": "inputs-label--default",
       "axes": {
-        "Required": ["false", "true"],
-        "Disabled": ["false", "true"]
+        "Required": [
+          "false",
+          "true"
+        ],
+        "Disabled": [
+          "false",
+          "true"
+        ]
       },
       "variants": [
         {
@@ -1471,7 +1520,11 @@
           "secondary-info",
           "featured"
         ],
-        "Size": ["small", "medium", "large"]
+        "Size": [
+          "small",
+          "medium",
+          "large"
+        ]
       },
       "variants": [
         {
@@ -1903,7 +1956,10 @@
       "name": "Tooltip",
       "storyId": "data-display-tooltip--default",
       "axes": {
-        "Variation": ["dark", "light"]
+        "Variation": [
+          "dark",
+          "light"
+        ]
       },
       "variants": [
         {

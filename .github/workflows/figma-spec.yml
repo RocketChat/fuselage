@@ -56,8 +56,13 @@ jobs:
 
       - run: yarn install --immutable
 
+      # Must go through Turbo, not `yarn workspace ... build-storybook`. turbo.json
+      # declares `build-storybook: dependsOn ["^build"]`, and calling the workspace
+      # script directly skips that graph — so workspace packages that Storybook
+      # resolves as compiled output are never built. It fails on
+      # `packages/storybook-dark-mode/preset.js` requiring './dist/esm/preset/manager'.
       - name: Build Storybook
-        run: yarn workspace @rocket.chat/fuselage build-storybook
+        run: yarn turbo run build-storybook --filter=@rocket.chat/fuselage --cache-dir=".turbo"
 
       # The Chromium build is pinned by the playwright version in the lockfile,
       # which is what makes the measurements reproducible across machines.

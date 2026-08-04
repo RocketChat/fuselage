@@ -132,16 +132,22 @@ Two consequences worth knowing:
 
 ## Usage
 
-Against a running Storybook:
+**`--static` is the authoritative source.** The dev server does not serve the
+RocketChat icon font, so anything using a glyph measures with fallback metrics —
+FramedIcon came out 22px wide instead of 28. The extractor now refuses to run
+(exit 3) when a web font is in `error` state rather than emitting plausible-looking
+wrong numbers. The committed snapshot must always come from `--static`.
 
 ```bash
-yarn workspace @rocket.chat/figma-sync extract -- --url http://localhost:6006
+yarn turbo run build-storybook --filter=@rocket.chat/fuselage
+node src/extract.mjs --static ../../packages/fuselage/storybook-static
 ```
 
-Against a built one (what CI does):
+The dev server is fine for iterating on components that use no icon font; pass
+`--allow-font-errors` to proceed anyway, and do not update the snapshot from it:
 
 ```bash
-node src/extract.mjs --static ../../packages/fuselage/storybook-static
+node src/extract.mjs --url http://localhost:6006 --only Tag --allow-font-errors
 ```
 
 Flags: `--url`, `--static`, `--out`, `--config`, `--only <ComponentName>`.
