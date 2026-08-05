@@ -1,6 +1,5 @@
 {
   "fontFamilies": {
-    "group": "typography",
     "value": {
       "sans": [
         "Inter",
@@ -30,7 +29,6 @@
     }
   },
   "fontScales": {
-    "group": "typography",
     "value": {
       "hero": {
         "fontSize": 48,

@@ -1,6 +1,5 @@
 {
   "xs": {
-    "group": "breakpoints",
     "value": {
       "name": "xs",
       "minViewportWidth": null,
@@ -9,7 +8,6 @@
     }
   },
   "sm": {
-    "group": "breakpoints",
     "value": {
       "name": "sm",
       "minViewportWidth": 600,
@@ -18,7 +16,6 @@
     }
   },
   "md": {
-    "group": "breakpoints",
     "value": {
       "name": "md",
       "minViewportWidth": 768,
@@ -27,7 +24,6 @@
     }
   },
   "lg": {
-    "group": "breakpoints",
     "value": {
       "name": "lg",
       "minViewportWidth": 1024,
@@ -36,7 +32,6 @@
     }
   },
   "xl": {
-    "group": "breakpoints",
     "value": {
       "name": "xl",
       "minViewportWidth": 1280,
@@ -45,7 +40,6 @@
     }
   },
   "xxl": {
-    "group": "breakpoints",
     "value": {
       "name": "xxl",
       "minViewportWidth": 1600,
@@ -54,7 +48,6 @@
     }
   },
   "xxxl": {
-    "group": "breakpoints",
     "value": {
       "name": "xxxl",
       "minViewportWidth": 1920,
