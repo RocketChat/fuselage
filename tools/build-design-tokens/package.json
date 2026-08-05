@@ -6,11 +6,11 @@
   "bin": "./index.js",
   "dependencies": {
     "stylelint": "~17.14.1",
-    "tools-utils": "workspace:~"
+    "tools-utils": "^0.31.25"
   },
   "devDependencies": {
     "eslint": "~10.8.0",
-    "lint-all": "workspace:~",
+    "lint-all": "^0.31.25",
     "prettier": "~3.6.2"
   },
   "peerDependencies": {
