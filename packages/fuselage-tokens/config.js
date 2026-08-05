@@ -3,15 +3,6 @@ import tokens from './src/index.js';
 export default {
   source: ['src/**/*.json'],
   platforms: {
-    js: {
-      transformGroup: 'js',
-      buildPath: 'dist/',
-      files: tokens.map((tokenCategory) => ({
-        destination: `${tokenCategory}.js`,
-        format: 'camelCase',
-        filter: (token) => token.filePath.startsWith(`src/${tokenCategory}/`),
-      })),
-    },
     json: {
       transformGroup: 'js',
       buildPath: 'dist/',
@@ -23,25 +14,6 @@ export default {
             tokenCategory === 'breakpoints' || tokenCategory === 'colors'
               ? customFormat
               : 'json/nested',
-          filter: (token) => token.filePath.startsWith(`src/${tokenCategory}/`),
-        };
-      }),
-    },
-    mjs: {
-      transformGroup: 'custom/mjs',
-      buildPath: 'dist/',
-      files: tokens.map((tokenCategory) => {
-        if (tokenCategory === 'colors') {
-          return {
-            destination: `${tokenCategory}.mjs`,
-            format: 'custom/colors-mjs',
-            filter: (token) =>
-              token.filePath.startsWith(`src/${tokenCategory}/`),
-          };
-        }
-        return {
-          destination: `${tokenCategory}.mjs`,
-          format: 'custom/mjs',
           filter: (token) => token.filePath.startsWith(`src/${tokenCategory}/`),
         };
       }),
