@@ -8,19 +8,6 @@ import {
   toScssVariables,
 } from 'tools-utils/source';
 
-const buildBreakpoints = async () => {
-  const entries = await readJson5('./src/breakpoints.jsonc');
-
-  await Promise.all([
-    toJson(Object.values(entries)).then(writeSource('./breakpoints.json')),
-    toCommonJsModule(entries).then(writeSource('./breakpoints.js')),
-    toEsmModule(entries).then(writeSource('./breakpoints.mjs')),
-    toScssVariables({ breakpoints: entries }).then(
-      writeSource('./breakpoints.scss'),
-    ),
-  ]);
-};
-
 const buildColors = async () => {
   const entries = await readJson5('./src/colors.jsonc');
 
@@ -43,6 +30,5 @@ const buildTypography = async () => {
   ]);
 };
 
-buildBreakpoints();
 buildColors();
 buildTypography();
