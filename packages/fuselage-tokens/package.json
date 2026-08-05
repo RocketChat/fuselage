@@ -30,13 +30,9 @@
     "/typography.*"
   ],
   "scripts": {
-    "build": "run .:build:clean && run .:build:legacy && run .:build",
-    ".:build": "node ./build --config ./config.js",
-    ".:build:legacy": "build-design-tokens",
-    ".:build:clean": "rimraf dist"
+    "build": "rimraf dist && node ./build --config ./config.js"
   },
   "devDependencies": {
-    "build-design-tokens": "workspace:~",
     "eslint": "~10.8.0",
     "eslint-config-prettier": "~10.1.8",
     "lint-all": "workspace:~",
