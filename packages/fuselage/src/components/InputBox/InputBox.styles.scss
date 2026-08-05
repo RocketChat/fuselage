@@ -121,6 +121,16 @@ $input-border-radius: theme(
     -webkit-text-fill-color: $input-colors-color;
   }
 
+  // Firefox shows its own (non-hideable) calendar icon for date inputs, so hide
+  // our addon there to avoid a duplicate. `-moz-orient` is Firefox-exclusive.
+  &--type-date {
+    @supports (-moz-orient: inline) {
+      & + .rcx-input-box__addon {
+        display: none;
+      }
+    }
+  }
+
   &--type-select {
     @extend %with-scrollbars;
 
