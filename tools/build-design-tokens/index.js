@@ -8,17 +8,6 @@ import {
   toScssVariables,
 } from 'tools-utils/source';
 
-const buildColors = async () => {
-  const entries = await readJson5('./src/colors.jsonc');
-
-  await Promise.all([
-    toJson(entries).then(writeSource('./colors.json')),
-    toCommonJsModule(entries).then(writeSource('./colors.js')),
-    toEsmModule(entries).then(writeSource('./colors.mjs')),
-    toScssVariables({ colors: entries }).then(writeSource('./colors.scss')),
-  ]);
-};
-
 const buildTypography = async () => {
   const entries = await readJson5('./src/typography.jsonc');
 
@@ -30,5 +19,4 @@ const buildTypography = async () => {
   ]);
 };
 
-buildColors();
 buildTypography();
