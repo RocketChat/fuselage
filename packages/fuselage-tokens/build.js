@@ -3,11 +3,6 @@ import StyleDictionary from 'style-dictionary';
 console.log('Build started...');
 console.log('\n==============================================');
 
-const arrayTocamelCase = (arr) =>
-  arr
-    .map((item, i) => (i === 0 ? item : item[0].toUpperCase() + item.slice(1)))
-    .join('');
-
 const encodeJson = (data) =>
   JSON.stringify(data, null, 2).replace(
     /[\u007f-\uffff]/g,
@@ -39,11 +34,6 @@ const toScssValue = (chunk) => {
     .join(',')})`;
 };
 
-StyleDictionary.registerTransformGroup({
-  name: 'custom/mjs',
-  transforms: ['name/camel'],
-});
-
 StyleDictionary.registerFormat({
   name: 'custom/colors-json',
   async format({ dictionary }) {
@@ -60,54 +50,6 @@ StyleDictionary.registerFormat({
     return `[${dictionary.allTokens.map(
       (token) => `\n\t${encodeJson(token.original.value)}`,
     )}\n]`;
-  },
-});
-
-StyleDictionary.registerFormat({
-  name: 'cjsmodule',
-  async format({ dictionary }) {
-    return `module.exports = {${dictionary.allTokens.map(
-      (token) =>
-        `\n\t${encodeJson(token.name)}: ${encodeJson(token.original.value)}`,
-    )}\n};`;
-  },
-});
-
-StyleDictionary.registerFormat({
-  name: 'camelCase',
-  async format({ dictionary }) {
-    // Get group name through folder name ./src/******
-    const exp = /[a-z]+\/([a-z]+)\/[a-z]+.json/i;
-    const [, group] = dictionary.allTokens[0].filePath.match(exp);
-
-    return `module.exports = {${dictionary.allTokens.map((token) => {
-      const name =
-        group === 'colors'
-          ? encodeJson(token.path[1])
-          : encodeJson(arrayTocamelCase(token.path));
-
-      return `\n\t${name}: ${encodeJson(token.value)}`;
-    })}\n};`;
-  },
-});
-
-StyleDictionary.registerFormat({
-  name: 'custom/mjs',
-  async format({ dictionary }) {
-    return `export default {${dictionary.allTokens.map(
-      (token) =>
-        `\n\t${encodeJson(token.name)}: ${encodeJson(token.original.value)}`,
-    )}\n};`;
-  },
-});
-
-StyleDictionary.registerFormat({
-  name: 'custom/colors-mjs',
-  async format({ dictionary }) {
-    return `export default {${dictionary.allTokens.map(
-      (token) =>
-        `\n\t${encodeJson(token.path[1])}: ${encodeJson(token.original.value)}`,
-    )}\n};`;
   },
 });
 
