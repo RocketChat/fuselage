@@ -1,5 +1,27 @@
 # Change Log
 
+## 0.85.0
+
+### Minor Changes
+
+- [#2137](https://github.com/RocketChat/fuselage/pull/2137) [`f42dac6`](https://github.com/RocketChat/fuselage/commit/f42dac630c1a4259a5c376a919823d7011c22fea) Thanks [@tassoevan](https://github.com/tassoevan)! - feat(fuselage)!: Remove the `ContextualbarV2` component family and replace the `Contextualbar` component family with its implementation
+
+  The `ContextualbarV2*` components and types are no longer exported; use the `Contextualbar*` ones instead, which now carry the V2 look and behavior.
+
+- [#2132](https://github.com/RocketChat/fuselage/pull/2132) [`f48a1ba`](https://github.com/RocketChat/fuselage/commit/f48a1bae07bbbfd8ac9c6c6e5227cac05070e54a) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage): Add `Button` `variant` and `size` props
+
+### Patch Changes
+
+- [#2135](https://github.com/RocketChat/fuselage/pull/2135) [`70fd444`](https://github.com/RocketChat/fuselage/commit/70fd444a925a072c8229de79bb9b68e099b64a28) Thanks [@tassoevan](https://github.com/tassoevan)! - chore(fuselage): Deprecate the `Sidebar` component family in favor of `SidebarV2`
+
+- [#2134](https://github.com/RocketChat/fuselage/pull/2134) [`d85c323`](https://github.com/RocketChat/fuselage/commit/d85c323986553d8b7e8ee9d67047aa1982f8b5b4) Thanks [@tassoevan](https://github.com/tassoevan)! - Bump `react-is` dependency from 19.2.7 to 19.2.8
+
+- [#2135](https://github.com/RocketChat/fuselage/pull/2135) [`70fd444`](https://github.com/RocketChat/fuselage/commit/70fd444a925a072c8229de79bb9b68e099b64a28) Thanks [@tassoevan](https://github.com/tassoevan)! - chore(fuselage): Deprecate the `Contextualbar` component family in favor of `ContextualbarV2`
+
+- [#2135](https://github.com/RocketChat/fuselage/pull/2135) [`70fd444`](https://github.com/RocketChat/fuselage/commit/70fd444a925a072c8229de79bb9b68e099b64a28) Thanks [@tassoevan](https://github.com/tassoevan)! - chore(fuselage): Deprecate `AutoComplete` in favor of `SelectFiltered` and `MultiSelectFiltered`
+
+- [#2135](https://github.com/RocketChat/fuselage/pull/2135) [`70fd444`](https://github.com/RocketChat/fuselage/commit/70fd444a925a072c8229de79bb9b68e099b64a28) Thanks [@tassoevan](https://github.com/tassoevan)! - chore(fuselage): Deprecate the sidebar `TopBar` and `TopBarV2` components
+
 ## 0.84.0
 
 ### Minor Changes

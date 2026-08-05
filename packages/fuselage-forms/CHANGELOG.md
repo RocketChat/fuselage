@@ -1,5 +1,11 @@
 # @rocket.chat/fuselage-forms
 
+## 1.5.1
+
+### Patch Changes
+
+- [#2135](https://github.com/RocketChat/fuselage/pull/2135) [`70fd444`](https://github.com/RocketChat/fuselage/commit/70fd444a925a072c8229de79bb9b68e099b64a28) Thanks [@tassoevan](https://github.com/tassoevan)! - chore(fuselage-forms): Deprecate `AutoComplete` in favor of `MultiSelectFiltered`
+
 ## 1.5.0
 
 ### Minor Changes
