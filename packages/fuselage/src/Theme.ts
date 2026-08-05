@@ -1,6 +1,11 @@
 import tokenColors from '@rocket.chat/fuselage-tokens/colors.json';
+import tokenBadge from '@rocket.chat/fuselage-tokens/dist/badge.json';
+import tokenFont from '@rocket.chat/fuselage-tokens/dist/font.json';
+import tokenShadow from '@rocket.chat/fuselage-tokens/dist/shadow.json';
+import tokenStatus from '@rocket.chat/fuselage-tokens/dist/status.json';
+import tokenStroke from '@rocket.chat/fuselage-tokens/dist/stroke.json';
+import tokenSurface from '@rocket.chat/fuselage-tokens/dist/surface.json';
 
-import { getPaletteColor } from './getPaletteColor';
 import { toCSSColorValue } from './helpers/toCSSValue';
 
 export class Var {
@@ -22,8 +27,6 @@ export class Var {
   }
 }
 
-const white = new Var('white', '#ffffff');
-
 export let throwErrorOnInvalidToken = false;
 export const __setThrowErrorOnInvalidToken__ = (value: boolean) => {
   throwErrorOnInvalidToken = value;
@@ -43,186 +46,196 @@ export const neutral = {
   900: new Var('neutral-900', tokenColors.n900),
 };
 
-const blue = {
-  100: new Var('primary-100', tokenColors.b100),
-  200: new Var('primary-200', tokenColors.b200),
-  300: new Var('primary-300', tokenColors.b300),
-  400: new Var('primary-400', tokenColors.b400),
-  500: new Var('primary-500', tokenColors.b500),
-  600: new Var('primary-600', tokenColors.b600),
-  700: new Var('primary-700', tokenColors.b700),
-  800: new Var('primary-800', tokenColors.b800),
-  900: new Var('primary-900', tokenColors.b900),
-};
+// fuselage-tokens doesn't expose semantic tokens for these yet:
+// - status-font "on-warning" (diverges from the token's yellow-900; see TODO
+//   below)
+// Falls back to the primitive palette directly. TODO(fuselage-tokens):
+// remove `primitive()` and its call sites below once resolved.
+const primitive = (ref: keyof typeof tokenColors, name: string) =>
+  new Var(name, tokenColors[ref]);
 
-const green = {
-  100: new Var('success-100', tokenColors.g100),
-  200: new Var('success-200', tokenColors.g200),
-  300: new Var('success-300', tokenColors.g300),
-  400: new Var('success-400', tokenColors.g400),
-  500: new Var('success-500', tokenColors.g500),
-  600: new Var('success-600', tokenColors.g600),
-  700: new Var('success-700', tokenColors.g700),
-  800: new Var('success-800', tokenColors.g800),
-  900: new Var('success-900', tokenColors.g900),
-};
-
-const yellow = {
-  100: new Var('warning-100', tokenColors.y100),
-  200: new Var('warning-200', tokenColors.y200),
-  300: new Var('warning-300', tokenColors.y300),
-  400: new Var('warning-400', tokenColors.y400),
-  500: new Var('warning-500', tokenColors.y500),
-  600: new Var('warning-600', tokenColors.y600),
-  700: new Var('warning-700', tokenColors.y700),
-  800: new Var('warning-800', tokenColors.y800),
-  900: new Var('warning-900', tokenColors.y900),
-};
-
-const red = {
-  100: new Var('danger-100', tokenColors.r100),
-  200: new Var('danger-200', tokenColors.r200),
-  300: new Var('danger-300', tokenColors.r300),
-  400: new Var('danger-400', tokenColors.r400),
-  500: new Var('danger-500', tokenColors.r500),
-  600: new Var('danger-600', tokenColors.r600),
-  700: new Var('danger-700', tokenColors.r700),
-  800: new Var('danger-800', tokenColors.r800),
-  900: new Var('danger-900', tokenColors.r900),
-};
-
-const orange = {
-  100: new Var('service-1-100', tokenColors.o100),
-  200: new Var('service-1-200', tokenColors.o200),
-  300: new Var('service-1-300', tokenColors.o300),
-  400: new Var('service-1-400', tokenColors.o400),
-  500: new Var('service-1-500', tokenColors.o500),
-  600: new Var('service-1-600', tokenColors.o600),
-  700: new Var('service-1-700', tokenColors.o700),
-  800: new Var('service-1-800', tokenColors.o800),
-  900: new Var('service-1-900', tokenColors.o900),
-};
-
-const purple = {
-  100: new Var('service-2-100', tokenColors.p100),
-  200: new Var('service-2-200', tokenColors.p200),
-  300: new Var('service-2-300', tokenColors.p300),
-  400: new Var('service-2-400', tokenColors.p400),
-  500: new Var('service-2-500', tokenColors.p500),
-  600: new Var('service-2-600', tokenColors.p600),
-  700: new Var('service-2-700', tokenColors.p700),
-  800: new Var('service-2-800', tokenColors.p800),
-  900: new Var('service-2-900', tokenColors.p900),
-};
+const surfaceTokens = tokenSurface.surface.light;
 
 export const surfaceColors = {
-  'surface-light': white.theme('surface-light'),
-  'surface-tint': neutral[100].theme('surface-tint'),
-  'surface-room': white.theme('surface-room'),
-  'surface-neutral': neutral[400].theme('surface-neutral'),
-  'surface-disabled': neutral[100].theme('surface-disabled'),
-  'surface-hover': neutral[200].theme('surface-hover'),
-  'surface-selected': neutral[450].theme('surface-selected'),
-  'surface-dark': neutral[800].theme('surface-dark'),
-  'surface-featured': purple['700'].theme('surface-featured'),
-  'surface-featured-hover': purple['800'].theme('surface-featured-hover'),
-  'surface-overlay': neutral[800].theme('surface-overlay'),
+  'surface-light': new Var('surface-light', surfaceTokens.light),
+  'surface-tint': new Var('surface-tint', surfaceTokens.tint),
+  'surface-room': new Var('surface-room', surfaceTokens.room),
+  'surface-neutral': new Var('surface-neutral', surfaceTokens.neutral),
+  'surface-disabled': new Var('surface-disabled', surfaceTokens.disabled),
+  'surface-hover': new Var('surface-hover', surfaceTokens.hover),
+  'surface-selected': new Var('surface-selected', surfaceTokens.selected),
+  'surface-dark': new Var('surface-dark', surfaceTokens.dark),
+  'surface-featured': new Var('surface-featured', surfaceTokens.featured),
+  'surface-featured-hover': new Var(
+    'surface-featured-hover',
+    surfaceTokens.featuredHover,
+  ),
+  'surface-overlay': new Var('surface-overlay', surfaceTokens.overlay),
   'surface-transparent': 'transparent',
-  'surface-sidebar': neutral[400].theme('surface-sidebar'),
+  'surface-sidebar': new Var('surface-sidebar', surfaceTokens.sidebar),
 };
 
 type SurfaceColors = keyof typeof surfaceColors;
 
+const strokeTokens = tokenStroke.stroke.light;
+
 export const strokeColors = {
-  'stroke-extra-light': neutral[250].theme('stroke-extra-light'),
-  'stroke-light': neutral[500].theme('stroke-light'),
-  'stroke-medium': neutral[600].theme('stroke-medium'),
-  'stroke-dark': neutral[700].theme('stroke-dark'),
-  'stroke-extra-dark': neutral[800].theme('stroke-extra-dark'),
-  'stroke-extra-light-highlight': blue[200].theme(
+  'stroke-extra-light': new Var('stroke-extra-light', strokeTokens.extraLight),
+  'stroke-light': new Var('stroke-light', strokeTokens.light),
+  'stroke-medium': new Var('stroke-medium', strokeTokens.medium),
+  'stroke-dark': new Var('stroke-dark', strokeTokens.dark),
+  'stroke-extra-dark': new Var('stroke-extra-dark', strokeTokens.extraDark),
+  'stroke-extra-light-highlight': new Var(
     'stroke-extra-light-highlight',
+    strokeTokens.extraLightHighlight,
   ),
-  'stroke-highlight': blue[500].theme('stroke-highlight'),
-  'stroke-extra-light-error': red[200].theme('stroke-extra-light-error'),
-  'stroke-error': red[500].theme('stroke-error'),
+  'stroke-highlight': new Var('stroke-highlight', strokeTokens.highlight),
+  'stroke-extra-light-error': new Var(
+    'stroke-extra-light-error',
+    strokeTokens.extraLightError,
+  ),
+  'stroke-error': new Var('stroke-error', strokeTokens.error),
 };
 
 type StrokeColor = keyof typeof strokeColors;
 
+const fontTokens = tokenFont.font.light;
+
 export const textIconColors = {
-  'font-white': white.theme('font-white'),
-  'font-disabled': neutral[500].theme('font-disabled'),
-  'font-annotation': neutral[600].theme('font-annotation'),
-  'font-hint': neutral[700].theme('font-hint'),
-  'font-secondary-info': neutral[700].theme('font-secondary-info'),
-  'font-default': neutral[800].theme('font-default'),
-  'font-titles-labels': neutral[900].theme('font-titles-labels'),
-  'font-info': blue[600].theme('font-info'),
-  'font-danger': red[600].theme('font-danger'),
-  'font-pure-black': neutral[800].theme('font-pure-black'),
-  'font-pure-white': white.theme('font-pure-white'),
+  'font-white': new Var('font-white', fontTokens.white),
+  'font-disabled': new Var('font-disabled', fontTokens.disabled),
+  'font-annotation': new Var('font-annotation', fontTokens.annotation),
+  'font-hint': new Var('font-hint', fontTokens.hint),
+  'font-secondary-info': new Var(
+    'font-secondary-info',
+    fontTokens.secondaryInfo,
+  ),
+  'font-default': new Var('font-default', fontTokens.default),
+  'font-titles-labels': new Var('font-titles-labels', fontTokens.titlesLabels),
+  'font-info': new Var('font-info', fontTokens.info),
+  'font-danger': new Var('font-danger', fontTokens.danger),
+  'font-pure-black': new Var('font-pure-black', fontTokens.pureBlack),
+  'font-pure-white': new Var('font-pure-white', fontTokens.pureWhite),
 };
 
 type TextIconColors = keyof typeof textIconColors;
 
+const statusTokens = tokenStatus.status.light;
+
 export const statusBackgroundColors = {
-  'status-background-info': blue[200].theme('status-background-info'),
-  'status-background-success': green[200].theme('status-background-success'),
-  'status-background-danger': red[200].theme('status-background-danger'),
-  'status-background-warning': yellow[200].theme('status-background-warning'),
-  'status-background-warning-2': yellow[100].theme(
+  'status-background-info': new Var(
+    'status-background-info',
+    statusTokens.info,
+  ),
+  'status-background-success': new Var(
+    'status-background-success',
+    statusTokens.success,
+  ),
+  'status-background-danger': new Var(
+    'status-background-danger',
+    statusTokens.danger,
+  ),
+  'status-background-warning': new Var(
+    'status-background-warning',
+    statusTokens.warning,
+  ),
+  'status-background-warning-2': new Var(
     'status-background-warning-2',
+    statusTokens['warning-2'],
   ),
-  'status-background-service-1': orange[200].theme(
+  'status-background-service-1': new Var(
     'status-background-service-1',
+    statusTokens['service-1'],
   ),
-  'status-background-service-2': purple[200].theme(
+  'status-background-service-2': new Var(
     'status-background-service-2',
+    statusTokens['service-2'],
   ),
 };
 
 type StatusBackgroundColors = keyof typeof statusBackgroundColors;
 
 export const statusColors = {
-  'status-font-on-info': blue[600].theme('status-font-on-info'),
-  'status-font-on-success': green[800].theme('status-font-on-success'),
-  'status-font-on-warning': yellow[800].theme('status-font-on-warning'),
-  'status-font-on-warning-2': neutral[800].theme('status-font-on-warning-2'),
-  'status-font-on-danger': red[800].theme('status-font-on-danger'),
-  'status-font-on-service-1': orange[800].theme('status-font-on-service-1'),
-  'status-font-on-service-2': purple[600].theme('status-font-on-service-2'),
+  'status-font-on-info': new Var(
+    'status-font-on-info',
+    statusTokens['font-on-info'],
+  ),
+  'status-font-on-success': new Var(
+    'status-font-on-success',
+    statusTokens['font-on-success'],
+  ),
+  // TODO(design): token value (font-on-warning, yellow-900, #8E6300)
+  // diverges from fuselage's current yellow-800. Keeping the current value
+  // until design confirms which is correct.
+  'status-font-on-warning': primitive('y800', 'status-font-on-warning'),
+  'status-font-on-warning-2': new Var(
+    'status-font-on-warning-2',
+    statusTokens['font-on-warning-2'],
+  ),
+  'status-font-on-danger': new Var(
+    'status-font-on-danger',
+    statusTokens['font-on-danger'],
+  ),
+  'status-font-on-service-1': new Var(
+    'status-font-on-service-1',
+    statusTokens['font-on-service-1'],
+  ),
+  'status-font-on-service-2': new Var(
+    'status-font-on-service-2',
+    statusTokens['font-on-service-2'],
+  ),
 };
 
 type StatusColors = keyof typeof statusColors;
 
+const badgeTokens = tokenBadge.badge.light;
+
 export const badgeBackgroundColors = {
-  'badge-background-level-0': neutral[400].theme('badge-background-level-0'),
-  'badge-background-level-1': neutral[600].theme('badge-background-level-1'),
-  'badge-background-level-2': blue[500].theme('badge-background-level-2'),
-  'badge-background-level-3': orange[500].theme('badge-background-level-3'),
-  'badge-background-level-4': red[500].theme('badge-background-level-4'),
+  'badge-background-level-0': new Var(
+    'badge-background-level-0',
+    badgeTokens['level-0'],
+  ),
+  'badge-background-level-1': new Var(
+    'badge-background-level-1',
+    badgeTokens['level-1'],
+  ),
+  'badge-background-level-2': new Var(
+    'badge-background-level-2',
+    badgeTokens['level-2'],
+  ),
+  'badge-background-level-3': new Var(
+    'badge-background-level-3',
+    badgeTokens['level-3'],
+  ),
+  'badge-background-level-4': new Var(
+    'badge-background-level-4',
+    badgeTokens['level-4'],
+  ),
 };
 
 type BadgeBackgroundColors = keyof typeof badgeBackgroundColors;
 
+const shadowTokens = tokenShadow.shadow.light;
+
 export const shadowColors = {
-  'shadow-elevation-border': strokeColors['stroke-extra-light'].theme(
+  'shadow-elevation-border': new Var(
     'shadow-elevation-border',
+    shadowTokens['elevation-border'],
   ),
   'shadow-elevation-1': new Var(
     'shadow-elevation-1',
-    getPaletteColor('neutral', 800, 0.1)[1],
+    shadowTokens['elevation-1'],
   ),
   'shadow-elevation-2x': new Var(
     'shadow-elevation-2x',
-    getPaletteColor('neutral', 800, 0.08)[1],
+    shadowTokens['elevation-2x'],
   ),
   'shadow-elevation-2y': new Var(
     'shadow-elevation-2y',
-    getPaletteColor('neutral', 800, 0.12)[1],
+    shadowTokens['elevation-2y'],
   ),
-  'shadow-highlight': blue[200].theme('shadow-highlight'),
-  'shadow-danger': red[100].theme('shadow-danger'),
+  'shadow-highlight': new Var('shadow-highlight', shadowTokens.highlight),
+  'shadow-danger': new Var('shadow-danger', shadowTokens.danger),
 };
 
 type ShadowColors = keyof typeof shadowColors;

@@ -130,11 +130,12 @@ StyleDictionary.registerFormat({
     ];
 
     if (newPaletteGroup.includes(group)) {
-      const subGroup = dictionary.allTokens[0].name.split('-')[0];
+      const subGroup = toScssIdentifier(group);
       return `$${subGroup}: (${dictionary.allTokens.map((token) => {
-        const nameArray = token.name.split('-');
-        nameArray.shift();
-        const tokenName = nameArray.join('-');
+        const tokenGroup = toScssIdentifier(token.path[0]);
+        const tokenName = token.name.startsWith(`${tokenGroup}-`)
+          ? token.name.slice(tokenGroup.length + 1)
+          : token.name;
         return `\n${toScssIdentifier(tokenName)}:${toScssValue(token.value)}`;
       })}\n);`;
     }
