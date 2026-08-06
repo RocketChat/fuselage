@@ -201,6 +201,33 @@ export const Default: Story = {
   ),
 };
 
+export const WithClickableAuthorName: Story = {
+  render: () => (
+    <Box>
+      <Message>
+        <MessageLeftContainer>
+          <Avatar url={avatarUrl} size={'x36'} />
+        </MessageLeftContainer>
+        <MessageContainer>
+          <MessageHeader>
+            <MessageNameContainer role='button' tabIndex={0}>
+              <MessageName>Haylie George</MessageName>
+            </MessageNameContainer>
+            <MessageRoles>
+              <MessageRole>Admin</MessageRole>
+            </MessageRoles>
+            <MessageTimestamp>12:00 PM</MessageTimestamp>
+          </MessageHeader>
+          <MessageBody>
+            The author name underlines on hover when its container acts as a
+            button.
+          </MessageBody>
+        </MessageContainer>
+      </Message>
+    </Box>
+  ),
+};
+
 export const WithSequential: Story = {
   render: () => (
     <Box>
