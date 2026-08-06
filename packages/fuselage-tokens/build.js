@@ -1,3 +1,4 @@
+import { kebabCase } from 'change-case';
 import StyleDictionary from 'style-dictionary';
 import { minifyDictionary } from 'style-dictionary/utils';
 
@@ -41,6 +42,33 @@ StyleDictionary.registerFormat({
     const tokens = dictionary.tokens[Object.keys(dictionary.tokens)[0]];
     return `${JSON.stringify(minifyDictionary(tokens, false), null, 2)}\n`;
   },
+});
+
+StyleDictionary.registerTransform({
+  name: 'name/kebab/rocketchat',
+  type: 'name',
+  transform: (token) => kebabCase(token.path.slice(1).join(' ')),
+});
+
+StyleDictionary.registerTransformGroup({
+  name: 'scss/rocketchat',
+  transforms: [
+    'attribute/cti',
+    'name/kebab/rocketchat',
+    'time/seconds',
+    'html/icon',
+    'size/rem',
+    'color/css',
+    'asset/url',
+    'fontFamily/css',
+    'cubicBezier/css',
+    // object-value tokens
+    'strokeStyle/css/shorthand',
+    'border/css/shorthand',
+    'typography/css/shorthand',
+    'transition/css/shorthand',
+    'shadow/css/shorthand',
+  ],
 });
 
 StyleDictionary.registerFormat({

@@ -1,4 +1,7 @@
-const derivedColors = [
+import { kebabCase } from 'change-case';
+
+const colors = [
+  'colors',
   'badge',
   'button',
   'font',
@@ -9,7 +12,7 @@ const derivedColors = [
   'surface',
 ];
 
-const base = ['breakpoints', 'colors', 'typography'];
+const base = ['breakpoints', 'typography'];
 
 const filterByRoot = (root) => (token) => token.path[0] === root;
 
@@ -19,18 +22,21 @@ export default {
     'colors-json': {
       transformGroup: 'js',
       buildPath: 'dist/',
-      files: ['colors', ...derivedColors].map((root) => ({
+      files: colors.map((root) => ({
         destination: `${root}.json`,
         format: 'json/rocketchat',
         filter: filterByRoot(root),
       })),
     },
     'colors-scss': {
-      transformGroup: 'scss',
+      transformGroup: 'scss/rocketchat',
       buildPath: 'dist/',
-      files: derivedColors.map((root) => ({
+      files: colors.map((root) => ({
         destination: `${root}.scss`,
-        format: 'custom/scss',
+        format: 'scss/map-flat',
+        options: {
+          mapName: kebabCase(root),
+        },
         filter: filterByRoot(root),
       })),
     },
