@@ -12,9 +12,8 @@ const colors = [
   'surface',
 ];
 
-const base = ['breakpoints', 'typography'];
-
-const filterByRoot = (root) => (token) => token.path[0] === root;
+const filterByCategory = (root) => (token) =>
+  token.attributes.category === root;
 
 export default {
   source: ['src/**/*.json'],
@@ -25,7 +24,7 @@ export default {
       files: colors.map((root) => ({
         destination: `${root}.json`,
         format: 'json/rocketchat',
-        filter: filterByRoot(root),
+        filter: filterByCategory(root),
       })),
     },
     'colors-scss': {
@@ -37,7 +36,7 @@ export default {
         options: {
           mapName: kebabCase(root),
         },
-        filter: filterByRoot(root),
+        filter: filterByCategory(root),
       })),
     },
     'json': {
@@ -59,14 +58,18 @@ export default {
     'scss': {
       transformGroup: 'scss',
       buildPath: 'dist/',
-      files: base.map((tokenCategory) => ({
-        destination: `${tokenCategory}.scss`,
-        format:
-          tokenCategory === 'typography'
-            ? 'custom/typography-scss'
-            : 'custom/scss',
-        filter: (token) => token.filePath.startsWith(`src/${tokenCategory}/`),
-      })),
+      files: [
+        {
+          destination: `breakpoints.scss`,
+          format: 'custom/scss',
+          filter: (token) => token.filePath.startsWith('src/breakpoints/'),
+        },
+        {
+          destination: `typography.scss`,
+          format: 'custom/typography-scss',
+          filter: (token) => token.filePath.startsWith('src/typography/'),
+        },
+      ],
     },
   },
 };
