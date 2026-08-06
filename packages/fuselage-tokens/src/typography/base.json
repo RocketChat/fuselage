@@ -1,124 +1,128 @@
 {
-  "fontFamilies": {
-    "value": {
-      "sans": [
-        "Inter",
-        "-apple-system",
-        "BlinkMacSystemFont",
-        "Segoe UI",
-        "Roboto",
-        "Oxygen",
-        "Ubuntu",
-        "Cantarell",
-        "Helvetica Neue",
-        "Apple Color Emoji",
-        "Segoe UI Emoji",
-        "Segoe UI Symbol",
-        "Meiryo UI",
-        "Arial",
-        "sans-serif"
-      ],
-      "mono": [
-        "Menlo",
-        "Monaco",
-        "Consolas",
-        "Liberation Mono",
-        "Courier New",
-        "monospace"
-      ]
-    }
-  },
-  "fontScales": {
-    "value": {
+  "typography": {
+    "fontFamily": {
+      "sans": {
+        "value": [
+          "Inter",
+          "-apple-system",
+          "BlinkMacSystemFont",
+          "Segoe UI",
+          "Roboto",
+          "Oxygen",
+          "Ubuntu",
+          "Cantarell",
+          "Helvetica Neue",
+          "Apple Color Emoji",
+          "Segoe UI Emoji",
+          "Segoe UI Symbol",
+          "Meiryo UI",
+          "Arial",
+          "sans-serif"
+        ],
+        "type": "fontFamily"
+      },
+      "mono": {
+        "value": [
+          "Menlo",
+          "Monaco",
+          "Consolas",
+          "Liberation Mono",
+          "Courier New",
+          "monospace"
+        ],
+        "type": "fontFamily"
+      }
+    },
+    "fontScale": {
       "hero": {
-        "fontSize": 48,
-        "fontWeight": 800,
-        "letterSpacing": 0,
-        "lineHeight": 64
+        "fontSize": { "value": 48 },
+        "fontWeight": { "value": 800 },
+        "letterSpacing": { "value": 0 },
+        "lineHeight": { "value": 64 }
       },
       "h1": {
-        "fontSize": 32,
-        "fontWeight": 700,
-        "letterSpacing": 0,
-        "lineHeight": 40
+        "fontSize": { "value": 32 },
+        "fontWeight": { "value": 700 },
+        "letterSpacing": { "value": 0 },
+        "lineHeight": { "value": 40 }
       },
       "h2": {
-        "fontSize": 24,
-        "fontWeight": 700,
-        "letterSpacing": 0,
-        "lineHeight": 32
+        "fontSize": { "value": 24 },
+        "fontWeight": { "value": 700 },
+        "letterSpacing": { "value": 0 },
+        "lineHeight": { "value": 32 }
       },
       "h3": {
-        "fontSize": 20,
-        "fontWeight": 700,
-        "letterSpacing": 0,
-        "lineHeight": 28
+        "fontSize": { "value": 20 },
+        "fontWeight": { "value": 700 },
+        "letterSpacing": { "value": 0 },
+        "lineHeight": { "value": 28 }
       },
       "h4": {
-        "fontSize": 16,
-        "fontWeight": 700,
-        "letterSpacing": 0,
-        "lineHeight": 24
+        "fontSize": { "value": 16 },
+        "fontWeight": { "value": 700 },
+        "letterSpacing": { "value": 0 },
+        "lineHeight": { "value": 24 }
       },
       "h5": {
-        "fontSize": 14,
-        "fontWeight": 700,
-        "letterSpacing": 0,
-        "lineHeight": 20
+        "fontSize": { "value": 14 },
+        "fontWeight": { "value": 700 },
+        "letterSpacing": { "value": 0 },
+        "lineHeight": { "value": 20 }
       },
       "p1": {
-        "fontSize": 16,
-        "fontWeight": 400,
-        "letterSpacing": 0,
-        "lineHeight": 24
+        "fontSize": { "value": 16 },
+        "fontWeight": { "value": 400 },
+        "letterSpacing": { "value": 0 },
+        "lineHeight": { "value": 24 }
       },
       "p1m": {
-        "fontSize": 16,
-        "fontWeight": 500,
-        "letterSpacing": 0,
-        "lineHeight": 24
+        "fontSize": { "value": 16 },
+        "fontWeight": { "value": 500 },
+        "letterSpacing": { "value": 0 },
+        "lineHeight": { "value": 24 }
       },
       "p1b": {
-        "fontSize": 16,
-        "fontWeight": 700,
-        "letterSpacing": 0,
-        "lineHeight": 24
+        "fontSize": { "value": 16 },
+        "fontWeight": { "value": 700 },
+        "letterSpacing": { "value": 0 },
+        "lineHeight": { "value": 24 }
       },
       "p2": {
-        "fontSize": 14,
-        "fontWeight": 400,
-        "letterSpacing": 0,
-        "lineHeight": 20
+        "fontSize": { "value": 14 },
+        "fontWeight": { "value": 400 },
+        "letterSpacing": { "value": 0 },
+        "lineHeight": { "value": 20 }
       },
       "p2m": {
-        "fontSize": 14,
-        "fontWeight": 500,
-        "letterSpacing": 0,
-        "lineHeight": 20
+        "fontSize": { "value": 14 },
+        "fontWeight": { "value": 500 },
+        "letterSpacing": { "value": 0 },
+        "lineHeight": { "value": 20 }
       },
       "p2b": {
-        "fontSize": 14,
-        "fontWeight": 700,
-        "letterSpacing": 0,
-        "lineHeight": 20
+        "fontSize": { "value": 14 },
+        "fontWeight": { "value": 700 },
+        "letterSpacing": { "value": 0 },
+        "lineHeight": { "value": 20 }
       },
       "c1": {
-        "fontSize": 12,
-        "fontWeight": 400,
-        "letterSpacing": 0,
-        "lineHeight": 16
+        "fontSize": { "value": 12 },
+        "fontWeight": { "value": 400 },
+        "letterSpacing": { "value": 0 },
+        "lineHeight": { "value": 16 }
       },
       "c2": {
-        "fontSize": 12,
-        "fontWeight": 700,
-        "letterSpacing": 0,
-        "lineHeight": 16
+        "fontSize": { "value": 12 },
+        "fontWeight": { "value": 700 },
+        "letterSpacing": { "value": 0 },
+        "lineHeight": { "value": 16 }
       },
       "micro": {
-        "fontSize": 10,
-        "fontWeight": 700,
-        "letterSpacing": 0,
-        "lineHeight": 12
+        "fontSize": { "value": 10 },
+        "fontWeight": { "value": 700 },
+        "letterSpacing": { "value": 0 },
+        "lineHeight": { "value": 12 }
       }
     }
   }

@@ -50,6 +50,19 @@ StyleDictionary.registerTransform({
   transform: (token) => kebabCase(token.path.slice(1).join(' ')),
 });
 
+StyleDictionary.registerTransform({
+  name: 'fontFamily/css/rocketchat',
+  type: 'value',
+  filter: (token) => token.attributes.type === 'fontFamily',
+  transform: (token) => {
+    if (Array.isArray(token.value)) {
+      return `(${token.value.map((font) => (font.match(/\s/) ? `'${font}'` : font)).join(', ')})`;
+    }
+
+    return token.value;
+  },
+});
+
 StyleDictionary.registerTransformGroup({
   name: 'scss/rocketchat',
   transforms: [
@@ -57,12 +70,11 @@ StyleDictionary.registerTransformGroup({
     'name/kebab/rocketchat',
     'time/seconds',
     'html/icon',
-    'size/rem',
+    // 'size/rem',
     'color/css',
     'asset/url',
-    'fontFamily/css',
+    'fontFamily/css/rocketchat',
     'cubicBezier/css',
-    // object-value tokens
     'strokeStyle/css/shorthand',
     'border/css/shorthand',
     'typography/css/shorthand',
@@ -94,15 +106,6 @@ StyleDictionary.registerFormat({
           )}:${toScssValue(token.value)},`,
       )
       .join('')})`;
-  },
-});
-
-StyleDictionary.registerFormat({
-  name: 'custom/typography-scss',
-  async format({ dictionary }) {
-    return `${dictionary.allTokens
-      .map((token) => `$${token.name}: \n${toScssValue(token.value)};`)
-      .join('')}`;
   },
 });
 
