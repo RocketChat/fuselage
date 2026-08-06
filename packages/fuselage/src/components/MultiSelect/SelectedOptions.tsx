@@ -10,8 +10,14 @@ type SelectedOptionsProps = {
   onMouseDown: (e: MouseEvent) => void;
 };
 
-export const SelectedOptions = memo(function SelectedOptions(
-  props: SelectedOptionsProps,
-) {
-  return <Chip {...props} />;
+export const SelectedOptions = memo(function SelectedOptions({
+  children,
+  tabIndex,
+  onMouseDown,
+}: SelectedOptionsProps) {
+  return (
+    <Chip tabIndex={tabIndex} onDismiss={onMouseDown}>
+      {children}
+    </Chip>
+  );
 });

@@ -105,4 +105,26 @@ $chip-disabled-color: theme('chip-disabled-color', colors.font(disabled));
 
     font: inherit;
   }
+
+  &--dismissible {
+    display: inline-flex;
+
+    padding-inline-end: lengths.size(4);
+
+    cursor: default;
+
+    &:hover,
+    &:focus,
+    &:active {
+      border-color: $chip-border-color;
+      background-color: $chip-background-color;
+      box-shadow: none;
+    }
+
+    &.rcx-chip--disabled {
+      color: $chip-disabled-color;
+      border-color: $chip-disabled-border-color;
+      background-color: $chip-disabled-background-color;
+    }
+  }
 }
