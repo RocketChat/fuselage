@@ -57,6 +57,8 @@ $message-system-background-color-selected: theme(
     flex-shrink: 0;
 
     margin-inline: lengths.margin(2);
+
+    color: colors.font(secondary-info);
   }
 
   &__block {

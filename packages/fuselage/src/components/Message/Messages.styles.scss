@@ -203,7 +203,12 @@ $message-highlight-border-radius: theme(
       @include use-font-scale(c1);
       flex-shrink: 0;
 
-      color: colors.font(default);
+      color: colors.font(secondary-info);
+
+      // secondary-info fails contrast against the hover surface.
+      .rcx-message:hover & {
+        color: colors.font(default);
+      }
     }
 
     &__name-container {
