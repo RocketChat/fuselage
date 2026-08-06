@@ -86,29 +86,6 @@ StyleDictionary.registerFormat({
     // Get group name through folder name ./src/******
     const exp = /[a-z]+\/([a-z]+)\/[a-z]+.json/i;
     const [, group] = dictionary.allTokens[0].filePath.match(exp);
-    const newPaletteGroup = [
-      'badge',
-      'background',
-      'surface',
-      'stroke',
-      'shadow',
-      'button',
-      'font',
-      'status',
-      'statusBullet',
-    ];
-
-    if (newPaletteGroup.includes(group)) {
-      const subGroup = toScssIdentifier(group);
-      return `$${subGroup}: (${dictionary.allTokens.map((token) => {
-        const tokenGroup = toScssIdentifier(token.path[0]);
-        const tokenName = token.name.startsWith(`${tokenGroup}-`)
-          ? token.name.slice(tokenGroup.length + 1)
-          : token.name;
-        return `\n${toScssIdentifier(tokenName)}:${toScssValue(token.value)}`;
-      })}\n);`;
-    }
-
     return `$${group}: (${dictionary.allTokens
       .map(
         (token) =>
