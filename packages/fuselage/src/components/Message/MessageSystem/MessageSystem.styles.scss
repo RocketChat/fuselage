@@ -49,6 +49,8 @@ $message-system-background-color-selected: theme(
     @include use-font-scale(p2b);
     @include use-with-truncated-text();
     flex-shrink: 0;
+
+    color: colors.font(titles-labels);
   }
 
   &__time {

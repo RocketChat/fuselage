@@ -220,6 +220,18 @@ $message-highlight-border-radius: theme(
 
       @include templates.focus-state;
       flex-shrink: 0;
+
+      // This must match __name's color or the
+      // underline mismatches the text under it.
+      color: colors.font(titles-labels);
+
+      &[role='button'] {
+        cursor: pointer;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
     }
 
     &__name {
@@ -227,7 +239,7 @@ $message-highlight-border-radius: theme(
       @include use-with-truncated-text();
       flex-shrink: 1;
 
-      color: colors.font(default);
+      color: colors.font(titles-labels);
     }
 
     &__username {
