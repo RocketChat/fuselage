@@ -1,4 +1,5 @@
 import StyleDictionary from 'style-dictionary';
+import { minifyDictionary } from 'style-dictionary/utils';
 
 console.log('Build started...');
 console.log('\n==============================================');
@@ -35,12 +36,10 @@ const toScssValue = (chunk) => {
 };
 
 StyleDictionary.registerFormat({
-  name: 'custom/colors-json',
+  name: 'json/rocketchat',
   async format({ dictionary }) {
-    return `{${dictionary.allTokens.map(
-      (token) =>
-        `\n\t${encodeJson(token.path[1])}: ${encodeJson(token.original.value)}`,
-    )}\n}`;
+    const tokens = dictionary.tokens[Object.keys(dictionary.tokens)[0]];
+    return `${JSON.stringify(minifyDictionary(tokens, false), null, 2)}\n`;
   },
 });
 
@@ -48,7 +47,7 @@ StyleDictionary.registerFormat({
   name: 'custom/breakpoints-json',
   async format({ dictionary }) {
     return `[${dictionary.allTokens.map(
-      (token) => `\n\t${encodeJson(token.original.value)}`,
+      (token) => `\n\t${encodeJson(token.value)}`,
     )}\n]`;
   },
 });

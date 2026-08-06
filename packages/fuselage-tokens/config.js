@@ -1,27 +1,59 @@
-import tokens from './src/index.js';
+const derivedColors = [
+  'badge',
+  'button',
+  'font',
+  'shadow',
+  'status',
+  'statusBullet',
+  'stroke',
+  'surface',
+];
+
+const base = ['breakpoints', 'colors', 'typography'];
+
+const filterByRoot = (root) => (token) => token.path[0] === root;
 
 export default {
   source: ['src/**/*.json'],
   platforms: {
-    json: {
+    'colors-json': {
       transformGroup: 'js',
       buildPath: 'dist/',
-      files: tokens.map((tokenCategory) => {
-        const customFormat = `custom/${tokenCategory}-json`;
-        return {
-          destination: `${tokenCategory}.json`,
-          format:
-            tokenCategory === 'breakpoints' || tokenCategory === 'colors'
-              ? customFormat
-              : 'json/nested',
-          filter: (token) => token.filePath.startsWith(`src/${tokenCategory}/`),
-        };
-      }),
+      files: ['colors', ...derivedColors].map((root) => ({
+        destination: `${root}.json`,
+        format: 'json/rocketchat',
+        filter: filterByRoot(root),
+      })),
     },
-    scss: {
+    'colors-scss': {
       transformGroup: 'scss',
       buildPath: 'dist/',
-      files: tokens.map((tokenCategory) => ({
+      files: derivedColors.map((root) => ({
+        destination: `${root}.scss`,
+        format: 'custom/scss',
+        filter: filterByRoot(root),
+      })),
+    },
+    'json': {
+      transformGroup: 'js',
+      buildPath: 'dist/',
+      files: [
+        {
+          destination: 'breakpoints.json',
+          format: 'custom/breakpoints-json',
+          filter: (token) => token.filePath.startsWith('src/breakpoints/'),
+        },
+        {
+          destination: 'typography.json',
+          format: 'json/nested',
+          filter: (token) => token.filePath.startsWith('src/typography/'),
+        },
+      ],
+    },
+    'scss': {
+      transformGroup: 'scss',
+      buildPath: 'dist/',
+      files: base.map((tokenCategory) => ({
         destination: `${tokenCategory}.scss`,
         format:
           tokenCategory === 'typography'
