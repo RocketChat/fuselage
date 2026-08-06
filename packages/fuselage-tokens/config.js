@@ -18,19 +18,19 @@ const filterByCategory = (root) => (token) =>
 export default {
   source: ['src/**/*.json'],
   platforms: {
-    'colors-json': {
+    'fuselage/json': {
       transformGroup: 'js',
       buildPath: 'dist/',
-      files: colors.map((root) => ({
+      files: ['typography', ...colors].map((root) => ({
         destination: `${root}.json`,
         format: 'json/rocketchat',
         filter: filterByCategory(root),
       })),
     },
-    'colors-scss': {
+    'fuselage/scss': {
       transformGroup: 'scss/rocketchat',
       buildPath: 'dist/',
-      files: colors.map((root) => ({
+      files: ['typography', ...colors].map((root) => ({
         destination: `${root}.scss`,
         format: 'scss/map-flat',
         options: {
@@ -48,11 +48,6 @@ export default {
           format: 'custom/breakpoints-json',
           filter: (token) => token.filePath.startsWith('src/breakpoints/'),
         },
-        {
-          destination: 'typography.json',
-          format: 'json/nested',
-          filter: (token) => token.filePath.startsWith('src/typography/'),
-        },
       ],
     },
     'scss': {
@@ -63,11 +58,6 @@ export default {
           destination: `breakpoints.scss`,
           format: 'custom/scss',
           filter: (token) => token.filePath.startsWith('src/breakpoints/'),
-        },
-        {
-          destination: `typography.scss`,
-          format: 'custom/typography-scss',
-          filter: (token) => token.filePath.startsWith('src/typography/'),
         },
       ],
     },

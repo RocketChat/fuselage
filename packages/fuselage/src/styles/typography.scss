@@ -3,63 +3,70 @@
 @use './functions.scss' as *;
 
 @function font-family($name) {
-  @if not map.has-key(typography.$font-families, $name) {
+  @if not map.has-key(typography.$typography, font-family-#{$name}) {
     @error 'invalid font family name';
   }
 
   @return var(
     --rcx-font-family-#{$name},
-    map.get(typography.$font-families, $name)
+    map.get(typography.$typography, font-family-#{$name})
   );
 }
 
-$font-scales: map.keys(typography.$font-scales);
-
 @mixin use-font-scale($name) {
-  @if not map.has-key(typography.$font-scales, $name) {
+  @if not map.has-key(typography.$typography, font-scale-#{$name}-font-size) {
     @error 'invalid font scale name';
   }
 
-  $-font-scale: map.get(typography.$font-scales, $name);
-  letter-spacing: to-rem(map.get($-font-scale, letter-spacing));
+  letter-spacing: to-rem(
+    map.get(typography.$typography, font-scale-#{$name}-letter-spacing)
+  );
 
-  font-size: to-rem(map.get($-font-scale, font-size));
-  font-weight: map.get($-font-scale, font-weight);
-  line-height: to-rem(map.get($-font-scale, line-height));
+  font-size: to-rem(
+    map.get(typography.$typography, font-scale-#{$name}-font-size)
+  );
+  font-weight: map.get(typography.$typography, font-scale-#{$name}-font-weight);
+  line-height: to-rem(
+    map.get(typography.$typography, font-scale-#{$name}-line-height)
+  );
 }
 
 @function letter-spacing($name) {
-  @if not map.has-key(typography.$font-scales, $name) {
+  @if not map.has-key(typography.$typography, font-scale-#{$name}-font-size) {
     @error 'invalid font scale name';
   }
 
   @return to-rem(
-    map.get(map.get(typography.$font-scales, $name), letter-spacing)
+    map.get(typography.$typography, font-scale-#{$name}-letter-spacing)
   );
 }
 
 @function font-size($name) {
-  @if not map.has-key(typography.$font-scales, $name) {
+  @if not map.has-key(typography.$typography, font-scale-#{$name}-font-size) {
     @error 'invalid font scale name';
   }
 
-  @return to-rem(map.get(map.get(typography.$font-scales, $name), font-size));
+  @return to-rem(
+    map.get(typography.$typography, font-scale-#{$name}-font-size)
+  );
 }
 
 @function font-weight($name) {
-  @if not map.has-key(typography.$font-scales, $name) {
+  @if not map.has-key(typography.$typography, font-scale-#{$name}-font-size) {
     @error 'invalid font scale name';
   }
 
-  @return map.get(map.get(typography.$font-scales, $name), font-weight);
+  @return map.get(typography.$typography, font-scale-#{$name}-font-weight);
 }
 
 @function line-height($name) {
-  @if not map.has-key(typography.$font-scales, $name) {
+  @if not map.has-key(typography.$typography, font-scale-#{$name}-font-size) {
     @error 'invalid font scale name';
   }
 
-  @return to-rem(map.get(map.get(typography.$font-scales, $name), line-height));
+  @return to-rem(
+    map.get(typography.$typography, font-scale-#{$name}-line-height)
+  );
 }
 
 @mixin use-text-ellipsis {

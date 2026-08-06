@@ -1,4 +1,4 @@
-import tokenTypography from '@rocket.chat/fuselage-tokens/typography.json';
+import tokenTypography from '@rocket.chat/fuselage-tokens/dist/typography.json';
 import { memoize } from '@rocket.chat/memo';
 import invariant from 'invariant';
 
@@ -258,27 +258,27 @@ export const spacing = measure((value: unknown) => {
   return undefined;
 });
 
-type FontFamily = keyof typeof tokenTypography.fontFamilies;
+type FontFamily = keyof typeof tokenTypography.fontFamily;
 
 const isFontFamily = (value: unknown): value is FontFamily =>
-  typeof value === 'string' && value in tokenTypography.fontFamilies;
+  typeof value === 'string' && value in tokenTypography.fontFamily;
 
 export const fontFamily = memoize((value: unknown): string | undefined => {
   if (!isFontFamily(value)) {
     return undefined;
   }
 
-  const fontFamily = tokenTypography.fontFamilies[value]
+  const fontFamily = tokenTypography.fontFamily[value]
     .map((fontFace) => (fontFace.includes(' ') ? `'${fontFace}'` : fontFace))
     .join(', ');
 
   return toCSSFontValue(value, fontFamily);
 });
 
-type FontScale = keyof typeof tokenTypography.fontScales;
+type FontScale = keyof typeof tokenTypography.fontScale;
 
 const isFontScale = (value: unknown): value is FontScale =>
-  typeof value === 'string' && value in tokenTypography.fontScales;
+  typeof value === 'string' && value in tokenTypography.fontScale;
 
 export const fontScale = memoize(
   (
@@ -296,7 +296,7 @@ export const fontScale = memoize(
     }
 
     const { fontSize, fontWeight, lineHeight, letterSpacing } =
-      tokenTypography.fontScales[value];
+      tokenTypography.fontScale[value];
 
     return {
       fontSize: `${fontSize / 16}rem`,
