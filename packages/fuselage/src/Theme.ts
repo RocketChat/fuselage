@@ -1,10 +1,10 @@
-import tokenColors from '@rocket.chat/fuselage-tokens/colors.json';
-import tokenBadge from '@rocket.chat/fuselage-tokens/dist/badge.json';
-import tokenFont from '@rocket.chat/fuselage-tokens/dist/font.json';
-import tokenShadow from '@rocket.chat/fuselage-tokens/dist/shadow.json';
-import tokenStatus from '@rocket.chat/fuselage-tokens/dist/status.json';
-import tokenStroke from '@rocket.chat/fuselage-tokens/dist/stroke.json';
-import tokenSurface from '@rocket.chat/fuselage-tokens/dist/surface.json';
+import colors from '@rocket.chat/fuselage-tokens/colors.json';
+import badge from '@rocket.chat/fuselage-tokens/dist/badge.json';
+import font from '@rocket.chat/fuselage-tokens/dist/font.json';
+import shadow from '@rocket.chat/fuselage-tokens/dist/shadow.json';
+import status from '@rocket.chat/fuselage-tokens/dist/status.json';
+import stroke from '@rocket.chat/fuselage-tokens/dist/stroke.json';
+import surface from '@rocket.chat/fuselage-tokens/dist/surface.json';
 
 import { toCSSColorValue } from './helpers/toCSSValue';
 
@@ -33,17 +33,17 @@ export const __setThrowErrorOnInvalidToken__ = (value: boolean) => {
 };
 
 export const neutral = {
-  100: new Var('neutral-100', tokenColors.n100),
-  200: new Var('neutral-200', tokenColors.n200),
-  250: new Var('neutral-250', tokenColors.n250),
-  300: new Var('neutral-300', tokenColors.n300),
-  400: new Var('neutral-400', tokenColors.n400),
-  450: new Var('neutral-450', tokenColors.n450),
-  500: new Var('neutral-500', tokenColors.n500),
-  600: new Var('neutral-600', tokenColors.n600),
-  700: new Var('neutral-700', tokenColors.n700),
-  800: new Var('neutral-800', tokenColors.n800),
-  900: new Var('neutral-900', tokenColors.n900),
+  100: new Var('neutral-100', colors.n100),
+  200: new Var('neutral-200', colors.n200),
+  250: new Var('neutral-250', colors.n250),
+  300: new Var('neutral-300', colors.n300),
+  400: new Var('neutral-400', colors.n400),
+  450: new Var('neutral-450', colors.n450),
+  500: new Var('neutral-500', colors.n500),
+  600: new Var('neutral-600', colors.n600),
+  700: new Var('neutral-700', colors.n700),
+  800: new Var('neutral-800', colors.n800),
+  900: new Var('neutral-900', colors.n900),
 };
 
 // fuselage-tokens doesn't expose semantic tokens for these yet:
@@ -51,10 +51,10 @@ export const neutral = {
 //   below)
 // Falls back to the primitive palette directly. TODO(fuselage-tokens):
 // remove `primitive()` and its call sites below once resolved.
-const primitive = (ref: keyof typeof tokenColors, name: string) =>
-  new Var(name, tokenColors[ref]);
+const primitive = (ref: keyof typeof colors, name: string) =>
+  new Var(name, colors[ref]);
 
-const surfaceTokens = tokenSurface.surface.light;
+const surfaceTokens = surface.light;
 
 export const surfaceColors = {
   'surface-light': new Var('surface-light', surfaceTokens.light),
@@ -77,7 +77,7 @@ export const surfaceColors = {
 
 type SurfaceColors = keyof typeof surfaceColors;
 
-const strokeTokens = tokenStroke.stroke.light;
+const strokeTokens = stroke.light;
 
 export const strokeColors = {
   'stroke-extra-light': new Var('stroke-extra-light', strokeTokens.extraLight),
@@ -99,7 +99,7 @@ export const strokeColors = {
 
 type StrokeColor = keyof typeof strokeColors;
 
-const fontTokens = tokenFont.font.light;
+const fontTokens = font.light;
 
 export const textIconColors = {
   'font-white': new Var('font-white', fontTokens.white),
@@ -120,7 +120,7 @@ export const textIconColors = {
 
 type TextIconColors = keyof typeof textIconColors;
 
-const statusTokens = tokenStatus.status.light;
+const statusTokens = status.light;
 
 export const statusBackgroundColors = {
   'status-background-info': new Var(
@@ -188,7 +188,7 @@ export const statusColors = {
 
 type StatusColors = keyof typeof statusColors;
 
-const badgeTokens = tokenBadge.badge.light;
+const badgeTokens = badge.light;
 
 export const badgeBackgroundColors = {
   'badge-background-level-0': new Var(
@@ -215,7 +215,7 @@ export const badgeBackgroundColors = {
 
 type BadgeBackgroundColors = keyof typeof badgeBackgroundColors;
 
-const shadowTokens = tokenShadow.shadow.light;
+const shadowTokens = shadow.light;
 
 export const shadowColors = {
   'shadow-elevation-border': new Var(
