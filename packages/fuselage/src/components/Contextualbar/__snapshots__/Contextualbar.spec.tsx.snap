@@ -4,13 +4,13 @@ exports[`[Contextualbar Rendering] renders Default without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-css-14s1xor"
+      class="rcx-box rcx-box--full rcx-css-1xotgbu"
     >
       <div
-        class="rcx-box rcx-box--full rcx-vertical-bar rcx-css-188twv6"
+        class="rcx-box rcx-box--full rcx-vertical-bar rcx-css-vdtbbi"
       >
         <div
-          class="rcx-box rcx-box--full rcx-css-7ojzjf"
+          class="rcx-box rcx-box--full rcx-css-wu9rnc"
         >
           <div
             class="rcx-box rcx-box--full rcx-css-1bdyjik rcx-css-1l4fxfb"
@@ -76,7 +76,7 @@ exports[`[Contextualbar Rendering] renders Default without crashing 1`] = `
           </div>
         </div>
         <div
-          class="rcx-box rcx-box--full rcx-vertical-bar__section rcx-css-mcmi1a"
+          class="rcx-box rcx-box--full rcx-vertical-bar__section rcx-css-141b4sp"
         >
           <label
             class="rcx-box rcx-box--full rcx-label rcx-box rcx-box--full rcx-box--animated rcx-input-box__wrapper"
@@ -153,13 +153,13 @@ exports[`[Contextualbar Rendering] renders Empty without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-css-14s1xor"
+      class="rcx-box rcx-box--full rcx-css-1xotgbu"
     >
       <div
-        class="rcx-box rcx-box--full rcx-vertical-bar rcx-css-188twv6"
+        class="rcx-box rcx-box--full rcx-vertical-bar rcx-css-vdtbbi"
       >
         <div
-          class="rcx-box rcx-box--full rcx-css-7ojzjf"
+          class="rcx-box rcx-box--full rcx-css-wu9rnc"
         >
           <div
             class="rcx-box rcx-box--full rcx-css-1bdyjik rcx-css-1l4fxfb"
@@ -234,13 +234,13 @@ exports[`[Contextualbar Rendering] renders Skeleton without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-css-14s1xor"
+      class="rcx-box rcx-box--full rcx-css-1xotgbu"
     >
       <div
-        class="rcx-box rcx-box--full rcx-vertical-bar rcx-css-188twv6"
+        class="rcx-box rcx-box--full rcx-vertical-bar rcx-css-vdtbbi"
       >
         <div
-          class="rcx-box rcx-box--full rcx-css-7ojzjf"
+          class="rcx-box rcx-box--full rcx-css-wu9rnc"
         >
           <div
             class="rcx-box rcx-box--full rcx-css-1bdyjik rcx-css-1l4fxfb"
@@ -282,13 +282,13 @@ exports[`[Contextualbar Rendering] renders WithLongTitle without crashing 1`] = 
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-css-14s1xor"
+      class="rcx-box rcx-box--full rcx-css-1xotgbu"
     >
       <div
-        class="rcx-box rcx-box--full rcx-vertical-bar rcx-css-188twv6"
+        class="rcx-box rcx-box--full rcx-vertical-bar rcx-css-vdtbbi"
       >
         <div
-          class="rcx-box rcx-box--full rcx-css-7ojzjf"
+          class="rcx-box rcx-box--full rcx-css-wu9rnc"
         >
           <div
             class="rcx-box rcx-box--full rcx-css-1bdyjik rcx-css-1l4fxfb"
@@ -354,7 +354,7 @@ exports[`[Contextualbar Rendering] renders WithLongTitle without crashing 1`] = 
           </div>
         </div>
         <div
-          class="rcx-box rcx-box--full rcx-vertical-bar__section rcx-css-mcmi1a"
+          class="rcx-box rcx-box--full rcx-vertical-bar__section rcx-css-141b4sp"
         >
           <label
             class="rcx-box rcx-box--full rcx-label rcx-box rcx-box--full rcx-box--animated rcx-input-box__wrapper"
