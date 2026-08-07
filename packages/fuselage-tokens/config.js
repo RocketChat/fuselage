@@ -21,7 +21,7 @@ export default {
     'fuselage/json': {
       transformGroup: 'js',
       buildPath: 'dist/',
-      files: ['typography', ...colors].map((root) => ({
+      files: ['typography', 'breakpoints', ...colors].map((root) => ({
         destination: `${root}.json`,
         format: 'json/rocketchat',
         filter: filterByCategory(root),
@@ -30,7 +30,7 @@ export default {
     'fuselage/scss': {
       transformGroup: 'scss/rocketchat',
       buildPath: 'dist/',
-      files: ['typography', ...colors].map((root) => ({
+      files: ['typography', 'breakpoints', ...colors].map((root) => ({
         destination: `${root}.scss`,
         format: 'scss/map-flat',
         options: {
@@ -38,28 +38,6 @@ export default {
         },
         filter: filterByCategory(root),
       })),
-    },
-    'json': {
-      transformGroup: 'js',
-      buildPath: 'dist/',
-      files: [
-        {
-          destination: 'breakpoints.json',
-          format: 'custom/breakpoints-json',
-          filter: (token) => token.filePath.startsWith('src/breakpoints/'),
-        },
-      ],
-    },
-    'scss': {
-      transformGroup: 'scss',
-      buildPath: 'dist/',
-      files: [
-        {
-          destination: `breakpoints.scss`,
-          format: 'custom/scss',
-          filter: (token) => token.filePath.startsWith('src/breakpoints/'),
-        },
-      ],
     },
   },
 };

@@ -40,10 +40,10 @@ export default {
       },
     },
     viewport: {
-      viewports: breakpointTokens.reduce(
-        (obj, { name, minViewportWidth }) => ({
-          ...obj,
-          [name]: {
+      viewports: Object.fromEntries(
+        Object.entries(breakpointTokens).map(([name, { minViewportWidth }]) => [
+          name,
+          {
             name,
             styles: {
               width: `${minViewportWidth}px`,
@@ -51,8 +51,7 @@ export default {
             },
             type: 'desktop',
           },
-        }),
-        {},
+        ]),
       ),
     },
     darkMode: {
