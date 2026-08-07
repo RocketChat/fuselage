@@ -22,13 +22,9 @@
     map.get(typography.$typography, font-scale-#{$name}-letter-spacing)
   );
 
-  font-size: to-rem(
-    map.get(typography.$typography, font-scale-#{$name}-font-size)
-  );
+  font-size: map.get(typography.$typography, font-scale-#{$name}-font-size);
   font-weight: map.get(typography.$typography, font-scale-#{$name}-font-weight);
-  line-height: to-rem(
-    map.get(typography.$typography, font-scale-#{$name}-line-height)
-  );
+  line-height: map.get(typography.$typography, font-scale-#{$name}-line-height);
 }
 
 @function letter-spacing($name) {
@@ -46,9 +42,7 @@
     @error 'invalid font scale name';
   }
 
-  @return to-rem(
-    map.get(typography.$typography, font-scale-#{$name}-font-size)
-  );
+  @return map.get(typography.$typography, font-scale-#{$name}-font-size);
 }
 
 @function font-weight($name) {
@@ -64,9 +58,7 @@
     @error 'invalid font scale name';
   }
 
-  @return to-rem(
-    map.get(typography.$typography, font-scale-#{$name}-line-height)
-  );
+  @return map.get(typography.$typography, font-scale-#{$name}-line-height);
 }
 
 @mixin use-text-ellipsis {
