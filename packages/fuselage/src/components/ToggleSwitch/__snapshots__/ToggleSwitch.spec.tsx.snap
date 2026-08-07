@@ -80,12 +80,12 @@ exports[`[ToggleSwitch Rendering] renders States without crashing 1`] = `
             class="rcx-box rcx-box--full"
           />
           <th
-            class="rcx-box rcx-box--full rcx-css-1puefm5"
+            class="rcx-box rcx-box--full rcx-css-18lrnld"
           >
             checked
           </th>
           <th
-            class="rcx-box rcx-box--full rcx-css-1puefm5"
+            class="rcx-box rcx-box--full rcx-css-18lrnld"
           >
             unchecked
           </th>
@@ -98,7 +98,7 @@ exports[`[ToggleSwitch Rendering] renders States without crashing 1`] = `
           class="rcx-box rcx-box--full"
         >
           <th
-            class="rcx-box rcx-box--full rcx-css-1puefm5"
+            class="rcx-box rcx-box--full rcx-css-18lrnld"
           >
             default
           </th>
@@ -150,7 +150,7 @@ exports[`[ToggleSwitch Rendering] renders States without crashing 1`] = `
           class="rcx-box rcx-box--full"
         >
           <th
-            class="rcx-box rcx-box--full rcx-css-1puefm5"
+            class="rcx-box rcx-box--full rcx-css-18lrnld"
           >
             hover
           </th>
@@ -202,7 +202,7 @@ exports[`[ToggleSwitch Rendering] renders States without crashing 1`] = `
           class="rcx-box rcx-box--full"
         >
           <th
-            class="rcx-box rcx-box--full rcx-css-1puefm5"
+            class="rcx-box rcx-box--full rcx-css-18lrnld"
           >
             active
           </th>
@@ -254,7 +254,7 @@ exports[`[ToggleSwitch Rendering] renders States without crashing 1`] = `
           class="rcx-box rcx-box--full"
         >
           <th
-            class="rcx-box rcx-box--full rcx-css-1puefm5"
+            class="rcx-box rcx-box--full rcx-css-18lrnld"
           >
             focus
           </th>
@@ -306,7 +306,7 @@ exports[`[ToggleSwitch Rendering] renders States without crashing 1`] = `
           class="rcx-box rcx-box--full"
         >
           <th
-            class="rcx-box rcx-box--full rcx-css-1puefm5"
+            class="rcx-box rcx-box--full rcx-css-18lrnld"
           >
             disabled
           </th>

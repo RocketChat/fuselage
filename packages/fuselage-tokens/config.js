@@ -1,6 +1,8 @@
 import { kebabCase } from 'change-case';
 
-const colors = [
+const categories = [
+  'typography',
+  'breakpoints',
   'colors',
   'badge',
   'button',
@@ -21,22 +23,22 @@ export default {
     'fuselage/json': {
       transformGroup: 'js',
       buildPath: 'dist/',
-      files: ['typography', 'breakpoints', ...colors].map((root) => ({
-        destination: `${root}.json`,
+      files: categories.map((category) => ({
+        destination: `${category}.json`,
         format: 'json/rocketchat',
-        filter: filterByCategory(root),
+        filter: filterByCategory(category),
       })),
     },
     'fuselage/scss': {
       transformGroup: 'scss/rocketchat',
       buildPath: 'dist/',
-      files: ['typography', 'breakpoints', ...colors].map((root) => ({
-        destination: `${root}.scss`,
+      files: categories.map((category) => ({
+        destination: `${category}.scss`,
         format: 'scss/map-flat',
         options: {
-          mapName: kebabCase(root),
+          mapName: kebabCase(category),
         },
-        filter: filterByCategory(root),
+        filter: filterByCategory(category),
       })),
     },
   },
