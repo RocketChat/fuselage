@@ -25,15 +25,11 @@
   @each $breakpoint-name in $breakpoint-names {
     @include when-item-is-on-breakpoint($breakpoint-name) {
       margin-block: calc(
-        #{to-rem(
-            map.get(breakpoints.$breakpoints, #{$breakpoint-name}-gutter-width)
-          )} /
+        #{map.get(breakpoints.$breakpoints, #{$breakpoint-name}-gutter-width)} /
           -2
       );
       margin-inline: calc(
-        #{to-rem(
-            map.get(breakpoints.$breakpoints, #{$breakpoint-name}-gutter-width)
-          )} /
+        #{map.get(breakpoints.$breakpoints, #{$breakpoint-name}-gutter-width)} /
           -2
       );
     }
@@ -46,15 +42,11 @@
   @each $breakpoint-name in $breakpoint-names {
     @include when-item-is-on-breakpoint($breakpoint-name) {
       padding-block: calc(
-        #{to-rem(
-            map.get(breakpoints.$breakpoints, #{$breakpoint-name}-gutter-width)
-          )} /
+        #{map.get(breakpoints.$breakpoints, #{$breakpoint-name}-gutter-width)} /
           2
       );
       padding-inline: calc(
-        #{to-rem(
-            map.get(breakpoints.$breakpoints, #{$breakpoint-name}-gutter-width)
-          )} /
+        #{map.get(breakpoints.$breakpoints, #{$breakpoint-name}-gutter-width)} /
           2
       );
 
