@@ -1,3 +1,4 @@
+import tokenBorder from '@rocket.chat/fuselage-tokens/dist/border.json';
 import tokenTypography from '@rocket.chat/fuselage-tokens/dist/typography.json';
 import { memoize } from '@rocket.chat/memo';
 import invariant from 'invariant';
@@ -54,23 +55,16 @@ const measure = (
   });
 
 export const borderWidth = measure((value: unknown) => {
-  if (value === 'none') {
-    return '0px';
-  }
-  if (value === 'default') {
-    return borderWidth('x1');
+  if (typeof value === 'string' && value in tokenBorder.width) {
+    return `${tokenBorder.width[value as keyof typeof tokenBorder.width]}px`;
   }
 
   return undefined;
 });
 
 export const borderRadius = measure((value: unknown) => {
-  if (value === 'none') {
-    return '0px';
-  }
-
-  if (value === 'full') {
-    return '9999px';
+  if (typeof value === 'string' && value in tokenBorder.radius) {
+    return `${tokenBorder.radius[value as keyof typeof tokenBorder.radius] / 16}rem`;
   }
 
   return undefined;

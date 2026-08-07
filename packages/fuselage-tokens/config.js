@@ -12,6 +12,7 @@ const categories = [
   'statusBullet',
   'stroke',
   'surface',
+  'border',
 ];
 
 const filterByCategory = (root) => (token) =>

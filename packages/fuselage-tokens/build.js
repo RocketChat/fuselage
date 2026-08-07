@@ -22,6 +22,16 @@ StyleDictionary.registerTransform({
 });
 
 StyleDictionary.registerTransform({
+  name: 'size/borderWidth/rocketchat',
+  type: 'value',
+  filter: (token) => token.type === 'borderWidth',
+  transform: (token) => {
+    if (token.original.value === 0) return token.value;
+    return `${token.value}px`;
+  },
+});
+
+StyleDictionary.registerTransform({
   name: 'fontFamily/css/rocketchat',
   type: 'value',
   filter: (token) => token.attributes.type === 'fontFamily',
@@ -42,6 +52,7 @@ StyleDictionary.registerTransformGroup({
     'time/seconds',
     'html/icon',
     'size/pxToRem',
+    'size/borderWidth/rocketchat',
     'color/css',
     'asset/url',
     'fontFamily/css/rocketchat',
