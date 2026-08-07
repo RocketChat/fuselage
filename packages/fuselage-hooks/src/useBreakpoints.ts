@@ -1,7 +1,14 @@
-import breakpointsDefinitions from '@rocket.chat/fuselage-tokens/breakpoints.json';
+import breakpointsTokens from '@rocket.chat/fuselage-tokens/breakpoints.json';
 import { useMemo } from 'react';
 
 import { useMediaQueries } from './useMediaQueries';
+
+const breakpoints = Object.entries(breakpointsTokens)
+  .map(([name, { minViewportWidth }]) => ({
+    name,
+    minViewportWidth,
+  }))
+  .sort((a, b) => (a.minViewportWidth ?? 0) - (b.minViewportWidth ?? 0));
 
 /**
  * Hook to catch which responsive design' breakpoints are active.
@@ -13,14 +20,14 @@ export const useBreakpoints = (unit: 'px' | 'em' = 'em'): string[] => {
   const matches = useMediaQueries(
     ...useMemo(
       () =>
-        breakpointsDefinitions
+        breakpoints
           .slice(1)
           .map(
-            (breakpoint) =>
+            ({ minViewportWidth }) =>
               `(min-width: ${
                 unit === 'px'
-                  ? `${breakpoint.minViewportWidth}px`
-                  : `${breakpoint.minViewportWidth! / 16}em`
+                  ? `${minViewportWidth}px`
+                  : `${minViewportWidth! / 16}em`
               })`,
           ),
       [unit],
@@ -32,12 +39,12 @@ export const useBreakpoints = (unit: 'px' | 'em' = 'em'): string[] => {
       matches.reduce<string[]>(
         (names, matches, i) => {
           if (matches) {
-            return [...names, breakpointsDefinitions[i + 1].name];
+            return [...names, breakpoints[i + 1].name];
           }
 
           return names;
         },
-        [breakpointsDefinitions[0].name],
+        [breakpoints[0].name],
       ),
     [matches],
   );
