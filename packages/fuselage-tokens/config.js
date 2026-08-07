@@ -21,7 +21,7 @@ export default {
   source: ['src/**/*.json'],
   platforms: {
     'fuselage/json': {
-      transformGroup: 'js',
+      transformGroup: 'json/rocketchat',
       buildPath: 'dist/',
       files: categories.map((category) => ({
         destination: `${category}.json`,

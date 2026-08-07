@@ -2,6 +2,11 @@ import { kebabCase } from 'change-case';
 import StyleDictionary from 'style-dictionary';
 import { minifyDictionary } from 'style-dictionary/utils';
 
+StyleDictionary.registerTransformGroup({
+  name: 'json/rocketchat',
+  transforms: ['attribute/cti', 'name/pascal', 'color/hex'],
+});
+
 StyleDictionary.registerFormat({
   name: 'json/rocketchat',
   async format({ dictionary }) {
@@ -36,7 +41,7 @@ StyleDictionary.registerTransformGroup({
     'name/kebab/rocketchat',
     'time/seconds',
     'html/icon',
-    // 'size/rem',
+    'size/pxToRem',
     'color/css',
     'asset/url',
     'fontFamily/css/rocketchat',
