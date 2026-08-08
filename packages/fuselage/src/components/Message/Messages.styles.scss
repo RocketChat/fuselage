@@ -158,6 +158,10 @@ $message-highlight-border-radius: theme(
     }
   }
 
+  .rcx-message-body {
+    text-align: left;
+  }
+
   &--sequential {
     padding-block: lengths.padding(4);
   }
