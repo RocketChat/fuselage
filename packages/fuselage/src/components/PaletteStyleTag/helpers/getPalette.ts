@@ -11,14 +11,14 @@ import type { Themes } from '../types/themes';
 
 export const getTokens = (theme: Themes) => {
   const tokens = {
-    badge: badge.badge[theme],
-    button: button.button[theme],
-    font: font.font[theme],
-    shadow: shadow.shadow[theme],
-    status: status.status[theme],
-    statusBullet: statusBullet.statusBullet[theme],
-    stroke: stroke.stroke[theme],
-    surface: surface.surface[theme],
+    badge: badge[theme],
+    button: button[theme],
+    font: font[theme],
+    shadow: shadow[theme],
+    status: status[theme],
+    statusBullet: statusBullet[theme],
+    stroke: stroke[theme],
+    surface: surface[theme],
   };
 
   return tokens;

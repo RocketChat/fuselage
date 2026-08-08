@@ -1,4 +1,4 @@
-import tokenColors from '@rocket.chat/fuselage-tokens/colors.json';
+import tokenColors from '@rocket.chat/fuselage-tokens/dist/colors.json';
 import invariant from 'invariant';
 
 const isPaletteColorRef = (ref: unknown): ref is keyof typeof tokenColors =>

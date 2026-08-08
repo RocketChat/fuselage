@@ -21,7 +21,7 @@ exports[`[AutoComplete Rendering] renders CustomItem without crashing 1`] = `
       >
         <i
           aria-hidden="true"
-          class="rcx-box rcx-box--full rcx-icon--name-magnifier rcx-icon rcx-css-1ku6woc"
+          class="rcx-box rcx-box--full rcx-icon--name-magnifier rcx-icon rcx-css-rm4moq"
         >
           
         </i>
@@ -120,7 +120,7 @@ v/L21v8BT/ZVoe1UItsAAAAASUVORK5CYII="
       >
         <i
           aria-hidden="true"
-          class="rcx-box rcx-box--full rcx-icon--name-magnifier rcx-icon rcx-css-1ku6woc"
+          class="rcx-box rcx-box--full rcx-icon--name-magnifier rcx-icon rcx-css-rm4moq"
         >
           
         </i>
@@ -151,7 +151,7 @@ exports[`[AutoComplete Rendering] renders Default without crashing 1`] = `
       >
         <i
           aria-hidden="true"
-          class="rcx-box rcx-box--full rcx-icon--name-magnifier rcx-icon rcx-css-1ku6woc"
+          class="rcx-box rcx-box--full rcx-icon--name-magnifier rcx-icon rcx-css-rm4moq"
         >
           
         </i>
@@ -183,7 +183,7 @@ exports[`[AutoComplete Rendering] renders Disabled without crashing 1`] = `
       >
         <i
           aria-hidden="true"
-          class="rcx-box rcx-box--full rcx-icon--name-magnifier rcx-icon rcx-css-1ku6woc"
+          class="rcx-box rcx-box--full rcx-icon--name-magnifier rcx-icon rcx-css-rm4moq"
         >
           
         </i>
@@ -248,7 +248,7 @@ exports[`[AutoComplete Rendering] renders Multiple without crashing 1`] = `
       >
         <i
           aria-hidden="true"
-          class="rcx-box rcx-box--full rcx-icon--name-magnifier rcx-icon rcx-css-1ku6woc"
+          class="rcx-box rcx-box--full rcx-icon--name-magnifier rcx-icon rcx-css-rm4moq"
         >
           
         </i>
@@ -447,7 +447,7 @@ v/L21v8BT/ZVoe1UItsAAAAASUVORK5CYII="
       >
         <i
           aria-hidden="true"
-          class="rcx-box rcx-box--full rcx-icon--name-magnifier rcx-icon rcx-css-1ku6woc"
+          class="rcx-box rcx-box--full rcx-icon--name-magnifier rcx-icon rcx-css-rm4moq"
         >
           
         </i>
@@ -479,7 +479,7 @@ exports[`[AutoComplete Rendering] renders WithPlaceholder without crashing 1`] =
       >
         <i
           aria-hidden="true"
-          class="rcx-box rcx-box--full rcx-icon--name-magnifier rcx-icon rcx-css-1ku6woc"
+          class="rcx-box rcx-box--full rcx-icon--name-magnifier rcx-icon rcx-css-rm4moq"
         >
           
         </i>

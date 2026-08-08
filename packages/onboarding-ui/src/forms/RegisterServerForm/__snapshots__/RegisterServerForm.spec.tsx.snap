@@ -6,14 +6,14 @@ exports[`renders _RegisterServerForm without crashing 1`] = `
     <form
       aria-describedby="_r_0_-informed-disclaimer _r_0_-engagement-disclaimer"
       aria-labelledby="_r_0_-title"
-      class="rcx-box rcx-box--full rcx-tile--elevation-1 rcx-tile rcx-css-qv7ei"
+      class="rcx-box rcx-box--full rcx-tile--elevation-1 rcx-tile rcx-css-h7ntyn"
       tabindex="-1"
     >
       <header
         class="rcx-box rcx-box--full rcx-css-heem01"
       >
         <div
-          class="rcx-box rcx-box--full rcx-css-1xe0epq"
+          class="rcx-box rcx-box--full rcx-css-d369k0"
         >
           Step 1 of 1
         </div>
@@ -179,14 +179,14 @@ exports[`renders _RegisterServerFormOffline without crashing 1`] = `
     <form
       aria-describedby="_r_3_-informed-disclaimer _r_3_-engagement-disclaimer"
       aria-labelledby="_r_3_-title"
-      class="rcx-box rcx-box--full rcx-tile--elevation-1 rcx-tile rcx-css-qv7ei"
+      class="rcx-box rcx-box--full rcx-tile--elevation-1 rcx-tile rcx-css-h7ntyn"
       tabindex="-1"
     >
       <header
         class="rcx-box rcx-box--full rcx-css-heem01"
       >
         <div
-          class="rcx-box rcx-box--full rcx-css-1xe0epq"
+          class="rcx-box rcx-box--full rcx-css-d369k0"
         >
           Step 1 of 1
         </div>

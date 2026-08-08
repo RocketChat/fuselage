@@ -4,7 +4,7 @@ exports[`renders Default without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-css-1d0dok0"
+      class="rcx-css-zprnfp"
     >
       <div
         class="rcx-css-s3n4r5"
@@ -20,7 +20,7 @@ exports[`renders Default without crashing 1`] = `
             >
               <svg
                 aria-labelledby="_r_0_"
-                fill="#F5455C"
+                fill="#f5455c"
                 height="100%"
                 viewBox="0 0 180 30"
                 width="100%"
@@ -106,7 +106,7 @@ exports[`renders Default without crashing 1`] = `
           >
             Description 
             <a
-              class="rcx-box rcx-box--full rcx-css-1oi5igz"
+              class="rcx-box rcx-box--full rcx-css-fyntbe"
               href="#"
             >
               highlight
@@ -117,7 +117,7 @@ exports[`renders Default without crashing 1`] = `
           class="rcx-css-1tmhcn7"
         >
           <form
-            class="rcx-box rcx-box--full rcx-tile--elevation-1 rcx-tile rcx-css-qv7ei"
+            class="rcx-box rcx-box--full rcx-tile--elevation-1 rcx-tile rcx-css-h7ntyn"
           >
             <header
               class="rcx-box rcx-box--full rcx-css-heem01"
@@ -128,7 +128,7 @@ exports[`renders Default without crashing 1`] = `
                 Title
               </div>
               <div
-                class="rcx-box rcx-box--full rcx-css-145doeu"
+                class="rcx-box rcx-box--full rcx-css-gk1yjz"
               >
                 Subtitle
               </div>
@@ -189,7 +189,7 @@ exports[`renders WithScroll without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-css-1d0dok0"
+      class="rcx-css-zprnfp"
     >
       <div
         class="rcx-css-s3n4r5"
@@ -205,7 +205,7 @@ exports[`renders WithScroll without crashing 1`] = `
             >
               <svg
                 aria-labelledby="_r_1_"
-                fill="#F5455C"
+                fill="#f5455c"
                 height="100%"
                 viewBox="0 0 180 30"
                 width="100%"
@@ -290,7 +290,7 @@ exports[`renders WithScroll without crashing 1`] = `
           class="rcx-css-1tmhcn7"
         >
           <form
-            class="rcx-box rcx-box--full rcx-tile--elevation-1 rcx-tile rcx-css-qv7ei"
+            class="rcx-box rcx-box--full rcx-tile--elevation-1 rcx-tile rcx-css-h7ntyn"
           >
             <header
               class="rcx-box rcx-box--full rcx-css-heem01"
@@ -301,7 +301,7 @@ exports[`renders WithScroll without crashing 1`] = `
                 Title
               </div>
               <div
-                class="rcx-box rcx-box--full rcx-css-145doeu"
+                class="rcx-box rcx-box--full rcx-css-gk1yjz"
               >
                 Subtitle
               </div>
