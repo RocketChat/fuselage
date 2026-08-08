@@ -3,6 +3,8 @@
 '@rocket.chat/fuselage': minor
 '@rocket.chat/fuselage-hooks': patch
 '@rocket.chat/layout': patch
+'@rocket.chat/logo': patch
+'@rocket.chat/onboarding-ui': patch
 ---
 
 feat(fuselage-tokens)!: Rework the token build and its output formats
@@ -18,12 +20,14 @@ were reorganized (`src/colors/*.json`, `src/breakpoints.json`,
 `borderRadius` and `borderWidth` styling props now accept those keywords;
 `borderRadius` returns `rem` rather than `px`.
 
-**Only `.json` and `.scss` are emitted.** The `.js` and `.mjs` bundles are no
-longer built or published — import the `.json` files instead.
+**Every artifact now lives under `dist/`.** The root-level `colors.*`,
+`breakpoints.*` and `typography.*` entry points are gone; import from `dist/`
+instead. Only `.json` and `.scss` are emitted — the `.js` and `.mjs` bundles are
+no longer built or published.
 
 ```diff
 -const colors = require('@rocket.chat/fuselage-tokens/colors.js');
-+const colors = require('@rocket.chat/fuselage-tokens/colors.json');
++const colors = require('@rocket.chat/fuselage-tokens/dist/colors.json');
 ```
 
 **JSON shapes changed.**
@@ -43,7 +47,7 @@ kebab-case keys, and lengths are converted to `rem`:
 ```diff
 -@use '~@rocket.chat/fuselage-tokens/breakpoints.scss';
 -$w: map.get(map.get(breakpoints.$breakpoints, md), min-viewport-width);
-+@use '~@rocket.chat/fuselage-tokens/breakpoints.scss';
++@use '~@rocket.chat/fuselage-tokens/dist/breakpoints.scss';
 +$w: map.get(breakpoints.$breakpoints, 'md-min-viewport-width');
 ```
 

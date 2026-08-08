@@ -24,10 +24,7 @@
   },
   "type": "module",
   "files": [
-    "dist",
-    "/breakpoints.*",
-    "/colors.*",
-    "/typography.*"
+    "dist"
   ],
   "scripts": {
     "build": "rimraf dist && node ./build --config ./config.js"

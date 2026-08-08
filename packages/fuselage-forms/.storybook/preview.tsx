@@ -1,5 +1,5 @@
 import { PaletteStyleTag } from '@rocket.chat/fuselage';
-import breakpointTokens from '@rocket.chat/fuselage-tokens/breakpoints.json';
+import breakpointTokens from '@rocket.chat/fuselage-tokens/dist/breakpoints.json';
 import surface from '@rocket.chat/fuselage-tokens/dist/surface.json';
 import { useDarkMode } from '@rocket.chat/storybook-dark-mode';
 import type { Preview } from '@storybook/react-webpack5';
