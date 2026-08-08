@@ -1,4 +1,4 @@
-import colors from '@rocket.chat/fuselage-tokens/colors.json';
+import colors from '@rocket.chat/fuselage-tokens/dist/colors.json';
 import { List, DarkModeProvider, ListItem } from '@rocket.chat/layout';
 import { useMemo } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';

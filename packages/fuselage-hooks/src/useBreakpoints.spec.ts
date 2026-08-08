@@ -1,4 +1,4 @@
-import breakpointsTokens from '@rocket.chat/fuselage-tokens/breakpoints.json';
+import breakpointsTokens from '@rocket.chat/fuselage-tokens/dist/breakpoints.json';
 import { withMatchMediaMock } from 'testing-utils/mocks/withMatchMediaMock';
 
 import { renderHook, act } from './testing';

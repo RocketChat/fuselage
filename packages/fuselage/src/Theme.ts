@@ -1,5 +1,5 @@
-import colors from '@rocket.chat/fuselage-tokens/colors.json';
 import badge from '@rocket.chat/fuselage-tokens/dist/badge.json';
+import colors from '@rocket.chat/fuselage-tokens/dist/colors.json';
 import font from '@rocket.chat/fuselage-tokens/dist/font.json';
 import shadow from '@rocket.chat/fuselage-tokens/dist/shadow.json';
 import status from '@rocket.chat/fuselage-tokens/dist/status.json';
