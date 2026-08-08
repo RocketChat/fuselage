@@ -190,6 +190,15 @@ function AutoComplete<TLabel = ReactNode>({
 
   useEffect(reset, [filter, reset]);
 
+  const handleClear = (e: MouseEvent) => {
+    e.stopPropagation();
+    setFilter?.('');
+    onChange(multiple ? [] : '');
+    hide();
+    if (ref.current) {
+      ref.current.blur();
+    }
+  };
   return (
     <Box
       rcx-autocomplete
@@ -257,6 +266,13 @@ function AutoComplete<TLabel = ReactNode>({
           }
           size='x20'
           color='default'
+
+          onClick={(e) =>
+            optionsAreVisible === AnimatedVisibility.VISIBLE
+              ? handleClear(e)
+              : ref.current?.focus()
+          }
+          onMouseDown={(e) => e.preventDefault()}
         />
       </Box>
       <PositionAnimated visible={optionsAreVisible} anchor={containerRef}>
