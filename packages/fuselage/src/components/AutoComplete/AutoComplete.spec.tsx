@@ -1,5 +1,5 @@
 import { composeStories } from '@storybook/react-webpack5';
-import { screen } from '@testing-library/dom';
+import { screen, within } from '@testing-library/dom';
 import userEvent from '@testing-library/user-event';
 import { axe } from 'jest-axe';
 import { withResizeObserverMock } from 'testing-utils/mocks/withResizeObserverMock';
@@ -69,7 +69,10 @@ describe('[Autocomplete functionality]', () => {
       />,
     );
 
-    const removeButton = screen.getByRole('button', { name: 'test1' });
+    const chip = screen.getByText('test1').closest('.rcx-chip');
+    const removeButton = within(chip as HTMLElement).getByRole('button', {
+      name: 'Dismiss',
+    });
 
     await userEvent.click(removeButton);
 
@@ -88,7 +91,10 @@ describe('[Autocomplete functionality]', () => {
       />,
     );
 
-    const removeButton = screen.getByRole('button', { name: 'test1' });
+    const chip = screen.getByText('test1').closest('.rcx-chip');
+    const removeButton = within(chip as HTMLElement).getByRole('button', {
+      name: 'Dismiss',
+    });
     await userEvent.click(removeButton);
 
     expect(onChange).toHaveBeenCalledWith('');
@@ -106,7 +112,7 @@ describe('[Autocomplete functionality]', () => {
       />,
     );
 
-    expect(screen.getByRole('button', { name: 'test1' })).toBeInTheDocument();
+    expect(screen.getByText('test1')).toBeInTheDocument();
 
     rerender(
       <AutoComplete
@@ -120,8 +126,6 @@ describe('[Autocomplete functionality]', () => {
         onChange={() => {}}
       />,
     );
-    expect(
-      screen.queryByRole('button', { name: 'test1' }),
-    ).not.toBeInTheDocument();
+    expect(screen.queryByText('test1')).not.toBeInTheDocument();
   });
 });

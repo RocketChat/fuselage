@@ -211,7 +211,6 @@ function MultiSelect({
                       </RenderSelected>
                     ) : (
                       <SelectedOptions
-                        tabIndex={-1}
                         key={String(value)}
                         onMouseDown={(e) => {
                           prevent(e);
