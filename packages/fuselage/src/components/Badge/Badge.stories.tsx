@@ -32,7 +32,7 @@ export default {
     },
     variant: {
       control: 'select',
-      options: ['secondary', 'primary', 'danger', 'warning', 'ghost'],
+      options: ['secondary', 'primary', 'danger', 'warning'],
       description: 'Color kind of the badge.',
       table: { category: 'Kind', defaultValue: { summary: 'secondary' } },
     },
@@ -40,11 +40,6 @@ export default {
       control: 'boolean',
       description: 'Renders the badge in a smaller size.',
       table: { category: 'Size' },
-    },
-    disabled: {
-      control: 'boolean',
-      description: 'Applies the disabled visual style.',
-      table: { category: 'State' },
     },
     is: {
       control: false,
@@ -84,12 +79,6 @@ export const Danger: Story = {
 export const Warning: Story = {
   args: {
     variant: 'warning',
-  },
-};
-
-export const Disabled: Story = {
-  args: {
-    disabled: true,
   },
 };
 
