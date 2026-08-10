@@ -1,5 +1,6 @@
 import { composeStories } from '@storybook/react-webpack5';
-import { screen } from '@testing-library/react';
+import { screen, waitFor, within } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { axe } from 'jest-axe';
 import { withResizeObserverMock } from 'testing-utils/mocks/withResizeObserverMock';
 
@@ -40,4 +41,30 @@ test('MultiSelectFiltered prevents Chrome autocomplete overlay (regression)', ()
   const inputElement = screen.getByRole('combobox');
 
   expect(inputElement).toHaveAttribute('autocomplete', 'off');
+});
+
+test('unchecks the option checkbox on deselect', async () => {
+  const { Default } = composeStories(stories);
+
+  render(<Default />);
+
+  await userEvent.click(screen.getByRole('combobox'));
+
+  await waitFor(() => expect(screen.getByRole('listbox')).toBeInTheDocument());
+
+  const option = screen.getByRole('option', { name: /a teste 1/ });
+  const checkbox = within(option).getByRole('checkbox');
+
+  expect(option).toHaveAttribute('aria-selected', 'false');
+  expect(checkbox).not.toBeChecked();
+
+  await userEvent.click(option);
+
+  expect(option).toHaveAttribute('aria-selected', 'true');
+  expect(checkbox).toBeChecked();
+
+  await userEvent.click(option);
+
+  expect(option).toHaveAttribute('aria-selected', 'false');
+  expect(checkbox).not.toBeChecked();
 });
