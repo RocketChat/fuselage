@@ -105,4 +105,37 @@ $chip-disabled-color: theme('chip-disabled-color', colors.font(disabled));
 
     font: inherit;
   }
+
+  &--dismissible {
+    display: inline-flex;
+
+    padding-block: 0;
+    padding-inline: lengths.size(4) 0;
+
+    cursor: default;
+
+    gap: lengths.size(4);
+
+    &:hover,
+    &:focus,
+    &:active {
+      border-color: $chip-border-color;
+      background-color: $chip-background-color;
+      box-shadow: none;
+    }
+
+    &.rcx-chip--disabled {
+      color: $chip-disabled-color;
+      border-color: $chip-disabled-border-color;
+      background-color: $chip-disabled-background-color;
+    }
+  }
+
+  &--medium {
+    min-height: lengths.size(28);
+  }
+
+  &--small {
+    min-height: lengths.size(20);
+  }
 }
