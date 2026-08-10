@@ -206,8 +206,9 @@ function MultiSelect({
                           internalChanged(currentOption);
                           removeFocusClass();
                         }}
-                        children={getLabel(currentOption)}
-                      />
+                      >
+                        {getLabel(currentOption)}
+                      </RenderSelected>
                     ) : (
                       <SelectedOptions
                         tabIndex={-1}
@@ -217,8 +218,9 @@ function MultiSelect({
                           internalChanged(currentOption);
                           removeFocusClass();
                         }}
-                        children={getLabel(currentOption)}
-                      />
+                      >
+                        {getLabel(currentOption)}
+                      </SelectedOptions>
                     );
                   })}
                 </Margins>
@@ -229,18 +231,16 @@ function MultiSelect({
       </FlexItem>
       <FlexItem grow={0} shrink={0}>
         <Margins inline='x4'>
-          <SelectAddon
-            children={
-              <Icon
-                name={
-                  visible === AnimatedVisibility.VISIBLE
-                    ? 'chevron-up'
-                    : addonIcon || 'chevron-down'
-                }
-                size='x20'
-              />
-            }
-          />
+          <SelectAddon>
+            <Icon
+              name={
+                visible === AnimatedVisibility.VISIBLE
+                  ? 'chevron-up'
+                  : addonIcon || 'chevron-down'
+              }
+              size='x20'
+            />
+          </SelectAddon>
         </Margins>
       </FlexItem>
       <PositionAnimated visible={visible} anchor={containerRef}>

@@ -10,9 +10,9 @@ export function DropdownMobile({ children, ...props }: DropdownMobileProps) {
   return (
     <Tile
       elevation='2'
-      pi='0'
-      pb='0'
-      w='100vw'
+      paddingInline='0'
+      paddingBlock='0'
+      width='100vw'
       maxHeight='80%'
       position='fixed'
       display='flex'
@@ -23,7 +23,7 @@ export function DropdownMobile({ children, ...props }: DropdownMobileProps) {
       data-testid='dropdown'
       {...props}
     >
-      <Box flexShrink={1} pb={16}>
+      <Box flexShrink={1} paddingBlock={16}>
         {children}
       </Box>
     </Tile>

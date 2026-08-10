@@ -127,7 +127,7 @@ export const menuOptions = () => ({
   makeAdmin: {
     label: (
       <Box display='flex' alignItems='center'>
-        <Icon mie={4} name='key' size='x16' />
+        <Icon marginInlineEnd={4} name='key' size='x16' />
         Make Admin
       </Box>
     ),
@@ -136,7 +136,7 @@ export const menuOptions = () => ({
   delete: {
     label: (
       <Box display='flex' alignItems='center' color='danger'>
-        <Icon mie={4} name='trash' size='x16' />
+        <Icon marginInlineEnd={4} name='trash' size='x16' />
         Delete
       </Box>
     ),

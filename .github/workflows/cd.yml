@@ -7,10 +7,14 @@ on:
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
+permissions: {}
+
 jobs:
   build-and-test:
     name: Build and Test
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     env:
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
       TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
@@ -132,6 +136,8 @@ jobs:
   publish-to-gh-pages:
     name: Publish to GitHub Pages
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     needs:
       - build-and-test
     environment:

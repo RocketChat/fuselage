@@ -1,7 +1,7 @@
-@use '../../../styles/colors.scss';
 @use '../../../styles/lengths.scss';
-@use '../../../styles/mixins/size.scss';
+@use '../../../styles/colors.scss';
 @use '../../../styles/typography.scss' as *;
+@use '../../../styles/mixins/size.scss';
 @use '../mixins.scss';
 
 .rcx-message.rcx-message-thread {
@@ -83,6 +83,9 @@
     margin-inline: lengths.margin(2);
 
     background-size: contain;
+
+    font-size: lengths.size(12);
+    line-height: lengths.size(8);
 
     @include size.square(lengths.size(12));
   }

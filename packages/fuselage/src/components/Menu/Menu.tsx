@@ -16,25 +16,26 @@ import MenuDropDown from './MenuDropdown';
 import MenuPopover from './MenuPopover';
 import { getPlacement } from './helpers/helpers';
 
-export interface MenuProps<T> extends AriaMenuProps<T>, MenuTriggerProps {
-  icon?: IconButtonProps['icon'];
-  large?: boolean;
-  medium?: boolean;
-  small?: boolean;
-  tiny?: boolean;
-  mini?: boolean;
-  placement?: UsePositionOptions['placement'];
-  title?: string;
-  detached?: boolean;
-  /**
-   * A component that renders an IconButton
-   */
-  is?: ElementType;
-  className?: BoxProps['className'];
-  pressed?: boolean;
-  maxWidth?: string;
-  button?: ReactElement<any>;
-}
+export type MenuProps<T> = AriaMenuProps<T> &
+  MenuTriggerProps & {
+    icon?: IconButtonProps['icon'];
+    large?: boolean;
+    medium?: boolean;
+    small?: boolean;
+    tiny?: boolean;
+    mini?: boolean;
+    placement?: UsePositionOptions['placement'];
+    title?: string;
+    detached?: boolean;
+    /**
+     * A component that renders an IconButton
+     */
+    is?: ElementType;
+    className?: BoxProps['className'];
+    pressed?: boolean;
+    maxWidth?: string;
+    button?: ReactElement<any>;
+  };
 
 const Menu = <T extends object>({
   icon = 'kebab',
@@ -75,7 +76,7 @@ const Menu = <T extends object>({
       placement={getPlacement(placement)}
       maxWidth={maxWidth}
     >
-      <MenuDropDown {...props} {...menuProps} />
+      <MenuDropDown {...props} {...menuProps} rootMenuTriggerState={state} />
     </MenuPopover>
   );
 

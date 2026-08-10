@@ -1,4 +1,4 @@
-import type { Meta, StoryFn } from '@storybook/react-webpack5';
+import type { Meta, StoryObj } from '@storybook/react-webpack5';
 
 import {
   Avatar,
@@ -34,14 +34,22 @@ export default {
   component: Sidepanel,
   decorators: [
     (Story) => (
-      <Box h='90vh' w='x276'>
+      <Box height='90vh' width='x276'>
         <Story />
       </Box>
     ),
   ],
-} as Meta<typeof Sidepanel>;
+  argTypes: {
+    children: {
+      control: false,
+      description: 'Content of the sidepanel.',
+    },
+  },
+} satisfies Meta<typeof Sidepanel>;
 
-const Template: StoryFn<typeof Sidepanel> = (args) => (
+type Story = StoryObj<typeof Sidepanel>;
+
+const render: Story['render'] = (args) => (
   <Sidepanel {...args}>
     <SidepanelHeader>
       <SidepanelHeaderTitle>
@@ -90,7 +98,7 @@ const Template: StoryFn<typeof Sidepanel> = (args) => (
                       flexShrink={1}
                       flexGrow={0}
                     >
-                      <Icon size='x12' mie={4} name='team' />
+                      <Icon size='x12' marginInlineEnd={4} name='team' />
                       Team title
                     </Tag>
                     <SidebarV2ItemBadge
@@ -109,4 +117,6 @@ const Template: StoryFn<typeof Sidepanel> = (args) => (
   </Sidepanel>
 );
 
-export const Default = Template.bind({});
+export const Default: Story = {
+  render,
+};

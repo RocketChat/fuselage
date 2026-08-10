@@ -5,11 +5,17 @@ import SidebarDivider from '../SidebarDivider';
 import { TopBar } from './TopBar';
 import { TopBarWrapper } from './TopBarWrapper';
 
+/**
+ * @deprecated Use `NavBar` for app-level navigation instead.
+ */
 export type TopBarToolBoxProps = {
   children?: ReactNode;
   className?: string;
 };
 
+/**
+ * @deprecated Use `NavBar` for app-level navigation instead.
+ */
 export const TopBarToolBox = ({
   children,
   className,
@@ -21,7 +27,7 @@ export const TopBarToolBox = ({
       .join(' ')}
     {...props}
   >
-    <TopBarWrapper children={children} />
+    <TopBarWrapper>{children}</TopBarWrapper>
     <SidebarDivider />
   </TopBar>
 );

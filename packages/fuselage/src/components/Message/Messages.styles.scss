@@ -203,7 +203,12 @@ $message-highlight-border-radius: theme(
       @include use-font-scale(c1);
       flex-shrink: 0;
 
-      color: colors.font(default);
+      color: colors.font(secondary-info);
+
+      // secondary-info fails contrast against the hover surface.
+      .rcx-message:hover & {
+        color: colors.font(default);
+      }
     }
 
     &__name-container {
@@ -215,6 +220,18 @@ $message-highlight-border-radius: theme(
 
       @include templates.focus-state;
       flex-shrink: 0;
+
+      // This must match __name's color or the
+      // underline mismatches the text under it.
+      color: colors.font(titles-labels);
+
+      &[role='button'] {
+        cursor: pointer;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
     }
 
     &__name {
@@ -222,7 +239,7 @@ $message-highlight-border-radius: theme(
       @include use-with-truncated-text();
       flex-shrink: 1;
 
-      color: colors.font(default);
+      color: colors.font(titles-labels);
     }
 
     &__username {
@@ -380,9 +397,16 @@ $message-highlight-border-radius: theme(
     margin-inline: lengths.margin(2);
 
     background-size: contain;
+
+    font-size: lengths.size(24);
+    line-height: lengths.size(24);
+
     @include size.square(lengths.size(24));
 
     &--big {
+      font-size: lengths.size(44);
+      line-height: lengths.size(48);
+
       @include size.square(lengths.size(44));
     }
   }

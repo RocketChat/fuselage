@@ -1,5 +1,10 @@
 import { Divider } from '../Divider';
 
-const SidebarDivider = () => <Divider rcx-sidebar--divider mbs={-2} mbe={0} />;
+/**
+ * @deprecated Use `SidebarV2Divider` instead.
+ */
+const SidebarDivider = () => (
+  <Divider rcx-sidebar--divider marginBlockStart={-2} marginBlockEnd={0} />
+);
 
 export default SidebarDivider;

@@ -1,6 +1,6 @@
 import { type Key, type ReactNode } from 'react';
 
-export interface PartialNode<T> {
+export type PartialNode<T> = {
   'type'?: string;
   'key'?: Key;
   'value'?: T;
@@ -15,4 +15,4 @@ export interface PartialNode<T> {
   'childNodes'?: () => IterableIterator<PartialNode<T>>;
   'props'?: any;
   'shouldInvalidate'?: (context: unknown) => boolean;
-}
+};

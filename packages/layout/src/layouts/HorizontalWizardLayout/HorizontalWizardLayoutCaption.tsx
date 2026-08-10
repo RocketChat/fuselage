@@ -15,7 +15,7 @@ const HorizontalWizardLayoutCaption = ({
       flexDirection='row'
       fontScale='c1'
       color={isDark ? 'white' : 'secondary-info'}
-      mb={16}
+      marginBlock={16}
       alignItems='center'
     >
       {children}

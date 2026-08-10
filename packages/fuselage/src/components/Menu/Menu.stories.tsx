@@ -1,6 +1,7 @@
 import type { StoryFn, Meta } from '@storybook/react-webpack5';
 import type { ReactNode } from 'react';
 import { useState } from 'react';
+import { action } from 'storybook/actions';
 
 import { Box } from '../Box';
 import type { IconButtonProps } from '../Button';
@@ -16,6 +17,7 @@ import {
   Menu,
   MenuItem,
   MenuSection,
+  MenuSubmenuTrigger,
   MenuItemContent,
   MenuItemIcon,
   MenuItemInput,
@@ -25,6 +27,19 @@ import type { MenuProps } from './Menu';
 export default {
   title: 'Navigation/Menu',
   component: Menu,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Presents the actions a user can take at a given moment — selection or specific functionality.\n\n' +
+          '**Rules**\n' +
+          '- The item label is mandatory; the trailing element is optional (radio, checkbox, etc.).\n' +
+          '- Use title/divider items to structure groups; mark destructive items as danger; disable items that are unavailable.\n' +
+          '- A device picker / list of selectable options is a Menu with title groups + radio trailing elements — not hand-built rows.\n' +
+          '- Position 4px from the trigger edge on the opening side; align the menu border to the trigger border.',
+      },
+    },
+  },
   decorators: [
     (story) => (
       <Box
@@ -148,7 +163,7 @@ export const MenuDisplayExample = (
           <MenuItemContent>Avatars</MenuItemContent>
           <MenuItemInput>
             <ToggleSwitch
-              mie={16}
+              marginInlineEnd={16}
               onChange={() => setAvatarDisplay(!avatarDisplay)}
               checked={avatarDisplay}
             />
@@ -240,7 +255,7 @@ export const MenuMapGenericItem = () => {
       icon: 'flag',
       input: (
         <CheckBox
-          mi={16}
+          marginInline={16}
           checked={groupByUnread}
           onChange={() => setGroupByUnread(!groupByUnread)}
         />
@@ -253,7 +268,7 @@ export const MenuMapGenericItem = () => {
         'Group by favorites and unread bla bla balaisudhf ioioasdhoaisdf asdifh oaisdhf aosidhf aisdhf aosdihf',
       input: (
         <CheckBox
-          mi={16}
+          marginInline={16}
           checked={groupByFav}
           onChange={() => setGroupByFav(!groupByFav)}
         />
@@ -264,7 +279,7 @@ export const MenuMapGenericItem = () => {
       icon: 'group-by-type',
       input: (
         <CheckBox
-          mi={16}
+          marginInline={16}
           checked={groupByTypes}
           onChange={() => setGroupByTypes(!groupByTypes)}
         />
@@ -277,7 +292,7 @@ export const MenuMapGenericItem = () => {
       icon: 'clock',
       input: (
         <CheckBox
-          mi={16}
+          marginInline={16}
           onChange={() => setSortBy('activity')}
           checked={sortBy === 'activity'}
         />
@@ -288,7 +303,7 @@ export const MenuMapGenericItem = () => {
       icon: 'sort-az',
       input: (
         <CheckBox
-          mi={16}
+          marginInline={16}
           onChange={() => setSortBy('alphabetical')}
           checked={sortBy === 'alphabetical'}
         />
@@ -453,4 +468,47 @@ export const Scrollable = () => {
     <MenuItem key={i}>Item {i + 1}</MenuItem>
   ));
   return <Menu title='Scrollable Menu'>{items}</Menu>;
+};
+
+export const WithSubmenu: StoryFn<typeof Menu> = (args) => (
+  <Menu title='Menu with Submenu' {...args}>
+    <MenuItem key='profile'>Profile</MenuItem>
+    <MenuItem key='share' title='Share'>
+      <MenuItem key='copy-link'>Copy link</MenuItem>
+      <MenuItem key='email'>Email</MenuItem>
+    </MenuItem>
+    <MenuItem key='settings'>Settings</MenuItem>
+  </Menu>
+);
+
+export const WithRichSubmenuTrigger: StoryFn<typeof Menu> = (args) => (
+  <Menu title='Menu with rich submenu triggers' {...args}>
+    <MenuItem key='new' aria-label='New'>
+      <MenuItemIcon name='plus' />
+      <MenuItemContent>New</MenuItemContent>
+    </MenuItem>
+    <MenuSubmenuTrigger key='move-to'>
+      <MenuItem aria-label='Move to'>
+        <MenuItemIcon name='folder' />
+        <MenuItemContent>Move to…</MenuItemContent>
+      </MenuItem>
+      <MenuItem key='inbox'>Inbox</MenuItem>
+      <MenuItem key='archive'>Archive</MenuItem>
+      <MenuSubmenuTrigger key='teams'>
+        <MenuItem aria-label='Teams'>
+          <MenuItemIcon name='team' />
+          <MenuItemContent>Teams…</MenuItemContent>
+        </MenuItem>
+        <MenuItem key='design'>Design</MenuItem>
+        <MenuItem key='engineering'>Engineering</MenuItem>
+      </MenuSubmenuTrigger>
+    </MenuSubmenuTrigger>
+    <MenuItem key='delete' aria-label='Delete'>
+      <MenuItemIcon name='trash' />
+      <MenuItemContent>Delete</MenuItemContent>
+    </MenuItem>
+  </Menu>
+);
+WithRichSubmenuTrigger.args = {
+  onAction: action('click'),
 };

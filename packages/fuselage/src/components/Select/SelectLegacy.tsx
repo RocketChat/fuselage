@@ -156,7 +156,7 @@ function SelectLegacy({
     >
       <Wrapper
         display='flex'
-        mi='neg-x4'
+        marginInline='neg-x4'
         rcx-select__wrapper--hidden={!!visibleText}
       >
         {visibleText &&
@@ -172,7 +172,7 @@ function SelectLegacy({
             <Box
               flexGrow={1}
               is='span'
-              mi={4}
+              marginInline={4}
               rcx-select__item
               fontScale='p2'
               color={valueLabel ? 'default' : 'hint'}
@@ -191,18 +191,16 @@ function SelectLegacy({
           {!value ? option || placeholder : null}
         </Anchor>
         <Margins inline='x4'>
-          <SelectAddon
-            children={
-              <Icon
-                name={
-                  visible === AnimatedVisibility.VISIBLE
-                    ? 'chevron-up'
-                    : addonIcon || 'chevron-down'
-                }
-                size='x20'
-              />
-            }
-          />
+          <SelectAddon>
+            <Icon
+              name={
+                visible === AnimatedVisibility.VISIBLE
+                  ? 'chevron-up'
+                  : addonIcon || 'chevron-down'
+              }
+              size='x20'
+            />
+          </SelectAddon>
         </Margins>
       </Wrapper>
       <PositionAnimated visible={visible} anchor={containerRef}>

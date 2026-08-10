@@ -10,7 +10,8 @@ import * as stories from './Menu.stories';
 
 withResizeObserverMock();
 
-const { Simple, Complex, WithSections } = composeStories(stories);
+const { Simple, Complex, WithSections, WithSubmenu, WithRichSubmenuTrigger } =
+  composeStories(stories);
 
 const testCases = Object.values(composeStories(stories)).map((Story) => [
   Story.storyName || 'Story',
@@ -145,6 +146,174 @@ describe('[Menu Component]', () => {
       expect(
         screen.queryByRole('menuitem', { name: 'Profile' }),
       ).not.toBeInTheDocument();
+    });
+  });
+
+  describe('Submenu', () => {
+    it('should mark a title-based submenu trigger with aria-haspopup', async () => {
+      render(<WithSubmenu {...WithSubmenu.args} />);
+
+      await userEvent.click(screen.getByRole('button'));
+
+      const trigger = await screen.findByRole('menuitem', { name: 'Share' });
+      expect(trigger).toHaveAttribute('aria-haspopup', 'menu');
+      expect(trigger).toHaveAttribute('aria-expanded', 'false');
+
+      // sibling leaf items stay regular menu items
+      expect(
+        screen.getByRole('menuitem', { name: 'Profile' }),
+      ).not.toHaveAttribute('aria-haspopup');
+    });
+
+    it('should build a rich MenuSubmenuTrigger from its first child and mark it as a submenu', async () => {
+      render(<WithRichSubmenuTrigger {...WithRichSubmenuTrigger.args} />);
+
+      await userEvent.click(screen.getByRole('button'));
+
+      // the first child of MenuSubmenuTrigger becomes the trigger, rendered with
+      // its rich content (icon) and flagged as opening a submenu...
+      const triggers = (await screen.findAllByRole('menuitem')).filter(
+        (item) => item.getAttribute('aria-haspopup') === 'menu',
+      );
+      expect(triggers).toHaveLength(1);
+      const [trigger] = triggers;
+      expect(trigger).toHaveTextContent('Move to');
+      expect(trigger.querySelector('i')).toBeInTheDocument();
+
+      // ...while the remaining children are NOT rendered as items of the parent menu
+      expect(
+        screen.queryByRole('menuitem', { name: 'Inbox' }),
+      ).not.toBeInTheDocument();
+    });
+
+    it('should close nested submenus one level at a time when navigating back, keeping the root open', async () => {
+      const user = userEvent.setup();
+      render(<WithRichSubmenuTrigger {...WithRichSubmenuTrigger.args} />);
+
+      await user.click(screen.getByRole('button'));
+      await screen.findAllByRole('menuitem');
+
+      // open the first level submenu ("Move to") then the nested one ("Teams")
+      await user.keyboard('{ArrowDown}{ArrowDown}{ArrowRight}');
+      await waitFor(() =>
+        expect(screen.getByText('Inbox')).toBeInTheDocument(),
+      );
+      await user.keyboard('{ArrowDown}{ArrowDown}{ArrowRight}');
+      await waitFor(() =>
+        expect(screen.getByText('Design')).toBeInTheDocument(),
+      );
+
+      // going back closes only the nested submenu — level 1 and the root survive
+      await user.keyboard('{ArrowLeft}');
+      await waitFor(() =>
+        expect(screen.queryByText('Design')).not.toBeInTheDocument(),
+      );
+      expect(screen.getByText('Inbox')).toBeInTheDocument();
+      expect(screen.getByText('New')).toBeInTheDocument();
+
+      // going back again closes level 1 — the root menu is still open
+      await user.keyboard('{ArrowLeft}');
+      await waitFor(() =>
+        expect(screen.queryByText('Inbox')).not.toBeInTheDocument(),
+      );
+      expect(screen.getByText('New')).toBeInTheDocument();
+    });
+
+    it('should close the latest open submenu on Escape, one level at a time, keeping ancestors open', async () => {
+      const user = userEvent.setup();
+      render(<WithRichSubmenuTrigger {...WithRichSubmenuTrigger.args} />);
+
+      await user.click(screen.getByRole('button'));
+      await screen.findAllByRole('menuitem');
+
+      // open the first level submenu ("Move to") then the nested one ("Teams")
+      await user.keyboard('{ArrowDown}{ArrowDown}{ArrowRight}');
+      await waitFor(() =>
+        expect(screen.getByText('Inbox')).toBeInTheDocument(),
+      );
+      await user.keyboard('{ArrowDown}{ArrowDown}{ArrowRight}');
+      await waitFor(() =>
+        expect(screen.getByText('Design')).toBeInTheDocument(),
+      );
+
+      // Escape closes only the nested submenu — level 1 and the root survive
+      await user.keyboard('{Escape}');
+      await waitFor(() =>
+        expect(screen.queryByText('Design')).not.toBeInTheDocument(),
+      );
+      expect(screen.getByText('Inbox')).toBeInTheDocument();
+      expect(screen.getByText('New')).toBeInTheDocument();
+
+      // Escape again closes level 1 — the root menu is still open
+      await user.keyboard('{Escape}');
+      await waitFor(() =>
+        expect(screen.queryByText('Inbox')).not.toBeInTheDocument(),
+      );
+      expect(screen.getByText('New')).toBeInTheDocument();
+
+      // a final Escape closes the root menu
+      await user.keyboard('{Escape}');
+      await waitFor(() =>
+        expect(screen.queryByText('New')).not.toBeInTheDocument(),
+      );
+    });
+
+    it('should close a hover-opened submenu on Escape without closing the root menu', async () => {
+      const user = userEvent.setup();
+      render(<WithRichSubmenuTrigger {...WithRichSubmenuTrigger.args} />);
+
+      await user.click(screen.getByRole('button'));
+      await screen.findAllByRole('menuitem');
+
+      // open the submenu by hovering its trigger — focus stays on the trigger
+      const trigger = (await screen.findAllByRole('menuitem')).find(
+        (item) => item.getAttribute('aria-haspopup') === 'menu',
+      );
+      await user.hover(trigger!);
+      await waitFor(() =>
+        expect(screen.getByText('Inbox')).toBeInTheDocument(),
+      );
+
+      // Escape closes only the submenu — the root menu stays open
+      await user.keyboard('{Escape}');
+      await waitFor(() =>
+        expect(screen.queryByText('Inbox')).not.toBeInTheDocument(),
+      );
+      expect(screen.getByText('New')).toBeInTheDocument();
+
+      // a second Escape closes the root menu
+      await user.keyboard('{Escape}');
+      await waitFor(() =>
+        expect(screen.queryByText('New')).not.toBeInTheDocument(),
+      );
+    });
+
+    it('should close the entire menu when interacting outside while a submenu is open', async () => {
+      const user = userEvent.setup();
+      render(
+        <div>
+          {/* a non-focusable target: closing must not depend on a blur event */}
+          <div data-testid='outside'>outside</div>
+          <WithRichSubmenuTrigger {...WithRichSubmenuTrigger.args} />
+        </div>,
+      );
+
+      await user.click(screen.getByRole('button'));
+      await screen.findAllByRole('menuitem');
+
+      // open a submenu so it becomes the topmost overlay
+      await user.keyboard('{ArrowDown}{ArrowDown}{ArrowRight}');
+      await waitFor(() =>
+        expect(screen.getByText('Inbox')).toBeInTheDocument(),
+      );
+
+      await user.click(screen.getByTestId('outside'));
+
+      // both the submenu and the root menu close
+      await waitFor(() =>
+        expect(screen.queryByText('Inbox')).not.toBeInTheDocument(),
+      );
+      expect(screen.queryByText('New')).not.toBeInTheDocument();
     });
   });
 
