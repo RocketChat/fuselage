@@ -51,13 +51,17 @@ export default {
     },
     size: {
       control: 'select',
+      // `mini` and `tiny` are valid `size` values but have no rectangular
+      // styles, so they silently fall back to the default box. They are left
+      // out of Storybook entirely rather than presented as a working choice.
       options: ['small', 'medium', 'large'],
       description: 'Size scale of the button.',
+      table: { defaultValue: { summary: 'default (40px)' } },
     },
     square: {
       control: 'boolean',
       description:
-        'Renders as a square icon-only footprint instead of the default pill shape.',
+        'Renders the button as a square, label-less footprint sized to match neighbouring buttons and inputs.',
       table: { category: 'Shape' },
     },
     icon: {
@@ -307,5 +311,129 @@ export const States: Story = {
         }}
       />
     </>
+  ),
+};
+
+/**
+ * The rectangular sizes, in the order they should be compared. `mini` and
+ * `tiny` are intentionally absent: they type-check as `size` values but only
+ * have squared styles, so they are not offered as rectangular buttons.
+ */
+const SIZE_ROWS = [
+  { label: 'small', size: 'small' as const },
+  { label: 'medium', size: 'medium' as const },
+  { label: 'default', size: undefined },
+  { label: 'large', size: 'large' as const },
+];
+
+/**
+ * Outlines the icon canvas and tints the gap that follows it, so both scale
+ * visibly with button size instead of having to be inferred from code.
+ */
+const canvasProbeStyles = `
+  .rcx-icon-canvas-probe .rcx-button .rcx-icon {
+    outline: 1px dashed rgba(236, 13, 42, 0.9);
+    outline-offset: 0;
+    background: rgba(236, 13, 42, 0.18);
+  }
+  /* The label is a text node, so the gap is tinted by offsetting a shadow of
+     the icon box across the 4px margin that follows it. Scoped to
+     --with-icon, which is only set when a label actually follows the icon. */
+  .rcx-icon-canvas-probe .rcx-button--with-icon .rcx-icon {
+    box-shadow: 4px 0 0 0 rgba(255, 255, 255, 0.55);
+  }
+`;
+
+export const IconAndLabel: Story = {
+  name: 'Icon and label',
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'How a leading icon pairs with a label at every size.\n\n' +
+          '**The rule.** The icon canvas is sized to the label’s line-height, so it ' +
+          'scales with the button: 20px on the 40px and 48px buttons, 16px on the ' +
+          '32px and 28px ones. The gap between icon and label is a constant 4px and ' +
+          'does **not** scale. The inset on the icon side is one 4px step tighter ' +
+          'than the inset on the label side, so the icon reads as optically centred.\n\n' +
+          '**Reading the overlay.** The dashed red box is the icon canvas — note it ' +
+          'is the canvas, not the glyph, which sits inside it. The pale band to its ' +
+          'right is the 4px gap.',
+      },
+    },
+  },
+  render: () => (
+    <div className='rcx-icon-canvas-probe'>
+      <style>{canvasProbeStyles}</style>
+      <table style={{ borderCollapse: 'collapse' }}>
+        <thead>
+          <tr>
+            {['Size', 'Icon + label', 'Label only', 'Icon only'].map((h) => (
+              <th
+                key={h}
+                style={{
+                  padding: '8px 16px',
+                  textAlign: 'left',
+                  font: '700 12px/16px Inter, sans-serif',
+                  color: '#6C727A',
+                  borderBottom: '1px solid #E4E7EA',
+                }}
+              >
+                {h}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {SIZE_ROWS.map(({ label, size }) => (
+            <tr key={label}>
+              <td
+                style={{
+                  padding: '12px 16px',
+                  font: '700 12px/16px Inter, sans-serif',
+                  color: '#6C727A',
+                  borderBottom: '1px solid #E4E7EA',
+                }}
+              >
+                {label}
+              </td>
+              <td
+                style={{
+                  padding: '12px 16px',
+                  borderBottom: '1px solid #E4E7EA',
+                }}
+              >
+                <Button variant='primary' size={size} icon='baloon-text'>
+                  Button
+                </Button>
+              </td>
+              <td
+                style={{
+                  padding: '12px 16px',
+                  borderBottom: '1px solid #E4E7EA',
+                }}
+              >
+                <Button variant='primary' size={size}>
+                  Button
+                </Button>
+              </td>
+              <td
+                style={{
+                  padding: '12px 16px',
+                  borderBottom: '1px solid #E4E7EA',
+                }}
+              >
+                <Button
+                  variant='primary'
+                  size={size}
+                  square
+                  icon='baloon-text'
+                />
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   ),
 };
