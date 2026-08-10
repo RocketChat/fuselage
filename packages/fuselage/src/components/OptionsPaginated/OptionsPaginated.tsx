@@ -93,7 +93,7 @@ export function OptionsPaginated({
         }}
         key={value}
         value={value}
-        selected={selected || (multiple !== true && undefined)} // FIXME: undefined???
+        selected={!!selected}
         focus={cursor === index || undefined} // FIXME: undefined???
       />
     );
