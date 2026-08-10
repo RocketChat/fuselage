@@ -17,7 +17,7 @@ $chip-border-color: theme(
   'chip-border-color',
   colors.button(secondary-default)
 );
-$chip-color: theme('chip-color', colors.font(secondary-info));
+$chip-color: theme('chip-color', colors.button(on-secondary));
 $chip-hover-background-color: theme(
   'chip-hover-background-color',
   colors.button(secondary-hover)
@@ -78,7 +78,7 @@ $chip-disabled-color: theme('chip-disabled-color', colors.font(disabled));
   );
 
   @include clickable;
-  @include use-font-scale('p2');
+  @include use-font-scale('p2m');
 
   display: flex;
   overflow: hidden;
