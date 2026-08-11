@@ -169,7 +169,7 @@ exports[`renders WithAutoCompleteMultiple without crashing 1`] = `
               </span>
               <button
                 aria-label="Dismiss"
-                class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button rcx-css-lma364"
+                class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
                 title="Dismiss"
                 type="button"
               >
@@ -191,7 +191,7 @@ exports[`renders WithAutoCompleteMultiple without crashing 1`] = `
               </span>
               <button
                 aria-label="Dismiss"
-                class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button rcx-css-lma364"
+                class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
                 title="Dismiss"
                 type="button"
               >
@@ -480,7 +480,7 @@ exports[`renders WithMultiSelect without crashing 1`] = `
                 type="button"
               />
               <span
-                class="rcx-box rcx-chip rcx-chip--dismissible rcx-chip--medium"
+                class="rcx-box rcx-chip rcx-chip--dismissible rcx-chip--medium rcx-css-trljwa"
               >
                 <span
                   class="rcx-box rcx-chip__text"
@@ -489,7 +489,7 @@ exports[`renders WithMultiSelect without crashing 1`] = `
                 </span>
                 <button
                   aria-label="Dismiss"
-                  class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button rcx-css-lma364"
+                  class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
                   title="Dismiss"
                   type="button"
                 >
@@ -502,7 +502,7 @@ exports[`renders WithMultiSelect without crashing 1`] = `
                 </button>
               </span>
               <span
-                class="rcx-box rcx-chip rcx-chip--dismissible rcx-chip--medium"
+                class="rcx-box rcx-chip rcx-chip--dismissible rcx-chip--medium rcx-css-trljwa"
               >
                 <span
                   class="rcx-box rcx-chip__text"
@@ -511,7 +511,7 @@ exports[`renders WithMultiSelect without crashing 1`] = `
                 </span>
                 <button
                   aria-label="Dismiss"
-                  class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button rcx-css-lma364"
+                  class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
                   title="Dismiss"
                   type="button"
                 >
