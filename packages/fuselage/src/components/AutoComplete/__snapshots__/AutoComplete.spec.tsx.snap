@@ -218,7 +218,7 @@ exports[`[AutoComplete Rendering] renders Multiple without crashing 1`] = `
           </span>
           <button
             aria-label="Dismiss"
-            class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button rcx-css-lma364"
+            class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
             title="Dismiss"
             type="button"
           >
@@ -240,7 +240,7 @@ exports[`[AutoComplete Rendering] renders Multiple without crashing 1`] = `
           </span>
           <button
             aria-label="Dismiss"
-            class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button rcx-css-lma364"
+            class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
             title="Dismiss"
             type="button"
           >

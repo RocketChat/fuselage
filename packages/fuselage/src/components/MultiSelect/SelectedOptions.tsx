@@ -12,6 +12,13 @@ type SelectedOptionsProps = {
 export const SelectedOptions = memo(function SelectedOptions({
   children,
   onMouseDown,
+  // The surrounding `Margins` patches spacing into this component's className,
+  // so the remaining props have to reach the chip for it to be spaced.
+  ...props
 }: SelectedOptionsProps) {
-  return <Chip onDismiss={onMouseDown}>{children}</Chip>;
+  return (
+    <Chip {...props} onDismiss={onMouseDown}>
+      {children}
+    </Chip>
+  );
 });

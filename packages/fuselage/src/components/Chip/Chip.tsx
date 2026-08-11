@@ -3,6 +3,7 @@ import type { ButtonHTMLAttributes, MouseEventHandler, ReactNode } from 'react';
 import { prependClassName } from '../../helpers/prependClassName';
 import { Avatar } from '../Avatar';
 import { Box } from '../Box';
+import { BoxTransforms } from '../Box/BoxTransforms';
 import type { StylingProps } from '../Box/stylingProps';
 import { withBoxStyling } from '../Box/withBoxStyling';
 import { IconButton } from '../Button';
@@ -108,18 +109,25 @@ const InnerChip = ({
         }
         {...(spanRest as unknown as Record<string, unknown>)}
       >
-        {thumbUrl && renderDismissibleThumb({ url: thumbUrl })}
-        {children && <span className='rcx-box rcx-chip__text'>{children}</span>}
-        <IconButton
-          icon={icon}
-          small={size === 'medium'}
-          mini={size === 'small'}
-          aria-label={dismissLabel}
-          title={dismissLabel}
-          disabled={isDisabled}
-          onClick={onDismiss}
-          onMouseDown={(event) => event.preventDefault()}
-        />
+        {/* Inner spacing is owned by the chip's `gap`; stop a surrounding
+            `Margins` from also reaching the `Box`-based children below, which
+            would inflate the chip past its size. */}
+        <BoxTransforms.Provider value={null}>
+          {thumbUrl && renderDismissibleThumb({ url: thumbUrl })}
+          {children && (
+            <span className='rcx-box rcx-chip__text'>{children}</span>
+          )}
+          <IconButton
+            icon={icon}
+            small={size === 'medium'}
+            mini={size === 'small'}
+            aria-label={dismissLabel}
+            title={dismissLabel}
+            disabled={isDisabled}
+            onClick={onDismiss}
+            onMouseDown={(event) => event.preventDefault()}
+          />
+        </BoxTransforms.Provider>
       </span>
     );
   }
