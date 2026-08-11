@@ -4,7 +4,6 @@ import { action } from 'storybook/actions';
 
 import { exampleAvatar, blankAvatar } from '../../../.storybook/helpers';
 import { Box } from '../Box';
-import { Icon } from '../Icon';
 
 import Chip from './Chip';
 
@@ -83,6 +82,12 @@ export default {
       description:
         'Called when the dedicated dismiss `IconButton` is activated. When provided, the chip root becomes non-interactive and only the `IconButton` triggers dismiss.',
       table: { category: 'Events' },
+    },
+    leadingIcon: {
+      control: 'text',
+      description:
+        'Leading icon rendered before the label, vertically centered — use it instead of an avatar, never both. Sized by the chip `size`. Only applies when `onDismiss` is provided.',
+      table: { category: 'Content' },
     },
     icon: {
       control: 'text',
@@ -168,15 +173,13 @@ export const Sizes: Story = {
         ],
         [
           'medium with icon',
-          <Chip onDismiss={action('dismiss')}>
-            <Icon name='user' size='x20' marginInlineEnd={4} />
+          <Chip onDismiss={action('dismiss')} leadingIcon='user'>
             Label
           </Chip>,
         ],
         [
           'small with icon',
-          <Chip onDismiss={action('dismiss')} size='small'>
-            <Icon name='user' size='x16' marginInlineEnd={4} />
+          <Chip onDismiss={action('dismiss')} leadingIcon='user' size='small'>
             Label
           </Chip>,
         ],
@@ -206,12 +209,8 @@ export const WithThumb: Story = {
  */
 export const WithIcon: Story = {
   args: {
-    children: (
-      <>
-        <Icon name='user' size='x20' marginInlineEnd={4} />
-        Label
-      </>
-    ),
+    children: 'Label',
+    leadingIcon: 'user',
     onDismiss: action('dismiss'),
   },
 };

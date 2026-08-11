@@ -39,6 +39,12 @@ export type ChipProps = Omit<
    */
   icon?: IconProps['name'];
   /**
+   * Leading icon rendered before the label, vertically centered — use it
+   * instead of an avatar, never both. Sized by the chip `size` (20px on
+   * `medium`, 16px on `small`). Only applies when `onDismiss` is provided.
+   */
+  leadingIcon?: IconProps['name'];
+  /**
    * Accessible label and tooltip (`title`) for the trailing `IconButton`.
    * Defaults to `'Dismiss'`.
    */
@@ -76,6 +82,7 @@ const InnerChip = ({
   onMouseDown,
   onDismiss,
   icon = 'cross',
+  leadingIcon,
   dismissLabel = 'Dismiss',
   chipSize: size = 'medium',
   renderThumb,
@@ -114,6 +121,9 @@ const InnerChip = ({
             would inflate the chip past its size. */}
         <BoxTransforms.Provider value={null}>
           {thumbUrl && renderDismissibleThumb({ url: thumbUrl })}
+          {!thumbUrl && leadingIcon && (
+            <Icon name={leadingIcon} size={size === 'small' ? 'x16' : 'x20'} />
+          )}
           {children && (
             <span className='rcx-box rcx-chip__text'>{children}</span>
           )}

@@ -104,6 +104,12 @@ $chip-disabled-color: theme('chip-disabled-color', colors.font(disabled));
     color: inherit;
 
     font: inherit;
+
+    // Leading icons rendered inside the label (icon + text children) sit on
+    // the text baseline by default, riding above the visual center.
+    .rcx-icon {
+      vertical-align: middle;
+    }
   }
 
   &--dismissible {
@@ -115,6 +121,13 @@ $chip-disabled-color: theme('chip-disabled-color', colors.font(disabled));
     cursor: default;
 
     gap: lengths.size(4);
+
+    // When the label is the first child and starts with text (no leading
+    // thumb/avatar or icon), give it the same 8px visual inset the trailing
+    // IconButton's inner padding produces on the other side.
+    > .rcx-chip__text:first-child:not(:has(> .rcx-icon:first-child)) {
+      margin-inline-start: lengths.size(4);
+    }
 
     &:hover,
     &:focus,

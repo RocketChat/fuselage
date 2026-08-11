@@ -437,6 +437,7 @@ export type ChipProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type'> & 
     renderDismissSymbol?: () => ReactNode;
     onDismiss?: MouseEventHandler<HTMLButtonElement>;
     icon?: IconProps['name'];
+    leadingIcon?: IconProps['name'];
     dismissLabel?: string;
     size?: 'medium' | 'small';
 };

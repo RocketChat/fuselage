@@ -109,6 +109,28 @@ describe('[Chip onDismiss mode]', () => {
     expect(container.querySelector('.rcx-avatar--x16')).toBeInTheDocument();
   });
 
+  it('renders the leadingIcon before the label, sized by the chip size', () => {
+    const onDismiss = jest.fn();
+    const { container, rerender } = render(
+      <Chip onDismiss={onDismiss} leadingIcon='user'>
+        Marie Rowe
+      </Chip>,
+    );
+
+    const icon = () =>
+      container.querySelector('.rcx-chip > .rcx-icon--name-user');
+    expect(icon()).toBeInTheDocument();
+    expect(icon()?.nextElementSibling).toHaveClass('rcx-chip__text');
+
+    rerender(
+      <Chip onDismiss={onDismiss} leadingIcon='user' size='small'>
+        Marie Rowe
+      </Chip>,
+    );
+
+    expect(icon()).toBeInTheDocument();
+  });
+
   it('does not call onDismiss when clicking the chip body/text', async () => {
     const onDismiss = jest.fn();
     render(<Chip onDismiss={onDismiss}>Marie Rowe</Chip>);
