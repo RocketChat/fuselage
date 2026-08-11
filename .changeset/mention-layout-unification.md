@@ -14,5 +14,8 @@ matching the Mobile client: `critical` (mentions of you) uses the
 Highlights are now `display: inline` instead of `inline-block`, so a line
 containing a mention is no longer taller than one without it.
 
-The `message-highlight-colors-background-*` and
-`message-highlight-border-radius` theme variables were removed.
+Theme variables: `message-highlight-colors-background-*` and
+`message-highlight-border-radius` were removed. The `link` variant now reads
+its own `message-highlight-colors-link-color` variable — it previously shared
+`message-highlight-colors-other-color` with the `other` variant, so the two
+could not be themed independently.

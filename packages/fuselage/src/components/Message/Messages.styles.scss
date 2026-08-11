@@ -58,8 +58,8 @@ $message-highlight-colors-other-color: theme(
   colors.status-font(on-warning)
 );
 
-$message-highlight-colors-other-link-color: theme(
-  'message-highlight-colors-other-color',
+$message-highlight-colors-link-color: theme(
+  'message-highlight-colors-link-color',
   colors.status-font(on-info)
 );
 
@@ -424,7 +424,7 @@ $message-block-width-fixed: theme('message-block-width-fixed', 368px);
     }
 
     &--link {
-      color: $message-highlight-colors-other-link-color;
+      color: $message-highlight-colors-link-color;
     }
 
     &--other {
