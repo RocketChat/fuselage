@@ -5,7 +5,7 @@
 @use './states.scss' as *;
 
 @mixin focus-state($shadow: true) {
-  border-width: lengths.border-width('default');
+  border-width: lengths.border-width(default);
   border-style: solid;
   border-color: transparent;
 

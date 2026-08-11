@@ -1,10 +1,17 @@
-import breakpoints from '@rocket.chat/fuselage-tokens/breakpoints.json';
+import breakpointsTokens from '@rocket.chat/fuselage-tokens/dist/breakpoints.json';
 import { withMatchMediaMock } from 'testing-utils/mocks/withMatchMediaMock';
 
 import { renderHook, act } from './testing';
 import { useBreakpoints } from './useBreakpoints';
 
 const setViewport = withMatchMediaMock();
+
+const breakpoints = Object.entries(breakpointsTokens)
+  .map(([name, { minViewportWidth }]) => ({
+    name,
+    minViewportWidth,
+  }))
+  .sort((a, b) => (a.minViewportWidth ?? 0) - (b.minViewportWidth ?? 0));
 
 it('returns at least the smallest breakpoint name', () => {
   const { result } = renderHook(() => useBreakpoints());
