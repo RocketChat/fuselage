@@ -12,6 +12,7 @@ import {
   SidebarV2Actions,
   SidebarV2ButtonGroup,
   SidebarV2CollapseGroup,
+  SidebarV2CollapseGroupMenu,
   SidebarV2Footer,
   SidebarV2FooterContent,
   SidebarV2Item,
@@ -188,7 +189,11 @@ export const decorators: Decorator[] = [
             <SidebarV2CollapseGroup
               title='Label'
               defaultExpanded
-              menu={<MenuTemplate />}
+              menu={
+                <SidebarV2CollapseGroupMenu>
+                  <MenuTemplate />
+                </SidebarV2CollapseGroupMenu>
+              }
               badge={
                 <SidebarV2ItemBadge variant='danger'>99+</SidebarV2ItemBadge>
               }
