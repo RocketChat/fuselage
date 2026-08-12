@@ -1044,14 +1044,8 @@
   "bell-dot": {
     "start": "\ue183"
   },
-  "circle-unfilled-medium": {
-    "start": "\ue185"
-  },
   "closed-captions": {
     "start": "\ue189"
-  },
-  "drag-handle": {
-    "start": "\ue18b"
   },
   "folder-plus": {
     "start": "\u2e22",
@@ -1078,9 +1072,6 @@
   "prune": {
     "start": "\ue19b"
   },
-  "rec-unfilled": {
-    "start": "\ue19d"
-  },
   "resize": {
     "start": "\ue19f"
   },
@@ -1099,9 +1090,6 @@
   },
   "square-arrows-contained-outwards": {
     "start": "\ue1a7"
-  },
-  "square-arrow-up-right": {
-    "start": "\ue1a9"
   },
   "square-slash": {
     "start": "\ue1ab"
