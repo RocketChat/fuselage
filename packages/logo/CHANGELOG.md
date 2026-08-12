@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.33.2
+
+### Patch Changes
+
+- [#2148](https://github.com/RocketChat/fuselage/pull/2148) [`0d8e038`](https://github.com/RocketChat/fuselage/commit/0d8e038801972ec29ad2fb1d26da088af05b7b23) Thanks [@tassoevan](https://github.com/tassoevan)! - feat(fuselage-tokens)!: Rework the token build and its output formats
+
 ## 0.33.1
 
 ### Patch Changes
