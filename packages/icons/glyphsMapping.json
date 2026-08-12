@@ -1047,9 +1047,6 @@
   "circle-unfilled-medium": {
     "start": "\ue185"
   },
-  "close-pop-out-window": {
-    "start": "\ue187"
-  },
   "closed-captions": {
     "start": "\ue189"
   },
@@ -1063,10 +1060,10 @@
   "hand": {
     "start": "\ue18d"
   },
-  "hd-fill": {
+  "hd-filled": {
     "start": "\ue18f"
   },
-  "hd-stroke": {
+  "hd": {
     "start": "\ue191"
   },
   "hash-lock": {
@@ -1077,9 +1074,6 @@
   },
   "move": {
     "start": "\ue197"
-  },
-  "pop-out-window": {
-    "start": "\ue199"
   },
   "prune": {
     "start": "\ue19b"
@@ -1127,9 +1121,6 @@
   },
   "tag-horizontal-plus": {
     "start": "\ue1b3"
-  },
-  "tag-horizontal-plus-2": {
-    "start": "\ue1b5"
   },
   "video-arrow-down-left": {
     "start": "\ue1b7"
