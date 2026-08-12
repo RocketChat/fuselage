@@ -12,7 +12,7 @@
       "featured": { "value": "{colors.p700}" },
       "featuredHover": { "value": "{colors.p800}" },
       "sidebar": { "value": "{colors.n400}" },
-      "overlay": { "value": "rgba(47, 52, 61, 0.5)" }
+      "overlay": { "value": "rgba(47, 52, 61, 0.5)", "type": "color" }
     },
     "high-contrast": {
       "light": { "value": "{colors.white}" },
@@ -26,21 +26,21 @@
       "featured": { "value": "{colors.p700}" },
       "featuredHover": { "value": "{colors.p800}" },
       "sidebar": { "value": "{colors.n400}" },
-      "overlay": { "value": "rgba(47, 52, 61, 0.5)" }
+      "overlay": { "value": "rgba(47, 52, 61, 0.5)", "type": "color" }
     },
     "dark": {
-      "light": { "value": "#262931" },
-      "tint": { "value": "#1F2329" },
-      "room": { "value": "#1F2329" },
-      "neutral": { "value": "#2D3039" },
-      "disabled": { "value": "#24272E" },
-      "hover": { "value": "#1A1E23" },
-      "selected": { "value": "#4C5362" },
-      "dark": { "value": "#E4E7EA" },
-      "featured": { "value": "#5F1477" },
-      "featuredHover": { "value": "#4A105D" },
-      "sidebar": { "value": "#2F343D" },
-      "overlay": { "value": "rgba(0, 0, 0, 0.6)" }
+      "light": { "value": "#262931", "type": "color" },
+      "tint": { "value": "#1F2329", "type": "color" },
+      "room": { "value": "#1F2329", "type": "color" },
+      "neutral": { "value": "#2D3039", "type": "color" },
+      "disabled": { "value": "#24272E", "type": "color" },
+      "hover": { "value": "#1A1E23", "type": "color" },
+      "selected": { "value": "#4C5362", "type": "color" },
+      "dark": { "value": "#E4E7EA", "type": "color" },
+      "featured": { "value": "#5F1477", "type": "color" },
+      "featuredHover": { "value": "#4A105D", "type": "color" },
+      "sidebar": { "value": "#2F343D", "type": "color" },
+      "overlay": { "value": "rgba(0, 0, 0, 0.6)", "type": "color" }
     }
   }
 }
