@@ -2,8 +2,6 @@ import type { AriaAttributes, HTMLAttributes, ReactNode } from 'react';
 
 import { Chevron } from '../Chevron';
 
-import { SidebarCollapseGroupMenu } from './SidebarCollapseGroupMenu';
-
 export type SidebarGroupTitleProps = {
   expanded?: boolean;
   title?: string;
@@ -48,6 +46,6 @@ export const SidebarGroupTitle = ({
       )}
       {!expanded && badge && badge}
     </div>
-    {menu && <SidebarCollapseGroupMenu>{menu}</SidebarCollapseGroupMenu>}
+    {menu}
   </div>
 );
