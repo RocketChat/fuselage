@@ -21,7 +21,7 @@ const endCharacters = [
 
 export const getMappedGlyphs = () => readJson('./glyphsMapping.json');
 
-export const nextCharactersFor = async (name, type) => {
+const assignCharactersFor = async (name, type) => {
   const glyphsMapping = await getMappedGlyphs();
 
   if (glyphsMapping[name]) {
@@ -63,4 +63,17 @@ export const nextCharactersFor = async (name, type) => {
   await writeJson('./glyphsMapping.json')(glyphsMapping);
 
   return glyphsMapping[name];
+};
+
+let pendingAssignment = Promise.resolve();
+
+export const nextCharactersFor = (name, type) => {
+  // Assigning characters is a read-modify-write over a single file, so the
+  // callers must not interleave: concurrent ones would all derive the same
+  // next character and then clobber each other's entry.
+  const assignment = pendingAssignment.then(() =>
+    assignCharactersFor(name, type),
+  );
+  pendingAssignment = assignment.catch(() => undefined);
+  return assignment;
 };
