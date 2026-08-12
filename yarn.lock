@@ -5654,22 +5654,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/string-helpers@workspace:packages/string-helpers":
-  version: 0.0.0-use.local
-  resolution: "@rocket.chat/string-helpers@workspace:packages/string-helpers"
-  dependencies:
-    "@microsoft/api-extractor": "npm:~7.58.12"
-    eslint: "npm:~10.8.0"
-    jest: "npm:~30.4.2"
-    lint-all: "workspace:~"
-    prettier: "npm:~3.6.2"
-    rimraf: "npm:~6.1.3"
-    ts-jest: "npm:~29.4.12"
-    typedoc: "npm:~0.28.20"
-    typescript: "npm:~5.9.3"
-  languageName: unknown
-  linkType: soft
-
 "@rocket.chat/styled@workspace:packages/styled, @rocket.chat/styled@workspace:~":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/styled@workspace:packages/styled"
