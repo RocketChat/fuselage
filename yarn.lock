@@ -5370,7 +5370,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@rocket.chat/fuselage-tokens@workspace:packages/fuselage-tokens"
   dependencies:
-    build-design-tokens: "workspace:~"
     eslint: "npm:~10.8.0"
     eslint-config-prettier: "npm:~10.1.8"
     lint-all: "workspace:~"
@@ -8497,23 +8496,6 @@ __metadata:
   checksum: 10/070769d6dd29993676610a6e3524fa11b17cfd212924d95dadf2d4d6b2bbab4ab2c94c35c0af2d3d10a6c1e5ba8039bad56a6cf33427fbecd501ecb745678016
   languageName: node
   linkType: hard
-
-"build-design-tokens@workspace:tools/build-design-tokens, build-design-tokens@workspace:~":
-  version: 0.0.0-use.local
-  resolution: "build-design-tokens@workspace:tools/build-design-tokens"
-  dependencies:
-    eslint: "npm:~10.8.0"
-    lint-all: "workspace:~"
-    prettier: "npm:~3.6.2"
-    stylelint: "npm:~17.14.1"
-    tools-utils: "workspace:~"
-  peerDependencies:
-    eslint: "*"
-    prettier: "*"
-  bin:
-    build-design-tokens: ./index.js
-  languageName: unknown
-  linkType: soft
 
 "build-icons@workspace:tools/build-icons, build-icons@workspace:~":
   version: 0.0.0-use.local

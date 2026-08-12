@@ -1,10 +1,8 @@
 @use 'sass:math';
 @use 'sass:map';
-@use '~@rocket.chat/fuselage-tokens/breakpoints.scss';
+@use '~@rocket.chat/fuselage-tokens/dist/breakpoints.scss';
 @use '../../styles/mixins/breakpoints.scss' as *;
 @use '../../styles/functions.scss' as *;
-
-$breakpoint-names: map.keys(breakpoints.$breakpoints);
 
 @mixin when-item-is-on-breakpoint($breakpoint-name) {
   @include on-breakpoint($breakpoint-name) {
@@ -27,21 +25,11 @@ $breakpoint-names: map.keys(breakpoints.$breakpoints);
   @each $breakpoint-name in $breakpoint-names {
     @include when-item-is-on-breakpoint($breakpoint-name) {
       margin-block: calc(
-        #{to-rem(
-            map.get(
-              map.get(breakpoints.$breakpoints, $breakpoint-name),
-              gutter-width
-            )
-          )} /
+        #{map.get(breakpoints.$breakpoints, #{$breakpoint-name}-gutter-width)} /
           -2
       );
       margin-inline: calc(
-        #{to-rem(
-            map.get(
-              map.get(breakpoints.$breakpoints, $breakpoint-name),
-              gutter-width
-            )
-          )} /
+        #{map.get(breakpoints.$breakpoints, #{$breakpoint-name}-gutter-width)} /
           -2
       );
     }
@@ -54,27 +42,17 @@ $breakpoint-names: map.keys(breakpoints.$breakpoints);
   @each $breakpoint-name in $breakpoint-names {
     @include when-item-is-on-breakpoint($breakpoint-name) {
       padding-block: calc(
-        #{to-rem(
-            map.get(
-              map.get(breakpoints.$breakpoints, $breakpoint-name),
-              gutter-width
-            )
-          )} /
+        #{map.get(breakpoints.$breakpoints, #{$breakpoint-name}-gutter-width)} /
           2
       );
       padding-inline: calc(
-        #{to-rem(
-            map.get(
-              map.get(breakpoints.$breakpoints, $breakpoint-name),
-              gutter-width
-            )
-          )} /
+        #{map.get(breakpoints.$breakpoints, #{$breakpoint-name}-gutter-width)} /
           2
       );
 
       $total-columns: map.get(
-        map.get(breakpoints.$breakpoints, $breakpoint-name),
-        columns
+        breakpoints.$breakpoints,
+        #{$breakpoint-name}-columns
       );
       @for $columns from 1 through $total-columns {
         &--#{$breakpoint-name}-#{$columns} {

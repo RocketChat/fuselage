@@ -27,15 +27,15 @@
       "pureBlack": { "value": "{colors.n900}" }
     },
     "dark": {
-      "white": { "value": "#2F343D" },
-      "disabled": { "value": "#60646C" },
-      "annotation": { "value": "#9EA2A8" },
-      "hint": { "value": "#9EA2A8" },
-      "secondaryInfo": { "value": "#9EA2A8" },
-      "default": { "value": "#C1C7D0" },
-      "titlesLabels": { "value": "#F2F3F5" },
-      "info": { "value": "#739EDE" },
-      "danger": { "value": "#D88892" },
+      "white": { "value": "#2F343D", "type": "color" },
+      "disabled": { "value": "#60646C", "type": "color" },
+      "annotation": { "value": "#9EA2A8", "type": "color" },
+      "hint": { "value": "#9EA2A8", "type": "color" },
+      "secondaryInfo": { "value": "#9EA2A8", "type": "color" },
+      "default": { "value": "#C1C7D0", "type": "color" },
+      "titlesLabels": { "value": "#F2F3F5", "type": "color" },
+      "info": { "value": "#739EDE", "type": "color" },
+      "danger": { "value": "#D88892", "type": "color" },
       "pureWhite": { "value": "{colors.white}" },
       "pureBlack": { "value": "{colors.n900}" }
     }

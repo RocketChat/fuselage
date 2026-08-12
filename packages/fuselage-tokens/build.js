@@ -1,164 +1,72 @@
+import { kebabCase } from 'change-case';
 import StyleDictionary from 'style-dictionary';
+import { minifyDictionary } from 'style-dictionary/utils';
+
+StyleDictionary.registerTransformGroup({
+  name: 'json/rocketchat',
+  transforms: ['attribute/cti', 'name/pascal', 'color/hex'],
+});
+
+StyleDictionary.registerFormat({
+  name: 'json/rocketchat',
+  async format({ dictionary }) {
+    const tokens = dictionary.tokens[Object.keys(dictionary.tokens)[0]];
+    return `${JSON.stringify(minifyDictionary(tokens, false), null, 2)}\n`;
+  },
+});
+
+StyleDictionary.registerTransform({
+  name: 'name/kebab/rocketchat',
+  type: 'name',
+  transform: (token) => kebabCase(token.path.slice(1).join(' ')),
+});
+
+StyleDictionary.registerTransform({
+  name: 'size/borderWidth/rocketchat',
+  type: 'value',
+  filter: (token) => token.type === 'borderWidth',
+  transform: (token) => {
+    if (token.original.value === 0) return token.value;
+    return `${token.value}px`;
+  },
+});
+
+StyleDictionary.registerTransform({
+  name: 'fontFamily/css/rocketchat',
+  type: 'value',
+  filter: (token) => token.attributes.type === 'fontFamily',
+  transform: (token) => {
+    if (Array.isArray(token.value)) {
+      return `(${token.value.map((font) => (font.match(/\s/) ? `'${font}'` : font)).join(', ')})`;
+    }
+
+    return token.value;
+  },
+});
+
+StyleDictionary.registerTransformGroup({
+  name: 'scss/rocketchat',
+  transforms: [
+    'attribute/cti',
+    'name/kebab/rocketchat',
+    'time/seconds',
+    'html/icon',
+    'size/pxToRem',
+    'size/borderWidth/rocketchat',
+    'color/css',
+    'asset/url',
+    'fontFamily/css/rocketchat',
+    'cubicBezier/css',
+    'strokeStyle/css/shorthand',
+    'border/css/shorthand',
+    'typography/css/shorthand',
+    'transition/css/shorthand',
+    'shadow/css/shorthand',
+  ],
+});
 
 console.log('Build started...');
 console.log('\n==============================================');
-
-const arrayTocamelCase = (arr) =>
-  arr
-    .map((item, i) => (i === 0 ? item : item[0].toUpperCase() + item.slice(1)))
-    .join('');
-
-const encodeJson = (data) =>
-  JSON.stringify(data, null, 2).replace(
-    /[\u007f-\uffff]/g,
-    (c) => `\\u${`0000${c.charCodeAt(0).toString(16)}`.slice(-4)}`,
-  );
-
-const toScssIdentifier = (string) =>
-  string.replace(/([a-z0-9]|(?=[A-Z]))([A-Z])/g, '$1-$2').toLowerCase();
-
-const toScssValue = (chunk) => {
-  if (typeof chunk === 'boolean' || typeof chunk === 'number') {
-    return chunk;
-  }
-
-  if (typeof chunk === 'string') {
-    return /\s/.test(chunk) ? encodeJson(chunk) : chunk;
-  }
-
-  if (chunk === undefined || chunk === null) {
-    return 'null';
-  }
-
-  if (Array.isArray(chunk)) {
-    return `(${chunk.map(toScssValue).join(',')})`;
-  }
-
-  return `(${Object.entries(chunk)
-    .map(([key, value]) => `${toScssIdentifier(key)}:${toScssValue(value)}`)
-    .join(',')})`;
-};
-
-StyleDictionary.registerTransformGroup({
-  name: 'custom/mjs',
-  transforms: ['name/camel'],
-});
-
-StyleDictionary.registerFormat({
-  name: 'custom/colors-json',
-  async format({ dictionary }) {
-    return `{${dictionary.allTokens.map(
-      (token) =>
-        `\n\t${encodeJson(token.path[1])}: ${encodeJson(token.original.value)}`,
-    )}\n}`;
-  },
-});
-
-StyleDictionary.registerFormat({
-  name: 'custom/breakpoints-json',
-  async format({ dictionary }) {
-    return `[${dictionary.allTokens.map(
-      (token) => `\n\t${encodeJson(token.original.value)}`,
-    )}\n]`;
-  },
-});
-
-StyleDictionary.registerFormat({
-  name: 'cjsmodule',
-  async format({ dictionary }) {
-    return `module.exports = {${dictionary.allTokens.map(
-      (token) =>
-        `\n\t${encodeJson(token.name)}: ${encodeJson(token.original.value)}`,
-    )}\n};`;
-  },
-});
-
-StyleDictionary.registerFormat({
-  name: 'camelCase',
-  async format({ dictionary }) {
-    // Get group name through folder name ./src/******
-    const exp = /[a-z]+\/([a-z]+)\/[a-z]+.json/i;
-    const [, group] = dictionary.allTokens[0].filePath.match(exp);
-
-    return `module.exports = {${dictionary.allTokens.map((token) => {
-      const name =
-        group === 'colors'
-          ? encodeJson(token.path[1])
-          : encodeJson(arrayTocamelCase(token.path));
-
-      return `\n\t${name}: ${encodeJson(token.value)}`;
-    })}\n};`;
-  },
-});
-
-StyleDictionary.registerFormat({
-  name: 'custom/mjs',
-  async format({ dictionary }) {
-    return `export default {${dictionary.allTokens.map(
-      (token) =>
-        `\n\t${encodeJson(token.name)}: ${encodeJson(token.original.value)}`,
-    )}\n};`;
-  },
-});
-
-StyleDictionary.registerFormat({
-  name: 'custom/colors-mjs',
-  async format({ dictionary }) {
-    return `export default {${dictionary.allTokens.map(
-      (token) =>
-        `\n\t${encodeJson(token.path[1])}: ${encodeJson(token.original.value)}`,
-    )}\n};`;
-  },
-});
-
-StyleDictionary.registerFormat({
-  name: 'custom/scss',
-  async format({ dictionary }) {
-    // Get group name through folder name ./src/******
-    const exp = /[a-z]+\/([a-z]+)\/[a-z]+.json/i;
-    const [, group] = dictionary.allTokens[0].filePath.match(exp);
-    const newPaletteGroup = [
-      'badge',
-      'background',
-      'surface',
-      'stroke',
-      'shadow',
-      'button',
-      'font',
-      'status',
-      'statusBullet',
-    ];
-
-    if (newPaletteGroup.includes(group)) {
-      const subGroup = toScssIdentifier(group);
-      return `$${subGroup}: (${dictionary.allTokens.map((token) => {
-        const tokenGroup = toScssIdentifier(token.path[0]);
-        const tokenName = token.name.startsWith(`${tokenGroup}-`)
-          ? token.name.slice(tokenGroup.length + 1)
-          : token.name;
-        return `\n${toScssIdentifier(tokenName)}:${toScssValue(token.value)}`;
-      })}\n);`;
-    }
-
-    return `$${group}: (${dictionary.allTokens
-      .map(
-        (token) =>
-          `\n${toScssIdentifier(
-            group === 'colors' ? token.path[1] : token.name,
-          )}:${toScssValue(token.value)},`,
-      )
-      .join('')})`;
-  },
-});
-
-StyleDictionary.registerFormat({
-  name: 'custom/typography-scss',
-  async format({ dictionary }) {
-    return `${dictionary.allTokens
-      .map((token) => `$${token.name}: \n${toScssValue(token.value)};`)
-      .join('')}`;
-  },
-});
 
 // APPLY THE CONFIGURATION
 // needs to be done _before_ applying the configuration
