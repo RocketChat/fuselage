@@ -1037,5 +1037,110 @@
   },
   "arrow-to-square-box": {
     "start": "\ue17f"
+  },
+  "archive": {
+    "start": "\ue181"
+  },
+  "bell-dot": {
+    "start": "\ue183"
+  },
+  "circle-unfilled-medium": {
+    "start": "\ue185"
+  },
+  "close-pop-out-window": {
+    "start": "\ue187"
+  },
+  "closed-captions": {
+    "start": "\ue189"
+  },
+  "drag-handle": {
+    "start": "\ue18b"
+  },
+  "folder-plus": {
+    "start": "\u2e22",
+    "end": "\u2e23"
+  },
+  "hand": {
+    "start": "\ue18d"
+  },
+  "hd-fill": {
+    "start": "\ue18f"
+  },
+  "hd-stroke": {
+    "start": "\ue191"
+  },
+  "hash-lock": {
+    "start": "\ue193"
+  },
+  "image-resize": {
+    "start": "\ue195"
+  },
+  "move": {
+    "start": "\ue197"
+  },
+  "pop-out-window": {
+    "start": "\ue199"
+  },
+  "prune": {
+    "start": "\ue19b"
+  },
+  "rec-unfilled": {
+    "start": "\ue19d"
+  },
+  "resize": {
+    "start": "\ue19f"
+  },
+  "search-sparkle": {
+    "start": "\ue1a1"
+  },
+  "sidebar": {
+    "start": "\u2e26",
+    "end": "\u2e27"
+  },
+  "square-arrow-down-left": {
+    "start": "\ue1a3"
+  },
+  "square-arrows-contained-inwards": {
+    "start": "\ue1a5"
+  },
+  "square-arrows-contained-outwards": {
+    "start": "\ue1a7"
+  },
+  "square-arrow-up-right": {
+    "start": "\ue1a9"
+  },
+  "square-slash": {
+    "start": "\ue1ab"
+  },
+  "star-plus": {
+    "start": "\ue1ad"
+  },
+  "note": {
+    "start": "\u2e55",
+    "end": "\u2e56"
+  },
+  "tag-horizontal": {
+    "start": "\ue1af"
+  },
+  "tag-horizontal-filled": {
+    "start": "\ue1b1"
+  },
+  "tag-horizontal-plus": {
+    "start": "\ue1b3"
+  },
+  "tag-horizontal-plus-2": {
+    "start": "\ue1b5"
+  },
+  "video-arrow-down-left": {
+    "start": "\ue1b7"
+  },
+  "video-arrow-up-right": {
+    "start": "\ue1b9"
+  },
+  "voicemail": {
+    "start": "\ue1bb"
+  },
+  "volume-question-mark": {
+    "start": "\ue1bd"
   }
 }
