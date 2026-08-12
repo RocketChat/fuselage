@@ -104,14 +104,14 @@ $tabs-border-radius: theme('tabs-border-radius', lengths.border-radius(medium));
   &:hover {
     color: $tabs-hover-color;
     border-block-end-color: $tabs-hover-color;
-    border-block-end-width: lengths.border-width(4);
+    border-block-end-width: lengths.border-width(large);
   }
 
   &.active,
   &:active {
     color: $tabs-active-color;
     border-block-end-color: $tabs-active-color;
-    border-block-end-width: lengths.border-width(4);
+    border-block-end-width: lengths.border-width(large);
   }
 
   @include on-focus-visible {
