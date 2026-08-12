@@ -16,7 +16,7 @@
     },
     "dark": {
       "level-0": { "value": "#404754", "type": "color" },
-      "level-1": { "value": "#484C51", "type": "color" },
+      "level-1": { "value": "#6C737A", "type": "color" },
       "level-2": { "value": "#2C65BA", "type": "color" },
       "level-3": { "value": "#955828", "type": "color" },
       "level-4": { "value": "#B43C4C", "type": "color" }
