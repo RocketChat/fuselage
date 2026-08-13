@@ -109,7 +109,7 @@ export const PaginatedSelect = ({
             marginInline={4}
             rcx-select__item
             fontScale='p2m'
-            color={valueLabel ? 'default' : 'hint'}
+            color={valueLabel ? 'titles-labels' : 'hint'}
           >
             {visibleText}
           </Box>

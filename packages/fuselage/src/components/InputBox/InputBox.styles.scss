@@ -119,6 +119,12 @@ $input-border-radius: theme(
       background: transparent;
     }
     -webkit-text-fill-color: $input-colors-color;
+
+    *:disabled &,
+    &:disabled,
+    &.disabled {
+      -webkit-text-fill-color: $input-colors-disabled-color;
+    }
   }
 
   // Firefox shows its own (non-hideable) calendar icon for date inputs, so hide

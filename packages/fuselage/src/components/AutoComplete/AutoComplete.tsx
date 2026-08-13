@@ -256,7 +256,7 @@ function AutoComplete<TLabel = ReactNode>({
               : 'magnifier'
           }
           size='x20'
-          color='default'
+          color='titles-labels'
         />
       </Box>
       <PositionAnimated visible={optionsAreVisible} anchor={containerRef}>
