@@ -31,7 +31,6 @@ import type { KeyboardEventHandler } from 'react';
 import type { Keys } from '@rocket.chat/icons';
 import type { LinkHTMLAttributes } from 'react';
 import { MemoExoticComponent } from 'react';
-import { MemoizedFunction } from '@rocket.chat/memo';
 import type { MenuTriggerProps } from 'react-stately';
 import { MouseEvent as MouseEvent_2 } from 'react';
 import type { MouseEventHandler } from 'react';
@@ -192,7 +191,7 @@ export const AvatarStack: (input: AvatarStackProps) => JSX.Element;
 export type AvatarStackProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
 
 // @public (undocumented)
-export const backgroundColor: MemoizedFunction<unknown, unknown, string | undefined>;
+export const backgroundColor: (this: unknown, arg: unknown) => string | undefined;
 
 // @public
 export function Badge(input: BadgeProps): JSX.Element;
@@ -229,10 +228,10 @@ export type BannerProps = {
 export type BannerVariant = 'neutral' | 'info' | 'success' | 'warning' | 'danger';
 
 // @public (undocumented)
-export const borderRadius: MemoizedFunction<unknown, unknown, string | undefined>;
+export const borderRadius: (this: unknown, arg: unknown) => string | undefined;
 
 // @public (undocumented)
-export const borderWidth: MemoizedFunction<unknown, unknown, string | undefined>;
+export const borderWidth: (this: unknown, arg: unknown) => string | undefined;
 
 // Warning: (ae-forgotten-export) The symbol "Box_2" needs to be exported by the entry point index.d.ts
 //
@@ -458,7 +457,7 @@ export type CodeSnippetProps = BoxProps & {
 };
 
 // @public @deprecated (undocumented)
-export const color: MemoizedFunction<unknown, unknown, string | undefined>;
+export const color: (this: unknown, arg: unknown) => string | undefined;
 
 // Warning: (ae-forgotten-export) The symbol "Contextualbar_2" needs to be exported by the entry point index.d.ts
 //
@@ -659,21 +658,21 @@ export type FlexItemProps = {
 };
 
 // @public (undocumented)
-export const fontColor: MemoizedFunction<unknown, unknown, string | undefined>;
+export const fontColor: (this: unknown, arg: unknown) => string | undefined;
 
 // @public (undocumented)
-export const fontFamily: MemoizedFunction<unknown, unknown, string | undefined>;
+export const fontFamily: (this: unknown, arg: unknown) => string | undefined;
 
 // @public (undocumented)
 export type FontScale = 'hero' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'p1' | 'p1m' | 'p1b' | 'p2' | 'p2m' | 'p2b' | 'c1' | 'c2' | 'micro';
 
 // @public (undocumented)
-export const fontScale: MemoizedFunction<unknown, unknown, {
-fontSize: string;
-fontWeight: number;
-lineHeight: string;
-letterSpacing: string;
-} | undefined>;
+export const fontScale: (this: unknown, arg: unknown) => {
+    fontSize: string;
+    fontWeight: number;
+    lineHeight: string;
+    letterSpacing: string;
+} | undefined;
 
 // @public (undocumented)
 export const FramedIcon: (input: FramedIconProps) => JSX.Element;
@@ -2187,7 +2186,7 @@ export type SidepanelSectionActionProps = HTMLAttributes<HTMLDivElement>;
 export type SidepanelSectionProps = HTMLAttributes<HTMLDivElement>;
 
 // @public (undocumented)
-export const size: MemoizedFunction<unknown, unknown, string | undefined>;
+export const size: (this: unknown, arg: unknown) => string | undefined;
 
 // @public (undocumented)
 export const Skeleton: (input: SkeletonProps) => JSX.Element;
@@ -2222,7 +2221,7 @@ export type SliderProps<T extends number | number[]> = AriaAttributes & RefAttri
 });
 
 // @public (undocumented)
-export const spacing: MemoizedFunction<unknown, unknown, string | undefined>;
+export const spacing: (this: unknown, arg: unknown) => string | undefined;
 
 // @public (undocumented)
 export const States: (input: StatesProps) => JSX.Element;
@@ -2316,7 +2315,7 @@ export type StatusBulletProps = {
 } & Omit<AllHTMLAttributes<SVGElement>, 'size'>;
 
 // @public (undocumented)
-export const strokeColor: MemoizedFunction<unknown, unknown, string | undefined>;
+export const strokeColor: (this: unknown, arg: unknown) => string | undefined;
 
 // @public
 export const StylingBox: (input: StylingBoxProps) => ReactElement<{
