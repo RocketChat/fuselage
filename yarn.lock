@@ -5193,33 +5193,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rocket.chat/emitter@workspace:packages/emitter, @rocket.chat/emitter@workspace:~":
-  version: 0.0.0-use.local
-  resolution: "@rocket.chat/emitter@workspace:packages/emitter"
-  dependencies:
-    "@microsoft/api-extractor": "npm:~7.58.12"
-    "@rollup/plugin-commonjs": "npm:~29.0.3"
-    "@rollup/plugin-json": "npm:~6.1.0"
-    "@rollup/plugin-node-resolve": "npm:~16.0.3"
-    "@rollup/plugin-terser": "npm:~1.0.0"
-    "@rollup/plugin-typescript": "npm:~12.3.0"
-    eslint: "npm:~10.8.0"
-    jest: "npm:~30.4.2"
-    lint-all: "workspace:~"
-    prettier: "npm:~3.6.2"
-    rollup: "npm:~4.62.3"
-    ts-jest: "npm:~29.4.12"
-    typedoc: "npm:~0.28.20"
-    typescript: "npm:~5.9.3"
-  languageName: unknown
-  linkType: soft
+"@rocket.chat/emitter@npm:~0.33.0":
+  version: 0.33.0
+  resolution: "@rocket.chat/emitter@npm:0.33.0"
+  checksum: 10/3da59b699e71e3a10c1759cea9b9c9f91ff5d9d19b39cc1b843e09d53fba397d4999a9366f492376fee4dcd70cf89dc2c2bd2ba6fff134d69527d28023dc1417
+  languageName: node
+  linkType: hard
 
 "@rocket.chat/fuselage-forms@workspace:packages/fuselage-forms":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/fuselage-forms@workspace:packages/fuselage-forms"
   dependencies:
     "@microsoft/api-extractor": "npm:~7.58.12"
-    "@rocket.chat/emitter": "workspace:~"
+    "@rocket.chat/emitter": "npm:~0.33.0"
     "@rocket.chat/fuselage": "workspace:~"
     "@rocket.chat/fuselage-hooks": "workspace:~"
     "@rocket.chat/fuselage-tokens": "workspace:~"
@@ -5261,7 +5247,7 @@ __metadata:
   resolution: "@rocket.chat/fuselage-hooks@workspace:packages/fuselage-hooks"
   dependencies:
     "@microsoft/api-extractor": "npm:~7.58.12"
-    "@rocket.chat/emitter": "workspace:~"
+    "@rocket.chat/emitter": "npm:~0.33.0"
     "@rocket.chat/fuselage-tokens": "workspace:~"
     "@rollup/plugin-commonjs": "npm:~29.0.3"
     "@rollup/plugin-json": "npm:~6.1.0"
