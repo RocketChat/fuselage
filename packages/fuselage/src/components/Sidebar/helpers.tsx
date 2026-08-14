@@ -6,29 +6,29 @@ import { Box } from '../Box';
 import { IconButton } from '../Button';
 
 import {
-  SidebarV2,
-  SidebarV2Accordion,
-  SidebarV2AccordionItem,
-  SidebarV2Actions,
-  SidebarV2ButtonGroup,
-  SidebarV2CollapseGroup,
-  SidebarV2CollapseGroupMenu,
-  SidebarV2Footer,
-  SidebarV2FooterContent,
-  SidebarV2Item,
-  SidebarV2ItemAvatarWrapper,
-  SidebarV2ItemBadge,
-  SidebarV2ItemCol,
-  SidebarV2ItemContent,
-  SidebarV2ItemIcon,
-  SidebarV2ItemMenu,
-  SidebarV2ItemRow,
-  SidebarV2ItemStatusBullet,
-  SidebarV2ItemTimestamp,
-  SidebarV2ItemTitle,
-  SidebarV2ListItem,
+  Sidebar,
+  SidebarAccordion,
+  SidebarAccordionItem,
+  SidebarActions,
+  SidebarButtonGroup,
+  SidebarCollapseGroup,
+  SidebarCollapseGroupMenu,
+  SidebarFooter,
+  SidebarFooterContent,
+  SidebarItem,
+  SidebarItemAvatarWrapper,
+  SidebarItemBadge,
+  SidebarItemCol,
+  SidebarItemContent,
+  SidebarItemIcon,
+  SidebarItemMenu,
+  SidebarItemRow,
+  SidebarItemStatusBullet,
+  SidebarItemTimestamp,
+  SidebarItemTitle,
+  SidebarListItem,
 } from '.';
-import type { SidebarV2ItemProps } from './SidebarItem/SidebarItem';
+import type { SidebarItemProps } from './SidebarItem/SidebarItem';
 
 export const leterAvatarUrls = [
   "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3e%3crect width='100%25' height='100%25' fill='%2310529E'/%3e%3ctext x='50%25' y='50%25' dy='0.36em' text-anchor='middle' pointer-events='none' fill='white' font-size='125' font-family='Helvetica%2c sans-serif'%3eB%3c/text%3e%3c/svg%3e",
@@ -59,20 +59,18 @@ export const MenuTemplate = () => (
 );
 
 export const GenericCondensedItem = ({ i = 0 }: { i: number }) => (
-  <SidebarV2ListItem>
-    <SidebarV2Item selected={i === 2} href='#'>
-      <SidebarV2ItemAvatarWrapper>
+  <SidebarListItem>
+    <SidebarItem selected={i === 2} href='#'>
+      <SidebarItemAvatarWrapper>
         <Avatar size='x20' url={leterAvatarUrls[i % 4]} alt='avatar' />
-      </SidebarV2ItemAvatarWrapper>
-      <SidebarV2ItemIcon highlighted={i % 2 !== 0} icon='balloons' />
-      <SidebarV2ItemTitle unread={i % 2 !== 0}>
-        {names[i % 10]}
-      </SidebarV2ItemTitle>
+      </SidebarItemAvatarWrapper>
+      <SidebarItemIcon highlighted={i % 2 !== 0} icon='balloons' />
+      <SidebarItemTitle unread={i % 2 !== 0}>{names[i % 10]}</SidebarItemTitle>
       {i % 2 !== 0 && (
-        <SidebarV2ItemBadge title='unread messages'>{5}</SidebarV2ItemBadge>
+        <SidebarItemBadge title='unread messages'>{5}</SidebarItemBadge>
       )}
       {i === 0 && (
-        <SidebarV2Actions>
+        <SidebarActions>
           <IconButton aria-label='phone' tiny secondary success icon='phone' />
           <IconButton
             aria-label='phone-off'
@@ -81,86 +79,86 @@ export const GenericCondensedItem = ({ i = 0 }: { i: number }) => (
             danger
             icon='phone-off'
           />
-        </SidebarV2Actions>
+        </SidebarActions>
       )}
-      <SidebarV2ItemMenu>
+      <SidebarItemMenu>
         <MenuTemplate />
-      </SidebarV2ItemMenu>
-    </SidebarV2Item>
-  </SidebarV2ListItem>
+      </SidebarItemMenu>
+    </SidebarItem>
+  </SidebarListItem>
 );
 
 export const GenericNoAvatarItem = ({ i = 0 }: { i: number }) => (
-  <SidebarV2ListItem>
-    <SidebarV2Item href='#'>
-      <SidebarV2ItemStatusBullet status='online' />
-      <SidebarV2ItemTitle>{names[i % 10]}</SidebarV2ItemTitle>
-      <SidebarV2ItemBadge title='unread messages'>{5}</SidebarV2ItemBadge>
-      <SidebarV2ItemMenu>
+  <SidebarListItem>
+    <SidebarItem href='#'>
+      <SidebarItemStatusBullet status='online' />
+      <SidebarItemTitle>{names[i % 10]}</SidebarItemTitle>
+      <SidebarItemBadge title='unread messages'>{5}</SidebarItemBadge>
+      <SidebarItemMenu>
         <MenuTemplate />
-      </SidebarV2ItemMenu>
-    </SidebarV2Item>
-  </SidebarV2ListItem>
+      </SidebarItemMenu>
+    </SidebarItem>
+  </SidebarListItem>
 );
 
 export const GenericMediumItem = ({ i = 0 }: { i: number }) => (
-  <SidebarV2ListItem>
-    <SidebarV2Item href='#'>
-      <SidebarV2ItemAvatarWrapper>
+  <SidebarListItem>
+    <SidebarItem href='#'>
+      <SidebarItemAvatarWrapper>
         <Avatar size='x28' url={leterAvatarUrls[i % 4]} alt='avatar' />
-      </SidebarV2ItemAvatarWrapper>
-      <SidebarV2ItemIcon icon='team' />
-      <SidebarV2ItemTitle>{names[i % 10]}</SidebarV2ItemTitle>
-      <SidebarV2ItemBadge title='unread messages'>{5}</SidebarV2ItemBadge>
-      <SidebarV2ItemMenu>
+      </SidebarItemAvatarWrapper>
+      <SidebarItemIcon icon='team' />
+      <SidebarItemTitle>{names[i % 10]}</SidebarItemTitle>
+      <SidebarItemBadge title='unread messages'>{5}</SidebarItemBadge>
+      <SidebarItemMenu>
         <MenuTemplate />
-      </SidebarV2ItemMenu>
-    </SidebarV2Item>
-  </SidebarV2ListItem>
+      </SidebarItemMenu>
+    </SidebarItem>
+  </SidebarListItem>
 );
 
 export const GenericExtendedItem = ({ i = 0 }: { i: number }) => (
-  <SidebarV2ListItem>
-    <SidebarV2Item href='#'>
-      <SidebarV2ItemAvatarWrapper>
+  <SidebarListItem>
+    <SidebarItem href='#'>
+      <SidebarItemAvatarWrapper>
         <Avatar size='x36' url={leterAvatarUrls[i % 4]} alt='avatar' />
-      </SidebarV2ItemAvatarWrapper>
+      </SidebarItemAvatarWrapper>
 
-      <SidebarV2ItemCol>
-        <SidebarV2ItemRow>
-          <SidebarV2ItemIcon icon='team' />
-          <SidebarV2ItemTitle>{names[i % 10]}</SidebarV2ItemTitle>
-          <SidebarV2ItemTimestamp>12:00</SidebarV2ItemTimestamp>
-        </SidebarV2ItemRow>
+      <SidebarItemCol>
+        <SidebarItemRow>
+          <SidebarItemIcon icon='team' />
+          <SidebarItemTitle>{names[i % 10]}</SidebarItemTitle>
+          <SidebarItemTimestamp>12:00</SidebarItemTimestamp>
+        </SidebarItemRow>
 
-        <SidebarV2ItemRow>
-          <SidebarV2ItemContent>No messages yet</SidebarV2ItemContent>
-          <SidebarV2ItemBadge title='unread messages'>{5}</SidebarV2ItemBadge>
-          <SidebarV2ItemMenu>
+        <SidebarItemRow>
+          <SidebarItemContent>No messages yet</SidebarItemContent>
+          <SidebarItemBadge title='unread messages'>{5}</SidebarItemBadge>
+          <SidebarItemMenu>
             <MenuTemplate />
-          </SidebarV2ItemMenu>
-        </SidebarV2ItemRow>
-      </SidebarV2ItemCol>
-    </SidebarV2Item>
-  </SidebarV2ListItem>
+          </SidebarItemMenu>
+        </SidebarItemRow>
+      </SidebarItemCol>
+    </SidebarItem>
+  </SidebarListItem>
 );
 
 export const GenericCallItem = ({
   i = 0,
   ...props
-}: { i?: number } & SidebarV2ItemProps) => (
-  <SidebarV2Item {...props}>
-    <SidebarV2ItemAvatarWrapper>
+}: { i?: number } & SidebarItemProps) => (
+  <SidebarItem {...props}>
+    <SidebarItemAvatarWrapper>
       <Avatar size='x36' url={leterAvatarUrls[i % 4]} alt='avatar' />
-    </SidebarV2ItemAvatarWrapper>
+    </SidebarItemAvatarWrapper>
 
-    <SidebarV2ItemCol>
-      <SidebarV2ItemTitle>{names[i % 10]}</SidebarV2ItemTitle>
-      <SidebarV2ItemContent>Calling</SidebarV2ItemContent>
-    </SidebarV2ItemCol>
+    <SidebarItemCol>
+      <SidebarItemTitle>{names[i % 10]}</SidebarItemTitle>
+      <SidebarItemContent>Calling</SidebarItemContent>
+    </SidebarItemCol>
 
-    <SidebarV2ItemRow>
-      <SidebarV2ButtonGroup>
+    <SidebarItemRow>
+      <SidebarButtonGroup>
         <IconButton
           small
           icon='phone-off'
@@ -169,48 +167,42 @@ export const GenericCallItem = ({
           aria-label='phone-off'
         />
         <IconButton small icon='phone' secondary success aria-label='phone' />
-      </SidebarV2ButtonGroup>
-    </SidebarV2ItemRow>
-  </SidebarV2Item>
+      </SidebarButtonGroup>
+    </SidebarItemRow>
+  </SidebarItem>
 );
 
 export const decorators: Decorator[] = [
   (fn) => (
     <Box height='90vh' width='x280'>
-      <SidebarV2>
-        <SidebarV2Accordion>
-          <SidebarV2AccordionItem
+      <Sidebar>
+        <SidebarAccordion>
+          <SidebarAccordionItem
             title='Label'
             defaultExpanded
-            badge={
-              <SidebarV2ItemBadge variant='danger'>99+</SidebarV2ItemBadge>
-            }
+            badge={<SidebarItemBadge variant='danger'>99+</SidebarItemBadge>}
           >
-            <SidebarV2CollapseGroup
+            <SidebarCollapseGroup
               title='Label'
               defaultExpanded
               menu={
-                <SidebarV2CollapseGroupMenu>
+                <SidebarCollapseGroupMenu>
                   <MenuTemplate />
-                </SidebarV2CollapseGroupMenu>
+                </SidebarCollapseGroupMenu>
               }
-              badge={
-                <SidebarV2ItemBadge variant='danger'>99+</SidebarV2ItemBadge>
-              }
+              badge={<SidebarItemBadge variant='danger'>99+</SidebarItemBadge>}
             >
               {fn()}
-            </SidebarV2CollapseGroup>
-          </SidebarV2AccordionItem>
-        </SidebarV2Accordion>
-        <SidebarV2Footer>
-          <SidebarV2FooterContent>
-            Powered by Rocket.Chat
-          </SidebarV2FooterContent>
-          <SidebarV2FooterContent color='titles-labels'>
+            </SidebarCollapseGroup>
+          </SidebarAccordionItem>
+        </SidebarAccordion>
+        <SidebarFooter>
+          <SidebarFooterContent>Powered by Rocket.Chat</SidebarFooterContent>
+          <SidebarFooterContent color='titles-labels'>
             Free edition
-          </SidebarV2FooterContent>
-        </SidebarV2Footer>
-      </SidebarV2>
+          </SidebarFooterContent>
+        </SidebarFooter>
+      </Sidebar>
     </Box>
   ),
 ];

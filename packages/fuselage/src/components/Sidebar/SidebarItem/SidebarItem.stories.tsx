@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-webpack5';
 
-import { SidebarV2ListItem as SidebarListItem } from '../..';
+import { SidebarListItem } from '../..';
 import {
   GenericCondensedItem,
   GenericExtendedItem,
@@ -9,7 +9,7 @@ import {
 } from '../helpers';
 
 export default {
-  title: 'Navigation/SidebarV2/Item',
+  title: 'Navigation/Sidebar/Item',
   component: SidebarListItem,
   decorators,
   parameters: {

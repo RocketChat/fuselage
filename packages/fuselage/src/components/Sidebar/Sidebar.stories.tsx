@@ -4,28 +4,28 @@ import { action } from 'storybook/actions';
 import { IconButton, TextInput, Icon, Box } from '../..';
 
 import {
-  SidebarV2 as Sidebar,
-  SidebarV2Accordion as SidebarAccordion,
-  SidebarV2AccordionItem as SidebarAccordionItem,
-  SidebarV2Banner as SidebarBanner,
-  SidebarV2CollapseGroup as SidebarCollapseGroup,
-  SidebarV2FooterContent as SidebarFooterContent,
-  SidebarV2ItemAction as SidebarItemAction,
-  SidebarV2Link as SidebarLink,
-  SidebarV2ItemBadge as SidebarItemBadge,
-  SidebarV2Media as SidebarMedia,
-  SidebarV2MediaTitle as SidebarMediaTitle,
-  SidebarV2MediaController as SidebarMediaController,
-  SidebarV2ListItem as SidebarListItem,
-  SidebarV2Section as SidebarSection,
-  SidebarV2Footer as SidebarFooter,
+  Sidebar,
+  SidebarAccordion,
+  SidebarAccordionItem,
+  SidebarBanner,
+  SidebarCollapseGroup,
+  SidebarFooterContent,
+  SidebarItemAction,
+  SidebarLink,
+  SidebarItemBadge,
+  SidebarMedia,
+  SidebarMediaTitle,
+  SidebarMediaController,
+  SidebarListItem,
+  SidebarSection,
+  SidebarFooter,
 } from '.';
 import { SidebarCollapseGroupMenu } from './SidebarCollapseGroupMenu';
 import { CondensedItems as Condensed } from './SidebarItem/SidebarItem.stories';
 import { GenericNoAvatarItem, MenuTemplate } from './helpers';
 
 export default {
-  title: 'Navigation/SidebarV2',
+  title: 'Navigation/Sidebar',
   component: Sidebar,
   parameters: {
     docs: {

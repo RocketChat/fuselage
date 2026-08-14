@@ -2,19 +2,19 @@ import type { AllHTMLAttributes, ReactNode } from 'react';
 
 import { IconButton } from '../Button';
 
-export type SidebarV2BannerVariant =
+export type SidebarBannerVariant =
   | 'default'
   | 'info'
   | 'success'
   | 'warning'
   | 'danger';
 
-export type SidebarV2BannerProps = {
+export type SidebarBannerProps = {
   title?: ReactNode;
   linkText?: string;
   linkProps?: AllHTMLAttributes<HTMLAnchorElement>;
   onClick?: () => void;
-  variant?: SidebarV2BannerVariant;
+  variant?: SidebarBannerVariant;
   onClose?: () => void;
   children?: ReactNode;
   addon?: ReactNode;
@@ -29,7 +29,7 @@ export const SidebarBanner = ({
   onClose,
   children,
   ...props
-}: SidebarV2BannerProps) => (
+}: SidebarBannerProps) => (
   <div
     className={`rcx-box rcx-box--full rcx-sidebar-v2-banner rcx-sidebar-v2-banner--${variant}`}
     {...props}

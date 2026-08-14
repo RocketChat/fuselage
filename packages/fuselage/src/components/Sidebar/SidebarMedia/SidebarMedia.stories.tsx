@@ -1,17 +1,17 @@
 import type { Meta, StoryObj } from '@storybook/react-webpack5';
 
 import {
-  SidebarV2 as Sidebar,
-  SidebarV2Media as SidebarMedia,
-  SidebarV2MediaTitle as SidebarMediaTitle,
-  SidebarV2MediaController as SidebarMediaController,
+  Sidebar,
+  SidebarMedia,
+  SidebarMediaTitle,
+  SidebarMediaController,
   Box,
   IconButton,
 } from '../..';
 import { GenericCallItem } from '../helpers';
 
 export default {
-  title: 'Navigation/SidebarV2/Media',
+  title: 'Navigation/Sidebar/Media',
   component: Sidebar,
   argTypes: {
     collapsed: {
