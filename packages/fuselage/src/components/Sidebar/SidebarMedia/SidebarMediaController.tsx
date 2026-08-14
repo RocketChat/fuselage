@@ -9,11 +9,11 @@ export const SidebarMediaController = ({
   ...props
 }: { label?: string } & HTMLAttributes<HTMLDivElement>) => (
   <div
-    className={['rcx-sidebar-v2-media__controller', className]
+    className={['rcx-sidebar-media__controller', className]
       .filter(Boolean)
       .join(' ')}
   >
-    <div className='rcx-sidebar-v2-media__controller__label'>{label}</div>
+    <div className='rcx-sidebar-media__controller__label'>{label}</div>
     <SidebarButtonGroup small align='end' {...props}>
       {children}
     </SidebarButtonGroup>

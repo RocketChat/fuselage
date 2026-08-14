@@ -33,7 +33,7 @@ export function SidebarCollapseGroup({
 
   return (
     <section
-      className='rcx-box rcx-box--full rcx-sidebar-v2-collapse-group'
+      className='rcx-box rcx-box--full rcx-sidebar-collapse-group'
       {...props}
     >
       <SidebarGroupTitle
@@ -49,8 +49,8 @@ export function SidebarCollapseGroup({
         role='list'
         ref={ref}
         className={[
-          'rcx-box rcx-box--full rcx-sidebar-v2-collapse-group__panel rcx-box--animated',
-          panelExpanded && 'rcx-sidebar-v2-collapse-group__panel--expanded',
+          'rcx-box rcx-box--full rcx-sidebar-collapse-group__panel rcx-box--animated',
+          panelExpanded && 'rcx-sidebar-collapse-group__panel--expanded',
         ]
           .filter(Boolean)
           .join(' ')}

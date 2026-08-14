@@ -4,7 +4,7 @@ export const SidebarFooter = ({
   children,
   ...props
 }: HTMLAttributes<HTMLElement>) => (
-  <footer className='rcx-sidebar-v2-footer' {...props}>
+  <footer className='rcx-sidebar-footer' {...props}>
     {children}
   </footer>
 );

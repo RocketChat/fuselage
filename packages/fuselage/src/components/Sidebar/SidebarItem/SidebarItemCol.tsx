@@ -5,7 +5,7 @@ export const SidebarItemCol = ({
   ...props
 }: HTMLAttributes<HTMLDivElement>) => (
   <div
-    className={['rcx-box rcx-box--full rcx-sidebar-v2-item__col', className]
+    className={['rcx-box rcx-box--full rcx-sidebar-item__col', className]
       .filter(Boolean)
       .join(' ')}
     {...props}

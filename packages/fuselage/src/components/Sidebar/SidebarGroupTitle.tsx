@@ -24,21 +24,21 @@ export const SidebarGroupTitle = ({
   <div
     className={[
       'rcx-box rcx-box--full',
-      'rcx-sidebar-v2-collapse-group__bar rcx-box--animated',
+      'rcx-sidebar-collapse-group__bar rcx-box--animated',
     ]
       .filter(Boolean)
       .join(' ')}
     {...props}
   >
     <div
-      className='rcx-box rcx-sidebar-v2-collapse-group__bar-button'
+      className='rcx-box rcx-sidebar-collapse-group__bar-button'
       role={role}
       {...barProps}
     >
       {expanded !== undefined && <Chevron size='x20' right={!expanded} />}
       {title && (
         <h4
-          className='rcx-box rcx-box--full rcx-sidebar-v2-collapse-group__title'
+          className='rcx-box rcx-box--full rcx-sidebar-collapse-group__title'
           id={titleId}
         >
           {title}

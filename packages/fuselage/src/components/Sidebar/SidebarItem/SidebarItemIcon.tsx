@@ -16,8 +16,8 @@ export const SidebarItemIcon = ({
 }: SidebarItemIconProps) => (
   <div
     className={[
-      'rcx-box rcx-box--full rcx-sidebar-v2-item__icon',
-      highlighted && 'rcx-sidebar-v2-item__icon--highlighted',
+      'rcx-box rcx-box--full rcx-sidebar-item__icon',
+      highlighted && 'rcx-sidebar-item__icon--highlighted',
       className,
     ]
       .filter(Boolean)

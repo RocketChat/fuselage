@@ -24,9 +24,9 @@ const SidebarLink = ({
     tabIndex={0}
     className={[
       'rcx-box rcx-box--full',
-      'rcx-sidebar-v2-link',
-      'rcx-sidebar-v2-item',
-      selected && 'rcx-sidebar-v2-item--selected',
+      'rcx-sidebar-link',
+      'rcx-sidebar-item',
+      selected && 'rcx-sidebar-item--selected',
     ]
       .filter(Boolean)
       .join(' ')}
@@ -34,22 +34,20 @@ const SidebarLink = ({
     onKeyDown={(e) => e.code === 'Enter' && e.stopPropagation()}
     {...props}
   >
-    {icon && (
-      <Icon name={icon} size='x20' className='rcx-sidebar-v2-item__icon' />
-    )}
-    <span className='rcx-box rcx-box--full rcx-sidebar-v2-item__title'>
+    {icon && <Icon name={icon} size='x20' className='rcx-sidebar-item__icon' />}
+    <span className='rcx-box rcx-box--full rcx-sidebar-item__title'>
       {props.children}
     </span>
     {badge}
     {menu &&
       patchChildren(
-        <span className='rcx-box rcx-box--full rcx-sidebar-v2-item__menu-wrapper'>
+        <span className='rcx-box rcx-box--full rcx-sidebar-item__menu-wrapper'>
           {menu}
         </span>,
         (childProps: { className: string | string[] }) => ({
           className: appendClassName(
             childProps.className,
-            'rcx-box rcx-box--full rcx-sidebar-v2-item__menu rcx-box--animated',
+            'rcx-box rcx-box--full rcx-sidebar-item__menu rcx-box--animated',
           ),
         }),
       )}

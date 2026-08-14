@@ -8,17 +8,17 @@ export const SidebarCollapseGroupMenu = ({
   ...props
 }: HTMLAttributes<HTMLDivElement>) => (
   <div
-    className='rcx-box rcx-box--full rcx-sidebar-v2-collapse-group__menu-wrapper rcx-box--animated'
+    className='rcx-box rcx-box--full rcx-sidebar-collapse-group__menu-wrapper rcx-box--animated'
     {...props}
   >
     {patchChildren(
-      <span className='rcx-box rcx-box--full rcx-sidebar-v2-collapse-group__menu'>
+      <span className='rcx-box rcx-box--full rcx-sidebar-collapse-group__menu'>
         {children}
       </span>,
       (childProps: { className: string | string[] }) => ({
         className: appendClassName(
           childProps.className,
-          'rcx-sidebar-v2-collapse-group__menu',
+          'rcx-sidebar-collapse-group__menu',
         ),
       }),
     )}

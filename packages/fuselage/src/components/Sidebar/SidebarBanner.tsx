@@ -31,18 +31,18 @@ export const SidebarBanner = ({
   ...props
 }: SidebarBannerProps) => (
   <div
-    className={`rcx-box rcx-box--full rcx-sidebar-v2-banner rcx-sidebar-v2-banner--${variant}`}
+    className={`rcx-box rcx-box--full rcx-sidebar-banner rcx-sidebar-banner--${variant}`}
     {...props}
   >
-    <div className='rcx-box rcx-box--full rcx-sidebar-v2-banner__content'>
+    <div className='rcx-box rcx-box--full rcx-sidebar-banner__content'>
       {title && (
-        <h5 className='rcx-box rcx-box--full rcx-sidebar-v2-banner__title'>
+        <h5 className='rcx-box rcx-box--full rcx-sidebar-banner__title'>
           {title}
         </h5>
       )}
       {linkText && (
         <a
-          className='rcx-box rcx-box--full rcx-sidebar-v2-banner__link'
+          className='rcx-box rcx-box--full rcx-sidebar-banner__link'
           {...linkProps}
         >
           {linkText}
@@ -50,7 +50,7 @@ export const SidebarBanner = ({
       )}
       {children}
     </div>
-    <div className='rcx-box rcx-box--full rcx-sidebar-v2-banner__addon'>
+    <div className='rcx-box rcx-box--full rcx-sidebar-banner__addon'>
       {addon}
       {onClose && <IconButton onClick={onClose} tiny icon='cross' />}
     </div>

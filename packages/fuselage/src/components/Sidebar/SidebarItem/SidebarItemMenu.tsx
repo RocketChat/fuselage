@@ -8,17 +8,17 @@ export const SidebarItemMenu = ({
   ...props
 }: HTMLAttributes<HTMLDivElement>) => (
   <div
-    className='rcx-box rcx-box--full rcx-sidebar-v2-item__menu-wrapper rcx-box--animated'
+    className='rcx-box rcx-box--full rcx-sidebar-item__menu-wrapper rcx-box--animated'
     {...props}
   >
     {patchChildren(
-      <span className='rcx-box rcx-box--full rcx-sidebar-v2-item__menu'>
+      <span className='rcx-box rcx-box--full rcx-sidebar-item__menu'>
         {children}
       </span>,
       (childProps: { className: string | string[] }) => ({
         className: appendClassName(
           childProps.className,
-          'rcx-sidebar-v2-item__menu',
+          'rcx-sidebar-item__menu',
         ),
       }),
     )}

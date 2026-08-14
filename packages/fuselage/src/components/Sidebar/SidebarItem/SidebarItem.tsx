@@ -16,9 +16,9 @@ export const SidebarItem = ({
 }: SidebarItemProps) => (
   <Tag
     className={[
-      'rcx-box rcx-box--full rcx-sidebar-v2-item',
-      selected && 'rcx-sidebar-v2-item--selected',
-      level && `rcx-sidebar-v2-item--level-${level}`,
+      'rcx-box rcx-box--full rcx-sidebar-item',
+      selected && 'rcx-sidebar-item--selected',
+      level && `rcx-sidebar-item--level-${level}`,
       className,
     ]
       .filter(Boolean)

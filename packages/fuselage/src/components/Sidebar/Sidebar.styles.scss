@@ -15,7 +15,7 @@ $sidebar-color-stroke-extra-light: theme(
   colors.stroke(light)
 );
 
-.rcx-sidebar-v2 {
+.rcx-sidebar {
   position: relative;
 
   display: flex;
@@ -196,14 +196,14 @@ $sidebar-color-stroke-extra-light: theme(
 
       background-color: colors.surface(sidebar);
 
-      .rcx-sidebar-v2-accordion-item__chevron {
+      .rcx-sidebar-accordion-item__chevron {
         visibility: hidden;
       }
 
       &:focus-visible,
       &.hover,
       &:hover {
-        .rcx-sidebar-v2-accordion-item__chevron {
+        .rcx-sidebar-accordion-item__chevron {
           visibility: visible;
         }
       }
@@ -279,13 +279,13 @@ $sidebar-color-stroke-extra-light: theme(
     width: lengths.size(48);
 
     &:not(:hover) {
-      .rcx-sidebar-v2-item.rcx-sidebar-v2-link > .rcx-sidebar-v2-item__title,
-      .rcx-sidebar-v2-banner__content {
+      .rcx-sidebar-item.rcx-sidebar-link > .rcx-sidebar-item__title,
+      .rcx-sidebar-banner__content {
         display: none;
       }
 
-      .rcx-sidebar-v2-media__title,
-      .rcx-sidebar-v2-footer {
+      .rcx-sidebar-media__title,
+      .rcx-sidebar-footer {
         visibility: hidden;
 
         white-space: nowrap;

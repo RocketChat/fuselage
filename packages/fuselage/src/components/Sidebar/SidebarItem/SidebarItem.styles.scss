@@ -54,7 +54,7 @@ $sidebar-color-font-active: theme(
   }
 }
 
-.rcx-sidebar-v2-item {
+.rcx-sidebar-item {
   @extend %sidebar-item-base;
 
   &:is(a),

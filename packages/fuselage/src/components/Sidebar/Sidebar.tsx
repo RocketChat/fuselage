@@ -9,9 +9,9 @@ export function Sidebar({ collapsed, className, ...props }: SidebarProps) {
   return (
     <nav
       className={[
-        'rcx-box rcx-box--full rcx-sidebar-v2',
+        'rcx-box rcx-box--full rcx-sidebar',
         'rcx-box--animated',
-        collapsed && 'rcx-sidebar-v2--collapsed',
+        collapsed && 'rcx-sidebar--collapsed',
         className,
       ]
         .filter(Boolean)

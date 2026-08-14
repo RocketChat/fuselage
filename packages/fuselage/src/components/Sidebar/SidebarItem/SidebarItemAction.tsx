@@ -16,7 +16,7 @@ export const SidebarItemAction = ({
     role='button'
     tabIndex={0}
     className={[
-      'rcx-box rcx-box--full rcx-sidebar-v2-item rcx-sidebar-v2-item__action',
+      'rcx-box rcx-box--full rcx-sidebar-item rcx-sidebar-item__action',
       className,
     ]
       .filter(Boolean)

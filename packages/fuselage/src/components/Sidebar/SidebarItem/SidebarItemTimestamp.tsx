@@ -7,8 +7,8 @@ export const SidebarItemTimestamp = ({
 }: { unread?: boolean } & HTMLAttributes<HTMLDivElement>) => (
   <div
     className={[
-      'rcx-box rcx-box--full rcx-sidebar-v2-item__timestamp',
-      unread && 'rcx-sidebar-v2-item__timestamp--highlighted',
+      'rcx-box rcx-box--full rcx-sidebar-item__timestamp',
+      unread && 'rcx-sidebar-item__timestamp--highlighted',
       className,
     ]
       .filter(Boolean)

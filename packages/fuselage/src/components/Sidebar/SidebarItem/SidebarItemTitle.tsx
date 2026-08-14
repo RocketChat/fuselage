@@ -7,8 +7,8 @@ export const SidebarItemTitle = ({
 }: { unread?: boolean } & HTMLAttributes<HTMLDivElement>) => (
   <div
     className={[
-      'rcx-box rcx-box--full rcx-sidebar-v2-item__title',
-      unread && 'rcx-sidebar-v2-item__title--highlighted',
+      'rcx-box rcx-box--full rcx-sidebar-item__title',
+      unread && 'rcx-sidebar-item__title--highlighted',
       className,
     ]
       .filter(Boolean)
