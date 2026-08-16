@@ -192,6 +192,7 @@ function AutoComplete<TLabel = ReactNode>({
 
   return (
     <Box
+      animated
       rcx-autocomplete
       ref={containerRef}
       onClick={useStableCallback(() => innerRef.current?.focus())}

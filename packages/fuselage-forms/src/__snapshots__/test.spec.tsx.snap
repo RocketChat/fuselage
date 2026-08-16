@@ -44,7 +44,7 @@ exports[`renders WithAutoComplete without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-field__row"
       >
         <div
-          class="rcx-box rcx-box--full rcx-autocomplete rcx-css-t3n91h"
+          class="rcx-box rcx-box--full rcx-box--animated rcx-autocomplete rcx-css-t3n91h"
         >
           <div
             class="rcx-box rcx-box--full rcx-css-6d871f"
@@ -144,7 +144,7 @@ exports[`renders WithAutoCompleteMultiple without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-field__row"
       >
         <div
-          class="rcx-box rcx-box--full rcx-autocomplete rcx-css-t3n91h"
+          class="rcx-box rcx-box--full rcx-box--animated rcx-autocomplete rcx-css-t3n91h"
         >
           <div
             class="rcx-box rcx-box--full rcx-css-6d871f"
@@ -449,7 +449,7 @@ exports[`renders WithMultiSelect without crashing 1`] = `
         class="rcx-box rcx-box--full rcx-field__row"
       >
         <div
-          class="rcx-box rcx-box--full rcx-select"
+          class="rcx-box rcx-box--full rcx-box--animated rcx-select"
         >
           <div
             class="rcx-box rcx-box--full rcx-css-1sr8su7"

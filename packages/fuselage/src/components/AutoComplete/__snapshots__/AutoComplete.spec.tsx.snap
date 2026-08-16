@@ -4,7 +4,7 @@ exports[`[AutoComplete Rendering] renders CustomItem without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-autocomplete rcx-css-t3n91h"
+      class="rcx-box rcx-box--full rcx-box--animated rcx-autocomplete rcx-css-t3n91h"
     >
       <div
         class="rcx-box rcx-box--full rcx-css-6d871f"
@@ -35,7 +35,7 @@ exports[`[AutoComplete Rendering] renders CustomSelected without crashing 1`] = 
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-autocomplete rcx-css-t3n91h"
+      class="rcx-box rcx-box--full rcx-box--animated rcx-autocomplete rcx-css-t3n91h"
     >
       <div
         class="rcx-box rcx-box--full rcx-css-6d871f"
@@ -134,7 +134,7 @@ exports[`[AutoComplete Rendering] renders Default without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-autocomplete rcx-css-t3n91h"
+      class="rcx-box rcx-box--full rcx-box--animated rcx-autocomplete rcx-css-t3n91h"
     >
       <div
         class="rcx-box rcx-box--full rcx-css-6d871f"
@@ -165,7 +165,7 @@ exports[`[AutoComplete Rendering] renders Disabled without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-autocomplete disabled rcx-css-t3n91h"
+      class="rcx-box rcx-box--full rcx-box--animated rcx-autocomplete disabled rcx-css-t3n91h"
     >
       <div
         class="rcx-box rcx-box--full rcx-css-6d871f"
@@ -197,7 +197,7 @@ exports[`[AutoComplete Rendering] renders Multiple without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-autocomplete rcx-css-t3n91h"
+      class="rcx-box rcx-box--full rcx-box--animated rcx-autocomplete rcx-css-t3n91h"
     >
       <div
         class="rcx-box rcx-box--full rcx-css-6d871f"
@@ -262,7 +262,7 @@ exports[`[AutoComplete Rendering] renders MultipleCustomSelected without crashin
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-autocomplete rcx-css-t3n91h"
+      class="rcx-box rcx-box--full rcx-box--animated rcx-autocomplete rcx-css-t3n91h"
     >
       <div
         class="rcx-box rcx-box--full rcx-css-6d871f"
@@ -461,7 +461,7 @@ exports[`[AutoComplete Rendering] renders WithPlaceholder without crashing 1`] =
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-autocomplete rcx-css-t3n91h"
+      class="rcx-box rcx-box--full rcx-box--animated rcx-autocomplete rcx-css-t3n91h"
     >
       <div
         class="rcx-box rcx-box--full rcx-css-6d871f"

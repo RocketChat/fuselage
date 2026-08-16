@@ -4,7 +4,7 @@ exports[`[PaginatedSelectFiltered Component] renders Disabled without crashing 1
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-select disabled rcx-css-5gkzmp"
+      class="rcx-box rcx-box--full rcx-box--animated rcx-select disabled rcx-css-5gkzmp"
       disabled=""
     >
       <div
@@ -36,7 +36,7 @@ exports[`[PaginatedSelectFiltered Component] renders Errored without crashing 1`
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-select invalid rcx-css-5gkzmp"
+      class="rcx-box rcx-box--full rcx-box--animated rcx-select invalid rcx-css-5gkzmp"
     >
       <div
         class="rcx-box rcx-box--full rcx-select__wrapper rcx-css-bpb89k"
@@ -66,7 +66,7 @@ exports[`[PaginatedSelectFiltered Component] renders Normal without crashing 1`]
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-select rcx-css-5gkzmp"
+      class="rcx-box rcx-box--full rcx-box--animated rcx-select rcx-css-5gkzmp"
     >
       <div
         class="rcx-box rcx-box--full rcx-select__wrapper rcx-css-bpb89k"
@@ -96,7 +96,7 @@ exports[`[PaginatedSelectFiltered Component] renders WithRenderItem without cras
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-select rcx-css-5gkzmp"
+      class="rcx-box rcx-box--full rcx-box--animated rcx-select rcx-css-5gkzmp"
     >
       <div
         class="rcx-box rcx-box--full rcx-select__wrapper rcx-css-bpb89k"

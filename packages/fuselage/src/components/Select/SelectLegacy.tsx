@@ -144,6 +144,7 @@ function SelectLegacy({
 
   return (
     <Box
+      animated
       rcx-select
       disabled={disabled}
       ref={containerRef}
