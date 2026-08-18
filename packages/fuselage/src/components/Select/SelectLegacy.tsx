@@ -144,6 +144,7 @@ function SelectLegacy({
 
   return (
     <Box
+      animated
       rcx-select
       disabled={disabled}
       ref={containerRef}
@@ -175,7 +176,7 @@ function SelectLegacy({
               marginInline={4}
               rcx-select__item
               fontScale='p2'
-              color={valueLabel ? 'default' : 'hint'}
+              color={valueLabel ? 'titles-labels' : 'hint'}
             >
               {visibleText}
             </Box>
