@@ -405,8 +405,6 @@ $message-block-width-fixed: theme('message-block-width-fixed', 368px);
 
     word-break: keep-all;
 
-    // p2m (medium) weight; the size stays inherited so highlights match the
-    // surrounding text scale.
     font-weight: 500;
 
     &--clickable {
