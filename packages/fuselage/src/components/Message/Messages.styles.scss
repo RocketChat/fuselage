@@ -396,9 +396,6 @@ $message-block-width-fixed: theme('message-block-width-fixed', 368px);
   }
 
   &__highlight {
-    // Inline (not inline-block) so highlights sit in the text flow like any
-    // other run of text; an inline-block box adds its border to the line box
-    // and makes lines containing a mention taller than lines without one.
     display: inline;
 
     white-space: nowrap;
