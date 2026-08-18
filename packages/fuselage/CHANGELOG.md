@@ -1,5 +1,24 @@
 # Change Log
 
+## 0.86.0
+
+### Minor Changes
+
+- [#2138](https://github.com/RocketChat/fuselage/pull/2138) [`064b02a`](https://github.com/RocketChat/fuselage/commit/064b02a866d3f8c5ca82fcc9e810d082e8f0bbd1) Thanks [@ivans-netto](https://github.com/ivans-netto)! - feat(fuselage): quieter message header metadata
+
+- [#2147](https://github.com/RocketChat/fuselage/pull/2147) [`9aaeab5`](https://github.com/RocketChat/fuselage/commit/9aaeab5c06798e3e562a9d6d2a0afcbdbed17c99) Thanks [@ivans-netto](https://github.com/ivans-netto)! - feat(fuselage)!: Remove the `ghost` variant and the `disabled` prop from `Badge`
+
+- [#2148](https://github.com/RocketChat/fuselage/pull/2148) [`0d8e038`](https://github.com/RocketChat/fuselage/commit/0d8e038801972ec29ad2fb1d26da088af05b7b23) Thanks [@tassoevan](https://github.com/tassoevan)! - feat(fuselage-tokens)!: Rework the token build and its output formats
+
+### Patch Changes
+
+- [#2150](https://github.com/RocketChat/fuselage/pull/2150) [`9d13357`](https://github.com/RocketChat/fuselage/commit/9d1335702b8d6aab51cbb42386cb92d2b4b69b5d) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): `MultiSelect` option checkbox staying checked after deselect
+
+- [#2088](https://github.com/RocketChat/fuselage/pull/2088) [`5f63640`](https://github.com/RocketChat/fuselage/commit/5f63640f0a88b0bcf5a725d2ba630b98147824fe) Thanks [@ricardogarim](https://github.com/ricardogarim)! - fix: Remove duplicated calendar icon on date inputs in Firefox
+
+- Updated dependencies [[`695158b`](https://github.com/RocketChat/fuselage/commit/695158b0dc55d2a994424bb3faeefac6c5389a8f), [`0d8e038`](https://github.com/RocketChat/fuselage/commit/0d8e038801972ec29ad2fb1d26da088af05b7b23)]:
+  - @rocket.chat/fuselage-tokens@0.34.0
+
 ## 0.85.0
 
 ### Minor Changes

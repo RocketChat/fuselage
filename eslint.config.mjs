@@ -545,12 +545,6 @@ export default tseslint.config(
     },
   },
   {
-    files: ['packages/mp3-encoder/**/*.ts'],
-    rules: {
-      'new-cap': 'off',
-    },
-  },
-  {
     files: ['tools/testing-utils/**/*.js'],
     languageOptions: {
       globals: {

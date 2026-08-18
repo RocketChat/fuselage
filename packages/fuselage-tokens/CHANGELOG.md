@@ -1,5 +1,15 @@
 # Change Log
 
+## 0.34.0
+
+### Minor Changes
+
+- [#2148](https://github.com/RocketChat/fuselage/pull/2148) [`0d8e038`](https://github.com/RocketChat/fuselage/commit/0d8e038801972ec29ad2fb1d26da088af05b7b23) Thanks [@tassoevan](https://github.com/tassoevan)! - feat(fuselage-tokens)!: Rework the token build and its output formats
+
+### Patch Changes
+
+- [#2144](https://github.com/RocketChat/fuselage/pull/2144) [`695158b`](https://github.com/RocketChat/fuselage/commit/695158b0dc55d2a994424bb3faeefac6c5389a8f) Thanks [@ivans-netto](https://github.com/ivans-netto)! - fix(fuselage-tokens): badge level-1 contrast a11y failing
+
 ## 0.33.2
 
 ### Patch Changes
