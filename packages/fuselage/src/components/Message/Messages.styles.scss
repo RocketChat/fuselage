@@ -428,11 +428,6 @@ $message-block-width-fixed: theme('message-block-width-fixed', 368px);
       color: $message-highlight-colors-other-color;
     }
 
-    // focus-state reserves a transparent border so the focus ring does not
-    // shift layout, but on an inline run that border sits inside the line and
-    // adds a fixed 1px on each side of every mention. Draw the ring with an
-    // outline instead: it paints outside the box without taking up space, so
-    // the gap around a mention comes from the text alone.
     @include states.on-focus-visible {
       border-radius: lengths.border-radius(medium);
       outline: lengths.border-width('default') solid colors.stroke(highlight);
