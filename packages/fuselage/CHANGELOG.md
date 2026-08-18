@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.83.1
+
+### Patch Changes
+
+- [#2150](https://github.com/RocketChat/fuselage/pull/2150) [`9d13357`](https://github.com/RocketChat/fuselage/commit/9d1335702b8d6aab51cbb42386cb92d2b4b69b5d) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): `MultiSelect` option checkbox staying checked after deselect
+
 ## 0.83.0
 
 ### Minor Changes
