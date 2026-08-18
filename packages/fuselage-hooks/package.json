@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/fuselage-hooks",
-  "version": "0.43.0",
+  "version": "0.43.1",
   "description": "React hooks for Fuselage, Rocket.Chat's design system and UI toolkit",
   "keywords": [
     "react",
@@ -40,7 +40,7 @@
   },
   "devDependencies": {
     "@microsoft/api-extractor": "~7.58.12",
-    "@rocket.chat/emitter": "workspace:~",
+    "@rocket.chat/emitter": "~0.33.0",
     "@rocket.chat/fuselage-tokens": "workspace:~",
     "@rollup/plugin-commonjs": "~29.0.3",
     "@rollup/plugin-json": "~6.1.0",

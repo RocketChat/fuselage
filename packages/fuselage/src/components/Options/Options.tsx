@@ -98,7 +98,7 @@ function Options<
                 }}
                 key={value}
                 value={value}
-                selected={selected}
+                selected={!!selected}
                 disabled={disabled}
                 focus={cursor === i}
               />

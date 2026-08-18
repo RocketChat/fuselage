@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/fuselage-tokens",
-  "version": "0.33.2",
+  "version": "0.34.0",
   "description": "Design tokens for Fuselage, Rocket.Chat's design system",
   "keywords": [
     "design",
@@ -24,19 +24,12 @@
   },
   "type": "module",
   "files": [
-    "dist",
-    "/breakpoints.*",
-    "/colors.*",
-    "/typography.*"
+    "dist"
   ],
   "scripts": {
-    "build": "run .:build:clean && run .:build:legacy && run .:build",
-    ".:build": "node ./build --config ./config.js",
-    ".:build:legacy": "build-design-tokens",
-    ".:build:clean": "rimraf dist"
+    "build": "rimraf dist && node ./build --config ./config.js"
   },
   "devDependencies": {
-    "build-design-tokens": "workspace:~",
     "eslint": "~10.8.0",
     "eslint-config-prettier": "~10.1.8",
     "lint-all": "workspace:~",

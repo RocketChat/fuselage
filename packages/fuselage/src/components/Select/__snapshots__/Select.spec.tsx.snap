@@ -91,14 +91,14 @@ exports[`[Select Component] renders without crashing 1`] = `
       type="button"
     >
       <span
-        class="rcx-box rcx-box--full rcx-css-1cgze1c"
+        class="rcx-box rcx-box--full rcx-css-az37y0"
         id="react-aria-_r_7_"
       >
         Placeholder here...
       </span>
       <i
         aria-hidden="true"
-        class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-1ku6woc"
+        class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-rm4moq"
       >
         
       </i>

@@ -20,6 +20,7 @@ import {
   SidebarV2Section as SidebarSection,
   SidebarV2Footer as SidebarFooter,
 } from '.';
+import { SidebarCollapseGroupMenu } from './SidebarCollapseGroupMenu';
 import { CondensedItems as Condensed } from './SidebarItem/SidebarItem.stories';
 import { GenericNoAvatarItem, MenuTemplate } from './helpers';
 
@@ -146,7 +147,11 @@ export const Default: Story = {
                   variant='danger'
                 />
               }
-              menu={<MenuTemplate />}
+              menu={
+                <SidebarCollapseGroupMenu>
+                  <MenuTemplate />
+                </SidebarCollapseGroupMenu>
+              }
             >
               {Array.from({ length: 4 }).map((_, i) => (
                 <GenericNoAvatarItem key={i} i={i} />
@@ -162,7 +167,11 @@ export const Default: Story = {
                   variant='danger'
                 />
               }
-              menu={<MenuTemplate />}
+              menu={
+                <SidebarCollapseGroupMenu>
+                  <MenuTemplate />
+                </SidebarCollapseGroupMenu>
+              }
             >
               <Condensed />
               <SidebarListItem>
