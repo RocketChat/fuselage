@@ -6,11 +6,8 @@
 @use '../../styles/mixins/interactivity.scss' as *;
 @use '../../styles/mixins/states.scss' as *;
 
-// The rendered inset between the button edge and its content is the sum of the
-// border and the padding, so each mixin below takes the *total* inset the design
-// system specifies and subtracts the actual border width. The previous code
-// subtracted a hard-coded 2px while the border is 1px, which left every button
-// 1px tight on every edge.
+// Rendered inset = border + padding. Mixins below subtract this from the
+// total inset to get the padding value.
 $border-width: theme('button-border-width', lengths.border-width('default'));
 
 // Inline insets, composed from the 4px padding scale.
