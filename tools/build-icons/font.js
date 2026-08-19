@@ -30,31 +30,42 @@ export const createSvgBuffer = async (icons) => {
     log: () => undefined,
   });
 
-  await Promise.all(
+  const glyphs = await Promise.all(
     icons.map(async ({ name, type, path }) => {
       const content = await readSource(path);
       const { start: startCharacter, end: endCharacter } =
         await nextCharactersFor(name, type);
 
-      const stream = createReadableFromString(content);
-      stream.metadata = {
+      return {
         name,
-        unicode: [startCharacter],
+        content,
+        startCharacter,
+        endCharacter,
+        mirroredContent: endCharacter ? await mirrorSvg(content) : undefined,
+      };
+    }),
+  );
+
+  // written in the (sorted) icons order, not I/O completion order
+  for (const glyph of glyphs) {
+    const stream = createReadableFromString(glyph.content);
+    stream.metadata = {
+      name: glyph.name,
+      unicode: [glyph.startCharacter],
+    };
+
+    fontStream.write(stream);
+
+    if (glyph.endCharacter) {
+      const stream = createReadableFromString(glyph.mirroredContent);
+      stream.metadata = {
+        name: `${glyph.name}-mirror`,
+        unicode: [glyph.endCharacter],
       };
 
       fontStream.write(stream);
-
-      if (endCharacter) {
-        const stream = createReadableFromString(await mirrorSvg(content));
-        stream.metadata = {
-          name: `${name}-mirror`,
-          unicode: [endCharacter],
-        };
-
-        fontStream.write(stream);
-      }
-    }),
-  );
+    }
+  }
 
   return new Promise((resolve, reject) => {
     /** @type Uint8Array[] */
