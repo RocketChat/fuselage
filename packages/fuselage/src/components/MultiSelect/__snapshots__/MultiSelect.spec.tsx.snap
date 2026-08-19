@@ -4,7 +4,7 @@ exports[`renders CustomEmpty without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-select"
+      class="rcx-box rcx-box--full rcx-box--animated rcx-select"
     >
       <div
         class="rcx-box rcx-box--full rcx-css-1sr8su7"
@@ -43,7 +43,7 @@ exports[`renders Default without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-select"
+      class="rcx-box rcx-box--full rcx-box--animated rcx-select"
     >
       <div
         class="rcx-box rcx-box--full rcx-css-1sr8su7"
@@ -82,7 +82,7 @@ exports[`renders Disabled without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-select disabled"
+      class="rcx-box rcx-box--full rcx-box--animated rcx-select disabled"
       disabled=""
     >
       <div
@@ -123,7 +123,7 @@ exports[`renders Error without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-select invalid"
+      class="rcx-box rcx-box--full rcx-box--animated rcx-select invalid"
     >
       <div
         class="rcx-box rcx-box--full rcx-css-1sr8su7"
@@ -162,7 +162,7 @@ exports[`renders WithFilter without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-select"
+      class="rcx-box rcx-box--full rcx-box--animated rcx-select"
     >
       <div
         class="rcx-box rcx-box--full rcx-css-1sr8su7"
@@ -200,7 +200,7 @@ exports[`renders WithValue without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-select"
+      class="rcx-box rcx-box--full rcx-box--animated rcx-select"
     >
       <div
         class="rcx-box rcx-box--full rcx-css-1sr8su7"

@@ -29,6 +29,7 @@ export function SelectTrigger({
     <Box
       {...buttonProps}
       id={id}
+      animated
       rcx-select
       ref={ref}
       is='button'
