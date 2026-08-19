@@ -10,13 +10,8 @@
 // total inset to get the padding value.
 $border-width: theme('button-border-width', lengths.border-width('default'));
 
-// Inline insets, composed from the 4px padding scale.
-//
-// The design system specifies 14px and 22px inline insets, which the scale does
-// not express directly (`lengths.padding()` accepts 1, 2, or a multiple of 4).
-// They are built here as `padding(16) - padding(2)` and `padding(24) -
-// padding(2)` rather than written as literals. See the PR description — the
-// cleaner fix is for the design to land on a scale value.
+// Inline insets, composed from the 4px padding scale
+// (`lengths.padding()` accepts 1, 2, or a multiple of 4).
 $inset-default: lengths.padding(16) - lengths.padding(2); // 14px
 $inset-small: lengths.padding(8); // 8px
 $inset-large: lengths.padding(24); // 24px
