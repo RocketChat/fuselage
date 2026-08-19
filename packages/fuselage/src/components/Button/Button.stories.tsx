@@ -311,11 +311,6 @@ export const States: Story = {
   ),
 };
 
-/**
- * The rectangular sizes, in the order they should be compared. `mini` and
- * `tiny` are intentionally absent: they type-check as `size` values but only
- * have squared styles, so they are not offered as rectangular buttons.
- */
 const SIZE_ROWS = [
   { label: 'small', size: 'small' as const },
   { label: 'medium', size: 'medium' as const },
