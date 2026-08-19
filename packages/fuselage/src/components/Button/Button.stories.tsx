@@ -51,9 +51,6 @@ export default {
     },
     size: {
       control: 'select',
-      // `mini` and `tiny` are valid `size` values but have no rectangular
-      // styles, so they silently fall back to the default box. They are left
-      // out of Storybook entirely rather than presented as a working choice.
       options: ['small', 'medium', 'large'],
       description: 'Size scale of the button.',
       table: { defaultValue: { summary: 'default (40px)' } },
