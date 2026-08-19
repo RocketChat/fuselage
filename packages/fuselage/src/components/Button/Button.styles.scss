@@ -40,7 +40,7 @@ $inset-icon-large: lengths.padding(24) - lengths.padding(2); // 22px
     height: lengths.size($height);
 
     padding-block: calc(
-      (#{lengths.size($height)} - #{$line-height}) / 2 - #{$border-width}
+      (lengths.size($height) - $line-height) / 2 - $border-width
     );
     padding-inline: calc(#{$inline-inset} - #{$border-width});
   }
