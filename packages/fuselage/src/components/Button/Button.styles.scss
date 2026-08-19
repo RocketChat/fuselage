@@ -11,10 +11,7 @@
 // system specifies and subtracts the actual border width. The previous code
 // subtracted a hard-coded 2px while the border is 1px, which left every button
 // 1px tight on every edge.
-$border-width: var(
-  --rcx-button-border-width,
-  #{lengths.border-width('default')}
-);
+$border-width: theme('button-border-width', lengths.border-width('default'));
 
 // Inline insets, composed from the 4px padding scale.
 //
