@@ -71,10 +71,8 @@ $inset-icon-large: lengths.padding(24) - lengths.padding(2); // 22px
 
     @include use-with-truncated-text();
 
-    // Icon defaults to `vertical-align: text-bottom`, which drags the shared
-    // baseline down and pushes the label below centre. The icon is sized to the
-    // label's line-height at every button size, so aligning it to the top of
-    // the line box leaves both the icon and the label centred.
+    // Icon is sized to the label's line-height, so top-aligning it keeps
+    // both centred (default `vertical-align: text-bottom` would not).
     .rcx-icon {
       vertical-align: top;
     }
