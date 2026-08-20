@@ -7,6 +7,11 @@ export type ButtonGroupProps = RefAttributes<HTMLDivElement> & {
   vertical?: boolean;
   small?: boolean;
   large?: boolean;
+  /**
+   * Fuses the buttons into a single segmented control. Takes precedence
+   * over `small`/`large` spacing.
+   */
+  joined?: boolean;
 } & HTMLAttributes<HTMLDivElement>;
 
 /**
@@ -20,6 +25,7 @@ function ButtonGroup({
   wrap,
   small,
   large,
+  joined,
   className,
   ...props
 }: ButtonGroupProps) {
@@ -30,9 +36,10 @@ function ButtonGroup({
         stretch && 'rcx-button-group--stretch',
         vertical && 'rcx-button-group--vertical',
         align && `rcx-button-group--align-${align}`,
-        small && 'rcx-button-group--small',
-        large && 'rcx-button-group--large',
+        !joined && small && 'rcx-button-group--small',
+        !joined && large && 'rcx-button-group--large',
         wrap && 'rcx-button-group--wrap',
+        joined && 'rcx-button-group--joined',
         className,
       ]
         .filter(Boolean)

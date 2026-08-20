@@ -278,6 +278,7 @@ export type ButtonGroupProps = RefAttributes<HTMLDivElement> & {
     vertical?: boolean;
     small?: boolean;
     large?: boolean;
+    joined?: boolean;
 } & HTMLAttributes<HTMLDivElement>;
 
 // @public (undocumented)
@@ -299,6 +300,7 @@ export type ButtonProps = Omit<BoxProps, 'ref'> & {
     square?: boolean;
     external?: boolean;
     icon?: IconProps['name'];
+    ghost?: boolean;
 } & Omit<AllHTMLAttributes<HTMLButtonElement | HTMLAnchorElement>, 'is' | 'className' | 'size'> & RefAttributes<HTMLButtonElement | HTMLAnchorElement>;
 
 // @public
@@ -731,6 +733,7 @@ export type IconButtonProps = {
     warning?: boolean;
     success?: boolean;
     pressed?: boolean;
+    ghost?: boolean;
 } & IconButtonSize & BoxProps;
 
 // @public (undocumented)
