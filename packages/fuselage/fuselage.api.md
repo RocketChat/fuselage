@@ -425,17 +425,8 @@ export type ChevronProps = Omit<BoxProps, 'size'> & {
     bottom?: boolean;
 };
 
-// @public (undocumented)
-export const Chip: {
-    (props: Omit<ButtonHTMLAttributes<HTMLButtonElement>, "type"> & {
-        thumbUrl?: string;
-        renderThumb?: (props: {
-            url: string;
-        }) => ReactNode;
-        renderDismissSymbol?: () => ReactNode;
-    } & Partial<StylingProps>): JSX.Element;
-    displayName: string;
-};
+// @public
+export const Chip: (input: ChipProps & Omit<Partial<StylingProps>, "size">) => JSX.Element;
 
 // @public (undocumented)
 export type ChipProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type'> & {
@@ -444,6 +435,11 @@ export type ChipProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type'> & 
         url: string;
     }) => ReactNode;
     renderDismissSymbol?: () => ReactNode;
+    onDismiss?: MouseEventHandler<HTMLButtonElement>;
+    icon?: IconProps['name'];
+    leadingIcon?: IconProps['name'];
+    dismissLabel?: string;
+    size?: 'medium' | 'small';
 };
 
 // @public
