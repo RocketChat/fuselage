@@ -1961,192 +1961,17 @@ export type SelectProps = Omit<BoxProps, 'ref' | 'onChange'> & RefAttributes<HTM
     addonIcon?: IconProps['name'];
 };
 
-// @public @deprecated (undocumented)
-export const Sidebar: (props: SidebarProps) => JSX.Element;
-
-// @public @deprecated (undocumented)
-export type SidebarActionProps = Omit<IconButtonProps, 'ref'> & RefAttributes<HTMLElement>;
-
-// @public @deprecated (undocumented)
-export const SidebarBanner: (input: SidebarBannerProps) => JSX.Element;
-
-// @public @deprecated (undocumented)
-export type SidebarBannerProps = {
-    text?: ReactNode;
-    description?: ReactNode;
-    onClick?: () => void;
-    variant?: SidebarBannerVariant;
-    onClose?: () => void;
-    children?: ReactNode;
-    addon?: ReactNode;
-};
-
-// @public @deprecated (undocumented)
-export type SidebarBannerVariant = 'default' | 'info' | 'success' | 'warning' | 'danger';
-
-// @public @deprecated (undocumented)
-export const SidebarDivider: () => JSX.Element;
-
-// @public @deprecated (undocumented)
-export const SidebarFooter: (input: SidebarFooterProps) => JSX.Element;
-
-// @public @deprecated (undocumented)
-export const SidebarFooterHighlight: (input: SidebarFooterHighlightProps) => JSX.Element;
-
-// @public @deprecated (undocumented)
-export type SidebarFooterHighlightProps = {
-    children?: ReactNode;
-};
-
-// @public @deprecated (undocumented)
-export type SidebarFooterProps = {
-    children?: ReactNode;
-    elevated?: boolean;
-};
-
-// @public @deprecated
-export const SidebarItem: (input: SidebarItemProps) => JSX.Element;
-
-// @public @deprecated (undocumented)
-export const SidebarItemAction: (props: SidebarItemActionProps) => JSX.Element;
-
-// @public @deprecated (undocumented)
-export type SidebarItemActionProps = SidebarActionProps;
-
-// Warning: (ae-forgotten-export) The symbol "SidebarActions" needs to be exported by the entry point index.d.ts
-//
-// @public @deprecated (undocumented)
-export const SidebarItemActions: typeof SidebarActions;
-
-// @public @deprecated (undocumented)
-export const SidebarItemAvatar: (input: SidebarItemAvatarProps) => JSX.Element;
-
-// @public @deprecated (undocumented)
-export type SidebarItemAvatarProps = {
-    children?: ReactNode;
-} & AllHTMLAttributes<HTMLElement>;
-
-// @public @deprecated (undocumented)
-export const SidebarItemBadge: (input: SidebarItemBadgeProps) => JSX.Element;
-
-// @public @deprecated (undocumented)
-export type SidebarItemBadgeProps = {
-    children?: ReactNode;
-    className?: string;
-} & AllHTMLAttributes<HTMLElement>;
-
-// @public @deprecated (undocumented)
-export const SidebarItemContainer: (props: SidebarItemContainerProps) => JSX.Element;
-
-// @public @deprecated (undocumented)
-export type SidebarItemContainerProps = {
-    children?: ReactNode;
-} & AllHTMLAttributes<HTMLElement>;
-
-// @public @deprecated (undocumented)
-export const SidebarItemContent: (input: SidebarItemContentProps) => JSX.Element;
-
-// @public @deprecated (undocumented)
-export type SidebarItemContentProps = {
-    children?: ReactNode;
-    className?: string;
-} & AllHTMLAttributes<HTMLElement>;
-
-// @public @deprecated (undocumented)
-export const SidebarItemIcon: (input: SidebarItemIconProps) => JSX.Element;
-
-// @public @deprecated (undocumented)
-export type SidebarItemIconProps = {
-    children?: ReactNode;
-    className?: string;
-    highlighted?: boolean;
-    icon: IconProps['name'];
-} & Omit<AllHTMLAttributes<HTMLElement>, 'name' | 'is'>;
-
-// @public @deprecated (undocumented)
-export const SidebarItemMenu: (props: SidebarItemMenuProps) => JSX.Element;
-
-// @public @deprecated (undocumented)
-export type SidebarItemMenuProps = {
-    children?: ReactNode;
-} & AllHTMLAttributes<HTMLElement>;
-
-// @public @deprecated (undocumented)
-export type SidebarItemProps = {
-    selected?: boolean;
-    highlighted?: boolean;
-    clickable?: boolean;
-    featured?: boolean;
-    is?: BoxProps['is'];
-    children?: ReactNode;
-} & AllHTMLAttributes<HTMLElement>;
-
-// @public @deprecated (undocumented)
-export const SidebarItemSubtitle: (input: SidebarItemSubtitleProps) => JSX.Element;
-
-// @public @deprecated (undocumented)
-export type SidebarItemSubtitleProps = {
-    children?: ReactNode;
-    className?: string;
-} & AllHTMLAttributes<HTMLElement>;
-
-// @public @deprecated (undocumented)
-export const SidebarItemTime: (input: SidebarItemTimeProps) => JSX.Element;
-
-// @public @deprecated (undocumented)
-export type SidebarItemTimeProps = {
-    children?: ReactNode;
-    className?: string;
-} & AllHTMLAttributes<HTMLElement>;
-
-// @public @deprecated (undocumented)
-export const SidebarItemTitle: (input: SidebarItemTitleProps) => JSX.Element;
-
-// @public @deprecated (undocumented)
-export type SidebarItemTitleProps = {
-    children?: ReactNode;
-    className?: string;
-} & AllHTMLAttributes<HTMLElement>;
-
-// @public @deprecated (undocumented)
-export const SidebarItemWrapper: (input: SidebarItemWrapperProps) => JSX.Element;
-
-// @public @deprecated (undocumented)
-export type SidebarItemWrapperProps = {
-    children?: ReactNode;
-    className?: string;
-} & AllHTMLAttributes<HTMLElement>;
-
-// @public @deprecated (undocumented)
-export type SidebarProps = BoxProps;
-
-// @public @deprecated (undocumented)
-export const SidebarSection: (props: SidebarSectionProps) => JSX.Element;
-
-// @public @deprecated (undocumented)
-export type SidebarSectionProps = {
-    children?: ReactNode;
-};
-
-// @public @deprecated (undocumented)
-export const SidebarSectionTitle: (props: SidebarSectionTitleProps) => JSX.Element;
-
-// @public @deprecated (undocumented)
-export type SidebarSectionTitleProps = {
-    children?: ReactNode;
-};
+// @public (undocumented)
+export function Sidebar(input: SidebarProps): JSX.Element;
 
 // @public (undocumented)
-export function SidebarV2(input: SidebarV2Props): JSX.Element;
+export const SidebarAccordion: (input: SidebarAccordionProps) => JSX.Element;
 
 // @public (undocumented)
-export const SidebarV2Accordion: (input: SidebarV2AccordionProps) => JSX.Element;
+export const SidebarAccordionItem: (input: SidebarAccordionItemProps) => JSX.Element;
 
 // @public (undocumented)
-export const SidebarV2AccordionItem: (input: SidebarV2AccordionItemProps) => JSX.Element;
-
-// @public (undocumented)
-export type SidebarV2AccordionItemProps = {
+export type SidebarAccordionItemProps = {
     children?: ReactNode;
     className?: string;
     defaultExpanded?: boolean;
@@ -2158,63 +1983,63 @@ export type SidebarV2AccordionItemProps = {
 } & HTMLAttributes<HTMLElement>;
 
 // @public (undocumented)
-export type SidebarV2AccordionProps = HTMLAttributes<HTMLDivElement>;
+export type SidebarAccordionProps = HTMLAttributes<HTMLDivElement>;
 
 // @public (undocumented)
-export function SidebarV2Action(props: SidebarV2ActionProps): JSX.Element;
+export function SidebarAction(props: SidebarActionProps): JSX.Element;
 
 // @public (undocumented)
-export type SidebarV2ActionProps = Omit<IconButtonProps, 'ref'> & RefAttributes<HTMLElement>;
+export type SidebarActionProps = Omit<IconButtonProps, 'ref'> & RefAttributes<HTMLElement>;
 
 // @public (undocumented)
-export function SidebarV2Actions(props: SidebarV2ActionsProps): JSX.Element;
+export function SidebarActions(props: SidebarActionsProps): JSX.Element;
 
 // @public (undocumented)
-export type SidebarV2ActionsProps = ButtonGroupProps;
+export type SidebarActionsProps = ButtonGroupProps;
 
 // @public (undocumented)
-export const SidebarV2Banner: (input: SidebarV2BannerProps) => JSX.Element;
+export const SidebarBanner: (input: SidebarBannerProps) => JSX.Element;
 
 // @public (undocumented)
-export type SidebarV2BannerProps = {
+export type SidebarBannerProps = {
     title?: ReactNode;
     linkText?: string;
     linkProps?: AllHTMLAttributes<HTMLAnchorElement>;
     onClick?: () => void;
-    variant?: SidebarV2BannerVariant;
+    variant?: SidebarBannerVariant;
     onClose?: () => void;
     children?: ReactNode;
     addon?: ReactNode;
 };
 
 // @public (undocumented)
-export type SidebarV2BannerVariant = 'default' | 'info' | 'success' | 'warning' | 'danger';
+export type SidebarBannerVariant = 'default' | 'info' | 'success' | 'warning' | 'danger';
 
 // @public (undocumented)
-export const SidebarV2ButtonGroup: (input: ButtonGroupProps) => JSX.Element;
+export const SidebarButtonGroup: (input: ButtonGroupProps) => JSX.Element;
 
 // Warning: (ae-forgotten-export) The symbol "SidebarCollapseGroupProps" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export function SidebarV2CollapseGroup(input: SidebarCollapseGroupProps): JSX.Element;
+export function SidebarCollapseGroup(input: SidebarCollapseGroupProps): JSX.Element;
 
 // @public (undocumented)
-export const SidebarV2CollapseGroupMenu: (input: HTMLAttributes<HTMLDivElement>) => JSX.Element;
+export const SidebarCollapseGroupMenu: (input: HTMLAttributes<HTMLDivElement>) => JSX.Element;
 
 // @public (undocumented)
-export const SidebarV2Divider: () => JSX.Element;
+export const SidebarDivider: () => JSX.Element;
 
 // @public (undocumented)
-export const SidebarV2Footer: (input: HTMLAttributes<HTMLElement>) => JSX.Element;
+export const SidebarFooter: (input: HTMLAttributes<HTMLElement>) => JSX.Element;
 
 // @public (undocumented)
-export const SidebarV2FooterContent: (input: BoxProps) => JSX.Element;
+export const SidebarFooterContent: (input: BoxProps) => JSX.Element;
 
 // @public (undocumented)
-export const SidebarV2GroupTitle: (input: SidebarV2GroupTitleProps) => JSX.Element;
+export const SidebarGroupTitle: (input: SidebarGroupTitleProps) => JSX.Element;
 
 // @public (undocumented)
-export type SidebarV2GroupTitleProps = {
+export type SidebarGroupTitleProps = {
     expanded?: boolean;
     title?: string;
     titleId?: string;
@@ -2224,68 +2049,68 @@ export type SidebarV2GroupTitleProps = {
 } & HTMLAttributes<HTMLDivElement>;
 
 // @public (undocumented)
-export const SidebarV2Item: (input: SidebarV2ItemProps) => JSX.Element;
+export const SidebarItem: (input: SidebarItemProps) => JSX.Element;
 
 // @public (undocumented)
-export const SidebarV2ItemAction: (input: {
+export const SidebarItemAction: (input: {
     onClick: (e: Event) => void;
     icon?: Keys;
 } & HTMLAttributes<HTMLDivElement>) => JSX.Element;
 
 // @public (undocumented)
-export const SidebarV2ItemAvatarWrapper: (input: HTMLAttributes<HTMLDivElement>) => JSX.Element;
+export const SidebarItemAvatarWrapper: (input: HTMLAttributes<HTMLDivElement>) => JSX.Element;
 
 // @public (undocumented)
-export const SidebarV2ItemBadge: (input: BadgeProps) => JSX.Element;
+export const SidebarItemBadge: (input: BadgeProps) => JSX.Element;
 
 // @public (undocumented)
-export const SidebarV2ItemCol: (input: HTMLAttributes<HTMLDivElement>) => JSX.Element;
+export const SidebarItemCol: (input: HTMLAttributes<HTMLDivElement>) => JSX.Element;
 
 // @public (undocumented)
-export const SidebarV2ItemContent: (input: {
+export const SidebarItemContent: (input: {
     unread?: boolean;
 } & HTMLAttributes<HTMLDivElement>) => JSX.Element;
 
 // @public (undocumented)
-export const SidebarV2ItemIcon: (input: SidebarV2ItemIconProps) => JSX.Element;
+export const SidebarItemIcon: (input: SidebarItemIconProps) => JSX.Element;
 
 // @public (undocumented)
-export type SidebarV2ItemIconProps = Omit<IconProps, 'name'> & {
+export type SidebarItemIconProps = Omit<IconProps, 'name'> & {
     icon: Keys | ReactElement<any>;
     highlighted?: boolean;
 };
 
 // @public (undocumented)
-export const SidebarV2ItemMenu: (input: HTMLAttributes<HTMLDivElement>) => JSX.Element;
+export const SidebarItemMenu: (input: HTMLAttributes<HTMLDivElement>) => JSX.Element;
 
 // @public (undocumented)
-export type SidebarV2ItemProps = {
+export type SidebarItemProps = {
     selected?: boolean;
     level?: number;
     is?: ElementType;
 } & AllHTMLAttributes<HTMLAnchorElement>;
 
 // @public (undocumented)
-export const SidebarV2ItemRow: (input: HTMLAttributes<HTMLDivElement>) => JSX.Element;
+export const SidebarItemRow: (input: HTMLAttributes<HTMLDivElement>) => JSX.Element;
 
 // @public (undocumented)
-export const SidebarV2ItemStatusBullet: (props: StatusBulletProps) => JSX.Element;
+export const SidebarItemStatusBullet: (props: StatusBulletProps) => JSX.Element;
 
 // @public (undocumented)
-export const SidebarV2ItemTimestamp: (input: {
+export const SidebarItemTimestamp: (input: {
     unread?: boolean;
 } & HTMLAttributes<HTMLDivElement>) => JSX.Element;
 
 // @public (undocumented)
-export const SidebarV2ItemTitle: (input: {
+export const SidebarItemTitle: (input: {
     unread?: boolean;
 } & HTMLAttributes<HTMLDivElement>) => JSX.Element;
 
 // @public (undocumented)
-export const SidebarV2Link: (input: SidebarV2LinkProps) => JSX.Element;
+export const SidebarLink: (input: SidebarLinkProps) => JSX.Element;
 
 // @public (undocumented)
-export type SidebarV2LinkProps = {
+export type SidebarLinkProps = {
     selected?: boolean;
     icon?: Keys;
     badge?: ReactNode;
@@ -2295,26 +2120,26 @@ export type SidebarV2LinkProps = {
 // Warning: (ae-forgotten-export) The symbol "SidebarListItemProps" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export function SidebarV2ListItem(input: SidebarListItemProps): JSX.Element;
+export function SidebarListItem(input: SidebarListItemProps): JSX.Element;
 
 // @public (undocumented)
-export const SidebarV2Media: (input: HTMLAttributes<HTMLDivElement>) => JSX.Element;
+export const SidebarMedia: (input: HTMLAttributes<HTMLDivElement>) => JSX.Element;
 
 // @public (undocumented)
-export const SidebarV2MediaController: (input: {
+export const SidebarMediaController: (input: {
     label?: string;
 } & HTMLAttributes<HTMLDivElement>) => JSX.Element;
 
 // @public (undocumented)
-export const SidebarV2MediaTitle: (input: HTMLAttributes<HTMLDivElement>) => JSX.Element;
+export const SidebarMediaTitle: (input: HTMLAttributes<HTMLDivElement>) => JSX.Element;
 
 // @public (undocumented)
-export type SidebarV2Props = HTMLAttributes<HTMLElement> & RefAttributes<HTMLElement> & {
+export type SidebarProps = HTMLAttributes<HTMLElement> & RefAttributes<HTMLElement> & {
     collapsed?: boolean;
 };
 
 // @public (undocumented)
-export const SidebarV2Section: (props: HTMLAttributes<HTMLDivElement>) => JSX.Element;
+export const SidebarSection: (props: HTMLAttributes<HTMLDivElement>) => JSX.Element;
 
 // @public (undocumented)
 export const Sidepanel: (input: SidepanelProps) => JSX.Element;
@@ -2827,85 +2652,6 @@ export function Tooltip(input: TooltipProps): JSX.Element;
 export type TooltipProps = Omit<BoxProps, 'ref'> & RefAttributes<HTMLElement> & {
     variation?: 'dark' | 'light';
     placement?: 'top-start' | 'top-middle' | 'top-end' | 'bottom-start' | 'bottom-middle' | 'bottom-end' | 'top' | 'left' | 'bottom' | 'right' | null;
-};
-
-// @public @deprecated
-const TopBar: (input: TopBarProps) => JSX.Element;
-export { TopBar as SidebarTopBar }
-export { TopBar }
-
-// Warning: (ae-forgotten-export) The symbol "TopBarActionProps" needs to be exported by the entry point index.d.ts
-//
-// @public @deprecated (undocumented)
-function TopBarAction(props: TopBarActionProps): JSX.Element;
-export { TopBarAction as SidebarTopBarAction }
-export { TopBarAction }
-
-// Warning: (ae-forgotten-export) The symbol "TopBarActionsProps" needs to be exported by the entry point index.d.ts
-//
-// @public @deprecated (undocumented)
-function TopBarActions(props: TopBarActionsProps): JSX.Element;
-export { TopBarActions as SidebarTopBarActions }
-export { TopBarActions }
-
-// @public @deprecated (undocumented)
-const TopBarAvatar: {
-    size: "x24";
-};
-export { TopBarAvatar as SidebarTopBarAvatar }
-export { TopBarAvatar }
-
-// @public @deprecated (undocumented)
-export type TopBarProps = {
-    children?: ReactNode;
-    className?: string;
-};
-
-// @public @deprecated (undocumented)
-export const TopBarSection: (input: TopBarSectionProps) => JSX.Element;
-
-// @public @deprecated (undocumented)
-export type TopBarSectionProps = {
-    children?: ReactNode;
-    className?: string;
-};
-
-// @public @deprecated (undocumented)
-const TopBarTitle: (props: TopBarTitleProps) => JSX.Element;
-export { TopBarTitle as SidebarTopBarTitle }
-export { TopBarTitle }
-
-// @public @deprecated (undocumented)
-export type TopBarTitleProps = {
-    children?: ReactNode;
-};
-
-// @public @deprecated (undocumented)
-const TopBarToolBox: (input: TopBarToolBoxProps) => JSX.Element;
-export { TopBarToolBox as SidebarTopBarToolBox }
-export { TopBarToolBox }
-
-// @public @deprecated (undocumented)
-export type TopBarToolBoxProps = {
-    children?: ReactNode;
-    className?: string;
-};
-
-// @public @deprecated (undocumented)
-export const TopBarV2: (input: TopBarV2Props) => JSX.Element;
-
-// @public @deprecated (undocumented)
-export type TopBarV2Props = {
-    children?: ReactNode;
-    className?: string;
-};
-
-// @public @deprecated (undocumented)
-export const TopBarWrapper: (input: TopBarWrapperProps) => JSX.Element;
-
-// @public @deprecated (undocumented)
-export type TopBarWrapperProps = {
-    children?: ReactNode;
 };
 
 // @public (undocumented)

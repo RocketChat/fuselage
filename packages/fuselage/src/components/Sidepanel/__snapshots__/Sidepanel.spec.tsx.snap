@@ -73,17 +73,17 @@ exports[`renders Default without crashing 1`] = `
               role="listitem"
             >
               <a
-                class="rcx-box rcx-box--full rcx-sidebar-v2-item rcx-sidebar-v2-item--level-2"
+                class="rcx-box rcx-box--full rcx-sidebar-item rcx-sidebar-item--level-2"
                 href="#"
               >
                 <div
-                  class="rcx-box rcx-box--full rcx-sidebar-v2-item__col"
+                  class="rcx-box rcx-box--full rcx-sidebar-item__col"
                 >
                   <div
-                    class="rcx-box rcx-box--full rcx-sidebar-v2-item__row"
+                    class="rcx-box rcx-box--full rcx-sidebar-item__row"
                   >
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__avatar"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__avatar"
                     >
                       <figure
                         class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x20"
@@ -96,7 +96,7 @@ exports[`renders Default without crashing 1`] = `
                       </figure>
                     </div>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__icon rcx-sidebar-v2-item__icon--highlighted"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__icon rcx-sidebar-item__icon--highlighted"
                     >
                       <i
                         aria-hidden="true"
@@ -106,21 +106,21 @@ exports[`renders Default without crashing 1`] = `
                       </i>
                     </div>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__title rcx-sidebar-v2-item__title--highlighted"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__title rcx-sidebar-item__title--highlighted"
                     >
                       Marvin Black
                     </div>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__timestamp"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__timestamp"
                     >
                       11:22:21 AM
                     </div>
                   </div>
                   <div
-                    class="rcx-box rcx-box--full rcx-sidebar-v2-item__row"
+                    class="rcx-box rcx-box--full rcx-sidebar-item__row"
                   >
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__subtitle rcx-sidebar-v2-item__subtitle--highlighted"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__subtitle rcx-sidebar-item__subtitle--highlighted"
                     >
                       Lorem Ipsum Indolor Dolor Ipsum Ipsum
                     </div>
@@ -141,16 +141,16 @@ exports[`renders Default without crashing 1`] = `
                       </span>
                     </span>
                     <span
-                      class="rcx-box rcx-box--full rcx-badge rcx-badge--secondary rcx-box rcx-box--full rcx-sidebar-v2-item__badge"
+                      class="rcx-box rcx-box--full rcx-badge rcx-badge--secondary rcx-box rcx-box--full rcx-sidebar-item__badge"
                       title="unread messages"
                     >
                       3
                     </span>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__menu-wrapper rcx-box--animated"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__menu-wrapper rcx-box--animated"
                     >
                       <span
-                        class="rcx-box rcx-box--full rcx-sidebar-v2-item__menu rcx-sidebar-v2-item__menu"
+                        class="rcx-box rcx-box--full rcx-sidebar-item__menu rcx-sidebar-item__menu"
                       >
                         <button
                           aria-expanded="false"
@@ -179,17 +179,17 @@ exports[`renders Default without crashing 1`] = `
               role="listitem"
             >
               <a
-                class="rcx-box rcx-box--full rcx-sidebar-v2-item rcx-sidebar-v2-item--level-2"
+                class="rcx-box rcx-box--full rcx-sidebar-item rcx-sidebar-item--level-2"
                 href="#"
               >
                 <div
-                  class="rcx-box rcx-box--full rcx-sidebar-v2-item__col"
+                  class="rcx-box rcx-box--full rcx-sidebar-item__col"
                 >
                   <div
-                    class="rcx-box rcx-box--full rcx-sidebar-v2-item__row"
+                    class="rcx-box rcx-box--full rcx-sidebar-item__row"
                   >
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__avatar"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__avatar"
                     >
                       <figure
                         class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x20"
@@ -202,7 +202,7 @@ exports[`renders Default without crashing 1`] = `
                       </figure>
                     </div>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__icon"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__icon"
                     >
                       <i
                         aria-hidden="true"
@@ -212,21 +212,21 @@ exports[`renders Default without crashing 1`] = `
                       </i>
                     </div>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__title"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__title"
                     >
                       Esther Miles
                     </div>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__timestamp"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__timestamp"
                     >
                       11:22:21 AM
                     </div>
                   </div>
                   <div
-                    class="rcx-box rcx-box--full rcx-sidebar-v2-item__row"
+                    class="rcx-box rcx-box--full rcx-sidebar-item__row"
                   >
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__subtitle"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__subtitle"
                     >
                       Lorem Ipsum Indolor Dolor Ipsum Ipsum
                     </div>
@@ -247,16 +247,16 @@ exports[`renders Default without crashing 1`] = `
                       </span>
                     </span>
                     <span
-                      class="rcx-box rcx-box--full rcx-badge rcx-badge--secondary rcx-box rcx-box--full rcx-sidebar-v2-item__badge"
+                      class="rcx-box rcx-box--full rcx-badge rcx-badge--secondary rcx-box rcx-box--full rcx-sidebar-item__badge"
                       title="unread messages"
                     >
                       4
                     </span>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__menu-wrapper rcx-box--animated"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__menu-wrapper rcx-box--animated"
                     >
                       <span
-                        class="rcx-box rcx-box--full rcx-sidebar-v2-item__menu rcx-sidebar-v2-item__menu"
+                        class="rcx-box rcx-box--full rcx-sidebar-item__menu rcx-sidebar-item__menu"
                       >
                         <button
                           aria-expanded="false"
@@ -285,17 +285,17 @@ exports[`renders Default without crashing 1`] = `
               role="listitem"
             >
               <a
-                class="rcx-box rcx-box--full rcx-sidebar-v2-item rcx-sidebar-v2-item--level-2"
+                class="rcx-box rcx-box--full rcx-sidebar-item rcx-sidebar-item--level-2"
                 href="#"
               >
                 <div
-                  class="rcx-box rcx-box--full rcx-sidebar-v2-item__col"
+                  class="rcx-box rcx-box--full rcx-sidebar-item__col"
                 >
                   <div
-                    class="rcx-box rcx-box--full rcx-sidebar-v2-item__row"
+                    class="rcx-box rcx-box--full rcx-sidebar-item__row"
                   >
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__avatar"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__avatar"
                     >
                       <figure
                         class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x20"
@@ -308,7 +308,7 @@ exports[`renders Default without crashing 1`] = `
                       </figure>
                     </div>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__icon"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__icon"
                     >
                       <i
                         aria-hidden="true"
@@ -318,21 +318,21 @@ exports[`renders Default without crashing 1`] = `
                       </i>
                     </div>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__title"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__title"
                     >
                       Leroy Jenkins
                     </div>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__timestamp"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__timestamp"
                     >
                       11:22:21 AM
                     </div>
                   </div>
                   <div
-                    class="rcx-box rcx-box--full rcx-sidebar-v2-item__row"
+                    class="rcx-box rcx-box--full rcx-sidebar-item__row"
                   >
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__subtitle"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__subtitle"
                     >
                       Lorem Ipsum Indolor Dolor Ipsum Ipsum
                     </div>
@@ -353,16 +353,16 @@ exports[`renders Default without crashing 1`] = `
                       </span>
                     </span>
                     <span
-                      class="rcx-box rcx-box--full rcx-badge rcx-badge--secondary rcx-box rcx-box--full rcx-sidebar-v2-item__badge"
+                      class="rcx-box rcx-box--full rcx-badge rcx-badge--secondary rcx-box rcx-box--full rcx-sidebar-item__badge"
                       title="unread messages"
                     >
                       5
                     </span>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__menu-wrapper rcx-box--animated"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__menu-wrapper rcx-box--animated"
                     >
                       <span
-                        class="rcx-box rcx-box--full rcx-sidebar-v2-item__menu rcx-sidebar-v2-item__menu"
+                        class="rcx-box rcx-box--full rcx-sidebar-item__menu rcx-sidebar-item__menu"
                       >
                         <button
                           aria-expanded="false"
@@ -391,17 +391,17 @@ exports[`renders Default without crashing 1`] = `
               role="listitem"
             >
               <a
-                class="rcx-box rcx-box--full rcx-sidebar-v2-item rcx-sidebar-v2-item--level-2"
+                class="rcx-box rcx-box--full rcx-sidebar-item rcx-sidebar-item--level-2"
                 href="#"
               >
                 <div
-                  class="rcx-box rcx-box--full rcx-sidebar-v2-item__col"
+                  class="rcx-box rcx-box--full rcx-sidebar-item__col"
                 >
                   <div
-                    class="rcx-box rcx-box--full rcx-sidebar-v2-item__row"
+                    class="rcx-box rcx-box--full rcx-sidebar-item__row"
                   >
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__avatar"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__avatar"
                     >
                       <figure
                         class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x20"
@@ -414,7 +414,7 @@ exports[`renders Default without crashing 1`] = `
                       </figure>
                     </div>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__icon"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__icon"
                     >
                       <i
                         aria-hidden="true"
@@ -424,21 +424,21 @@ exports[`renders Default without crashing 1`] = `
                       </i>
                     </div>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__title"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__title"
                     >
                       Morgan Freeman looooooooooong looooooooooong looooooooooong name
                     </div>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__timestamp"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__timestamp"
                     >
                       11:22:21 AM
                     </div>
                   </div>
                   <div
-                    class="rcx-box rcx-box--full rcx-sidebar-v2-item__row"
+                    class="rcx-box rcx-box--full rcx-sidebar-item__row"
                   >
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__subtitle"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__subtitle"
                     >
                       Lorem Ipsum Indolor Dolor Ipsum Ipsum
                     </div>
@@ -459,16 +459,16 @@ exports[`renders Default without crashing 1`] = `
                       </span>
                     </span>
                     <span
-                      class="rcx-box rcx-box--full rcx-badge rcx-badge--secondary rcx-box rcx-box--full rcx-sidebar-v2-item__badge"
+                      class="rcx-box rcx-box--full rcx-badge rcx-badge--secondary rcx-box rcx-box--full rcx-sidebar-item__badge"
                       title="unread messages"
                     >
                       6
                     </span>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__menu-wrapper rcx-box--animated"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__menu-wrapper rcx-box--animated"
                     >
                       <span
-                        class="rcx-box rcx-box--full rcx-sidebar-v2-item__menu rcx-sidebar-v2-item__menu"
+                        class="rcx-box rcx-box--full rcx-sidebar-item__menu rcx-sidebar-item__menu"
                       >
                         <button
                           aria-expanded="false"
@@ -497,17 +497,17 @@ exports[`renders Default without crashing 1`] = `
               role="listitem"
             >
               <a
-                class="rcx-box rcx-box--full rcx-sidebar-v2-item rcx-sidebar-v2-item--level-2"
+                class="rcx-box rcx-box--full rcx-sidebar-item rcx-sidebar-item--level-2"
                 href="#"
               >
                 <div
-                  class="rcx-box rcx-box--full rcx-sidebar-v2-item__col"
+                  class="rcx-box rcx-box--full rcx-sidebar-item__col"
                 >
                   <div
-                    class="rcx-box rcx-box--full rcx-sidebar-v2-item__row"
+                    class="rcx-box rcx-box--full rcx-sidebar-item__row"
                   >
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__avatar"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__avatar"
                     >
                       <figure
                         class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x20"
@@ -520,7 +520,7 @@ exports[`renders Default without crashing 1`] = `
                       </figure>
                     </div>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__icon"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__icon"
                     >
                       <i
                         aria-hidden="true"
@@ -530,21 +530,21 @@ exports[`renders Default without crashing 1`] = `
                       </i>
                     </div>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__title"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__title"
                     >
                       John Doe
                     </div>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__timestamp"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__timestamp"
                     >
                       11:22:21 AM
                     </div>
                   </div>
                   <div
-                    class="rcx-box rcx-box--full rcx-sidebar-v2-item__row"
+                    class="rcx-box rcx-box--full rcx-sidebar-item__row"
                   >
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__subtitle"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__subtitle"
                     >
                       Lorem Ipsum Indolor Dolor Ipsum Ipsum
                     </div>
@@ -565,16 +565,16 @@ exports[`renders Default without crashing 1`] = `
                       </span>
                     </span>
                     <span
-                      class="rcx-box rcx-box--full rcx-badge rcx-badge--secondary rcx-box rcx-box--full rcx-sidebar-v2-item__badge"
+                      class="rcx-box rcx-box--full rcx-badge rcx-badge--secondary rcx-box rcx-box--full rcx-sidebar-item__badge"
                       title="unread messages"
                     >
                       7
                     </span>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__menu-wrapper rcx-box--animated"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__menu-wrapper rcx-box--animated"
                     >
                       <span
-                        class="rcx-box rcx-box--full rcx-sidebar-v2-item__menu rcx-sidebar-v2-item__menu"
+                        class="rcx-box rcx-box--full rcx-sidebar-item__menu rcx-sidebar-item__menu"
                       >
                         <button
                           aria-expanded="false"
@@ -603,17 +603,17 @@ exports[`renders Default without crashing 1`] = `
               role="listitem"
             >
               <a
-                class="rcx-box rcx-box--full rcx-sidebar-v2-item rcx-sidebar-v2-item--level-2"
+                class="rcx-box rcx-box--full rcx-sidebar-item rcx-sidebar-item--level-2"
                 href="#"
               >
                 <div
-                  class="rcx-box rcx-box--full rcx-sidebar-v2-item__col"
+                  class="rcx-box rcx-box--full rcx-sidebar-item__col"
                 >
                   <div
-                    class="rcx-box rcx-box--full rcx-sidebar-v2-item__row"
+                    class="rcx-box rcx-box--full rcx-sidebar-item__row"
                   >
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__avatar"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__avatar"
                     >
                       <figure
                         class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x20"
@@ -626,7 +626,7 @@ exports[`renders Default without crashing 1`] = `
                       </figure>
                     </div>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__icon"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__icon"
                     >
                       <i
                         aria-hidden="true"
@@ -636,21 +636,21 @@ exports[`renders Default without crashing 1`] = `
                       </i>
                     </div>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__title"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__title"
                     >
                       Jane Doe
                     </div>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__timestamp"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__timestamp"
                     >
                       11:22:21 AM
                     </div>
                   </div>
                   <div
-                    class="rcx-box rcx-box--full rcx-sidebar-v2-item__row"
+                    class="rcx-box rcx-box--full rcx-sidebar-item__row"
                   >
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__subtitle"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__subtitle"
                     >
                       Lorem Ipsum Indolor Dolor Ipsum Ipsum
                     </div>
@@ -671,16 +671,16 @@ exports[`renders Default without crashing 1`] = `
                       </span>
                     </span>
                     <span
-                      class="rcx-box rcx-box--full rcx-badge rcx-badge--secondary rcx-box rcx-box--full rcx-sidebar-v2-item__badge"
+                      class="rcx-box rcx-box--full rcx-badge rcx-badge--secondary rcx-box rcx-box--full rcx-sidebar-item__badge"
                       title="unread messages"
                     >
                       8
                     </span>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__menu-wrapper rcx-box--animated"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__menu-wrapper rcx-box--animated"
                     >
                       <span
-                        class="rcx-box rcx-box--full rcx-sidebar-v2-item__menu rcx-sidebar-v2-item__menu"
+                        class="rcx-box rcx-box--full rcx-sidebar-item__menu rcx-sidebar-item__menu"
                       >
                         <button
                           aria-expanded="false"
@@ -709,17 +709,17 @@ exports[`renders Default without crashing 1`] = `
               role="listitem"
             >
               <a
-                class="rcx-box rcx-box--full rcx-sidebar-v2-item rcx-sidebar-v2-item--level-2"
+                class="rcx-box rcx-box--full rcx-sidebar-item rcx-sidebar-item--level-2"
                 href="#"
               >
                 <div
-                  class="rcx-box rcx-box--full rcx-sidebar-v2-item__col"
+                  class="rcx-box rcx-box--full rcx-sidebar-item__col"
                 >
                   <div
-                    class="rcx-box rcx-box--full rcx-sidebar-v2-item__row"
+                    class="rcx-box rcx-box--full rcx-sidebar-item__row"
                   >
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__avatar"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__avatar"
                     >
                       <figure
                         class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x20"
@@ -732,7 +732,7 @@ exports[`renders Default without crashing 1`] = `
                       </figure>
                     </div>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__icon"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__icon"
                     >
                       <i
                         aria-hidden="true"
@@ -742,21 +742,21 @@ exports[`renders Default without crashing 1`] = `
                       </i>
                     </div>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__title"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__title"
                     >
                       Baz Qux
                     </div>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__timestamp"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__timestamp"
                     >
                       11:22:21 AM
                     </div>
                   </div>
                   <div
-                    class="rcx-box rcx-box--full rcx-sidebar-v2-item__row"
+                    class="rcx-box rcx-box--full rcx-sidebar-item__row"
                   >
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__subtitle"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__subtitle"
                     >
                       Lorem Ipsum Indolor Dolor Ipsum Ipsum
                     </div>
@@ -777,16 +777,16 @@ exports[`renders Default without crashing 1`] = `
                       </span>
                     </span>
                     <span
-                      class="rcx-box rcx-box--full rcx-badge rcx-badge--secondary rcx-box rcx-box--full rcx-sidebar-v2-item__badge"
+                      class="rcx-box rcx-box--full rcx-badge rcx-badge--secondary rcx-box rcx-box--full rcx-sidebar-item__badge"
                       title="unread messages"
                     >
                       9
                     </span>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__menu-wrapper rcx-box--animated"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__menu-wrapper rcx-box--animated"
                     >
                       <span
-                        class="rcx-box rcx-box--full rcx-sidebar-v2-item__menu rcx-sidebar-v2-item__menu"
+                        class="rcx-box rcx-box--full rcx-sidebar-item__menu rcx-sidebar-item__menu"
                       >
                         <button
                           aria-expanded="false"
@@ -815,17 +815,17 @@ exports[`renders Default without crashing 1`] = `
               role="listitem"
             >
               <a
-                class="rcx-box rcx-box--full rcx-sidebar-v2-item rcx-sidebar-v2-item--level-2"
+                class="rcx-box rcx-box--full rcx-sidebar-item rcx-sidebar-item--level-2"
                 href="#"
               >
                 <div
-                  class="rcx-box rcx-box--full rcx-sidebar-v2-item__col"
+                  class="rcx-box rcx-box--full rcx-sidebar-item__col"
                 >
                   <div
-                    class="rcx-box rcx-box--full rcx-sidebar-v2-item__row"
+                    class="rcx-box rcx-box--full rcx-sidebar-item__row"
                   >
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__avatar"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__avatar"
                     >
                       <figure
                         class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x20"
@@ -838,7 +838,7 @@ exports[`renders Default without crashing 1`] = `
                       </figure>
                     </div>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__icon"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__icon"
                     >
                       <i
                         aria-hidden="true"
@@ -848,21 +848,21 @@ exports[`renders Default without crashing 1`] = `
                       </i>
                     </div>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__title"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__title"
                     >
                       Alice Bob
                     </div>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__timestamp"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__timestamp"
                     >
                       11:22:21 AM
                     </div>
                   </div>
                   <div
-                    class="rcx-box rcx-box--full rcx-sidebar-v2-item__row"
+                    class="rcx-box rcx-box--full rcx-sidebar-item__row"
                   >
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__subtitle"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__subtitle"
                     >
                       Lorem Ipsum Indolor Dolor Ipsum Ipsum
                     </div>
@@ -883,16 +883,16 @@ exports[`renders Default without crashing 1`] = `
                       </span>
                     </span>
                     <span
-                      class="rcx-box rcx-box--full rcx-badge rcx-badge--secondary rcx-box rcx-box--full rcx-sidebar-v2-item__badge"
+                      class="rcx-box rcx-box--full rcx-badge rcx-badge--secondary rcx-box rcx-box--full rcx-sidebar-item__badge"
                       title="unread messages"
                     >
                       10
                     </span>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__menu-wrapper rcx-box--animated"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__menu-wrapper rcx-box--animated"
                     >
                       <span
-                        class="rcx-box rcx-box--full rcx-sidebar-v2-item__menu rcx-sidebar-v2-item__menu"
+                        class="rcx-box rcx-box--full rcx-sidebar-item__menu rcx-sidebar-item__menu"
                       >
                         <button
                           aria-expanded="false"
@@ -921,17 +921,17 @@ exports[`renders Default without crashing 1`] = `
               role="listitem"
             >
               <a
-                class="rcx-box rcx-box--full rcx-sidebar-v2-item rcx-sidebar-v2-item--level-2"
+                class="rcx-box rcx-box--full rcx-sidebar-item rcx-sidebar-item--level-2"
                 href="#"
               >
                 <div
-                  class="rcx-box rcx-box--full rcx-sidebar-v2-item__col"
+                  class="rcx-box rcx-box--full rcx-sidebar-item__col"
                 >
                   <div
-                    class="rcx-box rcx-box--full rcx-sidebar-v2-item__row"
+                    class="rcx-box rcx-box--full rcx-sidebar-item__row"
                   >
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__avatar"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__avatar"
                     >
                       <figure
                         class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x20"
@@ -944,7 +944,7 @@ exports[`renders Default without crashing 1`] = `
                       </figure>
                     </div>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__icon"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__icon"
                     >
                       <i
                         aria-hidden="true"
@@ -954,21 +954,21 @@ exports[`renders Default without crashing 1`] = `
                       </i>
                     </div>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__title"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__title"
                     >
                       Charlie Delta
                     </div>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__timestamp"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__timestamp"
                     >
                       11:22:21 AM
                     </div>
                   </div>
                   <div
-                    class="rcx-box rcx-box--full rcx-sidebar-v2-item__row"
+                    class="rcx-box rcx-box--full rcx-sidebar-item__row"
                   >
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__subtitle"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__subtitle"
                     >
                       Lorem Ipsum Indolor Dolor Ipsum Ipsum
                     </div>
@@ -989,16 +989,16 @@ exports[`renders Default without crashing 1`] = `
                       </span>
                     </span>
                     <span
-                      class="rcx-box rcx-box--full rcx-badge rcx-badge--secondary rcx-box rcx-box--full rcx-sidebar-v2-item__badge"
+                      class="rcx-box rcx-box--full rcx-badge rcx-badge--secondary rcx-box rcx-box--full rcx-sidebar-item__badge"
                       title="unread messages"
                     >
                       11
                     </span>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__menu-wrapper rcx-box--animated"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__menu-wrapper rcx-box--animated"
                     >
                       <span
-                        class="rcx-box rcx-box--full rcx-sidebar-v2-item__menu rcx-sidebar-v2-item__menu"
+                        class="rcx-box rcx-box--full rcx-sidebar-item__menu rcx-sidebar-item__menu"
                       >
                         <button
                           aria-expanded="false"
@@ -1027,17 +1027,17 @@ exports[`renders Default without crashing 1`] = `
               role="listitem"
             >
               <a
-                class="rcx-box rcx-box--full rcx-sidebar-v2-item rcx-sidebar-v2-item--level-2"
+                class="rcx-box rcx-box--full rcx-sidebar-item rcx-sidebar-item--level-2"
                 href="#"
               >
                 <div
-                  class="rcx-box rcx-box--full rcx-sidebar-v2-item__col"
+                  class="rcx-box rcx-box--full rcx-sidebar-item__col"
                 >
                   <div
-                    class="rcx-box rcx-box--full rcx-sidebar-v2-item__row"
+                    class="rcx-box rcx-box--full rcx-sidebar-item__row"
                   >
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__avatar"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__avatar"
                     >
                       <figure
                         class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x20"
@@ -1050,7 +1050,7 @@ exports[`renders Default without crashing 1`] = `
                       </figure>
                     </div>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__icon"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__icon"
                     >
                       <i
                         aria-hidden="true"
@@ -1060,21 +1060,21 @@ exports[`renders Default without crashing 1`] = `
                       </i>
                     </div>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__title"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__title"
                     >
                       Eve Mallory
                     </div>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__timestamp"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__timestamp"
                     >
                       11:22:21 AM
                     </div>
                   </div>
                   <div
-                    class="rcx-box rcx-box--full rcx-sidebar-v2-item__row"
+                    class="rcx-box rcx-box--full rcx-sidebar-item__row"
                   >
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__subtitle"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__subtitle"
                     >
                       Lorem Ipsum Indolor Dolor Ipsum Ipsum
                     </div>
@@ -1095,16 +1095,16 @@ exports[`renders Default without crashing 1`] = `
                       </span>
                     </span>
                     <span
-                      class="rcx-box rcx-box--full rcx-badge rcx-badge--secondary rcx-box rcx-box--full rcx-sidebar-v2-item__badge"
+                      class="rcx-box rcx-box--full rcx-badge rcx-badge--secondary rcx-box rcx-box--full rcx-sidebar-item__badge"
                       title="unread messages"
                     >
                       12
                     </span>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__menu-wrapper rcx-box--animated"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__menu-wrapper rcx-box--animated"
                     >
                       <span
-                        class="rcx-box rcx-box--full rcx-sidebar-v2-item__menu rcx-sidebar-v2-item__menu"
+                        class="rcx-box rcx-box--full rcx-sidebar-item__menu rcx-sidebar-item__menu"
                       >
                         <button
                           aria-expanded="false"
@@ -1133,17 +1133,17 @@ exports[`renders Default without crashing 1`] = `
               role="listitem"
             >
               <a
-                class="rcx-box rcx-box--full rcx-sidebar-v2-item rcx-sidebar-v2-item--level-2"
+                class="rcx-box rcx-box--full rcx-sidebar-item rcx-sidebar-item--level-2"
                 href="#"
               >
                 <div
-                  class="rcx-box rcx-box--full rcx-sidebar-v2-item__col"
+                  class="rcx-box rcx-box--full rcx-sidebar-item__col"
                 >
                   <div
-                    class="rcx-box rcx-box--full rcx-sidebar-v2-item__row"
+                    class="rcx-box rcx-box--full rcx-sidebar-item__row"
                   >
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__avatar"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__avatar"
                     >
                       <figure
                         class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x20"
@@ -1156,7 +1156,7 @@ exports[`renders Default without crashing 1`] = `
                       </figure>
                     </div>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__icon"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__icon"
                     >
                       <i
                         aria-hidden="true"
@@ -1166,21 +1166,21 @@ exports[`renders Default without crashing 1`] = `
                       </i>
                     </div>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__title"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__title"
                     >
                       Marvin Black
                     </div>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__timestamp"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__timestamp"
                     >
                       11:22:21 AM
                     </div>
                   </div>
                   <div
-                    class="rcx-box rcx-box--full rcx-sidebar-v2-item__row"
+                    class="rcx-box rcx-box--full rcx-sidebar-item__row"
                   >
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__subtitle"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__subtitle"
                     >
                       Lorem Ipsum Indolor Dolor Ipsum Ipsum
                     </div>
@@ -1201,16 +1201,16 @@ exports[`renders Default without crashing 1`] = `
                       </span>
                     </span>
                     <span
-                      class="rcx-box rcx-box--full rcx-badge rcx-badge--secondary rcx-box rcx-box--full rcx-sidebar-v2-item__badge"
+                      class="rcx-box rcx-box--full rcx-badge rcx-badge--secondary rcx-box rcx-box--full rcx-sidebar-item__badge"
                       title="unread messages"
                     >
                       13
                     </span>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__menu-wrapper rcx-box--animated"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__menu-wrapper rcx-box--animated"
                     >
                       <span
-                        class="rcx-box rcx-box--full rcx-sidebar-v2-item__menu rcx-sidebar-v2-item__menu"
+                        class="rcx-box rcx-box--full rcx-sidebar-item__menu rcx-sidebar-item__menu"
                       >
                         <button
                           aria-expanded="false"
@@ -1239,17 +1239,17 @@ exports[`renders Default without crashing 1`] = `
               role="listitem"
             >
               <a
-                class="rcx-box rcx-box--full rcx-sidebar-v2-item rcx-sidebar-v2-item--level-2"
+                class="rcx-box rcx-box--full rcx-sidebar-item rcx-sidebar-item--level-2"
                 href="#"
               >
                 <div
-                  class="rcx-box rcx-box--full rcx-sidebar-v2-item__col"
+                  class="rcx-box rcx-box--full rcx-sidebar-item__col"
                 >
                   <div
-                    class="rcx-box rcx-box--full rcx-sidebar-v2-item__row"
+                    class="rcx-box rcx-box--full rcx-sidebar-item__row"
                   >
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__avatar"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__avatar"
                     >
                       <figure
                         class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x20"
@@ -1262,7 +1262,7 @@ exports[`renders Default without crashing 1`] = `
                       </figure>
                     </div>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__icon"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__icon"
                     >
                       <i
                         aria-hidden="true"
@@ -1272,21 +1272,21 @@ exports[`renders Default without crashing 1`] = `
                       </i>
                     </div>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__title"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__title"
                     >
                       Esther Miles
                     </div>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__timestamp"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__timestamp"
                     >
                       11:22:21 AM
                     </div>
                   </div>
                   <div
-                    class="rcx-box rcx-box--full rcx-sidebar-v2-item__row"
+                    class="rcx-box rcx-box--full rcx-sidebar-item__row"
                   >
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__subtitle"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__subtitle"
                     >
                       Lorem Ipsum Indolor Dolor Ipsum Ipsum
                     </div>
@@ -1307,16 +1307,16 @@ exports[`renders Default without crashing 1`] = `
                       </span>
                     </span>
                     <span
-                      class="rcx-box rcx-box--full rcx-badge rcx-badge--secondary rcx-box rcx-box--full rcx-sidebar-v2-item__badge"
+                      class="rcx-box rcx-box--full rcx-badge rcx-badge--secondary rcx-box rcx-box--full rcx-sidebar-item__badge"
                       title="unread messages"
                     >
                       14
                     </span>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__menu-wrapper rcx-box--animated"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__menu-wrapper rcx-box--animated"
                     >
                       <span
-                        class="rcx-box rcx-box--full rcx-sidebar-v2-item__menu rcx-sidebar-v2-item__menu"
+                        class="rcx-box rcx-box--full rcx-sidebar-item__menu rcx-sidebar-item__menu"
                       >
                         <button
                           aria-expanded="false"
@@ -1345,17 +1345,17 @@ exports[`renders Default without crashing 1`] = `
               role="listitem"
             >
               <a
-                class="rcx-box rcx-box--full rcx-sidebar-v2-item rcx-sidebar-v2-item--level-2"
+                class="rcx-box rcx-box--full rcx-sidebar-item rcx-sidebar-item--level-2"
                 href="#"
               >
                 <div
-                  class="rcx-box rcx-box--full rcx-sidebar-v2-item__col"
+                  class="rcx-box rcx-box--full rcx-sidebar-item__col"
                 >
                   <div
-                    class="rcx-box rcx-box--full rcx-sidebar-v2-item__row"
+                    class="rcx-box rcx-box--full rcx-sidebar-item__row"
                   >
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__avatar"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__avatar"
                     >
                       <figure
                         class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x20"
@@ -1368,7 +1368,7 @@ exports[`renders Default without crashing 1`] = `
                       </figure>
                     </div>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__icon"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__icon"
                     >
                       <i
                         aria-hidden="true"
@@ -1378,21 +1378,21 @@ exports[`renders Default without crashing 1`] = `
                       </i>
                     </div>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__title"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__title"
                     >
                       Leroy Jenkins
                     </div>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__timestamp"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__timestamp"
                     >
                       11:22:21 AM
                     </div>
                   </div>
                   <div
-                    class="rcx-box rcx-box--full rcx-sidebar-v2-item__row"
+                    class="rcx-box rcx-box--full rcx-sidebar-item__row"
                   >
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__subtitle"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__subtitle"
                     >
                       Lorem Ipsum Indolor Dolor Ipsum Ipsum
                     </div>
@@ -1413,16 +1413,16 @@ exports[`renders Default without crashing 1`] = `
                       </span>
                     </span>
                     <span
-                      class="rcx-box rcx-box--full rcx-badge rcx-badge--secondary rcx-box rcx-box--full rcx-sidebar-v2-item__badge"
+                      class="rcx-box rcx-box--full rcx-badge rcx-badge--secondary rcx-box rcx-box--full rcx-sidebar-item__badge"
                       title="unread messages"
                     >
                       15
                     </span>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__menu-wrapper rcx-box--animated"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__menu-wrapper rcx-box--animated"
                     >
                       <span
-                        class="rcx-box rcx-box--full rcx-sidebar-v2-item__menu rcx-sidebar-v2-item__menu"
+                        class="rcx-box rcx-box--full rcx-sidebar-item__menu rcx-sidebar-item__menu"
                       >
                         <button
                           aria-expanded="false"
@@ -1451,17 +1451,17 @@ exports[`renders Default without crashing 1`] = `
               role="listitem"
             >
               <a
-                class="rcx-box rcx-box--full rcx-sidebar-v2-item rcx-sidebar-v2-item--level-2"
+                class="rcx-box rcx-box--full rcx-sidebar-item rcx-sidebar-item--level-2"
                 href="#"
               >
                 <div
-                  class="rcx-box rcx-box--full rcx-sidebar-v2-item__col"
+                  class="rcx-box rcx-box--full rcx-sidebar-item__col"
                 >
                   <div
-                    class="rcx-box rcx-box--full rcx-sidebar-v2-item__row"
+                    class="rcx-box rcx-box--full rcx-sidebar-item__row"
                   >
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__avatar"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__avatar"
                     >
                       <figure
                         class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x20"
@@ -1474,7 +1474,7 @@ exports[`renders Default without crashing 1`] = `
                       </figure>
                     </div>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__icon"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__icon"
                     >
                       <i
                         aria-hidden="true"
@@ -1484,21 +1484,21 @@ exports[`renders Default without crashing 1`] = `
                       </i>
                     </div>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__title"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__title"
                     >
                       Morgan Freeman looooooooooong looooooooooong looooooooooong name
                     </div>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__timestamp"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__timestamp"
                     >
                       11:22:21 AM
                     </div>
                   </div>
                   <div
-                    class="rcx-box rcx-box--full rcx-sidebar-v2-item__row"
+                    class="rcx-box rcx-box--full rcx-sidebar-item__row"
                   >
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__subtitle"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__subtitle"
                     >
                       Lorem Ipsum Indolor Dolor Ipsum Ipsum
                     </div>
@@ -1519,16 +1519,16 @@ exports[`renders Default without crashing 1`] = `
                       </span>
                     </span>
                     <span
-                      class="rcx-box rcx-box--full rcx-badge rcx-badge--secondary rcx-box rcx-box--full rcx-sidebar-v2-item__badge"
+                      class="rcx-box rcx-box--full rcx-badge rcx-badge--secondary rcx-box rcx-box--full rcx-sidebar-item__badge"
                       title="unread messages"
                     >
                       16
                     </span>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__menu-wrapper rcx-box--animated"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__menu-wrapper rcx-box--animated"
                     >
                       <span
-                        class="rcx-box rcx-box--full rcx-sidebar-v2-item__menu rcx-sidebar-v2-item__menu"
+                        class="rcx-box rcx-box--full rcx-sidebar-item__menu rcx-sidebar-item__menu"
                       >
                         <button
                           aria-expanded="false"
@@ -1557,17 +1557,17 @@ exports[`renders Default without crashing 1`] = `
               role="listitem"
             >
               <a
-                class="rcx-box rcx-box--full rcx-sidebar-v2-item rcx-sidebar-v2-item--level-2"
+                class="rcx-box rcx-box--full rcx-sidebar-item rcx-sidebar-item--level-2"
                 href="#"
               >
                 <div
-                  class="rcx-box rcx-box--full rcx-sidebar-v2-item__col"
+                  class="rcx-box rcx-box--full rcx-sidebar-item__col"
                 >
                   <div
-                    class="rcx-box rcx-box--full rcx-sidebar-v2-item__row"
+                    class="rcx-box rcx-box--full rcx-sidebar-item__row"
                   >
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__avatar"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__avatar"
                     >
                       <figure
                         class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x20"
@@ -1580,7 +1580,7 @@ exports[`renders Default without crashing 1`] = `
                       </figure>
                     </div>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__icon"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__icon"
                     >
                       <i
                         aria-hidden="true"
@@ -1590,21 +1590,21 @@ exports[`renders Default without crashing 1`] = `
                       </i>
                     </div>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__title"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__title"
                     >
                       John Doe
                     </div>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__timestamp"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__timestamp"
                     >
                       11:22:21 AM
                     </div>
                   </div>
                   <div
-                    class="rcx-box rcx-box--full rcx-sidebar-v2-item__row"
+                    class="rcx-box rcx-box--full rcx-sidebar-item__row"
                   >
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__subtitle"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__subtitle"
                     >
                       Lorem Ipsum Indolor Dolor Ipsum Ipsum
                     </div>
@@ -1625,16 +1625,16 @@ exports[`renders Default without crashing 1`] = `
                       </span>
                     </span>
                     <span
-                      class="rcx-box rcx-box--full rcx-badge rcx-badge--secondary rcx-box rcx-box--full rcx-sidebar-v2-item__badge"
+                      class="rcx-box rcx-box--full rcx-badge rcx-badge--secondary rcx-box rcx-box--full rcx-sidebar-item__badge"
                       title="unread messages"
                     >
                       17
                     </span>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__menu-wrapper rcx-box--animated"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__menu-wrapper rcx-box--animated"
                     >
                       <span
-                        class="rcx-box rcx-box--full rcx-sidebar-v2-item__menu rcx-sidebar-v2-item__menu"
+                        class="rcx-box rcx-box--full rcx-sidebar-item__menu rcx-sidebar-item__menu"
                       >
                         <button
                           aria-expanded="false"
@@ -1663,17 +1663,17 @@ exports[`renders Default without crashing 1`] = `
               role="listitem"
             >
               <a
-                class="rcx-box rcx-box--full rcx-sidebar-v2-item rcx-sidebar-v2-item--level-2"
+                class="rcx-box rcx-box--full rcx-sidebar-item rcx-sidebar-item--level-2"
                 href="#"
               >
                 <div
-                  class="rcx-box rcx-box--full rcx-sidebar-v2-item__col"
+                  class="rcx-box rcx-box--full rcx-sidebar-item__col"
                 >
                   <div
-                    class="rcx-box rcx-box--full rcx-sidebar-v2-item__row"
+                    class="rcx-box rcx-box--full rcx-sidebar-item__row"
                   >
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__avatar"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__avatar"
                     >
                       <figure
                         class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x20"
@@ -1686,7 +1686,7 @@ exports[`renders Default without crashing 1`] = `
                       </figure>
                     </div>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__icon"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__icon"
                     >
                       <i
                         aria-hidden="true"
@@ -1696,21 +1696,21 @@ exports[`renders Default without crashing 1`] = `
                       </i>
                     </div>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__title"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__title"
                     >
                       Jane Doe
                     </div>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__timestamp"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__timestamp"
                     >
                       11:22:21 AM
                     </div>
                   </div>
                   <div
-                    class="rcx-box rcx-box--full rcx-sidebar-v2-item__row"
+                    class="rcx-box rcx-box--full rcx-sidebar-item__row"
                   >
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__subtitle"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__subtitle"
                     >
                       Lorem Ipsum Indolor Dolor Ipsum Ipsum
                     </div>
@@ -1731,16 +1731,16 @@ exports[`renders Default without crashing 1`] = `
                       </span>
                     </span>
                     <span
-                      class="rcx-box rcx-box--full rcx-badge rcx-badge--secondary rcx-box rcx-box--full rcx-sidebar-v2-item__badge"
+                      class="rcx-box rcx-box--full rcx-badge rcx-badge--secondary rcx-box rcx-box--full rcx-sidebar-item__badge"
                       title="unread messages"
                     >
                       18
                     </span>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__menu-wrapper rcx-box--animated"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__menu-wrapper rcx-box--animated"
                     >
                       <span
-                        class="rcx-box rcx-box--full rcx-sidebar-v2-item__menu rcx-sidebar-v2-item__menu"
+                        class="rcx-box rcx-box--full rcx-sidebar-item__menu rcx-sidebar-item__menu"
                       >
                         <button
                           aria-expanded="false"
@@ -1769,17 +1769,17 @@ exports[`renders Default without crashing 1`] = `
               role="listitem"
             >
               <a
-                class="rcx-box rcx-box--full rcx-sidebar-v2-item rcx-sidebar-v2-item--level-2"
+                class="rcx-box rcx-box--full rcx-sidebar-item rcx-sidebar-item--level-2"
                 href="#"
               >
                 <div
-                  class="rcx-box rcx-box--full rcx-sidebar-v2-item__col"
+                  class="rcx-box rcx-box--full rcx-sidebar-item__col"
                 >
                   <div
-                    class="rcx-box rcx-box--full rcx-sidebar-v2-item__row"
+                    class="rcx-box rcx-box--full rcx-sidebar-item__row"
                   >
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__avatar"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__avatar"
                     >
                       <figure
                         class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x20"
@@ -1792,7 +1792,7 @@ exports[`renders Default without crashing 1`] = `
                       </figure>
                     </div>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__icon"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__icon"
                     >
                       <i
                         aria-hidden="true"
@@ -1802,21 +1802,21 @@ exports[`renders Default without crashing 1`] = `
                       </i>
                     </div>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__title"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__title"
                     >
                       Baz Qux
                     </div>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__timestamp"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__timestamp"
                     >
                       11:22:21 AM
                     </div>
                   </div>
                   <div
-                    class="rcx-box rcx-box--full rcx-sidebar-v2-item__row"
+                    class="rcx-box rcx-box--full rcx-sidebar-item__row"
                   >
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__subtitle"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__subtitle"
                     >
                       Lorem Ipsum Indolor Dolor Ipsum Ipsum
                     </div>
@@ -1837,16 +1837,16 @@ exports[`renders Default without crashing 1`] = `
                       </span>
                     </span>
                     <span
-                      class="rcx-box rcx-box--full rcx-badge rcx-badge--secondary rcx-box rcx-box--full rcx-sidebar-v2-item__badge"
+                      class="rcx-box rcx-box--full rcx-badge rcx-badge--secondary rcx-box rcx-box--full rcx-sidebar-item__badge"
                       title="unread messages"
                     >
                       19
                     </span>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__menu-wrapper rcx-box--animated"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__menu-wrapper rcx-box--animated"
                     >
                       <span
-                        class="rcx-box rcx-box--full rcx-sidebar-v2-item__menu rcx-sidebar-v2-item__menu"
+                        class="rcx-box rcx-box--full rcx-sidebar-item__menu rcx-sidebar-item__menu"
                       >
                         <button
                           aria-expanded="false"
@@ -1875,17 +1875,17 @@ exports[`renders Default without crashing 1`] = `
               role="listitem"
             >
               <a
-                class="rcx-box rcx-box--full rcx-sidebar-v2-item rcx-sidebar-v2-item--level-2"
+                class="rcx-box rcx-box--full rcx-sidebar-item rcx-sidebar-item--level-2"
                 href="#"
               >
                 <div
-                  class="rcx-box rcx-box--full rcx-sidebar-v2-item__col"
+                  class="rcx-box rcx-box--full rcx-sidebar-item__col"
                 >
                   <div
-                    class="rcx-box rcx-box--full rcx-sidebar-v2-item__row"
+                    class="rcx-box rcx-box--full rcx-sidebar-item__row"
                   >
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__avatar"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__avatar"
                     >
                       <figure
                         class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x20"
@@ -1898,7 +1898,7 @@ exports[`renders Default without crashing 1`] = `
                       </figure>
                     </div>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__icon"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__icon"
                     >
                       <i
                         aria-hidden="true"
@@ -1908,21 +1908,21 @@ exports[`renders Default without crashing 1`] = `
                       </i>
                     </div>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__title"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__title"
                     >
                       Alice Bob
                     </div>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__timestamp"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__timestamp"
                     >
                       11:22:21 AM
                     </div>
                   </div>
                   <div
-                    class="rcx-box rcx-box--full rcx-sidebar-v2-item__row"
+                    class="rcx-box rcx-box--full rcx-sidebar-item__row"
                   >
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__subtitle"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__subtitle"
                     >
                       Lorem Ipsum Indolor Dolor Ipsum Ipsum
                     </div>
@@ -1943,16 +1943,16 @@ exports[`renders Default without crashing 1`] = `
                       </span>
                     </span>
                     <span
-                      class="rcx-box rcx-box--full rcx-badge rcx-badge--secondary rcx-box rcx-box--full rcx-sidebar-v2-item__badge"
+                      class="rcx-box rcx-box--full rcx-badge rcx-badge--secondary rcx-box rcx-box--full rcx-sidebar-item__badge"
                       title="unread messages"
                     >
                       20
                     </span>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__menu-wrapper rcx-box--animated"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__menu-wrapper rcx-box--animated"
                     >
                       <span
-                        class="rcx-box rcx-box--full rcx-sidebar-v2-item__menu rcx-sidebar-v2-item__menu"
+                        class="rcx-box rcx-box--full rcx-sidebar-item__menu rcx-sidebar-item__menu"
                       >
                         <button
                           aria-expanded="false"
@@ -1981,17 +1981,17 @@ exports[`renders Default without crashing 1`] = `
               role="listitem"
             >
               <a
-                class="rcx-box rcx-box--full rcx-sidebar-v2-item rcx-sidebar-v2-item--level-2"
+                class="rcx-box rcx-box--full rcx-sidebar-item rcx-sidebar-item--level-2"
                 href="#"
               >
                 <div
-                  class="rcx-box rcx-box--full rcx-sidebar-v2-item__col"
+                  class="rcx-box rcx-box--full rcx-sidebar-item__col"
                 >
                   <div
-                    class="rcx-box rcx-box--full rcx-sidebar-v2-item__row"
+                    class="rcx-box rcx-box--full rcx-sidebar-item__row"
                   >
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__avatar"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__avatar"
                     >
                       <figure
                         class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x20"
@@ -2004,7 +2004,7 @@ exports[`renders Default without crashing 1`] = `
                       </figure>
                     </div>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__icon"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__icon"
                     >
                       <i
                         aria-hidden="true"
@@ -2014,21 +2014,21 @@ exports[`renders Default without crashing 1`] = `
                       </i>
                     </div>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__title"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__title"
                     >
                       Charlie Delta
                     </div>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__timestamp"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__timestamp"
                     >
                       11:22:21 AM
                     </div>
                   </div>
                   <div
-                    class="rcx-box rcx-box--full rcx-sidebar-v2-item__row"
+                    class="rcx-box rcx-box--full rcx-sidebar-item__row"
                   >
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__subtitle"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__subtitle"
                     >
                       Lorem Ipsum Indolor Dolor Ipsum Ipsum
                     </div>
@@ -2049,16 +2049,16 @@ exports[`renders Default without crashing 1`] = `
                       </span>
                     </span>
                     <span
-                      class="rcx-box rcx-box--full rcx-badge rcx-badge--secondary rcx-box rcx-box--full rcx-sidebar-v2-item__badge"
+                      class="rcx-box rcx-box--full rcx-badge rcx-badge--secondary rcx-box rcx-box--full rcx-sidebar-item__badge"
                       title="unread messages"
                     >
                       21
                     </span>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__menu-wrapper rcx-box--animated"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__menu-wrapper rcx-box--animated"
                     >
                       <span
-                        class="rcx-box rcx-box--full rcx-sidebar-v2-item__menu rcx-sidebar-v2-item__menu"
+                        class="rcx-box rcx-box--full rcx-sidebar-item__menu rcx-sidebar-item__menu"
                       >
                         <button
                           aria-expanded="false"
@@ -2087,17 +2087,17 @@ exports[`renders Default without crashing 1`] = `
               role="listitem"
             >
               <a
-                class="rcx-box rcx-box--full rcx-sidebar-v2-item rcx-sidebar-v2-item--level-2"
+                class="rcx-box rcx-box--full rcx-sidebar-item rcx-sidebar-item--level-2"
                 href="#"
               >
                 <div
-                  class="rcx-box rcx-box--full rcx-sidebar-v2-item__col"
+                  class="rcx-box rcx-box--full rcx-sidebar-item__col"
                 >
                   <div
-                    class="rcx-box rcx-box--full rcx-sidebar-v2-item__row"
+                    class="rcx-box rcx-box--full rcx-sidebar-item__row"
                   >
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__avatar"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__avatar"
                     >
                       <figure
                         class="rcx-box rcx-box--full rcx-avatar rcx-avatar--x20"
@@ -2110,7 +2110,7 @@ exports[`renders Default without crashing 1`] = `
                       </figure>
                     </div>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__icon"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__icon"
                     >
                       <i
                         aria-hidden="true"
@@ -2120,21 +2120,21 @@ exports[`renders Default without crashing 1`] = `
                       </i>
                     </div>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__title"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__title"
                     >
                       Eve Mallory
                     </div>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__timestamp"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__timestamp"
                     >
                       11:22:21 AM
                     </div>
                   </div>
                   <div
-                    class="rcx-box rcx-box--full rcx-sidebar-v2-item__row"
+                    class="rcx-box rcx-box--full rcx-sidebar-item__row"
                   >
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__subtitle"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__subtitle"
                     >
                       Lorem Ipsum Indolor Dolor Ipsum Ipsum
                     </div>
@@ -2155,16 +2155,16 @@ exports[`renders Default without crashing 1`] = `
                       </span>
                     </span>
                     <span
-                      class="rcx-box rcx-box--full rcx-badge rcx-badge--secondary rcx-box rcx-box--full rcx-sidebar-v2-item__badge"
+                      class="rcx-box rcx-box--full rcx-badge rcx-badge--secondary rcx-box rcx-box--full rcx-sidebar-item__badge"
                       title="unread messages"
                     >
                       22
                     </span>
                     <div
-                      class="rcx-box rcx-box--full rcx-sidebar-v2-item__menu-wrapper rcx-box--animated"
+                      class="rcx-box rcx-box--full rcx-sidebar-item__menu-wrapper rcx-box--animated"
                     >
                       <span
-                        class="rcx-box rcx-box--full rcx-sidebar-v2-item__menu rcx-sidebar-v2-item__menu"
+                        class="rcx-box rcx-box--full rcx-sidebar-item__menu rcx-sidebar-item__menu"
                       >
                         <button
                           aria-expanded="false"
