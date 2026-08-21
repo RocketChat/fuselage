@@ -32,7 +32,7 @@
   "devDependencies": {
     "eslint": "~10.8.0",
     "eslint-config-prettier": "~10.1.8",
-    "lint-all": "workspace:~",
+    "lint-all": "^0.31.25",
     "postcss": "~8.5.23",
     "postcss-scss": "~4.0.9",
     "prettier": "~3.6.2",

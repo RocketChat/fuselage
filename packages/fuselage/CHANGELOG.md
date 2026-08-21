@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.88.0
+
+### Minor Changes
+
+- [#2163](https://github.com/RocketChat/fuselage/pull/2163) [`11a8435`](https://github.com/RocketChat/fuselage/commit/11a8435db2d0516fd80192de0e8bbf5dc0a7bf57) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage)!: Remove legacy `Sidebar` and promote `SidebarV2`
+
 ## 0.87.0
 
 ### Minor Changes
