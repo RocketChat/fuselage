@@ -1,0 +1,1004 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`[ButtonGroup Rendering] renders AlignedAtCenter without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-button-group rcx-button-group--align-center"
+      role="group"
+    >
+      <button
+        class="rcx-box rcx-box--full rcx-button"
+        type="button"
+      >
+        <span
+          class="rcx-button--content"
+        >
+          Button 1
+        </span>
+      </button>
+      <button
+        class="rcx-box rcx-box--full rcx-button"
+        type="button"
+      >
+        <span
+          class="rcx-button--content"
+        >
+          Button 2
+        </span>
+      </button>
+      <button
+        class="rcx-box rcx-box--full rcx-button"
+        type="button"
+      >
+        <span
+          class="rcx-button--content"
+        >
+          Button 3
+        </span>
+      </button>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`[ButtonGroup Rendering] renders AlignedAtEnd without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-button-group rcx-button-group--align-end"
+      role="group"
+    >
+      <button
+        class="rcx-box rcx-box--full rcx-button"
+        type="button"
+      >
+        <span
+          class="rcx-button--content"
+        >
+          Button 1
+        </span>
+      </button>
+      <button
+        class="rcx-box rcx-box--full rcx-button"
+        type="button"
+      >
+        <span
+          class="rcx-button--content"
+        >
+          Button 2
+        </span>
+      </button>
+      <button
+        class="rcx-box rcx-box--full rcx-button"
+        type="button"
+      >
+        <span
+          class="rcx-button--content"
+        >
+          Button 3
+        </span>
+      </button>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`[ButtonGroup Rendering] renders AlignedAtStart without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-button-group rcx-button-group--align-start"
+      role="group"
+    >
+      <button
+        class="rcx-box rcx-box--full rcx-button"
+        type="button"
+      >
+        <span
+          class="rcx-button--content"
+        >
+          Button 1
+        </span>
+      </button>
+      <button
+        class="rcx-box rcx-box--full rcx-button"
+        type="button"
+      >
+        <span
+          class="rcx-button--content"
+        >
+          Button 2
+        </span>
+      </button>
+      <button
+        class="rcx-box rcx-box--full rcx-button"
+        type="button"
+      >
+        <span
+          class="rcx-button--content"
+        >
+          Button 3
+        </span>
+      </button>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`[ButtonGroup Rendering] renders Default without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-button-group rcx-button-group--align-start"
+      role="group"
+    >
+      <button
+        class="rcx-box rcx-box--full rcx-button"
+        type="button"
+      >
+        <span
+          class="rcx-button--content"
+        >
+          Button 1
+        </span>
+      </button>
+      <button
+        class="rcx-box rcx-box--full rcx-button"
+        type="button"
+      >
+        <span
+          class="rcx-button--content"
+        >
+          Button 2
+        </span>
+      </button>
+      <button
+        class="rcx-box rcx-box--full rcx-button"
+        type="button"
+      >
+        <span
+          class="rcx-button--content"
+        >
+          Button 3
+        </span>
+      </button>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`[ButtonGroup Rendering] renders Joined without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-css-18mlk3l"
+    >
+      <div
+        class="rcx-box rcx-box--full rcx-css-4n4775"
+      >
+        <div
+          class="rcx-button-group rcx-button-group--align-start rcx-button-group--joined"
+          role="group"
+        >
+          <button
+            class="rcx-box rcx-box--full rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Cancel
+            </span>
+          </button>
+          <button
+            class="rcx-box rcx-box--full rcx-button--primary rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Save
+            </span>
+          </button>
+        </div>
+        <div
+          class="rcx-button-group rcx-button-group--align-start rcx-button-group--joined"
+          role="group"
+        >
+          <button
+            aria-label="Microphone"
+            class="rcx-box rcx-box--full rcx-button--ghost rcx-button--large-square rcx-button--square rcx-button--icon rcx-button"
+            type="button"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-mic rcx-icon rcx-css-1x2l7ts"
+            >
+              
+            </i>
+          </button>
+          <button
+            aria-label="Microphone options"
+            class="rcx-box rcx-box--full rcx-button--large-square rcx-button--icon-secondary rcx-button--square rcx-button--icon rcx-button"
+            type="button"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-1x2l7ts"
+            >
+              
+            </i>
+          </button>
+        </div>
+        <div
+          class="rcx-button-group rcx-button-group--align-start rcx-button-group--joined"
+          role="group"
+        >
+          <button
+            aria-label="Camera"
+            class="rcx-box rcx-box--full rcx-button--ghost rcx-button--large-square rcx-button--square rcx-button--icon rcx-button"
+            type="button"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-video rcx-icon rcx-css-1x2l7ts"
+            >
+              ❲
+            </i>
+          </button>
+          <button
+            aria-label="Camera options"
+            class="rcx-box rcx-box--full rcx-button--large-square rcx-button--icon-secondary rcx-button--square rcx-button--icon rcx-button"
+            type="button"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-1x2l7ts"
+            >
+              
+            </i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`[ButtonGroup Rendering] renders JoinedSegmented without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-css-18mlk3l"
+    >
+      <div
+        class="rcx-button-group rcx-button-group--align-start rcx-button-group--joined"
+        role="group"
+      >
+        <button
+          class="rcx-box rcx-box--full rcx-button"
+          type="button"
+        >
+          <span
+            class="rcx-button--content"
+          >
+            Day
+          </span>
+        </button>
+        <button
+          class="rcx-box rcx-box--full rcx-button"
+          type="button"
+        >
+          <span
+            class="rcx-button--content"
+          >
+            Week
+          </span>
+        </button>
+        <button
+          class="rcx-box rcx-box--full rcx-button"
+          type="button"
+        >
+          <span
+            class="rcx-button--content"
+          >
+            Month
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`[ButtonGroup Rendering] renders JoinedSplitButton without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-css-18mlk3l"
+    >
+      <div
+        class="rcx-button-group rcx-button-group--align-start rcx-button-group--joined"
+        role="group"
+      >
+        <button
+          aria-label="More reply actions"
+          class="rcx-box rcx-box--full rcx-button--ghost rcx-button--square rcx-button"
+          type="button"
+        >
+          <span
+            class="rcx-button--content"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-chevron-down rcx-icon rcx-css-1hdf9ok"
+            >
+              
+            </i>
+          </span>
+        </button>
+        <button
+          class="rcx-box rcx-box--full rcx-button"
+          type="button"
+        >
+          <span
+            class="rcx-button--content"
+          >
+            Reply
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`[ButtonGroup Rendering] renders JoinedVertical without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-css-18mlk3l"
+    >
+      <div
+        class="rcx-button-group rcx-button-group--vertical rcx-button-group--align-start rcx-button-group--joined"
+        role="group"
+      >
+        <button
+          class="rcx-box rcx-box--full rcx-button"
+          type="button"
+        >
+          <span
+            class="rcx-button--content"
+          >
+            Top
+          </span>
+        </button>
+        <button
+          class="rcx-box rcx-box--full rcx-button"
+          type="button"
+        >
+          <span
+            class="rcx-button--content"
+          >
+            Middle
+          </span>
+        </button>
+        <button
+          class="rcx-box rcx-box--full rcx-button"
+          type="button"
+        >
+          <span
+            class="rcx-button--content"
+          >
+            Bottom
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`[ButtonGroup Rendering] renders Large without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-button-group rcx-button-group--align-start rcx-button-group--large"
+      role="group"
+    >
+      <button
+        class="rcx-box rcx-box--full rcx-button"
+        type="button"
+      >
+        <span
+          class="rcx-button--content"
+        >
+          Button 1
+        </span>
+      </button>
+      <button
+        class="rcx-box rcx-box--full rcx-button"
+        type="button"
+      >
+        <span
+          class="rcx-button--content"
+        >
+          Button 2
+        </span>
+      </button>
+      <button
+        class="rcx-box rcx-box--full rcx-button"
+        type="button"
+      >
+        <span
+          class="rcx-button--content"
+        >
+          Button 3
+        </span>
+      </button>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`[ButtonGroup Rendering] renders Small without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-button-group rcx-button-group--align-start rcx-button-group--small"
+      role="group"
+    >
+      <button
+        class="rcx-box rcx-box--full rcx-button"
+        type="button"
+      >
+        <span
+          class="rcx-button--content"
+        >
+          Button 1
+        </span>
+      </button>
+      <button
+        class="rcx-box rcx-box--full rcx-button"
+        type="button"
+      >
+        <span
+          class="rcx-button--content"
+        >
+          Button 2
+        </span>
+      </button>
+      <button
+        class="rcx-box rcx-box--full rcx-button"
+        type="button"
+      >
+        <span
+          class="rcx-button--content"
+        >
+          Button 3
+        </span>
+      </button>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`[ButtonGroup Rendering] renders Stretch without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-button-group rcx-button-group--stretch rcx-button-group--align-start"
+      role="group"
+    >
+      <button
+        class="rcx-box rcx-box--full rcx-button"
+        type="button"
+      >
+        <span
+          class="rcx-button--content"
+        >
+          Button 1
+        </span>
+      </button>
+      <button
+        class="rcx-box rcx-box--full rcx-button"
+        type="button"
+      >
+        <span
+          class="rcx-button--content"
+        >
+          Button 2
+        </span>
+      </button>
+      <button
+        class="rcx-box rcx-box--full rcx-button"
+        type="button"
+      >
+        <span
+          class="rcx-button--content"
+        >
+          Button 3
+        </span>
+      </button>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`[ButtonGroup Rendering] renders Vertical without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-button-group rcx-button-group--vertical rcx-button-group--align-start"
+      role="group"
+    >
+      <button
+        class="rcx-box rcx-box--full rcx-button"
+        type="button"
+      >
+        <span
+          class="rcx-button--content"
+        >
+          Button 1
+        </span>
+      </button>
+      <button
+        class="rcx-box rcx-box--full rcx-button"
+        type="button"
+      >
+        <span
+          class="rcx-button--content"
+        >
+          Button 2
+        </span>
+      </button>
+      <button
+        class="rcx-box rcx-box--full rcx-button"
+        type="button"
+      >
+        <span
+          class="rcx-button--content"
+        >
+          Button 3
+        </span>
+      </button>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`[ButtonGroup Rendering] renders VerticalLarge without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-button-group rcx-button-group--vertical rcx-button-group--align-start rcx-button-group--large"
+      role="group"
+    >
+      <button
+        class="rcx-box rcx-box--full rcx-button"
+        type="button"
+      >
+        <span
+          class="rcx-button--content"
+        >
+          Button 1
+        </span>
+      </button>
+      <button
+        class="rcx-box rcx-box--full rcx-button"
+        type="button"
+      >
+        <span
+          class="rcx-button--content"
+        >
+          Button 2
+        </span>
+      </button>
+      <button
+        class="rcx-box rcx-box--full rcx-button"
+        type="button"
+      >
+        <span
+          class="rcx-button--content"
+        >
+          Button 3
+        </span>
+      </button>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`[ButtonGroup Rendering] renders VerticalSmall without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-button-group rcx-button-group--vertical rcx-button-group--align-start rcx-button-group--small"
+      role="group"
+    >
+      <button
+        class="rcx-box rcx-box--full rcx-button"
+        type="button"
+      >
+        <span
+          class="rcx-button--content"
+        >
+          Button 1
+        </span>
+      </button>
+      <button
+        class="rcx-box rcx-box--full rcx-button"
+        type="button"
+      >
+        <span
+          class="rcx-button--content"
+        >
+          Button 2
+        </span>
+      </button>
+      <button
+        class="rcx-box rcx-box--full rcx-button"
+        type="button"
+      >
+        <span
+          class="rcx-button--content"
+        >
+          Button 3
+        </span>
+      </button>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`[ButtonGroup Rendering] renders VerticalStretch without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-button-group rcx-button-group--stretch rcx-button-group--vertical rcx-button-group--align-start"
+      role="group"
+    >
+      <button
+        class="rcx-box rcx-box--full rcx-button"
+        type="button"
+      >
+        <span
+          class="rcx-button--content"
+        >
+          Button 1
+        </span>
+      </button>
+      <button
+        class="rcx-box rcx-box--full rcx-button"
+        type="button"
+      >
+        <span
+          class="rcx-button--content"
+        >
+          Button 2
+        </span>
+      </button>
+      <button
+        class="rcx-box rcx-box--full rcx-button"
+        type="button"
+      >
+        <span
+          class="rcx-button--content"
+        >
+          Button 3
+        </span>
+      </button>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`[ButtonGroup Rendering] renders WithIconButtons without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-css-18mlk3l"
+    >
+      <div
+        class="rcx-box rcx-box--full rcx-css-4n4775"
+      >
+        <div
+          class="rcx-button-group rcx-button-group--align-start"
+          role="group"
+        >
+          <button
+            aria-label="Microphone"
+            class="rcx-box rcx-box--full rcx-button--medium-square rcx-button--icon-secondary rcx-button--square rcx-button--icon rcx-button"
+            type="button"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-mic rcx-icon rcx-css-f8dsuo"
+            >
+              
+            </i>
+          </button>
+          <button
+            aria-label="Camera"
+            class="rcx-box rcx-box--full rcx-button--medium-square rcx-button--icon-secondary rcx-button--square rcx-button--icon rcx-button"
+            type="button"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-video rcx-icon rcx-css-f8dsuo"
+            >
+              ❲
+            </i>
+          </button>
+          <button
+            aria-label="More options"
+            class="rcx-box rcx-box--full rcx-button--medium-square rcx-button--icon-secondary rcx-button--square rcx-button--icon rcx-button"
+            type="button"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-f8dsuo"
+            >
+              
+            </i>
+          </button>
+        </div>
+        <div
+          class="rcx-button-group rcx-button-group--align-start rcx-button-group--joined"
+          role="group"
+        >
+          <button
+            aria-label="Microphone"
+            class="rcx-box rcx-box--full rcx-button--medium-square rcx-button--icon-secondary rcx-button--square rcx-button--icon rcx-button"
+            type="button"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-mic rcx-icon rcx-css-f8dsuo"
+            >
+              
+            </i>
+          </button>
+          <button
+            aria-label="Camera"
+            class="rcx-box rcx-box--full rcx-button--medium-square rcx-button--icon-secondary rcx-button--square rcx-button--icon rcx-button"
+            type="button"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-video rcx-icon rcx-css-f8dsuo"
+            >
+              ❲
+            </i>
+          </button>
+          <button
+            aria-label="More options"
+            class="rcx-box rcx-box--full rcx-button--medium-square rcx-button--icon-secondary rcx-button--square rcx-button--icon rcx-button"
+            type="button"
+          >
+            <i
+              aria-hidden="true"
+              class="rcx-box rcx-box--full rcx-icon--name-kebab rcx-icon rcx-css-f8dsuo"
+            >
+              
+            </i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`[ButtonGroup Rendering] renders Wrap without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-button-group rcx-button-group--align-start rcx-button-group--wrap"
+      role="group"
+    >
+      <button
+        class="rcx-box rcx-box--full rcx-button"
+        type="button"
+      >
+        <span
+          class="rcx-button--content"
+        >
+          Button 1
+        </span>
+      </button>
+      <button
+        class="rcx-box rcx-box--full rcx-button"
+        type="button"
+      >
+        <span
+          class="rcx-button--content"
+        >
+          Button 2
+        </span>
+      </button>
+      <button
+        class="rcx-box rcx-box--full rcx-button"
+        type="button"
+      >
+        <span
+          class="rcx-button--content"
+        >
+          Button 3
+        </span>
+      </button>
+      <button
+        class="rcx-box rcx-box--full rcx-button"
+        type="button"
+      >
+        <span
+          class="rcx-button--content"
+        >
+          Button 4
+        </span>
+      </button>
+      <button
+        class="rcx-box rcx-box--full rcx-button"
+        type="button"
+      >
+        <span
+          class="rcx-button--content"
+        >
+          Button 5
+        </span>
+      </button>
+      <button
+        class="rcx-box rcx-box--full rcx-button"
+        type="button"
+      >
+        <span
+          class="rcx-button--content"
+        >
+          Button 6
+        </span>
+      </button>
+      <button
+        class="rcx-box rcx-box--full rcx-button"
+        type="button"
+      >
+        <span
+          class="rcx-button--content"
+        >
+          Button 7
+        </span>
+      </button>
+      <button
+        class="rcx-box rcx-box--full rcx-button"
+        type="button"
+      >
+        <span
+          class="rcx-button--content"
+        >
+          Button 8
+        </span>
+      </button>
+      <button
+        class="rcx-box rcx-box--full rcx-button"
+        type="button"
+      >
+        <span
+          class="rcx-button--content"
+        >
+          Button 9
+        </span>
+      </button>
+      <button
+        class="rcx-box rcx-box--full rcx-button"
+        type="button"
+      >
+        <span
+          class="rcx-button--content"
+        >
+          Button 10
+        </span>
+      </button>
+      <button
+        class="rcx-box rcx-box--full rcx-button"
+        type="button"
+      >
+        <span
+          class="rcx-button--content"
+        >
+          Button 11
+        </span>
+      </button>
+      <button
+        class="rcx-box rcx-box--full rcx-button"
+        type="button"
+      >
+        <span
+          class="rcx-button--content"
+        >
+          Button 12
+        </span>
+      </button>
+      <button
+        class="rcx-box rcx-box--full rcx-button"
+        type="button"
+      >
+        <span
+          class="rcx-button--content"
+        >
+          Button 13
+        </span>
+      </button>
+      <button
+        class="rcx-box rcx-box--full rcx-button"
+        type="button"
+      >
+        <span
+          class="rcx-button--content"
+        >
+          Button 14
+        </span>
+      </button>
+      <button
+        class="rcx-box rcx-box--full rcx-button"
+        type="button"
+      >
+        <span
+          class="rcx-button--content"
+        >
+          Button 15
+        </span>
+      </button>
+      <button
+        class="rcx-box rcx-box--full rcx-button"
+        type="button"
+      >
+        <span
+          class="rcx-button--content"
+        >
+          Button 16
+        </span>
+      </button>
+      <button
+        class="rcx-box rcx-box--full rcx-button"
+        type="button"
+      >
+        <span
+          class="rcx-button--content"
+        >
+          Button 17
+        </span>
+      </button>
+      <button
+        class="rcx-box rcx-box--full rcx-button"
+        type="button"
+      >
+        <span
+          class="rcx-button--content"
+        >
+          Button 18
+        </span>
+      </button>
+      <button
+        class="rcx-box rcx-box--full rcx-button"
+        type="button"
+      >
+        <span
+          class="rcx-button--content"
+        >
+          Button 19
+        </span>
+      </button>
+      <button
+        class="rcx-box rcx-box--full rcx-button"
+        type="button"
+      >
+        <span
+          class="rcx-button--content"
+        >
+          Button 20
+        </span>
+      </button>
+    </div>
+  </div>
+</body>
+`;

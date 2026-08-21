@@ -22,6 +22,8 @@ export type IconButtonProps = {
   warning?: boolean;
   success?: boolean;
   pressed?: boolean;
+  /** Transparent "ghost" segment; only takes effect inside a joined `ButtonGroup`. */
+  ghost?: boolean;
 } & IconButtonSize &
   BoxProps;
 
@@ -56,6 +58,7 @@ function IconButton({
   small,
   medium,
   pressed,
+  ghost,
   children,
   ...props
 }: IconButtonProps) {
@@ -116,6 +119,7 @@ function IconButton({
       rcx-button--square
       {...kindAndVariantProps}
       {...getSizeClass()}
+      rcx-button--ghost={ghost}
       rcx-button--icon-pressed={pressed}
       {...props}
     >
