@@ -33,7 +33,7 @@
     "eslint": "~10.8.0",
     "eslint-config-prettier": "~10.1.8",
     "lint-all": "workspace:~",
-    "postcss": "~8.5.23",
+    "postcss": "~8.5.24",
     "postcss-scss": "~4.0.9",
     "prettier": "~3.6.2",
     "rimraf": "~6.1.3",
