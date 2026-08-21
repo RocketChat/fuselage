@@ -124,4 +124,23 @@ describe('[Autocomplete functionality]', () => {
       screen.queryByRole('button', { name: 'test1' }),
     ).not.toBeInTheDocument();
   });
+  it('should remove last selected item when pressing Backspace with empty filter (multiple)', async () => {
+    const onChange = jest.fn();
+    render(
+      <AutoComplete
+        value={['1', '2']}
+        filter=''
+        setFilter={() => {}}
+        options={[
+          { value: '1', label: 'test1' },
+          { value: '2', label: 'test2' },
+        ]}
+        onChange={onChange}
+        multiple
+      />,
+    );
+    const input = screen.getByRole('textbox');
+    await userEvent.type(input, '{Backspace}');
+    expect(onChange).toHaveBeenCalledWith(['1']);
+  });
 });
