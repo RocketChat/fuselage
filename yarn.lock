@@ -5200,6 +5200,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@rocket.chat/figma-sync@workspace:tools/figma-sync":
+  version: 0.0.0-use.local
+  resolution: "@rocket.chat/figma-sync@workspace:tools/figma-sync"
+  dependencies:
+    playwright: "npm:~1.62.0"
+  bin:
+    figma-sync: ./src/extract.mjs
+  languageName: unknown
+  linkType: soft
+
 "@rocket.chat/fuselage-forms@workspace:packages/fuselage-forms":
   version: 0.0.0-use.local
   resolution: "@rocket.chat/fuselage-forms@workspace:packages/fuselage-forms"
@@ -15094,6 +15104,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"playwright-core@npm:1.62.1":
+  version: 1.62.1
+  resolution: "playwright-core@npm:1.62.1"
+  bin:
+    playwright-core: cli.js
+  checksum: 10/2dab88793a6a5cbfa27641664548ded72a4f869d7eab8d3541e070081b5e09595253aa3dbd42eb4e6eca1b03d96a727c60704359b5b309e71ca58b12549a4c06
+  languageName: node
+  linkType: hard
+
 "playwright@npm:1.62.0":
   version: 1.62.0
   resolution: "playwright@npm:1.62.0"
@@ -15106,6 +15125,21 @@ __metadata:
   bin:
     playwright: cli.js
   checksum: 10/52401b5f2b67abcb555c1b1c229e5204a3ac72a604343a99e60b00bd0cd46ad661a9471ced4e6c3ff39de957a0b1f413810d191ce81cd40e455700d73a6a80a5
+  languageName: node
+  linkType: hard
+
+"playwright@npm:~1.62.0":
+  version: 1.62.1
+  resolution: "playwright@npm:1.62.1"
+  dependencies:
+    fsevents: "npm:2.3.2"
+    playwright-core: "npm:1.62.1"
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  bin:
+    playwright: cli.js
+  checksum: 10/f99546873ab2545160ad5a0145fef8e2c1d805efd1ba77356f5b0ee3d8688192b3a2af08cd948bece36ca386fdfad889ef7e53b7aaad309940744c0bbccc0a19
   languageName: node
   linkType: hard
 
