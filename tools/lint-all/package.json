@@ -9,8 +9,8 @@
   },
   "dependencies": {
     "@prettier/plugin-xml": "~3.4.2",
-    "eslint": "~10.8.0",
-    "prettier": "~3.6.2",
+    "eslint": "~10.8.1",
+    "prettier": "~3.9.6",
     "stylelint": "~17.14.1",
     "zx": "8.8.5"
   }
