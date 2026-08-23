@@ -1,9 +1,9 @@
-import type { Context, ReactElement } from 'react';
+import type { Context, ReactNode } from 'react';
 import { useContext } from 'react';
 
 type WithErrorWrapperProps<T> = {
   context: Context<T>;
-  children: ReactElement;
+  children: ReactNode;
   componentName: string;
   parentComponent: 'Field';
 };

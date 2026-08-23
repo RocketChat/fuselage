@@ -1,1 +1,5 @@
-export { default as Pagination, type PaginationProps } from './Pagination';
+export {
+  default as Pagination,
+  type PaginationProps,
+  type ItemsPerPage,
+} from './Pagination';

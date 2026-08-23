@@ -38,18 +38,3 @@
     @content;
   }
 }
-
-@mixin on-invalid {
-  *:invalid &,
-  &:invalid,
-  &.invalid,
-  &.is-invalid {
-    @content;
-  }
-}
-
-@mixin on-pressed {
-  &-pressed {
-    @content;
-  }
-}

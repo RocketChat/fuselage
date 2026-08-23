@@ -1,5 +1,23 @@
 # Change Log
 
+## 0.49.0
+
+### Minor Changes
+
+- [#2161](https://github.com/RocketChat/fuselage/pull/2161) [`fb7bd1a`](https://github.com/RocketChat/fuselage/commit/fb7bd1a438375fee0e68ea752cac22d3eff61b28) Thanks [@ivans-netto](https://github.com/ivans-netto)! - feat(icons): Sync the icon set with Figma
+
+## 0.48.0
+
+### Minor Changes
+
+- [#1958](https://github.com/RocketChat/fuselage/pull/1958) [`a4dbce5`](https://github.com/RocketChat/fuselage/commit/a4dbce5903564ed72981f72335d89292ee7605f0) Thanks [@gabriellsh](https://github.com/gabriellsh)! - feat(icons): Add `arrow-from-cross-box` and `arrow-to-square-box`
+
+## 0.47.0
+
+### Minor Changes
+
+- [#1882](https://github.com/RocketChat/fuselage/pull/1882) [`8a5295f`](https://github.com/RocketChat/fuselage/commit/8a5295f2276ac8fbc91c4a25577ab87ee1438bb9) Thanks [@gabriellsh](https://github.com/gabriellsh)! - feat(icons): add `desktop-arrow-up`, `desktop-cross`, `pin-filled` and update `pin`
+
 ## 0.46.0
 
 ### Minor Changes

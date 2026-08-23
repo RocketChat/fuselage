@@ -1,5 +1,33 @@
 # Change Log
 
+## 0.34.1
+
+### Patch Changes
+
+- [#2060](https://github.com/RocketChat/fuselage/pull/2060) [`ee381bb`](https://github.com/RocketChat/fuselage/commit/ee381bb32982d0f4ed9ef26385b5016e0a2e4023) Thanks [@tassoevan](https://github.com/tassoevan)! - feat: Remove deprecations and keep documentation comments
+
+- Updated dependencies [[`ee381bb`](https://github.com/RocketChat/fuselage/commit/ee381bb32982d0f4ed9ef26385b5016e0a2e4023), [`46e9cc3`](https://github.com/RocketChat/fuselage/commit/46e9cc36b03bcdd8668f6146dd6e326857416a39)]:
+  - @rocket.chat/css-in-js@0.33.0
+
+## 0.34.0
+
+### Minor Changes
+
+- [#1999](https://github.com/RocketChat/fuselage/pull/1999) [`6e37f9d`](https://github.com/RocketChat/fuselage/commit/6e37f9d2fee4c9ebeb8ea2c1601bbd4c89905859) Thanks [@tassoevan](https://github.com/tassoevan)! - feat!: Upgrade to React 19
+
+## 0.33.0
+
+### Minor Changes
+
+- [#1948](https://github.com/RocketChat/fuselage/pull/1948) [`09ef890`](https://github.com/RocketChat/fuselage/commit/09ef89014ffe9e42f74f5cde6f1442b2f4088438) Thanks [@gabriellsh](https://github.com/gabriellsh)! - feat(styled): Implement `OwnerDocument` context and update `document` references
+
+## 0.32.1
+
+### Patch Changes
+
+- Updated dependencies [[`00052dc`](https://github.com/RocketChat/fuselage/commit/00052dc976bbe72664ec2d3b97f9ba2ba2d4f3c7)]:
+  - @rocket.chat/css-in-js@0.32.0
+
 ## 0.32.0
 
 ### Minor Changes

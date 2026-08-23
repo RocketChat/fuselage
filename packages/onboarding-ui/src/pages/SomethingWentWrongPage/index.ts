@@ -1,1 +1,4 @@
-export { default } from './SomethingWentWrongPage';
+export {
+  default,
+  type SomethingWentWrongPageProps,
+} from './SomethingWentWrongPage';

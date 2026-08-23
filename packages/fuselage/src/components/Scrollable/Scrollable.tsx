@@ -1,6 +1,6 @@
 import { css } from '@rocket.chat/css-in-js';
-import { useEffectEvent } from '@rocket.chat/fuselage-hooks';
-import type { PropsWithChildren, MouseEvent, MutableRefObject } from 'react';
+import { useStableCallback } from '@rocket.chat/fuselage-hooks';
+import type { PropsWithChildren, MouseEvent, RefObject } from 'react';
 import { useRef, useCallback } from 'react';
 
 import { appendClassName } from '../../helpers/appendClassName';
@@ -23,7 +23,7 @@ const getTouchingEdges = (element: Element) => ({
 
 const pollTouchingEdges = (
   element: EventTarget & Element,
-  touchingEdgesRef: MutableRefObject<Record<string, boolean>>,
+  touchingEdgesRef: RefObject<Record<string, boolean>>,
   onScrollContent: ((touching: { top: boolean }) => void) | undefined,
 ) => {
   const touchingEdges = touchingEdgesRef.current;
@@ -52,10 +52,10 @@ const Scrollable = ({
   smooth,
   onScrollContent,
 }: ScrollableProps) => {
-  const scrollTimeoutRef = useRef<ReturnType<typeof setTimeout>>();
+  const scrollTimeoutRef = useRef<ReturnType<typeof setTimeout>>(undefined);
   const touchingEdgesRef = useRef({});
 
-  const handleScroll = useEffectEvent((event: MouseEvent) => {
+  const handleScroll = useStableCallback((event: MouseEvent) => {
     const element = event.currentTarget;
 
     if (!scrollTimeoutRef.current) {
@@ -133,10 +133,9 @@ const Scrollable = ({
   );
 
   return (
-    <BoxTransforms.Provider
-      children={children}
-      value={useComposedBoxTransform(transformFn)}
-    />
+    <BoxTransforms.Provider value={useComposedBoxTransform(transformFn)}>
+      {children}
+    </BoxTransforms.Provider>
   );
 };
 

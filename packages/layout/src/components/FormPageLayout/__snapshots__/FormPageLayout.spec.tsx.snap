@@ -7,13 +7,13 @@ exports[`renders Default without crashing 1`] = `
       style="width: 600px;"
     >
       <form
-        class="rcx-box rcx-box--full rcx-tile--elevation-1 rcx-tile rcx-css-1i7nda9"
+        class="rcx-box rcx-box--full rcx-tile--elevation-1 rcx-tile rcx-css-h7ntyn"
       >
         <header
           class="rcx-box rcx-box--full rcx-css-heem01"
         >
           <div
-            class="rcx-box rcx-box--full rcx-css-ku84kt"
+            class="rcx-box rcx-box--full rcx-css-d369k0"
           >
             component.form.steps
           </div>
@@ -23,7 +23,7 @@ exports[`renders Default without crashing 1`] = `
             Title
           </div>
           <div
-            class="rcx-box rcx-box--full rcx-css-ifx78p"
+            class="rcx-box rcx-box--full rcx-css-gk1yjz"
           >
             Subtitle
           </div>

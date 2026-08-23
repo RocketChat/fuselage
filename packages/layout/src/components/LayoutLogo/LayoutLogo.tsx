@@ -1,11 +1,10 @@
 import { Box } from '@rocket.chat/fuselage';
 import { RocketChatLogo } from '@rocket.chat/logo';
-import type { ReactElement } from 'react';
 
 import { useDarkMode } from '../../DarkModeProvider';
 import { useLayoutContext } from '../../contexts/LayoutContext';
 
-const LayoutLogo = (): ReactElement => {
+const LayoutLogo = () => {
   const { logo, logoDark = logo } = useLayoutContext();
   const isDark = useDarkMode();
   return (

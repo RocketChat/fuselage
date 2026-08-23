@@ -2,8 +2,8 @@ import type { RefObject, CSSProperties } from 'react';
 import { useEffect, useRef, useState } from 'react';
 
 import { useDebouncedCallback } from '../useDebouncedCallback';
-import { useEffectEvent } from '../useEffectEvent';
 import { useSafely } from '../useSafely';
+import { useStableCallback } from '../useStableCallback';
 
 import type { Placement } from './Placement';
 import type { PlacementVariant } from './PlacementVariant';
@@ -13,6 +13,12 @@ import { getTargetBoundaries } from './getTargetBoundaries';
 import type { VariantBoundaries } from './getVariantBoundaries';
 import { getVariantBoundaries } from './getVariantBoundaries';
 import { useBoundingClientRectChanges } from './useBoundingClientRectChanges';
+
+export type { Placement } from './Placement';
+export type { Position } from './Position';
+export type { PlacementVariant } from './PlacementVariant';
+export type { TargetBoundaries } from './getTargetBoundaries';
+export type { VariantBoundaries } from './getVariantBoundaries';
 
 export type UsePositionOptions = {
   margin?: number;
@@ -190,8 +196,8 @@ const UPDATE_DEBOUNCE_DELAY = 30;
  * @public
  */
 export function usePosition<TTarget extends Element, TAnchor extends Element>(
-  anchorRef: RefObject<TAnchor>,
-  targetRef: RefObject<TTarget>,
+  anchorRef: RefObject<TAnchor | null>,
+  targetRef: RefObject<TTarget | null>,
   {
     margin = 8,
     placement = 'bottom-start',
@@ -207,7 +213,7 @@ export function usePosition<TTarget extends Element, TAnchor extends Element>(
   }, [container]);
 
   const handleBoundingClientRectChange = useDebouncedCallback(
-    useEffectEvent(() => {
+    useStableCallback(() => {
       const target = targetRef.current;
       const anchor = anchorRef.current;
       const targetParent = target?.parentElement;

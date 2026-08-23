@@ -1,5 +1,5 @@
 @use '../colors.scss';
-@import '../functions.scss';
+@use '../functions.scss' as *;
 
 // primary
 $button-primary-background-color: theme(

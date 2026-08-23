@@ -1,4 +1,4 @@
-import type { Meta, StoryFn } from '@storybook/react-webpack5';
+import type { Meta, StoryObj } from '@storybook/react-webpack5';
 
 import { Badge } from '../Badge';
 import { Button, IconButton } from '../Button';
@@ -21,11 +21,59 @@ export default {
   title: 'Containers/CardGroup',
   component: CardGroup,
   parameters: {
+    docs: {
+      description: {
+        component:
+          'Arranges Cards together with consistent spacing.\n\n' +
+          '**Rules**\n' +
+          '- Vertical card groups use an 8px gap between cards; horizontal card groups use a 16px gap.',
+      },
+    },
     backgrounds: { default: 'dark' },
     layout: 'padded',
     controls: { hideNoControlsWarning: true },
   },
+  argTypes: {
+    align: {
+      control: 'select',
+      options: ['start', 'center', 'end'],
+      description: 'Cross-axis alignment of the cards. Defaults to `start`.',
+      table: { category: 'Layout', defaultValue: { summary: 'start' } },
+    },
+    stretch: {
+      control: 'boolean',
+      description: 'Stretches the cards to fill the available space.',
+      table: { category: 'Layout' },
+    },
+    wrap: {
+      control: 'boolean',
+      description: 'Allows the cards to wrap onto multiple lines.',
+      table: { category: 'Layout' },
+    },
+    vertical: {
+      control: 'boolean',
+      description: 'Stacks the cards in a column instead of a row.',
+      table: { category: 'Layout' },
+    },
+    small: {
+      control: 'boolean',
+      description: 'Small size scale for the card group.',
+      table: { category: 'Size' },
+    },
+    large: {
+      control: 'boolean',
+      description: 'Large size scale for the card group.',
+      table: { category: 'Size' },
+    },
+    children: {
+      control: false,
+      description: 'Card items rendered inside the group.',
+      table: { category: 'Content' },
+    },
+  },
 } satisfies Meta<typeof CardGroup>;
+
+type Story = StoryObj<typeof CardGroup>;
 
 const CardItem = (props: CardProps) => (
   <Card {...props}>
@@ -46,7 +94,8 @@ const CardItem = (props: CardProps) => (
     </CardControls>
   </Card>
 );
-const CardHorizontal: StoryFn<typeof Card> = (props) => (
+
+const CardHorizontal = (props: CardProps) => (
   <Card horizontal {...props}>
     <CardRow>
       <Icon name='document-eye' size='x24' />
@@ -62,35 +111,46 @@ const CardHorizontal: StoryFn<typeof Card> = (props) => (
     </CardControls>
   </Card>
 );
-export const Default: StoryFn<typeof CardGroup> = (args) => (
-  <CardGroup {...args}>
-    {Array.from(new Array(9)).map((_, index) => (
-      <CardItem key={index} width='x260' />
-    ))}
-  </CardGroup>
-);
 
-export const Wrap: StoryFn<typeof CardGroup> = Default.bind({});
-Wrap.args = {
-  wrap: true,
+export const Default: Story = {
+  render: (args) => (
+    <CardGroup {...args}>
+      {Array.from(new Array(9)).map((_, index) => (
+        <CardItem key={index} width='x260' />
+      ))}
+    </CardGroup>
+  ),
 };
 
-export const WrapAlignCenter: StoryFn<typeof CardGroup> = Default.bind({});
-WrapAlignCenter.args = {
-  wrap: true,
-  align: 'center',
+export const Wrap: Story = {
+  ...Default,
+  args: {
+    wrap: true,
+  },
 };
 
-export const WrapStretch: StoryFn<typeof CardGroup> = Default.bind({});
-WrapStretch.args = {
-  wrap: true,
-  stretch: true,
+export const WrapAlignCenter: Story = {
+  ...Default,
+  args: {
+    wrap: true,
+    align: 'center',
+  },
 };
 
-export const VerticalWithHorizontalCard: StoryFn<typeof CardGroup> = (args) => (
-  <CardGroup vertical stretch {...args}>
-    {Array.from(new Array(9)).map((_, index) => (
-      <CardHorizontal clickable key={index} width='full' />
-    ))}
-  </CardGroup>
-);
+export const WrapStretch: Story = {
+  ...Default,
+  args: {
+    wrap: true,
+    stretch: true,
+  },
+};
+
+export const VerticalWithHorizontalCard: Story = {
+  render: (args) => (
+    <CardGroup vertical stretch {...args}>
+      {Array.from(new Array(9)).map((_, index) => (
+        <CardHorizontal clickable key={index} width='full' />
+      ))}
+    </CardGroup>
+  ),
+};

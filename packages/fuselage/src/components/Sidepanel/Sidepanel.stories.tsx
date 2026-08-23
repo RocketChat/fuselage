@@ -1,4 +1,4 @@
-import type { Meta, StoryFn } from '@storybook/react-webpack5';
+import type { Meta, StoryObj } from '@storybook/react-webpack5';
 
 import {
   Avatar,
@@ -6,19 +6,19 @@ import {
   Icon,
   IconButton,
   InputBox,
-  SidebarV2ItemTitle,
-  SidebarV2ItemCol,
-  SidebarV2ItemBadge,
-  SidebarV2ItemIcon,
-  SidebarV2ItemMenu,
-  SidebarV2ItemContent,
-  SidebarV2ItemRow,
-  SidebarV2Item,
-  SidebarV2ItemTimestamp,
+  SidebarItemTitle,
+  SidebarItemCol,
+  SidebarItemBadge,
+  SidebarItemIcon,
+  SidebarItemMenu,
+  SidebarItemContent,
+  SidebarItemRow,
+  SidebarItem,
+  SidebarItemTimestamp,
   Tag,
 } from '../..';
-import { SidebarItemAvatarWrapper } from '../SidebarV2/SidebarItem/SidebarItemAvatarWrapper';
-import { MenuTemplate, leterAvatarUrls, names } from '../SidebarV2/helpers';
+import { SidebarItemAvatarWrapper } from '../Sidebar/SidebarItem/SidebarItemAvatarWrapper';
+import { MenuTemplate, leterAvatarUrls, names } from '../Sidebar/helpers';
 
 import {
   Sidepanel,
@@ -34,14 +34,22 @@ export default {
   component: Sidepanel,
   decorators: [
     (Story) => (
-      <Box h='90vh' w='x276'>
+      <Box height='90vh' width='x276'>
         <Story />
       </Box>
     ),
   ],
-} as Meta<typeof Sidepanel>;
+  argTypes: {
+    children: {
+      control: false,
+      description: 'Content of the sidepanel.',
+    },
+  },
+} satisfies Meta<typeof Sidepanel>;
 
-const Template: StoryFn<typeof Sidepanel> = (args) => (
+type Story = StoryObj<typeof Sidepanel>;
+
+const render: Story['render'] = (args) => (
   <Sidepanel {...args}>
     <SidepanelHeader>
       <SidepanelHeaderTitle>
@@ -53,7 +61,7 @@ const Template: StoryFn<typeof Sidepanel> = (args) => (
       <InputBox
         type='text'
         placeholder='Search'
-        addon={<Icon name='magnifier' size='x18' />}
+        endAddon={<Icon name='magnifier' size='x18' />}
       />
     </SidepanelSection>
     <Box overflowY='auto' height='full'>
@@ -61,9 +69,9 @@ const Template: StoryFn<typeof Sidepanel> = (args) => (
         {new Array(20).fill(null).map((_, index) => {
           return (
             <SidepanelListItem key={index}>
-              <SidebarV2Item level={2} href='#'>
-                <SidebarV2ItemCol>
-                  <SidebarV2ItemRow>
+              <SidebarItem level={2} href='#'>
+                <SidebarItemCol>
+                  <SidebarItemRow>
                     <SidebarItemAvatarWrapper>
                       <Avatar
                         size='x20'
@@ -71,36 +79,36 @@ const Template: StoryFn<typeof Sidepanel> = (args) => (
                         alt='avatar'
                       />
                     </SidebarItemAvatarWrapper>
-                    <SidebarV2ItemIcon
+                    <SidebarItemIcon
                       highlighted={Boolean(index === 0)}
                       icon='team'
                     />
-                    <SidebarV2ItemTitle unread={Boolean(index === 0)}>
+                    <SidebarItemTitle unread={Boolean(index === 0)}>
                       {names[index % 10]}
-                    </SidebarV2ItemTitle>
-                    <SidebarV2ItemTimestamp>11:22:21 AM</SidebarV2ItemTimestamp>
-                  </SidebarV2ItemRow>
-                  <SidebarV2ItemRow>
-                    <SidebarV2ItemContent unread={Boolean(index === 0)}>
+                    </SidebarItemTitle>
+                    <SidebarItemTimestamp>11:22:21 AM</SidebarItemTimestamp>
+                  </SidebarItemRow>
+                  <SidebarItemRow>
+                    <SidebarItemContent unread={Boolean(index === 0)}>
                       Lorem Ipsum Indolor Dolor Ipsum Ipsum
-                    </SidebarV2ItemContent>
+                    </SidebarItemContent>
                     <Tag
                       role='button'
                       maxWidth='50%'
                       flexShrink={1}
                       flexGrow={0}
                     >
-                      <Icon size='x12' mie={4} name='team' />
+                      <Icon size='x12' marginInlineEnd={4} name='team' />
                       Team title
                     </Tag>
-                    <SidebarV2ItemBadge
+                    <SidebarItemBadge
                       title='unread messages'
                       children={index + 3}
                     />
-                    <SidebarV2ItemMenu children={<MenuTemplate />} />
-                  </SidebarV2ItemRow>
-                </SidebarV2ItemCol>
-              </SidebarV2Item>
+                    <SidebarItemMenu children={<MenuTemplate />} />
+                  </SidebarItemRow>
+                </SidebarItemCol>
+              </SidebarItem>
             </SidepanelListItem>
           );
         })}
@@ -109,4 +117,6 @@ const Template: StoryFn<typeof Sidepanel> = (args) => (
   </Sidepanel>
 );
 
-export const Default = Template.bind({});
+export const Default: Story = {
+  render,
+};

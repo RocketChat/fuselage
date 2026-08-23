@@ -14,13 +14,12 @@ import {
   Select,
   SelectFiltered,
 } from '@rocket.chat/fuselage';
-import { Form } from '@rocket.chat/layout';
-import type { ReactElement } from 'react';
+import { Form, FormFooter } from '@rocket.chat/layout';
 import type { FieldPathValue, SubmitHandler, Validate } from 'react-hook-form';
 import { useForm, Controller } from 'react-hook-form';
 import { useTranslation, Trans } from 'react-i18next';
 
-type RequestTrialPayload = {
+export type RequestTrialPayload = {
   email: string;
   organizationName: string;
   organizationSize: string;
@@ -29,7 +28,7 @@ type RequestTrialPayload = {
   agreement: boolean;
 };
 
-type RequestTrialFormProps = {
+export type RequestTrialFormProps = {
   defaultValues?: RequestTrialPayload;
   organizationSizeOptions: SelectOption[];
   countryOptions: SelectOption[];
@@ -43,7 +42,7 @@ type RequestTrialFormProps = {
   policyHref?: string;
 };
 
-const RequestTrialForm = ({
+export const RequestTrialForm = ({
   defaultValues,
   organizationSizeOptions,
   countryOptions,
@@ -51,7 +50,7 @@ const RequestTrialForm = ({
   validateEmail,
   termsHref = 'https://rocket.chat/terms',
   policyHref = 'https://rocket.chat/privacy',
-}: RequestTrialFormProps): ReactElement => {
+}: RequestTrialFormProps) => {
   const { t } = useTranslation();
 
   const {
@@ -147,16 +146,16 @@ const RequestTrialForm = ({
           </FieldRow>
         </Field>
         <Field>
-          <Box mbs={24}>
+          <Box marginBlockStart={24}>
             <Box
-              mbe={8}
+              marginBlockEnd={8}
               display='flex'
               flexDirection='row'
               alignItems='flex-start'
               fontScale='c1'
               lineHeight={20}
             >
-              <CheckBox mie={8} {...register('updates')} />{' '}
+              <CheckBox marginInlineEnd={8} {...register('updates')} />{' '}
               <Box is='label' htmlFor='updates'>
                 {t('form.registeredServerForm.keepInformed')}
               </Box>
@@ -170,7 +169,7 @@ const RequestTrialForm = ({
               lineHeight={20}
             >
               <CheckBox
-                mie={8}
+                marginInlineEnd={8}
                 {...register('agreement', { required: true })}
               />{' '}
               <Box is='label' htmlFor='agreement' withRichContent>
@@ -202,7 +201,7 @@ const RequestTrialForm = ({
           </FieldDescription>
         </Field>
       </FieldGroup>
-      <Form.Footer>
+      <FormFooter>
         <Button
           type='submit'
           primary
@@ -211,9 +210,9 @@ const RequestTrialForm = ({
         >
           {t('form.requestTrialForm.button.text')}
         </Button>
-      </Form.Footer>
+      </FormFooter>
     </Form>
   );
 };
 
-export default RequestTrialForm;
+export { RequestTrialForm as default };

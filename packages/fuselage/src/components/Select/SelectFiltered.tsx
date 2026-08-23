@@ -1,50 +1,45 @@
 import type { Dispatch, SetStateAction } from 'react';
-import { forwardRef, useState } from 'react';
+import { useState } from 'react';
 
 import type { IconProps } from '..';
 
-import type { SelectProps } from '.';
-import { SelectLegacy } from '.';
-import type { SelectAnchorParams } from './SelectAnchorParams';
 import SelectFilteredAnchor from './SelectFilteredAnchor';
+import { SelectFilteredContext } from './SelectFilteredContext';
+import type { SelectProps } from './SelectLegacy';
+import SelectLegacy from './SelectLegacy';
 
-export type SelectFilteredProps = SelectProps & {
+export type SelectFilteredProps = Omit<SelectProps, 'anchor'> & {
   filter?: string;
   setFilter?: Dispatch<SetStateAction<string>>;
   addonIcon?: IconProps['name'];
 };
 
-const SelectFiltered = forwardRef<HTMLInputElement, SelectFilteredProps>(
-  function SelectFiltered(
-    {
-      options,
-      placeholder,
-      filter: propFilter,
-      setFilter: propSetFilter,
-      ...props
-    },
-    ref,
-  ) {
-    const [filter, setFilter] = useState('');
+function SelectFiltered({
+  options,
+  placeholder,
+  filter: propFilter,
+  setFilter: propSetFilter,
+  ...props
+}: SelectFilteredProps) {
+  const [filter, setFilter] = useState('');
 
-    return (
+  return (
+    <SelectFilteredContext.Provider
+      value={{
+        placeholder,
+        filter: propFilter || filter,
+        setFilter: propSetFilter || setFilter,
+      }}
+    >
       <SelectLegacy
-        ref={ref}
         placeholder={placeholder}
         filter={propFilter || filter}
         options={options}
         {...props}
-        anchor={(params: SelectAnchorParams) => (
-          <SelectFilteredAnchor
-            placeholder={placeholder}
-            filter={propFilter || filter}
-            onChangeFilter={propSetFilter || setFilter}
-            {...params}
-          />
-        )}
+        anchor={SelectFilteredAnchor}
       />
-    );
-  },
-);
+    </SelectFilteredContext.Provider>
+  );
+}
 
 export default SelectFiltered;

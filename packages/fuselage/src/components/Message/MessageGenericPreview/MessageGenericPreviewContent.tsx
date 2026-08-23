@@ -1,8 +1,8 @@
-import type { ReactElement, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 export type MessageGenericPreviewContentProps = {
   children?: ReactNode;
-  thumb?: ReactElement;
+  thumb?: ReactNode;
 };
 
 const MessageGenericPreviewContent = ({

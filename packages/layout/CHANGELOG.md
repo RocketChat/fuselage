@@ -1,5 +1,35 @@
 # @rocket.chat/layout
 
+## 0.36.2
+
+### Patch Changes
+
+- [#2148](https://github.com/RocketChat/fuselage/pull/2148) [`0d8e038`](https://github.com/RocketChat/fuselage/commit/0d8e038801972ec29ad2fb1d26da088af05b7b23) Thanks [@tassoevan](https://github.com/tassoevan)! - feat(fuselage-tokens)!: Rework the token build and its output formats
+
+## 0.36.1
+
+### Patch Changes
+
+- [#2096](https://github.com/RocketChat/fuselage/pull/2096) [`18b421e`](https://github.com/RocketChat/fuselage/commit/18b421ec571d72118fccf3f7705df45b17b16191) Thanks [@tassoevan](https://github.com/tassoevan)! - feat(fuselage): Drop styling props' aliases (`bg`, `w`, `h`, `m`, `mb`, `mbs`, `mbe`, `mi`, `mis`, `mie`, `p`, `pb`, `pbs`, `pbe`, `pi`, `pis`, `pie`) in favor of their full-name counterparts
+
+## 0.36.0
+
+### Minor Changes
+
+- [#2060](https://github.com/RocketChat/fuselage/pull/2060) [`ee381bb`](https://github.com/RocketChat/fuselage/commit/ee381bb32982d0f4ed9ef26385b5016e0a2e4023) Thanks [@tassoevan](https://github.com/tassoevan)! - feat: Remove deprecations and keep documentation comments
+
+## 0.35.0
+
+### Minor Changes
+
+- [#1999](https://github.com/RocketChat/fuselage/pull/1999) [`6e37f9d`](https://github.com/RocketChat/fuselage/commit/6e37f9d2fee4c9ebeb8ea2c1601bbd4c89905859) Thanks [@tassoevan](https://github.com/tassoevan)! - feat!: Upgrade to React 19
+
+## 0.34.3
+
+### Patch Changes
+
+- [#2010](https://github.com/RocketChat/fuselage/pull/2010) [`6a21baf`](https://github.com/RocketChat/fuselage/commit/6a21baf14375149f5c3d8cb0eb14eacc958c6d32) Thanks [@tassoevan](https://github.com/tassoevan)! - fix(layout): Color in `HorizontalWizardLayoutCaption` issues warning in runtime
+
 ## 0.34.2
 
 ### Patch Changes

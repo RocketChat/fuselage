@@ -1,4 +1,7 @@
-import { useEffectEvent, useResizeObserver } from '@rocket.chat/fuselage-hooks';
+import {
+  useStableCallback,
+  useResizeObserver,
+} from '@rocket.chat/fuselage-hooks';
 import {
   useState,
   useRef,
@@ -18,7 +21,7 @@ import { Margins } from '../Margins';
 import { Option } from '../Option';
 import { useVisible } from '../Options/useVisible';
 import { OptionsPaginated } from '../OptionsPaginated';
-import { Position } from '../Position';
+import { PositionAnimated } from '../PositionAnimated';
 import SelectAddon from '../Select/SelectAddon';
 import SelectFocus from '../Select/SelectFocus';
 
@@ -97,7 +100,7 @@ const PaginatedMultiSelect = ({
   const ref = useRef<HTMLInputElement>(null);
   const { ref: containerRef, borderBoxSize } = useResizeObserver();
 
-  const handleClick = useEffectEvent(() => {
+  const handleClick = useStableCallback(() => {
     if (visible === AnimatedVisibility.VISIBLE) {
       return hide();
     }
@@ -139,10 +142,10 @@ const PaginatedMultiSelect = ({
       is='div'
       rcx-select
       className={[error && 'invalid', disabled && 'disabled']}
-      ref={containerRef}
       onClick={handleClick}
       disabled={disabled}
       {...props}
+      ref={containerRef}
     >
       <FlexItem grow={1}>
         <Margins inline='x4'>
@@ -165,8 +168,9 @@ const PaginatedMultiSelect = ({
                     onBlur={hide}
                     order={1}
                     rcx-input-box--undecorated
-                    children={placeholder ?? null}
-                  />
+                  >
+                    {placeholder ?? null}
+                  </Anchor>
 
                   {selectedOptions.map(({ value, label }, index) => (
                     <Chip
@@ -192,38 +196,34 @@ const PaginatedMultiSelect = ({
       </FlexItem>
       <FlexItem grow={0} shrink={0}>
         <Margins inline='x4'>
-          <SelectAddon
-            children={
-              <Icon
-                name={
-                  visible === AnimatedVisibility.VISIBLE
-                    ? 'cross'
-                    : 'chevron-down'
-                }
-                size='x20'
-              />
-            }
-          />
+          <SelectAddon>
+            <Icon
+              name={
+                visible === AnimatedVisibility.VISIBLE
+                  ? 'cross'
+                  : 'chevron-down'
+              }
+              size='x20'
+            />
+          </SelectAddon>
         </Margins>
       </FlexItem>
-      <AnimatedVisibility visibility={visible}>
-        <Position anchor={containerRef}>
-          <OptionsComponent
-            width={borderBoxSize.inlineSize}
-            onMouseDown={prevent}
-            multiple
-            filter={filter}
-            role='listbox'
-            options={options}
-            cursor={-1}
-            endReached={endReached}
-            renderItem={renderItem}
-            onSelect={([value]) => {
-              toggleOption(value);
-            }}
-          />
-        </Position>
-      </AnimatedVisibility>
+      <PositionAnimated visible={visible} anchor={containerRef}>
+        <OptionsComponent
+          width={borderBoxSize.inlineSize}
+          onMouseDown={prevent}
+          multiple
+          filter={filter}
+          role='listbox'
+          options={options}
+          cursor={-1}
+          endReached={endReached}
+          renderItem={renderItem}
+          onSelect={([value]) => {
+            toggleOption(value);
+          }}
+        />
+      </PositionAnimated>
     </Box>
   );
 };

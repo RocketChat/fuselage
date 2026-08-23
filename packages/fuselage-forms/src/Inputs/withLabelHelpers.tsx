@@ -1,64 +1,87 @@
 // Disabled this flag since we need to wrap multiple components
 /* eslint-disable react/no-multi-comp */
-import type { ReactNode, ForwardRefExoticComponent } from 'react';
+import { useMergedRefs } from '@rocket.chat/fuselage-hooks';
+import type { ReactNode, ComponentType, Ref, RefAttributes } from 'react';
 import { VisuallyHidden } from 'react-aria';
 
 import {
   useFieldReferencedByInput,
   useFieldReferencedByLabel,
+  useFieldReferencedByLabelWithId,
   useFieldWrappedByInputLabel,
 } from '../Field/FieldContext';
 
 type WithLabelId = { id?: string };
 
-function withLabelId<TProps>(
-  Component: ForwardRefExoticComponent<TProps & WithLabelId>,
+function withLabelId<TProps, TRef>(
+  Component: ComponentType<TProps & WithLabelId & RefAttributes<TRef>>,
 ) {
-  const WrappedComponent = function (props: TProps) {
+  function WrappedComponent(props: TProps & RefAttributes<TRef>) {
     const labelProps = useFieldReferencedByInput();
     return <Component {...props} {...labelProps} />;
-  };
+  }
 
   WrappedComponent.displayName = `withLabelId(${Component.displayName ?? Component.name ?? 'InputComponent'})`;
 
   return WrappedComponent;
 }
 
-type WithLablledBy = { 'aria-labelledby'?: string };
+type WithLabelledBy = { 'aria-labelledby'?: string };
 
-function withAriaLabelledBy<TProps>(
-  Component: ForwardRefExoticComponent<TProps & WithLablledBy>,
+function withAriaLabelledBy<TProps, TRef>(
+  Component: ComponentType<TProps & WithLabelledBy & RefAttributes<TRef>>,
 ) {
-  const WrappedComponent = function (props: TProps) {
+  function WrappedComponent(props: TProps & RefAttributes<TRef>) {
     const labelProps = useFieldReferencedByLabel();
     return <Component {...props} {...labelProps} />;
-  };
+  }
 
   WrappedComponent.displayName = `withAriaLabelledBy(${Component.displayName ?? Component.name ?? 'InputComponent'})`;
 
   return WrappedComponent;
 }
 
+type WithLabelledByAndId = { 'aria-labelledby'?: string; 'id'?: string };
+
+function withAriaLabelledByAndId<TProps, TRef>(
+  Component: ComponentType<TProps & WithLabelledByAndId & RefAttributes<TRef>>,
+) {
+  function WrappedComponent(props: TProps & RefAttributes<TRef>) {
+    const labelProps = useFieldReferencedByLabelWithId();
+    return <Component {...props} {...labelProps} />;
+  }
+
+  WrappedComponent.displayName = `withAriaLabelledByAndId(${Component.displayName ?? Component.name ?? 'InputComponent'})`;
+
+  return WrappedComponent;
+}
+
 type WithChildrenLabel = { labelChildren: ReactNode };
 
-function withVisuallyHiddenLabel<TProps>(
-  Component: ForwardRefExoticComponent<TProps & WithChildrenLabel>,
+function withVisuallyHiddenLabel<TProps, TRef>(
+  Component: ComponentType<TProps & WithChildrenLabel & RefAttributes<TRef>>,
 ) {
-  const WrappedComponent = function (props: TProps) {
+  function WrappedComponent(props: TProps & RefAttributes<TRef>) {
     const [label, labelProps, labelRef] = useFieldWrappedByInputLabel();
+    const mergedRef = useMergedRefs(props.ref, labelRef as Ref<TRef>);
     return (
       <Component
         {...props}
         {...labelProps}
-        ref={labelRef}
+        ref={mergedRef}
         labelChildren={<VisuallyHidden>{label}</VisuallyHidden>}
       />
     );
-  };
+  }
 
   WrappedComponent.displayName = `withVisuallyHiddenLabel(${Component.displayName ?? Component.name ?? 'InputComponent'})`;
 
   return WrappedComponent;
 }
 
-export { withLabelId, withAriaLabelledBy, withVisuallyHiddenLabel };
+export {
+  withLabelId,
+  withAriaLabelledBy,
+  withAriaLabelledByAndId,
+  withVisuallyHiddenLabel,
+};

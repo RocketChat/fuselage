@@ -1022,5 +1022,135 @@
   },
   "phone-question-mark": {
     "start": "\ue171"
+  },
+  "desktop-cross": {
+    "start": "\ue173"
+  },
+  "desktop-arrow-up": {
+    "start": "\ue175"
+  },
+  "pin-filled": {
+    "start": "\ue177"
+  },
+  "arrow-from-cross-box": {
+    "start": "\ue17d"
+  },
+  "arrow-to-square-box": {
+    "start": "\ue17f"
+  },
+  "archive": {
+    "start": "\ue181"
+  },
+  "bell-dot": {
+    "start": "\ue183"
+  },
+  "closed-captions": {
+    "start": "\ue189"
+  },
+  "folder-plus": {
+    "start": "\u2e22",
+    "end": "\u2e23"
+  },
+  "hand": {
+    "start": "\ue18d"
+  },
+  "hd-filled": {
+    "start": "\ue18f"
+  },
+  "hd": {
+    "start": "\ue191"
+  },
+  "hash-lock": {
+    "start": "\ue193"
+  },
+  "image-resize": {
+    "start": "\ue195"
+  },
+  "move": {
+    "start": "\ue197"
+  },
+  "prune": {
+    "start": "\ue19b"
+  },
+  "resize": {
+    "start": "\ue19f"
+  },
+  "search-sparkle": {
+    "start": "\ue1a1"
+  },
+  "sidebar": {
+    "start": "\u2e26",
+    "end": "\u2e27"
+  },
+  "square-arrow-down-left": {
+    "start": "\ue1a3"
+  },
+  "square-arrows-contained-inwards": {
+    "start": "\ue1a5"
+  },
+  "square-arrows-contained-outwards": {
+    "start": "\ue1a7"
+  },
+  "square-slash": {
+    "start": "\ue1ab"
+  },
+  "star-plus": {
+    "start": "\ue1ad"
+  },
+  "note": {
+    "start": "\u2e55",
+    "end": "\u2e56"
+  },
+  "tag-horizontal": {
+    "start": "\ue1af"
+  },
+  "tag-horizontal-filled": {
+    "start": "\ue1b1"
+  },
+  "tag-horizontal-plus": {
+    "start": "\ue1b3"
+  },
+  "voicemail": {
+    "start": "\ue1bb"
+  },
+  "volume-question-mark": {
+    "start": "\ue1bd"
+  },
+  "square-arrow-up-right": {
+    "start": "\ue1bf"
+  },
+  "attachment-file-filled": {
+    "start": "\ue1c1"
+  },
+  "chevron-left-big": {
+    "start": "\u2e59",
+    "end": "\u2e5a"
+  },
+  "chevron-down-big": {
+    "start": "\ue1c3"
+  },
+  "chevron-up-big": {
+    "start": "\ue1c5"
+  },
+  "chevron-right-big": {
+    "start": "\u3008",
+    "end": "\u3009"
+  },
+  "jump-backward": {
+    "start": "\ue1c7"
+  },
+  "jump-forward": {
+    "start": "\ue1c9"
+  },
+  "arrow-left": {
+    "start": "\u300c",
+    "end": "\u300d"
+  },
+  "arrow-right": {
+    "start": "\u3010",
+    "end": "\u3011"
+  },
+  "arrow-up-down": {
+    "start": "\ue1cb"
   }
 }

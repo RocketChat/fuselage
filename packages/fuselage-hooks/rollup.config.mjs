@@ -9,12 +9,8 @@ import { defineConfig } from 'rollup';
 
 import pkg from './package.json' with { type: 'json' };
 
-const globals = {
-  react: 'React',
-};
-
 export default defineConfig({
-  external: Object.keys(globals),
+  external: ['react'],
   input: 'src/index.ts',
   output: [
     {
@@ -28,14 +24,6 @@ export default defineConfig({
       entryFileNames: basename(pkg.module),
       format: 'es',
       sourcemap: true,
-    },
-    {
-      dir: dirname(pkg.unpkg),
-      entryFileNames: basename(pkg.unpkg),
-      format: 'umd',
-      name: 'FuselageHooks',
-      sourcemap: true,
-      globals,
     },
   ],
   plugins: [

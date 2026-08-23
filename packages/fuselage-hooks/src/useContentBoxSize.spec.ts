@@ -25,7 +25,7 @@ afterEach(() => {
   element.remove();
 });
 
-const wrapRef = (ref: RefObject<HTMLElement>) => {
+const wrapRef = (ref: RefObject<HTMLElement | null>) => {
   Object.assign(ref, { current: element });
   return ref;
 };

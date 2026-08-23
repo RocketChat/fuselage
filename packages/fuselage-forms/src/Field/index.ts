@@ -1,8 +1,14 @@
-export { default as Field } from './Field';
-export { default as FieldProvider } from './FieldProvider';
-export { default as FieldDescription } from './FieldDescription';
-export { default as FieldError } from './FieldError';
-export { default as FieldHint } from './FieldHint';
+export { default as Field, type FieldProps } from './Field';
+export {
+  default as FieldProvider,
+  type FieldProviderProps,
+} from './FieldProvider';
+export {
+  default as FieldDescription,
+  type FieldDescriptionProps,
+} from './FieldDescription';
+export { default as FieldError, type FieldErrorProps } from './FieldError';
+export { default as FieldHint, type FieldHintProps } from './FieldHint';
 
 export * from './FieldContext';
 

@@ -1,15 +1,14 @@
-import type { ElementType, HTMLAttributes } from 'react';
+import type { ElementType, HTMLAttributes, ReactNode } from 'react';
 
 import { prependClassName } from '../../helpers/prependClassName';
 
 export type BadgeProps = {
   is?: ElementType<HTMLAttributes<HTMLSpanElement>>;
-  variant?: 'secondary' | 'primary' | 'danger' | 'warning' | 'ghost';
+  variant?: 'secondary' | 'primary' | 'danger' | 'warning';
   small?: boolean;
-  disabled?: boolean;
   className?: string;
-  children?: any;
-  title?: any;
+  children?: ReactNode;
+  title?: string;
 } & HTMLAttributes<HTMLSpanElement>;
 
 /**
@@ -20,10 +19,9 @@ function Badge({
   variant = 'secondary',
   small,
   className,
-  disabled,
   ...props
 }: BadgeProps) {
-  const modifiers = [variant, small && 'small', disabled && 'disabled']
+  const modifiers = [variant, small && 'small']
     .filter(Boolean)
     .map((modifier) => `rcx-badge--${modifier}`)
     .join(' ');

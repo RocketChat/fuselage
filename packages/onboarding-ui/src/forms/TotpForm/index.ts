@@ -1,1 +1,1 @@
-export { default } from './TotpForm';
+export { default, type TotpFormPayload } from './TotpForm';

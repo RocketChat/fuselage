@@ -1,6 +1,5 @@
 import { Icon } from '@rocket.chat/fuselage';
 import { TooltipWrapper } from '@rocket.chat/layout';
-import type { ReactElement } from 'react';
 
 type InformationTooltipTriggerProps = {
   text: string;
@@ -8,7 +7,7 @@ type InformationTooltipTriggerProps = {
 
 const InformationTooltipTrigger = ({
   text,
-}: InformationTooltipTriggerProps): ReactElement => (
+}: InformationTooltipTriggerProps) => (
   <TooltipWrapper text={text}>
     <Icon name='info' />
   </TooltipWrapper>

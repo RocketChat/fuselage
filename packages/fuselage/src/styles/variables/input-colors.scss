@@ -1,4 +1,5 @@
 @use '../colors.scss';
+@use '../functions.scss' as *;
 
 $input-colors-background-color: theme(
   'input-colors-background-color',
@@ -10,16 +11,16 @@ $input-colors-border-color: theme(
   colors.stroke(light)
 );
 
-$input-colors-color: theme('input-colors-color', colors.font(default));
+$input-colors-color: theme('input-colors-color', colors.font(titles-labels));
 
 $input-colors-placeholder-color: theme(
   'input-colors-placeholder-color',
-  colors.font(annotation)
+  colors.font(hint)
 );
 
 $input-colors-hover-border-color: theme(
   'input-colors-hover-border-color',
-  colors.stroke(light)
+  colors.stroke(dark)
 );
 $input-colors-focus-border-color: theme(
   'input-colors-focus-border-color',
@@ -32,20 +33,20 @@ $input-colors-focus-shadow-color: theme(
 
 $input-colors-focus-icon-color: theme(
   'input-colors-focus-icon-color',
-  colors.font(info)
+  colors.font(titles-labels)
 );
 
 $input-colors-focus-caret-color: theme(
   'input-colors-focus-caret-color',
-  colors.font(info)
+  colors.font(titles-labels)
 );
 $input-colors-active-border-color: theme(
   'input-colors-active-border-color',
-  colors.stroke(medium)
+  colors.stroke(dark)
 );
 $input-colors-active-caret-color: theme(
   'input-colors-active-caret-color',
-  colors.stroke(medium)
+  colors.font(titles-labels)
 );
 $input-colors-disabled-background-color: theme(
   'input-colors-disabled-background-color',
@@ -57,7 +58,7 @@ $input-colors-disabled-border-color: theme(
 );
 $input-colors-disabled-color: theme(
   'input-colors-disabled-color',
-  colors.font(default)
+  colors.font(disabled)
 );
 
 $input-colors-invalid-background-color: theme(
@@ -66,23 +67,23 @@ $input-colors-invalid-background-color: theme(
 );
 $input-colors-invalid-border-color: theme(
   'input-colors-invalid-border-color',
-  colors.stroke(danger)
+  colors.stroke(error)
 );
 $input-colors-invalid-color: theme(
   'input-colors-invalid-color',
-  colors.font(danger)
+  colors.font(titles-labels)
 );
 $input-colors-invalid-placeholder-color: theme(
   'input-colors-invalid-placeholder-color',
-  colors.font(annotation)
+  colors.font(hint)
 );
 $input-colors-invalid-hover-border-color: theme(
   'input-colors-invalid-hover-border-color',
-  colors.stroke(danger)
+  colors.stroke(error)
 );
 $input-colors-invalid-focus-border-color: theme(
   'input-colors-invalid-focus-border-color',
-  colors.stroke(danger)
+  colors.stroke(error)
 );
 $input-colors-invalid-focus-shadow-color: theme(
   'input-colors-invalid-focus-shadow-color',
@@ -90,19 +91,19 @@ $input-colors-invalid-focus-shadow-color: theme(
 );
 $input-colors-invalid-focus-caret-color: theme(
   'input-colors-invalid-focus-caret-color',
-  colors.font(danger)
+  colors.font(titles-labels)
 );
 $input-colors-invalid-focus-icon-color: theme(
   'input-colors-invalid-focus-icon-color',
-  colors.font(danger)
+  colors.font(titles-labels)
 );
 $input-colors-invalid-active-border-color: theme(
   'input-colors-invalid-active-border-color',
-  colors.stroke(medium)
+  colors.stroke(error)
 );
 $input-colors-invalid-active-caret-color: theme(
   'input-colors-invalid-active-caret-color',
-  colors.font(annotation)
+  colors.font(titles-labels)
 );
 $input-colors-invalid-disabled-background-color: theme(
   'input-colors-invalid-disabled-background-color',
@@ -114,5 +115,5 @@ $input-colors-invalid-disabled-border-color: theme(
 );
 $input-colors-invalid-disabled-color: theme(
   'input-colors-invalid-disabled-color',
-  colors.font(default)
+  colors.font(disabled)
 );

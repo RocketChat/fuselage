@@ -1,26 +1,30 @@
-import { forwardRef, memo } from 'react';
+import { memo } from 'react';
 
-import type { StatesIconProps } from '..';
-import { StatesIcon, States, StatesTitle, StatesSubtitle } from '..';
-import type { BoxProps } from '../Box';
+import {
+  StatesIcon,
+  States,
+  StatesTitle,
+  StatesSubtitle,
+  type StatesIconProps,
+} from '../States';
 
+import type { ContextualbarContentProps } from './ContextualbarContent';
 import ContextualbarContent from './ContextualbarContent';
 
-export type ContextualbarEmptyContentProps = BoxProps & {
+export type ContextualbarEmptyContentProps = ContextualbarContentProps & {
   icon?: StatesIconProps['name'];
   title?: string;
   subtitle?: string;
 };
 
-const ContextualbarEmptyContent = forwardRef<
-  HTMLElement,
-  ContextualbarEmptyContentProps
->(function ContextualbarEmptyContent(
-  { icon = 'magnifier', title = 'Nothing Found', subtitle, ...props },
-  ref,
-) {
+function ContextualbarEmptyContent({
+  icon = 'magnifier',
+  title = 'Nothing Found',
+  subtitle,
+  ...props
+}: ContextualbarEmptyContentProps) {
   return (
-    <ContextualbarContent justifyContent='center' {...props} ref={ref}>
+    <ContextualbarContent justifyContent='center' {...props}>
       <States>
         <StatesIcon name={icon} />
         <StatesTitle>{title}</StatesTitle>
@@ -28,6 +32,6 @@ const ContextualbarEmptyContent = forwardRef<
       </States>
     </ContextualbarContent>
   );
-});
+}
 
 export default memo(ContextualbarEmptyContent);

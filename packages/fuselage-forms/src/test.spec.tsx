@@ -17,6 +17,10 @@ const {
   WithRadioButton,
   WithToggleSwitch,
   WithTextArea,
+  WithMultiSelect,
+  WithSlider,
+  WithAutoComplete,
+  WithAutoCompleteMultiple,
   ...restStories
 } = composedStories;
 

@@ -3,7 +3,7 @@ import type { ReactNode, ComponentProps } from 'react';
 
 import { useFieldDescriptorId } from './FieldContext';
 
-type FieldHintProps = { children: ReactNode } & ComponentProps<
+export type FieldHintProps = { children: ReactNode } & ComponentProps<
   typeof FieldHintComponent
 >;
 

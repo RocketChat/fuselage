@@ -1,1 +1,1 @@
-export { default } from './AdminInfoPage';
+export { default, type AdminInfoPageProps } from './AdminInfoPage';

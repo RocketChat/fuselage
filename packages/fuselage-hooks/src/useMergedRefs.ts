@@ -1,12 +1,11 @@
-import type { Ref, RefCallback, MutableRefObject } from 'react';
+import type { Ref, RefCallback, RefObject } from 'react';
 import { useCallback, useRef } from 'react';
 
 import { useIsomorphicLayoutEffect } from './useIsomorphicLayoutEffect';
 
 const isRefCallback = <T>(x: unknown): x is RefCallback<T> =>
   typeof x === 'function';
-const isMutableRefObject = <T>(x: unknown): x is MutableRefObject<T> =>
-  typeof x === 'object';
+const isRefObject = <T>(x: unknown): x is RefObject<T> => typeof x === 'object';
 
 /**
  * Hook to merge refs and callbacks refs into a single callback ref. Useful when your component need a internal ref
@@ -16,7 +15,9 @@ const isMutableRefObject = <T>(x: unknown): x is MutableRefObject<T> =>
  * @return a merged callback ref
  * @public
  */
-export const useMergedRefs = <T>(...refs: Ref<T>[]): RefCallback<T> => {
+export const useMergedRefs = <T>(
+  ...refs: (Ref<T> | null | undefined)[]
+): RefCallback<T> => {
   const refsRef = useRef(refs);
 
   useIsomorphicLayoutEffect(() => {
@@ -32,7 +33,7 @@ export const useMergedRefs = <T>(...refs: Ref<T>[]): RefCallback<T> => {
         return;
       }
 
-      if (isMutableRefObject<T>(ref)) {
+      if (isRefObject<T>(ref)) {
         ref.current = refValue;
       }
     });

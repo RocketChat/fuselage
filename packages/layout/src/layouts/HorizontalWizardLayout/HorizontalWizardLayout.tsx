@@ -1,4 +1,4 @@
-import type { ReactElement, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 import DarkModeProvider from '../../DarkModeProvider';
 import BackgroundLayer from '../../components/BackgroundLayer';
@@ -12,7 +12,7 @@ const HorizontalWizardLayout = ({
   ...rest
 }: LayoutContextValue & {
   children: ReactNode;
-}): ReactElement => (
+}) => (
   <DarkModeProvider forcedDarkMode={forceDarkMode}>
     <LayoutContext.Provider value={{ ...rest }}>
       <BackgroundLayer>

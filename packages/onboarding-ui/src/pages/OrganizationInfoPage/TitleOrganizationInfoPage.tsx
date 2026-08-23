@@ -1,8 +1,7 @@
 import { FormPageLayout } from '@rocket.chat/layout';
-import type { ReactElement } from 'react';
 import { Trans } from 'react-i18next';
 
-const TitleOrganizationInfoPage = (): ReactElement => (
+const TitleOrganizationInfoPage = () => (
   <Trans i18nKey='page.cloudDescription.title'>
     Let's launch your workspace and
     <FormPageLayout.TitleHighlight>

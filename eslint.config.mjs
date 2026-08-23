@@ -2,6 +2,7 @@
 
 // @ts-check
 
+import { fixupPluginRules } from '@eslint/compat';
 import { importX } from 'eslint-plugin-import-x';
 import pluginJsxA11y from 'eslint-plugin-jsx-a11y';
 import * as mdx from 'eslint-plugin-mdx';
@@ -14,7 +15,12 @@ import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
   {
-    ignores: ['**/dist/**', '.yarn/**', '**/storybook-static/**'],
+    ignores: [
+      '**/dist/**',
+      '.yarn/**',
+      '**/storybook-static/**',
+      '**/*.api.md',
+    ],
   },
   {
     rules: {
@@ -411,7 +417,7 @@ export default tseslint.config(
       globals: {
         ...globals.browser,
         ...globals.commonjs,
-        ...globals.es6,
+        ...globals.es2015,
         ...globals.node,
         ...globals.jquery,
       },
@@ -465,7 +471,7 @@ export default tseslint.config(
   },
   {
     plugins: {
-      'react': pluginReact,
+      'react': fixupPluginRules(pluginReact),
       'react-hooks': pluginReactHooks,
     },
     languageOptions: {
@@ -536,12 +542,6 @@ export default tseslint.config(
           extensions: ['.js', '.jsx', '.ts', '.tsx'],
         },
       },
-    },
-  },
-  {
-    files: ['packages/mp3-encoder/**/*.ts'],
-    rules: {
-      'new-cap': 'off',
     },
   },
   {

@@ -11,7 +11,7 @@ export type ToastBarPayload = {
   isPersistent?: boolean;
 };
 
-type ToastBarContextValue = {
+export type ToastBarContextValue = {
   dispatch: (
     payload: Omit<ToastBarPayload, 'id' | 'time'> & { time?: number },
   ) => void;

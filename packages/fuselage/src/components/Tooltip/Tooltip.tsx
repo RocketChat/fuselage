@@ -1,4 +1,4 @@
-import { forwardRef } from 'react';
+import type { RefAttributes } from 'react';
 
 import { Box, type BoxProps } from '../Box';
 
@@ -14,32 +14,29 @@ const parsePlacement = (placement: string | null | undefined) => {
   return [direction, position];
 };
 
-export type TooltipProps = BoxProps & {
-  variation?: 'dark' | 'light';
-  placement?:
-    | 'top-start'
-    | 'top-middle'
-    | 'top-end'
-    | 'bottom-start'
-    | 'bottom-middle'
-    | 'bottom-end'
-    | 'top'
-    | 'left'
-    | 'bottom'
-    | 'right'
-    | null;
-};
+export type TooltipProps = Omit<BoxProps, 'ref'> &
+  RefAttributes<HTMLElement> & {
+    variation?: 'dark' | 'light';
+    placement?:
+      | 'top-start'
+      | 'top-middle'
+      | 'top-end'
+      | 'bottom-start'
+      | 'bottom-middle'
+      | 'bottom-end'
+      | 'top'
+      | 'left'
+      | 'bottom'
+      | 'right'
+      | null;
+  };
 
-const Tooltip = forwardRef<HTMLElement, TooltipProps>(function Tooltip(
-  { variation = 'dark', placement, ...props },
-  ref,
-) {
+function Tooltip({ variation = 'dark', placement, ...props }: TooltipProps) {
   const [direction, position] = parsePlacement(placement);
 
   return (
     <Box
       is='div'
-      ref={ref}
       rcx-tooltip
       rcx-tooltip--dir={direction}
       rcx-tooltip--pos={position}
@@ -48,6 +45,6 @@ const Tooltip = forwardRef<HTMLElement, TooltipProps>(function Tooltip(
       {...props}
     />
   );
-});
+}
 
 export default Tooltip;

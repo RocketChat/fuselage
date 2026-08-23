@@ -1,7 +1,7 @@
-type MemoizableFunction<T, A, R> = (this: T, arg: A) => R;
-type MemoizedFunction<T, A, R> = (this: T, arg: A) => R;
+export type MemoizableFunction<T, A, R> = (this: T, arg: A) => R;
+export type MemoizedFunction<T, A, R> = (this: T, arg: A) => R;
 
-interface Options {
+export interface Options {
   maxAge: number;
 }
 

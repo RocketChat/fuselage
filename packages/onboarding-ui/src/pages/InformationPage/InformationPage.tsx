@@ -3,17 +3,14 @@ import {
   HeroLayoutSubtitle,
   HeroLayoutTitle,
 } from '@rocket.chat/layout';
-import type { ReactElement, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
-type InformationPageProps = {
+export type InformationPageProps = {
   title: string;
   description?: ReactNode;
 };
 
-const InformationPage = ({
-  title,
-  description,
-}: InformationPageProps): ReactElement => (
+const InformationPage = ({ title, description }: InformationPageProps) => (
   <HeroLayout>
     <HeroLayoutTitle>{title}</HeroLayoutTitle>
     {description && <HeroLayoutSubtitle>{description}</HeroLayoutSubtitle>}

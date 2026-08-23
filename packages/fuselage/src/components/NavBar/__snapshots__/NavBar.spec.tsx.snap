@@ -89,7 +89,7 @@ exports[`[NavBar Component] renders Default without crashing 1`] = `
               aria-haspopup="true"
               aria-label="sort"
               class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button rcx-navbar-item"
-              id="react-aria-:r0:"
+              id="react-aria-_r_0_"
               title="sort"
               type="button"
             >
@@ -117,7 +117,7 @@ exports[`[NavBar Component] renders Default without crashing 1`] = `
               aria-haspopup="true"
               aria-label="create new"
               class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
-              id="react-aria-:r2:"
+              id="react-aria-_r_2_"
               title="create new"
               type="button"
             >
@@ -210,7 +210,7 @@ exports[`[NavBar Component] renders Default without crashing 1`] = `
               aria-haspopup="true"
               aria-label="profile"
               class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button rcx-navbar-item"
-              id="react-aria-:r4:"
+              id="react-aria-_r_4_"
               title="profile"
               type="button"
             >

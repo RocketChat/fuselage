@@ -1,13 +1,11 @@
-import { forwardRef } from 'react';
+import type { RefAttributes } from 'react';
 
 import { Box, type BoxProps } from '../Box';
 
-type AddonProps = BoxProps;
+type AddonProps = Omit<BoxProps, 'ref'> & RefAttributes<HTMLDivElement>;
 
-const SelectAddon = forwardRef<HTMLDivElement, AddonProps>(
-  function SelectAddon(props, ref) {
-    return <Box is='div' rcx-select__addon ref={ref} {...props} />;
-  },
-);
+function SelectAddon(props: AddonProps) {
+  return <Box is='div' rcx-select__addon {...props} />;
+}
 
 export default SelectAddon;

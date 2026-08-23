@@ -2,7 +2,7 @@ import {
   BackgroundLayer,
   FormPageLayout as FormLayout,
 } from '@rocket.chat/layout';
-import type { ComponentProps, ReactElement } from 'react';
+import type { ComponentProps } from 'react';
 import { useTranslation, Trans } from 'react-i18next';
 
 import FormPageLayout from '../../common/FormPageLayout';
@@ -10,9 +10,9 @@ import RequestTrialForm from '../../forms/RequestTrialForm';
 
 import Description from './Description';
 
-type RequestTrialPageProps = ComponentProps<typeof RequestTrialForm>;
+export type RequestTrialPageProps = ComponentProps<typeof RequestTrialForm>;
 
-const RequestTrialPage = (props: RequestTrialPageProps): ReactElement => {
+const RequestTrialPage = (props: RequestTrialPageProps) => {
   const { t } = useTranslation();
 
   return (

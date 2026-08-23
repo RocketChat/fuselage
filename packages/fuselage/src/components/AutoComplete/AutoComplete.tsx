@@ -1,11 +1,17 @@
-import { useEffectEvent, useResizeObserver } from '@rocket.chat/fuselage-hooks';
+import {
+  useStableCallback,
+  useResizeObserver,
+  useMergedRefs,
+} from '@rocket.chat/fuselage-hooks';
 import type {
   AllHTMLAttributes,
   ChangeEvent,
   ComponentType,
   FocusEvent,
   MouseEvent,
+  MouseEventHandler,
   ReactNode,
+  RefAttributes,
 } from 'react';
 import { useEffect, useRef, useMemo, useState } from 'react';
 
@@ -18,38 +24,9 @@ import { Margins } from '../Margins';
 import { useCursor, Options, type OptionType } from '../Options';
 import { PositionAnimated } from '../PositionAnimated';
 
-type AutoCompleteOption<TLabel> = {
+export type AutoCompleteOption<TLabel> = {
   value: string;
   label: TLabel;
-};
-
-export type AutoCompleteProps<TLabel> = Omit<
-  AllHTMLAttributes<HTMLInputElement>,
-  'value' | 'onChange' | 'is'
-> & {
-  filter: string;
-  setFilter?: (filter: string) => void;
-  options?: AutoCompleteOption<TLabel>[];
-  renderSelected?: ComponentType<{
-    selected: AutoCompleteOption<TLabel>;
-    onRemove?: (event: MouseEvent<HTMLButtonElement>) => void;
-  }>;
-  onChange: (value: string | string[]) => void;
-  renderItem?: ComponentType<{
-    role?: string;
-    label: TLabel;
-    value: string;
-    selected?: boolean;
-    focus?: boolean;
-  }>;
-  renderEmpty?: ComponentType<{
-    customEmpty?: string;
-  }>;
-  placeholder?: string;
-  error?: boolean;
-  disabled?: boolean;
-  multiple?: boolean;
-  value?: string | string[];
 };
 
 const getSelected = <TLabel,>(
@@ -77,9 +54,45 @@ const isSelectedValid =
   };
 
 /**
+ * @deprecated Use `SelectFilteredProps` or `MultiSelectFilteredProps` instead.
+ */
+export type AutoCompleteProps<TLabel = ReactNode> = Omit<
+  AllHTMLAttributes<HTMLInputElement>,
+  'value' | 'onChange' | 'is'
+> & {
+  filter: string;
+  setFilter?: (filter: string) => void;
+  options?: AutoCompleteOption<TLabel>[];
+  renderSelected?: ComponentType<{
+    selected: AutoCompleteOption<TLabel>;
+    onRemove?: (event: MouseEvent<HTMLButtonElement>) => void;
+  }>;
+  onChange: (value: string | string[]) => void;
+  renderItem?: ComponentType<{
+    role?: string;
+    label: TLabel;
+    value: string;
+    selected?: boolean;
+    focus?: boolean;
+    onMouseDown: MouseEventHandler;
+  }>;
+  renderEmpty?: ComponentType<{
+    customEmpty?: string;
+  }>;
+  placeholder?: string;
+  error?: boolean;
+  disabled?: boolean;
+  multiple?: boolean;
+  value?: string | string[];
+} & RefAttributes<HTMLInputElement>;
+
+/**
  * An input for selection of options.
+ *
+ * @deprecated Use `SelectFiltered` or `MultiSelectFiltered` instead.
  */
 function AutoComplete<TLabel = ReactNode>({
+  ref,
   value,
   filter,
   setFilter,
@@ -95,7 +108,8 @@ function AutoComplete<TLabel = ReactNode>({
   onBlur: onBlurAction = () => {},
   ...props
 }: AutoCompleteProps<TLabel>) {
-  const ref = useRef<HTMLInputElement>(null);
+  const innerRef = useRef<HTMLInputElement>(null);
+  const mergedRefs = useMergedRefs(ref, innerRef);
   const { ref: containerRef, borderBoxSize } = useResizeObserver();
 
   const [selected, setSelected] = useState(
@@ -111,7 +125,7 @@ function AutoComplete<TLabel = ReactNode>({
     });
   }, [value]);
 
-  const handleSelect = useEffectEvent(
+  const handleSelect = useStableCallback(
     ([newValue]: OptionType<string, TLabel>) => {
       if (selected.some((item) => item.value === newValue)) {
         hide();
@@ -131,7 +145,7 @@ function AutoComplete<TLabel = ReactNode>({
     },
   );
 
-  const handleRemove = useEffectEvent(
+  const handleRemove = useStableCallback(
     (event: MouseEvent<HTMLButtonElement>) => {
       event.stopPropagation();
       event.preventDefault();
@@ -167,18 +181,21 @@ function AutoComplete<TLabel = ReactNode>({
   const [cursor, handleKeyDown, , reset, [optionsAreVisible, hide, show]] =
     useCursor(firstSelectedIndex, memoizedOptions, handleSelect);
 
-  const handleOnBlur = useEffectEvent((event: FocusEvent<HTMLInputElement>) => {
-    hide();
-    onBlurAction(event);
-  });
+  const handleOnBlur = useStableCallback(
+    (event: FocusEvent<HTMLInputElement>) => {
+      hide();
+      onBlurAction(event);
+    },
+  );
 
   useEffect(reset, [filter, reset]);
 
   return (
     <Box
+      animated
       rcx-autocomplete
       ref={containerRef}
-      onClick={useEffectEvent(() => ref.current?.focus())}
+      onClick={useStableCallback(() => innerRef.current?.focus())}
       flexGrow={1}
       className={useMemo(
         () => [error && 'invalid', disabled && 'disabled'],
@@ -195,8 +212,8 @@ function AutoComplete<TLabel = ReactNode>({
       >
         <Margins all='x4'>
           <Input
-            ref={ref}
-            onChange={useEffectEvent((e: ChangeEvent<HTMLInputElement>) =>
+            ref={mergedRefs}
+            onChange={useStableCallback((e: ChangeEvent<HTMLInputElement>) =>
               setFilter?.(e.currentTarget.value),
             )}
             onBlur={handleOnBlur}
@@ -224,9 +241,10 @@ function AutoComplete<TLabel = ReactNode>({
               <Chip
                 key={itemSelected.value}
                 value={itemSelected.value}
-                children={itemSelected.label as ReactNode}
                 onClick={handleRemove}
-              />
+              >
+                {itemSelected.label as ReactNode}
+              </Chip>
             ),
           )}
         </Margins>
@@ -239,7 +257,7 @@ function AutoComplete<TLabel = ReactNode>({
               : 'magnifier'
           }
           size='x20'
-          color='default'
+          color='titles-labels'
         />
       </Box>
       <PositionAnimated visible={optionsAreVisible} anchor={containerRef}>

@@ -1,6 +1,7 @@
 @use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
-@use '../../styles/typography.scss';
+@use '../../styles/typography.scss' as *;
+@use '../../styles/functions.scss' as *;
 
 $callout-background-color: theme(
   'callout-background-color',
@@ -24,6 +25,10 @@ $callout-danger-color: theme(
   colors.status-font(on-danger)
 );
 $callout-text-color: theme('callout-text-color', colors.font(default));
+$callout-border-radius: theme(
+  'callout-border-radius',
+  lengths.border-radius(medium)
+);
 
 .rcx-callout {
   display: flex;
@@ -36,7 +41,7 @@ $callout-text-color: theme('callout-text-color', colors.font(default));
   border-style: solid;
   border-color: $callout-default-color;
 
-  border-radius: theme('callout-border-radius', lengths.border-radius(medium));
+  border-radius: $callout-border-radius;
 
   background-color: $callout-background-color;
 
@@ -112,13 +117,13 @@ $callout-text-color: theme('callout-text-color', colors.font(default));
   &__title {
     white-space: nowrap;
 
-    @include typography.use-font-scale(p2b);
-    @include typography.use-text-ellipsis;
+    @include use-font-scale(p2b);
+    @include use-text-ellipsis;
   }
 
   &__content {
     display: block;
 
-    @include typography.use-font-scale(p2);
+    @include use-font-scale(p2);
   }
 }

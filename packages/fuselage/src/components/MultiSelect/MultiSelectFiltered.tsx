@@ -5,8 +5,8 @@ import type { IconProps } from '../Icon';
 
 import type { MultiSelectProps } from './MultiSelect';
 import MultiSelect from './MultiSelect';
-import type { MultiSelectAnchorParams } from './MultiSelectAnchorParams';
 import MultiSelectFilteredAnchor from './MultiSelectFilteredAnchor';
+import { MultiSelectFilteredContext } from './MultiSelectFilteredContext';
 
 export type MultiSelectFilteredProps = MultiSelectProps & {
   filter?: string;
@@ -14,31 +14,32 @@ export type MultiSelectFilteredProps = MultiSelectProps & {
   addonIcon?: IconProps['name'];
 };
 
-const MultiSelectFiltered = ({
+function MultiSelectFiltered({
   options,
   placeholder,
   filter: propFilter,
   setFilter: propSetFilter,
   ...props
-}: MultiSelectFilteredProps) => {
+}: MultiSelectFilteredProps) {
   const [filter, setFilter] = useState('');
 
   return (
-    <MultiSelect
-      {...props}
-      filter={propFilter || filter}
-      setFilter={propSetFilter || setFilter}
-      options={options}
-      anchor={(params: MultiSelectAnchorParams) => (
-        <MultiSelectFilteredAnchor
-          placeholder={placeholder}
-          filter={propFilter || filter}
-          onChangeFilter={propSetFilter || setFilter}
-          {...params}
-        />
-      )}
-    />
+    <MultiSelectFilteredContext.Provider
+      value={{
+        placeholder,
+        filter: propFilter || filter,
+        setFilter: propSetFilter || setFilter,
+      }}
+    >
+      <MultiSelect
+        {...props}
+        filter={propFilter || filter}
+        setFilter={propSetFilter || setFilter}
+        options={options}
+        anchor={MultiSelectFilteredAnchor}
+      />
+    </MultiSelectFilteredContext.Provider>
   );
-};
+}
 
 export default MultiSelectFiltered;

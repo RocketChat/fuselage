@@ -25,11 +25,11 @@
 Firstly, install the peer dependencies (prerequisites):
 
 ```sh
-npm i @rocket.chat/fuselage react react-dom react-i18next
+npm i @rocket.chat/fuselage @rocket.chat/logo react react-dom react-i18next
 
 # or, if you are using yarn:
 
-yarn add @rocket.chat/fuselage react react-dom react-i18next
+yarn add @rocket.chat/fuselage @rocket.chat/logo react react-dom react-i18next
 ```
 
 Add `@rocket.chat/layout` as a dependency:

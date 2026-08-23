@@ -1,5 +1,6 @@
 import type { ReactNode, Attributes } from 'react';
-import { cloneElement, isValidElement } from 'react';
+import { cloneElement } from 'react';
+import { isElement } from 'react-is';
 
 import { flattenChildren } from './flattenChildren';
 import { shallowEqual } from './shallowEqual';
@@ -11,11 +12,11 @@ export const patchChildren = <TProps>(
   let dirty = false;
 
   const newChildren = flattenChildren(children).map((child) => {
-    if (!isValidElement<TProps>(child)) {
+    if (!isElement(child)) {
       return child;
     }
 
-    const mergedProps = patch(child.props);
+    const mergedProps = patch(child.props as TProps);
 
     if (shallowEqual(child.props, mergedProps)) {
       return child;

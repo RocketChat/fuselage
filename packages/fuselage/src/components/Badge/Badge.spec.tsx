@@ -6,7 +6,7 @@ import { render } from '../../testing';
 import Badge from './Badge';
 import * as stories from './Badge.stories';
 
-const { Default, Primary, Secondary, Danger, Warning, Disabled } =
+const { Default, Primary, Secondary, Danger, Warning } =
   composeStories(stories);
 
 describe('[Badge Component]', () => {
@@ -25,9 +25,6 @@ describe('[Badge Component]', () => {
     });
     it('Warning', () => {
       render(<Warning />);
-    });
-    it('Disabled', () => {
-      render(<Disabled />);
     });
   });
 
@@ -50,10 +47,5 @@ describe('[Badge Component]', () => {
     const { container } = render(<Badge title='test-title' />);
     const badgeTitle = container.querySelector('span');
     expect(badgeTitle?.getAttribute('title')).toEqual('test-title');
-  });
-
-  it('should have disabled class if it has the disabled property', () => {
-    const { container } = render(<Badge disabled />);
-    expect(container.querySelector('.rcx-badge--disabled')).toBeInTheDocument();
   });
 });

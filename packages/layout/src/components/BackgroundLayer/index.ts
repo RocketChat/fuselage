@@ -1,1 +1,1 @@
-export { default } from './BackgroundLayer';
+export { default, type BackgroundLayerProps } from './BackgroundLayer';

@@ -3,7 +3,7 @@ import type { ComponentProps, ReactNode } from 'react';
 
 import FieldProvider from './FieldProvider';
 
-type FieldProps = { children: ReactNode } & ComponentProps<
+export type FieldProps = { children: ReactNode } & ComponentProps<
   typeof FieldComponent
 >;
 

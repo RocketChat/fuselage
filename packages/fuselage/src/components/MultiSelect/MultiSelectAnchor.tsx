@@ -1,34 +1,28 @@
 import type {
+  AriaAttributes,
   FocusEventHandler,
   KeyboardEventHandler,
   MouseEventHandler,
   ReactNode,
+  RefAttributes,
 } from 'react';
-import { forwardRef } from 'react';
 
 import SelectFocus from '../Select/SelectFocus';
 
-type MultiSelectAnchorProps = {
+type MultiSelectAnchorProps = RefAttributes<Element> & {
   children: ReactNode;
   disabled: boolean;
   onClick: MouseEventHandler;
   onBlur: FocusEventHandler;
   onKeyUp: KeyboardEventHandler;
   onKeyDown: KeyboardEventHandler;
-};
+  role?: string;
+  id?: string;
+  name?: string;
+} & AriaAttributes;
 
-const MultiSelectAnchor = forwardRef<Element, MultiSelectAnchorProps>(
-  function MultiSelectAnchor(props, ref) {
-    return (
-      <SelectFocus
-        rcx-input-box--undecorated
-        ref={ref}
-        aria-haspopup='listbox'
-        order={1}
-        {...props}
-      />
-    );
-  },
-);
+function MultiSelectAnchor(props: MultiSelectAnchorProps) {
+  return <SelectFocus rcx-input-box--undecorated order={1} {...props} />;
+}
 
 export default MultiSelectAnchor;

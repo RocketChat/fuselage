@@ -1,14 +1,8 @@
 import { ToastBar } from '@rocket.chat/fuselage';
-import type { ReactElement } from 'react';
 
 import type { ToastBarPayload } from './ToastBarContext';
 
-const ToastBarPersistent = ({
-  type,
-  message,
-  title,
-  id,
-}: ToastBarPayload): ReactElement => {
+const ToastBarPersistent = ({ type, message, title, id }: ToastBarPayload) => {
   return (
     <ToastBar variant={type} id={id} isPaused>
       {title}

@@ -1,17 +1,19 @@
-@use '../../../styles/lengths.scss';
 @use '../../../styles/colors.scss';
-@use '../../../styles/typography.scss';
+@use '../../../styles/functions.scss' as *;
+@use '../../../styles/lengths.scss';
 @use '../mixins.scss';
+
+$message-toolbar-border-radius: theme(
+  'message-toolbar-border-radius',
+  lengths.border-radius(medium)
+);
 
 .rcx-message-toolbar {
   margin-inline: lengths.margin(20);
   padding: lengths.padding(2);
 
   border: lengths.border-width(default) solid colors.stroke(extra-light);
-  border-radius: theme(
-    'message-toolbar-border-radius',
-    lengths.border-radius(medium)
-  );
+  border-radius: $message-toolbar-border-radius;
   background: colors.surface(room);
 
   &__wrapper {

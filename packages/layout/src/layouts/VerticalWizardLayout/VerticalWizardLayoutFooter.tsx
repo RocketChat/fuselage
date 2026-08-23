@@ -7,7 +7,7 @@ const VerticalWizardLayoutFooter = ({ children }: { children: ReactNode }) => (
     fontScale='p2'
     flexDirection='column'
     justifyContent='flex-end'
-    pb={32}
+    paddingBlock={32}
   >
     {children}
   </Box>

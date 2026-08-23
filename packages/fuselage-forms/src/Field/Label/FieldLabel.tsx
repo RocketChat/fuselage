@@ -7,7 +7,9 @@ import HiddenLabel from './HiddenLabel';
 import LabelFor from './LabelFor';
 import ReferencedLabel from './ReferencedLabel';
 
-type FieldLabelProps = ComponentPropsWithoutRef<typeof FieldLabelComponent>;
+export type FieldLabelProps = ComponentPropsWithoutRef<
+  typeof FieldLabelComponent
+>;
 
 const FieldLabel = (props: FieldLabelProps) => {
   const fieldType = useFieldFieldType();

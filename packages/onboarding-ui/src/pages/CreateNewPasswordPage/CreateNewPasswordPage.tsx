@@ -1,6 +1,5 @@
 import { Box } from '@rocket.chat/fuselage';
 import { ActionLink } from '@rocket.chat/layout';
-import type { ReactElement } from 'react';
 import type { FieldPathValue, SubmitHandler, Validate } from 'react-hook-form';
 import { Trans, useTranslation } from 'react-i18next';
 
@@ -9,7 +8,7 @@ import FormPageLayout from '../../common/FormPageLayout';
 import CreateNewPasswordForm from '../../forms/CreateNewPassword';
 import type { CreateNewPasswordPayload } from '../../forms/CreateNewPassword/CreateNewPassword';
 
-type CreateNewPasswordPageProps = {
+export type CreateNewPasswordPageProps = {
   initialValues?: CreateNewPasswordPayload;
   validatePassword: Validate<
     FieldPathValue<CreateNewPasswordPayload, 'password'>,
@@ -30,7 +29,7 @@ const pageLayoutStyleProps: FormPageLayoutStyleProps = {
 const ResetPasswordPage = ({
   onLogin,
   ...props
-}: CreateNewPasswordPageProps): ReactElement => {
+}: CreateNewPasswordPageProps) => {
   const { t } = useTranslation();
   return (
     <FormPageLayout
@@ -38,7 +37,7 @@ const ResetPasswordPage = ({
       styleProps={pageLayoutStyleProps}
     >
       <CreateNewPasswordForm {...props} />
-      <Box fontScale='p2' pbs={40}>
+      <Box fontScale='p2' paddingBlockStart={40}>
         <Trans i18nKey='component.wantToLogin'>
           Want to log in?
           <ActionLink fontScale='p2' onClick={onLogin}>

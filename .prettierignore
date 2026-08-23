@@ -6,3 +6,4 @@ bundle-report.html
 /.turbo
 /.yarn
 /README.md
+*.api.md

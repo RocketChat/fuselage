@@ -1,9 +1,9 @@
-import type { MutableRefObject } from 'react';
+import type { RefObject } from 'react';
 import { useLayoutEffect, useRef } from 'react';
 
 const EMPTY = Symbol('empty');
 
-const useBrowserLazyRef = <T>(init: () => T): MutableRefObject<T> => {
+const useBrowserLazyRef = <T>(init: () => T): RefObject<T> => {
   const ref = useRef<typeof EMPTY | T>(EMPTY);
 
   useLayoutEffect(() => {
@@ -12,11 +12,10 @@ const useBrowserLazyRef = <T>(init: () => T): MutableRefObject<T> => {
     }
   }, [init]);
 
-  return ref as MutableRefObject<T>;
+  return ref as RefObject<T>;
 };
 
-const useServerLazyRef = <T>(init: () => T): MutableRefObject<T> =>
-  useRef(init());
+const useServerLazyRef = <T>(init: () => T): RefObject<T> => useRef(init());
 
 /**
  * Hook equivalent to useRef, but with a lazy initialization for computed value.

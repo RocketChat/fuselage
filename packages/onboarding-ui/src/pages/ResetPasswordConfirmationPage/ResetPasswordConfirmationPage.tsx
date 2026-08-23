@@ -1,9 +1,8 @@
 import { Box, Margins } from '@rocket.chat/fuselage';
 import { BackgroundLayer, LayoutLogo } from '@rocket.chat/layout';
-import type { ReactElement } from 'react';
 import { useTranslation } from 'react-i18next';
 
-const ResetPasswordConfirmationPage = (): ReactElement => {
+const ResetPasswordConfirmationPage = () => {
   const { t } = useTranslation();
   return (
     <BackgroundLayer>

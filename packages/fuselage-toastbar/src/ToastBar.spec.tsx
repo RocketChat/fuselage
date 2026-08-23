@@ -29,7 +29,7 @@ const topStartStyle = {
 describe('[fuselage-toastbar rendering]', () => {
   test('should display ToastBar on the top right of the screen by default', async () => {
     render(<TopEnd />);
-    const toast = screen.queryByRole('alert');
+    const toast = screen.queryByRole('status');
     const toastContainer = toast?.parentElement?.parentElement?.parentElement;
 
     expect(toastContainer).toHaveStyle(topEndStyle);
@@ -38,7 +38,7 @@ describe('[fuselage-toastbar rendering]', () => {
   test('should display ToastBar on the top right of the screen', async () => {
     document.body.setAttribute('dir', 'ltr');
     render(<TopEnd />);
-    const toast = screen.queryByRole('alert');
+    const toast = screen.queryByRole('status');
     const toastContainer = toast?.parentElement?.parentElement?.parentElement;
 
     expect(toastContainer).toHaveStyle(topEndStyle);
@@ -47,7 +47,7 @@ describe('[fuselage-toastbar rendering]', () => {
   test('should display ToastBar on the top left of the screen', async () => {
     document.body.setAttribute('dir', 'rtl');
     render(<TopEnd />);
-    const toast = screen.queryByRole('alert');
+    const toast = screen.queryByRole('status');
     const toastContainer = toast?.parentElement?.parentElement?.parentElement;
 
     expect(toastContainer).toHaveStyle(topStartStyle);

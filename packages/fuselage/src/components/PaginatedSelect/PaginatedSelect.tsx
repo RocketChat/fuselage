@@ -1,4 +1,7 @@
-import { useEffectEvent, useResizeObserver } from '@rocket.chat/fuselage-hooks';
+import {
+  useStableCallback,
+  useResizeObserver,
+} from '@rocket.chat/fuselage-hooks';
 import { type ElementType, useState, useRef, useMemo } from 'react';
 
 import type { OptionType, SelectOption, SelectProps } from '..';
@@ -16,10 +19,11 @@ import SelectFocus from '../Select/SelectFocus';
 
 import PaginatedSelectWrapper from './PaginatedSelectWrapper';
 
-type PaginatedOptionType = {
+export type PaginatedOptionType = {
   value: string | number;
   label: string;
 };
+
 export type PaginatedSelectProps = Omit<SelectProps, 'options'> & {
   anchor?: ElementType;
   options: PaginatedOptionType[];
@@ -52,7 +56,7 @@ export const PaginatedSelect = ({
 
   const [visible, hide, show] = useVisible();
 
-  const internalChangedByClick = useEffectEvent(([value]: OptionType) => {
+  const internalChangedByClick = useStableCallback(([value]: OptionType) => {
     setInternalValue(value);
     onChange(value as SelectOption[0]); // FIXME
     hide();
@@ -71,7 +75,7 @@ export const PaginatedSelect = ({
     ? valueLabel || placeholder
     : undefined;
 
-  const handleClick = useEffectEvent(() => {
+  const handleClick = useStableCallback(() => {
     if (visible === AnimatedVisibility.VISIBLE) {
       return hide();
     }
@@ -83,6 +87,7 @@ export const PaginatedSelect = ({
 
   return (
     <Box
+      animated
       rcx-select
       disabled={disabled}
       ref={containerRef}
@@ -95,17 +100,17 @@ export const PaginatedSelect = ({
     >
       <PaginatedSelectWrapper
         display='flex'
-        mi='neg-x4'
+        marginInline='neg-x4'
         rcx-select__wrapper--hidden={!!visibleText}
       >
         {visibleText && (
           <Box
             flexGrow={1}
             is='span'
-            mi={4}
+            marginInline={4}
             rcx-select__item
             fontScale='p2m'
-            color={valueLabel ? 'default' : 'hint'}
+            color={valueLabel ? 'titles-labels' : 'hint'}
           >
             {visibleText}
           </Box>

@@ -12,7 +12,7 @@ import { useStyle } from '../../hooks/useStyle';
 
 export const SliderThumb = (props: any) => {
   const { state, trackRef, index } = props;
-  const inputRef = useRef(null);
+  const inputRef = useRef<HTMLInputElement>(null);
   const { thumbProps, inputProps, isDragging } = useSliderThumb(
     {
       index,

@@ -1,7 +1,6 @@
-import type { HTMLAttributes } from 'react';
-import { forwardRef } from 'react';
+import type { HTMLAttributes, RefAttributes } from 'react';
 
-export type ButtonGroupProps = {
+export type ButtonGroupProps = RefAttributes<HTMLDivElement> & {
   align?: 'start' | 'center' | 'end';
   stretch?: boolean;
   wrap?: boolean;
@@ -13,43 +12,37 @@ export type ButtonGroupProps = {
 /**
  * A container for grouping buttons that semantically share a common action context.
  */
-const ButtonGroup = forwardRef<HTMLDivElement, ButtonGroupProps>(
-  function ButtonGroup(
-    {
-      align = 'start',
-      children,
-      stretch,
-      vertical,
-      wrap,
-      small,
-      large,
-      className,
-      ...props
-    },
-    ref,
-  ) {
-    return (
-      <div
-        ref={ref}
-        className={[
-          'rcx-button-group',
-          stretch && 'rcx-button-group--stretch',
-          vertical && 'rcx-button-group--vertical',
-          align && `rcx-button-group--align-${align}`,
-          small && 'rcx-button-group--small',
-          large && 'rcx-button-group--large',
-          wrap && 'rcx-button-group--wrap',
-          className,
-        ]
-          .filter(Boolean)
-          .join(' ')}
-        role='group'
-        {...props}
-      >
-        {children}
-      </div>
-    );
-  },
-);
+function ButtonGroup({
+  align = 'start',
+  children,
+  stretch,
+  vertical,
+  wrap,
+  small,
+  large,
+  className,
+  ...props
+}: ButtonGroupProps) {
+  return (
+    <div
+      className={[
+        'rcx-button-group',
+        stretch && 'rcx-button-group--stretch',
+        vertical && 'rcx-button-group--vertical',
+        align && `rcx-button-group--align-${align}`,
+        small && 'rcx-button-group--small',
+        large && 'rcx-button-group--large',
+        wrap && 'rcx-button-group--wrap',
+        className,
+      ]
+        .filter(Boolean)
+        .join(' ')}
+      role='group'
+      {...props}
+    >
+      {children}
+    </div>
+  );
+}
 
 export default ButtonGroup;

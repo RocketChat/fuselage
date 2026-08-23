@@ -4,7 +4,7 @@ exports[`renders Default without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-css-1d0dok0"
+      class="rcx-css-zprnfp"
     >
       <div
         class="rcx-box rcx-box--full rcx-css-18qhv11"
@@ -16,15 +16,15 @@ exports[`renders Default without crashing 1`] = `
             class="rcx-box rcx-box--full rcx-css-11fczu4"
           >
             <svg
-              aria-labelledby=":r0:"
-              fill="#F5455C"
+              aria-labelledby="_r_0_"
+              fill="#f5455c"
               height="100%"
               viewBox="0 0 180 30"
               width="100%"
               xmlns="http://www.w3.org/2000/svg"
             >
               <title
-                id=":r0:"
+                id="_r_0_"
               >
                 Rocket.Chat
               </title>
@@ -85,7 +85,7 @@ exports[`renders Default without crashing 1`] = `
           class="rcx-box rcx-box--full rcx-tile--elevation-1 rcx-tile rcx-css-u9deli"
         >
           <form
-            class="rcx-box rcx-box--full rcx-tile--elevation-1 rcx-tile rcx-css-1i7nda9"
+            class="rcx-box rcx-box--full rcx-tile--elevation-1 rcx-tile rcx-css-h7ntyn"
           >
             <header
               class="rcx-box rcx-box--full rcx-css-heem01"
@@ -96,7 +96,7 @@ exports[`renders Default without crashing 1`] = `
                 Title
               </div>
               <div
-                class="rcx-box rcx-box--full rcx-css-ifx78p"
+                class="rcx-box rcx-box--full rcx-css-gk1yjz"
               >
                 Subtitle
               </div>
@@ -162,7 +162,7 @@ exports[`renders WithScroll without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-css-1d0dok0"
+      class="rcx-css-zprnfp"
     >
       <div
         class="rcx-box rcx-box--full rcx-css-18qhv11"
@@ -174,15 +174,15 @@ exports[`renders WithScroll without crashing 1`] = `
             class="rcx-box rcx-box--full rcx-css-11fczu4"
           >
             <svg
-              aria-labelledby=":r1:"
-              fill="#F5455C"
+              aria-labelledby="_r_1_"
+              fill="#f5455c"
               height="100%"
               viewBox="0 0 180 30"
               width="100%"
               xmlns="http://www.w3.org/2000/svg"
             >
               <title
-                id=":r1:"
+                id="_r_1_"
               >
                 Rocket.Chat
               </title>
@@ -243,7 +243,7 @@ exports[`renders WithScroll without crashing 1`] = `
           class="rcx-box rcx-box--full rcx-tile--elevation-1 rcx-tile rcx-css-u9deli"
         >
           <form
-            class="rcx-box rcx-box--full rcx-tile--elevation-1 rcx-tile rcx-css-1i7nda9"
+            class="rcx-box rcx-box--full rcx-tile--elevation-1 rcx-tile rcx-css-h7ntyn"
           >
             <header
               class="rcx-box rcx-box--full rcx-css-heem01"
@@ -254,7 +254,7 @@ exports[`renders WithScroll without crashing 1`] = `
                 Title
               </div>
               <div
-                class="rcx-box rcx-box--full rcx-css-ifx78p"
+                class="rcx-box rcx-box--full rcx-css-gk1yjz"
               >
                 Subtitle
               </div>

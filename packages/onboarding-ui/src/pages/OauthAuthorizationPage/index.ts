@@ -1,1 +1,4 @@
-export { default } from './OauthAuthorizationPage';
+export {
+  default,
+  type OauthAuthorizationPageProps,
+} from './OauthAuthorizationPage';

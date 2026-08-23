@@ -18,6 +18,7 @@ export {
   default as MessageEmoji,
   type MessageEmojiProps,
 } from './MessageEmoji';
+export type { MessageEmojiBaseProps } from './MessageEmojiBase';
 export * from './MessageGenericPreview';
 export {
   default as MessageHeader,

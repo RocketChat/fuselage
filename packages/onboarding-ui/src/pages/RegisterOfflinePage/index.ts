@@ -1,1 +1,1 @@
-export { default } from './RegisterOfflinePage';
+export { default, type RegisterOfflinePageProps } from './RegisterOfflinePage';

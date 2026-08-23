@@ -39,7 +39,7 @@ export const holdContext = (): [EvaluationContext, () => string] => {
 /**
  * A function that lazily evaluates a special string interpolation.
  */
-type Evaluable = <T extends readonly unknown[]>(...args: T) => string;
+export type Evaluable = <T extends readonly unknown[]>(...args: T) => string;
 
 const isEvaluable = (x: unknown): x is Evaluable => typeof x === 'function';
 

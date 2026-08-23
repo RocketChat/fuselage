@@ -1,7 +1,11 @@
 @use '../../styles/colors.scss';
 @use '../../styles/lengths.scss';
-@use '../../styles/typography.scss';
+@use '../../styles/typography.scss' as *;
 @use '../../styles/mixins/templates.scss';
+@use '../../styles/mixins/interactivity.scss' as *;
+@use '../../styles/functions.scss' as *;
+@use '../../styles/mixins/link.scss' as *;
+@use '../../styles/primitives/link.scss';
 
 $tag-colors-default-color: theme(
   'tag-colors-default-color',
@@ -132,6 +136,7 @@ $tag-colors-disabled-background-color: theme(
   'tag-colors-disabled-background-color',
   colors.surface(neutral)
 );
+$tag-border-radius: theme('tag-border-radius', lengths.border-radius(small));
 
 @mixin use-clickable-colors($color, $background-color) {
   &.rcx-tag--clickable {
@@ -159,10 +164,10 @@ $tag-colors-disabled-background-color: theme(
   word-break: keep-all;
 
   color: $tag-colors-default-color;
-  border-radius: theme('tag-border-radius', lengths.border-radius(small));
+  border-radius: $tag-border-radius;
   background-color: $tag-colors-default-background-color;
 
-  @include typography.use-font-scale(micro);
+  @include use-font-scale(micro);
   @include templates.focus-state;
 
   &--clickable {
@@ -270,10 +275,10 @@ $tag-colors-disabled-background-color: theme(
   }
 
   &--medium {
-    @include typography.use-font-scale(c2);
+    @include use-font-scale(c2);
   }
 
   &--large {
-    @include typography.use-font-scale(p2b);
+    @include use-font-scale(p2b);
   }
 }

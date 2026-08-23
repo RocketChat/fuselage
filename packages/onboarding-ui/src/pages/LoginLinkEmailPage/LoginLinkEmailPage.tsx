@@ -1,11 +1,10 @@
 import { Box, Margins } from '@rocket.chat/fuselage';
 import { BackgroundLayer, LayoutLogo } from '@rocket.chat/layout';
-import type { ReactElement } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 
 import EmailCodeFallback from '../../common/EmailCodeFallback';
 
-type LoginLinkEmailProps = {
+export type LoginLinkEmailProps = {
   onResendEmailRequest: () => void;
   onChangeEmailRequest: () => void;
 };
@@ -13,7 +12,7 @@ type LoginLinkEmailProps = {
 const LoginLinkEmailPage = ({
   onResendEmailRequest,
   onChangeEmailRequest,
-}: LoginLinkEmailProps): ReactElement => {
+}: LoginLinkEmailProps) => {
   const { t } = useTranslation();
 
   return (

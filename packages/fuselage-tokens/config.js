@@ -1,62 +1,45 @@
-import tokens from './src/index.js';
+import { kebabCase } from 'change-case';
+
+const categories = [
+  'typography',
+  'breakpoints',
+  'colors',
+  'badge',
+  'button',
+  'font',
+  'shadow',
+  'status',
+  'statusBullet',
+  'stroke',
+  'surface',
+  'border',
+];
+
+const filterByCategory = (root) => (token) =>
+  token.attributes.category === root;
 
 export default {
   source: ['src/**/*.json'],
   platforms: {
-    js: {
-      transformGroup: 'js',
+    'fuselage/json': {
+      transformGroup: 'json/rocketchat',
       buildPath: 'dist/',
-      files: tokens.map((tokenCategory) => ({
-        destination: `${tokenCategory}.js`,
-        format: 'camelCase',
-        filter: (token) => token.filePath.includes(tokenCategory),
+      files: categories.map((category) => ({
+        destination: `${category}.json`,
+        format: 'json/rocketchat',
+        filter: filterByCategory(category),
       })),
     },
-    json: {
-      transformGroup: 'js',
+    'fuselage/scss': {
+      transformGroup: 'scss/rocketchat',
       buildPath: 'dist/',
-      files: tokens.map((tokenCategory) => {
-        const customFormat = `custom/${tokenCategory}-json`;
-        return {
-          destination: `${tokenCategory}.json`,
-          format:
-            tokenCategory === 'breakpoints' || tokenCategory === 'colors'
-              ? customFormat
-              : 'json/nested',
-          filter: (token) =>
-            // console.log(token.filePath.includes(tokenCategory), tokenCategory);
-            token.filePath.includes(tokenCategory),
-        };
-      }),
-    },
-    mjs: {
-      transformGroup: 'custom/mjs',
-      buildPath: 'dist/',
-      files: tokens.map((tokenCategory) => {
-        if (tokenCategory === 'colors') {
-          return {
-            destination: `${tokenCategory}.mjs`,
-            format: 'custom/colors-mjs',
-            filter: (token) => token.filePath.includes(tokenCategory),
-          };
-        }
-        return {
-          destination: `${tokenCategory}.mjs`,
-          format: 'custom/mjs',
-          filter: (token) => token.filePath.includes(tokenCategory),
-        };
-      }),
-    },
-    scss: {
-      transformGroup: 'scss',
-      buildPath: 'dist/',
-      files: tokens.map((tokenCategory) => ({
-        destination: `${tokenCategory}.scss`,
-        format:
-          tokenCategory === 'typography'
-            ? 'custom/typography-scss'
-            : 'custom/scss',
-        filter: (token) => token.filePath.includes(tokenCategory),
+      files: categories.map((category) => ({
+        destination: `${category}.scss`,
+        format: 'scss/map-flat',
+        options: {
+          mapName: kebabCase(category),
+        },
+        filter: filterByCategory(category),
       })),
     },
   },

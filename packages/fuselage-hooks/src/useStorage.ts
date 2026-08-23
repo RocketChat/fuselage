@@ -1,5 +1,5 @@
 import { Emitter } from '@rocket.chat/emitter';
-import type { Dispatch, MutableRefObject, SetStateAction } from 'react';
+import type { Dispatch, RefObject, SetStateAction } from 'react';
 import { useRef, useCallback, useSyncExternalStore, useState } from 'react';
 
 const ee = new Emitter<Record<`fuselage-${string}`, any>>();
@@ -56,7 +56,7 @@ export const useStorage = <T>(
   const fallbackValueRef = useRef(fallbackValue);
   fallbackValueRef.current = fallbackValue;
 
-  const [valueRef] = useState<MutableRefObject<T>>(() => ({
+  const [valueRef] = useState<RefObject<T>>(() => ({
     current: getStorageItem(storedKey, fallbackValue, storage),
   }));
 

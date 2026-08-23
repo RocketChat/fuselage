@@ -1,12 +1,10 @@
 import { memo } from 'react';
 
-import type { IconProps } from '..';
-import { IconButton } from '..';
-import type { IconButtonProps } from '../Button/IconButton';
+import { IconButton, type IconButtonProps } from '../Button';
 
 export type ContextualbarActionProps = {
-  name: IconProps['name'];
-} & Omit<IconButtonProps, 'icon'>;
+  name: IconButtonProps['icon'];
+} & Omit<IconButtonProps, 'name' | 'icon'>;
 
 const ContextualbarAction = ({ name, ...props }: ContextualbarActionProps) => (
   <IconButton {...props} small flexShrink={0} icon={name} />

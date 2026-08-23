@@ -2,13 +2,12 @@ import { Box } from '@rocket.chat/fuselage';
 import type {
   MouseEvent,
   ComponentProps,
-  ReactElement,
   ReactNode,
   AnchorHTMLAttributes,
 } from 'react';
 import { useCallback } from 'react';
 
-type ActionLinkProps = {
+export type ActionLinkProps = {
   children: ReactNode;
   href?: string;
   fontScale?: ComponentProps<typeof Box>['fontScale'];
@@ -19,7 +18,7 @@ const ActionLink = ({
   href = '#',
   onClick,
   ...props
-}: ActionLinkProps): ReactElement => {
+}: ActionLinkProps) => {
   const handleClick = useCallback(
     (event: MouseEvent<HTMLAnchorElement>) => {
       if (onClick) {

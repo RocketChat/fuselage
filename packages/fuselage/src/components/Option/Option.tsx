@@ -1,5 +1,10 @@
-import type { Ref, ReactNode, MouseEvent, AllHTMLAttributes } from 'react';
-import { forwardRef, memo } from 'react';
+import type {
+  ReactNode,
+  MouseEvent,
+  AllHTMLAttributes,
+  RefAttributes,
+} from 'react';
+import { memo } from 'react';
 
 import { prevent } from '../../helpers/prevent';
 import type { BoxProps } from '../Box';
@@ -10,15 +15,14 @@ import OptionColumn from './OptionColumn';
 import OptionContent from './OptionContent';
 import OptionIcon from './OptionIcon';
 
-export type OptionProps = {
+export type OptionProps<TLabel = ReactNode> = RefAttributes<Element> & {
   is?: BoxProps['is'];
   id?: string;
   children?: ReactNode;
-  label?: ReactNode;
+  label?: TLabel;
   focus?: boolean;
   selected?: boolean;
   className?: BoxProps['className'];
-  ref?: Ref<Element>;
   icon?: IconProps['name'];
   gap?: boolean;
   avatar?: ReactNode;
@@ -29,55 +33,52 @@ export type OptionProps = {
   onClick?: (event: MouseEvent<HTMLElement>) => void;
   description?: ReactNode;
 } & Omit<
-  AllHTMLAttributes<HTMLElement>,
-  | 'is'
-  | 'id'
-  | 'children'
-  | 'label'
-  | 'selected'
-  | 'className'
-  | 'ref'
-  | 'icon'
-  | 'gap'
-  | 'avatar'
-  | 'title'
-  | 'disabled'
-  | 'value'
-  | 'variant'
-  | 'onClick'
-  | 'description'
->;
+    AllHTMLAttributes<HTMLElement>,
+    | 'is'
+    | 'id'
+    | 'children'
+    | 'label'
+    | 'selected'
+    | 'className'
+    | 'ref'
+    | 'icon'
+    | 'gap'
+    | 'avatar'
+    | 'title'
+    | 'disabled'
+    | 'value'
+    | 'variant'
+    | 'onClick'
+    | 'description'
+  > &
+  RefAttributes<Element>;
 
 /**
  * The generic `Option` item of options. Can be freely used or inside the `Options` as well.
  */
-const Option = forwardRef<Element, OptionProps>(function Option(
-  {
-    is: Tag = 'li',
-    id,
-    children,
-    label,
-    focus,
-    selected,
-    className,
-    icon,
-    gap,
-    avatar,
-    title,
-    disabled,
-    variant,
-    onClick,
-    description,
-    ...props
-  }: OptionProps,
-  ref,
-) {
+function Option<TLabel = ReactNode>({
+  is: Tag = 'li',
+  id,
+  children,
+  label,
+  focus,
+  selected,
+  className,
+  icon,
+  gap,
+  avatar,
+  title,
+  disabled,
+  variant,
+  onClick,
+  description,
+  ...props
+}: OptionProps<TLabel>) {
   return (
     <Tag
       {...props}
       key={id}
       id={id}
-      ref={ref}
       aria-selected={!!selected}
       aria-disabled={!!disabled}
       title={title}
@@ -110,11 +111,11 @@ const Option = forwardRef<Element, OptionProps>(function Option(
         {avatar && <OptionAvatar>{avatar}</OptionAvatar>}
         {icon && <OptionIcon name={icon} />}
         {gap && <OptionColumn />}
-        {label && <OptionContent>{label}</OptionContent>}
+        {label && <OptionContent>{label as ReactNode}</OptionContent>}
         {label !== children && children}
       </div>
     </Tag>
   );
-});
+}
 
 export default memo(Option);

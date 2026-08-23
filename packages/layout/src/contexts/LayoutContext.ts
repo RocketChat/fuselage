@@ -1,9 +1,9 @@
-import type { ReactElement } from 'react';
+import type { ReactNode } from 'react';
 import { createContext, useContext } from 'react';
 
 export type LayoutContextValue = {
-  logo?: ReactElement;
-  logoDark?: ReactElement;
+  logo?: ReactNode;
+  logoDark?: ReactNode;
   background?: string;
   backgroundDark?: string;
   forceDarkMode?: boolean;

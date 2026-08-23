@@ -1,5 +1,5 @@
 import { Box } from '@rocket.chat/fuselage';
-import type { ReactElement, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 import { useDarkMode } from '../../DarkModeProvider';
 
@@ -7,15 +7,15 @@ const HorizontalWizardLayoutCaption = ({
   children,
 }: {
   children: ReactNode;
-}): ReactElement => {
+}) => {
   const isDark = useDarkMode();
   return (
     <Box
       display='inline-block'
       flexDirection='row'
       fontScale='c1'
-      color={isDark ? 'font-white' : 'font-secondary-info'}
-      mb={16}
+      color={isDark ? 'white' : 'secondary-info'}
+      marginBlock={16}
       alignItems='center'
     >
       {children}
