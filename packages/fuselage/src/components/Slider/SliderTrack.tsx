@@ -1,6 +1,7 @@
 import { css } from '@rocket.chat/css-in-js';
 import type { DOMAttributes, MutableRefObject, ReactNode } from 'react';
 import { useMemo } from 'react';
+import { useLocale } from 'react-aria';
 import type { SliderState } from 'react-stately';
 
 import { Palette } from '../../Theme';
@@ -34,37 +35,27 @@ export const SliderTrack = ({
   );
 
   const getThumbPosition = useMemo(
-    () => (value: number) => {
-      const maxValue = state.getThumbMaxValue(1) || state.getThumbMaxValue(0);
-      const minValue = state.getThumbMinValue(0);
-      return (value / (maxValue - minValue)) * 100;
-    },
+    () => (index: number) => state.getThumbPercent(index) * 100,
     [state],
   );
 
+  const { direction } = useLocale();
+
   const getTrackGradient = () => {
+    const gradientDirection = direction === 'rtl' ? 'to left' : 'to right';
+
     if (isHorizontal) {
       return multiThumb
-        ? `to right, ${light} ${getThumbPosition(
-            state.values[0],
-          )}%, ${highlight} 0, ${highlight} ${getThumbPosition(
-            state.values[1],
-          )}%, ${light} 0`
-        : `to right, ${highlight}  ${getThumbPosition(
-            state.values[0],
-          )}%, ${light} 0%`;
+        ? `${gradientDirection}, ${light} ${getThumbPosition(
+            0,
+          )}%, ${highlight} 0, ${highlight} ${getThumbPosition(1)}%, ${light} 0`
+        : `${gradientDirection}, ${highlight} ${getThumbPosition(0)}%, ${light} 0`;
     }
 
     if (isVertical) {
       return multiThumb
-        ? `to top, ${light} ${getThumbPosition(
-            state.values[0],
-          )}%, ${highlight} 0, ${highlight} ${getThumbPosition(
-            state.values[1],
-          )}%, ${light} 0`
-        : `to top, ${highlight}  ${getThumbPosition(
-            state.values[0],
-          )}%, ${light} 0%`;
+        ? `to top, ${light} ${getThumbPosition(0)}%, ${highlight} 0, ${highlight} ${getThumbPosition(1)}%, ${light} 0`
+        : `to top, ${highlight} ${getThumbPosition(0)}%, ${light} 0`;
     }
 
     return undefined;
