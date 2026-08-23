@@ -6,8 +6,8 @@ import { I18nProvider } from 'react-aria';
 
 import { render } from '../../testing';
 
-import * as stories from './Slider.stories';
 import Slider from './Slider';
+import * as stories from './Slider.stories';
 
 const { Default, WithLabel, MultiThumb, WithDefaultValue } =
   composeStories(stories);
@@ -20,9 +20,11 @@ const getInjectedGradients = (): string[] => {
     Array.from(sheet.cssRules).map((rule) => rule.cssText),
   );
 
-  return [...fromStyleTags, ...fromStyleSheets]
-    .join('\n')
-    .match(/linear-gradient\([^;]*\)/g) ?? [];
+  return (
+    [...fromStyleTags, ...fromStyleSheets]
+      .join('\n')
+      .match(/linear-gradient\([^;]*\)/g) ?? []
+  );
 };
 
 // The css-in-js stylesheet is shared across tests, so only gradients that
@@ -31,7 +33,12 @@ const renderAndCollectGradients = (ui: ReactElement) => {
   const before = new Set(getInjectedGradients());
   const result = render(ui);
 
-  return { result, gradients: getInjectedGradients().filter((gradient) => !before.has(gradient)) };
+  return {
+    result,
+    gradients: getInjectedGradients().filter(
+      (gradient) => !before.has(gradient),
+    ),
+  };
 };
 
 describe('[Slider Component]', () => {
@@ -74,7 +81,12 @@ describe('[Slider Component]', () => {
 
   it('should position the track fill relative to minValue', () => {
     const { gradients } = renderAndCollectGradients(
-      <Slider aria-label='range' minValue={50} maxValue={150} defaultValue={100} />,
+      <Slider
+        aria-label='range'
+        minValue={50}
+        maxValue={150}
+        defaultValue={100}
+      />,
     );
 
     const fillGradient = gradients.find((gradient) =>
