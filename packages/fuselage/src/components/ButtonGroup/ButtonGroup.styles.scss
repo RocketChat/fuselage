@@ -1,5 +1,6 @@
 @use '../../styles/lengths.scss';
 @use '../../styles/colors.scss';
+@use '../../styles/variables/button-colors.scss';
 @use '../../styles/mixins/button.scss';
 @use '../../styles/mixins/states.scss' as *;
 
@@ -80,11 +81,7 @@
 
     // Covered by opaque buttons; shows through ghost segments. Translucency
     // lives in the color — `opacity` here would fade the children.
-    background-color: color-mix(
-      in srgb,
-      #{colors.button(secondary-default)} 60%,
-      transparent
-    );
+    background-color: button-colors.$button-group-joined-background-color;
 
     gap: 0;
 
@@ -101,29 +98,17 @@
 
       @include on-focus-visible {
         border-color: transparent;
-        background-color: color-mix(
-          in srgb,
-          #{colors.button(secondary-focus)} 60%,
-          transparent
-        );
+        background-color: button-colors.$button-ghost-focus-background-color;
       }
 
       @include on-hover {
         border-color: transparent;
-        background-color: color-mix(
-          in srgb,
-          #{colors.button(secondary-hover)} 60%,
-          transparent
-        );
+        background-color: button-colors.$button-ghost-hover-background-color;
       }
 
       @include on-active {
         border-color: transparent;
-        background-color: color-mix(
-          in srgb,
-          #{colors.button(secondary-press)} 60%,
-          transparent
-        );
+        background-color: button-colors.$button-ghost-active-background-color;
       }
     }
   }
