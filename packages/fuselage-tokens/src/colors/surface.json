@@ -41,6 +41,20 @@
       "featuredHover": { "value": "#4A105D", "type": "color" },
       "sidebar": { "value": "#2F343D", "type": "color" },
       "overlay": { "value": "rgba(0, 0, 0, 0.6)", "type": "color" }
+    },
+    "dark-alpha": {
+      "light": { "value": "rgba(42, 47, 55, 0.92)", "type": "color" },
+      "tint": { "value": "#1F2329", "type": "color" },
+      "room": { "value": "#1F2329", "type": "color" },
+      "neutral": { "value": "rgba(255, 255, 255, 0.08)", "type": "color" },
+      "disabled": { "value": "rgba(255, 255, 255, 0.04)", "type": "color" },
+      "hover": { "value": "rgba(255, 255, 255, 0.06)", "type": "color" },
+      "selected": { "value": "rgba(255, 255, 255, 0.14)", "type": "color" },
+      "dark": { "value": "rgba(228, 231, 234, 0.96)", "type": "color" },
+      "featured": { "value": "rgba(95, 20, 119, 0.9)", "type": "color" },
+      "featuredHover": { "value": "rgba(74, 16, 93, 0.95)", "type": "color" },
+      "sidebar": { "value": "#1A1D22", "type": "color" },
+      "overlay": { "value": "rgba(0, 0, 0, 0.7)", "type": "color" }
     }
   }
 }

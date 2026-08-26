@@ -38,6 +38,22 @@
       "danger": { "value": "#D88892", "type": "color" },
       "pureWhite": { "value": "{colors.white}" },
       "pureBlack": { "value": "{colors.n900}" }
+    },
+    "dark-alpha": {
+      "white": { "value": "#2F343D", "type": "color" },
+      "disabled": { "value": "rgba(255, 255, 255, 0.36)", "type": "color" },
+      "annotation": { "value": "rgba(255, 255, 255, 0.62)", "type": "color" },
+      "hint": { "value": "rgba(255, 255, 255, 0.62)", "type": "color" },
+      "secondaryInfo": {
+        "value": "rgba(255, 255, 255, 0.62)",
+        "type": "color"
+      },
+      "default": { "value": "rgba(255, 255, 255, 0.8)", "type": "color" },
+      "titlesLabels": { "value": "rgba(255, 255, 255, 0.92)", "type": "color" },
+      "info": { "value": "#739EDE", "type": "color" },
+      "danger": { "value": "#D88892", "type": "color" },
+      "pureWhite": { "value": "{colors.white}" },
+      "pureBlack": { "value": "{colors.n900}" }
     }
   }
 }
