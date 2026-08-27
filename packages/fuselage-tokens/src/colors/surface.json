@@ -138,7 +138,7 @@
         "type": "color"
       },
       "room": {
-        "value": "rgba(0, 0, 0, 0.1)",
+        "value": "#17181A",
         "type": "color"
       },
       "neutral": {
@@ -170,7 +170,7 @@
         "type": "color"
       },
       "sidebar": {
-        "value": "rgba(255, 255, 255, 0.045)",
+        "value": "#212224",
         "type": "color"
       },
       "overlay": {
