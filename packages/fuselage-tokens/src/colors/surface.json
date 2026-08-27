@@ -43,17 +43,17 @@
       "overlay": { "value": "rgba(0, 0, 0, 0.6)", "type": "color" }
     },
     "dark-alpha": {
-      "light": { "value": "rgba(0, 0, 0, 0.55)", "type": "color" },
-      "tint": { "value": "#1F2329", "type": "color" },
-      "room": { "value": "rgba(255, 255, 255, 0.02)", "type": "color" },
-      "neutral": { "value": "rgba(255, 255, 255, 0.08)", "type": "color" },
+      "light": { "value": "rgba(44, 46, 50, 0.86)", "type": "color" },
+      "tint": { "value": "#17181A", "type": "color" },
+      "room": { "value": "rgba(255, 255, 255, 0.03)", "type": "color" },
+      "neutral": { "value": "rgba(255, 255, 255, 0.1)", "type": "color" },
       "disabled": { "value": "rgba(255, 255, 255, 0.04)", "type": "color" },
-      "hover": { "value": "rgba(255, 255, 255, 0.06)", "type": "color" },
-      "selected": { "value": "rgba(255, 255, 255, 0.14)", "type": "color" },
+      "hover": { "value": "rgba(255, 255, 255, 0.08)", "type": "color" },
+      "selected": { "value": "rgba(255, 255, 255, 0.15)", "type": "color" },
       "dark": { "value": "rgba(228, 231, 234, 0.96)", "type": "color" },
       "featured": { "value": "rgba(95, 20, 119, 0.9)", "type": "color" },
       "featuredHover": { "value": "rgba(74, 16, 93, 0.95)", "type": "color" },
-      "sidebar": { "value": "rgba(0, 0, 0, 0.25)", "type": "color" },
+      "sidebar": { "value": "rgba(0, 0, 0, 0.18)", "type": "color" },
       "overlay": { "value": "rgba(0, 0, 0, 0.7)", "type": "color" }
     }
   }
