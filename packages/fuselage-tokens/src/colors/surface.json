@@ -43,7 +43,7 @@
       "overlay": { "value": "rgba(0, 0, 0, 0.6)", "type": "color" }
     },
     "dark-alpha": {
-      "light": { "value": "rgba(42, 47, 55, 0.92)", "type": "color" },
+      "light": { "value": "rgba(0, 0, 0, 0.55)", "type": "color" },
       "tint": { "value": "#1F2329", "type": "color" },
       "room": { "value": "rgba(255, 255, 255, 0.02)", "type": "color" },
       "neutral": { "value": "rgba(255, 255, 255, 0.08)", "type": "color" },
