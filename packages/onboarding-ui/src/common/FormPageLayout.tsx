@@ -9,7 +9,6 @@ import {
 import type { ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 
-// import { OnboardingLogo } from './OnboardingLogo';
 import type { FormPageLayoutStyleProps } from '../Types';
 
 type FormPageLayoutProps = {
