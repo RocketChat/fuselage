@@ -102,11 +102,11 @@
         "type": "color"
       },
       "light": {
-        "value": "rgba(255, 255, 255, 0.35)",
+        "value": "rgba(255, 255, 255, 0.16)",
         "type": "color"
       },
       "medium": {
-        "value": "rgba(255, 255, 255, 0.48)",
+        "value": "rgba(255, 255, 255, 0.36)",
         "type": "color"
       },
       "dark": {
