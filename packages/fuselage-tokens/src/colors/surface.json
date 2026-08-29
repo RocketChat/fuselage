@@ -134,7 +134,7 @@
         "type": "color"
       },
       "tint": {
-        "value": "#17181A",
+        "value": "rgba(23, 24, 26, 0.78)",
         "type": "color"
       },
       "room": {
