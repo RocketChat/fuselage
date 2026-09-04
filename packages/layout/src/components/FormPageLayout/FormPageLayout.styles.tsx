@@ -98,16 +98,17 @@ export const TitleHighlight = styled(
   display: inline-block;
 `;
 
-const SubTitleFormPageProps = ({
-  fontColor: _fontColor,
-  fontWeight: _fontWeight,
-  ...props
-}: {
-  fontColor?: string;
-  fontWeight?: string;
-}) => props;
-
-export const Subtitle = styled('h2', SubTitleFormPageProps)`
+export const Subtitle = styled(
+  'h2',
+  ({
+    fontColor: _fontColor,
+    fontWeight: _fontWeight,
+    ...props
+  }: {
+    fontColor?: string;
+    fontWeight?: string;
+  }) => props,
+)`
   font-size: ${String(16 / 16)}rem;
   line-height: ${String(22 / 16)}rem;
   font-family: ${sans};
