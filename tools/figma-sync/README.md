@@ -1,0 +1,350 @@
+# @rocket.chat/figma-sync
+
+Generates Fuselage's Figma component library from Storybook. Replaces
+story.to.design with something that understands our token architecture.
+
+## The short version
+
+**Every script here is generic and you never edit one.** The only per-component
+thing is a single entry in `components.json`.
+
+When a component is added to Fuselage, CI fails with `untriaged: <Name>` until
+you put it in one of three buckets. That is the whole maintenance burden: one
+entry per component, once.
+
+```
+                      ┌─ generic, never edited ────────────────────────┐
+components.json  ───► │ extract.mjs ──► measure.js (runs in the page)  │ ───► figma-spec.json
+  ▲  one entry        │      │                                         │        (build artifact)
+  │  per component    │      └─ writes figma-spec.snapshot.json        │             │
+  │                   │                                                │             ▼
+  │                   │ emit-apply.mjs ──► apply.js (runs in Figma)    │ ◄───────────┘
+  │                   │ selfcheck.mjs   (no browser, no Figma)         │
+  └─ add-component ── │ add-component.mjs                             │
+     proposes it      └────────────────────────────────────────────────┘
+```
+
+## Which script do I run?
+
+| Script              | Needs     | You run it                                 | What it is                            |
+| ------------------- | --------- | ------------------------------------------ | ------------------------------------- |
+| `add-component.mjs` | Storybook | once, per new component                    | proposes a `components.json` entry    |
+| `extract.mjs`       | Storybook | after changing a component, and CI runs it | measures everything, writes the spec  |
+| `selfcheck.mjs`     | nothing   | CI, every PR (`yarn check`)                | config and invariant checks           |
+| `emit-apply.mjs`    | a spec    | when you want to push to Figma             | generates the apply scripts           |
+| `measure.js`        | —         | never directly                             | library, runs inside the browser page |
+| `apply.js`          | —         | never directly                             | library, runs inside Figma            |
+
+`measure.js` and `apply.js` are the two that do the real work, and neither is
+executable on its own: one is injected into the page by Playwright, the other into
+Figma by the plugin or the MCP call.
+
+## Lifecycle of a new component
+
+1. Someone adds `Foo` to Fuselage. `yarn check` starts failing: `1 untriaged: Foo`.
+2. `node src/add-component.mjs Foo --url http://localhost:6006` prints a proposed
+   entry — story id, root class, candidate axes.
+3. You review the judgement calls it refuses to make (which axes are visual,
+   whether booleans are mutually exclusive, what sample args it needs) and put the
+   entry in `components.json`.
+4. `node src/extract.mjs --url http://localhost:6006 --only Foo`. The checks decide:
+   - clean → keep it, then re-run without `--only` and `--update-snapshot`, commit
+   - `error`-level finding → move it to `skipped` with the reason. Not a failure of
+     the config; three of the known gaps only show up at this point.
+5. To get it into Figma: `node src/emit-apply.mjs`, then run the generated script
+   for that component through the Figma MCP (or the plugin).
+
+Step 4 is the one that matters. The tool never decides that a component is fine —
+it either measures it or refuses.
+
+## What is _not_ generic
+
+The measurement generalises to any component whose appearance lives on one element
+as solid colours. Three gaps decide whether a new component is acceptable, and the
+checks name which one you hit:
+
+- **Child nodes.** ProgressBar's colour is on the child bar; Throbber's dots are
+  children. The root measures identically across variants.
+- **Non-solid paints.** Skeleton is an animated gradient, Tile's elevation is a
+  `box-shadow`. Neither survives a `background-color` read.
+- **SVG and transforms.** StatusBullet's colour is a `path` fill; Chevron's
+  direction is `transform: rotate()`.
+
+All the logic lives in the extractor. The apply step makes no design decisions —
+every value it writes comes from the spec. **If output looks wrong, fix the
+extractor, not the apply step.**
+
+## Who can apply the spec
+
+Two ways, and the choice decides whether `plugin/` is worth keeping.
+
+|                         | Triggered by                  | Needs Figma open | Maintains a plugin |
+| ----------------------- | ----------------------------- | ---------------- | ------------------ |
+| Figma MCP (`use_figma`) | a dev in Claude Code / Cursor | no               | no                 |
+| `plugin/`               | anyone, including designers   | yes              | yes                |
+
+The remote Figma MCP server writes to the canvas server-side, with no desktop app
+and no open editor — the variants currently in the file were applied that way,
+not through the plugin. So if only engineers ever trigger a sync, the plugin is
+redundant.
+
+**Neither can run in CI**, and the reason is authentication, not headlessness:
+
+- The MCP server is OAuth-only. Figma support, verbatim: "Figma's MCP server does
+  not support authentication using personal access tokens and this cannot be
+  enabled." It also enforces a client allowlist — only clients in the Figma MCP
+  Catalog (VS Code, Cursor, Claude Code…) may connect, which a GitHub Action is not.
+- The REST API cannot create or modify nodes at all. It covers file JSON, comments,
+  variables, dev resources, webhooks and analytics — not canvas content.
+
+So CI generates and publishes the spec; a human applies it. The one thing that
+_could_ be fully automated is the token collections, via `POST /v1/files/:key/variables`
+with a plan access token (org-scoped, CI-oriented) — but that endpoint needs an
+Enterprise plan.
+
+## Why not just read computed styles
+
+`getComputedStyle` resolves `var()` away, leaving only a hex. An extractor that
+sees `#156FF5` has to guess which variable to bind, and guesses wrong whenever
+two tokens share a value — Fuselage has 11 such collisions.
+
+The CSSOM still holds the _authored_ declaration, and Fuselage stacks three
+layers:
+
+```css
+var(--rcx-button-primary-background-color,             /* override hook, never declared */
+  var(--rcx-color-button-background-primary-default,   /* component token, DECLARED     */
+    var(--rcx-color-blue-500, #156FF5)))               /* primitive, never declared     */
+```
+
+Walking that chain to the first **declared** custom property yields the binding
+the code actually means. That is the whole trick, and it is why this beats a
+generic DOM-to-Figma converter for a design system.
+
+Two consequences worth knowing:
+
+- Primitives are compile-time only. They never exist as runtime custom
+  properties, so they are never a binding target — only a fallback value.
+- Not everything is tokenized. Button's `warning`, `secondary-warning` and
+  `secondary-success` variants have no `button-*` custom property, and
+  `border-width` / `border-radius` have none anywhere. Those fall back to
+  matching a variable by value, which the extractor reports as a warning.
+
+## Usage
+
+**`--static` is the authoritative source.** The dev server does not serve the
+RocketChat icon font, so anything using a glyph measures with fallback metrics —
+FramedIcon came out 22px wide instead of 28. The extractor now refuses to run
+(exit 3) when a web font is in `error` state rather than emitting plausible-looking
+wrong numbers. The committed snapshot must always come from `--static`.
+
+```bash
+yarn turbo run build-storybook --filter=@rocket.chat/fuselage
+node src/extract.mjs --static ../../packages/fuselage/storybook-static
+```
+
+The dev server is fine for iterating on components that use no icon font; pass
+`--allow-font-errors` to proceed anyway, and do not update the snapshot from it:
+
+```bash
+node src/extract.mjs --url http://localhost:6006 --only Tag --allow-font-errors
+```
+
+Flags: `--url`, `--static`, `--out`, `--config`, `--only <ComponentName>`.
+
+First run needs the browser: `node node_modules/playwright/cli.js install chromium`.
+
+## Adding a component
+
+The measurement is generic; the configuration is not. Every component needs a
+`components.json` entry, so a component added to Fuselage does not appear here on
+its own — `yarn check` fails until it is triaged into one of three buckets:
+
+| Bucket       | Meaning                                                              |
+| ------------ | -------------------------------------------------------------------- |
+| `components` | shipped, measures correctly                                          |
+| `skipped`    | tried, the checks rejected it, reason recorded                       |
+| `outOfScope` | a composite or layout container we will not attempt, reason recorded |
+
+Start with the scaffold. It derives the mechanical parts — story id, root class
+from the component's `.styles.scss`, and candidate axes from `argTypes`:
+
+```bash
+node src/add-component.mjs Chip --url http://localhost:6006
+node src/add-component.mjs Chip --url http://localhost:6006 --write
+```
+
+What it deliberately leaves to you, because guessing wrong here ships a wrong
+library: which axes are actually _visual_ (Tooltip's `placement` has 11 options
+and changes nothing about the component), which booleans are mutually exclusive
+and need `oneOf`, and what sample `args` make it render meaningfully.
+
+Then measure it and let the checks decide:
+
+```bash
+node src/extract.mjs --url http://localhost:6006 --only Chip
+```
+
+An `error`-level finding means it does not measure — move it to `skipped` with
+the reason rather than shipping it. Three real outcomes from doing exactly this:
+
+- **InputBox** measured cleanly and was kept.
+- **Throbber** — all four variants identical. The dots are children with their own
+  background; the root is a transparent flex wrapper.
+- **Chevron** — 2 distinct renderings out of 5, because `direction` is
+  `transform: rotate()`, which the extractor does not measure.
+
+The entry format:
+
+```json
+{
+  "name": "Tag",
+  "storyId": "data-display-tag--default",
+  "axes": ["variant", "medium", "large"],
+  "args": { "children": "Tag" },
+  "rootSelector": ".rcx-tag"
+}
+```
+
+- `axes` — which args become Figma variant axes. Values come from the story's
+  `argTypes`: a `select` contributes its options, a `boolean` contributes
+  `[false, true]`. Only list args that change appearance (skip `is`, `href`).
+- `rootSelector` — **required.** The story root is a css-in-js `Box` wrapper, not
+  the component; without this you measure a transparent div. Take the root class
+  from the component's `.styles.scss`.
+- `axisValues` — override the values for an axis. `null` means "omit the arg",
+  which is how Fuselage spells an unnamed default (Button at 40px has no size
+  class). Order the values the way the grid should read: Button uses
+  `["small", "medium", null, "large"]` because the unnamed default is 40px, which
+  sits between `medium` (32) and `large` (48). Put `null` first and the variant
+  grid stops being monotonic, which looks exactly like a missing size.
+- `axisLabels` — rename a value in the Figma variant name, e.g. `null` → `default`.
+- `oneOf` — collapses mutually exclusive boolean args into one axis. Fuselage
+  spells some variants and sizes as separate booleans (`Tag` has `medium` and
+  `large`; `FramedIcon` has `info`/`success`/`warning`/`danger`/`neutral`), and
+  crossing those independently generates nonsense combinations like
+  `medium=true, large=true`. `{"size": {"args": ["medium","large"], "noneLabel": "small"}}`
+  produces exactly three variants and sets at most one arg true.
+- `fluidWidth` — opts a component into stretch detection. It is applied **per
+  variant**, not per component: the measured width only counts as fluid when it
+  matches the story canvas. A vertical `Divider` is 1px wide while a horizontal
+  one fills, and a per-component flag would stretch both.
+
+## What makes this deterministic
+
+AI and MCP are fine as transport. No claim about correctness is allowed to depend
+on judgement — each one is a check that fails loudly. The design rule:
+
+> AI decides once, config records it, the pipeline replays it.
+
+Picking a `rootSelector`, deciding which args are axes, writing a `subtitle` — all
+good uses of a model. But the answer is frozen into `components.json`, reviewed in
+a PR, and from then on nothing in the hot path decides anything.
+
+| Guarantee                                  | Enforced by                      | Fails how                        |
+| ------------------------------------------ | -------------------------------- | -------------------------------- |
+| Config is well-formed, skips are justified | `yarn check`                     | non-zero exit                    |
+| `plugin/code.js` matches `src/apply.js`    | `yarn check`                     | regenerates, then fails          |
+| `apply.js` keeps its two invariants        | `yarn check`                     | greps the code, not the comments |
+| Spec shape is valid                        | `validateSpec` in `extract.mjs`  | exit 1, names the path           |
+| A component measured wrong                 | `error`-level finding            | exit 1                           |
+| A measured value changed                   | committed snapshot diff          | exit 2, prints the diff          |
+| Re-applying is a no-op                     | `--twice` scripts                | `idempotent: false`              |
+| Measurements reproduce across machines     | Chromium pinned via the lockfile | —                                |
+
+**The idempotency contract is the load-bearing one.** `applySpec` reads before it
+writes and counts real changes, so applying the same spec twice must report
+`changes: 0` the second time. Generate the proof scripts with:
+
+```bash
+node src/emit-apply.mjs --twice   # one script per component, into .apply/
+```
+
+Run one through `use_figma` and check `idempotent: true`. This is what catches
+code that folds current state into the target — the class of bug where output
+silently depends on history.
+
+Two things the snapshot deliberately does **not** record, both because they are
+rendering outcomes rather than design decisions, and both learned from a red CI:
+
+- **Width of anything containing text.** Inter is declared but never loaded in the
+  Storybook build, so text falls back to a system face — and those differ between
+  macOS and Linux. Tag measured `32x22` locally and `34x22` on the runner, which
+  made the contract unsatisfiable. These components are auto-layout HUG in Figma
+  anyway; padding, height, minWidth and font metrics are what pin the design.
+- **Absolute width where the glyph decides it.** Same rule covers FramedIcon,
+  whose width is set by the icon glyph.
+
+**The snapshot is the second one.** `figma-spec.snapshot.json` is committed. Any
+change to a measured geometry or token binding fails the extractor with a line
+diff, so it lands as a reviewable change in a PR rather than propagating quietly.
+Re-run with `--update-snapshot` and commit when the change is intended.
+
+## Gotchas the hard way
+
+Bugs that produced plausible-looking but wrong output. All fixed; listed because
+each one passed a naive audit, and each now has a check that would catch it.
+
+- **Paints must carry the measured colour AND the alpha.**
+  `setBoundVariableForPaint` does not touch the literal colour, and Figma renders
+  that literal whenever it fails to resolve the alias. Seeding black rendered
+  every Button solid black with a perfectly correct binding in the panel. Dropping
+  the alpha turned `border: 1px solid transparent` into a black outline on every
+  Tag.
+- **Variant property names are capitalised** (`Variant=primary, Size=default`).
+  Emit them lower-case and a re-sync creates a duplicate set instead of updating.
+- **Never fold the current node size into the new size.** `Math.max(target,
+comp.width)` makes a re-sync depend on prior state, so a variant can never
+  shrink back down.
+- **A gradient or image background reads as a transparent `background-color`.**
+  Skeleton's animated shimmer measured as blank and shipped invisible. Only solid
+  paints are emitted, and the extractor now refuses rather than shipping empty.
+
+Keep the matrix under ~30 variants where you can.
+
+**Then read the warnings.** Two of them mean "do not ship this component":
+
+- _ALL n variants measured identically_ — the axes have no effect on
+  `rootSelector`, so the differentiator is in a child, a pseudo-element, or an
+  SVG fill. Root-only measurement cannot see it.
+- _only k distinct renderings across n variants_ — same problem, partially.
+
+`components.json` has a `skipped` array recording every component that failed
+this way and why. Read it before re-adding one.
+
+## The plugin
+
+`plugin/` is a private org plugin: Figma → Plugins → Development → Import from
+manifest, then publish privately.
+
+It updates variant sets **in place**, matching by variant name, so instances in
+other files keep working. Variant names present in Figma but absent from the spec
+are reported as orphaned and left alone — it never deletes.
+
+Token collections must already exist in the target file; the plugin binds to
+them, it does not create them.
+
+## Scope
+
+Phase A ships 11 components / 102 variants: Button, Tag, Badge, Callout, Banner,
+Chip, Label, FramedIcon, Divider, Tooltip, InputBox.
+
+Fourteen more were tried and rejected — see `skipped` in `components.json`. They
+cluster into three fixable gaps, in rough order of value:
+
+1. **Child-node measurement.** ProgressBar's variant colour is on the child bar;
+   CheckBox / RadioButton / ToggleSwitch put their state on a child `<i>`;
+   CodeSnippet's `buttonDisabled` affects a child button. The extractor measures
+   one element, so all of these read as identical variants.
+2. **Shadow extraction.** Tile's `elevation` maps to `box-shadow`, which is not
+   captured — its 5 variants measure as 2. Fuselage's `shadow-elevation-*` tokens
+   are already published in Figma, so this is mostly plumbing.
+3. **SVG / vectors.** StatusBullet is an SVG whose colour is a `path` fill.
+   Icons live here too.
+
+Composites (Table, Modal, Contextualbar, Sidebar) are unlikely to ever be fully
+automatic — author those in Figma by hand.
+
+Also note `Avatar` is skipped for a different reason: its `size` arg is not
+applied by the story at all, so it is a Storybook bug rather than an extractor
+limitation.

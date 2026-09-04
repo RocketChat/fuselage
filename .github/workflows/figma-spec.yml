@@ -1,0 +1,179 @@
+name: Figma spec
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'packages/fuselage/src/**'
+      - 'packages/fuselage-tokens/**'
+      - 'tools/figma-sync/**'
+  pull_request:
+    paths:
+      - 'packages/fuselage/src/**'
+      - 'packages/fuselage-tokens/**'
+      - 'tools/figma-sync/**'
+  workflow_dispatch:
+
+# The spec is a build artifact, not a Figma write. Applying it has to be triggered
+# by a human — not because Figma lacks a headless write path (the remote MCP server
+# has one), but because that server is OAuth-only with a client allowlist, and the
+# REST API cannot create or modify nodes at all.
+#
+# What this job does guarantee: the spec is never stale, never malformed, and never
+# changes without a reviewable diff.
+jobs:
+  selfcheck:
+    name: Config and invariant checks
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+        with:
+          node-version: '22.22.3'
+          cache: yarn
+      - run: yarn install --immutable
+      # No browser and no Figma needed: config shape, apply.js invariants, and the
+      # committed snapshot's internal consistency.
+      - run: yarn workspace @rocket.chat/figma-sync check
+
+  build-spec:
+    name: Extract component spec from Storybook
+    runs-on: ubuntu-latest
+    needs: selfcheck
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      # Pinned to match cd.yml — there is no .nvmrc in this repo.
+      - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+        with:
+          node-version: '22.22.3'
+          cache: yarn
+
+      - run: yarn install --immutable
+
+      # Must go through Turbo, not `yarn workspace ... build-storybook`. turbo.json
+      # declares `build-storybook: dependsOn ["^build"]`, and calling the workspace
+      # script directly skips that graph — so workspace packages that Storybook
+      # resolves as compiled output are never built. It fails on
+      # `packages/storybook-dark-mode/preset.js` requiring './dist/esm/preset/manager'.
+      - name: Build Storybook
+        run: yarn turbo run build-storybook --filter=@rocket.chat/fuselage --cache-dir=".turbo"
+
+      # The Chromium build is pinned by the playwright version in the lockfile,
+      # which is what makes the measurements reproducible across machines.
+      - name: Install Chromium
+        run: node node_modules/playwright/cli.js install --with-deps chromium
+
+      # Exits 1 on an `error` finding (a component that measured wrong) and 2 on a
+      # snapshot mismatch (a measured value changed). Both should block a merge
+      # until either the config or the committed snapshot is updated.
+      # continue-on-error plus an explicit re-raise at the end: we want to comment
+      # on the PR before failing, because a snapshot mismatch is exactly the moment
+      # the Figma file has gone stale and somebody needs to re-sync it.
+      - name: Extract spec
+        id: extract
+        continue-on-error: true
+        run: |
+          set +e
+          node tools/figma-sync/src/extract.mjs \
+            --static packages/fuselage/storybook-static \
+            --out figma-spec.json
+          echo "code=$?" >> "$GITHUB_OUTPUT"
+
+      # Guarded on the file, not on the exit code: a snapshot mismatch still writes
+      # a valid spec and is worth checking, an extraction crash writes nothing.
+      - name: Verify the emitted apply scripts fit the use_figma payload cap
+        if: hashFiles('figma-spec.json') != ''
+        run: node tools/figma-sync/src/emit-apply.mjs --spec figma-spec.json --out-dir "$RUNNER_TEMP/apply"
+
+      - name: Summarise
+        if: always()
+        run: |
+          node -e "
+            const fs = require('fs');
+            if (!fs.existsSync('./figma-spec.json')) {
+              fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, '### Figma spec\nExtraction failed before writing a spec.\n');
+              process.exit(0);
+            }
+            const s = require('./figma-spec.json');
+            const v = s.components.flatMap((c) => c.variants);
+            const line = (k) => {
+              const n = v.filter((x) => x.bind[k]).length;
+              return \`| \${k} | \${n}/\${v.length} | \${Math.round((n / v.length) * 100)}% |\`;
+            };
+            const errors = (s.findings || []).filter((f) => f.level === 'error');
+            const infos = (s.findings || []).filter((f) => f.level === 'info');
+            const out = [
+              '### Figma spec',
+              \`\${s.components.length} components, \${v.length} variants\`,
+              '',
+              '| property | bound by token name | |',
+              '|---|---|---|',
+              ...['fill', 'stroke', 'textFill', 'strokeWeight', 'radius'].map(line),
+            ];
+            if (errors.length) {
+              out.push('', \`### \${errors.length} error(s) — do not ship\`, '');
+              out.push(...errors.map((f) => \`- **\${f.component}**: \${f.message}\`));
+            }
+            if (infos.length) {
+              out.push('', '<details><summary>' + infos.length + ' informational note(s)</summary>', '');
+              out.push(...infos.map((f) => \`- \${f.component}: \${f.message}\`));
+              out.push('', '</details>');
+            }
+            fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, out.join('\n') + '\n');
+          "
+
+      # Nothing otherwise tells anyone that Figma drifted: the snapshot guards the
+      # repo, not the design file. Without this the file silently falls behind,
+      # which is how InputBox went missing and FramedIcon kept a wrong width.
+      - name: Tell the PR that Figma needs a re-sync
+        if: github.event_name == 'pull_request' && steps.extract.outputs.code == '2'
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8.0.0
+        with:
+          script: |
+            const marker = '<!-- figma-sync-drift -->';
+            const body = [
+              marker,
+              '### The Figma library is now behind this branch',
+              '',
+              'A measured value or token binding changed, so `figma-spec.snapshot.json` no longer matches. Review the diff in the job log, then:',
+              '',
+              '```bash',
+              'yarn turbo run build-storybook --filter=@rocket.chat/fuselage',
+              'node tools/figma-sync/src/extract.mjs --static packages/fuselage/storybook-static --update-snapshot',
+              'node tools/figma-sync/src/emit-apply.mjs',
+              '```',
+              '',
+              'Commit the updated snapshot, then apply the generated script for each changed component through the Figma MCP or the Fuselage Sync plugin. Until that happens the design file and this branch disagree.',
+            ].join('\n');
+            const { data: comments } = await github.rest.issues.listComments({
+              ...context.repo, issue_number: context.issue.number, per_page: 100,
+            });
+            const existing = comments.find((c) => c.body && c.body.includes(marker));
+            if (existing) {
+              await github.rest.issues.updateComment({ ...context.repo, comment_id: existing.id, body });
+            } else {
+              await github.rest.issues.createComment({ ...context.repo, issue_number: context.issue.number, body });
+            }
+
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        if: always()
+        with:
+          name: figma-spec
+          path: figma-spec.json
+          if-no-files-found: ignore
+
+      # Re-raise whatever the extractor decided, so the gate still blocks.
+      - name: Fail if extraction failed
+        if: steps.extract.outputs.code != '0'
+        env:
+          CODE: ${{ steps.extract.outputs.code }}
+        run: |
+          echo "extract.mjs exited $CODE"
+          exit "$CODE"
