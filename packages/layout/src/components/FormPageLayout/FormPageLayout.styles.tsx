@@ -1,5 +1,6 @@
 import styled from '@rocket.chat/styled';
 
+import { below } from '../../helpers/tokenBreakpoints';
 import { sans } from '../../helpers/tokenFontFamilies';
 
 export const Wrapper = styled('div')`
@@ -70,6 +71,12 @@ export const Title = styled('h1')`
   font-weight: 800;
   line-height: ${String(64 / 16)}rem;
   text-align: center;
+
+  @media ${below('md')} {
+    padding-block-end: 16px;
+    font-size: ${String(24 / 16)}rem;
+    line-height: ${String(32 / 16)}rem;
+  }
 
   @media (min-width: 1440px) {
     text-align: start;
