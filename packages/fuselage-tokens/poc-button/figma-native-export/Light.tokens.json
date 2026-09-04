@@ -1,0 +1,461 @@
+{
+  "Button": {
+    "Background": {
+      "Primary": {
+        "default": {
+          "$type": "color",
+          "$value": {
+            "hex": "#156FF5"
+          },
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "Blue/500"
+            }
+          }
+        },
+        "hover": {
+          "$type": "color",
+          "$value": {
+            "hex": "#095AD2"
+          },
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "Blue/600"
+            }
+          }
+        },
+        "press": {
+          "$type": "color",
+          "$value": {
+            "hex": "#10529E"
+          },
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "Blue/700"
+            }
+          }
+        },
+        "focus": {
+          "$type": "color",
+          "$value": {
+            "hex": "#156FF5"
+          },
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "Blue/500"
+            }
+          }
+        },
+        "keyfocus": {
+          "$type": "color",
+          "$value": {
+            "hex": "#156FF5"
+          },
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "Blue/500"
+            }
+          }
+        },
+        "disabled": {
+          "$type": "color",
+          "$value": {
+            "hex": "#D1EBFE"
+          },
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "Blue/200"
+            }
+          }
+        }
+      },
+      "Secondary": {
+        "default": {
+          "$type": "color",
+          "$value": {
+            "hex": "#E4E7EA"
+          },
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "Neutral/400"
+            }
+          }
+        },
+        "hover": {
+          "$type": "color",
+          "$value": {
+            "hex": "#CBCED1"
+          },
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "Neutral/500"
+            }
+          }
+        },
+        "press": {
+          "$type": "color",
+          "$value": {
+            "hex": "#9EA2A8"
+          },
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "Neutral/600"
+            }
+          }
+        },
+        "focus": {
+          "$type": "color",
+          "$value": {
+            "hex": "#E4E7EA"
+          },
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "Neutral/400"
+            }
+          }
+        },
+        "keyfocus": {
+          "$type": "color",
+          "$value": {
+            "hex": "#E4E7EA"
+          },
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "Neutral/400"
+            }
+          }
+        },
+        "disabled": {
+          "$type": "color",
+          "$value": {
+            "hex": "#EEEFF1"
+          },
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "Neutral/300"
+            }
+          }
+        }
+      },
+      "Secondary danger": {
+        "default": {
+          "$type": "color",
+          "$value": {
+            "hex": "#E4E7EA"
+          },
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "Neutral/400"
+            }
+          }
+        },
+        "hover": {
+          "$type": "color",
+          "$value": {
+            "hex": "#CBCED1"
+          },
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "Neutral/500"
+            }
+          }
+        },
+        "press": {
+          "$type": "color",
+          "$value": {
+            "hex": "#9EA2A8"
+          },
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "Neutral/600"
+            }
+          }
+        },
+        "focus": {
+          "$type": "color",
+          "$value": {
+            "hex": "#E4E7EA"
+          },
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "Neutral/400"
+            }
+          }
+        },
+        "keyfocus": {
+          "$type": "color",
+          "$value": {
+            "hex": "#E4E7EA"
+          },
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "Neutral/400"
+            }
+          }
+        },
+        "disabled": {
+          "$type": "color",
+          "$value": {
+            "hex": "#EEEFF1"
+          },
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "Neutral/300"
+            }
+          }
+        }
+      },
+      "Danger": {
+        "default": {
+          "$type": "color",
+          "$value": {
+            "hex": "#EC0D2A"
+          },
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "Red/500"
+            }
+          }
+        },
+        "hover": {
+          "$type": "color",
+          "$value": {
+            "hex": "#D40C26"
+          },
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "Red/600"
+            }
+          }
+        },
+        "press": {
+          "$type": "color",
+          "$value": {
+            "hex": "#BB0B21"
+          },
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "Red/700"
+            }
+          }
+        },
+        "focus": {
+          "$type": "color",
+          "$value": {
+            "hex": "#EC0D2A"
+          },
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "Red/500"
+            }
+          }
+        },
+        "keyfocus": {
+          "$type": "color",
+          "$value": {
+            "hex": "#EC0D2A"
+          },
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "Red/500"
+            }
+          }
+        },
+        "disabled": {
+          "$type": "color",
+          "$value": {
+            "hex": "#FFC1C9"
+          },
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "Red/200"
+            }
+          }
+        }
+      },
+      "Success": {
+        "default": {
+          "$type": "color",
+          "$value": {
+            "hex": "#148660"
+          },
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "Green/800"
+            }
+          }
+        },
+        "hover": {
+          "$type": "color",
+          "$value": {
+            "hex": "#106D4F"
+          },
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "Green/900"
+            }
+          }
+        },
+        "press": {
+          "$type": "color",
+          "$value": {
+            "hex": "#0D5940"
+          },
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "Green/1000"
+            }
+          }
+        },
+        "focus": {
+          "$type": "color",
+          "$value": {
+            "hex": "#148660"
+          },
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "Green/800"
+            }
+          }
+        },
+        "keyfocus": {
+          "$type": "color",
+          "$value": {
+            "hex": "#148660"
+          },
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "Green/800"
+            }
+          }
+        },
+        "disabled": {
+          "$type": "color",
+          "$value": {
+            "hex": "#C0F6E4"
+          },
+          "$extensions": {
+            "com.figma.aliasData": {
+              "targetVariableName": "Green/200"
+            }
+          }
+        }
+      }
+    },
+    "Font": {
+      "on-primary": {
+        "$type": "color",
+        "$value": {
+          "hex": "#FFFFFF"
+        },
+        "$extensions": {
+          "com.figma.aliasData": {
+            "targetVariableName": "Neutral/white"
+          }
+        }
+      },
+      "on-secondary": {
+        "$type": "color",
+        "$value": {
+          "hex": "#1F2329"
+        },
+        "$extensions": {
+          "com.figma.aliasData": {
+            "targetVariableName": "Neutral/900"
+          }
+        }
+      },
+      "on-secondary-danger": {
+        "$type": "color",
+        "$value": {
+          "hex": "#BB0B21"
+        },
+        "$extensions": {
+          "com.figma.aliasData": {
+            "targetVariableName": "Red/700"
+          }
+        }
+      },
+      "on-danger": {
+        "$type": "color",
+        "$value": {
+          "hex": "#FFFFFF"
+        },
+        "$extensions": {
+          "com.figma.aliasData": {
+            "targetVariableName": "Neutral/white"
+          }
+        }
+      },
+      "on-success": {
+        "$type": "color",
+        "$value": {
+          "hex": "#FFFFFF"
+        },
+        "$extensions": {
+          "com.figma.aliasData": {
+            "targetVariableName": "Neutral/white"
+          }
+        }
+      },
+      "on-primary-disabled": {
+        "$type": "color",
+        "$value": {
+          "hex": "#FFFFFF"
+        },
+        "$extensions": {
+          "com.figma.aliasData": {
+            "targetVariableName": "Neutral/white"
+          }
+        }
+      },
+      "on-secondary-disabled": {
+        "$type": "color",
+        "$value": {
+          "hex": "#CBCED1"
+        },
+        "$extensions": {
+          "com.figma.aliasData": {
+            "targetVariableName": "Neutral/500"
+          }
+        }
+      },
+      "on-secondary-danger-disabled": {
+        "$type": "color",
+        "$value": {
+          "hex": "#F98F9D"
+        },
+        "$extensions": {
+          "com.figma.aliasData": {
+            "targetVariableName": "Red/300"
+          }
+        }
+      },
+      "on-danger-disabled": {
+        "$type": "color",
+        "$value": {
+          "hex": "#FFFFFF"
+        },
+        "$extensions": {
+          "com.figma.aliasData": {
+            "targetVariableName": "Neutral/white"
+          }
+        }
+      },
+      "on-success-disabled": {
+        "$type": "color",
+        "$value": {
+          "hex": "#FFFFFF"
+        },
+        "$extensions": {
+          "com.figma.aliasData": {
+            "targetVariableName": "Neutral/white"
+          }
+        }
+      }
+    }
+  },
+  "$extensions": {
+    "com.figma.modeName": "Light"
+  }
+}
