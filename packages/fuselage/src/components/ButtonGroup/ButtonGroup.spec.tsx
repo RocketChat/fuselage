@@ -5,17 +5,27 @@ import { render } from '../../testing';
 
 import * as stories from './ButtonGroup.stories';
 
-const { Default } = composeStories(stories);
+const testCases = Object.values(composeStories(stories)).map((Story) => [
+  Story.storyName || 'Story',
+  Story,
+]);
 
-describe('[ButtonGroup Component]', () => {
-  it('renders without crashing', () => {
-    render(<Default />);
-  });
+describe('[ButtonGroup Rendering]', () => {
+  test.each(testCases)(
+    `renders %s without crashing`,
+    async (_storyname, Story) => {
+      const tree = render(<Story />);
+      expect(tree.baseElement).toMatchSnapshot();
+    },
+  );
 
-  it('should have no a11y violations', async () => {
-    const { container } = render(<Default />);
+  test.each(testCases)(
+    '%s should have no a11y violations',
+    async (_storyname, Story) => {
+      const { container } = render(<Story />);
 
-    const results = await axe(container);
-    expect(results).toHaveNoViolations();
-  });
+      const results = await axe(container);
+      expect(results).toHaveNoViolations();
+    },
+  );
 });

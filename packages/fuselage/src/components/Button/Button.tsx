@@ -1,7 +1,11 @@
 import type { AllHTMLAttributes, RefAttributes } from 'react';
-import { useMemo } from 'react';
+import { useContext, useMemo } from 'react';
 
 import { Box, type BoxProps } from '../Box';
+import {
+  ButtonGroupContext,
+  warnGhostOutsideJoinedGroup,
+} from '../ButtonGroup/ButtonGroupContext';
 import { Icon, type IconProps } from '../Icon';
 
 export type ButtonProps = Omit<BoxProps, 'ref'> & {
@@ -40,6 +44,8 @@ export type ButtonProps = Omit<BoxProps, 'ref'> & {
   square?: boolean;
   external?: boolean;
   icon?: IconProps['name'];
+  /** Transparent "ghost" segment; only takes effect inside a joined `ButtonGroup`. */
+  ghost?: boolean;
 } & Omit<
     AllHTMLAttributes<HTMLButtonElement | HTMLAnchorElement>,
     'is' | 'className' | 'size'
@@ -68,6 +74,7 @@ function Button({
   medium,
   large,
   square,
+  ghost,
   loading,
   disabled,
   children,
@@ -82,6 +89,10 @@ function Button({
       type: 'button',
     }) ||
     {};
+
+  const { joined } = useContext(ButtonGroupContext);
+
+  warnGhostOutsideJoinedGroup('Button', ghost, joined);
 
   const kindAndVariantProps = useMemo(() => {
     const kind =
@@ -123,6 +134,7 @@ function Button({
       rcx-button--medium={effectiveSize === 'medium'}
       rcx-button--large={effectiveSize === 'large'}
       rcx-button--square={square}
+      rcx-button--ghost={ghost && joined}
       rcx-button--tiny-square={effectiveSize === 'tiny' && square}
       rcx-button--mini-square={effectiveSize === 'mini' && square}
       rcx-button--small-square={effectiveSize === 'small' && square}
