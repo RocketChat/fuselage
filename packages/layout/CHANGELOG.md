@@ -1,5 +1,11 @@
 # @rocket.chat/layout
 
+## 0.36.3
+
+### Patch Changes
+
+- [#2183](https://github.com/RocketChat/fuselage/pull/2183) [`5d45a29`](https://github.com/RocketChat/fuselage/commit/5d45a299df0ba17fbf9bd660476fc1f001ea8583) Thanks [@tassoevan](https://github.com/tassoevan)! - fix(layout): Adapt `HorizontalWizardLayoutTitle` to viewports below the `md` breakpoint
+
 ## 0.36.2
 
 ### Patch Changes
