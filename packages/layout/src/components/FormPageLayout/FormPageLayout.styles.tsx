@@ -1,5 +1,6 @@
 import styled from '@rocket.chat/styled';
 
+import { below } from '../../helpers/tokenBreakpoints';
 import { sans } from '../../helpers/tokenFontFamilies';
 
 export const Wrapper = styled('div')`
@@ -71,6 +72,12 @@ export const Title = styled('h1')`
   line-height: ${String(64 / 16)}rem;
   text-align: center;
 
+  @media ${below('md')} {
+    padding-block-end: 16px;
+    font-size: ${String(24 / 16)}rem;
+    line-height: ${String(32 / 16)}rem;
+  }
+
   @media (min-width: 1440px) {
     text-align: start;
   }
@@ -91,16 +98,17 @@ export const TitleHighlight = styled(
   display: inline-block;
 `;
 
-const SubTitleFormPageProps = ({
-  fontColor: _fontColor,
-  fontWeight: _fontWeight,
-  ...props
-}: {
-  fontColor?: string;
-  fontWeight?: string;
-}) => props;
-
-export const Subtitle = styled('h2', SubTitleFormPageProps)`
+export const Subtitle = styled(
+  'h2',
+  ({
+    fontColor: _fontColor,
+    fontWeight: _fontWeight,
+    ...props
+  }: {
+    fontColor?: string;
+    fontWeight?: string;
+  }) => props,
+)`
   font-size: ${String(16 / 16)}rem;
   line-height: ${String(22 / 16)}rem;
   font-family: ${sans};
