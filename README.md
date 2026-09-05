@@ -27,3 +27,32 @@
 | 📦 [`@rocket.chat/storybook-dark-mode`](/packages/storybook-dark-mode) | Toggle between light and dark mode in Storybook (Rocket.Chat fork) | [![npm](https://img.shields.io/npm/v/@rocket.chat/storybook-dark-mode?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/storybook-dark-mode) | ![deps](https://img.shields.io/librariesio/release/npm/@rocket.chat/storybook-dark-mode?style=flat-square) |
 | 📦 [`@rocket.chat/styled`](/packages/styled) | A simple styled API for React components | [![npm](https://img.shields.io/npm/v/@rocket.chat/styled?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/styled) | ![deps](https://img.shields.io/librariesio/release/npm/@rocket.chat/styled?style=flat-square) |
 | 📦 [`@rocket.chat/stylis-logical-props-middleware`](/packages/stylis-logical-props-middleware) | Stylis middleware to handle CSS Logical Properties and their fallbacks | [![npm](https://img.shields.io/npm/v/@rocket.chat/stylis-logical-props-middleware?style=flat-square)](https://www.npmjs.com/package/@rocket.chat/stylis-logical-props-middleware) | ![deps](https://img.shields.io/librariesio/release/npm/@rocket.chat/stylis-logical-props-middleware?style=flat-square) |
+
+## Contributing
+
+This project uses **Yarn 4 (Berry)** and relies on Corepack for Yarn version management.
+Do not use npm or Yarn 1.x.
+
+### Setup
+
+Install Yarn via Corepack (included with Node.js 16.10+):
+
+```sh
+corepack enable
+```
+
+Then install dependencies:
+
+```sh
+yarn install
+```
+
+Peer dependency warnings during install are expected in this monorepo and can be ignored.
+
+### Windows Setup
+
+On Windows, enable long paths before cloning to avoid build errors:
+
+```powershell
+git config --global core.longpaths true
+```
