@@ -573,9 +573,6 @@ export function EmailInput(props: EmailInputProps): JSX.Element;
 // @public (undocumented)
 export type EmailInputProps = Omit<InputBoxProps<HTMLInputElement>, 'type'>;
 
-// @public (undocumented)
-export type Falsy = false | 0 | '' | null | undefined;
-
 // @public
 export function Field(props: FieldProps): JSX.Element;
 
@@ -2660,13 +2657,6 @@ export function UrlInput(props: UrlInputProps): JSX.Element;
 export type UrlInputProps = Omit<InputBoxProps<HTMLInputElement>, 'type'>;
 
 // @public (undocumented)
-export const useArrayLikeClassNameProp: <T extends {
-    className?: string | cssFn | (string | cssFn | Falsy)[];
-}>(props: T) => T & {
-    className: string;
-};
-
-// @public (undocumented)
 export const useCursor: <T extends readonly [value: unknown, label: unknown, selected?: unknown, disabled?: unknown, type?: OptionType[4], url?: string] = OptionType>(initial: number, options: Array<T>, onChange: (option: T, visibilityHandler: VisibilityHandler) => void) => [cursor: number, handleKeyDown: (e: KeyboardEvent_2) => void, handleKeyUp: (e: KeyboardEvent_2) => void, reset: () => void, visibilityHandler: VisibilityHandler];
 
 // @public (undocumented)
@@ -2692,6 +2682,10 @@ show: () => void
 
 // @public (undocumented)
 export type VisibilityType = 'hidden' | 'visible' | 'hiding' | 'unhiding' | undefined;
+
+// Warnings were encountered during analysis:
+//
+// src/components/Box/Box.tsx:32:5 - (ae-forgotten-export) The symbol "Falsy" needs to be exported by the entry point index.d.ts
 
 // (No @packageDocumentation comment for this package)
 
