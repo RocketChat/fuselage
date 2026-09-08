@@ -5418,7 +5418,6 @@ __metadata:
     normalize.css: "npm:^8.0.1"
     path-browserify: "npm:^1.0.1"
     postcss: "npm:~8.5.24"
-    postcss-dir-pseudo-class: "npm:~10.0.0"
     postcss-loader: "npm:~8.2.1"
     postcss-scss: "npm:~4.0.9"
     prettier: "npm:~3.6.2"
@@ -15132,17 +15131,6 @@ __metadata:
   peerDependencies:
     postcss: ^8.5.15
   checksum: 10/2f3e8dadfd8dec0a59f059c970c74bb58f96863b1ae10da55928bc6746b98f8dee174768411b77f5f4086606b252e2d8050aac2595dc778e27ce8942869963fd
-  languageName: node
-  linkType: hard
-
-"postcss-dir-pseudo-class@npm:~10.0.0":
-  version: 10.0.0
-  resolution: "postcss-dir-pseudo-class@npm:10.0.0"
-  dependencies:
-    postcss-selector-parser: "npm:^7.1.1"
-  peerDependencies:
-    postcss: ^8.4
-  checksum: 10/440e87cab5b6cc87de5deeb282065f0cfa94fbc70d820b14a3cb211a782ce41992a0189e8f3ece00aa3be9c5a413181238288ccd06726660812030d6420d4742
   languageName: node
   linkType: hard
 
