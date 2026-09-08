@@ -1,5 +1,5 @@
-import { resolve } from 'node:path';
 import { createRequire } from 'node:module';
+import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 
 import autoprefixer from 'autoprefixer';
@@ -57,7 +57,10 @@ const stripViteHashMarker = (): Plugin => ({
   generateBundle(_options, bundle) {
     for (const asset of Object.values(bundle)) {
       if (asset.type === 'asset' && asset.fileName.endsWith('.css')) {
-        asset.source = String(asset.source).replace(/\/\*\$vite\$:\d+\*\//g, '');
+        asset.source = String(asset.source).replace(
+          /\/\*\$vite\$:\d+\*\//g,
+          '',
+        );
       }
     }
   },
@@ -94,17 +97,19 @@ export default defineConfig(({ mode }) => {
       rollupOptions: {
         external,
         output: {
-          assetFileNames: (info) =>
-            info.names?.[0]?.endsWith('.css')
-              ? production
-                ? 'fuselage.css'
-                : `fuselage.${mode}.css`
-              : 'fonts/[name][extname]',
+          assetFileNames: (info) => {
+            if (!info.names?.[0]?.endsWith('.css')) {
+              return 'fonts/[name][extname]';
+            }
+
+            // Production keeps the published `fuselage.css` name consumers
+            // import; development is suffixed like the bundles are.
+            return production ? 'fuselage.css' : `fuselage.${mode}.css`;
+          },
           ...(production
             ? {}
             : {
-                banner:
-                  `'use strict';\n\nif (process.env.NODE_ENV !== "production") {\n(function() {\n`,
+                banner: `'use strict';\n\nif (process.env.NODE_ENV !== "production") {\n(function() {\n`,
                 footer: `\n})();\n}`,
               }),
         },

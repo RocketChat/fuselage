@@ -4389,7 +4389,7 @@ __metadata:
     mini-css-extract-plugin: "npm:~2.10.2"
     normalize.css: "npm:^8.0.1"
     path-browserify: "npm:^1.0.1"
-    postcss: "npm:~8.5.24"
+    postcss: "npm:~8.5.28"
     postcss-loader: "npm:~8.2.1"
     postcss-scss: "npm:~4.0.9"
     prettier: "npm:~3.6.2"
@@ -14689,7 +14689,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:^8.5.26":
+"postcss@npm:^8.5.26, postcss@npm:~8.5.28":
   version: 8.5.28
   resolution: "postcss@npm:8.5.28"
   dependencies:
