@@ -1,13 +1,22 @@
-import { Box, type BoxProps } from '../Box';
+import type { RefAttributes, HTMLAttributes } from 'react';
 
-/**
- * @deprecated Use `SidebarV2Props` instead.
- */
-export type SidebarProps = BoxProps;
+export type SidebarProps = HTMLAttributes<HTMLElement> &
+  RefAttributes<HTMLElement> & {
+    collapsed?: boolean;
+  };
 
-/**
- * @deprecated Use `SidebarV2` instead.
- */
-const Sidebar = (props: SidebarProps) => <Box rcx-sidebar {...props} />;
-
-export default Sidebar;
+export function Sidebar({ collapsed, className, ...props }: SidebarProps) {
+  return (
+    <nav
+      className={[
+        'rcx-box rcx-box--full rcx-sidebar',
+        'rcx-box--animated',
+        collapsed && 'rcx-sidebar--collapsed',
+        className,
+      ]
+        .filter(Boolean)
+        .join(' ')}
+      {...props}
+    />
+  );
+}

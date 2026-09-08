@@ -1,20 +1,35 @@
-export { default as Sidebar, type SidebarProps } from './Sidebar';
-export * from './Item';
-export * from './Section';
-export * from './TopBar';
+export { Sidebar, type SidebarProps } from './Sidebar';
 export {
-  TopBar as SidebarTopBar,
-  TopBarTitle as SidebarTopBarTitle,
-  TopBarAction as SidebarTopBarAction,
-  TopBarActions as SidebarTopBarActions,
-  TopBarAvatar as SidebarTopBarAvatar,
-  TopBarToolBox as SidebarTopBarToolBox,
-} from './TopBar';
+  default as SidebarAccordion,
+  type SidebarAccordionProps,
+} from './SidebarAccordion';
 export {
-  default as SidebarBanner,
+  default as SidebarAccordionItem,
+  type SidebarAccordionItemProps,
+} from './SidebarAccordionItem';
+export {
+  default as SidebarAction,
+  type SidebarActionProps,
+} from './SidebarAction';
+export {
+  default as SidebarActions,
+  type SidebarActionsProps,
+} from './SidebarActions';
+export { default as SidebarLink, type SidebarLinkProps } from './SidebarLink';
+export * from './SidebarItem';
+export { SidebarCollapseGroup } from './SidebarCollapseGroup';
+export { SidebarCollapseGroupMenu } from './SidebarCollapseGroupMenu';
+export {
+  SidebarBanner,
   type SidebarBannerProps,
   type SidebarBannerVariant,
 } from './SidebarBanner';
 export * from './SidebarFooter';
-export { default as SidebarDivider } from './SidebarDivider';
-export type { SidebarActionProps } from './SidebarActions';
+export * from './SidebarMedia';
+export { SidebarButtonGroup } from './SidebarButtonGroup';
+export { SidebarSection } from './SidebarSection';
+export { SidebarDivider } from './SidebarDivider';
+export {
+  SidebarGroupTitle,
+  type SidebarGroupTitleProps,
+} from './SidebarGroupTitle';

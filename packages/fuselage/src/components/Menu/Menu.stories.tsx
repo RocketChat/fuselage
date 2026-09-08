@@ -8,8 +8,8 @@ import type { IconButtonProps } from '../Button';
 import { IconButton } from '../Button';
 import { ButtonGroup } from '../ButtonGroup';
 import { CheckBox } from '../CheckBox';
+import { NavBarGroup, NavBarItem } from '../NavBar';
 import { RadioButton } from '../RadioButton';
-import { SidebarTopBarAction, SidebarTopBarActions } from '../Sidebar';
 import { ToggleSwitch } from '../ToggleSwitch';
 
 import type { MenuItemIconProps } from '.';
@@ -342,11 +342,11 @@ export const MenuMapGenericItem = () => {
   );
 };
 
-export const AsSidebarTopbarActions = () => (
-  <SidebarTopBarActions>
-    <SidebarTopBarAction icon='user' title='user' />
-    <SidebarTopBarAction icon='book' title='book' />
-    <Menu title='test' is={SidebarTopBarAction}>
+export const AsNavBarActions = () => (
+  <NavBarGroup>
+    <NavBarItem icon='user' title='user' />
+    <NavBarItem icon='book' title='book' />
+    <Menu title='test' is={NavBarItem}>
       <MenuItem>test</MenuItem>
       <MenuItem>test</MenuItem>
       <MenuItem>test</MenuItem>
@@ -358,7 +358,7 @@ export const AsSidebarTopbarActions = () => (
       <MenuItem>test</MenuItem>
       <MenuItem>test</MenuItem>
     </Menu>
-  </SidebarTopBarActions>
+  </NavBarGroup>
 );
 
 export const ControlledOpenState = () => {

@@ -6,19 +6,19 @@ import {
   Icon,
   IconButton,
   InputBox,
-  SidebarV2ItemTitle,
-  SidebarV2ItemCol,
-  SidebarV2ItemBadge,
-  SidebarV2ItemIcon,
-  SidebarV2ItemMenu,
-  SidebarV2ItemContent,
-  SidebarV2ItemRow,
-  SidebarV2Item,
-  SidebarV2ItemTimestamp,
+  SidebarItemTitle,
+  SidebarItemCol,
+  SidebarItemBadge,
+  SidebarItemIcon,
+  SidebarItemMenu,
+  SidebarItemContent,
+  SidebarItemRow,
+  SidebarItem,
+  SidebarItemTimestamp,
   Tag,
 } from '../..';
-import { SidebarItemAvatarWrapper } from '../SidebarV2/SidebarItem/SidebarItemAvatarWrapper';
-import { MenuTemplate, leterAvatarUrls, names } from '../SidebarV2/helpers';
+import { SidebarItemAvatarWrapper } from '../Sidebar/SidebarItem/SidebarItemAvatarWrapper';
+import { MenuTemplate, leterAvatarUrls, names } from '../Sidebar/helpers';
 
 import {
   Sidepanel,
@@ -69,9 +69,9 @@ const render: Story['render'] = (args) => (
         {new Array(20).fill(null).map((_, index) => {
           return (
             <SidepanelListItem key={index}>
-              <SidebarV2Item level={2} href='#'>
-                <SidebarV2ItemCol>
-                  <SidebarV2ItemRow>
+              <SidebarItem level={2} href='#'>
+                <SidebarItemCol>
+                  <SidebarItemRow>
                     <SidebarItemAvatarWrapper>
                       <Avatar
                         size='x20'
@@ -79,19 +79,19 @@ const render: Story['render'] = (args) => (
                         alt='avatar'
                       />
                     </SidebarItemAvatarWrapper>
-                    <SidebarV2ItemIcon
+                    <SidebarItemIcon
                       highlighted={Boolean(index === 0)}
                       icon='team'
                     />
-                    <SidebarV2ItemTitle unread={Boolean(index === 0)}>
+                    <SidebarItemTitle unread={Boolean(index === 0)}>
                       {names[index % 10]}
-                    </SidebarV2ItemTitle>
-                    <SidebarV2ItemTimestamp>11:22:21 AM</SidebarV2ItemTimestamp>
-                  </SidebarV2ItemRow>
-                  <SidebarV2ItemRow>
-                    <SidebarV2ItemContent unread={Boolean(index === 0)}>
+                    </SidebarItemTitle>
+                    <SidebarItemTimestamp>11:22:21 AM</SidebarItemTimestamp>
+                  </SidebarItemRow>
+                  <SidebarItemRow>
+                    <SidebarItemContent unread={Boolean(index === 0)}>
                       Lorem Ipsum Indolor Dolor Ipsum Ipsum
-                    </SidebarV2ItemContent>
+                    </SidebarItemContent>
                     <Tag
                       role='button'
                       maxWidth='50%'
@@ -101,14 +101,14 @@ const render: Story['render'] = (args) => (
                       <Icon size='x12' marginInlineEnd={4} name='team' />
                       Team title
                     </Tag>
-                    <SidebarV2ItemBadge
+                    <SidebarItemBadge
                       title='unread messages'
                       children={index + 3}
                     />
-                    <SidebarV2ItemMenu children={<MenuTemplate />} />
-                  </SidebarV2ItemRow>
-                </SidebarV2ItemCol>
-              </SidebarV2Item>
+                    <SidebarItemMenu children={<MenuTemplate />} />
+                  </SidebarItemRow>
+                </SidebarItemCol>
+              </SidebarItem>
             </SidepanelListItem>
           );
         })}

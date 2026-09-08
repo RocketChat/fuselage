@@ -1,10 +1,7 @@
-import type { ReactNode } from 'react';
+import type { AllHTMLAttributes, ReactNode } from 'react';
 
 import { IconButton } from '../Button';
 
-/**
- * @deprecated Use `SidebarV2BannerVariant` instead.
- */
 export type SidebarBannerVariant =
   | 'default'
   | 'info'
@@ -12,12 +9,10 @@ export type SidebarBannerVariant =
   | 'warning'
   | 'danger';
 
-/**
- * @deprecated Use `SidebarV2BannerProps` instead.
- */
 export type SidebarBannerProps = {
-  text?: ReactNode;
-  description?: ReactNode;
+  title?: ReactNode;
+  linkText?: string;
+  linkProps?: AllHTMLAttributes<HTMLAnchorElement>;
   onClick?: () => void;
   variant?: SidebarBannerVariant;
   onClose?: () => void;
@@ -25,46 +20,39 @@ export type SidebarBannerProps = {
   addon?: ReactNode;
 };
 
-/**
- * @deprecated Use `SidebarV2Banner` instead.
- */
-const SidebarBanner = ({
-  text,
-  description,
-  onClick,
+export const SidebarBanner = ({
+  title,
+  linkText,
+  linkProps,
   variant = 'default',
   addon,
   onClose,
   children,
+  ...props
 }: SidebarBannerProps) => (
   <div
     className={`rcx-box rcx-box--full rcx-sidebar-banner rcx-sidebar-banner--${variant}`}
+    {...props}
   >
-    <div>
-      {text && <div className='rcx-sidebar-banner--text'>{text}</div>}
-      {description && (
-        <div
-          role={onClick ? 'link' : undefined}
-          tabIndex={0}
-          className={[
-            'rcx-sidebar-banner--description',
-            onClick && 'rcx-sidebar-banner--description--clickable',
-          ]
-            .filter(Boolean)
-            .join(' ')}
-          onClick={onClick}
-          onKeyDown={(e) => e.key === 'Enter' && onClick?.()}
+    <div className='rcx-box rcx-box--full rcx-sidebar-banner__content'>
+      {title && (
+        <h5 className='rcx-box rcx-box--full rcx-sidebar-banner__title'>
+          {title}
+        </h5>
+      )}
+      {linkText && (
+        <a
+          className='rcx-box rcx-box--full rcx-sidebar-banner__link'
+          {...linkProps}
         >
-          {description}
-        </div>
+          {linkText}
+        </a>
       )}
       {children}
     </div>
-    <div className='rcx-sidebar-banner__actions'>
+    <div className='rcx-box rcx-box--full rcx-sidebar-banner__addon'>
       {addon}
       {onClose && <IconButton onClick={onClose} tiny icon='cross' />}
     </div>
   </div>
 );
-
-export default SidebarBanner;

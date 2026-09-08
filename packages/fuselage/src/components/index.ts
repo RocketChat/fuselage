@@ -50,7 +50,6 @@ export * from './Scrollable';
 export * from './SearchInput';
 export * from './Select';
 export * from './Sidebar';
-export * from './SidebarV2';
 export * from './Sidepanel';
 export * from './Skeleton';
 export * from './Slider';

@@ -152,6 +152,7 @@ function MultiSelect({
   return (
     <Box
       is='div'
+      animated
       rcx-select
       className={[error && 'invalid', disabled && 'disabled']}
       ref={containerRef}

@@ -1,17 +1,17 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
-exports[`[Menu Component] renders AsSidebarTopbarActions without crashing 1`] = `
+exports[`[Menu Component] renders AsNavBarActions without crashing 1`] = `
 <body>
   <div>
     <div
       class="rcx-box rcx-box--full rcx-css-1g0mbnm"
     >
       <div
-        class="rcx-button-group rcx-button-group--align-start"
+        class="rcx-button-group rcx-button-group--align-start rcx-navbar-group"
         role="group"
       >
         <button
-          class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
+          class="rcx-box rcx-box--full rcx-navbar-item rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
           title="user"
           type="button"
         >
@@ -23,7 +23,7 @@ exports[`[Menu Component] renders AsSidebarTopbarActions without crashing 1`] = 
           </i>
         </button>
         <button
-          class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
+          class="rcx-box rcx-box--full rcx-navbar-item rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
           title="book"
           type="button"
         >
@@ -38,7 +38,7 @@ exports[`[Menu Component] renders AsSidebarTopbarActions without crashing 1`] = 
           aria-expanded="false"
           aria-haspopup="true"
           aria-label="test"
-          class="rcx-box rcx-box--full rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
+          class="rcx-box rcx-box--full rcx-navbar-item rcx-button--small-square rcx-button--square rcx-button--icon rcx-button"
           id="react-aria-_r_a_"
           title="test"
           type="button"

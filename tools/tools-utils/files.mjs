@@ -25,17 +25,17 @@ export const writeSource = (path) => async (source) => {
 
 export const readJson = (path) => readSource(path).then(decodeJson);
 
-export const writeJson = (path) => (data) => {
+export const writeJson = (path) => async (data) => {
   const source = encodeJson(data);
-  writeSource(path)(source);
+  await writeSource(path)(source);
   return data;
 };
 
 export const readJson5 = (path) => readSource(path).then(decodeJson5);
 
-export const writeJson5 = (path) => (data) => {
+export const writeJson5 = (path) => async (data) => {
   const source = encodeJson5(data);
-  writeSource(path)(source);
+  await writeSource(path)(source);
   return data;
 };
 

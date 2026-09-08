@@ -1,5 +1,19 @@
 # Change Log
 
+## 0.88.0
+
+### Minor Changes
+
+- [#2163](https://github.com/RocketChat/fuselage/pull/2163) [`11a8435`](https://github.com/RocketChat/fuselage/commit/11a8435db2d0516fd80192de0e8bbf5dc0a7bf57) Thanks [@juliajforesti](https://github.com/juliajforesti)! - feat(fuselage)!: Remove legacy `Sidebar` and promote `SidebarV2`
+
+## 0.87.0
+
+### Minor Changes
+
+- [#2162](https://github.com/RocketChat/fuselage/pull/2162) [`cdc86c7`](https://github.com/RocketChat/fuselage/commit/cdc86c7ae40915835a6e790c6a69896205a6d513) Thanks [@abhinavkrin](https://github.com/abhinavkrin)! - feat(fuselage): Update input pseudo states
+
+- [#2155](https://github.com/RocketChat/fuselage/pull/2155) [`73bf4a4`](https://github.com/RocketChat/fuselage/commit/73bf4a4349a2c256b5515c7ee17cd75194feb652) Thanks [@ivans-netto](https://github.com/ivans-netto)! - feat(fuselage): Render message mentions as plain text instead of pills
+
 ## 0.86.0
 
 ### Minor Changes

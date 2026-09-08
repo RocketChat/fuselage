@@ -76,14 +76,14 @@ export function SelectAria({
       >
         <Box
           is='span'
-          color={state.selectedItem ? 'default' : 'hint'}
+          color={state.selectedItem ? 'titles-labels' : 'hint'}
           {...valueProps}
           {...(small && { fontScale: 'c1' })}
         >
           {state.selectedItem ? state.selectedItem.rendered : placeholder}
         </Box>
         <Icon
-          color='default'
+          color='titles-labels'
           name={state.isOpen ? 'chevron-up' : 'chevron-down'}
           size='x20'
         />

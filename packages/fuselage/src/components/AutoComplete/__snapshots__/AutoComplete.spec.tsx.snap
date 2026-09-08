@@ -4,7 +4,7 @@ exports[`[AutoComplete Rendering] renders CustomItem without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-autocomplete rcx-css-t3n91h"
+      class="rcx-box rcx-box--full rcx-box--animated rcx-autocomplete rcx-css-t3n91h"
     >
       <div
         class="rcx-box rcx-box--full rcx-css-6d871f"
@@ -21,7 +21,7 @@ exports[`[AutoComplete Rendering] renders CustomItem without crashing 1`] = `
       >
         <i
           aria-hidden="true"
-          class="rcx-box rcx-box--full rcx-icon--name-magnifier rcx-icon rcx-css-rm4moq"
+          class="rcx-box rcx-box--full rcx-icon--name-magnifier rcx-icon rcx-css-l5txo2"
         >
           
         </i>
@@ -35,7 +35,7 @@ exports[`[AutoComplete Rendering] renders CustomSelected without crashing 1`] = 
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-autocomplete rcx-css-t3n91h"
+      class="rcx-box rcx-box--full rcx-box--animated rcx-autocomplete rcx-css-t3n91h"
     >
       <div
         class="rcx-box rcx-box--full rcx-css-6d871f"
@@ -120,7 +120,7 @@ v/L21v8BT/ZVoe1UItsAAAAASUVORK5CYII="
       >
         <i
           aria-hidden="true"
-          class="rcx-box rcx-box--full rcx-icon--name-magnifier rcx-icon rcx-css-rm4moq"
+          class="rcx-box rcx-box--full rcx-icon--name-magnifier rcx-icon rcx-css-l5txo2"
         >
           
         </i>
@@ -134,7 +134,7 @@ exports[`[AutoComplete Rendering] renders Default without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-autocomplete rcx-css-t3n91h"
+      class="rcx-box rcx-box--full rcx-box--animated rcx-autocomplete rcx-css-t3n91h"
     >
       <div
         class="rcx-box rcx-box--full rcx-css-6d871f"
@@ -151,7 +151,7 @@ exports[`[AutoComplete Rendering] renders Default without crashing 1`] = `
       >
         <i
           aria-hidden="true"
-          class="rcx-box rcx-box--full rcx-icon--name-magnifier rcx-icon rcx-css-rm4moq"
+          class="rcx-box rcx-box--full rcx-icon--name-magnifier rcx-icon rcx-css-l5txo2"
         >
           
         </i>
@@ -165,7 +165,7 @@ exports[`[AutoComplete Rendering] renders Disabled without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-autocomplete disabled rcx-css-t3n91h"
+      class="rcx-box rcx-box--full rcx-box--animated rcx-autocomplete disabled rcx-css-t3n91h"
     >
       <div
         class="rcx-box rcx-box--full rcx-css-6d871f"
@@ -183,7 +183,7 @@ exports[`[AutoComplete Rendering] renders Disabled without crashing 1`] = `
       >
         <i
           aria-hidden="true"
-          class="rcx-box rcx-box--full rcx-icon--name-magnifier rcx-icon rcx-css-rm4moq"
+          class="rcx-box rcx-box--full rcx-icon--name-magnifier rcx-icon rcx-css-l5txo2"
         >
           
         </i>
@@ -197,7 +197,7 @@ exports[`[AutoComplete Rendering] renders Multiple without crashing 1`] = `
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-autocomplete rcx-css-t3n91h"
+      class="rcx-box rcx-box--full rcx-box--animated rcx-autocomplete rcx-css-t3n91h"
     >
       <div
         class="rcx-box rcx-box--full rcx-css-6d871f"
@@ -248,7 +248,7 @@ exports[`[AutoComplete Rendering] renders Multiple without crashing 1`] = `
       >
         <i
           aria-hidden="true"
-          class="rcx-box rcx-box--full rcx-icon--name-magnifier rcx-icon rcx-css-rm4moq"
+          class="rcx-box rcx-box--full rcx-icon--name-magnifier rcx-icon rcx-css-l5txo2"
         >
           
         </i>
@@ -262,7 +262,7 @@ exports[`[AutoComplete Rendering] renders MultipleCustomSelected without crashin
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-autocomplete rcx-css-t3n91h"
+      class="rcx-box rcx-box--full rcx-box--animated rcx-autocomplete rcx-css-t3n91h"
     >
       <div
         class="rcx-box rcx-box--full rcx-css-6d871f"
@@ -447,7 +447,7 @@ v/L21v8BT/ZVoe1UItsAAAAASUVORK5CYII="
       >
         <i
           aria-hidden="true"
-          class="rcx-box rcx-box--full rcx-icon--name-magnifier rcx-icon rcx-css-rm4moq"
+          class="rcx-box rcx-box--full rcx-icon--name-magnifier rcx-icon rcx-css-l5txo2"
         >
           
         </i>
@@ -461,7 +461,7 @@ exports[`[AutoComplete Rendering] renders WithPlaceholder without crashing 1`] =
 <body>
   <div>
     <div
-      class="rcx-box rcx-box--full rcx-autocomplete rcx-css-t3n91h"
+      class="rcx-box rcx-box--full rcx-box--animated rcx-autocomplete rcx-css-t3n91h"
     >
       <div
         class="rcx-box rcx-box--full rcx-css-6d871f"
@@ -479,7 +479,7 @@ exports[`[AutoComplete Rendering] renders WithPlaceholder without crashing 1`] =
       >
         <i
           aria-hidden="true"
-          class="rcx-box rcx-box--full rcx-icon--name-magnifier rcx-icon rcx-css-rm4moq"
+          class="rcx-box rcx-box--full rcx-icon--name-magnifier rcx-icon rcx-css-l5txo2"
         >
           
         </i>

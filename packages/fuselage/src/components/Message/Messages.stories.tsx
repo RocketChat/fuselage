@@ -140,23 +140,11 @@ export const Default: Story = {
           </MessageHeader>
           <MessageBody>
             Ut enim ad minim veniam,{' '}
-            <MessageHighlight clickable variant='other'>
+            <MessageHighlight clickable variant='link'>
               channel
             </MessageHighlight>{' '}
             quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
             commodo consequat a duis aute irure dolor in{' '}
-            <MessageHighlight clickable variant='critical'>
-              Haylie George
-            </MessageHighlight>{' '}
-            <MessageHighlight clickable variant='critical'>
-              Haylie George
-            </MessageHighlight>{' '}
-            <MessageHighlight clickable variant='critical'>
-              Haylie George
-            </MessageHighlight>{' '}
-            <MessageHighlight clickable variant='critical'>
-              Haylie George
-            </MessageHighlight>{' '}
             <MessageHighlight clickable variant='critical'>
               Haylie George
             </MessageHighlight>{' '}
@@ -166,17 +154,20 @@ export const Default: Story = {
             reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
             pariatur. Consectetur adipiscing{' '}
             <MessageHighlight variant='critical'>
-              highlighted text
-            </MessageHighlight>
+              highlighted word
+            </MessageHighlight>{' '}
             touching text.{' '}
             <MessageHighlight clickable variant='relevant'>
               all
+            </MessageHighlight>{' '}
+            <MessageHighlight clickable variant='relevant'>
+              here
             </MessageHighlight>
-            . elit, sed do eiusmod tempor incididunt
+            . elit, sed do eiusmod tempor incididunt{' '}
             <MessageHighlight clickable variant='link'>
               Room Name
-            </MessageHighlight>
-            ut labore et dolore magna
+            </MessageHighlight>{' '}
+            ut labore et dolore magna{' '}
             <MessageHighlight clickable variant='other'>
               Gabriel.Henriques
             </MessageHighlight>
@@ -196,6 +187,88 @@ export const Default: Story = {
             <MessageToolbarItem icon='thread' />
           </MessageToolbar>
         </MessageToolbarWrapper>
+      </Message>
+    </Box>
+  ),
+};
+
+export const WithMentions: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'The same message with its mentions rendered without and with the ' +
+          '`@`/`#` symbols, which is what the mention symbol setting toggles. ' +
+          'Mentions are plain text in a distinct color, so they read as part ' +
+          'of the sentence instead of interrupting it.',
+      },
+    },
+  },
+  render: () => (
+    <Box>
+      <Message>
+        <MessageLeftContainer>
+          <Avatar url={avatarUrl} size={'x36'} />
+        </MessageLeftContainer>
+        <MessageContainer>
+          <MessageHeader>
+            <MessageNameContainer>
+              <MessageName>Haylie George</MessageName>{' '}
+              <MessageUsername>@haylie.george</MessageUsername>
+            </MessageNameContainer>
+            <MessageTimestamp>12:00 PM</MessageTimestamp>
+          </MessageHeader>
+          <MessageBody>
+            <MessageHighlight clickable variant='other'>
+              gabriel.henriques
+            </MessageHighlight>
+            , I moved the release checklist to{' '}
+            <MessageHighlight clickable variant='link'>
+              release-planning
+            </MessageHighlight>{' '}
+            —{' '}
+            <MessageHighlight clickable variant='relevant'>
+              here
+            </MessageHighlight>{' '}
+            please review it before the handoff to{' '}
+            <MessageHighlight clickable variant='critical'>
+              haylie.george
+            </MessageHighlight>
+            .
+          </MessageBody>
+        </MessageContainer>
+      </Message>
+      <Message>
+        <MessageLeftContainer>
+          <Avatar url={avatarUrl} size={'x36'} />
+        </MessageLeftContainer>
+        <MessageContainer>
+          <MessageHeader>
+            <MessageNameContainer>
+              <MessageName>Haylie George</MessageName>{' '}
+              <MessageUsername>@haylie.george</MessageUsername>
+            </MessageNameContainer>
+            <MessageTimestamp>12:01 PM</MessageTimestamp>
+          </MessageHeader>
+          <MessageBody>
+            <MessageHighlight clickable variant='other'>
+              @gabriel.henriques
+            </MessageHighlight>
+            , I moved the release checklist to{' '}
+            <MessageHighlight clickable variant='link'>
+              #release-planning
+            </MessageHighlight>{' '}
+            —{' '}
+            <MessageHighlight clickable variant='relevant'>
+              @here
+            </MessageHighlight>{' '}
+            please review it before the handoff to{' '}
+            <MessageHighlight clickable variant='critical'>
+              @haylie.george
+            </MessageHighlight>
+            .
+          </MessageBody>
+        </MessageContainer>
       </Message>
     </Box>
   ),

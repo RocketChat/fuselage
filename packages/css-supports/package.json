@@ -30,7 +30,7 @@
     "lint-and-fix": "lint-and-fix"
   },
   "dependencies": {
-    "@rocket.chat/memo": "workspace:~"
+    "@rocket.chat/memo": "~0.31.25"
   },
   "devDependencies": {
     "@microsoft/api-extractor": "~7.58.12",

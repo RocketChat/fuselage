@@ -192,6 +192,7 @@ function AutoComplete<TLabel = ReactNode>({
 
   return (
     <Box
+      animated
       rcx-autocomplete
       ref={containerRef}
       onClick={useStableCallback(() => innerRef.current?.focus())}
@@ -256,7 +257,7 @@ function AutoComplete<TLabel = ReactNode>({
               : 'magnifier'
           }
           size='x20'
-          color='default'
+          color='titles-labels'
         />
       </Box>
       <PositionAnimated visible={optionsAreVisible} anchor={containerRef}>

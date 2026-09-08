@@ -1,6 +1,6 @@
 {
   "name": "@rocket.chat/fuselage",
-  "version": "0.86.0",
+  "version": "0.88.0",
   "description": "Rocket.Chat's React Components Library",
   "homepage": "https://github.com/RocketChat/fuselage#readme",
   "bugs": {
@@ -43,7 +43,7 @@
   "dependencies": {
     "@rocket.chat/css-in-js": "workspace:~",
     "@rocket.chat/fuselage-tokens": "workspace:~",
-    "@rocket.chat/memo": "workspace:~",
+    "@rocket.chat/memo": "~0.31.25",
     "invariant": "^2.2.4",
     "react-aria": "~3.37.0",
     "react-is": "~19.2.8",
@@ -89,7 +89,7 @@
     "mini-css-extract-plugin": "~2.10.2",
     "normalize.css": "^8.0.1",
     "path-browserify": "^1.0.1",
-    "postcss": "~8.5.23",
+    "postcss": "~8.5.24",
     "postcss-dir-pseudo-class": "~10.0.0",
     "postcss-loader": "~8.2.1",
     "postcss-logical": "~9.0.0",

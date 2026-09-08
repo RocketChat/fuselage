@@ -42,11 +42,13 @@ await removeFile('./dist');
 const sources = await listFiles('./src/**/*.svg');
 const icons = await fromSourcesToIcons(sources);
 
+// buildFont assigns the characters the module builders read
+await buildFont(icons);
+
 await Promise.all([
   buildCss(),
   buildCommonJsModule(icons),
   buildEsmModule(icons),
   buildSvgImages(icons),
-  buildFont(icons),
   buildDefinition(icons),
 ]);
