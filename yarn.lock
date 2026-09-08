@@ -5420,7 +5420,6 @@ __metadata:
     postcss: "npm:~8.5.24"
     postcss-dir-pseudo-class: "npm:~10.0.0"
     postcss-loader: "npm:~8.2.1"
-    postcss-logical: "npm:~9.0.0"
     postcss-scss: "npm:~4.0.9"
     prettier: "npm:~3.6.2"
     react: "npm:~19.2.8"
@@ -15202,17 +15201,6 @@ __metadata:
     webpack:
       optional: true
   checksum: 10/e8fbae55198fc3baa859a1b504621fe01918510f6b21bd124f6d4467687e5efcbe2f5eaa530377c8fd68c8fda93823592e9d6f7295daa3a5ef4d124c012192e2
-  languageName: node
-  linkType: hard
-
-"postcss-logical@npm:~9.0.0":
-  version: 9.0.0
-  resolution: "postcss-logical@npm:9.0.0"
-  dependencies:
-    postcss-value-parser: "npm:^4.2.0"
-  peerDependencies:
-    postcss: ^8.4
-  checksum: 10/1ed82e7f36ef29146fd86c80a8885184f2e077de707a1dca9d1a8cffc878f1ae77e33ffb04c2aa730d5cca99362e1f480ef3c8853bea097db09e782ba4393ee6
   languageName: node
   linkType: hard
 

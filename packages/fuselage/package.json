@@ -92,7 +92,6 @@
     "postcss": "~8.5.24",
     "postcss-dir-pseudo-class": "~10.0.0",
     "postcss-loader": "~8.2.1",
-    "postcss-logical": "~9.0.0",
     "postcss-scss": "~4.0.9",
     "prettier": "~3.6.2",
     "react": "~19.2.8",

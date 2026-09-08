@@ -4,7 +4,6 @@ import autoprefixer from 'autoprefixer';
 import cssnanoPlugin from 'cssnano';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import postcssDirPseudoClass from 'postcss-dir-pseudo-class';
-import postcssLogical from 'postcss-logical';
 import WrapperPlugin from 'wrapper-webpack-plugin';
 
 import pkg from './package.json' with { type: 'json' };
@@ -63,7 +62,6 @@ export default (env, { mode = 'production' }) =>
               options: {
                 postcssOptions: {
                   plugins: [
-                    postcssLogical({ preserve: true }),
                     postcssDirPseudoClass({ dir: 'ltr' }),
                     autoprefixer(),
                     mode === 'production' && cssnanoPlugin,
