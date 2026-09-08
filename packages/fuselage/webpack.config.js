@@ -94,7 +94,13 @@ export default (env, { mode = 'production' }) =>
       ),
     ],
     plugins: [
-      new MiniCssExtractPlugin(),
+      new MiniCssExtractPlugin({
+        // Production keeps the published `fuselage.css` name that consumers
+        // import; development is suffixed like the bundles are. Sharing one
+        // name meant the production run overwrote the development stylesheet
+        // but not its `.map`, leaving a map describing a file that was gone.
+        filename: mode === 'production' ? '[name].css' : `[name].${mode}.css`,
+      }),
       mode !== 'production' &&
         new WrapperPlugin({
           test: /development\.js$/, // only wrap output of bundle files with '.js' extension
