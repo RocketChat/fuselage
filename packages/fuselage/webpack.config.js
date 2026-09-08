@@ -23,11 +23,6 @@ export default (env, { mode = 'production' }) =>
     module: {
       rules: [
         {
-          test: /\.js$/,
-          exclude: /node_modules/,
-          use: 'babel-loader',
-        },
-        {
           test: /\.tsx?$/,
           exclude: /node_modules/,
           use: {
@@ -49,7 +44,6 @@ export default (env, { mode = 'production' }) =>
           test: /\.scss$/,
           use: [
             MiniCssExtractPlugin.loader,
-            'babel-loader',
             {
               loader: 'css-loader',
               options: {
@@ -79,7 +73,7 @@ export default (env, { mode = 'production' }) =>
       ],
     },
     resolve: {
-      extensions: ['.tsx', '.ts', '.jsx', '.js', '.json'],
+      extensions: ['.tsx', '.ts', '.js', '.json'],
     },
     externals: [
       ...Object.keys(pkg.dependencies ?? {}).map(
