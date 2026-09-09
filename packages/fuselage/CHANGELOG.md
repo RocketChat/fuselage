@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.89.0
+
+### Minor Changes
+
+- [#2193](https://github.com/RocketChat/fuselage/pull/2193) [`b95ead6`](https://github.com/RocketChat/fuselage/commit/b95ead68a027abaabe2783eb2d53e5244410c331) Thanks [@dougfabris](https://github.com/dougfabris)! - feat(fuselage): Restyle sidebar rows and collapse group headers
+
 ## 0.88.0
 
 ### Minor Changes
