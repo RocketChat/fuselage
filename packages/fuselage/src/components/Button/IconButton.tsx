@@ -1,12 +1,8 @@
 import type { Keys as IconName } from '@rocket.chat/icons';
 import type { ReactElement } from 'react';
-import { isValidElement, useContext, useMemo } from 'react';
+import { isValidElement, useMemo } from 'react';
 
 import { Box, type BoxProps } from '../Box';
-import {
-  ButtonGroupContext,
-  warnGhostOutsideJoinedGroup,
-} from '../ButtonGroup/ButtonGroupContext';
 import { Icon } from '../Icon';
 
 export type IconButtonSize = {
@@ -26,8 +22,6 @@ export type IconButtonProps = {
   warning?: boolean;
   success?: boolean;
   pressed?: boolean;
-  /** Transparent "ghost" segment; only takes effect inside a joined `ButtonGroup`. */
-  ghost?: boolean;
 } & IconButtonSize &
   BoxProps;
 
@@ -62,7 +56,6 @@ function IconButton({
   small,
   medium,
   pressed,
-  ghost,
   children,
   ...props
 }: IconButtonProps) {
@@ -81,10 +74,6 @@ function IconButton({
       '',
     [danger, info, primary, secondary, success, warning],
   );
-
-  const { joined } = useContext(ButtonGroupContext);
-
-  warnGhostOutsideJoinedGroup('IconButton', ghost, joined);
 
   const kindAndVariantProps = useMemo(() => {
     const variantProp = {} as any;
@@ -127,7 +116,6 @@ function IconButton({
       rcx-button--square
       {...kindAndVariantProps}
       {...getSizeClass()}
-      rcx-button--ghost={ghost && joined}
       rcx-button--icon-pressed={pressed}
       {...props}
     >

@@ -4,6 +4,29 @@
 @use '../../styles/mixins/button.scss';
 @use '../../styles/mixins/states.scss' as *;
 
+// A ghost segment stays transparent so the group background (and the surface
+// behind it) shows through.
+@mixin ghost-segment {
+  color: colors.button(on-secondary);
+  border-color: transparent;
+  background-color: transparent;
+
+  @include on-focus-visible {
+    border-color: transparent;
+    background-color: button-colors.$button-ghost-focus-background-color;
+  }
+
+  @include on-hover {
+    border-color: transparent;
+    background-color: button-colors.$button-ghost-hover-background-color;
+  }
+
+  @include on-active {
+    border-color: transparent;
+    background-color: button-colors.$button-ghost-active-background-color;
+  }
+}
+
 .rcx-button-group {
   display: flex;
 
@@ -89,27 +112,14 @@
       border-radius: 0;
     }
 
-    // Ghost segments stay transparent so the group background (and the
-    // surface behind it) shows through.
-    .rcx-button--ghost {
-      color: colors.button(on-secondary);
-      border-color: transparent;
-      background-color: transparent;
+    // The ghost segment is an edge segment by design: the group picks it via
+    // `ghostPosition`, so a middle button can never be ghosted.
+    &.rcx-button-group--ghost-start > .rcx-button:first-child {
+      @include ghost-segment;
+    }
 
-      @include on-focus-visible {
-        border-color: transparent;
-        background-color: button-colors.$button-ghost-focus-background-color;
-      }
-
-      @include on-hover {
-        border-color: transparent;
-        background-color: button-colors.$button-ghost-hover-background-color;
-      }
-
-      @include on-active {
-        border-color: transparent;
-        background-color: button-colors.$button-ghost-active-background-color;
-      }
+    &.rcx-button-group--ghost-end > .rcx-button:last-child {
+      @include ghost-segment;
     }
   }
 }

@@ -1,21 +1,32 @@
 import type { HTMLAttributes, RefAttributes } from 'react';
-import { useMemo } from 'react';
 
-import { ButtonGroupContext } from './ButtonGroupContext';
-
-export type ButtonGroupProps = RefAttributes<HTMLDivElement> & {
-  align?: 'start' | 'center' | 'end';
-  stretch?: boolean;
-  wrap?: boolean;
-  vertical?: boolean;
-  small?: boolean;
-  large?: boolean;
-  /**
-   * Fuses the buttons into a single segmented control. Takes precedence
-   * over `small`/`large` spacing.
-   */
-  joined?: boolean;
-} & HTMLAttributes<HTMLDivElement>;
+export type ButtonGroupProps = RefAttributes<HTMLDivElement> &
+  HTMLAttributes<HTMLDivElement> & {
+    align?: 'start' | 'center' | 'end';
+    stretch?: boolean;
+    wrap?: boolean;
+    vertical?: boolean;
+    small?: boolean;
+    large?: boolean;
+  } & (
+    | {
+        /**
+         * Fuses the buttons into a single segmented control. Takes precedence
+         * over `small`/`large` spacing.
+         */
+        joined: true;
+        /**
+         * Renders the first (`start`) or last (`end`) segment of the joined
+         * group as a transparent "ghost" segment, letting the group's
+         * translucent background show through.
+         */
+        ghostPosition?: 'start' | 'end';
+      }
+    | {
+        joined?: false;
+        ghostPosition?: never;
+      }
+  );
 
 /**
  * A container for grouping buttons that semantically share a common action context.
@@ -29,33 +40,31 @@ function ButtonGroup({
   small,
   large,
   joined,
+  ghostPosition,
   className,
   ...props
 }: ButtonGroupProps) {
-  const contextValue = useMemo(() => ({ joined: !!joined }), [joined]);
-
   return (
-    <ButtonGroupContext.Provider value={contextValue}>
-      <div
-        className={[
-          'rcx-button-group',
-          stretch && 'rcx-button-group--stretch',
-          vertical && 'rcx-button-group--vertical',
-          align && `rcx-button-group--align-${align}`,
-          !joined && small && 'rcx-button-group--small',
-          !joined && large && 'rcx-button-group--large',
-          wrap && 'rcx-button-group--wrap',
-          joined && 'rcx-button-group--joined',
-          className,
-        ]
-          .filter(Boolean)
-          .join(' ')}
-        role='group'
-        {...props}
-      >
-        {children}
-      </div>
-    </ButtonGroupContext.Provider>
+    <div
+      className={[
+        'rcx-button-group',
+        stretch && 'rcx-button-group--stretch',
+        vertical && 'rcx-button-group--vertical',
+        align && `rcx-button-group--align-${align}`,
+        !joined && small && 'rcx-button-group--small',
+        !joined && large && 'rcx-button-group--large',
+        wrap && 'rcx-button-group--wrap',
+        joined && 'rcx-button-group--joined',
+        joined && ghostPosition && `rcx-button-group--ghost-${ghostPosition}`,
+        className,
+      ]
+        .filter(Boolean)
+        .join(' ')}
+      role='group'
+      {...props}
+    >
+      {children}
+    </div>
   );
 }
 

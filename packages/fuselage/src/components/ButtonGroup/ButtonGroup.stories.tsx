@@ -20,7 +20,7 @@ export default {
           'A container for grouping buttons that semantically share a common action context. By default the buttons are laid out with an 8px gap (4px with `small`, 16px with `large`).\n\n' +
           '**Joined**\n\n' +
           'The `joined` variant fuses the buttons into a single segmented control: no gap between segments, group-level rounded corners, and no dividers — buttons sit flush. `joined` takes precedence over the `small`/`large` spacing modifiers; it composes with `vertical`, `stretch`, and `align`.\n\n' +
-          'The joined group carries a translucent background (the secondary button background at 60% opacity). With opaque buttons it is fully covered; it only shows through **ghost** segments — buttons rendered with the `ghost` prop (`Button` or `IconButton`), which stay transparent so the surface behind the group shines through. Use ghost segments for auxiliary edge actions, e.g. the expand chevron of a split button or floating controls over media/video. Ghost segments keep hover/active/focus feedback and are typically the first or last segment. Outside a joined group the `ghost` prop is ignored (with a dev-only warning).\n\n' +
+          "The joined group carries a translucent background (the secondary button background at 60% opacity). With opaque buttons it is fully covered; it only shows through the **ghost** segment — picked by the group via `ghostPosition='start' | 'end'`, which turns the first or last segment transparent so the surface behind the group shines through. Use the ghost segment for auxiliary edge actions, e.g. the expand chevron of a split button or floating controls over media/video. It keeps hover/active/focus feedback, and by design it is always an edge segment — a middle button cannot be ghosted.\n\n" +
           '**Rules**\n' +
           '- Use 2–4 buttons in a joined group, with at most one Primary.\n' +
           '- Joined groups work with regular labeled Buttons, icon-only `square` Buttons, and IconButtons.\n' +
@@ -67,6 +67,13 @@ export default {
       control: 'boolean',
       description:
         'Fuses the buttons into a single segmented control with zero gap. Takes precedence over `small`/`large` spacing.',
+      table: { category: 'Layout' },
+    },
+    ghostPosition: {
+      control: 'select',
+      options: ['start', 'end'],
+      description:
+        'Renders the first (`start`) or last (`end`) segment of a joined group as a transparent ghost segment. Requires `joined`.',
       table: { category: 'Layout' },
     },
   },
@@ -218,16 +225,16 @@ export const Joined: Story = {
         <Button>Cancel</Button>
         <Button primary>Save</Button>
       </ButtonGroup>
-      <ButtonGroup {...args}>
-        <IconButton icon='mic' ghost aria-label='Microphone' />
+      <ButtonGroup {...args} joined ghostPosition='start'>
+        <IconButton icon='mic' secondary aria-label='Microphone' />
         <IconButton
           icon='chevron-down'
           secondary
           aria-label='Microphone options'
         />
       </ButtonGroup>
-      <ButtonGroup {...args}>
-        <IconButton icon='video' ghost aria-label='Camera' />
+      <ButtonGroup {...args} joined ghostPosition='start'>
+        <IconButton icon='video' secondary aria-label='Camera' />
         <IconButton icon='chevron-down' secondary aria-label='Camera options' />
       </ButtonGroup>
     </Box>
@@ -264,24 +271,20 @@ export const JoinedSplitButton: Story = {
   decorators: [withLightSurface],
   argTypes: withoutSpacingControls,
   render: (args) => (
-    <ButtonGroup {...args}>
-      <Button
-        square
-        icon='chevron-down'
-        ghost
-        aria-label='More reply actions'
-      />
+    <ButtonGroup {...args} joined>
+      <Button square icon='chevron-down' aria-label='More reply actions' />
       <Button>Reply</Button>
     </ButtonGroup>
   ),
   args: {
     joined: true,
+    ghostPosition: 'start',
   },
   parameters: {
     docs: {
       description: {
         story:
-          'A split button: the main action plus a ghost expand segment. The ghost segment lets the group’s translucent background show through.',
+          'A split button: the main action plus a ghost expand segment (`ghostPosition`). The ghost segment lets the group’s translucent background show through.',
       },
     },
   },
