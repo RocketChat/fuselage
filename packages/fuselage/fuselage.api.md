@@ -2040,6 +2040,7 @@ export const SidebarGroupTitle: (input: SidebarGroupTitleProps) => JSX.Element;
 // @public (undocumented)
 export type SidebarGroupTitleProps = {
     expanded?: boolean;
+    empty?: boolean;
     title?: string;
     titleId?: string;
     badge?: ReactNode;
@@ -2086,6 +2087,7 @@ export const SidebarItemMenu: (input: HTMLAttributes<HTMLDivElement>) => JSX.Ele
 export type SidebarItemProps = {
     selected?: boolean;
     level?: number;
+    indent?: boolean;
     is?: ElementType;
 } & AllHTMLAttributes<HTMLAnchorElement>;
 

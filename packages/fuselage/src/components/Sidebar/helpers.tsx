@@ -60,7 +60,7 @@ export const MenuTemplate = () => (
 
 export const GenericCondensedItem = ({ i = 0 }: { i: number }) => (
   <SidebarListItem>
-    <SidebarItem selected={i === 2} href='#'>
+    <SidebarItem indent selected={i === 2} href='#'>
       <SidebarItemAvatarWrapper>
         <Avatar size='x20' url={leterAvatarUrls[i % 4]} alt='avatar' />
       </SidebarItemAvatarWrapper>
@@ -90,7 +90,7 @@ export const GenericCondensedItem = ({ i = 0 }: { i: number }) => (
 
 export const GenericNoAvatarItem = ({ i = 0 }: { i: number }) => (
   <SidebarListItem>
-    <SidebarItem href='#'>
+    <SidebarItem href='#' indent>
       <SidebarItemStatusBullet status='online' />
       <SidebarItemTitle>{names[i % 10]}</SidebarItemTitle>
       <SidebarItemBadge title='unread messages'>{5}</SidebarItemBadge>
@@ -103,7 +103,7 @@ export const GenericNoAvatarItem = ({ i = 0 }: { i: number }) => (
 
 export const GenericMediumItem = ({ i = 0 }: { i: number }) => (
   <SidebarListItem>
-    <SidebarItem href='#'>
+    <SidebarItem href='#' indent>
       <SidebarItemAvatarWrapper>
         <Avatar size='x28' url={leterAvatarUrls[i % 4]} alt='avatar' />
       </SidebarItemAvatarWrapper>
@@ -119,7 +119,7 @@ export const GenericMediumItem = ({ i = 0 }: { i: number }) => (
 
 export const GenericExtendedItem = ({ i = 0 }: { i: number }) => (
   <SidebarListItem>
-    <SidebarItem href='#'>
+    <SidebarItem indent href='#'>
       <SidebarItemAvatarWrapper>
         <Avatar size='x36' url={leterAvatarUrls[i % 4]} alt='avatar' />
       </SidebarItemAvatarWrapper>
@@ -147,7 +147,7 @@ export const GenericCallItem = ({
   i = 0,
   ...props
 }: { i?: number } & SidebarItemProps) => (
-  <SidebarItem {...props}>
+  <SidebarItem indent {...props}>
     <SidebarItemAvatarWrapper>
       <Avatar size='x36' url={leterAvatarUrls[i % 4]} alt='avatar' />
     </SidebarItemAvatarWrapper>
