@@ -174,7 +174,7 @@ $sidebar-color-stroke-extra-light: theme(
 
     &__bar:has(&__bar-button:focus-visible) {
       box-shadow: inset 0 0 0 lengths.border-width('medium')
-        colors.stroke(extra-light-highlight);
+        colors.stroke(highlight);
     }
 
     &__panel--expanded {
