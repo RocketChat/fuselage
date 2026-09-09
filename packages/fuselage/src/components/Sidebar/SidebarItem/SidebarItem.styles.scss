@@ -26,13 +26,18 @@ $sidebar-color-font-active: theme(
 %sidebar-item-base {
   @include use-link-colors($color: colors.font(default));
   @include use-font-scale(p2);
-  @include focus-state($shadow: false);
+  @include on-focus-visible {
+    border-radius: lengths.border-radius(medium);
+    outline: 0;
+    box-shadow: inset 0 0 0 lengths.border-width('medium')
+      colors.stroke(highlight);
+  }
 
   display: flex;
 
   align-items: center;
 
-  border-radius: lengths.border-radius(small);
+  border-radius: lengths.border-radius(medium);
 }
 
 %sidebar-item-clickable {
@@ -68,16 +73,21 @@ $sidebar-color-font-active: theme(
 
   align-items: center;
 
-  padding: calc(lengths.padding(4) - lengths.border-width(default))
-    calc(lengths.padding(16) - lengths.border-width(default));
+  margin-inline: lengths.padding(4);
+  padding: lengths.padding(4);
 
   white-space: nowrap;
 
   text-decoration: none;
+
   gap: lengths.padding(4);
 
   &--level-2 {
-    padding-block: calc(lengths.padding(8) - lengths.border-width(default));
+    padding: lengths.padding(8);
+  }
+
+  &--indent {
+    margin-inline-start: lengths.padding(12);
   }
 
   &:active {

@@ -9,6 +9,7 @@ type SidebarCollapseGroupProps = HTMLAttributes<HTMLDivElement> &
     defaultExpanded?: boolean;
     tabIndex?: number;
     title: string;
+    empty?: boolean;
     badge?: ReactNode;
     menu?: ReactNode;
     actions?: ReactNode;
@@ -23,6 +24,8 @@ export function SidebarCollapseGroup({
   badge,
   menu,
   title,
+  empty,
+  role = 'group',
   ...props
 }: SidebarCollapseGroupProps) {
   const { barProps, expanded, panelExpanded, panelId, titleId } = useCollapse({
@@ -31,13 +34,18 @@ export function SidebarCollapseGroup({
     tabIndex,
   });
 
+  const labelledBy = props['aria-label'] ? undefined : titleId;
+
   return (
-    <section
+    <div
       className='rcx-box rcx-box--full rcx-sidebar-collapse-group'
+      role={role}
+      aria-labelledby={labelledBy}
       {...props}
     >
       <SidebarGroupTitle
         expanded={expanded}
+        empty={empty}
         title={title}
         titleId={titleId}
         badge={badge}
@@ -58,6 +66,6 @@ export function SidebarCollapseGroup({
       >
         {children}
       </div>
-    </section>
+    </div>
   );
 }
