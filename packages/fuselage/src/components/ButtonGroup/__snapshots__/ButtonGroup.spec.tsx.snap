@@ -400,6 +400,161 @@ exports[`[ButtonGroup Rendering] renders JoinedVertical without crashing 1`] = `
 </body>
 `;
 
+exports[`[ButtonGroup Rendering] renders JoinedWithMultipleButtonSizes without crashing 1`] = `
+<body>
+  <div>
+    <div
+      class="rcx-box rcx-box--full rcx-css-18mlk3l"
+    >
+      <div
+        class="rcx-box rcx-box--full rcx-css-4n4775"
+      >
+        <div
+          class="rcx-button-group rcx-button-group--align-start rcx-button-group--joined"
+          role="group"
+        >
+          <button
+            class="rcx-box rcx-box--full rcx-button--small rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Day
+            </span>
+          </button>
+          <button
+            class="rcx-box rcx-box--full rcx-button--small rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Week
+            </span>
+          </button>
+          <button
+            class="rcx-box rcx-box--full rcx-button--small rcx-button--primary rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Month
+            </span>
+          </button>
+        </div>
+        <div
+          class="rcx-button-group rcx-button-group--align-start rcx-button-group--joined"
+          role="group"
+        >
+          <button
+            class="rcx-box rcx-box--full rcx-button--medium rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Day
+            </span>
+          </button>
+          <button
+            class="rcx-box rcx-box--full rcx-button--medium rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Week
+            </span>
+          </button>
+          <button
+            class="rcx-box rcx-box--full rcx-button--medium rcx-button--primary rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Month
+            </span>
+          </button>
+        </div>
+        <div
+          class="rcx-button-group rcx-button-group--align-start rcx-button-group--joined"
+          role="group"
+        >
+          <button
+            class="rcx-box rcx-box--full rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Day
+            </span>
+          </button>
+          <button
+            class="rcx-box rcx-box--full rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Week
+            </span>
+          </button>
+          <button
+            class="rcx-box rcx-box--full rcx-button--primary rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Month
+            </span>
+          </button>
+        </div>
+        <div
+          class="rcx-button-group rcx-button-group--align-start rcx-button-group--joined"
+          role="group"
+        >
+          <button
+            class="rcx-box rcx-box--full rcx-button--large rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Day
+            </span>
+          </button>
+          <button
+            class="rcx-box rcx-box--full rcx-button--large rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Week
+            </span>
+          </button>
+          <button
+            class="rcx-box rcx-box--full rcx-button--large rcx-button--primary rcx-button"
+            type="button"
+          >
+            <span
+              class="rcx-button--content"
+            >
+              Month
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
 exports[`[ButtonGroup Rendering] renders Large without crashing 1`] = `
 <body>
   <div>

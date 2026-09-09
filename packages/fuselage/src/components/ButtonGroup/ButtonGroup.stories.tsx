@@ -24,7 +24,8 @@ export default {
           '**Rules**\n' +
           '- Use 2–4 buttons in a joined group, with at most one Primary.\n' +
           '- Joined groups work with regular labeled Buttons, icon-only `square` Buttons, and IconButtons.\n' +
-          '- Do not pair a regular Button with an IconButton — beside labeled buttons use an icon-only `square` Button; reserve IconButtons for groups made only of IconButtons.',
+          '- Do not pair a regular Button with an IconButton — beside labeled buttons use an icon-only `square` Button; reserve IconButtons for groups made only of IconButtons.\n' +
+          '- Keep a joined group homogeneous: every button in it must use the same size. Any Button size works, but never mix sizes inside the same joined group — the segments would no longer sit flush.',
       },
     },
   },
@@ -52,13 +53,15 @@ export default {
     },
     small: {
       control: 'boolean',
-      description: 'Small size scale for the contained buttons.',
-      table: { category: 'Size' },
+      description:
+        'Reduces the gap between buttons to 4px (default is 8px). No effect when `joined`.',
+      table: { category: 'Spacing' },
     },
     large: {
       control: 'boolean',
-      description: 'Large size scale for the contained buttons.',
-      table: { category: 'Size' },
+      description:
+        'Increases the gap between buttons to 16px (default is 8px). No effect when `joined`.',
+      table: { category: 'Spacing' },
     },
     joined: {
       control: 'boolean',
@@ -77,6 +80,12 @@ const withLightSurface: Decorator = (Story) => (
     <Story />
   </Box>
 );
+
+// `small`/`large` control the gap, which a joined group doesn't have.
+const withoutSpacingControls = {
+  small: { table: { disable: true } },
+  large: { table: { disable: true } },
+};
 
 const Template: StoryFn<typeof ButtonGroup> = (args) => (
   <ButtonGroup {...args}>
@@ -197,6 +206,7 @@ export const AlignedAtEnd: Story = {
 
 export const Joined: Story = {
   decorators: [withLightSurface],
+  argTypes: withoutSpacingControls,
   render: (args) => (
     <Box
       display='flex'
@@ -237,6 +247,7 @@ export const Joined: Story = {
 
 export const JoinedSegmented: Story = {
   decorators: [withLightSurface],
+  argTypes: withoutSpacingControls,
   render: (args) => (
     <ButtonGroup {...args}>
       <Button>Day</Button>
@@ -251,6 +262,7 @@ export const JoinedSegmented: Story = {
 
 export const JoinedSplitButton: Story = {
   decorators: [withLightSurface],
+  argTypes: withoutSpacingControls,
   render: (args) => (
     <ButtonGroup {...args}>
       <Button
@@ -277,6 +289,7 @@ export const JoinedSplitButton: Story = {
 
 export const JoinedVertical: Story = {
   decorators: [withLightSurface],
+  argTypes: withoutSpacingControls,
   render: (args) => (
     <ButtonGroup {...args}>
       <Button>Top</Button>
@@ -292,6 +305,7 @@ export const JoinedVertical: Story = {
 
 export const WithIconButtons: Story = {
   decorators: [withLightSurface],
+  argTypes: withoutSpacingControls,
   render: () => (
     <Box
       display='flex'
@@ -316,6 +330,57 @@ export const WithIconButtons: Story = {
       description: {
         story:
           'Icon buttons work in both layouts: a default group keeps the 8px gap, while a joined group fuses them into a single segmented control.',
+      },
+    },
+  },
+};
+
+export const JoinedWithMultipleButtonSizes: Story = {
+  decorators: [withLightSurface],
+  argTypes: withoutSpacingControls,
+  render: (args) => (
+    <Box
+      display='flex'
+      flexDirection='column'
+      alignItems='flex-start'
+      gap='x16'
+    >
+      <ButtonGroup {...args}>
+        <Button size='small'>Day</Button>
+        <Button size='small'>Week</Button>
+        <Button size='small' primary>
+          Month
+        </Button>
+      </ButtonGroup>
+      <ButtonGroup {...args}>
+        <Button size='medium'>Day</Button>
+        <Button size='medium'>Week</Button>
+        <Button size='medium' primary>
+          Month
+        </Button>
+      </ButtonGroup>
+      <ButtonGroup {...args}>
+        <Button>Day</Button>
+        <Button>Week</Button>
+        <Button primary>Month</Button>
+      </ButtonGroup>
+      <ButtonGroup {...args}>
+        <Button size='large'>Day</Button>
+        <Button size='large'>Week</Button>
+        <Button size='large' primary>
+          Month
+        </Button>
+      </ButtonGroup>
+    </Box>
+  ),
+  args: {
+    joined: true,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'A joined group works with any Button size, as long as the group is homogeneous — every button in it uses the same size (small, medium, default, and large shown here). Never mix sizes inside the same joined group: the segments would no longer sit flush.',
       },
     },
   },
