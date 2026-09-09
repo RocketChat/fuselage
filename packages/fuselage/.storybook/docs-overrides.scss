@@ -1,0 +1,8 @@
+// Fix Storybook Docs table overflow issue on mobile
+
+*:has(> .docblock-argstable) {
+  width: 100%;
+  overflow-x: auto;
+  display: block;
+}
+

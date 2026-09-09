@@ -12,6 +12,7 @@ import logo from './logo.svg';
 
 import 'normalize.css/normalize.css';
 import '@rocket.chat/icons/dist/rocketchat.css';
+import './docs-overrides.scss';
 
 export default {
   parameters: {
