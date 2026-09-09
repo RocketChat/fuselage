@@ -1,0 +1,8 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/api-extractor/v7/api-extractor.schema.json",
+  "extends": "../../api-extractor.json",
+  "mainEntryPointFilePath": "<projectFolder>/dist/experimental/index.d.ts",
+  "apiReport": {
+    "reportFileName": "fuselage-experimental.api.md"
+  }
+}

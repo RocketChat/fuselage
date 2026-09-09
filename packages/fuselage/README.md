@@ -125,6 +125,25 @@ const MyButton = () => {
 };
 ```
 
+### Experimental components
+
+Components and APIs that are still taking shape live in a separate subpath:
+
+```tsx
+import { SomeExperimentalComponent } from '@rocket.chat/fuselage/experimental';
+```
+
+Anything exported from `@rocket.chat/fuselage/experimental` may change or be
+removed in any release, including patch ones, and graduates to
+`@rocket.chat/fuselage` once it is stable. The subpath is plain CommonJS — like
+the main entry point, it is resolved through a file at the package root instead
+of an `exports` map, so bundlers and runtimes without `exports` support (Meteor
+3.4.1, for one) can require it.
+
+Both entry points share the same module instances at runtime, so React
+contexts, the palette and the CSS-in-JS cache stay singletons across them, and
+the styles keep coming from `@rocket.chat/fuselage/dist/fuselage.css`.
+
 Note: If you are using Next.js for development and wish to use Rocket.Chat Fuselage components, you need to dynamically import the component. More on this can be found [here](https://dev.to/vvo/how-to-solve-window-is-not-defined-errors-in-react-and-next-js-5f97#3-third-solution-dynamic-loading).
 
 Usage Example:
