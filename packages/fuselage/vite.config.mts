@@ -97,6 +97,10 @@ export default defineConfig(({ mode }) => {
       rollupOptions: {
         external,
         output: {
+          // Rollup's default (`if-default-prop`) omits `exports.__esModule`
+          // for a module with no default export; webpack always set it, and
+          // transpiled default imports interop off it.
+          esModule: true,
           assetFileNames: (info) => {
             if (!info.names?.[0]?.endsWith('.css')) {
               return 'fonts/[name][extname]';
