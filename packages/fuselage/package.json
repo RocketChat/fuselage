@@ -89,7 +89,7 @@
     "mini-css-extract-plugin": "~2.10.2",
     "normalize.css": "^8.0.1",
     "path-browserify": "^1.0.1",
-    "postcss": "~8.5.23",
+    "postcss": "~8.5.24",
     "postcss-dir-pseudo-class": "~10.0.0",
     "postcss-loader": "~8.2.1",
     "postcss-logical": "~9.0.0",
