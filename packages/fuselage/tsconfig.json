@@ -8,7 +8,8 @@
     "./src",
     "./.storybook/**/*",
     "./jest.config.ts",
-    "./jest-setup.ts"
+    "./jest-setup.ts",
+    "./vite.config.mts"
   ],
   "exclude": ["./dist", "./storybook-static/", "./*.js"]
 }

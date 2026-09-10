@@ -1,7 +1,5 @@
 import type { AllHTMLAttributes, RefAttributes } from 'react';
 
-import './MessageStatusIndicator.styles.scss';
-
 export type MessageStatusIndicatorProps = AllHTMLAttributes<HTMLDivElement> &
   RefAttributes<HTMLDivElement>;
 
