@@ -44,6 +44,7 @@ import type { RefObject } from 'react';
 import type { SectionProps } from '@react-types/shared';
 import type { SetStateAction } from 'react';
 import type { SVGAttributes } from 'react';
+import tokenBorder from '@rocket.chat/fuselage-tokens/dist/border.json';
 import type { TrackHTMLAttributes } from 'react';
 import type { UsePositionOptions } from '@rocket.chat/fuselage-hooks';
 
@@ -228,10 +229,16 @@ export type BannerProps = {
 export type BannerVariant = 'neutral' | 'info' | 'success' | 'warning' | 'danger';
 
 // @public (undocumented)
-export const borderRadius: (this: unknown, arg: unknown) => string | undefined;
+export type BorderRadius = keyof typeof tokenBorder.radius;
 
 // @public (undocumented)
-export const borderWidth: (this: unknown, arg: unknown) => string | undefined;
+export const borderRadius: (value: unknown) => string | undefined;
+
+// @public (undocumented)
+export type BorderWidth = keyof typeof tokenBorder.width;
+
+// @public (undocumented)
+export const borderWidth: (value: unknown) => string | undefined;
 
 // Warning: (ae-forgotten-export) The symbol "Box_2" needs to be exported by the entry point index.d.ts
 //
@@ -578,9 +585,6 @@ export function EmailInput(props: EmailInputProps): JSX.Element;
 
 // @public (undocumented)
 export type EmailInputProps = Omit<InputBoxProps<HTMLInputElement>, 'type'>;
-
-// @public (undocumented)
-export type Falsy = false | 0 | '' | null | undefined;
 
 // @public
 export function Field(props: FieldProps): JSX.Element;
@@ -2046,6 +2050,7 @@ export const SidebarGroupTitle: (input: SidebarGroupTitleProps) => JSX.Element;
 // @public (undocumented)
 export type SidebarGroupTitleProps = {
     expanded?: boolean;
+    empty?: boolean;
     title?: string;
     titleId?: string;
     badge?: ReactNode;
@@ -2092,6 +2097,7 @@ export const SidebarItemMenu: (input: HTMLAttributes<HTMLDivElement>) => JSX.Ele
 export type SidebarItemProps = {
     selected?: boolean;
     level?: number;
+    indent?: boolean;
     is?: ElementType;
 } & AllHTMLAttributes<HTMLAnchorElement>;
 
@@ -2345,13 +2351,13 @@ export type StylingProps = {
     borderInline: CSSProperties['borderInline'];
     borderInlineStart: CSSProperties['borderInlineStart'];
     borderInlineEnd: CSSProperties['borderInlineEnd'];
-    borderWidth: CSSProperties['borderWidth'];
-    borderBlockWidth: CSSProperties['borderBlockWidth'];
-    borderBlockStartWidth: CSSProperties['borderBlockStartWidth'];
-    borderBlockEndWidth: CSSProperties['borderBlockEndWidth'];
-    borderInlineWidth: CSSProperties['borderInlineWidth'];
-    borderInlineStartWidth: CSSProperties['borderInlineStartWidth'];
-    borderInlineEndWidth: CSSProperties['borderInlineEndWidth'];
+    borderWidth: BorderWidth;
+    borderBlockWidth: BorderWidth;
+    borderBlockStartWidth: BorderWidth;
+    borderBlockEndWidth: BorderWidth;
+    borderInlineWidth: BorderWidth;
+    borderInlineStartWidth: BorderWidth;
+    borderInlineEndWidth: BorderWidth;
     borderStyle: CSSProperties['borderStyle'];
     borderBlockStyle: CSSProperties['borderBlockStyle'];
     borderBlockStartStyle: CSSProperties['borderBlockStartStyle'];
@@ -2366,11 +2372,11 @@ export type StylingProps = {
     borderInlineColor: CSSProperties['borderInlineColor'];
     borderInlineStartColor: CSSProperties['borderInlineStartColor'];
     borderInlineEndColor: CSSProperties['borderInlineEndColor'];
-    borderRadius: CSSProperties['borderRadius'];
-    borderStartStartRadius: CSSProperties['borderStartStartRadius'];
-    borderStartEndRadius: CSSProperties['borderStartEndRadius'];
-    borderEndStartRadius: CSSProperties['borderEndStartRadius'];
-    borderEndEndRadius: CSSProperties['borderEndEndRadius'];
+    borderRadius: BorderRadius;
+    borderStartStartRadius: BorderRadius;
+    borderStartEndRadius: BorderRadius;
+    borderEndStartRadius: BorderRadius;
+    borderEndEndRadius: BorderRadius;
     color: CSSProperties['color'] | Var;
     backgroundColor: CSSProperties['backgroundColor'] | Var;
     opacity: CSSProperties['opacity'];
@@ -2666,13 +2672,6 @@ export function UrlInput(props: UrlInputProps): JSX.Element;
 export type UrlInputProps = Omit<InputBoxProps<HTMLInputElement>, 'type'>;
 
 // @public (undocumented)
-export const useArrayLikeClassNameProp: <T extends {
-    className?: string | cssFn | (string | cssFn | Falsy)[];
-}>(props: T) => T & {
-    className: string;
-};
-
-// @public (undocumented)
 export const useCursor: <T extends readonly [value: unknown, label: unknown, selected?: unknown, disabled?: unknown, type?: OptionType[4], url?: string] = OptionType>(initial: number, options: Array<T>, onChange: (option: T, visibilityHandler: VisibilityHandler) => void) => [cursor: number, handleKeyDown: (e: KeyboardEvent_2) => void, handleKeyUp: (e: KeyboardEvent_2) => void, reset: () => void, visibilityHandler: VisibilityHandler];
 
 // @public (undocumented)
@@ -2698,6 +2697,10 @@ show: () => void
 
 // @public (undocumented)
 export type VisibilityType = 'hidden' | 'visible' | 'hiding' | 'unhiding' | undefined;
+
+// Warnings were encountered during analysis:
+//
+// src/components/Box/Box.tsx:32:5 - (ae-forgotten-export) The symbol "Falsy" needs to be exported by the entry point index.d.ts
 
 // (No @packageDocumentation comment for this package)
 

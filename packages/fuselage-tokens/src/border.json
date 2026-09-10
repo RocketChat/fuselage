@@ -13,7 +13,8 @@
       "none": { "value": 0, "type": "borderWidth" },
       "default": { "value": 1, "type": "borderWidth" },
       "medium": { "value": 2, "type": "borderWidth" },
-      "large": { "value": 4, "type": "borderWidth" }
+      "large": { "value": 4, "type": "borderWidth" },
+      "extra-large": { "value": 8, "type": "borderWidth" }
     }
   }
 }

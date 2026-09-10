@@ -4,6 +4,7 @@ import { Chevron } from '../Chevron';
 
 export type SidebarGroupTitleProps = {
   expanded?: boolean;
+  empty?: boolean;
   title?: string;
   titleId?: string;
   badge?: ReactNode;
@@ -18,13 +19,17 @@ export const SidebarGroupTitle = ({
   menu,
   barProps,
   expanded,
+  empty,
   role,
   ...props
 }: SidebarGroupTitleProps) => (
   <div
     className={[
       'rcx-box rcx-box--full',
-      'rcx-sidebar-collapse-group__bar rcx-box--animated',
+      'rcx-sidebar-collapse-group__bar',
+      !expanded && empty && 'rcx-sidebar-collapse-group__bar--empty',
+      !expanded && badge && 'rcx-sidebar-collapse-group__bar--unread',
+      'rcx-box--animated',
     ]
       .filter(Boolean)
       .join(' ')}
