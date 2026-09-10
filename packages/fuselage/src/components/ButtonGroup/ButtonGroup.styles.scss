@@ -1,4 +1,31 @@
 @use '../../styles/lengths.scss';
+@use '../../styles/colors.scss';
+@use '../../styles/variables/button-colors.scss';
+@use '../../styles/mixins/button.scss';
+@use '../../styles/mixins/states.scss' as *;
+
+// A ghost segment stays transparent so the group background (and the surface
+// behind it) shows through.
+@mixin ghost-segment {
+  color: colors.button(on-secondary);
+  border-color: transparent;
+  background-color: transparent;
+
+  @include on-focus-visible {
+    border-color: transparent;
+    background-color: button-colors.$button-ghost-focus-background-color;
+  }
+
+  @include on-hover {
+    border-color: transparent;
+    background-color: button-colors.$button-ghost-hover-background-color;
+  }
+
+  @include on-active {
+    border-color: transparent;
+    background-color: button-colors.$button-ghost-active-background-color;
+  }
+}
 
 .rcx-button-group {
   display: flex;
@@ -46,5 +73,53 @@
 
   &--align-end {
     justify-content: flex-end;
+  }
+
+  // Single segmented control; wins over the `--small`/`--large` gap modifiers.
+  &--joined {
+    overflow: hidden;
+
+    // The group paints a background, so it hugs its content; auto margins
+    // reproduce `align`.
+    width: fit-content;
+
+    border-radius: button.$button-border-radius;
+
+    &.rcx-button-group--stretch {
+      width: auto;
+    }
+
+    &.rcx-button-group--align-center {
+      margin-inline: auto;
+    }
+
+    &.rcx-button-group--align-end {
+      margin-inline-start: auto;
+    }
+
+    // Keep vertical segments flush when intrinsic widths differ.
+    &.rcx-button-group--vertical {
+      align-items: stretch;
+    }
+
+    // Covered by opaque buttons; shows through ghost segments. Translucency
+    // lives in the color — `opacity` here would fade the children.
+    background-color: button-colors.$button-group-joined-background-color;
+
+    gap: 0;
+
+    .rcx-button {
+      border-radius: 0;
+    }
+
+    // The ghost segment is an edge segment by design: the group picks it via
+    // `ghostPosition`, so a middle button can never be ghosted.
+    &.rcx-button-group--ghost-start > .rcx-button:first-child {
+      @include ghost-segment;
+    }
+
+    &.rcx-button-group--ghost-end > .rcx-button:last-child {
+      @include ghost-segment;
+    }
   }
 }

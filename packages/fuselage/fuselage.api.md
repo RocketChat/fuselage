@@ -277,14 +277,20 @@ export function Button(input: ButtonProps): JSX.Element;
 export function ButtonGroup(input: ButtonGroupProps): JSX.Element;
 
 // @public (undocumented)
-export type ButtonGroupProps = RefAttributes<HTMLDivElement> & {
+export type ButtonGroupProps = RefAttributes<HTMLDivElement> & HTMLAttributes<HTMLDivElement> & {
     align?: 'start' | 'center' | 'end';
     stretch?: boolean;
     wrap?: boolean;
     vertical?: boolean;
     small?: boolean;
     large?: boolean;
-} & HTMLAttributes<HTMLDivElement>;
+} & ({
+    joined: true;
+    ghostPosition?: 'start' | 'end';
+} | {
+    joined?: false;
+    ghostPosition?: never;
+});
 
 // @public (undocumented)
 export type ButtonProps = Omit<BoxProps, 'ref'> & {
