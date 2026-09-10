@@ -6,11 +6,9 @@
   },
   "include": [
     "./src",
-    "./types",
     "./.storybook/**/*",
     "./jest.config.ts",
     "./jest-setup.ts",
-    "./webpack.config.mts",
     "./vite.config.mts"
   ],
   "exclude": ["./dist", "./storybook-static/", "./*.js"]
