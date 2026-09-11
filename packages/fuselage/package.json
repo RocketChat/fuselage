@@ -49,6 +49,7 @@
     "@rocket.chat/css-in-js": "workspace:~",
     "@rocket.chat/fuselage-tokens": "workspace:~",
     "@rocket.chat/memo": "~0.31.25",
+    "@tamagui/core": "~2.7.7",
     "invariant": "^2.2.4",
     "react-aria": "~3.37.0",
     "react-is": "~19.2.8",
