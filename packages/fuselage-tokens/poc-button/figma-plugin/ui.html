@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 12px;
+    padding: 12px;
+    margin: 0;
+  }
+  .mode {
+    margin-bottom: 16px;
+    border-bottom: 1px solid #e5e5e5;
+    padding-bottom: 12px;
+  }
+  .mode h3 {
+    margin: 0 0 6px;
+    font-size: 13px;
+  }
+  textarea {
+    width: 100%;
+    height: 90px;
+    font-family: 'SF Mono', Menlo, monospace;
+    font-size: 10px;
+    box-sizing: border-box;
+  }
+  button {
+    margin-right: 8px;
+    margin-top: 6px;
+    padding: 4px 10px;
+    cursor: pointer;
+  }
+  #status {
+    color: #b00020;
+    margin-bottom: 12px;
+  }
+  #hint {
+    color: #666;
+    margin-bottom: 12px;
+  }
+</style>
+</head>
+<body>
+  <div id="hint">Save each file as <code>&lt;mode&gt;.tokens.json</code> into <code>figma-native-export/</code>.</div>
+  <div id="status"></div>
+  <div id="modes"></div>
+
+  <script>
+    window.onmessage = function (event) {
+      var msg = event.data.pluginMessage;
+      if (!msg) return;
+
+      if (msg.type === 'error') {
+        document.getElementById('status').textContent = 'Error: ' + msg.message;
+        return;
+      }
+
+      if (msg.type === 'result') {
+        var container = document.getElementById('modes');
+        container.innerHTML = '';
+
+        Object.keys(msg.filesByMode).forEach(function (modeName) {
+          var entry = msg.filesByMode[modeName];
+          var json = JSON.stringify(entry.tree, null, 2) + '\n';
+
+          var div = document.createElement('div');
+          div.className = 'mode';
+
+          var heading = document.createElement('h3');
+          heading.textContent = modeName + '.tokens.json (' + entry.matchedCount + ' tokens)';
+          div.appendChild(heading);
+
+          var textarea = document.createElement('textarea');
+          textarea.value = json;
+          textarea.readOnly = true;
+          div.appendChild(textarea);
+
+          var downloadBtn = document.createElement('button');
+          downloadBtn.textContent = 'Download';
+          downloadBtn.onclick = function () {
+            var blob = new Blob([json], { type: 'application/json' });
+            var url = URL.createObjectURL(blob);
+            var a = document.createElement('a');
+            a.href = url;
+            a.download = modeName + '.tokens.json';
+            a.click();
+            URL.revokeObjectURL(url);
+          };
+          div.appendChild(downloadBtn);
+
+          var copyBtn = document.createElement('button');
+          copyBtn.textContent = 'Copy';
+          copyBtn.onclick = function () {
+            textarea.select();
+            document.execCommand('copy');
+          };
+          div.appendChild(copyBtn);
+
+          container.appendChild(div);
+        });
+      }
+    };
+  </script>
+</body>
+</html>
