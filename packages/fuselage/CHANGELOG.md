@@ -1,5 +1,43 @@
 # Change Log
 
+## 0.90.0
+
+### Minor Changes
+
+- [#2164](https://github.com/RocketChat/fuselage/pull/2164) [`a5f51e7`](https://github.com/RocketChat/fuselage/commit/a5f51e722f2d0046ff81436c5749c5f9402ff932) Thanks [@ivans-netto](https://github.com/ivans-netto)! - feat(fuselage): Add `joined` ButtonGroup variant with `ghost` button segments
+
+- [#2100](https://github.com/RocketChat/fuselage/pull/2100) [`4eb68c8`](https://github.com/RocketChat/fuselage/commit/4eb68c8d33e5704ee24905f272fd085d3244f8f7) Thanks [@tassoevan](https://github.com/tassoevan)! - Restricts border radius and border width token names
+
+### Patch Changes
+
+- [#2191](https://github.com/RocketChat/fuselage/pull/2191) [`c595094`](https://github.com/RocketChat/fuselage/commit/c5950940a685f4a1ea223ecd0a3a1bfc7dcf029f) Thanks [@tassoevan](https://github.com/tassoevan)! - fix(fuselage): Let direction-aware CSS reach the browser
+
+  `postcss-logical` was compiling every logical property in the sources down to hardcoded left-to-right physical ones, and `postcss-dir-pseudo-class` was replacing `:dir(rtl)` with the weaker `[dir="rtl"]` ancestor selector, which only matches under an explicit `dir` attribute. Both now ship as authored, so `margin-inline-start`, `inset-inline-end` and the rest flip in right-to-left documents instead of staying pinned to the left, and `:dir()` matches an element's own directionality — including `dir="auto"` resolved from its content. Left-to-right rendering is unchanged.
+
+- [#2191](https://github.com/RocketChat/fuselage/pull/2191) [`c595094`](https://github.com/RocketChat/fuselage/commit/c5950940a685f4a1ea223ecd0a3a1bfc7dcf029f) Thanks [@tassoevan](https://github.com/tassoevan)! - fix(fuselage): Publish separate development and production stylesheets
+
+  Both webpack modes emitted `dist/fuselage.css`, so the production stylesheet overwrote the development one — but with source maps off in production, nothing overwrote `dist/fuselage.css.map`, leaving a map that described a file no longer there. `dist/fuselage.css` is unchanged and remains the minified stylesheet to import; the development build now emits `dist/fuselage.development.css` alongside a source map that matches it.
+
+- [#2191](https://github.com/RocketChat/fuselage/pull/2191) [`c595094`](https://github.com/RocketChat/fuselage/commit/c5950940a685f4a1ea223ecd0a3a1bfc7dcf029f) Thanks [@tassoevan](https://github.com/tassoevan)! - fix(fuselage): Build the package with Vite instead of webpack
+
+  The bundler changed and the published bundles changed with it.
+  `dist/fuselage.production.js` drops from 216KB to 126KB (44KB to 32KB
+  gzipped) and `dist/fuselage.development.js` from 613KB to 271KB, because
+  Rollup scope-hoists the modules rather than wrapping each one in webpack's
+  runtime. The exported API is identical: the same 282 names with the same
+  types, and components render the same markup.
+
+  `dist/fuselage.css` is unchanged apart from the font reference, now
+  `url(./fonts/InterVariable.woff2)` instead of `url(fonts/InterVariable.woff2)`
+  — both resolve relative to the stylesheet.
+
+  One artifact is lost: `dist/fuselage.development.css.map` is no longer
+  published. Vite emits no source map for extracted CSS in a build, so the
+  development stylesheet no longer has one.
+
+- Updated dependencies [[`4eb68c8`](https://github.com/RocketChat/fuselage/commit/4eb68c8d33e5704ee24905f272fd085d3244f8f7)]:
+  - @rocket.chat/fuselage-tokens@0.35.0
+
 ## 0.89.0
 
 ### Minor Changes
