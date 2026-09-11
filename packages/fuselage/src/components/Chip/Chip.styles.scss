@@ -17,7 +17,7 @@ $chip-border-color: theme(
   'chip-border-color',
   colors.button(secondary-default)
 );
-$chip-color: theme('chip-color', colors.font(secondary-info));
+$chip-color: theme('chip-color', colors.button(on-secondary));
 $chip-hover-background-color: theme(
   'chip-hover-background-color',
   colors.button(secondary-hover)
@@ -78,7 +78,7 @@ $chip-disabled-color: theme('chip-disabled-color', colors.font(disabled));
   );
 
   @include clickable;
-  @include use-font-scale('p2');
+  @include use-font-scale('p2m');
 
   display: flex;
   overflow: hidden;
@@ -104,5 +104,51 @@ $chip-disabled-color: theme('chip-disabled-color', colors.font(disabled));
     color: inherit;
 
     font: inherit;
+
+    // Leading icons rendered inside the label (icon + text children) sit on
+    // the text baseline by default, riding above the visual center.
+    .rcx-icon {
+      vertical-align: middle;
+    }
+  }
+
+  &--dismissible {
+    display: inline-flex;
+
+    padding-block: 0;
+    padding-inline: lengths.size(4) 0;
+
+    cursor: default;
+
+    gap: lengths.size(4);
+
+    // When the label is the first child and starts with text (no leading
+    // thumb/avatar or icon), give it the same 8px visual inset the trailing
+    // IconButton's inner padding produces on the other side.
+    > .rcx-chip__text:first-child:not(:has(> .rcx-icon:first-child)) {
+      margin-inline-start: lengths.size(4);
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      border-color: $chip-border-color;
+      background-color: $chip-background-color;
+      box-shadow: none;
+    }
+
+    &.rcx-chip--disabled {
+      color: $chip-disabled-color;
+      border-color: $chip-disabled-border-color;
+      background-color: $chip-disabled-background-color;
+    }
+  }
+
+  &--medium {
+    min-height: lengths.size(28);
+  }
+
+  &--small {
+    min-height: lengths.size(20);
   }
 }

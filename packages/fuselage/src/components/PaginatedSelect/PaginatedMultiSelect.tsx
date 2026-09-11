@@ -180,7 +180,7 @@ const PaginatedMultiSelect = ({
                       title={withTitle ? label : undefined}
                       tabIndex={-1}
                       role='option'
-                      onClick={(e) => {
+                      onDismiss={(e) => {
                         prevent(e);
                         removeOption(value);
                       }}
