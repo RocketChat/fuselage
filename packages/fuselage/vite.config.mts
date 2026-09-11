@@ -83,6 +83,24 @@ const external = [
 const mainEntryPoint = '..';
 const mainEntryPointShim = '../index.js';
 
+/**
+ * One entry point per invocation, rather than both in a single build.
+ * Rollup hoists anything two entries share into a common chunk -- with both
+ * reading `@rocket.chat/fuselage-tokens`' JSON, that was the CommonJS interop
+ * helper -- which would put a content-hashed `rolldown-runtime-*.js` in `dist`
+ * and make the main bundle depend on it. Building them separately keeps each
+ * artifact self-contained.
+ */
+const entries = {
+  fuselage: 'src/index.ts',
+  experimental: 'src/experimental/index.ts',
+} as const;
+
+const entryName =
+  process.env['FUSELAGE_ENTRY'] === 'experimental'
+    ? 'experimental'
+    : 'fuselage';
+
 export default defineConfig(({ mode }) => {
   const production = mode === 'production';
 
@@ -102,15 +120,9 @@ export default defineConfig(({ mode }) => {
       // cssnano does the minifying, to match what webpack emitted.
       cssMinify: false,
       lib: {
-        entry: {
-          fuselage: resolve(import.meta.dirname, 'src/index.ts'),
-          experimental: resolve(
-            import.meta.dirname,
-            'src/experimental/index.ts',
-          ),
-        },
+        entry: resolve(import.meta.dirname, entries[entryName]),
         formats: ['cjs'],
-        fileName: (_format, entryName) => `${entryName}.${mode}.js`,
+        fileName: () => `${entryName}.${mode}.js`,
       },
       rollupOptions: {
         external: [...external, mainEntryPoint],
