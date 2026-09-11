@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-webpack5';
 
+import { Box } from '../Box';
 import { CheckBox } from '../CheckBox';
 import { RadioButton } from '../RadioButton';
 import { TextAreaInput } from '../TextAreaInput';
@@ -12,6 +13,7 @@ import FieldError from './FieldError';
 import FieldHint from './FieldHint';
 import FieldLabel from './FieldLabel';
 import FieldLabelInfo from './FieldLabelInfo';
+import FieldLabelReset from './FieldLabelReset';
 import FieldLink from './FieldLink';
 import FieldRow from './FieldRow';
 
@@ -24,6 +26,7 @@ export default {
     FieldHint,
     FieldLabel,
     FieldLabelInfo,
+    FieldLabelReset,
     FieldLink,
     FieldRow,
   },
@@ -49,10 +52,13 @@ type Story = StoryObj<typeof Field>;
 export const WithTextInput: Story = {
   render: () => (
     <Field>
-      <FieldLabel required htmlFor='fieldWithText'>
-        Label
-        <FieldLabelInfo id='fieldWithTextInfo' title='this is a info label' />
-      </FieldLabel>
+      <FieldRow>
+        <FieldLabel required htmlFor='fieldWithText'>
+          Label
+          <FieldLabelInfo id='fieldWithTextInfo' title='this is a info label' />
+        </FieldLabel>
+        <FieldLabelReset title='reset to default' />
+      </FieldRow>
       <FieldDescription>Description</FieldDescription>
       <FieldRow>
         <TextInput id='fieldWithText' aria-describedby='fieldWithTextInfo' />
@@ -69,13 +75,16 @@ export const WithTextInput: Story = {
 export const WithTextArea: Story = {
   render: () => (
     <Field>
-      <FieldLabel required htmlFor='fieldWithTextArea'>
-        Label
-        <FieldLabelInfo
-          id='fieldWithTextAreaInfo'
-          title='this is a info label'
-        />
-      </FieldLabel>
+      <FieldRow>
+        <FieldLabel required htmlFor='fieldWithTextArea'>
+          Label
+          <FieldLabelInfo
+            id='fieldWithTextAreaInfo'
+            title='this is a info label'
+          />
+        </FieldLabel>
+        <FieldLabelReset title='reset to default' />
+      </FieldRow>
       <FieldDescription>Description</FieldDescription>
       <FieldRow>
         <TextAreaInput
@@ -96,13 +105,22 @@ export const WithRadioButton: Story = {
   render: () => (
     <Field>
       <FieldRow>
-        <FieldLabel required htmlFor='fieldWithRadio'>
-          Label
-          <FieldLabelInfo
-            id='fieldWithRadioInfo'
-            title='this is a info label'
-          />
-        </FieldLabel>
+        <Box
+          is='span'
+          display='flex'
+          alignItems='center'
+          flexGrow={1}
+          marginInlineEnd={8}
+        >
+          <FieldLabel required htmlFor='fieldWithRadio'>
+            Label
+            <FieldLabelInfo
+              id='fieldWithRadioInfo'
+              title='this is a info label'
+            />
+          </FieldLabel>
+          <FieldLabelReset title='reset to default' />
+        </Box>
         <RadioButton
           id='fieldWithRadio'
           aria-describedby='fieldWithRadioInfo'
@@ -122,13 +140,22 @@ export const WithToggleSwitch: Story = {
   render: () => (
     <Field>
       <FieldRow>
-        <FieldLabel required htmlFor='fieldWithToggle'>
-          Label
-          <FieldLabelInfo
-            id='fieldWithToggleInfo'
-            title='this is a info label'
-          />
-        </FieldLabel>
+        <Box
+          is='span'
+          display='flex'
+          alignItems='center'
+          flexGrow={1}
+          marginInlineEnd={8}
+        >
+          <FieldLabel required htmlFor='fieldWithToggle'>
+            Label
+            <FieldLabelInfo
+              id='fieldWithToggleInfo'
+              title='this is a info label'
+            />
+          </FieldLabel>
+          <FieldLabelReset title='reset to default' />
+        </Box>
         <ToggleSwitch
           id='fieldWithToggle'
           aria-describedby='fieldWithToggleInfo'
@@ -148,13 +175,22 @@ export const WithCheckbox: Story = {
   render: () => (
     <Field>
       <FieldRow>
-        <FieldLabel required htmlFor='fieldWithCheckbox'>
-          Label
-          <FieldLabelInfo
-            id='fieldWithCheckboxInfo'
-            title='this is a info label'
-          />
-        </FieldLabel>
+        <Box
+          is='span'
+          display='flex'
+          alignItems='center'
+          flexGrow={1}
+          marginInlineEnd={8}
+        >
+          <FieldLabel required htmlFor='fieldWithCheckbox'>
+            Label
+            <FieldLabelInfo
+              id='fieldWithCheckboxInfo'
+              title='this is a info label'
+            />
+          </FieldLabel>
+          <FieldLabelReset title='reset to default' />
+        </Box>
         <CheckBox
           id='fieldWithCheckbox'
           aria-describedby='fieldWithCheckboxInfo'
