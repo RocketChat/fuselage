@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.50.0
+
+### Minor Changes
+
+- [#2198](https://github.com/RocketChat/fuselage/pull/2198) [`a3e9b14`](https://github.com/RocketChat/fuselage/commit/a3e9b14b6eb12dfda07707c8f1d968b26b84d7d0) Thanks [@ivans-netto](https://github.com/ivans-netto)! - feat(icons): Add `folder-star` icon
+
 ## 0.49.0
 
 ### Minor Changes
