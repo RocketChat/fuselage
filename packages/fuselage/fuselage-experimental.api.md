@@ -6,15 +6,15 @@
 
 import { JSX } from 'react';
 import type { ReactNode } from 'react';
+import { RNTamaguiViewNonStyleProps } from '@tamagui/core';
+import { StackStyleBase } from '@tamagui/web';
+import { StaticConfigPublic } from '@tamagui/web';
+import { TamaDefer } from '@tamagui/web';
+import { TamaguiComponent } from '@tamagui/web';
 import { TamaguiInternalConfig } from '@tamagui/web';
 
 // @public
-export const ExperimentalSurface: (input: ExperimentalSurfaceProps) => JSX.Element;
-
-// @public (undocumented)
-export type ExperimentalSurfaceProps = {
-    children?: ReactNode;
-};
+export const ExperimentalSurface: TamaguiComponent<TamaDefer, any, RNTamaguiViewNonStyleProps, StackStyleBase, {}, StaticConfigPublic>;
 
 // @public
 export const FuselageProvider: (input: FuselageProviderProps) => JSX.Element;
@@ -128,9 +128,15 @@ x24: number;
 x32: number;
 };
 }, {
-light: {};
-dark: {};
-'high-contrast': {};
+light: {
+[x: string]: string;
+};
+dark: {
+[x: string]: string;
+};
+'high-contrast': {
+[x: string]: string;
+};
 }, {}, {
 xs: {
 minWidth: number;
