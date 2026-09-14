@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.35.0
+
+### Minor Changes
+
+- [#2100](https://github.com/RocketChat/fuselage/pull/2100) [`4eb68c8`](https://github.com/RocketChat/fuselage/commit/4eb68c8d33e5704ee24905f272fd085d3244f8f7) Thanks [@tassoevan](https://github.com/tassoevan)! - Restricts border radius and border width token names
+
 ## 0.34.0
 
 ### Minor Changes
