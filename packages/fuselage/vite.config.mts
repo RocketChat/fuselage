@@ -71,6 +71,36 @@ const external = [
   ...Object.keys(pkg.peerDependencies ?? {}),
 ].map((dep) => new RegExp(`^${dep}(/.+)?$`));
 
+/**
+ * `src/experimental` reaches the public API through `'..'`. Leaving that
+ * external turns it into a `require()` of the root shim rather than a second
+ * copy of the library, so React contexts, the palette registry and the
+ * CSS-in-JS cache stay singletons across both entry points. The path is
+ * relative to `dist/`, where the bundles land, and the shim picks the
+ * development or production build from `NODE_ENV` just as it does for anyone
+ * requiring `@rocket.chat/fuselage` directly.
+ */
+const mainEntryPoint = '..';
+const mainEntryPointShim = '../index.js';
+
+/**
+ * One entry point per invocation, rather than both in a single build.
+ * Rollup hoists anything two entries share into a common chunk -- with both
+ * reading `@rocket.chat/fuselage-tokens`' JSON, that was the CommonJS interop
+ * helper -- which would put a content-hashed `rolldown-runtime-*.js` in `dist`
+ * and make the main bundle depend on it. Building them separately keeps each
+ * artifact self-contained.
+ */
+const entries = {
+  fuselage: 'src/index.ts',
+  experimental: 'src/experimental/index.ts',
+} as const;
+
+const entryName =
+  process.env['FUSELAGE_ENTRY'] === 'experimental'
+    ? 'experimental'
+    : 'fuselage';
+
 export default defineConfig(({ mode }) => {
   const production = mode === 'production';
 
@@ -90,13 +120,14 @@ export default defineConfig(({ mode }) => {
       // cssnano does the minifying, to match what webpack emitted.
       cssMinify: false,
       lib: {
-        entry: resolve(import.meta.dirname, 'src/index.ts'),
+        entry: resolve(import.meta.dirname, entries[entryName]),
         formats: ['cjs'],
-        fileName: () => `fuselage.${mode}.js`,
+        fileName: () => `${entryName}.${mode}.js`,
       },
       rollupOptions: {
-        external,
+        external: [...external, mainEntryPoint],
         output: {
+          paths: { [mainEntryPoint]: mainEntryPointShim },
           // Rollup's default (`if-default-prop`) omits `exports.__esModule`
           // for a module with no default export; webpack always set it, and
           // transpiled default imports interop off it.
