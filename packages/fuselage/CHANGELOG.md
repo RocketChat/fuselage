@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.90.1
+
+### Patch Changes
+
+- [#2207](https://github.com/RocketChat/fuselage/pull/2207) [`c4f78b0`](https://github.com/RocketChat/fuselage/commit/c4f78b07dc72ab821fb72ff46292f22d1b95d210) Thanks [@dougfabris](https://github.com/dougfabris)! - fix(fuselage): update hover background color for sidebar collapse group
+
 ## 0.90.0
 
 ### Minor Changes
