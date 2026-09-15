@@ -50,7 +50,7 @@
     "@rocket.chat/icons": "workspace:~",
     "@rocket.chat/layout": "workspace:~",
     "@rocket.chat/logo": "workspace:~",
-    "@rocket.chat/storybook-dark-mode": "workspace:~",
+    "@rocket.chat/storybook-dark-mode": "~4.2.1",
     "@rocket.chat/styled": "workspace:~",
     "@storybook/addon-a11y": "~9.1.20",
     "@storybook/addon-docs": "~9.1.20",
