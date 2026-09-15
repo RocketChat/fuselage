@@ -250,12 +250,18 @@ $message-block-width-fixed: theme('message-block-width-fixed', 368px);
   }
 
   &-body {
-    @extend %rcx-margins-block;
     @include use-font-scale(p2);
 
     overflow: hidden;
 
     flex-shrink: 1;
+
+    // Trades the usual 2px block margin for the same amount of padding so
+    // the `overflow: hidden` clip (kept for zalgo text) leaves room for
+    // inline emojis, which bleed 1px past the line box on the first and last
+    // lines. Spacing to siblings stays the same.
+    margin-block: lengths.margin(none);
+    padding-block: lengths.padding(2);
 
     transition: opacity 0.3s linear;
 
@@ -309,6 +315,9 @@ $message-block-width-fixed: theme('message-block-width-fixed', 368px);
     &--clamp {
       display: -webkit-box;
       overflow: hidden;
+
+      margin-block: lengths.margin(2);
+      padding-block: lengths.padding(none);
 
       word-break: break-word;
       -webkit-box-orient: vertical;
@@ -378,16 +387,25 @@ $message-block-width-fixed: theme('message-block-width-fixed', 368px);
   &__emoji {
     display: inline-block;
 
+    // The emoji box (22px) is taller than the body line box (20px, `p2`).
+    // Negative block margins shrink its margin box to the line height and
+    // `vertical-align: top` snaps it to the line box, so inline emojis don't
+    // stretch the line they sit on.
+    margin-block: lengths.margin(-1);
     margin-inline: lengths.margin(2);
+
+    vertical-align: top;
 
     background-size: contain;
 
-    font-size: lengths.size(24);
-    line-height: lengths.size(24);
+    font-size: to-rem(22);
+    line-height: to-rem(22);
 
-    @include size.square(lengths.size(24));
+    @include size.square(to-rem(22));
 
     &--big {
+      margin-block: lengths.margin(none);
+
       font-size: lengths.size(44);
       line-height: lengths.size(48);
 
