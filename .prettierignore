@@ -7,3 +7,9 @@ bundle-report.html
 /.yarn
 /README.md
 *.api.md
+
+# Generated from tools/figma-sync/src/apply.js — see that file, not this one.
+tools/figma-sync/plugin/code.js
+
+# Build artifact from the figma-sync extractor.
+tools/figma-sync/figma-spec.json

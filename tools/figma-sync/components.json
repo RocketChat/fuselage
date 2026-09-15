@@ -1,0 +1,309 @@
+{
+  "$comment": "Phase A: box-shaped atoms. Axis values come from the story's argTypes. rootSelector is REQUIRED — the story root is a css-in-js Box wrapper, not the component; take the class from the component's .styles.scss. axisValues overrides an axis (null = omit the arg, which is how Fuselage spells an unnamed default). oneOf collapses mutually exclusive boolean args into a single axis. fluidWidth marks block-level components whose measured width is only the story canvas.",
+  "components": [
+    {
+      "name": "Button",
+      "storyId": "inputs-button--default",
+      "axes": ["variant", "size"],
+      "axisValues": {
+        "size": ["small", "medium", null, "large"]
+      },
+      "axisLabels": {
+        "size": {
+          "null": "default"
+        }
+      },
+      "args": {
+        "children": "Button"
+      },
+      "rootSelector": ".rcx-button"
+    },
+    {
+      "name": "Tag",
+      "storyId": "data-display-tag--default",
+      "axes": ["variant", "size"],
+      "oneOf": {
+        "size": {
+          "args": ["medium", "large"],
+          "noneLabel": "small"
+        }
+      },
+      "args": {
+        "children": "Tag"
+      },
+      "rootSelector": ".rcx-tag"
+    },
+    {
+      "name": "Badge",
+      "storyId": "data-display-badge--default",
+      "axes": ["variant", "size"],
+      "oneOf": {
+        "size": {
+          "args": ["small"],
+          "noneLabel": "default"
+        }
+      },
+      "args": {
+        "children": "1"
+      },
+      "rootSelector": ".rcx-badge"
+    },
+    {
+      "name": "Callout",
+      "storyId": "feedback-callout--default",
+      "axes": ["type"],
+      "args": {
+        "title": "Callout",
+        "children": "Callout body"
+      },
+      "rootSelector": ".rcx-callout",
+      "fluidWidth": true
+    },
+    {
+      "name": "Banner",
+      "storyId": "feedback-banner--banner",
+      "axes": ["variant", "inline"],
+      "args": {
+        "title": "Banner",
+        "children": "Banner body"
+      },
+      "rootSelector": ".rcx-banner",
+      "fluidWidth": true
+    },
+    {
+      "name": "Chip",
+      "storyId": "data-display-chip--default",
+      "axes": ["disabled"],
+      "args": {
+        "children": "Chip"
+      },
+      "rootSelector": ".rcx-chip"
+    },
+    {
+      "name": "Label",
+      "storyId": "inputs-label--default",
+      "axes": ["required", "disabled"],
+      "args": {
+        "children": "Label"
+      },
+      "rootSelector": ".rcx-label",
+      "fluidWidth": true
+    },
+    {
+      "name": "FramedIcon",
+      "storyId": "data-display-framedicon--default",
+      "axes": ["variant"],
+      "oneOf": {
+        "variant": {
+          "args": ["info", "success", "warning", "danger", "neutral"],
+          "noneLabel": "default"
+        }
+      },
+      "args": {
+        "icon": "info"
+      },
+      "rootSelector": ".rcx-framed-icon"
+    },
+    {
+      "name": "Divider",
+      "storyId": "data-display-divider--default",
+      "axes": ["variation", "vertical"],
+      "axisValues": {
+        "variation": [null, "danger"]
+      },
+      "axisLabels": {
+        "variation": {
+          "null": "default"
+        }
+      },
+      "rootSelector": ".rcx-divider",
+      "fluidWidth": true
+    },
+    {
+      "name": "Tooltip",
+      "storyId": "data-display-tooltip--default",
+      "axes": ["variation"],
+      "args": {
+        "children": "Tooltip"
+      },
+      "rootSelector": ".rcx-tooltip"
+    },
+    {
+      "name": "InputBox",
+      "storyId": "inputs-inputbox--default",
+      "axes": ["small", "disabled"],
+      "args": {
+        "type": "text"
+      },
+      "rootSelector": ".rcx-input-box"
+    }
+  ],
+  "skipped": [
+    {
+      "name": "ProgressBar",
+      "storyId": "data-display-progressbar--default",
+      "rootSelector": ".rcx-progress-bar",
+      "reason": "variant colour is on the child bar, not the root track — needs child-node measurement (Phase B)"
+    },
+    {
+      "name": "CheckBox",
+      "storyId": "inputs-checkbox--default",
+      "rootSelector": ".rcx-check-box",
+      "reason": "checked/indeterminate render on a child <i>; the root is a transparent 20x20 box"
+    },
+    {
+      "name": "RadioButton",
+      "storyId": "inputs-radiobutton--default",
+      "rootSelector": ".rcx-radio-button",
+      "reason": "same as CheckBox — state lives on a child, root never changes"
+    },
+    {
+      "name": "ToggleSwitch",
+      "storyId": "inputs-toggleswitch--default",
+      "rootSelector": ".rcx-toggle-switch",
+      "reason": "same as CheckBox — state lives on a child, root never changes"
+    },
+    {
+      "name": "StatusBullet",
+      "storyId": "data-display-statusbullet--default",
+      "rootSelector": ".rcx-status-bullet",
+      "reason": "it is an SVG; status colour is the path fill, not a CSS background (Phase B: vectors)"
+    },
+    {
+      "name": "ToastBar",
+      "storyId": "feedback-toastbar--default",
+      "rootSelector": ".rcx-toastbar",
+      "reason": "variant produces no measurable change on the root element"
+    },
+    {
+      "name": "Avatar",
+      "storyId": "data-display-avatar--default",
+      "rootSelector": ".rcx-avatar",
+      "reason": "the size arg is not applied by the story — the class stays rcx-avatar--x16 regardless"
+    },
+    {
+      "name": "Card",
+      "storyId": "containers-card--vertical",
+      "rootSelector": ".rcx-card",
+      "reason": "horizontal/clickable produce no measurable change on the root element"
+    },
+    {
+      "name": "CodeSnippet",
+      "storyId": "data-display-codesnippet--default",
+      "rootSelector": ".rcx-code-snippet",
+      "reason": "buttonDisabled affects a child button, not the root"
+    },
+    {
+      "name": "Tile",
+      "storyId": "containers-tile--default",
+      "rootSelector": ".rcx-tile",
+      "reason": "elevation maps to box-shadow, which the extractor does not capture yet — 5 variants measured as 2. Shadow extraction is the clear next increment: Fuselage already has shadow-elevation-* tokens published in Figma."
+    },
+    {
+      "name": "Bubble",
+      "storyId": "data-display-bubble--icon-and-label",
+      "rootSelector": ".rcx-bubble",
+      "reason": ".rcx-bubble is a layout wrapper: transparent fill, full container width, and unstyled text (measured rgb(0,0,0) — pure black is not in the Fuselage palette). The styled content is in children."
+    },
+    {
+      "name": "Skeleton",
+      "storyId": "layout-skeleton--default",
+      "rootSelector": ".rcx-skeleton",
+      "reason": "the shimmer is an animated linear-gradient background-image, not a background-color, so background-color reads transparent and the variant ships blank. Needs gradient paint support (Figma GRADIENT_LINEAR) plus a decision on how to represent the animation."
+    },
+    {
+      "name": "Throbber",
+      "storyId": "data-display-throbber--default",
+      "rootSelector": ".rcx-throbber",
+      "reason": "the dots are child elements with their own background-color and a bounce animation; .rcx-throbber itself is a transparent flex wrapper, so all variants measure identically. Needs child-node measurement (Phase B)."
+    },
+    {
+      "name": "Chevron",
+      "storyId": "data-display-chevron--default",
+      "rootSelector": ".rcx-chevron",
+      "reason": "direction is expressed as transform: rotate(), which the extractor does not measure — only 2 of 5 variants render distinctly. Figma would need the rotation applied to the node, not a fill change."
+    }
+  ],
+  "outOfScope": [
+    {
+      "name": "Accordion",
+      "reason": "composite — a list of expandable items; each row is its own component"
+    },
+    {
+      "name": "AutoComplete",
+      "reason": "composite — wraps an input plus a floating Options list"
+    },
+    {
+      "name": "ButtonGroup",
+      "reason": "layout container — its appearance is entirely the Buttons inside it"
+    },
+    {
+      "name": "CardGroup",
+      "reason": "layout container — appearance comes from the Cards inside it"
+    },
+    {
+      "name": "Dropdown",
+      "reason": "composite — a floating surface positioned around a trigger"
+    },
+    {
+      "name": "Field",
+      "reason": "composite — label, input, hint and error rows"
+    },
+    {
+      "name": "FieldGroup",
+      "reason": "layout container for Fields"
+    },
+    {
+      "name": "Grid",
+      "reason": "layout primitive — no visual surface of its own"
+    },
+    {
+      "name": "Modal",
+      "reason": "composite — backdrop, surface, header, content and footer"
+    },
+    {
+      "name": "NavBar",
+      "reason": "composite — a bar of other components"
+    },
+    {
+      "name": "Option",
+      "reason": "row inside Options; measured meaningfully only in that context"
+    },
+    {
+      "name": "Options",
+      "reason": "composite — a scrollable list of Option rows"
+    },
+    {
+      "name": "Pagination",
+      "reason": "composite — buttons plus a page-size Select"
+    },
+    {
+      "name": "Select",
+      "reason": "composite — a trigger plus a floating Options list"
+    },
+    {
+      "name": "Sidebar",
+      "reason": "composite — the largest one; rows, headers, search, banners"
+    },
+    {
+      "name": "Sidepanel",
+      "reason": "composite — a panel shell containing other components"
+    },
+    {
+      "name": "States",
+      "reason": "composite — icon, title, subtitle and actions"
+    },
+    {
+      "name": "Table",
+      "reason": "composite — head, body, rows and cells"
+    },
+    {
+      "name": "Tabs",
+      "reason": "composite — a strip of Tab items"
+    },
+    {
+      "name": "Icon",
+      "reason": "a single glyph with no visual axes; belongs to the icon-sprite work (Phase B), and validateSpec requires at least one axis"
+    }
+  ]
+}
