@@ -168,7 +168,7 @@ $sidebar-color-stroke-extra-light: theme(
 
     &__bar:has(&__bar-button[tabindex]) {
       @include on-hover {
-        background-color: colors.surface(tint);
+        background-color: colors.surface(hover);
       }
     }
 
