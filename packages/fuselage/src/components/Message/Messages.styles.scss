@@ -378,16 +378,25 @@ $message-block-width-fixed: theme('message-block-width-fixed', 368px);
   &__emoji {
     display: inline-block;
 
+    // The emoji box (22px) is taller than the body line box (20px, `p2`).
+    // Negative block margins shrink its margin box to the line height and
+    // `vertical-align: top` snaps it to the line box, so inline emojis don't
+    // stretch the line they sit on.
+    margin-block: lengths.margin(-1);
     margin-inline: lengths.margin(2);
+
+    vertical-align: top;
 
     background-size: contain;
 
-    font-size: lengths.size(24);
-    line-height: lengths.size(24);
+    font-size: to-rem(22);
+    line-height: to-rem(22);
 
-    @include size.square(lengths.size(24));
+    @include size.square(to-rem(22));
 
     &--big {
+      margin-block: lengths.margin(none);
+
       font-size: lengths.size(44);
       line-height: lengths.size(48);
 
