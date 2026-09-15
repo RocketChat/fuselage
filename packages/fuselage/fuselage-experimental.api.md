@@ -6,15 +6,7 @@
 
 import { JSX } from 'react';
 import type { ReactNode } from 'react';
-import { RNTamaguiViewNonStyleProps } from '@tamagui/core';
-import { StackStyleBase } from '@tamagui/web';
-import { StaticConfigPublic } from '@tamagui/web';
-import { TamaDefer } from '@tamagui/web';
-import { TamaguiComponent } from '@tamagui/web';
 import { TamaguiInternalConfig } from '@tamagui/web';
-
-// @public
-export const ExperimentalSurface: TamaguiComponent<TamaDefer, any, RNTamaguiViewNonStyleProps, StackStyleBase, {}, StaticConfigPublic>;
 
 // @public
 export const FuselageProvider: (input: FuselageProviderProps) => JSX.Element;

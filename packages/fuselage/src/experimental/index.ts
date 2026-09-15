@@ -27,7 +27,6 @@
  * Tamagui throws when a styled component has no theme context.
  */
 
-export * from './ExperimentalSurface';
 export {
   FuselageProvider,
   type FuselageProviderProps,
