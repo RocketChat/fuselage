@@ -1,3 +1,5 @@
+/// <reference types="vite/client" />
+
 import './index.scss';
 
 export * from './components';
