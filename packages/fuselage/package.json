@@ -54,7 +54,7 @@
     "@microsoft/api-extractor": "~7.58.12",
     "@rocket.chat/fuselage-hooks": "workspace:~",
     "@rocket.chat/icons": "workspace:~",
-    "@rocket.chat/storybook-dark-mode": "workspace:~",
+    "@rocket.chat/storybook-dark-mode": "~4.2.1",
     "@rocket.chat/visual-regression": "workspace:~",
     "@storybook/addon-a11y": "~9.1.20",
     "@storybook/addon-docs": "~9.1.20",
