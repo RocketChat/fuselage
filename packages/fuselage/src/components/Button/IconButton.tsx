@@ -1,5 +1,5 @@
 import type { Keys as IconName } from '@rocket.chat/icons';
-import type { ReactElement } from 'react';
+import type { ReactElement, ReactNode } from 'react';
 import { isValidElement, useMemo } from 'react';
 
 import { Box, type BoxProps } from '../Box';
@@ -15,6 +15,14 @@ export type IconButtonSize = {
 
 export type IconButtonProps = {
   icon: IconName | ReactElement<any>;
+  /**
+   * What to pin to the button's corner, if anything — a `Badge`, as a rule. Nothing pinned is no corner at all.
+   *
+   * It is hidden from assistive technology, always: `aria-label` replaces a button's contents rather than adding
+   * to them, so a badge inside a labelled button is never read out. What it says has to reach `aria-label`
+   * instead, which is the caller's to write.
+   */
+  badge?: ReactNode;
   primary?: boolean;
   secondary?: boolean;
   info?: boolean;
@@ -44,6 +52,7 @@ const getPressedClass = (variant: string) => {
 
 function IconButton({
   icon,
+  badge,
   primary,
   info,
   secondary,
@@ -107,6 +116,8 @@ function IconButton({
     (mini && 'x12') ||
     'x28';
 
+  const hasBadge = badge !== undefined && badge !== null;
+
   return (
     <Box
       is='button'
@@ -117,12 +128,21 @@ function IconButton({
       {...kindAndVariantProps}
       {...getSizeClass()}
       rcx-button--icon-pressed={pressed}
+      rcx-button--with-badge={hasBadge}
       {...props}
     >
       {isValidElement<any>(icon) ? (
         icon
       ) : (
         <Icon name={icon} size={getIconSize()} />
+      )}
+      {hasBadge && (
+        // Hit-testable, because a badge carrying a `title` promises a tooltip and `pointer-events: none` is
+        // precisely what stops one appearing. The badge sits inside the button, so a click on it is a click on
+        // the button.
+        <span className='rcx-button__badge' aria-hidden='true'>
+          {badge}
+        </span>
       )}
       {children}
     </Box>

@@ -4,7 +4,3 @@ export {
   type IconButtonProps,
   type IconButtonSize,
 } from './IconButton';
-export {
-  default as IconButtonWithBadge,
-  type IconButtonWithBadgeProps,
-} from './IconButtonWithBadge';

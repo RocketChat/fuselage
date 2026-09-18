@@ -4,34 +4,25 @@ import { screen } from '@testing-library/react';
 import { render } from '../../testing';
 import { Badge } from '../Badge';
 
-import IconButtonWithBadge from './IconButtonWithBadge';
-import * as stories from './IconButtonWithBadge.stories';
+import IconButton from './IconButton';
+import * as stories from './IconButton.stories';
 
-const { Default, WithoutBadge, Dot, Variants, WithAvatar } =
+const { _IconButtonWithBadge, _IconButtonAvatarWithBadge } =
   composeStories(stories);
 
-describe('[IconButtonWithBadge Component]', () => {
+describe('[IconButton Component]', () => {
   describe('Story renders without crashing', () => {
-    it('Default', () => {
-      render(<Default />);
+    it('_IconButtonWithBadge', () => {
+      render(<_IconButtonWithBadge />);
     });
-    it('WithoutBadge', () => {
-      render(<WithoutBadge />);
-    });
-    it('Dot', () => {
-      render(<Dot />);
-    });
-    it('Variants', () => {
-      render(<Variants />);
-    });
-    it('WithAvatar', () => {
-      render(<WithAvatar />);
+    it('_IconButtonAvatarWithBadge', () => {
+      render(<_IconButtonAvatarWithBadge />);
     });
   });
 
   it('should display the badge', () => {
     render(
-      <IconButtonWithBadge
+      <IconButton
         icon='balloon'
         aria-label='balloon'
         badge={<Badge>2</Badge>}
@@ -42,7 +33,7 @@ describe('[IconButtonWithBadge Component]', () => {
 
   it('should not render a badge when there is none', () => {
     const { container } = render(
-      <IconButtonWithBadge icon='balloon' aria-label='balloon' />,
+      <IconButton icon='balloon' aria-label='balloon' />,
     );
     expect(
       container.querySelector('.rcx-button__badge'),
@@ -54,7 +45,7 @@ describe('[IconButtonWithBadge Component]', () => {
 
   it('should hide the badge from assistive technology', () => {
     const { container } = render(
-      <IconButtonWithBadge
+      <IconButton
         icon='balloon'
         aria-label='balloon, 2 unread messages'
         badge={<Badge>2</Badge>}
