@@ -134,7 +134,7 @@ function IconButton({
       ) : (
         <Icon name={icon} size={getIconSize()} />
       )}
-      {hasBadge && (
+      {Boolean(badge) && (
         <span className='rcx-button__badge' aria-hidden='true'>
           {badge}
         </span>
