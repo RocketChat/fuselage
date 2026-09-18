@@ -7,7 +7,7 @@ import { Badge } from '../Badge';
 import IconButton from './IconButton';
 import * as stories from './IconButton.stories';
 
-const { _IconButtonWithBadge, _IconButtonAvatarWithBadge } =
+const { _IconButtonWithBadge, _IconButtonAvatarWithBadge, _IconButtonWithDot } =
   composeStories(stories);
 
 describe('[IconButton Component]', () => {
@@ -17,6 +17,9 @@ describe('[IconButton Component]', () => {
     });
     it('_IconButtonAvatarWithBadge', () => {
       render(<_IconButtonAvatarWithBadge />);
+    });
+    it('_IconButtonWithDot', () => {
+      render(<_IconButtonWithDot />);
     });
   });
 

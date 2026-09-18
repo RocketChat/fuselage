@@ -362,3 +362,16 @@ export const _IconButtonAvatarWithBadge: Story = {
     </ButtonGroup>
   ),
 };
+
+export const _IconButtonWithDot: Story = {
+  render: () => (
+    <ButtonGroup>
+      <IconButton
+        icon='balloon'
+        aria-label='balloon, unread messages'
+        small
+        badge={<Badge variant='danger' small />}
+      />
+    </ButtonGroup>
+  ),
+};
