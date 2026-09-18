@@ -16,7 +16,7 @@ export type IconButtonSize = {
 export type IconButtonProps = {
   icon: IconName | ReactElement<any>;
   /**
-   * What to pin to the button's corner, if anything — a `Badge`, as a rule. Nothing pinned is no corner at all.
+   * What to pin to the button's corner, if anything — a `Badge`, as a rule.
    *
    * It is hidden from assistive technology, always: `aria-label` replaces a button's contents rather than adding
    * to them, so a badge inside a labelled button is never read out. What it says has to reach `aria-label`
@@ -116,8 +116,6 @@ function IconButton({
     (mini && 'x12') ||
     'x28';
 
-  const hasBadge = badge !== undefined && badge !== null;
-
   return (
     <Box
       is='button'
@@ -128,7 +126,7 @@ function IconButton({
       {...kindAndVariantProps}
       {...getSizeClass()}
       rcx-button--icon-pressed={pressed}
-      rcx-button--with-badge={hasBadge}
+      rcx-button--with-badge={Boolean(badge)}
       {...props}
     >
       {isValidElement<any>(icon) ? (
@@ -137,9 +135,6 @@ function IconButton({
         <Icon name={icon} size={getIconSize()} />
       )}
       {hasBadge && (
-        // Hit-testable, because a badge carrying a `title` promises a tooltip and `pointer-events: none` is
-        // precisely what stops one appearing. The badge sits inside the button, so a click on it is a click on
-        // the button.
         <span className='rcx-button__badge' aria-hidden='true'>
           {badge}
         </span>
