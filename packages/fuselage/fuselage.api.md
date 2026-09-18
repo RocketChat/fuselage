@@ -751,6 +751,14 @@ export type IconButtonSize = {
     mini?: boolean;
 };
 
+// @public
+export function IconButtonWithBadge(input: IconButtonWithBadgeProps): JSX.Element;
+
+// @public (undocumented)
+export type IconButtonWithBadgeProps = {
+    badge?: ReactNode;
+} & IconButtonProps;
+
 // @public (undocumented)
 export type IconProps = Omit<BoxProps, 'ref' | 'name' | 'size'> & RefAttributes<HTMLElement> & {
     name: Keys;

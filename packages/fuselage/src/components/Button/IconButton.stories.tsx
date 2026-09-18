@@ -1,12 +1,7 @@
-import { css } from '@rocket.chat/css-in-js';
 import type { Meta, StoryObj } from '@storybook/react-webpack5';
 
 import { PropsVariationSection } from '../../../.storybook/helpers';
-import { Avatar } from '../Avatar';
-import { Badge } from '../Badge';
-import { Box } from '../Box';
 import { ButtonGroup } from '../ButtonGroup';
-import { avatarUrl } from '../Message/helpers';
 
 import IconButton from './IconButton';
 
@@ -331,49 +326,4 @@ export const _IconButtonSecondaryDanger: Story = {
     'secondary': true,
     'danger': true,
   },
-};
-
-export const _IconButtonWithBadge: Story = {
-  render: () => (
-    <ButtonGroup>
-      <IconButton icon='balloon' small position='relative' overflow='visible'>
-        <Box
-          position='absolute'
-          role='status'
-          className={css`
-            top: 0;
-            right: 0;
-            transform: translate(30%, -30%);
-          `}
-        >
-          <Badge variant='danger'>2</Badge>
-        </Box>
-      </IconButton>
-    </ButtonGroup>
-  ),
-};
-
-export const _IconButtonAvatarWithBadge: Story = {
-  render: () => (
-    <ButtonGroup>
-      <IconButton
-        icon={<Avatar size='x28' url={avatarUrl} />}
-        small
-        position='relative'
-        overflow='visible'
-      >
-        <Box
-          position='absolute'
-          role='status'
-          className={css`
-            top: 0;
-            right: 0;
-            transform: translate(30%, -30%);
-          `}
-        >
-          <Badge variant='danger'>2</Badge>
-        </Box>
-      </IconButton>
-    </ButtonGroup>
-  ),
 };
