@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.91.0
+
+### Minor Changes
+
+- [#2212](https://github.com/RocketChat/fuselage/pull/2212) [`771a90a`](https://github.com/RocketChat/fuselage/commit/771a90a98ac013e4e8a3f091efcf26ba11685a2a) Thanks [@ggazzo](https://github.com/ggazzo)! - feat(fuselage): `IconButton` accepts a `badge` to pin in its corner
+
 ## 0.90.1
 
 ### Patch Changes
