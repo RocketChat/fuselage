@@ -733,6 +733,7 @@ export function IconButton(input: IconButtonProps): JSX.Element;
 // @public (undocumented)
 export type IconButtonProps = {
     icon: Keys | ReactElement<any>;
+    badge?: ReactNode;
     primary?: boolean;
     secondary?: boolean;
     info?: boolean;

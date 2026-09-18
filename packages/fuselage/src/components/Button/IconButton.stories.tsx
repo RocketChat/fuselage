@@ -1,10 +1,8 @@
-import { css } from '@rocket.chat/css-in-js';
 import type { Meta, StoryObj } from '@storybook/react-webpack5';
 
 import { PropsVariationSection } from '../../../.storybook/helpers';
 import { Avatar } from '../Avatar';
 import { Badge } from '../Badge';
-import { Box } from '../Box';
 import { ButtonGroup } from '../ButtonGroup';
 import { avatarUrl } from '../Message/helpers';
 
@@ -32,6 +30,12 @@ export default {
       control: 'text',
       description:
         'Name of the Fuselage icon rendered inside the button, or a custom element.',
+      table: { category: 'Content' },
+    },
+    badge: {
+      control: false,
+      description:
+        'What to pin to the button’s corner, a `Badge` as a rule. It is hidden from assistive technology, so what it says belongs in `aria-label` too.',
       table: { category: 'Content' },
     },
     primary: {
@@ -336,19 +340,12 @@ export const _IconButtonSecondaryDanger: Story = {
 export const _IconButtonWithBadge: Story = {
   render: () => (
     <ButtonGroup>
-      <IconButton icon='balloon' small position='relative' overflow='visible'>
-        <Box
-          position='absolute'
-          role='status'
-          className={css`
-            top: 0;
-            right: 0;
-            transform: translate(30%, -30%);
-          `}
-        >
-          <Badge variant='danger'>2</Badge>
-        </Box>
-      </IconButton>
+      <IconButton
+        icon='balloon'
+        aria-label='balloon, 2 unread messages'
+        small
+        badge={<Badge variant='danger'>2</Badge>}
+      />
     </ButtonGroup>
   ),
 };
@@ -358,22 +355,23 @@ export const _IconButtonAvatarWithBadge: Story = {
     <ButtonGroup>
       <IconButton
         icon={<Avatar size='x28' url={avatarUrl} />}
+        aria-label='profile, 2 unread messages'
         small
-        position='relative'
-        overflow='visible'
-      >
-        <Box
-          position='absolute'
-          role='status'
-          className={css`
-            top: 0;
-            right: 0;
-            transform: translate(30%, -30%);
-          `}
-        >
-          <Badge variant='danger'>2</Badge>
-        </Box>
-      </IconButton>
+        badge={<Badge variant='danger'>2</Badge>}
+      />
+    </ButtonGroup>
+  ),
+};
+
+export const _IconButtonWithDot: Story = {
+  render: () => (
+    <ButtonGroup>
+      <IconButton
+        icon='balloon'
+        aria-label='balloon, unread messages'
+        small
+        badge={<Badge variant='danger' small />}
+      />
     </ButtonGroup>
   ),
 };
