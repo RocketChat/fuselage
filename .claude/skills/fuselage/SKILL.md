@@ -49,8 +49,10 @@ node tools/scripts/src/build-fuselage-registry.ts
   `references/patterns.md`.
 - **Composition over configuration.** `Modal`, `Card`, `Field`, `Sidebar`,
   `Contextualbar` and `Option` are families of subcomponents, not prop bags.
-- **Deprecated props are never acceptable in new code.** `Button` still accepts
-  `primary`/`small`; write `variant='primary'` and `size='small'`.
+- **Deprecated props are never acceptable in new code**, and older code may still
+  carry them. `Button`'s boolean `primary`/`secondary`/`danger`/`warning`/
+  `success`/`mini`/`tiny`/`small`/`medium`/`large` were removed — write
+  `variant='primary'` and `size='small'`.
 - **`AutoComplete` is deprecated** — use `SelectFiltered` or `MultiSelectFiltered`.
 - **Virtualize long lists** with `react-virtuoso` (a peer dependency), not a
   hand-written windowing loop.

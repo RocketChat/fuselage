@@ -714,36 +714,6 @@
           "optional": true
         },
         {
-          "name": "primary",
-          "type": "boolean",
-          "optional": true,
-          "deprecated": "Use `variant=\"primary\"` instead."
-        },
-        {
-          "name": "secondary",
-          "type": "boolean",
-          "optional": true,
-          "deprecated": "Use `variant=\"secondary\"` instead."
-        },
-        {
-          "name": "danger",
-          "type": "boolean",
-          "optional": true,
-          "deprecated": "Use `variant=\"danger\"` instead."
-        },
-        {
-          "name": "warning",
-          "type": "boolean",
-          "optional": true,
-          "deprecated": "Use `variant=\"warning\"` instead."
-        },
-        {
-          "name": "success",
-          "type": "boolean",
-          "optional": true,
-          "deprecated": "Use `variant=\"success\"` instead."
-        },
-        {
           "name": "disabled",
           "type": "boolean",
           "optional": true
@@ -752,36 +722,6 @@
           "name": "loading",
           "type": "boolean",
           "optional": true
-        },
-        {
-          "name": "mini",
-          "type": "boolean",
-          "optional": true,
-          "deprecated": "Use `size=\"mini\"` instead."
-        },
-        {
-          "name": "tiny",
-          "type": "boolean",
-          "optional": true,
-          "deprecated": "Use `size=\"tiny\"` instead."
-        },
-        {
-          "name": "small",
-          "type": "boolean",
-          "optional": true,
-          "deprecated": "Use `size=\"small\"` instead."
-        },
-        {
-          "name": "medium",
-          "type": "boolean",
-          "optional": true,
-          "deprecated": "Use `size=\"medium\"` instead."
-        },
-        {
-          "name": "large",
-          "type": "boolean",
-          "optional": true,
-          "deprecated": "Use `size=\"large\"` instead."
         },
         {
           "name": "square",

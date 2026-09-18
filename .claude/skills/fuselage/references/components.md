@@ -330,8 +330,6 @@ Indicates an actionable user action.
 | `external` | boolean |  |
 | `icon` | IconProps['name'] |  |
 
-Deprecated props: `primary`, `secondary`, `danger`, `warning`, `success`, `mini`, `tiny`, `small`, `medium`, `large` — see `migration.md`.
-
 **Usage rules**
 
 Triggers events and actions. Use for actions that change data or how it is displayed, change a state, trigger an action, or navigate the user within the app or to a different site. Buttons can also link to external URLs.

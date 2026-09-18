@@ -47,7 +47,7 @@ export const Default: StoryFn = () => {
   };
 
   return (
-    <Button primary onClick={handleToast}>
+    <Button variant='primary' onClick={handleToast}>
       Dispatch ToastBar
     </Button>
   );

@@ -92,7 +92,7 @@ export const Default: Story = {
       <ModalFooter>
         <ModalFooterControllers>
           <Button>Cancel</Button>
-          <Button primary onClick={action('click')}>
+          <Button variant='primary' onClick={action('click')}>
             Submit
           </Button>
         </ModalFooterControllers>
@@ -115,7 +115,7 @@ export const _WithThumb: Story = {
       <ModalFooter>
         <ModalFooterControllers>
           <Button>Cancel</Button>
-          <Button primary onClick={action('click')}>
+          <Button variant='primary' onClick={action('click')}>
             Submit
           </Button>
         </ModalFooterControllers>
@@ -138,7 +138,7 @@ export const _WithIcon: Story = {
       <ModalFooter>
         <ModalFooterControllers>
           <Button>Cancel</Button>
-          <Button primary onClick={action('click')}>
+          <Button variant='primary' onClick={action('click')}>
             Submit
           </Button>
         </ModalFooterControllers>
@@ -161,7 +161,7 @@ export const _WithTagline: Story = {
       <ModalFooter>
         <ModalFooterControllers>
           <Button>Cancel</Button>
-          <Button primary onClick={action('click')}>
+          <Button variant='primary' onClick={action('click')}>
             Submit
           </Button>
         </ModalFooterControllers>
@@ -185,7 +185,7 @@ export const _WithIconAndTagline: Story = {
       <ModalFooter>
         <ModalFooterControllers>
           <Button>Cancel</Button>
-          <Button primary onClick={action('click')}>
+          <Button variant='primary' onClick={action('click')}>
             Submit
           </Button>
         </ModalFooterControllers>
@@ -208,7 +208,7 @@ export const _WithAnnotation: Story = {
         <ModalFooterAnnotation>Anototation</ModalFooterAnnotation>
         <ModalFooterControllers>
           <Button>Cancel</Button>
-          <Button primary onClick={action('click')}>
+          <Button variant='primary' onClick={action('click')}>
             Submit
           </Button>
         </ModalFooterControllers>
@@ -242,7 +242,7 @@ export const _WithHeroImage: Story = {
       <ModalFooter>
         <ModalFooterControllers>
           <Button>Cancel</Button>
-          <Button primary onClick={action('click')}>
+          <Button variant='primary' onClick={action('click')}>
             Submit
           </Button>
         </ModalFooterControllers>
@@ -284,7 +284,7 @@ export const _WithForm: Story = {
       <ModalFooter>
         <ModalFooterControllers>
           <Button>Cancel</Button>
-          <Button type='submit' primary>
+          <Button type='submit' variant='primary'>
             Submit
           </Button>
         </ModalFooterControllers>

@@ -128,10 +128,10 @@ export const Default: Story = {
       <ContextualbarContent />
       <ContextualbarFooter>
         <ButtonGroup>
-          <ContextualbarButton width='full' secondary>
+          <ContextualbarButton width='full' variant='secondary'>
             Cancel
           </ContextualbarButton>
-          <Button width='full' primary>
+          <Button width='full' variant='primary'>
             Save
           </Button>
           <IconButton title='More' icon='menu' secondary />
@@ -208,10 +208,10 @@ export const WithLongTitle: Story = {
       <ContextualbarContent />
       <ContextualbarFooter>
         <ButtonGroup>
-          <ContextualbarButton width='full' secondary>
+          <ContextualbarButton width='full' variant='secondary'>
             Cancel
           </ContextualbarButton>
-          <Button width='full' primary>
+          <Button width='full' variant='primary'>
             Save
           </Button>
           <IconButton title='More' icon='menu' secondary />

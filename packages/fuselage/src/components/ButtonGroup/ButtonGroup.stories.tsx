@@ -223,7 +223,7 @@ export const Joined: Story = {
     >
       <ButtonGroup {...args}>
         <Button>Cancel</Button>
-        <Button primary>Save</Button>
+        <Button variant='primary'>Save</Button>
       </ButtonGroup>
       <ButtonGroup {...args} joined ghostPosition='start'>
         <IconButton icon='mic' secondary aria-label='Microphone' />
@@ -351,26 +351,26 @@ export const JoinedWithMultipleButtonSizes: Story = {
       <ButtonGroup {...args}>
         <Button size='small'>Day</Button>
         <Button size='small'>Week</Button>
-        <Button size='small' primary>
+        <Button size='small' variant='primary'>
           Month
         </Button>
       </ButtonGroup>
       <ButtonGroup {...args}>
         <Button size='medium'>Day</Button>
         <Button size='medium'>Week</Button>
-        <Button size='medium' primary>
+        <Button size='medium' variant='primary'>
           Month
         </Button>
       </ButtonGroup>
       <ButtonGroup {...args}>
         <Button>Day</Button>
         <Button>Week</Button>
-        <Button primary>Month</Button>
+        <Button variant='primary'>Month</Button>
       </ButtonGroup>
       <ButtonGroup {...args}>
         <Button size='large'>Day</Button>
         <Button size='large'>Week</Button>
-        <Button size='large' primary>
+        <Button size='large' variant='primary'>
           Month
         </Button>
       </ButtonGroup>

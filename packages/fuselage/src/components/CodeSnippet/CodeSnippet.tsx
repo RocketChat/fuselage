@@ -40,7 +40,12 @@ const CodeSnippet = ({
       </Box>
       {onClick && children && (
         <Box>
-          <Button small primary onClick={onClick} disabled={buttonDisabled}>
+          <Button
+            size='small'
+            variant='primary'
+            onClick={onClick}
+            disabled={buttonDisabled}
+          >
             {buttonText}
           </Button>
         </Box>

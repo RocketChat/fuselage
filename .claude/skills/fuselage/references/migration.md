@@ -13,15 +13,4 @@ when touching a file that uses one, migrate it in the same change.
 
 ## Deprecated props
 
-| Component | Prop | Use instead |
-| --- | --- | --- |
-| `Button` | `primary` | Use `variant="primary"` instead. |
-| `Button` | `secondary` | Use `variant="secondary"` instead. |
-| `Button` | `danger` | Use `variant="danger"` instead. |
-| `Button` | `warning` | Use `variant="warning"` instead. |
-| `Button` | `success` | Use `variant="success"` instead. |
-| `Button` | `mini` | Use `size="mini"` instead. |
-| `Button` | `tiny` | Use `size="tiny"` instead. |
-| `Button` | `small` | Use `size="small"` instead. |
-| `Button` | `medium` | Use `size="medium"` instead. |
-| `Button` | `large` | Use `size="large"` instead. |
+None.

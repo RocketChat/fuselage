@@ -6,7 +6,7 @@ export type MessageMetricsReplyProps = ButtonProps;
 
 const MessageMetricsReply = (props: MessageMetricsReplyProps) => (
   <MessageMetricsItem>
-    <Button primary {...props} small />
+    <Button variant='primary' {...props} size='small' />
   </MessageMetricsItem>
 );
 
